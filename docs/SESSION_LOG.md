@@ -109,6 +109,55 @@ archive 설정이 이제 일치한다.
 CocoaPods 설치와 무료 출시 IPA archive를 재실행한다.
 
 **Commit.** Pending (not requested).
+### 2026-08-10 (Codex) — Scenario result shows only a persisted can-do
+
+**What.** The scenario result now saves once on the first completion action and then renders a read-only `CanDoResultCard` before the learner returns to the course path. `ScenarioCanDoResult` derives its state from the latest stored checkpoint: a verified can-do requires course eligibility, the exact current course unit's scenario link, and its independent pass threshold. A below-threshold checkpoint asks for another attempt; a free-browse or unmatched checkpoint is explicitly stored as practice only.
+
+**Why.** A visible finish screen must not turn a visit, an older checkpoint, or a reward into a false statement of speaking ability. The card performs no new progress, mastery, reward, Hanok, Gye, or asset write; the pre-existing reporter remains the source of record.
+
+**Boundaries.** No image was generated, added, replaced, or modified. Existing `assets/`, character media, Hanok assets, and all reward visuals remain untouched.
+
+**Verification.** Added pure outcome coverage, card rendering coverage, and the real ScenarioPlayer completion flow (including single-save behavior). Scoped `dart analyze --fatal-infos` reported **No issues found**; the serial focused regression suite covering scenario completion/feedback, course activity/mastery/graph, localization, and startup E2E passed **125 tests** in this worktree only.
+
+### 2026-08-10 (Codex) — Mission context reaches the actual lesson players
+
+**What.** Typed vocab provenance now survives from `/vocab` only when the selected pack actually contains the original graph-linked word. It remains on retrying that same pack, while next or different packs deliberately clear it. The scenario route now retains typed provenance from the original scenario link and displays the same read-only context bar only for an exact catalog match; its next recommendation clears the context. Invalid or legacy route arguments safely fall back to existing browse behavior.
+
+**Why.** A unit can contain multiple links, and a pack can contain many words. The UI must never claim a mission step simply because a learner opened a neighbouring item. These are display-only handoffs: `CourseActivityReporter`, scenario checkpoint logic, the declared `assess` edge, independent 70% rule, and all mastery writes remain unchanged.
+
+**Verification.** Added direct player coverage in `test/vocab_pack_mission_context_test.dart` and `test/scenario_mission_context_test.dart`, then ran the serial mission/navigation/practice/activity/checkpoint/graph/mastery/scenario/onboarding/l10n/startup E2E suite: **123 passed**. Scoped `dart analyze --fatal-infos` passed; final diff validation is recorded with this worktree only.
+
+### 2026-08-10 (Codex) — Vocab mission context preserves the exact graph link
+
+**What.** A course mission now sends typed vocab provenance to `/vocab`; the app route preserves it while still accepting existing string unit IDs. `VocabPacksScreen` uses that context only to show the same read-only mission bar when the exact graph link resolves. Direct vocabulary browsing remains unchanged and shows no bar.
+
+**Why.** A unit ID alone can identify several learning links, so it cannot truthfully claim a particular step. Retaining the original link avoids inventing a progress position while keeping pack learning and course evidence contracts separate.
+
+**Verification.** `test/vocab_packs_mission_context_test.dart` covers typed-context display and browse-mode absence; navigation, vocab screen smoke, and scoped analysis pass. The serial mission/onboarding/graph/mastery/l10n/startup regression suite passed **121 tests**.
+
+### 2026-08-10 (Codex) — Mission brief: the next action is visible first
+
+**What.** `CourseMissionScreen` now retains the existing primary action and exact graph route/provenance, then shows the first three catalog links in their original order. Long concept, form, surface, remediation, and action detail is collapsed under localized `Mission details`. Grammar and small-talk show a localized, semantic `MissionContextBar` only for a resolved typed course context.
+
+**Why.** A beginner can see the immediate path without mistaking a UI visit for completion. The planner and bars are read-only: they cannot write activity, assessment evidence, course progression, Hanok, or Gye state. Free browsing remains free browsing.
+
+**Verification.** `flutter gen-l10n`; focused mission/practice tests and scoped `dart analyze --fatal-infos` passed. A serial relevant regression suite covering graph/mastery/navigation, scenario, onboarding, l10n, and startup E2E passed **119 tests**. The temporary whole-screen widget test was removed because it deadlocked against the app-scoped serialized progress queue under Flutter's fake-clock harness; it did not provide valid product evidence.
+
+### 2026-08-10 (Codex) — Mission context is evidence-safe
+
+**What.** Added a pure `CourseMissionStepPlan` that preserves every catalog `ContentLink` in its original order and resolves the exact captured link position. Added `MissionContextBar` with localized step text and accessible progress semantics. Grammar and small-talk display it only when their existing typed `CoursePracticeContext` resolves to a current catalog link; ordinary browsing stays visually and semantically unchanged.
+
+**Why.** A learner needs to know why a grammar or relationship exercise is appearing now, without turning a UI visit into mastery. The bar reads existing context only; it cannot report activity, change course state, or synthesize an assessment.
+
+**Verification.** `flutter gen-l10n`; focused planner/context/course-practice/navigation/activity/l10n tests **15 passed**; scoped `dart analyze --fatal-infos` reported **No issues found**. `git diff --check` passed before this documentation update.
+
+### 2026-08-10 (Codex) — First-success companion invitation is optional
+
+**What.** Added `OnboardingCompanionService` and wired it into `CourseMissionScreen` after an existing content route returns. The invitation can appear only once, only for the active A1 unit, and only after a correct `courseEligible` evidence record already exists. The preview now skips back to the mission while recording its seen flag. Its final CTA opens the existing character chooser in an optional mode; a learner can defer it, while direct legacy character routes retain their consent/level behavior and 2.4-second selection guard.
+
+**Why.** A character or product preview before the first learning action creates another decision before the learner has a reason to make it. This makes companionship a response to an actual, verified success rather than a prerequisite. The invitation creates no course evidence, completion, Hanok, or Gye state.
+
+**Verification.** `flutter gen-l10n`; focused companion/preview/character tests **7 passed**; scoped `dart analyze --fatal-infos` reported **No issues found**. The broader onboarding/course/l10n/startup suite **68 passed**.
 
 ### 2026-08-10 (Codex) — Isolated UX worktree; consent-first start point
 

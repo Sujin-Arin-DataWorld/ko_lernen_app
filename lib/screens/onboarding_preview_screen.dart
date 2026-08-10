@@ -66,8 +66,17 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
       return;
     }
     Navigator.of(context).pushReplacement(
-      SoriTransitions.fadeScale((_) => const CharacterSelectionScreen()),
+      SoriTransitions.fadeScale(
+        (_) => const CharacterSelectionScreen(optional: true),
+      ),
     );
+  }
+
+  Future<void> _skip() async {
+    HapticFeedback.selectionClick();
+    await Storage.setIntroPreviewSeen();
+    if (!mounted) return;
+    Navigator.of(context).pop();
   }
 
   @override
@@ -147,7 +156,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 6, 12, 0),
                   child: TextButton(
-                    onPressed: _done,
+                    onPressed: _skip,
                     style: TextButton.styleFrom(
                       backgroundColor: SoriColors.lightSurfaceRaised,
                       foregroundColor: s.text,
@@ -196,7 +205,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                         _DotIndicator(current: _page, total: _total),
                         const SizedBox(height: 18),
                         SoriButton.filled(
-                          label: isLast ? t.previewStart : t.previewNext,
+                          label: isLast
+                              ? t.onboardingCompanionChoose
+                              : t.previewNext,
                           icon: isLast
                               ? Icons.arrow_forward_rounded
                               : Icons.navigate_next_rounded,

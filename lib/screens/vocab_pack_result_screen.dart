@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/content_feedback.dart';
+import '../models/course_practice_context.dart';
 import '../services/pack_progress_service.dart';
+import '../services/course_mission_navigation.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
@@ -46,6 +48,7 @@ class VocabPackResultScreen extends StatelessWidget {
   final String? completionId;
   final String? packLevel;
   final ContentFeedbackContext? feedbackContext;
+  final CoursePracticeContext? courseContext;
 
   const VocabPackResultScreen({
     super.key,
@@ -60,11 +63,13 @@ class VocabPackResultScreen extends StatelessWidget {
     this.completionId,
     this.packLevel,
     this.feedbackContext,
+    this.courseContext,
   });
 
   /// Factory aus Navigator-args. Falls Map fehlt → defaults.
   factory VocabPackResultScreen.fromArgs(Object? args) {
     final m = (args is Map) ? args : const <String, dynamic>{};
+    final rawCourseContext = m['courseContext'];
     return VocabPackResultScreen(
       packId: m['packId'] as String? ?? '',
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
@@ -77,6 +82,9 @@ class VocabPackResultScreen extends StatelessWidget {
       completionId: m['completionId'] as String?,
       packLevel: m['packLevel'] as String?,
       feedbackContext: m['feedbackContext'] as ContentFeedbackContext?,
+      courseContext: rawCourseContext is CoursePracticeContext
+          ? rawCourseContext
+          : null,
     );
   }
 
@@ -238,7 +246,9 @@ class VocabPackResultScreen extends StatelessWidget {
                             onTap: () =>
                                 Navigator.of(context).pushReplacementNamed(
                                   '/vocab/pack',
-                                  arguments: nextUnlockedPackId,
+                                  arguments: vocabPackRouteArguments(
+                                    packId: nextUnlockedPackId!,
+                                  ),
                                 ),
                           ),
                         ),
@@ -253,7 +263,10 @@ class VocabPackResultScreen extends StatelessWidget {
                             onTap: () =>
                                 Navigator.of(context).pushReplacementNamed(
                                   '/vocab/pack',
-                                  arguments: packId,
+                                  arguments: vocabPackRouteArguments(
+                                    packId: packId,
+                                    courseContext: courseContext,
+                                  ),
                                 ),
                           ),
                         ),

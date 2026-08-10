@@ -7,6 +7,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/mascot_preference.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/tokens.dart';
@@ -32,7 +33,19 @@ const Color _kMagpieStageMoon = Color(0xFFFFFCF2); // Hanji Light
 /// `assets/sfx/greet_tiger.mp3` / `greet_magpie.mp3`가 존재하면 자동 재생
 /// (없으면 무음, 클립만). 이후 homScreen에서 선택한 캐릭터가 메인 사이드킥.
 class CharacterSelectionScreen extends StatefulWidget {
-  const CharacterSelectionScreen({super.key});
+  const CharacterSelectionScreen({
+    super.key,
+    this.optional = false,
+    this.onOptionalComplete,
+  });
+
+  /// The first-success route lets a learner defer the choice without changing
+  /// their level or course. The legacy direct route keeps its existing flow.
+  final bool optional;
+
+  /// Test and embedding seam for the optional route. When omitted, completion
+  /// returns to the route that opened the chooser.
+  final VoidCallback? onOptionalComplete;
 
   @override
   State<CharacterSelectionScreen> createState() =>
@@ -78,12 +91,21 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 콜백이 없다. "선택되었습니다"를 잠깐 보여준 뒤 이 타이머가 **딱 한 번**
     // 다음 단계로 넘긴다. _navigated 가드로 라우트 겹침·2중 이동을 막는다.
     _advanceGuard?.cancel();
-    _advanceGuard = Timer(const Duration(milliseconds: 2400), _proceed);
+    _advanceGuard = Timer(
+      const Duration(milliseconds: 2400),
+      () => unawaited(_proceed()),
+    );
   }
 
-  void _proceed() {
+  Future<void> _proceed() async {
     if (!mounted || _navigated) return;
     _navigated = true;
+    if (widget.optional) {
+      await Storage.setIntroPreviewSeen();
+      if (!mounted) return;
+      _completeOptional();
+      return;
+    }
     debugPrint(
       '[ONBOARD] Character.proceed -> '
       '${Storage.consentAccepted ? "OnboardingLevelScreen" : "ConsentScreen"} '
@@ -102,6 +124,24 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     Navigator.of(context).pushReplacement(
       SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
     );
+  }
+
+  Future<void> _skipOptional() async {
+    if (!widget.optional || _isLoading || _navigated) return;
+    _advanceGuard?.cancel();
+    _navigated = true;
+    await Storage.setIntroPreviewSeen();
+    if (!mounted) return;
+    _completeOptional();
+  }
+
+  void _completeOptional() {
+    final callback = widget.onOptionalComplete;
+    if (callback != null) {
+      callback();
+      return;
+    }
+    Navigator.of(context).maybePop();
   }
 
   @override
@@ -135,7 +175,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             // 여지는 남는다(폴백 체인이 방어).
                             SoriEntrance(
                               child: ConstrainedBox(
-                                constraints: const BoxConstraints(maxWidth: 400),
+                                constraints: const BoxConstraints(
+                                  maxWidth: 400,
+                                ),
                                 child: const HanokHeader(
                                   asset:
                                       'assets/illustrations/hanok/taego-joy-duo.png',
@@ -217,6 +259,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                                     : () => _handleSelection(MascotKind.magpie),
                               ),
                             ),
+                            if (widget.optional) ...[
+                              const SizedBox(height: 16),
+                              SoriButton.outlined(
+                                label: t.onboardingCompanionSkip,
+                                fullWidth: true,
+                                onTap: _skipOptional,
+                              ),
+                            ],
                           ]
                         : [
                             // 선택 확정 — 이 기기(Impeller, Android<33)에서 영상

@@ -1909,6 +1909,29 @@ class AppL10nDe extends AppL10n {
   String get onboardingStartLoading => 'Deine erste Szene wird vorbereitet …';
 
   @override
+  String get onboardingCompanionChoose => 'Lernfreund wählen';
+
+  @override
+  String get onboardingCompanionSkip => 'Jetzt nicht';
+
+  @override
+  String get missionContextLabel => 'Aktuelle Mission';
+
+  @override
+  String get courseMissionPath => 'Dein Missionsweg';
+
+  @override
+  String get courseMissionDetails => 'Missionsdetails';
+
+  @override
+  String get courseMissionCheck => 'Verständnis prüfen';
+
+  @override
+  String missionContextStep(int current, int total) {
+    return 'Schritt $current von $total';
+  }
+
+  @override
   String get onboardingTitle => 'Was ist dein Level?';
 
   @override
@@ -2148,6 +2171,30 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioCompleteBtn => 'Abschließen';
+
+  @override
+  String get scenarioResultReturnBtn => 'Zurück zu meinem Weg';
+
+  @override
+  String get scenarioCanDoVerifiedTitle => 'Das kannst du jetzt.';
+
+  @override
+  String get scenarioCanDoVerifiedBody =>
+      'Der Checkpoint dieser Szene wurde selbstständig gespeichert.';
+
+  @override
+  String get scenarioCanDoReviewTitle => 'Noch nicht sicher.';
+
+  @override
+  String get scenarioCanDoReviewBody =>
+      'Dieser Checkpoint wurde gespeichert, liegt aber unter der bestätigten Schwelle dieser Mission. Übe die Szene noch einmal.';
+
+  @override
+  String get scenarioCanDoPracticeTitle => 'Übung gespeichert.';
+
+  @override
+  String get scenarioCanDoPracticeBody =>
+      'Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.';
 
   @override
   String scenarioXpEarned(int xp) {

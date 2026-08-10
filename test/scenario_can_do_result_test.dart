@@ -1,0 +1,86 @@
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/scenario_can_do_result.dart';
+
+void main() {
+  const unit = CourseUnit(
+    id: 'a1_01',
+    level: 'a1',
+    order: 1,
+    title: CurriculumText(ko: '인사', de: 'Gruß', en: 'Greeting'),
+    canDo: CurriculumText(
+      ko: '처음 만난 사람에게 인사할 수 있어요.',
+      de: 'Ich kann eine neue Person begrüßen.',
+      en: 'I can greet someone new.',
+    ),
+    checkpointContentIds: ['scenario:greeting_scene'],
+    passThreshold: .7,
+  );
+
+  ScenarioCheckpointEvidence checkpoint({
+    required double score,
+    required bool courseEligible,
+    String? courseUnitId = 'a1_01',
+    int minute = 0,
+  }) => ScenarioCheckpointEvidence(
+    scenarioId: 'greeting_scene',
+    courseUnitId: courseUnitId,
+    score: score,
+    occurredAt: DateTime.utc(2026, 8, 10, 12, minute),
+    courseEligible: courseEligible,
+  );
+
+  test('uses the latest eligible checkpoint at the exact threshold', () {
+    final result = ScenarioCanDoResult.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        scenarioCheckpoints: [
+          checkpoint(score: .2, courseEligible: false),
+          checkpoint(score: .7, courseEligible: true, minute: 1),
+        ],
+      ),
+      scenarioId: 'greeting_scene',
+      courseUnits: [unit],
+    );
+
+    expect(result?.status, ScenarioCanDoStatus.verified);
+    expect(result?.courseUnit?.id, unit.id);
+  });
+
+  test('marks a saved active checkpoint below threshold for review', () {
+    final result = ScenarioCanDoResult.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        scenarioCheckpoints: [checkpoint(score: .69, courseEligible: true)],
+      ),
+      scenarioId: 'greeting_scene',
+      courseUnits: [unit],
+    );
+
+    expect(result?.status, ScenarioCanDoStatus.reviewNeeded);
+    expect(result?.courseUnit?.canDo.en, 'I can greet someone new.');
+  });
+
+  test('keeps free browsing as practice without a course can-do claim', () {
+    final result = ScenarioCanDoResult.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        scenarioCheckpoints: [checkpoint(score: 1, courseEligible: false)],
+      ),
+      scenarioId: 'greeting_scene',
+      courseUnits: [unit],
+    );
+
+    expect(result?.status, ScenarioCanDoStatus.practiceOnly);
+    expect(result?.courseUnit, isNull);
+  });
+
+  test('does not claim a result when no checkpoint was persisted', () {
+    final result = ScenarioCanDoResult.fromSnapshot(
+      snapshot: const CourseMasterySnapshot.empty(),
+      scenarioId: 'greeting_scene',
+      courseUnits: [unit],
+    );
+
+    expect(result, isNull);
+  });
+}

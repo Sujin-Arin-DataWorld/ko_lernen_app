@@ -862,6 +862,23 @@
   "onboardingStartPrimary": "Open my first scene",
   "onboardingStartChooseLevel": "Choose a level",
   "onboardingStartLoading": "Preparing your first scene …",
+  "onboardingCompanionChoose": "Choose a study buddy",
+  "onboardingCompanionSkip": "Not now",
+  "missionContextLabel": "Current mission",
+  "courseMissionPath": "Your mission path",
+  "courseMissionDetails": "Mission details",
+  "courseMissionCheck": "Check your understanding",
+  "missionContextStep": "Step {current} of {total}",
+  "@missionContextStep": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "onboardingTitle": "What's your level?",
   "onboardingSubtitle": "We start at your level. Earlier levels stay open, later ones unlock as you progress.",
   "onboardingLevelA1": "Beginner",
@@ -946,6 +963,13 @@
   "scenarioStartBtn": "Let's go",
   "scenarioNextBtn": "Next",
   "scenarioCompleteBtn": "Complete",
+  "scenarioResultReturnBtn": "Back to my path",
+  "scenarioCanDoVerifiedTitle": "You can do this now.",
+  "scenarioCanDoVerifiedBody": "This scene's checkpoint was saved independently.",
+  "scenarioCanDoReviewTitle": "Not secure yet.",
+  "scenarioCanDoReviewBody": "This checkpoint was saved, but it is below this mission's verified threshold. Practise the scene again.",
+  "scenarioCanDoPracticeTitle": "Practice saved.",
+  "scenarioCanDoPracticeBody": "This scene is stored as practice and does not change your course step.",
   "scenarioXpEarned": "+{xp} XP",
   "@scenarioXpEarned": {
     "placeholders": {

@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_mission_step_plan.dart';
+import '../models/course_practice_context.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../models/scenario.dart';
+import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -17,12 +21,14 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/progress.dart';
@@ -72,14 +78,25 @@ Future<void> runScenarioResultAction({
   await navigate();
 }
 
+typedef ScenarioResultPersister =
+    Future<ScenarioCanDoResult?> Function(
+      Scenario scenario,
+      int stars,
+      int earnedXp,
+    );
+
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
+  final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
+  final ScenarioResultPersister? resultPersister;
 
   const ScenarioPlayerScreen({
     super.key,
     required this.scenarioId,
+    this.courseContext,
     this.scenarioLoader,
+    this.resultPersister,
   });
 
   @override
@@ -89,6 +106,8 @@ class ScenarioPlayerScreen extends StatefulWidget {
 class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     with ScreenCoachMixin<ScenarioPlayerScreen> {
   Scenario? _scenario;
+  CourseMissionStep? _missionStep;
+  String? _missionTitle;
   List<ScenarioStage> _plan = const [];
   int _stage = 0;
   int _firstTryPassedCount = 0;
@@ -102,6 +121,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // review).
   final Set<int> _failedQuestIndices = <int>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  bool _resultSaving = false;
+  bool _resultPersisted = false;
+  ScenarioCanDoResult? _canDoResult;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _stageAreaKey = GlobalKey();
@@ -161,6 +183,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       if (mounted) Navigator.pop(context);
       return;
     }
+    final courseContext = widget.courseContext;
+    final catalog = courseContext?.isFor(CurriculumContentKind.scenario) == true
+        ? await CurriculumCatalog.load()
+        : null;
+    if (!mounted) return;
     // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
     // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
     if (s.level != LearnerLevel.a1 && !PremiumService.isPremium) {
@@ -171,16 +198,35 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         return;
       }
     }
-    if (mounted) {
-      setState(() {
-        _scenario = s;
-        _plan = buildScenarioStagePlan(
-          hasRollenspiel: s.dialog.any((l) => l.speaker == 'user'),
-          hasGrammar: s.grammarBlock != null,
-          questCount: s.quests.length,
-        );
-      });
-    }
+    if (!mounted) return;
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final candidateStep = catalog == null || courseContext == null
+        ? null
+        : CourseMissionStepPlan.fromLinks(
+            catalog.linksForCourseUnit(courseContext.courseUnitId),
+          ).stepForContentLinkId(courseContext.contentLinkId);
+    final missionStep =
+        candidateStep?.link.contentKind == CurriculumContentKind.scenario &&
+            candidateStep?.link.contentId == s.id &&
+            candidateStep?.link.courseUnitId == courseContext?.courseUnitId
+        ? candidateStep
+        : null;
+    final missionTitle = catalog == null || missionStep == null
+        ? null
+        : catalog
+              .courseUnitFor(missionStep.link.courseUnitId)
+              ?.title
+              .pick(languageCode);
+    setState(() {
+      _scenario = s;
+      _missionStep = missionStep;
+      _missionTitle = missionTitle;
+      _plan = buildScenarioStagePlan(
+        hasRollenspiel: s.dialog.any((l) => l.speaker == 'user'),
+        hasGrammar: s.grammarBlock != null,
+        questCount: s.quests.length,
+      );
+    });
   }
 
   Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) async {
@@ -319,9 +365,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   // ─── Complete (Ergebnis speichern) ─────────────────────────────────────────
 
-  Future<void> _persistResult(int stars, int earnedXp) async {
+  Future<ScenarioCanDoResult?> _persistResult(int stars, int earnedXp) async {
     final s = _scenario;
-    if (s == null) return;
+    if (s == null) return null;
+    final providedResultPersister = widget.resultPersister;
+    if (providedResultPersister != null) {
+      return providedResultPersister(s, stars, earnedXp);
+    }
 
     HapticFeedback.heavyImpact();
 
@@ -335,7 +385,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     // the concept-level evidence collected by vocabulary and game activities.
     // A replayed future scenario is retained by the engine as browse history
     // and never unlocks the current mission retroactively.
-    await CourseActivityReporter.recordScenarioCheckpoint(
+    final courseUpdate = await CourseActivityReporter.recordScenarioCheckpoint(
       s.id,
       passed: _passedCount,
       total: s.quests.length,
@@ -363,20 +413,53 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     for (final missed in missedKeys.difference(scenarioKeys)) {
       await Storage.srsReview(missed, gotIt: false);
     }
-  }
 
-  Future<void> _complete(int stars, int earnedXp) async {
-    await runScenarioResultAction(
-      persistResult: () => _persistResult(stars, earnedXp),
-      navigate: () async {
-        if (mounted) Navigator.pop(context);
-      },
+    if (courseUpdate == null) return null;
+    final catalog = await CurriculumCatalog.load();
+    return ScenarioCanDoResult.fromSnapshot(
+      snapshot: courseUpdate.snapshot,
+      scenarioId: s.id,
+      courseUnits: catalog.courseUnits,
     );
   }
 
+  Future<void> _complete(int stars, int earnedXp) async {
+    if (_resultSaving) return;
+    if (_resultPersisted) {
+      Navigator.pop(context);
+      return;
+    }
+
+    setState(() => _resultSaving = true);
+    try {
+      final canDoResult = await _persistResult(stars, earnedXp);
+      if (!mounted) return;
+      setState(() {
+        _resultSaving = false;
+        _resultPersisted = true;
+        _canDoResult = canDoResult;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _resultSaving = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
+      );
+    }
+  }
+
   Future<void> _openNext(int stars, int earnedXp, String nextId) async {
+    if (_resultSaving) return;
+    if (_resultPersisted) {
+      Navigator.of(
+        context,
+      ).pushReplacementNamed('/scenario', arguments: nextId);
+      return;
+    }
     await runScenarioResultAction(
-      persistResult: () => _persistResult(stars, earnedXp),
+      persistResult: () async {
+        await _persistResult(stars, earnedXp);
+      },
       navigate: () async {
         if (mounted) {
           Navigator.of(
@@ -1053,6 +1136,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             const SizedBox(height: Spacing.xl),
           ],
 
+          if (_canDoResult case final result?) ...[
+            CanDoResultCard(result: result),
+            const SizedBox(height: Spacing.xl),
+          ],
+
           if (_feedbackCompletion.current != null &&
               feedbackScope != null &&
               feedbackScope.featureGate.isEnabled) ...[
@@ -1067,84 +1155,87 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           ],
 
           // Next recommended — nächstes Szenario im gleichen Level
-          Builder(
-            builder: (_) {
-              final next = _nextRecommended();
-              if (next == null) {
+          if (!_resultPersisted)
+            Builder(
+              builder: (_) {
+                final next = _nextRecommended();
+                if (next == null) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: Spacing.lg),
+                    child: Text(
+                      t.scenarioNextRecommendedAllDone(sc.level.display),
+                      textAlign: TextAlign.center,
+                      style: SoriTextTheme.of(context).bodySmall,
+                    ),
+                  );
+                }
                 return Padding(
                   padding: const EdgeInsets.only(bottom: Spacing.lg),
-                  child: Text(
-                    t.scenarioNextRecommendedAllDone(sc.level.display),
-                    textAlign: TextAlign.center,
-                    style: SoriTextTheme.of(context).bodySmall,
+                  child: SoriCard(
+                    variant: SoriCardVariant.base,
+                    accent: SoriColors.accent,
+                    tinted: true,
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          t.scenarioNextRecommendedTitle,
+                          style: SoriTextTheme.of(context).label.copyWith(
+                            color: SoriColors.accent,
+                            letterSpacing: 0.8,
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 36,
+                              height: 36,
+                              child:
+                                  Mascot.forSpeaker(
+                                    next.sidekick ?? '',
+                                    size: 36,
+                                    emotion: MascotEmotion.smile,
+                                  ) ??
+                                  Mascot.tiger(
+                                    emotion: MascotEmotion.smile,
+                                    size: 36,
+                                  ),
+                            ),
+                            const SizedBox(width: Spacing.sm),
+                            Expanded(
+                              child: Text(
+                                next.title.pick(lang),
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).body.copyWith(fontWeight: FontWeight.w700),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            const SizedBox(width: Spacing.sm),
+                            SoriButton.outlined(
+                              label: t.scenarioNextRecommendedCta,
+                              onTap: () => _openNext(stars, earnedXp, next.id),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
-              }
-              return Padding(
-                padding: const EdgeInsets.only(bottom: Spacing.lg),
-                child: SoriCard(
-                  variant: SoriCardVariant.base,
-                  accent: SoriColors.accent,
-                  tinted: true,
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        t.scenarioNextRecommendedTitle,
-                        style: SoriTextTheme.of(context).label.copyWith(
-                          color: SoriColors.accent,
-                          letterSpacing: 0.8,
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 36,
-                            height: 36,
-                            child:
-                                Mascot.forSpeaker(
-                                  next.sidekick ?? '',
-                                  size: 36,
-                                  emotion: MascotEmotion.smile,
-                                ) ??
-                                Mascot.tiger(
-                                  emotion: MascotEmotion.smile,
-                                  size: 36,
-                                ),
-                          ),
-                          const SizedBox(width: Spacing.sm),
-                          Expanded(
-                            child: Text(
-                              next.title.pick(lang),
-                              style: SoriTextTheme.of(
-                                context,
-                              ).body.copyWith(fontWeight: FontWeight.w700),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          const SizedBox(width: Spacing.sm),
-                          SoriButton.outlined(
-                            label: t.scenarioNextRecommendedCta,
-                            onTap: () => _openNext(stars, earnedXp, next.id),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
+              },
+            ),
 
           // Complete-Button
           SoriButton.filled(
-            label: t.scenarioCompleteBtn,
+            label: _resultPersisted
+                ? t.scenarioResultReturnBtn
+                : t.scenarioCompleteBtn,
             accent: SoriColors.success,
             fullWidth: true,
-            onTap: () => _complete(stars, earnedXp),
+            onTap: _resultSaving ? null : () => _complete(stars, earnedXp),
           ),
         ],
       ),
@@ -1271,6 +1362,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             SafeArea(
               child: Column(
                 children: [
+                  if (_missionStep case final step?)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        Spacing.sm,
+                        Spacing.lg,
+                        Spacing.sm,
+                      ),
+                      child: MissionContextBar(
+                        missionTitle:
+                            _missionTitle ?? t.courseMissionTitleShort,
+                        step: step,
+                      ),
+                    ),
                   Expanded(
                     child: PageView.builder(
                       key: _stageAreaKey,

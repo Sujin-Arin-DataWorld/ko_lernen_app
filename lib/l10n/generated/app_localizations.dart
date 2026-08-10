@@ -3457,6 +3457,48 @@ abstract class AppL10n {
   /// **'Deine erste Szene wird vorbereitet …'**
   String get onboardingStartLoading;
 
+  /// No description provided for @onboardingCompanionChoose.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreund wählen'**
+  String get onboardingCompanionChoose;
+
+  /// No description provided for @onboardingCompanionSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt nicht'**
+  String get onboardingCompanionSkip;
+
+  /// No description provided for @missionContextLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktuelle Mission'**
+  String get missionContextLabel;
+
+  /// No description provided for @courseMissionPath.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Missionsweg'**
+  String get courseMissionPath;
+
+  /// No description provided for @courseMissionDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Missionsdetails'**
+  String get courseMissionDetails;
+
+  /// No description provided for @courseMissionCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Verständnis prüfen'**
+  String get courseMissionCheck;
+
+  /// No description provided for @missionContextStep.
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt {current} von {total}'**
+  String missionContextStep(int current, int total);
+
   /// No description provided for @onboardingTitle.
   ///
   /// In de, this message translates to:
@@ -3900,6 +3942,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Abschließen'**
   String get scenarioCompleteBtn;
+
+  /// No description provided for @scenarioResultReturnBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zu meinem Weg'**
+  String get scenarioResultReturnBtn;
+
+  /// No description provided for @scenarioCanDoVerifiedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das kannst du jetzt.'**
+  String get scenarioCanDoVerifiedTitle;
+
+  /// No description provided for @scenarioCanDoVerifiedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Checkpoint dieser Szene wurde selbstständig gespeichert.'**
+  String get scenarioCanDoVerifiedBody;
+
+  /// No description provided for @scenarioCanDoReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht sicher.'**
+  String get scenarioCanDoReviewTitle;
+
+  /// No description provided for @scenarioCanDoReviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Checkpoint wurde gespeichert, liegt aber unter der bestätigten Schwelle dieser Mission. Übe die Szene noch einmal.'**
+  String get scenarioCanDoReviewBody;
+
+  /// No description provided for @scenarioCanDoPracticeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung gespeichert.'**
+  String get scenarioCanDoPracticeTitle;
+
+  /// No description provided for @scenarioCanDoPracticeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.'**
+  String get scenarioCanDoPracticeBody;
 
   /// No description provided for @scenarioXpEarned.
   ///
