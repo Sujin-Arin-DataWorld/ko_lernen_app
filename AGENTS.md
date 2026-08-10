@@ -274,6 +274,7 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] Jin 실기기: 갤탭·샤오미패드 세로/가로에서 코치마크가 `Üben` **옆에** 붙는지 · 폰 가로모드에서 카드 안 잘리는지 · 레일 `Gruppe` 한 줄(글자 1.0/1.3) · 첫 설치에서 투어 1단계 후 `Üben` 첫 진입 코치 1회 · 홈 한옥 카드 높이 체감(폰은 무변화여야 함).
 - [x] 별도 정리 완료(2026-08-07, PR #7 로 분리): `tool/check_clip_matte.py` 를 ffmpeg 로 실제 돌려 리포트 재생성. 번들 20개 **전부 통과** — `magpie_choose.mp4` 는 교체된 새 파일도 `#FFFFFF`/흰 100%/169프레임이라 에셋 문제가 아니라 인증서 drift 였다.
 - [x] **DE/EN humanizer pass (2026-08-10).** UI, 온보딩·코치마크, Gye·동의·단어장 문구를 원어민 앱 톤으로 다듬고, 문화 노트 30개와 시나리오 문화/소개 문구 9개에서 과장·고정관념·번역투를 제거했다. 학습 목표·한국어 원문·ID·ICU 플레이스홀더는 보존. `flutter analyze --fatal-infos` 0 issues · 로컬라이즈/콘텐츠 가드 14 통과 · 스모크/접근성 55 통과. 상세 `docs/SESSION_LOG.md` 최상단.
+- [x] **투명 로고 생성 반영 (2026-08-10).** 새 `HanLogo.png`를 Android 런처/adaptive·Android 12 스플래시, iOS AppIcon·LaunchImage, 웹 PWA·스플래시에 재생성해 연결했다. iOS는 알파 불가라 `background_color_ios: #2AB7A9`로 흰 모서리를 방지했고, 웹 maskable은 한지색 `#FAF6EC`으로 평탄화했다. 생성 성공·치수/알파·시각 검수·`git diff --check` 확인. 상세 `docs/SESSION_LOG.md` 최상단.
 
 ### 출시 안정성 7대 과제 (2026-08-06)
 

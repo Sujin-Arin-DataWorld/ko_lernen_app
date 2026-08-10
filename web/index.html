@@ -34,6 +34,19 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   
   
+  <script>
+    // 헤드리스 시각검증 전용 (?forceRaf=1): occluded 탭에서 compositor가
+    // requestAnimationFrame을 멈춰 Flutter 엔진이 동결되는 문제 우회.
+    // 일반 사용자 경로에는 영향 없음 (URL 파라미터 게이트).
+    if (navigator.webdriver || new URLSearchParams(location.search).has('forceRaf')) {
+      window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 16);
+      window.cancelAnimationFrame = clearTimeout;
+      try {
+        Object.defineProperty(document, 'visibilityState', { value: 'visible' });
+        Object.defineProperty(document, 'hidden', { value: false });
+      } catch (_) {}
+    }
+  </script>
   <style id="splash-screen-style">
     html {
       height: 100%
@@ -99,19 +112,6 @@
       document.body.style.background = "transparent";
     }
   </script>
-  <script>
-    // 헤드리스 시각검증 전용 (?forceRaf=1): occluded 탭에서 compositor가
-    // requestAnimationFrame을 멈춰 Flutter 엔진이 동결되는 문제 우회.
-    // 일반 사용자 경로에는 영향 없음 (URL 파라미터 게이트).
-    if (navigator.webdriver || new URLSearchParams(location.search).has('forceRaf')) {
-      window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 16);
-      window.cancelAnimationFrame = clearTimeout;
-      try {
-        Object.defineProperty(document, 'visibilityState', { value: 'visible' });
-        Object.defineProperty(document, 'hidden', { value: false });
-      } catch (_) {}
-    }
-  </script>
 </head>
 <body>
   <picture id="splash">
@@ -119,7 +119,6 @@
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
       <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
   </picture>
-  
   
   <!--
     You can customize the "flutter_bootstrap.js" script.

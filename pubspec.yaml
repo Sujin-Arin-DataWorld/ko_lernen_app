@@ -182,6 +182,7 @@ flutter_launcher_icons:
   adaptive_icon_background: "#FAF6EC"
   adaptive_icon_foreground: "assets/icons/HanLogo.png"
   remove_alpha_ios: true
+  background_color_ios: "#2AB7A9"
 
 # ─────────────────────────────────────────────────────────
 # Splash Screen — generiert mit:

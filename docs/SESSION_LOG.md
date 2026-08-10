@@ -7,6 +7,24 @@
 
 ---
 
+### 2026-08-10 — 투명 로고를 Android·iOS·웹 생성 자산에 반영
+
+**왜.** Jin이 `assets/icons/HanLogo.png`와 로딩용 `icon-192.png`를 배경이 투명한 새
+로고로 교체했다. Flutter 에셋은 재시작 시 반영되지만, 런처 아이콘·네이티브 스플래시·웹 PWA
+아이콘은 이미 생성된 별도 파일이라 재생성이 필요했다.
+
+**무엇을.** `flutter_launcher_icons`와 `flutter_native_splash:create`로 Android 전 해상도
+런처/adaptive 아이콘·Android 12 스플래시, iOS AppIcon·LaunchImage, 웹 스플래시를 새 로고에서
+다시 만들었다. 웹 일반 아이콘 192/512은 투명을 유지했고, maskable 192/512은 한지색
+`#FAF6EC`으로 평탄화했다. iOS는 알파를 허용하지 않아 기본 흰색 평탄화 시 흰 모서리가 생기는
+것을 직접 확인했다. `pubspec.yaml`에 `background_color_ios: "#2AB7A9"`를 추가해 로고의
+청록 배경으로 평탄화했고, 재생성 후 흰 모서리 없이 렌더되는 것을 눈으로 확인했다.
+
+**검증.** 두 생성 도구 성공 · `sips`로 iOS AppIcon 1024×1024/알파 없음, 웹 maskable 512×512/
+알파 없음 확인 · 생성 iOS 아이콘 직접 시각 검수 · `git diff --check` 통과.
+
+**Commit.** Pending local commit. The resulting hash is recorded in the follow-up log update.
+
 ### 2026-08-10 — DE/EN humanizer pass: UI and learner-facing culture copy
 
 **Why.** Hangul Sori's German and English copy included translation-like phrasing,
