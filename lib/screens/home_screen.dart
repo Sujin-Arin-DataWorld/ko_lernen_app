@@ -25,6 +25,7 @@ import '../services/hanok_stage_service.dart';
 import '../services/notification_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_snapshot.dart';
+import '../services/today_learning_navigation.dart';
 import '../services/vocab_pack_service.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
@@ -304,8 +305,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   /// Loads the same read-only recommendation snapshot as the Sarangbang.
   ///
-  /// Home only previews the selected mission and keeps its CTA pointed at the
-  /// Sarangbang; the snapshot does not turn Home into a second route chooser.
+  /// Home only previews the selected mission. Its CTA executes the snapshot's
+  /// existing destination through the shared access-gated navigator rather
+  /// than adding a second decision in the Sarangbang.
   Future<void> _loadToday() async {
     if (mounted) {
       setState(() => _loadingTodaySnapshot = true);
@@ -472,6 +474,26 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     kind: kind,
   );
 
+  Future<void> _openTodayDestination({bool celebrateMilestone = false}) async {
+    if (!mounted) {
+      return;
+    }
+    final opened = await TodayLearningNavigation.open(
+      _todaySnapshot?.destination,
+      ensurePackAccess: (level) => ensurePackAccess(context, level: level),
+      openRoute: (route, arguments) async {
+        await Navigator.of(context).pushNamed(route, arguments: arguments);
+      },
+    );
+    if (!opened || !mounted) {
+      return;
+    }
+    await _refreshHome();
+    if (celebrateMilestone && mounted) {
+      await _maybeCelebrateMilestone();
+    }
+  }
+
   /// §6.1 블록 3 추천 엔진 — "다음 것 1개"의 단일 소스.
   /// 우선순위: ① 현재 코스 미션 > ② 진행 중 팩 > ③ due 복습(≥10) >
   /// ④ 시나리오 추천. null = 오늘 할 것 없음(allDone).
@@ -479,7 +501,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// 레벨을 보장하므로 시나리오에만 명시 가드를 둔다.
   MissionHeroContent? _missionHeroContent(AppL10n t, String lang) {
     // The shared snapshot is the only input-assembly owner. Home only turns
-    // its already selected pick into presentation copy and opens Sarangbang.
+    // its already selected pick into presentation copy and opens that exact
+    // destination through [TodayLearningNavigation].
     final snapshot = _todaySnapshot;
     final pick = snapshot?.pick;
     switch (pick) {
@@ -487,75 +510,51 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         return MissionHeroContent(
           kind: MissionHeroKind.course,
           title: c.unit.title.pick(lang),
-          contextLabel: t.homeMadangEyebrow,
+          contextLabel: t.homeTodayEyebrow,
           levelCode: c.unit.level.toUpperCase(),
           meta: t.missionHeroCourseMeta(c.missionNumber, c.totalMissions),
           fraction: c.fraction,
           started: c.started,
-          ctaLabel: t.homeSarangbangCta,
-          onStart: () async {
-            await Navigator.pushNamed(context, '/sarangbang');
-            if (mounted) {
-              await _refreshHome();
-            }
-            // 레슨 직후 달성한 마일스톤 즉시 축하 (구 주 CTA 동작 승계).
-            if (mounted) {
-              await _maybeCelebrateMilestone();
-            }
-          },
+          ctaLabel: t.homeTodayMissionStart,
+          onStart: () => _openTodayDestination(celebrateMilestone: true),
         );
       case PackPick p:
         final level = p.pack.level.toUpperCase();
         return MissionHeroContent(
           kind: MissionHeroKind.pack,
           title: VocabPackService.displayLabel(p.pack.id, lang: lang),
-          contextLabel: t.homeMadangEyebrow,
+          contextLabel: t.homeTodayEyebrow,
           levelCode: level,
           meta: t.missionHeroPackMeta(level),
           fraction: p.fraction,
           started: true,
-          ctaLabel: t.homeSarangbangCta,
-          onStart: () async {
-            await Navigator.pushNamed(context, '/sarangbang');
-            if (mounted) {
-              await _refreshHome();
-            }
-          },
+          ctaLabel: t.homeTodayMissionStart,
+          onStart: _openTodayDestination,
         );
       case ReviewPick r:
         return MissionHeroContent(
           kind: MissionHeroKind.review,
           title: t.missionHeroReviewTitle(r.dueCount),
-          contextLabel: t.homeMadangEyebrow,
+          contextLabel: t.homeTodayEyebrow,
           levelCode: null,
           meta: t.missionHeroReviewMeta,
           fraction: 0,
           started: false,
-          ctaLabel: t.homeSarangbangCta,
-          onStart: () async {
-            await Navigator.pushNamed(context, '/sarangbang');
-            if (mounted) {
-              await _refreshHome();
-            }
-          },
+          ctaLabel: t.homeTodayMissionStart,
+          onStart: _openTodayDestination,
         );
       case ScenarioPick sc:
         final level = sc.level.code.toUpperCase();
         return MissionHeroContent(
           kind: MissionHeroKind.scenario,
           title: snapshot?.scenario?.title.pick(lang) ?? sc.scenarioId,
-          contextLabel: t.homeMadangEyebrow,
+          contextLabel: t.homeTodayEyebrow,
           levelCode: level,
           meta: t.missionHeroScenarioMeta(level),
           fraction: 0,
           started: false,
-          ctaLabel: t.homeSarangbangCta,
-          onStart: () async {
-            await Navigator.pushNamed(context, '/sarangbang');
-            if (mounted) {
-              await _refreshHome();
-            }
-          },
+          ctaLabel: t.homeTodayMissionStart,
+          onStart: _openTodayDestination,
         );
       case null:
         return null;
@@ -845,27 +844,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           delay: const Duration(milliseconds: 100),
                           slideY: 14,
                           // 첫 실행 코치마크 타겟은 **바깥에** 덧씌운다 —
-                          // `home-primary-sarangbang` ValueKey 는 기존 테스트와
+                          // `home-primary-today` ValueKey 는 기존 테스트와
                           // 위젯 정체성이 걸려 있어 건드리지 않는다.
                           child: _MaybeKeyed(
                             tourKey: widget.missionTourKey,
                             child: KeyedSubtree(
-                              key: const ValueKey('home-primary-sarangbang'),
+                              key: const ValueKey('home-primary-today'),
                               child: MissionHeroCard(
                                 loading: _loadingTodaySnapshot,
                                 content: _loadingTodaySnapshot
                                     ? null
                                     : _missionHeroContent(t, lang),
-                                allDoneCtaLabel: t.homeSarangbangCta,
-                                onAnotherRound: () async {
-                                  await Navigator.pushNamed(
-                                    context,
-                                    '/sarangbang',
-                                  );
-                                  if (mounted) {
-                                    await _refreshHome();
-                                  }
-                                },
                               ),
                             ),
                           ),

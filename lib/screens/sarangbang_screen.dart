@@ -8,6 +8,7 @@ import '../services/pack_access.dart';
 import '../services/quest_tracker.dart';
 import '../services/room_placement_service.dart';
 import '../services/storage_service.dart';
+import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -133,21 +134,17 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       return;
     }
 
-    final destination = snapshot.destination;
-    if (destination == null) {
+    if (!mounted) {
       return;
     }
-    final level = destination.packAccessLevel;
-    if (level != null) {
-      final allowed = await ensurePackAccess(context, level: level);
-      if (!allowed || !mounted) {
-        return;
-      }
-    }
-    await Navigator.of(
-      context,
-    ).pushNamed(destination.route, arguments: destination.arguments);
-    if (mounted) {
+    final opened = await TodayLearningNavigation.open(
+      snapshot.destination,
+      ensurePackAccess: (level) => ensurePackAccess(context, level: level),
+      openRoute: (route, arguments) async {
+        await Navigator.of(context).pushNamed(route, arguments: arguments);
+      },
+    );
+    if (opened && mounted) {
       await _load();
     }
   }
@@ -230,13 +227,11 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                         ],
                         LayoutBuilder(
                           builder: (context, constraints) {
-                            final mission = KeyedSubtree(
-                              key: const ValueKey('sarangbang-study-mission'),
-                              child: MissionHeroCard(
-                                loading: false,
+                            final todayLink = KeyedSubtree(
+                              key: const ValueKey('sarangbang-today-link'),
+                              child: _SarangbangTodayLink(
                                 content: _missionContent(t),
-                                onAnotherRound: () =>
-                                    Navigator.of(context).pushNamed('/path'),
+                                onOpen: _openRecommendation,
                               ),
                             );
                             final room = _SarangbangStudyScene(
@@ -252,18 +247,18 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Expanded(flex: 11, child: mission),
+                                  Expanded(flex: 11, child: room),
                                   const SizedBox(width: Spacing.lg),
-                                  Expanded(flex: 9, child: room),
+                                  Expanded(flex: 9, child: todayLink),
                                 ],
                               );
                             }
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                mission,
-                                const SizedBox(height: Spacing.lg),
                                 room,
+                                const SizedBox(height: Spacing.lg),
+                                todayLink,
                               ],
                             );
                           },
@@ -327,6 +322,54 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       ),
       null => null,
     };
+  }
+}
+
+/// The Sarangbang is a place to revisit and arrange, not Home's mandatory
+/// duplicate mission screen. It can still open the already selected today
+/// destination when a learner intentionally arrives here from their Hanok.
+class _SarangbangTodayLink extends StatelessWidget {
+  const _SarangbangTodayLink({required this.content, required this.onOpen});
+
+  final MissionHeroContent? content;
+  final VoidCallback onOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final mission = content;
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      child: mission == null
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.missionHeroAllDoneTitle, style: text.cardTitle),
+                const SizedBox(height: Spacing.xs),
+                Text(t.missionHeroAllDoneBody, style: text.cardSubtitle),
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  t.homeTodayEyebrow,
+                  style: text.label.copyWith(color: SoriColors.primary),
+                ),
+                const SizedBox(height: Spacing.xs),
+                Text(mission.title, style: text.cardTitle),
+                const SizedBox(height: Spacing.xs),
+                Text(mission.meta, style: text.cardSubtitle),
+                const SizedBox(height: Spacing.md),
+                SoriButton.outlined(
+                  label: t.homeTodayMissionStart,
+                  fullWidth: true,
+                  onTap: onOpen,
+                ),
+              ],
+            ),
+    );
   }
 }
 

@@ -36,7 +36,7 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
   });
 
-  testWidgets('puts one Sarangbang study action before the Hanok preview', (
+  testWidgets('opens the shared today destination before the Hanok preview', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(360, 900);
@@ -50,6 +50,7 @@ void main() {
         HomeScreen(
           loadTodaySnapshot: () async => TodayLearningSnapshot(
             pick: const ReviewPick(dueCount: 12),
+            destination: const TodayLearningDestination(route: '/review'),
             dueCount: 12,
           ),
           loadHanokRatios: () async =>
@@ -66,7 +67,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 120));
 
-    final primary = find.byKey(const ValueKey('home-primary-sarangbang'));
+    final primary = find.byKey(const ValueKey('home-primary-today'));
     final preview = find.byKey(const ValueKey('home-hanok-preview'));
     expect(primary, findsOneWidget);
     expect(preview, findsOneWidget);
@@ -74,11 +75,11 @@ void main() {
       tester.getTopLeft(primary).dy,
       lessThan(tester.getTopLeft(preview).dy),
     );
-    expect(find.text('Study in the Sarangbang'), findsOneWidget);
+    expect(find.text('Start this scene'), findsOneWidget);
 
-    await tester.tap(find.text('Study in the Sarangbang'));
+    await tester.tap(find.text('Start this scene'));
     await tester.pumpAndSettle();
-    expect(openedRoute, '/sarangbang');
+    expect(openedRoute, '/review');
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));

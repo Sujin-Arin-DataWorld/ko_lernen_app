@@ -34,10 +34,10 @@ void main() {
     );
     await tester.pump();
 
-    final mission = find.byKey(const ValueKey('sarangbang-study-mission'));
-    expect(mission, findsOneWidget);
+    final todayLink = find.byKey(const ValueKey('sarangbang-today-link'));
+    expect(todayLink, findsOneWidget);
     await tester.tap(
-      find.descendant(of: mission, matching: find.byType(SoriButton)),
+      find.descendant(of: todayLink, matching: find.byType(SoriButton)),
     );
 
     expect(opens, 1);
@@ -93,17 +93,17 @@ void main() {
     );
     await tester.pump();
 
-    final mission = find.byKey(const ValueKey('sarangbang-study-mission'));
+    final todayLink = find.byKey(const ValueKey('sarangbang-today-link'));
     final room = find.byKey(const ValueKey('sarangbang-study-room'));
-    expect(mission, findsOneWidget);
+    expect(todayLink, findsOneWidget);
     expect(room, findsOneWidget);
     expect(
-      tester.getTopLeft(room).dx,
-      greaterThan(tester.getTopLeft(mission).dx),
+      tester.getTopLeft(todayLink).dx,
+      greaterThan(tester.getTopLeft(room).dx),
     );
     expect(
-      tester.getTopLeft(room).dy,
-      closeTo(tester.getTopLeft(mission).dy, 0.1),
+      tester.getTopLeft(todayLink).dy,
+      closeTo(tester.getTopLeft(room).dy, 0.1),
     );
   });
 

@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/main.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
-import 'package:ko_lernen_app/screens/quick_onboarding_screen.dart';
+import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -108,7 +108,7 @@ void main() {
       await freshInstall();
       await launch(tester, size: viewports['compact']!);
 
-      expect(find.byType(QuickOnboardingScreen), findsOneWidget);
+      expect(find.byType(ConsentScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
       await teardownApp(tester);
     });

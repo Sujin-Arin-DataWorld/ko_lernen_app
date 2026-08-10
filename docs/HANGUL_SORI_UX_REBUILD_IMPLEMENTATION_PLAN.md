@@ -210,12 +210,20 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** 가장 큰 혼란인 “Home에서 누른 뒤 같은 미션을 다시 보는” 경로를 제거한다.
 
-- [ ] 새 `lib/services/today_learning_navigation.dart`: `TodayLearningDestination`의 exact route/arguments와 `packAccessLevel` gate를 한 곳에서 실행한다. `BuildContext`를 받더라도 추천을 다시 계산하거나 progress를 쓰지 않는다.
-- [ ] `lib/screens/home_screen.dart`: MissionHero CTA가 새 executor를 통해 snapshot의 original destination을 직접 연다. 현재의 네 `/sarangbang` push callback과 all-done callback을 제거한다.
-- [ ] `lib/screens/sarangbang_screen.dart`: private `_openRecommendation`도 같은 executor를 쓰고, primary mission hero를 제거/축소해 오늘 보관함·장식·명시적 “오늘 장면” 링크로 재배치한다.
+**구현 상태 (2026-08-10, `feature/hangul-sori-ux-rebuild`).**
+
+- [x] `TodayLearningNavigation`을 추가했다. destination 없음, exact route/arguments, pack access allow/deny를 새 단위 테스트로 고정했다.
+- [x] Home의 네 recommendation CTA가 이제 `/sarangbang`이 아니라 shared destination executor를 통해 직접 원래 learning route를 연다.
+- [x] Sarangbang도 같은 executor를 사용해 pack access gate와 route contract를 중복 구현하지 않는다.
+- [x] DE/EN Home CTA를 `Diese Szene beginnen` / `Start this scene`으로 명시했다.
+- [x] Sarangbang의 mission card를 재방문/보관/꾸미기 중심 surface로 줄였다. 방 장면이 먼저 오고, 오늘 장면은 명시적 방문 때만 여는 outlined link다.
+
+- [x] 새 `lib/services/today_learning_navigation.dart`: `TodayLearningDestination`의 exact route/arguments와 `packAccessLevel` gate를 한 곳에서 실행한다. 추천을 다시 계산하거나 progress를 쓰지 않는다.
+- [x] `lib/screens/home_screen.dart`: MissionHero CTA가 새 executor를 통해 snapshot의 original destination을 직접 연다. 기존 네 `/sarangbang` push callback과 all-done callback을 제거했다.
+- [x] `lib/screens/sarangbang_screen.dart`: private `_openRecommendation`도 같은 executor를 쓰며, primary mission hero를 재방문 중심의 room-first layout으로 교체했다.
 - [ ] `lib/widgets/sori/mission_hero_card.dart`: 카피를 can-do, 시간, 정확한 동사 중심으로 정리한다. 추천 우선순위 로직은 옮기지 않는다.
-- [ ] 새 `test/today_learning_navigation_test.dart`: Course/Pack/Review/Scenario의 exact `route`와 `arguments`, pack gate reject/allow, pop 뒤 snapshot refresh를 검증한다.
-- [ ] `test/today_learning_snapshot_test.dart`, `test/home_today_snapshot_test.dart`, `test/sarangbang_recommendation_test.dart`, `test/sarangbang_study_screen_test.dart`를 갱신한다. Home에 아직 `/sarangbang`만 기대하는 assertion은 direct destination assertion으로 교체한다.
+- [x] 새 `test/today_learning_navigation_test.dart`: Course/Pack/Review/Scenario의 exact `route`와 `arguments`, pack gate reject/allow를 검증한다. 화면 복귀 뒤 Home의 기존 `_refreshHome` 동작은 유지하며, 장기 모션을 가진 widget route에서 별도 pop-settle assertion은 강제하지 않는다.
+- [x] `test/today_learning_snapshot_test.dart`, `test/home_today_snapshot_test.dart`, `test/sarangbang_recommendation_test.dart`, `test/sarangbang_study_screen_test.dart`를 갱신했다. Home에 `/sarangbang`만 기대하던 assertion은 direct destination assertion으로 교체했다.
 - [ ] `test/home_layout_test.dart`, `test/home_hero_layout_test.dart`, `test/goldens/home_layout_golden_test.dart`에 새 hero hierarchy와 308/360/600/720/1280, text scale 1.3을 반영한다.
 
 **수용 조건:** Home primary CTA 한 번으로 Vocab/Review/Scenario/Course 원래 화면에 도착하며, Pack의 entitlement/access gate는 Sarangbang과 동일하다. 같은 CTA를 다시 눌러야 하는 중간 화면이 없다.
@@ -224,16 +232,24 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** 사운드를 듣기 전에 자동 슬라이드와 캐릭터 선택을 통과해야 했던 흐름을 없앤다.
 
-- [ ] `lib/screens/splash_screen.dart`, `lib/screens/intro_gate_screen.dart`: first/second/returning session 분기를 새 onboarding flow version과 함께 읽도록 정리한다. 2초 splash와 기존 intro asset을 임의로 제거하지 않는다.
+**구현 상태 (2026-08-10, isolated `feature/hangul-sori-ux-rebuild` worktree).**
+
+- [x] 새 설치는 `ConsentScreen`에서 시작하고, 동의 뒤에는 새 `OnboardingStartScreen`에서 목적과 출발점을 한 번에 고른다. 기본 A1은 기존 placement initializer → browse level → account nudge → Home 순서를 쓴다.
+- [x] `OnboardingFlowService`가 consent 없는 completion을 거부하고, 첫 유효 placement 뒤에만 onboarding/session/motivation state를 기록한다.
+- [x] 완료된 기존 사용자는 consent/level key가 누락돼도 기존 Home 복구 경로를 유지한다. Splash 2초와 second-session intro asset은 보존했다.
+- [x] DE/EN ARB·generated l10n, start-screen widget tests, flow-service tests, startup E2E를 추가/갱신했다.
+- [ ] Preview와 companion 선택을 실제 첫 성공 뒤의 optional route로 옮기는 작업은 다음 작은 단계다. 기존 preview/character 화면·asset·2.4초 guard는 아직 삭제하거나 변경하지 않았다.
+
+- [x] `lib/screens/splash_screen.dart`, `lib/screens/intro_gate_screen.dart`: first/second/returning 분기에서 새 설치와 완료된 legacy 설치를 구분한다. 2초 splash와 기존 intro asset은 제거하지 않았다.
 - [ ] `lib/screens/quick_onboarding_screen.dart`: 현재 4페이지 auto-advance와 goal 저장을 consent-first, 명시적 탭형 01A/01B로 축소한다. `hasCompletedOnboarding`와 `sessionCount`를 동의 전에 확정하는 현재 쓰기 순서는 migration 규칙을 먼저 만든 뒤에만 바꾼다.
-- [ ] `lib/screens/consent_screen.dart`: legal opt-in은 유지하되, Preview로 곧장 강제 이동하는 현재 분기를 새 flow state에 맞게 바꾼다.
+- [x] `lib/screens/consent_screen.dart`: legal opt-in은 유지하되, Preview로 곧장 강제 이동하지 않고 새 start-point 화면으로 보낸다.
 - [ ] `lib/screens/onboarding_preview_screen.dart`: 삭제하지 말고 첫 성공 뒤 선택 설명으로 이동한다. 기존 `introPreviewSeen` 사용자는 다시 강제 노출하지 않는다.
 - [ ] `lib/screens/character_selection_screen.dart`: 01C optional sheet/route 및 skip state로 바꾼다. 현재 2.4초 advance guard와 video ownership을 그대로 검증한다.
-- [ ] `lib/screens/onboarding_level_screen.dart`: direct level choice와 8–10 question diagnostic을 01B “already know some” 분기로 연결하고 `initializeForPlacement` → `setBrowseLevelCode` → account nudge → Home 순서를 보존한다.
+- [x] `lib/screens/onboarding_level_screen.dart`: direct level choice와 8–10 question diagnostic은 “이미 배운 적 있음”의 existing route로 보존하고, `initializeForPlacement` → `setBrowseLevelCode` → completion state → account nudge → Home 순서를 유지한다.
 - [ ] 새 `test/onboarding_flow_test.dart`: fresh install, consent declined/accepted options, character skip/select, direct A1, diagnostic level, app restart 중단점, second-session intro를 테스트한다.
-- [ ] `test/character_selection_screen_test.dart`, `test/privacy_consent_service_test.dart`, `test/learning_path_level_test.dart`, `test/e2e/app_flows_e2e_test.dart`를 갱신한다.
+- [x] `test/onboarding_flow_service_test.dart`, `test/onboarding_start_screen_test.dart`, `test/e2e/app_flows_e2e_test.dart`를 갱신했다. character/consent UI의 별도 회귀는 companion optional 단계에서 확장한다.
 - [ ] 첫 실제 content route는 기존 `CoursePracticeContext` initializer를 그대로 통과한다. demo를 추가하면 course evidence write를 하지 않는다.
-- [ ] `lib/l10n/app_de.arb`, `lib/l10n/app_en.arb` 및 generated l10n을 갱신한다.
+- [x] `lib/l10n/app_de.arb`, `lib/l10n/app_en.arb` 및 generated l10n을 갱신했다.
 
 **수용 조건:** clean install에서 동의 후 첫 소리/첫 선택까지 필수 화면은 최대 두 개다. 레벨 진단과 동행 선택은 접근 가능하지만 학습 시작을 막지 않는다. 기존 `introPreviewSeen`, consent, chosen level을 가진 사용자는 중간 상태에 갇히지 않는다.
 

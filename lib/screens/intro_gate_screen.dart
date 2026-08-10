@@ -12,7 +12,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/video_lease.dart';
 import '../motion/transitions.dart';
 import 'app_shell.dart';
-import 'onboarding_level_screen.dart';
+import 'onboarding_start_screen.dart';
 import 'consent_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -117,10 +117,11 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     _navigated = true;
     Storage.setIntroSeen();
     final Widget next;
-    if (!Storage.consentAccepted) {
+    final hasCompleted = Storage.hasCompletedOnboarding;
+    if (!hasCompleted && !Storage.consentAccepted) {
       next = const ConsentScreen();
-    } else if (Storage.userLevelCode == null) {
-      next = const OnboardingLevelScreen();
+    } else if (!hasCompleted && Storage.userLevelCode == null) {
+      next = const OnboardingStartScreen();
     } else {
       next = const AppShell();
     }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import 'intro_gate_screen.dart';
-import 'quick_onboarding_screen.dart';
+import 'consent_screen.dart';
+import 'onboarding_start_screen.dart';
 import 'app_shell.dart';
 
 /// 앱 시작 시 로고 화면 가득 표시 (2초)
@@ -29,9 +30,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
     late Widget nextScreen;
 
-    if (!hasCompleted) {
-      // 첫 실행 — 빠른 온보딩 (30초)
-      nextScreen = const QuickOnboardingScreen();
+    if (!hasCompleted && !Storage.consentAccepted) {
+      // Consent is the first durable boundary. A learner must never look
+      // onboarded merely because they saw a welcome or chose a daily goal.
+      nextScreen = const ConsentScreen();
+    } else if (!hasCompleted && Storage.userLevelCode == null) {
+      // A consented learner without a placement always gets the intentional
+      // start-point choice.
+      nextScreen = const OnboardingStartScreen();
     } else if (isSecondSession) {
       // 2회차 — 솟을대문 인트로
       nextScreen = const IntroGateScreen();
@@ -40,9 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
       nextScreen = const AppShell();
     }
 
-    Navigator.of(context).pushReplacement(
-      SoriTransitions.fadeScale((_) => nextScreen),
-    );
+    Navigator.of(
+      context,
+    ).pushReplacement(SoriTransitions.fadeScale((_) => nextScreen));
   }
 
   @override

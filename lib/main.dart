@@ -89,6 +89,7 @@ import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
+import 'screens/onboarding_start_screen.dart';
 import 'screens/course_mission_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
@@ -510,6 +511,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/onboarding':
               return SoriTransitions.fadeScale(
                 (_) => const OnboardingLevelScreen(),
+                settings: settings,
+              );
+            case '/onboarding/start':
+              return SoriTransitions.fadeScale(
+                (_) => const OnboardingStartScreen(),
                 settings: settings,
               );
             case '/vocab':

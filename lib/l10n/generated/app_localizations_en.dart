@@ -1847,6 +1847,61 @@ class AppL10nEn extends AppL10n {
   String get onboardingGoal15min => '15 minutes';
 
   @override
+  String get onboardingStartEyebrow => 'Your first path';
+
+  @override
+  String get onboardingStartTitle => 'What do you want to speak Korean for?';
+
+  @override
+  String get onboardingStartBody =>
+      'We start with a situation from your life, not a test.';
+
+  @override
+  String get onboardingStartTravelTitle => 'Getting around Korea';
+
+  @override
+  String get onboardingStartTravelBody =>
+      'Cafés, directions, shopping and help';
+
+  @override
+  String get onboardingStartPeopleTitle => 'Talking with people';
+
+  @override
+  String get onboardingStartPeopleBody => 'Friends, family and everyday life';
+
+  @override
+  String get onboardingStartWorkTitle => 'Study or work';
+
+  @override
+  String get onboardingStartWorkBody => 'Ask and understand politely';
+
+  @override
+  String get onboardingStartPoint => 'Starting point';
+
+  @override
+  String get onboardingStartNewTitle => 'I am just starting';
+
+  @override
+  String get onboardingStartNewBody =>
+      'Begin directly with listening and speaking';
+
+  @override
+  String get onboardingStartExistingTitle => 'I already know some Korean';
+
+  @override
+  String get onboardingStartExistingBody =>
+      'Choose a level or take 8–10 questions';
+
+  @override
+  String get onboardingStartPrimary => 'Open my first scene';
+
+  @override
+  String get onboardingStartChooseLevel => 'Choose a level';
+
+  @override
+  String get onboardingStartLoading => 'Preparing your first scene …';
+
+  @override
   String get onboardingTitle => 'What\'s your level?';
 
   @override
@@ -4407,6 +4462,12 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeSarangbangCta => 'Study in the Sarangbang';
+
+  @override
+  String get homeTodayEyebrow => 'Today';
+
+  @override
+  String get homeTodayMissionStart => 'Start this scene';
 
   @override
   String get homeHanokPreviewTitle => 'My Hanok';

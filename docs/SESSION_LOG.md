@@ -110,6 +110,21 @@ CocoaPods 설치와 무료 출시 IPA archive를 재실행한다.
 
 **Commit.** Pending (not requested).
 
+### 2026-08-10 (Codex) — Isolated UX worktree; consent-first start point
+
+**What.** Moved all UX rebuild work to the isolated `feature/hangul-sori-ux-rebuild` worktree at `C:\Users\vjinn\OneDrive\Desktop\hangulsori\ko_lernen_app-codex-ux-rebuild`; the original `main` checkout retains only the user's version change. Added the post-consent `OnboardingStartScreen`: one life purpose and one start point, with direct A1 start or the existing level/diagnostic route. Completion and first-session state are now written only after consent and placement. Preview and companion selection no longer block the first route; their existing screens and assets remain intact for the next optional-first-success step.
+
+**Why.** The old flow marked onboarding complete before consent, then forced preview and character screens before a learner could choose their first scene. The new path makes the next action understandable while preserving the existing course initializer, account nudge, diagnostic, and legacy completed-user recovery.
+
+**Verification.** In the isolated worktree: `flutter pub get`, `flutter gen-l10n`, and the focused Today/Home/Sarangbang/onboarding/l10n/startup E2E suite **97 passed**. `dart analyze --fatal-infos` on every changed Dart/test file reported **No issues found** and `git diff --check` passed. This work does not change Firebase, course evidence, Hanok stage/assets, or Gye behavior.
+
+### 2026-08-10 (Codex) — Home starts the selected learning surface directly
+
+**What.** On `feature/hangul-sori-ux-rebuild`, added `TodayLearningNavigation` as the one execution point for an already-selected `TodayLearningDestination`. Home now opens the snapshot's original Course/Pack/Review/Scenario route directly rather than always pushing `/sarangbang`; the Sarangbang uses the same executor. Pack recommendations still invoke the existing access gate before navigation. Sarangbang now renders the revisit/room scene before an outlined, explicit Today link, including in the tablet two-column layout. The Home CTA copy is explicit: DE `Diese Szene beginnen`, EN `Start this scene`.
+
+**Why.** Home and Sarangbang read one recommendation snapshot, but Home previously inserted a second screen with the same learning CTA. Centralizing only the gate-and-route handoff removes that decision without changing recommendation priority, entitlement behavior, or learner progress writes.
+
+**Verification.** `flutter gen-l10n`; focused Today/Home/Sarangbang tests **74 passed** after the room-first layout change; ARB parity and l10n guard **5 passed**; `dart analyze --fatal-infos` on the changed Dart/test files reported **No issues found**; `git diff --check` passed. No Firebase, course mastery, Hanok data, asset, or Gye behavior changed.
 
 ### 2026-08-10 (Codex) — UX rebuild plan revalidated against code and test scope
 

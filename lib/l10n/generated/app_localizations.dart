@@ -3355,6 +3355,108 @@ abstract class AppL10n {
   /// **'15 Minuten'**
   String get onboardingGoal15min;
 
+  /// No description provided for @onboardingStartEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein erster Weg'**
+  String get onboardingStartEyebrow;
+
+  /// No description provided for @onboardingStartTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wofür willst du Koreanisch sprechen?'**
+  String get onboardingStartTitle;
+
+  /// No description provided for @onboardingStartBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir beginnen mit einer Situation aus deinem Alltag, nicht mit einem Test.'**
+  String get onboardingStartBody;
+
+  /// No description provided for @onboardingStartTravelTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'In Korea unterwegs sein'**
+  String get onboardingStartTravelTitle;
+
+  /// No description provided for @onboardingStartTravelBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Café, Weg, Einkaufen und Hilfe'**
+  String get onboardingStartTravelBody;
+
+  /// No description provided for @onboardingStartPeopleTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Menschen sprechen'**
+  String get onboardingStartPeopleTitle;
+
+  /// No description provided for @onboardingStartPeopleBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Freunde, Familie und Alltag'**
+  String get onboardingStartPeopleBody;
+
+  /// No description provided for @onboardingStartWorkTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Studium oder Arbeit'**
+  String get onboardingStartWorkTitle;
+
+  /// No description provided for @onboardingStartWorkBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höflich fragen und verstehen'**
+  String get onboardingStartWorkBody;
+
+  /// No description provided for @onboardingStartPoint.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt'**
+  String get onboardingStartPoint;
+
+  /// No description provided for @onboardingStartNewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich beginne neu'**
+  String get onboardingStartNewTitle;
+
+  /// No description provided for @onboardingStartNewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Direkt mit Hören und Sprechen'**
+  String get onboardingStartNewBody;
+
+  /// No description provided for @onboardingStartExistingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann schon etwas'**
+  String get onboardingStartExistingTitle;
+
+  /// No description provided for @onboardingStartExistingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Level wählen oder 8–10 Fragen testen'**
+  String get onboardingStartExistingBody;
+
+  /// No description provided for @onboardingStartPrimary.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine erste Szene öffnen'**
+  String get onboardingStartPrimary;
+
+  /// No description provided for @onboardingStartChooseLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Level wählen'**
+  String get onboardingStartChooseLevel;
+
+  /// No description provided for @onboardingStartLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Szene wird vorbereitet …'**
+  String get onboardingStartLoading;
+
   /// No description provided for @onboardingTitle.
   ///
   /// In de, this message translates to:
@@ -7776,6 +7878,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Im Sarangbang lernen'**
   String get homeSarangbangCta;
+
+  /// No description provided for @homeTodayEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute'**
+  String get homeTodayEyebrow;
+
+  /// No description provided for @homeTodayMissionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Szene beginnen'**
+  String get homeTodayMissionStart;
 
   /// No description provided for @homeHanokPreviewTitle.
   ///

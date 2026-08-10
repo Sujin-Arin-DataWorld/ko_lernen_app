@@ -11,8 +11,7 @@ import '../services/privacy_consent_service.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'app_shell.dart';
-import 'onboarding_level_screen.dart';
-import 'onboarding_preview_screen.dart';
+import 'onboarding_start_screen.dart';
 
 const _privacyUrl = 'https://hangul-sori.com/privacy.html';
 const _termsUrl = 'https://hangul-sori.com/terms.html';
@@ -44,14 +43,12 @@ class _ConsentScreenState extends State<ConsentScreen> {
     if (!context.mounted) {
       return;
     }
-    // 레벨 미선택 + 캐러셀 미표시 → 프리뷰 캐러셀 먼저.
-    // 레벨 미선택 + 이미 표시됨 → 레벨 선택.
-    // 레벨 선택 완료 → 홈.
+    // Consent no longer forces a product-preview carousel. The first action
+    // after consent is a conscious purpose/start-point choice; older users
+    // who already have a level remain eligible to enter Home immediately.
     final Widget next;
-    if (Storage.userLevelCode == null && !Storage.introPreviewSeen) {
-      next = const OnboardingPreviewScreen();
-    } else if (Storage.userLevelCode == null) {
-      next = const OnboardingLevelScreen();
+    if (Storage.userLevelCode == null) {
+      next = const OnboardingStartScreen();
     } else {
       next = const AppShell();
     }
@@ -59,7 +56,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
       '[ONBOARD] Consent.accept -> ${next.runtimeType} '
       '(userLevelCode=${Storage.userLevelCode} '
       'browseLevelCode=${Storage.browseLevelCode} '
-      'introPreviewSeen=${Storage.introPreviewSeen})',
+      'onboardingCompleted=${Storage.hasCompletedOnboarding})',
     );
     Navigator.of(
       context,
@@ -240,8 +237,7 @@ class _ConsentToggle extends StatelessWidget {
                         value: value,
                         onChanged: (v) => onChanged(v ?? false),
                         activeColor: SoriColors.primary,
-                        materialTapTargetSize:
-                            MaterialTapTargetSize.shrinkWrap,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         visualDensity: VisualDensity.compact,
                       ),
                     ),
