@@ -1,4 +1,4 @@
-# App Store Connect Handoff — Hangul Sori 2.0.5 (11)
+# App Store Connect Handoff — Hangul Sori 2.0.5 (13)
 
 This is the single operational handoff for the iOS submission. It prepares the
 repo-owned material but does not claim that Apple credentials, a signed archive,
