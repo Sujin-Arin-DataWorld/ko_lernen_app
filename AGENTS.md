@@ -255,10 +255,14 @@ flutter run -d <android-id>   # 안드로이드
   720 · dialog 520) · `AppContentFrame`(내부는 `SoriCenterClamp` 위임). **기존 `SoriBreakpoints`
   픽셀값은 불변** — 분류만 위에 얹었다. `window_class_guard_test` 가 레이아웃 레이어의
   `Platform.is*` 0건과 숫자 리터럴 폭 비교 래칫(1)을 강제한다.
-- [x] **골든·접근성** `test/goldens/screen_layout_golden_test.dart`(4화면 × compact/medium/expanded
-  12장, Linux+3.44.0 생성) · `test/accessibility_guideline_test.dart`(6화면 × 터치영역·대비·라벨·
-  1.3배·태블릿 = 30). 골든이 단어팩 헤더 800dp 51px 오버플로를, 접근성 검사가 코치마크 13dp 터치
-  영역·동의 체크박스 32dp/무라벨·대비 2.89 를 잡아 **전부 위젯을 고쳤다**.
+- [x] **골든·접근성** `test/goldens/screen_layout_golden_test.dart`(**3화면**(settings·learn_hub·
+  vocab_packs) × compact/medium/expanded = **9장**, Linux+3.44.0 생성) ·
+  `test/accessibility_guideline_test.dart`(6화면 × 터치영역·대비·라벨·1.3배·태블릿 = 30).
+  골든이 단어팩 헤더 800dp 51px 오버플로를, 접근성 검사가 코치마크 13dp 터치 영역·동의 체크박스
+  32dp/무라벨·대비 2.89 를 잡아 **전부 위젯을 고쳤다**.
+  ⚠️ `stats` 는 골든 대상이 **아니다**(2026-08-10 제거). `_StreakWeekHeatmap` 이
+  `DateTime.now().weekday` 로 "오늘" 칸 테두리를 그려 렌더가 **요일마다 달라지기** 때문 —
+  기준선을 만든 요일에만 통과한다. 되살리려면 먼저 그 위젯에 시계 seam 을 줄 것.
 - [x] **핵심 흐름 E2E** `test/e2e/app_flows_e2e_test.dart`(CI 실행) + `integration_test/`(실기기 전용,
   `integration_test` dev 의존성 추가). 시작 분기·오프라인 우선·재시작 진도 유지·손상 데이터 부팅·
   초기화·다운그레이드·창 분류 일관성.
