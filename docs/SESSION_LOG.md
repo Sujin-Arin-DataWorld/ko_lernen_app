@@ -109,6 +109,12 @@ archive 설정이 이제 일치한다.
 CocoaPods 설치와 무료 출시 IPA archive를 재실행한다.
 
 **Commit.** Pending (not requested).
+### 2026-08-10 (Codex) — UX integration safety snapshot
+
+**What.** Preserved the complete 01–06 UX rebuild as local snapshot commit `26919d18bf0cfa1e0493ebc0fcf58a7a220e972b` on `feature/hangul-sori-ux-rebuild`. The source branch remains the rollback point; main and the remote were not modified. The next operation replays this snapshot together with the two prerequisite UX commits onto the current main in a separate integration branch.
+
+**Scope and proof.** The snapshot contains the existing 19 mockup contracts: purpose-first onboarding, direct Today action, evidence-safe Hanok structure/narrative, voluntary anonymous Gye promise, purpose-first practice/discovery, and profile/Today fallback. Before this snapshot, 255 non-golden Flutter test files passed in serial batches; the final onboarding addition passed in its focused matrix, the Gye Node suite passed 320 tests, scoped analysis was clean, and `assets/` was unchanged. Rebase and a fresh latest-main regression remain mandatory before merge.
+
 ### 2026-08-10 (Codex) — Onboarding first-scene route audit
 
 **What.** Closed the two remaining 01-flow escape hatches in the isolated `feature/hangul-sori-ux-rebuild` worktree. `Open my first scene` now completes the established A1 placement context and replaces directly to `/course/mission`; an account nudge cannot interrupt that first attempt. The optional companion still remains behind the existing eligible A1 success gate. The legacy `/quick_onboarding` entry is now a compatibility adapter only: a fresh learner reaches consent, and a consented learner reaches the one-purpose/one-start-point screen. It no longer renders the old four-page auto-advancing intro or writes a goal.
