@@ -18,11 +18,11 @@ analyze/test/web만 돌 뿐 iOS 빌드 잡이 없다. 즉 "iOS 릴리스는 문�
 
 **무엇을.**
 
-| 파일 | 내용 |
+| 커밋 | 내용 |
 |---|---|
-| `scripts/build_ios_ipa.sh` (신규) | macOS 전용 원커맨드 `.ipa` 빌더 |
-| `docs/store/APPSTORE_UPLOAD_KO.md` (신규) | 계정 등록→업로드 한국어 순서표 |
-| `docs/store/README.md` | 위 한국어 순서표 링크 추가 |
+| `a506813` | `scripts/build_ios_ipa.sh`(신규) · `docs/store/APPSTORE_UPLOAD_KO.md`(신규) · `docs/store/README.md` 링크 |
+| `ed51a18` | 빌드번호 참조 `2.0.5+12` → `+13` 갱신 + Android `versionCode` 공유 사실 명시 (`bf58bd5` 반영) |
+| (이 커밋) | 위 두 해시 기록 + `AGENTS.md` "현재 진행 중인 작업" 체크리스트 갱신 — AGENTS.md L5(커밋해시)·L14(체크리스트) 이행. 자기 해시는 커밋 전에 알 수 없어 비워 둔다 |
 
 - **teamID 주입 방식.** `ios/ExportOptions.plist` 의 `teamID` 는 의도적으로 비어
   있다(저장소 무자격증명 원칙). 스크립트는 커밋본을 고치지 않고 `mktemp` 복사본에

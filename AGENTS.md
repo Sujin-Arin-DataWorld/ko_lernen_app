@@ -219,6 +219,32 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### iOS `.ipa` 빌드 자동화 (2026-08-10)
+
+- [x] **`scripts/build_ios_ipa.sh`** — macOS 전용 원커맨드 `.ipa` 빌더 (`a506813`).
+  위 "iOS·iPad App Store 로컬 준비"의 마지막 항목이 **문서로만** 존재하던 걸 실행기로
+  만들었다: 도구·`APPLE_TEAM_ID`(10자)·`RC_IOS_KEY`(`appl_`)·`GoogleService-Info.plist`
+  확인 → `pub get` + `pod install`(`GoogleMLKit/TextRecognitionKorean` 존재 검사) →
+  검증 게이트 2종 → `flutter build ipa --release`. **커밋된 `ios/ExportOptions.plist`
+  의 빈 `teamID` 는 고치지 않고** `mktemp` 복사본에만 `PlistBuddy` 로 주입하고 `trap`
+  으로 지운다 — 저장소 무자격증명 원칙을 우회하지 않으면서 자동화한 지점.
+- [x] **검증 게이트를 빌드 경로에 편입.** `tool/verify_ios_firebase_config.dart` 와
+  `tool/verify_ios_store_contract.dart` 는 존재만 하고 **아무도 호출하지 않고 있었다.**
+  이제 `GoogleService-Info.plist` 누락·스토어 계약 위반이면 빌드가 시작조차 안 한다.
+- [x] **업로드는 기본 미수행** (`destination: export` 존중). `ASC_KEY_ID`/`ASC_ISSUER_ID`/
+  `ASC_KEY_PATH` 3종이 모두 있을 때만 `altool validate-app → upload-app` 까지 간다.
+- [x] **`docs/store/APPSTORE_UPLOAD_KO.md`** — 한국어 순서표 (`a506813`·`ed51a18`).
+  ⚠️ **앱 레코드는 파일 없이 먼저 만든다** — 없으면 업로드가
+  `No suitable application record was found` 로 거부된다.
+  빌드번호는 Android `versionCode` 와 **한 값을 공유**하므로 Play 로 소모한 번호는
+  App Store 에서 재사용 불가.
+- [ ] **Jin(macOS)**: 첫 실행이 곧 검증이다. 스크립트 본체(빌드·서명·업로드)는 실제
+  애플 자격증명이 있어야 돌아가 리눅스 CI 에서 검증 불가 — `bash -n` 만 통과했다.
+- [ ] **미결 판단 2건**: ① `pubspec.yaml` `2.0.5+13` vs
+  `docs/store/app-store-connect-v2.0.5.md` `2.0.5 (11)` 문서 드리프트 ②
+  `ios/Runner/Info.plist` 에 `ITSAppUsesNonExemptEncryption` 부재 → 업로드마다
+  수출규정 질문. **법적 신고 항목이라 임의로 넣지 않았다.**
+
 ### 첫 화면 UX·온보딩 오버레이 + 짧은 뷰포트 반응형 (2026-08-06)
 
 - [x] **코치마크를 타겟 옆 작은 contextual tooltip 으로** 재작성했다. 옛 `Positioned(left/right: 16)` 은 tight constraint 로 `maxWidth: 320` 을 무력화해(`BoxConstraints.enforce`) 태블릿에서 700dp 흰 판이 되고 가로모드에서는 화면 밖으로 나갔다. `_CoachTooltipLayout`(SingleChildLayoutDelegate)이 자식의 측정 크기를 보고 옆/아래/위를 고르고 safe-area 로 클램프한다. 폭 상한 340dp, 내부 스크롤, `1 / 5` 카운터, `Überspringen` 대비 7.0:1, `Weiter →`.
