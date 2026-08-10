@@ -98,7 +98,7 @@ function PhoneHero() {
   return <div className="hero-visual" id="preview" aria-label="Hangul Sori app preview">
     <div className="sun"/><div className="phone phone-main"><div className="phone-screen hanok-screen"><div className="status"><span>9:41</span><span>● ● ●</span></div><p className="screen-kicker">좋은 아침이에요, Sujin!</p><div className="streak">🔥 12 Tage</div><h2>Dein Hanok</h2><div className="hanok-art"><img src="/hanok-gate.png" alt="Hanok courtyard with a tiger and magpies"/></div><div className="progress-card"><span>Heute</span><b>3 von 5 Lektionen</b><div><i/></div></div><div className="bottom-nav"><b>⌂</b><span>가</span><span>▤</span><span>♙</span></div></div></div>
     <div className="phone phone-side"><div className="phone-screen lesson-screen"><div className="status"><span>9:41</span><span>● ● ●</span></div><p className="screen-kicker">한글 쓰기</p><h2>오늘의 글자</h2><div className="letter-card"><small>따라 써 보세요</small><strong>ㅎ</strong><span>hieut</span></div><button>연습 시작</button></div></div>
-    <img className="mascots" src="https://www.hangul-sori.com/assets/welcome-hero.png" alt="Hangul Sori tiger and magpie"/><span className="petal p1"/><span className="petal p2"/><span className="petal p3"/>
+    <span className="petal p1"/><span className="petal p2"/><span className="petal p3"/>
   </div>;
 }
 
