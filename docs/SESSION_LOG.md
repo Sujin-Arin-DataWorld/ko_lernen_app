@@ -7,6 +7,23 @@
 
 ---
 
+### 2026-08-10 (Claude) — 중복 워크스페이스 미커밋 흡수 + character_clip 회귀 수정 + v18 AAB
+
+**왜.** Jin 요청 — 별도 중복 클론(`ELibrary\Downloads\DataSet\hangulsori`, 9.25GB)을 삭제하기 전 그 안 라이브 git 클론의 미커밋 작업을 흡수. 이어서 versionCode 18 릴리스 AAB 생성.
+
+**무엇을.**
+- **퀘스트 흡수.** 중복 클론의 미커밋 5파일을 패치로 추출해 origin/main(`c6fd572`)에 적용: quest_tracker/catalog/model 도달성 개편 + quest_catalog_test 176줄 신규. (서명 keystore는 폴더 밖 `C:\Users\vjinn\keys\upload-keystore.jks`라 삭제 영향 없음. 9.25GB→244K 잠긴 `.claude` 캐시만 잔존.)
+- **character_clip 회귀 수정.** 같은 흡수에 딸려온 옛 `character_clip.dart`가 `magpieWalkingFront`→`magpieBob3` 리네임을 들여와 `home_screen.dart:1698` 빌드가 깨짐(첫 v18 빌드 FAILED: "Member not found: magpieWalkingFront"). 원인은 흡수 검증 때 **5파일만 analyze**해 호출부 교차참조를 놓친 것. `character_clip.dart`를 origin/main 원본으로 되돌려(`a404bf4`) `magpieWalkingFront` 복원, 나머지 퀘스트 4파일은 유지.
+- **버전/병합.** pubspec `+18`(`53aafc9`). 그 사이 전진한 원격(`c876c2b`: site deploy·ios/web)을 충돌 없이 병합(`4b1a219`).
+
+**검증.** **전체 프로젝트** `flutter analyze` **No issues found!**(135s) — 옛 워크스페이스가 깨뜨린 파일은 character_clip 하나뿐임을 확인. v18 AAB 빌드 exit 0(261.5s, √ Built, `app-release.aab` 252.7MB, versionCode 18). 백업 패치: scratchpad `salvage-quest-charclip-uncommitted.patch`.
+
+**커밋.** `c6fd572`(퀘스트 흡수)·`a404bf4`(character_clip 회귀 수정)·`53aafc9`(+18)·`4b1a219`(원격 병합). `origin/main` 최종 `4b1a219`.
+
+**교훈.** 다른 브랜치/사본의 미커밋을 흡수할 땐 반드시 **전체** `flutter analyze`로 교차참조를 검증한다 — 파일 단위 analyze는 다른 파일의 호출부 깨짐을 못 잡는다.
+
+---
+
 ### 2026-08-10 (Claude) — 브랜치 대청소: 미병합 3계열 흡수 + 로컬/원격 정리 + v17 AAB
 
 **왜.** Jin 요청 — Codex UX 작업 브랜치(`feature/hangul-sori-ux-rebuild` / 원격 `integrate/hangul-sori-ux-main`)만 남기고, 저장소에 흩어진 나머지 모든 브랜치·worktree의 작업(커밋·미커밋)을 전부 main에 흡수한 뒤 정리. 이어서 로컬 main에서 versionCode 17 릴리스 AAB 생성.
