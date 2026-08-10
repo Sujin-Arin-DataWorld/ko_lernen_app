@@ -40,15 +40,18 @@ const _seasonChildrensDay = SeasonWindow(
 
 const List<QuestDefinition> kQuestCatalog = [
   // ── 상시 (10) ──────────────────────────────────────────────────────
+  // 2026-08-07: target 50 → 15. `Essen & Trinken` 토픽은 31 개뿐이라 50 은
+  // **도달 불가**였고, 이 퀘스트로만 열리는 `decoration_jangdokdae` 는 영원히
+  // 뜨지 않았다. 15 는 31 의 48% — 정상 퀘스트(매화 45%·도깨비불 46%)와 같은 대역.
   QuestDefinition(
     id: 'q_jangdokdae',
     type: QuestType.standing,
     name: (de: 'Jangdokdae (Krugterrasse)', en: 'Jangdokdae (jar terrace)'),
     description: (
-      de: 'Meistere 50 Essen & Trinken Wörter — und eine Krug-Terrasse entsteht.',
-      en: 'Master 50 food & drink words — a jar terrace appears.',
+      de: 'Meistere 15 Essen & Trinken Wörter — und eine Krug-Terrasse entsteht.',
+      en: 'Master 15 food & drink words — a jar terrace appears.',
     ),
-    target: 50,
+    target: 15,
     source: QuestSource.foodWordsMastered,
     decorationSlug: 'decoration_jangdokdae',
     layout: (leftFrac: 0.62, bottomFrac: 0.12, widthFrac: 0.30),
@@ -82,15 +85,17 @@ const List<QuestDefinition> kQuestCatalog = [
     layout: (leftFrac: 0.72, bottomFrac: 0.20, widthFrac: 0.24),
   ),
 
+  // 2026-08-07: target 20 → 10. Wetter 9 + Geographie 1 + Umwelt 13 = 23 이라
+  // 20 은 코퍼스의 87% — 형식상 도달 가능해도 사실상 불가능했다. 10 은 43%.
   QuestDefinition(
     id: 'q_pond',
     type: QuestType.standing,
     name: (de: 'Teich & Karpfen (연못)', en: 'Pond & carp (연못)'),
     description: (
-      de: 'Meistere 20 Natur- & Wetterwörter.',
-      en: 'Master 20 nature & weather words.',
+      de: 'Meistere 10 Natur- & Wetterwörter.',
+      en: 'Master 10 nature & weather words.',
     ),
-    target: 20,
+    target: 10,
     source: QuestSource.natureWordsMastered,
     decorationSlug: 'decoration_pond',
     layout: (leftFrac: 0.34, bottomFrac: 0.10, widthFrac: 0.30),
@@ -253,15 +258,19 @@ const List<QuestDefinition> kQuestCatalog = [
     layout: (leftFrac: 0.42, bottomFrac: 0.30, widthFrac: 0.20),
   ),
 
+  // 2026-08-07: target 12 → 8. 옛 `_chuseokFoodWords` 12 개 중 코퍼스에 실재하는
+  // 건 `사과` 하나뿐이라(`밤` 은 이 CSV 에서 "Nacht") 카운트 상한이 2 였다 —
+  // 세 도달 불가 퀘스트 중 가장 심했다. 목록을 실재 단어 16 개로 다시 만들고
+  // (quest_tracker.dart `kChuseokFoodWords`) target 은 그 50% 로 잡았다.
   QuestDefinition(
     id: 'q_chuseok',
     type: QuestType.seasonal,
     name: (de: 'Chuseok-Vollmond', en: 'Chuseok full moon'),
     description: (
-      de: 'Meistere 12 Songpyeon-/Essen-Wörter während Chuseok.',
-      en: 'Master 12 songpyeon / food words during Chuseok.',
+      de: 'Meistere 8 Festtafel-Wörter während Chuseok.',
+      en: 'Master 8 holiday-table words during Chuseok.',
     ),
-    target: 12,
+    target: 8,
     source: QuestSource.songpyeonWords,
     decorationSlug: 'decoration_chuseok_moon',
     season: _seasonChuseok,

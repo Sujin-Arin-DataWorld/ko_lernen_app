@@ -92,7 +92,7 @@ enum QuestSource {
   /// 형용사 + 감정 단어 마스터 수 (Beschreibung + Gefühle).
   adjectiveFeelingWordsMastered,
 
-  /// 자연·날씨 토픽 단어 마스터 수 (Wetter + Geographie).
+  /// 자연·날씨 토픽 단어 마스터 수 (Wetter + Geographie + Umwelt).
   natureWordsMastered,
 
   /// 학교·직장 토픽 단어 마스터 수 (Beruf + Bildung).
@@ -105,6 +105,8 @@ enum QuestSource {
   scenariosCompleted,
 
   /// 발음 평가 80%+ 횟수. **미구현** (발음 평가 시스템 부재) → 항상 0.
+  /// Phase 5 대기 — 어휘 도달 가능성 가드에서 의도적으로 제외된다
+  /// (`quest_catalog_test.dart` 의 `_intentionallyUnimplementedSources`).
   pronunciationGood,
 
   /// 끝말잇기 누적 승수.
@@ -117,12 +119,16 @@ enum QuestSource {
   streakDays,
 
   /// 친구/계원 수. **미구현** (Phase 6 의 계 도입 전) → 항상 0.
+  /// Phase 6 대기 — 어휘 도달 가능성 가드에서 의도적으로 제외된다
+  /// (`quest_catalog_test.dart` 의 `_intentionallyUnimplementedSources`).
   friendsCount,
 
   /// 한글날 챌린지 — calligraphy 일 수 (시즌 중).
   hangeulChallenge,
 
-  /// 송편 단어 12 — 계절 음식 단어 (Essen & Trinken 부분집합 12 단어).
+  /// 명절 상차림 단어 — `Essen & Trinken` 의 고정 부분집합
+  /// (`quest_tracker.dart` 의 `kChuseokFoodWords`, 16 단어).
+  /// 이름은 남았지만 실제 송편/추석 어휘는 아직 코퍼스에 없다 — 2026-08-07 참고.
   songpyeonWords,
 
   /// 윷놀이 — chosung quiz 정답 5회 (시즌 중).
