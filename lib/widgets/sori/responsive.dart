@@ -45,6 +45,16 @@ double soriStudyContentMaxWidth(double width) =>
     SoriBreakpoints.content +
     (760 - SoriBreakpoints.content) * _studyProgress(width);
 
+/// Font/gap size proportional to a **focus card's inner height** [h], clamped to
+/// [min]..[max]. Hero flashcard/quiz text sized with this grows with the card,
+/// so its vertical fill ratio stays consistent across phones and tablets while
+/// the [min] keeps small viewports legible. Pair with a `spaceEvenly` column and
+/// a `SingleChildScrollView` fallback so the rare overflow scrolls instead of
+/// clipping. **Only for focus/hero content** — never for chrome (buttons, nav,
+/// list rows, chips), whose sizes are tuned and must not scale to fill.
+double soriFillSize(double h, double frac, double min, double max) =>
+    (h * frac).clamp(min, max).toDouble();
+
 /// Center-clamps immersive study content to [soriStudyContentMaxWidth] so the
 /// card grows with the viewport on tablets. Drop-in replacement for
 /// [SoriCenterClamp] on fixed-focus flashcard/quiz screens — phones unchanged.
