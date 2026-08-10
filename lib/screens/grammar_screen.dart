@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/course_practice_context.dart';
+import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
 import '../models/feedback_completion.dart';
@@ -22,6 +23,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -64,6 +66,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   Set<String>? _courseContentIds;
   Map<String, ContentLink> _courseAssessmentLinks =
       const <String, ContentLink>{};
+  CourseMissionStep? _missionStep;
+  String? _missionTitle;
   final Map<String, String> _submittedAnswers = <String, String>{};
   final Set<String> _sessionSeen = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -121,6 +125,8 @@ class _GrammarScreenState extends State<GrammarScreen>
     try {
       final g = await DataLoader.loadGrammar();
       final catalog = _isCoursePractice ? await CurriculumCatalog.load() : null;
+      if (!mounted) return;
+      final languageCode = Localizations.localeOf(context).languageCode;
       final courseContentIds = catalog == null
           ? null
           : courseContentIdsForContext(
@@ -135,7 +141,18 @@ class _GrammarScreenState extends State<GrammarScreen>
               courseContext: widget.courseContext,
               kind: CurriculumContentKind.grammar,
             );
-      if (!mounted) return;
+      final courseContext = widget.courseContext;
+      final missionStep = catalog == null || courseContext == null
+          ? null
+          : CourseMissionStepPlan.fromLinks(
+              catalog.linksForCourseUnit(courseContext.courseUnitId),
+            ).stepForContentLinkId(courseContext.contentLinkId);
+      final missionTitle = catalog == null || courseContext == null
+          ? null
+          : catalog
+                .courseUnitFor(courseContext.courseUnitId)
+                ?.title
+                .pick(languageCode);
       // 80+ 패턴을 한 번에 보여주지 않도록, 첫 진입 시 사용자 레벨로 스코프.
       // (CSV 레벨 표기와 일치할 때만 — 아니면 'Alle' 유지, 안전.)
       final userLvl = (Storage.userLevelCode ?? '').toUpperCase();
@@ -151,6 +168,8 @@ class _GrammarScreenState extends State<GrammarScreen>
         _all = g;
         _courseContentIds = courseContentIds;
         _courseAssessmentLinks = courseAssessmentLinks;
+        _missionStep = missionStep;
+        _missionTitle = missionTitle;
         _level = useLevel;
         _filtered = useLevel == 'Alle'
             ? available
@@ -511,6 +530,14 @@ class _GrammarScreenState extends State<GrammarScreen>
                       asset: 'assets/illustrations/hanok/study_scholar.png',
                       fallbackIcon: Icons.auto_stories_outlined,
                     ),
+                    if (_missionStep case final step?) ...[
+                      const SizedBox(height: Spacing.md),
+                      MissionContextBar(
+                        missionTitle:
+                            _missionTitle ?? t.courseMissionTitleShort,
+                        step: step,
+                      ),
+                    ],
                     const SizedBox(height: Spacing.md),
 
                     // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.

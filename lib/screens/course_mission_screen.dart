@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_mission_step_plan.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../services/course_mastery_service.dart';
 import '../services/course_mission_navigation.dart';
+import '../services/onboarding_companion_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/storage_service.dart';
@@ -15,6 +17,8 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import 'onboarding_preview_screen.dart';
+import 'course_mission_path_overview.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
 /// action here is selected from the active mission's graph links.
@@ -102,7 +106,24 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     await Navigator.of(
       context,
     ).pushNamed(destination.route, arguments: destination.arguments);
-    if (mounted) await _load();
+    if (!mounted) return;
+    await _load();
+    if (!mounted) return;
+
+    final snapshot = _snapshot;
+    if (snapshot == null ||
+        !OnboardingCompanionService.shouldOffer(
+          introPreviewSeen: Storage.introPreviewSeen,
+          activeCourseUnitId: unit.id,
+          activeCourseLevel: unit.level,
+          evidence: snapshot.evidence,
+        )) {
+      return;
+    }
+
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(builder: (_) => const OnboardingPreviewScreen()),
+    );
   }
 
   @override
@@ -125,6 +146,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     final catalog = _catalog!;
     final lang = Localizations.localeOf(context).languageCode;
     final links = catalog.linksForCourseUnit(unit.id);
+    final missionPlan = CourseMissionStepPlan.fromLinks(links);
     final actions = _actionsFor(links);
     final families = catalog.formFamilies
         .where(
@@ -196,59 +218,76 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
                 ),
               ),
               const SizedBox(height: Spacing.xl),
-              _SectionTitle(t.courseSectionToday),
-              const SizedBox(height: Spacing.sm),
-              ...unit.requiredConceptIds.map(
-                (conceptId) => _ConceptRow(
-                  concept: catalog.conceptFor(conceptId)!,
-                  state:
-                      _conceptStates[conceptId] ?? CourseContentState.preview,
-                  lang: lang,
+              CourseMissionPathOverview(steps: missionPlan.steps),
+              const SizedBox(height: Spacing.lg),
+              SoriCard(
+                variant: SoriCardVariant.base,
+                child: ExpansionTile(
+                  title: Text(
+                    t.courseMissionDetails,
+                    style: SoriTextTheme.of(context).h3,
+                  ),
+                  tilePadding: EdgeInsets.zero,
+                  childrenPadding: const EdgeInsets.only(top: Spacing.sm),
+                  children: [
+                    _SectionTitle(t.courseSectionToday),
+                    const SizedBox(height: Spacing.sm),
+                    ...unit.requiredConceptIds.map(
+                      (conceptId) => _ConceptRow(
+                        concept: catalog.conceptFor(conceptId)!,
+                        state:
+                            _conceptStates[conceptId] ??
+                            CourseContentState.preview,
+                        lang: lang,
+                      ),
+                    ),
+                    if (families.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      _SectionTitle(t.courseSectionFamilies),
+                      const SizedBox(height: Spacing.sm),
+                      ...families.map(
+                        (family) => _FormFamilyCard(family: family, lang: lang),
+                      ),
+                    ],
+                    if (surfaces.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      _SectionTitle(t.courseSectionSurfaces),
+                      const SizedBox(height: Spacing.sm),
+                      ...surfaces.map(
+                        (surface) =>
+                            _SurfaceFormCard(surface: surface, lang: lang),
+                      ),
+                    ],
+                    if (_reviewQueue.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      _SectionTitle(t.courseSectionRepair),
+                      const SizedBox(height: Spacing.sm),
+                      ..._reviewQueue.map(
+                        (item) => _ReviewCard(
+                          item: item,
+                          catalog: catalog,
+                          lang: lang,
+                          onTap: item.contentLink == null
+                              ? null
+                              : () => _openLink(item.contentLink!),
+                        ),
+                      ),
+                    ],
+                    if (actions.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      _SectionTitle(t.courseSectionPractice),
+                      const SizedBox(height: Spacing.sm),
+                      ...actions.map(
+                        (link) => _PracticeCard(
+                          link: link,
+                          onTap: () => _openLink(link),
+                          label: _practiceLabel(link.contentKind, t),
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
-              if (families.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                _SectionTitle(t.courseSectionFamilies),
-                const SizedBox(height: Spacing.sm),
-                ...families.map(
-                  (family) => _FormFamilyCard(family: family, lang: lang),
-                ),
-              ],
-              if (surfaces.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                _SectionTitle(t.courseSectionSurfaces),
-                const SizedBox(height: Spacing.sm),
-                ...surfaces.map(
-                  (surface) => _SurfaceFormCard(surface: surface, lang: lang),
-                ),
-              ],
-              if (_reviewQueue.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                _SectionTitle(t.courseSectionRepair),
-                const SizedBox(height: Spacing.sm),
-                ..._reviewQueue.map(
-                  (item) => _ReviewCard(
-                    item: item,
-                    catalog: catalog,
-                    lang: lang,
-                    onTap: item.contentLink == null
-                        ? null
-                        : () => _openLink(item.contentLink!),
-                  ),
-                ),
-              ],
-              if (actions.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                _SectionTitle(t.courseSectionPractice),
-                const SizedBox(height: Spacing.sm),
-                ...actions.map(
-                  (link) => _PracticeCard(
-                    link: link,
-                    onTap: () => _openLink(link),
-                    label: _practiceLabel(link.contentKind, t),
-                  ),
-                ),
-              ],
             ],
           ),
         ),

@@ -93,4 +93,30 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('optional companion choice can be skipped without a level flow', (
+    tester,
+  ) async {
+    var completed = false;
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        locale: const Locale('en'),
+        home: CharacterSelectionScreen(
+          optional: true,
+          onOptionalComplete: () => completed = true,
+        ),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 900));
+
+    expect(find.text('Not now'), findsOneWidget);
+    await tester.tap(find.text('Not now'));
+    await tester.pump();
+
+    expect(completed, isTrue);
+    expect(Storage.introPreviewSeen, isTrue);
+    expect(find.byType(ConsentScreen), findsNothing);
+  });
 }

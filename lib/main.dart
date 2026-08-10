@@ -521,15 +521,31 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/vocab':
               // Phase 2 (stately-rising-jongga): default vocab entry =
               // Pack-Marktplatz (Grid).
-              final vocabCourseUnitId = settings.arguments as String?;
+              final vocabCourseContext =
+                  coursePracticeContextFromRouteArguments(
+                    settings.arguments,
+                    CurriculumContentKind.vocab,
+                  );
+              final vocabCourseUnitId = courseUnitIdFromVocabRouteArguments(
+                settings.arguments,
+              );
               return SoriTransitions.fadeScale(
-                (_) => VocabPacksScreen(courseUnitId: vocabCourseUnitId),
+                (_) => VocabPacksScreen(
+                  courseUnitId: vocabCourseUnitId,
+                  courseContext: vocabCourseContext,
+                ),
                 settings: settings,
               );
             case '/vocab/pack':
-              final packId = settings.arguments as String? ?? '';
+              final packId =
+                  vocabPackIdFromRouteArguments(settings.arguments) ?? '';
+              final packCourseContext =
+                  vocabCourseContextFromPackRouteArguments(settings.arguments);
               return SoriTransitions.fadeScale(
-                (_) => VocabPackScreen(packId: packId),
+                (_) => VocabPackScreen(
+                  packId: packId,
+                  courseContext: packCourseContext,
+                ),
                 settings: settings,
               );
             case '/vocab/result':
@@ -808,9 +824,16 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/scenario':
-              final id = settings.arguments as String? ?? '';
+              final scenarioContext = coursePracticeContextFromRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.scenario,
+              );
+              final id = scenarioIdFromRouteArguments(settings.arguments) ?? '';
               return SoriTransitions.fadeScale(
-                (_) => ScenarioPlayerScreen(scenarioId: id),
+                (_) => ScenarioPlayerScreen(
+                  scenarioId: id,
+                  courseContext: scenarioContext,
+                ),
                 settings: settings,
               );
             default:

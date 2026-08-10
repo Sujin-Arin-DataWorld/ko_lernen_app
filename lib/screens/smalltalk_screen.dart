@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_practice_context.dart';
+import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/smalltalk.dart';
 import '../services/course_activity_reporter.dart';
@@ -17,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -45,6 +47,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   Set<String>? _courseContentIds;
   Map<String, ContentLink> _courseAssessmentLinks =
       const <String, ContentLink>{};
+  CourseMissionStep? _missionStep;
+  String? _missionTitle;
   bool _loadFailed = false;
 
   bool get _isCoursePractice => widget.courseContext != null;
@@ -101,6 +105,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         throw StateError(loadError);
       }
       final catalog = _isCoursePractice ? await CurriculumCatalog.load() : null;
+      if (!mounted) return;
+      final languageCode = Localizations.localeOf(context).languageCode;
       final courseContentIds = catalog == null
           ? null
           : courseContentIdsForContext(
@@ -115,7 +121,18 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               courseContext: widget.courseContext,
               kind: CurriculumContentKind.smalltalk,
             );
-      if (!mounted) return;
+      final courseContext = widget.courseContext;
+      final missionStep = catalog == null || courseContext == null
+          ? null
+          : CourseMissionStepPlan.fromLinks(
+              catalog.linksForCourseUnit(courseContext.courseUnitId),
+            ).stepForContentLinkId(courseContext.contentLinkId);
+      final missionTitle = catalog == null || courseContext == null
+          ? null
+          : catalog
+                .courseUnitFor(courseContext.courseUnitId)
+                ?.title
+                .pick(languageCode);
       final cats = _categoriesFor(courseContentIds);
       final catIds = cats.map((c) => c.id).toSet();
       // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
@@ -125,6 +142,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       setState(() {
         _courseContentIds = courseContentIds;
         _courseAssessmentLinks = courseAssessmentLinks;
+        _missionStep = missionStep;
+        _missionTitle = missionTitle;
         _cat = preferred.isNotEmpty
             ? preferred
             : (cats.isNotEmpty ? cats.first.id : '');
@@ -223,6 +242,19 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (_missionStep case final step?)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              Spacing.sm,
+              Spacing.lg,
+              Spacing.sm,
+            ),
+            child: MissionContextBar(
+              missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+              step: step,
+            ),
+          ),
         // 카테고리 18개 — 가로 스크롤 대신 바텀시트로 선택(발견성 개선).
         Padding(
           padding: const EdgeInsets.fromLTRB(Spacing.lg, 10, Spacing.lg, 6),

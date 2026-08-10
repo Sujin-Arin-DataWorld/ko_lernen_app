@@ -238,16 +238,18 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 - [x] `OnboardingFlowService`가 consent 없는 completion을 거부하고, 첫 유효 placement 뒤에만 onboarding/session/motivation state를 기록한다.
 - [x] 완료된 기존 사용자는 consent/level key가 누락돼도 기존 Home 복구 경로를 유지한다. Splash 2초와 second-session intro asset은 보존했다.
 - [x] DE/EN ARB·generated l10n, start-screen widget tests, flow-service tests, startup E2E를 추가/갱신했다.
-- [ ] Preview와 companion 선택을 실제 첫 성공 뒤의 optional route로 옮기는 작업은 다음 작은 단계다. 기존 preview/character 화면·asset·2.4초 guard는 아직 삭제하거나 변경하지 않았다.
+- [x] `OnboardingCompanionService`는 현재 A1 unit의 `courseEligible && isCorrect` evidence가 있을 때만, 이미 본 learner가 아닌 경우에만 invitation을 연다. browse history, 오답, 다른 unit/level은 prompt를 만들지 않는다.
+- [x] `CourseMissionScreen`은 기존 content route에서 돌아온 뒤 evidence를 다시 읽고 조건이 맞을 때만 optional preview를 push한다. prompt 자체는 progress/mastery/completion을 쓰지 않는다.
+- [x] `OnboardingPreviewScreen`은 skip 시 prompt-seen만 기록하고 미션으로 돌아가며, 마지막 CTA에서만 optional companion chooser로 간다.
 
 - [x] `lib/screens/splash_screen.dart`, `lib/screens/intro_gate_screen.dart`: first/second/returning 분기에서 새 설치와 완료된 legacy 설치를 구분한다. 2초 splash와 기존 intro asset은 제거하지 않았다.
 - [ ] `lib/screens/quick_onboarding_screen.dart`: 현재 4페이지 auto-advance와 goal 저장을 consent-first, 명시적 탭형 01A/01B로 축소한다. `hasCompletedOnboarding`와 `sessionCount`를 동의 전에 확정하는 현재 쓰기 순서는 migration 규칙을 먼저 만든 뒤에만 바꾼다.
 - [x] `lib/screens/consent_screen.dart`: legal opt-in은 유지하되, Preview로 곧장 강제 이동하지 않고 새 start-point 화면으로 보낸다.
-- [ ] `lib/screens/onboarding_preview_screen.dart`: 삭제하지 말고 첫 성공 뒤 선택 설명으로 이동한다. 기존 `introPreviewSeen` 사용자는 다시 강제 노출하지 않는다.
-- [ ] `lib/screens/character_selection_screen.dart`: 01C optional sheet/route 및 skip state로 바꾼다. 현재 2.4초 advance guard와 video ownership을 그대로 검증한다.
+- [x] `lib/screens/onboarding_preview_screen.dart`: 삭제하지 않고 첫 성공 뒤 선택 설명으로 이동한다. 기존 `introPreviewSeen` 사용자는 다시 강제 노출하지 않는다.
+- [x] `lib/screens/character_selection_screen.dart`: 01C optional route와 skip state를 추가했다. 기존 direct route의 2.4초 advance guard와 video ownership은 그대로이며 optional selection/skip은 caller로 돌아간다.
 - [x] `lib/screens/onboarding_level_screen.dart`: direct level choice와 8–10 question diagnostic은 “이미 배운 적 있음”의 existing route로 보존하고, `initializeForPlacement` → `setBrowseLevelCode` → completion state → account nudge → Home 순서를 유지한다.
 - [ ] 새 `test/onboarding_flow_test.dart`: fresh install, consent declined/accepted options, character skip/select, direct A1, diagnostic level, app restart 중단점, second-session intro를 테스트한다.
-- [x] `test/onboarding_flow_service_test.dart`, `test/onboarding_start_screen_test.dart`, `test/e2e/app_flows_e2e_test.dart`를 갱신했다. character/consent UI의 별도 회귀는 companion optional 단계에서 확장한다.
+- [x] `test/onboarding_companion_service_test.dart`, `test/onboarding_preview_screen_test.dart`, `test/character_selection_screen_test.dart`는 evidence gate, preview skip, character skip/direct-route regression을 고정한다. 기존 startup/service tests도 유지한다.
 - [ ] 첫 실제 content route는 기존 `CoursePracticeContext` initializer를 그대로 통과한다. demo를 추가하면 course evidence write를 하지 않는다.
 - [x] `lib/l10n/app_de.arb`, `lib/l10n/app_en.arb` 및 generated l10n을 갱신했다.
 
@@ -257,13 +259,14 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** “이 문제가 왜 지금 나오는가”를 설명하면서도 새로운 학습 엔진을 만들지 않는다.
 
-- [ ] 새 `lib/widgets/sori/mission_context_bar.dart`: 생활 장면, `n / total`, 닫기 확인, accessible progress semantics를 제공한다.
-- [ ] 새 `lib/models/course_mission_step_plan.dart`와 pure planner: 현재 `ContentLink`를 모두 보존하면서 introduce/practice/assess/review를 화면에 설명한다. planner는 activity reporter를 호출하지 않는다.
-- [ ] `lib/screens/course_mission_screen.dart`: 위쪽은 02B brief, 긴 concept/form/remediation 상세는 “나의 길/상세”로 접거나 별도 route로 분리한다. 현재 `assess → practice → introduce → review`인 첫 action을 바꾸려면 planner test와 해당 unit graph fixture가 먼저 “모든 assess에 도달함”을 증명해야 한다.
-- [ ] `lib/screens/vocab_pack_screen.dart`, 해당 grammar practice 화면, `lib/screens/scenario_player_screen.dart`: active course context가 있을 때만 공통 바를 표시한다. 자유 탐색에는 표시하지 않는다.
-- [ ] `lib/screens/grammar_screen.dart`, `lib/screens/smalltalk_screen.dart`: existing typed `CoursePracticeContext` only를 받는다. `lib/screens/scenario_player_screen.dart`의 declared current-mission checkpoint 동작과 `/vocab`, `/cloze`, `/satz_arcade` browse-history 동작을 무단으로 하나의 provenance 규칙으로 합치지 않는다.
+- [x] 새 `lib/widgets/sori/mission_context_bar.dart`: typed `CoursePracticeContext`가 현재 catalog link로 해석되는 grammar/smalltalk route에서만 생활 미션 제목, exact `n / total`, accessible progress semantics를 제공한다. scenario/vocab 등 다른 legacy route의 active-context handoff는 다음 단계다.
+- [x] 새 `lib/models/course_mission_step_plan.dart`와 pure planner: 현재 `ContentLink`를 모두 원래 순서로 보존하면서 exact link position을 화면에 설명한다. planner는 activity reporter나 storage를 호출하지 않는다.
+- [x] `lib/screens/course_mission_screen.dart`: 기존 primary action과 exact route/provenance는 유지하고, 위쪽에 원래 catalog 순서의 첫 세 graph link를 보인다. 긴 concept/form/surface/remediation/action detail은 기본 접힘 `Mission details`로 옮겼다. `assess → practice → introduce → review` 첫 action 우선순위는 변경하지 않았다.
+- [x] `lib/screens/vocab_packs_screen.dart`: `/vocab`의 legacy string unit-ID route는 그대로 지원하되, mission route는 typed vocab context를 함께 전달한다. grid는 exact link가 catalog에서 해석될 때만 공통 바를 보이고, 직접 탐색은 바 없이 유지한다. 선택한 pack에 원래 graph-linked word가 실제로 있을 때만 player로 context를 넘긴다.
+- [x] `lib/screens/vocab_pack_screen.dart`, `lib/screens/vocab_pack_result_screen.dart`, `lib/screens/scenario_player_screen.dart`: active course context가 catalog의 exact link, content ID, kind, unit ID와 모두 맞을 때만 공통 바를 표시한다. vocab은 같은 pack 재시도만 context를 유지하며, 다음/다른 pack과 scenario의 다음 추천은 context 없이 연다. 자유 탐색에는 표시하지 않는다.
+- [x] `lib/screens/grammar_screen.dart`, `lib/screens/smalltalk_screen.dart`: existing typed `CoursePracticeContext`가 current catalog link로 해석될 때만 공통 바를 보인다. `lib/screens/scenario_player_screen.dart`의 declared current-mission checkpoint 동작과 `/vocab`, `/cloze`, `/satz_arcade` browse-history 동작은 무단으로 하나의 provenance 규칙으로 합치지 않는다.
 - [ ] 각 screen return 후 실제 reporter/progress를 reload하고 다음 `ContentLink`를 계산한다. UI click만으로 step complete를 기록하지 않는다.
-- [ ] 새 `test/course_mission_step_plan_test.dart`와 기존 `test/course_mission_navigation_test.dart`, `test/course_practice_screen_test.dart`, `test/course_activity_reporter_test.dart`, `test/course_checkpoint_questions_test.dart`, `test/course_graph_test.dart`, `test/course_mastery_test.dart`, `test/course_mastery_sync_test.dart`, `test/scenario_stage_plan_test.dart`를 실행한다.
+- [x] 새 `test/course_mission_step_plan_test.dart`, `test/course_mission_path_overview_test.dart`, `test/mission_context_bar_test.dart`, `test/vocab_packs_mission_context_test.dart`, `test/vocab_pack_mission_context_test.dart`, `test/scenario_mission_context_test.dart`와 기존 mission navigation/practice/activity, checkpoint/graph/mastery/sync, scenario, onboarding, l10n, startup E2E를 직렬 실행했다. 관련 회귀 **123 tests passed**. 이 context UI는 read-only이며 activity reporter, checkpoint, course mastery write를 바꾸지 않는다.
 
 **수용 조건:** 02B에서 `Jetzt hören` 한 번으로 첫 기존 learning task에 도착한다. task 화면의 back/close, offline, screen reader 흐름은 기존과 동일하거나 더 명확하다.
 
@@ -271,10 +274,10 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** 끝났다는 감정과 실제 숙달 상태가 어긋나지 않게 한다.
 
-- [ ] 새 `lib/widgets/sori/can_do_result_card.dart`: verified / not-yet / review-needed visual state를 분리한다.
-- [ ] `CourseActivityReporter`, `CourseMasteryService`, scenario result provider를 읽어 02D 모델을 구성한다.
-- [ ] completed scenario만 `I can …` 확정형을 쓴다. 진행 중이면 조건형을 쓴다.
-- [ ] existing reward bundle은 즉시 노출할 수 있지만 reward가 completion evidence인 것처럼 말하지 않는다.
+- [x] 새 `lib/widgets/sori/can_do_result_card.dart`: `verified` / `reviewNeeded` / `practiceOnly` 시각 상태를 분리한다. 카드는 읽기 전용이며 새 진행 상태를 쓰지 않는다.
+- [x] `ScenarioPlayerScreen`이 기존 `CourseActivityReporter`의 저장 결과 snapshot과 현재 catalog를 읽어 02D 모델을 구성한다. 저장 실패/근거 부재에는 can-do를 표시하지 않는다.
+- [x] 최신의 정확한 시나리오 checkpoint가 `courseEligible`, 현재 unit의 scenario link, 독립 기준 점수를 모두 만족할 때만 `I can …` 확정형을 쓴다. 기준 미달은 재연습, 자유 탐색은 연습 저장으로 표현한다.
+- [x] existing reward bundle은 기존 완료 저장 시점에 유지하고, 결과 카드는 reward·completion evidence를 새로 쓰지 않는다.
 
 **수용 조건:** assess 없는 열람과 70% 미달 scenario는 완료 도장·구조 단계로 보이지 않는다. 재시작 뒤에도 결과가 같다.
 

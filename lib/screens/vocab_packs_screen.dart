@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_mission_step_plan.dart';
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../services/course_mission_navigation.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
@@ -14,6 +17,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -28,11 +32,15 @@ import '../widgets/sori/tokens.dart';
 /// 상단에는 진행 요약 ("A1: 3 / 24 클리어 — 기둥 세우는 중") +
 /// HanokHeader 이미지.
 class VocabPacksScreen extends StatefulWidget {
-  const VocabPacksScreen({super.key, this.courseUnitId});
+  const VocabPacksScreen({super.key, this.courseUnitId, this.courseContext});
 
   /// Restricts the library to packs that contain graph-linked practice for a
   /// mission. A null value remains the unrestricted browse library.
   final String? courseUnitId;
+
+  /// The exact graph link that opened the library. It is read-only UI context;
+  /// vocabulary pack activity keeps its existing progress semantics.
+  final CoursePracticeContext? courseContext;
 
   @override
   State<VocabPacksScreen> createState() => _VocabPacksScreenState();
@@ -43,6 +51,12 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   String _level = 'A1';
   List<({VocabPack pack, PackProgress progress})> _packs = [];
   String? _loadError;
+  CourseMissionStep? _missionStep;
+  String? _missionTitle;
+
+  String? get _courseUnitId => courseUnitIdFromVocabRouteArguments(
+    widget.courseContext ?? widget.courseUnitId,
+  );
 
   @override
   void initState() {
@@ -67,14 +81,16 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     });
     try {
       final packs = await PackProgressService.loadLevelView(_level);
-      final catalog = widget.courseUnitId == null
+      final courseUnitId = _courseUnitId;
+      final catalog = courseUnitId == null
           ? null
           : await CurriculumCatalog.load();
       if (!mounted) return;
+      final languageCode = Localizations.localeOf(context).languageCode;
       final contentIds = catalog == null
           ? const <String>{}
           : catalog
-                .linksForCourseUnit(widget.courseUnitId!)
+                .linksForCourseUnit(courseUnitId!)
                 .where(
                   (link) => link.contentKind == CurriculumContentKind.vocab,
                 )
@@ -89,8 +105,36 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                   ),
                 )
                 .toList();
+      final courseContext = widget.courseContext;
+      final candidateMissionStep =
+          catalog == null ||
+              courseContext == null ||
+              !courseContext.isFor(CurriculumContentKind.vocab)
+          ? null
+          : CourseMissionStepPlan.fromLinks(
+              catalog.linksForCourseUnit(courseContext.courseUnitId),
+            ).stepForContentLinkId(courseContext.contentLinkId);
+      final missionStep =
+          candidateMissionStep == null ||
+              courseContext == null ||
+              candidateMissionStep.link.contentKind !=
+                  CurriculumContentKind.vocab ||
+              candidateMissionStep.link.contentId !=
+                  courseContext.initialContentId ||
+              candidateMissionStep.link.courseUnitId !=
+                  courseContext.courseUnitId
+          ? null
+          : candidateMissionStep;
+      final missionTitle = catalog == null || missionStep == null
+          ? null
+          : catalog
+                .courseUnitFor(courseContext!.courseUnitId)
+                ?.title
+                .pick(languageCode);
       setState(() {
         _packs = scoped;
+        _missionStep = missionStep;
+        _missionTitle = missionTitle;
         _loading = false;
       });
     } catch (_) {
@@ -103,7 +147,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   Future<void> _switchLevel(String level) async {
-    if (widget.courseUnitId != null) return;
+    if (_courseUnitId != null) return;
     if (level == _level) return;
     HapticFeedback.selectionClick();
     await Storage.setBrowseLevelCode(level.toLowerCase());
@@ -126,12 +170,22 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   void _openPack(VocabPack pack) {
-    Navigator.of(context).pushNamed('/vocab/pack', arguments: pack.id).then((
-      _,
-    ) {
-      // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
-      if (mounted) _load();
-    });
+    final courseContext = vocabCourseContextForPack(
+      courseContext: widget.courseContext,
+      contentIds: pack.words.map((word) => word.id),
+    );
+    Navigator.of(context)
+        .pushNamed(
+          '/vocab/pack',
+          arguments: vocabPackRouteArguments(
+            packId: pack.id,
+            courseContext: courseContext,
+          ),
+        )
+        .then((_) {
+          // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
+          if (mounted) _load();
+        });
   }
 
   void _onLockedTap(VocabPack pack) {
@@ -189,7 +243,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             tooltip: t.dojangTitle,
             onPressed: () => Navigator.of(context).pushNamed('/dojangcheop'),
           ),
-          if (widget.courseUnitId == null)
+          if (_courseUnitId == null)
             PopupMenuButton<String>(
               icon: const Icon(Icons.swap_horiz),
               tooltip: t.vocabPacksLevelMenu,
@@ -217,6 +271,22 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                       fallbackIcon: Icons.collections_bookmark_outlined,
                     ),
                   ),
+                  if (_missionStep case final step?)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Spacing.sm,
+                          Spacing.md,
+                          Spacing.sm,
+                          0,
+                        ),
+                        child: MissionContextBar(
+                          missionTitle:
+                              _missionTitle ?? t.courseMissionTitleShort,
+                          step: step,
+                        ),
+                      ),
+                    ),
                   SliverToBoxAdapter(
                     child: _LevelProgressHeader(
                       level: _level,

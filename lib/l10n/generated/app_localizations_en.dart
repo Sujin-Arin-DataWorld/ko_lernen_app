@@ -1902,6 +1902,29 @@ class AppL10nEn extends AppL10n {
   String get onboardingStartLoading => 'Preparing your first scene …';
 
   @override
+  String get onboardingCompanionChoose => 'Choose a study buddy';
+
+  @override
+  String get onboardingCompanionSkip => 'Not now';
+
+  @override
+  String get missionContextLabel => 'Current mission';
+
+  @override
+  String get courseMissionPath => 'Your mission path';
+
+  @override
+  String get courseMissionDetails => 'Mission details';
+
+  @override
+  String get courseMissionCheck => 'Check your understanding';
+
+  @override
+  String missionContextStep(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
   String get onboardingTitle => 'What\'s your level?';
 
   @override
@@ -2142,6 +2165,30 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioCompleteBtn => 'Complete';
+
+  @override
+  String get scenarioResultReturnBtn => 'Back to my path';
+
+  @override
+  String get scenarioCanDoVerifiedTitle => 'You can do this now.';
+
+  @override
+  String get scenarioCanDoVerifiedBody =>
+      'This scene\'s checkpoint was saved independently.';
+
+  @override
+  String get scenarioCanDoReviewTitle => 'Not secure yet.';
+
+  @override
+  String get scenarioCanDoReviewBody =>
+      'This checkpoint was saved, but it is below this mission\'s verified threshold. Practise the scene again.';
+
+  @override
+  String get scenarioCanDoPracticeTitle => 'Practice saved.';
+
+  @override
+  String get scenarioCanDoPracticeBody =>
+      'This scene is stored as practice and does not change your course step.';
 
   @override
   String scenarioXpEarned(int xp) {

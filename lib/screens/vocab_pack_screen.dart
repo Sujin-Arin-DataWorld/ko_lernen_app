@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_mission_step_plan.dart';
+import '../models/course_practice_context.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/course_mission_navigation.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/decoration_reward_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/sound_service.dart';
@@ -24,6 +28,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/feature_coach.dart';
+import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
@@ -43,12 +48,14 @@ import '../widgets/sori/wordbook_add.dart';
 /// **Args (routes)**: `packId: String` (Navigator.pushNamed argument).
 class VocabPackScreen extends StatefulWidget {
   final String packId;
+  final CoursePracticeContext? courseContext;
   final Future<VocabPack?> Function(String packId)? packLoader;
   final Future<List<VocabPack>> Function(String level)? siblingPacksLoader;
 
   const VocabPackScreen({
     super.key,
     required this.packId,
+    this.courseContext,
     this.packLoader,
     this.siblingPacksLoader,
   });
@@ -70,6 +77,7 @@ Map<String, dynamic> vocabPackResultArguments({
   required bool justCleared,
   required String? nextUnlockedPackId,
   required FeedbackCompletion feedbackCompletion,
+  CoursePracticeContext? courseContext,
 }) => <String, dynamic>{
   'packId': packId,
   'packLevel': packLevel,
@@ -82,6 +90,7 @@ Map<String, dynamic> vocabPackResultArguments({
   'nextUnlockedPackId': nextUnlockedPackId,
   'completionId': feedbackCompletion.context.completionId,
   'feedbackContext': feedbackCompletion.context,
+  'courseContext': courseContext,
 };
 
 class _VocabPackScreenState extends State<VocabPackScreen> {
@@ -89,6 +98,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   String? _error;
   VocabPack? _pack;
   List<VocabPack> _siblingPacks = [];
+  CourseMissionStep? _missionStep;
+  String? _missionTitle;
 
   _Stage _stage = _Stage.learn;
 
@@ -149,16 +160,50 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       final siblings = providedSiblingLoader != null
           ? await providedSiblingLoader(pack.level)
           : await VocabPackService.packsForLevel(pack.level);
+      final courseContext = widget.courseContext;
+      final catalog = courseContext?.isFor(CurriculumContentKind.vocab) == true
+          ? await CurriculumCatalog.load()
+          : null;
       if (!mounted) return;
+      final languageCode = Localizations.localeOf(context).languageCode;
       final pool = <Vocab>[
         ...pack.words,
         for (final p in siblings)
           if (p.id != pack.id) ...p.words,
       ];
+      final packCourseContext = vocabCourseContextForPack(
+        courseContext: courseContext,
+        contentIds: pack.words.map((word) => word.id),
+      );
+      final candidateMissionStep = catalog == null || packCourseContext == null
+          ? null
+          : CourseMissionStepPlan.fromLinks(
+              catalog.linksForCourseUnit(packCourseContext.courseUnitId),
+            ).stepForContentLinkId(packCourseContext.contentLinkId);
+      final missionStep =
+          candidateMissionStep == null ||
+              packCourseContext == null ||
+              candidateMissionStep.link.contentKind !=
+                  CurriculumContentKind.vocab ||
+              candidateMissionStep.link.contentId !=
+                  packCourseContext.initialContentId ||
+              candidateMissionStep.link.courseUnitId !=
+                  packCourseContext.courseUnitId
+          ? null
+          : candidateMissionStep;
+      final missionTitle =
+          catalog == null || packCourseContext == null || missionStep == null
+          ? null
+          : catalog
+                .courseUnitFor(packCourseContext.courseUnitId)
+                ?.title
+                .pick(languageCode);
       setState(() {
         _pack = pack;
         _siblingPacks = siblings;
         _distractorPool = pool;
+        _missionStep = missionStep;
+        _missionTitle = missionTitle;
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
@@ -474,6 +519,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         justCleared: result.justCleared,
         nextUnlockedPackId: result.nextUnlocked?.id,
         feedbackCompletion: feedbackCompletion,
+        courseContext: _missionStep == null ? null : widget.courseContext,
       ),
     );
   }
@@ -531,6 +577,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
               child: Column(
                 children: [
+                  if (_missionStep case final step?) ...[
+                    MissionContextBar(
+                      missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                      step: step,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                  ],
                   _StageBar(stage: _stage),
                   const SizedBox(height: Spacing.md),
                   Expanded(child: _buildStageBody(t)),

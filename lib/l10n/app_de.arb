@@ -867,6 +867,23 @@
   "onboardingStartPrimary": "Meine erste Szene öffnen",
   "onboardingStartChooseLevel": "Level wählen",
   "onboardingStartLoading": "Deine erste Szene wird vorbereitet …",
+  "onboardingCompanionChoose": "Lernfreund wählen",
+  "onboardingCompanionSkip": "Jetzt nicht",
+  "missionContextLabel": "Aktuelle Mission",
+  "courseMissionPath": "Dein Missionsweg",
+  "courseMissionDetails": "Missionsdetails",
+  "courseMissionCheck": "Verständnis prüfen",
+  "missionContextStep": "Schritt {current} von {total}",
+  "@missionContextStep": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "onboardingTitle": "Was ist dein Level?",
   "onboardingSubtitle": "Wir fangen dort an, wo du stehst. Frühere Level bleiben offen, spätere schaltest du frei.",
   "onboardingLevelA1": "Anfänger",
@@ -951,6 +968,13 @@
   "scenarioStartBtn": "Los geht's!",
   "scenarioNextBtn": "Weiter",
   "scenarioCompleteBtn": "Abschließen",
+  "scenarioResultReturnBtn": "Zurück zu meinem Weg",
+  "scenarioCanDoVerifiedTitle": "Das kannst du jetzt.",
+  "scenarioCanDoVerifiedBody": "Der Checkpoint dieser Szene wurde selbstständig gespeichert.",
+  "scenarioCanDoReviewTitle": "Noch nicht sicher.",
+  "scenarioCanDoReviewBody": "Dieser Checkpoint wurde gespeichert, liegt aber unter der bestätigten Schwelle dieser Mission. Übe die Szene noch einmal.",
+  "scenarioCanDoPracticeTitle": "Übung gespeichert.",
+  "scenarioCanDoPracticeBody": "Diese Szene ist als Übung gespeichert und verändert deinen Kurs-Schritt nicht.",
   "scenarioXpEarned": "+{xp} XP",
   "@scenarioXpEarned": {
     "placeholders": {
