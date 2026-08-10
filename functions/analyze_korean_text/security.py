@@ -23,6 +23,26 @@ QUOTA_SCOPE = "book_analysis_v1"
 DAILY_LIMIT = 20
 BURST_LIMIT = 3
 BURST_WINDOW_SECONDS = 60
+KKEUNMARI_QUOTA_SCOPE = "kkeunmari_dictionary_v1"
+
+
+@dataclass(frozen=True)
+class QuotaPolicy:
+    daily_limit: int
+    burst_limit: int
+    burst_window_seconds: int
+
+
+BOOK_ANALYSIS_QUOTA_POLICY = QuotaPolicy(
+    daily_limit=DAILY_LIMIT,
+    burst_limit=BURST_LIMIT,
+    burst_window_seconds=BURST_WINDOW_SECONDS,
+)
+KKEUNMARI_DICTIONARY_QUOTA_POLICY = QuotaPolicy(
+    daily_limit=120,
+    burst_limit=12,
+    burst_window_seconds=60,
+)
 
 
 class AuthenticationFailed(Exception):
@@ -136,8 +156,8 @@ def verify_caller(
         raise AuthenticationFailed() from error
 
 
-def quota_document_id(uid: str) -> str:
-    return hashlib.sha256(f"book-analysis\0{uid}".encode("utf-8")).hexdigest()
+def quota_document_id(uid: str, *, scope: str = QUOTA_SCOPE) -> str:
+    return hashlib.sha256(f"{scope}\0{uid}".encode("utf-8")).hexdigest()
 
 
 def _as_nonnegative_int(value: Any) -> int:
@@ -154,21 +174,28 @@ def _retry_after_next_day(now: dt.datetime) -> int:
     return max(1, math.ceil((next_day - now).total_seconds()))
 
 
-def consume_quota_state(state: QuotaState, now: dt.datetime) -> QuotaState:
+def consume_quota_state(
+    state: QuotaState,
+    now: dt.datetime,
+    *,
+    policy: QuotaPolicy = BOOK_ANALYSIS_QUOTA_POLICY,
+) -> QuotaState:
     """Pure quota policy used inside the Firestore transaction and unit tests."""
     utc_now = now.astimezone(dt.timezone.utc)
     day = utc_now.date().isoformat()
     daily_count = state.daily_count if state.day == day else 0
     elapsed = utc_now.timestamp() - state.burst_window_started_at
-    burst_count = state.burst_count if 0 <= elapsed < BURST_WINDOW_SECONDS else 0
+    burst_count = (
+        state.burst_count if 0 <= elapsed < policy.burst_window_seconds else 0
+    )
     burst_started_at = (
         state.burst_window_started_at if burst_count else utc_now.timestamp()
     )
 
-    if daily_count >= DAILY_LIMIT:
+    if daily_count >= policy.daily_limit:
         raise QuotaExceeded(_retry_after_next_day(utc_now))
-    if burst_count >= BURST_LIMIT:
-        raise QuotaExceeded(math.ceil(BURST_WINDOW_SECONDS - elapsed))
+    if burst_count >= policy.burst_limit:
+        raise QuotaExceeded(math.ceil(policy.burst_window_seconds - elapsed))
 
     return QuotaState(
         day=day,
@@ -196,9 +223,13 @@ class FirestoreQuotaGate:
         *,
         firestore_client: Any | None = None,
         now: Callable[[], dt.datetime] | None = None,
+        scope: str = QUOTA_SCOPE,
+        policy: QuotaPolicy = BOOK_ANALYSIS_QUOTA_POLICY,
     ):
         self._firestore_client = firestore_client
         self._now = now or (lambda: dt.datetime.now(dt.timezone.utc))
+        self._scope = scope
+        self._policy = policy
 
     def _client(self) -> Any:
         if self._firestore_client is not None:
@@ -216,9 +247,9 @@ class FirestoreQuotaGate:
             client = self._client()
             reference = (
                 client.collection(QUOTA_COLLECTION)
-                .document(QUOTA_SCOPE)
+                .document(self._scope)
                 .collection("users")
-                .document(quota_document_id(uid))
+                .document(quota_document_id(uid, scope=self._scope))
             )
             transaction = client.transaction()
             now = self._now().astimezone(dt.timezone.utc)
@@ -229,7 +260,7 @@ class FirestoreQuotaGate:
                 current = _quota_state_from_document(
                     snapshot.to_dict() if snapshot.exists else None
                 )
-                updated = consume_quota_state(current, now)
+                updated = consume_quota_state(current, now, policy=self._policy)
                 transaction.set(
                     reference,
                     {

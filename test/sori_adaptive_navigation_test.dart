@@ -15,6 +15,11 @@ const items = [
     selectedIcon: Icons.sports_esports_rounded,
   ),
   SoriAdaptiveNavigationItem(
+    label: 'Explore',
+    icon: Icons.explore_outlined,
+    selectedIcon: Icons.explore_rounded,
+  ),
+  SoriAdaptiveNavigationItem(
     label: 'Lerngruppe',
     icon: Icons.groups_2_outlined,
     selectedIcon: Icons.groups_2_rounded,

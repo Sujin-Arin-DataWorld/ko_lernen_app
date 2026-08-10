@@ -87,5 +87,14 @@ void main() {
         expect(missing.$2, 'not_in_pool');
       },
     );
+
+    test('creates a safe temporary word after dictionary verification', () {
+      final word = KkeunmariWord.dictionary('\uC81C\uC0AC');
+
+      expect(word.word, '\uC81C\uC0AC');
+      expect(word.first, '\uC81C');
+      expect(word.last, '\uC0AC');
+      expect(word.isDeadEnd, isFalse);
+    });
   });
 }

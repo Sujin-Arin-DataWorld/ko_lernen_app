@@ -85,6 +85,34 @@ class EndpointSecurityTest(unittest.TestCase):
         self.assertEqual(response.get_json(), {"warnings": ["service_unavailable"]})
         analyze.assert_not_called()
 
+    def test_dictionary_endpoint_requires_the_same_verified_caller(self):
+        with self.app.test_request_context(
+            "/", method="POST", json={"word": "\uc81c\uc0ac"}
+        ):
+            with mock.patch.object(
+                endpoint, "verify_caller", side_effect=AuthenticationFailed()
+            ), mock.patch.object(endpoint, "validate_exact_noun") as lookup:
+                response = endpoint.validate_kkeunmari_word(request)
+
+        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.get_json(), {"warnings": ["unauthenticated"]})
+        lookup.assert_not_called()
+
+    def test_dictionary_endpoint_keeps_invalid_shape_off_the_dictionary_api(self):
+        with self.app.test_request_context(
+            "/", method="POST", json={"word": "not-hangul"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(endpoint, "validate_exact_noun") as lookup:
+                response = endpoint.validate_kkeunmari_word(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.get_json()["valid"], False)
+        lookup.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

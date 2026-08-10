@@ -50,7 +50,7 @@ class BookAnalysisService {
     }
     final language = normalizeTargetLanguage(targetLang);
 
-    final credentials = await (credentialsProvider ?? _firebaseCredentials)();
+    final credentials = await (credentialsProvider ?? firebaseCredentials)();
     if (credentials == null) {
       return _localStub(
         trimmed,
@@ -88,7 +88,12 @@ class BookAnalysisService {
     return _localStub(trimmed, language);
   }
 
-  static Future<BookAnalysisCredentials?> _firebaseCredentials() async {
+  /// Shared credential source for protected learning endpoints.
+  ///
+  /// Keeping this here ensures book analysis and word validation use the same
+  /// Firebase Auth plus App Check contract; neither endpoint receives a key
+  /// from the installed app.
+  static Future<BookAnalysisCredentials?> firebaseCredentials() async {
     try {
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) return null;

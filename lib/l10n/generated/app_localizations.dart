@@ -2725,6 +2725,12 @@ abstract class AppL10n {
   /// **'Server nicht erreichbar. Es wurden nur Grammatikmuster offline erkannt.'**
   String get bookResultOfflineNotice;
 
+  /// No description provided for @bookResultCredentialsNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Die geschützte Analyse ist auf diesem Gerät nicht verfügbar. Melde dich an, prüfe die Verbindung und versuche es erneut.'**
+  String get bookResultCredentialsNotice;
+
   /// No description provided for @bookResultRateLimited.
   ///
   /// In de, this message translates to:
@@ -4291,6 +4297,24 @@ abstract class AppL10n {
   /// **'Senden'**
   String get kkeunmariSubmit;
 
+  /// No description provided for @kkeunmariDictionaryChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörterbuch wird geprüft…'**
+  String get kkeunmariDictionaryChecking;
+
+  /// No description provided for @kkeunmariNotDictionaryWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort ist kein gültiges Wörterbuch-Stichwort für das Spiel.'**
+  String get kkeunmariNotDictionaryWord;
+
+  /// No description provided for @kkeunmariDictionaryUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.'**
+  String get kkeunmariDictionaryUnavailable;
+
   /// No description provided for @kkeunmariNotInPool.
   ///
   /// In de, this message translates to:
@@ -5574,6 +5598,78 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Start'**
   String get navHome;
+
+  /// No description provided for @navDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken'**
+  String get navDiscover;
+
+  /// No description provided for @discoverTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lernwerkzeuge'**
+  String get discoverTitle;
+
+  /// No description provided for @discoverSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Finde in einem Schritt die passende Übung, dein Buch oder deinen nächsten Lernweg.'**
+  String get discoverSubtitle;
+
+  /// No description provided for @discoverSearchHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Funktionen durchsuchen'**
+  String get discoverSearchHint;
+
+  /// No description provided for @discoverStartHere.
+  ///
+  /// In de, this message translates to:
+  /// **'Starte mit deiner Buchseite'**
+  String get discoverStartHere;
+
+  /// No description provided for @discoverAllTools.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Funktionen'**
+  String get discoverAllTools;
+
+  /// No description provided for @discoverNoResults.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine passende Funktion gefunden.'**
+  String get discoverNoResults;
+
+  /// No description provided for @discoverCategoryAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle'**
+  String get discoverCategoryAll;
+
+  /// No description provided for @discoverCategoryLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get discoverCategoryLearn;
+
+  /// No description provided for @discoverCategoryPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get discoverCategoryPractice;
+
+  /// No description provided for @discoverCategoryWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter & Bücher'**
+  String get discoverCategoryWords;
+
+  /// No description provided for @discoverCategoryProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Weg'**
+  String get discoverCategoryProgress;
 
   /// No description provided for @navLearn.
   ///

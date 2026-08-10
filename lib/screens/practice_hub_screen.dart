@@ -68,8 +68,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
         return;
       }
       setState(
-        () =>
-            _dueCount = Storage.todayGoalIds(all.map((v) => v.korean)).length,
+        () => _dueCount = Storage.todayGoalIds(all.map((v) => v.korean)).length,
       );
     } catch (_) {
       // best-effort — 소스 실패 시 이어하기 섹션만 조용히 숨는다.
@@ -84,7 +83,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
         ? t.hubPracticeStreak(streak)
         : t.hubPracticeStreakZero;
     return Scaffold(
-      appBar: AppBar(title: Text(t.navPractice)),
+      appBar: AppBar(title: Text(t.navLearn)),
       body: SafeArea(
         child: SoriContentClamp(
           base: const EdgeInsets.fromLTRB(

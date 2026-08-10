@@ -1502,6 +1502,10 @@ class AppL10nEn extends AppL10n {
       'The server is unavailable. Only grammar patterns were detected offline.';
 
   @override
+  String get bookResultCredentialsNotice =>
+      'Secure analysis is unavailable on this device. Sign in, check the connection, and try again.';
+
+  @override
   String get bookResultRateLimited =>
       'Cloud analysis limit reached. Please try again in a minute.';
 
@@ -2393,6 +2397,17 @@ class AppL10nEn extends AppL10n {
   String get kkeunmariSubmit => 'Send';
 
   @override
+  String get kkeunmariDictionaryChecking => 'Checking the dictionary…';
+
+  @override
+  String get kkeunmariNotDictionaryWord =>
+      'This is not a dictionary word for the game.';
+
+  @override
+  String get kkeunmariDictionaryUnavailable =>
+      'The dictionary cannot be checked right now. Try a known word or try again shortly.';
+
+  @override
   String get kkeunmariNotInPool =>
       'I don\'t know that one yet. Try another word. 🐯';
 
@@ -3167,6 +3182,43 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get navHome => 'Home';
+
+  @override
+  String get navDiscover => 'Explore';
+
+  @override
+  String get discoverTitle => 'All learning tools';
+
+  @override
+  String get discoverSubtitle =>
+      'Find the right practice, your book, or your next learning step in one place.';
+
+  @override
+  String get discoverSearchHint => 'Search features';
+
+  @override
+  String get discoverStartHere => 'Start with your book page';
+
+  @override
+  String get discoverAllTools => 'All features';
+
+  @override
+  String get discoverNoResults => 'No matching feature found.';
+
+  @override
+  String get discoverCategoryAll => 'All';
+
+  @override
+  String get discoverCategoryLearn => 'Learn';
+
+  @override
+  String get discoverCategoryPractice => 'Practice';
+
+  @override
+  String get discoverCategoryWords => 'Words & books';
+
+  @override
+  String get discoverCategoryProgress => 'Your path';
 
   @override
   String get navLearn => 'Learn';

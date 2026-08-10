@@ -7,6 +7,16 @@
 
 ---
 
+### 2026-08-10 — textbook OCR, safe word-chain validation, and native feature discovery
+
+**Why.** A photographed Korean textbook with German or English explanations was handled by a Korean-only recognizer, while the word-chain game rejected real words such as `제사` because its 2,634-word runtime pool is curated static content. The previous four-item app navigation also hid the breadth of the product behind a generic practice hub.
+
+**What.** `SnapOcrService` now combines Korean and Latin recognition, removes overlaps, and applies tested two-column reading order. The result screen differentiates unavailable protected analysis from a generic network fallback. Word-chain validation remains offline-first, then checks words absent from the local pool through a new Auth + App Check protected server contract; unavailable dictionary access is never reported as a wrong word. The native `AppShell` now has a fifth `Entdecken` destination. Its scan-first catalog exposes 24 existing activities across Lernen, Üben, Wörter & Bücher, and Dein Weg, with search and category filters. No existing activity route was replaced.
+
+**Verification.** 50 focused Flutter tests passed, including OCR ordering, protected dictionary behavior, the new catalog, adaptive navigation, and screen smoke tests. Scoped `flutter analyze` reported 0 issues. Python: 8 pure quota/dictionary tests plus `py_compile` passed; the HTTP-boundary test requires `flask`, which is not installed in the available Windows Python runtimes and remains unexecuted here.
+
+**Remaining external gates.** Add a real `KRDIC_API_KEY`, deploy `validate_kkeunmari_word` and the newer `analyze_korean_text` source, then prove both paths on a signed real device with Firebase App Check and Cloud Logging. No Cloud Function, Flutter production build, or app-store deployment was performed.
+
 ### 2026-08-10 — Xcode Command Line Tools 선택을 IPA 빌드에서 자동 우회
 
 **왜.** macOS에 Xcode 26.6이 설치돼 있었지만 전역 `xcode-select`은

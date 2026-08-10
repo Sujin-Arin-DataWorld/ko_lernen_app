@@ -7,16 +7,17 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tab_reselect.dart';
 import 'home_screen.dart';
 import 'practice_hub_screen.dart';
+import 'discover_screen.dart';
 import 'gye_tab_screen.dart';
 import 'profile_screen.dart';
 
-/// **AppShell** — BottomNav 4탭 셸 (R1 IA, 2026-06-06).
+/// **AppShell** — 5-destination adaptive app shell.
 ///
-/// 탭 구성 (듀오링고 패턴 — deep-research 검증):
-///   0. 홈   (HomeScreen — 학습 경로 진입)
-///   1. 연습 (PracticeHubScreen — 배우기·게임·단어 named 섹션)
-///   2. 계   (GyeTabScreen — 비경쟁 협력 그룹)
-///   3. 나   (ProfileScreen — 통계·설정)
+///   0. 홈       (HomeScreen — 오늘의 미션과 학습 경로)
+///   1. 배우기   (PracticeHubScreen — 현재 학습과 빠른 연습)
+///   2. Entdecken (DiscoverScreen — 검색 가능한 전체 기능 지도)
+///   3. 계       (GyeTabScreen — 비경쟁 협력 그룹)
+///   4. 나       (ProfileScreen — 통계·설정)
 ///
 /// IndexedStack으로 탭 상태를 보존(스와이프 X — 게임/시나리오 제스처 충돌 회피).
 /// 탭 내 `pushNamed`는 루트 Navigator → 상세화면이 탭바 위 전체화면(듀오링고식 진입).
@@ -35,14 +36,14 @@ class AppShell extends StatefulWidget {
 class _AppShellState extends State<AppShell> {
   int _index = 0;
   final List<ScrollController> _tabScrollControllers = List.generate(
-    4,
+    5,
     (_) => ScrollController(),
   );
 
   // Stage A: 홈 투어 스포트라이트 키.
   // NavigationBar를 Stack으로 감싸고 각 탭 위치에 크기 0 앵커를 올린다.
   // 이 방식은 NavigationBar 레이아웃에 전혀 영향을 주지 않는다.
-  final List<GlobalKey> _tabKeys = List.generate(4, (_) => GlobalKey());
+  final List<GlobalKey> _tabKeys = List.generate(5, (_) => GlobalKey());
   final GlobalKey _pathTourKey = GlobalKey();
   final GlobalKey _missionTourKey = GlobalKey();
   // Stage B 예약: final GlobalKey _bookTourKey = GlobalKey();
@@ -141,7 +142,12 @@ class _AppShellState extends State<AppShell> {
         SoriAdaptiveNavigationItem(
           icon: Icons.sports_esports_outlined,
           selectedIcon: Icons.sports_esports_rounded,
-          label: t.navPractice,
+          label: t.navLearn,
+        ),
+        SoriAdaptiveNavigationItem(
+          icon: Icons.explore_outlined,
+          selectedIcon: Icons.explore_rounded,
+          label: t.navDiscover,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.groups_2_outlined,
@@ -160,7 +166,7 @@ class _AppShellState extends State<AppShell> {
     // IgnorePointer + SizedBox.shrink → 터치·레이아웃 모두 영향 없음.
     final anchors = IgnorePointer(
       child: Row(
-        children: List.generate(4, (i) {
+        children: List.generate(5, (i) {
           return Expanded(
             child: Align(
               alignment: Alignment.topCenter,
@@ -172,7 +178,7 @@ class _AppShellState extends State<AppShell> {
     );
     final railAnchors = IgnorePointer(
       child: Column(
-        children: List.generate(4, (i) {
+        children: List.generate(5, (i) {
           return Expanded(
             child: Align(
               alignment: Alignment.center,
@@ -225,13 +231,20 @@ class _AppShellState extends State<AppShell> {
                   controller: _tabScrollControllers[2],
                   child: TickerMode(
                     enabled: _index == 2,
-                    child: const GyeTabScreen(),
+                    child: const DiscoverScreen(),
                   ),
                 ),
                 PrimaryScrollController(
                   controller: _tabScrollControllers[3],
                   child: TickerMode(
                     enabled: _index == 3,
+                    child: const GyeTabScreen(),
+                  ),
+                ),
+                PrimaryScrollController(
+                  controller: _tabScrollControllers[4],
+                  child: TickerMode(
+                    enabled: _index == 4,
                     child: const ProfileScreen(),
                   ),
                 ),

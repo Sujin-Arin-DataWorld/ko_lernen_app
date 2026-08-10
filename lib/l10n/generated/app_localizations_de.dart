@@ -1508,6 +1508,10 @@ class AppL10nDe extends AppL10n {
       'Server nicht erreichbar. Es wurden nur Grammatikmuster offline erkannt.';
 
   @override
+  String get bookResultCredentialsNotice =>
+      'Die geschützte Analyse ist auf diesem Gerät nicht verfügbar. Melde dich an, prüfe die Verbindung und versuche es erneut.';
+
+  @override
   String get bookResultRateLimited =>
       'Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.';
 
@@ -2402,6 +2406,17 @@ class AppL10nDe extends AppL10n {
   String get kkeunmariSubmit => 'Senden';
 
   @override
+  String get kkeunmariDictionaryChecking => 'Wörterbuch wird geprüft…';
+
+  @override
+  String get kkeunmariNotDictionaryWord =>
+      'Dieses Wort ist kein gültiges Wörterbuch-Stichwort für das Spiel.';
+
+  @override
+  String get kkeunmariDictionaryUnavailable =>
+      'Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.';
+
+  @override
   String get kkeunmariNotInPool =>
       'Das kenne ich noch nicht. Versuch ein anderes Wort. 🐯';
 
@@ -3180,6 +3195,43 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get navHome => 'Start';
+
+  @override
+  String get navDiscover => 'Entdecken';
+
+  @override
+  String get discoverTitle => 'Alle Lernwerkzeuge';
+
+  @override
+  String get discoverSubtitle =>
+      'Finde in einem Schritt die passende Übung, dein Buch oder deinen nächsten Lernweg.';
+
+  @override
+  String get discoverSearchHint => 'Funktionen durchsuchen';
+
+  @override
+  String get discoverStartHere => 'Starte mit deiner Buchseite';
+
+  @override
+  String get discoverAllTools => 'Alle Funktionen';
+
+  @override
+  String get discoverNoResults => 'Keine passende Funktion gefunden.';
+
+  @override
+  String get discoverCategoryAll => 'Alle';
+
+  @override
+  String get discoverCategoryLearn => 'Lernen';
+
+  @override
+  String get discoverCategoryPractice => 'Üben';
+
+  @override
+  String get discoverCategoryWords => 'Wörter & Bücher';
+
+  @override
+  String get discoverCategoryProgress => 'Dein Weg';
 
   @override
   String get navLearn => 'Lernen';

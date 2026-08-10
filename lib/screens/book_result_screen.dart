@@ -274,6 +274,8 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
     final rateLimited = r.warnings.contains('server_rate_limited');
+    final credentialsUnavailable =
+        r.warnings.contains('remote_credentials_unavailable');
 
     return _guard(
       Scaffold(
@@ -336,6 +338,8 @@ class _BookResultScreenState extends State<BookResultScreen> {
                             child: Text(
                               rateLimited
                                   ? t.bookResultRateLimited
+                                  : credentialsUnavailable
+                                  ? t.bookResultCredentialsNotice
                                   : t.bookResultOfflineNotice,
                               style: TextStyle(
                                 fontSize: 12,

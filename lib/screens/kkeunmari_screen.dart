@@ -6,6 +6,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
+import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -57,6 +58,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   _Turn _turn = _Turn.user;
   _End _end = _End.none;
   bool _newBest = false; // diese Runde = längste Kette aller Zeiten?
+  bool _dictionaryChecking = false;
+  int _roundGeneration = 0;
   String _errorMsg = '';
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
@@ -111,6 +114,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   Future<void> _start() async {
+    _roundGeneration++;
     _feedbackCompletion.reset();
     await KkeunmariEngine.load();
     if (!mounted) return;
@@ -141,6 +145,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _turn = _Turn.user;
       _end = _End.none;
       _newBest = false;
+      _dictionaryChecking = false;
       _errorMsg = '';
       _remaining = _turnSeconds;
       _loading = false;
@@ -175,8 +180,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   String get _required => _last?.last ?? '';
 
-  void _submit() {
-    if (_end != _End.none || _turn != _Turn.user) return;
+  Future<void> _submit() async {
+    if (_dictionaryChecking || _end != _End.none || _turn != _Turn.user) {
+      return;
+    }
     final input = _ctrl.text.trim();
     if (input.isEmpty) return;
     final (valid, reason, word) = KkeunmariEngine.validateUserWord(
@@ -185,20 +192,65 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _used,
     );
     if (!valid) {
-      final t = AppL10n.of(context);
-      HapticFeedback.mediumImpact();
-      setState(() {
-        _errorMsg = switch (reason) {
-          'not_korean' => t.kkeunmariNotKorean,
-          'not_in_pool' => t.kkeunmariNotInPool,
-          'wrong_start' => t.kkeunmariWrongStart(_required),
-          'already_used' => t.kkeunmariAlreadyUsed,
-          _ => '',
-        };
-      });
+      if (reason != 'not_in_pool') {
+        _showValidationError(reason);
+        return;
+      }
+      await _checkDictionaryWord(input);
       return;
     }
-    final w = word!;
+    _acceptUserWord(word!);
+  }
+
+  Future<void> _checkDictionaryWord(String input) async {
+    final t = AppL10n.of(context);
+    final generation = _roundGeneration;
+    setState(() {
+      _dictionaryChecking = true;
+      _errorMsg = t.kkeunmariDictionaryChecking;
+    });
+    try {
+      final result = await KkeunmariDictionaryService.validate(word: input);
+      if (!mounted ||
+          generation != _roundGeneration ||
+          _end != _End.none ||
+          _turn != _Turn.user) {
+        return;
+      }
+      if (result.isValid) {
+        _acceptUserWord(KkeunmariWord.dictionary(input));
+        return;
+      }
+      HapticFeedback.mediumImpact();
+      setState(() {
+        _errorMsg = switch (result.status) {
+          KkeunmariDictionaryStatus.invalid => t.kkeunmariNotDictionaryWord,
+          KkeunmariDictionaryStatus.unavailable =>
+            t.kkeunmariDictionaryUnavailable,
+          KkeunmariDictionaryStatus.valid => '',
+        };
+      });
+    } finally {
+      if (mounted) {
+        setState(() => _dictionaryChecking = false);
+      }
+    }
+  }
+
+  void _showValidationError(String reason) {
+    final t = AppL10n.of(context);
+    HapticFeedback.mediumImpact();
+    setState(() {
+      _errorMsg = switch (reason) {
+        'not_korean' => t.kkeunmariNotKorean,
+        'wrong_start' => t.kkeunmariWrongStart(_required),
+        'already_used' => t.kkeunmariAlreadyUsed,
+        _ => t.kkeunmariNotInPool,
+      };
+    });
+  }
+
+  void _acceptUserWord(KkeunmariWord w) {
     HapticFeedback.lightImpact();
     setState(() {
       _chain.add(w);
@@ -402,6 +454,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                         controller: _ctrl,
                         focusNode: _focusNode,
                         autofocus: true,
+                        enabled: !_dictionaryChecking,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           hintText: t.kkeunmariInputHint,
@@ -410,7 +463,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                           fontSize: 22,
                           fontWeight: FontWeight.w800,
                         ),
-                        onSubmitted: (_) => _submit(),
+                        onSubmitted: (_) => unawaited(_submit()),
                       ),
                       if (_errorMsg.isNotEmpty) ...[
                         const SizedBox(height: Spacing.xs),
@@ -430,7 +483,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                         icon: Icons.send_rounded,
                         accent: SoriColors.accent,
                         fullWidth: true,
-                        onTap: _submit,
+                        onTap: _dictionaryChecking
+                            ? null
+                            : () => unawaited(_submit()),
                       ),
                     ] else
                       // 호랑이 차례: 짧은 "생각 중" 카드

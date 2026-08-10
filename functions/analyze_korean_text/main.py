@@ -38,10 +38,13 @@ from typing import Any
 
 import functions_framework
 from flask import Request, Response
+from dictionary_validation import validate_exact_noun
 from grammar_analysis import detect_grammar, localize_pos_tag, normalize_language
 from security import (
     AuthenticationFailed,
     FirestoreQuotaGate,
+    KKEUNMARI_DICTIONARY_QUOTA_POLICY,
+    KKEUNMARI_QUOTA_SCOPE,
     QuotaExceeded,
     QuotaStoreUnavailable,
     verify_caller,
@@ -53,6 +56,7 @@ _DEEPL = None
 _FS_CLIENT = None
 _FS_TRIED = False
 _QUOTA_GATE: FirestoreQuotaGate | None = None
+_DICTIONARY_QUOTA_GATE: FirestoreQuotaGate | None = None
 _MAX_REQUEST_BYTES = 20_000
 
 
@@ -84,6 +88,16 @@ def _quota_gate() -> FirestoreQuotaGate:
     if _QUOTA_GATE is None:
         _QUOTA_GATE = FirestoreQuotaGate()
     return _QUOTA_GATE
+
+
+def _dictionary_quota_gate() -> FirestoreQuotaGate:
+    global _DICTIONARY_QUOTA_GATE
+    if _DICTIONARY_QUOTA_GATE is None:
+        _DICTIONARY_QUOTA_GATE = FirestoreQuotaGate(
+            scope=KKEUNMARI_QUOTA_SCOPE,
+            policy=KKEUNMARI_DICTIONARY_QUOTA_POLICY,
+        )
+    return _DICTIONARY_QUOTA_GATE
 
 
 def _warning_response(
@@ -552,6 +566,52 @@ def analyze_korean_text(request: Request) -> Response:
             ],
             "warnings": [],
         }, ensure_ascii=False),
+        status=200,
+        mimetype="application/json",
+    )
+
+
+@functions_framework.http
+def validate_kkeunmari_word(request: Request) -> Response:
+    """Checks one exact noun headword for the word-chain fallback.
+
+    This is deliberately separate from book analysis: it has its own quota and
+    does not consume a learner's daily book-scan allowance.
+    """
+    if request.method != "POST":
+        return Response("POST only", status=405)
+    try:
+        caller = verify_caller(request)
+    except AuthenticationFailed:
+        return _warning_response("unauthenticated", 401)
+
+    body = request.get_json(silent=True)
+    if not isinstance(body, dict):
+        body = {}
+    word = str(body.get("word") or "").strip()
+    if not re.fullmatch(r"[\uac00-\ud7a3]{1,20}", word):
+        return Response(
+            json.dumps({"valid": False, "warnings": ["invalid_word_shape"]}),
+            status=200,
+            mimetype="application/json",
+        )
+
+    try:
+        _dictionary_quota_gate().consume(caller.uid)
+    except QuotaExceeded as error:
+        return _warning_response(
+            "rate_limited",
+            429,
+            retry_after_seconds=error.retry_after_seconds,
+        )
+    except QuotaStoreUnavailable:
+        return _warning_response("service_unavailable", 503)
+
+    valid = validate_exact_noun(word)
+    if valid is None:
+        return _warning_response("dictionary_unavailable", 503)
+    return Response(
+        json.dumps({"valid": valid}, ensure_ascii=False),
         status=200,
         mimetype="application/json",
     )

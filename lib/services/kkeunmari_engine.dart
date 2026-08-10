@@ -34,15 +34,31 @@ class KkeunmariWord {
   });
 
   factory KkeunmariWord.fromJson(Map<String, dynamic> j) => KkeunmariWord(
-        word: (j['word'] as String?) ?? '',
-        first: (j['first'] as String?) ?? '',
-        last: (j['last'] as String?) ?? '',
-        level: (j['level'] as String?) ?? 'A1',
-        german: (j['german'] as String?) ?? '',
-        topic: (j['topic'] as String?) ?? '',
-        nextCount: (j['next_count'] as num?)?.toInt() ?? 0,
-        isDeadEnd: (j['is_dead_end'] as bool?) ?? false,
-      );
+    word: (j['word'] as String?) ?? '',
+    first: (j['first'] as String?) ?? '',
+    last: (j['last'] as String?) ?? '',
+    level: (j['level'] as String?) ?? 'A1',
+    german: (j['german'] as String?) ?? '',
+    topic: (j['topic'] as String?) ?? '',
+    nextCount: (j['next_count'] as num?)?.toInt() ?? 0,
+    isDeadEnd: (j['is_dead_end'] as bool?) ?? false,
+  );
+
+  /// A verified dictionary word that is not yet represented in the bundled
+  /// game pool. The tiger still takes its next turn from the curated pool.
+  factory KkeunmariWord.dictionary(String word) {
+    final normalized = word.trim();
+    return KkeunmariWord(
+      word: normalized,
+      first: normalized[0],
+      last: normalized[normalized.length - 1],
+      level: 'dictionary',
+      german: '',
+      topic: 'dictionary',
+      nextCount: 0,
+      isDeadEnd: false,
+    );
+  }
 }
 
 class KkeunmariEngine {
@@ -53,8 +69,9 @@ class KkeunmariEngine {
   static Future<List<KkeunmariWord>> load() async {
     if (_cached != null) return _cached!;
     try {
-      final raw =
-          await rootBundle.loadString('assets/data/kkeunmari_pool.json');
+      final raw = await rootBundle.loadString(
+        'assets/data/kkeunmari_pool.json',
+      );
       final j = jsonDecode(raw) as Map<String, dynamic>;
       final list = (j['words'] as List? ?? const [])
           .whereType<Map<String, dynamic>>()
@@ -95,8 +112,7 @@ class KkeunmariEngine {
     Set<String> usedWords,
   ) {
     final candidates = pool
-        .where((w) =>
-            w.first == requiredFirst && !usedWords.contains(w.word))
+        .where((w) => w.first == requiredFirst && !usedWords.contains(w.word))
         .toList();
     if (candidates.isEmpty) return null;
     // Prefer safe (non-dead-end) so the user has a chance to continue.

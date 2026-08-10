@@ -237,6 +237,15 @@ flutter run -d <android-id>   # 안드로이드
   구글 연결 → 자동 백업·"마지막 백업" 표시 → (2기기) 시작 시 자동 복원-병합.
 - [ ] Linux CI에서 settings 골든 3장 재생성(백업 타일 subtitle 추가로 의도된 변화).
 
+### Bilingual OCR, dictionary fallback, and native feature discovery (2026-08-10)
+
+- [x] **Mixed-script book capture.** Korean and Latin ML Kit passes run together, duplicate blocks are removed, and two-column pages are ordered down each column before analysis.
+- [x] **Accurate degraded result.** A missing protected credential is shown as an unavailable secure analysis path rather than a misleading generic server failure.
+- [x] **Wortkette safeguard.** The 2,634-word local pool remains instant and offline. Missing words use a protected exact-noun dictionary fallback; an unavailable dictionary is never marked wrong.
+- [x] **Feature discovery in the actual app.** AppShell has five primary destinations and `Entdecken` is a searchable, scan-first catalog for the existing learning, practice, words, and progress tools.
+- [x] **Local proof.** 50 focused Flutter tests and scoped analysis passed. Pure Python dictionary/quota tests and compilation passed.
+- [ ] **External gates (Jin).** Set `KRDIC_API_KEY`, deploy the two function sources, and prove book analysis plus dictionary fallback on a signed device with Firebase App Check and Cloud Logging. Decide whether to ship the new native navigation in the next production build.
+
 ### iOS `.ipa` 빌드 자동화 (2026-08-10)
 
 - [x] **`scripts/build_ios_ipa.sh`** — macOS 전용 원커맨드 `.ipa` 빌더 (`a506813`).
