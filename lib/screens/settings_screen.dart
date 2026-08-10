@@ -28,6 +28,7 @@ import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/app_version_service.dart';
 import '../services/account/account_failure_diagnostics.dart';
+import '../services/account/account_failure_reason.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
@@ -333,6 +334,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
   String _appVersion = '—';
+  DateTime? _lastBackupAt;
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
@@ -363,6 +365,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.initState();
     _ttsRate = Storage.ttsRate;
     _loadAppVersion();
+    _loadLastBackupAt();
     // 계정 pending 저널 admission 을 **화면 진입 즉시** 시작한다.
     // 계정 섹션은 lazy ListView 하단이라 위젯 마운트(AccountNewLinkGuard
     // initState)에만 맡기면 위쪽 콘텐츠가 길어질수록 admission 이 스크롤
@@ -396,6 +399,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       // Keep the neutral placeholder when native package metadata is absent.
     }
+  }
+
+  Future<void> _loadLastBackupAt() async {
+    final at = await CloudSync.lastBackupAt();
+    if (mounted) {
+      setState(() => _lastBackupAt = at);
+    }
+  }
+
+  String _formatBackupTime(DateTime at) {
+    final local = at.toLocal();
+    String two(int v) => v.toString().padLeft(2, '0');
+    return '${local.year}-${two(local.month)}-${two(local.day)} '
+        '${two(local.hour)}:${two(local.minute)}';
   }
 
   // ── M3: Benachrichtigungen ──────────────────────────────────
@@ -760,6 +777,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             AccountPendingOperationPanel(
               operations: _accountOperations,
               retryLocalDeletion: _onDeleteAccount,
+              cloudDeletionState: _cloudDataDeletionJournalState,
+              resumeCloudDeletion: _onDeleteCloudData,
               onCompleted: () async {
                 if (mounted) setState(() {});
               },
@@ -784,7 +803,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           subtitle: Text(t.settingsCloudSignInDesc),
                           onTap: linkAvailable && durableActionsAvailable
                               ? _onGoogleTap
-                              : null,
+                              : () => _showActionLocked(cloudDeletionState),
                         ),
                         if (AuthService.appleSignInAvailable)
                           ListTile(
@@ -793,7 +812,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             subtitle: Text(t.settingsCloudSignInDesc),
                             onTap: linkAvailable && durableActionsAvailable
                                 ? _onAppleTap
-                                : null,
+                                : () => _showActionLocked(cloudDeletionState),
                           ),
                       ],
                     ),
@@ -822,12 +841,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       builder: (context, cloudDeletionState, _) => ListTile(
                         leading: const Icon(Icons.cloud_upload_outlined),
                         title: Text(t.settingsCloudBackupNow),
+                        subtitle: Text(
+                          _lastBackupAt == null
+                              ? t.settingsCloudLastBackupNever
+                              : t.settingsCloudLastBackup(
+                                  _formatBackupTime(_lastBackupAt!),
+                                ),
+                        ),
                         onTap:
                             accountActionsAvailable &&
                                 cloudDeletionState ==
                                     CloudBackupDeletionJournalState.clear
                             ? _onBackupTap
-                            : null,
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
                     ),
                     ValueListenableBuilder<CloudBackupDeletionJournalState>(
@@ -840,7 +866,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 cloudDeletionState ==
                                     CloudBackupDeletionJournalState.clear
                             ? _onRestoreTap
-                            : null,
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
                     ),
                     ValueListenableBuilder<CloudBackupDeletionJournalState>(
@@ -853,7 +879,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 cloudDeletionState ==
                                     CloudBackupDeletionJournalState.clear
                             ? _onSignOutTap
-                            : null,
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
                     ),
                     ValueListenableBuilder<CloudBackupDeletionJournalState>(
@@ -868,14 +894,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           style: const TextStyle(color: SoriColors.danger),
                         ),
                         subtitle: Text(t.settingsCloudDeleteDataDesc),
-                        // A confirmed pending journal may resume the exact server
-                        // request; loading does not disclose or act on journal data.
+                        // A persisted journal resumes the exact server request
+                        // regardless of the account guard — the guard reports
+                        // `blocked` for this very journal, which previously
+                        // made its own resume unreachable (dead code).
                         onTap:
-                            accountActionsAvailable &&
-                                cloudDeletionState !=
-                                    CloudBackupDeletionJournalState.loading
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.pending
+                            ? _confirmCloudDeleteResume
+                            : accountActionsAvailable &&
+                                  cloudDeletionState ==
+                                      CloudBackupDeletionJournalState.clear
                             ? _confirmCloudDelete
-                            : null,
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
                     ),
                   ],
@@ -942,24 +973,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
               operations: _accountOperations,
               builder: (context, accountActionsAvailable) => Column(
                 children: [
-                  ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                    valueListenable: _cloudDataDeletionJournalState,
-                    builder: (context, cloudDeletionState, _) => ListTile(
-                      leading: const Icon(
-                        Icons.delete_outline,
-                        color: SoriColors.danger,
-                      ),
-                      title: Text(
-                        t.settingsReset,
-                        style: const TextStyle(color: SoriColors.danger),
-                      ),
-                      onTap:
-                          accountActionsAvailable &&
-                              cloudDeletionState ==
-                                  CloudBackupDeletionJournalState.clear
-                          ? _confirmReset
-                          : null,
+                  // Local reset stays available in every journal state: the
+                  // wipe preserves durable account journals (see
+                  // Storage.resetAll) and only an active replacement
+                  // transition may still refuse it at the storage fence.
+                  ListTile(
+                    leading: const Icon(
+                      Icons.delete_outline,
+                      color: SoriColors.danger,
                     ),
+                    title: Text(
+                      t.settingsReset,
+                      style: const TextStyle(color: SoriColors.danger),
+                    ),
+                    onTap: _confirmReset,
                   ),
                   ValueListenableBuilder<CloudBackupDeletionJournalState>(
                     valueListenable: _cloudDataDeletionJournalState,
@@ -978,7 +1005,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               cloudDeletionState ==
                                   CloudBackupDeletionJournalState.clear
                           ? _confirmAccountDelete
-                          : null,
+                          : () => _showActionLocked(cloudDeletionState),
                     ),
                   ),
                 ],
@@ -1357,6 +1384,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           duration: const Duration(seconds: 2),
         ),
       );
+      await _loadLastBackupAt();
     } catch (_) {
       if (!mounted) return;
       _showOfflineDialog(retry: _onBackupTap);
@@ -1470,6 +1498,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context,
         deletion: true,
         retry: _onDeleteAccount,
+        reason: classifyAccountFailure(error),
       );
     }
   }
@@ -1589,6 +1618,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onPressed: () async {
               final dialogNav = Navigator.of(ctx);
               final rootNav = Navigator.of(context);
+              final messenger = ScaffoldMessenger.of(context);
               try {
                 await (widget.resetAllData?.call() ?? Storage.resetAll());
                 await WordImageService.deleteAll();
@@ -1598,6 +1628,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 dialogNav.pop();
                 rootNav.popUntil((r) => r.isFirst);
                 HapticFeedback.heavyImpact();
+                if (_cloudDataDeletionJournalState.value !=
+                    CloudBackupDeletionJournalState.clear) {
+                  messenger.showSnackBar(
+                    SnackBar(content: Text(t.settingsResetDoneJournalKept)),
+                  );
+                }
               } on CloudBackupDeletionResetBlockedException {
                 if (!mounted) return;
                 if (ctx.mounted) {
@@ -1623,6 +1659,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: t.settingsCloudDeleteDataConfirmBody,
       confirmLabel: t.btnDelete,
       onConfirm: _onDeleteCloudData,
+    );
+  }
+
+  /// Resume wording for a persisted cloud-deletion journal — the request is
+  /// continued, never created twice, so the new-deletion warning would lie.
+  void _confirmCloudDeleteResume() {
+    final t = AppL10n.of(context);
+    _showDangerConfirm(
+      title: t.settingsCloudResumeDeleteTitle,
+      body: t.settingsCloudResumeDeleteBody,
+      confirmLabel: t.accountLockedResumeNow,
+      onConfirm: _onDeleteCloudData,
+    );
+  }
+
+  /// Locked tiles route their tap here instead of going dead (onTap: null
+  /// swallowed taps with zero feedback — Jin's "button does not press" bug).
+  Future<void> _showActionLocked(
+    CloudBackupDeletionJournalState cloudDeletionState,
+  ) {
+    return showAccountActionLocked(
+      context,
+      operations: _accountOperations,
+      cloudDeletionState: cloudDeletionState,
+      resumeCloudDeletion: _onDeleteCloudData,
+      retryDeletion: _onDeleteAccount,
     );
   }
 

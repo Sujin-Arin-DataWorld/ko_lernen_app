@@ -1,11 +1,15 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/account/account_failure_diagnostics.dart';
+import '../../services/account/account_failure_reason.dart';
 import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
+import '../../services/account/cloud_backup_deletion.dart';
+import '../../services/cloud_sync.dart';
 import 'tokens.dart';
 
 class AccountNewLinkGuard extends StatefulWidget {
@@ -96,11 +100,19 @@ class AccountPendingOperationPanel extends StatefulWidget {
     required this.operations,
     this.retryLocalDeletion,
     this.onCompleted,
+    this.cloudDeletionState,
+    this.resumeCloudDeletion,
   });
 
   final AccountUiOperations operations;
   final Future<void> Function()? retryLocalDeletion;
   final Future<void> Function()? onCompleted;
+
+  /// When supplied, a `blocked` panel caused by a pending cloud-backup
+  /// deletion journal names that journal and offers to resume it via
+  /// [resumeCloudDeletion] instead of rendering a dead text card.
+  final ValueListenable<CloudBackupDeletionJournalState>? cloudDeletionState;
+  final Future<void> Function()? resumeCloudDeletion;
 
   @override
   State<AccountPendingOperationPanel> createState() =>
@@ -155,70 +167,111 @@ class _AccountPendingOperationPanelState
     return ValueListenableBuilder<AccountUiPendingState>(
       valueListenable: source.pendingState,
       builder: (context, state, _) {
-        if (state == AccountUiPendingState.loading ||
-            state == AccountUiPendingState.none) {
-          return const SizedBox.shrink();
+        final cloudListenable = widget.cloudDeletionState;
+        if (cloudListenable == null) {
+          return _buildPanel(context, source, state, cloudPending: false);
         }
-        final t = AppL10n.of(context);
-        final deletion =
-            state == AccountUiPendingState.deletionRemotePending ||
-            state == AccountUiPendingState.deletionLocalCleanup;
-        final blocked = state == AccountUiPendingState.blocked;
-        return Card(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  deletion
-                      ? t.accountDeletionPendingTitle
-                      : blocked
-                      ? t.accountOperationBlockedTitle
-                      : t.accountOperationResumeTitle,
-                  style: const TextStyle(fontWeight: FontWeight.w800),
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  deletion
-                      ? t.accountDeletionPendingBody
-                      : blocked
-                      ? t.accountOperationBlockedBody
-                      : t.accountOperationResumeBody,
-                ),
-                const SizedBox(height: Spacing.md),
-                if (deletion && widget.retryLocalDeletion != null)
-                  FilledButton(
-                    onPressed: () async {
-                      await widget.retryLocalDeletion!();
-                      await source.refreshPendingState();
-                    },
-                    child: Text(t.btnRetry),
-                  )
-                else if (!blocked)
-                  Wrap(
-                    spacing: Spacing.sm,
-                    children: [
-                      if (state == AccountUiPendingState.replacementCancellable)
-                        TextButton(
-                          onPressed: () => _cancelPersisted(source),
-                          child: Text(t.accountOperationCancel),
-                        ),
-                      FilledButton(
-                        onPressed: () => _resume(
-                          context,
-                          widget.operations,
-                          widget.onCompleted,
-                        ),
-                        child: Text(t.accountOperationResume),
-                      ),
-                    ],
-                  ),
-              ],
-            ),
+        return ValueListenableBuilder<CloudBackupDeletionJournalState>(
+          valueListenable: cloudListenable,
+          builder: (context, cloudState, _) => _buildPanel(
+            context,
+            source,
+            state,
+            cloudPending: cloudState == CloudBackupDeletionJournalState.pending,
           ),
         );
       },
+    );
+  }
+
+  Widget _buildPanel(
+    BuildContext context,
+    AccountUiPendingStateSource source,
+    AccountUiPendingState state, {
+    required bool cloudPending,
+  }) {
+    if (state == AccountUiPendingState.loading ||
+        state == AccountUiPendingState.none) {
+      return const SizedBox.shrink();
+    }
+    final t = AppL10n.of(context);
+    final deletion =
+        state == AccountUiPendingState.deletionRemotePending ||
+        state == AccountUiPendingState.deletionLocalCleanup;
+    final blocked = state == AccountUiPendingState.blocked;
+    final cloudResumable =
+        blocked && cloudPending && widget.resumeCloudDeletion != null;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              deletion
+                  ? t.accountDeletionPendingTitle
+                  : cloudResumable
+                  ? t.accountLockedCloudDeletionTitle
+                  : blocked
+                  ? t.accountOperationBlockedTitle
+                  : t.accountOperationResumeTitle,
+              style: const TextStyle(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              deletion
+                  ? t.accountDeletionPendingBody
+                  : cloudResumable
+                  ? t.accountLockedCloudDeletionBody
+                  : blocked
+                  ? t.accountOperationBlockedBody
+                  : t.accountOperationResumeBody,
+            ),
+            const SizedBox(height: Spacing.md),
+            if (deletion && widget.retryLocalDeletion != null)
+              FilledButton(
+                onPressed: () async {
+                  await widget.retryLocalDeletion!();
+                  await source.refreshPendingState();
+                },
+                child: Text(t.btnRetry),
+              )
+            else if (blocked)
+              // A blocked card must never be a dead end: resume the pending
+              // cloud deletion when that journal is the blocker, otherwise
+              // re-read the durable state so a fixed cause can unlock it.
+              FilledButton(
+                onPressed: () async {
+                  if (cloudResumable) {
+                    await widget.resumeCloudDeletion!();
+                  }
+                  await source.refreshPendingState();
+                },
+                child: Text(
+                  cloudResumable
+                      ? t.accountLockedResumeNow
+                      : t.accountLockedRefresh,
+                ),
+              )
+            else
+              Wrap(
+                spacing: Spacing.sm,
+                children: [
+                  if (state == AccountUiPendingState.replacementCancellable)
+                    TextButton(
+                      onPressed: () => _cancelPersisted(source),
+                      child: Text(t.accountOperationCancel),
+                    ),
+                  FilledButton(
+                    onPressed: () =>
+                        _resume(context, widget.operations, widget.onCompleted),
+                    child: Text(t.accountOperationResume),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -256,6 +309,17 @@ Future<void> runConfirmedAccountLink(
     Navigator.of(context, rootNavigator: true).pop();
     switch (link) {
       case AccountUiLinkCompleted():
+        // Auto-backup the full root document right after a successful link —
+        // the first-link backfill only covers bookshelf + pack progress, so
+        // without this the user's game stats never reach the cloud until a
+        // manual Settings → Backup. Fire-and-forget: the completed link must
+        // not wait on (or fail with) the backup. Runs after the admission
+        // lane released (link() has returned), so it cannot deadlock.
+        unawaited(
+          CloudSync.backup().catchError((Object error) {
+            AccountFailureDiagnostics.log('link.autoBackupFailed', error);
+          }),
+        );
         await onCompleted?.call();
       case AccountUiLinkCancelled():
         // 사용자가 직접 닫았다 — 이 경우에만 조용히 돌아간다.
@@ -361,13 +425,119 @@ Future<void> _showLinkProblem(
   );
 }
 
+/// Explains why a locked account tile cannot act right now and offers the
+/// matching escape instead of swallowing the tap.
+///
+/// Locked tiles keep a non-null onTap wired to this helper so the user always
+/// learns which durable operation is pending and can resume/retry it here:
+/// - pending cloud-backup deletion journal → resume that exact request
+/// - pending account deletion → retry the same deletion
+/// - replacement transition → existing resume/cancel dialog
+/// - anything else (loading/blocked) → protected notice + status refresh
+Future<void> showAccountActionLocked(
+  BuildContext context, {
+  required AccountUiOperations operations,
+  required CloudBackupDeletionJournalState cloudDeletionState,
+  Future<void> Function()? resumeCloudDeletion,
+  Future<void> Function()? retryDeletion,
+}) async {
+  final t = AppL10n.of(context);
+  final source = operations is AccountUiPendingStateSource
+      ? operations as AccountUiPendingStateSource
+      : null;
+  final state = source?.pendingState.value ?? AccountUiPendingState.none;
+
+  if (cloudDeletionState == CloudBackupDeletionJournalState.pending &&
+      resumeCloudDeletion != null) {
+    return _showLockedAction(
+      context,
+      title: t.accountLockedCloudDeletionTitle,
+      body: t.accountLockedCloudDeletionBody,
+      actionLabel: t.accountLockedResumeNow,
+      action: resumeCloudDeletion,
+    );
+  }
+  switch (state) {
+    case AccountUiPendingState.deletionRemotePending:
+    case AccountUiPendingState.deletionLocalCleanup:
+      if (retryDeletion != null) {
+        return _showLockedAction(
+          context,
+          title: t.accountDeletionPendingTitle,
+          body: t.accountDeletionPendingBody,
+          actionLabel: t.btnRetry,
+          action: retryDeletion,
+        );
+      }
+    case AccountUiPendingState.replacementCancellable:
+    case AccountUiPendingState.replacementResumable:
+      return _showResume(
+        context,
+        operations: operations,
+        canCancel: state == AccountUiPendingState.replacementCancellable,
+        onCompleted: null,
+      );
+    case AccountUiPendingState.loading:
+    case AccountUiPendingState.none:
+    case AccountUiPendingState.blocked:
+      break;
+  }
+  return _showLockedAction(
+    context,
+    title: t.accountOperationBlockedTitle,
+    body: '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
+    actionLabel: t.accountLockedRefresh,
+    action: () async {
+      await source?.refreshPendingState();
+    },
+  );
+}
+
+Future<void> _showLockedAction(
+  BuildContext context, {
+  required String title,
+  required String body,
+  required String actionLabel,
+  required Future<void> Function() action,
+}) {
+  final t = AppL10n.of(context);
+  return showDialog<void>(
+    context: context,
+    builder: (dialogContext) => AlertDialog(
+      title: Text(title),
+      content: Text(body),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(dialogContext),
+          child: Text(t.btnClose),
+        ),
+        FilledButton(
+          onPressed: () {
+            Navigator.pop(dialogContext);
+            action();
+          },
+          child: Text(actionLabel),
+        ),
+      ],
+    ),
+  );
+}
+
 Future<void> showSafeAccountFailure(
   BuildContext context, {
   required Future<void> Function() retry,
   bool deletion = false,
   bool showSupport = false,
+  AccountFailureReason? reason,
 }) {
   final t = AppL10n.of(context);
+  final reasonHint = switch (reason) {
+    AccountFailureReason.appCheck => t.accountFailureReasonAppCheck,
+    AccountFailureReason.offline => t.accountFailureReasonOffline,
+    AccountFailureReason.unauthenticated => t.accountFailureReasonAuth,
+    AccountFailureReason.serverBusy => t.accountFailureReasonServer,
+    AccountFailureReason.unknown || null => null,
+  };
   return showDialog<void>(
     context: context,
     builder: (dialogContext) => AlertDialog(
@@ -377,6 +547,7 @@ Future<void> showSafeAccountFailure(
       content: Text(
         [
           deletion ? t.accountDeletionPendingBody : t.accountOperationRetryBody,
+          if (reasonHint != null) reasonHint,
           if (showSupport) t.accountOperationSupportBody,
         ].join('\n\n'),
       ),

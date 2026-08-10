@@ -5395,6 +5395,84 @@ abstract class AppL10n {
   /// **'Der sichere Löschvorgang ist noch nicht abgeschlossen. Versuche denselben Vorgang erneut; deine Anfrage wird nicht doppelt angelegt.'**
   String get accountDeletionPendingBody;
 
+  /// No description provided for @accountLockedCloudDeletionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Löschung wird fortgesetzt'**
+  String get accountLockedCloudDeletionTitle;
+
+  /// No description provided for @accountLockedCloudDeletionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine gespeicherte Cloud-Datenlöschung ist noch nicht abgeschlossen. Bis dahin sind Kontoaktionen gesperrt. Du kannst die Löschung jetzt fortsetzen; sie wird nicht doppelt angelegt.'**
+  String get accountLockedCloudDeletionBody;
+
+  /// No description provided for @accountLockedResumeNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt fortsetzen'**
+  String get accountLockedResumeNow;
+
+  /// No description provided for @accountLockedRefresh.
+  ///
+  /// In de, this message translates to:
+  /// **'Status aktualisieren'**
+  String get accountLockedRefresh;
+
+  /// No description provided for @accountFailureReasonAppCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App-Integritätsprüfung ist fehlgeschlagen. Aktualisiere die App oder versuche es später erneut.'**
+  String get accountFailureReasonAppCheck;
+
+  /// No description provided for @accountFailureReasonOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Internetverbindung. Prüfe dein Netzwerk und versuche es erneut.'**
+  String get accountFailureReasonOffline;
+
+  /// No description provided for @accountFailureReasonAuth.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Anmeldung muss bestätigt werden. Melde dich erneut an und versuche es noch einmal.'**
+  String get accountFailureReasonAuth;
+
+  /// No description provided for @accountFailureReasonServer.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Server ist vorübergehend nicht erreichbar. Versuche es in ein paar Minuten erneut.'**
+  String get accountFailureReasonServer;
+
+  /// No description provided for @settingsCloudResumeDeleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Löschung fortsetzen'**
+  String get settingsCloudResumeDeleteTitle;
+
+  /// No description provided for @settingsCloudResumeDeleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die gespeicherte Löschanfrage wird fortgesetzt. Sie wird nicht doppelt angelegt.'**
+  String get settingsCloudResumeDeleteBody;
+
+  /// No description provided for @settingsCloudLastBackup.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuletzt gesichert: {time}'**
+  String settingsCloudLastBackup(String time);
+
+  /// No description provided for @settingsCloudLastBackupNever.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Sicherung'**
+  String get settingsCloudLastBackupNever;
+
+  /// No description provided for @settingsResetDoneJournalKept.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurückgesetzt. Eine offene Konto-Aufgabe wurde beibehalten und wird automatisch fortgesetzt.'**
+  String get settingsResetDoneJournalKept;
+
   /// No description provided for @gyeAccountTransitionPaused.
   ///
   /// In de, this message translates to:

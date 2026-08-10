@@ -3077,6 +3077,55 @@ class AppL10nDe extends AppL10n {
       'Der sichere Löschvorgang ist noch nicht abgeschlossen. Versuche denselben Vorgang erneut; deine Anfrage wird nicht doppelt angelegt.';
 
   @override
+  String get accountLockedCloudDeletionTitle =>
+      'Cloud-Löschung wird fortgesetzt';
+
+  @override
+  String get accountLockedCloudDeletionBody =>
+      'Eine gespeicherte Cloud-Datenlöschung ist noch nicht abgeschlossen. Bis dahin sind Kontoaktionen gesperrt. Du kannst die Löschung jetzt fortsetzen; sie wird nicht doppelt angelegt.';
+
+  @override
+  String get accountLockedResumeNow => 'Jetzt fortsetzen';
+
+  @override
+  String get accountLockedRefresh => 'Status aktualisieren';
+
+  @override
+  String get accountFailureReasonAppCheck =>
+      'Die App-Integritätsprüfung ist fehlgeschlagen. Aktualisiere die App oder versuche es später erneut.';
+
+  @override
+  String get accountFailureReasonOffline =>
+      'Keine Internetverbindung. Prüfe dein Netzwerk und versuche es erneut.';
+
+  @override
+  String get accountFailureReasonAuth =>
+      'Die Anmeldung muss bestätigt werden. Melde dich erneut an und versuche es noch einmal.';
+
+  @override
+  String get accountFailureReasonServer =>
+      'Der Server ist vorübergehend nicht erreichbar. Versuche es in ein paar Minuten erneut.';
+
+  @override
+  String get settingsCloudResumeDeleteTitle => 'Cloud-Löschung fortsetzen';
+
+  @override
+  String get settingsCloudResumeDeleteBody =>
+      'Die gespeicherte Löschanfrage wird fortgesetzt. Sie wird nicht doppelt angelegt.';
+
+  @override
+  String settingsCloudLastBackup(String time) {
+    return 'Zuletzt gesichert: $time';
+  }
+
+  @override
+  String get settingsCloudLastBackupNever => 'Noch keine Sicherung';
+
+  @override
+  String get settingsResetDoneJournalKept =>
+      'Zurückgesetzt. Eine offene Konto-Aufgabe wurde beibehalten und wird automatisch fortgesetzt.';
+
+  @override
   String get gyeAccountTransitionPaused =>
       'Kontoänderung läuft. Gruppenaktionen sind geschützt pausiert und werden nach Abschluss wieder verfügbar.';
 

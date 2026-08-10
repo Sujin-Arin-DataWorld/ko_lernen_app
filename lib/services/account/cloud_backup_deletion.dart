@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../storage_service.dart';
+import 'account_failure_diagnostics.dart';
+import 'account_failure_reason.dart';
 import 'cloud_write_session.dart';
 import 'first_link_backfill_journal.dart';
 
@@ -77,10 +79,14 @@ class FirebaseCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
         payload: {'requestKey': requestKey},
         callableOptions: HttpsCallableOptions(limitedUseAppCheckToken: true),
       );
-    } on FirebaseFunctionsException {
-      throw const CloudBackupDeletionRemoteException();
-    } catch (_) {
-      throw const CloudBackupDeletionRemoteException();
+    } catch (error) {
+      // The rejection cause was previously discarded here, so a stranded
+      // journal never revealed WHY it could not complete (App Check vs auth
+      // vs network). Keep only the classified code — no raw error text.
+      AccountFailureDiagnostics.log('cloudDelete.remoteRejected', error);
+      throw CloudBackupDeletionRemoteException(
+        reason: classifyAccountFailure(error),
+      );
     }
     if (raw is! Map || raw.length != 1 || raw['state'] is! String) {
       throw const CloudBackupDeletionRemoteException();
@@ -94,7 +100,12 @@ class FirebaseCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
 }
 
 class CloudBackupDeletionRemoteException implements Exception {
-  const CloudBackupDeletionRemoteException();
+  const CloudBackupDeletionRemoteException({
+    this.reason = AccountFailureReason.unknown,
+  });
+
+  /// Coarse, code-derived cause — carries no raw error text.
+  final AccountFailureReason reason;
 }
 
 @immutable
@@ -304,6 +315,11 @@ class CloudBackupDeletionCoordinator {
         CloudBackupDeletionJournalState.loading,
       );
   final ValueNotifier<bool> pending = ValueNotifier<bool>(true);
+
+  /// Why the most recent remote attempt failed, or null after success.
+  /// Code-derived only — safe to translate into a UI hint line.
+  final ValueNotifier<AccountFailureReason?> lastFailureReason =
+      ValueNotifier<AccountFailureReason?>(null);
 
   Future<CloudWriteResult>? _inFlight;
 
@@ -522,10 +538,12 @@ class CloudBackupDeletionCoordinator {
         journal.requestKey,
         expectedUid: journal.session.uid,
       );
+      lastFailureReason.value = null;
     } on CloudBackupDeletionInvocationOwnershipLostException {
       _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.stale;
-    } catch (_) {
+    } catch (error) {
+      lastFailureReason.value = classifyAccountFailure(error);
       _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.blocked;
     }

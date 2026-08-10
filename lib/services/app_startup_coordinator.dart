@@ -64,6 +64,8 @@ class AppStartupCoordinator {
     this.resumeFeedbackOutbox = _noopStartupStep,
     this.resumeFirstDurableLinkBackfill = _noopStartupStep,
     this.resumeCompletedFeedbackActivation = _noopStartupStep,
+    this.resumeCloudBackupDeletion = _noopStartupStep,
+    this.resumeCloudAutoSync = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -82,6 +84,8 @@ class AppStartupCoordinator {
   final StartupStep resumeFeedbackOutbox;
   final StartupStep resumeFirstDurableLinkBackfill;
   final StartupStep resumeCompletedFeedbackActivation;
+  final StartupStep resumeCloudBackupDeletion;
+  final StartupStep resumeCloudAutoSync;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -102,8 +106,15 @@ class AppStartupCoordinator {
       final restoration = await restore(currentUserId()?.trim());
       switch (restoration.kind) {
         case AccountStartupRestorationKind.replacement:
-        case AccountStartupRestorationKind.cloudBackupDeletion:
         case AccountStartupRestorationKind.blocked:
+          return true;
+        case AccountStartupRestorationKind.cloudBackupDeletion:
+          // The persisted cloud-backup deletion owns startup, but its exact
+          // request may safely resume here: the journal's request key is
+          // idempotent server-side and resume never starts a new deletion.
+          if (restoration.session != null) {
+            await resumeCloudBackupDeletion();
+          }
           return true;
         case AccountStartupRestorationKind.localCleanupPending:
           // The server deletion is complete, but destructive local cleanup is
@@ -159,6 +170,9 @@ class AppStartupCoordinator {
     await resumeFirstDurableLinkBackfill();
     await resumeMediaCleanup();
     await resumeBookshelfSync();
+    // Reachable only when every durable account journal was clear, so the
+    // sync cannot race a deletion resume in the admission lane.
+    await resumeCloudAutoSync();
     await initializePremium();
     if (notificationsEnabled()) {
       await enablePush();

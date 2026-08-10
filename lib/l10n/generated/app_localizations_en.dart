@@ -3065,6 +3065,54 @@ class AppL10nEn extends AppL10n {
       'The safe deletion operation is not complete yet. Retry the same operation; your request will not be created twice.';
 
   @override
+  String get accountLockedCloudDeletionTitle => 'Cloud deletion will continue';
+
+  @override
+  String get accountLockedCloudDeletionBody =>
+      'A saved cloud data deletion is not complete yet. Account actions stay locked until it finishes. You can continue the deletion now; it will not be created twice.';
+
+  @override
+  String get accountLockedResumeNow => 'Continue now';
+
+  @override
+  String get accountLockedRefresh => 'Refresh status';
+
+  @override
+  String get accountFailureReasonAppCheck =>
+      'The app integrity check failed. Update the app or try again later.';
+
+  @override
+  String get accountFailureReasonOffline =>
+      'No internet connection. Check your network and try again.';
+
+  @override
+  String get accountFailureReasonAuth =>
+      'Your sign-in needs to be confirmed. Sign in again and retry.';
+
+  @override
+  String get accountFailureReasonServer =>
+      'The server is temporarily unavailable. Try again in a few minutes.';
+
+  @override
+  String get settingsCloudResumeDeleteTitle => 'Continue cloud deletion';
+
+  @override
+  String get settingsCloudResumeDeleteBody =>
+      'The saved deletion request will continue. It will not be created twice.';
+
+  @override
+  String settingsCloudLastBackup(String time) {
+    return 'Last backup: $time';
+  }
+
+  @override
+  String get settingsCloudLastBackupNever => 'No backup yet';
+
+  @override
+  String get settingsResetDoneJournalKept =>
+      'Reset complete. One open account task was kept and will continue automatically.';
+
+  @override
   String get gyeAccountTransitionPaused =>
       'An account change is in progress. Group actions are safely paused and return when it is complete.';
 

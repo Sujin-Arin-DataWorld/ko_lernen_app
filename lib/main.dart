@@ -14,6 +14,7 @@ import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
+import 'services/cloud_auto_sync.dart';
 import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
 import 'services/crop_recovery_service.dart';
@@ -29,6 +30,7 @@ import 'services/push_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'firebase_options.dart';
+import 'services/account/account_failure_diagnostics.dart';
 import 'services/account/firebase_app_check_initializer.dart';
 import 'services/account/account_operation_client.dart';
 import 'services/app_startup_coordinator.dart';
@@ -260,6 +262,12 @@ Future<void> _startCloudServices() async {
     resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
       closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
     ),
+    resumeCloudBackupDeletion: () async {
+      await AuthService.resumePendingCloudBackupDeletion();
+    },
+    resumeCloudAutoSync: () async {
+      await CloudAutoSync.runStartupSync();
+    },
     resumeCompletedFeedbackActivation: () async {
       final finalized =
           await AuthService.finalizePendingAccountDeletionFeedback(
@@ -285,7 +293,8 @@ Future<void> _startCloudServices() async {
   );
   try {
     await coordinator.start();
-  } catch (_) {
+  } catch (error) {
+    AccountFailureDiagnostics.log('startup.cloudSkipped', error);
     debugPrint('Cloud startup skipped.');
   }
 }

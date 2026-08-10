@@ -9,8 +9,10 @@ import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/gye_screen.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/account_nudge.dart';
@@ -95,10 +97,12 @@ void main() {
 
     expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
     expect(find.text('Wechsel abbrechen'), findsOneWidget);
+    // The locked connect button stays tappable (reroutes to resume) but can
+    // never start a new provider link while the replacement is persisted.
     final newLink = tester.widget<SoriButton>(
       find.widgetWithText(SoriButton, 'Mit Google sichern'),
     );
-    expect(newLink.onTap, isNull);
+    expect(newLink.onTap, isNotNull);
     expect(operations.linkCalls, isEmpty);
 
     await tester.tap(find.text('Wechsel abbrechen'));
@@ -360,6 +364,160 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('blocked panel resumes a pending cloud deletion journal', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.blocked;
+    final cloudState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.pending,
+    );
+    addTearDown(cloudState.dispose);
+    var resumeCalls = 0;
+
+    await tester.pumpWidget(
+      _wrap(
+        AccountPendingOperationPanel(
+          operations: operations,
+          cloudDeletionState: cloudState,
+          resumeCloudDeletion: () async {
+            resumeCalls += 1;
+            cloudState.value = CloudBackupDeletionJournalState.clear;
+            operations.pending.value = AccountUiPendingState.none;
+          },
+        ),
+      ),
+    );
+    await tester.pump();
+
+    // The blocked card names the resumable journal and offers its resume —
+    // the old text-only dead end is gone.
+    expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
+    await tester.tap(find.text('Jetzt fortsetzen'));
+    await tester.pump();
+
+    expect(resumeCalls, 1);
+    expect(find.text('Jetzt fortsetzen'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('blocked panel without a cloud journal offers a status refresh', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.blocked;
+
+    await tester.pumpWidget(
+      _wrap(AccountPendingOperationPanel(operations: operations)),
+    );
+    await tester.pump();
+
+    expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+    await tester.tap(find.text('Status aktualisieren'));
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('successful link fires one best-effort root backup', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations();
+    var backupCalls = 0;
+    // A fresh coordinator gives this test its own serial admission lane —
+    // the shared static lane may hold futures stranded by earlier tests'
+    // abandoned fake-async zones (same pattern as the settings tests).
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      backupWithResult: () async {
+        backupCalls += 1;
+        return CloudWriteResult.completed;
+      },
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Mit Google sichern'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.text('Sicher verbinden'));
+    // The backup is fire-and-forget behind the cloud-deletion admission lane;
+    // pump a few frames so its microtask chain completes.
+    for (var i = 0; i < 8; i += 1) {
+      await tester.pump(const Duration(milliseconds: 50));
+    }
+
+    expect(operations.linkCalls, <AccountLinkProvider>[
+      AccountLinkProvider.google,
+    ]);
+    expect(backupCalls, 1);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a failing auto backup never fails the completed link', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations();
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      backupWithResult: () async => throw StateError('backup offline'),
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Mit Google sichern'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.text('Sicher verbinden'));
+    for (var i = 0; i < 8; i += 1) {
+      await tester.pump(const Duration(milliseconds: 50));
+    }
+
+    expect(operations.linkCalls, <AccountLinkProvider>[
+      AccountLinkProvider.google,
+    ]);
+    // No failure dialog — the link completed; the backup failure is logged.
+    expect(find.text('Verbindung nicht abgeschlossen'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
     'mounting the pending panel next to a guard never notifies during build',
     (tester) async {
@@ -409,6 +567,31 @@ Future<AccountUiPendingState> _readsNone() async =>
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
 );
+
+class _ClearCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async =>
+      true;
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => null;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    throw UnimplementedError();
+  }
+}
+
+class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
+  @override
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  }) async {
+    throw UnimplementedError();
+  }
+}
 
 class _FakeAccountUiOperations
     implements AccountUiOperations, AccountUiPendingStateSource {
