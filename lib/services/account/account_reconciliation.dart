@@ -14,6 +14,7 @@ import '../custom_pack_service.dart';
 import '../firestore_progress_service.dart';
 import '../pack_progress_service.dart';
 import '../storage_service.dart';
+import 'account_failure_diagnostics.dart';
 import 'account_transition_journal.dart';
 import 'cloud_read_result.dart';
 import 'cloud_write_session.dart';
@@ -818,6 +819,12 @@ class AccountReconciliationCoordinator {
     required Map<String, PackCatalogEntry> catalog,
   }) async {
     if (!_isCurrent(session) || !_validOperationId(operationId)) {
+      _diag(
+        'guard.blocked',
+        detail:
+            'current=${_isCurrent(session)} '
+            'validOpId=${_validOperationId(operationId)}',
+      );
       return const AccountReconciliationResult(
         AccountReconciliationStatus.blocked,
       );
@@ -834,6 +841,12 @@ class AccountReconciliationCoordinator {
       if (existing != null) {
         if (existing.session != session ||
             existing.reconciliationOperationId != operationId) {
+          _diag(
+            'journal.mismatch',
+            detail:
+                'sessionMatch=${existing.session == session} '
+                'opIdMatch=${existing.reconciliationOperationId == operationId}',
+          );
           return const AccountReconciliationResult(
             AccountReconciliationStatus.blocked,
           );
@@ -858,7 +871,8 @@ class AccountReconciliationCoordinator {
           throw StateError('Reconciliation session is stale.');
         }
       }
-    } catch (_) {
+    } catch (error) {
+      _diag('journal.read.unavailable', error: error);
       return const AccountReconciliationResult(
         AccountReconciliationStatus.unavailable,
       );
@@ -873,18 +887,23 @@ class AccountReconciliationCoordinator {
       late CloudReadResult<AccountReconciliationSnapshot> remoteResult;
       try {
         remoteResult = await readRemote();
-      } catch (_) {
+      } catch (error) {
+        _diag('readRemote.threw', error: error);
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
         );
       }
       if (!_isCurrent(session)) {
+        _diag('readRemote.stale');
         return const AccountReconciliationResult(
           AccountReconciliationStatus.stale,
         );
       }
       final failedRead = _failedReadResult(remoteResult.state);
-      if (failedRead != null) return failedRead;
+      if (failedRead != null) {
+        _diag('readRemote.state', detail: 'state=${remoteResult.state.name}');
+        return failedRead;
+      }
 
       final remote = remoteResult.value ?? AccountReconciliationSnapshot.empty;
       final remoteReadJournal = journal.copyWith(
@@ -903,11 +922,13 @@ class AccountReconciliationCoordinator {
       late AccountReconciliationSnapshot local;
       try {
         local = await loadLocal();
-      } on FormatException {
+      } on FormatException catch (error) {
+        _diag('loadLocal.invalid', error: error);
         return const AccountReconciliationResult(
           AccountReconciliationStatus.invalid,
         );
-      } catch (_) {
+      } catch (error) {
+        _diag('loadLocal.unavailable', error: error);
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
         );
@@ -947,6 +968,10 @@ class AccountReconciliationCoordinator {
                 )
                 .toList()
               ..sort((left, right) => left.id.compareTo(right.id));
+        _diag(
+          'localCustomPack.deleted.blocked',
+          detail: 'count=${conflicts.length}',
+        );
         return AccountReconciliationResult(
           AccountReconciliationStatus.blocked,
           conflicts: conflicts,
@@ -976,6 +1001,10 @@ class AccountReconciliationCoordinator {
         courseMasteryMerger: courseMasteryMerger,
       );
       if (merge.merged == null) {
+        _diag(
+          'merge.blocked',
+          detail: _summarizeConflicts(merge.conflicts),
+        );
         return AccountReconciliationResult(
           AccountReconciliationStatus.blocked,
           conflicts: merge.conflicts,
@@ -1009,7 +1038,8 @@ class AccountReconciliationCoordinator {
             expectedRevision: remoteResult.revision,
             operationId: operationId,
           );
-        } catch (_) {
+        } catch (error) {
+          _diag('writeRemote.threw', error: error);
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
           );
@@ -1045,14 +1075,18 @@ class AccountReconciliationCoordinator {
         try {
           await writeLocal(merged, session: session, sessions: sessions);
         } on LocalCustomPackGenerationConflict {
+          _diag('writeLocal.customPackConflict.retry');
           continue;
         } on LocalReconciliationGenerationConflict {
+          _diag('writeLocal.generationConflict.retry');
           continue;
-        } on LocalReconciliationSessionConflict {
+        } on LocalReconciliationSessionConflict catch (error) {
+          _diag('writeLocal.sessionConflict.stale', error: error);
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
           );
-        } catch (_) {
+        } catch (error) {
+          _diag('writeLocal.threw', error: error);
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
           );
@@ -1091,9 +1125,32 @@ class AccountReconciliationCoordinator {
         snapshot: merged,
       );
     }
+    _diag('cas.exhausted.blocked', detail: 'attempts=$maxCasAttempts');
     return const AccountReconciliationResult(
       AccountReconciliationStatus.blocked,
     );
+  }
+
+  /// 진단 전용 — 조정 러너의 각 조기 반환 지점을 `klAccount:` 로그로 남긴다.
+  /// 반환값(상태)은 절대 바꾸지 않는다. 이게 있기 전까지는 실패한 하위 단계
+  /// (원격 읽기/쓰기 거부, 로컬 파싱 실패, 병합 충돌)가 코디네이터에서 하나의
+  /// 불투명한 `reconciliationPending` 으로 뭉개져 원인 판별이 불가능했다.
+  void _diag(String step, {Object? error, String? detail}) =>
+      AccountFailureDiagnostics.log(
+        'link.reconcile.$step',
+        error,
+        detail: detail,
+      );
+
+  /// 충돌을 **종류(enum)와 개수**로만 요약한다 — 충돌 id 에는 사용자가 지은
+  /// 커스텀 팩 이름 등이 섞일 수 있어 로그에 원문을 남기지 않는다.
+  static String _summarizeConflicts(
+    List<AccountReconciliationConflict> conflicts,
+  ) {
+    if (conflicts.isEmpty) return 'conflicts=none';
+    final kinds = <String>{for (final c in conflicts) c.kind.name}.toList()
+      ..sort();
+    return 'conflicts=${conflicts.length}:${kinds.join('/')}';
   }
 
   bool _isCurrent(CloudWriteSession session) {
