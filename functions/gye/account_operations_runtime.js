@@ -24,10 +24,14 @@ const CALLABLE_NAMES = Object.freeze([
   "completeAppleRevocation",
   "getAccountOperation",
 ]);
+// App Check is advisory on the account callables (2026-08-10): enforced
+// attestation stranded durable deletion/replacement journals forever on
+// devices whose provider was never registered (Play Integrity gap), locking
+// the whole account UI. Verified auth tokens with freshness and uid/provider
+// cross-checks remain the mandatory boundary below.
 const CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
-  enforceAppCheck: true,
-  consumeAppCheckToken: true,
+  enforceAppCheck: false,
 });
 const NORMAL_DELETION_PHASES = Object.freeze([
   "deletionRequested",
@@ -1627,13 +1631,8 @@ function createAccountOperationRuntime({
 
   async function authenticate(request, requiredAccountType = "any") {
     if (!request?.app || typeof request.app.appId !== "string") {
-      throw new BoundaryFailure("failed-precondition", "app-check-required");
-    }
-    if (request.app.alreadyConsumed === true) {
-      throw new BoundaryFailure(
-        "resource-exhausted",
-        "app-check-token-consumed",
-      );
+      // Advisory only — see CALLABLE_OPTIONS. Log for abuse monitoring.
+      console.warn("[accountOperations] request without App Check context");
     }
     const token = authorizationHeader(request);
     if (!token) {
@@ -1683,7 +1682,11 @@ function createAccountOperationRuntime({
     if (anonymous) {
       await repository.consumeAnonymousRequest({
         uid,
-        appId: request.app.appId,
+        // Without App Check context the rate limit still applies per uid
+        // under a fixed bucket instead of failing on a missing appId.
+        appId: typeof request?.app?.appId === "string"
+          ? request.app.appId
+          : "app-check-absent",
       });
     }
     return { decoded, uid };

@@ -284,6 +284,137 @@ void main() {
   );
 
   test(
+    'cloud backup deletion journal resumes its own operation at startup '
+    'while the rest of startup stays fenced',
+    () async {
+      final events = <String>[];
+      const restored = CloudWriteSession(
+        uid: 'uid-live',
+        epoch: 4,
+        mode: CloudWriteMode.cleanupPending,
+      );
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'uid-live',
+        restorePendingAccountState: (_) async {
+          events.add('restore');
+          return const AccountStartupRestoration.cloudBackupDeletion(restored);
+        },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('deletion-resume'),
+        resumeCloudBackupDeletion: () async =>
+            events.add('cloud-delete-resume'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check', 'restore', 'cloud-delete-resume']);
+    },
+  );
+
+  test(
+    'cloud backup deletion resume defaults to a noop for existing wiring',
+    () async {
+      final events = <String>[];
+      const restored = CloudWriteSession(
+        uid: 'uid-live',
+        epoch: 4,
+        mode: CloudWriteMode.cleanupPending,
+      );
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'uid-live',
+        restorePendingAccountState: (_) async {
+          events.add('restore');
+          return const AccountStartupRestoration.cloudBackupDeletion(restored);
+        },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('deletion-resume'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check', 'restore']);
+    },
+  );
+
+  test(
+    'auto cloud sync runs only on the clear path, after bookshelf sync',
+    () async {
+      final events = <String>[];
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth'),
+        currentUserId: () => 'uid-live',
+        restorePendingAccountState: (_) async =>
+            const AccountStartupRestoration.none(),
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('resume'),
+        resumeCloudAutoSync: () async => events.add('auto-sync'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => false,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>[
+        'app-check',
+        'auth',
+        'ready:uid-live',
+        'media',
+        'bookshelf',
+        'auto-sync',
+        'premium',
+      ]);
+    },
+  );
+
+  test('auto cloud sync never runs while a journal fences startup', () async {
+    final events = <String>[];
+    const restored = CloudWriteSession(
+      uid: 'uid-live',
+      epoch: 4,
+      mode: CloudWriteMode.cleanupPending,
+    );
+    final coordinator = AppStartupCoordinator(
+      initializeFirebase: () async => true,
+      initializeAppCheck: () async => events.add('app-check'),
+      ensureSignedIn: () async => events.add('auth'),
+      currentUserId: () => 'uid-live',
+      restorePendingAccountState: (_) async =>
+          const AccountStartupRestoration.cloudBackupDeletion(restored),
+      synchronizeReadySession: (uid) => events.add('ready:$uid'),
+      resumeMediaCleanup: () async => events.add('media'),
+      resumeBookshelfSync: () async => events.add('bookshelf'),
+      resumeAccountOperation: () async => events.add('resume'),
+      resumeCloudBackupDeletion: () async => events.add('cloud-delete-resume'),
+      resumeCloudAutoSync: () async => events.add('auto-sync'),
+      initializePremium: () async => events.add('premium'),
+      enablePush: () async => events.add('push'),
+      notificationsEnabled: () => true,
+    );
+
+    expect(await coordinator.start(), isTrue);
+    expect(events, <String>['app-check', 'cloud-delete-resume']);
+  });
+
+  test(
     'pending remote deletion never runs completed cleanup recovery',
     () async {
       final events = <String>[];

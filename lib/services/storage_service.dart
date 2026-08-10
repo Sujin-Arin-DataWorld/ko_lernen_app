@@ -2416,7 +2416,10 @@ class Storage {
         preferences ??
         (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
     if (store == null) return;
-    await _assertDurableAccountResetAllowed(store);
+    await _assertDurableAccountResetAllowed(
+      store,
+      allowJournalPreservingReset: true,
+    );
     final keys = store.getKeys();
     for (final k in keys) {
       if (k.startsWith('kl_') &&
@@ -2525,6 +2528,7 @@ class Storage {
   static Future<void> _assertDurableAccountResetAllowed(
     PreferenceRemovalStore store, {
     bool allowAccountDeletionCheckpoint = false,
+    bool allowJournalPreservingReset = false,
   }) async {
     try {
       await store.reload();
@@ -2532,6 +2536,17 @@ class Storage {
       // A stale preference cache must fail closed rather than risk deleting a
       // journal created immediately before this reset call.
       throw const CloudBackupDeletionResetBlockedException();
+    }
+    if (allowJournalPreservingReset) {
+      // A journal-preserving wipe never removes durable account journals, so
+      // deletion-type journals may keep resuming after the local reset. The
+      // one exception is an active replacement transition: mid-merge the
+      // local data IS the reconciliation source, and wiping it could upload
+      // emptied state into the target account.
+      if (store.containsKey(AccountTransitionJournal.storageKey)) {
+        throw const CloudBackupDeletionResetBlockedException();
+      }
+      return;
     }
     final hasBlockingJournal =
         store.containsKey(AccountTransitionJournal.storageKey) ||

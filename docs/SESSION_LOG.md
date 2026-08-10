@@ -7,6 +7,53 @@
 
 ---
 
+### 2026-08-10 (Claude) — 구글 동기화 + 계정/데이터 초기화 100% 작동 수리 — 미커밋 (Jin 요청 시 커밋)
+
+**Why.** Jin: "구글동기화, 계정 및 데이터 전체 초기화가 아직도 반영 안 됨. 데이터 삭제 버튼이 눌리지도 않아."
+근본 원인은 **멈춘 삭제 journal 하나**: 2026-08-03 함수 미배포 시점의 실패한 삭제 요청이 SharedPreferences journal로
+영구 잔존 → `AccountUiPendingState.blocked` → 설정·프로필의 **모든 계정 타일 `onTap: null`** (구글 연결 버튼 포함),
+blocked 패널은 버튼 없는 텍스트, cloud-delete 타일의 재개는 도달 불가능한 데드코드, cloud-backup-deletion journal은
+시작 시 재개 배선 자체가 없음. 이후 재시도도 App Check 강제(`enforceAppCheck:true`)에 계속 거부되어 영구 잠금.
+그리고 "구글 동기화"는 애초에 수동 전용(링크 후 bookshelf+pack backfill만, 루트 백업은 설정→백업 수동 탭)이었다.
+
+**What (Jin 확정: 완전 자동 동기화 + App Check 해제 + 디버그 빌드 검증).**
+- **P0 시작 시 자동 재개**: `AppStartupCoordinator.resumeCloudBackupDeletion` step 신설(기본 noop) →
+  `AuthService.resumePendingCloudBackupDeletion()`(= `run(canStart: () async => false)` — **journal 없으면 새 삭제를
+  절대 시작 못 하는 resume-only**). main.dart 배선 + 시작 실패 무음 `catch (_)`에 진단 로그 추가.
+- **P1 cloud-delete 재개 도달 가능**: journal `pending`이면 guard 무관하게 탭 가능, 재개 전용 확인 문구
+  (`settingsCloudResumeDeleteTitle/Body`) 분리.
+- **P2 죽은 버튼 금지**: 신규 `showAccountActionLocked()` — 잠긴 타일 탭 시 상태별(클라우드 journal 재개 /
+  삭제 재시도 / replacement 재개 / 일반 보호+새로고침) 설명·액션 다이얼로그. 설정 7타일 + 프로필 카드 전부
+  `onTap` 항상 non-null. `AccountPendingOperationPanel` blocked 상태에 재개/새로고침 버튼 추가
+  (`cloudDeletionState`·`resumeCloudDeletion` 옵션 파라미터).
+- **P3 로컬 초기화 항상 작동**: `Storage.resetAll`이 journal-보존 wipe로 완화(`allowJournalPreservingReset` —
+  wipe는 원래 journal 키 4종 제외였음). **replacement transition journal만 계속 차단**(병합 중 로컬이
+  reconciliation 소스라 진짜 위험). `resetAllStrict` 불변. 초기화 후 journal 잔존 시 안내 스낵바.
+- **P4 실패 이유 노출**: 신규 `account_failure_reason.dart` — `classifyAccountFailure()`(코드 필드만, 원문 미노출)
+  → `showSafeAccountFailure(reason:)` 힌트 줄(App Check/오프라인/인증/서버). `CloudBackupDeletionRemoteException.reason`,
+  코디네이터 `lastFailureReason`, gateway 거부 진단 로그(`cloudDelete.remoteRejected`).
+- **P5 구글 동기화 완전 자동**: ① 링크 성공 → 전체 `CloudSync.backup()` fire-and-forget(링크 UX 비차단, 실패 로그)
+  ② 신규 `cloud_auto_sync.dart` — 앱 시작 시(모든 journal clear 경로에서만, admission-lane 데드락 안전 지점)
+  linked 사용자 한정 복원-병합→백업, **완료된 백업만 하루 1회 스로틀 소모**(`kl_last_auto_sync_day_v1`)
+  ③ 설정 백업 타일에 마지막 백업 시각 표시.
+- **P6 App Check advisory 화 + 배포 완료**: `cloud_backup_deletion_runtime.js`·`account_operations_runtime.js`
+  `enforceAppCheck:false`, boundary 검사는 경고 로그로(auth 토큰 검증·freshness·uid cross-match·익명 rate limit 불변,
+  App Check 부재 시 rate-limit 키는 고정 버킷 폴백). **europe-west3 callable 10종 재배포 성공**
+  (deleteCloudBackup + 계정 작업 9종). gye_dedication·tester_feedback은 강제 유지(범위 밖).
+- l10n 신규 13키(DE/EN) · 기존 위젯 테스트 10건을 새 계약(잠금=설명 다이얼로그·연산 미실행)으로 재작성 +
+  신규 테스트 15+건(startup resume·auto-sync·분류기·blocked 패널·링크 후 백업·fence).
+
+**Verification.** `flutter analyze --fatal-infos` **0** · targeted 스위트 전부 green(coordinator 13·auto-sync 5·
+분류기 5·fence 16·settings/account_transition/profile 위젯 42) · 전체 `flutter test` **2,711 통과/5 skip/10 실패** —
+잔여 10건은 **stash 후 클린 HEAD에서도 동일 실패**(goldens 9 = Linux CI 기준선 vs Windows 로컬 드리프트,
+content_feedback 1 = EN 문구 드리프트)로 이 변경과 무관. `functions/gye` `node --test`(두 runtime 스위트) green;
+전체 node 스위트의 45실패는 전부 `firestore.rules.test.js` = **에뮬레이터 부재**(기존).
+⚠️ **후속**: ① settings 골든 3장은 백업 타일 subtitle 추가로 Linux CI에서 재생성 필요 ② Jin 실기기(디버그):
+설정 진입→타일 반응·"지금 재개"→journal 해소·전체 초기화 완료·재시작 자동 재개·구글 연결→자동 백업→
+"마지막 백업" 표시. Play Integrity 콘솔 등록은 이제 선택(권장) 사항.
+
+**Git.** 미커밋 (Jin 명시 요청 시 커밋). 변경: lib 8파일 + 신규 2, test 5파일 + 신규 2, functions 4, arb 2+생성 3.
+
 ### 2026-08-10 — DE/EN humanizer pass: UI and learner-facing culture copy
 
 **Why.** Hangul Sori's German and English copy included translation-like phrasing,

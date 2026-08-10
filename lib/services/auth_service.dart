@@ -12,6 +12,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import 'account/account_failure_reason.dart';
 import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
 import 'account/account_transition_coordinator.dart';
@@ -2072,6 +2073,11 @@ class AuthService {
   static ValueListenable<bool> get cloudBackupDeletionPending =>
       _cloudBackupDeletionCoordinator.pending;
 
+  /// Why the last remote cloud-deletion attempt failed (code-derived only).
+  static ValueListenable<AccountFailureReason?>
+  get cloudBackupDeletionLastFailureReason =>
+      _cloudBackupDeletionCoordinator.lastFailureReason;
+
   static Future<CloudBackupDeletionJournalState>
   refreshCloudBackupDeletionJournalState() =>
       _cloudBackupDeletionCoordinator.refreshJournalState();
@@ -2225,6 +2231,12 @@ class AuthService {
           allowReplacementTransitionJournal: false,
         ),
       );
+
+  /// Resumes a persisted cloud-backup deletion journal without ever being
+  /// able to start a new deletion (canStart fails closed when no journal
+  /// exists). Safe as an automatic startup step.
+  static Future<CloudWriteResult> resumePendingCloudBackupDeletion() =>
+      _cloudBackupDeletionCoordinator.run(canStart: () async => false);
 
   /// Requests server-owned account deletion and polls its authoritative state.
   ///

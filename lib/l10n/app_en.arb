@@ -1471,6 +1471,26 @@
   "accountOperationSupportBody": "If the operation stays blocked, contact support. Never share sign-in codes or recovery keys.",
   "accountDeletionPendingTitle": "Deletion will continue",
   "accountDeletionPendingBody": "The safe deletion operation is not complete yet. Retry the same operation; your request will not be created twice.",
+  "accountLockedCloudDeletionTitle": "Cloud deletion will continue",
+  "accountLockedCloudDeletionBody": "A saved cloud data deletion is not complete yet. Account actions stay locked until it finishes. You can continue the deletion now; it will not be created twice.",
+  "accountLockedResumeNow": "Continue now",
+  "accountLockedRefresh": "Refresh status",
+  "accountFailureReasonAppCheck": "The app integrity check failed. Update the app or try again later.",
+  "accountFailureReasonOffline": "No internet connection. Check your network and try again.",
+  "accountFailureReasonAuth": "Your sign-in needs to be confirmed. Sign in again and retry.",
+  "accountFailureReasonServer": "The server is temporarily unavailable. Try again in a few minutes.",
+  "settingsCloudResumeDeleteTitle": "Continue cloud deletion",
+  "settingsCloudResumeDeleteBody": "The saved deletion request will continue. It will not be created twice.",
+  "settingsCloudLastBackup": "Last backup: {time}",
+  "@settingsCloudLastBackup": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsCloudLastBackupNever": "No backup yet",
+  "settingsResetDoneJournalKept": "Reset complete. One open account task was kept and will continue automatically.",
   "gyeAccountTransitionPaused": "An account change is in progress. Group actions are safely paused and return when it is complete.",
   "authAppleSignIn": "Sign in with Apple",
   "authProviderGoogle": "Google",

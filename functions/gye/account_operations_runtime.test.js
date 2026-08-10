@@ -545,10 +545,12 @@ test("registers every protected callable name with the exact v2 options", () => 
   assert.deepEqual(Object.keys(callables), CALLABLE_NAMES);
   assert.equal(registrations.length, CALLABLE_NAMES.length);
   for (const [index, registration] of registrations.entries()) {
+    // App Check is advisory on the account callables (2026-08-10): a rejected
+    // attestation used to strand deletion journals forever on devices whose
+    // provider was not registered. Auth-token verification stays mandatory.
     const expected = {
       region: "europe-west3",
-      enforceAppCheck: true,
-      consumeAppCheckToken: true,
+      enforceAppCheck: false,
     };
     if (CALLABLE_NAMES[index] === "completeAppleRevocation") {
       expected.secrets = appleSecrets;
@@ -570,24 +572,22 @@ test("rejects every callable without an Authorization-header bearer token", asyn
   }
 });
 
-test("rejects every callable when App Check context is missing or already consumed", async () => {
+test("missing or consumed App Check context never rejects at the boundary", async () => {
   const { handlers } = createHarness();
 
   for (const name of CALLABLE_NAMES) {
-    await rejectsWithSafeCode(
-      handlers[name](callableRequest("anonymous", {}, { app: false })),
-      "failed-precondition",
-      "app-check-required",
-    );
-    await rejectsWithSafeCode(
-      handlers[name](callableRequest(
-        "anonymous",
-        {},
-        { alreadyConsumed: true },
-      )),
-      "resource-exhausted",
-      "app-check-token-consumed",
-    );
+    for (const options of [{ app: false }, { alreadyConsumed: true }]) {
+      let caught;
+      try {
+        await handlers[name](callableRequest("anonymous", {}, options));
+      } catch (error) {
+        caught = error;
+      }
+      // Whatever fails downstream (payload validation etc.), the App Check
+      // boundary itself is advisory-only and must not be the rejection.
+      assert.notEqual(caught?.details?.code, "app-check-required", name);
+      assert.notEqual(caught?.details?.code, "app-check-token-consumed", name);
+    }
   }
 });
 

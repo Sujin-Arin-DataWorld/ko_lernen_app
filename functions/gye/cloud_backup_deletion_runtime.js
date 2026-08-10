@@ -24,10 +24,15 @@ const BACKUP_FIELDS = Object.freeze([
   "course_mastery_json",
   "updated_at",
 ]);
+// App Check is advisory here (2026-08-10): enforced attestation stranded
+// durable deletion journals forever on devices whose provider was never
+// registered (Play Integrity gap), locking the whole account UI. The
+// verified, revocation-checked durable auth token below remains mandatory —
+// and Firestore rules already allow owner deletes without App Check, so
+// enforcement added no real protection to this operation.
 const CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
-  enforceAppCheck: true,
-  consumeAppCheckToken: true,
+  enforceAppCheck: false,
 });
 const REQUEST_KEY_PATTERN = /^[A-Za-z0-9_-]{43,128}$/;
 const DIGEST_PATTERN = /^[a-f0-9]{64}$/;
@@ -80,16 +85,8 @@ function signInProvider(token) {
 
 async function assertRequest(request, auth) {
   if (!request?.app || typeof request.app.appId !== "string") {
-    throw new BoundaryFailure(
-      "failed-precondition",
-      "app-check-required",
-    );
-  }
-  if (request.app.alreadyConsumed === true) {
-    throw new BoundaryFailure(
-      "resource-exhausted",
-      "app-check-token-consumed",
-    );
+    // Advisory only — see CALLABLE_OPTIONS. Log for abuse monitoring.
+    console.warn("[deleteCloudBackup] request without App Check context");
   }
   const uid = request?.auth?.uid;
   if (!validUid(uid)) {

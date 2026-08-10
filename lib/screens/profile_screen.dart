@@ -14,6 +14,7 @@ import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
+import '../services/account/cloud_write_session.dart';
 import '../services/storage_service.dart';
 import '../data/learner_motivation.dart';
 import '../widgets/sori/motivation_sheet.dart';
@@ -42,12 +43,14 @@ class ProfileScreen extends StatefulWidget {
     this.account,
     this.accountOperations,
     this.cloudDataDeletionJournalState,
+    this.cloudDataDeletion,
   });
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
   final ValueListenable<CloudBackupDeletionJournalState>?
   cloudDataDeletionJournalState;
+  final Future<CloudWriteResult> Function()? cloudDataDeletion;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -122,6 +125,25 @@ class _ProfileScreenState extends State<ProfileScreen>
     if (mounted) {
       setState(() {});
     }
+  }
+
+  Future<void> _resumeCloudDeletion() async {
+    await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  /// Locked account cards route taps here instead of rendering dead buttons.
+  Future<void> _showActionLocked(
+    CloudBackupDeletionJournalState cloudDeletionState,
+  ) {
+    return showAccountActionLocked(
+      context,
+      operations: _accountOperations,
+      cloudDeletionState: cloudDeletionState,
+      resumeCloudDeletion: _resumeCloudDeletion,
+    );
   }
 
   Future<void> _changeMotivation() async {
@@ -204,6 +226,8 @@ class _ProfileScreenState extends State<ProfileScreen>
               // ── Konto-Status ──
               AccountPendingOperationPanel(
                 operations: _accountOperations,
+                cloudDeletionState: _cloudDataDeletionJournalState,
+                resumeCloudDeletion: _resumeCloudDeletion,
                 onCompleted: () async {
                   if (mounted) setState(() {});
                 },
@@ -225,7 +249,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                                             CloudBackupDeletionJournalState
                                                 .clear
                                     ? _signOut
-                                    : null,
+                                    : () =>
+                                          _showActionLocked(cloudDeletionState),
                               )
                             : _GuestCard(
                                 busy: _busy,
@@ -237,18 +262,20 @@ class _ProfileScreenState extends State<ProfileScreen>
                                     ? () => _connectWith(
                                         AccountLinkProvider.google,
                                       )
-                                    : null,
+                                    : () =>
+                                          _showActionLocked(cloudDeletionState),
                                 onConnectApple:
-                                    linkAvailable &&
-                                        _accountOperations
-                                            .appleSignInAvailable &&
-                                        cloudDeletionState ==
-                                            CloudBackupDeletionJournalState
-                                                .clear
+                                    !_accountOperations.appleSignInAvailable
+                                    ? null
+                                    : linkAvailable &&
+                                          cloudDeletionState ==
+                                              CloudBackupDeletionJournalState
+                                                  .clear
                                     ? () => _connectWith(
                                         AccountLinkProvider.apple,
                                       )
-                                    : null,
+                                    : () =>
+                                          _showActionLocked(cloudDeletionState),
                               ),
                       ),
                 ),

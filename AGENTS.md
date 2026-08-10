@@ -219,6 +219,24 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 구글 동기화 + 계정/데이터 초기화 100% 작동 수리 (2026-08-10)
+
+- [x] **근본 원인 = 멈춘 삭제 journal**: 2026-08-03 함수 미배포기 실패 삭제가 journal로 영구 잔존 →
+  `blocked` → 설정·프로필 **모든 계정 타일 `onTap: null`**(구글 연결 포함) + blocked 패널 무버튼 +
+  cloud-delete 재개 도달불가 + 시작 시 재개 미배선 + App Check 강제 거부로 재시도 영구 실패.
+- [x] 수리 6종: ① startup 자동 재개(resume-only `canStart:false`) ② cloud-delete 타일 재개 도달 가능
+  ③ 잠긴 타일 전부 `showAccountActionLocked` 설명·재개 다이얼로그(죽은 버튼 0) + blocked 패널 액션
+  ④ `Storage.resetAll` journal-보존 wipe(replacement journal만 차단 유지) ⑤ 실패 이유 분류·노출
+  (`account_failure_reason.dart`) ⑥ **구글 동기화 완전 자동**(링크 후 전체 백업 + 시작 시 하루 1회
+  복원-병합→백업 `cloud_auto_sync.dart` + 마지막 백업 시각 표시).
+- [x] **계정 callable 10종 App Check advisory 화 + europe-west3 재배포 완료** (Jin 승인, auth 검증 불변).
+  Play Integrity 콘솔 등록은 이제 선택(방어층 복원용 권장) 사항.
+- [x] 검증: analyze 0 · 전체 `flutter test` 2,711 통과(잔여 10 = stash 검증된 기존 환경성: Linux 골든 9 +
+  content_feedback 1) · functions runtime node --test green. 미커밋.
+- [ ] Jin 실기기(디버그 빌드): 설정 타일 반응 → "지금 재개" → journal 해소 → 전체 초기화 → 재시작 자동 재개 →
+  구글 연결 → 자동 백업·"마지막 백업" 표시 → (2기기) 시작 시 자동 복원-병합.
+- [ ] Linux CI에서 settings 골든 3장 재생성(백업 타일 subtitle 추가로 의도된 변화).
+
 ### iOS `.ipa` 빌드 자동화 (2026-08-10)
 
 - [x] **`scripts/build_ios_ipa.sh`** — macOS 전용 원커맨드 `.ipa` 빌더 (`a506813`).

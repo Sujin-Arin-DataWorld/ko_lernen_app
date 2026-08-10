@@ -941,24 +941,6 @@ test("callable derives UID from auth and rejects extra or malformed data", async
     "authentication-required",
   );
   await rejectsWithSafeCode(
-    handlers.deleteCloudBackup(
-      callableRequest("durable", { requestKey: "E".repeat(43) }, {
-        app: false,
-      }),
-    ),
-    "failed-precondition",
-    "app-check-required",
-  );
-  await rejectsWithSafeCode(
-    handlers.deleteCloudBackup(
-      callableRequest("durable", { requestKey: "E".repeat(43) }, {
-        alreadyConsumed: true,
-      }),
-    ),
-    "resource-exhausted",
-    "app-check-token-consumed",
-  );
-  await rejectsWithSafeCode(
     handlers.deleteCloudBackup(callableRequest("durable", {
       requestKey: "E".repeat(43),
       uid: "victim",
@@ -975,6 +957,25 @@ test("callable derives UID from auth and rejects extra or malformed data", async
   );
 
   assert.deepEqual(seenHashInputs, []);
+});
+
+test("callable accepts requests without App Check when auth is valid", async () => {
+  // Advisory-only App Check (2026-08-10): a rejected attestation used to
+  // strand the durable deletion journal forever. The verified durable auth
+  // token remains the mandatory boundary.
+  const { handlers } = createHarness();
+
+  const withoutApp = await handlers.deleteCloudBackup(
+    callableRequest("durable", { requestKey: "F".repeat(43) }, { app: false }),
+  );
+  assert.equal(withoutApp.state, "completed");
+
+  const consumed = await handlers.deleteCloudBackup(
+    callableRequest("durable", { requestKey: "G".repeat(43) }, {
+      alreadyConsumed: true,
+    }),
+  );
+  assert.equal(consumed.state, "completed");
 });
 
 test("callable rejects an anonymous Firebase token without hashing the request", async () => {

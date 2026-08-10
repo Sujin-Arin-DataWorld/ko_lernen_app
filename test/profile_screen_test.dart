@@ -168,10 +168,19 @@ void main() {
     );
     await tester.pump();
 
+    // The locked button stays tappable and explains the pending cloud
+    // deletion — never a silent dead tap, and never an actual sign-out.
     final signOut = tester.widget<SoriButton>(
       find.widgetWithText(SoriButton, 'Abmelden'),
     );
-    expect(signOut.onTap, isNull);
+    expect(signOut.onTap, isNotNull);
+    await tester.tap(find.widgetWithText(SoriButton, 'Abmelden'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
+    await tester.tap(find.text('Schließen'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
   });
 
   testWidgets(
@@ -208,17 +217,23 @@ void main() {
       var signOut = tester.widget<SoriButton>(
         find.widgetWithText(SoriButton, 'Abmelden'),
       );
-      expect(signOut.onTap, isNull);
+      expect(signOut.onTap, isNotNull);
 
       releasePersistedRead.complete(
         AccountUiPendingState.replacementCancellable,
       );
       await tester.pump();
 
+      // Still locked — but the tap now reroutes to the replacement resume
+      // dialog instead of silently doing nothing (and never signs out).
       signOut = tester.widget<SoriButton>(
         find.widgetWithText(SoriButton, 'Abmelden'),
       );
-      expect(signOut.onTap, isNull);
+      expect(signOut.onTap, isNotNull);
+      await tester.tap(find.widgetWithText(SoriButton, 'Abmelden'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.byType(AlertDialog), findsOneWidget);
     },
   );
 
@@ -249,10 +264,20 @@ void main() {
     );
     await tester.pump();
 
+    // Loading state: the button responds with the generic protection notice
+    // and never starts provider OAuth.
     final connect = tester.widget<SoriButton>(
       find.widgetWithText(SoriButton, 'Mit Google sichern'),
     );
-    expect(connect.onTap, isNull);
+    expect(connect.onTap, isNotNull);
+    await tester.tap(find.widgetWithText(SoriButton, 'Mit Google sichern'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+    expect(find.text('Konto sicher verbinden?'), findsNothing);
+    await tester.tap(find.text('Schließen'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
   });
 
   testWidgets('ConsentScreen (Tier 0) baut fehlerfrei', (tester) async {

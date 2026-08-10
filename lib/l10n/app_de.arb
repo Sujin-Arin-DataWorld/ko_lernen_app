@@ -1537,6 +1537,26 @@
   "accountOperationSupportBody": "Wenn der Vorgang weiter blockiert bleibt, wende dich an den Support. Teile keine Anmeldecodes oder Wiederherstellungsschlüssel.",
   "accountDeletionPendingTitle": "Löschung wird fortgesetzt",
   "accountDeletionPendingBody": "Der sichere Löschvorgang ist noch nicht abgeschlossen. Versuche denselben Vorgang erneut; deine Anfrage wird nicht doppelt angelegt.",
+  "accountLockedCloudDeletionTitle": "Cloud-Löschung wird fortgesetzt",
+  "accountLockedCloudDeletionBody": "Eine gespeicherte Cloud-Datenlöschung ist noch nicht abgeschlossen. Bis dahin sind Kontoaktionen gesperrt. Du kannst die Löschung jetzt fortsetzen; sie wird nicht doppelt angelegt.",
+  "accountLockedResumeNow": "Jetzt fortsetzen",
+  "accountLockedRefresh": "Status aktualisieren",
+  "accountFailureReasonAppCheck": "Die App-Integritätsprüfung ist fehlgeschlagen. Aktualisiere die App oder versuche es später erneut.",
+  "accountFailureReasonOffline": "Keine Internetverbindung. Prüfe dein Netzwerk und versuche es erneut.",
+  "accountFailureReasonAuth": "Die Anmeldung muss bestätigt werden. Melde dich erneut an und versuche es noch einmal.",
+  "accountFailureReasonServer": "Der Server ist vorübergehend nicht erreichbar. Versuche es in ein paar Minuten erneut.",
+  "settingsCloudResumeDeleteTitle": "Cloud-Löschung fortsetzen",
+  "settingsCloudResumeDeleteBody": "Die gespeicherte Löschanfrage wird fortgesetzt. Sie wird nicht doppelt angelegt.",
+  "settingsCloudLastBackup": "Zuletzt gesichert: {time}",
+  "@settingsCloudLastBackup": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsCloudLastBackupNever": "Noch keine Sicherung",
+  "settingsResetDoneJournalKept": "Zurückgesetzt. Eine offene Konto-Aufgabe wurde beibehalten und wird automatisch fortgesetzt.",
   "gyeAccountTransitionPaused": "Kontoänderung läuft. Gruppenaktionen sind geschützt pausiert und werden nach Abschluss wieder verfügbar.",
   "authAppleSignIn": "Mit Apple anmelden",
   "authProviderGoogle": "Google",

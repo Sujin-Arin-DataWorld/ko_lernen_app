@@ -116,43 +116,52 @@ void main() {
     expect(operations.linkCalls, 1);
   });
 
-  testWidgets('settings keeps pending resume visible and disables new link', (
-    tester,
-  ) async {
-    tester.view.physicalSize = const Size(400, 1000);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    final operations = _SettingsAccountOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable;
+  testWidgets(
+    'settings keeps pending resume visible and reroutes new link to resume',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final operations = _SettingsAccountOperations()
+        ..pending.value = AccountUiPendingState.replacementCancellable;
 
-    await tester.pumpWidget(
-      _wrap(
-        SettingsScreen(
-          account: _guest,
-          accountOperations: operations,
-          cloudDataDeletionJournalState: cloudJournalState,
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: operations,
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
         ),
-      ),
-    );
-    await tester.pump();
-    await _ensureSettingsActionVisible(
-      tester,
-      find.text('Kontowechsel fortsetzen'),
-    );
+      );
+      await tester.pump();
+      await _ensureSettingsActionVisible(
+        tester,
+        find.text('Kontowechsel fortsetzen'),
+      );
 
-    expect(find.text('Fortsetzen'), findsOneWidget);
-    expect(find.text('Wechsel abbrechen'), findsOneWidget);
-    await _ensureSettingsActionVisible(tester, find.text('Mit Google sichern'));
-    final linkTile = tester.widget<ListTile>(
-      find.ancestor(
-        of: find.text('Mit Google sichern'),
-        matching: find.byType(ListTile),
-      ),
-    );
-    expect(linkTile.onTap, isNull);
-    expect(operations.linkCalls, 0);
-  });
+      expect(find.text('Fortsetzen'), findsOneWidget);
+      expect(find.text('Wechsel abbrechen'), findsOneWidget);
+      await _ensureSettingsActionVisible(
+        tester,
+        find.text('Mit Google sichern'),
+      );
+      final linkTile = tester.widget<ListTile>(
+        find.ancestor(
+          of: find.text('Mit Google sichern'),
+          matching: find.byType(ListTile),
+        ),
+      );
+      // The locked tile stays tappable but explains the pending replacement
+      // instead of starting provider OAuth (no dead buttons).
+      expect(linkTile.onTap, isNotNull);
+      await tester.tap(find.text('Mit Google sichern'));
+      await tester.pumpAndSettle();
+      expect(find.byType(AlertDialog), findsOneWidget);
+      expect(operations.linkCalls, 0);
+    },
+  );
 
   testWidgets(
     'pending remote deletion offers retry but keeps reset actions locked',
@@ -178,46 +187,80 @@ void main() {
       final retry = find.text('Erneut versuchen');
       await _ensureSettingsActionVisible(tester, retry);
       expect(retry, findsOneWidget);
-      await _expectSettingsTileDisabled(tester, 'Alle Daten zurücksetzen');
-      await _expectSettingsTileDisabled(tester, 'Konto und alle Daten löschen');
+      // The local reset stays available: its wipe preserves the deletion
+      // journal, so a stuck remote deletion can no longer hold it hostage.
+      final reset = find.text('Alle Daten zurücksetzen');
+      await _ensureSettingsActionVisible(tester, reset);
+      expect(
+        tester
+            .widget<ListTile>(
+              find.ancestor(of: reset, matching: find.byType(ListTile)),
+            )
+            .onTap,
+        isNotNull,
+      );
+      // Account delete responds with the deletion-pending explanation and its
+      // retry — never a new-deletion confirm while the journal is unresolved.
+      final delete = find.text('Konto und alle Daten löschen');
+      await _ensureSettingsActionVisible(tester, delete);
+      await tester.tap(delete);
+      await tester.pumpAndSettle();
+      expect(find.byType(AlertDialog), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(AlertDialog),
+          matching: find.text('Löschung wird fortgesetzt'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Löschen'), findsNothing);
+      await tester.tap(find.text('Schließen'));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     },
   );
 
-  testWidgets('account transition pending locks durable backup and restore', (
-    tester,
-  ) async {
-    tester.view.physicalSize = const Size(400, 1000);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    final operations = _SettingsAccountOperations()
-      ..pending.value = AccountUiPendingState.replacementCancellable;
+  testWidgets(
+    'account transition pending reroutes durable backup and restore to resume',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final operations = _SettingsAccountOperations()
+        ..pending.value = AccountUiPendingState.replacementCancellable;
 
-    await tester.pumpWidget(
-      _wrap(
-        SettingsScreen(
-          account: const AuthAccountSnapshot(
-            providers: AuthProviderState(
-              isGoogleLinked: true,
-              isAppleLinked: false,
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
             ),
+            accountOperations: operations,
+            cloudDataDeletionJournalState: cloudJournalState,
           ),
-          accountOperations: operations,
-          cloudDataDeletionJournalState: cloudJournalState,
         ),
-      ),
-    );
-    await tester.pump();
-
-    for (final label in ['Jetzt sichern', 'Von Cloud wiederherstellen']) {
-      await _ensureSettingsActionVisible(tester, find.text(label));
-      final tile = tester.widget<ListTile>(
-        find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
       );
-      expect(tile.onTap, isNull, reason: label);
-    }
-  });
+      await tester.pump();
+
+      for (final label in ['Jetzt sichern', 'Von Cloud wiederherstellen']) {
+        await _ensureSettingsActionVisible(tester, find.text(label));
+        final tile = tester.widget<ListTile>(
+          find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+        );
+        expect(tile.onTap, isNotNull, reason: label);
+      }
+      // A locked tap opens the resume dialog; the cloud operation never runs.
+      // (Restore is the last tile ensured visible above, so tap that one.)
+      await tester.tap(find.text('Von Cloud wiederherstellen'));
+      await tester.pumpAndSettle();
+      expect(find.byType(AlertDialog), findsOneWidget);
+      expect(find.text('Backup erfolgreich ✓'), findsNothing);
+    },
+  );
 
   testWidgets(
     'delayed persisted journal keeps every durable action locked on the first frame',
@@ -249,28 +292,47 @@ void main() {
       );
       await refreshStarted.future;
 
+      // Every account tile responds from the first frame, but while the
+      // persisted journal is still being read a tap only explains the lock —
+      // no durable operation may start.
       for (final label in <String>[
         'Jetzt sichern',
         'Von Cloud wiederherstellen',
         'Abmelden',
         'Cloud-Daten löschen',
-        'Alle Daten zurücksetzen',
         'Konto und alle Daten löschen',
       ]) {
-        await _expectSettingsTileDisabled(tester, label);
+        await _ensureSettingsActionVisible(tester, find.text(label));
+        final tile = tester.widget<ListTile>(
+          find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+        );
+        expect(tile.onTap, isNotNull, reason: label);
       }
+      await _ensureSettingsActionVisible(
+        tester,
+        find.text('Jetzt sichern'),
+        scrollDelta: -200,
+      );
+      await tester.tap(find.text('Jetzt sichern'));
+      await tester.pumpAndSettle();
+      expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+      expect(find.text('Backup erfolgreich ✓'), findsNothing);
+      await tester.tap(find.text('Schließen'));
+      await tester.pumpAndSettle();
 
       releasePersistedRead.complete(
         AccountUiPendingState.replacementCancellable,
       );
       await tester.pump();
 
-      for (final label in <String>[
-        'Alle Daten zurücksetzen',
-        'Konto und alle Daten löschen',
-      ]) {
-        await _expectSettingsTileDisabled(tester, label);
-      }
+      // Once the journal is known, the account-delete tap reroutes to the
+      // replacement resume dialog — still no new-deletion confirm.
+      final delete = find.text('Konto und alle Daten löschen');
+      await _ensureSettingsActionVisible(tester, delete);
+      await tester.tap(delete);
+      await tester.pumpAndSettle();
+      expect(find.byType(AlertDialog), findsOneWidget);
+      expect(find.text('Löschen'), findsNothing);
     },
   );
 
@@ -649,39 +711,50 @@ void main() {
     );
     await tester.pump();
 
+    // While the journal state is still loading, account tiles respond but a
+    // tap only shows the generic protection notice — nothing may act on an
+    // undisclosed journal.
     for (final label in [
       'Jetzt sichern',
       'Von Cloud wiederherstellen',
       'Abmelden',
-      'Alle Daten zurücksetzen',
     ]) {
       await _ensureSettingsActionVisible(tester, find.text(label));
       final tile = tester.widget<ListTile>(
         find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
       );
-      expect(tile.onTap, isNull, reason: label);
+      expect(tile.onTap, isNotNull, reason: label);
     }
 
     final retryLabel = find.text('Cloud-Daten l\u00f6schen');
     await _ensureSettingsActionVisible(tester, retryLabel, scrollDelta: -200);
-    final retryDelete = tester.widget<ListTile>(
-      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
-    );
-    expect(retryDelete.onTap, isNull);
+    await tester.tap(retryLabel);
+    await tester.pumpAndSettle();
+    expect(find.text('Dein Konto ist geschützt'), findsOneWidget);
+    await tester.tap(find.text('Schließen'));
+    await tester.pumpAndSettle();
 
     journalState.value = CloudBackupDeletionJournalState.pending;
     await tester.pump();
-    final retryAfterAuthoritativePending = tester.widget<ListTile>(
-      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
+    // A confirmed pending journal resumes the exact saved request.
+    await _ensureSettingsActionVisible(tester, retryLabel, scrollDelta: -200);
+    await tester.tap(retryLabel);
+    await tester.pumpAndSettle();
+    expect(find.text('Cloud-Löschung fortsetzen'), findsOneWidget);
+    await tester.tap(find.text('Jetzt fortsetzen'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Cloud-Daten konnten nicht gelöscht werden.'),
+      findsOneWidget,
     );
-    expect(retryAfterAuthoritativePending.onTap, isNotNull);
 
     final accountDeleteLabel = find.text('Konto und alle Daten l\u00f6schen');
     await _ensureSettingsActionVisible(tester, accountDeleteLabel);
-    final accountDelete = tester.widget<ListTile>(
-      find.ancestor(of: accountDeleteLabel, matching: find.byType(ListTile)),
-    );
-    expect(accountDelete.onTap, isNull);
+    // Account delete responds with the cloud-resume explanation instead of a
+    // dead tap while that journal is unresolved.
+    await tester.tap(accountDeleteLabel);
+    await tester.pumpAndSettle();
+    expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
   });
 
   testWidgets('retry after local cleanup failure never deletes a new account', (
@@ -977,17 +1050,6 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
   );
-}
-
-Future<void> _expectSettingsTileDisabled(
-  WidgetTester tester,
-  String label,
-) async {
-  await _ensureSettingsActionVisible(tester, find.text(label));
-  final tile = tester.widget<ListTile>(
-    find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
-  );
-  expect(tile.onTap, isNull, reason: label);
 }
 
 Future<void> _ensureSettingsActionVisible(
