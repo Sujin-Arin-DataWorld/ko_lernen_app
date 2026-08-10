@@ -338,48 +338,79 @@ class _Front extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (word.imagePath.isNotEmpty) ...[
-              ManagedMediaImage(
-                reference: word.imagePath,
-                width: 220,
-                height: 120,
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-              ),
-              const SizedBox(height: Spacing.md),
-            ],
-            Text(
-              word.korean,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 34,
-                fontWeight: FontWeight.w800,
-                letterSpacing: -0.5,
+      // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해 커지고
+      // (기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
+      // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가 스크롤로 받아낸다.
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final h = constraints.maxHeight.isFinite
+              ? constraints.maxHeight
+              // FlipCard._fitFace scroll-wraps this face → maxHeight is unbounded;
+              // the real card height arrives as minHeight from its ConstrainedBox,
+              // so text scales with the device instead of a fixed 360 baseline.
+              : (constraints.minHeight.isFinite && constraints.minHeight > 0
+                    ? constraints.minHeight
+                    : 360.0);
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: h),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  if (word.imagePath.isNotEmpty)
+                    ManagedMediaImage(
+                      reference: word.imagePath,
+                      width: 220,
+                      height: 120,
+                      borderRadius: BorderRadius.circular(SoriRadius.md),
+                    ),
+                  // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로
+                  // 한 줄에 맞춘다.
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      word.korean,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: soriFillSize(h, 0.20, 34, 110),
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: -0.5,
+                      ),
+                    ),
+                  ),
+                  // 로마자 + 듣기 버튼을 한 묶음으로(발음 정보끼리 붙어 있게).
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (word.romanization.isNotEmpty) ...[
+                        Text(
+                          '[${word.romanization}]',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.052, 14, 30),
+                            color: Colors.black54,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        SizedBox(height: soriFillSize(h, 0.03, 8, 20)),
+                      ],
+                      IconButton(
+                        icon: Icon(
+                          Icons.volume_up_rounded,
+                          size: soriFillSize(h, 0.09, 28, 56),
+                        ),
+                        onPressed: () {
+                          // ignore: discarded_futures
+                          TtsService.speak(word.korean);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: Spacing.sm),
-            if (word.romanization.isNotEmpty)
-              Text(
-                '[${word.romanization}]',
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.black54,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            const SizedBox(height: Spacing.md),
-            IconButton(
-              icon: const Icon(Icons.volume_up_rounded, size: 28),
-              onPressed: () {
-                // ignore: discarded_futures
-                TtsService.speak(word.korean);
-              },
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -395,49 +426,85 @@ class _Back extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              word.translationDe.isNotEmpty
-                  ? word.translationDe
-                  : (word.posDe.isNotEmpty ? word.posDe : '—'),
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
-            ),
-            if ((word.posDe as String).isNotEmpty) ...[
-              const SizedBox(height: 4),
-              Text(
-                word.posDe,
-                style: const TextStyle(fontSize: 13, color: Colors.black54),
-              ),
-            ],
-            if ((word.exampleKorean as String).isNotEmpty) ...[
-              const SizedBox(height: Spacing.lg),
-              Text(
-                word.exampleKorean,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              if ((word.exampleDe as String).isNotEmpty) ...[
-                const SizedBox(height: 2),
-                Text(
-                  word.exampleDe,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.black54,
-                    fontStyle: FontStyle.italic,
+      // 앞면과 동일: 카드 안쪽 높이 기준으로 텍스트를 키우고 spaceEvenly 로 채운다.
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final h = constraints.maxHeight.isFinite
+              ? constraints.maxHeight
+              // FlipCard._fitFace scroll-wraps this face → maxHeight is unbounded;
+              // the real card height arrives as minHeight from its ConstrainedBox,
+              // so text scales with the device instead of a fixed 360 baseline.
+              : (constraints.minHeight.isFinite && constraints.minHeight > 0
+                    ? constraints.minHeight
+                    : 360.0);
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: h),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // 뜻(헤드라인) + 품사를 한 묶음으로 → spaceEvenly 가 흩뜨리지 않는다.
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        word.translationDe.isNotEmpty
+                            ? word.translationDe
+                            : (word.posDe.isNotEmpty ? word.posDe : '—'),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: soriFillSize(h, 0.13, 26, 66),
+                          fontWeight: FontWeight.w800,
+                          height: 1.1,
+                        ),
+                      ),
+                      if ((word.posDe as String).isNotEmpty) ...[
+                        SizedBox(height: soriFillSize(h, 0.014, 4, 12)),
+                        Text(
+                          word.posDe,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.05, 13, 30),
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
-                ),
-              ],
-            ],
-          ],
-        ),
+                  // 예문(한국어 + 번역)을 한 묶음으로.
+                  if ((word.exampleKorean as String).isNotEmpty)
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          word.exampleKorean,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.078, 16, 40),
+                            fontWeight: FontWeight.w600,
+                            height: 1.25,
+                          ),
+                        ),
+                        if ((word.exampleDe as String).isNotEmpty) ...[
+                          SizedBox(height: soriFillSize(h, 0.012, 4, 14)),
+                          Text(
+                            word.exampleDe,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: soriFillSize(h, 0.05, 13, 30),
+                              color: Colors.black54,
+                              fontStyle: FontStyle.italic,
+                              height: 1.3,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
