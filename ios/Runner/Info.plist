@@ -42,6 +42,13 @@
 		<string>????</string>
 		<key>CFBundleVersion</key>
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
+		<!-- Export-Compliance (US EAR): Die App nutzt ausschließlich
+		     AUSGENOMMENE Verschlüsselung — HTTPS/TLS (Firebase, Cloud
+		     Functions), OS-Keychain (flutter_secure_storage) und Hashing
+		     (crypto). Kein proprietäres Krypto → keine Selbstklassifizierung
+		     erforderlich. false unterdrückt die Export-Frage bei jedem Upload. -->
+		<key>ITSAppUsesNonExemptEncryption</key>
+		<false/>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>UIApplicationSceneManifest</key>
