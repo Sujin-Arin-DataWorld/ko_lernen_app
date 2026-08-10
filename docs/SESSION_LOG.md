@@ -7,6 +7,14 @@
 
 ---
 
+### 2026-08-10 (Codex) — Character clip matte report resynchronized
+
+**What.** Regenerated `tool/clip_matte_report.json` with the repository's existing `tool/check_clip_matte.py`. The report had two stale entries for clips that are no longer bundled: `magpie_right_walking_flying.mp4` and `tiger_magpie_play.mp4`.
+
+**Why.** The stale metadata made `character_clip_matte_test.dart` fail on both current `main` and this integration branch, even though every current character clip passed the white-matte inspection.
+
+**Boundaries and verification.** The checker modified only the JSON report: no video, image, or other `assets/` file changed. It inspected 18 bundled clips, reported 0 failures, and the targeted Flutter matte suite passed 5 tests. The full latest-main regression remains in progress.
+
 ### 2026-08-10 — macOS 빌드 환경 4중 장애 해소 + 첫 업로드 가능 IPA 생성 (Claude)
 
 **왜.** iOS 빌드가 어떤 도구(Codex 포함)로도 완주 불가였다. 서로 독립인 장애 4개가 겹쳐 있었다:
