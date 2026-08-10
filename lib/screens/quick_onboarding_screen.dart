@@ -55,20 +55,16 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
   }
 
   void _handleGoal(Duration goal) async {
-    // 목표 저장
-    Storage.setDailyGoal(goal.inMinutes);
-    Storage.setHasCompletedOnboarding(true);
-    Storage.setLastActivityTime(DateTime.now().toIso8601String());
-
-    // 세션 카운트 증가
-    final sessionCount = (Storage.sessionCount) + 1;
-    Storage.setSessionCount(sessionCount);
+    // This legacy entry can still be opened through its explicit route. It
+    // may remember a preferred daily duration, but consent and a usable level
+    // are now the only path to completing onboarding.
+    await Storage.setDailyGoal(goal.inMinutes);
 
     // 동의 화면으로 (캐릭터 선택은 튜토리얼 뒤로 이동: 프리뷰→캐릭터→레벨).
     if (mounted) {
-      Navigator.of(
-        context,
-      ).pushReplacement(SoriTransitions.fadeScale((_) => const ConsentScreen()));
+      Navigator.of(context).pushReplacement(
+        SoriTransitions.fadeScale((_) => const ConsentScreen()),
+      );
     }
   }
 

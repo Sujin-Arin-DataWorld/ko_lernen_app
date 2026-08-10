@@ -17,6 +17,7 @@ import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
 import '../services/course_progress_service.dart';
+import '../services/onboarding_flow_service.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/responsive.dart';
@@ -124,6 +125,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     HapticFeedback.mediumImpact();
     await CourseProgressService.shared.initializeForPlacement(level.code);
     await Storage.setBrowseLevelCode(level.code);
+    await OnboardingFlowService.completeAfterLevelSelection();
     if (!context.mounted) return;
     await showAccountNudgeSheet(context);
     if (!context.mounted) return;
