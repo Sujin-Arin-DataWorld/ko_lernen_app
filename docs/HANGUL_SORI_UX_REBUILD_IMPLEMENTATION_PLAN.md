@@ -31,7 +31,7 @@
 | Hanok stage, world, map, reveal, venue | 69 passed | 12 stage, full-map gate, asset bundle, 44dp map target, reveal/placement 기준선 |
 | Gye Flutter model/UI/write gate | 69 passed | membership epoch, moderation/leave, dedication CAS, write fail-closed 기준선 |
 
-`functions/gye/node_modules`는 이 checkout에 없었다. 그래서 Node unit tests와 Firestore emulator rules tests는 **실행하지 않았으며 통과라고 주장하지 않는다**. Release B의 merge gate에는 의존성 설치가 가능한 별도 clean environment에서의 Node/rules 실행이 포함된다.
+`functions/gye`의 clean dependency install 뒤 Node unit tests는 실행 가능해졌지만, 이 Windows 환경에는 Firestore Emulator가 요구하는 Java가 없다. Node 결과와 rules-emulator 결과를 같은 것으로 취급하지 않으며, Release B deploy gate에는 Java가 있는 clean environment에서의 rules-emulator 실행을 남긴다.
 
 ## 0. 제품 결정
 
@@ -93,11 +93,22 @@ flowchart LR
 | 04B | Entdecken | 검색, 범주, 기존 도구 | 검색 또는 도구 실행 | `DiscoverScreen`의 24개 활동과 최근 OCR/사전 경로를 삭제·병합하지 않는다. |
 | 04C | 나의 길 | 현재 단원, 다음 단원, 완료 근거 | `Aktuelle Mission öffnen` | curriculum manifest, CourseProgress, CourseMastery 그대로. 열람은 history-only, checkpoint 70% 규칙을 가시화한다. |
 | 05A | 계 첫 화면 | 자발성, 공개 범위, 가입/건너뛰기 | `Eine 계 finden oder gründen` | 16세 자가 확인, 가입/생성/안전 문구와 Firestore 권한 모델 유지. skip에 불이익 없음. |
-| 05B | 주간 생활 약속 | 예: “이번 주 세 번의 저녁에 등불 켜기” | `Meine heutige Szene öffnen` | 현 `weeklyGoalPacks`를 UI에서 “검증된 기여”로 전환. 서버 스키마 전에는 실제 팩 기여 이상을 주장하지 않는다. |
+| 05B | 주간 생활 약속 | 이번 주에 세 사람이 같은 생활 장면을 코스 흐름 안에서 완수 | `Meine heutige Szene öffnen` | 새 Gye의 schema v1만 세 고정 장면과 익명 `n/3` 합계를 사용한다. 기존 Gye는 `weeklyGoalPacks`를 계속 사용한다. Today는 현재 활성 코스의 다음 행동을 열며, 자유 탐색·다른 unit·70% 미만 결과는 계 기여가 아니다. |
 | 05C | 계 마당 | 공동 등불, 안전한 응원, 피드 | `Eine sichere Nachricht senden` | pack/quest/level/goal/challenge/sticker/cheer 이벤트와 moderation 보존. MVP/XP boost는 주 표면에서 제거. |
 | 06A | 프로필 | 내 목표·레벨·동행·데이터 제어 | 항목별 편집 | Profile와 account deletion recovery UI는 보존. 삭제를 단순 confirm으로 축소하지 않는다. |
 | 06B | 오프라인/빈 상태 | 가능한 것과 불가능한 것 | `Gespeicherte Wörter wiederholen` | 로컬 콘텐츠, 재시도, 원격 필요 행동을 명확히 분기. 원격 write를 로컬 성공처럼 보이지 않는다. |
 | 06C | 복습 우선일 | 왜 복습인지, 짧은 시간 | `Wiederholen` | 추천기가 review를 선택했을 때도 snapshot의 한 항목만 표시. 새 콘텐츠로 우회하는 이중 CTA 금지. |
+
+### 2.1 목업 구현 상태 — 2026-08-10
+
+- [x] `01A–01C`: 동의 → 생활 목적/출발점 → 첫 성공 뒤 선택 가능한 동행 흐름
+- [x] `02A–02D`: Today의 단일 직접 실행 → 미션 맥락 → 기존 플레이어 → persisted can-do 결과
+- [x] `03A–03C`: 검증된 생활 능력 문장을 가진 한옥 → 장소 지도 → 재방문용 사랑방
+- [x] `04A–04C`: 목적 중심 연습 → 검색 가능한 발견 → 읽기 전용 완료 근거를 가진 나의 길
+- [x] `05A–05C`: 선택적인 계 진입 → 주간 생활 약속 → 안전한 공동 마당
+- [x] `06A–06C`: 편집 가능한 프로필 → 저장된 복습으로만 빠지는 안전한 빈 상태 → 복습 이유가 있는 단일 CTA
+
+**완료 경계.** 위 19개 화면 계약의 Flutter 구현과 자동 회귀 범위는 완료다. 이는 Firestore Emulator(Java), 실제 기기 접근성, 배포, 또는 별도 Release B의 서버/개인정보 승인까지 완료됐다는 뜻은 아니다. 이 경계들은 화면 구현과 섞지 않고 Phase 7 Release B와 Phase 8의 외부 게이트로 남긴다.
 
 ### 기존 세부 학습 화면의 처리
 
@@ -243,12 +254,12 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 - [x] `OnboardingPreviewScreen`은 skip 시 prompt-seen만 기록하고 미션으로 돌아가며, 마지막 CTA에서만 optional companion chooser로 간다.
 
 - [x] `lib/screens/splash_screen.dart`, `lib/screens/intro_gate_screen.dart`: first/second/returning 분기에서 새 설치와 완료된 legacy 설치를 구분한다. 2초 splash와 기존 intro asset은 제거하지 않았다.
-- [ ] `lib/screens/quick_onboarding_screen.dart`: 현재 4페이지 auto-advance와 goal 저장을 consent-first, 명시적 탭형 01A/01B로 축소한다. `hasCompletedOnboarding`와 `sessionCount`를 동의 전에 확정하는 현재 쓰기 순서는 migration 규칙을 먼저 만든 뒤에만 바꾼다.
+- [x] `lib/screens/quick_onboarding_screen.dart`: legacy deep link는 더 이상 4페이지 auto-advance나 goal 쓰기를 노출하지 않는다. 미동의 사용자는 `ConsentScreen`, 동의했지만 placement가 없는 사용자는 `OnboardingStartScreen`으로 즉시 합류한다.
 - [x] `lib/screens/consent_screen.dart`: legal opt-in은 유지하되, Preview로 곧장 강제 이동하지 않고 새 start-point 화면으로 보낸다.
 - [x] `lib/screens/onboarding_preview_screen.dart`: 삭제하지 않고 첫 성공 뒤 선택 설명으로 이동한다. 기존 `introPreviewSeen` 사용자는 다시 강제 노출하지 않는다.
 - [x] `lib/screens/character_selection_screen.dart`: 01C optional route와 skip state를 추가했다. 기존 direct route의 2.4초 advance guard와 video ownership은 그대로이며 optional selection/skip은 caller로 돌아간다.
 - [x] `lib/screens/onboarding_level_screen.dart`: direct level choice와 8–10 question diagnostic은 “이미 배운 적 있음”의 existing route로 보존하고, `initializeForPlacement` → `setBrowseLevelCode` → completion state → account nudge → Home 순서를 유지한다.
-- [ ] 새 `test/onboarding_flow_test.dart`: fresh install, consent declined/accepted options, character skip/select, direct A1, diagnostic level, app restart 중단점, second-session intro를 테스트한다.
+- [x] onboarding regression matrix: `test/onboarding_flow_test.dart` verifies fresh and consented startup routing; consent options, character skip/select, direct A1, diagnostic content, and second-session startup remain covered by the focused service/widget/E2E suites.
 - [x] `test/onboarding_companion_service_test.dart`, `test/onboarding_preview_screen_test.dart`, `test/character_selection_screen_test.dart`는 evidence gate, preview skip, character skip/direct-route regression을 고정한다. 기존 startup/service tests도 유지한다.
 - [ ] 첫 실제 content route는 기존 `CoursePracticeContext` initializer를 그대로 통과한다. demo를 추가하면 course evidence write를 하지 않는다.
 - [x] `lib/l10n/app_de.arb`, `lib/l10n/app_en.arb` 및 generated l10n을 갱신했다.
@@ -285,11 +296,12 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** 현재 제작한 시각 자산을 유지하면서 “팩을 몇 개 끝냈나”로만 읽히는 의미를 줄인다.
 
-- [ ] 새 `lib/models/hanok_build_narrative.dart`, `lib/services/hanok_build_narrative_service.dart`: legacy stage + verified current projection을 읽어 copy state를 생성한다.
-- [ ] `lib/screens/home_screen.dart`: 한옥 preview를 02A처럼 “구조/다음 능력” 한 줄로 축소한다.
-- [ ] personal hanok main/map widgets: 03A/03B 레이아웃과 장소 목적 카피를 적용한다.
-- [ ] `lib/screens/sarangbang_screen.dart`: 03C로 재구성한다. `TodayLearningSnapshot`은 여전히 읽을 수 있지만 Home CTA 중간 route가 되지 않는다.
-- [ ] stage asset, decoration, room placement, map accessible list의 visual/golden test를 보존한다.
+- [x] 새 `lib/models/hanok_build_narrative.dart`, `lib/services/hanok_build_narrative_service.dart`: 기존 legacy stage projection과 읽기 전용 course snapshot을 함께 읽어 copy state를 생성한다. completed unit만 검증된 can-do로, current unit만 다음 can-do로 보며 placement bypass·stale ID는 주장하지 않는다.
+- [x] `lib/screens/home_screen.dart`: 기존 한옥 지도와 CTA는 유지하고, 퍼센트 중심 블록을 “구조 / 검증됨 또는 다음 능력” 한 줄로 축소했다. 이 문구는 stage 계산·reward·placement를 쓰지 않는다.
+- [x] personal hanok main/map widgets: 03A/03B의 기존 map, 장소 선택, accessible list를 유지한 채 월드 소개에도 같은 읽기 전용 능력 문장을 추가했다.
+- [x] `lib/screens/sarangbang_screen.dart`: 기존 03C 역할과 직접 recommendation route를 유지한다. `TodayLearningSnapshot`은 계속 읽지만 Home CTA의 중간 route가 되지 않는 것을 Sarangbang regression으로 확인했다.
+- [x] stage asset, decoration, room placement, map accessible list의 visual/golden test를 보존했다. map early/mid/complete goldens와 asset bundle 검증은 기존 기준선을 그대로 통과했다.
+- [x] `HanokCompetenceProjection` / `HanokStructureProjectionService`: catalog-known, independently completed course scenes can raise the existing structure/map/room gate without changing pack/material progress. Partial legacy and course levels are never pooled; malformed or unavailable course evidence retains the complete legacy projection. Home, the Hanok world, room furnishing, path preview, map, and narrative use the same read-only projection.
 
 **수용 조건:** 기존 사용자의 한옥 image/stage/장식/방 배치가 하나도 사라지거나 낮아지지 않는다. full map unlock 전에는 legacy scene이 안전하게 보인다.
 
@@ -297,10 +309,10 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **목적:** 이미 있는 많은 기능이 오늘의 단일 CTA를 방해하지 않고 쉽게 발견되게 한다.
 
-- [ ] `lib/screens/practice_hub_screen.dart`: 04A의 목적 기반 그룹, due review와 free play 분리를 적용한다.
-- [ ] `lib/screens/discover_screen.dart`: 검색 첫 화면과 category copy만 다듬고 activity inventory/routes를 유지한다.
-- [ ] course/path screen 또는 Hanok `Daecheongmaru` entry: 04C의 can-do/근거 설명을 둔다.
-- [ ] 새 feature가 Discover에 추가될 때 목적/검색 키워드/route/empty icon을 등록하는 catalog contract test를 둔다.
+- [x] `lib/screens/practice_hub_screen.dart`: 04A의 목적 기반 그룹을 `복습 → 목적 있는 연습 → 자유 놀이 → 내 학습공간`으로 재배치했다. due review는 항상 별도 첫 결정이며 Home의 단일 CTA를 대체하지 않는다.
+- [x] `lib/screens/discover_screen.dart`: 검색 우선 copy와 empty state를 다듬고, 모든 기존 activity route는 public `discoverCatalog`에 목적·검색어·icon과 함께 보존했다.
+- [x] `lib/screens/learning_path_screen.dart`: 04C `CourseProgressEvidenceNote`가 browse history와 active assess + scenario별 70% 검증의 차이를 명시한다. 읽기/쓰기나 unlock 규칙은 바꾸지 않는다.
+- [x] `test/discover_screen_test.dart`: catalog contract가 stable id, purpose, search keyword, route, non-empty icon 및 기존 24개 route inventory를 고정한다.
 
 **수용 조건:** 현재 Discover의 모든 route가 계속 도달 가능하고, Home의 첫 CTA와 free exploration을 혼동하지 않는다.
 
@@ -308,22 +320,38 @@ Release A의 UI는 현 `GyeMeta.weeklyGoalPacks` / `weeklyGoalProgress`를 사�
 
 **Release A, Flutter UI only**
 
-- [ ] `lib/screens/gye_tab_screen.dart`, `lib/widgets/sori/gye_hanok.dart`를 05A/05B/05C hierarchy로 재배치한다.
-- [ ] “팩” 카피가 실제 계산값을 과장하지 않도록 localized copy와 disclosure를 확인한다.
-- [ ] MVP/XP boost를 landing surface에서 제거하되 existing `GyeMeta` data를 삭제하지 않는다.
-- [ ] account age, join/create, leave/report/moderation, safety writes 회귀 테스트를 통과한다.
+- [x] `lib/screens/gye_tab_screen.dart`, `lib/screens/gye_screen.dart`, `lib/widgets/sori/gye_hanok.dart`를 05A/05B/05C hierarchy로 재배치했다. 선택성·공개 범위 → 기존 weekly goal → 공동 마당/안전한 응원의 순서이며, 작은 화면은 한 개의 스크롤 흐름을 쓴다.
+- [x] `GyeLanternProgress`와 localized disclosure는 기존 `weeklyGoalPacks` / `weeklyGoalProgress`만 읽는다. 이는 현재 Gye의 completed-pack count이며 점수, answer record, mastery, ranking이나 개인 기여 추정이 아님을 명시한다.
+- [x] landing의 MVP card, MVP goal-feed copy, XP-boost surface를 제거했다. `GyeMeta.lastWeekMvp*`와 `xpBoostActive` 데이터·wire parsing은 삭제하거나 변경하지 않았다.
+- [x] account age, join/create, leave/report/moderation, current-membership write gate의 회귀와 empty/existing landing, short-phone layout을 Flutter widget/unit tests로 통과했다.
 
 **Release B, server schema/function**
 
-- [ ] `functions/`에 `weeklyContribution` server projection을 추가하고 idempotency key·week boundary·trusted event whitelist를 설계한다.
-- [ ] Firestore rules와 Cloud Function tests에 direct aggregate write rejection을 추가한다.
-- [ ] privacy review 후 Gye projection model에 migration version을 둔다.
+**경계 (2026-08-10).** Release B는 기존 account-root `course_mastery_json`을 새 원격 채점 데이터로 바꾸지 않는다. 이는 learner-owned sync snapshot이므로, 서버는 그 안의 기존 `courseEligible` + exact course unit/scenario + 70% 구조만 재검사해 aggregate를 투영한다. 그러므로 “server-verified answers” 또는 anti-cheat 보장으로 표현하지 않는다. 실제 Firestore Emulator 실행은 Java가 있는 환경에서 별도로 확인해야 하며, 배포는 하지 않았다.
 
-**수용 조건:** 계 UI가 개인 학습의 진행/한옥/코스를 block하지 않으며, 권한 없는 client가 group contribution이나 feed identity를 위조할 수 없다.
+- [x] `functions/gye/weekly_contribution_runtime.js`에 세 고정 promise allow-list, 70% exact-checkpoint selector, Korea-week key, uid를 노출하지 않는 hashed idempotency receipt를 추가했다. Trigger는 v1 Gye의 aggregate만 바꾸고 legacy pack Gye를 건드리지 않는다.
+- [x] Firestore rules/test source는 v1 create payload만 허용하고 client의 promise aggregate/receipt 쓰기를 거부한다. `weekly_contributions`는 읽기와 쓰기 모두 client-deny다.
+- [x] `GyeMeta.weeklyPromiseSchemaVersion`이 명시된 새 Gye만 v1을 사용하며, version 없는 partial/legacy record는 기존 pack display로 fail closed 한다. 자동 migration은 없다.
+- [ ] Java가 있는 clean environment에서 `npm run test:rules`를 Firestore Emulator로 실제 실행한다.
+- [ ] 별도 privacy/security review에서 user-owned course snapshot이 갖는 trust 경계와 Firestore root-write 정책을 승인한다.
+
+**수용 조건:** 계 UI가 개인 학습의 진행/한옥/코스를 block하지 않으며, 권한 없는 client가 group aggregate·receipt·feed identity를 직접 쓰지 못한다. user-owned root course snapshot의 trust 경계를 넘어서는 anti-cheat 주장은 하지 않는다.
+
+### Phase 7.5 — 프로필과 안전한 Today 예외 상태
+
+**목적:** 프로필에서 학습 정체성을 계정보다 먼저 조절하고, Today를 불러오지 못하거나 복습이 우선인 날에도 다음 행동을 하나로 유지한다.
+
+- [x] `ProfileScreen`은 목표, 출발 레벨, 동행을 각각 편집 가능한 첫 섹션으로 두고 데이터/계정 제어는 기존 Settings 및 삭제 복구 흐름으로 연결한다.
+- [x] `MissionHeroCard`는 로딩과 구분되는 `MissionHeroUnavailable` 상태를 제공한다. 원격 Today를 읽지 못하면 저장된 복습만 제안하며, 원격 성공처럼 보이는 write나 복수 CTA를 만들지 않는다.
+- [x] review snapshot은 복습 이유와 짧은 예상 시간을 같은 카드에 읽기 전용으로 보여 주고, 같은 Review 목적지의 보조 CTA를 숨긴다.
+- [x] 06A–C와 계정 전환은 308dp/1.3 글자와 짧은 화면에서 스크롤 가능하도록 widget regression으로 고정한다.
+
+**수용 조건:** 프로필의 새 상단 설정 때문에 계정 연결·삭제 복구가 사라지지 않고, remote Today 실패와 review 우선일 모두 하나의 정직한 다음 행동으로 끝난다.
 
 ### Phase 8 — 릴리스 검증과 점진 공개
 
 - [ ] fixture 신규/기존 사용자(초반 stage, full-map, pending review, A1–B2, no group, group moderator, offline) matrix를 만든다.
+- [x] Gye v1 등불 표면은 308/390/480/720/1024dp × text scale 1.0/1.3 widget overflow matrix로 확인했다. 308dp의 solo invite code row overflow를 이 gate에서 수정했다.
 - [ ] phone 308/390/480, tablet 720, wide 1024 그리고 text scale 1.0/1.3 golden test를 실행한다.
 - [ ] TalkBack/VoiceOver: top action, progress, close confirmation, map accessible list, Gye privacy statement을 수동 검증한다.
 - [ ] no network, stale snapshot, partial remote reward, account deletion remote pending을 각각 명확한 UI로 smoke test한다.

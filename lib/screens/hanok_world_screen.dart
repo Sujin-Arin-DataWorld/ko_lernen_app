@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
+import 'dart:async';
+
 import '../data/personal_hanok_catalog.dart';
 import '../data/personal_hanok_venue_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/hanok_build_narrative.dart';
 import '../models/personal_hanok.dart';
+import '../services/hanok_build_narrative_service.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/hanok_structure_projection_service.dart';
 import '../services/personal_hanok_reveal_service.dart';
 import 'daily_char_sheet.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/hanok_build_narrative_line.dart';
 import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/personal_hanok_unlock_reveal.dart';
 import '../widgets/sori/personal_hanok_venue_sheet.dart';
@@ -25,6 +31,12 @@ import '../widgets/sori/world_map_viewport.dart';
 /// is simply a spatial doorway to an established Hangul Sori surface.
 class HanokWorldScreen extends StatefulWidget {
   final Future<LevelRatios> Function()? loadRatios;
+  final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
+  loadProjection;
+  final Future<HanokBuildNarrative> Function(
+    PersonalHanokProjection projection,
+  )?
+  loadNarrative;
   final ValueChanged<PersonalHanokZone>? onOpenZone;
   final PersonalHanokRevealStore revealStore;
   final Future<void> Function(PersonalHanokVenueAction action)?
@@ -33,6 +45,8 @@ class HanokWorldScreen extends StatefulWidget {
   const HanokWorldScreen({
     super.key,
     this.loadRatios,
+    this.loadProjection,
+    this.loadNarrative,
     this.onOpenZone,
     this.revealStore = const StoragePersonalHanokRevealStore(),
     this.onOpenVenueAction,
@@ -44,6 +58,7 @@ class HanokWorldScreen extends StatefulWidget {
 
 class _HanokWorldScreenState extends State<HanokWorldScreen> {
   PersonalHanokProjection? _projection;
+  HanokBuildNarrative? _narrative;
   PersonalHanokZone? _selectedZone;
   PersonalHanokMilestone? _activeReveal;
   List<PersonalHanokMilestone> _queuedReveals =
@@ -61,13 +76,14 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
     try {
       final ratios = await loadRatios();
+      final loadProjection =
+          widget.loadProjection ??
+          HanokStructureProjectionService.loadForRatios;
+      final projection = await loadProjection(ratios);
       if (!mounted) {
         return;
       }
-      await _showProjection(
-        PersonalHanokProjection.from(ratios),
-        generation: generation,
-      );
+      await _showProjection(projection, generation: generation);
     } catch (_) {
       // The world is an enhancement of the learning route. If its local
       // progress read fails, show the existing empty courtyard rather than
@@ -101,9 +117,29 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
         : available.first;
     setState(() {
       _projection = projection;
+      _narrative = HanokBuildNarrative.empty(projection);
       _selectedZone = nextSelection;
     });
+    unawaited(_loadNarrative(projection, generation: generation));
     await _scheduleReveal(projection, generation: generation);
+  }
+
+  Future<void> _loadNarrative(
+    PersonalHanokProjection projection, {
+    required int generation,
+  }) async {
+    HanokBuildNarrative narrative;
+    try {
+      final loadNarrative =
+          widget.loadNarrative ?? HanokBuildNarrativeService.loadForProjection;
+      narrative = await loadNarrative(projection);
+    } catch (_) {
+      narrative = HanokBuildNarrative.empty(projection);
+    }
+    if (!mounted || generation != _loadGeneration) {
+      return;
+    }
+    setState(() => _narrative = narrative);
   }
 
   Future<void> _scheduleReveal(
@@ -287,6 +323,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 padding: sidePadding,
                                 child: _WorldIntroduction(
                                   projection: projection,
+                                  narrative: _narrative,
                                   onOpenSarangbang: () =>
                                       _openZone(PersonalHanokZone.sarangbang),
                                 ),
@@ -410,10 +447,12 @@ class _WorldPlaceList extends StatelessWidget {
 
 class _WorldIntroduction extends StatelessWidget {
   final PersonalHanokProjection projection;
+  final HanokBuildNarrative? narrative;
   final VoidCallback onOpenSarangbang;
 
   const _WorldIntroduction({
     required this.projection,
+    required this.narrative,
     required this.onOpenSarangbang,
   });
 
@@ -437,6 +476,10 @@ class _WorldIntroduction extends StatelessWidget {
           Text(
             hasMap ? t.hanokWorldIntro : t.hanokWorldLegacyBody,
             style: text.bodySmall,
+          ),
+          const SizedBox(height: Spacing.sm),
+          HanokBuildNarrativeLine(
+            narrative: narrative ?? HanokBuildNarrative.empty(projection),
           ),
           const SizedBox(height: Spacing.md),
           Semantics(

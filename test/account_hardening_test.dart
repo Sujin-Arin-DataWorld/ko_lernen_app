@@ -56,6 +56,12 @@ void main() {
       await tester.pump();
 
       expect(find.text('Mit Apple verbunden'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text('Angemeldet: Apple'),
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pump();
       expect(find.text('Angemeldet: Apple'), findsOneWidget);
       expect(find.text('Mit Google sichern'), findsNothing);
 
@@ -81,6 +87,12 @@ void main() {
       await tester.pump();
 
       expect(find.text('Mit Google und Apple verbunden'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text('Angemeldet: Google und Apple'),
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pump();
       expect(find.text('Angemeldet: Google und Apple'), findsOneWidget);
 
       await tester.pumpWidget(const SizedBox.shrink());

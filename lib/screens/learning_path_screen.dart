@@ -9,6 +9,7 @@ import '../models/curriculum.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/hanok_structure_projection_service.dart';
 import '../services/pack_access.dart';
 import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
@@ -19,6 +20,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/course_progress_evidence_note.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
@@ -145,7 +147,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   }
 
   Future<void> _load() async {
-    final stage = await HanokStageService.currentStage();
+    final stage =
+        (await HanokStructureProjectionService.loadCurrent()).structureStage;
     final selectedLevel = pathVisibleLevel(Storage.userLevelCode);
     final groups = <_LevelGroup>[];
     int cleared = 0;
@@ -404,6 +407,8 @@ class _CourseMissionPath extends StatelessWidget {
               : 'Eine Reihenfolge verbindet Wortschatz, Grammatik, Spiele und Szenarien.',
           style: SoriTextTheme.of(context).bodySmall,
         ),
+        const SizedBox(height: Spacing.md),
+        const CourseProgressEvidenceNote(),
         const SizedBox(height: Spacing.md),
         for (final entry in grouped.entries)
           if (entry.value.isNotEmpty) ...[

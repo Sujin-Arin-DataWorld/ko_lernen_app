@@ -1,4 +1,4 @@
-# App Store Connect Handoff — Hangul Sori 2.0.5 (13)
+# App Store Connect Handoff — Hangul Sori 2.0.5 (14)
 
 This is the single operational handoff for the iOS submission. It prepares the
 repo-owned material but does not claim that Apple credentials, a signed archive,
@@ -10,7 +10,7 @@ TestFlight, hosting, or review have been completed.
 |---|---|
 | Bundle ID | `com.sujinarin.koLernenApp` |
 | Version | `2.0.5` |
-| Build | `13` |
+| Build | `14` |
 | Primary category | Education (recommended; select in App Store Connect) |
 | English listing | [listing-en.md](listing-en.md) |
 | German listing | [listing-de.md](listing-de.md) |

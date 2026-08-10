@@ -20,7 +20,10 @@ import 'home_screen.dart'; // showGyeChooser
 /// ② 첫 방문 1회 설명 코치([ScreenCoachMixin]) ③ 한지 정체성(배경·SoriCard·설명 카드).
 /// 빈 상태(첫 사용자 대다수)를 '무엇/왜/어떻게' 3층 설명 + 초대로 재설계.
 class GyeTabScreen extends StatefulWidget {
-  const GyeTabScreen({super.key});
+  const GyeTabScreen({super.key, this.loadGyeMetas});
+
+  /// Test seam only; production continues to read the existing Gye service.
+  final Future<List<GyeMeta>> Function()? loadGyeMetas;
 
   @override
   State<GyeTabScreen> createState() => _GyeTabScreenState();
@@ -106,7 +109,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
               Spacing.xl,
             ),
             builder: (context, padding) => FutureBuilder<List<GyeMeta>>(
-              future: GyeService.myGyeMetas(),
+              future: widget.loadGyeMetas?.call() ?? GyeService.myGyeMetas(),
               builder: (context, snap) {
                 if (snap.connectionState == ConnectionState.waiting) {
                   // §8.1 상태 표준: 로딩은 AppLoading 단일 위젯.
@@ -184,6 +187,20 @@ class _IntroEmpty extends StatelessWidget {
                 _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
               ],
             ),
+          ),
+        ),
+        const SizedBox(height: Spacing.md),
+        SoriCard(
+          variant: SoriCardVariant.compact,
+          accent: SoriColors.primary,
+          tinted: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(t.gyePrivacyTitle, style: tt.cardTitle),
+              const SizedBox(height: Spacing.xs),
+              Text(t.gyePrivacyBody, style: tt.bodySmall),
+            ],
           ),
         ),
         const SizedBox(height: Spacing.lg),
@@ -269,6 +286,10 @@ class _GyeList extends StatelessWidget {
     return ListView(
       padding: padding,
       children: [
+        Text(t.gyeCourtyardEyebrow, style: SoriTextTheme.of(context).label),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeCourtyardBody, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.lg),
         for (final gye in gyeList) ...[
           _GyeCard(gye: gye),
           const SizedBox(height: Spacing.md),

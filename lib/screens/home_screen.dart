@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
 import '../models/personal_hanok.dart';
+import '../models/hanok_build_narrative.dart';
 import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
@@ -22,6 +24,8 @@ import '../services/premium_service.dart';
 import '../services/quest_tracker.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/hanok_build_narrative_service.dart';
+import '../services/hanok_structure_projection_service.dart';
 import '../services/notification_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_snapshot.dart';
@@ -36,6 +40,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/hanok_cinematic.dart';
+import '../widgets/sori/hanok_build_narrative_line.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
 import '../widgets/sori/week_progress.dart';
@@ -45,7 +50,6 @@ import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/milestone_celebration.dart';
@@ -80,6 +84,12 @@ class HomeScreen extends StatefulWidget {
   final String? dailyCharacter;
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
   final Future<LevelRatios> Function()? loadHanokRatios;
+  final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
+  loadHanokProjection;
+  final Future<HanokBuildNarrative> Function(
+    PersonalHanokProjection projection,
+  )?
+  loadHanokNarrative;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
@@ -90,6 +100,8 @@ class HomeScreen extends StatefulWidget {
     this.dailyCharacter,
     this.loadTodaySnapshot,
     this.loadHanokRatios,
+    this.loadHanokProjection,
+    this.loadHanokNarrative,
   });
 
   @override
@@ -99,7 +111,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   TodayLearningSnapshot? _todaySnapshot;
   PersonalHanokProjection? _hanokProjection;
+  HanokBuildNarrative? _hanokNarrative;
   bool _loadingTodaySnapshot = true;
+  bool _todayUnavailable = false;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
   int _openableBoxes = 0; // 열 수 있는 보자기(퀘스트 보상) 개수 — 홈 배너 게이트
@@ -122,7 +136,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     _loadToday();
     _loadPath();
     _loadHanokPreview();
-    _checkHanokCinematic();
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
   }
 
@@ -276,8 +289,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> _checkHanokCinematic() async {
-    final stage = await HanokStageService.currentStage();
+  Future<void> _checkHanokCinematic(HanokStage stage) async {
     if (!mounted) return;
     final shouldShow = await HanokCinematic.shouldShow(stage);
     if (!shouldShow || !mounted) return;
@@ -292,7 +304,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final loadRatios = widget.loadHanokRatios ?? HanokStageService.levelRatios;
     PersonalHanokProjection projection;
     try {
-      projection = PersonalHanokProjection.from(await loadRatios());
+      final ratios = await loadRatios();
+      final loadProjection =
+          widget.loadHanokProjection ??
+          HanokStructureProjectionService.loadForRatios;
+      projection = await loadProjection(ratios);
     } catch (_) {
       projection = PersonalHanokProjection.from(
         const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
@@ -300,6 +316,20 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
     if (mounted) {
       setState(() => _hanokProjection = projection);
+    }
+    unawaited(_checkHanokCinematic(projection.structureStage));
+
+    HanokBuildNarrative narrative;
+    try {
+      final loadNarrative =
+          widget.loadHanokNarrative ??
+          HanokBuildNarrativeService.loadForProjection;
+      narrative = await loadNarrative(projection);
+    } catch (_) {
+      narrative = HanokBuildNarrative.empty(projection);
+    }
+    if (mounted) {
+      setState(() => _hanokNarrative = narrative);
     }
   }
 
@@ -310,7 +340,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// than adding a second decision in the Sarangbang.
   Future<void> _loadToday() async {
     if (mounted) {
-      setState(() => _loadingTodaySnapshot = true);
+      setState(() {
+        _loadingTodaySnapshot = true;
+        _todayUnavailable = false;
+      });
     }
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
@@ -335,6 +368,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         _openableBoxes = DecorationRewardService.openableBoxCount();
         _courseCardThisWeek = showCourseCard;
         _loadingTodaySnapshot = false;
+        _todayUnavailable = false;
       });
       // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
       _refreshDailyReminder();
@@ -342,7 +376,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       if (!mounted) {
         return;
       }
-      setState(() => _loadingTodaySnapshot = false);
+      setState(() {
+        _loadingTodaySnapshot = false;
+        _todayUnavailable = true;
+      });
     }
   }
 
@@ -494,6 +531,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
   }
 
+  Future<void> _openSavedReview() async {
+    await Navigator.pushNamed(context, '/review');
+    if (mounted) {
+      await _loadToday();
+    }
+  }
+
   /// §6.1 블록 3 추천 엔진 — "다음 것 1개"의 단일 소스.
   /// 우선순위: ① 현재 코스 미션 > ② 진행 중 팩 > ③ due 복습(≥10) >
   /// ④ 시나리오 추천. null = 오늘 할 것 없음(allDone).
@@ -512,10 +556,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           title: c.unit.title.pick(lang),
           contextLabel: t.homeTodayEyebrow,
           levelCode: c.unit.level.toUpperCase(),
-          meta: t.missionHeroCourseMeta(c.missionNumber, c.totalMissions),
+          // The home promise is the learner's real-world outcome. Mission
+          // numbering still exists in the course path, but it is not the
+          // reason a beginner should choose today's one action.
+          meta: c.unit.canDo.pick(lang),
           fraction: c.fraction,
           started: c.started,
-          ctaLabel: t.homeTodayMissionStart,
+          ctaLabel: t.homeTodayCourseAction,
           onStart: () => _openTodayDestination(celebrateMilestone: true),
         );
       case PackPick p:
@@ -525,10 +572,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           title: VocabPackService.displayLabel(p.pack.id, lang: lang),
           contextLabel: t.homeTodayEyebrow,
           levelCode: level,
-          meta: t.missionHeroPackMeta(level),
+          meta: t.homeTodayPackDescription,
           fraction: p.fraction,
           started: true,
-          ctaLabel: t.homeTodayMissionStart,
+          ctaLabel: t.homeTodayPackAction,
           onStart: _openTodayDestination,
         );
       case ReviewPick r:
@@ -537,10 +584,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           title: t.missionHeroReviewTitle(r.dueCount),
           contextLabel: t.homeTodayEyebrow,
           levelCode: null,
-          meta: t.missionHeroReviewMeta,
+          meta: t.homeTodayReviewDescription,
           fraction: 0,
           started: false,
-          ctaLabel: t.homeTodayMissionStart,
+          ctaLabel: t.homeTodayReviewAction,
+          supportingTitle: t.homeTodayReviewReasonTitle,
+          supportingBody:
+              '${t.homeTodayReviewReason} ${t.homeTodayReviewTime}',
           onStart: _openTodayDestination,
         );
       case ScenarioPick sc:
@@ -550,10 +600,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           title: snapshot?.scenario?.title.pick(lang) ?? sc.scenarioId,
           contextLabel: t.homeTodayEyebrow,
           levelCode: level,
-          meta: t.missionHeroScenarioMeta(level),
+          meta: t.homeTodayScenarioDescription,
           fraction: 0,
           started: false,
-          ctaLabel: t.homeTodayMissionStart,
+          ctaLabel: t.homeTodayScenarioAction,
           onStart: _openTodayDestination,
         );
       case null:
@@ -617,7 +667,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// intrinsic 을 지원해야 해서 카드 내용이 바뀌면 터질 위험이 있다.
   List<Widget> _secondaryCards({required bool twoColumn}) {
     // ── E1b. Heute lernen — due 0건이면 블록 숨김(§6.1 블록 5) ──
-    final Widget? review = _dueCount > 0
+    // The selected review is already the single primary Today action. Showing
+    // the same review route again below it makes a review-priority day look
+    // like two competing choices.
+    final reviewIsPrimary = _todaySnapshot?.pick is ReviewPick;
+    final Widget? review = _dueCount > 0 && !reviewIsPrimary
         ? SoriEntrance(
             delay: const Duration(milliseconds: 220),
             slideY: 14,
@@ -855,6 +909,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 content: _loadingTodaySnapshot
                                     ? null
                                     : _missionHeroContent(t, lang),
+                                unavailable: _todayUnavailable
+                                    ? MissionHeroUnavailable(
+                                        title: t.homeUnavailableTitle,
+                                        body: t.homeUnavailableDescription,
+                                        ctaLabel: t.homeUnavailableCta,
+                                        onStart: _openSavedReview,
+                                      )
+                                    : null,
                               ),
                             ),
                           ),
@@ -943,6 +1005,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 key: const ValueKey('home-hanok-preview'),
                                 twoColumn: twoColumn,
                                 projection: _hanokProjection,
+                                narrative: _hanokNarrative,
                                 onOpen: () async {
                                   await Navigator.pushNamed(context, '/hanok');
                                   if (mounted) {
@@ -1185,6 +1248,7 @@ double _homeContentMaxWidth(double available) {
 /// place selection and navigation; Home only provides one deliberate doorway.
 class _HomeHanokPreview extends StatelessWidget {
   final PersonalHanokProjection? projection;
+  final HanokBuildNarrative? narrative;
   final VoidCallback onOpen;
 
   /// 지도와 진행률을 나란히 둘 만큼 콘텐츠 폭이 있는가
@@ -1194,6 +1258,7 @@ class _HomeHanokPreview extends StatelessWidget {
   const _HomeHanokPreview({
     super.key,
     required this.projection,
+    required this.narrative,
     required this.onOpen,
     this.twoColumn = false,
   });
@@ -1202,7 +1267,6 @@ class _HomeHanokPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final progress = projection?.studyFraction ?? 0;
 
     return SoriCard(
       variant: SoriCardVariant.hanji,
@@ -1233,7 +1297,7 @@ class _HomeHanokPreview extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: _progressBlock(context, text, t, progress),
+                        children: _narrativeBlock(context, t),
                       ),
                     ),
                   ],
@@ -1255,7 +1319,7 @@ class _HomeHanokPreview extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.md),
-            ..._progressBlock(context, text, t, progress),
+            ..._narrativeBlock(context, t),
           ],
         ],
       ),
@@ -1288,39 +1352,13 @@ class _HomeHanokPreview extends StatelessWidget {
     );
   }
 
-  /// 진행도가 이 블록의 본론이다 — 예쁜 그림이 아니라 "내가 키운 것".
-  /// 퍼센트를 바 옆에 굵게 두어 한 줄 안에서 바로 읽히게 한다.
-  List<Widget> _progressBlock(
-    BuildContext context,
-    SoriTextTheme text,
-    AppL10n t,
-    double progress,
-  ) => [
-    Row(
-      children: [
-        Expanded(
-          child: SoriProgressBar(
-            value: progress,
-            thickness: 10,
-            color: SoriColors.primary,
-            animated: true,
-          ),
-        ),
-        const SizedBox(width: Spacing.sm),
-        Text(
-          '${(progress * 100).round()} %',
-          style: text.label.copyWith(
-            color: SoriColors.primary,
-            fontFeatures: const [FontFeature.tabularFigures()],
-          ),
-        ),
-      ],
-    ),
-    const SizedBox(height: Spacing.xs),
-    Text(
-      t.homeHanokPreviewProgress((progress * 100).round()),
-      style: text.caption.copyWith(color: SoriColors.primary),
-    ),
+  /// The existing map remains the visual progress surface. This compact text
+  /// block adds an evidence-backed ability without changing progress state.
+  List<Widget> _narrativeBlock(BuildContext context, AppL10n t) => [
+    if (narrative case final value?)
+      HanokBuildNarrativeLine(narrative: value)
+    else
+      Text(t.homeHanokPreviewBody, style: SoriTextTheme.of(context).bodySmall),
     const SizedBox(height: Spacing.sm),
     SoriButton.outlined(
       label: t.homeHanokPreviewCta,

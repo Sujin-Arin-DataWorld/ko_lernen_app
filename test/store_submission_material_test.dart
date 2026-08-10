@@ -40,7 +40,7 @@ void main() {
 
       expect(handoff, contains('com.sujinarin.koLernenApp'));
       expect(handoff, contains('`2.0.5`'));
-      expect(handoff, contains('`11`'));
+      expect(handoff, contains('`14`'));
       expect(handoff, contains('Education (recommended'));
       expect(handoff, contains('verify live hosting before submission'));
       expect(handoff, contains('`https://hangul-sori.com/support.html`'));

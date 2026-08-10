@@ -1524,8 +1524,8 @@
   "pathLockedHint": "Schließe zuerst das vorherige Paket ab.",
   "pathSeeAll": "Ganzer Pfad",
   "pathJumpToNow": "Zum aktuellen Schritt",
-  "gyeEmptyHeadline": "Zusammen gebaut hält länger",
-  "gyeEmptyPreviewCaption": "So wächst euer gemeinsames Hanok",
+  "gyeEmptyHeadline": "Allein lernen ist vollständig. Zusammen kann es wärmer sein.",
+  "gyeEmptyPreviewCaption": "Eine Vorschau auf einen gemeinsamen Hof — nie Voraussetzung für deinen Lernweg",
   "homePathCardTitle": "Lernpfad",
   "homePathCardSub": "Sieh, wo du stehst",
   "homeBrowseTitle": "Alles entdecken",
@@ -1561,6 +1561,15 @@
   "profileStatLevel": "Level",
   "profileStatWords": "Vokabeln",
   "profileViewStats": "Alle Statistiken ansehen",
+  "profileLearningSection": "Mein Lernen",
+  "profileLearningGoal": "Mein Ziel",
+  "profileLearningGoalNotSet": "Wähle, was dich zum Koreanischen bringt",
+  "profileLearningStartPoint": "Mein Startpunkt",
+  "profileLearningCompanion": "Lernbegleitung",
+  "profileSpaceSection": "Mein Raum",
+  "profilePrivacyAccount": "Datenschutz & Konto",
+  "profilePrivacyAccountDescription": "Daten, Sicherung und Kontosteuerung",
+  "profileProgressSection": "Mein Fortschritt",
   "profileSignOut": "Abmelden",
   "accountNudgeTitle": "Speichere deinen Fortschritt",
   "accountNudgeBody": "Verbinde dich mit Google, damit dein Streak und deine Vokabeln bei einem Handywechsel erhalten bleiben.",
@@ -1629,12 +1638,14 @@
   },
   "navHome": "Start",
   "navDiscover": "Entdecken",
-  "discoverTitle": "Alle Lernwerkzeuge",
-  "discoverSubtitle": "Finde in einem Schritt die passende Übung, dein Buch oder deinen nächsten Lernweg.",
-  "discoverSearchHint": "Funktionen durchsuchen",
+  "discoverEyebrow": "Werkzeuge & Kultur",
+  "discoverTitle": "Finde genau, was du brauchst.",
+  "discoverSubtitle": "Scanne, schlage etwas nach, höre zu oder mach eine kurze Übungspause. Entdecken ersetzt nie deinen heutigen Lernschritt.",
+  "discoverSearchHint": "Suchen: Aussprache, Buch, OCR …",
   "discoverStartHere": "Starte mit deiner Buchseite",
   "discoverAllTools": "Alle Funktionen",
   "discoverNoResults": "Keine passende Funktion gefunden.",
+  "discoverNoResultsHint": "Versuche ein Bedürfnis wie Aussprache, Buch, Wiederholen oder Gespräch.",
   "discoverCategoryAll": "Alle",
   "discoverCategoryLearn": "Lernen",
   "discoverCategoryPractice": "Üben",
@@ -1645,9 +1656,41 @@
   "navWordbook": "Wörter",
   "navGye": "Gruppe",
   "gyeTabSubtitle": "Zusammen lernen · Gye",
-  "gyeExplainWhat": "Ein Gye ist eine kleine Lerngruppe für Koreanisch. Es geht nicht um Wettbewerb.",
-  "gyeExplainWhy": "Euer Fortschritt lässt ein gemeinsames Hanok wachsen. Gemeinsam fällt es leichter, dranzubleiben.",
-  "gyeExplainHow": "Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei.",
+  "gyeExplainWhat": "Ein Gye ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.",
+  "gyeExplainWhy": "Ein gemeinsames Hanok macht Ermutigung sichtbar. Es ist nie ein Wettbewerb und nie Voraussetzung für deinen Lernweg.",
+  "gyeExplainHow": "Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei, wenn du bereit bist.",
+  "gyePrivacyTitle": "Was andere sehen können",
+  "gyePrivacyBody": "Nur dass du in der Gruppe ein Paket abgeschlossen hast — niemals deine Antworten, gespeicherten Wörter oder Prüfungsergebnisse.",
+  "gyeWeeklyEyebrow": "Diese Woche zusammen",
+  "gyeWeeklyTitle": "Haltet gemeinsam die Lichter im Hof an.",
+  "gyeWeeklyBody": "Diese Zahl zeigt abgeschlossene Pakete in eurem aktuellen Gye. Sie ist kein Punktestand, keine Rangliste und kein Antwortprotokoll.",
+  "gyePromisePickerLabel": "Gemeinsame Alltagsszene dieser Woche",
+  "gyePromiseCafeOrder": "Drei Personen üben, höflich zu bestellen",
+  "gyePromiseDirections": "Drei Personen üben, nach dem Weg zu fragen",
+  "gyePromiseSelfIntroduction": "Drei Personen üben, sich vorzustellen",
+  "gyePromiseEyebrow": "Diese Woche zusammen",
+  "gyePromiseCafeOrderTitle": "Lasst drei Personen höflich bestellen üben.",
+  "gyePromiseDirectionsTitle": "Lasst drei Personen nach dem Weg fragen üben.",
+  "gyePromiseSelfIntroductionTitle": "Lasst drei Personen sich vorstellen üben.",
+  "gyePromiseBody": "Eine Laterne leuchtet nach einer kursgebundenen Szene mit mindestens 70 %. Antworten, Punkte und Mitwirkende bleiben privat.",
+  "gyePromiseProgress": "{done} von {target} Laternen leuchten",
+  "@gyePromiseProgress": {
+    "placeholders": {
+      "done": { "type": "int" },
+      "target": { "type": "int" }
+    }
+  },
+  "gyePromiseRemaining": "Noch {count} {count, plural, =1{kursgebundener Szenenbeitrag} other{kursgebundene Szenenbeiträge}} diese Woche",
+  "@gyePromiseRemaining": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "gyeOpenToday": "Heutiges Lernen öffnen",
+  "gyeCourtyardEyebrow": "Euer Hof",
+  "gyeCourtyardTitle": "Ein gemeinsamer Ort für kleine, sichere Ermutigung.",
+  "gyeCourtyardBody": "Die Hofansicht folgt den vorhandenen Wochenziel-Daten. Sie ändert weder einen persönlichen Kurs noch ein persönliches Hanok.",
+  "gyeSafeMessage": "Sichere Ermutigung senden",
   "coachGyeTabTitle": "Gemeinsam lernen",
   "coachGyeTabBody": "Eine Lerngruppe (Gye) ist eine kleine, nicht-kompetitive Gruppe. Euer Lernfortschritt lässt ein gemeinsames Hanok wachsen.",
   "motivationSheetTitle": "Warum lernst du Koreanisch?",
@@ -1699,9 +1742,17 @@
   "milestoneVocabBody": "Wort für Wort kommst du ans Ziel!",
   "milestoneCta": "Weiter",
   "feedbackCompletionContinue": "Weiter",
-  "practiceSecLearn": "Lernen",
-  "practiceSecGames": "Spiele",
-  "practiceSecWords": "Wörter",
+  "practiceEyebrow": "Üben nach deinem Bedarf",
+  "practiceTitle": "Was möchtest du gerade festigen?",
+  "practiceSubtitle": "Wähle zuerst ein Bedürfnis. Dein einziger nächster Lernschritt bleibt auf Start.",
+  "practiceDueTitle": "Fällige Wörter wiederholen",
+  "practiceDueEmpty": "Öffne eine Wiederholung, wann du möchtest",
+  "practiceSecLearn": "Etwas gezielt üben",
+  "practiceSecGames": "Frei spielen",
+  "practiceSecWords": "Deine Wörter",
+  "practiceSecSpace": "Dein Lernraum",
+  "pathEvidenceTitle": "Woran du echten Fortschritt erkennst",
+  "pathEvidenceBody": "Freies Ansehen speichert nur Verlauf. Ein Kursabschnitt wird erst durch seine aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung bestätigt.",
   "@_feature_coach": {
     "description": "Onboarding-Coachmarks — Mascot-Bottomsheet (Stage 1 — 2026-06-05)."
   },
@@ -2110,19 +2161,55 @@
   },
   "homeMadangEyebrow": "Heute im Sarangbang",
   "homeSarangbangCta": "Im Sarangbang lernen",
-  "homeTodayEyebrow": "Heute",
+  "homeTodayEyebrow": "Deine Handlung für heute",
   "homeTodayMissionStart": "Diese Szene beginnen",
+  "homeTodayCourseAction": "Diese Handlung üben",
+  "homeTodayPackAction": "Diese Wörter üben",
+  "homeTodayReviewAction": "Jetzt wiederholen",
+  "homeTodayScenarioAction": "Diese Szene üben",
+  "homeTodayPackDescription": "Übe die Wörter, die du als Nächstes brauchst.",
+  "homeTodayReviewDescription": "Damit der Satz in deiner nächsten Szene bereit ist.",
+  "homeTodayReviewReasonTitle": "Warum heute wiederholen?",
+  "homeTodayReviewReason": "Damit Begrüßungen, Bitten und Antworten in deiner nächsten Szene bereit sind.",
+  "homeTodayReviewTime": "Etwa 3 Minuten · dann geht dein Weg weiter.",
+  "homeUnavailableTitle": "Dein Weg konnte nicht aktualisiert werden.",
+  "homeUnavailableDescription": "Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.",
+  "homeUnavailableCta": "Gespeicherte Wörter wiederholen",
+  "homeTodayScenarioDescription": "Höre zu, wähle und sprich die Szene.",
   "homeHanokPreviewTitle": "Mein Hanok",
   "homeHanokPreviewBody": "Dein Lernen lässt deinen Hanok wachsen.",
-  "homeHanokPreviewProgress": "Dein Hanok ist zu {percent} % gebaut",
-  "@homeHanokPreviewProgress": {
+  "homeHanokPreviewCta": "Mein Hanok öffnen",
+  "hanokNarrativeVerified": "Bau: {stage}. Bestätigt: {canDo}",
+  "@hanokNarrativeVerified": {
     "placeholders": {
-      "percent": {
-        "type": "int"
+      "stage": {
+        "type": "String"
+      },
+      "canDo": {
+        "type": "String"
       }
     }
   },
-  "homeHanokPreviewCta": "Mein Hanok öffnen",
+  "hanokNarrativeNext": "Bau: {stage}. Als Nächstes: {canDo}",
+  "@hanokNarrativeNext": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      },
+      "canDo": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokNarrativeStarting": "Bau: {stage}. Beginne mit deiner ersten Szene.",
+  "hanokNarrativeMaterialSource": "Kursszenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.",
+  "@hanokNarrativeStarting": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },

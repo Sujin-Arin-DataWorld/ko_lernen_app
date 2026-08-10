@@ -569,7 +569,10 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly([
           'name', 'code', 'ownerId', 'memberCount', 'createdAt',
           'weeklyGoalPacks', 'weeklyGoalProgress', 'lifetimeGoalsAchieved',
-          'xpBoostActive', 'lifecycleState'
+          'xpBoostActive', 'lifecycleState', 'weeklyPromiseSchemaVersion',
+          'weeklyPromiseId',
+          'weeklyPromiseTarget', 'weeklyPromiseProgress',
+          'weeklyPromiseWeekKey'
         ])
         && request.resource.data.name is string
         && request.resource.data.name.size() > 0
@@ -587,6 +590,21 @@ service cloud.firestore {
         && request.resource.data.lifetimeGoalsAchieved == 0
         && request.resource.data.xpBoostActive == false
         && request.resource.data.lifecycleState == 'active'
+        && (!request.resource.data.keys().hasAny([
+              'weeklyPromiseSchemaVersion', 'weeklyPromiseId', 'weeklyPromiseTarget',
+              'weeklyPromiseProgress', 'weeklyPromiseWeekKey'
+            ])
+          || (request.resource.data.keys().hasAll([
+                'weeklyPromiseSchemaVersion', 'weeklyPromiseId', 'weeklyPromiseTarget',
+                'weeklyPromiseProgress', 'weeklyPromiseWeekKey'
+              ])
+            && request.resource.data.weeklyPromiseSchemaVersion == 1
+            && request.resource.data.weeklyPromiseId in [
+              'cafe_order', 'directions', 'self_introduction'
+            ]
+            && request.resource.data.weeklyPromiseTarget == 3
+            && request.resource.data.weeklyPromiseProgress == 0
+            && request.resource.data.weeklyPromiseWeekKey == ''))
         && existsAfter(memberPath(gyeId, request.auth.uid))
         && getAfter(memberPath(gyeId, request.auth.uid)).data.role == 'owner'
         && existsAfter(userPath(request.auth.uid))
@@ -756,6 +774,12 @@ service cloud.firestore {
       }
 
       match /notification_outbox/{messageId} {
+        allow read, write: if false;
+      }
+
+      // A server-only, anonymous receipt makes weekly scene contributions
+      // idempotent. Clients may never fabricate, edit, or enumerate them.
+      match /weekly_contributions/{contributionId} {
         allow read, write: if false;
       }
 

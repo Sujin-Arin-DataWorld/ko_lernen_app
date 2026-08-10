@@ -284,6 +284,64 @@ test("Gye creation rejects progress tampering and unknown fields", async () => {
   await assertFails(unknownField.commit());
 });
 
+test("a new Gye may choose only a complete recognised life promise", async () => {
+  await seedUser("owner-valid", []);
+  const validDb = client("owner-valid");
+  const valid = writeBatch(validDb);
+  queueCreateGye(validDb, valid, "PROM01", "owner-valid", {
+    weeklyPromiseSchemaVersion: 1,
+    weeklyPromiseId: "cafe_order",
+    weeklyPromiseTarget: 3,
+    weeklyPromiseProgress: 0,
+    weeklyPromiseWeekKey: "",
+  });
+  await assertSucceeds(valid.commit());
+
+  await seedUser("owner-unknown", []);
+  const unknownDb = client("owner-unknown");
+  const unknownPromise = writeBatch(unknownDb);
+  queueCreateGye(unknownDb, unknownPromise, "PROM02", "owner-unknown", {
+    weeklyPromiseSchemaVersion: 1,
+    weeklyPromiseId: "invent_a_scene",
+    weeklyPromiseTarget: 3,
+    weeklyPromiseProgress: 0,
+    weeklyPromiseWeekKey: "",
+  });
+  await assertFails(unknownPromise.commit());
+
+  await seedUser("owner-incomplete", []);
+  const incompleteDb = client("owner-incomplete");
+  const incompletePromise = writeBatch(incompleteDb);
+  queueCreateGye(
+    incompleteDb,
+    incompletePromise,
+    "PROM03",
+    "owner-incomplete",
+    {
+      weeklyPromiseSchemaVersion: 1,
+      weeklyPromiseId: "cafe_order",
+      weeklyPromiseTarget: 3,
+    },
+  );
+  await assertFails(incompletePromise.commit());
+});
+
+test("a client cannot write a life-promise aggregate or contribution receipt", async () => {
+  await seedUser("owner", ["ABC234"]);
+  await seedGye("ABC234", ["owner"]);
+  const db = client("owner");
+
+  await assertFails(setDoc(
+    doc(db, "gye", "ABC234"),
+    { weeklyPromiseProgress: 1 },
+    { merge: true },
+  ));
+  await assertFails(setDoc(
+    doc(db, "gye", "ABC234", "weekly_contributions", "forged"),
+    { source: "course_scenario_checkpoint" },
+  ));
+});
+
 test("ordinary user backup update remains allowed when gyeIds is unchanged",
 async () => {
   await seedUser("member", ["ABC234"]);

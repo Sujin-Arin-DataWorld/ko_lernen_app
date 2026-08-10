@@ -5,6 +5,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/personal_hanok.dart';
 import '../models/personal_room.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/hanok_structure_projection_service.dart';
 import '../services/room_placement_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -27,12 +28,15 @@ import '../widgets/sori/tokens.dart';
 class PersonalRoomFurnishScreen extends StatefulWidget {
   final PersonalRoomSurface surface;
   final Future<LevelRatios> Function()? loadRatios;
+  final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
+  loadProjection;
   final bool enforceUnlock;
 
   const PersonalRoomFurnishScreen({
     super.key,
     required this.surface,
     this.loadRatios,
+    this.loadProjection,
     this.enforceUnlock = true,
   });
 
@@ -57,7 +61,11 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
     PersonalHanokProjection projection;
     try {
-      projection = PersonalHanokProjection.from(await loadRatios());
+      final ratios = await loadRatios();
+      final loadProjection =
+          widget.loadProjection ??
+          HanokStructureProjectionService.loadForRatios;
+      projection = await loadProjection(ratios);
     } catch (_) {
       projection = PersonalHanokProjection.from(
         const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),

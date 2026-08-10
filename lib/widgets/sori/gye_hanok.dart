@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/gye_dedication.dart';
 import '../../models/gye.dart';
+import '../../models/gye_lantern_progress.dart';
 import '../../models/hanok_stage.dart';
 import 'gye_dedication_layer.dart';
 import 'madang_background.dart';
@@ -37,7 +38,7 @@ class _GyeHanokState extends State<GyeHanok>
   // (slug, leftFrac, bottomFrac, widthFrac) — 리스트 순서 = 뒤→앞 z순 + 잠금 해제 순.
   // PIL 합성 프리뷰(393×280)로 보정한 시안값. 실기기에서 미세 조정 가능.
   static const List<({String slug, double left, double bottom, double width})>
-      _elements = [
+  _elements = [
     // 뒤(건물)
     (slug: 'gye_gate_grand', left: 0.31, bottom: 0.00, width: 0.46),
     (slug: 'gye_haenglangchae', left: 0.00, bottom: 0.16, width: 0.40),
@@ -65,28 +66,23 @@ class _GyeHanokState extends State<GyeHanok>
     super.dispose();
   }
 
-  /// 영구 unlock — 기본 1개 + 누적 달성 주간목표 1개당 1요소.
-  /// `weekly_goal_rollover` CF가 100% 달성 시 `lifetimeGoalsAchieved`를 올리며,
-  /// 주간 진행도 리셋과 무관하게 공동 한옥은 줄어들지 않는다(영구 성장). plan §8.1.
-  int get _unlocked =>
-      (1 + widget.meta.lifetimeGoalsAchieved).clamp(1, _elements.length);
+  GyeLanternProgress get _progress =>
+      GyeLanternProgress.fromMeta(widget.meta, elementCount: _elements.length);
 
-  /// 요소 기본 실체화 — 완성(1.0) / 다음=이번 주 진행률 ramp / 그 뒤=ghost.
-  double _baseOpacity(int i, int unlocked) {
-    if (i < unlocked) {
+  /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
+  double _baseOpacity(int i, GyeLanternProgress progress) {
+    if (i < progress.permanentElementCount) {
       return 1.0;
     }
-    if (i == unlocked && widget.meta.weeklyGoalPacks > 0) {
-      final frac = (widget.meta.weeklyGoalProgress / widget.meta.weeklyGoalPacks)
-          .clamp(0.0, 1.0);
-      return (0.22 + 0.78 * frac).clamp(0.22, 1.0);
+    if (i == progress.permanentElementCount && progress.hasWeeklyGoal) {
+      return (0.22 + 0.78 * progress.weeklyFraction).clamp(0.22, 1.0);
     }
     return 0.22;
   }
 
   @override
   Widget build(BuildContext context) {
-    final unlocked = _unlocked;
+    final progress = _progress;
     final reduce = SoriMotion.reduceMotion(context);
     return MadangBackground(
       stage: HanokStage.jongga,
@@ -100,7 +96,7 @@ class _GyeHanokState extends State<GyeHanok>
               return Stack(
                 children: [
                   for (var i = 0; i < _elements.length; i++)
-                    _element(i, unlocked, w, h, reduce),
+                    _element(i, progress, w, h, reduce),
                   GyeDedicationLayer(dedications: widget.dedications),
                 ],
               );
@@ -111,13 +107,21 @@ class _GyeHanokState extends State<GyeHanok>
     );
   }
 
-  Widget _element(int i, int unlocked, double w, double h, bool reduce) {
-    final base = _baseOpacity(i, unlocked);
+  Widget _element(
+    int i,
+    GyeLanternProgress progress,
+    double w,
+    double h,
+    bool reduce,
+  ) {
+    final base = _baseOpacity(i, progress);
     // "짓는 중" = 다음 요소(미완성). 진행률과 무관하게 은은히 호흡해 살아있게.
-    final building = i == unlocked && base < 1.0;
-    // C-3: 이번 주 목표를 다 채운 다음 요소 = 완성 축하 (금빛 반짝).
+    final building = i == progress.permanentElementCount && base < 1.0;
+    // The gold treatment acknowledges the present illustration state only.
     final complete =
-        i == unlocked && base >= 1.0 && widget.meta.weeklyGoalPacks > 0;
+        i == progress.permanentElementCount &&
+        base >= 1.0 &&
+        progress.hasWeeklyGoal;
     final p = reduce ? 0.0 : _pulse.value;
     final opacity = building ? (base + p * 0.14).clamp(0.0, 1.0) : base;
 

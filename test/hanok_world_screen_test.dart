@@ -3,12 +3,29 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/data/personal_hanok_venue_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
+import 'package:ko_lernen_app/widgets/sori/world_map_viewport.dart';
+
+const _narrativeUnit = CourseUnit(
+  id: 'a1_01',
+  level: 'a1',
+  order: 1,
+  title: CurriculumText(ko: '인사', de: 'Begrüßung', en: 'Greeting'),
+  canDo: CurriculumText(
+    ko: '인사할 수 있어요.',
+    de: 'Ich kann jemanden begrüßen.',
+    en: 'I can greet someone.',
+  ),
+);
 
 void main() {
   test('canonical completed room zones open their own interiors', () {
@@ -34,6 +51,7 @@ void main() {
         HanokWorldScreen(
           loadRatios: () async =>
               const LevelRatios(a1: 1, a2: 1, b1: .24, b2: 1),
+          loadProjection: _legacyProjection,
         ),
       ),
     );
@@ -43,6 +61,65 @@ void main() {
     expect(
       find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
       findsNothing,
+    );
+  });
+
+  testWidgets('adds the verified can-do to the existing world introduction', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async =>
+              const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+          loadProjection: _legacyProjection,
+          loadNarrative: (projection) async => HanokBuildNarrative.fromSnapshot(
+            projection: projection,
+            snapshot: const CourseMasterySnapshot(completedUnitIds: ['a1_01']),
+            courseUnits: [_narrativeUnit],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(
+      find.text(
+        'Structure: Laying foundation stones. Verified: I can greet someone.',
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('opens the estate map from verified course structure alone', (
+    tester,
+  ) async {
+    final projection = _courseGateProjection();
+    expect(projection.usesCompoundMap, isTrue);
+    expect(projection.isUnlocked(PersonalHanokMilestone.sotdaeulmun), isTrue);
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async => const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+          loadProjection: (_) async => projection,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+    await tester.scrollUntilVisible(find.byType(WorldMapViewport), 260);
+
+    expect(find.byType(WorldMapViewport), findsOneWidget);
+    final map = tester.widget<PersonalHanokMap>(find.byType(PersonalHanokMap));
+    expect(map.projection.usesCompoundMap, isTrue);
+    expect(
+      map.projection.isUnlocked(PersonalHanokMilestone.sarangchae),
+      isFalse,
     );
   });
 
@@ -59,6 +136,7 @@ void main() {
       _host(
         HanokWorldScreen(
           loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          loadProjection: _legacyProjection,
           onOpenZone: (zone) => opened = zone,
         ),
       ),
@@ -124,6 +202,7 @@ void main() {
       const ValueKey('hanok-world-open-selected'),
     );
     await tester.ensureVisible(openSelected);
+    await tester.pump();
     expect(openSelected, findsOneWidget);
     await tester.tap(openSelected);
 
@@ -150,6 +229,7 @@ void main() {
             child: HanokWorldScreen(
               loadRatios: () async =>
                   const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+              loadProjection: _legacyProjection,
             ),
           ),
         ),
@@ -178,6 +258,7 @@ void main() {
       _host(
         HanokWorldScreen(
           loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          loadProjection: _legacyProjection,
           onOpenZone: (zone) => opened = zone,
         ),
       ),
@@ -189,6 +270,8 @@ void main() {
     );
     await tester.scrollUntilVisible(daecheong, 280);
     expect(daecheong, findsOneWidget);
+    await tester.ensureVisible(daecheong);
+    await tester.pump();
 
     await tester.tap(daecheong);
     await tester.pump();
@@ -214,6 +297,7 @@ void main() {
       _host(
         HanokWorldScreen(
           loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          loadProjection: _legacyProjection,
           revealStore: _MemoryRevealStore.initialized(
             Set<PersonalHanokMilestone>.from(PersonalHanokMilestone.values),
           ),
@@ -268,6 +352,7 @@ void main() {
         HanokWorldScreen(
           loadRatios: () async =>
               const LevelRatios(a1: 1, a2: 1, b1: .5, b2: 0),
+          loadProjection: _legacyProjection,
           revealStore: revealStore,
         ),
       ),
@@ -296,6 +381,62 @@ Widget _host(Widget child) => MaterialApp(
     child: child,
   ),
 );
+
+PersonalHanokProjection _courseGateProjection() => PersonalHanokProjection.from(
+  const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+  competence: HanokCompetenceProjection.fromSnapshot(
+    snapshot: const CourseMasterySnapshot(
+      completedUnitIds: ['a1_01', 'a2_01', 'b1_01'],
+    ),
+    courseUnits: [
+      CourseUnit(
+        id: 'a1_01',
+        level: 'a1',
+        order: 1,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+      CourseUnit(
+        id: 'a2_01',
+        level: 'a2',
+        order: 1,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+      CourseUnit(
+        id: 'b1_01',
+        level: 'b1',
+        order: 1,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+      CourseUnit(
+        id: 'b1_02',
+        level: 'b1',
+        order: 2,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+      CourseUnit(
+        id: 'b1_03',
+        level: 'b1',
+        order: 3,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+      CourseUnit(
+        id: 'b1_04',
+        level: 'b1',
+        order: 4,
+        title: _narrativeUnit.title,
+        canDo: _narrativeUnit.canDo,
+      ),
+    ],
+  ),
+);
+
+Future<PersonalHanokProjection> _legacyProjection(LevelRatios ratios) async =>
+    PersonalHanokProjection.from(ratios);
 
 class _MemoryRevealStore implements PersonalHanokRevealStore {
   final Set<PersonalHanokMilestone> _seen;

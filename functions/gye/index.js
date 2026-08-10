@@ -128,6 +128,13 @@ const {
   deleteGyeDedicationForMembership,
   joinEpochFrom,
 } = require("./gye_dedication_cleanup");
+const {
+  findEligiblePromiseCheckpoint,
+  shouldCreditPromiseContribution,
+  weeklyContributionReceiptId,
+  weeklyContributionWeekKey,
+  weeklyPromiseFor,
+} = require("./weekly_contribution_runtime");
 
 initializeApp();
 const db = getFirestore();
@@ -377,9 +384,12 @@ exports.on_pack_cleared = onDocumentWritten(
           const member = await transaction.get(memberRef);
           const ban = await transaction.get(banRef);
           const processed = await transaction.get(processedRef);
+          const gmetaData = gmeta.data() || {};
           if (marker.exists ||
               !gmeta.exists ||
-              (gmeta.data() || {}).lifecycleState === "deleting" ||
+              gmetaData.lifecycleState === "deleting" ||
+              (gmetaData.weeklyPromiseSchemaVersion === 1 &&
+                weeklyPromiseFor(gmetaData.weeklyPromiseId)) ||
               !member.exists ||
               (member.data() || {}).status !== "active" ||
               ban.exists ||
@@ -411,6 +421,98 @@ exports.on_pack_cleared = onDocumentWritten(
       }
     } catch (error) {
       console.error(`[on_pack_cleared] Error for uid=${uid}:`, error);
+      throw error;
+    }
+  },
+);
+
+/**
+ * Projects one independently completed, course-linked scenario into an
+ * anonymous weekly Gye lantern. The user's course snapshot remains private:
+ * the shared receipt contains no uid, answer, score, scenario, or course id.
+ *
+ * This does not change legacy Gyes. They continue to use the established pack
+ * aggregate until a deliberate, separately reviewed migration is offered.
+ */
+exports.on_course_mastery_checkpoint_written = onDocumentWritten(
+  {
+    document: "users/{uid}",
+    retry: true,
+  },
+  async (event) => {
+    const after = event.data?.after?.data();
+    if (!after) return;
+    const before = event.data?.before?.data() || {};
+    const courseMasteryJson = after.course_mastery_json;
+    if (courseMasteryJson === before.course_mastery_json) return;
+
+    const uid = event.params.uid;
+    const gyeIds = Array.isArray(after.gyeIds) ? after.gyeIds : [];
+    if (gyeIds.length === 0) return;
+    const weekKey = weeklyContributionWeekKey(event.time || new Date().toISOString());
+
+    try {
+      for (const gid of gyeIds) {
+        if (typeof gid !== "string" || gid.length === 0) continue;
+        const gref = db.collection("gye").doc(gid);
+        const memberRef = gref.collection("members").doc(uid);
+        const banRef = gref.collection("bans").doc(uid);
+        const markerRef = db.collection("account_deletions").doc(uid);
+        await db.runTransaction(async (transaction) => {
+          const marker = await transaction.get(markerRef);
+          const metaSnapshot = await transaction.get(gref);
+          const member = await transaction.get(memberRef);
+          const ban = await transaction.get(banRef);
+          const meta = metaSnapshot.data() || {};
+          const promise = weeklyPromiseFor(meta.weeklyPromiseId);
+          if (marker.exists ||
+              !metaSnapshot.exists ||
+              meta.lifecycleState === "deleting" ||
+              !member.exists ||
+              (member.data() || {}).status !== "active" ||
+              ban.exists ||
+              !promise) {
+            return;
+          }
+          const checkpoint = findEligiblePromiseCheckpoint({
+            promiseId: meta.weeklyPromiseId,
+            courseMasteryJson,
+          });
+          const receiptRef = gref
+            .collection("weekly_contributions")
+            .doc(weeklyContributionReceiptId({
+              gyeId: gid,
+              uid,
+              promiseId: meta.weeklyPromiseId,
+              weekKey,
+            }));
+          const receipt = await transaction.get(receiptRef);
+          if (!shouldCreditPromiseContribution({
+            meta,
+            checkpoint,
+            receiptExists: receipt.exists,
+            weekKey,
+          })) {
+            return;
+          }
+          transaction.update(gref, {
+            weeklyPromiseProgress: FieldValue.increment(1),
+            weeklyPromiseWeekKey: weekKey,
+          });
+          transaction.set(receiptRef, {
+            schemaVersion: 1,
+            source: "course_scenario_checkpoint",
+            promiseId: meta.weeklyPromiseId,
+            weekKey,
+            createdAt: FieldValue.serverTimestamp(),
+          });
+        });
+      }
+    } catch (error) {
+      console.error(
+        `[on_course_mastery_checkpoint_written] Error for uid=${uid}:`,
+        error,
+      );
       throw error;
     }
   },
@@ -480,19 +582,32 @@ exports.weekly_goal_rollover = onSchedule(
           );
 
           const meta = metaSnapshot.data() || {};
-          const progress = parseInt(meta.weeklyGoalProgress || 0, 10);
-          const goal = parseInt(meta.weeklyGoalPacks || 0, 10);
+          const promise = weeklyPromiseFor(meta.weeklyPromiseId);
+          const usesLifePromise = promise &&
+            meta.weeklyPromiseSchemaVersion === 1 &&
+            meta.weeklyPromiseTarget === promise.target;
+          const progress = parseInt(
+            usesLifePromise
+              ? meta.weeklyPromiseProgress || 0
+              : meta.weeklyGoalProgress || 0,
+            10,
+          );
+          const goal = usesLifePromise
+            ? promise.target
+            : parseInt(meta.weeklyGoalPacks || 0, 10);
           const achieved = goal > 0 && progress >= goal;
           const boost =
-            goal > 0 && progress >= Math.ceil(goal * 0.7);
-          const mvp = selectWeeklyMvp(
-            members,
-            bannedUids,
-            deletingUids,
-          );
+            !usesLifePromise && goal > 0 && progress >= Math.ceil(goal * 0.7);
+          const mvp = usesLifePromise
+            ? { nickname: "", uid: "", packs: 0 }
+            : selectWeeklyMvp(members, bannedUids, deletingUids);
 
           const metaUpdate = {
             weeklyGoalProgress: 0,
+            ...(usesLifePromise ? {
+              weeklyPromiseProgress: 0,
+              weeklyPromiseWeekKey: rolloverKey,
+            } : {}),
             xpBoostActive: boost,
             lastWeekMvp: mvp.nickname,
             lastWeekMvpUid: mvp.uid,

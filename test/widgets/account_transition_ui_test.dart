@@ -65,6 +65,7 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
@@ -95,16 +96,22 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Kontowechsel fortsetzen'));
     expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
     expect(find.text('Wechsel abbrechen'), findsOneWidget);
     // The locked connect button stays tappable (reroutes to resume) but can
     // never start a new provider link while the replacement is persisted.
+    await _revealProfile(
+      tester,
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+    );
     final newLink = tester.widget<SoriButton>(
       find.widgetWithText(SoriButton, 'Mit Google sichern'),
     );
     expect(newLink.onTap, isNotNull);
     expect(operations.linkCalls, isEmpty);
 
+    await _revealProfile(tester, find.text('Wechsel abbrechen'));
     await tester.tap(find.text('Wechsel abbrechen'));
     await tester.pump();
     expect(operations.cancelCalls, 1);
@@ -130,15 +137,18 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Wechsel abbrechen'));
     await tester.tap(find.text('Wechsel abbrechen'));
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
     expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
     expect(find.textContaining('Support'), findsOneWidget);
     expect(find.textContaining('private'), findsNothing);
     expect(tester.takeException(), isNull);
 
     operations.cancelResult = true;
+    await _revealProfile(tester, find.text('Erneut versuchen'));
     await tester.tap(find.text('Erneut versuchen'));
     await tester.pump();
     expect(operations.cancelCalls, 2);
@@ -161,15 +171,18 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Wechsel abbrechen'));
     await tester.tap(find.text('Wechsel abbrechen'));
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
     expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
     expect(find.textContaining('private cancel proof'), findsNothing);
     expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
     expect(tester.takeException(), isNull);
 
     operations.cancelFailure = null;
+    await _revealProfile(tester, find.text('Erneut versuchen'));
     await tester.tap(find.text('Erneut versuchen'));
     await tester.pump();
     expect(operations.cancelCalls, 2);
@@ -196,6 +209,7 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
@@ -203,6 +217,7 @@ void main() {
     await tester.pump();
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Kontowechsel fortsetzen'));
     expect(operations.confirmCalls, 1);
     expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
 
@@ -232,15 +247,18 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     await tester.tap(find.text('Sicher verbinden'));
     await tester.pump();
     await tester.pump();
+    await _revealProfile(tester, find.text('Wechsel abbrechen'));
     await tester.tap(find.text('Wechsel abbrechen'));
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
     expect(operations.cancelCalls, 1);
     expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
     expect(find.text('Erneut versuchen'), findsOneWidget);
@@ -263,12 +281,14 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     await tester.tap(find.text('Sicher verbinden'));
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Verbindung nicht abgeschlossen'));
     expect(find.textContaining('proof-secret-123'), findsNothing);
     expect(find.textContaining('private server detail'), findsNothing);
     expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
@@ -455,6 +475,7 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
@@ -502,6 +523,7 @@ void main() {
     );
     await tester.pump();
 
+    await _revealProfile(tester, find.text('Mit Google sichern'));
     await tester.tap(find.text('Mit Google sichern'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
@@ -655,4 +677,13 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
   );
+}
+
+Future<void> _revealProfile(WidgetTester tester, Finder target) async {
+  await tester.scrollUntilVisible(
+    target,
+    240,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await tester.pump();
 }

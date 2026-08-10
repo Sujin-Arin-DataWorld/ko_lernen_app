@@ -54,6 +54,81 @@ void main() {
     await tester.pump();
   });
 
+  testWidgets('Profile puts editable learning choices ahead of account stats', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_wrap(const ProfileScreen()));
+    await tester.pump();
+
+    expect(find.text('Mein Lernen'), findsOneWidget);
+    expect(find.text('Mein Ziel'), findsOneWidget);
+    expect(find.text('Mein Startpunkt'), findsOneWidget);
+    expect(find.text('Lernbegleitung'), findsOneWidget);
+    expect(find.text('Datenschutz & Konto'), findsOneWidget);
+
+    await tester.tap(find.text('Mein Startpunkt'));
+    await tester.pump();
+    expect(find.text('A2 — Grundkenntnisse'), findsOneWidget);
+    await tester.tap(
+      find.descendant(
+        of: find.byType(SimpleDialog),
+        matching: find.text('A1 — Anfänger'),
+      ),
+    );
+    await tester.pump();
+
+    await tester.scrollUntilVisible(
+      find.text('Mein Fortschritt'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Mein Fortschritt'), findsOneWidget);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
+  testWidgets('Profile learning controls stay scrollable on a compact phone', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(308, 680);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        const MediaQuery(
+          data: MediaQueryData(
+            disableAnimations: true,
+            textScaler: TextScaler.linear(1.3),
+          ),
+          child: ProfileScreen(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.text('Mein Lernen'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Mein Fortschritt'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(find.text('Mein Fortschritt'));
+    await tester.pump();
+    expect(find.text('Mein Fortschritt'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
   testWidgets(
     'ProfileScreen uses the remaining tablet content width beside a rail',
     (tester) async {
@@ -214,6 +289,15 @@ void main() {
       );
       await refreshStarted.future;
 
+      await tester.scrollUntilVisible(
+        find.widgetWithText(SoriButton, 'Abmelden'),
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(
+        find.widgetWithText(SoriButton, 'Abmelden'),
+      );
+      await tester.pump();
       var signOut = tester.widget<SoriButton>(
         find.widgetWithText(SoriButton, 'Abmelden'),
       );
@@ -230,6 +314,10 @@ void main() {
         find.widgetWithText(SoriButton, 'Abmelden'),
       );
       expect(signOut.onTap, isNotNull);
+      await tester.ensureVisible(
+        find.widgetWithText(SoriButton, 'Abmelden'),
+      );
+      await tester.pump();
       await tester.tap(find.widgetWithText(SoriButton, 'Abmelden'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
@@ -266,6 +354,15 @@ void main() {
 
     // Loading state: the button responds with the generic protection notice
     // and never starts provider OAuth.
+    await tester.scrollUntilVisible(
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+    );
+    await tester.pump();
     final connect = tester.widget<SoriButton>(
       find.widgetWithText(SoriButton, 'Mit Google sichern'),
     );
