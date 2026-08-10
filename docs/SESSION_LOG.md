@@ -34,7 +34,7 @@ test/content_audit_manifest_test.dart` (**14 passed**) ·
 (**55 passed**). JSON parses for both ARB files and both changed content files; the
 user-facing ARB values contain **0** em/en dashes.
 
-**Commit.** Pending local commit. The resulting hash is recorded in the follow-up log update.
+**Commit.** `a6c5b2d` (`docs(l10n): humanize German and English copy`).
 
 ### 2026-08-10 — main red 해소: 요일 의존으로 깨지던 stats 골든 제거
 
