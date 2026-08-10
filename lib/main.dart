@@ -177,9 +177,9 @@ Future<void> main() async {
   // ⚠️ Impeller 를 다시 켜면(매니페스트) 여기 sdkInt>=33 게이트를 되살려야 한다.
   //   (Jin 실기기 M2101K6G/Android 12=API31: 이전 sdkInt>=33 게이트가 영상을
   //    통째로 막아 홈·프로필이 전부 정적 폴백으로 떨어졌다 — 2026-08-06.)
-  Future<bool> characterVideoSupported() async => true;
-
-  TigerStageVideo.videoReady = await characterVideoSupported();
+  // 위 사유로 캐릭터 영상은 항상 허용(fail-open). 예전 `async => true` 를 await
+  // 하던 불필요한 async 홉을 제거 — runApp 전 마이크로태스크 1회 절약.
+  TigerStageVideo.videoReady = true;
 
   // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
   // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).

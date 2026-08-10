@@ -7,6 +7,23 @@
 
 ---
 
+### 2026-08-11 (Claude) — 앱 최적화 Phase 3: 시작 경로(안전 항목만)
+
+**왜.** 감사 시작경로 21스텝. 부팅 회귀는 치명적·기기검증 필요라 **명백히 안전(동작보존)만** 적용, 나머지는 기기검증 항목으로 남김(Jin 자는 중 자율 진행).
+
+**무엇을(적용).**
+- `main.dart`: `characterVideoSupported()`(`async => true`)를 `await` 하던 불필요한 async 홉 제거 → `TigerStageVideo.videoReady = true` 직접 대입. runApp 전 마이크로태스크 1회 절약. 동작 동일.
+
+**보류(기기 부팅 검증 필요 — Jin).**
+- `BookImageService.initialize()` 중복(`main.dart:134` blocking + coordinator `resumeMediaCleanup` background) — 134 제거 시 미디어 정리가 background로만. 타이밍 변화라 실기기 확인 후.
+- SystemChrome `setPreferredOrientations`/`setEnabledSystemUIMode` `await` 제거 — 주석에 과거 회귀 이력(inset 보고 깨짐) → 실기기 확인 후.
+- 독립 `await` 병렬화(touchStreak·audio·미디어 복구) — 순서 의존 검증 필요.
+- ⚠️ **감사 제안 정정**: `SceneAssetResolver.load()`(191)는 **지연 금지** — 코드 주석 *"must finish before the first frame"*(안 지키면 시나리오 일러스트가 폴백으로 대체). 현행 유지.
+
+**검증.** `flutter analyze` 0.
+
+---
+
 ### 2026-08-11 (Claude) — 앱 최적화 Phase 4: 렌더 핫스팟(cacheWidth·future 캐싱)
 
 **왜.** 감사 핫스팟 12건 중 **안전·고가치만** 적용(런타임 메모리·리빌드 절감).
