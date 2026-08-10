@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Resource-shrinker keep list (isShrinkResources=true, RELEASE only).
+
+  The Android resource shrinker scans Java/Kotlin code and XML resources for
+  references. It does NOT scan Dart. Any drawable/mipmap referenced only by a
+  runtime string from Dart is therefore invisible to the shrinker and gets
+  stripped from the release APK/AAB, causing a Resources.NotFoundException on
+  device (never in debug).
+
+  CRITICAL — ic_stat_hangul_sori:
+    lib/services/notification_service.dart passes
+    AndroidInitializationSettings('ic_stat_hangul_sori'). That drawable is
+    referenced from nowhere else, so it MUST be kept here or every scheduled
+    notification crashes on a shrunk release build.
+
+  The launcher/splash entries are manifest-/style-referenced already (so the
+  shrinker keeps them anyway); they are listed as harmless over-keep insurance.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_stat_hangul_sori,@drawable/launch_background,@drawable/background,@drawable/splash,@drawable/android12splash,@drawable/ic_launcher_foreground,@mipmap/launcher_icon,@mipmap/ic_launcher" />
