@@ -7,6 +7,26 @@
 
 ---
 
+### 2026-08-11 (Claude) — 학습 카드 텍스트 채움 타이포 + Android R8 keep 강화
+
+**왜.** Jin 스크린샷: 복습 "단어 카드"의 텍스트가 82% 높이 히어로 카드 대비 너무 작게 가운데 뭉쳐 충전율 ~42%. 요청: 히어로/포커스 학습 카드는 "채워 키우기", 크롬(버튼·네비·리스트·칩)은 유지 + 빌드 최적화(최적화/난독화/축소 = Android R8) 강화. (Jin 자는 중 자율 진행·커밋 승인.)
+
+**무엇을(적용·커밋).**
+- `lib/widgets/sori/responsive.dart`: `soriFillSize(h,frac,min,max)` 신설 — 포커스 카드 안쪽 높이에 비례한 폰트(최소 하한 클램프). 독스트링에 "히어로/포커스 전용, 크롬 금지" 명시. (커밋 `6ff23a1`)
+- `review_session_screen.dart`(레퍼런스): 뜻 26→최대 66·예문 15→최대 40·앞면 단어 40→최대 120(FittedBox), Column `center`→`spaceEvenly` 로 카드 채움. (`6ff23a1`)
+- 형제 5화면 동일 규칙(`soriFillSize`+`spaceEvenly`, 헤드라인 FittedBox, 예문 묶음): `vocab_pack`(learn 앞/뒤 + quiz prompt)·`custom_pack_play`(_Front/_Back)·`legacy_vocab`(koFirst 순서)·`grammar`(_Front/_Back/_CourseCheckpointFront, StudyCardFace 탈피 + import 교체)·`hangul`(글자 flashcard). 모든 min=기존 크기라 폰은 무축소, 큰/태블릿 카드에서만 확대. 크롬 미변경. (커밋 `bf2dc03`)
+  - `custom_pack_play`: 롤아웃 중 `ConstrainedBox(minHeight: Infinity)` 레이아웃 assert 크래시 발견·수정 + `minHeight` 폴백으로 기기 비례 스케일 복원(리뷰 medium 지적 해소).
+- `android/app/proguard-rules.pro` 확장 + `android/app/src/main/res/raw/keep.xml` 신설: R8(minify/shrink는 build.gradle.kts에 **이미 켜져 있었음**)에 전 네이티브 플러그인 keep 규칙(Firebase·MLKit 한국어 OCR·RevenueCat·sign-in·notifications·permission·audio·tts·secure_storage·video·rive 등) + 알림 아이콘 리소스 보존. (커밋 `36080d3`)
+
+**보류/의사결정.**
+- iOS Dart `--obfuscate`(워크플로가 `scripts/build_ios_ipa.sh`에 추가했던 것)는 **revert** — 요청된 "난독화"는 Android R8(Java)로 이미 충족되고, Dart 난독화는 `enum.name`/`runtimeType` 영속 키 파손 위험 + 미검증이라 제외. 향후 opt-in(영속 키 감사 후).
+- ⚠️ **Android release keep 규칙은 Jin 실기기 signed release 검증 필수**(debug 무영향). 알림 아이콘·한국어 OCR·Firebase(sign-in/sync/Crashlytics/RemoteConfig/AppCheck/FCM)·RevenueCat·TTS/audio·권한·secure storage·video E2E + `build/app/outputs/mapping/release/missing_rules.txt` 확인.
+- 다음 단계(미착수): "박스 속 텍스트" 광범위 **최소 가독성** 감사(크롬 유지, 포커스 카드만 채움 — 원칙 Jin 승인됨).
+
+**검증.** 5화면 `flutter analyze` 0 issues · 회귀 위젯 테스트 24 통과(플립 앞/뒤 실렌더 포함) · 다중 에이전트 적대적 diff 리뷰(크롬 미변경·오버플로 스크롤 세이프·keep 규칙 완비 확인, medium 1건 즉시 수정). 커밋 `6ff23a1`·`bf2dc03`·`36080d3`.
+
+---
+
 ### 2026-08-11 (Claude) — 앱 최적화 Phase 3: 시작 경로(안전 항목만)
 
 **왜.** 감사 시작경로 21스텝. 부팅 회귀는 치명적·기기검증 필요라 **명백히 안전(동작보존)만** 적용, 나머지는 기기검증 항목으로 남김(Jin 자는 중 자율 진행).
