@@ -22,7 +22,7 @@ IPA 빌드가 시작 단계에서 중단됐다.
 Xcode 경로 선택 후 `xcrun --find xcodebuild`와 `xcodebuild -version` 성공
 (Xcode 26.6) · `git diff --check` 통과.
 
-**Commit.** None (not requested).
+**Commit.** `90903f1` (`chore(ios): prepare free App Store launch`).
 
 ### 2026-08-10 — 초기 무료 iOS 출시 모드
 
@@ -43,7 +43,7 @@ RevenueCat 키가 없으면 구매만 비활성화될 뿐 A2 이상 학습과 �
 `flutter test test/premium_release_default_test.dart` (2 passed) ·
 `dart run tool/verify_ios_firebase_config.dart` 성공 · `git diff --check` 통과.
 
-**Commit.** None (not requested).
+**Commit.** `90903f1` (`chore(ios): prepare free App Store launch`).
 
 ### 2026-08-10 — iOS Firebase 검증기가 정상 Xcode 리소스 배치를 허용
 
@@ -61,7 +61,7 @@ Bundle Resources에 추가했지만, 검증기는 파일이 Runner 그룹 바로
 프로젝트와 로컬 Firebase 설정으로 `dart run tool/verify_ios_firebase_config.dart`
 성공 (`iOS Firebase release configuration is present.`) · `git diff --check` 통과.
 
-**Commit.** None (not requested).
+**Commit.** `90903f1` (`chore(ios): prepare free App Store launch`).
 
 ### 2026-08-10 — App Store Connect 구성안과 DE/EN 등재 문구 정리
 
@@ -79,7 +79,7 @@ build `11`을 가리켰다. App Store 등록을 앞두고, 실제 iOS 캡처에�
 **검증.** `pubspec.yaml`의 현재 버전 `2.0.5+13`과 대조 · 어휘 CSV 558행 확인 ·
 시나리오 JSON 39개 확인 · `git diff --check` 통과.
 
-**Commit.** None (not requested).
+**Commit.** `90903f1` (`chore(ios): prepare free App Store launch`).
 
 ### 2026-08-10 — 투명 로고를 Android·iOS·웹 생성 자산에 반영
 
