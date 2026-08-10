@@ -5350,13 +5350,13 @@ abstract class AppL10n {
   /// No description provided for @gyeEmptyHeadline.
   ///
   /// In de, this message translates to:
-  /// **'Zusammen gebaut hält länger'**
+  /// **'Allein lernen ist vollständig. Zusammen kann es wärmer sein.'**
   String get gyeEmptyHeadline;
 
   /// No description provided for @gyeEmptyPreviewCaption.
   ///
   /// In de, this message translates to:
-  /// **'So wächst euer gemeinsames Hanok'**
+  /// **'Eine Vorschau auf einen gemeinsamen Hof — nie Voraussetzung für deinen Lernweg'**
   String get gyeEmptyPreviewCaption;
 
   /// No description provided for @homePathCardTitle.
@@ -5478,6 +5478,60 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Alle Statistiken ansehen'**
   String get profileViewStats;
+
+  /// No description provided for @profileLearningSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Lernen'**
+  String get profileLearningSection;
+
+  /// No description provided for @profileLearningGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Ziel'**
+  String get profileLearningGoal;
+
+  /// No description provided for @profileLearningGoalNotSet.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle, was dich zum Koreanischen bringt'**
+  String get profileLearningGoalNotSet;
+
+  /// No description provided for @profileLearningStartPoint.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Startpunkt'**
+  String get profileLearningStartPoint;
+
+  /// No description provided for @profileLearningCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernbegleitung'**
+  String get profileLearningCompanion;
+
+  /// No description provided for @profileSpaceSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Raum'**
+  String get profileSpaceSection;
+
+  /// No description provided for @profilePrivacyAccount.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutz & Konto'**
+  String get profilePrivacyAccount;
+
+  /// No description provided for @profilePrivacyAccountDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten, Sicherung und Kontosteuerung'**
+  String get profilePrivacyAccountDescription;
+
+  /// No description provided for @profileProgressSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Fortschritt'**
+  String get profileProgressSection;
 
   /// No description provided for @profileSignOut.
   ///
@@ -5791,22 +5845,28 @@ abstract class AppL10n {
   /// **'Entdecken'**
   String get navDiscover;
 
+  /// No description provided for @discoverEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Werkzeuge & Kultur'**
+  String get discoverEyebrow;
+
   /// No description provided for @discoverTitle.
   ///
   /// In de, this message translates to:
-  /// **'Alle Lernwerkzeuge'**
+  /// **'Finde genau, was du brauchst.'**
   String get discoverTitle;
 
   /// No description provided for @discoverSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Finde in einem Schritt die passende Übung, dein Buch oder deinen nächsten Lernweg.'**
+  /// **'Scanne, schlage etwas nach, höre zu oder mach eine kurze Übungspause. Entdecken ersetzt nie deinen heutigen Lernschritt.'**
   String get discoverSubtitle;
 
   /// No description provided for @discoverSearchHint.
   ///
   /// In de, this message translates to:
-  /// **'Funktionen durchsuchen'**
+  /// **'Suchen: Aussprache, Buch, OCR …'**
   String get discoverSearchHint;
 
   /// No description provided for @discoverStartHere.
@@ -5826,6 +5886,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Keine passende Funktion gefunden.'**
   String get discoverNoResults;
+
+  /// No description provided for @discoverNoResultsHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuche ein Bedürfnis wie Aussprache, Buch, Wiederholen oder Gespräch.'**
+  String get discoverNoResultsHint;
 
   /// No description provided for @discoverCategoryAll.
   ///
@@ -5890,20 +5956,146 @@ abstract class AppL10n {
   /// No description provided for @gyeExplainWhat.
   ///
   /// In de, this message translates to:
-  /// **'Ein Gye ist eine kleine Lerngruppe für Koreanisch. Es geht nicht um Wettbewerb.'**
+  /// **'Ein Gye ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.'**
   String get gyeExplainWhat;
 
   /// No description provided for @gyeExplainWhy.
   ///
   /// In de, this message translates to:
-  /// **'Euer Fortschritt lässt ein gemeinsames Hanok wachsen. Gemeinsam fällt es leichter, dranzubleiben.'**
+  /// **'Ein gemeinsames Hanok macht Ermutigung sichtbar. Es ist nie ein Wettbewerb und nie Voraussetzung für deinen Lernweg.'**
   String get gyeExplainWhy;
 
   /// No description provided for @gyeExplainHow.
   ///
   /// In de, this message translates to:
-  /// **'Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei.'**
+  /// **'Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei, wenn du bereit bist.'**
   String get gyeExplainHow;
+
+  /// No description provided for @gyePrivacyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was andere sehen können'**
+  String get gyePrivacyTitle;
+
+  /// No description provided for @gyePrivacyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur dass du in der Gruppe ein Paket abgeschlossen hast — niemals deine Antworten, gespeicherten Wörter oder Prüfungsergebnisse.'**
+  String get gyePrivacyBody;
+
+  /// No description provided for @gyeWeeklyEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Woche zusammen'**
+  String get gyeWeeklyEyebrow;
+
+  /// No description provided for @gyeWeeklyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Haltet gemeinsam die Lichter im Hof an.'**
+  String get gyeWeeklyTitle;
+
+  /// No description provided for @gyeWeeklyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Zahl zeigt abgeschlossene Pakete in eurem aktuellen Gye. Sie ist kein Punktestand, keine Rangliste und kein Antwortprotokoll.'**
+  String get gyeWeeklyBody;
+
+  /// No description provided for @gyePromisePickerLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsame Alltagsszene dieser Woche'**
+  String get gyePromisePickerLabel;
+
+  /// No description provided for @gyePromiseCafeOrder.
+  ///
+  /// In de, this message translates to:
+  /// **'Drei Personen üben, höflich zu bestellen'**
+  String get gyePromiseCafeOrder;
+
+  /// No description provided for @gyePromiseDirections.
+  ///
+  /// In de, this message translates to:
+  /// **'Drei Personen üben, nach dem Weg zu fragen'**
+  String get gyePromiseDirections;
+
+  /// No description provided for @gyePromiseSelfIntroduction.
+  ///
+  /// In de, this message translates to:
+  /// **'Drei Personen üben, sich vorzustellen'**
+  String get gyePromiseSelfIntroduction;
+
+  /// No description provided for @gyePromiseEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Woche zusammen'**
+  String get gyePromiseEyebrow;
+
+  /// No description provided for @gyePromiseCafeOrderTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lasst drei Personen höflich bestellen üben.'**
+  String get gyePromiseCafeOrderTitle;
+
+  /// No description provided for @gyePromiseDirectionsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lasst drei Personen nach dem Weg fragen üben.'**
+  String get gyePromiseDirectionsTitle;
+
+  /// No description provided for @gyePromiseSelfIntroductionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lasst drei Personen sich vorstellen üben.'**
+  String get gyePromiseSelfIntroductionTitle;
+
+  /// No description provided for @gyePromiseBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Laterne leuchtet nach einer kursgebundenen Szene mit mindestens 70 %. Antworten, Punkte und Mitwirkende bleiben privat.'**
+  String get gyePromiseBody;
+
+  /// No description provided for @gyePromiseProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{done} von {target} Laternen leuchten'**
+  String gyePromiseProgress(int done, int target);
+
+  /// No description provided for @gyePromiseRemaining.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch {count} {count, plural, =1{kursgebundener Szenenbeitrag} other{kursgebundene Szenenbeiträge}} diese Woche'**
+  String gyePromiseRemaining(int count);
+
+  /// No description provided for @gyeOpenToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutiges Lernen öffnen'**
+  String get gyeOpenToday;
+
+  /// No description provided for @gyeCourtyardEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Euer Hof'**
+  String get gyeCourtyardEyebrow;
+
+  /// No description provided for @gyeCourtyardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsamer Ort für kleine, sichere Ermutigung.'**
+  String get gyeCourtyardTitle;
+
+  /// No description provided for @gyeCourtyardBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Hofansicht folgt den vorhandenen Wochenziel-Daten. Sie ändert weder einen persönlichen Kurs noch ein persönliches Hanok.'**
+  String get gyeCourtyardBody;
+
+  /// No description provided for @gyeSafeMessage.
+  ///
+  /// In de, this message translates to:
+  /// **'Sichere Ermutigung senden'**
+  String get gyeSafeMessage;
 
   /// No description provided for @coachGyeTabTitle.
   ///
@@ -6085,23 +6277,71 @@ abstract class AppL10n {
   /// **'Weiter'**
   String get feedbackCompletionContinue;
 
+  /// No description provided for @practiceEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben nach deinem Bedarf'**
+  String get practiceEyebrow;
+
+  /// No description provided for @practiceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was möchtest du gerade festigen?'**
+  String get practiceTitle;
+
+  /// No description provided for @practiceSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle zuerst ein Bedürfnis. Dein einziger nächster Lernschritt bleibt auf Start.'**
+  String get practiceSubtitle;
+
+  /// No description provided for @practiceDueTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fällige Wörter wiederholen'**
+  String get practiceDueTitle;
+
+  /// No description provided for @practiceDueEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne eine Wiederholung, wann du möchtest'**
+  String get practiceDueEmpty;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:
-  /// **'Lernen'**
+  /// **'Etwas gezielt üben'**
   String get practiceSecLearn;
 
   /// No description provided for @practiceSecGames.
   ///
   /// In de, this message translates to:
-  /// **'Spiele'**
+  /// **'Frei spielen'**
   String get practiceSecGames;
 
   /// No description provided for @practiceSecWords.
   ///
   /// In de, this message translates to:
-  /// **'Wörter'**
+  /// **'Deine Wörter'**
   String get practiceSecWords;
+
+  /// No description provided for @practiceSecSpace.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernraum'**
+  String get practiceSecSpace;
+
+  /// No description provided for @pathEvidenceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Woran du echten Fortschritt erkennst'**
+  String get pathEvidenceTitle;
+
+  /// No description provided for @pathEvidenceBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Freies Ansehen speichert nur Verlauf. Ein Kursabschnitt wird erst durch seine aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung bestätigt.'**
+  String get pathEvidenceBody;
 
   /// No description provided for @coachBookTitle.
   ///
@@ -7966,7 +8206,7 @@ abstract class AppL10n {
   /// No description provided for @homeTodayEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Heute'**
+  /// **'Deine Handlung für heute'**
   String get homeTodayEyebrow;
 
   /// No description provided for @homeTodayMissionStart.
@@ -7974,6 +8214,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese Szene beginnen'**
   String get homeTodayMissionStart;
+
+  /// No description provided for @homeTodayCourseAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Handlung üben'**
+  String get homeTodayCourseAction;
+
+  /// No description provided for @homeTodayPackAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Wörter üben'**
+  String get homeTodayPackAction;
+
+  /// No description provided for @homeTodayReviewAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt wiederholen'**
+  String get homeTodayReviewAction;
+
+  /// No description provided for @homeTodayScenarioAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Szene üben'**
+  String get homeTodayScenarioAction;
+
+  /// No description provided for @homeTodayPackDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe die Wörter, die du als Nächstes brauchst.'**
+  String get homeTodayPackDescription;
+
+  /// No description provided for @homeTodayReviewDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Damit der Satz in deiner nächsten Szene bereit ist.'**
+  String get homeTodayReviewDescription;
+
+  /// No description provided for @homeTodayReviewReasonTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum heute wiederholen?'**
+  String get homeTodayReviewReasonTitle;
+
+  /// No description provided for @homeTodayReviewReason.
+  ///
+  /// In de, this message translates to:
+  /// **'Damit Begrüßungen, Bitten und Antworten in deiner nächsten Szene bereit sind.'**
+  String get homeTodayReviewReason;
+
+  /// No description provided for @homeTodayReviewTime.
+  ///
+  /// In de, this message translates to:
+  /// **'Etwa 3 Minuten · dann geht dein Weg weiter.'**
+  String get homeTodayReviewTime;
+
+  /// No description provided for @homeUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Weg konnte nicht aktualisiert werden.'**
+  String get homeUnavailableTitle;
+
+  /// No description provided for @homeUnavailableDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.'**
+  String get homeUnavailableDescription;
+
+  /// No description provided for @homeUnavailableCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wörter wiederholen'**
+  String get homeUnavailableCta;
+
+  /// No description provided for @homeTodayScenarioDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre zu, wähle und sprich die Szene.'**
+  String get homeTodayScenarioDescription;
 
   /// No description provided for @homeHanokPreviewTitle.
   ///
@@ -7987,17 +8305,35 @@ abstract class AppL10n {
   /// **'Dein Lernen lässt deinen Hanok wachsen.'**
   String get homeHanokPreviewBody;
 
-  /// No description provided for @homeHanokPreviewProgress.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hanok ist zu {percent} % gebaut'**
-  String homeHanokPreviewProgress(int percent);
-
   /// No description provided for @homeHanokPreviewCta.
   ///
   /// In de, this message translates to:
   /// **'Mein Hanok öffnen'**
   String get homeHanokPreviewCta;
+
+  /// No description provided for @hanokNarrativeVerified.
+  ///
+  /// In de, this message translates to:
+  /// **'Bau: {stage}. Bestätigt: {canDo}'**
+  String hanokNarrativeVerified(String stage, String canDo);
+
+  /// No description provided for @hanokNarrativeNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Bau: {stage}. Als Nächstes: {canDo}'**
+  String hanokNarrativeNext(String stage, String canDo);
+
+  /// No description provided for @hanokNarrativeStarting.
+  ///
+  /// In de, this message translates to:
+  /// **'Bau: {stage}. Beginne mit deiner ersten Szene.'**
+  String hanokNarrativeStarting(String stage);
+
+  /// No description provided for @hanokNarrativeMaterialSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Kursszenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.'**
+  String get hanokNarrativeMaterialSource;
 
   /// No description provided for @sarangbangTitle.
   ///

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../models/gye_dedication.dart';
+import '../models/gye_weekly_promise.dart';
 import '../l10n/gye_error_text.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
@@ -31,11 +32,28 @@ bool gyeActionsAvailable(CloudWriteSession? session) =>
 /// 계 마당 — 상단(이름·멤버수·주간 목표) / 중간(공동 한옥) / 하단(피드). plan §7.4.
 /// (스티커 FAB·전송 = Tier 3d. 피드는 3e Cloud Function이 채움.)
 class GyeScreen extends StatefulWidget {
+  const GyeScreen({
+    super.key,
+    required this.gyeId,
+    this.accountSessions,
+    this.metaUpdates,
+    this.memberUpdates,
+    this.currentMemberUpdates,
+    this.dedicationUpdates,
+    this.blockedUidUpdates,
+    this.feedUpdates,
+  });
+
   final String gyeId;
-
-  const GyeScreen({super.key, required this.gyeId, this.accountSessions});
-
   final ValueListenable<CloudWriteSession?>? accountSessions;
+
+  /// Read-only test seams. Production keeps every existing Gye stream.
+  final Stream<GyeMeta?>? metaUpdates;
+  final Stream<List<GyeMember>>? memberUpdates;
+  final Stream<GyeMember?>? currentMemberUpdates;
+  final Stream<List<GyeDedication>>? dedicationUpdates;
+  final Stream<Set<String>>? blockedUidUpdates;
+  final Stream<List<GyeFeedEvent>>? feedUpdates;
 
   @override
   State<GyeScreen> createState() => _GyeScreenState();
@@ -101,7 +119,7 @@ class _GyeScreenState extends State<GyeScreen>
           GyeService.syncMyMemberStats();
         }
         return StreamBuilder<GyeMeta?>(
-          stream: GyeService.metaStream(widget.gyeId),
+          stream: widget.metaUpdates ?? GyeService.metaStream(widget.gyeId),
           builder: (context, snap) {
             if (snap.connectionState == ConnectionState.waiting &&
                 !snap.hasData) {
@@ -137,6 +155,8 @@ class _GyeScreenState extends State<GyeScreen>
                 title: Text(
                   meta.name,
                   style: const TextStyle(fontWeight: FontWeight.w800),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 actions: [
                   Center(
@@ -184,167 +204,203 @@ class _GyeScreenState extends State<GyeScreen>
               ),
               body: SafeArea(
                 child: SoriCenterClamp(
-                  child: Column(
-                    children: [
-                      if (!actionsAvailable)
-                        Padding(
+                  child: CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Column(
+                          children: [
+                            if (!actionsAvailable)
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  Spacing.lg,
+                                  Spacing.md,
+                                  Spacing.lg,
+                                  0,
+                                ),
+                                child: Semantics(
+                                  liveRegion: true,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(Spacing.md),
+                                    decoration: BoxDecoration(
+                                      color: SoriColors.gold.withValues(
+                                        alpha: 0.12,
+                                      ),
+                                      borderRadius: SoriRadius.brMd,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.sync_lock_rounded,
+                                          color: SoriColors.gold,
+                                        ),
+                                        const SizedBox(width: Spacing.sm),
+                                        Expanded(
+                                          child: Text(
+                                            t.gyeAccountTransitionPaused,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
+                            if (meta.memberCount <= 1)
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  Spacing.lg,
+                                  Spacing.lg,
+                                  Spacing.lg,
+                                  0,
+                                ),
+                                child: _SoloInviteCard(
+                                  code: meta.code,
+                                  enabled: actionsAvailable,
+                                ),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(Spacing.lg),
+                              child: _GyeWeeklyPromise(
+                                meta: meta,
+                                onOpenToday: () => Navigator.of(context)
+                                    .pushNamedAndRemoveUntil(
+                                      '/',
+                                      (route) => false,
+                                    ),
+                                board:
+                                    meta.weeklyPromiseSchemaVersion == 1 &&
+                                        meta.weeklyPromiseId.isNotEmpty
+                                    ? _GyeAnonymousPromiseProgress(meta: meta)
+                                    : KeyedSubtree(
+                                        key: _dureBoardKey,
+                                        child: DureBoard(
+                                          gyeId: widget.gyeId,
+                                          meta: meta,
+                                          myUid: GyeService.currentUid,
+                                          writesAvailable: actionsAvailable,
+                                          showPausedReason: false,
+                                          memberUpdates: widget.memberUpdates,
+                                        ),
+                                      ),
+                              ),
+                            ),
+                            LayoutBuilder(
+                              builder: (context, c) {
+                                final h = (c.maxWidth * 0.72).clamp(
+                                  280.0,
+                                  380.0,
+                                );
+                                return SizedBox(
+                                  height: h,
+                                  child: StreamBuilder<GyeMember?>(
+                                    stream:
+                                        widget.currentMemberUpdates ??
+                                        GyeService.currentMemberStream(
+                                          widget.gyeId,
+                                        ),
+                                    builder: (context, memberSnapshot) {
+                                      final currentMember = memberSnapshot.data;
+                                      final currentMembershipEpoch =
+                                          currentMember?.joinedAtEpoch;
+                                      return StreamBuilder<List<GyeDedication>>(
+                                        stream:
+                                            widget.dedicationUpdates ??
+                                            GyeDedicationService.streamForGye(
+                                              widget.gyeId,
+                                            ),
+                                        builder: (context, dedicationSnapshot) {
+                                          final dedications =
+                                              dedicationSnapshot.data ??
+                                              const <GyeDedication>[];
+                                          return Stack(
+                                            children: [
+                                              Positioned.fill(
+                                                child: GyeHanok(
+                                                  meta: meta,
+                                                  dedications: dedications,
+                                                ),
+                                              ),
+                                              if (currentMember != null &&
+                                                  currentMembershipEpoch !=
+                                                      null)
+                                                Positioned(
+                                                  top: Spacing.sm,
+                                                  right: Spacing.sm,
+                                                  child: GyeDedicationAction(
+                                                    gyeId: widget.gyeId,
+                                                    ownedDecor:
+                                                        Storage.ownedDecor,
+                                                    current:
+                                                        currentGyeDedicationFor(
+                                                          dedications,
+                                                          GyeService.currentUid,
+                                                          currentMember
+                                                              .membershipId,
+                                                          currentMembershipEpoch,
+                                                        ),
+                                                    expectedMembershipId:
+                                                        currentMember
+                                                            .membershipId,
+                                                    expectedMembershipEpoch:
+                                                        currentMembershipEpoch,
+                                                    actionsAvailable:
+                                                        actionsAvailable,
+                                                    onCommit: _dedicationService
+                                                        .setForCurrentSession,
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                Spacing.lg,
+                                Spacing.md,
+                                Spacing.lg,
+                                0,
+                              ),
+                              child: _GyeCourtyardContext(),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
                           padding: const EdgeInsets.fromLTRB(
                             Spacing.lg,
                             Spacing.md,
                             Spacing.lg,
-                            0,
+                            Spacing.xs,
                           ),
-                          child: Semantics(
-                            liveRegion: true,
-                            child: Container(
-                              padding: const EdgeInsets.all(Spacing.md),
-                              decoration: BoxDecoration(
-                                color: SoriColors.gold.withValues(alpha: 0.12),
-                                borderRadius: SoriRadius.brMd,
-                              ),
-                              child: Row(
-                                children: [
-                                  const Icon(
-                                    Icons.sync_lock_rounded,
-                                    color: SoriColors.gold,
-                                  ),
-                                  const SizedBox(width: Spacing.sm),
-                                  Expanded(
-                                    child: Text(t.gyeAccountTransitionPaused),
-                                  ),
-                                ],
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              t.gyeFeedTitle,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                           ),
                         ),
-                      // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
-                      if (meta.memberCount <= 1)
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            Spacing.lg,
-                            Spacing.lg,
-                            Spacing.lg,
-                            0,
-                          ),
-                          child: _SoloInviteCard(
-                            code: meta.code,
-                            enabled: actionsAvailable,
-                          ),
-                        ),
-                      Padding(
-                        padding: const EdgeInsets.all(Spacing.lg),
-                        child: KeyedSubtree(
-                          key: _dureBoardKey,
-                          child: DureBoard(
-                            gyeId: widget.gyeId,
-                            meta: meta,
-                            myUid: GyeService.currentUid,
-                            writesAvailable: actionsAvailable,
-                            showPausedReason: false,
-                          ),
-                        ),
                       ),
-                      // 지난주 살림꾼 — 축하 톤 1줄 카드 (경쟁 리더보드 아님).
-                      if (meta.lastWeekMvp.isNotEmpty)
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            Spacing.lg,
-                            0,
-                            Spacing.lg,
-                            Spacing.sm,
-                          ),
-                          child: _MvpCard(
-                            nickname: meta.lastWeekMvp,
-                            packs: meta.lastWeekMvpPacks,
-                          ),
-                        ),
-                      LayoutBuilder(
-                        builder: (context, c) {
-                          final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
-                          return SizedBox(
-                            height: h,
-                            child: StreamBuilder<GyeMember?>(
-                              stream: GyeService.currentMemberStream(
-                                widget.gyeId,
-                              ),
-                              builder: (context, memberSnapshot) {
-                                final currentMember = memberSnapshot.data;
-                                final currentMembershipEpoch =
-                                    currentMember?.joinedAtEpoch;
-                                return StreamBuilder<List<GyeDedication>>(
-                                  stream: GyeDedicationService.streamForGye(
-                                    widget.gyeId,
-                                  ),
-                                  builder: (context, dedicationSnapshot) {
-                                    final dedications =
-                                        dedicationSnapshot.data ??
-                                        const <GyeDedication>[];
-                                    return Stack(
-                                      children: [
-                                        Positioned.fill(
-                                          child: GyeHanok(
-                                            meta: meta,
-                                            dedications: dedications,
-                                          ),
-                                        ),
-                                        if (currentMember != null &&
-                                            currentMembershipEpoch != null)
-                                          Positioned(
-                                            top: Spacing.sm,
-                                            right: Spacing.sm,
-                                            child: GyeDedicationAction(
-                                              gyeId: widget.gyeId,
-                                              ownedDecor: Storage.ownedDecor,
-                                              current: currentGyeDedicationFor(
-                                                dedications,
-                                                GyeService.currentUid,
-                                                currentMember.membershipId,
-                                                currentMembershipEpoch,
-                                              ),
-                                              expectedMembershipId:
-                                                  currentMember.membershipId,
-                                              expectedMembershipEpoch:
-                                                  currentMembershipEpoch,
-                                              actionsAvailable:
-                                                  actionsAvailable,
-                                              onCommit: _dedicationService
-                                                  .setForCurrentSession,
-                                            ),
-                                          ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                          Spacing.lg,
-                          Spacing.md,
-                          Spacing.lg,
-                          Spacing.xs,
-                        ),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            t.gyeFeedTitle,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
+                      SliverToBoxAdapter(
                         // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
                         child: StreamBuilder<Set<String>>(
-                          stream: GyeService.blockedUidsStream(),
+                          stream:
+                              widget.blockedUidUpdates ??
+                              GyeService.blockedUidsStream(),
                           builder: (context, bsnap) =>
                               StreamBuilder<List<GyeFeedEvent>>(
-                                stream: GyeService.feedStream(widget.gyeId),
+                                stream:
+                                    widget.feedUpdates ??
+                                    GyeService.feedStream(widget.gyeId),
                                 builder: (context, fsnap) => GyeFeed(
                                   events: GyeService.filterBlocked(
                                     fsnap.data ?? const [],
@@ -357,6 +413,7 @@ class _GyeScreenState extends State<GyeScreen>
                                           eventId,
                                         )
                                       : null,
+                                  shrinkWrap: true,
                                 ),
                               ),
                         ),
@@ -371,7 +428,7 @@ class _GyeScreenState extends State<GyeScreen>
                     ? () => _openGyeStickerPicker(context, widget.gyeId)
                     : null,
                 backgroundColor: SoriColors.primary,
-                tooltip: t.gyeStickerSend,
+                tooltip: t.gyeSafeMessage,
                 child: const Icon(Icons.emoji_emotions_outlined),
               ),
             );
@@ -512,43 +569,143 @@ Future<void> _shareGyeCode(BuildContext context, String code) {
   );
 }
 
-/// 솔로 계(멤버 1명) 초대 카드 — 빈 두레판을 "행동 가능한" 상태로 전환.
-/// 비경쟁 협력 기능은 멤버가 있어야 의미가 있으므로, 가장 먼저 초대를 유도.
-/// 지난주 살림꾼 — 축하 톤 1줄 카드. 순위표가 아니라 1명만, 박수 의미.
-/// (디자인 리서치 F5/6: 경쟁 리더보드 금지 — 어조는 감사/축하로 고정.)
-class _MvpCard extends StatelessWidget {
-  final String nickname;
-  final int packs;
-  const _MvpCard({required this.nickname, required this.packs});
+/// 05B presents server-projected scene contributions anonymously. Legacy
+/// groups retain their existing aggregate pack board until they are migrated.
+class _GyeWeeklyPromise extends StatelessWidget {
+  const _GyeWeeklyPromise({
+    required this.meta,
+    required this.board,
+    required this.onOpenToday,
+  });
+
+  final GyeMeta meta;
+  final Widget board;
+  final VoidCallback onOpenToday;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final isLifePromise =
+        meta.weeklyPromiseSchemaVersion == 1 && meta.weeklyPromiseId.isNotEmpty;
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.primary,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            isLifePromise ? t.gyePromiseEyebrow : t.gyeWeeklyEyebrow,
+            style: SoriTextTheme.of(context).label,
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            isLifePromise
+                ? _promiseTitle(t, meta.weeklyPromiseId)
+                : t.gyeWeeklyTitle,
+            style: SoriTextTheme.of(context).h3,
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            isLifePromise ? t.gyePromiseBody : t.gyeWeeklyBody,
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
+          const SizedBox(height: Spacing.md),
+          board,
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            label: t.gyeOpenToday,
+            fullWidth: true,
+            onTap: onOpenToday,
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _promiseTitle(AppL10n t, String promiseId) => switch (promiseId) {
+    GyeWeeklyPromises.cafeOrder => t.gyePromiseCafeOrderTitle,
+    GyeWeeklyPromises.directions => t.gyePromiseDirectionsTitle,
+    GyeWeeklyPromises.selfIntroduction => t.gyePromiseSelfIntroductionTitle,
+    _ => t.gyeWeeklyTitle,
+  };
+}
+
+/// Intentionally reveals aggregate lantern state only: never a member list,
+/// individual tally, answer, score, or ordering of participants.
+class _GyeAnonymousPromiseProgress extends StatelessWidget {
+  const _GyeAnonymousPromiseProgress({required this.meta});
+
+  final GyeMeta meta;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: SoriColors.gold,
-      tinted: true,
-      child: Row(
+    final target = meta.weeklyPromiseTarget;
+    final progress = meta.weeklyPromiseProgress.clamp(0, target);
+    final fraction = target > 0 ? progress / target : 0.0;
+    return Semantics(
+      label: t.gyePromiseProgress(progress, target),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('🏅', style: TextStyle(fontSize: 18)),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              t.gyeMvpCard(nickname, packs),
-              style: TextStyle(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w700,
-                color: s.text,
-                height: 1.35,
+          Text(
+            t.gyePromiseProgress(progress, target),
+            style: SoriTextTheme.of(context).cardTitle,
+          ),
+          const SizedBox(height: Spacing.sm),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(SoriRadius.pill),
+            child: SizedBox(
+              height: 12,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ColoredBox(color: s.border),
+                  FractionallySizedBox(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: fraction,
+                    child: const ColoredBox(color: SoriColors.gold),
+                  ),
+                ],
               ),
             ),
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(
+            t.gyePromiseRemaining((target - progress).clamp(0, target)),
+            style: SoriTextTheme.of(context).bodySmall,
           ),
         ],
       ),
     );
   }
 }
+
+/// 05C heading; existing feed, stickers, reports and moderation stay below.
+class _GyeCourtyardContext extends StatelessWidget {
+  const _GyeCourtyardContext();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(t.gyeCourtyardEyebrow, style: text.label),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeCourtyardTitle, style: text.h3),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeCourtyardBody, style: text.bodySmall),
+      ],
+    );
+  }
+}
+
+/// 솔로 계(멤버 1명) 초대 카드 — 빈 두레판을 "행동 가능한" 상태로 전환.
+/// 비경쟁 협력 기능은 멤버가 있어야 의미가 있으므로, 가장 먼저 초대를 유도.
 
 class _SoloInviteCard extends StatelessWidget {
   final String code;
@@ -593,10 +750,15 @@ class _SoloInviteCard extends StatelessWidget {
           const SizedBox(height: Spacing.md),
           Row(
             children: [
-              Text(
-                '${t.gyeCodeLabel}: ',
-                style: TextStyle(fontSize: 12, color: s.textMuted),
+              Expanded(
+                child: Text(
+                  '${t.gyeCodeLabel}:',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 12, color: s.textMuted),
+                ),
               ),
+              const SizedBox(width: Spacing.xs),
               Text(
                 code,
                 style: const TextStyle(

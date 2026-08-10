@@ -365,7 +365,7 @@ void main() {
     expect(submitted?.experienceFocus, FeedbackExperienceFocus.grammar);
     expect(submitted?.contentSignal, isNull);
     expect(submitted?.contentFocus, isNull);
-    expect(find.text('Thanks — your pulse helps us improve.'), findsOneWidget);
+    expect(find.text('Thanks. Your feedback helps us improve.'), findsOneWidget);
   });
 
   testWidgets('quest and milestone use context-specific experience choices', (

@@ -134,6 +134,14 @@ class GyeMeta {
   final DateTime? weeklyGoalEndAt;
   final int weeklyGoalProgress;
 
+  /// A v1 life-situation promise. Legacy groups leave [weeklyPromiseId] empty
+  /// and retain their existing pack-goal presentation unchanged.
+  final int weeklyPromiseSchemaVersion;
+  final String weeklyPromiseId;
+  final int weeklyPromiseTarget;
+  final int weeklyPromiseProgress;
+  final String weeklyPromiseWeekKey;
+
   /// 누적 달성한 주간 목표 수 (영구). 공동 한옥 영구 unlock 구동.
   /// `weekly_goal_rollover` CF가 100% 달성 시 +1. 주간 리셋과 무관.
   final int lifetimeGoalsAchieved;
@@ -157,6 +165,11 @@ class GyeMeta {
     this.weeklyGoalPacks = 0,
     this.weeklyGoalEndAt,
     this.weeklyGoalProgress = 0,
+    this.weeklyPromiseSchemaVersion = 0,
+    this.weeklyPromiseId = '',
+    this.weeklyPromiseTarget = 0,
+    this.weeklyPromiseProgress = 0,
+    this.weeklyPromiseWeekKey = '',
     this.lifetimeGoalsAchieved = 0,
     this.xpBoostActive = false,
     this.lastWeekMvp = '',
@@ -174,6 +187,12 @@ class GyeMeta {
     weeklyGoalPacks: (d['weeklyGoalPacks'] as num?)?.toInt() ?? 0,
     weeklyGoalEndAt: _ts(d['weeklyGoalEndAt']),
     weeklyGoalProgress: (d['weeklyGoalProgress'] as num?)?.toInt() ?? 0,
+    weeklyPromiseSchemaVersion:
+        (d['weeklyPromiseSchemaVersion'] as num?)?.toInt() ?? 0,
+    weeklyPromiseId: d['weeklyPromiseId'] as String? ?? '',
+    weeklyPromiseTarget: (d['weeklyPromiseTarget'] as num?)?.toInt() ?? 0,
+    weeklyPromiseProgress: (d['weeklyPromiseProgress'] as num?)?.toInt() ?? 0,
+    weeklyPromiseWeekKey: d['weeklyPromiseWeekKey'] as String? ?? '',
     lifetimeGoalsAchieved: (d['lifetimeGoalsAchieved'] as num?)?.toInt() ?? 0,
     xpBoostActive: d['xpBoostActive'] as bool? ?? false,
     lastWeekMvp: d['lastWeekMvp'] as String? ?? '',
@@ -191,6 +210,13 @@ class GyeMeta {
     'createdAt': FieldValue.serverTimestamp(),
     'weeklyGoalPacks': weeklyGoalPacks,
     'weeklyGoalProgress': weeklyGoalProgress,
+    if (weeklyPromiseSchemaVersion > 0 && weeklyPromiseId.isNotEmpty) ...{
+      'weeklyPromiseSchemaVersion': weeklyPromiseSchemaVersion,
+      'weeklyPromiseId': weeklyPromiseId,
+      'weeklyPromiseTarget': weeklyPromiseTarget,
+      'weeklyPromiseProgress': weeklyPromiseProgress,
+      'weeklyPromiseWeekKey': weeklyPromiseWeekKey,
+    },
     'lifetimeGoalsAchieved': lifetimeGoalsAchieved,
     'xpBoostActive': xpBoostActive,
     if (weeklyGoalEndAt != null)

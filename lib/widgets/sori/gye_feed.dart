@@ -16,8 +16,14 @@ class GyeFeed extends StatelessWidget {
 
   /// 마일스톤 이벤트의 "반응" 버튼 → 스티커 피커 오픈(소유 화면이 처리).
   final void Function(String targetEventId)? onReact;
+  final bool shrinkWrap;
 
-  const GyeFeed({super.key, required this.events, this.onReact});
+  const GyeFeed({
+    super.key,
+    required this.events,
+    this.onReact,
+    this.shrinkWrap = false,
+  });
 
   /// 이벤트를 (타임라인, 반응 by targetEventId)로 분리 — 순수 함수(테스트 대상).
   static ({
@@ -66,6 +72,8 @@ class GyeFeed extends StatelessWidget {
     final timeline = split.timeline;
     final reactions = split.reactions;
     return ListView.builder(
+      shrinkWrap: shrinkWrap,
+      physics: shrinkWrap ? const NeverScrollableScrollPhysics() : null,
       padding: const EdgeInsets.symmetric(vertical: Spacing.sm),
       itemCount: timeline.length,
       itemBuilder: (_, i) {
@@ -136,13 +144,9 @@ class GyeFeed extends StatelessWidget {
     GyeFeedType.packCleared => t.gyeFeedPackCleared(e.actorNickname),
     GyeFeedType.questCompleted => t.gyeFeedQuest(e.actorNickname),
     GyeFeedType.levelUp => t.gyeFeedLevelUp(e.actorNickname),
-    GyeFeedType.goalAchieved =>
-      (e.payload['mvp'] as String?)?.isNotEmpty == true
-          ? t.gyeFeedGoalAchievedMvp(
-              (e.payload['progress'] as num?)?.toInt() ?? 0,
-              e.payload['mvp'] as String,
-            )
-          : t.gyeFeedGoalAchieved,
+    // Keep the trusted goal-achieved event, but do not surface a winner or a
+    // score-like comparison in the shared courtyard landing feed.
+    GyeFeedType.goalAchieved => t.gyeFeedGoalAchieved,
     GyeFeedType.allInChallenge => t.gyeFeedAllIn,
     GyeFeedType.sticker => t.gyeFeedSticker(e.actorNickname),
     GyeFeedType.cheer =>

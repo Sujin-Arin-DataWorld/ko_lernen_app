@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../data/profanity_denylist.dart';
 import '../models/gye.dart';
+import '../models/gye_weekly_promise.dart';
 import 'account/cloud_write_session.dart';
 import 'age_gate_service.dart';
 import 'auth_service.dart';
@@ -261,6 +262,7 @@ class GyeService {
   static Future<GyeMeta> createGye({
     required String name,
     required String nickname,
+    String weeklyPromiseId = GyeWeeklyPromises.defaultId,
   }) async {
     validateAgeEligibility();
     final uid = AuthService.current?.uid;
@@ -278,6 +280,10 @@ class GyeService {
       maxNicknameLen,
       GyeError.invalidNickname,
     );
+    final weeklyPromise = GyeWeeklyPromises.byId(weeklyPromiseId);
+    if (weeklyPromise == null) {
+      throw const GyeException(GyeError.network);
+    }
     if ((await myGyeIds()).length >= maxGyePerUser) {
       throw const GyeException(GyeError.tooManyGye);
     }
@@ -293,6 +299,9 @@ class GyeService {
           name: cleanName,
           code: code,
           ownerId: uid,
+          weeklyPromiseSchemaVersion: 1,
+          weeklyPromiseId: weeklyPromise.id,
+          weeklyPromiseTarget: weeklyPromise.target,
           weeklyGoalPacks: 10, // 기본 주간 공동목표 (두레판·롤오버 구동)
         );
         final batch = db.batch();

@@ -6,7 +6,6 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/course_progress_service.dart';
 import '../services/onboarding_flow_service.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/account_nudge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
@@ -17,7 +16,12 @@ import 'onboarding_level_screen.dart';
 /// starts the A1 listening path or intentionally opens the existing placement
 /// flow. It has no demo completion and never writes course evidence.
 class OnboardingStartScreen extends StatefulWidget {
-  const OnboardingStartScreen({super.key});
+  const OnboardingStartScreen({super.key, this.startNewLearner});
+
+  /// Lets the first-scene navigation contract be verified without loading the
+  /// full curriculum catalog in a widget test. Production uses the built-in
+  /// initializer below.
+  final Future<void> Function(LearnerMotivation motivation)? startNewLearner;
 
   @override
   State<OnboardingStartScreen> createState() => _OnboardingStartScreenState();
@@ -55,26 +59,29 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
 
     setState(() => _submitting = true);
     try {
-      // Keep the established placement order. This creates the existing active
-      // A1 course context; it does not create assess or mastery evidence.
-      await CourseProgressService.shared.initializeForPlacement('a1');
-      await Storage.setBrowseLevelCode('a1');
-      await OnboardingFlowService.completeAfterLevelSelection(
-        motivation: _motivation,
-      );
+      await (widget.startNewLearner ?? _initializeNewLearner)(_motivation);
       if (!mounted) {
         return;
       }
-      await showAccountNudgeSheet(context);
-      if (!mounted) {
-        return;
-      }
-      Navigator.of(context).pushReplacementNamed('/');
+      // "Open my first scene" is intentionally literal: account encouragement
+      // must not interrupt the beginner before their first learning attempt.
+      // The optional companion invitation remains gated on an eligible success.
+      Navigator.of(context).pushReplacementNamed('/course/mission');
     } finally {
       if (mounted) {
         setState(() => _submitting = false);
       }
     }
+  }
+
+  Future<void> _initializeNewLearner(LearnerMotivation motivation) async {
+    // Keep the established placement order. This creates the existing active
+    // A1 course context; it does not create assess or mastery evidence.
+    await CourseProgressService.shared.initializeForPlacement('a1');
+    await Storage.setBrowseLevelCode('a1');
+    await OnboardingFlowService.completeAfterLevelSelection(
+      motivation: motivation,
+    );
   }
 
   @override

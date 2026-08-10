@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/gye_weekly_promise.dart';
 import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
@@ -30,6 +31,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
   bool _busy = false;
   String? _code;
   String? _gyeName;
+  String _weeklyPromiseId = GyeWeeklyPromises.defaultId;
 
   @override
   void dispose() {
@@ -48,6 +50,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
       final meta = await GyeService.createGye(
         name: _name.text,
         nickname: _nick.text,
+        weeklyPromiseId: _weeklyPromiseId,
       );
       if (!mounted) {
         return;
@@ -126,6 +129,32 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
             border: const OutlineInputBorder(),
           ),
         ),
+        const SizedBox(height: Spacing.sm),
+        DropdownButtonFormField<String>(
+          initialValue: _weeklyPromiseId,
+          isExpanded: true,
+          decoration: InputDecoration(
+            labelText: t.gyePromisePickerLabel,
+            border: const OutlineInputBorder(),
+          ),
+          items: GyeWeeklyPromises.all
+              .map(
+                (promise) => DropdownMenuItem(
+                  value: promise.id,
+                  child: Text(
+                    _promiseLabel(t, promise.id),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              )
+              .toList(growable: false),
+          onChanged: writesAvailable
+              ? (id) {
+                  if (id != null) setState(() => _weeklyPromiseId = id);
+                }
+              : null,
+        ),
         const SizedBox(height: Spacing.lg),
         if (_busy)
           const AppLoading()
@@ -140,6 +169,13 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
       ],
     );
   }
+
+  String _promiseLabel(AppL10n t, String promiseId) => switch (promiseId) {
+    GyeWeeklyPromises.cafeOrder => t.gyePromiseCafeOrder,
+    GyeWeeklyPromises.directions => t.gyePromiseDirections,
+    GyeWeeklyPromises.selfIntroduction => t.gyePromiseSelfIntroduction,
+    _ => t.gyePromiseCafeOrder,
+  };
 
   Widget _created(AppL10n t) {
     final s = SoriSurfaces.of(context);

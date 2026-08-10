@@ -4,7 +4,6 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/hub_progress_header.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -78,10 +77,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final streak = Storage.streakDays;
-    final streakLabel = streak > 0
-        ? t.hubPracticeStreak(streak)
-        : t.hubPracticeStreakZero;
+    final text = SoriTextTheme.of(context);
     return Scaffold(
       appBar: AppBar(title: Text(t.navLearn)),
       body: SafeArea(
@@ -101,45 +97,41 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
                 fallbackIcon: Icons.sports_esports_rounded,
               ),
               const SizedBox(height: Spacing.md),
-              HubProgressHeader(
-                icon: Icons.local_fire_department_rounded,
-                accentColor: SoriColors.tiger,
-                title: streakLabel,
-                progress: streak > 0 ? (streak % 7) / 7.0 : 0.0,
+              Text(t.practiceEyebrow, style: text.label),
+              const SizedBox(height: Spacing.xs),
+              Text(t.practiceTitle, style: text.h1),
+              const SizedBox(height: Spacing.xs),
+              Text(t.practiceSubtitle, style: text.bodySmall),
+              const SizedBox(height: Spacing.lg),
+              // Review is intentionally a separate, stable first decision.
+              // It stays available with zero due cards, but it never becomes a
+              // free-play game or replaces Home's single learning CTA.
+              SoriSectionHeader(t.practiceDueTitle),
+              FeaturedModuleCard(
+                icon: Icons.refresh_rounded,
+                title: t.practiceDueTitle,
+                subtitle: _dueCount > 0
+                    ? t.homeReviewDue(_dueCount)
+                    : t.practiceDueEmpty,
+                accent: SoriColors.tiger,
+                onTap: () async {
+                  await Navigator.pushNamed(context, '/review');
+                  if (mounted) {
+                    await _loadDue();
+                  }
+                },
               ),
               const SizedBox(height: Spacing.lg),
-              // §6.3 순서: 이어하기(있을 때만) → Lernen → Wörter → Spiele —
-              // "연습하러 왔다가 게임에 갇히는" 동선 역전 방지.
-              if (_dueCount > 0) ...[
-                FeaturedModuleCard(
-                  icon: Icons.refresh_rounded,
-                  title: t.reviewTitle,
-                  // 홈 블록 5와 같은 상태 문자열 — 단일 소스(§6.3).
-                  subtitle: t.homeReviewDue(_dueCount),
-                  accent: SoriColors.tiger,
-                  onTap: () async {
-                    await Navigator.pushNamed(context, '/review');
-                    if (mounted) {
-                      await _loadDue();
-                    }
-                  },
-                ),
-                const SizedBox(height: Spacing.lg),
-              ],
               KeyedSubtree(
                 key: _coachTargetKey,
                 child: _section(context, t.practiceSecLearn, _learnItems(t)),
               ),
               const SizedBox(height: Spacing.lg),
-              _section(
-                context,
-                t.practiceSecWords,
-                // 이어하기 카드가 떠 있으면 /review 진입점은 화면당 1회 규칙에
-                // 따라 목록에서 뺀다(§6.3).
-                _wordItems(t, includeReview: _dueCount == 0),
-              ),
+              _section(context, t.practiceSecWords, _wordItems(t)),
               const SizedBox(height: Spacing.lg),
               _section(context, t.practiceSecGames, _gameItems(t)),
+              const SizedBox(height: Spacing.lg),
+              _section(context, t.practiceSecSpace, _spaceItems(t)),
               const SizedBox(height: Spacing.xxxl),
             ],
           ),
@@ -225,6 +217,13 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       route: '/scenarios',
     ),
     _HubItem(
+      icon: Icons.headphones_rounded,
+      title: t.moduleListenTitle,
+      subtitle: t.listeningSubtitle,
+      accent: SoriColors.primary,
+      route: '/listening',
+    ),
+    _HubItem(
       icon: Icons.photo_camera_outlined,
       title: t.homeBookCardTitle,
       subtitle: t.homeBookCardDesc,
@@ -234,7 +233,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
     ),
   ];
 
-  // §4.4-2 색 수렴: Spiele 섹션 = goldOnLight 단일 액센트(라이트 대비 확보).
+  // §4.4-2 색 수렴: free play = goldOnLight 단일 액센트.
   List<_HubItem> _gameItems(AppL10n t) => [
     _HubItem(
       icon: Icons.local_fire_department_rounded,
@@ -290,45 +289,17 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       route: '/kkeunmari',
     ),
     _HubItem(
-      icon: Icons.headphones_rounded,
-      title: t.moduleListenTitle,
-      subtitle: t.listeningSubtitle,
-      accent: SoriColors.goldOnLight,
-      route: '/listening',
-    ),
-    _HubItem(
       icon: Icons.chat_bubble_outline_rounded,
       title: t.homeSmalltalkCardTitle,
       subtitle: t.homeSmalltalkCardDesc,
       accent: SoriColors.goldOnLight,
       route: '/smalltalk',
     ),
-    _HubItem(
-      icon: Icons.workspace_premium_outlined,
-      title: t.homeQuestsCardTitle,
-      subtitle: t.homeQuestsCardDesc,
-      accent: SoriColors.goldOnLight,
-      route: '/quests',
-    ),
-    _HubItem(
-      icon: Icons.collections_outlined,
-      title: t.dojangTitle,
-      subtitle: t.dojangEmptyBody,
-      accent: SoriColors.goldOnLight,
-      route: '/dojangcheop',
-    ),
-    // 도장첩 옆에 둔다 — 둘 다 "모은 것을 보는 곳"이다 (ADR-002).
-    _HubItem(
-      icon: Icons.chair_outlined,
-      title: t.sarangbangTitle,
-      subtitle: t.sarangbangHubDesc,
-      accent: SoriColors.goldOnLight,
-      route: '/sarangbang',
-    ),
   ];
 
   // §4.4-2 색 수렴: Wörter 섹션 = accent 단일 액센트.
-  List<_HubItem> _wordItems(AppL10n t, {required bool includeReview}) => [
+  // Review has its own first decision above and is never duplicated here.
+  List<_HubItem> _wordItems(AppL10n t) => [
     _HubItem(
       icon: Icons.collections_bookmark_outlined,
       title: t.homeBookshelfCardTitle,
@@ -350,14 +321,30 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       accent: SoriColors.accent,
       route: '/hard_words',
     ),
-    if (includeReview)
-      _HubItem(
-        icon: Icons.refresh_rounded,
-        title: t.reviewTitle,
-        subtitle: t.reviewEmptyTitle,
-        accent: SoriColors.accent,
-        route: '/review',
-      ),
+  ];
+
+  List<_HubItem> _spaceItems(AppL10n t) => [
+    _HubItem(
+      icon: Icons.workspace_premium_outlined,
+      title: t.homeQuestsCardTitle,
+      subtitle: t.homeQuestsCardDesc,
+      accent: SoriColors.goldOnLight,
+      route: '/quests',
+    ),
+    _HubItem(
+      icon: Icons.collections_outlined,
+      title: t.dojangTitle,
+      subtitle: t.dojangEmptyBody,
+      accent: SoriColors.goldOnLight,
+      route: '/dojangcheop',
+    ),
+    _HubItem(
+      icon: Icons.chair_outlined,
+      title: t.sarangbangTitle,
+      subtitle: t.sarangbangHubDesc,
+      accent: SoriColors.goldOnLight,
+      route: '/sarangbang',
+    ),
   ];
 }
 

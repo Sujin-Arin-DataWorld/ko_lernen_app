@@ -17,6 +17,7 @@ import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/storage_service.dart';
 import '../data/learner_motivation.dart';
+import '../models/scenario.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/account_operation_ui.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -153,6 +154,103 @@ class _ProfileScreenState extends State<ProfileScreen>
     }
   }
 
+  String _levelLabel(AppL10n t) {
+    final level =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    return _levelName(t, level);
+  }
+
+  String _levelName(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => '${level.display} — ${t.onboardingLevelA1}',
+    LearnerLevel.a2 => '${level.display} — ${t.onboardingLevelA2}',
+    LearnerLevel.b1 => '${level.display} — ${t.onboardingLevelB1}',
+    LearnerLevel.b2 => '${level.display} — ${t.onboardingLevelB2}',
+  };
+
+  Future<void> _changeLevel() async {
+    final t = AppL10n.of(context);
+    final current =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final selected = await showDialog<LearnerLevel>(
+      context: context,
+      builder: (dialogContext) => SimpleDialog(
+        title: Text(t.profileLearningStartPoint),
+        children: [
+          for (final level in LearnerLevel.values)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(dialogContext).pop(level),
+              child: Row(
+                children: [
+                  Icon(
+                    level == current
+                        ? Icons.radio_button_checked_rounded
+                        : Icons.radio_button_off_rounded,
+                    color: level == current
+                        ? SoriColors.primary
+                        : SoriSurfaces.of(context).textMuted,
+                  ),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(child: Text(_levelName(t, level))),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+    if (selected == null || selected == current) {
+      return;
+    }
+    await Storage.setUserLevelCode(selected.code);
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _changeCompanion() async {
+    final t = AppL10n.of(context);
+    final current = MascotPreference.current;
+    final selected = await showDialog<MascotKind>(
+      context: context,
+      builder: (dialogContext) => SimpleDialog(
+        title: Text(t.characterSelectionTitle),
+        children: [
+          for (final kind in MascotPreference.selectableKinds)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(dialogContext).pop(kind),
+              child: Row(
+                children: [
+                  Mascot(kind: kind, size: 42),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Text(
+                      kind == MascotKind.magpie
+                          ? t.characterNameMagpie
+                          : t.characterNameTiger,
+                    ),
+                  ),
+                  if (kind == current)
+                    const Icon(
+                      Icons.check_circle_rounded,
+                      color: SoriColors.primary,
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+    if (selected != null && selected != current) {
+      await MascotPreference.set(selected);
+    }
+  }
+
+  Future<void> _openAccountControls() async {
+    await Navigator.of(context).pushNamed('/settings');
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -162,6 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     final linked = providers.isDurable;
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
+    final motivation = learnerMotivationFromId(Storage.motivation);
 
     return Scaffold(
       appBar: AppBar(
@@ -223,6 +322,58 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
               const SizedBox(height: 20),
 
+              _ProfileSectionLabel(label: t.profileLearningSection),
+              const SizedBox(height: Spacing.sm),
+              SoriCard(
+                variant: SoriCardVariant.base,
+                child: Column(
+                  children: [
+                    _ProfileSettingTile(
+                      icon: motivation?.icon ?? Icons.flag_outlined,
+                      label: t.profileLearningGoal,
+                      value:
+                          motivation?.label(t) ??
+                          t.profileLearningGoalNotSet,
+                      onTap: _changeMotivation,
+                    ),
+                    const Divider(height: 1),
+                    _ProfileSettingTile(
+                      icon: Icons.school_outlined,
+                      label: t.profileLearningStartPoint,
+                      value: _levelLabel(t),
+                      onTap: _changeLevel,
+                    ),
+                    const Divider(height: 1),
+                    ValueListenableBuilder<MascotKind>(
+                      valueListenable: MascotPreference.kind,
+                      builder: (context, kind, _) => _ProfileSettingTile(
+                        icon: kind == MascotKind.magpie
+                            ? Icons.flutter_dash_rounded
+                            : Icons.pets_outlined,
+                        label: t.profileLearningCompanion,
+                        value: kind == MascotKind.magpie
+                            ? t.characterNameMagpie
+                            : t.characterNameTiger,
+                        onTap: _changeCompanion,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: Spacing.lg),
+              _ProfileSectionLabel(label: t.profileSpaceSection),
+              const SizedBox(height: Spacing.sm),
+              SoriCard(
+                variant: SoriCardVariant.base,
+                child: _ProfileSettingTile(
+                  icon: Icons.shield_outlined,
+                  label: t.profilePrivacyAccount,
+                  value: t.profilePrivacyAccountDescription,
+                  onTap: _openAccountControls,
+                ),
+              ),
+              const SizedBox(height: Spacing.lg),
+
               // ── Konto-Status ──
               AccountPendingOperationPanel(
                 operations: _accountOperations,
@@ -280,17 +431,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ),
                 ),
               ),
-              const SizedBox(height: 20),
-
-              // ── Kurz-Übersicht ──
+              const SizedBox(height: Spacing.lg),
+              _ProfileSectionLabel(label: t.profileProgressSection),
+              const SizedBox(height: Spacing.sm),
               const _StatsRow(),
-              const SizedBox(height: 16),
-              // ── Lern-Motivation (왜 배우는가 — 정체성 강화) ──
-              if (learnerMotivationFromId(Storage.motivation)
-                  case final mot?) ...[
-                _MotivationCard(motivation: mot, onTap: _changeMotivation),
-                const SizedBox(height: 16),
-              ],
+              const SizedBox(height: Spacing.md),
               SoriButton.outlined(
                 label: t.profileViewStats,
                 icon: Icons.bar_chart_rounded,
@@ -516,58 +661,44 @@ class _ConnectedCard extends StatelessWidget {
   }
 }
 
-class _MotivationCard extends StatelessWidget {
-  final LearnerMotivation motivation;
-  final VoidCallback onTap;
+class _ProfileSectionLabel extends StatelessWidget {
+  const _ProfileSectionLabel({required this.label});
 
-  const _MotivationCard({required this.motivation, required this.onTap});
+  final String label;
 
   @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.base,
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
+    child: Text(label, style: SoriTextTheme.of(context).label),
+  );
+}
+
+class _ProfileSettingTile extends StatelessWidget {
+  const _ProfileSettingTile({
+    required this.icon,
+    required this.label,
+    required this.value,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => Material(
+    color: Colors.transparent,
+    child: ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+      leading: Icon(icon, color: SoriColors.primary),
+      title: Text(label, style: SoriTextTheme.of(context).cardTitle),
+      subtitle: Text(value, style: SoriTextTheme.of(context).caption),
+      trailing: const Icon(Icons.chevron_right_rounded),
+      minVerticalPadding: Spacing.xs,
       onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: motivation.accent.withValues(alpha: 0.14),
-              borderRadius: BorderRadius.circular(SoriRadius.sm),
-            ),
-            alignment: Alignment.center,
-            child: Icon(motivation.icon, color: motivation.accent, size: 22),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  t.motivationChangeLabel,
-                  style: TextStyle(fontSize: 11.5, color: s.textMuted),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  motivation.label(t),
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Icon(Icons.edit_outlined, color: s.textDim, size: 18),
-        ],
-      ),
-    );
-  }
+    ),
+  );
 }
 
 class _StatsRow extends StatelessWidget {

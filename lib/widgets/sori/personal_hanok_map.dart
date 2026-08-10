@@ -44,7 +44,7 @@ class PersonalHanokMap extends StatelessWidget {
       // never receives an unbounded ListView height.
       return AspectRatio(
         aspectRatio: 4 / 3,
-        child: MadangBackground(stage: projection.legacyStage),
+        child: MadangBackground(stage: projection.structureStage),
       );
     }
 

@@ -31,6 +31,8 @@ class MissionHeroContent {
   /// true = CTA "Weitermachen" / false = "Los geht's".
   final bool started;
   final String? ctaLabel;
+  final String? supportingTitle;
+  final String? supportingBody;
 
   final VoidCallback onStart;
 
@@ -43,8 +45,27 @@ class MissionHeroContent {
     required this.fraction,
     required this.started,
     this.ctaLabel,
+    this.supportingTitle,
+    this.supportingBody,
     required this.onStart,
   });
+}
+
+/// A deliberately small fallback for a failed Today refresh. It names only
+/// actions that still use local data; it never makes a remote action look
+/// available while the snapshot could not be loaded.
+class MissionHeroUnavailable {
+  const MissionHeroUnavailable({
+    required this.title,
+    required this.body,
+    required this.ctaLabel,
+    required this.onStart,
+  });
+
+  final String title;
+  final String body;
+  final String ctaLabel;
+  final VoidCallback onStart;
 }
 
 /// **MissionHeroCard** — 홈 블록 3 "오늘의 미션 히어로" (계획 §6.1·§10.1).
@@ -61,6 +82,7 @@ class MissionHeroContent {
 class MissionHeroCard extends StatelessWidget {
   final bool loading;
   final MissionHeroContent? content;
+  final MissionHeroUnavailable? unavailable;
   final VoidCallback? onAnotherRound;
   final String? allDoneCtaLabel;
 
@@ -72,6 +94,7 @@ class MissionHeroCard extends StatelessWidget {
     super.key,
     required this.loading,
     required this.content,
+    this.unavailable,
     this.onAnotherRound,
     this.allDoneCtaLabel,
     this.onPremiumCourse,
@@ -82,6 +105,10 @@ class MissionHeroCard extends StatelessWidget {
     if (loading) {
       return const _HeroSkeleton();
     }
+    final offline = unavailable;
+    if (offline != null) {
+      return _UnavailableCard(content: offline);
+    }
     final c = content;
     if (c == null) {
       return _AllDoneCard(
@@ -91,6 +118,7 @@ class MissionHeroCard extends StatelessWidget {
     }
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
 
     return SoriCard(
       variant: SoriCardVariant.hero,
@@ -151,6 +179,60 @@ class MissionHeroCard extends StatelessWidget {
             accent: SoriColors.tiger,
             fullWidth: true,
             onTap: c.onStart,
+          ),
+          if (c.supportingTitle case final title?) ...[
+            const SizedBox(height: Spacing.md),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(Spacing.sm),
+              decoration: BoxDecoration(
+                color: s.surfaceAlt,
+                borderRadius: SoriRadius.brSm,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: tt.label),
+                  if (c.supportingBody case final body?) ...[
+                    const SizedBox(height: 2),
+                    Text(body, style: tt.caption),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _UnavailableCard extends StatelessWidget {
+  const _UnavailableCard({required this.content});
+
+  final MissionHeroUnavailable content;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.primary,
+      tinted: true,
+      semanticLabel: content.title,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.cloud_off_outlined, color: SoriColors.primary),
+          const SizedBox(height: Spacing.sm),
+          Text(content.title, style: tt.h3),
+          const SizedBox(height: 4),
+          Text(content.body, style: tt.caption),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            label: content.ctaLabel,
+            fullWidth: true,
+            onTap: content.onStart,
           ),
         ],
       ),

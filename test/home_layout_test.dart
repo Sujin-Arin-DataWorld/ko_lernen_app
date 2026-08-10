@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -12,7 +14,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mission_hero_card.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
-import 'package:ko_lernen_app/widgets/sori/progress.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_build_narrative_line.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 /// 2026-08-07 태블릿 홈 — **폰 레이아웃을 가운데 세워 둔 것**이 문제였다.
@@ -124,28 +126,32 @@ void main() {
       expect(overlap, greaterThan(0), reason: '같은 행이면 세로 구간이 겹친다');
     });
 
-    testWidgets('한옥은 지도 | 진행률 2열로 바뀐다', (tester) async {
+    testWidgets('한옥은 지도 | 능력 설명 2열로 바뀐다', (tester) async {
       await _pumpHome(tester, size: const Size(1280, 800));
 
       final map = tester.getRect(find.byType(PersonalHanokMap));
-      final bar = tester.getRect(find.byType(SoriProgressBar).first);
+      final narrative = tester.getRect(find.byType(HanokBuildNarrativeLine));
 
-      expect(bar.left, greaterThanOrEqualTo(map.right), reason: '진행률이 지도 오른쪽');
+      expect(
+        narrative.left,
+        greaterThanOrEqualTo(map.right),
+        reason: '능력 설명이 지도 오른쪽',
+      );
       final overlap =
-          (map.bottom < bar.bottom ? map.bottom : bar.bottom) -
-          (map.top > bar.top ? map.top : bar.top);
-      expect(overlap, greaterThan(0), reason: '지도와 진행률이 같은 행');
+          (map.bottom < narrative.bottom ? map.bottom : narrative.bottom) -
+          (map.top > narrative.top ? map.top : narrative.top);
+      expect(overlap, greaterThan(0), reason: '지도와 능력 설명이 같은 행');
 
       // 지도는 여전히 상한을 넘지 않는다 — 2열이라고 그림을 키우지 않는다.
       expect(map.width, lessThanOrEqualTo(kHanokPreviewMaxWidth + 0.01));
     });
 
-    testWidgets('1열에서는 진행률이 지도 아래에 그대로 남는다 (회귀 방향)', (tester) async {
+    testWidgets('1열에서는 능력 설명이 지도 아래에 그대로 남는다 (회귀 방향)', (tester) async {
       await _pumpHome(tester, size: const Size(360, 800));
 
       final map = tester.getRect(find.byType(PersonalHanokMap));
-      final bar = tester.getRect(find.byType(SoriProgressBar).first);
-      expect(bar.top, greaterThanOrEqualTo(map.bottom - 0.01));
+      final narrative = tester.getRect(find.byType(HanokBuildNarrativeLine));
+      expect(narrative.top, greaterThanOrEqualTo(map.bottom - 0.01));
     });
 
     testWidgets('태블릿에서 좌우 빈 공간이 화면의 절반을 먹지 않는다', (tester) async {
@@ -240,6 +246,9 @@ Future<void> _pumpHome(
     ),
     loadHanokRatios: () async =>
         const LevelRatios(a1: 1, a2: 0.5, b1: 0, b2: 0),
+    loadHanokProjection: (ratios) async => PersonalHanokProjection.from(ratios),
+    loadHanokNarrative: (projection) async =>
+        HanokBuildNarrative.empty(projection),
   );
 
   await tester.pumpWidget(

@@ -1,4 +1,5 @@
 import 'hanok_stage.dart';
+import 'hanok_competence.dart';
 import '../services/hanok_stage_service.dart';
 
 /// Stable construction and landscape pieces in the personal Hanok world.
@@ -53,7 +54,10 @@ class PersonalHanokRect {
   /// their hit targets must never have an area where one place can steal a
   /// tap intended for another.
   bool overlaps(PersonalHanokRect other) =>
-      left < other.right && right > other.left && top < other.bottom && bottom > other.top;
+      left < other.right &&
+      right > other.left &&
+      top < other.bottom &&
+      bottom > other.top;
 }
 
 /// Derived, zero-write state for the personal Hanok map.
@@ -63,6 +67,17 @@ class PersonalHanokRect {
 /// state is read or changed here.
 class PersonalHanokProjection {
   final HanokStage legacyStage;
+
+  /// A separate stage derived only from existing completed course units.
+  /// It never includes a placement bypass or a free-browse record.
+  final HanokStage competenceStage;
+
+  /// The visible structural stage. It is the higher complete source, never a
+  /// hybrid of partial pack and course ratios, so an existing home cannot
+  /// regress and separate evidence sources cannot fabricate a new stage.
+  final HanokStage structureStage;
+
+  final HanokCompetenceProjection? competence;
   final Set<PersonalHanokMilestone> unlocked;
 
   /// Continuous overall study completion (0..1), averaged across the four CEFR
@@ -75,6 +90,9 @@ class PersonalHanokProjection {
 
   const PersonalHanokProjection._({
     required this.legacyStage,
+    required this.competenceStage,
+    required this.structureStage,
+    required this.competence,
     required this.unlocked,
     required this.studyFraction,
   });
@@ -103,7 +121,10 @@ class PersonalHanokProjection {
   bool isUnlocked(PersonalHanokMilestone milestone) =>
       unlocked.contains(milestone);
 
-  factory PersonalHanokProjection.from(LevelRatios ratios) {
+  factory PersonalHanokProjection.from(
+    LevelRatios ratios, {
+    HanokCompetenceProjection? competence,
+  }) {
     final a1 = _unit(ratios.a1);
     final a2 = _unit(ratios.a2);
     final b1 = _unit(ratios.b1);
@@ -115,16 +136,46 @@ class PersonalHanokProjection {
       b1Ratio: b1,
       b2Ratio: b2,
     );
+    final legacyUnlocked = _unlockedForRatios(a1: a1, a2: a2, b1: b1, b2: b2);
+    final competenceUnlocked = competence == null
+        ? const <PersonalHanokMilestone>{}
+        : _unlockedForRatios(
+            a1: competence.a1Ratio,
+            a2: competence.a2Ratio,
+            b1: competence.b1Ratio,
+            b2: competence.b2Ratio,
+          );
+    final unlocked = <PersonalHanokMilestone>{
+      ...legacyUnlocked,
+      ...competenceUnlocked,
+    };
+    final competenceStage = competence?.stage ?? HanokStage.empty;
+    final structureStage = legacyStage.ordinal >= competenceStage.ordinal
+        ? legacyStage
+        : competenceStage;
+
+    return PersonalHanokProjection._(
+      legacyStage: legacyStage,
+      competenceStage: competenceStage,
+      structureStage: structureStage,
+      competence: competence,
+      unlocked: Set.unmodifiable(unlocked),
+      studyFraction: studyFraction,
+    );
+  }
+
+  static Set<PersonalHanokMilestone> _unlockedForRatios({
+    required double a1,
+    required double a2,
+    required double b1,
+    required double b2,
+  }) {
     final unlocked = <PersonalHanokMilestone>{};
 
     // Retain the existing cascade semantics: no later level can construct a
     // compound piece before all preceding study stages are truly complete.
     if (a1 < 1 || a2 < 1) {
-      return PersonalHanokProjection._(
-        legacyStage: legacyStage,
-        unlocked: Set.unmodifiable(unlocked),
-        studyFraction: studyFraction,
-      );
+      return Set.unmodifiable(unlocked);
     }
     if (b1 >= .25) {
       unlocked.add(PersonalHanokMilestone.sotdaeulmun);
@@ -133,11 +184,7 @@ class PersonalHanokProjection {
       unlocked.add(PersonalHanokMilestone.haengrangchae);
     }
     if (b1 < 1) {
-      return PersonalHanokProjection._(
-        legacyStage: legacyStage,
-        unlocked: Set.unmodifiable(unlocked),
-        studyFraction: studyFraction,
-      );
+      return Set.unmodifiable(unlocked);
     }
 
     unlocked.add(PersonalHanokMilestone.sarangchae);
@@ -156,11 +203,7 @@ class PersonalHanokProjection {
       // to drift away from the water that it must physically span.
       unlocked.add(PersonalHanokMilestone.rearGarden);
     }
-    return PersonalHanokProjection._(
-      legacyStage: legacyStage,
-      unlocked: Set.unmodifiable(unlocked),
-      studyFraction: studyFraction,
-    );
+    return Set.unmodifiable(unlocked);
   }
 }
 

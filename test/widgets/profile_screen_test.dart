@@ -28,6 +28,12 @@ void main() {
     );
     await tester.pump();
 
+    await tester.scrollUntilVisible(
+      find.textContaining('reviewed before anything is replaced'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+
     expect(
       find.textContaining('reviewed before anything is replaced'),
       findsOneWidget,

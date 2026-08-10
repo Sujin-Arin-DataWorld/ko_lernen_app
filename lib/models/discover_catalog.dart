@@ -1,0 +1,293 @@
+import 'package:flutter/material.dart';
+
+import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/tokens.dart';
+
+/// The searchable, non-linear part of Hangul Sori.
+///
+/// A catalog entry deliberately carries its learner purpose, route, icon and
+/// search terms together.  Discover is a directory, not another recommendation
+/// engine: Home remains responsible for the single "what to do now" action.
+enum DiscoverPurpose { learn, practice, words, progress }
+
+class DiscoverCatalogEntry {
+  const DiscoverCatalogEntry({
+    required this.id,
+    required this.purpose,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.searchTerms,
+    required this.accent,
+    required this.route,
+    this.ribbonType,
+  });
+
+  /// Stable identifier used by the catalog contract test.
+  final String id;
+  final DiscoverPurpose purpose;
+  final IconData icon;
+  final String title;
+  final String subtitle;
+
+  /// Extra terms make a learner's need discoverable even when it does not
+  /// match the visible card title in their selected UI language.
+  final List<String> searchTerms;
+  final Color accent;
+  final String route;
+  final String? ribbonType;
+}
+
+/// Builds the complete Discover inventory from existing destinations only.
+///
+/// Keep entries here when adding a feature: the public catalog contract makes
+/// a missing purpose, keyword, route or icon a test failure rather than an
+/// invisible new feature.
+List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
+    List<DiscoverCatalogEntry>.unmodifiable([
+      DiscoverCatalogEntry(
+        id: 'book_capture',
+        purpose: DiscoverPurpose.learn,
+        icon: Icons.document_scanner_outlined,
+        title: t.homeBookCardTitle,
+        subtitle: t.homeBookCardDesc,
+        searchTerms: const ['book', 'scan', 'ocr', 'textbook', 'camera'],
+        accent: SoriColors.primary,
+        route: '/book',
+        ribbonType: 'new',
+      ),
+      DiscoverCatalogEntry(
+        id: 'hangul',
+        purpose: DiscoverPurpose.learn,
+        icon: Icons.text_fields_rounded,
+        title: t.moduleHangulTitle,
+        subtitle: t.moduleHangulDesc,
+        searchTerms: const ['hangul', 'alphabet', 'letters', 'writing'],
+        accent: SoriColors.primary,
+        route: '/hangul',
+      ),
+      DiscoverCatalogEntry(
+        id: 'grammar',
+        purpose: DiscoverPurpose.learn,
+        icon: Icons.edit_note_rounded,
+        title: t.moduleGrammarTitle,
+        subtitle: t.moduleGrammarDesc,
+        searchTerms: const ['grammar', 'particles', 'sentence', 'rules'],
+        accent: SoriColors.primary,
+        route: '/grammar',
+      ),
+      DiscoverCatalogEntry(
+        id: 'scenarios',
+        purpose: DiscoverPurpose.learn,
+        icon: Icons.forum_rounded,
+        title: t.moduleScenariosTitle,
+        subtitle: t.moduleScenariosDesc,
+        searchTerms: const ['scenario', 'conversation', 'speaking', 'life'],
+        accent: SoriColors.primary,
+        route: '/scenarios',
+      ),
+      DiscoverCatalogEntry(
+        id: 'vocab',
+        purpose: DiscoverPurpose.learn,
+        icon: Icons.style_outlined,
+        title: t.moduleVocabTitle,
+        subtitle: t.moduleVocabDesc,
+        searchTerms: const ['vocabulary', 'vocab', 'words', 'flashcards'],
+        accent: SoriColors.primary,
+        route: '/vocab',
+      ),
+      DiscoverCatalogEntry(
+        id: 'review',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.refresh_rounded,
+        title: t.reviewTitle,
+        subtitle: t.reviewEmptyTitle,
+        searchTerms: const ['review', 'due', 'repeat', 'memory'],
+        accent: SoriColors.tiger,
+        route: '/review',
+      ),
+      DiscoverCatalogEntry(
+        id: 'daily',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.local_fire_department_rounded,
+        title: t.dailyTitle,
+        subtitle: t.dailyDesc,
+        searchTerms: const ['daily', 'challenge', 'today', 'short'],
+        accent: SoriColors.goldOnLight,
+        route: '/daily',
+        ribbonType: 'new',
+      ),
+      DiscoverCatalogEntry(
+        id: 'chosung',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.sort_by_alpha_rounded,
+        title: t.gameChosungTitle,
+        subtitle: t.gameChosungDesc,
+        searchTerms: const ['chosung', 'initial sounds', 'letters', 'game'],
+        accent: SoriColors.goldOnLight,
+        route: '/chosung',
+      ),
+      DiscoverCatalogEntry(
+        id: 'wordle',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.grid_4x4_rounded,
+        title: t.gameWordleTitle,
+        subtitle: t.gameWordleDesc,
+        searchTerms: const ['wordle', 'word game', 'guess', 'spelling'],
+        accent: SoriColors.goldOnLight,
+        route: '/wordle',
+      ),
+      DiscoverCatalogEntry(
+        id: 'cloze',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.short_text_rounded,
+        title: t.clozeTitle,
+        subtitle: t.clozeDesc,
+        searchTerms: const ['cloze', 'fill blank', 'sentence', 'grammar'],
+        accent: SoriColors.goldOnLight,
+        route: '/cloze',
+        ribbonType: 'new',
+      ),
+      DiscoverCatalogEntry(
+        id: 'speed_match',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.bolt_rounded,
+        title: t.speedMatchTitle,
+        subtitle: t.speedMatchDesc,
+        searchTerms: const ['speed', 'match', 'quick', 'game'],
+        accent: SoriColors.goldOnLight,
+        route: '/speed_match',
+        ribbonType: 'new',
+      ),
+      DiscoverCatalogEntry(
+        id: 'satz_arcade',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.reorder_rounded,
+        title: t.satzArcadeTitle,
+        subtitle: t.satzArcadeDesc,
+        searchTerms: const ['sentence', 'order', 'arcade', 'grammar'],
+        accent: SoriColors.goldOnLight,
+        route: '/satz_arcade',
+        ribbonType: 'new',
+      ),
+      DiscoverCatalogEntry(
+        id: 'kkeunmari',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.link_rounded,
+        title: t.gameKkeunmariTitle,
+        subtitle: t.gameKkeunmariDesc,
+        searchTerms: const ['word chain', 'kkeunmari', 'game', 'words'],
+        accent: SoriColors.goldOnLight,
+        route: '/kkeunmari',
+      ),
+      DiscoverCatalogEntry(
+        id: 'listening',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.headphones_rounded,
+        title: t.moduleListenTitle,
+        subtitle: t.listeningSubtitle,
+        searchTerms: const ['listen', 'listening', 'audio', 'pronunciation'],
+        accent: SoriColors.goldOnLight,
+        route: '/listening',
+      ),
+      DiscoverCatalogEntry(
+        id: 'smalltalk',
+        purpose: DiscoverPurpose.practice,
+        icon: Icons.chat_bubble_outline_rounded,
+        title: t.homeSmalltalkCardTitle,
+        subtitle: t.homeSmalltalkCardDesc,
+        searchTerms: const ['small talk', 'chat', 'speaking', 'conversation'],
+        accent: SoriColors.goldOnLight,
+        route: '/smalltalk',
+      ),
+      DiscoverCatalogEntry(
+        id: 'bookshelf',
+        purpose: DiscoverPurpose.words,
+        icon: Icons.collections_bookmark_outlined,
+        title: t.homeBookshelfCardTitle,
+        subtitle: t.homeBookshelfCardDesc,
+        searchTerms: const ['bookshelf', 'book', 'saved', 'pages'],
+        accent: SoriColors.accent,
+        route: '/bookshelf',
+      ),
+      DiscoverCatalogEntry(
+        id: 'wordbook_search',
+        purpose: DiscoverPurpose.words,
+        icon: Icons.search_rounded,
+        title: t.wbSearchTitle,
+        subtitle: t.wbSearchCta,
+        searchTerms: const ['dictionary', 'wordbook', 'search', 'words'],
+        accent: SoriColors.accent,
+        route: '/wordbook/search',
+      ),
+      DiscoverCatalogEntry(
+        id: 'hard_words',
+        purpose: DiscoverPurpose.words,
+        icon: Icons.bolt_rounded,
+        title: t.hardWordsTitle,
+        subtitle: t.hardWordsEmptyTitle,
+        searchTerms: const ['difficult', 'hard', 'words', 'weak'],
+        accent: SoriColors.accent,
+        route: '/hard_words',
+      ),
+      DiscoverCatalogEntry(
+        id: 'path',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.route_outlined,
+        title: t.pathTitle,
+        subtitle: t.homePathCardSub,
+        searchTerms: const ['path', 'course', 'mission', 'progress'],
+        accent: SoriColors.primary,
+        route: '/path',
+      ),
+      DiscoverCatalogEntry(
+        id: 'stats',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.bar_chart_rounded,
+        title: t.moduleStatsTitle,
+        subtitle: t.moduleStatsDesc,
+        searchTerms: const ['stats', 'progress', 'history', 'numbers'],
+        accent: SoriColors.primary,
+        route: '/stats',
+      ),
+      DiscoverCatalogEntry(
+        id: 'quests',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.workspace_premium_outlined,
+        title: t.homeQuestsCardTitle,
+        subtitle: t.homeQuestsCardDesc,
+        searchTerms: const ['quest', 'collection', 'decoration', 'reward'],
+        accent: SoriColors.goldOnLight,
+        route: '/quests',
+      ),
+      DiscoverCatalogEntry(
+        id: 'dojang',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.collections_outlined,
+        title: t.dojangTitle,
+        subtitle: t.dojangEmptyBody,
+        searchTerms: const ['dojang', 'stamps', 'collection', 'rewards'],
+        accent: SoriColors.goldOnLight,
+        route: '/dojangcheop',
+      ),
+      DiscoverCatalogEntry(
+        id: 'hanok',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.home_work_outlined,
+        title: t.hanokWorldTitle,
+        subtitle: t.hanokWorldIntro,
+        searchTerms: const ['hanok', 'house', 'map', 'rooms'],
+        accent: SoriColors.primary,
+        route: '/hanok',
+      ),
+      DiscoverCatalogEntry(
+        id: 'sarangbang',
+        purpose: DiscoverPurpose.progress,
+        icon: Icons.chair_outlined,
+        title: t.sarangbangTitle,
+        subtitle: t.sarangbangHubDesc,
+        searchTerms: const ['sarangbang', 'room', 'rewards', 'study'],
+        accent: SoriColors.goldOnLight,
+        route: '/sarangbang',
+      ),
+    ]);
