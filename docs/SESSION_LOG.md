@@ -7,6 +7,21 @@
 
 ---
 
+### 2026-08-11 (Claude) — 앱 최적화 Phase 1: 데드코드 제거(11 파일 + 7 심볼)
+
+**왜.** 감사 워크플로우가 적대적으로 확인한 데드코드 정리(유지보수성 — 릴리스 트리셰이킹돼 **용량 무관**).
+
+**무엇을.**
+- **통짜 죽은 파일 11개 삭제**(import 0 재확인): `placeholder_screen`·`theme_service`·`account/transition_secret_store`·`banner_ad`·`sori/flying_magpie`·`sori/hanok/changsal_divider`·`sori/hanok/dancheong_divider`·`sori/hanok/madang_painter`(중복 MadangBackground)·`sori/path_node`·`sori/streak_display`·`sori/weekly_goal_bar`.
+- **부분 미사용 심볼 7개 제거**(같은 파일 나머지 보존): `app_error.dart` `AppEmpty`(+연쇄로 죽은 `_BreathingTransform.translateY` 정리)·`progress.dart` `SoriXpProgress`·`motion.dart` `SoriKenBurns`·`eaves_corner.dart` `EavesCornerExt`·`curriculum.dart` `CourseContentStateX`·`smalltalk.dart` `SmalltalkTurnKindCode`·`personalized_lesson_service.dart` `PersonalizedCourse`.
+- **보존(삭제 안 함)**: `sarangbang_study_recommendation.dart` — `test/sarangbang_recommendation_test.dart`가 참조(테스트까지 지우는 건 과함) → 존치. `SmalltalkRelationshipContextCode`(감사 UNCONFIRMED)도 존치.
+
+**검증.** `flutter analyze` **0 이슈**(lib+test 전체 컴파일, 댕글링 0). 스모크 7 통과.
+
+**남음.** Phase 3 시작경로·Phase 4 핫스팟. 위험패턴 24건은 대부분 documented best-effort(빈 catch·silent fallback)라 기능 변경 위험 있어 개별 판단 필요 — 목록만 보고.
+
+---
+
 ### 2026-08-11 (Claude) — 앱 최적화 Phase 2(용량): 비디오 재인코딩 −30MB + hanok_compound 등록해제 −11MB
 
 **왜.** Jin "앱 최적화" 4영역 계획 승인, 용량 최우선. AAB 253MB(에셋 133MB 지배: illustrations 75·video 58). 에셋 삭제 금지 원칙.

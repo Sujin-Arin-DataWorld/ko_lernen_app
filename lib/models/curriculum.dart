@@ -47,18 +47,6 @@ enum CourseContentState {
   stableMastery,
 }
 
-extension CourseContentStateX on CourseContentState {
-  String get code => name;
-
-  static CourseContentState fromCode(String? value) {
-    final normalized = value?.trim();
-    return CourseContentState.values.firstWhere(
-      (state) => state.code == normalized,
-      orElse: () => CourseContentState.preview,
-    );
-  }
-}
-
 /// Why an answer needs a targeted repair activity instead of vocabulary-only
 /// SRS. The names intentionally match the product's feedback vocabulary.
 enum MasteryErrorReason {
