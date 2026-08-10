@@ -3469,6 +3469,36 @@ abstract class AppL10n {
   /// **'Jetzt nicht'**
   String get onboardingCompanionSkip;
 
+  /// No description provided for @onboardingCompanionSelectedTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego begleitet dich.'**
+  String get onboardingCompanionSelectedTiger;
+
+  /// No description provided for @onboardingCompanionSelectedMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy begleitet dich.'**
+  String get onboardingCompanionSelectedMagpie;
+
+  /// No description provided for @onboardingCompanionSelectionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Wahl kannst du jederzeit in deinem Profil ändern.'**
+  String get onboardingCompanionSelectionBody;
+
+  /// No description provided for @onboardingCompanionContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Begleitung zu Heute'**
+  String get onboardingCompanionContinue;
+
+  /// No description provided for @onboardingCompanionChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Anders wählen'**
+  String get onboardingCompanionChange;
+
   /// No description provided for @firstVoiceStamp.
   ///
   /// In de, this message translates to:

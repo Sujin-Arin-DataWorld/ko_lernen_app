@@ -76,7 +76,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     super.dispose();
   }
 
-  void _handleSelection(MascotKind kind) {
+  Future<void> _handleSelection(MascotKind kind) async {
     if (_isLoading) return;
 
     setState(() {
@@ -85,7 +85,17 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     });
 
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
-    MascotPreference.set(kind);
+    await MascotPreference.set(kind);
+    if (!mounted) return;
+
+    // In the 01C first-success flow, choosing is a deliberate state instead
+    // of a transient tap: show the learner who they selected and let them
+    // explicitly continue to Today. The legacy direct chooser retains its
+    // established automatic progression below.
+    if (widget.optional) {
+      setState(() => _isLoading = false);
+      return;
+    }
 
     // 확정 화면은 정적 마스코트 + 캡션(영상 없음 → 깜빡임 0)이라 영상 완료
     // 콜백이 없다. "선택되었습니다"를 잠깐 보여준 뒤 이 타이머가 **딱 한 번**
@@ -133,6 +143,24 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
     _completeOptional();
+  }
+
+  Future<void> _confirmOptionalSelection() async {
+    if (!widget.optional || _selected == null || _isLoading || _navigated) {
+      return;
+    }
+    _advanceGuard?.cancel();
+    setState(() => _isLoading = true);
+    _navigated = true;
+    await Storage.setIntroPreviewSeen();
+    if (!mounted) return;
+    _completeOptional();
+  }
+
+  void _changeOptionalSelection() {
+    if (!widget.optional || _isLoading || _navigated) return;
+    _advanceGuard?.cancel();
+    setState(() => _selected = null);
   }
 
   void _completeOptional() {
@@ -295,8 +323,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             // 볼드 + 브랜드 녹청(SoriColors.primary).
                             Text(
                               _selected == MascotKind.magpie
-                                  ? t.characterSelectedMagpie
-                                  : t.characterSelectedTiger,
+                                  ? (widget.optional
+                                        ? t.onboardingCompanionSelectedMagpie
+                                        : t.characterSelectedMagpie)
+                                  : (widget.optional
+                                        ? t.onboardingCompanionSelectedTiger
+                                        : t.characterSelectedTiger),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 fontSize: 20,
@@ -304,6 +336,33 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                                 color: SoriColors.primary,
                               ),
                             ),
+                            if (widget.optional) ...[
+                              const SizedBox(height: 8),
+                              Text(
+                                t.onboardingCompanionSelectionBody,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 13.5,
+                                  height: 1.45,
+                                  color: SoriColors.lightTextMuted,
+                                ),
+                              ),
+                              const SizedBox(height: 24),
+                              SoriButton.filled(
+                                label: t.onboardingCompanionContinue,
+                                fullWidth: true,
+                                onTap: _isLoading
+                                    ? null
+                                    : _confirmOptionalSelection,
+                              ),
+                              const SizedBox(height: 8),
+                              TextButton(
+                                onPressed: _isLoading
+                                    ? null
+                                    : _changeOptionalSelection,
+                                child: Text(t.onboardingCompanionChange),
+                              ),
+                            ],
                           ],
                   ),
                 ),

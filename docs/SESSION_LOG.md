@@ -7,6 +7,27 @@
 
 ---
 
+### 2026-08-11 (Codex) — 01C 동행 캐릭터 선택·확정 흐름 보완
+
+**왜.** 01–02 목업을 다시 화면·CTA·저장 결과까지 대조하는 중, 01C의
+`Lernfreund wählen`은 기존 선택 화면을 열지만 선택 뒤 2.4초 후 자동 이동해
+사용자가 동행을 확인하고 Today로 계속하는 독립된 선택 단계가 약했다. 사용자도
+캐릭터 선택 화면 누락을 지적했다.
+
+**무엇을.** 첫 성공에서만 열리는 optional `CharacterSelectionScreen`은 이제
+기존 태고·조이 카드 중 하나를 고른 뒤, 선택한 동행을 확인하고 `Mit Begleitung
+zu Heute`를 눌러야 완료된다. `Anders wählen`으로 되돌아갈 수 있고, `Jetzt nicht`
+및 첫 성공 화면의 `Ohne Begleitung zu Heute`는 모두 선택 없이 정상적으로 Today로
+끝난다. 기존 직접 캐릭터 선택 경로의 자동 다음 단계는 변경하지 않았다. 선택은
+기존 `MascotPreference`/`Storage`에 저장되며 새 이미지·영상은 만들거나 추가하지
+않았다.
+
+**검증.** `flutter gen-l10n`, `flutter analyze --fatal-infos`(No issues found),
+`git diff --check`를 실행했다. 01A–01C consent/onboarding/동행 흐름 묶음
+**24 tests**, 02A–02D Today/미션/맥락/결과 묶음 **57 tests**가 통과했다.
+
+---
+
 ### 2026-08-11 (Codex) — 03–06 mockup-parity correction
 
 **Why.** A second screen-by-screen audit found that the earlier 01–06 rebuild

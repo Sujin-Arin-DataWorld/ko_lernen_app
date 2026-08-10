@@ -1915,6 +1915,22 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompanionSkip => 'Jetzt nicht';
 
   @override
+  String get onboardingCompanionSelectedTiger => 'Taego begleitet dich.';
+
+  @override
+  String get onboardingCompanionSelectedMagpie => 'Joy begleitet dich.';
+
+  @override
+  String get onboardingCompanionSelectionBody =>
+      'Deine Wahl kannst du jederzeit in deinem Profil ändern.';
+
+  @override
+  String get onboardingCompanionContinue => 'Mit Begleitung zu Heute';
+
+  @override
+  String get onboardingCompanionChange => 'Anders wählen';
+
+  @override
   String get firstVoiceStamp => 'ERSTE\nSTIMME';
 
   @override

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -47,5 +48,36 @@ void main() {
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
+  });
+
+  testWidgets('01C opens the optional character selection screen', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: const FirstVoiceSuccessScreen(
+          canDo: 'Ich kann jemanden begr\u00fc\u00dfen.',
+        ),
+      ),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Lernfreund w\u00e4hlen'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.byType(CharacterSelectionScreen), findsOneWidget);
+    expect(find.textContaining('Taego', findRichText: true), findsWidgets);
+    expect(find.textContaining('Joy', findRichText: true), findsWidgets);
+    expect(find.text('Jetzt nicht'), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 }

@@ -119,4 +119,37 @@ void main() {
     expect(Storage.introPreviewSeen, isTrue);
     expect(find.byType(ConsentScreen), findsNothing);
   });
+
+  testWidgets('01C companion choice waits for an explicit Today confirmation', (
+    tester,
+  ) async {
+    var completed = false;
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        locale: const Locale('en'),
+        home: CharacterSelectionScreen(
+          optional: true,
+          onOptionalComplete: () => completed = true,
+        ),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 900));
+
+    await tester.tap(find.textContaining('Taego', findRichText: true).first);
+    await tester.pump();
+
+    expect(completed, isFalse);
+    expect(Storage.preferredMascot, 'tiger');
+    expect(find.text('Taego will learn with you.'), findsOneWidget);
+    expect(find.text('Continue to Today with a companion'), findsOneWidget);
+
+    await tester.tap(find.text('Continue to Today with a companion'));
+    await tester.pump();
+
+    expect(completed, isTrue);
+    expect(Storage.introPreviewSeen, isTrue);
+    expect(tester.takeException(), isNull);
+  });
 }
