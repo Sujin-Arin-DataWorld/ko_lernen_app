@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
-import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
@@ -62,12 +61,25 @@ void main() {
         : '기준 없음 — flutter test --update-goldens test/goldens 로 1회 생성',
     () {
       // 골든은 유지비가 크다. 회귀가 실제로 아팠던 표면만 고정한다:
-      // 설정(폼 폭) · 배우기 허브(모듈 카드) · 단어팩(그리드 열 수) · 통계(요약).
+      // 설정(폼 폭) · 배우기 허브(모듈 카드) · 단어팩(그리드 열 수).
+      //
+      // ⚠️ `stats` 는 **의도적으로 뺐다.** `_StreakWeekHeatmap` 이
+      // `DateTime.now().weekday` 로 "오늘" 칸에 금색 테두리를 그린다
+      // (`stats_screen.dart` 의 `isToday`). 즉 렌더 결과가 **실행 요일마다
+      // 달라져** 기준선을 만든 그 요일에만 통과한다 — 실측(2026-08-07):
+      // 목요일에 만든 medium·expanded 기준선이 금요일에 깨졌고, 같은 날
+      // 재생성한 compact 만 통과했다. 기준선을 다시 만들어도 다음 날 또 깨진다.
+      //
+      // 픽셀 고정이 필요하면 먼저 `_StreakWeekHeatmap` 에 시계 seam 을 주고
+      // (예: `package:clock` 의 `clock.now()` + 테스트에서 `withClock`)
+      // 그다음에 되살릴 것. 그때까지 통계 화면의 레이아웃 회귀는
+      // `responsive_test`(폭 6종 × 글자 1.3배) ·
+      // `responsive_short_height_test`(낮은 높이 6종) ·
+      // `accessibility_guideline_test`(터치영역·대비·라벨)가 덮는다.
       final screens = <String, Widget Function()>{
         'settings': SettingsScreen.new,
         'learn_hub': LearnHubScreen.new,
         'vocab_packs': VocabPacksScreen.new,
-        'stats': StatsScreen.new,
       };
 
       final viewports = <String, Size>{

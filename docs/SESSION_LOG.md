@@ -50,6 +50,37 @@ macOS + Xcode + 실제 애플 자격증명이 있어야 실행 가능하므로 *
   `2.0.5 (11)` 기준으로 쓰여 있다. 문서 드리프트 — 어느 쪽이 정본인지 확정 필요.
 - `ios/Runner/Info.plist` 에 `ITSAppUsesNonExemptEncryption` 키가 없어 업로드마다
   수출규정 질문이 뜬다. 법적 신고 항목이라 임의로 넣지 않았다.
+### 2026-08-10 — main red 해소: 요일 의존으로 깨지던 stats 골든 제거
+
+**왜.** `main` 에서 `screen_layout_golden_test` 의 `stats @ medium` · `stats @ expanded` 가 실패했다.
+
+**무엇을 — 원인은 회귀가 아니라 테스트 결함.** `lib/screens/stats_screen.dart` 의
+`_StreakWeekHeatmap` 이 `DateTime.now().weekday` 로 "오늘" 칸에 금색 테두리를 그린다(`isToday`).
+렌더 결과가 **실행 요일마다 달라지므로** 기준선을 만든 그 요일에만 통과한다.
+
+실측 증거: 기준선은 8/6~8/7 에 만들었는데 실행 시점이 8/10 이라 깨졌다. 같은 날 재생성했던
+`compact` 만 그때 통과했고 나머지 둘이 실패한 것도 같은 이유다. diff 이미지를 직접 열어 확인했고
+차이는 주간 스트립의 "오늘" 칸 테두리 하나뿐이었다.
+
+**이건 내가 들여온 결함이다** — 2026-08-06 "출시 안정성 7대 과제"에서 `stats` 를 골든 대상에
+넣으면서 이 시간 의존성을 못 봤다.
+
+**조치.** 골든 대상에서 `stats` 를 빼고 기준선 3장(`screen_stats_{compact,medium,expanded}.png`)을
+삭제했다. **기준선 재생성이 아니라 제거**를 택한 이유: 재생성은 오늘만 초록이고 다음 날 다시
+빨간불이 된다(주 6일 CI 파손). 정답은 `_StreakWeekHeatmap` 에 시계 seam 을 주고
+(`package:clock` 의 `clock.now()` + 테스트에서 `withClock`) 고정 시각으로 렌더하는 것이지만,
+main 이 빨간 상태에서 다른 세션들이 동시에 작업 중이라 앱 코드 변경 + 새 의존성 추가보다
+결정론적인 최소 조치를 택했다. 되살리는 조건은 테스트 파일 주석에 남겼다.
+
+**커버리지.** 픽셀 diff 한 겹만 빠진다. 통계 화면 레이아웃 회귀는 `responsive_test`(폭 6종 ×
+글자 1.3배) · `responsive_short_height_test`(낮은 높이 6종) ·
+`accessibility_guideline_test`(터치영역·대비·라벨)가 계속 덮는다. 나머지 3화면
+(`settings`·`learn_hub`·`vocab_packs`) 골든 9장은 유지 — 셋 다 `DateTime.now()` 의존이 없음을
+확인했다. `AGENTS.md` 의 골든 개수 서술도 12장 → 9장으로 정정했다.
+
+**검증.** `flutter analyze --fatal-infos` **0 issues** · 골든 **15 통과**(실패 0) ·
+전체 `flutter test` **2,705 통과 / 0 실패**(2 skipped). Flutter 3.44.0 / Linux = CI 정본.
+커밋: 이 항목과 같은 브랜치 `claude/fix-flaky-stats-golden` (PR #12).
 
 ---
 
