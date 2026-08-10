@@ -7,6 +7,39 @@
 
 ---
 
+### 2026-08-11 (Claude) — 앱 최적화 Phase 2(용량): 비디오 재인코딩 −30MB + hanok_compound 등록해제 −11MB
+
+**왜.** Jin "앱 최적화" 4영역 계획 승인, 용량 최우선. AAB 253MB(에셋 133MB 지배: illustrations 75·video 58). 에셋 삭제 금지 원칙.
+
+**무엇을.**
+- **감사 워크플로우**(읽기전용, 26 에이전트 병렬 + 데드코드 적대적 재검증): 데드코드 20 확인·위험패턴 24·미참조에셋 8·시작경로 21스텝·핫스팟 12 산출. 결과 = 태스크 출력 `wo7agdpzx.output`.
+- **Phase 2b 비디오 재인코딩**: `assets/video` 33개 mp4를 원본(`assets_unused/video_originals/`에 58MB **백업**) 기준 libx264 **CRF23 preset slow**로 재인코딩, 과대 해상도 `magpie_bob2` 1440→960 다운스케일, **더 작아질 때만 교체**. **58MB→28MB (−30MB, −52%)**. 캐릭터 클립 18개 흰배경 코너 255,255,255 유지 확인(multiply 계약 보존). 길이·오디오 불변(`-c:a copy`).
+- **Phase 2a hanok_compound 등록해제**: 미참조(lib 참조 0건) 동결 프로토타입 7 PNG(11MB)를 `pubspec.yaml`에서 주석처리 → 번들 제외. **파일 삭제 아님**(디스크 보존, 줄 복구로 되살리기 가능). `personal_hanok_v2/`가 정본.
+
+**검증.** `flutter analyze` 기준선 = 이슈 0. `flutter pub get` 통과. 비디오 matte 코너 검사 18/18 순백 통과. 예상 AAB 253→약 212MB.
+
+**남음(미착수).** Phase 2c 이미지(75MB PNG, oxipng 등 무손실 최적화 — 도구 설치 동의 필요) · Phase 3 시작경로(main.dart 중복 init·불필요 await — 기기 부팅 검증 필요) · Phase 4 핫스팟(cacheWidth 등) · Phase 1 데드코드 20건(릴리스 트리셰이킹돼 **용량 무관**, 유지보수용). **미커밋**(Jin 확인 후). 변경: `assets/video/*`(재인코딩), `assets_unused/video_originals/*`(백업 신규), `pubspec.yaml`.
+
+---
+
+### 2026-08-10 (Claude) — 단어카드 가운데정렬 회귀 수정 + 온보딩 시작화면 기기적응 풀필
+
+**왜.** Jin 실기기 리포트 — ① 단어팩 학습카드·복습("Heute wiederholen") 카드 안 텍스트가 가운데정렬이 안 되고 좌상단으로 쏠림. ② 온보딩 시작화면("Wofür willst du Koreanisch sprechen?")이 짧은 콘텐츠일 때 하단이 크게 비고 기기마다 안 맞음.
+
+**무엇을.**
+- **근본원인 = `SoriCard` accent 바 Stack의 `StackFit.loose`.** accent(좌측 4px 바)가 있는 카드는 콘텐츠를 `Stack`으로 감싸는데 기본 `StackFit.loose`가 non-positioned 콘텐츠의 min 제약(높이·너비)을 0으로 풀어 버려 → `Center`/가운데정렬 Column이 카드를 못 채우고 `topStart`로 쏠렸다. `_FlipFront`/`_FlipBack`(hero, accent)·복습카드 전부 이 경로. `lib/widgets/sori/card.dart`의 accent Stack에 **`fit: StackFit.passthrough`** 추가 → 카드의 실제 제약을 그대로 넘겨 정상 가운데정렬(높이 여유 시 동일, 부족 시 스크롤 폴백 유지). start 정렬 카드는 좌측정렬이라 시각 변화 0, min 제약은 0→실제값으로 커지기만 해 레이아웃을 악화시키지 않음.
+- **온보딩 풀필.** `lib/screens/onboarding_start_screen.dart`의 고정 `SizedBox` 스페이서 레이아웃을 `IntrinsicHeight` + `Spacer(flex:2/3)`로 바꿔 뷰포트보다 콘텐츠가 짧으면 남는 세로를 스페이서가 나눠 갖고(버튼 바닥에 붙음), 길면 IntrinsicHeight=콘텐츠 높이 → Spacer 0 → 기존처럼 스크롤(짧은 기기 무변화). 기기별 자동 풀필.
+
+**검증.** `flutter analyze` (card·vocab_pack·review_session·onboarding_start) **No issues found!**. 임시 풀필 검증 테스트: 420×1400 CTA bottom>1200(풀필), 420×520 스크롤·오버플로 0 — 통과 후 삭제. 회귀 스윕 **44 통과**: vocab_pack·vocab_pack(s)_mission_context·settings_screen(accent 카드 다수)·onboarding_start·can_do_result_card·module_card_l10n.
+
+- **A1 팩 "2개만 보임" = 버그 아님 → UX 라벨+출구 추가.** 미션 경로로 진입하면 `courseUnitId != null` → 팩이 미션 그래프 링크로 좁혀지는 **의도된 스코프 뷰**(greetings 1·2만)라 그렇다(전체 24 A1 팩은 배우기 허브/Entdecken의 인자 없는 `/vocab`). Jin 선택("라벨+전체보기 버튼")대로 `vocab_packs_screen.dart` 스코프 뷰에 힌트("Nur Pakete für deine aktuelle Mission.")와 CTA("Alle Vokabel-Pakete ansehen") 배너를 추가 — CTA는 browse 레벨을 현재 레벨로 맞춘 뒤 인자 없이 `/vocab` 재진입(전체 라이브러리, 뒤로가기 시 스코프 복귀). 신규 l10n 2키(DE/EN) + gen-l10n.
+
+**검증(추가).** 스코프 뷰 테스트에 배너 존재/부재 assert 추가 — scoped=힌트·CTA 표시, browse=미표시, 2 통과.
+
+**커밋.** 미커밋 (Jin 확인 후). 변경: `lib/widgets/sori/card.dart`, `lib/screens/onboarding_start_screen.dart`, `lib/screens/vocab_packs_screen.dart`, `lib/l10n/app_de.arb`·`app_en.arb`(+생성물), `test/vocab_packs_mission_context_test.dart`.
+
+---
+
 ### 2026-08-10 (Claude) — 중복 워크스페이스 미커밋 흡수 + character_clip 회귀 수정 + v18 AAB
 
 **왜.** Jin 요청 — 별도 중복 클론(`ELibrary\Downloads\DataSet\hangulsori`, 9.25GB)을 삭제하기 전 그 안 라이브 git 클론의 미커밋 작업을 흡수. 이어서 versionCode 18 릴리스 AAB 생성.
