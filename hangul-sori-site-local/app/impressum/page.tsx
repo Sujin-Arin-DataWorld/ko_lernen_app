@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import { LegalShell } from "../legal";
+
+export const metadata: Metadata = { title: "Impressum", description: "Anbieterkennzeichnung für Hangul Sori.", alternates: { canonical: "/impressum" } };
+
+export default function Impressum(){return <LegalShell eyebrow="Anbieterkennzeichnung" title="Impressum" intro="Angaben gemäß § 5 DDG für die Website und die App Hangul Sori."><div className="legal-card"><h2>Anbieter</h2><p><b>Sujin Park</b><br/>Sujin Arin DataWorld<br/>Frankfurt am Main<br/>Deutschland</p><p><b>Kontakt</b><br/><a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p><p><b>Verantwortlich für den Inhalt</b><br/>Sujin Park, Anschrift wie oben</p><p className="notice"><b>Launch-Blocker:</b> Straße, Hausnummer und Postleitzahl müssen vor einer öffentlichen Veröffentlichung ergänzt werden. Die aktuelle Live-Seite enthält an diesen Stellen noch Platzhalter.</p></div><div className="legal-card"><h2>Streitbeilegung</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Der bisher verlinkte EU-ODR-Hinweis sollte vor Launch rechtlich aktualisiert werden, da die frühere Plattform seit 2025 eingestellt wurde.</p></div></LegalShell>}
