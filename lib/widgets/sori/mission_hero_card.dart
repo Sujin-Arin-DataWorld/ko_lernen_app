@@ -214,7 +214,9 @@ class _UnavailableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
@@ -228,6 +230,23 @@ class _UnavailableCard extends StatelessWidget {
           Text(content.title, style: tt.h3),
           const SizedBox(height: 4),
           Text(content.body, style: tt.caption),
+          const SizedBox(height: Spacing.md),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(Spacing.sm),
+            decoration: BoxDecoration(
+              color: s.surfaceAlt,
+              borderRadius: SoriRadius.brSm,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.homeUnavailableSafeTitle, style: tt.label),
+                const SizedBox(height: 2),
+                Text(t.homeUnavailableSafeBody, style: tt.caption),
+              ],
+            ),
+          ),
           const SizedBox(height: Spacing.md),
           SoriButton.outlined(
             label: content.ctaLabel,

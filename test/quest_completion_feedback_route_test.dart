@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
+import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/screens/quests_screen.dart';
@@ -58,7 +59,10 @@ void main() {
       expect(context.contentType, 'quest_reward');
       expect(context.contentId, 'q_jangdokdae');
       expect(context.contentLabel, 'quest_reward');
-      expect(context.scoreSummary, 'type:standing; target:50');
+      expect(
+        context.scoreSummary,
+        'type:standing; target:${kQuestById['q_jangdokdae']!.target}',
+      );
       expect(
         context.toWire().values.whereType<String>(),
         isNot(contains(sensitiveDisplayName)),

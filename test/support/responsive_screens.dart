@@ -14,7 +14,10 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/course_mission_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
+import 'package:ko_lernen_app/screens/discover_screen.dart';
+import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
@@ -29,6 +32,7 @@ import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
 import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
+import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/quests_screen.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
@@ -38,6 +42,7 @@ import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
@@ -77,6 +82,11 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'hard words': const HardWordsScreen(),
   'legacy vocab': const LegacyVocabScreen(),
   'consent': const ConsentScreen(),
+  'onboarding start': const OnboardingStartScreen(),
+  'first voice success': const FirstVoiceSuccessScreen(
+    canDo: 'Ich kann jemanden begrüßen.',
+  ),
+  'course mission': const CourseMissionScreen(),
   'paywall': const PaywallScreen(),
   'chosung': const ChosungQuizScreen(),
   'cloze': const ClozeGameScreen(),
@@ -84,6 +94,8 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'daily challenge': const DailyChallengeScreen(),
   'satz arcade': const SatzArcadeScreen(),
   'learning path': const LearningPathScreen(),
+  'discover': const DiscoverScreen(),
+  'profile': const ProfileScreen(),
   'gye tab': const GyeTabScreen(),
   'quests': const QuestsScreen(),
   'smalltalk': const SmalltalkScreen(),

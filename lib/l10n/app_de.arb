@@ -869,6 +869,14 @@
   "onboardingStartLoading": "Deine erste Szene wird vorbereitet …",
   "onboardingCompanionChoose": "Lernfreund wählen",
   "onboardingCompanionSkip": "Jetzt nicht",
+  "firstVoiceStamp": "ERSTE\nSTIMME",
+  "firstVoiceTitle": "Du hast dein erstes Koreanisch verstanden.",
+  "firstVoiceBody": "Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.",
+  "firstVoiceCanDo": "Ich kann jemanden freundlich begrüßen.",
+  "firstVoiceCanDoBody": "Dein A1-Weg beginnt mit dieser Szene.",
+  "firstVoiceCompanionTitle": "Möchtest du eine Lernbegleitung?",
+  "firstVoiceCompanionBody": "Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.",
+  "firstVoiceSkip": "Ohne Begleitung zu Heute",
   "missionContextLabel": "Aktuelle Mission",
   "courseMissionPath": "Dein Missionsweg",
   "courseMissionDetails": "Missionsdetails",
@@ -969,6 +977,13 @@
   "scenarioNextBtn": "Weiter",
   "scenarioCompleteBtn": "Abschließen",
   "scenarioResultReturnBtn": "Zurück zu meinem Weg",
+  "scenarioSavedEyebrow": "DEINE SZENE IST GESPEICHERT",
+  "scenarioSavedTitle": "Du kannst jetzt zum Hanok zurück.",
+  "scenarioSavedPhrase": "Ein Satz für deine nächste Szene",
+  "scenarioSavedStructure": "Struktur für diese Szene",
+  "scenarioSavedEmpty": "Deine Übung ist gespeichert und steht für die Wiederholung bereit.",
+  "scenarioSavedReturnHanok": "Zurück zum Hanok",
+  "scenarioSavedRepeat": "Diese Szene noch einmal üben",
   "scenarioCanDoVerifiedTitle": "Das kannst du jetzt.",
   "scenarioCanDoVerifiedBody": "Der Checkpoint dieser Szene wurde selbstständig gespeichert.",
   "scenarioCanDoReviewTitle": "Noch nicht sicher.",
@@ -1524,7 +1539,19 @@
   "pathLockedHint": "Schließe zuerst das vorherige Paket ab.",
   "pathSeeAll": "Ganzer Pfad",
   "pathJumpToNow": "Zum aktuellen Schritt",
+  "pathStoryEyebrow": "{level} · Alltag in Korea",
+  "@pathStoryEyebrow": {
+    "placeholders": {
+      "level": {}
+    }
+  },
+  "pathStoryTitle": "Du baust vom Begrüßen zum Leben.",
+  "pathStoryBody": "Jeder Abschnitt endet mit einer Situation, die du selbst lösen kannst.",
+  "pathOpenCurrentMission": "Aktuelle Mission öffnen",
   "gyeEmptyHeadline": "Allein lernen ist vollständig. Zusammen kann es wärmer sein.",
+  "gyeEmptyLead": "Ein Gye ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.",
+  "gyeFindOrCreate": "Eine Gye finden oder gründen",
+  "gyeContinueSolo": "Ohne Gruppe weiterlernen",
   "gyeEmptyPreviewCaption": "Eine Vorschau auf einen gemeinsamen Hof — nie Voraussetzung für deinen Lernweg",
   "homePathCardTitle": "Lernpfad",
   "homePathCardSub": "Sieh, wo du stehst",
@@ -1548,6 +1575,19 @@
   "profileTitle": "Profil",
   "profileGuestName": "Gast",
   "profileGuestBadge": "Behalte Streak, XP & Hanok",
+  "profileJourneyTitle": "Dein Weg, {name}",
+  "@profileJourneyTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "profileJourneySummary": "{level} · {goal}",
+  "@profileJourneySummary": {
+    "placeholders": {
+      "level": {},
+      "goal": {}
+    }
+  },
   "profileGuestDesc": "Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google-Backup bleibt er auch auf einem neuen Handy erhalten.",
   "profileConnectedBadge": "Konto verbunden",
   "profileConnectedProviderBadge": "Mit {provider} verbunden",
@@ -1567,6 +1607,8 @@
   "profileLearningStartPoint": "Mein Startpunkt",
   "profileLearningCompanion": "Lernbegleitung",
   "profileSpaceSection": "Mein Raum",
+  "profileGye": "Gruppe (Gye)",
+  "profileGyeDescription": "Freiwillige Lerngemeinschaft öffnen",
   "profilePrivacyAccount": "Datenschutz & Konto",
   "profilePrivacyAccountDescription": "Daten, Sicherung und Kontosteuerung",
   "profileProgressSection": "Mein Fortschritt",
@@ -1621,6 +1663,10 @@
   },
   "consentTitle": "Willkommen bei Hangul Sori",
   "consentBody": "Dein Lernfortschritt bleibt zunächst auf deinem Gerät. Optionale Funktionen wie Cloud-Backup, Lerngruppen, Foto-Worterkennung und Aussprache-Audio verarbeiten einzelne Daten auf EU-Servern. Details findest du in der Datenschutzerklärung.",
+  "consentEyebrow": "Bevor du beginnst",
+  "consentCardTitle": "Datenschutz & Lernkonto",
+  "consentCardBody": "Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.",
+  "consentContinueCta": "Weiter",
   "consentPrivacyCta": "Datenschutzerklärung",
   "consentTermsCta": "Nutzungsbedingungen",
   "consentAgreeCta": "Zustimmen & loslegen",
@@ -1751,6 +1797,9 @@
   "practiceSecGames": "Frei spielen",
   "practiceSecWords": "Deine Wörter",
   "practiceSecSpace": "Dein Lernraum",
+  "practiceFocusedDescription": "Aussprache, Grammatik oder Schreiben",
+  "practiceFreeDescription": "Wortkette, Buchstaben und kurze Spiele",
+  "practiceWordsDescription": "Gespeicherte Wörter und Bücher öffnen",
   "pathEvidenceTitle": "Woran du echten Fortschritt erkennst",
   "pathEvidenceBody": "Freies Ansehen speichert nur Verlauf. Ein Kursabschnitt wird erst durch seine aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung bestätigt.",
   "@_feature_coach": {
@@ -2162,6 +2211,7 @@
   "homeMadangEyebrow": "Heute im Sarangbang",
   "homeSarangbangCta": "Im Sarangbang lernen",
   "homeTodayEyebrow": "Deine Handlung für heute",
+  "homeTodayFirst": "Heute zuerst",
   "homeTodayMissionStart": "Diese Szene beginnen",
   "homeTodayCourseAction": "Diese Handlung üben",
   "homeTodayPackAction": "Diese Wörter üben",
@@ -2174,6 +2224,8 @@
   "homeTodayReviewTime": "Etwa 3 Minuten · dann geht dein Weg weiter.",
   "homeUnavailableTitle": "Dein Weg konnte nicht aktualisiert werden.",
   "homeUnavailableDescription": "Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.",
+  "homeUnavailableSafeTitle": "Jetzt sicher möglich",
+  "homeUnavailableSafeBody": "Die Wiederholung nutzt nur Lerninhalte, die auf diesem Gerät gespeichert sind.",
   "homeUnavailableCta": "Gespeicherte Wörter wiederholen",
   "homeTodayScenarioDescription": "Höre zu, wähle und sprich die Szene.",
   "homeHanokPreviewTitle": "Mein Hanok",
@@ -2243,6 +2295,13 @@
     "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
   },
   "hanokWorldTitle": "Meine Hanok-Welt",
+  "hanokWorldEarlyEyebrow": "Dein Hof · A1",
+  "hanokWorldEarlyTitle": "Ein Dach beginnt mit einer Stimme.",
+  "hanokWorldEarlyBody": "Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.",
+  "hanokWorldMapEyebrow": "Dein begehbarer Hof",
+  "hanokWorldMapTitle": "Wohin möchtest du gehen?",
+  "hanokWorldMapBody": "Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.",
+  "hanokWorldOpenNextScene": "Nächste Szene ansehen",
   "hanokWorldIntro": "Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.",
   "hanokWorldLegacyTitle": "Dein Hof nimmt Gestalt an",
   "hanokWorldLegacyBody": "Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.",
@@ -2299,10 +2358,19 @@
     "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
   },
   "sarangbangStudyTitle": "Sarangbang",
-  "sarangbangStudyIntroTitle": "Dein nächster Lernschritt wartet",
-  "sarangbangStudyIntroBody": "Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.",
+  "sarangbangStudyIntroTitle": "Die Worte von heute sind angekommen.",
+  "sarangbangStudyIntroBody": "Hier siehst du, was du dir tatsächlich erarbeitet hast.",
   "sarangbangStudySceneLabel": "Deine Studierstube",
   "sarangbangStudyFurnish": "Studierstube einrichten",
+  "sarangbangStoredTitle": "Heute abgelegt",
+  "sarangbangStoredEmpty": "Neue Ausdrücke und sichere Szenen erscheinen hier, wenn du sie dir erarbeitet hast.",
+  "sarangbangStoredBody": "{detail} · Deine heutige Szene bleibt auf Start ausgewählt.",
+  "@sarangbangStoredBody": {
+    "placeholders": {
+      "detail": {}
+    }
+  },
+  "sarangbangOpenToday": "Zur heutigen Szene",
   "@_personal_rooms": {
     "description": "Private Hanok-Innenräume zum Einrichten."
   },

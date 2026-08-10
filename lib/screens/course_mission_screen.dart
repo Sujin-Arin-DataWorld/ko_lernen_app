@@ -17,7 +17,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
-import 'onboarding_preview_screen.dart';
+import 'first_voice_success_screen.dart';
 import 'course_mission_path_overview.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
@@ -121,8 +121,12 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
       return;
     }
 
+    final languageCode = Localizations.localeOf(context).languageCode;
     await Navigator.of(context).push<void>(
-      MaterialPageRoute<void>(builder: (_) => const OnboardingPreviewScreen()),
+      MaterialPageRoute<void>(
+        builder: (_) =>
+            FirstVoiceSuccessScreen(canDo: unit.canDo.pick(languageCode)),
+      ),
     );
   }
 

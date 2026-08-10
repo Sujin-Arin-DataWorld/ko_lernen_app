@@ -254,7 +254,6 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final account = widget.account ?? AuthService.accountSnapshot;
     final providers = account.providers;
     final linked = providers.isDurable;
@@ -281,44 +280,53 @@ class _ProfileScreenState extends State<ProfileScreen>
           builder: (context, padding) => ListView(
             padding: padding,
             children: [
-              // ── Charakter (Video groß, links) + Name/Badge (rechts) ──
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const _Avatar(),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          linked ? (name ?? providerLabel) : t.profileGuestName,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 22,
-                            fontWeight: FontWeight.w900,
-                            color: s.text,
-                            letterSpacing: -0.3,
+              // 06A: first surface = a learning route the learner can alter,
+              // not a dashboard of account state. Account controls remain
+              // below the editable learning choices.
+              SoriCard(
+                variant: SoriCardVariant.hero,
+                accent: SoriColors.primary,
+                tinted: true,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            t.profileJourneyTitle(
+                              linked
+                                  ? (name ?? providerLabel)
+                                  : t.profileGuestName,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: SoriTextTheme.of(context).h2,
                           ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          linked
-                              ? t.profileConnectedProviderBadge(providerLabel)
-                              : t.profileGuestBadge,
-                          style: TextStyle(
-                            fontSize: 13.5,
-                            height: 1.35,
-                            color: s.textMuted,
+                          const SizedBox(height: Spacing.xs),
+                          Text(
+                            t.profileJourneySummary(
+                              _levelLabel(t),
+                              motivation?.label(t) ??
+                                  t.profileLearningGoalNotSet,
+                            ),
+                            style: SoriTextTheme.of(context).bodySmall,
                           ),
-                        ),
-                      ],
+                          if (linked) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              t.profileConnectedProviderBadge(providerLabel),
+                              style: SoriTextTheme.of(context).caption,
+                            ),
+                          ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: Spacing.sm),
+                    const _Avatar(size: 96),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
 
@@ -332,8 +340,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                       icon: motivation?.icon ?? Icons.flag_outlined,
                       label: t.profileLearningGoal,
                       value:
-                          motivation?.label(t) ??
-                          t.profileLearningGoalNotSet,
+                          motivation?.label(t) ?? t.profileLearningGoalNotSet,
                       onTap: _changeMotivation,
                     ),
                     const Divider(height: 1),
@@ -365,16 +372,29 @@ class _ProfileScreenState extends State<ProfileScreen>
               const SizedBox(height: Spacing.sm),
               SoriCard(
                 variant: SoriCardVariant.base,
-                child: _ProfileSettingTile(
-                  icon: Icons.shield_outlined,
-                  label: t.profilePrivacyAccount,
-                  value: t.profilePrivacyAccountDescription,
-                  onTap: _openAccountControls,
+                child: Column(
+                  children: [
+                    _ProfileSettingTile(
+                      icon: Icons.groups_2_outlined,
+                      label: t.profileGye,
+                      value: t.profileGyeDescription,
+                      onTap: () => Navigator.pushNamed(context, '/gye/hub'),
+                    ),
+                    const Divider(height: 1),
+                    _ProfileSettingTile(
+                      icon: Icons.shield_outlined,
+                      label: t.profilePrivacyAccount,
+                      value: t.profilePrivacyAccountDescription,
+                      onTap: _openAccountControls,
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: Spacing.lg),
 
-              // ── Konto-Status ──
+              // The full durable account controls follow the learner's
+              // journey, choices, and space. Its connected-provider badge is
+              // already visible in the hero above.
               AccountPendingOperationPanel(
                 operations: _accountOperations,
                 cloudDeletionState: _cloudDataDeletionJournalState,
@@ -453,15 +473,15 @@ class _ProfileScreenState extends State<ProfileScreen>
 // ─────────────────────────────────────────────────────────────────────────
 
 class _Avatar extends StatefulWidget {
-  const _Avatar();
+  const _Avatar({this.size = 168});
+
+  final double size;
 
   @override
   State<_Avatar> createState() => _AvatarState();
 }
 
 class _AvatarState extends State<_Avatar> {
-  static const double _d = 168;
-
   @override
   void initState() {
     super.initState();
@@ -493,14 +513,14 @@ class _AvatarState extends State<_Avatar> {
     final kind = MascotPreference.kind.value;
     final isMagpie = kind == MascotKind.magpie;
     return SizedBox.square(
-      dimension: _d,
+      dimension: widget.size,
       child: Center(
         child: CharacterClipPlayer(
           key: ValueKey('profile_avatar_${kind.name}'),
           asset: isMagpie
               ? CharacterClips.magpieBob2
               : CharacterClips.tigerSitting2,
-          size: _d,
+          size: widget.size,
           // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이
           // 끝나는 순간 lease 가 반납돼 아바타가 비므로 금지(아래 ⚠️ 참고).
           loop: true,

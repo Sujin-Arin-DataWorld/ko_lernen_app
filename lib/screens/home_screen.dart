@@ -582,15 +582,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         return MissionHeroContent(
           kind: MissionHeroKind.review,
           title: t.missionHeroReviewTitle(r.dueCount),
-          contextLabel: t.homeTodayEyebrow,
+          contextLabel: t.homeTodayFirst,
           levelCode: null,
           meta: t.homeTodayReviewDescription,
           fraction: 0,
           started: false,
           ctaLabel: t.homeTodayReviewAction,
           supportingTitle: t.homeTodayReviewReasonTitle,
-          supportingBody:
-              '${t.homeTodayReviewReason} ${t.homeTodayReviewTime}',
+          supportingBody: '${t.homeTodayReviewReason} ${t.homeTodayReviewTime}',
           onStart: _openTodayDestination,
         );
       case ScenarioPick sc:
@@ -965,13 +964,34 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               Column(
                                 verticalDirection: VerticalDirection.up,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [heroBand, topBar],
+                                // The outer reversed paint order is a real
+                                // Android video-compositor safeguard: the
+                                // clip paints before the header and mission.
+                                // Visually, however, phone learners still see
+                                // Today and its one action before the
+                                // decorative character band.
+                                children: [
+                                  heroBand,
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      topBar,
+                                      const SizedBox(height: Spacing.sm),
+                                      Text(
+                                        t.homeTodaySection,
+                                        key: const ValueKey(
+                                          'home-today-heading',
+                                        ),
+                                        style: SoriTextTheme.of(context).h2,
+                                      ),
+                                      const SizedBox(height: Spacing.sm),
+                                      missionCard,
+                                      const SizedBox(height: Spacing.lg),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              const SizedBox(height: Spacing.lg),
-
-                              // ── C. 스탯 5종은 헤더 칩 1줄로 압축(§6.1 블록 1) —
-                              // 주간 디딤돌·오늘 목표는 스트릭 칩 시트, 상세는 /stats.
-                              missionCard,
                             ],
                             const SizedBox(height: Spacing.lg),
 

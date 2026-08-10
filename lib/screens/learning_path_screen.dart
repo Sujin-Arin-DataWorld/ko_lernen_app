@@ -372,6 +372,7 @@ class _CourseMissionPath extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final grouped = <String, List<CourseUnit>>{
       for (final level in const ['a1', 'a2', 'b1', 'b2']) level: <CourseUnit>[],
     };
@@ -384,12 +385,27 @@ class _CourseMissionPath extends StatelessWidget {
     for (final units in grouped.values) {
       units.sort((left, right) => left.order.compareTo(right.order));
     }
+    final current = grouped.values
+        .expand((units) => units)
+        .cast<CourseUnit?>()
+        .firstWhere(
+          (unit) => unit?.id == snapshot.currentCourseUnitId,
+          orElse: () => null,
+        );
     final english = lang == 'en';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // §6.2 v1.2: 코스(미션)와 팩(어휘 경로)의 이중 구조를 "챕터 0"으로
-        // 시각 구분 — 먹색 칩(레벨 챕터의 사계 칩과 같은 문법).
+        Text(
+          t.pathStoryEyebrow(filterLevel.toUpperCase()),
+          style: SoriTextTheme.of(context).label,
+        ),
+        const SizedBox(height: Spacing.xs),
+        Text(t.pathStoryTitle, style: SoriTextTheme.of(context).h1),
+        const SizedBox(height: Spacing.xs),
+        Text(t.pathStoryBody, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.lg),
+        // Course missions and the older pack path stay visually distinct.
         Row(
           children: [
             const SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
@@ -431,6 +447,15 @@ class _CourseMissionPath extends StatelessWidget {
               ),
             const SizedBox(height: Spacing.sm),
           ],
+        if (current != null) ...[
+          const SizedBox(height: Spacing.sm),
+          SoriButton.filled(
+            key: const ValueKey('path-current-mission'),
+            label: t.pathOpenCurrentMission,
+            fullWidth: true,
+            onTap: () => onTapUnit(current),
+          ),
+        ],
       ],
     );
   }

@@ -1915,6 +1915,32 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompanionSkip => 'Jetzt nicht';
 
   @override
+  String get firstVoiceStamp => 'ERSTE\nSTIMME';
+
+  @override
+  String get firstVoiceTitle => 'Du hast dein erstes Koreanisch verstanden.';
+
+  @override
+  String get firstVoiceBody =>
+      'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.';
+
+  @override
+  String get firstVoiceCanDo => 'Ich kann jemanden freundlich begrüßen.';
+
+  @override
+  String get firstVoiceCanDoBody => 'Dein A1-Weg beginnt mit dieser Szene.';
+
+  @override
+  String get firstVoiceCompanionTitle => 'Möchtest du eine Lernbegleitung?';
+
+  @override
+  String get firstVoiceCompanionBody =>
+      'Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.';
+
+  @override
+  String get firstVoiceSkip => 'Ohne Begleitung zu Heute';
+
+  @override
   String get missionContextLabel => 'Aktuelle Mission';
 
   @override
@@ -2174,6 +2200,28 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioResultReturnBtn => 'Zurück zu meinem Weg';
+
+  @override
+  String get scenarioSavedEyebrow => 'DEINE SZENE IST GESPEICHERT';
+
+  @override
+  String get scenarioSavedTitle => 'Du kannst jetzt zum Hanok zurück.';
+
+  @override
+  String get scenarioSavedPhrase => 'Ein Satz für deine nächste Szene';
+
+  @override
+  String get scenarioSavedStructure => 'Struktur für diese Szene';
+
+  @override
+  String get scenarioSavedEmpty =>
+      'Deine Übung ist gespeichert und steht für die Wiederholung bereit.';
+
+  @override
+  String get scenarioSavedReturnHanok => 'Zurück zum Hanok';
+
+  @override
+  String get scenarioSavedRepeat => 'Diese Szene noch einmal üben';
 
   @override
   String get scenarioCanDoVerifiedTitle => 'Das kannst du jetzt.';
@@ -3041,8 +3089,33 @@ class AppL10nDe extends AppL10n {
   String get pathJumpToNow => 'Zum aktuellen Schritt';
 
   @override
+  String pathStoryEyebrow(Object level) {
+    return '$level · Alltag in Korea';
+  }
+
+  @override
+  String get pathStoryTitle => 'Du baust vom Begrüßen zum Leben.';
+
+  @override
+  String get pathStoryBody =>
+      'Jeder Abschnitt endet mit einer Situation, die du selbst lösen kannst.';
+
+  @override
+  String get pathOpenCurrentMission => 'Aktuelle Mission öffnen';
+
+  @override
   String get gyeEmptyHeadline =>
       'Allein lernen ist vollständig. Zusammen kann es wärmer sein.';
+
+  @override
+  String get gyeEmptyLead =>
+      'Ein Gye ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.';
+
+  @override
+  String get gyeFindOrCreate => 'Eine Gye finden oder gründen';
+
+  @override
+  String get gyeContinueSolo => 'Ohne Gruppe weiterlernen';
 
   @override
   String get gyeEmptyPreviewCaption =>
@@ -3094,6 +3167,16 @@ class AppL10nDe extends AppL10n {
   String get profileGuestBadge => 'Behalte Streak, XP & Hanok';
 
   @override
+  String profileJourneyTitle(Object name) {
+    return 'Dein Weg, $name';
+  }
+
+  @override
+  String profileJourneySummary(Object level, Object goal) {
+    return '$level · $goal';
+  }
+
+  @override
   String get profileGuestDesc =>
       'Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google-Backup bleibt er auch auf einem neuen Handy erhalten.';
 
@@ -3139,6 +3222,12 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get profileSpaceSection => 'Mein Raum';
+
+  @override
+  String get profileGye => 'Gruppe (Gye)';
+
+  @override
+  String get profileGyeDescription => 'Freiwillige Lerngemeinschaft öffnen';
 
   @override
   String get profilePrivacyAccount => 'Datenschutz & Konto';
@@ -3293,6 +3382,19 @@ class AppL10nDe extends AppL10n {
   @override
   String get consentBody =>
       'Dein Lernfortschritt bleibt zunächst auf deinem Gerät. Optionale Funktionen wie Cloud-Backup, Lerngruppen, Foto-Worterkennung und Aussprache-Audio verarbeiten einzelne Daten auf EU-Servern. Details findest du in der Datenschutzerklärung.';
+
+  @override
+  String get consentEyebrow => 'Bevor du beginnst';
+
+  @override
+  String get consentCardTitle => 'Datenschutz & Lernkonto';
+
+  @override
+  String get consentCardBody =>
+      'Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.';
+
+  @override
+  String get consentContinueCta => 'Weiter';
 
   @override
   String get consentPrivacyCta => 'Datenschutzerklärung';
@@ -3620,6 +3722,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get practiceSecSpace => 'Dein Lernraum';
+
+  @override
+  String get practiceFocusedDescription =>
+      'Aussprache, Grammatik oder Schreiben';
+
+  @override
+  String get practiceFreeDescription =>
+      'Wortkette, Buchstaben und kurze Spiele';
+
+  @override
+  String get practiceWordsDescription =>
+      'Gespeicherte Wörter und Bücher öffnen';
 
   @override
   String get pathEvidenceTitle => 'Woran du echten Fortschritt erkennst';
@@ -4686,6 +4800,9 @@ class AppL10nDe extends AppL10n {
   String get homeTodayEyebrow => 'Deine Handlung für heute';
 
   @override
+  String get homeTodayFirst => 'Heute zuerst';
+
+  @override
   String get homeTodayMissionStart => 'Diese Szene beginnen';
 
   @override
@@ -4726,6 +4843,13 @@ class AppL10nDe extends AppL10n {
   @override
   String get homeUnavailableDescription =>
       'Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.';
+
+  @override
+  String get homeUnavailableSafeTitle => 'Jetzt sicher möglich';
+
+  @override
+  String get homeUnavailableSafeBody =>
+      'Die Wiederholung nutzt nur Lerninhalte, die auf diesem Gerät gespeichert sind.';
 
   @override
   String get homeUnavailableCta => 'Gespeicherte Wörter wiederholen';
@@ -4842,6 +4966,29 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldTitle => 'Meine Hanok-Welt';
 
   @override
+  String get hanokWorldEarlyEyebrow => 'Dein Hof · A1';
+
+  @override
+  String get hanokWorldEarlyTitle => 'Ein Dach beginnt mit einer Stimme.';
+
+  @override
+  String get hanokWorldEarlyBody =>
+      'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.';
+
+  @override
+  String get hanokWorldMapEyebrow => 'Dein begehbarer Hof';
+
+  @override
+  String get hanokWorldMapTitle => 'Wohin möchtest du gehen?';
+
+  @override
+  String get hanokWorldMapBody =>
+      'Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.';
+
+  @override
+  String get hanokWorldOpenNextScene => 'Nächste Szene ansehen';
+
+  @override
   String get hanokWorldIntro =>
       'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.';
 
@@ -4956,17 +5103,33 @@ class AppL10nDe extends AppL10n {
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override
-  String get sarangbangStudyIntroTitle => 'Dein nächster Lernschritt wartet';
+  String get sarangbangStudyIntroTitle =>
+      'Die Worte von heute sind angekommen.';
 
   @override
   String get sarangbangStudyIntroBody =>
-      'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.';
+      'Hier siehst du, was du dir tatsächlich erarbeitet hast.';
 
   @override
   String get sarangbangStudySceneLabel => 'Deine Studierstube';
 
   @override
   String get sarangbangStudyFurnish => 'Studierstube einrichten';
+
+  @override
+  String get sarangbangStoredTitle => 'Heute abgelegt';
+
+  @override
+  String get sarangbangStoredEmpty =>
+      'Neue Ausdrücke und sichere Szenen erscheinen hier, wenn du sie dir erarbeitet hast.';
+
+  @override
+  String sarangbangStoredBody(Object detail) {
+    return '$detail · Deine heutige Szene bleibt auf Start ausgewählt.';
+  }
+
+  @override
+  String get sarangbangOpenToday => 'Zur heutigen Szene';
 
   @override
   String get personalRoomAnbangTitle => 'Anbang';

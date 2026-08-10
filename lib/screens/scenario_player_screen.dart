@@ -978,6 +978,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ? MascotKind.magpie
         : MascotKind.tiger;
 
+    // Once persistence has completed, replace the game-result presentation
+    // with the calm return surface from mockup 02D. The saved vocabulary,
+    // grammar and course checkpoint are all derived from the real scenario;
+    // visiting this screen does not create additional learning evidence.
+    if (_resultPersisted) {
+      return _buildSavedResult(t, sc, lang);
+    }
+
     return _StageScroll(
       child: Column(
         children: [
@@ -1236,6 +1244,93 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             accent: SoriColors.success,
             fullWidth: true,
             onTap: _resultSaving ? null : () => _complete(stars, earnedXp),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSavedResult(AppL10n t, Scenario scenario, String lang) {
+    final phrase = scenario.dialog.isNotEmpty
+        ? scenario.dialog.first.ko
+        : scenario.vocab.isNotEmpty
+        ? scenario.vocab.first.korean
+        : null;
+    final grammar = scenario.grammarBlock?.title.pick(lang);
+
+    return _StageScroll(
+      fill: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const SizedBox(height: Spacing.xl),
+          Text(
+            t.scenarioSavedEyebrow,
+            style: SoriTextTheme.of(
+              context,
+            ).label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(t.scenarioSavedTitle, style: SoriTextTheme.of(context).h1),
+          const SizedBox(height: Spacing.lg),
+          if (_canDoResult case final result?) ...[
+            CanDoResultCard(result: result),
+            const SizedBox(height: Spacing.md),
+          ],
+          if (phrase != null)
+            SoriCard(
+              variant: SoriCardVariant.base,
+              accent: SoriColors.primary,
+              tinted: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.scenarioSavedPhrase,
+                    style: SoriTextTheme.of(context).label,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(phrase, style: SoriTextTheme.of(context).h2),
+                ],
+              ),
+            )
+          else
+            SoriCard(
+              variant: SoriCardVariant.base,
+              child: Text(
+                t.scenarioSavedEmpty,
+                style: SoriTextTheme.of(context).bodySmall,
+              ),
+            ),
+          if (grammar != null && grammar.isNotEmpty) ...[
+            const SizedBox(height: Spacing.md),
+            SoriCard(
+              variant: SoriCardVariant.compact,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.scenarioSavedStructure,
+                    style: SoriTextTheme.of(context).label,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(grammar, style: SoriTextTheme.of(context).body),
+                ],
+              ),
+            ),
+          ],
+          const SizedBox(height: Spacing.xl),
+          SoriButton.filled(
+            label: t.scenarioSavedReturnHanok,
+            fullWidth: true,
+            onTap: () => Navigator.of(context).pushReplacementNamed('/hanok'),
+          ),
+          const SizedBox(height: Spacing.xs),
+          TextButton(
+            onPressed: () => Navigator.of(
+              context,
+            ).pushReplacementNamed('/scenario', arguments: scenario.id),
+            child: Text(t.scenarioSavedRepeat),
           ),
         ],
       ),

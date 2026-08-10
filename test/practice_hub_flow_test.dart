@@ -28,8 +28,8 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('Was möchtest du gerade festigen?'), findsOneWidget);
-    expect(find.text('Fällige Wörter wiederholen'), findsNWidgets(2));
+    expect(find.text('Was möchtest du gerade festigen?'), findsNWidgets(2));
+    expect(find.text('Fällige Wörter wiederholen'), findsOneWidget);
     expect(find.text('Etwas gezielt üben'), findsOneWidget);
 
     await tester.scrollUntilVisible(find.text('Frei spielen'), 360);

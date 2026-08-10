@@ -324,8 +324,9 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 child: _WorldIntroduction(
                                   projection: projection,
                                   narrative: _narrative,
-                                  onOpenSarangbang: () =>
-                                      _openZone(PersonalHanokZone.sarangbang),
+                                  onOpenNextScene: () => Navigator.of(
+                                    context,
+                                  ).pushNamed('/course/mission'),
                                 ),
                               ),
                               const SizedBox(height: Spacing.lg),
@@ -448,12 +449,12 @@ class _WorldPlaceList extends StatelessWidget {
 class _WorldIntroduction extends StatelessWidget {
   final PersonalHanokProjection projection;
   final HanokBuildNarrative? narrative;
-  final VoidCallback onOpenSarangbang;
+  final VoidCallback onOpenNextScene;
 
   const _WorldIntroduction({
     required this.projection,
     required this.narrative,
-    required this.onOpenSarangbang,
+    required this.onOpenNextScene,
   });
 
   @override
@@ -469,32 +470,40 @@ class _WorldIntroduction extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            hasMap ? t.hanokWorldTitle : t.hanokWorldLegacyTitle,
-            style: text.h2,
+            hasMap ? t.hanokWorldMapEyebrow : t.hanokWorldEarlyEyebrow,
+            style: text.label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            hasMap ? t.hanokWorldMapTitle : t.hanokWorldEarlyTitle,
+            style: text.h1,
           ),
           const SizedBox(height: Spacing.sm),
           Text(
-            hasMap ? t.hanokWorldIntro : t.hanokWorldLegacyBody,
+            hasMap ? t.hanokWorldMapBody : t.hanokWorldEarlyBody,
             style: text.bodySmall,
           ),
-          const SizedBox(height: Spacing.sm),
-          HanokBuildNarrativeLine(
-            narrative: narrative ?? HanokBuildNarrative.empty(projection),
-          ),
-          const SizedBox(height: Spacing.md),
-          Semantics(
-            label: t.hanokWorldProgress,
-            child: SoriProgressBar(
-              value: projection.constructionFraction,
-              animated: true,
+          if (!hasMap) ...[
+            const SizedBox(height: Spacing.sm),
+            HanokBuildNarrativeLine(
+              narrative: narrative ?? HanokBuildNarrative.empty(projection),
             ),
-          ),
-          const SizedBox(height: Spacing.lg),
-          SoriButton.outlined(
-            label: t.hanokWorldOpenSarangbang,
-            fullWidth: true,
-            onTap: onOpenSarangbang,
-          ),
+            const SizedBox(height: Spacing.md),
+            Semantics(
+              label: t.hanokWorldProgress,
+              child: SoriProgressBar(
+                value: projection.constructionFraction,
+                animated: true,
+              ),
+            ),
+            const SizedBox(height: Spacing.lg),
+            SoriButton.filled(
+              key: const ValueKey('hanok-world-next-scene'),
+              label: t.hanokWorldOpenNextScene,
+              fullWidth: true,
+              onTap: onOpenNextScene,
+            ),
+          ],
         ],
       ),
     );

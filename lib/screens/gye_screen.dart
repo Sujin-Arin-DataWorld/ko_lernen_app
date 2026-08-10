@@ -358,14 +358,32 @@ class _GyeScreenState extends State<GyeScreen>
                                 );
                               },
                             ),
-                            const Padding(
-                              padding: EdgeInsets.fromLTRB(
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
                                 Spacing.lg,
                                 Spacing.md,
                                 Spacing.lg,
                                 0,
                               ),
-                              child: _GyeCourtyardContext(),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  const _GyeCourtyardContext(),
+                                  const SizedBox(height: Spacing.md),
+                                  SoriButton.outlined(
+                                    key: const ValueKey('gye-safe-message'),
+                                    label: t.gyeSafeMessage,
+                                    icon: Icons.emoji_emotions_outlined,
+                                    fullWidth: true,
+                                    onTap: actionsAvailable
+                                        ? () => _openGyeStickerPicker(
+                                            context,
+                                            widget.gyeId,
+                                          )
+                                        : null,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

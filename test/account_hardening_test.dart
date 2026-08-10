@@ -54,7 +54,13 @@ void main() {
         ),
       );
       await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
 
+      await tester.scrollUntilVisible(
+        find.text('Mit Apple verbunden'),
+        600,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text('Mit Apple verbunden'), findsOneWidget);
       await tester.scrollUntilVisible(
         find.text('Angemeldet: Apple'),
@@ -85,7 +91,13 @@ void main() {
         ),
       );
       await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
 
+      await tester.scrollUntilVisible(
+        find.text('Mit Google und Apple verbunden'),
+        600,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(find.text('Mit Google und Apple verbunden'), findsOneWidget);
       await tester.scrollUntilVisible(
         find.text('Angemeldet: Google und Apple'),

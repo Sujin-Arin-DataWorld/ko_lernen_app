@@ -23,11 +23,9 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 
-/// The study-facing Sarangbang. It presents the one recommendation selected
-/// by the existing engine, then launches the exact original learning surface.
-///
-/// Decorating remains intentionally separate at `/sarangbang/furnish` so a
-/// learner never has to enter a placement UI before studying.
+/// The Sarangbang is a deliberate return space: it shows what has arrived in
+/// the room and how to arrange it. Home owns today's primary recommendation;
+/// this screen only offers a quiet, optional route back to that same scene.
 class SarangbangStudyScreen extends StatefulWidget {
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
   final Future<void> Function(TodayLearningSnapshot recommendation)?
@@ -229,7 +227,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           builder: (context, constraints) {
                             final todayLink = KeyedSubtree(
                               key: const ValueKey('sarangbang-today-link'),
-                              child: _SarangbangTodayLink(
+                              child: _SarangbangArrivalCard(
                                 content: _missionContent(t),
                                 onOpen: _openRecommendation,
                               ),
@@ -325,11 +323,11 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   }
 }
 
-/// The Sarangbang is a place to revisit and arrange, not Home's mandatory
-/// duplicate mission screen. It can still open the already selected today
-/// destination when a learner intentionally arrives here from their Hanok.
-class _SarangbangTodayLink extends StatelessWidget {
-  const _SarangbangTodayLink({required this.content, required this.onOpen});
+/// Unlike Home's mission hero, this card does not restate a competing next
+/// action. It is an arrival record in the room, with an intentionally weaker
+/// link back to the already chosen scene.
+class _SarangbangArrivalCard extends StatelessWidget {
+  const _SarangbangArrivalCard({required this.content, required this.onOpen});
 
   final MissionHeroContent? content;
   final VoidCallback onOpen;
@@ -345,25 +343,25 @@ class _SarangbangTodayLink extends StatelessWidget {
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(t.missionHeroAllDoneTitle, style: text.cardTitle),
+                Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
-                Text(t.missionHeroAllDoneBody, style: text.cardSubtitle),
+                Text(t.sarangbangStoredEmpty, style: text.cardSubtitle),
               ],
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  t.homeTodayEyebrow,
-                  style: text.label.copyWith(color: SoriColors.primary),
-                ),
+                Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
                 Text(mission.title, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
-                Text(mission.meta, style: text.cardSubtitle),
+                Text(
+                  t.sarangbangStoredBody(mission.meta),
+                  style: text.cardSubtitle,
+                ),
                 const SizedBox(height: Spacing.md),
                 SoriButton.outlined(
-                  label: t.homeTodayMissionStart,
+                  label: t.sarangbangOpenToday,
                   fullWidth: true,
                   onTap: onOpen,
                 ),

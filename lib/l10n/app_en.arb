@@ -864,6 +864,14 @@
   "onboardingStartLoading": "Preparing your first scene …",
   "onboardingCompanionChoose": "Choose a study buddy",
   "onboardingCompanionSkip": "Not now",
+  "firstVoiceStamp": "FIRST\nVOICE",
+  "firstVoiceTitle": "You understood your first Korean.",
+  "firstVoiceBody": "You understood a first Korean expression and can use it in your scene.",
+  "firstVoiceCanDo": "I can greet someone kindly.",
+  "firstVoiceCanDoBody": "Your A1 path begins with this scene.",
+  "firstVoiceCompanionTitle": "Would you like a learning companion?",
+  "firstVoiceCompanionBody": "They celebrate successes and explain hints. You can always learn without one.",
+  "firstVoiceSkip": "Continue to Today without a companion",
   "missionContextLabel": "Current mission",
   "courseMissionPath": "Your mission path",
   "courseMissionDetails": "Mission details",
@@ -964,6 +972,13 @@
   "scenarioNextBtn": "Next",
   "scenarioCompleteBtn": "Complete",
   "scenarioResultReturnBtn": "Back to my path",
+  "scenarioSavedEyebrow": "YOUR SCENE IS SAVED",
+  "scenarioSavedTitle": "You can return to your Hanok now.",
+  "scenarioSavedPhrase": "A phrase for your next scene",
+  "scenarioSavedStructure": "Structure for this scene",
+  "scenarioSavedEmpty": "Your practice is saved and ready for review.",
+  "scenarioSavedReturnHanok": "Back to my Hanok",
+  "scenarioSavedRepeat": "Practise this scene again",
   "scenarioCanDoVerifiedTitle": "You can do this now.",
   "scenarioCanDoVerifiedBody": "This scene's checkpoint was saved independently.",
   "scenarioCanDoReviewTitle": "Not secure yet.",
@@ -1458,7 +1473,19 @@
   "pathLockedHint": "Clear the previous pack first.",
   "pathSeeAll": "Full path",
   "pathJumpToNow": "To the current step",
+  "pathStoryEyebrow": "{level} · Everyday life in Korea",
+  "@pathStoryEyebrow": {
+    "placeholders": {
+      "level": {}
+    }
+  },
+  "pathStoryTitle": "You build from greetings to living.",
+  "pathStoryBody": "Every section ends with a situation you can handle yourself.",
+  "pathOpenCurrentMission": "Open current mission",
   "gyeEmptyHeadline": "Learning alone is complete. Together can feel warmer.",
+  "gyeEmptyLead": "A Gye is a small group that holds a weekly intention together.",
+  "gyeFindOrCreate": "Find or create a Gye",
+  "gyeContinueSolo": "Continue without a group",
   "gyeEmptyPreviewCaption": "A preview of a shared courtyard — never a requirement for your path",
   "homePathCardTitle": "Learning path",
   "homePathCardSub": "See where you are",
@@ -1482,6 +1509,19 @@
   "profileTitle": "Profile",
   "profileGuestName": "Guest",
   "profileGuestBadge": "Keep your streak, XP & hanok",
+  "profileJourneyTitle": "Your path, {name}",
+  "@profileJourneyTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "profileJourneySummary": "{level} · {goal}",
+  "@profileJourneySummary": {
+    "placeholders": {
+      "level": {},
+      "goal": {}
+    }
+  },
   "profileGuestDesc": "Right now, your progress is only on this device. Back it up with Google to keep it when you switch phones.",
   "profileConnectedBadge": "Account connected",
   "profileConnectedProviderBadge": "Connected with {provider}",
@@ -1501,6 +1541,8 @@
   "profileLearningStartPoint": "My starting point",
   "profileLearningCompanion": "Learning companion",
   "profileSpaceSection": "My space",
+  "profileGye": "Group (Gye)",
+  "profileGyeDescription": "Open your optional learning group",
   "profilePrivacyAccount": "Privacy & account",
   "profilePrivacyAccountDescription": "Data, backup, and account controls",
   "profileProgressSection": "My progress",
@@ -1555,6 +1597,10 @@
   },
   "consentTitle": "Welcome to Hangul Sori",
   "consentBody": "Your learning progress stays on your device by default. Optional features such as cloud backup, study groups, photo word capture, and pronunciation audio process specific data on EU servers. See the privacy policy for details.",
+  "consentEyebrow": "Before you begin",
+  "consentCardTitle": "Privacy & learning account",
+  "consentCardBody": "Clearly explained · adjustable in your profile at any time. Groups always remain optional.",
+  "consentContinueCta": "Continue",
   "consentPrivacyCta": "Privacy policy",
   "consentTermsCta": "Terms of service",
   "consentAgreeCta": "Agree & start",
@@ -1685,6 +1731,9 @@
   "practiceSecGames": "Play freely",
   "practiceSecWords": "Your words",
   "practiceSecSpace": "Your learning space",
+  "practiceFocusedDescription": "Pronunciation, grammar, or writing",
+  "practiceFreeDescription": "Word chains, letters, and short games",
+  "practiceWordsDescription": "Open saved words and books",
   "pathEvidenceTitle": "How progress becomes verified",
   "pathEvidenceBody": "Browsing saves history only. A course unit is verified through its active assessment and at least 70% in every linked scenario checkpoint.",
   "@_feature_coach": {
@@ -2079,6 +2128,7 @@
   "homeMadangEyebrow": "Today in the Sarangbang",
   "homeSarangbangCta": "Study in the Sarangbang",
   "homeTodayEyebrow": "Your real-life action today",
+  "homeTodayFirst": "Today first",
   "homeTodayMissionStart": "Start this scene",
   "homeTodayCourseAction": "Practice this action",
   "homeTodayPackAction": "Practice these words",
@@ -2091,6 +2141,8 @@
   "homeTodayReviewTime": "About 3 minutes · then your path continues.",
   "homeUnavailableTitle": "Your path could not refresh.",
   "homeUnavailableDescription": "Your saved reviews and completed content are still available on this device.",
+  "homeUnavailableSafeTitle": "Safe to do now",
+  "homeUnavailableSafeBody": "Review uses only learning content saved on this device.",
   "homeUnavailableCta": "Review saved words",
   "homeTodayScenarioDescription": "Listen, choose, and speak the scene.",
   "homeHanokPreviewTitle": "My Hanok",
@@ -2160,6 +2212,14 @@
     "description": "Personal Hanok world — map and place navigation."
   },
   "hanokWorldTitle": "My Hanok world",
+  "hanokWorldEarlyEyebrow": "Your courtyard · A1",
+  "hanokWorldEarlyTitle": "A roof begins with a voice.",
+  "hanokWorldEarlyBody": "Your foundation grows with every secure sentence from everyday life.",
+  "hanokWorldMapEyebrow": "Your walkable courtyard",
+  "hanokWorldMapTitle": "Where would you like to go?",
+  "hanokWorldMapBody": "One place, one purpose. Learning does not start from an empty map.",
+  "hanokWorldOpenNextScene": "See the next scene",
+  "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
   "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
   "hanokWorldLegacyTitle": "Your courtyard is taking shape",
   "hanokWorldLegacyBody": "Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.",
@@ -2216,10 +2276,19 @@
     "description": "Sarangbang as the context for the existing daily recommendation."
   },
   "sarangbangStudyTitle": "Sarangbang",
-  "sarangbangStudyIntroTitle": "Your next study step is ready",
-  "sarangbangStudyIntroBody": "The exercise that fits your progress today begins here.",
+  "sarangbangStudyIntroTitle": "Today's words have arrived.",
+  "sarangbangStudyIntroBody": "Here you can see what you have actually worked for.",
   "sarangbangStudySceneLabel": "Your study room",
   "sarangbangStudyFurnish": "Furnish the study room",
+  "sarangbangStoredTitle": "Stored today",
+  "sarangbangStoredEmpty": "New expressions and secure scenes appear here once you have worked for them.",
+  "sarangbangStoredBody": "{detail} · Your current scene remains selected on Home.",
+  "@sarangbangStoredBody": {
+    "placeholders": {
+      "detail": {}
+    }
+  },
+  "sarangbangOpenToday": "Open today's scene",
   "@_personal_rooms": {
     "description": "Private Hanok interior furnishing surfaces."
   },

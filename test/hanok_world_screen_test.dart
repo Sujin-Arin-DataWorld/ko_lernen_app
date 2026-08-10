@@ -92,6 +92,42 @@ void main() {
     );
   });
 
+  testWidgets('03A opens the current course mission from the next build card', (
+    tester,
+  ) async {
+    String? openedRoute;
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        onGenerateRoute: (settings) {
+          openedRoute = settings.name;
+          return MaterialPageRoute<void>(
+            builder: (_) => const Scaffold(body: SizedBox()),
+          );
+        },
+        home: MediaQuery(
+          data: const MediaQueryData(disableAnimations: true),
+          child: HanokWorldScreen(
+            loadRatios: () async =>
+                const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+            loadProjection: _legacyProjection,
+            revealStore: _MemoryRevealStore.initialized(),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final nextScene = find.byKey(const ValueKey('hanok-world-next-scene'));
+    expect(nextScene, findsOneWidget);
+    await tester.tap(nextScene);
+    await tester.pump();
+
+    expect(openedRoute, '/course/mission');
+  });
+
   testWidgets('opens the estate map from verified course structure alone', (
     tester,
   ) async {
