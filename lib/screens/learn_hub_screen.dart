@@ -14,8 +14,16 @@ import '../widgets/sori/tokens.dart';
 /// **배우기 허브** — 탭 2.
 ///
 /// 진입로: vocab / grammar / hangul / scenarios / book / bookshelf.
-class LearnHubScreen extends StatelessWidget {
+class LearnHubScreen extends StatefulWidget {
   const LearnHubScreen({super.key});
+
+  @override
+  State<LearnHubScreen> createState() => _LearnHubScreenState();
+}
+
+class _LearnHubScreenState extends State<LearnHubScreen> {
+  // build()마다 새 future를 만들면 전체 팩 로드가 매 리빌드 반복된다 → 1회 캐싱.
+  late final Future<String?> _nextPackFuture = _nextPackName();
 
   Future<String?> _nextPackName() async {
     try {
@@ -57,7 +65,7 @@ class LearnHubScreen extends StatelessWidget {
               const SizedBox(height: Spacing.md),
               // ── 진행도 헤더 ──
               FutureBuilder<String?>(
-                future: _nextPackName(),
+                future: _nextPackFuture,
                 builder: (context, snap) {
                   final subtitle = snap.hasData && snap.data != null
                       ? t.hubLearnNextPack(snap.data!)

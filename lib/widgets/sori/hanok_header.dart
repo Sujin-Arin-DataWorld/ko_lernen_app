@@ -107,13 +107,6 @@ class HanokHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tint = fallbackTint ?? HanokColors.cheong;
-    final poster = Image.asset(
-      asset,
-      fit: fit,
-      filterQuality: FilterQuality.medium,
-      errorBuilder: (_, __, ___) => _Fallback(icon: fallbackIcon, tint: tint),
-    );
-
     final loop = _derivedLoop;
     final live =
         animate &&
@@ -157,6 +150,20 @@ class HanokHeader extends StatelessWidget {
             return const SizedBox.shrink();
           }
         }
+
+        // 포스터는 표시 폭에 맞춰 디코드(cacheWidth)해 1200px+ PNG 를 배너
+        // 실제 폭으로만 디코드한다 — 시각 동일, 디코드 메모리·시간 절감.
+        final dpr = MediaQuery.devicePixelRatioOf(context);
+        final poster = Image.asset(
+          asset,
+          fit: fit,
+          cacheWidth: width.isFinite && width > 0
+              ? (width * dpr).round()
+              : null,
+          filterQuality: FilterQuality.medium,
+          errorBuilder: (_, __, ___) =>
+              _Fallback(icon: fallbackIcon, tint: tint),
+        );
 
         return ClipRRect(
           borderRadius: BorderRadius.circular(radius),

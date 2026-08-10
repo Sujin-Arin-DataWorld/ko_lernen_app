@@ -7,6 +7,20 @@
 
 ---
 
+### 2026-08-11 (Claude) — 앱 최적화 Phase 4: 렌더 핫스팟(cacheWidth·future 캐싱)
+
+**왜.** 감사 핫스팟 12건 중 **안전·고가치만** 적용(런타임 메모리·리빌드 절감).
+
+**무엇을.**
+- `hanok_header.dart`: 포스터 `Image.asset`에 `cacheWidth`(표시 폭×dpr) — `study_scholar`(1254px) 등 배너를 실제 폭으로만 디코드. **~17개 화면 공용** → 광범위 이득. 포스터 생성을 `LayoutBuilder` 안으로 이동.
+- `personal_hanok_map.dart`: 레이어 PNG(최대 1536px)에 `cacheWidth` — full-res 과다 디코드 방지.
+- `learn_hub_screen.dart`: Stateless→Stateful, `_nextPackName()`(전체 팩 로드) future **1회 캐싱** — build마다 재실행 제거.
+- **제외(위험/저가치)**: `home_screen` 400줄 build 트리 분해·view-model memoize(회귀 위험), `dancheong_stamp` 티커 조건부화(build가 `_scale/_opacity` 참조 → 리팩터 위험), home 로고 cacheWidth(저가치).
+
+**검증.** `flutter analyze` 0, 스모크 5 통과(HanokHeader 렌더 포함).
+
+---
+
 ### 2026-08-11 (Claude) — 앱 최적화 Phase 1: 데드코드 제거(11 파일 + 7 심볼)
 
 **왜.** 감사 워크플로우가 적대적으로 확인한 데드코드 정리(유지보수성 — 릴리스 트리셰이킹돼 **용량 무관**).

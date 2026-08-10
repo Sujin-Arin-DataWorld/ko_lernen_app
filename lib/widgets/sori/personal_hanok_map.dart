@@ -64,6 +64,12 @@ class PersonalHanokMap extends StatelessWidget {
       aspectRatio: 4 / 3,
       child: LayoutBuilder(
         builder: (context, constraints) {
+          // 레이어 PNG(최대 1536px)를 맵 표시 폭으로만 디코드 — 시각 동일, 디코드
+          // 메모리·시간 절감(full-res 과다 디코드 방지).
+          final w = constraints.maxWidth;
+          final cacheW = w.isFinite && w > 0
+              ? (w * MediaQuery.devicePixelRatioOf(context)).round()
+              : null;
           return ClipRRect(
             borderRadius: SoriRadius.brLg,
             child: Stack(
@@ -74,6 +80,7 @@ class PersonalHanokMap extends StatelessWidget {
                     key: ValueKey('personal-hanok-layer-${layer.id}'),
                     layer.assetPath,
                     fit: BoxFit.cover,
+                    cacheWidth: cacheW,
                     gaplessPlayback: true,
                     errorBuilder: (ctx, _, __) => layer.opaque
                         ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
