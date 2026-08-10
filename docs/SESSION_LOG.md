@@ -23,7 +23,7 @@
 **검증.** 두 생성 도구 성공 · `sips`로 iOS AppIcon 1024×1024/알파 없음, 웹 maskable 512×512/
 알파 없음 확인 · 생성 iOS 아이콘 직접 시각 검수 · `git diff --check` 통과.
 
-**Commit.** Pending local commit. The resulting hash is recorded in the follow-up log update.
+**Commit.** `7fdd07a` (`feat(branding): apply transparent logo across platforms`).
 
 ### 2026-08-10 — DE/EN humanizer pass: UI and learner-facing culture copy
 
