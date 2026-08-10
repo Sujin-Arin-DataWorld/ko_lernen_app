@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/screens/gye_screen.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
   setUp(() async {
@@ -120,6 +121,22 @@ void main() {
     );
     expect(find.text('2 of 3 lanterns are lit'), findsOneWidget);
     expect(find.text('Mina'), findsNothing);
+    expect(
+      tester
+          .widget<SoriButton>(
+            find.widgetWithText(SoriButton, 'Open today\'s learning'),
+          )
+          .variant,
+      SoriButtonVariant.filled,
+    );
+    expect(
+      tester
+          .widget<SoriButton>(
+            find.widgetWithText(SoriButton, 'Send a safe encouragement'),
+          )
+          .variant,
+      SoriButtonVariant.filled,
+    );
     expect(tester.takeException(), isNull);
   });
 

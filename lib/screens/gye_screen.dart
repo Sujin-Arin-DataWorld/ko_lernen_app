@@ -245,19 +245,6 @@ class _GyeScreenState extends State<GyeScreen>
                                 ),
                               ),
                             // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
-                            if (meta.memberCount <= 1)
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                  Spacing.lg,
-                                  Spacing.lg,
-                                  Spacing.lg,
-                                  0,
-                                ),
-                                child: _SoloInviteCard(
-                                  code: meta.code,
-                                  enabled: actionsAvailable,
-                                ),
-                              ),
                             Padding(
                               padding: const EdgeInsets.all(Spacing.lg),
                               child: _GyeWeeklyPromise(
@@ -283,6 +270,31 @@ class _GyeScreenState extends State<GyeScreen>
                                         ),
                                       ),
                               ),
+                            ),
+                            // Keep the shared learning promise ahead of the
+                            // optional invitation.  A new group should first
+                            // explain what it is for, not ask for a member.
+                            if (meta.memberCount <= 1)
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  Spacing.lg,
+                                  0,
+                                  Spacing.lg,
+                                  Spacing.lg,
+                                ),
+                                child: _SoloInviteCard(
+                                  code: meta.code,
+                                  enabled: actionsAvailable,
+                                ),
+                              ),
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                Spacing.lg,
+                                0,
+                                Spacing.lg,
+                                Spacing.md,
+                              ),
+                              child: _GyeCourtyardContext(),
                             ),
                             LayoutBuilder(
                               builder: (context, c) {
@@ -368,12 +380,11 @@ class _GyeScreenState extends State<GyeScreen>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  const _GyeCourtyardContext(),
-                                  const SizedBox(height: Spacing.md),
-                                  SoriButton.outlined(
+                                  SoriButton.filled(
                                     key: const ValueKey('gye-safe-message'),
                                     label: t.gyeSafeMessage,
                                     icon: Icons.emoji_emotions_outlined,
+                                    accent: SoriColors.gold,
                                     fullWidth: true,
                                     onTap: actionsAvailable
                                         ? () => _openGyeStickerPicker(
@@ -631,7 +642,7 @@ class _GyeWeeklyPromise extends StatelessWidget {
           const SizedBox(height: Spacing.md),
           board,
           const SizedBox(height: Spacing.md),
-          SoriButton.outlined(
+          SoriButton.filled(
             label: t.gyeOpenToday,
             fullWidth: true,
             onTap: onOpenToday,

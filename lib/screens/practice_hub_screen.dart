@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
@@ -27,6 +28,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
     with ScreenCoachMixin<PracticeHubScreen> {
   /// "이어하기" 상태 — 홈 블록 5와 같은 서비스 소스(§6.3 단일 소스 규정).
   int _dueCount = 0;
+  bool _showAllActivities = false;
 
   /// 첫 진입 코치마크가 가리키는 첫 목적 카드.
   final GlobalKey _coachTargetKey = GlobalKey();
@@ -115,13 +117,28 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
                 ),
               ),
               const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecLearn, _learnItems(t)),
-              const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecWords, _wordItems(t)),
-              const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecGames, _gameItems(t)),
-              const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecSpace, _spaceItems(t)),
+              SoriButton.outlined(
+                key: const ValueKey('practice-all-activities'),
+                label: _showAllActivities
+                    ? t.practiceHideAllActivities
+                    : t.practiceAllActivities,
+                trailingIcon: _showAllActivities
+                    ? Icons.expand_less_rounded
+                    : Icons.expand_more_rounded,
+                fullWidth: true,
+                onTap: () =>
+                    setState(() => _showAllActivities = !_showAllActivities),
+              ),
+              if (_showAllActivities) ...[
+                const SizedBox(height: Spacing.lg),
+                _section(context, t.practiceSecLearn, _learnItems(t)),
+                const SizedBox(height: Spacing.lg),
+                _section(context, t.practiceSecWords, _wordItems(t)),
+                const SizedBox(height: Spacing.lg),
+                _section(context, t.practiceSecGames, _gameItems(t)),
+                const SizedBox(height: Spacing.lg),
+                _section(context, t.practiceSecSpace, _spaceItems(t)),
+              ],
               const SizedBox(height: Spacing.xxxl),
             ],
           ),

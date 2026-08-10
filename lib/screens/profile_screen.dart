@@ -375,17 +375,17 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: Column(
                   children: [
                     _ProfileSettingTile(
-                      icon: Icons.groups_2_outlined,
-                      label: t.profileGye,
-                      value: t.profileGyeDescription,
-                      onTap: () => Navigator.pushNamed(context, '/gye/hub'),
-                    ),
-                    const Divider(height: 1),
-                    _ProfileSettingTile(
                       icon: Icons.shield_outlined,
                       label: t.profilePrivacyAccount,
                       value: t.profilePrivacyAccountDescription,
                       onTap: _openAccountControls,
+                    ),
+                    const Divider(height: 1),
+                    _ProfileSettingTile(
+                      icon: Icons.groups_2_outlined,
+                      label: t.profileGye,
+                      value: t.profileGyeDescription,
+                      onTap: () => Navigator.pushNamed(context, '/gye/hub'),
                     ),
                   ],
                 ),

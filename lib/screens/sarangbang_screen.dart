@@ -235,6 +235,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                             final room = _SarangbangStudyScene(
                               placements: _placements,
                               owned: _ownedDecor,
+                            );
+                            final furnishing = _SarangbangFurnishCard(
                               onFurnish: _openFurnish,
                             );
 
@@ -247,7 +249,16 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                                 children: [
                                   Expanded(flex: 11, child: room),
                                   const SizedBox(width: Spacing.lg),
-                                  Expanded(flex: 9, child: todayLink),
+                                  Expanded(
+                                    flex: 9,
+                                    child: Column(
+                                      children: [
+                                        todayLink,
+                                        const SizedBox(height: Spacing.lg),
+                                        furnishing,
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               );
                             }
@@ -257,6 +268,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                                 room,
                                 const SizedBox(height: Spacing.lg),
                                 todayLink,
+                                const SizedBox(height: Spacing.lg),
+                                furnishing,
                               ],
                             );
                           },
@@ -374,13 +387,8 @@ class _SarangbangArrivalCard extends StatelessWidget {
 class _SarangbangStudyScene extends StatelessWidget {
   final RoomPlacements placements;
   final Set<String> owned;
-  final VoidCallback onFurnish;
 
-  const _SarangbangStudyScene({
-    required this.placements,
-    required this.owned,
-    required this.onFurnish,
-  });
+  const _SarangbangStudyScene({required this.placements, required this.owned});
 
   @override
   Widget build(BuildContext context) {
@@ -398,13 +406,48 @@ class _SarangbangStudyScene extends StatelessWidget {
           owned: owned,
           interactive: false,
         ),
-        const SizedBox(height: Spacing.md),
-        SoriButton.outlined(
-          label: t.sarangbangStudyFurnish,
-          fullWidth: true,
-          onTap: onFurnish,
-        ),
       ],
+    );
+  }
+}
+
+/// Furnishing is an optional return activity.  Keeping it in a separate card
+/// prevents the room itself from being mistaken for a competing daily mission
+/// while retaining the established room-editor route.
+class _SarangbangFurnishCard extends StatelessWidget {
+  const _SarangbangFurnishCard({required this.onFurnish});
+
+  final VoidCallback onFurnish;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      key: const ValueKey('sarangbang-furnish-card'),
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.gold,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(t.sarangbangFurnishTitle, style: text.cardTitle),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.sarangbangFurnishBody,
+            style: text.bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            key: const ValueKey('sarangbang-furnish-action'),
+            label: t.sarangbangStudyFurnish,
+            accent: SoriColors.gold,
+            fullWidth: true,
+            onTap: onFurnish,
+          ),
+        ],
+      ),
     );
   }
 }

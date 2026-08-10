@@ -7,6 +7,33 @@
 
 ---
 
+### 2026-08-11 (Codex) — 03–06 mockup-parity correction
+
+**Why.** A second screen-by-screen audit found that the earlier 01–06 rebuild
+connected the right routes, but did not yet make several 03–06 mockup
+hierarchies visible enough on the first scan.
+
+**Delivered.** 03A now follows `story → existing courtyard art → construction
+plan → next scene`; 03B gives every completed place an explicit learning
+purpose in both the map detail and accessible list; and 03C separates the
+stored-learning record from the optional furnishing return. 04A now exposes
+need-based choices first and keeps every existing activity behind a deliberate
+"show all" control. 05 presents the weekly real-life promise before an
+optional invitation, then the courtyard and a filled safe-encouragement
+action. 06 places privacy/account before the optional Gye entry in the profile
+space.  No generated imagery was added: existing Hanok, room, and Gye assets
+remain in use.
+
+**Verification.** `flutter gen-l10n` completed; the focused 03–06 plus
+onboarding/Home test bundle passed **40 tests**, and a fresh 01–02
+onboarding/course/context/result bundle passed **43 tests**; `flutter analyze
+--fatal-infos` reported **No issues found**; and `git diff --check` passed.
+The new map-purpose parameter is covered at the tablet viewport as well as
+through the full Hanok route tests. No Android build was started and no main
+worktree, push, PR, or merge was changed.
+
+---
+
 ### 2026-08-11 (Codex) — UX 목업 01–06 시각 패리티 재구현 완료
 
 **왜.** Jin의 실제 화면 검토에서 기존 `01–06 완료` 표기가 문구·상태·라우팅 테스트를 목업 화면 구현으로 과대 해석한 사실이 확인됐다. 특히 01A/01C와 02A–02D는 목업의 실제 첫 화면 흐름으로 볼 수 없었고, 03–06도 화면 위계와 CTA가 다르게 남아 있었다.

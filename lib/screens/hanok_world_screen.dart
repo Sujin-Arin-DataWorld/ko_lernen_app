@@ -323,10 +323,6 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 padding: sidePadding,
                                 child: _WorldIntroduction(
                                   projection: projection,
-                                  narrative: _narrative,
-                                  onOpenNextScene: () => Navigator.of(
-                                    context,
-                                  ).pushNamed('/course/mission'),
                                 ),
                               ),
                               const SizedBox(height: Spacing.lg),
@@ -344,6 +340,8 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                     onSelectZone: _selectZone,
                                     onOpenSelectedZone: _openSelectedZone,
                                     zoneLabel: (zone) => _zoneLabel(t, zone),
+                                    zonePurpose: (zone) =>
+                                        _zonePurpose(t, zone),
                                     contentPadding: sidePadding,
                                   ),
                                 ),
@@ -360,7 +358,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                   padding: sidePadding,
                                   child: _GyeBridge(onOpen: _openGyeHub),
                                 ),
-                              ] else
+                              ] else ...[
                                 Padding(
                                   padding: sidePadding,
                                   child: PersonalHanokMap(
@@ -368,6 +366,18 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                     zoneLabel: (zone) => _zoneLabel(t, zone),
                                   ),
                                 ),
+                                const SizedBox(height: Spacing.lg),
+                                Padding(
+                                  padding: sidePadding,
+                                  child: _EarlyBuildPlan(
+                                    projection: projection,
+                                    narrative: _narrative,
+                                    onOpenNextScene: () => Navigator.of(
+                                      context,
+                                    ).pushNamed('/course/mission'),
+                                  ),
+                                ),
+                              ],
                             ],
                           ),
                         );
@@ -430,12 +440,34 @@ class _WorldPlaceList extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.md),
             for (final place in places) ...[
-              SoriButton.outlined(
+              SoriCard(
                 key: ValueKey('hanok-world-place-${place.zone.name}'),
-                label: _zoneLabel(t, place.zone),
-                fullWidth: true,
-                maxLines: 2,
+                variant: SoriCardVariant.compact,
+                accent: SoriColors.primary,
                 onTap: () => onSelectZone(place.zone),
+                child: Row(
+                  children: [
+                    const Icon(Icons.place_outlined, color: SoriColors.primary),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(_zoneLabel(t, place.zone), style: text.label),
+                          const SizedBox(height: 2),
+                          Text(
+                            _zonePurpose(t, place.zone),
+                            style: text.caption.copyWith(color: s.textMuted),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.chevron_right_rounded,
+                      color: SoriColors.primary,
+                    ),
+                  ],
+                ),
               ),
               if (place != places.last) const SizedBox(height: Spacing.sm),
             ],
@@ -448,14 +480,8 @@ class _WorldPlaceList extends StatelessWidget {
 
 class _WorldIntroduction extends StatelessWidget {
   final PersonalHanokProjection projection;
-  final HanokBuildNarrative? narrative;
-  final VoidCallback onOpenNextScene;
 
-  const _WorldIntroduction({
-    required this.projection,
-    required this.narrative,
-    required this.onOpenNextScene,
-  });
+  const _WorldIntroduction({required this.projection});
 
   @override
   Widget build(BuildContext context) {
@@ -483,27 +509,62 @@ class _WorldIntroduction extends StatelessWidget {
             hasMap ? t.hanokWorldMapBody : t.hanokWorldEarlyBody,
             style: text.bodySmall,
           ),
-          if (!hasMap) ...[
-            const SizedBox(height: Spacing.sm),
-            HanokBuildNarrativeLine(
-              narrative: narrative ?? HanokBuildNarrative.empty(projection),
+        ],
+      ),
+    );
+  }
+}
+
+/// The early courtyard keeps the familiar stage art, then makes the next
+/// everyday-language milestone and its one direct action explicit.  This is
+/// intentionally separate from the heading so the visual order follows the
+/// mockup: story, existing courtyard, construction plan, next scene.
+class _EarlyBuildPlan extends StatelessWidget {
+  const _EarlyBuildPlan({
+    required this.projection,
+    required this.narrative,
+    required this.onOpenNextScene,
+  });
+
+  final PersonalHanokProjection projection;
+  final HanokBuildNarrative? narrative;
+  final VoidCallback onOpenNextScene;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: SoriColors.primary,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HanokBuildNarrativeLine(
+            narrative: narrative ?? HanokBuildNarrative.empty(projection),
+          ),
+          const SizedBox(height: Spacing.md),
+          Semantics(
+            label: t.hanokWorldProgress,
+            child: SoriProgressBar(
+              value: projection.constructionFraction,
+              animated: true,
             ),
-            const SizedBox(height: Spacing.md),
-            Semantics(
-              label: t.hanokWorldProgress,
-              child: SoriProgressBar(
-                value: projection.constructionFraction,
-                animated: true,
-              ),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.hanokWorldProgress,
+            style: text.caption.copyWith(
+              color: SoriSurfaces.of(context).textMuted,
             ),
-            const SizedBox(height: Spacing.lg),
-            SoriButton.filled(
-              key: const ValueKey('hanok-world-next-scene'),
-              label: t.hanokWorldOpenNextScene,
-              fullWidth: true,
-              onTap: onOpenNextScene,
-            ),
-          ],
+          ),
+          const SizedBox(height: Spacing.lg),
+          SoriButton.filled(
+            key: const ValueKey('hanok-world-next-scene'),
+            label: t.hanokWorldOpenNextScene,
+            fullWidth: true,
+            onTap: onOpenNextScene,
+          ),
         ],
       ),
     );
@@ -576,6 +637,16 @@ String _zoneLabel(AppL10n t, PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.huwon => t.hanokZoneHuwon,
   PersonalHanokZone.sadang => t.hanokZoneSadang,
   PersonalHanokZone.gyeRoad => '',
+};
+
+String _zonePurpose(AppL10n t, PersonalHanokZone zone) => switch (zone) {
+  PersonalHanokZone.sarangbang => t.hanokWorldPurposeSarangbang,
+  PersonalHanokZone.daecheongmaru => t.hanokWorldPurposeDaecheong,
+  PersonalHanokZone.haengrangchae => t.hanokWorldPurposeHaengrang,
+  PersonalHanokZone.anchae => t.hanokWorldPurposeAnchae,
+  PersonalHanokZone.huwon => t.hanokWorldPurposeHuwon,
+  PersonalHanokZone.sadang => t.hanokWorldPurposeSadang,
+  PersonalHanokZone.gyeRoad => t.hanokWorldPurposeGyeRoad,
 };
 
 String _milestoneLabel(AppL10n t, PersonalHanokMilestone milestone) =>

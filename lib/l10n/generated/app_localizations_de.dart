@@ -3736,6 +3736,12 @@ class AppL10nDe extends AppL10n {
       'Gespeicherte Wörter und Bücher öffnen';
 
   @override
+  String get practiceAllActivities => 'Alle Aktivitäten anzeigen';
+
+  @override
+  String get practiceHideAllActivities => 'Alle Aktivitäten ausblenden';
+
+  @override
   String get pathEvidenceTitle => 'Woran du echten Fortschritt erkennst';
 
   @override
@@ -5045,6 +5051,34 @@ class AppL10nDe extends AppL10n {
   String get hanokZoneSadang => 'Sadang · Erfolge';
 
   @override
+  String get hanokWorldPurposeSarangbang =>
+      'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.';
+
+  @override
+  String get hanokWorldPurposeDaecheong =>
+      'Sieh deinen Lernpfad und wähle die nächste bestätigte Mission.';
+
+  @override
+  String get hanokWorldPurposeHaengrang =>
+      'Wähle eine gezielte Übung oder ein kurzes Spiel.';
+
+  @override
+  String get hanokWorldPurposeAnchae =>
+      'Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.';
+
+  @override
+  String get hanokWorldPurposeHuwon =>
+      'Wähle einen ruhigen Zeichenmoment oder eine bestehende Quest.';
+
+  @override
+  String get hanokWorldPurposeSadang =>
+      'Sieh die sichtbaren Meilensteine deines Lernwegs noch einmal an.';
+
+  @override
+  String get hanokWorldPurposeGyeRoad =>
+      'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.';
+
+  @override
   String get hanokWorldSelectPlaceTitle => 'Einen fertigen Ort wählen';
 
   @override
@@ -5115,6 +5149,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangStudyFurnish => 'Studierstube einrichten';
+
+  @override
+  String get sarangbangFurnishTitle => 'Einrichten';
+
+  @override
+  String get sarangbangFurnishBody =>
+      'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Lernbelohnungen.';
 
   @override
   String get sarangbangStoredTitle => 'Heute abgelegt';

@@ -70,6 +70,12 @@ void main() {
     expect(find.text('Mein Startpunkt'), findsOneWidget);
     expect(find.text('Lernbegleitung'), findsOneWidget);
     expect(find.text('Datenschutz & Konto'), findsOneWidget);
+    expect(find.text('Gruppe (Gye)'), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text('Datenschutz & Konto')).dy,
+      lessThan(tester.getTopLeft(find.text('Gruppe (Gye)')).dy),
+      reason: 'privacy/account is shown before the optional group entry',
+    );
 
     await tester.tap(find.text('Mein Startpunkt'));
     await tester.pump();

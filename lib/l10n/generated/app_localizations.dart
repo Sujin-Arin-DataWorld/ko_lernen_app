@@ -6529,6 +6529,18 @@ abstract class AppL10n {
   /// **'Gespeicherte Wörter und Bücher öffnen'**
   String get practiceWordsDescription;
 
+  /// No description provided for @practiceAllActivities.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Aktivitäten anzeigen'**
+  String get practiceAllActivities;
+
+  /// No description provided for @practiceHideAllActivities.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Aktivitäten ausblenden'**
+  String get practiceHideAllActivities;
+
   /// No description provided for @pathEvidenceTitle.
   ///
   /// In de, this message translates to:
@@ -8839,6 +8851,48 @@ abstract class AppL10n {
   /// **'Sadang · Erfolge'**
   String get hanokZoneSadang;
 
+  /// No description provided for @hanokWorldPurposeSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.'**
+  String get hanokWorldPurposeSarangbang;
+
+  /// No description provided for @hanokWorldPurposeDaecheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh deinen Lernpfad und wähle die nächste bestätigte Mission.'**
+  String get hanokWorldPurposeDaecheong;
+
+  /// No description provided for @hanokWorldPurposeHaengrang.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eine gezielte Übung oder ein kurzes Spiel.'**
+  String get hanokWorldPurposeHaengrang;
+
+  /// No description provided for @hanokWorldPurposeAnchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.'**
+  String get hanokWorldPurposeAnchae;
+
+  /// No description provided for @hanokWorldPurposeHuwon.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle einen ruhigen Zeichenmoment oder eine bestehende Quest.'**
+  String get hanokWorldPurposeHuwon;
+
+  /// No description provided for @hanokWorldPurposeSadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh die sichtbaren Meilensteine deines Lernwegs noch einmal an.'**
+  String get hanokWorldPurposeSadang;
+
+  /// No description provided for @hanokWorldPurposeGyeRoad.
+  ///
+  /// In de, this message translates to:
+  /// **'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.'**
+  String get hanokWorldPurposeGyeRoad;
+
   /// No description provided for @hanokWorldSelectPlaceTitle.
   ///
   /// In de, this message translates to:
@@ -8952,6 +9006,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Studierstube einrichten'**
   String get sarangbangStudyFurnish;
+
+  /// No description provided for @sarangbangFurnishTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einrichten'**
+  String get sarangbangFurnishTitle;
+
+  /// No description provided for @sarangbangFurnishBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Lernbelohnungen.'**
+  String get sarangbangFurnishBody;
 
   /// No description provided for @sarangbangStoredTitle.
   ///

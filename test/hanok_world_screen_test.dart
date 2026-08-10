@@ -83,6 +83,13 @@ void main() {
     );
     await tester.pump();
     await tester.pump();
+    await tester.scrollUntilVisible(
+      find.text(
+        'Structure: Laying foundation stones. Verified: I can greet someone.',
+      ),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
 
     expect(
       find.text(
@@ -121,6 +128,13 @@ void main() {
     await tester.pump();
 
     final nextScene = find.byKey(const ValueKey('hanok-world-next-scene'));
+    await tester.scrollUntilVisible(
+      nextScene,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(nextScene);
+    await tester.pump();
     expect(nextScene, findsOneWidget);
     await tester.tap(nextScene);
     await tester.pump();
@@ -234,6 +248,12 @@ void main() {
     await tester.pump();
 
     expect(opened, isNull);
+    expect(
+      find.text(
+        'Return to today\'s scene and the expressions you have earned.',
+      ),
+      findsOneWidget,
+    );
     final openSelected = find.byKey(
       const ValueKey('hanok-world-open-selected'),
     );
