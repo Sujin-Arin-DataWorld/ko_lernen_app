@@ -46,8 +46,11 @@ macOS + Xcode + 실제 애플 자격증명이 있어야 실행 가능하므로 *
 실행 검증 불가** — Jin의 맥에서 첫 실행이 곧 검증이다.
 
 **남은 것 (Jin 확인 필요).**
-- `pubspec.yaml` 은 `2.0.5+12` 인데 `docs/store/app-store-connect-v2.0.5.md` 는
-  `2.0.5 (11)` 기준으로 쓰여 있다. 문서 드리프트 — 어느 쪽이 정본인지 확정 필요.
+- `pubspec.yaml` 은 `2.0.5+13`(`bf58bd5` 에서 Play AAB 용으로 bump)인데
+  `docs/store/app-store-connect-v2.0.5.md` 는 `2.0.5 (11)` 기준으로 쓰여 있다.
+  문서 드리프트 — 어느 쪽이 정본인지 확정 필요. **빌드번호는 Android
+  `versionCode` 와 한 값을 공유**하므로 Play 로 소모한 번호는 iOS 에서 재사용
+  불가라는 점도 같이 정리해야 한다.
 - `ios/Runner/Info.plist` 에 `ITSAppUsesNonExemptEncryption` 키가 없어 업로드마다
   수출규정 질문이 뜬다. 법적 신고 항목이라 임의로 넣지 않았다.
 ### 2026-08-10 — main red 해소: 요일 의존으로 깨지던 stats 골든 제거
