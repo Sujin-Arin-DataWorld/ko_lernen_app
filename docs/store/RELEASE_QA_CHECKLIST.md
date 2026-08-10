@@ -6,7 +6,7 @@
 > 이전 문서: `docs/JIN_VERIFY_CHECKLIST.md`(v2.0.0, ARCHIVED) ·
 > `docs/store/closed-testing-checklist-v2.md`(인프라 배포 절차는 계속 유효 — 그쪽 참조).
 >
-> 작성 2026-08-06 · 대상 `2.0.5+11` 이후
+> 작성 2026-08-06 · 대상 `2.0.5+13` 후보
 
 ---
 

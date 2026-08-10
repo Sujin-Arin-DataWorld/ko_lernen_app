@@ -7,6 +7,80 @@
 
 ---
 
+### 2026-08-10 — Xcode Command Line Tools 선택을 IPA 빌드에서 자동 우회
+
+**왜.** macOS에 Xcode 26.6이 설치돼 있었지만 전역 `xcode-select`은
+`/Library/Developer/CommandLineTools`를 가리켰다. 이 위치에는 `xcodebuild`가 없어
+IPA 빌드가 시작 단계에서 중단됐다.
+
+**무엇을.** `scripts/build_ios_ipa.sh`가 이 상태와
+`/Applications/Xcode.app/Contents/Developer`의 존재를 확인하면, 이번 프로세스에만
+`DEVELOPER_DIR`을 설정하도록 했다. 전역 `xcode-select`과 시스템 설정은 바꾸지
+않는다.
+
+**검증.** `bash -n scripts/build_ios_ipa.sh` · 깨끗한 `DEVELOPER_DIR` 환경에서
+Xcode 경로 선택 후 `xcrun --find xcodebuild`와 `xcodebuild -version` 성공
+(Xcode 26.6) · `git diff --check` 통과.
+
+**Commit.** None (not requested).
+
+### 2026-08-10 — 초기 무료 iOS 출시 모드
+
+**왜.** Jin은 첫 App Store 버전에서 구독·결제를 받지 않기로 했다. 기존에는
+RevenueCat 키가 없으면 구매만 비활성화될 뿐 A2 이상 학습과 개인 코스가 Premium
+게이트에 막혀, 사용자가 결제할 수 없는 페이월을 보게 되는 상태였다.
+
+**무엇을.** `FREE_LAUNCH=true` 컴파일 플래그를 추가했다. 이 플래그가 있는 빌드는
+시작 시 모든 Premium 접근을 열고 RevenueCat 초기화 전에 종료한다. iOS IPA 스크립트는
+`FREE_LAUNCH=1`일 때 `RC_IOS_KEY`를 요구하지 않으며, 구독 출시에서는 이 환경변수를
+빼면 기존 RevenueCat 키 검증 경로가 그대로 작동한다. App Store 업로드·외부 iOS 설정·
+데이터 공개 문서에는 첫 무료 릴리스에서 결제/RevenueCat 처리를 선언하지 않도록
+명시했다. FlutterFire가 `firebase.json`을 한 줄로 재작성하면서 Android Dart 설정을
+지운 부분은 Android·iOS 설정을 모두 보존하는 형태로 병합했다.
+
+**검증.** `jq empty firebase.json` · `bash -n scripts/build_ios_ipa.sh` ·
+`flutter analyze lib/services/premium_service.dart` (0 issues) ·
+`flutter test test/premium_release_default_test.dart` (2 passed) ·
+`dart run tool/verify_ios_firebase_config.dart` 성공 · `git diff --check` 통과.
+
+**Commit.** None (not requested).
+
+### 2026-08-10 — iOS Firebase 검증기가 정상 Xcode 리소스 배치를 허용
+
+**왜.** FlutterFire가 생성한 `GoogleService-Info.plist`를 Xcode에서 Runner의 Copy
+Bundle Resources에 추가했지만, 검증기는 파일이 Runner 그룹 바로 아래에 놓인 경우만
+인정했다. Xcode가 프로젝트 루트에 `Runner/GoogleService-Info.plist` 상대 경로로
+추가한 정상 배치를 거짓 실패로 보고 있었다.
+
+**무엇을.** `tool/verify_ios_firebase_config.dart`가 기존 Runner 그룹 배치와 프로젝트
+루트의 `Runner/GoogleService-Info.plist` 상대 경로 배치를 모두 인정하도록 했다. 두
+경우 모두 Runner Resources build phase에 들어가 실제 앱 번들로 복사되는지 확인하는
+기준은 유지했다.
+
+**검증.** `dart format tool/verify_ios_firebase_config.dart` · 실제 macOS Xcode
+프로젝트와 로컬 Firebase 설정으로 `dart run tool/verify_ios_firebase_config.dart`
+성공 (`iOS Firebase release configuration is present.`) · `git diff --check` 통과.
+
+**Commit.** None (not requested).
+
+### 2026-08-10 — App Store Connect 구성안과 DE/EN 등재 문구 정리
+
+**왜.** 현재 배포 후보는 `2.0.5+13`인데 iOS 인수인계와 출시 QA 문서 일부가 이전
+build `11`을 가리켰다. App Store 등록을 앞두고, 실제 iOS 캡처에서 어떤 화면을 어떤
+순서로 보여 줄지와 독일어·영어 공개 문구를 한곳에서 바로 쓸 수 있게 정리할 필요가
+있었다.
+
+**무엇을.** `app-store-connect-v2.0.5.md`와 스토어 README, 출시 QA 기준을 build
+`13`으로 맞췄다. iPhone·iPad 공통의 6장 구성, 실제 캡처 화면, DE/EN 캡션을
+인수인계에 추가했다. 독일어·영어 listing에서는 현재 데이터와 맞지 않을 수 있는
+팩·퀘스트 수를 제거하고, 확인된 558개 어휘와 기능 설명만 남겼다. 인간적인 앱
+스토어 톤으로 문장을 다듬되, 기능·학습 범위·링크는 바꾸지 않았다.
+
+**검증.** `pubspec.yaml`의 현재 버전 `2.0.5+13`과 대조 · 어휘 CSV 558행 확인 ·
+시나리오 JSON 39개 확인 · `git diff --check` 통과.
+
+**Commit.** None (not requested).
+
 ### 2026-08-10 — 투명 로고를 Android·iOS·웹 생성 자산에 반영
 
 **왜.** Jin이 `assets/icons/HanLogo.png`와 로딩용 `icon-192.png`를 배경이 투명한 새

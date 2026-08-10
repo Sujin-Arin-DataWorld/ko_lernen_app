@@ -26,10 +26,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -58,5 +55,16 @@ class DefaultFirebaseOptions {
     messagingSenderId: '573567222361',
     projectId: 'ko-lernen-app',
     storageBucket: 'ko-lernen-app.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDY76D-dbZeV_Kr8g2UydWoB10Wv7Jc2Qs',
+    appId: '1:573567222361:ios:0f8c0734410bb6cc356748',
+    messagingSenderId: '573567222361',
+    projectId: 'ko-lernen-app',
+    storageBucket: 'ko-lernen-app.firebasestorage.app',
+    androidClientId: '573567222361-clvvao1nbjue9a8seic223cue51pa5cp.apps.googleusercontent.com',
+    iosClientId: '573567222361-uphimptmn43da1snk4hc60rhgjd28ppq.apps.googleusercontent.com',
+    iosBundleId: 'com.sujinarin.koLernenApp',
   );
 }

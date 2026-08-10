@@ -249,6 +249,20 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **검증 게이트를 빌드 경로에 편입.** `tool/verify_ios_firebase_config.dart` 와
   `tool/verify_ios_store_contract.dart` 는 존재만 하고 **아무도 호출하지 않고 있었다.**
   이제 `GoogleService-Info.plist` 누락·스토어 계약 위반이면 빌드가 시작조차 안 한다.
+- [x] **iOS Firebase 로컬 연결 및 검증기 배치 호환 (2026-08-10).** FlutterFire가
+  생성한 plist가 Xcode 프로젝트 루트에서 `Runner/GoogleService-Info.plist` 상대 경로로
+  Runner Resources에 등록되는 정상 배치를 검증기도 인정한다. 실제 macOS 로컬 설정으로
+  `dart run tool/verify_ios_firebase_config.dart`가 통과했다. plist와 Apple/Firebase
+  자격증명은 로컬 전용이며 커밋하지 않는다.
+- [x] **초기 무료 iOS 출시 모드 (2026-08-10).** `FREE_LAUNCH=1` 빌드는 모든
+  학습 접근을 열고 RevenueCat을 초기화하지 않는다. `scripts/build_ios_ipa.sh`도 이
+  모드에서는 `RC_IOS_KEY` 없이 작동한다. 구독을 시작할 때만 `FREE_LAUNCH`을 빼고
+  RevenueCat 공개 Apple 키를 설정한다. 무료 빌드의 App Privacy에는 구매/RevenueCat
+  처리를 선언하지 않고 최종 archive를 기준으로 다시 확인한다.
+- [x] **Command Line Tools 경로 우회 (2026-08-10).** Xcode.app이 설치돼 있는데
+  전역 `xcode-select`이 Command Line Tools를 가리켜도 IPA 스크립트가 이번 빌드에만
+  `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`를 설정한다. 전역 개발
+  도구 선택은 바꾸지 않는다.
 - [x] **업로드는 기본 미수행** (`destination: export` 존중). `ASC_KEY_ID`/`ASC_ISSUER_ID`/
   `ASC_KEY_PATH` 3종이 모두 있을 때만 `altool validate-app → upload-app` 까지 간다.
 - [x] **`docs/store/APPSTORE_UPLOAD_KO.md`** — 한국어 순서표 (`a506813`·`ed51a18`).
@@ -258,10 +272,14 @@ flutter run -d <android-id>   # 안드로이드
   App Store 에서 재사용 불가.
 - [ ] **Jin(macOS)**: 첫 실행이 곧 검증이다. 스크립트 본체(빌드·서명·업로드)는 실제
   애플 자격증명이 있어야 돌아가 리눅스 CI 에서 검증 불가 — `bash -n` 만 통과했다.
-- [ ] **미결 판단 2건**: ① `pubspec.yaml` `2.0.5+13` vs
-  `docs/store/app-store-connect-v2.0.5.md` `2.0.5 (11)` 문서 드리프트 ②
-  `ios/Runner/Info.plist` 에 `ITSAppUsesNonExemptEncryption` 부재 → 업로드마다
-  수출규정 질문. **법적 신고 항목이라 임의로 넣지 않았다.**
+- [x] **App Store Connect 구성안 갱신 (2026-08-10).** 현재 배포 후보
+  `2.0.5+13`에 맞춰 App Store Connect 인수인계·스토어 README·출시 QA 기준을
+  정렬했다. 독일어/영어 등재 문구에서는 검증되지 않은 팩·퀘스트 수를 빼고, 실제 iOS
+  캡처용 6장 구성과 현지화 캡션을 인수인계에 추가했다. 최종 캡처·서명·TestFlight·콘솔
+  제출은 Jin의 macOS 운영 단계다.
+- [ ] **미결 판단**: `ios/Runner/Info.plist` 에
+  `ITSAppUsesNonExemptEncryption` 부재 → 업로드마다 수출규정 질문. **법적 신고
+  항목이라 임의로 넣지 않았다.**
 
 ### 첫 화면 UX·온보딩 오버레이 + 짧은 뷰포트 반응형 (2026-08-06)
 

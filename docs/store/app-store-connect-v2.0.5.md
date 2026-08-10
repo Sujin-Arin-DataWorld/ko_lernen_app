@@ -10,7 +10,7 @@ TestFlight, hosting, or review have been completed.
 |---|---|
 | Bundle ID | `com.sujinarin.koLernenApp` |
 | Version | `2.0.5` |
-| Build | `11` |
+| Build | `13` |
 | Primary category | Education (recommended; select in App Store Connect) |
 | English listing | [listing-en.md](listing-en.md) |
 | German listing | [listing-de.md](listing-de.md) |
@@ -49,6 +49,25 @@ Before sending the app for review, repeat this path on a clean device with no
 developer data and verify that any optional permission prompt matches the final
 localized text.
 
+## Storefront composition
+
+Keep the first screenshots practical. They should show what someone can learn
+and how the Hanok makes progress visible, not a sequence of similar menus.
+Capture the final iOS build in both German and English before choosing the
+localized sets.
+
+| Order | Screen | German caption | English caption |
+|---:|---|---|---|
+| 1 | Personal Hanok map | `Dein Hanok wächst mit dir` | `Your hanok grows with you` |
+| 2 | Sarangbang and today's study | `Heute im Sarangbang lernen` | `Study in the Sarangbang today` |
+| 3 | Hangul lesson or vocabulary pack | `Koreanisch Schritt für Schritt` | `Korean step by step` |
+| 4 | Everyday scenario | `Koreanisch für den Alltag` | `Korean for everyday life` |
+| 5 | Quest reward or room furnishing | `Gestalte deinen Lernort` | `Make your learning place your own` |
+| 6 | Progress view | `Dein Fortschritt auf einen Blick` | `See your progress at a glance` |
+
+Use the same story for iPhone and iPad, but do not resize one device's image
+for the other. The iPad set should begin with the landscape Hanok map.
+
 ## Screenshot submission
 
 Follow [screenshot-shotlist.md](screenshot-shotlist.md). Capture from the final
@@ -62,7 +81,8 @@ folders locally with `tool/check_app_store_screenshots.py`.
 1. On an authorized macOS workstation, complete
    [ios-external-setup.md](ios-external-setup.md) without committing secrets:
    Apple Team/signing, `GoogleService-Info.plist`, Firebase iOS options, APNs,
-   URL scheme, and any approved purchase configuration.
+   and URL scheme. This first release uses `FREE_LAUNCH=1`, so do not configure
+   RevenueCat or subscription products for this archive.
 2. Run `dart run tool/verify_ios_store_contract.dart` and
    `dart run tool/verify_ios_firebase_config.dart`. The Firebase checker is
    expected to fail until the external configuration is complete.

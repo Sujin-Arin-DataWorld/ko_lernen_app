@@ -8,11 +8,20 @@
           "fileOutput": "android/app/google-services.json"
         }
       },
+      "ios": {
+        "default": {
+          "projectId": "ko-lernen-app",
+          "appId": "1:573567222361:ios:0f8c0734410bb6cc356748",
+          "uploadDebugSymbols": true,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
       "dart": {
         "lib/firebase_options.dart": {
           "projectId": "ko-lernen-app",
           "configurations": {
-            "android": "1:573567222361:android:38d26a50001ee64c356748"
+            "android": "1:573567222361:android:38d26a50001ee64c356748",
+            "ios": "1:573567222361:ios:0f8c0734410bb6cc356748"
           }
         }
       }

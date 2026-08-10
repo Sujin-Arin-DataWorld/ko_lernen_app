@@ -418,8 +418,19 @@ bool _hasRunnerPlistResourceMembership(String projectSource) {
         final fileReference = objects[fileReferenceId];
         if (fileReference == null ||
             _pbxScalar(fileReference.body, 'isa') != 'PBXFileReference' ||
-            _pbxScalar(fileReference.body, 'path') != _googleServicePlist ||
             _pbxScalar(fileReference.body, 'sourceTree') != '<group>') {
+          continue;
+        }
+
+        final plistPath = _pbxScalar(fileReference.body, 'path');
+        // Xcode can express the same physical resource in either of these
+        // valid forms. Adding it inside the Runner group uses the bare name;
+        // adding it from the project root retains the Runner/ prefix. In both
+        // cases the Runner resources build phase copies the local plist.
+        if (plistPath == 'Runner/$_googleServicePlist') {
+          return true;
+        }
+        if (plistPath != _googleServicePlist) {
           continue;
         }
 

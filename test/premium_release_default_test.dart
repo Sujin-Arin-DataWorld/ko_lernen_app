@@ -15,4 +15,17 @@ void main() {
       ),
     );
   });
+
+  test('free launch mode is opt-in when no build define is supplied', () {
+    final source = File('lib/services/premium_service.dart').readAsStringSync();
+
+    expect(
+      source,
+      contains(
+        RegExp(
+          r"bool\.fromEnvironment\(\s*'FREE_LAUNCH'\s*,\s*defaultValue:\s*false,?\s*\)",
+        ),
+      ),
+    );
+  });
 }

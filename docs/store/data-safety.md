@@ -41,6 +41,10 @@ and production consoles.
   with that UID as its custom app user ID. It returns customer/entitlement
   information and processes purchase/transaction state. It is not contacted
   only after a purchase. Verify the exact signed build and live project.
+- An initial fully free build sets `FREE_LAUNCH=true`. In that variant the app
+  opens all learning gates and returns before RevenueCat initialization. Do not
+  carry forward RevenueCat identifiers or purchase-history declarations unless
+  the submitted archive actually includes a RevenueCat key and paid products.
 - Firebase Analytics and Crashlytics are independent optional opt-ins and are
   disabled by default in Android/iOS native configuration.
 - FCM auto-init is disabled. Permission and a registration token are requested

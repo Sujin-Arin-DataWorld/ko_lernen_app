@@ -37,11 +37,11 @@ rewards, and use the decorations you collect to furnish rooms in your hanok.
 WHAT YOU CAN LEARN
 
 • Hangul from the ground up: consonants, vowels, and final consonants.
-• 558 vocabulary entries across 64 themed packs, from A1 to B2.
+• 558 vocabulary entries in themed packs, from A1 to B2.
 • 39 real-life scenarios for places such as a cafe, market, hotel, subway, and
   pharmacy.
 • Grammar in context, listening, translation, and review activities.
-• 17 special quests that add goals and rewards to your learning journey.
+• Special quests with goals and rewards.
 • Mini-games including an initial-consonant quiz, Hangul Wordle, and
   Kkeunmari, the Korean word-chain game.
 • Optional Snap-and-Learn: photograph or select a textbook page to work with

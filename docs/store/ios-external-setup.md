@@ -142,7 +142,25 @@ grep -Fq 'BEGIN PRIVATE KEY' "$APNS_KEY_PATH"
 
 Never print the private key or add it to source control. See [Firebase Cloud Messaging for Apple platforms](https://firebase.google.com/docs/cloud-messaging/ios/get-started) and [Apple APNs token authentication](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
-## 4. Configure RevenueCat
+## 4. Initial fully free Store release
+
+For the first free release, do not create RevenueCat products or set
+`RC_IOS_KEY`. Build with `FREE_LAUNCH=1`; the app opens all learning gates and
+returns before RevenueCat initialization. The App Store listing and App Privacy
+answers for this build must not promise subscriptions or declare RevenueCat
+purchase processing.
+
+```bash
+set -euo pipefail
+
+: "${APPLE_TEAM_ID:?Set APPLE_TEAM_ID to the Apple Team ID}"
+FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+```
+
+When subscriptions are ready, remove `FREE_LAUNCH` and complete the next
+section before creating a monetized build.
+
+## 5. Configure RevenueCat for a future subscription release
 
 In App Store Connect, create the app with bundle ID `com.sujinarin.koLernenApp`, finish agreements/tax/banking, and create the subscription products. In RevenueCat:
 
@@ -168,7 +186,7 @@ flutter build ipa --release \
 
 See RevenueCat's [SDK quickstart](https://www.revenuecat.com/docs/getting-started/quickstart) and [SDK configuration](https://www.revenuecat.com/docs/getting-started/configuring-sdk).
 
-## 5. macOS dependency and archive gate
+## 6. macOS dependency and archive gate
 
 Flutter 3.44 uses Swift Package Manager where supported and falls back to CocoaPods for plugins that do not support it. The locked `google_mlkit_text_recognition` 0.13.1 plugin needs `GoogleMLKit/TextRecognitionKorean ~> 6.0.0`, which is pinned in `ios/Podfile`.
 
@@ -182,8 +200,6 @@ command -v pod >/dev/null
 command -v xcodebuild >/dev/null
 test -s ios/Runner/GoogleService-Info.plist
 : "${APPLE_TEAM_ID:?Set APPLE_TEAM_ID}"
-: "${RC_IOS_KEY:?Set RC_IOS_KEY}"
-
 flutter pub get
 (
   cd ios
@@ -193,7 +209,13 @@ test -f ios/Podfile.lock
 grep -Fq 'GoogleMLKit/TextRecognitionKorean' ios/Podfile.lock
 
 flutter build ios --debug --no-codesign
-flutter build ipa --release --dart-define="RC_IOS_KEY=$RC_IOS_KEY"
+
+# Initial fully free App Store candidate.
+FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+
+# Future subscription candidate only:
+# : "${RC_IOS_KEY:?Set RC_IOS_KEY}"
+# bash scripts/build_ios_ipa.sh
 ```
 
 Open the generated archive in Xcode Organizer and inspect the signed app before upload:

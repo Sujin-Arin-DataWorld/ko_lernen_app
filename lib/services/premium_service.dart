@@ -12,7 +12,7 @@ import 'storage_service.dart';
 /// [ValueNotifier] — Screens können per [ValueListenableBuilder] live darauf
 /// reagieren (Lock-Badges ein-/ausblenden, Paywall-Sperren etc.).
 final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(
-  PremiumService.betaUnlockAll,
+  PremiumService.fullAccessBuild,
 );
 
 abstract interface class RevenueCatIdentityClient {
@@ -148,8 +148,9 @@ PurchasesConfiguration revenueCatConfiguration({
 /// **PremiumService** — €5/Monat Abo über RevenueCat (`purchases_flutter`).
 ///
 /// Designprinzip (wie [AuthService] bei Firebase): **läuft immer, crasht nie**.
-/// Ohne konfigurierte RevenueCat-Keys (oder auf Web) bleibt der Nutzer schlicht
-/// "kostenlos" — keine Exception, kein roter Screen.
+/// Ohne konfigurierte RevenueCat-Keys bleibt der Kauf deaktiviert, ohne Exception
+/// oder roten Screen. Ein erster vollständig kostenloser Store-Release setzt
+/// `FREE_LAUNCH=true` und öffnet alle Inhalte ohne RevenueCat.
 ///
 /// Keys werden via `--dart-define` injiziert (nicht ins Repo committen):
 /// ```
@@ -171,6 +172,16 @@ class PremiumService {
     defaultValue: false,
   );
 
+  /// Production build switch for an initial, fully free release. This differs
+  /// from [betaUnlockAll]: it is an intentional product mode, not a tester
+  /// override. It prevents RevenueCat initialization and opens every gate.
+  static const bool freeLaunch = bool.fromEnvironment(
+    'FREE_LAUNCH',
+    defaultValue: false,
+  );
+
+  static const bool fullAccessBuild = betaUnlockAll || freeLaunch;
+
   static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
 
@@ -178,7 +189,7 @@ class PremiumService {
   static PremiumIdentityBinder? _identityBinder;
 
   /// `true` wenn echtes Abo aktiv, lokaler Dev-Override, ODER Beta-Unlock.
-  static bool get isPremium => betaUnlockAll || premiumNotifier.value;
+  static bool get isPremium => fullAccessBuild || premiumNotifier.value;
 
   /// Ob RevenueCat erfolgreich konfiguriert wurde (für Settings/Debug-Anzeige).
   static bool get isConfigured => _configured;
@@ -190,7 +201,8 @@ class PremiumService {
     // 1) Lokalen Cache sofort anwenden → Gating ist instant & offline-fähig.
     _applyEntitlement(Storage.premiumCached);
 
-    // 2) Web / fehlende Keys → kostenlos, ohne RevenueCat.
+    // 2) First free release / web / fehlende Keys → kein RevenueCat.
+    if (freeLaunch) return;
     if (kIsWeb) return;
     final key = _platformKey();
     if (key.isEmpty) return;
@@ -259,7 +271,7 @@ class PremiumService {
   /// Effektiver Status = echtes Entitlement, lokaler Dev-Override, ODER Beta-Unlock.
   static void _applyEntitlement(bool active) {
     premiumNotifier.value =
-        betaUnlockAll || active || Storage.devPremiumOverride;
+        fullAccessBuild || active || Storage.devPremiumOverride;
   }
 
   /// Aktuelles Offering (für die Paywall). `null` wenn nicht konfiguriert

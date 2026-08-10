@@ -6,7 +6,7 @@ be completed by the release owner.
 ## Apple App Store Connect: start here
 
 Read [app-store-connect-v2.0.5.md](app-store-connect-v2.0.5.md) for the single
-handoff for `2.0.5 (11)`: identifiers, review path, iPad screenshots, and the
+handoff for `2.0.5 (13)`: identifiers, review path, iPad screenshots, and the
 Mac-only archive/TestFlight gates.
 
 [APPSTORE_UPLOAD_KO.md](APPSTORE_UPLOAD_KO.md) (Korean) is the operator's

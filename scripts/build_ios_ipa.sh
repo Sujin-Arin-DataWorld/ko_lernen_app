@@ -3,6 +3,10 @@
 #
 # 사용:
 #   export APPLE_TEAM_ID=ABCDE12345      # developer.apple.com → Membership details
+#   # 초기 완전 무료 출시:
+#   FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+#
+#   # 구독 출시:
 #   export RC_IOS_KEY=appl_xxxxxxxx      # RevenueCat 공개 Apple SDK 키
 #   bash scripts/build_ios_ipa.sh
 #
@@ -14,6 +18,8 @@
 # teamID 는 커밋본을 고치지 않고 임시 복사본에만 주입한다.
 #
 # 옵션 환경변수:
+#   FREE_LAUNCH=1        모든 학습 접근을 열고 RevenueCat을 초기화하지 않는
+#                        초기 무료 출시 모드. RC_IOS_KEY 불필요.
 #   SKIP_POD_INSTALL=1   pod install 생략 (직전 빌드에서 Pods 그대로 재사용)
 #   SKIP_VERIFY=1        dart 검증 게이트 생략 (권장하지 않음 — 디버깅용)
 #   ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_PATH
@@ -37,6 +43,16 @@ step "환경 확인"
 [ "$(uname -s)" = Darwin ] ||
   die "macOS 전용이다. .ipa 는 Xcode 코드사인이 필요해 리눅스/윈도우에서 만들 수 없다."
 
+# A Mac can have the full Xcode app installed while xcode-select still points
+# to the smaller Command Line Tools directory. Use the local Xcode app for
+# this process only; do not mutate the user's global xcode-select setting.
+if [ -z "${DEVELOPER_DIR:-}" ] &&
+  [ "$(xcode-select -p 2>/dev/null || true)" = "/Library/Developer/CommandLineTools" ] &&
+  [ -d "/Applications/Xcode.app/Contents/Developer" ]; then
+  export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+  ok "Xcode.app 을 이번 빌드에 사용 (전역 xcode-select 변경 없음)"
+fi
+
 for cmd in flutter dart pod xcodebuild; do
   command -v "$cmd" >/dev/null ||
     die "$cmd 없음. flutter/dart 는 Flutter SDK, pod 는 'sudo gem install cocoapods', xcodebuild 는 Xcode + 'sudo xcode-select -s /Applications/Xcode.app' 로 설치."
@@ -52,10 +68,21 @@ xcrun --find xcodebuild >/dev/null 2>&1 ||
   die "APPLE_TEAM_ID 는 10자여야 한다 (지금 ${#APPLE_TEAM_ID}자)."
 ok "APPLE_TEAM_ID (10자)"
 
-: "${RC_IOS_KEY:?RC_IOS_KEY 미설정 — RevenueCat Project Settings → API keys 의 공개 Apple SDK 키}"
-case "$RC_IOS_KEY" in
-appl_*) ok "RC_IOS_KEY (appl_ 접두사)" ;;
-*) die "RC_IOS_KEY 가 Apple 공개 SDK 키가 아니다 (appl_ 로 시작해야 함). secret 키를 앱에 넣지 말 것." ;;
+free_launch="${FREE_LAUNCH:-0}"
+case "$free_launch" in
+1)
+  release_defines=(--dart-define=FREE_LAUNCH=true)
+  ok "FREE_LAUNCH=1 (초기 무료 출시 · 모든 학습 접근 열림 · RevenueCat 미초기화)"
+  ;;
+0)
+  : "${RC_IOS_KEY:?RC_IOS_KEY 미설정 — 초기 무료 출시는 FREE_LAUNCH=1, 구독 출시는 RevenueCat Project Settings → API keys 의 공개 Apple SDK 키를 설정}"
+  case "$RC_IOS_KEY" in
+  appl_*) ok "RC_IOS_KEY (appl_ 접두사)" ;;
+  *) die "RC_IOS_KEY 가 Apple 공개 SDK 키가 아니다 (appl_ 로 시작해야 함). secret 키를 앱에 넣지 말 것." ;;
+  esac
+  release_defines=(--dart-define=FREE_LAUNCH=false "--dart-define=RC_IOS_KEY=$RC_IOS_KEY")
+  ;;
+*) die "FREE_LAUNCH 는 0 또는 1만 가능하다 (초기 무료 출시는 FREE_LAUNCH=1)." ;;
 esac
 
 [ -s ios/Runner/GoogleService-Info.plist ] ||
@@ -109,7 +136,7 @@ git_commit="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
 flutter build ipa \
   --release \
   --export-options-plist="$export_options" \
-  --dart-define="RC_IOS_KEY=$RC_IOS_KEY" \
+  "${release_defines[@]}" \
   --dart-define="GIT_COMMIT=$git_commit"
 
 ipa="$(find build/ios/ipa -maxdepth 1 -name '*.ipa' -print -quit 2>/dev/null || true)"

@@ -38,7 +38,7 @@ App Store Connect 의 앱 레코드는 **빌드 파일 없이** 먼저 만든다
 | Flutter SDK | 프로젝트 핀: **3.44.0** (`.github/workflows/ci.yml` 기준) | 버전 차이로 빌드 흔들림 |
 | Apple Team ID (10자) | developer.apple.com → Membership details | 서명 불가 |
 | `ios/Runner/GoogleService-Info.plist` | FlutterFire 로 **로컬 생성** (gitignore됨) | 검증 게이트에서 중단 |
-| RevenueCat 공개 Apple 키 (`appl_...`) | RevenueCat → Project Settings → API keys | 구독 결제 죽은 채로 제출됨 |
+| RevenueCat 공개 Apple 키 (`appl_...`) | RevenueCat → Project Settings → API keys | 구독 출시 때만 필요 |
 
 > `GoogleService-Info.plist` 와 Team ID 는 **저장소에 커밋하지 않는다.** 의도적으로
 > 비워둔 것이지 빠진 게 아니다. 생성 절차는 `ios-external-setup.md` §1.
@@ -87,12 +87,18 @@ Runner 타깃 → **Signing & Capabilities** → Debug/Profile/Release 각각 **
 **Automatically manage signing** 체크. Push Notifications 와 Sign in with Apple 이
 목록에 보이는지 확인.
 
-그 다음 터미널에서:
+초기 완전 무료 출시라면 RevenueCat 키 없이 아래 명령을 쓴다. 이 빌드는 모든 학습
+콘텐츠를 열고 결제를 초기화하지 않는다.
 
 ```bash
 export APPLE_TEAM_ID=ABCDE12345          # 본인 10자 Team ID
-export RC_IOS_KEY=appl_xxxxxxxxxxxx      # RevenueCat 공개 Apple 키
+FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
+```
 
+구독을 시작하는 나중의 출시에서만 `FREE_LAUNCH`을 빼고 아래 키를 설정한다.
+
+```bash
+export RC_IOS_KEY=appl_xxxxxxxxxxxx       # RevenueCat 공개 Apple 키
 bash scripts/build_ios_ipa.sh
 ```
 
@@ -101,7 +107,7 @@ bash scripts/build_ios_ipa.sh
 2. `flutter pub get` + `pod install`  (한국어 OCR Pod 존재 검사 포함)
 3. 검증 게이트 2종 (`verify_ios_firebase_config` · `verify_ios_store_contract`)
 4. `ExportOptions.plist` 임시 복사본에 Team ID 주입 — **커밋본은 안 건드린다**
-5. `flutter build ipa --release` (RevenueCat 키·커밋 SHA 주입)
+5. `flutter build ipa --release` (무료 출시 플래그 또는 RevenueCat 키·커밋 SHA 주입)
 6. 결과 경로 출력 → `build/ios/ipa/*.ipa`
 
 ## 5. ④ 업로드
