@@ -15,6 +15,7 @@
 - **감사 워크플로우**(읽기전용, 26 에이전트 병렬 + 데드코드 적대적 재검증): 데드코드 20 확인·위험패턴 24·미참조에셋 8·시작경로 21스텝·핫스팟 12 산출. 결과 = 태스크 출력 `wo7agdpzx.output`.
 - **Phase 2b 비디오 재인코딩**: `assets/video` 33개 mp4를 원본(`assets_unused/video_originals/`에 58MB **백업**) 기준 libx264 **CRF23 preset slow**로 재인코딩, 과대 해상도 `magpie_bob2` 1440→960 다운스케일, **더 작아질 때만 교체**. **58MB→28MB (−30MB, −52%)**. 캐릭터 클립 18개 흰배경 코너 255,255,255 유지 확인(multiply 계약 보존). 길이·오디오 불변(`-c:a copy`).
 - **Phase 2a hanok_compound 등록해제**: 미참조(lib 참조 0건) 동결 프로토타입 7 PNG(11MB)를 `pubspec.yaml`에서 주석처리 → 번들 제외. **파일 삭제 아님**(디스크 보존, 줄 복구로 되살리기 가능). `personal_hanok_v2/`가 정본.
+- **Phase 2c 이미지 무손실 최적화**: oxipng 10.2.0 `-o4`(no `--strip` → 청크 보존, **픽셀 동일**)로 번들 PNG 164개 재압축 = **−6.5MB(−7.7%)**. illustrations 75→70·stickers 9.1→8.3·icons 496→244K. 앱 아이콘 치수·디코드 정상. git 히스토리가 원본. **누적 절감 약 −47.5MB.**
 
 **검증.** `flutter analyze` 기준선 = 이슈 0. `flutter pub get` 통과. 비디오 matte 코너 검사 18/18 순백 통과. 예상 AAB 253→약 212MB.
 
