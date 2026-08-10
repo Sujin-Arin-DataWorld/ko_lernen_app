@@ -24,7 +24,7 @@ Enter these only after you **verify live hosting before submission**:
 | Support URL | `https://hangul-sori.com/support.html` | Verify live hosting before submission. |
 | Support contact | `hello@hangul-sori.com` | Verify that the mailbox receives support requests before submission. |
 | Privacy Policy URL | `https://hangul-sori.com/privacy.html` | Verify live hosting before submission. |
-| Account deletion URL | `https://hangul-sori.com/account-deletion.html` | Verify live hosting before submission. |
+| Account deletion URL | `https://hangul-sori.com/account-deletion` | Verify live hosting before submission. |
 
 Use [data-safety.md](data-safety.md) to complete the Apple App Privacy
 questionnaire. It is a separate worksheet from Google Play Data Safety and must

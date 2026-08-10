@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangul Sori · UX rebuild mockups</title>
+  <style>
+    :root {
+      --hanji: #fffaf0;
+      --paper: #fffdf8;
+      --sand: #efe2ca;
+      --ink: #26302d;
+      --muted: #68716c;
+      --jade: #247461;
+      --jade-soft: #dcece4;
+      --red: #b84e3d;
+      --red-soft: #f6e1da;
+      --gold: #c88a2c;
+      --line: #ded8cb;
+      --shadow: 0 20px 48px rgba(50, 38, 23, .16);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f3ecde;
+      font-family: Pretendard, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    a { color: inherit; }
+    .top {
+      padding: 52px max(24px, calc((100vw - 1280px) / 2));
+      color: #fffaf0;
+      background: linear-gradient(135deg, #1c5045 0%, #2a7461 56%, #b84e3d 160%);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #d8ebe2;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 850px; margin-bottom: 14px; font-size: clamp(32px, 5vw, 56px); line-height: 1.08; letter-spacing: -.045em; }
+    .top > p:last-child { max-width: 760px; margin-bottom: 0; color: #e9f1e9; font-size: 17px; }
+    .jumpbar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px max(24px, calc((100vw - 1280px) / 2));
+      background: #fffaf0;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .jumpbar a { padding: 8px 2px; color: var(--jade); font-size: 13px; font-weight: 800; text-decoration: none; }
+    .jumpbar a + a::before { padding-right: 8px; color: #afa492; content: "·"; }
+    main { max-width: 1280px; margin: 0 auto; padding: 36px 24px 72px; }
+    .readme {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .note, .legend { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .note h2, .legend h2 { margin-bottom: 8px; font-size: 19px; letter-spacing: -.02em; }
+    .note p, .legend p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .legend ul { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .screen-section { scroll-margin-top: 52px; margin-top: 58px; }
+    .screen-section > header { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
+    .screen-section h2 { margin: 0; font-size: clamp(25px, 3vw, 34px); letter-spacing: -.04em; }
+    .screen-section header p { max-width: 470px; margin: 0; color: var(--muted); font-size: 14px; text-align: right; }
+    .phone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start; }
+    .mock { min-width: 0; }
+    .mock > h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: -.025em; }
+    .mock > p { min-height: 38px; margin-bottom: 12px; color: var(--muted); font-size: 13px; }
+    .phone {
+      position: relative;
+      width: min(100%, 390px);
+      min-height: 784px;
+      overflow: hidden;
+      border: 8px solid #25312e;
+      border-radius: 38px;
+      background: var(--hanji);
+      box-shadow: var(--shadow);
+    }
+    .phone::before { position: absolute; z-index: 4; top: 9px; left: 50%; width: 104px; height: 23px; border-radius: 20px; background: #25312e; content: ""; transform: translateX(-50%); }
+    .screen { display: flex; min-height: 784px; padding: 38px 18px 16px; flex-direction: column; }
+    .status { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; font-size: 12px; font-weight: 800; }
+    .brand { display: flex; align-items: center; gap: 7px; color: var(--jade); font-weight: 900; letter-spacing: -.035em; }
+    .brand i { display: inline-block; width: 14px; height: 14px; border: 3px solid var(--jade); border-bottom: 0; transform: rotate(45deg); }
+    .screen h4 { margin: 0 0 8px; font-size: 27px; line-height: 1.12; letter-spacing: -.055em; }
+    .lead { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+    .tiny { color: var(--muted); font-size: 11px; }
+    .rule { height: 1px; margin: 12px 0; background: var(--line); }
+    .spacer { flex: 1; }
+    .back { display: inline-flex; width: max-content; margin-bottom: 15px; color: var(--jade); font-size: 13px; font-weight: 800; }
+    .button { display: flex; min-height: 52px; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border: 0; border-radius: 16px; color: white; background: var(--jade); box-shadow: 0 5px 0 #155144; font: inherit; font-size: 15px; font-weight: 900; }
+    .button:active { box-shadow: 0 2px 0 #155144; transform: translateY(3px); }
+    .button.cream { color: var(--jade); background: #fff8e8; box-shadow: 0 5px 0 #dacfb9; }
+    .button.red { background: var(--red); box-shadow: 0 5px 0 #883828; }
+    .text-action { width: max-content; margin: 13px auto 0; color: var(--jade); border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 800; }
+    .card { padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .card + .card { margin-top: 10px; }
+    .card-title { margin-bottom: 4px; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
+    .meta { color: var(--muted); font-size: 12px; }
+    .number { display: inline-grid; width: 25px; height: 25px; margin-right: 8px; place-items: center; border-radius: 50%; color: white; background: var(--red); font-size: 12px; font-weight: 900; }
+    .label { margin-bottom: 5px; color: var(--jade); font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    .nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; padding-top: 10px; border-top: 1px solid var(--line); color: #80847e; font-size: 10px; text-align: center; }
+    .nav b { display: block; margin-bottom: 3px; color: inherit; font-size: 16px; line-height: 1; }
+    .nav .active { color: var(--jade); font-weight: 900; }
+    .choice { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .choice:last-child { border-bottom: 0; }
+    .check { display: grid; width: 24px; height: 24px; flex: 0 0 24px; place-items: center; border: 2px solid #b1aaa0; border-radius: 50%; color: white; font-size: 13px; }
+    .check.on { border-color: var(--jade); background: var(--jade); }
+    .choice b { display: block; font-size: 14px; }
+    .choice span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .scene { position: relative; overflow: hidden; min-height: 190px; border-radius: 20px; background: linear-gradient(#dcebe7 0 50%, #e9dbb8 50%); }
+    .sun { position: absolute; top: 23px; right: 35px; width: 30px; height: 30px; border-radius: 50%; background: #f2c36a; }
+    .mountain { position: absolute; bottom: 55px; left: -20px; width: 270px; height: 125px; background: #91b6a8; clip-path: polygon(0 100%, 28% 36%, 43% 68%, 62% 20%, 100% 100%); }
+    .hanok { position: absolute; right: 18px; bottom: 30px; width: 210px; height: 96px; }
+    .hanok .roof { position: absolute; top: 0; left: 0; width: 210px; height: 55px; border-radius: 50% 50% 5px 5px; background: #3b4b48; clip-path: polygon(0 62%, 49% 0, 100% 62%, 91% 70%, 50% 21%, 9% 70%); }
+    .hanok .house { position: absolute; right: 19px; bottom: 0; width: 165px; height: 55px; border: 4px solid #8b543d; background: #f9efe0; }
+    .hanok .door { position: absolute; right: 75px; bottom: 0; width: 31px; height: 42px; border-right: 3px solid #8b543d; border-left: 3px solid #8b543d; background: #dde9de; }
+    .hanok.small { right: 12px; bottom: 12px; transform: scale(.7); transform-origin: right bottom; }
+    .hanok.early .house { width: 120px; border-bottom: 0; background: #c89161; }
+    .hanok.early .door { display: none; }
+    .progressline { height: 7px; overflow: hidden; margin: 10px 0 6px; border-radius: 4px; background: #e4dfd5; }
+    .progressline i { display: block; width: 55%; height: 100%; background: var(--jade); }
+    .mission { position: relative; overflow: hidden; padding: 17px; border: 1px solid #b7d4c8; border-radius: 20px; background: #eff7f2; }
+    .mission::after { position: absolute; right: -18px; bottom: -27px; width: 120px; height: 120px; border-radius: 50%; border: 16px solid #cce5d9; content: ""; }
+    .mission h5 { position: relative; z-index: 1; max-width: 230px; margin: 0 0 4px; font-size: 20px; line-height: 1.13; letter-spacing: -.04em; }
+    .mission p { position: relative; z-index: 1; margin: 0; color: #4f655e; font-size: 12px; }
+    .mission .button { position: relative; z-index: 1; margin-top: 15px; }
+    .build-note { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .build-note:last-child { border-bottom: 0; }
+    .beam { width: 34px; height: 7px; flex: 0 0 34px; border-radius: 2px; background: #a76442; }
+    .task-row { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .task-row:last-child { border-bottom: 0; }
+    .task-row b { font-size: 13px; }
+    .task-row span { color: var(--muted); font-size: 11px; }
+    .task-row em { color: var(--jade); font-size: 12px; font-style: normal; font-weight: 900; }
+    .listen { display: grid; min-height: 178px; place-items: center; border-radius: 20px; background: #e5f0eb; }
+    .sound { display: grid; width: 86px; height: 86px; place-items: center; border: 8px solid #c4dfd3; border-radius: 50%; color: white; background: var(--jade); font-size: 30px; box-shadow: 0 0 0 12px #d8ebe2; }
+    .answer { padding: 15px; border: 1.5px solid var(--line); border-radius: 16px; background: var(--paper); font-size: 15px; font-weight: 800; }
+    .answer + .answer { margin-top: 9px; }
+    .answer.correct { border-color: var(--jade); background: var(--jade-soft); color: #174d40; }
+    .can-do { padding: 18px; border-left: 4px solid var(--jade); background: #edf6f1; }
+    .can-do b { display: block; margin-bottom: 4px; font-size: 17px; }
+    .stamp { display: grid; width: 74px; height: 74px; margin: 3px auto 16px; place-items: center; border: 3px solid var(--red); border-radius: 50%; color: var(--red); font-size: 13px; font-weight: 900; line-height: 1.1; text-align: center; transform: rotate(-10deg); }
+    .map { position: relative; min-height: 318px; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: #e5f0e3; }
+    .map::before { position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(28deg, transparent 47%, #c5d8c6 48% 52%, transparent 53%), linear-gradient(-35deg, transparent 55%, #d4d8b5 56% 59%, transparent 60%); content: ""; }
+    .place { position: absolute; z-index: 1; display: grid; width: 70px; height: 52px; place-items: center; border: 2px solid #7c5c44; border-radius: 5px; color: #66442b; background: #f8eddc; font-size: 10px; font-weight: 900; text-align: center; box-shadow: 0 4px 0 rgba(89, 65, 40, .18); }
+    .place.active { border-color: var(--jade); color: white; background: var(--jade); }
+    .building-panel { margin-top: -18px; padding: 17px; border: 1px solid var(--line); border-radius: 19px; background: #fffdf8; box-shadow: 0 10px 24px rgba(47, 52, 42, .12); }
+    .building-panel h5 { margin: 0 0 4px; font-size: 16px; }
+    .route-list { display: grid; gap: 8px; }
+    .route { display: flex; align-items: center; gap: 11px; padding: 12px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
+    .route i { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 8px; color: var(--jade); background: var(--jade-soft); font-style: normal; }
+    .route b { display: block; font-size: 13px; }
+    .route span { color: var(--muted); font-size: 11px; }
+    .listhead { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 10px; }
+    .filterline { display: flex; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; font-weight: 800; }
+    .filterline .on { color: var(--jade); border-bottom: 2px solid var(--jade); }
+    .gye-scene { position: relative; min-height: 198px; overflow: hidden; border-radius: 20px; background: linear-gradient(#203a53 0 56%, #73918b 56%); }
+    .gye-scene .hanok { bottom: 28px; left: 64px; right: auto; transform: scale(.72); transform-origin: bottom left; }
+    .lantern { position: absolute; width: 18px; height: 24px; border-radius: 8px 8px 10px 10px; background: #f4bf55; box-shadow: 0 0 17px #ffd57a; }
+    .lantern::before { position: absolute; top: -15px; left: 8px; width: 2px; height: 15px; background: #d7b559; content: ""; }
+    .member { display: flex; align-items: center; gap: 9px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .avatar { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 50%; color: white; background: #c78b61; font-size: 12px; font-weight: 900; }
+    .member b { font-size: 13px; }
+    .member span { display: block; color: var(--muted); font-size: 11px; }
+    .privacy { display: flex; gap: 10px; padding: 12px; border-radius: 14px; color: #604d2e; background: #f9edcf; font-size: 12px; }
+    .profile-hero { padding: 20px; color: white; border-radius: 20px; background: linear-gradient(130deg, #2c6d60, #549589); }
+    .profile-hero h5 { margin: 0 0 3px; font-size: 20px; }
+    .profile-hero p { margin: 0; color: #e6f0ec; font-size: 12px; }
+    .setting { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 800; }
+    .setting span { color: var(--muted); font-size: 12px; font-weight: 500; }
+    .empty-art { display: grid; min-height: 208px; place-items: center; border: 1px dashed #bdb29e; border-radius: 20px; color: #9c8d75; font-size: 42px; }
+    .state-line { margin-top: 12px; color: var(--muted); font-size: 11px; text-align: center; }
+    .footer { margin-top: 58px; padding: 20px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 700px) {
+      .top { padding-top: 38px; }
+      .readme { grid-template-columns: 1fr; }
+      .screen-section > header { display: block; }
+      .screen-section header p { margin-top: 7px; text-align: left; }
+      .phone { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <p class="eyebrow">Hangul Sori · product UX direction · 2026-08-10</p>
+    <h1>“무엇을 눌러야 하지?”가 아니라<br>“지금 이 말을 해보자.”</h1>
+    <p>초보자의 다음 행동을 하나로 줄이고, 검증된 말하기 성취가 한옥의 구조가 되며, 계는 경쟁이 아닌 서로의 주간 학습 약속을 밝히는 방식의 전체 UX 목업입니다.</p>
+  </header>
+  <nav class="jumpbar" aria-label="화면 이동">
+    <a href="#principles">설계 원칙</a><a href="#onboarding">처음 시작</a><a href="#daily">오늘의 학습</a><a href="#hanok">나의 한옥</a><a href="#explore">연습·발견</a><a href="#gye">계</a><a href="#account">프로필·상태</a>
+  </nav>
+  <main>
+    <section id="principles" class="readme">
+      <div class="note">
+        <h2>이 파일을 읽는 법</h2>
+        <p>각 휴대폰은 바뀌는 한 화면의 기본 상태입니다. 목업 안의 독일어는 실제 앱의 대상 사용자에게 보일 카피의 방향이고, 한국어 제목·설명은 설계 검토용입니다. 실제 구현에서는 모든 보이는 문구를 DE/EN ARB 키로 분리합니다. 초록 버튼은 오직 하나의 다음 학습 행동, 밑줄 텍스트는 우선순위가 낮은 선택입니다.</p>
+      </div>
+      <aside class="legend">
+        <h2>절대 바꾸지 않는 경계</h2>
+        <ul>
+          <li>한옥 기존 일러스트와 12단계 저장 데이터는 보존한다.</li>
+          <li>코스 잠금 해제는 활성 연습 맥락과 정확한 <code>assess</code> 증거, 시나리오별 독립 70%를 계속 요구한다.</li>
+          <li>계는 선택 사항이며, 개인 숙달·개인 한옥을 잠그지 않는다.</li>
+          <li>검색·OCR·단어장 같은 기존 발견 기능은 제거하지 않고 진입점만 정리한다.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="onboarding" class="screen-section">
+      <header><h2>01 · 시작은 3개 화면, 첫 소리는 바로</h2><p>자동 재생 소개와 캐릭터 선택으로 학습을 미루지 않는다. 법적 동의만 먼저, 레벨 판단은 사용자가 통제한다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>01A. 필수 동의</h3><p>기존 consent를 남기되, 제품 소개·캐릭터·미리보기는 여기서 빼낸다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:41</span><span class="brand"><i></i>한글소리</span><span>•••</span></div>
+            <div class="spacer"></div><p class="label">Bevor du beginnst</p><h4>Dein Lernen bleibt dein Raum.</h4>
+            <p class="lead">Wir speichern nur, was deinen Lernweg fortsetzt. Gruppen sind immer freiwillig.</p>
+            <div class="card"><div class="card-title">Datenschutz &amp; Lernkonto</div><div class="meta">Klar erklärt · jederzeit in Profil ändern</div></div>
+            <div class="spacer"></div><button class="button">Weiter</button><span class="text-action">Datenschutz lesen</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>01B. 목적과 출발점</h3><p>한 화면에서 “왜”와 “어디서부터”를 선택한다. 진단은 강제가 아니다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:41</span><span>1 von 2</span><span>✕</span></div><p class="label">Dein erster Weg</p><h4>Wofür willst du Koreanisch sprechen?</h4><p class="lead">Das bestimmt zuerst die Situationen – nicht deine Fähigkeit.</p>
+            <div class="choice"><i class="check on">✓</i><div><b>In Korea unterwegs sein</b><span>Café, Weg, Einkauf, Hilfe</span></div></div>
+            <div class="choice"><i class="check"></i><div><b>Mit Menschen sprechen</b><span>Freunde, Familie, Alltag</span></div></div>
+            <div class="choice"><i class="check"></i><div><b>Studium oder Arbeit</b><span>Höflich fragen und verstehen</span></div></div>
+            <div class="rule"></div><p class="label">Startpunkt</p>
+            <div class="choice"><i class="check on">✓</i><div><b>Ich beginne neu</b><span>Direkt mit Hören und Sprechen</span></div></div>
+            <div class="choice"><i class="check"></i><div><b>Ich kann schon etwas</b><span>Level wählen oder 8–10 Fragen testen</span></div></div>
+            <div class="spacer"></div><button class="button">Meine erste Szene öffnen</button><span class="text-action">Startpunkt ändern</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>01C. 첫 성공 + 동행 선택</h3><p>첫 올바른 반응 뒤에만 동행 캐릭터를 제안한다. 건너뛰어도 경로는 완전하다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:42</span><span class="brand"><i></i>한글소리</span><span>🔈</span></div><div class="stamp">ERSTE<br>STIMME</div>
+            <h4>Du hast dein erstes Koreanisch verstanden.</h4><p class="lead">안녕하세요 · eine Begrüßung, die du jetzt hören und erwidern kannst.</p>
+            <div class="can-do"><b>Ich kann jemanden freundlich begrüßen.</b><span class="meta">Dein A1-Weg beginnt mit dieser Szene.</span></div>
+            <div class="card" style="margin-top:14px"><div class="card-title">Möchtest du eine Lernbegleitung?</div><div class="meta">Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.</div></div>
+            <div class="spacer"></div><button class="button">Begleitung auswählen</button><span class="text-action">Ohne Begleitung zu Heute</span>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="daily" class="screen-section">
+      <header><h2>02 · 오늘의 마당: 한 가지 약속, 한 번의 시작</h2><p>홈은 대시보드가 아니라 “오늘 내가 말할 수 있게 되는 것”을 보여준다. CTA는 사량방을 경유하지 않고 원래 학습 화면으로 바로 간다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>02A. Today / Home</h3><p>현재 <code>TodayLearningSnapshot</code>의 단 하나의 우선순위를 그대로, 더 명료하게 보여준다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:41</span><span class="brand"><i></i>한글소리</span><span>☼</span></div>
+            <p class="label">Heute · Dienstag</p><h4>Ein Satz für dein Café.</h4><p class="lead">In etwa 4 Minuten kannst du weniger scharf bestellen.</p>
+            <div class="mission"><p class="label">Deine nächste Szene</p><h5>"Bitte nicht so scharf." sagen</h5><p>Hören · wählen · selbst sprechen</p><button class="button">Szene beginnen <span>→</span></button></div>
+            <div class="build-note"><span class="beam"></span><div><b style="display:block;font-size:13px">Dein Haus wächst mit echtem Können.</b><span class="meta">1 sichere Szene bis zum nächsten Balken</span></div></div>
+            <div class="card"><div class="card-title">Später heute</div><div class="meta">12 Wiederholungen warten. Sie bleiben bereit, nachdem du diese Szene beendet hast.</div></div>
+            <div class="spacer"></div><div class="nav"><div class="active"><b>⌂</b>Heute</div><div><b>◒</b>Üben</div><div><b>⌕</b>Entdecken</div><div><b>♧</b>계</div><div><b>◯</b>Ich</div></div>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>02B. 미션 브리프</h3><p>현재 Course Mission의 긴 대시보드를 “도착점·순서·준비됨”만 남긴 짧은 출발면으로 바꾼다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:42</span><span>Heute</span><span>✕</span></div><span class="back">← Heute</span><p class="label">A1 · Essen bestellen</p><h4>Weniger scharf bestellen</h4><p class="lead">Du brauchst das, wenn dein Essen zu scharf sein könnte.</p>
+            <div class="scene"><span class="sun"></span><span class="mountain"></span><div class="hanok"><span class="roof"></span><span class="house"></span><span class="door"></span></div></div>
+            <div class="task-row"><span class="number">1</span><div><b>Höre die Bestellung</b><span>Erkenne die höfliche Bitte</span></div><em>1 min</em></div>
+            <div class="task-row"><span class="number">2</span><div><b>Baue deinen Satz</b><span>Wähle die fehlenden Wörter</span></div><em>2 min</em></div>
+            <div class="task-row"><span class="number">3</span><div><b>Sprich in der Szene</b><span>Eine echte Antwort, kein Raten</span></div><em>1 min</em></div>
+            <div class="spacer"></div><button class="button">Jetzt hören</button><span class="text-action">Warum diese Szene?</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>02C. 미션 안의 다음 한 행동</h3><p>공통 미션 프레임은 기존 단어·문법·시나리오 화면의 위쪽 맥락만 제공한다. 문제 엔진을 다시 만들지 않는다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:43</span><span>1 / 3</span><span>✕</span></div><p class="label">Höre zuerst</p><h4>Was sagt die Person?</h4><p class="lead">Tippe erst, wenn du die Bitte erkannt hast.</p>
+            <div class="listen"><div class="sound">▶</div></div><p class="state-line">한 번 더 듣기 가능 · 정답 전에는 다음 단계 없음</p>
+            <div class="answer">매워요.</div><div class="answer correct">안 맵게 해 주세요.</div><div class="answer">감사합니다.</div>
+            <div class="spacer"></div><button class="button">Meine Antwort prüfen</button><span class="text-action">Hinweis zeigen</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>02D. 결과: 칭찬보다 “할 수 있음”</h3><p>성공을 점수 폭죽이 아닌 실제 할 수 있는 행동과 다음 구조 변화로 연결한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:45</span><span class="brand"><i></i>한글소리</span><span>✓</span></div>
+            <div class="stamp">SICHER<br>GESAGT</div><p class="label" style="text-align:center">A1 · Essen bestellen</p><h4 style="text-align:center">Das kannst du jetzt.</h4>
+            <div class="can-do"><b>Ich kann höflich um weniger scharfes Essen bitten.</b><span class="meta">Du hast die Szene selbstständig abgeschlossen.</span></div>
+            <div class="card" style="margin-top:14px"><div class="card-title">Dein Haus: ein Balken wird sichtbar</div><div class="progressline"><i></i></div><div class="meta">1 von 2 sicheren Szenen für den nächsten Bauabschnitt</div></div>
+            <div class="card"><div class="card-title">Für später merken</div><div class="meta">안 맵게 해 주세요. · Beim nächsten Wiederholen kommt es im Kontext zurück.</div></div>
+            <div class="spacer"></div><button class="button">Zurück zum Hof</button><span class="text-action">Noch einmal üben</span>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="hanok" class="screen-section">
+      <header><h2>03 · 한옥: 점수판이 아니라, 말할 수 있는 삶의 집</h2><p>초기 세로 무대와 후기 전체 지도는 모두 살린다. 단계의 “이름과 의미”를 실제 생활 능력으로 번역하고, 장식은 별도의 가벼운 보상으로 남긴다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>03A. 초반 한옥 / 공사 이야기</h3><p>기존 12단계 한옥 이미지를 그대로 쓴다. 위에 단어팩 수치 대신 지금의 생활 능력 이야기를 얹는다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:46</span><span class="brand"><i></i>나의 한옥</span><span>•••</span></div><p class="label">Dein Hof · A1</p><h4>Ein Dach beginnt mit einer Stimme.</h4><p class="lead">Dein Fundament steht: begrüßen und dich vorstellen.</p>
+            <div class="scene" style="min-height:278px"><span class="sun"></span><span class="mountain"></span><div class="hanok early" style="right:30px;bottom:38px"><span class="roof"></span><span class="house"></span><span class="door"></span></div></div>
+            <div class="building-panel"><h5>Als Nächstes: die ersten Pfeiler</h5><p class="meta">Zeige in zwei sicheren Alltagsszenen, wer du bist und worüber du sprichst.</p><div class="progressline"><i style="width:50%"></i></div><span class="meta">1 von 2 Szenen sicher</span></div>
+            <div class="spacer"></div><button class="button">Nächste Szene ansehen</button><span class="text-action">Mein Haus erkunden</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>03B. 완성 후 한옥 지도</h3><p>기존 <code>personal_hanok_v2</code> 지도와 장소 모델을 유지한다. 장소 카드는 목적을 먼저 말한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:46</span><span class="brand"><i></i>나의 한옥</span><span>⌁</span></div><p class="label">Dein begehbarer Hof</p><h4>Wohin möchtest du gehen?</h4><p class="lead">Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.</p>
+            <div class="map"><span class="place active" style="left:32px;top:136px">사랑방<br>Heute lernen</span><span class="place" style="right:35px;top:46px">대청마루<br>Dein Weg</span><span class="place" style="left:138px;bottom:28px">안채<br>Wörter</span><span class="place" style="right:22px;bottom:96px">후원<br>Aufgaben</span></div>
+            <div class="building-panel"><h5>사랑방 · Deine heutige Szene</h5><p class="meta">4 Minuten · "Bitte nicht so scharf" sagen</p><button class="button" style="margin-top:12px">Dorthin gehen</button></div>
+            <div class="spacer"></div><span class="text-action">Orte als Liste anzeigen</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>03C. 사랑방은 재방문 공간</h3><p>홈의 동일 미션 CTA를 반복하지 않는다. 보상·배치·이전 성취를 보는 조용한 방으로 성격을 분리한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:47</span><span class="brand"><i></i>사랑방</span><span>⌂</span></div><p class="label">Dein Lernzimmer</p><h4>Die Worte von heute sind angekommen.</h4><p class="lead">Hier siehst du, was du dir tatsächlich erarbeitet hast.</p>
+            <div class="scene" style="min-height:245px"><div class="hanok small"><span class="roof"></span><span class="house"></span><span class="door"></span></div><div style="position:absolute;left:24px;bottom:24px;padding:9px;background:#f9edcf;font-size:11px;font-weight:800">안 맵게 해 주세요.</div></div>
+            <div class="card"><div class="card-title">Heute abgelegt</div><div class="meta">1 Ausdruck · 1 sichere Szene · 1 Balken im Bauplan</div></div>
+            <div class="card"><div class="card-title">Einrichten</div><div class="meta">Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Belohnungen.</div></div>
+            <div class="spacer"></div><button class="button cream">Zur heutigen Szene</button><span class="text-action">Zum Hof</span>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="explore" class="screen-section">
+      <header><h2>04 · 연습과 발견: 고르기 전에 목적을 말한다</h2><p>기존 Practice Hub와 최근 추가된 Discover를 없애지 않는다. 일상 미션의 바깥에서 무엇을 하려는지 먼저 묻고, 전체 기능은 검색 가능하게 남긴다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>04A. Üben</h3><p>반복·약점·자유 연습의 진입점을 기능 이름이 아닌 필요로 묶는다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:48</span><span class="brand"><i></i>Üben</span><span>⌕</span></div><p class="label">Ohne Tagesmission</p><h4>Was willst du gerade festigen?</h4><p class="lead">Wähle eine Absicht, nicht erst ein Spiel.</p>
+            <div class="route-list"><div class="route"><i>↻</i><div><b>Fällige Wörter wiederholen</b><span>12 Wörter warten auf Kontext</span></div></div><div class="route"><i>◌</i><div><b>Etwas gezielt üben</b><span>Aussprache, Grammatik oder Schreiben</span></div></div><div class="route"><i>♧</i><div><b>Frei spielen</b><span>Wortkette, Buchstaben, kurze Spiele</span></div></div><div class="route"><i>▣</i><div><b>Meine Wörter öffnen</b><span>Gespeicherte Wörter und Bücher</span></div></div></div>
+            <div class="spacer"></div><div class="nav"><div><b>⌂</b>Heute</div><div class="active"><b>◒</b>Üben</div><div><b>⌕</b>Entdecken</div><div><b>♧</b>계</div><div><b>◯</b>Ich</div></div>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>04B. Entdecken</h3><p>24개 이상의 기존 도구는 검색·범주로 보존하되, “학습 흐름의 다음 CTA”와 혼동시키지 않는다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:48</span><span class="brand"><i></i>Entdecken</span><span>⌕</span></div><p class="label">Werkzeuge &amp; Kultur</p><h4>Finde genau, was du brauchst.</h4><p class="lead">Scannen, nachschlagen, hören oder eine kleine Pause machen.</p>
+            <div class="card" style="padding:13px;color:#7d817a">⌕&nbsp;&nbsp;Suchen: z. B. Aussprache, Buch, OCR …</div>
+            <div class="filterline"><span class="on">Für mich</span><span>Sprache</span><span>Wörter</span><span>Freizeit</span></div>
+            <div class="route-list" style="margin-top:12px"><div class="route"><i>▣</i><div><b>Buch scannen</b><span>Text aus deinem Lehrbuch verstehen</span></div></div><div class="route"><i>◉</i><div><b>Aussprache hören</b><span>Laute langsam vergleichen</span></div></div><div class="route"><i>▤</i><div><b>Wörterbuch &amp; Meine Wörter</b><span>Gespeicherte Wörter wiederfinden</span></div></div></div>
+            <div class="spacer"></div><div class="nav"><div><b>⌂</b>Heute</div><div><b>◒</b>Üben</div><div class="active"><b>⌕</b>Entdecken</div><div><b>♧</b>계</div><div><b>◯</b>Ich</div></div>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>04C. 나의 길 / 코스 지도</h3><p>진도 전체는 충분히 자세하지만, 오늘의 홈에서 사용자가 해석해야 할 일이 되지 않도록 별도 목적지로 둔다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:49</span><span class="brand"><i></i>Dein Weg</span><span>⌂</span></div><p class="label">A1 · Alltag in Korea</p><h4>Du baust vom Begrüßen zum Leben.</h4><p class="lead">Jeder Abschnitt endet mit einer Situation, die du selbst lösen kannst.</p>
+            <div class="task-row"><span class="number" style="background:var(--jade)">✓</span><div><b>Begrüßen &amp; Hangul</b><span>Kann ich: freundlich beginnen</span></div><em>fertig</em></div>
+            <div class="task-row"><span class="number">2</span><div><b>Mich vorstellen</b><span>Jetzt: Name, Herkunft, Thema</span></div><em>weiter</em></div>
+            <div class="task-row"><span class="number" style="background:#c7c1b6">3</span><div><b>Bestellen &amp; bitten</b><span>Als Nächstes nach deinem Beweis</span></div><em>später</em></div>
+            <div class="card" style="margin-top:15px"><div class="card-title">Woran du Fortschritt erkennst</div><div class="meta">Freies Ansehen zählt als Verlauf. Sicher wird ein Abschnitt erst durch die passende aktive Übung und 70% in jeder Szenenprüfung.</div></div>
+            <div class="spacer"></div><button class="button">Aktuelle Mission öffnen</button>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gye" class="screen-section">
+      <header><h2>05 · 계: 순위표 대신 함께 켜는 등불</h2><p>그룹은 학습을 보조하는 선택적 사회적 공간이다. 개인 점수·정답·정확한 문장은 공개하지 않고, 주간 약속에 기여한 사실만 따뜻하게 보인다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>05A. 계 첫 화면 / 선택</h3><p>16세 이상 자가 확인과 기존 안전 경로를 유지한다. 가입을 건너뛰면 홈으로 완전히 돌아갈 수 있다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:50</span><span class="brand"><i></i>계</span><span>?</span></div><p class="label">Freiwillige Lerngemeinschaft</p><h4>Allein lernen ist vollständig. Zusammen kann es wärmer sein.</h4><p class="lead">Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.</p>
+            <div class="gye-scene"><div class="hanok"><span class="roof"></span><span class="house"></span><span class="door"></span></div><span class="lantern" style="left:64px;top:47px"></span><span class="lantern" style="left:158px;top:71px"></span><span class="lantern" style="right:58px;top:43px"></span></div>
+            <div class="card" style="margin-top:14px"><div class="card-title">Was andere sehen</div><div class="meta">Nur dass du beigetragen hast – niemals deine Antworten, Wörter oder Prüfungsergebnisse.</div></div>
+            <div class="spacer"></div><button class="button">Eine 계 finden oder gründen</button><span class="text-action">Ohne Gruppe weiterlernen</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>05B. 주간 생활 약속</h3><p>“이번 주 총 팩 수”가 아니라 사람에게 읽히는 공동 목표를 선택한다. 백엔드는 검증된 기여만 합산한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:51</span><span>계 · Mondhof</span><span>•••</span></div><p class="label">Diese Woche gemeinsam</p><h4>Lasst den Hof an drei Abenden leuchten.</h4><p class="lead">Jede Person hilft mit einer abgeschlossenen, passenden Lernhandlung.</p>
+            <div class="card"><div class="card-title">3 von 5 Lichtern sind an</div><div class="progressline"><i style="width:60%;background:var(--gold)"></i></div><div class="meta">Noch zwei verifizierte Beiträge bis Sonntag</div></div>
+            <div class="member"><span class="avatar">J</span><div><b>Jina</b><span>hat heute ein Licht beigetragen</span></div></div>
+            <div class="member"><span class="avatar" style="background:#6f9f98">M</span><div><b>Min</b><span>hat heute ein Licht beigetragen</span></div></div>
+            <div class="member"><span class="avatar" style="background:#c4a564">A</span><div><b>Alex</b><span>dein nächster Beitrag kann aus Heute kommen</span></div></div>
+            <div class="privacy">🔒&nbsp; Keine Rangliste. Kein Druck. Eine Person kann nie den Weg anderer blockieren.</div>
+            <div class="spacer"></div><button class="button">Meine heutige Szene öffnen</button><span class="text-action">Wochenabsicht ansehen</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>05C. 계 마당 / 반응</h3><p>기존 피드·스티커·응원·모더레이션을 유지하되, MVP와 XP 부스트를 첫 표면에서 제거한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:52</span><span class="brand"><i></i>Mondhof</span><span>•••</span></div><p class="label">Euer Hof</p><h4>Heute leuchten drei Laternen.</h4><p class="lead">Ein gemeinsamer Ort für kleine, sichere Ermutigung.</p>
+            <div class="gye-scene"><div class="hanok"><span class="roof"></span><span class="house"></span><span class="door"></span></div><span class="lantern" style="left:64px;top:47px"></span><span class="lantern" style="left:158px;top:71px"></span><span class="lantern" style="right:58px;top:43px"></span></div>
+            <div class="card" style="margin-top:13px"><div class="card-title">Min hat zum Hof beigetragen.</div><div class="meta">Kein Ergebnis geteilt · nur die Ermutigung ist sichtbar</div><div class="rule"></div><b style="font-size:12px;color:var(--jade)">👏 Gut gemacht&nbsp;&nbsp;&nbsp; 🌱 Weiter so&nbsp;&nbsp;&nbsp; 🏮 Ich bin dabei</b></div>
+            <div class="spacer"></div><button class="button cream">Eine sichere Nachricht senden</button><span class="text-action">Regeln &amp; Mitglieder</span>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="account" class="screen-section">
+      <header><h2>06 · 나와 예외 상태: 불안하지 않게, 막히지 않게</h2><p>프로필은 수집된 숫자보다 ‘내 경로를 내가 조절한다’는 곳이다. 빈 상태·오프라인·미완료도 다음 행동을 명확히 한다.</p></header>
+      <div class="phone-grid">
+        <article class="mock">
+          <h3>06A. 프로필</h3><p>목표·시작점·동행·개인정보를 명시적으로 바꾸는 공간이다. 통계는 보조 정보로 내려간다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:53</span><span class="brand"><i></i>Ich</span><span>⚙</span></div><div class="profile-hero"><h5>Dein Weg, Jin</h5><p>A1 · Alltag in Korea · 3 sichere Situationen</p></div>
+            <div class="listhead"><b style="font-size:15px">Mein Lernen</b><span class="tiny">bearbeiten</span></div>
+            <div class="setting">Mein Ziel <span>Unterwegs in Korea</span></div><div class="setting">Mein Startpunkt <span>A1</span></div><div class="setting">Lernbegleitung <span>auswählen</span></div>
+            <div class="listhead" style="margin-top:18px"><b style="font-size:15px">Mein Raum</b></div>
+            <div class="setting">Datenschutz &amp; Konto <span>›</span></div><div class="setting">Gruppe (계) <span>Mondhof ›</span></div><div class="setting">Meine Lerndaten <span>exportieren ›</span></div><div class="setting">Konto löschen <span>›</span></div>
+            <div class="spacer"></div><div class="nav"><div><b>⌂</b>Heute</div><div><b>◒</b>Üben</div><div><b>⌕</b>Entdecken</div><div><b>♧</b>계</div><div class="active"><b>◯</b>Ich</div></div>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>06B. 미완료·오프라인 상태</h3><p>오늘의 미션이 없거나 네트워크가 없어도 ‘무엇이 안전하게 가능한지’를 한 문장과 한 버튼으로 말한다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:54</span><span class="brand"><i></i>Heute</span><span>⌁</span></div><p class="label">Verbindung pausiert</p><h4>Dein Weg wartet auf dich.</h4><p class="lead">Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine gespeicherten Wiederholungen sind bereit.</p>
+            <div class="empty-art">⌁</div>
+            <div class="card" style="margin-top:14px"><div class="card-title">Jetzt sicher möglich</div><div class="meta">Gespeicherte Wörter wiederholen und bisherige Inhalte ansehen.</div></div>
+            <div class="spacer"></div><button class="button">Gespeicherte Wörter wiederholen</button><span class="text-action">Erneut verbinden</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>06C. 복습 우선일</h3><p>추천기가 복습을 고르면, 새 콘텐츠를 숨긴 벌이 아니라 지금 할 수 있는 가장 짧은 약속으로 보인다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:55</span><span class="brand"><i></i>Heute</span><span>☼</span></div><p class="label">Heute zuerst</p><h4>Gib deinen sicheren Sätzen eine Stimme.</h4><p class="lead">12 Wörter aus deinen echten Szenen sind bereit, bevor etwas Neues dazukommt.</p>
+            <div class="mission"><p class="label">Deine nächste Handlung</p><h5>12 Wörter im Kontext wiederholen</h5><p>ca. 3 Minuten · danach geht dein Weg weiter</p><button class="button">Wiederholen <span>→</span></button></div>
+            <div class="card" style="margin-top:14px"><div class="card-title">Warum heute Wiederholen?</div><div class="meta">Damit Begrüßungen, Bitten und Antworten in der nächsten Szene schneller verfügbar sind.</div></div>
+            <div class="spacer"></div><div class="nav"><div class="active"><b>⌂</b>Heute</div><div><b>◒</b>Üben</div><div><b>⌕</b>Entdecken</div><div><b>♧</b>계</div><div><b>◯</b>Ich</div></div>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <b>검토용 목업.</b> 한옥 장면은 레이아웃을 설명하기 위한 CSS 형태이며, 앱 구현에서는 <code>assets/illustrations/hanok_stages/*</code>와 <code>assets/illustrations/personal_hanok_v2/*</code>의 기존 자산을 재사용한다. 상세 구현·파일별 작업 순서·테스트 계약은 함께 제공하는 <code>HANGUL_SORI_UX_REBUILD_IMPLEMENTATION_PLAN.md</code>를 기준으로 한다.
+    </footer>
+  </main>
+</body>
+</html>

@@ -96,7 +96,7 @@ provider exception or a configured integration must be checked.
 - **Encrypted in transit:** Yes — repository network endpoints use HTTPS/TLS.
 - **Users can request deletion:** Provisional Yes — the release-candidate code
   has an in-app path for guest/anonymous and Google/Apple-linked accounts, and
-  `https://hangul-sori.com/account-deletion.html` provides instructions and an
+  `https://hangul-sori.com/account-deletion` provides instructions and an
   email fallback. Confirm the signed build and public page before submitting
   this answer.
 - **Account creation:** Firebase creates an anonymous account automatically; the
@@ -215,4 +215,4 @@ or fixed provider retention periods.
   account eligibility and tester-day status are console facts, not repository
   facts.
 - Public policy: `https://hangul-sori.com/privacy.html`
-- Public deletion page: `https://hangul-sori.com/account-deletion.html`
+- Public deletion page: `https://hangul-sori.com/account-deletion`

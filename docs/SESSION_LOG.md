@@ -7,6 +7,47 @@
 
 ---
 
+### 2026-08-10 (Codex) — UX rebuild plan revalidated against code and test scope
+
+**What.** Re-audited the current tracked checkout and replaced the UX rebuild plan's candidate-only scope with verified route, state, storage, Cloud Function, and test boundaries. The plan now records the actual onboarding branches, Home → Sarangbang pack-access handoff, course link/provenance behavior, Hanok projection inputs, and the Gye pack-triggered server model. It fixes the implementation sequence around a shared Today destination executor, migration-safe onboarding state, a pure course step planner, and a strict UI-only versus server-side Gye split.
+
+**Baseline proof.** Flutter focused suites passed without code changes: Today/Home/Sarangbang 70; Course graph/provenance/mastery 86; Hanok stage/world/map/reveal/venue 69; Gye model/UI/write-gate 69. `functions/gye/node_modules` is absent, so Node unit tests and Firestore emulator rules tests were not run and are explicitly retained as a Release B gate.
+
+**Boundaries.** Planning documentation only; Flutter, Firebase, assets, curriculum data, and rules remain unchanged. Existing user changes in `pubspec.yaml` were not touched. No commit or deployment was made.
+
+### 2026-08-10 (Codex) — UX rebuild mockups and implementation plan
+
+**What.** Created a reviewable, screen-by-screen UX rebuild package for Hangul Sori: `docs/HANGUL_SORI_UX_REBUILD_MOCKUPS.html` and `docs/HANGUL_SORI_UX_REBUILD_IMPLEMENTATION_PLAN.md`. It defines a direct Today-to-learning flow, a can-do-first mission/result treatment, a non-destructive Hanok narrative layer, purpose-first Practice/Discover surfaces, and an optional privacy-preserving Gye lantern loop.
+
+**Boundaries.** This is planning documentation only: no Flutter/runtime/Firebase behavior changed. The plan explicitly preserves `TodayLearningSnapshot`, course assessment evidence and 70% scenario rules, the legacy Hanok stages/assets/placement data, and Gye safety/moderation boundaries. It also separates safe UI work from any future server-side Gye contribution migration.
+
+**Verification.** The HTML is self-contained and references no generated/replaced visual assets; it is intended for local browser review through the plan canvas. Implementation validation is staged in the plan; no production claim is made here.
+
+### 2026-08-10 (Claude) — v2.0.5+14 내부 테스트 AAB — pubspec 버전만 미커밋
+
+**What.** Jin 요청("안드로이드 콘솔에 올릴 버전 14")으로 pubspec `2.0.5+13` → `2.0.5+14` 한 줄 올리고
+서명 AAB 생성. 1차 빌드는 `8a8655d`(동기화·초기화 수리) 기준이었으나, 동시 세션의 `8569bbe`
+(OCR·단어 검증·둘러보기)가 포함돼야 한다는 Jin 확인으로 최신 main(`8569bbe`)에서 **재빌드** —
+그 산출물이 최종본이다.
+
+**Verification (최종본).** `flutter build appbundle --release` 성공(Gradle 261s) →
+`build/app/outputs/bundle/release/app-release.aab` **264,663,125B (252.4MB)**,
+SHA-256 `CB8910528A9C0925514BBB5B3AD74EC9502D86506AED31BF7453E599783C8B79`.
+`android/local.properties` 주입값 versionName **2.0.5** / versionCode **14** 확인.
+서명 인증서 SHA1 `AB:61:18:FE:…:14:53` = **업로드 키**(google-services.json 등록 지문과 일치).
+(1차 빌드 SHA-256 `F2723C63…2008`은 폐기 — 파일은 최종본으로 덮어써짐.)
+
+**Git.** pubspec 버전 범프는 **미커밋** (Jin 요청 시 커밋). 업로드 = Jin(Play Console internal track,
+출시 이름 제안: `14 · 동기화 자동화 + 계정/초기화 수리`).
+
+**추가 (Play 정책 차단 2건 진단).** 콘솔 데이터 보안 선언의 계정/데이터 삭제 URL이
+`…/account-deletion.html`인데 라이브(hangul-sori.com, Cloudflare 서빙)는 **확장자 없는 경로만 200**
+(`.html`은 404) — 실측: `/account-deletion` 200 · `/account-deletion.html` 404 · `/privacy.html` 404.
+라이브 페이지는 계정 삭제 + 클라우드 데이터만 삭제 + 로컬 초기화를 모두 안내하므로 두 필드 다
+`https://hangul-sori.com/account-deletion` 으로 교체하면 해소(콘솔 수정 = Jin). 같은 오기가 있던
+`docs/store/data-safety.md`(2곳)·`app-store-connect-v2.0.5.md`(1곳)도 정정. ⚠️ privacy 선언 URL도
+`.html`이면 같은 이유로 404이니 콘솔·문서에서 `https://hangul-sori.com/privacy` 로 통일할 것.
+
 ### 2026-08-10 — textbook OCR, safe word-chain validation, and native feature discovery
 
 **Why.** A photographed Korean textbook with German or English explanations was handled by a Korean-only recognizer, while the word-chain game rejected real words such as `제사` because its 2,634-word runtime pool is curated static content. The previous four-item app navigation also hid the breadth of the product behind a generic practice hub.
