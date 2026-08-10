@@ -7,6 +7,23 @@
 
 ---
 
+### 2026-08-10 (Claude) — 브랜치 대청소: 미병합 3계열 흡수 + 로컬/원격 정리 + v17 AAB
+
+**왜.** Jin 요청 — Codex UX 작업 브랜치(`feature/hangul-sori-ux-rebuild` / 원격 `integrate/hangul-sori-ux-main`)만 남기고, 저장소에 흩어진 나머지 모든 브랜치·worktree의 작업(커밋·미커밋)을 전부 main에 흡수한 뒤 정리. 이어서 로컬 main에서 versionCode 17 릴리스 AAB 생성.
+
+**무엇을.**
+- **흡수(병합).** `origin/main`을 `281ca35`(iOS ML Kit 빌드 커밋)로 fast-forward한 뒤, 미병합 claude 브랜치 3계열을 `--no-ff` 병합:
+  `claude/app-launch-stability-ee9f5k`(short-height 반응형 회귀망 포함, `2656b21`), `claude/home-screen-onboarding-ux-vf127x`(게임 레이아웃·히어로 크롭, `f7b8255`), `claude/clip-matte-report-regen`(CI 매트 인증서 regen, `7046f10`). 충돌은 전부 `docs/SESSION_LOG.md`(양쪽 union 유지)와 `tool/clip_matte_report.json`(브랜치 regen본이 main의 상위집합이라 브랜치본 채택)에 한정.
+- **이미 흡수 확인(재작업 방지).** codex 로컬 브랜치 8개는 `origin/main` 대비 고유 커밋 0 → 이미 반영됨. 미커밋 stash(App Check 공유 debug 토큰 + 계정전환 unprepared-journal 탈출구 + 테스트 5건)도 `debugAppCheckToken`·`_discardUnpreparedJournal`·`.gitignore dart_defines/` 심볼로 main에 이미 커밋됨을 확인.
+- **정리.** 로컬 브랜치 12개 삭제(`main`·UX만 잔존), worktree 6개 등록 해제. Temp 5개 worktree의 "전체 파일 삭제" 상태는 임시폴더가 비워진 phantom일 뿐 실작업 아님 → 흡수 대상에서 제외. 물리 폴더는 Windows 롱패스(mlkit gocr 경로)로 잔존(디스크에만 남고 git 등록은 해제됨). 원격 claude 브랜치 6개는 Jin이 직접 삭제(auto-mode 분류기가 `git push --delete` 차단).
+- **버전/빌드.** pubspec 방치돼 있던 깨진 `+15` 편집을 정상화해 흡수 후 `+16`(`b368b1b`)→`+17`(`9ae2624`). `flutter build appbundle --release` → `build/app/outputs/bundle/release/app-release.aab`(252.7MB, versionCode 17).
+
+**검증.** 병합 후 `flutter analyze` **No issues found!**(67s). AAB 빌드 exit 0(434.8s, √ Built). push는 전부 fast-forward — 최종 `origin/main = 9ae2624`.
+
+**커밋.** 병합 `2656b21`·`f7b8255`·`7046f10`; 버전 `a1c301a`(+15)·`b368b1b`(+16)·`9ae2624`(+17). 남은 원격 브랜치: `origin/main` + `origin/integrate/hangul-sori-ux-main`(UX, 유지).
+
+---
+
 ### 2026-08-10 (Codex) — UX integration branch verification complete
 
 **Integration.** Rebased the complete UX 01–06 A/B/C implementation onto `origin/main` at `b368b1b` in the isolated `integrate/hangul-sori-ux-main` branch. All four rebase conflicts were in this session log only; current-main release records and UX records were both retained. `main` and `origin/main` were not modified or pushed.
