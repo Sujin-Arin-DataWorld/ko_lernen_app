@@ -12,7 +12,7 @@ class AppL10nDe extends AppL10n {
   String get paywallTitle => 'Hangul Sori Premium';
 
   @override
-  String get paywallSubtitle => 'Koreanisch lernen — ohne Grenzen.';
+  String get paywallSubtitle => 'Koreanisch lernen, wann du willst.';
 
   @override
   String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 · B1 · B2)';
@@ -24,7 +24,8 @@ class AppL10nDe extends AppL10n {
   String get paywallBenefit3 => 'Unbegrenzte Wiederholungen (SRS)';
 
   @override
-  String get paywallBenefit4 => 'Dein persönlicher KI-Kurs — jeden Tag neu';
+  String get paywallBenefit4 =>
+      'Dein persönlicher KI-Kurs mit neuen Inhalten jeden Tag';
 
   @override
   String get paywallBenefit5 => 'Buchschnappschuss ohne Tageslimit';
@@ -79,7 +80,7 @@ class AppL10nDe extends AppL10n {
   String get streakDialogTitle => 'Deinen Streak halten';
 
   @override
-  String get streakDialogSubtitle => 'Lern jeden Tag — dein Streak wächst!';
+  String get streakDialogSubtitle => 'Lern jeden Tag. So wächst dein Streak.';
 
   @override
   String get streakDialogEarned => 'Dranbleiben lohnt sich';
@@ -108,7 +109,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeMagpieBubbleStart =>
-      'Fangen wir in Ruhe an – Zeichen für Zeichen.';
+      'Wir fangen ganz in Ruhe an, Zeichen für Zeichen.';
 
   @override
   String get homeMagpieBubbleResume =>
@@ -163,7 +164,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get reviewEmptyBody =>
-      'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Paket — die Wörter tauchen hier zur Wiederholung auf.';
+      'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Paket. Die Wörter kommen später zur Wiederholung wieder.';
 
   @override
   String get reviewDoneTitle => 'Stark!';
@@ -211,7 +212,7 @@ class AppL10nDe extends AppL10n {
   String get notificationTitle => 'Hangul Sori';
 
   @override
-  String get notificationBody => 'Taego wartet — Zeit für Koreanisch! 🐯';
+  String get notificationBody => 'Taego wartet schon. Zeit für Koreanisch! 🐯';
 
   @override
   String get homeCourseTitle => 'Dein Tageskurs';
@@ -316,7 +317,7 @@ class AppL10nDe extends AppL10n {
   String get gameWordleTitle => 'Silben-Rätsel';
 
   @override
-  String get gameWordleDesc => '2–3 Silben · 6 Versuche';
+  String get gameWordleDesc => '2-3 Silben · 6 Versuche';
 
   @override
   String get navVocab => 'Vokabeln';
@@ -401,7 +402,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookshelfEmptyBody =>
-      'Fotografiere deine erste Lehrbuchseite — die erkannten Wörter landen hier.';
+      'Fotografiere deine erste Lehrbuchseite. Erkannte Wörter erscheinen dann hier.';
 
   @override
   String get bookshelfEmptyCta => 'Seite einlesen';
@@ -969,12 +970,12 @@ class AppL10nDe extends AppL10n {
 
   @override
   String chosungRoundKeepLevel(Object level) {
-    return 'Gut gemacht — bleib noch bei Stufe $level.';
+    return 'Gut gemacht. Bleib noch bei Stufe $level.';
   }
 
   @override
   String chosungRoundReview(Object level) {
-    return 'Kein Problem — üb Stufe $level noch mal.';
+    return 'Kein Problem. Üb Stufe $level noch einmal.';
   }
 
   @override
@@ -999,7 +1000,8 @@ class AppL10nDe extends AppL10n {
   String get statsWins => 'Siege';
 
   @override
-  String get statsEmpty => 'Noch keine Daten — leg los! 🚀';
+  String get statsEmpty =>
+      'Noch keine Daten. Starte mit deiner ersten Übung. 🚀';
 
   @override
   String get statsVokSection => 'Vokabeln';
@@ -1084,7 +1086,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookCaptureErrorNoKorean =>
-      'Kein Koreanisch erkannt — bitte mach ein schärferes Foto.';
+      'Kein Koreanisch erkannt. Bitte mach ein schärferes Foto.';
 
   @override
   String get bookCaptureErrorPermission =>
@@ -1108,7 +1110,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String bookPreviewHint(int count) {
-    return '$count Textblöcke erkannt — bei Bedarf korrigieren.';
+    return '$count Textblöcke erkannt. Korrigiere sie bei Bedarf.';
   }
 
   @override
@@ -1203,7 +1205,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeInviteBody =>
-      'Ein Gye lebt von seinen Mitgliedern — teile den Code mit Freunden.';
+      'Teile den Code mit Freunden, damit sie deinem Gye beitreten können.';
 
   @override
   String get gyeCopyCode => 'Code kopieren';
@@ -1287,7 +1289,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeDureEmpty =>
-      'Noch leer — schließ ein Paket ab und mach den Anfang!';
+      'Noch leer. Schließ ein Paket ab und mach den Anfang.';
 
   @override
   String get gyeChallengeTitle => 'Alle dabei?';
@@ -1312,7 +1314,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeFeedEmpty =>
-      'Noch keine Aktivität — schließt gemeinsam Pakete ab!';
+      'Noch keine Aktivität. Schließt gemeinsam ein Paket ab.';
 
   @override
   String gyeFeedPackCleared(Object name) {
@@ -1374,7 +1376,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeStickerRateLimited =>
-      'Zu viele Sticker auf einmal — kurz durchatmen!';
+      'Zu viele Sticker auf einmal. Versuch es gleich noch einmal.';
 
   @override
   String get gyeStickerCatTiger => 'Tiger';
@@ -1465,7 +1467,7 @@ class AppL10nDe extends AppL10n {
       other: '$packs Pakete',
       one: '1 Paket',
     );
-    return 'Applaus für $name — $_temp0 letzte Woche! 👏';
+    return 'Applaus für $name: $_temp0 letzte Woche! 👏';
   }
 
   @override
@@ -1503,7 +1505,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookResultOfflineNotice =>
-      'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
+      'Server nicht erreichbar. Es wurden nur Grammatikmuster offline erkannt.';
 
   @override
   String get bookResultRateLimited =>
@@ -1535,7 +1537,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questsEmptyBody =>
-      'Beginne ein Paket — die ersten Quest-Fortschritte erscheinen hier.';
+      'Beginne ein Paket. Dein Quest-Fortschritt erscheint dann hier.';
 
   @override
   String get questsSectionInProgress => 'Läuft';
@@ -1581,7 +1583,7 @@ class AppL10nDe extends AppL10n {
   String get dojangDecorHintCta => 'Zu den Quests';
 
   @override
-  String get hanokCinematicIntro => 'Dein Hanok wächst —';
+  String get hanokCinematicIntro => 'Dein Hanok wächst.';
 
   @override
   String get hanokStageEmpty => 'Bauplatz vorbereiten';
@@ -1659,11 +1661,10 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultCleared => 'Paket geschafft!';
 
   @override
-  String get vocabPackResultClearedAgain =>
-      'Bereits gemeistert — gut wiederholt!';
+  String get vocabPackResultClearedAgain => 'Schon gemeistert. Gut wiederholt!';
 
   @override
-  String get vocabPackResultRetry => 'Fast geschafft — nochmal probieren!';
+  String get vocabPackResultRetry => 'Fast geschafft. Versuch es noch einmal!';
 
   @override
   String get vocabPackResultBossLabel => 'Boss-Genauigkeit';
@@ -1683,11 +1684,11 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultRetryCta => 'Nochmal versuchen';
 
   @override
-  String get vocabPackResultBackToGrid => 'Zurück zu den Pakete';
+  String get vocabPackResultBackToGrid => 'Zurück zu den Paketen';
 
   @override
   String get vocabPackResultGeschafft =>
-      'Geschafft! Du hast diesen Vokabel-Paket gemeistert.';
+      'Geschafft! Du hast dieses Vokabelpaket gemeistert.';
 
   @override
   String get moduleStatsTitle => 'Statistik';
@@ -1822,21 +1823,21 @@ class AppL10nDe extends AppL10n {
   String get onboardingPage1Title => 'Treffe deinen Lernfreund';
 
   @override
-  String get onboardingPage1Subtitle =>
-      'Taego begleitet dich durch dein Abenteuer';
+  String get onboardingPage1Subtitle => 'Taego begleitet dich beim Lernen';
 
   @override
   String get onboardingPage2Title => '5 Minuten pro Tag';
 
   @override
-  String get onboardingPage2Subtitle => 'Kurz, effektiv, immer dabei';
+  String get onboardingPage2Subtitle =>
+      'Kurz und leicht in den Alltag einzubauen';
 
   @override
   String get onboardingPage3Title => 'Streaks zählen';
 
   @override
   String get onboardingPage3Subtitle =>
-      'Je öfter du lernst, desto mehr Belohnungen!';
+      'Mit regelmäßigem Lernen sammelst du Belohnungen.';
 
   @override
   String get onboardingPage4Title => 'Wie viel Zeit hast du?';
@@ -1900,7 +1901,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingPrompt =>
-      'Tippe dein Level — du kannst es in den Einstellungen ändern.';
+      'Wähle dein Level. Du kannst es später in den Einstellungen ändern.';
 
   @override
   String get onboardingTigerGreeting => 'Willkommen!\nWo möchtest du starten?';
@@ -1919,7 +1920,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingCompareIntro =>
-      'Frühere Level bleiben immer offen — du kannst dein Level jederzeit in den Einstellungen ändern.';
+      'Frühere Level bleiben offen. Dein Level kannst du jederzeit in den Einstellungen ändern.';
 
   @override
   String get onboardingCompareColCan => 'Das kannst du schon';
@@ -1931,8 +1932,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompareClose => 'Verstanden';
 
   @override
-  String get onboardingLevelA1Can =>
-      'Noch (fast) nichts — vielleicht ein paar Wörter.';
+  String get onboardingLevelA1Can => 'Du kennst vielleicht ein paar Wörter.';
 
   @override
   String get onboardingLevelA1Learn =>
@@ -2029,17 +2029,17 @@ class AppL10nDe extends AppL10n {
   String get scenariosEmptyTitle => 'Bald verfügbar';
 
   @override
-  String get scenariosEmptyBody => 'Wir arbeiten fleißig an neuen Szenarien.';
+  String get scenariosEmptyBody => 'Neue Szenarien folgen bald.';
 
   @override
   String get scenariosLoadFailedTitle => 'Hm, da ist etwas schiefgelaufen';
 
   @override
-  String get statsFirstEntryTitle => 'Deine Reise beginnt';
+  String get statsFirstEntryTitle => 'Dein Fortschritt beginnt hier';
 
   @override
   String get statsFirstEntryBody =>
-      'Schließ ein Szenario ab — danach füllt sich diese Seite mit deinem Fortschritt.';
+      'Schließ ein Szenario ab. Danach siehst du deinen Fortschritt hier.';
 
   @override
   String get statsFirstEntryCta => 'Erstes Szenario starten';
@@ -2063,7 +2063,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get moduleScenariosDesc =>
-      'Lerne, wie Koreaner leben — Café, Flughafen, Vorstellung …';
+      'Übe Alltagssituationen: Café, Flughafen, Vorstellung …';
 
   @override
   String get scenarioIntroTitle => 'Einleitung';
@@ -2186,7 +2186,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get statsNoBadges =>
-      'Noch keine — schließ ein Szenario ab und hol dir die erste! 🚀';
+      'Noch keine. Schließ ein Szenario ab und hol dir die erste! 🚀';
 
   @override
   String get homeRecommended => 'Heute empfohlen';
@@ -2198,7 +2198,7 @@ class AppL10nDe extends AppL10n {
   String get homeNoScenario => 'Bald gibt es Szenarien für dein Level';
 
   @override
-  String get homeGreetingLearn => 'Lerne Koreanisch wie ein Einheimischer';
+  String get homeGreetingLearn => 'Übe Koreanisch für echte Alltagssituationen';
 
   @override
   String get homeTodaySection => 'Heute';
@@ -2403,7 +2403,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get kkeunmariNotInPool =>
-      'Kenn ich noch nicht — versuch ein anderes 🐯';
+      'Das kenne ich noch nicht. Versuch ein anderes Wort. 🐯';
 
   @override
   String get kkeunmariNotKorean => 'Nur Hangul-Wörter, bitte';
@@ -2420,7 +2420,7 @@ class AppL10nDe extends AppL10n {
   String get kkeunmariTimeUp => 'Zeit abgelaufen!';
 
   @override
-  String get kkeunmariDeadEnd => '한방단어 (Sackgasse) — die Kette endet hier';
+  String get kkeunmariDeadEnd => '한방단어 (Sackgasse): Die Kette endet hier.';
 
   @override
   String kkeunmariChainLength(int n) {
@@ -2596,7 +2596,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wbEmptyBody =>
-      'Füge dein erstes Wort hinzu — oder lass die Übersetzung automatisch ausfüllen.';
+      'Füge dein erstes Wort hinzu oder lass die Übersetzung automatisch ausfüllen.';
 
   @override
   String get wbFieldKorean => 'Koreanisch';
@@ -2615,7 +2615,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wbAutoFillOffline =>
-      'Automatisches Ausfüllen gerade nicht möglich — bitte manuell eintragen.';
+      'Automatisches Ausfüllen ist gerade nicht möglich. Bitte trag die Übersetzung selbst ein.';
 
   @override
   String get wbSaveWord => 'Speichern';
@@ -2718,7 +2718,7 @@ class AppL10nDe extends AppL10n {
   String get dailyDesc => 'Tägliches Rätsel · Streak';
 
   @override
-  String get dailyAlreadyDone => 'Heute schon erledigt — Übungsmodus';
+  String get dailyAlreadyDone => 'Heute schon erledigt. Jetzt im Übungsmodus.';
 
   @override
   String dailyStreak(int count) {
@@ -2795,7 +2795,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hardWordsEmptyBody =>
-      'Im Moment gibt es keine besonders schwierigen Wörter. Lern weiter — falls eins hakt, taucht es hier auf.';
+      'Im Moment gibt es keine besonders schwierigen Wörter. Wenn dir eins immer wieder schwerfällt, erscheint es hier.';
 
   @override
   String get hardWordsStudyCta => 'Gezielt wiederholen';
@@ -2844,7 +2844,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wbCoachBody =>
-      'Tippe aufs Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen — aus deiner Wortliste kannst du sogar eigene Lernkarten erstellen!';
+      'Tippe auf das Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen. Aus deiner Wortliste kannst du auch eigene Lernkarten erstellen.';
 
   @override
   String wbAdded(Object word) {
@@ -2958,7 +2958,7 @@ class AppL10nDe extends AppL10n {
       other: '$days Tage am Stück',
       one: '1 Tag am Stück',
     );
-    return '🔥 $_temp0 — heute weiter?';
+    return '🔥 $_temp0. Machst du heute weiter?';
   }
 
   @override
@@ -2978,7 +2978,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get profileGuestDesc =>
-      'Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google gesichert bleibt er erhalten — auch auf einem neuen Handy.';
+      'Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google-Backup bleibt er auch auf einem neuen Handy erhalten.';
 
   @override
   String get profileConnectedBadge => 'Konto verbunden';
@@ -3012,7 +3012,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get accountNudgeBody =>
-      'Verbinde dich mit Google — so überleben dein Streak und deine Vokabeln jeden Handywechsel.';
+      'Verbinde dich mit Google, damit dein Streak und deine Vokabeln bei einem Handywechsel erhalten bleiben.';
 
   @override
   String get accountNudgeConnect => 'Mit Google verbinden';
@@ -3025,7 +3025,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get errorOffline =>
-      'Kein Internet — dein Fortschritt ist lokal sicher.';
+      'Kein Internet. Dein Fortschritt ist auf diesem Gerät sicher.';
 
   @override
   String get accountSafeConnectExplain =>
@@ -3056,7 +3056,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get accountOperationBlockedBody =>
-      'Der Wechsel wurde angehalten — deine bisherigen Daten bleiben unverändert. Du kannst es später erneut versuchen.';
+      'Der Wechsel wurde angehalten. Deine bisherigen Daten bleiben unverändert. Du kannst es später erneut versuchen.';
 
   @override
   String get accountOperationRetryTitle => 'Verbindung nicht abgeschlossen';
@@ -3097,7 +3097,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get consentBody =>
-      'Dein Lernfortschritt bleibt zunächst nur auf deinem Gerät. Optionale Funktionen (Cloud-Backup, Lerngruppen, Foto-Worterkennung, Aussprache-Audio) verarbeiten einzelne Daten auf EU-Servern — Details in der Datenschutzerklärung.';
+      'Dein Lernfortschritt bleibt zunächst auf deinem Gerät. Optionale Funktionen wie Cloud-Backup, Lerngruppen, Foto-Worterkennung und Aussprache-Audio verarbeiten einzelne Daten auf EU-Servern. Details findest du in der Datenschutzerklärung.';
 
   @override
   String get consentPrivacyCta => 'Datenschutzerklärung';
@@ -3149,11 +3149,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeExplainWhat =>
-      'Eine Lerngruppe (Gye) ist eine kleine Gruppe, die gemeinsam Koreanisch lernt — ohne Wettbewerb.';
+      'Ein Gye ist eine kleine Lerngruppe für Koreanisch. Es geht nicht um Wettbewerb.';
 
   @override
   String get gyeExplainWhy =>
-      'Euer Fortschritt lässt ein gemeinsames Hanok wachsen — zusammen bleibt man dran.';
+      'Euer Fortschritt lässt ein gemeinsames Hanok wachsen. Gemeinsam fällt es leichter, dranzubleiben.';
 
   @override
   String get gyeExplainHow =>
@@ -3171,7 +3171,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get motivationSheetSubtitle =>
-      'Wähle deinen Grund — so feuern wir dich richtig an.';
+      'Wähle deinen Grund. Dann können wir dich passend motivieren.';
 
   @override
   String get motivationKpop => 'K-Pop';
@@ -3256,7 +3256,8 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get milestoneStreakBody => 'Dranbleiben zahlt sich aus — weiter so!';
+  String get milestoneStreakBody =>
+      'Regelmäßiges Lernen zahlt sich aus. Weiter so!';
 
   @override
   String get milestoneLevelBody => 'Dein Koreanisch wächst mit jedem Tag.';
@@ -3301,22 +3302,22 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen — Karten umdrehen und einprägen';
+      'Schritt 1 · Lernen: Karten umdrehen und einprägen';
 
   @override
   String get coachVocabPackStep2 =>
-      'Schritt 2 · Quiz — Wähle die richtige Übersetzung';
+      'Schritt 2 · Quiz: Wähle die richtige Übersetzung';
 
   @override
   String get coachVocabPackStep3 =>
-      'Schritt 3 · Boss — Hör zu und wähle die Bedeutung';
+      'Schritt 3 · Boss: Hör zu und wähle die Bedeutung';
 
   @override
   String get coachPackStageQuiz =>
       'Jetzt das Quiz! Wähle die richtige Übersetzung.';
 
   @override
-  String get coachPackStageBoss => 'Der Boss wartet — hör genau hin!';
+  String get coachPackStageBoss => 'Jetzt kommt der Boss. Hör genau hin!';
 
   @override
   String get coachBtnGotIt => 'Alles klar!';
@@ -3335,14 +3336,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get previewPage1Body =>
-      'Fotografiere eine Lehrbuchseite oder Speisekarte — Sori erkennt Wörter, Grammatik und Sätze und legt sie in dein Bücherregal. Das Bild bleibt auf deinem Gerät.';
+      'Fotografiere eine Lehrbuchseite oder Speisekarte. Sori erkennt Wörter, Grammatik und Sätze und legt sie in dein Bücherregal. Das Bild bleibt auf deinem Gerät.';
 
   @override
   String get previewPage2Title => 'Dein Hanok wächst';
 
   @override
   String get previewPage2Body =>
-      'Jedes gemeisterte Paket setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.';
+      'Mit jedem gemeisterten Paket wächst dein Hanok: vom Sockel über die Säulen bis zum Ziegeldach und eigenen Jongga-Hof. Es gibt 12 Stufen.';
 
   @override
   String get previewPage3Title => '5 Minuten am Tag genügen';
@@ -3419,14 +3420,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachHomeMissionBody =>
-      'Tipp auf diese Karte — Hangul Sori sucht dir jeden Tag die passende Aufgabe heraus.';
+      'Tippe auf diese Karte. Hangul Sori sucht dir jeden Tag eine passende Aufgabe aus.';
 
   @override
   String get coachPracticeHubTitle => 'Üben';
 
   @override
   String get coachPracticeHubBody =>
-      'Spiele, Wörter & Grammatik zum Wiederholen — hier vertiefst du, was du schon kennst.';
+      'Hier findest du Spiele, Wörter und Grammatik zum Wiederholen.';
 
   @override
   String get coachHomeTab0Title => 'Start';
@@ -3457,14 +3458,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachHomePathBody =>
-      'Schließ Pakete der Reihe nach ab — der Tiger wächst mit';
+      'Schließ die Pakete der Reihe nach ab. Der Tiger wächst mit dir.';
 
   @override
   String get coachHomeBookTitle => 'Buchschnappschuss';
 
   @override
   String get coachHomeBookBody =>
-      'Foto von deinem Lehrbuch — direkt in die Wortliste';
+      'Foto von deinem Lehrbuch direkt in die Wortliste';
 
   @override
   String get introSkipHint => 'Zum Überspringen tippen';
@@ -3474,7 +3475,7 @@ class AppL10nDe extends AppL10n {
       '📱 „Buchseite einlesen“ funktioniert nur in der mobilen App (Kamera + Texterkennung auf dem Gerät).';
 
   @override
-  String get bookshelfCreatePackNameHint => 'z. B. Schritt 1 — Lektion 5';
+  String get bookshelfCreatePackNameHint => 'z. B. Schritt 1: Lektion 5';
 
   @override
   String get settingsMadeWith => 'Mit ❤ in Deutschland gemacht';
@@ -3491,7 +3492,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachChosungStep2Body =>
-      'Wähle dein Level (A1–B2) und ob Vokale angezeigt werden';
+      'Wähle dein Level von A1 bis B2 und ob Vokale angezeigt werden';
 
   @override
   String get coachChosungStep3Title => 'Antwort eingeben';
@@ -3505,7 +3506,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachWordleStep1Body =>
-      'Rate das gesuchte Wort — du hast 6 Versuche';
+      'Rate das gesuchte Wort. Du hast 6 Versuche.';
 
   @override
   String get coachWordleStep2Title => 'Hinweise nutzen';
@@ -3533,14 +3534,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachKkeunmariStep2Body =>
-      'Du hast 30 Sekunden pro Zug — bringst du den Tiger zum Schweigen?';
+      'Du hast 30 Sekunden pro Zug. Kannst du den Tiger schlagen?';
 
   @override
   String get coachKkeunmariStep3Title => 'Wort eingeben';
 
   @override
   String get coachKkeunmariStep3Body =>
-      'Gib ein gültiges koreanisches Wort ein — der Tiger antwortet automatisch';
+      'Gib ein gültiges koreanisches Wort ein. Der Tiger antwortet automatisch.';
 
   @override
   String get coachListeningStep1Title => 'Situation wählen';
@@ -3554,7 +3555,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachListeningStep2Body =>
-      'Stelle Geschwindigkeit (0,75×–1,25×) und Untertitel-Modus ein';
+      'Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein';
 
   @override
   String get coachListeningStep3Title => 'Zeile für Zeile';
@@ -3564,7 +3565,7 @@ class AppL10nDe extends AppL10n {
       'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile';
 
   @override
-  String get coachHangulTitle => '3 Tabs — 3 Wege zum Hangul';
+  String get coachHangulTitle => 'Drei Tabs zum Hangul-Lernen';
 
   @override
   String get coachHangulBody =>
@@ -3582,7 +3583,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachGrammarStep2Body =>
-      'Wähle Niveau oder Typ — schwierige Karten mit 🤔 als Schwer markieren';
+      'Wähle Niveau oder Typ. Markiere schwierige Karten mit 🤔 als schwer.';
 
   @override
   String get coachSmalltalkStep1Title => 'Thema auswählen';
@@ -3596,14 +3597,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachSmalltalkStep2Body =>
-      'Tippe auf eine Karte zum Vorlesen — ＋ speichert den Ausdruck im Wörterbuch';
+      'Tippe auf eine Karte, um sie anzuhören. Mit ＋ speicherst du den Ausdruck in deiner Wortliste.';
 
   @override
   String get coachScenarioStep1Title => 'Schritt für Schritt';
 
   @override
   String get coachScenarioStep1Body =>
-      'Vokabeln → Dialog → Grammatik → Quests → Ergebnis — alles in dieser Reihenfolge';
+      'Vokabeln → Dialog → Grammatik → Quests → Ergebnis. Geh diese Schritte der Reihe nach durch.';
 
   @override
   String get coachScenarioStep2Title => 'Weiter & Fortschritt';
@@ -3617,7 +3618,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachReviewStep1Body =>
-      'Denk an die Bedeutung — dann Karte antippen, um die Antwort zu sehen';
+      'Denk zuerst an die Bedeutung. Tippe dann auf die Karte, um die Antwort zu sehen.';
 
   @override
   String get coachReviewStep2Title => 'Gewusst oder nicht?';
@@ -3666,7 +3667,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachCpEditStep2Body =>
-      'Karten · Zuordnen · Schreiben · Quiz — wähle den Modus, der am besten passt';
+      'Karten · Zuordnen · Schreiben · Quiz. Wähle den Modus, der zu dir passt.';
 
   @override
   String get coachCpPlayTitle => 'Karteikarten lernen';
@@ -3680,7 +3681,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachCpQuizBody =>
-      'Wähle die richtige Bedeutung — dein Ergebnis fließt ins Wiederholungssystem ein';
+      'Wähle die richtige Bedeutung. Dein Ergebnis wird für die Wiederholung gespeichert.';
 
   @override
   String get coachCpMatchingTitle => 'Paare zuordnen';
@@ -3694,14 +3695,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachCpTypingBody =>
-      'Sieh die Bedeutung — und tippe das koreanische Wort ein. Stärker als reines Wiedererkennen';
+      'Sieh die Bedeutung und tippe das koreanische Wort ein. Das trainiert mehr als bloßes Wiedererkennen.';
 
   @override
   String get coachHardWordsTitle => 'Hartnäckige Wörter';
 
   @override
   String get coachHardWordsBody =>
-      'Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft';
+      'Hier findest du Wörter, die dir noch schwerfallen. Du kannst sie gezielt wiederholen.';
 
   @override
   String get coachDojangTitle => 'Dancheong-Stempel sammeln';
@@ -3715,7 +3716,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachGyeStep1Body =>
-      'Hier seht ihr euren gemeinsamen Fortschritt — zusammen mehr schaffen als allein';
+      'Hier seht ihr euren gemeinsamen Fortschritt. Zusammen bleibt ihr leichter dran.';
 
   @override
   String get coachGyeStep2Title => 'Sticker senden';
@@ -3729,7 +3730,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachProfileBody =>
-      'Verbinde dich mit Google — so bleiben Streak und Vokabeln bei einem Handywechsel erhalten';
+      'Verbinde dich mit Google. So bleiben Streak und Vokabeln bei einem Handywechsel erhalten.';
 
   @override
   String get coachStatsTitle => 'Lernstatistiken';
@@ -3750,7 +3751,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar';
+      'Tippe auf ein Szenario und übe echte Alltagssituationen. Sie werden ab A2 freigeschaltet.';
 
   @override
   String get questSatzBauenInstruction =>
@@ -3769,11 +3770,11 @@ class AppL10nDe extends AppL10n {
   String get diktatShowMeaning => 'Bedeutung zeigen';
 
   @override
-  String get diktatSpellingHint => 'Fast richtig — achte auf die Schreibweise';
+  String get diktatSpellingHint => 'Fast richtig. Achte auf die Schreibweise.';
 
   @override
   String get questDiagOrder =>
-      'Richtige Wörter — nur die Reihenfolge stimmt nicht';
+      'Die Wörter stimmen, aber die Reihenfolge noch nicht.';
 
   @override
   String get questDiagParticle => 'Fast! Achte auf die Partikel (조사)';
@@ -3783,14 +3784,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questDiagWord =>
-      'Ein Wort passt nicht — schau dir das markierte an';
+      'Ein Wort passt nicht. Schau dir das markierte Wort an.';
 
   @override
   String get scenarioRoleplayTitle => 'Rollenspiel';
 
   @override
   String get scenarioRoleplayHint =>
-      'Jetzt bist du dran — bau deine Antworten selbst';
+      'Jetzt bist du dran. Formuliere deine eigene Antwort.';
 
   @override
   String get scenarioRoleplayTurn => 'Deine Antwort';
@@ -4071,7 +4072,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get testerFeedbackSubmitted =>
-      'Danke — dein Check hilft uns, besser zu werden.';
+      'Danke. Dein Feedback hilft uns, besser zu werden.';
 
   @override
   String get testerFeedbackStampAccepted => 'Stempel gesammelt!';
@@ -4355,7 +4356,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangEmptyBody =>
-      'Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.';
+      'Schließe Quests ab und öffne dein Bojagi-Bündel. Danach kannst du die Stube einrichten.';
 
   @override
   String get sarangbangPickTitle => 'Was soll hierhin?';
@@ -4385,7 +4386,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiEmptyBody =>
-      'Schließe eine Quest ab — dafür bekommst du ein Bündel.';
+      'Schließe eine Quest ab. Dafür bekommst du ein Bündel.';
 
   @override
   String get bojagiAllOwnedTitle => 'Nichts Neues drin';
@@ -4399,7 +4400,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiProblemBody =>
-      'Versuch es gleich noch einmal — dein Bündel geht dabei nicht verloren.';
+      'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.';
 
   @override
   String get bojagiRetry => 'Nochmal versuchen';

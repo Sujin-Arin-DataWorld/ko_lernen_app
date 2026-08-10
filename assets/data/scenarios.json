@@ -240,8 +240,8 @@
     },
     "body": {
      "ko": "아아 = 아이스 아메리카노. 한국인은 줄임말을 정말 좋아한다 🙃. 겨울에도 아아를 마시는 사람이 많아서 '얼죽아' = '얼어 죽어도 아이스 아메리카노'라는 표현이 생겼다. 진짜로 쓰는 말이다.",
-     "de": "아아 ist die Kurzform von 아이스 아메리카노. Koreaner lieben Abkürzungen 🙃. Selbst im Winter trinken viele 아아 — daher der Spruch '얼죽아' (eol-juk-a), wörtlich 'lieber erfrieren als heißen Kaffee'. Wird wirklich gesagt.",
-     "en": "아아 is short for 아이스 아메리카노 (iced americano). Koreans love abbreviations 🙃. Even in winter, many people drink 아아 — hence the saying '얼죽아' (eol-juk-a), literally 'I'd rather freeze to death than drink hot coffee'. People actually say this."
+     "de": "아아 ist die Kurzform von 아이스 아메리카노. Viele Menschen trinken ihn auch im Winter. Daher kommt 얼죽아 (eol-juk-a), wörtlich „lieber erfrieren als heißen Kaffee“.",
+     "en": "아아 is short for 아이스 아메리카노 (iced Americano). Many people drink it even in winter. That is where 얼죽아 (eol-juk-a) comes from, literally “rather freeze than drink hot coffee.”"
     }
    }
   },
@@ -1115,8 +1115,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Wenn dein koreanischer Partner '괜찮아' sagt, aber Gesicht und Ton sagen das Gegenteil — glaub dem Gesicht. '괜찮아' ist oft höflicher Schutzschild. Was wirklich heilt: anerkennen ('서운했지') + Schuldübernahme ('내가 잘못했어') + konkrete Zukunft ('다음부터는...'). Vage Entschuldigung = leerer Trost. Konkret werden = ernst meinen.",
-     "en": "When your Korean partner says '괜찮아' but face and tone say otherwise — believe the face. '괜찮아' is often a polite shield. What actually heals: acknowledge ('서운했지') + take blame ('내가 잘못했어') + concrete future ('다음부터는...'). Vague apology = empty comfort. Get specific = mean it."
+     "de": "Wenn jemand „괜찮아“ sagt, aber Gesicht und Ton etwas anderes zeigen, achte auf den Kontext. Eine Entschuldigung wirkt oft aufrichtiger, wenn du benennst, was passiert ist („서운했지“), Verantwortung übernimmst („내가 잘못했어“) und sagst, was du künftig anders machen willst.",
+     "en": "If someone says “괜찮아” but their expression and tone suggest otherwise, pay attention to the context. An apology can feel more sincere when you name what happened (“서운했지”), take responsibility (“내가 잘못했어”), and say what you will do differently next time."
     }
    }
   },
@@ -1372,8 +1372,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Erste Tteokbokki Erfahrung in Hongdae. Du gehst in ein 분식집 (Snack-Restaurant). Aber Achtung: koreanisch 'mild' = europäisch 'medium scharf'. Wie bestellst du wirklich nicht-scharf?",
-    "en": "First tteokbokki experience in Hongdae. You walk into a 분식집 (snack restaurant). But beware: Korean 'mild' = European 'medium spicy'. How do you actually order not-spicy?"
+    "de": "Du gehst in Hongdae in ein 분식집, ein kleines Snack-Restaurant. Du möchtest Tteokbokki bestellen, aber nicht scharf. Wie sagst du das auf Koreanisch?",
+    "en": "You walk into a 분식집, a small snack shop, in Hongdae. You want to order tteokbokki, but not spicy. How do you say that in Korean?"
    },
    "vocab": [
     {
@@ -1880,16 +1880,16 @@
      "korean": "죄송하지만",
      "note": {
       "ko": "",
-      "de": "Entschuldigung, aber... — STARTET fast jede höfliche Ablehnung. Lass das nicht weg.",
-      "en": "Sorry, but... — STARTS almost every polite refusal. Don't skip it."
+      "de": "„Entschuldigung, aber ...“ leitet eine höfliche Ablehnung ein.",
+      "en": "“Sorry, but ...” can introduce a polite refusal."
      }
     },
     {
      "korean": "다음에",
      "note": {
       "ko": "",
-      "de": "Beim nächsten Mal. Pflicht-Phrase nach Ablehnung — signalisiert dauerhaftes Interesse.",
-      "en": "Next time. Mandatory phrase after refusing — signals lasting interest."
+      "de": "„Beim nächsten Mal.“ Das kannst du nach einer Absage sagen, wenn du die Einladung wertschätzt.",
+      "en": "“Next time.” You can say this after turning down an invitation to show that you appreciate it."
      }
     },
     {
@@ -2702,8 +2702,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Für leichte Beschwerden (Kopfweh, Erkältung, Magen, Allergien) brauchst du KEIN Rezept — Apotheker beraten direkt und verkaufen OTC. Sie fragen Symptome ab, schlagen passendes Medikament vor. Preise sehr günstig (€2–5). Allergien IMMER erwähnen ('알러지가 있어요'). Bei ernsteren Symptomen: '병원 가세요' (gehen Sie ins Krankenhaus) — folge dem.",
-     "en": "For minor issues (headache, cold, stomach, allergies) you DON'T need a prescription — pharmacists advise directly and sell OTC. They'll ask symptoms, suggest meds. Prices very cheap (€2–5). ALWAYS mention allergies ('알러지가 있어요'). For serious symptoms: '병원 가세요' (go to the hospital) — follow that."
+     "de": "Bei leichten Beschwerden können Apotheken beraten und frei verkäufliche Medikamente anbieten. Nenne Allergien, zum Beispiel mit „알러지가 있어요“. Bei ernsteren Symptomen solltest du medizinische Hilfe suchen.",
+     "en": "For minor problems, pharmacies can offer advice and over-the-counter medicine. Mention any allergies, for example with “알러지가 있어요.” For serious symptoms, seek medical care."
     }
    }
   },
@@ -4113,8 +4113,8 @@
     },
     "body": {
      "ko": "한국에서 약속을 잡을 때는 보통 지하철역 몇 번 출구를 만남의 장소로 정한다. 'n번 출구 앞에서 봐'가 서울에서 가장 흔한 만남의 장소 표현이다. 카카오톡이 압도적인 메신저이므로 실제로는 카톡으로 약속을 잡는 경우가 대부분이다.",
-     "de": "In Seoul verabredet man sich fast immer vor einem U-Bahn-Ausgang. '2번 출구 앞에서 봐' (vor Ausgang 2) ist die gängigste Art, einen Treffpunkt festzulegen. Praktisch alle Verabredungen laufen über KakaoTalk — Koreas dominanter Messenger-App.",
-     "en": "In Seoul, meeting spots are almost always defined by a subway exit. '2번 출구 앞에서 봐' (in front of exit 2) is the go-to way to agree on where to meet. Most plans are made over KakaoTalk — Korea's dominant messaging app."
+     "de": "In Seoul treffen sich Menschen oft vor einem bestimmten U-Bahn-Ausgang. „2번 출구 앞에서 봐“ bedeutet „Treffen wir uns vor Ausgang 2“. Viele Verabredungen werden über KakaoTalk organisiert.",
+     "en": "In Seoul, people often meet in front of a particular subway exit. “2번 출구 앞에서 봐” means “Let’s meet in front of exit 2.” Many plans are arranged through KakaoTalk."
     }
    }
   },
@@ -5647,8 +5647,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Korea ist Liefer-Weltmeister: Apps wie 배달의민족 liefern fast alles, oft in 30–40 Min. 'Eine ganze Henne' (한 마리) Chicken + Cola an einem Regenabend ist Kult.",
-     "en": "Korea is the delivery champion: apps like Baemin deliver almost anything, often in 30–40 min. 'A whole chicken' (한 마리) + cola on a rainy night is iconic."
+     "de": "Liefer-Apps wie 배달의민족 bringen in Korea viele verschiedene Gerichte nach Hause. Eine Portion „한 마리“ bezeichnet bei Chicken oft ein ganzes Huhn.",
+     "en": "Delivery apps such as Baemin bring many kinds of food to homes in Korea. For chicken, “한 마리” often means a whole bird."
     }
    }
   },
@@ -7311,8 +7311,8 @@
     },
     "body": {
      "ko": "",
-     "de": "In Korea isst man am Geburtstag 미역국 (Seetangsuppe). Gratulieren: '생일 축하해' (banmal) / '생일 축하합니다' (höflich). Geschenke öffnet man oft erst später, nicht sofort vor allen.",
-     "en": "In Korea you eat 미역국 (seaweed soup) on your birthday. Wishing: '생일 축하해' (casual) / '생일 축하합니다' (polite). Gifts are often opened later, not right away in front of everyone."
+     "de": "In Korea essen viele Menschen am Geburtstag 미역국, Seetangsuppe. Du kannst mit „생일 축하해“ locker oder mit „생일 축하합니다“ höflich gratulieren.",
+     "en": "Many people in Korea eat 미역국, seaweed soup, on their birthday. You can say “생일 축하해” casually or “생일 축하합니다” politely."
     }
    }
    },

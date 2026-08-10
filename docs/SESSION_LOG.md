@@ -7,6 +7,35 @@
 
 ---
 
+### 2026-08-10 — DE/EN humanizer pass: UI and learner-facing culture copy
+
+**Why.** Hangul Sori's German and English copy included translation-like phrasing,
+formulaic encouragement, promotional claims, and frequent em/en dashes. The goal was
+to make the interface sound like it was written for native speakers, without changing
+learning objectives, data contracts, or ICU placeholders.
+
+**What.** Reworked the user-facing DE/EN strings in `app_de.arb` and `app_en.arb`:
+onboarding, reminders, progress feedback, Gye, consent, wordbook, and coach text now
+use plainer, more direct app language. Fixed two German grammar errors
+(`zu den Paketen`, `dieses Vokabelpaket`) at the same time. Regenerated the three
+tracked localization outputs.
+
+Rewrote all 30 DE/EN culture notes to remove inflated claims and broad stereotypes
+while preserving the language-learning point. Also tightened nine scenario
+introductions/cultural notes where the prose made unsupported universal claims or
+used theatrical, instruction-manual language. Korean source text, IDs, levels,
+questions, answers, and placeholders are unchanged.
+
+**Verification.** `flutter gen-l10n` · `flutter analyze --fatal-infos` (**0 issues**) ·
+`flutter test test/arb_l10n_guard_test.dart test/l10n_parity_test.dart
+test/data_integrity_test.dart test/culture_notes_test.dart
+test/content_audit_manifest_test.dart` (**14 passed**) ·
+`flutter test test/screen_smoke_test.dart test/accessibility_guideline_test.dart`
+(**55 passed**). JSON parses for both ARB files and both changed content files; the
+user-facing ARB values contain **0** em/en dashes.
+
+**Commit.** Pending local commit. The resulting hash is recorded in the follow-up log update.
+
 ### 2026-08-10 — main red 해소: 요일 의존으로 깨지던 stats 골든 제거
 
 **왜.** `main` 에서 `screen_layout_golden_test` 의 `stats @ medium` · `stats @ expanded` 가 실패했다.
