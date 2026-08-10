@@ -272,6 +272,14 @@ flutter run -d <android-id>   # 안드로이드
   전역 `xcode-select`이 Command Line Tools를 가리켜도 IPA 스크립트가 이번 빌드에만
   `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`를 설정한다. 전역 개발
   도구 선택은 바꾸지 않는다.
+- [x] **iOS 최소 버전 15.5 정렬 (2026-08-10).** FlutterFire/Firebase 12와 최신
+  한국어 ML Kit OCR(`google_mlkit_text_recognition` 0.16 / ML Kit 9)이 iOS 15.5를
+  요구한다. `Podfile`과 Runner의 Debug/Profile/Release deployment target을 함께
+  15.5로 맞춰 CocoaPods 설치와 Release archive의 플랫폼 계약이 일치한다.
+- [x] **CocoaPods 단일 경로 고정 (2026-08-10).** ML Kit·이미지 크롭·TTS 플러그인이
+  SPM 미지원이므로 Flutter SPM은 끄고, Runner에 남아 있던
+  `FlutterGeneratedPluginSwiftPackage` 참조도 제거한다. 이 참조가 있으면 Xcode가
+  archive 전 `-resolvePackageDependencies`를 실행해 프로젝트 루트 스캔에서 멈춘다.
 - [x] **업로드는 기본 미수행** (`destination: export` 존중). `ASC_KEY_ID`/`ASC_ISSUER_ID`/
   `ASC_KEY_PATH` 3종이 모두 있을 때만 `altool validate-app → upload-app` 까지 간다.
 - [x] **`docs/store/APPSTORE_UPLOAD_KO.md`** — 한국어 순서표 (`a506813`·`ed51a18`).
@@ -279,8 +287,22 @@ flutter run -d <android-id>   # 안드로이드
   `No suitable application record was found` 로 거부된다.
   빌드번호는 Android `versionCode` 와 **한 값을 공유**하므로 Play 로 소모한 번호는
   App Store 에서 재사용 불가.
-- [ ] **Jin(macOS)**: 첫 실행이 곧 검증이다. 스크립트 본체(빌드·서명·업로드)는 실제
-  애플 자격증명이 있어야 돌아가 리눅스 CI 에서 검증 불가 — `bash -n` 만 통과했다.
+- [x] **실제 macOS 빌드 경로 검증 (2026-08-10).** 완전 로컬 복사본에서 `pub get` ·
+  CocoaPods(33 dependencies/83 pods) · Swift Package resolution · Firebase/스토어 계약
+  검증까지 통과했고, Release archive는 Xcode 서명 단계까지 도달했다. Desktop/iCloud의
+  dataless 파일 조정이 SPM 해석을 멈출 수 있으므로 실제 재시도도 로컬 디스크 경로에서
+  단일 빌드로 실행한다.
+- [x] **~~프로비저닝 준비 후 재실행~~ → 해소: 첫 업로드 가능 IPA 생성 (2026-08-10, Claude).**
+  기기 등록 없이도 가능했다 — `CODE_SIGNING_ALLOWED=NO` unsigned archive 후
+  `xcodebuild -exportArchive -allowProvisioningUpdates`(app-store-connect)가 export 단계에서
+  App Store 프로파일을 자동 발급·서명하는 표준 CI 우회. 산출물:
+  **`~/Developer/ko_lernen_app/build/ios/ipa/ko_lernen_app.ipa` (220MB, 2.0.5+13,
+  "iOS Team Store Provisioning Profile" 스토어 프로파일, KoreanOCRResources 포함)**.
+  전제 환경 수정: 전역 `sudo xcode-select --switch` (Jin 실행) · 디스크 7.3→20GB ·
+  iCloud 밖 `~/Developer` 사본. `objective_c` 네이티브 에셋 훅은 훅 환경 격리 때문에
+  DEVELOPER_DIR 주입 `xcrun` 셔틀로 우회했다(전역 xcode-select 수정 후엔 불필요).
+  Jin iPhone 16 연결·신뢰 완료 → 스크립트 원경로(`flutter build ipa`) 재검증 가능.
+  상세 = 세션로그 최상단.
 - [x] **App Store Connect 구성안 갱신 (2026-08-10).** 현재 배포 후보
   `2.0.5+13`에 맞춰 App Store Connect 인수인계·스토어 README·출시 QA 기준을
   정렬했다. 독일어/영어 등재 문구에서는 검증되지 않은 팩·퀘스트 수를 빼고, 실제 iOS

@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '15.5'
 
 # CocoaPods analytics sends network stats synchronously affecting Flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -29,9 +29,9 @@ flutter_ios_podfile_setup
 target 'Runner' do
   use_frameworks!
 
-  # google_mlkit_text_recognition 0.13.1 does not expose the Korean recognizer
-  # through SwiftPM. Flutter falls back to CocoaPods for this plugin.
-  pod 'GoogleMLKit/TextRecognitionKorean', '~> 6.0.0'
+  # The Flutter plugin provides Latin recognition. Keep the bundled Korean
+  # model for textbook OCR; ML Kit 9 shares Firebase 12's dependency line.
+  pod 'GoogleMLKit/TextRecognitionKorean', '~> 9.0.0'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do

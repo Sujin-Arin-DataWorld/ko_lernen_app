@@ -21,6 +21,7 @@
 #   FREE_LAUNCH=1        모든 학습 접근을 열고 RevenueCat을 초기화하지 않는
 #                        초기 무료 출시 모드. RC_IOS_KEY 불필요.
 #   SKIP_POD_INSTALL=1   pod install 생략 (직전 빌드에서 Pods 그대로 재사용)
+#   SKIP_PUB_GET=1       flutter pub get 생략 (직전에 성공했고 lockfile을 재사용)
 #   SKIP_VERIFY=1        dart 검증 게이트 생략 (권장하지 않음 — 디버깅용)
 #   ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_PATH
 #                        셋 다 있으면 빌드 후 App Store Connect 업로드까지 수행.
@@ -98,7 +99,11 @@ printf '      겹치면 pubspec.yaml 의 version 뒷자리만 올리고 다시 �
 
 # ── 1. 의존성 ──────────────────────────────────────────────────
 step "의존성"
-flutter pub get
+if [ "${SKIP_PUB_GET:-0}" = 1 ]; then
+  ok "flutter pub get 생략 (SKIP_PUB_GET=1)"
+else
+  flutter pub get
+fi
 if [ "${SKIP_POD_INSTALL:-0}" = 1 ]; then
   ok "pod install 생략 (SKIP_POD_INSTALL=1)"
 else

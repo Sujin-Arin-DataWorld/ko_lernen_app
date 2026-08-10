@@ -7,6 +7,110 @@
 
 ---
 
+### 2026-08-10 — macOS 빌드 환경 4중 장애 해소 + 첫 업로드 가능 IPA 생성 (Claude)
+
+**왜.** iOS 빌드가 어떤 도구(Codex 포함)로도 완주 불가였다. 서로 독립인 장애 4개가 겹쳐 있었다:
+① 전역 `xcode-select`가 CommandLineTools를 가리켜 `xcrun --sdk iphoneos` 계열이 전부 실패
+② 디스크 97% 포화(잔여 7.3GB)로 아카이브 공간 자체가 부족
+③ 그 여파로 iCloud '저장 공간 최적화'가 Desktop 저장소 파일 ~9,500개(lib 295 포함)를
+dataless 퇴출 — git status 2분+ 행, 컴파일 네트워크 대기 (Finder `* 2` 중복 파일도 이 동기화 부작용)
+④ Apple 팀 등록 기기 0대 → 자동 서명이 development 프로파일 생성 거부(직전 세션 로그의 그 실패).
+
+**무엇을.** DerivedData 6.1GB·Gradle caches 8.4GB·Homebrew 캐시 삭제(잔여 20GB).
+untracked `Podfile 2.lock` 등 중복 4개 제거(세션 스크래치에 백업). 저장소를 iCloud 밖
+**`~/Developer/ko_lernen_app`** 으로 rsync(dataless 0개 — 이후 이 사본이 빌드 정본).
+Jin이 `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer` 실행(영구 수정).
+Flutter 네이티브 에셋 훅(`objective_c` build.dart)은 훅 환경 격리로 `DEVELOPER_DIR`이 전달되지
+않아 죽으므로 DEVELOPER_DIR 주입 `xcrun` 셔틀을 PATH 앞에 두어 우회. 기기 미등록 서명 거부는
+`CODE_SIGNING_ALLOWED=NO` unsigned archive → `xcodebuild -exportArchive
+-allowProvisioningUpdates`(app-store-connect, teamID J866ZNXJD6 임시 주입)로 export 단계
+서명하는 표준 CI 우회로 해결. Jin iPhone 16 연결·신뢰 완료 → 이후엔 정상 `flutter build ipa`
+경로도 열릴 것.
+
+**검증.** `~/Developer/ko_lernen_app/build/ios/ipa/ko_lernen_app.ipa` **220MB 생성**.
+embedded provisioning = "iOS Team Store Provisioning Profile: com.sujinarin.koLernenApp"
+(스토어 프로파일), CFBundleShortVersionString 2.0.5 / CFBundleVersion 13,
+`KoreanOCRResources.bundle` 포함. 저장소 추적 파일 무변경(이 로그 항목 제외).
+
+**추가 (같은 날 저녁).** App Store Connect **업로드까지 완료** — Transporter 로그인 불가
+("Neither an encoding house user…")로 우회해 `xcrun altool --validate-app → --upload-app`
++ ASC API 키(Key ID `S3P56LCS55`, `~/.appstoreconnect/private_keys/` 배치)로 업로드.
+VERIFY/UPLOAD 둘 다 무오류, Delivery UUID `287c89e6-eae8-44b7-9a29-c78a2153ee63`.
+앱 레코드는 Jin이 사전 생성(Hangul Sori, iOS+macOS 1.0 준비 중 — macOS는 제출 안 함).
+이후 스크립트 자동 업로드는 `ASC_KEY_ID`/`ASC_ISSUER_ID`/`ASC_KEY_PATH` 3종으로 가능.
+
+**Commit.** 없음 (환경 작업 — Jin 요청 시에만 커밋).
+
+### 2026-08-10 — iOS Release 서명 설정 정렬과 실제 archive 판정
+
+**왜.** Release target이 수동 서명, 고정된 `Hangul Sori App Store` 프로파일 이름,
+SDK별 팀 설정을 동시에 강제하면서, export의 `signingStyle=automatic`과 모순됐다.
+해당 프로파일은 이 Mac에 설치돼 있지 않아 새 환경에서 archive가 재현 가능하게 막혔다.
+
+**무엇을.** `ios/Runner.xcodeproj/project.pbxproj`의 Release target을 자동 서명과
+실제 Apple team `J866ZNXJD6`로 정렬하고, 오래된 수동 인증서·프로파일 지정 값을
+제거했다. Flutter/CocoaPods/Xcode의 문제를 Desktop/iCloud 파일 조정 문제와
+분리하려고 완전 로컬 임시 복사본에서 IPA 경로를 실행했다.
+
+**검증.** Flutter pub get · CocoaPods(33 dependencies/83 pods) · Swift Package
+resolution · Firebase 설정 검증 · iOS/iPad 스토어 계약 검증은 모두 통과했다. Release
+archive는 Xcode 서명 단계까지 도달했고, 현재 유일한 실패는 Apple의
+`No profiles for com.sujinarin.koLernenApp` / 등록 기기 없음 응답이다. 자동 archive는
+먼저 iOS App Development 프로파일을 요구하므로 팀에 기기를 등록해 그 프로파일을
+만들거나 설치해야 하며, export용 App Store 배포 프로파일도 Push·Sign in with Apple
+capability로 준비해야 한다. 그 전에는 이 checkout에서 업로드 가능한 IPA를 생성할 수
+없다.
+
+**Commit.** Pending (not requested).
+
+### 2026-08-10 — Firebase 12와 한국어 OCR의 iOS 의존성 충돌 해소
+
+**왜.** 초기 CocoaPods 경로의 `google_mlkit_text_recognition` 0.13.1과 수동 한국어
+OCR pod는 ML Kit 6 / `GoogleDataTransport` 9 계열을 요구했지만, 현재
+Firebase Messaging 12.17은 `GoogleDataTransport` 10 계열을 요구해 pod 설치가
+해결되지 않았다.
+
+**무엇을.** OCR Flutter 플러그인을 0.16.0(ML Kit 9)으로 올리고, 한국어 모델 pod를
+`GoogleMLKit/TextRecognitionKorean ~> 9.0.0`으로 정렬했다. 해당 ML Kit 세대의
+공식 최소 iOS가 15.5이므로 Podfile과 모든 Runner build configuration도 15.5로
+맞췄다. 기존 `SnapOcrService`의 Korean·Latin recognizer API는 유지된다.
+
+**검증.** Flutter 3.44.0 / Dart 3.12.0이 플러그인의 Flutter 3.32 / Dart 3.8 최소
+조건을 충족함을 확인. ML Kit 9 podspec의 `MLKitTextRecognitionKorean ~> 6.0.0`,
+`MLKitVision ~> 10.0.0`, iOS 15.5 계약 확인. 이후 `flutter pub get`, `pod install`,
+OCR 테스트와 무료 출시 IPA archive를 재실행한다. 스토어 계약 검증기의 기존 정확히
+`13.0` 문자열만 찾는 기준은 15.5를 거짓 실패로 판정했으므로, 13.0 이상 숫자 값을
+인정하도록 고쳤다. 또한 Flutter SPM을 껐는데도 Runner 프로젝트에 남아 있던
+`FlutterGeneratedPluginSwiftPackage` 참조가 archive 전 `-resolvePackageDependencies`
+를 강제해 멈추는 것을 확인해, 해당 CocoaPods 비호환 잔여 참조를 제거했다.
+Flutter가 생성한 xcconfig·환경 스크립트에도 같은 SPM 경로가 남아 있어 이를
+제거했다. CocoaPods 단일 경로에서 이 경로는 존재하지 않아 Flutter가 iOS를
+미구성으로 오판하게 한다.
+
+**빌드 재개성.** 이미 성공한 의존성 설치를 재사용할 때 `SKIP_PUB_GET=1`을
+추가했다. `SKIP_POD_INSTALL=1`과 함께 중복 패키지 해결 대기를 피하되, 기본값은
+기존처럼 두 의존성 단계를 모두 수행한다.
+
+**Commit.** Pending (not requested).
+
+---
+
+### 2026-08-10 — Firebase 12 CocoaPods 요구에 맞춰 iOS 15.0으로 정렬
+
+**왜.** Swift Package Manager를 끄고 CocoaPods 경로로 IPA를 빌드하자
+`cloud_functions`가 iOS 15.0 이상을 요구하는데 프로젝트의 Podfile과 Runner target은
+13.0에 머물러 있어 의존성 해석이 중단됐다.
+
+**무엇을.** `ios/Podfile`과 Runner의 Debug/Profile/Release deployment target을 모두
+15.0으로 맞췄다. 현재 FlutterFire/Firebase 12 계열의 최소 플랫폼과 실제 Release
+archive 설정이 이제 일치한다.
+
+**검증.** `cloud_functions.podspec`의 `s.ios.deployment_target = '15.0'` 확인. 이후
+CocoaPods 설치와 무료 출시 IPA archive를 재실행한다.
+
+**Commit.** Pending (not requested).
+
+
 ### 2026-08-10 (Codex) — UX rebuild plan revalidated against code and test scope
 
 **What.** Re-audited the current tracked checkout and replaced the UX rebuild plan's candidate-only scope with verified route, state, storage, Cloud Function, and test boundaries. The plan now records the actual onboarding branches, Home → Sarangbang pack-access handoff, course link/provenance behavior, Hanok projection inputs, and the Gye pack-triggered server model. It fixes the implementation sequence around a shared Today destination executor, migration-safe onboarding state, a pure course step planner, and a strict UI-only versus server-side Gye split.

@@ -55,7 +55,8 @@ dependencies:
 
   # ── Phase 5 (stately-rising-jongga) — 책 한 컷 ───────────
   # OCR: ML Kit (on-device, 무료, 한국어 지원)
-  google_mlkit_text_recognition: ^0.13.0
+  # 0.16 aligns its iOS ML Kit dependencies with Firebase 12.
+  google_mlkit_text_recognition: ^0.16.0
   # 사진 캡쳐 + 자르기
   image_picker:   ^1.2.3
   image_cropper:  ^8.0.2

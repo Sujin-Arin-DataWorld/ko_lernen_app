@@ -157,6 +157,13 @@ List<String> _listIds(String body, String key) {
 
 bool _hasToken(String source, String token) => source.contains(token);
 
+bool _hasMinimumIosDeploymentTarget(String source, {required double minimum}) {
+  final values = RegExp(
+    r'IPHONEOS_DEPLOYMENT_TARGET\s*=\s*([0-9]+(?:\.[0-9]+)?);',
+  ).allMatches(source).map((match) => double.tryParse(match.group(1)!));
+  return values.any((value) => value != null && value >= minimum);
+}
+
 bool _hasIpadOrientations(String infoPlistSource) {
   final array = RegExp(
     r'<key>\s*UISupportedInterfaceOrientations~ipad\s*</key>\s*<array>([\s\S]*?)</array>',
@@ -334,8 +341,8 @@ IosStoreContractResult inspectIosStoreContract({
   )) {
     violations.add('Runner bundle identifier is missing');
   }
-  if (!_hasToken(projectSource, 'IPHONEOS_DEPLOYMENT_TARGET = 13.0;')) {
-    violations.add('iOS 13.0 deployment target is missing');
+  if (!_hasMinimumIosDeploymentTarget(projectSource, minimum: 13.0)) {
+    violations.add('iOS 13.0 or later deployment target is missing');
   }
   if (!_hasToken(projectSource, 'TARGETED_DEVICE_FAMILY = "1,2";')) {
     violations.add('iPad target family is missing');
