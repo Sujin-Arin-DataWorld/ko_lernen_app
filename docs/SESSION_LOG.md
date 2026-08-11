@@ -7,6 +7,20 @@
 
 ---
 
+### 2026-08-11 (Claude) — 카드 타이포 재조정 + 예문 데이터·wordle 버그 수정
+
+**왜.** Jin 실기기 피드백: 복습 카드 글씨 과대(특히 긴 독일어 뜻 3줄 폭주)·상단 쏠림·음성/뜻 답답 + "Nein" 예문 한/독 뜻 불일치 + Silben-Rätsel(wordle) 오버플로·정답버튼 중복.
+
+**무엇을(수정·커밋).**
+- `review_session_screen.dart`: 뜻 헤드라인 `FittedBox(scaleDown)`+max 66→48, 앞면 단어 max 120→92·예문 max 40→34, 음성↔뜻 간격↑, **빈 CultureNoteCard 슬롯 제거**(`noteFor==null`이면 spaceEvenly 슬롯 안 만듦 → 상단 쏠림 해소). min은 불변(폰 무영향). (커밋 `d546040`)
+- `korean_vocab.csv`(아니요/Nein): 예문 독/영을 한국어 "저는 안 갈래요"에 맞춤(`Nein, ich möchte nicht gehen.` / `No, I don't want to go.`). 한국어 텍스트 불변 → 기존 예문 TTS 캐시 유지. (커밋 `4bbf969`)
+- `wordle_screen.dart`: (1) 결과 시 그리드가 큰 결과카드에 짜부라져 나던 `BOTTOM OVERFLOWED 106px` → **종료 시 빈 줄 제외**(rows=추측수, cell도 그 수 기준)로 자동 맞춤. (2) 하단 "Neues Wort"가 상태 무관 표시돼 결과카드 내부 버튼과 **중복** → `!_won && !_lost`로 숨김. (동시 세션 `a051bfb`가 내 변경 + 배너 숨김 보완을 함께 커밋함.)
+
+**검증.** `flutter analyze`(review+wordle) 0 issues · 회귀 테스트 24 통과.
+**남음.** wordle **패배** 시엔 6줄 유지 → 아주 작은 화면 재발 가능성 실기기 확인. 복습 카드 재조정 방향 OK면 형제 5화면에 동일 축소 전파.
+
+---
+
 ### 2026-08-11 (Claude) — 학습 카드 텍스트 채움 타이포 + Android R8 keep 강화
 
 **왜.** Jin 스크린샷: 복습 "단어 카드"의 텍스트가 82% 높이 히어로 카드 대비 너무 작게 가운데 뭉쳐 충전율 ~42%. 요청: 히어로/포커스 학습 카드는 "채워 키우기", 크롬(버튼·네비·리스트·칩)은 유지 + 빌드 최적화(최적화/난독화/축소 = Android R8) 강화. (Jin 자는 중 자율 진행·커밋 승인.)
