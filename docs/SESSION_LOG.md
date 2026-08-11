@@ -26,24 +26,27 @@
 
 ---
 
-### 2026-08-11 (Codex) — 01C 동행 캐릭터 선택·확정 흐름 보완
+### 2026-08-11 (Codex) — 01D 동행 캐릭터 선택 화면·확정 흐름 보완
 
 **왜.** 01–02 목업을 다시 화면·CTA·저장 결과까지 대조하는 중, 01C의
-`Lernfreund wählen`은 기존 선택 화면을 열지만 선택 뒤 2.4초 후 자동 이동해
-사용자가 동행을 확인하고 Today로 계속하는 독립된 선택 단계가 약했다. 사용자도
-캐릭터 선택 화면 누락을 지적했다.
+`Lernfreund wählen`은 기존 선택 화면을 열지만 목업에는 이 독립 화면이 01D로
+명시되지 않았고, 선택 뒤 2.4초 후 자동 이동해 사용자가 다음 행동을 통제하기
+어려웠다. 사용자도 캐릭터 선택 화면 누락을 직접 지적했다.
 
 **무엇을.** 첫 성공에서만 열리는 optional `CharacterSelectionScreen`은 이제
-기존 태고·조이 카드 중 하나를 고른 뒤, 선택한 동행을 확인하고 `Mit Begleitung
-zu Heute`를 눌러야 완료된다. `Anders wählen`으로 되돌아갈 수 있고, `Jetzt nicht`
-및 첫 성공 화면의 `Ohne Begleitung zu Heute`는 모두 선택 없이 정상적으로 Today로
-끝난다. 기존 직접 캐릭터 선택 경로의 자동 다음 단계는 변경하지 않았다. 선택은
-기존 `MascotPreference`/`Storage`에 저장되며 새 이미지·영상은 만들거나 추가하지
-않았다.
+기존 태고·조이 에셋을 같은 화면에 계속 보여 주며, 카드 탭은 화면 안에서만
+미리 선택한다. `Mit Begleitung zu Heute`를 눌렀을 때만 기존
+`MascotPreference`/`Storage` 한 경로로 확정 저장하고 Today로 간다. Back/`Jetzt
+nicht`는 반쪽 선택을 남기지 않으며, 첫 성공 화면의 보조 행동도 사실과 맞는
+`Direkt zu Heute`로 정리했다. 기존 직접 캐릭터 선택 경로의 자동 다음 단계는
+변경하지 않았고 새 이미지·영상은 만들거나 추가하지 않았다.
 
-**검증.** `flutter gen-l10n`, `flutter analyze --fatal-infos`(No issues found),
-`git diff --check`를 실행했다. 01A–01C consent/onboarding/동행 흐름 묶음
-**24 tests**, 02A–02D Today/미션/맥락/결과 묶음 **57 tests**가 통과했다.
+**검증.** 01C→01D→조이 확정→Today 통합 경로, 태고/조이 변경, 미선택 CTA,
+skip 무저장, TalkBack/VoiceOver 탭 액션·선택 상태를 자동화했다. 캐릭터·첫 성공·
+게이트 집중 묶음 **10 tests**, 화면 smoke와 308–1280dp·1.3 글자·360×400 낮은
+높이를 포함한 반응형 묶음까지 합쳐 **792 tests**가 통과했다. `flutter gen-l10n`,
+변경 파일 `flutter analyze --fatal-infos`(No issues found), 기존 에셋 경로 검사와
+`git diff --check`도 통과했다.
 
 ---
 

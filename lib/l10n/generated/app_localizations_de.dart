@@ -1915,6 +1915,13 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompanionSkip => 'Jetzt nicht';
 
   @override
+  String get onboardingCompanionEyebrow => 'Deine Lernbegleitung';
+
+  @override
+  String get onboardingCompanionPrompt =>
+      'Wähle Taego oder Joy. Beide helfen dir, und du kannst dich auch später entscheiden.';
+
+  @override
   String get onboardingCompanionSelectedTiger => 'Taego begleitet dich.';
 
   @override
@@ -1951,10 +1958,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get firstVoiceCompanionBody =>
-      'Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.';
+      'Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.';
 
   @override
-  String get firstVoiceSkip => 'Ohne Begleitung zu Heute';
+  String get firstVoiceSkip => 'Direkt zu Heute';
 
   @override
   String get missionContextLabel => 'Aktuelle Mission';

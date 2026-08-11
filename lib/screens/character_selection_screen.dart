@@ -10,6 +10,7 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
@@ -45,7 +46,7 @@ class CharacterSelectionScreen extends StatefulWidget {
 
   /// Test and embedding seam for the optional route. When omitted, completion
   /// returns to the route that opened the chooser.
-  final VoidCallback? onOptionalComplete;
+  final FutureOr<void> Function()? onOptionalComplete;
 
   @override
   State<CharacterSelectionScreen> createState() =>
@@ -79,6 +80,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   Future<void> _handleSelection(MascotKind kind) async {
     if (_isLoading) return;
 
+    // 01D stages the visible choice first. The preference is committed only
+    // when the learner chooses the explicit Today CTA, so Back/Not now never
+    // leaves a half-confirmed companion behind.
+    if (widget.optional) {
+      setState(() => _selected = kind);
+      return;
+    }
+
     setState(() {
       _selected = kind;
       _isLoading = true;
@@ -87,15 +96,6 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     await MascotPreference.set(kind);
     if (!mounted) return;
-
-    // In the 01C first-success flow, choosing is a deliberate state instead
-    // of a transient tap: show the learner who they selected and let them
-    // explicitly continue to Today. The legacy direct chooser retains its
-    // established automatic progression below.
-    if (widget.optional) {
-      setState(() => _isLoading = false);
-      return;
-    }
 
     // 확정 화면은 정적 마스코트 + 캡션(영상 없음 → 깜빡임 0)이라 영상 완료
     // 콜백이 없다. "선택되었습니다"를 잠깐 보여준 뒤 이 타이머가 **딱 한 번**
@@ -113,7 +113,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     if (widget.optional) {
       await Storage.setIntroPreviewSeen();
       if (!mounted) return;
-      _completeOptional();
+      await _completeOptional();
       return;
     }
     debugPrint(
@@ -142,7 +142,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     _navigated = true;
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
-    _completeOptional();
+    await _completeOptional();
   }
 
   Future<void> _confirmOptionalSelection() async {
@@ -152,9 +152,11 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     _advanceGuard?.cancel();
     setState(() => _isLoading = true);
     _navigated = true;
+    await MascotPreference.set(_selected!);
+    if (!mounted) return;
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
-    _completeOptional();
+    await _completeOptional();
   }
 
   void _changeOptionalSelection() {
@@ -163,18 +165,191 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     setState(() => _selected = null);
   }
 
-  void _completeOptional() {
+  Future<void> _completeOptional() async {
     final callback = widget.onOptionalComplete;
     if (callback != null) {
-      callback();
+      await callback();
       return;
     }
-    Navigator.of(context).maybePop();
+    final navigator = Navigator.of(context);
+    if (navigator.canPop()) {
+      navigator.pop(true);
+    }
+  }
+
+  Widget _buildOptionalCompanionScreen(BuildContext context, AppL10n t) {
+    final text = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+
+    return Scaffold(
+      body: SafeArea(
+        child: SoriCenterClamp(
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  key: const ValueKey('companion-selection-scroll'),
+                  padding: const EdgeInsets.fromLTRB(
+                    Spacing.lg,
+                    Spacing.sm,
+                    Spacing.lg,
+                    Spacing.lg,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: IconButton(
+                          key: const ValueKey('companion-selection-back'),
+                          tooltip: MaterialLocalizations.of(
+                            context,
+                          ).backButtonTooltip,
+                          onPressed: _isLoading
+                              ? null
+                              : () => Navigator.of(context).maybePop(),
+                          icon: const Icon(Icons.arrow_back_rounded),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        t.onboardingCompanionEyebrow,
+                        style: text.label.copyWith(color: SoriColors.primary),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      Text(t.characterSelectionTitle, style: text.h1),
+                      const SizedBox(height: Spacing.sm),
+                      Text(t.onboardingCompanionPrompt, style: text.bodySmall),
+                      const SizedBox(height: Spacing.lg),
+                      _OptionalCharacterCard(
+                        key: const ValueKey('companion-option-tiger'),
+                        kind: MascotKind.tiger,
+                        name:
+                            '${t.characterNameTiger} · ${t.characterRomanTiger}',
+                        trait: t.characterTraitTiger,
+                        description: t.characterDescTiger,
+                        panelColor: _kTigerStagePanel,
+                        accent: SoriColors.tigerOnLight,
+                        selected: _selected == MascotKind.tiger,
+                        onTap: _isLoading
+                            ? null
+                            : () => _handleSelection(MascotKind.tiger),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      _OptionalCharacterCard(
+                        key: const ValueKey('companion-option-magpie'),
+                        kind: MascotKind.magpie,
+                        name:
+                            '${t.characterNameMagpie} · ${t.characterRomanMagpie}',
+                        trait: t.characterTraitMagpie,
+                        description: t.characterDescMagpie,
+                        panelColor: _kMagpieStagePanel,
+                        accent: SoriColors.primary,
+                        selected: _selected == MascotKind.magpie,
+                        onTap: _isLoading
+                            ? null
+                            : () => _handleSelection(MascotKind.magpie),
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      AnimatedSwitcher(
+                        duration: SoriMotion.respect(
+                          context,
+                          SoriMotion.medium,
+                        ),
+                        child: _selected == null
+                            ? const SizedBox.shrink()
+                            : Container(
+                                key: ValueKey<String>(
+                                  'companion-selection-${_selected!.name}',
+                                ),
+                                padding: const EdgeInsets.all(Spacing.md),
+                                decoration: BoxDecoration(
+                                  color: surfaces.surfaceAlt,
+                                  border: Border.all(
+                                    color: SoriColors.primary.withValues(
+                                      alpha: 0.45,
+                                    ),
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    SoriRadius.lg,
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _selected == MascotKind.magpie
+                                          ? t.onboardingCompanionSelectedMagpie
+                                          : t.onboardingCompanionSelectedTiger,
+                                      style: text.cardTitle.copyWith(
+                                        color:
+                                            surfaces.brightness ==
+                                                Brightness.light
+                                            ? SoriColors.primaryOnLight
+                                            : SoriColors.primaryOnDark,
+                                      ),
+                                    ),
+                                    const SizedBox(height: Spacing.xs),
+                                    Text(
+                                      t.onboardingCompanionSelectionBody,
+                                      style: text.caption,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: surfaces.bg,
+                  border: Border(top: BorderSide(color: surfaces.border)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    Spacing.lg,
+                    Spacing.md,
+                    Spacing.lg,
+                    Spacing.sm,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SoriButton.filled(
+                        key: const ValueKey('companion-selection-continue'),
+                        label: t.onboardingCompanionContinue,
+                        trailingIcon: Icons.arrow_forward_rounded,
+                        fullWidth: true,
+                        onTap: _selected == null || _isLoading
+                            ? null
+                            : _confirmOptionalSelection,
+                      ),
+                      const SizedBox(height: Spacing.xs),
+                      TextButton(
+                        key: const ValueKey('companion-selection-skip'),
+                        onPressed: _isLoading ? null : _skipOptional,
+                        child: Text(t.onboardingCompanionSkip),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+
+    if (widget.optional) {
+      return _buildOptionalCompanionScreen(context, t);
+    }
 
     return Scaffold(
       body: SafeArea(
@@ -365,6 +540,131 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             ],
                           ],
                   ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Compact 01D option used after the first verified success. It keeps both
+/// companions visible while the learner decides, so changing a choice is one
+/// direct tap instead of a second confirmation route.
+class _OptionalCharacterCard extends StatelessWidget {
+  const _OptionalCharacterCard({
+    super.key,
+    required this.kind,
+    required this.name,
+    required this.trait,
+    required this.description,
+    required this.panelColor,
+    required this.accent,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final MascotKind kind;
+  final String name;
+  final String trait;
+  final String description;
+  final Color panelColor;
+  final Color accent;
+  final bool selected;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    final radius = BorderRadius.circular(SoriRadius.lg);
+
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: onTap != null,
+      selected: selected,
+      label: '$name. $trait. $description',
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: AnimatedContainer(
+          duration: SoriMotion.respect(context, SoriMotion.medium),
+          decoration: BoxDecoration(
+            color: selected
+                ? Color.alphaBlend(
+                    accent.withValues(alpha: 0.08),
+                    surfaces.surface,
+                  )
+                : surfaces.surface,
+            border: Border.all(
+              color: selected ? accent : surfaces.border,
+              width: selected ? 2 : 1.5,
+            ),
+            borderRadius: radius,
+            boxShadow: selected
+                ? [
+                    BoxShadow(
+                      color: accent.withValues(alpha: 0.12),
+                      blurRadius: 12,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
+                : const [],
+          ),
+          child: Material(
+            color: Colors.transparent,
+            borderRadius: radius,
+            child: InkWell(
+              borderRadius: radius,
+              onTap: onTap,
+              child: Padding(
+                padding: const EdgeInsets.all(Spacing.sm),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 96,
+                      height: 96,
+                      decoration: BoxDecoration(
+                        color: panelColor,
+                        borderRadius: BorderRadius.circular(SoriRadius.md),
+                      ),
+                      alignment: Alignment.center,
+                      child: Mascot(
+                        kind: kind,
+                        emotion: MascotEmotion.smile,
+                        size: 88,
+                        animate: false,
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(name, style: text.cardTitle),
+                          const SizedBox(height: 2),
+                          Text(
+                            trait,
+                            style: text.label.copyWith(color: accent),
+                          ),
+                          const SizedBox(height: Spacing.xs),
+                          Text(description, style: text.caption),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Icon(
+                      selected
+                          ? Icons.check_circle_rounded
+                          : Icons.radio_button_unchecked_rounded,
+                      color: selected ? accent : surfaces.textDim,
+                      size: 26,
+                    ),
+                  ],
                 ),
               ),
             ),

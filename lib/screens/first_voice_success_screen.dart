@@ -31,14 +31,14 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
   }
 
   Future<void> _chooseCompanion(BuildContext context) async {
-    await Navigator.of(context).push<void>(
-      SoriTransitions.fadeScale(
-        (_) => CharacterSelectionScreen(
-          optional: true,
-          onOptionalComplete: () => _finish(context),
-        ),
+    final completed = await Navigator.of(context).push<bool>(
+      SoriTransitions.fadeScale<bool>(
+        (_) => const CharacterSelectionScreen(optional: true),
       ),
     );
+    if (completed == true && context.mounted) {
+      await _finish(context);
+    }
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction, Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,6 +8,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 /// 캐릭터 선택 화면 (2026-08-03 일월 무대 리디자인) 스모크.
@@ -17,6 +20,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
     MascotPreference.load();
@@ -112,15 +116,20 @@ void main() {
     await tester.pump(const Duration(milliseconds: 900));
 
     expect(find.text('Not now'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('companion-option-magpie')));
+    await tester.pump();
+    expect(find.text('Joy will learn with you.'), findsOneWidget);
     await tester.tap(find.text('Not now'));
     await tester.pump();
 
     expect(completed, isTrue);
     expect(Storage.introPreviewSeen, isTrue);
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
     expect(find.byType(ConsentScreen), findsNothing);
   });
 
-  testWidgets('01C companion choice waits for an explicit Today confirmation', (
+  testWidgets('01D keeps both choices visible and confirms the final choice', (
     tester,
   ) async {
     var completed = false;
@@ -137,19 +146,70 @@ void main() {
     );
     await tester.pump(const Duration(milliseconds: 900));
 
-    await tester.tap(find.textContaining('Taego', findRichText: true).first);
+    final continueButton = find.byKey(
+      const ValueKey('companion-selection-continue'),
+    );
+    expect(tester.widget<SoriButton>(continueButton).onTap, isNull);
+
+    await tester.tap(find.byKey(const ValueKey('companion-option-tiger')));
     await tester.pump();
 
     expect(completed, isFalse);
-    expect(Storage.preferredMascot, 'tiger');
     expect(find.text('Taego will learn with you.'), findsOneWidget);
-    expect(find.text('Continue to Today with a companion'), findsOneWidget);
+    expect(tester.widget<SoriButton>(continueButton).onTap, isNotNull);
+    expect(
+      find.byKey(const ValueKey('companion-option-magpie')),
+      findsOneWidget,
+    );
 
-    await tester.tap(find.text('Continue to Today with a companion'));
+    await tester.tap(find.byKey(const ValueKey('companion-option-magpie')));
+    await tester.pump();
+
+    var preferences = await SharedPreferences.getInstance();
+    expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
+    expect(find.text('Joy will learn with you.'), findsOneWidget);
+    expect(find.text('Taego will learn with you.'), findsNothing);
+
+    await tester.tap(continueButton);
     await tester.pump();
 
     expect(completed, isTrue);
     expect(Storage.introPreviewSeen, isTrue);
+    preferences = await SharedPreferences.getInstance();
+    expect(preferences.getString('kl_preferred_mascot'), 'magpie');
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('01D exposes semantic tap actions and selected state', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        locale: Locale('en'),
+        home: CharacterSelectionScreen(optional: true),
+      ),
+    );
+    await tester.pump();
+
+    final tiger = find.byKey(const ValueKey('companion-option-tiger'));
+    var data = tester.getSemantics(tiger).getSemanticsData();
+    expect(data.hasAction(SemanticsAction.tap), isTrue);
+    expect(data.flagsCollection.isSelected, Tristate.isFalse);
+
+    await tester.tap(tiger);
+    await tester.pump();
+
+    data = tester.getSemantics(tiger).getSemanticsData();
+    expect(data.hasAction(SemanticsAction.tap), isTrue);
+    expect(data.flagsCollection.isSelected, Tristate.isTrue);
+    semantics.dispose();
   });
 }

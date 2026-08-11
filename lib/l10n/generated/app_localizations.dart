@@ -3469,6 +3469,18 @@ abstract class AppL10n {
   /// **'Jetzt nicht'**
   String get onboardingCompanionSkip;
 
+  /// No description provided for @onboardingCompanionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lernbegleitung'**
+  String get onboardingCompanionEyebrow;
+
+  /// No description provided for @onboardingCompanionPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle Taego oder Joy. Beide helfen dir, und du kannst dich auch später entscheiden.'**
+  String get onboardingCompanionPrompt;
+
   /// No description provided for @onboardingCompanionSelectedTiger.
   ///
   /// In de, this message translates to:
@@ -3538,13 +3550,13 @@ abstract class AppL10n {
   /// No description provided for @firstVoiceCompanionBody.
   ///
   /// In de, this message translates to:
-  /// **'Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.'**
+  /// **'Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.'**
   String get firstVoiceCompanionBody;
 
   /// No description provided for @firstVoiceSkip.
   ///
   /// In de, this message translates to:
-  /// **'Ohne Begleitung zu Heute'**
+  /// **'Direkt zu Heute'**
   String get firstVoiceSkip;
 
   /// No description provided for @missionContextLabel.

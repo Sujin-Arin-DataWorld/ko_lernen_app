@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/course_mission_screen.dart';
@@ -86,6 +87,7 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'first voice success': const FirstVoiceSuccessScreen(
     canDo: 'Ich kann jemanden begrüßen.',
   ),
+  'companion selection': const CharacterSelectionScreen(optional: true),
   'course mission': const CourseMissionScreen(),
   'paywall': const PaywallScreen(),
   'chosung': const ChosungQuizScreen(),

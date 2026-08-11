@@ -100,6 +100,7 @@
     .back { display: inline-flex; width: max-content; margin-bottom: 15px; color: var(--jade); font-size: 13px; font-weight: 800; }
     .button { display: flex; min-height: 52px; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border: 0; border-radius: 16px; color: white; background: var(--jade); box-shadow: 0 5px 0 #155144; font: inherit; font-size: 15px; font-weight: 900; }
     .button:active { box-shadow: 0 2px 0 #155144; transform: translateY(3px); }
+    .button.disabled { color: #7f8781; background: #e8e3d9; box-shadow: none; cursor: not-allowed; }
     .button.cream { color: var(--jade); background: #fff8e8; box-shadow: 0 5px 0 #dacfb9; }
     .button.red { background: var(--red); box-shadow: 0 5px 0 #883828; }
     .text-action { width: max-content; margin: 13px auto 0; color: var(--jade); border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 800; }
@@ -118,6 +119,15 @@
     .check.on { border-color: var(--jade); background: var(--jade); }
     .choice b { display: block; font-size: 14px; }
     .choice span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .companion-choice { position: relative; display: grid; grid-template-columns: 96px 1fr 24px; align-items: center; gap: 12px; padding: 12px; border: 1.5px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .companion-choice + .companion-choice { margin-top: 10px; }
+    .companion-choice.selected { border-color: var(--jade); background: #eff7f2; box-shadow: inset 4px 0 0 var(--jade); }
+    .companion-choice img { width: 96px; height: 96px; object-fit: contain; border-radius: 14px; background: #f3ead7; }
+    .companion-choice.magpie img { background: #dcebe2; }
+    .companion-choice b { display: block; font-size: 16px; }
+    .companion-choice strong { display: block; margin-top: 3px; color: var(--jade); font-size: 11px; }
+    .companion-choice span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .companion-choice .check { justify-self: end; }
     .scene { position: relative; overflow: hidden; min-height: 190px; border-radius: 20px; background: linear-gradient(#dcebe7 0 50%, #e9dbb8 50%); }
     .sun { position: absolute; top: 23px; right: 35px; width: 30px; height: 30px; border-radius: 50%; background: #f2c36a; }
     .mountain { position: absolute; bottom: 55px; left: -20px; width: 270px; height: 125px; background: #91b6a8; clip-path: polygon(0 100%, 28% 36%, 43% 68%, 62% 20%, 100% 100%); }
@@ -218,7 +228,7 @@
     </section>
 
     <section id="onboarding" class="screen-section">
-      <header><h2>01 · 시작은 3개 화면, 첫 소리는 바로</h2><p>자동 재생 소개와 캐릭터 선택으로 학습을 미루지 않는다. 법적 동의만 먼저, 레벨 판단은 사용자가 통제한다.</p></header>
+      <header><h2>01 · 첫 성공까지 짧게, 동행은 그다음</h2><p>자동 재생 소개와 선행 캐릭터 선택으로 학습을 미루지 않는다. 법적 동의와 목적 선택 뒤 첫 소리를 바로 경험하고, 동행은 성공 뒤 선택한다.</p></header>
       <div class="phone-grid">
         <article class="mock">
           <h3>01A. 필수 동의</h3><p>기존 consent를 남기되, 제품 소개·캐릭터·미리보기는 여기서 빼낸다.</p>
@@ -249,8 +259,24 @@
             <div class="status"><span>9:42</span><span class="brand"><i></i>한글소리</span><span>🔈</span></div><div class="stamp">ERSTE<br>STIMME</div>
             <h4>Du hast dein erstes Koreanisch verstanden.</h4><p class="lead">안녕하세요 · eine Begrüßung, die du jetzt hören und erwidern kannst.</p>
             <div class="can-do"><b>Ich kann jemanden freundlich begrüßen.</b><span class="meta">Dein A1-Weg beginnt mit dieser Szene.</span></div>
-            <div class="card" style="margin-top:14px"><div class="card-title">Möchtest du eine Lernbegleitung?</div><div class="meta">Sie feiert Erfolge und erklärt Hinweise. Du kannst jederzeit ohne sie lernen.</div></div>
-            <div class="spacer"></div><button class="button">Begleitung auswählen</button><span class="text-action">Ohne Begleitung zu Heute</span>
+            <div class="card" style="margin-top:14px"><div class="card-title">Möchtest du eine Lernbegleitung?</div><div class="meta">Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.</div></div>
+            <div class="spacer"></div><button class="button">Begleitung auswählen</button><span class="text-action">Direkt zu Heute</span>
+          </div></div>
+        </article>
+        <article class="mock">
+          <h3>01D. 동행 캐릭터 선택</h3><p>태고와 조이를 기존 에셋으로 한 화면에서 비교한다. 선택은 저장되지만 학습을 잠그지 않으며, 나중에 선택하기와 프로필 변경 경로를 항상 남긴다.</p>
+          <div class="phone"><div class="screen">
+            <div class="status"><span>9:42</span><span>Deine Begleitung</span><span>♪</span></div><span class="back">‹ Zurück</span>
+            <p class="label">Deine Lernbegleitung</p><h4>Wer ist dein Lernfreund?</h4><p class="lead">Wähle Taego oder Joy. Beide helfen dir, und du kannst dich auch später entscheiden.</p>
+            <div class="companion-choice">
+              <img src="../assets/illustrations/mascot/tiger_sitting2.png" alt="Taego, der Tiger">
+              <div><b>태고 · Taego</b><strong>Verlässlich &amp; mutig</strong><span>In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für ruhige, uralte Kraft.</span></div><i class="check"></i>
+            </div>
+            <div class="companion-choice magpie">
+              <img src="../assets/illustrations/mascot/magpie_wave.png" alt="Joy, die Elster">
+              <div><b>조이 · Joy</b><strong>Fröhlich &amp; lebendig</strong><span>In Korea gilt die Elster als Glücksbotin. Joy feiert jeden Erfolg mit dir.</span></div><i class="check"></i>
+            </div>
+            <div class="spacer"></div><button class="button disabled" disabled aria-disabled="true">Mit Begleitung zu Heute</button><span class="text-action">Jetzt nicht</span>
           </div></div>
         </article>
       </div>

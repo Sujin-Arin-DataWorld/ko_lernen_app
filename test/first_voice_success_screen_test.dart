@@ -3,13 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
@@ -39,9 +42,9 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Ich kann jemanden begrüßen.'), findsOneWidget);
-    expect(find.text('Ohne Begleitung zu Heute'), findsOneWidget);
+    expect(find.text('Direkt zu Heute'), findsOneWidget);
 
-    await tester.tap(find.text('Ohne Begleitung zu Heute'));
+    await tester.tap(find.text('Direkt zu Heute'));
     await tester.pump(const Duration(milliseconds: 350));
 
     expect(Storage.introPreviewSeen, isTrue);
@@ -50,7 +53,7 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
   });
 
-  testWidgets('01C opens the optional character selection screen', (
+  testWidgets('eligible 01C opens 01D, saves Joy, and reaches Today', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(400, 900);
@@ -72,12 +75,36 @@ void main() {
 
     await tester.tap(find.text('Lernfreund w\u00e4hlen'));
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump(const Duration(seconds: 2));
 
     expect(find.byType(CharacterSelectionScreen), findsOneWidget);
     expect(find.textContaining('Taego', findRichText: true), findsWidgets);
     expect(find.textContaining('Joy', findRichText: true), findsWidgets);
     expect(find.text('Jetzt nicht'), findsOneWidget);
+
+    await tester.tap(find.byKey(const ValueKey('companion-option-magpie')));
+    await tester.pump(const Duration(milliseconds: 100));
+    var preferences = await SharedPreferences.getInstance();
+    expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
+
+    final continueButton = find.byKey(
+      const ValueKey('companion-selection-continue'),
+    );
+    final continueAction = tester.widget<SoriButton>(continueButton).onTap;
+    expect(continueAction, isNotNull);
+    continueAction!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(Storage.introPreviewSeen, isTrue);
+    preferences = await SharedPreferences.getInstance();
+    expect(preferences.getString('kl_preferred_mascot'), 'magpie');
+    expect(find.byType(CharacterSelectionScreen), findsNothing);
+    expect(find.byType(AppShell), findsOneWidget);
     expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 1));
   });
 }

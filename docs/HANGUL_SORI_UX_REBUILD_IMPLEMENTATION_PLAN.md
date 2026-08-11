@@ -81,7 +81,8 @@ flowchart LR
 |---|---|---|---|---|
 | 01A | 필수 동의 | 개인정보·그룹 자발성의 짧은 설명 | `Weiter` | `QuickOnboardingScreen`의 동의 경로는 유지. 분석/계정 동의 없이 추적을 시작하지 않는다. |
 | 01B | 목표·출발점 | 생활 목적 3개 + 처음/기존 학습자 선택 | `Meine erste Szene öffnen` | `onboarding_level_screen.dart`의 직접 레벨 선택과 8–10문항 진단을 “Ich kann schon etwas” 하위로 이동. 목적은 profile 저장 계약에 명시적으로 추가. |
-| 01C | 첫 성공·동행 | 첫 소리 이해, 선택형 동행 제안 | `Begleitung auswählen` / skip | 기존 캐릭터 선택은 여기로 이동한다. 동행 미선택은 정상 상태. 첫 성공은 유효한 A1 활성 컨텍스트 안에서만 기록하거나, 기록하지 않는 demo 상태로 분리한다. |
+| 01C | 첫 성공·동행 제안 | 첫 소리 이해, 선택형 동행 제안 | `Begleitung auswählen` / skip | 동행 미선택은 정상 상태. 첫 성공은 유효한 A1 활성 컨텍스트 안에서만 기록하며, 이 화면 자체는 숙달을 쓰지 않는다. |
+| 01D | 동행 캐릭터 선택 | 기존 태고·조이 에셋, 성격, 현재 선택 | `Mit Begleitung zu Heute` / skip | 카드 탭은 화면 안에서만 미리 선택하고 CTA에서 `MascotPreference.set` 한 경로로 확정·전역 통지한다. Back/skip은 반쪽 선택을 저장하지 않으며 프로필에서 언제든 바꿀 수 있다. |
 | 02A | Today / Home | 오늘 가능한 can-do, 시간, 하나의 미션 | `Szene beginnen` | `TodayLearningSnapshot`이 고른 최우선 목적지로 **직접** 이동. Home → `/sarangbang` → 동일 CTA 중복을 제거. |
 | 02B | 미션 브리프 | 도착점, 상황, 3단계, 총 시간 | `Jetzt hören` | 현재 `CourseMissionScreen`의 긴 개념·보완 큐는 “나의 길” 보조 뷰로 이동. 실제 link 순서와 `CoursePracticeContext`는 유지. |
 | 02C | 미션 학습 프레임 | 현재 단계, 한 문제, 힌트 | `Meine Antwort prüfen` | 새 문제 엔진을 만들지 않는다. 기존 Vocab/Grammar/Scenario 화면의 상단 `MissionContextBar`와 반환 규칙으로 구현. 유효한 `assess`만 코스 증거를 쓴다. |
@@ -105,6 +106,7 @@ flowchart LR
 
 - [x] `01A`: 법적 동의만 남긴 시작 화면. `01B`의 목적·출발점 선택은 기존 구현을 시각 계약까지 재검증한다.
 - [x] `01C`: 검증된 첫 성공 뒤의 선택 가능한 동행 제안과 즉시 Today 복귀.
+- [x] `01D`: 기존 태고·조이 자산만 사용하는 명시적 선택 화면, 선택 저장·변경·건너뛰기·Today 복귀.
 - [x] `02A–02D`: Today 단일 약속 → 짧은 미션 브리프 → 기존 플레이어 안의 다음 행동 → persisted can-do 결과.
 - [x] `03A–03C`: 검증된 생활 능력 문장을 가진 한옥 → 장소 지도 → 재방문용 사랑방.
 - [x] `04A–04C`: 목적 중심 연습 → 검색 가능한 발견 → 읽기 전용 완료 근거를 가진 나의 길.
