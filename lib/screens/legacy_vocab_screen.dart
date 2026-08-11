@@ -755,7 +755,7 @@ class _Front extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.20, 38, 116),
+                      fontSize: soriFillSize(h, 0.19, 38, 92),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.info,
                       height: 1.15,
@@ -766,7 +766,7 @@ class _Front extends StatelessWidget {
                   v.translationFor(lang),
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: soriFillSize(h, 0.14, 28, 66),
+                    fontSize: soriFillSize(h, 0.12, 28, 48),
                     fontWeight: FontWeight.w800,
                     color: SoriColors.info,
                     height: 1.15,
@@ -929,14 +929,17 @@ class _Back extends StatelessWidget {
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
           // 한 줄에 맞추고, 번역은 줄바꿈 허용.
           final Widget headline = koFirst
-              ? Text(
-                  v.translationFor(lang),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.14, 28, 66),
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.success,
-                    height: 1.2,
+              ? FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    v.translationFor(lang),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.12, 28, 48),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.success,
+                      height: 1.2,
+                    ),
                   ),
                 )
               : FittedBox(
@@ -945,7 +948,7 @@ class _Back extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.20, 36, 116),
+                      fontSize: soriFillSize(h, 0.19, 36, 92),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,

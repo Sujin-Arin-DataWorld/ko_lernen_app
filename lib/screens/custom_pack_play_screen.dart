@@ -372,7 +372,7 @@ class _Front extends StatelessWidget {
                       word.korean,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: soriFillSize(h, 0.20, 34, 110),
+                        fontSize: soriFillSize(h, 0.19, 34, 92),
                         fontWeight: FontWeight.w800,
                         letterSpacing: -0.5,
                       ),
@@ -447,15 +447,18 @@ class _Back extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        word.translationDe.isNotEmpty
-                            ? word.translationDe
-                            : (word.posDe.isNotEmpty ? word.posDe : '—'),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: soriFillSize(h, 0.13, 26, 66),
-                          fontWeight: FontWeight.w800,
-                          height: 1.1,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          word.translationDe.isNotEmpty
+                              ? word.translationDe
+                              : (word.posDe.isNotEmpty ? word.posDe : '—'),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.11, 26, 48),
+                            fontWeight: FontWeight.w800,
+                            height: 1.1,
+                          ),
                         ),
                       ),
                       if ((word.posDe as String).isNotEmpty) ...[

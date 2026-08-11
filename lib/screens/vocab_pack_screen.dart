@@ -955,13 +955,16 @@ class _FlipBack extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                v.translationFor(lang),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: soriFillSize(h, 0.12, 28, 72),
-                  fontWeight: FontWeight.w800,
-                  height: 1.1,
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  v.translationFor(lang),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: soriFillSize(h, 0.11, 28, 48),
+                    fontWeight: FontWeight.w800,
+                    height: 1.1,
+                  ),
                 ),
               ),
               SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
