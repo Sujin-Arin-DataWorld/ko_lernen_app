@@ -39,6 +39,16 @@ klAccount: link.reconcile.pending status=invalid conflicts=none
 > 아래 "제 1순위 가설(merge/course)" 은 **틀렸다** — 병합/코스마스터리는 정상이었다.
 > `_dropUnvalidatableEvidence` 로 course_mastery 를 건드렸던 변경은 **되돌렸다.**
 
+### 독립 검증 (2026-08-11, 6-에이전트 워크플로우)
+
+4개 체크 **전부 fix-complete**:
+
+- **근본원인 완결성 / 다른 라운드트립 불일치:** 이 수정이 root-payload 디코드의 **마지막 ''-vs-invalid 갭**을 닫는다. buildBackupPayload 가 내는 키 중 엄격 디코드 대상은 course_mastery/srs/custom_packs 셋뿐이고, 흔한 계정 상태(빈 srs·격리 srs·빈 코스·빈 진행·커스텀 팩 없음)에서 이 외에 결정적으로 깨지는 필드는 없다.
+- **loadLocal 이후 경로:** **두 번째 결정적 벽 없음.** confirm 흐름은 `completed` 도달 예상. 재개 때 보였던 `readRemote.state=unavailable` 은 **격리 2차 앱 재생성·App Check·네트워크로 인한 일시적(재시도되는) 잡음**이지 별도 버그가 아니다(writeRemote 는 readRemote 와 같은 격리 인증을 써 새 권한 벽 없음). 남는 건 데이터 의존적 병합 충돌뿐인데, 실기기 데이터로는 loadLocal 벽만 재현·해소됨 → 이 계정 데이터는 깨끗이 병합됨.
+- **수정 부작용:** 없음. `decodePortableRemote` 유일 프로덕션 호출자는 `decodeCloudDocument`. 복원 경로는 `_portableRestoreJson` 을 써서 무관. 비어있지 않은 손상 JSON 은 여전히 `invalid`.
+
+**후속(비차단, 나중에):** 커스텀 팩 producer(`_portableStructuredJson`/`_stripLocalMedia`)는 `name/sourcePageId/createdAt` 존재·타입을 검증하지 않는데 소비자(`decodePortableRemote`)는 요구한다. 정상 앱 쓰기로는 도달 불가(`CustomPack.toLocalJson` 이 항상 4필드 String)지만, **레거시/외부 손상 데이터**에선 같은 클래스의 루프가 재발할 수 있다 → producer 검증 추가 또는 consumer 관용으로 방어 권장.
+
 ---
 
 ## ✅ 2026-08-10 /debug 세션 결론 (먼저 읽기)
