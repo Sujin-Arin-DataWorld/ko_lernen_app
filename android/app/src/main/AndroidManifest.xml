@@ -88,7 +88,6 @@
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- AdMob ist in v1.0.0 nicht aktiv (Plugin in pubspec.yaml deaktiviert,

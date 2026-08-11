@@ -38,11 +38,18 @@ session race는 `activationPending`을 보존한다. Apple은 nonce replay를 �
 **커밋.** 서버 receipt·Rules·TTL 계약 `a19d146`; Flutter secure receipt·startup·
 replacement 복구 `8adb1a0`; 이 검증/운영 경계 기록은 직후 문서 커밋에 포함했다.
 
+**통합.** 최신 main `9d55f07`(PDF 콘텐츠 확장·TTS·Android adaptive orientation·
+930단어 계약)을 병합했다. 실제 충돌은 이 세션 로그 한 곳뿐이어서 양쪽 최신 기록을
+순서대로 모두 보존했고, `lib/main.dart`는 account receipt callback과 main의 방향/시스템바
+정리를 함께 유지하며 자동 병합됐다.
+
 **검증.** Flutter account/auth/startup 핵심 묶음 **442/442**, 계정 hardening까지
 포함한 독립 재실행 **467/467**, UI 포함 집중 묶음 **221/221**, Functions
 **335/335**, Firestore Rules emulator **46/46** 통과. 전체
 `flutter analyze --no-pub --fatal-infos`는 **No issues found**, 변경 Dart format check,
-`git diff --check`, 변경 파일 secret/conflict scan도 통과했다.
+`git diff --check`, 변경 파일 secret/conflict scan도 통과했다. 최신 main 병합 뒤에는
+계정·hardening·orientation·콘텐츠 통합 Flutter 묶음 **506/506**와 Functions
+**335/335**, Rules **46/46**, 전체 analyze를 같은 최종 트리에서 다시 통과했다.
 
 **운영 경계.** 이 커밋은 코드·로컬 emulator 검증까지이며 Functions/Rules/index 배포,
 새 Android 앱 설치, 현재 실기기 Google operation의 Resume 완료는 아직 증명하지 않았다.
@@ -50,6 +57,86 @@ receipt 없이 이미 Auth가 삭제된 구버전 deletion operation은 공개 U
 우회하지 않으며 자동 복구 범위 밖이다. rollout은 server hardening을 먼저 배포하고 기존
 public deletion proof 최대 수명 24시간이 지난 뒤 receipt-capable 앱을 배포해야 한다.
 그 전까지 현재 기기의 server-completed replacement는 로컬 activation 완료로 주장하지 않는다.
+
+---
+
+### 2026-08-11 (Codex) — 콘텐츠 확장 후 930단어·95팩 계약 동기화
+
+**왜.** PDF 콘텐츠 확장 커밋으로 번들 어휘가 558→930, 비어 있지 않은 팩이
+64→95로 늘었지만 `data_loader_test`와 스토어 문구는 이전 수치를 유지했다. main
+CI run `31487125028`은 실제 930행을 읽은 뒤 558행을 기대해 1건 실패했다.
+
+**무엇을.** 커밋 `04c2bcb`에서 로더 계약을 930행·95팩으로 고정하고 EN/DE App
+Store 문구와 TestFlight 베타 문구, `AGENTS.md`의 현재 데이터 수치, 퀘스트/추천
+테스트의 현재 번들 주석을 동기화했다. 스토어 테스트에는 과거 558/64 문구가 다시
+들어오지 못하게 부정 래칫도 추가했다. 기존 TTS 사전 생성 범위의 558+558 수치와
+과거 세션·설계·릴리스 기록은 역사적 사실이므로 변경하지 않았다.
+
+**검증.** 실제 CSV 930행·공란 `pack_id` 0·고유 팩 95를 독립 재계산했다. 콘텐츠
+관련 Flutter 테스트 6파일 **35/35 통과**, 전체 Flutter analyze
+(`--no-pub --fatal-infos`) **No issues found**, `git diff --check` 통과.
+
+---
+
+### 2026-08-11 (Claude) — PDF 학습자료 3종 대량 통합: 단어 +372·표현 +48·문법 +35
+
+**왜.** Jin이 PDF 3종(국립국어원 「한국어 한마디」 표현집 · keytokorean 초급 문법 시트 · TOPIK 초중급 단어 ~1,260개)을 제공하며 "전부 적재적소에 100% 활용" 요청. 큐레이션 방침 합의(중복·조사·수량사 제외, 독일어 전면 신규 저작 — 소스는 한-영뿐). B1/B2 확충은 Silben-Kreuz 크로스워드 개편(별도 계획)의 선행조건.
+
+**무엇을.** 4단계, 단계별 커밋:
+- `54f20b9` **B1/B2 단어 +264 (22팩)**: korean_vocab.csv 558→822. 등록 7곳 동기화(packDisplayMap/packOrderInLevel + vocabPackUnitMap + 단청 motif switch + audit manifest + id 계약 테스트 + build_vocab_packs.py 미러). B2에 높임말 전용 팩 신설.
+- `1b2410e` **A2 단어 +108 (9팩)**: 822→930. A1은 의도적 제외(211개 포화·잔여 후보 중복·골든 영향).
+- `d42b3da` **Smalltalk +48표현·4카테고리**(교통·쇼핑·전화·도움요청) + travel/food 보강: 145→193. question은 reply(Catch-ball 계약) 필수 — 테스트로 발견해 재생성. smalltalkCategoryUnitMap 8키(기존 concept 재사용).
+- `72e9618` **문법 +35**: grammar.csv 88→123 (부터/만/밖에/(으)로/처럼/쯤/거나/니까/고 나서/(으)ㄹ 때/(으)ㄴ 지/아어 있다/아어지다/높임 시/간접인용 축약/불규칙 7종 등). grammarRuleMap은 동레벨 시블링 상속 — B1/B2 항목에 교차 레벨 매핑 쓰면 course_graph 레벨-미션 계약 위반(1차 시도에서 실패 후 수정).
+
+**공정.** 콘텐츠는 전부 `tools/content_factory/add_{b1,b2,a2}_expansion_packs.py`·`add_phrasebook_smalltalk.py`·`add_grammar_expansion.py`(멱등, id 자동 연번, dry-run 기본)에 수록 — 재생성 가능. ⚠️ Jin 원어민 검수 권장(KO/DE 표본).
+
+**검증.** 계약 테스트 6종(id/무결성/course_graph/vocab_pack/단청/audit) + smalltalk 2종 전부 통과, analyze 0. 신규 팩은 append-only(기존 팩 진행도 무효화 없음), SRS 자동 편입, TTS는 런타임 합성이라 에셋 불필요(신규 텍스트 첫 재생만 네트워크).
+
+**남은 것.** 실기기 확인(B1/B2 팩 표시·프리미엄 게이트·Smalltalk 새 카테고리·문법 목록), TTS 사전생성 소스에 신규 예문 반영 여부 검토(tool/generate_tts.py), Silben-Kreuz 크로스워드 본계획 진행.
+
+---
+
+### 2026-08-12 (Claude) — TTS 사전생성 §7 satz 목표문장 + 예문 톤 감사
+
+**왜.** Jin: "Hören·Grammatik·Szenarien·Lückentext·Wortkette 아직 옛날 tts" + "Satz bauen 예문이 촌스럽다". 조사 결과 5개 화면 소스는 이미 수집돼 있었고(2026-08-11 §3~6; Hören 은 §2 시나리오 대화를 동일 화자 규칙으로 재생), 실제 갭은 **Satz bauen 목표문장 55/191 누락**(CSV 예문과 문자열 상이 → 캐시 미스 → OS 로봇 음성 폴백) — 이것이 "옛날 음성/촌스러움" 체감의 원인.
+
+**무엇을.**
+- `tool/generate_tts.py` `collect()` §7: `satz_sentences.json items[].targetKo` 여성 음성 수집 추가(+§2 에 Hören 커버 주석, 머리말 소스 목록 갱신).
+- `tool/test_generate_tts.py`: **satz 전수 포함 회귀 테스트**(191/191, §7 없으면 실패) + 듣기 화자→voice 매핑 표본 검증.
+- 예문 톤 감사: 존대어미 휴리스틱 전수 스캔 → 반말 **1건뿐**(`너 어디 가?`, satz_a1_0052). 표제어 '너'(반말 대명사) 때문의 **의도된 반말**이라 유지(너+요체는 부자연, CSV 예문·vocabKo 연동). 나머지 190건 존댓말 정상 → 콘텐츠 수정 없음.
+
+**검증.** `python -m unittest`(tool) **3/3 OK**(수집 오프라인 실행 포함).
+
+**실행 필요(Jin).** `python tool/generate_tts.py` (GOOGLE_TTS_API_KEY 또는 gcloud 인증) → 신규 ~55개 합성·업로드. 클라 코드 수정 불필요(같은 SHA-1 키 규칙).
+
+---
+
+### 2026-08-11 (Codex) — Play 발견 항목 3종: edge-to-edge·지원 중단 API·대형 화면 대응
+
+**왜.** Play Console의 출시 18(2.0.5) 분석이 SDK 35 edge-to-edge 인셋 대응,
+`Window.setStatusBarColor` 지원 중단, `UCropActivity`의 portrait 제한을 다음 출시
+개선 항목으로 보고했다. Android 16부터 대형 화면에서 방향·크기 제한이 무시되므로
+현재 반응형 UI 계약을 시스템의 실제 회전·멀티윈도우 동작과 일치시켜야 했다.
+
+**작업.** `MainActivity`가 시작할 때 FlutterActivity 호환 AndroidX
+`WindowCompat.setDecorFitsSystemWindows(window, false)`를 호출해 Android 15 이전 버전도
+동일한 창 동작을 사용하게 했다. Flutter의 edge-to-edge와
+`SafeArea` 인셋 처리는 유지하면서 `statusBarColor`/`systemNavigationBarColor` 요청은
+제거하고 시스템 바 아이콘 밝기만 제어한다. 앱 전역 `setPreferredOrientations` 호출과
+`UCropActivity`의 `screenOrientation="portrait"`를 제거해 휴대폰·폴더블·태블릿·분할
+화면이 시스템 기본 방향과 크기 조절을 따르게 했다. 정적 계약 테스트는 Dart 런타임
+방향 요청, 매니페스트 제한, 네이티브 edge-to-edge, 지원 중단 색상 요청의 재유입을 막는다.
+
+**검증.** `flutter analyze --no-pub --fatal-infos`는 **No issues found**. 방향·매니페스트·
+온보딩·낮은 높이·308--1280dp·태블릿 navigation/window-class 집중 묶음은 **798/798**
+통과했다. `flutter build apk --debug --no-pub`도 성공해 Kotlin/Android 리소스 병합을
+검증했고, 최종 packaged manifest는 `targetSdkVersion="36"`, `UCropActivity` 방향 제한
+없음, `resizeableActivity=false`/min·max aspect ratio 없음으로 확인했다. 첫 빌드는 현재
+해석된 AndroidX Core 1.18에 새 `WindowCompat.enableEdgeToEdge` 헬퍼가 없어 컴파일에서
+차단됐고, FlutterActivity와 Flutter 3.44.8 엔진이 실제 사용하는 동등 API
+`setDecorFitsSystemWindows(..., false)`로 교정한 뒤 성공했다. `git diff --check`도 통과.
+커밋·푸시는 요청되지 않아 수행하지 않는다. Android 15/16 태블릿·폴더블 실기기 시각
+스모크와 새 AAB의 Play 재분석은 외부 출시 게이트로 남는다.
 
 ---
 

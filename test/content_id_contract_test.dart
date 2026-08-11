@@ -12,14 +12,14 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
     final vocabRows = _csvRows('assets/data/korean_vocab.csv');
-    expect(vocabRows, hasLength(559));
+    expect(vocabRows, hasLength(931));
     expect(vocabRows.first.last, 'id');
-    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 558);
+    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 930);
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(145));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 145);
+    expect(phrases, hasLength(193));
+    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 193);
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();

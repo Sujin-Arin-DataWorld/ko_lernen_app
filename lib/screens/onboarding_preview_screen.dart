@@ -87,8 +87,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
 
     // §6.5: 전 구간 상태바 다크 아이콘(라이트 배경).
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.transparent,
+      value: const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark, // Android
+        statusBarBrightness: Brightness.light, // iOS
       ),
       child: Scaffold(
         backgroundColor: SoriColors.lightBg,

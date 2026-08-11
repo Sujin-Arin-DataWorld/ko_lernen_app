@@ -94,7 +94,7 @@ Firebase 프로젝트: `ko-lernen-app`
   - `lib/services/bookshelf_service.dart` — BookPage 로컬(`kl_bookshelf_v1`) + best-effort Firestore `users/{uid}/bookshelf/{id}`.
   - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete. **`quickAdd`**(고정 id `cp_quick_v1` "⭐빠른저장" find-or-create + 한국어 dedup, enum `WordbookAddResult`) — 전역 "＋단어장"의 코어.
   - `lib/widgets/sori/wordbook_add.dart` — `addToWordbook(ctx, korean,…)` + `AddToWordbookButton`(compact). 6개 학습화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player)에서 호출.
-- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 61팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
+- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 95팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
 - **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
@@ -130,8 +130,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
-- 단어팩(61)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
-- ✅ **콘텐츠 언어 (2026-06-09 해소)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(546/546)·`grammar.csv` `_en` 컬럼(88/88) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
+- 단어팩(95)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
+- ✅ **콘텐츠 언어 (2026-06-09 해소)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(930/930)·`grammar.csv` `_en` 컬럼(123/123) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -214,10 +214,23 @@ flutter run -d <android-id>   # 안드로이드
 
 > **최신 현황 → `docs/release-readiness-2026-06-02.md`.** 앱은 **v2.0 (stately-rising-jongga)**, 버전 `2.0.0+3`, 안드로이드 내부 테스트 직전.
 > - ✅ 사진→단어장("책 한 컷") 클라이언트 완성 · Cloud Function(`functions/analyze_korean_text` — kiwipiepy+DeepL+우리말샘) **배포 대기**
-> - ✅ 단어팩 61(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
+> - ✅ 단어팩 95(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
 > - ✅ **2026-06-05: BottomNav IA 재설계 + 첫 사용자 온보딩 코치마크 (Stage 1)** — AppShell(4탭) + 허브 3종 + feature_coach.dart + Storage kl_tut_* 플래그 + P0 배선(책한컷·단어팩). 미커밋(Jin 확인 후).
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
+
+### Android 15 edge-to-edge · Android 16 대형 화면 대응 (2026-08-11)
+
+- [x] FlutterActivity 호환 AndroidX
+  `WindowCompat.setDecorFitsSystemWindows(window, false)`를 `MainActivity` 시작 경로에
+  배선해 Android 15의 SDK 35 강제 동작과 이전 Android 버전의 창 동작을 일치시켰다.
+- [x] Flutter 시스템 바 스타일에서 Android 15 지원 중단 색상 요청을 제거하고 아이콘
+  밝기만 제어한다. 기존 `SafeArea`/반응형 콘텐츠 폭 계약은 유지한다.
+- [x] 전역 `setPreferredOrientations` 요청과 `UCropActivity`의 portrait 매니페스트 제한을
+  제거했다. 앱과 사진 자르기 흐름 모두 회전·폴더블·태블릿·멀티윈도우를 허용한다.
+- [x] Dart·네이티브·매니페스트 3층 정적 계약 테스트를 추가했다.
+- [ ] Jin: 다음 AAB를 Play Console에 올린 뒤 새 번들 기준 발견 항목 재검사 및 Android
+  15/16 태블릿·폴더블에서 portrait/landscape/분할화면 시각 스모크.
 
 ### 구글 동기화 + 계정/데이터 초기화 100% 작동 수리 (2026-08-10)
 

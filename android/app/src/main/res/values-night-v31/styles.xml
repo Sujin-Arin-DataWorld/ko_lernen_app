@@ -19,6 +19,5 @@
         <item name="android:windowBackground">?android:colorBackground</item>
         <!-- Plan B (2026-06-05): Android 15 강제 edge-to-edge opt-out →
              OS가 상태바/네비게이션바 영역을 예약, 콘텐츠 잘림 방지 (API 35 적용). -->
-        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 </resources>

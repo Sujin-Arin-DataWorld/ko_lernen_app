@@ -180,7 +180,7 @@ class QuestTracker {
 /// Topic 기반 어휘 마스터리 소스 → `korean_vocab.csv` 의 `topic` 집합.
 ///
 /// 각 집합의 행 수가 그 소스를 쓰는 퀘스트의 **도달 가능한 상한**이다.
-/// 2026-08-07 실측 (총 558 행): 음식 31 · 형용사+감정 66 · 자연 23 · 직업+교육 54.
+/// 2026-08-11 실측 (총 930 행): 음식 31 · 형용사+감정 66 · 자연 23 · 직업+교육 54.
 const Map<QuestSource, Set<String>> kQuestTopicSets = {
   QuestSource.foodWordsMastered: {'Essen & Trinken'},
   QuestSource.adjectiveFeelingWordsMastered: {'Beschreibung', 'Gefühle'},

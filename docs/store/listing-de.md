@@ -38,7 +38,7 @@ deines Hanok mit den gesammelten Dekorationen ein.
 WAS DU LERNST
 
 • Hangul von Grund auf: Konsonanten, Vokale und Endkonsonanten.
-• 558 Vokabeleinträge in 64 Themenpacks, von A1 bis B2.
+• 930 Vokabeleinträge in 95 Themenpacks, von A1 bis B2.
 • 39 Alltagsszenarien für Orte wie Café, Markt, Hotel, U-Bahn und Apotheke.
 • Grammatik im Kontext, Hörverstehen, Übersetzung und Wiederholung.
 • 17 Spezial-Quests mit Zielen und Belohnungen.

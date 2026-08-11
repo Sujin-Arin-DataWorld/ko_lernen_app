@@ -177,7 +177,6 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     // 크림 위에서 사라진다). 인트로가 dark 스타일로 두고 나가므로 명시 필요.
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark, // Android
         statusBarBrightness: Brightness.light, // iOS
       ),
