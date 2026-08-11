@@ -44,11 +44,31 @@ Balken im Bauplan` 영수증을 표시한다. 신형 scenario는 `satzBauen`/`di
 `HanokWorldScreen.preview`와 `SarangbangStudyScreen.preview`는 같은 production widget·asset을
 fixture state로 즉시 렌더하고 초기 storage/reward/reveal 호출을 건너뛴다.
 
+04A는 두 번째 주 탭을 `Üben`/`Practice`로 바로잡고 목적 우선 Practice 화면은 그대로
+유지했다. 04B Discover는 `Für mich · Sprache · Wörter · Freizeit`의 네 목적만 먼저
+보여 주고 `Buch scannen · Aussprache hören · Wörterbuch & Meine Wörter` 세 경로를 우선했다.
+검색은 선택 필터 밖의 정확한 결과도 찾으며 기존 24개 destination은 모두 유지한다.
+04C는 `Dein Weg`/`Your path`에서 가장 최근 완료·현재·다음 단원만 간결하게 보여 주고,
+70% 근거 안내와 현재 mission CTA를 유지한다. 기존 Hanok/pack trail은 삭제하지 않고
+명시적인 `Weitere Übungen anzeigen` 뒤로 옮겼다. `PracticeHubScreen.preview`,
+`DiscoverScreen.preview`, `LearningPathScreen.preview`는 production widget을 fixture state로
+렌더하며 coach, review load, course initialization 등 저장 접근을 시작하지 않는다.
+새 문구는 DE/EN ARB와 generated l10n을 함께 갱신했다.
+
 **검증.** `flutter gen-l10n`; `flutter test test/hanok_build_narrative_test.dart
 test/hanok_world_screen_test.dart` — **19 tests passed**; `git diff --check` 통과.
 03B/C 누적 회귀 4파일은 **30 tests passed**, 변경 10파일 scoped analyze는
-`No issues found`였다. asset 변경 없음. 03A 커밋 `679d452`; 이후 커밋 해시는 이 세션의
-마지막 로그 갱신에서 확정한다.
+`No issues found`였다. 04 focused·evidence·adaptive navigation 5파일은 **22 tests passed**,
+Practice 접근성(터치 영역, WCAG AA, 스크린리더, 1.3배 글자, tablet)은 **5 tests passed**,
+production Learning Path smoke도 통과했다. 04 변경 8파일 scoped analyze는
+`No issues found`, `git diff --check` 통과였다. asset 변경 없음.
+
+**커밋.** 03A safe-scene projection `679d452`; 03B/C 지도·사랑방·preview `a9df97a`;
+04A–C navigation·Discover·Dein Weg parity `8ec5575`.
+
+**검증 경계.** widget/정적 분석 증거이며 실기기 상호작용과 목업 대비 pixel-identical
+golden은 아직 증명하지 않았다. preview factory는 production 저장을 건드리지 않지만,
+production 계정·Firebase 상태를 흉내 내는 통합 backend fixture는 아니다.
 
 ---
 
