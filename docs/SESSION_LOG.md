@@ -7,6 +7,52 @@
 
 ---
 
+### 2026-08-11 (Codex) — 계정 삭제 terminal receipt와 Google 교체 복구 경로 구현
+
+**왜.** 실기기 Google 교체 operation은 서버에서 `completed` v4까지 도달했지만 로컬은
+`cleanupPending` v3, primary Firebase Auth는 비어 있었다. 기존 replacement polling은
+지연 없이 즉시 소진되고 재시작은 저널을 fence만 해서, 원격 완료 뒤에도 로컬 target
+activation이 끝나지 않았다. 전체 계정 삭제는 worker가 Auth 사용자를 먼저 지운 뒤에도
+후속 cleanup을 계속하는데, 기존 status callable은 삭제된 사용자의 Auth를 다시 요구해
+terminal 완료를 증명할 수 없는 교착이 있었다.
+
+**무엇을.** 전체 삭제 요청 전에 32-byte canonical receipt를 device-only secure storage에
+내구 저장하고, 서버에는 domain-separated digest만 operation/request와 원자 결합했다.
+Auth 삭제 뒤에는 receipt 전용 read-only status로 exact operation을 복구하며, authoritative
+`completed`/non-retryable을 다시 확인한 뒤에만 `ACK → secure receipt clear → local identity
+recovery` 순서로 진행한다. startup은 exact receipt-owned deletion만 OAuth 없이 재개하고,
+다른 durable/anonymous identity·중간 identity 변경·response loss·journal/secure-store 쓰기
+실패는 모두 CAS와 identity fence로 저널을 보존한다. 서버 ACK는 completed deletion만
+허용하며 proof/receipt 목적 교차사용, HMAC key rotation, 원문 receipt/IP 저장, TTL 이후
+ACK response-loss 재고립을 차단했다. capability status/ACK는 별도 120회/5분 keyed-IP
+quota를 payload 파싱보다 먼저 소비하고, client 접근은 Rules로 재귀 거부한다.
+
+replacement는 production polling을 2초 × 30회로 bounded하게 만들고 resume 결과 진단을
+추가했다. startup은 계속 OAuth를 자동으로 띄우지 않는다. 사용자가 명시적으로 Resume를
+누르면 isolated target을 확인하고, Google primary activation은 interactive fallback 없는
+`signInSilently()`만 사용해 보이는 계정 선택을 한 번으로 제한한다. silent 실패·wrong UID·
+session race는 `activationPending`을 보존한다. Apple은 nonce replay를 피하려고 기존 fresh
+명시적 인증을 유지한다. reconciliation HANDOFF의 “두 번째 벽 없음” 주장을 live evidence에
+맞게 정정하고 문서에 남아 있던 App Check debug token 원문도 제거했다.
+
+**커밋.** 서버 receipt·Rules·TTL 계약 `a19d146`; Flutter secure receipt·startup·
+replacement 복구 `8adb1a0`; 이 검증/운영 경계 기록은 직후 문서 커밋에 포함했다.
+
+**검증.** Flutter account/auth/startup 핵심 묶음 **442/442**, 계정 hardening까지
+포함한 독립 재실행 **467/467**, UI 포함 집중 묶음 **221/221**, Functions
+**335/335**, Firestore Rules emulator **46/46** 통과. 전체
+`flutter analyze --no-pub --fatal-infos`는 **No issues found**, 변경 Dart format check,
+`git diff --check`, 변경 파일 secret/conflict scan도 통과했다.
+
+**운영 경계.** 이 커밋은 코드·로컬 emulator 검증까지이며 Functions/Rules/index 배포,
+새 Android 앱 설치, 현재 실기기 Google operation의 Resume 완료는 아직 증명하지 않았다.
+receipt 없이 이미 Auth가 삭제된 구버전 deletion operation은 공개 UID/request tuple로
+우회하지 않으며 자동 복구 범위 밖이다. rollout은 server hardening을 먼저 배포하고 기존
+public deletion proof 최대 수명 24시간이 지난 뒤 receipt-capable 앱을 배포해야 한다.
+그 전까지 현재 기기의 server-completed replacement는 로컬 activation 완료로 주장하지 않는다.
+
+---
+
 ### 2026-08-11 (Codex) — VS Code 동시세션 종료·Claude 잔여 변경 main 수거
 
 **왜.** VS Code가 폐기된 UX 워크트리를 계속 열고 있었고, 중지됐다고 보였던
@@ -2616,7 +2662,7 @@ plist 2 종 `plistlib` 파싱 통과.
 **같은 날 — 구글 연동·계정삭제/초기화 진단(Jin: "구글 연동 안 되는 거, 데이터 삭제·초기화 안 되는 거 개선해줘"):**
 - 🔴 **구글 연동 근본 원인 확정**: Firebase 등록 Android SHA-1은 `927593a4…` **1개뿐** — 디버그 keystore(`6E94E73B…`)·업로드 keystore(`AB6118FE…`) 모두 미등록(등록본은 Play App Signing 키로 추정). → **로컬 설치 빌드(디버그·업로드 서명)에선 Google Sign-In 이 구조적으로 실패**(ApiException 10). CLI `apps:android:sha:create` 는 403(계정 권한 부족) → **Jin 액션**: Firebase Console → 프로젝트 설정 → Android 앱 → 지문 추가 2건: `6E:94:E7:3B:7C:19:B1:F8:D9:59:E6:2E:7E:9B:1F:E5:88:4A:D8:07`(디버그) + `AB:61:18:FE:34:C9:48:AB:22:1F:1C:2E:5E:86:48:58:EF:CC:14:53`(업로드). google-services.json 재다운로드는 불필요(웹 클라이언트 ID 는 이미 있음).
 - 🔴 **계정삭제/초기화 근본 원인 확정 → 해소**: 클라 `AccountOperationClient` 가 europe-west3 callable 호출 — 코드는 `functions/gye`(account_operations_runtime)에 있으나 **미배포** → 삭제 첫 호출부터 실패, journal 잔존 → `_readPendingState()` = blocked → **설정의 "Alle Daten zurücksetzen"·"계정 삭제" 버튼이 `onTap:null` 로 완전 비활성**(Jin 제보 "버튼이 아예 안 눌려"의 정체). **배포 완료 체인**: ① discovery 10s 타임아웃 → `FUNCTIONS_DISCOVERY_TIMEOUT=120` ② Secret Manager API 활성화(`gcloud services enable`) ③ `DELETION_PROOF_HMAC_KEY` 시크릿 생성(random 256bit) ④ **Apple 해지 시크릿 4종은 placeholder**(`APPLE_REVOKE_CLIENT_ID/KEY_ID/TEAM_ID/PRIVATE_KEY` — ⚠️ iOS 출시 전 실값 교체 필수) ⑤ **`Deploy complete!` — 신규 callable 18종 생성**(requestAccountDeletion·getAccountOperation·completeAppleRevocation·issueDeletionProof·requestDeletionByProof·replacement 계열 등) + 기존 4종 업데이트.
-- 🔴 **App Check 이중 갭 발견 → 해소**: 계정 callable 은 `enforceAppCheck:true` 인데 **Firebase App Check API 자체가 프로젝트에서 비활성**(= 어떤 빌드도 attestation 불가) → `gcloud services enable firebaseappcheck.googleapis.com` + **Jin 폰 디버그 토큰 `4b4a8f6c-3637-4daa-acba-4bda5210abf0` REST 등록 완료**(logcat 실측값). ⚠️ 릴리스 빌드는 App Check 콘솔에서 **Play Integrity provider 등록** 필요(Jin 1회 확인).
+- 🔴 **App Check 이중 갭 발견 → 해소**: 계정 callable 은 `enforceAppCheck:true` 인데 **Firebase App Check API 자체가 프로젝트에서 비활성**(= 어떤 빌드도 attestation 불가) → `gcloud services enable firebaseappcheck.googleapis.com` + **Jin 폰 디버그 토큰 REST 등록 완료**(logcat 실측값, 원문 비보관). ⚠️ 릴리스 빌드는 App Check 콘솔에서 **Play Integrity provider 등록** 필요(Jin 1회 확인).
 - **예상 복구 경로**: 앱 재시작 → startup 이 잔존 deletion journal resume → 이제 live 인 CF 로 완료 → journal 소거 → 리셋/삭제 버튼 재활성. 미검증(Jin 실기기).
 
 ### 2026-08-02 (Cowork) — 앰비언스 배선: SoriPosterLoop → AudioPolicy — 커밋 미요청
