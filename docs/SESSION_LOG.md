@@ -57,6 +57,43 @@ DE/EN l10n과 debug-only UX Gallery, 반응형·접근성·상태 fixture matrix
 
 ---
 
+### 2026-08-12 (Codex) — UX mockup 03–04 exact parity follow-up
+
+**왜.** 03A–03C와 04A–04C의 production/preview 구현을 목업 HTML과 다시 줄 단위로
+대조한 결과, 핵심 경로는 연결돼 있었지만 일부 앱바·검색·목록 문구, 좁은 화면의 필터,
+검증된 능력 도입문, 사랑방 정보 순서와 지도 접근성 타깃에 작은 차이가 남아 있었다.
+
+**무엇을.** 03A는 기존 한옥 asset을 유지하면서 278dp 무대, 실제 검증 단원의 can-do를
+사용하는 `Dein Fundament steht …`, 안전한 장면 수와 다음 Balken 목표, 두 CTA를 같은
+production widget에 맞췄다. 목업의 고정 `die ersten Pfeiler`는 실제 단계와 어긋날 수 있어
+복사하지 않고 승인된 truth-first `der nächste Balken`을 유지했다. 03B는 한국어 장소명과
+독일어 목적, 4분·실제 다음 문장, `Dorthin gehen`, `Orte als Liste anzeigen`를 제공한다.
+지도 장소 타깃은 Android 기준 48dp로 키우고 서로 겹치지 않게 확장 방향을 조정했으며,
+중복된 무라벨 semantics 노드를 제거했다. 03C는 `Dein Lernzimmer`를 도입부 앞으로 옮기고
+실제 획득 표현을 기존 사랑방 장면 위에 배치했다. 획득 영수증·Einrichten·두 복귀 동작은
+목업 순서로 두되 storage/reward 상태를 새로 쓰지 않는다.
+
+04A는 앱바와 주 탭을 `Üben`으로 통일하고 4개 목적 경로의 목업 문구를 맞췄다. 04B는
+검색 힌트, 48dp의 4개 wrapping 필터와 3개 우선 경로를 정확히 앞세우고 불필요한 중간
+heading을 제거했다. 04C는 최근 완료·현재·다음 3행, 상태·간결한 본문, evidence 카드와
+현재 mission CTA 순서를 유지한다. evidence 문구는 목업보다 엄격하게 실제 계약인
+matching active assessment와 연결된 각 scenario 70% 이상을 명시하며, legacy pack trail은
+명시적 control 뒤에만 남긴다. DE/EN ARB와 generated l10n을 함께 갱신했고 새 asset은 없다.
+
+**검증.** 여섯 패널 fixture를 각각 308px·독일어 1.3배에서 렌더해 문구·순서·CTA·필터와
+overflow 0을 확인했고, 같은 6 tests에서 Android 48dp, labeled tap target, WCAG text contrast를
+모두 통과했다. `hanok_world_screen_test.dart` **15 tests passed**; Practice·Discover·Path·
+Sarangbang·Hanok evidence 묶음 **24 tests passed**(합계 39). 변경 production/generated/test
+16개 경로의 `dart analyze`는 `No issues found`; `flutter gen-l10n`, `git diff --check` 통과.
+
+**커밋.** exact copy·IA·responsive·accessibility parity `c2d4190`.
+
+**검증 경계.** widget fixture와 정적 분석 기준의 목업 계약 패리티다. 실기기 터치·OS별
+글꼴 rasterization과 pixel-identical golden은 별도이며, Firebase/계정 상태나 실제 저장
+변경을 preview가 대신 증명하지 않는다.
+
+---
+
 ### 2026-08-12 (Codex) — UX mockup 03–04 evidence parity
 
 **왜.** 03A–03C와 04A–04C는 기존 경로와 기능은 연결돼 있었지만, 목업이 약속한
