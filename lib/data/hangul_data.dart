@@ -77,6 +77,35 @@ class Syllable {
   ]);
 }
 
+/// Wandelt einen einzelnen Jamo-Buchstaben in eine *aussprechbare* Silbe um,
+/// damit TTS den LAUT liest statt des Buchstabennamens.
+/// z. B. ㅉ → 쯔 (statt „쌍지읏"), ㄱ → 그, ㅏ → 아.
+/// Vollständige Silben/Wörter werden unverändert zurückgegeben.
+String speakableJamo(String letter) {
+  // Führende Konsonanten (초성) in Unicode-Reihenfolge (Index 0–18)
+  const leads = [
+    'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', //
+    'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ',
+  ];
+  // Vokale (중성) in Unicode-Reihenfolge (Index 0–20)
+  const vowels = [
+    'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', //
+    'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ',
+  ];
+
+  final li = leads.indexOf(letter);
+  if (li >= 0) {
+    // Konsonant + ㅡ (중성-Index 18) → z. B. ㅉ → 쯔
+    return String.fromCharCode(0xAC00 + (li * 21 + 18) * 28);
+  }
+  final vi = vowels.indexOf(letter);
+  if (vi >= 0) {
+    // ㅇ (초성-Index 11) + Vokal → z. B. ㅏ → 아
+    return String.fromCharCode(0xAC00 + (11 * 21 + vi) * 28);
+  }
+  return letter; // schon eine Silbe / kein einzelner Jamo
+}
+
 const List<Syllable> syllables = [
   Syllable('가', 'ga',  'ㄱ + ㅏ',          '가방',   'Tasche',  'bag'),
   Syllable('나', 'na',  'ㄴ + ㅏ',          '나무',   'Baum',    'tree'),

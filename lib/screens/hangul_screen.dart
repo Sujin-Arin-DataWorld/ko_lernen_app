@@ -386,7 +386,7 @@ class _DetailSheet extends StatelessWidget {
               const SizedBox(height: 24),
               FilledButton.icon(
                 style: FilledButton.styleFrom(backgroundColor: color),
-                onPressed: () => TtsService.speak(char.letter),
+                onPressed: () => TtsService.speak(speakableJamo(char.letter)),
                 icon: const Icon(Icons.volume_up),
                 label: Text(AppL10n.of(context).hangulPronounceBtn),
               ),
@@ -797,7 +797,7 @@ class _CardsTabState extends State<_CardsTab> {
             SoriButton.outlined(
               label: AppL10n.of(context).btnHoeren,
               icon: Icons.volume_up,
-              onTap: () => TtsService.speak(c.letter),
+              onTap: () => TtsService.speak(speakableJamo(c.letter)),
               fullWidth: true,
             ),
             const SizedBox(height: 6),
@@ -1113,7 +1113,7 @@ class _WriteTabState extends State<_WriteTab> {
               SoriButton.outlined(
                 label: t.hangulPronounceLetter(c.letter),
                 icon: Icons.volume_up,
-                onTap: () => TtsService.speak(c.letter),
+                onTap: () => TtsService.speak(speakableJamo(c.letter)),
                 fullWidth: true,
               ),
               const SizedBox(height: 8),
