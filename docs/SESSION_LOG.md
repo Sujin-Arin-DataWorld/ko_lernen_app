@@ -7,6 +7,33 @@
 
 ---
 
+### 2026-08-12 (Codex) — Blitz-Paare 장문 독일어를 한 화면에 고정
+
+**왜.** 번역 타일이 `minHeight`만 갖고 전체 보드가 세로 스크롤 안에 있어,
+`Sehr erfreut Sie kennenzulernen` 같은 장문 독일어가 타일 자체를 늘리고 마지막 쌍을
+화면 아래로 밀었다. 사용자는 스크롤 없이 한 화면에서 모든 쌍을 보고 맞춰야 한다.
+
+**무엇을.** 보드 스크롤을 제거하고 각 행을 가용 높이의 정확한 높이로 고정했다.
+번역은 OS 접근성 배율을 그대로 반영한 `TextPainter` 측정으로 최대 3줄·최소 12sp까지
+자동 맞춤한다. 화면 높이 700dp 미만 또는 글자 130% 이상에서는 활성 쌍을 5→4로
+줄이고, 회전·배율 변경 중에도 점수·콤보·타이머를 초기화하지 않고 pool만 재조정한다.
+짧은 화면의 상단 여백과 콤보 표기도 압축했다. 장문 회귀는 360×640, 360×800/1.3,
+360×800/1.0에서 쌍 수·44dp 탭 영역·마지막 카드 경계·3줄 미초과·보드 무스크롤을
+검사한다. 콘텐츠의 어색한 `Sehr erfreut Sie kennenzulernen`은
+`Freut mich, Sie kennenzulernen`으로 교정하고 CSV 쉼표 quoting도 보존했다.
+
+**검증.** 직접 Dart 분석에서 `speed_match_screen.dart`, `game_layout.dart`,
+`game_layout_test.dart` 모두 **No issues found**. 대상 3파일 format check는 0변경,
+PowerShell CSV 계약은 **930행**과 교정된 `german`/`example_german` 필드를 확인했고
+`git diff --check`도 통과했다. 다만 현재 여러 Flutter/Dart 검증 프로세스가 동시에
+SDK를 점유해 `flutter test --no-pub test/game_layout_test.dart` 300초 실행과 새 장문
+테스트만 고른 180초 실행이 모두 테스트 본문 출력 전 타임아웃됐다. 따라서 새 위젯
+회귀의 실제 통과는 이번 세션에서 증명하지 못했으며, 정적 분석 통과까지만 증거다.
+
+**커밋.** 기능·데이터·테스트·체크리스트 `17f1ad6` (`fix(game): keep Blitz-Paare on one screen`).
+
+---
+
 ### 2026-08-11 (Codex) — 계정 삭제 terminal receipt와 Google 교체 복구 경로 구현
 
 **왜.** 실기기 Google 교체 operation은 서버에서 `completed` v4까지 도달했지만 로컬은
