@@ -419,7 +419,7 @@ class _WordleScreenState extends State<WordleScreen>
                     // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
                     // 작은 화면(compact)에선 게임판 세로 공간 확보를 위해 배너 생략
                     // (AppBar 타이틀로 정체성 유지).
-                    if (!compact) ...[
+                    if (!compact && !_won && !_lost) ...[
                       const SoriEntrance(
                         child: HanokHeader(
                           asset: 'assets/illustrations/hanok/porch.png',
@@ -543,9 +543,15 @@ class _WordleScreenState extends State<WordleScreen>
                         ),
                         child: LayoutBuilder(
                           builder: (context, c) {
+                            // 게임 종료(정답/실패) 시엔 남은 빈 줄을 그리지 않는다 →
+                            // 큰 결과 카드가 들어설 세로 공간을 확보해 그리드가
+                            // 짜부라지며 나던 하단 오버플로(106px)를 제거한다.
+                            final rows = (_won || _lost) && _guesses.isNotEmpty
+                                ? _guesses.length
+                                : _max;
                             // 셀 = min(가로 허용, 세로 허용, 62) → 남는 공간에 정확히 맞춤.
                             final byW = (c.maxWidth - n * 8) / n;
-                            final byH = (c.maxHeight - _max * 8) / _max;
+                            final byH = (c.maxHeight - rows * 8) / rows;
                             final cell = [
                               byW,
                               byH,
@@ -556,7 +562,7 @@ class _WordleScreenState extends State<WordleScreen>
                               children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: List.generate(_max, (row) {
+                                  children: List.generate(rows, (row) {
                                     if (row < _guesses.length) {
                                       final (word, states) = _guesses[row];
                                       return _Row(
@@ -669,7 +675,9 @@ class _WordleScreenState extends State<WordleScreen>
                     ],
 
                     // 새 단어 버튼은 AppBar shuffle 아이콘과 중복 → compact에선 생략.
-                    if (!compact) ...[
+                    // 결과(정답/실패) 시엔 _ResultCard 안에 "새 단어" 버튼이 이미
+                    // 있으므로 하단 버튼을 숨겨 중복 표시를 방지한다.
+                    if (!compact && !_won && !_lost) ...[
                       const SizedBox(height: Spacing.lg),
                       SoriButton.outlined(
                         label: t.wordleNewWordBtn,
