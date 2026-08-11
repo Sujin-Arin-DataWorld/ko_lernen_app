@@ -3481,6 +3481,96 @@ abstract class AppL10n {
   /// **'Jetzt nicht'**
   String get onboardingCompanionSkip;
 
+  /// No description provided for @onboardingCompanionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lernbegleitung'**
+  String get onboardingCompanionEyebrow;
+
+  /// No description provided for @onboardingCompanionPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle Taego oder Joy. Beide helfen dir, und du kannst dich auch später entscheiden.'**
+  String get onboardingCompanionPrompt;
+
+  /// No description provided for @onboardingCompanionSelectedTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego begleitet dich.'**
+  String get onboardingCompanionSelectedTiger;
+
+  /// No description provided for @onboardingCompanionSelectedMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy begleitet dich.'**
+  String get onboardingCompanionSelectedMagpie;
+
+  /// No description provided for @onboardingCompanionSelectionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Wahl kannst du jederzeit in deinem Profil ändern.'**
+  String get onboardingCompanionSelectionBody;
+
+  /// No description provided for @onboardingCompanionContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Begleitung zu Heute'**
+  String get onboardingCompanionContinue;
+
+  /// No description provided for @onboardingCompanionChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Anders wählen'**
+  String get onboardingCompanionChange;
+
+  /// No description provided for @firstVoiceStamp.
+  ///
+  /// In de, this message translates to:
+  /// **'ERSTE\nSTIMME'**
+  String get firstVoiceStamp;
+
+  /// No description provided for @firstVoiceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast dein erstes Koreanisch verstanden.'**
+  String get firstVoiceTitle;
+
+  /// No description provided for @firstVoiceBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.'**
+  String get firstVoiceBody;
+
+  /// No description provided for @firstVoiceCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann jemanden freundlich begrüßen.'**
+  String get firstVoiceCanDo;
+
+  /// No description provided for @firstVoiceCanDoBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein A1-Weg beginnt mit dieser Szene.'**
+  String get firstVoiceCanDoBody;
+
+  /// No description provided for @firstVoiceCompanionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Möchtest du eine Lernbegleitung?'**
+  String get firstVoiceCompanionTitle;
+
+  /// No description provided for @firstVoiceCompanionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.'**
+  String get firstVoiceCompanionBody;
+
+  /// No description provided for @firstVoiceSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Direkt zu Heute'**
+  String get firstVoiceSkip;
+
   /// No description provided for @missionContextLabel.
   ///
   /// In de, this message translates to:
@@ -3960,6 +4050,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zurück zu meinem Weg'**
   String get scenarioResultReturnBtn;
+
+  /// No description provided for @scenarioSavedEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'DEINE SZENE IST GESPEICHERT'**
+  String get scenarioSavedEyebrow;
+
+  /// No description provided for @scenarioSavedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst jetzt zum Hanok zurück.'**
+  String get scenarioSavedTitle;
+
+  /// No description provided for @scenarioSavedPhrase.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Satz für deine nächste Szene'**
+  String get scenarioSavedPhrase;
+
+  /// No description provided for @scenarioSavedStructure.
+  ///
+  /// In de, this message translates to:
+  /// **'Struktur für diese Szene'**
+  String get scenarioSavedStructure;
+
+  /// No description provided for @scenarioSavedEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Übung ist gespeichert und steht für die Wiederholung bereit.'**
+  String get scenarioSavedEmpty;
+
+  /// No description provided for @scenarioSavedReturnHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Hanok'**
+  String get scenarioSavedReturnHanok;
+
+  /// No description provided for @scenarioSavedRepeat.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Szene noch einmal üben'**
+  String get scenarioSavedRepeat;
 
   /// No description provided for @scenarioCanDoVerifiedTitle.
   ///
@@ -5359,11 +5491,53 @@ abstract class AppL10n {
   /// **'Zum aktuellen Schritt'**
   String get pathJumpToNow;
 
+  /// No description provided for @pathStoryEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · Alltag in Korea'**
+  String pathStoryEyebrow(Object level);
+
+  /// No description provided for @pathStoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Du baust vom Begrüßen zum Leben.'**
+  String get pathStoryTitle;
+
+  /// No description provided for @pathStoryBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Jeder Abschnitt endet mit einer Situation, die du selbst lösen kannst.'**
+  String get pathStoryBody;
+
+  /// No description provided for @pathOpenCurrentMission.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktuelle Mission öffnen'**
+  String get pathOpenCurrentMission;
+
   /// No description provided for @gyeEmptyHeadline.
   ///
   /// In de, this message translates to:
   /// **'Allein lernen ist vollständig. Zusammen kann es wärmer sein.'**
   String get gyeEmptyHeadline;
+
+  /// No description provided for @gyeEmptyLead.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Gye ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.'**
+  String get gyeEmptyLead;
+
+  /// No description provided for @gyeFindOrCreate.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Gye finden oder gründen'**
+  String get gyeFindOrCreate;
+
+  /// No description provided for @gyeContinueSolo.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Gruppe weiterlernen'**
+  String get gyeContinueSolo;
 
   /// No description provided for @gyeEmptyPreviewCaption.
   ///
@@ -5442,6 +5616,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Behalte Streak, XP & Hanok'**
   String get profileGuestBadge;
+
+  /// No description provided for @profileJourneyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Weg, {name}'**
+  String profileJourneyTitle(Object name);
+
+  /// No description provided for @profileJourneySummary.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · {goal}'**
+  String profileJourneySummary(Object level, Object goal);
 
   /// No description provided for @profileGuestDesc.
   ///
@@ -5526,6 +5712,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mein Raum'**
   String get profileSpaceSection;
+
+  /// No description provided for @profileGye.
+  ///
+  /// In de, this message translates to:
+  /// **'Gruppe (Gye)'**
+  String get profileGye;
+
+  /// No description provided for @profileGyeDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Freiwillige Lerngemeinschaft öffnen'**
+  String get profileGyeDescription;
 
   /// No description provided for @profilePrivacyAccount.
   ///
@@ -5790,6 +5988,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dein Lernfortschritt bleibt zunächst auf deinem Gerät. Optionale Funktionen wie Cloud-Backup, Lerngruppen, Foto-Worterkennung und Aussprache-Audio verarbeiten einzelne Daten auf EU-Servern. Details findest du in der Datenschutzerklärung.'**
   String get consentBody;
+
+  /// No description provided for @consentEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Bevor du beginnst'**
+  String get consentEyebrow;
+
+  /// No description provided for @consentCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutz & Lernkonto'**
+  String get consentCardTitle;
+
+  /// No description provided for @consentCardBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.'**
+  String get consentCardBody;
+
+  /// No description provided for @consentContinueCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get consentContinueCta;
 
   /// No description provided for @consentPrivacyCta.
   ///
@@ -6342,6 +6564,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dein Lernraum'**
   String get practiceSecSpace;
+
+  /// No description provided for @practiceFocusedDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache, Grammatik oder Schreiben'**
+  String get practiceFocusedDescription;
+
+  /// No description provided for @practiceFreeDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortkette, Buchstaben und kurze Spiele'**
+  String get practiceFreeDescription;
+
+  /// No description provided for @practiceWordsDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wörter und Bücher öffnen'**
+  String get practiceWordsDescription;
+
+  /// No description provided for @practiceAllActivities.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Aktivitäten anzeigen'**
+  String get practiceAllActivities;
+
+  /// No description provided for @practiceHideAllActivities.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Aktivitäten ausblenden'**
+  String get practiceHideAllActivities;
 
   /// No description provided for @pathEvidenceTitle.
   ///
@@ -8221,6 +8473,12 @@ abstract class AppL10n {
   /// **'Deine Handlung für heute'**
   String get homeTodayEyebrow;
 
+  /// No description provided for @homeTodayFirst.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute zuerst'**
+  String get homeTodayFirst;
+
   /// No description provided for @homeTodayMissionStart.
   ///
   /// In de, this message translates to:
@@ -8292,6 +8550,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.'**
   String get homeUnavailableDescription;
+
+  /// No description provided for @homeUnavailableSafeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt sicher möglich'**
+  String get homeUnavailableSafeTitle;
+
+  /// No description provided for @homeUnavailableSafeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Wiederholung nutzt nur Lerninhalte, die auf diesem Gerät gespeichert sind.'**
+  String get homeUnavailableSafeBody;
 
   /// No description provided for @homeUnavailableCta.
   ///
@@ -8491,6 +8761,48 @@ abstract class AppL10n {
   /// **'Meine Hanok-Welt'**
   String get hanokWorldTitle;
 
+  /// No description provided for @hanokWorldEarlyEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hof · A1'**
+  String get hanokWorldEarlyEyebrow;
+
+  /// No description provided for @hanokWorldEarlyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Dach beginnt mit einer Stimme.'**
+  String get hanokWorldEarlyTitle;
+
+  /// No description provided for @hanokWorldEarlyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.'**
+  String get hanokWorldEarlyBody;
+
+  /// No description provided for @hanokWorldMapEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein begehbarer Hof'**
+  String get hanokWorldMapEyebrow;
+
+  /// No description provided for @hanokWorldMapTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wohin möchtest du gehen?'**
+  String get hanokWorldMapTitle;
+
+  /// No description provided for @hanokWorldMapBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.'**
+  String get hanokWorldMapBody;
+
+  /// No description provided for @hanokWorldOpenNextScene.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Szene ansehen'**
+  String get hanokWorldOpenNextScene;
+
   /// No description provided for @hanokWorldIntro.
   ///
   /// In de, this message translates to:
@@ -8593,6 +8905,48 @@ abstract class AppL10n {
   /// **'Sadang · Erfolge'**
   String get hanokZoneSadang;
 
+  /// No description provided for @hanokWorldPurposeSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.'**
+  String get hanokWorldPurposeSarangbang;
+
+  /// No description provided for @hanokWorldPurposeDaecheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh deinen Lernpfad und wähle die nächste bestätigte Mission.'**
+  String get hanokWorldPurposeDaecheong;
+
+  /// No description provided for @hanokWorldPurposeHaengrang.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eine gezielte Übung oder ein kurzes Spiel.'**
+  String get hanokWorldPurposeHaengrang;
+
+  /// No description provided for @hanokWorldPurposeAnchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.'**
+  String get hanokWorldPurposeAnchae;
+
+  /// No description provided for @hanokWorldPurposeHuwon.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle einen ruhigen Zeichenmoment oder eine bestehende Quest.'**
+  String get hanokWorldPurposeHuwon;
+
+  /// No description provided for @hanokWorldPurposeSadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh die sichtbaren Meilensteine deines Lernwegs noch einmal an.'**
+  String get hanokWorldPurposeSadang;
+
+  /// No description provided for @hanokWorldPurposeGyeRoad.
+  ///
+  /// In de, this message translates to:
+  /// **'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.'**
+  String get hanokWorldPurposeGyeRoad;
+
   /// No description provided for @hanokWorldSelectPlaceTitle.
   ///
   /// In de, this message translates to:
@@ -8686,13 +9040,13 @@ abstract class AppL10n {
   /// No description provided for @sarangbangStudyIntroTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein nächster Lernschritt wartet'**
+  /// **'Die Worte von heute sind angekommen.'**
   String get sarangbangStudyIntroTitle;
 
   /// No description provided for @sarangbangStudyIntroBody.
   ///
   /// In de, this message translates to:
-  /// **'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.'**
+  /// **'Hier siehst du, was du dir tatsächlich erarbeitet hast.'**
   String get sarangbangStudyIntroBody;
 
   /// No description provided for @sarangbangStudySceneLabel.
@@ -8706,6 +9060,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Studierstube einrichten'**
   String get sarangbangStudyFurnish;
+
+  /// No description provided for @sarangbangFurnishTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einrichten'**
+  String get sarangbangFurnishTitle;
+
+  /// No description provided for @sarangbangFurnishBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Lernbelohnungen.'**
+  String get sarangbangFurnishBody;
+
+  /// No description provided for @sarangbangStoredTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute abgelegt'**
+  String get sarangbangStoredTitle;
+
+  /// No description provided for @sarangbangStoredEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Ausdrücke und sichere Szenen erscheinen hier, wenn du sie dir erarbeitet hast.'**
+  String get sarangbangStoredEmpty;
+
+  /// No description provided for @sarangbangStoredBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{detail} · Deine heutige Szene bleibt auf Start ausgewählt.'**
+  String sarangbangStoredBody(Object detail);
+
+  /// No description provided for @sarangbangOpenToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur heutigen Szene'**
+  String get sarangbangOpenToday;
 
   /// No description provided for @personalRoomAnbangTitle.
   ///

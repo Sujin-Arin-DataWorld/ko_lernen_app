@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
@@ -81,6 +82,7 @@ void main() {
     'stats': const StatsScreen(),
     'settings': const SettingsScreen(),
     'onboarding': const OnboardingLevelScreen(),
+    'companion selection': const CharacterSelectionScreen(optional: true),
   };
 
   for (final entry in screens.entries) {

@@ -1914,6 +1914,56 @@ class AppL10nEn extends AppL10n {
   String get onboardingCompanionSkip => 'Not now';
 
   @override
+  String get onboardingCompanionEyebrow => 'Your study companion';
+
+  @override
+  String get onboardingCompanionPrompt =>
+      'Choose Taego or Joy. Both can help, and you can decide later too.';
+
+  @override
+  String get onboardingCompanionSelectedTiger => 'Taego will learn with you.';
+
+  @override
+  String get onboardingCompanionSelectedMagpie => 'Joy will learn with you.';
+
+  @override
+  String get onboardingCompanionSelectionBody =>
+      'You can change your choice any time in your profile.';
+
+  @override
+  String get onboardingCompanionContinue =>
+      'Continue to Today with a companion';
+
+  @override
+  String get onboardingCompanionChange => 'Choose someone else';
+
+  @override
+  String get firstVoiceStamp => 'FIRST\nVOICE';
+
+  @override
+  String get firstVoiceTitle => 'You understood your first Korean.';
+
+  @override
+  String get firstVoiceBody =>
+      'You understood a first Korean expression and can use it in your scene.';
+
+  @override
+  String get firstVoiceCanDo => 'I can greet someone kindly.';
+
+  @override
+  String get firstVoiceCanDoBody => 'Your A1 path begins with this scene.';
+
+  @override
+  String get firstVoiceCompanionTitle => 'Would you like a learning companion?';
+
+  @override
+  String get firstVoiceCompanionBody =>
+      'They celebrate successes and explain hints. You can also decide later.';
+
+  @override
+  String get firstVoiceSkip => 'Go straight to Today';
+
+  @override
   String get missionContextLabel => 'Current mission';
 
   @override
@@ -2174,6 +2224,28 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioResultReturnBtn => 'Back to my path';
+
+  @override
+  String get scenarioSavedEyebrow => 'YOUR SCENE IS SAVED';
+
+  @override
+  String get scenarioSavedTitle => 'You can return to your Hanok now.';
+
+  @override
+  String get scenarioSavedPhrase => 'A phrase for your next scene';
+
+  @override
+  String get scenarioSavedStructure => 'Structure for this scene';
+
+  @override
+  String get scenarioSavedEmpty =>
+      'Your practice is saved and ready for review.';
+
+  @override
+  String get scenarioSavedReturnHanok => 'Back to my Hanok';
+
+  @override
+  String get scenarioSavedRepeat => 'Practise this scene again';
 
   @override
   String get scenarioCanDoVerifiedTitle => 'You can do this now.';
@@ -3038,8 +3110,33 @@ class AppL10nEn extends AppL10n {
   String get pathJumpToNow => 'To the current step';
 
   @override
+  String pathStoryEyebrow(Object level) {
+    return '$level · Everyday life in Korea';
+  }
+
+  @override
+  String get pathStoryTitle => 'You build from greetings to living.';
+
+  @override
+  String get pathStoryBody =>
+      'Every section ends with a situation you can handle yourself.';
+
+  @override
+  String get pathOpenCurrentMission => 'Open current mission';
+
+  @override
   String get gyeEmptyHeadline =>
       'Learning alone is complete. Together can feel warmer.';
+
+  @override
+  String get gyeEmptyLead =>
+      'A Gye is a small group that holds a weekly intention together.';
+
+  @override
+  String get gyeFindOrCreate => 'Find or create a Gye';
+
+  @override
+  String get gyeContinueSolo => 'Continue without a group';
 
   @override
   String get gyeEmptyPreviewCaption =>
@@ -3090,6 +3187,16 @@ class AppL10nEn extends AppL10n {
   String get profileGuestBadge => 'Keep your streak, XP & hanok';
 
   @override
+  String profileJourneyTitle(Object name) {
+    return 'Your path, $name';
+  }
+
+  @override
+  String profileJourneySummary(Object level, Object goal) {
+    return '$level · $goal';
+  }
+
+  @override
   String get profileGuestDesc =>
       'Right now, your progress is only on this device. Back it up with Google to keep it when you switch phones.';
 
@@ -3134,6 +3241,12 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get profileSpaceSection => 'My space';
+
+  @override
+  String get profileGye => 'Group (Gye)';
+
+  @override
+  String get profileGyeDescription => 'Open your optional learning group';
 
   @override
   String get profilePrivacyAccount => 'Privacy & account';
@@ -3287,6 +3400,19 @@ class AppL10nEn extends AppL10n {
   @override
   String get consentBody =>
       'Your learning progress stays on your device by default. Optional features such as cloud backup, study groups, photo word capture, and pronunciation audio process specific data on EU servers. See the privacy policy for details.';
+
+  @override
+  String get consentEyebrow => 'Before you begin';
+
+  @override
+  String get consentCardTitle => 'Privacy & learning account';
+
+  @override
+  String get consentCardBody =>
+      'Clearly explained · adjustable in your profile at any time. Groups always remain optional.';
+
+  @override
+  String get consentContinueCta => 'Continue';
 
   @override
   String get consentPrivacyCta => 'Privacy policy';
@@ -3615,6 +3741,21 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get practiceSecSpace => 'Your learning space';
+
+  @override
+  String get practiceFocusedDescription => 'Pronunciation, grammar, or writing';
+
+  @override
+  String get practiceFreeDescription => 'Word chains, letters, and short games';
+
+  @override
+  String get practiceWordsDescription => 'Open saved words and books';
+
+  @override
+  String get practiceAllActivities => 'Show all activities';
+
+  @override
+  String get practiceHideAllActivities => 'Hide all activities';
 
   @override
   String get pathEvidenceTitle => 'How progress becomes verified';
@@ -4667,6 +4808,9 @@ class AppL10nEn extends AppL10n {
   String get homeTodayEyebrow => 'Your real-life action today';
 
   @override
+  String get homeTodayFirst => 'Today first';
+
+  @override
   String get homeTodayMissionStart => 'Start this scene';
 
   @override
@@ -4705,6 +4849,13 @@ class AppL10nEn extends AppL10n {
   @override
   String get homeUnavailableDescription =>
       'Your saved reviews and completed content are still available on this device.';
+
+  @override
+  String get homeUnavailableSafeTitle => 'Safe to do now';
+
+  @override
+  String get homeUnavailableSafeBody =>
+      'Review uses only learning content saved on this device.';
 
   @override
   String get homeUnavailableCta => 'Review saved words';
@@ -4820,6 +4971,29 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldTitle => 'My Hanok world';
 
   @override
+  String get hanokWorldEarlyEyebrow => 'Your courtyard · A1';
+
+  @override
+  String get hanokWorldEarlyTitle => 'A roof begins with a voice.';
+
+  @override
+  String get hanokWorldEarlyBody =>
+      'Your foundation grows with every secure sentence from everyday life.';
+
+  @override
+  String get hanokWorldMapEyebrow => 'Your walkable courtyard';
+
+  @override
+  String get hanokWorldMapTitle => 'Where would you like to go?';
+
+  @override
+  String get hanokWorldMapBody =>
+      'One place, one purpose. Learning does not start from an empty map.';
+
+  @override
+  String get hanokWorldOpenNextScene => 'See the next scene';
+
+  @override
   String get hanokWorldIntro =>
       'Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.';
 
@@ -4874,6 +5048,34 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokZoneSadang => 'Sadang · achievements';
+
+  @override
+  String get hanokWorldPurposeSarangbang =>
+      'Return to today\'s scene and the expressions you have earned.';
+
+  @override
+  String get hanokWorldPurposeDaecheong =>
+      'See your course path and choose the next verified mission.';
+
+  @override
+  String get hanokWorldPurposeHaengrang =>
+      'Choose a focused practice or a short game.';
+
+  @override
+  String get hanokWorldPurposeAnchae =>
+      'Open your saved words, books, and personal learning collection.';
+
+  @override
+  String get hanokWorldPurposeHuwon =>
+      'Choose a quiet daily character moment or an existing quest.';
+
+  @override
+  String get hanokWorldPurposeSadang =>
+      'Look back at the visible milestones of your learning path.';
+
+  @override
+  String get hanokWorldPurposeGyeRoad =>
+      'The shared Gye courtyard stays separate from your private Hanok.';
 
   @override
   String get hanokWorldSelectPlaceTitle => 'Choose a finished place';
@@ -4934,17 +5136,39 @@ class AppL10nEn extends AppL10n {
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override
-  String get sarangbangStudyIntroTitle => 'Your next study step is ready';
+  String get sarangbangStudyIntroTitle => 'Today\'s words have arrived.';
 
   @override
   String get sarangbangStudyIntroBody =>
-      'The exercise that fits your progress today begins here.';
+      'Here you can see what you have actually worked for.';
 
   @override
   String get sarangbangStudySceneLabel => 'Your study room';
 
   @override
   String get sarangbangStudyFurnish => 'Furnish the study room';
+
+  @override
+  String get sarangbangFurnishTitle => 'Furnish';
+
+  @override
+  String get sarangbangFurnishBody =>
+      'New objects come from existing, clearly marked learning rewards.';
+
+  @override
+  String get sarangbangStoredTitle => 'Stored today';
+
+  @override
+  String get sarangbangStoredEmpty =>
+      'New expressions and secure scenes appear here once you have worked for them.';
+
+  @override
+  String sarangbangStoredBody(Object detail) {
+    return '$detail · Your current scene remains selected on Home.';
+  }
+
+  @override
+  String get sarangbangOpenToday => 'Open today\'s scene';
 
   @override
   String get personalRoomAnbangTitle => 'Anbang';

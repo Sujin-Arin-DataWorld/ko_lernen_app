@@ -70,6 +70,12 @@ void main() {
     expect(find.text('Mein Startpunkt'), findsOneWidget);
     expect(find.text('Lernbegleitung'), findsOneWidget);
     expect(find.text('Datenschutz & Konto'), findsOneWidget);
+    expect(find.text('Gruppe (Gye)'), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text('Datenschutz & Konto')).dy,
+      lessThan(tester.getTopLeft(find.text('Gruppe (Gye)')).dy),
+      reason: 'privacy/account is shown before the optional group entry',
+    );
 
     await tester.tap(find.text('Mein Startpunkt'));
     await tester.pump();
@@ -245,11 +251,12 @@ void main() {
 
     // The locked button stays tappable and explains the pending cloud
     // deletion — never a silent dead tap, and never an actual sign-out.
-    final signOut = tester.widget<SoriButton>(
-      find.widgetWithText(SoriButton, 'Abmelden'),
-    );
+    final signOutFinder = find.widgetWithText(SoriButton, 'Abmelden');
+    await tester.ensureVisible(signOutFinder);
+    await tester.pump();
+    final signOut = tester.widget<SoriButton>(signOutFinder);
     expect(signOut.onTap, isNotNull);
-    await tester.tap(find.widgetWithText(SoriButton, 'Abmelden'));
+    await tester.tap(signOutFinder);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('Cloud-Löschung wird fortgesetzt'), findsOneWidget);
@@ -294,9 +301,7 @@ void main() {
         240,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.ensureVisible(
-        find.widgetWithText(SoriButton, 'Abmelden'),
-      );
+      await tester.ensureVisible(find.widgetWithText(SoriButton, 'Abmelden'));
       await tester.pump();
       var signOut = tester.widget<SoriButton>(
         find.widgetWithText(SoriButton, 'Abmelden'),
@@ -314,9 +319,7 @@ void main() {
         find.widgetWithText(SoriButton, 'Abmelden'),
       );
       expect(signOut.onTap, isNotNull);
-      await tester.ensureVisible(
-        find.widgetWithText(SoriButton, 'Abmelden'),
-      );
+      await tester.ensureVisible(find.widgetWithText(SoriButton, 'Abmelden'));
       await tester.pump();
       await tester.tap(find.widgetWithText(SoriButton, 'Abmelden'));
       await tester.pump();
@@ -387,16 +390,18 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
-    // Zustimmen-CTA (consentAgreeCta, de) muss rendern.
-    expect(find.text('Zustimmen & loslegen'), findsOneWidget);
+    // 01A is legal consent only: one clear continuation after the legal links.
+    expect(find.text('Weiter'), findsOneWidget);
+    expect(find.text('Datenschutz & Lernkonto'), findsOneWidget);
     expect(tester.takeException(), isNull);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
   });
 
-  testWidgets('ConsentScreen Opt-in: Analytics/Crash default AUS, '
-      'nur Angekreuztes wird persistiert (TTDSG §25)', (tester) async {
+  testWidgets('ConsentScreen keeps optional collection off by default', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -409,28 +414,18 @@ void main() {
     await tester.pumpWidget(_wrap(const ConsentScreen()));
     await tester.pump();
 
-    // Default: beide Checkboxen aus, nichts persistiert.
+    // 01A has no optional collection checkboxes. Consent is legal only and
+    // optional collection stays off until it is explicitly changed elsewhere.
     expect(Storage.analyticsConsent, isFalse);
     expect(Storage.crashConsent, isFalse);
-    final boxes = find.byType(Checkbox);
-    expect(boxes, findsNWidgets(2));
-    expect(tester.widget<Checkbox>(boxes.at(0)).value, isFalse);
-    expect(tester.widget<Checkbox>(boxes.at(1)).value, isFalse);
+    expect(find.byType(Checkbox), findsNothing);
 
-    // Nur Analytics ankreuzen, dann zustimmen.
-    // ⚠️ Checkbox direkt antippen geht nicht mehr: Die Box ist bewusst kein
-    // eigenes Tap-Ziel (IgnorePointer + ExcludeSemantics), damit die ganze
-    // Zeile ein einziges, beschriftetes 48dp-Ziel ist — sonst blieben 32dp
-    // ohne Label für TalkBack/VoiceOver übrig. Getippt wird, was auch der
-    // Nutzer antippt: die Zeile mit ihrer Beschriftung.
-    await tester.tap(find.text('Anonyme Nutzungsstatistiken teilen (optional)'));
-    await tester.pump();
-    await tester.tap(find.text('Zustimmen & loslegen'));
+    await tester.tap(find.text('Weiter'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
     expect(Storage.consentAccepted, isTrue);
-    expect(Storage.analyticsConsent, isTrue);
+    expect(Storage.analyticsConsent, isFalse);
     expect(Storage.crashConsent, isFalse);
 
     await tester.pumpWidget(const SizedBox.shrink());

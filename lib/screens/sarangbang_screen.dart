@@ -23,11 +23,9 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 
-/// The study-facing Sarangbang. It presents the one recommendation selected
-/// by the existing engine, then launches the exact original learning surface.
-///
-/// Decorating remains intentionally separate at `/sarangbang/furnish` so a
-/// learner never has to enter a placement UI before studying.
+/// The Sarangbang is a deliberate return space: it shows what has arrived in
+/// the room and how to arrange it. Home owns today's primary recommendation;
+/// this screen only offers a quiet, optional route back to that same scene.
 class SarangbangStudyScreen extends StatefulWidget {
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
   final Future<void> Function(TodayLearningSnapshot recommendation)?
@@ -229,7 +227,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           builder: (context, constraints) {
                             final todayLink = KeyedSubtree(
                               key: const ValueKey('sarangbang-today-link'),
-                              child: _SarangbangTodayLink(
+                              child: _SarangbangArrivalCard(
                                 content: _missionContent(t),
                                 onOpen: _openRecommendation,
                               ),
@@ -237,6 +235,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                             final room = _SarangbangStudyScene(
                               placements: _placements,
                               owned: _ownedDecor,
+                            );
+                            final furnishing = _SarangbangFurnishCard(
                               onFurnish: _openFurnish,
                             );
 
@@ -249,7 +249,16 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                                 children: [
                                   Expanded(flex: 11, child: room),
                                   const SizedBox(width: Spacing.lg),
-                                  Expanded(flex: 9, child: todayLink),
+                                  Expanded(
+                                    flex: 9,
+                                    child: Column(
+                                      children: [
+                                        todayLink,
+                                        const SizedBox(height: Spacing.lg),
+                                        furnishing,
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               );
                             }
@@ -259,6 +268,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                                 room,
                                 const SizedBox(height: Spacing.lg),
                                 todayLink,
+                                const SizedBox(height: Spacing.lg),
+                                furnishing,
                               ],
                             );
                           },
@@ -325,11 +336,11 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   }
 }
 
-/// The Sarangbang is a place to revisit and arrange, not Home's mandatory
-/// duplicate mission screen. It can still open the already selected today
-/// destination when a learner intentionally arrives here from their Hanok.
-class _SarangbangTodayLink extends StatelessWidget {
-  const _SarangbangTodayLink({required this.content, required this.onOpen});
+/// Unlike Home's mission hero, this card does not restate a competing next
+/// action. It is an arrival record in the room, with an intentionally weaker
+/// link back to the already chosen scene.
+class _SarangbangArrivalCard extends StatelessWidget {
+  const _SarangbangArrivalCard({required this.content, required this.onOpen});
 
   final MissionHeroContent? content;
   final VoidCallback onOpen;
@@ -345,25 +356,25 @@ class _SarangbangTodayLink extends StatelessWidget {
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(t.missionHeroAllDoneTitle, style: text.cardTitle),
+                Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
-                Text(t.missionHeroAllDoneBody, style: text.cardSubtitle),
+                Text(t.sarangbangStoredEmpty, style: text.cardSubtitle),
               ],
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  t.homeTodayEyebrow,
-                  style: text.label.copyWith(color: SoriColors.primary),
-                ),
+                Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
                 Text(mission.title, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
-                Text(mission.meta, style: text.cardSubtitle),
+                Text(
+                  t.sarangbangStoredBody(mission.meta),
+                  style: text.cardSubtitle,
+                ),
                 const SizedBox(height: Spacing.md),
                 SoriButton.outlined(
-                  label: t.homeTodayMissionStart,
+                  label: t.sarangbangOpenToday,
                   fullWidth: true,
                   onTap: onOpen,
                 ),
@@ -376,13 +387,8 @@ class _SarangbangTodayLink extends StatelessWidget {
 class _SarangbangStudyScene extends StatelessWidget {
   final RoomPlacements placements;
   final Set<String> owned;
-  final VoidCallback onFurnish;
 
-  const _SarangbangStudyScene({
-    required this.placements,
-    required this.owned,
-    required this.onFurnish,
-  });
+  const _SarangbangStudyScene({required this.placements, required this.owned});
 
   @override
   Widget build(BuildContext context) {
@@ -400,13 +406,48 @@ class _SarangbangStudyScene extends StatelessWidget {
           owned: owned,
           interactive: false,
         ),
-        const SizedBox(height: Spacing.md),
-        SoriButton.outlined(
-          label: t.sarangbangStudyFurnish,
-          fullWidth: true,
-          onTap: onFurnish,
-        ),
       ],
+    );
+  }
+}
+
+/// Furnishing is an optional return activity.  Keeping it in a separate card
+/// prevents the room itself from being mistaken for a competing daily mission
+/// while retaining the established room-editor route.
+class _SarangbangFurnishCard extends StatelessWidget {
+  const _SarangbangFurnishCard({required this.onFurnish});
+
+  final VoidCallback onFurnish;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      key: const ValueKey('sarangbang-furnish-card'),
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.gold,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(t.sarangbangFurnishTitle, style: text.cardTitle),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.sarangbangFurnishBody,
+            style: text.bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            key: const ValueKey('sarangbang-furnish-action'),
+            label: t.sarangbangStudyFurnish,
+            accent: SoriColors.gold,
+            fullWidth: true,
+            onTap: onFurnish,
+          ),
+        ],
+      ),
     );
   }
 }

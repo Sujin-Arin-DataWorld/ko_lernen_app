@@ -118,8 +118,17 @@ void main() {
 
     expect(saveCalls, 1);
     expect(find.byType(CanDoResultCard), findsOneWidget);
+    expect(find.text('Du kannst jetzt zum Hanok zurück.'), findsOneWidget);
     expect(find.text('Das kannst du jetzt.'), findsOneWidget);
-    expect(find.text('Zurück zu meinem Weg'), findsOneWidget);
+    expect(
+      find.text(
+        'Deine Übung ist gespeichert und steht für die Wiederholung bereit.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Zurück zum Hanok'), findsOneWidget);
+    expect(find.text('Diese Szene noch einmal üben'), findsOneWidget);
+    expect(find.text('Zurück zu meinem Weg'), findsNothing);
     expect(find.text('Abschließen'), findsNothing);
   });
 }

@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+const _goldenMapWidth = 768;
+
 void main() {
   setUp(() {
     // Half the fixed 1536 x 1152 master canvas retains architectural detail
@@ -97,8 +99,9 @@ Future<void> _expectMap(
 }
 
 /// Real asset decoding must happen outside widget tests' FakeAsync zone.
-/// Once cached here, the map itself can be rendered deterministically in the
-/// ordinary test frame without an intermittent blank first golden.
+/// Precache the same resized provider key used by [PersonalHanokMap] at this
+/// viewport; caching the full-size asset does not warm its `cacheWidth` image
+/// and makes each golden render the previous test's layers.
 Future<void> _precachePersonalHanokMapAssets(WidgetTester tester) async {
   final futures = <Future<void>>[];
   await tester.runAsync(() async {
@@ -108,7 +111,14 @@ Future<void> _precachePersonalHanokMapAssets(WidgetTester tester) async {
           builder: (context) {
             futures.addAll(
               kPersonalHanokLayers.map(
-                (layer) => precacheImage(AssetImage(layer.assetPath), context),
+                (layer) => precacheImage(
+                  ResizeImage.resizeIfNeeded(
+                    _goldenMapWidth,
+                    null,
+                    AssetImage(layer.assetPath),
+                  ),
+                  context,
+                ),
               ),
             );
             return const SizedBox.shrink();

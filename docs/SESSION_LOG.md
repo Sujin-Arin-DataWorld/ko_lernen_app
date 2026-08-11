@@ -7,6 +7,133 @@
 
 ---
 
+### 2026-08-11 (Codex) — main 통합 뒤 Linux 골든·영상 리포트 정합성 복구
+
+**왜.** 최신 main을 UX PR #15에 합친 뒤 자동 CI run `31471400579`에서
+2,916개는 통과했지만 골든 10건과 캐릭터 영상 매트 리포트 1건이 실패했다.
+한옥 지도 골든 3장은 단순 화면 변경이 아니라, main의 `cacheWidth` 최적화 후
+테스트가 전체 크기 이미지 키만 미리 읽어 첫 장은 투명하고 다음 장부터 이전 단계가
+그려지는 프리캐시 결함이었다.
+
+**작업.** 수동 Ubuntu run `31471417383`의 공식 산출물에서 실제 통합 UI가 바뀐
+Learn Hub 3장·Settings 2장·Vocab Packs 2장만 명시적으로 반영했다. 한옥 테스트는
+프로덕션과 동일한 768px `ResizeImage` 키를 프리캐시하도록 고친 뒤, 재실행한 Ubuntu
+run `31472987280`에서 early·mid·complete가 각 단계에 맞게 그려진 것을 확인하고
+그 3장만 반영했다. `tool/check_clip_matte.py`로 현재 번들 18개 리포트를 재생성했으며,
+삭제된 영상이나 새 에셋은 복원·생성·추가하지 않았다. baseline이 없어 skip 중인 Home
+골든 2장도 이번 범위에는 추가하지 않았다.
+
+**검증.** 한옥 3단계 산출물을 직접 시각 대조했고, 두 번째 Linux 산출물은 그 3장
+외의 추적 baseline과 모두 byte-identical이었다. 매트 검사는 현재 18개 영상 모두
+white-matte 통과(실패 0), `character_clip_matte_test.dart` 5개 통과, 변경한 한옥
+골든 테스트의 scoped analyze는 **No issues found**, `git diff --check`도 통과했다.
+최종 Analyze·전체 Test·Build web·Book security는 이 커밋 push 뒤 PR 필수 CI로
+별도 확인한다.
+
+---
+
+### 2026-08-11 (Codex) — Claude main과 UX PR #15 손실 없는 통합
+
+**왜.** 병렬 Claude 세션이 모두 종료된 뒤 main의 카드 타이포그래피·시작 성능·
+단어팩 범위 안내·에셋 무손실 최적화와, Codex PR #15의 목업 01–06·01D 캐릭터
+선택 흐름을 한 main으로 흡수하라는 지시를 받았다.
+
+**작업.** 종료된 Claude 변경 9커밋을 먼저 `origin/main`에 보존한 다음 그 최신
+main을 `codex/mockup-03-06-parity`에 merge했다. 실제 충돌은 이 로그 한 곳뿐이어서
+Claude/Codex 기록을 모두 순서대로 남겼다. DE/EN ARB는 양쪽 키를 합친 뒤
+`flutter gen-l10n`으로 생성 파일을 다시 만들었다. main의 최적화된 기존 에셋을
+유지했고 새 이미지·영상은 만들지 않았다.
+
+**검증.** 통합 트리 `flutter analyze --no-pub --fatal-infos`는 **No issues
+found**였고, 01C→01D→Today·접근성·308–1280dp·1.3 글자·360×400 낮은 높이·
+단어팩·카드·계정 reconciliation을 포함한 집중 묶음 **902 tests**가 전부
+통과했다. `flutter gen-l10n`, 충돌 마커 검사, `git diff --check`도 통과했다.
+GitHub 전체 CI와 최종 PR 병합은 이 로컬 통합 커밋을 push한 뒤 별도 확인한다.
+
+---
+
+### 2026-08-11 (Codex) — Linux CI learn-hub 골든 기준선 동기화
+
+**왜.** PR #15의 첫 CI run `31440450110`은 앱 로직 테스트 **2,899개 통과** 뒤,
+04A 연습 허브의 의도된 화면 재구성으로 `learn_hub` compact/medium/expanded 골든
+3장이 각 0.29% 달라져 실패했다. Windows에서 기준선을 만들면 CI 렌더러와 달라질 수
+있으므로 로컬 갱신은 하지 않았다.
+
+**무엇을.** 현재 PR 커밋에서 CI manual run `31441509563`의
+`Regenerate goldens (manual)`을 성공시킨 뒤 `goldens-linux-3-44-0` 산출물과
+기존 파일의 SHA-256을 대조했다. 실제 CI 실패와 일치하는
+`screen_learn_hub_{compact,medium,expanded}.png` 3개만 반영했다. 기준선이 없어
+원래 skip되는 home 골든 2개와 해시가 동일한 나머지 12개는 추가·변경하지 않았다.
+
+**범위.** 이 PNG들은 앱에 번들되는 이미지가 아니라 Linux CI의 테스트 기준선이다.
+런타임 이미지·영상·기존 assets에는 변경이 없다. 새 PR CI에서 이 3개 골든을 포함한
+전체 검사 결과를 다시 확인한다.
+
+---
+
+### 2026-08-11 (Codex) — 01D 동행 캐릭터 선택 화면·확정 흐름 보완
+
+**왜.** 01–02 목업을 다시 화면·CTA·저장 결과까지 대조하는 중, 01C의
+`Lernfreund wählen`은 기존 선택 화면을 열지만 목업에는 이 독립 화면이 01D로
+명시되지 않았고, 선택 뒤 2.4초 후 자동 이동해 사용자가 다음 행동을 통제하기
+어려웠다. 사용자도 캐릭터 선택 화면 누락을 직접 지적했다.
+
+**무엇을.** 첫 성공에서만 열리는 optional `CharacterSelectionScreen`은 이제
+기존 태고·조이 에셋을 같은 화면에 계속 보여 주며, 카드 탭은 화면 안에서만
+미리 선택한다. `Mit Begleitung zu Heute`를 눌렀을 때만 기존
+`MascotPreference`/`Storage` 한 경로로 확정 저장하고 Today로 간다. Back/`Jetzt
+nicht`는 반쪽 선택을 남기지 않으며, 첫 성공 화면의 보조 행동도 사실과 맞는
+`Direkt zu Heute`로 정리했다. 기존 직접 캐릭터 선택 경로의 자동 다음 단계는
+변경하지 않았고 새 이미지·영상은 만들거나 추가하지 않았다.
+
+**검증.** 01C→01D→조이 확정→Today 통합 경로, 태고/조이 변경, 미선택 CTA,
+skip 무저장, TalkBack/VoiceOver 탭 액션·선택 상태를 자동화했다. 캐릭터·첫 성공·
+게이트 집중 묶음 **10 tests**, 화면 smoke와 308–1280dp·1.3 글자·360×400 낮은
+높이를 포함한 반응형 묶음까지 합쳐 **792 tests**가 통과했다. `flutter gen-l10n`,
+변경 파일 `flutter analyze --fatal-infos`(No issues found), 기존 에셋 경로 검사와
+`git diff --check`도 통과했다.
+
+---
+
+### 2026-08-11 (Codex) — 03–06 mockup-parity correction
+
+**Why.** A second screen-by-screen audit found that the earlier 01–06 rebuild
+connected the right routes, but did not yet make several 03–06 mockup
+hierarchies visible enough on the first scan.
+
+**Delivered.** 03A now follows `story → existing courtyard art → construction
+plan → next scene`; 03B gives every completed place an explicit learning
+purpose in both the map detail and accessible list; and 03C separates the
+stored-learning record from the optional furnishing return. 04A now exposes
+need-based choices first and keeps every existing activity behind a deliberate
+"show all" control. 05 presents the weekly real-life promise before an
+optional invitation, then the courtyard and a filled safe-encouragement
+action. 06 places privacy/account before the optional Gye entry in the profile
+space.  No generated imagery was added: existing Hanok, room, and Gye assets
+remain in use.
+
+**Verification.** `flutter gen-l10n` completed; the focused 03–06 plus
+onboarding/Home test bundle passed **40 tests**, and a fresh 01–02
+onboarding/course/context/result bundle passed **43 tests**; `flutter analyze
+--fatal-infos` reported **No issues found**; and `git diff --check` passed.
+The new map-purpose parameter is covered at the tablet viewport as well as
+through the full Hanok route tests. No Android build was started and no main
+worktree, push, PR, or merge was changed.
+
+---
+
+### 2026-08-11 (Codex) — UX 목업 01–06 시각 패리티 재구현 완료
+
+**왜.** Jin의 실제 화면 검토에서 기존 `01–06 완료` 표기가 문구·상태·라우팅 테스트를 목업 화면 구현으로 과대 해석한 사실이 확인됐다. 특히 01A/01C와 02A–02D는 목업의 실제 첫 화면 흐름으로 볼 수 없었고, 03–06도 화면 위계와 CTA가 다르게 남아 있었다.
+
+**이번 작업의 원칙.** 사용자 main worktree는 건드리지 않고 `codex/mockup-03-06-parity` 격리 브랜치에서, 새 이미지 생성 없이 기존 한옥·계·마스코트·캐릭터 영상을 재사용한다. 모든 화면은 기존 게임·OCR·사전·단어장·시나리오·코스 route를 삭제하지 않고 목적별 진입점으로 연결한다.
+
+**무엇을.** 01A는 법적 동의 중심 화면으로 단순화하고, 첫 `courseEligible` 성공 뒤에만 열리는 01C `FirstVoiceSuccessScreen`을 추가했다. 02는 Today의 단일 다음 행동·미션 브리프·플레이어 맥락·저장된 can-do 결과를 연결했다. 03–06은 한옥/사랑방/목적별 연습/학습 경로/계/프로필/Today 예외 상태를 목업의 정보 위계와 CTA로 재구성했다. 모든 CTA는 기존 게임·OCR·사전·단어장·시나리오·코스 route를 유지해 연결하며, 새 이미지·영상 자산은 만들지 않았다.
+
+**검증.** `flutter gen-l10n`, 전체 `flutter analyze --fatal-infos`(No issues found), `git diff --check`를 통과했다. 골든을 제외한 Flutter 테스트 **257개 파일**을 13개 묶음으로 끝까지 통과시켰으며, 01A–06C의 기본/상태/CTA/반응형 계약을 포함한다. Linux CI 전용 골든 기준선 9개는 Windows 로컬 텍스트 래스터 차이로 별도이며, 기준선을 이 작업에서 수정하지 않았다. Android AAB 빌드와 OneDrive `build` 폴더 정리는 실행하지 않았다.
+
+**커밋 및 최신 main 재검증.** 기능 커밋은 `192f83e` (`feat(ux): rebuild mockup learning flow`)다. `origin/main`의 최신 `30d55e6` 위로 충돌 없이 rebase했고, main 쪽 추가 파일은 문서와 Xcode Cloud post-clone 스크립트뿐임을 확인했다. rebase 뒤 `flutter gen-l10n`, 전체 분석, 01C/02/03/04/05/06·계정·반응형 주요 회귀 묶음도 다시 통과했다. main 병합과 push는 이 기록 시점에 수행하지 않았다.
+---
 ### 2026-08-11 (Claude) — 카드 타이포 재조정 + 예문 데이터·wordle 버그 수정
 
 **왜.** Jin 실기기 피드백: 복습 카드 글씨 과대(특히 긴 독일어 뜻 3줄 폭주)·상단 쏠림·음성/뜻 답답 + "Nein" 예문 한/독 뜻 불일치 + Silben-Rätsel(wordle) 오버플로·정답버튼 중복.

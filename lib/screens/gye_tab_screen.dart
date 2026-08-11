@@ -129,7 +129,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   }
 }
 
-// ── 빈 상태: '무엇/왜/어떻게' 3층 설명 + 초대 ─────────────────────────────────
+// ── 빈 상태: 선택적 공동 마당 ───────────────────────────────────────────────
 
 class _IntroEmpty extends StatelessWidget {
   final GlobalKey introKey;
@@ -153,25 +153,23 @@ class _IntroEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
-    // §6.4: SoriEmptyState 문법 — 조이 일러스트 + 헤드라인 + 혜택 3줄 +
-    // filled/outline CTA + 공동 한옥 미리보기 1장(gye_hanok 재사용).
+    // 05A: headline → courtyard → privacy → one chooser CTA → explicit skip.
+    // The 16+ and join/create safety gates still live in [showGyeChooser].
     return ListView(
       padding: padding,
       children: [
         const SizedBox(height: Spacing.md),
-        Center(
-          child: Image.asset(
-            'assets/illustrations/mascot/magpie_encourage.png',
-            height: 110,
-            errorBuilder: (_, __, ___) => const Icon(
-              Icons.groups_2_outlined,
-              size: 64,
-              color: SoriColors.primary,
-            ),
+        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
+        const SizedBox(height: Spacing.md),
+        ClipRRect(
+          borderRadius: SoriRadius.brLg,
+          child: AspectRatio(
+            aspectRatio: 393 / 220,
+            child: GyeHanok(meta: _previewMeta),
           ),
         ),
-        const SizedBox(height: Spacing.md),
-        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
         const SizedBox(height: Spacing.lg),
         KeyedSubtree(
           key: introKey,
@@ -205,38 +203,19 @@ class _IntroEmpty extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.lg),
         SoriButton.filled(
-          label: t.gyeChooserCreate,
-          icon: Icons.add_rounded,
+          label: t.gyeFindOrCreate,
+          icon: Icons.groups_2_outlined,
           fullWidth: true,
           onTap: () => showGyeChooser(context),
         ),
-        const SizedBox(height: Spacing.sm),
-        SoriButton.outlined(
-          label: t.gyeChooserJoin,
-          icon: Icons.login_rounded,
-          fullWidth: true,
-          onTap: () => showGyeChooser(context),
+        const SizedBox(height: Spacing.xs),
+        TextButton(
+          onPressed: () => Navigator.of(
+            context,
+          ).pushNamedAndRemoveUntil('/', (route) => false),
+          child: Text(t.gyeContinueSolo),
         ),
         const SizedBox(height: Spacing.xl),
-        SoriCard(
-          variant: SoriCardVariant.base,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(t.gyeEmptyPreviewCaption, style: tt.cardSubtitle),
-              const SizedBox(height: Spacing.sm),
-              ClipRRect(
-                borderRadius: SoriRadius.brMd,
-                // GyeHanok은 bounded height 필요(LayoutBuilder maxHeight 사용)
-                // — 시안 비율 393×280 고정.
-                child: AspectRatio(
-                  aspectRatio: 393 / 280,
-                  child: GyeHanok(meta: _previewMeta),
-                ),
-              ),
-            ],
-          ),
-        ),
       ],
     );
   }

@@ -18,6 +18,7 @@ class WorldMapViewport extends StatelessWidget {
   final ValueChanged<PersonalHanokZone> onSelectZone;
   final VoidCallback? onOpenSelectedZone;
   final String Function(PersonalHanokZone zone) zoneLabel;
+  final String Function(PersonalHanokZone zone) zonePurpose;
   final EdgeInsets contentPadding;
   final Set<PersonalHanokMilestone> suppressedMilestones;
 
@@ -28,6 +29,7 @@ class WorldMapViewport extends StatelessWidget {
     required this.onSelectZone,
     required this.onOpenSelectedZone,
     required this.zoneLabel,
+    required this.zonePurpose,
     required this.contentPadding,
     this.suppressedMilestones = const <PersonalHanokMilestone>{},
   });
@@ -46,6 +48,7 @@ class WorldMapViewport extends StatelessWidget {
     final detail = _SelectedPlacePanel(
       selectedZone: selectedZone,
       zoneLabel: zoneLabel,
+      zonePurpose: zonePurpose,
       onOpen: onOpenSelectedZone,
     );
 
@@ -89,11 +92,13 @@ class WorldMapViewport extends StatelessWidget {
 class _SelectedPlacePanel extends StatelessWidget {
   final PersonalHanokZone? selectedZone;
   final String Function(PersonalHanokZone zone) zoneLabel;
+  final String Function(PersonalHanokZone zone) zonePurpose;
   final VoidCallback? onOpen;
 
   const _SelectedPlacePanel({
     required this.selectedZone,
     required this.zoneLabel,
+    required this.zonePurpose,
     required this.onOpen,
   });
 
@@ -103,6 +108,7 @@ class _SelectedPlacePanel extends StatelessWidget {
     final text = SoriTextTheme.of(context);
     final zone = selectedZone;
     final label = zone == null ? null : zoneLabel(zone);
+    final purpose = zone == null ? null : zonePurpose(zone);
     final canOpen = zone != null && onOpen != null;
 
     return SoriCard(
@@ -123,11 +129,18 @@ class _SelectedPlacePanel extends StatelessWidget {
           Text(label ?? t.hanokWorldSelectPlaceTitle, style: text.h3),
           const SizedBox(height: Spacing.xs),
           Text(
-            label == null
-                ? t.hanokWorldSelectPlaceBody
-                : t.hanokWorldPlaceReadyBody(label),
+            label == null ? t.hanokWorldSelectPlaceBody : purpose!,
             style: text.bodySmall,
           ),
+          if (label != null) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.hanokWorldPlaceReadyBody(label),
+              style: text.caption.copyWith(
+                color: SoriSurfaces.of(context).textMuted,
+              ),
+            ),
+          ],
           if (canOpen) ...[
             const SizedBox(height: Spacing.md),
             SoriButton.filled(

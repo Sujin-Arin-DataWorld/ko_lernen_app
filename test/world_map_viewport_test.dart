@@ -24,6 +24,7 @@ void main() {
             onSelectZone: (_) {},
             onOpenSelectedZone: () {},
             zoneLabel: _label,
+            zonePurpose: _purpose,
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           ),
         ),
@@ -51,3 +52,5 @@ Widget _host(Widget child) => MaterialApp(
 );
 
 String _label(PersonalHanokZone zone) => zone.name;
+
+String _purpose(PersonalHanokZone zone) => 'Purpose: ${zone.name}';

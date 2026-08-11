@@ -28,9 +28,19 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('Was möchtest du gerade festigen?'), findsOneWidget);
-    expect(find.text('Fällige Wörter wiederholen'), findsNWidgets(2));
+    expect(find.text('Was möchtest du gerade festigen?'), findsNWidgets(2));
+    expect(find.text('Fällige Wörter wiederholen'), findsOneWidget);
     expect(find.text('Etwas gezielt üben'), findsOneWidget);
+    expect(find.text('Dein Lernraum'), findsNothing);
+
+    final allActivities = find.byKey(const ValueKey('practice-all-activities'));
+    await tester.scrollUntilVisible(
+      allActivities,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(allActivities);
+    await tester.pump();
 
     await tester.scrollUntilVisible(find.text('Frei spielen'), 360);
     expect(find.text('Frei spielen'), findsOneWidget);

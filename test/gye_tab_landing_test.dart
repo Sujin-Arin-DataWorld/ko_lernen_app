@@ -24,15 +24,25 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
+    await tester.scrollUntilVisible(
+      find.text('Was andere sehen können'),
+      180,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Was andere sehen können'), findsOneWidget);
     expect(find.textContaining('niemals deine Antworten'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text('Gye erstellen'),
+      find.text('Eine Gye finden oder gründen'),
       320,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Gye erstellen'), findsOneWidget);
-    expect(find.text('Mit Code beitreten'), findsOneWidget);
+    expect(find.text('Eine Gye finden oder gründen'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Ohne Gruppe weiterlernen'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Ohne Gruppe weiterlernen'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

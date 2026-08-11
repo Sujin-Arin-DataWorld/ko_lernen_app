@@ -70,6 +70,11 @@ void main() {
     expect(find.byKey(const ValueKey('sarangbang-study-room')), findsOneWidget);
     expect(find.byType(SoriDecorationImage), findsOneWidget);
     expect(find.byIcon(Icons.add_circle_outline), findsNothing);
+    expect(
+      find.byKey(const ValueKey('sarangbang-furnish-card')),
+      findsOneWidget,
+    );
+    expect(find.text('Furnish'), findsOneWidget);
 
     final preferences = await SharedPreferences.getInstance();
     expect(preferences.getString('kl_room_placements_v2'), rawPlacements);

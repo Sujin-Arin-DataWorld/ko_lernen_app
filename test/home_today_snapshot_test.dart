@@ -70,12 +70,18 @@ void main() {
     await tester.pump(const Duration(milliseconds: 120));
 
     final primary = find.byKey(const ValueKey('home-primary-today'));
+    final todayHeading = find.byKey(const ValueKey('home-today-heading'));
     final preview = find.byKey(const ValueKey('home-hanok-preview'));
+    expect(todayHeading, findsOneWidget);
     expect(primary, findsOneWidget);
     expect(preview, findsOneWidget);
     expect(
       tester.getTopLeft(primary).dy,
       lessThan(tester.getTopLeft(preview).dy),
+    );
+    expect(
+      tester.getTopLeft(todayHeading).dy,
+      lessThan(tester.getTopLeft(primary).dy),
     );
     expect(find.text('Review now'), findsOneWidget);
     expect(
