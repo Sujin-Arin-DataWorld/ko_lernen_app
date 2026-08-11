@@ -1723,7 +1723,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   bool _done = false;
 
   /// 온보딩에서 사용자가 고른 캐릭터. 축하 클립을 여기에 맞춘다.
-  late final MascotKind _kind;
+  late final MascotKind? _kind;
   late final String? _clip;
   bool _burstFired = false;
 
@@ -1750,11 +1750,12 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     }
     _pool = pool.toList()..sort();
 
-    // milestone_celebration.dart:39 과 동일 표현. 미설정('') → 호랑이.
-    _kind = MascotPreference.kind.value;
+    _kind = MascotPreference.selectedKind;
     // celebrate는 두 캐릭터 모두 클립이 있어 사실상 non-null이지만,
     // game_reward.dart 패턴대로 null 분기는 유지한다.
-    _clip = CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);
+    _clip = _kind == null
+        ? null
+        : CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);
 
     if (_turns.isEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -1885,10 +1886,11 @@ class _RollenspielStageState extends State<_RollenspielStage> {
 
 /// Rollenspiel 완료 패널 — 캐릭터 클립 히어로 + 축하 문구.
 ///
-/// 온보딩에서 고른 캐릭터의 축하 영상을 재생한다(미설정이면 호랑이).
+/// 온보딩에서 고른 캐릭터의 축하 영상을 재생한다. 명시적 none이면 중립
+/// 완료 아이콘만 남긴다.
 /// 이름 있는 위젯이라 위젯 테스트에서 턴을 주행하지 않고 바로 pump 할 수 있다.
 class _RollenspielDoneCard extends StatelessWidget {
-  final MascotKind kind;
+  final MascotKind? kind;
   final String? clip;
 
   const _RollenspielDoneCard({required this.kind, this.clip});
@@ -1945,22 +1947,29 @@ class _RollenspielDoneCard extends StatelessWidget {
                 ),
                 // ClipRRect 없음 — 영상 테두리 링이 100% 흰색이라 모서리가
                 // wellColor로 수렴한다.
-                child: clip == null
+                child: kind == null
+                    ? Icon(
+                        key: const ValueKey('roleplay_done_none'),
+                        Icons.task_alt_rounded,
+                        size: clipSize * 0.68,
+                        color: SoriColors.success,
+                      )
+                    : clip == null
                     ? Mascot(
-                        kind: kind,
+                        kind: kind!,
                         emotion: MascotEmotion.celebrate,
                         size: clipSize * 0.85,
                         animate: true,
                       )
                     : CharacterClipPlayer(
-                        key: ValueKey('roleplay_done_${kind.name}'),
+                        key: ValueKey('roleplay_done_${kind!.name}'),
                         asset: clip!,
                         size: clipSize,
                         // ⚠️ loop 금지 — PageView가 "Weiter" 후에도 페이지를
                         // 살려둬서 960² 디코더가 세션 내내 돌게 된다.
                         loop: false,
                         blendColor: wellColor,
-                        fallbackKind: kind,
+                        fallbackKind: kind!,
                         fallbackEmotion: MascotEmotion.celebrate,
                         // onCompleted 미전달 → Timer 자체가 생성되지 않는다.
                         // "Weiter"는 이미 onDone()에서 열렸다.

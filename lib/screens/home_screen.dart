@@ -869,14 +869,24 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         // setState 가 안 온다 → notifier 를 직접 구독한다.
                         final Widget heroBand = SoriEntrance(
                           delay: const Duration(milliseconds: 40),
-                          child: ValueListenableBuilder<MascotKind>(
-                            valueListenable: MascotPreference.kind,
-                            builder: (context, kind, _) => _TigerHero(
-                              greeting: _greeting(t),
-                              bubble: _tigerBubble(t, kind),
-                              phase: _phase,
-                              kind: kind,
-                            ),
+                          child: ValueListenableBuilder<CompanionPreference>(
+                            valueListenable: MascotPreference.preference,
+                            builder: (context, preference, _) {
+                              final kind = MascotPreference.mascotKindFor(
+                                preference,
+                              );
+                              if (kind == null) {
+                                return const SizedBox.shrink(
+                                  key: ValueKey('home-companion-hidden'),
+                                );
+                              }
+                              return _TigerHero(
+                                greeting: _greeting(t),
+                                bubble: _tigerBubble(t, kind),
+                                phase: _phase,
+                                kind: kind,
+                              );
+                            },
                           ),
                         );
                         // 화면상 맨 위 — 목록 마지막 = 가장 나중에 paint.
@@ -1091,40 +1101,54 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                   variant: SoriCardVariant.hero,
                                   accent: SoriColors.primary,
                                   tinted: true,
-                                  child: Row(
-                                    children: [
-                                      ValueListenableBuilder<MascotKind>(
-                                        valueListenable: MascotPreference.kind,
-                                        builder: (context, kind, _) => Mascot(
-                                          kind: kind,
-                                          emotion: MascotEmotion.smile,
-                                          size: 60,
-                                        ),
+                                  child:
+                                      ValueListenableBuilder<
+                                        CompanionPreference
+                                      >(
+                                        valueListenable:
+                                            MascotPreference.preference,
+                                        builder: (context, preference, _) {
+                                          final kind =
+                                              MascotPreference.mascotKindFor(
+                                                preference,
+                                              );
+                                          return Row(
+                                            children: [
+                                              if (kind != null) ...[
+                                                Mascot(
+                                                  kind: kind,
+                                                  emotion: MascotEmotion.smile,
+                                                  size: 60,
+                                                ),
+                                                const SizedBox(
+                                                  width: Spacing.md,
+                                                ),
+                                              ],
+                                              Expanded(
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      t.homeTigerBubbleResume,
+                                                      style: SoriTextTheme.of(
+                                                        context,
+                                                      ).cardTitle,
+                                                    ),
+                                                    const SizedBox(height: 4),
+                                                    Text(
+                                                      t.homeTigerBubbleResumeSub,
+                                                      style: SoriTextTheme.of(
+                                                        context,
+                                                      ).caption,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       ),
-                                      const SizedBox(width: Spacing.md),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              t.homeTigerBubbleResume,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).cardTitle,
-                                            ),
-                                            const SizedBox(height: 4),
-                                            Text(
-                                              t.homeTigerBubbleResumeSub,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).caption,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
                               ),
                               const SizedBox(height: Spacing.sm),

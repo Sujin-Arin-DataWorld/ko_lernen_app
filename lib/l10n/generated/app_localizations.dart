@@ -253,6 +253,24 @@ abstract class AppL10n {
   /// **'Wer ist dein Lernfreund?'**
   String get characterSelectionTitle;
 
+  /// No description provided for @companionNoneName.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Lernbegleitung'**
+  String get companionNoneName;
+
+  /// No description provided for @companionNoneDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst später jederzeit 태고 oder Joy wählen.'**
+  String get companionNoneDescription;
+
+  /// No description provided for @companionNeutralThinking.
+  ///
+  /// In de, this message translates to:
+  /// **'Die nächste Runde wird vorbereitet …'**
+  String get companionNeutralThinking;
+
   /// No description provided for @homeMagpieBubbleStart.
   ///
   /// In de, this message translates to:

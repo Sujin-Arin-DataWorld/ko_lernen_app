@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
@@ -216,6 +217,50 @@ void main() {
     // selbst (das gerenderte Mascot) schon.
     final mascot = tester.widget<Mascot>(find.byType(Mascot));
     expect(mascot.kind, MascotKind.magpie);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
+  testWidgets('no-companion profile stays empty and can choose a buddy later', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await MascotPreference.setNone();
+    addTearDown(() => MascotPreference.set(MascotKind.tiger));
+
+    await tester.pumpWidget(_wrap(const ProfileScreen()));
+    await tester.pump();
+
+    expect(find.byKey(const ValueKey('profile_avatar_none')), findsOneWidget);
+    expect(find.text('Keine Lernbegleitung'), findsOneWidget);
+    expect(find.byType(CharacterClipPlayer), findsNothing);
+
+    final noCompanion = find.text('Keine Lernbegleitung');
+    final companionTile = tester.widget<ListTile>(
+      find.ancestor(of: noCompanion, matching: find.byType(ListTile)),
+    );
+    companionTile.onTap!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('태고'), findsOneWidget);
+    expect(find.text('Joy'), findsOneWidget);
+    final joyOption = tester.widget<SimpleDialogOption>(
+      find.ancestor(
+        of: find.text('Joy'),
+        matching: find.byType(SimpleDialogOption),
+      ),
+    );
+    joyOption.onPressed!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(MascotPreference.selectedKind, MascotKind.magpie);
+    expect(find.text('Joy'), findsOneWidget);
+    expect(find.byType(CharacterClipPlayer), findsOneWidget);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();

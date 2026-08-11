@@ -238,7 +238,8 @@ class CharacterClipPlayer extends StatefulWidget {
   final bool loop;
   final Color blendColor;
 
-  /// 폴백 마스코트. `null`이면 [MascotPreference] 의 선택 캐릭터를 쓴다.
+  /// 폴백 마스코트. `null`이면 [MascotPreference] 의 nullable 선택 캐릭터를
+  /// 쓴다. 사용자가 동반자를 고르지 않았다면 정적 Tiger를 발명하지 않는다.
   final MascotKind? fallbackKind;
   final MascotEmotion fallbackEmotion;
 
@@ -518,14 +519,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       clipRetired: _clipRetired,
       staticFallbackRequested: widget.staticFallback,
     );
+    final fallbackKind = widget.fallbackKind ?? MascotPreference.selectedKind;
     return SizedBox.square(
       dimension: widget.size,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
         child: blocked || _failed || !_ready || video == null
-            ? (showStatic
+            ? (showStatic && fallbackKind != null
                   ? Mascot(
-                      kind: widget.fallbackKind ?? MascotPreference.kind.value,
+                      kind: fallbackKind,
                       emotion: widget.fallbackEmotion,
                       size: widget.size * 0.85,
                       animate: true,

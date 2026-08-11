@@ -6,6 +6,7 @@ import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import 'app_shell.dart';
@@ -21,7 +22,13 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
   /// opened this one-time screen. It is copy only: no success is recorded here.
   final String canDo;
 
-  Future<void> _finish(BuildContext context) async {
+  Future<void> _finish(
+    BuildContext context, {
+    bool withoutCompanion = false,
+  }) async {
+    if (withoutCompanion) {
+      await MascotPreference.setNone();
+    }
     await Storage.setIntroPreviewSeen();
     if (!context.mounted) return;
     Navigator.of(context).pushAndRemoveUntil(
@@ -144,7 +151,8 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: Spacing.xs),
                       TextButton(
-                        onPressed: () => _finish(context),
+                        onPressed: () =>
+                            _finish(context, withoutCompanion: true),
                         child: Text(t.firstVoiceSkip),
                       ),
                     ],

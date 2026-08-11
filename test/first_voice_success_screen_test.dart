@@ -9,12 +9,14 @@ import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 void main() {
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    MascotPreference.load();
   });
 
   testWidgets('01C shows the persisted ability and can continue solo', (
@@ -48,6 +50,9 @@ void main() {
     await tester.pump(const Duration(milliseconds: 350));
 
     expect(Storage.introPreviewSeen, isTrue);
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.getString('kl_preferred_mascot'), 'none');
+    expect(MascotPreference.selectedKind, isNull);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));

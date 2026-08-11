@@ -208,27 +208,49 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   Future<void> _changeCompanion() async {
     final t = AppL10n.of(context);
-    final current = MascotPreference.current;
-    final selected = await showDialog<MascotKind>(
+    final current = MascotPreference.preference.value;
+    const options = <CompanionPreference>[
+      CompanionPreference.tiger,
+      CompanionPreference.magpie,
+      CompanionPreference.none,
+    ];
+    final selected = await showDialog<CompanionPreference>(
       context: context,
       builder: (dialogContext) => SimpleDialog(
         title: Text(t.characterSelectionTitle),
         children: [
-          for (final kind in MascotPreference.selectableKinds)
+          for (final option in options)
             SimpleDialogOption(
-              onPressed: () => Navigator.of(dialogContext).pop(kind),
+              onPressed: () => Navigator.of(dialogContext).pop(option),
               child: Row(
                 children: [
-                  Mascot(kind: kind, size: 42),
+                  if (MascotPreference.mascotKindFor(option) case final kind?)
+                    Mascot(kind: kind, size: 42)
+                  else
+                    const SizedBox.square(
+                      dimension: 42,
+                      child: Icon(Icons.person_outline_rounded),
+                    ),
                   const SizedBox(width: Spacing.md),
                   Expanded(
-                    child: Text(
-                      kind == MascotKind.magpie
-                          ? t.characterNameMagpie
-                          : t.characterNameTiger,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(switch (option) {
+                          CompanionPreference.none => t.companionNoneName,
+                          CompanionPreference.tiger => t.characterNameTiger,
+                          CompanionPreference.magpie => t.characterRomanMagpie,
+                        }),
+                        Text(switch (option) {
+                          CompanionPreference.none =>
+                            t.companionNoneDescription,
+                          CompanionPreference.tiger => t.characterTraitTiger,
+                          CompanionPreference.magpie => t.characterTraitMagpie,
+                        }, style: SoriTextTheme.of(context).caption),
+                      ],
                     ),
                   ),
-                  if (kind == current)
+                  if (option == current)
                     const Icon(
                       Icons.check_circle_rounded,
                       color: SoriColors.primary,
@@ -240,7 +262,12 @@ class _ProfileScreenState extends State<ProfileScreen>
       ),
     );
     if (selected != null && selected != current) {
-      await MascotPreference.set(selected);
+      final kind = MascotPreference.mascotKindFor(selected);
+      if (kind == null) {
+        await MascotPreference.setNone();
+      } else {
+        await MascotPreference.set(kind);
+      }
     }
   }
 
@@ -351,16 +378,22 @@ class _ProfileScreenState extends State<ProfileScreen>
                       onTap: _changeLevel,
                     ),
                     const Divider(height: 1),
-                    ValueListenableBuilder<MascotKind>(
-                      valueListenable: MascotPreference.kind,
-                      builder: (context, kind, _) => _ProfileSettingTile(
-                        icon: kind == MascotKind.magpie
-                            ? Icons.flutter_dash_rounded
-                            : Icons.pets_outlined,
+                    ValueListenableBuilder<CompanionPreference>(
+                      valueListenable: MascotPreference.preference,
+                      builder: (context, preference, _) => _ProfileSettingTile(
+                        icon: switch (preference) {
+                          CompanionPreference.none =>
+                            Icons.person_outline_rounded,
+                          CompanionPreference.tiger => Icons.pets_outlined,
+                          CompanionPreference.magpie =>
+                            Icons.flutter_dash_rounded,
+                        },
                         label: t.profileLearningCompanion,
-                        value: kind == MascotKind.magpie
-                            ? t.characterNameMagpie
-                            : t.characterNameTiger,
+                        value: switch (preference) {
+                          CompanionPreference.none => t.companionNoneName,
+                          CompanionPreference.tiger => t.characterNameTiger,
+                          CompanionPreference.magpie => t.characterRomanMagpie,
+                        },
                         onTap: _changeCompanion,
                       ),
                     ),
@@ -486,7 +519,7 @@ class _AvatarState extends State<_Avatar> {
   void initState() {
     super.initState();
     // 설정에서 캐릭터를 바꾸면(태고↔조이) 프로필 아바타도 즉시 반영.
-    MascotPreference.kind.addListener(_onKindChanged);
+    MascotPreference.preference.addListener(_onKindChanged);
   }
 
   void _onKindChanged() {
@@ -497,7 +530,7 @@ class _AvatarState extends State<_Avatar> {
 
   @override
   void dispose() {
-    MascotPreference.kind.removeListener(_onKindChanged);
+    MascotPreference.preference.removeListener(_onKindChanged);
     super.dispose();
   }
 
@@ -510,7 +543,22 @@ class _AvatarState extends State<_Avatar> {
     // 따른다 — 까치=magpie_bob2 대기 홉, 호랑이(태고)=tiger_sitting2 앉은 자세.
     // 둘 다 **루프 가능**해야 한다: 원샷을 쓰면 재생이 끝나며 텍스처가 회수돼
     // 아바타가 비어 버린다(tiger_walking_front 가 그랬다).
-    final kind = MascotPreference.kind.value;
+    final kind = MascotPreference.selectedKind;
+    if (kind == null) {
+      return SizedBox.square(
+        key: const ValueKey('profile_avatar_none'),
+        dimension: widget.size,
+        child: Semantics(
+          label: AppL10n.of(context).companionNoneName,
+          image: true,
+          child: Icon(
+            Icons.person_outline_rounded,
+            size: widget.size * 0.42,
+            color: SoriSurfaces.of(context).textMuted,
+          ),
+        ),
+      );
+    }
     final isMagpie = kind == MascotKind.magpie;
     return SizedBox.square(
       dimension: widget.size,

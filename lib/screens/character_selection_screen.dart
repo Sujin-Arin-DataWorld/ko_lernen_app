@@ -140,6 +140,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     if (!widget.optional || _isLoading || _navigated) return;
     _advanceGuard?.cancel();
     _navigated = true;
+    await MascotPreference.setNone();
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
     await _completeOptional();

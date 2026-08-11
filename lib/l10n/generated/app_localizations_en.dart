@@ -108,6 +108,16 @@ class AppL10nEn extends AppL10n {
   String get characterSelectionTitle => 'Who\'s your study buddy?';
 
   @override
+  String get companionNoneName => 'No learning companion';
+
+  @override
+  String get companionNoneDescription =>
+      'You can choose Taego or Joy at any time later.';
+
+  @override
+  String get companionNeutralThinking => 'Preparing the next round …';
+
+  @override
   String get homeMagpieBubbleStart => 'Let\'s take it one character at a time.';
 
   @override

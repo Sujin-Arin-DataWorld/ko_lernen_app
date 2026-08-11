@@ -502,23 +502,33 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                           children: [
                             // 생각 중 클립 루프 — 카드 실배경과 **같은 함수**로
                             // blendColor를 맞춰 흰 배경 흡수(수식 복제 금지).
-                            CharacterClipPlayer(
-                              asset: CharacterClips.thinkingFor(
-                                MascotPreference.kind.value,
+                            CompanionBuilder(
+                              builder: (context, kind) => CharacterClipPlayer(
+                                asset: CharacterClips.thinkingFor(kind),
+                                size: 56,
+                                loop: true,
+                                blendColor: SoriCard.resolvedBackground(
+                                  context,
+                                  accent: SoriColors.tiger,
+                                  tinted: true,
+                                ),
+                                fallbackKind: kind,
+                                fallbackEmotion: MascotEmotion.thinking,
                               ),
-                              size: 56,
-                              loop: true,
-                              blendColor: SoriCard.resolvedBackground(
-                                context,
-                                accent: SoriColors.tiger,
-                                tinted: true,
+                              noneBuilder: (context) => const SizedBox.square(
+                                dimension: 56,
+                                child: Icon(
+                                  Icons.psychology_alt_rounded,
+                                  color: SoriColors.tiger,
+                                ),
                               ),
-                              fallbackEmotion: MascotEmotion.thinking,
                             ),
                             const SizedBox(width: Spacing.md),
                             Expanded(
                               child: Text(
-                                t.kkeunmariTigerTurn,
+                                MascotPreference.hasCompanion
+                                    ? t.kkeunmariTigerTurn
+                                    : t.companionNeutralThinking,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,

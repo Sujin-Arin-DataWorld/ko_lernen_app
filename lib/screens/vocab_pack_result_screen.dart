@@ -136,16 +136,23 @@ class VocabPackResultScreen extends StatelessWidget {
                           ? _CelebrationSequence(
                               motif: motif,
                               justCleared: justCleared,
+                              mascotKind: MascotPreference.selectedKind,
                             )
                           : SoriEntrance(
-                              // const 불가 — MascotPreference.kind.value 는 런타임 값
                               child: SizedBox(
                                 height: 160,
                                 child: Center(
-                                  child: Mascot(
-                                    kind: MascotPreference.kind.value,
-                                    emotion: MascotEmotion.worry,
-                                    size: 130,
+                                  child: CompanionBuilder(
+                                    builder: (context, kind) => Mascot(
+                                      kind: kind,
+                                      emotion: MascotEmotion.worry,
+                                      size: 130,
+                                    ),
+                                    noneBuilder: (context) => const Icon(
+                                      Icons.insights_rounded,
+                                      size: 104,
+                                      color: SoriColors.warning,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -345,7 +352,12 @@ class _StatLine extends StatelessWidget {
 class _CelebrationSequence extends StatefulWidget {
   final DancheongMotif motif;
   final bool justCleared;
-  const _CelebrationSequence({required this.motif, required this.justCleared});
+  final MascotKind? mascotKind;
+  const _CelebrationSequence({
+    required this.motif,
+    required this.justCleared,
+    required this.mascotKind,
+  });
 
   @override
   State<_CelebrationSequence> createState() => _CelebrationSequenceState();
@@ -432,19 +444,21 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // 선택된 캐릭터 — MascotPreference 기준(호랑이/까치). 하드코딩 금지.
-              Opacity(
-                opacity: _mascotIn.value.clamp(0.0, 1.0),
-                child: Transform.scale(
-                  scale: (0.5 + 0.5 * _mascotIn.value).clamp(0.0, 1.2),
-                  child: Mascot(
-                    kind: MascotPreference.kind.value,
-                    emotion: MascotEmotion.celebrate,
-                    size: 92,
-                    animate: true,
+              if (widget.mascotKind case final kind?) ...[
+                Opacity(
+                  opacity: _mascotIn.value.clamp(0.0, 1.0),
+                  child: Transform.scale(
+                    scale: (0.5 + 0.5 * _mascotIn.value).clamp(0.0, 1.2),
+                    child: Mascot(
+                      kind: kind,
+                      emotion: MascotEmotion.celebrate,
+                      size: 92,
+                      animate: true,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: Spacing.md),
+                const SizedBox(width: Spacing.md),
+              ],
               // 획득한 단청 도장 = 보상의 주인공.
               Opacity(
                 opacity: _stampIn.value.clamp(0.0, 1.0),

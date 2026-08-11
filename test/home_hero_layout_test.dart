@@ -52,16 +52,17 @@ void main() {
       'kl_xp': 40,
     });
     await Storage.init();
+    MascotPreference.load();
     DataLoader.reset();
   });
 
   for (final kind in MascotKind.values) {
     group('${kind.name} 홈 히어로', () {
-      setUp(() {
-        MascotPreference.kind.value = kind;
+      setUp(() async {
+        await MascotPreference.set(kind);
       });
-      tearDown(() {
-        MascotPreference.kind.value = MascotKind.tiger;
+      tearDown(() async {
+        await MascotPreference.set(MascotKind.tiger);
       });
 
       testWidgets('헤더·인사말은 캐릭터 영상보다 위에 배치된다', (tester) async {
@@ -143,4 +144,18 @@ void main() {
       });
     });
   }
+
+  testWidgets('explicit no-companion choice removes the Home character band', (
+    tester,
+  ) async {
+    await MascotPreference.setNone();
+    addTearDown(() => MascotPreference.set(MascotKind.tiger));
+
+    await _pumpHome(tester);
+
+    expect(find.byKey(const ValueKey('home-companion-hidden')), findsOneWidget);
+    expect(find.byType(CharacterClipPlayer), findsNothing);
+    expect(find.byKey(const ValueKey('home-primary-today')), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }

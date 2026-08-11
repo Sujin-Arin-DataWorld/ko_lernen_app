@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 void main() {
@@ -43,5 +44,26 @@ void main() {
     await tester.pump();
     expect(find.byType(Mascot), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('explicit none hides preference-driven stage and greet clips', (
+    tester,
+  ) async {
+    final original = MascotPreference.preference.value;
+    MascotPreference.preference.value = CompanionPreference.none;
+    addTearDown(() => MascotPreference.preference.value = original);
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: Column(children: [TigerStageVideo(), TigerGreetClip()]),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(Mascot), findsNothing);
+    expect(find.byKey(const ValueKey('tiger-stage-no-companion')), findsOne);
+    expect(find.byKey(const ValueKey('tiger-greet-no-companion')), findsOne);
   });
 }

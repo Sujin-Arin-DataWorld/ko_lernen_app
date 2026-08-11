@@ -756,33 +756,40 @@ class _RoundSummaryCard extends StatelessWidget {
       padding: const EdgeInsets.all(Spacing.xl),
       child: Column(
         children: [
-          // 80% 이상: 호랑이 + 까치 동반 축하 / 그 외: 호랑이 단독 격려
-          if (accuracy >= 80)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Mascot(
-                  kind: MascotPreference.kind.value,
-                  emotion: MascotEmotion.celebrate,
-                  size: 76,
-                  animate: true,
-                ),
-                const SizedBox(width: 8),
-                Mascot(
-                  kind: MascotKind.magpie,
-                  emotion: MascotEmotion.celebrate,
-                  size: 76,
-                  animate: true,
-                ),
-              ],
-            )
-          else
-            Mascot(
-              kind: MascotPreference.kind.value,
-              emotion: mascotEmotion,
-              size: 88,
-              animate: true,
+          CompanionBuilder(
+            builder: (context, kind) => accuracy >= 80
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Mascot(
+                        kind: kind,
+                        emotion: MascotEmotion.celebrate,
+                        size: 76,
+                        animate: true,
+                      ),
+                      const SizedBox(width: 8),
+                      const Mascot(
+                        kind: MascotKind.magpie,
+                        emotion: MascotEmotion.celebrate,
+                        size: 76,
+                        animate: true,
+                      ),
+                    ],
+                  )
+                : Mascot(
+                    kind: kind,
+                    emotion: mascotEmotion,
+                    size: 88,
+                    animate: true,
+                  ),
+            noneBuilder: (context) => Icon(
+              accuracy >= 80
+                  ? Icons.emoji_events_rounded
+                  : Icons.insights_rounded,
+              size: 82,
+              color: accent,
             ),
+          ),
           const SizedBox(height: Spacing.sm),
           Text(
             t.chosungRoundDoneTitle,

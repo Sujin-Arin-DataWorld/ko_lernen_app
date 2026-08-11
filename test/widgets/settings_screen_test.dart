@@ -17,6 +17,8 @@ import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/app_version_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +27,7 @@ void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    MascotPreference.load();
     cloudJournalState = ValueNotifier<CloudBackupDeletionJournalState>(
       CloudBackupDeletionJournalState.clear,
     );
@@ -885,6 +888,39 @@ void main() {
       );
     },
   );
+
+  testWidgets('settings exposes no-companion state and allows a later choice', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await MascotPreference.setNone();
+    addTearDown(() => MascotPreference.set(MascotKind.tiger));
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final noCompanion = find.text('Keine Lernbegleitung');
+    await _ensureSettingsActionVisible(tester, noCompanion);
+    expect(noCompanion, findsOneWidget);
+    await tester.tap(noCompanion);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('태고'));
+    await tester.pumpAndSettle();
+
+    expect(MascotPreference.selectedKind, MascotKind.tiger);
+    expect(find.text('태고'), findsOneWidget);
+  });
 }
 
 const _guest = AuthAccountSnapshot(

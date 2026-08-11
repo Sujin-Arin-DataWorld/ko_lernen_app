@@ -726,7 +726,7 @@ class Storage {
   }
 
   static String get preferredMascot =>
-      _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
+      _s('kl_preferred_mascot'); // 'tiger', 'magpie', or explicit 'none'
   static Future<void> setPreferredMascot(String mascot) =>
       _ss('kl_preferred_mascot', mascot);
 

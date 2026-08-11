@@ -108,6 +108,16 @@ class AppL10nDe extends AppL10n {
   String get characterSelectionTitle => 'Wer ist dein Lernfreund?';
 
   @override
+  String get companionNoneName => 'Keine Lernbegleitung';
+
+  @override
+  String get companionNoneDescription =>
+      'Du kannst später jederzeit 태고 oder Joy wählen.';
+
+  @override
+  String get companionNeutralThinking => 'Die nächste Runde wird vorbereitet …';
+
+  @override
   String get homeMagpieBubbleStart =>
       'Wir fangen ganz in Ruhe an, Zeichen für Zeichen.';
 

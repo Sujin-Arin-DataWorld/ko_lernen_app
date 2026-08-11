@@ -46,22 +46,31 @@ class _MilestoneBody extends StatelessWidget {
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     // 선택 캐릭터 인식 축하 클립 — 호랑이: 포효 / 까치: 비행(2026-07-30 배선).
     // 시트 배경(s.surface)에 multiply로 흡수. 폴백은 기존 정적 celebrate.
-    final kind = MascotPreference.kind.value;
+    final kind = MascotPreference.selectedKind;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CharacterClipPlayer(
-          asset: kind == MascotKind.magpie
-              ? CharacterClips.magpieFlight
-              : CharacterClips.tigerRoar,
-          // Jin 실기기 피드백: 포효 영상이 너무 작다 → 히어로급으로 키운다.
-          // 시트는 88% maxHeight 클램프 + 자동 스크롤이라 커져도 안전.
-          size: 160,
-          blendColor: s.surface,
-          fallbackKind: kind,
-          fallbackEmotion: MascotEmotion.celebrate,
-        ),
-        const SizedBox(height: Spacing.md),
+        if (kind != null) ...[
+          CharacterClipPlayer(
+            asset: kind == MascotKind.magpie
+                ? CharacterClips.magpieFlight
+                : CharacterClips.tigerRoar,
+            // Jin 실기기 피드백: 포효 영상이 너무 작다 → 히어로급으로 키운다.
+            // 시트는 88% maxHeight 클램프 + 자동 스크롤이라 커져도 안전.
+            size: 160,
+            blendColor: s.surface,
+            fallbackKind: kind,
+            fallbackEmotion: MascotEmotion.celebrate,
+          ),
+          const SizedBox(height: Spacing.md),
+        ] else ...[
+          const Icon(
+            Icons.workspace_premium_rounded,
+            size: 104,
+            color: SoriColors.gold,
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
         Text(milestone.title(t), style: tt.h1, textAlign: TextAlign.center),
         const SizedBox(height: 6),
         Text(

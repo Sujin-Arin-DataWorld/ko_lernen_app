@@ -274,8 +274,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
     final rateLimited = r.warnings.contains('server_rate_limited');
-    final credentialsUnavailable =
-        r.warnings.contains('remote_credentials_unavailable');
+    final credentialsUnavailable = r.warnings.contains(
+      'remote_credentials_unavailable',
+    );
 
     return _guard(
       Scaffold(
@@ -301,16 +302,25 @@ class _BookResultScreenState extends State<BookResultScreen> {
                             'assets/illustrations/book/book_success.png',
                             height: 150,
                             fit: BoxFit.contain,
-                            errorBuilder: (_, __, ___) => Mascot(
-                              kind: MascotPreference.kind.value,
-                              emotion: MascotEmotion.celebrate,
+                            // Fixed book artwork is brand decoration, not the
+                            // learner's selected companion.
+                            errorBuilder: (_, __, ___) => const Icon(
+                              Icons.auto_stories_rounded,
                               size: 96,
+                              color: SoriColors.primary,
                             ),
                           )
-                        : Mascot(
-                            kind: MascotPreference.kind.value,
-                            emotion: MascotEmotion.thinking,
-                            size: 96,
+                        : CompanionBuilder(
+                            builder: (context, kind) => Mascot(
+                              kind: kind,
+                              emotion: MascotEmotion.thinking,
+                              size: 96,
+                            ),
+                            noneBuilder: (context) => const Icon(
+                              Icons.auto_stories_rounded,
+                              size: 96,
+                              color: SoriColors.primary,
+                            ),
                           ),
                   ),
                   const SizedBox(height: Spacing.sm),
