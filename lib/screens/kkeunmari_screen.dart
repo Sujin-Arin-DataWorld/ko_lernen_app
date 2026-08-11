@@ -8,6 +8,7 @@ import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
@@ -252,6 +253,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   void _acceptUserWord(KkeunmariWord w) {
     HapticFeedback.lightImpact();
+    // 정답을 또렷한 긍정 신호로 알린다 — 예전엔 햅틱만 있어 곧바로 뜨는
+    // 호랑이 '생각 중' 클립이 오답 플래시처럼 읽혔다 (Jin 2026-08-11 실기기).
+    SoundService.correct();
     setState(() {
       _chain.add(w);
       _used.add(w.word);
@@ -270,16 +274,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     // dead_end → 호랑이 응답 불가 → 사용자 승 직전, 한 박자 쉬고 종료.
     if (w.isDeadEnd) {
       _stopTimer();
-      Future.delayed(const Duration(milliseconds: 800), () {
+      Future.delayed(const Duration(milliseconds: 1000), () {
         if (mounted) _endGame(_End.deadEnd);
       });
       return;
     }
 
-    // 호랑이 차례.
+    // 호랑이 차례. 생각 비트를 넉넉히(1800ms) 둬서 전환이 번쩍 지나가
+    // 오류처럼 보이지 않게 한다 — 상대가 '생각하는' 순간으로 또렷이 읽히도록.
     _stopTimer();
     setState(() => _turn = _Turn.tiger);
-    Future.delayed(const Duration(milliseconds: 1200), _tigerMove);
+    Future.delayed(const Duration(milliseconds: 1800), _tigerMove);
   }
 
   void _tigerMove() {
