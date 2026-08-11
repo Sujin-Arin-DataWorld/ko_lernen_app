@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-사전생성 TTS — 고정 콘텐츠(526 단어 + 526 예문 + 204 대화)를 Google Cloud
-Text-to-Speech 로 합성해 Firebase Storage 에 업로드한다.
+사전생성 TTS — **모든 고정 학습 콘텐츠**를 Google Cloud Text-to-Speech 로
+합성해 Firebase Storage 에 업로드한다. 소스(collect() 참고):
+  단어장(단어·예문) · 시나리오 대화 · 문법 예문 · 스몰토크 · 빈칸(cloze) ·
+  끝말잇기 단어 풀. (문법·스몰토크·빈칸·끝말잇기는 2026-08-11 추가 — 그 전엔
+  런타임 CF 폴백만 있어 오프라인·CF 실패 시 옛날 OS 음성이 섞여 들렸다.)
 
 키 규칙(클라 tts_service.dart / CF functions/tts 와 **동일**):
     path = tts/{revision}/{voice}/{ sha1("{voice}|{text}") }.mp3
@@ -108,29 +111,80 @@ def _auth():
 
 
 def collect():
-    """(voice, text) 쌍을 dedup 수집."""
+    """(voice, text) 쌍을 dedup 수집.
+
+    모든 **고정 학습 콘텐츠**를 사전생성 대상으로 모은다. 여기 빠진 소스는
+    런타임 Cloud Function 합성에 의존하다가 CF 실패/오프라인 시 OS flutter_tts
+    폴백(옛날 음성)으로 떨어져 "음성이 섞여" 들린다(2026-08-11 재조사).
+    각 텍스트는 화면이 `TtsService.speak(...)` 에 넘기는 **원문 그대로**여야
+    SHA-1 키가 런타임과 일치한다."""
     texts = {}  # dict 로 순서 보존 dedup
 
-    csv_path = os.path.join(ROOT, "assets/data/korean_vocab.csv")
-    with open(csv_path, encoding="utf-8") as f:
+    def add_female(value):
+        t = (value or "").strip()
+        if t:
+            texts[("female", t)] = None
+
+    def _load_json(rel):
+        with open(os.path.join(ROOT, rel), encoding="utf-8") as f:
+            return json.load(f)
+
+    # 1. 단어장: 단어 + 예문 (korean, example_korean) — 여성.
+    with open(
+        os.path.join(ROOT, "assets/data/korean_vocab.csv"), encoding="utf-8"
+    ) as f:
         for row in csv.DictReader(f):
             for col in ("korean", "example_korean"):
-                t = (row.get(col) or "").strip()
-                if t:
-                    texts[("female", t)] = None
+                add_female(row.get(col))
 
-    sc_path = os.path.join(ROOT, "assets/data/scenarios.json")
-    with open(sc_path, encoding="utf-8") as f:
-        data = json.load(f)
-        scenarios = data if isinstance(data, list) else data.get("scenarios", [])
-        for sc in scenarios:
-            for line in sc.get("dialog", []):
-                t = (line.get("ko") or "").strip()
-                if t:
-                    # 시나리오 대화: user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
-                    # scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
-                    voice = "female" if line.get("speaker") == "user" else "male"
-                    texts[(voice, t)] = None
+    # 2. 시나리오 대화 — 화자별 음성.
+    #    user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
+    #    scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
+    scenario_data = _load_json("assets/data/scenarios.json")
+    scenarios = (
+        scenario_data
+        if isinstance(scenario_data, list)
+        else scenario_data.get("scenarios", [])
+    )
+    for sc in scenarios:
+        for line in sc.get("dialog", []):
+            t = (line.get("ko") or "").strip()
+            if t:
+                voice = "female" if line.get("speaker") == "user" else "male"
+                texts[(voice, t)] = None
+
+    # 3. 문법 예문 — grammar.csv col4 (exampleKorean).
+    #    grammar_screen.dart:745  TtsService.speak(g.exampleKorean) (기본 여성).
+    with open(os.path.join(ROOT, "assets/data/grammar.csv"), encoding="utf-8") as f:
+        for row in csv.reader(f):
+            if len(row) >= 5 and row[1].strip() in ("A1", "A2", "B1", "B2"):
+                add_female(row[4])
+
+    # 4. 스몰토크 — phrases 안의 모든 ko (opener·대안질문·followUp).
+    #    smalltalk_screen.dart 는 p.ko / turn.ko / reply.ko 를 발화한다. 카테고리
+    #    라벨(categories[].label.ko)은 발화하지 않으므로 phrases 만 훑는다.
+    def _walk_ko(node):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key == "ko" and isinstance(value, str):
+                    add_female(value)
+                else:
+                    _walk_ko(value)
+        elif isinstance(node, list):
+            for value in node:
+                _walk_ko(value)
+
+    _walk_ko(_load_json("assets/data/smalltalk.json").get("phrases", []))
+
+    # 5. 빈칸 채우기 — cloze.json items[].fullKo (빈칸이 채워진 완성문).
+    #    cloze_prompt.dart:174  TtsService.speak(item.fullKo).
+    for item in _load_json("assets/data/cloze.json").get("items", []):
+        add_female(item.get("fullKo"))
+
+    # 6. 끝말잇기 단어 풀 — kkeunmari_pool.json words[].word.
+    #    kkeunmari_screen.dart  TtsService.speak(word.word).
+    for word in _load_json("assets/data/kkeunmari_pool.json").get("words", []):
+        add_female(word.get("word"))
 
     return list(texts.keys())
 
