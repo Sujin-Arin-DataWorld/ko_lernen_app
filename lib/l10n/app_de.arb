@@ -1622,6 +1622,7 @@
   "profileStatWords": "Vokabeln",
   "profileViewStats": "Alle Statistiken ansehen",
   "profileLearningSection": "Mein Lernen",
+  "profileEditAction": "bearbeiten",
   "profileLearningGoal": "Mein Ziel",
   "profileLearningGoalNotSet": "Wähle, was dich zum Koreanischen bringt",
   "profileLearningStartPoint": "Mein Startpunkt",
@@ -1629,8 +1630,23 @@
   "profileSpaceSection": "Mein Raum",
   "profileGye": "Gruppe (Gye)",
   "profileGyeDescription": "Freiwillige Lerngemeinschaft öffnen",
+  "profileGyeLoading": "Gruppe wird geladen …",
+  "profileGyeNone": "Keine Gruppe gewählt",
   "profilePrivacyAccount": "Datenschutz & Konto",
   "profilePrivacyAccountDescription": "Daten, Sicherung und Kontosteuerung",
+  "profileLearningData": "Meine Lerndaten",
+  "profileLearningDataDescription": "Lokalen Lernfortschritt als JSON exportieren",
+  "profileLearningDataPreparing": "Export wird vorbereitet …",
+  "profileLearningDataExportReady": "Deine Lerndaten sind zum Teilen bereit.",
+  "profileLearningDataExportFailed": "Der Export konnte nicht vorbereitet werden.",
+  "profileAccountDelete": "Konto löschen",
+  "profileAccountDeleteDescription": "Den geschützten Löschablauf öffnen",
+  "profileSafeSituations": "{count, plural, =0{noch keine sichere Situation} =1{1 sichere Situation} other{{count} sichere Situationen}}",
+  "@profileSafeSituations": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "profileProgressSection": "Mein Fortschritt",
   "profileSignOut": "Abmelden",
   "accountNudgeTitle": "Speichere deinen Fortschritt",

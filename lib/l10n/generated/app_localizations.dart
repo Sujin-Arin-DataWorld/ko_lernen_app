@@ -5749,6 +5749,12 @@ abstract class AppL10n {
   /// **'Mein Lernen'**
   String get profileLearningSection;
 
+  /// No description provided for @profileEditAction.
+  ///
+  /// In de, this message translates to:
+  /// **'bearbeiten'**
+  String get profileEditAction;
+
   /// No description provided for @profileLearningGoal.
   ///
   /// In de, this message translates to:
@@ -5791,6 +5797,18 @@ abstract class AppL10n {
   /// **'Freiwillige Lerngemeinschaft öffnen'**
   String get profileGyeDescription;
 
+  /// No description provided for @profileGyeLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Gruppe wird geladen …'**
+  String get profileGyeLoading;
+
+  /// No description provided for @profileGyeNone.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Gruppe gewählt'**
+  String get profileGyeNone;
+
   /// No description provided for @profilePrivacyAccount.
   ///
   /// In de, this message translates to:
@@ -5802,6 +5820,54 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Daten, Sicherung und Kontosteuerung'**
   String get profilePrivacyAccountDescription;
+
+  /// No description provided for @profileLearningData.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Lerndaten'**
+  String get profileLearningData;
+
+  /// No description provided for @profileLearningDataDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Lokalen Lernfortschritt als JSON exportieren'**
+  String get profileLearningDataDescription;
+
+  /// No description provided for @profileLearningDataPreparing.
+  ///
+  /// In de, this message translates to:
+  /// **'Export wird vorbereitet …'**
+  String get profileLearningDataPreparing;
+
+  /// No description provided for @profileLearningDataExportReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lerndaten sind zum Teilen bereit.'**
+  String get profileLearningDataExportReady;
+
+  /// No description provided for @profileLearningDataExportFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Export konnte nicht vorbereitet werden.'**
+  String get profileLearningDataExportFailed;
+
+  /// No description provided for @profileAccountDelete.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto löschen'**
+  String get profileAccountDelete;
+
+  /// No description provided for @profileAccountDeleteDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Den geschützten Löschablauf öffnen'**
+  String get profileAccountDeleteDescription;
+
+  /// No description provided for @profileSafeSituations.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{noch keine sichere Situation} =1{1 sichere Situation} other{{count} sichere Situationen}}'**
+  String profileSafeSituations(int count);
 
   /// No description provided for @profileProgressSection.
   ///

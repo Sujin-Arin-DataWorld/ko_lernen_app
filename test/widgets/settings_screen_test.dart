@@ -35,6 +35,36 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  testWidgets('typed deletion entry scrolls to the protected Settings row', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 700);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          initialFocus: SettingsInitialFocus.accountDeletion,
+        ),
+      ),
+    );
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
+    final deletion = find.text('Konto und alle Daten löschen');
+    expect(deletion, findsOneWidget);
+    final rect = tester.getRect(deletion);
+    expect(rect.top, greaterThan(0));
+    expect(rect.bottom, lessThan(700));
+  });
+
   testWidgets('settings shows the injected runtime release version', (
     tester,
   ) async {

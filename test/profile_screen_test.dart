@@ -6,8 +6,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
@@ -43,11 +45,16 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(_wrap(const ProfileScreen()));
+    await tester.pumpWidget(_wrap(const ProfileScreen(enableCoach: false)));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
     // Gast-Karte → Sichern-CTA (settingsCloudSignInPrompt, de).
+    await tester.scrollUntilVisible(
+      find.text('Mit Google sichern'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Mit Google sichern'), findsOneWidget);
     expect(tester.takeException(), isNull);
 
@@ -63,7 +70,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(_wrap(const ProfileScreen()));
+    await tester.pumpWidget(_wrap(const ProfileScreen(enableCoach: false)));
     await tester.pump();
 
     expect(find.text('Mein Lernen'), findsOneWidget);
@@ -98,6 +105,116 @@ void main() {
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
+  });
+
+  testWidgets('Profile 06A rows expose Gye name and fixture-safe actions', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.clear,
+    );
+    addTearDown(journalState.dispose);
+    var accountCalls = 0;
+    var gyeCalls = 0;
+    var exportCalls = 0;
+    var deletionCalls = 0;
+
+    await tester.pumpWidget(
+      _wrap(
+        ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: false,
+              isAppleLinked: false,
+            ),
+          ),
+          cloudDataDeletionJournalState: journalState,
+          loadGyeMetas: () async => const [
+            GyeMeta(
+              id: 'MOON23',
+              name: 'Mondhof',
+              code: 'MOON23',
+              ownerId: 'owner',
+            ),
+          ],
+          exportLearningData: () async => exportCalls++,
+          onOpenAccountControls: () => accountCalls++,
+          onOpenGye: () => gyeCalls++,
+          onOpenAccountDeletion: () => deletionCalls++,
+          enableCoach: false,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    expect(find.text('Mondhof'), findsOneWidget);
+    expect(find.text('Meine Lerndaten'), findsOneWidget);
+    expect(find.text('Konto löschen'), findsOneWidget);
+    _tile(tester, 'profile-account-controls').onTap!();
+    _tile(tester, 'profile-gye').onTap!();
+    _tile(tester, 'profile-learning-data-export').onTap!();
+    _tile(tester, 'profile-account-delete').onTap!();
+    await tester.pump();
+    expect(accountCalls, 1);
+    expect(gyeCalls, 1);
+    expect(exportCalls, 1);
+    expect(deletionCalls, 1);
+    expect(
+      find.text('Deine Lerndaten sind zum Teilen bereit.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('Profile account rows use typed Settings destinations', (
+    tester,
+  ) async {
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.clear,
+    );
+    addTearDown(journalState.dispose);
+    final destinations = <Object?>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: false,
+              isAppleLinked: false,
+            ),
+          ),
+          cloudDataDeletionJournalState: journalState,
+          loadGyeMetas: () async => const <GyeMeta>[],
+          enableCoach: false,
+        ),
+        onGenerateRoute: (settings) {
+          destinations.add(settings.arguments);
+          return MaterialPageRoute<void>(
+            settings: settings,
+            builder: (_) => const SizedBox.shrink(),
+          );
+        },
+      ),
+    );
+    await tester.pump();
+
+    _tile(tester, 'profile-account-controls').onTap!();
+    await tester.pump();
+    expect(destinations.last, SettingsInitialFocus.account);
+    tester.state<NavigatorState>(find.byType(Navigator)).pop();
+    await tester.pump();
+
+    _tile(tester, 'profile-account-delete').onTap!();
+    await tester.pump();
+    expect(destinations.last, SettingsInitialFocus.accountDeletion);
   });
 
   testWidgets('Profile learning controls stay scrollable on a compact phone', (
@@ -297,6 +414,11 @@ void main() {
     // The locked button stays tappable and explains the pending cloud
     // deletion — never a silent dead tap, and never an actual sign-out.
     final signOutFinder = find.widgetWithText(SoriButton, 'Abmelden');
+    await tester.scrollUntilVisible(
+      signOutFinder,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(signOutFinder);
     await tester.pump();
     final signOut = tester.widget<SoriButton>(signOutFinder);
@@ -490,6 +612,13 @@ Widget _wrap(Widget child) {
     home: child,
   );
 }
+
+ListTile _tile(WidgetTester tester, String key) => tester.widget<ListTile>(
+  find.descendant(
+    of: find.byKey(ValueKey(key)),
+    matching: find.byType(ListTile),
+  ),
+);
 
 class _DelayedLinkedAccountOperations
     implements AccountUiOperations, AccountUiPendingStateSource {

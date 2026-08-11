@@ -16,11 +16,15 @@ import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/storage_service.dart';
+import '../services/gye_service.dart';
+import '../services/learning_data_export_service.dart';
 import '../data/learner_motivation.dart';
+import '../models/gye.dart';
 import '../models/scenario.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/account_operation_ui.dart';
 import '../l10n/generated/app_localizations.dart';
+import 'settings_screen.dart';
 
 String _providerLabel(AppL10n t, AuthProviderState providers) {
   if (providers.isGoogleLinked && providers.isAppleLinked) {
@@ -45,6 +49,12 @@ class ProfileScreen extends StatefulWidget {
     this.accountOperations,
     this.cloudDataDeletionJournalState,
     this.cloudDataDeletion,
+    this.loadGyeMetas,
+    this.exportLearningData,
+    this.onOpenAccountControls,
+    this.onOpenGye,
+    this.onOpenAccountDeletion,
+    this.enableCoach = true,
   });
 
   final AuthAccountSnapshot? account;
@@ -52,6 +62,12 @@ class ProfileScreen extends StatefulWidget {
   final ValueListenable<CloudBackupDeletionJournalState>?
   cloudDataDeletionJournalState;
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
+  final Future<List<GyeMeta>> Function()? loadGyeMetas;
+  final Future<void> Function()? exportLearningData;
+  final VoidCallback? onOpenAccountControls;
+  final VoidCallback? onOpenGye;
+  final VoidCallback? onOpenAccountDeletion;
+  final bool enableCoach;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -60,6 +76,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
+  bool _exportBusy = false;
+  late final Future<List<GyeMeta>> _gyeMetas;
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
@@ -91,7 +109,8 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   void initState() {
     super.initState();
-    scheduleCoach();
+    _gyeMetas = (widget.loadGyeMetas ?? GyeService.myGyeMetas)();
+    if (widget.enableCoach) scheduleCoach();
     if (widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
@@ -272,9 +291,65 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _openAccountControls() async {
-    await Navigator.of(context).pushNamed('/settings');
+    final override = widget.onOpenAccountControls;
+    if (override != null) {
+      override();
+      return;
+    }
+    await Navigator.of(
+      context,
+    ).pushNamed('/settings', arguments: SettingsInitialFocus.account);
     if (mounted) {
       setState(() {});
+    }
+  }
+
+  void _openGye() {
+    final override = widget.onOpenGye;
+    if (override != null) {
+      override();
+      return;
+    }
+    Navigator.pushNamed(context, '/gye/hub');
+  }
+
+  void _openAccountDeletion() {
+    final override = widget.onOpenAccountDeletion;
+    if (override != null) {
+      override();
+      return;
+    }
+    Navigator.of(
+      context,
+    ).pushNamed('/settings', arguments: SettingsInitialFocus.accountDeletion);
+  }
+
+  Future<void> _exportLearningData() async {
+    if (_exportBusy) return;
+    final messenger = ScaffoldMessenger.of(context);
+    final t = AppL10n.of(context);
+    setState(() => _exportBusy = true);
+    try {
+      final export = widget.exportLearningData;
+      if (export != null) {
+        await export();
+      } else {
+        final package = LearningDataExportService.buildPackage();
+        await LearningDataExportService.sharePackage(package);
+      }
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.profileLearningDataExportReady)),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.profileLearningDataExportFailed)),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _exportBusy = false);
     }
   }
 
@@ -333,11 +408,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                           ),
                           const SizedBox(height: Spacing.xs),
                           Text(
-                            t.profileJourneySummary(
-                              _levelLabel(t),
-                              motivation?.label(t) ??
-                                  t.profileLearningGoalNotSet,
-                            ),
+                            '${t.profileJourneySummary(_levelLabel(t), motivation?.label(t) ?? t.profileLearningGoalNotSet)} · '
+                            '${t.profileSafeSituations(Storage.completedScenarios.length)}',
                             style: SoriTextTheme.of(context).bodySmall,
                           ),
                           if (linked) ...[
@@ -357,7 +429,10 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
               const SizedBox(height: 20),
 
-              _ProfileSectionLabel(label: t.profileLearningSection),
+              _ProfileSectionLabel(
+                label: t.profileLearningSection,
+                action: t.profileEditAction,
+              ),
               const SizedBox(height: Spacing.sm),
               SoriCard(
                 variant: SoriCardVariant.base,
@@ -408,17 +483,47 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: Column(
                   children: [
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-account-controls'),
                       icon: Icons.shield_outlined,
                       label: t.profilePrivacyAccount,
                       value: t.profilePrivacyAccountDescription,
                       onTap: _openAccountControls,
                     ),
                     const Divider(height: 1),
+                    FutureBuilder<List<GyeMeta>>(
+                      future: _gyeMetas,
+                      builder: (context, snapshot) => _ProfileSettingTile(
+                        key: const ValueKey('profile-gye'),
+                        icon: Icons.groups_2_outlined,
+                        label: t.profileGye,
+                        value:
+                            snapshot.connectionState == ConnectionState.waiting
+                            ? t.profileGyeLoading
+                            : snapshot.hasError ||
+                                  (snapshot.data ?? const <GyeMeta>[]).isEmpty
+                            ? t.profileGyeNone
+                            : snapshot.data!.first.name,
+                        onTap: _openGye,
+                      ),
+                    ),
+                    const Divider(height: 1),
                     _ProfileSettingTile(
-                      icon: Icons.groups_2_outlined,
-                      label: t.profileGye,
-                      value: t.profileGyeDescription,
-                      onTap: () => Navigator.pushNamed(context, '/gye/hub'),
+                      key: const ValueKey('profile-learning-data-export'),
+                      icon: Icons.file_download_outlined,
+                      label: t.profileLearningData,
+                      value: _exportBusy
+                          ? t.profileLearningDataPreparing
+                          : t.profileLearningDataDescription,
+                      onTap: _exportLearningData,
+                    ),
+                    const Divider(height: 1),
+                    _ProfileSettingTile(
+                      key: const ValueKey('profile-account-delete'),
+                      icon: Icons.person_remove_outlined,
+                      label: t.profileAccountDelete,
+                      value: t.profileAccountDeleteDescription,
+                      destructive: true,
+                      onTap: _openAccountDeletion,
                     ),
                   ],
                 ),
@@ -730,37 +835,55 @@ class _ConnectedCard extends StatelessWidget {
 }
 
 class _ProfileSectionLabel extends StatelessWidget {
-  const _ProfileSectionLabel({required this.label});
+  const _ProfileSectionLabel({required this.label, this.action});
 
   final String label;
+  final String? action;
 
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-    child: Text(label, style: SoriTextTheme.of(context).label),
+    child: Row(
+      children: [
+        Expanded(child: Text(label, style: SoriTextTheme.of(context).label)),
+        if (action != null)
+          Text(action!, style: SoriTextTheme.of(context).caption),
+      ],
+    ),
   );
 }
 
 class _ProfileSettingTile extends StatelessWidget {
   const _ProfileSettingTile({
+    super.key,
     required this.icon,
     required this.label,
     required this.value,
     required this.onTap,
+    this.destructive = false,
   });
 
   final IconData icon;
   final String label;
   final String value;
   final VoidCallback onTap;
+  final bool destructive;
 
   @override
   Widget build(BuildContext context) => Material(
     color: Colors.transparent,
     child: ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
-      leading: Icon(icon, color: SoriColors.primary),
-      title: Text(label, style: SoriTextTheme.of(context).cardTitle),
+      leading: Icon(
+        icon,
+        color: destructive ? SoriColors.danger : SoriColors.primary,
+      ),
+      title: Text(
+        label,
+        style: SoriTextTheme.of(
+          context,
+        ).cardTitle.copyWith(color: destructive ? SoriColors.danger : null),
+      ),
       subtitle: Text(value, style: SoriTextTheme.of(context).caption),
       trailing: const Icon(Icons.chevron_right_rounded),
       minVerticalPadding: Spacing.xs,

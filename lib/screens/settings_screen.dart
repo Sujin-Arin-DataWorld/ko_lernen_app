@@ -304,6 +304,8 @@ class SubscriptionManagementLauncher {
   }
 }
 
+enum SettingsInitialFocus { account, accountDeletion }
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
     super.key,
@@ -315,6 +317,7 @@ class SettingsScreen extends StatefulWidget {
     this.cloudDataDeletionJournalState,
     this.resetAllData,
     this.appVersionReader,
+    this.initialFocus,
   });
 
   final AuthAccountSnapshot? account;
@@ -326,6 +329,7 @@ class SettingsScreen extends StatefulWidget {
   cloudDataDeletionJournalState;
   final Future<void> Function()? resetAllData;
   final AppVersionReader? appVersionReader;
+  final SettingsInitialFocus? initialFocus;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -335,6 +339,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
   String _appVersion = '—';
   DateTime? _lastBackupAt;
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _accountSectionKey = GlobalKey();
+  final GlobalKey _accountDeletionKey = GlobalKey();
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
@@ -388,6 +395,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
     }
+    if (widget.initialFocus != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _seekInitialFocus();
+      });
+    }
+  }
+
+  void _seekInitialFocus([int attempt = 0]) {
+    if (!mounted || widget.initialFocus == null) return;
+    final key = widget.initialFocus == SettingsInitialFocus.account
+        ? _accountSectionKey
+        : _accountDeletionKey;
+    final targetContext = key.currentContext;
+    if (targetContext != null) {
+      Scrollable.ensureVisible(
+        targetContext,
+        alignment: 0.12,
+        duration: const Duration(milliseconds: 220),
+        curve: Curves.easeOutCubic,
+      );
+      return;
+    }
+    if (attempt >= 12 || !_scrollController.hasClients) return;
+    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _seekInitialFocus(attempt + 1);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadAppVersion() async {
@@ -578,6 +618,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: SafeArea(
         child: ListView(
+          controller: _scrollController,
           padding: soriClampPadding(
             MediaQuery.sizeOf(context).width,
             base: const EdgeInsets.symmetric(vertical: 8),
@@ -781,7 +822,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
 
             // ── Cloud-Backup (Firebase Auth) ──
-            _Section(label: t.settingsCloudSection),
+            KeyedSubtree(
+              key: _accountSectionKey,
+              child: _Section(label: t.settingsCloudSection),
+            ),
             AccountPendingOperationPanel(
               operations: _accountOperations,
               retryLocalDeletion: _onDeleteAccount,
@@ -998,22 +1042,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   ValueListenableBuilder<CloudBackupDeletionJournalState>(
                     valueListenable: _cloudDataDeletionJournalState,
-                    builder: (context, cloudDeletionState, _) => ListTile(
-                      leading: const Icon(
-                        Icons.person_remove_outlined,
-                        color: SoriColors.danger,
+                    builder: (context, cloudDeletionState, _) => KeyedSubtree(
+                      key: _accountDeletionKey,
+                      child: ListTile(
+                        leading: const Icon(
+                          Icons.person_remove_outlined,
+                          color: SoriColors.danger,
+                        ),
+                        title: Text(
+                          t.settingsAccountDelete,
+                          style: const TextStyle(color: SoriColors.danger),
+                        ),
+                        subtitle: Text(t.settingsAccountDeleteDesc),
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _confirmAccountDelete
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
-                      title: Text(
-                        t.settingsAccountDelete,
-                        style: const TextStyle(color: SoriColors.danger),
-                      ),
-                      subtitle: Text(t.settingsAccountDeleteDesc),
-                      onTap:
-                          accountActionsAvailable &&
-                              cloudDeletionState ==
-                                  CloudBackupDeletionJournalState.clear
-                          ? _confirmAccountDelete
-                          : () => _showActionLocked(cloudDeletionState),
                     ),
                   ),
                 ],

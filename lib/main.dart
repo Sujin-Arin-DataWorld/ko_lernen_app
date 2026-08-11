@@ -619,6 +619,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
               return SoriTransitions.fadeScale(
                 (_) => SettingsScreen(
                   accountDeletionWorkflow: _createAccountDeletionWorkflow(),
+                  initialFocus: settings.arguments is SettingsInitialFocus
+                      ? settings.arguments! as SettingsInitialFocus
+                      : null,
                 ),
                 settings: settings,
               );

@@ -1556,6 +1556,7 @@
   "profileStatWords": "Words",
   "profileViewStats": "View all stats",
   "profileLearningSection": "My learning",
+  "profileEditAction": "edit",
   "profileLearningGoal": "My goal",
   "profileLearningGoalNotSet": "Choose what brings you to Korean",
   "profileLearningStartPoint": "My starting point",
@@ -1563,8 +1564,23 @@
   "profileSpaceSection": "My space",
   "profileGye": "Group (Gye)",
   "profileGyeDescription": "Open your optional learning group",
+  "profileGyeLoading": "Loading group …",
+  "profileGyeNone": "No group selected",
   "profilePrivacyAccount": "Privacy & account",
   "profilePrivacyAccountDescription": "Data, backup, and account controls",
+  "profileLearningData": "My learning data",
+  "profileLearningDataDescription": "Export local learning progress as JSON",
+  "profileLearningDataPreparing": "Preparing export …",
+  "profileLearningDataExportReady": "Your learning data is ready to share.",
+  "profileLearningDataExportFailed": "The export could not be prepared.",
+  "profileAccountDelete": "Delete account",
+  "profileAccountDeleteDescription": "Open the protected deletion flow",
+  "profileSafeSituations": "{count, plural, =0{no safe situations yet} =1{1 safe situation} other{{count} safe situations}}",
+  "@profileSafeSituations": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "profileProgressSection": "My progress",
   "profileSignOut": "Sign out",
   "accountNudgeTitle": "Save your progress",

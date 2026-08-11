@@ -3272,6 +3272,9 @@ class AppL10nDe extends AppL10n {
   String get profileLearningSection => 'Mein Lernen';
 
   @override
+  String get profileEditAction => 'bearbeiten';
+
+  @override
   String get profileLearningGoal => 'Mein Ziel';
 
   @override
@@ -3294,11 +3297,54 @@ class AppL10nDe extends AppL10n {
   String get profileGyeDescription => 'Freiwillige Lerngemeinschaft öffnen';
 
   @override
+  String get profileGyeLoading => 'Gruppe wird geladen …';
+
+  @override
+  String get profileGyeNone => 'Keine Gruppe gewählt';
+
+  @override
   String get profilePrivacyAccount => 'Datenschutz & Konto';
 
   @override
   String get profilePrivacyAccountDescription =>
       'Daten, Sicherung und Kontosteuerung';
+
+  @override
+  String get profileLearningData => 'Meine Lerndaten';
+
+  @override
+  String get profileLearningDataDescription =>
+      'Lokalen Lernfortschritt als JSON exportieren';
+
+  @override
+  String get profileLearningDataPreparing => 'Export wird vorbereitet …';
+
+  @override
+  String get profileLearningDataExportReady =>
+      'Deine Lerndaten sind zum Teilen bereit.';
+
+  @override
+  String get profileLearningDataExportFailed =>
+      'Der Export konnte nicht vorbereitet werden.';
+
+  @override
+  String get profileAccountDelete => 'Konto löschen';
+
+  @override
+  String get profileAccountDeleteDescription =>
+      'Den geschützten Löschablauf öffnen';
+
+  @override
+  String profileSafeSituations(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count sichere Situationen',
+      one: '1 sichere Situation',
+      zero: 'noch keine sichere Situation',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get profileProgressSection => 'Mein Fortschritt';

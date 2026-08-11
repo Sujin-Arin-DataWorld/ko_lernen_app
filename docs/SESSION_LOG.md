@@ -95,6 +95,38 @@ GameOver no-companion focused 테스트 모두 통과. production personalized i
 **커밋.** `20095cd` (`feat(onboarding): support an explicit no-companion choice`).
 ---
 
+### 2026-08-12 (Codex) — 06A 프로필 직접 제어와 read-only 학습데이터 export
+
+**왜.** 프로필의 “Mein Raum”은 개인정보/계정과 Gye 진입만 묶어 보여 실제 그룹 이름,
+학습데이터 내보내기, 계정 삭제로 바로 가는 경로가 없었다. 기존 cloud backup payload는
+course migration/write를 수행할 수 있어 사용자가 요청한 로컬 export의 읽기 전용 경계로
+재사용할 수 없었다.
+
+**무엇을.** 프로필 첫 표면에 개인정보·계정, 실제 Gye 이름, “Meine Lerndaten”, 계정
+삭제의 네 행을 목업 순서로 배치했다. 계정/삭제 행은 typed `SettingsInitialFocus`로 기존
+Settings의 계정 섹션과 보호된 삭제 행을 직접 열며, 삭제 확인·receipt·journal·worker
+계약은 그대로 재사용한다. Settings는 lazy list에서도 목표 행을 찾아 보이도록 bounded
+focus 탐색을 추가했다. export는 SharedPreferences 전체 덤프가 아니라 level/목표/동행,
+XP·streak, vocab/grammar/scenario/achievement, canonical course mastery, SRS review card,
+pack progress만 명시적으로 allowlist하고 JSON 파일로 OS 공유한다. 손상 blob은 격리나
+migration을 호출하지 않고 생략한다. Profile에는 Gye loader와 네 action, coach를 주입할
+수 있는 fixture seam을 추가해 UX Gallery가 Firebase/저장 mutation 없이 실제 화면을
+렌더할 수 있게 했다.
+
+**검증.** Profile/account 회귀, Gye 이름과 네 직접 action, typed Settings 목적지,
+DE/EN copy, compact/tablet layout, account write-lock UI, deterministic export, corrupt blob
+무변경, Settings 삭제 focus를 포함한 집중 Flutter 테스트 **16/16 통과**. exporter는
+build 전후 preference snapshot이 동일하며 birth year, consent, account deletion checkpoint,
+account transition auth token, secure terminal-status receipt, refresh token, private bookshelf
+path가 결과에 없음을 고정했다. 변경 Dart scoped `dart analyze` **No issues found**,
+`flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** OS 공유 시트와 실제 파일 수신 앱은 Windows widget test 범위 밖이다. 이 변경은
+계정 lifecycle을 실행하거나 receipt를 읽지 않으며, Profile 삭제 행도 기존 Settings 보안
+workflow로 이동할 뿐 삭제를 직접 시작하지 않는다. 커밋은 이 기록과 같은 커밋에 포함한다.
+
+---
+
 ### 2026-08-12 (Codex) — 05A–C Gye 약속의 exact scene·익명 기여 UX
 
 **왜.** UX 재구축 목업의 주간 약속 CTA가 단순 시나리오 탐색으로 열리면 실제 기여로

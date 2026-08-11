@@ -3263,6 +3263,9 @@ class AppL10nEn extends AppL10n {
   String get profileLearningSection => 'My learning';
 
   @override
+  String get profileEditAction => 'edit';
+
+  @override
   String get profileLearningGoal => 'My goal';
 
   @override
@@ -3284,11 +3287,54 @@ class AppL10nEn extends AppL10n {
   String get profileGyeDescription => 'Open your optional learning group';
 
   @override
+  String get profileGyeLoading => 'Loading group …';
+
+  @override
+  String get profileGyeNone => 'No group selected';
+
+  @override
   String get profilePrivacyAccount => 'Privacy & account';
 
   @override
   String get profilePrivacyAccountDescription =>
       'Data, backup, and account controls';
+
+  @override
+  String get profileLearningData => 'My learning data';
+
+  @override
+  String get profileLearningDataDescription =>
+      'Export local learning progress as JSON';
+
+  @override
+  String get profileLearningDataPreparing => 'Preparing export …';
+
+  @override
+  String get profileLearningDataExportReady =>
+      'Your learning data is ready to share.';
+
+  @override
+  String get profileLearningDataExportFailed =>
+      'The export could not be prepared.';
+
+  @override
+  String get profileAccountDelete => 'Delete account';
+
+  @override
+  String get profileAccountDeleteDescription =>
+      'Open the protected deletion flow';
+
+  @override
+  String profileSafeSituations(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count safe situations',
+      one: '1 safe situation',
+      zero: 'no safe situations yet',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get profileProgressSection => 'My progress';
