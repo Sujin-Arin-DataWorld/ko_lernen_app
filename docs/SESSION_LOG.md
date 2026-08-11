@@ -7,6 +7,24 @@
 
 ---
 
+### 2026-08-11 (Claude) — PDF 학습자료 3종 대량 통합: 단어 +372·표현 +48·문법 +35
+
+**왜.** Jin이 PDF 3종(국립국어원 「한국어 한마디」 표현집 · keytokorean 초급 문법 시트 · TOPIK 초중급 단어 ~1,260개)을 제공하며 "전부 적재적소에 100% 활용" 요청. 큐레이션 방침 합의(중복·조사·수량사 제외, 독일어 전면 신규 저작 — 소스는 한-영뿐). B1/B2 확충은 Silben-Kreuz 크로스워드 개편(별도 계획)의 선행조건.
+
+**무엇을.** 4단계, 단계별 커밋:
+- `54f20b9` **B1/B2 단어 +264 (22팩)**: korean_vocab.csv 558→822. 등록 7곳 동기화(packDisplayMap/packOrderInLevel + vocabPackUnitMap + 단청 motif switch + audit manifest + id 계약 테스트 + build_vocab_packs.py 미러). B2에 높임말 전용 팩 신설.
+- `1b2410e` **A2 단어 +108 (9팩)**: 822→930. A1은 의도적 제외(211개 포화·잔여 후보 중복·골든 영향).
+- `d42b3da` **Smalltalk +48표현·4카테고리**(교통·쇼핑·전화·도움요청) + travel/food 보강: 145→193. question은 reply(Catch-ball 계약) 필수 — 테스트로 발견해 재생성. smalltalkCategoryUnitMap 8키(기존 concept 재사용).
+- `72e9618` **문법 +35**: grammar.csv 88→123 (부터/만/밖에/(으)로/처럼/쯤/거나/니까/고 나서/(으)ㄹ 때/(으)ㄴ 지/아어 있다/아어지다/높임 시/간접인용 축약/불규칙 7종 등). grammarRuleMap은 동레벨 시블링 상속 — B1/B2 항목에 교차 레벨 매핑 쓰면 course_graph 레벨-미션 계약 위반(1차 시도에서 실패 후 수정).
+
+**공정.** 콘텐츠는 전부 `tools/content_factory/add_{b1,b2,a2}_expansion_packs.py`·`add_phrasebook_smalltalk.py`·`add_grammar_expansion.py`(멱등, id 자동 연번, dry-run 기본)에 수록 — 재생성 가능. ⚠️ Jin 원어민 검수 권장(KO/DE 표본).
+
+**검증.** 계약 테스트 6종(id/무결성/course_graph/vocab_pack/단청/audit) + smalltalk 2종 전부 통과, analyze 0. 신규 팩은 append-only(기존 팩 진행도 무효화 없음), SRS 자동 편입, TTS는 런타임 합성이라 에셋 불필요(신규 텍스트 첫 재생만 네트워크).
+
+**남은 것.** 실기기 확인(B1/B2 팩 표시·프리미엄 게이트·Smalltalk 새 카테고리·문법 목록), TTS 사전생성 소스에 신규 예문 반영 여부 검토(tool/generate_tts.py), Silben-Kreuz 크로스워드 본계획 진행.
+
+---
+
 ### 2026-08-12 (Claude) — TTS 사전생성 §7 satz 목표문장 + 예문 톤 감사
 
 **왜.** Jin: "Hören·Grammatik·Szenarien·Lückentext·Wortkette 아직 옛날 tts" + "Satz bauen 예문이 촌스럽다". 조사 결과 5개 화면 소스는 이미 수집돼 있었고(2026-08-11 §3~6; Hören 은 §2 시나리오 대화를 동일 화자 규칙으로 재생), 실제 갭은 **Satz bauen 목표문장 55/191 누락**(CSV 예문과 문자열 상이 → 캐시 미스 → OS 로봇 음성 폴백) — 이것이 "옛날 음성/촌스러움" 체감의 원인.
