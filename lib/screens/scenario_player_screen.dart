@@ -6,12 +6,16 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
+import '../models/course_mastery.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
+import '../models/hanok_competence.dart';
+import '../models/personal_hanok.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/hanok_stage_service.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -25,7 +29,6 @@ import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
-import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
@@ -99,6 +102,37 @@ typedef ScenarioResultPersister =
       int earnedXp,
     );
 
+/// Deterministic, storage-free state for rendering the production player in a
+/// gallery or widget test. Production loaders, entitlement gates, evidence,
+/// rewards, and progress persistence are bypassed.
+class ScenarioPlayerPreviewFixture {
+  const ScenarioPlayerPreviewFixture.action({
+    required this.scenario,
+    this.stage = ScenarioStage.dialog,
+    this.missionStep,
+    this.missionTitle,
+    this.onReturn,
+    this.onRepeat,
+  }) : result = null;
+
+  const ScenarioPlayerPreviewFixture.result({
+    required this.scenario,
+    required this.result,
+    this.missionStep,
+    this.missionTitle,
+    this.onReturn,
+    this.onRepeat,
+  }) : stage = ScenarioStage.result;
+
+  final Scenario scenario;
+  final ScenarioStage stage;
+  final ScenarioCanDoResult? result;
+  final CourseMissionStep? missionStep;
+  final String? missionTitle;
+  final VoidCallback? onReturn;
+  final VoidCallback? onRepeat;
+}
+
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
   final CoursePracticeContext? courseContext;
@@ -106,6 +140,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final ScenarioResultPersister? resultPersister;
   final VoidCallback? onFirstCorrect;
   final VoidCallback? onExit;
+  final ScenarioPlayerPreviewFixture? previewFixture;
 
   const ScenarioPlayerScreen({
     super.key,
@@ -115,7 +150,18 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.resultPersister,
     this.onFirstCorrect,
     this.onExit,
-  });
+  }) : previewFixture = null;
+
+  ScenarioPlayerScreen.preview({
+    super.key,
+    required ScenarioPlayerPreviewFixture fixture,
+    this.onExit,
+  }) : scenarioId = fixture.scenario.id,
+       courseContext = null,
+       scenarioLoader = null,
+       resultPersister = null,
+       onFirstCorrect = null,
+       previewFixture = fixture;
 
   @override
   State<ScenarioPlayerScreen> createState() => _ScenarioPlayerScreenState();
@@ -133,7 +179,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
   // 시나리오 대화 재생 속도 배수 (요청 단위에만 적용 — 전역 Storage.ttsRate 보존).
   double _dialogRate = 1.0;
-  final PageController _pageCtrl = PageController();
+  late final PageController _pageCtrl;
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
@@ -183,6 +229,27 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   @override
   void initState() {
     super.initState();
+    final preview = widget.previewFixture;
+    if (preview != null) {
+      final scenario = preview.scenario;
+      _scenario = scenario;
+      _missionStep = preview.missionStep;
+      _missionTitle = preview.missionTitle;
+      _plan = buildScenarioStagePlan(
+        hasRollenspiel: scenario.dialog.any((line) => line.speaker == 'user'),
+        hasGrammar: scenario.grammarBlock != null,
+        questCount: scenario.quests.length,
+      );
+      final requestedIndex = preview.stage == ScenarioStage.result
+          ? _plan.length - 1
+          : _plan.indexOf(preview.stage);
+      _stage = requestedIndex < 0 ? 0 : requestedIndex;
+      _resultPersisted = preview.stage == ScenarioStage.result;
+      _canDoResult = preview.result;
+      _pageCtrl = PageController(initialPage: _stage);
+      return;
+    }
+    _pageCtrl = PageController();
     _loadScenario();
     scheduleCoach();
   }
@@ -319,13 +386,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       curve: Curves.easeInOut,
     );
 
-    // 결과 스테이지 진입 + 별 1개 이상 → 축하 연출 (단청 별·다이아 burst)
-    if (_isResultStage) {
-      final s = _scenario;
-      if (s != null &&
-          _starsFor(_passedCount, _firstTryPassedCount, s.quests.length) >= 1) {
+    // A result is a calm persisted outcome, not a second reward ceremony.
+    // Save on entry so the learner never has to press a misleading "complete"
+    // button before seeing the can-do and structural evidence.
+    if (nextKind == ScenarioStage.result) {
+      final scenario = _scenario;
+      if (scenario != null) {
+        final score = _resultScore(scenario);
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) SoriCelebration.burst(context);
+          if (mounted) {
+            _complete(score.stars, score.earnedXp);
+          }
         });
       }
     }
@@ -333,7 +404,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   void _onQuestComplete(QuestResult result) {
     final scenario = _scenario;
-    if (scenario != null &&
+    if (widget.previewFixture == null &&
+        scenario != null &&
         _currentQuestIndex >= 0 &&
         _currentQuestIndex < scenario.quests.length) {
       final quest = scenario.quests[_currentQuestIndex];
@@ -391,6 +463,23 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return 0;
   }
 
+  ({int stars, int earnedXp}) _resultScore(Scenario scenario) {
+    final stars = _starsFor(
+      _passedCount,
+      _firstTryPassedCount,
+      scenario.quests.length,
+    );
+    final xpFull = scenario.xpReward;
+    final earnedXp = stars == 3
+        ? xpFull
+        : stars == 2
+        ? (xpFull * 2 ~/ 3)
+        : stars == 1
+        ? (xpFull ~/ 3)
+        : 0;
+    return (stars: stars, earnedXp: earnedXp);
+  }
+
   // ─── Complete (Ergebnis speichern) ─────────────────────────────────────────
 
   Future<ScenarioCanDoResult?> _persistResult(int stars, int earnedXp) async {
@@ -444,17 +533,41 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
     if (courseUpdate == null) return null;
     final catalog = await CurriculumCatalog.load();
+    final ratios = await HanokStageService.levelRatios();
+    final beforeSnapshot =
+        courseUpdate.previousSnapshot ?? courseUpdate.snapshot;
+
+    PersonalHanokProjection project(CourseMasterySnapshot snapshot) =>
+        PersonalHanokProjection.from(
+          ratios,
+          competence: HanokCompetenceProjection.fromSnapshot(
+            snapshot: snapshot,
+            courseUnits: catalog.courseUnits,
+          ),
+        );
+
     return ScenarioCanDoResult.fromSnapshot(
       snapshot: courseUpdate.snapshot,
       scenarioId: s.id,
       courseUnits: catalog.courseUnits,
+      structureStageBefore: project(beforeSnapshot).structureStage,
+      structureStageAfter: project(courseUpdate.snapshot).structureStage,
     );
   }
 
   Future<void> _complete(int stars, int earnedXp) async {
+    final preview = widget.previewFixture;
+    if (preview != null) {
+      if (!_resultPersisted && mounted) {
+        setState(() {
+          _resultPersisted = true;
+          _canDoResult = preview.result;
+        });
+      }
+      return;
+    }
     if (_resultSaving) return;
     if (_resultPersisted) {
-      Navigator.pop(context);
       return;
     }
 
@@ -474,48 +587,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
       );
     }
-  }
-
-  Future<void> _openNext(int stars, int earnedXp, String nextId) async {
-    if (_resultSaving) return;
-    if (_resultPersisted) {
-      Navigator.of(
-        context,
-      ).pushReplacementNamed('/scenario', arguments: nextId);
-      return;
-    }
-    await runScenarioResultAction(
-      persistResult: () async {
-        await _persistResult(stars, earnedXp);
-      },
-      navigate: () async {
-        if (mounted) {
-          Navigator.of(
-            context,
-          ).pushReplacementNamed('/scenario', arguments: nextId);
-        }
-      },
-    );
-  }
-
-  /// Nächstes empfohlenes Szenario im aktuellen Level.
-  /// Priorität: 1) nicht abgeschlossen, 2) abgeschlossen aber < 3 Sterne.
-  /// Aktuelles Szenario wird übersprungen.
-  Scenario? _nextRecommended() {
-    final cur = _scenario;
-    if (cur == null) return null;
-    final completed = Storage.completedScenarios.toSet();
-    final stars = Storage.scenarioStars;
-    final sameLevel = ScenarioLoader.byLevel(
-      cur.level,
-    ).where((s) => s.id != cur.id).toList();
-    for (final s in sameLevel) {
-      if (!completed.contains(s.id)) return s;
-    }
-    for (final s in sameLevel) {
-      if ((stars[s.id] ?? 0) < 3) return s;
-    }
-    return null;
   }
 
   // ─── Sprecher-Icon ─────────────────────────────────────────────────────────
@@ -978,312 +1049,77 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Widget _buildResult(AppL10n t, String lang) {
-    final sc = _scenario!;
-    final ss = SoriSurfaces.of(context);
-    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    final stars = _starsFor(
-      _passedCount,
-      _firstTryPassedCount,
-      sc.quests.length,
-    );
-    final xpFull = sc.xpReward;
-    final earnedXp = stars == 3
-        ? xpFull
-        : stars == 2
-        ? (xpFull * 2 ~/ 3)
-        : stars == 1
-        ? (xpFull ~/ 3)
-        : 0;
+    final scenario = _scenario!;
+    final score = _resultScore(scenario);
 
-    // Mascot emotion based on stars
-    final mascotEmotion = stars == 3
-        ? MascotEmotion.celebrate
-        : stars >= 1
-        ? MascotEmotion.smile
-        : MascotEmotion.worry;
-    // Mascot kind: 'kkachi'/'magpie' → magpie (좋은 소식 분위기), else tiger 기본
-    final mascotKind = (sc.sidekick == 'kkachi' || sc.sidekick == 'magpie')
-        ? MascotKind.magpie
-        : MascotKind.tiger;
-
-    // Once persistence has completed, replace the game-result presentation
-    // with the calm return surface from mockup 02D. The saved vocabulary,
-    // grammar and course checkpoint are all derived from the real scenario;
-    // visiting this screen does not create additional learning evidence.
     if (_resultPersisted) {
-      return _buildSavedResult(t, sc, lang);
+      return _buildSavedResult(t, scenario, lang);
     }
 
     return _StageScroll(
+      fill: true,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: Spacing.xl),
-
-          // Celebrating mascot
-          TweenAnimationBuilder<double>(
-            tween: Tween(begin: 0.0, end: 1.0),
-            duration: const Duration(milliseconds: 600),
-            curve: SoriMotion.celebrate,
-            builder: (_, v, child) => Transform.scale(scale: v, child: child),
-            child: Mascot(
-              kind: mascotKind,
-              emotion: mascotEmotion,
-              size: 120,
-              animate: false,
-            ),
-          ),
-          const SizedBox(height: Spacing.lg),
-
-          // Sterne (SoriStars + AnimatedScale)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(3, (i) {
-              final filled = i < stars;
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-                child: TweenAnimationBuilder<double>(
-                  tween: Tween(begin: 0.0, end: filled ? 1.0 : 0.8),
-                  duration: Duration(milliseconds: 400 + i * 150),
-                  curve: SoriMotion.celebrate,
-                  builder: (_, v, child) =>
-                      Transform.scale(scale: v, child: child),
-                  child: Icon(
-                    filled ? Icons.star_rounded : Icons.star_outline_rounded,
-                    size: 48,
-                    color: filled ? SoriColors.warning : ss.textDim,
-                  ),
-                ),
-              );
-            }),
-          ),
-          const SizedBox(height: Spacing.md),
           Text(
-            t.scenarioStarsLabel(stars),
-            style: SoriTextTheme.of(context).bodySmall,
+            t.scenarioSavedEyebrow,
+            style: SoriTextTheme.of(
+              context,
+            ).label.copyWith(color: SoriColors.primary),
           ),
+          const SizedBox(height: Spacing.sm),
+          Text(t.scenarioResultSaving, style: SoriTextTheme.of(context).h1),
           const SizedBox(height: Spacing.lg),
-
-          // XP Badge (SoriBadge.xp)
           SoriCard(
             variant: SoriCardVariant.base,
             accent: SoriColors.primary,
             tinted: true,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SoriBadge.xp(earnedXp, size: 28),
-                const SizedBox(width: Spacing.sm),
-                Text(
-                  t.scenarioXpEarned(earnedXp),
-                  style: SoriTextTheme.of(context).h3.copyWith(
-                    color: SoriColors.primary,
-                    fontWeight: FontWeight.w800,
+                if (_resultSaving)
+                  const SizedBox.square(
+                    dimension: 24,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                else
+                  const Icon(
+                    Icons.sync_problem_outlined,
+                    color: SoriColors.warning,
+                  ),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Text(
+                    t.scenarioResultSaving,
+                    style: SoriTextTheme.of(context).body,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: Spacing.xl),
-
-          // Recap — was du in diesem Szenario gelernt hast
-          SoriCard(
-            variant: SoriCardVariant.base,
-            accent: SoriColors.primary,
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  t.scenarioRecapTitle,
-                  style: SoriTextTheme.of(context).label.copyWith(
-                    color: SoriColors.primary,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                _RecapLine(
-                  icon: Icons.menu_book_rounded,
-                  text: t.scenarioRecapWordsLine(sc.vocab.length),
-                ),
-                const SizedBox(height: Spacing.xs),
-                _RecapLine(
-                  icon: Icons.check_circle_outline_rounded,
-                  text: t.scenarioRecapAccuracyLine(
-                    _firstTryPassedCount,
-                    sc.quests.length,
-                  ),
-                ),
-                if (sc.grammarBlock != null) ...[
-                  const SizedBox(height: Spacing.xs),
-                  _RecapLine(
-                    icon: Icons.translate_rounded,
-                    text: t.scenarioRecapGrammarLine(
-                      sc.grammarBlock!.title.pick(lang),
-                    ),
-                  ),
-                ],
-              ],
+          if (!_resultSaving) ...[
+            const SizedBox(height: Spacing.md),
+            SoriButton.outlined(
+              label: t.scenarioResultSaveRetry,
+              fullWidth: true,
+              onTap: () => _complete(score.stars, score.earnedXp),
             ),
-          ),
-          const SizedBox(height: Spacing.xl),
-
-          // Cultural Note
-          if (sc.culturalNote != null) ...[
-            SoriCard(
-              variant: SoriCardVariant.base,
-              accent: SoriColors.warning,
-              tinted: true,
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.lightbulb_outline,
-                        color: SoriColors.gold,
-                        size: 18,
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Text(
-                        t.scenarioCulturalNote,
-                        style: SoriTextTheme.of(context).label.copyWith(
-                          color: SoriColors.warning,
-                          letterSpacing: 0.8,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    sc.culturalNote!.title.pick(lang),
-                    style: SoriTextTheme.of(context).h3,
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(
-                    sc.culturalNote!.body.pick(lang),
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(height: 1.5),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: Spacing.xl),
           ],
-
-          if (_canDoResult case final result?) ...[
-            CanDoResultCard(result: result),
-            const SizedBox(height: Spacing.xl),
-          ],
-
-          if (_feedbackCompletion.current != null &&
-              feedbackScope != null &&
-              feedbackScope.featureGate.isEnabled) ...[
-            ContentFeedbackCard(
-              feedbackContext: _feedbackCompletion.current!.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              mascotKind: mascotKind,
-              completedMissionIds: feedbackScope.completedMissionIds,
-            ),
-            const SizedBox(height: Spacing.xl),
-          ],
-
-          // Next recommended — nächstes Szenario im gleichen Level
-          if (!_resultPersisted)
-            Builder(
-              builder: (_) {
-                final next = _nextRecommended();
-                if (next == null) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: Spacing.lg),
-                    child: Text(
-                      t.scenarioNextRecommendedAllDone(sc.level.display),
-                      textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).bodySmall,
-                    ),
-                  );
-                }
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: Spacing.lg),
-                  child: SoriCard(
-                    variant: SoriCardVariant.base,
-                    accent: SoriColors.accent,
-                    tinted: true,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          t.scenarioNextRecommendedTitle,
-                          style: SoriTextTheme.of(context).label.copyWith(
-                            color: SoriColors.accent,
-                            letterSpacing: 0.8,
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 36,
-                              height: 36,
-                              child:
-                                  Mascot.forSpeaker(
-                                    next.sidekick ?? '',
-                                    size: 36,
-                                    emotion: MascotEmotion.smile,
-                                  ) ??
-                                  Mascot.tiger(
-                                    emotion: MascotEmotion.smile,
-                                    size: 36,
-                                  ),
-                            ),
-                            const SizedBox(width: Spacing.sm),
-                            Expanded(
-                              child: Text(
-                                next.title.pick(lang),
-                                style: SoriTextTheme.of(
-                                  context,
-                                ).body.copyWith(fontWeight: FontWeight.w700),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.sm),
-                            SoriButton.outlined(
-                              label: t.scenarioNextRecommendedCta,
-                              onTap: () => _openNext(stars, earnedXp, next.id),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-
-          // Complete-Button
-          SoriButton.filled(
-            label: _resultPersisted
-                ? t.scenarioResultReturnBtn
-                : t.scenarioCompleteBtn,
-            accent: SoriColors.success,
-            fullWidth: true,
-            onTap: _resultSaving ? null : () => _complete(stars, earnedXp),
-          ),
         ],
       ),
     );
   }
 
   Widget _buildSavedResult(AppL10n t, Scenario scenario, String lang) {
-    final phrase = scenario.dialog.isNotEmpty
-        ? scenario.dialog.first.ko
-        : scenario.vocab.isNotEmpty
-        ? scenario.vocab.first.korean
-        : null;
+    String? phrase;
+    for (final line in scenario.dialog) {
+      if (line.speaker.trim().toLowerCase() == 'user' &&
+          line.ko.trim().isNotEmpty) {
+        phrase = line.ko;
+        break;
+      }
+    }
+    phrase ??= scenario.vocab.isNotEmpty ? scenario.vocab.first.korean : null;
     final grammar = scenario.grammarBlock?.title.pick(lang);
 
     return _StageScroll(
@@ -1304,6 +1140,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           if (_canDoResult case final result?) ...[
             CanDoResultCard(result: result),
             const SizedBox(height: Spacing.md),
+            ScenarioStructureResultCard(result: result),
+            const SizedBox(height: Spacing.md),
           ],
           if (phrase != null)
             SoriCard(
@@ -1320,14 +1158,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   const SizedBox(height: Spacing.xs),
                   Text(phrase, style: SoriTextTheme.of(context).h2),
                 ],
-              ),
-            )
-          else
-            SoriCard(
-              variant: SoriCardVariant.base,
-              child: Text(
-                t.scenarioSavedEmpty,
-                style: SoriTextTheme.of(context).bodySmall,
               ),
             ),
           if (grammar != null && grammar.isNotEmpty) ...[
@@ -1347,17 +1177,26 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               ),
             ),
           ],
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.scenarioSavedEmpty,
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
           const SizedBox(height: Spacing.xl),
           SoriButton.filled(
             label: t.scenarioSavedReturnHanok,
             fullWidth: true,
-            onTap: () => Navigator.of(context).pushReplacementNamed('/hanok'),
+            onTap: widget.previewFixture == null
+                ? () => Navigator.of(context).pushReplacementNamed('/hanok')
+                : widget.previewFixture!.onReturn,
           ),
           const SizedBox(height: Spacing.xs),
           TextButton(
-            onPressed: () => Navigator.of(
-              context,
-            ).pushReplacementNamed('/scenario', arguments: scenario.id),
+            onPressed: widget.previewFixture == null
+                ? () => Navigator.of(
+                    context,
+                  ).pushReplacementNamed('/scenario', arguments: scenario.id)
+                : widget.previewFixture!.onRepeat,
             child: Text(t.scenarioSavedRepeat),
           ),
         ],
@@ -1685,31 +1524,6 @@ class _MiniChip extends StatelessWidget {
           context,
         ).caption.copyWith(color: color, fontWeight: FontWeight.w600),
       ),
-    );
-  }
-}
-
-class _RecapLine extends StatelessWidget {
-  final IconData icon;
-  final String text;
-
-  const _RecapLine({required this.icon, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    final ss = SoriSurfaces.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, size: 18, color: SoriColors.primary),
-        const SizedBox(width: Spacing.sm),
-        Expanded(
-          child: Text(
-            text,
-            style: SoriTextTheme.of(context).bodySmall.copyWith(color: ss.text),
-          ),
-        ),
-      ],
     );
   }
 }

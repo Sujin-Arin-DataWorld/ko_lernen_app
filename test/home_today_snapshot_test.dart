@@ -80,7 +80,7 @@ void main() {
     },
   );
 
-  testWidgets('opens the shared today destination before the Hanok preview', (
+  testWidgets('keeps one Today action ahead of a collapsed legacy dashboard', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(308, 680);
@@ -92,7 +92,7 @@ void main() {
     await tester.pumpWidget(
       _host(
         HomeScreen(
-          previewMode: true,
+          now: () => DateTime(2026, 8, 11),
           loadTodaySnapshot: () async => TodayLearningSnapshot(
             pick: const ReviewPick(dueCount: 12),
             destination: const TodayLearningDestination(route: '/review'),
@@ -117,12 +117,11 @@ void main() {
     final todayHeading = find.byKey(const ValueKey('home-today-heading'));
     final preview = find.byKey(const ValueKey('home-hanok-preview'));
     expect(todayHeading, findsOneWidget);
+    expect(find.text('Today · Tuesday'), findsOneWidget);
     expect(primary, findsOneWidget);
-    expect(preview, findsOneWidget);
-    expect(
-      tester.getTopLeft(primary).dy,
-      lessThan(tester.getTopLeft(preview).dy),
-    );
+    expect(find.byKey(const ValueKey('home-hanok-build-note')), findsOneWidget);
+    expect(preview, findsNothing);
+    expect(find.byKey(const ValueKey('home-legacy-dashboard')), findsNothing);
     expect(
       tester.getTopLeft(todayHeading).dy,
       lessThan(tester.getTopLeft(primary).dy),
@@ -138,6 +137,16 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Review now'), findsOneWidget);
+
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('home-legacy-dashboard-toggle')),
+    );
+    await tester.tap(
+      find.byKey(const ValueKey('home-legacy-dashboard-toggle')),
+    );
+    await tester.pump();
+    expect(find.byKey(const ValueKey('home-legacy-dashboard')), findsOneWidget);
+    expect(preview, findsOneWidget);
 
     await tester.ensureVisible(find.text('Review now'));
     await tester.pump();

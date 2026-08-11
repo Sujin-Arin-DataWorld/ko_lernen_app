@@ -38,7 +38,18 @@ class CharacterSelectionScreen extends StatefulWidget {
     super.key,
     this.optional = false,
     this.onOptionalComplete,
-  });
+  }) : previewMode = false,
+       onPreviewComplete = null;
+
+  /// Storage-free 01D fixture. Selection is staged exactly like the optional
+  /// production flow, but confirm/skip report to the host instead of changing
+  /// the global companion or onboarding flags.
+  const CharacterSelectionScreen.preview({
+    super.key,
+    required this.onPreviewComplete,
+  }) : optional = true,
+       onOptionalComplete = null,
+       previewMode = true;
 
   /// The first-success route lets a learner defer the choice without changing
   /// their level or course. The legacy direct route keeps its existing flow.
@@ -47,6 +58,8 @@ class CharacterSelectionScreen extends StatefulWidget {
   /// Test and embedding seam for the optional route. When omitted, completion
   /// returns to the route that opened the chooser.
   final FutureOr<void> Function()? onOptionalComplete;
+  final bool previewMode;
+  final FutureOr<void> Function(MascotKind? kind)? onPreviewComplete;
 
   @override
   State<CharacterSelectionScreen> createState() =>
@@ -140,6 +153,10 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     if (!widget.optional || _isLoading || _navigated) return;
     _advanceGuard?.cancel();
     _navigated = true;
+    if (widget.previewMode) {
+      await widget.onPreviewComplete?.call(null);
+      return;
+    }
     await MascotPreference.setNone();
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
@@ -153,6 +170,10 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     _advanceGuard?.cancel();
     setState(() => _isLoading = true);
     _navigated = true;
+    if (widget.previewMode) {
+      await widget.onPreviewComplete?.call(_selected);
+      return;
+    }
     await MascotPreference.set(_selected!);
     if (!mounted) return;
     await Storage.setIntroPreviewSeen();

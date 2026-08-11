@@ -1,31 +1,44 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../models/course_mission_step_plan.dart';
+import '../models/course_mission_brief.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
+import '../models/scenario.dart';
 import '../services/course_mastery_service.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/onboarding_companion_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/course_mission_brief.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import 'first_voice_success_screen.dart';
-import 'course_mission_path_overview.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
 /// action here is selected from the active mission's graph links.
 class CourseMissionScreen extends StatefulWidget {
-  const CourseMissionScreen({super.key, this.courseUnitId});
+  const CourseMissionScreen({super.key, this.courseUnitId})
+    : previewBrief = null,
+      previewOpenLink = null;
+
+  const CourseMissionScreen.preview({
+    super.key,
+    required CourseMissionBrief brief,
+    required CourseMissionBriefOpener openLink,
+  }) : courseUnitId = null,
+       previewBrief = brief,
+       previewOpenLink = openLink;
 
   final String? courseUnitId;
+  final CourseMissionBrief? previewBrief;
+  final CourseMissionBriefOpener? previewOpenLink;
 
   @override
   State<CourseMissionScreen> createState() => _CourseMissionScreenState();
@@ -36,13 +49,18 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   CourseMasterySnapshot? _snapshot;
   Map<String, CourseContentState> _conceptStates = const {};
   List<RemediationRecommendation> _reviewQueue = const [];
+  List<Scenario> _scenarios = const [];
   Object? _error;
   bool _loading = true;
 
   @override
   void initState() {
     super.initState();
-    _load();
+    if (widget.previewBrief == null) {
+      _load();
+    } else {
+      _loading = false;
+    }
   }
 
   Future<void> _load() async {
@@ -52,6 +70,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     });
     try {
       final catalog = await CurriculumCatalog.load();
+      final scenarios = await ScenarioLoader.load();
       var snapshot = await CourseProgressService.shared.refresh();
       if (snapshot.currentCourseUnitId == null) {
         final level =
@@ -77,6 +96,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
         _snapshot = snapshot;
         _conceptStates = states;
         _reviewQueue = queue;
+        _scenarios = scenarios;
         _loading = false;
       });
     } catch (error) {
@@ -138,6 +158,9 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (widget.previewBrief case final preview?) {
+      return _buildBriefScaffold(t, preview, widget.previewOpenLink!);
+    }
     if (_loading) {
       return Scaffold(
         appBar: AppBar(title: Text(t.courseMissionTitle)),
@@ -155,8 +178,13 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     final catalog = _catalog!;
     final lang = Localizations.localeOf(context).languageCode;
     final links = catalog.linksForCourseUnit(unit.id);
-    final missionPlan = CourseMissionStepPlan.fromLinks(links);
     final actions = _actionsFor(links);
+    final brief = CourseMissionBrief.from(
+      unit: unit,
+      links: links,
+      scenarios: _scenarios,
+      isCurrent: _isCurrent,
+    );
     final families = catalog.formFamilies
         .where(
           (family) => family.conceptIds.any(unit.requiredConceptIds.contains),
@@ -184,50 +212,11 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
               base: const EdgeInsets.fromLTRB(16, 12, 16, 48),
             ),
             children: [
-              SoriCard(
-                variant: SoriCardVariant.hero,
-                accent: SoriColors.primary,
-                tinted: true,
-                eaves: true,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${unit.level.toUpperCase()} · ${_isCurrent ? t.courseMissionNow : t.courseMissionPreviewTag}',
-                      style: SoriTextTheme.of(context).label.copyWith(
-                        color: SoriColors.primary,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Text(
-                      unit.title.pick(lang),
-                      style: SoriTextTheme.of(context).display,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Text(
-                      unit.canDo.pick(lang),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).body.copyWith(height: 1.5),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                    if (_isCurrent && actions.isNotEmpty)
-                      SoriButton.filled(
-                        label: t.courseMissionStartPractice,
-                        fullWidth: true,
-                        onTap: () => _openLink(actions.first),
-                      )
-                    else if (!_isCurrent)
-                      Text(
-                        t.courseMissionPreviewNotice,
-                        style: SoriTextTheme.of(context).bodySmall,
-                      ),
-                  ],
-                ),
+              CourseMissionBriefView(
+                brief: brief,
+                openLink: _openLink,
+                onExplain: () => _showWhy(unit),
               ),
-              const SizedBox(height: Spacing.xl),
-              CourseMissionPathOverview(steps: missionPlan.steps),
               const SizedBox(height: Spacing.lg),
               SoriCard(
                 variant: SoriCardVariant.base,
@@ -298,6 +287,48 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBriefScaffold(
+    AppL10n t,
+    CourseMissionBrief brief,
+    CourseMissionBriefOpener openLink,
+  ) {
+    return Scaffold(
+      appBar: AppBar(title: Text(t.courseMissionTitle)),
+      body: SoriScreenBackground(
+        child: ListView(
+          padding: soriClampPadding(
+            MediaQuery.sizeOf(context).width,
+            base: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+          ),
+          children: [
+            CourseMissionBriefView(
+              brief: brief,
+              openLink: openLink,
+              onExplain: () => _showWhy(brief.unit),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showWhy(CourseUnit unit) {
+    final lang = Localizations.localeOf(context).languageCode;
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(Spacing.lg),
+          child: Text(
+            unit.canDo.pick(lang),
+            style: SoriTextTheme.of(sheetContext).body,
           ),
         ),
       ),

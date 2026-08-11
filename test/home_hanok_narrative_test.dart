@@ -49,6 +49,7 @@ void main() {
         home: MediaQuery(
           data: const MediaQueryData(disableAnimations: true),
           child: HomeScreen(
+            legacyDashboardInitiallyExpanded: true,
             loadTodaySnapshot: () async => TodayLearningSnapshot(
               pick: const ReviewPick(dueCount: 1),
               dueCount: 1,
@@ -96,6 +97,7 @@ void main() {
         home: MediaQuery(
           data: const MediaQueryData(disableAnimations: true),
           child: HomeScreen(
+            legacyDashboardInitiallyExpanded: true,
             loadTodaySnapshot: () async => TodayLearningSnapshot(
               pick: const ReviewPick(dueCount: 1),
               dueCount: 1,

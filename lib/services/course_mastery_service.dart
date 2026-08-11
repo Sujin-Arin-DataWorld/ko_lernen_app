@@ -25,12 +25,14 @@ class CourseUpdate {
   const CourseUpdate({
     required this.snapshot,
     required this.currentUnit,
+    this.previousSnapshot,
     this.newlyUnlockedUnit,
     this.remediation,
   });
 
   final CourseMasterySnapshot snapshot;
   final CourseUnit? currentUnit;
+  final CourseMasterySnapshot? previousSnapshot;
   final CourseUnit? newlyUnlockedUnit;
   final RemediationRecommendation? remediation;
 }
@@ -380,6 +382,7 @@ class CourseMasteryService {
     double? score,
   }) async {
     await _ensureLoaded();
+    final previousSnapshot = _snapshot;
     final timestamp = _validTimestamp(occurredAt ?? DateTime.now().toUtc());
     final checkedScore = _validOptionalScore(score);
     final normalizedContentId = contentId.trim();
@@ -500,7 +503,7 @@ class CourseMasteryService {
       );
     }
     _snapshot = _snapshot.copyWith(evidence: _boundedEvidence(entries));
-    return _commitUpdate();
+    return _commitUpdate(previousSnapshot: previousSnapshot);
   }
 
   /// Records a scenario's aggregate checkpoint score. Only a score completed
@@ -511,6 +514,7 @@ class CourseMasteryService {
     DateTime? occurredAt,
   }) async {
     await _ensureLoaded();
+    final previousSnapshot = _snapshot;
     final normalizedScenarioId = scenarioId.trim();
     if (normalizedScenarioId.isEmpty) {
       throw const FormatException(
@@ -551,7 +555,7 @@ class CourseMasteryService {
         ),
       ]),
     );
-    return _commitUpdate();
+    return _commitUpdate(previousSnapshot: previousSnapshot);
   }
 
   /// Current learner-facing concept state, derived only after the catalog and
@@ -603,7 +607,9 @@ class CourseMasteryService {
     if (!_loaded) await refresh();
   }
 
-  Future<CourseUpdate> _commitUpdate() async {
+  Future<CourseUpdate> _commitUpdate({
+    CourseMasterySnapshot? previousSnapshot,
+  }) async {
     // Compact legacy oversized snapshots before the next durable write too,
     // not only when the corresponding list was appended in this call.
     _snapshot = _snapshot.copyWith(
@@ -616,6 +622,7 @@ class CourseMasteryService {
     return CourseUpdate(
       snapshot: _snapshot,
       currentUnit: currentUnit,
+      previousSnapshot: previousSnapshot,
       newlyUnlockedUnit: newlyUnlocked,
       remediation: queue.isEmpty ? null : queue.first,
     );

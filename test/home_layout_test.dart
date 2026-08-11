@@ -240,6 +240,7 @@ Future<void> _pumpHome(
   addTearDown(tester.view.resetDevicePixelRatio);
 
   final home = HomeScreen(
+    legacyDashboardInitiallyExpanded: true,
     loadTodaySnapshot: () async => TodayLearningSnapshot(
       pick: const ReviewPick(dueCount: 12),
       dueCount: 12,

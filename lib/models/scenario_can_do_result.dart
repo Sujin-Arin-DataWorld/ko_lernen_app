@@ -1,5 +1,6 @@
 import 'course_mastery.dart';
 import 'curriculum.dart';
+import 'hanok_stage.dart';
 
 /// A read-only explanation of a persisted scenario checkpoint. It deliberately
 /// cannot create or modify course evidence; callers must provide the snapshot
@@ -11,13 +12,22 @@ class ScenarioCanDoResult {
     required this.status,
     required this.score,
     this.courseUnit,
+    this.structureStageBefore,
+    this.structureStageAfter,
   });
 
   final ScenarioCanDoStatus status;
   final double score;
   final CourseUnit? courseUnit;
+  final HanokStage? structureStageBefore;
+  final HanokStage? structureStageAfter;
 
   bool get isVerified => status == ScenarioCanDoStatus.verified;
+  bool get hasStructureEvidence =>
+      structureStageBefore != null && structureStageAfter != null;
+  bool get hasStructureChange =>
+      hasStructureEvidence &&
+      structureStageAfter!.ordinal > structureStageBefore!.ordinal;
 
   /// Revalidates the latest saved checkpoint against the current unit data.
   /// An absent write produces no result instead of an optimistic UI claim.
@@ -25,6 +35,8 @@ class ScenarioCanDoResult {
     required CourseMasterySnapshot snapshot,
     required String scenarioId,
     required Iterable<CourseUnit> courseUnits,
+    HanokStage? structureStageBefore,
+    HanokStage? structureStageAfter,
   }) {
     final normalizedScenarioId = scenarioId.trim();
     if (normalizedScenarioId.isEmpty) return null;
@@ -43,6 +55,8 @@ class ScenarioCanDoResult {
       return ScenarioCanDoResult(
         status: ScenarioCanDoStatus.practiceOnly,
         score: checkpoint.score,
+        structureStageBefore: structureStageBefore,
+        structureStageAfter: structureStageAfter,
       );
     }
 
@@ -55,6 +69,8 @@ class ScenarioCanDoResult {
       return ScenarioCanDoResult(
         status: ScenarioCanDoStatus.practiceOnly,
         score: checkpoint.score,
+        structureStageBefore: structureStageBefore,
+        structureStageAfter: structureStageAfter,
       );
     }
 
@@ -64,6 +80,8 @@ class ScenarioCanDoResult {
           : ScenarioCanDoStatus.reviewNeeded,
       score: checkpoint.score,
       courseUnit: unit,
+      structureStageBefore: structureStageBefore,
+      structureStageAfter: structureStageAfter,
     );
   }
 }

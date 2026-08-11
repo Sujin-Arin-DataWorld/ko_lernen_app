@@ -359,6 +359,12 @@ void main() {
         occurredAt: _time(2),
       );
 
+      expect(update.previousSnapshot, isNotNull);
+      expect(
+        update.previousSnapshot!.completedUnitIds,
+        isNot(contains('a1_01_greetings_hangul')),
+      );
+      expect(update.previousSnapshot!.scenarioCheckpoints, isEmpty);
       expect(update.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
       expect(update.currentUnit?.id, 'a1_02_self_intro_identity');
       expect(Storage.courseUnitId, 'a1_02_self_intro_identity');

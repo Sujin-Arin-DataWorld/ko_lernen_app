@@ -2282,6 +2282,36 @@ class AppL10nDe extends AppL10n {
   String get scenarioSavedRepeat => 'Diese Szene noch einmal üben';
 
   @override
+  String get scenarioResultSaving =>
+      'Diese abgeschlossene Szene wird gespeichert…';
+
+  @override
+  String get scenarioResultSaveRetry => 'Speichern erneut versuchen';
+
+  @override
+  String get scenarioStructureChangedTitle => 'Dein Hanok hat sich verändert.';
+
+  @override
+  String scenarioStructureChangedBody(String stage) {
+    return 'Neue Struktur: $stage';
+  }
+
+  @override
+  String get scenarioStructureUnchangedTitle =>
+      'Dein Hanok behält seine aktuelle Struktur.';
+
+  @override
+  String get scenarioStructureUnchangedBody =>
+      'Dieser Checkpoint hat noch keine neue Struktur freigeschaltet.';
+
+  @override
+  String get scenarioStructureUnavailableTitle => 'Die Struktur deines Hanoks';
+
+  @override
+  String get scenarioStructureUnavailableBody =>
+      'Öffne dein Hanok, um den aktuell bestätigten Bau zu sehen.';
+
+  @override
   String get scenarioCanDoVerifiedTitle => 'Das kannst du jetzt.';
 
   @override
@@ -4920,6 +4950,56 @@ class AppL10nDe extends AppL10n {
   String get courseMissionStartPractice => 'Übung starten';
 
   @override
+  String courseMissionBriefScene(String scene) {
+    return 'Deine nächste Szene: $scene';
+  }
+
+  @override
+  String courseMissionBriefTime(int minutes) {
+    return '$minutes Min. bis zur Szene';
+  }
+
+  @override
+  String courseMissionBriefStepMeta(int current, int total, int minutes) {
+    return 'Schritt $current von $total · $minutes Min.';
+  }
+
+  @override
+  String courseMissionBriefRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count weitere Schritte bleiben nach diesem Überblick bereit.',
+      one: '1 weiterer Schritt bleibt nach diesem Überblick bereit.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get courseMissionBriefStart => 'Schritt 1 starten';
+
+  @override
+  String get courseMissionBriefWhy => 'Warum diese Szene?';
+
+  @override
+  String get courseMissionBriefStepVocab => 'Schlüsselwörter hören';
+
+  @override
+  String get courseMissionBriefStepGrammar => 'Den Satz bauen';
+
+  @override
+  String get courseMissionBriefStepCloze => 'Fehlende Wörter wählen';
+
+  @override
+  String get courseMissionBriefStepSatz => 'Den Satz zusammensetzen';
+
+  @override
+  String get courseMissionBriefStepScenario => 'In der Szene sprechen';
+
+  @override
+  String get courseMissionBriefStepSmalltalk => 'In der Situation antworten';
+
+  @override
   String get courseMissionPreviewNotice =>
       'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.';
 
@@ -5134,6 +5214,28 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeHanokPreviewCta => 'Mein Hanok öffnen';
+
+  @override
+  String homeFocusDate(String weekday) {
+    return 'Heute · $weekday';
+  }
+
+  @override
+  String get homeFocusBuildTitle => 'Dein Haus wächst mit echtem Können.';
+
+  @override
+  String get homeFocusMore => 'Weitere Lernmöglichkeiten';
+
+  @override
+  String get homeFocusLess => 'Weitere Lernmöglichkeiten ausblenden';
+
+  @override
+  String get homeFocusLaterTitle => 'Später heute';
+
+  @override
+  String homeFocusLaterBody(int count) {
+    return '$count Wiederholungen bleiben nach deiner ersten Handlung bereit.';
+  }
 
   @override
   String hanokNarrativeVerified(String stage, String canDo) {

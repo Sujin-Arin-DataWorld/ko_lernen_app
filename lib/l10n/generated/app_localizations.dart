@@ -4141,6 +4141,54 @@ abstract class AppL10n {
   /// **'Diese Szene noch einmal üben'**
   String get scenarioSavedRepeat;
 
+  /// No description provided for @scenarioResultSaving.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese abgeschlossene Szene wird gespeichert…'**
+  String get scenarioResultSaving;
+
+  /// No description provided for @scenarioResultSaveRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern erneut versuchen'**
+  String get scenarioResultSaveRetry;
+
+  /// No description provided for @scenarioStructureChangedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok hat sich verändert.'**
+  String get scenarioStructureChangedTitle;
+
+  /// No description provided for @scenarioStructureChangedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Struktur: {stage}'**
+  String scenarioStructureChangedBody(String stage);
+
+  /// No description provided for @scenarioStructureUnchangedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok behält seine aktuelle Struktur.'**
+  String get scenarioStructureUnchangedTitle;
+
+  /// No description provided for @scenarioStructureUnchangedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Checkpoint hat noch keine neue Struktur freigeschaltet.'**
+  String get scenarioStructureUnchangedBody;
+
+  /// No description provided for @scenarioStructureUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Struktur deines Hanoks'**
+  String get scenarioStructureUnavailableTitle;
+
+  /// No description provided for @scenarioStructureUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne dein Hanok, um den aktuell bestätigten Bau zu sehen.'**
+  String get scenarioStructureUnavailableBody;
+
   /// No description provided for @scenarioCanDoVerifiedTitle.
   ///
   /// In de, this message translates to:
@@ -8581,6 +8629,78 @@ abstract class AppL10n {
   /// **'Übung starten'**
   String get courseMissionStartPractice;
 
+  /// No description provided for @courseMissionBriefScene.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine nächste Szene: {scene}'**
+  String courseMissionBriefScene(String scene);
+
+  /// No description provided for @courseMissionBriefTime.
+  ///
+  /// In de, this message translates to:
+  /// **'{minutes} Min. bis zur Szene'**
+  String courseMissionBriefTime(int minutes);
+
+  /// No description provided for @courseMissionBriefStepMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt {current} von {total} · {minutes} Min.'**
+  String courseMissionBriefStepMeta(int current, int total, int minutes);
+
+  /// No description provided for @courseMissionBriefRemaining.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 weiterer Schritt bleibt nach diesem Überblick bereit.} other{{count} weitere Schritte bleiben nach diesem Überblick bereit.}}'**
+  String courseMissionBriefRemaining(int count);
+
+  /// No description provided for @courseMissionBriefStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt 1 starten'**
+  String get courseMissionBriefStart;
+
+  /// No description provided for @courseMissionBriefWhy.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum diese Szene?'**
+  String get courseMissionBriefWhy;
+
+  /// No description provided for @courseMissionBriefStepVocab.
+  ///
+  /// In de, this message translates to:
+  /// **'Schlüsselwörter hören'**
+  String get courseMissionBriefStepVocab;
+
+  /// No description provided for @courseMissionBriefStepGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Satz bauen'**
+  String get courseMissionBriefStepGrammar;
+
+  /// No description provided for @courseMissionBriefStepCloze.
+  ///
+  /// In de, this message translates to:
+  /// **'Fehlende Wörter wählen'**
+  String get courseMissionBriefStepCloze;
+
+  /// No description provided for @courseMissionBriefStepSatz.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Satz zusammensetzen'**
+  String get courseMissionBriefStepSatz;
+
+  /// No description provided for @courseMissionBriefStepScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Szene sprechen'**
+  String get courseMissionBriefStepScenario;
+
+  /// No description provided for @courseMissionBriefStepSmalltalk.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Situation antworten'**
+  String get courseMissionBriefStepSmalltalk;
+
   /// No description provided for @courseMissionPreviewNotice.
   ///
   /// In de, this message translates to:
@@ -8970,6 +9090,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mein Hanok öffnen'**
   String get homeHanokPreviewCta;
+
+  /// No description provided for @homeFocusDate.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute · {weekday}'**
+  String homeFocusDate(String weekday);
+
+  /// No description provided for @homeFocusBuildTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Haus wächst mit echtem Können.'**
+  String get homeFocusBuildTitle;
+
+  /// No description provided for @homeFocusMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Lernmöglichkeiten'**
+  String get homeFocusMore;
+
+  /// No description provided for @homeFocusLess.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Lernmöglichkeiten ausblenden'**
+  String get homeFocusLess;
+
+  /// No description provided for @homeFocusLaterTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Später heute'**
+  String get homeFocusLaterTitle;
+
+  /// No description provided for @homeFocusLaterBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wiederholungen bleiben nach deiner ersten Handlung bereit.'**
+  String homeFocusLaterBody(int count);
 
   /// No description provided for @hanokNarrativeVerified.
   ///
