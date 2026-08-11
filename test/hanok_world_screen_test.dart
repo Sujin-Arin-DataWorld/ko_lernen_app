@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
+import 'package:ko_lernen_app/widgets/sori/progress.dart';
 import 'package:ko_lernen_app/widgets/sori/world_map_viewport.dart';
 
 const _narrativeUnit = CourseUnit(
@@ -140,6 +141,47 @@ void main() {
     await tester.pump();
 
     expect(openedRoute, '/course/mission');
+  });
+
+  testWidgets('03A shows safe-scene progress toward the current beam', (
+    tester,
+  ) async {
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+    );
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async =>
+              const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+          loadProjection: (_) async => projection,
+          loadNarrative: (_) async => HanokBuildNarrative(
+            projection: projection,
+            safeSceneCount: 1,
+            safeScenesTowardNextBeam: 1,
+            scenesPerBeam: 2,
+            plannedBeamCount: 1,
+          ),
+          revealStore: _MemoryRevealStore.initialized(),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    final progressLabel = find.text('1 of 2 scenes secure');
+    await tester.scrollUntilVisible(
+      progressLabel,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+
+    expect(find.text('Next beam in your construction plan'), findsOneWidget);
+    expect(progressLabel, findsOneWidget);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      .5,
+    );
   });
 
   testWidgets('opens the estate map from verified course structure alone', (

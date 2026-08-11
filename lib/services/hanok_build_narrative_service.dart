@@ -27,6 +27,7 @@ class HanokBuildNarrativeService {
         projection: projection,
         snapshot: snapshot,
         courseUnits: catalog.courseUnits,
+        contentLinks: catalog.contentLinks,
       );
     } catch (_) {
       // A Hanok explanation must never block the existing map when a local

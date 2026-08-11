@@ -5045,6 +5045,14 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldOpenNextScene => 'Nächste Szene ansehen';
 
   @override
+  String get hanokWorldNextBeamTitle => 'Nächster Balken in deinem Bauplan';
+
+  @override
+  String hanokWorldSafeSceneProgress(int current, int total) {
+    return '$current von $total Szenen sicher';
+  }
+
+  @override
   String get hanokWorldIntro =>
       'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.';
 

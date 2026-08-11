@@ -8839,6 +8839,18 @@ abstract class AppL10n {
   /// **'Nächste Szene ansehen'**
   String get hanokWorldOpenNextScene;
 
+  /// No description provided for @hanokWorldNextBeamTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Balken in deinem Bauplan'**
+  String get hanokWorldNextBeamTitle;
+
+  /// No description provided for @hanokWorldSafeSceneProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{current} von {total} Szenen sicher'**
+  String hanokWorldSafeSceneProgress(int current, int total);
+
   /// No description provided for @hanokWorldIntro.
   ///
   /// In de, this message translates to:

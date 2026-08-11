@@ -2236,6 +2236,14 @@
   "hanokWorldMapTitle": "Where would you like to go?",
   "hanokWorldMapBody": "One place, one purpose. Learning does not start from an empty map.",
   "hanokWorldOpenNextScene": "See the next scene",
+  "hanokWorldNextBeamTitle": "Next beam in your construction plan",
+  "hanokWorldSafeSceneProgress": "{current} of {total} scenes secure",
+  "@hanokWorldSafeSceneProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
   "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
   "hanokWorldLegacyTitle": "Your courtyard is taking shape",

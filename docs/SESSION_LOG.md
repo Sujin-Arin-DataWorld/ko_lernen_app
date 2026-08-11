@@ -23,6 +23,25 @@ DE/EN l10n과 debug-only UX Gallery, 반응형·접근성·상태 fixture matrix
 
 ---
 
+### 2026-08-12 (Codex) — UX mockup 03–04 evidence parity
+
+**왜.** 03A–03C와 04A–04C는 기존 경로와 기능은 연결돼 있었지만, 목업이 약속한
+안전한 장면 수·지도 위 장소 목적·실제로 획득한 표현과 Üben/Entdecken/Dein Weg의
+첫 정보 우선순위가 production 화면에 아직 완전히 드러나지 않았다.
+
+**무엇을.** 첫 03A 슬라이스는 한옥 진행 표시를 legacy pack 비율에서 분리했다.
+정확한 scenario assess 링크, 단원에 선언된 checkpoint, `courseEligible`, 단원별
+pass threshold를 모두 만족하는 각 장면의 **최신** 결과만 안전한 장면으로 센다.
+최근 실패는 과거 성공을 덮어쓰며, 두 장면 단위의 다음 Balken 목표만 읽기 전용으로
+표시한다. 이 projection은 코스 완료·보상·해금을 쓰거나 바꾸지 않는다. 03B/C 및
+04A–C 패리티는 같은 격리 브랜치의 후속 소규모 커밋으로 이어진다.
+
+**검증.** `flutter gen-l10n`; `flutter test test/hanok_build_narrative_test.dart
+test/hanok_world_screen_test.dart` — **19 tests passed**; `git diff --check` 통과.
+asset 변경 없음. 커밋 해시는 이 세션의 마지막 로그 갱신에서 확정한다.
+
+---
+
 ### 2026-08-11 (Codex) — 계정 삭제 terminal receipt와 Google 교체 복구 경로 구현
 
 **왜.** 실기기 Google 교체 operation은 서버에서 `completed` v4까지 도달했지만 로컬은

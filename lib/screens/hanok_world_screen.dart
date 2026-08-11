@@ -534,26 +534,30 @@ class _EarlyBuildPlan extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final buildNarrative = narrative ?? HanokBuildNarrative.empty(projection);
+    final safeSceneLabel = t.hanokWorldSafeSceneProgress(
+      buildNarrative.safeScenesTowardNextBeam,
+      buildNarrative.scenesPerBeam,
+    );
+    final beamFraction =
+        buildNarrative.safeScenesTowardNextBeam / buildNarrative.scenesPerBeam;
     return SoriCard(
       variant: SoriCardVariant.base,
       accent: SoriColors.primary,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HanokBuildNarrativeLine(
-            narrative: narrative ?? HanokBuildNarrative.empty(projection),
-          ),
+          Text(t.hanokWorldNextBeamTitle, style: text.h3),
+          const SizedBox(height: Spacing.sm),
+          HanokBuildNarrativeLine(narrative: buildNarrative),
           const SizedBox(height: Spacing.md),
           Semantics(
-            label: t.hanokWorldProgress,
-            child: SoriProgressBar(
-              value: projection.constructionFraction,
-              animated: true,
-            ),
+            label: safeSceneLabel,
+            child: SoriProgressBar(value: beamFraction, animated: true),
           ),
           const SizedBox(height: Spacing.xs),
           Text(
-            t.hanokWorldProgress,
+            safeSceneLabel,
             style: text.caption.copyWith(
               color: SoriSurfaces.of(context).textMuted,
             ),

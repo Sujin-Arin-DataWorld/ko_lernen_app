@@ -9,15 +9,34 @@ import 'personal_hanok.dart';
 /// units, so neither a decoration nor a browsed lesson can become a false
 /// statement of ability.
 class HanokBuildNarrative {
+  static const int defaultScenesPerBeam = 2;
+
   const HanokBuildNarrative({
     required this.projection,
     this.verifiedUnit,
     this.nextUnit,
+    this.safeSceneCount = 0,
+    this.safeScenesTowardNextBeam = 0,
+    this.scenesPerBeam = defaultScenesPerBeam,
+    this.plannedBeamCount = 0,
   });
 
   final PersonalHanokProjection projection;
   final CourseUnit? verifiedUnit;
   final CourseUnit? nextUnit;
+
+  /// Distinct course checkpoints whose latest eligible result still passes
+  /// the owning unit's threshold. Browse history and stale IDs never count.
+  final int safeSceneCount;
+
+  /// The visible 0..[scenesPerBeam] goal for the beam currently in the plan.
+  final int safeScenesTowardNextBeam;
+
+  final int scenesPerBeam;
+
+  /// Beams represented in the construction plan. A started two-scene goal is
+  /// visible as one planned beam; it is never used to unlock course content.
+  final int plannedBeamCount;
 
   bool get hasVerifiedCanDo => verifiedUnit != null;
 
@@ -35,8 +54,14 @@ class HanokBuildNarrative {
     required PersonalHanokProjection projection,
     required CourseMasterySnapshot snapshot,
     required Iterable<CourseUnit> courseUnits,
+    Iterable<ContentLink> contentLinks = const <ContentLink>[],
+    int scenesPerBeam = defaultScenesPerBeam,
   }) {
+    assert(scenesPerBeam > 0);
     final units = courseUnits.toList(growable: false);
+    final unitsById = <String, CourseUnit>{
+      for (final unit in units) unit.id: unit,
+    };
     final completedIds = snapshot.completedUnitIds.toSet();
     final bypassedIds = snapshot.bypassedPrerequisiteUnitIds.toSet();
     final completed =
@@ -56,10 +81,57 @@ class HanokBuildNarrative {
             orElse: () => null,
           );
 
+    final assessSceneKeys = <String>{
+      for (final link in contentLinks)
+        if (link.contentKind == CurriculumContentKind.scenario &&
+            link.role == ContentLinkRole.assess)
+          '${link.courseUnitId}\u0000${link.contentId}',
+    };
+    final latestByScene = <String, ScenarioCheckpointEvidence>{};
+    for (final checkpoint in snapshot.scenarioCheckpoints) {
+      final unitId = checkpoint.courseUnitId;
+      if (!checkpoint.courseEligible || unitId == null) {
+        continue;
+      }
+      final unit = unitsById[unitId];
+      final contentId = 'scenario:${checkpoint.scenarioId}';
+      final key = '$unitId\u0000${checkpoint.scenarioId}';
+      if (unit == null ||
+          !unit.checkpointContentIds.contains(contentId) ||
+          !assessSceneKeys.contains(key) ||
+          !checkpoint.score.isFinite ||
+          checkpoint.score < 0 ||
+          checkpoint.score > 1) {
+        continue;
+      }
+      final previous = latestByScene[key];
+      if (previous == null ||
+          checkpoint.occurredAt.isAfter(previous.occurredAt)) {
+        latestByScene[key] = checkpoint;
+      }
+    }
+    final safeSceneCount = latestByScene.values.where((checkpoint) {
+      final unit = unitsById[checkpoint.courseUnitId];
+      return unit != null && checkpoint.score >= unit.passThreshold;
+    }).length;
+    final normalizedScenesPerBeam = scenesPerBeam <= 0
+        ? defaultScenesPerBeam
+        : scenesPerBeam;
+    final safeScenesTowardNextBeam = safeSceneCount == 0
+        ? 0
+        : ((safeSceneCount - 1) % normalizedScenesPerBeam) + 1;
+    final plannedBeamCount = safeSceneCount == 0
+        ? 0
+        : ((safeSceneCount - 1) ~/ normalizedScenesPerBeam) + 1;
+
     return HanokBuildNarrative(
       projection: projection,
       verifiedUnit: completed.isEmpty ? null : completed.last,
       nextUnit: nextUnit,
+      safeSceneCount: safeSceneCount,
+      safeScenesTowardNextBeam: safeScenesTowardNextBeam,
+      scenesPerBeam: normalizedScenesPerBeam,
+      plannedBeamCount: plannedBeamCount,
     );
   }
 }
