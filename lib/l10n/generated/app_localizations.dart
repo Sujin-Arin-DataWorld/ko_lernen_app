@@ -8917,6 +8917,42 @@ abstract class AppL10n {
   /// **'Wähle hier einen fertig gebauten Ort aus.'**
   String get hanokWorldPlacesBody;
 
+  /// No description provided for @hanokMapPlaceSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangbang\nHeute lernen'**
+  String get hanokMapPlaceSarangbang;
+
+  /// No description provided for @hanokMapPlaceDaecheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Daecheong\nDein Weg'**
+  String get hanokMapPlaceDaecheong;
+
+  /// No description provided for @hanokMapPlaceHaengrang.
+  ///
+  /// In de, this message translates to:
+  /// **'Haengrang\nÜben'**
+  String get hanokMapPlaceHaengrang;
+
+  /// No description provided for @hanokMapPlaceAnchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Anchae\nWörter'**
+  String get hanokMapPlaceAnchae;
+
+  /// No description provided for @hanokMapPlaceHuwon.
+  ///
+  /// In de, this message translates to:
+  /// **'Huwon\nAufgaben'**
+  String get hanokMapPlaceHuwon;
+
+  /// No description provided for @hanokMapPlaceSadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sadang\nErfolge'**
+  String get hanokMapPlaceSadang;
+
   /// No description provided for @hanokZoneSarangbang.
   ///
   /// In de, this message translates to:
@@ -9024,6 +9060,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Heutiges Lernen'**
   String get hanokWorldTodayMarker;
+
+  /// No description provided for @hanokWorldTodaySceneDetail.
+  ///
+  /// In de, this message translates to:
+  /// **'{minutes} Minuten · „{expression}“ sagen'**
+  String hanokWorldTodaySceneDetail(int minutes, String expression);
+
+  /// No description provided for @hanokWorldGoThere.
+  ///
+  /// In de, this message translates to:
+  /// **'Dorthin gehen'**
+  String get hanokWorldGoThere;
 
   /// No description provided for @hanokWorldRevealTitle.
   ///
@@ -9138,6 +9186,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{detail} · Deine heutige Szene bleibt auf Start ausgewählt.'**
   String sarangbangStoredBody(Object detail);
+
+  /// No description provided for @sarangbangStoredRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'{expressions, plural, =0{Keine Ausdrücke} =1{1 Ausdruck} other{{expressions} Ausdrücke}} · {scenes, plural, =0{keine sichere Szene} =1{1 sichere Szene} other{{scenes} sichere Szenen}} · {beams, plural, =0{kein Balken im Bauplan} =1{1 Balken im Bauplan} other{{beams} Balken im Bauplan}}'**
+  String sarangbangStoredRecord(int expressions, int scenes, int beams);
 
   /// No description provided for @sarangbangOpenToday.
   ///

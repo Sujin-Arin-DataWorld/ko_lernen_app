@@ -4,6 +4,7 @@ import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 
 const _greeting = CourseUnit(
@@ -64,6 +65,34 @@ final _sceneLinks = [
     role: ContentLinkRole.assess,
   ),
 ];
+
+const _nextSceneUnit = CourseUnit(
+  id: 'a1_next_scene',
+  level: 'a1',
+  order: 4,
+  title: CurriculumText(ko: '다음 장면', de: 'Nächste Szene', en: 'Next scene'),
+  canDo: CurriculumText(
+    ko: '정중하게 부탁할 수 있어요.',
+    de: 'Ich kann höflich um etwas bitten.',
+    en: 'I can make a polite request.',
+  ),
+  checkpointContentIds: ['scenario:scene_next'],
+);
+
+Scenario _scenario(String id, String expression) => Scenario(
+  id: id,
+  level: LearnerLevel.a1,
+  emoji: '🏠',
+  register: Register.polite,
+  title: LocalizedText(ko: '생활 장면', de: 'Alltagsszene', en: 'Daily scene'),
+  intro: LocalizedText(ko: '', de: 'Eine kurze Szene', en: 'A short scene'),
+  vocab: const [],
+  grammarIds: const [],
+  dialog: const [],
+  quests: [
+    QuestSpec(type: QuestType.satzBauen, data: {'targetKo': expression}),
+  ],
+);
 
 void main() {
   test(
@@ -233,5 +262,42 @@ void main() {
     expect(narrative.safeSceneCount, 2);
     expect(narrative.safeScenesTowardNextBeam, 2);
     expect(narrative.plannedBeamCount, 1);
+  });
+
+  test('keeps actual earned and next-scene expressions in the receipt', () {
+    final nextLink = ContentLink(
+      contentKind: CurriculumContentKind.scenario,
+      contentId: 'scene_next',
+      courseUnitId: _nextSceneUnit.id,
+      conceptIds: const ['safe_scene'],
+      role: ContentLinkRole.assess,
+    );
+    final narrative = HanokBuildNarrative.fromSnapshot(
+      projection: _projection,
+      snapshot: CourseMasterySnapshot(
+        currentCourseUnitId: _nextSceneUnit.id,
+        scenarioCheckpoints: [
+          ScenarioCheckpointEvidence(
+            scenarioId: 'scene_one',
+            courseUnitId: _sceneUnit.id,
+            score: .9,
+            occurredAt: DateTime.utc(2026, 8, 11),
+            courseEligible: true,
+          ),
+        ],
+      ),
+      courseUnits: const [_sceneUnit, _nextSceneUnit],
+      contentLinks: [..._sceneLinks, nextLink],
+      scenarios: [
+        _scenario('scene_one', '안 맵게 해 주세요.'),
+        _scenario('scene_next', '천천히 말해 주세요.'),
+      ],
+    );
+
+    expect(narrative.receipt.earnedExpressionCount, 1);
+    expect(narrative.receipt.latestSafeScenarioId, 'scene_one');
+    expect(narrative.receipt.latestSafeExpressionKo, '안 맵게 해 주세요.');
+    expect(narrative.receipt.nextScenarioId, 'scene_next');
+    expect(narrative.receipt.nextExpressionKo, '천천히 말해 주세요.');
   });
 }

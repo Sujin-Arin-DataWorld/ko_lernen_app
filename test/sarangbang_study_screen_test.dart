@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
+import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -28,6 +30,7 @@ void main() {
         SarangbangStudyScreen(
           loadTodaySnapshot: () async =>
               TodayLearningSnapshot(pick: ReviewPick(dueCount: 12)),
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
           onOpenRecommendation: (_) async => opens++,
         ),
       ),
@@ -62,6 +65,7 @@ void main() {
         SarangbangStudyScreen(
           loadTodaySnapshot: () async =>
               TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
         ),
       ),
     );
@@ -93,6 +97,7 @@ void main() {
         SarangbangStudyScreen(
           loadTodaySnapshot: () async =>
               TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
         ),
       ),
     );
@@ -120,6 +125,7 @@ void main() {
         SarangbangStudyScreen(
           loadTodaySnapshot: () async =>
               TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
         ),
       ),
     );
@@ -143,12 +149,70 @@ void main() {
         SarangbangStudyScreen(
           loadTodaySnapshot: () async =>
               TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
         ),
       ),
     );
     await tester.pump();
 
     expect(find.byType(PendingRewardCard), findsOneWidget);
+  });
+
+  testWidgets('03C preview shows the actual earned expression and record', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final preferences = await SharedPreferences.getInstance();
+    final before = preferences.getKeys();
+    var opens = 0;
+
+    await tester.pumpWidget(
+      _host(
+        SarangbangStudyScreen.preview(
+          todaySnapshot: TodayLearningSnapshot(
+            pick: const ReviewPick(dueCount: 12),
+          ),
+          receipt: const HanokLearningReceipt(
+            safeSceneCount: 1,
+            safeScenesTowardNextBeam: 1,
+            plannedBeamCount: 1,
+            earnedExpressionCount: 1,
+            latestSafeScenarioId: 'restaurant_scene',
+            latestSafeExpressionKo: '안 맵게 해 주세요.',
+          ),
+          room: const SarangbangRoomState(
+            placements: {
+              PersonalRoomSurface.sarangbang: {
+                'floor_center': 'decoration_soban',
+              },
+            },
+            ownedDecor: {'decoration_soban'},
+          ),
+          onOpenRecommendation: (_) async => opens++,
+        ),
+      ),
+    );
+
+    expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
+    expect(
+      find.text(
+        '1 expression · 1 secure scene · 1 beam in the construction plan',
+      ),
+      findsOneWidget,
+    );
+    final room = find.byKey(const ValueKey('sarangbang-study-room'));
+    final record = find.byKey(const ValueKey('sarangbang-today-link'));
+    expect(tester.getTopLeft(room).dy, lessThan(tester.getTopLeft(record).dy));
+
+    final openToday = find.text("Open today's scene");
+    await tester.ensureVisible(openToday);
+    await tester.pumpAndSettle();
+    await tester.tap(openToday);
+    expect(opens, 1);
+    expect(preferences.getKeys(), before);
   });
 }
 

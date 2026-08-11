@@ -2256,6 +2256,12 @@
   "hanokWorldGyeBridgeOpen": "Visit the Gye courtyard",
   "hanokWorldPlacesTitle": "Places in your Hanok",
   "hanokWorldPlacesBody": "Use this list to choose a finished place.",
+  "hanokMapPlaceSarangbang": "Sarangbang\nStudy today",
+  "hanokMapPlaceDaecheong": "Daecheong\nYour path",
+  "hanokMapPlaceHaengrang": "Haengrang\nPractice",
+  "hanokMapPlaceAnchae": "Anchae\nWords",
+  "hanokMapPlaceHuwon": "Huwon\nTasks",
+  "hanokMapPlaceSadang": "Sadang\nAchievements",
   "hanokZoneSarangbang": "Sarangbang · today's study",
   "hanokZoneDaecheong": "Daecheongmaru · learning path",
   "hanokZoneHaengrang": "Haengrangchae · practice",
@@ -2288,6 +2294,14 @@
     }
   },
   "hanokWorldTodayMarker": "Today's study",
+  "hanokWorldTodaySceneDetail": "{minutes} minutes · say “{expression}”",
+  "@hanokWorldTodaySceneDetail": {
+    "placeholders": {
+      "minutes": {"type": "int"},
+      "expression": {"type": "String"}
+    }
+  },
+  "hanokWorldGoThere": "Go there",
   "hanokWorldRevealTitle": "{place} is complete",
   "@hanokWorldRevealTitle": {
     "placeholders": {
@@ -2320,6 +2334,14 @@
   "@sarangbangStoredBody": {
     "placeholders": {
       "detail": {}
+    }
+  },
+  "sarangbangStoredRecord": "{expressions, plural, =0{No expressions} =1{1 expression} other{{expressions} expressions}} · {scenes, plural, =0{no secure scenes} =1{1 secure scene} other{{scenes} secure scenes}} · {beams, plural, =0{no beams in the construction plan} =1{1 beam in the construction plan} other{{beams} beams in the construction plan}}",
+  "@sarangbangStoredRecord": {
+    "placeholders": {
+      "expressions": {"type": "int"},
+      "scenes": {"type": "int"},
+      "beams": {"type": "int"}
     }
   },
   "sarangbangOpenToday": "Open today's scene",

@@ -36,9 +36,19 @@ pass threshold를 모두 만족하는 각 장면의 **최신** 결과만 안전�
 표시한다. 이 projection은 코스 완료·보상·해금을 쓰거나 바꾸지 않는다. 03B/C 및
 04A–C 패리티는 같은 격리 브랜치의 후속 소규모 커밋으로 이어진다.
 
+03B는 완성된 장소의 이름과 짧은 목적을 지도 위에 직접 표시하고, 사랑방 선택 카드에
+4분과 현재 단원의 실제 다음 scenario 문장을 보여 준다. 03C는 추천 제목을 획득 기록처럼
+보이던 표현을 제거하고, exact safe checkpoint에 연결된 생산형 문장과 `표현 · 안전한 장면 ·
+Balken im Bauplan` 영수증을 표시한다. 신형 scenario는 `satzBauen`/`diktat` target을,
+구형 scenario는 실제 learner dialog만 사용하며 UI가 문장을 만들어 내지 않는다.
+`HanokWorldScreen.preview`와 `SarangbangStudyScreen.preview`는 같은 production widget·asset을
+fixture state로 즉시 렌더하고 초기 storage/reward/reveal 호출을 건너뛴다.
+
 **검증.** `flutter gen-l10n`; `flutter test test/hanok_build_narrative_test.dart
 test/hanok_world_screen_test.dart` — **19 tests passed**; `git diff --check` 통과.
-asset 변경 없음. 커밋 해시는 이 세션의 마지막 로그 갱신에서 확정한다.
+03B/C 누적 회귀 4파일은 **30 tests passed**, 변경 10파일 scoped analyze는
+`No issues found`였다. asset 변경 없음. 03A 커밋 `679d452`; 이후 커밋 해시는 이 세션의
+마지막 로그 갱신에서 확정한다.
 
 ---
 

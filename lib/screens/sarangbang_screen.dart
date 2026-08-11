@@ -1,22 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/hanok_build_narrative.dart';
 import '../models/personal_room.dart';
 import '../services/decoration_reward_service.dart';
-import '../services/mission_recommender.dart';
+import '../services/hanok_build_narrative_service.dart';
 import '../services/pack_access.dart';
 import '../services/quest_tracker.dart';
 import '../services/room_placement_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
-import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/mission_hero_card.dart';
 import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/responsive.dart';
@@ -26,16 +27,65 @@ import '../widgets/sori/tokens.dart';
 /// The Sarangbang is a deliberate return space: it shows what has arrived in
 /// the room and how to arrange it. Home owns today's primary recommendation;
 /// this screen only offers a quiet, optional route back to that same scene.
+class SarangbangRoomState {
+  final RoomPlacements placements;
+  final Set<String> ownedDecor;
+  final int openableBoxes;
+
+  const SarangbangRoomState({
+    this.placements = const {},
+    this.ownedDecor = const {},
+    this.openableBoxes = 0,
+  });
+}
+
+class SarangbangStudyPreviewData {
+  final TodayLearningSnapshot todaySnapshot;
+  final HanokLearningReceipt receipt;
+  final SarangbangRoomState room;
+
+  const SarangbangStudyPreviewData({
+    required this.todaySnapshot,
+    required this.receipt,
+    required this.room,
+  });
+}
+
 class SarangbangStudyScreen extends StatefulWidget {
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
+  final Future<HanokLearningReceipt> Function()? loadLearningReceipt;
+  final Future<SarangbangRoomState> Function()? loadRoomState;
   final Future<void> Function(TodayLearningSnapshot recommendation)?
   onOpenRecommendation;
+  final SarangbangStudyPreviewData? preview;
 
   const SarangbangStudyScreen({
     super.key,
     this.loadTodaySnapshot,
+    this.loadLearningReceipt,
+    this.loadRoomState,
     this.onOpenRecommendation,
+    this.preview,
   });
+
+  /// Renders the production 03C screen from fixtures without reading or
+  /// writing SharedPreferences, course state, rewards, or room placement.
+  factory SarangbangStudyScreen.preview({
+    Key? key,
+    required TodayLearningSnapshot todaySnapshot,
+    required HanokLearningReceipt receipt,
+    SarangbangRoomState room = const SarangbangRoomState(),
+    Future<void> Function(TodayLearningSnapshot recommendation)?
+    onOpenRecommendation,
+  }) => SarangbangStudyScreen(
+    key: key,
+    preview: SarangbangStudyPreviewData(
+      todaySnapshot: todaySnapshot,
+      receipt: receipt,
+      room: room,
+    ),
+    onOpenRecommendation: onOpenRecommendation,
+  );
 
   @override
   State<SarangbangStudyScreen> createState() => _SarangbangStudyScreenState();
@@ -43,6 +93,7 @@ class SarangbangStudyScreen extends StatefulWidget {
 
 class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   TodayLearningSnapshot? _snapshot;
+  HanokLearningReceipt _receipt = const HanokLearningReceipt.empty();
   RoomPlacements _placements = const {};
   Set<String> _ownedDecor = const {};
   int _openableBoxes = 0; // 지금 열 수 있는 보자기 — 사랑방 발견 배너 게이트
@@ -52,64 +103,105 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   @override
   void initState() {
     super.initState();
-    _load();
+    final preview = widget.preview;
+    if (preview == null) {
+      _load();
+      return;
+    }
+    _snapshot = preview.todaySnapshot;
+    _receipt = preview.receipt;
+    _placements = preview.room.placements;
+    _ownedDecor = preview.room.ownedDecor;
+    _openableBoxes = preview.room.openableBoxes;
+    _loading = false;
   }
 
-  ({RoomPlacements placements, Set<String> owned}) _readRoomSnapshot() {
+  SarangbangRoomState _readRoomSnapshot() {
     try {
-      return (
+      return SarangbangRoomState(
         placements: RoomPlacementService.sanitizeAll(Storage.roomPlacements),
-        owned: Storage.ownedDecor.toSet(),
+        ownedDecor: Storage.ownedDecor.toSet(),
+        openableBoxes: DecorationRewardService.openableBoxCount(),
       );
     } catch (_) {
-      return (placements: const {}, owned: const {});
+      return const SarangbangRoomState();
     }
   }
 
-  void _reloadRoomScene() {
-    final room = _readRoomSnapshot();
+  Future<SarangbangRoomState> _loadRoomState() async =>
+      widget.loadRoomState == null
+      ? _readRoomSnapshot()
+      : widget.loadRoomState!();
+
+  Future<void> _reloadRoomScene() async {
+    final preview = widget.preview;
+    final room = preview?.room ?? await _loadRoomState();
     if (!mounted) {
       return;
     }
     setState(() {
       _placements = room.placements;
-      _ownedDecor = room.owned;
+      _ownedDecor = room.ownedDecor;
+      _openableBoxes = room.openableBoxes;
     });
   }
 
   Future<void> _load() async {
+    final preview = widget.preview;
+    if (preview != null) {
+      setState(() {
+        _snapshot = preview.todaySnapshot;
+        _receipt = preview.receipt;
+        _placements = preview.room.placements;
+        _ownedDecor = preview.room.ownedDecor;
+        _openableBoxes = preview.room.openableBoxes;
+        _loading = false;
+        _loadFailed = false;
+      });
+      return;
+    }
     setState(() {
       _loading = true;
       _loadFailed = false;
     });
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
-      final snapshot = await load();
-      final room = _readRoomSnapshot();
+      final receiptLoad =
+          widget.loadLearningReceipt ?? HanokBuildNarrativeService.loadReceipt;
+      final snapshotFuture = load();
+      final receiptFuture = receiptLoad();
+      final roomFuture = _loadRoomState();
+      final snapshot = await snapshotFuture;
+      final receipt = await receiptFuture;
+      final room = await roomFuture;
       if (!mounted) {
         return;
       }
       setState(() {
         _snapshot = snapshot;
+        _receipt = receipt;
         _placements = room.placements;
-        _ownedDecor = room.owned;
-        _openableBoxes = DecorationRewardService.openableBoxCount();
+        _ownedDecor = room.ownedDecor;
+        _openableBoxes = room.openableBoxes;
         _loading = false;
       });
       // 방금 학습 루트가 돌아왔다 — 그새 획득한 보자기를 생산한다(퀘스트 화면
       // 안 열어도). 렌더를 막지 않도록 fire-and-forget(best-effort 라 자체 오류를
       // 삼킨다). 동기화가 끝나면 새로 생긴 보자기가 배너에 바로 뜨도록 개수만 다시
       // 읽는다.
-      // ignore: discarded_futures
-      QuestTracker.syncEarnedRewards().then((_) {
-        if (!mounted) {
-          return;
-        }
-        final boxes = DecorationRewardService.openableBoxCount();
-        if (boxes != _openableBoxes) {
-          setState(() => _openableBoxes = boxes);
-        }
-      });
+      if (widget.loadRoomState == null) {
+        unawaited(
+          QuestTracker.syncEarnedRewards().then((_) {
+            if (!mounted) {
+              return;
+            }
+            final boxes = DecorationRewardService.openableBoxCount();
+            if (boxes != _openableBoxes) {
+              setState(() => _openableBoxes = boxes);
+            }
+          }),
+        );
+      }
     } catch (_) {
       if (!mounted) {
         return;
@@ -150,7 +242,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   Future<void> _openFurnish() async {
     await Navigator.of(context).pushNamed('/sarangbang/furnish');
     if (mounted) {
-      _reloadRoomScene();
+      await _reloadRoomScene();
     }
   }
 
@@ -160,11 +252,14 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       return;
     }
     // 보자기를 열고 돌아왔다 — 방 장식과 남은 상자 수를 다시 읽는다.
-    final room = _readRoomSnapshot();
+    final room = widget.preview?.room ?? await _loadRoomState();
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _placements = room.placements;
-      _ownedDecor = room.owned;
-      _openableBoxes = DecorationRewardService.openableBoxCount();
+      _ownedDecor = room.ownedDecor;
+      _openableBoxes = room.openableBoxes;
     });
   }
 
@@ -228,7 +323,10 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                             final todayLink = KeyedSubtree(
                               key: const ValueKey('sarangbang-today-link'),
                               child: _SarangbangArrivalCard(
-                                content: _missionContent(t),
+                                receipt: _receipt,
+                                canOpen:
+                                    _snapshot?.pick != null ||
+                                    _snapshot?.destination != null,
                                 onOpen: _openRecommendation,
                               ),
                             );
@@ -282,102 +380,69 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       ),
     );
   }
-
-  MissionHeroContent? _missionContent(AppL10n t) {
-    final snapshot = _snapshot;
-    final pick = snapshot?.pick;
-    final language = Localizations.localeOf(context).languageCode;
-    return switch (pick) {
-      CoursePick(
-        :final unit,
-        :final missionNumber,
-        :final totalMissions,
-        :final fraction,
-        :final started,
-      ) =>
-        MissionHeroContent(
-          kind: MissionHeroKind.course,
-          title: unit.title.pick(language),
-          levelCode: unit.level.toUpperCase(),
-          meta: t.missionHeroCourseMeta(missionNumber, totalMissions),
-          fraction: fraction,
-          started: started,
-          onStart: _openRecommendation,
-        ),
-      PackPick(:final pack, :final fraction) => MissionHeroContent(
-        kind: MissionHeroKind.pack,
-        title: VocabPackService.displayLabel(pack.id, lang: language),
-        levelCode: pack.level.toUpperCase(),
-        meta: t.missionHeroPackMeta(pack.level.toUpperCase()),
-        fraction: fraction,
-        started: true,
-        onStart: _openRecommendation,
-      ),
-      ReviewPick(:final dueCount) => MissionHeroContent(
-        kind: MissionHeroKind.review,
-        title: t.missionHeroReviewTitle(dueCount),
-        levelCode: null,
-        meta: t.missionHeroReviewMeta,
-        fraction: 0,
-        started: false,
-        onStart: _openRecommendation,
-      ),
-      ScenarioPick(:final scenarioId, :final level) => MissionHeroContent(
-        kind: MissionHeroKind.scenario,
-        title: snapshot?.scenario?.title.pick(language) ?? scenarioId,
-        levelCode: level.code.toUpperCase(),
-        meta: t.missionHeroScenarioMeta(level.code.toUpperCase()),
-        fraction: 0,
-        started: false,
-        onStart: _openRecommendation,
-      ),
-      null => null,
-    };
-  }
 }
 
 /// Unlike Home's mission hero, this card does not restate a competing next
 /// action. It is an arrival record in the room, with an intentionally weaker
 /// link back to the already chosen scene.
 class _SarangbangArrivalCard extends StatelessWidget {
-  const _SarangbangArrivalCard({required this.content, required this.onOpen});
+  const _SarangbangArrivalCard({
+    required this.receipt,
+    required this.canOpen,
+    required this.onOpen,
+  });
 
-  final MissionHeroContent? content;
+  final HanokLearningReceipt receipt;
+  final bool canOpen;
   final VoidCallback onOpen;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final mission = content;
+    final expression = receipt.latestSafeExpressionKo;
     return SoriCard(
       variant: SoriCardVariant.base,
-      child: mission == null
+      child: expression == null || expression.trim().isEmpty
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
                 Text(t.sarangbangStoredEmpty, style: text.cardSubtitle),
+                if (canOpen) ...[
+                  const SizedBox(height: Spacing.md),
+                  SoriButton.outlined(
+                    label: t.sarangbangOpenToday,
+                    fullWidth: true,
+                    onTap: onOpen,
+                  ),
+                ],
               ],
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(t.sarangbangStoredTitle, style: text.cardTitle),
-                const SizedBox(height: Spacing.xs),
-                Text(mission.title, style: text.cardTitle),
-                const SizedBox(height: Spacing.xs),
+                const SizedBox(height: Spacing.sm),
+                Text(expression.trim(), style: text.h2),
+                const SizedBox(height: Spacing.sm),
                 Text(
-                  t.sarangbangStoredBody(mission.meta),
+                  t.sarangbangStoredRecord(
+                    receipt.earnedExpressionCount,
+                    receipt.safeSceneCount,
+                    receipt.plannedBeamCount,
+                  ),
                   style: text.cardSubtitle,
                 ),
-                const SizedBox(height: Spacing.md),
-                SoriButton.outlined(
-                  label: t.sarangbangOpenToday,
-                  fullWidth: true,
-                  onTap: onOpen,
-                ),
+                if (canOpen) ...[
+                  const SizedBox(height: Spacing.md),
+                  SoriButton.outlined(
+                    label: t.sarangbangOpenToday,
+                    fullWidth: true,
+                    onTap: onOpen,
+                  ),
+                ],
               ],
             ),
     );

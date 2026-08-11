@@ -5061,6 +5061,24 @@ class AppL10nEn extends AppL10n {
       'Use this list to choose a finished place.';
 
   @override
+  String get hanokMapPlaceSarangbang => 'Sarangbang\nStudy today';
+
+  @override
+  String get hanokMapPlaceDaecheong => 'Daecheong\nYour path';
+
+  @override
+  String get hanokMapPlaceHaengrang => 'Haengrang\nPractice';
+
+  @override
+  String get hanokMapPlaceAnchae => 'Anchae\nWords';
+
+  @override
+  String get hanokMapPlaceHuwon => 'Huwon\nTasks';
+
+  @override
+  String get hanokMapPlaceSadang => 'Sadang\nAchievements';
+
+  @override
   String get hanokZoneSarangbang => 'Sarangbang · today\'s study';
 
   @override
@@ -5125,6 +5143,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldTodayMarker => 'Today\'s study';
+
+  @override
+  String hanokWorldTodaySceneDetail(int minutes, String expression) {
+    return '$minutes minutes · say “$expression”';
+  }
+
+  @override
+  String get hanokWorldGoThere => 'Go there';
 
   @override
   String hanokWorldRevealTitle(String place) {
@@ -5194,6 +5220,32 @@ class AppL10nEn extends AppL10n {
   @override
   String sarangbangStoredBody(Object detail) {
     return '$detail · Your current scene remains selected on Home.';
+  }
+
+  @override
+  String sarangbangStoredRecord(int expressions, int scenes, int beams) {
+    String _temp0 = intl.Intl.pluralLogic(
+      expressions,
+      locale: localeName,
+      other: '$expressions expressions',
+      one: '1 expression',
+      zero: 'No expressions',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      scenes,
+      locale: localeName,
+      other: '$scenes secure scenes',
+      one: '1 secure scene',
+      zero: 'no secure scenes',
+    );
+    String _temp2 = intl.Intl.pluralLogic(
+      beams,
+      locale: localeName,
+      other: '$beams beams in the construction plan',
+      one: '1 beam in the construction plan',
+      zero: 'no beams in the construction plan',
+    );
+    return '$_temp0 · $_temp1 · $_temp2';
   }
 
   @override

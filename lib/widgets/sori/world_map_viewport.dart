@@ -19,6 +19,9 @@ class WorldMapViewport extends StatelessWidget {
   final VoidCallback? onOpenSelectedZone;
   final String Function(PersonalHanokZone zone) zoneLabel;
   final String Function(PersonalHanokZone zone) zonePurpose;
+  final String Function(PersonalHanokZone zone)? mapPlaceLabel;
+  final String? todayExpressionKo;
+  final int todaySceneMinutes;
   final EdgeInsets contentPadding;
   final Set<PersonalHanokMilestone> suppressedMilestones;
 
@@ -30,6 +33,9 @@ class WorldMapViewport extends StatelessWidget {
     required this.onOpenSelectedZone,
     required this.zoneLabel,
     required this.zonePurpose,
+    this.mapPlaceLabel,
+    this.todayExpressionKo,
+    this.todaySceneMinutes = 4,
     required this.contentPadding,
     this.suppressedMilestones = const <PersonalHanokMilestone>{},
   });
@@ -39,6 +45,7 @@ class WorldMapViewport extends StatelessWidget {
     final map = PersonalHanokMap(
       projection: projection,
       zoneLabel: zoneLabel,
+      mapPlaceLabel: mapPlaceLabel,
       selectedZone: selectedZone,
       todayZone: PersonalHanokZone.sarangbang,
       todayMarkerLabel: AppL10n.of(context).hanokWorldTodayMarker,
@@ -49,6 +56,8 @@ class WorldMapViewport extends StatelessWidget {
       selectedZone: selectedZone,
       zoneLabel: zoneLabel,
       zonePurpose: zonePurpose,
+      todayExpressionKo: todayExpressionKo,
+      todaySceneMinutes: todaySceneMinutes,
       onOpen: onOpenSelectedZone,
     );
 
@@ -93,12 +102,16 @@ class _SelectedPlacePanel extends StatelessWidget {
   final PersonalHanokZone? selectedZone;
   final String Function(PersonalHanokZone zone) zoneLabel;
   final String Function(PersonalHanokZone zone) zonePurpose;
+  final String? todayExpressionKo;
+  final int todaySceneMinutes;
   final VoidCallback? onOpen;
 
   const _SelectedPlacePanel({
     required this.selectedZone,
     required this.zoneLabel,
     required this.zonePurpose,
+    required this.todayExpressionKo,
+    required this.todaySceneMinutes,
     required this.onOpen,
   });
 
@@ -110,6 +123,15 @@ class _SelectedPlacePanel extends StatelessWidget {
     final label = zone == null ? null : zoneLabel(zone);
     final purpose = zone == null ? null : zonePurpose(zone);
     final canOpen = zone != null && onOpen != null;
+    final todayDetail =
+        zone == PersonalHanokZone.sarangbang &&
+            todayExpressionKo != null &&
+            todayExpressionKo!.trim().isNotEmpty
+        ? t.hanokWorldTodaySceneDetail(
+            todaySceneMinutes,
+            todayExpressionKo!.trim(),
+          )
+        : null;
 
     return SoriCard(
       key: const ValueKey('hanok-world-selection-panel'),
@@ -132,6 +154,14 @@ class _SelectedPlacePanel extends StatelessWidget {
             label == null ? t.hanokWorldSelectPlaceBody : purpose!,
             style: text.bodySmall,
           ),
+          if (todayDetail != null) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(
+              todayDetail,
+              key: const ValueKey('hanok-world-today-scene-detail'),
+              style: text.label.copyWith(color: SoriColors.primary),
+            ),
+          ],
           if (label != null) ...[
             const SizedBox(height: Spacing.xs),
             Text(
@@ -145,7 +175,7 @@ class _SelectedPlacePanel extends StatelessWidget {
             const SizedBox(height: Spacing.md),
             SoriButton.filled(
               key: const ValueKey('hanok-world-open-selected'),
-              label: t.hanokWorldOpenPlace(label!),
+              label: t.hanokWorldGoThere,
               fullWidth: true,
               onTap: onOpen,
             ),

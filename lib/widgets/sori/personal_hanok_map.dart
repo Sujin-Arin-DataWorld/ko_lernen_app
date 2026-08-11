@@ -13,6 +13,7 @@ import 'tokens.dart';
 class PersonalHanokMap extends StatelessWidget {
   final PersonalHanokProjection projection;
   final String Function(PersonalHanokZone zone) zoneLabel;
+  final String Function(PersonalHanokZone zone)? mapPlaceLabel;
   final ValueChanged<PersonalHanokZone>? onTapZone;
   final bool showTargets;
   final PersonalHanokZone? selectedZone;
@@ -27,6 +28,7 @@ class PersonalHanokMap extends StatelessWidget {
     super.key,
     required this.projection,
     required this.zoneLabel,
+    this.mapPlaceLabel,
     this.onTapZone,
     this.showTargets = true,
     this.selectedZone,
@@ -104,6 +106,15 @@ class PersonalHanokMap extends StatelessWidget {
                     canvasSize: constraints.biggest,
                     label: todayMarkerLabel!,
                   ),
+                if (mapPlaceLabel != null)
+                  for (final definition in visiblePersonalHanokZones(
+                    projection,
+                  ))
+                    _MapPlaceLabel(
+                      zone: definition.zone,
+                      canvasSize: constraints.biggest,
+                      label: mapPlaceLabel!(definition.zone),
+                    ),
                 if (showTargets)
                   for (final definition in visiblePersonalHanokZones(
                     projection,
@@ -127,6 +138,75 @@ class PersonalHanokMap extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class _MapPlaceLabel extends StatelessWidget {
+  final PersonalHanokZone zone;
+  final Size canvasSize;
+  final String label;
+
+  const _MapPlaceLabel({
+    required this.zone,
+    required this.canvasSize,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final anchor = switch (zone) {
+      PersonalHanokZone.huwon => const Offset(.18, .11),
+      PersonalHanokZone.anchae => const Offset(.31, .35),
+      PersonalHanokZone.daecheongmaru => const Offset(.57, .23),
+      PersonalHanokZone.sadang => const Offset(.84, .28),
+      PersonalHanokZone.sarangbang => const Offset(.50, .59),
+      PersonalHanokZone.haengrangchae => const Offset(.23, .84),
+      PersonalHanokZone.gyeRoad => const Offset(.91, .77),
+    };
+    final width = (canvasSize.width * .27).clamp(72.0, 112.0).toDouble();
+    const height = 38.0;
+    final left = (canvasSize.width * anchor.dx - width / 2)
+        .clamp(2.0, canvasSize.width - width - 2)
+        .toDouble();
+    final top = (canvasSize.height * anchor.dy - height / 2)
+        .clamp(2.0, canvasSize.height - height - 2)
+        .toDouble();
+    final surfaces = SoriSurfaces.of(context);
+    return Positioned(
+      left: left,
+      top: top,
+      width: width,
+      height: height,
+      child: IgnorePointer(
+        child: ExcludeSemantics(
+          child: Container(
+            key: ValueKey('personal-hanok-map-label-${zone.name}'),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: surfaces.surface.withValues(alpha: .92),
+              borderRadius: SoriRadius.brSm,
+              border: Border.all(
+                color: SoriColors.primary.withValues(alpha: .48),
+              ),
+              boxShadow: SoriElevation.low,
+            ),
+            child: Text(
+              label,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: surfaces.text,
+                fontSize: 9,
+                height: 1.05,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

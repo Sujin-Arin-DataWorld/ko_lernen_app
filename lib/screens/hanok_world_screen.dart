@@ -29,6 +29,18 @@ import '../widgets/sori/world_map_viewport.dart';
 ///
 /// It never awards, migrates, or infers learning state. A completed building
 /// is simply a spatial doorway to an established Hangul Sori surface.
+class HanokWorldPreviewData {
+  final PersonalHanokProjection projection;
+  final HanokBuildNarrative narrative;
+  final PersonalHanokZone? selectedZone;
+
+  const HanokWorldPreviewData({
+    required this.projection,
+    required this.narrative,
+    this.selectedZone,
+  });
+}
+
 class HanokWorldScreen extends StatefulWidget {
   final Future<LevelRatios> Function()? loadRatios;
   final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
@@ -41,6 +53,7 @@ class HanokWorldScreen extends StatefulWidget {
   final PersonalHanokRevealStore revealStore;
   final Future<void> Function(PersonalHanokVenueAction action)?
   onOpenVenueAction;
+  final HanokWorldPreviewData? preview;
 
   const HanokWorldScreen({
     super.key,
@@ -50,7 +63,26 @@ class HanokWorldScreen extends StatefulWidget {
     this.onOpenZone,
     this.revealStore = const StoragePersonalHanokRevealStore(),
     this.onOpenVenueAction,
+    this.preview,
   });
+
+  /// Renders the production 03A/03B screen from fixture state. No storage,
+  /// reveal journal, progress service, or reward write is touched.
+  factory HanokWorldScreen.preview({
+    Key? key,
+    required PersonalHanokProjection projection,
+    required HanokBuildNarrative narrative,
+    PersonalHanokZone? selectedZone,
+    ValueChanged<PersonalHanokZone>? onOpenZone,
+  }) => HanokWorldScreen(
+    key: key,
+    preview: HanokWorldPreviewData(
+      projection: projection,
+      narrative: narrative,
+      selectedZone: selectedZone,
+    ),
+    onOpenZone: onOpenZone,
+  );
 
   @override
   State<HanokWorldScreen> createState() => _HanokWorldScreenState();
@@ -68,11 +100,31 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
   @override
   void initState() {
     super.initState();
-    _load();
+    final preview = widget.preview;
+    if (preview == null) {
+      _load();
+      return;
+    }
+    _projection = preview.projection;
+    _narrative = preview.narrative;
+    _selectedZone = _previewSelection(preview);
   }
 
   Future<void> _load() async {
     final generation = ++_loadGeneration;
+    final preview = widget.preview;
+    if (preview != null) {
+      if (mounted) {
+        setState(() {
+          _projection = preview.projection;
+          _narrative = preview.narrative;
+          _selectedZone = _previewSelection(preview);
+          _activeReveal = null;
+          _queuedReveals = const <PersonalHanokMilestone>[];
+        });
+      }
+      return;
+    }
     final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
     try {
       final ratios = await loadRatios();
@@ -98,6 +150,20 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
         generation: generation,
       );
     }
+  }
+
+  PersonalHanokZone? _previewSelection(HanokWorldPreviewData preview) {
+    final available = visiblePersonalHanokZones(
+      preview.projection,
+    ).map((definition) => definition.zone).toList(growable: false);
+    if (available.contains(preview.selectedZone)) {
+      return preview.selectedZone;
+    }
+    return available.contains(PersonalHanokZone.sarangbang)
+        ? PersonalHanokZone.sarangbang
+        : available.isEmpty
+        ? null
+        : available.first;
   }
 
   Future<void> _showProjection(
@@ -342,6 +408,13 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                     zoneLabel: (zone) => _zoneLabel(t, zone),
                                     zonePurpose: (zone) =>
                                         _zonePurpose(t, zone),
+                                    mapPlaceLabel: (zone) =>
+                                        _mapPlaceLabel(t, zone),
+                                    todayExpressionKo:
+                                        _narrative?.receipt.nextExpressionKo ??
+                                        _narrative
+                                            ?.receipt
+                                            .latestSafeExpressionKo,
                                     contentPadding: sidePadding,
                                   ),
                                 ),
@@ -651,6 +724,16 @@ String _zonePurpose(AppL10n t, PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.huwon => t.hanokWorldPurposeHuwon,
   PersonalHanokZone.sadang => t.hanokWorldPurposeSadang,
   PersonalHanokZone.gyeRoad => t.hanokWorldPurposeGyeRoad,
+};
+
+String _mapPlaceLabel(AppL10n t, PersonalHanokZone zone) => switch (zone) {
+  PersonalHanokZone.sarangbang => t.hanokMapPlaceSarangbang,
+  PersonalHanokZone.daecheongmaru => t.hanokMapPlaceDaecheong,
+  PersonalHanokZone.haengrangchae => t.hanokMapPlaceHaengrang,
+  PersonalHanokZone.anchae => t.hanokMapPlaceAnchae,
+  PersonalHanokZone.huwon => t.hanokMapPlaceHuwon,
+  PersonalHanokZone.sadang => t.hanokMapPlaceSadang,
+  PersonalHanokZone.gyeRoad => '',
 };
 
 String _milestoneLabel(AppL10n t, PersonalHanokMilestone milestone) =>

@@ -307,6 +307,32 @@ void main() {
     expect(opened, PersonalHanokZone.sarangbang);
   });
 
+  testWidgets('gallery preview renders real 03B widgets without storage load', (
+    tester,
+  ) async {
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+    );
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative(
+            projection: projection,
+            receipt: const HanokLearningReceipt(
+              nextScenarioId: 'restaurant_scene',
+              nextExpressionKo: '안 맵게 해 주세요.',
+            ),
+          ),
+          selectedZone: PersonalHanokZone.sarangbang,
+        ),
+      ),
+    );
+
+    expect(find.byType(WorldMapViewport), findsOneWidget);
+    expect(find.text('4 minutes · say “안 맵게 해 주세요.”'), findsOneWidget);
+  });
+
   testWidgets(
     'keeps the Gye road noninteractive and uses the separate shared-courtyard bridge',
     (tester) async {
