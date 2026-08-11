@@ -30,6 +30,46 @@ void main() {
     });
   });
 
+  group('SatzBauenQuest terminal punctuation', () {
+    test('extracts only taught question and exclamation marks', () {
+      expect(SatzBauenQuest.terminalPunctuation('어디 가요?'), '?');
+      expect(SatzBauenQuest.terminalPunctuation('조심하세요!'), '!');
+      expect(SatzBauenQuest.terminalPunctuation('커피 주세요.'), isNull);
+    });
+
+    test('requires exactly one matching mark in the final slot', () {
+      const target = '우유 어디 있어요?';
+      expect(
+        SatzBauenQuest.hasCorrectTerminalPunctuation(
+          ['우유', '어디', '있어요', '?'],
+          target,
+        ),
+        isTrue,
+      );
+      expect(
+        SatzBauenQuest.hasCorrectTerminalPunctuation(
+          ['우유', '어디', '있어요'],
+          target,
+        ),
+        isFalse,
+      );
+      expect(
+        SatzBauenQuest.hasCorrectTerminalPunctuation(
+          ['우유', '?', '어디', '있어요'],
+          target,
+        ),
+        isFalse,
+      );
+      expect(
+        SatzBauenQuest.hasCorrectTerminalPunctuation(
+          ['우유', '어디', '있어요', '!'],
+          target,
+        ),
+        isFalse,
+      );
+    });
+  });
+
   group('SatzBauenQuest.isCorrectOrder', () {
     const target = '저기요, 우유 어디 있어요?';
 

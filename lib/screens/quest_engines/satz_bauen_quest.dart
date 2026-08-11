@@ -59,6 +59,28 @@ class SatzBauenQuest extends StatefulWidget {
         .toList();
   }
 
+  /// Returns the terminal question/exclamation mark taught as its own tile.
+  static String? terminalPunctuation(String sentence) {
+    return RegExp(r'([?!])\s*$').firstMatch(sentence.trim())?.group(1);
+  }
+
+  /// The punctuation tile is required exactly once and only at the end.
+  static bool hasCorrectTerminalPunctuation(
+    List<String> assembled,
+    String targetKo,
+  ) {
+    final expected = terminalPunctuation(targetKo);
+    final punctuationCount = assembled
+        .where((token) => token == '?' || token == '!')
+        .length;
+    if (expected == null) {
+      return punctuationCount == 0;
+    }
+    return punctuationCount == 1 &&
+        assembled.isNotEmpty &&
+        assembled.last == expected;
+  }
+
   /// True, wenn die zusammengesetzten Tokens (in Reihenfolge) dem Ziel
   /// entsprechen. Satzzeichen/Leerraum werden ignoriert.
   static bool isCorrectOrder(List<String> assembled, String targetKo) {
@@ -195,6 +217,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   final List<_Tile> _answer = [];
 
   int _tries = 0;
+  String? _punct;
   bool _completed = false;
   bool _celebrated = false;
   bool _wrong = false; // letzte Prüfung war falsch → Hinweis anzeigen
@@ -215,7 +238,8 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         .where((t) => t.isNotEmpty)
         .toList();
 
-    final all = <String>[...tokens, ...distractors];
+    _punct = SatzBauenQuest.terminalPunctuation(_targetKo);
+    final all = <String>[...tokens, ...distractors, if (_punct != null) _punct!];
     // Deterministisch mischen (stabil pro Quest, variiert je Satz).
     final rng = math.Random(_targetKo.hashCode);
     for (var i = all.length - 1; i > 0; i--) {
@@ -289,8 +313,13 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       return;
     }
     final assembled = _answer.map((t) => t.text).toList();
+    final punctuationOk = SatzBauenQuest.hasCorrectTerminalPunctuation(
+      assembled,
+      _targetKo,
+    );
 
-    if (SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
+    if (punctuationOk &&
+        SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
@@ -308,8 +337,15 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // Falsch.
     HapticFeedback.mediumImpact();
     _tries++;
-    final mismatch = SatzBauenQuest.firstMismatch(assembled, _targetKo);
-    final diag = SatzBauenQuest.diagnose(assembled, _targetKo);
+    final punctuationIndex = assembled.indexWhere(
+      (token) => token == '?' || token == '!',
+    );
+    final mismatch = punctuationOk
+        ? SatzBauenQuest.firstMismatch(assembled, _targetKo)
+        : (punctuationIndex >= 0 ? punctuationIndex : assembled.length);
+    final diag = punctuationOk
+        ? SatzBauenQuest.diagnose(assembled, _targetKo)
+        : SatzError.order;
 
     if (_tries >= 2) {
       // Richtige Lösung aufzeigen.
@@ -319,6 +355,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           ..clear()
           ..addAll([
             for (var i = 0; i < target.length; i++) _Tile(-1 - i, target[i]),
+            if (_punct != null) _Tile(-1000, _punct!),
           ]);
         _bank.clear();
         _completed = true;
@@ -365,55 +402,71 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Prompt (Bedeutung) + optionaler TTS-Button.
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
-                border: Border.all(color: s.surfaceAlt, width: 1.5),
-              ),
-              child: Row(
-                children: [
-                  // 스피커는 leading 슬롯 — trailing 에 두면 우상단 마스코트
-                  // 오버레이와 겹친다(3ee6ec1 이 고쳤던 그 문제).
-                  if (_audioKo.isNotEmpty) ...[
-                    InkWell(
-                      borderRadius: BorderRadius.circular(SoriRadius.pill),
-                      onTap: _playTts,
-                      child: Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: SoriColors.info.withAlpha(26),
-                          border: Border.all(
-                            color: SoriColors.info,
-                            width: 1.5,
+            // Prompt (Bedeutung) + optionaler TTS-Button. The magpie is
+            // anchored to this card without consuming vertical layout space.
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.fromLTRB(22, 18, 60, 18),
+                  decoration: BoxDecoration(
+                    color: s.surface,
+                    borderRadius: BorderRadius.circular(SoriRadius.lg),
+                    border: Border.all(color: s.surfaceAlt, width: 1.5),
+                  ),
+                  child: Row(
+                    children: [
+                      // 스피커는 leading 슬롯 — trailing 에 두면 우상단 마스코트
+                      // 오버레이와 겹친다(3ee6ec1 이 고쳤던 그 문제).
+                      if (_audioKo.isNotEmpty) ...[
+                        InkWell(
+                          borderRadius: BorderRadius.circular(SoriRadius.pill),
+                          onTap: _playTts,
+                          child: Container(
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: SoriColors.info.withAlpha(26),
+                              border: Border.all(
+                                color: SoriColors.info,
+                                width: 1.5,
+                              ),
+                            ),
+                            child: const Icon(
+                              Icons.volume_up_rounded,
+                              color: SoriColors.info,
+                              size: 24,
+                            ),
                           ),
                         ),
-                        child: const Icon(
-                          Icons.volume_up_rounded,
-                          color: SoriColors.info,
-                          size: 24,
+                        const SizedBox(width: 14),
+                      ],
+                      Expanded(
+                        child: Text(
+                          _prompt(langCode),
+                          style: TextStyle(
+                            color: s.text,
+                            fontSize: 20,
+                            height: 1.45,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 14),
-                  ],
-                  Expanded(
-                    child: Text(
-                      _prompt(langCode),
-                      style: TextStyle(
-                        color: s.text,
-                        fontSize: 20,
-                        height: 1.45,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Positioned(
+                  top: -30,
+                  right: 10,
+                  child: MascotPartner(
+                    celebrating: _celebrated,
+                    size: 72,
+                    kind: MascotKind.magpie,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: Spacing.lg),
             Text(
@@ -514,17 +567,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
               ),
             ),
           ],
-        ),
-        // Charakter — Overlay außerhalb des Flows (Clip.none), damit die
-        // Spaltenhöhe im höhenbeschränkten Host unverändert bleibt.
-        Positioned(
-          top: -12,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 56,
-            kind: MascotKind.magpie,
-          ),
         ),
       ],
     );
