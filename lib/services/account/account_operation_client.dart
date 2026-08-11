@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/foundation.dart';
 
+import 'account_deletion_status_receipt.dart';
 import 'cloud_write_session.dart';
 
 enum AccountOperationKind { replacement, deletion }
@@ -137,11 +138,35 @@ class AccountOperationResult {
 
 @immutable
 class AccountDeletionRequest {
-  const AccountDeletionRequest({required this.requestKey});
+  const AccountDeletionRequest({
+    required this.requestKey,
+    required this.terminalStatusReceipt,
+  });
 
   final String requestKey;
+  final String terminalStatusReceipt;
 
-  Map<String, Object?> toJson() => {'requestKey': _validated(requestKey)};
+  Map<String, Object?> toJson() => {
+    'requestKey': _validated(requestKey),
+    'terminalStatusReceipt': _validatedTerminalStatusReceipt(
+      terminalStatusReceipt,
+    ),
+  };
+}
+
+@immutable
+class AccountDeletionStatusByReceiptRequest {
+  const AccountDeletionStatusByReceiptRequest({
+    required this.terminalStatusReceipt,
+  });
+
+  final String terminalStatusReceipt;
+
+  Map<String, Object?> toJson() => {
+    'terminalStatusReceipt': _validatedTerminalStatusReceipt(
+      terminalStatusReceipt,
+    ),
+  };
 }
 
 @immutable
@@ -247,6 +272,14 @@ abstract interface class AccountOperationGateway {
 
   Future<AccountOperationResult> getAccountOperation(
     AccountOperationStatusRequest request,
+  );
+
+  Future<AccountOperationResult> getAccountDeletionStatusByReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  );
+
+  Future<void> acknowledgeAccountDeletionStatusReceipt(
+    AccountDeletionStatusByReceiptRequest request,
   );
 
   Future<AccountOperationResult> completeAppleRevocation(
@@ -575,15 +608,76 @@ class AccountOperationClient implements AccountOperationGateway {
   @override
   Future<AccountOperationResult> getAccountOperation(
     AccountOperationStatusRequest request,
+  ) {
+    return _invokeIdempotentStatusRead(
+      AccountOperationTransportCall(
+        name: 'getAccountOperation',
+        data: request.toJson(),
+      ),
+    );
+  }
+
+  @override
+  Future<AccountOperationResult> getAccountDeletionStatusByReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) {
+    return _invokeIdempotentStatusRead(
+      AccountOperationTransportCall(
+        name: 'getAccountDeletionStatusByReceipt',
+        data: request.toJson(),
+      ),
+    );
+  }
+
+  @override
+  Future<void> acknowledgeAccountDeletionStatusReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) {
+    return _invokeIdempotentReceiptAcknowledgement(
+      AccountOperationTransportCall(
+        name: 'acknowledgeAccountDeletionStatusReceipt',
+        data: request.toJson(),
+      ),
+    );
+  }
+
+  Future<void> _invokeIdempotentReceiptAcknowledgement(
+    AccountOperationTransportCall call,
   ) async {
     for (var attempt = 0; attempt < _statusAttempts; attempt += 1) {
       try {
-        return await _invoke(
-          AccountOperationTransportCall(
-            name: 'getAccountOperation',
-            data: request.toJson(),
-          ),
+        final raw = await transport.call(call);
+        if (raw is! Map || raw.length != 1 || raw['acknowledged'] != true) {
+          throw const AccountOperationFailure(
+            AccountOperationFailureCode.invalidResponse,
+            retryable: false,
+          );
+        }
+        return;
+      } on AccountOperationFailure catch (failure) {
+        final lastAttempt = attempt == _statusAttempts - 1;
+        if (!failure.retryable || lastAttempt) rethrow;
+        await _retryDelay(Duration(milliseconds: 200 << attempt));
+      } on AccountOperationTransportException catch (error) {
+        final failure = _mapTransportFailure(error);
+        final lastAttempt = attempt == _statusAttempts - 1;
+        if (!failure.retryable || lastAttempt) throw failure;
+        await _retryDelay(Duration(milliseconds: 200 << attempt));
+      } catch (_) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.unknown,
+          retryable: false,
         );
+      }
+    }
+  }
+
+  Future<AccountOperationResult> _invokeIdempotentStatusRead(
+    AccountOperationTransportCall call,
+  ) async {
+    for (var attempt = 0; attempt < _statusAttempts; attempt += 1) {
+      try {
+        return await _invoke(call);
       } on AccountOperationFailure catch (failure) {
         final lastAttempt = attempt == _statusAttempts - 1;
         if (!failure.retryable || lastAttempt) {
@@ -654,6 +748,8 @@ AccountOperationFailure _mapTransportFailure(
     'operation-blocked' => AccountOperationFailureCode.blocked,
     'invalid-operation' ||
     'request-key-required' ||
+    'terminal-status-receipt-required' ||
+    'terminal-status-receipt-invalid' ||
     'operation-id-required' ||
     'expected-version-required' ||
     'apple-authorization-code-required' =>
@@ -691,6 +787,16 @@ int _nonNegativeInt(Object? value) {
 
 String _validated(String value) {
   if (value.trim().isEmpty) {
+    throw const AccountOperationFailure(
+      AccountOperationFailureCode.invalidRequest,
+      retryable: false,
+    );
+  }
+  return value;
+}
+
+String _validatedTerminalStatusReceipt(String value) {
+  if (!AccountDeletionStatusReceipt.isCanonicalValue(value)) {
     throw const AccountOperationFailure(
       AccountOperationFailureCode.invalidRequest,
       retryable: false,

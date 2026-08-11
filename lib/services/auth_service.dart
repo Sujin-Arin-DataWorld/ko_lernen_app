@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'account/account_failure_reason.dart';
+import 'account/account_deletion_status_receipt.dart';
 import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
 import 'account/account_transition_coordinator.dart';
@@ -93,11 +94,29 @@ abstract interface class AccountDeletionOperations {
   String createRequestKey();
   Future<AccountDeletionJournal?> readDeletionJournal();
   Future<void> writeDeletionJournal(AccountDeletionJournal journal);
+  Future<AccountDeletionStatusReceipt?> readDeletionStatusReceipt();
+  Future<AccountDeletionStatusReceipt> createDeletionStatusReceipt({
+    required String sourceUid,
+    required String requestKey,
+  });
+  Future<AccountDeletionStatusReceipt> bindDeletionStatusReceipt({
+    required AccountDeletionStatusReceipt expected,
+    required String operationId,
+  });
+  Future<bool> clearDeletionStatusReceipt(
+    AccountDeletionStatusReceipt expected,
+  );
   Future<AccountOperationResult> requestAccountDeletion(
     AccountDeletionRequest request,
   );
   Future<AccountOperationResult> getAccountOperation(
     AccountOperationStatusRequest request,
+  );
+  Future<AccountOperationResult> getAccountDeletionStatusByReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  );
+  Future<void> acknowledgeAccountDeletionStatusReceipt(
+    AccountDeletionStatusByReceiptRequest request,
   );
   Future<AccountOperationResult> completeAppleRevocation(
     AppleRevocationCompletionRequest request,
@@ -293,16 +312,30 @@ typedef AccountDeletionFeedbackActivator =
 typedef CompletedDeletionProviderCleanup = Future<void> Function();
 typedef CompletedDeletionFirebaseRecovery = Future<void> Function();
 
+bool _isStrictCompletedDeletionRecoveryCheckpoint(
+  AccountDeletionJournal checkpoint,
+) {
+  final operation = checkpoint.operation;
+  return operation?.kind == AccountOperationKind.deletion &&
+      operation?.phase == AccountOperationPhase.completed &&
+      operation?.retryable == false &&
+      checkpoint.operationId != null &&
+      checkpoint.session.mode == CloudWriteMode.cleanupPending;
+}
+
 void assertCompletedDeletionRecoveryIdentitySafe({
   required AccountDeletionJournal checkpoint,
   required String? currentUid,
   required bool currentIsAnonymous,
 }) {
   final normalizedCurrent = currentUid?.trim();
-  if (normalizedCurrent != null &&
+  final isDifferentIdentity =
+      normalizedCurrent != null &&
       normalizedCurrent.isNotEmpty &&
-      normalizedCurrent != checkpoint.session.uid &&
-      !currentIsAnonymous) {
+      normalizedCurrent != checkpoint.session.uid;
+  if (isDifferentIdentity &&
+      (!currentIsAnonymous ||
+          !_isStrictCompletedDeletionRecoveryCheckpoint(checkpoint))) {
     throw const AccountOperationFailure(
       AccountOperationFailureCode.blocked,
       retryable: false,
@@ -315,11 +348,12 @@ void assertCompletedDeletionFeedbackActivationIdentitySafe({
   required String? currentUid,
   required bool currentIsAnonymous,
 }) {
-  if (!isCompletedDeletionAlreadyRecovered(
-    deletedUid: checkpoint.session.uid,
-    currentUid: currentUid,
-    currentIsAnonymous: currentIsAnonymous,
-  )) {
+  if (!_isStrictCompletedDeletionRecoveryCheckpoint(checkpoint) ||
+      !isCompletedDeletionAlreadyRecovered(
+        deletedUid: checkpoint.session.uid,
+        currentUid: currentUid,
+        currentIsAnonymous: currentIsAnonymous,
+      )) {
     throw const AccountOperationFailure(
       AccountOperationFailureCode.blocked,
       retryable: false,
@@ -640,6 +674,17 @@ class AccountDeletionCoordinator {
       return;
     }
 
+    // A secure receipt can outlive the first non-secret journal write. Reuse
+    // that exact capability/request key so the next explicit deletion remains
+    // idempotent. A receipt owned by any other source fails closed.
+    final orphanReceipt = await operations.readDeletionStatusReceipt();
+    if (orphanReceipt != null && orphanReceipt.sourceUid != operations.userId) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+
     final providers = operations.providerState;
     String? appleAuthorizationCode;
     if (providers.isAppleLinked) {
@@ -651,6 +696,7 @@ class AccountDeletionCoordinator {
     }
 
     AccountDeletionJournal? journal;
+    AccountDeletionStatusReceipt? receipt;
     try {
       final transitionResult = await ownershipTransitions.run(
         oldUid: operations.userId,
@@ -664,24 +710,40 @@ class AccountDeletionCoordinator {
               retryable: false,
             );
           }
+          final requestKey =
+              orphanReceipt?.requestKey ?? operations.createRequestKey();
+          receipt = await operations.createDeletionStatusReceipt(
+            sourceUid: operations.userId,
+            requestKey: requestKey,
+          );
           journal = AccountDeletionJournal.pending(
             session: quiesced,
-            requestKey: operations.createRequestKey(),
+            requestKey: requestKey,
             sourceProviders: {
               if (operations.providerState.isGoogleLinked) 'google',
               if (operations.providerState.isAppleLinked) 'apple',
             },
           );
           await operations.writeDeletionJournal(journal!);
-          final requested = await operations.requestAccountDeletion(
-            AccountDeletionRequest(requestKey: journal!.requestKey),
-          );
+          final requested = orphanReceipt == null
+              ? await operations.requestAccountDeletion(
+                  AccountDeletionRequest(
+                    requestKey: journal!.requestKey,
+                    terminalStatusReceipt: receipt!.terminalStatusReceipt,
+                  ),
+                )
+              : await _readReceiptStatusOrRequest(journal!, receipt!);
           _requireDeletionOperation(requested);
+          receipt = await operations.bindDeletionStatusReceipt(
+            expected: receipt!,
+            operationId: requested.operationId,
+          );
           journal = journal!.copyWith(operation: requested);
           await operations.writeDeletionJournal(journal!);
           await closeFeedback();
           journal = await _pollToTerminal(
             journal!,
+            receipt: receipt!,
             appleAuthorizationCode: appleAuthorizationCode,
           );
         },
@@ -697,6 +759,10 @@ class AccountDeletionCoordinator {
       rethrow;
     }
     await _persistCurrentOwnedSession(journal);
+    final completedReceipt = receipt;
+    if (completedReceipt != null) {
+      await _acknowledgeAndClearReceipt(completedReceipt);
+    }
     await _recoverDeletedIdentity();
   }
 
@@ -714,21 +780,30 @@ class AccountDeletionCoordinator {
       }
       var expectedSession = pending.session;
       _requireExactSession(expectedSession);
+      var receipt = await _readOrCreateMatchingReceipt(pending);
       if (pending.operation == null) {
         _requireExactSession(expectedSession);
-        final requested = await operations.requestAccountDeletion(
-          AccountDeletionRequest(requestKey: pending.requestKey),
-        );
+        final requested = await _readReceiptStatusOrRequest(pending, receipt);
         _requireExactSession(expectedSession);
         _requireDeletionOperation(requested);
+        receipt = await operations.bindDeletionStatusReceipt(
+          expected: receipt,
+          operationId: requested.operationId,
+        );
         pending = pending.copyWith(operation: requested);
         await operations.writeDeletionJournal(pending);
         _requireExactSession(expectedSession);
+      } else {
+        receipt = await operations.bindDeletionStatusReceipt(
+          expected: receipt,
+          operationId: pending.operationId!,
+        );
       }
       await closeFeedback();
       _requireExactSession(expectedSession);
       final completed = await _pollToTerminal(
         pending,
+        receipt: receipt,
         requiredSession: expectedSession,
       );
       _requireExactSession(expectedSession);
@@ -748,8 +823,9 @@ class AccountDeletionCoordinator {
         completed.copyWith(session: expectedSession),
       );
       _requireExactSession(expectedSession);
-      await _recoverDeletedIdentity();
+      await _acknowledgeAndClearReceipt(receipt);
       _requireExactSession(expectedSession);
+      await _recoverDeletedIdentity();
     } on AccountOperationFailure {
       rethrow;
     } on AccountDeletionRecoveryException {
@@ -760,6 +836,22 @@ class AccountDeletionCoordinator {
   }
 
   AccountOperationFailure _safeAccountDeletionFailure(Object error) {
+    if (error is AccountDeletionStatusReceiptFailure) {
+      return switch (error.code) {
+        AccountDeletionStatusReceiptFailureCode.unavailable ||
+        AccountDeletionStatusReceiptFailureCode.verificationFailed =>
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        AccountDeletionStatusReceiptFailureCode.invalidRecord ||
+        AccountDeletionStatusReceiptFailureCode.conflict =>
+          const AccountOperationFailure(
+            AccountOperationFailureCode.blocked,
+            retryable: false,
+          ),
+      };
+    }
     if (error is FirebaseAuthException) {
       return switch (error.code) {
         'requires-recent-login' => const AccountOperationFailure(
@@ -826,6 +918,7 @@ class AccountDeletionCoordinator {
 
   Future<AccountDeletionJournal> _pollToTerminal(
     AccountDeletionJournal initial, {
+    required AccountDeletionStatusReceipt receipt,
     String? appleAuthorizationCode,
     CloudWriteSession? requiredSession,
   }) async {
@@ -869,9 +962,23 @@ class AccountDeletionCoordinator {
         _requireExactSessionIfPresent(requiredSession);
         await pollDelay(const Duration(seconds: 2));
         _requireExactSessionIfPresent(requiredSession);
-        result = await operations.getAccountOperation(
-          AccountOperationStatusRequest(operationId: expectedOperationId),
-        );
+        try {
+          result = await operations.getAccountDeletionStatusByReceipt(
+            AccountDeletionStatusByReceiptRequest(
+              terminalStatusReceipt: receipt.terminalStatusReceipt,
+            ),
+          );
+        } on AccountOperationFailure catch (failure) {
+          if (failure.code != AccountOperationFailureCode.operationNotFound) {
+            rethrow;
+          }
+          result = await operations.requestAccountDeletion(
+            AccountDeletionRequest(
+              requestKey: journal.requestKey,
+              terminalStatusReceipt: receipt.terminalStatusReceipt,
+            ),
+          );
+        }
         _requireExactSessionIfPresent(requiredSession);
       }
       _requireDeletionOperation(
@@ -890,6 +997,72 @@ class AccountDeletionCoordinator {
       AccountOperationFailureCode.unavailable,
       retryable: true,
     );
+  }
+
+  Future<AccountDeletionStatusReceipt> _readOrCreateMatchingReceipt(
+    AccountDeletionJournal journal,
+  ) async {
+    final existing = await operations.readDeletionStatusReceipt();
+    final receipt =
+        existing ??
+        await operations.createDeletionStatusReceipt(
+          sourceUid: journal.session.uid,
+          requestKey: journal.requestKey,
+        );
+    final operationIdMatches =
+        receipt.operationId == null ||
+        journal.operationId == null ||
+        receipt.operationId == journal.operationId;
+    if (!receipt.matchesWorkflow(
+          sourceUid: journal.session.uid,
+          requestKey: journal.requestKey,
+        ) ||
+        !operationIdMatches) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    return receipt;
+  }
+
+  Future<AccountOperationResult> _readReceiptStatusOrRequest(
+    AccountDeletionJournal journal,
+    AccountDeletionStatusReceipt receipt,
+  ) async {
+    try {
+      return await operations.getAccountDeletionStatusByReceipt(
+        AccountDeletionStatusByReceiptRequest(
+          terminalStatusReceipt: receipt.terminalStatusReceipt,
+        ),
+      );
+    } on AccountOperationFailure catch (failure) {
+      if (failure.code != AccountOperationFailureCode.operationNotFound) {
+        rethrow;
+      }
+      return operations.requestAccountDeletion(
+        AccountDeletionRequest(
+          requestKey: journal.requestKey,
+          terminalStatusReceipt: receipt.terminalStatusReceipt,
+        ),
+      );
+    }
+  }
+
+  Future<void> _acknowledgeAndClearReceipt(
+    AccountDeletionStatusReceipt receipt,
+  ) async {
+    await operations.acknowledgeAccountDeletionStatusReceipt(
+      AccountDeletionStatusByReceiptRequest(
+        terminalStatusReceipt: receipt.terminalStatusReceipt,
+      ),
+    );
+    if (!await operations.clearDeletionStatusReceipt(receipt)) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
   }
 
   void _requireExactSessionIfPresent(CloudWriteSession? expected) {
@@ -937,6 +1110,341 @@ Future<void> _defaultAccountOperationPollDelay(Duration duration) {
   return Future<void>.delayed(duration);
 }
 
+typedef AccountDeletionReceiptStatusReader =
+    Future<AccountOperationResult> Function(
+      AccountDeletionStatusByReceiptRequest request,
+    );
+typedef AccountDeletionReceiptAcknowledger =
+    Future<void> Function(AccountDeletionStatusByReceiptRequest request);
+typedef AccountDeletionReceiptIdentityReader =
+    ({String? uid, bool isAnonymous}) Function();
+
+enum AccountDeletionReceiptRecoveryStatus { pending, completed, unavailable }
+
+/// Recovers only an already-requested deletion through its device-held status
+/// capability. This path never creates or advances a remote operation and can
+/// run after the worker has deleted the source Firebase Auth identity.
+class AccountDeletionReceiptRecoveryCoordinator {
+  const AccountDeletionReceiptRecoveryCoordinator({
+    required this.journalStore,
+    required this.receiptStore,
+    required this.sessions,
+    required this.currentIdentity,
+    required this.readStatus,
+    required this.acknowledge,
+    required this.closeFeedback,
+    required this.recoverCompleted,
+  });
+
+  final AccountDeletionJournalStore journalStore;
+  final AccountDeletionStatusReceiptStore receiptStore;
+  final CloudWriteSessionController sessions;
+  final AccountDeletionReceiptIdentityReader currentIdentity;
+  final AccountDeletionReceiptStatusReader readStatus;
+  final AccountDeletionReceiptAcknowledger acknowledge;
+  final AccountDeletionFeedbackCloser closeFeedback;
+  final CompletedDeletionRecovery recoverCompleted;
+
+  Future<AccountDeletionReceiptRecoveryStatus> resume() async {
+    try {
+      return await _resume();
+    } on AccountOperationFailure catch (failure) {
+      if (failure.retryable ||
+          failure.code == AccountOperationFailureCode.operationNotFound) {
+        return AccountDeletionReceiptRecoveryStatus.unavailable;
+      }
+      rethrow;
+    } on AccountDeletionStatusReceiptFailure catch (failure) {
+      if (failure.code == AccountDeletionStatusReceiptFailureCode.unavailable ||
+          failure.code ==
+              AccountDeletionStatusReceiptFailureCode.verificationFailed) {
+        return AccountDeletionReceiptRecoveryStatus.unavailable;
+      }
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    } on AccountDeletionRecoveryException {
+      rethrow;
+    } catch (error, stackTrace) {
+      Error.throwWithStackTrace(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.unknown,
+          retryable: false,
+        ),
+        stackTrace,
+      );
+    }
+  }
+
+  Future<AccountDeletionReceiptRecoveryStatus> _resume() async {
+    final identitySnapshot = _identitySnapshot();
+    var journal = await _guardIdentity(identitySnapshot, journalStore.read);
+    if (journal == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    var activeJournal = journal;
+    _requireSafeStartingIdentity(activeJournal, identitySnapshot);
+    final receipt = await _guardIdentity(identitySnapshot, receiptStore.read);
+    if (receipt == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    _requireMatchingReceipt(activeJournal, receipt);
+
+    AccountOperationResult status;
+    try {
+      status = await _guardIdentity(
+        identitySnapshot,
+        () => readStatus(
+          AccountDeletionStatusByReceiptRequest(
+            terminalStatusReceipt: receipt.terminalStatusReceipt,
+          ),
+        ),
+      );
+    } on AccountOperationFailure catch (failure) {
+      if (failure.code != AccountOperationFailureCode.operationNotFound ||
+          !_isStrictAcknowledgementRetry(activeJournal, receipt)) {
+        rethrow;
+      }
+      // A previous ACK may have committed server-side while its response was
+      // lost. The idempotent ACK is the only safe proof for the tombstoned
+      // capability: unknown/nonterminal receipts still return not-found.
+      await _guardIdentity(identitySnapshot, closeFeedback);
+      await _guardIdentity(
+        identitySnapshot,
+        () => acknowledge(
+          AccountDeletionStatusByReceiptRequest(
+            terminalStatusReceipt: receipt.terminalStatusReceipt,
+          ),
+        ),
+      );
+      await _clearReceipt(identitySnapshot, receipt);
+      _requireIdentityUnchanged(identitySnapshot);
+      await recoverCompleted(activeJournal);
+      return AccountDeletionReceiptRecoveryStatus.completed;
+    }
+
+    _requireCompatibleStatus(activeJournal, receipt, status);
+    if (status.phase == AccountOperationPhase.blocked ||
+        status.phase == AccountOperationPhase.cancelled) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    if (activeJournal.operation?.phase == AccountOperationPhase.completed &&
+        (status.phase != AccountOperationPhase.completed || status.retryable)) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+
+    final boundReceipt = await _guardIdentity(
+      identitySnapshot,
+      () => receiptStore.bindOperation(
+        expected: receipt,
+        operationId: status.operationId,
+      ),
+    );
+    activeJournal = activeJournal.copyWith(operation: status);
+    if (status.phase != AccountOperationPhase.completed) {
+      await _guardIdentity(identitySnapshot, closeFeedback);
+      await _guardIdentity(
+        identitySnapshot,
+        () => journalStore.write(activeJournal),
+      );
+      return AccountDeletionReceiptRecoveryStatus.pending;
+    }
+    if (status.retryable) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+
+    await _guardIdentity(identitySnapshot, closeFeedback);
+    _requireIdentityUnchanged(identitySnapshot);
+    final completed = activeJournal.copyWith(
+      session: _cleanupSession(activeJournal),
+    );
+    _requireIdentityUnchanged(identitySnapshot);
+    // The non-secret completed checkpoint is the durable proof boundary. ACK
+    // and secure-capability removal may be retried after any later failure.
+    await _guardIdentity(identitySnapshot, () => journalStore.write(completed));
+    await _guardIdentity(
+      identitySnapshot,
+      () => acknowledge(
+        AccountDeletionStatusByReceiptRequest(
+          terminalStatusReceipt: boundReceipt.terminalStatusReceipt,
+        ),
+      ),
+    );
+    await _clearReceipt(identitySnapshot, boundReceipt);
+    _requireIdentityUnchanged(identitySnapshot);
+    await recoverCompleted(completed);
+    return AccountDeletionReceiptRecoveryStatus.completed;
+  }
+
+  Future<void> _clearReceipt(
+    ({String? uid, bool isAnonymous}) identitySnapshot,
+    AccountDeletionStatusReceipt receipt,
+  ) async {
+    final cleared = await _guardIdentity(
+      identitySnapshot,
+      () => receiptStore.clearIfCurrent(receipt),
+    );
+    if (!cleared) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+  }
+
+  void _requireMatchingReceipt(
+    AccountDeletionJournal journal,
+    AccountDeletionStatusReceipt receipt,
+  ) {
+    final operationMatches =
+        receipt.operationId == null ||
+        journal.operationId == null ||
+        receipt.operationId == journal.operationId;
+    if (!receipt.matchesWorkflow(
+          sourceUid: journal.session.uid,
+          requestKey: journal.requestKey,
+        ) ||
+        !operationMatches) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+  }
+
+  void _requireSafeStartingIdentity(
+    AccountDeletionJournal journal,
+    ({String? uid, bool isAnonymous}) identity,
+  ) {
+    final uid = identity.uid;
+    final isCompletedAfterRecovery =
+        journal.operation?.phase == AccountOperationPhase.completed &&
+        journal.operation?.retryable == false &&
+        journal.session.mode == CloudWriteMode.cleanupPending;
+    final safe = switch (uid) {
+      null => !identity.isAnonymous,
+      final value when value == journal.session.uid => true,
+      _ => identity.isAnonymous && isCompletedAfterRecovery,
+    };
+    if (!safe) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+  }
+
+  void _requireCompatibleStatus(
+    AccountDeletionJournal journal,
+    AccountDeletionStatusReceipt receipt,
+    AccountOperationResult status,
+  ) {
+    final prior = journal.operation;
+    final expectedOperationId = prior?.operationId ?? receipt.operationId;
+    if (status.kind != AccountOperationKind.deletion ||
+        (expectedOperationId != null &&
+            status.operationId != expectedOperationId) ||
+        (prior != null && status.version < prior.version)) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+  }
+
+  bool _isStrictAcknowledgementRetry(
+    AccountDeletionJournal journal,
+    AccountDeletionStatusReceipt receipt,
+  ) {
+    return journal.operation?.phase == AccountOperationPhase.completed &&
+        journal.operation?.retryable == false &&
+        journal.operationId != null &&
+        journal.session.mode == CloudWriteMode.cleanupPending &&
+        receipt.operationId == journal.operationId;
+  }
+
+  ({String? uid, bool isAnonymous}) _identitySnapshot() {
+    final identity = currentIdentity();
+    final normalized = identity.uid?.trim();
+    return (
+      uid: normalized == null || normalized.isEmpty ? null : normalized,
+      isAnonymous: identity.isAnonymous,
+    );
+  }
+
+  void _requireIdentityUnchanged(({String? uid, bool isAnonymous}) expected) {
+    if (_identitySnapshot() != expected) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+  }
+
+  Future<T> _guardIdentity<T>(
+    ({String? uid, bool isAnonymous}) expected,
+    Future<T> Function() action,
+  ) async {
+    _requireIdentityUnchanged(expected);
+    try {
+      final result = await action();
+      _requireIdentityUnchanged(expected);
+      return result;
+    } catch (error, stackTrace) {
+      _requireIdentityUnchanged(expected);
+      Error.throwWithStackTrace(error, stackTrace);
+    }
+  }
+
+  CloudWriteSession _cleanupSession(AccountDeletionJournal journal) {
+    if (journal.session.mode == CloudWriteMode.cleanupPending) {
+      return journal.session;
+    }
+    final current = sessions.current;
+    if (current == journal.session) {
+      return sessions.transition(CloudWriteMode.cleanupPending);
+    }
+    // A prior attempt can transition the in-memory fence and then fail while
+    // durably writing the completed journal. Accept only that exact one-step
+    // successor so the same receipt/status operation remains retryable.
+    if (current != null &&
+        current.uid == journal.session.uid &&
+        current.mode == CloudWriteMode.cleanupPending &&
+        current.epoch == journal.session.epoch + 1) {
+      return current;
+    }
+    if (current == null) {
+      return journal.session.copyWith(mode: CloudWriteMode.cleanupPending);
+    }
+    final identity = currentIdentity();
+    if (identity.isAnonymous &&
+        identity.uid == current.uid &&
+        current.uid != journal.session.uid) {
+      return journal.session.copyWith(mode: CloudWriteMode.cleanupPending);
+    }
+    throw const AccountOperationFailure(
+      AccountOperationFailureCode.blocked,
+      retryable: false,
+    );
+  }
+}
+
 class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   const _FirebaseAccountDeletionOperations({
     required this.user,
@@ -944,6 +1452,7 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
     required this.anonymousSource,
     required this.sessions,
     required this.journalStore,
+    required this.receiptStore,
   });
 
   final User user;
@@ -951,6 +1460,7 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   final FreshAnonymousAccountOperationGateway anonymousSource;
   final CloudWriteSessionController sessions;
   final AccountDeletionJournalStore journalStore;
+  final AccountDeletionStatusReceiptStore receiptStore;
 
   @override
   String get userId => user.uid;
@@ -1027,8 +1537,53 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   }
 
   @override
+  Future<AccountOperationResult> getAccountDeletionStatusByReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) {
+    return client.getAccountDeletionStatusByReceipt(request);
+  }
+
+  @override
+  Future<void> acknowledgeAccountDeletionStatusReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) {
+    return client.acknowledgeAccountDeletionStatusReceipt(request);
+  }
+
+  @override
   Future<AccountDeletionJournal?> readDeletionJournal() {
     return journalStore.read();
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt?> readDeletionStatusReceipt() {
+    return receiptStore.read();
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt> createDeletionStatusReceipt({
+    required String sourceUid,
+    required String requestKey,
+  }) {
+    return receiptStore.create(sourceUid: sourceUid, requestKey: requestKey);
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt> bindDeletionStatusReceipt({
+    required AccountDeletionStatusReceipt expected,
+    required String operationId,
+  }) {
+    return receiptStore.bindOperation(
+      expected: expected,
+      operationId: operationId,
+    );
+  }
+
+  @override
+  Future<bool> clearDeletionStatusReceipt(
+    AccountDeletionStatusReceipt expected,
+  ) {
+    return receiptStore.clearIfCurrent(expected);
   }
 
   @override
@@ -1215,6 +1770,8 @@ typedef TemporaryFirebaseAuthContextFactory =
     Future<TemporaryFirebaseAuthContext> Function();
 typedef FreshProviderCredential =
     Future<AuthCredential> Function(AccountLinkProvider provider);
+typedef SilentGoogleActivationCredential = Future<AuthCredential?> Function();
+typedef ExplicitAppleActivationCredential = Future<AuthCredential> Function();
 
 class FirebaseIsolatedTargetVerifier implements IsolatedTargetVerifier {
   FirebaseIsolatedTargetVerifier({
@@ -1406,12 +1963,13 @@ class _PluginTemporaryFirebaseAuthContext
 
 class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
   const FirebaseAccountTransitionIdentity()
-    : this._(null, null, null, null, null);
+    : this._(null, null, null, null, null, null);
 
   const FirebaseAccountTransitionIdentity._(
     this._currentUid,
     this._currentIsAnonymous,
-    this._acquireCredential,
+    this._acquireGoogleCredentialSilently,
+    this._acquireAppleCredentialExplicitly,
     this._signIn,
     this._signOut,
   );
@@ -1420,22 +1978,23 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
   factory FirebaseAccountTransitionIdentity.test({
     required String? Function() currentUid,
     required bool Function() currentIsAnonymous,
-    required Future<AuthCredential> Function(AccountLinkProvider provider)
-    acquireCredential,
+    required SilentGoogleActivationCredential acquireGoogleCredentialSilently,
+    required ExplicitAppleActivationCredential acquireAppleCredentialExplicitly,
     required Future<String?> Function(AuthCredential credential) signIn,
     required Future<void> Function() signOut,
   }) => FirebaseAccountTransitionIdentity._(
     currentUid,
     currentIsAnonymous,
-    acquireCredential,
+    acquireGoogleCredentialSilently,
+    acquireAppleCredentialExplicitly,
     signIn,
     signOut,
   );
 
   final String? Function()? _currentUid;
   final bool Function()? _currentIsAnonymous;
-  final Future<AuthCredential> Function(AccountLinkProvider provider)?
-  _acquireCredential;
+  final SilentGoogleActivationCredential? _acquireGoogleCredentialSilently;
+  final ExplicitAppleActivationCredential? _acquireAppleCredentialExplicitly;
   final Future<String?> Function(AuthCredential credential)? _signIn;
   final Future<void> Function()? _signOut;
 
@@ -1464,9 +2023,7 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
       sessions,
       allowMissingSource: allowMissingSource,
     );
-    final credential =
-        await (_acquireCredential?.call(provider) ??
-            AuthService._acquireFreshProviderCredential(provider));
+    final credential = await _acquireActivationCredential(provider);
     _assertSource(
       expectedSourceSession,
       sessions,
@@ -1482,14 +2039,43 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
     try {
       sessions.assertCurrent(expectedSourceSession);
     } on StateError {
-      await _signOutPrimary();
+      await _signOutActivationIfOwned(signedInUid: signedInUid);
       throw const AccountLinkSafetyFailure();
     }
     if (signedInUid != expectedTargetUid ||
         currentUid != expectedTargetUid ||
         currentIsAnonymous) {
-      await _signOutPrimary();
+      await _signOutActivationIfOwned(signedInUid: signedInUid);
       throw const AccountLinkSafetyFailure();
+    }
+  }
+
+  Future<void> _signOutActivationIfOwned({required String? signedInUid}) async {
+    final liveUid = currentUid;
+    if (signedInUid == null || liveUid != signedInUid) {
+      return;
+    }
+    // FirebaseAuth exposes no auth-incarnation token here. A concurrent auth
+    // replacement that resolves to the exact same UID cannot be distinguished
+    // from this call's sign-in; UID-exact ownership is the current model limit.
+    await _signOutPrimary();
+  }
+
+  Future<AuthCredential> _acquireActivationCredential(
+    AccountLinkProvider provider,
+  ) async {
+    switch (provider) {
+      case AccountLinkProvider.google:
+        final credential =
+            await (_acquireGoogleCredentialSilently?.call() ??
+                AuthService._acquireGoogleActivationCredentialSilently());
+        if (credential == null) {
+          throw const AccountLinkSafetyFailure();
+        }
+        return credential;
+      case AccountLinkProvider.apple:
+        return _acquireAppleCredentialExplicitly?.call() ??
+            AuthService._acquireAppleActivationCredentialExplicitly();
     }
   }
 
@@ -1525,6 +2111,9 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
 
 typedef ReplacementJournalReader = Future<AccountTransitionJournal?> Function();
 typedef DeletionJournalReader = Future<AccountDeletionJournal?> Function();
+typedef DeletionStatusReceiptReader =
+    Future<AccountDeletionStatusReceipt?> Function();
+typedef DeletionReceiptRecoveryIdentityGuard = bool Function(String liveUid);
 typedef CloudBackupDeletionJournalReader =
     Future<CloudBackupDeletionJournal?> Function();
 
@@ -1533,6 +2122,8 @@ class AccountStartupJournalResolver {
     required this.sessions,
     required this.readReplacement,
     required this.readDeletion,
+    this.readDeletionStatusReceipt,
+    this.isDeletionReceiptRecoveryIdentitySafe,
     this.readFeedbackActivation,
     this.readCloudBackupDeletion,
   });
@@ -1540,6 +2131,9 @@ class AccountStartupJournalResolver {
   final CloudWriteSessionController sessions;
   final ReplacementJournalReader readReplacement;
   final DeletionJournalReader readDeletion;
+  final DeletionStatusReceiptReader? readDeletionStatusReceipt;
+  final DeletionReceiptRecoveryIdentityGuard?
+  isDeletionReceiptRecoveryIdentitySafe;
   final DeletionJournalReader? readFeedbackActivation;
   final CloudBackupDeletionJournalReader? readCloudBackupDeletion;
 
@@ -1548,6 +2142,9 @@ class AccountStartupJournalResolver {
     try {
       final replacement = await readReplacement();
       final deletion = await readDeletion();
+      final deletionReceipt = deletion == null
+          ? null
+          : await readDeletionStatusReceipt?.call();
       final feedbackActivation = await readFeedbackActivation?.call();
       final cloudBackupDeletion = await readCloudBackupDeletion?.call();
       replacement?.toJson();
@@ -1577,7 +2174,7 @@ class AccountStartupJournalResolver {
         return const AccountStartupRestoration.feedbackActivationPending();
       }
       if (deletion != null) {
-        return _restoreDeletion(deletion, normalizedUid);
+        return _restoreDeletion(deletion, normalizedUid, deletionReceipt);
       }
       if (cloudBackupDeletion != null) {
         return _restoreCloudBackupDeletion(cloudBackupDeletion, normalizedUid);
@@ -1613,16 +2210,57 @@ class AccountStartupJournalResolver {
   AccountStartupRestoration _restoreDeletion(
     AccountDeletionJournal journal,
     String? liveUid,
+    AccountDeletionStatusReceipt? receipt,
   ) {
-    if (journal.operation?.phase == AccountOperationPhase.completed) {
-      return const AccountStartupRestoration.localCleanupPending();
-    }
-    if (liveUid == null ||
-        liveUid != journal.session.uid ||
-        !_resumeExact(journal.session, liveUid)) {
+    if (_receiptMatches(journal, receipt)) {
+      if (_receiptRecoveryIdentityIsSafe(journal, liveUid)) {
+        // A capability-bound status read is sufficient even while the exact
+        // source identity is still live. Avoid the interactive normal resume,
+        // which can otherwise surface an Apple/Google OAuth prompt at startup.
+        return const AccountStartupRestoration.deletionReceiptPending();
+      }
       return const AccountStartupRestoration.blocked();
     }
-    return AccountStartupRestoration.deletion(journal.session);
+    if (journal.operation?.phase == AccountOperationPhase.completed) {
+      if (receipt == null) {
+        return const AccountStartupRestoration.localCleanupPending();
+      }
+      return const AccountStartupRestoration.blocked();
+    }
+    if (liveUid == journal.session.uid) {
+      if (!_resumeExact(journal.session, liveUid!)) {
+        return const AccountStartupRestoration.blocked();
+      }
+      return AccountStartupRestoration.deletion(journal.session);
+    }
+    return const AccountStartupRestoration.blocked();
+  }
+
+  bool _receiptMatches(
+    AccountDeletionJournal journal,
+    AccountDeletionStatusReceipt? receipt,
+  ) {
+    if (receipt == null) return false;
+    return receipt.matchesWorkflow(
+          sourceUid: journal.session.uid,
+          requestKey: journal.requestKey,
+        ) &&
+        (receipt.operationId == null ||
+            journal.operationId == null ||
+            receipt.operationId == journal.operationId);
+  }
+
+  bool _receiptRecoveryIdentityIsSafe(
+    AccountDeletionJournal journal,
+    String? liveUid,
+  ) {
+    if (liveUid == null || liveUid == journal.session.uid) return true;
+    final completedAfterRecovery =
+        journal.operation?.phase == AccountOperationPhase.completed &&
+        journal.operation?.retryable == false &&
+        journal.session.mode == CloudWriteMode.cleanupPending;
+    return completedAfterRecovery &&
+        (isDeletionReceiptRecoveryIdentitySafe?.call(liveUid) ?? false);
   }
 
   AccountStartupRestoration _restoreCloudBackupDeletion(
@@ -1657,6 +2295,8 @@ class AuthService {
       Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
+  static final AccountDeletionStatusReceiptStore
+  _accountDeletionStatusReceiptStore = AccountDeletionStatusReceiptStore();
   static const AccountDeletionJournalStore
   _accountDeletionFeedbackActivationJournalStore =
       _SharedPreferencesAccountDeletionJournalStore(
@@ -1932,6 +2572,11 @@ class AuthService {
       sessions: cloudWriteSessionController,
       readReplacement: replacementStore.read,
       readDeletion: _accountDeletionJournalStore.read,
+      readDeletionStatusReceipt: _accountDeletionStatusReceiptStore.read,
+      isDeletionReceiptRecoveryIdentitySafe: (liveUid) {
+        final live = current;
+        return live != null && live.uid == liveUid && live.isAnonymous;
+      },
       readFeedbackActivation:
           _accountDeletionFeedbackActivationJournalStore.read,
       readCloudBackupDeletion: _cloudBackupDeletionJournalStore.read,
@@ -2267,9 +2912,15 @@ class AuthService {
       readCheckpoint: _readPrimaryDeletionCheckpointForRemoteGate,
       startOrResumeRemote: () =>
           _startOrResumeRemoteAccountDeletion(closeFeedback: closeFeedback),
-      recoverCompleted: _recoverCompletedAccountDeletion,
+      recoverCompleted: (checkpoint) =>
+          _recoverCompletedAccountDeletionAndReceipt(
+            checkpoint,
+            closeFeedback: closeFeedback,
+          ),
       preflight: _preflightCompletedAccountDeletionRecovery,
-      closeFeedback: closeFeedback,
+      // Receipt-aware recovery owns its identity snapshot across feedback,
+      // status verification, ACK, and secure capability removal.
+      closeFeedback: _noopAccountDeletionFeedbackCloser,
     ).run();
   }
 
@@ -2289,6 +2940,7 @@ class AuthService {
         anonymousSource: _anonymousSourceOperationGateway(client),
         sessions: cloudWriteSessionController,
         journalStore: _accountDeletionJournalStore,
+        receiptStore: _accountDeletionStatusReceiptStore,
       ),
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
@@ -2319,6 +2971,36 @@ class AuthService {
         await ensureSignedIn();
       },
     );
+  }
+
+  static Future<void> _recoverCompletedAccountDeletionAndReceipt(
+    AccountDeletionJournal checkpoint, {
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) async {
+    final receipt = await _accountDeletionStatusReceiptStore.read();
+    if (receipt == null) {
+      await closeFeedback();
+      await _recoverCompletedAccountDeletion(checkpoint);
+      return;
+    }
+    final client = AccountOperationClient.firebase();
+    final status = await AccountDeletionReceiptRecoveryCoordinator(
+      journalStore: _accountDeletionJournalStore,
+      receiptStore: _accountDeletionStatusReceiptStore,
+      sessions: cloudWriteSessionController,
+      currentIdentity: () =>
+          (uid: current?.uid, isAnonymous: current?.isAnonymous ?? false),
+      readStatus: client.getAccountDeletionStatusByReceipt,
+      acknowledge: client.acknowledgeAccountDeletionStatusReceipt,
+      closeFeedback: closeFeedback,
+      recoverCompleted: _recoverCompletedAccountDeletion,
+    ).resume();
+    if (status != AccountDeletionReceiptRecoveryStatus.completed) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.unavailable,
+        retryable: true,
+      );
+    }
   }
 
   static void _preflightCompletedAccountDeletionRecovery(
@@ -2461,6 +3143,36 @@ class AuthService {
     );
   }
 
+  /// Reads only a capability-bound deletion status after source Auth removal.
+  /// It never creates, advances, or cancels a remote account operation.
+  static Future<void> resumePendingAccountDeletionByReceipt({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) {
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
+      onAdmitted: () async {
+        final client = AccountOperationClient.firebase();
+        await AccountDeletionReceiptRecoveryCoordinator(
+          journalStore: _accountDeletionJournalStore,
+          receiptStore: _accountDeletionStatusReceiptStore,
+          sessions: cloudWriteSessionController,
+          currentIdentity: () =>
+              (uid: current?.uid, isAnonymous: current?.isAnonymous ?? false),
+          readStatus: client.getAccountDeletionStatusByReceipt,
+          acknowledge: client.acknowledgeAccountDeletionStatusReceipt,
+          closeFeedback: closeFeedback,
+          recoverCompleted: _recoverCompletedAccountDeletion,
+        ).resume();
+      },
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
   static Future<void> _resumePendingAccountDeletionAfterCloudBackupAdmission({
     required AccountDeletionFeedbackCloser closeFeedback,
   }) async {
@@ -2479,6 +3191,7 @@ class AuthService {
         anonymousSource: _anonymousSourceOperationGateway(client),
         sessions: cloudWriteSessionController,
         journalStore: _accountDeletionJournalStore,
+        receiptStore: _accountDeletionStatusReceiptStore,
       ),
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
@@ -2549,6 +3262,29 @@ class AuthService {
           'apple.com',
         ).credential(idToken: apple.identityToken, rawNonce: rawNonce);
     }
+  }
+
+  /// Reuses only the account selected by the immediately preceding isolated
+  /// Google verification. A missing/expired cached session is a resumable
+  /// activation failure; it must never open a second interactive chooser.
+  static Future<AuthCredential?>
+  _acquireGoogleActivationCredentialSilently() async {
+    final googleUser = await GoogleSignIn().signInSilently(
+      suppressErrors: false,
+      reAuthenticate: false,
+    );
+    if (googleUser == null) return null;
+    final googleAuth = await googleUser.authentication;
+    return GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+  }
+
+  /// Apple credentials are intentionally single-use and nonce-bound, so
+  /// activation keeps the existing fresh Sign in with Apple prompt.
+  static Future<AuthCredential> _acquireAppleActivationCredentialExplicitly() {
+    return _acquireFreshProviderCredential(AccountLinkProvider.apple);
   }
 
   static Future<String?> _reauthenticateWithApple(User user) async {

@@ -15,6 +15,7 @@ enum AccountStartupRestorationKind {
   none,
   replacement,
   deletion,
+  deletionReceiptPending,
   cloudBackupDeletion,
   localCleanupPending,
   feedbackActivationPending,
@@ -31,6 +32,10 @@ class AccountStartupRestoration {
 
   const AccountStartupRestoration.deletion(this.session)
     : kind = AccountStartupRestorationKind.deletion;
+
+  const AccountStartupRestoration.deletionReceiptPending()
+    : kind = AccountStartupRestorationKind.deletionReceiptPending,
+      session = null;
 
   const AccountStartupRestoration.cloudBackupDeletion(this.session)
     : kind = AccountStartupRestorationKind.cloudBackupDeletion;
@@ -66,6 +71,7 @@ class AppStartupCoordinator {
     this.resumeCompletedFeedbackActivation = _noopStartupStep,
     this.resumeCloudBackupDeletion = _noopStartupStep,
     this.resumeCloudAutoSync = _noopStartupStep,
+    this.resumeAccountDeletionByReceipt = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -86,6 +92,7 @@ class AppStartupCoordinator {
   final StartupStep resumeCompletedFeedbackActivation;
   final StartupStep resumeCloudBackupDeletion;
   final StartupStep resumeCloudAutoSync;
+  final StartupStep resumeAccountDeletionByReceipt;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -138,12 +145,17 @@ class AppStartupCoordinator {
           }
           break;
         case AccountStartupRestorationKind.deletion:
-          // A deletion checkpoint owns startup until its exact operation is
-          // resumed. In particular, do not admit the feedback outbox while
-          // the old account identity is still being retired.
-          if (restoration.session != null) {
-            await resumeAccountOperation();
-          }
+          // A receipt-less legacy deletion checkpoint only fences startup.
+          // Its authenticated resume may reach Apple token revocation and
+          // therefore must remain an explicit Settings action; cold startup
+          // must never surprise the user with provider OAuth. Receipt-backed
+          // deletions use the capability-only status path below instead.
+          return true;
+        case AccountStartupRestorationKind.deletionReceiptPending:
+          // The source Auth user may already have been deleted by the worker.
+          // Resume only the capability-bound, read-only status path. Creating
+          // a replacement identity first would lose the exact recovery lane.
+          await resumeAccountDeletionByReceipt();
           return true;
         case AccountStartupRestorationKind.none:
           break;

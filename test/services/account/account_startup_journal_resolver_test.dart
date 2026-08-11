@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/services/account/account_deletion_status_receipt.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
@@ -106,6 +107,35 @@ void main() {
   );
 
   test(
+    'completed deletion with an uncleared receipt retries receipt finalization',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = _deletionJournal(AccountOperationPhase.completed);
+      final receipt = AccountDeletionStatusReceipt.checked(
+        sourceUid: journal.session.uid,
+        requestKey: journal.requestKey,
+        terminalStatusReceipt: 'A' * 43,
+        operationId: journal.operationId,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => journal,
+        readDeletionStatusReceipt: () async => receipt,
+        isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'new-anonymous',
+      );
+
+      final restored = await resolver.restore('new-anonymous');
+
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
     'feedback handoff alone is activation pending, not local cleanup pending',
     () async {
       final sessions = CloudWriteSessionController();
@@ -195,6 +225,120 @@ void main() {
     expect(restored.kind, AccountStartupRestorationKind.deletion);
     expect(restored.session, journal.session);
     expect(sessions.current, journal.session);
+  });
+
+  test(
+    'exact live source with a matching receipt uses status-only restoration',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = _deletionJournal(AccountOperationPhase.deletionRequested);
+      final receipt = AccountDeletionStatusReceipt.checked(
+        sourceUid: journal.session.uid,
+        requestKey: journal.requestKey,
+        terminalStatusReceipt: 'A' * 43,
+        operationId: journal.operationId,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => journal,
+        readDeletionStatusReceipt: () async => receipt,
+      );
+
+      final restored = await resolver.restore('anonymous-source');
+
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(restored.session, isNull);
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
+    'matching secure receipt restores pending deletion after source auth is gone',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = _deletionJournal(
+        AccountOperationPhase.processorCleanupPending,
+      );
+      final receipt = AccountDeletionStatusReceipt.checked(
+        sourceUid: journal.session.uid,
+        requestKey: journal.requestKey,
+        terminalStatusReceipt: 'A' * 43,
+        operationId: journal.operationId,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => journal,
+        readDeletionStatusReceipt: () async => receipt,
+      );
+
+      final restored = await resolver.restore(null);
+
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.deletionReceiptPending,
+      );
+      expect(restored.session, isNull);
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
+    'pending receipt recovery rejects an arbitrary different anonymous identity',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = _deletionJournal(
+        AccountOperationPhase.communityCleanupPending,
+      );
+      final receipt = AccountDeletionStatusReceipt.checked(
+        sourceUid: journal.session.uid,
+        requestKey: journal.requestKey,
+        terminalStatusReceipt: 'A' * 43,
+        operationId: journal.operationId,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => journal,
+        readDeletionStatusReceipt: () async => receipt,
+        isDeletionReceiptRecoveryIdentitySafe: (uid) => uid == 'fresh-anon',
+      );
+
+      final arbitraryAnonymous = await resolver.restore('fresh-anon');
+      final unrelated = await resolver.restore('durable-other');
+
+      expect(arbitraryAnonymous.kind, AccountStartupRestorationKind.blocked);
+      expect(unrelated.kind, AccountStartupRestorationKind.blocked);
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test('mismatched receipt cannot recover a deletion journal', () async {
+    final sessions = CloudWriteSessionController();
+    final journal = _deletionJournal(
+      AccountOperationPhase.processorCleanupPending,
+    );
+    final receipt = AccountDeletionStatusReceipt.checked(
+      sourceUid: journal.session.uid,
+      requestKey: 'another-request',
+      terminalStatusReceipt: 'A' * 43,
+      operationId: journal.operationId,
+    );
+    final resolver = AccountStartupJournalResolver(
+      sessions: sessions,
+      readReplacement: () async => null,
+      readDeletion: () async => journal,
+      readDeletionStatusReceipt: () async => receipt,
+    );
+
+    final restored = await resolver.restore(null);
+
+    expect(restored.kind, AccountStartupRestorationKind.blocked);
+    expect(sessions.current, isNull);
   });
 
   test(

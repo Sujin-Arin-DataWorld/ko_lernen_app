@@ -5,6 +5,8 @@ import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/firebase_app_check_initializer.dart';
 
+const _terminalStatusReceipt = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+
 void main() {
   group('FirebaseAppCheckInitializer', () {
     test('uses debug providers only in debug builds', () async {
@@ -117,7 +119,10 @@ void main() {
       );
 
       final result = await client.requestAccountDeletion(
-        const AccountDeletionRequest(requestKey: 'request-1'),
+        const AccountDeletionRequest(
+          requestKey: 'request-1',
+          terminalStatusReceipt: _terminalStatusReceipt,
+        ),
       );
 
       expect(selectedRegion, 'europe-west3');
@@ -125,7 +130,10 @@ void main() {
         transport.calls.single,
         const AccountOperationTransportCall(
           name: 'requestAccountDeletion',
-          data: {'requestKey': 'request-1'},
+          data: {
+            'requestKey': 'request-1',
+            'terminalStatusReceipt': _terminalStatusReceipt,
+          },
         ),
       );
       expect(result.operationId, 'operation-1');
@@ -149,7 +157,10 @@ void main() {
       Object? caught;
       try {
         await client.requestAccountDeletion(
-          const AccountDeletionRequest(requestKey: 'request-1'),
+          const AccountDeletionRequest(
+            requestKey: 'request-1',
+            terminalStatusReceipt: _terminalStatusReceipt,
+          ),
         );
       } catch (error) {
         caught = error;
@@ -183,7 +194,10 @@ void main() {
 
         await expectLater(
           client.requestAccountDeletion(
-            const AccountDeletionRequest(requestKey: 'request-1'),
+            const AccountDeletionRequest(
+              requestKey: 'request-1',
+              terminalStatusReceipt: _terminalStatusReceipt,
+            ),
           ),
           throwsA(
             isA<AccountOperationFailure>()
@@ -231,6 +245,76 @@ void main() {
       expect(statusTransport.calls, hasLength(3));
       expect(delays, hasLength(2));
 
+      final receiptTransport = _FakeTransport()
+        ..failures.addAll([
+          const AccountOperationTransportException(code: 'unavailable'),
+          const AccountOperationTransportException(code: 'deadline-exceeded'),
+        ])
+        ..responses.add({
+          'operationId': 'operation-1',
+          'kind': 'deletion',
+          'phase': 'completed',
+          'version': 8,
+          'attemptCount': 3,
+          'retryable': false,
+          'blockedReason': null,
+        });
+      final receiptDelays = <Duration>[];
+      final receiptClient = AccountOperationClient(
+        transport: receiptTransport,
+        retryDelay: (duration) async => receiptDelays.add(duration),
+      );
+
+      final receiptResult = await receiptClient
+          .getAccountDeletionStatusByReceipt(
+            const AccountDeletionStatusByReceiptRequest(
+              terminalStatusReceipt: _terminalStatusReceipt,
+            ),
+          );
+
+      expect(receiptResult.phase, AccountOperationPhase.completed);
+      expect(receiptTransport.calls, hasLength(3));
+      expect(
+        receiptTransport.calls.every(
+          (call) =>
+              call.name == 'getAccountDeletionStatusByReceipt' &&
+              call.data['terminalStatusReceipt'] == _terminalStatusReceipt,
+        ),
+        isTrue,
+      );
+      expect(receiptDelays, const <Duration>[
+        Duration(milliseconds: 200),
+        Duration(milliseconds: 400),
+      ]);
+
+      final ackTransport = _FakeTransport()
+        ..failures.add(
+          const AccountOperationTransportException(code: 'unavailable'),
+        )
+        ..responses.add(<String, Object?>{'acknowledged': true});
+      final ackDelays = <Duration>[];
+      final ackClient = AccountOperationClient(
+        transport: ackTransport,
+        retryDelay: (duration) async => ackDelays.add(duration),
+      );
+
+      await ackClient.acknowledgeAccountDeletionStatusReceipt(
+        const AccountDeletionStatusByReceiptRequest(
+          terminalStatusReceipt: _terminalStatusReceipt,
+        ),
+      );
+
+      expect(ackTransport.calls, hasLength(2));
+      expect(
+        ackTransport.calls.every(
+          (call) =>
+              call.name == 'acknowledgeAccountDeletionStatusReceipt' &&
+              call.data['terminalStatusReceipt'] == _terminalStatusReceipt,
+        ),
+        isTrue,
+      );
+      expect(ackDelays, const <Duration>[Duration(milliseconds: 200)]);
+
       final requestTransport = _FakeTransport()
         ..failures.add(
           const AccountOperationTransportException(code: 'unavailable'),
@@ -239,12 +323,103 @@ void main() {
 
       await expectLater(
         requestClient.requestAccountDeletion(
-          const AccountDeletionRequest(requestKey: 'request-1'),
+          const AccountDeletionRequest(
+            requestKey: 'request-1',
+            terminalStatusReceipt: _terminalStatusReceipt,
+          ),
         ),
         throwsA(isA<AccountOperationFailure>()),
       );
       expect(requestTransport.calls, hasLength(1));
     });
+
+    test('rejects a malformed receipt before invoking the transport', () async {
+      final transport = _FakeTransport();
+      final client = AccountOperationClient(transport: transport);
+
+      expect(
+        () => client.requestAccountDeletion(
+          const AccountDeletionRequest(
+            requestKey: 'request-1',
+            terminalStatusReceipt: 'not-a-capability',
+          ),
+        ),
+        throwsA(
+          isA<AccountOperationFailure>().having(
+            (failure) => failure.code,
+            'code',
+            AccountOperationFailureCode.invalidRequest,
+          ),
+        ),
+      );
+      expect(
+        () => client.getAccountDeletionStatusByReceipt(
+          const AccountDeletionStatusByReceiptRequest(
+            terminalStatusReceipt: 'not-a-capability',
+          ),
+        ),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      expect(transport.calls, isEmpty);
+    });
+
+    test('rejects a malformed receipt acknowledgement response', () async {
+      final transport = _FakeTransport()
+        ..responses.add(<String, Object?>{'acknowledged': false});
+      final client = AccountOperationClient(transport: transport);
+
+      await expectLater(
+        client.acknowledgeAccountDeletionStatusReceipt(
+          const AccountDeletionStatusByReceiptRequest(
+            terminalStatusReceipt: _terminalStatusReceipt,
+          ),
+        ),
+        throwsA(
+          isA<AccountOperationFailure>().having(
+            (failure) => failure.code,
+            'code',
+            AccountOperationFailureCode.invalidResponse,
+          ),
+        ),
+      );
+    });
+
+    for (final safeCode in <String>[
+      'terminal-status-receipt-required',
+      'terminal-status-receipt-invalid',
+    ]) {
+      test('maps $safeCode to a non-retryable invalid request', () async {
+        final transport = _FakeTransport()
+          ..failures.add(
+            AccountOperationTransportException(
+              code: 'invalid-argument',
+              safeCode: safeCode,
+              unsafeMessage: _terminalStatusReceipt,
+            ),
+          );
+        final client = AccountOperationClient(transport: transport);
+
+        Object? caught;
+        try {
+          await client.requestAccountDeletion(
+            const AccountDeletionRequest(
+              requestKey: 'request-1',
+              terminalStatusReceipt: _terminalStatusReceipt,
+            ),
+          );
+        } catch (error) {
+          caught = error;
+        }
+
+        expect(caught, isA<AccountOperationFailure>());
+        expect(
+          (caught! as AccountOperationFailure).code,
+          AccountOperationFailureCode.invalidRequest,
+        );
+        expect((caught as AccountOperationFailure).retryable, isFalse);
+        expect(caught.toString(), isNot(contains(_terminalStatusReceipt)));
+      });
+    }
 
     test('sends Apple authorization only to the completion callable', () async {
       final transport = _FakeTransport()
@@ -428,7 +603,10 @@ void main() {
             ),
             _ => source.requestAnonymousAccountDeletion(
               expectedSession: expected,
-              request: const AccountDeletionRequest(requestKey: 'request-1'),
+              request: const AccountDeletionRequest(
+                requestKey: 'request-1',
+                terminalStatusReceipt: _terminalStatusReceipt,
+              ),
             ),
           };
 

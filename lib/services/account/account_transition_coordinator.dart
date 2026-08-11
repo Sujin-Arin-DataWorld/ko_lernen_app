@@ -119,8 +119,10 @@ abstract interface class AccountTransitionIdentity {
   String? get currentUid;
   bool get currentIsAnonymous;
 
-  /// Acquires a fresh provider credential and activates it in the primary auth
-  /// context. It is called only after source cleanup is terminal-successful.
+  /// Acquires a provider-appropriate activation credential and activates it in
+  /// the primary auth context. Google may reuse only the immediately verified
+  /// silent session; Apple remains fresh and explicit. It is called only after
+  /// source cleanup is terminal-successful.
   Future<void> activateTarget(
     AccountLinkProvider provider, {
     required String expectedTargetUid,
@@ -409,8 +411,8 @@ class AccountTransitionCoordinator {
     required this.journalStore,
     required this.createRequestKey,
     required this.reconcile,
-    this.maxStatusPolls = 30,
-    this.pollDelay = _noPollDelay,
+    required this.maxStatusPolls,
+    required this.pollDelay,
   }) : assert(maxStatusPolls > 0);
 
   final CloudWriteSessionController sessions;
@@ -422,8 +424,6 @@ class AccountTransitionCoordinator {
   final ReplacementReconciler reconcile;
   final int maxStatusPolls;
   final Future<void> Function() pollDelay;
-
-  static Future<void> _noPollDelay() async {}
 
   Future<AccountTransitionResult> confirm(
     ExistingAccountLinkConflict conflict, {
@@ -511,16 +511,19 @@ class AccountTransitionCoordinator {
         journal.replacementPhase == AccountReplacementPhase.activationPending &&
         identity.currentUid == journal.replacementTargetUid &&
         !identity.currentIsAnonymous;
-    final activatedTargetSession =
+    var activatedTargetSession =
         alreadyActivated &&
             sessions.current?.uid == journal.replacementTargetUid &&
             sessions.current?.mode == CloudWriteMode.ready
         ? sessions.current
         : null;
+    final canAcquireActivatedTargetSession =
+        alreadyActivated && sessions.current == null;
     if (provider == null ||
         (!hasRestoredSession &&
             !canRestoreDeletedSource &&
-            activatedTargetSession == null) ||
+            activatedTargetSession == null &&
+            !canAcquireActivatedTargetSession) ||
         (hasRestoredSession &&
             !_hasExpectedIdentity(
               journal,
@@ -544,6 +547,19 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(
           AccountTransitionStatus.targetVerificationFailed,
         );
+      }
+      if (activatedTargetSession == null && canAcquireActivatedTargetSession) {
+        // A crash can land after Firebase has durably activated the target but
+        // before the process acquired its ready cloud-write session. Restore
+        // only the exact non-anonymous target, only for the terminal
+        // activationPending checkpoint, and only while no competing session
+        // appeared during isolated target verification.
+        if (sessions.current != null ||
+            identity.currentUid != journal.replacementTargetUid ||
+            identity.currentIsAnonymous) {
+          return const AccountTransitionResult(AccountTransitionStatus.blocked);
+        }
+        activatedTargetSession = sessions.acquire(target.uid);
       }
       if (activatedTargetSession != null) {
         return _completeActivatedRecovery(

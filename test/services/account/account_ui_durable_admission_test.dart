@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -181,6 +182,38 @@ void main() {
     },
   );
 
+  test('replacement resume records its returned terminal status', () async {
+    final scenario = await _AdmissionScenario.create();
+    await scenario.replacementJournalStore.write(_replacementJournal());
+    final flow = _RecordingReplacementFlow(
+      sessions: scenario.sessions,
+      journalStore: scenario.replacementJournalStore,
+      resumeStatus: AccountTransitionStatus.completed,
+    );
+    final operations = ProductionAccountUiOperations(
+      replacementFlowFactory: () async => flow,
+    );
+    final messages = <String>[];
+    final previousDebugPrint = debugPrint;
+    debugPrint = (String? message, {int? wrapWidth}) {
+      if (message != null) messages.add(message);
+    };
+
+    try {
+      final result = await operations.resumeReplacement();
+
+      expect(result.status, AccountTransitionStatus.completed);
+      expect(
+        messages,
+        contains(
+          contains('klAccount: link.resume.result none status=completed'),
+        ),
+      );
+    } finally {
+      debugPrint = previousDebugPrint;
+    }
+  });
+
   test(
     'replacement composition uses the injected curriculum catalog',
     () async {
@@ -264,6 +297,40 @@ void main() {
 
       expect(result.status, AccountReconciliationStatus.completed);
       expect(writtenRemote!.courseMastery!.currentCourseUnitId, 'unit-root');
+    },
+  );
+
+  test(
+    'replacement composition applies an injectable non-zero bounded poll cadence',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      Duration? requestedDelay;
+      final operations = ProductionAccountUiOperations(
+        curriculumCatalogLoader: () async => _minimalCourseCatalog(),
+        replacementAccountOperations: const _UnusedReplacementOperations(),
+        replacementStatusPollDelay: (delay) async {
+          requestedDelay = delay;
+        },
+      );
+
+      final composition = await operations.createReplacementComposition();
+      await composition.coordinator.pollDelay();
+
+      expect(
+        requestedDelay,
+        ProductionAccountUiOperations.replacementStatusPollInterval,
+      );
+      expect(requestedDelay, isNot(Duration.zero));
+      expect(
+        composition.coordinator.maxStatusPolls,
+        ProductionAccountUiOperations.replacementStatusPollLimit,
+      );
+      expect(
+        requestedDelay! * composition.coordinator.maxStatusPolls,
+        lessThanOrEqualTo(
+          ProductionAccountUiOperations.replacementStatusPollWindow,
+        ),
+      );
     },
   );
 }
@@ -363,11 +430,13 @@ class _RecordingReplacementFlow implements AccountUiReplacementFlow {
     required this.sessions,
     required this.journalStore,
     this.events,
+    this.resumeStatus = AccountTransitionStatus.reconciliationPending,
   });
 
   final CloudWriteSessionController sessions;
   final SharedPreferencesReplacementTransitionJournalStore journalStore;
   final List<String>? events;
+  final AccountTransitionStatus resumeStatus;
   int confirmCalls = 0;
   int resumeCalls = 0;
   int cancelCalls = 0;
@@ -405,9 +474,7 @@ class _RecordingReplacementFlow implements AccountUiReplacementFlow {
   @override
   Future<AccountTransitionResult> resume() async {
     resumeCalls += 1;
-    return const AccountTransitionResult(
-      AccountTransitionStatus.reconciliationPending,
-    );
+    return AccountTransitionResult(resumeStatus);
   }
 }
 

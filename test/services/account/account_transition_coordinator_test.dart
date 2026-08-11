@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
@@ -7,6 +8,7 @@ import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -467,30 +469,33 @@ void main() {
     },
   );
 
-  test('cancel keeps an unprepared journal when prepare is ambiguous', () async {
-    final harness = _Harness()
-      ..operations.prepareFailures.add(
-        const AccountOperationFailure(
-          AccountOperationFailureCode.unavailable,
-          retryable: true,
-        ),
+  test(
+    'cancel keeps an unprepared journal when prepare is ambiguous',
+    () async {
+      final harness = _Harness()
+        ..operations.prepareFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+      final quiesced = harness.sessions.transition(CloudWriteMode.quiesced);
+      final journal = AccountTransitionJournal.fromSession(
+        quiesced,
+        replacementProvider: 'google',
+        replacementTargetUid: 'durable-target',
+        replacementRequestKey: 'request-key-1',
+        replacementPhase: AccountReplacementPhase.targetVerified,
       );
-    final quiesced = harness.sessions.transition(CloudWriteMode.quiesced);
-    final journal = AccountTransitionJournal.fromSession(
-      quiesced,
-      replacementProvider: 'google',
-      replacementTargetUid: 'durable-target',
-      replacementRequestKey: 'request-key-1',
-      replacementPhase: AccountReplacementPhase.targetVerified,
-    );
-    harness.journal.value = journal;
+      harness.journal.value = journal;
 
-    // An unavailable response can hide a prepare that committed server-side,
-    // so the journal has to survive for a later resume or cancel.
-    expect(await harness.coordinator.cancel(), isFalse);
-    expect(harness.operations.cancelCalls, 0);
-    expect(harness.journal.value, same(journal));
-  });
+      // An unavailable response can hide a prepare that committed server-side,
+      // so the journal has to survive for a later resume or cancel.
+      expect(await harness.coordinator.cancel(), isFalse);
+      expect(harness.operations.cancelCalls, 0);
+      expect(harness.journal.value, same(journal));
+    },
+  );
 
   test(
     'source session race after remote cancel preserves the exact journal',
@@ -890,8 +895,143 @@ void main() {
     },
   );
 
+  for (final scenario in <String>[
+    'silent-null',
+    'silent-failure',
+    'wrong-uid',
+    'wrong-return-concurrent-target',
+    'session-race',
+    'concurrent-durable',
+    'concurrent-anonymous',
+    'session-race-unrelated',
+    'session-race-target',
+  ]) {
+    test(
+      'Google $scenario keeps the durable activationPending journal',
+      () async {
+        final journal = _cleanupJournal(
+          phase: AccountReplacementPhase.cleanupPending,
+        );
+        final harness = _Harness(
+          sourceUid: null,
+          initialJournal: journal,
+          restoreInitialSession: false,
+        );
+        String? currentUid;
+        var currentIsAnonymous = false;
+        var signInCalls = 0;
+        var signOutCalls = 0;
+        harness.identityOverride = FirebaseAccountTransitionIdentity.test(
+          currentUid: () => currentUid,
+          currentIsAnonymous: () => currentIsAnonymous,
+          acquireGoogleCredentialSilently: () async {
+            switch (scenario) {
+              case 'silent-null':
+                return null;
+              case 'silent-failure':
+                throw StateError('silent provider unavailable');
+              case 'session-race':
+                harness.sessions.transition(CloudWriteMode.blocked);
+            }
+            return GoogleAuthProvider.credential(
+              idToken: 'silent-google-id-token',
+            );
+          },
+          acquireAppleCredentialExplicitly: () async =>
+              throw StateError('Apple activation must not run'),
+          signIn: (_) async {
+            signInCalls += 1;
+            switch (scenario) {
+              case 'wrong-uid':
+                currentUid = 'wrong-owned-target';
+                currentIsAnonymous = false;
+                return currentUid;
+              case 'wrong-return-concurrent-target':
+                currentUid = 'durable-target';
+                currentIsAnonymous = false;
+                return 'wrong-owned-target';
+              case 'concurrent-durable':
+                currentUid = 'unrelated-durable-target';
+                currentIsAnonymous = false;
+                return 'durable-target';
+              case 'concurrent-anonymous':
+                currentUid = 'unrelated-anonymous-target';
+                currentIsAnonymous = true;
+                return 'durable-target';
+              case 'session-race-unrelated':
+                currentUid = 'unrelated-durable-target';
+                currentIsAnonymous = false;
+                harness.sessions.transition(CloudWriteMode.blocked);
+                return 'durable-target';
+              case 'session-race-target':
+                currentUid = 'durable-target';
+                currentIsAnonymous = false;
+                harness.sessions.transition(CloudWriteMode.blocked);
+                return currentUid;
+              default:
+                currentUid = 'durable-target';
+                currentIsAnonymous = false;
+                return currentUid;
+            }
+          },
+          signOut: () async {
+            signOutCalls += 1;
+            currentUid = null;
+            currentIsAnonymous = false;
+          },
+        );
+
+        final result = await harness.coordinator.resume(catalog: const {});
+
+        expect(
+          result.status,
+          const {
+                'session-race',
+                'wrong-return-concurrent-target',
+                'concurrent-durable',
+                'concurrent-anonymous',
+                'session-race-unrelated',
+                'session-race-target',
+              }.contains(scenario)
+              ? AccountTransitionStatus.blocked
+              : AccountTransitionStatus.activationPending,
+        );
+        expect(
+          harness.journal.value?.replacementPhase,
+          AccountReplacementPhase.activationPending,
+        );
+        expect(harness.journal.value, isNotNull);
+        expect(
+          signInCalls,
+          const {
+                'silent-null',
+                'silent-failure',
+                'session-race',
+              }.contains(scenario)
+              ? 0
+              : 1,
+        );
+        expect(
+          signOutCalls,
+          const {'wrong-uid', 'session-race-target'}.contains(scenario) ? 1 : 0,
+        );
+        if (scenario == 'concurrent-durable' ||
+            scenario == 'session-race-unrelated') {
+          expect(currentUid, 'unrelated-durable-target');
+        }
+        if (scenario == 'wrong-return-concurrent-target') {
+          expect(currentUid, 'durable-target');
+        }
+        if (scenario == 'concurrent-anonymous') {
+          expect(currentUid, 'unrelated-anonymous-target');
+          expect(currentIsAnonymous, isTrue);
+        }
+      },
+    );
+  }
+
   test(
-    'cold restart after primary sign-in completes the exact terminal journal',
+    'cold restart acquires the exact live target session and completes the terminal journal',
     () async {
       final journal = _cleanupJournal(
         phase: AccountReplacementPhase.activationPending,
@@ -901,7 +1041,8 @@ void main() {
         initialJournal: journal,
         restoreInitialSession: false,
       );
-      final targetSession = harness.sessions.acquire('durable-target');
+
+      expect(harness.sessions.current, isNull);
 
       final result = await harness.coordinator.resume(catalog: const {});
 
@@ -909,7 +1050,30 @@ void main() {
       expect(harness.operations.statusCalls, 1);
       expect(harness.identity.activationCalls, 0);
       expect(harness.journal.value, isNull);
-      expect(harness.sessions.current, targetSession);
+      expect(harness.sessions.current?.uid, 'durable-target');
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+    },
+  );
+
+  test(
+    'live target without a session cannot skip the cleanupPending fence',
+    () async {
+      final journal = _cleanupJournal(
+        phase: AccountReplacementPhase.cleanupPending,
+      );
+      final harness = _Harness(
+        sourceUid: 'durable-target',
+        initialJournal: journal,
+        restoreInitialSession: false,
+      );
+
+      final result = await harness.coordinator.resume(catalog: const {});
+
+      expect(result.status, AccountTransitionStatus.blocked);
+      expect(harness.sessions.current, isNull);
+      expect(harness.operations.statusCalls, 0);
+      expect(harness.identity.activationCalls, 0);
+      expect(harness.journal.value, same(journal));
     },
   );
 
@@ -1040,6 +1204,7 @@ class _Harness {
   late final _FakeIdentity identity;
   late final _FakeVerifier verifier;
   late final _FakeOperations operations;
+  AccountTransitionIdentity? identityOverride;
   AccountReconciliationResult reconciliationResult =
       const AccountReconciliationResult(AccountReconciliationStatus.completed);
   int reconciliationCalls = 0;
@@ -1049,7 +1214,7 @@ class _Harness {
 
   AccountTransitionCoordinator get coordinator => AccountTransitionCoordinator(
     sessions: sessions,
-    identity: identity,
+    identity: identityOverride ?? identity,
     verifier: verifier,
     operations: operations,
     journalStore: journal,
