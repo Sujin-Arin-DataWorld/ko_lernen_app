@@ -7,6 +7,31 @@
 
 ---
 
+### 2026-08-11 (Codex) — main 통합 뒤 Linux 골든·영상 리포트 정합성 복구
+
+**왜.** 최신 main을 UX PR #15에 합친 뒤 자동 CI run `31471400579`에서
+2,916개는 통과했지만 골든 10건과 캐릭터 영상 매트 리포트 1건이 실패했다.
+한옥 지도 골든 3장은 단순 화면 변경이 아니라, main의 `cacheWidth` 최적화 후
+테스트가 전체 크기 이미지 키만 미리 읽어 첫 장은 투명하고 다음 장부터 이전 단계가
+그려지는 프리캐시 결함이었다.
+
+**작업.** 수동 Ubuntu run `31471417383`의 공식 산출물에서 실제 통합 UI가 바뀐
+Learn Hub 3장·Settings 2장·Vocab Packs 2장만 명시적으로 반영했다. 한옥 테스트는
+프로덕션과 동일한 768px `ResizeImage` 키를 프리캐시하도록 고친 뒤, 재실행한 Ubuntu
+run `31472987280`에서 early·mid·complete가 각 단계에 맞게 그려진 것을 확인하고
+그 3장만 반영했다. `tool/check_clip_matte.py`로 현재 번들 18개 리포트를 재생성했으며,
+삭제된 영상이나 새 에셋은 복원·생성·추가하지 않았다. baseline이 없어 skip 중인 Home
+골든 2장도 이번 범위에는 추가하지 않았다.
+
+**검증.** 한옥 3단계 산출물을 직접 시각 대조했고, 두 번째 Linux 산출물은 그 3장
+외의 추적 baseline과 모두 byte-identical이었다. 매트 검사는 현재 18개 영상 모두
+white-matte 통과(실패 0), `character_clip_matte_test.dart` 5개 통과, 변경한 한옥
+골든 테스트의 scoped analyze는 **No issues found**, `git diff --check`도 통과했다.
+최종 Analyze·전체 Test·Build web·Book security는 이 커밋 push 뒤 PR 필수 CI로
+별도 확인한다.
+
+---
+
 ### 2026-08-11 (Codex) — Claude main과 UX PR #15 손실 없는 통합
 
 **왜.** 병렬 Claude 세션이 모두 종료된 뒤 main의 카드 타이포그래피·시작 성능·
