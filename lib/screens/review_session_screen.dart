@@ -495,7 +495,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.22, 44, 120),
+          fontSize: _sz(h, 0.19, 40, 92),
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -542,15 +542,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   ) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
-      // 뜻 (헤드라인) — 줄바꿈 허용, 카드 높이에 비례.
-      Text(
-        v.translationFor(lang),
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.13, 30, 66),
-          fontWeight: FontWeight.w800,
-          height: 1.1,
+      // 뜻 (헤드라인) — 긴 독일어(예: "Entschuldigung (formell)")가 큰 폰트로
+      // 3줄 폭주하지 않도록 FittedBox 로 한 줄에 맞춰 축소한다.
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          v.translationFor(lang),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: _sz(h, 0.11, 26, 48),
+            fontWeight: FontWeight.w800,
+            height: 1.1,
+          ),
         ),
       ),
       // 예문(한국어 + 듣기 + 번역)을 한 묶음으로 → spaceEvenly 가 흩뜨리지 않는다.
@@ -563,7 +567,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'Pretendard',
-                fontSize: _sz(h, 0.078, 20, 40),
+                fontSize: _sz(h, 0.068, 20, 34),
                 fontWeight: FontWeight.w600,
                 height: 1.25,
               ),
@@ -574,8 +578,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               label: t.ttsListen,
               size: _sz(h, 0.075, 24, 48),
             ),
-            if (v.exampleGerman.isNotEmpty) ...[
-              SizedBox(height: _sz(h, 0.028, 8, 18)),
+            if (v.exampleFor(lang).isNotEmpty) ...[
+              SizedBox(height: _sz(h, 0.04, 12, 24)),
               Text(
                 v.exampleFor(lang),
                 textAlign: TextAlign.center,
@@ -588,12 +592,13 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             ],
           ],
         ),
-      // K-Culture 노트(있을 때만 내부에서 렌더; 없으면 SizedBox.shrink).
-      // center Column이라 full-width로 감싸 텍스트 줄바꿈.
-      SizedBox(
-        width: double.infinity,
-        child: CultureNoteCard(korean: v.korean),
-      ),
+      // K-Culture 노트 — 노트가 있을 때만 슬롯을 만든다. 없는데도 SizedBox.shrink
+      // 를 spaceEvenly 슬롯으로 두면 콘텐츠가 위로 쏠리고 아래가 비어 답답해진다.
+      if (CultureNotesService.noteFor(v.korean) != null)
+        SizedBox(
+          width: double.infinity,
+          child: CultureNoteCard(korean: v.korean),
+        ),
     ];
   }
 }
