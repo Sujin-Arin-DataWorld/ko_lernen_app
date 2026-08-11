@@ -5020,36 +5020,55 @@ class AppL10nEn extends AppL10n {
   String get homeTodayPackDescription => 'Practice the words you need next.';
 
   @override
-  String get homeTodayReviewDescription =>
-      'So the sentence is ready in your next scene.';
+  String homeTodayReviewMission(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'Review $n words in context',
+      one: 'Review 1 word in context',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get homeTodayReviewDescription => 'Give your safe sentences a voice.';
 
   @override
   String get homeTodayReviewReasonTitle => 'Why review today?';
 
   @override
   String get homeTodayReviewReason =>
-      'So greetings, requests, and answers are ready for your next scene.';
+      'So greetings, requests, and answers are easier to reach in the next matching situation.';
 
   @override
   String get homeTodayReviewTime =>
       'About 3 minutes · then your path continues.';
 
   @override
-  String get homeUnavailableTitle => 'Your path could not refresh.';
+  String get homeUnavailableEyebrow => 'Connection paused';
+
+  @override
+  String get homeUnavailableTitle => 'Your path is waiting for you.';
 
   @override
   String get homeUnavailableDescription =>
-      'Your saved reviews and completed content are still available on this device.';
+      'New group and account actions briefly need internet. Your saved reviews are ready.';
 
   @override
   String get homeUnavailableSafeTitle => 'Safe to do now';
 
   @override
   String get homeUnavailableSafeBody =>
-      'Review uses only learning content saved on this device.';
+      'Review saved words and view previous content.';
 
   @override
   String get homeUnavailableCta => 'Review saved words';
+
+  @override
+  String get homeUnavailableRetry => 'Try again';
+
+  @override
+  String get homeEmptyCta => 'Review saved words';
 
   @override
   String get homeTodayScenarioDescription =>

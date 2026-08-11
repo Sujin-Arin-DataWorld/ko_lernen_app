@@ -5049,37 +5049,56 @@ class AppL10nDe extends AppL10n {
       'Übe die Wörter, die du als Nächstes brauchst.';
 
   @override
+  String homeTodayReviewMission(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter im Kontext wiederholen',
+      one: '1 Wort im Kontext wiederholen',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get homeTodayReviewDescription =>
-      'Damit der Satz in deiner nächsten Szene bereit ist.';
+      'Gib deinen sicheren Sätzen eine Stimme.';
 
   @override
   String get homeTodayReviewReasonTitle => 'Warum heute wiederholen?';
 
   @override
   String get homeTodayReviewReason =>
-      'Damit Begrüßungen, Bitten und Antworten in deiner nächsten Szene bereit sind.';
+      'Damit Begrüßungen, Bitten und Antworten in der nächsten passenden Situation schneller verfügbar sind.';
 
   @override
   String get homeTodayReviewTime =>
       'Etwa 3 Minuten · dann geht dein Weg weiter.';
 
   @override
-  String get homeUnavailableTitle =>
-      'Dein Weg konnte nicht aktualisiert werden.';
+  String get homeUnavailableEyebrow => 'Verbindung pausiert';
+
+  @override
+  String get homeUnavailableTitle => 'Dein Weg wartet auf dich.';
 
   @override
   String get homeUnavailableDescription =>
-      'Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.';
+      'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine gespeicherten Wiederholungen sind bereit.';
 
   @override
   String get homeUnavailableSafeTitle => 'Jetzt sicher möglich';
 
   @override
   String get homeUnavailableSafeBody =>
-      'Die Wiederholung nutzt nur Lerninhalte, die auf diesem Gerät gespeichert sind.';
+      'Gespeicherte Wörter wiederholen und bisherige Inhalte ansehen.';
 
   @override
   String get homeUnavailableCta => 'Gespeicherte Wörter wiederholen';
+
+  @override
+  String get homeUnavailableRetry => 'Erneut verbinden';
+
+  @override
+  String get homeEmptyCta => 'Gespeicherte Wörter wiederholen';
 
   @override
   String get homeTodayScenarioDescription =>

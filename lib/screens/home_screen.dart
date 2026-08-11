@@ -91,6 +91,13 @@ class HomeScreen extends StatefulWidget {
   )?
   loadHanokNarrative;
 
+  /// Uses injected fixture state without starting production refresh, reward,
+  /// reminder, intro, or Hanok flows. Intended for tests and the UX gallery.
+  final bool previewMode;
+  final Future<void> Function()? onOpenSavedReview;
+  final TodayLearningPackAccessGate? ensureTodayPackAccess;
+  final TodayLearningRouteOpener? openTodayRoute;
+
   // Stage B 예약: final GlobalKey? bookTourKey;
 
   const HomeScreen({
@@ -102,6 +109,10 @@ class HomeScreen extends StatefulWidget {
     this.loadHanokRatios,
     this.loadHanokProjection,
     this.loadHanokNarrative,
+    this.previewMode = false,
+    this.onOpenSavedReview,
+    this.ensureTodayPackAccess,
+    this.openTodayRoute,
   });
 
   @override
@@ -132,16 +143,22 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
     _loadToday();
-    _loadPath();
-    _loadHanokPreview();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
+    if (!widget.previewMode) {
+      WidgetsBinding.instance.addObserver(this);
+      _loadPath();
+      _loadHanokPreview();
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _maybeShowIntroFlows(),
+      );
+    }
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    if (!widget.previewMode) {
+      WidgetsBinding.instance.removeObserver(this);
+    }
     super.dispose();
   }
 
@@ -150,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
     // 공부→백그라운드→재개 시 그새 생산된 보자기·성장을 끌어온다. _refreshHome
     // 이 syncEarnedRewards 를 돌리고 openableBoxCount 를 재독해 배너에 반영한다.
-    if (state == AppLifecycleState.resumed && mounted) {
+    if (!widget.previewMode && state == AppLifecycleState.resumed && mounted) {
       _refreshHome();
     }
   }
@@ -353,25 +370,30 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       }
 
       // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
-      final week = _isoWeek(DateTime.now());
-      final showCourseCard =
-          _courseCardThisWeek || Storage.courseCardWeekShown != week;
-      if (!_courseCardThisWeek && showCourseCard) {
-        // ignore: discarded_futures
-        Storage.setCourseCardWeekShown(week);
+      var showCourseCard = false;
+      if (!widget.previewMode) {
+        final week = _isoWeek(DateTime.now());
+        showCourseCard =
+            _courseCardThisWeek || Storage.courseCardWeekShown != week;
+        if (!_courseCardThisWeek && showCourseCard) {
+          // ignore: discarded_futures
+          Storage.setCourseCardWeekShown(week);
+        }
       }
 
       setState(() {
         _todaySnapshot = snapshot;
-        _dueCount = snapshot.dueCount;
-        _hardCount = snapshot.hardCount;
+        _dueCount = snapshot.isUnavailable ? 0 : snapshot.dueCount;
+        _hardCount = snapshot.isUnavailable ? 0 : snapshot.hardCount;
         _openableBoxes = DecorationRewardService.openableBoxCount();
         _courseCardThisWeek = showCourseCard;
         _loadingTodaySnapshot = false;
-        _todayUnavailable = false;
+        _todayUnavailable = snapshot.isUnavailable;
       });
       // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
-      _refreshDailyReminder();
+      if (!widget.previewMode && !snapshot.isUnavailable) {
+        _refreshDailyReminder();
+      }
     } catch (_) {
       if (!mounted) {
         return;
@@ -384,6 +406,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _refreshHome() async {
+    if (widget.previewMode) {
+      await _loadToday();
+      return;
+    }
     // 공부하고 돌아오면 그새 target 도달한 퀘스트의 보자기를 생산한다(퀘스트
     // 화면을 안 열어도 — 실제 근본 수리). 이후 _loadToday 가 openableBoxCount 를
     // 다시 읽어 보자기 배너에 반영한다.
@@ -517,10 +543,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
     final opened = await TodayLearningNavigation.open(
       _todaySnapshot?.destination,
-      ensurePackAccess: (level) => ensurePackAccess(context, level: level),
-      openRoute: (route, arguments) async {
-        await Navigator.of(context).pushNamed(route, arguments: arguments);
-      },
+      ensurePackAccess:
+          widget.ensureTodayPackAccess ??
+          (level) => ensurePackAccess(context, level: level),
+      openRoute:
+          widget.openTodayRoute ??
+          (route, arguments) async {
+            await Navigator.of(context).pushNamed(route, arguments: arguments);
+          },
     );
     if (!opened || !mounted) {
       return;
@@ -532,8 +562,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _openSavedReview() async {
-    await Navigator.pushNamed(context, '/review');
-    if (mounted) {
+    final open = widget.onOpenSavedReview;
+    if (open != null) {
+      await open();
+    } else {
+      await Navigator.pushNamed(context, '/review');
+    }
+    if (mounted && !widget.previewMode) {
       await _loadToday();
     }
   }
@@ -581,7 +616,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       case ReviewPick r:
         return MissionHeroContent(
           kind: MissionHeroKind.review,
-          title: t.missionHeroReviewTitle(r.dueCount),
+          title: t.homeTodayReviewMission(r.dueCount),
           contextLabel: t.homeTodayFirst,
           levelCode: null,
           meta: t.homeTodayReviewDescription,
@@ -920,12 +955,19 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                     : _missionHeroContent(t, lang),
                                 unavailable: _todayUnavailable
                                     ? MissionHeroUnavailable(
+                                        eyebrow: t.homeUnavailableEyebrow,
                                         title: t.homeUnavailableTitle,
                                         body: t.homeUnavailableDescription,
                                         ctaLabel: t.homeUnavailableCta,
                                         onStart: _openSavedReview,
+                                        retryLabel: t.homeUnavailableRetry,
+                                        onRetry: _loadToday,
                                       )
                                     : null,
+                                onAnotherRound: _todayUnavailable
+                                    ? null
+                                    : _openSavedReview,
+                                allDoneCtaLabel: t.homeEmptyCta,
                               ),
                             ),
                           ),

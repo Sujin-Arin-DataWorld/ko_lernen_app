@@ -8839,10 +8839,16 @@ abstract class AppL10n {
   /// **'Übe die Wörter, die du als Nächstes brauchst.'**
   String get homeTodayPackDescription;
 
+  /// No description provided for @homeTodayReviewMission.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, one{1 Wort im Kontext wiederholen} other{{n} Wörter im Kontext wiederholen}}'**
+  String homeTodayReviewMission(int n);
+
   /// No description provided for @homeTodayReviewDescription.
   ///
   /// In de, this message translates to:
-  /// **'Damit der Satz in deiner nächsten Szene bereit ist.'**
+  /// **'Gib deinen sicheren Sätzen eine Stimme.'**
   String get homeTodayReviewDescription;
 
   /// No description provided for @homeTodayReviewReasonTitle.
@@ -8854,7 +8860,7 @@ abstract class AppL10n {
   /// No description provided for @homeTodayReviewReason.
   ///
   /// In de, this message translates to:
-  /// **'Damit Begrüßungen, Bitten und Antworten in deiner nächsten Szene bereit sind.'**
+  /// **'Damit Begrüßungen, Bitten und Antworten in der nächsten passenden Situation schneller verfügbar sind.'**
   String get homeTodayReviewReason;
 
   /// No description provided for @homeTodayReviewTime.
@@ -8863,16 +8869,22 @@ abstract class AppL10n {
   /// **'Etwa 3 Minuten · dann geht dein Weg weiter.'**
   String get homeTodayReviewTime;
 
+  /// No description provided for @homeUnavailableEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbindung pausiert'**
+  String get homeUnavailableEyebrow;
+
   /// No description provided for @homeUnavailableTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Weg konnte nicht aktualisiert werden.'**
+  /// **'Dein Weg wartet auf dich.'**
   String get homeUnavailableTitle;
 
   /// No description provided for @homeUnavailableDescription.
   ///
   /// In de, this message translates to:
-  /// **'Gespeicherte Wiederholungen und bereits gelernte Inhalte bleiben auf diesem Gerät verfügbar.'**
+  /// **'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine gespeicherten Wiederholungen sind bereit.'**
   String get homeUnavailableDescription;
 
   /// No description provided for @homeUnavailableSafeTitle.
@@ -8884,7 +8896,7 @@ abstract class AppL10n {
   /// No description provided for @homeUnavailableSafeBody.
   ///
   /// In de, this message translates to:
-  /// **'Die Wiederholung nutzt nur Lerninhalte, die auf diesem Gerät gespeichert sind.'**
+  /// **'Gespeicherte Wörter wiederholen und bisherige Inhalte ansehen.'**
   String get homeUnavailableSafeBody;
 
   /// No description provided for @homeUnavailableCta.
@@ -8892,6 +8904,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gespeicherte Wörter wiederholen'**
   String get homeUnavailableCta;
+
+  /// No description provided for @homeUnavailableRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut verbinden'**
+  String get homeUnavailableRetry;
+
+  /// No description provided for @homeEmptyCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wörter wiederholen'**
+  String get homeEmptyCta;
 
   /// No description provided for @homeTodayScenarioDescription.
   ///

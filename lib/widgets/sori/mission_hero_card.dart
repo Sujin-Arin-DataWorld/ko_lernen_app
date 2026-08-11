@@ -56,16 +56,22 @@ class MissionHeroContent {
 /// available while the snapshot could not be loaded.
 class MissionHeroUnavailable {
   const MissionHeroUnavailable({
+    required this.eyebrow,
     required this.title,
     required this.body,
     required this.ctaLabel,
     required this.onStart,
+    required this.retryLabel,
+    required this.onRetry,
   });
 
+  final String eyebrow;
   final String title;
   final String body;
   final String ctaLabel;
   final VoidCallback onStart;
+  final String retryLabel;
+  final VoidCallback onRetry;
 }
 
 /// **MissionHeroCard** — 홈 블록 3 "오늘의 미션 히어로" (계획 §6.1·§10.1).
@@ -221,11 +227,22 @@ class _UnavailableCard extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
       tinted: true,
-      semanticLabel: content.title,
+      semanticLabel: '${content.eyebrow}. ${content.title}',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.cloud_off_outlined, color: SoriColors.primary),
+          Row(
+            children: [
+              const Icon(Icons.cloud_off_outlined, color: SoriColors.primary),
+              const SizedBox(width: Spacing.xs),
+              Expanded(
+                child: Text(
+                  content.eyebrow,
+                  style: tt.label.copyWith(color: SoriColors.primary),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: Spacing.sm),
           Text(content.title, style: tt.h3),
           const SizedBox(height: 4),
@@ -248,10 +265,22 @@ class _UnavailableCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: Spacing.md),
-          SoriButton.outlined(
+          SoriButton.filled(
             label: content.ctaLabel,
+            accent: SoriColors.tiger,
             fullWidth: true,
             onTap: content.onStart,
+          ),
+          const SizedBox(height: Spacing.xs),
+          SizedBox(
+            width: double.infinity,
+            child: TextButton(
+              style: TextButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
+              onPressed: content.onRetry,
+              child: Text(content.retryLabel),
+            ),
           ),
         ],
       ),

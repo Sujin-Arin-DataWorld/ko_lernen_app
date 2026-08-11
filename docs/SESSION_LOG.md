@@ -118,6 +118,33 @@ GameOver no-companion focused 테스트 모두 통과. production personalized i
 **커밋.** `20095cd` (`feat(onboarding): support an explicit no-companion choice`).
 ---
 
+---
+
+### 2026-08-12 (Codex) — 06B·06C Today 오프라인·빈 상태·복습 우선일
+
+**왜.** Today 입력 중 하나가 실패해도 기존 loader가 중립값으로 삼켜 정상 추천처럼 보였고,
+오프라인 카드에는 재연결 동작이 없었다. 추천이 실제로 비어 있는 날도 안전한 다음 행동이
+없었으며, 복습 우선일은 06C 목업의 짧고 맥락 있는 약속보다 일반적인 복습 숫자로 보였다.
+
+**무엇을.** course/pack/scenario/review 입력별 실패를 `TodayLearningAvailability`와
+`unavailableSources`로 보존하면서 건강한 입력은 읽기 전용으로 끝까지 조립하게 했다. Home은
+부분 snapshot을 정상 추천으로 표시하지 않고 06B의 연결 중단 문구, 로컬 저장 복습 filled CTA,
+`Erneut verbinden` 재시도를 보여 준다. 건강하지만 추천이 없는 상태에는 저장 단어 복습 CTA
+하나만 둔다. 복습 추천은 “문맥에서 N단어 복습”, 안전한 문장에 목소리를 준다는 이유,
+약 3분과 다음 적합한 상황의 의미를 DE/EN으로 명시했다. `previewMode`와 Today loader/action
+주입점을 추가해 UX Gallery와 widget test가 reward, reminder, intro, Hanok, course-card write,
+실제 navigation 없이 offline/review fixture를 렌더할 수 있게 했다.
+
+**검증.** production source failure/healthy readers, degraded Home, retry recovery, empty single CTA,
+review semantics, preview preference no-write와 기존 Today navigation, Home 반응형·접근성,
+Hanok, ARB parity를 포함한 집중 Flutter 테스트 **83/83 통과**. 변경 Dart 5파일 scoped
+`flutter analyze` **No issues found**, `flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** account lifecycle, deletion receipt/journal, Firebase, unlock/mastery는 수정하지 않았다.
+실기기 네트워크 전환과 OS별 연결 복구는 이번 Windows widget-test 증명 범위 밖이다.
+
+---
+
 ### 2026-08-12 (Codex) — 06A 프로필 직접 제어와 read-only 학습데이터 export
 
 **왜.** 프로필의 “Mein Raum”은 개인정보/계정과 Gye 진입만 묶어 보여 실제 그룹 이름,
