@@ -60,23 +60,57 @@ DancheongMotif motifForPackId(String packId) {
     'a2_descriptions' ||
     'b1_descriptions' ||
     'a2_feelings' ||
-    'b1_emotions_relations' =>
+    'b1_emotions_relations' ||
+    'b1_character_feelings' ||
+    'b1_descriptions_adj' =>
       DancheongMotif.plum,
-    'a2_work' || 'a2_education' || 'b1_work' || 'b2_work' || 'b2_education' =>
+    'a2_work' ||
+    'a2_education' ||
+    'b1_work' ||
+    'b2_work' ||
+    'b2_education' ||
+    'b1_work_career' =>
       DancheongMotif.bamboo,
-    'a2_weather' || 'a2_health_misc' || 'b1_health_education' =>
+    'a2_weather' ||
+    'a2_health_misc' ||
+    'b1_health_education' ||
+    'b1_health_hospital' =>
       DancheongMotif.cloud,
     'a1_food' || 'a2_food' || 'a2_shopping' => DancheongMotif.octagon,
-    'a1_transport' || 'a2_transport' => DancheongMotif.mountain,
-    'a1_body' || 'a1_colors' || 'a1_position' => DancheongMotif.manja,
+    'a1_transport' ||
+    'a2_transport' ||
+    'b1_travel_transport' ||
+    'b1_city_places' =>
+      DancheongMotif.mountain,
+    'a1_body' || 'a1_colors' || 'a1_position' || 'b2_safety_rules' =>
+      DancheongMotif.manja,
     // ── 2026-08-04: 여기부터가 예전에 통째로 fallback 으로 새던 주제들 ──
-    'a1_daily' || 'a2_daily' || 'b1_daily' => DancheongMotif.vine,
-    'b1_tech_society' || 'b2_society' || 'b2_communication' =>
+    'a1_daily' ||
+    'a2_daily' ||
+    'b1_daily' ||
+    'b1_verbs_daily' ||
+    'b2_thinking_verbs' ||
+    'b2_modern_life' =>
+      DancheongMotif.vine,
+    'b1_tech_society' ||
+    'b2_society' ||
+    'b2_communication' ||
+    'b1_media_culture' ||
+    'b1_communication_lang' ||
+    'b2_language_grammar' =>
       DancheongMotif.chilbo,
-    'a2_home' || 'a1_misc' || 'b2_misc' => DancheongMotif.gwigap,
+    'a2_home' || 'a1_misc' || 'b2_misc' || 'b2_household_practical' =>
+      DancheongMotif.gwigap,
     'b2_environment' => DancheongMotif.wave,
-    'b2_thinking' => DancheongMotif.taegeuk,
-    'a2_money' => DancheongMotif.peony,
+    'b2_thinking' || 'b2_abstract_concepts' => DancheongMotif.taegeuk,
+    'a2_money' || 'b1_money_bank' => DancheongMotif.peony,
+    // ── 2026-08-11 확장 팩 (TOPIK-Kuratierung) ──
+    'b1_social_events' ||
+    'b2_relationships_people' ||
+    'b2_manners_society' ||
+    'b2_honorifics' =>
+      DancheongMotif.lotus,
+    'b1_time_life' || 'b2_events_culture' => DancheongMotif.chrysanthemum,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
     _ => DancheongMotif.lotus,

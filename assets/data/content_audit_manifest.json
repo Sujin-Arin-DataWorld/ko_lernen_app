@@ -2,7 +2,7 @@
   "version": 1,
   "baselineDate": "2026-08-02",
   "sources": [
-    {"kind": "vocab", "count": 558, "source": "korean_vocab.csv", "requiresExplicitId": true},
+    {"kind": "vocab", "count": 822, "source": "korean_vocab.csv", "requiresExplicitId": true},
     {"kind": "grammar", "count": 88, "source": "grammar.csv", "requiresExplicitId": true},
     {"kind": "scenario", "count": 39, "source": "scenarios.json", "requiresExplicitId": true},
     {"kind": "scenarioQuest", "count": 150, "source": "scenarios.json", "requiresExplicitId": false},

@@ -557,3 +557,267 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 온실가스,onsilgaseu,Treibhausgas,B2,Nomen,온실가스 배출량을 줄여야 해요.,Treibhausgase erwärmen die Erde.,Umwelt,b2_environment_1,10,true,greenhouse gas,Noun,Greenhouse gases warm the earth.,vocab_b2_0082
 친환경,chinhwangyeong,umweltfreundlich,B2,Adjektiv,요즘은 친환경 제품이 많이 나와요.,Ich kaufe oft umweltfreundliche Produkte.,Umwelt,b2_environment_1,11,true,eco-friendly,Adjective,I often buy eco-friendly products.,vocab_b2_0083
 지속 가능성,jisok ganeungseong,Nachhaltigkeit,B2,Nomen,지속 가능성을 고려한 결정이 필요해요.,Nachhaltigkeit ist sehr wichtig.,Umwelt,b2_environment_1,12,true,sustainability,Noun,Sustainability is very important.,vocab_b2_0084
+광고,gwanggo,Werbung,B1,Nomen,요즘 이 광고가 아주 인기예요.,Diese Werbung ist zurzeit sehr beliebt.,Medien & Kultur,b1_media_culture_1,1,false,advertisement,Noun,This ad is very popular these days.,vocab_b1_0104
+방송,bangsong,Sendung,B1,Nomen,어제 그 방송 봤어요?,Hast du gestern die Sendung gesehen?,Medien & Kultur,b1_media_culture_1,2,false,broadcast,Noun,Did you watch that broadcast yesterday?,vocab_b1_0105
+뉴스,nyuseu,Nachrichten,B1,Nomen,아침마다 뉴스를 봐요.,Ich schaue jeden Morgen die Nachrichten.,Medien & Kultur,b1_media_culture_1,3,false,news,Noun,I watch the news every morning.,vocab_b1_0106
+배우,baeu,Schauspieler,B1,Nomen,제가 좋아하는 배우가 나와요.,Mein Lieblingsschauspieler tritt auf.,Medien & Kultur,b1_media_culture_1,4,false,actor,Noun,My favorite actor appears.,vocab_b1_0107
+공연,gongyeon,Aufführung,B1,Nomen,주말에 공연을 보러 가요.,Am Wochenende gehe ich zu einer Aufführung.,Medien & Kultur,b1_media_culture_1,5,false,performance,Noun,I am going to see a performance this weekend.,vocab_b1_0108
+무대,mudae,Bühne,B1,Nomen,가수가 무대에 올라갔어요.,Der Sänger ging auf die Bühne.,Medien & Kultur,b1_media_culture_1,6,false,stage,Noun,The singer went on stage.,vocab_b1_0109
+문학,munhak,Literatur,B1,Nomen,한국 문학에 관심이 있어요.,Ich interessiere mich für koreanische Literatur.,Medien & Kultur,b1_media_culture_1,7,false,literature,Noun,I am interested in Korean literature.,vocab_b1_0110
+전통,jeontong,Tradition,B1,Nomen,이 마을은 전통을 지켜요.,Dieses Dorf bewahrt seine Tradition.,Medien & Kultur,b1_media_culture_1,8,false,tradition,Noun,This village keeps its tradition.,vocab_b1_0111
+유행,yuhaeng,Trend,B1,Nomen,이 노래가 요즘 유행이에요.,Dieses Lied ist gerade im Trend.,Medien & Kultur,b1_media_culture_1,9,false,trend,Noun,This song is trending these days.,vocab_b1_0112
+미술관,misulgwan,Kunstmuseum,B1,Nomen,미술관이 어디에 있어요?,Wo ist das Kunstmuseum?,Medien & Kultur,b1_media_culture_1,10,true,art museum,Noun,Where is the art museum?,vocab_b1_0113
+박물관,bangmulgwan,Museum,B1,Nomen,박물관은 월요일에 쉬어요.,Das Museum hat montags geschlossen.,Medien & Kultur,b1_media_culture_1,11,true,museum,Noun,The museum is closed on Mondays.,vocab_b1_0114
+기념품,ginyeompum,Souvenir,B1,Nomen,기념품은 어디에서 팔아요?,Wo werden Souvenirs verkauft?,Medien & Kultur,b1_media_culture_1,12,true,souvenir,Noun,Where do they sell souvenirs?,vocab_b1_0115
+광장,gwangjang,Platz,B1,Nomen,광장에 사람이 많아요.,Auf dem Platz sind viele Menschen.,Stadt & Orte,b1_city_places_1,1,false,plaza,Noun,There are many people in the plaza.,vocab_b1_0116
+시청,sicheong,Rathaus,B1,Nomen,시청 앞에서 만나요.,Treffen wir uns vor dem Rathaus.,Stadt & Orte,b1_city_places_1,2,false,city hall,Noun,Let us meet in front of city hall.,vocab_b1_0117
+시설,siseol,Einrichtung,B1,Nomen,이 호텔은 시설이 좋아요.,Dieses Hotel hat eine gute Ausstattung.,Stadt & Orte,b1_city_places_1,3,false,facility,Noun,This hotel has good facilities.,vocab_b1_0118
+상가,sangga,Einkaufszeile,B1,Nomen,집 근처에 상가가 있어요.,In der Nähe meiner Wohnung gibt es eine Einkaufszeile.,Stadt & Orte,b1_city_places_1,4,false,shopping street,Noun,There is a shopping street near my home.,vocab_b1_0119
+동물원,dongmurwon,Zoo,B1,Nomen,아이들과 동물원에 갔어요.,Ich war mit den Kindern im Zoo.,Stadt & Orte,b1_city_places_1,5,false,zoo,Noun,I went to the zoo with the kids.,vocab_b1_0120
+놀이공원,norigongwon,Freizeitpark,B1,Nomen,주말에 놀이공원에 가요.,Am Wochenende gehen wir in den Freizeitpark.,Stadt & Orte,b1_city_places_1,6,false,amusement park,Noun,We go to the amusement park on weekends.,vocab_b1_0121
+공연장,gongyeonjang,Konzerthalle,B1,Nomen,공연장 입구가 복잡해요.,Der Eingang der Konzerthalle ist voll.,Stadt & Orte,b1_city_places_1,7,false,concert hall,Noun,The concert hall entrance is crowded.,vocab_b1_0122
+하숙집,hasukjip,Studentenpension,B1,Nomen,대학교 근처 하숙집에 살아요.,Ich wohne in einer Studentenpension nahe der Uni.,Stadt & Orte,b1_city_places_1,8,false,boarding house,Noun,I live in a boarding house near the university.,vocab_b1_0123
+면세점,myeonsejeom,Duty-free-Laden,B1,Nomen,공항 면세점에서 화장품을 샀어요.,Im Duty-free-Laden am Flughafen habe ich Kosmetik gekauft.,Stadt & Orte,b1_city_places_1,9,false,duty-free shop,Noun,I bought cosmetics at the airport duty-free shop.,vocab_b1_0124
+책방,chaekbang,Buchladen,B1,Nomen,동네 책방에서 책을 샀어요.,Ich habe im Buchladen im Viertel ein Buch gekauft.,Stadt & Orte,b1_city_places_1,10,true,bookstore,Noun,I bought a book at the local bookstore.,vocab_b1_0125
+우체국,ucheguk,Post,B1,Nomen,우체국에서 소포를 보냈어요.,Ich habe bei der Post ein Paket verschickt.,Stadt & Orte,b1_city_places_1,11,true,post office,Noun,I sent a package at the post office.,vocab_b1_0126
+경찰서,gyeongchalseo,Polizeiwache,B1,Nomen,지갑을 잃어버려서 경찰서에 갔어요.,Ich habe meinen Geldbeutel verloren und bin zur Polizeiwache gegangen.,Stadt & Orte,b1_city_places_1,12,true,police station,Noun,I lost my wallet and went to the police station.,vocab_b1_0127
+지폐,jipye,Geldschein,B1,Nomen,지폐를 동전으로 바꿨어요.,Ich habe den Geldschein in Münzen gewechselt.,Geld & Gebühren,b1_money_bank_1,1,false,banknote,Noun,I changed the banknote into coins.,vocab_b1_0128
+동전,dongjeon,Münze,B1,Nomen,동전이 하나도 없어요.,Ich habe keine einzige Münze.,Geld & Gebühren,b1_money_bank_1,2,false,coin,Noun,I do not have a single coin.,vocab_b1_0129
+환율,hwanyul,Wechselkurs,B1,Nomen,오늘 환율이 어떻게 돼요?,Wie steht heute der Wechselkurs?,Geld & Gebühren,b1_money_bank_1,3,false,exchange rate,Noun,What is the exchange rate today?,vocab_b1_0130
+공과금,gonggwageum,Nebenkosten,B1,Nomen,매달 공과금을 내요.,Ich zahle jeden Monat die Nebenkosten.,Geld & Gebühren,b1_money_bank_1,4,false,utility bill,Noun,I pay utility bills every month.,vocab_b1_0131
+벌금,beolgeum,Bußgeld,B1,Nomen,주차 벌금을 냈어요.,Ich habe ein Bußgeld fürs Parken bezahlt.,Geld & Gebühren,b1_money_bank_1,5,false,fine,Noun,I paid a parking fine.,vocab_b1_0132
+예금,yegeum,Sparguthaben,B1,Nomen,은행에 예금이 조금 있어요.,Ich habe etwas Sparguthaben auf der Bank.,Geld & Gebühren,b1_money_bank_1,6,false,deposit,Noun,I have some savings in the bank.,vocab_b1_0133
+생활비,saenghwalbi,Lebenshaltungskosten,B1,Nomen,서울은 생활비가 비싸요.,In Seoul sind die Lebenshaltungskosten hoch.,Geld & Gebühren,b1_money_bank_1,7,false,living expenses,Noun,Living expenses in Seoul are high.,vocab_b1_0134
+식비,sikbi,Essenskosten,B1,Nomen,이번 달 식비가 많이 나왔어요.,Diesen Monat waren die Essenskosten hoch.,Geld & Gebühren,b1_money_bank_1,8,false,food expenses,Noun,Food expenses were high this month.,vocab_b1_0135
+입장료,ipjangnyo,Eintrittsgebühr,B1,Nomen,입장료가 얼마예요?,Wie hoch ist die Eintrittsgebühr?,Geld & Gebühren,b1_money_bank_1,9,false,admission fee,Noun,How much is the admission fee?,vocab_b1_0136
+지불,jibul,Bezahlung,B1,Nomen,카드로 지불이 가능해요?,Ist Bezahlung mit Karte möglich?,Geld & Gebühren,b1_money_bank_1,10,true,payment,Noun,Is payment by card possible?,vocab_b1_0137
+거스름돈,geoseureumdon,Wechselgeld,B1,Nomen,거스름돈을 받았어요.,Ich habe das Wechselgeld bekommen.,Geld & Gebühren,b1_money_bank_1,11,true,change,Noun,I received the change.,vocab_b1_0138
+신용카드,sinyongkadeu,Kreditkarte,B1,Nomen,신용카드로 계산할게요.,Ich zahle mit Kreditkarte.,Geld & Gebühren,b1_money_bank_1,12,true,credit card,Noun,I will pay by credit card.,vocab_b1_0139
+열차,yeolcha,Zug,B1,Nomen,열차가 곧 출발해요.,Der Zug fährt gleich ab.,Reise & Verkehr,b1_travel_transport_1,1,false,train,Noun,The train departs soon.,vocab_b1_0140
+대중교통,daejunggyotong,öffentliche Verkehrsmittel,B1,Nomen,저는 대중교통을 자주 이용해요.,Ich benutze oft öffentliche Verkehrsmittel.,Reise & Verkehr,b1_travel_transport_1,2,false,public transportation,Noun,I often use public transportation.,vocab_b1_0141
+교통카드,gyotongkadeu,Verkehrskarte,B1,Nomen,교통카드 어디에서 충전해요?,Wo kann ich die Verkehrskarte aufladen?,Reise & Verkehr,b1_travel_transport_1,3,false,transit card,Noun,Where can I top up the transit card?,vocab_b1_0142
+갈아타다,garatada,umsteigen,B1,Verb,다음 역에서 갈아타세요.,Steigen Sie an der nächsten Station um.,Reise & Verkehr,b1_travel_transport_1,4,false,to transfer,Verb,Transfer at the next station.,vocab_b1_0143
+좌회전,jwahoejeon,Linksabbiegen,B1,Nomen,여기에서 좌회전 해 주세요.,Biegen Sie hier bitte links ab.,Reise & Verkehr,b1_travel_transport_1,5,false,left turn,Noun,Please turn left here.,vocab_b1_0144
+우회전,uhoejeon,Rechtsabbiegen,B1,Nomen,다음 골목에서 우회전 하세요.,Biegen Sie an der nächsten Gasse rechts ab.,Reise & Verkehr,b1_travel_transport_1,6,false,right turn,Noun,Turn right at the next alley.,vocab_b1_0145
+직진,jikjin,Geradeausfahren,B1,Nomen,이 길로 직진 해 주세요.,Fahren Sie auf dieser Straße bitte geradeaus.,Reise & Verkehr,b1_travel_transport_1,7,false,going straight,Noun,Please go straight on this road.,vocab_b1_0146
+정차하다,jeongchahada,anhalten,B1,Verb,버스가 정류장에 정차해요.,Der Bus hält an der Haltestelle.,Reise & Verkehr,b1_travel_transport_1,8,false,to stop,Verb,The bus stops at the station.,vocab_b1_0147
+관광,gwangwang,Tourismus,B1,Nomen,부산은 관광으로 유명해요.,Busan ist für Tourismus bekannt.,Reise & Verkehr,b1_travel_transport_1,9,false,tourism,Noun,Busan is famous for tourism.,vocab_b1_0148
+비상구,bisanggu,Notausgang,B1,Nomen,비상구는 어디에 있어요?,Wo ist der Notausgang?,Reise & Verkehr,b1_travel_transport_1,10,true,emergency exit,Noun,Where is the emergency exit?,vocab_b1_0149
+입장권,ipjanggwon,Eintrittskarte,B1,Nomen,입장권 두 장 주세요.,Zwei Eintrittskarten bitte.,Reise & Verkehr,b1_travel_transport_1,11,true,admission ticket,Noun,Two admission tickets please.,vocab_b1_0150
+안내문,annaemun,Hinweisblatt,B1,Nomen,입구에 안내문이 붙어 있어요.,Am Eingang hängt ein Hinweisblatt.,Reise & Verkehr,b1_travel_transport_1,12,true,notice,Noun,A notice is posted at the entrance.,vocab_b1_0151
+환자,hwanja,Patient,B1,Nomen,병원에 환자가 많아요.,Im Krankenhaus sind viele Patienten.,Krankenhaus & Apotheke,b1_health_hospital_1,1,false,patient,Noun,There are many patients in the hospital.,vocab_b1_0152
+주사,jusa,Spritze,B1,Nomen,주사를 맞았어요.,Ich habe eine Spritze bekommen.,Krankenhaus & Apotheke,b1_health_hospital_1,2,false,injection,Noun,I got an injection.,vocab_b1_0153
+처방전,cheobangjeon,Rezept,B1,Nomen,의사가 처방전을 써 줬어요.,Der Arzt hat mir ein Rezept ausgestellt.,Krankenhaus & Apotheke,b1_health_hospital_1,3,false,prescription,Noun,The doctor wrote me a prescription.,vocab_b1_0154
+치료하다,chiryohada,behandeln,B1,Verb,이를 치료해야 해요.,Der Zahn muss behandelt werden.,Krankenhaus & Apotheke,b1_health_hospital_1,4,false,to treat,Verb,The tooth needs to be treated.,vocab_b1_0155
+입원하다,ibwonhada,ins Krankenhaus aufgenommen werden,B1,Verb,할머니가 지난주에 입원하셨어요.,Meine Großmutter kam letzte Woche ins Krankenhaus.,Krankenhaus & Apotheke,b1_health_hospital_1,5,false,to be hospitalized,Verb,My grandmother was hospitalized last week.,vocab_b1_0156
+퇴원하다,toewonhada,entlassen werden,B1,Verb,내일 퇴원할 수 있어요.,Morgen kann ich entlassen werden.,Krankenhaus & Apotheke,b1_health_hospital_1,6,false,to be discharged,Verb,I can be discharged tomorrow.,vocab_b1_0157
+감기약,gamgiyak,Erkältungsmedizin,B1,Nomen,약국에서 감기약을 샀어요.,Ich habe in der Apotheke Erkältungsmedizin gekauft.,Krankenhaus & Apotheke,b1_health_hospital_1,7,false,cold medicine,Noun,I bought cold medicine at the pharmacy.,vocab_b1_0158
+두통약,dutongyak,Kopfschmerztablette,B1,Nomen,두통약 있어요?,Haben Sie Kopfschmerztabletten?,Krankenhaus & Apotheke,b1_health_hospital_1,8,false,headache medicine,Noun,Do you have headache medicine?,vocab_b1_0159
+진통제,jintongje,Schmerzmittel,B1,Nomen,진통제를 하루에 두 번 드세요.,Nehmen Sie das Schmerzmittel zweimal täglich.,Krankenhaus & Apotheke,b1_health_hospital_1,9,false,painkiller,Noun,Take the painkiller twice a day.,vocab_b1_0160
+소화제,sohwaje,Verdauungsmittel,B1,Nomen,속이 안 좋아서 소화제를 먹었어요.,Mir war schlecht und ich habe ein Verdauungsmittel genommen.,Krankenhaus & Apotheke,b1_health_hospital_1,10,true,digestive medicine,Noun,I felt unwell and took digestive medicine.,vocab_b1_0161
+안약,anyak,Augentropfen,B1,Nomen,눈이 건조해서 안약을 넣어요.,Meine Augen sind trocken und ich benutze Augentropfen.,Krankenhaus & Apotheke,b1_health_hospital_1,11,true,eye drops,Noun,My eyes are dry so I use eye drops.,vocab_b1_0162
+다치다,dachida,sich verletzen,B1,Verb,운동하다가 다리를 다쳤어요.,Beim Sport habe ich mir das Bein verletzt.,Krankenhaus & Apotheke,b1_health_hospital_1,12,true,to get hurt,Verb,I hurt my leg while exercising.,vocab_b1_0163
+출장,chuljang,Dienstreise,B1,Nomen,다음 주에 부산으로 출장을 가요.,Nächste Woche mache ich eine Dienstreise nach Busan.,Karriere & Büro,b1_work_career_1,1,false,business trip,Noun,I go on a business trip to Busan next week.,vocab_b1_0164
+승진,seungjin,Beförderung,B1,Nomen,승진을 축하해요!,Herzlichen Glückwunsch zur Beförderung!,Karriere & Büro,b1_work_career_1,2,false,promotion,Noun,Congratulations on your promotion!,vocab_b1_0165
+취직하다,chwijikhada,eine Stelle finden,B1,Verb,형이 은행에 취직했어요.,Mein Bruder hat eine Stelle bei einer Bank gefunden.,Karriere & Büro,b1_work_career_1,3,false,to get a job,Verb,My brother got a job at a bank.,vocab_b1_0166
+신입사원,sinipsawon,neuer Mitarbeiter,B1,Nomen,신입사원 교육이 있어요.,Es gibt eine Schulung für neue Mitarbeiter.,Karriere & Büro,b1_work_career_1,4,false,new employee,Noun,There is training for new employees.,vocab_b1_0167
+업무,eommu,Arbeitsaufgaben,B1,Nomen,오늘 업무가 많아요.,Heute habe ich viele Arbeitsaufgaben.,Karriere & Büro,b1_work_career_1,5,false,duties,Noun,I have a lot of work today.,vocab_b1_0168
+근무하다,geunmuhada,tätig sein,B1,Verb,저는 주말에도 근무해요.,Ich bin auch am Wochenende im Dienst.,Karriere & Büro,b1_work_career_1,6,false,to be on duty,Verb,I also work on weekends.,vocab_b1_0169
+서류,seoryu,Unterlagen,B1,Nomen,서류를 준비해 주세요.,Bereiten Sie bitte die Unterlagen vor.,Karriere & Büro,b1_work_career_1,7,false,documents,Noun,Please prepare the documents.,vocab_b1_0170
+보고서,bogoseo,Bericht,B1,Nomen,내일까지 보고서를 써야 해요.,Bis morgen muss ich den Bericht schreiben.,Karriere & Büro,b1_work_career_1,8,false,report,Noun,I have to write the report by tomorrow.,vocab_b1_0171
+서명하다,seomyeonghada,unterschreiben,B1,Verb,여기에 서명해 주세요.,Unterschreiben Sie bitte hier.,Karriere & Büro,b1_work_career_1,9,false,to sign,Verb,Please sign here.,vocab_b1_0172
+합격하다,hapgyeokhada,bestehen,B1,Verb,시험에 합격했어요!,Ich habe die Prüfung bestanden!,Karriere & Büro,b1_work_career_1,10,true,to pass,Verb,I passed the exam!,vocab_b1_0173
+모집하다,mojiphada,rekrutieren,B1,Verb,회사가 새 직원을 모집해요.,Die Firma rekrutiert neue Mitarbeiter.,Karriere & Büro,b1_work_career_1,11,true,to recruit,Verb,The company is recruiting new employees.,vocab_b1_0174
+지각하다,jigakhada,zu spät kommen,B1,Verb,오늘 회사에 지각했어요.,Heute bin ich zu spät zur Arbeit gekommen.,Karriere & Büro,b1_work_career_1,12,true,to be late,Verb,I was late for work today.,vocab_b1_0175
+모임,moim,Treffen,B1,Nomen,오늘 저녁에 모임이 있어요.,Heute Abend habe ich ein Treffen.,Feste & Einladungen,b1_social_events_1,1,false,gathering,Noun,I have a gathering this evening.,vocab_b1_0176
+초대하다,chodaehada,einladen,B1,Verb,친구를 집에 초대했어요.,Ich habe einen Freund nach Hause eingeladen.,Feste & Einladungen,b1_social_events_1,2,false,to invite,Verb,I invited a friend to my home.,vocab_b1_0177
+집들이,jipdeuri,Einweihungsfeier,B1,Nomen,토요일에 집들이를 해요.,Am Samstag machen wir eine Einweihungsfeier.,Feste & Einladungen,b1_social_events_1,3,false,housewarming party,Noun,We are having a housewarming party on Saturday.,vocab_b1_0178
+돌잔치,doljanchi,Fest zum ersten Geburtstag,B1,Nomen,조카 돌잔치에 갔어요.,Ich war auf dem ersten Geburtstagsfest meiner Nichte.,Feste & Einladungen,b1_social_events_1,4,false,first birthday party,Noun,I went to my niece's first birthday party.,vocab_b1_0179
+송별회,songbyeolhoe,Abschiedsfeier,B1,Nomen,부장님 송별회가 금요일이에요.,Die Abschiedsfeier des Abteilungsleiters ist am Freitag.,Feste & Einladungen,b1_social_events_1,5,false,farewell party,Noun,The manager's farewell party is on Friday.,vocab_b1_0180
+결혼식,gyeolhonsik,Hochzeit,B1,Nomen,주말에 결혼식에 가요.,Am Wochenende gehe ich zu einer Hochzeit.,Feste & Einladungen,b1_social_events_1,6,false,wedding,Noun,I am going to a wedding this weekend.,vocab_b1_0181
+결혼기념일,gyeolhonginyeomil,Hochzeitstag,B1,Nomen,오늘은 부모님 결혼기념일이에요.,Heute ist der Hochzeitstag meiner Eltern.,Feste & Einladungen,b1_social_events_1,7,false,wedding anniversary,Noun,Today is my parents' wedding anniversary.,vocab_b1_0182
+신혼여행,sinhonyeohaeng,Flitterwochen,B1,Nomen,신혼여행은 제주도로 가요.,Die Flitterwochen verbringen wir auf Jeju.,Feste & Einladungen,b1_social_events_1,8,false,honeymoon,Noun,We are going to Jeju for our honeymoon.,vocab_b1_0183
+선물하다,seonmulhada,schenken,B1,Verb,부모님께 꽃을 선물했어요.,Ich habe meinen Eltern Blumen geschenkt.,Feste & Einladungen,b1_social_events_1,9,false,to give a present,Verb,I gave my parents flowers.,vocab_b1_0184
+참석하다,chamseokhada,teilnehmen,B1,Verb,회의에 꼭 참석해 주세요.,Nehmen Sie bitte unbedingt an der Sitzung teil.,Feste & Einladungen,b1_social_events_1,10,true,to attend,Verb,Please be sure to attend the meeting.,vocab_b1_0185
+회비,hoebi,Mitgliedsbeitrag,B1,Nomen,모임 회비는 만 원이에요.,Der Beitrag für das Treffen beträgt 10.000 Won.,Feste & Einladungen,b1_social_events_1,11,true,membership fee,Noun,The meeting fee is 10000 won.,vocab_b1_0186
+외식,oesik,Essengehen,B1,Nomen,오늘은 가족과 외식을 해요.,Heute gehen wir mit der Familie essen.,Feste & Einladungen,b1_social_events_1,12,true,eating out,Noun,We are eating out with the family today.,vocab_b1_0187
+표현,pyohyeon,Ausdruck,B1,Nomen,이 표현은 자주 써요.,Diesen Ausdruck benutzt man oft.,Sprache & Ausdruck,b1_communication_lang_1,1,false,expression,Noun,This expression is used often.,vocab_b1_0188
+어휘,eohwi,Wortschatz,B1,Nomen,어휘를 늘리고 싶어요.,Ich möchte meinen Wortschatz erweitern.,Sprache & Ausdruck,b1_communication_lang_1,2,false,vocabulary,Noun,I want to expand my vocabulary.,vocab_b1_0189
+문장,munjang,Satz,B1,Nomen,이 문장은 조금 어려워요.,Dieser Satz ist etwas schwierig.,Sprache & Ausdruck,b1_communication_lang_1,3,false,sentence,Noun,This sentence is a bit difficult.,vocab_b1_0190
+뜻,tteut,Bedeutung,B1,Nomen,이 단어는 뜻이 두 개예요.,Dieses Wort hat zwei Bedeutungen.,Sprache & Ausdruck,b1_communication_lang_1,4,false,meaning,Noun,This word has two meanings.,vocab_b1_0191
+대화,daehwa,Gespräch,B1,Nomen,한국어로 대화를 연습해요.,Wir üben Gespräche auf Koreanisch.,Sprache & Ausdruck,b1_communication_lang_1,5,false,conversation,Noun,We practice conversations in Korean.,vocab_b1_0192
+번역하다,beonyeokhada,übersetzen,B1,Verb,이 문장을 독일어로 번역해 주세요.,Übersetzen Sie diesen Satz bitte ins Deutsche.,Sprache & Ausdruck,b1_communication_lang_1,6,false,to translate,Verb,Please translate this sentence into German.,vocab_b1_0193
+통역,tongyeok,Dolmetschen,B1,Nomen,친구가 통역을 해 줬어요.,Ein Freund hat für mich gedolmetscht.,Sprache & Ausdruck,b1_communication_lang_1,7,false,interpretation,Noun,A friend interpreted for me.,vocab_b1_0194
+질문,jilmun,Frage,B1,Nomen,질문이 하나 있어요.,Ich habe eine Frage.,Sprache & Ausdruck,b1_communication_lang_1,8,false,question,Noun,I have a question.,vocab_b1_0195
+대답하다,daedaphada,antworten,B1,Verb,질문에 대답해 주세요.,Antworten Sie bitte auf die Frage.,Sprache & Ausdruck,b1_communication_lang_1,9,false,to answer,Verb,Please answer the question.,vocab_b1_0196
+소개하다,sogaehada,vorstellen,B1,Verb,친구를 소개해 줄게요.,Ich stelle dir einen Freund vor.,Sprache & Ausdruck,b1_communication_lang_1,10,true,to introduce,Verb,I will introduce a friend to you.,vocab_b1_0197
+존댓말,jondaenmal,Höflichkeitssprache,B1,Nomen,어른에게는 존댓말을 써요.,Gegenüber Älteren benutzt man die Höflichkeitssprache.,Sprache & Ausdruck,b1_communication_lang_1,11,true,honorific speech,Noun,You use honorific speech with elders.,vocab_b1_0198
+반말,banmal,informelle Sprache,B1,Nomen,친한 친구와는 반말을 해요.,Mit engen Freunden spricht man informell.,Sprache & Ausdruck,b1_communication_lang_1,12,true,casual speech,Noun,You speak casually with close friends.,vocab_b1_0199
+성격,seonggyeok,Charakter,B1,Nomen,제 동생은 성격이 밝아요.,Meine kleine Schwester hat einen fröhlichen Charakter.,Charakter & Gefühle,b1_character_feelings_1,1,false,personality,Noun,My younger sister has a cheerful personality.,vocab_b1_0200
+관심,gwansim,Interesse,B1,Nomen,역사에 관심이 많아요.,Ich habe großes Interesse an Geschichte.,Charakter & Gefühle,b1_character_feelings_1,2,false,interest,Noun,I am very interested in history.,vocab_b1_0201
+기쁨,gippeum,Freude,B1,Nomen,합격 소식은 큰 기쁨이었어요.,Die Nachricht vom Bestehen war eine große Freude.,Charakter & Gefühle,b1_character_feelings_1,3,false,joy,Noun,The news of passing was a great joy.,vocab_b1_0202
+슬픔,seulpeum,Trauer,B1,Nomen,슬픔은 시간이 지나면 나아져요.,Trauer wird mit der Zeit leichter.,Charakter & Gefühle,b1_character_feelings_1,4,false,sadness,Noun,Sadness gets better with time.,vocab_b1_0203
+외로움,oeroum,Einsamkeit,B1,Nomen,혼자 살면 가끔 외로움을 느껴요.,Beim Alleinleben fühlt man manchmal Einsamkeit.,Charakter & Gefühle,b1_character_feelings_1,5,false,loneliness,Noun,Living alone you sometimes feel loneliness.,vocab_b1_0204
+고민,gomin,Sorge,B1,Nomen,요즘 고민이 하나 있어요.,Zurzeit habe ich eine Sorge.,Charakter & Gefühle,b1_character_feelings_1,6,false,worry,Noun,I have one worry these days.,vocab_b1_0205
+부럽다,bureopda,beneiden,B1,Adjektiv,여행 사진을 보니까 정말 부러워요.,Beim Anblick deiner Reisefotos beneide ich dich wirklich.,Charakter & Gefühle,b1_character_feelings_1,7,false,to envy,Adjective,Seeing your travel photos I really envy you.,vocab_b1_0206
+궁금하다,gunggeumhada,neugierig sein,B1,Adjektiv,결과가 정말 궁금해요.,Ich bin sehr gespannt auf das Ergebnis.,Charakter & Gefühle,b1_character_feelings_1,8,false,to be curious,Adjective,I am very curious about the result.,vocab_b1_0207
+섭섭하다,seopseophada,enttäuscht sein,B1,Adjektiv,연락이 없어서 조금 섭섭했어요.,Ohne deine Nachricht war ich etwas enttäuscht.,Charakter & Gefühle,b1_character_feelings_1,9,false,to feel hurt,Adjective,I felt a bit hurt because you did not call.,vocab_b1_0208
+심각하다,simgakhada,ernst,B1,Adjektiv,문제가 생각보다 심각해요.,Das Problem ist ernster als gedacht.,Charakter & Gefühle,b1_character_feelings_1,10,true,serious,Adjective,The problem is more serious than expected.,vocab_b1_0209
+이상하다,isanghada,seltsam,B1,Adjektiv,이 소리 좀 이상해요.,Dieses Geräusch ist etwas seltsam.,Charakter & Gefühle,b1_character_feelings_1,11,true,strange,Adjective,This sound is a bit strange.,vocab_b1_0210
+훌륭하다,hullyunghada,ausgezeichnet,B1,Adjektiv,발표가 정말 훌륭했어요.,Die Präsentation war wirklich ausgezeichnet.,Charakter & Gefühle,b1_character_feelings_1,12,true,excellent,Adjective,The presentation was truly excellent.,vocab_b1_0211
+맡기다,matgida,abgeben,B1,Verb,가방을 호텔에 맡겼어요.,Ich habe die Tasche im Hotel abgegeben.,Nützliche Verben,b1_verbs_daily_1,1,false,to entrust,Verb,I left my bag at the hotel.,vocab_b1_0212
+치우다,chiuda,aufräumen,B1,Verb,방을 좀 치워 주세요.,Räum bitte das Zimmer auf.,Nützliche Verben,b1_verbs_daily_1,2,false,to clean up,Verb,Please clean up the room.,vocab_b1_0213
+사귀다,sagwida,sich anfreunden,B1,Verb,한국 친구를 많이 사귀었어요.,Ich habe viele koreanische Freunde gefunden.,Nützliche Verben,b1_verbs_daily_1,3,false,to make friends,Verb,I made many Korean friends.,vocab_b1_0214
+줍다,jupda,aufheben,B1,Verb,길에서 지갑을 주웠어요.,Ich habe auf der Straße einen Geldbeutel aufgehoben.,Nützliche Verben,b1_verbs_daily_1,4,false,to pick up,Verb,I picked up a wallet on the street.,vocab_b1_0215
+키우다,kiuda,aufziehen,B1,Verb,저는 고양이 한 마리를 키워요.,Ich halte eine Katze.,Nützliche Verben,b1_verbs_daily_1,5,false,to raise,Verb,I am raising a cat.,vocab_b1_0216
+모으다,moeuda,sammeln,B1,Verb,취미로 우표를 모아요.,Als Hobby sammle ich Briefmarken.,Nützliche Verben,b1_verbs_daily_1,6,false,to collect,Verb,I collect stamps as a hobby.,vocab_b1_0217
+벌다,beolda,verdienen,B1,Verb,아르바이트로 돈을 벌어요.,Mit einem Nebenjob verdiene ich Geld.,Nützliche Verben,b1_verbs_daily_1,7,false,to earn,Verb,I earn money with a part-time job.,vocab_b1_0218
+깎다,kkakda,schälen,B1,Verb,사과를 깎아서 먹었어요.,Ich habe den Apfel geschält und gegessen.,Nützliche Verben,b1_verbs_daily_1,8,false,to peel,Verb,I peeled the apple and ate it.,vocab_b1_0219
+헤어지다,heeojida,sich trennen,B1,Verb,남자친구와 헤어졌어요.,Ich habe mich von meinem Freund getrennt.,Nützliche Verben,b1_verbs_daily_1,9,false,to break up,Verb,I broke up with my boyfriend.,vocab_b1_0220
+잊어버리다,ijeobeorida,vergessen,B1,Verb,약속을 깜빡 잊어버렸어요.,Ich habe den Termin völlig vergessen.,Nützliche Verben,b1_verbs_daily_1,10,true,to forget,Verb,I completely forgot the appointment.,vocab_b1_0221
+고치다,gochida,reparieren,B1,Verb,컴퓨터를 고쳐야 해요.,Der Computer muss repariert werden.,Nützliche Verben,b1_verbs_daily_1,11,true,to fix,Verb,The computer needs to be fixed.,vocab_b1_0222
+던지다,deonjida,werfen,B1,Verb,공을 던져 주세요.,Wirf mir bitte den Ball zu.,Nützliche Verben,b1_verbs_daily_1,12,true,to throw,Verb,Please throw me the ball.,vocab_b1_0223
+뚱뚱하다,ttungttunghada,dick,B1,Adjektiv,우리 고양이는 조금 뚱뚱해요.,Unsere Katze ist etwas dick.,Eigenschaften,b1_descriptions_adj_1,1,false,fat,Adjective,Our cat is a little fat.,vocab_b1_0224
+날씬하다,nalssinhada,schlank,B1,Adjektiv,운동해서 날씬해졌어요.,Durch Sport bin ich schlank geworden.,Eigenschaften,b1_descriptions_adj_1,2,false,slim,Adjective,I became slim through exercise.,vocab_b1_0225
+미끄럽다,mikkeureopda,rutschig,B1,Adjektiv,겨울에는 길이 미끄러워요.,Im Winter sind die Straßen rutschig.,Eigenschaften,b1_descriptions_adj_1,3,false,slippery,Adjective,The roads are slippery in winter.,vocab_b1_0226
+편리하다,pyeollihada,praktisch,B1,Adjektiv,지하철이 정말 편리해요.,Die U-Bahn ist wirklich praktisch.,Eigenschaften,b1_descriptions_adj_1,4,false,convenient,Adjective,The subway is really convenient.,vocab_b1_0227
+불편하다,bulpyeonhada,unbequem,B1,Adjektiv,이 의자는 불편해요.,Dieser Stuhl ist unbequem.,Eigenschaften,b1_descriptions_adj_1,5,false,uncomfortable,Adjective,This chair is uncomfortable.,vocab_b1_0228
+심하다,simhada,schlimm,B1,Adjektiv,감기가 심해요.,Die Erkältung ist schlimm.,Eigenschaften,b1_descriptions_adj_1,6,false,severe,Adjective,The cold is severe.,vocab_b1_0229
+똑같다,ttokgatda,genau gleich,B1,Adjektiv,우리는 취미가 똑같아요.,Wir haben genau das gleiche Hobby.,Eigenschaften,b1_descriptions_adj_1,7,false,identical,Adjective,We have exactly the same hobby.,vocab_b1_0230
+비슷하다,biseuthada,ähnlich,B1,Adjektiv,두 단어는 뜻이 비슷해요.,Die beiden Wörter haben eine ähnliche Bedeutung.,Eigenschaften,b1_descriptions_adj_1,8,false,similar,Adjective,The two words have similar meanings.,vocab_b1_0231
+세다,seda,stark,B1,Adjektiv,바람이 아주 세요.,Der Wind ist sehr stark.,Eigenschaften,b1_descriptions_adj_1,9,false,strong,Adjective,The wind is very strong.,vocab_b1_0232
+굵다,gukda,dick (grob),B1,Adjektiv,굵은 펜으로 써 주세요.,Schreiben Sie bitte mit einem dicken Stift.,Eigenschaften,b1_descriptions_adj_1,10,true,thick,Adjective,Please write with a thick pen.,vocab_b1_0233
+밝다,bakda,hell,B1,Adjektiv,이 방은 아주 밝아요.,Dieses Zimmer ist sehr hell.,Eigenschaften,b1_descriptions_adj_1,11,true,bright,Adjective,This room is very bright.,vocab_b1_0234
+어둡다,eodupda,dunkel,B1,Adjektiv,밖이 벌써 어두워요.,Draußen ist es schon dunkel.,Eigenschaften,b1_descriptions_adj_1,12,true,dark,Adjective,It is already dark outside.,vocab_b1_0235
+기간,gigan,Zeitraum,B1,Nomen,시험 기간에는 바빠요.,In der Prüfungszeit bin ich beschäftigt.,Zeit & Lebenslauf,b1_time_life_1,1,false,period,Noun,I am busy during exam period.,vocab_b1_0236
+순간,sungan,Moment,B1,Nomen,그 순간을 잊을 수 없어요.,Diesen Moment kann ich nicht vergessen.,Zeit & Lebenslauf,b1_time_life_1,2,false,moment,Noun,I cannot forget that moment.,vocab_b1_0237
+평일,pyeongil,Wochentag,B1,Nomen,평일에는 회사에 가요.,An Wochentagen gehe ich zur Arbeit.,Zeit & Lebenslauf,b1_time_life_1,3,false,weekday,Noun,I go to work on weekdays.,vocab_b1_0238
+연휴,yeonhyu,lange Feiertage,B1,Nomen,이번 연휴에 뭐 해요?,Was machst du an den langen Feiertagen?,Zeit & Lebenslauf,b1_time_life_1,4,false,long holiday,Noun,What are you doing over the long holiday?,vocab_b1_0239
+세월,sewol,die Jahre,B1,Nomen,세월이 참 빨라요.,Die Zeit vergeht wirklich schnell.,Zeit & Lebenslauf,b1_time_life_1,5,false,passing years,Noun,Time really flies.,vocab_b1_0240
+태어나다,taeeonada,geboren werden,B1,Verb,저는 서울에서 태어났어요.,Ich bin in Seoul geboren.,Zeit & Lebenslauf,b1_time_life_1,6,false,to be born,Verb,I was born in Seoul.,vocab_b1_0241
+졸업하다,joreophada,den Abschluss machen,B1,Verb,내년에 대학교를 졸업해요.,Nächstes Jahr mache ich meinen Uni-Abschluss.,Zeit & Lebenslauf,b1_time_life_1,7,false,to graduate,Verb,I graduate from university next year.,vocab_b1_0242
+입학하다,iphakhada,eingeschult werden,B1,Verb,조카가 올해 초등학교에 입학했어요.,Meine Nichte wurde dieses Jahr eingeschult.,Zeit & Lebenslauf,b1_time_life_1,8,false,to enter a school,Verb,My niece started elementary school this year.,vocab_b1_0243
+어른,eoreun,Erwachsener,B1,Nomen,어른에게 존댓말을 써야 해요.,Gegenüber Erwachsenen muss man höflich sprechen.,Zeit & Lebenslauf,b1_time_life_1,9,false,adult,Noun,You must speak politely to adults.,vocab_b1_0244
+노인,noin,älterer Mensch,B1,Nomen,지하철에서 노인에게 자리를 양보했어요.,In der U-Bahn habe ich einem älteren Menschen den Platz überlassen.,Zeit & Lebenslauf,b1_time_life_1,10,true,elderly person,Noun,I gave my seat to an elderly person on the subway.,vocab_b1_0245
+미래,mirae,Zukunft,B1,Nomen,미래를 위해 저축해요.,Für die Zukunft spare ich.,Zeit & Lebenslauf,b1_time_life_1,11,true,future,Noun,I save for the future.,vocab_b1_0246
+옛날,yennal,früher,B1,Nomen,옛날에는 여기가 시장이었어요.,Früher war hier ein Markt.,Zeit & Lebenslauf,b1_time_life_1,12,true,old days,Noun,This used to be a market in the old days.,vocab_b1_0247
+현대,hyeondae,Gegenwart,B2,Nomen,현대 사회는 변화가 빨라요.,Die moderne Gesellschaft verändert sich schnell.,Modernes Leben,b2_modern_life_1,1,false,modern times,Noun,Modern society changes fast.,vocab_b2_0085
+현대인,hyeondaein,moderner Mensch,B2,Nomen,현대인은 스트레스가 많아요.,Moderne Menschen haben viel Stress.,Modernes Leben,b2_modern_life_1,2,false,modern person,Noun,Modern people have a lot of stress.,vocab_b2_0086
+최신식,choesinsik,hochmodern,B2,Nomen,이 건물은 최신식 시설을 갖췄어요.,Dieses Gebäude hat eine hochmoderne Ausstattung.,Modernes Leben,b2_modern_life_1,3,false,state-of-the-art,Noun,This building has state-of-the-art facilities.,vocab_b2_0087
+기계,gigye,Maschine,B2,Nomen,이 기계는 사용법이 간단해요.,Diese Maschine ist einfach zu bedienen.,Modernes Leben,b2_modern_life_1,4,false,machine,Noun,This machine is easy to use.,vocab_b2_0088
+스스로,seuseuro,selbst,B2,Adverb,문제를 스스로 해결했어요.,Ich habe das Problem selbst gelöst.,Modernes Leben,b2_modern_life_1,5,false,by oneself,Adverb,I solved the problem by myself.,vocab_b2_0089
+독립하다,dongniphada,unabhängig werden,B2,Verb,서른 살에 부모님에게서 독립했어요.,Mit dreißig bin ich von zu Hause ausgezogen.,Modernes Leben,b2_modern_life_1,6,false,to become independent,Verb,I became independent from my parents at thirty.,vocab_b2_0090
+공간,gonggan,Raum,B2,Nomen,이 방은 공간이 넓어요.,Dieses Zimmer bietet viel Raum.,Modernes Leben,b2_modern_life_1,7,false,space,Noun,This room has a lot of space.,vocab_b2_0091
+활동,hwaldong,Aktivität,B2,Nomen,동아리 활동을 해요.,Ich mache bei Klubaktivitäten mit.,Modernes Leben,b2_modern_life_1,8,false,activity,Noun,I take part in club activities.,vocab_b2_0092
+외출하다,oechulhada,ausgehen,B2,Verb,잠깐 외출했어요.,Ich war kurz außer Haus.,Modernes Leben,b2_modern_life_1,9,false,to go out,Verb,I went out for a while.,vocab_b2_0093
+평소,pyeongso,gewöhnliche Zeit,B2,Nomen,평소에 일찍 일어나요.,Normalerweise stehe ich früh auf.,Modernes Leben,b2_modern_life_1,10,true,usual times,Noun,I usually get up early.,vocab_b2_0094
+인기,ingi,Beliebtheit,B2,Nomen,이 가수는 인기가 많아요.,Dieser Sänger ist sehr beliebt.,Modernes Leben,b2_modern_life_1,11,true,popularity,Noun,This singer is very popular.,vocab_b2_0095
+달라지다,dallajida,sich verändern,B2,Verb,동네가 많이 달라졌어요.,Das Viertel hat sich stark verändert.,Modernes Leben,b2_modern_life_1,12,true,to change,Verb,The neighborhood has changed a lot.,vocab_b2_0096
+예절,yejeol,Etikette,B2,Nomen,식사 예절을 배웠어요.,Ich habe Tischmanieren gelernt.,Umgangsformen,b2_manners_society_1,1,false,etiquette,Noun,I learned table manners.,vocab_b2_0097
+예의,yeui,Höflichkeit,B2,Nomen,예의를 지키는 게 중요해요.,Höflichkeit zu wahren ist wichtig.,Umgangsformen,b2_manners_society_1,2,false,manners,Noun,Keeping good manners is important.,vocab_b2_0098
+양보하다,yangbohada,überlassen,B2,Verb,버스에서 자리를 양보했어요.,Im Bus habe ich meinen Platz überlassen.,Umgangsformen,b2_manners_society_1,3,false,to yield,Verb,I gave up my seat on the bus.,vocab_b2_0099
+방해하다,banghaehada,stören,B2,Verb,공부를 방해하지 마세요.,Stör mich bitte nicht beim Lernen.,Umgangsformen,b2_manners_society_1,4,false,to disturb,Verb,Please do not disturb my studying.,vocab_b2_0100
+주의,juui,Vorsicht,B2,Nomen,계단에서는 주의가 필요해요.,Auf der Treppe ist Vorsicht nötig.,Umgangsformen,b2_manners_society_1,5,false,caution,Noun,Caution is needed on the stairs.,vocab_b2_0101
+금지하다,geumjihada,verbieten,B2,Verb,여기서는 흡연을 금지해요.,Hier ist Rauchen verboten.,Umgangsformen,b2_manners_society_1,6,false,to prohibit,Verb,Smoking is prohibited here.,vocab_b2_0102
+출입,churip,Zutritt,B2,Nomen,여기는 출입 금지예요.,Hier ist der Zutritt verboten.,Umgangsformen,b2_manners_society_1,7,false,entry,Noun,Entry is forbidden here.,vocab_b2_0103
+벌,beol,Strafe,B2,Nomen,거짓말을 하면 벌을 받아요.,Auf Lügen folgt eine Strafe.,Umgangsformen,b2_manners_society_1,8,false,punishment,Noun,Lying brings punishment.,vocab_b2_0104
+사회생활,sahoesaenghwal,Berufsleben,B2,Nomen,사회생활에서는 예의가 중요해요.,Im Berufsleben ist Höflichkeit wichtig.,Umgangsformen,b2_manners_society_1,9,false,social life,Noun,Manners matter in social life.,vocab_b2_0105
+세상,sesang,Welt (Leben),B2,Nomen,세상에는 좋은 사람이 많아요.,Auf der Welt gibt es viele gute Menschen.,Umgangsformen,b2_manners_society_1,10,true,world,Noun,There are many good people in the world.,vocab_b2_0106
+임산부,imsanbu,Schwangere,B2,Nomen,임산부에게 자리를 양보하세요.,Überlassen Sie Schwangeren den Platz.,Umgangsformen,b2_manners_society_1,11,true,pregnant woman,Noun,Give up your seat to pregnant women.,vocab_b2_0107
+무료,muryo,kostenlos,B2,Nomen,입장은 무료예요.,Der Eintritt ist kostenlos.,Umgangsformen,b2_manners_society_1,12,true,free of charge,Noun,Admission is free.,vocab_b2_0108
+경우,gyeongu,Fall,B2,Nomen,비가 올 경우에는 취소돼요.,Im Fall von Regen wird es abgesagt.,Abstrakte Begriffe,b2_abstract_concepts_1,1,false,case,Noun,In case of rain it is canceled.,vocab_b2_0109
+전체,jeonche,Gesamtheit,B2,Nomen,학생 전체가 참여했어요.,Alle Schüler haben teilgenommen.,Abstrakte Begriffe,b2_abstract_concepts_1,2,false,whole,Noun,All the students participated.,vocab_b2_0110
+정도,jeongdo,Ausmaß,B2,Nomen,삼십 분 정도 걸려요.,Es dauert etwa dreißig Minuten.,Abstrakte Begriffe,b2_abstract_concepts_1,3,false,degree,Noun,It takes about thirty minutes.,vocab_b2_0111
+종류,jongnyu,Sorte,B2,Nomen,차 종류가 정말 많네요.,Es gibt wirklich viele Teesorten.,Abstrakte Begriffe,b2_abstract_concepts_1,4,false,kind,Noun,There are so many kinds of tea.,vocab_b2_0112
+느낌,neukkim,Gefühl,B2,Nomen,이 노래는 느낌이 좋아요.,Dieses Lied fühlt sich gut an.,Abstrakte Begriffe,b2_abstract_concepts_1,5,false,feeling,Noun,This song has a good feeling.,vocab_b2_0113
+핵심,haeksim,Kern,B2,Nomen,문제의 핵심을 말해 주세요.,Nennen Sie bitte den Kern des Problems.,Abstrakte Begriffe,b2_abstract_concepts_1,6,false,core,Noun,Please state the core of the problem.,vocab_b2_0114
+유형,yuhyeong,Typ,B2,Nomen,시험 문제 유형을 분석했어요.,Ich habe die Aufgabentypen der Prüfung analysiert.,Abstrakte Begriffe,b2_abstract_concepts_1,7,false,type,Noun,I analyzed the exam question types.,vocab_b2_0115
+부분,bubun,Teil,B2,Nomen,이 부분을 다시 설명해 주세요.,Erklären Sie diesen Teil bitte noch einmal.,Abstrakte Begriffe,b2_abstract_concepts_1,8,false,part,Noun,Please explain this part again.,vocab_b2_0116
+내용,naeyong,Inhalt,B2,Nomen,책 내용이 어려워요.,Der Inhalt des Buches ist schwierig.,Abstrakte Begriffe,b2_abstract_concepts_1,9,false,content,Noun,The content of the book is difficult.,vocab_b2_0117
+주제,juje,Thema,B2,Nomen,오늘 회의 주제가 뭐예요?,Was ist das Thema der heutigen Sitzung?,Abstrakte Begriffe,b2_abstract_concepts_1,10,true,topic,Noun,What is the topic of today's meeting?,vocab_b2_0118
+자료,jaryo,Material,B2,Nomen,발표 자료를 준비했어요.,Ich habe die Präsentationsunterlagen vorbereitet.,Abstrakte Begriffe,b2_abstract_concepts_1,11,true,material,Noun,I prepared the presentation materials.,vocab_b2_0119
+비결,bigyeol,Geheimtipp,B2,Nomen,건강의 비결이 뭐예요?,Was ist das Geheimnis Ihrer Gesundheit?,Abstrakte Begriffe,b2_abstract_concepts_1,12,true,secret,Noun,What is the secret of your health?,vocab_b2_0120
+문법,munbeop,Grammatik,B2,Nomen,한국어 문법은 재미있어요.,Koreanische Grammatik macht Spaß.,Sprache & Grammatik,b2_language_grammar_1,1,false,grammar,Noun,Korean grammar is fun.,vocab_b2_0121
+명사,myeongsa,Substantiv,B2,Nomen,이 단어는 명사예요.,Dieses Wort ist ein Substantiv.,Sprache & Grammatik,b2_language_grammar_1,2,false,noun,Noun,This word is a noun.,vocab_b2_0122
+동사,dongsa,Verb,B2,Nomen,동사는 문장 끝에 와요.,Das Verb steht am Satzende.,Sprache & Grammatik,b2_language_grammar_1,3,false,verb,Noun,The verb comes at the end of the sentence.,vocab_b2_0123
+형용사,hyeongyongsa,Adjektiv,B2,Nomen,형용사로 기분을 표현해요.,Mit Adjektiven drückt man Gefühle aus.,Sprache & Grammatik,b2_language_grammar_1,4,false,adjective,Noun,You express feelings with adjectives.,vocab_b2_0124
+부사,busa,Adverb,B2,Nomen,부사는 동사를 꾸며요.,Adverbien beschreiben das Verb.,Sprache & Grammatik,b2_language_grammar_1,5,false,adverb,Noun,Adverbs modify the verb.,vocab_b2_0125
+자음,jaeum,Konsonant,B2,Nomen,한글에는 자음이 열아홉 개 있어요.,Hangul hat neunzehn Konsonanten.,Sprache & Grammatik,b2_language_grammar_1,6,false,consonant,Noun,Hangul has nineteen consonants.,vocab_b2_0126
+모음,moeum,Vokal,B2,Nomen,모음부터 배웠어요.,Ich habe zuerst die Vokale gelernt.,Sprache & Grammatik,b2_language_grammar_1,7,false,vowel,Noun,I learned the vowels first.,vocab_b2_0127
+반의어,banuieo,Antonym,B2,Nomen,크다의 반의어는 작다예요.,Das Antonym von groß ist klein.,Sprache & Grammatik,b2_language_grammar_1,8,false,antonym,Noun,The antonym of big is small.,vocab_b2_0128
+동의어,donguieo,Synonym,B2,Nomen,두 단어는 동의어예요.,Die beiden Wörter sind Synonyme.,Sprache & Grammatik,b2_language_grammar_1,9,false,synonym,Noun,The two words are synonyms.,vocab_b2_0129
+철자,cheolja,Rechtschreibung,B2,Nomen,철자를 자주 틀려요.,Ich mache oft Rechtschreibfehler.,Sprache & Grammatik,b2_language_grammar_1,10,true,spelling,Noun,I often make spelling mistakes.,vocab_b2_0130
+오류,oryu,Fehler,B2,Nomen,문장에 오류가 있어요.,Im Satz ist ein Fehler.,Sprache & Grammatik,b2_language_grammar_1,11,true,error,Noun,There is an error in the sentence.,vocab_b2_0131
+외우다,oeuda,auswendig lernen,B2,Verb,단어를 매일 외워요.,Ich lerne jeden Tag Wörter auswendig.,Sprache & Grammatik,b2_language_grammar_1,12,true,to memorize,Verb,I memorize words every day.,vocab_b2_0132
+온도,ondo,Temperatur,B2,Nomen,방 온도가 너무 높아요.,Die Zimmertemperatur ist zu hoch.,Haushalt & Praktisches,b2_household_practical_1,1,false,temperature,Noun,The room temperature is too high.,vocab_b2_0133
+습도,seupdo,Luftfeuchtigkeit,B2,Nomen,여름에는 습도가 높아요.,Im Sommer ist die Luftfeuchtigkeit hoch.,Haushalt & Praktisches,b2_household_practical_1,2,false,humidity,Noun,Humidity is high in summer.,vocab_b2_0134
+조절하다,jojeolhada,regulieren,B2,Verb,에어컨 온도를 조절했어요.,Ich habe die Klimaanlage eingestellt.,Haushalt & Praktisches,b2_household_practical_1,3,false,to adjust,Verb,I adjusted the air conditioner.,vocab_b2_0135
+건조하다,geonjohada,trocken,B2,Adjektiv,겨울에는 공기가 건조해요.,Im Winter ist die Luft trocken.,Haushalt & Praktisches,b2_household_practical_1,4,false,dry,Adjective,The air is dry in winter.,vocab_b2_0136
+가습기,gaseupgi,Luftbefeuchter,B2,Nomen,방에 가습기를 켰어요.,Ich habe den Luftbefeuchter im Zimmer angemacht.,Haushalt & Praktisches,b2_household_practical_1,5,false,humidifier,Noun,I turned on the humidifier in the room.,vocab_b2_0137
+형광등,hyeonggwangdeung,Leuchtstofflampe,B2,Nomen,형광등을 갈아야 해요.,Die Leuchtstofflampe muss gewechselt werden.,Haushalt & Praktisches,b2_household_practical_1,6,false,fluorescent light,Noun,The fluorescent light needs changing.,vocab_b2_0138
+뚜껑,ttukkeong,Deckel,B2,Nomen,병 뚜껑을 열어 주세요.,Öffne bitte den Flaschendeckel.,Haushalt & Praktisches,b2_household_practical_1,7,false,lid,Noun,Please open the bottle lid.,vocab_b2_0139
+봉투,bongtu,Umschlag,B2,Nomen,편지를 봉투에 넣었어요.,Ich habe den Brief in den Umschlag gesteckt.,Haushalt & Praktisches,b2_household_practical_1,8,false,envelope,Noun,I put the letter in the envelope.,vocab_b2_0140
+서랍,seorap,Schublade,B2,Nomen,서랍에 열쇠가 있어요.,Der Schlüssel ist in der Schublade.,Haushalt & Praktisches,b2_household_practical_1,9,false,drawer,Noun,The key is in the drawer.,vocab_b2_0141
+담다,damda,hineintun,B2,Verb,과일을 바구니에 담았어요.,Ich habe das Obst in den Korb getan.,Haushalt & Praktisches,b2_household_practical_1,10,true,to put in,Verb,I put the fruit in the basket.,vocab_b2_0142
+젖다,jeotda,nass werden,B2,Verb,비에 옷이 다 젖었어요.,Meine Kleidung ist im Regen ganz nass geworden.,Haushalt & Praktisches,b2_household_practical_1,11,true,to get wet,Verb,My clothes got all wet in the rain.,vocab_b2_0143
+말리다,mallida,trocknen,B2,Verb,머리를 말리고 나갈게요.,Ich trockne mir die Haare und gehe dann los.,Haushalt & Praktisches,b2_household_practical_1,12,true,to dry,Verb,I will dry my hair and then leave.,vocab_b2_0144
+부부,bubu,Ehepaar,B2,Nomen,그 부부는 정말 행복해 보여요.,Das Ehepaar sieht wirklich glücklich aus.,Menschen & Beziehungen,b2_relationships_people_1,1,false,married couple,Noun,That couple looks really happy.,vocab_b2_0145
+친척,chincheok,Verwandte,B2,Nomen,명절에 친척들이 모여요.,An Feiertagen kommen die Verwandten zusammen.,Menschen & Beziehungen,b2_relationships_people_1,2,false,relatives,Noun,Relatives gather on holidays.,vocab_b2_0146
+애인,aein,Partner,B2,Nomen,애인과 영화를 봤어요.,Ich habe mit meinem Partner einen Film gesehen.,Menschen & Beziehungen,b2_relationships_people_1,3,false,romantic partner,Noun,I watched a movie with my partner.,vocab_b2_0147
+동창,dongchang,Schulfreund,B2,Nomen,어제 고등학교 동창을 만났어요.,Gestern habe ich einen alten Schulfreund getroffen.,Menschen & Beziehungen,b2_relationships_people_1,4,false,schoolmate,Noun,I met a high school classmate yesterday.,vocab_b2_0148
+자식,jasik,Kind (aus Elternsicht),B2,Nomen,부모는 자식을 걱정해요.,Eltern sorgen sich um ihre Kinder.,Menschen & Beziehungen,b2_relationships_people_1,5,false,one's children,Noun,Parents worry about their children.,vocab_b2_0149
+쌍둥이,ssangdungi,Zwillinge,B2,Nomen,제 동생들은 쌍둥이예요.,Meine jüngeren Geschwister sind Zwillinge.,Menschen & Beziehungen,b2_relationships_people_1,6,false,twins,Noun,My younger siblings are twins.,vocab_b2_0150
+닮다,damda,ähneln,B2,Verb,저는 아버지를 닮았어요.,Ich ähnele meinem Vater.,Menschen & Beziehungen,b2_relationships_people_1,7,false,to resemble,Verb,I resemble my father.,vocab_b2_0151
+몸매,mommae,Figur,B2,Nomen,운동으로 몸매를 관리해요.,Mit Sport halte ich meine Figur.,Menschen & Beziehungen,b2_relationships_people_1,8,false,figure,Noun,I keep my figure through exercise.,vocab_b2_0152
+실수하다,silsuhada,einen Fehler machen,B2,Verb,발표에서 실수했어요.,Bei der Präsentation habe ich einen Fehler gemacht.,Menschen & Beziehungen,b2_relationships_people_1,9,false,to make a mistake,Verb,I made a mistake in the presentation.,vocab_b2_0153
+서투르다,seotureuda,ungeschickt,B2,Adjektiv,아직 한국어가 서툴러요.,Mein Koreanisch ist noch holprig.,Menschen & Beziehungen,b2_relationships_people_1,10,true,clumsy,Adjective,My Korean is still clumsy.,vocab_b2_0154
+울리다,ullida,zum Weinen bringen,B2,Verb,동생을 울리지 마!,Bring deine kleine Schwester nicht zum Weinen!,Menschen & Beziehungen,b2_relationships_people_1,11,true,to make cry,Verb,Do not make your little sister cry!,vocab_b2_0155
+잘생기다,jalsaenggida,gut aussehend,B2,Adjektiv,그 배우는 정말 잘생겼어요.,Dieser Schauspieler sieht wirklich gut aus.,Menschen & Beziehungen,b2_relationships_people_1,12,true,handsome,Adjective,That actor is really handsome.,vocab_b2_0156
+위험,wiheom,Gefahr,B2,Nomen,공사장은 위험이 많아요.,Auf der Baustelle gibt es viele Gefahren.,Sicherheit & Regeln,b2_safety_rules_1,1,false,danger,Noun,Construction sites have many dangers.,vocab_b2_0157
+안전하다,anjeonhada,sicher,B2,Adjektiv,이 동네는 밤에도 안전해요.,Dieses Viertel ist auch nachts sicher.,Sicherheit & Regeln,b2_safety_rules_1,2,false,safe,Adjective,This neighborhood is safe even at night.,vocab_b2_0158
+보관하다,bogwanhada,aufbewahren,B2,Verb,귀중품은 금고에 보관하세요.,Bewahren Sie Wertsachen im Safe auf.,Sicherheit & Regeln,b2_safety_rules_1,3,false,to store,Verb,Store valuables in the safe.,vocab_b2_0159
+정지하다,jeongjihada,stoppen,B2,Verb,빨간불에서는 정지해야 해요.,Bei Rot muss man anhalten.,Sicherheit & Regeln,b2_safety_rules_1,4,false,to stop,Verb,You must stop at a red light.,vocab_b2_0160
+유통기한,yutonggihan,Haltbarkeitsdatum,B2,Nomen,우유 유통기한을 확인하세요.,Prüfen Sie das Haltbarkeitsdatum der Milch.,Sicherheit & Regeln,b2_safety_rules_1,5,false,expiration date,Noun,Check the milk's expiration date.,vocab_b2_0161
+지키다,jikida,einhalten,B2,Verb,약속을 꼭 지키세요.,Halten Sie Ihr Versprechen unbedingt ein.,Sicherheit & Regeln,b2_safety_rules_1,6,false,to keep,Verb,Be sure to keep your promise.,vocab_b2_0162
+비상,bisang,Notfall,B2,Nomen,비상 상황에는 이 버튼을 누르세요.,Im Notfall drücken Sie diesen Knopf.,Sicherheit & Regeln,b2_safety_rules_1,7,false,emergency,Noun,Press this button in an emergency.,vocab_b2_0163
+사고,sago,Unfall,B2,Nomen,어제 길에서 사고가 났어요.,Gestern gab es auf der Straße einen Unfall.,Sicherheit & Regeln,b2_safety_rules_1,8,false,accident,Noun,There was an accident on the road yesterday.,vocab_b2_0164
+즉시,jeuksi,sofort,B2,Adverb,문제가 생기면 즉시 연락하세요.,Bei Problemen melden Sie sich sofort.,Sicherheit & Regeln,b2_safety_rules_1,9,false,immediately,Adverb,Contact us immediately if problems arise.,vocab_b2_0165
+무조건,mujogeon,bedingungslos,B2,Adverb,무조건 오세요.,Kommen Sie auf jeden Fall.,Sicherheit & Regeln,b2_safety_rules_1,10,true,unconditionally,Adverb,Come no matter what.,vocab_b2_0166
+반드시,bandeusi,unbedingt,B2,Adverb,안전벨트를 반드시 매세요.,Schnallen Sie sich unbedingt an.,Sicherheit & Regeln,b2_safety_rules_1,11,true,certainly,Adverb,Be sure to wear your seat belt.,vocab_b2_0167
+고지서,gojiseo,Gebührenbescheid,B2,Nomen,전기 요금 고지서가 왔어요.,Die Stromrechnung ist gekommen.,Sicherheit & Regeln,b2_safety_rules_1,12,true,bill notice,Noun,The electricity bill has arrived.,vocab_b2_0168
+예매하다,yemaehada,im Voraus buchen,B2,Verb,기차표를 미리 예매했어요.,Ich habe die Zugtickets im Voraus gebucht.,Feste & Traditionen,b2_events_culture_1,1,false,to book in advance,Verb,I booked the train tickets in advance.,vocab_b2_0169
+소풍,sopung,Ausflug,B2,Nomen,내일 학교에서 소풍을 가요.,Morgen macht die Schule einen Ausflug.,Feste & Traditionen,b2_events_culture_1,2,false,picnic,Noun,The school goes on a picnic tomorrow.,vocab_b2_0170
+음력,eumnyeok,Mondkalender,B2,Nomen,설날은 음력 1월 1일이에요.,Seollal ist der erste Tag des Mondkalenders.,Feste & Traditionen,b2_events_culture_1,3,false,lunar calendar,Noun,Seollal is the first day of the lunar calendar.,vocab_b2_0171
+제사,jesa,Ahnenzeremonie,B2,Nomen,명절에 제사를 지내요.,An Feiertagen halten wir die Ahnenzeremonie ab.,Feste & Traditionen,b2_events_culture_1,4,false,ancestral rite,Noun,We hold ancestral rites on holidays.,vocab_b2_0172
+윷놀이,yunnori,Yut-Spiel,B2,Nomen,설날에 가족과 윷놀이를 해요.,An Seollal spielen wir mit der Familie Yut.,Feste & Traditionen,b2_events_culture_1,5,false,yut game,Noun,We play yut with the family at Seollal.,vocab_b2_0173
+관객,gwangaek,Zuschauer,B2,Nomen,공연장에 관객이 가득해요.,Die Halle ist voller Zuschauer.,Feste & Traditionen,b2_events_culture_1,6,false,audience,Noun,The hall is full of spectators.,vocab_b2_0174
+기념하다,ginyeomhada,feierlich begehen,B2,Verb,결혼 10주년을 기념했어요.,Wir haben den zehnten Hochzeitstag gefeiert.,Feste & Traditionen,b2_events_culture_1,7,false,to commemorate,Verb,We celebrated our tenth wedding anniversary.,vocab_b2_0175
+촛불,chotbul,Kerzenlicht,B2,Nomen,케이크에 촛불을 켰어요.,Wir haben die Kerzen auf der Torte angezündet.,Feste & Traditionen,b2_events_culture_1,8,false,candlelight,Noun,We lit the candles on the cake.,vocab_b2_0176
+국기,gukgi,Nationalflagge,B2,Nomen,광복절에 국기를 달아요.,Am Befreiungstag hängen wir die Nationalflagge auf.,Feste & Traditionen,b2_events_culture_1,9,false,national flag,Noun,We fly the national flag on Liberation Day.,vocab_b2_0177
+세계,segye,Welt (Erde),B2,Nomen,세계 여러 나라를 여행하고 싶어요.,Ich möchte viele Länder der Welt bereisen.,Feste & Traditionen,b2_events_culture_1,10,true,world,Noun,I want to travel to many countries of the world.,vocab_b2_0178
+공휴일,gonghyuil,gesetzlicher Feiertag,B2,Nomen,내일은 공휴일이라서 쉬어요.,Morgen ist Feiertag und wir haben frei.,Feste & Traditionen,b2_events_culture_1,11,true,public holiday,Noun,Tomorrow is a public holiday so we rest.,vocab_b2_0179
+야경,yagyeong,Nachtansicht,B2,Nomen,서울의 야경이 아름다워요.,Die nächtliche Skyline von Seoul ist wunderschön.,Feste & Traditionen,b2_events_culture_1,12,true,night view,Noun,Seoul's night view is beautiful.,vocab_b2_0180
+발견하다,balgyeonhada,entdecken,B2,Verb,새로운 카페를 발견했어요.,Ich habe ein neues Café entdeckt.,Handeln & Verändern,b2_thinking_verbs_1,1,false,to discover,Verb,I discovered a new café.,vocab_b2_0181
+이루다,iruda,verwirklichen,B2,Verb,드디어 꿈을 이뤘어요.,Endlich habe ich meinen Traum verwirklicht.,Handeln & Verändern,b2_thinking_verbs_1,2,false,to achieve,Verb,I finally achieved my dream.,vocab_b2_0182
+이어지다,ieojida,sich fortsetzen,B2,Verb,회의가 밤까지 이어졌어요.,Die Sitzung zog sich bis in die Nacht.,Handeln & Verändern,b2_thinking_verbs_1,3,false,to continue,Verb,The meeting continued into the night.,vocab_b2_0183
+간직하다,ganjikhada,bewahren,B2,Verb,그 추억을 마음에 간직할게요.,Diese Erinnerung bewahre ich im Herzen.,Handeln & Verändern,b2_thinking_verbs_1,4,false,to treasure,Verb,I will treasure that memory in my heart.,vocab_b2_0184
+갖추다,gatchuda,ausstatten,B2,Verb,이 호텔은 모든 시설을 갖췄어요.,Dieses Hotel ist mit allem ausgestattet.,Handeln & Verändern,b2_thinking_verbs_1,5,false,to equip,Verb,This hotel is equipped with everything.,vocab_b2_0185
+전하다,jeonhada,übermitteln,B2,Verb,가족에게 안부를 전해 주세요.,Richten Sie Ihrer Familie Grüße aus.,Handeln & Verändern,b2_thinking_verbs_1,6,false,to convey,Verb,Please give my regards to your family.,vocab_b2_0186
+모이다,moida,sich versammeln,B2,Verb,주말에 가족이 다 모여요.,Am Wochenende kommt die ganze Familie zusammen.,Handeln & Verändern,b2_thinking_verbs_1,7,false,to gather,Verb,The whole family gathers on weekends.,vocab_b2_0187
+담그다,damgeuda,einlegen,B2,Verb,가을에 김치를 담가요.,Im Herbst legen wir Kimchi ein.,Handeln & Verändern,b2_thinking_verbs_1,8,false,to pickle,Verb,We make kimchi in autumn.,vocab_b2_0188
+섞이다,seokkida,sich vermischen,B2,Verb,물과 기름은 잘 안 섞여요.,Wasser und Öl vermischen sich nicht gut.,Handeln & Verändern,b2_thinking_verbs_1,9,false,to be mixed,Verb,Water and oil do not mix well.,vocab_b2_0189
+정하다,jeonghada,festlegen,B2,Verb,약속 시간을 정합시다.,Legen wir die Uhrzeit fest.,Handeln & Verändern,b2_thinking_verbs_1,10,true,to decide,Verb,Let us set the meeting time.,vocab_b2_0190
+변하다,byeonhada,sich verändern,B2,Verb,십 년 사이에 도시가 많이 변했어요.,In zehn Jahren hat sich die Stadt stark verändert.,Handeln & Verändern,b2_thinking_verbs_1,11,true,to change,Verb,The city changed a lot in ten years.,vocab_b2_0191
+나누다,nanuda,teilen,B2,Verb,빵을 반으로 나눴어요.,Ich habe das Brot halbiert.,Handeln & Verändern,b2_thinking_verbs_1,12,true,to share,Verb,I divided the bread in half.,vocab_b2_0192
+말씀,malsseum,Worte (ehrerbietig),B2,Nomen,선생님 말씀 잘 들었어요.,Ich habe Ihre Worte aufmerksam gehört.,Ehrensprache,b2_honorifics_1,1,false,words (honorific),Noun,I listened carefully to your words.,vocab_b2_0193
+연세,yeonse,Alter (ehrerbietig),B2,Nomen,할아버지 연세가 어떻게 되세요?,Wie alt ist Ihr Großvater?,Ehrensprache,b2_honorifics_1,2,false,age (honorific),Noun,How old is your grandfather?,vocab_b2_0194
+성함,seongham,Name (ehrerbietig),B2,Nomen,성함이 어떻게 되세요?,Wie ist Ihr werter Name?,Ehrensprache,b2_honorifics_1,3,false,name (honorific),Noun,May I ask your name?,vocab_b2_0195
+생신,saengsin,Geburtstag (ehrerbietig),B2,Nomen,내일이 할머니 생신이에요.,Morgen hat meine Großmutter Geburtstag.,Ehrensprache,b2_honorifics_1,4,false,birthday (honorific),Noun,Tomorrow is my grandmother's birthday.,vocab_b2_0196
+댁,daek,Haus (ehrerbietig),B2,Nomen,선생님 댁에 초대받았어요.,Ich wurde zum Haus des Lehrers eingeladen.,Ehrensprache,b2_honorifics_1,5,false,house (honorific),Noun,I was invited to the teacher's house.,vocab_b2_0197
+드리다,deurida,geben (ehrerbietig),B2,Verb,할머니께 선물을 드렸어요.,Ich habe meiner Großmutter ein Geschenk überreicht.,Ehrensprache,b2_honorifics_1,6,false,to give (honorific),Verb,I gave my grandmother a present.,vocab_b2_0198
+뵙다,boepda,treffen (ehrerbietig),B2,Verb,내일 뵙겠습니다.,Ich freue mich Sie morgen zu sehen.,Ehrensprache,b2_honorifics_1,7,false,to meet (humble),Verb,I will see you tomorrow.,vocab_b2_0199
+여쭈다,yeojjuda,fragen (ehrerbietig),B2,Verb,선생님께 여쭤 볼게요.,Ich werde den Lehrer ehrerbietig fragen.,Ehrensprache,b2_honorifics_1,8,false,to ask (humble),Verb,I will ask the teacher politely.,vocab_b2_0200
+주무시다,jumusida,schlafen (ehrerbietig),B2,Verb,부모님은 벌써 주무세요.,Meine Eltern schlafen schon.,Ehrensprache,b2_honorifics_1,9,false,to sleep (honorific),Verb,My parents are already asleep.,vocab_b2_0201
+드시다,deusida,essen (ehrerbietig),B2,Verb,많이 드세요!,Greifen Sie zu!,Ehrensprache,b2_honorifics_1,10,true,to eat (honorific),Verb,Please help yourself!,vocab_b2_0202
+계시다,gyesida,sich befinden (ehrerbietig),B2,Verb,어머니는 지금 집에 계세요.,Meine Mutter ist gerade zu Hause.,Ehrensprache,b2_honorifics_1,11,true,to be (honorific),Verb,My mother is at home right now.,vocab_b2_0203
+잡수시다,japsusida,speisen (ehrerbietig),B2,Verb,할머니는 아침을 잡수셨어요.,Meine Großmutter hat gefrühstückt.,Ehrensprache,b2_honorifics_1,12,true,to eat (very honorific),Verb,My grandmother ate breakfast.,vocab_b2_0204
