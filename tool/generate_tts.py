@@ -2,9 +2,10 @@
 """
 사전생성 TTS — **모든 고정 학습 콘텐츠**를 Google Cloud Text-to-Speech 로
 합성해 Firebase Storage 에 업로드한다. 소스(collect() 참고):
-  단어장(단어·예문) · 시나리오 대화 · 문법 예문 · 스몰토크 · 빈칸(cloze) ·
-  끝말잇기 단어 풀. (문법·스몰토크·빈칸·끝말잇기는 2026-08-11 추가 — 그 전엔
-  런타임 CF 폴백만 있어 오프라인·CF 실패 시 옛날 OS 음성이 섞여 들렸다.)
+  단어장(단어·예문) · 시나리오 대화(듣기/Hören 화면 포함) · 문법 예문 ·
+  스몰토크 · 빈칸(cloze) · 끝말잇기 단어 풀 · Satz-bauen 목표문장.
+  (문법·스몰토크·빈칸·끝말잇기는 2026-08-11, satz 는 2026-08-12 추가 — 빠진
+  소스는 런타임 CF 폴백만 있어 오프라인·CF 실패 시 옛날 OS 음성이 섞여 들렸다.)
 
 키 규칙(클라 tts_service.dart / CF functions/tts 와 **동일**):
     path = tts/{revision}/{voice}/{ sha1("{voice}|{text}") }.mp3
@@ -185,6 +186,16 @@ def collect():
     #    kkeunmari_screen.dart  TtsService.speak(word.word).
     for word in _load_json("assets/data/kkeunmari_pool.json").get("words", []):
         add_female(word.get("word"))
+
+    # 7. Satz bauen 목표문장 — satz_sentences.json items[].targetKo.
+    #    satz_bauen_quest.dart _playTts → TtsService.speak(audioKo=targetKo,
+    #    기본 여성). 상당수는 단어장 예문과 겹쳐 dedup 되지만, 2026-08-12 실측
+    #    55/191 개가 CSV 예문과 문자열이 달라 캐시 미스 → OS 폴백이었다.
+    for item in _load_json("assets/data/satz_sentences.json").get("items", []):
+        add_female(item.get("targetKo"))
+
+    # (Hören/듣기 화면은 별도 소스가 없다 — listening_screen.dart 는 §2 의
+    #  시나리오 대화를 같은 화자→voice 규칙(user=여, 그 외=남)으로 재생한다.)
 
     return list(texts.keys())
 

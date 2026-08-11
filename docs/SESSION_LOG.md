@@ -7,6 +7,50 @@
 
 ---
 
+### 2026-08-12 (Claude) — TTS 사전생성 §7 satz 목표문장 + 예문 톤 감사
+
+**왜.** Jin: "Hören·Grammatik·Szenarien·Lückentext·Wortkette 아직 옛날 tts" + "Satz bauen 예문이 촌스럽다". 조사 결과 5개 화면 소스는 이미 수집돼 있었고(2026-08-11 §3~6; Hören 은 §2 시나리오 대화를 동일 화자 규칙으로 재생), 실제 갭은 **Satz bauen 목표문장 55/191 누락**(CSV 예문과 문자열 상이 → 캐시 미스 → OS 로봇 음성 폴백) — 이것이 "옛날 음성/촌스러움" 체감의 원인.
+
+**무엇을.**
+- `tool/generate_tts.py` `collect()` §7: `satz_sentences.json items[].targetKo` 여성 음성 수집 추가(+§2 에 Hören 커버 주석, 머리말 소스 목록 갱신).
+- `tool/test_generate_tts.py`: **satz 전수 포함 회귀 테스트**(191/191, §7 없으면 실패) + 듣기 화자→voice 매핑 표본 검증.
+- 예문 톤 감사: 존대어미 휴리스틱 전수 스캔 → 반말 **1건뿐**(`너 어디 가?`, satz_a1_0052). 표제어 '너'(반말 대명사) 때문의 **의도된 반말**이라 유지(너+요체는 부자연, CSV 예문·vocabKo 연동). 나머지 190건 존댓말 정상 → 콘텐츠 수정 없음.
+
+**검증.** `python -m unittest`(tool) **3/3 OK**(수집 오프라인 실행 포함).
+
+**실행 필요(Jin).** `python tool/generate_tts.py` (GOOGLE_TTS_API_KEY 또는 gcloud 인증) → 신규 ~55개 합성·업로드. 클라 코드 수정 불필요(같은 SHA-1 키 규칙).
+
+---
+
+### 2026-08-11 (Codex) — Play 발견 항목 3종: edge-to-edge·지원 중단 API·대형 화면 대응
+
+**왜.** Play Console의 출시 18(2.0.5) 분석이 SDK 35 edge-to-edge 인셋 대응,
+`Window.setStatusBarColor` 지원 중단, `UCropActivity`의 portrait 제한을 다음 출시
+개선 항목으로 보고했다. Android 16부터 대형 화면에서 방향·크기 제한이 무시되므로
+현재 반응형 UI 계약을 시스템의 실제 회전·멀티윈도우 동작과 일치시켜야 했다.
+
+**작업.** `MainActivity`가 시작할 때 FlutterActivity 호환 AndroidX
+`WindowCompat.setDecorFitsSystemWindows(window, false)`를 호출해 Android 15 이전 버전도
+동일한 창 동작을 사용하게 했다. Flutter의 edge-to-edge와
+`SafeArea` 인셋 처리는 유지하면서 `statusBarColor`/`systemNavigationBarColor` 요청은
+제거하고 시스템 바 아이콘 밝기만 제어한다. 앱 전역 `setPreferredOrientations` 호출과
+`UCropActivity`의 `screenOrientation="portrait"`를 제거해 휴대폰·폴더블·태블릿·분할
+화면이 시스템 기본 방향과 크기 조절을 따르게 했다. 정적 계약 테스트는 Dart 런타임
+방향 요청, 매니페스트 제한, 네이티브 edge-to-edge, 지원 중단 색상 요청의 재유입을 막는다.
+
+**검증.** `flutter analyze --no-pub --fatal-infos`는 **No issues found**. 방향·매니페스트·
+온보딩·낮은 높이·308--1280dp·태블릿 navigation/window-class 집중 묶음은 **798/798**
+통과했다. `flutter build apk --debug --no-pub`도 성공해 Kotlin/Android 리소스 병합을
+검증했고, 최종 packaged manifest는 `targetSdkVersion="36"`, `UCropActivity` 방향 제한
+없음, `resizeableActivity=false`/min·max aspect ratio 없음으로 확인했다. 첫 빌드는 현재
+해석된 AndroidX Core 1.18에 새 `WindowCompat.enableEdgeToEdge` 헬퍼가 없어 컴파일에서
+차단됐고, FlutterActivity와 Flutter 3.44.8 엔진이 실제 사용하는 동등 API
+`setDecorFitsSystemWindows(..., false)`로 교정한 뒤 성공했다. `git diff --check`도 통과.
+커밋·푸시는 요청되지 않아 수행하지 않는다. Android 15/16 태블릿·폴더블 실기기 시각
+스모크와 새 AAB의 Play 재분석은 외부 출시 게이트로 남는다.
+
+---
+
 ### 2026-08-11 (Codex) — VS Code 동시세션 종료·Claude 잔여 변경 main 수거
 
 **왜.** VS Code가 폐기된 UX 워크트리를 계속 열고 있었고, 중지됐다고 보였던
