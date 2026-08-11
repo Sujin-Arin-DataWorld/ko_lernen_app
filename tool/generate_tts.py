@@ -202,6 +202,36 @@ def collect():
     # (Hören/듣기 화면은 별도 소스가 없다 — listening_screen.dart 는 §2 의
     #  시나리오 대화를 같은 화자→voice 규칙(user=여, 그 외=남)으로 재생한다.)
 
+    # 8. 시나리오 **퀘스트 데이터**의 오디오 문자열 — §2(대화)와 별개!
+    #    2026-08-11 실측: 퀘스트 발화 94개 중 76개가 미수집 → 코스 미션의
+    #    듣기/받아쓰기/조사팝/문장조립 스피커가 전부 OS 폴백(기계음)이었다.
+    #    각 엔진의 파생 규칙 그대로:
+    #    - satzBauen/batchimDrop/hoerverstehen: data.audioKo
+    #      (satz_bauen_quest.dart:280 · batchim_drop_quest.dart:135 ·
+    #       hoerverstehen_quest.dart:51)
+    #    - diktat: data.audioKo 가 비면 targetKo (diktat_quest.dart:147)
+    #    - particlePop: prefix + options[correctIndex] + suffix
+    #      (particle_pop_quest.dart:59 _fullSentence)
+    for scenario in _load_json("assets/data/scenarios.json").get(
+        "scenarios", []
+    ):
+        for quest in scenario.get("quests", []):
+            data = quest.get("data") or {}
+            qtype = quest.get("type")
+            if qtype in ("satzBauen", "batchimDrop", "hoerverstehen"):
+                add_female(data.get("audioKo"))
+            elif qtype == "diktat":
+                add_female(data.get("audioKo") or data.get("targetKo"))
+            elif qtype == "particlePop":
+                options = data.get("options") or []
+                idx = int(data.get("correctIndex") or 0)
+                if 0 <= idx < len(options):
+                    add_female(
+                        (data.get("prefix") or "")
+                        + options[idx]
+                        + (data.get("suffix") or "")
+                    )
+
     return list(texts.keys())
 
 
