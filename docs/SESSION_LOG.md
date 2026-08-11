@@ -69,6 +69,30 @@ production Learning Path smoke도 통과했다. 04 변경 8파일 scoped analyze
 **검증 경계.** widget/정적 분석 증거이며 실기기 상호작용과 목업 대비 pixel-identical
 golden은 아직 증명하지 않았다. preview factory는 production 저장을 건드리지 않지만,
 production 계정·Firebase 상태를 흉내 내는 통합 backend fixture는 아니다.
+---
+
+### 2026-08-12 (Codex) — UX 01D 명시적 no-companion 계약 구현
+
+**왜.** 목업 01D의 “Jetzt nicht”는 단순히 캐릭터 선택을 미루는 버튼이 아니라
+동행자 없이 계속할 수 있는 선택이다. 기존 저장값 공백은 레거시 기본 Tiger로
+해석되고, 대부분의 결과·보상 화면이 non-null `MascotPreference.kind`를 직접 읽어
+건너뛴 직후에도 Tiger가 다시 나타났다.
+
+**무엇을.** `kl_preferred_mascot=none`을 명시적 상태로 추가하되 기존 공백·알 수
+없는 값은 Tiger로 유지했다. 선택 화면과 첫 음성 성공의 건너뛰기만 `none`을 쓰고,
+Home·프로필·설정·경로·복습·시나리오·어휘/게임 결과·마일스톤·영상 폴백 등
+개인화 surface는 nullable preference를 구독해 동행자를 숨기거나 중립 아이콘을
+보인다. 점수에 따라 게임이 명시적으로 지정한 캐릭터와 고정 책/듣기 일러스트는
+브랜드 장식으로 분류해 유지했다. `CompanionBuilder.previewPreference`를 추가해
+저장소 mutation 없이 gallery/test에서 Tiger·Joy·none 상태를 렌더할 수 있다.
+
+**검증.** `flutter analyze --no-pub` **No issues found**. character selection +
+first-success **8/8**, mascot wiring + Tiger video **25/25**, Home/Profile/Settings/
+GameOver no-companion focused 테스트 모두 통과. production personalized importers에서
+`MascotPreference.kind.value/current`가 다시 들어오지 못하는 source guard와
+`git diff --check`도 통과했다.
+
+**커밋.** `20095cd` (`feat(onboarding): support an explicit no-companion choice`).
 
 ---
 
