@@ -408,7 +408,8 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
               children: [
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.fromLTRB(22, 18, 60, 18),
+                  // 24/64/24: 질문카드를 키워 화면을 채운다(2026-08-12 Jin 3차).
+                  padding: const EdgeInsets.fromLTRB(24, 26, 64, 26),
                   decoration: BoxDecoration(
                     color: s.surface,
                     borderRadius: BorderRadius.circular(SoriRadius.lg),
@@ -447,7 +448,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                           _prompt(langCode),
                           style: TextStyle(
                             color: s.text,
-                            fontSize: 20,
+                            fontSize: 22,
                             height: 1.45,
                             fontWeight: FontWeight.w600,
                           ),
@@ -480,7 +481,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
             // Antwort-Bereich (gebaute Reihenfolge).
             Container(
-              constraints: const BoxConstraints(minHeight: 72),
+              constraints: const BoxConstraints(minHeight: 96),
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -617,15 +618,17 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(color: border, width: 1.5),
           ),
+          // 타일 확대(18/13→22/16, 폰트 18→20): "조립판 타일도 크게 화면
+          // 가득" (2026-08-12 Jin 3차). 히트영역도 44dp 이상으로 커진다.
           padding: EdgeInsets.symmetric(
-            horizontal: 18 * scale,
-            vertical: 13 * scale,
+            horizontal: 22 * scale,
+            vertical: 16 * scale,
           ),
           child: Text(
             tile.text,
             style: TextStyle(
               color: s.text,
-              fontSize: 18 * scale,
+              fontSize: 20 * scale,
               fontWeight: FontWeight.w600,
             ),
           ),
