@@ -4,16 +4,16 @@
   "clips": [
     {
       "path": "magpie_bob.mp4",
-      "bytes": 3412735,
+      "bytes": 1596062,
       "ok": true,
-      "matte": "#E4E4E4",
+      "matte": "#EFEFEF",
       "white_ratio": 0.95,
       "frames_sampled": 169,
       "reason": ""
     },
     {
       "path": "magpie_bob2.mp4",
-      "bytes": 2682077,
+      "bytes": 692917,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -22,7 +22,7 @@
     },
     {
       "path": "magpie_celebrate.mp4",
-      "bytes": 1239996,
+      "bytes": 713264,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -31,7 +31,7 @@
     },
     {
       "path": "magpie_choose.mp4",
-      "bytes": 3015718,
+      "bytes": 1415444,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -40,7 +40,7 @@
     },
     {
       "path": "magpie_flight.mp4",
-      "bytes": 1591503,
+      "bytes": 1006620,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -49,7 +49,7 @@
     },
     {
       "path": "magpie_perched.mp4",
-      "bytes": 711544,
+      "bytes": 432584,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -58,7 +58,7 @@
     },
     {
       "path": "magpie_walking_front.mp4",
-      "bytes": 740708,
+      "bytes": 387083,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -67,7 +67,7 @@
     },
     {
       "path": "magpie_worry.mp4",
-      "bytes": 740629,
+      "bytes": 426759,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -76,7 +76,7 @@
     },
     {
       "path": "tiger_celebrate_hifive.mp4",
-      "bytes": 1048681,
+      "bytes": 578292,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -85,7 +85,7 @@
     },
     {
       "path": "tiger_choose.mp4",
-      "bytes": 1679976,
+      "bytes": 1012660,
       "ok": true,
       "matte": "#E5E5E5",
       "white_ratio": 0.985,
@@ -94,7 +94,7 @@
     },
     {
       "path": "tiger_greet_pawflash.mp4",
-      "bytes": 1112935,
+      "bytes": 717092,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -103,7 +103,7 @@
     },
     {
       "path": "tiger_rest.mp4",
-      "bytes": 859191,
+      "bytes": 465978,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -112,7 +112,7 @@
     },
     {
       "path": "tiger_rise.mp4",
-      "bytes": 1626452,
+      "bytes": 940999,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -121,7 +121,7 @@
     },
     {
       "path": "tiger_roar.mp4",
-      "bytes": 1326318,
+      "bytes": 734392,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -130,7 +130,7 @@
     },
     {
       "path": "tiger_sitting2.mp4",
-      "bytes": 857491,
+      "bytes": 338359,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -139,7 +139,7 @@
     },
     {
       "path": "tiger_stretch.mp4",
-      "bytes": 976578,
+      "bytes": 551803,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -148,7 +148,7 @@
     },
     {
       "path": "tiger_thinking.mp4",
-      "bytes": 759255,
+      "bytes": 463513,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -157,7 +157,7 @@
     },
     {
       "path": "tiger_walking_front.mp4",
-      "bytes": 2259179,
+      "bytes": 473714,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
