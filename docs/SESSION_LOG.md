@@ -142,6 +142,45 @@ golden은 아직 증명하지 않았다. preview factory는 production 저장을
 production 계정·Firebase 상태를 흉내 내는 통합 backend fixture는 아니다.
 ---
 
+### 2026-08-12 (Codex) — UX 02 Today 집중·미션 브리프·검증 결과 + 01–02 no-write preview
+
+**왜.** 목업 02A–D는 Home의 여러 대시보드 블록보다 오늘의 한 행동을 먼저
+보여주고, Course Mission은 실제 장면·단계·시간과 첫 CTA가 같은 graph 순서를
+가리키며, 결과는 별/XP 폭죽보다 저장된 can-do와 실제 한옥 구조 변화를 설명해야
+한다. 또한 통합 UX Gallery가 01A/D와 02A–D의 production widget을 렌더하고 눌러도
+동의·동행자·보상·과정 evidence를 바꾸지 않는 명시적 preview 경로가 필요했다.
+
+**무엇을.** Home은 날짜와 `TodayLearningSnapshot`의 단일 primary action, compact
+한옥 성장 메모, 이후 복습만 먼저 보여주고 기존 dashboard는 접근 가능한 접기 영역에
+보존했다. `CourseMissionBrief`는 catalog link 순서를 그대로 사용해 앞 3단계, 단계별
+시간, 도착 scene, 남은 단계, 첫 link CTA를 하나의 read-only 계약으로 만든다. Scenario
+결과는 진입 시 한 번 자동 저장하고 별·XP·결과 burst를 제거했으며, 검증된 can-do,
+사용자가 말한 문장, checkpoint 직전/직후 `PersonalHanokProjection`의 구조 변화만
+표시한다. 변경이 없거나 evidence가 없으면 그 사실을 그대로 말한다.
+
+`ConsentScreen.preview`, `CharacterSelectionScreen.preview`, `HomeScreen.preview`,
+`CourseMissionScreen.preview`, `ScenarioPlayerScreen.preview`를 추가했다. preview는
+production loader/entitlement/notification/reward/course write를 시작하지 않고 CTA를
+host callback으로 전달한다. 특히 01D confirm/skip은 `MascotPreference`와
+`Storage.setIntroPreviewSeen`보다 먼저 분기한다. production 기본 생성자와 저장 동작은
+그대로 유지했다.
+
+**검증.** UX Gallery prefs byte-equivalence **6/6**, Home layout/반응형/대비
+**38/38**, CourseMastery 이전/이후 snapshot 포함 **32/32**, onboarding/consent/
+접근성 회귀 **39/39**, Home 한옥 narrative **2/2**, scenario auto-save can-do flow
+**2/2** 통과. character/mission/player/result 집중 묶음의 나머지 **28개**도 통과했다.
+변경 18항목 `flutter analyze --no-pub`는 **No issues found**, `git diff --check`도
+통과했다.
+
+**경계.** 이 브랜치는 기존 Home character MP4나 matte asset을 수정하지 않았다.
+동시 작업 중인 `HomeHeroClips/applyMultiplyFilter` 흰 매트 수정은 복사하지 않았고,
+최종 통합 시 최신 `origin/main`에서만 흡수한다. 실기기 영상 합성과 실제 저장/라우트
+smoke는 이 Windows widget 검증의 증명 범위 밖이다.
+
+**커밋.** `6a24c8a` (`feat(ux): focus Today missions on verified outcomes`).
+
+---
+
 ### 2026-08-12 (Codex) — UX 01B/C 목적별 첫 장면과 현재 시도 첫 성공
 
 **왜.** 목업 01B/C는 목적 선택이 능력을 판정하지 않고 실제 첫 상황만 정하며,
