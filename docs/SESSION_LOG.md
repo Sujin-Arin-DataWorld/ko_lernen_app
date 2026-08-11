@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — production preview를 여는 Gallery shell
+
+**왜.** 20개 목업의 존재만 세는 인벤토리로는 각 상태가 실제 앱 화면을 재사용하는지
+검증할 수 없다. Gallery가 학습 상태를 만들거나 저장하지 않고, 주입된 production
+preview widget을 발견하고 여는 역할만 맡도록 경계를 먼저 고정했다.
+
+**무엇을.** `UxPreviewGalleryScreen`은 `01A–06C`를 구간별로 나열하고 각 패널을
+독립 route로 연다. 내용은 `buildPanel`이 제공하며 Gallery 자체는 Storage·Firebase·
+진행도 서비스를 참조하지 않는다. 모든 항목은 이름이 있는 button semantics와 tap
+action을 제공한다. 새 asset은 추가하거나 수정하지 않았다.
+
+**검증.** 첫 `01A`와 마지막 `06C` route, 20개 접근성 노드를 검증하는 widget test
+**2/2 통과**, scoped Dart analyze `No issues found`, `git diff --check` 통과. 코드
+커밋 `d61b4b1`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+---
+
 ### 2026-08-12 (Codex) — debug UX Gallery 20패널 인벤토리 고정
 
 **왜.** 목업의 일부 화면만 구현한 상태를 다시 “전체 완료”로 오인하지 않도록,
