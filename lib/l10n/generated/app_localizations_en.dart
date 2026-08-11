@@ -3588,7 +3588,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePrivacyBody =>
-      'Only that you contributed a completed pack in the group — never your answers, saved words, or assessment results.';
+      'Only that you contributed — never your answers, words, or assessment results.';
 
   @override
   String get gyeWeeklyEyebrow => 'Together this week';
@@ -3648,6 +3648,47 @@ class AppL10nEn extends AppL10n {
     );
     return '$count more course-linked scene $_temp0 this week';
   }
+
+  @override
+  String get gyePromiseContributionCompleteTitle => 'Anonymous contribution';
+
+  @override
+  String get gyePromiseContributionCompleteBody =>
+      'A matching scene was completed. Identity and result stay private.';
+
+  @override
+  String get gyePromiseContributionPendingTitle => 'One light is still waiting';
+
+  @override
+  String get gyePromiseContributionPendingBody =>
+      'Your next contribution can come from Today.';
+
+  @override
+  String get gyePromisePrivacyRule =>
+      'No ranking. No pressure. Nobody can block another learner’s path.';
+
+  @override
+  String get gyePromiseSceneCta => 'Open today’s contribution scene';
+
+  @override
+  String get gyeTodayFallbackCta => 'Go to Today';
+
+  @override
+  String get gyeTodayUnavailable =>
+      'Today is unavailable right now. Please try again shortly.';
+
+  @override
+  String get gyePromiseIntentionAction => 'View weekly intention';
+
+  @override
+  String get gyeRulesAndMembers => 'Rules & members';
+
+  @override
+  String get gyeRulesTitle => 'Rules for a safe courtyard';
+
+  @override
+  String get gyeRulesBody =>
+      'Encourage without comparing. Answers, results, and individual contributions stay private. Reporting and blocking are always available.';
 
   @override
   String get gyeOpenToday => 'Open today\'s learning';

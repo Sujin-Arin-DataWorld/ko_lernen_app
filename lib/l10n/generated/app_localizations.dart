@@ -6334,7 +6334,7 @@ abstract class AppL10n {
   /// No description provided for @gyePrivacyBody.
   ///
   /// In de, this message translates to:
-  /// **'Nur dass du in der Gruppe ein Paket abgeschlossen hast — niemals deine Antworten, gespeicherten Wörter oder Prüfungsergebnisse.'**
+  /// **'Nur dass du beigetragen hast — niemals deine Antworten, Wörter oder Prüfungsergebnisse.'**
   String get gyePrivacyBody;
 
   /// No description provided for @gyeWeeklyEyebrow.
@@ -6420,6 +6420,78 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Noch {count} {count, plural, =1{kursgebundener Szenenbeitrag} other{kursgebundene Szenenbeiträge}} diese Woche'**
   String gyePromiseRemaining(int count);
+
+  /// No description provided for @gyePromiseContributionCompleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Anonymer Beitrag'**
+  String get gyePromiseContributionCompleteTitle;
+
+  /// No description provided for @gyePromiseContributionCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine passende Szene wurde abgeschlossen. Identität und Ergebnis bleiben privat.'**
+  String get gyePromiseContributionCompleteBody;
+
+  /// No description provided for @gyePromiseContributionPendingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch ein Licht wartet'**
+  String get gyePromiseContributionPendingTitle;
+
+  /// No description provided for @gyePromiseContributionPendingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein nächster Beitrag kann aus Heute kommen.'**
+  String get gyePromiseContributionPendingBody;
+
+  /// No description provided for @gyePromisePrivacyRule.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Rangliste. Kein Druck. Niemand kann den Lernweg anderer blockieren.'**
+  String get gyePromisePrivacyRule;
+
+  /// No description provided for @gyePromiseSceneCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine heutige Beitragsszene öffnen'**
+  String get gyePromiseSceneCta;
+
+  /// No description provided for @gyeTodayFallbackCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu Heute'**
+  String get gyeTodayFallbackCta;
+
+  /// No description provided for @gyeTodayUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute ist gerade nicht verfügbar. Versuch es gleich noch einmal.'**
+  String get gyeTodayUnavailable;
+
+  /// No description provided for @gyePromiseIntentionAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Wochenabsicht ansehen'**
+  String get gyePromiseIntentionAction;
+
+  /// No description provided for @gyeRulesAndMembers.
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln & Mitglieder'**
+  String get gyeRulesAndMembers;
+
+  /// No description provided for @gyeRulesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln für einen sicheren Hof'**
+  String get gyeRulesTitle;
+
+  /// No description provided for @gyeRulesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ermutige ohne Vergleiche. Antworten, Ergebnisse und einzelne Beiträge bleiben privat. Melden und Blockieren sind jederzeit möglich.'**
+  String get gyeRulesBody;
 
   /// No description provided for @gyeOpenToday.
   ///

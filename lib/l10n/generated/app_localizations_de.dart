@@ -3599,7 +3599,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyePrivacyBody =>
-      'Nur dass du in der Gruppe ein Paket abgeschlossen hast — niemals deine Antworten, gespeicherten Wörter oder Prüfungsergebnisse.';
+      'Nur dass du beigetragen hast — niemals deine Antworten, Wörter oder Prüfungsergebnisse.';
 
   @override
   String get gyeWeeklyEyebrow => 'Diese Woche zusammen';
@@ -3659,6 +3659,47 @@ class AppL10nDe extends AppL10n {
     );
     return 'Noch $count $_temp0 diese Woche';
   }
+
+  @override
+  String get gyePromiseContributionCompleteTitle => 'Anonymer Beitrag';
+
+  @override
+  String get gyePromiseContributionCompleteBody =>
+      'Eine passende Szene wurde abgeschlossen. Identität und Ergebnis bleiben privat.';
+
+  @override
+  String get gyePromiseContributionPendingTitle => 'Noch ein Licht wartet';
+
+  @override
+  String get gyePromiseContributionPendingBody =>
+      'Dein nächster Beitrag kann aus Heute kommen.';
+
+  @override
+  String get gyePromisePrivacyRule =>
+      'Keine Rangliste. Kein Druck. Niemand kann den Lernweg anderer blockieren.';
+
+  @override
+  String get gyePromiseSceneCta => 'Meine heutige Beitragsszene öffnen';
+
+  @override
+  String get gyeTodayFallbackCta => 'Zu Heute';
+
+  @override
+  String get gyeTodayUnavailable =>
+      'Heute ist gerade nicht verfügbar. Versuch es gleich noch einmal.';
+
+  @override
+  String get gyePromiseIntentionAction => 'Wochenabsicht ansehen';
+
+  @override
+  String get gyeRulesAndMembers => 'Regeln & Mitglieder';
+
+  @override
+  String get gyeRulesTitle => 'Regeln für einen sicheren Hof';
+
+  @override
+  String get gyeRulesBody =>
+      'Ermutige ohne Vergleiche. Antworten, Ergebnisse und einzelne Beiträge bleiben privat. Melden und Blockieren sind jederzeit möglich.';
 
   @override
   String get gyeOpenToday => 'Heutiges Lernen öffnen';

@@ -93,6 +93,34 @@ GameOver no-companion focused 테스트 모두 통과. production personalized i
 `git diff --check`도 통과했다.
 
 **커밋.** `20095cd` (`feat(onboarding): support an explicit no-companion choice`).
+---
+
+### 2026-08-12 (Codex) — 05A–C Gye 약속의 exact scene·익명 기여 UX
+
+**왜.** UX 재구축 목업의 주간 약속 CTA가 단순 시나리오 탐색으로 열리면 실제 기여로
+인정되는 장면이라는 보장이 없고, 원격 약속 메타가 현재 학습 단원과 어긋날 때도 거짓
+목적지를 보여줄 수 있었다. 또한 집계 막대만으로는 익명 기여와 대기 상태, 비교·압박 금지
+규칙이 충분히 드러나지 않았고, 갤러리에서 계정/Firestore mutation 없이 Gye 상태를
+재현할 seam이 부족했다.
+
+**무엇을.** 현재 Today의 활성 course unit, 지원되는 주간 약속 정의, catalog의 유일한
+`scenario + assess` ContentLink를 모두 exact-match하는 read-only resolver를 추가했다.
+일치할 때만 기존 `CourseMissionNavigation`이 만든 typed `CoursePracticeContext`로
+`/scenario`를 열며, 링크 부재·stale unit·중복 링크·catalog 오류는 snapshot의 Today
+목적지로 정직하게 fallback한다. 주간 카드에는 신원·답·결과 없는 익명 기여/대기 행과
+비교·압박·진행 방해 금지 규칙을 추가했고, 안전 메시지 옆에 규칙/멤버 진입을 노출했다.
+멤버 화면에도 신고·차단 가능성을 설명하는 규칙 카드를 추가했다. 빈 Gye 05A 문구를
+일반 기여 기준으로 맞추고, loader·CTA·solo action·coach 및 Gye stream/navigation을
+fixture로 주입할 수 있게 해 갤러리/테스트가 production mutation을 일으키지 않게 했다.
+
+**검증.** exact eligible/absent/stale/ambiguous resolver, typed route provenance, 익명 행,
+truthful fallback, 짧은 화면/폭·text-scale, 기존 Gye 회귀, 빈 Gye fixture actions,
+write gate/멤버 규칙을 포함한 집중 Flutter 테스트 **21/21 통과**. 변경 Dart 8파일
+scoped `dart analyze` **No issues found**, `flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** resolver와 fixture seam은 읽기 전용이며 unlock/mastery/계정 lifecycle을
+변경하지 않는다. 실제 기기의 Firebase 세션, 실데이터 catalog 목적지, 신고·차단 동작은
+이 Windows widget-test 증명의 범위 밖이다. 커밋은 이 기록과 같은 커밋에 포함한다.
 
 ---
 

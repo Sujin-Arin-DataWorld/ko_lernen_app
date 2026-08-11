@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
   setUp(() async {
@@ -18,7 +19,14 @@ void main() {
   testWidgets('empty Gye landing makes participation and visibility optional', (
     tester,
   ) async {
-    await _pump(tester, () async => const <GyeMeta>[]);
+    var chooserCalls = 0;
+    var soloCalls = 0;
+    await _pump(
+      tester,
+      () async => const <GyeMeta>[],
+      onFindOrCreate: () => chooserCalls++,
+      onContinueSolo: () => soloCalls++,
+    );
 
     expect(
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
@@ -43,6 +51,10 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Ohne Gruppe weiterlernen'), findsOneWidget);
+    tester.widget<SoriButton>(find.byType(SoriButton)).onTap!();
+    tester.widget<TextButton>(find.byType(TextButton)).onPressed!();
+    expect(chooserCalls, 1);
+    expect(soloCalls, 1);
     expect(tester.takeException(), isNull);
   });
 
@@ -69,15 +81,22 @@ void main() {
 
 Future<void> _pump(
   WidgetTester tester,
-  Future<List<GyeMeta>> Function() loadGyeMetas,
-) async {
+  Future<List<GyeMeta>> Function() loadGyeMetas, {
+  VoidCallback? onFindOrCreate,
+  VoidCallback? onContinueSolo,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: GyeTabScreen(loadGyeMetas: loadGyeMetas),
+      home: GyeTabScreen(
+        loadGyeMetas: loadGyeMetas,
+        onFindOrCreate: onFindOrCreate,
+        onContinueSolo: onContinueSolo,
+        enableCoach: false,
+      ),
     ),
   );
   // The existing shared-hanok preview intentionally has a repeating pulse,

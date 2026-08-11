@@ -20,10 +20,22 @@ import 'home_screen.dart'; // showGyeChooser
 /// ② 첫 방문 1회 설명 코치([ScreenCoachMixin]) ③ 한지 정체성(배경·SoriCard·설명 카드).
 /// 빈 상태(첫 사용자 대다수)를 '무엇/왜/어떻게' 3층 설명 + 초대로 재설계.
 class GyeTabScreen extends StatefulWidget {
-  const GyeTabScreen({super.key, this.loadGyeMetas});
+  const GyeTabScreen({
+    super.key,
+    this.loadGyeMetas,
+    this.onFindOrCreate,
+    this.onContinueSolo,
+    this.enableCoach = true,
+  });
 
   /// Test seam only; production continues to read the existing Gye service.
   final Future<List<GyeMeta>> Function()? loadGyeMetas;
+
+  /// Mutation-free preview seams. Production keeps the age-gated chooser and
+  /// the existing root navigation behavior.
+  final VoidCallback? onFindOrCreate;
+  final VoidCallback? onContinueSolo;
+  final bool enableCoach;
 
   @override
   State<GyeTabScreen> createState() => _GyeTabScreenState();
@@ -61,7 +73,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   @override
   void initState() {
     super.initState();
-    scheduleCoach();
+    if (widget.enableCoach) scheduleCoach();
   }
 
   @override
@@ -117,9 +129,24 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                 }
                 final gyeList = snap.data ?? const <GyeMeta>[];
                 if (gyeList.isEmpty) {
-                  return _IntroEmpty(introKey: _introKey, padding: padding);
+                  return _IntroEmpty(
+                    introKey: _introKey,
+                    padding: padding,
+                    onFindOrCreate:
+                        widget.onFindOrCreate ?? () => showGyeChooser(context),
+                    onContinueSolo:
+                        widget.onContinueSolo ??
+                        () => Navigator.of(
+                          context,
+                        ).pushNamedAndRemoveUntil('/', (route) => false),
+                  );
                 }
-                return _GyeList(gyeList: gyeList, padding: padding);
+                return _GyeList(
+                  gyeList: gyeList,
+                  padding: padding,
+                  onFindOrCreate:
+                      widget.onFindOrCreate ?? () => showGyeChooser(context),
+                );
               },
             ),
           ),
@@ -134,8 +161,15 @@ class _GyeTabScreenState extends State<GyeTabScreen>
 class _IntroEmpty extends StatelessWidget {
   final GlobalKey introKey;
   final EdgeInsets padding;
+  final VoidCallback onFindOrCreate;
+  final VoidCallback onContinueSolo;
 
-  const _IntroEmpty({required this.introKey, required this.padding});
+  const _IntroEmpty({
+    required this.introKey,
+    required this.padding,
+    required this.onFindOrCreate,
+    required this.onContinueSolo,
+  });
 
   /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
   /// "함께 지으면 자란다"를 실물 성장 중간 단계로 시연한다.
@@ -206,15 +240,10 @@ class _IntroEmpty extends StatelessWidget {
           label: t.gyeFindOrCreate,
           icon: Icons.groups_2_outlined,
           fullWidth: true,
-          onTap: () => showGyeChooser(context),
+          onTap: onFindOrCreate,
         ),
         const SizedBox(height: Spacing.xs),
-        TextButton(
-          onPressed: () => Navigator.of(
-            context,
-          ).pushNamedAndRemoveUntil('/', (route) => false),
-          child: Text(t.gyeContinueSolo),
-        ),
+        TextButton(onPressed: onContinueSolo, child: Text(t.gyeContinueSolo)),
         const SizedBox(height: Spacing.xl),
       ],
     );
@@ -256,8 +285,13 @@ class _Point extends StatelessWidget {
 class _GyeList extends StatelessWidget {
   final List<GyeMeta> gyeList;
   final EdgeInsets padding;
+  final VoidCallback onFindOrCreate;
 
-  const _GyeList({required this.gyeList, required this.padding});
+  const _GyeList({
+    required this.gyeList,
+    required this.padding,
+    required this.onFindOrCreate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -278,7 +312,7 @@ class _GyeList extends StatelessWidget {
           label: t.gyeChooserCreate,
           icon: Icons.add_rounded,
           fullWidth: true,
-          onTap: () => showGyeChooser(context),
+          onTap: onFindOrCreate,
         ),
       ],
     );
