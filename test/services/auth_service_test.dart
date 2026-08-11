@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
+import 'package:ko_lernen_app/services/account/account_deletion_status_receipt.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/first_link_backfill.dart';
@@ -42,6 +43,51 @@ void main() {
         isFalse,
       );
     });
+
+    test(
+      'different anonymous UID requires a strict completed cleanup checkpoint',
+      () async {
+        final pendingCheckpoint = _completedDeletionJournal().copyWith(
+          operation: _operation(AccountOperationPhase.deletionRequested),
+        );
+        var providerCleanupCalls = 0;
+        var firebaseRecoveryCalls = 0;
+
+        await expectLater(
+          recoverCompletedDeletionIdentity(
+            checkpoint: pendingCheckpoint,
+            currentUid: 'unrelated-anonymous-uid',
+            currentIsAnonymous: true,
+            cleanupGoogleProvider: () async => providerCleanupCalls += 1,
+            recoverFirebaseIdentity: () async => firebaseRecoveryCalls += 1,
+          ),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
+            ),
+          ),
+        );
+
+        expect(providerCleanupCalls, 0);
+        expect(firebaseRecoveryCalls, 0);
+        expect(
+          () => assertCompletedDeletionFeedbackActivationIdentitySafe(
+            checkpoint: pendingCheckpoint,
+            currentUid: 'unrelated-anonymous-uid',
+            currentIsAnonymous: true,
+          ),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
+            ),
+          ),
+        );
+      },
+    );
 
     test(
       'already-recovered anonymous identity still retries Google cleanup',
@@ -475,12 +521,14 @@ void main() {
         final identity = FirebaseAccountTransitionIdentity.test(
           currentUid: () => primaryUid,
           currentIsAnonymous: () => primaryIsAnonymous,
-          acquireCredential: (_) async {
+          acquireGoogleCredentialSilently: () async {
             sessions
               ..transition(CloudWriteMode.blocked)
               ..transition(CloudWriteMode.cleanupPending);
             return GoogleAuthProvider.credential(idToken: 'fresh-id-token');
           },
+          acquireAppleCredentialExplicitly: () async =>
+              throw StateError('Apple activation must not run'),
           signIn: (_) async {
             signInCalls += 1;
             primaryUid = 'durable-target';
@@ -506,8 +554,57 @@ void main() {
       },
     );
 
+    for (final unrelated in <({String uid, bool isAnonymous})>[
+      (uid: 'unexpected-durable-account', isAnonymous: false),
+      (uid: 'unexpected-anonymous-account', isAnonymous: true),
+    ]) {
+      test(
+        'primary activation never signs out a concurrent '
+        '${unrelated.isAnonymous ? "anonymous" : "durable"} identity',
+        () async {
+          final sessions = CloudWriteSessionController()
+            ..acquire('anonymous-source');
+          final expected = sessions.transition(CloudWriteMode.cleanupPending);
+          String? currentUid = 'anonymous-source';
+          var currentIsAnonymous = true;
+          var signOutCalls = 0;
+          final identity = FirebaseAccountTransitionIdentity.test(
+            currentUid: () => currentUid,
+            currentIsAnonymous: () => currentIsAnonymous,
+            acquireGoogleCredentialSilently: () async =>
+                GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+            acquireAppleCredentialExplicitly: () async =>
+                throw StateError('Apple activation must not run'),
+            signIn: (_) async {
+              currentUid = unrelated.uid;
+              currentIsAnonymous = unrelated.isAnonymous;
+              return 'durable-target';
+            },
+            signOut: () async {
+              signOutCalls += 1;
+              currentUid = null;
+            },
+          );
+
+          await expectLater(
+            identity.activateTarget(
+              AccountLinkProvider.google,
+              expectedTargetUid: 'durable-target',
+              expectedSourceSession: expected,
+              sessions: sessions,
+              allowMissingSource: true,
+            ),
+            throwsA(isA<AccountLinkSafetyFailure>()),
+          );
+
+          expect(signOutCalls, 0);
+          expect(currentUid, unrelated.uid);
+        },
+      );
+    }
+
     test(
-      'primary activation rejects a returned target when live auth changed',
+      'wrong returned UID never signs out a concurrent expected target',
       () async {
         final sessions = CloudWriteSessionController()
           ..acquire('anonymous-source');
@@ -518,12 +615,58 @@ void main() {
         final identity = FirebaseAccountTransitionIdentity.test(
           currentUid: () => currentUid,
           currentIsAnonymous: () => currentIsAnonymous,
-          acquireCredential: (_) async =>
+          acquireGoogleCredentialSilently: () async =>
               GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+          acquireAppleCredentialExplicitly: () async =>
+              throw StateError('Apple activation must not run'),
           signIn: (_) async {
-            currentUid = 'unexpected-durable-account';
+            currentUid = 'durable-target';
             currentIsAnonymous = false;
-            return 'durable-target';
+            return 'wrong-owned-target';
+          },
+          signOut: () async {
+            signOutCalls += 1;
+            currentUid = null;
+          },
+        );
+
+        await expectLater(
+          identity.activateTarget(
+            AccountLinkProvider.google,
+            expectedTargetUid: 'durable-target',
+            expectedSourceSession: expected,
+            sessions: sessions,
+            allowMissingSource: true,
+          ),
+          throwsA(isA<AccountLinkSafetyFailure>()),
+        );
+
+        expect(signOutCalls, 0);
+        expect(currentUid, 'durable-target');
+      },
+    );
+
+    test(
+      'session race signs out only the target activated by this call',
+      () async {
+        final sessions = CloudWriteSessionController()
+          ..acquire('anonymous-source');
+        final expected = sessions.transition(CloudWriteMode.cleanupPending);
+        String? currentUid = 'anonymous-source';
+        var currentIsAnonymous = true;
+        var signOutCalls = 0;
+        final identity = FirebaseAccountTransitionIdentity.test(
+          currentUid: () => currentUid,
+          currentIsAnonymous: () => currentIsAnonymous,
+          acquireGoogleCredentialSilently: () async =>
+              GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+          acquireAppleCredentialExplicitly: () async =>
+              throw StateError('Apple activation must not run'),
+          signIn: (_) async {
+            currentUid = 'durable-target';
+            currentIsAnonymous = false;
+            sessions.transition(CloudWriteMode.blocked);
+            return currentUid;
           },
           signOut: () async {
             signOutCalls += 1;
@@ -547,18 +690,28 @@ void main() {
       },
     );
 
-    test('primary activation verifies the live expected target', () async {
+    test('Google activation uses only the silent credential seam', () async {
       final sessions = CloudWriteSessionController()
         ..acquire('anonymous-source');
       final expected = sessions.transition(CloudWriteMode.cleanupPending);
       String? currentUid = 'anonymous-source';
       var currentIsAnonymous = true;
       var signOutCalls = 0;
+      var silentGoogleCalls = 0;
+      var explicitAppleCalls = 0;
       final identity = FirebaseAccountTransitionIdentity.test(
         currentUid: () => currentUid,
         currentIsAnonymous: () => currentIsAnonymous,
-        acquireCredential: (_) async =>
-            GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+        acquireGoogleCredentialSilently: () async {
+          silentGoogleCalls += 1;
+          return GoogleAuthProvider.credential(idToken: 'fresh-id-token');
+        },
+        acquireAppleCredentialExplicitly: () async {
+          explicitAppleCalls += 1;
+          return OAuthProvider(
+            'apple.com',
+          ).credential(idToken: 'must-not-be-used');
+        },
         signIn: (_) async {
           currentUid = 'durable-target';
           currentIsAnonymous = false;
@@ -577,6 +730,50 @@ void main() {
 
       expect(currentUid, 'durable-target');
       expect(signOutCalls, 0);
+      expect(silentGoogleCalls, 1);
+      expect(explicitAppleCalls, 0);
+    });
+
+    test('Apple activation keeps the explicit credential seam', () async {
+      final sessions = CloudWriteSessionController()
+        ..acquire('anonymous-source');
+      final expected = sessions.transition(CloudWriteMode.cleanupPending);
+      String? currentUid = 'anonymous-source';
+      var currentIsAnonymous = true;
+      var silentGoogleCalls = 0;
+      var explicitAppleCalls = 0;
+      final identity = FirebaseAccountTransitionIdentity.test(
+        currentUid: () => currentUid,
+        currentIsAnonymous: () => currentIsAnonymous,
+        acquireGoogleCredentialSilently: () async {
+          silentGoogleCalls += 1;
+          return GoogleAuthProvider.credential(idToken: 'must-not-be-used');
+        },
+        acquireAppleCredentialExplicitly: () async {
+          explicitAppleCalls += 1;
+          return OAuthProvider(
+            'apple.com',
+          ).credential(idToken: 'fresh-apple-id-token');
+        },
+        signIn: (_) async {
+          currentUid = 'durable-target';
+          currentIsAnonymous = false;
+          return currentUid;
+        },
+        signOut: () async {},
+      );
+
+      await identity.activateTarget(
+        AccountLinkProvider.apple,
+        expectedTargetUid: 'durable-target',
+        expectedSourceSession: expected,
+        sessions: sessions,
+        allowMissingSource: true,
+      );
+
+      expect(silentGoogleCalls, 0);
+      expect(explicitAppleCalls, 1);
+      expect(currentUid, 'durable-target');
     });
   });
 
@@ -659,7 +856,61 @@ void main() {
       ]);
       expect(operations.requestCalls, 1);
       expect(operations.statusCalls, 2);
+      expect(operations.firstJournalSawReceipt, isTrue);
+      expect(
+        AccountDeletionStatusReceipt.isCanonicalValue(
+          operations.requestedReceipts.single,
+        ),
+        isTrue,
+      );
+      expect(operations.ackSawDurableCompletedJournal, isTrue);
+      expect(operations.ackPrecededIdentityRecovery, isTrue);
+      expect(operations.receiptAckCalls, 1);
+      expect(operations.receipt, isNull);
       expect(sessions.current?.mode, CloudWriteMode.cleanupPending);
+    },
+  );
+
+  test(
+    'receipt acknowledgement failure preserves completed recovery state',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestResults.add(
+          _operation(AccountOperationPhase.completed, version: 8),
+        )
+        ..receiptAckFailure = const AccountOperationFailure(
+          AccountOperationFailureCode.unavailable,
+          retryable: true,
+        );
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(
+          isA<AccountOperationFailure>()
+              .having(
+                (failure) => failure.code,
+                'code',
+                AccountOperationFailureCode.unavailable,
+              )
+              .having((failure) => failure.retryable, 'retryable', isTrue),
+        ),
+      );
+
+      expect(
+        operations.journal?.operation?.phase,
+        AccountOperationPhase.completed,
+      );
+      expect(operations.journal?.session.mode, CloudWriteMode.cleanupPending);
+      expect(operations.receipt, isNotNull);
+      expect(operations.recoveryCalls, 0);
     },
   );
 
@@ -1039,6 +1290,149 @@ void main() {
       expect(operations.requestCalls, 2);
       expect(operations.journal?.operationId, 'operation-1');
       expect(operations.recoveryCalls, 1);
+    },
+  );
+
+  test(
+    'request response loss recovers the accepted operation by receipt without reissuing deletion',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+      final firstSessions = _readySessions();
+      final firstCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, firstSessions),
+        sessions: firstSessions,
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        firstCoordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      final pending = operations.journal!;
+      expect(pending.operation, isNull);
+      expect(operations.receipt?.operationId, isNull);
+      expect(operations.requestCalls, 1);
+
+      operations.statusResults.add(
+        _operation(AccountOperationPhase.completed, version: 8),
+      );
+      final restartedSessions = CloudWriteSessionController()
+        ..resume(pending.session, expectedUid: operations.userId);
+      final restarted = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, restartedSessions),
+        sessions: restartedSessions,
+        pollDelay: (_) async {},
+      );
+
+      await restarted.resumePendingDeletion();
+
+      expect(operations.requestCalls, 1);
+      expect(operations.statusCalls, 1);
+      expect(operations.receiptAckCalls, 1);
+      expect(operations.receipt, isNull);
+      expect(
+        operations.journal?.operation?.phase,
+        AccountOperationPhase.completed,
+      );
+      expect(operations.recoveryCalls, 1);
+    },
+  );
+
+  test(
+    'orphan receipt from first journal failure reuses its request key and capability',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..nextRequestKeys.addAll(<String>[
+          'orphan-request-key',
+          'must-not-replace-orphan-key',
+        ])
+        ..journalWriteFailures = 2;
+      final firstSessions = _readySessions();
+      final firstCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, firstSessions),
+        sessions: firstSessions,
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        firstCoordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      final orphan = operations.receipt;
+      expect(operations.journal, isNull);
+      expect(orphan, isNotNull);
+      expect(orphan?.requestKey, 'orphan-request-key');
+      expect(orphan?.operationId, isNull);
+      expect(operations.requestCalls, 0);
+
+      operations.requestResults.add(
+        _operation(AccountOperationPhase.completed, version: 8),
+      );
+      final restartedSessions = _readySessions();
+      final restarted = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, restartedSessions),
+        sessions: restartedSessions,
+        pollDelay: (_) async {},
+      );
+
+      await restarted.deleteAccount();
+
+      expect(operations.requestKeyCalls, 1);
+      expect(operations.requestCalls, 1);
+      expect(operations.journal?.requestKey, 'orphan-request-key');
+      expect(
+        operations.requestedReceipts.single,
+        orphan?.terminalStatusReceipt,
+      );
+      expect(operations.recoveryCalls, 1);
+    },
+  );
+
+  test(
+    'orphan receipt owned by another source blocks a new deletion',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..receipt = AccountDeletionStatusReceipt.checked(
+          sourceUid: 'another-source',
+          requestKey: 'another-request',
+          terminalStatusReceipt: 'A' * 43,
+        );
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(
+          isA<AccountOperationFailure>().having(
+            (failure) => failure.code,
+            'code',
+            AccountOperationFailureCode.blocked,
+          ),
+        ),
+      );
+
+      expect(operations.requestCalls, 0);
+      expect(operations.journalWrites, isEmpty);
+      expect(events, isNot(contains('push-remove:user-1')));
     },
   );
 
@@ -1838,12 +2232,15 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   );
   String? appleAuthorizationCode;
   AccountDeletionJournal? journal;
+  AccountDeletionStatusReceipt? receipt;
   final List<AccountDeletionJournal> journalWrites = [];
+  final List<String> requestedReceipts = [];
   final List<AccountOperationResult> requestResults = [];
   final List<AccountOperationFailure> requestFailures = [];
   final List<AccountOperationResult> statusResults = [];
   final List<AccountOperationResult> appleResults = [];
   final List<AccountOperationFailure> statusFailures = [];
+  final List<String> nextRequestKeys = [];
   final List<String> statusOperationIds = [];
   final List<String> appleOperationIds = [];
   Completer<void>? statusStarted;
@@ -1851,9 +2248,16 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   Object? googleReauthFailure;
   Object? appleReauthFailure;
   Object? recoveryFailure;
+  Object? receiptAckFailure;
   int requestCalls = 0;
+  int requestKeyCalls = 0;
   int statusCalls = 0;
+  int receiptAckCalls = 0;
   int recoveryCalls = 0;
+  bool firstJournalSawReceipt = false;
+  bool ackSawDurableCompletedJournal = false;
+  bool ackPrecededIdentityRecovery = false;
+  int journalWriteFailures = 0;
 
   @override
   String get userId => 'user-1';
@@ -1862,16 +2266,70 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   AuthProviderState get providerState => providers;
 
   @override
-  String createRequestKey() => 'request-key-1';
+  String createRequestKey() {
+    requestKeyCalls += 1;
+    return nextRequestKeys.isEmpty
+        ? 'request-key-1'
+        : nextRequestKeys.removeAt(0);
+  }
 
   @override
   Future<AccountDeletionJournal?> readDeletionJournal() async => journal;
 
   @override
   Future<void> writeDeletionJournal(AccountDeletionJournal value) async {
+    if (journalWriteFailures > 0) {
+      journalWriteFailures -= 1;
+      events.add('journal-write-failed');
+      throw StateError('journal write failed');
+    }
+    if (journalWrites.isEmpty) {
+      firstJournalSawReceipt = receipt != null;
+    }
     journal = value;
     journalWrites.add(value);
     events.add('journal-write:${value.operationId ?? 'pending'}');
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt?> readDeletionStatusReceipt() async {
+    return receipt;
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt> createDeletionStatusReceipt({
+    required String sourceUid,
+    required String requestKey,
+  }) async {
+    final current = receipt;
+    if (current != null) return current;
+    final created = AccountDeletionStatusReceipt.checked(
+      sourceUid: sourceUid,
+      requestKey: requestKey,
+      terminalStatusReceipt: 'A' * 43,
+    );
+    receipt = created;
+    return created;
+  }
+
+  @override
+  Future<AccountDeletionStatusReceipt> bindDeletionStatusReceipt({
+    required AccountDeletionStatusReceipt expected,
+    required String operationId,
+  }) async {
+    if (receipt != expected) throw StateError('receipt mismatch');
+    final bound = expected.withOperationId(operationId);
+    receipt = bound;
+    return bound;
+  }
+
+  @override
+  Future<bool> clearDeletionStatusReceipt(
+    AccountDeletionStatusReceipt expected,
+  ) async {
+    if (receipt != expected) return false;
+    receipt = null;
+    return true;
   }
 
   @override
@@ -1879,6 +2337,7 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
     AccountDeletionRequest request,
   ) async {
     requestCalls += 1;
+    requestedReceipts.add(request.terminalStatusReceipt);
     events.add('request:${request.requestKey}');
     if (requestFailures.isNotEmpty) throw requestFailures.removeAt(0);
     return requestResults.removeAt(0);
@@ -1903,7 +2362,56 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
     if (statusFailures.isNotEmpty) {
       throw statusFailures.removeAt(0);
     }
+    if (statusResults.isEmpty) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.operationNotFound,
+        retryable: false,
+      );
+    }
     return statusResults.removeAt(0);
+  }
+
+  @override
+  Future<AccountOperationResult> getAccountDeletionStatusByReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) async {
+    statusCalls += 1;
+    final operationId = receipt?.operationId ?? journal?.operationId;
+    statusOperationIds.add(operationId ?? 'receipt-only');
+    events.add('status:${operationId ?? 'receipt-only'}');
+    final started = statusStarted;
+    if (started != null && !started.isCompleted) {
+      started.complete();
+    }
+    final delayed = delayedStatusResult;
+    if (delayed != null) {
+      delayedStatusResult = null;
+      return delayed.future;
+    }
+    if (statusFailures.isNotEmpty) {
+      throw statusFailures.removeAt(0);
+    }
+    if (statusResults.isEmpty) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.operationNotFound,
+        retryable: false,
+      );
+    }
+    return statusResults.removeAt(0);
+  }
+
+  @override
+  Future<void> acknowledgeAccountDeletionStatusReceipt(
+    AccountDeletionStatusByReceiptRequest request,
+  ) async {
+    receiptAckCalls += 1;
+    ackSawDurableCompletedJournal =
+        journal?.operation?.phase == AccountOperationPhase.completed &&
+        journal?.session.mode == CloudWriteMode.cleanupPending;
+    ackPrecededIdentityRecovery = recoveryCalls == 0;
+    if (receiptAckFailure case final failure?) {
+      throw failure;
+    }
   }
 
   @override

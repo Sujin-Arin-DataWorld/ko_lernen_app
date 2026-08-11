@@ -249,6 +249,10 @@ Future<void> _startCloudServices() async {
     resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
       closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
     ),
+    resumeAccountDeletionByReceipt: () =>
+        AuthService.resumePendingAccountDeletionByReceipt(
+          closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
+        ),
     resumeCloudBackupDeletion: () async {
       await AuthService.resumePendingCloudBackupDeletion();
     },

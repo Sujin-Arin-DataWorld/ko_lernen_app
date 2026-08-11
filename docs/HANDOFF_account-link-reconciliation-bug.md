@@ -2,11 +2,11 @@
 
 **작성:** 2026-08-10 (Claude, 실기기 디버그 세션 말미)
 **갱신:** 2026-08-10 (Claude, /debug 세션 — 원인 지점 특정 + 진단 계측)
-**해결:** 2026-08-11 (Claude — **근본 원인 확정 + 수정 + 재현 테스트**)
+**상태:** 2026-08-11 (코드 복구 경로 구현·회귀 검증 완료, 배포·새 앱 설치·실기기 Resume 검증 대기)
 
 ---
 
-## 🟢 RESOLVED (2026-08-11) — 이것부터 읽기
+## 🟡 CODE-COMPLETE / DEVICE-PENDING (2026-08-11) — 이것부터 읽기
 
 **근본 원인 (실기기 데이터로 재현 확정):**
 커스텀 팩이 **없는** 계정(= 대부분의 사용자)에서 `CloudSync.buildBackupPayload` 가
@@ -32,22 +32,45 @@ klAccount: link.reconcile.pending status=invalid conflicts=none
 **검증:** 실기기 shared_prefs 원문으로 `load()` 실패를 재현 →수정 후 통과
 (`test/services/account/loadlocal_device_repro_test.dart`). 기존 142개 + 분석기 클린.
 
-**아직 안 한 것:** 새 빌드로 **실기기 연동 최종 확인**(리빌드·설치 완료, 사용자 탭 대기).
-**주의(2차 관찰):** 재개 시도에서 `link.reconcile.readRemote.state=unavailable` 이
-찍혔음 — loadLocal 실패의 부수효과일 가능성이 크나, 연동이 그래도 안 되면 이걸 조사.
+**확인된 해결 범위:** 빈 `custom_packs_json` 때문에 reconciliation 자체가
+`invalid`로 끝나던 첫 번째 벽은 수정·재현 테스트로 닫혔다.
+
+**해결되지 않았던 두 번째 경계(실기기·서버 상태로 확정):** 원격 operation은
+2026-08-11 10:04 CEST에 `completed` v4가 됐지만, 같은 기기의 로컬 journal은
+`cleanupPending` v3에 남았고 primary Firebase Auth 사용자도 없었다. 따라서
+"loadLocal만 고치면 confirm이 즉시 completed"라는 아래 초기 결론은 틀렸다.
+5분 주기 worker의 다단계 source cleanup, 짧은 클라이언트 polling, 재시작 뒤
+명시적 target activation 복구를 별도 상태 경계로 다뤄야 한다.
+
+**현재 브랜치의 후속 구현:** production status polling을 2초 × 30회로 제한하고
+`link.resume.start/result/threw` 진단을 추가했다. startup은 replacement journal을 발견하면
+계속 fence만 유지해 OAuth를 자동으로 띄우지 않는다. 사용자가 Settings에서 명시적으로
+Resume할 때 isolated target participant로 exact operation을 다시 읽고, completed v4를
+`activationPending` journal에 먼저 내구 저장한 뒤 primary target을 활성화한다. Google은
+첫 계정 확인 뒤 interactive fallback 없는 `signInSilently()`만 사용하며, 실패·wrong UID·
+session race에서는 journal을 지우지 않는다. Apple은 fresh 명시적 인증 경로를 유지한다.
+
+**아직 증명하지 않은 것:** Functions/Rules/index 배포, 새 앱 설치, 현재 실기기에서 Resume를
+눌러 primary target 로그인·journal 삭제·ready session까지 완료되는 과정. 따라서 현재 live
+operation은 server-completed이지 device-completed로 기록하지 않는다.
 
 > 아래 "제 1순위 가설(merge/course)" 은 **틀렸다** — 병합/코스마스터리는 정상이었다.
 > `_dropUnvalidatableEvidence` 로 course_mastery 를 건드렸던 변경은 **되돌렸다.**
 
-### 독립 검증 (2026-08-11, 6-에이전트 워크플로우)
+### 2026-08-11 후속 감사에서 정정한 결론
 
-4개 체크 **전부 fix-complete**:
-
-- **근본원인 완결성 / 다른 라운드트립 불일치:** 이 수정이 root-payload 디코드의 **마지막 ''-vs-invalid 갭**을 닫는다. buildBackupPayload 가 내는 키 중 엄격 디코드 대상은 course_mastery/srs/custom_packs 셋뿐이고, 흔한 계정 상태(빈 srs·격리 srs·빈 코스·빈 진행·커스텀 팩 없음)에서 이 외에 결정적으로 깨지는 필드는 없다.
-- **loadLocal 이후 경로:** **두 번째 결정적 벽 없음.** confirm 흐름은 `completed` 도달 예상. 재개 때 보였던 `readRemote.state=unavailable` 은 **격리 2차 앱 재생성·App Check·네트워크로 인한 일시적(재시도되는) 잡음**이지 별도 버그가 아니다(writeRemote 는 readRemote 와 같은 격리 인증을 써 새 권한 벽 없음). 남는 건 데이터 의존적 병합 충돌뿐인데, 실기기 데이터로는 loadLocal 벽만 재현·해소됨 → 이 계정 데이터는 깨끗이 병합됨.
-- **수정 부작용:** 없음. `decodePortableRemote` 유일 프로덕션 호출자는 `decodeCloudDocument`. 복원 경로는 `_portableRestoreJson` 을 써서 무관. 비어있지 않은 손상 JSON 은 여전히 `invalid`.
-
-**후속(비차단, 나중에):** 커스텀 팩 producer(`_portableStructuredJson`/`_stripLocalMedia`)는 `name/sourcePageId/createdAt` 존재·타입을 검증하지 않는데 소비자(`decodePortableRemote`)는 요구한다. 정상 앱 쓰기로는 도달 불가(`CustomPack.toLocalJson` 이 항상 4필드 String)지만, **레거시/외부 손상 데이터**에선 같은 클래스의 루프가 재발할 수 있다 → producer 검증 추가 또는 consumer 관용으로 방어 권장.
+- **확정:** 빈 custom-pack 입력 수정은 reconciliation 단계의 결정적 오류를 닫았다.
+- **정정:** 그 사실만으로 전체 계정 교체가 완료되는 것은 아니다. 서버 worker는
+  사용자 트리·Auth·커뮤니티·프로세서 정리를 호출마다 나눠 수행하며, 클라이언트의
+  기존 즉시/단기 polling보다 오래 걸릴 수 있다.
+- **정정:** `readRemote.state=unavailable`을 원인 없는 잡음으로 단정할 근거가 없다.
+  현재 reader가 하위 예외를 상태로 축약하므로 이 로그만으로 App Check·인증·네트워크
+  중 어느 하나를 확정할 수 없다.
+- **확정:** 현재 피해 operation은 서버에서 completed지만 로컬 activation이 끝나지
+  않았다. startup은 OAuth UI를 자동으로 열지 않고 fence만 유지하며, 안전한 target
+  participant 확인 뒤 명시적으로 activation을 마치는 복구 경로가 필요하다.
+- **후속:** 커스텀 팩 producer(`_portableStructuredJson`/`_stripLocalMedia`)와 consumer의
+  필수 필드 계약은 레거시/외부 손상 데이터 재발 방지를 위해 별도 검증 대상으로 남긴다.
 
 ---
 
@@ -82,8 +105,7 @@ klAccount: link.reconcile.pending status=invalid conflicts=none
 
 | 로그가 이렇게 나오면 | 근본 원인 | 타깃 수정 |
 |---|---|---|
-| `readRemote.threw firebase:cloud_firestore/permission-denied` | 격리(2차) 앱의 **타깃 문서 Firestore 읽기**가 규칙/App Check 로 거부 | 2차 앱 App Check 토큰 등록 확인 / 규칙에서 타깃 self-read 확인 |
-| `readRemote.threw firebase:cloud_firestore/unavailable` 또는 `firebase:*/unauthenticated` | 2차 앱 인증/네트워크 | 2차 앱 `signInWithCredential` 세션·토큰 확인 |
+| `readRemote.state state=unavailable` | reader가 하위 Firestore/Auth/네트워크 예외를 unavailable로 축약 | 격리 app 인증·App Check·네트워크를 하위 계측으로 분리 확인 |
 | `readRemote.state state=invalid`/`tooLarge` | 타깃 원격 문서가 파싱 불가/과대 | 디코더(`decodeCloudDocument`) 또는 데이터 정리 |
 | `loadLocal.invalid format` | **로컬** 스냅샷 파싱 실패(`LocalAccountReconciliationStore.load`) | 어느 로컬 소스가 깨졌는지(srs/customPacks/course) 좁히기 |
 | `loadLocal.unavailable other:<Type>` | 로컬 캡처 중 예외(예: courseMastery capture) | 해당 서비스 초기화/캡처 경로 |
@@ -111,7 +133,7 @@ klAccount: link.confirm.result none status=reconciliationPending   ← 매번 �
 - 즉 confirm 이후 **실제 reconciliation 러너가 돌지 않거나, 돌아도 조용히 pending으로 되돌아옴** → 무한 루프.
 
 ## 확실히 배제된 것 (다시 조사하지 말 것)
-1. **App Check 아님.** 디버그 토큰 `cfb3e027-0243-45e2-b359-cee5541e0d98`을 Firebase Console에 등록했고, `link.prepare.ok`가 찍히므로 보호 콜러블은 통과함.
+1. **당시 prepare 실패의 직접 원인은 App Check가 아니었음.** 실기기 디버그 토큰을 Console에 등록한 뒤 `link.prepare.ok`가 찍혀 해당 호출 경계는 통과했다. 토큰 원문은 문서에 보관하지 않는다.
 2. **특정 계정이 갇힌 상태 아님(코드 버그임).**
    - Firestore `account_operation_owners`의 소유 문서 2개(그 계정들의 `sha256("account-operation-owner\0"+sourceUid)`)를 삭제해봄 → 효과 없음.
    - `pm clear`로 **완전 새 익명 계정** + **다른 Google uid**로 시도해도 **동일하게 `reconciliationPending`** 재현. → 데이터가 아니라 흐름 버그.

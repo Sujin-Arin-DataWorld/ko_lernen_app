@@ -130,6 +130,12 @@
       "indexes": []
     },
     {
+      "collectionGroup": "account_deletion_status_receipts",
+      "fieldPath": "purgeAfter",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "users",
       "fieldPath": "gyeIds",
       "indexes": [

@@ -100,6 +100,10 @@ typedef AccountUiProviderLinker =
 typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
 
 @visibleForTesting
+typedef AccountUiReplacementStatusPollDelay =
+    Future<void> Function(Duration delay);
+
+@visibleForTesting
 typedef AccountUiCurriculumCatalogLoader = Future<CurriculumCatalog> Function();
 
 @visibleForTesting
@@ -135,6 +139,7 @@ class ProductionAccountUiOperations
     @visibleForTesting this.curriculumCatalogLoader,
     @visibleForTesting this.targetReconciliationFactory,
     @visibleForTesting this.replacementAccountOperations,
+    @visibleForTesting this.replacementStatusPollDelay,
   });
 
   final AccountUiProviderLinker? providerLinker;
@@ -143,6 +148,15 @@ class ProductionAccountUiOperations
   final AccountUiCurriculumCatalogLoader? curriculumCatalogLoader;
   final AccountUiTargetReconciliationFactory? targetReconciliationFactory;
   final ReplacementAccountOperations? replacementAccountOperations;
+  final AccountUiReplacementStatusPollDelay? replacementStatusPollDelay;
+
+  /// Status polling is deliberately short and bounded. The scheduled cleanup
+  /// worker can outlive this foreground window; in that case the durable
+  /// cleanupPending journal remains fenced and a later explicit/startup resume
+  /// continues the same operation instead of hammering the callable.
+  static const Duration replacementStatusPollInterval = Duration(seconds: 2);
+  static const int replacementStatusPollLimit = 30;
+  static const Duration replacementStatusPollWindow = Duration(minutes: 1);
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
@@ -286,19 +300,23 @@ class ProductionAccountUiOperations
     // `link.failed` 로는 잡히지 않는다.
     AccountFailureDiagnostics.log('link.confirm.start', null);
     try {
-      final result = await AuthService.runDurableAccountAdmission<
-        AccountTransitionResult
-      >(
-        onAdmitted: () async {
-          final flow = await _createReplacementFlow();
-          return flow.confirm(conflict);
-        },
-        onBlocked: () async {
-          // 내구 저널이 이미 잡혀 있어 진입 자체가 거부된 경우.
-          AccountFailureDiagnostics.log('link.confirm.admissionBlocked', null);
-          return const AccountTransitionResult(AccountTransitionStatus.blocked);
-        },
-      );
+      final result =
+          await AuthService.runDurableAccountAdmission<AccountTransitionResult>(
+            onAdmitted: () async {
+              final flow = await _createReplacementFlow();
+              return flow.confirm(conflict);
+            },
+            onBlocked: () async {
+              // 내구 저널이 이미 잡혀 있어 진입 자체가 거부된 경우.
+              AccountFailureDiagnostics.log(
+                'link.confirm.admissionBlocked',
+                null,
+              );
+              return const AccountTransitionResult(
+                AccountTransitionStatus.blocked,
+              );
+            },
+          );
       AccountFailureDiagnostics.log(
         'link.confirm.result',
         null,
@@ -315,18 +333,27 @@ class ProductionAccountUiOperations
 
   @override
   Future<AccountTransitionResult> resumeReplacement() async {
+    AccountFailureDiagnostics.log('link.resume.start', null);
     try {
-      return await AuthService.runDurableAccountAdmission<
-        AccountTransitionResult
-      >(
-        allowReplacementTransitionJournal: true,
-        onAdmitted: () async {
-          final flow = await _createReplacementFlow();
-          return flow.resume();
-        },
-        onBlocked: () async =>
-            const AccountTransitionResult(AccountTransitionStatus.blocked),
+      final result =
+          await AuthService.runDurableAccountAdmission<AccountTransitionResult>(
+            allowReplacementTransitionJournal: true,
+            onAdmitted: () async {
+              final flow = await _createReplacementFlow();
+              return flow.resume();
+            },
+            onBlocked: () async =>
+                const AccountTransitionResult(AccountTransitionStatus.blocked),
+          );
+      AccountFailureDiagnostics.log(
+        'link.resume.result',
+        null,
+        detail: 'status=${result.status.name}',
       );
+      return result;
+    } catch (error) {
+      AccountFailureDiagnostics.log('link.resume.threw', error);
+      rethrow;
     } finally {
       await refreshPendingState();
     }
@@ -368,6 +395,11 @@ class ProductionAccountUiOperations
           AuthService.replacementAccountOperations(),
       journalStore: journalStore,
       createRequestKey: _newRequestKey,
+      maxStatusPolls: replacementStatusPollLimit,
+      pollDelay: () =>
+          (replacementStatusPollDelay ?? _waitForReplacementStatusPoll)(
+            replacementStatusPollInterval,
+          ),
       reconcile:
           ({
             required target,
@@ -420,6 +452,9 @@ class ProductionAccountUiOperations
       (_) => alphabet[random.nextInt(alphabet.length)],
     ).join();
   }
+
+  static Future<void> _waitForReplacementStatusPoll(Duration delay) =>
+      Future<void>.delayed(delay);
 }
 
 @visibleForTesting

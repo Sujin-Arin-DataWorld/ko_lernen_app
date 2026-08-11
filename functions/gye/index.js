@@ -89,6 +89,8 @@ const {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  deletionCapabilityPurposeDigest,
+  deletionStatusReceiptDigest,
   fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
   runScheduledDeletionBatch,
@@ -158,11 +160,18 @@ const revokeAppleAuthorizationCode = createAppleRevocationAdapter({
 });
 
 const accountOperationRepository =
-  createFirestoreAccountOperationRepository({ firestore: db });
+  createFirestoreAccountOperationRepository({
+    firestore: db,
+    timestampFromMillis: (millis) => Timestamp.fromMillis(millis),
+  });
 const accountOperationHandlers = createAccountOperationRuntime({
   auth,
   hashDeletionProof: (proof) =>
     keyedDeletionProofDigest("proof", proof),
+  hashDeletionStatusReceipt: deletionStatusReceiptDigest,
+  hashDeletionCapabilityPurpose: deletionCapabilityPurposeDigest,
+  hashDeletionStatusRateLimitKey: (ip) =>
+    keyedDeletionProofDigest("terminal-status-rate-ip", ip),
   repository: accountOperationRepository,
   revokeAppleAuthorizationCode,
   makeError: (status, safeCode) => new HttpsError(
@@ -178,6 +187,12 @@ Object.assign(
     onCall,
     optionsByName: {
       issueDeletionProof: {
+        secrets: [deletionProofHmacKey],
+      },
+      getAccountDeletionStatusByReceipt: {
+        secrets: [deletionProofHmacKey],
+      },
+      acknowledgeAccountDeletionStatusReceipt: {
         secrets: [deletionProofHmacKey],
       },
       completeAppleRevocation: {
