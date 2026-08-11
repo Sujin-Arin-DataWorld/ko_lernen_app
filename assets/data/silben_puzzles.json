@@ -1,0 +1,4008 @@
+{
+ "version": 1,
+ "_comment": "Silben-Kreuz 퍼즐 — tool/gen_silben_puzzles.py 가 생성. 직접 편집 금지, 스크립트 재실행으로 갱신.",
+ "levels": {
+  "A1": [
+   {
+    "id": "skz_a1_001",
+    "rows": 3,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "어제",
+      "german": "gestern",
+      "exampleKo": "◯◯ 어디 갔어요?",
+      "exampleDe": "Wo bist du gestern hingegangen?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "어렵다",
+      "german": "schwierig / schwer",
+      "exampleKo": "한국어가 어려워요.",
+      "exampleDe": "Koreanisch ist schwierig."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "다섯",
+      "german": "fünf (rein-koreanisch)",
+      "exampleKo": "◯◯ 시에 만나요.",
+      "exampleDe": "Wir treffen uns um fünf."
+     }
+    ],
+    "pool": [
+     "제",
+     "렵",
+     "자",
+     "섯",
+     "어",
+     "검",
+     "든",
+     "다"
+    ]
+   },
+   {
+    "id": "skz_a1_002",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "편의점",
+      "german": "Convenience Store",
+      "exampleKo": "◯◯◯에서 사요.",
+      "exampleDe": "Ich kaufe im Convenience Store."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "의자",
+      "german": "Stuhl",
+      "exampleKo": "◯◯에 앉아요.",
+      "exampleDe": "Ich sitze auf dem Stuhl."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "남편",
+      "german": "Ehemann",
+      "exampleKo": "우리 ◯◯은 요리를 잘해요.",
+      "exampleDe": "Mein Ehemann kocht."
+     }
+    ],
+    "pool": [
+     "늦",
+     "남",
+     "좋",
+     "의",
+     "편",
+     "점",
+     "자",
+     "끔"
+    ]
+   },
+   {
+    "id": "skz_a1_003",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "맛있다",
+      "german": "lecker",
+      "exampleKo": "이 음식은 맛있어요.",
+      "exampleDe": "Dieses Essen ist lecker."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "먹다",
+      "german": "essen",
+      "exampleKo": "밥을 먹어요.",
+      "exampleDe": "Ich esse Reis."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "있다",
+      "german": "sein / haben (existieren)",
+      "exampleKo": "집에 있어요.",
+      "exampleDe": "Ich bin zu Hause."
+     }
+    ],
+    "pool": [
+     "홉",
+     "먹",
+     "노",
+     "다",
+     "짜",
+     "맛",
+     "있",
+     "다"
+    ]
+   },
+   {
+    "id": "skz_a1_004",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "일곱",
+      "german": "sieben (rein-koreanisch)",
+      "exampleKo": "◯◯ 시에 출발해요.",
+      "exampleDe": "Wir starten um sieben."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "화요일",
+      "german": "Dienstag",
+      "exampleKo": "◯◯◯에 만나요.",
+      "exampleDe": "Wir treffen uns am Dienstag."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "화장실",
+      "german": "Toilette / Badezimmer",
+      "exampleKo": "◯◯◯이 어디예요?",
+      "exampleDe": "Wo ist die Toilette?"
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "아니요",
+      "german": "Nein",
+      "exampleKo": "◯◯◯, 저는 안 갈래요.",
+      "exampleDe": "Nein, ich möchte nicht gehen."
+     }
+    ],
+    "pool": [
+     "실",
+     "귀",
+     "리",
+     "장",
+     "곱",
+     "니",
+     "일",
+     "화",
+     "요",
+     "면",
+     "아"
+    ]
+   },
+   {
+    "id": "skz_a1_005",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "일찍",
+      "german": "früh",
+      "exampleKo": "오늘 ◯◯ 자고 싶어요.",
+      "exampleDe": "Ich gehe früh schlafen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "내일",
+      "german": "morgen",
+      "exampleKo": "◯◯ 만나요.",
+      "exampleDe": "Wir treffen uns morgen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "아내",
+      "german": "Ehefrau",
+      "exampleKo": "제 ◯◯는 회사에 다녀요.",
+      "exampleDe": "Meine Ehefrau arbeitet."
+     }
+    ],
+    "pool": [
+     "아",
+     "기",
+     "내",
+     "흰",
+     "찍",
+     "나",
+     "일"
+    ]
+   },
+   {
+    "id": "skz_a1_006",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "학교",
+      "german": "Schule",
+      "exampleKo": "◯◯에 가요.",
+      "exampleDe": "Ich gehe zur Schule."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "학생",
+      "german": "Student/Schüler",
+      "exampleKo": "저는 ◯◯이에요.",
+      "exampleDe": "Ich bin Student."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "여동생",
+      "german": "jüngere Schwester",
+      "exampleKo": "제 ◯◯◯이 정말 귀여워요.",
+      "exampleDe": "Meine jüngere Schwester ist süß."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "여기",
+      "german": "hier",
+      "exampleKo": "◯◯ 앉으세요.",
+      "exampleDe": "Setzen Sie sich bitte hier hin."
+     }
+    ],
+    "pool": [
+     "학",
+     "기",
+     "주",
+     "렵",
+     "여",
+     "동",
+     "교",
+     "누",
+     "생"
+    ]
+   },
+   {
+    "id": "skz_a1_007",
+    "rows": 5,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "수요일",
+      "german": "Mittwoch",
+      "exampleKo": "이번 주 ◯◯◯에 만날까요?",
+      "exampleDe": "Mittwoch passt mir gut."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "일하다",
+      "german": "arbeiten",
+      "exampleKo": "회사에서 일해요.",
+      "exampleDe": "Ich arbeite in einer Firma."
+     },
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 1,
+      "answer": "받다",
+      "german": "bekommen / empfangen",
+      "exampleKo": "선물을 받았어요.",
+      "exampleDe": "Ich habe ein Geschenk bekommen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "아니요",
+      "german": "Nein",
+      "exampleKo": "◯◯◯, 저는 안 갈래요.",
+      "exampleDe": "Nein, ich möchte nicht gehen."
+     }
+    ],
+    "pool": [
+     "쓰",
+     "편",
+     "일",
+     "니",
+     "다",
+     "받",
+     "수",
+     "하",
+     "색",
+     "요",
+     "아"
+    ]
+   },
+   {
+    "id": "skz_a1_008",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "읽다",
+      "german": "lesen",
+      "exampleKo": "책을 읽어요.",
+      "exampleDe": "Ich lese ein Buch."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "말하다",
+      "german": "sprechen / sagen",
+      "exampleKo": "한국어로 말해요.",
+      "exampleDe": "Ich spreche auf Koreanisch."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "하나",
+      "german": "eins (rein-koreanisch)",
+      "exampleKo": "◯◯만 주세요.",
+      "exampleDe": "Nur eins bitte."
+     }
+    ],
+    "pool": [
+     "다",
+     "말",
+     "핸",
+     "하",
+     "잠",
+     "나",
+     "심",
+     "읽"
+    ]
+   },
+   {
+    "id": "skz_a1_009",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "서다",
+      "german": "stehen",
+      "exampleKo": "여기 잠깐 서 있어요.",
+      "exampleDe": "Ich stehe hier."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "사다",
+      "german": "kaufen",
+      "exampleKo": "옷을 사요.",
+      "exampleDe": "Ich kaufe Kleidung."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "사과",
+      "german": "Apfel",
+      "exampleKo": "매일 아침 ◯◯ 하나 먹어요.",
+      "exampleDe": "Ich esse einen Apfel."
+     }
+    ],
+    "pool": [
+     "사",
+     "서",
+     "상",
+     "과",
+     "른",
+     "싸",
+     "다"
+    ]
+   },
+   {
+    "id": "skz_a1_010",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "빨간색",
+      "german": "rot",
+      "exampleKo": "저는 ◯◯◯을 제일 좋아해요.",
+      "exampleDe": "Ich mag die Farbe Rot."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "시간",
+      "german": "Zeit / Stunde",
+      "exampleKo": "◯◯이 없어요.",
+      "exampleDe": "Ich habe keine Zeit."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "빨리",
+      "german": "schnell / beeile dich",
+      "exampleKo": "늦었어요, ◯◯ 가요!",
+      "exampleDe": "Komm schnell."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "우리",
+      "german": "wir",
+      "exampleKo": "◯◯ 같이 가요.",
+      "exampleDe": "Lass uns zusammen gehen."
+     }
+    ],
+    "pool": [
+     "색",
+     "우",
+     "나",
+     "간",
+     "리",
+     "빨",
+     "목",
+     "시",
+     "매"
+    ]
+   },
+   {
+    "id": "skz_a1_011",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "아버지",
+      "german": "Vater (formell)",
+      "exampleKo": "◯◯◯가 집에 있어요.",
+      "exampleDe": "Mein Vater ist zu Hause."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "아니요",
+      "german": "Nein",
+      "exampleKo": "◯◯◯, 저는 안 갈래요.",
+      "exampleDe": "Nein, ich möchte nicht gehen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "요일",
+      "german": "Wochentag",
+      "exampleKo": "무슨 ◯◯이에요?",
+      "exampleDe": "Welcher Wochentag ist heute?"
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "어머니",
+      "german": "Mutter (formell)",
+      "exampleKo": "◯◯◯한테 전화해요.",
+      "exampleDe": "Ich rufe meine Mutter an."
+     }
+    ],
+    "pool": [
+     "니",
+     "지",
+     "어",
+     "잠",
+     "일",
+     "버",
+     "과",
+     "아",
+     "실",
+     "머",
+     "요"
+    ]
+   },
+   {
+    "id": "skz_a1_012",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "왼쪽",
+      "german": "links",
+      "exampleKo": "◯◯으로 가세요.",
+      "exampleDe": "Gehen Sie nach links."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "오른쪽",
+      "german": "rechts",
+      "exampleKo": "◯◯◯에 화장실이 있어요.",
+      "exampleDe": "Rechts ist die Toilette."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "오늘",
+      "german": "heute",
+      "exampleKo": "◯◯ 뭐 해요?",
+      "exampleDe": "Was machst du heute?"
+     }
+    ],
+    "pool": [
+     "오",
+     "누",
+     "초",
+     "여",
+     "른",
+     "왼",
+     "늘",
+     "쪽"
+    ]
+   },
+   {
+    "id": "skz_a1_013",
+    "rows": 5,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "지금",
+      "german": "jetzt / gerade",
+      "exampleKo": "◯◯ 뭐 해요?",
+      "exampleDe": "Was machst du gerade?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "아버지",
+      "german": "Vater (formell)",
+      "exampleKo": "◯◯◯가 집에 있어요.",
+      "exampleDe": "Mein Vater ist zu Hause."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "아빠",
+      "german": "Papa (informell)",
+      "exampleKo": "◯◯ 사랑해요.",
+      "exampleDe": "Ich liebe dich, Papa."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "금요일",
+      "german": "Freitag",
+      "exampleKo": "◯◯◯ 저녁에 만나요.",
+      "exampleDe": "Wir treffen uns Freitagabend."
+     }
+    ],
+    "pool": [
+     "지",
+     "커",
+     "아",
+     "우",
+     "요",
+     "진",
+     "일",
+     "버",
+     "금",
+     "빠"
+    ]
+   },
+   {
+    "id": "skz_a1_014",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "일요일",
+      "german": "Sonntag",
+      "exampleKo": "◯◯◯에는 늦잠 자요.",
+      "exampleDe": "Sonntags gehe ich in die Kirche."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "일하다",
+      "german": "arbeiten",
+      "exampleKo": "회사에서 일해요.",
+      "exampleDe": "Ich arbeite in einer Firma."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "매일",
+      "german": "jeden Tag / täglich",
+      "exampleKo": "저는 ◯◯ 아침 운동해요.",
+      "exampleDe": "Ich mache jeden Tag Sport."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "서다",
+      "german": "stehen",
+      "exampleKo": "여기 잠깐 서 있어요.",
+      "exampleDe": "Ich stehe hier."
+     }
+    ],
+    "pool": [
+     "다",
+     "의",
+     "일",
+     "선",
+     "하",
+     "일",
+     "서",
+     "요",
+     "생",
+     "매"
+    ]
+   },
+   {
+    "id": "skz_a1_015",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "사이",
+      "german": "zwischen / Zwischenraum",
+      "exampleKo": "우리 ◯◯는 좋아요.",
+      "exampleDe": "Wir verstehen uns gut."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "화이팅",
+      "german": "Du schaffst das! / Viel Erfolg!",
+      "exampleKo": "우리 팀 ◯◯◯!",
+      "exampleDe": "Koreanisch, du schaffst das!"
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "화장실",
+      "german": "Toilette / Badezimmer",
+      "exampleKo": "◯◯◯이 어디예요?",
+      "exampleDe": "Wo ist die Toilette?"
+     }
+    ],
+    "pool": [
+     "작",
+     "실",
+     "장",
+     "란",
+     "화",
+     "팅",
+     "노",
+     "사",
+     "이"
+    ]
+   },
+   {
+    "id": "skz_a1_016",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "과일",
+      "german": "Obst",
+      "exampleKo": "◯◯이 맛있어요.",
+      "exampleDe": "Das Obst ist lecker."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "수요일",
+      "german": "Mittwoch",
+      "exampleKo": "이번 주 ◯◯◯에 만날까요?",
+      "exampleDe": "Mittwoch passt mir gut."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "요일",
+      "german": "Wochentag",
+      "exampleKo": "무슨 ◯◯이에요?",
+      "exampleDe": "Welcher Wochentag ist heute?"
+     }
+    ],
+    "pool": [
+     "수",
+     "과",
+     "실",
+     "일",
+     "폰",
+     "작",
+     "일",
+     "요"
+    ]
+   },
+   {
+    "id": "skz_a1_017",
+    "rows": 4,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "자다",
+      "german": "schlafen",
+      "exampleKo": "일찍 자요.",
+      "exampleDe": "Ich schlafe früh."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "귀엽다",
+      "german": "niedlich / süß",
+      "exampleKo": "강아지가 귀여워요.",
+      "exampleDe": "Der Hund ist süß."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "자주",
+      "german": "oft",
+      "exampleKo": "저는 커피를 ◯◯ 마셔요.",
+      "exampleDe": "Wir treffen uns oft."
+     }
+    ],
+    "pool": [
+     "스",
+     "작",
+     "다",
+     "흰",
+     "귀",
+     "자",
+     "주",
+     "엽"
+    ]
+   },
+   {
+    "id": "skz_a1_018",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "닫다",
+      "german": "schließen",
+      "exampleKo": "창문을 닫아요.",
+      "exampleDe": "Ich schließe das Fenster."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "마시다",
+      "german": "trinken",
+      "exampleKo": "커피를 마셔요.",
+      "exampleDe": "Ich trinke Kaffee."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "엄마",
+      "german": "Mama (informell)",
+      "exampleKo": "◯◯ 어디 있어요?",
+      "exampleDe": "Wo bist du, Mama?"
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "시간",
+      "german": "Zeit / Stunde",
+      "exampleKo": "◯◯이 없어요.",
+      "exampleDe": "Ich habe keine Zeit."
+     }
+    ],
+    "pool": [
+     "다",
+     "시",
+     "닫",
+     "엄",
+     "쓰",
+     "로",
+     "색",
+     "마",
+     "간"
+    ]
+   },
+   {
+    "id": "skz_a1_019",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "목요일",
+      "german": "Donnerstag",
+      "exampleKo": "이번 주 ◯◯◯에 봐요.",
+      "exampleDe": "Komm am Donnerstag."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "요일",
+      "german": "Wochentag",
+      "exampleKo": "무슨 ◯◯이에요?",
+      "exampleDe": "Welcher Wochentag ist heute?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "과일",
+      "german": "Obst",
+      "exampleKo": "◯◯이 맛있어요.",
+      "exampleDe": "Das Obst ist lecker."
+     }
+    ],
+    "pool": [
+     "름",
+     "일",
+     "목",
+     "과",
+     "고",
+     "머",
+     "일",
+     "요"
+    ]
+   },
+   {
+    "id": "skz_a1_020",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "여섯",
+      "german": "sechs (rein-koreanisch)",
+      "exampleKo": "◯◯ 명이 와요.",
+      "exampleDe": "Sechs Leute kommen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "여동생",
+      "german": "jüngere Schwester",
+      "exampleKo": "제 ◯◯◯이 정말 귀여워요.",
+      "exampleDe": "Meine jüngere Schwester ist süß."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "남동생",
+      "german": "jüngerer Bruder",
+      "exampleKo": "◯◯◯은 학생이에요.",
+      "exampleDe": "Mein jüngerer Bruder ist Schüler."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "다섯",
+      "german": "fünf (rein-koreanisch)",
+      "exampleKo": "◯◯ 시에 만나요.",
+      "exampleDe": "Wir treffen uns um fünf."
+     }
+    ],
+    "pool": [
+     "동",
+     "다",
+     "빨",
+     "편",
+     "여",
+     "섯",
+     "동",
+     "생",
+     "남",
+     "사"
+    ]
+   }
+  ],
+  "A2": [
+   {
+    "id": "skz_a2_001",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "호텔",
+      "german": "Hotel",
+      "exampleKo": "이번 ◯◯ 진짜 좋았어요.",
+      "exampleDe": "Ich übernachte im Hotel."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "변호사",
+      "german": "Anwalt",
+      "exampleKo": "언니는 ◯◯◯예요.",
+      "exampleDe": "Meine große Schwester ist Anwältin."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "상사",
+      "german": "Vorgesetzte/r",
+      "exampleKo": "저희 ◯◯ 분은 좀 까다로우세요.",
+      "exampleDe": "Ich habe meinem Vorgesetzten Bericht erstattet."
+     }
+    ],
+    "pool": [
+     "사",
+     "텔",
+     "거",
+     "맛",
+     "호",
+     "고",
+     "상",
+     "변"
+    ]
+   },
+   {
+    "id": "skz_a2_002",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "쇠고기",
+      "german": "Rindfleisch",
+      "exampleKo": "◯◯◯로 국을 끓였어요.",
+      "exampleDe": "Ich habe Suppe mit Rindfleisch gekocht."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "기차",
+      "german": "Zug / Bahn",
+      "exampleKo": "◯◯ 시간에 늦었어요.",
+      "exampleDe": "Ich fahre mit dem Zug."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "열쇠",
+      "german": "Schlüssel",
+      "exampleKo": "◯◯를 잃어버렸어요.",
+      "exampleDe": "Ich habe den Schlüssel verloren."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "차다",
+      "german": "umlegen (Uhr)",
+      "exampleKo": "새 시계를 차고 있어요.",
+      "exampleDe": "Ich trage eine neue Uhr."
+     }
+    ],
+    "pool": [
+     "증",
+     "고",
+     "멀",
+     "다",
+     "기",
+     "보",
+     "열",
+     "쇠",
+     "차"
+    ]
+   },
+   {
+    "id": "skz_a2_003",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "유학",
+      "german": "Auslandsstudium",
+      "exampleKo": "내년에 한국으로 ◯◯을 가요.",
+      "exampleDe": "Nächstes Jahr gehe ich zum Studium nach Korea."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "유학생",
+      "german": "Auslandsstudent",
+      "exampleKo": "우리 학교에 ◯◯◯이 많아요.",
+      "exampleDe": "An unserer Schule gibt es viele Auslandsstudenten."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "중학생",
+      "german": "Mittelschüler",
+      "exampleKo": "◯◯◯ 때 한국어를 시작했어요.",
+      "exampleDe": "Als Mittelschüler habe ich mit Koreanisch angefangen."
+     }
+    ],
+    "pool": [
+     "학",
+     "콩",
+     "학",
+     "생",
+     "찰",
+     "학",
+     "중",
+     "표",
+     "유"
+    ]
+   },
+   {
+    "id": "skz_a2_004",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "찾다",
+      "german": "suchen / finden",
+      "exampleKo": "지금 열쇠를 찾고 있어요.",
+      "exampleDe": "Ich suche den Schlüssel."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "열리다",
+      "german": "sich öffnen",
+      "exampleKo": "문이 저절로 열렸어요.",
+      "exampleDe": "Die Tür öffnete sich von selbst."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "열쇠",
+      "german": "Schlüssel",
+      "exampleKo": "◯◯를 잃어버렸어요.",
+      "exampleDe": "Ich habe den Schlüssel verloren."
+     }
+    ],
+    "pool": [
+     "열",
+     "구",
+     "쇠",
+     "찾",
+     "들",
+     "리",
+     "츠",
+     "다"
+    ]
+   },
+   {
+    "id": "skz_a2_005",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "영화",
+      "german": "Film",
+      "exampleKo": "주말에 ◯◯ 한 편 봤어요.",
+      "exampleDe": "Ich schaue einen Film."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "영수증",
+      "german": "Quittung / Kassenbon",
+      "exampleKo": "◯◯◯ 좀 주시겠어요?",
+      "exampleDe": "Die Quittung bitte."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "보증금",
+      "german": "Kaution",
+      "exampleKo": "◯◯◯은 얼마 정도예요?",
+      "exampleDe": "Ich habe die Kaution bezahlt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "전화",
+      "german": "Telefon / Anruf",
+      "exampleKo": "아까 부재중 ◯◯ 왔어요.",
+      "exampleDe": "Ich habe einen Anruf bekommen."
+     }
+    ],
+    "pool": [
+     "료",
+     "황",
+     "화",
+     "남",
+     "영",
+     "금",
+     "증",
+     "전",
+     "보",
+     "수"
+    ]
+   },
+   {
+    "id": "skz_a2_006",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "주황색",
+      "german": "orange",
+      "exampleKo": "가을엔 ◯◯◯이 예뻐요.",
+      "exampleDe": "Orange steht dir gut."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "색깔",
+      "german": "Farbe",
+      "exampleKo": "다른 ◯◯도 있어요?",
+      "exampleDe": "Gibt es auch andere Farben?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "공주",
+      "german": "Prinzessin",
+      "exampleKo": "아이가 ◯◯ 그림을 그렸어요.",
+      "exampleDe": "Das Kind hat eine Prinzessin gemalt."
+     }
+    ],
+    "pool": [
+     "날",
+     "벨",
+     "색",
+     "황",
+     "공",
+     "깔",
+     "조",
+     "주"
+    ]
+   },
+   {
+    "id": "skz_a2_007",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "대학교",
+      "german": "Universität",
+      "exampleKo": "누나는 ◯◯◯에 다녀요.",
+      "exampleDe": "Meine Schwester geht zur Universität."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "교수",
+      "german": "Professor",
+      "exampleKo": "◯◯님 수업이 재미있어요.",
+      "exampleDe": "Die Vorlesung des Professors ist interessant."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "수수료",
+      "german": "Gebühr",
+      "exampleKo": "송금 ◯◯◯ 얼마예요?",
+      "exampleDe": "Gibt es eine Gebühr?"
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 3,
+      "answer": "수박",
+      "german": "Wassermelone",
+      "exampleKo": "여름에는 ◯◯이 최고예요.",
+      "exampleDe": "Im Sommer ist Wassermelone das Beste."
+     }
+    ],
+    "pool": [
+     "수",
+     "교",
+     "박",
+     "수",
+     "학",
+     "정",
+     "곧",
+     "료",
+     "고",
+     "대"
+    ]
+   },
+   {
+    "id": "skz_a2_008",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "사원",
+      "german": "Angestellter",
+      "exampleKo": "저는 회사 ◯◯이에요.",
+      "exampleDe": "Ich bin Angestellter in einer Firma."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "점원",
+      "german": "Verkäufer/in",
+      "exampleKo": "◯◯분이 진짜 친절했어요.",
+      "exampleDe": "Der Verkäufer war freundlich."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "사장",
+      "german": "Chef / Firmeninhaber",
+      "exampleKo": "◯◯님이 진짜 좋으신 분이세요.",
+      "exampleDe": "Der Chef ist freundlich."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "곧장",
+      "german": "geradeaus",
+      "exampleKo": "여기서 ◯◯ 가시면 돼요.",
+      "exampleDe": "Gehen Sie geradeaus."
+     }
+    ],
+    "pool": [
+     "미",
+     "내",
+     "료",
+     "장",
+     "사",
+     "원",
+     "점",
+     "곧"
+    ]
+   },
+   {
+    "id": "skz_a2_009",
+    "rows": 5,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 0,
+      "answer": "닫히다",
+      "german": "sich schließen",
+      "exampleKo": "바람에 창문이 닫혔어요.",
+      "exampleDe": "Das Fenster schloss sich durch den Wind."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "걸리다",
+      "german": "hängen (dauern)",
+      "exampleKo": "벽에 그림이 걸려 있어요.",
+      "exampleDe": "An der Wand hängt ein Bild."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "옷걸이",
+      "german": "Kleiderbügel",
+      "exampleKo": "코트를 ◯◯◯에 걸었어요.",
+      "exampleDe": "Ich habe den Mantel auf den Bügel gehängt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "귀걸이",
+      "german": "Ohrringe",
+      "exampleKo": "새 ◯◯◯를 하고 나갔어요.",
+      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen."
+     }
+    ],
+    "pool": [
+     "히",
+     "매",
+     "걸",
+     "다",
+     "거",
+     "행",
+     "리",
+     "걸",
+     "닫",
+     "옷",
+     "귀",
+     "이"
+    ]
+   },
+   {
+    "id": "skz_a2_010",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "정말",
+      "german": "wirklich / tatsächlich",
+      "exampleKo": "이거 ◯◯ 맛있네요.",
+      "exampleDe": "Das ist wirklich lecker!"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "양말",
+      "german": "Socken",
+      "exampleKo": "따뜻한 ◯◯을 신었어요.",
+      "exampleDe": "Ich habe warme Socken angezogen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "양복",
+      "german": "Anzug",
+      "exampleKo": "아버지는 ◯◯을 입고 출근해요.",
+      "exampleDe": "Mein Vater geht im Anzug zur Arbeit."
+     }
+    ],
+    "pool": [
+     "깔",
+     "말",
+     "정",
+     "양",
+     "월",
+     "박",
+     "복"
+    ]
+   },
+   {
+    "id": "skz_a2_011",
+    "rows": 2,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "세우다",
+      "german": "aufstellen (parken)",
+      "exampleKo": "차를 여기에 세워 주세요.",
+      "exampleDe": "Stellen Sie das Auto bitte hier ab."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "신다",
+      "german": "anziehen (Schuhe)",
+      "exampleKo": "운동화를 신고 뛰어요.",
+      "exampleDe": "Ich laufe in Turnschuhen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "신호등",
+      "german": "Ampel",
+      "exampleKo": "저 ◯◯◯에서 오른쪽으로 가세요.",
+      "exampleDe": "An der Ampel links abbiegen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "월세",
+      "german": "Monatsmiete",
+      "exampleKo": "이 동네 ◯◯가 좀 비싸요.",
+      "exampleDe": "Die Monatsmiete ist teuer."
+     }
+    ],
+    "pool": [
+     "다",
+     "세",
+     "호",
+     "신",
+     "실",
+     "월",
+     "료",
+     "우",
+     "등",
+     "과"
+    ]
+   },
+   {
+    "id": "skz_a2_012",
+    "rows": 5,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "인분",
+      "german": "Portion",
+      "exampleKo": "불고기 2◯◯ 주세요.",
+      "exampleDe": "Zwei Portionen Bulgogi bitte."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "분홍색",
+      "german": "rosa",
+      "exampleKo": "저 ◯◯◯ 진짜 잘 어울리네요.",
+      "exampleDe": "Rosa ist hübsch."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "보라색",
+      "german": "lila / violett",
+      "exampleKo": "◯◯◯ 옷은 잘 안 입어요.",
+      "exampleDe": "Ich mag Lila."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "보내다",
+      "german": "schicken / senden",
+      "exampleKo": "방금 사진 보냈어요.",
+      "exampleDe": "Ich schicke eine Nachricht."
+     }
+    ],
+    "pool": [
+     "홍",
+     "들",
+     "다",
+     "인",
+     "그",
+     "라",
+     "산",
+     "색",
+     "보",
+     "분",
+     "내"
+    ]
+   },
+   {
+    "id": "skz_a2_013",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "회사",
+      "german": "Firma / Unternehmen",
+      "exampleKo": "요즘 ◯◯ 일이 좀 많아요.",
+      "exampleDe": "Ich gehe zur Arbeit."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "눈사람",
+      "german": "Schneemann",
+      "exampleKo": "아이들이 ◯◯◯을 만들어요.",
+      "exampleDe": "Die Kinder bauen einen Schneemann."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "눈싸움",
+      "german": "Schneeballschlacht",
+      "exampleKo": "친구들과 ◯◯◯을 했어요.",
+      "exampleDe": "Ich habe mit Freunden eine Schneeballschlacht gemacht."
+     }
+    ],
+    "pool": [
+     "사",
+     "회",
+     "즈",
+     "기",
+     "움",
+     "람",
+     "싸",
+     "눈",
+     "피"
+    ]
+   },
+   {
+    "id": "skz_a2_014",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "원피스",
+      "german": "Kleid",
+      "exampleKo": "파티에 ◯◯◯를 입고 갔어요.",
+      "exampleDe": "Ich bin im Kleid zur Party gegangen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "병원",
+      "german": "Krankenhaus",
+      "exampleKo": "감기가 심해서 ◯◯에 다녀왔어요.",
+      "exampleDe": "Ich gehe ins Krankenhaus."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "스타킹",
+      "german": "Strumpfhose",
+      "exampleKo": "◯◯◯에 구멍이 났어요.",
+      "exampleDe": "Meine Strumpfhose hat ein Loch."
+     }
+    ],
+    "pool": [
+     "싸",
+     "원",
+     "킹",
+     "병",
+     "피",
+     "타",
+     "창",
+     "불",
+     "스"
+    ]
+   },
+   {
+    "id": "skz_a2_015",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "집주인",
+      "german": "Vermieter",
+      "exampleKo": "◯◯◯ 아저씨한테 연락해 볼게요.",
+      "exampleDe": "Ich habe den Vermieter angerufen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "주인",
+      "german": "Besitzer",
+      "exampleKo": "가게 ◯◯이 친절해요.",
+      "exampleDe": "Der Ladenbesitzer ist freundlich."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "할인",
+      "german": "Rabatt / Ermäßigung",
+      "exampleKo": "학생 ◯◯ 되나요?",
+      "exampleDe": "Gibt es einen Rabatt?"
+     }
+    ],
+    "pool": [
+     "집",
+     "주",
+     "냉",
+     "할",
+     "인",
+     "취",
+     "꾸",
+     "인"
+    ]
+   },
+   {
+    "id": "skz_a2_016",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "가볍다",
+      "german": "leicht sein",
+      "exampleKo": "이 노트북 진짜 가벼워요.",
+      "exampleDe": "Diese Tasche ist leicht."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "춥다",
+      "german": "kalt (sein)",
+      "exampleKo": "밖에 날씨가 많이 추워요.",
+      "exampleDe": "Im Winter ist es kalt."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "가수",
+      "german": "Sänger",
+      "exampleKo": "저 ◯◯는 노래를 정말 잘해요.",
+      "exampleDe": "Dieser Sänger singt wirklich gut."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "교수",
+      "german": "Professor",
+      "exampleKo": "◯◯님 수업이 재미있어요.",
+      "exampleDe": "Die Vorlesung des Professors ist interessant."
+     }
+    ],
+    "pool": [
+     "볍",
+     "가",
+     "잔",
+     "물",
+     "다",
+     "교",
+     "춥",
+     "수",
+     "외"
+    ]
+   },
+   {
+    "id": "skz_a2_017",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "그릇",
+      "german": "Schüssel",
+      "exampleKo": "◯◯을 씻어서 정리했어요.",
+      "exampleDe": "Ich habe die Schüsseln gespült und weggeräumt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "그립다",
+      "german": "vermissen / sich sehnen",
+      "exampleKo": "요즘 고향이 많이 그리워요.",
+      "exampleDe": "Ich vermisse meine Heimat."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "만들다",
+      "german": "machen / herstellen",
+      "exampleKo": "친구 생일에 케이크를 만들었어요.",
+      "exampleDe": "Ich backe einen Kuchen."
+     }
+    ],
+    "pool": [
+     "다",
+     "립",
+     "릇",
+     "들",
+     "이",
+     "만",
+     "꾸",
+     "그",
+     "내"
+    ]
+   },
+   {
+    "id": "skz_a2_018",
+    "rows": 3,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "지갑",
+      "german": "Geldbörse / Portemonnaie",
+      "exampleKo": "아, ◯◯을 집에 두고 왔어요.",
+      "exampleDe": "Ich habe keine Geldbörse."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "장갑",
+      "german": "Handschuhe",
+      "exampleKo": "◯◯을 어디에 뒀지요?",
+      "exampleDe": "Wo habe ich meine Handschuhe hingelegt?"
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "지구",
+      "german": "Erde",
+      "exampleKo": "◯◯는 둥글어요.",
+      "exampleDe": "Die Erde ist rund."
+     }
+    ],
+    "pool": [
+     "열",
+     "갑",
+     "구",
+     "장",
+     "우",
+     "찾",
+     "지"
+    ]
+   },
+   {
+    "id": "skz_a2_019",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "넥타이",
+      "german": "Krawatte",
+      "exampleKo": "파란 ◯◯◯가 잘 어울려요.",
+      "exampleDe": "Die blaue Krawatte steht dir gut."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "귀걸이",
+      "german": "Ohrringe",
+      "exampleKo": "새 ◯◯◯를 하고 나갔어요.",
+      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "걸리다",
+      "german": "hängen (dauern)",
+      "exampleKo": "벽에 그림이 걸려 있어요.",
+      "exampleDe": "An der Wand hängt ein Bild."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 4,
+      "answer": "걷다",
+      "german": "zu Fuß gehen / laufen",
+      "exampleKo": "회사까지 30분 걸어요.",
+      "exampleDe": "Ich gehe zur Schule zu Fuß."
+     }
+    ],
+    "pool": [
+     "넥",
+     "리",
+     "이",
+     "채",
+     "뉴",
+     "걸",
+     "루",
+     "귀",
+     "걷",
+     "타",
+     "다"
+    ]
+   },
+   {
+    "id": "skz_a2_020",
+    "rows": 2,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "차림표",
+      "german": "Speisekarte",
+      "exampleKo": "◯◯◯ 좀 볼 수 있을까요?",
+      "exampleDe": "Könnte ich die Speisekarte sehen?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "차다",
+      "german": "umlegen (Uhr)",
+      "exampleKo": "새 시계를 차고 있어요.",
+      "exampleDe": "Ich trage eine neue Uhr."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "느리다",
+      "german": "langsam sein",
+      "exampleKo": "오늘따라 인터넷이 좀 느리네요.",
+      "exampleDe": "Die Schildkröte ist langsam."
+     }
+    ],
+    "pool": [
+     "피",
+     "다",
+     "악",
+     "차",
+     "림",
+     "표",
+     "장",
+     "리",
+     "느"
+    ]
+   }
+  ],
+  "B1": [
+   {
+    "id": "skz_b1_001",
+    "rows": 5,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "결국",
+      "german": "schließlich / letztendlich",
+      "exampleKo": "◯◯ 오늘도 야근이네요.",
+      "exampleDe": "Letztendlich hat es geklappt."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "결혼식",
+      "german": "Hochzeit",
+      "exampleKo": "주말에 ◯◯◯에 가요.",
+      "exampleDe": "Am Wochenende gehe ich zu einer Hochzeit."
+     },
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 0,
+      "answer": "휴식",
+      "german": "Erholung / Pause",
+      "exampleKo": "잠깐이라도 ◯◯이 필요해요.",
+      "exampleDe": "Ich mache eine kurze Pause."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "우체국",
+      "german": "Post",
+      "exampleKo": "◯◯◯에서 소포를 보냈어요.",
+      "exampleDe": "Ich habe bei der Post ein Paket verschickt."
+     }
+    ],
+    "pool": [
+     "결",
+     "요",
+     "쁨",
+     "체",
+     "식",
+     "민",
+     "우",
+     "혼",
+     "국",
+     "휴"
+    ]
+   },
+   {
+    "id": "skz_b1_002",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "문장",
+      "german": "Satz",
+      "exampleKo": "이 ◯◯은 조금 어려워요.",
+      "exampleDe": "Dieser Satz ist etwas schwierig."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "공연장",
+      "german": "Konzerthalle",
+      "exampleKo": "◯◯◯ 입구가 복잡해요.",
+      "exampleDe": "Der Eingang der Konzerthalle ist voll."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "공연",
+      "german": "Aufführung",
+      "exampleKo": "주말에 ◯◯을 보러 가요.",
+      "exampleDe": "Am Wochenende gehe ich zu einer Aufführung."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "문학",
+      "german": "Literatur",
+      "exampleKo": "한국 ◯◯에 관심이 있어요.",
+      "exampleDe": "Ich interessiere mich für koreanische Literatur."
+     }
+    ],
+    "pool": [
+     "연",
+     "학",
+     "공",
+     "말",
+     "장",
+     "연",
+     "차",
+     "문",
+     "찰"
+    ]
+   },
+   {
+    "id": "skz_b1_003",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "식비",
+      "german": "Essenskosten",
+      "exampleKo": "이번 달 ◯◯가 많이 나왔어요.",
+      "exampleDe": "Diesen Monat waren die Essenskosten hoch."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "비상구",
+      "german": "Notausgang",
+      "exampleKo": "◯◯◯는 어디에 있어요?",
+      "exampleDe": "Wo ist der Notausgang?"
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "상가",
+      "german": "Einkaufszeile",
+      "exampleKo": "집 근처에 ◯◯가 있어요.",
+      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "외식",
+      "german": "Essengehen",
+      "exampleKo": "오늘은 가족과 ◯◯을 해요.",
+      "exampleDe": "Heute gehen wir mit der Familie essen."
+     }
+    ],
+    "pool": [
+     "식",
+     "가",
+     "결",
+     "숙",
+     "비",
+     "구",
+     "외",
+     "열",
+     "상"
+    ]
+   },
+   {
+    "id": "skz_b1_004",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "처방전",
+      "german": "Rezept",
+      "exampleKo": "의사가 ◯◯◯을 써 줬어요.",
+      "exampleDe": "Der Arzt hat mir ein Rezept ausgestellt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "책방",
+      "german": "Buchladen",
+      "exampleKo": "동네 ◯◯에서 책을 샀어요.",
+      "exampleDe": "Ich habe im Buchladen im Viertel ein Buch gekauft."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "전통",
+      "german": "Tradition",
+      "exampleKo": "이 마을은 ◯◯을 지켜요.",
+      "exampleDe": "Dieses Dorf bewahrt seine Tradition."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "통역",
+      "german": "Dolmetschen",
+      "exampleKo": "친구가 ◯◯을 해 줬어요.",
+      "exampleDe": "Ein Freund hat für mich gedolmetscht."
+     }
+    ],
+    "pool": [
+     "열",
+     "방",
+     "통",
+     "화",
+     "차",
+     "처",
+     "역",
+     "전",
+     "책"
+    ]
+   },
+   {
+    "id": "skz_b1_005",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "책임",
+      "german": "Verantwortung",
+      "exampleKo": "이번 일은 제 ◯◯이에요.",
+      "exampleDe": "Die Verantwortung ist groß."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "책임감",
+      "german": "Verantwortungsbewusstsein",
+      "exampleKo": "그 사람은 ◯◯◯이 정말 강해요.",
+      "exampleDe": "Sie hat ein starkes Verantwortungsbewusstsein."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "감기약",
+      "german": "Erkältungsmedizin",
+      "exampleKo": "약국에서 ◯◯◯을 샀어요.",
+      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "기쁨",
+      "german": "Freude",
+      "exampleKo": "합격 소식은 큰 ◯◯이었어요.",
+      "exampleDe": "Die Nachricht vom Bestehen war eine große Freude."
+     }
+    ],
+    "pool": [
+     "쁨",
+     "약",
+     "책",
+     "감",
+     "기",
+     "좋",
+     "글",
+     "임",
+     "외",
+     "임"
+    ]
+   },
+   {
+    "id": "skz_b1_006",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "차이",
+      "german": "Unterschied",
+      "exampleKo": "한국이랑 독일 문화 ◯◯가 진짜 커요.",
+      "exampleDe": "Der Unterschied zwischen den beiden Ländern ist groß."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "집들이",
+      "german": "Einweihungsfeier",
+      "exampleKo": "토요일에 ◯◯◯를 해요.",
+      "exampleDe": "Am Samstag machen wir eine Einweihungsfeier."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "하숙집",
+      "german": "Studentenpension",
+      "exampleKo": "대학교 근처 ◯◯◯에 살아요.",
+      "exampleDe": "Ich wohne in einer Studentenpension nahe der Uni."
+     }
+    ],
+    "pool": [
+     "한",
+     "이",
+     "하",
+     "격",
+     "차",
+     "들",
+     "라",
+     "집",
+     "숙"
+    ]
+   },
+   {
+    "id": "skz_b1_007",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "안내문",
+      "german": "Hinweisblatt",
+      "exampleKo": "입구에 ◯◯◯이 붙어 있어요.",
+      "exampleDe": "Am Eingang hängt ein Hinweisblatt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 4,
+      "answer": "질문",
+      "german": "Frage",
+      "exampleKo": "◯◯이 하나 있어요.",
+      "exampleDe": "Ich habe eine Frage."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "안약",
+      "german": "Augentropfen",
+      "exampleKo": "눈이 건조해서 ◯◯을 넣어요.",
+      "exampleDe": "Meine Augen sind trocken und ich benutze Augentropfen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "두통약",
+      "german": "Kopfschmerztablette",
+      "exampleKo": "◯◯◯ 있어요?",
+      "exampleDe": "Haben Sie Kopfschmerztabletten?"
+     }
+    ],
+    "pool": [
+     "약",
+     "질",
+     "경",
+     "문",
+     "내",
+     "두",
+     "굵",
+     "통",
+     "안",
+     "노"
+    ]
+   },
+   {
+    "id": "skz_b1_008",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "존댓말",
+      "german": "Höflichkeitssprache",
+      "exampleKo": "어른에게는 ◯◯◯을 써요.",
+      "exampleDe": "Gegenüber Älteren benutzt man die Höflichkeitssprache."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "댓글",
+      "german": "Kommentar (online)",
+      "exampleKo": "제 ◯◯에 답장 달아 주셔서 감사해요.",
+      "exampleDe": "Ich habe einen Kommentar hinterlassen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "반말",
+      "german": "informelle Sprache",
+      "exampleKo": "친한 친구와는 ◯◯을 해요.",
+      "exampleDe": "Mit engen Freunden spricht man informell."
+     }
+    ],
+    "pool": [
+     "댓",
+     "글",
+     "휘",
+     "려",
+     "락",
+     "반",
+     "말",
+     "존"
+    ]
+   },
+   {
+    "id": "skz_b1_009",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "한계",
+      "german": "Grenze / Limit",
+      "exampleKo": "이제 정말 제 ◯◯인 것 같아요.",
+      "exampleDe": "Ich kenne meine Grenzen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "관계",
+      "german": "Beziehung / Verhältnis",
+      "exampleKo": "사람 ◯◯가 제일 어려운 것 같아요.",
+      "exampleDe": "Ich pflege gute Beziehungen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "관심",
+      "german": "Interesse",
+      "exampleKo": "역사에 ◯◯이 많아요.",
+      "exampleDe": "Ich habe großes Interesse an Geschichte."
+     }
+    ],
+    "pool": [
+     "유",
+     "밝",
+     "심",
+     "계",
+     "관",
+     "한",
+     "특"
+    ]
+   },
+   {
+    "id": "skz_b1_010",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "보고서",
+      "german": "Bericht",
+      "exampleKo": "내일까지 ◯◯◯를 써야 해요.",
+      "exampleDe": "Bis morgen muss ich den Bericht schreiben."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "고치다",
+      "german": "reparieren",
+      "exampleKo": "컴퓨터를 고쳐야 해요.",
+      "exampleDe": "Der Computer muss repariert werden."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "게다가",
+      "german": "außerdem / darüber hinaus",
+      "exampleKo": "일도 힘든데 ◯◯◯ 몸까지 안 좋네요.",
+      "exampleDe": "Außerdem ist es auch lecker."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "정보",
+      "german": "Information",
+      "exampleKo": "인터넷에 ◯◯가 너무 많아서 헷갈려요.",
+      "exampleDe": "Ich suche Informationen."
+     }
+    ],
+    "pool": [
+     "게",
+     "정",
+     "변",
+     "고",
+     "식",
+     "가",
+     "다",
+     "서",
+     "평",
+     "보",
+     "치"
+    ]
+   },
+   {
+    "id": "skz_b1_011",
+    "rows": 2,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "심하다",
+      "german": "schlimm",
+      "exampleKo": "감기가 심해요.",
+      "exampleDe": "Die Erkältung ist schlimm."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 4,
+      "answer": "줍다",
+      "german": "aufheben",
+      "exampleKo": "길에서 지갑을 주웠어요.",
+      "exampleDe": "Ich habe auf der Straße einen Geldbeutel aufgehoben."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "관심",
+      "german": "Interesse",
+      "exampleKo": "역사에 ◯◯이 많아요.",
+      "exampleDe": "Ich habe großes Interesse an Geschichte."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "미술관",
+      "german": "Kunstmuseum",
+      "exampleKo": "◯◯◯이 어디에 있어요?",
+      "exampleDe": "Wo ist das Kunstmuseum?"
+     }
+    ],
+    "pool": [
+     "미",
+     "관",
+     "하",
+     "다",
+     "술",
+     "공",
+     "줍",
+     "로",
+     "일",
+     "심"
+    ]
+   },
+   {
+    "id": "skz_b1_012",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "과정",
+      "german": "Prozess / Vorgang",
+      "exampleKo": "결과보다 ◯◯이 더 중요하다고 생각해요.",
+      "exampleDe": "Der Lernprozess ist wichtig."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "결과",
+      "german": "Ergebnis / Folge",
+      "exampleKo": "◯◯가 생각보다 잘 나왔어요.",
+      "exampleDe": "Das Ergebnis ist gut."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "정보",
+      "german": "Information",
+      "exampleKo": "인터넷에 ◯◯가 너무 많아서 헷갈려요.",
+      "exampleDe": "Ich suche Informationen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "보고서",
+      "german": "Bericht",
+      "exampleKo": "내일까지 ◯◯◯를 써야 해요.",
+      "exampleDe": "Bis morgen muss ich den Bericht schreiben."
+     }
+    ],
+    "pool": [
+     "과",
+     "결",
+     "보",
+     "의",
+     "정",
+     "고",
+     "문",
+     "부",
+     "서"
+    ]
+   },
+   {
+    "id": "skz_b1_013",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "가능성",
+      "german": "Möglichkeit",
+      "exampleKo": "성공 ◯◯◯이 없진 않아요.",
+      "exampleDe": "Es gibt eine Möglichkeit."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 3,
+      "answer": "성격",
+      "german": "Charakter",
+      "exampleKo": "제 동생은 ◯◯이 밝아요.",
+      "exampleDe": "Meine kleine Schwester hat einen fröhlichen Charakter."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "상가",
+      "german": "Einkaufszeile",
+      "exampleKo": "집 근처에 ◯◯가 있어요.",
+      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "명상",
+      "german": "Meditation",
+      "exampleKo": "매일 아침 10분씩 ◯◯해요.",
+      "exampleDe": "Ich meditiere jeden Morgen."
+     }
+    ],
+    "pool": [
+     "능",
+     "락",
+     "상",
+     "면",
+     "가",
+     "명",
+     "회",
+     "성",
+     "격"
+    ]
+   },
+   {
+    "id": "skz_b1_014",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "기간",
+      "german": "Zeitraum",
+      "exampleKo": "시험 ◯◯에는 바빠요.",
+      "exampleDe": "In der Prüfungszeit bin ich beschäftigt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "감기약",
+      "german": "Erkältungsmedizin",
+      "exampleKo": "약국에서 ◯◯◯을 샀어요.",
+      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "두통약",
+      "german": "Kopfschmerztablette",
+      "exampleKo": "◯◯◯ 있어요?",
+      "exampleDe": "Haben Sie Kopfschmerztabletten?"
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "마감",
+      "german": "Deadline / Abgabefrist",
+      "exampleKo": "◯◯이 이번 주 금요일이에요.",
+      "exampleDe": "Die Deadline ist nächste Woche."
+     }
+    ],
+    "pool": [
+     "처",
+     "두",
+     "간",
+     "기",
+     "통",
+     "감",
+     "약",
+     "마",
+     "체",
+     "유"
+    ]
+   },
+   {
+    "id": "skz_b1_015",
+    "rows": 5,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "사회",
+      "german": "Gesellschaft",
+      "exampleKo": "요즘 ◯◯ 문제에 관심이 많아요.",
+      "exampleDe": "Wir leben in einer vielfältigen Gesellschaft."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "사귀다",
+      "german": "sich anfreunden",
+      "exampleKo": "한국 친구를 많이 사귀었어요.",
+      "exampleDe": "Ich habe viele koreanische Freunde gefunden."
+     },
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 0,
+      "answer": "굵다",
+      "german": "dick (grob)",
+      "exampleKo": "굵은 펜으로 써 주세요.",
+      "exampleDe": "Schreiben Sie bitte mit einem dicken Stift."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "송별회",
+      "german": "Abschiedsfeier",
+      "exampleKo": "부장님 ◯◯◯가 금요일이에요.",
+      "exampleDe": "Die Abschiedsfeier des Abteilungsleiters ist am Freitag."
+     }
+    ],
+    "pool": [
+     "른",
+     "일",
+     "굵",
+     "별",
+     "송",
+     "귀",
+     "회",
+     "미",
+     "다",
+     "사"
+    ]
+   },
+   {
+    "id": "skz_b1_016",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "기회",
+      "german": "Gelegenheit / Chance",
+      "exampleKo": "이건 정말 좋은 ◯◯ 같아요.",
+      "exampleDe": "Das ist eine gute Gelegenheit."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "회비",
+      "german": "Mitgliedsbeitrag",
+      "exampleKo": "모임 ◯◯는 만 원이에요.",
+      "exampleDe": "Der Beitrag für das Treffen beträgt 10.000 Won."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "갑자기",
+      "german": "plötzlich",
+      "exampleKo": "◯◯◯ 비가 쏟아졌어요.",
+      "exampleDe": "Es hat plötzlich geregnet."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 1,
+      "answer": "비상구",
+      "german": "Notausgang",
+      "exampleKo": "◯◯◯는 어디에 있어요?",
+      "exampleDe": "Wo ist der Notausgang?"
+     }
+    ],
+    "pool": [
+     "자",
+     "회",
+     "기",
+     "상",
+     "마",
+     "비",
+     "구",
+     "갑",
+     "경",
+     "노"
+    ]
+   },
+   {
+    "id": "skz_b1_017",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "모으다",
+      "german": "sammeln",
+      "exampleKo": "취미로 우표를 모아요.",
+      "exampleDe": "Als Hobby sammle ich Briefmarken."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "사귀다",
+      "german": "sich anfreunden",
+      "exampleKo": "한국 친구를 많이 사귀었어요.",
+      "exampleDe": "Ich habe viele koreanische Freunde gefunden."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "모임",
+      "german": "Treffen",
+      "exampleKo": "오늘 저녁에 ◯◯이 있어요.",
+      "exampleDe": "Heute Abend habe ich ein Treffen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "주사",
+      "german": "Spritze",
+      "exampleKo": "◯◯를 맞았어요.",
+      "exampleDe": "Ich habe eine Spritze bekommen."
+     }
+    ],
+    "pool": [
+     "모",
+     "변",
+     "다",
+     "임",
+     "단",
+     "귀",
+     "움",
+     "으",
+     "주",
+     "사"
+    ]
+   },
+   {
+    "id": "skz_b1_018",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "외로움",
+      "german": "Einsamkeit",
+      "exampleKo": "혼자 살면 가끔 ◯◯◯을 느껴요.",
+      "exampleDe": "Beim Alleinleben fühlt man manchmal Einsamkeit."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "외식",
+      "german": "Essengehen",
+      "exampleKo": "오늘은 가족과 ◯◯을 해요.",
+      "exampleDe": "Heute gehen wir mit der Familie essen."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "휴식",
+      "german": "Erholung / Pause",
+      "exampleKo": "잠깐이라도 ◯◯이 필요해요.",
+      "exampleDe": "Ich mache eine kurze Pause."
+     }
+    ],
+    "pool": [
+     "로",
+     "식",
+     "움",
+     "처",
+     "휴",
+     "외",
+     "벌",
+     "따"
+    ]
+   },
+   {
+    "id": "skz_b1_019",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "해결",
+      "german": "Lösung",
+      "exampleKo": "이 문제는 빨리 ◯◯해야 해요.",
+      "exampleDe": "Ich löse das Problem."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "결과",
+      "german": "Ergebnis / Folge",
+      "exampleKo": "◯◯가 생각보다 잘 나왔어요.",
+      "exampleDe": "Das Ergebnis ist gut."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "과정",
+      "german": "Prozess / Vorgang",
+      "exampleKo": "결과보다 ◯◯이 더 중요하다고 생각해요.",
+      "exampleDe": "Der Lernprozess ist wichtig."
+     }
+    ],
+    "pool": [
+     "광",
+     "해",
+     "과",
+     "옛",
+     "결",
+     "정",
+     "소"
+    ]
+   },
+   {
+    "id": "skz_b1_020",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "습관",
+      "german": "Gewohnheit",
+      "exampleKo": "일찍 자는 ◯◯을 들이려고 해요.",
+      "exampleDe": "Ich ändere meine schlechten Gewohnheiten."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "관심",
+      "german": "Interesse",
+      "exampleKo": "역사에 ◯◯이 많아요.",
+      "exampleDe": "Ich habe großes Interesse an Geschichte."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "심하다",
+      "german": "schlimm",
+      "exampleKo": "감기가 심해요.",
+      "exampleDe": "Die Erkältung ist schlimm."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "깎다",
+      "german": "schälen",
+      "exampleKo": "사과를 깎아서 먹었어요.",
+      "exampleDe": "Ich habe den Apfel geschält und gegessen."
+     }
+    ],
+    "pool": [
+     "습",
+     "하",
+     "관",
+     "책",
+     "잔",
+     "깎",
+     "다",
+     "심",
+     "율"
+    ]
+   }
+  ],
+  "B2": [
+   {
+    "id": "skz_b2_001",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "모이다",
+      "german": "sich versammeln",
+      "exampleKo": "주말에 가족이 다 모여요.",
+      "exampleDe": "Am Wochenende kommt die ganze Familie zusammen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "쌍둥이",
+      "german": "Zwillinge",
+      "exampleKo": "제 동생들은 ◯◯◯예요.",
+      "exampleDe": "Meine jüngeren Geschwister sind Zwillinge."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "모음",
+      "german": "Vokal",
+      "exampleKo": "◯◯부터 배웠어요.",
+      "exampleDe": "Ich habe zuerst die Vokale gelernt."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "자음",
+      "german": "Konsonant",
+      "exampleKo": "한글에는 ◯◯이 열아홉 개 있어요.",
+      "exampleDe": "Hangul hat neunzehn Konsonanten."
+     }
+    ],
+    "pool": [
+     "식",
+     "자",
+     "다",
+     "음",
+     "료",
+     "예",
+     "쌍",
+     "이",
+     "모",
+     "둥"
+    ]
+   },
+   {
+    "id": "skz_b2_002",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "말리다",
+      "german": "trocknen",
+      "exampleKo": "머리를 말리고 나갈게요.",
+      "exampleDe": "Ich trockne mir die Haare und gehe dann los."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "섞이다",
+      "german": "sich vermischen",
+      "exampleKo": "물과 기름은 잘 안 섞여요.",
+      "exampleDe": "Wasser und Öl vermischen sich nicht gut."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "말씀",
+      "german": "Worte (ehrerbietig)",
+      "exampleKo": "선생님 ◯◯ 잘 들었어요.",
+      "exampleDe": "Ich habe Ihre Worte aufmerksam gehört."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "이론",
+      "german": "Theorie",
+      "exampleKo": "◯◯과 실제는 좀 다르더라고요.",
+      "exampleDe": "Ich studiere die Theorie."
+     }
+    ],
+    "pool": [
+     "말",
+     "섞",
+     "쌍",
+     "명",
+     "론",
+     "다",
+     "리",
+     "씀",
+     "이",
+     "양"
+    ]
+   },
+   {
+    "id": "skz_b2_003",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "동창",
+      "german": "Schulfreund",
+      "exampleKo": "어제 고등학교 ◯◯을 만났어요.",
+      "exampleDe": "Gestern habe ich einen alten Schulfreund getroffen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "동사",
+      "german": "Verb",
+      "exampleKo": "◯◯는 문장 끝에 와요.",
+      "exampleDe": "Das Verb steht am Satzende."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "명사",
+      "german": "Substantiv",
+      "exampleKo": "이 단어는 ◯◯예요.",
+      "exampleDe": "Dieses Wort ist ein Substantiv."
+     }
+    ],
+    "pool": [
+     "업",
+     "사",
+     "창",
+     "명",
+     "감",
+     "랍",
+     "동"
+    ]
+   },
+   {
+    "id": "skz_b2_004",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "생산성",
+      "german": "Produktivität",
+      "exampleKo": "재택근무 이후로 ◯◯◯이 오히려 올랐어요.",
+      "exampleDe": "Wir müssen die Produktivität steigern."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "성함",
+      "german": "Name (ehrerbietig)",
+      "exampleKo": "◯◯이 어떻게 되세요?",
+      "exampleDe": "Wie ist Ihr werter Name?"
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "생신",
+      "german": "Geburtstag (ehrerbietig)",
+      "exampleKo": "내일이 할머니 ◯◯이에요.",
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+     }
+    ],
+    "pool": [
+     "신",
+     "경",
+     "성",
+     "산",
+     "문",
+     "다",
+     "함",
+     "생"
+    ]
+   },
+   {
+    "id": "skz_b2_005",
+    "rows": 5,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "담다",
+      "german": "hineintun",
+      "exampleKo": "과일을 바구니에 담았어요.",
+      "exampleDe": "Ich habe das Obst in den Korb getan."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "전하다",
+      "german": "übermitteln",
+      "exampleKo": "가족에게 안부를 전해 주세요.",
+      "exampleDe": "Richten Sie Ihrer Familie Grüße aus."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "담그다",
+      "german": "einlegen",
+      "exampleKo": "가을에 김치를 담가요.",
+      "exampleDe": "Im Herbst legen wir Kimchi ein."
+     },
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 0,
+      "answer": "말리다",
+      "german": "trocknen",
+      "exampleKo": "머리를 말리고 나갈게요.",
+      "exampleDe": "Ich trockne mir die Haare und gehe dann los."
+     }
+    ],
+    "pool": [
+     "전",
+     "격",
+     "리",
+     "담",
+     "하",
+     "다",
+     "다",
+     "그",
+     "섞",
+     "말",
+     "간"
+    ]
+   },
+   {
+    "id": "skz_b2_006",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "인기",
+      "german": "Beliebtheit",
+      "exampleKo": "이 가수는 ◯◯가 많아요.",
+      "exampleDe": "Dieser Sänger ist sehr beliebt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "애인",
+      "german": "Partner",
+      "exampleKo": "◯◯과 영화를 봤어요.",
+      "exampleDe": "Ich habe mit meinem Partner einen Film gesehen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "기계",
+      "german": "Maschine",
+      "exampleKo": "이 ◯◯는 사용법이 간단해요.",
+      "exampleDe": "Diese Maschine ist einfach zu bedienen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "계시다",
+      "german": "sich befinden (ehrerbietig)",
+      "exampleKo": "어머니는 지금 집에 계세요.",
+      "exampleDe": "Meine Mutter ist gerade zu Hause."
+     }
+    ],
+    "pool": [
+     "기",
+     "차",
+     "껑",
+     "다",
+     "한",
+     "애",
+     "인",
+     "계",
+     "시"
+    ]
+   },
+   {
+    "id": "skz_b2_007",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "음력",
+      "german": "Mondkalender",
+      "exampleKo": "설날은 ◯◯ 1월 1일이에요.",
+      "exampleDe": "Seollal ist der erste Tag des Mondkalenders."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "경쟁력",
+      "german": "Wettbewerbsfähigkeit",
+      "exampleKo": "우리 팀은 ◯◯◯이 확실해요.",
+      "exampleDe": "Die Wettbewerbsfähigkeit ist stark."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "경우",
+      "german": "Fall",
+      "exampleKo": "비가 올 ◯◯에는 취소돼요.",
+      "exampleDe": "Im Fall von Regen wird es abgesagt."
+     }
+    ],
+    "pool": [
+     "력",
+     "경",
+     "재",
+     "스",
+     "활",
+     "쟁",
+     "우",
+     "음"
+    ]
+   },
+   {
+    "id": "skz_b2_008",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "인권",
+      "german": "Menschenrechte",
+      "exampleKo": "◯◯은 절대 양보할 수 없는 가치예요.",
+      "exampleDe": "Wir schützen die Menschenrechte."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "인기",
+      "german": "Beliebtheit",
+      "exampleKo": "이 가수는 ◯◯가 많아요.",
+      "exampleDe": "Dieser Sänger ist sehr beliebt."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "가습기",
+      "german": "Luftbefeuchter",
+      "exampleKo": "방에 ◯◯◯를 켰어요.",
+      "exampleDe": "Ich habe den Luftbefeuchter im Zimmer angemacht."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "습도",
+      "german": "Luftfeuchtigkeit",
+      "exampleKo": "여름에는 ◯◯가 높아요.",
+      "exampleDe": "Im Sommer ist die Luftfeuchtigkeit hoch."
+     }
+    ],
+    "pool": [
+     "오",
+     "습",
+     "가",
+     "한",
+     "도",
+     "권",
+     "인",
+     "기",
+     "심"
+    ]
+   },
+   {
+    "id": "skz_b2_009",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "관객",
+      "german": "Zuschauer",
+      "exampleKo": "공연장에 ◯◯이 가득해요.",
+      "exampleDe": "Die Halle ist voller Zuschauer."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "관점",
+      "german": "Standpunkt / Perspektive",
+      "exampleKo": "이 문제는 다양한 ◯◯에서 봐야 해요.",
+      "exampleDe": "Es gibt verschiedene Standpunkte."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "약점",
+      "german": "Schwäche",
+      "exampleKo": "◯◯은 오히려 인정하는 게 나아요.",
+      "exampleDe": "Man muss auch seine Schwächen anerkennen."
+     }
+    ],
+    "pool": [
+     "갈",
+     "약",
+     "점",
+     "변",
+     "식",
+     "관",
+     "객"
+    ]
+   },
+   {
+    "id": "skz_b2_010",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "주의",
+      "german": "Vorsicht",
+      "exampleKo": "계단에서는 ◯◯가 필요해요.",
+      "exampleDe": "Auf der Treppe ist Vorsicht nötig."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "주제",
+      "german": "Thema",
+      "exampleKo": "오늘 회의 ◯◯가 뭐예요?",
+      "exampleDe": "Was ist das Thema der heutigen Sitzung?"
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "전제",
+      "german": "Voraussetzung / Prämisse",
+      "exampleKo": "이 ◯◯ 자체가 잘못됐다고 생각해요.",
+      "exampleDe": "Die Voraussetzung ist falsch."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "전공",
+      "german": "Hauptfach / Studienfach",
+      "exampleKo": "대학교 때 무슨 ◯◯이셨어요?",
+      "exampleDe": "Was studierst du?"
+     }
+    ],
+    "pool": [
+     "공",
+     "랍",
+     "주",
+     "의",
+     "비",
+     "제",
+     "전",
+     "생"
+    ]
+   },
+   {
+    "id": "skz_b2_011",
+    "rows": 4,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "현대",
+      "german": "Gegenwart",
+      "exampleKo": "◯◯ 사회는 변화가 빨라요.",
+      "exampleDe": "Die moderne Gesellschaft verändert sich schnell."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "현대인",
+      "german": "moderner Mensch",
+      "exampleKo": "◯◯◯은 스트레스가 많아요.",
+      "exampleDe": "Moderne Menschen haben viel Stress."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "인기",
+      "german": "Beliebtheit",
+      "exampleKo": "이 가수는 ◯◯가 많아요.",
+      "exampleDe": "Dieser Sänger ist sehr beliebt."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "기계",
+      "german": "Maschine",
+      "exampleKo": "이 ◯◯는 사용법이 간단해요.",
+      "exampleDe": "Diese Maschine ist einfach zu bedienen."
+     }
+    ],
+    "pool": [
+     "기",
+     "료",
+     "대",
+     "태",
+     "현",
+     "계",
+     "대",
+     "염",
+     "인"
+    ]
+   },
+   {
+    "id": "skz_b2_012",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "온난화",
+      "german": "Erwärmung",
+      "exampleKo": "지구 ◯◯◯가 생각보다 심각해요.",
+      "exampleDe": "Die globale Erwärmung ist ernst."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "양극화",
+      "german": "Polarisierung / Spaltung",
+      "exampleKo": "빈부 ◯◯◯가 점점 심해지고 있어요.",
+      "exampleDe": "Die gesellschaftliche Spaltung verschärft sich."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "온도",
+      "german": "Temperatur",
+      "exampleKo": "방 ◯◯가 너무 높아요.",
+      "exampleDe": "Die Zimmertemperatur ist zu hoch."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "태양광",
+      "german": "Solarenergie",
+      "exampleKo": "◯◯◯ 에너지가 점점 늘고 있어요.",
+      "exampleDe": "Solarenergie nimmt zu."
+     }
+    ],
+    "pool": [
+     "양",
+     "루",
+     "온",
+     "도",
+     "극",
+     "광",
+     "난",
+     "용",
+     "태",
+     "화",
+     "어"
+    ]
+   },
+   {
+    "id": "skz_b2_013",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "자료",
+      "german": "Material",
+      "exampleKo": "발표 ◯◯를 준비했어요.",
+      "exampleDe": "Ich habe die Präsentationsunterlagen vorbereitet."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "투자",
+      "german": "Investition",
+      "exampleKo": "이 분야는 ◯◯ 가치가 충분해요.",
+      "exampleDe": "Eine Investition ist nötig."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "봉투",
+      "german": "Umschlag",
+      "exampleKo": "편지를 ◯◯에 넣었어요.",
+      "exampleDe": "Ich habe den Brief in den Umschlag gesteckt."
+     }
+    ],
+    "pool": [
+     "투",
+     "뵙",
+     "비",
+     "자",
+     "료",
+     "어",
+     "봉"
+    ]
+   },
+   {
+    "id": "skz_b2_014",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "진정한",
+      "german": "wahr / echt",
+      "exampleKo": "◯◯◯ 친구는 힘들 때 알아봐요.",
+      "exampleDe": "Ich suche einen echten Freund."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "정하다",
+      "german": "festlegen",
+      "exampleKo": "약속 시간을 정합시다.",
+      "exampleDe": "Legen wir die Uhrzeit fest."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "닮다",
+      "german": "ähneln",
+      "exampleKo": "저는 아버지를 닮았어요.",
+      "exampleDe": "Ich ähnele meinem Vater."
+     }
+    ],
+    "pool": [
+     "한",
+     "하",
+     "다",
+     "진",
+     "정",
+     "씀",
+     "동",
+     "닮",
+     "국"
+    ]
+   },
+   {
+    "id": "skz_b2_015",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "고지서",
+      "german": "Gebührenbescheid",
+      "exampleKo": "전기 요금 ◯◯◯가 왔어요.",
+      "exampleDe": "Die Stromrechnung ist gekommen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 3,
+      "answer": "서랍",
+      "german": "Schublade",
+      "exampleKo": "◯◯에 열쇠가 있어요.",
+      "exampleDe": "Der Schlüssel ist in der Schublade."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "사고",
+      "german": "Unfall",
+      "exampleKo": "어제 길에서 ◯◯가 났어요.",
+      "exampleDe": "Gestern gab es auf der Straße einen Unfall."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "부사",
+      "german": "Adverb",
+      "exampleKo": "◯◯는 동사를 꾸며요.",
+      "exampleDe": "Adverbien beschreiben das Verb."
+     }
+    ],
+    "pool": [
+     "현",
+     "소",
+     "점",
+     "서",
+     "사",
+     "지",
+     "랍",
+     "부",
+     "고"
+    ]
+   },
+   {
+    "id": "skz_b2_016",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "생태계",
+      "german": "Ökosystem",
+      "exampleKo": "◯◯◯ 보호는 우리 모두의 몫이에요.",
+      "exampleDe": "Wir müssen das Ökosystem schützen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "계약",
+      "german": "Vertrag",
+      "exampleKo": "◯◯서 다시 한번 확인해 주세요.",
+      "exampleDe": "Wir haben den Vertrag abgeschlossen."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "약점",
+      "german": "Schwäche",
+      "exampleKo": "◯◯은 오히려 인정하는 게 나아요.",
+      "exampleDe": "Man muss auch seine Schwächen anerkennen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "생신",
+      "german": "Geburtstag (ehrerbietig)",
+      "exampleKo": "내일이 할머니 ◯◯이에요.",
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+     }
+    ],
+    "pool": [
+     "고",
+     "태",
+     "점",
+     "계",
+     "애",
+     "생",
+     "정",
+     "신",
+     "약"
+    ]
+   },
+   {
+    "id": "skz_b2_017",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "자신감",
+      "german": "Selbstvertrauen",
+      "exampleKo": "요즘 조금씩 ◯◯◯이 붙고 있어요.",
+      "exampleDe": "Ich habe Selbstvertrauen gewonnen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "생신",
+      "german": "Geburtstag (ehrerbietig)",
+      "exampleKo": "내일이 할머니 ◯◯이에요.",
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "자격증",
+      "german": "Zertifikat / Qualifikation",
+      "exampleKo": "이 분야는 ◯◯◯이 꼭 필요해요.",
+      "exampleDe": "Welche Zertifikate haben Sie?"
+     }
+    ],
+    "pool": [
+     "국",
+     "자",
+     "평",
+     "격",
+     "신",
+     "감",
+     "생",
+     "변",
+     "증"
+    ]
+   },
+   {
+    "id": "skz_b2_018",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "친환경",
+      "german": "umweltfreundlich",
+      "exampleKo": "요즘은 ◯◯◯ 제품이 많이 나와요.",
+      "exampleDe": "Ich kaufe oft umweltfreundliche Produkte."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "친척",
+      "german": "Verwandte",
+      "exampleKo": "명절에 ◯◯들이 모여요.",
+      "exampleDe": "An Feiertagen kommen die Verwandten zusammen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "야경",
+      "german": "Nachtansicht",
+      "exampleKo": "서울의 ◯◯이 아름다워요.",
+      "exampleDe": "Die nächtliche Skyline von Seoul ist wunderschön."
+     }
+    ],
+    "pool": [
+     "야",
+     "전",
+     "환",
+     "척",
+     "친",
+     "내",
+     "명",
+     "경"
+    ]
+   },
+   {
+    "id": "skz_b2_019",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "협업",
+      "german": "Zusammenarbeit (formell)",
+      "exampleKo": "다른 회사와의 ◯◯도 검토 중이에요.",
+      "exampleDe": "Die Zusammenarbeit der beiden Firmen begann."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "협상",
+      "german": "Verhandlung",
+      "exampleKo": "이번 ◯◯이 생각보다 잘 풀렸어요.",
+      "exampleDe": "Die Verhandlung lief gut."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "현상",
+      "german": "Phänomen / Erscheinung",
+      "exampleKo": "이건 요즘 사회에서 흔한 ◯◯이에요.",
+      "exampleDe": "Das ist ein gesellschaftliches Phänomen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "현대인",
+      "german": "moderner Mensch",
+      "exampleKo": "◯◯◯은 스트레스가 많아요.",
+      "exampleDe": "Moderne Menschen haben viel Stress."
+     }
+    ],
+    "pool": [
+     "협",
+     "상",
+     "인",
+     "대",
+     "약",
+     "전",
+     "진",
+     "현",
+     "업"
+    ]
+   },
+   {
+    "id": "skz_b2_020",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "내용",
+      "german": "Inhalt",
+      "exampleKo": "책 ◯◯이 어려워요.",
+      "exampleDe": "Der Inhalt des Buches ist schwierig."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "재활용",
+      "german": "Recycling",
+      "exampleKo": "저희 집에서는 ◯◯◯ 철저히 해요.",
+      "exampleDe": "Ich recycle immer."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "잠재력",
+      "german": "Potenzial",
+      "exampleKo": "이 팀의 ◯◯◯이 무궁무진해요.",
+      "exampleDe": "Sie entfaltet ihr Potenzial."
+     }
+    ],
+    "pool": [
+     "용",
+     "내",
+     "력",
+     "재",
+     "뵙",
+     "문",
+     "잠",
+     "추",
+     "활"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,519 @@
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../l10n/generated/app_localizations.dart';
+import '../models/silben_puzzle.dart';
+import '../services/silben_puzzle_loader.dart';
+import '../services/sound_service.dart';
+import '../services/storage_service.dart';
+import '../services/tts_service.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
+import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/tokens.dart';
+
+/// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
+/// (Jin 2026-08-11: "줄끼리 연결이 안 보인다" → 단어들이 공유 음절에서
+/// 실제로 교차하는 격자 + 음절 타일 배치로 개편).
+///
+/// - 칸 탭 → 아래 풀에서 음절 탭 → 배치
+/// - 정답 칸은 **즉시 녹색 잠김**(교차 단어가 "물리는" 게 보임), 오답은 흔들림
+/// - 힌트 = 독일어 뜻 + 독일어 예문 + 정답이 ◯로 가려진 한국어 예문
+/// - 진행: 레벨별 20퍼즐, `Storage.recordGameBest('skz_<level>')` 에 저장
+class SilbenKreuzScreen extends StatefulWidget {
+  const SilbenKreuzScreen({super.key});
+
+  @override
+  State<SilbenKreuzScreen> createState() => _SilbenKreuzScreenState();
+}
+
+class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
+  static const _levels = ['A1', 'A2', 'B1', 'B2'];
+  static const _xpPerPuzzle = 30;
+
+  Map<String, List<SilbenPuzzle>> _byLevel = {};
+  bool _loading = true;
+
+  String _level = 'A1';
+  int _index = 0;
+  SilbenPuzzle? _puzzle;
+  Map<(int, int), String> _solution = {};
+  final Set<(int, int)> _locked = {};
+  final Set<String> _spoken = {};
+  List<bool> _tileUsed = [];
+  (int, int)? _selected;
+  bool _solved = false;
+  int _wrongTick = 0;
+
+  static String _progressKey(String level) => 'skz_${level.toLowerCase()}';
+
+  List<SilbenPuzzle> get _puzzles => _byLevel[_level] ?? const [];
+
+  int _solvedCount(String level) => Storage.gameBest(
+    _progressKey(level),
+  ).clamp(0, (_byLevel[level] ?? const []).length);
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    final data = await SilbenPuzzleLoader.load();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _byLevel = data;
+      _loading = false;
+    });
+    _openLevel(_level);
+  }
+
+  void _openLevel(String level) {
+    final list = _byLevel[level] ?? const [];
+    if (list.isEmpty) {
+      return;
+    }
+    setState(() {
+      _level = level;
+      _index = math.min(_solvedCount(level), list.length - 1);
+    });
+    _openPuzzle();
+  }
+
+  void _openPuzzle() {
+    final p = _puzzles[_index];
+    setState(() {
+      _puzzle = p;
+      _solution = p.solution;
+      _locked.clear();
+      _spoken.clear();
+      _tileUsed = List.filled(p.pool.length, false);
+      _solved = false;
+      _selected = null;
+    });
+    setState(() => _selected = _firstEmpty());
+  }
+
+  List<(int, int)> get _cellOrder {
+    final cells = _solution.keys.toList()
+      ..sort((a, b) => a.$1 != b.$1 ? a.$1 - b.$1 : a.$2 - b.$2);
+    return cells;
+  }
+
+  (int, int)? _firstEmpty() {
+    for (final c in _cellOrder) {
+      if (!_locked.contains(c)) {
+        return c;
+      }
+    }
+    return null;
+  }
+
+  void _onCellTap((int, int) cell) {
+    if (_solved || _locked.contains(cell)) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() => _selected = cell);
+  }
+
+  void _onClueTap(SilbenWord w) {
+    for (final c in w.cells) {
+      if (!_locked.contains(c)) {
+        HapticFeedback.selectionClick();
+        setState(() => _selected = c);
+        return;
+      }
+    }
+  }
+
+  void _onTileTap(int i) {
+    if (_solved || _tileUsed[i]) {
+      return;
+    }
+    final sel = _selected ?? _firstEmpty();
+    if (sel == null) {
+      return;
+    }
+    final p = _puzzle!;
+    if (p.pool[i] == _solution[sel]) {
+      setState(() {
+        _locked.add(sel);
+        _tileUsed[i] = true;
+        _selected = _firstEmpty();
+      });
+      HapticFeedback.lightImpact();
+      // 방금 잠긴 칸으로 완성된 단어 → 발음 + 정답음 (교차가 "물리는" 순간).
+      for (final w in p.words) {
+        if (_spoken.contains(w.answer)) {
+          continue;
+        }
+        if (w.cells.every(_locked.contains)) {
+          _spoken.add(w.answer);
+          SoundService.correct();
+          TtsService.speak(w.answer);
+        }
+      }
+      if (_locked.length == _solution.length) {
+        _onSolved();
+      }
+    } else {
+      HapticFeedback.mediumImpact();
+      setState(() {
+        _selected = sel;
+        _wrongTick++;
+      });
+    }
+  }
+
+  void _onSolved() {
+    setState(() => _solved = true);
+    final done = _solvedCount(_level);
+    if (_index + 1 > done) {
+      // ignore: discarded_futures
+      Storage.recordGameBest(_progressKey(_level), _index + 1);
+    }
+    // ignore: discarded_futures
+    Storage.addXp(_xpPerPuzzle);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        SoriCelebration.burst(context);
+      }
+    });
+  }
+
+  /// 다음 퍼즐 → 없으면 미완료 레벨로 → 전부 끝이면 null.
+  VoidCallback? get _nextAction {
+    if (_index + 1 < _puzzles.length) {
+      return () {
+        setState(() => _index++);
+        _openPuzzle();
+      };
+    }
+    for (final l in _levels) {
+      final list = _byLevel[l] ?? const [];
+      if (list.isNotEmpty && _solvedCount(l) < list.length) {
+        return () => _openLevel(l);
+      }
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+
+    if (_loading) {
+      return const Scaffold(body: AppLoading());
+    }
+
+    final p = _puzzle;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          t.screenWordleTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: p == null
+              ? const AppLoading()
+              : SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _levelPicker(s),
+                      const SizedBox(height: Spacing.md),
+                      _grid(p, s),
+                      const SizedBox(height: Spacing.md),
+                      if (!_solved) _tilePool(p, s),
+                      if (_solved) _solvedCard(t),
+                      const SizedBox(height: Spacing.md),
+                      _clues(p, s),
+                    ],
+                  ),
+                ),
+        ),
+      ),
+    );
+  }
+
+  Widget _levelPicker(SoriSurfaces s) {
+    return Row(
+      children: [
+        for (final l in _levels)
+          if ((_byLevel[l] ?? const []).isNotEmpty)
+            Expanded(
+              child: GestureDetector(
+                onTap: () => _openLevel(l),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  decoration: BoxDecoration(
+                    color: l == _level
+                        ? SoriColors.accent.withValues(alpha: 0.16)
+                        : s.surfaceAlt,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: l == _level ? SoriColors.accent : s.border,
+                      width: l == _level ? 1.5 : 1,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        l,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: l == _level ? SoriColors.accent : s.text,
+                        ),
+                      ),
+                      Text(
+                        '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
+                        style: TextStyle(fontSize: 11, color: s.textMuted),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+      ],
+    );
+  }
+
+  Widget _grid(SilbenPuzzle p, SoriSurfaces s) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const gap = 6.0;
+        final cell = math.min(
+          52.0,
+          (constraints.maxWidth - (p.cols - 1) * gap) / p.cols,
+        );
+        return Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (var r = 0; r < p.rows; r++)
+                Padding(
+                  padding: EdgeInsets.only(top: r == 0 ? 0 : gap),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      for (var c = 0; c < p.cols; c++)
+                        Padding(
+                          padding: EdgeInsets.only(left: c == 0 ? 0 : gap),
+                          child: _cellBox((r, c), cell, s),
+                        ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _cellBox((int, int) cell, double size, SoriSurfaces s) {
+    final syllable = _solution[cell];
+    if (syllable == null) {
+      return SizedBox(width: size, height: size);
+    }
+    final locked = _locked.contains(cell);
+    final selected = _selected == cell;
+
+    Widget box = AnimatedContainer(
+      duration: SoriMotion.fast,
+      width: size,
+      height: size,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: locked
+            ? SoriColors.success.withValues(alpha: 0.16)
+            : selected
+            ? SoriColors.accent.withValues(alpha: 0.10)
+            : s.surfaceAlt,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: locked
+              ? SoriColors.success
+              : selected
+              ? SoriColors.accent
+              : s.border,
+          width: locked || selected ? 1.8 : 1,
+        ),
+      ),
+      child: locked
+          ? Text(
+              syllable,
+              style: TextStyle(
+                fontSize: size * 0.5,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.success,
+              ),
+            )
+          : null,
+    );
+
+    if (selected && !locked) {
+      // 오답 흔들림 — _wrongTick 이 바뀔 때마다 좌우 스냅.
+      box = TweenAnimationBuilder<double>(
+        key: ValueKey(_wrongTick),
+        tween: Tween(begin: 0, end: 1),
+        duration: const Duration(milliseconds: 260),
+        builder: (_, v, child) => Transform.translate(
+          offset: Offset(math.sin(v * math.pi * 4) * 4 * (1 - v), 0),
+          child: child,
+        ),
+        child: box,
+      );
+    }
+    return GestureDetector(onTap: () => _onCellTap(cell), child: box);
+  }
+
+  Widget _tilePool(SilbenPuzzle p, SoriSurfaces s) {
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        for (var i = 0; i < p.pool.length; i++)
+          AnimatedOpacity(
+            duration: SoriMotion.fast,
+            opacity: _tileUsed[i] ? 0.18 : 1,
+            child: GestureDetector(
+              onTap: () => _onTileTap(i),
+              child: Container(
+                width: 46,
+                height: 46,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: s.surface,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: s.border),
+                ),
+                child: Text(
+                  p.pool[i],
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _clues(SilbenPuzzle p, SoriSurfaces s) {
+    final words = [...p.words]
+      ..sort((a, b) => a.row != b.row ? a.row - b.row : a.col - b.col);
+    return SoriCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (var i = 0; i < words.length; i++) ...[
+            if (i > 0) Divider(height: Spacing.lg, color: s.border),
+            _clueRow(words[i], s),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _clueRow(SilbenWord w, SoriSurfaces s) {
+    final done = _spoken.contains(w.answer);
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => _onClueTap(w),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            w.isHorizontal
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_downward_rounded,
+            size: 16,
+            color: done ? SoriColors.success : SoriColors.accent,
+          ),
+          const SizedBox(width: Spacing.sm),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  done ? '${w.answer} — ${w.german}' : w.german,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 15,
+                    color: done ? SoriColors.success : s.text,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  w.exampleDe,
+                  style: TextStyle(fontSize: 12.5, color: s.textMuted),
+                ),
+                Text(
+                  w.exampleKo,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: s.textMuted,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _solvedCard(AppL10n t) {
+    final next = _nextAction;
+    return SoriCard(
+      accent: SoriColors.success,
+      tinted: true,
+      child: Column(
+        children: [
+          Text(
+            '${t.wordleResultWin} +$_xpPerPuzzle XP',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+              color: SoriColors.success,
+            ),
+          ),
+          const SizedBox(height: Spacing.md),
+          if (next != null)
+            SoriButton.filled(
+              label: t.btnNext,
+              icon: Icons.arrow_forward,
+              accent: SoriColors.success,
+              onTap: next,
+              fullWidth: true,
+            )
+          else
+            const Text('🎉', style: TextStyle(fontSize: 28)),
+        ],
+      ),
+    );
+  }
+}

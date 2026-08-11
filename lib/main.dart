@@ -79,7 +79,7 @@ import 'screens/cloze_game_screen.dart';
 import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
-import 'screens/wordle_screen.dart';
+import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_world_screen.dart';
 import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
@@ -582,8 +582,10 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/wordle':
+              // Silben-Kreuz(음절 크로스워드)가 Wordle 보드를 대체 (2026-08-11).
+              // 라우트명·메뉴 라벨("Silben-Rätsel")은 유지.
               return SoriTransitions.fadeScale(
-                (_) => const WordleScreen(),
+                (_) => const SilbenKreuzScreen(),
                 settings: settings,
               );
             case '/cloze':
