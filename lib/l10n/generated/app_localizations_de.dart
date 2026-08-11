@@ -3090,7 +3090,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get pathTitle => 'Lernpfad';
+  String get pathTitle => 'Dein Weg';
 
   @override
   String pathHanokStage(int n) {
@@ -3131,6 +3131,31 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get pathOpenCurrentMission => 'Aktuelle Mission öffnen';
+
+  @override
+  String get pathCourseMissionsTitle => 'Kursmissionen';
+
+  @override
+  String get pathCourseMissionsBody =>
+      'Ein klarer nächster Schritt verbindet Wortschatz, Grammatik, Spiele und Szenarien.';
+
+  @override
+  String get pathStatusCurrent => 'Jetzt';
+
+  @override
+  String get pathStatusCompleted => 'Erledigt';
+
+  @override
+  String get pathStatusBypassed => 'Startstufe übersprungen';
+
+  @override
+  String get pathStatusNext => 'Als Nächstes';
+
+  @override
+  String get pathShowMorePractice => 'Weitere Übungen anzeigen';
+
+  @override
+  String get pathHideMorePractice => 'Weitere Übungen ausblenden';
 
   @override
   String get gyeEmptyHeadline =>
@@ -3475,7 +3500,7 @@ class AppL10nDe extends AppL10n {
   String get discoverSearchHint => 'Suchen: Aussprache, Buch, OCR …';
 
   @override
-  String get discoverStartHere => 'Starte mit deiner Buchseite';
+  String get discoverStartHere => 'Direkt zu deinem Ziel';
 
   @override
   String get discoverAllTools => 'Alle Funktionen';
@@ -3497,10 +3522,40 @@ class AppL10nDe extends AppL10n {
   String get discoverCategoryPractice => 'Üben';
 
   @override
-  String get discoverCategoryWords => 'Wörter & Bücher';
+  String get discoverCategoryWords => 'Wörter';
 
   @override
   String get discoverCategoryProgress => 'Dein Weg';
+
+  @override
+  String get discoverCategoryForMe => 'Für mich';
+
+  @override
+  String get discoverCategoryLanguage => 'Sprache';
+
+  @override
+  String get discoverCategoryLeisure => 'Freizeit';
+
+  @override
+  String get discoverPriorityBookTitle => 'Buch scannen';
+
+  @override
+  String get discoverPriorityBookBody =>
+      'Fotografiere eine Buchseite und lerne direkt mit ihrem Text.';
+
+  @override
+  String get discoverPriorityPronunciationTitle => 'Aussprache hören';
+
+  @override
+  String get discoverPriorityPronunciationBody =>
+      'Höre genau hin und übe koreanische Laute im Kontext.';
+
+  @override
+  String get discoverPriorityWordsTitle => 'Wörterbuch & Meine Wörter';
+
+  @override
+  String get discoverPriorityWordsBody =>
+      'Schlage ein Wort nach oder öffne deine gespeicherte Sammlung.';
 
   @override
   String get navLearn => 'Lernen';

@@ -51,8 +51,39 @@ String pathVisibleLevel(String? userLevelCode) {
 /// 고른 **한 레벨만** 보여준다([pathVisibleLevel]). 전체 A1~B2 나열은 초보자에게
 /// 압도적이라 선택 레벨로 좁힌다. 상단 한옥 헤더의 진행도는 "집 전체"를 뜻하므로
 /// 여전히 전 레벨 합산.
+class LearningPathPreviewData {
+  const LearningPathPreviewData({
+    required this.courseUnits,
+    required this.snapshot,
+    this.selectedLevel = 'A1',
+    this.stage = HanokStage.empty,
+  });
+
+  final List<CourseUnit> courseUnits;
+  final CourseMasterySnapshot snapshot;
+  final String selectedLevel;
+  final HanokStage stage;
+}
+
 class LearningPathScreen extends StatefulWidget {
-  const LearningPathScreen({super.key});
+  const LearningPathScreen({super.key}) : previewData = null;
+
+  /// Renders the production path from explicit fixture state without reading
+  /// or initializing persisted course/pack progress.
+  LearningPathScreen.preview({
+    super.key,
+    required List<CourseUnit> courseUnits,
+    required CourseMasterySnapshot snapshot,
+    String selectedLevel = 'A1',
+    HanokStage stage = HanokStage.empty,
+  }) : previewData = LearningPathPreviewData(
+         courseUnits: courseUnits,
+         snapshot: snapshot,
+         selectedLevel: selectedLevel,
+         stage: stage,
+       );
+
+  final LearningPathPreviewData? previewData;
 
   @override
   State<LearningPathScreen> createState() => _LearningPathScreenState();
@@ -73,8 +104,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   int _packTotal = 0;
   String? _nowPackId; // 첫 미완 + 잠금해제 팩 = "지금 할 것"
   String _selectedLevel = 'A1'; // 렌더할 단일 레벨 (온보딩 선택, 대문자)
-  CurriculumCatalog? _courseCatalog;
+  List<CourseUnit> _courseUnits = const [];
   CourseMasterySnapshot? _courseSnapshot;
+  bool _showLegacyPractice = false;
 
   static const List<String> _levels = ['A1', 'A2', 'B1', 'B2'];
 
@@ -109,8 +141,21 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   @override
   void initState() {
     super.initState();
-    _load();
-    scheduleCoach();
+    final preview = widget.previewData;
+    if (preview != null) {
+      _applyPreview(preview);
+    } else {
+      _load();
+      scheduleCoach();
+    }
+  }
+
+  void _applyPreview(LearningPathPreviewData preview) {
+    _stage = preview.stage;
+    _selectedLevel = pathVisibleLevel(preview.selectedLevel);
+    _courseUnits = List<CourseUnit>.unmodifiable(preview.courseUnits);
+    _courseSnapshot = preview.snapshot;
+    _loading = false;
   }
 
   @override
@@ -147,6 +192,13 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   }
 
   Future<void> _load() async {
+    final preview = widget.previewData;
+    if (preview != null) {
+      if (mounted) {
+        setState(() => _applyPreview(preview));
+      }
+      return;
+    }
     final stage =
         (await HanokStructureProjectionService.loadCurrent()).structureStage;
     final selectedLevel = pathVisibleLevel(Storage.userLevelCode);
@@ -205,7 +257,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _packTotal = total;
       _nowPackId = now;
       _selectedLevel = selectedLevel;
-      _courseCatalog = courseCatalog;
+      _courseUnits = List<CourseUnit>.unmodifiable(
+        courseCatalog?.courseUnits ?? const <CourseUnit>[],
+      );
       _courseSnapshot = courseSnapshot;
       _loading = false;
     });
@@ -260,9 +314,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                     base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
                   ),
                   children: [
-                    if (_courseCatalog != null && _courseSnapshot != null) ...[
+                    if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
                       _CourseMissionPath(
-                        catalog: _courseCatalog!,
+                        courseUnits: _courseUnits,
                         snapshot: _courseSnapshot!,
                         lang: Localizations.localeOf(context).languageCode,
                         filterLevel: _selectedLevel.toLowerCase(),
@@ -277,15 +331,38 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                       ),
                       const SizedBox(height: Spacing.xl),
                     ],
-                    _HanokHeader(
-                      stage: _stage,
-                      cleared: _clearedTotal,
-                      total: _packTotal,
+                    SoriButton.outlined(
+                      key: const ValueKey('path-legacy-practice-toggle'),
+                      label: _showLegacyPractice
+                          ? t.pathHideMorePractice
+                          : t.pathShowMorePractice,
+                      trailingIcon: _showLegacyPractice
+                          ? Icons.expand_less_rounded
+                          : Icons.expand_more_rounded,
+                      fullWidth: true,
+                      onTap: () => setState(
+                        () => _showLegacyPractice = !_showLegacyPractice,
+                      ),
                     ),
-                    const SizedBox(height: Spacing.xl),
-                    // 선택한 레벨만 렌더 — 전체 A1~B2 나열 대신.
-                    for (final g in _groups)
-                      if (g.level == _selectedLevel) ..._levelSection(t, g),
+                    if (_showLegacyPractice)
+                      KeyedSubtree(
+                        key: const ValueKey('path-legacy-practice-content'),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: Spacing.lg),
+                            _HanokHeader(
+                              stage: _stage,
+                              cleared: _clearedTotal,
+                              total: _packTotal,
+                            ),
+                            const SizedBox(height: Spacing.xl),
+                            // 선택한 레벨만 렌더 — 전체 A1~B2 나열 대신.
+                            for (final g in _groups)
+                              if (g.level == _selectedLevel)
+                                ..._levelSection(t, g),
+                          ],
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -355,14 +432,14 @@ class _LearningPathScreenState extends State<LearningPathScreen>
 /// intentionally previewable, but only the active one can collect progress.
 class _CourseMissionPath extends StatelessWidget {
   const _CourseMissionPath({
-    required this.catalog,
+    required this.courseUnits,
     required this.snapshot,
     required this.lang,
     required this.filterLevel,
     required this.onTapUnit,
   });
 
-  final CurriculumCatalog catalog;
+  final List<CourseUnit> courseUnits;
   final CourseMasterySnapshot snapshot;
   final String lang;
 
@@ -376,7 +453,7 @@ class _CourseMissionPath extends StatelessWidget {
     final grouped = <String, List<CourseUnit>>{
       for (final level in const ['a1', 'a2', 'b1', 'b2']) level: <CourseUnit>[],
     };
-    for (final unit in catalog.courseUnits) {
+    for (final unit in courseUnits) {
       if (unit.level != filterLevel) {
         continue; // 선택 레벨만 — 나머지는 렌더하지 않음.
       }
@@ -385,14 +462,38 @@ class _CourseMissionPath extends StatelessWidget {
     for (final units in grouped.values) {
       units.sort((left, right) => left.order.compareTo(right.order));
     }
-    final current = grouped.values
-        .expand((units) => units)
-        .cast<CourseUnit?>()
-        .firstWhere(
-          (unit) => unit?.id == snapshot.currentCourseUnitId,
-          orElse: () => null,
-        );
-    final english = lang == 'en';
+    final ordered = grouped.values.expand((units) => units).toList();
+    CourseUnit? current;
+    for (final unit in ordered) {
+      if (unit.id == snapshot.currentCourseUnitId) {
+        current = unit;
+        break;
+      }
+    }
+    CourseUnit? latestCompleted;
+    for (final unit in ordered) {
+      if (snapshot.completedUnitIds.contains(unit.id)) {
+        latestCompleted = unit;
+      }
+    }
+    final currentIndex = current == null ? -1 : ordered.indexOf(current);
+    CourseUnit? next;
+    for (var i = currentIndex + 1; i < ordered.length; i++) {
+      final candidate = ordered[i];
+      if (!snapshot.completedUnitIds.contains(candidate.id) &&
+          !snapshot.bypassedPrerequisiteUnitIds.contains(candidate.id) &&
+          candidate.id != current?.id) {
+        next = candidate;
+        break;
+      }
+    }
+    final visible = <CourseUnit>[];
+    for (final unit in [latestCompleted, current, next]) {
+      if (unit != null &&
+          !visible.any((candidate) => candidate.id == unit.id)) {
+        visible.add(unit);
+      }
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -411,49 +512,37 @@ class _CourseMissionPath extends StatelessWidget {
             const SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
             const SizedBox(width: Spacing.sm),
             Text(
-              english ? 'Course missions' : 'Kursmissionen',
+              t.pathCourseMissionsTitle,
               style: SoriTextTheme.of(context).h2,
             ),
           ],
         ),
         const SizedBox(height: Spacing.xs),
         Text(
-          english
-              ? 'One sequence connects vocabulary, grammar, games, and scenarios.'
-              : 'Eine Reihenfolge verbindet Wortschatz, Grammatik, Spiele und Szenarien.',
+          t.pathCourseMissionsBody,
           style: SoriTextTheme.of(context).bodySmall,
         ),
         const SizedBox(height: Spacing.md),
         const CourseProgressEvidenceNote(),
         const SizedBox(height: Spacing.md),
-        for (final entry in grouped.entries)
-          if (entry.value.isNotEmpty) ...[
-            Text(
-              entry.key.toUpperCase(),
-              style: SoriTextTheme.of(
-                context,
-              ).label.copyWith(color: SoriSurfaces.of(context).textMuted),
+        for (final unit in visible)
+          Padding(
+            padding: const EdgeInsets.only(bottom: Spacing.sm),
+            child: _CourseMissionNode(
+              key: ValueKey('path-course-row-${unit.id}'),
+              unit: unit,
+              status: _statusFor(unit),
+              lang: lang,
+              onTap: () => onTapUnit(unit),
             ),
-            const SizedBox(height: Spacing.xs),
-            for (final unit in entry.value)
-              Padding(
-                padding: const EdgeInsets.only(bottom: Spacing.sm),
-                child: _CourseMissionNode(
-                  unit: unit,
-                  status: _statusFor(unit),
-                  lang: lang,
-                  onTap: () => onTapUnit(unit),
-                ),
-              ),
-            const SizedBox(height: Spacing.sm),
-          ],
-        if (current != null) ...[
+          ),
+        if (current case final currentUnit?) ...[
           const SizedBox(height: Spacing.sm),
           SoriButton.filled(
             key: const ValueKey('path-current-mission'),
             label: t.pathOpenCurrentMission,
             fullWidth: true,
-            onTap: () => onTapUnit(current),
+            onTap: () => onTapUnit(currentUnit),
           ),
         ],
       ],
@@ -478,6 +567,7 @@ enum _MissionPathStatus { current, completed, bypassed, preview }
 
 class _CourseMissionNode extends StatelessWidget {
   const _CourseMissionNode({
+    super.key,
     required this.unit,
     required this.status,
     required this.lang,
@@ -491,27 +581,27 @@ class _CourseMissionNode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final english = lang == 'en';
+    final t = AppL10n.of(context);
     final (icon, color, statusText) = switch (status) {
       _MissionPathStatus.current => (
         Icons.play_circle_outline_rounded,
         SoriColors.primary,
-        english ? 'Current' : 'Jetzt',
+        t.pathStatusCurrent,
       ),
       _MissionPathStatus.completed => (
         Icons.check_circle_outline_rounded,
         SoriColors.success,
-        english ? 'Completed' : 'Erledigt',
+        t.pathStatusCompleted,
       ),
       _MissionPathStatus.bypassed => (
         Icons.fast_forward_rounded,
         SoriColors.info,
-        english ? 'Start-level bypass' : 'Startstufe übersprungen',
+        t.pathStatusBypassed,
       ),
       _MissionPathStatus.preview => (
         Icons.visibility_outlined,
         SoriColors.warning,
-        english ? 'Preview' : 'Vorschau',
+        t.pathStatusNext,
       ),
     };
     return SoriCard(

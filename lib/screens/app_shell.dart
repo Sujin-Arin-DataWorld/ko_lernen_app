@@ -142,7 +142,7 @@ class _AppShellState extends State<AppShell> {
         SoriAdaptiveNavigationItem(
           icon: Icons.sports_esports_outlined,
           selectedIcon: Icons.sports_esports_rounded,
-          label: t.navLearn,
+          label: t.navPractice,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.explore_outlined,

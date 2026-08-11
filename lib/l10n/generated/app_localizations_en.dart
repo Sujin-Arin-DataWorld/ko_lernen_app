@@ -3082,7 +3082,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get pathTitle => 'Learning path';
+  String get pathTitle => 'Your path';
 
   @override
   String pathHanokStage(int n) {
@@ -3123,6 +3123,31 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pathOpenCurrentMission => 'Open current mission';
+
+  @override
+  String get pathCourseMissionsTitle => 'Course missions';
+
+  @override
+  String get pathCourseMissionsBody =>
+      'One clear next step connects vocabulary, grammar, games, and scenarios.';
+
+  @override
+  String get pathStatusCurrent => 'Current';
+
+  @override
+  String get pathStatusCompleted => 'Completed';
+
+  @override
+  String get pathStatusBypassed => 'Start level bypassed';
+
+  @override
+  String get pathStatusNext => 'Next';
+
+  @override
+  String get pathShowMorePractice => 'Show more practice';
+
+  @override
+  String get pathHideMorePractice => 'Hide more practice';
 
   @override
   String get gyeEmptyHeadline =>
@@ -3464,7 +3489,7 @@ class AppL10nEn extends AppL10n {
   String get discoverSearchHint => 'Search: pronunciation, book, OCR …';
 
   @override
-  String get discoverStartHere => 'Start with your book page';
+  String get discoverStartHere => 'Go straight to your goal';
 
   @override
   String get discoverAllTools => 'All features';
@@ -3486,10 +3511,40 @@ class AppL10nEn extends AppL10n {
   String get discoverCategoryPractice => 'Practice';
 
   @override
-  String get discoverCategoryWords => 'Words & books';
+  String get discoverCategoryWords => 'Words';
 
   @override
   String get discoverCategoryProgress => 'Your path';
+
+  @override
+  String get discoverCategoryForMe => 'For me';
+
+  @override
+  String get discoverCategoryLanguage => 'Language';
+
+  @override
+  String get discoverCategoryLeisure => 'Leisure';
+
+  @override
+  String get discoverPriorityBookTitle => 'Scan a book';
+
+  @override
+  String get discoverPriorityBookBody =>
+      'Photograph a book page and learn directly from its text.';
+
+  @override
+  String get discoverPriorityPronunciationTitle => 'Hear pronunciation';
+
+  @override
+  String get discoverPriorityPronunciationBody =>
+      'Listen closely and practise Korean sounds in context.';
+
+  @override
+  String get discoverPriorityWordsTitle => 'Dictionary & My words';
+
+  @override
+  String get discoverPriorityWordsBody =>
+      'Look up a word or open your saved collection.';
 
   @override
   String get navLearn => 'Learn';

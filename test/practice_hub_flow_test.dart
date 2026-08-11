@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -10,7 +11,10 @@ import 'package:ko_lernen_app/theme.dart';
 void main() {
   setUp(() async {
     Storage.resetForTesting();
-    SharedPreferences.setMockInitialValues({'kl_tut_practice_hub': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_practice_hub': true,
+      'kl_tut_home_tour': true,
+    });
     await Storage.init();
   });
 
@@ -23,7 +27,7 @@ void main() {
         locale: const Locale('de'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        home: const PracticeHubScreen(),
+        home: const PracticeHubScreen.preview(),
       ),
     );
     await tester.pump();
@@ -51,5 +55,27 @@ void main() {
     await tester.scrollUntilVisible(find.text('Dein Lernraum'), 360);
     expect(find.text('Dein Lernraum'), findsOneWidget);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('04A labels the primary tab Üben', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: const AppShell(),
+      ),
+    );
+
+    final navigation = tester.widget<NavigationBar>(find.byType(NavigationBar));
+    final practice = navigation.destinations[1] as NavigationDestination;
+    expect(practice.label, 'Üben');
+    await tester.pump(const Duration(seconds: 1));
   });
 }

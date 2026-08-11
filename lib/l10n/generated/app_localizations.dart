@@ -5446,7 +5446,7 @@ abstract class AppL10n {
   /// No description provided for @pathTitle.
   ///
   /// In de, this message translates to:
-  /// **'Lernpfad'**
+  /// **'Dein Weg'**
   String get pathTitle;
 
   /// No description provided for @pathHanokStage.
@@ -5514,6 +5514,54 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aktuelle Mission öffnen'**
   String get pathOpenCurrentMission;
+
+  /// No description provided for @pathCourseMissionsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kursmissionen'**
+  String get pathCourseMissionsTitle;
+
+  /// No description provided for @pathCourseMissionsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein klarer nächster Schritt verbindet Wortschatz, Grammatik, Spiele und Szenarien.'**
+  String get pathCourseMissionsBody;
+
+  /// No description provided for @pathStatusCurrent.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt'**
+  String get pathStatusCurrent;
+
+  /// No description provided for @pathStatusCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'Erledigt'**
+  String get pathStatusCompleted;
+
+  /// No description provided for @pathStatusBypassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Startstufe übersprungen'**
+  String get pathStatusBypassed;
+
+  /// No description provided for @pathStatusNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes'**
+  String get pathStatusNext;
+
+  /// No description provided for @pathShowMorePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Übungen anzeigen'**
+  String get pathShowMorePractice;
+
+  /// No description provided for @pathHideMorePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Übungen ausblenden'**
+  String get pathHideMorePractice;
 
   /// No description provided for @gyeEmptyHeadline.
   ///
@@ -6106,7 +6154,7 @@ abstract class AppL10n {
   /// No description provided for @discoverStartHere.
   ///
   /// In de, this message translates to:
-  /// **'Starte mit deiner Buchseite'**
+  /// **'Direkt zu deinem Ziel'**
   String get discoverStartHere;
 
   /// No description provided for @discoverAllTools.
@@ -6148,7 +6196,7 @@ abstract class AppL10n {
   /// No description provided for @discoverCategoryWords.
   ///
   /// In de, this message translates to:
-  /// **'Wörter & Bücher'**
+  /// **'Wörter'**
   String get discoverCategoryWords;
 
   /// No description provided for @discoverCategoryProgress.
@@ -6156,6 +6204,60 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dein Weg'**
   String get discoverCategoryProgress;
+
+  /// No description provided for @discoverCategoryForMe.
+  ///
+  /// In de, this message translates to:
+  /// **'Für mich'**
+  String get discoverCategoryForMe;
+
+  /// No description provided for @discoverCategoryLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprache'**
+  String get discoverCategoryLanguage;
+
+  /// No description provided for @discoverCategoryLeisure.
+  ///
+  /// In de, this message translates to:
+  /// **'Freizeit'**
+  String get discoverCategoryLeisure;
+
+  /// No description provided for @discoverPriorityBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buch scannen'**
+  String get discoverPriorityBookTitle;
+
+  /// No description provided for @discoverPriorityBookBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Fotografiere eine Buchseite und lerne direkt mit ihrem Text.'**
+  String get discoverPriorityBookBody;
+
+  /// No description provided for @discoverPriorityPronunciationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache hören'**
+  String get discoverPriorityPronunciationTitle;
+
+  /// No description provided for @discoverPriorityPronunciationBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre genau hin und übe koreanische Laute im Kontext.'**
+  String get discoverPriorityPronunciationBody;
+
+  /// No description provided for @discoverPriorityWordsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörterbuch & Meine Wörter'**
+  String get discoverPriorityWordsTitle;
+
+  /// No description provided for @discoverPriorityWordsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schlage ein Wort nach oder öffne deine gespeicherte Sammlung.'**
+  String get discoverPriorityWordsBody;
 
   /// No description provided for @navLearn.
   ///

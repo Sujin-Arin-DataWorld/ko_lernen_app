@@ -18,7 +18,13 @@ import '../widgets/sori/tokens.dart';
 /// feature names. Each need reveals the established destinations below, so no
 /// tool is removed and Home remains the one place that chooses today's task.
 class PracticeHubScreen extends StatefulWidget {
-  const PracticeHubScreen({super.key});
+  const PracticeHubScreen({super.key}) : previewDueCount = null;
+
+  /// Renders the production hub with fixture data and without reading or
+  /// scheduling changes in local storage. Used by tests and the UX gallery.
+  const PracticeHubScreen.preview({super.key, this.previewDueCount = 0});
+
+  final int? previewDueCount;
 
   @override
   State<PracticeHubScreen> createState() => _PracticeHubScreenState();
@@ -53,8 +59,13 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
   @override
   void initState() {
     super.initState();
-    _loadDue();
-    scheduleCoach();
+    final previewDueCount = widget.previewDueCount;
+    if (previewDueCount != null) {
+      _dueCount = previewDueCount;
+    } else {
+      _loadDue();
+      scheduleCoach();
+    }
   }
 
   Future<void> _loadDue() async {
@@ -100,7 +111,9 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
                   dueCount: _dueCount,
                   onReview: () async {
                     await Navigator.pushNamed(context, '/review');
-                    if (mounted) await _loadDue();
+                    if (mounted && widget.previewDueCount == null) {
+                      await _loadDue();
+                    }
                   },
                   onFocused: () => _openPurposePicker(
                     title: t.practiceSecLearn,
