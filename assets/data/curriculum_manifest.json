@@ -2158,6 +2158,14 @@
                            "grammar_b2_inevitability": {"courseUnitId": "b2_06_advanced_capstone", "conceptIds": ["concept_b2_advanced"]}
                        },
     "smalltalkCategoryUnitMap":  {
+                                     "a1:transport": {"courseUnitId": "a1_06_transport_directions", "conceptIds": ["concept_a1_directions"]},
+                                     "a2:transport": {"courseUnitId": "a2_07_travel_repair", "conceptIds": ["concept_a2_travel_repair"]},
+                                     "a1:shopping": {"courseUnitId": "a1_04_order_request_object", "conceptIds": ["concept_request_polite"]},
+                                     "a2:shopping": {"courseUnitId": "a2_05_delivery_services", "conceptIds": ["concept_a2_services"]},
+                                     "a1:phone": {"courseUnitId": "a1_04_order_request_object", "conceptIds": ["concept_request_polite"]},
+                                     "a2:phone": {"courseUnitId": "a2_03_chat_relationships", "conceptIds": ["concept_a2_relationships"]},
+                                     "a1:emergency": {"courseUnitId": "a1_10_health_safety", "conceptIds": ["concept_a1_health_safety"]},
+                                     "a2:emergency": {"courseUnitId": "a2_07_travel_repair", "conceptIds": ["concept_a2_travel_repair"]},
                                      "a1:daily": {"courseUnitId": "a1_12_daily_negation", "conceptIds": ["concept_a1_negation"]},
                                      "a1:dating": {"courseUnitId": "a1_11_titles_relationships", "conceptIds": ["concept_a1_titles_relationships"]},
                                      "a1:family": {"courseUnitId": "a1_11_titles_relationships", "conceptIds": ["concept_a1_titles_relationships"]},

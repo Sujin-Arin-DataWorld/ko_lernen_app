@@ -163,6 +163,42 @@
     "de": "Arztbesuch",
     "en": "At the clinic"
    }
+  },
+  {
+   "id": "transport",
+   "emoji": "🚌",
+   "label": {
+    "ko": "교통·길찾기",
+    "de": "Verkehr & Wegbeschreibung",
+    "en": "Transport & directions"
+   }
+  },
+  {
+   "id": "shopping",
+   "emoji": "🛍️",
+   "label": {
+    "ko": "쇼핑",
+    "de": "Einkaufen",
+    "en": "Shopping"
+   }
+  },
+  {
+   "id": "phone",
+   "emoji": "📞",
+   "label": {
+    "ko": "전화",
+    "de": "Telefonieren",
+    "en": "On the phone"
+   }
+  },
+  {
+   "id": "emergency",
+   "emoji": "🆘",
+   "label": {
+    "ko": "도움 요청",
+    "de": "Hilfe & Notfall",
+    "en": "Help & emergency"
+   }
   }
  ],
  "phrases": [
@@ -4019,6 +4055,1323 @@
     "ko": "네, 알겠습니다.",
     "de": "Ja, verstanden.",
     "en": "Yes, I understand."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0038",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "경복궁에 가 주세요.",
+   "de": "Zum Gyeongbokgung-Palast bitte.",
+   "en": "To Gyeongbokgung Palace, please.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "이 주소로 가 주세요.",
+     "de": "Zu dieser Adresse bitte.",
+     "en": "To this address, please."
+    }
+   ],
+   "reply": {
+    "ko": "네 알겠습니다.",
+    "de": "Ja, verstanden.",
+    "en": "Yes, understood."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0039",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "여기에서 세워 주세요.",
+   "de": "Halten Sie bitte hier an.",
+   "en": "Please stop here.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "얼마예요?",
+     "de": "Wie viel kostet es?",
+     "en": "How much is it?"
+    }
+   ],
+   "reply": {
+    "ko": "오천 원입니다.",
+    "de": "Das macht 5000 Won.",
+    "en": "It's 5000 won."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0040",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "이 버스가 명동에 가요?",
+   "de": "Fährt dieser Bus nach Myeong-dong?",
+   "en": "Does this bus go to Myeong-dong?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "몇 번 버스를 타야 해요?",
+     "de": "Welchen Bus muss ich nehmen?",
+     "en": "Which bus should I take?"
+    }
+   ],
+   "reply": {
+    "ko": "네 가요.",
+    "de": "Ja, der fährt dorthin.",
+    "en": "Yes, it does."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0041",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "이 근처에 지하철역이 어디에 있어요?",
+   "de": "Wo ist hier in der Nähe eine U-Bahn-Station?",
+   "en": "Where is a subway station near here?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "걸어서 갈 수 있어요?",
+     "de": "Kann man zu Fuß gehen?",
+     "en": "Can I walk there?"
+    }
+   ],
+   "reply": {
+    "ko": "저쪽으로 가세요.",
+    "de": "Gehen Sie in diese Richtung.",
+    "en": "Go that way."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0042",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "교통카드 어디에서 충전해요?",
+   "de": "Wo kann ich die Verkehrskarte aufladen?",
+   "en": "Where can I reload my transit card?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "표는 어디에서 사요?",
+     "de": "Wo kauft man Tickets?",
+     "en": "Where do I buy tickets?"
+    }
+   ],
+   "reply": {
+    "ko": "편의점에서 하세요.",
+    "de": "Im Convenience-Store.",
+    "en": "At the convenience store."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0043",
+   "category": "transport",
+   "level": "a1",
+   "kind": "question",
+   "ko": "좀 빨리 가 주세요.",
+   "de": "Bitte fahren Sie etwas schneller.",
+   "en": "Can you go quickly?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "시간이 얼마나 걸려요?",
+     "de": "Wie lange dauert es?",
+     "en": "How long does it take?"
+    }
+   ],
+   "reply": {
+    "ko": "네 손님.",
+    "de": "Ja, gerne.",
+    "en": "Sure."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0037",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "코엑스에 가려면 지하철 몇 호선을 타야 돼요?",
+   "de": "Welche U-Bahn-Linie muss ich zum COEX nehmen?",
+   "en": "Which subway line should I take to go to COEX?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "무슨 역에서 내려요?",
+     "de": "An welcher Station steige ich aus?",
+     "en": "Which station do I get off at?"
+    }
+   ],
+   "reply": {
+    "ko": "2호선을 타세요.",
+    "de": "Nehmen Sie die Linie 2.",
+    "en": "Take line 2."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0038",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "3호선으로 갈아타려면 어디로 가야 돼요?",
+   "de": "Wo muss ich zur Linie 3 umsteigen?",
+   "en": "Where should I go to transfer to line 3?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "여기에서 갈아타요?",
+     "de": "Steige ich hier um?",
+     "en": "Do I transfer here?"
+    }
+   ],
+   "reply": {
+    "ko": "다음 역에서 갈아타세요.",
+    "de": "Steigen Sie an der nächsten Station um.",
+    "en": "Transfer at the next station."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0039",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "인사동에 가려면 어디에서 내려요?",
+   "de": "Wo steige ich für Insa-dong aus?",
+   "en": "Where should I get off to go to Insa-dong?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "안내 방송이 나와요?",
+     "de": "Gibt es eine Durchsage?",
+     "en": "Is there an announcement?"
+    }
+   ],
+   "reply": {
+    "ko": "종로에서 내리세요.",
+    "de": "Steigen Sie in Jongno aus.",
+    "en": "Get off at Jongno."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0040",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "우회전 해 주세요.",
+   "de": "Biegen Sie bitte rechts ab.",
+   "en": "Please make a right turn.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "직진 해 주세요.",
+     "de": "Fahren Sie bitte geradeaus.",
+     "en": "Please go straight."
+    }
+   ],
+   "reply": {
+    "ko": "네 알겠습니다.",
+    "de": "Ja, verstanden.",
+    "en": "Yes, understood."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0041",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "문 좀 열어 주세요.",
+   "de": "Öffnen Sie bitte die Tür.",
+   "en": "Please open the door.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "여기에서 내려 주세요.",
+     "de": "Lassen Sie mich bitte hier raus.",
+     "en": "Please let me out here."
+    }
+   ],
+   "reply": {
+    "ko": "네.",
+    "de": "Ja.",
+    "en": "Okay."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0042",
+   "category": "transport",
+   "level": "a2",
+   "kind": "question",
+   "ko": "표 파는 곳이 어디예요?",
+   "de": "Wo ist der Ticketschalter?",
+   "en": "Where is the ticket counter?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "타는 곳이 어디예요?",
+     "de": "Wo ist der Bahnsteig?",
+     "en": "Where is the platform?"
+    }
+   ],
+   "reply": {
+    "ko": "2층에 있어요.",
+    "de": "Im zweiten Stock.",
+    "en": "On the second floor."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0044",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "question",
+   "ko": "이거 전부 얼마예요?",
+   "de": "Wie viel kostet das alles zusammen?",
+   "en": "How much do these come out to?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "이거 얼마예요?",
+     "de": "Wie viel kostet das?",
+     "en": "How much is this?"
+    }
+   ],
+   "reply": {
+    "ko": "이만 원이에요.",
+    "de": "Das macht 20000 Won.",
+    "en": "They're 20000 won."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0045",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "question",
+   "ko": "저것 좀 보여 주세요.",
+   "de": "Zeigen Sie mir das bitte.",
+   "en": "I would like to take a look at that.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "만져 봐도 돼요?",
+     "de": "Darf ich es anfassen?",
+     "en": "May I touch it?"
+    }
+   ],
+   "reply": {
+    "ko": "네 여기요.",
+    "de": "Ja, bitte sehr.",
+    "en": "Here you go."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0046",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "question",
+   "ko": "더 싼 거 있어요?",
+   "de": "Haben Sie etwas Günstigeres?",
+   "en": "Do you have anything cheaper?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "세일해요?",
+     "de": "Gibt es Rabatt?",
+     "en": "Is it on sale?"
+    }
+   ],
+   "reply": {
+    "ko": "이건 어떠세요?",
+    "de": "Wie wäre es damit?",
+    "en": "How about this one?"
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0047",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "question",
+   "ko": "다른 색 있어요?",
+   "de": "Haben Sie eine andere Farbe?",
+   "en": "Do you have another color?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "다른 사이즈 있어요?",
+     "de": "Haben Sie eine andere Größe?",
+     "en": "Do you have another size?"
+    }
+   ],
+   "reply": {
+    "ko": "검은색도 있어요.",
+    "de": "Es gibt es auch in Schwarz.",
+    "en": "We also have it in black."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0048",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "이걸로 주세요.",
+   "de": "Ich nehme dieses hier.",
+   "en": "I'll take this one.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "포장해 주세요.",
+     "de": "Bitte einpacken.",
+     "en": "Please wrap it up."
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "카드로 하시겠어요?",
+    "de": "Zahlen Sie mit Karte?",
+    "en": "Will you pay by card?"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0049",
+   "category": "shopping",
+   "level": "a1",
+   "kind": "question",
+   "ko": "몇 시에 문을 닫아요?",
+   "de": "Um wie viel Uhr schließen Sie?",
+   "en": "What time do you close?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "몇 시에 문을 열어요?",
+     "de": "Um wie viel Uhr öffnen Sie?",
+     "en": "What time do you open?"
+    }
+   ],
+   "reply": {
+    "ko": "아홉 시에 닫아요.",
+    "de": "Wir schließen um neun.",
+    "en": "We close at nine."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0043",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "조금 비싸요. 깎아 주세요.",
+   "de": "Das ist etwas teuer. Geben Sie mir einen Rabatt?",
+   "en": "That's a bit expensive. Please give me a discount.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "현금으로 하면 깎아 줘요?",
+     "de": "Gibt es Rabatt bei Barzahlung?",
+     "en": "Is there a discount for cash?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그럼 만 팔천 원만 내세요.",
+    "de": "Dann zahlen Sie nur 18000 Won.",
+    "en": "Then give me just 18000 won."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0044",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "question",
+   "ko": "치수가 안 맞아요. 교환할 수 있어요?",
+   "de": "Die Größe passt nicht. Kann ich es umtauschen?",
+   "en": "This size doesn't fit me. Can I exchange it?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "환불할 수 있어요?",
+     "de": "Kann ich es zurückgeben?",
+     "en": "Can I get a refund?"
+    }
+   ],
+   "reply": {
+    "ko": "영수증 있으세요?",
+    "de": "Haben Sie den Kassenbon?",
+    "en": "Do you have the receipt?"
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0045",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "한국 치수를 잘 몰라요.",
+   "de": "Ich kenne die koreanischen Größen nicht gut.",
+   "en": "I don't know my Korean size.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "이거 입어 봐도 돼요?",
+     "de": "Darf ich das anprobieren?",
+     "en": "May I try this on?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "제가 봐 드릴게요.",
+    "de": "Ich helfe Ihnen kurz.",
+    "en": "Let me help you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0046",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "question",
+   "ko": "좋은 선물을 추천해 주세요.",
+   "de": "Empfehlen Sie mir bitte ein schönes Geschenk.",
+   "en": "Please recommend a nice gift.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "요즘 뭐가 인기 있어요?",
+     "de": "Was ist zurzeit beliebt?",
+     "en": "What's popular these days?"
+    }
+   ],
+   "reply": {
+    "ko": "이 차 세트가 인기예요.",
+    "de": "Dieses Tee-Set ist beliebt.",
+    "en": "This tea set is popular."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0047",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "question",
+   "ko": "기념품은 어디에서 팔아요?",
+   "de": "Wo werden Souvenirs verkauft?",
+   "en": "Where can I find souvenirs?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "인사동이 어디예요?",
+     "de": "Wo ist Insa-dong?",
+     "en": "Where is Insa-dong?"
+    }
+   ],
+   "reply": {
+    "ko": "지하 1층에 있어요.",
+    "de": "Im Untergeschoss.",
+    "en": "In the basement."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0048",
+   "category": "shopping",
+   "level": "a2",
+   "kind": "question",
+   "ko": "포장해 주세요.",
+   "de": "Packen Sie es bitte als Geschenk ein.",
+   "en": "Please gift-wrap it.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "봉투 하나 주세요.",
+     "de": "Eine Tüte bitte.",
+     "en": "One bag, please."
+    }
+   ],
+   "reply": {
+    "ko": "네 잠시만요.",
+    "de": "Ja, einen Moment.",
+    "en": "Sure, one moment."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0050",
+   "category": "phone",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "여보세요?",
+   "de": "Hallo? (am Telefon)",
+   "en": "Hello? (on the phone)",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "누구세요?",
+     "de": "Wer spricht da?",
+     "en": "Who is calling?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "저 민수예요.",
+    "de": "Hier ist Minsu.",
+    "en": "This is Minsu."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0051",
+   "category": "phone",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "지금 안 계신데요.",
+   "de": "Er ist gerade nicht da.",
+   "en": "He's not here right now.",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "메모 남겨 드릴까요?",
+     "de": "Soll ich etwas ausrichten?",
+     "en": "Shall I take a message?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그럼 다시 전화 드리겠습니다.",
+    "de": "Dann rufe ich später wieder an.",
+    "en": "Then I'll call back later."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0052",
+   "category": "phone",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "다시 전화 드리겠습니다.",
+   "de": "Ich rufe später wieder an.",
+   "en": "I'll call back later.",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "언제 통화 가능하세요?",
+     "de": "Wann kann ich Sie erreichen?",
+     "en": "When can I reach you?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "네 알겠습니다.",
+    "de": "In Ordnung.",
+    "en": "Okay."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0053",
+   "category": "phone",
+   "level": "a1",
+   "kind": "question",
+   "ko": "다시 말씀해 주세요.",
+   "de": "Wiederholen Sie das bitte.",
+   "en": "Can you repeat that?",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "천천히 말씀해 주세요.",
+     "de": "Sprechen Sie bitte langsamer.",
+     "en": "Please speak slowly."
+    }
+   ],
+   "reply": {
+    "ko": "네 다시 말할게요.",
+    "de": "Ja, ich wiederhole es.",
+    "en": "Sure, I'll repeat it."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "고마워요.",
+    "de": "Danke!",
+    "en": "Thanks!"
+   }
+  },
+  {
+   "id": "smalltalk_a2_0049",
+   "category": "phone",
+   "level": "a2",
+   "kind": "question",
+   "ko": "민수 씨 좀 부탁합니다.",
+   "de": "Könnte ich bitte Minsu sprechen?",
+   "en": "May I speak with Minsu?",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "민수 씨 계세요?",
+     "de": "Ist Minsu da?",
+     "en": "Is Minsu there?"
+    }
+   ],
+   "reply": {
+    "ko": "잠시만 기다리세요.",
+    "de": "Einen Moment bitte.",
+    "en": "One moment please."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "고마워요.",
+    "de": "Danke!",
+    "en": "Thanks!"
+   }
+  },
+  {
+   "id": "smalltalk_a2_0050",
+   "category": "phone",
+   "level": "a2",
+   "kind": "question",
+   "ko": "국제 전화는 어떻게 해요?",
+   "de": "Wie telefoniere ich ins Ausland?",
+   "en": "How do I make an international call?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "전화카드는 어디에서 사요?",
+     "de": "Wo kauft man Telefonkarten?",
+     "en": "Where can I buy a phone card?"
+    }
+   ],
+   "reply": {
+    "ko": "편의점에서 팔아요.",
+    "de": "Die gibt es im Convenience-Store.",
+    "en": "They sell them at convenience stores."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0051",
+   "category": "phone",
+   "level": "a2",
+   "kind": "question",
+   "ko": "영어 할 수 있는 사람 좀 바꿔 주세요.",
+   "de": "Geben Sie mir bitte jemanden, der Englisch spricht.",
+   "en": "Can you put someone who speaks English on the phone?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "독일어 할 수 있는 분 있어요?",
+     "de": "Spricht jemand Deutsch?",
+     "en": "Does anyone speak German?"
+    }
+   ],
+   "reply": {
+    "ko": "네 연결해 드릴게요.",
+    "de": "Ich verbinde Sie.",
+    "en": "I'll connect you."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0052",
+   "category": "phone",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "문자 메시지 보냈어요.",
+   "de": "Ich habe dir eine SMS geschickt.",
+   "en": "I sent you a text message.",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "문자 받았어요?",
+     "de": "Hast du meine Nachricht bekommen?",
+     "en": "Did you get my text?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "지금 확인할게요.",
+    "de": "Ich schaue gleich nach.",
+    "en": "I'll check now."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0054",
+   "category": "emergency",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "도와주세요!",
+   "de": "Helfen Sie mir bitte!",
+   "en": "Please help me!",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "여기 좀 봐 주세요!",
+     "de": "Kommen Sie bitte kurz her!",
+     "en": "Please come here!"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "무슨 일이세요?",
+    "de": "Was ist passiert?",
+    "en": "What happened?"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0055",
+   "category": "emergency",
+   "level": "a1",
+   "kind": "question",
+   "ko": "경찰 좀 불러 주세요.",
+   "de": "Rufen Sie bitte die Polizei.",
+   "en": "Please call the police.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "112에 전화해 주세요.",
+     "de": "Rufen Sie bitte die 112 an.",
+     "en": "Please call 112."
+    }
+   ],
+   "reply": {
+    "ko": "바로 부를게요.",
+    "de": "Ich rufe sofort an.",
+    "en": "I'll call right away."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0056",
+   "category": "emergency",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "병원에 가고 싶어요.",
+   "de": "Ich muss ins Krankenhaus.",
+   "en": "I need to go to the hospital.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "구급차 좀 불러 주세요.",
+     "de": "Rufen Sie bitte einen Krankenwagen.",
+     "en": "Please call an ambulance."
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "119에 전화할게요.",
+    "de": "Ich rufe die 119 an.",
+    "en": "I'll call 119."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0057",
+   "category": "emergency",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "가방을 잃어버렸어요.",
+   "de": "Ich habe meine Tasche verloren.",
+   "en": "I lost my bag.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "분실물 센터가 어디예요?",
+     "de": "Wo ist das Fundbüro?",
+     "en": "Where is the lost and found?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "언제 잃어버리셨어요?",
+    "de": "Wann haben Sie sie verloren?",
+    "en": "When did you lose it?"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0058",
+   "category": "emergency",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "지갑을 잃어버렸어요.",
+   "de": "Ich habe meinen Geldbeutel verloren.",
+   "en": "I lost my wallet.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "카드를 정지하고 싶어요.",
+     "de": "Ich möchte meine Karte sperren lassen.",
+     "en": "I want to block my card."
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "경찰서에 신고하세요.",
+    "de": "Melden Sie es bei der Polizeiwache.",
+    "en": "Report it to the police station."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0053",
+   "category": "emergency",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "여권을 잃어버렸어요.",
+   "de": "Ich habe meinen Reisepass verloren.",
+   "en": "I lost my passport.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "대사관이 어디에 있어요?",
+     "de": "Wo ist die Botschaft?",
+     "en": "Where is the embassy?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "대사관에 연락하세요.",
+    "de": "Kontaktieren Sie die Botschaft.",
+    "en": "Contact the embassy."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0054",
+   "category": "emergency",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "휴대전화를 잃어버렸어요.",
+   "de": "Ich habe mein Handy verloren.",
+   "en": "I lost my cell phone.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "전화 좀 빌릴 수 있어요?",
+     "de": "Darf ich kurz Ihr Telefon benutzen?",
+     "en": "May I borrow your phone?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "네 쓰세요.",
+    "de": "Ja, bitte.",
+    "en": "Sure, go ahead."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0055",
+   "category": "emergency",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "도난 신고를 하고 싶어요.",
+   "de": "Ich möchte einen Diebstahl melden.",
+   "en": "I want to report a theft.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "여행자 보험이 있어요.",
+     "de": "Ich habe eine Reiseversicherung.",
+     "en": "I have traveler's insurance."
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "서류를 작성해 주세요.",
+    "de": "Füllen Sie bitte das Formular aus.",
+    "en": "Please fill out the form."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0059",
+   "category": "travel",
+   "level": "a1",
+   "kind": "question",
+   "ko": "사진 좀 찍어 주시겠어요?",
+   "de": "Könnten Sie ein Foto von uns machen?",
+   "en": "Do you mind taking a picture of us?",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "한 장 더 찍어 주세요.",
+     "de": "Bitte noch ein Foto.",
+     "en": "Please take one more picture."
+    }
+   ],
+   "reply": {
+    "ko": "네 찍습니다. 하나 둘 셋!",
+    "de": "Ja, Achtung. Eins, zwei, drei!",
+    "en": "Okay, one two three!"
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "고마워요.",
+    "de": "Danke!",
+    "en": "Thanks!"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0060",
+   "category": "travel",
+   "level": "a1",
+   "kind": "question",
+   "ko": "여기서 사진 찍어도 돼요?",
+   "de": "Darf man hier fotografieren?",
+   "en": "Can I take pictures here?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "입장료가 있어요?",
+     "de": "Kostet der Eintritt etwas?",
+     "en": "Is there an admission fee?"
+    }
+   ],
+   "reply": {
+    "ko": "네 괜찮아요.",
+    "de": "Ja, kein Problem.",
+    "en": "Yes, it's fine."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0061",
+   "category": "travel",
+   "level": "a1",
+   "kind": "question",
+   "ko": "걸어서 갈 수 있어요?",
+   "de": "Kann man zu Fuß hingehen?",
+   "en": "Can I get there on foot?",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "여기에서 멀어요?",
+     "de": "Ist es weit von hier?",
+     "en": "Is it far from here?"
+    }
+   ],
+   "reply": {
+    "ko": "십 분쯤 걸려요.",
+    "de": "Etwa zehn Minuten.",
+    "en": "About ten minutes."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "고마워요.",
+    "de": "Danke!",
+    "en": "Thanks!"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0062",
+   "category": "travel",
+   "level": "a1",
+   "kind": "question",
+   "ko": "이 근처에 공원 있어요?",
+   "de": "Gibt es hier in der Nähe einen Park?",
+   "en": "Is there a park nearby?",
+   "relationshipContext": "peer",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "박물관이 어디에 있어요?",
+     "de": "Wo ist das Museum?",
+     "en": "Where is the museum?"
+    }
+   ],
+   "reply": {
+    "ko": "네 바로 저기예요.",
+    "de": "Ja, gleich dort drüben.",
+    "en": "Yes, right over there."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "고마워요.",
+    "de": "Danke!",
+    "en": "Thanks!"
+   }
+  },
+  {
+   "id": "smalltalk_a1_0063",
+   "category": "food",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "여기요!",
+   "de": "Entschuldigung! (Bedienung rufen)",
+   "en": "Excuse me! (calling a waiter)",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "주문할게요.",
+     "de": "Ich möchte bestellen.",
+     "en": "I'd like to order."
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "네 갑니다.",
+    "de": "Komme sofort.",
+    "en": "Coming right away."
+   }
+  },
+  {
+   "id": "smalltalk_a1_0064",
+   "category": "food",
+   "level": "a1",
+   "kind": "question",
+   "ko": "삼계탕하고 비빔밥 주세요.",
+   "de": "Einmal Samgyetang und einmal Bibimbap bitte.",
+   "en": "We'll have samgyetang and bibimbap please.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "차림표 좀 주세요.",
+     "de": "Die Speisekarte bitte.",
+     "en": "May I have a menu?"
+    }
+   ],
+   "reply": {
+    "ko": "네 알겠습니다.",
+    "de": "Ja, gerne.",
+    "en": "Coming right up."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0056",
+   "category": "food",
+   "level": "a2",
+   "kind": "question",
+   "ko": "고추장 빼 주세요.",
+   "de": "Bitte ohne Gochujang.",
+   "en": "Please leave out the gochujang.",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "안 맵게 해 주세요.",
+     "de": "Bitte nicht scharf.",
+     "en": "Not spicy, please."
+    }
+   ],
+   "reply": {
+    "ko": "네 그렇게 해 드릴게요.",
+    "de": "Machen wir so.",
+    "en": "We'll do that."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
+   }
+  },
+  {
+   "id": "smalltalk_a2_0057",
+   "category": "food",
+   "level": "a2",
+   "kind": "question",
+   "ko": "여기서 제일 인기 있는 음식이 뭐예요?",
+   "de": "Was ist hier das beliebteste Gericht?",
+   "en": "What is the most popular dish here?",
+   "relationshipContext": "service",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "뭐가 맛있어요?",
+     "de": "Was können Sie empfehlen?",
+     "en": "What do you recommend?"
+    }
+   ],
+   "reply": {
+    "ko": "삼계탕이 유명해요.",
+    "de": "Das Samgyetang ist bekannt.",
+    "en": "The samgyetang is famous."
+   },
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "감사합니다.",
+    "de": "Danke schön.",
+    "en": "Thank you."
    }
   }
  ]

@@ -18,8 +18,8 @@ void main() {
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(145));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 145);
+    expect(phrases, hasLength(193));
+    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 193);
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();
