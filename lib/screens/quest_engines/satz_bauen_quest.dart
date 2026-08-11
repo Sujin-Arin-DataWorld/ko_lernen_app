@@ -457,9 +457,12 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                     ],
                   ),
                 ),
+                // top -56: 새(72px)가 카드 **윗모서리에 앉은** 실루엣 — 발끝
+                // ~16px 만 카드에 걸친다. -30 은 몸 절반이 카드 안으로 들어와
+                // "오른쪽 중간에 걸쳐 있다"로 읽혔다(2026-08-12 Jin 실기기).
                 Positioned(
-                  top: -30,
-                  right: 10,
+                  top: -56,
+                  right: 14,
                   child: MascotPartner(
                     celebrating: _celebrated,
                     size: 72,

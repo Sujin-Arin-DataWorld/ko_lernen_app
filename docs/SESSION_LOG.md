@@ -114,6 +114,22 @@ Store 문구와 TestFlight 베타 문구, `AGENTS.md`의 현재 데이터 수치
 
 ---
 
+### 2026-08-12 (Claude) — 실기기 피드백 5건: 까치 앉힘·Anlaut 정답노출 196건 차단·효과음/버스트·Silben 간격+코치
+
+**왜.** Jin 실기기(M2101K6G) 확인 5건: ① 까치가 카드 "오른쪽 중간에 걸침" ② Anlaut-Quiz 정답 전체 노출 재발("전수조사해봐") ③ 정답음 날카로움 + 동전·복주머니 버스트 작음 ④ Silben-Kreuz 다닥다닥+안내 없음 ⑤ Satz bauen 목소리 구버전(→ TTS 생성 재개 필요, 코드 무관).
+
+**무엇을.**
+- `satz_bauen_quest.dart`: 까치 top −30→**−56**(발끝 ~16px만 카드에 — "앉은" 실루엣), right 14.
+- `chosung_quiz_screen.dart`: **전수조사 = 930단어 중 196개(A1 62/211)가 전 음절 무받침** → 쉬움 모드(초성+모음) 힌트가 정답 전체를 노출. `fullyRevealedByChosungVowel()` 추가, `buildPattern()`이 그런 단어를 초성으로 자동 강등. `hangul_game_logic_test.dart`에 회귀 고정.
+- 정답 연출: `correct.wav` lowpass 3.8kHz+0.85 볼륨(원본 `assets_unused/sfx_originals/` 백업, 파일명 유지라 코드 무수정) · `mascot_pop.dart` DancheongBurst **intensity 1.35**(뷰포트 클램프로 안전).
+- `silben_kreuz_screen.dart`: 격자 gap 6→10·타일풀 8→12·섹션 md→lg + **첫 방문 코치 3스텝**(ScreenCoachMixin, coachId `silben_kreuz`) — arb DE/EN `coachSilbenStep1~3` 6키 + gen-l10n.
+
+**검증.** analyze 4파일 0 · `flutter test` hangul 로직 6/6 + silben·arb 가드·satz·mascot **28/28** 통과. 실기기 확인 항목: 까치 앉음새, 무받침 단어(예: 모르다→ㅁ ㄹ ㄷ) 힌트, 버스트 크기, Silben 코치 1회 노출.
+
+**참고.** ⑤는 중단된 `generate_tts.py` 재실행으로 해결(재실행 안전 — 만든 것 스킵). API 키(.env `GOOGLE_TTS_API_KEY(_2)`) 쓰면 gcloud 1h 토큰 만료 없음.
+
+---
+
 ### 2026-08-12 (Claude) — TTS 사전생성 §7 satz 목표문장 + 예문 톤 감사
 
 **왜.** Jin: "Hören·Grammatik·Szenarien·Lückentext·Wortkette 아직 옛날 tts" + "Satz bauen 예문이 촌스럽다". 조사 결과 5개 화면 소스는 이미 수집돼 있었고(2026-08-11 §3~6; Hören 은 §2 시나리오 대화를 동일 화자 규칙으로 재생), 실제 갭은 **Satz bauen 목표문장 55/191 누락**(CSV 예문과 문자열 상이 → 캐시 미스 → OS 로봇 음성 폴백) — 이것이 "옛날 음성/촌스러움" 체감의 원인.

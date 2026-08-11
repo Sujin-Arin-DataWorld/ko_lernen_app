@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart'
+    show HintMode, buildPattern, fullyRevealedByChosungVowel;
 import 'package:ko_lernen_app/services/hangul_util.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
 
@@ -10,6 +12,26 @@ void main() {
       expect(extractChosung('안녕하세요'), 'ㅇㄴㅎㅅㅇ');
       expect(extractChosung('한국 말'), 'ㅎㄱ ㅁ');
       expect(extractChosung('K-pop 한국어!'), ' ㅎㄱㅇ');
+    });
+
+    // 2026-08-12 전수조사: 전 음절 무받침 단어 196/930(A1 62/211)는 초성+모음
+    // 힌트가 정답 전체를 노출했다(모르다 → ㅁㅗ ㄹㅡ ㄷㅏ). 쉬움 모드에서도
+    // 그런 단어는 초성으로 강등되어야 한다 — 회귀 고정.
+    test('Anlaut-Hinweis darf die Antwort nie vollständig zeigen', () {
+      expect(fullyRevealedByChosungVowel('모르다'), isTrue);
+      expect(fullyRevealedByChosungVowel('나라'), isTrue);
+      expect(fullyRevealedByChosungVowel('한국'), isFalse);
+
+      // 무받침 → 쉬움 모드에서도 초성만.
+      expect(buildPattern('모르다', HintMode.chosungVowel), 'ㅁ ㄹ ㄷ');
+      expect(buildPattern('나라', HintMode.chosungVowel), 'ㄴ ㄹ');
+
+      // 받침이 있으면 쉬움 모드 유지(모음 공개, 받침은 숨김).
+      expect(buildPattern('한국', HintMode.chosungVowel), 'ㅎㅏ ㄱㅜ');
+      expect(buildPattern('안녕', HintMode.chosungVowel), 'ㅇㅏ ㄴㅕ');
+
+      // hard 모드는 언제나 초성만.
+      expect(buildPattern('모르다', HintMode.chosung), 'ㅁ ㄹ ㄷ');
     });
 
     test('hangulLength and isPureHangul classify learner input', () {

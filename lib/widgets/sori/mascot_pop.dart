@@ -155,7 +155,9 @@ class _MascotPartnerState extends State<MascotPartner>
     // 발사 시차가 만들므로, 여기서 여러 번 쏘면 통짜 시트가 겹쳐 뭉개진다.
     final origin = _center();
     if (origin != null) {
-      DancheongBurst.fire(context, origin: origin);
+      // intensity 1.35: 기본 1.0 이 "동전·복주머니가 너무 작다"(2026-08-12 Jin
+      // 실기기). 레이아웃이 뷰포트에 맞게 클램프하므로 좁은 폰에서도 안전.
+      DancheongBurst.fire(context, origin: origin, intensity: 1.35);
     }
 
     // 햅틱은 시트 두 장의 타이밍에 맞춰 두 번 — 파박을 촉각으로 완성한다.

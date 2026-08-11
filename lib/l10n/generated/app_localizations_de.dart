@@ -3999,6 +3999,27 @@ class AppL10nDe extends AppL10n {
       'Gib das vollständige koreanische Wort ein und bestätige';
 
   @override
+  String get coachSilbenStep1Title => 'Silben-Kreuzworträtsel';
+
+  @override
+  String get coachSilbenStep1Body =>
+      'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort — Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt';
+
+  @override
+  String get coachSilbenStep2Title => 'Hinweise lesen';
+
+  @override
+  String get coachSilbenStep2Body =>
+      'Pfeil = Richtung im Gitter. Bedeutung und Beispielsatz helfen — ○○ steht für das gesuchte Wort';
+
+  @override
+  String get coachSilbenStep3Title => 'Silben antippen';
+
+  @override
+  String get coachSilbenStep3Body =>
+      'Tippe unten eine Silbe, um die ausgewählte Zelle zu füllen. Richtige rasten grün ein, falsche schütteln kurz';
+
+  @override
   String get coachWordleStep1Title => '6 Versuche';
 
   @override

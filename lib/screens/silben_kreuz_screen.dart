@@ -14,6 +14,8 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
@@ -31,7 +33,8 @@ class SilbenKreuzScreen extends StatefulWidget {
   State<SilbenKreuzScreen> createState() => _SilbenKreuzScreenState();
 }
 
-class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
+class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
+    with ScreenCoachMixin<SilbenKreuzScreen> {
   static const _levels = ['A1', 'A2', 'B1', 'B2'];
   static const _xpPerPuzzle = 30;
 
@@ -48,6 +51,42 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
   (int, int)? _selected;
   bool _solved = false;
   int _wrongTick = 0;
+
+  // ── 첫 방문 코치마크 (chosung_quiz_screen 과 동일 패턴) ──
+  final GlobalKey _gridKey = GlobalKey();
+  final GlobalKey _cluesKey = GlobalKey();
+  final GlobalKey _poolKey = GlobalKey();
+
+  @override
+  String get coachId => 'silben_kreuz';
+
+  @override
+  bool get coachReady => _puzzle != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _gridKey,
+        title: t.coachSilbenStep1Title,
+        body: t.coachSilbenStep1Body,
+        icon: Icons.grid_4x4_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _cluesKey,
+        title: t.coachSilbenStep2Title,
+        body: t.coachSilbenStep2Body,
+        icon: Icons.menu_book_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _poolKey,
+        title: t.coachSilbenStep3Title,
+        body: t.coachSilbenStep3Body,
+        icon: Icons.touch_app_rounded,
+      ),
+    ];
+  }
 
   static String _progressKey(String level) => 'skz_${level.toLowerCase()}';
 
@@ -238,12 +277,15 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
                     children: [
                       _levelPicker(s),
                       const SizedBox(height: Spacing.md),
-                      _grid(p, s),
-                      const SizedBox(height: Spacing.md),
-                      if (!_solved) _tilePool(p, s),
+                      // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥" 붙어
+                      // 무엇을 하는 화면인지 안 읽혔다(2026-08-12 Jin 실기기).
+                      KeyedSubtree(key: _gridKey, child: _grid(p, s)),
+                      const SizedBox(height: Spacing.lg),
+                      if (!_solved)
+                        KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
                       if (_solved) _solvedCard(t),
-                      const SizedBox(height: Spacing.md),
-                      _clues(p, s),
+                      const SizedBox(height: Spacing.lg),
+                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
                     ],
                   ),
                 ),
@@ -298,7 +340,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
   Widget _grid(SilbenPuzzle p, SoriSurfaces s) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        const gap = 6.0;
+        // gap 6→10: 셀이 붙어 보여 교차 구조가 안 읽혔다(2026-08-12 Jin).
+        const gap = 10.0;
         final cell = math.min(
           52.0,
           (constraints.maxWidth - (p.cols - 1) * gap) / p.cols,
@@ -388,8 +431,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen> {
   Widget _tilePool(SilbenPuzzle p, SoriSurfaces s) {
     return Wrap(
       alignment: WrapAlignment.center,
-      spacing: 8,
-      runSpacing: 8,
+      // 8→12: 음절 타일이 다닥다닥 붙어 낱개 선택지로 안 보였다.
+      spacing: 12,
+      runSpacing: 12,
       children: [
         for (var i = 0; i < p.pool.length; i++)
           AnimatedOpacity(

@@ -142,15 +142,36 @@ String extractChosung(String word) {
 ///   e.g. "ㄱㅟ ㅇㅕ ㄷㅏ") — keeps user guessing the final but reveals vowels.
 enum HintMode { chosung, chosungVowel }
 
+/// 받침이 하나도 없는 단어는 초성+모음 힌트가 곧 단어 전체다
+/// (예: 모르다 → "ㅁㅗ ㄹㅡ ㄷㅏ" = 정답 노출). 2026-08-12 전수조사:
+/// 930개 중 196개(A1 62/211)가 해당 — 쉬움 모드에서도 초성만 보여야 한다.
+bool fullyRevealedByChosungVowel(String word) {
+  var hasHangul = false;
+  for (final r in word.runes) {
+    if (r >= 0xAC00 && r <= 0xD7A3) {
+      hasHangul = true;
+      if ((r - 0xAC00) % 28 != 0) {
+        return false; // 받침 있는 음절 → 힌트가 정답을 다 드러내지 않음
+      }
+    }
+  }
+  return hasHangul;
+}
+
 /// Build the displayed pattern based on hint mode.
 String buildPattern(String word, HintMode mode) {
+  // 쉬움 모드라도 정답이 통째로 노출되는 단어(전 음절 무받침)는 초성으로 강등.
+  final effective =
+      (mode == HintMode.chosungVowel && fullyRevealedByChosungVowel(word))
+      ? HintMode.chosung
+      : mode;
   final parts = <String>[];
   for (final r in word.runes) {
     if (r >= 0xAC00 && r <= 0xD7A3) {
       final idx = r - 0xAC00;
       final cho = _chosungTable[idx ~/ 588];
       final jung = _jungsungTable[(idx % 588) ~/ 28];
-      switch (mode) {
+      switch (effective) {
         case HintMode.chosung:
           parts.add(cho);
         case HintMode.chosungVowel:

@@ -6973,6 +6973,42 @@ abstract class AppL10n {
   /// **'Gib das vollständige koreanische Wort ein und bestätige'**
   String get coachChosungStep3Body;
 
+  /// No description provided for @coachSilbenStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben-Kreuzworträtsel'**
+  String get coachSilbenStep1Title;
+
+  /// No description provided for @coachSilbenStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort — Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt'**
+  String get coachSilbenStep1Body;
+
+  /// No description provided for @coachSilbenStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweise lesen'**
+  String get coachSilbenStep2Title;
+
+  /// No description provided for @coachSilbenStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Pfeil = Richtung im Gitter. Bedeutung und Beispielsatz helfen — ○○ steht für das gesuchte Wort'**
+  String get coachSilbenStep2Body;
+
+  /// No description provided for @coachSilbenStep3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben antippen'**
+  String get coachSilbenStep3Title;
+
+  /// No description provided for @coachSilbenStep3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe unten eine Silbe, um die ausgewählte Zelle zu füllen. Richtige rasten grün ein, falsche schütteln kurz'**
+  String get coachSilbenStep3Body;
+
   /// No description provided for @coachWordleStep1Title.
   ///
   /// In de, this message translates to:

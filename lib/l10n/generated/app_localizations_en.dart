@@ -3981,6 +3981,27 @@ class AppL10nEn extends AppL10n {
   String get coachChosungStep3Body => 'Type the full Korean word and confirm';
 
   @override
+  String get coachSilbenStep1Title => 'Syllable crossword';
+
+  @override
+  String get coachSilbenStep1Body =>
+      'Fill the grid: each row is a Korean word — words cross at shared syllables. The red cell is selected';
+
+  @override
+  String get coachSilbenStep2Title => 'Read the clues';
+
+  @override
+  String get coachSilbenStep2Body =>
+      'Arrow = direction in the grid. Meaning and example sentence help — ○○ hides the target word';
+
+  @override
+  String get coachSilbenStep3Title => 'Tap syllables';
+
+  @override
+  String get coachSilbenStep3Body =>
+      'Tap a syllable below to fill the selected cell. Correct ones lock in green, wrong ones shake';
+
+  @override
   String get coachWordleStep1Title => '6 attempts';
 
   @override
