@@ -173,19 +173,33 @@ class SoriButton extends StatelessWidget {
           SizedBox(width: Spacing.sm * comfortScale),
         ],
         Flexible(
-          child: Text(
-            label,
-            maxLines: maxLines,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              color: fg,
-              fontWeight: FontWeight.w700,
-              fontSize: visualFontSize,
-              letterSpacing: -0.2,
-              height: 1.2,
-            ),
-          ),
+          // 좁은 폭에서 라벨을 잘라내지(ellipsis) 않고 살짝 축소해 전체 단어를
+          // 보존한다(단일 라인 한정). 독일어처럼 긴 라벨이 고정폭 버튼(균등 1/3
+          // nav 행 등)에서 "Zurü…"로 잘리던 문제를 근본 해결 — 여유 있으면
+          // scaleDown 이 자연 크기를 그대로 두므로 기존 버튼은 시각 불변.
+          child: () {
+            final text = Text(
+              label,
+              maxLines: maxLines,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                color: fg,
+                fontWeight: FontWeight.w700,
+                fontSize: visualFontSize,
+                letterSpacing: -0.2,
+                height: 1.2,
+              ),
+            );
+            return maxLines == 1
+                ? FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.center,
+                    child: text,
+                  )
+                : text;
+          }(),
         ),
         if (trailingIcon != null) ...[
           SizedBox(width: Spacing.sm * comfortScale),
