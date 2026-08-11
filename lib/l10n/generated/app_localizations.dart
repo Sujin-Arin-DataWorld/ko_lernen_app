@@ -5578,13 +5578,13 @@ abstract class AppL10n {
   /// No description provided for @pathStatusCurrent.
   ///
   /// In de, this message translates to:
-  /// **'Jetzt'**
+  /// **'weiter'**
   String get pathStatusCurrent;
 
   /// No description provided for @pathStatusCompleted.
   ///
   /// In de, this message translates to:
-  /// **'Erledigt'**
+  /// **'fertig'**
   String get pathStatusCompleted;
 
   /// No description provided for @pathStatusBypassed.
@@ -5596,8 +5596,26 @@ abstract class AppL10n {
   /// No description provided for @pathStatusNext.
   ///
   /// In de, this message translates to:
-  /// **'Als Nächstes'**
+  /// **'später'**
   String get pathStatusNext;
+
+  /// No description provided for @pathCompletedCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Kann ich: {canDo}'**
+  String pathCompletedCanDo(Object canDo);
+
+  /// No description provided for @pathCurrentCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt: {canDo}'**
+  String pathCurrentCanDo(Object canDo);
+
+  /// No description provided for @pathNextAfterEvidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes nach deinem Beweis'**
+  String get pathNextAfterEvidence;
 
   /// No description provided for @pathShowMorePractice.
   ///
@@ -6256,13 +6274,13 @@ abstract class AppL10n {
   /// No description provided for @discoverSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Scanne, schlage etwas nach, höre zu oder mach eine kurze Übungspause. Entdecken ersetzt nie deinen heutigen Lernschritt.'**
+  /// **'Scannen, nachschlagen, hören oder eine kleine Pause machen.'**
   String get discoverSubtitle;
 
   /// No description provided for @discoverSearchHint.
   ///
   /// In de, this message translates to:
-  /// **'Suchen: Aussprache, Buch, OCR …'**
+  /// **'Suchen: z. B. Aussprache, Buch, OCR …'**
   String get discoverSearchHint;
 
   /// No description provided for @discoverStartHere.
@@ -6346,7 +6364,7 @@ abstract class AppL10n {
   /// No description provided for @discoverPriorityBookBody.
   ///
   /// In de, this message translates to:
-  /// **'Fotografiere eine Buchseite und lerne direkt mit ihrem Text.'**
+  /// **'Text aus deinem Lehrbuch verstehen'**
   String get discoverPriorityBookBody;
 
   /// No description provided for @discoverPriorityPronunciationTitle.
@@ -6358,7 +6376,7 @@ abstract class AppL10n {
   /// No description provided for @discoverPriorityPronunciationBody.
   ///
   /// In de, this message translates to:
-  /// **'Höre genau hin und übe koreanische Laute im Kontext.'**
+  /// **'Laute langsam vergleichen'**
   String get discoverPriorityPronunciationBody;
 
   /// No description provided for @discoverPriorityWordsTitle.
@@ -6370,7 +6388,7 @@ abstract class AppL10n {
   /// No description provided for @discoverPriorityWordsBody.
   ///
   /// In de, this message translates to:
-  /// **'Schlage ein Wort nach oder öffne deine gespeicherte Sammlung.'**
+  /// **'Gespeicherte Wörter wiederfinden'**
   String get discoverPriorityWordsBody;
 
   /// No description provided for @navLearn.
@@ -6802,19 +6820,19 @@ abstract class AppL10n {
   /// No description provided for @practiceEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Üben nach deinem Bedarf'**
+  /// **'Ohne Tagesmission'**
   String get practiceEyebrow;
 
   /// No description provided for @practiceTitle.
   ///
   /// In de, this message translates to:
-  /// **'Was möchtest du gerade festigen?'**
+  /// **'Was willst du gerade festigen?'**
   String get practiceTitle;
 
   /// No description provided for @practiceSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Wähle zuerst ein Bedürfnis. Dein einziger nächster Lernschritt bleibt auf Start.'**
+  /// **'Wähle eine Absicht, nicht erst ein Spiel.'**
   String get practiceSubtitle;
 
   /// No description provided for @practiceDueTitle.
@@ -6828,6 +6846,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Öffne eine Wiederholung, wann du möchtest'**
   String get practiceDueEmpty;
+
+  /// No description provided for @practiceDueContext.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{Keine Wörter warten auf Kontext} =1{1 Wort wartet auf Kontext} other{{count} Wörter warten auf Kontext}}'**
+  String practiceDueContext(int count);
+
+  /// No description provided for @practiceWordsPurposeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Wörter öffnen'**
+  String get practiceWordsPurposeTitle;
 
   /// No description provided for @practiceSecLearn.
   ///
@@ -6862,13 +6892,13 @@ abstract class AppL10n {
   /// No description provided for @practiceFreeDescription.
   ///
   /// In de, this message translates to:
-  /// **'Wortkette, Buchstaben und kurze Spiele'**
+  /// **'Wortkette, Buchstaben, kurze Spiele'**
   String get practiceFreeDescription;
 
   /// No description provided for @practiceWordsDescription.
   ///
   /// In de, this message translates to:
-  /// **'Gespeicherte Wörter und Bücher öffnen'**
+  /// **'Gespeicherte Wörter und Bücher'**
   String get practiceWordsDescription;
 
   /// No description provided for @practiceAllActivities.
@@ -6886,13 +6916,13 @@ abstract class AppL10n {
   /// No description provided for @pathEvidenceTitle.
   ///
   /// In de, this message translates to:
-  /// **'Woran du echten Fortschritt erkennst'**
+  /// **'Woran du Fortschritt erkennst'**
   String get pathEvidenceTitle;
 
   /// No description provided for @pathEvidenceBody.
   ///
   /// In de, this message translates to:
-  /// **'Freies Ansehen speichert nur Verlauf. Ein Kursabschnitt wird erst durch seine aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung bestätigt.'**
+  /// **'Freies Ansehen zählt als Verlauf. Sicher wird ein Abschnitt erst durch die passende aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung.'**
   String get pathEvidenceBody;
 
   /// No description provided for @coachBookTitle.
@@ -9127,6 +9157,12 @@ abstract class AppL10n {
   /// **'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.'**
   String get hanokWorldEarlyBody;
 
+  /// No description provided for @hanokWorldEarlyVerifiedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fundament steht: {canDo}'**
+  String hanokWorldEarlyVerifiedBody(Object canDo);
+
   /// No description provided for @hanokWorldMapEyebrow.
   ///
   /// In de, this message translates to:
@@ -9154,8 +9190,14 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldNextBeamTitle.
   ///
   /// In de, this message translates to:
-  /// **'Nächster Balken in deinem Bauplan'**
+  /// **'Als Nächstes: der nächste Balken'**
   String get hanokWorldNextBeamTitle;
+
+  /// No description provided for @hanokWorldExploreHouse.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Haus erkunden'**
+  String get hanokWorldExploreHouse;
 
   /// No description provided for @hanokWorldSafeSceneProgress.
   ///
@@ -9220,7 +9262,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldPlacesTitle.
   ///
   /// In de, this message translates to:
-  /// **'Orte in deiner Hanok'**
+  /// **'Orte als Liste anzeigen'**
   String get hanokWorldPlacesTitle;
 
   /// No description provided for @hanokWorldPlacesBody.
@@ -9232,73 +9274,73 @@ abstract class AppL10n {
   /// No description provided for @hanokMapPlaceSarangbang.
   ///
   /// In de, this message translates to:
-  /// **'Sarangbang\nHeute lernen'**
+  /// **'사랑방\nHeute lernen'**
   String get hanokMapPlaceSarangbang;
 
   /// No description provided for @hanokMapPlaceDaecheong.
   ///
   /// In de, this message translates to:
-  /// **'Daecheong\nDein Weg'**
+  /// **'대청마루\nDein Weg'**
   String get hanokMapPlaceDaecheong;
 
   /// No description provided for @hanokMapPlaceHaengrang.
   ///
   /// In de, this message translates to:
-  /// **'Haengrang\nÜben'**
+  /// **'행랑채\nÜben'**
   String get hanokMapPlaceHaengrang;
 
   /// No description provided for @hanokMapPlaceAnchae.
   ///
   /// In de, this message translates to:
-  /// **'Anchae\nWörter'**
+  /// **'안채\nWörter'**
   String get hanokMapPlaceAnchae;
 
   /// No description provided for @hanokMapPlaceHuwon.
   ///
   /// In de, this message translates to:
-  /// **'Huwon\nAufgaben'**
+  /// **'후원\nAufgaben'**
   String get hanokMapPlaceHuwon;
 
   /// No description provided for @hanokMapPlaceSadang.
   ///
   /// In de, this message translates to:
-  /// **'Sadang\nErfolge'**
+  /// **'사당\nErfolge'**
   String get hanokMapPlaceSadang;
 
   /// No description provided for @hanokZoneSarangbang.
   ///
   /// In de, this message translates to:
-  /// **'Sarangbang · heutiges Lernen'**
+  /// **'사랑방 · Deine heutige Szene'**
   String get hanokZoneSarangbang;
 
   /// No description provided for @hanokZoneDaecheong.
   ///
   /// In de, this message translates to:
-  /// **'Daecheongmaru · Lernpfad'**
+  /// **'대청마루 · Dein Weg'**
   String get hanokZoneDaecheong;
 
   /// No description provided for @hanokZoneHaengrang.
   ///
   /// In de, this message translates to:
-  /// **'Haengrangchae · Üben'**
+  /// **'행랑채 · Üben'**
   String get hanokZoneHaengrang;
 
   /// No description provided for @hanokZoneAnchae.
   ///
   /// In de, this message translates to:
-  /// **'Anchae · meine Sammlung'**
+  /// **'안채 · Meine Wörter'**
   String get hanokZoneAnchae;
 
   /// No description provided for @hanokZoneHuwon.
   ///
   /// In de, this message translates to:
-  /// **'Huwon · Tagesziel'**
+  /// **'후원 · Aufgaben'**
   String get hanokZoneHuwon;
 
   /// No description provided for @hanokZoneSadang.
   ///
   /// In de, this message translates to:
-  /// **'Sadang · Erfolge'**
+  /// **'사당 · Erfolge'**
   String get hanokZoneSadang;
 
   /// No description provided for @hanokWorldPurposeSarangbang.
@@ -9460,7 +9502,7 @@ abstract class AppL10n {
   /// No description provided for @sarangbangStudySceneLabel.
   ///
   /// In de, this message translates to:
-  /// **'Deine Studierstube'**
+  /// **'Dein Lernzimmer'**
   String get sarangbangStudySceneLabel;
 
   /// No description provided for @sarangbangStudyFurnish.
@@ -9478,7 +9520,7 @@ abstract class AppL10n {
   /// No description provided for @sarangbangFurnishBody.
   ///
   /// In de, this message translates to:
-  /// **'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Lernbelohnungen.'**
+  /// **'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Belohnungen.'**
   String get sarangbangFurnishBody;
 
   /// No description provided for @sarangbangStoredTitle.
@@ -9510,6 +9552,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zur heutigen Szene'**
   String get sarangbangOpenToday;
+
+  /// No description provided for @sarangbangReturnCourtyard.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Hof'**
+  String get sarangbangReturnCourtyard;
 
   /// No description provided for @personalRoomAnbangTitle.
   ///

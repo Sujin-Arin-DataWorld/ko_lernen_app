@@ -263,6 +263,10 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     });
   }
 
+  Future<void> _openCourtyard() async {
+    await Navigator.of(context).pushNamed('/hanok');
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -322,17 +326,12 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           builder: (context, constraints) {
                             final todayLink = KeyedSubtree(
                               key: const ValueKey('sarangbang-today-link'),
-                              child: _SarangbangArrivalCard(
-                                receipt: _receipt,
-                                canOpen:
-                                    _snapshot?.pick != null ||
-                                    _snapshot?.destination != null,
-                                onOpen: _openRecommendation,
-                              ),
+                              child: _SarangbangArrivalCard(receipt: _receipt),
                             );
                             final room = _SarangbangStudyScene(
                               placements: _placements,
                               owned: _ownedDecor,
+                              expression: _receipt.latestSafeExpressionKo,
                             );
                             final furnishing = _SarangbangFurnishCard(
                               onFurnish: _openFurnish,
@@ -372,6 +371,14 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                             );
                           },
                         ),
+                        const SizedBox(height: Spacing.lg),
+                        _SarangbangReturnActions(
+                          canOpenToday:
+                              _snapshot?.pick != null ||
+                              _snapshot?.destination != null,
+                          onOpenToday: _openRecommendation,
+                          onReturnToCourtyard: _openCourtyard,
+                        ),
                       ],
                     ),
                   ),
@@ -383,18 +390,12 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
 }
 
 /// Unlike Home's mission hero, this card does not restate a competing next
-/// action. It is an arrival record in the room, with an intentionally weaker
-/// link back to the already chosen scene.
+/// action. It is only an arrival record; navigation stays after the room and
+/// furnishing surfaces so this revisit does not duplicate the Home mission.
 class _SarangbangArrivalCard extends StatelessWidget {
-  const _SarangbangArrivalCard({
-    required this.receipt,
-    required this.canOpen,
-    required this.onOpen,
-  });
+  const _SarangbangArrivalCard({required this.receipt});
 
   final HanokLearningReceipt receipt;
-  final bool canOpen;
-  final VoidCallback onOpen;
 
   @override
   Widget build(BuildContext context) {
@@ -410,23 +411,13 @@ class _SarangbangArrivalCard extends StatelessWidget {
                 Text(t.sarangbangStoredTitle, style: text.cardTitle),
                 const SizedBox(height: Spacing.xs),
                 Text(t.sarangbangStoredEmpty, style: text.cardSubtitle),
-                if (canOpen) ...[
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.outlined(
-                    label: t.sarangbangOpenToday,
-                    fullWidth: true,
-                    onTap: onOpen,
-                  ),
-                ],
               ],
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(t.sarangbangStoredTitle, style: text.cardTitle),
-                const SizedBox(height: Spacing.sm),
-                Text(expression.trim(), style: text.h2),
-                const SizedBox(height: Spacing.sm),
+                const SizedBox(height: Spacing.xs),
                 Text(
                   t.sarangbangStoredRecord(
                     receipt.earnedExpressionCount,
@@ -435,14 +426,6 @@ class _SarangbangArrivalCard extends StatelessWidget {
                   ),
                   style: text.cardSubtitle,
                 ),
-                if (canOpen) ...[
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.outlined(
-                    label: t.sarangbangOpenToday,
-                    fullWidth: true,
-                    onTap: onOpen,
-                  ),
-                ],
               ],
             ),
     );
@@ -452,24 +435,104 @@ class _SarangbangArrivalCard extends StatelessWidget {
 class _SarangbangStudyScene extends StatelessWidget {
   final RoomPlacements placements;
   final Set<String> owned;
+  final String? expression;
 
-  const _SarangbangStudyScene({required this.placements, required this.owned});
+  const _SarangbangStudyScene({
+    required this.placements,
+    required this.owned,
+    required this.expression,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     return Column(
       key: const ValueKey('sarangbang-study-room'),
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(t.sarangbangStudySceneLabel, style: text.h3),
-        const SizedBox(height: Spacing.sm),
-        PersonalRoomScene(
-          surface: PersonalRoomSurface.sarangbang,
-          placements: placements,
-          owned: owned,
-          interactive: false,
+        AspectRatio(
+          aspectRatio: 1.06,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              PersonalRoomScene(
+                surface: PersonalRoomSurface.sarangbang,
+                placements: placements,
+                owned: owned,
+                interactive: false,
+              ),
+              if (expression case final value?)
+                if (value.trim().isNotEmpty)
+                  Positioned(
+                    left: Spacing.md,
+                    right: Spacing.md,
+                    bottom: Spacing.md,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        key: const ValueKey('sarangbang-earned-expression'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.sm,
+                          vertical: Spacing.xs,
+                        ),
+                        decoration: BoxDecoration(
+                          color: SoriSurfaces.of(
+                            context,
+                          ).surface.withValues(alpha: .94),
+                          borderRadius: SoriRadius.brSm,
+                          border: Border.all(
+                            color: SoriColors.gold.withValues(alpha: .55),
+                          ),
+                        ),
+                        child: Text(
+                          value.trim(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: text.label,
+                        ),
+                      ),
+                    ),
+                  ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SarangbangReturnActions extends StatelessWidget {
+  const _SarangbangReturnActions({
+    required this.canOpenToday,
+    required this.onOpenToday,
+    required this.onReturnToCourtyard,
+  });
+
+  final bool canOpenToday;
+  final VoidCallback onOpenToday;
+  final VoidCallback onReturnToCourtyard;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Column(
+      key: const ValueKey('sarangbang-return-actions'),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (canOpenToday) ...[
+          SoriButton.outlined(
+            key: const ValueKey('sarangbang-open-today'),
+            label: t.sarangbangOpenToday,
+            fullWidth: true,
+            onTap: onOpenToday,
+          ),
+          const SizedBox(height: Spacing.xs),
+        ],
+        SoriButton.ghost(
+          key: const ValueKey('sarangbang-return-courtyard'),
+          label: t.sarangbangReturnCourtyard,
+          fullWidth: true,
+          onTap: onReturnToCourtyard,
         ),
       ],
     );
@@ -525,6 +588,7 @@ class _SarangbangWelcome extends StatelessWidget {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     return SoriCard(
+      key: const ValueKey('sarangbang-welcome'),
       variant: SoriCardVariant.hanji,
       accent: SoriColors.primary,
       tinted: true,
@@ -535,6 +599,11 @@ class _SarangbangWelcome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  t.sarangbangStudySceneLabel,
+                  style: text.label.copyWith(color: SoriColors.primary),
+                ),
+                const SizedBox(height: Spacing.xs),
                 Text(t.sarangbangStudyIntroTitle, style: text.h3),
                 const SizedBox(height: Spacing.xs),
                 Text(t.sarangbangStudyIntroBody, style: text.bodySmall),

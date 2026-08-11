@@ -10,12 +10,31 @@ void main() {
   testWidgets('04B shows four purpose filters and three priority routes', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     final opened = <String>[];
-    await _pumpDiscover(tester, onRoute: opened.add);
+    await _pumpDiscover(tester, onRoute: opened.add, textScale: 1.3);
 
     expect(find.text('Finde genau, was du brauchst.'), findsOneWidget);
+    expect(
+      find.text('Scannen, nachschlagen, hören oder eine kleine Pause machen.'),
+      findsOneWidget,
+    );
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).decoration?.hintText,
+      'Suchen: z. B. Aussprache, Buch, OCR …',
+    );
+    expect(find.text('Direkt zu deinem Ziel'), findsNothing);
     for (final filter in const ['Für mich', 'Sprache', 'Wörter', 'Freizeit']) {
-      expect(find.text(filter), findsOneWidget);
+      final finder = find.text(filter);
+      expect(finder, findsOneWidget);
+      final rect = tester.getRect(finder);
+      expect(rect.left, greaterThanOrEqualTo(0), reason: filter);
+      expect(rect.right, lessThanOrEqualTo(308), reason: filter);
+      final target = find.ancestor(of: finder, matching: find.byType(InkWell));
+      expect(tester.getSize(target).height, greaterThanOrEqualTo(48));
     }
     for (final priority in const [
       'Buch scannen',
@@ -24,6 +43,16 @@ void main() {
     ]) {
       expect(find.text(priority), findsOneWidget);
     }
+    for (final body in const [
+      'Text aus deinem Lehrbuch verstehen',
+      'Laute langsam vergleichen',
+      'Gespeicherte Wörter wiederfinden',
+    ]) {
+      expect(find.text(body), findsOneWidget);
+    }
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(textContrastGuideline));
 
     for (final entry in const [
       (key: 'book', route: '/book'),
@@ -122,6 +151,7 @@ Finder _plainText(String value) => find.byWidgetPredicate(
 Future<void> _pumpDiscover(
   WidgetTester tester, {
   ValueChanged<String>? onRoute,
+  double textScale = 1,
 }) {
   return tester.pumpWidget(
     MaterialApp(
@@ -139,7 +169,13 @@ Future<void> _pumpDiscover(
                 builder: (_) => const Scaffold(body: SizedBox()),
               );
             },
-      home: const DiscoverScreen.preview(),
+      home: textScale == 1
+          ? const DiscoverScreen.preview()
+          : MediaQuery.withClampedTextScaling(
+              minScaleFactor: textScale,
+              maxScaleFactor: textScale,
+              child: const DiscoverScreen.preview(),
+            ),
     ),
   );
 }

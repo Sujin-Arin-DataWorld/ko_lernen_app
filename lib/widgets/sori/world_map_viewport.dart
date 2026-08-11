@@ -123,8 +123,9 @@ class _SelectedPlacePanel extends StatelessWidget {
     final label = zone == null ? null : zoneLabel(zone);
     final purpose = zone == null ? null : zonePurpose(zone);
     final canOpen = zone != null && onOpen != null;
+    final isTodayScene = zone == PersonalHanokZone.sarangbang;
     final todayDetail =
-        zone == PersonalHanokZone.sarangbang &&
+        isTodayScene &&
             todayExpressionKo != null &&
             todayExpressionKo!.trim().isNotEmpty
         ? t.hanokWorldTodaySceneDetail(
@@ -141,19 +142,14 @@ class _SelectedPlacePanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (zone == PersonalHanokZone.sarangbang) ...[
-            Text(
-              t.hanokWorldTodayMarker,
-              style: text.label.copyWith(color: SoriColors.primary),
-            ),
-            const SizedBox(height: 4),
-          ],
           Text(label ?? t.hanokWorldSelectPlaceTitle, style: text.h3),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            label == null ? t.hanokWorldSelectPlaceBody : purpose!,
-            style: text.bodySmall,
-          ),
+          if (!isTodayScene || todayDetail == null) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(
+              label == null ? t.hanokWorldSelectPlaceBody : purpose!,
+              style: text.bodySmall,
+            ),
+          ],
           if (todayDetail != null) ...[
             const SizedBox(height: Spacing.sm),
             Text(
@@ -162,7 +158,7 @@ class _SelectedPlacePanel extends StatelessWidget {
               style: text.label.copyWith(color: SoriColors.primary),
             ),
           ],
-          if (label != null) ...[
+          if (label != null && !isTodayScene) ...[
             const SizedBox(height: Spacing.xs),
             Text(
               t.hanokWorldPlaceReadyBody(label),

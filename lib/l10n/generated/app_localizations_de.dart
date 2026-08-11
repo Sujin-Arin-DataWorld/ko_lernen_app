@@ -3169,16 +3169,29 @@ class AppL10nDe extends AppL10n {
       'Ein klarer nächster Schritt verbindet Wortschatz, Grammatik, Spiele und Szenarien.';
 
   @override
-  String get pathStatusCurrent => 'Jetzt';
+  String get pathStatusCurrent => 'weiter';
 
   @override
-  String get pathStatusCompleted => 'Erledigt';
+  String get pathStatusCompleted => 'fertig';
 
   @override
   String get pathStatusBypassed => 'Startstufe übersprungen';
 
   @override
-  String get pathStatusNext => 'Als Nächstes';
+  String get pathStatusNext => 'später';
+
+  @override
+  String pathCompletedCanDo(Object canDo) {
+    return 'Kann ich: $canDo';
+  }
+
+  @override
+  String pathCurrentCanDo(Object canDo) {
+    return 'Jetzt: $canDo';
+  }
+
+  @override
+  String get pathNextAfterEvidence => 'Als Nächstes nach deinem Beweis';
 
   @override
   String get pathShowMorePractice => 'Weitere Übungen anzeigen';
@@ -3569,10 +3582,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get discoverSubtitle =>
-      'Scanne, schlage etwas nach, höre zu oder mach eine kurze Übungspause. Entdecken ersetzt nie deinen heutigen Lernschritt.';
+      'Scannen, nachschlagen, hören oder eine kleine Pause machen.';
 
   @override
-  String get discoverSearchHint => 'Suchen: Aussprache, Buch, OCR …';
+  String get discoverSearchHint => 'Suchen: z. B. Aussprache, Buch, OCR …';
 
   @override
   String get discoverStartHere => 'Direkt zu deinem Ziel';
@@ -3615,22 +3628,19 @@ class AppL10nDe extends AppL10n {
   String get discoverPriorityBookTitle => 'Buch scannen';
 
   @override
-  String get discoverPriorityBookBody =>
-      'Fotografiere eine Buchseite und lerne direkt mit ihrem Text.';
+  String get discoverPriorityBookBody => 'Text aus deinem Lehrbuch verstehen';
 
   @override
   String get discoverPriorityPronunciationTitle => 'Aussprache hören';
 
   @override
-  String get discoverPriorityPronunciationBody =>
-      'Höre genau hin und übe koreanische Laute im Kontext.';
+  String get discoverPriorityPronunciationBody => 'Laute langsam vergleichen';
 
   @override
   String get discoverPriorityWordsTitle => 'Wörterbuch & Meine Wörter';
 
   @override
-  String get discoverPriorityWordsBody =>
-      'Schlage ein Wort nach oder öffne deine gespeicherte Sammlung.';
+  String get discoverPriorityWordsBody => 'Gespeicherte Wörter wiederfinden';
 
   @override
   String get navLearn => 'Lernen';
@@ -3896,20 +3906,34 @@ class AppL10nDe extends AppL10n {
   String get feedbackCompletionContinue => 'Weiter';
 
   @override
-  String get practiceEyebrow => 'Üben nach deinem Bedarf';
+  String get practiceEyebrow => 'Ohne Tagesmission';
 
   @override
-  String get practiceTitle => 'Was möchtest du gerade festigen?';
+  String get practiceTitle => 'Was willst du gerade festigen?';
 
   @override
-  String get practiceSubtitle =>
-      'Wähle zuerst ein Bedürfnis. Dein einziger nächster Lernschritt bleibt auf Start.';
+  String get practiceSubtitle => 'Wähle eine Absicht, nicht erst ein Spiel.';
 
   @override
   String get practiceDueTitle => 'Fällige Wörter wiederholen';
 
   @override
   String get practiceDueEmpty => 'Öffne eine Wiederholung, wann du möchtest';
+
+  @override
+  String practiceDueContext(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter warten auf Kontext',
+      one: '1 Wort wartet auf Kontext',
+      zero: 'Keine Wörter warten auf Kontext',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get practiceWordsPurposeTitle => 'Meine Wörter öffnen';
 
   @override
   String get practiceSecLearn => 'Etwas gezielt üben';
@@ -3928,12 +3952,10 @@ class AppL10nDe extends AppL10n {
       'Aussprache, Grammatik oder Schreiben';
 
   @override
-  String get practiceFreeDescription =>
-      'Wortkette, Buchstaben und kurze Spiele';
+  String get practiceFreeDescription => 'Wortkette, Buchstaben, kurze Spiele';
 
   @override
-  String get practiceWordsDescription =>
-      'Gespeicherte Wörter und Bücher öffnen';
+  String get practiceWordsDescription => 'Gespeicherte Wörter und Bücher';
 
   @override
   String get practiceAllActivities => 'Alle Aktivitäten anzeigen';
@@ -3942,11 +3964,11 @@ class AppL10nDe extends AppL10n {
   String get practiceHideAllActivities => 'Alle Aktivitäten ausblenden';
 
   @override
-  String get pathEvidenceTitle => 'Woran du echten Fortschritt erkennst';
+  String get pathEvidenceTitle => 'Woran du Fortschritt erkennst';
 
   @override
   String get pathEvidenceBody =>
-      'Freies Ansehen speichert nur Verlauf. Ein Kursabschnitt wird erst durch seine aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung bestätigt.';
+      'Freies Ansehen zählt als Verlauf. Sicher wird ein Abschnitt erst durch die passende aktive Prüfung und mindestens 70 % in jeder verknüpften Szenenprüfung.';
 
   @override
   String get coachBookTitle => 'Buchseite einlesen';
@@ -5222,6 +5244,11 @@ class AppL10nDe extends AppL10n {
       'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.';
 
   @override
+  String hanokWorldEarlyVerifiedBody(Object canDo) {
+    return 'Dein Fundament steht: $canDo';
+  }
+
+  @override
   String get hanokWorldMapEyebrow => 'Dein begehbarer Hof';
 
   @override
@@ -5235,7 +5262,10 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldOpenNextScene => 'Nächste Szene ansehen';
 
   @override
-  String get hanokWorldNextBeamTitle => 'Nächster Balken in deinem Bauplan';
+  String get hanokWorldNextBeamTitle => 'Als Nächstes: der nächste Balken';
+
+  @override
+  String get hanokWorldExploreHouse => 'Mein Haus erkunden';
 
   @override
   String hanokWorldSafeSceneProgress(int current, int total) {
@@ -5274,47 +5304,47 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldGyeBridgeOpen => 'Gye-Hof besuchen';
 
   @override
-  String get hanokWorldPlacesTitle => 'Orte in deiner Hanok';
+  String get hanokWorldPlacesTitle => 'Orte als Liste anzeigen';
 
   @override
   String get hanokWorldPlacesBody =>
       'Wähle hier einen fertig gebauten Ort aus.';
 
   @override
-  String get hanokMapPlaceSarangbang => 'Sarangbang\nHeute lernen';
+  String get hanokMapPlaceSarangbang => '사랑방\nHeute lernen';
 
   @override
-  String get hanokMapPlaceDaecheong => 'Daecheong\nDein Weg';
+  String get hanokMapPlaceDaecheong => '대청마루\nDein Weg';
 
   @override
-  String get hanokMapPlaceHaengrang => 'Haengrang\nÜben';
+  String get hanokMapPlaceHaengrang => '행랑채\nÜben';
 
   @override
-  String get hanokMapPlaceAnchae => 'Anchae\nWörter';
+  String get hanokMapPlaceAnchae => '안채\nWörter';
 
   @override
-  String get hanokMapPlaceHuwon => 'Huwon\nAufgaben';
+  String get hanokMapPlaceHuwon => '후원\nAufgaben';
 
   @override
-  String get hanokMapPlaceSadang => 'Sadang\nErfolge';
+  String get hanokMapPlaceSadang => '사당\nErfolge';
 
   @override
-  String get hanokZoneSarangbang => 'Sarangbang · heutiges Lernen';
+  String get hanokZoneSarangbang => '사랑방 · Deine heutige Szene';
 
   @override
-  String get hanokZoneDaecheong => 'Daecheongmaru · Lernpfad';
+  String get hanokZoneDaecheong => '대청마루 · Dein Weg';
 
   @override
-  String get hanokZoneHaengrang => 'Haengrangchae · Üben';
+  String get hanokZoneHaengrang => '행랑채 · Üben';
 
   @override
-  String get hanokZoneAnchae => 'Anchae · meine Sammlung';
+  String get hanokZoneAnchae => '안채 · Meine Wörter';
 
   @override
-  String get hanokZoneHuwon => 'Huwon · Tagesziel';
+  String get hanokZoneHuwon => '후원 · Aufgaben';
 
   @override
-  String get hanokZoneSadang => 'Sadang · Erfolge';
+  String get hanokZoneSadang => '사당 · Erfolge';
 
   @override
   String get hanokWorldPurposeSarangbang =>
@@ -5419,7 +5449,7 @@ class AppL10nDe extends AppL10n {
       'Hier siehst du, was du dir tatsächlich erarbeitet hast.';
 
   @override
-  String get sarangbangStudySceneLabel => 'Deine Studierstube';
+  String get sarangbangStudySceneLabel => 'Dein Lernzimmer';
 
   @override
   String get sarangbangStudyFurnish => 'Studierstube einrichten';
@@ -5429,7 +5459,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangFurnishBody =>
-      'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Lernbelohnungen.';
+      'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Belohnungen.';
 
   @override
   String get sarangbangStoredTitle => 'Heute abgelegt';
@@ -5471,6 +5501,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangOpenToday => 'Zur heutigen Szene';
+
+  @override
+  String get sarangbangReturnCourtyard => 'Zum Hof';
 
   @override
   String get personalRoomAnbangTitle => 'Anbang';

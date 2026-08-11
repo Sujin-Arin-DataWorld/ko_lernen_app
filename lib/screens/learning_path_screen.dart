@@ -506,25 +506,6 @@ class _CourseMissionPath extends StatelessWidget {
         const SizedBox(height: Spacing.xs),
         Text(t.pathStoryBody, style: SoriTextTheme.of(context).bodySmall),
         const SizedBox(height: Spacing.lg),
-        // Course missions and the older pack path stay visually distinct.
-        Row(
-          children: [
-            const SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
-            const SizedBox(width: Spacing.sm),
-            Text(
-              t.pathCourseMissionsTitle,
-              style: SoriTextTheme.of(context).h2,
-            ),
-          ],
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(
-          t.pathCourseMissionsBody,
-          style: SoriTextTheme.of(context).bodySmall,
-        ),
-        const SizedBox(height: Spacing.md),
-        const CourseProgressEvidenceNote(),
-        const SizedBox(height: Spacing.md),
         for (final unit in visible)
           Padding(
             padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -536,8 +517,10 @@ class _CourseMissionPath extends StatelessWidget {
               onTap: () => onTapUnit(unit),
             ),
           ),
+        const SizedBox(height: Spacing.xs),
+        const CourseProgressEvidenceNote(),
         if (current case final currentUnit?) ...[
-          const SizedBox(height: Spacing.sm),
+          const SizedBox(height: Spacing.md),
           SoriButton.filled(
             key: const ValueKey('path-current-mission'),
             label: t.pathOpenCurrentMission,
@@ -582,6 +565,7 @@ class _CourseMissionNode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final canDo = _conciseCanDo(unit.canDo.pick(lang), lang);
     final (icon, color, statusText) = switch (status) {
       _MissionPathStatus.current => (
         Icons.play_circle_outline_rounded,
@@ -604,13 +588,25 @@ class _CourseMissionNode extends StatelessWidget {
         t.pathStatusNext,
       ),
     };
+    final body = switch (status) {
+      _MissionPathStatus.completed => t.pathCompletedCanDo(canDo),
+      _MissionPathStatus.current => t.pathCurrentCanDo(canDo),
+      _MissionPathStatus.preview => t.pathNextAfterEvidence,
+      _MissionPathStatus.bypassed => canDo,
+    };
     return SoriCard(
       variant: SoriCardVariant.compact,
       accent: color,
       onTap: onTap,
       child: Row(
         children: [
-          Icon(icon, color: color),
+          _MissionStatusBadge(
+            order: unit.order,
+            status: status,
+            icon: icon,
+            color: color,
+            semanticLabel: statusText,
+          ),
           const SizedBox(width: Spacing.md),
           Expanded(
             child: Column(
@@ -622,7 +618,7 @@ class _CourseMissionNode extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  unit.canDo.pick(lang),
+                  body,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(context).bodySmall,
@@ -631,14 +627,64 @@ class _CourseMissionNode extends StatelessWidget {
             ),
           ),
           const SizedBox(width: Spacing.sm),
-          Text(
-            statusText,
-            style: SoriTextTheme.of(context).caption.copyWith(color: color),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 72),
+            child: Text(
+              statusText,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.end,
+              style: SoriTextTheme.of(context).caption.copyWith(color: color),
+            ),
           ),
         ],
       ),
     );
   }
+
+  static String _conciseCanDo(String value, String lang) {
+    final prefix = lang == 'de' ? 'Ich kann ' : 'I can ';
+    return value.startsWith(prefix) ? value.substring(prefix.length) : value;
+  }
+}
+
+class _MissionStatusBadge extends StatelessWidget {
+  const _MissionStatusBadge({
+    required this.order,
+    required this.status,
+    required this.icon,
+    required this.color,
+    required this.semanticLabel,
+  });
+
+  final int order;
+  final _MissionPathStatus status;
+  final IconData icon;
+  final Color color;
+  final String semanticLabel;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    label: semanticLabel,
+    child: ExcludeSemantics(
+      child: Container(
+        width: 40,
+        height: 40,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        child:
+            status == _MissionPathStatus.completed ||
+                status == _MissionPathStatus.bypassed
+            ? Icon(icon, size: 22, color: Colors.white)
+            : Text(
+                '$order',
+                style: SoriTextTheme.of(
+                  context,
+                ).label.copyWith(color: Colors.white),
+              ),
+      ),
+    ),
+  );
 }
 
 // ─── 한옥 단계 헤더 ──────────────────────────────────────────────────────────

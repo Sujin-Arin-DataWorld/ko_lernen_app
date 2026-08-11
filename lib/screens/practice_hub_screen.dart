@@ -87,7 +87,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(t.practiceTitle)),
+      appBar: AppBar(title: Text(t.navPractice)),
       body: SafeArea(
         child: SoriContentClamp(
           base: const EdgeInsets.fromLTRB(
@@ -435,7 +435,7 @@ class _PurposeRouteList extends StatelessWidget {
           key: const ValueKey('practice-purpose-review'),
           icon: Icons.refresh_rounded,
           title: t.practiceDueTitle,
-          body: dueCount > 0 ? t.homeReviewDue(dueCount) : t.practiceDueEmpty,
+          body: t.practiceDueContext(dueCount),
           accent: SoriColors.tiger,
           onTap: onReview,
         ),
@@ -461,7 +461,7 @@ class _PurposeRouteList extends StatelessWidget {
         _PurposeRouteCard(
           key: const ValueKey('practice-purpose-words'),
           icon: Icons.collections_bookmark_outlined,
-          title: t.practiceSecWords,
+          title: t.practiceWordsPurposeTitle,
           body: t.practiceWordsDescription,
           accent: SoriColors.accent,
           onTap: onWords,

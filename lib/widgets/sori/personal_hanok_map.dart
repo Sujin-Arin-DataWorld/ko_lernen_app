@@ -318,16 +318,26 @@ class _ZoneTarget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = (canvasSize.width * rect.width)
-        .clamp(44.0, canvasSize.width)
-        .toDouble();
-    final height = (canvasSize.height * rect.height)
-        .clamp(44.0, canvasSize.height)
-        .toDouble();
-    final left = (canvasSize.width * rect.left)
+    final rawWidth = canvasSize.width * rect.width;
+    final rawHeight = canvasSize.height * rect.height;
+    final width = rawWidth.clamp(48.0, canvasSize.width).toDouble();
+    final height = rawHeight.clamp(48.0, canvasSize.height).toDouble();
+    // The right Anchae wing sits between Daecheongmaru and Sadang. Grow its
+    // narrow target equally in both directions to keep clearance on both sides.
+    final growsAroundCenter =
+        definition.zone == PersonalHanokZone.anchae && targetIndex > 0;
+    final leftExpansion = growsAroundCenter ? (rawWidth - width) / 2 : 0.0;
+    final left = (canvasSize.width * rect.left + leftExpansion)
         .clamp(0.0, canvasSize.width - width)
         .toDouble();
-    final top = (canvasSize.height * rect.top)
+    // On the narrow estate map Sarangbang and Huwon each sit directly above
+    // another place. Grow those 48dp targets upward so all targets stay full
+    // sized without stealing taps from the place below.
+    final growsUpward =
+        definition.zone == PersonalHanokZone.sarangbang ||
+        definition.zone == PersonalHanokZone.huwon;
+    final topExpansion = growsUpward ? rawHeight - height : 0.0;
+    final top = (canvasSize.height * rect.top + topExpansion)
         .clamp(0.0, canvasSize.height - height)
         .toDouble();
 
@@ -352,7 +362,7 @@ class _ZoneTarget extends StatelessWidget {
               button: onTap != null,
               label: label,
               onTap: onTap,
-              child: target,
+              child: ExcludeSemantics(child: target),
             )
           : ExcludeSemantics(child: target),
     );

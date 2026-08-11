@@ -96,6 +96,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
   List<PersonalHanokMilestone> _queuedReveals =
       const <PersonalHanokMilestone>[];
   var _loadGeneration = 0;
+  final GlobalKey _earlyMapKey = GlobalKey();
 
   @override
   void initState() {
@@ -346,6 +347,21 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     await Navigator.pushNamed(context, '/gye/hub');
   }
 
+  void _exploreEarlyHouse() {
+    final mapContext = _earlyMapKey.currentContext;
+    if (mapContext == null) {
+      return;
+    }
+    Scrollable.ensureVisible(
+      mapContext,
+      alignment: .12,
+      duration: SoriMotion.reduceMotion(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -389,6 +405,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 padding: sidePadding,
                                 child: _WorldIntroduction(
                                   projection: projection,
+                                  narrative: _narrative,
                                 ),
                               ),
                               const SizedBox(height: Spacing.lg),
@@ -434,9 +451,15 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                               ] else ...[
                                 Padding(
                                   padding: sidePadding,
-                                  child: PersonalHanokMap(
-                                    projection: projection,
-                                    zoneLabel: (zone) => _zoneLabel(t, zone),
+                                  child: ConstrainedBox(
+                                    key: _earlyMapKey,
+                                    constraints: const BoxConstraints(
+                                      minHeight: 278,
+                                    ),
+                                    child: PersonalHanokMap(
+                                      projection: projection,
+                                      zoneLabel: (zone) => _zoneLabel(t, zone),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: Spacing.lg),
@@ -445,6 +468,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                   child: _EarlyBuildPlan(
                                     projection: projection,
                                     narrative: _narrative,
+                                    onExploreHouse: _exploreEarlyHouse,
                                     onOpenNextScene: () => Navigator.of(
                                       context,
                                     ).pushNamed('/course/mission'),
@@ -553,14 +577,22 @@ class _WorldPlaceList extends StatelessWidget {
 
 class _WorldIntroduction extends StatelessWidget {
   final PersonalHanokProjection projection;
+  final HanokBuildNarrative? narrative;
 
-  const _WorldIntroduction({required this.projection});
+  const _WorldIntroduction({required this.projection, required this.narrative});
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     final hasMap = projection.usesCompoundMap;
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final verifiedCanDo = narrative?.verifiedUnit?.canDo.pick(languageCode);
+    final earlyBody = verifiedCanDo == null
+        ? t.hanokWorldEarlyBody
+        : t.hanokWorldEarlyVerifiedBody(
+            _conciseCanDo(verifiedCanDo, languageCode),
+          );
     return SoriCard(
       variant: SoriCardVariant.hanji,
       accent: SoriColors.primary,
@@ -578,13 +610,15 @@ class _WorldIntroduction extends StatelessWidget {
             style: text.h1,
           ),
           const SizedBox(height: Spacing.sm),
-          Text(
-            hasMap ? t.hanokWorldMapBody : t.hanokWorldEarlyBody,
-            style: text.bodySmall,
-          ),
+          Text(hasMap ? t.hanokWorldMapBody : earlyBody, style: text.bodySmall),
         ],
       ),
     );
+  }
+
+  static String _conciseCanDo(String value, String languageCode) {
+    final prefix = languageCode == 'de' ? 'Ich kann ' : 'I can ';
+    return value.startsWith(prefix) ? value.substring(prefix.length) : value;
   }
 }
 
@@ -596,11 +630,13 @@ class _EarlyBuildPlan extends StatelessWidget {
   const _EarlyBuildPlan({
     required this.projection,
     required this.narrative,
+    required this.onExploreHouse,
     required this.onOpenNextScene,
   });
 
   final PersonalHanokProjection projection;
   final HanokBuildNarrative? narrative;
+  final VoidCallback onExploreHouse;
   final VoidCallback onOpenNextScene;
 
   @override
@@ -641,6 +677,13 @@ class _EarlyBuildPlan extends StatelessWidget {
             label: t.hanokWorldOpenNextScene,
             fullWidth: true,
             onTap: onOpenNextScene,
+          ),
+          const SizedBox(height: Spacing.xs),
+          SoriButton.ghost(
+            key: const ValueKey('hanok-world-explore-house'),
+            label: t.hanokWorldExploreHouse,
+            fullWidth: true,
+            onTap: onExploreHouse,
           ),
         ],
       ),

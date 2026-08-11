@@ -15,7 +15,7 @@ class PersonalHanokMapLayer {
   ///
   /// These are intentionally independent from a place's tap target. They
   /// make the art-coordinate contract explicit for focus/reveal work while
-  /// allowing accessibility targets to remain a comfortable 44dp minimum.
+  /// allowing accessibility targets to remain a comfortable 48dp minimum.
   final PersonalHanokRect? visualBounds;
   final bool opaque;
 
@@ -152,7 +152,7 @@ const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
     zone: PersonalHanokZone.sarangbang,
     bounds: PersonalHanokRect(left: .10, top: .53, width: .56, height: .27),
     hitRegions: <PersonalHanokRect>[
-      // Leave room for the 44dp haengrang target at compact map heights.
+      // Leave room for the 48dp haengrang target at compact map heights.
       PersonalHanokRect(left: .15, top: .60, width: .49, height: .14),
     ],
     requires: PersonalHanokMilestone.sarangchae,
@@ -170,7 +170,7 @@ const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
     bounds: PersonalHanokRect(left: .16, top: .74, width: .28, height: .16),
     hitRegions: <PersonalHanokRect>[
       // The building begins directly below the Sarangchae facade. This keeps
-      // its compact 44dp target below that facade instead of intercepting a
+      // its compact 48dp target below that facade instead of intercepting a
       // Sarangbang tap near the center of the map.
       PersonalHanokRect(left: .17, top: .80, width: .26, height: .09),
     ],

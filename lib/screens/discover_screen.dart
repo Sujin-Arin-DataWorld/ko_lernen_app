@@ -129,25 +129,21 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 ),
               ),
               const SizedBox(height: Spacing.md),
-              SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    for (final purpose in DiscoverPurpose.values)
-                      _CategoryChip(
-                        label: purpose.label(t),
-                        selected: _selectedPurpose == purpose,
-                        onSelected: () =>
-                            setState(() => _selectedPurpose = purpose),
-                      ),
-                  ],
-                ),
+              Wrap(
+                spacing: 4,
+                runSpacing: 4,
+                children: [
+                  for (final purpose in DiscoverPurpose.values)
+                    _CategoryChip(
+                      label: purpose.label(t),
+                      selected: _selectedPurpose == purpose,
+                      onSelected: () =>
+                          setState(() => _selectedPurpose = purpose),
+                    ),
+                ],
               ),
               if (showPriorities) ...[
-                const SizedBox(height: Spacing.lg),
-                SoriSectionHeader(t.discoverStartHere),
-                const SizedBox(height: Spacing.xs),
+                const SizedBox(height: Spacing.md),
                 const _DiscoverPriorityRoutes(),
               ],
               const SizedBox(height: Spacing.lg),
@@ -302,12 +298,40 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: Spacing.sm),
-      child: ChoiceChip(
-        label: Text(label),
-        selected: selected,
-        onSelected: (_) => onSelected(),
+    final text = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    return Semantics(
+      button: true,
+      selected: selected,
+      label: label,
+      child: ExcludeSemantics(
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: SoriRadius.brPill,
+            onTap: onSelected,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 48),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                color: selected ? SoriColors.primary : surfaces.surface,
+                borderRadius: SoriRadius.brPill,
+                border: Border.all(
+                  color: selected ? SoriColors.primary : surfaces.border,
+                ),
+              ),
+              child: Text(
+                label,
+                maxLines: 1,
+                style: text.caption.copyWith(
+                  color: selected ? Colors.white : surfaces.text,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

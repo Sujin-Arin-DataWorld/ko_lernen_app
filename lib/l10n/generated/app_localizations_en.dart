@@ -3160,16 +3160,29 @@ class AppL10nEn extends AppL10n {
       'One clear next step connects vocabulary, grammar, games, and scenarios.';
 
   @override
-  String get pathStatusCurrent => 'Current';
+  String get pathStatusCurrent => 'continue';
 
   @override
-  String get pathStatusCompleted => 'Completed';
+  String get pathStatusCompleted => 'done';
 
   @override
   String get pathStatusBypassed => 'Start level bypassed';
 
   @override
-  String get pathStatusNext => 'Next';
+  String get pathStatusNext => 'later';
+
+  @override
+  String pathCompletedCanDo(Object canDo) {
+    return 'I can: $canDo';
+  }
+
+  @override
+  String pathCurrentCanDo(Object canDo) {
+    return 'Now: $canDo';
+  }
+
+  @override
+  String get pathNextAfterEvidence => 'Next after your evidence';
 
   @override
   String get pathShowMorePractice => 'Show more practice';
@@ -3557,10 +3570,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get discoverSubtitle =>
-      'Scan, look something up, listen, or take a short practice break. Explore never replaces today\'s learning step.';
+      'Scan, look something up, listen, or take a short break.';
 
   @override
-  String get discoverSearchHint => 'Search: pronunciation, book, OCR …';
+  String get discoverSearchHint => 'Search: e.g. pronunciation, book, OCR …';
 
   @override
   String get discoverStartHere => 'Go straight to your goal';
@@ -3604,21 +3617,19 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get discoverPriorityBookBody =>
-      'Photograph a book page and learn directly from its text.';
+      'Understand text from your course book';
 
   @override
   String get discoverPriorityPronunciationTitle => 'Hear pronunciation';
 
   @override
-  String get discoverPriorityPronunciationBody =>
-      'Listen closely and practise Korean sounds in context.';
+  String get discoverPriorityPronunciationBody => 'Compare sounds slowly';
 
   @override
   String get discoverPriorityWordsTitle => 'Dictionary & My words';
 
   @override
-  String get discoverPriorityWordsBody =>
-      'Look up a word or open your saved collection.';
+  String get discoverPriorityWordsBody => 'Find saved words again';
 
   @override
   String get navLearn => 'Learn';
@@ -3885,20 +3896,34 @@ class AppL10nEn extends AppL10n {
   String get feedbackCompletionContinue => 'Continue';
 
   @override
-  String get practiceEyebrow => 'Practice on your terms';
+  String get practiceEyebrow => 'Without today\'s mission';
 
   @override
   String get practiceTitle => 'What do you want to strengthen?';
 
   @override
-  String get practiceSubtitle =>
-      'Choose a need first. Your single next learning step stays on Home.';
+  String get practiceSubtitle => 'Choose an intention, not a game first.';
 
   @override
-  String get practiceDueTitle => 'Review words due';
+  String get practiceDueTitle => 'Review due words';
 
   @override
   String get practiceDueEmpty => 'Open a review whenever you want';
+
+  @override
+  String practiceDueContext(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words are waiting for context',
+      one: '1 word is waiting for context',
+      zero: 'No words are waiting for context',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get practiceWordsPurposeTitle => 'Open my words';
 
   @override
   String get practiceSecLearn => 'Practice something in particular';
@@ -3916,10 +3941,10 @@ class AppL10nEn extends AppL10n {
   String get practiceFocusedDescription => 'Pronunciation, grammar, or writing';
 
   @override
-  String get practiceFreeDescription => 'Word chains, letters, and short games';
+  String get practiceFreeDescription => 'Word chains, letters, short games';
 
   @override
-  String get practiceWordsDescription => 'Open saved words and books';
+  String get practiceWordsDescription => 'Saved words and books';
 
   @override
   String get practiceAllActivities => 'Show all activities';
@@ -3928,11 +3953,11 @@ class AppL10nEn extends AppL10n {
   String get practiceHideAllActivities => 'Hide all activities';
 
   @override
-  String get pathEvidenceTitle => 'How progress becomes verified';
+  String get pathEvidenceTitle => 'How you recognize progress';
 
   @override
   String get pathEvidenceBody =>
-      'Browsing saves history only. A course unit is verified through its active assessment and at least 70% in every linked scenario checkpoint.';
+      'Free browsing counts as history. A section becomes secure only through its matching active assessment and at least 70% in every linked scenario checkpoint.';
 
   @override
   String get coachBookTitle => 'Snap a page';
@@ -5191,6 +5216,11 @@ class AppL10nEn extends AppL10n {
       'Your foundation grows with every secure sentence from everyday life.';
 
   @override
+  String hanokWorldEarlyVerifiedBody(Object canDo) {
+    return 'Your foundation stands: $canDo';
+  }
+
+  @override
   String get hanokWorldMapEyebrow => 'Your walkable courtyard';
 
   @override
@@ -5204,7 +5234,10 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldOpenNextScene => 'See the next scene';
 
   @override
-  String get hanokWorldNextBeamTitle => 'Next beam in your construction plan';
+  String get hanokWorldNextBeamTitle => 'Next: the next beam';
+
+  @override
+  String get hanokWorldExploreHouse => 'Explore my house';
 
   @override
   String hanokWorldSafeSceneProgress(int current, int total) {
@@ -5243,47 +5276,47 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldGyeBridgeOpen => 'Visit the Gye courtyard';
 
   @override
-  String get hanokWorldPlacesTitle => 'Places in your Hanok';
+  String get hanokWorldPlacesTitle => 'Show places as a list';
 
   @override
   String get hanokWorldPlacesBody =>
       'Use this list to choose a finished place.';
 
   @override
-  String get hanokMapPlaceSarangbang => 'Sarangbang\nStudy today';
+  String get hanokMapPlaceSarangbang => '사랑방\nStudy today';
 
   @override
-  String get hanokMapPlaceDaecheong => 'Daecheong\nYour path';
+  String get hanokMapPlaceDaecheong => '대청마루\nYour path';
 
   @override
-  String get hanokMapPlaceHaengrang => 'Haengrang\nPractice';
+  String get hanokMapPlaceHaengrang => '행랑채\nPractice';
 
   @override
-  String get hanokMapPlaceAnchae => 'Anchae\nWords';
+  String get hanokMapPlaceAnchae => '안채\nWords';
 
   @override
-  String get hanokMapPlaceHuwon => 'Huwon\nTasks';
+  String get hanokMapPlaceHuwon => '후원\nTasks';
 
   @override
-  String get hanokMapPlaceSadang => 'Sadang\nAchievements';
+  String get hanokMapPlaceSadang => '사당\nAchievements';
 
   @override
-  String get hanokZoneSarangbang => 'Sarangbang · today\'s study';
+  String get hanokZoneSarangbang => '사랑방 · Your scene today';
 
   @override
-  String get hanokZoneDaecheong => 'Daecheongmaru · learning path';
+  String get hanokZoneDaecheong => '대청마루 · Your path';
 
   @override
-  String get hanokZoneHaengrang => 'Haengrangchae · practice';
+  String get hanokZoneHaengrang => '행랑채 · Practice';
 
   @override
-  String get hanokZoneAnchae => 'Anchae · my collection';
+  String get hanokZoneAnchae => '안채 · My words';
 
   @override
-  String get hanokZoneHuwon => 'Huwon · daily goal';
+  String get hanokZoneHuwon => '후원 · Tasks';
 
   @override
-  String get hanokZoneSadang => 'Sadang · achievements';
+  String get hanokZoneSadang => '사당 · Achievements';
 
   @override
   String get hanokWorldPurposeSarangbang =>
@@ -5387,7 +5420,7 @@ class AppL10nEn extends AppL10n {
       'Here you can see what you have actually worked for.';
 
   @override
-  String get sarangbangStudySceneLabel => 'Your study room';
+  String get sarangbangStudySceneLabel => 'Your learning room';
 
   @override
   String get sarangbangStudyFurnish => 'Furnish the study room';
@@ -5397,7 +5430,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangFurnishBody =>
-      'New objects come from existing, clearly marked learning rewards.';
+      'New objects come from existing, clearly marked rewards.';
 
   @override
   String get sarangbangStoredTitle => 'Stored today';
@@ -5439,6 +5472,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangOpenToday => 'Open today\'s scene';
+
+  @override
+  String get sarangbangReturnCourtyard => 'To the courtyard';
 
   @override
   String get personalRoomAnbangTitle => 'Anbang';

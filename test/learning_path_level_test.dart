@@ -34,6 +34,10 @@ void main() {
   testWidgets('04C preview shows completed, current, and next concise rows', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     String? openedRoute;
     Object? openedArguments;
     await tester.pumpWidget(
@@ -49,6 +53,7 @@ void main() {
           openedRoute = settings.name;
           openedArguments = settings.arguments;
         },
+        textScale: 1.3,
       ),
     );
 
@@ -58,14 +63,39 @@ void main() {
     expect(find.byKey(const ValueKey('path-course-row-a1_03')), findsOneWidget);
     expect(find.byKey(const ValueKey('path-course-row-a1_04')), findsOneWidget);
     expect(find.byKey(const ValueKey('path-course-row-a1_05')), findsNothing);
+    expect(find.text('Kursmissionen'), findsNothing);
+    expect(find.text('fertig'), findsOneWidget);
+    expect(find.text('weiter'), findsOneWidget);
+    expect(find.text('später'), findsOneWidget);
+    expect(find.text('Kann ich: freundlich beginnen'), findsOneWidget);
+    expect(find.text('Jetzt: Name, Herkunft, Thema'), findsOneWidget);
+    expect(find.text('Als Nächstes nach deinem Beweis'), findsOneWidget);
+    final evidenceTitle = find.text('Woran du Fortschritt erkennst');
+    expect(evidenceTitle, findsOneWidget);
     expect(find.textContaining('70'), findsOneWidget);
+    expect(
+      tester.getTopLeft(evidenceTitle).dy,
+      greaterThan(
+        tester
+            .getTopLeft(find.byKey(const ValueKey('path-course-row-a1_04')))
+            .dy,
+      ),
+    );
     expect(
       find.byKey(const ValueKey('path-legacy-practice-content')),
       findsNothing,
     );
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(textContrastGuideline));
 
     final currentMission = find.byKey(const ValueKey('path-current-mission'));
-    await tester.drag(find.byType(ListView), const Offset(0, -300));
+    await tester.scrollUntilVisible(
+      currentMission,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(currentMission);
     await tester.pump();
     await tester.tap(currentMission);
     await tester.pumpAndSettle();
@@ -116,29 +146,41 @@ const _units = <CourseUnit>[
     id: 'a1_02',
     level: 'a1',
     order: 2,
-    title: CurriculumText(ko: '둘째', de: 'Begrüßen', en: 'Greet'),
+    title: CurriculumText(
+      ko: '둘째',
+      de: 'Begrüßen & Hangul',
+      en: 'Greeting & Hangul',
+    ),
     canDo: CurriculumText(
       ko: '둘째',
-      de: 'Ich kann begrüßen.',
-      en: 'I can greet.',
+      de: 'freundlich beginnen',
+      en: 'start warmly',
     ),
   ),
   CourseUnit(
     id: 'a1_03',
     level: 'a1',
     order: 3,
-    title: CurriculumText(ko: '셋째', de: 'Bestellen', en: 'Order'),
+    title: CurriculumText(
+      ko: '셋째',
+      de: 'Mich vorstellen',
+      en: 'Introduce myself',
+    ),
     canDo: CurriculumText(
       ko: '셋째',
-      de: 'Ich kann bestellen.',
-      en: 'I can order.',
+      de: 'Name, Herkunft, Thema',
+      en: 'name, origin, topic',
     ),
   ),
   CourseUnit(
     id: 'a1_04',
     level: 'a1',
     order: 4,
-    title: CurriculumText(ko: '넷째', de: 'Nachfragen', en: 'Ask again'),
+    title: CurriculumText(
+      ko: '넷째',
+      de: 'Bestellen & bitten',
+      en: 'Order & ask',
+    ),
     canDo: CurriculumText(
       ko: '넷째',
       de: 'Ich kann nachfragen.',
@@ -158,20 +200,29 @@ const _units = <CourseUnit>[
   ),
 ];
 
-Widget _host(Widget child, {ValueChanged<RouteSettings>? onRoute}) =>
-    MaterialApp(
-      theme: AppTheme.light,
-      locale: const Locale('de'),
-      supportedLocales: AppL10n.supportedLocales,
-      localizationsDelegates: AppL10n.localizationsDelegates,
-      onGenerateRoute: onRoute == null
-          ? null
-          : (settings) {
-              onRoute(settings);
-              return MaterialPageRoute<void>(
-                settings: settings,
-                builder: (_) => const Scaffold(body: SizedBox()),
-              );
-            },
-      home: child,
-    );
+Widget _host(
+  Widget child, {
+  ValueChanged<RouteSettings>? onRoute,
+  double textScale = 1,
+}) => MaterialApp(
+  theme: AppTheme.light,
+  locale: const Locale('de'),
+  supportedLocales: AppL10n.supportedLocales,
+  localizationsDelegates: AppL10n.localizationsDelegates,
+  onGenerateRoute: onRoute == null
+      ? null
+      : (settings) {
+          onRoute(settings);
+          return MaterialPageRoute<void>(
+            settings: settings,
+            builder: (_) => const Scaffold(body: SizedBox()),
+          );
+        },
+  home: textScale == 1
+      ? child
+      : MediaQuery.withClampedTextScaling(
+          minScaleFactor: textScale,
+          maxScaleFactor: textScale,
+          child: child,
+        ),
+);
