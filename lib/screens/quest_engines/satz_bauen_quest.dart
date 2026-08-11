@@ -391,15 +391,14 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // 뷰포트 밖(y=676)으로 나갔다. 오버레이는 세로 예산을 0 으로 되돌린다.
     // 스피커 버튼은 아래에서 leading 슬롯으로 옮겨 3ee6ec1 이 고쳤던 겹침이
     // 재발하지 않게 했다(마스코트는 카드 우상단을 쓴다).
-    // 2026-08-07 실측: 800×1280 에서 화면의 **57%** 가 빈 공간이었다(내용이
-    // 위에 몰림). 부모가 높이를 정해 주는 Expanded 안이라 가운데 정렬만으로
-    // 남는 공간이 위아래로 갈린다 — 스크롤을 새로 넣지 않으므로 위 주석의
-    // 800×600 오버플로 회귀 위험도 없다.
+    // 2026-08-12: 가운데 정렬을 폐기 — Prüfen 이 화면 중간에 떠서 "배치가
+    // 엉성하다"(Jin 실기기). 정보(카드·타일)는 위, 버튼은 Spacer 로 하단
+    // 고정(엄지 존). Spacer 는 min 0 이라 낮은 뷰포트(800×600)에서도
+    // 3ee6ec1 오버플로 회귀가 없다.
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Prompt (Bedeutung) + optionaler TTS-Button. The magpie is
@@ -457,15 +456,16 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                     ],
                   ),
                 ),
-                // top -56: 새(72px)가 카드 **윗모서리에 앉은** 실루엣 — 발끝
-                // ~16px 만 카드에 걸친다. -30 은 몸 절반이 카드 안으로 들어와
-                // "오른쪽 중간에 걸쳐 있다"로 읽혔다(2026-08-12 Jin 실기기).
+                // 96px + top -78: 새가 카드 윗모서리에 앉되(발끝 ~18px 걸침)
+                // 존재감 있게. 72px 는 "너무 조그맣다"(2026-08-12 Jin 실기기).
+                // 카드 위쪽은 빈 배경이라 돌출(78px)이 다른 콘텐츠를 가리지
+                // 않고, 오버레이(Clip.none)라 세로 예산도 그대로 0.
                 Positioned(
-                  top: -56,
-                  right: 14,
+                  top: -78,
+                  right: 12,
                   child: MascotPartner(
                     celebrating: _celebrated,
-                    size: 72,
+                    size: 96,
                     kind: MascotKind.magpie,
                   ),
                 ),
@@ -542,7 +542,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                 for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
               ],
             ),
-            const SizedBox(height: Spacing.xl),
+            // 남는 세로 공간은 전부 여기로 흡수 — 버튼이 항상 하단에 붙는다.
+            const Spacer(),
+            const SizedBox(height: Spacing.md),
 
             // Prüfen-Button.
             Opacity(
