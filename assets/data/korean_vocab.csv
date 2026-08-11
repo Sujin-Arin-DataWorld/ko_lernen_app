@@ -821,3 +821,111 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 드시다,deusida,essen (ehrerbietig),B2,Verb,많이 드세요!,Greifen Sie zu!,Ehrensprache,b2_honorifics_1,10,true,to eat (honorific),Verb,Please help yourself!,vocab_b2_0202
 계시다,gyesida,sich befinden (ehrerbietig),B2,Verb,어머니는 지금 집에 계세요.,Meine Mutter ist gerade zu Hause.,Ehrensprache,b2_honorifics_1,11,true,to be (honorific),Verb,My mother is at home right now.,vocab_b2_0203
 잡수시다,japsusida,speisen (ehrerbietig),B2,Verb,할머니는 아침을 잡수셨어요.,Meine Großmutter hat gefrühstückt.,Ehrensprache,b2_honorifics_1,12,true,to eat (very honorific),Verb,My grandmother ate breakfast.,vocab_b2_0204
+코트,koteu,Mantel,A2,Nomen,겨울에는 코트를 입어요.,Im Winter trage ich einen Mantel.,Kleidung,a2_clothing_1,1,false,coat,Noun,I wear a coat in winter.,vocab_a2_0161
+치마,chima,Rock,A2,Nomen,오늘은 치마를 입었어요.,Heute trage ich einen Rock.,Kleidung,a2_clothing_1,2,false,skirt,Noun,I am wearing a skirt today.,vocab_a2_0162
+원피스,wonpiseu,Kleid,A2,Nomen,파티에 원피스를 입고 갔어요.,Ich bin im Kleid zur Party gegangen.,Kleidung,a2_clothing_1,3,false,dress,Noun,I went to the party in a dress.,vocab_a2_0163
+양복,yangbok,Anzug,A2,Nomen,아버지는 양복을 입고 출근해요.,Mein Vater geht im Anzug zur Arbeit.,Kleidung,a2_clothing_1,4,false,suit,Noun,My father goes to work in a suit.,vocab_a2_0164
+구두,gudu,Lederschuhe,A2,Nomen,새 구두가 조금 작아요.,Die neuen Schuhe sind etwas klein.,Kleidung,a2_clothing_1,5,false,dress shoes,Noun,The new shoes are a bit small.,vocab_a2_0165
+양말,yangmal,Socken,A2,Nomen,따뜻한 양말을 신었어요.,Ich habe warme Socken angezogen.,Kleidung,a2_clothing_1,6,false,socks,Noun,I put on warm socks.,vocab_a2_0166
+장갑,janggap,Handschuhe,A2,Nomen,장갑을 어디에 뒀지요?,Wo habe ich meine Handschuhe hingelegt?,Kleidung,a2_clothing_1,7,false,gloves,Noun,Where did I put my gloves?,vocab_a2_0167
+목도리,mokdori,Schal,A2,Nomen,할머니가 목도리를 떠 주셨어요.,Meine Oma hat mir einen Schal gestrickt.,Kleidung,a2_clothing_1,8,false,scarf,Noun,My grandma knitted me a scarf.,vocab_a2_0168
+반지,banji,Ring,A2,Nomen,예쁜 반지를 선물 받았어요.,Ich habe einen schönen Ring geschenkt bekommen.,Kleidung,a2_clothing_1,9,false,ring,Noun,I received a pretty ring as a gift.,vocab_a2_0169
+귀걸이,gwigeori,Ohrringe,A2,Nomen,새 귀걸이를 하고 나갔어요.,Ich bin mit neuen Ohrringen ausgegangen.,Kleidung,a2_clothing_1,10,true,earrings,Noun,I went out wearing new earrings.,vocab_a2_0170
+넥타이,nektai,Krawatte,A2,Nomen,파란 넥타이가 잘 어울려요.,Die blaue Krawatte steht dir gut.,Kleidung,a2_clothing_1,11,true,necktie,Noun,The blue tie suits you well.,vocab_a2_0171
+배낭,baenang,Rucksack,A2,Nomen,배낭을 메고 여행을 떠났어요.,Mit dem Rucksack bin ich auf Reisen gegangen.,Kleidung,a2_clothing_1,12,true,backpack,Noun,I went traveling with a backpack.,vocab_a2_0172
+신다,sinda,anziehen (Schuhe),A2,Verb,운동화를 신고 뛰어요.,Ich laufe in Turnschuhen.,Anziehen & Accessoires,a2_wearing_verbs_1,1,false,to wear (feet),Verb,I run wearing sneakers.,vocab_a2_0173
+벗다,beotda,ausziehen,A2,Verb,집에서는 신발을 벗어요.,Zu Hause zieht man die Schuhe aus.,Anziehen & Accessoires,a2_wearing_verbs_1,2,false,to take off,Verb,You take off your shoes at home.,vocab_a2_0174
+매다,maeda,binden,A2,Verb,넥타이를 매는 법을 배웠어요.,Ich habe gelernt eine Krawatte zu binden.,Anziehen & Accessoires,a2_wearing_verbs_1,3,false,to tie,Verb,I learned how to tie a tie.,vocab_a2_0175
+끼다,kkida,anziehen (Hände),A2,Verb,추워서 장갑을 꼈어요.,Wegen der Kälte habe ich Handschuhe angezogen.,Anziehen & Accessoires,a2_wearing_verbs_1,4,false,to wear (hands),Verb,I put on gloves because it was cold.,vocab_a2_0176
+차다,chada,umlegen (Uhr),A2,Verb,새 시계를 차고 있어요.,Ich trage eine neue Uhr.,Anziehen & Accessoires,a2_wearing_verbs_1,5,false,to wear (watch),Verb,I am wearing a new watch.,vocab_a2_0177
+메다,meda,schultern,A2,Verb,가방을 메고 학교에 가요.,Ich gehe mit der Tasche über der Schulter zur Schule.,Anziehen & Accessoires,a2_wearing_verbs_1,6,false,to carry (shoulder),Verb,I go to school with a bag on my shoulder.,vocab_a2_0178
+벨트,belteu,Gürtel,A2,Nomen,바지가 커서 벨트를 했어요.,Die Hose war groß und ich habe einen Gürtel angelegt.,Anziehen & Accessoires,a2_wearing_verbs_1,7,false,belt,Noun,The pants were big so I wore a belt.,vocab_a2_0179
+팔찌,paljji,Armband,A2,Nomen,은 팔찌를 자주 해요.,Ich trage oft ein silbernes Armband.,Anziehen & Accessoires,a2_wearing_verbs_1,8,false,bracelet,Noun,I often wear a silver bracelet.,vocab_a2_0180
+부츠,bucheu,Stiefel,A2,Nomen,눈이 와서 부츠를 신었어요.,Es hat geschneit und ich habe Stiefel angezogen.,Anziehen & Accessoires,a2_wearing_verbs_1,9,false,boots,Noun,It snowed so I wore boots.,vocab_a2_0181
+샌들,saendeul,Sandalen,A2,Nomen,여름에는 샌들이 편해요.,Im Sommer sind Sandalen bequem.,Anziehen & Accessoires,a2_wearing_verbs_1,10,true,sandals,Noun,Sandals are comfortable in summer.,vocab_a2_0182
+슬리퍼,seullipeo,Hausschuhe,A2,Nomen,집에서 슬리퍼를 신어요.,Zu Hause trage ich Hausschuhe.,Anziehen & Accessoires,a2_wearing_verbs_1,11,true,slippers,Noun,I wear slippers at home.,vocab_a2_0183
+스타킹,seutaking,Strumpfhose,A2,Nomen,스타킹에 구멍이 났어요.,Meine Strumpfhose hat ein Loch.,Anziehen & Accessoires,a2_wearing_verbs_1,12,true,stockings,Noun,My stockings have a hole.,vocab_a2_0184
+반찬,banchan,Beilage,A2,Nomen,한국 식당은 반찬이 많아요.,Koreanische Restaurants haben viele Beilagen.,Im Restaurant,a2_restaurant_1,1,false,side dish,Noun,Korean restaurants have many side dishes.,vocab_a2_0185
+소금,sogeum,Salz,A2,Nomen,소금 좀 건네주세요.,Reich mir bitte das Salz.,Im Restaurant,a2_restaurant_1,2,false,salt,Noun,Please pass the salt.,vocab_a2_0186
+후추,huchu,Pfeffer,A2,Nomen,수프에 후추를 넣었어요.,Ich habe Pfeffer in die Suppe getan.,Im Restaurant,a2_restaurant_1,3,false,pepper,Noun,I put pepper in the soup.,vocab_a2_0187
+젓가락,jeotgarak,Stäbchen,A2,Nomen,젓가락 사용이 어려워요.,Stäbchen zu benutzen ist schwierig.,Im Restaurant,a2_restaurant_1,4,false,chopsticks,Noun,Using chopsticks is difficult.,vocab_a2_0188
+숟가락,sutgarak,Löffel,A2,Nomen,숟가락으로 국을 먹어요.,Suppe isst man mit dem Löffel.,Im Restaurant,a2_restaurant_1,5,false,spoon,Noun,You eat soup with a spoon.,vocab_a2_0189
+계산서,gyesanseo,Rechnung,A2,Nomen,계산서 좀 주세요.,Die Rechnung bitte.,Im Restaurant,a2_restaurant_1,6,false,check,Noun,The check please.,vocab_a2_0190
+차림표,charimpyo,Speisekarte,A2,Nomen,차림표 좀 볼 수 있을까요?,Könnte ich die Speisekarte sehen?,Im Restaurant,a2_restaurant_1,7,false,menu,Noun,Could I see the menu?,vocab_a2_0191
+인분,inbun,Portion,A2,Nomen,불고기 2인분 주세요.,Zwei Portionen Bulgogi bitte.,Im Restaurant,a2_restaurant_1,8,false,serving,Noun,Two servings of bulgogi please.,vocab_a2_0192
+배부르다,baebureuda,satt sein,A2,Adjektiv,너무 많이 먹어서 배불러요.,Ich habe zu viel gegessen und bin satt.,Im Restaurant,a2_restaurant_1,9,false,to be full,Adjective,I ate too much and I am full.,vocab_a2_0193
+씹다,ssipda,kauen,A2,Verb,음식을 천천히 씹으세요.,Kauen Sie das Essen langsam.,Im Restaurant,a2_restaurant_1,10,true,to chew,Verb,Chew your food slowly.,vocab_a2_0194
+맛보다,matboda,probieren,A2,Verb,이 김치 좀 맛보세요.,Probieren Sie mal dieses Kimchi.,Im Restaurant,a2_restaurant_1,11,true,to taste,Verb,Try this kimchi.,vocab_a2_0195
+후식,husik,Nachtisch,A2,Nomen,후식으로 아이스크림을 먹었어요.,Als Nachtisch habe ich Eis gegessen.,Im Restaurant,a2_restaurant_1,12,true,dessert,Noun,I had ice cream for dessert.,vocab_a2_0196
+거울,geoul,Spiegel,A2,Nomen,거울을 보면서 머리를 빗어요.,Ich kämme mich vor dem Spiegel.,Haushalt & Zimmer,a2_household_1,1,false,mirror,Noun,I comb my hair in front of the mirror.,vocab_a2_0197
+달력,dallyeok,Kalender,A2,Nomen,달력에 약속을 표시했어요.,Ich habe den Termin im Kalender markiert.,Haushalt & Zimmer,a2_household_1,2,false,calendar,Noun,I marked the appointment on the calendar.,vocab_a2_0198
+비누,binu,Seife,A2,Nomen,비누로 손을 씻으세요.,Waschen Sie die Hände mit Seife.,Haushalt & Zimmer,a2_household_1,3,false,soap,Noun,Wash your hands with soap.,vocab_a2_0199
+칫솔,chitsol,Zahnbürste,A2,Nomen,새 칫솔로 바꿨어요.,Ich habe eine neue Zahnbürste genommen.,Haushalt & Zimmer,a2_household_1,4,false,toothbrush,Noun,I switched to a new toothbrush.,vocab_a2_0200
+수건,sugeon,Handtuch,A2,Nomen,깨끗한 수건 있어요?,Gibt es ein sauberes Handtuch?,Haushalt & Zimmer,a2_household_1,5,false,towel,Noun,Is there a clean towel?,vocab_a2_0201
+그릇,geureut,Schüssel,A2,Nomen,그릇을 씻어서 정리했어요.,Ich habe die Schüsseln gespült und weggeräumt.,Haushalt & Zimmer,a2_household_1,6,false,bowl,Noun,I washed and put away the bowls.,vocab_a2_0202
+컵,keop,Tasse,A2,Nomen,컵에 물을 따랐어요.,Ich habe Wasser in die Tasse gegossen.,Haushalt & Zimmer,a2_household_1,7,false,cup,Noun,I poured water into the cup.,vocab_a2_0203
+냄새,naemsae,Geruch,A2,Nomen,부엌에서 좋은 냄새가 나요.,Aus der Küche kommt ein guter Geruch.,Haushalt & Zimmer,a2_household_1,8,false,smell,Noun,A good smell comes from the kitchen.,vocab_a2_0204
+창문,changmun,Fenster,A2,Nomen,더워서 창문을 열었어요.,Mir war warm und ich habe das Fenster geöffnet.,Haushalt & Zimmer,a2_household_1,9,false,window,Noun,I was hot so I opened the window.,vocab_a2_0205
+꽃병,kkotbyeong,Blumenvase,A2,Nomen,꽃병에 장미를 꽂았어요.,Ich habe Rosen in die Vase gestellt.,Haushalt & Zimmer,a2_household_1,10,true,flower vase,Noun,I put roses in the vase.,vocab_a2_0206
+화분,hwabun,Blumentopf,A2,Nomen,창가에 화분이 세 개 있어요.,Am Fenster stehen drei Blumentöpfe.,Haushalt & Zimmer,a2_household_1,11,true,flower pot,Noun,There are three flower pots by the window.,vocab_a2_0207
+옷걸이,otgeori,Kleiderbügel,A2,Nomen,코트를 옷걸이에 걸었어요.,Ich habe den Mantel auf den Bügel gehängt.,Haushalt & Zimmer,a2_household_1,12,true,coat hanger,Noun,I hung the coat on the hanger.,vocab_a2_0208
+야채,yachae,Gemüse,A2,Nomen,야채를 많이 드세요.,Essen Sie viel Gemüse.,Essen & Zutaten,a2_food_more_1,1,false,vegetables,Noun,Eat lots of vegetables.,vocab_a2_0209
+수박,subak,Wassermelone,A2,Nomen,여름에는 수박이 최고예요.,Im Sommer ist Wassermelone das Beste.,Essen & Zutaten,a2_food_more_1,2,false,watermelon,Noun,Watermelon is the best in summer.,vocab_a2_0210
+배,bae,Birne,A2,Nomen,한국 배는 크고 달아요.,Koreanische Birnen sind groß und süß.,Essen & Zutaten,a2_food_more_1,3,false,pear,Noun,Korean pears are big and sweet.,vocab_a2_0211
+딸기,ttalgi,Erdbeere,A2,Nomen,딸기 케이크를 좋아해요.,Ich mag Erdbeerkuchen.,Essen & Zutaten,a2_food_more_1,4,false,strawberry,Noun,I like strawberry cake.,vocab_a2_0212
+쇠고기,soegogi,Rindfleisch,A2,Nomen,쇠고기로 국을 끓였어요.,Ich habe Suppe mit Rindfleisch gekocht.,Essen & Zutaten,a2_food_more_1,5,false,beef,Noun,I made soup with beef.,vocab_a2_0213
+돼지고기,dwaejigogi,Schweinefleisch,A2,Nomen,돼지고기는 잘 익혀야 해요.,Schweinefleisch muss gut durchgegart werden.,Essen & Zutaten,a2_food_more_1,6,false,pork,Noun,Pork must be cooked well.,vocab_a2_0214
+불고기,bulgogi,Bulgogi,A2,Nomen,저녁에 불고기를 만들어요.,Zum Abendessen mache ich Bulgogi.,Essen & Zutaten,a2_food_more_1,7,false,bulgogi,Noun,I am making bulgogi for dinner.,vocab_a2_0215
+비빔밥,bibimbap,Bibimbap,A2,Nomen,비빔밥에는 나물이 들어가요.,In Bibimbap kommen Gemüsebeilagen.,Essen & Zutaten,a2_food_more_1,8,false,bibimbap,Noun,Bibimbap contains seasoned vegetables.,vocab_a2_0216
+냉면,naengmyeon,kalte Nudeln,A2,Nomen,여름에 냉면을 자주 먹어요.,Im Sommer esse ich oft kalte Nudeln.,Essen & Zutaten,a2_food_more_1,9,false,cold noodles,Noun,I often eat cold noodles in summer.,vocab_a2_0217
+땅콩,ttangkong,Erdnuss,A2,Nomen,땅콩 알레르기가 있어요?,Haben Sie eine Erdnussallergie?,Essen & Zutaten,a2_food_more_1,10,true,peanut,Noun,Do you have a peanut allergy?,vocab_a2_0218
+잼,jaem,Marmelade,A2,Nomen,빵에 딸기 잼을 발랐어요.,Ich habe Erdbeermarmelade aufs Brot gestrichen.,Essen & Zutaten,a2_food_more_1,11,true,jam,Noun,I spread strawberry jam on the bread.,vocab_a2_0219
+밀가루,milgaru,Mehl,A2,Nomen,밀가루로 빵을 만들어요.,Aus Mehl macht man Brot.,Essen & Zutaten,a2_food_more_1,12,true,flour,Noun,Bread is made from flour.,vocab_a2_0220
+지구,jigu,Erde,A2,Nomen,지구는 둥글어요.,Die Erde ist rund.,Natur & Draußen,a2_nature_1,1,false,Earth,Noun,The Earth is round.,vocab_a2_0221
+태양,taeyang,Sonne,A2,Nomen,태양이 밝게 빛나요.,Die Sonne scheint hell.,Natur & Draußen,a2_nature_1,2,false,sun,Noun,The sun shines brightly.,vocab_a2_0222
+숲,sup,Wald,A2,Nomen,숲에서 산책했어요.,Ich bin im Wald spazieren gegangen.,Natur & Draußen,a2_nature_1,3,false,forest,Noun,I took a walk in the forest.,vocab_a2_0223
+물고기,mulgogi,Fisch,A2,Nomen,강에 물고기가 많아요.,Im Fluss gibt es viele Fische.,Natur & Draußen,a2_nature_1,4,false,fish,Noun,There are many fish in the river.,vocab_a2_0224
+모기,mogi,Mücke,A2,Nomen,여름 밤에는 모기가 많아요.,In Sommernächten gibt es viele Mücken.,Natur & Draußen,a2_nature_1,5,false,mosquito,Noun,There are many mosquitoes on summer nights.,vocab_a2_0225
+풀,pul,Gras,A2,Nomen,풀 위에 앉아서 쉬었어요.,Ich habe mich ins Gras gesetzt und ausgeruht.,Natur & Draußen,a2_nature_1,6,false,grass,Noun,I sat on the grass and rested.,vocab_a2_0226
+잎,ip,Blatt,A2,Nomen,가을에는 잎이 빨개져요.,Im Herbst werden die Blätter rot.,Natur & Draußen,a2_nature_1,7,false,leaf,Noun,Leaves turn red in autumn.,vocab_a2_0227
+용,yong,Drache,A2,Nomen,옛날이야기에 용이 나와요.,In alten Geschichten kommen Drachen vor.,Natur & Draußen,a2_nature_1,8,false,dragon,Noun,Dragons appear in old tales.,vocab_a2_0228
+바람,baram,Wind,A2,Nomen,오늘은 바람이 시원해요.,Heute ist der Wind angenehm kühl.,Natur & Draußen,a2_nature_1,9,false,wind,Noun,The wind is cool today.,vocab_a2_0229
+눈사람,nunsaram,Schneemann,A2,Nomen,아이들이 눈사람을 만들어요.,Die Kinder bauen einen Schneemann.,Natur & Draußen,a2_nature_1,10,true,snowman,Noun,The children are building a snowman.,vocab_a2_0230
+눈싸움,nunssaum,Schneeballschlacht,A2,Nomen,친구들과 눈싸움을 했어요.,Ich habe mit Freunden eine Schneeballschlacht gemacht.,Natur & Draußen,a2_nature_1,11,true,snowball fight,Noun,I had a snowball fight with friends.,vocab_a2_0231
+동네,dongne,Viertel,A2,Nomen,우리 동네는 조용해요.,Unser Viertel ist ruhig.,Natur & Draußen,a2_nature_1,12,true,neighborhood,Noun,Our neighborhood is quiet.,vocab_a2_0232
+가수,gasu,Sänger,A2,Nomen,저 가수는 노래를 정말 잘해요.,Dieser Sänger singt wirklich gut.,Menschen & Berufe,a2_people_jobs_1,1,false,singer,Noun,That singer sings really well.,vocab_a2_0233
+변호사,byeonhosa,Anwalt,A2,Nomen,언니는 변호사예요.,Meine große Schwester ist Anwältin.,Menschen & Berufe,a2_people_jobs_1,2,false,lawyer,Noun,My older sister is a lawyer.,vocab_a2_0234
+경찰,gyeongchal,Polizist,A2,Nomen,경찰이 길을 안내해 줬어요.,Ein Polizist hat mir den Weg gezeigt.,Menschen & Berufe,a2_people_jobs_1,3,false,police officer,Noun,A police officer showed me the way.,vocab_a2_0235
+군인,gunin,Soldat,A2,Nomen,형은 지금 군인이에요.,Mein Bruder ist gerade Soldat.,Menschen & Berufe,a2_people_jobs_1,4,false,soldier,Noun,My brother is a soldier now.,vocab_a2_0236
+사원,sawon,Angestellter,A2,Nomen,저는 회사 사원이에요.,Ich bin Angestellter in einer Firma.,Menschen & Berufe,a2_people_jobs_1,5,false,employee,Noun,I am a company employee.,vocab_a2_0237
+주인,juin,Besitzer,A2,Nomen,가게 주인이 친절해요.,Der Ladenbesitzer ist freundlich.,Menschen & Berufe,a2_people_jobs_1,6,false,owner,Noun,The shop owner is friendly.,vocab_a2_0238
+아저씨,ajeossi,Onkel (Anrede),A2,Nomen,택시 아저씨가 길을 잘 알아요.,Der Taxifahrer kennt den Weg gut.,Menschen & Berufe,a2_people_jobs_1,7,false,middle-aged man,Noun,The taxi driver knows the way well.,vocab_a2_0239
+아주머니,ajumeoni,Tante (Anrede),A2,Nomen,식당 아주머니가 반찬을 더 주셨어요.,Die Wirtin hat uns mehr Beilagen gegeben.,Menschen & Berufe,a2_people_jobs_1,8,false,middle-aged woman,Noun,The restaurant lady gave us more side dishes.,vocab_a2_0240
+왕,wang,König,A2,Nomen,세종대왕은 유명한 왕이에요.,König Sejong ist ein berühmter König.,Menschen & Berufe,a2_people_jobs_1,9,false,king,Noun,King Sejong is a famous king.,vocab_a2_0241
+왕비,wangbi,Königin,A2,Nomen,왕비가 궁에 살았어요.,Die Königin lebte im Palast.,Menschen & Berufe,a2_people_jobs_1,10,true,queen,Noun,The queen lived in the palace.,vocab_a2_0242
+왕자,wangja,Prinz,A2,Nomen,동화에 왕자가 나와요.,Im Märchen kommt ein Prinz vor.,Menschen & Berufe,a2_people_jobs_1,11,true,prince,Noun,A prince appears in the fairy tale.,vocab_a2_0243
+공주,gongju,Prinzessin,A2,Nomen,아이가 공주 그림을 그렸어요.,Das Kind hat eine Prinzessin gemalt.,Menschen & Berufe,a2_people_jobs_1,12,true,princess,Noun,The child drew a princess.,vocab_a2_0244
+교실,gyosil,Klassenzimmer,A2,Nomen,교실이 아주 조용해요.,Das Klassenzimmer ist sehr ruhig.,Schule & Uni,a2_school_uni_1,1,false,classroom,Noun,The classroom is very quiet.,vocab_a2_0245
+교과서,gyogwaseo,Lehrbuch,A2,Nomen,교과서 20쪽을 펴세요.,Öffnet das Lehrbuch auf Seite zwanzig.,Schule & Uni,a2_school_uni_1,2,false,textbook,Noun,Open the textbook to page twenty.,vocab_a2_0246
+공책,gongchaek,Heft,A2,Nomen,공책에 단어를 썼어요.,Ich habe die Wörter ins Heft geschrieben.,Schule & Uni,a2_school_uni_1,3,false,notebook,Noun,I wrote the words in my notebook.,vocab_a2_0247
+칠판,chilpan,Tafel,A2,Nomen,선생님이 칠판에 써요.,Der Lehrer schreibt an die Tafel.,Schule & Uni,a2_school_uni_1,4,false,blackboard,Noun,The teacher writes on the blackboard.,vocab_a2_0248
+대학교,daehakgyo,Universität,A2,Nomen,누나는 대학교에 다녀요.,Meine Schwester geht zur Universität.,Schule & Uni,a2_school_uni_1,5,false,university,Noun,My sister attends university.,vocab_a2_0249
+대학생,daehaksaeng,Student,A2,Nomen,저는 대학생이에요.,Ich bin Student.,Schule & Uni,a2_school_uni_1,6,false,university student,Noun,I am a university student.,vocab_a2_0250
+고등학생,godeunghaksaeng,Oberschüler,A2,Nomen,동생은 고등학생이에요.,Mein Bruder ist Oberschüler.,Schule & Uni,a2_school_uni_1,7,false,high school student,Noun,My younger brother is a high school student.,vocab_a2_0251
+중학생,junghaksaeng,Mittelschüler,A2,Nomen,중학생 때 한국어를 시작했어요.,Als Mittelschüler habe ich mit Koreanisch angefangen.,Schule & Uni,a2_school_uni_1,8,false,middle school student,Noun,I started Korean in middle school.,vocab_a2_0252
+반,ban,Klasse (Gruppe),A2,Nomen,우리 반은 학생이 스무 명이에요.,Unsere Klasse hat zwanzig Schüler.,Schule & Uni,a2_school_uni_1,9,false,class,Noun,Our class has twenty students.,vocab_a2_0253
+교수,gyosu,Professor,A2,Nomen,교수님 수업이 재미있어요.,Die Vorlesung des Professors ist interessant.,Schule & Uni,a2_school_uni_1,10,true,professor,Noun,The professor's lecture is interesting.,vocab_a2_0254
+유학,yuhak,Auslandsstudium,A2,Nomen,내년에 한국으로 유학을 가요.,Nächstes Jahr gehe ich zum Studium nach Korea.,Schule & Uni,a2_school_uni_1,11,true,studying abroad,Noun,I am going to study in Korea next year.,vocab_a2_0255
+유학생,yuhaksaeng,Auslandsstudent,A2,Nomen,우리 학교에 유학생이 많아요.,An unserer Schule gibt es viele Auslandsstudenten.,Schule & Uni,a2_school_uni_1,12,true,international student,Noun,There are many international students at our school.,vocab_a2_0256
+열리다,yeollida,sich öffnen,A2,Verb,문이 저절로 열렸어요.,Die Tür öffnete sich von selbst.,Zustandsverben,a2_change_verbs_1,1,false,to be opened,Verb,The door opened by itself.,vocab_a2_0257
+닫히다,dachida,sich schließen,A2,Verb,바람에 창문이 닫혔어요.,Das Fenster schloss sich durch den Wind.,Zustandsverben,a2_change_verbs_1,2,false,to be closed,Verb,The window closed from the wind.,vocab_a2_0258
+켜지다,kyeojida,angehen (Licht),A2,Verb,불이 자동으로 켜져요.,Das Licht geht automatisch an.,Zustandsverben,a2_change_verbs_1,3,false,to be turned on,Verb,The light turns on automatically.,vocab_a2_0259
+꺼지다,kkeojida,ausgehen (Licht),A2,Verb,갑자기 불이 꺼졌어요.,Plötzlich ging das Licht aus.,Zustandsverben,a2_change_verbs_1,4,false,to be turned off,Verb,The light suddenly went out.,vocab_a2_0260
+떨어지다,tteoreojida,herunterfallen,A2,Verb,책이 책상에서 떨어졌어요.,Das Buch fiel vom Tisch.,Zustandsverben,a2_change_verbs_1,5,false,to fall,Verb,The book fell off the desk.,vocab_a2_0261
+남다,namda,übrig bleiben,A2,Verb,음식이 많이 남았어요.,Es ist viel Essen übrig geblieben.,Zustandsverben,a2_change_verbs_1,6,false,to remain,Verb,A lot of food was left over.,vocab_a2_0262
+붙다,butda,kleben (haften),A2,Verb,벽에 포스터가 붙어 있어요.,An der Wand klebt ein Poster.,Zustandsverben,a2_change_verbs_1,7,false,to stick,Verb,A poster is stuck on the wall.,vocab_a2_0263
+걸리다,geollida,hängen (dauern),A2,Verb,벽에 그림이 걸려 있어요.,An der Wand hängt ein Bild.,Zustandsverben,a2_change_verbs_1,8,false,to hang,Verb,A picture hangs on the wall.,vocab_a2_0264
+빼다,ppaeda,herausziehen,A2,Verb,가방에서 책을 뺐어요.,Ich habe das Buch aus der Tasche genommen.,Zustandsverben,a2_change_verbs_1,9,false,to take out,Verb,I took the book out of the bag.,vocab_a2_0265
+세우다,seuda,aufstellen (parken),A2,Verb,차를 여기에 세워 주세요.,Stellen Sie das Auto bitte hier ab.,Zustandsverben,a2_change_verbs_1,10,true,to park,Verb,Please park the car here.,vocab_a2_0266
+나가다,nagada,hinausgehen,A2,Verb,잠깐 밖에 나갔다 올게요.,Ich gehe kurz raus und komme wieder.,Zustandsverben,a2_change_verbs_1,11,true,to go out,Verb,I will step out for a moment.,vocab_a2_0267
+나오다,naoda,herauskommen,A2,Verb,회의가 끝나고 방에서 나왔어요.,Nach der Sitzung kam ich aus dem Raum.,Zustandsverben,a2_change_verbs_1,12,true,to come out,Verb,I came out of the room after the meeting.,vocab_a2_0268

@@ -1970,7 +1970,16 @@
                              "b2_safety_rules":  "b2_04_complaint_resolution",
                              "b2_events_culture":  "b2_06_advanced_capstone",
                              "b2_thinking_verbs":  "b2_06_advanced_capstone",
-                             "b2_honorifics":  "b2_01_formal_opening"
+                             "b2_honorifics":  "b2_01_formal_opening",
+                             "a2_clothing":  "a2_05_delivery_services",
+                             "a2_wearing_verbs":  "a2_05_delivery_services",
+                             "a2_restaurant":  "a2_05_delivery_services",
+                             "a2_household":  "a2_08_home_money",
+                             "a2_food_more":  "a2_05_delivery_services",
+                             "a2_nature":  "a2_03_chat_relationships",
+                             "a2_people_jobs":  "a2_06_study_work",
+                             "a2_school_uni":  "a2_06_study_work",
+                             "a2_change_verbs":  "a2_01_haeyo_transition"
                          },
     "contentLinks":  [
                          {

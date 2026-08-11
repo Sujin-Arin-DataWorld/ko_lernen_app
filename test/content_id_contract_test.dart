@@ -12,9 +12,9 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
     final vocabRows = _csvRows('assets/data/korean_vocab.csv');
-    expect(vocabRows, hasLength(823));
+    expect(vocabRows, hasLength(931));
     expect(vocabRows.first.last, 'id');
-    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 822);
+    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 930);
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();

@@ -69,14 +69,23 @@ DancheongMotif motifForPackId(String packId) {
     'b1_work' ||
     'b2_work' ||
     'b2_education' ||
-    'b1_work_career' =>
+    'b1_work_career' ||
+    'a2_people_jobs' ||
+    'a2_school_uni' =>
       DancheongMotif.bamboo,
     'a2_weather' ||
     'a2_health_misc' ||
     'b1_health_education' ||
     'b1_health_hospital' =>
       DancheongMotif.cloud,
-    'a1_food' || 'a2_food' || 'a2_shopping' => DancheongMotif.octagon,
+    'a1_food' ||
+    'a2_food' ||
+    'a2_shopping' ||
+    'a2_clothing' ||
+    'a2_wearing_verbs' ||
+    'a2_restaurant' ||
+    'a2_food_more' =>
+      DancheongMotif.octagon,
     'a1_transport' ||
     'a2_transport' ||
     'b1_travel_transport' ||
@@ -90,7 +99,8 @@ DancheongMotif motifForPackId(String packId) {
     'b1_daily' ||
     'b1_verbs_daily' ||
     'b2_thinking_verbs' ||
-    'b2_modern_life' =>
+    'b2_modern_life' ||
+    'a2_change_verbs' =>
       DancheongMotif.vine,
     'b1_tech_society' ||
     'b2_society' ||
@@ -99,9 +109,10 @@ DancheongMotif motifForPackId(String packId) {
     'b1_communication_lang' ||
     'b2_language_grammar' =>
       DancheongMotif.chilbo,
-    'a2_home' || 'a1_misc' || 'b2_misc' || 'b2_household_practical' =>
+    'a2_home' || 'a1_misc' || 'b2_misc' || 'b2_household_practical' ||
+    'a2_household' =>
       DancheongMotif.gwigap,
-    'b2_environment' => DancheongMotif.wave,
+    'b2_environment' || 'a2_nature' => DancheongMotif.wave,
     'b2_thinking' || 'b2_abstract_concepts' => DancheongMotif.taegeuk,
     'a2_money' || 'b1_money_bank' => DancheongMotif.peony,
     // ── 2026-08-11 확장 팩 (TOPIK-Kuratierung) ──
