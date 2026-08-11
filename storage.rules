@@ -14,8 +14,14 @@ service firebase.storage {
   match /b/{bucket}/o {
 
     // 고품질 발음 mp3 — tts/{voice}/{sha1}.mp3
+    //
+    // 2026-08-12: read 를 공개로 완화. 근거(실기기 logcat):
+    //   "NetworkRequest: no auth token for request" → 403 → OS 기계음 폴백.
+    // 앱 시작 직후 익명 로그인 완료 전(또는 로그인 실패 시) 재생을 누르면
+    // auth 가 비어 전 화면이 기계음이 됐다. 내용물은 공개 학습 콘텐츠의
+    // 발음 mp3 뿐이고 파일명이 sha1 이라 열거 불가 — 사용자 데이터 없음.
     match /tts/{allPaths=**} {
-      allow read: if request.auth != null;
+      allow read: if true;
       allow write: if false;
     }
 
