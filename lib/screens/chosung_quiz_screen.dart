@@ -317,7 +317,9 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     // M1: Das Spiel speist das SRS — gewusst/nicht gewusst fließt in die
     // Wiederholungs-Planung (gleicher Key wie Vokabel-Packs: korean-String).
     Storage.srsReview(_card.korean, gotIt: ok);
-    Future.delayed(const Duration(milliseconds: 1400), _next);
+    // 정답은 짧게(700ms) — 이미 맞은 걸 아는데 1.4s 대기는 체감상 "느리다".
+    // 오답(1000ms)은 정답을 읽을 시간이 필요해 더 길게 유지한다.
+    Future.delayed(Duration(milliseconds: ok ? 700 : 1000), _next);
   }
 
   void _skip() {

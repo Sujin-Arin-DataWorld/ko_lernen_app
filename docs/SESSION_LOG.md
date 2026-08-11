@@ -226,6 +226,20 @@ worktree, push, PR, or merge was changed.
 
 ---
 
+### 2026-08-12 (Claude) — Anlaut-Quiz 정답 템포 + Satz bauen 물음표 타일·까치 카드 앵커
+
+**왜.** Jin 실기기 피드백 3건: ① Anlaut-Quiz 정답 후 넘어가기가 "너무 느리다" ② Satz bauen 물음표 문장인데 `?` 선택 타일이 없다 ③ 까치 캐릭터가 화면 우상단 허공에 처박혀 싸구려로 보인다.
+
+**무엇을.**
+- `chosung_quiz_screen.dart` `_submit()`: 정답 딜레이 **1400→700ms**(오답 1000ms 유지 — 정답이 오답보다 느리던 역전 해소).
+- `satz_bauen_quest.dart`: ⓐ 문장 끝 `?`/`!`를 **선택 가능한 문장부호 타일**로 뱅크에 추가(섞기 포함). 정적 검사(tokenize/isCorrectOrder)는 부호를 걸러내 **불변** — 위치 검증(마지막 자리만, 중간이면 어순 오류 진단)은 `_check`에서만. 2회 오답 정답 공개에도 부호 타일 포함. ⓑ 까치를 화면 우상단 오버레이 → **질문 카드 우상단 앵커**(size 56→72, 카드 우측 패딩 60으로 2줄 프롬프트와 겹침 방지). 바깥 `Stack(clipBehavior: Clip.none)` 유지 → mascot_overlay_layout_guard 테스트·3ee6ec1 오버플로 회귀 없음.
+
+**검증.** `flutter analyze` 두 파일 0. `flutter test` satz_bauen_quest(19) + mascot_overlay_layout_guard(1) = **20/20 통과**. 실기기 확인 항목: Satz bauen에서 `?` 타일 선택·중간 배치 시 어순 안내·까치가 카드에 앉음.
+
+**남음.** TTS 사전생성 확장(generate_tts.py — 문법·시나리오·빈칸·끝말잇기·듣기 수집), Satz bauen 예문 톤 개선(콘텐츠 — Jin 결정), Anlaut-Quiz 라운드 완료 축하 연출.
+
+---
+
 ### 2026-08-11 (Claude) — 앱 최적화 Phase 2(용량): 비디오 재인코딩 −30MB + hanok_compound 등록해제 −11MB
 
 **왜.** Jin "앱 최적화" 4영역 계획 승인, 용량 최우선. AAB 253MB(에셋 133MB 지배: illustrations 75·video 58). 에셋 삭제 금지 원칙.
