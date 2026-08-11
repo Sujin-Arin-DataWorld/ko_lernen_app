@@ -76,7 +76,12 @@ try:
     load_dotenv(os.path.join(ROOT, "functions", "analyze_korean_text", ".env"))
 except Exception:  # noqa: BLE001
     pass
-API_KEY = os.environ.get("GOOGLE_TTS_API_KEY", "").strip()
+# _2 우선: 트라이얼 크레딧 계정 키(2026-08-11, Jin). 합성은 무상태 호출이라
+# 어느 계정 키든 결과물·버킷 업로드는 동일 — 과금 계정만 달라진다.
+API_KEY = (
+    os.environ.get("GOOGLE_TTS_API_KEY_2", "").strip()
+    or os.environ.get("GOOGLE_TTS_API_KEY", "").strip()
+)
 
 
 def token():
