@@ -7,6 +7,28 @@
 
 ---
 
+### 2026-08-11 (Codex) — VS Code 동시세션 종료·Claude 잔여 변경 main 수거
+
+**왜.** VS Code가 폐기된 UX 워크트리를 계속 열고 있었고, 중지됐다고 보였던
+Claude Code 프로세스 3개가 실제로는 같은 기본 체크아웃에 파일과 커밋을 계속
+쓰고 있었다. 이 때문에 Source Control의 변경 수와 `main` HEAD가 확인 중에도
+바뀌었고, `Satz bauen`은 커밋 메시지와 달리 구문이 깨진 미커밋 파일로 남았다.
+
+**작업.** 스크린샷의 기존 5개 변경은 각각 `a051bfb`·`4bbf969`·`d546040`·
+`a96e15a`·`27867b3`으로 이미 `origin/main`에 포함된 것을 증명했다. 남은 Claude
+작업은 낱자 TTS `1cd8ade`, Anlaut 템포 `f75b333`, 끝말잇기 성공 비트
+`121ab3d`로 보존했다. 살아 있던 VS Code Claude CLI 3개를 종료한 뒤,
+`Satz bauen`의 `?`/`!` 타일을 마지막 자리에 정확히 한 번 놓아야 정답이 되도록
+복구하고 까치를 질문 카드에 앵커했다(`5c711c2`). 낱자 발음 매핑 회귀 테스트도
+추가했다(`f648e22`). 공개 API·저장 키·데이터 스키마·기존 assets는 바꾸지 않았다.
+
+**검증.** 전체 `flutter analyze --no-pub --fatal-infos`는 **No issues found**.
+낱자 TTS·Satz 로직·초성퀴즈·끝말잇기·원형 피드백 묶음은 **37/37**, 최종
+낱자 TTS·Satz·마스코트 오버레이 가드는 **25/25** 통과했고 `git diff --check`도
+통과했다. 이 기록 커밋 push 뒤 `origin/main` 동기화와 GitHub CI를 다시 확인한다.
+
+---
+
 ### 2026-08-11 (Codex) — main 통합 뒤 Linux 골든·영상 리포트 정합성 복구
 
 **왜.** 최신 main을 UX PR #15에 합친 뒤 자동 CI run `31471400579`에서
@@ -226,7 +248,7 @@ worktree, push, PR, or merge was changed.
 
 ---
 
-### 2026-08-12 (Claude) — Anlaut-Quiz 정답 템포 + Satz bauen 물음표 타일·까치 카드 앵커
+### 2026-08-11 (Claude) — Anlaut-Quiz 정답 템포 + Satz bauen 물음표 타일·까치 카드 앵커
 
 **왜.** Jin 실기기 피드백 3건: ① Anlaut-Quiz 정답 후 넘어가기가 "너무 느리다" ② Satz bauen 물음표 문장인데 `?` 선택 타일이 없다 ③ 까치 캐릭터가 화면 우상단 허공에 처박혀 싸구려로 보인다.
 
