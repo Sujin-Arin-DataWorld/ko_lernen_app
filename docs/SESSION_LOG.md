@@ -78,6 +78,24 @@ Store 문구와 TestFlight 베타 문구, `AGENTS.md`의 현재 데이터 수치
 
 ---
 
+### 2026-08-11 (Claude) — Silben-Kreuz 크로스워드(Wordle 대체) + TTS 사전생성 시도
+
+**왜.** Jin: Wordle식 6줄 보드는 "줄끼리 연결이 안 보인다" → 크로스워드 사진으로 개편안 제시. 승인 설계: 오프라인 생성 정적 번들 / 칸탭→음절탭 / 교차점 즉시 잠김 / 힌트에 예문 무조건.
+
+**무엇을.** `1ca9f50`:
+- `tool/gen_silben_puzzles.py` → `assets/data/silben_puzzles.json` (레벨별 20퍼즐 ×4, 시드 고정, 고전 크로스워드 제약 + 생성기 내 검증). 힌트 = 독일어 뜻+독일어 예문+정답 ◯마스킹 한국어 예문.
+- `lib/models/silben_puzzle.dart` + `lib/services/silben_puzzle_loader.dart` + `lib/screens/silben_kreuz_screen.dart` (칸 선택→타일 배치, 정답 즉시 녹색 잠김, 단어 완성 시 TTS+효과음, 오답 흔들림, 완료 셀러브레이션+30XP, 레벨 진행 `recordGameBest('skz_<level>')`).
+- `/wordle` 라우트만 스왑(메뉴 라벨 "Silben-Rätsel" 유지). **wordle_screen.dart 보존** — 실기기 검증 후 삭제 판단(기존 smoke/golden/feedback 테스트가 위젯 직접 참조, 전부 green 유지).
+- 계약 테스트 신설 `test/silben_puzzle_test.dart`.
+
+**검증.** analyze 0 · silben 계약+smoke+feedback+game_best 49개 통과.
+
+**TTS.** `python tool/generate_tts.py` 실행 → gcloud 인증 폴백으로 ~100개 합성 후 **Google 429 RESOURCE_EXHAUSTED**(쿼터) 중단. 스크립트는 재실행 시 기존분 스킵. Jin 결정 필요: GOOGLE_TTS_API_KEY 설정 or 쿼터 리셋 후 재실행(비용 발생 — 자동 재시도 안 걸었음).
+
+**남은 것.** 실기기에서 Silben-Kreuz 플레이 확인(격자·타일·잠김·진행 저장), 이상 없으면 wordle_screen.dart + wordle 전용 l10n 키 정리.
+
+---
+
 ### 2026-08-11 (Claude) — PDF 학습자료 3종 대량 통합: 단어 +372·표현 +48·문법 +35
 
 **왜.** Jin이 PDF 3종(국립국어원 「한국어 한마디」 표현집 · keytokorean 초급 문법 시트 · TOPIK 초중급 단어 ~1,260개)을 제공하며 "전부 적재적소에 100% 활용" 요청. 큐레이션 방침 합의(중복·조사·수량사 제외, 독일어 전면 신규 저작 — 소스는 한-영뿐). B1/B2 확충은 Silben-Kreuz 크로스워드 개편(별도 계획)의 선행조건.
