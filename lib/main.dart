@@ -196,12 +196,18 @@ Future<void> main() async {
   DancheongBurst.preload();
 
   // Allow phones, foldables, and tablets to use their natural orientation.
-  await SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
+  // await 제거: 방향·시스템UI 설정은 플랫폼 채널에 호출 순서대로 큐잉되는
+  // fire-and-set 이라 첫 프레임을 기다릴 필요가 없다 — runApp 전 플랫폼 왕복 2회
+  // 절약(edge-to-edge/방향은 관대해 첫 프레임 직전 적용돼도 무해). 순서 보장은
+  // 채널 큐가 유지하므로 아래 setSystemUIOverlayStyle 와의 순서도 그대로다.
+  // ignore: discarded_futures, unawaited_futures
+  SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
   // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  // ignore: discarded_futures, unawaited_futures
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
