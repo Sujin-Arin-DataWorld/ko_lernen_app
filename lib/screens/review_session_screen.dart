@@ -408,19 +408,30 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                           accent: SoriColors.primary,
                           tinted: !_flipped,
                           child: LayoutBuilder(
-                            builder: (context, cc) => SingleChildScrollView(
-                              child: ConstrainedBox(
-                                constraints: BoxConstraints(
-                                  minHeight: cc.maxHeight,
+                            builder: (context, cc) {
+                              // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
+                              // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
+                              // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
+                              // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
+                              // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
+                              final ch = cc.maxHeight.isFinite
+                                  ? cc.maxHeight
+                                  : 360.0;
+                              return SingleChildScrollView(
+                                child: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minHeight: cc.maxHeight,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: _flipped
+                                        ? _backList(card, s, tt, t, ch)
+                                        : _frontList(card, s, tt, t, ch),
+                                  ),
                                 ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: _flipped
-                                      ? _backList(card, s, tt, t)
-                                      : _frontList(card, s, tt, t),
-                                ),
-                              ),
-                            ),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -464,62 +475,130 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     );
   }
 
+  // 카드 안쪽 높이 [h] 에 비례한 폰트/간격 크기 — 짧은 값(lo)과 큰 화면 상한(hi)
+  // 사이로 클램프. 카드가 커질수록 텍스트도 커져 충전율이 기기와 무관하게 유지된다.
+  static double _sz(double h, double frac, double lo, double hi) =>
+      (h * frac).clamp(lo, hi).toDouble();
+
   List<Widget> _frontList(
     Vocab v,
     SoriSurfaces s,
     SoriTextTheme tt,
     AppL10n t,
+    double h,
   ) => [
-    Text(
-      v.korean,
-      textAlign: TextAlign.center,
-      style: const TextStyle(
-        fontFamily: 'Pretendard',
-        fontSize: 40,
-        fontWeight: FontWeight.w900,
+    // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
+    FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(
+        v.korean,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: 'Pretendard',
+          fontSize: _sz(h, 0.19, 40, 92),
+          fontWeight: FontWeight.w900,
+          height: 1.05,
+        ),
       ),
     ),
-    const SizedBox(height: Spacing.md),
-    _SpeakButton(text: v.korean, label: t.ttsListen),
-    if (v.romanization.isNotEmpty) ...[
-      const SizedBox(height: Spacing.sm),
-      Text(v.romanization, style: tt.body.copyWith(color: s.textMuted)),
-    ],
-    const SizedBox(height: Spacing.lg),
-    Text(t.hintTapToFlip, style: tt.caption.copyWith(color: s.textDim)),
+    // 듣기 버튼 + 로마자를 한 묶음으로(발음 정보끼리 붙어 있게).
+    Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _SpeakButton(
+          text: v.korean,
+          label: t.ttsListen,
+          size: _sz(h, 0.10, 30, 60),
+        ),
+        if (v.romanization.isNotEmpty) ...[
+          SizedBox(height: _sz(h, 0.03, 8, 20)),
+          Text(
+            v.romanization,
+            textAlign: TextAlign.center,
+            style: tt.body.copyWith(
+              color: s.textMuted,
+              fontSize: _sz(h, 0.052, 16, 30),
+            ),
+          ),
+        ],
+      ],
+    ),
+    Text(
+      t.hintTapToFlip,
+      textAlign: TextAlign.center,
+      style: tt.caption.copyWith(
+        color: s.textDim,
+        fontSize: _sz(h, 0.038, 13, 22),
+      ),
+    ),
   ];
 
-  List<Widget> _backList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) {
+  List<Widget> _backList(
+    Vocab v,
+    SoriSurfaces s,
+    SoriTextTheme tt,
+    AppL10n t,
+    double h,
+  ) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
-      Text(
-        v.translationFor(lang),
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontFamily: 'Pretendard',
-          fontSize: 26,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-      if (v.exampleKorean.isNotEmpty) ...[
-        const SizedBox(height: Spacing.lg),
-        Text(v.exampleKorean, textAlign: TextAlign.center, style: tt.body),
-        const SizedBox(height: Spacing.sm),
-        _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
-      ],
-      if (v.exampleGerman.isNotEmpty) ...[
-        const SizedBox(height: Spacing.xs),
-        Text(
-          v.exampleFor(lang),
+      // 뜻 (헤드라인) — 긴 독일어(예: "Entschuldigung (formell)")가 큰 폰트로
+      // 3줄 폭주하지 않도록 FittedBox 로 한 줄에 맞춰 축소한다.
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          v.translationFor(lang),
           textAlign: TextAlign.center,
-          style: tt.bodySmall.copyWith(color: s.textMuted),
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: _sz(h, 0.11, 26, 48),
+            fontWeight: FontWeight.w800,
+            height: 1.1,
+          ),
         ),
-      ],
-      // K-Culture 노트(있을 때만). center Column이라 full-width로 감싸 텍스트 줄바꿈.
-      SizedBox(
-        width: double.infinity,
-        child: CultureNoteCard(korean: v.korean),
       ),
+      // 예문(한국어 + 듣기 + 번역)을 한 묶음으로 → spaceEvenly 가 흩뜨리지 않는다.
+      if (v.exampleKorean.isNotEmpty)
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              v.exampleKorean,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: _sz(h, 0.068, 20, 34),
+                fontWeight: FontWeight.w600,
+                height: 1.25,
+              ),
+            ),
+            SizedBox(height: _sz(h, 0.03, 8, 20)),
+            _SpeakButton(
+              text: v.exampleKorean,
+              label: t.ttsListen,
+              size: _sz(h, 0.075, 24, 48),
+            ),
+            if (v.exampleFor(lang).isNotEmpty) ...[
+              SizedBox(height: _sz(h, 0.04, 12, 24)),
+              Text(
+                v.exampleFor(lang),
+                textAlign: TextAlign.center,
+                style: tt.bodySmall.copyWith(
+                  color: s.textMuted,
+                  fontSize: _sz(h, 0.055, 16, 30),
+                  height: 1.3,
+                ),
+              ),
+            ],
+          ],
+        ),
+      // K-Culture 노트 — 노트가 있을 때만 슬롯을 만든다. 없는데도 SizedBox.shrink
+      // 를 spaceEvenly 슬롯으로 두면 콘텐츠가 위로 쏠리고 아래가 비어 답답해진다.
+      if (CultureNotesService.noteFor(v.korean) != null)
+        SizedBox(
+          width: double.infinity,
+          child: CultureNoteCard(korean: v.korean),
+        ),
     ];
   }
 }

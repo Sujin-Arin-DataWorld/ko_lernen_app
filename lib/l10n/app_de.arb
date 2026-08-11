@@ -474,6 +474,8 @@
   },
   "vocabPacksTitle": "Vokabel-Pakete",
   "vocabPacksLevelMenu": "Level wechseln",
+  "vocabPacksScopedHint": "Nur Pakete für deine aktuelle Mission.",
+  "vocabPacksBrowseAllCta": "Alle Vokabel-Pakete ansehen",
   "vocabPacksProgressLabel": "{cleared}/{total} Pakete geschafft",
   "@vocabPacksProgressLabel": {
     "placeholders": {

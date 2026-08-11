@@ -87,7 +87,15 @@ class CustomPackService {
     Object? value, {
     int maxBytes = defaultRemoteReadLimitBytes,
   }) {
-    if (value == null) {
+    // ⚠️ 빈 문자열은 "커스텀 팩 없음"이다 — invalid 이 아니다. `buildBackupPayload`
+    // 는 커스텀 팩이 없을 때 `custom_packs_json: ''` 를 실어 보내는데, 예전에는
+    // `jsonDecode('')` 가 던져 invalid 로 처리됐다. 그 결과
+    // `decodeCloudDocument` → `LocalAccountReconciliationStore.load` 가
+    // FormatException 을 내 → 조정 러너 invalid → 계정 연동이
+    // `reconciliationPending` 무한 루프에 빠졌다(2026-08-11 실기기 확정, 커스텀
+    // 팩이 없는 거의 모든 계정에서 재현). 형제 디코더(_decodeSrs·
+    // _decodeCourseMastery)와 동일하게 빈/공백 문자열을 absent 로 취급한다.
+    if (value == null || (value is String && value.trim().isEmpty)) {
       return const CloudReadResult.absent();
     }
     if (value is! String || maxBytes < 1) {

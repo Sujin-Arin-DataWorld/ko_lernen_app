@@ -924,6 +924,18 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
       if (reconciliation.status != AccountReconciliationStatus.completed) {
+        // ⚠️ 이 지점이 무한 루프의 정체였다. 조정 러너가 돌려주는
+        // {blocked, unavailable, invalid, tooLarge, stale} 다섯 상태를 예전에는
+        // 전부 하나의 `reconciliationPending` 으로 뭉개 반환해, 실기기에서
+        // **어느 하위 단계가 왜 실패했는지 전혀 알 수 없었다**. 상태·충돌 종류만
+        // 안전하게 남긴다(러너 내부의 `link.reconcile.*` 로그와 짝을 이룬다).
+        AccountFailureDiagnostics.log(
+          'link.reconcile.pending',
+          null,
+          detail:
+              'status=${reconciliation.status.name} '
+              '${_summarizeReconciliationConflicts(reconciliation.conflicts)}',
+        );
         return const AccountTransitionResult(
           AccountTransitionStatus.reconciliationPending,
         );
@@ -1403,4 +1415,16 @@ class AccountTransitionCoordinator {
     'apple' => AccountLinkProvider.apple,
     _ => null,
   };
+
+  /// 조정 실패를 **상태·충돌 종류**로만 요약한다. 충돌 id 는 사용자가 지은
+  /// 커스텀 팩 이름을 담을 수 있어 로그에 원문을 남기지 않는다(러너의
+  /// `_summarizeConflicts` 와 같은 방침).
+  static String _summarizeReconciliationConflicts(
+    List<AccountReconciliationConflict> conflicts,
+  ) {
+    if (conflicts.isEmpty) return 'conflicts=none';
+    final kinds = <String>{for (final c in conflicts) c.kind.name}.toList()
+      ..sort();
+    return 'conflicts=${conflicts.length}:${kinds.join('/')}';
+  }
 }

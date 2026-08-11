@@ -1951,6 +1951,18 @@ abstract class AppL10n {
   /// **'Level wechseln'**
   String get vocabPacksLevelMenu;
 
+  /// No description provided for @vocabPacksScopedHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur Pakete für deine aktuelle Mission.'**
+  String get vocabPacksScopedHint;
+
+  /// No description provided for @vocabPacksBrowseAllCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Vokabel-Pakete ansehen'**
+  String get vocabPacksBrowseAllCta;
+
   /// No description provided for @vocabPacksProgressLabel.
   ///
   /// In de, this message translates to:

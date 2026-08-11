@@ -1043,6 +1043,12 @@ class AppL10nEn extends AppL10n {
   String get vocabPacksLevelMenu => 'Switch level';
 
   @override
+  String get vocabPacksScopedHint => 'Only packs for your current mission.';
+
+  @override
+  String get vocabPacksBrowseAllCta => 'Browse all vocab packs';
+
+  @override
   String vocabPacksProgressLabel(int cleared, int total) {
     return '$cleared/$total packs cleared';
   }

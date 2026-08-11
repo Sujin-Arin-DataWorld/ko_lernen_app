@@ -14,6 +14,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -23,7 +24,6 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
-import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
@@ -731,54 +731,112 @@ class _Front extends StatelessWidget {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final mastery = Storage.vocabMastery(v.korean);
-    return StudyCardFace(
+    return SoriCard(
+      variant: SoriCardVariant.hero,
       accent: SoriColors.info,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SoriChip(
-              label: v.level,
-              accent: SoriColors.info,
-              variant: SoriChipVariant.filled,
+      width: double.infinity,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // 카드 안쪽 높이를 폰트·간격의 기준으로 삼아 텍스트가 카드에 비례해
+          // 커지게(기기 무관 균일 충전율) 한다. FlipCard 가 세로 스크롤로 감싸
+          // maxHeight 를 무한으로 풀 수 있으므로, 유한한 minHeight(= 카드 실제
+          // 높이)를 폴백으로 쓴다. 둘 다 없으면 360.
+          final h = constraints.maxHeight.isFinite
+              ? constraints.maxHeight
+              : (constraints.minHeight.isFinite && constraints.minHeight > 0
+                    ? constraints.minHeight
+                    : 360.0);
+          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 한 줄이라
+          // FittedBox 로 폭에 맞춰 줄이고, 번역은 여러 단어일 수 있어 줄바꿈 허용.
+          final Widget headline = koFirst
+              ? FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    v.korean,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.19, 38, 92),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.info,
+                      height: 1.15,
+                    ),
+                  ),
+                )
+              : Text(
+                  v.translationFor(lang),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: soriFillSize(h, 0.12, 28, 48),
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.info,
+                    height: 1.15,
+                  ),
+                );
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: h),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SoriChip(
+                        label: v.level,
+                        accent: SoriColors.info,
+                        variant: SoriChipVariant.filled,
+                      ),
+                      const SizedBox(width: 8),
+                      _MasteryChip(
+                        state: mastery,
+                        label: _masteryLabel(t, mastery),
+                      ),
+                    ],
+                  ),
+                  // 단어 + 발음(로마자) + 품사를 한 묶음으로 → spaceEvenly 가
+                  // 흩뜨리지 않고 하나의 중앙 초점 블록으로 다룬다.
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      headline,
+                      if (koFirst) ...[
+                        SizedBox(height: soriFillSize(h, 0.02, 6, 16)),
+                        Text(
+                          '[${v.romanization}]',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.05, 15, 30),
+                            color: SoriColors.info.withValues(alpha: 0.7),
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                      SizedBox(height: soriFillSize(h, 0.02, 8, 16)),
+                      Text(
+                        v.posFor(lang),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          color: s.textMuted,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    '👆 ${t.hintTapToFlip}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.038, 13, 22),
+                      color: s.textDim,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(width: 8),
-            _MasteryChip(state: mastery, label: _masteryLabel(t, mastery)),
-          ],
-        ),
-        const SizedBox(height: 14),
-        Text(
-          koFirst ? v.korean : v.translationFor(lang),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: koFirst ? 38 : 28,
-            fontWeight: FontWeight.w800,
-            color: SoriColors.info,
-            height: 1.15,
-          ),
-        ),
-        if (koFirst) ...[
-          const SizedBox(height: 6),
-          Text(
-            '[${v.romanization}]',
-            style: TextStyle(
-              fontSize: 15,
-              color: SoriColors.info.withValues(alpha: 0.7),
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ],
-        const SizedBox(height: Spacing.sm),
-        Text(
-          v.posFor(lang),
-          style: TextStyle(fontSize: 12, color: s.textMuted),
-        ),
-        const SizedBox(height: Spacing.lg),
-        Text(
-          '👆 ${t.hintTapToFlip}',
-          style: TextStyle(fontSize: 11.5, color: s.textDim),
-        ),
-      ],
+          );
+        },
+      ),
     );
   }
 }
@@ -855,81 +913,148 @@ class _Back extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    return StudyCardFace(
+    return SoriCard(
+      variant: SoriCardVariant.hero,
       accent: SoriColors.success,
-      children: [
-        SoriChip(
-          label: v.level,
-          accent: SoriColors.success,
-          variant: SoriChipVariant.filled,
-        ),
-        const SizedBox(height: 12),
-        Text(
-          koFirst ? v.translationFor(lang) : v.korean,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: koFirst ? 28 : 36,
-            fontWeight: FontWeight.w800,
-            color: SoriColors.success,
-            height: 1.2,
-          ),
-        ),
-        const SizedBox(height: Spacing.sm),
-        Text(
-          '${v.posFor(lang)} · ${v.topic}',
-          style: TextStyle(fontSize: 12, color: s.textMuted),
-        ),
-        const SizedBox(height: Spacing.lg),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Text(
-                      v.exampleKorean,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: SoriColors.info.withValues(alpha: 0.9),
-                      ),
+      width: double.infinity,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // 카드 안쪽 높이 기준(위 _Front 와 동일 근거) — FlipCard 세로 스크롤이
+          // maxHeight 를 무한으로 풀 수 있어 유한한 minHeight 폴백을 둔다.
+          final h = constraints.maxHeight.isFinite
+              ? constraints.maxHeight
+              : (constraints.minHeight.isFinite && constraints.minHeight > 0
+                    ? constraints.minHeight
+                    : 360.0);
+          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
+          // 한 줄에 맞추고, 번역은 줄바꿈 허용.
+          final Widget headline = koFirst
+              ? FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    v.translationFor(lang),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.12, 28, 48),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.success,
+                      height: 1.2,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  SoriPressable(
-                    onTap: () => TtsService.speak(v.exampleKorean),
-                    onLongPress: () => TtsService.speakSlow(v.exampleKorean),
-                    haptic: SoriHaptic.selection,
-                    child: Container(
-                      padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        color: SoriColors.info.withValues(alpha: 0.18),
-                        shape: BoxShape.circle,
+                )
+              : FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    v.korean,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.19, 36, 92),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.success,
+                      height: 1.2,
+                    ),
+                  ),
+                );
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: h),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SoriChip(
+                    label: v.level,
+                    accent: SoriColors.success,
+                    variant: SoriChipVariant.filled,
+                  ),
+                  // 뜻 + 품사·주제를 한 묶음으로.
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      headline,
+                      SizedBox(height: soriFillSize(h, 0.02, 8, 16)),
+                      Text(
+                        '${v.posFor(lang)} · ${v.topic}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          color: s.textMuted,
+                        ),
                       ),
-                      child: Icon(
-                        Icons.volume_up_rounded,
-                        color: SoriColors.info,
-                        size: 18,
+                    ],
+                  ),
+                  // 예문(한국어 + 듣기 + 번역)을 한 묶음으로 → spaceEvenly 가
+                  // 흩뜨리지 않는다.
+                  if (v.exampleKorean.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  v.exampleKorean,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: soriFillSize(h, 0.075, 16, 40),
+                                    fontWeight: FontWeight.w700,
+                                    color: SoriColors.info.withValues(
+                                      alpha: 0.9,
+                                    ),
+                                    height: 1.25,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              SoriPressable(
+                                onTap: () => TtsService.speak(v.exampleKorean),
+                                onLongPress: () =>
+                                    TtsService.speakSlow(v.exampleKorean),
+                                haptic: SoriHaptic.selection,
+                                child: Container(
+                                  padding: const EdgeInsets.all(6),
+                                  decoration: BoxDecoration(
+                                    color: SoriColors.info.withValues(
+                                      alpha: 0.18,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.volume_up_rounded,
+                                    color: SoriColors.info,
+                                    size: soriFillSize(h, 0.075, 24, 48),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: soriFillSize(h, 0.02, 4, 14)),
+                          Text(
+                            v.exampleFor(lang),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: soriFillSize(h, 0.05, 13.5, 28),
+                              color: s.text,
+                              height: 1.3,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: CultureNoteCard(korean: v.korean),
                   ),
                 ],
               ),
-              const SizedBox(height: 4),
-              Text(
-                v.exampleFor(lang),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5, color: s.text),
-              ),
-            ],
-          ),
-        ),
-        CultureNoteCard(korean: v.korean),
-      ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

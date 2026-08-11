@@ -7,6 +7,26 @@
 
 ---
 
+### 2026-08-11 (Codex) — Claude main과 UX PR #15 손실 없는 통합
+
+**왜.** 병렬 Claude 세션이 모두 종료된 뒤 main의 카드 타이포그래피·시작 성능·
+단어팩 범위 안내·에셋 무손실 최적화와, Codex PR #15의 목업 01–06·01D 캐릭터
+선택 흐름을 한 main으로 흡수하라는 지시를 받았다.
+
+**작업.** 종료된 Claude 변경 9커밋을 먼저 `origin/main`에 보존한 다음 그 최신
+main을 `codex/mockup-03-06-parity`에 merge했다. 실제 충돌은 이 로그 한 곳뿐이어서
+Claude/Codex 기록을 모두 순서대로 남겼다. DE/EN ARB는 양쪽 키를 합친 뒤
+`flutter gen-l10n`으로 생성 파일을 다시 만들었다. main의 최적화된 기존 에셋을
+유지했고 새 이미지·영상은 만들지 않았다.
+
+**검증.** 통합 트리 `flutter analyze --no-pub --fatal-infos`는 **No issues
+found**였고, 01C→01D→Today·접근성·308–1280dp·1.3 글자·360×400 낮은 높이·
+단어팩·카드·계정 reconciliation을 포함한 집중 묶음 **902 tests**가 전부
+통과했다. `flutter gen-l10n`, 충돌 마커 검사, `git diff --check`도 통과했다.
+GitHub 전체 CI와 최종 PR 병합은 이 로컬 통합 커밋을 push한 뒤 별도 확인한다.
+
+---
+
 ### 2026-08-11 (Codex) — Linux CI learn-hub 골든 기준선 동기화
 
 **왜.** PR #15의 첫 CI run `31440450110`은 앱 로직 테스트 **2,899개 통과** 뒤,
@@ -88,6 +108,130 @@ worktree, push, PR, or merge was changed.
 **검증.** `flutter gen-l10n`, 전체 `flutter analyze --fatal-infos`(No issues found), `git diff --check`를 통과했다. 골든을 제외한 Flutter 테스트 **257개 파일**을 13개 묶음으로 끝까지 통과시켰으며, 01A–06C의 기본/상태/CTA/반응형 계약을 포함한다. Linux CI 전용 골든 기준선 9개는 Windows 로컬 텍스트 래스터 차이로 별도이며, 기준선을 이 작업에서 수정하지 않았다. Android AAB 빌드와 OneDrive `build` 폴더 정리는 실행하지 않았다.
 
 **커밋 및 최신 main 재검증.** 기능 커밋은 `192f83e` (`feat(ux): rebuild mockup learning flow`)다. `origin/main`의 최신 `30d55e6` 위로 충돌 없이 rebase했고, main 쪽 추가 파일은 문서와 Xcode Cloud post-clone 스크립트뿐임을 확인했다. rebase 뒤 `flutter gen-l10n`, 전체 분석, 01C/02/03/04/05/06·계정·반응형 주요 회귀 묶음도 다시 통과했다. main 병합과 push는 이 기록 시점에 수행하지 않았다.
+---
+### 2026-08-11 (Claude) — 카드 타이포 재조정 + 예문 데이터·wordle 버그 수정
+
+**왜.** Jin 실기기 피드백: 복습 카드 글씨 과대(특히 긴 독일어 뜻 3줄 폭주)·상단 쏠림·음성/뜻 답답 + "Nein" 예문 한/독 뜻 불일치 + Silben-Rätsel(wordle) 오버플로·정답버튼 중복.
+
+**무엇을(수정·커밋).**
+- `review_session_screen.dart`: 뜻 헤드라인 `FittedBox(scaleDown)`+max 66→48, 앞면 단어 max 120→92·예문 max 40→34, 음성↔뜻 간격↑, **빈 CultureNoteCard 슬롯 제거**(`noteFor==null`이면 spaceEvenly 슬롯 안 만듦 → 상단 쏠림 해소). min은 불변(폰 무영향). (커밋 `d546040`)
+- `korean_vocab.csv`(아니요/Nein): 예문 독/영을 한국어 "저는 안 갈래요"에 맞춤(`Nein, ich möchte nicht gehen.` / `No, I don't want to go.`). 한국어 텍스트 불변 → 기존 예문 TTS 캐시 유지. (커밋 `4bbf969`)
+- `wordle_screen.dart`: (1) 결과 시 그리드가 큰 결과카드에 짜부라져 나던 `BOTTOM OVERFLOWED 106px` → **종료 시 빈 줄 제외**(rows=추측수, cell도 그 수 기준)로 자동 맞춤. (2) 하단 "Neues Wort"가 상태 무관 표시돼 결과카드 내부 버튼과 **중복** → `!_won && !_lost`로 숨김. (동시 세션 `a051bfb`가 내 변경 + 배너 숨김 보완을 함께 커밋함.)
+
+**검증.** `flutter analyze`(review+wordle) 0 issues · 회귀 테스트 24 통과.
+**남음.** wordle **패배** 시엔 6줄 유지 → 아주 작은 화면 재발 가능성 실기기 확인. 복습 카드 재조정 방향 OK면 형제 5화면에 동일 축소 전파.
+
+---
+
+### 2026-08-11 (Claude) — 학습 카드 텍스트 채움 타이포 + Android R8 keep 강화
+
+**왜.** Jin 스크린샷: 복습 "단어 카드"의 텍스트가 82% 높이 히어로 카드 대비 너무 작게 가운데 뭉쳐 충전율 ~42%. 요청: 히어로/포커스 학습 카드는 "채워 키우기", 크롬(버튼·네비·리스트·칩)은 유지 + 빌드 최적화(최적화/난독화/축소 = Android R8) 강화. (Jin 자는 중 자율 진행·커밋 승인.)
+
+**무엇을(적용·커밋).**
+- `lib/widgets/sori/responsive.dart`: `soriFillSize(h,frac,min,max)` 신설 — 포커스 카드 안쪽 높이에 비례한 폰트(최소 하한 클램프). 독스트링에 "히어로/포커스 전용, 크롬 금지" 명시. (커밋 `6ff23a1`)
+- `review_session_screen.dart`(레퍼런스): 뜻 26→최대 66·예문 15→최대 40·앞면 단어 40→최대 120(FittedBox), Column `center`→`spaceEvenly` 로 카드 채움. (`6ff23a1`)
+- 형제 5화면 동일 규칙(`soriFillSize`+`spaceEvenly`, 헤드라인 FittedBox, 예문 묶음): `vocab_pack`(learn 앞/뒤 + quiz prompt)·`custom_pack_play`(_Front/_Back)·`legacy_vocab`(koFirst 순서)·`grammar`(_Front/_Back/_CourseCheckpointFront, StudyCardFace 탈피 + import 교체)·`hangul`(글자 flashcard). 모든 min=기존 크기라 폰은 무축소, 큰/태블릿 카드에서만 확대. 크롬 미변경. (커밋 `bf2dc03`)
+  - `custom_pack_play`: 롤아웃 중 `ConstrainedBox(minHeight: Infinity)` 레이아웃 assert 크래시 발견·수정 + `minHeight` 폴백으로 기기 비례 스케일 복원(리뷰 medium 지적 해소).
+- `android/app/proguard-rules.pro` 확장 + `android/app/src/main/res/raw/keep.xml` 신설: R8(minify/shrink는 build.gradle.kts에 **이미 켜져 있었음**)에 전 네이티브 플러그인 keep 규칙(Firebase·MLKit 한국어 OCR·RevenueCat·sign-in·notifications·permission·audio·tts·secure_storage·video·rive 등) + 알림 아이콘 리소스 보존. (커밋 `36080d3`)
+
+**보류/의사결정.**
+- iOS Dart `--obfuscate`(워크플로가 `scripts/build_ios_ipa.sh`에 추가했던 것)는 **revert** — 요청된 "난독화"는 Android R8(Java)로 이미 충족되고, Dart 난독화는 `enum.name`/`runtimeType` 영속 키 파손 위험 + 미검증이라 제외. 향후 opt-in(영속 키 감사 후).
+- ⚠️ **Android release keep 규칙은 Jin 실기기 signed release 검증 필수**(debug 무영향). 알림 아이콘·한국어 OCR·Firebase(sign-in/sync/Crashlytics/RemoteConfig/AppCheck/FCM)·RevenueCat·TTS/audio·권한·secure storage·video E2E + `build/app/outputs/mapping/release/missing_rules.txt` 확인.
+- 다음 단계(미착수): "박스 속 텍스트" 광범위 **최소 가독성** 감사(크롬 유지, 포커스 카드만 채움 — 원칙 Jin 승인됨).
+
+**검증.** 5화면 `flutter analyze` 0 issues · 회귀 위젯 테스트 24 통과(플립 앞/뒤 실렌더 포함) · 다중 에이전트 적대적 diff 리뷰(크롬 미변경·오버플로 스크롤 세이프·keep 규칙 완비 확인, medium 1건 즉시 수정). 커밋 `6ff23a1`·`bf2dc03`·`36080d3`.
+
+---
+
+### 2026-08-11 (Claude) — Hangul Karten nav: 독일어 라벨 잘림 수정(3버튼→2+1)
+
+**왜.** Jin 리포트 — Hangul Karten 탭 하단 `[Zurück|Hören|Weiter]` 균등 1/3 행에서 독일어 "Zurück"이 "Zurü…"로 잘림. 독일어는 영어보다 20~30% 길어 360dp 폰에선 아이콘+라벨 3개가 한 줄에 물리적으로 안 들어감.
+
+**무엇을.** `hangul_screen.dart` Karten nav 행을 **2행**으로: nav(prev/next)는 반폭 `Expanded` 2버튼(≈164dp, 라벨 여유롭게 맞음) + 핵심 액션 **듣기(Hören)는 아래 full-width 승격**(발음 카드는 소리가 우선이라 위계도 자연스러움). 단어를 아이콘으로 없애지 않고 **온전히 유지**(Jin 의도). Row 2(Schreiben 탭 `[Zurück|카운터|Weiter]`)는 반폭이라 원래 안 잘려 유지.
+
+**교훈.** 첫 시도한 intrinsic-폭 방식은 좌우가 폭을 먹어 가운데 Expanded(Hören)를 눌러 이번엔 Hören이 잘릴 수 있었다 — 좁은 폭엔 "3개를 1행에 안 둔다"가 정답.
+
+**검증.** `flutter analyze` 0. (반폭 164dp > 필요 114dp, comfort scale 여유 포함 — 시각 확인은 실기기.)
+
+---
+
+### 2026-08-11 (Claude) — 앱 최적화 Phase 3: 시작 경로(안전 항목만)
+
+**왜.** 감사 시작경로 21스텝. 부팅 회귀는 치명적·기기검증 필요라 **명백히 안전(동작보존)만** 적용, 나머지는 기기검증 항목으로 남김(Jin 자는 중 자율 진행).
+
+**무엇을(적용).**
+- `main.dart`: `characterVideoSupported()`(`async => true`)를 `await` 하던 불필요한 async 홉 제거 → `TigerStageVideo.videoReady = true` 직접 대입. runApp 전 마이크로태스크 1회 절약. 동작 동일.
+
+**보류(기기 부팅 검증 필요 — Jin).**
+- `BookImageService.initialize()` 중복(`main.dart:134` blocking + coordinator `resumeMediaCleanup` background) — 134 제거 시 미디어 정리가 background로만. 타이밍 변화라 실기기 확인 후.
+- SystemChrome `setPreferredOrientations`/`setEnabledSystemUIMode` `await` 제거 — 주석에 과거 회귀 이력(inset 보고 깨짐) → 실기기 확인 후.
+- 독립 `await` 병렬화(touchStreak·audio·미디어 복구) — 순서 의존 검증 필요.
+- ⚠️ **감사 제안 정정**: `SceneAssetResolver.load()`(191)는 **지연 금지** — 코드 주석 *"must finish before the first frame"*(안 지키면 시나리오 일러스트가 폴백으로 대체). 현행 유지.
+
+**검증.** `flutter analyze` 0.
+
+---
+
+### 2026-08-11 (Claude) — 앱 최적화 Phase 4: 렌더 핫스팟(cacheWidth·future 캐싱)
+
+**왜.** 감사 핫스팟 12건 중 **안전·고가치만** 적용(런타임 메모리·리빌드 절감).
+
+**무엇을.**
+- `hanok_header.dart`: 포스터 `Image.asset`에 `cacheWidth`(표시 폭×dpr) — `study_scholar`(1254px) 등 배너를 실제 폭으로만 디코드. **~17개 화면 공용** → 광범위 이득. 포스터 생성을 `LayoutBuilder` 안으로 이동.
+- `personal_hanok_map.dart`: 레이어 PNG(최대 1536px)에 `cacheWidth` — full-res 과다 디코드 방지.
+- `learn_hub_screen.dart`: Stateless→Stateful, `_nextPackName()`(전체 팩 로드) future **1회 캐싱** — build마다 재실행 제거.
+- **제외(위험/저가치)**: `home_screen` 400줄 build 트리 분해·view-model memoize(회귀 위험), `dancheong_stamp` 티커 조건부화(build가 `_scale/_opacity` 참조 → 리팩터 위험), home 로고 cacheWidth(저가치).
+
+**검증.** `flutter analyze` 0, 스모크 5 통과(HanokHeader 렌더 포함).
+
+---
+
+### 2026-08-11 (Claude) — 앱 최적화 Phase 1: 데드코드 제거(11 파일 + 7 심볼)
+
+**왜.** 감사 워크플로우가 적대적으로 확인한 데드코드 정리(유지보수성 — 릴리스 트리셰이킹돼 **용량 무관**).
+
+**무엇을.**
+- **통짜 죽은 파일 11개 삭제**(import 0 재확인): `placeholder_screen`·`theme_service`·`account/transition_secret_store`·`banner_ad`·`sori/flying_magpie`·`sori/hanok/changsal_divider`·`sori/hanok/dancheong_divider`·`sori/hanok/madang_painter`(중복 MadangBackground)·`sori/path_node`·`sori/streak_display`·`sori/weekly_goal_bar`.
+- **부분 미사용 심볼 7개 제거**(같은 파일 나머지 보존): `app_error.dart` `AppEmpty`(+연쇄로 죽은 `_BreathingTransform.translateY` 정리)·`progress.dart` `SoriXpProgress`·`motion.dart` `SoriKenBurns`·`eaves_corner.dart` `EavesCornerExt`·`curriculum.dart` `CourseContentStateX`·`smalltalk.dart` `SmalltalkTurnKindCode`·`personalized_lesson_service.dart` `PersonalizedCourse`.
+- **보존(삭제 안 함)**: `sarangbang_study_recommendation.dart` — `test/sarangbang_recommendation_test.dart`가 참조(테스트까지 지우는 건 과함) → 존치. `SmalltalkRelationshipContextCode`(감사 UNCONFIRMED)도 존치.
+
+**검증.** `flutter analyze` **0 이슈**(lib+test 전체 컴파일, 댕글링 0). 스모크 7 통과.
+
+**남음.** Phase 3 시작경로·Phase 4 핫스팟. 위험패턴 24건은 대부분 documented best-effort(빈 catch·silent fallback)라 기능 변경 위험 있어 개별 판단 필요 — 목록만 보고.
+
+---
+
+### 2026-08-11 (Claude) — 앱 최적화 Phase 2(용량): 비디오 재인코딩 −30MB + hanok_compound 등록해제 −11MB
+
+**왜.** Jin "앱 최적화" 4영역 계획 승인, 용량 최우선. AAB 253MB(에셋 133MB 지배: illustrations 75·video 58). 에셋 삭제 금지 원칙.
+
+**무엇을.**
+- **감사 워크플로우**(읽기전용, 26 에이전트 병렬 + 데드코드 적대적 재검증): 데드코드 20 확인·위험패턴 24·미참조에셋 8·시작경로 21스텝·핫스팟 12 산출. 결과 = 태스크 출력 `wo7agdpzx.output`.
+- **Phase 2b 비디오 재인코딩**: `assets/video` 33개 mp4를 원본(`assets_unused/video_originals/`에 58MB **백업**) 기준 libx264 **CRF23 preset slow**로 재인코딩, 과대 해상도 `magpie_bob2` 1440→960 다운스케일, **더 작아질 때만 교체**. **58MB→28MB (−30MB, −52%)**. 캐릭터 클립 18개 흰배경 코너 255,255,255 유지 확인(multiply 계약 보존). 길이·오디오 불변(`-c:a copy`).
+- **Phase 2a hanok_compound 등록해제**: 미참조(lib 참조 0건) 동결 프로토타입 7 PNG(11MB)를 `pubspec.yaml`에서 주석처리 → 번들 제외. **파일 삭제 아님**(디스크 보존, 줄 복구로 되살리기 가능). `personal_hanok_v2/`가 정본.
+- **Phase 2c 이미지 무손실 최적화**: oxipng 10.2.0 `-o4`(no `--strip` → 청크 보존, **픽셀 동일**)로 번들 PNG 164개 재압축 = **−6.5MB(−7.7%)**. illustrations 75→70·stickers 9.1→8.3·icons 496→244K. 앱 아이콘 치수·디코드 정상. git 히스토리가 원본. **누적 절감 약 −47.5MB.**
+
+**검증.** `flutter analyze` 기준선 = 이슈 0. `flutter pub get` 통과. 비디오 matte 코너 검사 18/18 순백 통과. **실측 AAB(전체 phase 반영): 253MB → 207.9MB (−45MB, −17.8%)** — `flutter build appbundle --release` 성공(첫 시도는 Gradle 증분 일시 오류, 클린 재빌드 성공). 전체 `flutter analyze` 0, 최종 회귀 배치 52 통과.
+
+**남음(미착수).** Phase 2c 이미지(75MB PNG, oxipng 등 무손실 최적화 — 도구 설치 동의 필요) · Phase 3 시작경로(main.dart 중복 init·불필요 await — 기기 부팅 검증 필요) · Phase 4 핫스팟(cacheWidth 등) · Phase 1 데드코드 20건(릴리스 트리셰이킹돼 **용량 무관**, 유지보수용). **미커밋**(Jin 확인 후). 변경: `assets/video/*`(재인코딩), `assets_unused/video_originals/*`(백업 신규), `pubspec.yaml`.
+
+---
+
+### 2026-08-10 (Claude) — 단어카드 가운데정렬 회귀 수정 + 온보딩 시작화면 기기적응 풀필
+
+**왜.** Jin 실기기 리포트 — ① 단어팩 학습카드·복습("Heute wiederholen") 카드 안 텍스트가 가운데정렬이 안 되고 좌상단으로 쏠림. ② 온보딩 시작화면("Wofür willst du Koreanisch sprechen?")이 짧은 콘텐츠일 때 하단이 크게 비고 기기마다 안 맞음.
+
+**무엇을.**
+- **근본원인 = `SoriCard` accent 바 Stack의 `StackFit.loose`.** accent(좌측 4px 바)가 있는 카드는 콘텐츠를 `Stack`으로 감싸는데 기본 `StackFit.loose`가 non-positioned 콘텐츠의 min 제약(높이·너비)을 0으로 풀어 버려 → `Center`/가운데정렬 Column이 카드를 못 채우고 `topStart`로 쏠렸다. `_FlipFront`/`_FlipBack`(hero, accent)·복습카드 전부 이 경로. `lib/widgets/sori/card.dart`의 accent Stack에 **`fit: StackFit.passthrough`** 추가 → 카드의 실제 제약을 그대로 넘겨 정상 가운데정렬(높이 여유 시 동일, 부족 시 스크롤 폴백 유지). start 정렬 카드는 좌측정렬이라 시각 변화 0, min 제약은 0→실제값으로 커지기만 해 레이아웃을 악화시키지 않음.
+- **온보딩 풀필.** `lib/screens/onboarding_start_screen.dart`의 고정 `SizedBox` 스페이서 레이아웃을 `IntrinsicHeight` + `Spacer(flex:2/3)`로 바꿔 뷰포트보다 콘텐츠가 짧으면 남는 세로를 스페이서가 나눠 갖고(버튼 바닥에 붙음), 길면 IntrinsicHeight=콘텐츠 높이 → Spacer 0 → 기존처럼 스크롤(짧은 기기 무변화). 기기별 자동 풀필.
+
+**검증.** `flutter analyze` (card·vocab_pack·review_session·onboarding_start) **No issues found!**. 임시 풀필 검증 테스트: 420×1400 CTA bottom>1200(풀필), 420×520 스크롤·오버플로 0 — 통과 후 삭제. 회귀 스윕 **44 통과**: vocab_pack·vocab_pack(s)_mission_context·settings_screen(accent 카드 다수)·onboarding_start·can_do_result_card·module_card_l10n.
+
+- **A1 팩 "2개만 보임" = 버그 아님 → UX 라벨+출구 추가.** 미션 경로로 진입하면 `courseUnitId != null` → 팩이 미션 그래프 링크로 좁혀지는 **의도된 스코프 뷰**(greetings 1·2만)라 그렇다(전체 24 A1 팩은 배우기 허브/Entdecken의 인자 없는 `/vocab`). Jin 선택("라벨+전체보기 버튼")대로 `vocab_packs_screen.dart` 스코프 뷰에 힌트("Nur Pakete für deine aktuelle Mission.")와 CTA("Alle Vokabel-Pakete ansehen") 배너를 추가 — CTA는 browse 레벨을 현재 레벨로 맞춘 뒤 인자 없이 `/vocab` 재진입(전체 라이브러리, 뒤로가기 시 스코프 복귀). 신규 l10n 2키(DE/EN) + gen-l10n.
+
+**검증(추가).** 스코프 뷰 테스트에 배너 존재/부재 assert 추가 — scoped=힌트·CTA 표시, browse=미표시, 2 통과.
+
+**커밋.** 미커밋 (Jin 확인 후). 변경: `lib/widgets/sori/card.dart`, `lib/screens/onboarding_start_screen.dart`, `lib/screens/vocab_packs_screen.dart`, `lib/l10n/app_de.arb`·`app_en.arb`(+생성물), `test/vocab_packs_mission_context_test.dart`.
 
 ---
 

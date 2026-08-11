@@ -177,9 +177,9 @@ Future<void> main() async {
   // ⚠️ Impeller 를 다시 켜면(매니페스트) 여기 sdkInt>=33 게이트를 되살려야 한다.
   //   (Jin 실기기 M2101K6G/Android 12=API31: 이전 sdkInt>=33 게이트가 영상을
   //    통째로 막아 홈·프로필이 전부 정적 폴백으로 떨어졌다 — 2026-08-06.)
-  Future<bool> characterVideoSupported() async => true;
-
-  TigerStageVideo.videoReady = await characterVideoSupported();
+  // 위 사유로 캐릭터 영상은 항상 허용(fail-open). 예전 `async => true` 를 await
+  // 하던 불필요한 async 홉을 제거 — runApp 전 마이크로태스크 1회 절약.
+  TigerStageVideo.videoReady = true;
 
   // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
   // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
@@ -196,12 +196,18 @@ Future<void> main() async {
   DancheongBurst.preload();
 
   // Allow phones, foldables, and tablets to use their natural orientation.
-  await SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
+  // await 제거: 방향·시스템UI 설정은 플랫폼 채널에 호출 순서대로 큐잉되는
+  // fire-and-set 이라 첫 프레임을 기다릴 필요가 없다 — runApp 전 플랫폼 왕복 2회
+  // 절약(edge-to-edge/방향은 관대해 첫 프레임 직전 적용돼도 무해). 순서 보장은
+  // 채널 큐가 유지하므로 아래 setSystemUIOverlayStyle 와의 순서도 그대로다.
+  // ignore: discarded_futures, unawaited_futures
+  SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
   // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  // ignore: discarded_futures, unawaited_futures
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

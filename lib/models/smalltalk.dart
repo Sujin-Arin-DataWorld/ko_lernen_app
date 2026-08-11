@@ -81,19 +81,6 @@ extension SmalltalkRelationshipContextCode on SmalltalkRelationshipContext {
 /// A turn's purpose after the learner has used a small-talk phrase.
 enum SmalltalkTurnKind { question, response, reaction }
 
-extension SmalltalkTurnKindCode on SmalltalkTurnKind {
-  String get code {
-    switch (this) {
-      case SmalltalkTurnKind.question:
-        return 'question';
-      case SmalltalkTurnKind.response:
-        return 'response';
-      case SmalltalkTurnKind.reaction:
-        return 'reaction';
-    }
-  }
-}
-
 /// A multilingual continuation turn used for safe alternatives and follow-ups.
 class SmalltalkTurn {
   final SmalltalkTurnKind turnKind;

@@ -37,15 +37,3 @@ class EavesCorner {
     );
   }
 }
-
-/// BorderRadius extension — 기존 radius에 처마 boost 적용.
-extension EavesCornerExt on BorderRadius {
-  BorderRadius eaves({double boost = 8}) {
-    return BorderRadius.only(
-      topLeft: topLeft + Radius.circular(boost),
-      topRight: topRight + Radius.circular(boost),
-      bottomLeft: bottomLeft,
-      bottomRight: bottomRight,
-    );
-  }
-}

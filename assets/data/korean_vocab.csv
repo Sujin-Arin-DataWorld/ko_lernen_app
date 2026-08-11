@@ -7,7 +7,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 미안해요,mianhaeyo,Es tut mir leid,A1,Ausdruck,진짜 미안해요.,Es tut mir leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry,Expression,I'm sorry.,vocab_a1_0006
 괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,저는 괜찮아요.,Ist es okay?,Alltag,a1_daily_1,1,false,It's okay / No problem,Expression,Are you okay?,vocab_a1_0007
 네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, das stimmt.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, that's right.",vocab_a1_0008
-아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, das ist falsch.",Alltag,a1_daily_1,3,false,No,Expression,"No, that's wrong.",vocab_a1_0009
+아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, ich möchte nicht gehen.",Alltag,a1_daily_1,3,false,No,Expression,"No, I don't want to go.",vocab_a1_0009
 이름,ireum,Name,A1,Nomen,제 이름은 크리스티안이에요.,Mein Name ist Christian.,Person,a1_self_intro,1,false,name,Noun,My name is Christian.,vocab_a1_0010
 나이,nai,Alter,A1,Nomen,나이가 어떻게 되세요?,Wie alt bist du?,Person,a1_self_intro,2,false,age,Noun,How old are you?,vocab_a1_0011
 나라,nara,Land,A1,Nomen,어느 나라 사람이에요?,Aus welchem Land kommst du?,Geographie,a1_misc_1,1,false,country,Noun,Which country are you from?,vocab_a1_0012

@@ -141,3 +141,6 @@ assets/illustrations/stamps/_raw/
 
 # 골든 실패 산출물 (LocalFileComparator) — 커밋 대상 아님
 test/**/failures/
+
+# CRF 재인코딩 전 원본 비디오 로컬 백업(원본은 git 히스토리에도 있음)
+assets_unused/video_originals/

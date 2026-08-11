@@ -121,7 +121,9 @@ flutter:
     - assets/data/
     - assets/icons/
     - assets/illustrations/hanok/
-    - assets/illustrations/hanok_compound/
+    # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.
+    # 파일은 저장소에 보존(삭제 아님). personal_hanok_v2/ 가 정본. 되살리려면 이 줄 복구.
+    # - assets/illustrations/hanok_compound/
     # Flutter only includes files immediately inside a declared directory.
     # The canonical estate deliberately has nested map/interior folders, so
     # each runtime leaf directory must be listed explicitly.

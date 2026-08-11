@@ -2,15 +2,6 @@ import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import 'storage_service.dart';
 
-/// Ein zusammengestellter Tageskurs (M5). Aktuell der personalisierte
-/// Vokabel-Deck; später um interessen-getaggte generierte Inhalte erweiterbar.
-class PersonalizedCourse {
-  final List<Vocab> vocab;
-  const PersonalizedCourse({required this.vocab});
-  bool get isEmpty => vocab.isEmpty;
-  int get length => vocab.length;
-}
-
 /// **PersonalizedLessonService (M5 — Runtime, Kosten 0)**
 ///
 /// Stellt "Dein Tageskurs" rein LOKAL zusammen — KEIN Claude/Cloud-Aufruf zur

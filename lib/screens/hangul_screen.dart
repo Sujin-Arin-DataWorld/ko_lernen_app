@@ -564,6 +564,117 @@ class _CardsTabState extends State<_CardsTab> {
     setState(() => _sessionInteractions = 0);
   }
 
+  // 카드 앞면 — 글자 하나가 카드를 채우는 대형 헤드라인. 짧은 단일 글자(음절은
+  // 최대 두 글자)라 FittedBox(scaleDown) 으로 폭 넘침만 방지하고, 크기는 카드
+  // 높이 [h] 에 비례시켜 기기 무관 충전율을 맞춘다.
+  List<Widget> _frontFace(HangulChar c, double h) => [
+    FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(
+        c.letter,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: soriFillSize(h, 0.40, 110, 200),
+          fontWeight: FontWeight.w800,
+          color: SoriColors.hangul,
+        ),
+      ),
+    ),
+  ];
+
+  // 카드 뒷면 — 글자(헤드라인) + [로마자·설명] 묶음 + 예문 박스. spaceEvenly 가
+  // 흩뜨리지 않도록 로마자와 설명은 한 Column 으로 묶는다. 폰트/아이콘 크기는
+  // 카드 높이 [h] 에 비례(soriFillSize), 최소값은 기존 고정값이라 폰 축소 없음.
+  List<Widget> _backFace(HangulChar c, SoriSurfaces s, double h) => [
+    FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(
+        c.letter,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: soriFillSize(h, 0.16, 60, 110),
+          fontWeight: FontWeight.w800,
+          color: SoriColors.primary,
+        ),
+      ),
+    ),
+    Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          '[${c.romanization}]',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: soriFillSize(h, 0.05, 20, 30),
+            color: SoriColors.info,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Text(
+            c.descriptionDe,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: soriFillSize(h, 0.045, 13, 22),
+              color: s.text,
+              height: 1.5,
+            ),
+          ),
+        ),
+      ],
+    ),
+    if (c.exampleWord.isNotEmpty)
+      GestureDetector(
+        onTap: () => TtsService.speak(c.exampleWord),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          decoration: BoxDecoration(
+            color: SoriColors.hangul.withValues(alpha: 0.10),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: SoriColors.hangul.withValues(alpha: 0.30),
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    c.exampleWord,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.075, 22, 40),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.hangul,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Icon(
+                    Icons.volume_up_rounded,
+                    size: soriFillSize(h, 0.05, 16, 28),
+                    color: SoriColors.hangul,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 2),
+              Text(
+                c.exampleDe,
+                style: TextStyle(
+                  fontSize: soriFillSize(h, 0.05, 13, 26),
+                  color: s.text,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final c = _pool[_idx % _pool.length];
@@ -606,138 +717,61 @@ class _CardsTabState extends State<_CardsTab> {
             const SizedBox(height: 8),
 
             Expanded(
-              child: GestureDetector(
-                onHorizontalDragEnd: (d) {
-                  if (d.primaryVelocity == null) return;
-                  if (d.primaryVelocity! < -250) {
-                    _next();
-                  } else if (d.primaryVelocity! > 250) {
-                    _prev();
-                  }
-                },
-                child: SoriStudyScale(
-                  child: FlipCard(
-                    flipped: _flipped,
-                    onTap: _onFlip,
-                    front: _HangulCardFace(
-                      gradient: const [
-                        SoriColors.accent,
-                        SoriColors.darkAccent,
-                      ],
-                      borderColor: SoriColors.hangul,
-                      child: Text(
-                        c.letter,
-                        style: const TextStyle(
-                          fontSize: 110,
-                          fontWeight: FontWeight.w800,
-                          color: SoriColors.hangul,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  // 카드가 놓이는 세로 영역의 높이 — 카드 안 학습 텍스트를 이 높이에
+                  // 비례해 키워(soriFillSize) 기기와 무관하게 균일한 세로 충전율을
+                  // 만든다. FlipCard 가 이미 SingleChildScrollView + minHeight 로
+                  // 감싸므로 콘텐츠가 넘칠 땐 스크롤로 받아낸다(오버플로 0, 기존
+                  // 계약 유지). 이 LayoutBuilder 는 Expanded(경계 있음) 안이라 h 는
+                  // 유한하다 — 카드 안쪽은 스크롤 컨텍스트라 무한이 되므로 여기서
+                  // 잡아 아래로 넘긴다.
+                  final h = constraints.maxHeight.isFinite
+                      ? constraints.maxHeight
+                      : 360.0;
+                  return GestureDetector(
+                    onHorizontalDragEnd: (d) {
+                      if (d.primaryVelocity == null) {
+                        return;
+                      }
+                      if (d.primaryVelocity! < -250) {
+                        _next();
+                      } else if (d.primaryVelocity! > 250) {
+                        _prev();
+                      }
+                    },
+                    child: SoriStudyScale(
+                      child: FlipCard(
+                        flipped: _flipped,
+                        onTap: _onFlip,
+                        front: _HangulCardFace(
+                          gradient: const [
+                            SoriColors.accent,
+                            SoriColors.darkAccent,
+                          ],
+                          borderColor: SoriColors.hangul,
+                          children: _frontFace(c, h),
+                        ),
+                        back: _HangulCardFace(
+                          gradient: const [
+                            SoriColors.highlight,
+                            SoriColors.darkPrimary,
+                          ],
+                          borderColor: SoriColors.info,
+                          children: _backFace(c, s, h),
                         ),
                       ),
                     ),
-                    back: _HangulCardFace(
-                      gradient: const [
-                        SoriColors.highlight,
-                        SoriColors.darkPrimary,
-                      ],
-                      borderColor: SoriColors.info,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            c.letter,
-                            style: const TextStyle(
-                              fontSize: 60,
-                              fontWeight: FontWeight.w800,
-                              color: SoriColors.primary,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '[${c.romanization}]',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: SoriColors.info,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24),
-                            child: Text(
-                              c.descriptionDe,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: s.text,
-                                height: 1.5,
-                              ),
-                            ),
-                          ),
-                          if (c.exampleWord.isNotEmpty) ...[
-                            const SizedBox(height: 16),
-                            GestureDetector(
-                              onTap: () => TtsService.speak(c.exampleWord),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 18,
-                                  vertical: 10,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: SoriColors.hangul.withValues(
-                                    alpha: 0.10,
-                                  ),
-                                  borderRadius: BorderRadius.circular(14),
-                                  border: Border.all(
-                                    color: SoriColors.hangul.withValues(
-                                      alpha: 0.30,
-                                    ),
-                                  ),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          c.exampleWord,
-                                          style: const TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.w800,
-                                            color: SoriColors.hangul,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 6),
-                                        const Icon(
-                                          Icons.volume_up_rounded,
-                                          size: 16,
-                                          color: SoriColors.hangul,
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      c.exampleDe,
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: s.text,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 12),
+            // 독일어 "Zurück"/"Weiter" 는 영어보다 20~30% 길어 3버튼 균등 1/3
+            // 에선 잘린다("Zurü…"). 좁은 폰(360dp)에선 아이콘+독일어 라벨 3개가
+            // 한 줄에 물리적으로 안 들어간다 → 라벨을 온전히 보이려면 3개를 한
+            // 줄에 두지 않는다: nav(prev/next)는 반폭 2버튼(라벨 여유), 핵심
+            // 액션인 듣기는 아래 full-width 로 승격(발음 카드는 소리가 우선).
             Row(
               children: [
                 Expanded(
@@ -751,15 +785,6 @@ class _CardsTabState extends State<_CardsTab> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: SoriButton.outlined(
-                    label: AppL10n.of(context).btnHoeren,
-                    icon: Icons.volume_up,
-                    onTap: () => TtsService.speak(c.letter),
-                    fullWidth: true,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: SoriButton.outlined(
                     label: AppL10n.of(context).btnNext,
                     icon: Icons.arrow_forward,
                     onTap: _next,
@@ -767,6 +792,13 @@ class _CardsTabState extends State<_CardsTab> {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 8),
+            SoriButton.outlined(
+              label: AppL10n.of(context).btnHoeren,
+              icon: Icons.volume_up,
+              onTap: () => TtsService.speak(c.letter),
+              fullWidth: true,
             ),
             const SizedBox(height: 6),
             SoriButton.filled(
@@ -794,11 +826,11 @@ class _CardsTabState extends State<_CardsTab> {
 class _HangulCardFace extends StatelessWidget {
   final List<Color> gradient;
   final Color borderColor;
-  final Widget child;
+  final List<Widget> children;
   const _HangulCardFace({
     required this.gradient,
     required this.borderColor,
-    required this.child,
+    required this.children,
   });
 
   @override
@@ -808,7 +840,14 @@ class _HangulCardFace extends StatelessWidget {
       accent: borderColor,
       tinted: true,
       width: double.infinity,
-      child: Center(child: child),
+      // spaceEvenly 로 카드 높이를 채운다(가운데 정렬 유지). FlipCard._fitFace 가
+      // 이미 SingleChildScrollView + ConstrainedBox(minHeight: 뷰포트높이) 로
+      // 감싸므로, 이 Column 은 그 minHeight(카드 padding 만큼만 줄어든 값)를 받아
+      // 여백을 균등 분배하고, 콘텐츠가 더 크면 그 스크롤뷰가 받아낸다(오버플로 0).
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: children,
+      ),
     );
   }
 }
