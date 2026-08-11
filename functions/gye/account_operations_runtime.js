@@ -23,12 +23,15 @@ const CALLABLE_NAMES = Object.freeze([
   "issueDeletionProof",
   "completeAppleRevocation",
   "getAccountOperation",
+  "getAccountDeletionStatusByReceipt",
+  "acknowledgeAccountDeletionStatusReceipt",
 ]);
 // App Check is advisory on the account callables (2026-08-10): enforced
 // attestation stranded durable deletion/replacement journals forever on
 // devices whose provider was never registered (Play Integrity gap), locking
-// the whole account UI. Verified auth tokens with freshness and uid/provider
-// cross-checks remain the mandatory boundary below.
+// the whole account UI. Fresh verified auth remains mandatory for mutations;
+// post-Auth-deletion status and acknowledgement use a dedicated 256-bit
+// read capability whose raw value is never persisted.
 const CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
   enforceAppCheck: false,
@@ -51,6 +54,14 @@ const ANONYMOUS_RATE_LIMIT = 20;
 const DELETION_PROOF_LIFETIME_MILLIS = 86_400_000;
 const DELETION_PROOF_ISSUANCE_WINDOW_MILLIS = 86_400_000;
 const DELETION_PROOF_ISSUANCE_LIMIT = 3;
+const DELETION_PROOF_PURPOSE = "account-deletion-public-proof-v1";
+const DELETION_STATUS_RECEIPT_PURPOSE =
+  "account-deletion-status-receipt-v1";
+const DELETION_CAPABILITY_PURPOSE_DOMAIN =
+  "account-deletion-capability-purpose-v1";
+const ACKNOWLEDGED_RECEIPT_RETENTION_MILLIS = 7 * 86_400_000;
+const DELETION_STATUS_RATE_WINDOW_MILLIS = 300_000;
+const DELETION_STATUS_RATE_LIMIT = 120;
 const PUBLIC_RATE_WINDOW_MILLIS = 300_000;
 const PUBLIC_RATE_LIMIT = 20;
 const PUBLIC_REQUEST_MAX_BYTES = 1_024;
@@ -279,12 +290,77 @@ function isRawDeletionProof(value) {
   return decoded.length === 32 && decoded.toString("base64url") === value;
 }
 
+function isRawDeletionStatusReceipt(value) {
+  return isRawDeletionProof(value);
+}
+
 function requiredProofHash(value) {
   if (typeof value !== "string" ||
       !/^[A-Za-z0-9_-]{16,256}$/.test(value)) {
     throw repositoryFailure("invalid-deletion-proof-hash");
   }
   return value;
+}
+
+function requiredSha256Digest(value, safeCode) {
+  if (typeof value !== "string" || !/^[0-9a-f]{64}$/.test(value)) {
+    throw repositoryFailure(safeCode);
+  }
+  return value;
+}
+
+function requiredDeletionStatusReceiptDigest(value) {
+  return requiredSha256Digest(
+    value,
+    "invalid-deletion-status-receipt-digest",
+  );
+}
+
+function requiredDeletionCapabilityPurposeDigest(value) {
+  return requiredSha256Digest(
+    value,
+    "invalid-deletion-capability-purpose-digest",
+  );
+}
+
+function requiredDeletionStatusRateLimitKey(value) {
+  return requiredSha256Digest(
+    value,
+    "invalid-deletion-status-rate-limit-key",
+  );
+}
+
+function domainSeparatedSha256(domain, value) {
+  if (typeof value !== "string") {
+    throw new TypeError("A deletion capability string is required.");
+  }
+  return crypto
+    .createHash("sha256")
+    .update(`${domain}\u0000${value}`, "utf8")
+    .digest("hex");
+}
+
+function deletionStatusReceiptDigest(receipt) {
+  return domainSeparatedSha256(DELETION_STATUS_RECEIPT_PURPOSE, receipt);
+}
+
+function deletionCapabilityPurposeDigest(capability) {
+  return domainSeparatedSha256(
+    DELETION_CAPABILITY_PURPOSE_DOMAIN,
+    capability,
+  );
+}
+
+function timestampMillis(value) {
+  if (value instanceof Date) return value.getTime();
+  if (value && typeof value.toMillis === "function") {
+    try {
+      return value.toMillis();
+    } catch {
+      return NaN;
+    }
+  }
+  return NaN;
 }
 
 function createKeyedDeletionProofDigest({ getSecret } = {}) {
@@ -343,9 +419,13 @@ function createFirestoreAccountOperationRepository({
   firestore,
   nowMillis = () => Date.now(),
   newOperationId = () => crypto.randomUUID(),
+  timestampFromMillis = (millis) => new Date(millis),
 } = {}) {
   if (!firestore || typeof firestore.runTransaction !== "function") {
     throw new TypeError("A Firestore transaction adapter is required.");
+  }
+  if (typeof timestampFromMillis !== "function") {
+    throw new TypeError("A Firestore timestamp adapter is required.");
   }
 
   const operations = firestore.collection("account_operations");
@@ -355,6 +435,12 @@ function createFirestoreAccountOperationRepository({
   const deletionProofs = firestore.collection("account_deletion_proofs");
   const deletionProofOwners =
     firestore.collection("account_deletion_proof_owners");
+  const deletionStatusReceipts =
+    firestore.collection("account_deletion_status_receipts");
+  const deletionCapabilityPurposes =
+    firestore.collection("account_deletion_capability_purposes");
+  const deletionStatusRateLimits =
+    firestore.collection("account_deletion_status_rate_limits");
   const publicRateLimits =
     firestore.collection("account_deletion_proof_rate_limits");
   const deletionMarkers = firestore.collection("account_deletions");
@@ -452,7 +538,121 @@ function createFirestoreAccountOperationRepository({
     };
   }
 
-  async function createOrReuse(request, { deletionRequested = false } = {}) {
+  function receiptBindingUnavailable() {
+    throw repositoryFailure("terminal-status-receipt-invalid");
+  }
+
+  function receiptBindingMatches(stored, {
+    receiptDigest,
+    capabilityPurposeDigest,
+    sourceUid,
+    operationId,
+    requestKeyHash,
+  }) {
+    return stored?.purpose === DELETION_STATUS_RECEIPT_PURPOSE &&
+      stored?.receiptDigest === receiptDigest &&
+      stored?.capabilityPurposeDigest === capabilityPurposeDigest &&
+      stored?.state === "active" &&
+      stored?.sourceUid === sourceUid &&
+      stored?.operationId === operationId &&
+      stored?.requestKeyHash === requestKeyHash &&
+      Number.isFinite(stored?.boundAtMillis) &&
+      typeof receiptDigest === "string";
+  }
+
+  function receiptBindingDocument({
+    receiptDigest,
+    capabilityPurposeDigest,
+    sourceUid,
+    operationId,
+    requestKeyHash,
+    boundAtMillis,
+  }) {
+    return {
+      purpose: DELETION_STATUS_RECEIPT_PURPOSE,
+      receiptDigest,
+      capabilityPurposeDigest,
+      state: "active",
+      sourceUid,
+      operationId,
+      requestKeyHash,
+      boundAtMillis,
+    };
+  }
+
+  function shouldCreateReceiptBinding({
+    receiptDigest,
+    capabilityPurposeDigest,
+    receiptSnapshot,
+    purposeSnapshot,
+    requestRecord,
+    ownerRecord,
+    operation,
+    request,
+    operationIsNew = false,
+  }) {
+    if (!receiptDigest) return false;
+    const mappedReceiptDigest = typeof requestRecord
+      ?.terminalStatusReceiptDigest === "string"
+      ? requestRecord.terminalStatusReceiptDigest
+      : null;
+    const ownerReceiptDigest = ownerRecord?.operationId === operation.id &&
+      typeof ownerRecord.terminalStatusReceiptDigest === "string"
+      ? ownerRecord.terminalStatusReceiptDigest
+      : null;
+    if (purposeSnapshot?.exists) {
+      const purposeRecord = purposeSnapshot.data() || {};
+      if (purposeRecord.purpose !== DELETION_STATUS_RECEIPT_PURPOSE ||
+          purposeRecord.capabilityPurposeDigest !==
+            capabilityPurposeDigest ||
+          purposeRecord.receiptDigest !== receiptDigest ||
+          purposeRecord.state !== "active") {
+        receiptBindingUnavailable();
+      }
+    }
+    if (receiptSnapshot?.exists) {
+      const existingBinding = receiptSnapshot.data() || {};
+      if (requestRecord &&
+          mappedReceiptDigest === receiptDigest &&
+          purposeSnapshot?.exists &&
+          receiptBindingMatches(existingBinding, {
+            receiptDigest,
+            capabilityPurposeDigest,
+            sourceUid: request.sourceUid,
+            operationId: operation.id,
+            requestKeyHash: request.requestKey,
+          })) {
+        return false;
+      }
+      receiptBindingUnavailable();
+    }
+    if (mappedReceiptDigest || ownerReceiptDigest ||
+        (!operationIsNew && ownerRecord?.operationId !== operation.id) ||
+        operation.requestKey !== request.requestKey) {
+      receiptBindingUnavailable();
+    }
+    return true;
+  }
+
+  async function createOrReuse(request, {
+    deletionRequested = false,
+    terminalStatusReceiptDigest = null,
+    terminalStatusReceiptPurposeDigest = null,
+  } = {}) {
+    const receiptDigest = terminalStatusReceiptDigest === null
+      ? null
+      : requiredDeletionStatusReceiptDigest(terminalStatusReceiptDigest);
+    const capabilityPurposeDigest = terminalStatusReceiptPurposeDigest === null
+      ? null
+      : requiredDeletionCapabilityPurposeDigest(
+        terminalStatusReceiptPurposeDigest,
+      );
+    if ((receiptDigest === null) !== (capabilityPurposeDigest === null)) {
+      throw repositoryFailure("terminal-status-receipt-invalid");
+    }
+    if (receiptDigest && !deletionRequested) {
+      throw repositoryFailure("invalid-operation");
+    }
     const operationId = newOperationId();
     const ownerRef = owners.doc(stableKey(
       "account-operation-owner",
@@ -464,11 +664,27 @@ function createFirestoreAccountOperationRepository({
       request.sourceUid,
       request.requestKey,
     ));
+    const receiptRef = receiptDigest
+      ? deletionStatusReceipts.doc(receiptDigest)
+      : null;
+    const purposeRef = capabilityPurposeDigest
+      ? deletionCapabilityPurposes.doc(capabilityPurposeDigest)
+      : null;
     return firestore.runTransaction(async (transaction) => {
       const requestSnapshot = await transaction.get(requestRef);
+      const receiptSnapshot = receiptRef
+        ? await transaction.get(receiptRef)
+        : null;
+      const purposeSnapshot = purposeRef
+        ? await transaction.get(purposeRef)
+        : null;
+      const ownerSnapshot = await transaction.get(ownerRef);
+      const ownerRecord = ownerSnapshot.exists
+        ? ownerSnapshot.data() || {}
+        : {};
       if (requestSnapshot.exists) {
-        const mappedOperationId =
-          (requestSnapshot.data() || {}).operationId;
+        const requestRecord = requestSnapshot.data() || {};
+        const mappedOperationId = requestRecord.operationId;
         if (typeof mappedOperationId !== "string" ||
             mappedOperationId.length === 0) {
           throw repositoryFailure("invalid-operation");
@@ -487,24 +703,69 @@ function createFirestoreAccountOperationRepository({
             !sameTarget) {
           throw repositoryFailure("invalid-operation");
         }
+        const createReceiptBinding = shouldCreateReceiptBinding({
+          receiptDigest,
+          capabilityPurposeDigest,
+          receiptSnapshot,
+          purposeSnapshot,
+          requestRecord,
+          ownerRecord,
+          operation,
+          request,
+        });
+        let operationChanged = false;
         if (deletionRequested && operation.phase === "prepared") {
           operation = transitionOperation(operation, {
             toPhase: "deletionRequested",
             expectedVersion: operation.version,
           });
-          transaction.set(
-            mappedRef,
-            persistedOperation(operation, stored, nowMillis()),
-          );
+          operationChanged = true;
+        }
+        const currentTime = nowMillis();
+        if (operationChanged) {
+          transaction.set(mappedRef, persistedOperation(
+            operation,
+            stored,
+            currentTime,
+          ));
+        }
+        if (createReceiptBinding) {
+          transaction.set(receiptRef, receiptBindingDocument({
+            receiptDigest,
+            capabilityPurposeDigest,
+            sourceUid: request.sourceUid,
+            operationId: operation.id,
+            requestKeyHash: request.requestKey,
+            boundAtMillis: currentTime,
+          }));
+          transaction.set(requestRef, {
+            ...requestRecord,
+            operationId: operation.id,
+            terminalStatusReceiptDigest: receiptDigest,
+          });
+          transaction.set(ownerRef, {
+            ...ownerRecord,
+            operationId: operation.id,
+            terminalStatusReceiptDigest: receiptDigest,
+            updatedAtMillis: currentTime,
+          });
+          if (!purposeSnapshot.exists) {
+            transaction.set(purposeRef, {
+              purpose: DELETION_STATUS_RECEIPT_PURPOSE,
+              capabilityPurposeDigest,
+              receiptDigest,
+              state: "active",
+              registeredAtMillis: currentTime,
+            });
+          }
         }
         return operation;
       }
 
-      const ownerSnapshot = await transaction.get(ownerRef);
       let existing = null;
       let existingStored = null;
       if (ownerSnapshot.exists) {
-        const existingId = (ownerSnapshot.data() || {}).operationId;
+        const existingId = ownerRecord.operationId;
         if (typeof existingId !== "string" || existingId.length === 0) {
           throw repositoryFailure("invalid-operation");
         }
@@ -531,6 +792,17 @@ function createFirestoreAccountOperationRepository({
           expectedVersion: operation.version,
         });
       }
+      const createReceiptBinding = shouldCreateReceiptBinding({
+        receiptDigest,
+        capabilityPurposeDigest,
+        receiptSnapshot,
+        purposeSnapshot,
+        requestRecord: null,
+        ownerRecord,
+        operation,
+        request,
+        operationIsNew: !creation.reused,
+      });
       const currentTime = nowMillis();
       if (creation.reused) {
         if (operation.version !== existing.version ||
@@ -543,7 +815,35 @@ function createFirestoreAccountOperationRepository({
         transaction.set(requestRef, {
           operationId: operation.id,
           createdAtMillis: currentTime,
+          ...(receiptDigest
+            ? { terminalStatusReceiptDigest: receiptDigest }
+            : {}),
         });
+        if (createReceiptBinding) {
+          transaction.set(receiptRef, receiptBindingDocument({
+            receiptDigest,
+            capabilityPurposeDigest,
+            sourceUid: request.sourceUid,
+            operationId: operation.id,
+            requestKeyHash: request.requestKey,
+            boundAtMillis: currentTime,
+          }));
+          transaction.set(ownerRef, {
+            ...ownerRecord,
+            operationId: operation.id,
+            terminalStatusReceiptDigest: receiptDigest,
+            updatedAtMillis: currentTime,
+          });
+          if (!purposeSnapshot.exists) {
+            transaction.set(purposeRef, {
+              purpose: DELETION_STATUS_RECEIPT_PURPOSE,
+              capabilityPurposeDigest,
+              receiptDigest,
+              state: "active",
+              registeredAtMillis: currentTime,
+            });
+          }
+        }
         return operation;
       }
 
@@ -555,11 +855,36 @@ function createFirestoreAccountOperationRepository({
       transaction.set(ownerRef, {
         operationId: operation.id,
         updatedAtMillis: currentTime,
+        ...(receiptDigest
+          ? { terminalStatusReceiptDigest: receiptDigest }
+          : {}),
       });
       transaction.set(requestRef, {
         operationId: operation.id,
         createdAtMillis: currentTime,
+        ...(receiptDigest
+          ? { terminalStatusReceiptDigest: receiptDigest }
+          : {}),
       });
+      if (createReceiptBinding) {
+        transaction.set(receiptRef, receiptBindingDocument({
+          receiptDigest,
+          capabilityPurposeDigest,
+          sourceUid: request.sourceUid,
+          operationId: operation.id,
+          requestKeyHash: request.requestKey,
+          boundAtMillis: currentTime,
+        }));
+        if (!purposeSnapshot.exists) {
+          transaction.set(purposeRef, {
+            purpose: DELETION_STATUS_RECEIPT_PURPOSE,
+            capabilityPurposeDigest,
+            receiptDigest,
+            state: "active",
+            registeredAtMillis: currentTime,
+          });
+        }
+      }
       return operation;
     });
   }
@@ -647,6 +972,227 @@ function createFirestoreAccountOperationRepository({
     });
   }
 
+  async function getDeletionByStatusReceipt({ receiptDigest }) {
+    const normalizedReceiptDigest =
+      requiredDeletionStatusReceiptDigest(receiptDigest);
+    const receiptRef = deletionStatusReceipts.doc(normalizedReceiptDigest);
+    return firestore.runTransaction(async (transaction) => {
+      const receiptSnapshot = await transaction.get(receiptRef);
+      if (!receiptSnapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const receipt = receiptSnapshot.data() || {};
+      if (receipt.purpose !== DELETION_STATUS_RECEIPT_PURPOSE ||
+          receipt.receiptDigest !== normalizedReceiptDigest ||
+          typeof receipt.capabilityPurposeDigest !== "string" ||
+          receipt.state !== "active" ||
+          typeof receipt.sourceUid !== "string" ||
+          receipt.sourceUid.length === 0 ||
+          typeof receipt.operationId !== "string" ||
+          !/^[A-Za-z0-9_-]{1,128}$/.test(receipt.operationId) ||
+          typeof receipt.requestKeyHash !== "string" ||
+          receipt.requestKeyHash.length === 0 ||
+          receipt.requestKeyHash.length > 256 ||
+          !Number.isFinite(receipt.boundAtMillis)) {
+        throw repositoryFailure("operation-not-found");
+      }
+      let normalizedPurposeDigest;
+      try {
+        normalizedPurposeDigest =
+          requiredDeletionCapabilityPurposeDigest(
+            receipt.capabilityPurposeDigest,
+          );
+      } catch {
+        throw repositoryFailure("operation-not-found");
+      }
+      const purposeRef = deletionCapabilityPurposes.doc(
+        normalizedPurposeDigest,
+      );
+      const purposeSnapshot = await transaction.get(purposeRef);
+      const purposeRecord = purposeSnapshot.exists
+        ? purposeSnapshot.data() || {}
+        : {};
+      if (purposeRecord.purpose !== DELETION_STATUS_RECEIPT_PURPOSE ||
+          purposeRecord.capabilityPurposeDigest !==
+            receipt.capabilityPurposeDigest ||
+          purposeRecord.receiptDigest !== normalizedReceiptDigest ||
+          purposeRecord.state !== "active") {
+        throw repositoryFailure("operation-not-found");
+      }
+      const requestRef = requests.doc(stableKey(
+        "account-operation-request",
+        "deletion",
+        receipt.sourceUid,
+        receipt.requestKeyHash,
+      ));
+      const requestSnapshot = await transaction.get(requestRef);
+      const requestRecord = requestSnapshot.exists
+        ? requestSnapshot.data() || {}
+        : {};
+      if (requestRecord.operationId !== receipt.operationId ||
+          requestRecord.terminalStatusReceiptDigest !==
+            normalizedReceiptDigest) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const operationRef = operations.doc(receipt.operationId);
+      const operationSnapshot = await transaction.get(operationRef);
+      if (!operationSnapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = operationSnapshot.data() || {};
+      let operation;
+      try {
+        operation = normalizeOperation(stored);
+      } catch {
+        throw repositoryFailure("operation-not-found");
+      }
+      if (operation.kind !== "deletion" ||
+          operation.sourceUid !== receipt.sourceUid ||
+          operation.requestKey !== receipt.requestKeyHash) {
+        throw repositoryFailure("operation-not-found");
+      }
+      return operation;
+    });
+  }
+
+  async function acknowledgeDeletionStatusReceipt({
+    receiptDigest,
+    capabilityPurposeDigest,
+  }) {
+    const normalizedReceiptDigest =
+      requiredDeletionStatusReceiptDigest(receiptDigest);
+    const normalizedPurposeDigest =
+      requiredDeletionCapabilityPurposeDigest(capabilityPurposeDigest);
+    const receiptRef = deletionStatusReceipts.doc(normalizedReceiptDigest);
+    const purposeRef = deletionCapabilityPurposes.doc(
+      normalizedPurposeDigest,
+    );
+    return firestore.runTransaction(async (transaction) => {
+      const [receiptSnapshot, purposeSnapshot] = await Promise.all([
+        transaction.get(receiptRef),
+        transaction.get(purposeRef),
+      ]);
+      const purposeRecord = purposeSnapshot.exists
+        ? purposeSnapshot.data() || {}
+        : {};
+      const purposeMatchesReceipt =
+        purposeRecord.purpose === DELETION_STATUS_RECEIPT_PURPOSE &&
+        purposeRecord.capabilityPurposeDigest === normalizedPurposeDigest &&
+        purposeRecord.receiptDigest === normalizedReceiptDigest;
+      if (!receiptSnapshot.exists) {
+        if (purposeMatchesReceipt &&
+            purposeRecord.state === "acknowledged" &&
+            Number.isFinite(purposeRecord.acknowledgedAtMillis)) {
+          return true;
+        }
+        throw repositoryFailure("operation-not-found");
+      }
+      const receipt = receiptSnapshot.data() || {};
+      if (receipt.purpose !== DELETION_STATUS_RECEIPT_PURPOSE ||
+          receipt.receiptDigest !== normalizedReceiptDigest ||
+          receipt.capabilityPurposeDigest !== normalizedPurposeDigest ||
+          !purposeMatchesReceipt) {
+        throw repositoryFailure("operation-not-found");
+      }
+      if (receipt.state === "acknowledged" &&
+          purposeRecord.state === "acknowledged" &&
+          Number.isFinite(receipt.acknowledgedAtMillis) &&
+          Number.isFinite(timestampMillis(receipt.purgeAfter))) {
+        return true;
+      }
+      if (receipt.state !== "active" || purposeRecord.state !== "active" ||
+          typeof receipt.sourceUid !== "string" ||
+          receipt.sourceUid.length === 0 ||
+          typeof receipt.operationId !== "string" ||
+          !/^[A-Za-z0-9_-]{1,128}$/.test(receipt.operationId) ||
+          typeof receipt.requestKeyHash !== "string" ||
+          receipt.requestKeyHash.length === 0 ||
+          receipt.requestKeyHash.length > 256 ||
+          !Number.isFinite(receipt.boundAtMillis)) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const requestRef = requests.doc(stableKey(
+        "account-operation-request",
+        "deletion",
+        receipt.sourceUid,
+        receipt.requestKeyHash,
+      ));
+      const ownerRef = owners.doc(stableKey(
+        "account-operation-owner",
+        receipt.sourceUid,
+      ));
+      const operationRef = operations.doc(receipt.operationId);
+      const [requestSnapshot, ownerSnapshot, operationSnapshot] =
+        await Promise.all([
+          transaction.get(requestRef),
+          transaction.get(ownerRef),
+          transaction.get(operationRef),
+        ]);
+      const requestRecord = requestSnapshot.exists
+        ? requestSnapshot.data() || {}
+        : {};
+      const ownerRecord = ownerSnapshot.exists
+        ? ownerSnapshot.data() || {}
+        : {};
+      if (!operationSnapshot.exists ||
+          requestRecord.operationId !== receipt.operationId ||
+          requestRecord.terminalStatusReceiptDigest !==
+            normalizedReceiptDigest) {
+        throw repositoryFailure("operation-not-found");
+      }
+      let operation;
+      try {
+        operation = normalizeOperation(operationSnapshot.data() || {});
+      } catch {
+        throw repositoryFailure("operation-not-found");
+      }
+      if (operation.kind !== "deletion" ||
+          operation.sourceUid !== receipt.sourceUid ||
+          operation.requestKey !== receipt.requestKeyHash ||
+          operation.phase !== "completed") {
+        throw repositoryFailure("operation-not-found");
+      }
+
+      const currentTime = nowMillis();
+      const purgeAfter = timestampFromMillis(
+        currentTime + ACKNOWLEDGED_RECEIPT_RETENTION_MILLIS,
+      );
+      if (!Number.isFinite(timestampMillis(purgeAfter))) {
+        throw repositoryFailure("invalid-deletion-status-receipt-timestamp");
+      }
+      transaction.set(receiptRef, {
+        purpose: DELETION_STATUS_RECEIPT_PURPOSE,
+        receiptDigest: normalizedReceiptDigest,
+        capabilityPurposeDigest: normalizedPurposeDigest,
+        state: "acknowledged",
+        acknowledgedAtMillis: currentTime,
+        purgeAfter,
+      });
+      transaction.set(purposeRef, {
+        ...purposeRecord,
+        state: "acknowledged",
+        acknowledgedAtMillis: currentTime,
+      });
+      const {
+        terminalStatusReceiptDigest: ignoredRequestReceiptDigest,
+        ...cleanRequestRecord
+      } = requestRecord;
+      void ignoredRequestReceiptDigest;
+      transaction.set(requestRef, cleanRequestRecord);
+      if (ownerRecord.operationId === operation.id &&
+          ownerRecord.terminalStatusReceiptDigest ===
+            normalizedReceiptDigest) {
+        const {
+          terminalStatusReceiptDigest: ignoredOwnerReceiptDigest,
+          ...cleanOwnerRecord
+        } = ownerRecord;
+        void ignoredOwnerReceiptDigest;
+        transaction.set(ownerRef, cleanOwnerRecord);
+      }
+      return true;
+    });
+  }
+
   async function consumeAnonymousRequest({ uid, appId }) {
     const rateRef = rateLimits.doc(stableKey(uid, appId));
     return firestore.runTransaction(async (transaction) => {
@@ -672,19 +1218,65 @@ function createFirestoreAccountOperationRepository({
     });
   }
 
+  async function consumeDeletionStatusReceiptRequest({ key }) {
+    const normalizedKey = requiredDeletionStatusRateLimitKey(key);
+    const rateRef = deletionStatusRateLimits.doc(normalizedKey);
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(rateRef);
+      const current = snapshot.exists ? snapshot.data() || {} : {};
+      const currentTime = nowMillis();
+      const inWindow = Number.isFinite(current.windowStartedAtMillis) &&
+        currentTime - current.windowStartedAtMillis <
+          DELETION_STATUS_RATE_WINDOW_MILLIS;
+      const count = inWindow && Number.isInteger(current.count)
+        ? current.count
+        : 0;
+      if (count >= DELETION_STATUS_RATE_LIMIT) {
+        throw repositoryFailure("deletion-status-rate-limit-exceeded");
+      }
+      transaction.set(rateRef, {
+        windowStartedAtMillis: inWindow
+          ? current.windowStartedAtMillis
+          : currentTime,
+        count: count + 1,
+        updatedAtMillis: currentTime,
+      });
+      return true;
+    });
+  }
+
   async function issueDeletionProof({
     sourceUid,
     proofHash,
+    capabilityPurposeDigest,
     appleRevocationRequired,
   }) {
+    const normalizedPurposeDigest =
+      requiredDeletionCapabilityPurposeDigest(capabilityPurposeDigest);
     const ownerRef = deletionProofOwners.doc(stableKey(
       "account-deletion-proof-owner",
       sourceUid,
     ));
     const proofRef = deletionProofs.doc(proofHash);
+    const purposeRef = deletionCapabilityPurposes.doc(
+      normalizedPurposeDigest,
+    );
     return firestore.runTransaction(async (transaction) => {
-      const ownerSnapshot = await transaction.get(ownerRef);
+      const [ownerSnapshot, purposeSnapshot] = await Promise.all([
+        transaction.get(ownerRef),
+        transaction.get(purposeRef),
+      ]);
       const owner = ownerSnapshot.exists ? ownerSnapshot.data() || {} : {};
+      const purposeRecord = purposeSnapshot.exists
+        ? purposeSnapshot.data() || {}
+        : {};
+      if (purposeSnapshot.exists &&
+          (purposeRecord.purpose !== DELETION_PROOF_PURPOSE ||
+           purposeRecord.capabilityPurposeDigest !==
+             normalizedPurposeDigest ||
+           purposeRecord.state !== "active")) {
+        throw repositoryFailure("invalid-deletion-proof");
+      }
       const currentTime = nowMillis();
       const inWindow =
         Number.isFinite(owner.issuanceWindowStartedAtMillis) &&
@@ -706,13 +1298,23 @@ function createFirestoreAccountOperationRepository({
       const expiresAtMillis =
         currentTime + DELETION_PROOF_LIFETIME_MILLIS;
       transaction.set(proofRef, {
+        purpose: DELETION_PROOF_PURPOSE,
         proofHash,
+        capabilityPurposeDigest: normalizedPurposeDigest,
         sourceUid,
         appleRevocationRequired: appleRevocationRequired === true,
         issuedAtMillis: currentTime,
         expiresAtMillis,
         claimedOperationId: null,
       });
+      if (!purposeSnapshot.exists) {
+        transaction.set(purposeRef, {
+          purpose: DELETION_PROOF_PURPOSE,
+          capabilityPurposeDigest: normalizedPurposeDigest,
+          state: "active",
+          registeredAtMillis: currentTime,
+        });
+      }
       transaction.set(ownerRef, {
         activeProofHash: proofHash,
         issuanceWindowStartedAtMillis: inWindow
@@ -732,6 +1334,30 @@ function createFirestoreAccountOperationRepository({
       const proofSnapshot = await transaction.get(proofRef);
       if (!proofSnapshot.exists) return false;
       const storedProof = proofSnapshot.data() || {};
+      if (Object.hasOwn(storedProof, "capabilityPurposeDigest")) {
+        let normalizedPurposeDigest;
+        try {
+          normalizedPurposeDigest =
+            requiredDeletionCapabilityPurposeDigest(
+              storedProof.capabilityPurposeDigest,
+            );
+        } catch {
+          return false;
+        }
+        const purposeSnapshot = await transaction.get(
+          deletionCapabilityPurposes.doc(normalizedPurposeDigest),
+        );
+        const purposeRecord = purposeSnapshot.exists
+          ? purposeSnapshot.data() || {}
+          : {};
+        if (storedProof.purpose !== DELETION_PROOF_PURPOSE ||
+            purposeRecord.purpose !== DELETION_PROOF_PURPOSE ||
+            purposeRecord.capabilityPurposeDigest !==
+              normalizedPurposeDigest ||
+            purposeRecord.state !== "active") {
+          return false;
+        }
+      }
       const claim = claimDeletionProof(storedProof, {
         proofHash,
         nowMillis: nowMillis(),
@@ -1100,16 +1726,25 @@ function createFirestoreAccountOperationRepository({
 
   return Object.freeze({
     backfillLegacyDeletionSchedule,
+    acknowledgeDeletionStatusReceipt,
     checkpointDeletionWork,
     cancelReplacement,
     claimDeletionByProof,
     claimDeletionWork,
     consumeAnonymousRequest,
+    consumeDeletionStatusReceiptRequest,
     consumePublicProofRequest,
     createOrReuseDeletion: (request) =>
-      createOrReuse(request, { deletionRequested: true }),
+      createOrReuse(request, {
+        deletionRequested: true,
+        terminalStatusReceiptDigest:
+          request.terminalStatusReceiptDigest ?? null,
+        terminalStatusReceiptPurposeDigest:
+          request.terminalStatusReceiptPurposeDigest ?? null,
+      }),
     createOrReuseReplacement: (request) => createOrReuse(request),
     get,
+    getDeletionByStatusReceipt,
     issueDeletionProof,
     recordDeletionWorkFailure,
     renewDeletionLease,
@@ -1577,6 +2212,7 @@ function operationFailureMapping(code) {
       return ["permission-denied", code];
     case "anonymous-rate-limit-exceeded":
     case "proof-issuance-rate-exceeded":
+    case "deletion-status-rate-limit-exceeded":
       return ["resource-exhausted", code];
     case "stale-operation-version":
       return ["aborted", code];
@@ -1584,6 +2220,8 @@ function operationFailureMapping(code) {
     case "terminal-operation":
     case "invalid-operation-transition":
       return ["failed-precondition", code];
+    case "terminal-status-receipt-invalid":
+      return ["invalid-argument", code];
     case "invalid-operation":
     case "source-and-target-must-differ":
       return ["invalid-argument", code];
@@ -1599,6 +2237,9 @@ function createAccountOperationRuntime({
   newDeletionProof = () => crypto.randomBytes(32).toString("base64url"),
   newWorkerInvocationId = () => crypto.randomUUID(),
   hashDeletionProof,
+  hashDeletionStatusReceipt,
+  hashDeletionCapabilityPurpose,
+  hashDeletionStatusRateLimitKey,
   revokeAppleAuthorizationCode,
   makeError,
 } = {}) {
@@ -1611,6 +2252,9 @@ function createAccountOperationRuntime({
       typeof repository.createOrReuseReplacement !== "function" ||
       typeof repository.createOrReuseDeletion !== "function" ||
       typeof repository.issueDeletionProof !== "function" ||
+      typeof repository.consumeDeletionStatusReceiptRequest !== "function" ||
+      typeof repository.getDeletionByStatusReceipt !== "function" ||
+      typeof repository.acknowledgeDeletionStatusReceipt !== "function" ||
       typeof repository.claimDeletionWork !== "function" ||
       typeof repository.renewDeletionLease !== "function" ||
       typeof repository.checkpointDeletionWork !== "function" ||
@@ -1622,6 +2266,9 @@ function createAccountOperationRuntime({
   if (typeof newDeletionProof !== "function" ||
       typeof newWorkerInvocationId !== "function" ||
       typeof hashDeletionProof !== "function" ||
+      typeof hashDeletionStatusReceipt !== "function" ||
+      typeof hashDeletionCapabilityPurpose !== "function" ||
+      typeof hashDeletionStatusRateLimitKey !== "function" ||
       typeof revokeAppleAuthorizationCode !== "function") {
     throw new TypeError("Deletion-proof crypto adapters are required.");
   }
@@ -1704,6 +2351,18 @@ function createAccountOperationRuntime({
     }
   }
 
+  async function consumeDeletionStatusQuota(request) {
+    const rawIp = request?.rawRequest?.ip;
+    const normalizedIp = typeof rawIp === "string" &&
+      rawIp.length > 0 && rawIp.length <= 128
+      ? rawIp
+      : "unknown";
+    const key = requiredDeletionStatusRateLimitKey(
+      await hashDeletionStatusRateLimitKey(normalizedIp),
+    );
+    await repository.consumeDeletionStatusReceiptRequest({ key });
+  }
+
   const handlers = {
     prepareAnonymousReplacement: (request) => execute(async () => {
       const identity = await authenticate(request, "anonymous");
@@ -1783,6 +2442,25 @@ function createAccountOperationRuntime({
         data.requestKey,
         "request-key-required",
       );
+      let terminalStatusReceiptDigest = null;
+      let terminalStatusReceiptPurposeDigest = null;
+      if (Object.hasOwn(data, "terminalStatusReceipt")) {
+        if (!isRawDeletionStatusReceipt(data.terminalStatusReceipt)) {
+          throw new BoundaryFailure(
+            "invalid-argument",
+            "terminal-status-receipt-invalid",
+          );
+        }
+        terminalStatusReceiptDigest = requiredDeletionStatusReceiptDigest(
+          await hashDeletionStatusReceipt(data.terminalStatusReceipt),
+        );
+        terminalStatusReceiptPurposeDigest =
+          requiredDeletionCapabilityPurposeDigest(
+            await hashDeletionCapabilityPurpose(
+              data.terminalStatusReceipt,
+            ),
+          );
+      }
       const operation = await repository.createOrReuseDeletion({
         kind: "deletion",
         sourceUid: identity.uid,
@@ -1793,6 +2471,8 @@ function createAccountOperationRuntime({
           requestKey,
         ),
         appleRevocationRequired: hasAppleIdentity(identity.decoded),
+        terminalStatusReceiptDigest,
+        terminalStatusReceiptPurposeDigest,
       });
       return operationResult(operation);
     }),
@@ -1804,9 +2484,14 @@ function createAccountOperationRuntime({
         throw repositoryFailure("invalid-deletion-proof");
       }
       const proofHash = requiredProofHash(await hashDeletionProof(proof));
+      const capabilityPurposeDigest =
+        requiredDeletionCapabilityPurposeDigest(
+          await hashDeletionCapabilityPurpose(proof),
+        );
       const issuance = await repository.issueDeletionProof({
         sourceUid: identity.uid,
         proofHash,
+        capabilityPurposeDigest,
         appleRevocationRequired: hasAppleIdentity(identity.decoded),
       });
       return {
@@ -1934,6 +2619,57 @@ function createAccountOperationRuntime({
       });
       return operationResult(operation);
     }),
+
+    getAccountDeletionStatusByReceipt: (request) => execute(async () => {
+      await consumeDeletionStatusQuota(request);
+      const data = request?.data;
+      const keys = data && typeof data === "object" && !Array.isArray(data)
+        ? Object.keys(data)
+        : [];
+      const terminalStatusReceipt = keys.length === 1 &&
+        keys[0] === "terminalStatusReceipt"
+        ? data.terminalStatusReceipt
+        : null;
+      if (!isRawDeletionStatusReceipt(terminalStatusReceipt)) {
+        throw new BoundaryFailure("not-found", "operation-not-found");
+      }
+      const receiptDigest = requiredDeletionStatusReceiptDigest(
+        await hashDeletionStatusReceipt(terminalStatusReceipt),
+      );
+      const operation = await repository.getDeletionByStatusReceipt({
+        receiptDigest,
+      });
+      return operationResult(operation);
+    }),
+
+    acknowledgeAccountDeletionStatusReceipt: (request) => execute(
+      async () => {
+        await consumeDeletionStatusQuota(request);
+        const data = request?.data;
+        const keys = data && typeof data === "object" && !Array.isArray(data)
+          ? Object.keys(data)
+          : [];
+        const terminalStatusReceipt = keys.length === 1 &&
+          keys[0] === "terminalStatusReceipt"
+          ? data.terminalStatusReceipt
+          : null;
+        if (!isRawDeletionStatusReceipt(terminalStatusReceipt)) {
+          throw new BoundaryFailure("not-found", "operation-not-found");
+        }
+        const receiptDigest = requiredDeletionStatusReceiptDigest(
+          await hashDeletionStatusReceipt(terminalStatusReceipt),
+        );
+        const capabilityPurposeDigest =
+          requiredDeletionCapabilityPurposeDigest(
+            await hashDeletionCapabilityPurpose(terminalStatusReceipt),
+          );
+        await repository.acknowledgeDeletionStatusReceipt({
+          receiptDigest,
+          capabilityPurposeDigest,
+        });
+        return { acknowledged: true };
+      },
+    ),
   };
   return Object.freeze(handlers);
 }
@@ -2103,6 +2839,8 @@ module.exports = {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  deletionCapabilityPurposeDigest,
+  deletionStatusReceiptDigest,
   fetchActionableDeletionCandidates,
   fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,

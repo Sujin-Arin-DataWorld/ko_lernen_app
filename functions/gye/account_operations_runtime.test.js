@@ -1,6 +1,7 @@
 "use strict";
 
 const assert = require("node:assert/strict");
+const crypto = require("node:crypto");
 const test = require("node:test");
 
 const runtime = (() => {
@@ -22,7 +23,15 @@ const CALLABLE_NAMES = [
   "issueDeletionProof",
   "completeAppleRevocation",
   "getAccountOperation",
+  "getAccountDeletionStatusByReceipt",
+  "acknowledgeAccountDeletionStatusReceipt",
 ];
+const AUTHENTICATED_CALLABLE_NAMES = CALLABLE_NAMES.filter(
+  (name) => ![
+    "getAccountDeletionStatusByReceipt",
+    "acknowledgeAccountDeletionStatusReceipt",
+  ].includes(name),
+);
 
 const NOW_MILLIS = 2_000_000_000_000;
 const NOW_SECONDS = Math.floor(NOW_MILLIS / 1000);
@@ -30,6 +39,8 @@ const FIRST_PARTY_ORIGIN = "https://hangul-sori.com";
 const GENERIC_PUBLIC_RESULT = Object.freeze({
   status: "request-received",
 });
+const STATUS_RECEIPT_PURPOSE =
+  "account-deletion-status-receipt-v1";
 
 function rawProof(fill) {
   return Buffer.alloc(32, fill).toString("base64url");
@@ -37,6 +48,20 @@ function rawProof(fill) {
 
 function keyedProofHash(proof) {
   return `keyed-hash-${proof.slice(0, 8)}`;
+}
+
+function capabilityPurposeDigest(capability) {
+  return crypto
+    .createHash("sha256")
+    .update(`account-deletion-capability-purpose-v1\u0000${capability}`, "utf8")
+    .digest("hex");
+}
+
+function deletionStatusReceiptDigest(receipt) {
+  return crypto
+    .createHash("sha256")
+    .update(`${STATUS_RECEIPT_PURPOSE}\u0000${receipt}`, "utf8")
+    .digest("hex");
 }
 
 class FakeSnapshot {
@@ -267,6 +292,12 @@ class FakeFirestore {
   }
 }
 
+function documentsWithoutDeletionStatusRateLimits(firestore) {
+  return structuredClone(Array.from(firestore.documents.entries())
+    .filter(([path]) =>
+      !path.startsWith("account_deletion_status_rate_limits/")));
+}
+
 function fakeAccountOperationCollection(source) {
   const valueAt = (candidate, field) => field
     .split(".")
@@ -347,6 +378,16 @@ function createHarness({
   },
   proofs = [rawProof(1), rawProof(2), rawProof(3), rawProof(4)],
   hashDeletionProof = async (proof) => keyedProofHash(proof),
+  hashDeletionStatusReceipt = async (receipt) =>
+    deletionStatusReceiptDigest(receipt),
+  hashDeletionCapabilityPurpose = async (capability) =>
+    capabilityPurposeDigest(capability),
+  hashDeletionStatusRateLimitKey = async (ip) => crypto
+    .createHash("sha256")
+    .update(`test-rate-key\u0000${ip}`, "utf8")
+    .digest("hex"),
+  repositoryOverrides = {},
+  verifyIdToken,
   logger = {
     warn() {},
   },
@@ -359,15 +400,22 @@ function createHarness({
   const clock = { now: NOW_MILLIS };
   let operationSequence = 0;
   let proofSequence = 0;
-  const repository = runtime.createFirestoreAccountOperationRepository({
+  const baseRepository = runtime.createFirestoreAccountOperationRepository({
     firestore,
     nowMillis: () => clock.now,
     newOperationId: () => `operation-${++operationSequence}`,
   });
+  const repository = {
+    ...baseRepository,
+    ...repositoryOverrides,
+  };
   const verificationCalls = [];
   const auth = {
     async verifyIdToken(token, checkRevoked) {
       verificationCalls.push({ token, checkRevoked });
+      if (typeof verifyIdToken === "function") {
+        return verifyIdToken(token, checkRevoked);
+      }
       if (token === "revoked-token") {
         const error = new Error("raw revoked token verifier detail");
         error.code = "auth/id-token-revoked";
@@ -392,6 +440,9 @@ function createHarness({
     nowMillis: () => clock.now,
     newDeletionProof: () => proofs[proofSequence++],
     hashDeletionProof,
+    hashDeletionStatusReceipt,
+    hashDeletionCapabilityPurpose,
+    hashDeletionStatusRateLimitKey,
     logger,
     makeError,
     revokeAppleAuthorizationCode,
@@ -401,6 +452,9 @@ function createHarness({
     firestore,
     handlers,
     hashDeletionProof,
+    hashDeletionCapabilityPurpose,
+    hashDeletionStatusReceipt,
+    hashDeletionStatusRateLimitKey,
     logger,
     repository,
     verificationCalls,
@@ -428,6 +482,7 @@ async function runWorkerUntil(worker, operationId, phase, limit = 20) {
 function callableRequest(token, data = {}, {
   app = true,
   alreadyConsumed = false,
+  ip = "203.0.113.10",
 } = {}) {
   return {
     data,
@@ -435,6 +490,7 @@ function callableRequest(token, data = {}, {
       ? { appId: "test-app-id", alreadyConsumed }
       : undefined,
     rawRequest: {
+      ip,
       headers: token
         ? { authorization: `Bearer ${token}` }
         : {},
@@ -517,7 +573,7 @@ async function invokePublic(handler, request) {
   return response;
 }
 
-test("registers every protected callable name with the exact v2 options", () => {
+test("registers every account callable name with the exact v2 options", () => {
   assert.equal(typeof runtime.createAccountOperationCallables, "function");
   const handlers = Object.fromEntries(
     CALLABLE_NAMES.map((name) => [name, async () => name]),
@@ -547,7 +603,8 @@ test("registers every protected callable name with the exact v2 options", () => 
   for (const [index, registration] of registrations.entries()) {
     // App Check is advisory on the account callables (2026-08-10): a rejected
     // attestation used to strand deletion journals forever on devices whose
-    // provider was not registered. Auth-token verification stays mandatory.
+    // provider was not registered. Mutations still require fresh Auth; the
+    // two post-deletion calls require the 256-bit terminal-status capability.
     const expected = {
       region: "europe-west3",
       enforceAppCheck: false,
@@ -563,13 +620,23 @@ test("registers every protected callable name with the exact v2 options", () => 
 test("rejects every callable without an Authorization-header bearer token", async () => {
   const { handlers } = createHarness();
 
-  for (const name of CALLABLE_NAMES) {
+  for (const name of AUTHENTICATED_CALLABLE_NAMES) {
     await rejectsWithSafeCode(
       handlers[name](callableRequest(null)),
       "unauthenticated",
       "authentication-required",
     );
   }
+  await rejectsWithSafeCode(
+    handlers.getAccountDeletionStatusByReceipt(callableRequest(null)),
+    "not-found",
+    "operation-not-found",
+  );
+  await rejectsWithSafeCode(
+    handlers.acknowledgeAccountDeletionStatusReceipt(callableRequest(null)),
+    "not-found",
+    "operation-not-found",
+  );
 });
 
 test("missing or consumed App Check context never rejects at the boundary", async () => {
@@ -1140,8 +1207,22 @@ test("issues a server-generated 256-bit proof and persists no raw proof", async 
   assert.equal(Buffer.from(result.proof, "base64url").length, 32);
   assert.equal(storedProofs.length, 1);
   assert.equal(storedProofs[0].proofHash, keyedProofHash(proof));
+  assert.equal(storedProofs[0].purpose, "account-deletion-public-proof-v1");
+  assert.equal(
+    storedProofs[0].capabilityPurposeDigest,
+    capabilityPurposeDigest(proof),
+  );
   assert.equal(storedProofs[0].sourceUid, "durable-target");
   assert.equal(storedProofs[0].claimedOperationId, null);
+  assert.deepEqual(
+    firestore.valuesIn("account_deletion_capability_purposes"),
+    [{
+      purpose: "account-deletion-public-proof-v1",
+      capabilityPurposeDigest: capabilityPurposeDigest(proof),
+      state: "active",
+      registeredAtMillis: NOW_MILLIS,
+    }],
+  );
   assert.equal(
     JSON.stringify(Array.from(firestore.documents.entries())).includes(proof),
     false,
@@ -1468,6 +1549,111 @@ test("derives domain-separated HMACs from a canonical 32-byte hex secret", () =>
     digest("rate", "test-proof"),
     "4e818ce4bcd5bc30e9a87cf7b0f04e979c6814250235a6dc17825b9c5a1129d4",
   );
+  assert.notEqual(
+    digest("terminal-status", "test-proof"),
+    digest("proof", "test-proof"),
+  );
+});
+
+test("derives rotation-independent domain-separated receipt and purpose digests",
+() => {
+  const receipt = rawProof(40);
+  assert.equal(typeof runtime.deletionStatusReceiptDigest, "function");
+  assert.equal(typeof runtime.deletionCapabilityPurposeDigest, "function");
+
+  const receiptDigest = runtime.deletionStatusReceiptDigest(receipt);
+  const purposeDigest = runtime.deletionCapabilityPurposeDigest(receipt);
+  assert.equal(receiptDigest, deletionStatusReceiptDigest(receipt));
+  assert.equal(purposeDigest, capabilityPurposeDigest(receipt));
+  assert.match(receiptDigest, /^[0-9a-f]{64}$/);
+  assert.match(purposeDigest, /^[0-9a-f]{64}$/);
+  assert.notEqual(receiptDigest, purposeDigest);
+
+  const firstKey = runtime.createKeyedDeletionProofDigest({
+    getSecret: () => "11".repeat(32),
+  });
+  const rotatedKey = runtime.createKeyedDeletionProofDigest({
+    getSecret: () => "22".repeat(32),
+  });
+  assert.notEqual(firstKey("proof", receipt), rotatedKey("proof", receipt));
+  assert.equal(
+    runtime.deletionStatusReceiptDigest(receipt),
+    receiptDigest,
+  );
+});
+
+test("rate limits terminal receipt calls before receipt hashing or operation lookup",
+async () => {
+  const events = [];
+  const rateLimitKey = "a".repeat(64);
+  const failure = new Error("must remain generic");
+  failure.code = "deletion-status-rate-limit-exceeded";
+  const harness = createHarness({
+    repositoryOverrides: {
+      async consumeDeletionStatusReceiptRequest(metadata) {
+        events.push(["rate", structuredClone(metadata)]);
+        throw failure;
+      },
+      async getDeletionByStatusReceipt() {
+        events.push(["lookup"]);
+        throw new Error("must not run");
+      },
+    },
+    async hashDeletionStatusRateLimitKey(ip) {
+      events.push(["ip", ip]);
+      return rateLimitKey;
+    },
+    async hashDeletionStatusReceipt() {
+      events.push(["receipt-hash"]);
+      throw new Error("must not run");
+    },
+  });
+
+  for (const [name, receipt] of [
+    ["getAccountDeletionStatusByReceipt", rawProof(41)],
+    ["getAccountDeletionStatusByReceipt", "malformed"],
+    ["acknowledgeAccountDeletionStatusReceipt", rawProof(41)],
+    ["acknowledgeAccountDeletionStatusReceipt", "malformed"],
+  ]) {
+    events.length = 0;
+    await rejectsWithSafeCode(
+      harness.handlers[name](callableRequest(null, {
+        terminalStatusReceipt: receipt,
+      }, { app: false, ip: "198.51.100.7" })),
+      "resource-exhausted",
+      "deletion-status-rate-limit-exceeded",
+    );
+    assert.deepEqual(events, [
+      ["ip", "198.51.100.7"],
+      ["rate", { key: rateLimitKey }],
+    ]);
+  }
+});
+
+test("allows normal receipt polling plus acknowledgement within a separate quota",
+async () => {
+  const harness = createHarness();
+  const key = "b".repeat(64);
+  for (let index = 0; index < 120; index += 1) {
+    await harness.repository.consumeDeletionStatusReceiptRequest({ key });
+  }
+  await assert.rejects(
+    harness.repository.consumeDeletionStatusReceiptRequest({ key }),
+    (error) => error.code === "deletion-status-rate-limit-exceeded",
+  );
+  const records = harness.firestore.valuesIn(
+    "account_deletion_status_rate_limits",
+  );
+  assert.deepEqual(records, [{
+    windowStartedAtMillis: NOW_MILLIS,
+    count: 120,
+    updatedAtMillis: NOW_MILLIS,
+  }]);
+  const serialized = JSON.stringify(Array.from(
+    harness.firestore.documents.entries(),
+  ));
+  assert.equal(serialized.includes("198.51.100.7"), false);
+  assert.equal(serialized.includes("203.0.113.10"), false);
 });
 
 test("rejects missing short and malformed HMAC secrets with one safe error", () => {
@@ -1523,6 +1709,707 @@ test("rejects missing short and malformed HMAC secrets with one safe error", () 
   );
 });
 
+test("atomically binds a terminal-status receipt and reuses it after response loss",
+async () => {
+  const harness = createHarness();
+  const terminalStatusReceipt = rawProof(21);
+  const data = {
+    requestKey: "receipt-response-loss",
+    terminalStatusReceipt,
+  };
+
+  const [first, retry] = await Promise.all([
+    harness.handlers.requestAccountDeletion(callableRequest("target", data)),
+    harness.handlers.requestAccountDeletion(callableRequest("target", data)),
+  ]);
+
+  assert.deepEqual(retry, first);
+  const operations = harness.firestore.valuesIn("account_operations");
+  assert.equal(operations.length, 1);
+  assert.equal(
+    Object.hasOwn(operations[0], "terminalStatusReceiptDigest"),
+    false,
+  );
+  const receipts = harness.firestore.valuesIn(
+    "account_deletion_status_receipts",
+  );
+  assert.equal(receipts.length, 1);
+  assert.equal(receipts[0].operationId, first.operationId);
+  assert.equal(receipts[0].sourceUid, "durable-target");
+  assert.equal(receipts[0].purpose, STATUS_RECEIPT_PURPOSE);
+  assert.equal(receipts[0].state, "active");
+  assert.equal(
+    receipts[0].receiptDigest,
+    deletionStatusReceiptDigest(terminalStatusReceipt),
+  );
+  assert.equal(
+    receipts[0].capabilityPurposeDigest,
+    capabilityPurposeDigest(terminalStatusReceipt),
+  );
+  assert.deepEqual(
+    harness.firestore.valuesIn("account_deletion_capability_purposes"),
+    [{
+      purpose: STATUS_RECEIPT_PURPOSE,
+      capabilityPurposeDigest:
+        capabilityPurposeDigest(terminalStatusReceipt),
+      receiptDigest: deletionStatusReceiptDigest(terminalStatusReceipt),
+      state: "active",
+      registeredAtMillis: NOW_MILLIS,
+    }],
+  );
+  assert.equal(
+    JSON.stringify(Array.from(harness.firestore.documents.entries()))
+      .includes(terminalStatusReceipt),
+    false,
+  );
+
+  const beforeRead = documentsWithoutDeletionStatusRateLimits(
+    harness.firestore,
+  );
+  const verificationCount = harness.verificationCalls.length;
+  const status = await harness.handlers.getAccountDeletionStatusByReceipt(
+    callableRequest(null, { terminalStatusReceipt }, { app: false }),
+  );
+  assert.deepEqual(status, first);
+  for (const forbidden of [
+    "sourceUid",
+    "requestKey",
+    "terminalStatusReceipt",
+    "terminalStatusReceiptHash",
+    "terminalStatusReceiptDigest",
+    "receiptHash",
+    "receiptDigest",
+  ]) {
+    assert.equal(Object.hasOwn(status, forbidden), false);
+  }
+  assert.equal(harness.verificationCalls.length, verificationCount);
+  assert.deepEqual(
+    documentsWithoutDeletionStatusRateLimits(harness.firestore),
+    beforeRead,
+  );
+});
+
+test("rejects proof-first reuse of the same raw capability as a status receipt",
+async () => {
+  const sharedCapability = rawProof(42);
+  const harness = createHarness({ proofs: [sharedCapability] });
+  await harness.handlers.issueDeletionProof(callableRequest("target"));
+  const before = structuredClone(Array.from(
+    harness.firestore.documents.entries(),
+  ));
+
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("target", {
+      requestKey: "proof-first-cross-purpose",
+      terminalStatusReceipt: sharedCapability,
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+  assert.deepEqual(
+    Array.from(harness.firestore.documents.entries()),
+    before,
+  );
+  assert.equal(
+    JSON.stringify(before).includes(sharedCapability),
+    false,
+  );
+});
+
+test("rejects receipt-first reuse by the server proof issuer without mutation",
+async () => {
+  const sharedCapability = rawProof(45);
+  const harness = createHarness({ proofs: [sharedCapability] });
+  await harness.handlers.requestAccountDeletion(callableRequest("target", {
+    requestKey: "receipt-first-cross-purpose",
+    terminalStatusReceipt: sharedCapability,
+  }));
+  const before = structuredClone(Array.from(
+    harness.firestore.documents.entries(),
+  ));
+
+  await rejectsWithSafeCode(
+    harness.handlers.issueDeletionProof(callableRequest("target")),
+    "internal",
+    "account-operation-failed",
+  );
+  assert.deepEqual(
+    Array.from(harness.firestore.documents.entries()),
+    before,
+  );
+  assert.equal(JSON.stringify(before).includes(sharedCapability), false);
+});
+
+test("atomically upgrades an idempotent legacy deletion with its first receipt",
+async () => {
+  const harness = createHarness();
+  const terminalStatusReceipt = rawProof(28);
+  const requestKey = "legacy-response-loss-upgrade";
+  const legacy = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", { requestKey }),
+  );
+
+  const upgraded = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", { requestKey, terminalStatusReceipt }),
+  );
+  assert.deepEqual(upgraded, legacy);
+  assert.equal(harness.firestore.valuesIn("account_operations").length, 1);
+  assert.equal(
+    harness.firestore.valuesIn("account_deletion_status_receipts").length,
+    1,
+  );
+  const recovered = await harness.handlers.getAccountDeletionStatusByReceipt(
+    callableRequest(null, { terminalStatusReceipt }, { app: false }),
+  );
+  assert.deepEqual(recovered, legacy);
+
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("target", {
+      requestKey,
+      terminalStatusReceipt: rawProof(29),
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+});
+
+test("rejects receipt rebinding and collapses unavailable receipt reads",
+async () => {
+  const publicProof = rawProof(22);
+  const boundReceipt = rawProof(23);
+  const otherReceipt = rawProof(24);
+  const harness = createHarness({ proofs: [publicProof] });
+  const boundOperation = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", {
+      requestKey: "receipt-bound-request",
+      terminalStatusReceipt: boundReceipt,
+    }),
+  );
+
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("target", {
+      requestKey: "receipt-bound-request",
+      terminalStatusReceipt: "malformed",
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("target", {
+      requestKey: "receipt-bound-request",
+      terminalStatusReceipt: otherReceipt,
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("target", {
+      requestKey: "different-request-key",
+      terminalStatusReceipt: boundReceipt,
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+  await rejectsWithSafeCode(
+    harness.handlers.requestAccountDeletion(callableRequest("other", {
+      requestKey: "other-account-request",
+      terminalStatusReceipt: boundReceipt,
+    })),
+    "invalid-argument",
+    "terminal-status-receipt-invalid",
+  );
+
+  await harness.handlers.issueDeletionProof(callableRequest("target"));
+  const wrongPurposeReceipt = rawProof(30);
+  const unboundReceipt = rawProof(31);
+  const wrongPurposeHash = await harness.hashDeletionStatusReceipt(
+    wrongPurposeReceipt,
+  );
+  const unboundHash = await harness.hashDeletionStatusReceipt(unboundReceipt);
+  harness.firestore.documents.set(
+    `account_deletion_status_receipts/${wrongPurposeHash}`,
+    {
+      purpose: "account-deletion-proof-v1",
+      sourceUid: "durable-target",
+      operationId: boundOperation.operationId,
+      requestKeyHash: "wrong-purpose-request-key",
+      boundAtMillis: harness.clock.now,
+    },
+  );
+  harness.firestore.documents.set(
+    `account_deletion_status_receipts/${unboundHash}`,
+    {
+      purpose: STATUS_RECEIPT_PURPOSE,
+      sourceUid: "durable-target",
+      requestKeyHash: "unbound-request-key",
+      boundAtMillis: harness.clock.now,
+    },
+  );
+  for (const unavailable of [
+    "malformed",
+    rawProof(25),
+    publicProof,
+    wrongPurposeReceipt,
+    unboundReceipt,
+  ]) {
+    await rejectsWithSafeCode(
+      harness.handlers.getAccountDeletionStatusByReceipt(
+        callableRequest(null, {
+          terminalStatusReceipt: unavailable,
+        }, { app: false }),
+      ),
+      "not-found",
+      "operation-not-found",
+    );
+  }
+
+  const beforeCrossUse = structuredClone(Array.from(
+    harness.firestore.documents.entries(),
+  ));
+  const publicHandler = runtime.createDeletionProofHttpHandler({
+    repository: harness.repository,
+    hashDeletionProof: harness.hashDeletionProof,
+    getRateLimitKey: async () => "cross-use-rate-key",
+    consumeRateLimit: async () => true,
+  });
+  const publicResult = await invokePublic(
+    publicHandler,
+    publicRequest(boundReceipt),
+  );
+  assert.equal(publicResult.statusCode, 202);
+  assert.deepEqual(publicResult.body, GENERIC_PUBLIC_RESULT);
+  assert.deepEqual(
+    Array.from(harness.firestore.documents.entries()),
+    beforeCrossUse,
+  );
+
+  assert.equal(
+    JSON.stringify(Array.from(harness.firestore.documents.entries()))
+      .includes(boundReceipt),
+    false,
+  );
+  assert.equal(
+    JSON.stringify(Array.from(harness.firestore.documents.entries()))
+      .includes(publicProof),
+    false,
+  );
+});
+
+test("terminal-status receipt survives Auth deletion and reads every remaining phase",
+async () => {
+  let authDeleted = false;
+  const terminalStatusReceipt = rawProof(26);
+  const token = decodedToken({ uid: "receipt-account" });
+  const harness = createHarness({
+    async verifyIdToken(value) {
+      if (authDeleted || value !== "receipt-token") {
+        throw new Error("token is no longer valid");
+      }
+      return structuredClone(token);
+    },
+  });
+  const requested = await harness.handlers.requestAccountDeletion(
+    callableRequest("receipt-token", {
+      requestKey: "receipt-cross-boundary",
+      terminalStatusReceipt,
+    }),
+  );
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser(uid) {
+        assert.equal(uid, "receipt-account");
+        authDeleted = true;
+      },
+    },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    nowMillis: () => harness.clock.now,
+  });
+
+  await runWorkerUntil(worker, requested.operationId, "authDeleted");
+  await rejectsWithSafeCode(
+    harness.handlers.getAccountOperation(callableRequest("receipt-token", {
+      operationId: requested.operationId,
+    })),
+    "unauthenticated",
+    "invalid-auth-token",
+  );
+
+  for (const phase of [
+    "authDeleted",
+    "communityCleanupPending",
+    "processorCleanupPending",
+    "completed",
+  ]) {
+    if (phase !== "authDeleted") {
+      await runWorkerUntil(worker, requested.operationId, phase);
+    }
+    const beforeRead = documentsWithoutDeletionStatusRateLimits(
+      harness.firestore,
+    );
+    const result = await harness.handlers.getAccountDeletionStatusByReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    );
+    assert.equal(result.phase, phase);
+    assert.deepEqual(
+      documentsWithoutDeletionStatusRateLimits(harness.firestore),
+      beforeRead,
+    );
+  }
+});
+
+test("terminal-status receipt remains readable indefinitely until explicit acknowledgement",
+async () => {
+  const terminalStatusReceipt = rawProof(27);
+  const harness = createHarness();
+  const requested = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", {
+      requestKey: "receipt-long-offline",
+      terminalStatusReceipt,
+    }),
+  );
+  const operationPath = `account_operations/${requested.operationId}`;
+  const stored = harness.firestore.documents.get(operationPath);
+  harness.firestore.documents.set(operationPath, {
+    ...stored,
+    phase: "completed",
+    version: stored.version + 1,
+    updatedAtMillis: harness.clock.now,
+  });
+  harness.clock.now += 10 * 365 * 86_400_000;
+
+  const recovered = await harness.handlers.getAccountDeletionStatusByReceipt(
+    callableRequest(null, { terminalStatusReceipt }, { app: false }),
+  );
+  assert.equal(recovered.phase, "completed");
+});
+
+test("terminal acknowledgement revokes status and is idempotent after response loss",
+async () => {
+  const terminalStatusReceipt = rawProof(32);
+  const harness = createHarness();
+  const requested = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", {
+      requestKey: "receipt-acknowledgement",
+      terminalStatusReceipt,
+    }),
+  );
+  const operationPath = `account_operations/${requested.operationId}`;
+  const stored = harness.firestore.documents.get(operationPath);
+  harness.firestore.documents.set(operationPath, {
+    ...stored,
+    phase: "completed",
+    version: stored.version + 1,
+    updatedAtMillis: harness.clock.now,
+  });
+  const operationBeforeAck = structuredClone(
+    harness.firestore.documents.get(operationPath),
+  );
+
+  const firstAck = await harness.handlers
+    .acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    );
+  assert.deepEqual(firstAck, { acknowledged: true });
+  assert.deepEqual(
+    harness.firestore.documents.get(operationPath),
+    operationBeforeAck,
+  );
+  const tombstones = harness.firestore.valuesIn(
+    "account_deletion_status_receipts",
+  );
+  assert.equal(tombstones.length, 1);
+  assert.equal(tombstones[0].state, "acknowledged");
+  assert.equal(tombstones[0].purgeAfter instanceof Date, true);
+  assert.equal(
+    tombstones[0].purgeAfter.getTime(),
+    harness.clock.now + (7 * 86_400_000),
+  );
+  assert.deepEqual(
+    Object.keys(tombstones[0]).sort(),
+    [
+      "acknowledgedAtMillis",
+      "capabilityPurposeDigest",
+      "purgeAfter",
+      "purpose",
+      "receiptDigest",
+      "state",
+    ],
+  );
+  const purposeRecords = harness.firestore.valuesIn(
+    "account_deletion_capability_purposes",
+  );
+  assert.equal(purposeRecords.length, 1);
+  assert.equal(purposeRecords[0].state, "acknowledged");
+  assert.equal(purposeRecords[0].acknowledgedAtMillis, harness.clock.now);
+  assert.equal(Object.hasOwn(purposeRecords[0], "sourceUid"), false);
+  assert.equal(Object.hasOwn(purposeRecords[0], "operationId"), false);
+  for (const collectionName of [
+    "account_operation_owners",
+    "account_operation_requests",
+  ]) {
+    assert.equal(
+      harness.firestore.valuesIn(collectionName).some(
+        (record) => Object.hasOwn(record, "terminalStatusReceiptDigest"),
+      ),
+      false,
+    );
+  }
+  await rejectsWithSafeCode(
+    harness.handlers.getAccountDeletionStatusByReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    ),
+    "not-found",
+    "operation-not-found",
+  );
+
+  const afterFirstAck = documentsWithoutDeletionStatusRateLimits(
+    harness.firestore,
+  );
+  harness.clock.now += 6 * 86_400_000;
+  const retryAck = await harness.handlers
+    .acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    );
+  assert.deepEqual(retryAck, { acknowledged: true });
+  assert.deepEqual(
+    documentsWithoutDeletionStatusRateLimits(harness.firestore),
+    afterFirstAck,
+  );
+  assert.equal(
+    JSON.stringify(Array.from(harness.firestore.documents.entries()))
+      .includes(terminalStatusReceipt),
+    false,
+  );
+});
+
+test("acknowledgement remains idempotent after the receipt tombstone TTL deletes it",
+async () => {
+  const terminalStatusReceipt = rawProof(46);
+  const harness = createHarness();
+  const requested = await harness.handlers.requestAccountDeletion(
+    callableRequest("target", {
+      requestKey: "receipt-ack-after-ttl",
+      terminalStatusReceipt,
+    }),
+  );
+  const operationPath = `account_operations/${requested.operationId}`;
+  const stored = harness.firestore.documents.get(operationPath);
+  harness.firestore.documents.set(operationPath, {
+    ...stored,
+    phase: "completed",
+    version: stored.version + 1,
+    updatedAtMillis: harness.clock.now,
+  });
+  assert.deepEqual(
+    await harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    ),
+    { acknowledged: true },
+  );
+
+  const receiptDigest = deletionStatusReceiptDigest(terminalStatusReceipt);
+  harness.firestore.documents.delete(
+    `account_deletion_status_receipts/${receiptDigest}`,
+  );
+  harness.clock.now += 8 * 86_400_000;
+  const beforeRetry = documentsWithoutDeletionStatusRateLimits(
+    harness.firestore,
+  );
+
+  assert.deepEqual(
+    await harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    ),
+    { acknowledged: true },
+  );
+  assert.deepEqual(
+    documentsWithoutDeletionStatusRateLimits(harness.firestore),
+    beforeRetry,
+  );
+});
+
+test("missing receipt tombstones accept only an exact acknowledged receipt purpose",
+async () => {
+  const terminalStatusReceipt = rawProof(47);
+  const receiptDigest = deletionStatusReceiptDigest(terminalStatusReceipt);
+  const purposeDigest = capabilityPurposeDigest(terminalStatusReceipt);
+  const exactAcknowledged = {
+    purpose: STATUS_RECEIPT_PURPOSE,
+    capabilityPurposeDigest: purposeDigest,
+    receiptDigest,
+    state: "acknowledged",
+    registeredAtMillis: NOW_MILLIS,
+    acknowledgedAtMillis: NOW_MILLIS,
+  };
+  const cases = [
+    ["unknown", null],
+    ["active", { ...exactAcknowledged, state: "active" }],
+    ["proof", {
+      ...exactAcknowledged,
+      purpose: "account-deletion-public-proof-v1",
+    }],
+    ["wrong-purpose", {
+      ...exactAcknowledged,
+      purpose: "account-deletion-status-other-v1",
+    }],
+    ["wrong-receipt-digest", {
+      ...exactAcknowledged,
+      receiptDigest: "0".repeat(64),
+    }],
+    ["wrong-capability-digest", {
+      ...exactAcknowledged,
+      capabilityPurposeDigest: "1".repeat(64),
+    }],
+  ];
+
+  for (const [label, purposeRecord] of cases) {
+    const harness = createHarness();
+    if (purposeRecord) {
+      harness.firestore.documents.set(
+        `account_deletion_capability_purposes/${purposeDigest}`,
+        purposeRecord,
+      );
+    }
+    const before = documentsWithoutDeletionStatusRateLimits(
+      harness.firestore,
+    );
+    await rejectsWithSafeCode(
+      harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+        callableRequest(null, { terminalStatusReceipt }, { app: false }),
+      ),
+      "not-found",
+      "operation-not-found",
+    );
+    assert.deepEqual(
+      documentsWithoutDeletionStatusRateLimits(harness.firestore),
+      before,
+      label,
+    );
+  }
+});
+
+test("only completed receipts can be acknowledged and every other state is immutable",
+async () => {
+  const terminalStatusReceipt = rawProof(33);
+  const publicProof = rawProof(34);
+  const harness = createHarness({ proofs: [publicProof] });
+  await harness.handlers.requestAccountDeletion(callableRequest("target", {
+    requestKey: "receipt-nonterminal-ack",
+    terminalStatusReceipt,
+  }));
+  await harness.handlers.issueDeletionProof(callableRequest("target"));
+  const wrongPurposeReceipt = rawProof(36);
+  const wrongPurposeHash = await harness.hashDeletionStatusReceipt(
+    wrongPurposeReceipt,
+  );
+  harness.firestore.documents.set(
+    `account_deletion_status_receipts/${wrongPurposeHash}`,
+    {
+      purpose: "account-deletion-proof-v1",
+      receiptDigest: wrongPurposeHash,
+      state: "active",
+    },
+  );
+
+  const beforeNonterminalAck = documentsWithoutDeletionStatusRateLimits(
+    harness.firestore,
+  );
+  await rejectsWithSafeCode(
+    harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, { terminalStatusReceipt }, { app: false }),
+    ),
+    "not-found",
+    "operation-not-found",
+  );
+  assert.deepEqual(
+    documentsWithoutDeletionStatusRateLimits(harness.firestore),
+    beforeNonterminalAck,
+  );
+
+  for (const terminalPhase of ["blocked", "cancelled"]) {
+    const terminalHarness = createHarness();
+    const receipt = rawProof(terminalPhase === "blocked" ? 43 : 44);
+    const operation = await terminalHarness.handlers.requestAccountDeletion(
+      callableRequest("target", {
+        requestKey: `receipt-${terminalPhase}-ack`,
+        terminalStatusReceipt: receipt,
+      }),
+    );
+    const operationPath = `account_operations/${operation.operationId}`;
+    const stored = terminalHarness.firestore.documents.get(operationPath);
+    terminalHarness.firestore.documents.set(operationPath, {
+      ...stored,
+      phase: terminalPhase,
+      version: stored.version + 1,
+      blockedReason: terminalPhase === "blocked"
+        ? "operation-blocked"
+        : null,
+      updatedAtMillis: terminalHarness.clock.now,
+    });
+    const beforeAck = documentsWithoutDeletionStatusRateLimits(
+      terminalHarness.firestore,
+    );
+    await rejectsWithSafeCode(
+      terminalHarness.handlers.acknowledgeAccountDeletionStatusReceipt(
+        callableRequest(null, { terminalStatusReceipt: receipt }, {
+          app: false,
+        }),
+      ),
+      "not-found",
+      "operation-not-found",
+    );
+    assert.deepEqual(
+      documentsWithoutDeletionStatusRateLimits(terminalHarness.firestore),
+      beforeAck,
+    );
+  }
+  const unknownReceipt = rawProof(35);
+  for (const unavailable of [
+    "malformed",
+    unknownReceipt,
+    publicProof,
+    wrongPurposeReceipt,
+  ]) {
+    await rejectsWithSafeCode(
+      harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+        callableRequest(null, {
+          terminalStatusReceipt: unavailable,
+        }, { app: false }),
+      ),
+      "not-found",
+      "operation-not-found",
+    );
+  }
+  let caught;
+  try {
+    await harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+      callableRequest(null, {
+        terminalStatusReceipt: unknownReceipt,
+      }, { app: false }),
+    );
+  } catch (error) {
+    caught = error;
+  }
+  assert.equal(JSON.stringify(caught).includes(unknownReceipt), false);
+});
+
+test("configures acknowledged receipt retention as a Firestore TTL field", () => {
+  const indexes = require("../../firestore.indexes.json");
+  assert.equal(
+    indexes.fieldOverrides.some((override) =>
+      override.collectionGroup === "account_deletion_status_receipts" &&
+      override.fieldPath === "purgeAfter" &&
+      override.ttl === true &&
+      Array.isArray(override.indexes) &&
+      override.indexes.length === 0),
+    true,
+  );
+});
+
 test("allows only an operation participant to read a safe operation result", async () => {
   const { handlers } = createHarness();
   const prepared = await prepareReplacement(handlers);
@@ -1553,6 +2440,11 @@ test("allows only an operation participant to read a safe operation result", asy
     "appleAuthorizationCode",
     "deletionProof",
     "proofHash",
+    "terminalStatusReceipt",
+    "terminalStatusReceiptHash",
+    "terminalStatusReceiptDigest",
+    "receiptHash",
+    "receiptDigest",
   ]) {
     assert.equal(Object.hasOwn(result, forbidden), false);
   }
@@ -2789,7 +3681,7 @@ async () => {
   );
 });
 
-test("index exports the protected callables and public proof endpoint", () => {
+test("index exports the account callables and public proof endpoint", () => {
   const deployed = require("./index");
   for (const name of CALLABLE_NAMES) {
     assert.equal(typeof deployed[name], "function", `${name} export`);
@@ -2823,6 +3715,11 @@ test("index exports the protected callables and public proof endpoint", () => {
     deployed.account_deletion_worker.__endpoint.timeoutSeconds,
     300,
   );
+  const deletionSecretCallables = new Set([
+    "issueDeletionProof",
+    "getAccountDeletionStatusByReceipt",
+    "acknowledgeAccountDeletionStatusReceipt",
+  ]);
   for (const name of CALLABLE_NAMES.filter(
     (callableName) => callableName !== "completeAppleRevocation",
   )) {
@@ -2832,6 +3729,11 @@ test("index exports the protected callables and public proof endpoint", () => {
       boundNames.some((secretName) => appleSecretNames.includes(secretName)),
       false,
       `${name} must not bind Apple revocation secrets`,
+    );
+    assert.equal(
+      boundNames.includes("DELETION_PROOF_HMAC_KEY"),
+      deletionSecretCallables.has(name),
+      `${name} deletion proof or rate-limit secret binding`,
     );
   }
 });

@@ -1743,6 +1743,126 @@ async () => {
   ));
 });
 
+test("terminal-status receipt bindings are server-only capabilities",
+async () => {
+  await environment.withSecurityRulesDisabled(async (context) => {
+    await setDoc(
+      doc(
+        context.firestore(),
+        "account_deletion_status_receipts",
+        "keyed-receipt-digest",
+      ),
+      {
+        purpose: "account-deletion-status-receipt-v1",
+        receiptDigest: "keyed-receipt-digest",
+        capabilityPurposeDigest: "purpose-digest",
+        state: "active",
+        sourceUid: "owner",
+        operationId: "owner-operation",
+        requestKeyHash: "request-key-hash",
+        boundAtMillis: 2_000_000_000_000,
+      },
+    );
+    await setDoc(
+      doc(context.firestore(), "account_operation_owners", "owner-hash"),
+      {
+        operationId: "owner-operation",
+        terminalStatusReceiptDigest: "keyed-receipt-digest",
+      },
+    );
+    await setDoc(
+      doc(
+        context.firestore(),
+        "account_operation_requests",
+        "request-hash",
+      ),
+      {
+        operationId: "owner-operation",
+        terminalStatusReceiptDigest: "keyed-receipt-digest",
+      },
+    );
+    await setDoc(
+      doc(
+        context.firestore(),
+        "account_deletion_capability_purposes",
+        "purpose-digest",
+      ),
+      {
+        purpose: "account-deletion-status-receipt-v1",
+        capabilityPurposeDigest: "purpose-digest",
+        receiptDigest: "keyed-receipt-digest",
+        state: "active",
+      },
+    );
+    await setDoc(
+      doc(
+        context.firestore(),
+        "account_deletion_status_rate_limits",
+        "network-digest",
+      ),
+      {
+        windowStartedAtMillis: 2_000_000_000_000,
+        count: 1,
+        updatedAtMillis: 2_000_000_000_000,
+      },
+    );
+  });
+  const ownerDb = client("owner");
+  const receipt = doc(
+    ownerDb,
+    "account_deletion_status_receipts",
+    "keyed-receipt-digest",
+  );
+
+  await assertFails(getDoc(receipt));
+  await assertFails(getDocs(collection(
+    ownerDb,
+    "account_deletion_status_receipts",
+  )));
+  await assertFails(setDoc(receipt, { operationId: "other-operation" }, {
+    merge: true,
+  }));
+  for (const [collectionName, documentId] of [
+    ["account_operation_owners", "owner-hash"],
+    ["account_operation_requests", "request-hash"],
+  ]) {
+    const internalBinding = doc(ownerDb, collectionName, documentId);
+    await assertFails(getDoc(internalBinding));
+    await assertFails(getDocs(collection(ownerDb, collectionName)));
+    await assertFails(setDoc(internalBinding, {
+      terminalStatusReceiptDigest: "attacker-controlled",
+    }, { merge: true }));
+  }
+  for (const [collectionName, documentId] of [
+    ["account_deletion_capability_purposes", "purpose-digest"],
+    ["account_deletion_status_rate_limits", "network-digest"],
+  ]) {
+    const serverOnly = doc(ownerDb, collectionName, documentId);
+    await assertFails(getDoc(serverOnly));
+    await assertFails(getDocs(collection(ownerDb, collectionName)));
+    await assertFails(setDoc(serverOnly, { state: "attacker" }, {
+      merge: true,
+    }));
+    await assertFails(deleteDoc(serverOnly));
+    const nested = doc(
+      ownerDb,
+      collectionName,
+      documentId,
+      "nested",
+      "record",
+    );
+    await assertFails(getDoc(nested));
+    await assertFails(getDocs(collection(
+      ownerDb,
+      collectionName,
+      documentId,
+      "nested",
+    )));
+    await assertFails(setDoc(nested, { state: "attacker" }));
+    await assertFails(deleteDoc(nested));
+  }
+});
+
 test("deleting lifecycle blocks all late client mutations", async () => {
   await seedGye("ABC234", ["owner", "member"]);
   await seedUser("member", ["ABC234"]);
