@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — debug UX Gallery 20패널 인벤토리 고정
+
+**왜.** 목업의 일부 화면만 구현한 상태를 다시 “전체 완료”로 오인하지 않도록,
+`01A–06C` 20개 패널을 코드에서 정확히 한 번씩 식별하는 고정 인벤토리가 필요했다.
+Gallery는 production 시작 경로를 바꾸지 않고 debug define을 켠 경우에만 열려야 한다.
+
+**무엇을.** `UxPreviewFeatureGate`는 debug 빌드의
+`ENABLE_UX_GALLERY`에서만 활성화되고 기본값은 false다. `uxPreviewPanels`는 HTML의
+20개 ID·구간·독일어 제목을 순서대로 고정한다. 다음 커밋에서 각 ID를 실제 production
+widget의 mutation-free preview fixture와 연결한다. 새 이미지나 asset은 추가하지 않았다.
+
+**검증.** gate와 인벤토리 테스트 **4/4 통과**, 두 파일 scoped analyze
+`No issues found`, `git diff --check` 통과. 코드 커밋 `d46a3a1`, `8b18e62`, 제목 정정
+`9e03982`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+---
+
 ### 2026-08-12 (Codex) — UX 목업 01–06 완전 패리티 작업 시작
 
 **목표.** `docs/HANGUL_SORI_UX_REBUILD_MOCKUPS.html`의 20개 화면 계약을 기존
