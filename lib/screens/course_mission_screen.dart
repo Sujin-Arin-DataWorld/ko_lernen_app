@@ -100,7 +100,11 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   Future<void> _openLink(ContentLink link) async {
     final unit = _unit;
     final destination = destinationForCourseLink(link);
-    if (unit == null || destination == null) return;
+    if (unit == null || destination == null) {
+      return;
+    }
+    final evidenceIdsBefore =
+        _snapshot?.evidence.map((item) => item.id).toSet() ?? const <String>{};
     await Storage.setBrowseLevelCode(unit.level);
     if (!mounted) return;
     await Navigator.of(
@@ -112,11 +116,12 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
 
     final snapshot = _snapshot;
     if (snapshot == null ||
-        !OnboardingCompanionService.shouldOffer(
+        !OnboardingCompanionService.shouldOfferAfterAttempt(
           introPreviewSeen: Storage.introPreviewSeen,
           activeCourseUnitId: unit.id,
           activeCourseLevel: unit.level,
-          evidence: snapshot.evidence,
+          evidenceIdsBefore: evidenceIdsBefore,
+          evidenceAfter: snapshot.evidence,
         )) {
       return;
     }

@@ -67,10 +67,19 @@ void main() {
     view.resetDevicePixelRatio();
   });
 
+  test('first-correct gate reports once per current screen attempt', () {
+    final gate = FirstCorrectAttemptGate();
+
+    expect(gate.accept(correct: false), isFalse);
+    expect(gate.accept(correct: true), isTrue);
+    expect(gate.accept(correct: true), isFalse);
+  });
+
   testWidgets('saves once, then shows the persisted can-do before returning', (
     tester,
   ) async {
     var saveCalls = 0;
+    var firstCorrectCalls = 0;
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -79,6 +88,7 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: ScenarioPlayerScreen(
           scenarioId: _scenario.id,
+          onFirstCorrect: () => firstCorrectCalls++,
           scenarioLoader: (_) async => _scenario,
           resultPersister: (_, _, _) async {
             saveCalls++;
@@ -106,6 +116,7 @@ void main() {
     await _tapText(tester, 'Correct response');
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 1201));
+    expect(firstCorrectCalls, 1);
     await _tapText(tester, 'Weiter');
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));

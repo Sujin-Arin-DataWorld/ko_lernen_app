@@ -3400,7 +3400,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartBody.
   ///
   /// In de, this message translates to:
-  /// **'Wir beginnen mit einer Situation aus deinem Alltag, nicht mit einem Test.'**
+  /// **'Das bestimmt zuerst die Situationen – nicht deine Fähigkeit.'**
   String get onboardingStartBody;
 
   /// No description provided for @onboardingStartTravelTitle.
@@ -3487,6 +3487,30 @@ abstract class AppL10n {
   /// **'Deine erste Szene wird vorbereitet …'**
   String get onboardingStartLoading;
 
+  /// No description provided for @onboardingStartChangePoint.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt ändern'**
+  String get onboardingStartChangePoint;
+
+  /// No description provided for @onboardingFirstSceneTravelCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann bei der Einreise höflich antworten.'**
+  String get onboardingFirstSceneTravelCanDo;
+
+  /// No description provided for @onboardingFirstScenePeopleCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann mich freundlich vorstellen.'**
+  String get onboardingFirstScenePeopleCanDo;
+
+  /// No description provided for @onboardingFirstSceneWorkCanDo.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann mich in Kurs oder Arbeit kurz vorstellen.'**
+  String get onboardingFirstSceneWorkCanDo;
+
   /// No description provided for @onboardingCompanionChoose.
   ///
   /// In de, this message translates to:
@@ -3558,6 +3582,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.'**
   String get firstVoiceBody;
+
+  /// No description provided for @firstVoicePhraseBody.
+  ///
+  /// In de, this message translates to:
+  /// **'ein Satz, den du jetzt hören und erwidern kannst.'**
+  String get firstVoicePhraseBody;
 
   /// No description provided for @firstVoiceCanDo.
   ///

@@ -12,20 +12,38 @@ import '../widgets/sori/tokens.dart';
 import 'app_shell.dart';
 import 'character_selection_screen.dart';
 
+typedef FirstVoiceFinishCallback = Future<void> Function(bool withoutCompanion);
+
 /// The companion invitation appears only after the existing verified-first-
 /// success gate. It writes neither mastery nor course progress, and skipping
 /// it leaves the learner on a fully usable Today surface.
 class FirstVoiceSuccessScreen extends StatelessWidget {
-  const FirstVoiceSuccessScreen({super.key, required this.canDo});
+  const FirstVoiceSuccessScreen({
+    super.key,
+    required this.canDo,
+    this.phrase,
+    this.finishOverride,
+    this.chooseCompanionOverride,
+  });
 
   /// The successful ability comes from the exact, persisted course unit that
   /// opened this one-time screen. It is copy only: no success is recorded here.
   final String canDo;
+  final String? phrase;
+
+  /// Storage-free actions for tests and the UX gallery.
+  final FirstVoiceFinishCallback? finishOverride;
+  final Future<void> Function()? chooseCompanionOverride;
 
   Future<void> _finish(
     BuildContext context, {
     bool withoutCompanion = false,
   }) async {
+    final override = finishOverride;
+    if (override != null) {
+      await override(withoutCompanion);
+      return;
+    }
     if (withoutCompanion) {
       await MascotPreference.setNone();
     }
@@ -38,6 +56,11 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
   }
 
   Future<void> _chooseCompanion(BuildContext context) async {
+    final override = chooseCompanionOverride;
+    if (override != null) {
+      await override();
+      return;
+    }
     final completed = await Navigator.of(context).push<bool>(
       SoriTransitions.fadeScale<bool>(
         (_) => const CharacterSelectionScreen(optional: true),
@@ -95,7 +118,9 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: Spacing.sm),
                       Text(
-                        t.firstVoiceBody,
+                        phrase == null
+                            ? t.firstVoiceBody
+                            : '$phrase · ${t.firstVoicePhraseBody}',
                         textAlign: TextAlign.center,
                         style: text.bodySmall,
                       ),

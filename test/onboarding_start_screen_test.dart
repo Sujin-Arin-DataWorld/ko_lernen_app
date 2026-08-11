@@ -3,7 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/onboarding_first_scene.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
+import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
@@ -40,7 +42,7 @@ void main() {
   });
 
   testWidgets(
-    'opens the first mission directly without an account interruption',
+    'opens the selected purpose scene directly without an account interruption',
     (tester) async {
       final observer = _RouteObserver();
       await tester.pumpWidget(
@@ -53,12 +55,48 @@ void main() {
       final cta = find.text('Open my first scene');
       await tester.ensureVisible(cta);
       await tester.tap(cta);
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
 
-      expect(observer.routeNames, contains('/course/mission'));
+      expect(observer.routeNames, contains('/scenario'));
+      expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
       expect(find.byType(BottomSheet), findsNothing);
     },
   );
+
+  testWidgets('each purpose resolves to its own first real-life scene', (
+    tester,
+  ) async {
+    const cases = <String, String>{
+      'Getting around Korea': 'airport_arrival',
+      'Talking with people': 'introduce_yourself',
+      'Study or work': 'first_class_meeting',
+    };
+
+    for (final entry in cases.entries) {
+      OnboardingFirstScene? opened;
+      await tester.pumpWidget(
+        _host(
+          screen: OnboardingStartScreen(
+            startNewLearner: (_) async {},
+            openFirstScene: (context, scene) async => opened = scene,
+          ),
+        ),
+      );
+      await tester.pump();
+      if (entry.key != 'Getting around Korea') {
+        await tester.tap(find.text(entry.key));
+        await tester.pump();
+      }
+      final cta = find.text('Open my first scene');
+      await tester.ensureVisible(cta);
+      await tester.tap(cta);
+      await tester.pump();
+
+      expect(opened?.scenarioId, entry.value, reason: entry.key);
+      await tester.pumpWidget(const SizedBox.shrink());
+    }
+  });
 }
 
 Widget _host({NavigatorObserver? observer, OnboardingStartScreen? screen}) =>

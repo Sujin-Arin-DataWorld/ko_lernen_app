@@ -78,6 +78,20 @@ Future<void> runScenarioResultAction({
   await navigate();
 }
 
+/// One screen instance is one learning attempt. Historical mastery and a
+/// second correct answer in the same attempt cannot reopen first-success UX.
+class FirstCorrectAttemptGate {
+  bool _reported = false;
+
+  bool accept({required bool correct}) {
+    if (!correct || _reported) {
+      return false;
+    }
+    _reported = true;
+    return true;
+  }
+}
+
 typedef ScenarioResultPersister =
     Future<ScenarioCanDoResult?> Function(
       Scenario scenario,
@@ -90,6 +104,8 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
   final ScenarioResultPersister? resultPersister;
+  final VoidCallback? onFirstCorrect;
+  final VoidCallback? onExit;
 
   const ScenarioPlayerScreen({
     super.key,
@@ -97,6 +113,8 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.courseContext,
     this.scenarioLoader,
     this.resultPersister,
+    this.onFirstCorrect,
+    this.onExit,
   });
 
   @override
@@ -121,6 +139,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // review).
   final Set<int> _failedQuestIndices = <int>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
   bool _resultSaving = false;
   bool _resultPersisted = false;
   ScenarioCanDoResult? _canDoResult;
@@ -340,8 +359,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (result.passed) _passedCount++;
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
-    if (result.passed) _celebrateCorrect();
+    if (result.passed) {
+      _onCorrectAnswer();
+    }
     setState(() => _questReady = true);
+  }
+
+  void _onCorrectAnswer() {
+    _celebrateCorrect();
+    if (_firstCorrectGate.accept(correct: true)) {
+      widget.onFirstCorrect?.call();
+    }
   }
 
   /// 정답 순간 — 화면 중앙에 엽전·복주머니 코인 burst. post-frame + 화면 State의
@@ -1373,7 +1401,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return _RollenspielStage(
       scenario: _scenario!,
       lang: lang,
-      onCorrect: _celebrateCorrect,
+      onCorrect: _onCorrectAnswer,
       onDone: () {
         if (mounted) setState(() => _questReady = true);
       },
@@ -1419,7 +1447,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close_rounded),
-          onPressed: () => Navigator.pop(context),
+          onPressed: widget.onExit ?? () => Navigator.pop(context),
         ),
         title: Text(
           _scenario!.title.pick(lang),

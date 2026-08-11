@@ -1879,7 +1879,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingStartBody =>
-      'Wir beginnen mit einer Situation aus deinem Alltag, nicht mit einem Test.';
+      'Das bestimmt zuerst die Situationen – nicht deine Fähigkeit.';
 
   @override
   String get onboardingStartTravelTitle => 'In Korea unterwegs sein';
@@ -1925,6 +1925,21 @@ class AppL10nDe extends AppL10n {
   String get onboardingStartLoading => 'Deine erste Szene wird vorbereitet …';
 
   @override
+  String get onboardingStartChangePoint => 'Startpunkt ändern';
+
+  @override
+  String get onboardingFirstSceneTravelCanDo =>
+      'Ich kann bei der Einreise höflich antworten.';
+
+  @override
+  String get onboardingFirstScenePeopleCanDo =>
+      'Ich kann mich freundlich vorstellen.';
+
+  @override
+  String get onboardingFirstSceneWorkCanDo =>
+      'Ich kann mich in Kurs oder Arbeit kurz vorstellen.';
+
+  @override
   String get onboardingCompanionChoose => 'Lernfreund wählen';
 
   @override
@@ -1962,6 +1977,10 @@ class AppL10nDe extends AppL10n {
   @override
   String get firstVoiceBody =>
       'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.';
+
+  @override
+  String get firstVoicePhraseBody =>
+      'ein Satz, den du jetzt hören und erwidern kannst.';
 
   @override
   String get firstVoiceCanDo => 'Ich kann jemanden freundlich begrüßen.';
