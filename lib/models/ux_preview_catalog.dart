@@ -58,7 +58,7 @@ const uxPreviewPanels = <UxPreviewPanel>[
   UxPreviewPanel(
     id: '03A',
     section: UxPreviewSection.hanok,
-    title: 'Frueher Hanokbau',
+    title: 'Früher Hanokbau',
   ),
   UxPreviewPanel(
     id: '03B',
@@ -70,7 +70,7 @@ const uxPreviewPanels = <UxPreviewPanel>[
     section: UxPreviewSection.hanok,
     title: 'Sarangbang',
   ),
-  UxPreviewPanel(id: '04A', section: UxPreviewSection.explore, title: 'Ueben'),
+  UxPreviewPanel(id: '04A', section: UxPreviewSection.explore, title: 'Üben'),
   UxPreviewPanel(
     id: '04B',
     section: UxPreviewSection.explore,
