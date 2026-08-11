@@ -71,6 +71,29 @@ golden은 아직 증명하지 않았다. preview factory는 production 저장을
 production 계정·Firebase 상태를 흉내 내는 통합 backend fixture는 아니다.
 ---
 
+### 2026-08-12 (Codex) — UX 01B/C 목적별 첫 장면과 현재 시도 첫 성공
+
+**왜.** 목업 01B/C는 목적 선택이 능력을 판정하지 않고 실제 첫 상황만 정하며,
+동행 초대는 과거 기록이 아니라 현재 학습 시도의 첫 올바른 반응 뒤에만 나타나야 한다.
+기존 시작 CTA는 Course Mission 대시보드로 이동했고, 동행 gate는 과거 evidence까지
+포함한 전체 snapshot을 읽어 이미 끝난 성공으로도 열릴 수 있었다.
+
+**무엇을.** 여행·사람·학업/일 목적을 기존 A1 시나리오 `airport_arrival`,
+`introduce_yourself`, `first_class_meeting`에 매핑하고 시작 CTA가 실제
+`ScenarioPlayerScreen`을 바로 열도록 바꿨다. 화면 인스턴스별 첫 정답 gate가 한국어
+문장과 목적별 can-do를 담은 01C를 한 번만 열며, Course Mission fallback은 연습 전후
+evidence ID 차이로 현재 시도에 새로 생긴 적격 성공만 인정한다. 목적·장면 opener와
+01C actions에는 저장소를 쓰지 않는 gallery/test 주입 seam을 추가했다. 선택만으로
+숙달 evidence나 레벨은 만들지 않으며 기존 A1 초기화와 scenario assets를 그대로 쓴다.
+
+**검증.** onboarding start/companion/scenario/first-voice 집중 테스트 **12/12**,
+Course Mission plan/path/navigation 회귀 **5/5** 통과. `flutter analyze --no-pub`는
+**No issues found**, `git diff --check`도 통과했다.
+
+**커밋.** `033684e` (`feat(onboarding): open purpose scenes on first success`).
+
+---
+
 ### 2026-08-12 (Codex) — UX 01D 명시적 no-companion 계약 구현
 
 **왜.** 목업 01D의 “Jetzt nicht”는 단순히 캐릭터 선택을 미루는 버튼이 아니라
