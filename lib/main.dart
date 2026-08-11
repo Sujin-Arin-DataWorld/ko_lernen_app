@@ -101,16 +101,6 @@ import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/diagnostics_route_observer.dart';
 import 'widgets/sori/route_observer.dart';
 
-/// The app adapts its navigation and content to both tablet orientations.
-/// Keeping this explicit prevents a portrait-only startup lock from silently
-/// invalidating the landscape layout contract.
-const List<DeviceOrientation> kAppSupportedOrientations = <DeviceOrientation>[
-  DeviceOrientation.portraitUp,
-  DeviceOrientation.portraitDown,
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-];
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -195,14 +185,6 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   DancheongBurst.preload();
 
-  // Allow phones, foldables, and tablets to use their natural orientation.
-  // await 제거: 방향·시스템UI 설정은 플랫폼 채널에 호출 순서대로 큐잉되는
-  // fire-and-set 이라 첫 프레임을 기다릴 필요가 없다 — runApp 전 플랫폼 왕복 2회
-  // 절약(edge-to-edge/방향은 관대해 첫 프레임 직전 적용돼도 무해). 순서 보장은
-  // 채널 큐가 유지하므로 아래 setSystemUIOverlayStyle 와의 순서도 그대로다.
-  // ignore: discarded_futures, unawaited_futures
-  SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
-
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
   // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
@@ -211,13 +193,11 @@ Future<void> main() async {
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      // 밝은 한지(cream) 배경 위 → 시스템바 아이콘은 어둡게(가독성 확보).
-      statusBarColor: Colors.transparent,
+      // 시스템바 색은 edge-to-edge 배경이 제공한다. Android 15에서 지원 중단된
+      // setStatusBarColor/setNavigationBarColor 요청 없이 아이콘 대비만 제어한다.
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light, // iOS
-      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarContrastEnforced: false,
     ),
   );
 

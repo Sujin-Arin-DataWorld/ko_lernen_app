@@ -219,6 +219,19 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### Android 15 edge-to-edge · Android 16 대형 화면 대응 (2026-08-11)
+
+- [x] FlutterActivity 호환 AndroidX
+  `WindowCompat.setDecorFitsSystemWindows(window, false)`를 `MainActivity` 시작 경로에
+  배선해 Android 15의 SDK 35 강제 동작과 이전 Android 버전의 창 동작을 일치시켰다.
+- [x] Flutter 시스템 바 스타일에서 Android 15 지원 중단 색상 요청을 제거하고 아이콘
+  밝기만 제어한다. 기존 `SafeArea`/반응형 콘텐츠 폭 계약은 유지한다.
+- [x] 전역 `setPreferredOrientations` 요청과 `UCropActivity`의 portrait 매니페스트 제한을
+  제거했다. 앱과 사진 자르기 흐름 모두 회전·폴더블·태블릿·멀티윈도우를 허용한다.
+- [x] Dart·네이티브·매니페스트 3층 정적 계약 테스트를 추가했다.
+- [ ] Jin: 다음 AAB를 Play Console에 올린 뒤 새 번들 기준 발견 항목 재검사 및 Android
+  15/16 태블릿·폴더블에서 portrait/landscape/분할화면 시각 스모크.
+
 ### 구글 동기화 + 계정/데이터 초기화 100% 작동 수리 (2026-08-10)
 
 - [x] **근본 원인 = 멈춘 삭제 journal**: 2026-08-03 함수 미배포기 실패 삭제가 journal로 영구 잔존 →
