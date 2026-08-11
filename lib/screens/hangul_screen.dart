@@ -767,6 +767,11 @@ class _CardsTabState extends State<_CardsTab> {
               ),
             ),
             const SizedBox(height: 12),
+            // 독일어 "Zurück"/"Weiter" 는 영어보다 20~30% 길어 3버튼 균등 1/3
+            // 에선 잘린다("Zurü…"). 좁은 폰(360dp)에선 아이콘+독일어 라벨 3개가
+            // 한 줄에 물리적으로 안 들어간다 → 라벨을 온전히 보이려면 3개를 한
+            // 줄에 두지 않는다: nav(prev/next)는 반폭 2버튼(라벨 여유), 핵심
+            // 액션인 듣기는 아래 full-width 로 승격(발음 카드는 소리가 우선).
             Row(
               children: [
                 Expanded(
@@ -780,15 +785,6 @@ class _CardsTabState extends State<_CardsTab> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: SoriButton.outlined(
-                    label: AppL10n.of(context).btnHoeren,
-                    icon: Icons.volume_up,
-                    onTap: () => TtsService.speak(c.letter),
-                    fullWidth: true,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: SoriButton.outlined(
                     label: AppL10n.of(context).btnNext,
                     icon: Icons.arrow_forward,
                     onTap: _next,
@@ -796,6 +792,13 @@ class _CardsTabState extends State<_CardsTab> {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 8),
+            SoriButton.outlined(
+              label: AppL10n.of(context).btnHoeren,
+              icon: Icons.volume_up,
+              onTap: () => TtsService.speak(c.letter),
+              fullWidth: true,
             ),
             const SizedBox(height: 6),
             SoriButton.filled(
