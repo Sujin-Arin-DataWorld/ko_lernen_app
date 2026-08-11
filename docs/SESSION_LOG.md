@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — UX 목업 01–06 완전 패리티 작업 시작
+
+**목표.** `docs/HANGUL_SORI_UX_REBUILD_MOCKUPS.html`의 20개 화면 계약을 기존
+assets만 사용해 실제 CTA·라우팅·저장 상태·오프라인 상태까지 구현한다. 로컬 `main`
+checkout은 전환·stash·commit하지 않고, 전용 `codex/ux-mockup-01-06-complete`
+worktree에서만 통합한다.
+
+**범위.** 01–02, 03–04, 05–06을 각각 독립 하위 worktree에서 구현한 뒤, 공통
+DE/EN l10n과 debug-only UX Gallery, 반응형·접근성·상태 fixture matrix를 통합한다.
+새 이미지 생성은 금지하며 기존 한옥·태고·조이 assets를 재사용한다. 최종 UX 커밋만
+최신 `origin/main` 위로 정리해 PR·CI 검증 후 병합한다.
+
+**진행 중.** 구현 및 검증 결과와 커밋은 완료 시 이 항목에 갱신한다.
+
+---
+
 > **AGENTS.md에서 분리한 세션 히스토리 아카이브 (2026-08-05 분리).**
 > 컨텍스트 비용 절감을 위해 매 세션 자동 로드하지 않는다 — 과거 맥락이 필요할 때만 grep/Read.
 > ⛔ **앞으로 모든 변경 기록(무엇을·왜·검증·커밋해시)은 이 파일 최상단(최신이 위)에 남긴다.**
