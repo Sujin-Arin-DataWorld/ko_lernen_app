@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -51,6 +52,26 @@ void main() {
     test('퇴화 입력에도 안전하다', () {
       expect(soriFairTileHeight(available: 0, count: 0), 52);
       expect(soriFairTileHeight(available: double.infinity, count: 5), 52);
+    });
+  });
+
+  group('soriSpeedMatchSlotCount', () {
+    test('regular viewport keeps five pairs', () {
+      expect(
+        soriSpeedMatchSlotCount(viewportHeight: 800, textScaleFactor: 1),
+        5,
+      );
+    });
+
+    test('short viewport or 130 percent text uses four pairs', () {
+      expect(
+        soriSpeedMatchSlotCount(viewportHeight: 640, textScaleFactor: 1),
+        4,
+      );
+      expect(
+        soriSpeedMatchSlotCount(viewportHeight: 800, textScaleFactor: 1.3),
+        4,
+      );
     });
   });
 
@@ -105,6 +126,89 @@ void main() {
       final tablet = _tapHeights(tester).first;
       expect(tablet, greaterThan(phone));
     });
+  });
+
+  group('Blitz-Paare — long German labels stay in one viewport', () {
+    const longGerman = 'Freut mich, Sie kennenzulernen';
+    const entries = <(String, String)>[
+      ('처음 뵙겠습니다', longGerman),
+      ('반갑습니다', longGerman),
+      ('어서 오세요', longGerman),
+      ('잘 부탁드립니다', longGerman),
+      ('만나서 반가워요', longGerman),
+    ];
+    const scenarios = [
+      (
+        name: '360x640 uses four pairs',
+        size: Size(360, 640),
+        textScaler: TextScaler.noScaling,
+        expectedPairs: 4,
+      ),
+      (
+        name: '360x800 at 130 percent text uses four pairs',
+        size: Size(360, 800),
+        textScaler: TextScaler.linear(1.3),
+        expectedPairs: 4,
+      ),
+      (
+        name: '360x800 at regular text keeps five pairs',
+        size: Size(360, 800),
+        textScaler: TextScaler.noScaling,
+        expectedPairs: 5,
+      ),
+    ];
+
+    for (final scenario in scenarios) {
+      testWidgets(scenario.name, (tester) async {
+        await _pumpSpeedMatch(
+          tester,
+          size: scenario.size,
+          textScaler: scenario.textScaler,
+          entries: entries,
+        );
+
+        final visibleRightTiles = <Finder>[];
+        for (final entry in entries) {
+          final tile = find.byKey(ValueKey('speed-match-right-${entry.$1}'));
+          if (tile.evaluate().isNotEmpty) {
+            visibleRightTiles.add(tile);
+          }
+        }
+        expect(visibleRightTiles, hasLength(scenario.expectedPairs));
+
+        final scaffoldRect = tester.getRect(find.byType(Scaffold).first);
+        final heights = <double>[];
+        for (final tile in visibleRightTiles) {
+          final rect = tester.getRect(tile);
+          final hitTarget = find.descendant(
+            of: tile,
+            matching: find.byType(InkWell),
+          );
+          heights.add(rect.height);
+          expect(hitTarget, findsOneWidget);
+          expect(tester.getSize(hitTarget).height, greaterThanOrEqualTo(44));
+          expect(rect.bottom, lessThanOrEqualTo(scaffoldRect.bottom + 0.01));
+          expect(
+            find.ancestor(
+              of: tile,
+              matching: find.byType(SingleChildScrollView),
+            ),
+            findsNothing,
+          );
+        }
+        expect(heights.toSet(), hasLength(1));
+
+        final labels = find.text(longGerman);
+        expect(labels, findsNWidgets(scenario.expectedPairs));
+        for (final element in labels.evaluate()) {
+          final renderObject = element.renderObject;
+          expect(renderObject, isA<RenderParagraph>());
+          expect((renderObject! as RenderParagraph).didExceedMaxLines, isFalse);
+          expect((element.widget as Text).maxLines, 3);
+        }
+        expect(tester.takeException(), isNull);
+      });
+    }
   });
 
   group('Lückentext — 빈칸 표시·선택 반영·재시도', () {
@@ -204,19 +308,32 @@ List<double> _tapHeights(WidgetTester tester) {
   return out;
 }
 
-Widget _host(Widget child, Size size) => MaterialApp(
+Widget _host(
+  Widget child,
+  Size size, {
+  TextScaler textScaler = TextScaler.noScaling,
+}) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: AppTheme.light,
   locale: const Locale('de'),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: MediaQuery(
-    data: MediaQueryData(disableAnimations: true, size: size),
+    data: MediaQueryData(
+      disableAnimations: true,
+      size: size,
+      textScaler: textScaler,
+    ),
     child: child,
   ),
 );
 
-Future<void> _pumpSpeedMatch(WidgetTester tester, {required Size size}) async {
+Future<void> _pumpSpeedMatch(
+  WidgetTester tester, {
+  required Size size,
+  TextScaler textScaler = TextScaler.noScaling,
+  List<(String, String)>? entries,
+}) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
@@ -236,16 +353,21 @@ Future<void> _pumpSpeedMatch(WidgetTester tester, {required Size size}) async {
   await tester.pumpWidget(
     _host(
       SpeedMatchScreen(
-        items: [
-          v('코', 'Nase'),
-          v('몸', 'Körper'),
-          v('덜', 'weniger'),
-          v('있다', 'sein'),
-          v('물', 'Wasser'),
-          v('불', 'Feuer'),
-        ],
+        items:
+            (entries ??
+                    const [
+                      ('코', 'Nase'),
+                      ('몸', 'Körper'),
+                      ('덜', 'weniger'),
+                      ('있다', 'sein'),
+                      ('물', 'Wasser'),
+                      ('불', 'Feuer'),
+                    ])
+                .map((entry) => v(entry.$1, entry.$2))
+                .toList(),
       ),
       size,
+      textScaler: textScaler,
     ),
   );
   await tester.pump();

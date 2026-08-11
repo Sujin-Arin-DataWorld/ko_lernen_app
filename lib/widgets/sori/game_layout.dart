@@ -30,6 +30,24 @@ double soriFairTileHeight({
   return fair > maximum ? maximum : fair;
 }
 
+/// 짧은 화면 또는 큰 접근성 글자에서 Blitz-Paare의 활성 카드 수를 줄인다.
+int soriSpeedMatchSlotCount({
+  required double viewportHeight,
+  required double textScaleFactor,
+  int regular = 5,
+  int compact = 4,
+  double compactHeight = 700,
+  double compactTextScale = 1.3,
+}) {
+  if (regular <= 0 || compact <= 0) {
+    return 0;
+  }
+  if (viewportHeight < compactHeight || textScaleFactor >= compactTextScale) {
+    return compact;
+  }
+  return regular;
+}
+
 /// 타일 높이에 맞춰 글자 크기를 함께 올린다. 카드만 커지고 글씨가 그대로면
 /// "큰 빈 상자"가 되어 오히려 더 허전해 보인다.
 ///
