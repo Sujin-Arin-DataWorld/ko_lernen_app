@@ -574,16 +574,13 @@ Future<void> _closeFeedbackResult(WidgetTester tester) async {
 }
 
 Future<void> _drawHangulStroke(WidgetTester tester) async {
-  final canvas = tester.widget<GestureDetector>(
-    find.byKey(const Key('hangul-practice-canvas')),
+  final canvas = find.byKey(const Key('hangul-practice-canvas'));
+  final bounds = tester.getRect(canvas);
+  final gesture = await tester.startGesture(
+    Offset(bounds.left + 10, bounds.top + 10),
   );
-  canvas.onPanStart!(
-    DragStartDetails(
-      globalPosition: Offset(10, 10),
-      localPosition: Offset(10, 10),
-    ),
-  );
-  canvas.onPanEnd!(DragEndDetails());
+  await gesture.moveTo(Offset(bounds.left + 20, bounds.top + 20));
+  await gesture.up();
   await tester.pump();
 }
 

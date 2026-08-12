@@ -235,8 +235,9 @@ def collect():
 
     # 9. 한글 화면 + 오늘의 글자 — Dart const 소스라 정규식으로 추출.
     #    2026-08-12 전수조사: 이 세 부류가 미수집 → 한글 탭이 전부 OS 폴백.
-    #    a) 소리 음절: hangul_screen.dart 가 speakableJamo(letter) 로 자음+ㅡ
-    #       (ㅉ→쯔)·ㅇ+모음(ㅏ→아) 을 발화 — hangul_data.dart 의 공식 포트.
+    #    a) 발음 표본: 대부분은 자음+ㅡ(ㅉ→쯔)·ㅇ+모음으로 만들되, 실기기에서
+    #       단음절 오인이 확인된 ㅃ·ㄷ·ㅏ·ㅠ·ㅢ는 안정적인 예시어를 쓴다.
+    #       hangul_data.dart 의 speakableJamo 와 반드시 동일해야 한다.
     #    b) 예시 단어·음절 글자: hangul_screen.dart:631 exampleWord,
     #       daily_char_sheet.dart:243 은 음절이면 글자 자체(가·한…)를 발화.
     #    c) 낱자 이름: daily_char_sheet.dart _getJamoName (기역·쌍기역…).
@@ -245,10 +246,19 @@ def collect():
     vowels_j = ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ",
                 "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ",
                 "ㅣ"]
-    for i, _ in enumerate(leads):  # 자음+ㅡ (중성 index 18)
-        add_female(chr(0xAC00 + (i * 21 + 18) * 28))
-    for i, _ in enumerate(vowels_j):  # ㅇ(초성 11)+모음
-        add_female(chr(0xAC00 + (11 * 21 + i) * 28))
+    stable_carriers = {
+        "ㅃ": "빵",
+        "ㄷ": "다리",
+        "ㅏ": "아빠",
+        "ㅠ": "유리",
+        "ㅢ": "의자",
+    }
+    for i, letter in enumerate(leads):  # 자음+ㅡ (중성 index 18)
+        add_female(stable_carriers.get(
+            letter, chr(0xAC00 + (i * 21 + 18) * 28)))
+    for i, letter in enumerate(vowels_j):  # ㅇ(초성 11)+모음
+        add_female(stable_carriers.get(
+            letter, chr(0xAC00 + (11 * 21 + i) * 28)))
 
     import re as _re
 

@@ -82,6 +82,10 @@ class Syllable {
 /// z. B. ㅉ → 쯔 (statt „쌍지읏"), ㄱ → 그, ㅏ → 아.
 /// Vollständige Silben/Wörter werden unverändert zurückgegeben.
 String speakableJamo(String letter) {
+  final stableCarrier = stableJamoCarrier(letter);
+  if (stableCarrier != null) {
+    return stableCarrier;
+  }
   // Führende Konsonanten (초성) in Unicode-Reihenfolge (Index 0–18)
   const leads = [
     'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', //
@@ -105,6 +109,19 @@ String speakableJamo(String letter) {
   }
   return letter; // schon eine Silbe / kein einzelner Jamo
 }
+
+/// Chirp3-HD의 1음절 출력은 같은 요청도 길이/음가가 흔들린다. 실기기에서
+/// 무음·종성 오인·된소리 오인이 확인된 글자는 화면에 이미 제시하는 예시어를
+/// 발음 표본으로 쓴다. 텍스트가 달라져 잘못된 단음절 로컬 캐시도 재사용하지
+/// 않는다.
+String? stableJamoCarrier(String letter) => switch (letter) {
+  'ㅃ' => '빵',
+  'ㄷ' => '다리',
+  'ㅏ' => '아빠',
+  'ㅠ' => '유리',
+  'ㅢ' => '의자',
+  _ => null,
+};
 
 const List<Syllable> syllables = [
   Syllable('가', 'ga',  'ㄱ + ㅏ',          '가방',   'Tasche',  'bag'),

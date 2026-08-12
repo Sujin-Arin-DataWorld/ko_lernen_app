@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:math' as math;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -23,8 +25,9 @@ import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
-  const HangulScreen({super.key, this.cardsRandom});
+  const HangulScreen({super.key, this.cardsRandom, this.speechPlayer});
   final math.Random? cardsRandom;
+  final Future<bool> Function(String text)? speechPlayer;
 
   @override
   State<HangulScreen> createState() => _HangulScreenState();
@@ -137,6 +140,11 @@ class _HangulScreenState extends State<HangulScreen>
     );
   }
 
+  Future<bool> _speakJamo(String letter) {
+    final text = speakableJamo(letter);
+    return widget.speechPlayer?.call(text) ?? TtsService.speak(text);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -170,12 +178,13 @@ class _HangulScreenState extends State<HangulScreen>
           // Übersicht/Karten 탭은 정상 스와이프 유지. (탭 전환은 상단 탭 클릭)
           physics: _tabIndex == 2 ? const NeverScrollableScrollPhysics() : null,
           children: [
-            const _OverviewTab(),
+            _OverviewTab(speak: _speakJamo),
             _CardsTab(
               onFinish: _finishCards,
               random: widget.cardsRandom ?? math.Random(),
+              speak: _speakJamo,
             ),
-            _WriteTab(onFinish: _finishWriting),
+            _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
           ],
         ),
       ),
@@ -188,7 +197,8 @@ class _HangulScreenState extends State<HangulScreen>
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _OverviewTab extends StatelessWidget {
-  const _OverviewTab();
+  const _OverviewTab({required this.speak});
+  final Future<bool> Function(String letter) speak;
 
   @override
   Widget build(BuildContext context) {
@@ -206,10 +216,10 @@ class _OverviewTab extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-        _CharGrid(chars: consonants, color: SoriColors.hangul),
+        _CharGrid(chars: consonants, color: SoriColors.hangul, speak: speak),
         const SizedBox(height: 24),
         _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
-        _CharGrid(chars: vowels, color: SoriColors.info),
+        _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
         const SizedBox(height: 24),
         _SectionLabel(t.hangulSyllableLabel),
         const _SyllableDemo(),
@@ -241,7 +251,12 @@ class _SectionLabel extends StatelessWidget {
 class _CharGrid extends StatelessWidget {
   final List<HangulChar> chars;
   final Color color;
-  const _CharGrid({required this.chars, required this.color});
+  final Future<bool> Function(String letter) speak;
+  const _CharGrid({
+    required this.chars,
+    required this.color,
+    required this.speak,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -260,6 +275,7 @@ class _CharGrid extends StatelessWidget {
       itemBuilder: (ctx, i) {
         final c = chars[i];
         return _CharCell(
+          key: ValueKey('hangul-overview-${c.letter}'),
           char: c,
           color: color,
           onTap: () => _showDetail(ctx, c, color),
@@ -270,11 +286,14 @@ class _CharGrid extends StatelessWidget {
 
   void _showDetail(BuildContext ctx, HangulChar c, Color color) {
     HapticFeedback.selectionClick();
+    // 낱자를 누르는 행위 자체가 발음 학습이다. 상세 창 안의 스피커를 다시
+    // 눌러야만 들리는 구조로 만들지 않는다.
+    unawaited(speak(c.letter));
     // 바텀시트 대신 중앙 다이얼로그 — 화면 정중앙에 떠서 상단/하단 시스템바에
     // 구조적으로 안 걸림(기기 무관 동일). 내용은 스크롤 가능해 오버플로도 0.
     showDialog(
       context: ctx,
-      builder: (_) => _DetailSheet(char: c, color: color),
+      builder: (_) => _DetailSheet(char: c, color: color, speak: speak),
     );
   }
 }
@@ -284,6 +303,7 @@ class _CharCell extends StatelessWidget {
   final Color color;
   final VoidCallback onTap;
   const _CharCell({
+    super.key,
     required this.char,
     required this.color,
     required this.onTap,
@@ -335,7 +355,12 @@ class _CharCell extends StatelessWidget {
 class _DetailSheet extends StatelessWidget {
   final HangulChar char;
   final Color color;
-  const _DetailSheet({required this.char, required this.color});
+  final Future<bool> Function(String letter) speak;
+  const _DetailSheet({
+    required this.char,
+    required this.color,
+    required this.speak,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -388,7 +413,7 @@ class _DetailSheet extends StatelessWidget {
               const SizedBox(height: 24),
               FilledButton.icon(
                 style: FilledButton.styleFrom(backgroundColor: color),
-                onPressed: () => TtsService.speak(speakableJamo(char.letter)),
+                onPressed: () => unawaited(speak(char.letter)),
                 icon: const Icon(Icons.volume_up),
                 label: Text(AppL10n.of(context).hangulPronounceBtn),
               ),
@@ -475,9 +500,14 @@ class _SyllableDemo extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _CardsTab extends StatefulWidget {
-  const _CardsTab({required this.onFinish, required this.random});
+  const _CardsTab({
+    required this.onFinish,
+    required this.random,
+    required this.speak,
+  });
   final Future<void> Function(int interactionCount) onFinish;
   final math.Random random;
+  final Future<bool> Function(String letter) speak;
   @override
   State<_CardsTab> createState() => _CardsTabState();
 }
@@ -745,7 +775,10 @@ class _CardsTabState extends State<_CardsTab> {
                     child: SoriStudyScale(
                       child: FlipCard(
                         flipped: _flipped,
-                        onTap: _onFlip,
+                        onTap: () {
+                          unawaited(widget.speak(c.letter));
+                          _onFlip();
+                        },
                         front: _HangulCardFace(
                           gradient: const [
                             SoriColors.accent,
@@ -799,7 +832,7 @@ class _CardsTabState extends State<_CardsTab> {
             SoriButton.outlined(
               label: AppL10n.of(context).btnHoeren,
               icon: Icons.volume_up,
-              onTap: () => TtsService.speak(speakableJamo(c.letter)),
+              onTap: () => unawaited(widget.speak(c.letter)),
               fullWidth: true,
             ),
             const SizedBox(height: 6),
@@ -859,8 +892,9 @@ class _HangulCardFace extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _WriteTab extends StatefulWidget {
-  const _WriteTab({required this.onFinish});
+  const _WriteTab({required this.onFinish, required this.speak});
   final Future<void> Function(int strokeCount) onFinish;
+  final Future<bool> Function(String letter) speak;
   @override
   State<_WriteTab> createState() => _WriteTabState();
 }
@@ -869,6 +903,7 @@ class _WriteTabState extends State<_WriteTab> {
   int _mode = 0; // 0=cons, 1=vowels
   int _idx = 0;
   int _strokeCount = 0;
+  int _currentLetterStrokeCount = 0;
   final _practiceKey = GlobalKey<_PracticeCanvasState>();
 
   List<HangulChar> get _pool => _mode == 0 ? consonants : vowels;
@@ -876,13 +911,19 @@ class _WriteTabState extends State<_WriteTab> {
 
   void _next() {
     HapticFeedback.selectionClick();
-    setState(() => _idx = (_idx + 1) % _pool.length);
+    setState(() {
+      _idx = (_idx + 1) % _pool.length;
+      _currentLetterStrokeCount = 0;
+    });
     _practiceKey.currentState?.clear();
   }
 
   void _prev() {
     HapticFeedback.selectionClick();
-    setState(() => _idx = (_idx - 1 + _pool.length) % _pool.length);
+    setState(() {
+      _idx = (_idx - 1 + _pool.length) % _pool.length;
+      _currentLetterStrokeCount = 0;
+    });
     _practiceKey.currentState?.clear();
   }
 
@@ -892,12 +933,16 @@ class _WriteTabState extends State<_WriteTab> {
     setState(() {
       _mode = m;
       _idx = 0;
+      _currentLetterStrokeCount = 0;
     });
     _practiceKey.currentState?.clear();
   }
 
   void _onStrokeEnd() {
-    setState(() => _strokeCount++);
+    setState(() {
+      _strokeCount++;
+      _currentLetterStrokeCount++;
+    });
     _checkStrokes();
   }
 
@@ -916,7 +961,7 @@ class _WriteTabState extends State<_WriteTab> {
     if (canvas == null || target == null || target.isEmpty) {
       return;
     }
-    if (_strokeCount != target.length) {
+    if (_currentLetterStrokeCount != target.length) {
       return;
     }
     final size = canvas.canvasSize;
@@ -1181,7 +1226,7 @@ class _WriteTabState extends State<_WriteTab> {
               SoriButton.outlined(
                 label: t.hangulPronounceLetter(c.letter),
                 icon: Icons.volume_up,
-                onTap: () => TtsService.speak(speakableJamo(c.letter)),
+                onTap: () => unawaited(widget.speak(c.letter)),
                 fullWidth: true,
               ),
               const SizedBox(height: 8),
@@ -1219,6 +1264,7 @@ class _PracticeCanvas extends StatefulWidget {
 class _PracticeCanvasState extends State<_PracticeCanvas> {
   final List<List<Offset>> _strokes = [];
   List<Offset>? _current;
+  int _paintRevision = 0;
 
   /// 지금까지 그은 획들. 획순 판정([matchStrokes])에 넘긴다.
   List<List<Offset>> get strokes => _strokes;
@@ -1234,6 +1280,57 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
     setState(() {
       _strokes.clear();
       _current = null;
+      _paintRevision++;
+    });
+  }
+
+  void _startStroke(PointerDownEvent event) {
+    setState(() {
+      _current = [event.localPosition];
+      _strokes.add(_current!);
+      _paintRevision++;
+    });
+  }
+
+  void _updateStroke(PointerMoveEvent event) {
+    if (_current == null) {
+      return;
+    }
+    setState(() {
+      _current!.add(event.localPosition);
+      _paintRevision++;
+    });
+  }
+
+  void _endStroke() {
+    final current = _current;
+    if (current == null) {
+      return;
+    }
+    if (current.length < 2) {
+      setState(() {
+        _strokes.removeLast();
+        _current = null;
+        _paintRevision++;
+      });
+      return;
+    }
+    HapticFeedback.lightImpact();
+    setState(() {
+      _current = null;
+      _paintRevision++;
+    });
+    widget.onStrokeEnd();
+  }
+
+  void _cancelStroke() {
+    if (_current == null) {
+      return;
+    }
+    setState(() {
+      _strokes.removeLast();
+      _current = null;
+      _paintRevision++;
     });
   }
 
@@ -1241,31 +1338,32 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: GestureDetector(
+      child: RawGestureDetector(
         key: const Key('hangul-practice-canvas'),
-        // Pan gesture for drawing strokes (handles all drags: horizontal, vertical, diagonal)
-        onPanStart: (d) {
-          setState(() {
-            _current = [d.localPosition];
-            _strokes.add(_current!);
-          });
+        behavior: HitTestBehavior.opaque,
+        gestures: <Type, GestureRecognizerFactory>{
+          EagerGestureRecognizer:
+              GestureRecognizerFactoryWithHandlers<EagerGestureRecognizer>(
+                EagerGestureRecognizer.new,
+                (_) {},
+              ),
         },
-        onPanUpdate: (d) {
-          setState(() => _current?.add(d.localPosition));
-        },
-        onPanEnd: (_) {
-          if (_current == null) return;
-          HapticFeedback.lightImpact();
-          setState(() => _current = null);
-          widget.onStrokeEnd();
-        },
-        child: CustomPaint(
-          painter: _PracticePainter(
-            ghost: widget.ghost,
-            strokes: _strokes,
-            color: widget.color,
+        child: Listener(
+          behavior: HitTestBehavior.opaque,
+          onPointerDown: _startStroke,
+          onPointerMove: _updateStroke,
+          onPointerUp: (_) => _endStroke(),
+          onPointerCancel: (_) => _cancelStroke(),
+          child: CustomPaint(
+            key: ValueKey('hangul-practice-ghost-${widget.ghost}'),
+            painter: _PracticePainter(
+              ghost: widget.ghost,
+              strokes: _strokes,
+              color: widget.color,
+              revision: _paintRevision,
+            ),
+            child: const SizedBox.expand(),
           ),
-          child: const SizedBox.expand(),
         ),
       ),
     );
@@ -1276,11 +1374,13 @@ class _PracticePainter extends CustomPainter {
   final String ghost;
   final List<List<Offset>> strokes;
   final Color color;
+  final int revision;
 
   _PracticePainter({
     required this.ghost,
     required this.strokes,
     required this.color,
+    required this.revision,
   });
 
   @override
@@ -1323,8 +1423,5 @@ class _PracticePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _PracticePainter old) =>
-      old.strokes.length != strokes.length ||
-      (old.strokes.isNotEmpty &&
-          old.strokes.last.length != strokes.last.length) ||
-      old.ghost != ghost;
+      old.revision != revision || old.ghost != ghost;
 }
