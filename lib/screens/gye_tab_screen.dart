@@ -26,6 +26,7 @@ class GyeTabScreen extends StatefulWidget {
     this.onFindOrCreate,
     this.onContinueSolo,
     this.enableCoach = true,
+    this.embedded = false,
   });
 
   /// Test seam only; production continues to read the existing Gye service.
@@ -36,6 +37,7 @@ class GyeTabScreen extends StatefulWidget {
   final VoidCallback? onFindOrCreate;
   final VoidCallback? onContinueSolo;
   final bool enableCoach;
+  final bool embedded;
 
   @override
   State<GyeTabScreen> createState() => _GyeTabScreenState();
@@ -81,36 +83,38 @@ class _GyeTabScreenState extends State<GyeTabScreen>
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 16,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              t.navGye,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-                color: s.text,
-                letterSpacing: -0.3,
-                height: 1.1,
+      appBar: widget.embedded
+          ? null
+          : AppBar(
+              titleSpacing: 16,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    t.navGye,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800,
+                      color: s.text,
+                      letterSpacing: -0.3,
+                      height: 1.1,
+                    ),
+                  ),
+                  Text(
+                    t.gyeTabSubtitle,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w500,
+                      color: s.textMuted,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Text(
-              t.gyeTabSubtitle,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 11.5,
-                fontWeight: FontWeight.w500,
-                color: s.textMuted,
-                height: 1.2,
-              ),
-            ),
-          ],
-        ),
-      ),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriContentClamp(

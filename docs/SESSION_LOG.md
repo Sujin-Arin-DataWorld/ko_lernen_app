@@ -5976,3 +5976,9 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - No new character, Hanok, AI, or Rive assets were introduced.
 - Added the approved plan as the living specification in `tasks/plan.md` and
   the vertical-slice verification checklist in `tasks/todo.md`.
+- Added the production five-root shell: Today, Learn, Games, Hanok, and Gye.
+- Moved Profile out of navigation into a persistent 48dp root-header action,
+  including loading and error states.
+- Connected Learn and Games to the stable activity catalog and embedded the
+  existing Hanok and Gye surfaces without changing their progress contracts.
+- Verified the shell at 390dp and 720dp and ran scoped static analysis cleanly.

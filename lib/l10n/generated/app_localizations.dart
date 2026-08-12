@@ -10080,6 +10080,198 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.'**
   String get accountLinkFailedBody;
+
+  /// No description provided for @soriStageNavToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute'**
+  String get soriStageNavToday;
+
+  /// No description provided for @soriStageNavLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get soriStageNavLearn;
+
+  /// No description provided for @soriStageNavGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele'**
+  String get soriStageNavGames;
+
+  /// No description provided for @soriStageNavHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok'**
+  String get soriStageNavHanok;
+
+  /// No description provided for @soriStageNavGye.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye'**
+  String get soriStageNavGye;
+
+  /// No description provided for @soriStageProfileTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil'**
+  String get soriStageProfileTooltip;
+
+  /// No description provided for @soriStageTodayEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTE'**
+  String get soriStageTodayEyebrow;
+
+  /// No description provided for @soriStageTodayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Satz. Ein Bauteil.'**
+  String get soriStageTodayTitle;
+
+  /// No description provided for @soriStageTodayEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eine kurze Aktivität und baue an deiner Hanok weiter.'**
+  String get soriStageTodayEmpty;
+
+  /// No description provided for @soriStageMissionAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutige Mission starten'**
+  String get soriStageMissionAction;
+
+  /// No description provided for @soriStageBojagiTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Bojagi wartet'**
+  String get soriStageBojagiTitle;
+
+  /// No description provided for @soriStageBojagiBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eines von drei Stücken für dein Zimmer.'**
+  String get soriStageBojagiBody;
+
+  /// No description provided for @soriStageOpenBojagi.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi öffnen'**
+  String get soriStageOpenBojagi;
+
+  /// No description provided for @soriStageHanokNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Hanok jetzt'**
+  String get soriStageHanokNow;
+
+  /// No description provided for @soriStageNextPiece.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächstes Bauteil'**
+  String get soriStageNextPiece;
+
+  /// No description provided for @soriStageClosestQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast geschafft'**
+  String get soriStageClosestQuests;
+
+  /// No description provided for @soriStageLearnTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle, wie du lernen möchtest.'**
+  String get soriStageLearnTitle;
+
+  /// No description provided for @soriStageLearnBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.'**
+  String get soriStageLearnBody;
+
+  /// No description provided for @soriStageGamesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele mit einem klaren Ziel.'**
+  String get soriStageGamesTitle;
+
+  /// No description provided for @soriStageGamesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh XP, Bestleistung und passende Quest, bevor du startest.'**
+  String get soriStageGamesBody;
+
+  /// No description provided for @soriStageMinutes.
+  ///
+  /// In de, this message translates to:
+  /// **'{minutes} Min.'**
+  String soriStageMinutes(int minutes);
+
+  /// No description provided for @soriStagePossibleReward.
+  ///
+  /// In de, this message translates to:
+  /// **'Mögliche Belohnung'**
+  String get soriStagePossibleReward;
+
+  /// No description provided for @soriStageOpenActivity.
+  ///
+  /// In de, this message translates to:
+  /// **'{activity} öffnen'**
+  String soriStageOpenActivity(String activity);
+
+  /// No description provided for @soriStageHanokTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Baue ein Zuhause aus dem, was du kannst.'**
+  String get soriStageHanokTitle;
+
+  /// No description provided for @soriStageHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.'**
+  String get soriStageHanokBody;
+
+  /// No description provided for @soriStageOpenMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Karte öffnen'**
+  String get soriStageOpenMap;
+
+  /// No description provided for @soriStageQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Quests'**
+  String get soriStageQuests;
+
+  /// No description provided for @soriStageDojang.
+  ///
+  /// In de, this message translates to:
+  /// **'Dojang-Heft'**
+  String get soriStageDojang;
+
+  /// No description provided for @soriStageBojagi.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi'**
+  String get soriStageBojagi;
+
+  /// No description provided for @soriStageRooms.
+  ///
+  /// In de, this message translates to:
+  /// **'Räume und Einrichtung'**
+  String get soriStageRooms;
+
+  /// No description provided for @soriStageGyePromise.
+  ///
+  /// In de, this message translates to:
+  /// **'Versprechen dieser Woche'**
+  String get soriStageGyePromise;
+
+  /// No description provided for @soriStageGyeFlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Mission abschließen → Laterne → gemeinsame Hanok'**
+  String get soriStageGyeFlow;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

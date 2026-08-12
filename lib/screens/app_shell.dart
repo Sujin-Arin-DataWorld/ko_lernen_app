@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../config/sori_stage_feature.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/adaptive_navigation.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -10,6 +11,7 @@ import 'practice_hub_screen.dart';
 import 'discover_screen.dart';
 import 'gye_tab_screen.dart';
 import 'profile_screen.dart';
+import 'sori_stage/sori_stage_shell.dart';
 
 /// **AppShell** — 5-destination adaptive app shell.
 ///
@@ -21,8 +23,10 @@ import 'profile_screen.dart';
 ///
 /// IndexedStack으로 탭 상태를 보존(스와이프 X — 게임/시나리오 제스처 충돌 회피).
 /// 탭 내 `pushNamed`는 루트 Navigator → 상세화면이 탭바 위 전체화면(듀오링고식 진입).
-class AppShell extends StatefulWidget {
-  const AppShell({super.key});
+class AppShell extends StatelessWidget {
+  const AppShell({super.key, this.featureGate = const SoriStageFeatureGate()});
+
+  final SoriStageFeatureGate featureGate;
 
   /// 앱 재시작 없이 홈 투어를 다시 띄우는 신호.
   /// 설정 "튜토리얼 다시 보기"가 값을 올리면 → 홈 탭으로 전환 후 투어 재생.
@@ -30,10 +34,18 @@ class AppShell extends StatefulWidget {
   static final ValueNotifier<int> replayHomeTour = ValueNotifier<int>(0);
 
   @override
-  State<AppShell> createState() => _AppShellState();
+  Widget build(BuildContext context) =>
+      featureGate.isEnabled ? const SoriStageShell() : const LegacyAppShell();
 }
 
-class _AppShellState extends State<AppShell> {
+class LegacyAppShell extends StatefulWidget {
+  const LegacyAppShell({super.key});
+
+  @override
+  State<LegacyAppShell> createState() => _LegacyAppShellState();
+}
+
+class _LegacyAppShellState extends State<LegacyAppShell> {
   int _index = 0;
   final List<ScrollController> _tabScrollControllers = List.generate(
     5,

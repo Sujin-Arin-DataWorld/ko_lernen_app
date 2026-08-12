@@ -5833,4 +5833,110 @@ class AppL10nDe extends AppL10n {
   @override
   String get accountLinkFailedBody =>
       'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.';
+
+  @override
+  String get soriStageNavToday => 'Heute';
+
+  @override
+  String get soriStageNavLearn => 'Lernen';
+
+  @override
+  String get soriStageNavGames => 'Spiele';
+
+  @override
+  String get soriStageNavHanok => 'Hanok';
+
+  @override
+  String get soriStageNavGye => 'Gye';
+
+  @override
+  String get soriStageProfileTooltip => 'Profil';
+
+  @override
+  String get soriStageTodayEyebrow => 'HEUTE';
+
+  @override
+  String get soriStageTodayTitle => 'Ein Satz. Ein Bauteil.';
+
+  @override
+  String get soriStageTodayEmpty =>
+      'Wähle eine kurze Aktivität und baue an deiner Hanok weiter.';
+
+  @override
+  String get soriStageMissionAction => 'Heutige Mission starten';
+
+  @override
+  String get soriStageBojagiTitle => 'Ein Bojagi wartet';
+
+  @override
+  String get soriStageBojagiBody =>
+      'Wähle eines von drei Stücken für dein Zimmer.';
+
+  @override
+  String get soriStageOpenBojagi => 'Bojagi öffnen';
+
+  @override
+  String get soriStageHanokNow => 'Deine Hanok jetzt';
+
+  @override
+  String get soriStageNextPiece => 'Nächstes Bauteil';
+
+  @override
+  String get soriStageClosestQuests => 'Fast geschafft';
+
+  @override
+  String get soriStageLearnTitle => 'Wähle, wie du lernen möchtest.';
+
+  @override
+  String get soriStageLearnBody =>
+      'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.';
+
+  @override
+  String get soriStageGamesTitle => 'Spiele mit einem klaren Ziel.';
+
+  @override
+  String get soriStageGamesBody =>
+      'Sieh XP, Bestleistung und passende Quest, bevor du startest.';
+
+  @override
+  String soriStageMinutes(int minutes) {
+    return '$minutes Min.';
+  }
+
+  @override
+  String get soriStagePossibleReward => 'Mögliche Belohnung';
+
+  @override
+  String soriStageOpenActivity(String activity) {
+    return '$activity öffnen';
+  }
+
+  @override
+  String get soriStageHanokTitle => 'Baue ein Zuhause aus dem, was du kannst.';
+
+  @override
+  String get soriStageHanokBody =>
+      'Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.';
+
+  @override
+  String get soriStageOpenMap => 'Hanok-Karte öffnen';
+
+  @override
+  String get soriStageQuests => 'Quests';
+
+  @override
+  String get soriStageDojang => 'Dojang-Heft';
+
+  @override
+  String get soriStageBojagi => 'Bojagi';
+
+  @override
+  String get soriStageRooms => 'Räume und Einrichtung';
+
+  @override
+  String get soriStageGyePromise => 'Versprechen dieser Woche';
+
+  @override
+  String get soriStageGyeFlow =>
+      'Mission abschließen → Laterne → gemeinsame Hanok';
 }

@@ -5,12 +5,12 @@
     read-only gallery panels exist.
   - Verify: `flutter test test/ux_preview_catalog_test.dart test/ux_preview_feature_test.dart`
 
-- [ ] Task 2: Five-root production shell
+- [x] Task 2: Five-root production shell
   - Acceptance: Today, Learn, Games, Hanok, and Gye are the five roots; profile
     is available from every root header; legacy shell remains flag-accessible.
   - Verify: focused shell widget tests at 390dp and 720dp.
 
-- [ ] Task 3: Catalog-driven Learn and Games
+- [x] Task 3: Catalog-driven Learn and Games
   - Acceptance: every existing entry is reachable once and shows time, state,
     first-clear reward, and related quest/Hanok effect.
   - Verify: catalog completeness and navigation widget tests.
