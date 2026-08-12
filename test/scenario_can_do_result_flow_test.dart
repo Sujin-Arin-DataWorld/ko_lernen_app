@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/hanok_stage.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/scenario_can_do_result.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
@@ -32,7 +33,10 @@ const _scenario = Scenario(
   intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
   vocab: [],
   grammarIds: [],
-  dialog: [],
+  dialog: [
+    DialogLine(speaker: 'guide', ko: '안녕', de: 'Hallo', en: 'Hello'),
+    DialogLine(speaker: 'User', ko: '안녕하세요.', de: 'Guten Tag.', en: 'Hello.'),
+  ],
   quests: [
     QuestSpec(
       type: QuestType.hoerverstehen,
@@ -67,10 +71,19 @@ void main() {
     view.resetDevicePixelRatio();
   });
 
+  test('first-correct gate reports once per current screen attempt', () {
+    final gate = FirstCorrectAttemptGate();
+
+    expect(gate.accept(correct: false), isFalse);
+    expect(gate.accept(correct: true), isTrue);
+    expect(gate.accept(correct: true), isFalse);
+  });
+
   testWidgets('saves once, then shows the persisted can-do before returning', (
     tester,
   ) async {
     var saveCalls = 0;
+    var firstCorrectCalls = 0;
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -79,6 +92,7 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: ScenarioPlayerScreen(
           scenarioId: _scenario.id,
+          onFirstCorrect: () => firstCorrectCalls++,
           scenarioLoader: (_) async => _scenario,
           resultPersister: (_, _, _) async {
             saveCalls++;
@@ -86,6 +100,8 @@ void main() {
               status: ScenarioCanDoStatus.verified,
               score: 1,
               courseUnit: _unit,
+              structureStageBefore: HanokStage.foundation,
+              structureStageAfter: HanokStage.pillars,
             );
           },
         ),
@@ -95,31 +111,27 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
 
     await _tapText(tester, "Los geht's!");
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
-    await _tapText(tester, 'Weiter');
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 2));
-    await _tapText(tester, 'Weiter');
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 2));
+    await _advanceUntilText(tester, 'Correct response');
     await _tapText(tester, 'Correct response');
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 1201));
+    expect(firstCorrectCalls, 1);
     await _tapText(tester, 'Weiter');
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
 
-    expect(find.text('Abschließen'), findsOneWidget);
-    expect(find.byType(CanDoResultCard), findsNothing);
-
-    await _tapText(tester, 'Abschließen');
-    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
 
     expect(saveCalls, 1);
     expect(find.byType(CanDoResultCard), findsOneWidget);
+    expect(find.byIcon(Icons.star_rounded), findsNothing);
+    expect(find.byIcon(Icons.star_outline_rounded), findsNothing);
+    expect(find.textContaining('XP'), findsNothing);
     expect(find.text('Du kannst jetzt zum Hanok zurück.'), findsOneWidget);
     expect(find.text('Das kannst du jetzt.'), findsOneWidget);
+    expect(find.text('Dein Hanok hat sich verändert.'), findsOneWidget);
+    expect(find.textContaining('Säulen aufstellen'), findsOneWidget);
+    expect(find.text('안녕하세요.'), findsOneWidget);
     expect(
       find.text(
         'Deine Übung ist gespeichert und steht für die Wiederholung bereit.',
@@ -131,6 +143,22 @@ void main() {
     expect(find.text('Zurück zu meinem Weg'), findsNothing);
     expect(find.text('Abschließen'), findsNothing);
   });
+}
+
+Future<void> _advanceUntilText(
+  WidgetTester tester,
+  String target, {
+  int maxSteps = 5,
+}) async {
+  for (var step = 0; step < maxSteps; step++) {
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    if (find.text(target).evaluate().isNotEmpty) return;
+    await _tapText(tester, 'Weiter');
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 2));
+  }
+  expect(find.text(target), findsWidgets);
 }
 
 Future<void> _tapText(WidgetTester tester, String text) async {

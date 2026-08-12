@@ -79,6 +79,20 @@ void main() {
       // intro+vocab+dialog+grammar+rollenspiel+result = 6 feste + 4 quests
       expect(plan.length, 10);
     });
+
+    test('onboarding entry starts at the first actual task', () {
+      final plan = buildScenarioStagePlan(
+        hasRollenspiel: true,
+        hasGrammar: true,
+        questCount: 2,
+      );
+
+      expect(
+        scenarioInitialStageIndex(plan, startAtFirstTask: true),
+        plan.indexOf(ScenarioStage.quest),
+      );
+      expect(scenarioInitialStageIndex(plan, startAtFirstTask: false), 0);
+    });
   });
 
   group('scenarios.json — Rollenspiel-Abdeckung', () {

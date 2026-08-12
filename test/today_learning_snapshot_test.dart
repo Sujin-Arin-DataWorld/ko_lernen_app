@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
@@ -183,5 +184,113 @@ void main() {
     expect(first.destination, second.destination);
     expect(first.dueCount, second.dueCount);
     expect(first.hardCount, second.hardCount);
+  });
+
+  test(
+    'local source failure is unavailable but never mislabeled offline',
+    () async {
+      final snapshot = await TodayLearningSnapshotLoader.load(
+        networkStatusReader: () async => TodayNetworkStatus.online,
+        readers: TodayLearningSourceReaders(
+          course: () async => throw StateError('course source unavailable'),
+          nowNode: () async => null,
+          scenario: () async => (
+            current: scenario,
+            completed: const <String>{},
+            userLevel: LearnerLevel.a1,
+          ),
+          review: () async => (dueCount: 0, hardCount: 0),
+        ),
+      );
+
+      expect(snapshot.isUnavailable, isTrue);
+      expect(
+        snapshot.unavailableReason,
+        TodayLearningUnavailableReason.localData,
+      );
+      expect(snapshot.isOffline, isFalse);
+      expect(snapshot.unavailableSources, {TodayLearningSource.course});
+      expect(snapshot.pick, isA<ScenarioPick>());
+    },
+  );
+
+  test(
+    'production connectivity probe marks a healthy local snapshot offline',
+    () async {
+      final snapshot = await TodayLearningSnapshotLoader.load(
+        networkStatusReader: () async => TodayNetworkStatus.offline,
+        readers: TodayLearningSourceReaders(
+          course: () async => (
+            units: const <CourseUnit>[],
+            snapshot: null as CourseMasterySnapshot?,
+          ),
+          nowNode: () async => null,
+          scenario: () async => (
+            current: null,
+            completed: const <String>{},
+            userLevel: LearnerLevel.a1,
+          ),
+          review: () async => (dueCount: 12, hardCount: 2),
+        ),
+      );
+
+      expect(snapshot.isUnavailable, isTrue);
+      expect(snapshot.isOffline, isTrue);
+      expect(
+        snapshot.unavailableReason,
+        TodayLearningUnavailableReason.offline,
+      );
+      expect(snapshot.unavailableSources, isEmpty);
+      expect(snapshot.pick, isA<ReviewPick>());
+    },
+  );
+
+  test(
+    'typed remote failure stays distinct from offline and local data',
+    () async {
+      final snapshot = await TodayLearningSnapshotLoader.load(
+        networkStatusReader: () async => TodayNetworkStatus.online,
+        readers: TodayLearningSourceReaders(
+          course: () async => throw const TodayLearningSourceFailure.remote(),
+          nowNode: () async => null,
+          scenario: () async => (
+            current: scenario,
+            completed: const <String>{},
+            userLevel: LearnerLevel.a1,
+          ),
+          review: () async => (dueCount: 0, hardCount: 0),
+        ),
+      );
+
+      expect(
+        snapshot.unavailableReason,
+        TodayLearningUnavailableReason.remoteService,
+      );
+      expect(snapshot.isOffline, isFalse);
+      expect(snapshot.unavailableSources, {TodayLearningSource.course});
+    },
+  );
+
+  test('all healthy production readers keep the snapshot ready', () async {
+    final snapshot = await TodayLearningSnapshotLoader.load(
+      networkStatusReader: () async => TodayNetworkStatus.online,
+      readers: TodayLearningSourceReaders(
+        course: () async => (
+          units: const <CourseUnit>[],
+          snapshot: null as CourseMasterySnapshot?,
+        ),
+        nowNode: () async => null,
+        scenario: () async => (
+          current: null,
+          completed: const <String>{},
+          userLevel: LearnerLevel.a1,
+        ),
+        review: () async => (dueCount: 12, hardCount: 2),
+      ),
+    );
+
+    expect(snapshot.isUnavailable, isFalse);
+    expect(snapshot.unavailableSources, isEmpty);
+    expect(snapshot.pick, isA<ReviewPick>());
   });
 }

@@ -727,6 +727,38 @@ List<String> _validateDefinitions(
       issues.add(['ambiguous', 'checkpoint', 'link', entry.key].join(' '));
     }
   }
+  // Every declared scenario checkpoint must resolve to one immutable edge
+  // whose concept set exactly equals the unit assessment contract. This keeps
+  // a shared scenario's source metadata from creating a subset or superset
+  // checkpoint that different consumers could interpret differently.
+  for (final unit in manifest.courseUnits) {
+    for (final checkpoint in unit.checkpointContentIds) {
+      final pieces = checkpoint.split(':');
+      if (pieces.length != 2 ||
+          pieces.first != CurriculumContentKind.scenario.code) {
+        continue;
+      }
+      final exact = links
+          .where(
+            (link) =>
+                link.contentKind == CurriculumContentKind.scenario &&
+                link.contentId == pieces.last &&
+                link.exactlyAssesses(unit),
+          )
+          .toList(growable: false);
+      if (exact.length != 1) {
+        issues.add(
+          [
+            'ambiguous',
+            'scenario',
+            'checkpoint',
+            unit.id,
+            checkpoint,
+          ].join(' '),
+        );
+      }
+    }
+  }
   for (final link in links.where(
     (link) =>
         link.contentKind == CurriculumContentKind.smalltalk &&

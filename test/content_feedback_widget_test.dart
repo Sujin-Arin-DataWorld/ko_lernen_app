@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/progress.dart';
@@ -365,7 +366,10 @@ void main() {
     expect(submitted?.experienceFocus, FeedbackExperienceFocus.grammar);
     expect(submitted?.contentSignal, isNull);
     expect(submitted?.contentFocus, isNull);
-    expect(find.text('Thanks. Your feedback helps us improve.'), findsOneWidget);
+    expect(
+      find.text('Thanks. Your feedback helps us improve.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('quest and milestone use context-specific experience choices', (
@@ -1127,8 +1131,13 @@ void main() {
     'GameOverCard forwards the selected preferred mascot to feedback when no override is set',
     (tester) async {
       final originalKind = MascotPreference.kind.value;
-      addTearDown(() => MascotPreference.kind.value = originalKind);
+      final originalPreference = MascotPreference.preference.value;
+      addTearDown(() {
+        MascotPreference.kind.value = originalKind;
+        MascotPreference.preference.value = originalPreference;
+      });
       MascotPreference.kind.value = MascotKind.magpie;
+      MascotPreference.preference.value = CompanionPreference.magpie;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -1160,6 +1169,27 @@ void main() {
       expect(feedbackCard.mascotKind, MascotKind.magpie);
     },
   );
+
+  testWidgets('GameOverCard keeps an explicit no-companion result neutral', (
+    tester,
+  ) async {
+    final original = MascotPreference.preference.value;
+    MascotPreference.preference.value = CompanionPreference.none;
+    addTearDown(() => MascotPreference.preference.value = original);
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: GameOverCard(headline: 'Result', xpGained: 0, celebrate: false),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.text('Result'), findsOneWidget);
+    expect(find.byType(Mascot), findsNothing);
+    expect(find.byType(CharacterClipPlayer), findsNothing);
+  });
 }
 
 Future<void> _openSheet(WidgetTester tester) async {

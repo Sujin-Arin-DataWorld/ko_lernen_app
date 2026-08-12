@@ -344,6 +344,20 @@ class ContentLink {
 
   String get contentKey => '${contentKind.code}:$contentId';
 
+  /// Whether this immutable edge is the unit's complete assessment contract.
+  ///
+  /// A subset cannot prove every required concept, while a superset can gain
+  /// unrelated concepts when shared scenario metadata evolves. Checkpoint
+  /// consumers therefore require exact set equality rather than containment.
+  bool exactlyAssesses(CourseUnit unit) {
+    if (role != ContentLinkRole.assess || courseUnitId != unit.id) {
+      return false;
+    }
+    final linked = conceptIds.toSet();
+    final required = unit.requiredConceptIds.toSet();
+    return linked.length == required.length && linked.containsAll(required);
+  }
+
   factory ContentLink.fromJson(Map<String, dynamic> json) {
     final rawKind = json['contentKind']?.toString();
     final rawRole = json['role']?.toString();
@@ -433,6 +447,11 @@ class MasteryEvidence {
   /// [courseEligible], this prevents a future library attempt from becoming
   /// unlock evidence when the learner eventually reaches that mission.
   final String? courseUnitId;
+
+  /// Immutable graph edge captured only by a typed mission route. Old browse
+  /// history deliberately has no link ID, even when legacy data inferred a
+  /// course unit from matching content.
+  final String? missionContentLinkId;
   final bool isCorrect;
   final DateTime occurredAt;
   final MasteryErrorReason? errorReason;
@@ -449,6 +468,7 @@ class MasteryEvidence {
     required this.contentKind,
     required this.contentId,
     this.courseUnitId,
+    this.missionContentLinkId,
     required this.isCorrect,
     required this.occurredAt,
     this.errorReason,
@@ -461,6 +481,7 @@ class MasteryEvidence {
              contentKind.code,
              contentId,
              courseUnitId,
+             missionContentLinkId,
              isCorrect,
              occurredAt.toUtc().toIso8601String(),
              errorReason?.code,
@@ -480,6 +501,9 @@ class MasteryEvidence {
     final conceptId = json['conceptId']?.toString().trim() ?? '';
     final contentId = json['contentId']?.toString().trim() ?? '';
     final courseUnitId = json['courseUnitId']?.toString().trim();
+    final missionContentLinkId = json['missionContentLinkId']
+        ?.toString()
+        .trim();
     if (conceptId.isEmpty || contentId.isEmpty) {
       throw const FormatException(
         'Mastery evidence requires nonempty conceptId and contentId.',
@@ -527,6 +551,13 @@ class MasteryEvidence {
         'Eligible mastery evidence requires a courseUnitId.',
       );
     }
+    if (missionContentLinkId != null &&
+        missionContentLinkId.isNotEmpty &&
+        (courseUnitId == null || courseUnitId.isEmpty)) {
+      throw const FormatException(
+        'Mission-routed evidence requires a courseUnitId.',
+      );
+    }
     return MasteryEvidence(
       id: json['id']?.toString(),
       conceptId: conceptId,
@@ -535,6 +566,10 @@ class MasteryEvidence {
       courseUnitId: courseUnitId == null || courseUnitId.isEmpty
           ? null
           : courseUnitId,
+      missionContentLinkId:
+          missionContentLinkId == null || missionContentLinkId.isEmpty
+          ? null
+          : missionContentLinkId,
       isCorrect: json['isCorrect'] as bool,
       occurredAt: occurredAt,
       errorReason: errorReason,
@@ -549,6 +584,8 @@ class MasteryEvidence {
     'contentKind': contentKind.code,
     'contentId': contentId,
     if (courseUnitId != null) 'courseUnitId': courseUnitId,
+    if (missionContentLinkId != null)
+      'missionContentLinkId': missionContentLinkId,
     'isCorrect': isCorrect,
     'occurredAt': occurredAt.toUtc().toIso8601String(),
     if (errorReason != null) 'errorReason': errorReason!.code,

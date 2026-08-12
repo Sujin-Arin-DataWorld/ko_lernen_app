@@ -108,6 +108,16 @@ class AppL10nEn extends AppL10n {
   String get characterSelectionTitle => 'Who\'s your study buddy?';
 
   @override
+  String get companionNoneName => 'No learning companion';
+
+  @override
+  String get companionNoneDescription =>
+      'You can choose Taego or Joy at any time later.';
+
+  @override
+  String get companionNeutralThinking => 'Preparing the next round …';
+
+  @override
   String get homeMagpieBubbleStart => 'Let\'s take it one character at a time.';
 
   @override
@@ -1860,7 +1870,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingStartBody =>
-      'We start with a situation from your life, not a test.';
+      'This chooses your first situations – not your ability.';
 
   @override
   String get onboardingStartTravelTitle => 'Getting around Korea';
@@ -1908,6 +1918,21 @@ class AppL10nEn extends AppL10n {
   String get onboardingStartLoading => 'Preparing your first scene …';
 
   @override
+  String get onboardingStartChangePoint => 'Change starting point';
+
+  @override
+  String get onboardingFirstSceneTravelCanDo =>
+      'I can answer politely at immigration.';
+
+  @override
+  String get onboardingFirstScenePeopleCanDo =>
+      'I can introduce myself in a friendly way.';
+
+  @override
+  String get onboardingFirstSceneWorkCanDo =>
+      'I can briefly introduce myself in class or at work.';
+
+  @override
   String get onboardingCompanionChoose => 'Choose a study buddy';
 
   @override
@@ -1946,6 +1971,9 @@ class AppL10nEn extends AppL10n {
   @override
   String get firstVoiceBody =>
       'You understood a first Korean expression and can use it in your scene.';
+
+  @override
+  String get firstVoicePhraseBody => 'a sentence you can now hear and answer.';
 
   @override
   String get firstVoiceCanDo => 'I can greet someone kindly.';
@@ -2246,6 +2274,35 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioSavedRepeat => 'Practise this scene again';
+
+  @override
+  String get scenarioResultSaving => 'Saving this completed scene…';
+
+  @override
+  String get scenarioResultSaveRetry => 'Try saving again';
+
+  @override
+  String get scenarioStructureChangedTitle => 'Your Hanok has changed.';
+
+  @override
+  String scenarioStructureChangedBody(String stage) {
+    return 'New structure: $stage';
+  }
+
+  @override
+  String get scenarioStructureUnchangedTitle =>
+      'Your Hanok keeps its current structure.';
+
+  @override
+  String get scenarioStructureUnchangedBody =>
+      'No new structure was unlocked by this checkpoint.';
+
+  @override
+  String get scenarioStructureUnavailableTitle => 'Your Hanok structure';
+
+  @override
+  String get scenarioStructureUnavailableBody =>
+      'Open your Hanok to see the current verified construction.';
 
   @override
   String get scenarioCanDoVerifiedTitle => 'You can do this now.';
@@ -3082,7 +3139,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get pathTitle => 'Learning path';
+  String get pathTitle => 'Your path';
 
   @override
   String pathHanokStage(int n) {
@@ -3125,15 +3182,56 @@ class AppL10nEn extends AppL10n {
   String get pathOpenCurrentMission => 'Open current mission';
 
   @override
+  String get pathCourseMissionsTitle => 'Course missions';
+
+  @override
+  String get pathCourseMissionsBody =>
+      'One clear next step connects vocabulary, grammar, games, and scenarios.';
+
+  @override
+  String get pathStatusCurrent => 'continue';
+
+  @override
+  String get pathStatusCompleted => 'done';
+
+  @override
+  String get pathStatusBypassed => 'Start level bypassed';
+
+  @override
+  String get pathStatusNext => 'later';
+
+  @override
+  String pathCompletedCanDo(Object canDo) {
+    return 'I can: $canDo';
+  }
+
+  @override
+  String pathCurrentCanDo(Object canDo) {
+    return 'Now: $canDo';
+  }
+
+  @override
+  String get pathNextAfterEvidence => 'Next after your evidence';
+
+  @override
+  String get pathShowMorePractice => 'Show more practice';
+
+  @override
+  String get pathHideMorePractice => 'Hide more practice';
+
+  @override
+  String get gyeVoluntaryEyebrow => 'Optional learning community';
+
+  @override
   String get gyeEmptyHeadline =>
       'Learning alone is complete. Together can feel warmer.';
 
   @override
   String get gyeEmptyLead =>
-      'A Gye is a small group that holds a weekly intention together.';
+      'A 계 is a small group that holds a weekly intention together.';
 
   @override
-  String get gyeFindOrCreate => 'Find or create a Gye';
+  String get gyeFindOrCreate => 'Find or create a 계';
 
   @override
   String get gyeContinueSolo => 'Continue without a group';
@@ -3228,6 +3326,9 @@ class AppL10nEn extends AppL10n {
   String get profileLearningSection => 'My learning';
 
   @override
+  String get profileEditAction => 'edit';
+
+  @override
   String get profileLearningGoal => 'My goal';
 
   @override
@@ -3237,16 +3338,40 @@ class AppL10nEn extends AppL10n {
   String get profileLearningStartPoint => 'My starting point';
 
   @override
+  String get profileLearningStartPointConfirmTitle => 'Change starting point?';
+
+  @override
+  String get profileLearningStartPointConfirmBody =>
+      'This resets your current course progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.';
+
+  @override
+  String get profileLearningStartPointConfirmCancel => 'Cancel';
+
+  @override
+  String get profileLearningStartPointConfirmAction =>
+      'Change and reset course progress';
+
+  @override
+  String get profileLearningStartPointChangeFailed =>
+      'The starting point could not be changed. Try again.';
+
+  @override
   String get profileLearningCompanion => 'Learning companion';
 
   @override
   String get profileSpaceSection => 'My space';
 
   @override
-  String get profileGye => 'Group (Gye)';
+  String get profileGye => 'Group (계)';
 
   @override
   String get profileGyeDescription => 'Open your optional learning group';
+
+  @override
+  String get profileGyeLoading => 'Loading group …';
+
+  @override
+  String get profileGyeNone => 'No group selected';
 
   @override
   String get profilePrivacyAccount => 'Privacy & account';
@@ -3254,6 +3379,43 @@ class AppL10nEn extends AppL10n {
   @override
   String get profilePrivacyAccountDescription =>
       'Data, backup, and account controls';
+
+  @override
+  String get profileLearningData => 'My learning data';
+
+  @override
+  String get profileLearningDataDescription =>
+      'Export local learning progress as JSON';
+
+  @override
+  String get profileLearningDataPreparing => 'Preparing export …';
+
+  @override
+  String get profileLearningDataExportReady =>
+      'Your learning data is ready to share.';
+
+  @override
+  String get profileLearningDataExportFailed =>
+      'The export could not be prepared.';
+
+  @override
+  String get profileAccountDelete => 'Delete account';
+
+  @override
+  String get profileAccountDeleteDescription =>
+      'Open the protected deletion flow';
+
+  @override
+  String profileSafeSituations(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count safe situations',
+      one: '1 safe situation',
+      zero: 'no safe situations yet',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get profileProgressSection => 'My progress';
@@ -3458,13 +3620,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get discoverSubtitle =>
-      'Scan, look something up, listen, or take a short practice break. Explore never replaces today\'s learning step.';
+      'Scan, look something up, listen, or take a short break.';
 
   @override
-  String get discoverSearchHint => 'Search: pronunciation, book, OCR …';
+  String get discoverSearchHint => 'Search: e.g. pronunciation, book, OCR …';
 
   @override
-  String get discoverStartHere => 'Start with your book page';
+  String get discoverStartHere => 'Go straight to your goal';
 
   @override
   String get discoverAllTools => 'All features';
@@ -3486,10 +3648,38 @@ class AppL10nEn extends AppL10n {
   String get discoverCategoryPractice => 'Practice';
 
   @override
-  String get discoverCategoryWords => 'Words & books';
+  String get discoverCategoryWords => 'Words';
 
   @override
   String get discoverCategoryProgress => 'Your path';
+
+  @override
+  String get discoverCategoryForMe => 'For me';
+
+  @override
+  String get discoverCategoryLanguage => 'Language';
+
+  @override
+  String get discoverCategoryLeisure => 'Leisure';
+
+  @override
+  String get discoverPriorityBookTitle => 'Scan a book';
+
+  @override
+  String get discoverPriorityBookBody =>
+      'Understand text from your course book';
+
+  @override
+  String get discoverPriorityPronunciationTitle => 'Hear pronunciation';
+
+  @override
+  String get discoverPriorityPronunciationBody => 'Compare sounds slowly';
+
+  @override
+  String get discoverPriorityWordsTitle => 'Dictionary & My words';
+
+  @override
+  String get discoverPriorityWordsBody => 'Find saved words again';
 
   @override
   String get navLearn => 'Learn';
@@ -3504,11 +3694,11 @@ class AppL10nEn extends AppL10n {
   String get navGye => 'Group';
 
   @override
-  String get gyeTabSubtitle => 'Learn together · Gye';
+  String get gyeTabSubtitle => 'Learn together · 계';
 
   @override
   String get gyeExplainWhat =>
-      'A gye is an optional small group for learning Korean. Learning alone is complete, too.';
+      'A 계 (gye) is an optional small group for learning Korean. Learning alone is complete, too.';
 
   @override
   String get gyeExplainWhy =>
@@ -3519,11 +3709,11 @@ class AppL10nEn extends AppL10n {
       'Create a group or join with a 6-digit code when you are ready.';
 
   @override
-  String get gyePrivacyTitle => 'What others can see';
+  String get gyePrivacyTitle => 'What others see';
 
   @override
   String get gyePrivacyBody =>
-      'Only that you contributed a completed pack in the group — never your answers, saved words, or assessment results.';
+      'Only that you contributed — never your answers, words, or assessment results.';
 
   @override
   String get gyeWeeklyEyebrow => 'Together this week';
@@ -3566,7 +3756,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePromiseBody =>
-      'A lantern lights after a course-linked scene is completed at 70%. Answers, scores, and who contributed stay private.';
+      'Each person helps with one completed, matching learning action.';
+
+  @override
+  String get gyePromiseEligibility =>
+      'Only the matching course-linked scene completed at 70% counts as a contribution.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -3585,10 +3779,66 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get gyePromiseContributionCompleteTitle => 'Anonymous contribution';
+
+  @override
+  String get gyePromiseContributionCompleteBody =>
+      'A matching scene was completed. Identity and result stay private.';
+
+  @override
+  String get gyePromiseContributionPendingTitle => 'One light is still waiting';
+
+  @override
+  String get gyePromiseContributionPendingBody =>
+      'Your next contribution can come from Today.';
+
+  @override
+  String get gyePromisePrivacyRule =>
+      'No ranking. No pressure. Nobody can block another learner’s path.';
+
+  @override
+  String get gyePromiseSceneCta => 'Open today’s scene';
+
+  @override
+  String get gyeTodayFallbackCta => 'Go to Today';
+
+  @override
+  String get gyeTodayUnavailable =>
+      'Today is unavailable right now. Please try again shortly.';
+
+  @override
+  String get gyePromiseIntentionAction => 'View weekly intention';
+
+  @override
+  String get gyeRulesAndMembers => 'Rules & members';
+
+  @override
+  String get gyeRulesTitle => 'Rules for a safe courtyard';
+
+  @override
+  String get gyeRulesBody =>
+      'Encourage without comparing. Answers, results, and individual contributions stay private. Reporting and blocking are always available.';
+
+  @override
   String get gyeOpenToday => 'Open today\'s learning';
 
   @override
   String get gyeCourtyardEyebrow => 'Your courtyard';
+
+  @override
+  String gyeCourtyardLightsToday(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lanterns are lit today.',
+      one: 'One lantern is lit today.',
+      zero: 'The first lantern is waiting today.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get gyeCourtyardLightsThree => 'Three lanterns are lit today.';
 
   @override
   String get gyeCourtyardTitle =>
@@ -3599,7 +3849,7 @@ class AppL10nEn extends AppL10n {
       'The courtyard visual follows the existing weekly goal data. It does not change anyone\'s personal course or hanok.';
 
   @override
-  String get gyeSafeMessage => 'Send a safe encouragement';
+  String get gyeSafeMessage => 'Send a safe message';
 
   @override
   String get coachGyeTabTitle => 'Learn together';
@@ -3715,20 +3965,34 @@ class AppL10nEn extends AppL10n {
   String get feedbackCompletionContinue => 'Continue';
 
   @override
-  String get practiceEyebrow => 'Practice on your terms';
+  String get practiceEyebrow => 'Without today\'s mission';
 
   @override
   String get practiceTitle => 'What do you want to strengthen?';
 
   @override
-  String get practiceSubtitle =>
-      'Choose a need first. Your single next learning step stays on Home.';
+  String get practiceSubtitle => 'Choose an intention, not a game first.';
 
   @override
-  String get practiceDueTitle => 'Review words due';
+  String get practiceDueTitle => 'Review due words';
 
   @override
   String get practiceDueEmpty => 'Open a review whenever you want';
+
+  @override
+  String practiceDueContext(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words are waiting for context',
+      one: '1 word is waiting for context',
+      zero: 'No words are waiting for context',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get practiceWordsPurposeTitle => 'Open my words';
 
   @override
   String get practiceSecLearn => 'Practice something in particular';
@@ -3746,10 +4010,10 @@ class AppL10nEn extends AppL10n {
   String get practiceFocusedDescription => 'Pronunciation, grammar, or writing';
 
   @override
-  String get practiceFreeDescription => 'Word chains, letters, and short games';
+  String get practiceFreeDescription => 'Word chains, letters, short games';
 
   @override
-  String get practiceWordsDescription => 'Open saved words and books';
+  String get practiceWordsDescription => 'Saved words and books';
 
   @override
   String get practiceAllActivities => 'Show all activities';
@@ -3758,11 +4022,11 @@ class AppL10nEn extends AppL10n {
   String get practiceHideAllActivities => 'Hide all activities';
 
   @override
-  String get pathEvidenceTitle => 'How progress becomes verified';
+  String get pathEvidenceTitle => 'How you recognize progress';
 
   @override
   String get pathEvidenceBody =>
-      'Browsing saves history only. A course unit is verified through its active assessment and at least 70% in every linked scenario checkpoint.';
+      'Free browsing counts as history. A section becomes secure only through its matching active assessment and at least 70% in every linked scenario checkpoint.';
 
   @override
   String get coachBookTitle => 'Snap a page';
@@ -4700,6 +4964,88 @@ class AppL10nEn extends AppL10n {
   String get courseMissionStartPractice => 'Start practice';
 
   @override
+  String courseMissionBriefScene(String scene) {
+    return 'Your next scene: $scene';
+  }
+
+  @override
+  String courseMissionBriefTime(int minutes) {
+    return '$minutes min to the scene';
+  }
+
+  @override
+  String courseMissionBriefStepMeta(int current, int total, int minutes) {
+    return 'Step $current of $total · $minutes min';
+  }
+
+  @override
+  String courseMissionBriefRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count more steps stay ready after this brief.',
+      one: '1 more step stays ready after this brief.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get courseMissionBriefStart => 'Start step 1';
+
+  @override
+  String get courseMissionBriefWhy => 'Why this scene?';
+
+  @override
+  String get courseMissionBriefStepVocab => 'Hear the key words';
+
+  @override
+  String get courseMissionBriefStepGrammar => 'Build the sentence';
+
+  @override
+  String get courseMissionBriefStepCloze => 'Choose the missing words';
+
+  @override
+  String get courseMissionBriefStepSatz => 'Put the sentence together';
+
+  @override
+  String get courseMissionBriefStepScenario => 'Speak in the scene';
+
+  @override
+  String get courseMissionBriefStepSmalltalk => 'Answer in the situation';
+
+  @override
+  String get courseMissionBriefListenTitle => 'Hear the situation';
+
+  @override
+  String get courseMissionBriefListenBody => 'Recognize the polite form';
+
+  @override
+  String get courseMissionBriefBuildTitle => 'Build your sentence';
+
+  @override
+  String get courseMissionBriefBuildBody => 'Choose the missing words';
+
+  @override
+  String get courseMissionBriefSceneTitle => 'Speak in the scene';
+
+  @override
+  String get courseMissionBriefSceneBody => 'One real answer, no guessing';
+
+  @override
+  String get courseMissionBriefListenCta => 'Listen now';
+
+  @override
+  String get courseMissionBriefBuildCta => 'Build now';
+
+  @override
+  String get courseMissionBriefSceneCta => 'Start the scene';
+
+  @override
+  String courseMissionBriefMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
   String get courseMissionPreviewNotice =>
       'You can preview this mission. Scores and progress count only when it is active.';
 
@@ -4841,7 +5187,7 @@ class AppL10nEn extends AppL10n {
   String get homeTodayPackAction => 'Practice these words';
 
   @override
-  String get homeTodayReviewAction => 'Review now';
+  String get homeTodayReviewAction => 'Review';
 
   @override
   String get homeTodayScenarioAction => 'Practice this scene';
@@ -4850,36 +5196,104 @@ class AppL10nEn extends AppL10n {
   String get homeTodayPackDescription => 'Practice the words you need next.';
 
   @override
-  String get homeTodayReviewDescription =>
-      'So the sentence is ready in your next scene.';
+  String homeTodayReviewMission(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'Review $n words in context',
+      one: 'Review 1 word in context',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get homeTodayReviewDescription => 'Give your safe sentences a voice.';
+
+  @override
+  String homeTodayReviewLead(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words are ready before anything new is added.',
+      one: '1 word is ready before anything new is added.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get homeTodayNextAction => 'Your next action';
 
   @override
   String get homeTodayReviewReasonTitle => 'Why review today?';
 
   @override
   String get homeTodayReviewReason =>
-      'So greetings, requests, and answers are ready for your next scene.';
+      'So greetings, requests, and answers are easier to reach in the next scene.';
 
   @override
   String get homeTodayReviewTime =>
       'About 3 minutes · then your path continues.';
 
   @override
-  String get homeUnavailableTitle => 'Your path could not refresh.';
+  String get homeUnavailableEyebrow => 'Connection paused';
+
+  @override
+  String get homeUnavailableTitle => 'Your path is waiting for you.';
 
   @override
   String get homeUnavailableDescription =>
-      'Your saved reviews and completed content are still available on this device.';
+      'New group and account actions briefly need internet. Your saved reviews are ready.';
+
+  @override
+  String get homeUnavailableDescriptionNoReview =>
+      'New group and account actions briefly need internet. Try the connection again.';
 
   @override
   String get homeUnavailableSafeTitle => 'Safe to do now';
 
   @override
   String get homeUnavailableSafeBody =>
-      'Review uses only learning content saved on this device.';
+      'Review saved words and view previous content.';
 
   @override
   String get homeUnavailableCta => 'Review saved words';
+
+  @override
+  String get homeUnavailableRetry => 'Try again';
+
+  @override
+  String get homeUnavailableRetryGeneric => 'Try again';
+
+  @override
+  String get homeRemoteUnavailableEyebrow => 'Service paused';
+
+  @override
+  String get homeRemoteUnavailableTitle => 'Your path is still saved.';
+
+  @override
+  String get homeRemoteUnavailableDescription =>
+      'The online service is not responding right now. Your saved reviews are ready.';
+
+  @override
+  String get homeRemoteUnavailableDescriptionNoReview =>
+      'The online service is not responding right now. Try again shortly.';
+
+  @override
+  String get homeLocalUnavailableEyebrow => 'Today needs another try';
+
+  @override
+  String get homeLocalUnavailableTitle => 'Your saved learning is still safe.';
+
+  @override
+  String get homeLocalUnavailableDescription =>
+      'Today could not be prepared from the local learning data. Your saved reviews are still ready.';
+
+  @override
+  String get homeLocalUnavailableDescriptionNoReview =>
+      'Today could not be prepared from the local learning data. Try loading it again.';
+
+  @override
+  String get homeEmptyCta => 'Review saved words';
 
   @override
   String get homeTodayScenarioDescription =>
@@ -4893,6 +5307,28 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeHanokPreviewCta => 'Open my Hanok';
+
+  @override
+  String homeFocusDate(String weekday) {
+    return 'Today · $weekday';
+  }
+
+  @override
+  String get homeFocusBuildTitle => 'Your house grows with real ability.';
+
+  @override
+  String get homeFocusMore => 'More learning options';
+
+  @override
+  String get homeFocusLess => 'Hide learning options';
+
+  @override
+  String get homeFocusLaterTitle => 'Later today';
+
+  @override
+  String homeFocusLaterBody(int count) {
+    return '$count reviews stay ready after your first action.';
+  }
 
   @override
   String hanokNarrativeVerified(String stage, String canDo) {
@@ -5002,6 +5438,11 @@ class AppL10nEn extends AppL10n {
       'Your foundation grows with every secure sentence from everyday life.';
 
   @override
+  String hanokWorldEarlyVerifiedBody(Object canDo) {
+    return 'Your foundation stands: $canDo';
+  }
+
+  @override
   String get hanokWorldMapEyebrow => 'Your walkable courtyard';
 
   @override
@@ -5013,6 +5454,17 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldOpenNextScene => 'See the next scene';
+
+  @override
+  String get hanokWorldNextBeamTitle => 'Next: the next beam';
+
+  @override
+  String get hanokWorldExploreHouse => 'Explore my house';
+
+  @override
+  String hanokWorldSafeSceneProgress(int current, int total) {
+    return '$current of $total scenes secure';
+  }
 
   @override
   String get hanokWorldIntro =>
@@ -5046,29 +5498,47 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldGyeBridgeOpen => 'Visit the Gye courtyard';
 
   @override
-  String get hanokWorldPlacesTitle => 'Places in your Hanok';
+  String get hanokWorldPlacesTitle => 'Show places as a list';
 
   @override
   String get hanokWorldPlacesBody =>
       'Use this list to choose a finished place.';
 
   @override
-  String get hanokZoneSarangbang => 'Sarangbang · today\'s study';
+  String get hanokMapPlaceSarangbang => '사랑방\nStudy today';
 
   @override
-  String get hanokZoneDaecheong => 'Daecheongmaru · learning path';
+  String get hanokMapPlaceDaecheong => '대청마루\nYour path';
 
   @override
-  String get hanokZoneHaengrang => 'Haengrangchae · practice';
+  String get hanokMapPlaceHaengrang => '행랑채\nPractice';
 
   @override
-  String get hanokZoneAnchae => 'Anchae · my collection';
+  String get hanokMapPlaceAnchae => '안채\nWords';
 
   @override
-  String get hanokZoneHuwon => 'Huwon · daily goal';
+  String get hanokMapPlaceHuwon => '후원\nTasks';
 
   @override
-  String get hanokZoneSadang => 'Sadang · achievements';
+  String get hanokMapPlaceSadang => '사당\nAchievements';
+
+  @override
+  String get hanokZoneSarangbang => '사랑방 · Your scene today';
+
+  @override
+  String get hanokZoneDaecheong => '대청마루 · Your path';
+
+  @override
+  String get hanokZoneHaengrang => '행랑채 · Practice';
+
+  @override
+  String get hanokZoneAnchae => '안채 · My words';
+
+  @override
+  String get hanokZoneHuwon => '후원 · Tasks';
+
+  @override
+  String get hanokZoneSadang => '사당 · Achievements';
 
   @override
   String get hanokWorldPurposeSarangbang =>
@@ -5119,6 +5589,14 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldTodayMarker => 'Today\'s study';
 
   @override
+  String hanokWorldTodaySceneDetail(int minutes, String expression) {
+    return '$minutes minutes · say “$expression”';
+  }
+
+  @override
+  String get hanokWorldGoThere => 'Go there';
+
+  @override
   String hanokWorldRevealTitle(String place) {
     return '$place is complete';
   }
@@ -5164,7 +5642,7 @@ class AppL10nEn extends AppL10n {
       'Here you can see what you have actually worked for.';
 
   @override
-  String get sarangbangStudySceneLabel => 'Your study room';
+  String get sarangbangStudySceneLabel => 'Your learning room';
 
   @override
   String get sarangbangStudyFurnish => 'Furnish the study room';
@@ -5174,7 +5652,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangFurnishBody =>
-      'New objects come from existing, clearly marked learning rewards.';
+      'New objects come from existing, clearly marked rewards.';
 
   @override
   String get sarangbangStoredTitle => 'Stored today';
@@ -5189,7 +5667,36 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String sarangbangStoredRecord(int expressions, int scenes, int beams) {
+    String _temp0 = intl.Intl.pluralLogic(
+      expressions,
+      locale: localeName,
+      other: '$expressions expressions',
+      one: '1 expression',
+      zero: 'No expressions',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      scenes,
+      locale: localeName,
+      other: '$scenes secure scenes',
+      one: '1 secure scene',
+      zero: 'no secure scenes',
+    );
+    String _temp2 = intl.Intl.pluralLogic(
+      beams,
+      locale: localeName,
+      other: '$beams beams in the construction plan',
+      one: '1 beam in the construction plan',
+      zero: 'no beams in the construction plan',
+    );
+    return '$_temp0 · $_temp1 · $_temp2';
+  }
+
+  @override
   String get sarangbangOpenToday => 'Open today\'s scene';
+
+  @override
+  String get sarangbangReturnCourtyard => 'To the courtyard';
 
   @override
   String get personalRoomAnbangTitle => 'Anbang';

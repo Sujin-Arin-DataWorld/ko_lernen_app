@@ -29,6 +29,18 @@ import '../widgets/sori/world_map_viewport.dart';
 ///
 /// It never awards, migrates, or infers learning state. A completed building
 /// is simply a spatial doorway to an established Hangul Sori surface.
+class HanokWorldPreviewData {
+  final PersonalHanokProjection projection;
+  final HanokBuildNarrative narrative;
+  final PersonalHanokZone? selectedZone;
+
+  const HanokWorldPreviewData({
+    required this.projection,
+    required this.narrative,
+    this.selectedZone,
+  });
+}
+
 class HanokWorldScreen extends StatefulWidget {
   final Future<LevelRatios> Function()? loadRatios;
   final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
@@ -41,6 +53,7 @@ class HanokWorldScreen extends StatefulWidget {
   final PersonalHanokRevealStore revealStore;
   final Future<void> Function(PersonalHanokVenueAction action)?
   onOpenVenueAction;
+  final HanokWorldPreviewData? preview;
 
   const HanokWorldScreen({
     super.key,
@@ -50,7 +63,26 @@ class HanokWorldScreen extends StatefulWidget {
     this.onOpenZone,
     this.revealStore = const StoragePersonalHanokRevealStore(),
     this.onOpenVenueAction,
+    this.preview,
   });
+
+  /// Renders the production 03A/03B screen from fixture state. No storage,
+  /// reveal journal, progress service, or reward write is touched.
+  factory HanokWorldScreen.preview({
+    Key? key,
+    required PersonalHanokProjection projection,
+    required HanokBuildNarrative narrative,
+    PersonalHanokZone? selectedZone,
+    ValueChanged<PersonalHanokZone>? onOpenZone,
+  }) => HanokWorldScreen(
+    key: key,
+    preview: HanokWorldPreviewData(
+      projection: projection,
+      narrative: narrative,
+      selectedZone: selectedZone,
+    ),
+    onOpenZone: onOpenZone,
+  );
 
   @override
   State<HanokWorldScreen> createState() => _HanokWorldScreenState();
@@ -64,15 +96,36 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
   List<PersonalHanokMilestone> _queuedReveals =
       const <PersonalHanokMilestone>[];
   var _loadGeneration = 0;
+  final GlobalKey _earlyMapKey = GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    _load();
+    final preview = widget.preview;
+    if (preview == null) {
+      _load();
+      return;
+    }
+    _projection = preview.projection;
+    _narrative = preview.narrative;
+    _selectedZone = _previewSelection(preview);
   }
 
   Future<void> _load() async {
     final generation = ++_loadGeneration;
+    final preview = widget.preview;
+    if (preview != null) {
+      if (mounted) {
+        setState(() {
+          _projection = preview.projection;
+          _narrative = preview.narrative;
+          _selectedZone = _previewSelection(preview);
+          _activeReveal = null;
+          _queuedReveals = const <PersonalHanokMilestone>[];
+        });
+      }
+      return;
+    }
     final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
     try {
       final ratios = await loadRatios();
@@ -98,6 +151,20 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
         generation: generation,
       );
     }
+  }
+
+  PersonalHanokZone? _previewSelection(HanokWorldPreviewData preview) {
+    final available = visiblePersonalHanokZones(
+      preview.projection,
+    ).map((definition) => definition.zone).toList(growable: false);
+    if (available.contains(preview.selectedZone)) {
+      return preview.selectedZone;
+    }
+    return available.contains(PersonalHanokZone.sarangbang)
+        ? PersonalHanokZone.sarangbang
+        : available.isEmpty
+        ? null
+        : available.first;
   }
 
   Future<void> _showProjection(
@@ -280,6 +347,21 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     await Navigator.pushNamed(context, '/gye/hub');
   }
 
+  void _exploreEarlyHouse() {
+    final mapContext = _earlyMapKey.currentContext;
+    if (mapContext == null) {
+      return;
+    }
+    Scrollable.ensureVisible(
+      mapContext,
+      alignment: .12,
+      duration: SoriMotion.reduceMotion(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -323,6 +405,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                 padding: sidePadding,
                                 child: _WorldIntroduction(
                                   projection: projection,
+                                  narrative: _narrative,
                                 ),
                               ),
                               const SizedBox(height: Spacing.lg),
@@ -342,6 +425,13 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                     zoneLabel: (zone) => _zoneLabel(t, zone),
                                     zonePurpose: (zone) =>
                                         _zonePurpose(t, zone),
+                                    mapPlaceLabel: (zone) =>
+                                        _mapPlaceLabel(t, zone),
+                                    todayExpressionKo:
+                                        _narrative?.receipt.nextExpressionKo ??
+                                        _narrative
+                                            ?.receipt
+                                            .latestSafeExpressionKo,
                                     contentPadding: sidePadding,
                                   ),
                                 ),
@@ -361,9 +451,15 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                               ] else ...[
                                 Padding(
                                   padding: sidePadding,
-                                  child: PersonalHanokMap(
-                                    projection: projection,
-                                    zoneLabel: (zone) => _zoneLabel(t, zone),
+                                  child: ConstrainedBox(
+                                    key: _earlyMapKey,
+                                    constraints: const BoxConstraints(
+                                      minHeight: 278,
+                                    ),
+                                    child: PersonalHanokMap(
+                                      projection: projection,
+                                      zoneLabel: (zone) => _zoneLabel(t, zone),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: Spacing.lg),
@@ -372,6 +468,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                                   child: _EarlyBuildPlan(
                                     projection: projection,
                                     narrative: _narrative,
+                                    onExploreHouse: _exploreEarlyHouse,
                                     onOpenNextScene: () => Navigator.of(
                                       context,
                                     ).pushNamed('/course/mission'),
@@ -480,14 +577,22 @@ class _WorldPlaceList extends StatelessWidget {
 
 class _WorldIntroduction extends StatelessWidget {
   final PersonalHanokProjection projection;
+  final HanokBuildNarrative? narrative;
 
-  const _WorldIntroduction({required this.projection});
+  const _WorldIntroduction({required this.projection, required this.narrative});
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     final hasMap = projection.usesCompoundMap;
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final verifiedCanDo = narrative?.verifiedUnit?.canDo.pick(languageCode);
+    final earlyBody = verifiedCanDo == null
+        ? t.hanokWorldEarlyBody
+        : t.hanokWorldEarlyVerifiedBody(
+            _conciseCanDo(verifiedCanDo, languageCode),
+          );
     return SoriCard(
       variant: SoriCardVariant.hanji,
       accent: SoriColors.primary,
@@ -505,13 +610,15 @@ class _WorldIntroduction extends StatelessWidget {
             style: text.h1,
           ),
           const SizedBox(height: Spacing.sm),
-          Text(
-            hasMap ? t.hanokWorldMapBody : t.hanokWorldEarlyBody,
-            style: text.bodySmall,
-          ),
+          Text(hasMap ? t.hanokWorldMapBody : earlyBody, style: text.bodySmall),
         ],
       ),
     );
+  }
+
+  static String _conciseCanDo(String value, String languageCode) {
+    final prefix = languageCode == 'de' ? 'Ich kann ' : 'I can ';
+    return value.startsWith(prefix) ? value.substring(prefix.length) : value;
   }
 }
 
@@ -523,37 +630,43 @@ class _EarlyBuildPlan extends StatelessWidget {
   const _EarlyBuildPlan({
     required this.projection,
     required this.narrative,
+    required this.onExploreHouse,
     required this.onOpenNextScene,
   });
 
   final PersonalHanokProjection projection;
   final HanokBuildNarrative? narrative;
+  final VoidCallback onExploreHouse;
   final VoidCallback onOpenNextScene;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final buildNarrative = narrative ?? HanokBuildNarrative.empty(projection);
+    final safeSceneLabel = t.hanokWorldSafeSceneProgress(
+      buildNarrative.safeScenesTowardNextBeam,
+      buildNarrative.scenesPerBeam,
+    );
+    final beamFraction =
+        buildNarrative.safeScenesTowardNextBeam / buildNarrative.scenesPerBeam;
     return SoriCard(
       variant: SoriCardVariant.base,
       accent: SoriColors.primary,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HanokBuildNarrativeLine(
-            narrative: narrative ?? HanokBuildNarrative.empty(projection),
-          ),
+          Text(t.hanokWorldNextBeamTitle, style: text.h3),
+          const SizedBox(height: Spacing.sm),
+          HanokBuildNarrativeLine(narrative: buildNarrative),
           const SizedBox(height: Spacing.md),
           Semantics(
-            label: t.hanokWorldProgress,
-            child: SoriProgressBar(
-              value: projection.constructionFraction,
-              animated: true,
-            ),
+            label: safeSceneLabel,
+            child: SoriProgressBar(value: beamFraction, animated: true),
           ),
           const SizedBox(height: Spacing.xs),
           Text(
-            t.hanokWorldProgress,
+            safeSceneLabel,
             style: text.caption.copyWith(
               color: SoriSurfaces.of(context).textMuted,
             ),
@@ -564,6 +677,13 @@ class _EarlyBuildPlan extends StatelessWidget {
             label: t.hanokWorldOpenNextScene,
             fullWidth: true,
             onTap: onOpenNextScene,
+          ),
+          const SizedBox(height: Spacing.xs),
+          SoriButton.ghost(
+            key: const ValueKey('hanok-world-explore-house'),
+            label: t.hanokWorldExploreHouse,
+            fullWidth: true,
+            onTap: onExploreHouse,
           ),
         ],
       ),
@@ -647,6 +767,16 @@ String _zonePurpose(AppL10n t, PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.huwon => t.hanokWorldPurposeHuwon,
   PersonalHanokZone.sadang => t.hanokWorldPurposeSadang,
   PersonalHanokZone.gyeRoad => t.hanokWorldPurposeGyeRoad,
+};
+
+String _mapPlaceLabel(AppL10n t, PersonalHanokZone zone) => switch (zone) {
+  PersonalHanokZone.sarangbang => t.hanokMapPlaceSarangbang,
+  PersonalHanokZone.daecheongmaru => t.hanokMapPlaceDaecheong,
+  PersonalHanokZone.haengrangchae => t.hanokMapPlaceHaengrang,
+  PersonalHanokZone.anchae => t.hanokMapPlaceAnchae,
+  PersonalHanokZone.huwon => t.hanokMapPlaceHuwon,
+  PersonalHanokZone.sadang => t.hanokMapPlaceSadang,
+  PersonalHanokZone.gyeRoad => '',
 };
 
 String _milestoneLabel(AppL10n t, PersonalHanokMilestone milestone) =>

@@ -726,7 +726,7 @@ class Storage {
   }
 
   static String get preferredMascot =>
-      _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
+      _s('kl_preferred_mascot'); // 'tiger', 'magpie', or explicit 'none'
   static Future<void> setPreferredMascot(String mascot) =>
       _ss('kl_preferred_mascot', mascot);
 
@@ -1628,6 +1628,130 @@ class Storage {
     _courseMasteryCache = json;
   }
 
+  /// Replaces the canonical course graph and its scalar compatibility mirrors
+  /// as one recoverable local operation.
+  ///
+  /// SharedPreferences has no multi-key transaction. The scalar mirrors are
+  /// therefore written first and the canonical snapshot is the final commit
+  /// marker. If any write is rejected, every attempted key is restored to its
+  /// captured value before the failure is returned. A rollback whose outcome
+  /// cannot be confirmed fails closed as [PreferenceOutcomeUnknownException].
+  static Future<void> setCourseMasteryStateAtomically({
+    required String canonicalSnapshotJson,
+    required String? placementLevelCode,
+    String? browseLevelCode,
+    required String? currentCourseUnitId,
+    required bool mirrorLegacyUserLevel,
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) async {
+    if (canonicalSnapshotJson.trim().isEmpty) {
+      throw ArgumentError.value(
+        canonicalSnapshotJson,
+        'canonicalSnapshotJson',
+        'must not be empty',
+      );
+    }
+    final placement = placementLevelCode?.trim().toLowerCase();
+    if (placement != null && placement.isEmpty) {
+      throw ArgumentError.value(
+        placementLevelCode,
+        'placementLevelCode',
+        'must not be empty',
+      );
+    }
+    final unit = currentCourseUnitId?.trim();
+    if (unit != null && unit.isEmpty) {
+      throw ArgumentError.value(
+        currentCourseUnitId,
+        'currentCourseUnitId',
+        'must not be empty',
+      );
+    }
+    final browse = browseLevelCode?.trim().toLowerCase();
+    if (browse != null && browse.isEmpty) {
+      throw ArgumentError.value(
+        browseLevelCode,
+        'browseLevelCode',
+        'must not be empty',
+      );
+    }
+
+    final store = _stringStore(preferences);
+    final targets = <String, String?>{
+      placementLevelPreferenceKey: placement,
+      if (mirrorLegacyUserLevel && placement != null)
+        'kl_user_level': placement,
+      if (browse != null) browseLevelPreferenceKey: browse,
+      courseUnitPreferenceKey: unit,
+      // The validated graph is the commit marker and must remain last.
+      courseMasterySnapshotPreferenceKey: canonicalSnapshotJson,
+    };
+    final before = <String, _StringPreferenceState>{};
+    for (final key in targets.keys) {
+      before[key] = await _prepareStringMutation(store, key);
+    }
+    assertCurrentWrite?.call();
+
+    final attempted = <String>[];
+    Object? primaryFailure;
+    StackTrace? primaryStack;
+    try {
+      for (final entry in targets.entries) {
+        final target = entry.value == null
+            ? const _StringPreferenceState.absent()
+            : _StringPreferenceState._(isPresent: true, value: entry.value);
+        if (before[entry.key] == target) continue;
+        attempted.add(entry.key);
+        await _writeStringStateStrict(store, entry.key, target);
+      }
+      _courseMasteryCache = canonicalSnapshotJson;
+      return;
+    } on Object catch (error, stack) {
+      primaryFailure = error;
+      primaryStack = stack;
+    }
+
+    final rollbackFailures = <Object>[];
+    try {
+      await _refreshUnknownStringKeys(store, attempted);
+    } on Object catch (error) {
+      rollbackFailures.add(error);
+    }
+    for (final key in attempted.reversed) {
+      try {
+        final current = _StringPreferenceState.read(store, key);
+        final original = before[key]!;
+        if (current != original) {
+          await _writeStringStateStrict(store, key, original);
+        }
+      } on Object catch (error) {
+        rollbackFailures.add(error);
+      }
+    }
+    if (rollbackFailures.isNotEmpty) {
+      _unknownStrictKeys.addAll(attempted);
+      _courseMasteryCache = null;
+      throw PreferenceOutcomeUnknownException(
+        attempted.isEmpty ? courseMasterySnapshotPreferenceKey : attempted.last,
+        cause: <Object>[primaryFailure, ...rollbackFailures],
+      );
+    }
+    Error.throwWithStackTrace(primaryFailure, primaryStack);
+  }
+
+  static Future<void> _writeStringStateStrict(
+    PreferenceStringStore store,
+    String key,
+    _StringPreferenceState state,
+  ) async {
+    if (state.isPresent) {
+      await _ssStrict(key, state.value!, preferences: store);
+    } else {
+      await _removeStringStrict(key, preferences: store);
+    }
+  }
+
   /// Compatibility writer for existing callers. It writes v2, never the
   /// read-only v1 migration key.
   static Future<void> setCourseMasteryRawJson(
@@ -2378,8 +2502,8 @@ class Storage {
 
   static ({bool isInitialized, List<String> seen})
   get personalHanokMilestoneRevealSnapshot => (
-    isInitialized: _prefs?.containsKey(_personalHanokMilestonesSeenKey) ??
-        false,
+    isInitialized:
+        _prefs?.containsKey(_personalHanokMilestonesSeenKey) ?? false,
     seen: _l(_personalHanokMilestonesSeenKey),
   );
 

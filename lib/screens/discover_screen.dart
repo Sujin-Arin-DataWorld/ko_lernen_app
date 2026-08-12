@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/discover_catalog.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/section_header.dart';
@@ -14,7 +15,23 @@ import '../widgets/sori/tokens.dart';
 /// activity in the primary navigation. The tab stays short and stable while
 /// this screen makes the full product surface searchable and scannable.
 class DiscoverScreen extends StatefulWidget {
-  const DiscoverScreen({super.key});
+  const DiscoverScreen({
+    super.key,
+    this.initialPurpose = DiscoverPurpose.forMe,
+    this.initialQuery = '',
+  });
+
+  /// Fixture entry point for the UX gallery. Discover has no persistence, and
+  /// this constructor makes its visible state explicit for deterministic
+  /// previews while reusing the production widget tree.
+  const DiscoverScreen.preview({
+    super.key,
+    this.initialPurpose = DiscoverPurpose.forMe,
+    this.initialQuery = '',
+  });
+
+  final DiscoverPurpose initialPurpose;
+  final String initialQuery;
 
   @override
   State<DiscoverScreen> createState() => _DiscoverScreenState();
@@ -22,8 +39,16 @@ class DiscoverScreen extends StatefulWidget {
 
 class _DiscoverScreenState extends State<DiscoverScreen> {
   final TextEditingController _searchController = TextEditingController();
-  String _query = '';
-  DiscoverPurpose? _selectedPurpose;
+  late String _query;
+  late DiscoverPurpose _selectedPurpose;
+
+  @override
+  void initState() {
+    super.initState();
+    _query = widget.initialQuery;
+    _selectedPurpose = widget.initialPurpose;
+    _searchController.text = _query;
+  }
 
   @override
   void dispose() {
@@ -37,11 +62,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     final tt = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
     final allFeatures = discoverCatalog(t);
+    final query = _query.trim().toLowerCase();
     final visibleFeatures = allFeatures
         .where((feature) {
+          // A typed query searches the complete directory. Category filters
+          // remain a browsing aid rather than hiding a valid exact result.
           final matchesPurpose =
-              _selectedPurpose == null || feature.purpose == _selectedPurpose;
-          final query = _query.trim().toLowerCase();
+              query.isNotEmpty || feature.purpose == _selectedPurpose;
           final matchesQuery =
               query.isEmpty ||
               feature.title.toLowerCase().contains(query) ||
@@ -52,7 +79,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           return matchesPurpose && matchesQuery;
         })
         .toList(growable: false);
-    final showBookPriority = _query.trim().isEmpty && _selectedPurpose == null;
+    final showPriorities =
+        query.isEmpty && _selectedPurpose == DiscoverPurpose.forMe;
 
     return Scaffold(
       appBar: AppBar(title: Text(t.navDiscover)),
@@ -101,42 +129,25 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 ),
               ),
               const SizedBox(height: Spacing.md),
-              SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
+              Wrap(
+                spacing: 4,
+                runSpacing: 4,
+                children: [
+                  for (final purpose in DiscoverPurpose.values)
                     _CategoryChip(
-                      label: t.discoverCategoryAll,
-                      selected: _selectedPurpose == null,
-                      onSelected: () => setState(() => _selectedPurpose = null),
+                      label: purpose.label(t),
+                      selected: _selectedPurpose == purpose,
+                      onSelected: () =>
+                          setState(() => _selectedPurpose = purpose),
                     ),
-                    for (final purpose in DiscoverPurpose.values)
-                      _CategoryChip(
-                        label: purpose.label(t),
-                        selected: _selectedPurpose == purpose,
-                        onSelected: () =>
-                            setState(() => _selectedPurpose = purpose),
-                      ),
-                  ],
-                ),
+                ],
               ),
-              if (showBookPriority) ...[
-                const SizedBox(height: Spacing.lg),
-                SoriSectionHeader(t.discoverStartHere),
-                FeaturedModuleCard(
-                  icon: Icons.document_scanner_outlined,
-                  title: t.homeBookCardTitle,
-                  subtitle: t.homeBookCardDesc,
-                  accent: SoriColors.primary,
-                  ribbonType: 'new',
-                  onTap: () => Navigator.pushNamed(context, '/book'),
-                ),
+              if (showPriorities) ...[
+                const SizedBox(height: Spacing.md),
+                const _DiscoverPriorityRoutes(),
               ],
               const SizedBox(height: Spacing.lg),
-              SoriSectionHeader(
-                _selectedPurpose?.label(t) ?? t.discoverAllTools,
-              ),
+              SoriSectionHeader(_selectedPurpose.label(t)),
               if (visibleFeatures.isEmpty)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: Spacing.xl),
@@ -160,9 +171,15 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 )
               else
                 _FeatureGrid(
-                  features: showBookPriority
+                  features: showPriorities
                       ? visibleFeatures
-                            .where((feature) => feature.route != '/book')
+                            .where(
+                              (feature) => !const {
+                                '/book',
+                                '/listening',
+                                '/wordbook/search',
+                              }.contains(feature.route),
+                            )
                             .toList(growable: false)
                       : visibleFeatures,
                 ),
@@ -172,6 +189,100 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
       ),
     );
   }
+}
+
+class _DiscoverPriorityRoutes extends StatelessWidget {
+  const _DiscoverPriorityRoutes();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Column(
+      children: [
+        _DiscoverPriorityRoute(
+          key: const ValueKey('discover-priority-book'),
+          icon: Icons.document_scanner_outlined,
+          title: t.discoverPriorityBookTitle,
+          subtitle: t.discoverPriorityBookBody,
+          accent: SoriColors.primary,
+          onTap: () => Navigator.pushNamed(context, '/book'),
+        ),
+        const SizedBox(height: Spacing.sm),
+        _DiscoverPriorityRoute(
+          key: const ValueKey('discover-priority-pronunciation'),
+          icon: Icons.headphones_rounded,
+          title: t.discoverPriorityPronunciationTitle,
+          subtitle: t.discoverPriorityPronunciationBody,
+          accent: SoriColors.goldOnLight,
+          onTap: () => Navigator.pushNamed(context, '/listening'),
+        ),
+        const SizedBox(height: Spacing.sm),
+        _DiscoverPriorityRoute(
+          key: const ValueKey('discover-priority-words'),
+          icon: Icons.search_rounded,
+          title: t.discoverPriorityWordsTitle,
+          subtitle: t.discoverPriorityWordsBody,
+          accent: SoriColors.accent,
+          onTap: () => Navigator.pushNamed(context, '/wordbook/search'),
+        ),
+      ],
+    );
+  }
+}
+
+class _DiscoverPriorityRoute extends StatelessWidget {
+  const _DiscoverPriorityRoute({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.accent,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final Color accent;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => SoriCard(
+    variant: SoriCardVariant.compact,
+    accent: accent,
+    onTap: onTap,
+    child: Row(
+      children: [
+        Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            color: accent.withValues(alpha: .12),
+            borderRadius: SoriRadius.brSm,
+          ),
+          child: Icon(icon, color: accent),
+        ),
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: SoriTextTheme.of(context).cardTitle),
+              const SizedBox(height: 2),
+              Text(
+                subtitle,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: SoriTextTheme.of(context).caption,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: Spacing.sm),
+        Icon(Icons.chevron_right_rounded, color: accent),
+      ],
+    ),
+  );
 }
 
 class _CategoryChip extends StatelessWidget {
@@ -187,12 +298,40 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: Spacing.sm),
-      child: ChoiceChip(
-        label: Text(label),
-        selected: selected,
-        onSelected: (_) => onSelected(),
+    final text = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    return Semantics(
+      button: true,
+      selected: selected,
+      label: label,
+      child: ExcludeSemantics(
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: SoriRadius.brPill,
+            onTap: onSelected,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 48),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                color: selected ? SoriColors.primary : surfaces.surface,
+                borderRadius: SoriRadius.brPill,
+                border: Border.all(
+                  color: selected ? SoriColors.primary : surfaces.border,
+                ),
+              ),
+              child: Text(
+                label,
+                maxLines: 1,
+                style: text.caption.copyWith(
+                  color: selected ? Colors.white : surfaces.text,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -241,9 +380,9 @@ class _FeatureGrid extends StatelessWidget {
 
 extension on DiscoverPurpose {
   String label(AppL10n t) => switch (this) {
-    DiscoverPurpose.learn => t.discoverCategoryLearn,
-    DiscoverPurpose.practice => t.discoverCategoryPractice,
+    DiscoverPurpose.forMe => t.discoverCategoryForMe,
+    DiscoverPurpose.language => t.discoverCategoryLanguage,
     DiscoverPurpose.words => t.discoverCategoryWords,
-    DiscoverPurpose.progress => t.discoverCategoryProgress,
+    DiscoverPurpose.leisure => t.discoverCategoryLeisure,
   };
 }

@@ -10,7 +10,11 @@ import '../models/gye.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/gye_dedication_service.dart';
 import '../services/gye_service.dart';
+import '../services/gye_weekly_promise_navigation.dart';
+import '../services/pack_access.dart';
 import '../services/storage_service.dart';
+import '../services/today_learning_navigation.dart';
+import '../services/today_learning_snapshot.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -42,6 +46,15 @@ class GyeScreen extends StatefulWidget {
     this.dedicationUpdates,
     this.blockedUidUpdates,
     this.feedUpdates,
+    this.loadTodaySnapshot,
+    this.resolvePromiseNavigation,
+    this.ensureTodayPackAccess,
+    this.openTodayRoute,
+    this.onOpenMembers,
+    this.onOpenSafeMessage,
+    this.onOpenReaction,
+    this.readOnlyPreview = false,
+    this.enableCoach = true,
   });
 
   final String gyeId;
@@ -54,6 +67,25 @@ class GyeScreen extends StatefulWidget {
   final Stream<List<GyeDedication>>? dedicationUpdates;
   final Stream<Set<String>>? blockedUidUpdates;
   final Stream<List<GyeFeedEvent>>? feedUpdates;
+
+  /// Read-only seams used by widget tests and the integrated UX Gallery.
+  /// Production keeps the shared Today loader and the catalog-backed resolver.
+  final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
+  final Future<GyePromiseNavigationResolution> Function(
+    GyeMeta meta,
+    TodayLearningSnapshot today,
+  )?
+  resolvePromiseNavigation;
+  final Future<bool> Function(String level)? ensureTodayPackAccess;
+  final Future<void> Function(String route, Object? arguments)? openTodayRoute;
+  final VoidCallback? onOpenMembers;
+
+  /// Gallery-only action seams. They render the production controls while
+  /// keeping every tap inside a deterministic, write-free preview boundary.
+  final VoidCallback? onOpenSafeMessage;
+  final ValueChanged<String>? onOpenReaction;
+  final bool readOnlyPreview;
+  final bool enableCoach;
 
   @override
   State<GyeScreen> createState() => _GyeScreenState();
@@ -69,6 +101,8 @@ class _GyeScreenState extends State<GyeScreen>
   bool _metaLoaded = false;
   bool _statsSynced = false;
   late final GyeDedicationService _dedicationService;
+  String? _promiseNavigationKey;
+  Future<GyePromiseNavigationResolution>? _promiseNavigation;
 
   @override
   String get coachId => 'gye';
@@ -99,9 +133,103 @@ class _GyeScreenState extends State<GyeScreen>
   void initState() {
     super.initState();
     _dedicationService = GyeDedicationService.production();
-    scheduleCoach();
+    if (widget.enableCoach) {
+      scheduleCoach();
+    }
     // 프로필 카드용 level/streak denormalize (best-effort, 진입 시 1회).
     // ignore: discarded_futures, unawaited_futures
+  }
+
+  Future<GyePromiseNavigationResolution> _navigationFor(GyeMeta meta) {
+    final key = [
+      meta.id,
+      meta.weeklyPromiseSchemaVersion,
+      meta.weeklyPromiseId,
+      meta.weeklyPromiseTarget,
+      meta.weeklyPromiseWeekKey,
+    ].join(':');
+    if (_promiseNavigationKey == key && _promiseNavigation != null) {
+      return _promiseNavigation!;
+    }
+    _promiseNavigationKey = key;
+    _promiseNavigation = _resolveNavigation(meta);
+    return _promiseNavigation!;
+  }
+
+  Future<GyePromiseNavigationResolution> _resolveNavigation(
+    GyeMeta meta,
+  ) async {
+    try {
+      final loadToday =
+          widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
+      final today = await loadToday();
+      final resolve = widget.resolvePromiseNavigation;
+      return resolve == null
+          ? GyeWeeklyPromiseNavigation.load(meta: meta, today: today)
+          : resolve(meta, today);
+    } catch (_) {
+      return const GyePromiseNavigationResolution(
+        kind: GyePromiseNavigationKind.unavailable,
+      );
+    }
+  }
+
+  Future<void> _openPromiseNavigation(
+    GyePromiseNavigationResolution resolution,
+  ) async {
+    final destination = resolution.destination;
+    if (destination == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppL10n.of(context).gyeTodayUnavailable)),
+        );
+      }
+      return;
+    }
+    final opened = await TodayLearningNavigation.open(
+      destination,
+      ensurePackAccess:
+          widget.ensureTodayPackAccess ??
+          (level) => ensurePackAccess(context, level: level),
+      openRoute:
+          widget.openTodayRoute ??
+          (route, arguments) async {
+            await Navigator.of(context).pushNamed(route, arguments: arguments);
+          },
+    );
+    if (opened && mounted) {
+      setState(() {
+        _promiseNavigationKey = null;
+        _promiseNavigation = null;
+      });
+    }
+  }
+
+  void _openMembers() {
+    final override = widget.onOpenMembers;
+    if (override != null) {
+      override();
+      return;
+    }
+    Navigator.of(context).pushNamed('/gye/members', arguments: widget.gyeId);
+  }
+
+  void _openSafeMessage(BuildContext context) {
+    final previewAction = widget.onOpenSafeMessage;
+    if (previewAction != null) {
+      previewAction();
+      return;
+    }
+    _openGyeStickerPicker(context, widget.gyeId);
+  }
+
+  void _openReaction(BuildContext context, String eventId) {
+    final previewAction = widget.onOpenReaction;
+    if (previewAction != null) {
+      previewAction(eventId);
+      return;
+    }
+    _openReactionPicker(context, widget.gyeId, eventId);
   }
 
   @override
@@ -112,8 +240,12 @@ class _GyeScreenState extends State<GyeScreen>
       valueListenable:
           widget.accountSessions ?? cloudWriteSessionController.changes,
       builder: (context, accountSession, _) {
-        final actionsAvailable = gyeActionsAvailable(accountSession);
-        if (actionsAvailable && !_statsSynced) {
+        final cloudActionsAvailable = gyeActionsAvailable(accountSession);
+        final safeMessageAvailable =
+            cloudActionsAvailable || widget.onOpenSafeMessage != null;
+        final reactionAvailable =
+            cloudActionsAvailable || widget.onOpenReaction != null;
+        if (cloudActionsAvailable && !_statsSynced) {
           _statsSynced = true;
           // ignore: discarded_futures, unawaited_futures
           GyeService.syncMyMemberStats();
@@ -170,7 +302,7 @@ class _GyeScreenState extends State<GyeScreen>
                     ),
                   ),
                   PopupMenuButton<String>(
-                    enabled: actionsAvailable,
+                    enabled: cloudActionsAvailable,
                     onSelected: (v) {
                       if (v == 'invite') {
                         _shareGyeCode(context, meta.code);
@@ -209,7 +341,8 @@ class _GyeScreenState extends State<GyeScreen>
                       SliverToBoxAdapter(
                         child: Column(
                           children: [
-                            if (!actionsAvailable)
+                            if (!cloudActionsAvailable &&
+                                !widget.readOnlyPreview)
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   Spacing.lg,
@@ -249,11 +382,8 @@ class _GyeScreenState extends State<GyeScreen>
                               padding: const EdgeInsets.all(Spacing.lg),
                               child: _GyeWeeklyPromise(
                                 meta: meta,
-                                onOpenToday: () => Navigator.of(context)
-                                    .pushNamedAndRemoveUntil(
-                                      '/',
-                                      (route) => false,
-                                    ),
+                                navigation: _navigationFor(meta),
+                                onOpenNavigation: _openPromiseNavigation,
                                 board:
                                     meta.weeklyPromiseSchemaVersion == 1 &&
                                         meta.weeklyPromiseId.isNotEmpty
@@ -264,7 +394,8 @@ class _GyeScreenState extends State<GyeScreen>
                                           gyeId: widget.gyeId,
                                           meta: meta,
                                           myUid: GyeService.currentUid,
-                                          writesAvailable: actionsAvailable,
+                                          writesAvailable:
+                                              cloudActionsAvailable,
                                           showPausedReason: false,
                                           memberUpdates: widget.memberUpdates,
                                         ),
@@ -284,17 +415,17 @@ class _GyeScreenState extends State<GyeScreen>
                                 ),
                                 child: _SoloInviteCard(
                                   code: meta.code,
-                                  enabled: actionsAvailable,
+                                  enabled: cloudActionsAvailable,
                                 ),
                               ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.fromLTRB(
                                 Spacing.lg,
                                 0,
                                 Spacing.lg,
                                 Spacing.md,
                               ),
-                              child: _GyeCourtyardContext(),
+                              child: _GyeCourtyardContext(meta: meta),
                             ),
                             LayoutBuilder(
                               builder: (context, c) {
@@ -356,7 +487,7 @@ class _GyeScreenState extends State<GyeScreen>
                                                     expectedMembershipEpoch:
                                                         currentMembershipEpoch,
                                                     actionsAvailable:
-                                                        actionsAvailable,
+                                                        cloudActionsAvailable,
                                                     onCommit: _dedicationService
                                                         .setForCurrentSession,
                                                   ),
@@ -386,12 +517,17 @@ class _GyeScreenState extends State<GyeScreen>
                                     icon: Icons.emoji_emotions_outlined,
                                     accent: SoriColors.gold,
                                     fullWidth: true,
-                                    onTap: actionsAvailable
-                                        ? () => _openGyeStickerPicker(
-                                            context,
-                                            widget.gyeId,
-                                          )
+                                    onTap: safeMessageAvailable
+                                        ? () => _openSafeMessage(context)
                                         : null,
+                                  ),
+                                  TextButton(
+                                    key: const ValueKey('gye-rules-members'),
+                                    onPressed: _openMembers,
+                                    style: TextButton.styleFrom(
+                                      minimumSize: const Size(48, 48),
+                                    ),
+                                    child: Text(t.gyeRulesAndMembers),
                                   ),
                                 ],
                               ),
@@ -435,12 +571,9 @@ class _GyeScreenState extends State<GyeScreen>
                                     fsnap.data ?? const [],
                                     bsnap.data ?? const {},
                                   ),
-                                  onReact: actionsAvailable
-                                      ? (eventId) => _openReactionPicker(
-                                          context,
-                                          widget.gyeId,
-                                          eventId,
-                                        )
+                                  onReact: reactionAvailable
+                                      ? (eventId) =>
+                                            _openReaction(context, eventId)
                                       : null,
                                   shrinkWrap: true,
                                 ),
@@ -453,8 +586,8 @@ class _GyeScreenState extends State<GyeScreen>
               ),
               floatingActionButton: FloatingActionButton(
                 key: _fabKey,
-                onPressed: actionsAvailable
-                    ? () => _openGyeStickerPicker(context, widget.gyeId)
+                onPressed: safeMessageAvailable
+                    ? () => _openSafeMessage(context)
                     : null,
                 backgroundColor: SoriColors.primary,
                 tooltip: t.gyeSafeMessage,
@@ -604,12 +737,14 @@ class _GyeWeeklyPromise extends StatelessWidget {
   const _GyeWeeklyPromise({
     required this.meta,
     required this.board,
-    required this.onOpenToday,
+    required this.navigation,
+    required this.onOpenNavigation,
   });
 
   final GyeMeta meta;
   final Widget board;
-  final VoidCallback onOpenToday;
+  final Future<GyePromiseNavigationResolution> navigation;
+  final ValueChanged<GyePromiseNavigationResolution> onOpenNavigation;
 
   @override
   Widget build(BuildContext context) {
@@ -639,13 +774,53 @@ class _GyeWeeklyPromise extends StatelessWidget {
             isLifePromise ? t.gyePromiseBody : t.gyeWeeklyBody,
             style: SoriTextTheme.of(context).bodySmall,
           ),
+          if (isLifePromise) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.gyePromiseEligibility,
+              style: SoriTextTheme.of(context).caption,
+            ),
+          ],
           const SizedBox(height: Spacing.md),
           board,
           const SizedBox(height: Spacing.md),
-          SoriButton.filled(
-            label: t.gyeOpenToday,
-            fullWidth: true,
-            onTap: onOpenToday,
+          FutureBuilder<GyePromiseNavigationResolution>(
+            future: navigation,
+            builder: (context, snapshot) {
+              final resolution = snapshot.data;
+              final eligible =
+                  resolution?.kind == GyePromiseNavigationKind.eligibleScene;
+              final unavailable =
+                  resolution?.kind == GyePromiseNavigationKind.unavailable;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SoriButton.filled(
+                    key: const ValueKey('gye-promise-primary'),
+                    label: eligible
+                        ? t.gyePromiseSceneCta
+                        : t.gyeTodayFallbackCta,
+                    fullWidth: true,
+                    onTap: resolution == null || unavailable
+                        ? null
+                        : () => onOpenNavigation(resolution),
+                  ),
+                  if (unavailable) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      t.gyeTodayUnavailable,
+                      textAlign: TextAlign.center,
+                      style: SoriTextTheme.of(context).caption,
+                    ),
+                  ],
+                ],
+              );
+            },
+          ),
+          TextButton(
+            onPressed: () => _showPromiseIntention(context, meta),
+            style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+            child: Text(t.gyePromiseIntentionAction),
           ),
         ],
       ),
@@ -660,6 +835,29 @@ class _GyeWeeklyPromise extends StatelessWidget {
   };
 }
 
+Future<void> _showPromiseIntention(BuildContext context, GyeMeta meta) {
+  final t = AppL10n.of(context);
+  final title = switch (meta.weeklyPromiseId) {
+    GyeWeeklyPromises.cafeOrder => t.gyePromiseCafeOrderTitle,
+    GyeWeeklyPromises.directions => t.gyePromiseDirectionsTitle,
+    GyeWeeklyPromises.selfIntroduction => t.gyePromiseSelfIntroductionTitle,
+    _ => t.gyeWeeklyTitle,
+  };
+  return showDialog<void>(
+    context: context,
+    builder: (dialogContext) => AlertDialog(
+      title: Text(title),
+      content: Text('${t.gyePromiseBody}\n\n${t.gyePromisePrivacyRule}'),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(dialogContext).pop(),
+          child: Text(t.btnClose),
+        ),
+      ],
+    ),
+  );
+}
+
 /// Intentionally reveals aggregate lantern state only: never a member list,
 /// individual tally, answer, score, or ordering of participants.
 class _GyeAnonymousPromiseProgress extends StatelessWidget {
@@ -671,8 +869,10 @@ class _GyeAnonymousPromiseProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final target = meta.weeklyPromiseTarget;
-    final progress = meta.weeklyPromiseProgress.clamp(0, target);
+    // Remote group metadata is untrusted. The supported weekly promises use
+    // three lights; keep a malformed payload from creating an unbounded list.
+    final target = meta.weeklyPromiseTarget.clamp(1, 5).toInt();
+    final progress = meta.weeklyPromiseProgress.clamp(0, target).toInt();
     final fraction = target > 0 ? progress / target : 0.0;
     return Semantics(
       label: t.gyePromiseProgress(progress, target),
@@ -706,7 +906,95 @@ class _GyeAnonymousPromiseProgress extends StatelessWidget {
             t.gyePromiseRemaining((target - progress).clamp(0, target)),
             style: SoriTextTheme.of(context).bodySmall,
           ),
+          const SizedBox(height: Spacing.md),
+          for (var index = 0; index < target; index++) ...[
+            _AnonymousContributionRow(complete: index < progress),
+            if (index < target - 1) const SizedBox(height: Spacing.sm),
+          ],
+          const SizedBox(height: Spacing.md),
+          Semantics(
+            container: true,
+            child: Container(
+              padding: const EdgeInsets.all(Spacing.sm),
+              decoration: BoxDecoration(
+                color: SoriColors.primary.withValues(alpha: 0.08),
+                borderRadius: SoriRadius.brSm,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.shield_outlined,
+                    size: 20,
+                    color: SoriColors.primary,
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  Expanded(
+                    child: Text(
+                      t.gyePromisePrivacyRule,
+                      style: SoriTextTheme.of(context).bodySmall,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _AnonymousContributionRow extends StatelessWidget {
+  const _AnonymousContributionRow({required this.complete});
+
+  final bool complete;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final title = complete
+        ? t.gyePromiseContributionCompleteTitle
+        : t.gyePromiseContributionPendingTitle;
+    final body = complete
+        ? t.gyePromiseContributionCompleteBody
+        : t.gyePromiseContributionPendingBody;
+    return Semantics(
+      container: true,
+      label: '$title. $body',
+      child: ExcludeSemantics(
+        child: Container(
+          padding: const EdgeInsets.all(Spacing.sm),
+          decoration: BoxDecoration(
+            color: complete
+                ? SoriColors.gold.withValues(alpha: 0.12)
+                : s.surfaceAlt,
+            borderRadius: SoriRadius.brSm,
+            border: Border.all(color: s.border),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                complete ? Icons.light_mode_rounded : Icons.circle_outlined,
+                size: 22,
+                color: complete ? SoriColors.gold : s.textDim,
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: SoriTextTheme.of(context).label),
+                    const SizedBox(height: Spacing.xs),
+                    Text(body, style: SoriTextTheme.of(context).caption),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -714,20 +1002,35 @@ class _GyeAnonymousPromiseProgress extends StatelessWidget {
 
 /// 05C heading; existing feed, stickers, reports and moderation stay below.
 class _GyeCourtyardContext extends StatelessWidget {
-  const _GyeCourtyardContext();
+  const _GyeCourtyardContext({required this.meta});
+
+  final GyeMeta meta;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final lanterns =
+        (meta.weeklyPromiseSchemaVersion == 1
+                ? meta.weeklyPromiseProgress
+                : meta.weeklyGoalProgress)
+            .clamp(0, 5)
+            .toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(t.gyeCourtyardEyebrow, style: text.label),
         const SizedBox(height: Spacing.xs),
-        Text(t.gyeCourtyardTitle, style: text.h3),
+        Text(
+          lanterns == 3
+              ? t.gyeCourtyardLightsThree
+              : t.gyeCourtyardLightsToday(lanterns),
+          style: text.h3,
+        ),
         const SizedBox(height: Spacing.xs),
-        Text(t.gyeCourtyardBody, style: text.bodySmall),
+        Text(t.gyeCourtyardTitle, style: text.bodySmall),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeCourtyardBody, style: text.caption),
       ],
     );
   }

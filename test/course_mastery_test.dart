@@ -86,6 +86,37 @@ class _RejectedCanonicalSnapshotWriteStore implements PreferenceStringStore {
   }
 }
 
+class _RejectableCourseStateWriteStore implements PreferenceStringStore {
+  final Map<String, String> _values = <String, String>{};
+
+  String? rejectedKey;
+
+  Map<String, String> get values => Map<String, String>.unmodifiable(_values);
+
+  @override
+  bool containsKey(String key) => _values.containsKey(key);
+
+  @override
+  String? getString(String key) => _values[key];
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    if (key == rejectedKey) return false;
+    _values.remove(key);
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    if (key == rejectedKey) return false;
+    _values[key] = value;
+    return true;
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -275,6 +306,33 @@ void main() {
   );
 
   test(
+    'placement change rolls back every course mirror and memory snapshot after a partial write',
+    () async {
+      final store = _RejectableCourseStateWriteStore();
+      final service = CourseMasteryService(
+        _catalog(),
+        snapshotPreferences: store,
+      );
+      await service.initializeForPlacement('a1', syncBrowseLevel: true);
+      final durableBefore = store.values;
+      final memoryBefore = service.snapshot.toJson();
+      expect(durableBefore[Storage.browseLevelPreferenceKey], 'a1');
+
+      // Reject the active-unit write after placement mirrors have already
+      // been attempted. The operation must remain all-or-nothing.
+      store.rejectedKey = Storage.courseUnitPreferenceKey;
+
+      await expectLater(
+        service.initializeForPlacement('a2', syncBrowseLevel: true),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(store.values, durableBefore);
+      expect(service.snapshot.toJson(), memoryBefore);
+    },
+  );
+
+  test(
     'completed reconciled snapshot clears its dedicated course-unit mirror',
     () async {
       await Storage.setCourseUnitId('b2_01_official');
@@ -336,11 +394,10 @@ void main() {
   );
 
   test(
-    'round-trips eligible evidence and advances at the pilot checkpoint',
+    'a current scenario without exact mission provenance stays browse history',
     () async {
       final service = CourseMasteryService(_catalog());
       await service.initializeForPlacement('a1');
-
       await service.recordContentAttempt(
         CurriculumContentKind.grammar,
         'grammar_greetings',
@@ -353,12 +410,176 @@ void main() {
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(1),
       );
-      final update = await service.recordScenarioCheckpoint(
+
+      final browseOnly = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
         occurredAt: _time(2),
       );
+      expect(browseOnly.currentUnit?.id, 'a1_01_greetings_hangul');
+      expect(
+        service.snapshot.scenarioCheckpoints.single.courseEligible,
+        isFalse,
+      );
 
+      final verified = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
+        occurredAt: _time(3),
+      );
+      expect(verified.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
+      expect(service.snapshot.scenarioCheckpoints.last.courseEligible, isTrue);
+    },
+  );
+
+  test(
+    'tagged scenario answers require the same exact mission provenance',
+    () async {
+      final service = CourseMasteryService(_catalog());
+      await service.initializeForPlacement('a1');
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.scenario,
+        'airport_arrival',
+        true,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(1),
+      );
+      expect(service.snapshot.evidence.single.courseEligible, isFalse);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.scenario,
+        'airport_arrival',
+        true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(2),
+      );
+      expect(service.snapshot.evidence.last.courseEligible, isTrue);
+    },
+  );
+
+  test(
+    'a single correct retry cannot replace a failed assessment sample',
+    () async {
+      final service = CourseMasteryService(_catalog());
+      await service.initializeForPlacement('a1');
+      final context = _assessContext(
+        service.catalog,
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+      );
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        false,
+        courseContext: context,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(1),
+      );
+      await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
+        occurredAt: _time(2),
+      );
+      expect(service.currentUnit?.id, 'a1_01_greetings_hangul');
+
+      final corrected = await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: context,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(3),
+      );
+
+      expect(corrected.newlyUnlockedUnit, isNull);
+      expect(service.currentUnit?.id, 'a1_01_greetings_hangul');
+      expect(
+        service.stateForConcept('concept_greeting_politeness'),
+        CourseContentState.practiceAvailable,
+      );
+      // The focused correction is cleared, while cumulative mastery remains
+      // truthful at 1/2 until enough verified answers cross 70 percent.
+      expect(service.reviewQueue, isEmpty);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: context,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(4),
+      );
+      final boundary = await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: context,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(5),
+      );
+
+      expect(boundary.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
+      expect(
+        service.stateForConcept('concept_greeting_politeness'),
+        CourseContentState.checkpointPassed,
+      );
+    },
+  );
+
+  test(
+    'round-trips eligible evidence and advances at the pilot checkpoint',
+    () async {
+      final service = CourseMasteryService(_catalog());
+      await service.initializeForPlacement('a1');
+      final grammarContext = _assessContext(
+        service.catalog,
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+      );
+      final checkpointContext = _assessContext(
+        service.catalog,
+        CurriculumContentKind.scenario,
+        'airport_arrival',
+      );
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        courseContext: grammarContext,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(1),
+      );
+      final update = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        courseContext: checkpointContext,
+        occurredAt: _time(2),
+      );
+
+      expect(update.previousSnapshot, isNotNull);
+      expect(
+        update.previousSnapshot!.completedUnitIds,
+        isNot(contains('a1_01_greetings_hangul')),
+      );
+      expect(update.previousSnapshot!.scenarioCheckpoints, isEmpty);
       expect(update.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
       expect(update.currentUnit?.id, 'a1_02_self_intro_identity');
       expect(Storage.courseUnitId, 'a1_02_self_intro_identity');
@@ -369,6 +590,14 @@ void main() {
       expect(snapshot.completedUnitIds, contains('a1_01_greetings_hangul'));
       expect(snapshot.evidence, hasLength(1));
       expect(snapshot.evidence.single.courseEligible, isTrue);
+      expect(
+        snapshot.evidence.single.missionContentLinkId,
+        grammarContext.contentLinkId,
+      );
+      expect(
+        snapshot.scenarioCheckpoints.single.missionContentLinkId,
+        checkpointContext.contentLinkId,
+      );
       expect(
         reloaded.stateForConcept('concept_greeting_politeness'),
         CourseContentState.checkpointPassed,
@@ -401,6 +630,11 @@ void main() {
         progress.recordScenarioCheckpoint(
           'airport_arrival',
           .70,
+          courseContext: _assessContext(
+            catalog,
+            CurriculumContentKind.scenario,
+            'airport_arrival',
+          ),
           occurredAt: _time(2),
         ),
       ]);
@@ -434,6 +668,11 @@ void main() {
       final below = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .69,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(11),
       );
       expect(below.currentUnit?.id, 'a1_01_greetings_hangul');
@@ -441,6 +680,11 @@ void main() {
       final boundary = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(12),
       );
       expect(boundary.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
@@ -493,6 +737,11 @@ void main() {
         final update = await service.recordScenarioCheckpoint(
           scenarioIds[index],
           .70,
+          courseContext: _assessContext(
+            service.catalog,
+            CurriculumContentKind.scenario,
+            scenarioIds[index],
+          ),
           occurredAt: _time(index * 2 + 2),
         );
         expect(update.newlyUnlockedUnit?.id, expectedNext[index]);
@@ -541,6 +790,11 @@ void main() {
       final currentCheckpoint = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(4),
       );
       expect(
@@ -584,6 +838,11 @@ void main() {
       final unlocked = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(3),
       );
 
@@ -639,6 +898,11 @@ void main() {
       final below = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .69,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(3),
       );
       expect(below.currentUnit?.id, 'a1_01_greetings_hangul');
@@ -657,6 +921,11 @@ void main() {
       final boundary = await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(4),
       );
       expect(boundary.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
@@ -702,6 +971,11 @@ void main() {
       await progress.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(1),
       );
 
@@ -872,6 +1146,55 @@ void main() {
   );
 
   test(
+    'legacy eligible records without an exact link stay byte-stable history',
+    () async {
+      final raw = jsonEncode(
+        CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'a1_01_greetings_hangul',
+          evidence: [
+            MasteryEvidence(
+              conceptId: 'concept_greeting_politeness',
+              contentKind: CurriculumContentKind.grammar,
+              contentId: 'grammar_greetings',
+              courseUnitId: 'a1_01_greetings_hangul',
+              isCorrect: false,
+              occurredAt: _time(1),
+              errorReason: MasteryErrorReason.speechStyle,
+              courseEligible: true,
+            ),
+          ],
+          scenarioCheckpoints: [
+            ScenarioCheckpointEvidence(
+              scenarioId: 'airport_arrival',
+              courseUnitId: 'a1_01_greetings_hangul',
+              score: 1,
+              occurredAt: _time(2),
+              courseEligible: true,
+            ),
+          ],
+        ).toJson(),
+      );
+      await Storage.setCourseMasteryRawJson(raw);
+      final service = CourseMasteryService(_catalog());
+
+      final snapshot = service.readForDisplay();
+
+      expect(snapshot, isNotNull);
+      expect(snapshot!.evidence.single.courseEligible, isTrue);
+      expect(snapshot.evidence.single.missionContentLinkId, isNull);
+      expect(snapshot.scenarioCheckpoints.single.missionContentLinkId, isNull);
+      expect(Storage.courseMasterySnapshotRawJson, raw);
+      expect(
+        service.stateForConcept('concept_greeting_politeness'),
+        CourseContentState.introduced,
+      );
+      expect(service.reviewQueue, isEmpty);
+      expect(service.currentUnit?.id, 'a1_01_greetings_hangul');
+    },
+  );
+
+  test(
     'active grammar and smalltalk library history never unlocks without context',
     () async {
       final service = CourseMasteryService(_catalog(withSmalltalk: true));
@@ -950,6 +1273,11 @@ void main() {
       await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(21),
       );
 
@@ -983,11 +1311,22 @@ void main() {
       await service.recordScenarioCheckpoint(
         'airport_arrival',
         .40,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(2),
       );
       final update = await service.recordScenarioCheckpoint(
         'introduce_yourself',
         1,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'introduce_yourself',
+          courseUnitId: 'a1_01_greetings_hangul',
+        ),
         occurredAt: _time(3),
       );
 
@@ -1018,11 +1357,22 @@ void main() {
       await service.recordScenarioCheckpoint(
         'airport_arrival',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'airport_arrival',
+        ),
         occurredAt: _time(2),
       );
       final update = await service.recordScenarioCheckpoint(
         'introduce_yourself',
         .70,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.scenario,
+          'introduce_yourself',
+          courseUnitId: 'a1_01_greetings_hangul',
+        ),
         occurredAt: _time(3),
       );
 
@@ -1033,6 +1383,17 @@ void main() {
   test(
     'bounded history preserves active unlock inputs and unresolved correction',
     () async {
+      final catalog = _catalog();
+      final grammarContext = _assessContext(
+        catalog,
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+      );
+      final checkpointContext = _assessContext(
+        catalog,
+        CurriculumContentKind.scenario,
+        'airport_arrival',
+      );
       final futureEvidence = <MasteryEvidence>[
         for (var index = 0; index < CourseMasteryService.evidenceCap; index++)
           MasteryEvidence(
@@ -1064,6 +1425,7 @@ void main() {
                 contentKind: CurriculumContentKind.grammar,
                 contentId: 'grammar_greetings',
                 courseUnitId: 'a1_01_greetings_hangul',
+                missionContentLinkId: grammarContext.contentLinkId,
                 isCorrect: true,
                 occurredAt: _time(1),
                 courseEligible: true,
@@ -1073,6 +1435,7 @@ void main() {
                 contentKind: CurriculumContentKind.grammar,
                 contentId: 'grammar_greetings',
                 courseUnitId: 'a1_01_greetings_hangul',
+                missionContentLinkId: grammarContext.contentLinkId,
                 isCorrect: false,
                 occurredAt: _time(2),
                 errorReason: MasteryErrorReason.speechStyle,
@@ -1084,6 +1447,7 @@ void main() {
               ScenarioCheckpointEvidence(
                 scenarioId: 'airport_arrival',
                 courseUnitId: 'a1_01_greetings_hangul',
+                missionContentLinkId: checkpointContext.contentLinkId,
                 score: .70,
                 occurredAt: _time(3),
                 courseEligible: true,
@@ -1094,7 +1458,7 @@ void main() {
         ),
       );
 
-      final service = CourseMasteryService(_catalog());
+      final service = CourseMasteryService(catalog);
       await service.refresh();
       await service.recordContentAttempt(
         CurriculumContentKind.grammar,
@@ -1223,27 +1587,39 @@ void main() {
       final catalog = await CurriculumCatalog.load();
       final service = CourseMasteryService(catalog);
       await service.initializeForPlacement('a1');
+      final scenarioContext = CoursePracticeContext.fromLink(
+        catalog
+            .linksForContent(CurriculumContentKind.scenario, 'airport_arrival')
+            .firstWhere(
+              (link) =>
+                  link.role == ContentLinkRole.assess &&
+                  link.conceptIds.contains('concept_greeting_politeness') &&
+                  link.exactlyAssesses(service.currentUnit!),
+            ),
+      );
 
       final update = await service.recordContentAttempt(
         CurriculumContentKind.scenario,
-        'introduce_yourself',
+        'airport_arrival',
         false,
-        conceptId: 'concept_hangul_batchim',
-        errorReason: MasteryErrorReason.batchim,
+        courseContext: scenarioContext,
+        conceptId: 'concept_greeting_politeness',
+        errorReason: MasteryErrorReason.listening,
         occurredAt: _time(50),
       );
 
-      expect(update.remediation?.conceptId, 'concept_hangul_batchim');
+      expect(update.remediation?.conceptId, 'concept_greeting_politeness');
       expect(
         service.reviewQueue.map((item) => item.conceptId),
-        contains('concept_hangul_batchim'),
+        contains('concept_greeting_politeness'),
       );
 
       await service.recordContentAttempt(
         CurriculumContentKind.scenario,
-        'introduce_yourself',
+        'airport_arrival',
         true,
-        conceptId: 'concept_hangul_batchim',
+        courseContext: scenarioContext,
+        conceptId: 'concept_greeting_politeness',
         occurredAt: _time(51),
       );
       expect(service.reviewQueue, isEmpty);
@@ -1320,6 +1696,12 @@ void main() {
   test(
     'refresh rejects forged current and bypass states before eligible evidence can count',
     () async {
+      final catalog = _catalog();
+      final officialContext = _assessContext(
+        catalog,
+        CurriculumContentKind.grammar,
+        'grammar_b2_official',
+      );
       await Storage.setCourseMasteryRawJson(
         jsonEncode({
           'version': 1,
@@ -1333,6 +1715,7 @@ void main() {
               contentKind: CurriculumContentKind.grammar,
               contentId: 'grammar_b2_official',
               courseUnitId: 'b2_01_official',
+              missionContentLinkId: officialContext.contentLinkId,
               isCorrect: true,
               occurredAt: _time(1),
               courseEligible: true,
@@ -1342,7 +1725,7 @@ void main() {
         }),
       );
       expect(
-        () => CourseMasteryService(_catalog()).refresh(),
+        () => CourseMasteryService(catalog).refresh(),
         throwsA(isA<FormatException>()),
       );
 
@@ -1442,11 +1825,16 @@ DateTime _time(int second) => DateTime.utc(2026, 8, 2, 12, 0, second);
 CoursePracticeContext _assessContext(
   CurriculumCatalog catalog,
   CurriculumContentKind kind,
-  String contentId,
-) {
+  String contentId, {
+  String? courseUnitId,
+}) {
   final link = catalog
       .linksForContent(kind, contentId)
-      .singleWhere((item) => item.role == ContentLinkRole.assess);
+      .firstWhere(
+        (item) =>
+            item.role == ContentLinkRole.assess &&
+            (courseUnitId == null || item.courseUnitId == courseUnitId),
+      );
   return CoursePracticeContext.fromLink(link);
 }
 
@@ -1489,6 +1877,11 @@ Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {
     await service.recordScenarioCheckpoint(
       scenarioIds[index],
       .70,
+      courseContext: _assessContext(
+        service.catalog,
+        CurriculumContentKind.scenario,
+        scenarioIds[index],
+      ),
       occurredAt: _time(index * 2 + 2),
     );
   }
@@ -1688,15 +2081,6 @@ CurriculumCatalog _catalog({
         'conceptIds': ['concept_object_particle'],
         'role': 'practice',
       },
-      if (firstUnitHasTwoCheckpoints)
-        {
-          'id': 'greeting_second_checkpoint',
-          'contentKind': 'scenario',
-          'contentId': 'introduce_yourself',
-          'courseUnitId': 'a1_01_greetings_hangul',
-          'conceptIds': ['concept_greeting_politeness'],
-          'role': 'assess',
-        },
       if (withInvalidLink)
         {
           'id': 'invalid_link',

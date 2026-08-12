@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
@@ -73,6 +74,23 @@ import '../widgets/sori/tokens.dart';
 ///   4. 오늘의 글자 compact
 ///   5. "다음 한 발" hero CTA (1개 시나리오 추천)
 ///   6. Modules + Games → horizontal scroll secondary
+class HomePreviewFixture {
+  const HomePreviewFixture({
+    required this.today,
+    required this.hanok,
+    required this.narrative,
+    this.onOpenToday,
+    this.onOpenHanok,
+  });
+
+  final TodayLearningSnapshot today;
+  final PersonalHanokProjection hanok;
+  final HanokBuildNarrative narrative;
+  final FutureOr<void> Function(TodayLearningDestination? destination)?
+  onOpenToday;
+  final FutureOr<void> Function()? onOpenHanok;
+}
+
 class HomeScreen extends StatefulWidget {
   /// AppShell이 스포트라이트 투어 타겟으로 전달하는 학습경로 섹션 키.
   /// null이면 KeyedSubtree 래핑 없이 그냥 렌더 (독립 실행 등).
@@ -90,6 +108,17 @@ class HomeScreen extends StatefulWidget {
     PersonalHanokProjection projection,
   )?
   loadHanokNarrative;
+  final DateTime Function()? now;
+  final bool legacyDashboardInitiallyExpanded;
+  final HomePreviewFixture? previewFixture;
+
+  /// Uses injected fixture state without starting production refresh, reward,
+  /// reminder, intro, or Hanok flows. Intended for tests and the UX gallery.
+  final bool previewMode;
+  final Future<void> Function()? onOpenSavedReview;
+  final TodayLearningPackAccessGate? ensureTodayPackAccess;
+  final TodayLearningRouteOpener? openTodayRoute;
+  final Stream<TodayNetworkStatus>? connectivityUpdates;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
@@ -102,7 +131,34 @@ class HomeScreen extends StatefulWidget {
     this.loadHanokRatios,
     this.loadHanokProjection,
     this.loadHanokNarrative,
-  });
+    this.now,
+    this.legacyDashboardInitiallyExpanded = false,
+    this.previewMode = false,
+    this.onOpenSavedReview,
+    this.ensureTodayPackAccess,
+    this.openTodayRoute,
+    this.connectivityUpdates,
+  }) : previewFixture = null;
+
+  /// The real Home surface with deterministic read-only state. It skips path,
+  /// notification, reward, cinematic, and onboarding flows entirely.
+  const HomeScreen.preview({
+    super.key,
+    required this.previewFixture,
+    this.dailyCharacter,
+    this.now,
+  }) : pathTourKey = null,
+       missionTourKey = null,
+       loadTodaySnapshot = null,
+       loadHanokRatios = null,
+       loadHanokProjection = null,
+       loadHanokNarrative = null,
+       legacyDashboardInitiallyExpanded = false,
+       previewMode = true,
+       onOpenSavedReview = null,
+       ensureTodayPackAccess = null,
+       openTodayRoute = null,
+       connectivityUpdates = null;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -113,7 +169,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   PersonalHanokProjection? _hanokProjection;
   HanokBuildNarrative? _hanokNarrative;
   bool _loadingTodaySnapshot = true;
-  bool _todayUnavailable = false;
+  late bool _legacyDashboardExpanded;
+  TodayLearningUnavailableReason? _todayUnavailableReason;
+  StreamSubscription<TodayNetworkStatus>? _connectivitySubscription;
+  int _todayLoadGeneration = 0;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
   int _openableBoxes = 0; // 열 수 있는 보자기(퀘스트 보상) 개수 — 홈 배너 게이트
@@ -132,16 +191,40 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    _legacyDashboardExpanded = widget.legacyDashboardInitiallyExpanded;
+    final preview = widget.previewFixture;
+    if (preview != null) {
+      _todaySnapshot = preview.today;
+      _hanokProjection = preview.hanok;
+      _hanokNarrative = preview.narrative;
+      _loadingTodaySnapshot = false;
+      _dueCount = preview.today.dueCount;
+      _hardCount = preview.today.hardCount;
+      return;
+    }
     _loadToday();
-    _loadPath();
-    _loadHanokPreview();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
+    final connectivityUpdates =
+        widget.connectivityUpdates ??
+        (widget.previewMode ? null : TodayLearningConnectivity.statusChanges);
+    _connectivitySubscription = connectivityUpdates?.listen(
+      _handleConnectivityChange,
+    );
+    if (!widget.previewMode) {
+      WidgetsBinding.instance.addObserver(this);
+      _loadPath();
+      _loadHanokPreview();
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _maybeShowIntroFlows(),
+      );
+    }
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    unawaited(_connectivitySubscription?.cancel());
+    if (!widget.previewMode && widget.previewFixture == null) {
+      WidgetsBinding.instance.removeObserver(this);
+    }
     super.dispose();
   }
 
@@ -150,7 +233,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
     // 공부→백그라운드→재개 시 그새 생산된 보자기·성장을 끌어온다. _refreshHome
     // 이 syncEarnedRewards 를 돌리고 openableBoxCount 를 재독해 배너에 반영한다.
-    if (state == AppLifecycleState.resumed && mounted) {
+    if (!widget.previewMode &&
+        widget.previewFixture == null &&
+        state == AppLifecycleState.resumed &&
+        mounted) {
       _refreshHome();
     }
   }
@@ -339,26 +425,30 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// existing destination through the shared access-gated navigator rather
   /// than adding a second decision in the Sarangbang.
   Future<void> _loadToday() async {
+    final generation = ++_todayLoadGeneration;
     if (mounted) {
       setState(() {
         _loadingTodaySnapshot = true;
-        _todayUnavailable = false;
+        _todayUnavailableReason = null;
       });
     }
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final snapshot = await load();
-      if (!mounted) {
+      if (!mounted || generation != _todayLoadGeneration) {
         return;
       }
 
       // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
-      final week = _isoWeek(DateTime.now());
-      final showCourseCard =
-          _courseCardThisWeek || Storage.courseCardWeekShown != week;
-      if (!_courseCardThisWeek && showCourseCard) {
-        // ignore: discarded_futures
-        Storage.setCourseCardWeekShown(week);
+      var showCourseCard = false;
+      if (!widget.previewMode && !snapshot.isUnavailable) {
+        final week = _isoWeek(DateTime.now());
+        showCourseCard =
+            _courseCardThisWeek || Storage.courseCardWeekShown != week;
+        if (!_courseCardThisWeek && showCourseCard) {
+          // ignore: discarded_futures
+          Storage.setCourseCardWeekShown(week);
+        }
       }
 
       setState(() {
@@ -368,22 +458,96 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         _openableBoxes = DecorationRewardService.openableBoxCount();
         _courseCardThisWeek = showCourseCard;
         _loadingTodaySnapshot = false;
-        _todayUnavailable = false;
+        _todayUnavailableReason = snapshot.unavailableReason;
       });
       // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
-      _refreshDailyReminder();
-    } catch (_) {
-      if (!mounted) {
+      if (!widget.previewMode && !snapshot.isUnavailable) {
+        _refreshDailyReminder();
+      }
+    } catch (error) {
+      if (!mounted || generation != _todayLoadGeneration) {
         return;
       }
       setState(() {
         _loadingTodaySnapshot = false;
-        _todayUnavailable = true;
+        _dueCount = 0;
+        _hardCount = 0;
+        _todayUnavailableReason = error is TodayLearningSourceFailure
+            ? error.reason
+            : TodayLearningUnavailableReason.localData;
       });
     }
   }
 
+  void _handleConnectivityChange(TodayNetworkStatus status) {
+    if (!mounted || status == TodayNetworkStatus.unknown) return;
+    if (status == TodayNetworkStatus.offline) {
+      _todayLoadGeneration++;
+      setState(() {
+        _loadingTodaySnapshot = false;
+        _todayUnavailableReason = TodayLearningUnavailableReason.offline;
+      });
+      return;
+    }
+    if (_todayUnavailableReason == TodayLearningUnavailableReason.offline) {
+      unawaited(_loadToday());
+    }
+  }
+
+  String _todayUnavailableEyebrow(AppL10n t) =>
+      switch (_todayUnavailableReason!) {
+        TodayLearningUnavailableReason.offline => t.homeUnavailableEyebrow,
+        TodayLearningUnavailableReason.remoteService =>
+          t.homeRemoteUnavailableEyebrow,
+        TodayLearningUnavailableReason.localData =>
+          t.homeLocalUnavailableEyebrow,
+      };
+
+  String _todayUnavailableTitle(AppL10n t) =>
+      switch (_todayUnavailableReason!) {
+        TodayLearningUnavailableReason.offline => t.homeUnavailableTitle,
+        TodayLearningUnavailableReason.remoteService =>
+          t.homeRemoteUnavailableTitle,
+        TodayLearningUnavailableReason.localData => t.homeLocalUnavailableTitle,
+      };
+
+  String _todayUnavailableBody(AppL10n t) {
+    final hasSavedReview = _dueCount > 0;
+    return switch (_todayUnavailableReason!) {
+      TodayLearningUnavailableReason.offline =>
+        hasSavedReview
+            ? t.homeUnavailableDescription
+            : t.homeUnavailableDescriptionNoReview,
+      TodayLearningUnavailableReason.remoteService =>
+        hasSavedReview
+            ? t.homeRemoteUnavailableDescription
+            : t.homeRemoteUnavailableDescriptionNoReview,
+      TodayLearningUnavailableReason.localData =>
+        hasSavedReview
+            ? t.homeLocalUnavailableDescription
+            : t.homeLocalUnavailableDescriptionNoReview,
+    };
+  }
+
+  String _todayUnavailableRetryLabel(AppL10n t) =>
+      _todayUnavailableReason == TodayLearningUnavailableReason.offline
+      ? t.homeUnavailableRetry
+      : t.homeUnavailableRetryGeneric;
+
+  IconData get _todayUnavailableIcon => switch (_todayUnavailableReason!) {
+    TodayLearningUnavailableReason.offline => Icons.cloud_off_outlined,
+    TodayLearningUnavailableReason.remoteService => Icons.cloud_sync_outlined,
+    TodayLearningUnavailableReason.localData => Icons.refresh_rounded,
+  };
+
   Future<void> _refreshHome() async {
+    if (widget.previewFixture != null) {
+      return;
+    }
+    if (widget.previewMode) {
+      await _loadToday();
+      return;
+    }
     // 공부하고 돌아오면 그새 target 도달한 퀘스트의 보자기를 생산한다(퀘스트
     // 화면을 안 열어도 — 실제 근본 수리). 이후 _loadToday 가 openableBoxCount 를
     // 다시 읽어 보자기 배너에 반영한다.
@@ -485,10 +649,16 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   /// 시간대 — 인사 + 호랑이 emotion 결정.
   _DayPhase get _phase {
-    final h = DateTime.now().hour;
+    final h = (widget.now?.call() ?? DateTime.now()).hour;
     if (h < 11) return _DayPhase.morning;
     if (h < 18) return _DayPhase.afternoon;
     return _DayPhase.evening;
+  }
+
+  String _todayHeading(AppL10n t) {
+    final date = widget.now?.call() ?? DateTime.now();
+    final locale = Localizations.localeOf(context).toLanguageTag();
+    return t.homeFocusDate(DateFormat.EEEE(locale).format(date));
   }
 
   String _greeting(AppL10n t) {
@@ -515,12 +685,21 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     if (!mounted) {
       return;
     }
+    final preview = widget.previewFixture;
+    if (preview != null) {
+      await preview.onOpenToday?.call(_todaySnapshot?.destination);
+      return;
+    }
     final opened = await TodayLearningNavigation.open(
       _todaySnapshot?.destination,
-      ensurePackAccess: (level) => ensurePackAccess(context, level: level),
-      openRoute: (route, arguments) async {
-        await Navigator.of(context).pushNamed(route, arguments: arguments);
-      },
+      ensurePackAccess:
+          widget.ensureTodayPackAccess ??
+          (level) => ensurePackAccess(context, level: level),
+      openRoute:
+          widget.openTodayRoute ??
+          (route, arguments) async {
+            await Navigator.of(context).pushNamed(route, arguments: arguments);
+          },
     );
     if (!opened || !mounted) {
       return;
@@ -531,9 +710,26 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> _openSavedReview() async {
-    await Navigator.pushNamed(context, '/review');
+  Future<void> _openHanok() async {
+    final preview = widget.previewFixture;
+    if (preview != null) {
+      await preview.onOpenHanok?.call();
+      return;
+    }
+    await Navigator.pushNamed(context, '/hanok');
     if (mounted) {
+      await _refreshHome();
+    }
+  }
+
+  Future<void> _openSavedReview() async {
+    final open = widget.onOpenSavedReview;
+    if (open != null) {
+      await open();
+    } else {
+      await Navigator.pushNamed(context, '/review');
+    }
+    if (mounted && !widget.previewMode) {
       await _loadToday();
     }
   }
@@ -581,15 +777,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       case ReviewPick r:
         return MissionHeroContent(
           kind: MissionHeroKind.review,
-          title: t.missionHeroReviewTitle(r.dueCount),
+          title: t.homeTodayReviewDescription,
           contextLabel: t.homeTodayFirst,
           levelCode: null,
-          meta: t.homeTodayReviewDescription,
+          meta: t.homeTodayReviewLead(r.dueCount),
           fraction: 0,
           started: false,
           ctaLabel: t.homeTodayReviewAction,
+          actionLabel: t.homeTodayNextAction,
+          actionTitle: t.homeTodayReviewMission(r.dueCount),
+          actionMeta: t.homeTodayReviewTime,
           supportingTitle: t.homeTodayReviewReasonTitle,
-          supportingBody: '${t.homeTodayReviewReason} ${t.homeTodayReviewTime}',
+          supportingBody: t.homeTodayReviewReason,
           onStart: _openTodayDestination,
         );
       case ScenarioPick sc:
@@ -786,9 +985,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         children: [
           // ── 1. 추상 gradient base — baked-in mascot 없음 ──
           // ⚠️ 상단 [_kHeroFlatBackdropFraction] 구간은 **평면 단색**이어야 한다.
-          // 캐릭터 mp4 는 순백(#FFFFFF) 매트를 `blendColor` multiply 로 흡수하는데
-          // (`CharacterClipPlayer`), multiply(흰색, C) 의 결과는 **언제나 정확히 C**
-          // 단색이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
+          // 홈 전용 캐릭터 mp4 는 한지색(`#FAF6EC`) 매트를 미리 합성한 불투명
+          // 영상이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
           // 액자처럼 보인다(2026-08-06 Jin 실기기: "영상 배경색"). 그래서 히어로가
           // 놓이는 상단은 `SoriColors.lightBg` 로 평평하게 깔고 그라데이션은 아래부터.
           Positioned.fill(
@@ -869,14 +1067,24 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         // setState 가 안 온다 → notifier 를 직접 구독한다.
                         final Widget heroBand = SoriEntrance(
                           delay: const Duration(milliseconds: 40),
-                          child: ValueListenableBuilder<MascotKind>(
-                            valueListenable: MascotPreference.kind,
-                            builder: (context, kind, _) => _TigerHero(
-                              greeting: _greeting(t),
-                              bubble: _tigerBubble(t, kind),
-                              phase: _phase,
-                              kind: kind,
-                            ),
+                          child: ValueListenableBuilder<CompanionPreference>(
+                            valueListenable: MascotPreference.preference,
+                            builder: (context, preference, _) {
+                              final kind = MascotPreference.mascotKindFor(
+                                preference,
+                              );
+                              if (kind == null) {
+                                return const SizedBox.shrink(
+                                  key: ValueKey('home-companion-hidden'),
+                                );
+                              }
+                              return _TigerHero(
+                                greeting: _greeting(t),
+                                bubble: _tigerBubble(t, kind),
+                                phase: _phase,
+                                kind: kind,
+                              );
+                            },
                           ),
                         );
                         // 화면상 맨 위 — 목록 마지막 = 가장 나중에 paint.
@@ -908,14 +1116,28 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 content: _loadingTodaySnapshot
                                     ? null
                                     : _missionHeroContent(t, lang),
-                                unavailable: _todayUnavailable
+                                unavailable: _todayUnavailableReason != null
                                     ? MissionHeroUnavailable(
-                                        title: t.homeUnavailableTitle,
-                                        body: t.homeUnavailableDescription,
-                                        ctaLabel: t.homeUnavailableCta,
-                                        onStart: _openSavedReview,
+                                        icon: _todayUnavailableIcon,
+                                        eyebrow: _todayUnavailableEyebrow(t),
+                                        title: _todayUnavailableTitle(t),
+                                        body: _todayUnavailableBody(t),
+                                        ctaLabel: _dueCount > 0
+                                            ? t.homeUnavailableCta
+                                            : null,
+                                        onStart: _dueCount > 0
+                                            ? _openSavedReview
+                                            : null,
+                                        retryLabel: _todayUnavailableRetryLabel(
+                                          t,
+                                        ),
+                                        onRetry: _loadToday,
                                       )
                                     : null,
+                                onAnotherRound: _todayUnavailableReason != null
+                                    ? null
+                                    : _openSavedReview,
+                                allDoneCtaLabel: t.homeEmptyCta,
                               ),
                             ),
                           ),
@@ -979,7 +1201,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                       topBar,
                                       const SizedBox(height: Spacing.sm),
                                       Text(
-                                        t.homeTodaySection,
+                                        _todayHeading(t),
                                         key: const ValueKey(
                                           'home-today-heading',
                                         ),
@@ -995,155 +1217,204 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             ],
                             const SizedBox(height: Spacing.lg),
 
-                            // ── 보상 안내 — 열 수 있는 보자기가 있으면 발견 배너 ──
-                            // 이게 없으면 퀘스트로 상자가 생겨도 사용자가 알 길이 없다.
-                            if (_openableBoxes > 0) ...[
-                              SoriEntrance(
-                                delay: const Duration(milliseconds: 110),
-                                slideY: 14,
-                                child: PendingRewardCard(
-                                  count: _openableBoxes,
-                                  onOpen: () async {
-                                    await Navigator.pushNamed(
-                                      context,
-                                      '/bojagi',
-                                    );
-                                    if (mounted) {
-                                      await _refreshHome();
-                                    }
-                                  },
-                                ),
-                              ),
-                              const SizedBox(height: Spacing.lg),
-                            ],
-
-                            // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
-                            SoriEntrance(
-                              delay: const Duration(milliseconds: 120),
-                              slideY: 14,
-                              child: _HomeHanokPreview(
-                                key: const ValueKey('home-hanok-preview'),
-                                twoColumn: twoColumn,
-                                projection: _hanokProjection,
-                                narrative: _hanokNarrative,
-                                onOpen: () async {
-                                  await Navigator.pushNamed(context, '/hanok');
-                                  if (mounted) {
-                                    await _refreshHome();
-                                  }
-                                },
-                              ),
+                            HomeBuildNote(
+                              key: const ValueKey('home-hanok-build-note'),
+                              narrative: _hanokNarrative,
                             ),
-                            const SizedBox(height: Spacing.xl),
-
-                            widget.pathTourKey != null
-                                ? KeyedSubtree(
-                                    key: widget.pathTourKey!,
-                                    child: _SectionLabel(label: t.pathTitle),
-                                  )
-                                : _SectionLabel(label: t.pathTitle),
-                            const SizedBox(height: Spacing.sm),
-                            if (_pathNodes.isEmpty)
-                              SoriEntrance(
-                                delay: const Duration(milliseconds: 120),
-                                slideY: 14,
-                                child: _PathCard(
-                                  onTap: () async {
-                                    await Navigator.pushNamed(context, '/path');
-                                    if (mounted) {
-                                      await _refreshHome();
-                                    }
-                                  },
-                                ),
-                              )
-                            else
-                              SoriEntrance(
-                                delay: const Duration(milliseconds: 120),
-                                slideY: 14,
-                                // §10.2: 현재 ±1 = 3노드 미리보기. 전량 경로와
-                                // 100% 트리거는 /path 전용 화면이 유지(§6.2).
-                                // 히어로(블록 2)가 클립이라 미리보기는 정적 —
-                                // 동시 디코더 ≤1 계약.
-                                child: PathPreviewRow(
-                                  stops: _previewStops(lang),
-                                  onSeeAll: () async {
-                                    await Navigator.pushNamed(context, '/path');
-                                    if (mounted) {
-                                      await _loadPath();
-                                    }
-                                  },
-                                ),
-                              ),
-                            const SizedBox(height: Spacing.xl),
-
-                            // ── P0-G7. Streak 0 회복 메시지 ──
-                            // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
-                            // 카드다("Willkommen zurück!"). 스트릭 0 조건만 보면
-                            // 방금 온보딩을 끝낸 신규 사용자에게도 떠서, 첫 화면이
-                            // "다시 오신 걸 환영합니다"로 시작한다(2026-07-31 발견).
-                            // XP 가 쌓인 적이 있어야 "돌아온 것" — 그때만 보여준다.
-                            // (1일차 인사 자체는 learner_motivation.dart:83 이 이미 분기한다.)
-                            if (Storage.streakDays == 0 && Storage.xp > 0) ...[
-                              SoriEntrance(
-                                delay: const Duration(milliseconds: 200),
-                                slideY: 14,
-                                child: SoriCard(
-                                  variant: SoriCardVariant.hero,
-                                  accent: SoriColors.primary,
-                                  tinted: true,
-                                  child: Row(
-                                    children: [
-                                      ValueListenableBuilder<MascotKind>(
-                                        valueListenable: MascotPreference.kind,
-                                        builder: (context, kind, _) => Mascot(
-                                          kind: kind,
-                                          emotion: MascotEmotion.smile,
-                                          size: 60,
+                            if (_dueCount > 0 &&
+                                _todaySnapshot?.pick is! ReviewPick) ...[
+                              const SizedBox(height: Spacing.md),
+                              _HomeLaterTodayNote(dueCount: _dueCount),
+                            ],
+                            if (_legacyDashboardExpanded)
+                              KeyedSubtree(
+                                key: const ValueKey('home-legacy-dashboard'),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // ── 보상 안내 — 열 수 있는 보자기가 있으면 발견 배너 ──
+                                    // 이게 없으면 퀘스트로 상자가 생겨도 사용자가 알 길이 없다.
+                                    if (_openableBoxes > 0) ...[
+                                      SoriEntrance(
+                                        delay: const Duration(
+                                          milliseconds: 110,
+                                        ),
+                                        slideY: 14,
+                                        child: PendingRewardCard(
+                                          count: _openableBoxes,
+                                          onOpen: () async {
+                                            await Navigator.pushNamed(
+                                              context,
+                                              '/bojagi',
+                                            );
+                                            if (mounted) {
+                                              await _refreshHome();
+                                            }
+                                          },
                                         ),
                                       ),
-                                      const SizedBox(width: Spacing.md),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              t.homeTigerBubbleResume,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).cardTitle,
-                                            ),
-                                            const SizedBox(height: 4),
-                                            Text(
-                                              t.homeTigerBubbleResumeSub,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).caption,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                      const SizedBox(height: Spacing.lg),
                                     ],
-                                  ),
+
+                                    // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
+                                    SoriEntrance(
+                                      delay: const Duration(milliseconds: 120),
+                                      slideY: 14,
+                                      child: _HomeHanokPreview(
+                                        key: const ValueKey(
+                                          'home-hanok-preview',
+                                        ),
+                                        twoColumn: twoColumn,
+                                        projection: _hanokProjection,
+                                        narrative: _hanokNarrative,
+                                        onOpen: _openHanok,
+                                      ),
+                                    ),
+                                    const SizedBox(height: Spacing.xl),
+
+                                    widget.pathTourKey != null
+                                        ? KeyedSubtree(
+                                            key: widget.pathTourKey!,
+                                            child: _SectionLabel(
+                                              label: t.pathTitle,
+                                            ),
+                                          )
+                                        : _SectionLabel(label: t.pathTitle),
+                                    const SizedBox(height: Spacing.sm),
+                                    if (_pathNodes.isEmpty)
+                                      SoriEntrance(
+                                        delay: const Duration(
+                                          milliseconds: 120,
+                                        ),
+                                        slideY: 14,
+                                        child: _PathCard(
+                                          onTap: () async {
+                                            await Navigator.pushNamed(
+                                              context,
+                                              '/path',
+                                            );
+                                            if (mounted) {
+                                              await _refreshHome();
+                                            }
+                                          },
+                                        ),
+                                      )
+                                    else
+                                      SoriEntrance(
+                                        delay: const Duration(
+                                          milliseconds: 120,
+                                        ),
+                                        slideY: 14,
+                                        // §10.2: 현재 ±1 = 3노드 미리보기. 전량 경로와
+                                        // 100% 트리거는 /path 전용 화면이 유지(§6.2).
+                                        // 히어로(블록 2)가 클립이라 미리보기는 정적 —
+                                        // 동시 디코더 ≤1 계약.
+                                        child: PathPreviewRow(
+                                          stops: _previewStops(lang),
+                                          onSeeAll: () async {
+                                            await Navigator.pushNamed(
+                                              context,
+                                              '/path',
+                                            );
+                                            if (mounted) {
+                                              await _loadPath();
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                    const SizedBox(height: Spacing.xl),
+
+                                    // ── P0-G7. Streak 0 회복 메시지 ──
+                                    // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
+                                    // 카드다("Willkommen zurück!"). 스트릭 0 조건만 보면
+                                    // 방금 온보딩을 끝낸 신규 사용자에게도 떠서, 첫 화면이
+                                    // "다시 오신 걸 환영합니다"로 시작한다(2026-07-31 발견).
+                                    // XP 가 쌓인 적이 있어야 "돌아온 것" — 그때만 보여준다.
+                                    // (1일차 인사 자체는 learner_motivation.dart:83 이 이미 분기한다.)
+                                    if (Storage.streakDays == 0 &&
+                                        Storage.xp > 0) ...[
+                                      SoriEntrance(
+                                        delay: const Duration(
+                                          milliseconds: 200,
+                                        ),
+                                        slideY: 14,
+                                        child: SoriCard(
+                                          variant: SoriCardVariant.hero,
+                                          accent: SoriColors.primary,
+                                          tinted: true,
+                                          child: ValueListenableBuilder<CompanionPreference>(
+                                            valueListenable:
+                                                MascotPreference.preference,
+                                            builder: (context, preference, _) {
+                                              final kind =
+                                                  MascotPreference.mascotKindFor(
+                                                    preference,
+                                                  );
+                                              return Row(
+                                                children: [
+                                                  if (kind != null) ...[
+                                                    Mascot(
+                                                      kind: kind,
+                                                      emotion:
+                                                          MascotEmotion.smile,
+                                                      size: 60,
+                                                    ),
+                                                    const SizedBox(
+                                                      width: Spacing.md,
+                                                    ),
+                                                  ],
+                                                  Expanded(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          t.homeTigerBubbleResume,
+                                                          style:
+                                                              SoriTextTheme.of(
+                                                                context,
+                                                              ).cardTitle,
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 4,
+                                                        ),
+                                                        Text(
+                                                          t.homeTigerBubbleResumeSub,
+                                                          style:
+                                                              SoriTextTheme.of(
+                                                                context,
+                                                              ).caption,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: Spacing.sm),
+                                    ],
+                                    // ── E1b·A2·E1c·D2. 조건부 카드 4종 ──
+                                    // 전부 서로 독립인 진입점이라 2열에서 짝지어 배치한다.
+                                    // 표시 조건이 제각각이라 목록을 먼저 만들고 나눈다 —
+                                    // 그래야 빈 칸이 생기지 않는다.
+                                    ..._secondaryCards(twoColumn: twoColumn),
+
+                                    const SizedBox(height: Spacing.xxxl),
+                                    Center(
+                                      child: Text(
+                                        t.footerCheer,
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).caption.copyWith(color: s.textMuted),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              const SizedBox(height: Spacing.sm),
-                            ],
-                            // ── E1b·A2·E1c·D2. 조건부 카드 4종 ──
-                            // 전부 서로 독립인 진입점이라 2열에서 짝지어 배치한다.
-                            // 표시 조건이 제각각이라 목록을 먼저 만들고 나눈다 —
-                            // 그래야 빈 칸이 생기지 않는다.
-                            ..._secondaryCards(twoColumn: twoColumn),
-
-                            const SizedBox(height: Spacing.xxxl),
-                            Center(
-                              child: Text(
-                                t.footerCheer,
-                                style: SoriTextTheme.of(
-                                  context,
-                                ).caption.copyWith(color: s.textMuted),
-                              ),
-                            ),
                           ],
                         );
                       },
@@ -1155,7 +1426,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           ),
 
           // ── 4. 매화 입자 — **콘텐츠 위**에 그린다.
-          // 캐릭터 mp4 는 흰 매트를 multiply 로 흡수한 **불투명 사각형**이라,
+          // 캐릭터 mp4 는 한지색 매트를 미리 합성한 **불투명 사각형**이라,
           // 입자를 아래 깔면 꽃잎이 히어로 영상 경계에서 사라졌다 반대편에서
           // 다시 나타난다(2026-08-06). 위로 올리면 캐릭터 앞을 스치듯 지나가
           // 의도한 앰비언트가 되고, IgnorePointer 라 탭도 안 가로챈다.
@@ -1262,6 +1533,71 @@ double _homeContentMaxWidth(double available) {
     return soriAdaptiveContentMaxWidth(available);
   }
   return kHomeTwoColumnContentMaxWidth;
+}
+
+/// Compact, read-only construction note kept on the focused Today surface.
+/// The full map stays available in the dedicated Hanok destination.
+class HomeBuildNote extends StatelessWidget {
+  const HomeBuildNote({super.key, required this.narrative});
+
+  final HanokBuildNarrative? narrative;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final value = narrative;
+    final note =
+        value?.verifiedUnit?.canDo.pick(languageCode) ??
+        value?.nextUnit?.canDo.pick(languageCode) ??
+        t.homeHanokPreviewBody;
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.primary,
+      tinted: true,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.foundation_outlined, color: SoriColors.primary),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.homeFocusBuildTitle, style: text.label),
+                const SizedBox(height: Spacing.xs),
+                Text(note, style: text.bodySmall),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HomeLaterTodayNote extends StatelessWidget {
+  const _HomeLaterTodayNote({required this.dueCount});
+
+  final int dueCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(t.homeFocusLaterTitle, style: text.label),
+          const SizedBox(height: Spacing.xs),
+          Text(t.homeFocusLaterBody(dueCount), style: text.bodySmall),
+        ],
+      ),
+    );
+  }
 }
 
 /// A read-only glimpse of the learner's estate. The main Hanok screen owns
@@ -1583,8 +1919,8 @@ class _RoundIconButton extends StatelessWidget {
 
 /// 홈 배경 gradient 중 **평면 단색**으로 유지할 상단 비율.
 ///
-/// 캐릭터 mp4 의 순백 매트는 `multiply(흰색, blendColor) = blendColor` 라
-/// 언제나 정확한 단색 사각형이 된다. 그 사각형이 놓이는 구간의 배경이
+/// 홈 전용 캐릭터 mp4 는 `SoriColors.lightBg` 매트를 미리 합성한 단색
+/// 사각형이다. 그 사각형이 놓이는 구간의 배경이
 /// 그라데이션이면 영상만 밝게 떠 액자처럼 보인다 → 히어로가 차지하는 상단은
 /// `SoriColors.lightBg` 로 평평하게 둔다. 짧은 화면(≈640dp)에서도 밴드 하단이
 /// 이 비율 안에 들어오도록 잡은 값.
@@ -1703,9 +2039,9 @@ class _TigerHero extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child: isDark
-                // multiply 블렌드는 **밝은 배경 전용**(AGENTS·tiger_video.dart).
-                // 다크에서 흰 매트를 크림으로 곱하면 어두운 배경 위에 밝은 사각형이
-                // 그대로 뜬다 → 다크는 정적 마스코트로 간다.
+                // 홈 전용 영상의 한지색 매트는 **밝은 배경 전용**이다.
+                // 다크에서는 어두운 배경 위에 밝은 사각형이 그대로 뜨므로
+                // 정적 마스코트로 간다.
                 ? Mascot(
                     kind: kind,
                     emotion: _emotion,
@@ -1715,18 +2051,17 @@ class _TigerHero extends StatelessWidget {
                 : CharacterClipPlayer(
                     key: ValueKey('home_hero_${kind.name}'),
                     asset: kind == MascotKind.magpie
-                        ? CharacterClips.magpieWalkingFront
-                        : CharacterClips.tigerRise,
+                        ? HomeHeroClips.magpieWalkingFront
+                        : HomeHeroClips.tigerRise,
                     size: bandHeight,
                     loop: true,
+                    // These home-only clips already contain the flat Hanji
+                    // backdrop. Avoid the Android external-texture color
+                    // filter that can expose the original white matte.
+                    applyMultiplyFilter: false,
                     staticFallback: CharacterClipPlayer.videoUnavailable(
                       context,
                     ),
-                    // 흰 매트 multiply 결과 = 정확히 이 색. 홈 배경 상단의
-                    // **평면 구간과 같은 상수**여야 이음매가 사라진다
-                    // (`build` 의 gradient 주석 참고). `s.bg` 가 아니라 상수인
-                    // 이유: 배경 gradient 도 팔레트 무관 상수이기 때문.
-                    blendColor: SoriColors.lightBg,
                     fallbackKind: kind,
                     fallbackEmotion: _emotion,
                   ),

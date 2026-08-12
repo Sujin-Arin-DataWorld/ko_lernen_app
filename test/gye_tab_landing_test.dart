@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,6 +9,7 @@ import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
   setUp(() async {
@@ -18,32 +21,63 @@ void main() {
   testWidgets('empty Gye landing makes participation and visibility optional', (
     tester,
   ) async {
-    await _pump(tester, () async => const <GyeMeta>[]);
+    tester.view.physicalSize = const Size(308, 680);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final semantics = tester.ensureSemantics();
+    var chooserCalls = 0;
+    var soloCalls = 0;
+    await _pump(
+      tester,
+      () async => const <GyeMeta>[],
+      onFindOrCreate: () => chooserCalls++,
+      onContinueSolo: () => soloCalls++,
+      textScale: 1.3,
+    );
 
+    expect(find.text('Freiwillige Lerngemeinschaft'), findsOneWidget);
     expect(
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
+    expect(
+      find.text(
+        'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander '
+        'hält.',
+      ),
+      findsOneWidget,
+    );
     await tester.scrollUntilVisible(
-      find.text('Was andere sehen können'),
+      find.text('Was andere sehen'),
       180,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Was andere sehen können'), findsOneWidget);
+    expect(find.text('Was andere sehen'), findsOneWidget);
     expect(find.textContaining('niemals deine Antworten'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text('Eine Gye finden oder gründen'),
+      find.text('Eine 계 finden oder gründen'),
       320,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Eine Gye finden oder gründen'), findsOneWidget);
+    expect(find.text('Eine 계 finden oder gründen'), findsOneWidget);
+    final chooser = find.byType(SoriButton);
+    expect(tester.getSize(chooser).height, greaterThanOrEqualTo(48));
+    final chooserSemantics = tester.getSemantics(chooser).getSemanticsData();
+    expect(chooserSemantics.label, 'Eine 계 finden oder gründen');
+    expect(chooserSemantics.hasAction(SemanticsAction.tap), isTrue);
     await tester.scrollUntilVisible(
       find.text('Ohne Gruppe weiterlernen'),
       120,
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Ohne Gruppe weiterlernen'), findsOneWidget);
+    tester.widget<SoriButton>(find.byType(SoriButton)).onTap!();
+    tester.widget<TextButton>(find.byType(TextButton)).onPressed!();
+    expect(chooserCalls, 1);
+    expect(soloCalls, 1);
     expect(tester.takeException(), isNull);
+    semantics.dispose();
   });
 
   testWidgets('existing Gye list keeps the optional shared-courtyard context', (
@@ -69,15 +103,29 @@ void main() {
 
 Future<void> _pump(
   WidgetTester tester,
-  Future<List<GyeMeta>> Function() loadGyeMetas,
-) async {
+  Future<List<GyeMeta>> Function() loadGyeMetas, {
+  VoidCallback? onFindOrCreate,
+  VoidCallback? onContinueSolo,
+  double textScale = 1,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: GyeTabScreen(loadGyeMetas: loadGyeMetas),
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(
+          context,
+        ).copyWith(textScaler: TextScaler.linear(textScale)),
+        child: child!,
+      ),
+      home: GyeTabScreen(
+        loadGyeMetas: loadGyeMetas,
+        onFindOrCreate: onFindOrCreate,
+        onContinueSolo: onContinueSolo,
+        enableCoach: false,
+      ),
     ),
   );
   // The existing shared-hanok preview intentionally has a repeating pulse,

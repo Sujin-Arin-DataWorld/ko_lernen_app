@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "baselineDate": "2026-08-02",
+  "baselineDate": "2026-08-12",
   "sources": [
     {"kind": "vocab", "count": 930, "source": "korean_vocab.csv", "requiresExplicitId": true},
     {"kind": "grammar", "count": 123, "source": "grammar.csv", "requiresExplicitId": true},
-    {"kind": "scenario", "count": 39, "source": "scenarios.json", "requiresExplicitId": true},
-    {"kind": "scenarioQuest", "count": 150, "source": "scenarios.json", "requiresExplicitId": false},
+    {"kind": "scenario", "count": 42, "source": "scenarios.json", "requiresExplicitId": true},
+    {"kind": "scenarioQuest", "count": 193, "source": "scenarios.json", "requiresExplicitId": false},
     {"kind": "smalltalk", "count": 193, "source": "smalltalk.json", "requiresExplicitId": true},
     {"kind": "cloze", "count": 286, "source": "cloze.json", "requiresExplicitId": true},
     {"kind": "satz", "count": 191, "source": "satz_sentences.json", "requiresExplicitId": true}

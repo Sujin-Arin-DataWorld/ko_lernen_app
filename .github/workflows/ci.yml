@@ -33,6 +33,16 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Install FFmpeg for matte verification
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes ffmpeg
+
+      - name: Verify character video mattes
+        run: |
+          python3 tool/check_clip_matte.py --check
+          python3 tool/check_home_hero_matte.py --check
+
       - name: Analyze (error 0 강제 · warning·info 허용)
         run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
@@ -75,6 +85,38 @@ jobs:
       - name: Test function security boundary
         working-directory: functions/analyze_korean_text
         run: python -m unittest discover -p "test_*.py"
+
+  gye-functions-security:
+    name: Gye functions and rules security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/gye/package-lock.json
+
+      - name: Set up Java 21 for Firestore emulator
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install Gye function dependencies
+        working-directory: functions/gye
+        run: npm ci
+
+      - name: Test Gye runtime boundaries
+        working-directory: functions/gye
+        run: npm test
+
+      - name: Test Firestore rules
+        working-directory: functions/gye
+        run: npm run test:rules
 
   # 골든 기준선 재생성 — 수동 실행 전용(workflow_dispatch).
   # 위 build 잡과 **같은 OS·같은 flutter-version** 이어야 의미가 있다. 산출물

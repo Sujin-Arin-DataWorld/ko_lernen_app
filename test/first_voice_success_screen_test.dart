@@ -9,12 +9,14 @@ import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 void main() {
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    MascotPreference.load();
   });
 
   testWidgets('01C shows the persisted ability and can continue solo', (
@@ -48,6 +50,9 @@ void main() {
     await tester.pump(const Duration(milliseconds: 350));
 
     expect(Storage.introPreviewSeen, isTrue);
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.getString('kl_preferred_mascot'), 'none');
+    expect(MascotPreference.selectedKind, isNull);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
@@ -106,5 +111,50 @@ void main() {
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
+  });
+
+  testWidgets('01C preview renders the scene phrase without storage writes', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    bool? finishedWithoutCompanion;
+    var chooseCalls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: FirstVoiceSuccessScreen(
+          canDo: 'Ich kann jemanden freundlich begr\u00fc\u00dfen.',
+          phrase: '\uc548\ub155\ud558\uc138\uc694.',
+          finishOverride: (withoutCompanion) async {
+            finishedWithoutCompanion = withoutCompanion;
+          },
+          chooseCompanionOverride: () async => chooseCalls++,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(
+      find.text(
+        '\uc548\ub155\ud558\uc138\uc694. \u00b7 ein Satz, den du jetzt h\u00f6ren und erwidern kannst.',
+      ),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Lernfreund w\u00e4hlen'));
+    await tester.pump();
+    expect(chooseCalls, 1);
+    await tester.tap(find.text('Direkt zu Heute'));
+    await tester.pump();
+    expect(finishedWithoutCompanion, isTrue);
+
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
+    expect(Storage.introPreviewSeen, isFalse);
   });
 }

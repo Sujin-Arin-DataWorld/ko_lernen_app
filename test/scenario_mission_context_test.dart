@@ -33,11 +33,17 @@ void main() {
     await tester.runAsync(() async {
       await ScenarioLoader.load();
       final catalog = await CurriculumCatalog.load();
-      link = catalog.contentLinks.firstWhere(
-        (entry) =>
-            entry.contentKind == CurriculumContentKind.scenario &&
-            entry.courseUnitId.startsWith('a1_'),
-      );
+      link = catalog.contentLinks.firstWhere((entry) {
+        if (entry.contentKind != CurriculumContentKind.scenario ||
+            entry.role != ContentLinkRole.assess ||
+            !entry.courseUnitId.startsWith('a1_')) {
+          return false;
+        }
+        final unit = catalog.courseUnitFor(entry.courseUnitId);
+        final candidate = ScenarioLoader.byId(entry.contentId);
+        return candidate?.level == LearnerLevel.a1 &&
+            unit?.checkpointContentIds.contains(entry.contentKey) == true;
+      });
       scenario = ScenarioLoader.byId(link.contentId)!;
     });
 

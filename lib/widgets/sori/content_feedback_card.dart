@@ -75,7 +75,10 @@ class ContentFeedbackCard extends StatefulWidget {
   final ContentFeedbackContext feedbackContext;
   final TesterFeedbackFeatureGate featureGate;
   final ContentFeedbackSubmitter submitFeedback;
-  final MascotKind mascotKind;
+
+  /// Fixed brand character for this card. Passing `null` keeps the feedback
+  /// workflow intact while honoring an explicit no-companion preference.
+  final MascotKind? mascotKind;
   final Iterable<String> completedMissionIds;
 
   @override
@@ -301,15 +304,17 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Mascot(
-            kind: widget.mascotKind,
-            emotion: _acceptedStamp
-                ? MascotEmotion.celebrate
-                : MascotEmotion.smile,
-            size: 56,
-            animate: false,
-          ),
-          const SizedBox(width: Spacing.md),
+          if (widget.mascotKind case final kind?) ...[
+            Mascot(
+              kind: kind,
+              emotion: _acceptedStamp
+                  ? MascotEmotion.celebrate
+                  : MascotEmotion.smile,
+              size: 56,
+              animate: false,
+            ),
+            const SizedBox(width: Spacing.md),
+          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

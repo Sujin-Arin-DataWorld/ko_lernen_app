@@ -7,6 +7,7 @@ import '../models/gye.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -76,9 +77,15 @@ class GyeMembersScreen extends StatelessWidget {
                                 vertical: Spacing.sm,
                               ),
                             ),
-                            itemCount: members.length,
+                            itemCount: members.length + 1,
                             itemBuilder: (_, i) {
-                              final m = members[i];
+                              if (i == 0) {
+                                return const Padding(
+                                  padding: EdgeInsets.only(bottom: Spacing.sm),
+                                  child: _GyeSafetyRulesCard(),
+                                );
+                              }
+                              final m = members[i - 1];
                               final isSelf = m.uid == me;
                               final isBlocked = blocked.contains(m.uid);
                               return ListTile(
@@ -183,6 +190,42 @@ class GyeMembersScreen extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _GyeSafetyRulesCard extends StatelessWidget {
+  const _GyeSafetyRulesCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Semantics(
+      container: true,
+      child: SoriCard(
+        tinted: true,
+        accent: SoriColors.primary,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.shield_outlined, color: SoriColors.primary),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.gyeRulesTitle,
+                    style: const TextStyle(fontWeight: FontWeight.w800),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(t.gyeRulesBody),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

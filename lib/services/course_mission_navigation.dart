@@ -1,5 +1,7 @@
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../models/vocab_pack.dart';
+import 'vocab_pack_service.dart';
 
 /// A route opened from a mission's practice list. The original libraries stay
 /// available, while course-aware games receive the mission ID and can filter
@@ -35,6 +37,19 @@ CoursePracticeContext? coursePracticeContextFromRouteArguments(
   }
   return arguments;
 }
+
+/// Reads either a typed mission edge or the retained direct-library unit ID.
+/// The returned context is still required before any answer may be marked as
+/// mission-routed evidence.
+String? courseUnitIdFromActivityRouteArguments(
+  Object? arguments,
+  CurriculumContentKind expectedKind,
+) =>
+    coursePracticeContextFromRouteArguments(
+      arguments,
+      expectedKind,
+    )?.courseUnitId ??
+    (arguments is String ? arguments : null);
 
 /// Keeps the legacy unit-ID route contract for direct library links while
 /// preserving typed provenance for a vocab route opened from a course mission.
@@ -127,12 +142,41 @@ CourseMissionDestination? destinationForCourseLink(ContentLink link) {
     case CurriculumContentKind.cloze:
       return CourseMissionDestination(
         route: '/cloze',
-        arguments: link.courseUnitId,
+        arguments: CoursePracticeContext.fromLink(link),
       );
     case CurriculumContentKind.satz:
       return CourseMissionDestination(
         route: '/satz_arcade',
-        arguments: link.courseUnitId,
+        arguments: CoursePracticeContext.fromLink(link),
       );
   }
+}
+
+/// Resolves the first mission action to the actual activity screen. Vocabulary
+/// links need one data lookup because the graph stores a word ID while the
+/// player route is pack-based; falling back to the pack marketplace would add
+/// another decision and break the brief's single-action contract.
+Future<CourseMissionDestination?> directDestinationForCourseLink(
+  ContentLink link, {
+  Future<List<VocabPack>> Function()? vocabPacksLoader,
+}) async {
+  if (link.contentKind != CurriculumContentKind.vocab) {
+    return destinationForCourseLink(link);
+  }
+  final packs = await (vocabPacksLoader ?? VocabPackService.loadAll)();
+  VocabPack? sourcePack;
+  for (final pack in packs) {
+    if (pack.words.any((word) => word.id == link.contentId)) {
+      sourcePack = pack;
+      break;
+    }
+  }
+  if (sourcePack == null) return null;
+  return CourseMissionDestination(
+    route: '/vocab/pack',
+    arguments: vocabPackRouteArguments(
+      packId: sourcePack.id,
+      courseContext: CoursePracticeContext.fromLink(link),
+    ),
+  );
 }

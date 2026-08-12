@@ -492,6 +492,24 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _siblingPacks,
       bossAccuracy: bossAccuracy,
     );
+    final missionContext = _missionStep == null ? null : widget.courseContext;
+    if (missionContext != null) {
+      final totalAnswers = _normalWords.length + bossTotal;
+      final correctAnswers = _quizCorrect + bossCorrect;
+      final courseScore = totalAnswers == 0
+          ? 0.0
+          : correctAnswers / totalAnswers;
+      await CourseActivityReporter.recordContentAttempt(
+        CurriculumContentKind.vocab,
+        missionContext.initialContentId,
+        courseScore >= .70,
+        courseContext: missionContext,
+        errorReason: courseScore >= .70
+            ? null
+            : MasteryErrorReason.vocabularyRecall,
+        score: courseScore,
+      );
+    }
     // XP 보상 (Plan §4.4) — wordsTotal*5 + bossCorrect*10
     await Storage.addXp(pack.total * 5 + bossCorrect * 10);
     // 도장 획득 — 첫 클리어 시 토픽군 motif 도장을 도장첩에 추가.

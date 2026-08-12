@@ -42,6 +42,13 @@ void main() {
       }
     });
 
+    test('명시적 none은 레거시 기본 Tiger와 구별한다', () {
+      expect(MascotPreference.decode('none'), CompanionPreference.none);
+      expect(MascotPreference.decode('magpie'), CompanionPreference.magpie);
+      expect(MascotPreference.decode(''), CompanionPreference.tiger);
+      expect(MascotPreference.mascotKindFor(CompanionPreference.none), isNull);
+    });
+
     test('폐기된 jieun/minsu 별칭은 호랑이로 정규화한다', () {
       for (final legacy in const [MascotKind.jieun, MascotKind.minsu]) {
         expect(MascotPreference.encode(legacy), 'tiger');
@@ -64,6 +71,26 @@ void main() {
       expect(MascotPreference.other(MascotKind.tiger), MascotKind.magpie);
       expect(MascotPreference.other(MascotKind.magpie), MascotKind.tiger);
     });
+
+    testWidgets('CompanionBuilder previews none without storage mutations', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: CompanionBuilder(
+            previewPreference: CompanionPreference.none,
+            builder: (context, kind) => Mascot(kind: kind),
+            noneBuilder: (context) => const Icon(
+              Icons.person_outline_rounded,
+              key: ValueKey('neutral-companion-slot'),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byKey(const ValueKey('neutral-companion-slot')), findsOne);
+      expect(find.byType(Mascot), findsNothing);
+    });
   });
 
   group('캐릭터별 클립 선택 — 두 캐릭터가 실제로 다르다', () {
@@ -76,10 +103,7 @@ void main() {
         TigerStageVideo.paceFor(MascotKind.tiger),
         isNot(TigerStageVideo.paceFor(MascotKind.magpie)),
       );
-      expect(
-        TigerStageVideo.greetFor(MascotKind.magpie),
-        contains('magpie'),
-      );
+      expect(TigerStageVideo.greetFor(MascotKind.magpie), contains('magpie'));
       expect(TigerStageVideo.paceFor(MascotKind.magpie), contains('magpie'));
       expect(TigerStageVideo.greetFor(MascotKind.tiger), contains('tiger'));
     });
@@ -200,6 +224,59 @@ void main() {
   });
 
   group('소스 가드 — 하드코딩 재발 방지', () {
+    test('selected-companion surfaces never read the legacy non-null kind', () {
+      // Policy table: these surfaces personalize the learner's companion and
+      // must therefore support explicit none. Fixed book/listening artwork and
+      // an explicitly supplied GameOverCard mascot are authored brand/game
+      // decoration, not a stored learner preference.
+      const selectedCompanionFiles = <String>[
+        'lib/screens/book_result_screen.dart',
+        'lib/screens/chosung_quiz_screen.dart',
+        'lib/screens/custom_pack_play_screen.dart',
+        'lib/screens/home_screen.dart',
+        'lib/screens/kkeunmari_screen.dart',
+        'lib/screens/profile_screen.dart',
+        'lib/screens/review_session_screen.dart',
+        'lib/screens/scenario_player_screen.dart',
+        'lib/screens/settings_screen.dart',
+        'lib/screens/vocab_pack_result_screen.dart',
+        'lib/widgets/sori/character_clip.dart',
+        'lib/widgets/sori/game_reward.dart',
+        'lib/widgets/sori/milestone_celebration.dart',
+        'lib/widgets/sori/path_trail.dart',
+        'lib/widgets/sori/tiger_video.dart',
+      ];
+      final offenders = <String>[];
+      for (final path in selectedCompanionFiles) {
+        final source = File(path).readAsStringSync();
+        if (source.contains('MascotPreference.kind.value') ||
+            source.contains('MascotPreference.current')) {
+          offenders.add(path);
+        }
+      }
+      expect(
+        offenders,
+        isEmpty,
+        reason: 'none을 stale Tiger로 바꾸는 legacy read: $offenders',
+      );
+    });
+
+    test('brand/game character surfaces remain explicit', () {
+      const authored = <String, String>{
+        'lib/screens/listening_screen.dart': 'fallbackKind: MascotKind.magpie',
+        'lib/widgets/sori/game_reward.dart': 'widget.mascotKind ??',
+        'lib/screens/book_result_screen.dart':
+            'Fixed book artwork is brand decoration',
+      };
+      for (final entry in authored.entries) {
+        expect(
+          File(entry.key).readAsStringSync(),
+          contains(entry.value),
+          reason: '${entry.key} lost its explicit surface classification',
+        );
+      }
+    });
+
     test('결과·완료 화면에 MascotKind.tiger 리터럴이 없다', () {
       // ① 진짜 하드코딩이 있던 파일들. ② 승패 연출(won ? magpie : tiger)과
       // ③ 선택 화면은 대상이 아니다 — 여기 목록에 넣지 말 것.

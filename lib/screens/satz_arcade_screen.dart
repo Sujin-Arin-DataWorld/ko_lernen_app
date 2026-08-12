@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_practice_context.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../services/course_activity_reporter.dart';
@@ -30,8 +31,14 @@ class SatzArcadeScreen extends StatefulWidget {
   /// A mission passes its ID so sentence practice cannot accidentally draw a
   /// future-level library item and turn it into course evidence.
   final String? courseUnitId;
+  final CoursePracticeContext? courseContext;
 
-  const SatzArcadeScreen({super.key, this.items, this.courseUnitId});
+  const SatzArcadeScreen({
+    super.key,
+    this.items,
+    this.courseUnitId,
+    this.courseContext,
+  });
 
   @override
   State<SatzArcadeScreen> createState() => _SatzArcadeScreenState();
@@ -50,6 +57,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   int _idx = 0;
   int _passed = 0;
   GameOutcome? _outcome;
+  CoursePracticeContext? _missionContext;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
@@ -61,7 +69,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   Future<void> _load() async {
     final loaded = widget.items ?? await SatzLoader.load();
     final all = List<SatzSentence>.of(loaded);
-    final catalog = widget.courseUnitId == null
+    final courseUnitId =
+        widget.courseContext?.courseUnitId ?? widget.courseUnitId;
+    final catalog = courseUnitId == null
         ? null
         : await CurriculumCatalog.load();
     if (!mounted) return;
@@ -72,16 +82,32 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final courseIds = catalog == null
         ? const <String>{}
         : catalog
-              .linksForCourseUnit(widget.courseUnitId!)
+              .linksForCourseUnit(courseUnitId!)
               .where((link) => link.contentKind == CurriculumContentKind.satz)
               .map((link) => link.contentId)
               .toSet();
     final scoped = catalog == null
         ? all
         : all.where((item) => courseIds.contains(item.id)).toList();
+    final requestedContext = widget.courseContext;
+    final missionContext =
+        catalog == null ||
+            requestedContext == null ||
+            !requestedContext.isFor(CurriculumContentKind.satz) ||
+            !catalog
+                .linksForCourseUnit(courseUnitId!)
+                .any(
+                  (link) =>
+                      link.id == requestedContext.contentLinkId &&
+                      link.contentKind == CurriculumContentKind.satz &&
+                      link.contentId == requestedContext.initialContentId,
+                )
+        ? null
+        : requestedContext;
     setState(() {
       _all = scoped;
       _level = catalog == null ? start : null;
+      _missionContext = missionContext;
       _loading = false;
     });
     _newRound();
@@ -89,6 +115,13 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
   void _newRound() {
     final pool = SatzLoader.filter(_all, _level)..shuffle();
+    final sourceId = _missionContext?.initialContentId;
+    if (sourceId != null) {
+      final sourceIndex = pool.indexWhere((item) => item.id == sourceId);
+      if (sourceIndex > 0) {
+        pool.insert(0, pool.removeAt(sourceIndex));
+      }
+    }
     setState(() {
       _roundId++;
       _round = pool.take(_roundSize).toList();
@@ -119,6 +152,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         CurriculumContentKind.satz,
         item.id,
         result.passed,
+        courseContext: _missionContext?.initialContentId == item.id
+            ? _missionContext
+            : null,
         errorReason: result.passed ? null : MasteryErrorReason.wordOrder,
       );
     }
@@ -236,7 +272,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   }
 
   Widget _levelBar(AppL10n t) {
-    if (widget.courseUnitId != null) return const SizedBox.shrink();
+    if (widget.courseContext != null || widget.courseUnitId != null) {
+      return const SizedBox.shrink();
+    }
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(bottom: Spacing.sm),

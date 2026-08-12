@@ -1,7 +1,14 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 import '../../services/storage_service.dart';
 import 'mascot.dart';
+
+/// The learner's explicit companion decision.
+///
+/// An empty legacy preference still means Taego so existing installs keep
+/// their established guide. Only the canonical `none` value represents a
+/// deliberate, fully supported no-companion choice.
+enum CompanionPreference { none, tiger, magpie }
 
 /// **선택된 캐릭터 — 앱 전역 단일 진입점.**
 ///
@@ -23,8 +30,27 @@ class MascotPreference {
   ];
 
   /// 현재 캐릭터. 구독해서 쓴다.
-  static final ValueNotifier<MascotKind> kind =
-      ValueNotifier<MascotKind>(MascotKind.tiger);
+  static final ValueNotifier<MascotKind> kind = ValueNotifier<MascotKind>(
+    MascotKind.tiger,
+  );
+
+  /// Explicit companion state. Companion UI must subscribe to this notifier
+  /// when it needs to disappear for [CompanionPreference.none].
+  static final ValueNotifier<CompanionPreference> preference =
+      ValueNotifier<CompanionPreference>(CompanionPreference.tiger);
+
+  static CompanionPreference decode(String raw) => switch (raw) {
+    'none' => CompanionPreference.none,
+    'magpie' => CompanionPreference.magpie,
+    _ => CompanionPreference.tiger,
+  };
+
+  static MascotKind? mascotKindFor(CompanionPreference value) =>
+      switch (value) {
+        CompanionPreference.none => null,
+        CompanionPreference.tiger => MascotKind.tiger,
+        CompanionPreference.magpie => MascotKind.magpie,
+      };
 
   /// 저장 문자열 → enum. 미설정/알 수 없는 값은 호랑이(기존 기본값 유지).
   static MascotKind parse(String raw) =>
@@ -34,14 +60,35 @@ class MascotPreference {
       value == MascotKind.magpie ? 'magpie' : 'tiger';
 
   /// `main()` 부팅 시 1회 — `Storage.init()` **이후**에 호출할 것.
-  static void load() => kind.value = parse(Storage.preferredMascot);
+  static void load() {
+    final stored = decode(Storage.preferredMascot);
+    preference.value = stored;
+    final selected = mascotKindFor(stored);
+    if (selected != null) {
+      kind.value = selected;
+    }
+  }
 
   /// 선택 저장 + 전역 통지. 캐릭터 선택 화면과 설정 화면이 둘 다 이걸 쓴다.
   static Future<void> set(MascotKind value) async {
     final canonical = parse(encode(value));
     kind.value = canonical;
+    preference.value = canonical == MascotKind.magpie
+        ? CompanionPreference.magpie
+        : CompanionPreference.tiger;
     await Storage.setPreferredMascot(encode(canonical));
   }
+
+  /// Persists an explicit no-companion choice without inventing a replacement
+  /// mascot. Learning routes and progress remain unchanged.
+  static Future<void> setNone() async {
+    preference.value = CompanionPreference.none;
+    await Storage.setPreferredMascot('none');
+  }
+
+  static MascotKind? get selectedKind => mascotKindFor(preference.value);
+
+  static bool get hasCompanion => selectedKind != null;
 
   /// 리빌드가 필요 없는 곳(콜백 내부 1회 조회 등)에서만.
   /// 위젯 build 안에서는 쓰지 말 것 — 변경이 반영되지 않는다.
@@ -50,4 +97,47 @@ class MascotPreference {
   /// 반대 캐릭터 — 설정 토글·미리보기용.
   static MascotKind other(MascotKind value) =>
       value == MascotKind.tiger ? MascotKind.magpie : MascotKind.tiger;
+}
+
+/// Reactive slot for UI that represents the learner's chosen companion.
+///
+/// Brand illustrations and game-authored characters should be rendered
+/// directly instead. Personal companion surfaces use this widget so the
+/// explicit [CompanionPreference.none] state never falls back to stale Tiger.
+/// [previewPreference] is a storage-free seam for tests and the UX gallery.
+class CompanionBuilder extends StatelessWidget {
+  const CompanionBuilder({
+    super.key,
+    required this.builder,
+    this.noneBuilder,
+    this.previewPreference,
+  });
+
+  final Widget Function(BuildContext context, MascotKind kind) builder;
+  final WidgetBuilder? noneBuilder;
+  final CompanionPreference? previewPreference;
+
+  Widget _buildPreference(
+    BuildContext context,
+    CompanionPreference preference,
+  ) {
+    final kind = MascotPreference.mascotKindFor(preference);
+    if (kind == null) {
+      return noneBuilder?.call(context) ?? const SizedBox.shrink();
+    }
+    return builder(context, kind);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final preview = previewPreference;
+    if (preview != null) {
+      return _buildPreference(context, preview);
+    }
+    return ValueListenableBuilder<CompanionPreference>(
+      valueListenable: MascotPreference.preference,
+      builder: (context, preference, _) =>
+          _buildPreference(context, preference),
+    );
+  }
 }

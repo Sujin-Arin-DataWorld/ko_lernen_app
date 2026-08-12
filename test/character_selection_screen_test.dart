@@ -125,7 +125,8 @@ void main() {
     expect(completed, isTrue);
     expect(Storage.introPreviewSeen, isTrue);
     final preferences = await SharedPreferences.getInstance();
-    expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
+    expect(preferences.getString('kl_preferred_mascot'), 'none');
+    expect(MascotPreference.selectedKind, isNull);
     expect(find.byType(ConsentScreen), findsNothing);
   });
 

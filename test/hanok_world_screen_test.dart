@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
+import 'package:ko_lernen_app/widgets/sori/progress.dart';
 import 'package:ko_lernen_app/widgets/sori/world_map_viewport.dart';
 
 const _narrativeUnit = CourseUnit(
@@ -142,6 +143,96 @@ void main() {
     expect(openedRoute, '/course/mission');
   });
 
+  testWidgets('03A shows safe-scene progress toward the current beam', (
+    tester,
+  ) async {
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+    );
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async =>
+              const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+          loadProjection: (_) async => projection,
+          loadNarrative: (_) async => HanokBuildNarrative(
+            projection: projection,
+            safeSceneCount: 1,
+            safeScenesTowardNextBeam: 1,
+            scenesPerBeam: 2,
+            plannedBeamCount: 1,
+          ),
+          revealStore: _MemoryRevealStore.initialized(),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    final progressLabel = find.text('1 of 2 scenes secure');
+    await tester.scrollUntilVisible(
+      progressLabel,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+
+    expect(find.text('Next: the next beam'), findsOneWidget);
+    expect(progressLabel, findsOneWidget);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      .5,
+    );
+  });
+
+  testWidgets('03A keeps the safe-scene build story usable at 308dp ×1.3', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+    );
+
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative(
+            projection: projection,
+            verifiedUnit: _narrativeUnit,
+            safeSceneCount: 1,
+            safeScenesTowardNextBeam: 1,
+            scenesPerBeam: 2,
+            plannedBeamCount: 1,
+          ),
+        ),
+        locale: const Locale('de'),
+        textScale: 1.3,
+      ),
+    );
+
+    expect(find.text('Dein Hof · A1'), findsOneWidget);
+    expect(find.text('Ein Dach beginnt mit einer Stimme.'), findsOneWidget);
+    expect(
+      find.text('Dein Fundament steht: jemanden begrüßen.'),
+      findsOneWidget,
+    );
+    final map = find.byType(PersonalHanokMap);
+    expect(tester.getSize(map).height, greaterThanOrEqualTo(278));
+    final progress = find.text('1 von 2 Szenen sicher');
+    await tester.scrollUntilVisible(progress, 220);
+    expect(find.text('Als Nächstes: der nächste Balken'), findsOneWidget);
+    expect(progress, findsOneWidget);
+    expect(find.text('Nächste Szene ansehen'), findsOneWidget);
+    expect(find.text('Mein Haus erkunden'), findsOneWidget);
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(textContrastGuideline));
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('opens the estate map from verified course structure alone', (
     tester,
   ) async {
@@ -252,7 +343,7 @@ void main() {
       find.text(
         'Return to today\'s scene and the expressions you have earned.',
       ),
-      findsOneWidget,
+      findsWidgets,
     );
     final openSelected = find.byKey(
       const ValueKey('hanok-world-open-selected'),
@@ -263,6 +354,90 @@ void main() {
     await tester.tap(openSelected);
 
     expect(opened, PersonalHanokZone.sarangbang);
+  });
+
+  testWidgets('gallery preview renders real 03B widgets without storage load', (
+    tester,
+  ) async {
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+    );
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative(
+            projection: projection,
+            receipt: const HanokLearningReceipt(
+              nextScenarioId: 'restaurant_scene',
+              nextExpressionKo: '안 맵게 해 주세요.',
+            ),
+          ),
+          selectedZone: PersonalHanokZone.sarangbang,
+        ),
+      ),
+    );
+
+    expect(find.byType(WorldMapViewport), findsOneWidget);
+    expect(find.text('4 minutes · say “안 맵게 해 주세요.”'), findsOneWidget);
+  });
+
+  testWidgets('03B matches the compact German map contract at 308dp ×1.3', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+    );
+
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative(
+            projection: projection,
+            receipt: const HanokLearningReceipt(
+              nextScenarioId: 'restaurant_scene',
+              nextExpressionKo: '안 맵게 해 주세요.',
+            ),
+          ),
+          selectedZone: PersonalHanokZone.sarangbang,
+        ),
+        locale: const Locale('de'),
+        textScale: 1.3,
+      ),
+    );
+
+    for (final label in const [
+      '사랑방\nHeute lernen',
+      '대청마루\nDein Weg',
+      '안채\nWörter',
+      '후원\nAufgaben',
+    ]) {
+      expect(find.text(label), findsOneWidget);
+    }
+    expect(find.text('사랑방 · Deine heutige Szene'), findsOneWidget);
+    expect(find.text('4 Minuten · „안 맵게 해 주세요.“ sagen'), findsOneWidget);
+    expect(find.text('Dorthin gehen'), findsOneWidget);
+    expect(
+      find.text(
+        'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.',
+      ),
+      findsNothing,
+    );
+    await tester.scrollUntilVisible(
+      find.text('Orte als Liste anzeigen'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Orte als Liste anzeigen'), findsOneWidget);
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(textContrastGuideline));
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets(
@@ -428,12 +603,19 @@ void main() {
   });
 }
 
-Widget _host(Widget child) => MaterialApp(
-  locale: const Locale('en'),
+Widget _host(
+  Widget child, {
+  Locale locale = const Locale('en'),
+  double textScale = 1,
+}) => MaterialApp(
+  locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: MediaQuery(
-    data: const MediaQueryData(disableAnimations: true),
+    data: MediaQueryData(
+      disableAnimations: true,
+      textScaler: TextScaler.linear(textScale),
+    ),
     child: child,
   ),
 );

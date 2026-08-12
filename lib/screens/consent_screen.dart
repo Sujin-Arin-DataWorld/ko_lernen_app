@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,7 +26,13 @@ const _termsUrl = 'https://hangul-sori.com/terms.html';
 /// Zustimmung geht es zur Level-Auswahl — oder direkt nach Hause, falls das
 /// Level schon gewählt wurde.
 class ConsentScreen extends StatefulWidget {
-  const ConsentScreen({super.key});
+  const ConsentScreen({super.key}) : onPreviewAccepted = null;
+
+  /// Renders the production consent surface without granting consent or
+  /// changing analytics/crash preferences. Used by the UX Gallery and tests.
+  const ConsentScreen.preview({super.key, required this.onPreviewAccepted});
+
+  final FutureOr<void> Function()? onPreviewAccepted;
 
   @override
   State<ConsentScreen> createState() => _ConsentScreenState();
@@ -36,6 +44,11 @@ class _ConsentScreenState extends State<ConsentScreen> {
 
   Future<void> _accept(BuildContext context) async {
     HapticFeedback.mediumImpact();
+    final previewAccepted = widget.onPreviewAccepted;
+    if (previewAccepted != null) {
+      await previewAccepted();
+      return;
+    }
     await Storage.setConsentAccepted();
     // Opt-in anwenden (Default aus — nur aktivieren, was angekreuzt wurde).
     await PrivacyConsentService.setAnalytics(_analytics);

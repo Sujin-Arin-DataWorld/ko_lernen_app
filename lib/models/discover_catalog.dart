@@ -8,7 +8,7 @@ import '../widgets/sori/tokens.dart';
 /// A catalog entry deliberately carries its learner purpose, route, icon and
 /// search terms together.  Discover is a directory, not another recommendation
 /// engine: Home remains responsible for the single "what to do now" action.
-enum DiscoverPurpose { learn, practice, words, progress }
+enum DiscoverPurpose { forMe, language, words, leisure }
 
 class DiscoverCatalogEntry {
   const DiscoverCatalogEntry({
@@ -47,7 +47,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
     List<DiscoverCatalogEntry>.unmodifiable([
       DiscoverCatalogEntry(
         id: 'book_capture',
-        purpose: DiscoverPurpose.learn,
+        purpose: DiscoverPurpose.words,
         icon: Icons.document_scanner_outlined,
         title: t.homeBookCardTitle,
         subtitle: t.homeBookCardDesc,
@@ -58,7 +58,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'hangul',
-        purpose: DiscoverPurpose.learn,
+        purpose: DiscoverPurpose.language,
         icon: Icons.text_fields_rounded,
         title: t.moduleHangulTitle,
         subtitle: t.moduleHangulDesc,
@@ -68,7 +68,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'grammar',
-        purpose: DiscoverPurpose.learn,
+        purpose: DiscoverPurpose.language,
         icon: Icons.edit_note_rounded,
         title: t.moduleGrammarTitle,
         subtitle: t.moduleGrammarDesc,
@@ -78,7 +78,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'scenarios',
-        purpose: DiscoverPurpose.learn,
+        purpose: DiscoverPurpose.language,
         icon: Icons.forum_rounded,
         title: t.moduleScenariosTitle,
         subtitle: t.moduleScenariosDesc,
@@ -88,7 +88,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'vocab',
-        purpose: DiscoverPurpose.learn,
+        purpose: DiscoverPurpose.words,
         icon: Icons.style_outlined,
         title: t.moduleVocabTitle,
         subtitle: t.moduleVocabDesc,
@@ -98,7 +98,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'review',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.refresh_rounded,
         title: t.reviewTitle,
         subtitle: t.reviewEmptyTitle,
@@ -108,7 +108,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'daily',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.local_fire_department_rounded,
         title: t.dailyTitle,
         subtitle: t.dailyDesc,
@@ -119,7 +119,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'chosung',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.leisure,
         icon: Icons.sort_by_alpha_rounded,
         title: t.gameChosungTitle,
         subtitle: t.gameChosungDesc,
@@ -129,7 +129,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'wordle',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.leisure,
         icon: Icons.grid_4x4_rounded,
         title: t.gameWordleTitle,
         subtitle: t.gameWordleDesc,
@@ -139,7 +139,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'cloze',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.language,
         icon: Icons.short_text_rounded,
         title: t.clozeTitle,
         subtitle: t.clozeDesc,
@@ -150,7 +150,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'speed_match',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.leisure,
         icon: Icons.bolt_rounded,
         title: t.speedMatchTitle,
         subtitle: t.speedMatchDesc,
@@ -161,7 +161,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'satz_arcade',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.language,
         icon: Icons.reorder_rounded,
         title: t.satzArcadeTitle,
         subtitle: t.satzArcadeDesc,
@@ -172,7 +172,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'kkeunmari',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.leisure,
         icon: Icons.link_rounded,
         title: t.gameKkeunmariTitle,
         subtitle: t.gameKkeunmariDesc,
@@ -182,7 +182,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'listening',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.language,
         icon: Icons.headphones_rounded,
         title: t.moduleListenTitle,
         subtitle: t.listeningSubtitle,
@@ -192,7 +192,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'smalltalk',
-        purpose: DiscoverPurpose.practice,
+        purpose: DiscoverPurpose.language,
         icon: Icons.chat_bubble_outline_rounded,
         title: t.homeSmalltalkCardTitle,
         subtitle: t.homeSmalltalkCardDesc,
@@ -232,7 +232,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'path',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.route_outlined,
         title: t.pathTitle,
         subtitle: t.homePathCardSub,
@@ -242,7 +242,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'stats',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.bar_chart_rounded,
         title: t.moduleStatsTitle,
         subtitle: t.moduleStatsDesc,
@@ -252,7 +252,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'quests',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.workspace_premium_outlined,
         title: t.homeQuestsCardTitle,
         subtitle: t.homeQuestsCardDesc,
@@ -262,7 +262,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'dojang',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.collections_outlined,
         title: t.dojangTitle,
         subtitle: t.dojangEmptyBody,
@@ -272,7 +272,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'hanok',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.home_work_outlined,
         title: t.hanokWorldTitle,
         subtitle: t.hanokWorldIntro,
@@ -282,7 +282,7 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
       ),
       DiscoverCatalogEntry(
         id: 'sarangbang',
-        purpose: DiscoverPurpose.progress,
+        purpose: DiscoverPurpose.forMe,
         icon: Icons.chair_outlined,
         title: t.sarangbangTitle,
         subtitle: t.sarangbangHubDesc,

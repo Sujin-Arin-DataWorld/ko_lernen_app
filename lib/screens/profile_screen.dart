@@ -16,11 +16,16 @@ import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/storage_service.dart';
+import '../services/course_progress_service.dart';
+import '../services/gye_service.dart';
+import '../services/learning_data_export_service.dart';
 import '../data/learner_motivation.dart';
+import '../models/gye.dart';
 import '../models/scenario.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/account_operation_ui.dart';
 import '../l10n/generated/app_localizations.dart';
+import 'settings_screen.dart';
 
 String _providerLabel(AppL10n t, AuthProviderState providers) {
   if (providers.isGoogleLinked && providers.isAppleLinked) {
@@ -45,13 +50,67 @@ class ProfileScreen extends StatefulWidget {
     this.accountOperations,
     this.cloudDataDeletionJournalState,
     this.cloudDataDeletion,
+    this.loadGyeMetas,
+    this.exportLearningData,
+    this.initializePlacement,
+    this.previewMode = false,
+    this.previewMotivation,
+    this.previewLevel,
+    this.previewCompanion,
+    this.onChangeMotivation,
+    this.onChangeStartPoint,
+    this.onChangeCompanion,
+    this.onOpenAccountControls,
+    this.onOpenGye,
+    this.onOpenAccountDeletion,
+    this.enableCoach = true,
   });
+
+  /// Production Profile surface with every mutating action disabled and all
+  /// asynchronous account/group state supplied by the Gallery.
+  const ProfileScreen.preview({
+    super.key,
+    required this.accountOperations,
+    required this.cloudDataDeletionJournalState,
+    required this.loadGyeMetas,
+    this.account = const AuthAccountSnapshot(
+      providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
+      displayName: 'Vorschau',
+    ),
+    this.previewMotivation,
+    this.previewLevel,
+    this.previewCompanion,
+    this.onChangeMotivation,
+    this.onChangeStartPoint,
+    this.onChangeCompanion,
+  }) : cloudDataDeletion = null,
+       exportLearningData = null,
+       initializePlacement = null,
+       onOpenAccountControls = null,
+       onOpenGye = null,
+       onOpenAccountDeletion = null,
+       enableCoach = false,
+       previewMode = true;
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
   final ValueListenable<CloudBackupDeletionJournalState>?
   cloudDataDeletionJournalState;
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
+  final Future<List<GyeMeta>> Function()? loadGyeMetas;
+  final Future<void> Function()? exportLearningData;
+  final Future<void> Function(String levelCode)? initializePlacement;
+  final bool previewMode;
+  final LearnerMotivation? previewMotivation;
+  final LearnerLevel? previewLevel;
+  final CompanionPreference? previewCompanion;
+  final VoidCallback? onChangeMotivation;
+  final VoidCallback? onChangeStartPoint;
+  final VoidCallback? onChangeCompanion;
+  final VoidCallback? onOpenAccountControls;
+  final VoidCallback? onOpenGye;
+  final VoidCallback? onOpenAccountDeletion;
+  final bool enableCoach;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -60,6 +119,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
+  bool _exportBusy = false;
+  late final Future<List<GyeMeta>> _gyeMetas;
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
@@ -91,8 +152,14 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   void initState() {
     super.initState();
-    scheduleCoach();
-    if (widget.cloudDataDeletionJournalState == null) {
+    final loadGyeMetas = widget.loadGyeMetas;
+    _gyeMetas = loadGyeMetas != null
+        ? loadGyeMetas()
+        : widget.previewMode
+        ? Future<List<GyeMeta>>.value(const <GyeMeta>[])
+        : GyeService.myGyeMetas();
+    if (widget.enableCoach) scheduleCoach();
+    if (!widget.previewMode && widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
@@ -100,6 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _connectWith(AccountLinkProvider provider) async {
+    if (widget.previewMode) return;
     setState(() => _busy = true);
     try {
       await runConfirmedAccountLink(
@@ -118,6 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _signOut() async {
+    if (widget.previewMode) return;
     try {
       await AuthService.signOut();
     } catch (_) {
@@ -129,6 +198,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _resumeCloudDeletion() async {
+    if (widget.previewMode) return;
     await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
     if (mounted) {
       setState(() {});
@@ -139,6 +209,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Future<void> _showActionLocked(
     CloudBackupDeletionJournalState cloudDeletionState,
   ) {
+    if (widget.previewMode) return Future<void>.value();
     return showAccountActionLocked(
       context,
       operations: _accountOperations,
@@ -148,17 +219,23 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _changeMotivation() async {
+    if (widget.previewMode) {
+      widget.onChangeMotivation?.call();
+      return;
+    }
     await showMotivationSheet(context);
     if (mounted) {
       setState(() {});
     }
   }
 
-  String _levelLabel(AppL10n t) {
-    final level =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    return _levelName(t, level);
-  }
+  LearnerLevel get _learningStartPoint =>
+      widget.previewLevel ??
+      LearnerLevel.fromCode(Storage.dedicatedCoursePlacementLevelCode) ??
+      LearnerLevel.fromCode(Storage.userLevelCode) ??
+      LearnerLevel.a1;
+
+  String _levelLabel(AppL10n t) => _levelName(t, _learningStartPoint);
 
   String _levelName(AppL10n t, LearnerLevel level) => switch (level) {
     LearnerLevel.a1 => '${level.display} — ${t.onboardingLevelA1}',
@@ -168,9 +245,12 @@ class _ProfileScreenState extends State<ProfileScreen>
   };
 
   Future<void> _changeLevel() async {
+    if (widget.previewMode) {
+      widget.onChangeStartPoint?.call();
+      return;
+    }
     final t = AppL10n.of(context);
-    final current =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final current = _learningStartPoint;
     final selected = await showDialog<LearnerLevel>(
       context: context,
       builder: (dialogContext) => SimpleDialog(
@@ -200,35 +280,98 @@ class _ProfileScreenState extends State<ProfileScreen>
     if (selected == null || selected == current) {
       return;
     }
-    await Storage.setUserLevelCode(selected.code);
+    if (!mounted) return;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(t.profileLearningStartPointConfirmTitle),
+        content: Text(t.profileLearningStartPointConfirmBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(t.profileLearningStartPointConfirmCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(t.profileLearningStartPointConfirmAction),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    try {
+      final initializePlacement = widget.initializePlacement;
+      if (initializePlacement != null) {
+        await initializePlacement(selected.code);
+      } else {
+        await CourseProgressService.shared.initializeForPlacement(
+          selected.code,
+          syncBrowseLevel: true,
+        );
+      }
+    } catch (error, stackTrace) {
+      debugPrint('Profile start-point change failed: $error\n$stackTrace');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(t.profileLearningStartPointChangeFailed)),
+        );
+      }
+      return;
+    }
     if (mounted) {
       setState(() {});
     }
   }
 
   Future<void> _changeCompanion() async {
+    if (widget.previewMode) {
+      widget.onChangeCompanion?.call();
+      return;
+    }
     final t = AppL10n.of(context);
-    final current = MascotPreference.current;
-    final selected = await showDialog<MascotKind>(
+    final current = MascotPreference.preference.value;
+    const options = <CompanionPreference>[
+      CompanionPreference.tiger,
+      CompanionPreference.magpie,
+      CompanionPreference.none,
+    ];
+    final selected = await showDialog<CompanionPreference>(
       context: context,
       builder: (dialogContext) => SimpleDialog(
         title: Text(t.characterSelectionTitle),
         children: [
-          for (final kind in MascotPreference.selectableKinds)
+          for (final option in options)
             SimpleDialogOption(
-              onPressed: () => Navigator.of(dialogContext).pop(kind),
+              onPressed: () => Navigator.of(dialogContext).pop(option),
               child: Row(
                 children: [
-                  Mascot(kind: kind, size: 42),
+                  if (MascotPreference.mascotKindFor(option) case final kind?)
+                    Mascot(kind: kind, size: 42)
+                  else
+                    const SizedBox.square(
+                      dimension: 42,
+                      child: Icon(Icons.person_outline_rounded),
+                    ),
                   const SizedBox(width: Spacing.md),
                   Expanded(
-                    child: Text(
-                      kind == MascotKind.magpie
-                          ? t.characterNameMagpie
-                          : t.characterNameTiger,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(switch (option) {
+                          CompanionPreference.none => t.companionNoneName,
+                          CompanionPreference.tiger => t.characterNameTiger,
+                          CompanionPreference.magpie => t.characterRomanMagpie,
+                        }),
+                        Text(switch (option) {
+                          CompanionPreference.none =>
+                            t.companionNoneDescription,
+                          CompanionPreference.tiger => t.characterTraitTiger,
+                          CompanionPreference.magpie => t.characterTraitMagpie,
+                        }, style: SoriTextTheme.of(context).caption),
+                      ],
                     ),
                   ),
-                  if (kind == current)
+                  if (option == current)
                     const Icon(
                       Icons.check_circle_rounded,
                       color: SoriColors.primary,
@@ -240,14 +383,79 @@ class _ProfileScreenState extends State<ProfileScreen>
       ),
     );
     if (selected != null && selected != current) {
-      await MascotPreference.set(selected);
+      final kind = MascotPreference.mascotKindFor(selected);
+      if (kind == null) {
+        await MascotPreference.setNone();
+      } else {
+        await MascotPreference.set(kind);
+      }
     }
   }
 
   Future<void> _openAccountControls() async {
-    await Navigator.of(context).pushNamed('/settings');
+    final override = widget.onOpenAccountControls;
+    if (override != null) {
+      override();
+      return;
+    }
+    if (widget.previewMode) return;
+    await Navigator.of(
+      context,
+    ).pushNamed('/settings', arguments: SettingsInitialFocus.account);
     if (mounted) {
       setState(() {});
+    }
+  }
+
+  void _openGye() {
+    final override = widget.onOpenGye;
+    if (override != null) {
+      override();
+      return;
+    }
+    if (widget.previewMode) return;
+    Navigator.pushNamed(context, '/gye/hub');
+  }
+
+  void _openAccountDeletion() {
+    final override = widget.onOpenAccountDeletion;
+    if (override != null) {
+      override();
+      return;
+    }
+    if (widget.previewMode) return;
+    Navigator.of(
+      context,
+    ).pushNamed('/settings', arguments: SettingsInitialFocus.accountDeletion);
+  }
+
+  Future<void> _exportLearningData() async {
+    if (_exportBusy) return;
+    if (widget.previewMode && widget.exportLearningData == null) return;
+    final messenger = ScaffoldMessenger.of(context);
+    final t = AppL10n.of(context);
+    setState(() => _exportBusy = true);
+    try {
+      final export = widget.exportLearningData;
+      if (export != null) {
+        await export();
+      } else {
+        final package = LearningDataExportService.buildPackage();
+        await LearningDataExportService.sharePackage(package);
+      }
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.profileLearningDataExportReady)),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.profileLearningDataExportFailed)),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _exportBusy = false);
     }
   }
 
@@ -259,7 +467,8 @@ class _ProfileScreenState extends State<ProfileScreen>
     final linked = providers.isDurable;
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
-    final motivation = learnerMotivationFromId(Storage.motivation);
+    final motivation =
+        widget.previewMotivation ?? learnerMotivationFromId(Storage.motivation);
 
     return Scaffold(
       appBar: AppBar(
@@ -306,11 +515,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                           ),
                           const SizedBox(height: Spacing.xs),
                           Text(
-                            t.profileJourneySummary(
-                              _levelLabel(t),
-                              motivation?.label(t) ??
-                                  t.profileLearningGoalNotSet,
-                            ),
+                            '${t.profileJourneySummary(_levelLabel(t), motivation?.label(t) ?? t.profileLearningGoalNotSet)} · '
+                            '${t.profileSafeSituations(Storage.completedScenarios.length)}',
                             style: SoriTextTheme.of(context).bodySmall,
                           ),
                           if (linked) ...[
@@ -324,19 +530,23 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ),
                     ),
                     const SizedBox(width: Spacing.sm),
-                    const _Avatar(size: 96),
+                    _Avatar(size: 96, preference: widget.previewCompanion),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
 
-              _ProfileSectionLabel(label: t.profileLearningSection),
+              _ProfileSectionLabel(
+                label: t.profileLearningSection,
+                action: t.profileEditAction,
+              ),
               const SizedBox(height: Spacing.sm),
               SoriCard(
                 variant: SoriCardVariant.base,
                 child: Column(
                   children: [
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-learning-goal'),
                       icon: motivation?.icon ?? Icons.flag_outlined,
                       label: t.profileLearningGoal,
                       value:
@@ -345,25 +555,56 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                     const Divider(height: 1),
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-learning-start-point'),
                       icon: Icons.school_outlined,
                       label: t.profileLearningStartPoint,
                       value: _levelLabel(t),
                       onTap: _changeLevel,
                     ),
                     const Divider(height: 1),
-                    ValueListenableBuilder<MascotKind>(
-                      valueListenable: MascotPreference.kind,
-                      builder: (context, kind, _) => _ProfileSettingTile(
-                        icon: kind == MascotKind.magpie
-                            ? Icons.flutter_dash_rounded
-                            : Icons.pets_outlined,
+                    if (widget.previewCompanion case final previewPreference?)
+                      _ProfileSettingTile(
+                        key: const ValueKey('profile-learning-companion'),
+                        icon: switch (previewPreference) {
+                          CompanionPreference.none =>
+                            Icons.person_outline_rounded,
+                          CompanionPreference.tiger => Icons.pets_outlined,
+                          CompanionPreference.magpie =>
+                            Icons.flutter_dash_rounded,
+                        },
                         label: t.profileLearningCompanion,
-                        value: kind == MascotKind.magpie
-                            ? t.characterNameMagpie
-                            : t.characterNameTiger,
+                        value: switch (previewPreference) {
+                          CompanionPreference.none => t.companionNoneName,
+                          CompanionPreference.tiger => t.characterNameTiger,
+                          CompanionPreference.magpie => t.characterRomanMagpie,
+                        },
                         onTap: _changeCompanion,
+                      )
+                    else
+                      ValueListenableBuilder<CompanionPreference>(
+                        valueListenable: MascotPreference.preference,
+                        builder: (context, preference, _) =>
+                            _ProfileSettingTile(
+                              key: const ValueKey('profile-learning-companion'),
+                              icon: switch (preference) {
+                                CompanionPreference.none =>
+                                  Icons.person_outline_rounded,
+                                CompanionPreference.tiger =>
+                                  Icons.pets_outlined,
+                                CompanionPreference.magpie =>
+                                  Icons.flutter_dash_rounded,
+                              },
+                              label: t.profileLearningCompanion,
+                              value: switch (preference) {
+                                CompanionPreference.none => t.companionNoneName,
+                                CompanionPreference.tiger =>
+                                  t.characterNameTiger,
+                                CompanionPreference.magpie =>
+                                  t.characterRomanMagpie,
+                              },
+                              onTap: _changeCompanion,
+                            ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -375,17 +616,47 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: Column(
                   children: [
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-account-controls'),
                       icon: Icons.shield_outlined,
                       label: t.profilePrivacyAccount,
                       value: t.profilePrivacyAccountDescription,
                       onTap: _openAccountControls,
                     ),
                     const Divider(height: 1),
+                    FutureBuilder<List<GyeMeta>>(
+                      future: _gyeMetas,
+                      builder: (context, snapshot) => _ProfileSettingTile(
+                        key: const ValueKey('profile-gye'),
+                        icon: Icons.groups_2_outlined,
+                        label: t.profileGye,
+                        value:
+                            snapshot.connectionState == ConnectionState.waiting
+                            ? t.profileGyeLoading
+                            : snapshot.hasError ||
+                                  (snapshot.data ?? const <GyeMeta>[]).isEmpty
+                            ? t.profileGyeNone
+                            : snapshot.data!.first.name,
+                        onTap: _openGye,
+                      ),
+                    ),
+                    const Divider(height: 1),
                     _ProfileSettingTile(
-                      icon: Icons.groups_2_outlined,
-                      label: t.profileGye,
-                      value: t.profileGyeDescription,
-                      onTap: () => Navigator.pushNamed(context, '/gye/hub'),
+                      key: const ValueKey('profile-learning-data-export'),
+                      icon: Icons.file_download_outlined,
+                      label: t.profileLearningData,
+                      value: _exportBusy
+                          ? t.profileLearningDataPreparing
+                          : t.profileLearningDataDescription,
+                      onTap: _exportLearningData,
+                    ),
+                    const Divider(height: 1),
+                    _ProfileSettingTile(
+                      key: const ValueKey('profile-account-delete'),
+                      icon: Icons.person_remove_outlined,
+                      label: t.profileAccountDelete,
+                      value: t.profileAccountDeleteDescription,
+                      destructive: true,
+                      onTap: _openAccountDeletion,
                     ),
                   ],
                 ),
@@ -473,9 +744,10 @@ class _ProfileScreenState extends State<ProfileScreen>
 // ─────────────────────────────────────────────────────────────────────────
 
 class _Avatar extends StatefulWidget {
-  const _Avatar({this.size = 168});
+  const _Avatar({this.size = 168, this.preference});
 
   final double size;
+  final CompanionPreference? preference;
 
   @override
   State<_Avatar> createState() => _AvatarState();
@@ -486,7 +758,19 @@ class _AvatarState extends State<_Avatar> {
   void initState() {
     super.initState();
     // 설정에서 캐릭터를 바꾸면(태고↔조이) 프로필 아바타도 즉시 반영.
-    MascotPreference.kind.addListener(_onKindChanged);
+    if (widget.preference == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant _Avatar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.preference == null && widget.preference != null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    } else if (oldWidget.preference != null && widget.preference == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
   }
 
   void _onKindChanged() {
@@ -497,7 +781,9 @@ class _AvatarState extends State<_Avatar> {
 
   @override
   void dispose() {
-    MascotPreference.kind.removeListener(_onKindChanged);
+    if (widget.preference == null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    }
     super.dispose();
   }
 
@@ -510,7 +796,23 @@ class _AvatarState extends State<_Avatar> {
     // 따른다 — 까치=magpie_bob2 대기 홉, 호랑이(태고)=tiger_sitting2 앉은 자세.
     // 둘 다 **루프 가능**해야 한다: 원샷을 쓰면 재생이 끝나며 텍스처가 회수돼
     // 아바타가 비어 버린다(tiger_walking_front 가 그랬다).
-    final kind = MascotPreference.kind.value;
+    final preference = widget.preference ?? MascotPreference.preference.value;
+    final kind = MascotPreference.mascotKindFor(preference);
+    if (kind == null) {
+      return SizedBox.square(
+        key: const ValueKey('profile_avatar_none'),
+        dimension: widget.size,
+        child: Semantics(
+          label: AppL10n.of(context).companionNoneName,
+          image: true,
+          child: Icon(
+            Icons.person_outline_rounded,
+            size: widget.size * 0.42,
+            color: SoriSurfaces.of(context).textMuted,
+          ),
+        ),
+      );
+    }
     final isMagpie = kind == MascotKind.magpie;
     return SizedBox.square(
       dimension: widget.size,
@@ -682,37 +984,55 @@ class _ConnectedCard extends StatelessWidget {
 }
 
 class _ProfileSectionLabel extends StatelessWidget {
-  const _ProfileSectionLabel({required this.label});
+  const _ProfileSectionLabel({required this.label, this.action});
 
   final String label;
+  final String? action;
 
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-    child: Text(label, style: SoriTextTheme.of(context).label),
+    child: Row(
+      children: [
+        Expanded(child: Text(label, style: SoriTextTheme.of(context).label)),
+        if (action != null)
+          Text(action!, style: SoriTextTheme.of(context).caption),
+      ],
+    ),
   );
 }
 
 class _ProfileSettingTile extends StatelessWidget {
   const _ProfileSettingTile({
+    super.key,
     required this.icon,
     required this.label,
     required this.value,
     required this.onTap,
+    this.destructive = false,
   });
 
   final IconData icon;
   final String label;
   final String value;
   final VoidCallback onTap;
+  final bool destructive;
 
   @override
   Widget build(BuildContext context) => Material(
     color: Colors.transparent,
     child: ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
-      leading: Icon(icon, color: SoriColors.primary),
-      title: Text(label, style: SoriTextTheme.of(context).cardTitle),
+      leading: Icon(
+        icon,
+        color: destructive ? SoriColors.danger : SoriColors.primary,
+      ),
+      title: Text(
+        label,
+        style: SoriTextTheme.of(
+          context,
+        ).cardTitle.copyWith(color: destructive ? SoriColors.danger : null),
+      ),
       subtitle: Text(value, style: SoriTextTheme.of(context).caption),
       trailing: const Icon(Icons.chevron_right_rounded),
       minVerticalPadding: Spacing.xs,

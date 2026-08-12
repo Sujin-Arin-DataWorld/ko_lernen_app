@@ -31,6 +31,9 @@ class MissionHeroContent {
   /// true = CTA "Weitermachen" / false = "Los geht's".
   final bool started;
   final String? ctaLabel;
+  final String? actionLabel;
+  final String? actionTitle;
+  final String? actionMeta;
   final String? supportingTitle;
   final String? supportingBody;
 
@@ -45,6 +48,9 @@ class MissionHeroContent {
     required this.fraction,
     required this.started,
     this.ctaLabel,
+    this.actionLabel,
+    this.actionTitle,
+    this.actionMeta,
     this.supportingTitle,
     this.supportingBody,
     required this.onStart,
@@ -56,16 +62,27 @@ class MissionHeroContent {
 /// available while the snapshot could not be loaded.
 class MissionHeroUnavailable {
   const MissionHeroUnavailable({
+    required this.icon,
+    required this.eyebrow,
     required this.title,
     required this.body,
-    required this.ctaLabel,
-    required this.onStart,
-  });
+    this.ctaLabel,
+    this.onStart,
+    required this.retryLabel,
+    required this.onRetry,
+  }) : assert(
+         (ctaLabel == null) == (onStart == null),
+         'ctaLabel and onStart must either both be present or both be absent.',
+       );
 
+  final IconData icon;
+  final String eyebrow;
   final String title;
   final String body;
-  final String ctaLabel;
-  final VoidCallback onStart;
+  final String? ctaLabel;
+  final VoidCallback? onStart;
+  final String retryLabel;
+  final VoidCallback onRetry;
 }
 
 /// **MissionHeroCard** — 홈 블록 3 "오늘의 미션 히어로" (계획 §6.1·§10.1).
@@ -122,64 +139,116 @@ class MissionHeroCard extends StatelessWidget {
 
     return SoriCard(
       variant: SoriCardVariant.hero,
-      // §10.1 접근성: 카드 서술은 Semantics 1노드로.
-      semanticLabel: c.levelCode == null
-          ? c.title
-          : t.missionHeroSemantics(c.title, c.levelCode!),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _ProgressRing(fraction: c.fraction),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (c.levelCode != null || onPremiumCourse != null) ...[
-                      Row(
-                        children: [
-                          if (c.levelCode != null)
-                            SoriLevelChip(code: c.levelCode!),
-                          const Spacer(),
-                          if (onPremiumCourse != null)
-                            _CourseBadge(onTap: onPremiumCourse!),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                    ],
-                    if (c.contextLabel != null) ...[
+          if (c.actionTitle != null) ...[
+            if (c.contextLabel != null) ...[
+              Text(
+                c.contextLabel!,
+                style: tt.label.copyWith(color: SoriColors.primary),
+              ),
+              const SizedBox(height: 4),
+            ],
+            Text(c.title, style: tt.h3),
+            const SizedBox(height: 4),
+            Text(c.meta, style: tt.bodySmall),
+          ] else
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _ProgressRing(fraction: c.fraction),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (c.levelCode != null || onPremiumCourse != null) ...[
+                        Row(
+                          children: [
+                            if (c.levelCode != null)
+                              SoriLevelChip(code: c.levelCode!),
+                            const Spacer(),
+                            if (onPremiumCourse != null)
+                              _CourseBadge(onTap: onPremiumCourse!),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                      ],
+                      if (c.contextLabel != null) ...[
+                        Text(
+                          c.contextLabel!,
+                          style: tt.label.copyWith(color: SoriColors.primary),
+                        ),
+                        const SizedBox(height: 4),
+                      ],
                       Text(
-                        c.contextLabel!,
-                        style: tt.label.copyWith(color: SoriColors.primary),
+                        c.title,
+                        // §4.3: maxLines 1 + ellipsis 금지 — 2줄 허용.
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: tt.h3,
                       ),
                       const SizedBox(height: 4),
+                      Text(c.meta, style: tt.caption),
                     ],
-                    Text(
-                      c.title,
-                      // §4.3: maxLines 1 + ellipsis 금지 — 2줄 허용.
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: tt.h3,
-                    ),
-                    const SizedBox(height: 4),
-                    Text(c.meta, style: tt.caption),
-                  ],
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
           const SizedBox(height: Spacing.md),
-          SoriButton.filled(
-            label:
-                c.ctaLabel ??
-                (c.started ? t.missionHeroCtaContinue : t.missionHeroCtaStart),
-            accent: SoriColors.tiger,
-            fullWidth: true,
-            onTap: c.onStart,
-          ),
+          if (c.actionTitle case final actionTitle?)
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(Spacing.md),
+              decoration: BoxDecoration(
+                color: s.surfaceAlt,
+                borderRadius: SoriRadius.brMd,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (c.actionLabel case final actionLabel?) ...[
+                    Text(
+                      actionLabel,
+                      style: tt.label.copyWith(
+                        color: s.brightness == Brightness.light
+                            ? SoriColors.primaryOnLight
+                            : SoriColors.primaryOnDark,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                  ],
+                  Text(actionTitle, style: tt.cardTitle),
+                  if (c.actionMeta case final actionMeta?) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(actionMeta, style: tt.caption.copyWith(color: s.text)),
+                  ],
+                  const SizedBox(height: Spacing.md),
+                  SoriButton.filled(
+                    label:
+                        c.ctaLabel ??
+                        (c.started
+                            ? t.missionHeroCtaContinue
+                            : t.missionHeroCtaStart),
+                    accent: SoriColors.tiger,
+                    fullWidth: true,
+                    onTap: c.onStart,
+                  ),
+                ],
+              ),
+            )
+          else
+            SoriButton.filled(
+              label:
+                  c.ctaLabel ??
+                  (c.started
+                      ? t.missionHeroCtaContinue
+                      : t.missionHeroCtaStart),
+              accent: SoriColors.tiger,
+              fullWidth: true,
+              onTap: c.onStart,
+            ),
           if (c.supportingTitle case final title?) ...[
             const SizedBox(height: Spacing.md),
             Container(
@@ -195,7 +264,7 @@ class MissionHeroCard extends StatelessWidget {
                   Text(title, style: tt.label),
                   if (c.supportingBody case final body?) ...[
                     const SizedBox(height: 2),
-                    Text(body, style: tt.caption),
+                    Text(body, style: tt.caption.copyWith(color: s.text)),
                   ],
                 ],
               ),
@@ -221,38 +290,70 @@ class _UnavailableCard extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
       tinted: true,
-      semanticLabel: content.title,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.cloud_off_outlined, color: SoriColors.primary),
+          Row(
+            children: [
+              Icon(content.icon, color: SoriColors.primary),
+              const SizedBox(width: Spacing.xs),
+              Expanded(
+                child: Text(
+                  content.eyebrow,
+                  style: tt.label.copyWith(color: SoriColors.primary),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: Spacing.sm),
           Text(content.title, style: tt.h3),
           const SizedBox(height: 4),
           Text(content.body, style: tt.caption),
           const SizedBox(height: Spacing.md),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(Spacing.sm),
-            decoration: BoxDecoration(
-              color: s.surfaceAlt,
-              borderRadius: SoriRadius.brSm,
+          if (content.onStart != null) ...[
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(Spacing.sm),
+              decoration: BoxDecoration(
+                color: s.surfaceAlt,
+                borderRadius: SoriRadius.brSm,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(t.homeUnavailableSafeTitle, style: tt.label),
+                  const SizedBox(height: 2),
+                  Text(t.homeUnavailableSafeBody, style: tt.caption),
+                ],
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(t.homeUnavailableSafeTitle, style: tt.label),
-                const SizedBox(height: 2),
-                Text(t.homeUnavailableSafeBody, style: tt.caption),
-              ],
+            const SizedBox(height: Spacing.md),
+            SoriButton.filled(
+              label: content.ctaLabel!,
+              accent: SoriColors.tiger,
+              fullWidth: true,
+              onTap: content.onStart,
             ),
-          ),
-          const SizedBox(height: Spacing.md),
-          SoriButton.outlined(
-            label: content.ctaLabel,
-            fullWidth: true,
-            onTap: content.onStart,
-          ),
+            const SizedBox(height: Spacing.xs),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size.fromHeight(48),
+                ),
+                onPressed: content.onRetry,
+                child: Text(content.retryLabel),
+              ),
+            ),
+          ] else ...[
+            const SizedBox(height: Spacing.md),
+            SoriButton.filled(
+              label: content.retryLabel,
+              accent: SoriColors.tiger,
+              fullWidth: true,
+              onTap: content.onRetry,
+            ),
+          ],
         ],
       ),
     );
@@ -395,7 +496,6 @@ class _AllDoneCard extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
-      semanticLabel: t.missionHeroAllDoneTitle,
       child: Row(
         children: [
           const Mascot(

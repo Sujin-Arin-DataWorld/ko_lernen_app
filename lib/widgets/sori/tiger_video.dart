@@ -39,8 +39,7 @@ class TigerStageVideo extends StatefulWidget {
   /// 보이면 이 값을 현지 배경에 더 가깝게 조정.
   final Color blendColor;
 
-  /// 표시할 캐릭터. `null`이면 [MascotPreference.kind]를 구독해 따라간다.
-  /// 홈은 null로 두면 된다 — 설정에서 캐릭터를 바꾸면 즉시 반영된다.
+  /// 표시할 캐릭터. `null`이면 nullable companion preference를 구독한다.
   final MascotKind? kind;
 
   const TigerStageVideo({
@@ -108,7 +107,7 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
   int _transitionGeneration = 0;
 
   /// 이 위젯이 그려야 할 캐릭터. 명시 인자 > 전역 선택값.
-  MascotKind get _kind => widget.kind ?? MascotPreference.kind.value;
+  MascotKind? get _kind => widget.kind ?? MascotPreference.selectedKind;
 
   @override
   void initState() {
@@ -116,20 +115,26 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     _showPace = _greetPlayedThisLaunch;
     _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
     if (widget.kind == null) {
-      MascotPreference.kind.addListener(_onKindChanged);
+      MascotPreference.preference.addListener(_onKindChanged);
     }
   }
 
   @override
   void didUpdateWidget(TigerStageVideo oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (oldWidget.kind == null && widget.kind != null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    } else if (oldWidget.kind != null && widget.kind == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
     if (oldWidget.kind != widget.kind) {
       _onKindChanged();
     }
   }
 
   void _onKindChanged() {
-    if (!mounted || _builtFor == _kind) {
+    final kind = _kind;
+    if (!mounted || _builtFor == kind) {
       return;
     }
     unawaited(_restartForCurrentKind());
@@ -149,6 +154,13 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     _greetStarted = false;
     _handoffStarted = false;
     _failed = false;
+    if (_kind == null) {
+      _builtFor = null;
+      setState(() {
+        _ready = false;
+      });
+      return;
+    }
     _registerCurrentPhase();
     _syncEligibility();
   }
@@ -168,6 +180,9 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
       return;
     }
     final kind = _kind;
+    if (kind == null) {
+      return;
+    }
     final pacePhase = _showPace;
     _builtFor = kind;
     _lease = soriVideoLease.register(
@@ -193,7 +208,11 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
       return;
     }
     _lease?.setEligible(
-      _eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
+      _kind != null &&
+          _eligibility.isEligible(
+            context,
+            videoReady: TigerStageVideo.videoReady,
+          ),
     );
   }
 
@@ -278,7 +297,7 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
   void dispose() {
     _transitionGeneration += 1;
     if (widget.kind == null) {
-      MascotPreference.kind.removeListener(_onKindChanged);
+      MascotPreference.preference.removeListener(_onKindChanged);
     }
     _eligibility.disposeBinding();
     _video?.removeListener(_onGreetTick);
@@ -293,14 +312,20 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
   /// 폴백은 캐릭터 무관하게 정적 [Mascot] 이다 — 2026-08-06 프레임 시퀀스
   /// (`TigerStage`/`TigerStageRive`, tiger_anim 44장) 폐지 후 호랑이도 까치와
   /// 같은 경로를 쓴다. 표정 PNG 는 `assets/illustrations/mascot/tiger_*.png`.
-  Widget _fallback() => Center(
-    child: Mascot(
-      kind: _kind,
-      emotion: widget.fallbackEmotion,
-      size: widget.height * 0.82,
-      animate: true,
-    ),
-  );
+  Widget _fallback() {
+    final kind = _kind;
+    if (kind == null) {
+      return const SizedBox.shrink(key: ValueKey('tiger-stage-no-companion'));
+    }
+    return Center(
+      child: Mascot(
+        kind: kind,
+        emotion: widget.fallbackEmotion,
+        size: widget.height * 0.82,
+        animate: true,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -341,7 +366,7 @@ class TigerGreetClip extends StatefulWidget {
   final double size;
   final bool playAudio;
 
-  /// 표시할 캐릭터. `null`이면 [MascotPreference.kind] 현재값.
+  /// 표시할 캐릭터. `null`이면 nullable companion preference 현재값.
   final MascotKind? kind;
 
   /// multiply 블렌드 색 — 화면의 플랫 배경색과 일치시키면 완전히 녹는다.
@@ -377,6 +402,45 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
       fallbackCompleteAfter: const Duration(milliseconds: 1200),
       onRelease: _releaseAfterCompletion,
     );
+    if (widget.kind == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
+  }
+
+  @override
+  void didUpdateWidget(TigerGreetClip oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.kind == null && widget.kind != null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    } else if (oldWidget.kind != null && widget.kind == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
+    if (oldWidget.kind != widget.kind) {
+      _onKindChanged();
+    }
+  }
+
+  void _onKindChanged() {
+    unawaited(_restartForCurrentKind());
+  }
+
+  Future<void> _restartForCurrentKind() async {
+    final lease = _lease;
+    _lease = null;
+    _video?.removeListener(_onTick);
+    _video = null;
+    _ready = false;
+    if (lease != null) {
+      await lease.release();
+    }
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+    if (_kind != null) {
+      _registerLease();
+      _syncEligibility();
+    }
   }
 
   @override
@@ -389,11 +453,15 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     _syncEligibility();
   }
 
-  MascotKind get _kind => widget.kind ?? MascotPreference.kind.value;
+  MascotKind? get _kind => widget.kind ?? MascotPreference.selectedKind;
 
   void _registerLease() {
+    final kind = _kind;
+    if (kind == null || _lease != null) {
+      return;
+    }
     _lease = soriVideoLease.register(
-      asset: TigerStageVideo.greetFor(_kind),
+      asset: TigerStageVideo.greetFor(kind),
       eligible: false,
       // audio-policy: exempt — 온보딩 인사 클립 정책상 무음(음성은 별도 mp3)
       prepare: (video) => video.setVolume(0),
@@ -408,6 +476,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
       return;
     }
     _completion.visibilityChanged(_eligibility.isVisible(context));
+    if (_kind == null) {
+      _lease?.setEligible(false);
+      return;
+    }
     final eligible = _eligibility.isEligible(
       context,
       videoReady: TigerStageVideo.videoReady,
@@ -487,7 +559,8 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     // 캐릭터별 인사 SFX — 까치 `greet_magpie.mp3` 는 07-31 제작·배선 완료라
     // 구 "까치용 파일 없음" 호랑이 전용 가드를 정리했다 (2026-08-03).
     // 소리 규칙(사람 목소리·TTS 금지, 동물 소리만)은 파일 차원에서 유지.
-    if (!_audioStarted && widget.playAudio) {
+    final kind = _kind;
+    if (kind != null && !_audioStarted && widget.playAudio) {
       // companion 채널 게이트 — 현재 유일 호출부가 playAudio:false 라 죽은
       // 경로지만, 되살아나는 순간 설정을 뚫는 유일한 소리가 되는 걸 막는다.
       final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
@@ -500,7 +573,7 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
         final audio = AudioPlayer();
         _audio = audio;
         await audio.play(
-          AssetSource(TigerStageVideo.greetSfxFor(_kind)),
+          AssetSource(TigerStageVideo.greetSfxFor(kind)),
           volume: volume,
         );
       } catch (_) {
@@ -511,6 +584,9 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
 
   @override
   void dispose() {
+    if (widget.kind == null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    }
     _completion.dispose();
     _eligibility.disposeBinding();
     _video?.removeListener(_onTick);
@@ -525,6 +601,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
 
   @override
   Widget build(BuildContext context) {
+    final kind = _kind;
+    if (kind == null) {
+      return const SizedBox.shrink(key: ValueKey('tiger-greet-no-companion'));
+    }
     final video = _video;
     return SizedBox.square(
       dimension: widget.size,
@@ -532,7 +612,7 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
         duration: const Duration(milliseconds: 200),
         child: _failed || !_ready || video == null
             ? Mascot(
-                kind: _kind,
+                kind: kind,
                 emotion: MascotEmotion.smile,
                 size: widget.size * 0.8,
                 animate: true,

@@ -163,6 +163,135 @@ void main() {
     });
   });
 
+  group('GyeFeedReadModel reaction parent boundary', () {
+    GyeFeedEvent event(
+      String id, {
+      GyeFeedType type = GyeFeedType.sticker,
+      String? targetEventId,
+    }) => GyeFeedEvent(
+      id: id,
+      type: type,
+      actorUid: 'uid-$id',
+      actorNickname: id,
+      payload: {
+        if (type == GyeFeedType.sticker) 'stickerCode': 2,
+        if (targetEventId != null) 'targetEventId': targetEventId,
+      },
+    );
+
+    test(
+      'hydrates one older parent when twenty newer reactions fill limit',
+      () async {
+        final recent = List<GyeFeedEvent>.generate(
+          20,
+          (index) => event('reaction-$index', targetEventId: 'parent'),
+        );
+        final cache = <String, GyeFeedEvent?>{};
+        var reads = 0;
+
+        Future<GyeFeedEvent?> load(String id) async {
+          reads++;
+          return event(id, type: GyeFeedType.questCompleted);
+        }
+
+        final first = await GyeFeedReadModel.hydrateReactionParents(
+          recent,
+          loadParent: load,
+          parentCache: cache,
+        );
+        final second = await GyeFeedReadModel.hydrateReactionParents(
+          recent,
+          loadParent: load,
+          parentCache: cache,
+        );
+
+        expect(reads, 1);
+        expect(first, hasLength(21));
+        expect(second, hasLength(21));
+        final split = GyeFeed.splitReactions(first);
+        expect(split.timeline.map((item) => item.id), ['parent']);
+        expect(split.reactions['parent'], hasLength(20));
+      },
+    );
+
+    test(
+      'does not read a parent already present in the recent window',
+      () async {
+        var reads = 0;
+        final recent = [
+          event('reaction', targetEventId: 'parent'),
+          event('parent', type: GyeFeedType.goalAchieved),
+        ];
+
+        final result = await GyeFeedReadModel.hydrateReactionParents(
+          recent,
+          loadParent: (_) async {
+            reads++;
+            return null;
+          },
+        );
+
+        expect(reads, 0);
+        expect(result, same(recent));
+      },
+    );
+
+    test('malformed targets and non-milestone parents fail closed', () async {
+      var reads = 0;
+      final malformed = [event('reaction', targetEventId: '../parent')];
+      final malformedResult = await GyeFeedReadModel.hydrateReactionParents(
+        malformed,
+        loadParent: (_) async {
+          reads++;
+          return null;
+        },
+      );
+      expect(reads, 0);
+      expect(malformedResult, same(malformed));
+
+      final forged = [event('reaction', targetEventId: 'parent')];
+      final forgedResult = await GyeFeedReadModel.hydrateReactionParents(
+        forged,
+        loadParent: (id) async {
+          reads++;
+          return event(id); // A standalone sticker cannot own a reaction.
+        },
+      );
+      expect(reads, 1);
+      expect(forgedResult, same(forged));
+    });
+
+    test(
+      'transient parent read failure preserves raw feed and can retry',
+      () async {
+        final recent = [event('reaction', targetEventId: 'parent')];
+        final cache = <String, GyeFeedEvent?>{};
+        var reads = 0;
+
+        final first = await GyeFeedReadModel.hydrateReactionParents(
+          recent,
+          parentCache: cache,
+          loadParent: (_) async {
+            reads++;
+            throw StateError('temporary read failure');
+          },
+        );
+        final second = await GyeFeedReadModel.hydrateReactionParents(
+          recent,
+          parentCache: cache,
+          loadParent: (id) async {
+            reads++;
+            return event(id, type: GyeFeedType.packCleared);
+          },
+        );
+
+        expect(first, same(recent));
+        expect(second, hasLength(2));
+        expect(reads, 2);
+      },
+    );
+  });
+
   group('GyeFeedType wire (전원챌린지 D-4)', () {
     test('allInChallenge ↔ all_in 라운드트립', () {
       expect(GyeFeedType.allInChallenge.wire, 'all_in');

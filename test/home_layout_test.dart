@@ -240,6 +240,7 @@ Future<void> _pumpHome(
   addTearDown(tester.view.resetDevicePixelRatio);
 
   final home = HomeScreen(
+    legacyDashboardInitiallyExpanded: true,
     loadTodaySnapshot: () async => TodayLearningSnapshot(
       pick: const ReviewPick(dueCount: 12),
       dueCount: 12,
@@ -249,6 +250,7 @@ Future<void> _pumpHome(
     loadHanokProjection: (ratios) async => PersonalHanokProjection.from(ratios),
     loadHanokNarrative: (projection) async =>
         HanokBuildNarrative.empty(projection),
+    connectivityUpdates: const Stream<TodayNetworkStatus>.empty(),
   );
 
   await tester.pumpWidget(

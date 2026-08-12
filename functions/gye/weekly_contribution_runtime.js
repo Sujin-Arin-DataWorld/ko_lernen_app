@@ -6,21 +6,25 @@ const minimumScenarioScore = 0.7;
 
 // Keep this narrow, explicit allow-list in lockstep with the app's promise
 // picker. A group cannot turn an arbitrary free-browse scenario into a shared
-// contribution by changing a client payload.
+// contribution by changing a client payload. Each missionContentLinkId is the
+// curriculum graph's stable `link` ID for that unit's declared assess edge.
 const weeklyPromiseDefinitions = Object.freeze({
   cafe_order: Object.freeze({
     courseUnitId: "a1_04_order_request_object",
     scenarioId: "bunshik_tteokbokki",
+    missionContentLinkId: "link:e6a9f1197b48c79f58655c9a",
     target: 3,
   }),
   directions: Object.freeze({
     courseUnitId: "a1_06_transport_directions",
     scenarioId: "taxi_kakao",
+    missionContentLinkId: "link:49a189a1b8b9e4fa022a4557",
     target: 3,
   }),
   self_introduction: Object.freeze({
     courseUnitId: "a1_02_self_intro_identity",
     scenarioId: "introduce_yourself",
+    missionContentLinkId: "link:94c139e887716700674589b2",
     target: 3,
   }),
 });
@@ -51,17 +55,56 @@ function parseCourseMasterySnapshot(raw) {
 /// Returns the latest exact course checkpoint that may light this promise.
 /// The source must carry the app's existing active-mission proof; browsing a
 /// scenario, an unrelated course unit, a score below 70%, or malformed data
-/// never becomes a community event.
-function findEligiblePromiseCheckpoint({ promiseId, courseMasteryJson }) {
+/// never becomes a community event. Only a checkpoint created or materially
+/// changed by this write may contribute, and it must belong to the event's
+/// Korea-week so unrelated snapshot writes cannot replay retained history.
+function findEligiblePromiseCheckpoint({
+  promiseId,
+  previousCourseMasteryJson,
+  courseMasteryJson,
+  weekKey,
+}) {
   const promise = weeklyPromiseFor(promiseId);
   const snapshot = parseCourseMasterySnapshot(courseMasteryJson);
-  if (!promise || !snapshot || !Array.isArray(snapshot.scenarioCheckpoints)) {
+  if (!promise ||
+      !snapshot ||
+      !Array.isArray(snapshot.scenarioCheckpoints) ||
+      typeof weekKey !== "string" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(weekKey)) {
     return null;
   }
+
+  let previousCheckpoints = [];
+  if (previousCourseMasteryJson !== undefined &&
+      previousCourseMasteryJson !== null) {
+    const previousSnapshot = parseCourseMasterySnapshot(
+      previousCourseMasteryJson,
+    );
+    if (!previousSnapshot ||
+        !Array.isArray(previousSnapshot.scenarioCheckpoints)) {
+      return null;
+    }
+    previousCheckpoints = previousSnapshot.scenarioCheckpoints;
+  }
+  const previousCheckpointFingerprints = new Set(
+    previousCheckpoints
+      .filter((checkpoint) => checkpoint && typeof checkpoint === "object")
+      .map((checkpoint) => JSON.stringify([
+        checkpoint.id,
+        checkpoint.scenarioId,
+        checkpoint.courseUnitId,
+        checkpoint.missionContentLinkId,
+        checkpoint.score,
+        checkpoint.occurredAt,
+        checkpoint.courseEligible,
+      ])),
+  );
+
   let candidate = null;
   for (const checkpoint of snapshot.scenarioCheckpoints) {
     if (!checkpoint || typeof checkpoint !== "object" ||
         checkpoint.courseEligible !== true ||
+        checkpoint.missionContentLinkId !== promise.missionContentLinkId ||
         checkpoint.courseUnitId !== promise.courseUnitId ||
         checkpoint.scenarioId !== promise.scenarioId ||
         !isFiniteScore(checkpoint.score) ||
@@ -69,6 +112,21 @@ function findEligiblePromiseCheckpoint({ promiseId, courseMasteryJson }) {
         typeof checkpoint.id !== "string" || checkpoint.id.length === 0 ||
         typeof checkpoint.occurredAt !== "string" ||
         Number.isNaN(Date.parse(checkpoint.occurredAt))) {
+      continue;
+    }
+    if (weeklyContributionWeekKey(checkpoint.occurredAt) !== weekKey) {
+      continue;
+    }
+    const checkpointFingerprint = JSON.stringify([
+      checkpoint.id,
+      checkpoint.scenarioId,
+      checkpoint.courseUnitId,
+      checkpoint.missionContentLinkId,
+      checkpoint.score,
+      checkpoint.occurredAt,
+      checkpoint.courseEligible,
+    ]);
+    if (previousCheckpointFingerprints.has(checkpointFingerprint)) {
       continue;
     }
     if (!candidate || checkpoint.occurredAt > candidate.occurredAt) {
@@ -117,7 +175,13 @@ function shouldCreditPromiseContribution({
   if (meta.weeklyPromiseWeekKey && meta.weeklyPromiseWeekKey !== weekKey) {
     return false;
   }
+  if (typeof checkpoint.occurredAt !== "string" ||
+      Number.isNaN(Date.parse(checkpoint.occurredAt)) ||
+      weeklyContributionWeekKey(checkpoint.occurredAt) !== weekKey) {
+    return false;
+  }
   return checkpoint.courseEligible === true &&
+    checkpoint.missionContentLinkId === promise.missionContentLinkId &&
     checkpoint.courseUnitId === promise.courseUnitId &&
     checkpoint.scenarioId === promise.scenarioId &&
     isFiniteScore(checkpoint.score) &&

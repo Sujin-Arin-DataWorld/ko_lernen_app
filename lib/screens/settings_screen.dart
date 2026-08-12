@@ -304,6 +304,8 @@ class SubscriptionManagementLauncher {
   }
 }
 
+enum SettingsInitialFocus { account, accountDeletion }
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
     super.key,
@@ -315,6 +317,7 @@ class SettingsScreen extends StatefulWidget {
     this.cloudDataDeletionJournalState,
     this.resetAllData,
     this.appVersionReader,
+    this.initialFocus,
   });
 
   final AuthAccountSnapshot? account;
@@ -326,6 +329,7 @@ class SettingsScreen extends StatefulWidget {
   cloudDataDeletionJournalState;
   final Future<void> Function()? resetAllData;
   final AppVersionReader? appVersionReader;
+  final SettingsInitialFocus? initialFocus;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -335,6 +339,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
   String _appVersion = '—';
   DateTime? _lastBackupAt;
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _accountSectionKey = GlobalKey();
+  final GlobalKey _accountDeletionKey = GlobalKey();
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
@@ -388,6 +395,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
     }
+    if (widget.initialFocus != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _seekInitialFocus();
+      });
+    }
+  }
+
+  void _seekInitialFocus([int attempt = 0]) {
+    if (!mounted || widget.initialFocus == null) return;
+    final key = widget.initialFocus == SettingsInitialFocus.account
+        ? _accountSectionKey
+        : _accountDeletionKey;
+    final targetContext = key.currentContext;
+    if (targetContext != null) {
+      Scrollable.ensureVisible(
+        targetContext,
+        alignment: 0.12,
+        duration: const Duration(milliseconds: 220),
+        curve: Curves.easeOutCubic,
+      );
+      return;
+    }
+    if (attempt >= 12 || !_scrollController.hasClients) return;
+    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _seekInitialFocus(attempt + 1);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadAppVersion() async {
@@ -578,6 +618,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: SafeArea(
         child: ListView(
+          controller: _scrollController,
           padding: soriClampPadding(
             MediaQuery.sizeOf(context).width,
             base: const EdgeInsets.symmetric(vertical: 8),
@@ -652,24 +693,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
             // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
             _Section(label: t.characterSelectionTitle),
-            ValueListenableBuilder<MascotKind>(
-              valueListenable: MascotPreference.kind,
-              builder: (context, kind, _) {
-                final isMagpie = kind == MascotKind.magpie;
+            ValueListenableBuilder<CompanionPreference>(
+              valueListenable: MascotPreference.preference,
+              builder: (context, preference, _) {
+                final kind = MascotPreference.mascotKindFor(preference);
                 return ListTile(
-                  leading: Mascot(kind: kind, size: 34),
-                  title: Text(
-                    isMagpie ? t.characterNameMagpie : t.characterNameTiger,
-                  ),
-                  subtitle: Text(
-                    isMagpie ? t.characterTraitMagpie : t.characterTraitTiger,
-                    style: SoriTextTheme.of(context).caption,
-                  ),
+                  leading: kind == null
+                      ? const SizedBox.square(
+                          dimension: 34,
+                          child: Icon(Icons.person_outline_rounded),
+                        )
+                      : Mascot(kind: kind, size: 34),
+                  title: Text(switch (preference) {
+                    CompanionPreference.none => t.companionNoneName,
+                    CompanionPreference.tiger => t.characterNameTiger,
+                    CompanionPreference.magpie => t.characterRomanMagpie,
+                  }),
+                  subtitle: Text(switch (preference) {
+                    CompanionPreference.none => t.companionNoneDescription,
+                    CompanionPreference.tiger => t.characterTraitTiger,
+                    CompanionPreference.magpie => t.characterTraitMagpie,
+                  }, style: SoriTextTheme.of(context).caption),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: SoriColors.lightTextMuted,
                   ),
-                  onTap: () => _showMascotDialog(kind),
+                  onTap: () => _showMascotDialog(preference),
                 );
               },
             ),
@@ -773,7 +822,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
 
             // ── Cloud-Backup (Firebase Auth) ──
-            _Section(label: t.settingsCloudSection),
+            KeyedSubtree(
+              key: _accountSectionKey,
+              child: _Section(label: t.settingsCloudSection),
+            ),
             AccountPendingOperationPanel(
               operations: _accountOperations,
               retryLocalDeletion: _onDeleteAccount,
@@ -990,22 +1042,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   ValueListenableBuilder<CloudBackupDeletionJournalState>(
                     valueListenable: _cloudDataDeletionJournalState,
-                    builder: (context, cloudDeletionState, _) => ListTile(
-                      leading: const Icon(
-                        Icons.person_remove_outlined,
-                        color: SoriColors.danger,
+                    builder: (context, cloudDeletionState, _) => KeyedSubtree(
+                      key: _accountDeletionKey,
+                      child: ListTile(
+                        leading: const Icon(
+                          Icons.person_remove_outlined,
+                          color: SoriColors.danger,
+                        ),
+                        title: Text(
+                          t.settingsAccountDelete,
+                          style: const TextStyle(color: SoriColors.danger),
+                        ),
+                        subtitle: Text(t.settingsAccountDeleteDesc),
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _confirmAccountDelete
+                            : () => _showActionLocked(cloudDeletionState),
                       ),
-                      title: Text(
-                        t.settingsAccountDelete,
-                        style: const TextStyle(color: SoriColors.danger),
-                      ),
-                      subtitle: Text(t.settingsAccountDeleteDesc),
-                      onTap:
-                          accountActionsAvailable &&
-                              cloudDeletionState ==
-                                  CloudBackupDeletionJournalState.clear
-                          ? _confirmAccountDelete
-                          : () => _showActionLocked(cloudDeletionState),
                     ),
                   ),
                 ],
@@ -1266,38 +1321,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   /// 학습 동반 캐릭터 변경. 저장은 [MascotPreference.set] 하나로 통일 —
   /// 온보딩 선택 화면과 완전히 같은 경로라 두 곳이 어긋날 수 없다.
-  Future<void> _showMascotDialog(MascotKind current) async {
+  Future<void> _showMascotDialog(CompanionPreference current) async {
     final t = AppL10n.of(context);
-    final picked = await showDialog<MascotKind>(
+    const options = <CompanionPreference>[
+      CompanionPreference.tiger,
+      CompanionPreference.magpie,
+      CompanionPreference.none,
+    ];
+    final picked = await showDialog<CompanionPreference>(
       context: context,
       builder: (ctx) => SimpleDialog(
         title: Text(t.characterSelectionTitle),
         children: [
-          for (final option in MascotPreference.selectableKinds)
+          for (final option in options)
             SimpleDialogOption(
               onPressed: () => Navigator.pop(ctx, option),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Row(
                   children: [
-                    Mascot(kind: option, size: 44),
+                    if (MascotPreference.mascotKindFor(option) case final kind?)
+                      Mascot(kind: kind, size: 44)
+                    else
+                      const SizedBox.square(
+                        dimension: 44,
+                        child: Icon(Icons.person_outline_rounded),
+                      ),
                     const SizedBox(width: Spacing.md),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            option == MascotKind.magpie
-                                ? t.characterNameMagpie
-                                : t.characterNameTiger,
-                            style: SoriTextTheme.of(ctx).cardTitle,
-                          ),
-                          Text(
-                            option == MascotKind.magpie
-                                ? t.characterTraitMagpie
-                                : t.characterTraitTiger,
-                            style: SoriTextTheme.of(ctx).caption,
-                          ),
+                          Text(switch (option) {
+                            CompanionPreference.none => t.companionNoneName,
+                            CompanionPreference.tiger => t.characterNameTiger,
+                            CompanionPreference.magpie =>
+                              t.characterRomanMagpie,
+                          }, style: SoriTextTheme.of(ctx).cardTitle),
+                          Text(switch (option) {
+                            CompanionPreference.none =>
+                              t.companionNoneDescription,
+                            CompanionPreference.tiger => t.characterTraitTiger,
+                            CompanionPreference.magpie =>
+                              t.characterTraitMagpie,
+                          }, style: SoriTextTheme.of(ctx).caption),
                         ],
                       ),
                     ),
@@ -1314,7 +1381,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
     if (picked != null && picked != current) {
-      await MascotPreference.set(picked);
+      final kind = MascotPreference.mascotKindFor(picked);
+      if (kind == null) {
+        await MascotPreference.setNone();
+      } else {
+        await MascotPreference.set(kind);
+      }
     }
   }
 
@@ -1953,7 +2025,11 @@ class _SoundSettings extends StatelessWidget {
     if (volume <= 0) {
       return;
     }
-    final asset = MascotPreference.kind.value == MascotKind.tiger
+    final kind = MascotPreference.selectedKind;
+    if (kind == null) {
+      return;
+    }
+    final asset = kind == MascotKind.tiger
         ? 'sfx/growl_tiger.mp3'
         : 'sfx/greet_magpie.mp3';
     AudioPlayer? player;

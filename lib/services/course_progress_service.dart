@@ -52,6 +52,11 @@ class CourseProgressService {
   Future<CourseMasterySnapshot> refresh() =>
       _serialized((service) => service.refresh());
 
+  /// Read-only screen load. Unlike [refresh], this never synthesizes or
+  /// persists a canonical snapshot when the learner has not started a course.
+  Future<CourseMasterySnapshot?> readForDisplay() =>
+      _serialized((service) async => service.readForDisplay());
+
   /// Serializes capture with learner actions so a backup or account
   /// reconciliation sees either the preexisting validated v2 state or the
   /// generation written by a completed legacy migration, never an in-between
@@ -65,8 +70,15 @@ class CourseProgressService {
         );
       });
 
-  Future<CourseMasterySnapshot> initializeForPlacement(String levelCode) =>
-      _serialized((service) => service.initializeForPlacement(levelCode));
+  Future<CourseMasterySnapshot> initializeForPlacement(
+    String levelCode, {
+    bool syncBrowseLevel = false,
+  }) => _serialized(
+    (service) => service.initializeForPlacement(
+      levelCode,
+      syncBrowseLevel: syncBrowseLevel,
+    ),
+  );
 
   Future<CourseMasterySnapshot> selectCourseUnit(String courseUnitId) =>
       _serialized((service) => service.selectCourseUnit(courseUnitId));
@@ -153,11 +165,13 @@ class CourseProgressService {
   Future<CourseUpdate> recordScenarioCheckpoint(
     String scenarioId,
     double score, {
+    CoursePracticeContext? courseContext,
     DateTime? occurredAt,
   }) => _serialized(
     (service) => service.recordScenarioCheckpoint(
       scenarioId,
       score,
+      courseContext: courseContext,
       occurredAt: occurredAt,
     ),
   );

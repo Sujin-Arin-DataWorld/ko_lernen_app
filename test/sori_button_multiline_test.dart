@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -5,6 +7,26 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 void main() {
+  testWidgets('explicit button label is announced once with a tap action', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SoriButton.filled(label: 'Weiterlernen', onTap: () {}),
+        ),
+      ),
+    );
+
+    final data = tester
+        .getSemantics(find.byType(SoriButton))
+        .getSemanticsData();
+    expect(data.label, 'Weiterlernen');
+    expect(data.hasAction(SemanticsAction.tap), isTrue);
+    semantics.dispose();
+  });
+
   testWidgets('primary and secondary CTAs meet the readable size contract', (
     tester,
   ) async {

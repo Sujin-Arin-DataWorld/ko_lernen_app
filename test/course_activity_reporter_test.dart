@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/course_activity_reporter.dart';
@@ -50,10 +51,21 @@ void main() {
       final recorded = <String, double>{};
       var requestedProjection = 0;
       CourseActivityReporter.recordScenarioCheckpointForTesting =
-          (scenarioId, score) async {
+          (scenarioId, score, courseContext) async {
             recorded[scenarioId] = score;
-            return const CourseUpdate(
-              snapshot: CourseMasterySnapshot.empty(),
+            return CourseUpdate(
+              snapshot: CourseMasterySnapshot(
+                scenarioCheckpoints: [
+                  ScenarioCheckpointEvidence(
+                    scenarioId: scenarioId,
+                    courseUnitId: 'a1_01_greetings_hangul',
+                    missionContentLinkId: courseContext?.contentLinkId,
+                    score: score,
+                    occurredAt: DateTime.utc(2026, 1, 1),
+                    courseEligible: courseContext != null,
+                  ),
+                ],
+              ),
               currentUnit: null,
             );
           };
@@ -66,6 +78,12 @@ void main() {
         'bunshik_tteokbokki',
         passed: 7,
         total: 10,
+        courseContext: const CoursePracticeContext(
+          courseUnitId: 'a1_04_order_request_object',
+          contentKind: CurriculumContentKind.scenario,
+          initialContentId: 'bunshik_tteokbokki',
+          contentLinkId: 'scenario-assess',
+        ),
       );
       await Future<void>.delayed(Duration.zero);
       expect(recorded['bunshik_tteokbokki'], .7);

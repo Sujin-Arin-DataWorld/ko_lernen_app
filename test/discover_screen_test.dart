@@ -7,15 +7,66 @@ import 'package:ko_lernen_app/screens/discover_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
-  testWidgets('prioritizes book capture and exposes all feature families', (
+  testWidgets('04B shows four purpose filters and three priority routes', (
     tester,
   ) async {
-    await _pumpDiscover(tester);
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final opened = <String>[];
+    await _pumpDiscover(tester, onRoute: opened.add, textScale: 1.3);
 
     expect(find.text('Finde genau, was du brauchst.'), findsOneWidget);
-    expect(find.text('Starte mit deiner Buchseite'), findsOneWidget);
-    expect(find.text('Buchseite'), findsOneWidget);
-    expect(find.text('Wörter & Bücher'), findsOneWidget);
+    expect(
+      find.text('Scannen, nachschlagen, hören oder eine kleine Pause machen.'),
+      findsOneWidget,
+    );
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).decoration?.hintText,
+      'Suchen: z. B. Aussprache, Buch, OCR …',
+    );
+    expect(find.text('Direkt zu deinem Ziel'), findsNothing);
+    for (final filter in const ['Für mich', 'Sprache', 'Wörter', 'Freizeit']) {
+      final finder = find.text(filter);
+      expect(finder, findsOneWidget);
+      final rect = tester.getRect(finder);
+      expect(rect.left, greaterThanOrEqualTo(0), reason: filter);
+      expect(rect.right, lessThanOrEqualTo(308), reason: filter);
+      final target = find.ancestor(of: finder, matching: find.byType(InkWell));
+      expect(tester.getSize(target).height, greaterThanOrEqualTo(48));
+    }
+    for (final priority in const [
+      'Buch scannen',
+      'Aussprache hören',
+      'Wörterbuch & Meine Wörter',
+    ]) {
+      expect(find.text(priority), findsOneWidget);
+    }
+    for (final body in const [
+      'Text aus deinem Lehrbuch verstehen',
+      'Laute langsam vergleichen',
+      'Gespeicherte Wörter wiederfinden',
+    ]) {
+      expect(find.text(body), findsOneWidget);
+    }
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(textContrastGuideline));
+
+    for (final entry in const [
+      (key: 'book', route: '/book'),
+      (key: 'pronunciation', route: '/listening'),
+      (key: 'words', route: '/wordbook/search'),
+    ]) {
+      final priority = find.byKey(ValueKey('discover-priority-${entry.key}'));
+      await tester.ensureVisible(priority);
+      await tester.tap(priority);
+      await tester.pumpAndSettle();
+      expect(opened.last, entry.route);
+      Navigator.of(tester.element(find.byType(Scaffold).last)).pop();
+      await tester.pumpAndSettle();
+    }
   });
 
   testWidgets('filters the discoverable feature catalog by search and family', (
@@ -29,10 +80,14 @@ void main() {
     expect(_plainText('Wortkette'), findsOneWidget);
     expect(find.text('Hangul'), findsNothing);
 
-    await tester.tap(find.text('Wörter & Bücher'));
+    await tester.tap(find.byIcon(Icons.clear_rounded));
     await tester.pump();
 
-    expect(find.text('Keine passende Funktion gefunden.'), findsOneWidget);
+    await tester.tap(find.text('Wörter'));
+    await tester.pump();
+
+    expect(_plainText('Wortkette'), findsNothing);
+    expect(find.text('Meine Wörter'), findsOneWidget);
   });
 
   testWidgets(
@@ -93,7 +148,11 @@ Finder _plainText(String value) => find.byWidgetPredicate(
   description: 'plain text $value',
 );
 
-Future<void> _pumpDiscover(WidgetTester tester) {
+Future<void> _pumpDiscover(
+  WidgetTester tester, {
+  ValueChanged<String>? onRoute,
+  double textScale = 1,
+}) {
   return tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -101,7 +160,22 @@ Future<void> _pumpDiscover(WidgetTester tester) {
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: const DiscoverScreen(),
+      onGenerateRoute: onRoute == null
+          ? null
+          : (settings) {
+              onRoute(settings.name ?? '');
+              return MaterialPageRoute<void>(
+                settings: settings,
+                builder: (_) => const Scaffold(body: SizedBox()),
+              );
+            },
+      home: textScale == 1
+          ? const DiscoverScreen.preview()
+          : MediaQuery.withClampedTextScaling(
+              minScaleFactor: textScale,
+              maxScaleFactor: textScale,
+              child: const DiscoverScreen.preview(),
+            ),
     ),
   );
 }

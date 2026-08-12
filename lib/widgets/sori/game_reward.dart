@@ -163,14 +163,22 @@ class _GameOverCardState extends State<GameOverCard>
 
   /// 배치 계획 2026-07-29 §2: 감정에 맞는 캐릭터 클립(흰배경 mp4).
   /// 없으면 null → 기존 정적 마스코트 유지.
-  String? get _feedbackClip => CharacterClips.feedbackFor(
-    kindOrPreferred,
-    widget.mascotEmotion,
-    newBest: widget.isNewBest,
-  );
+  String? get _feedbackClip {
+    final kind = kindOrPreferred;
+    if (kind == null) {
+      return null;
+    }
+    return CharacterClips.feedbackFor(
+      kind,
+      widget.mascotEmotion,
+      newBest: widget.isNewBest,
+    );
+  }
 
-  MascotKind get kindOrPreferred =>
-      widget.mascotKind ?? MascotPreference.kind.value;
+  /// Explicit kinds are authored game feedback. A missing kind represents the
+  /// learner's personal companion and therefore remains nullable for `none`.
+  MascotKind? get kindOrPreferred =>
+      widget.mascotKind ?? MascotPreference.selectedKind;
 
   @override
   Widget build(BuildContext context) {
@@ -186,6 +194,7 @@ class _GameOverCardState extends State<GameOverCard>
         widget.feedbackCompletedMissionIds ??
         feedbackScope?.completedMissionIds ??
         const <String>{};
+    final kind = kindOrPreferred;
     return Padding(
       padding: const EdgeInsets.all(Spacing.lg),
       child: Column(
@@ -197,30 +206,24 @@ class _GameOverCardState extends State<GameOverCard>
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // 클립이 있으면 영상(1회 재생, 게이트/실패 시 자동 폴백),
-                    // 없으면 기존 정적 마스코트 그대로.
-                    if (_feedbackClip == null)
-                      Mascot(
-                        kind: kindOrPreferred,
-                        emotion: widget.mascotEmotion,
-                        size: 104,
-                        animate: true,
-                      )
-                    else
-                      CharacterClipPlayer(
-                        asset: _feedbackClip!,
-                        size: 116,
-                        // 흰 배경 mp4 는 multiply 로 흡수되므로 blendColor 는
-                        // **실제로 뒤에 칠해진 색**이어야 한다. GameOverCard 를
-                        // 쓰는 7개 결과 화면은 모두 배경 위젯 없는 plain
-                        // Scaffold → 그 색은 scaffoldBackgroundColor 다.
-                        // 상수(SoriColors.lightBg)로 두면 teal 팔레트
-                        // kill-switch(#FFFFFF)에서 크림 사각형이 뜬다.
-                        blendColor: Theme.of(context).scaffoldBackgroundColor,
-                        fallbackKind: kindOrPreferred,
-                        fallbackEmotion: widget.mascotEmotion,
-                      ),
-                    const SizedBox(height: Spacing.md),
+                    if (kind != null) ...[
+                      if (_feedbackClip == null)
+                        Mascot(
+                          kind: kind,
+                          emotion: widget.mascotEmotion,
+                          size: 104,
+                          animate: true,
+                        )
+                      else
+                        CharacterClipPlayer(
+                          asset: _feedbackClip!,
+                          size: 116,
+                          blendColor: Theme.of(context).scaffoldBackgroundColor,
+                          fallbackKind: kind,
+                          fallbackEmotion: widget.mascotEmotion,
+                        ),
+                      const SizedBox(height: Spacing.md),
+                    ],
                     Text(
                       widget.headline,
                       textAlign: TextAlign.center,

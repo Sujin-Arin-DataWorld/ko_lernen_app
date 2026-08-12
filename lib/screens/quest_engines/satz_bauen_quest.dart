@@ -239,7 +239,11 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         .toList();
 
     _punct = SatzBauenQuest.terminalPunctuation(_targetKo);
-    final all = <String>[...tokens, ...distractors, if (_punct != null) _punct!];
+    final all = <String>[
+      ...tokens,
+      ...distractors,
+      if (_punct != null) _punct!,
+    ];
     // Deterministisch mischen (stabil pro Quest, variiert je Satz).
     final rng = math.Random(_targetKo.hashCode);
     for (var i = all.length - 1; i > 0; i--) {
@@ -318,8 +322,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       _targetKo,
     );
 
-    if (punctuationOk &&
-        SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
+    if (punctuationOk && SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
@@ -395,7 +398,11 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // 엉성하다"(Jin 실기기). 정보(카드·타일)는 위, 버튼은 Spacer 로 하단
     // 고정(엄지 존). Spacer 는 min 0 이라 낮은 뷰포트(800×600)에서도
     // 3ee6ec1 오버플로 회귀가 없다.
-    return Stack(
+    // Tablet-width scaling can make the fixed prompt/answer/button chrome a
+    // few pixels taller than a short landscape viewport, especially during
+    // the 300 ms completed-state handoff. Keep the established layout above
+    // this threshold and make only the genuinely short case scrollable.
+    final content = Stack(
       clipBehavior: Clip.none,
       children: [
         Column(
@@ -461,15 +468,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                 // 존재감 있게. 72px 는 "너무 조그맣다"(2026-08-12 Jin 실기기).
                 // 카드 위쪽은 빈 배경이라 돌출(78px)이 다른 콘텐츠를 가리지
                 // 않고, 오버레이(Clip.none)라 세로 예산도 그대로 0.
-                Positioned(
-                  top: -78,
-                  right: 12,
-                  child: MascotPartner(
-                    celebrating: _celebrated,
-                    size: 96,
-                    kind: MascotKind.magpie,
-                  ),
-                ),
               ],
             ),
             const SizedBox(height: Spacing.lg),
@@ -573,6 +571,24 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
               ),
             ),
           ],
+        ),
+      ],
+    );
+    return Stack(
+      clipBehavior: Clip.none,
+      fit: StackFit.passthrough,
+      children: [
+        SoriMinHeightScroll(minHeight: 464, child: content),
+        // Keep the deliberate overhang outside the short-height scroll view;
+        // otherwise SingleChildScrollView clips the mascot above the card.
+        Positioned(
+          top: -78,
+          right: 12,
+          child: MascotPartner(
+            celebrating: _celebrated,
+            size: 96,
+            kind: MascotKind.magpie,
+          ),
         ),
       ],
     );

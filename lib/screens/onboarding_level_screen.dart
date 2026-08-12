@@ -18,7 +18,6 @@ import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
 import '../services/course_progress_service.dart';
 import '../services/onboarding_flow_service.dart';
-import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/responsive.dart';
 import 'placement_diagnostic_screen.dart';
@@ -123,8 +122,10 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
 
   Future<void> _select(BuildContext context, LearnerLevel level) async {
     HapticFeedback.mediumImpact();
-    await CourseProgressService.shared.initializeForPlacement(level.code);
-    await Storage.setBrowseLevelCode(level.code);
+    await CourseProgressService.shared.initializeForPlacement(
+      level.code,
+      syncBrowseLevel: true,
+    );
     await OnboardingFlowService.completeAfterLevelSelection();
     if (!context.mounted) return;
     await showAccountNudgeSheet(context);

@@ -79,15 +79,16 @@ void main() {
     expect(completions, 2);
   });
 
-  testWidgets('Home daily card uses fallback copy without stroke data', (
+  testWidgets('focused Home keeps the legacy daily card out of Today', (
     tester,
   ) async {
     await _setLargeView(tester);
     await tester.pumpWidget(_wrap(const HomeScreen(dailyCharacter: '가')));
     await tester.pump(const Duration(seconds: 2));
 
-    expect(find.text('Look at today’s letter'), findsOneWidget);
+    expect(find.text('Look at today’s letter'), findsNothing);
     expect(find.text('Watch the stroke-order guide'), findsNothing);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('daily character requires the guide before completion feedback', (

@@ -1,9 +1,652 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Linux Home golden 기준선 활성화
+
+**왜.** Home golden test는 개별 baseline PNG가 없으면 일반 PR `flutter test`에서 skip된다.
+CI fixture 복구만 커밋하면 수동 재생성 job은 성공해도 phone/tablet Home 회귀 비교가 자동
+게이트에서 실제로 실행되지 않는다.
+
+**무엇을.** exact head `9dafcc3`의 수동 CI run `31565528854`가 Flutter 3.44/Linux에서
+만든 `goldens-linux-3-44-0` artifact를 임시 경로에 받아 감사했다. 기존 tracked 기준선
+15개는 파일명·크기·SHA-256이 전부 동일했고, 새 Home 기준선 두 개만 저장소에 추가했다.
+`home_compact_360x800.png`은 SHA-256 `d75eab200f65f980a0134654dbbb41cd13012abe1c85c97dbdfb5db9f8ca7ad4`,
+`home_expanded_1280x800.png`은 `3578dd2b5be404a7b162fc532dea7bc2e899ec74aecc0ee0f125f55306bf0ac9`다.
+
+**검증.** 수동 Linux golden job의 `Update goldens`와 artifact upload가 모두 성공했고,
+artifact 17개 중 기존 15개는 byte-identical, 새 두 파일만 추가임을 독립 비교했다. 저장소
+복사 후 두 해시를 다시 확인하고 `git diff --check`를 통과했다. 임시 다운로드 디렉터리는
+삭제했다. 기준선 커밋: `c5c2424`.
+
+---
+
+### 2026-08-12 (Codex) — Linux matte·Home golden CI 재현성 복구
+
+**왜.** PR #17의 자동·수동 CI에서 앱 로직이나 영상 매트 불일치가 아닌 두 환경 결함이
+드러났다. Ubuntu runner에는 `ffmpeg`가 없어 character matte 검사가 시작 전에 종료됐고,
+Home golden은 production connectivity EventChannel을 구독해 widget runner에서
+`MissingPluginException`을 냈다. 기존 Home fixture는 실행 시각·오늘의 글자와 production
+refresh/write 흐름에도 의존해 기준선 재생성이 결정적이지 않았다.
+
+**무엇을.** Analyze & Build job이 matte 검사 전에 Ubuntu `ffmpeg`를 명시적으로 설치하게
+했다. Home golden은 기존 production `HomeScreen` 생성자 대신 무쓰기 `HomeScreen.preview`
+경계를 사용하고, Review 12건·한옥 projection/narrative·시각·오늘의 글자를 고정했다.
+각 golden 전에 `Storage.resetForTesting()`을 호출해 mock preferences handle도 격리했다.
+production Home connectivity와 영상 렌더링 코드는 바꾸지 않았다.
+
+**검증.** `flutter test --no-pub --concurrency=1 --update-goldens
+test/goldens/home_layout_golden_test.dart` **2/2**, 해당 파일 scoped analyzer `No issues`, 일반
+character matte **18/18**, Home hero matte **2/2**, YAML parse/order assertion과
+`git diff --check`를 통과했다. Windows에서 생성된 Home PNG 두 개는 검증 직후 제거해
+Linux canonical baseline으로 커밋하지 않았다. 코드/CI 커밋: `57c9ab1`.
+
+---
+
+### 2026-08-12 (Codex) — Gye Node 22·Firestore Rules CI 게이트
+
+**왜.** 기존 CI는 Flutter/Linux golden과 Python 분석 함수는 검사했지만 `functions/gye`의
+배포 엔진(Node 22)과 Firestore Rules emulator를 실행하지 않았다. 주간 checkpoint 적립과
+계정 삭제 경계를 Windows Node 24 성공만으로 게시하면 런타임 차이를 놓칠 수 있었다.
+
+**무엇을.** `ci.yml`에 Ubuntu Node 22, Temurin Java 21, `npm ci`, Gye Functions 전체
+`npm test`, Firestore emulator `npm run test:rules` job을 추가했다. 기존 Flutter·golden·Python
+job과 수동 golden 재생성은 그대로 유지한다.
+
+**검증.** YAML diff와 `git diff --check`를 통과했고, 동일 소스의 로컬 Gye Functions는
+**338/338**, Firestore Rules는 **46/46** 통과했다. 최종 Node 22/Java 21 증명은 PR CI가 맡는다.
+코드 커밋: `70caa36`.
+
+---
+
+### 2026-08-12 (Codex) — UX 01–06 최종 회귀 게이트
+
+**왜.** 20개 production preview를 한 브랜치로 통합한 뒤 전체 테스트를 다시 돌리자 새 코스
+데이터의 audit 기준 수, 세 신규 scenario의 배경 분류, 차분한 02D 결과의 tester feedback,
+Home의 작은 보조 문구 대비, 짧은 가로 화면의 Satz 레이아웃, 주간 Gye 체크포인트 재사용처럼
+focused 테스트만으로는 놓치기 쉬운 경계가 드러났다.
+
+**무엇을.** 콘텐츠 audit manifest를 현재 42 scenarios/193 quests로 맞추고
+`home_morning_routine`, `survival_day_capstone`, `rent_bank_transfer`를 기존 배경 카테고리에
+명시했다. 별·XP 축하를 되살리지 않은 채 02D 저장 결과에 기존 tester feedback card를
+복구했고, focused Home의 보조 문구는 실제 tinted 배경에서 AA 대비를 만족하게 했다.
+Satz는 바깥 `Stack(clipBehavior: Clip.none)`의 마스코트 overhang을 보존하면서 464dp보다
+짧은 본문만 스크롤한다. Gye 서버는 이번 write에서 새로 생기거나 유효 필드가 바뀐 exact
+checkpoint만, 그 `occurredAt`이 같은 KST 주간일 때만 집계하므로 과거 장면이 무관한 다음
+write에서 다시 적립되지 않는다. Gallery 02A/02B no-write 테스트는 번역 문구 대신 production
+CTA key를 누른다.
+
+**검증.** 비-golden Flutter 테스트 **275 files / 3,137 tests 전부 통과**,
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `flutter gen-l10n` 생성 diff 0,
+Home matte **2/2**, 일반 character matte **18/18**, Gye Functions Node **338/338**,
+Firestore Rules **46/46**, `flutter build web --release` 성공, `git diff --check` 통과.
+Windows에서 canonical golden을 갱신하지 않았으며 Linux CI가 정본 비교를 맡는다. Xiaomi
+실기기에서 Home 영상의 흰 사각형이 사라졌는지는 APK 재설치 전까지 외부 검증 경계다.
+코드 커밋: `f1320ff`.
+
+---
+
+### 2026-08-12 (Codex) — Gye 주간 체크포인트 재사용 차단
+
+**왜.** 사용자 문서의 다른 필드만 바뀌어도 보존된 과거 `scenarioCheckpoints`를 다시
+검색해, 지난주 또는 이미 처리한 이번 주 체크포인트가 새 Gye 주간 기여처럼 선택될 수 있었다.
+
+**무엇을.** Gye 기여 후보는 체크포인트 `occurredAt`의 KST 월요일 주간 키가 함수 이벤트의
+주간 키와 정확히 같고, 기여에 영향을 주는 체크포인트 필드가 이전 `course_mastery_json`에
+동일하게 존재하지 않을 때만 선택한다. 이전 스냅샷이 손상됐으면 fail-closed하며, 기존 exact
+course/unit/scenario/assess-link, 70% 기준과 UID를 노출하지 않는 해시 영수증은 유지했다.
+
+**검증.** 회귀 테스트를 먼저 추가해 지난주 재사용과 무관한 이번 주 재사용이 각각 RED임을
+확인했다. 수정 후 focused Node **7/7**, 전체 Gye Functions Node **338/338**, `node --check`
+2파일과 `git diff --check` 통과. 코드 커밋: `f1320ff`.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 02 no-write CTA 회귀 테스트 복구
+
+**왜.** 02A/02B no-write 테스트가 실제 화면 계약과 무관한 과거 영문 버튼 문구
+(`Review now`, `Start step 1`)를 찾아, 독일어·단계별 CTA로 바뀐 생산 위젯을 누르기 전에
+실패했다.
+
+**무엇을.** 02A는 `home-primary-today` 안의 실제 `SoriButton`, 02B는 생산 화면이
+공개하는 `course-mission-primary-cta`를 찾아 탭하게 했다. callback이 전달받은 destination과
+첫 link를 계속 검증하고, 탭 전후 SharedPreferences 전체 snapshot 동등성 계약도 유지했다.
+생산 UI·저장 동작과 Gallery의 less-spicy 02A–D fixture는 변경하지 않았다.
+
+**검증.** `test/ux_gallery_no_write_test.dart` **6/6 통과**, 해당 테스트 scoped
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `git diff --check` 통과.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 05B–C와 반응 부모 읽기 경계 완성
+
+**왜.** 05B/05C Gallery가 production `GyeScreen`을 쓰면서도 null account session,
+Review fallback, 빈 feed를 주어 계정 전환 pause와 `Zu Heute`만 보이고 실제 장면·반응을
+검토할 수 없었다. 운영 feed도 최신 20개를 문서 종류 구분 없이 자르므로, 새 반응 20개가
+창을 채우면 그 반응이 가리키는 21번째 milestone 부모가 빠져 피드가 비어 보일 수 있었다.
+
+**무엇을.** Gallery의 주간 약속을 실제 A1 주문 unit의 유일한 exact scenario `assess`
+링크로 해석해 `/scenario`와 typed `CoursePracticeContext`를 만들었다. production
+`GyeScreen`/`GyeFeed`에는 부모 성취와 그 아래 실제 sticker reaction을 넣고, 안전 메시지와
+반응 action은 preview 전용 no-op callback으로 열어 storage/Firebase 쓰기를 차단했다.
+운영 `feedStream`은 최신 20개를 유지하되 그 안의 유효한 reaction이 참조하는 누락 부모
+문서만 같은 feed collection에서 exact ID로 보충한다. slash·공백·길이 위반 target,
+sticker/cheer 같은 비-milestone 부모, ID 불일치는 표시하지 않고, append-only 부모 cache와
+일시 read 실패 재시도로 추가 읽기를 제한한다. reactable allowlist는 model과 UI가 공유한다.
+
+**검증.** 최신 반응 20개+누락 부모, 이미 포함된 부모, malformed/forged target,
+cache·일시 실패 재시도, 기존 exact navigation/layout, 05B typed scene, 05C 부모+반응+
+무쓰기 action을 묶은 focused Flutter 테스트 **69/69 통과**. 경고 제거 후 핵심 두 파일
+**56/56 재통과**, 변경 Dart scoped analyze `No issues found`, `git diff --check` 통과.
+실 Firestore 계정 데이터와 쓰기는 실행하지 않았다.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 02A–D 단일 미션 연속성 고정
+
+**왜.** Gallery의 02A·02B·02D는 인사 unit/scene을 사용하고 02C만 실제 문제가 있는
+덜 맵게 주문 장면을 사용했다. 02D의 verified 결과도 저장된 checkpoint를 재검증하지 않고
+직접 만든 값이라, 네 화면을 이어 보아도 같은 학습과 합법적인 숙달 근거를 증명하지 못했다.
+
+**무엇을.** 02A–D가 하나의 `Weniger scharf bestellen` unit, 실제 듣기 quest가 있는
+scenario, vocab→cloze→정확한 scenario `assess` 3-link graph를 공유하게 했다. 02C와 02D의
+mission context는 그 exact assess step을 가리킨다. 02D 결과는 `courseEligible`, unit ID,
+`missionContentLinkId`, 점수와 UTC 시각을 가진 고정 `CourseMasterySnapshot`을
+`ScenarioCanDoResult.fromSnapshot`으로 재검증한 projection만 사용한다. Gallery callback과
+fixture는 계속 storage/Firebase/progress를 쓰지 않는다. 새 context bar가 좁은 독일어 화면에서
+진행 문구를 unconstrained로 놓던 문제는 두 header 문구를 `Flexible`+ellipsis로 제한했다.
+
+**검증.** 02A–D unit/scenario/quest/exact-link/result 일치 계약, 실제 듣기 상호작용,
+308dp·독일어 1.3배 context, 기존 can-do projection을 묶은 focused Flutter 테스트
+**40/40 통과**. scoped analyze와 최종 전체 gate는 통합 완료 뒤 다시 실행한다.
+
+---
+
+### 2026-08-12 (Codex) — Home 캐릭터 영상 흰 배경 회귀 차단
+
+**왜.** Android 외부 영상 텍스처가 runtime `ColorFiltered` multiply를 기기별로 다르게
+처리하면서 Home 캐릭터 MP4의 흰 사각 매트가 다시 드러날 수 있었다. 일반 캐릭터 화면의
+흰 매트 계약까지 바꾸면 다른 화면의 배경 흡수가 깨지므로 Home만 별도 경로가 필요했다.
+
+**무엇을.** 호랑이와 까치 Home 클립을 `SoriColors.lightBg` 한지색으로 미리 합성한
+`HomeHeroClips` 두 개로 분리하고 Home에서만 `applyMultiplyFilter: false`로 렌더했다.
+일반 `CharacterClips`는 기존 multiply 기본값 `true`를 유지한다. 파생 자산의 SHA-256,
+프레임 수, 매트 색·일치율을 보고서와 테스트로 고정했고, CI가 일반 캐릭터와 Home 전용
+Python 매트 검사기를 모두 직접 실행하도록 했다. 동행자 없음은 계속 영상 밴드를 만들지 않는다.
+
+**검증.** Home 매트 검사 **2/2**, 기존 캐릭터 매트 **18/18**, Home/clip/Today 회귀
+**43/43**, 변경 Dart `flutter analyze --no-pub --fatal-infos` `No issues found`,
+`git diff --check` 통과. Xiaomi 실기기에서 실제 흰 사각형 소거 확인은 새 APK 설치가 필요한
+외부 게이트이며 이번 Windows 자동 증명 범위에는 포함하지 않았다. 코드 커밋 `ba2c712`.
+
+---
+
+### 2026-08-12 (Codex) — Gallery와 05–06 통합 보완
+
+**왜.** 독립 검증된 Gallery와 05–06 브랜치를 한 트리에 합칠 때 Profile의 새 canonical
+placement 계약과 01D의 explicit no-companion 모델, Home의 02A 단일 CTA와 06B typed
+connectivity 계약이 같은 파일에서 만났다. 그대로 한쪽을 선택하면 preview가 저장을 쓰거나
+동행자 없음이 사라지고, generic loader 오류가 오프라인으로 오표시될 수 있었다.
+
+**무엇을.** Profile preview 타입을 `CompanionPreference`로 맞춰 tiger/magpie/none 선택·표시와
+무쓰기 callback을 유지하면서, 시작점 2차 확인·원자적 placement/browse/legacy/current/snapshot
+변경·실패 rollback·export/Gye/account-delete를 보존했다. Home은 02A의 단일 Today CTA와
+읽기 전용 build note를 유지하고 offline/remote/local typed 상태, 재시도와 connectivity 복구를
+합쳤다. Gallery 06B fixture는 generic 예외가 아닌 명시적 `offline` snapshot을 반환한다.
+`connectivity_plus 7.0.0` 의존성은 `flutter pub get`으로 실제 package config에 반영했다.
+Home character/video/blend/compositing 및 asset은 수정하지 않았다.
+
+**검증.** Gallery **29/29**와 05–06 주요 통합 묶음 중 발견된 Profile/다중 checkpoint
+fixture를 수정한 뒤 Profile+mastery **55/55** 통과. 전체 `flutter analyze --no-pub
+--fatal-infos` `No issues found`; `flutter gen-l10n`, `git diff --check` 통과. 통합 커밋
+`c730736` 뒤의 이 보완은 별도 코드 커밋으로 고정한다. 전체 serial·web·실기기 matte gate는
+후속 단계다.
+
+---
+
+### 2026-08-12 (Codex) — 05–06 패리티 최종 truth gate
+
+**왜.** 05–06 목업 재대조에서 Gye 약속 CTA가 현재 Today의 실행 가능한 목적지를 우회할
+수 있었고, Profile 시작점은 legacy 레벨만 바꾸거나 기존 canonical 학습 증거를 경고 없이
+초기화할 수 있었다. Today 실패도 실제 오프라인, 원격 일시중단, 로컬 데이터 오류를 같은
+오프라인 문구로 표시했으며, 저장 복습이 0개여도 복습 CTA를 보여 줄 수 있었다.
+
+**무엇을.** Gye 약속 resolver는 현재 Today가 정확한 course mission일 때만 유일한
+`scenario + assess` 링크와 typed `CoursePracticeContext`를 재사용하고, absent/stale/
+ambiguous/unavailable이면 snapshot의 Today 목적지로 정직하게 fallback한다. 05A–C는
+자가확인·건너뛰기, 기여 신원/답/점수 비공개, 익명 기여 행, 규칙·멤버, 집계 기반 등불과
+안전 메시지를 308dp/독일어 1.3배에서도 유지한다.
+
+Profile은 dedicated canonical placement를 legacy보다 우선 표시하고, placement·browse·
+legacy·현재 unit·canonical snapshot을 한 recoverable local operation으로 저장한다. 부분 쓰기
+실패는 모든 mirror와 in-memory snapshot을 이전 값으로 rollback한다. 시작점 변경은 기존
+course progress·완료 unit·연습 증거·scene check 초기화를 2차 확인으로 명시하며, 확인 전과
+취소 뒤에는 exact preference bytes가 바뀌지 않는다. preview fixture의 학습/계정/Gye/export/
+삭제 action은 저장·Firestore·navigation mutation 없이 callback으로만 렌더된다.
+
+Today는 pinned `connectivity_plus 7.0.0`의 production transport stream과 typed
+offline/remote/local reason을 분리한다. online→offline은 즉시 06B로 전환하고 reconnect는
+loader를 다시 호출하며, stale load가 새 상태를 덮지 못한다. due review가 있으면 로컬 복습+
+retry를, 0이면 retry 하나만 보여 주고, healthy-empty는 single CTA로 남긴다. 06C는 review-first
+행동·약 3분·이유를 먼저 읽히게 하며 provenance가 없는 “실제 장면의 단어”나 0% 진행을
+만들지 않는다. DE/EN ARB와 generated l10n, 버튼/히어로 semantics도 함께 맞췄다.
+
+**검증.** exact Gye route, canonical/rollback/Profile reset·preview, export 비밀·identity 제외,
+typed connectivity transition/retry, offline due 12/0, local error not-offline, healthy-empty,
+review-first, 308dp·독일어 1.3배, ARB parity를 묶은 집중 Flutter 테스트 **116/116 통과**.
+온보딩 placement 연계 **8/8**, 접근성·Home hero **46/46**, compact Profile 재검증 **1/1**
+통과. 변경 Dart scoped `flutter analyze --no-pub` **No issues found**, `flutter gen-l10n`,
+`git diff --check` 통과.
+
+**경계.** connectivity transport는 인터넷 도달성 보장이 아니며 captive portal/실기기
+비행기 모드·OS 복구, Firebase/Firestore 실데이터, OS 공유 시트, TalkBack/VoiceOver는 이번
+Windows widget-test 증명 밖이다. account deletion receipt/journal/worker와 lifecycle 보안
+계약은 수정하지 않았다. 01D의 explicit no-companion API는 통합 브랜치에서 Profile의 3종
+selector·none 표시/저장·preview no-write와 함께 결합해야 한다. 목업의 “세 저녁”과 “실제
+장면의 단어”는 현재 schema가 증명하지 못해 각각 검증 가능한 사람/scene promise와 일반
+review provenance로 정직하게 표현했다. 커밋은 이 기록과 같은 커밋에 포함한다.
+
+---
+
+### 2026-08-12 (Codex) — UX Gallery 02C 실제 듣기 문제 상태 보강
+
+**왜.** 02C registry가 quest 없는 인사 시나리오를 기본 `dialog` stage로 열어 실제
+듣기 문제 대신 대화 한 줄을 보여 주고 있었다. runtime type만 맞는 Gallery 검증으로는
+목업의 질문·선택지·검사 CTA와 무쓰기 상호작용을 증명할 수 없었다.
+
+**무엇을.** 02C를 별도 고정 `Scenario`의 `ScenarioStage.quest`로 열고 실제 production
+`HoerverstehenQuest`가 `Was sagt die Person?`, 한국어 3개 선택지,
+`Meine Antwort prüfen`을 렌더하도록 선택 후 확인 모드를 추가했다. 이 모드는 fixture의
+`confirmSelection`이 true일 때만 켜지므로 기존 production quest의 선택 즉시 채점 계약은
+유지된다. player는 해당 quest가 끝나기 전 중복 `Weiter`를 숨기고, Gallery preview에서는
+자동/수동 TTS를 막아 캐시·Firebase·OS TTS로 빠지지 않는다. 정답 상호작용은 preview
+경계 안에서만 완료되며 course evidence·SharedPreferences를 쓰지 않는다.
+
+**검증.** 먼저 실제 `HoerverstehenQuest`가 0개라는 RED를 확인한 뒤, 02C 질문·선택지·
+검사·정답 후 `Weiter` 및 prefs 불변 테스트를 GREEN으로 만들었다. 전체 Gallery 테스트
+**29/29 통과**(02C 포함 20패널 308dp·1.3배, 390dp/1024dp 대표 matrix), 관련 scenario/
+무쓰기 회귀 묶음은 직렬 **56/56 통과**했다. `flutter gen-l10n`,
+`flutter analyze --no-pub --fatal-infos`(`No issues found`), `git diff --check` 통과.
+기존 `dedicated_feedback_route_test`의 별점 문구 1건은 변경 전 `5136b84` detached
+worktree에서도 동일 실패해 이번 변경의 회귀가 아님을 분리 확인했다. 코드 커밋
+`0993858`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+**회귀 경계.** Home 합성/흰 매트, assets, pubspec 및 05/06 화면은 변경하지 않았다.
+06B의 typed offline fixture 정합은 05/06 통합 뒤 별도 conflict-resolution 대상으로 남긴다.
+
+---
+
+### 2026-08-12 (Codex) — 실제 production 위젯 20패널 UX Gallery 완성
+
+**왜.** 기존 Gallery는 `01A–06C` 인벤토리와 탐색 shell만 있었고 내용은 테스트용
+가짜 `Text` builder였다. 목업을 실제 구현 상태로 검토하려면 production 화면 자체를
+결정적 fixture로 열되, Gallery 때문에 Storage·Firebase·알림·광고·마이그레이션이
+시작되거나 학습/계정 상태가 바뀌지 않는 조기 진입 경계가 필요했다.
+
+**무엇을.** `UxPreviewRegistry`가 정확히 20개 ID를 실제 production 화면에 연결한다.
+온보딩·Today·미션·시나리오 결과·한옥 지도·사랑방·연습/탐색/경로·계·프로필·오프라인/
+복습 우선 상태는 기존 화면의 preview/fixture seam과 기존 assets만 사용한다. 01B의
+placement 갈래와 06A의 동기화·계정·내보내기·학습설정 동작에는 preview 전용 무쓰기
+분기를 추가했다. 03C/04A–C처럼 이름 있는 route를 직접 여는 production CTA는 Gallery
+안의 읽기 전용 route boundary가 가로채 운영 loader로 빠지지 않는다.
+
+`main()`은 debug 빌드에서 `ENABLE_UX_GALLERY=true`일 때만 `Storage.init()`보다 먼저
+German/light-theme `UxPreviewApp`을 실행하고 즉시 반환한다. flag가 없거나 release면
+기존 production startup 함수가 동일한 순서로 실행된다. 실행 예시는
+`flutter run -d <device> --dart-define=ENABLE_UX_GALLERY=true`다.
+
+**검증.** 새 Gallery 테스트 **28/28 통과**: exact 20 builder/type/route, Storage 미초기화
+조기 반환, production 분기 위임, German theme, 대표 CTA route 격리, SharedPreferences
+불변, 전체 패널 308dp·1.3배 및 390dp/1024dp 대표 matrix를 확인했다. 관련 화면 회귀
+묶음은 **112/112 통과**했고, 실제 dart-define 주입 smoke **1/1 통과**. 전체
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `flutter gen-l10n`,
+`git diff --check` 통과. 코드 커밋 `6c12d42`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+**회귀 경계.** `home_screen.dart`, `character_clip.dart`, `pubspec.yaml`과 영상/이미지 asset은
+변경하지 않았다. 따라서 홈 영상의 흰 배경 수정 계약을 덮어쓰지 않으며, 실제 Android
+합성 결과는 최신 main의 matte 변경을 최종 rebase한 뒤 별도 실기기 gate로 확인한다.
+
+---
+
+### 2026-08-12 (Codex) — truthful three-step course mission parity
+
+**왜.** 01B·02A/B/D·03·04 목업의 표면은 구현됐지만, 목적 장면이 첫 실제 과제에서
+시작되지 않거나 mission CTA가 pack 선택을 한 번 더 요구하고, 자유 탐색·부분 assess
+링크가 코스 진척/한옥/계 증거로 승격될 수 있었다. 완료된 코스를 Path·Home에서 보기만
+해도 초기화하는 경로와 02B의 접힌 legacy 상세도 남아 있었다.
+
+**무엇을.** 온보딩 목적 장면은 첫 실제 task로 직행하고 현재 시도의 첫 성공만 동행자
+제안을 열도록 했다. Course Mission은 실제 catalog를 listen/build/scene 3단계와 고정
+1/3·2/3·3/3 순서로 투영하며, vocab/cloze/satz CTA는 정확한 기존 task와 typed mission
+context를 전달한다. 이 practice는 mission 단계만 진행시키고 mastery는 올리지 않는다.
+grammar/smalltalk/scenario의 현재 exact assess만 `courseEligible`이며, 선언 checkpoint마다
+required concepts와 정확히 같은 링크 하나만 허용한다. 과거 null-link bytes는 보존하되
+진척·한옥·can-do·계 기여에서는 history-only다. 36개 unit의 required concept를 실제
+답할 수 있는 감사된 checkpoint quest에 연결했고, 집 아침·A1 생존 capstone·월세 이체
+장면 및 진짜 누락 배달 complaint 흐름을 추가했다. Home은 Today CTA 하나와 읽기 전용
+build note만 남기고, Path/Home/Course Mission의 표시 load는 저장을 만들거나 완료 코스를
+재시작하지 않는다. Home character compositing과 영상 asset은 이 커밋에서 수정하지 않았다.
+
+**검증.** 변경 Flutter 테스트 20파일 직렬 **148/148**, 실제 data/graph/read-only/build
+묶음 **34/34**, mastery/sync/production 계약 **59/59**, Gye UI/navigation **23/23**,
+`functions/gye` exact-provenance Node **4/4** 통과. 변경 Dart 43경로
+`flutter analyze --no-pub --fatal-infos` `No issues found`; `flutter gen-l10n` 및
+`git diff --check` 통과. 코드/데이터 커밋 `fba5b42`; 이 항목은 규칙에 따른 직후 문서
+커밋이다. 실기기·pixel golden·Home matte WIP·05–06/Gallery 최종 통합은 다음 단계다.
+
+---
+
+### 2026-08-12 (Codex) — production preview를 여는 Gallery shell
+
+**왜.** 20개 목업의 존재만 세는 인벤토리로는 각 상태가 실제 앱 화면을 재사용하는지
+검증할 수 없다. Gallery가 학습 상태를 만들거나 저장하지 않고, 주입된 production
+preview widget을 발견하고 여는 역할만 맡도록 경계를 먼저 고정했다.
+
+**무엇을.** `UxPreviewGalleryScreen`은 `01A–06C`를 구간별로 나열하고 각 패널을
+독립 route로 연다. 내용은 `buildPanel`이 제공하며 Gallery 자체는 Storage·Firebase·
+진행도 서비스를 참조하지 않는다. 모든 항목은 이름이 있는 button semantics와 tap
+action을 제공한다. 새 asset은 추가하거나 수정하지 않았다.
+
+**검증.** 첫 `01A`와 마지막 `06C` route, 20개 접근성 노드를 검증하는 widget test
+**2/2 통과**, scoped Dart analyze `No issues found`, `git diff --check` 통과. 코드
+커밋 `d61b4b1`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+---
+
+### 2026-08-12 (Codex) — debug UX Gallery 20패널 인벤토리 고정
+
+**왜.** 목업의 일부 화면만 구현한 상태를 다시 “전체 완료”로 오인하지 않도록,
+`01A–06C` 20개 패널을 코드에서 정확히 한 번씩 식별하는 고정 인벤토리가 필요했다.
+Gallery는 production 시작 경로를 바꾸지 않고 debug define을 켠 경우에만 열려야 한다.
+
+**무엇을.** `UxPreviewFeatureGate`는 debug 빌드의
+`ENABLE_UX_GALLERY`에서만 활성화되고 기본값은 false다. `uxPreviewPanels`는 HTML의
+20개 ID·구간·독일어 제목을 순서대로 고정한다. 다음 커밋에서 각 ID를 실제 production
+widget의 mutation-free preview fixture와 연결한다. 새 이미지나 asset은 추가하지 않았다.
+
+**검증.** gate와 인벤토리 테스트 **4/4 통과**, 두 파일 scoped analyze
+`No issues found`, `git diff --check` 통과. 코드 커밋 `d46a3a1`, `8b18e62`, 제목 정정
+`9e03982`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+---
+
+### 2026-08-12 (Codex) — UX 목업 01–06 완전 패리티 작업 시작
+
+**목표.** `docs/HANGUL_SORI_UX_REBUILD_MOCKUPS.html`의 20개 화면 계약을 기존
+assets만 사용해 실제 CTA·라우팅·저장 상태·오프라인 상태까지 구현한다. 로컬 `main`
+checkout은 전환·stash·commit하지 않고, 전용 `codex/ux-mockup-01-06-complete`
+worktree에서만 통합한다.
+
+**범위.** 01–02, 03–04, 05–06을 각각 독립 하위 worktree에서 구현한 뒤, 공통
+DE/EN l10n과 debug-only UX Gallery, 반응형·접근성·상태 fixture matrix를 통합한다.
+새 이미지 생성은 금지하며 기존 한옥·태고·조이 assets를 재사용한다. 최종 UX 커밋만
+최신 `origin/main` 위로 정리해 PR·CI 검증 후 병합한다.
+
+**진행 중.** 구현 및 검증 결과와 커밋은 완료 시 이 항목에 갱신한다.
+
+---
+
 > **AGENTS.md에서 분리한 세션 히스토리 아카이브 (2026-08-05 분리).**
 > 컨텍스트 비용 절감을 위해 매 세션 자동 로드하지 않는다 — 과거 맥락이 필요할 때만 grep/Read.
 > ⛔ **앞으로 모든 변경 기록(무엇을·왜·검증·커밋해시)은 이 파일 최상단(최신이 위)에 남긴다.**
 > 상시 지침·파일맵·규칙은 `AGENTS.md` 참조.
+
+---
+
+### 2026-08-12 (Codex) — UX mockup 03–04 exact parity follow-up
+
+**왜.** 03A–03C와 04A–04C의 production/preview 구현을 목업 HTML과 다시 줄 단위로
+대조한 결과, 핵심 경로는 연결돼 있었지만 일부 앱바·검색·목록 문구, 좁은 화면의 필터,
+검증된 능력 도입문, 사랑방 정보 순서와 지도 접근성 타깃에 작은 차이가 남아 있었다.
+
+**무엇을.** 03A는 기존 한옥 asset을 유지하면서 278dp 무대, 실제 검증 단원의 can-do를
+사용하는 `Dein Fundament steht …`, 안전한 장면 수와 다음 Balken 목표, 두 CTA를 같은
+production widget에 맞췄다. 목업의 고정 `die ersten Pfeiler`는 실제 단계와 어긋날 수 있어
+복사하지 않고 승인된 truth-first `der nächste Balken`을 유지했다. 03B는 한국어 장소명과
+독일어 목적, 4분·실제 다음 문장, `Dorthin gehen`, `Orte als Liste anzeigen`를 제공한다.
+지도 장소 타깃은 Android 기준 48dp로 키우고 서로 겹치지 않게 확장 방향을 조정했으며,
+중복된 무라벨 semantics 노드를 제거했다. 03C는 `Dein Lernzimmer`를 도입부 앞으로 옮기고
+실제 획득 표현을 기존 사랑방 장면 위에 배치했다. 획득 영수증·Einrichten·두 복귀 동작은
+목업 순서로 두되 storage/reward 상태를 새로 쓰지 않는다.
+
+04A는 앱바와 주 탭을 `Üben`으로 통일하고 4개 목적 경로의 목업 문구를 맞췄다. 04B는
+검색 힌트, 48dp의 4개 wrapping 필터와 3개 우선 경로를 정확히 앞세우고 불필요한 중간
+heading을 제거했다. 04C는 최근 완료·현재·다음 3행, 상태·간결한 본문, evidence 카드와
+현재 mission CTA 순서를 유지한다. evidence 문구는 목업보다 엄격하게 실제 계약인
+matching active assessment와 연결된 각 scenario 70% 이상을 명시하며, legacy pack trail은
+명시적 control 뒤에만 남긴다. DE/EN ARB와 generated l10n을 함께 갱신했고 새 asset은 없다.
+
+**검증.** 여섯 패널 fixture를 각각 308px·독일어 1.3배에서 렌더해 문구·순서·CTA·필터와
+overflow 0을 확인했고, 같은 6 tests에서 Android 48dp, labeled tap target, WCAG text contrast를
+모두 통과했다. `hanok_world_screen_test.dart` **15 tests passed**; Practice·Discover·Path·
+Sarangbang·Hanok evidence 묶음 **24 tests passed**(합계 39). 변경 production/generated/test
+16개 경로의 `dart analyze`는 `No issues found`; `flutter gen-l10n`, `git diff --check` 통과.
+
+**커밋.** exact copy·IA·responsive·accessibility parity `c2d4190`.
+
+**검증 경계.** widget fixture와 정적 분석 기준의 목업 계약 패리티다. 실기기 터치·OS별
+글꼴 rasterization과 pixel-identical golden은 별도이며, Firebase/계정 상태나 실제 저장
+변경을 preview가 대신 증명하지 않는다.
+
+---
+
+### 2026-08-12 (Codex) — UX mockup 03–04 evidence parity
+
+**왜.** 03A–03C와 04A–04C는 기존 경로와 기능은 연결돼 있었지만, 목업이 약속한
+안전한 장면 수·지도 위 장소 목적·실제로 획득한 표현과 Üben/Entdecken/Dein Weg의
+첫 정보 우선순위가 production 화면에 아직 완전히 드러나지 않았다.
+
+**무엇을.** 첫 03A 슬라이스는 한옥 진행 표시를 legacy pack 비율에서 분리했다.
+정확한 scenario assess 링크, 단원에 선언된 checkpoint, `courseEligible`, 단원별
+pass threshold를 모두 만족하는 각 장면의 **최신** 결과만 안전한 장면으로 센다.
+최근 실패는 과거 성공을 덮어쓰며, 두 장면 단위의 다음 Balken 목표만 읽기 전용으로
+표시한다. 이 projection은 코스 완료·보상·해금을 쓰거나 바꾸지 않는다. 03B/C 및
+04A–C 패리티는 같은 격리 브랜치의 후속 소규모 커밋으로 이어진다.
+
+03B는 완성된 장소의 이름과 짧은 목적을 지도 위에 직접 표시하고, 사랑방 선택 카드에
+4분과 현재 단원의 실제 다음 scenario 문장을 보여 준다. 03C는 추천 제목을 획득 기록처럼
+보이던 표현을 제거하고, exact safe checkpoint에 연결된 생산형 문장과 `표현 · 안전한 장면 ·
+Balken im Bauplan` 영수증을 표시한다. 신형 scenario는 `satzBauen`/`diktat` target을,
+구형 scenario는 실제 learner dialog만 사용하며 UI가 문장을 만들어 내지 않는다.
+`HanokWorldScreen.preview`와 `SarangbangStudyScreen.preview`는 같은 production widget·asset을
+fixture state로 즉시 렌더하고 초기 storage/reward/reveal 호출을 건너뛴다.
+
+04A는 두 번째 주 탭을 `Üben`/`Practice`로 바로잡고 목적 우선 Practice 화면은 그대로
+유지했다. 04B Discover는 `Für mich · Sprache · Wörter · Freizeit`의 네 목적만 먼저
+보여 주고 `Buch scannen · Aussprache hören · Wörterbuch & Meine Wörter` 세 경로를 우선했다.
+검색은 선택 필터 밖의 정확한 결과도 찾으며 기존 24개 destination은 모두 유지한다.
+04C는 `Dein Weg`/`Your path`에서 가장 최근 완료·현재·다음 단원만 간결하게 보여 주고,
+70% 근거 안내와 현재 mission CTA를 유지한다. 기존 Hanok/pack trail은 삭제하지 않고
+명시적인 `Weitere Übungen anzeigen` 뒤로 옮겼다. `PracticeHubScreen.preview`,
+`DiscoverScreen.preview`, `LearningPathScreen.preview`는 production widget을 fixture state로
+렌더하며 coach, review load, course initialization 등 저장 접근을 시작하지 않는다.
+새 문구는 DE/EN ARB와 generated l10n을 함께 갱신했다.
+
+**검증.** `flutter gen-l10n`; `flutter test test/hanok_build_narrative_test.dart
+test/hanok_world_screen_test.dart` — **19 tests passed**; `git diff --check` 통과.
+03B/C 누적 회귀 4파일은 **30 tests passed**, 변경 10파일 scoped analyze는
+`No issues found`였다. 04 focused·evidence·adaptive navigation 5파일은 **22 tests passed**,
+Practice 접근성(터치 영역, WCAG AA, 스크린리더, 1.3배 글자, tablet)은 **5 tests passed**,
+production Learning Path smoke도 통과했다. 04 변경 8파일 scoped analyze는
+`No issues found`, `git diff --check` 통과였다. asset 변경 없음.
+
+**커밋.** 03A safe-scene projection `679d452`; 03B/C 지도·사랑방·preview `a9df97a`;
+04A–C navigation·Discover·Dein Weg parity `8ec5575`.
+
+**검증 경계.** widget/정적 분석 증거이며 실기기 상호작용과 목업 대비 pixel-identical
+golden은 아직 증명하지 않았다. preview factory는 production 저장을 건드리지 않지만,
+production 계정·Firebase 상태를 흉내 내는 통합 backend fixture는 아니다.
+---
+
+### 2026-08-12 (Codex) — UX 02 Today 집중·미션 브리프·검증 결과 + 01–02 no-write preview
+
+**왜.** 목업 02A–D는 Home의 여러 대시보드 블록보다 오늘의 한 행동을 먼저
+보여주고, Course Mission은 실제 장면·단계·시간과 첫 CTA가 같은 graph 순서를
+가리키며, 결과는 별/XP 폭죽보다 저장된 can-do와 실제 한옥 구조 변화를 설명해야
+한다. 또한 통합 UX Gallery가 01A/D와 02A–D의 production widget을 렌더하고 눌러도
+동의·동행자·보상·과정 evidence를 바꾸지 않는 명시적 preview 경로가 필요했다.
+
+**무엇을.** Home은 날짜와 `TodayLearningSnapshot`의 단일 primary action, compact
+한옥 성장 메모, 이후 복습만 먼저 보여주고 기존 dashboard는 접근 가능한 접기 영역에
+보존했다. `CourseMissionBrief`는 catalog link 순서를 그대로 사용해 앞 3단계, 단계별
+시간, 도착 scene, 남은 단계, 첫 link CTA를 하나의 read-only 계약으로 만든다. Scenario
+결과는 진입 시 한 번 자동 저장하고 별·XP·결과 burst를 제거했으며, 검증된 can-do,
+사용자가 말한 문장, checkpoint 직전/직후 `PersonalHanokProjection`의 구조 변화만
+표시한다. 변경이 없거나 evidence가 없으면 그 사실을 그대로 말한다.
+
+`ConsentScreen.preview`, `CharacterSelectionScreen.preview`, `HomeScreen.preview`,
+`CourseMissionScreen.preview`, `ScenarioPlayerScreen.preview`를 추가했다. preview는
+production loader/entitlement/notification/reward/course write를 시작하지 않고 CTA를
+host callback으로 전달한다. 특히 01D confirm/skip은 `MascotPreference`와
+`Storage.setIntroPreviewSeen`보다 먼저 분기한다. production 기본 생성자와 저장 동작은
+그대로 유지했다.
+
+**검증.** UX Gallery prefs byte-equivalence **6/6**, Home layout/반응형/대비
+**38/38**, CourseMastery 이전/이후 snapshot 포함 **32/32**, onboarding/consent/
+접근성 회귀 **39/39**, Home 한옥 narrative **2/2**, scenario auto-save can-do flow
+**2/2** 통과. character/mission/player/result 집중 묶음의 나머지 **28개**도 통과했다.
+변경 18항목 `flutter analyze --no-pub`는 **No issues found**, `git diff --check`도
+통과했다.
+
+**경계.** 이 브랜치는 기존 Home character MP4나 matte asset을 수정하지 않았다.
+동시 작업 중인 `HomeHeroClips/applyMultiplyFilter` 흰 매트 수정은 복사하지 않았고,
+최종 통합 시 최신 `origin/main`에서만 흡수한다. 실기기 영상 합성과 실제 저장/라우트
+smoke는 이 Windows widget 검증의 증명 범위 밖이다.
+
+**커밋.** `6a24c8a` (`feat(ux): focus Today missions on verified outcomes`).
+
+---
+
+### 2026-08-12 (Codex) — UX 01B/C 목적별 첫 장면과 현재 시도 첫 성공
+
+**왜.** 목업 01B/C는 목적 선택이 능력을 판정하지 않고 실제 첫 상황만 정하며,
+동행 초대는 과거 기록이 아니라 현재 학습 시도의 첫 올바른 반응 뒤에만 나타나야 한다.
+기존 시작 CTA는 Course Mission 대시보드로 이동했고, 동행 gate는 과거 evidence까지
+포함한 전체 snapshot을 읽어 이미 끝난 성공으로도 열릴 수 있었다.
+
+**무엇을.** 여행·사람·학업/일 목적을 기존 A1 시나리오 `airport_arrival`,
+`introduce_yourself`, `first_class_meeting`에 매핑하고 시작 CTA가 실제
+`ScenarioPlayerScreen`을 바로 열도록 바꿨다. 화면 인스턴스별 첫 정답 gate가 한국어
+문장과 목적별 can-do를 담은 01C를 한 번만 열며, Course Mission fallback은 연습 전후
+evidence ID 차이로 현재 시도에 새로 생긴 적격 성공만 인정한다. 목적·장면 opener와
+01C actions에는 저장소를 쓰지 않는 gallery/test 주입 seam을 추가했다. 선택만으로
+숙달 evidence나 레벨은 만들지 않으며 기존 A1 초기화와 scenario assets를 그대로 쓴다.
+
+**검증.** onboarding start/companion/scenario/first-voice 집중 테스트 **12/12**,
+Course Mission plan/path/navigation 회귀 **5/5** 통과. `flutter analyze --no-pub`는
+**No issues found**, `git diff --check`도 통과했다.
+
+**커밋.** `033684e` (`feat(onboarding): open purpose scenes on first success`).
+
+---
+
+### 2026-08-12 (Codex) — UX 01D 명시적 no-companion 계약 구현
+
+**왜.** 목업 01D의 “Jetzt nicht”는 단순히 캐릭터 선택을 미루는 버튼이 아니라
+동행자 없이 계속할 수 있는 선택이다. 기존 저장값 공백은 레거시 기본 Tiger로
+해석되고, 대부분의 결과·보상 화면이 non-null `MascotPreference.kind`를 직접 읽어
+건너뛴 직후에도 Tiger가 다시 나타났다.
+
+**무엇을.** `kl_preferred_mascot=none`을 명시적 상태로 추가하되 기존 공백·알 수
+없는 값은 Tiger로 유지했다. 선택 화면과 첫 음성 성공의 건너뛰기만 `none`을 쓰고,
+Home·프로필·설정·경로·복습·시나리오·어휘/게임 결과·마일스톤·영상 폴백 등
+개인화 surface는 nullable preference를 구독해 동행자를 숨기거나 중립 아이콘을
+보인다. 점수에 따라 게임이 명시적으로 지정한 캐릭터와 고정 책/듣기 일러스트는
+브랜드 장식으로 분류해 유지했다. `CompanionBuilder.previewPreference`를 추가해
+저장소 mutation 없이 gallery/test에서 Tiger·Joy·none 상태를 렌더할 수 있다.
+
+**검증.** `flutter analyze --no-pub` **No issues found**. character selection +
+first-success **8/8**, mascot wiring + Tiger video **25/25**, Home/Profile/Settings/
+GameOver no-companion focused 테스트 모두 통과. production personalized importers에서
+`MascotPreference.kind.value/current`가 다시 들어오지 못하는 source guard와
+`git diff --check`도 통과했다.
+
+**커밋.** `20095cd` (`feat(onboarding): support an explicit no-companion choice`).
+---
+
+---
+
+### 2026-08-12 (Codex) — 06B·06C Today 오프라인·빈 상태·복습 우선일
+
+**왜.** Today 입력 중 하나가 실패해도 기존 loader가 중립값으로 삼켜 정상 추천처럼 보였고,
+오프라인 카드에는 재연결 동작이 없었다. 추천이 실제로 비어 있는 날도 안전한 다음 행동이
+없었으며, 복습 우선일은 06C 목업의 짧고 맥락 있는 약속보다 일반적인 복습 숫자로 보였다.
+
+**무엇을.** course/pack/scenario/review 입력별 실패를 `TodayLearningAvailability`와
+`unavailableSources`로 보존하면서 건강한 입력은 읽기 전용으로 끝까지 조립하게 했다. Home은
+부분 snapshot을 정상 추천으로 표시하지 않고 06B의 연결 중단 문구, 로컬 저장 복습 filled CTA,
+`Erneut verbinden` 재시도를 보여 준다. 건강하지만 추천이 없는 상태에는 저장 단어 복습 CTA
+하나만 둔다. 복습 추천은 “문맥에서 N단어 복습”, 안전한 문장에 목소리를 준다는 이유,
+약 3분과 다음 적합한 상황의 의미를 DE/EN으로 명시했다. `previewMode`와 Today loader/action
+주입점을 추가해 UX Gallery와 widget test가 reward, reminder, intro, Hanok, course-card write,
+실제 navigation 없이 offline/review fixture를 렌더할 수 있게 했다.
+
+**검증.** production source failure/healthy readers, degraded Home, retry recovery, empty single CTA,
+review semantics, preview preference no-write와 기존 Today navigation, Home 반응형·접근성,
+Hanok, ARB parity를 포함한 집중 Flutter 테스트 **83/83 통과**. 변경 Dart 5파일 scoped
+`flutter analyze` **No issues found**, `flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** account lifecycle, deletion receipt/journal, Firebase, unlock/mastery는 수정하지 않았다.
+실기기 네트워크 전환과 OS별 연결 복구는 이번 Windows widget-test 증명 범위 밖이다.
+
+---
+
+### 2026-08-12 (Codex) — 06A 프로필 직접 제어와 read-only 학습데이터 export
+
+**왜.** 프로필의 “Mein Raum”은 개인정보/계정과 Gye 진입만 묶어 보여 실제 그룹 이름,
+학습데이터 내보내기, 계정 삭제로 바로 가는 경로가 없었다. 기존 cloud backup payload는
+course migration/write를 수행할 수 있어 사용자가 요청한 로컬 export의 읽기 전용 경계로
+재사용할 수 없었다.
+
+**무엇을.** 프로필 첫 표면에 개인정보·계정, 실제 Gye 이름, “Meine Lerndaten”, 계정
+삭제의 네 행을 목업 순서로 배치했다. 계정/삭제 행은 typed `SettingsInitialFocus`로 기존
+Settings의 계정 섹션과 보호된 삭제 행을 직접 열며, 삭제 확인·receipt·journal·worker
+계약은 그대로 재사용한다. Settings는 lazy list에서도 목표 행을 찾아 보이도록 bounded
+focus 탐색을 추가했다. export는 SharedPreferences 전체 덤프가 아니라 level/목표/동행,
+XP·streak, vocab/grammar/scenario/achievement, canonical course mastery, SRS review card,
+pack progress만 명시적으로 allowlist하고 JSON 파일로 OS 공유한다. 손상 blob은 격리나
+migration을 호출하지 않고 생략한다. Profile에는 Gye loader와 네 action, coach를 주입할
+수 있는 fixture seam을 추가해 UX Gallery가 Firebase/저장 mutation 없이 실제 화면을
+렌더할 수 있게 했다.
+
+**검증.** Profile/account 회귀, Gye 이름과 네 직접 action, typed Settings 목적지,
+DE/EN copy, compact/tablet layout, account write-lock UI, deterministic export, corrupt blob
+무변경, Settings 삭제 focus를 포함한 집중 Flutter 테스트 **16/16 통과**. exporter는
+build 전후 preference snapshot이 동일하며 birth year, consent, account deletion checkpoint,
+account transition auth token, secure terminal-status receipt, refresh token, private bookshelf
+path가 결과에 없음을 고정했다. 변경 Dart scoped `dart analyze` **No issues found**,
+`flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** OS 공유 시트와 실제 파일 수신 앱은 Windows widget test 범위 밖이다. 이 변경은
+계정 lifecycle을 실행하거나 receipt를 읽지 않으며, Profile 삭제 행도 기존 Settings 보안
+workflow로 이동할 뿐 삭제를 직접 시작하지 않는다. 커밋은 이 기록과 같은 커밋에 포함한다.
+
+---
+
+### 2026-08-12 (Codex) — 05A–C Gye 약속의 exact scene·익명 기여 UX
+
+**왜.** UX 재구축 목업의 주간 약속 CTA가 단순 시나리오 탐색으로 열리면 실제 기여로
+인정되는 장면이라는 보장이 없고, 원격 약속 메타가 현재 학습 단원과 어긋날 때도 거짓
+목적지를 보여줄 수 있었다. 또한 집계 막대만으로는 익명 기여와 대기 상태, 비교·압박 금지
+규칙이 충분히 드러나지 않았고, 갤러리에서 계정/Firestore mutation 없이 Gye 상태를
+재현할 seam이 부족했다.
+
+**무엇을.** 현재 Today의 활성 course unit, 지원되는 주간 약속 정의, catalog의 유일한
+`scenario + assess` ContentLink를 모두 exact-match하는 read-only resolver를 추가했다.
+일치할 때만 기존 `CourseMissionNavigation`이 만든 typed `CoursePracticeContext`로
+`/scenario`를 열며, 링크 부재·stale unit·중복 링크·catalog 오류는 snapshot의 Today
+목적지로 정직하게 fallback한다. 주간 카드에는 신원·답·결과 없는 익명 기여/대기 행과
+비교·압박·진행 방해 금지 규칙을 추가했고, 안전 메시지 옆에 규칙/멤버 진입을 노출했다.
+멤버 화면에도 신고·차단 가능성을 설명하는 규칙 카드를 추가했다. 빈 Gye 05A 문구를
+일반 기여 기준으로 맞추고, loader·CTA·solo action·coach 및 Gye stream/navigation을
+fixture로 주입할 수 있게 해 갤러리/테스트가 production mutation을 일으키지 않게 했다.
+
+**검증.** exact eligible/absent/stale/ambiguous resolver, typed route provenance, 익명 행,
+truthful fallback, 짧은 화면/폭·text-scale, 기존 Gye 회귀, 빈 Gye fixture actions,
+write gate/멤버 규칙을 포함한 집중 Flutter 테스트 **21/21 통과**. 변경 Dart 8파일
+scoped `dart analyze` **No issues found**, `flutter gen-l10n`, `git diff --check` 통과.
+
+**경계.** resolver와 fixture seam은 읽기 전용이며 unlock/mastery/계정 lifecycle을
+변경하지 않는다. 실제 기기의 Firebase 세션, 실데이터 catalog 목적지, 신고·차단 동작은
+이 Windows widget-test 증명의 범위 밖이다. 커밋은 이 기록과 같은 커밋에 포함한다.
 
 ---
 

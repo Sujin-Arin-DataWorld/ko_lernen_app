@@ -67,6 +67,8 @@ void main() {
     );
     await tester.pump();
     expect(find.text(_pausedDe), findsOneWidget);
+    expect(find.text('Regeln für einen sicheren Hof'), findsOneWidget);
+    expect(find.textContaining('Antworten, Ergebnisse'), findsOneWidget);
 
     sessions.value = const CloudWriteSession(
       uid: 'source',

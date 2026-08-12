@@ -259,11 +259,18 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
             child: ListView(
               children: [
                 const SizedBox(height: Spacing.xl),
-                Mascot(
-                  kind: MascotPreference.kind.value,
-                  emotion: MascotEmotion.celebrate,
-                  size: 96,
-                  animate: true,
+                CompanionBuilder(
+                  builder: (context, kind) => Mascot(
+                    kind: kind,
+                    emotion: MascotEmotion.celebrate,
+                    size: 96,
+                    animate: true,
+                  ),
+                  noneBuilder: (context) => const Icon(
+                    Icons.task_alt_rounded,
+                    size: 88,
+                    color: SoriColors.success,
+                  ),
                 ),
                 const SizedBox(height: Spacing.md),
                 Text(

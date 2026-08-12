@@ -178,18 +178,20 @@ class SoriButton extends StatelessWidget {
           // nav 행 등)에서 "Zurü…"로 잘리던 문제를 근본 해결 — 여유 있으면
           // scaleDown 이 자연 크기를 그대로 두므로 기존 버튼은 시각 불변.
           child: () {
-            final text = Text(
-              label,
-              maxLines: maxLines,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                color: fg,
-                fontWeight: FontWeight.w700,
-                fontSize: visualFontSize,
-                letterSpacing: -0.2,
-                height: 1.2,
+            final text = ExcludeSemantics(
+              child: Text(
+                label,
+                maxLines: maxLines,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  color: fg,
+                  fontWeight: FontWeight.w700,
+                  fontSize: visualFontSize,
+                  letterSpacing: -0.2,
+                  height: 1.2,
+                ),
               ),
             );
             return maxLines == 1

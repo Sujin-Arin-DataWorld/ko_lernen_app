@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart'
-    show TargetPlatform, defaultTargetPlatform, kIsWeb;
+    show TargetPlatform, defaultTargetPlatform, kIsWeb, visibleForTesting;
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
+import 'config/ux_preview_feature.dart';
 import 'motion/transitions.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
@@ -94,6 +95,7 @@ import 'screens/course_mission_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
+import 'screens/ux_preview_app.dart';
 import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_video.dart';
@@ -101,9 +103,34 @@ import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/diagnostics_route_observer.dart';
 import 'widgets/sori/route_observer.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() => launchKoLernenApp();
 
+/// Starts the read-only Gallery before any production service when its
+/// debug-only compile-time gate is enabled. The injected callbacks exist only
+/// so tests can prove this return boundary without initializing plugins.
+@visibleForTesting
+Future<void> launchKoLernenApp({
+  UxPreviewFeatureGate featureGate = const UxPreviewFeatureGate(),
+  void Function(Widget app)? runApplication,
+  Future<void> Function()? startProduction,
+}) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final runner = runApplication ?? runApp;
+  if (featureGate.isEnabled) {
+    runner(const UxPreviewApp());
+    return;
+  }
+  final injectedProductionStart = startProduction;
+  if (injectedProductionStart != null) {
+    await injectedProductionStart();
+    return;
+  }
+  await _startProductionApplication(runner);
+}
+
+Future<void> _startProductionApplication(
+  void Function(Widget app) runner,
+) async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
 
@@ -206,7 +233,7 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   _recordStartupDiagnostics(migration);
 
-  runApp(const KoLernenApp());
+  runner(const KoLernenApp());
 }
 
 /// 시작 시점에 확정되는 진단 키를 기록한다.
@@ -589,9 +616,20 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/cloze':
-              final clozeCourseUnitId = settings.arguments as String?;
+              final clozeCourseContext =
+                  coursePracticeContextFromRouteArguments(
+                    settings.arguments,
+                    CurriculumContentKind.cloze,
+                  );
+              final clozeCourseUnitId = courseUnitIdFromActivityRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.cloze,
+              );
               return SoriTransitions.fadeScale(
-                (_) => ClozeGameScreen(courseUnitId: clozeCourseUnitId),
+                (_) => ClozeGameScreen(
+                  courseUnitId: clozeCourseUnitId,
+                  courseContext: clozeCourseContext,
+                ),
                 settings: settings,
               );
             case '/speed_match':
@@ -610,15 +648,28 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/satz_arcade':
-              final satzCourseUnitId = settings.arguments as String?;
+              final satzCourseContext = coursePracticeContextFromRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.satz,
+              );
+              final satzCourseUnitId = courseUnitIdFromActivityRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.satz,
+              );
               return SoriTransitions.fadeScale(
-                (_) => SatzArcadeScreen(courseUnitId: satzCourseUnitId),
+                (_) => SatzArcadeScreen(
+                  courseUnitId: satzCourseUnitId,
+                  courseContext: satzCourseContext,
+                ),
                 settings: settings,
               );
             case '/settings':
               return SoriTransitions.fadeScale(
                 (_) => SettingsScreen(
                   accountDeletionWorkflow: _createAccountDeletionWorkflow(),
+                  initialFocus: settings.arguments is SettingsInitialFocus
+                      ? settings.arguments! as SettingsInitialFocus
+                      : null,
                 ),
                 settings: settings,
               );

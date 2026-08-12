@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -31,6 +33,7 @@ import 'package:ko_lernen_app/theme.dart';
 /// 파일의 기준이 없는데도 ready 로 잡힌다).
 void main() {
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_user_level': 'a1'});
     await Storage.init();
   });
@@ -65,6 +68,9 @@ void _goldenTest({
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      final projection = PersonalHanokProjection.from(
+        const LevelRatios(a1: 1, a2: 0.5, b1: 0, b2: 0),
+      );
 
       await tester.pumpWidget(
         MaterialApp(
@@ -80,19 +86,22 @@ void _goldenTest({
             data: MediaQueryData(
               disableAnimations: true,
               size: size,
-              // 인사말이 시각에 따라 바뀌므로 골든은 **텍스트가 아니라 배치**를
-              // 본다고 가정하면 안 된다. 픽셀이 달라지는 건 사실이라, 이
-              // 골든은 인사말 영역까지 포함해 하루 중 시각에 의존한다 —
-              // CI 는 UTC 고정이라 재현되지만, 로컬 재생성은 금지다(위 주석).
+              // 인사말과 오늘의 글자도 픽셀의 일부다. 아래 preview
+              // fixture가 시계와 글자를 고정해 플랫폼과 실행 시간에 따라
+              // Home 골든이 바뀌지 않게 한다.
               textScaler: const TextScaler.linear(1.0),
             ),
-            child: HomeScreen(
-              loadTodaySnapshot: () async => TodayLearningSnapshot(
-                pick: const ReviewPick(dueCount: 12),
-                dueCount: 12,
+            child: HomeScreen.preview(
+              now: () => DateTime(2026, 8, 12, 12),
+              dailyCharacter: '한',
+              previewFixture: HomePreviewFixture(
+                today: const TodayLearningSnapshot(
+                  pick: ReviewPick(dueCount: 12),
+                  dueCount: 12,
+                ),
+                hanok: projection,
+                narrative: HanokBuildNarrative.empty(projection),
               ),
-              loadHanokRatios: () async =>
-                  const LevelRatios(a1: 1, a2: 0.5, b1: 0, b2: 0),
             ),
           ),
         ),

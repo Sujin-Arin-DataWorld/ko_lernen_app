@@ -399,10 +399,17 @@ class _NowDiscState extends State<_NowDisc>
   @override
   void initState() {
     super.initState();
+    MascotPreference.preference.addListener(_onCompanionChanged);
     _pulse = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2100),
     );
+  }
+
+  void _onCompanionChanged() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -419,6 +426,7 @@ class _NowDiscState extends State<_NowDisc>
 
   @override
   void dispose() {
+    MascotPreference.preference.removeListener(_onCompanionChanged);
     _pulse.dispose();
     super.dispose();
   }
@@ -428,7 +436,10 @@ class _NowDiscState extends State<_NowDisc>
     const box = SoriPathTrail.discBox;
     const d = SoriPathTrail.discNow;
     // 프로필과 같은 규칙 — 사용자가 고른 캐릭터를 경로에서도 유지한다.
-    final isMagpie = MascotPreference.kind.value == MascotKind.magpie;
+    // Explicit none keeps the progress marker but swaps the companion for a
+    // neutral location glyph.
+    final kind = MascotPreference.selectedKind;
+    final isMagpie = kind == MascotKind.magpie;
 
     return RepaintBoundary(
       child: SizedBox.square(
@@ -478,7 +489,14 @@ class _NowDiscState extends State<_NowDisc>
               child: Center(
                 // live=false(홈 임베드): 디코더 lease 를 아예 요청하지 않는
                 // 정적 마스코트 — 홈 히어로 영상과의 경합 원천 차단.
-                child: widget.live
+                child: kind == null
+                    ? const Icon(
+                        Icons.near_me_rounded,
+                        key: ValueKey('path-current-no-companion'),
+                        size: d - 24,
+                        color: SoriColors.primary,
+                      )
+                    : widget.live
                     ? CharacterClipPlayer(
                         // 호랑이·까치 모두 앉아 대기 — "네 차례야" 를 몸짓으로
                         // 말하는 루프. 호랑이는 tiger_sitting2(앉은 루프): 원샷
@@ -489,13 +507,11 @@ class _NowDiscState extends State<_NowDisc>
                         size: _clipSize,
                         loop: true,
                         blendColor: _clipBlend,
-                        fallbackKind: isMagpie
-                            ? MascotKind.magpie
-                            : MascotKind.tiger,
+                        fallbackKind: kind,
                         fallbackEmotion: MascotEmotion.smile,
                       )
                     : Mascot(
-                        kind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
+                        kind: kind,
                         emotion: MascotEmotion.smile,
                         size: d - 14,
                         animate: false,

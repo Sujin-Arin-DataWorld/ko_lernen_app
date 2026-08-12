@@ -1,3 +1,5 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
@@ -82,6 +84,87 @@ class TodayLearningInputs {
        completedUnitIds = Set.unmodifiable(completedUnitIds);
 }
 
+/// Production source families that contribute to a Today recommendation.
+///
+/// Naming the failed family lets the presentation stay conservative without
+/// throwing away healthy, read-only inputs that can still help diagnostics.
+enum TodayLearningSource { course, pack, scenario, review }
+
+enum TodayLearningAvailability { ready, unavailable }
+
+/// Coarse platform connectivity only. `online` means a network transport is
+/// present, not that every server request is guaranteed to succeed.
+enum TodayNetworkStatus { online, offline, unknown }
+
+/// Typed reason for a snapshot that cannot be presented as fully refreshed.
+/// Local parse/storage failures must never be rendered as an internet outage.
+enum TodayLearningUnavailableReason { offline, remoteService, localData }
+
+/// A source that actually performs a remote read can preserve that typed
+/// failure without leaking raw exceptions into the presentation layer.
+class TodayLearningSourceFailure implements Exception {
+  const TodayLearningSourceFailure.remote()
+    : reason = TodayLearningUnavailableReason.remoteService;
+
+  const TodayLearningSourceFailure.offline()
+    : reason = TodayLearningUnavailableReason.offline;
+
+  final TodayLearningUnavailableReason reason;
+}
+
+typedef TodayNetworkStatusReader = Future<TodayNetworkStatus> Function();
+
+/// Read-only platform connectivity used by Home and the snapshot loader.
+abstract final class TodayLearningConnectivity {
+  static Future<TodayNetworkStatus> currentStatus() async {
+    try {
+      return _statusFor(await Connectivity().checkConnectivity());
+    } catch (_) {
+      return TodayNetworkStatus.unknown;
+    }
+  }
+
+  static Stream<TodayNetworkStatus> get statusChanges =>
+      Connectivity().onConnectivityChanged.map(_statusFor).distinct();
+
+  static TodayNetworkStatus _statusFor(List<ConnectivityResult> results) {
+    if (results.isEmpty) return TodayNetworkStatus.unknown;
+    return results.any((result) => result != ConnectivityResult.none)
+        ? TodayNetworkStatus.online
+        : TodayNetworkStatus.offline;
+  }
+}
+
+typedef TodayCourseSourceValue = ({
+  List<CourseUnit> units,
+  CourseMasterySnapshot? snapshot,
+});
+typedef TodayNowNodeSourceValue = ({VocabPack pack, PackProgress progress})?;
+typedef TodayScenarioSourceValue = ({
+  Scenario? current,
+  Set<String> completed,
+  LearnerLevel userLevel,
+});
+typedef TodayReviewSourceValue = ({int dueCount, int hardCount});
+
+/// Injectable, read-only production readers used by tests and UX previews.
+///
+/// A reader must only assemble recommendation inputs. It must not unlock,
+/// grant, complete, or otherwise mutate learning progress.
+class TodayLearningSourceReaders {
+  const TodayLearningSourceReaders({
+    required this.course,
+    required this.nowNode,
+    required this.scenario,
+    required this.review,
+  });
+
+  final Future<TodayCourseSourceValue> Function() course;
+  final Future<TodayNowNodeSourceValue> Function() nowNode;
+  final Future<TodayScenarioSourceValue> Function() scenario;
+  final Future<TodayReviewSourceValue> Function() review;
+}
+
 /// A read-only answer to “what should I learn next today?”.
 ///
 /// It does not persist completion, alter a reward, unlock a course, or choose
@@ -96,6 +179,9 @@ class TodayLearningSnapshot {
   final int dueCount;
   final int hardCount;
   final int presentationRevision;
+  final TodayLearningAvailability availability;
+  final TodayLearningUnavailableReason? unavailableReason;
+  final Set<TodayLearningSource> unavailableSources;
 
   const TodayLearningSnapshot({
     required this.pick,
@@ -104,11 +190,27 @@ class TodayLearningSnapshot {
     this.dueCount = 0,
     this.hardCount = 0,
     this.presentationRevision = currentPresentationRevision,
-  });
+    this.availability = TodayLearningAvailability.ready,
+    this.unavailableReason,
+    this.unavailableSources = const {},
+  }) : assert(
+         availability == TodayLearningAvailability.ready
+             ? unavailableReason == null
+             : unavailableReason != null,
+       );
+
+  bool get isUnavailable =>
+      availability == TodayLearningAvailability.unavailable;
+
+  bool get isOffline =>
+      unavailableReason == TodayLearningUnavailableReason.offline;
 
   factory TodayLearningSnapshot.fromInputs(
     TodayLearningInputs inputs, {
     int hardCount = 0,
+    TodayLearningAvailability availability = TodayLearningAvailability.ready,
+    TodayLearningUnavailableReason? unavailableReason,
+    Set<TodayLearningSource> unavailableSources = const {},
   }) {
     final pick = recommendMission(
       courseUnits: inputs.courseUnits,
@@ -128,144 +230,196 @@ class TodayLearningSnapshot {
       destination: todayLearningDestinationFor(pick),
       dueCount: inputs.dueCount,
       hardCount: hardCount,
+      availability: availability,
+      unavailableReason: unavailableReason,
+      unavailableSources: Set.unmodifiable(unavailableSources),
     );
   }
 }
 
 /// Loads the one shared read-only snapshot used by Home and the Sarangbang.
 ///
-/// Each source family fails closed to its existing neutral input so a course
-/// read failure cannot hide an otherwise valid review or scenario suggestion.
+/// A failed family keeps its neutral input so healthy readers can still finish,
+/// but the returned snapshot is explicitly unavailable. Production UI must not
+/// present that partial recommendation as a fully refreshed Today promise.
 class TodayLearningSnapshotLoader {
   const TodayLearningSnapshotLoader._();
 
-  static Future<TodayLearningSnapshot> load() async {
-    final courseFuture = _loadCourseInput();
-    final nowNodeFuture = _loadNowNode();
-    final scenarioFuture = _loadScenarioInput();
-    final reviewFuture = _loadReviewInput();
+  static Future<TodayLearningSnapshot> load({
+    TodayLearningSourceReaders? readers,
+    TodayNetworkStatusReader? networkStatusReader,
+  }) async {
+    final userLevel =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final completedScenarios = Storage.completedScenarios.toSet();
+    final sourceReaders =
+        readers ??
+        const TodayLearningSourceReaders(
+          course: _loadCourseInput,
+          nowNode: _loadNowNode,
+          scenario: _loadScenarioInput,
+          review: _loadReviewInput,
+        );
+    final networkFuture = _readNetworkStatus(
+      networkStatusReader ?? TodayLearningConnectivity.currentStatus,
+    );
+
+    // Start every read before awaiting so a slow source does not serialize the
+    // remaining local reads.
+    final courseFuture = _capture<TodayCourseSourceValue>(
+      sourceReaders.course,
+      (units: const <CourseUnit>[], snapshot: null),
+    );
+    final nowNodeFuture = _capture<TodayNowNodeSourceValue>(
+      sourceReaders.nowNode,
+      null,
+    );
+    final scenarioFuture = _capture<TodayScenarioSourceValue>(
+      sourceReaders.scenario,
+      (current: null, completed: completedScenarios, userLevel: userLevel),
+    );
+    final reviewFuture = _capture<TodayReviewSourceValue>(
+      sourceReaders.review,
+      (dueCount: 0, hardCount: 0),
+    );
 
     final course = await courseFuture;
     final nowNode = await nowNodeFuture;
     final scenario = await scenarioFuture;
     final review = await reviewFuture;
+    final networkStatus = await networkFuture;
+
+    final unavailableSources = <TodayLearningSource>{
+      if (course.failed) TodayLearningSource.course,
+      if (nowNode.failed) TodayLearningSource.pack,
+      if (scenario.failed) TodayLearningSource.scenario,
+      if (review.failed) TodayLearningSource.review,
+    };
+    final sourceReasons = <TodayLearningUnavailableReason>{
+      if (course.failureReason case final reason?) reason,
+      if (nowNode.failureReason case final reason?) reason,
+      if (scenario.failureReason case final reason?) reason,
+      if (review.failureReason case final reason?) reason,
+    };
+    final unavailableReason = networkStatus == TodayNetworkStatus.offline
+        ? TodayLearningUnavailableReason.offline
+        : sourceReasons.contains(TodayLearningUnavailableReason.offline)
+        ? TodayLearningUnavailableReason.offline
+        : sourceReasons.contains(TodayLearningUnavailableReason.remoteService)
+        ? TodayLearningUnavailableReason.remoteService
+        : sourceReasons.isNotEmpty
+        ? TodayLearningUnavailableReason.localData
+        : null;
 
     return TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
-        courseUnits: course.units,
-        currentCourseUnitId: course.snapshot?.currentCourseUnitId,
-        completedUnitIds: course.snapshot?.completedUnitIds.toSet() ?? const {},
-        nowNode: nowNode,
-        dueCount: review.dueCount,
-        scenario: scenario.current,
+        courseUnits: course.value.units,
+        currentCourseUnitId: course.value.snapshot?.currentCourseUnitId,
+        completedUnitIds:
+            course.value.snapshot?.completedUnitIds.toSet() ?? const {},
+        nowNode: nowNode.value,
+        dueCount: review.value.dueCount,
+        scenario: scenario.value.current,
         scenarioCompleted:
-            scenario.current != null &&
-            scenario.completed.contains(scenario.current!.id),
-        userLevel: scenario.userLevel,
+            scenario.value.current != null &&
+            scenario.value.completed.contains(scenario.value.current!.id),
+        userLevel: scenario.value.userLevel,
       ),
-      hardCount: review.hardCount,
+      hardCount: review.value.hardCount,
+      availability: unavailableReason == null
+          ? TodayLearningAvailability.ready
+          : TodayLearningAvailability.unavailable,
+      unavailableReason: unavailableReason,
+      unavailableSources: unavailableSources,
     );
   }
 
-  static Future<_CourseInput> _loadCourseInput() async {
-    try {
-      final catalog = await CurriculumCatalog.load();
-      final snapshot = await CourseProgressService.shared.refresh();
-      return _CourseInput(units: catalog.courseUnits, snapshot: snapshot);
-    } catch (_) {
-      return const _CourseInput();
+  static Future<TodayCourseSourceValue> _loadCourseInput() async {
+    final catalog = await CurriculumCatalog.load();
+    final snapshot = await CourseProgressService.shared.readForDisplay();
+    if (snapshot == null) {
+      return (units: const <CourseUnit>[], snapshot: null);
     }
+    return (units: catalog.courseUnits, snapshot: snapshot);
   }
 
-  static Future<({VocabPack pack, PackProgress progress})?>
-  _loadNowNode() async {
-    try {
-      const levels = ['A1', 'A2', 'B1', 'B2'];
-      for (final level in levels) {
-        final view = await PackProgressService.loadLevelView(level);
-        for (final entry in view) {
-          if (entry.progress.status != PackStatus.cleared &&
-              entry.progress.status != PackStatus.locked) {
-            return entry;
-          }
+  static Future<TodayNowNodeSourceValue> _loadNowNode() async {
+    const levels = ['A1', 'A2', 'B1', 'B2'];
+    for (final level in levels) {
+      final view = await PackProgressService.loadLevelView(level);
+      for (final entry in view) {
+        if (entry.progress.status != PackStatus.cleared &&
+            entry.progress.status != PackStatus.locked) {
+          return entry;
         }
       }
-    } catch (_) {
-      // A later source (review/scenario) is still allowed to recommend.
     }
     return null;
   }
 
-  static Future<_ScenarioInput> _loadScenarioInput() async {
+  static Future<TodayScenarioSourceValue> _loadScenarioInput() async {
     final userLevel =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
     final completed = Storage.completedScenarios.toSet();
-    try {
-      final scenarios = await ScenarioLoader.load();
-      Scenario? current;
-      for (final scenario in scenarios.where(
-        (item) => item.level == userLevel,
-      )) {
+    final scenarios = await ScenarioLoader.load();
+    Scenario? current;
+    for (final scenario in scenarios.where((item) => item.level == userLevel)) {
+      if (!completed.contains(scenario.id)) {
+        current = scenario;
+        break;
+      }
+    }
+    if (current == null) {
+      for (final scenario in scenarios) {
         if (!completed.contains(scenario.id)) {
           current = scenario;
           break;
         }
       }
-      if (current == null) {
-        for (final scenario in scenarios) {
-          if (!completed.contains(scenario.id)) {
-            current = scenario;
-            break;
-          }
-        }
-      }
-      current ??= scenarios.isEmpty ? null : scenarios.first;
-      return _ScenarioInput(
-        current: current,
-        completed: completed,
-        userLevel: userLevel,
-      );
-    } catch (_) {
-      return _ScenarioInput(completed: completed, userLevel: userLevel);
     }
+    current ??= scenarios.isEmpty ? null : scenarios.first;
+    return (current: current, completed: completed, userLevel: userLevel);
   }
 
-  static Future<_ReviewInput> _loadReviewInput() async {
-    try {
-      final all = await ReviewDeckService.allReviewable();
-      final koreans = all.map((entry) => entry.korean);
-      return _ReviewInput(
-        dueCount: Storage.todayGoalIds(koreans).length,
-        hardCount: Storage.hardIds(koreans).length,
-      );
-    } catch (_) {
-      return const _ReviewInput();
-    }
+  static Future<TodayReviewSourceValue> _loadReviewInput() async {
+    final all = await ReviewDeckService.allReviewable();
+    final koreans = all.map((entry) => entry.korean);
+    return (
+      dueCount: Storage.todayGoalIds(koreans).length,
+      hardCount: Storage.hardIds(koreans).length,
+    );
   }
 }
 
-class _CourseInput {
-  final List<CourseUnit> units;
-  final CourseMasterySnapshot? snapshot;
+class _Captured<T> {
+  const _Captured({required this.value, this.failureReason});
 
-  const _CourseInput({this.units = const [], this.snapshot});
+  final T value;
+  final TodayLearningUnavailableReason? failureReason;
+  bool get failed => failureReason != null;
 }
 
-class _ScenarioInput {
-  final Scenario? current;
-  final Set<String> completed;
-  final LearnerLevel userLevel;
-
-  const _ScenarioInput({
-    this.current,
-    required this.completed,
-    required this.userLevel,
-  });
+Future<_Captured<T>> _capture<T>(Future<T> Function() read, T fallback) async {
+  try {
+    return _Captured(value: await read());
+  } on TodayLearningSourceFailure catch (error) {
+    return _Captured(value: fallback, failureReason: error.reason);
+  } catch (_) {
+    return _Captured(
+      value: fallback,
+      failureReason: TodayLearningUnavailableReason.localData,
+    );
+  }
 }
 
-class _ReviewInput {
-  final int dueCount;
-  final int hardCount;
-
-  const _ReviewInput({this.dueCount = 0, this.hardCount = 0});
+Future<TodayNetworkStatus> _readNetworkStatus(
+  TodayNetworkStatusReader read,
+) async {
+  try {
+    return await read();
+  } catch (_) {
+    // A platform probe failure is unknown, not proof that the learner is
+    // offline. Healthy local learning remains available.
+    return TodayNetworkStatus.unknown;
+  }
 }

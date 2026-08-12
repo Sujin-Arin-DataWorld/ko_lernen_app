@@ -44,14 +44,6 @@ class GyeFeed extends StatelessWidget {
     return (timeline: timeline, reactions: reactions);
   }
 
-  /// 마일스톤(축하 가능) 이벤트만 반응 버튼 노출 — 스티커/응원엔 안 붙임.
-  static bool _isReactable(GyeFeedType ty) =>
-      ty == GyeFeedType.packCleared ||
-      ty == GyeFeedType.questCompleted ||
-      ty == GyeFeedType.levelUp ||
-      ty == GyeFeedType.goalAchieved ||
-      ty == GyeFeedType.allInChallenge;
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -80,7 +72,7 @@ class GyeFeed extends StatelessWidget {
         final e = timeline[i];
         final myReactions = reactions[e.id] ?? const <GyeFeedEvent>[];
         final reactable =
-            onReact != null && _isReactable(e.type) && e.id.isNotEmpty;
+            onReact != null && e.type.supportsReaction && e.id.isNotEmpty;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
