@@ -256,6 +256,24 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     for (var i = 0; i < all.length; i++) {
       _bank.add(_Tile(i, all[i]));
     }
+
+    // 듣고 푸는 문항인데 스피커를 매번 눌러야 해서 불편하다는 피드백(Jin,
+    // 2026-08-12 실기기). 첫 프레임 뒤에 한 번 자동 재생하고, 다시 듣기 버튼은
+    // 그대로 둔다 — 자동 재생은 놓치기 쉬우므로 대체가 아니라 추가다.
+    //
+    // initState 로 충분한 이유: 호스트가 문항마다 State 를 새로 만든다
+    // (satz_arcade_screen.dart:260 `ValueKey('satz_${_roundId}_$_idx')`).
+    // 여기에 걸면 문항 전환도 함께 커버되므로 didUpdateWidget 은 필요 없다.
+    //
+    // _playTts 가 아니라 speak 를 직접 부르는 것도 의도다 — 사용자가 누르지
+    // 않았는데 햅틱이 울리면 오작동처럼 느껴진다.
+    if (_audioKo.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          TtsService.speak(_audioKo);
+        }
+      });
+    }
   }
 
   String _prompt(String langCode) {

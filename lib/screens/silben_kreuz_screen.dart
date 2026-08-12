@@ -49,6 +49,14 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   final Set<String> _spoken = {};
   List<bool> _tileUsed = [];
   (int, int)? _selected;
+  // 사용자가 지금 풀고 있는 단어. 한 칸을 맞힌 뒤 커서를 **이 단어 안에서**
+  // 다음 빈 칸으로 옮기려고 둔다.
+  //
+  // 없던 시절엔 맞힐 때마다 _firstEmpty() 로 갔다. 그건 격자 전체에서 행→열
+  // 순 첫 빈 칸이라, 화요일(세로)을 풀던 중에도 커서가 맨 윗줄로 튀었다
+  // ("나는 화요일하려는데 칸이 무조건 오른쪽 상단으로 고정돼" — Jin,
+  // 2026-08-12 실기기). 십자말 격자가 성글어서 그 첫 칸이 우측 상단처럼 보인다.
+  SilbenWord? _activeWord;
   bool _solved = false;
   int _wrongTick = 0;
 
@@ -136,8 +144,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _tileUsed = List.filled(p.pool.length, false);
       _solved = false;
       _selected = null;
+      _activeWord = null;
     });
-    setState(() => _selected = _firstEmpty());
+    setState(() {
+      _selected = _firstEmpty();
+      _activeWord = _selected == null ? null : _wordThrough(_selected!);
+    });
   }
 
   List<(int, int)> get _cellOrder {
@@ -155,19 +167,50 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     return null;
   }
 
+  /// [cell] 을 지나는 단어 중 아직 빈 칸이 남은 것. 교차점에서 방향이 제멋대로
+  /// 바뀌지 않도록, 현재 단어가 그 칸을 포함하면 현재 단어를 유지한다.
+  SilbenWord? _wordThrough((int, int) cell) {
+    final current = _activeWord;
+    if (current != null && current.cells.contains(cell)) {
+      return current;
+    }
+    for (final w in _puzzle?.words ?? const <SilbenWord>[]) {
+      if (w.cells.contains(cell) && w.cells.any((c) => !_locked.contains(c))) {
+        return w;
+      }
+    }
+    return null;
+  }
+
+  /// 현재 단어에서 아직 안 채운 첫 칸. 단어가 끝났으면 null.
+  (int, int)? _nextInActiveWord() {
+    for (final c in _activeWord?.cells ?? const <(int, int)>[]) {
+      if (!_locked.contains(c)) {
+        return c;
+      }
+    }
+    return null;
+  }
+
   void _onCellTap((int, int) cell) {
     if (_solved || _locked.contains(cell)) {
       return;
     }
     HapticFeedback.selectionClick();
-    setState(() => _selected = cell);
+    setState(() {
+      _selected = cell;
+      _activeWord = _wordThrough(cell);
+    });
   }
 
   void _onClueTap(SilbenWord w) {
     for (final c in w.cells) {
       if (!_locked.contains(c)) {
         HapticFeedback.selectionClick();
-        setState(() => _selected = c);
+        setState(() {
+          _selected = c;
+          _activeWord = w;
+        });
         return;
       }
     }
@@ -186,7 +229,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       setState(() {
         _locked.add(sel);
         _tileUsed[i] = true;
-        _selected = _firstEmpty();
+        // 풀던 단어 안에서 다음 빈 칸으로. 그 단어를 다 채웠을 때만 격자 전체의
+        // 첫 빈 칸으로 넘어간다 — 이게 없으면 커서가 매번 맨 윗줄로 튄다.
+        _selected = _nextInActiveWord() ?? _firstEmpty();
+        _activeWord = _selected == null ? null : _wordThrough(_selected!);
       });
       HapticFeedback.lightImpact();
       // 방금 잠긴 칸으로 완성된 단어 → 발음 + 정답음 (교차가 "물리는" 순간).

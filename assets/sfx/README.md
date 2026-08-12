@@ -17,9 +17,9 @@
 |---|---|---|---|
 | `correct.wav` | 0.23s | **본 프로젝트 자작 합성** — 2026-08-12 재생성: C4-E4-G4 → G4+C5 (간격 45/90ms) | 정답 |
 | `wrong.wav` | 0.23s | 〃 — 2026-08-12 재생성: A3→F3 (간격 55ms) | 오답 |
-| `combo.wav` | 0.30s | 〃 (`tool/gen_sfx.py`) | 콤보 |
-| `levelup.wav` | 0.54s | 〃 (`tool/gen_sfx.py`) — **호출부 0곳** | 레벨업(미배선) |
-| `complete.wav` | 1.00s | 〃 (`tool/gen_sfx.py`) | 세션 완료 |
+| `combo.wav` | 0.30s | 〃 (`tool/gen_sfx.py`) — 2026-08-12 2차: C5-E5-G5 (한 옥타브 인하) | 콤보 (`speed_match_screen.dart:188`) |
+| `levelup.wav` | 0.54s | 〃 (`tool/gen_sfx.py`) — 2026-08-12 2차: C5-E5-G5-C6 — **호출부 0곳** | 레벨업(미배선) |
+| `complete.wav` | 1.00s | 사용자 제공 chime 을 1s 로 자르고 페이드아웃 | 세션 완료 |
 
 자작 합성이라 **저작권 제약 0**.
 

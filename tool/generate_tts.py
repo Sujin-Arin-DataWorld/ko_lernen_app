@@ -315,8 +315,90 @@ def _synth_raw(tok, voice_name, text, rate):
     return base64.b64decode(resp["audioContent"])
 
 
+def mp3_duration(data):
+    """MP3 프레임 헤더만 훑어 재생 길이(초)를 구한다. 외부 의존 0."""
+    rates = {0b00: 44100, 0b01: 48000, 0b10: 32000}
+    bitrates = [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256,
+                320, 0]
+    i = 0
+    total = 0.0
+    while i < len(data) - 4:
+        if data[i] == 0xFF and (data[i + 1] & 0xE0) == 0xE0:
+            ver = (data[i + 1] >> 3) & 3
+            bi = (data[i + 2] >> 4) & 0xF
+            si = (data[i + 2] >> 2) & 3
+            if bi in (0, 15) or si == 3:
+                i += 1
+                continue
+            sr = rates.get(si, 44100)
+            if ver == 2:      # MPEG2
+                sr //= 2
+            elif ver == 0:    # MPEG2.5
+                sr //= 4
+            spf = 1152 if ver == 3 else 576
+            total += spf / sr
+            pad = (data[i + 2] >> 1) & 1
+            i += max(int(spf / 8 * bitrates[bi] * 1000 / sr) + pad, 1)
+        else:
+            i += 1
+    return total
+
+
+# 한 음절 발화의 최소 길이(초). 이보다 짧으면 자음이 통째로 잘려 바람 소리만
+# 남는다.
+#
+# 2026-08-12 실기기: "ㄱ·ㅅ 은 소리가 안 나고 숨소리만", "ㅎ 는 너무 작다"(Jin).
+# 버킷을 뒤져보니 파일은 79개 전부 있었고 길이가 문제였다 — 스 0.14s /
+# 므 0.14s / 흐 0.17s / 그 0.20s. 0.14초짜리 "스" 는 물리적으로 /s/ 마찰음
+# 하나다. 지적된 글자가 전부 무성 자음인 것도 이 때문 — 유성음은 짧아도 들린다.
+#
+# 원인은 Chirp3-HD 가 **비결정적**이라는 데 있다. 같은 "그" 요청이 0.20s 와
+# 0.49s 를 오간다. 그래서 rate 를 낮추는 것만으로는 못 고친다(흐 는 rate 0.5
+# 에서 오히려 0.10s 가 나왔다). 길이를 재서 통과할 때까지 다시 부르는 수밖에
+# 없다.
+MIN_DUR_CONSONANT = 0.35
+# ㅇ+모음(아·어·오…)은 구조적으로 짧다 — 0.35 를 목표로 6회 재시도해도 전부
+# 실패했다(최대 0.26s). 유성음이라 짧아도 또렷해서 기준을 낮춘다.
+MIN_DUR_VOWEL = 0.22
+# 첫 시도는 표준 RATE. 실패하면 점점 느리게 — 느릴수록 음절을 온전히 발음하는
+# 경향이 있다. 마지막 두 번은 같은 rate 재추첨(비결정성을 역이용).
+GATE_RATES = (RATE, 0.85, 0.70, 0.55, RATE, 0.70)
+
+
+def _syllable_min_duration(text):
+    """한 음절 발화의 길이 하한. 게이트 대상이 아니면 0.0."""
+    if len(text) != 1:
+        return 0.0
+    code = ord(text)
+    if not (0xAC00 <= code <= 0xD7A3):
+        return 0.0
+    index = code - 0xAC00
+    lead, jong = index // (21 * 28), index % 28
+    # 초성 ㅇ(11) + 종성 없음 = 모음 소리음절(아·어·오…)
+    if lead == 11 and jong == 0:
+        return MIN_DUR_VOWEL
+    return MIN_DUR_CONSONANT
+
+
 def synth(tok, voice, text):
-    return _synth_raw(tok, VOICES[voice], text, RATE)
+    floor = _syllable_min_duration(text)
+    if floor <= 0.0:
+        return _synth_raw(tok, VOICES[voice], text, RATE)
+
+    best = None
+    best_dur = -1.0
+    for rate in GATE_RATES:
+        data = _synth_raw(tok, VOICES[voice], text, rate)
+        dur = mp3_duration(data)
+        if dur > best_dur:
+            best, best_dur = data, dur
+        if dur >= floor:
+            return data
+    # 하한을 못 넘기면 가장 긴 결과를 쓴다 — 실패로 처리해 파일을 비우면 그
+    # 글자만 OS 기계음으로 폴백해 더 나쁘다.
+    print(f"  ⚠️ {text!r}: {len(GATE_RATES)}회 모두 {floor:.2f}s 미달 "
+          f"(최장 {best_dur:.2f}s) → 최장본 채택")
+    return best
 
 
 def demo(tok):

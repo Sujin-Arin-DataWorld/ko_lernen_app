@@ -27,8 +27,19 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../services/hangul_composer.dart';
 import '../widgets/app_loading.dart';
 
+// 화면 자판 배열. 자음 + 모음.
+//
+// 2026-08-12: 모음이 없어서 정답을 만들 수가 없었다("모음 클릭하는게 없어" —
+// Jin). 자음만 있던 시절엔 ㅅ·ㅈ 을 눌러도 "ㅅㅈ" 이 될 뿐이라 채점
+// (`답 == _card.korean`)을 통과할 방법이 아예 없었다. 모음 추가와
+// HangulComposer 조합이 **함께** 있어야 ㅅ→ㅏ→ㅈ→ㅏ→ㅇ = "사장" 이 된다.
+//
+// 쌍자음(ㄲ·ㄸ·ㅃ·ㅆ·ㅉ)은 넣지 않았다 — 키가 5개 늘면 좁은 폰에서 줄이 밀리고,
+// 초성이 쌍자음인 단어는 소수라 시스템 키보드로 입력할 수 있다. 필요해지면
+// 여기만 늘리면 된다(조합기는 이미 쌍자음을 처리한다).
 const List<String> _consonantPadKeys = [
   'ㄱ',
   'ㄴ',
@@ -44,6 +55,21 @@ const List<String> _consonantPadKeys = [
   'ㅌ',
   'ㅍ',
   'ㅎ',
+];
+
+const List<String> _vowelPadKeys = [
+  'ㅏ',
+  'ㅑ',
+  'ㅓ',
+  'ㅕ',
+  'ㅗ',
+  'ㅛ',
+  'ㅜ',
+  'ㅠ',
+  'ㅡ',
+  'ㅣ',
+  'ㅐ',
+  'ㅔ',
 ];
 
 enum _State { waiting, correct, wrong }
@@ -300,12 +326,39 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     return t.chosungRoundKeepLevel(_level);
   }
 
-  void _appendConsonant(String c) {
-    final text = _ctrl.text + c;
+  /// 화면 자판 전용 조합기. 시스템 키보드 입력은 [_syncComposer] 로 흡수한다.
+  final _composer = HangulComposer();
+
+  /// 사용자가 시스템 키보드로 직접 고쳤거나 다음 문항으로 넘어가며 _ctrl 이
+  /// 비워졌으면, 조합 상태를 현재 텍스트에 맞춘다.
+  ///
+  /// 이 한 줄 덕분에 `_ctrl.clear()` 를 부르는 4곳(다음 문항·건너뛰기·라운드
+  /// 초기화)을 따로 손보지 않아도 된다 — 어긋난 순간 다음 자판 입력에서 저절로
+  /// 맞춰진다.
+  void _syncComposer() {
+    if (_composer.text != _ctrl.text) {
+      _composer.resetTo(_ctrl.text);
+    }
+  }
+
+  void _writeComposer() {
+    final text = _composer.text;
     _ctrl.value = TextEditingValue(
       text: text,
       selection: TextSelection.collapsed(offset: text.length),
     );
+  }
+
+  void _appendJamo(String jamo) {
+    _syncComposer();
+    _composer.addJamo(jamo);
+    _writeComposer();
+  }
+
+  void _backspaceJamo() {
+    _syncComposer();
+    _composer.backspace();
+    _writeComposer();
   }
 
   @override
@@ -540,7 +593,24 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                             ),
                             if (showPad) ...[
                               const SizedBox(height: 12),
-                              _ConsonantPad(onTap: _appendConsonant),
+                              _JamoPad(
+                                onJamo: _appendJamo,
+                                onBackspace: _backspaceJamo,
+                              ),
+                            ] else ...[
+                              // 자판이 사라지는 게 고장처럼 보인다는 피드백
+                              // ("B부터는 없다고 설명해줘야될것같아. 오류같잖아"
+                              // — Jin, 2026-08-12). 의도된 난이도 설계라는 걸
+                              // 한 줄로 알린다.
+                              const SizedBox(height: 12),
+                              Text(
+                                AppL10n.of(context).chosungPadHiddenNote,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 12.5,
+                                  color: SoriColors.darkTextMuted,
+                                ),
+                              ),
                             ],
                           ],
                         ],
@@ -752,26 +822,48 @@ class _Stat extends StatelessWidget {
 }
 
 // ── 자음 버튼 패널 ──────────────────────────────────────────────────────────────
-class _ConsonantPad extends StatelessWidget {
-  final void Function(String) onTap;
-  const _ConsonantPad({required this.onTap});
+/// 자음·모음 자판 + 지우기.
+///
+/// 모음 줄은 [SoriColors.info] 로 물들여 자음과 구분한다 — 초성 퀴즈라 자음이
+/// 주역이고 모음은 음절을 완성하는 보조라는 걸 색으로 보여주는 편이 낫다.
+class _JamoPad extends StatelessWidget {
+  final void Function(String) onJamo;
+  final VoidCallback onBackspace;
+  const _JamoPad({required this.onJamo, required this.onBackspace});
+
+  Widget _row(List<String> keys, {Color? accent}) => Wrap(
+    spacing: Spacing.xs + 2,
+    runSpacing: Spacing.xs + 2,
+    alignment: WrapAlignment.center,
+    children: keys
+        .map(
+          (c) => SoriChip(
+            label: c,
+            variant: SoriChipVariant.outlined,
+            accent: accent,
+            fontSize: 16,
+            onTap: () => onJamo(c),
+          ),
+        )
+        .toList(),
+  );
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: Spacing.xs + 2,
-      runSpacing: Spacing.xs + 2,
-      alignment: WrapAlignment.center,
-      children: _consonantPadKeys
-          .map(
-            (c) => SoriChip(
-              label: c,
-              variant: SoriChipVariant.outlined,
-              fontSize: 16,
-              onTap: () => onTap(c),
-            ),
-          )
-          .toList(),
+    return Column(
+      children: [
+        _row(_consonantPadKeys),
+        const SizedBox(height: Spacing.xs + 2),
+        _row(_vowelPadKeys, accent: SoriColors.info),
+        const SizedBox(height: Spacing.xs + 2),
+        SoriChip(
+          label: '⌫',
+          variant: SoriChipVariant.outlined,
+          accent: SoriColors.warning,
+          fontSize: 16,
+          onTap: onBackspace,
+        ),
+      ],
     );
   }
 }

@@ -56,9 +56,18 @@ void main() {
 
   group(
     '화면 배치 골든 (compact · medium · expanded)',
-    skip: ready
-        ? null
-        : '기준 없음 — flutter test --update-goldens test/goldens 로 1회 생성',
+    // 기준선은 위 주석대로 Linux(CI) 정본이다. Windows/macOS 로컬에서는 서브
+    // 픽셀 AA 차이만으로 반드시 깨지므로 픽셀 검증은 CI 에서만 한다.
+    //
+    // 예전 가드는 기준선 **유무**만 봤다. 기준선이 커밋된 뒤로는 Windows 에서도
+    // 실행돼 로컬 `flutter test` 가 상시 빨간불이 됐고(2026-08-12 실측: 이 파일
+    // 9건 + home_layout 2건 = 11건), 진짜 실패가 그 사이에 묻혔다.
+    // design_components_golden_test.dart 는 이미 이 가드를 갖고 있었다.
+    skip: !ready
+        ? '기준 없음 — flutter test --update-goldens test/goldens 로 1회 생성'
+        : (!autoUpdateGoldenFiles && !Platform.isLinux)
+        ? 'golden 기준선은 Linux(CI) 정본 — 로컬(Windows/macOS)에선 skip'
+        : null,
     () {
       // 골든은 유지비가 크다. 회귀가 실제로 아팠던 표면만 고정한다:
       // 설정(폼 폭) · 배우기 허브(모듈 카드) · 단어팩(그리드 열 수).

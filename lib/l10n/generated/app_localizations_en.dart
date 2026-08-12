@@ -602,6 +602,10 @@ class AppL10nEn extends AppL10n {
   String get chosungAnswer => 'Answer';
 
   @override
+  String get chosungPadHiddenNote =>
+      'From B1 on there is no key helper — type the word with your Korean keyboard.';
+
+  @override
   String get wordleHowTitle => 'How to play';
 
   @override
@@ -3998,7 +4002,7 @@ class AppL10nEn extends AppL10n {
   String get practiceSecLearn => 'Practice something in particular';
 
   @override
-  String get practiceSecGames => 'Play freely';
+  String get practiceSecGames => 'Play';
 
   @override
   String get practiceSecWords => 'Your words';

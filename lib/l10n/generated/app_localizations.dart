@@ -1165,6 +1165,12 @@ abstract class AppL10n {
   /// **'Antwort'**
   String get chosungAnswer;
 
+  /// No description provided for @chosungPadHiddenNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Ab B1 gibt es keine Tastenhilfe mehr — tippe das Wort mit deiner koreanischen Tastatur.'**
+  String get chosungPadHiddenNote;
+
   /// No description provided for @wordleHowTitle.
   ///
   /// In de, this message translates to:
@@ -6970,7 +6976,7 @@ abstract class AppL10n {
   /// No description provided for @practiceSecGames.
   ///
   /// In de, this message translates to:
-  /// **'Frei spielen'**
+  /// **'Spielen'**
   String get practiceSecGames;
 
   /// No description provided for @practiceSecWords.

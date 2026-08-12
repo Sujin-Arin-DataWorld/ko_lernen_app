@@ -59,10 +59,27 @@ void _goldenTest({
   final file = File('test/goldens/baselines/$baseline');
   final ready = autoUpdateGoldenFiles || file.existsSync();
 
-  // 기준이 없으면 skip — CI 의 "Regenerate goldens (manual)" 로 $baseline 생성.
+  // 기준선은 위 주석대로 **Linux(CI) 정본**이다. Windows/macOS 로컬에서 돌리면
+  // 서브픽셀 AA 차이만으로 반드시 깨진다 — 요소 위치는 같고 글자·테두리 가장
+  // 자리의 픽셀값만 다르다.
+  //
+  // 예전 가드는 기준선 **파일 유무**만 봤다. 그래서 기준선이 없을 땐 우연히
+  // skip 됐다가, Linux 기준선이 커밋된 뒤로는 Windows 에서도 실행돼 로컬
+  // `flutter test` 가 상시 빨간불이 됐다(2026-08-12 실측 11건). 진짜 실패가
+  // 그 11건 사이에 묻히는 게 더 큰 문제다.
+  //
+  // design_components_golden_test.dart 는 이미 이 가드를 갖고 있었다 — 세 파일
+  // 중 이 파일과 screen_layout 만 빠져 있었다. `--update-goldens` 로 돌릴 때는
+  // 플랫폼과 무관하게 실행돼야 하므로 autoUpdateGoldenFiles 를 먼저 본다.
+  // testWidgets 의 skip 은 bool? 이라 사유 문자열을 담을 수 없다(group 과 다름).
+  //   !ready                        → 기준 없음. CI 의 "Regenerate goldens".
+  //   비-Linux + --update-goldens 아님 → Linux 정본과 픽셀이 달라 무의미.
+  final skip =
+      !ready || (!autoUpdateGoldenFiles && !Platform.isLinux);
+
   testWidgets(
     '홈 골든 — $name',
-    skip: !ready,
+    skip: skip,
     (tester) async {
       tester.view.physicalSize = size;
       tester.view.devicePixelRatio = 1;

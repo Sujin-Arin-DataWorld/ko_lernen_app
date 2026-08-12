@@ -602,6 +602,10 @@ class AppL10nDe extends AppL10n {
   String get chosungAnswer => 'Antwort';
 
   @override
+  String get chosungPadHiddenNote =>
+      'Ab B1 gibt es keine Tastenhilfe mehr — tippe das Wort mit deiner koreanischen Tastatur.';
+
+  @override
   String get wordleHowTitle => 'Spielanleitung';
 
   @override
@@ -4010,7 +4014,7 @@ class AppL10nDe extends AppL10n {
   String get practiceSecLearn => 'Etwas gezielt üben';
 
   @override
-  String get practiceSecGames => 'Frei spielen';
+  String get practiceSecGames => 'Spielen';
 
   @override
   String get practiceSecWords => 'Deine Wörter';

@@ -983,26 +983,64 @@ class _WriteTabState extends State<_WriteTab> {
                   final canvasSize = ((constraints.maxWidth - 10) / 2 - 12)
                       .clamp(120.0, 220.0);
 
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  // 제목과 캔버스를 **각각의 Row** 로 나눈다.
+                  //
+                  // 예전에는 [제목+캔버스] Column 두 개를 Row 에 나란히 놓았다.
+                  // 그러면 제목 줄 수가 다를 때 캔버스 시작 높이가 어긋난다 —
+                  // 독일어 좌측 "📽 Strichreihenfolge (zum Wiederholen tippen)"
+                  // 은 2줄, 우측 "Mit dem Finger nachzeichnen" 은 1줄이라 좌측
+                  // 캔버스만 한 줄만큼 내려갔다("예시창이랑 그려보는 창 위치가
+                  // 다르고" — Jin, 2026-08-12 실기기).
+                  //
+                  // 제목 높이를 상수로 예약하는 방법도 있지만 글꼴 배율과 번역
+                  // 길이에 따라 다시 깨진다. 제목끼리 한 Row 에 묶고
+                  // IntrinsicHeight + stretch 로 둘 다 큰 쪽 높이를 갖게 하면
+                  // 캔버스 Row 는 언제나 같은 y 에서 시작한다 — 매직넘버가 없어
+                  // 어떤 언어·배율에서도 어긋날 수 없다.
+                  const titleStyleBase = TextStyle(
+                    fontSize: 11.5,
+                    fontWeight: FontWeight.w700,
+                  );
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // ── 좌: 시범 stroke animation ──
-                      Expanded(
-                        child: Column(
+                      IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text(
-                              t.hangulStrokeOrderTitle,
-                              style: const TextStyle(
-                                fontSize: 11.5,
-                                color: SoriColors.darkTextMuted,
-                                fontWeight: FontWeight.w700,
+                            Expanded(
+                              child: Text(
+                                t.hangulStrokeOrderTitle,
+                                style: titleStyleBase.copyWith(
+                                  color: SoriColors.darkTextMuted,
+                                ),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.visible,
                               ),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.visible,
                             ),
-                            const SizedBox(height: 6),
-                            SoriCard(
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                t.hangulTraceTitle,
+                                style: titleStyleBase.copyWith(
+                                  color: SoriColors.success,
+                                ),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.visible,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // ── 좌: 시범 stroke animation ──
+                          Expanded(
+                            child: SoriCard(
                               variant: SoriCardVariant.base,
                               accent: SoriColors.info,
                               padding: const EdgeInsets.all(6),
@@ -1016,27 +1054,11 @@ class _WriteTabState extends State<_WriteTab> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      // ── 우: Practice canvas (사용자 손가락) ──
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Text(
-                              t.hangulTraceTitle,
-                              style: const TextStyle(
-                                fontSize: 11.5,
-                                color: SoriColors.success,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.visible,
-                            ),
-                            const SizedBox(height: 6),
-                            SoriCard(
+                          ),
+                          const SizedBox(width: 10),
+                          // ── 우: Practice canvas (사용자 손가락) ──
+                          Expanded(
+                            child: SoriCard(
                               variant: SoriCardVariant.base,
                               accent: SoriColors.success,
                               padding: const EdgeInsets.all(6),
@@ -1050,8 +1072,8 @@ class _WriteTabState extends State<_WriteTab> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   );

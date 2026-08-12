@@ -453,13 +453,25 @@ class _GrammarScreenState extends State<GrammarScreen>
     });
   }
 
+  // 칩 목록은 **_applyFilters 가 실제로 훑는 집합**에서 뽑는다.
+  //
+  // 예전엔 _all(전체 문법)에서 뽑았는데, 코스 연습 모드에서 _applyFilters 는
+  // _courseContentIds 로 좁힌 scoped 에만 필터를 건다(194-198행). 그래서 코스
+  // 범위에 한 건도 없는 레벨·유형 칩이 그대로 노출됐고, 누르면 결과가 0이
+  // 되면서 시트가 닫히고 빈 화면만 남았다("필터걸면 없다고 하고 뒤로 튕겨" —
+  // Jin, 2026-08-12 실기기. 그 '튕김'은 필터 시트가 닫히는 동작이다).
+  //
+  // 고를 수 없는 선택지를 아예 안 보여주는 게 근본 해법이다 — 빈 결과를 예쁘게
+  // 안내하는 것보다 낫다.
   List<String> get _levels {
-    final s = _all.map((g) => g.level).toSet().toList()..sort();
+    final s = _courseGrammarCandidates.map((g) => g.level).toSet().toList()
+      ..sort();
     return ['Alle', ...s];
   }
 
   List<String> get _types {
-    final s = _all.map((g) => g.typeDe).toSet().toList()..sort();
+    final s = _courseGrammarCandidates.map((g) => g.typeDe).toSet().toList()
+      ..sort();
     return ['Alle', ...s];
   }
 

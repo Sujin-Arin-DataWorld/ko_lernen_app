@@ -55,7 +55,8 @@ void main() {
     expect(find.text('12 Wörter warten auf Kontext'), findsOneWidget);
     expect(find.text('Etwas gezielt üben'), findsOneWidget);
     expect(find.text('Aussprache, Grammatik oder Schreiben'), findsOneWidget);
-    expect(find.text('Frei spielen'), findsOneWidget);
+    // 2026-08-12: "Frei spielen" → "Spielen" (Jin — 굳이 길게 쓸 이유가 없다).
+    expect(find.text('Spielen'), findsOneWidget);
     expect(find.text('Wortkette, Buchstaben, kurze Spiele'), findsOneWidget);
     expect(find.text('Meine Wörter öffnen'), findsOneWidget);
     expect(find.text('Gespeicherte Wörter und Bücher'), findsOneWidget);
@@ -75,7 +76,7 @@ void main() {
     await tester.tap(allActivities);
     await tester.pump();
 
-    expect(find.text('Frei spielen'), findsWidgets);
+    expect(find.text('Spielen'), findsWidgets);
     await tester.scrollUntilVisible(
       find.text('Deine Wörter'),
       360,

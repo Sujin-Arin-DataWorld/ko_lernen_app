@@ -74,15 +74,21 @@ print('SFX 생성:')
 # 쓰면 실기기에서 확정한 소리를 조용히 덮어쓴다. 사양과 재제작 방법은
 # assets/sfx/README.md "제작 사양" 절, 검증은 `python tool/check_sfx.py`.
 
+# 2026-08-12 2차: combo/levelup 도 한 옥타브 내렸다. 정답음만 C4~C5 로 내리고 이
+# 둘을 C6~C7 에 남겨 두니, 콤보가 자주 터지는 Blitz-Paare 에서 폐기했어야 할 옛
+# 음색이 그대로 들렸다("아직도 곳곳에 예전 correct 효과음이 있다" — Jin, 실기기).
+# 날카롭다는 지적의 원인이던 1.3~2.1kHz 를 벗어나면서도, 정답음(C4-E4-G4→G4+C5)
+# 보다 한 옥타브 위라 보상이 한 단 올라가는 연출은 그대로다.
+
 # combo — 경쾌한 3음 상승 아르페지오
 save('combo.wav', cat(
-    tone(C6, 0.07, decay=10), tone(E6, 0.07, decay=10), tone(G6, 0.16, decay=8),
+    tone(C5, 0.07, decay=10), tone(E5, 0.07, decay=10), tone(G5, 0.16, decay=8),
 ))
 
 # levelup — 화사한 4음 상승 플로리시
 save('levelup.wav', cat(
-    tone(C6, 0.08, decay=9), tone(E6, 0.08, decay=9),
-    tone(G6, 0.08, decay=9), tone(C7, 0.30, decay=6),
+    tone(C5, 0.08, decay=9), tone(E5, 0.08, decay=9),
+    tone(G5, 0.08, decay=9), tone(C6, 0.30, decay=6),
 ))
 
 # complete — 사용자 chime 을 1초로 잘라 페이드아웃 (없으면 합성 폴백)
@@ -102,11 +108,19 @@ try:
     save('complete.wav', [x / 32768.0 for x in mono], sr=sr)
     print('  (complete = 사용자 chime, 1s + fade)')
 except Exception as e:
-    save('complete.wav', cat(
-        tone(C6, 0.08, decay=9), tone(E6, 0.08, decay=9),
-        tone(G6, 0.08, decay=9), tone(C7, 0.10, decay=9),
-        tone(E6, 0.34, decay=5),
-    ))
-    print(f'  (complete = 합성 폴백; chime 없음: {e})')
+    # ⛔ 이미 만들어진 complete.wav 를 폴백으로 덮지 않는다. chime 원본은 /tmp 에만
+    #    있어서 재부팅·다른 OS 에서는 반드시 사라진다. 예전 코드는 그때마다 조용히
+    #    합성음으로 갈아치웠다 — 사용자가 고른 chime 이 스크립트를 한 번 더 돌렸다는
+    #    이유만으로 사라지는 것이라 사고에 가깝다. 폴백은 "아직 파일이 없을 때"만
+    #    쓰는 최초 부트스트랩이다.
+    if os.path.exists(os.path.join(SFX, 'complete.wav')):
+        print(f'  (complete = 기존 파일 유지; chime 원본 없음: {e})')
+    else:
+        save('complete.wav', cat(
+            tone(C5, 0.08, decay=9), tone(E5, 0.08, decay=9),
+            tone(G5, 0.08, decay=9), tone(C6, 0.10, decay=9),
+            tone(E5, 0.34, decay=5),
+        ))
+        print(f'  (complete = 합성 폴백; chime 없음: {e})')
 
 print('완료 → assets/sfx/*.wav')
