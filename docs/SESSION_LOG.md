@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Home 캐릭터 영상 흰 배경 회귀 차단
+
+**왜.** Android 외부 영상 텍스처가 runtime `ColorFiltered` multiply를 기기별로 다르게
+처리하면서 Home 캐릭터 MP4의 흰 사각 매트가 다시 드러날 수 있었다. 일반 캐릭터 화면의
+흰 매트 계약까지 바꾸면 다른 화면의 배경 흡수가 깨지므로 Home만 별도 경로가 필요했다.
+
+**무엇을.** 호랑이와 까치 Home 클립을 `SoriColors.lightBg` 한지색으로 미리 합성한
+`HomeHeroClips` 두 개로 분리하고 Home에서만 `applyMultiplyFilter: false`로 렌더했다.
+일반 `CharacterClips`는 기존 multiply 기본값 `true`를 유지한다. 파생 자산의 SHA-256,
+프레임 수, 매트 색·일치율을 보고서와 테스트로 고정했고, CI가 일반 캐릭터와 Home 전용
+Python 매트 검사기를 모두 직접 실행하도록 했다. 동행자 없음은 계속 영상 밴드를 만들지 않는다.
+
+**검증.** Home 매트 검사 **2/2**, 기존 캐릭터 매트 **18/18**, Home/clip/Today 회귀
+**43/43**, 변경 Dart `flutter analyze --no-pub --fatal-infos` `No issues found`,
+`git diff --check` 통과. Xiaomi 실기기에서 실제 흰 사각형 소거 확인은 새 APK 설치가 필요한
+외부 게이트이며 이번 Windows 자동 증명 범위에는 포함하지 않았다. 코드 커밋 `ba2c712`.
+
+---
+
 ### 2026-08-12 (Codex) — Gallery와 05–06 통합 보완
 
 **왜.** 독립 검증된 Gallery와 05–06 브랜치를 한 트리에 합칠 때 Profile의 새 canonical
