@@ -367,7 +367,7 @@ void main() {
 
       expect(find.text('Reise nach Korea'), findsWidgets);
       expect(find.text('B1 — Mittelstufe'), findsWidgets);
-      expect(find.text('조이'), findsOneWidget);
+      expect(find.text('Joy'), findsOneWidget);
       _tile(tester, 'profile-learning-goal').onTap!();
       _tile(tester, 'profile-learning-start-point').onTap!();
       _tile(tester, 'profile-learning-companion').onTap!();

@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Gallery와 05–06 통합 보완
+
+**왜.** 독립 검증된 Gallery와 05–06 브랜치를 한 트리에 합칠 때 Profile의 새 canonical
+placement 계약과 01D의 explicit no-companion 모델, Home의 02A 단일 CTA와 06B typed
+connectivity 계약이 같은 파일에서 만났다. 그대로 한쪽을 선택하면 preview가 저장을 쓰거나
+동행자 없음이 사라지고, generic loader 오류가 오프라인으로 오표시될 수 있었다.
+
+**무엇을.** Profile preview 타입을 `CompanionPreference`로 맞춰 tiger/magpie/none 선택·표시와
+무쓰기 callback을 유지하면서, 시작점 2차 확인·원자적 placement/browse/legacy/current/snapshot
+변경·실패 rollback·export/Gye/account-delete를 보존했다. Home은 02A의 단일 Today CTA와
+읽기 전용 build note를 유지하고 offline/remote/local typed 상태, 재시도와 connectivity 복구를
+합쳤다. Gallery 06B fixture는 generic 예외가 아닌 명시적 `offline` snapshot을 반환한다.
+`connectivity_plus 7.0.0` 의존성은 `flutter pub get`으로 실제 package config에 반영했다.
+Home character/video/blend/compositing 및 asset은 수정하지 않았다.
+
+**검증.** Gallery **29/29**와 05–06 주요 통합 묶음 중 발견된 Profile/다중 checkpoint
+fixture를 수정한 뒤 Profile+mastery **55/55** 통과. 전체 `flutter analyze --no-pub
+--fatal-infos` `No issues found`; `flutter gen-l10n`, `git diff --check` 통과. 통합 커밋
+`c730736` 뒤의 이 보완은 별도 코드 커밋으로 고정한다. 전체 serial·web·실기기 matte gate는
+후속 단계다.
+
+---
+
 ### 2026-08-12 (Codex) — 05–06 패리티 최종 truth gate
 
 **왜.** 05–06 목업 재대조에서 Gye 약속 CTA가 현재 Today의 실행 가능한 목적지를 우회할

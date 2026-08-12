@@ -2080,15 +2080,6 @@ CurriculumCatalog _catalog({
         'conceptIds': ['concept_object_particle'],
         'role': 'practice',
       },
-      if (firstUnitHasTwoCheckpoints)
-        {
-          'id': 'greeting_second_checkpoint',
-          'contentKind': 'scenario',
-          'contentId': 'introduce_yourself',
-          'courseUnitId': 'a1_01_greetings_hangul',
-          'conceptIds': ['concept_greeting_politeness'],
-          'role': 'assess',
-        },
       if (withInvalidLink)
         {
           'id': 'invalid_link',
