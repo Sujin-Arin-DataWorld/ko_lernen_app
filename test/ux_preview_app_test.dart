@@ -274,6 +274,41 @@ void main() {
     },
   );
 
+  testWidgets('02B preview renders the fixed three-step mission', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '02B'));
+    await tester.pump();
+
+    expect(find.text('Höre die Situation'), findsOneWidget);
+    expect(find.text('Baue deinen Satz'), findsOneWidget);
+    expect(find.text('Sprich in der Szene'), findsOneWidget);
+    expect(find.text('1 Min.'), findsWidgets);
+    expect(find.text('2 Min.'), findsOneWidget);
+  });
+
+  testWidgets('06A preview owns deterministic no-companion learning data', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06A'));
+    await tester.pump();
+
+    expect(find.text('Reise nach Korea'), findsWidgets);
+    expect(find.textContaining('A1'), findsWidgets);
+    expect(find.text('Keine Lernbegleitung'), findsOneWidget);
+  });
+
+  testWidgets('06B preview keeps saved review and reconnect actions', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06B'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+
+    expect(find.text('Gespeicherte Wörter wiederholen'), findsOneWidget);
+    expect(find.text('Erneut verbinden'), findsOneWidget);
+  });
+
   for (final panel in uxPreviewPanels) {
     testWidgets(
       '${panel.id} renders at 308dp and 1.3x without startup writes',

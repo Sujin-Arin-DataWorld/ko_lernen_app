@@ -444,6 +444,19 @@ class CourseMasteryService {
           'Small-talk relationship checkpoints require a speech-style concept.',
         );
       }
+      if (kind == CurriculumContentKind.scenario) {
+        final contextUnit = catalog.courseUnitFor(contextEntry.courseUnitId);
+        if (contextUnit == null ||
+            !contextUnit.checkpointContentIds.contains(
+              contextEntry.contentKey,
+            ) ||
+            !contextEntry.exactlyAssesses(contextUnit)) {
+          throw FormatException(
+            'Scenario checkpoint ${contextEntry.id} must assess the full '
+            'declared mission ${contextEntry.courseUnitId}.',
+          );
+        }
+      }
     }
     // A typed route identifies one immutable graph edge. Browse callers never
     // inherit the active unit merely because their content happens to occur in
@@ -760,6 +773,8 @@ class CourseMasteryService {
         !_requiresTypedMissionContext(evidence.contentKind)) {
       return false;
     }
+    final unit = catalog.courseUnitFor(evidence.courseUnitId!);
+    if (unit == null) return false;
     return catalog
         .linksForContent(evidence.contentKind, evidence.contentId)
         .any(
@@ -767,7 +782,10 @@ class CourseMasteryService {
               link.courseUnitId == evidence.courseUnitId &&
               link.conceptIds.contains(evidence.conceptId) &&
               link.role == ContentLinkRole.assess &&
-              evidence.missionContentLinkId == link.id,
+              evidence.missionContentLinkId == link.id &&
+              (evidence.contentKind != CurriculumContentKind.scenario ||
+                  (unit.checkpointContentIds.contains(link.contentKey) &&
+                      link.exactlyAssesses(unit))),
         );
   }
 

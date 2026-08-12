@@ -132,4 +132,35 @@ void main() {
     expect(result.newlyUnlockedUnit, isNull);
     expect(result.currentUnit?.id, 'a1_01_greetings_hangul');
   });
+
+  test(
+    'a subset scenario assess edge cannot record mission evidence',
+    () async {
+      final catalog = await CurriculumCatalog.load();
+      final service = CourseMasteryService(catalog);
+      await service.initializeForPlacement('a1');
+      final unit = service.currentUnit!;
+      final subset = catalog
+          .linksForCourseUnit(unit.id)
+          .firstWhere(
+            (link) =>
+                link.contentKind == CurriculumContentKind.scenario &&
+                link.contentId == 'airport_arrival' &&
+                link.role == ContentLinkRole.assess &&
+                !link.exactlyAssesses(unit),
+          );
+
+      expect(
+        () => service.recordContentAttempt(
+          CurriculumContentKind.scenario,
+          subset.contentId,
+          true,
+          courseContext: CoursePracticeContext.fromLink(subset),
+          conceptId: subset.conceptIds.first,
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(service.snapshot.evidence, isEmpty);
+    },
+  );
 }

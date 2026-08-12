@@ -1593,7 +1593,8 @@ void main() {
             .firstWhere(
               (link) =>
                   link.role == ContentLinkRole.assess &&
-                  link.conceptIds.contains('concept_greeting_politeness'),
+                  link.conceptIds.contains('concept_greeting_politeness') &&
+                  link.exactlyAssesses(service.currentUnit!),
             ),
       );
 

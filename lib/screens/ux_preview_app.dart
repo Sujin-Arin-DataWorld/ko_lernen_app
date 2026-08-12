@@ -23,6 +23,7 @@ import '../services/hanok_stage_service.dart';
 import '../services/mission_recommender.dart';
 import '../services/today_learning_snapshot.dart';
 import '../theme.dart';
+import '../widgets/sori/mascot_preference.dart';
 import 'character_selection_screen.dart';
 import 'consent_screen.dart';
 import 'course_mission_screen.dart';
@@ -112,6 +113,9 @@ class UxPreviewRegistry {
         CloudBackupDeletionJournalState.clear,
       ),
       loadGyeMetas: _emptyGyes,
+      previewMotivation: LearnerMotivation.travel,
+      previewLevel: LearnerLevel.a1,
+      previewCompanion: CompanionPreference.none,
     ),
     '06B' => HomeScreen(
       previewMode: true,
@@ -255,7 +259,7 @@ Widget _reviewFirstHome() {
 
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   unit: _greetingUnit,
-  links: [_greetingLink],
+  links: _greetingMissionLinks,
   scenarios: const [_greetingScenario],
   isCurrent: true,
 );
@@ -362,7 +366,9 @@ Future<List<GyeMeta>> _emptyGyes() async => const [];
 
 Future<TodayLearningSnapshot> _offlineToday() async =>
     const TodayLearningSnapshot(
-      pick: null,
+      pick: ReviewPick(dueCount: 12),
+      destination: TodayLearningDestination(route: '/review'),
+      dueCount: 12,
       availability: TodayLearningAvailability.unavailable,
       unavailableReason: TodayLearningUnavailableReason.offline,
     );
@@ -421,6 +427,7 @@ const _greetingUnit = CourseUnit(
     de: 'Ich kann höflich begrüßen.',
     en: 'I can greet someone politely.',
   ),
+  requiredConceptIds: ['greeting'],
   checkpointContentIds: ['scenario:preview_greeting'],
 );
 
@@ -499,6 +506,26 @@ final _greetingLink = ContentLink(
   conceptIds: const ['greeting'],
   role: ContentLinkRole.assess,
 );
+
+final _greetingMissionLinks = <ContentLink>[
+  ContentLink(
+    id: 'preview-greeting-vocab',
+    contentKind: CurriculumContentKind.vocab,
+    contentId: 'preview_greeting_word',
+    courseUnitId: _greetingUnit.id,
+    conceptIds: const ['greeting'],
+    role: ContentLinkRole.introduce,
+  ),
+  ContentLink(
+    id: 'preview-greeting-cloze',
+    contentKind: CurriculumContentKind.cloze,
+    contentId: 'preview_greeting_build',
+    courseUnitId: _greetingUnit.id,
+    conceptIds: const ['greeting'],
+    role: ContentLinkRole.practice,
+  ),
+  _greetingLink,
+];
 
 const _verifiedResult = ScenarioCanDoResult(
   status: ScenarioCanDoStatus.verified,
