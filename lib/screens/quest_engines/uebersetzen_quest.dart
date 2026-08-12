@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../services/sound_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
@@ -65,6 +66,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
       }
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
       _tries++;
       if (_tries >= 2) {
         setState(() {

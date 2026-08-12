@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """한글소리 인앱 효과음(SFX) 생성기 — 표준 라이브러리만 사용(외부 의존 0).
 
-4개(correct/wrong/combo/levelup)는 사인파+하모닉+exp-decay 엔벨로프로 합성하고,
-complete 는 사용자가 받은 chime(afconvert 로 /tmp/chime_raw.wav 로 디코드)을
-1초로 잘라 페이드아웃해서 만든다. 출력은 16-bit mono WAV → assets/sfx/.
+combo/levelup 은 사인파+하모닉+exp-decay 엔벨로프로 합성하고, complete 는 사용자가
+받은 chime(afconvert 로 /tmp/chime_raw.wav 로 디코드)을 1초로 잘라 페이드아웃해서
+만든다. 출력은 16-bit mono WAV → assets/sfx/.
+
+**correct.wav / wrong.wav 는 더 이상 여기서 만들지 않는다** — 2026-08-12 에 손으로
+만든 신본으로 교체됐다. 아래 ⛔ 주석 참조.
 
 재생성:  afconvert -f WAVE -d LEI16 "<chime>.mp3" /tmp/chime_raw.wav && python3 tool/gen_sfx.py
 
@@ -65,14 +68,11 @@ C7 = 2093.00
 os.makedirs(SFX, exist_ok=True)
 print('SFX 생성:')
 
-# correct — 밝은 2음 상승 "딩"
-save('correct.wav', cat(tone(E6, 0.07, decay=11), tone(C7, 0.16, decay=9)))
-
-# wrong — 부드러운 저음 하강 (가혹하지 않게, 배음 적게)
-save('wrong.wav', cat(
-    tone(G5, 0.09, decay=7, harmonics=(1.0, 0.12)),
-    tone(C5, 0.20, decay=6, harmonics=(1.0, 0.10)),
-))
+# ⛔ correct.wav / wrong.wav 는 **여기서 만들지 않는다** (2026-08-12).
+# 구 합성음(correct=E6→C7, wrong=G5→C5)은 고역이 날카로워 폐기됐고, 두 옥타브 낮은
+# 신본으로 교체됐다(정답 C4-E4-G4→G4+C5 / 오답 A3→F3). 이 스크립트가 그 둘을 다시
+# 쓰면 실기기에서 확정한 소리를 조용히 덮어쓴다. 사양과 재제작 방법은
+# assets/sfx/README.md "제작 사양" 절, 검증은 `python tool/check_sfx.py`.
 
 # combo — 경쾌한 3음 상승 아르페지오
 save('combo.wav', cat(

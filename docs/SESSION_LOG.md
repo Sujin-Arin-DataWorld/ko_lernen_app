@@ -7,6 +7,51 @@
 
 ---
 
+### 2026-08-12 (Claude) — 정답음·오답음 교체 + 오답음 배선 7종 확대
+
+**왜.** Jin이 새 효과음을 만들어 정답음/오답음을 전부 교체하려 했다. 조사에서 두 가지가 드러났다.
+① 앱의 정답음·오답음은 전부 `sound_service.dart:48-49` 두 줄을 지나므로 **파일명을 유지하면
+코드 수정 0줄로 100% 교체**된다. ② 반면 **퀘스트 엔진 7종은 오답 시 소리가 아예 없었다**(진동만) —
+정답음만 마스코트 경유로 났다. 즉 "오답음을 바꿔도" satz 등에서는 들리지 않는 상태였다.
+
+**무엇.**
+
+- **에셋 교체** — Jin이 재생성한 0.23s본 채택. 정답음 C4-E4-G4→G4+C5(간격 45/90ms),
+  오답음 A3→F3(간격 55ms). 구본 대비 **두 옥타브 낮다** — 구 정답음(E6→C7, 1.3~2.1kHz)이
+  "날카롭다"고 lowpass 3.8kHz로 후처리돼 있던 원인을 음원 자체에서 없앴다.
+  0.30s 변형본 2개는 `assets_unused/sfx_candidates/` 에 남겼다(실기기 청취 후 A/B용).
+- **구 효과음 완전 제거** (Jin 지시 "다시는 안쓰이게") — `assets_unused/sfx_originals/` 폴더째
+  삭제하고, `tool/gen_sfx.py` 에서 correct/wrong 생성 코드를 걷어냈다. 그 스크립트를 실행하면
+  구 합성음(E6→C7 / G5→C5)이 신본을 **조용히 덮어쓰는** 게 진짜 위험이었다. combo/levelup/
+  complete 생성은 그대로 두어 저작권 출처 기록(README 규칙)은 유지된다. 구본은 git 히스토리에만 남는다.
+- **오답음 배선 7종** — `satz_bauen`·`diktat`·`luecken`·`uebersetzen`·`particle_pop`·
+  `batchim_drop`·`hoerverstehen` 각 오답 분기의 `HapticFeedback.mediumImpact()` 다음 줄에
+  `SoundService.wrong()`. 7파일 모두 `sound_service.dart` import가 없어 함께 추가.
+  정답음 중복 없음 — 정답은 `MascotPartner._fire()` 담당이고 오답 경로엔 마스코트가 없다.
+- **배치고사는 정답음/오답음을 넣지 않았다** — 이 화면은 선택지에 정오 표시가 없고 결과에서
+  총점만 보여주는 구조라(`placement_diagnostic_screen.dart` 문항 뷰), 소리로 정오를 흘리면
+  진단 도구의 성격이 바뀐다. 대신 `_next()`에 정오와 무관한 `HapticFeedback.selectionClick()`.
+- **`tool/check_sfx.py` 신규** — 포맷/길이/피크/RMS/선두·꼬리 무음을 사양과 대조해 표로 출력.
+  Jin이 다음에 소리를 만들 때 `python tool/check_sfx.py` 한 줄로 검증한다(표준 라이브러리만).
+- **`assets/sfx/README.md`** — 파일 표 갱신 + **"제작 사양" 절 신설**(하드 제약·길이·무음·음량·음색).
+  스테일 정정: "볼륨" 절이 아직 "호출부에 숫자가 흩어져 있다"고 했으나 ADR-002는 구현 완료라
+  `AudioPolicy.volumeFor()`가 단일 진실원천이다.
+
+**함정 (다음 사람용).**
+
+- `pubspec.yaml`에 `- assets/` 항목이 **없다.** 폴더 선언은 비재귀라 `assets/` 루트에 둔 wav는
+  번들에서 빠진다. 반드시 `assets/sfx/` 안으로.
+- 정답음이 길면 안 된다 — `SoundService._play()`는 호출마다 새 `AudioPlayer`를 만들고 **이전
+  소리를 끊지 않아** Blitz-Paare에서 겹쳐 쌓인다. 후보에 0.60s본이 있었으나 0.23s를 택한 이유.
+- 피크 기준선은 −1.0dB가 아니라 **−0.72dB**다(`gen_sfx.py`의 `0.92/peak`). 기존 5종이 전부 그 값이라
+  −1.0을 상한으로 잡으면 패밀리 전체가 탈락한다. `check_sfx.py`는 −0.5를 상한으로 둔다.
+
+**검증.** `flutter analyze` 0 issues(퀘스트 7종 + 배치고사) · `python tool/check_sfx.py` exit 0
+(correct/wrong 둘 다 OK). **실기기 청취는 미완** — Blitz-Paare 연속 정답 시 겹침, 콤보음과의
+음량 단차, Hörverstehen에서 오답음↔TTS 간섭은 Jin이 귀로 확인해야 한다.
+
+---
+
 ### 2026-08-12 (Codex) — Blitz-Paare 장문 독일어를 한 화면에 고정
 
 **왜.** 번역 타일이 `minHeight`만 갖고 전체 보드가 세로 스크롤 안에 있어,

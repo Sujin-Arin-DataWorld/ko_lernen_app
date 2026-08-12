@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
@@ -97,6 +98,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       if (mounted) setState(() => _showExplanation = true);
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
       _tries++;
       // Roter Blitz
       setState(() => _wrongFlash = true);

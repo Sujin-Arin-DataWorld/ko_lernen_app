@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_pop.dart';
@@ -205,6 +206,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
 
     HapticFeedback.mediumImpact();
+    SoundService.wrong();
     _tries++;
     final diag = DiktatQuest.diagnose(input, _targetKo);
 
