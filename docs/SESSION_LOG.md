@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Linux matte·Home golden CI 재현성 복구
+
+**왜.** PR #17의 자동·수동 CI에서 앱 로직이나 영상 매트 불일치가 아닌 두 환경 결함이
+드러났다. Ubuntu runner에는 `ffmpeg`가 없어 character matte 검사가 시작 전에 종료됐고,
+Home golden은 production connectivity EventChannel을 구독해 widget runner에서
+`MissingPluginException`을 냈다. 기존 Home fixture는 실행 시각·오늘의 글자와 production
+refresh/write 흐름에도 의존해 기준선 재생성이 결정적이지 않았다.
+
+**무엇을.** Analyze & Build job이 matte 검사 전에 Ubuntu `ffmpeg`를 명시적으로 설치하게
+했다. Home golden은 기존 production `HomeScreen` 생성자 대신 무쓰기 `HomeScreen.preview`
+경계를 사용하고, Review 12건·한옥 projection/narrative·시각·오늘의 글자를 고정했다.
+각 golden 전에 `Storage.resetForTesting()`을 호출해 mock preferences handle도 격리했다.
+production Home connectivity와 영상 렌더링 코드는 바꾸지 않았다.
+
+**검증.** `flutter test --no-pub --concurrency=1 --update-goldens
+test/goldens/home_layout_golden_test.dart` **2/2**, 해당 파일 scoped analyzer `No issues`, 일반
+character matte **18/18**, Home hero matte **2/2**, YAML parse/order assertion과
+`git diff --check`를 통과했다. Windows에서 생성된 Home PNG 두 개는 검증 직후 제거해
+Linux canonical baseline으로 커밋하지 않았다. 코드/CI 커밋: `57c9ab1`.
+
+---
+
 ### 2026-08-12 (Codex) — Gye Node 22·Firestore Rules CI 게이트
 
 **왜.** 기존 CI는 Flutter/Linux golden과 Python 분석 함수는 검사했지만 `functions/gye`의
