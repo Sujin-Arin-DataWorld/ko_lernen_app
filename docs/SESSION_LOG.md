@@ -7,6 +7,60 @@
 
 ---
 
+### 2026-08-12 (Claude) — 초성 퀴즈가 정답을 통째로 노출하던 버그 (197/930 단어)
+
+**왜.** Jin이 실기기에서 잡았다 — Anlaut-Quiz "초성 + 모음" 모드에서 `더`(mehr)가
+`ㄷ` + `ㅓ` 슬롯으로 그려져 **정답이 그대로 보였다**. 같은 날 아래쪽 로그의
+"196개 무받침 단어 강등" 수정이 이미 있었는데도 화면은 계속 새고 있었다.
+
+**근본 원인 — 규칙을 화면이 안 쓰는 경로에만 걸었다.**
+`fullyRevealedByChosungVowel()` 강등 로직은 `buildPattern()`(문자열 힌트) 안에만
+있었고, 실제로 카드를 그리는 `_SyllableScaffold` 는 `mode` 를 **날것으로** 읽어
+`showVowel ? jung : '모음'` 을 렌더했다. `buildPattern()` 의 유일한 호출자는
+`hangul_game_logic_test.dart` 였다 — 즉 **테스트만 지나가는 죽은 경로를 고치고
+통과 로그를 받은 것**이고, 화면은 한 번도 그 가드를 통과한 적이 없다.
+전수조사 결과 실제 노출 규모는 **930개 중 197개**(`더`·`커피`·`아버지`·`가다`…).
+
+**무엇.**
+
+- **`lib/widgets/sori/chosung_hint.dart` 신설 — 경로를 하나로.**
+  `ChosungHintPlan` 은 private 생성자라 **`buildChosungHintPlan()` 으로만** 만들 수
+  있고, 그 관문이 `plan.revealsAnswer` 면 무조건 `HintMode.chosung` 으로 강등한다
+  (강등 후에도 노출되면 `assert` 로 터진다). 그리는 위젯은 `ChosungHint` 하나뿐이고
+  `word`+`mode` 만 받아 계획을 스스로 만든다 — 정규화 안 된 상태를 주입할 방법이 없다.
+- **노출 판정을 렌더 규칙에서 파생.** `ChosungHintSyllable.revealsSyllable` =
+  `중성 공개 && 받침 없음` — 슬롯 구성 그 자체다. 화면 규칙을 바꾸면 판정도 같이 움직인다.
+- **화면이 안 쓰는 대체 표현 제거** (`/code-review` 지적 반영). `buildPattern`·
+  `fullyRevealedByChosungVowel`·`ChosungHintPlan.pattern`·`visibleJamo` 를 전부 삭제했다.
+  화면이 안 쓰는 두 번째 표현을 남겨두는 것이 **이 버그의 발생 구조 그 자체**다.
+- **자모 테이블 단일 소유자화** (같은 리뷰 지적). `hangul_util.dart` 가
+  `chosungTable`/`jungsungTable`/`jongsungTable` + `decomposeHangulSyllable()` 을 갖고,
+  `chosung_hint.dart` 는 그걸 import 한다. 화면에 있던 중복 `extractChosung`(호출자 0)과
+  `_chosungTable`/`_jungsungTable`/`_jongsungTable` 3벌은 삭제. `chosung_quiz_screen.dart`
+  1145 → 851줄.
+
+**검증.**
+
+- `test/chosung_hint_test.dart` 신설 — 세 겹으로 고정: ① 계획 규칙 ② **위젯 렌더**
+  (`더` 쉬움 모드에서 `find.text('ㅓ')` 가 `findsNothing`) ③ **번들 어휘 전수조사**
+  (`korean_vocab.csv` 930개 × 모드 2 → `revealsAnswer` 전부 false + 강등 대상이
+  50개 미만이면 실패 = 빈 케이스 방지). ②가 이번 회귀의 실제 구멍이다.
+- 가드 없는 상태에서 **먼저 빨간불을 확인**했다 — 전수조사가 197단어를 나열하며 실패,
+  위젯 테스트가 `ㅓ` 를 찾아냈다. 가드 투입 후 14/14 통과.
+- `flutter analyze` 변경 5파일 0 issues (저장소 잔여 3건은 `quest_engines/*`
+  `unused_import` 로 이번 변경과 무관). 관련 스위트 75 통과.
+- 전체 `flutter test`: **3,011 통과 / 5 skip / 13 실패 — 초성·한글 관련 실패 0**.
+  13건은 전부 동시 세션 작업 영역(Blitz-Paare `game_layout_test` 2 ·
+  `character_clip_matte` 1 · Satz Arcade 라우트 1)과 기존 골든 드리프트 9(learn_hub ·
+  settings · vocab_packs × compact/medium/expanded)다. 이 13건은 내 변경 **전후 목록이
+  동일**함을 두 번의 전체 실행으로 확인했다.
+
+**미결(Jin).** 실기기에서 A1 "초성 + 모음" 으로 10문항 — `더`·`커피`·`아버지` 류가
+`ㄷ` + 점선 `모음` 으로 뜨는지. 점선 라벨 `모음`/`받침` 은 여전히 한국어 하드코딩
+(독일어 UI) — 기존 사항이라 이번 범위 밖으로 두었다.
+
+---
+
 ### 2026-08-12 (Claude) — 정답음·오답음 교체 + 오답음 배선 7종 확대
 
 **왜.** Jin이 새 효과음을 만들어 정답음/오답음을 전부 교체하려 했다. 조사에서 두 가지가 드러났다.
