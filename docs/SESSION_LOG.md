@@ -5545,6 +5545,53 @@ cp -r assets/illustrations/.backup_uncompressed/* assets/illustrations/
 ---
 
 
+## 2026-08-13 — 캐릭터 클립 흰 사각형: 진짜 원인 2개 (Claude)
+
+Jin 실기기 반복 지적("호랑이 뿐만 아니라 까치도"). adb 픽셀 실측으로 원인이
+**색 맞추기 문제가 아님**을 확정했다. 원인은 둘이고 둘 다 화면 구조 문제다.
+
+**① 프로필 — 엉뚱한 색을 지우고 있었다.** 실측: 카드 배경 `#EDF3ED`, 클립
+사각형 `#FAF6EC`. 아바타는 tinted 히어로 카드 **안**에 있는데 코드는
+`Theme.scaffoldBackgroundColor`(크림)를 `blendColor` 로 넘기고 있었다.
+`_Avatar.backdrop` 을 신설해 부모가 `SoriCard.resolvedBackground(accent:
+primary, tinted: true)` 를 넘긴다. 검산: 0.08×#1F7A6B + 0.92×#FFFDF8 =
+**#EDF3ED** — 실측값과 일치.
+
+**② 완료 화면 — 색은 맞는데 질감이 안 맞았다.** `_HanjiPainter` 가 배경에
+반지름 48~163px 짜리 구름 얼룩(`#D4C496` @0.075)을 최대 40개 뿌린다
+(실측 `#FAF6EC` → `#F7F2E6`). 클립은 흰 매트를 multiply 로 지운 **완전 평면**
+사각형이라 색이 같아도 "매끈한 밝은 사각형"으로 읽힌다. 복습 완료는
+`noiseAlpha: _done ? 0 : 0.11`, 게임 완료 4종(cloze·daily_challenge·
+satz_arcade·speed_match)은 `GameOverCard` 를 `ColoredBox(scaffold색)` 로 덮어
+한 곳에서 막았다.
+
+까치도 같은 증상인 이유: 두 클립 매트 YUV 가 **완전히 동일**(227,123,131 →
+BT.709 디코드 `#FBF5EB`)이라 캐릭터를 바꿔도 결과가 같다.
+
+**그 외**
+- 복습 완료 화면 세로 중앙정렬 — 콘텐츠가 상단에 뭉치고 아래 절반이 비어
+  Schließen 이 호랑이에 붙은 덩어리로 보이던 문제.
+- Entdecken 카드 `maxLines: 2` 말줄임 제거. 행 높이가 들쭉날쭉해지지 않도록
+  `Wrap` → 행 단위 `IntrinsicHeight` + `stretch`.
+- 단어카드 앞뒤 크기비 1.7 배(0.19/92 대 0.11/48) → 1.3 배(0.155/72 대
+  0.125/54). 한글이 같은 sp 에서 라틴보다 작게 보여 1:1 은 아니다.
+- humanizer: ARB 1,664 문자열엔 em dash **0개**였고 실제 AI 티는 하드코딩 Dart
+  문자열에 있었다 — 한글 발음 힌트 15, 퀘스트 설명 4, 기타 3. `gyeExplainWhy`
+  부정 병렬("nie ... und nie")도 교정. **레벨 라벨(`A2 — Grundkenntnisse`)은
+  되돌렸다** — 산문이 아니라 구분자이고 테스트가 계약으로 못박고 있다.
+
+**폰트 규칙 확인(Jin 질문).** 앱은 이미 Pretendard 단일 — 코드 전체
+`fontFamily` 98회 전부 `'Pretendard'`, Gowun 계열 사용 0. `GowunBatang` 은
+2026-07-01 폐기됐고 `SoriFonts.serif` 는 `sans` alias. 다만 `pubspec.yaml` 에
+폰트 파일 2개(120KB)가 아직 번들돼 있다 — 죽은 자산, 제거 후보.
+
+**검증.** `flutter analyze` 0 issues. 전체 `flutter test` 3,192 통과.
+내 변경으로 깨졌던 6건(profile 5 + gye 1)은 해소. **남은 2건은
+`hanok_world_screen_test` 의 `scrollUntilVisible` 실패로, 디자인 브랜치 커밋
+`0ea69dc` 가 마지막으로 건드린 파일이며 이번 작업과 무관하다.**
+
+**미확인.** 프로필·완료 화면 수정은 실기기로 아직 못 봤다 — 새 빌드 필요.
+
 ## 2026-08-03 · 장면 포스터 8종 단청 회화체 재작화
 
 플랫 벡터체 포스터가 "그림판" 느낌이라는 지적 → `listening_hero.png`/`porch.png`

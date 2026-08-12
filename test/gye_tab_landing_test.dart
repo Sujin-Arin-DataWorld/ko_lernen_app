@@ -54,7 +54,13 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Was andere sehen'), findsOneWidget);
-    expect(find.textContaining('niemals deine Antworten'), findsOneWidget);
+    expect(
+      find.textContaining('bleiben privat'),
+      findsOneWidget,
+      reason:
+          'gyePrivacyBody 는 기여 사실만 공개되고 답변·단어·평가 결과는 '
+          '비공개임을 말해야 한다',
+    );
     await tester.scrollUntilVisible(
       find.text('Eine 계 finden oder gründen'),
       320,
