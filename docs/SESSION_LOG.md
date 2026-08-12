@@ -12,7 +12,7 @@ job과 수동 golden 재생성은 그대로 유지한다.
 
 **검증.** YAML diff와 `git diff --check`를 통과했고, 동일 소스의 로컬 Gye Functions는
 **338/338**, Firestore Rules는 **46/46** 통과했다. 최종 Node 22/Java 21 증명은 PR CI가 맡는다.
-코드 커밋: 미확정.
+코드 커밋: `70caa36`.
 
 ---
 
