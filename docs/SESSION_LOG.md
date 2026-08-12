@@ -1,5 +1,37 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — 실제 production 위젯 20패널 UX Gallery 완성
+
+**왜.** 기존 Gallery는 `01A–06C` 인벤토리와 탐색 shell만 있었고 내용은 테스트용
+가짜 `Text` builder였다. 목업을 실제 구현 상태로 검토하려면 production 화면 자체를
+결정적 fixture로 열되, Gallery 때문에 Storage·Firebase·알림·광고·마이그레이션이
+시작되거나 학습/계정 상태가 바뀌지 않는 조기 진입 경계가 필요했다.
+
+**무엇을.** `UxPreviewRegistry`가 정확히 20개 ID를 실제 production 화면에 연결한다.
+온보딩·Today·미션·시나리오 결과·한옥 지도·사랑방·연습/탐색/경로·계·프로필·오프라인/
+복습 우선 상태는 기존 화면의 preview/fixture seam과 기존 assets만 사용한다. 01B의
+placement 갈래와 06A의 동기화·계정·내보내기·학습설정 동작에는 preview 전용 무쓰기
+분기를 추가했다. 03C/04A–C처럼 이름 있는 route를 직접 여는 production CTA는 Gallery
+안의 읽기 전용 route boundary가 가로채 운영 loader로 빠지지 않는다.
+
+`main()`은 debug 빌드에서 `ENABLE_UX_GALLERY=true`일 때만 `Storage.init()`보다 먼저
+German/light-theme `UxPreviewApp`을 실행하고 즉시 반환한다. flag가 없거나 release면
+기존 production startup 함수가 동일한 순서로 실행된다. 실행 예시는
+`flutter run -d <device> --dart-define=ENABLE_UX_GALLERY=true`다.
+
+**검증.** 새 Gallery 테스트 **28/28 통과**: exact 20 builder/type/route, Storage 미초기화
+조기 반환, production 분기 위임, German theme, 대표 CTA route 격리, SharedPreferences
+불변, 전체 패널 308dp·1.3배 및 390dp/1024dp 대표 matrix를 확인했다. 관련 화면 회귀
+묶음은 **112/112 통과**했고, 실제 dart-define 주입 smoke **1/1 통과**. 전체
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `flutter gen-l10n`,
+`git diff --check` 통과. 코드 커밋 `6c12d42`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+**회귀 경계.** `home_screen.dart`, `character_clip.dart`, `pubspec.yaml`과 영상/이미지 asset은
+변경하지 않았다. 따라서 홈 영상의 흰 배경 수정 계약을 덮어쓰지 않으며, 실제 Android
+합성 결과는 최신 main의 matte 변경을 최종 rebase한 뒤 별도 실기기 gate로 확인한다.
+
+---
+
 ### 2026-08-12 (Codex) — truthful three-step course mission parity
 
 **왜.** 01B·02A/B/D·03·04 목업의 표면은 구현됐지만, 목적 장면이 첫 실제 과제에서
