@@ -43,6 +43,13 @@ HEAD_KEEP = 0.06
 TAIL_KEEP = 0.12
 # 이보다 짧은 앞 묵음은 그냥 둔다 — 자를 값어치가 없고 프레임 오차만 는다.
 HEAD_MIN_TRIM = 0.10
+# 꼬리도 같은 하한을 둔다. **멱등성을 위해 반드시 필요하다.**
+#
+# 처음엔 이게 없어서, 한 번 다듬은 파일을 다시 돌리면 꼬리가 TAIL_KEEP 근처를
+# 맴돌며 매번 조금씩 더 깎였다(2차 실행에서 3,560개가 평균 0.014s 추가 절단).
+# 지금 당장은 무해하지만 반복하면 말끝이 잘려 나간다. 도구는 몇 번을 돌려도
+# 같은 결과를 내야 한다.
+TAIL_MIN_TRIM = 0.10
 # 묵음 판정 임계. -45dB 는 숨소리는 남기고 진짜 무음만 잡는 선.
 NOISE_DB = -45
 
@@ -121,8 +128,15 @@ def handle(path, dry_run):
         # 자르면 더 나빠진다. 재합성 대상으로 넘긴다.
         return ("too_short", path, total)
 
+    # 자른 뒤 남는 값이 **다시 자를 조건에 안 걸리게** 문턱을 잡는다. 그래야
+    # 몇 번을 돌려도 결과가 같다.
+    #   앞: 0.10 이상일 때만 자르고 0.06 을 남긴다 → 0.06 < 0.10, 재절단 없음
+    #   뒤: 0.22 이상일 때만 자르고 0.12 를 남긴다 → 0.12 < 0.22, 재절단 없음
     cut_head = max(0.0, head - HEAD_KEEP) if head >= HEAD_MIN_TRIM else 0.0
-    keep_until = total - max(0.0, tail - TAIL_KEEP) if tail > TAIL_KEEP else total
+    cut_tail = (
+        max(0.0, tail - TAIL_KEEP) if tail >= TAIL_KEEP + TAIL_MIN_TRIM else 0.0
+    )
+    keep_until = total - cut_tail
     new_duration = keep_until - cut_head
 
     if cut_head <= 0.0 and keep_until >= total - 0.001:
