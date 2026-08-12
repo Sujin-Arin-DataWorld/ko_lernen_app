@@ -7,6 +7,7 @@
 
 - Claude 최종 기준: `78fa742` (`하` 무음 검출용 TTS 음량 게이트 포함)
 - Codex 통합: `2be3af2` (`78fa742` 위 Hangul 음성 carrier·즉시 재생·쓰기 포인터 수정)
+- 검증표·format 포함 검증 HEAD: `34dc299`
 - 통합 브랜치: `codex/final-integration-on-78fa742`
 - 사용자 소유 사이트 WIP와 별도 저장소 커밋은 이 Flutter 통합에서 건드리지 않았다.
 - 푸시는 이 세션의 권한 범위가 아니므로 하지 않는다.
@@ -75,6 +76,21 @@ package `com.sujinarin.ko_lernen_app`. 기존 데이터를 지우지 않고 `adb
 | 한옥 월드 진입 | PASS | Discover `Für mich` → `Meine Hanok-Welt`; A1 마당·진행 카드 렌더, crash buffer 비어 있음 | 모든 방/성장 단계 순회는 미수행 |
 | 01A–06C 전체 실기기 순회 | NOT RUN | 코드·preview·회귀 테스트로 통합 존재 확인 | 20패널 전부를 기기에서 수동 순회한 것은 아님 |
 | Wortkette `병가`, Buchseite 추출 | BLOCKED | App Check 토큰이 필요한 외부 운영 항목 | 코드 병합으로 해결할 수 없음 |
+
+## 최종 자동 게이트·빌드
+
+정확한 검증 HEAD `34dc299`에서 실행했다.
+
+- focused Flutter: **78/78 PASS** — Hangul, production Flughafen, 01A–06C,
+  no-write, Hanok World 포함.
+- `python -m py_compile tool/generate_tts.py`: PASS.
+- Home hero matte: magpie **113/113**, tiger **121/121** frames PASS.
+- `flutter analyze --no-pub --fatal-infos`: **No issues found**.
+- `flutter test --no-pub --concurrency=1`: exit 0, 실패 0, skip 14.
+- `flutter build apk --debug --no-pub --dart-define=FREE_LAUNCH=true`: PASS.
+- APK: `build/app/outputs/flutter-apk/app-debug.apk`, 371,064,318 bytes,
+  SHA-256 `E26AE675C1C79169928287C810E7B98450DFD68B11E3E70155BF54A6865F29BA`.
+- `adb install -r`: **Success**; 설치 뒤 `MainActivity` foreground, PID 11825.
 
 ## 보관한 실기기 증거
 
