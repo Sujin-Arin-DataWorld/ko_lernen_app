@@ -14,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chosung_hint.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
@@ -27,28 +28,6 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
-
-const List<String> _chosungTable = [
-  'ㄱ',
-  'ㄲ',
-  'ㄴ',
-  'ㄷ',
-  'ㄸ',
-  'ㄹ',
-  'ㅁ',
-  'ㅂ',
-  'ㅃ',
-  'ㅅ',
-  'ㅆ',
-  'ㅇ',
-  'ㅈ',
-  'ㅉ',
-  'ㅊ',
-  'ㅋ',
-  'ㅌ',
-  'ㅍ',
-  'ㅎ',
-];
 
 const List<String> _consonantPadKeys = [
   'ㄱ',
@@ -66,123 +45,6 @@ const List<String> _consonantPadKeys = [
   'ㅍ',
   'ㅎ',
 ];
-
-/// 중성(모음) 21자 — 한글 syllable decomposition.
-const List<String> _jungsungTable = [
-  'ㅏ',
-  'ㅐ',
-  'ㅑ',
-  'ㅒ',
-  'ㅓ',
-  'ㅔ',
-  'ㅕ',
-  'ㅖ',
-  'ㅗ',
-  'ㅘ',
-  'ㅙ',
-  'ㅚ',
-  'ㅛ',
-  'ㅜ',
-  'ㅝ',
-  'ㅞ',
-  'ㅟ',
-  'ㅠ',
-  'ㅡ',
-  'ㅢ',
-  'ㅣ',
-];
-
-/// 종성(받침) 28자 — index 0 = 받침 없음.
-const List<String> _jongsungTable = [
-  '',
-  'ㄱ',
-  'ㄲ',
-  'ㄳ',
-  'ㄴ',
-  'ㄵ',
-  'ㄶ',
-  'ㄷ',
-  'ㄹ',
-  'ㄺ',
-  'ㄻ',
-  'ㄼ',
-  'ㄽ',
-  'ㄾ',
-  'ㄿ',
-  'ㅀ',
-  'ㅁ',
-  'ㅂ',
-  'ㅄ',
-  'ㅅ',
-  'ㅆ',
-  'ㅇ',
-  'ㅈ',
-  'ㅊ',
-  'ㅋ',
-  'ㅌ',
-  'ㅍ',
-  'ㅎ',
-];
-
-String extractChosung(String word) {
-  final buf = StringBuffer();
-  for (final r in word.runes) {
-    if (r >= 0xAC00 && r <= 0xD7A3) {
-      buf.write(_chosungTable[(r - 0xAC00) ~/ 588]);
-    } else {
-      buf.writeCharCode(r);
-    }
-  }
-  return buf.toString();
-}
-
-/// Hint mode for the quiz card display.
-/// - [chosung]: just initial consonants (hard, e.g. "ㄱㅇㄷ" for 귀엽다)
-/// - [chosungVowel]: initial consonant + medial vowel pairs (easier,
-///   e.g. "ㄱㅟ ㅇㅕ ㄷㅏ") — keeps user guessing the final but reveals vowels.
-enum HintMode { chosung, chosungVowel }
-
-/// 받침이 하나도 없는 단어는 초성+모음 힌트가 곧 단어 전체다
-/// (예: 모르다 → "ㅁㅗ ㄹㅡ ㄷㅏ" = 정답 노출). 2026-08-12 전수조사:
-/// 930개 중 196개(A1 62/211)가 해당 — 쉬움 모드에서도 초성만 보여야 한다.
-bool fullyRevealedByChosungVowel(String word) {
-  var hasHangul = false;
-  for (final r in word.runes) {
-    if (r >= 0xAC00 && r <= 0xD7A3) {
-      hasHangul = true;
-      if ((r - 0xAC00) % 28 != 0) {
-        return false; // 받침 있는 음절 → 힌트가 정답을 다 드러내지 않음
-      }
-    }
-  }
-  return hasHangul;
-}
-
-/// Build the displayed pattern based on hint mode.
-String buildPattern(String word, HintMode mode) {
-  // 쉬움 모드라도 정답이 통째로 노출되는 단어(전 음절 무받침)는 초성으로 강등.
-  final effective =
-      (mode == HintMode.chosungVowel && fullyRevealedByChosungVowel(word))
-      ? HintMode.chosung
-      : mode;
-  final parts = <String>[];
-  for (final r in word.runes) {
-    if (r >= 0xAC00 && r <= 0xD7A3) {
-      final idx = r - 0xAC00;
-      final cho = _chosungTable[idx ~/ 588];
-      final jung = _jungsungTable[(idx % 588) ~/ 28];
-      switch (effective) {
-        case HintMode.chosung:
-          parts.add(cho);
-        case HintMode.chosungVowel:
-          parts.add('$cho$jung');
-      }
-    } else {
-      parts.add(String.fromCharCode(r));
-    }
-  }
-  return parts.join(' ');
-}
 
 enum _State { waiting, correct, wrong }
 
@@ -949,7 +811,7 @@ class _QuizCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _SyllableScaffold(word: word, mode: mode, accent: accent),
+          ChosungHint(word: word, mode: mode, accent: accent),
           const SizedBox(height: 16),
           switch (state) {
             _State.correct => Text(
@@ -994,158 +856,3 @@ class _QuizCard extends StatelessWidget {
   }
 }
 
-// ── 음절 스캐폴드 ──────────────────────────────────────────────────────────────
-// 각 음절 = 초성 / 중성 / (종성) 슬롯 박스. 채워진 슬롯 = 주어진 자모,
-// 점선 슬롯 = 채워야 할 부분(모음/받침 라벨).
-//   easy(초성+모음): 초성·중성 채움, 받침은 점선.
-//   hard(초성 only): 초성 채움, 중성·받침 점선 → 받침 없는 단어(아빠)도 안 노출.
-class _SyllableScaffold extends StatelessWidget {
-  final String word;
-  final HintMode mode;
-  final Color accent;
-  const _SyllableScaffold({
-    required this.word,
-    required this.mode,
-    required this.accent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final showVowel = mode == HintMode.chosungVowel;
-    final blocks = <Widget>[];
-    for (final r in word.runes) {
-      if (r >= 0xAC00 && r <= 0xD7A3) {
-        final idx = r - 0xAC00;
-        blocks.add(
-          _box(
-            _chosungTable[idx ~/ 588],
-            _jungsungTable[(idx % 588) ~/ 28],
-            _jongsungTable[idx % 28],
-            showVowel,
-          ),
-        );
-      } else {
-        blocks.add(
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            child: Text(
-              String.fromCharCode(r),
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w800,
-                color: accent,
-              ),
-            ),
-          ),
-        );
-      }
-    }
-    return Wrap(
-      alignment: WrapAlignment.center,
-      spacing: 8,
-      runSpacing: 8,
-      children: blocks,
-    );
-  }
-
-  Widget _box(String cho, String jung, String jong, bool showVowel) {
-    final slots = <Widget>[
-      _Slot(text: cho, filled: true, accent: accent),
-      _Slot(text: showVowel ? jung : '모음', filled: showVowel, accent: accent),
-      if (jong.isNotEmpty) _Slot(text: '받침', filled: false, accent: accent),
-    ];
-    return Container(
-      padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        border: Border.all(color: accent.withValues(alpha: 0.35), width: 1.5),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (var i = 0; i < slots.length; i++) ...[
-            if (i > 0) const SizedBox(width: 4),
-            slots[i],
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class _Slot extends StatelessWidget {
-  final String text;
-  final bool filled;
-  final Color accent;
-  const _Slot({required this.text, required this.filled, required this.accent});
-
-  @override
-  Widget build(BuildContext context) {
-    if (filled) {
-      return Container(
-        width: 30,
-        height: 40,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: accent.withValues(alpha: 0.12),
-          borderRadius: BorderRadius.circular(7),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w900,
-            color: accent,
-          ),
-        ),
-      );
-    }
-    // 채울 칸 — 점선 박스 + 무엇을 넣을지 라벨(모음/받침).
-    return CustomPaint(
-      painter: _DashedBoxPainter(color: accent.withValues(alpha: 0.65)),
-      child: SizedBox(
-        width: 30,
-        height: 40,
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w800,
-              color: accent.withValues(alpha: 0.75),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _DashedBoxPainter extends CustomPainter {
-  final Color color;
-  _DashedBoxPainter({required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.5;
-    final rrect = RRect.fromRectAndRadius(
-      Offset.zero & size,
-      const Radius.circular(7),
-    );
-    final path = Path()..addRRect(rrect);
-    const dash = 4.0, gap = 3.0;
-    for (final metric in path.computeMetrics()) {
-      var dist = 0.0;
-      while (dist < metric.length) {
-        canvas.drawPath(metric.extractPath(dist, dist + dash), paint);
-        dist += dash + gap;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _DashedBoxPainter old) => old.color != color;
-}

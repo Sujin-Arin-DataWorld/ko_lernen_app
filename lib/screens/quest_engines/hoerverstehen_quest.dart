@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/mascot.dart';
@@ -111,6 +112,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       return;
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
       _tries++;
       if (_tries >= 2) {
         // Richtige Antwort aufzeigen

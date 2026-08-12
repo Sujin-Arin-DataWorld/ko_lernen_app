@@ -32,4 +32,31 @@ void main() {
     expect(placement.intensity, 1);
     expect(placement.origin, const Offset(300, 500));
   });
+
+  test('post-fit scale expands a centered burst exactly six times', () {
+    const viewport = Size(360, 760);
+    const center = Offset(180, 380);
+    final fitted = DancheongBurstLayout.fit(
+      viewport: viewport,
+      preferredOrigin: center,
+      intensity: 2.4,
+    );
+    final enlarged = DancheongBurstLayout.fit(
+      viewport: viewport,
+      preferredOrigin: center,
+      intensity: 2.4,
+      postFitScale: 6,
+    );
+
+    expect(enlarged.origin, center);
+    expect(enlarged.intensity, closeTo(fitted.intensity * 6, 0.000001));
+    expect(
+      enlarged.maxPaintBounds.width,
+      closeTo(fitted.maxPaintBounds.width * 6, 0.000001),
+    );
+    expect(
+      enlarged.maxPaintBounds.height,
+      closeTo(fitted.maxPaintBounds.height * 6, 0.000001),
+    );
+  });
 }

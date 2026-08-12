@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/placement_diagnostic.dart';
@@ -60,6 +61,10 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   void _next() {
     final selected = _selected;
     if (selected == null) return;
+    // 배치고사는 진단이지 게임이 아니다 — 정답음/오답음을 넣으면 이 화면이 의도적으로
+    // 감추는 "이 문항 틀렸다"가 소리로 새어나가고, 남은 문항 수행에도 영향을 준다.
+    // 그래서 정오와 무관한 중립 확정 피드백만 준다.
+    HapticFeedback.selectionClick();
     setState(() {
       _answers.add(selected);
       _selected = null;

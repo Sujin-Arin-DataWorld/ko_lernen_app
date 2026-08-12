@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_pop.dart';
@@ -339,6 +340,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
     // Falsch.
     HapticFeedback.mediumImpact();
+    SoundService.wrong();
     _tries++;
     final punctuationIndex = assembled.indexWhere(
       (token) => token == '?' || token == '!',
@@ -468,6 +470,10 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                 // 존재감 있게. 72px 는 "너무 조그맣다"(2026-08-12 Jin 실기기).
                 // 카드 위쪽은 빈 배경이라 돌출(78px)이 다른 콘텐츠를 가리지
                 // 않고, 오버레이(Clip.none)라 세로 예산도 그대로 0.
+                // 마스코트는 여기가 아니라 바깥 Stack 에 있다 — f1320ff 가
+                // SoriMinHeightScroll 을 도입하면서, 짧은 뷰포트에서 스크롤뷰가
+                // 카드 위 돌출(top:-78)을 잘라먹던 문제를 그렇게 해소했다.
+                // 버스트 6배 확대는 그 바깥 인스턴스로 이식했다.
               ],
             ),
             const SizedBox(height: Spacing.lg),
@@ -588,6 +594,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             celebrating: _celebrated,
             size: 96,
             kind: MascotKind.magpie,
+            // 기존 viewport-fit 결과를 화면 정중앙에서 정확히 6배 확대.
+            burstScale: 6,
+            burstOrigin: Alignment.center,
           ),
         ),
       ],

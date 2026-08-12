@@ -667,6 +667,182 @@ scoped `dart analyze` **No issues found**, `flutter gen-l10n`, `git diff --check
 **경계.** resolver와 fixture seam은 읽기 전용이며 unlock/mastery/계정 lifecycle을
 변경하지 않는다. 실제 기기의 Firebase 세션, 실데이터 catalog 목적지, 신고·차단 동작은
 이 Windows widget-test 증명의 범위 밖이다. 커밋은 이 기록과 같은 커밋에 포함한다.
+### 2026-08-12 (Codex) — 홈 영상 흰 매트 제거 + Satz 정답 버스트 6배
+
+**왜.** Android 12 실기기 홈에서 캐릭터 MP4의 흰 사각 배경이 그대로 노출됐다.
+설치 APK·저장소 영상 해시와 두 원본 클립의 순백 매트는 일치했으므로 stale 캐시가
+아니라 Skia/SurfaceTexture 외부 영상에 runtime `ColorFiltered(multiply)`가 안정적으로
+적용되지 않는 경로였다. 같은 요청으로 Satz bauen의 엽전·복주머니 정답 효과를 현재
+보이는 크기의 정확히 6배로, 화면 정중앙에서 터지게 해야 했다.
+
+**무엇.**
+
+- `assets/video/home_hero/`에 `tiger_rise_hanji.mp4`와
+  `magpie_walking_front_hanji.mp4`를 추가했다. 기존 순백 캐릭터 클립을
+  `RGB × #FAF6EC / 255`로 사전 합성한 홈 전용 파생본이라 흰 털/깃털을 지우는
+  chroma-key가 아니다. 기존 `assets/video/character/` 18개의 흰 매트 계약은 보존한다.
+- `HomeHeroClips`와 `CharacterClipPlayer.applyMultiplyFilter`(기본 `true`)를 추가하고,
+  홈만 사전 합성 클립 + `false`를 사용한다. 다른 캐릭터 영상 호출부는 기존 multiply를
+  그대로 쓴다.
+- `DancheongBurstLayout.fit()`에 **viewport fit 이후** 적용하는 `postFitScale`을
+  추가했다. `MascotPartner` 기본값은 기존 45% 원점·1배를 보존하고 Satz bauen만
+  `Alignment.center`·`burstScale: 6`이다. 단순 `intensity: 14.4`는 fit 단계에서 다시
+  축소되어 화면상 변화가 없으므로 쓰지 않았다. reduce-motion·IgnorePointer·
+  RepaintBoundary는 유지한다.
+- 첫 실행에서 시트 디코딩보다 정답이 먼저 나와 절차적 fallback으로 바뀌지 않도록
+  `runApp` 전에 `DancheongBurst.preload()` 완료를 기다린다. 홈 매트 재생 계약·리포트,
+  Satz 배율·시작 preload 회귀 테스트를 추가했다.
+
+**검증.**
+
+- 실기기 수정 전 ADB 캡처에서 홈 영상의 흰 사각형을 재현했다.
+- `.venv\\Scripts\\python.exe tool\\check_home_hero_matte.py` → 2/2 OK
+  (한지색 허용오차 ±2, magpie 113프레임·tiger 121프레임). ffprobe → 두 파일 모두
+  H.264 High level 3.1 / yuv420p / 960×960 / 24fps / 무음.
+- 변경 Dart 12파일 직접 analyzer → **No issues found**. Satz 관련 기존+신규 테스트는
+  25/25 통과. 공유 작업 트리의 4-way·2-way 실행은 다른 세션까지 19개
+  `flutter_tester`가 겹쳐 제한을 넘겼고, 해당 프로세스는 종료하지 않았다. 이번 변경만
+  overlay한 깨끗한 임시 복사본에서 2-way 병렬 묶음을 완주했다. 첫 완주가 기존 매트
+  정규식과 홈 상수명 `_base`의 충돌 1건을 잡아 `_homeBase`로 분리했다. 첫 실행
+  preload 계약도 추가한 최종 재실행 결과 **64/64 통과**했다.
+- 현재 HEAD에 이번 변경만 overlay한 깨끗한 임시 복사본에서
+  `flutter build apk --debug --no-pub` 성공. APK 302,514,679 bytes,
+  SHA-256 `6A6668923300BDDD3FB9356CD5D2C284B39D6AF0552515405FFCF51BA54CFF58`이며
+  홈 전용 두 MP4의 APK 포함을 확인했다.
+- 기기 `com.sujinarin.ko_lernen_app`의 `pm clear`와 uninstall은 각각 `Success`.
+  재설치는 MIUI `AdbInstallActivity`가 ADB 주입 터치를 보안상 무시해
+  `INSTALL_FAILED_USER_RESTRICTED`로 취소됨. 현재 앱은 제거된 상태이며, 휴대폰에서
+  설치 창의 `설치`를 직접 누른 뒤 홈/Satz 시각 검증이 남았다. 최종 APK는 기기
+  `/sdcard/Download/HangulSori-debug.apk`에도 복사했고 기기 SHA-256이 위 빌드와
+  일치함을 확인했다.
+
+**커밋:** 구현 `a8d22b5` · 이 해시 기록은 직후 문서 커밋에 포함.
+
+---
+
+### 2026-08-12 (Claude) — 초성 퀴즈가 정답을 통째로 노출하던 버그 (197/930 단어)
+
+**왜.** Jin이 실기기에서 잡았다 — Anlaut-Quiz "초성 + 모음" 모드에서 `더`(mehr)가
+`ㄷ` + `ㅓ` 슬롯으로 그려져 **정답이 그대로 보였다**. 같은 날 아래쪽 로그의
+"196개 무받침 단어 강등" 수정이 이미 있었는데도 화면은 계속 새고 있었다.
+
+**근본 원인 — 규칙을 화면이 안 쓰는 경로에만 걸었다.**
+`fullyRevealedByChosungVowel()` 강등 로직은 `buildPattern()`(문자열 힌트) 안에만
+있었고, 실제로 카드를 그리는 `_SyllableScaffold` 는 `mode` 를 **날것으로** 읽어
+`showVowel ? jung : '모음'` 을 렌더했다. `buildPattern()` 의 유일한 호출자는
+`hangul_game_logic_test.dart` 였다 — 즉 **테스트만 지나가는 죽은 경로를 고치고
+통과 로그를 받은 것**이고, 화면은 한 번도 그 가드를 통과한 적이 없다.
+전수조사 결과 실제 노출 규모는 **930개 중 197개**(`더`·`커피`·`아버지`·`가다`…).
+
+**무엇.**
+
+- **`lib/widgets/sori/chosung_hint.dart` 신설 — 경로를 하나로.**
+  `ChosungHintPlan` 은 private 생성자라 **`buildChosungHintPlan()` 으로만** 만들 수
+  있고, 그 관문이 `plan.revealsAnswer` 면 무조건 `HintMode.chosung` 으로 강등한다
+  (강등 후에도 노출되면 `assert` 로 터진다). 그리는 위젯은 `ChosungHint` 하나뿐이고
+  `word`+`mode` 만 받아 계획을 스스로 만든다 — 정규화 안 된 상태를 주입할 방법이 없다.
+- **노출 판정을 렌더 규칙에서 파생.** `ChosungHintSyllable.revealsSyllable` =
+  `중성 공개 && 받침 없음` — 슬롯 구성 그 자체다. 화면 규칙을 바꾸면 판정도 같이 움직인다.
+- **화면이 안 쓰는 대체 표현 제거** (`/code-review` 지적 반영). `buildPattern`·
+  `fullyRevealedByChosungVowel`·`ChosungHintPlan.pattern`·`visibleJamo` 를 전부 삭제했다.
+  화면이 안 쓰는 두 번째 표현을 남겨두는 것이 **이 버그의 발생 구조 그 자체**다.
+- **자모 테이블 단일 소유자화** (같은 리뷰 지적). `hangul_util.dart` 가
+  `chosungTable`/`jungsungTable`/`jongsungTable` + `decomposeHangulSyllable()` 을 갖고,
+  `chosung_hint.dart` 는 그걸 import 한다. 화면에 있던 중복 `extractChosung`(호출자 0)과
+  `_chosungTable`/`_jungsungTable`/`_jongsungTable` 3벌은 삭제. `chosung_quiz_screen.dart`
+  1145 → 851줄.
+
+**검증.**
+
+- `test/chosung_hint_test.dart` 신설 — 세 겹으로 고정: ① 계획 규칙 ② **위젯 렌더**
+  (`더` 쉬움 모드에서 `find.text('ㅓ')` 가 `findsNothing`) ③ **번들 어휘 전수조사**
+  (`korean_vocab.csv` 930개 × 모드 2 → `revealsAnswer` 전부 false + 강등 대상이
+  50개 미만이면 실패 = 빈 케이스 방지). ②가 이번 회귀의 실제 구멍이다.
+- 가드 없는 상태에서 **먼저 빨간불을 확인**했다 — 전수조사가 197단어를 나열하며 실패,
+  위젯 테스트가 `ㅓ` 를 찾아냈다. 가드 투입 후 14/14 통과.
+- `flutter analyze` 변경 5파일 0 issues (저장소 잔여 3건은 `quest_engines/*`
+  `unused_import` 로 이번 변경과 무관). 관련 스위트 75 통과.
+- 전체 `flutter test`: **3,011 통과 / 5 skip / 13 실패 — 초성·한글 관련 실패 0**.
+  13건은 전부 동시 세션 작업 영역(Blitz-Paare `game_layout_test` 2 ·
+  `character_clip_matte` 1 · Satz Arcade 라우트 1)과 기존 골든 드리프트 9(learn_hub ·
+  settings · vocab_packs × compact/medium/expanded)다. 이 13건은 내 변경 **전후 목록이
+  동일**함을 두 번의 전체 실행으로 확인했다.
+
+**미결(Jin).** 실기기에서 A1 "초성 + 모음" 으로 10문항 — `더`·`커피`·`아버지` 류가
+`ㄷ` + 점선 `모음` 으로 뜨는지. 점선 라벨 `모음`/`받침` 은 여전히 한국어 하드코딩
+(독일어 UI) — 기존 사항이라 이번 범위 밖으로 두었다.
+
+---
+
+### 2026-08-12 (Claude) — 정답음·오답음 교체 + 오답음 배선 7종 확대
+
+**왜.** Jin이 새 효과음을 만들어 정답음/오답음을 전부 교체하려 했다. 조사에서 두 가지가 드러났다.
+① 앱의 정답음·오답음은 전부 `sound_service.dart:48-49` 두 줄을 지나므로 **파일명을 유지하면
+코드 수정 0줄로 100% 교체**된다. ② 반면 **퀘스트 엔진 7종은 오답 시 소리가 아예 없었다**(진동만) —
+정답음만 마스코트 경유로 났다. 즉 "오답음을 바꿔도" satz 등에서는 들리지 않는 상태였다.
+
+**무엇.**
+
+- **에셋 교체** — Jin이 재생성한 0.23s본 채택. 정답음 C4-E4-G4→G4+C5(간격 45/90ms),
+  오답음 A3→F3(간격 55ms). 구본 대비 **두 옥타브 낮다** — 구 정답음(E6→C7, 1.3~2.1kHz)이
+  "날카롭다"고 lowpass 3.8kHz로 후처리돼 있던 원인을 음원 자체에서 없앴다.
+  0.30s 변형본 2개는 `assets_unused/sfx_candidates/` 에 남겼다(실기기 청취 후 A/B용).
+- **구 효과음 완전 제거** (Jin 지시 "다시는 안쓰이게") — `assets_unused/sfx_originals/` 폴더째
+  삭제하고, `tool/gen_sfx.py` 에서 correct/wrong 생성 코드를 걷어냈다. 그 스크립트를 실행하면
+  구 합성음(E6→C7 / G5→C5)이 신본을 **조용히 덮어쓰는** 게 진짜 위험이었다. combo/levelup/
+  complete 생성은 그대로 두어 저작권 출처 기록(README 규칙)은 유지된다. 구본은 git 히스토리에만 남는다.
+- **오답음 배선 7종** — `satz_bauen`·`diktat`·`luecken`·`uebersetzen`·`particle_pop`·
+  `batchim_drop`·`hoerverstehen` 각 오답 분기의 `HapticFeedback.mediumImpact()` 다음 줄에
+  `SoundService.wrong()`. 7파일 모두 `sound_service.dart` import가 없어 함께 추가.
+  정답음 중복 없음 — 정답은 `MascotPartner._fire()` 담당이고 오답 경로엔 마스코트가 없다.
+- **배치고사는 정답음/오답음을 넣지 않았다** — 이 화면은 선택지에 정오 표시가 없고 결과에서
+  총점만 보여주는 구조라(`placement_diagnostic_screen.dart` 문항 뷰), 소리로 정오를 흘리면
+  진단 도구의 성격이 바뀐다. 대신 `_next()`에 정오와 무관한 `HapticFeedback.selectionClick()`.
+- **`tool/check_sfx.py` 신규** — 포맷/길이/피크/RMS/선두·꼬리 무음을 사양과 대조해 표로 출력.
+  Jin이 다음에 소리를 만들 때 `python tool/check_sfx.py` 한 줄로 검증한다(표준 라이브러리만).
+- **`assets/sfx/README.md`** — 파일 표 갱신 + **"제작 사양" 절 신설**(하드 제약·길이·무음·음량·음색).
+  스테일 정정: "볼륨" 절이 아직 "호출부에 숫자가 흩어져 있다"고 했으나 ADR-002는 구현 완료라
+  `AudioPolicy.volumeFor()`가 단일 진실원천이다.
+
+**함정 (다음 사람용).**
+
+- `pubspec.yaml`에 `- assets/` 항목이 **없다.** 폴더 선언은 비재귀라 `assets/` 루트에 둔 wav는
+  번들에서 빠진다. 반드시 `assets/sfx/` 안으로.
+- 정답음이 길면 안 된다 — `SoundService._play()`는 호출마다 새 `AudioPlayer`를 만들고 **이전
+  소리를 끊지 않아** Blitz-Paare에서 겹쳐 쌓인다. 후보에 0.60s본이 있었으나 0.23s를 택한 이유.
+- 피크 기준선은 −1.0dB가 아니라 **−0.72dB**다(`gen_sfx.py`의 `0.92/peak`). 기존 5종이 전부 그 값이라
+  −1.0을 상한으로 잡으면 패밀리 전체가 탈락한다. `check_sfx.py`는 −0.5를 상한으로 둔다.
+
+**검증.** `flutter analyze` 0 issues(퀘스트 7종 + 배치고사) · `python tool/check_sfx.py` exit 0
+(correct/wrong 둘 다 OK). **실기기 청취는 미완** — Blitz-Paare 연속 정답 시 겹침, 콤보음과의
+음량 단차, Hörverstehen에서 오답음↔TTS 간섭은 Jin이 귀로 확인해야 한다.
+
+---
+
+### 2026-08-12 (Codex) — Blitz-Paare 장문 독일어를 한 화면에 고정
+
+**왜.** 번역 타일이 `minHeight`만 갖고 전체 보드가 세로 스크롤 안에 있어,
+`Sehr erfreut Sie kennenzulernen` 같은 장문 독일어가 타일 자체를 늘리고 마지막 쌍을
+화면 아래로 밀었다. 사용자는 스크롤 없이 한 화면에서 모든 쌍을 보고 맞춰야 한다.
+
+**무엇을.** 보드 스크롤을 제거하고 각 행을 가용 높이의 정확한 높이로 고정했다.
+번역은 OS 접근성 배율을 그대로 반영한 `TextPainter` 측정으로 최대 3줄·최소 12sp까지
+자동 맞춤한다. 화면 높이 700dp 미만 또는 글자 130% 이상에서는 활성 쌍을 5→4로
+줄이고, 회전·배율 변경 중에도 점수·콤보·타이머를 초기화하지 않고 pool만 재조정한다.
+짧은 화면의 상단 여백과 콤보 표기도 압축했다. 장문 회귀는 360×640, 360×800/1.3,
+360×800/1.0에서 쌍 수·44dp 탭 영역·마지막 카드 경계·3줄 미초과·보드 무스크롤을
+검사한다. 콘텐츠의 어색한 `Sehr erfreut Sie kennenzulernen`은
+`Freut mich, Sie kennenzulernen`으로 교정하고 CSV 쉼표 quoting도 보존했다.
+
+**검증.** 직접 Dart 분석에서 `speed_match_screen.dart`, `game_layout.dart`,
+`game_layout_test.dart` 모두 **No issues found**. 대상 3파일 format check는 0변경,
+PowerShell CSV 계약은 **930행**과 교정된 `german`/`example_german` 필드를 확인했고
+`git diff --check`도 통과했다. 다만 현재 여러 Flutter/Dart 검증 프로세스가 동시에
+SDK를 점유해 `flutter test --no-pub test/game_layout_test.dart` 300초 실행과 새 장문
+테스트만 고른 180초 실행이 모두 테스트 본문 출력 전 타임아웃됐다. 따라서 새 위젯
+회귀의 실제 통과는 이번 세션에서 증명하지 못했으며, 정적 분석 통과까지만 증거다.
+
+**커밋.** 기능·데이터·테스트·체크리스트 `17f1ad6` (`fix(game): keep Blitz-Paare on one screen`).
 
 ---
 

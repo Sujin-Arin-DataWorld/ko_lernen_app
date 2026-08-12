@@ -38,7 +38,7 @@ class SpeedMatchScreen extends StatefulWidget {
 
 class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   static const _seconds = 60;
-  static const _slots = 5; // gleichzeitig sichtbare Paare
+  static const _regularSlots = 5;
   static const _levels = ['a1', 'a2', 'b1', 'b2'];
 
   final Random _rng = Random();
@@ -58,6 +58,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   int _remaining = _seconds;
   Timer? _timer;
   bool _running = false;
+  int _slotCount = _regularSlots;
   GameOutcome? _outcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
@@ -65,6 +66,33 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   void initState() {
     super.initState();
     _load();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final scaler = MediaQuery.textScalerOf(context);
+    final nextSlotCount = soriSpeedMatchSlotCount(
+      viewportHeight: MediaQuery.sizeOf(context).height,
+      textScaleFactor: scaler.scale(16) / 16,
+    );
+    if (_slotCount == nextSlotCount) {
+      return;
+    }
+    _slotCount = nextSlotCount;
+    if (_loading) {
+      return;
+    }
+
+    while (_active.length > _slotCount) {
+      _pool.add(_active.removeLast());
+    }
+    while (_active.length < _slotCount && _pool.isNotEmpty) {
+      _active.add(_pool.removeLast());
+    }
+    _selLeftKo = null;
+    _wrongRightKo = null;
+    _reshuffleRight();
   }
 
   Future<void> _load() async {
@@ -107,7 +135,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
       ..clear()
       ..addAll(pool);
     _active.clear();
-    for (var i = 0; i < _slots && _pool.isNotEmpty; i++) {
+    for (var i = 0; i < _slotCount && _pool.isNotEmpty; i++) {
       _active.add(_pool.removeLast());
     }
     setState(() {
@@ -235,6 +263,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
     final lowTime = _remaining <= 10;
+    final compact = _slotCount < _regularSlots;
 
     return Scaffold(
       appBar: AppBar(
@@ -251,7 +280,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
         child: SafeArea(
           child: SoriStudyClamp(
             child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
+              padding: EdgeInsets.symmetric(
+                horizontal: Spacing.lg,
+                vertical: compact ? Spacing.sm : Spacing.lg,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -277,10 +309,11 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
                       const Spacer(),
                       if (_combo >= 2) ...[
                         SoriChip(
-                          label: t.comboPop(_combo),
+                          label: compact ? '×$_combo' : t.comboPop(_combo),
                           icon: SoriGlyph.streak,
                           accent: SoriColors.tiger,
                           variant: SoriChipVariant.filled,
+                          fontSize: compact ? 11 : 12,
                         ),
                         const SizedBox(width: Spacing.sm),
                       ],
@@ -290,65 +323,70 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: Spacing.sm),
+                  SizedBox(height: compact ? Spacing.xs : Spacing.sm),
                   Text(
                     t.speedMatchInstruction,
-                    style: TextStyle(fontSize: 13, color: s.textMuted),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: compact ? 12 : 13,
+                      height: 1.2,
+                      color: s.textMuted,
+                    ),
                   ),
-                  const SizedBox(height: Spacing.md),
-                  // 카드가 남는 세로를 **나눠 갖는다**. 예전에는 타일이
-                  // `minHeight: 52` 고정이라 태블릿 세로에서 화면의 63% 가
-                  // 빈 공간이었다(2026-08-07 실측, 800×1280). 폰은 이미
-                  // 남는 높이가 없어 fair < 52 → 기존 52 그대로다(변화 0).
+                  SizedBox(height: compact ? Spacing.sm : Spacing.md),
+                  // 카드가 남는 세로를 나눠 갖되 높이는 정확히 고정한다.
+                  // 장문 번역은 카드 안에서 3줄까지 맞춰져 마지막 행을
+                  // 화면 밖으로 밀어내지 않는다.
                   Expanded(
                     child: LayoutBuilder(
                       builder: (context, c) {
                         final tileHeight = soriFairTileHeight(
                           available: c.maxHeight,
                           count: _active.length,
+                          minimum: 44,
                         );
-                        return SingleChildScrollView(
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minHeight: c.maxHeight.isFinite ? c.maxHeight : 0,
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  for (final v in _active)
+                                    _MatchTile(
+                                      key: ValueKey(
+                                        'speed-match-left-${v.korean}',
+                                      ),
+                                      label: v.korean,
+                                      height: tileHeight,
+                                      selected: _selLeftKo == v.korean,
+                                      accent: SoriColors.primary,
+                                      onTap: () => _tapLeft(v.korean),
+                                    ),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      for (final v in _active)
-                                        _MatchTile(
-                                          label: v.korean,
-                                          minHeight: tileHeight,
-                                          selected: _selLeftKo == v.korean,
-                                          accent: SoriColors.primary,
-                                          onTap: () => _tapLeft(v.korean),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(width: Spacing.md),
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      for (final v in _rightOrder)
-                                        _MatchTile(
-                                          label: v.translationFor(lang),
-                                          minHeight: tileHeight,
-                                          wrong:
-                                              _wrongRightKo ==
-                                              v.translationFor(lang),
-                                          accent: SoriColors.accent,
-                                          onTap: () => _tapRight(v),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                            const SizedBox(width: Spacing.md),
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  for (final v in _rightOrder)
+                                    _MatchTile(
+                                      key: ValueKey(
+                                        'speed-match-right-${v.korean}',
+                                      ),
+                                      label: v.translationFor(lang),
+                                      height: tileHeight,
+                                      wrong:
+                                          _wrongRightKo ==
+                                          v.translationFor(lang),
+                                      accent: SoriColors.accent,
+                                      onTap: () => _tapRight(v),
+                                    ),
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         );
                       },
                     ),
@@ -440,15 +478,15 @@ class _MatchTile extends StatelessWidget {
   final Color accent;
   final VoidCallback onTap;
 
-  /// 남는 세로를 나눠 가진 결과 높이 — [soriFairTileHeight] 참조.
-  /// 폰에서는 항상 52 로 돌아와 기존 모습 그대로다.
-  final double minHeight;
+  /// Exact row height. Long labels fit inside rather than growing the board.
+  final double height;
 
   const _MatchTile({
+    super.key,
     required this.label,
     required this.accent,
     required this.onTap,
-    this.minHeight = 52,
+    this.height = 52,
     this.selected = false,
     this.wrong = false,
   });
@@ -475,7 +513,7 @@ class _MatchTile extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: double.infinity,
-            constraints: BoxConstraints(minHeight: minHeight),
+            height: height,
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
               horizontal: Spacing.sm,
@@ -485,17 +523,103 @@ class _MatchTile extends StatelessWidget {
               border: Border.all(color: border, width: 1.5),
               borderRadius: BorderRadius.circular(SoriRadius.md),
             ),
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: soriTileFontSize(tileHeight: minHeight),
-              ),
-            ),
+            child: _MatchTileLabel(label: label, tileHeight: height),
           ),
         ),
       ),
     );
+  }
+}
+
+class _MatchTileLabel extends StatelessWidget {
+  static const _minimumFontSize = 12.0;
+  static const _maxLines = 3;
+
+  final String label;
+  final double tileHeight;
+
+  const _MatchTileLabel({required this.label, required this.tileHeight});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final textScaler = MediaQuery.textScalerOf(context);
+        final textDirection = Directionality.of(context);
+        final locale = Localizations.maybeLocaleOf(context);
+        final style = DefaultTextStyle.of(context).style.merge(
+          TextStyle(
+            fontWeight: FontWeight.w700,
+            height: 1.1,
+            fontSize: soriTileFontSize(tileHeight: tileHeight),
+          ),
+        );
+        final fontSize = _fitFontSize(
+          constraints: constraints,
+          style: style,
+          textScaler: textScaler,
+          textDirection: textDirection,
+          locale: locale,
+        );
+        return Text(
+          label,
+          locale: locale,
+          maxLines: _maxLines,
+          overflow: TextOverflow.ellipsis,
+          softWrap: true,
+          textAlign: TextAlign.center,
+          textDirection: textDirection,
+          textScaler: textScaler,
+          style: style.copyWith(fontSize: fontSize),
+        );
+      },
+    );
+  }
+
+  double _fitFontSize({
+    required BoxConstraints constraints,
+    required TextStyle style,
+    required TextScaler textScaler,
+    required TextDirection textDirection,
+    required Locale? locale,
+  }) {
+    final maximum = style.fontSize ?? _minimumFontSize;
+    if (!constraints.hasBoundedWidth || !constraints.hasBoundedHeight) {
+      return maximum;
+    }
+
+    bool fits(double fontSize) {
+      final painter = TextPainter(
+        text: TextSpan(
+          text: label,
+          style: style.copyWith(fontSize: fontSize),
+        ),
+        maxLines: _maxLines,
+        textDirection: textDirection,
+        textScaler: textScaler,
+        locale: locale,
+      )..layout(maxWidth: constraints.maxWidth);
+      return !painter.didExceedMaxLines &&
+          painter.height <= constraints.maxHeight;
+    }
+
+    if (fits(maximum)) {
+      return maximum;
+    }
+    if (!fits(_minimumFontSize)) {
+      return _minimumFontSize;
+    }
+
+    var low = _minimumFontSize;
+    var high = maximum;
+    for (var i = 0; i < 8; i++) {
+      final middle = (low + high) / 2;
+      if (fits(middle)) {
+        low = middle;
+      } else {
+        high = middle;
+      }
+    }
+    return low;
   }
 }
