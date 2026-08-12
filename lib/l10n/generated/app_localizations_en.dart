@@ -54,7 +54,7 @@ class AppL10nEn extends AppL10n {
       'Subscriptions aren\'t available in this build yet.';
 
   @override
-  String get paywallProcessing => 'One moment …';
+  String get paywallProcessing => 'One moment…';
 
   @override
   String get paywallSuccess => 'Premium is active. Enjoy!';
@@ -115,7 +115,7 @@ class AppL10nEn extends AppL10n {
       'You can choose Taego or Joy at any time later.';
 
   @override
-  String get companionNeutralThinking => 'Preparing the next round …';
+  String get companionNeutralThinking => 'Preparing the next round…';
 
   @override
   String get homeMagpieBubbleStart => 'Let\'s take it one character at a time.';
@@ -575,10 +575,10 @@ class AppL10nEn extends AppL10n {
   String get emptyGrammar => 'No patterns match this filter.';
 
   @override
-  String get loadingVocab => 'Loading vocabulary …';
+  String get loadingVocab => 'Loading vocabulary…';
 
   @override
-  String get loadingGrammar => 'Loading grammar …';
+  String get loadingGrammar => 'Loading grammar…';
 
   @override
   String get hintTapToFlip => 'Tap to flip';
@@ -590,7 +590,7 @@ class AppL10nEn extends AppL10n {
   String get chosungQuestion => 'Which word?';
 
   @override
-  String get chosungInputHint => 'Type in Korean …';
+  String get chosungInputHint => 'Type in Korean…';
 
   @override
   String get chosungShowHint => 'Listen (hint)';
@@ -636,7 +636,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get wordleErrorHangul => 'Hangul only please';
+  String get wordleErrorHangul => 'Hangul only, please';
 
   @override
   String get wordleResultWin => 'You got it!';
@@ -964,7 +964,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String chosungRoundAvgTime(Object seconds) {
-    return 'Ø ${seconds}s per question';
+    return 'Avg ${seconds}s per question';
   }
 
   @override
@@ -1095,7 +1095,7 @@ class AppL10nEn extends AppL10n {
   String get bookCaptureGallery => 'From gallery';
 
   @override
-  String get bookCaptureLoading => 'Reading text …';
+  String get bookCaptureLoading => 'Reading text…';
 
   @override
   String get bookCaptureErrorNoKorean =>
@@ -1139,7 +1139,7 @@ class AppL10nEn extends AppL10n {
   String get loadErrorTryAgain => 'Something went wrong. Please try again.';
 
   @override
-  String get bookResultAnalyzing => 'Looking up words & grammar …';
+  String get bookResultAnalyzing => 'Looking up words & grammar…';
 
   @override
   String bookResultFoundN(int n) {
@@ -1915,7 +1915,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingStartChooseLevel => 'Choose a level';
 
   @override
-  String get onboardingStartLoading => 'Preparing your first scene …';
+  String get onboardingStartLoading => 'Preparing your first scene…';
 
   @override
   String get onboardingStartChangePoint => 'Change starting point';
@@ -2040,10 +2040,10 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelB2Desc => 'Fluent, including nuance';
 
   @override
-  String get onboardingExampleA1Trans => 'Hello / Good day.';
+  String get onboardingExampleA1Trans => 'Hello / Hi.';
 
   @override
-  String get onboardingExampleA2Trans => 'Iced Americano in tall, please.';
+  String get onboardingExampleA2Trans => 'A tall iced Americano, please.';
 
   @override
   String get onboardingExampleB1Trans =>
@@ -2051,7 +2051,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingExampleB2Trans =>
-      'Meeting is running long, I\'ll be a bit late.';
+      'The meeting is running long, so I\'ll be a bit late.';
 
   @override
   String get onboardingSkip => 'Skip for now (starts at A1)';
@@ -2620,7 +2620,7 @@ class AppL10nEn extends AppL10n {
   String get kkeunmariYourTurn => 'Your turn';
 
   @override
-  String get kkeunmariTigerTurn => 'Tiger thinking …';
+  String get kkeunmariTigerTurn => 'Tiger thinking…';
 
   @override
   String kkeunmariStartHint(Object syl) {
@@ -2628,7 +2628,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get kkeunmariInputHint => 'Type a Korean word …';
+  String get kkeunmariInputHint => 'Type a Korean word…';
 
   @override
   String get kkeunmariSubmit => 'Send';
@@ -2747,7 +2747,7 @@ class AppL10nEn extends AppL10n {
   String get shareTitle => 'Share pack';
 
   @override
-  String get shareGenerating => 'Creating code …';
+  String get shareGenerating => 'Creating code…';
 
   @override
   String get shareCodeLabel => 'Friend code';
@@ -2854,7 +2854,7 @@ class AppL10nEn extends AppL10n {
   String get wbAutoFill => 'Auto-fill';
 
   @override
-  String get wbAutoFillRunning => 'Looking up translation …';
+  String get wbAutoFillRunning => 'Looking up translation…';
 
   @override
   String get wbAutoFillOffline =>
@@ -3067,7 +3067,7 @@ class AppL10nEn extends AppL10n {
   String get wbTypingPrompt => 'Type the Korean word:';
 
   @override
-  String get wbTypingHint => 'In Korean …';
+  String get wbTypingHint => 'In Korean…';
 
   @override
   String wbTypingAnswer(Object answer) {
@@ -3107,7 +3107,7 @@ class AppL10nEn extends AppL10n {
   String get wbSearchTitle => 'My words';
 
   @override
-  String get wbSearchHint => 'Search word or meaning …';
+  String get wbSearchHint => 'Search word or meaning…';
 
   @override
   String get wbSearchEmpty => 'No matches';
@@ -3368,7 +3368,7 @@ class AppL10nEn extends AppL10n {
   String get profileGyeDescription => 'Open your optional learning group';
 
   @override
-  String get profileGyeLoading => 'Loading group …';
+  String get profileGyeLoading => 'Loading group…';
 
   @override
   String get profileGyeNone => 'No group selected';
@@ -3388,7 +3388,7 @@ class AppL10nEn extends AppL10n {
       'Export local learning progress as JSON';
 
   @override
-  String get profileLearningDataPreparing => 'Preparing export …';
+  String get profileLearningDataPreparing => 'Preparing export…';
 
   @override
   String get profileLearningDataExportReady =>
@@ -3452,7 +3452,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get accountOperationInProgress =>
-      'Checking your account and learning progress safely …';
+      'Checking your account and learning progress safely…';
 
   @override
   String get accountOperationResumeTitle => 'Resume account switch';
@@ -3623,7 +3623,7 @@ class AppL10nEn extends AppL10n {
       'Scan, look something up, listen, or take a short break.';
 
   @override
-  String get discoverSearchHint => 'Search: e.g. pronunciation, book, OCR …';
+  String get discoverSearchHint => 'Search: e.g. pronunciation, book, OCR…';
 
   @override
   String get discoverStartHere => 'Go straight to your goal';
@@ -4501,7 +4501,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachStatsBody =>
-      'Streak, XP and accuracy show how far you have already come';
+      'Streak, XP and accuracy show how far you\'ve come';
 
   @override
   String get coachQuestsTitle => 'Quests & rewards';
@@ -4825,7 +4825,7 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackBack => 'Back';
 
   @override
-  String get testerFeedbackSubmitting => 'Sending feedback …';
+  String get testerFeedbackSubmitting => 'Sending feedback…';
 
   @override
   String get testerFeedbackSubmitted =>

@@ -53,7 +53,7 @@
   "characterDescTiger": "In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für ruhige, uralte Kraft. Er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.",
   "characterNameMagpie": "조이",
   "characterRomanMagpie": "Joy",
-  "characterTraitMagpie": "Fröhlich & lebendig",
+  "characterTraitMagpie": "Fröhlich & lebhaft",
   "characterDescMagpie": "In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.",
   "characterSelectedTiger": "태고가 선택되었습니다.",
   "characterSelectedMagpie": "조이가 선택되었습니다.",
@@ -339,7 +339,7 @@
   "hangulPronounceBtn": "Aussprechen",
   "hangulRulesTitle": "Hangul-Schreibregeln",
   "hangulRulesBody": "① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts",
-  "hangulStrokeOrderTitle": "📽 Strichreihenfolge (tippe für neu)",
+  "hangulStrokeOrderTitle": "📽 Strichreihenfolge (zum Wiederholen tippen)",
   "hangulTraceTitle": "Mit dem Finger nachzeichnen",
   "hangulClearBtn": "Löschen",
   "hangulPronounceLetter": "{letter} aussprechen",
@@ -577,7 +577,7 @@
       "code": {}
     }
   },
-  "gyeJoinedSnack": "{name} beigetreten!",
+  "gyeJoinedSnack": "{name} ist beigetreten!",
   "@gyeJoinedSnack": {
     "placeholders": {
       "name": {}
@@ -845,7 +845,7 @@
   "statsLosses": "Verloren",
   "statsBestShort": "Beste",
   "statsWinRate": "Quote",
-  "onboardingPage1Title": "Treffe deinen Lernfreund",
+  "onboardingPage1Title": "Triff deinen Lernfreund",
   "onboardingPage1Subtitle": "Taego begleitet dich beim Lernen",
   "onboardingPage2Title": "5 Minuten pro Tag",
   "onboardingPage2Subtitle": "Kurz und leicht in den Alltag einzubauen",
@@ -1405,7 +1405,7 @@
       }
     }
   },
-  "gameBestTries": "Bester: {count} Versuche",
+  "gameBestTries": "Rekord: {count} Versuche",
   "@gameBestTries": {
     "placeholders": {
       "count": {
@@ -1429,7 +1429,7 @@
       }
     }
   },
-  "speedMatchBest": "Bester: {count} Paare",
+  "speedMatchBest": "Rekord: {count} Paare",
   "@speedMatchBest": {
     "placeholders": {
       "count": {
@@ -2065,8 +2065,8 @@
   "@_coach_c3": {
     "description": "Stage C-3 데이터/단어장 9화면 코치마크 키 (2026-06-09)"
   },
-  "coachBookshelfStep1Title": "Wörterbuch erstellen",
-  "coachBookshelfStep1Body": "Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen",
+  "coachBookshelfStep1Title": "Wortliste erstellen",
+  "coachBookshelfStep1Body": "Tippe auf ＋ oben rechts, um eine eigene Wortliste anzulegen",
   "coachBookshelfStep2Title": "Gespeicherte Wörter suchen",
   "coachBookshelfStep2Body": "Tippe auf 🔍, um alle gespeicherten Wörter zu durchsuchen und nach Wortart zu filtern",
   "coachCpEditStep1Title": "Wörter hinzufügen",
@@ -2091,7 +2091,7 @@
   "coachGyeStep1Title": "Wochenziel",
   "coachGyeStep1Body": "Hier seht ihr euren gemeinsamen Fortschritt. Zusammen bleibt ihr leichter dran.",
   "coachGyeStep2Title": "Sticker senden",
-  "coachGyeStep2Body": "Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden",
+  "coachGyeStep2Body": "Tippe auf den Smiley-Button, um einen Sticker zur Motivation zu senden",
   "coachProfileTitle": "Dein Konto",
   "coachProfileBody": "Verbinde dich mit Google. So bleiben Streak und Vokabeln bei einem Handywechsel erhalten.",
   "coachStatsTitle": "Lernstatistiken",

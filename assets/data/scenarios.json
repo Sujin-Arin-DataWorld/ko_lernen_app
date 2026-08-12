@@ -611,7 +611,7 @@
     {
      "speaker": "user",
      "ko": "저도요. 잘 부탁드립니다.",
-     "de": "Freut mich ebenfalls. Bitte um Ihre Unterstützung.",
+     "de": "Freut mich ebenfalls. Auf gute Zusammenarbeit.",
      "en": "Likewise. I look forward to your guidance."
     }
    ],
@@ -788,7 +788,7 @@
      "korean": "힘들었지",
      "note": {
       "ko": "",
-      "de": "Es war hart für dich, oder? Anerkennung des Leidens. Nicht 'es wird besser' — sondern 'ich sehe dass es schwer war'.",
+      "de": "Es war hart für dich, oder? Anerkennung des Leidens. Nicht 'es wird besser' — sondern 'ich sehe, dass es schwer war'.",
       "en": "It was hard for you, wasn't it? Acknowledgment of suffering. Not 'it'll get better' — but 'I see it was tough'."
      }
     },
@@ -809,7 +809,7 @@
      }
     },
     {
-     "korean": "다 잘 될 거야",
+     "korean": "다 잘될 거야",
      "note": {
       "ko": "",
       "de": "Alles wird gut werden. 될 거야 = Zukunfts-Vorhersage.",
@@ -867,7 +867,7 @@
     },
     {
      "speaker": "user",
-     "ko": "표정 보면 알지. 내가 있잖아. 다 잘 될 거야.",
+     "ko": "표정 보면 알지. 내가 있잖아. 다 잘될 거야.",
      "de": "Ich sehe es an deinem Gesicht. Ich bin doch da. Alles wird gut.",
      "en": "I can tell from your face. I'm here, remember? Everything will be ok."
     },
@@ -971,7 +971,7 @@
     "body": {
      "ko": "",
      "de": "Westliche Reaktion auf 'es war hart': 'Du schaffst das!' Koreanische Reaktion: '힘들었지' (es war schwer, oder?) — erst die Schwierigkeit anerkennen, dann Präsenz versichern ('내가 있잖아'). Lösungsvorschläge erst viel später. Empathie vor Lösung. Das ist keine kulturelle Etikette — es ist genuine emotionale Strategie und funktioniert verdammt gut.",
-     "en": "Western reaction to 'it was hard': 'You got this!' Korean reaction: '힘들었지' (it was hard, wasn't it?) — first acknowledge the difficulty, then reassure presence ('내가 있잖아'). Solutions come much later. Empathy before fixing. Not just etiquette — it's genuine emotional strategy that works damn well."
+     "en": "Western reaction to 'it was hard': 'You got this!' Korean reaction: '힘들었지' (it was hard, wasn't it?) — first acknowledge the difficulty, then reassure presence ('내가 있잖아'). Solutions come much later. Empathy before fixing. Not just etiquette — it's a genuine emotional strategy that works remarkably well."
     }
    }
   },
@@ -1471,7 +1471,7 @@
      "korean": "떡볶이",
      "note": {
       "ko": "",
-      "de": "Reiskuchen in scharfer Soße — koreanisches Soul Food. In 분식집 omnipresent.",
+      "de": "Reiskuchen in scharfer Soße — koreanisches Soul Food. In 분식집 allgegenwärtig.",
       "en": "Rice cakes in spicy sauce — Korean soul food. Everywhere in 분식집."
      }
     },
@@ -1538,7 +1538,7 @@
     },
     {
      "speaker": "user",
-     "ko": "떡볶이 한 인분이랑 김밥 하나 주세요.",
+     "ko": "떡볶이 일 인분이랑 김밥 하나 주세요.",
      "de": "Eine Portion Tteokbokki und einen Kimbap, bitte.",
      "en": "One tteokbokki and one kimbap, please."
     },
@@ -1639,7 +1639,7 @@
      "conceptIds": ["concept_request_polite"],
      "type": "satzBauen",
      "data": {
-      "targetKo": "떡볶이 한 인분이랑 김밥 하나 주세요.",
+      "targetKo": "떡볶이 일 인분이랑 김밥 하나 주세요.",
       "promptDe": "Eine Portion Tteokbokki und einen Kimbap, bitte.",
       "promptEn": "One tteokbokki and one kimbap, please.",
       "distractors": [
@@ -1647,7 +1647,7 @@
        "가주세요",
        "아니요"
       ],
-      "audioKo": "떡볶이 한 인분이랑 김밥 하나 주세요."
+      "audioKo": "떡볶이 일 인분이랑 김밥 하나 주세요."
      }
     },
     {
@@ -1689,8 +1689,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Koreas Schärfe-Skala ist intensiver. 'Anfänger nicht-scharf' Tteokbokki kann immer noch Schweißausbrüche verursachen. Strategie: '안 맵게' + Verstärker '진짜', '아주' oder 'completely'. Manche 분식 ergänzen mit '하얀 떡볶이' (weißer/cremiger Tteokbokki) ohne Gochujang — frag danach falls verfügbar.",
-     "en": "Korea's spice scale runs hotter. 'Beginner not-spicy' tteokbokki can still trigger sweating. Strategy: '안 맵게' + intensifier '진짜', '아주', or 'completely'. Some 분식 offer '하얀 떡볶이' (white/creamy tteokbokki) without gochujang — ask if available."
+     "de": "Koreas Schärfe-Skala ist intensiver. 'Anfänger nicht-scharf' Tteokbokki kann immer noch Schweißausbrüche verursachen. Strategie: '안 맵게' + Verstärker '진짜', '아주' oder '완전'. Manche 분식 ergänzen mit '하얀 떡볶이' (weißer/cremiger Tteokbokki) ohne Gochujang — frag danach falls verfügbar.",
+     "en": "Korea's spice scale runs hotter. 'Beginner not-spicy' tteokbokki can still trigger sweating. Strategy: '안 맵게' + intensifier '진짜', '아주', or '완전'. Some 분식 offer '하얀 떡볶이' (white/creamy tteokbokki) without gochujang — ask if available."
     }
    }
   },
@@ -1813,7 +1813,7 @@
     },
     {
      "speaker": "jieun",
-     "ko": "천천히 가세요!",
+     "ko": "조심히 가세요!",
      "de": "Gute Reise!",
      "en": "Take care!"
     }
@@ -2010,7 +2010,7 @@
      "korean": "조심히 들어가요",
      "note": {
       "ko": "",
-      "de": "Komm sicher heim — Standard-Abschied nach Abendessen / spät am Abend.",
+      "de": "Komm gut heim — Standard-Abschied nach Abendessen / spät am Abend.",
       "en": "Get home safely — standard farewell after evening meals / late at night."
      }
     }
@@ -2056,7 +2056,7 @@
     {
      "speaker": "minsu",
      "ko": "알겠어요. 조심히 들어가요.",
-     "de": "Verstehe. Komm sicher heim.",
+     "de": "Verstehe. Komm gut heim.",
      "en": "Got it. Get home safely."
     },
     {
@@ -2169,7 +2169,7 @@
     "body": {
      "ko": "",
      "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist — die Form zählt mehr als die Wahrheit. Direktheit verletzt das Gesicht des Einladenden.",
-     "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Directness wounds the inviter's face."
+     "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Being too direct makes the inviter lose face."
     }
    }
   },
@@ -2380,7 +2380,7 @@
     "body": {
      "ko": "",
      "de": "Trinkgeld ist in Korea NICHT üblich — auch nicht im Hotel. Bell-Boy: kein Tipp nötig (versuchen erlaubt, wird oft höflich abgelehnt). Reinigung: kein Tipp im Zimmer lassen. Concierge: nur bei außergewöhnlichem Service ein Geschenk (z.B. Schokolade). Das System läuft auf Servicegehalt, nicht Trinkgeld.",
-     "en": "Tipping is NOT customary in Korea — including hotels. Bellhop: no tip needed (try if you want, often politely refused). Cleaning: don't leave a tip in the room. Concierge: only for exceptional service might give a small gift (e.g., chocolate). The system runs on service pay, not tips."
+     "en": "Tipping is NOT customary in Korea — including hotels. Bellhop: no tip needed (try if you want, often politely refused). Cleaning: don't leave a tip in the room. Concierge: a small gift (e.g., chocolate) is fine for truly exceptional service. The system runs on wages, not tips."
     }
    }
   },
@@ -2474,7 +2474,7 @@
     {
      "speaker": "minsu",
      "ko": "안녕하세요, 계산 도와드릴까요?",
-     "de": "Hallo. Alles?",
+     "de": "Hallo. Ist das alles?",
      "en": "Hi. Will that be all?"
     },
     {
@@ -2485,7 +2485,7 @@
     },
     {
      "speaker": "minsu",
-     "ko": "김밥 데워드릴게요... 4,500원이에요. 봉지 필요해요?",
+     "ko": "김밥 데워드릴게요... 4,500원이에요. 봉투 필요하세요?",
      "de": "Ich wärme den Kimbap... 4.500 Won. Brauchen Sie eine Tüte?",
      "en": "I'll heat the kimbap... 4,500 won. Need a bag?"
     },
@@ -2549,7 +2549,7 @@
     {
      "type": "hoerverstehen",
      "data": {
-      "audioKo": "봉지 필요해요?",
+      "audioKo": "봉투 필요하세요?",
       "options": [
        {
         "de": "Brauchen Sie eine Tüte?",
@@ -2878,7 +2878,7 @@
      "korean": "그냥 보는 거예요",
      "note": {
       "ko": "",
-      "de": "'Ich schaue nur'. Höfliche Standard-Phrase um Verkäufer abzuwehren ohne unfreundlich zu sein.",
+      "de": "'Ich schaue nur'. Höfliche Standard-Phrase, um Verkäufer abzuwehren, ohne unfreundlich zu sein.",
       "en": "'I'm just looking'. Polite standard phrase to deflect a clerk without being rude."
      }
     },
@@ -4036,9 +4036,9 @@
     },
     {
      "speaker": "user",
-     "ko": "카드로 해도 되나요? 거스름돈은 됐어요.",
-     "de": "Geht das mit Karte? Und das Wechselgeld können Sie behalten.",
-     "en": "Can I pay by card? And keep the change."
+     "ko": "현금으로 드릴게요. 거스름돈은 됐어요.",
+     "de": "Ich zahle bar. Und das Wechselgeld können Sie behalten.",
+     "en": "I'll pay cash. And keep the change."
     }
    ],
    "quests": [
@@ -4704,7 +4704,7 @@
    "dialog": [
     {
      "speaker": "user",
-     "ko": "유나야, 갑자기 미안한데… 내일 저녁에 갑자기 일이 생겨서.",
+     "ko": "유나야, 진짜 미안한데… 내일 저녁에 갑자기 일이 생겨서.",
      "de": "Hey Yuna, sorry für die Kurzfristigkeit — aber morgen Abend ist leider was dazwischengekommen.",
      "en": "Hey Yuna, sorry for the short notice — but something's come up tomorrow evening."
     },
@@ -4965,7 +4965,7 @@
     {
      "speaker": "jinho",
      "ko": "당연하지, 아픈데 뭘. 오늘 푹 쉬어.",
-     "de": "Na klar, du bist nicht gut drauf. Erhol dich heute ordentlich.",
+     "de": "Na klar, du bist doch krank. Erhol dich heute ordentlich.",
      "en": "Of course, you're not well. Get some proper rest today."
     },
     {
@@ -5156,9 +5156,9 @@
     },
     {
      "speaker": "minsu",
-     "ko": "2호선 타시고 한 번 갈아타세요.",
-     "de": "Nehmen Sie die Linie 2 und steigen Sie einmal um.",
-     "en": "Take Line 2 and transfer once."
+     "ko": "3호선 타시고 한 번 갈아타세요.",
+     "de": "Nehmen Sie die Linie 3 und steigen Sie einmal um.",
+     "en": "Take Line 3 and transfer once."
     },
     {
      "speaker": "user",
@@ -5168,9 +5168,9 @@
     },
     {
      "speaker": "minsu",
-     "ko": "교대역에서 3호선으로 갈아타세요.",
-     "de": "Steigen Sie an der Station Gyodae auf die Linie 3 um.",
-     "en": "Transfer to Line 3 at Gyodae station."
+     "ko": "교대역에서 2호선으로 갈아타세요.",
+     "de": "Steigen Sie an der Station Gyodae auf die Linie 2 um.",
+     "en": "Transfer to Line 2 at Gyodae station."
     },
     {
      "speaker": "user",
@@ -5189,11 +5189,11 @@
     {
      "type": "hoerverstehen",
      "data": {
-      "audioKo": "교대역에서 3호선으로 갈아타세요.",
+      "audioKo": "교대역에서 2호선으로 갈아타세요.",
       "options": [
        {
         "de": "Steig an der Gyodae-Station auf Linie 3 um.",
-        "en": "Transfer to Line 3 at Gyodae station."
+        "en": "Transfer to Line 2 at Gyodae station."
        },
        {
         "de": "Nimm den Ausgang 3.",
@@ -5236,7 +5236,7 @@
     {
      "type": "particlePop",
      "data": {
-      "prefix": "교대역에서 3호선",
+      "prefix": "교대역에서 2호선",
       "suffix": " 갈아타세요.",
       "options": [
        "으로",
@@ -6513,9 +6513,9 @@
     },
     {
      "speaker": "minsu",
-     "ko": "얼마나 등록하시겠어요?",
-     "de": "Für wie lange möchten Sie sich anmelden?",
-     "en": "How long would you like to register for?"
+     "ko": "몇 개월 등록하시겠어요?",
+     "de": "Für wie viele Monate möchten Sie sich anmelden?",
+     "en": "How many months would you like to sign up for?"
     },
     {
      "speaker": "user",
@@ -6546,11 +6546,11 @@
     {
      "type": "hoerverstehen",
      "data": {
-      "audioKo": "얼마나 등록하시겠어요?",
+      "audioKo": "몇 개월 등록하시겠어요?",
       "options": [
        {
-        "de": "Für wie lange möchten Sie sich anmelden?",
-        "en": "How long would you like to register for?"
+        "de": "Für wie viele Monate möchten Sie sich anmelden?",
+        "en": "How many months would you like to sign up for?"
        },
        {
         "de": "Wie viel möchten Sie zahlen?",
@@ -6643,7 +6643,7 @@
    "intro": {
     "ko": "",
     "de": "Du wohnst jetzt in Korea und brauchst ein Konto. Reisepass dabei, Nummer gezogen. Was sagt der Bankangestellte?",
-    "en": "You live in Korea now and need an account. Passport in hand, ticket pulled. What does the teller say?"
+    "en": "You live in Korea now and need an account. Passport in hand, queue ticket taken. What does the teller say?"
    },
    "vocab": [
     {
@@ -6929,13 +6929,13 @@
      "speaker": "minsu",
      "ko": "본인의 장점은 무엇입니까?",
      "de": "Was ist Ihre Stärke?",
-     "en": "What is your strength?"
+     "en": "What is your greatest strength?"
     },
     {
      "speaker": "user",
      "ko": "저는 끝까지 최선을 다합니다.",
      "de": "Ich gebe bis zum Schluss mein Bestes.",
-     "en": "I give my best to the end."
+     "en": "I always see things through to the end."
     },
     {
      "speaker": "minsu",
@@ -6958,7 +6958,7 @@
       "options": [
        {
         "de": "Was ist Ihre Stärke?",
-        "en": "What is your strength?"
+        "en": "What is your greatest strength?"
        },
        {
         "de": "Wo haben Sie studiert?",
@@ -7579,9 +7579,9 @@
     },
     {
      "speaker": "minsu",
-     "ko": "분실물 센터에 신고해 보세요.",
-     "de": "Melden Sie es bitte beim Fundbüro.",
-     "en": "Try reporting it to the lost & found center."
+     "ko": "분실물 센터에 접수해 드릴게요. 확인해 볼게요.",
+     "de": "Ich nehme das fürs Fundbüro auf. Ich schaue mal nach.",
+     "en": "I'll file it with the lost & found. Let me check."
     },
     {
      "speaker": "user",

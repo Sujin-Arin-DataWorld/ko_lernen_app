@@ -285,7 +285,7 @@
    "level": "b1",
    "kind": "opener",
    "ko": "이런 날씨엔 산책하기 딱 좋죠.",
-   "de": "Bei so einem Wetter geht man perfekt spazieren.",
+   "de": "So ein Wetter ist perfekt für einen Spaziergang.",
    "en": "This kind of weather is perfect for a walk.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
@@ -521,7 +521,7 @@
    "level": "b2",
    "kind": "question",
    "ko": "주말에 별 계획 없으면 같이 바람이나 쐬러 갈까요?",
-   "de": "Wenn Sie am Wochenende nichts vorhaben, sollen wir mal zusammen rauskommen?",
+   "de": "Wenn Sie am Wochenende nichts vorhaben, wollen wir mal zusammen rausgehen?",
    "en": "If you have no plans this weekend, shall we go out for some fresh air?",
    "reply": {
     "ko": "좋아요, 그래요!",
@@ -632,7 +632,7 @@
    "level": "b2",
    "kind": "opener",
    "ko": "가보고 싶은 맛집 있으면 다음에 같이 가요.",
-   "de": "Wenn Sie ein Lokal ausprobieren möchten, gehen wir mal zusammen.",
+   "de": "Wenn Sie ein Lokal ausprobieren möchten, gehen wir nächstes Mal zusammen hin.",
    "en": "If there's a place you want to try, let's go together sometime.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
@@ -949,7 +949,7 @@
    "category": "music",
    "level": "b2",
    "kind": "opener",
-   "ko": "일할 때 음악을 들으면 집중이 더 잘 되는 편이에요.",
+   "ko": "일할 때 음악을 들으면 집중이 더 잘되는 편이에요.",
    "de": "Mit Musik beim Arbeiten kann ich mich eher besser konzentrieren.",
    "en": "I tend to focus better when I listen to music while working.",
    "relationshipContext": "peer",
@@ -1448,7 +1448,7 @@
    "kind": "question",
    "ko": "보통 무슨 운동 해요?",
    "de": "Welchen Sport machst du normalerweise?",
-   "en": "What sport do you usually do?",
+   "en": "What kind of exercise do you usually do?",
    "reply": {
     "ko": "주로 달리기를 해요.",
     "de": "Ich laufe meistens.",
@@ -2092,7 +2092,7 @@
    "level": "b1",
    "kind": "question",
    "ko": "최근에 본 것 중에 추천할 만한 거 있어요?",
-   "de": "Gibt's unter deinen letzten etwas zu empfehlen?",
+   "de": "Kannst du von dem, was du zuletzt gesehen hast, etwas empfehlen?",
    "en": "Anything worth recommending from what you've seen recently?",
    "reply": {
     "ko": "이거 진짜 재밌었어요.",
@@ -2145,8 +2145,8 @@
    "level": "a1",
    "kind": "opener",
    "ko": "저 요즘 이 노래 자주 들어요.",
-   "de": "Ich höre Musik.",
-   "en": "I'm listening to music.",
+   "de": "Dieses Lied höre ich zurzeit rauf und runter.",
+   "en": "I've been listening to this song a lot lately.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
     {
@@ -2252,7 +2252,7 @@
    "kind": "opener",
    "ko": "저 요즘 그림 그려요.",
    "de": "Ich male.",
-   "en": "I draw.",
+   "en": "I've been drawing lately.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
     {
@@ -2435,7 +2435,7 @@
    "kind": "opener",
    "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
    "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-   "en": "Trips taken without a plan turn out surprisingly more memorable.",
+   "en": "Somehow it's the unplanned trips that end up the most memorable.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
     {
@@ -2587,7 +2587,7 @@
    "en": "Do you have any siblings?",
    "reply": {
     "ko": "네, 동생 한 명 있어요.",
-    "de": "Ja, ein jüngeres Geschwister.",
+    "de": "Ja, eins, jünger als ich.",
     "en": "Yes, one younger sibling."
    },
    "relationshipContext": "family",
@@ -3582,7 +3582,7 @@
    "kind": "opener",
    "ko": "서류는 붙었는데 면접에서 자꾸 떨어지네요.",
    "de": "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
-   "en": "I pass the document round but keep failing the interviews.",
+   "en": "I get past the resume screening but keep failing the interviews.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
     {
@@ -3630,7 +3630,7 @@
    "kind": "opener",
    "ko": "저 얼마 전에 이사했어요.",
    "de": "Ich bin umgezogen.",
-   "en": "I moved.",
+   "en": "I moved recently.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
     {
@@ -3956,7 +3956,7 @@
    "category": "hospital",
    "level": "b1",
    "kind": "question",
-   "ko": "증상이 언제부터 그랬어요?",
+   "ko": "증상이 언제부터 있었어요?",
    "de": "Seit wann hast du die Symptome?",
    "en": "Since when have you had the symptoms?",
    "reply": {

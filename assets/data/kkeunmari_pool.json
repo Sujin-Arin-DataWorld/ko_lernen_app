@@ -4039,7 +4039,7 @@
    "first": "제",
    "last": "시",
    "level": "A1",
-   "german": "Jesse",
+   "german": "Vorlegen",
    "topic": "",
    "next_count": 33,
    "is_dead_end": false
@@ -5309,7 +5309,7 @@
    "first": "성",
    "last": "하",
    "level": "A1",
-   "german": "Seong-ha",
+   "german": "Seine Heiligkeit",
    "topic": "",
    "next_count": 31,
    "is_dead_end": false
@@ -6159,7 +6159,7 @@
    "first": "한",
    "last": "대",
    "level": "A1",
-   "german": "eine Universität",
+   "german": "ein Schlag",
    "topic": "",
    "next_count": 29,
    "is_dead_end": false
@@ -7599,7 +7599,7 @@
    "first": "이",
    "last": "전",
    "level": "A1",
-   "german": "Zurück",
+   "german": "früher",
    "topic": "",
    "next_count": 29,
    "is_dead_end": false
@@ -8449,7 +8449,7 @@
    "first": "추",
    "last": "가",
    "level": "A1",
-   "german": "Mehr",
+   "german": "Zusatz",
    "topic": "",
    "next_count": 45,
    "is_dead_end": false
@@ -15089,7 +15089,7 @@
    "first": "산",
    "last": "사",
    "level": "A2",
-   "german": "Sansa",
+   "german": "Bergtempel",
    "topic": "",
    "next_count": 40,
    "is_dead_end": false
@@ -17319,7 +17319,7 @@
    "first": "부",
    "last": "하",
    "level": "A2",
-   "german": "Last",
+   "german": "Untergebener",
    "topic": "",
    "next_count": 31,
    "is_dead_end": false
@@ -17599,7 +17599,7 @@
    "first": "마",
    "last": "마",
    "level": "A2",
-   "german": "Mama",
+   "german": "Majestät",
    "topic": "",
    "next_count": 37,
    "is_dead_end": false
@@ -17979,7 +17979,7 @@
    "first": "철",
    "last": "수",
    "level": "A2",
-   "german": "Cheol-su",
+   "german": "Rückzug",
    "topic": "",
    "next_count": 35,
    "is_dead_end": false
@@ -18469,7 +18469,7 @@
    "first": "하",
    "last": "마",
    "level": "A2",
-   "german": "Hama",
+   "german": "Nilpferd",
    "topic": "",
    "next_count": 38,
    "is_dead_end": false
@@ -19789,7 +19789,7 @@
    "first": "시",
    "last": "가",
    "level": "A2",
-   "german": "Stadtsong",
+   "german": "Marktpreis",
    "topic": "",
    "next_count": 45,
    "is_dead_end": false
@@ -24779,7 +24779,7 @@
    "first": "조",
    "last": "수",
    "level": "A2",
-   "german": "Beifahrer",
+   "german": "Assistent",
    "topic": "",
    "next_count": 35,
    "is_dead_end": false

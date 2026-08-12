@@ -1,0 +1,822 @@
+{
+  "논의하다": {
+    "de": "Besprechen wir diesen Punkt in der nächsten Sitzung.",
+    "en": "Let's discuss this part at the next meeting."
+  },
+  "인식하다": {
+    "de": "Zuerst muss man das Problem genau erkennen.",
+    "en": "First you have to recognize the problem accurately."
+  },
+  "해석하다": {
+    "de": "Wie sollen wir diese Klausel interpretieren?",
+    "en": "How should we interpret this clause?"
+  },
+  "반박하다": {
+    "de": "Diesem Punkt möchte ich widersprechen.",
+    "en": "I'd like to push back on that point."
+  },
+  "적용하다": {
+    "de": "Die neue Regelung gilt ab nächstem Monat.",
+    "en": "The new regulation takes effect next month."
+  },
+  "실현하다": {
+    "de": "Irgendwann möchte ich diesen Traum verwirklichen.",
+    "en": "Someday I want to make that dream come true."
+  },
+  "지속하다": {
+    "de": "Es wird wohl schwierig, die jetzige Methode so fortzusetzen.",
+    "en": "It'll be hard to keep up the current approach."
+  },
+  "추상적이다": {
+    "de": "War die Erklärung nicht etwas abstrakt?",
+    "en": "Wasn't the explanation a bit abstract?"
+  },
+  "구체적이다": {
+    "de": "Könnten Sie das bitte etwas konkreter sagen?",
+    "en": "Could you be a bit more specific?"
+  },
+  "객관적이다": {
+    "de": "Auch objektiv betrachtet ist dieses Ergebnis richtig.",
+    "en": "Even looking at it objectively, this result is correct."
+  },
+  "주관적이다": {
+    "de": "Das ist ein sehr subjektives Urteil.",
+    "en": "That's a really subjective judgment."
+  },
+  "육": {
+    "de": "Ich wohne im sechsten Stock.",
+    "en": "I live on the sixth floor."
+  },
+  "구": {
+    "de": "Das neue Semester fängt im September an.",
+    "en": "The new semester starts in September."
+  },
+  "셋": {
+    "de": "Wir gehen zu dritt.",
+    "en": "The three of us will go."
+  },
+  "넷": {
+    "de": "Gehen wir doch zu viert zusammen.",
+    "en": "Let's all four go together."
+  },
+  "월요일": {
+    "de": "Wir sehen uns am Montag wieder.",
+    "en": "See you again on Monday."
+  },
+  "수요일": {
+    "de": "Wollen wir uns diesen Mittwoch treffen?",
+    "en": "Should we meet this Wednesday?"
+  },
+  "목요일": {
+    "de": "Wir sehen uns diesen Donnerstag.",
+    "en": "See you this Thursday."
+  },
+  "일요일": {
+    "de": "Sonntags schlafe ich aus.",
+    "en": "I sleep in on Sundays."
+  },
+  "안녕히 가세요": {
+    "de": "Auf Wiedersehen. Kommen Sie gut nach Hause.",
+    "en": "Goodbye. Get home safe."
+  },
+  "안녕히 계세요": {
+    "de": "Ich gehe schon mal. Auf Wiedersehen.",
+    "en": "I'm heading out first. Goodbye."
+  },
+  "잘 자요": {
+    "de": "Gute Arbeit heute. Schlafen Sie gut.",
+    "en": "Good work today. Sleep well."
+  },
+  "처음 뵙겠습니다": {
+    "de": "Sehr erfreut, Sie kennenzulernen. Auf gute Zusammenarbeit.",
+    "en": "Pleased to meet you. I look forward to working with you."
+  },
+  "만나서 반가워요": {
+    "de": "Ich freue mich wirklich, Sie kennenzulernen.",
+    "en": "It's really nice to meet you."
+  },
+  "잘 부탁드려요": {
+    "de": "Ich bitte um gute Zusammenarbeit in Zukunft.",
+    "en": "I look forward to working with you."
+  },
+  "천만에요": {
+    "de": "Ach was, gern geschehen.",
+    "en": "Not at all, you're welcome."
+  },
+  "별말씀을요": {
+    "de": "Keine Ursache, das ist doch selbstverständlich.",
+    "en": "Don't mention it, it was nothing."
+  },
+  "실례합니다": {
+    "de": "Entschuldigung, wo ist die Toilette?",
+    "en": "Excuse me, where's the restroom?"
+  },
+  "잠시만요": {
+    "de": "Einen Moment, ich komme gleich.",
+    "en": "Just a second, I'll be right there."
+  },
+  "화이팅": {
+    "de": "Auf geht's, unser Team!",
+    "en": "Let's go, team!"
+  },
+  "잠깐": {
+    "de": "Warten Sie bitte einen Moment.",
+    "en": "Please wait a moment."
+  },
+  "일찍": {
+    "de": "Ich möchte heute früh schlafen gehen.",
+    "en": "I want to go to bed early tonight."
+  },
+  "자주": {
+    "de": "Ich trinke oft Kaffee.",
+    "en": "I drink coffee often."
+  },
+  "주문하다": {
+    "de": "Wir haben noch nicht bestellt.",
+    "en": "We haven't ordered yet."
+  },
+  "메뉴": {
+    "de": "Könnte ich bitte die Speisekarte sehen?",
+    "en": "Could I see the menu, please?"
+  },
+  "추천하다": {
+    "de": "Empfehlen Sie mir bitte das leckerste Gericht hier.",
+    "en": "Please recommend the tastiest dish here."
+  },
+  "맛": {
+    "de": "Der Kimchi-Eintopf hier schmeckt einfach unglaublich.",
+    "en": "The kimchi stew at this place is the real deal."
+  },
+  "짜다": {
+    "de": "Die Suppe ist etwas salzig.",
+    "en": "The soup is a bit salty."
+  },
+  "시다": {
+    "de": "Diese Mandarine ist etwas sauer.",
+    "en": "This tangerine is a bit sour."
+  },
+  "싱겁다": {
+    "de": "Die Suppe ist etwas fade.",
+    "en": "The soup is a bit bland."
+  },
+  "포장하다": {
+    "de": "Packen Sie mir das bitte zum Mitnehmen ein.",
+    "en": "Can I get this to go, please?"
+  },
+  "배달": {
+    "de": "Bestellen wir heute Abend einfach beim Lieferdienst.",
+    "en": "Let's just get delivery tonight."
+  },
+  "매콤하다": {
+    "de": "Dieses Tteokbokki ist genau richtig scharf.",
+    "en": "This tteokbokki is just the right amount of spicy."
+  },
+  "사이즈": {
+    "de": "Haben Sie das vielleicht eine Größe größer?",
+    "en": "Do you have this one size bigger?"
+  },
+  "색깔": {
+    "de": "Gibt es auch andere Farben?",
+    "en": "Are there other colors too?"
+  },
+  "입어보다": {
+    "de": "Darf ich das mal anprobieren?",
+    "en": "Can I try this on?"
+  },
+  "어울리다": {
+    "de": "Diese Farbe steht Ihnen wirklich gut.",
+    "en": "This color really suits you."
+  },
+  "환불": {
+    "de": "Ich hätte gern eine Rückerstattung.",
+    "en": "I'd like to get a refund."
+  },
+  "교환": {
+    "de": "Könnte ich das in eine andere Größe umtauschen?",
+    "en": "Could I exchange this for a different size?"
+  },
+  "손님": {
+    "de": "Sie haben heute aber viele Gäste.",
+    "en": "You've got a lot of customers today."
+  },
+  "점원": {
+    "de": "Der Verkäufer war wirklich freundlich.",
+    "en": "The clerk was really friendly."
+  },
+  "길": {
+    "de": "Ich habe mich unterwegs verlaufen.",
+    "en": "I got lost on the way."
+  },
+  "곧장": {
+    "de": "Gehen Sie von hier einfach geradeaus.",
+    "en": "Just go straight from here."
+  },
+  "신호등": {
+    "de": "Biegen Sie an der Ampel dort rechts ab.",
+    "en": "Turn right at that traffic light."
+  },
+  "횡단보도": {
+    "de": "Gehen Sie über den Zebrastreifen, dann ist es links.",
+    "en": "Cross at the crosswalk, and it's on the left."
+  },
+  "교차로": {
+    "de": "Lassen Sie mich bitte an der nächsten Kreuzung raus.",
+    "en": "Please drop me off at the next intersection."
+  },
+  "안내하다": {
+    "de": "Ich zeige Ihnen den Weg.",
+    "en": "I'll show you the way."
+  },
+  "가깝다": {
+    "de": "Es ist schön, dass meine Wohnung und die Firma so nah beieinander sind.",
+    "en": "It's great that my home and work are so close."
+  },
+  "멀다": {
+    "de": "Meine Wohnung ist so weit weg, das ist echt anstrengend.",
+    "en": "My place is so far away, it's exhausting."
+  },
+  "화나다": {
+    "de": "Als ich das gehört habe, war ich richtig sauer.",
+    "en": "I got really mad when I heard that."
+  },
+  "부끄럽다": {
+    "de": "Schon beim Gedanken daran ist es mir peinlich.",
+    "en": "I get embarrassed just thinking about it."
+  },
+  "놀라다": {
+    "de": "Sie haben mich ja total erschreckt!",
+    "en": "You totally startled me!"
+  },
+  "기쁘다": {
+    "de": "Ich freue mich wirklich, dass Sie bestanden haben.",
+    "en": "I'm so happy to hear you passed."
+  },
+  "답답하다": {
+    "de": "Es ist so frustrierend, dass wir uns nicht verständigen können.",
+    "en": "It's so frustrating that we can't communicate."
+  },
+  "신나다": {
+    "de": "Ich freue mich riesig auf die Reise morgen.",
+    "en": "I'm so excited about my trip tomorrow."
+  },
+  "지루하다": {
+    "de": "War der Film nicht etwas langweilig?",
+    "en": "Wasn't that movie a bit boring?"
+  },
+  "긴장하다": {
+    "de": "Vor dem Vorstellungsgespräch bin ich etwas nervös.",
+    "en": "I'm a little nervous about the upcoming interview."
+  },
+  "동료": {
+    "de": "Meine Kollegen in der Firma sind alle nett.",
+    "en": "All my coworkers are great."
+  },
+  "사장": {
+    "de": "Unser Chef ist wirklich ein guter Mensch.",
+    "en": "The boss is a really good person."
+  },
+  "상사": {
+    "de": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
+    "en": "Our supervisor is a bit picky."
+  },
+  "출근하다": {
+    "de": "Ich gehe jeden Tag um neun zur Arbeit.",
+    "en": "I go to work at nine every day."
+  },
+  "퇴근하다": {
+    "de": "Heute möchte ich etwas früher Feierabend machen.",
+    "en": "I want to leave work a little early today."
+  },
+  "야근하다": {
+    "de": "Diese Woche habe ich ständig Überstunden gemacht.",
+    "en": "I've worked overtime all week."
+  },
+  "월급": {
+    "de": "Diesen Monat ist mein Gehalt etwas gestiegen.",
+    "en": "My pay went up a bit this month."
+  },
+  "면접": {
+    "de": "Morgen Nachmittag habe ich ein Vorstellungsgespräch.",
+    "en": "I have a job interview tomorrow afternoon."
+  },
+  "일어나다": {
+    "de": "Zurzeit fällt es mir schwer, morgens früh aufzustehen.",
+    "en": "Lately it's hard for me to get up early in the morning."
+  },
+  "씻다": {
+    "de": "Vor dem Schlafen wasche ich mich immer.",
+    "en": "I always wash up before bed."
+  },
+  "화장하다": {
+    "de": "Ich schminke mich kaum.",
+    "en": "I don't really wear makeup."
+  },
+  "빨래하다": {
+    "de": "Jedes Wochenende mache ich Wäsche.",
+    "en": "I do laundry every weekend."
+  },
+  "청소하다": {
+    "de": "Heute sollte ich mal mein Zimmer putzen.",
+    "en": "I really need to clean my room today."
+  },
+  "정리하다": {
+    "de": "Ich habe den Schreibtisch aufgeräumt.",
+    "en": "I tidied up the desk."
+  },
+  "설거지하다": {
+    "de": "Nach dem Essen übernehme ich den Abwasch.",
+    "en": "I'll do the dishes after we eat."
+  },
+  "분홍색": {
+    "de": "Das Rosa steht Ihnen wirklich gut.",
+    "en": "That pink really suits you."
+  },
+  "보라색": {
+    "de": "Lila Sachen trage ich eher selten.",
+    "en": "I don't really wear purple."
+  },
+  "갈색": {
+    "de": "Ich habe mir die Haare braun gefärbt.",
+    "en": "I dyed my hair brown."
+  },
+  "회색": {
+    "de": "Heute ziehe ich den grauen Mantel an.",
+    "en": "I'm going to wear my gray coat today."
+  },
+  "주황색": {
+    "de": "Im Herbst sieht Orange schön aus.",
+    "en": "Orange looks pretty in the fall."
+  },
+  "영상": {
+    "de": "Haben Sie das YouTube-Video gesehen?",
+    "en": "Did you see that YouTube video?"
+  },
+  "댓글": {
+    "de": "Danke, dass Sie auf meinen Kommentar geantwortet haben.",
+    "en": "Thanks for replying to my comment."
+  },
+  "좋아요": {
+    "de": "Bitte geben Sie meinem Beitrag ein Like.",
+    "en": "Please hit Like on my post."
+  },
+  "팔로워": {
+    "de": "In letzter Zeit habe ich ein paar Follower dazugewonnen.",
+    "en": "I've gained some followers lately."
+  },
+  "게시물": {
+    "de": "Heute Morgen habe ich einen Beitrag gepostet.",
+    "en": "I put up a post this morning."
+  },
+  "업로드하다": {
+    "de": "Ich habe die Reisefotos hochgeladen.",
+    "en": "I've uploaded my travel photos."
+  },
+  "검색하다": {
+    "de": "Das finden Sie, wenn Sie im Internet danach suchen.",
+    "en": "You'll find that if you look it up online."
+  },
+  "다운로드": {
+    "de": "Zuerst müssen Sie die App herunterladen.",
+    "en": "First you need to download the app."
+  },
+  "공유하다": {
+    "de": "Könnten Sie diesen Link mit mir teilen?",
+    "en": "Could you share this link with me?"
+  },
+  "협력하다": {
+    "de": "Wir werden das in Zusammenarbeit mit anderen Abteilungen umsetzen.",
+    "en": "We're planning to work with other departments on this."
+  },
+  "책임지다": {
+    "de": "Ich übernehme die Verantwortung für dieses Projekt und ziehe es durch.",
+    "en": "I'll take charge of this project and see it through."
+  },
+  "보고하다": {
+    "de": "Sobald die Ergebnisse da sind, berichte ich Ihnen sofort.",
+    "en": "I'll report to you as soon as the results come in."
+  },
+  "진행하다": {
+    "de": "Alles läuft nach Zeitplan.",
+    "en": "Everything's going according to schedule."
+  },
+  "마감": {
+    "de": "Die Deadline ist diesen Freitag.",
+    "en": "The deadline is this Friday."
+  },
+  "일정": {
+    "de": "Sagen Sie mir bitte den Terminplan für nächste Woche.",
+    "en": "Please let me know next week's schedule."
+  },
+  "회의록": {
+    "de": "Ich fasse das Protokoll zusammen und teile es mit Ihnen.",
+    "en": "I'll write up the meeting minutes and share them with you."
+  },
+  "제안하다": {
+    "de": "Ich habe eine gute Idee, die ich Ihnen vorschlagen möchte.",
+    "en": "I have a good idea I'd like to propose."
+  },
+  "거절하다": {
+    "de": "Höflich abzulehnen ist gar nicht so einfach.",
+    "en": "Turning someone down politely isn't easy."
+  },
+  "동의하다": {
+    "de": "Dieser Meinung stimme ich auch zu.",
+    "en": "I agree with that opinion too."
+  },
+  "다이어트": {
+    "de": "Ich mache gerade eine Diät, deshalb esse ich spätabends nichts mehr.",
+    "en": "I'm on a diet right now, so I skip late-night snacks."
+  },
+  "명상": {
+    "de": "Ich meditiere jeden Morgen zehn Minuten.",
+    "en": "I meditate for ten minutes every morning."
+  },
+  "식단": {
+    "de": "Ich achte zurzeit ein bisschen auf meine Ernährung.",
+    "en": "I've been watching what I eat lately."
+  },
+  "균형": {
+    "de": "Die Work-Life-Balance ist wirklich wichtig.",
+    "en": "Work-life balance is really important."
+  },
+  "휴식": {
+    "de": "Ich brauche eine Pause, auch wenn sie nur kurz ist.",
+    "en": "I need a break, even just a short one."
+  },
+  "취향": {
+    "de": "Jeder hat doch einen anderen Geschmack.",
+    "en": "Everyone's got different tastes, you know."
+  },
+  "의미": {
+    "de": "Was ist die genaue Bedeutung dieses Ausdrucks?",
+    "en": "What's the exact meaning of this expression?"
+  },
+  "변화": {
+    "de": "In letzter Zeit gab es bei mir ein paar große Veränderungen.",
+    "en": "There have been some big changes in my life lately."
+  },
+  "영향": {
+    "de": "Diese Entscheidung wird wohl großen Einfluss haben.",
+    "en": "I think this decision will have a big impact."
+  },
+  "차이": {
+    "de": "Der kulturelle Unterschied zwischen Korea und Deutschland ist echt groß.",
+    "en": "The cultural differences between Korea and Germany are really big."
+  },
+  "공통점": {
+    "de": "Wir beide haben überraschend viel gemeinsam.",
+    "en": "Turns out the two of us have a lot in common."
+  },
+  "가능성": {
+    "de": "Ganz ohne Erfolgschancen ist es nicht.",
+    "en": "It's not like there's no chance of success."
+  },
+  "한계": {
+    "de": "Ich glaube, ich bin jetzt wirklich an meiner Grenze.",
+    "en": "I think I've really hit my limit."
+  },
+  "책임": {
+    "de": "Das hier ist meine Verantwortung.",
+    "en": "This is my responsibility."
+  },
+  "솔직하다": {
+    "de": "Ich mag ehrliche Menschen.",
+    "en": "I like honest people."
+  },
+  "겸손하다": {
+    "de": "Diese Person ist wirklich bescheiden.",
+    "en": "That person is really humble."
+  },
+  "친절하다": {
+    "de": "Die Mitarbeiter hier sind wirklich freundlich.",
+    "en": "The staff here are really friendly."
+  },
+  "게으르다": {
+    "de": "Am Wochenende werde ich etwas faul.",
+    "en": "I get a little lazy on weekends."
+  },
+  "부지런하다": {
+    "de": "Meine Mutter ist wirklich fleißig.",
+    "en": "My mom is really hardworking."
+  },
+  "적극적이다": {
+    "de": "Beteiligen Sie sich bitte in der Besprechung etwas aktiver.",
+    "en": "Please participate more actively in the meeting."
+  },
+  "소극적이다": {
+    "de": "Ich bin vom Charakter her eher zurückhaltend.",
+    "en": "I'm kind of reserved by nature."
+  },
+  "책임감": {
+    "de": "Diese Person hat ein wirklich starkes Verantwortungsbewusstsein.",
+    "en": "That person has a really strong sense of responsibility."
+  },
+  "신경 쓰다": {
+    "de": "Machen Sie sich nicht zu viele Gedanken, bleiben Sie ganz entspannt.",
+    "en": "Don't stress about it too much, just relax."
+  },
+  "마음에 들다": {
+    "de": "Diese Farbe gefällt mir wirklich gut.",
+    "en": "I really like this color."
+  },
+  "약속하다": {
+    "de": "Ich verspreche, dass ich das nie wieder mache.",
+    "en": "I promise I won't do that again."
+  },
+  "후회하다": {
+    "de": "Ich bereue meine Entscheidung nicht.",
+    "en": "I don't regret my decision."
+  },
+  "기대하다": {
+    "de": "Auf die nächste Folge bin ich schon richtig gespannt.",
+    "en": "I can't wait for the next episode."
+  },
+  "협상": {
+    "de": "Die Verhandlung ist besser gelaufen als gedacht.",
+    "en": "The negotiation went better than expected."
+  },
+  "계약": {
+    "de": "Prüfen Sie den Vertrag bitte noch einmal.",
+    "en": "Please check the contract one more time."
+  },
+  "투자": {
+    "de": "Dieser Bereich ist eine Investition auf jeden Fall wert.",
+    "en": "This field is definitely worth investing in."
+  },
+  "수익": {
+    "de": "Der Gewinn ist dieses Jahr höher als letztes Jahr.",
+    "en": "Profits are up this year compared to last year."
+  },
+  "비용": {
+    "de": "Könnten wir die Kosten etwas senken?",
+    "en": "Could we cut the costs a bit?"
+  },
+  "생산성": {
+    "de": "Seit dem Homeoffice ist die Produktivität sogar gestiegen.",
+    "en": "Since working from home, productivity has actually gone up."
+  },
+  "경쟁력": {
+    "de": "Unser Team ist eindeutig wettbewerbsfähig.",
+    "en": "Our team is definitely competitive."
+  },
+  "전략": {
+    "de": "Wir müssen eine langfristige Strategie entwickeln.",
+    "en": "We need to set up a long-term strategy."
+  },
+  "위기": {
+    "de": "Wir sollten die Krise als Chance nutzen.",
+    "en": "We should turn this crisis into an opportunity."
+  },
+  "협업": {
+    "de": "Wir prüfen auch eine Zusammenarbeit mit anderen Firmen.",
+    "en": "We're also looking into collaborating with other companies."
+  },
+  "법": {
+    "de": "Wir müssen prüfen, ob es rechtlich keine Probleme gibt.",
+    "en": "We need to check whether there are any legal issues."
+  },
+  "정책": {
+    "de": "Die neue Richtlinie tritt nächsten Monat in Kraft.",
+    "en": "The new policy takes effect next month."
+  },
+  "제도": {
+    "de": "Ich finde, dieses System muss verbessert werden.",
+    "en": "I think this system needs improvement."
+  },
+  "의무": {
+    "de": "Man sollte seine Pflichten als Bürger erfüllen.",
+    "en": "We should fulfill our duties as citizens."
+  },
+  "평등": {
+    "de": "Bei der Gleichstellung der Geschlechter ist es noch ein weiter Weg.",
+    "en": "Gender equality still has a long way to go."
+  },
+  "차별": {
+    "de": "Am Arbeitsplatz darf es keine Diskriminierung geben.",
+    "en": "There should be no discrimination in the workplace."
+  },
+  "인권": {
+    "de": "Menschenrechte sind ein Wert, bei dem es keine Kompromisse geben darf.",
+    "en": "Human rights are a value we can never compromise on."
+  },
+  "양극화": {
+    "de": "Die Polarisierung zwischen Arm und Reich wird immer schlimmer.",
+    "en": "The polarization between rich and poor keeps getting worse."
+  },
+  "강점": {
+    "de": "Was sind Ihrer Meinung nach Ihre Stärken?",
+    "en": "What would you say your strengths are?"
+  },
+  "약점": {
+    "de": "Seine Schwächen gibt man besser offen zu.",
+    "en": "It's actually better to admit your weaknesses."
+  },
+  "경력": {
+    "de": "Wie viel einschlägige Berufserfahrung haben Sie?",
+    "en": "How much relevant experience do you have?"
+  },
+  "자격증": {
+    "de": "In diesem Bereich braucht man unbedingt ein Zertifikat.",
+    "en": "You definitely need a certification in this field."
+  },
+  "자신감": {
+    "de": "In letzter Zeit gewinne ich langsam an Selbstvertrauen.",
+    "en": "I'm slowly building confidence these days."
+  },
+  "끈기": {
+    "de": "Ausdauer wird am Ende zu echtem Können, das habe ich gemerkt.",
+    "en": "I've found that perseverance eventually turns into skill."
+  },
+  "잠재력": {
+    "de": "Das Potenzial dieses Teams ist grenzenlos.",
+    "en": "This team's potential is limitless."
+  },
+  "동기": {
+    "de": "Zurzeit kann ich mich nur schwer motivieren.",
+    "en": "I'm having a hard time staying motivated lately."
+  },
+  "분야": {
+    "de": "Ich arbeite im Bereich Marketing.",
+    "en": "I work in the marketing field."
+  },
+  "전공": {
+    "de": "Was haben Sie an der Uni studiert?",
+    "en": "What was your major in college?"
+  },
+  "학위": {
+    "de": "Sie hat sogar einen Masterabschluss gemacht.",
+    "en": "Turns out she even finished her master's degree."
+  },
+  "논문": {
+    "de": "Wegen der Abgabefrist meiner Abschlussarbeit bin ich zurzeit total im Stress.",
+    "en": "I'm totally swamped these days because of my thesis deadline."
+  },
+  "발표하다": {
+    "de": "Nächste Woche halte ich einen Vortrag auf einer Konferenz.",
+    "en": "I'm presenting at a conference next week."
+  },
+  "인용하다": {
+    "de": "Zitieren Sie die Quelle bitte genau.",
+    "en": "Please cite the source accurately."
+  },
+  "통계": {
+    "de": "Diese Statistik ist schon etwas veraltet.",
+    "en": "These statistics are a bit outdated."
+  },
+  "가설": {
+    "de": "Stellen wir zuerst eine Hypothese auf.",
+    "en": "Let's start by setting up a hypothesis."
+  },
+  "진정한": {
+    "de": "Wahre Freunde erkennt man in schweren Zeiten.",
+    "en": "You know who your true friends are when times get tough."
+  },
+  "본질적이다": {
+    "de": "Wir müssen zuerst die eigentliche Ursache angehen.",
+    "en": "We need to tackle the root cause first."
+  },
+  "적절하다": {
+    "de": "Das Timing war genau richtig.",
+    "en": "The timing was just right."
+  },
+  "명확하다": {
+    "de": "Machen Sie Ihren Standpunkt bitte deutlich.",
+    "en": "Please make your position clear."
+  },
+  "모호하다": {
+    "de": "Ihre Antwort ist etwas vage.",
+    "en": "Your answer is a bit vague."
+  },
+  "합리적이다": {
+    "de": "Der Preis war vernünftig, deshalb habe ich mich dafür entschieden.",
+    "en": "The price was reasonable, so I went for it."
+  },
+  "거실": {
+    "de": "Unser Wohnzimmer ist etwas klein.",
+    "en": "Our living room is a bit small."
+  },
+  "부엌": {
+    "de": "In unserer Küche koche ich oft.",
+    "en": "I cook in our kitchen a lot."
+  },
+  "냉장고": {
+    "de": "Gibt es im Kühlschrank etwas zu essen?",
+    "en": "Is there anything to eat in the fridge?"
+  },
+  "세탁기": {
+    "de": "Die Waschmaschine ist kaputtgegangen.",
+    "en": "The washing machine broke down."
+  },
+  "청소기": {
+    "de": "Ich sauge noch kurz Staub, bevor ich gehe.",
+    "en": "I'll vacuum real quick before heading out."
+  },
+  "가구": {
+    "de": "Ich habe mir neulich ein paar neue Möbel gekauft.",
+    "en": "I recently bought some new furniture."
+  },
+  "이사하다": {
+    "de": "Ich ziehe nächsten Monat um.",
+    "en": "I'm moving next month."
+  },
+  "월세": {
+    "de": "Die Monatsmiete in dieser Gegend ist etwas teuer.",
+    "en": "The monthly rent in this area is a bit expensive."
+  },
+  "보증금": {
+    "de": "Wie hoch ist ungefähr die Kaution?",
+    "en": "About how much is the deposit?"
+  },
+  "집주인": {
+    "de": "Ich versuche mal, den Vermieter zu erreichen.",
+    "en": "I'll try getting in touch with the landlord."
+  },
+  "현금": {
+    "de": "Ich habe kein Bargeld, geht auch Karte?",
+    "en": "I don't have cash, do you take cards?"
+  },
+  "통장": {
+    "de": "Ich möchte ein neues Konto eröffnen.",
+    "en": "I'm here to open a new bank account."
+  },
+  "입금하다": {
+    "de": "Ich habe Ihnen das Geld gerade überwiesen.",
+    "en": "I just sent the money to your account."
+  },
+  "출금하다": {
+    "de": "Ich hebe nur zehntausend Won ab.",
+    "en": "I'll just withdraw ten thousand won."
+  },
+  "송금하다": {
+    "de": "Ich habe einem Freund hunderttausend Won überwiesen.",
+    "en": "I transferred a hundred thousand won to a friend."
+  },
+  "잔액": {
+    "de": "Wie viel Guthaben ist noch übrig?",
+    "en": "How much is left in the account?"
+  },
+  "수수료": {
+    "de": "Wie hoch ist die Überweisungsgebühr?",
+    "en": "How much is the transfer fee?"
+  },
+  "환전하다": {
+    "de": "Ich habe am Flughafen Geld in Euro gewechselt.",
+    "en": "I exchanged money into euros at the airport."
+  },
+  "통화": {
+    "de": "Die Währung in Deutschland ist der Euro.",
+    "en": "The currency used in Germany is the euro."
+  },
+  "저축하다": {
+    "de": "Ich versuche, jeden Monat wenigstens etwas zu sparen.",
+    "en": "I try to save at least a little every month."
+  },
+  "온난화": {
+    "de": "Die globale Erwärmung ist schlimmer, als man denkt.",
+    "en": "Global warming is more serious than you'd think."
+  },
+  "오염": {
+    "de": "Die Feinstaubbelastung wird immer schlimmer.",
+    "en": "The fine dust pollution keeps getting worse."
+  },
+  "배출": {
+    "de": "Es ist Zeit, den CO2-Ausstoß zu senken.",
+    "en": "It's time to cut carbon emissions."
+  },
+  "재활용": {
+    "de": "Bei uns zu Hause recyceln wir ganz konsequent.",
+    "en": "We're really strict about recycling at home."
+  },
+  "멸종": {
+    "de": "Viel zu viele Tiere sind vom Aussterben bedroht.",
+    "en": "So many animals are on the brink of extinction."
+  },
+  "생태계": {
+    "de": "Der Schutz des Ökosystems ist Aufgabe von uns allen.",
+    "en": "Protecting the ecosystem is on all of us."
+  },
+  "자원": {
+    "de": "Ressourcen sind nicht unendlich, also sollten wir sparsam damit umgehen.",
+    "en": "Resources aren't unlimited, so we should use them sparingly."
+  },
+  "폐기물": {
+    "de": "Die Entsorgung von Industrieabfällen ist ein großes Problem.",
+    "en": "Industrial waste disposal is a big problem."
+  },
+  "태양광": {
+    "de": "Solarenergie nimmt immer mehr zu.",
+    "en": "Solar energy keeps growing."
+  },
+  "온실가스": {
+    "de": "Wir müssen den Ausstoß von Treibhausgasen reduzieren.",
+    "en": "We have to reduce greenhouse gas emissions."
+  },
+  "친환경": {
+    "de": "Heutzutage kommen viele umweltfreundliche Produkte auf den Markt.",
+    "en": "There are a lot of eco-friendly products coming out these days."
+  },
+  "지속 가능성": {
+    "de": "Wir brauchen Entscheidungen, die die Nachhaltigkeit berücksichtigen.",
+    "en": "We need decisions that take sustainability into account."
+  }
+}

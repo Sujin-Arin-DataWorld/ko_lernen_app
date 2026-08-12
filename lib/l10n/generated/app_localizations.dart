@@ -334,7 +334,7 @@ abstract class AppL10n {
   /// No description provided for @characterTraitMagpie.
   ///
   /// In de, this message translates to:
-  /// **'Fröhlich & lebendig'**
+  /// **'Fröhlich & lebhaft'**
   String get characterTraitMagpie;
 
   /// No description provided for @characterDescMagpie.
@@ -1678,7 +1678,7 @@ abstract class AppL10n {
   /// No description provided for @hangulStrokeOrderTitle.
   ///
   /// In de, this message translates to:
-  /// **'📽 Strichreihenfolge (tippe für neu)'**
+  /// **'📽 Strichreihenfolge (zum Wiederholen tippen)'**
   String get hangulStrokeOrderTitle;
 
   /// No description provided for @hangulTraceTitle.
@@ -2290,7 +2290,7 @@ abstract class AppL10n {
   /// No description provided for @gyeJoinedSnack.
   ///
   /// In de, this message translates to:
-  /// **'{name} beigetreten!'**
+  /// **'{name} ist beigetreten!'**
   String gyeJoinedSnack(Object name);
 
   /// No description provided for @gyeErrNetwork.
@@ -3328,7 +3328,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage1Title.
   ///
   /// In de, this message translates to:
-  /// **'Treffe deinen Lernfreund'**
+  /// **'Triff deinen Lernfreund'**
   String get onboardingPage1Title;
 
   /// No description provided for @onboardingPage1Subtitle.
@@ -5194,7 +5194,7 @@ abstract class AppL10n {
   /// No description provided for @gameBestTries.
   ///
   /// In de, this message translates to:
-  /// **'Bester: {count} Versuche'**
+  /// **'Rekord: {count} Versuche'**
   String gameBestTries(int count);
 
   /// No description provided for @clozeTitle.
@@ -5254,7 +5254,7 @@ abstract class AppL10n {
   /// No description provided for @speedMatchBest.
   ///
   /// In de, this message translates to:
-  /// **'Bester: {count} Paare'**
+  /// **'Rekord: {count} Paare'**
   String speedMatchBest(int count);
 
   /// No description provided for @dailyTitle.
@@ -7672,13 +7672,13 @@ abstract class AppL10n {
   /// No description provided for @coachBookshelfStep1Title.
   ///
   /// In de, this message translates to:
-  /// **'Wörterbuch erstellen'**
+  /// **'Wortliste erstellen'**
   String get coachBookshelfStep1Title;
 
   /// No description provided for @coachBookshelfStep1Body.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen'**
+  /// **'Tippe auf ＋ oben rechts, um eine eigene Wortliste anzulegen'**
   String get coachBookshelfStep1Body;
 
   /// No description provided for @coachBookshelfStep2Title.
@@ -7810,7 +7810,7 @@ abstract class AppL10n {
   /// No description provided for @coachGyeStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden'**
+  /// **'Tippe auf den Smiley-Button, um einen Sticker zur Motivation zu senden'**
   String get coachGyeStep2Body;
 
   /// No description provided for @coachProfileTitle.

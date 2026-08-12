@@ -151,7 +151,7 @@ class AppL10nDe extends AppL10n {
   String get characterRomanMagpie => 'Joy';
 
   @override
-  String get characterTraitMagpie => 'Fröhlich & lebendig';
+  String get characterTraitMagpie => 'Fröhlich & lebhaft';
 
   @override
   String get characterDescMagpie =>
@@ -880,7 +880,8 @@ class AppL10nDe extends AppL10n {
       '① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts';
 
   @override
-  String get hangulStrokeOrderTitle => '📽 Strichreihenfolge (tippe für neu)';
+  String get hangulStrokeOrderTitle =>
+      '📽 Strichreihenfolge (zum Wiederholen tippen)';
 
   @override
   String get hangulTraceTitle => 'Mit dem Finger nachzeichnen';
@@ -1236,7 +1237,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String gyeJoinedSnack(Object name) {
-    return '$name beigetreten!';
+    return '$name ist beigetreten!';
   }
 
   @override
@@ -1840,7 +1841,7 @@ class AppL10nDe extends AppL10n {
   String get statsWinRate => 'Quote';
 
   @override
-  String get onboardingPage1Title => 'Treffe deinen Lernfreund';
+  String get onboardingPage1Title => 'Triff deinen Lernfreund';
 
   @override
   String get onboardingPage1Subtitle => 'Taego begleitet dich beim Lernen';
@@ -2923,7 +2924,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String gameBestTries(int count) {
-    return 'Bester: $count Versuche';
+    return 'Rekord: $count Versuche';
   }
 
   @override
@@ -2959,7 +2960,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String speedMatchBest(int count) {
-    return 'Bester: $count Paare';
+    return 'Rekord: $count Paare';
   }
 
   @override
@@ -4423,11 +4424,11 @@ class AppL10nDe extends AppL10n {
       'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor';
 
   @override
-  String get coachBookshelfStep1Title => 'Wörterbuch erstellen';
+  String get coachBookshelfStep1Title => 'Wortliste erstellen';
 
   @override
   String get coachBookshelfStep1Body =>
-      'Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen';
+      'Tippe auf ＋ oben rechts, um eine eigene Wortliste anzulegen';
 
   @override
   String get coachBookshelfStep2Title => 'Gespeicherte Wörter suchen';
@@ -4504,7 +4505,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachGyeStep2Body =>
-      'Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden';
+      'Tippe auf den Smiley-Button, um einen Sticker zur Motivation zu senden';
 
   @override
   String get coachProfileTitle => 'Dein Konto';
