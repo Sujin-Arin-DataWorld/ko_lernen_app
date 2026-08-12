@@ -53,7 +53,8 @@ test("정상 삭제 플로우가 먼저 지웠어도 멱등하다", async () => 
   const bridge = createAuthUserDeletionBridge({ firestore: db });
 
   // account_deletion_worker 가 이미 users/{uid} 를 지운 뒤 Auth 삭제가 오는
-  // 순서. recursiveDelete 는 없는 문서에 no-op 이므로 두 번 불러도 안전하다.
+  // 순서. 브리지는 같은 대상에 반복 실행해도 안전해야 한다 — 이미 정리된
+  // 트리를 다시 훑는 것뿐이라 부작용이 없다.
   await bridge({ uid: "abc123" });
   await bridge({ uid: "abc123" });
 
