@@ -219,6 +219,18 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 홈 캐릭터 매트 · Satz 정답 버스트 (2026-08-12)
+
+- [x] 홈 전용 한지색 사전 합성 MP4 2개를 분리하고 Android 외부 영상 텍스처의
+  runtime `ColorFiltered`를 홈에서 제거했다. 기존 캐릭터 18개의 순백 매트는 유지한다.
+- [x] Satz bauen 정답 엽전·복주머니를 기존 viewport-fit 결과의 정확히 6배로 확대하고
+  원점을 화면 정중앙에 고정했다. 첫 프레임 전에 시트 preload를 완료하며, 다른 6개
+  quest의 공유 기본 연출은 유지한다.
+- [x] 전 프레임 매트 검사·ffprobe·변경 파일 분석·2-way 병렬 회귀 64/64·깨끗한
+  임시 APK 빌드 완료.
+- [ ] Jin: Xiaomi MIUI의 `USB로 설치` 창에서 `설치`를 직접 승인한 뒤 홈의 흰 사각형
+  소거와 Satz 정답 6배 burst를 시각 확인. 앱 데이터 clear+uninstall은 이미 완료됐다.
+
 ### Android 15 edge-to-edge · Android 16 대형 화면 대응 (2026-08-11)
 
 - [x] FlutterActivity 호환 AndroidX

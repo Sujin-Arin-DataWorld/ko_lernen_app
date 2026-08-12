@@ -5,9 +5,8 @@
 //     칩·설정 아이콘·인사말이 통째로 사라졌다(자리는 비어 있고, 영상 뒤에 그려
 //     지는 미션 카드 등은 정상). → 헤더/인사말이 영상보다 **나중에 paint** 되도록
 //     `verticalDirection: up` 으로 순서를 역전했다. 배치는 그대로여야 한다.
-//  ② 영상 사각형만 배경보다 밝게 떠 "액자"처럼 보였다. 흰 매트의
-//     `multiply(흰색, blendColor)` 결과는 **정확히 blendColor 단색**이므로,
-//     그 뒤 배경도 같은 평면 단색이어야 이음매가 사라진다.
+//  ② Android 외부 영상 텍스처가 runtime multiply를 건너뛰어 흰 사각형이
+//     드러났다. 홈은 한지색을 미리 합성한 전용 클립을 쓰고 필터를 끈다.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,7 +19,6 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
-import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 Widget _wrap(Widget child) => MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -113,19 +111,17 @@ void main() {
         }
       });
 
-      testWidgets('영상 매트는 히어로 배경과 같은 평면 단색으로 흡수된다', (tester) async {
+      testWidgets('홈 영상은 사전 합성된 한지 매트를 사용한다', (tester) async {
         await _pumpHome(tester);
 
         final player = tester.widget<CharacterClipPlayer>(
           find.byType(CharacterClipPlayer),
         );
-        expect(
-          player.blendColor,
-          SoriColors.lightBg,
-          reason:
-              'blendColor 는 홈 배경 상단 평면 구간과 같은 상수여야 한다 '
-              '— 다르면 영상 사각형이 액자처럼 뜬다',
-        );
+        final expectedAsset = kind == MascotKind.magpie
+            ? HomeHeroClips.magpieWalkingFront
+            : HomeHeroClips.tigerRise;
+        expect(player.asset, expectedAsset);
+        expect(player.applyMultiplyFilter, isFalse);
       });
 
       testWidgets('밴드는 첫 화면 안에 들어오는 크기로 제한된다', (tester) async {

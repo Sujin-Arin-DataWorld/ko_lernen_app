@@ -240,7 +240,11 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         .toList();
 
     _punct = SatzBauenQuest.terminalPunctuation(_targetKo);
-    final all = <String>[...tokens, ...distractors, if (_punct != null) _punct!];
+    final all = <String>[
+      ...tokens,
+      ...distractors,
+      if (_punct != null) _punct!,
+    ];
     // Deterministisch mischen (stabil pro Quest, variiert je Satz).
     final rng = math.Random(_targetKo.hashCode);
     for (var i = all.length - 1; i > 0; i--) {
@@ -319,8 +323,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       _targetKo,
     );
 
-    if (punctuationOk &&
-        SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
+    if (punctuationOk && SatzBauenQuest.isCorrectOrder(assembled, _targetKo)) {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
@@ -470,6 +473,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                     celebrating: _celebrated,
                     size: 96,
                     kind: MascotKind.magpie,
+                    // 기존 viewport-fit 결과를 화면 정중앙에서 정확히 6배 확대.
+                    burstScale: 6,
+                    burstOrigin: Alignment.center,
                   ),
                 ),
               ],

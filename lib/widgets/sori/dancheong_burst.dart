@@ -76,10 +76,12 @@ class DancheongBurst {
   /// 일회성 버스트를 [Overlay]에 띄운다. 780ms 후 스스로 사라진다.
   ///
   /// [intensity]는 최종 크기 배율 (1.0 = 기본 폭 300dp).
+  /// [postFitScale]은 뷰포트 안전 fit이 끝난 크기에 적용되는 추가 배율이다.
   static void fire(
     BuildContext context, {
     required Offset origin,
     double intensity = 1.0,
+    double postFitScale = 1.0,
   }) {
     if (SoriMotion.reduceMotion(context)) return;
     final overlay = Overlay.maybeOf(context);
@@ -101,6 +103,7 @@ class DancheongBurst {
         pouches: pouches,
         coins: coins,
         intensity: intensity,
+        postFitScale: postFitScale,
         onDone: () => entry.remove(),
       ),
     );
@@ -128,7 +131,8 @@ class DancheongBurstPlacement {
 /// Quest mascots intentionally live just above the top-right card edge. Their
 /// global centre is therefore a poor centre for a 300dp celebration sheet on a
 /// narrow phone. This helper shifts and, only when necessary, scales the burst
-/// while preserving its normal size on larger viewports.
+/// while preserving its normal size on larger viewports. `postFitScale` is
+/// applied only after that safe placement has been resolved.
 class DancheongBurstLayout {
   DancheongBurstLayout._();
 
@@ -143,8 +147,10 @@ class DancheongBurstLayout {
     required Offset preferredOrigin,
     required double intensity,
     double heightOverWidth = 2 / 3,
+    double postFitScale = 1.0,
   }) {
     final requestedIntensity = math.max(0.0, intensity).toDouble();
+    final safePostFitScale = math.max(0.0, postFitScale).toDouble();
     final safeHeightOverWidth = math.max(0.01, heightOverWidth).toDouble();
     final requestedWidth = baseWidth * requestedIntensity * _maxReach;
     final horizontalExtent = requestedWidth * (0.5 + _rotationPadding);
@@ -166,16 +172,26 @@ class DancheongBurstLayout {
     final scale = math
         .max(0.0, math.min(1.0, math.min(widthScale, heightScale)))
         .toDouble();
-    final resolvedIntensity = requestedIntensity * scale;
+    final fittedIntensity = requestedIntensity * scale;
+    final fittedWidth = baseWidth * fittedIntensity * _maxReach;
+    final fittedHorizontalExtent = fittedWidth * (0.5 + _rotationPadding);
+    final fittedVerticalExtent =
+        fittedWidth *
+        (safeHeightOverWidth / 2 + _liftPadding + _rotationPadding);
+    final origin = Offset(
+      _clampAxis(preferredOrigin.dx, viewport.width, fittedHorizontalExtent),
+      _clampAxis(preferredOrigin.dy, viewport.height, fittedVerticalExtent),
+    );
+
+    // Fit first so the default result remains safe on every viewport, then
+    // scale around that fitted origin. Values above 1 intentionally overflow
+    // the paint viewport and are clipped by the overlay's CustomPaint.
+    final resolvedIntensity = fittedIntensity * safePostFitScale;
     final resolvedWidth = baseWidth * resolvedIntensity * _maxReach;
     final resolvedHorizontalExtent = resolvedWidth * (0.5 + _rotationPadding);
     final resolvedVerticalExtent =
         resolvedWidth *
         (safeHeightOverWidth / 2 + _liftPadding + _rotationPadding);
-    final origin = Offset(
-      _clampAxis(preferredOrigin.dx, viewport.width, resolvedHorizontalExtent),
-      _clampAxis(preferredOrigin.dy, viewport.height, resolvedVerticalExtent),
-    );
 
     return DancheongBurstPlacement(
       origin: origin,
@@ -199,6 +215,7 @@ class _BurstLayer extends StatefulWidget {
   final ui.Image pouches;
   final ui.Image coins;
   final double intensity;
+  final double postFitScale;
   final VoidCallback onDone;
 
   const _BurstLayer({
@@ -206,6 +223,7 @@ class _BurstLayer extends StatefulWidget {
     required this.pouches,
     required this.coins,
     required this.intensity,
+    required this.postFitScale,
     required this.onDone,
   });
 
@@ -249,6 +267,7 @@ class _BurstLayerState extends State<_BurstLayer>
                 coins: widget.coins,
                 origin: widget.origin,
                 intensity: widget.intensity,
+                postFitScale: widget.postFitScale,
                 t: _ctrl.value,
               ),
             ),
@@ -285,6 +304,7 @@ class _SheetBurstPainter extends CustomPainter {
   final ui.Image coins;
   final Offset origin;
   final double intensity;
+  final double postFitScale;
   final double t; // 0..1
 
   _SheetBurstPainter({
@@ -292,6 +312,7 @@ class _SheetBurstPainter extends CustomPainter {
     required this.coins,
     required this.origin,
     required this.intensity,
+    required this.postFitScale,
     required this.t,
   });
 
@@ -311,6 +332,7 @@ class _SheetBurstPainter extends CustomPainter {
       preferredOrigin: origin,
       intensity: intensity,
       heightOverWidth: heightOverWidth,
+      postFitScale: postFitScale,
     );
     final shots = <_Shot>[
       // 복주머니가 먼저 — 크고 무거운 게 앞장서야 타격이 선다.

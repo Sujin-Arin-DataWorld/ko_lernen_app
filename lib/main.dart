@@ -180,10 +180,10 @@ Future<void> main() async {
   // fallback for the lifetime of the already-built screen.
   await SceneAssetResolver.load();
 
-  // 정답 축하 스프라이트(복주머니·엽전) 미리 디코딩 — 첫 정답에서 폴백이 뜨는 걸 막는다.
-  // 실패해도 조용히 넘어가고 절차적 burst로 폴백. runApp 무지연.
-  // ignore: discarded_futures, unawaited_futures
-  DancheongBurst.preload();
+  // 정답 축하 스프라이트(복주머니·엽전)를 첫 프레임 전에 디코딩한다.
+  // 새 설치 직후 첫 정답도 Satz 전용 6배 시트를 쓰도록 완료를 기다린다.
+  // 에셋 실패는 preload 내부에서 기록하고 절차적 burst로 안전하게 폴백한다.
+  await DancheongBurst.preload();
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로

@@ -35,6 +35,17 @@ class MascotPartner extends StatefulWidget {
   final MascotKind kind;
   final double size;
 
+  /// Multiplies the already viewport-fitted celebration size.
+  ///
+  /// Keeping this at 1 preserves the shared quest default. A value above 1
+  /// intentionally lets the painted sheets extend beyond the viewport.
+  final double burstScale;
+
+  /// Celebration origin in the overlay viewport.
+  ///
+  /// `Alignment(0, -0.1)` maps to the existing `(50%, 45%)` origin.
+  final Alignment burstOrigin;
+
   /// 축하 연출과 함께 정답 효과음을 재생할지. 호출부가 이미
   /// `SoundService.correct()`를 부르고 있으면 false로 꺼서 중복을 막는다.
   final bool playSound;
@@ -44,6 +55,8 @@ class MascotPartner extends StatefulWidget {
     required this.celebrating,
     this.kind = MascotKind.magpie,
     this.size = 56,
+    this.burstScale = 1,
+    this.burstOrigin = const Alignment(0, -0.1),
     this.playSound = true,
   });
 
@@ -145,15 +158,14 @@ class _MascotPartnerState extends State<MascotPartner>
     // 버스트는 한 번만 쏜다. "파-박" 두 박자는 이제 시트 두 장(복주머니 → 엽전)의
     // 발사 시차가 만들므로, 여기서 여러 번 쏘면 통짜 시트가 겹쳐 뭉개진다.
     //
-    // 원점 = **화면 중앙**(높이 45%): 마스코트 중심(카드 우상단 모서리) 발사는
-    // 구석에서 터져 1.35→1.7 로 키워도 "아직 부족"으로 읽혔다(2026-08-12 Jin
-    // 3차: "가운데부터 터져서 화면 중간을 꽉"). intensity 2.4 —
-    // DancheongBurstLayout 이 뷰포트에 맞게 클램프해 화면 밖으로 안 나간다.
+    // 기본 원점은 기존 화면 높이 45%, 기본 크기는 viewport-fit 결과 그대로다.
+    // 특정 퀘스트만 [burstOrigin]/[burstScale]로 원점과 fit 이후 배율을 바꾼다.
     final size = MediaQuery.sizeOf(context);
     DancheongBurst.fire(
       context,
-      origin: Offset(size.width / 2, size.height * 0.45),
+      origin: widget.burstOrigin.alongSize(size),
       intensity: 2.4,
+      postFitScale: widget.burstScale,
     );
 
     // 햅틱은 시트 두 장의 타이밍에 맞춰 두 번 — 파박을 촉각으로 완성한다.

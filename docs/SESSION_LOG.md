@@ -7,6 +7,59 @@
 
 ---
 
+### 2026-08-12 (Codex) — 홈 영상 흰 매트 제거 + Satz 정답 버스트 6배
+
+**왜.** Android 12 실기기 홈에서 캐릭터 MP4의 흰 사각 배경이 그대로 노출됐다.
+설치 APK·저장소 영상 해시와 두 원본 클립의 순백 매트는 일치했으므로 stale 캐시가
+아니라 Skia/SurfaceTexture 외부 영상에 runtime `ColorFiltered(multiply)`가 안정적으로
+적용되지 않는 경로였다. 같은 요청으로 Satz bauen의 엽전·복주머니 정답 효과를 현재
+보이는 크기의 정확히 6배로, 화면 정중앙에서 터지게 해야 했다.
+
+**무엇.**
+
+- `assets/video/home_hero/`에 `tiger_rise_hanji.mp4`와
+  `magpie_walking_front_hanji.mp4`를 추가했다. 기존 순백 캐릭터 클립을
+  `RGB × #FAF6EC / 255`로 사전 합성한 홈 전용 파생본이라 흰 털/깃털을 지우는
+  chroma-key가 아니다. 기존 `assets/video/character/` 18개의 흰 매트 계약은 보존한다.
+- `HomeHeroClips`와 `CharacterClipPlayer.applyMultiplyFilter`(기본 `true`)를 추가하고,
+  홈만 사전 합성 클립 + `false`를 사용한다. 다른 캐릭터 영상 호출부는 기존 multiply를
+  그대로 쓴다.
+- `DancheongBurstLayout.fit()`에 **viewport fit 이후** 적용하는 `postFitScale`을
+  추가했다. `MascotPartner` 기본값은 기존 45% 원점·1배를 보존하고 Satz bauen만
+  `Alignment.center`·`burstScale: 6`이다. 단순 `intensity: 14.4`는 fit 단계에서 다시
+  축소되어 화면상 변화가 없으므로 쓰지 않았다. reduce-motion·IgnorePointer·
+  RepaintBoundary는 유지한다.
+- 첫 실행에서 시트 디코딩보다 정답이 먼저 나와 절차적 fallback으로 바뀌지 않도록
+  `runApp` 전에 `DancheongBurst.preload()` 완료를 기다린다. 홈 매트 재생 계약·리포트,
+  Satz 배율·시작 preload 회귀 테스트를 추가했다.
+
+**검증.**
+
+- 실기기 수정 전 ADB 캡처에서 홈 영상의 흰 사각형을 재현했다.
+- `.venv\\Scripts\\python.exe tool\\check_home_hero_matte.py` → 2/2 OK
+  (한지색 허용오차 ±2, magpie 113프레임·tiger 121프레임). ffprobe → 두 파일 모두
+  H.264 High level 3.1 / yuv420p / 960×960 / 24fps / 무음.
+- 변경 Dart 12파일 직접 analyzer → **No issues found**. Satz 관련 기존+신규 테스트는
+  25/25 통과. 공유 작업 트리의 4-way·2-way 실행은 다른 세션까지 19개
+  `flutter_tester`가 겹쳐 제한을 넘겼고, 해당 프로세스는 종료하지 않았다. 이번 변경만
+  overlay한 깨끗한 임시 복사본에서 2-way 병렬 묶음을 완주했다. 첫 완주가 기존 매트
+  정규식과 홈 상수명 `_base`의 충돌 1건을 잡아 `_homeBase`로 분리했다. 첫 실행
+  preload 계약도 추가한 최종 재실행 결과 **64/64 통과**했다.
+- 현재 HEAD에 이번 변경만 overlay한 깨끗한 임시 복사본에서
+  `flutter build apk --debug --no-pub` 성공. APK 302,514,679 bytes,
+  SHA-256 `6A6668923300BDDD3FB9356CD5D2C284B39D6AF0552515405FFCF51BA54CFF58`이며
+  홈 전용 두 MP4의 APK 포함을 확인했다.
+- 기기 `com.sujinarin.ko_lernen_app`의 `pm clear`와 uninstall은 각각 `Success`.
+  재설치는 MIUI `AdbInstallActivity`가 ADB 주입 터치를 보안상 무시해
+  `INSTALL_FAILED_USER_RESTRICTED`로 취소됨. 현재 앱은 제거된 상태이며, 휴대폰에서
+  설치 창의 `설치`를 직접 누른 뒤 홈/Satz 시각 검증이 남았다. 최종 APK는 기기
+  `/sdcard/Download/HangulSori-debug.apk`에도 복사했고 기기 SHA-256이 위 빌드와
+  일치함을 확인했다.
+
+**커밋:** 구현 커밋 생성 뒤 해시를 직후 기록 커밋에서 확정한다.
+
+---
+
 ### 2026-08-12 (Claude) — 초성 퀴즈가 정답을 통째로 노출하던 버그 (197/930 단어)
 
 **왜.** Jin이 실기기에서 잡았다 — Anlaut-Quiz "초성 + 모음" 모드에서 `더`(mehr)가
