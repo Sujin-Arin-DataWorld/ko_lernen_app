@@ -23,7 +23,7 @@ Home matte **2/2**, 일반 character matte **18/18**, Gye Functions Node **338/3
 Firestore Rules **46/46**, `flutter build web --release` 성공, `git diff --check` 통과.
 Windows에서 canonical golden을 갱신하지 않았으며 Linux CI가 정본 비교를 맡는다. Xiaomi
 실기기에서 Home 영상의 흰 사각형이 사라졌는지는 APK 재설치 전까지 외부 검증 경계다.
-코드 커밋: 미확정.
+코드 커밋: `f1320ff`.
 
 ---
 
@@ -39,7 +39,7 @@ course/unit/scenario/assess-link, 70% 기준과 UID를 노출하지 않는 해�
 
 **검증.** 회귀 테스트를 먼저 추가해 지난주 재사용과 무관한 이번 주 재사용이 각각 RED임을
 확인했다. 수정 후 focused Node **7/7**, 전체 Gye Functions Node **338/338**, `node --check`
-2파일과 `git diff --check` 통과. 커밋 해시: 미커밋.
+2파일과 `git diff --check` 통과. 코드 커밋: `f1320ff`.
 
 ---
 
