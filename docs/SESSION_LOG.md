@@ -5967,3 +5967,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **검증:** `dart format --output=none --set-exit-if-changed`는 대상 6파일을 변경하지 않고 통과했다. 지정 통합 `flutter test`는 **421 passed**, `dart run tool/verify_ios_store_contract.dart`는 통과, 범위 `dart analyze --fatal-infos lib/services/app_version_service.dart lib/screens/settings_screen.dart tool/verify_ios_store_contract.dart test/app_version_service_test.dart test/ios_store_contract_test.dart test/store_submission_material_test.dart test/widgets/settings_screen_test.dart`는 **No issues found**, `python tool/test_check_app_store_screenshots.py`는 **18 passed**, `git diff --check`도 통과했다. 전역 `dart analyze --fatal-infos`는 iOS 변경과 무관한 동시 수정 `lib/screens/vocab_pack_screen.dart:331:8`의 unused `_speakCurrent` 하나로 exit 1이어서 통과로 기록하지 않는다.
 - **의도된 외부 게이트:** `dart run tool/verify_ios_firebase_config.dart`는 credential-free Windows checkout에서 예상대로 exit 1이며 `firebase_options iOS`, `ios/Runner/GoogleService-Info.plist`, 해당 Runner target membership 누락을 보고한다. 승인된 macOS 릴리스 담당이 Firebase 구성·서명/archive·Xcode privacy report·실제 iPhone/iPad TestFlight·실캡처·App Store Connect/App Privacy/호스팅 URL 검증을 수행하기 전에는 iOS 제출 완료가 아니다. 정확한 순서는 `docs/store/app-store-connect-v2.0.5.md`를 따른다.
 - **커밋:** not created (not requested). 스테이징·푸시·Apple/Firebase 외부 호출은 하지 않았다.
+# 2026-08-13 — Sori Stage preview foundation
+
+- Created the isolated `codex/sori-stage-frontend` worktree at `45779bf`.
+- Added the default-on `ENABLE_SORI_STAGE` rollout gate without changing legacy routes.
+- Added `SoriActivityColors`, the activity/reward/progression contracts, and one catalog for all Learn and Games entries.
+- Added read-only UX Gallery panels `07A`–`07D` for Today, lesson stages, the actual-change reward receipt, and the complete learning journey.
+- No new character, Hanok, AI, or Rive assets were introduced.

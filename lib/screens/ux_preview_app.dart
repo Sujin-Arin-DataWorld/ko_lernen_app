@@ -40,6 +40,7 @@ import 'practice_hub_screen.dart';
 import 'profile_screen.dart';
 import 'sarangbang_screen.dart';
 import 'scenario_player_screen.dart';
+import 'sori_stage/sori_stage_preview_screens.dart';
 import 'ux_preview_gallery_screen.dart';
 
 /// Maps every documented UX panel to its production widget and a deterministic
@@ -129,6 +130,10 @@ class UxPreviewRegistry {
       openTodayRoute: (_, __) async {},
     ),
     '06C' => _reviewFirstHome(),
+    '07A' => const SoriStageTodayPreviewScreen(),
+    '07B' => const SoriStageLessonPreviewScreen(),
+    '07C' => const SoriStageRewardReceiptPreviewScreen(),
+    '07D' => const SoriStageJourneyPreviewScreen(),
     _ => throw ArgumentError.value(panel.id, 'panel.id', 'Unknown UX panel'),
   };
 }

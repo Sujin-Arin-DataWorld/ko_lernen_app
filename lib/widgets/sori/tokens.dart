@@ -260,6 +260,31 @@ class SoriColors {
   ];
 }
 
+/// Semantic activity palette used by Sori Stage.
+///
+/// These roles sit on top of [SoriColors]; they do not replace the established
+/// brand tokens. Every production surface pairs the color with a label, icon,
+/// or progress affordance so meaning never depends on color alone.
+abstract final class SoriActivityColors {
+  static const Color listening = Color(0xFF79CFC0);
+  static const Color listeningStrong = SoriColors.primary;
+  static const Color speaking = SoriColors.tiger;
+  static const Color review = Color(0xFFE48A78);
+  static const Color completion = SoriColors.primaryDark;
+  static const Color reward = SoriColors.gold;
+  static const Color collaboration = SoriColors.highlight;
+  static const Color hanji = SoriColors.lightBg;
+  static const Color hanokStage = Color(0xFF173D36);
+
+  static const Color onListening = SoriColors.lightText;
+  static const Color onSpeaking = SoriColors.onTigerFill;
+  static const Color onReview = SoriColors.lightText;
+  static const Color onCompletion = Colors.white;
+  static const Color onReward = SoriColors.onGoldFill;
+  static const Color onCollaboration = Colors.white;
+  static const Color onHanokStage = Color(0xFFFFF7E4);
+}
+
 /// **레거시 Teal 팔레트** — Firebase Remote Config 'palette_variant=teal' 시 사용.
 /// 단청 마이그레이션 실패/롤백 대비 kill-switch용 보관소.
 /// 직접 참조 금지 — [PaletteService] 통해 ThemeData 빌드 시에만 사용.

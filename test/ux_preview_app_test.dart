@@ -26,6 +26,7 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/ux_preview_app.dart';
 import 'package:ko_lernen_app/screens/ux_preview_gallery_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -58,7 +59,7 @@ void main() {
       registry.panelIds,
       uxPreviewPanels.map((panel) => panel.id).toList(),
     );
-    expect(registry.panelIds.toSet(), hasLength(20));
+    expect(registry.panelIds.toSet(), hasLength(24));
 
     final expectedTypes = <String, Type>{
       '01A': ConsentScreen,
@@ -81,6 +82,10 @@ void main() {
       '06A': ProfileScreen,
       '06B': HomeScreen,
       '06C': HomeScreen,
+      '07A': SoriStageTodayPreviewScreen,
+      '07B': SoriStageLessonPreviewScreen,
+      '07C': SoriStageRewardReceiptPreviewScreen,
+      '07D': SoriStageJourneyPreviewScreen,
     };
 
     for (final panel in uxPreviewPanels) {

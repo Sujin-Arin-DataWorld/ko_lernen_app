@@ -4,7 +4,15 @@
 /// `docs/HANGUL_SORI_UX_REBUILD_MOCKUPS.html`. Keeping the inventory separate
 /// from the widget builders lets tests prove that no mockup silently drops out
 /// when production preview seams change.
-enum UxPreviewSection { onboarding, daily, hanok, explore, gye, account }
+enum UxPreviewSection {
+  onboarding,
+  daily,
+  hanok,
+  explore,
+  gye,
+  account,
+  soriStage,
+}
 
 class UxPreviewPanel {
   const UxPreviewPanel({
@@ -102,5 +110,25 @@ const uxPreviewPanels = <UxPreviewPanel>[
     id: '06C',
     section: UxPreviewSection.account,
     title: 'Wiederholung zuerst',
+  ),
+  UxPreviewPanel(
+    id: '07A',
+    section: UxPreviewSection.soriStage,
+    title: 'Sori Stage · Heute',
+  ),
+  UxPreviewPanel(
+    id: '07B',
+    section: UxPreviewSection.soriStage,
+    title: 'Hören · Sprechen · Erinnern',
+  ),
+  UxPreviewPanel(
+    id: '07C',
+    section: UxPreviewSection.soriStage,
+    title: 'Belohnungsbeleg',
+  ),
+  UxPreviewPanel(
+    id: '07D',
+    section: UxPreviewSection.soriStage,
+    title: 'Gesamte Lernreise',
   ),
 ];

@@ -7,7 +7,7 @@ import '../widgets/sori/tokens.dart';
 
 typedef UxPreviewPanelBuilder = Widget Function(UxPreviewPanel panel);
 
-/// Debug-only directory for the twenty UX rebuild fixture states.
+/// Debug-only directory for the UX rebuild fixture states.
 ///
 /// [buildPanel] must return the production screen wired to a mutation-free
 /// preview seam. The gallery owns only discovery and navigation; it never
@@ -77,7 +77,7 @@ class UxPreviewGalleryScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('UX 01–06')),
+      appBar: AppBar(title: const Text('UX 01–07')),
       body: SafeArea(
         child: SoriContentClamp(
           base: const EdgeInsets.fromLTRB(
@@ -100,5 +100,6 @@ class UxPreviewGalleryScreen extends StatelessWidget {
     UxPreviewSection.explore => '04 · Üben & Entdecken',
     UxPreviewSection.gye => '05 · 계',
     UxPreviewSection.account => '06 · Ich & Offline',
+    UxPreviewSection.soriStage => '07 · Sori Stage',
   };
 }
