@@ -44,6 +44,56 @@ const copy = {
   },
 };
 
+const TESTER_MAIL = "hello@hangul-sori.com";
+
+const testerAccess = {
+  de: {
+    eyebrow: "Testphase",
+    title: "Hangul Sori ist gerade im Testbetrieb.",
+    text: "Die App ist noch nicht öffentlich im App Store oder bei Google Play erhältlich. Der Android-Test läuft bereits, die iOS-Version wird vorbereitet.",
+    steps: [
+      "Schreib uns kurz eine E-Mail an hello@hangul-sori.com",
+      "Nenne dein Gerät: Android oder iPhone",
+      "Du bekommst deinen Testzugang per E-Mail zurück",
+    ],
+    cta: "Testzugang anfragen",
+    mailNote: "Oder direkt schreiben an",
+    close: "Schließen",
+    subject: "Hangul Sori Testzugang",
+    body: "Hallo Hangul Sori Team,\n\nich möchte gern an der Testphase teilnehmen.\n\nGerät (Android oder iPhone): \nName: \n\nViele Grüße",
+  },
+  en: {
+    eyebrow: "Testing phase",
+    title: "Hangul Sori is still in testing.",
+    text: "The app is not publicly available on the App Store or Google Play yet. Android testing is already running and the iOS version is in preparation.",
+    steps: [
+      "Send a short email to hello@hangul-sori.com",
+      "Tell us your device: Android or iPhone",
+      "We send your test access back by email",
+    ],
+    cta: "Request test access",
+    mailNote: "Or write directly to",
+    close: "Close",
+    subject: "Hangul Sori test access",
+    body: "Hello Hangul Sori team,\n\nI would like to join the testing phase.\n\nDevice (Android or iPhone): \nName: \n\nBest regards",
+  },
+  ko: {
+    eyebrow: "테스터 기간",
+    title: "지금은 테스터 기간입니다.",
+    text: "한글소리는 아직 App Store와 Google Play에 정식 출시되지 않았습니다. Android 테스트가 진행 중이고 iOS 버전은 준비하고 있습니다.",
+    steps: [
+      "hello@hangul-sori.com 으로 메일을 보내주세요",
+      "사용 기기(Android 또는 iPhone)를 알려주세요",
+      "테스터 참여 링크를 메일로 보내드립니다",
+    ],
+    cta: "메일로 테스터 신청하기",
+    mailNote: "또는 바로 메일 보내기",
+    close: "닫기",
+    subject: "한글소리 테스터 신청",
+    body: "한글소리 팀에게,\n\n테스터로 참여하고 싶습니다.\n\n사용 기기(Android 또는 iPhone): \n이름: \n\n감사합니다.",
+  },
+};
+
 const featureGroups = {
   de: [
     ["Hangul von Grund auf", "19 Konsonanten, 21 Vokale, Batchim, animierte Strichfolge und Nachzeichnen mit dem Finger."],
@@ -89,8 +139,25 @@ export function Header({ locale }: { locale: Locale }) {
 function StoreButtons({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const c = copy[locale];
   return <div className={`store-row ${compact ? "compact" : ""}`} aria-label="App availability">
-    <button className="store-button" disabled><span></span><span><small>{c.iosState}</small>App Store</span></button>
-    <button className="store-button" disabled><span className="play">▶</span><span><small>{c.androidState}</small>Google Play</span></button>
+    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span></span><span><small>{c.iosState}</small>App Store</span></a>
+    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="play">▶</span><span><small>{c.androidState}</small>Google Play</span></a>
+  </div>;
+}
+
+function TesterAccess({ locale }: { locale: Locale }) {
+  const t = testerAccess[locale];
+  const mailto = `mailto:${TESTER_MAIL}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(t.body)}`;
+  return <div className="tester-note" id="tester-access" role="dialog" aria-modal="true" aria-labelledby="tester-access-title">
+    <a className="tester-note-backdrop" href="#tester-access-closed" aria-label={t.close} tabIndex={-1}/>
+    <div className="tester-note-card">
+      <a className="tester-note-close" href="#tester-access-closed" aria-label={t.close}>×</a>
+      <p className="eyebrow">{t.eyebrow}</p>
+      <h2 id="tester-access-title">{t.title}</h2>
+      <p>{t.text}</p>
+      <ol className="tester-note-steps">{t.steps.map((s,i)=><li key={s}><b>{String(i+1).padStart(2,"0")}</b><span>{s}</span></li>)}</ol>
+      <a className="tester-note-cta" href={mailto}>{t.cta} <span>→</span></a>
+      <p className="tester-note-mail">{t.mailNote} <a href={mailto}>{TESTER_MAIL}</a></p>
+    </div>
   </div>;
 }
 
@@ -177,6 +244,6 @@ export function Landing({ locale }: { locale: Locale }) {
     <section className="section plans"><div className="section-heading"><div><p className="eyebrow">{freeEyebrow}</p><h2>{c.freeTitle}</h2></div><p>{c.freeText}</p></div><article className="launch-free"><div><span>0 €</span><h3>{locale === "ko" ? "부담 없이 한글소리를 시작하세요" : locale === "en" ? "Start Hangul Sori without a paywall" : "Starte Hangul Sori ohne Bezahlschranke"}</h3></div><ul>{launchItems.map(x=><li key={x}>✓ {x}</li>)}</ul></article></section>
 
     <section className="section faq"><p className="eyebrow">FAQ</p><h2>{c.faqTitle}</h2><div>{faqs.map(f=><details key={f[0]}><summary>{f[0]}<span>+</span></summary><p>{f[1]}</p></details>)}</div></section>
-    <section className="final-cta"><div className="final-media"><video autoPlay muted loop playsInline preload="metadata" poster="/taego-joy-poster.jpg" aria-hidden="true"><source src="/taego-joy-duo.mp4" type="video/mp4"/></video><img className="motion-fallback" src="/taego-joy-poster.jpg" alt="Hangul Sori tiger and magpie"/></div><div><p className="eyebrow">한글소리 · Hangul Sori</p><h2>{c.finalTitle}</h2><p>{c.finalText}</p><StoreButtons locale={locale} compact/><a className="beta-link light" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} →</a></div></section><a className="mobile-cta" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} <span>→</span></a><Footer locale={locale}/>
+    <section className="final-cta"><div className="final-media"><video autoPlay muted loop playsInline preload="metadata" poster="/taego-joy-poster.jpg" aria-hidden="true"><source src="/taego-joy-duo.mp4" type="video/mp4"/></video><img className="motion-fallback" src="/taego-joy-poster.jpg" alt="Hangul Sori tiger and magpie"/></div><div><p className="eyebrow">한글소리 · Hangul Sori</p><h2>{c.finalTitle}</h2><p>{c.finalText}</p><StoreButtons locale={locale} compact/><a className="beta-link light" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} →</a></div></section><a className="mobile-cta" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} <span>→</span></a><Footer locale={locale}/><TesterAccess locale={locale}/>
   </main>;
 }
