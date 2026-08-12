@@ -837,8 +837,17 @@ class _AvatarState extends State<_Avatar> {
       child: Center(
         child: CharacterClipPlayer(
           key: ValueKey('profile_avatar_${kind.name}'),
+          // ⚠️ 까치는 `magpieBob2` 를 쓰지 않는다 — **에셋이 불량이다.**
+          // 실측(960² 첫 프레임): 눈에 보이는 회색(min 225~239)이 화면의
+          // 15.3%, 그중 5.8% 는 푸른끼(#EAE8FE 계열)다. 다른 클립은 전부
+          // 0.5% 미만(`magpie_perched` 0.30% · `tiger_roar` 0.08%).
+          // multiply 는 **순백만** 지우므로 이 그림자는 그대로 남아
+          // teal 카드(#EDF3ED) 위에서 #D9DDEC 푸른 얼룩으로 보인다
+          // (Jin 2026-08-13 실기기). `check_clip_matte.py` 는 **모서리만**
+          // 표본해서 이걸 못 잡았다 — 모서리는 순백이 맞다.
+          // `magpie_bob2.mp4` 를 순백 배경으로 다시 내보내면 되돌려도 된다.
           asset: isMagpie
-              ? CharacterClips.magpieBob2
+              ? CharacterClips.magpiePerched
               : CharacterClips.tigerSitting2,
           size: widget.size,
           // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이

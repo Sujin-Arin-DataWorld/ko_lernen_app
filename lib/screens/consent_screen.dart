@@ -15,8 +15,8 @@ import '../l10n/generated/app_localizations.dart';
 import 'app_shell.dart';
 import 'onboarding_start_screen.dart';
 
-const _privacyUrl = 'https://hangul-sori.com/privacy.html';
-const _termsUrl = 'https://hangul-sori.com/terms.html';
+const _privacyUrl = 'https://hangul-sori.com/privacy';
+const _termsUrl = 'https://hangul-sori.com/terms';
 
 /// **Consent-Gate** — DSGVO/ToS-Einwilligung beim ersten Start.
 ///

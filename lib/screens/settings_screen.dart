@@ -1279,11 +1279,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  static const String _privacyUrl = 'https://hangul-sori.com/privacy.html';
-  static const String _termsUrl = 'https://hangul-sori.com/terms.html';
-  static const String _impressumUrl = 'https://hangul-sori.com/impressum.html';
-  static const String _deletionUrl =
-      'https://hangul-sori.com/account-deletion.html';
+  static const String _privacyUrl = 'https://hangul-sori.com/privacy';
+  static const String _termsUrl = 'https://hangul-sori.com/terms';
+  static const String _impressumUrl = 'https://hangul-sori.com/impressum';
+  static const String _deletionUrl = 'https://hangul-sori.com/account-deletion';
 
   Future<void> _copyPrivacyUrl() async {
     await _copyUrl(_privacyUrl);
