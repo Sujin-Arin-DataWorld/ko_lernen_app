@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Linux Home golden 기준선 활성화
+
+**왜.** Home golden test는 개별 baseline PNG가 없으면 일반 PR `flutter test`에서 skip된다.
+CI fixture 복구만 커밋하면 수동 재생성 job은 성공해도 phone/tablet Home 회귀 비교가 자동
+게이트에서 실제로 실행되지 않는다.
+
+**무엇을.** exact head `9dafcc3`의 수동 CI run `31565528854`가 Flutter 3.44/Linux에서
+만든 `goldens-linux-3-44-0` artifact를 임시 경로에 받아 감사했다. 기존 tracked 기준선
+15개는 파일명·크기·SHA-256이 전부 동일했고, 새 Home 기준선 두 개만 저장소에 추가했다.
+`home_compact_360x800.png`은 SHA-256 `d75eab200f65f980a0134654dbbb41cd13012abe1c85c97dbdfb5db9f8ca7ad4`,
+`home_expanded_1280x800.png`은 `3578dd2b5be404a7b162fc532dea7bc2e899ec74aecc0ee0f125f55306bf0ac9`다.
+
+**검증.** 수동 Linux golden job의 `Update goldens`와 artifact upload가 모두 성공했고,
+artifact 17개 중 기존 15개는 byte-identical, 새 두 파일만 추가임을 독립 비교했다. 저장소
+복사 후 두 해시를 다시 확인하고 `git diff --check`를 통과했다. 임시 다운로드 디렉터리는
+삭제했다. 기준선 커밋: `c5c2424`.
+
+---
+
 ### 2026-08-12 (Codex) — Linux matte·Home golden CI 재현성 복구
 
 **왜.** PR #17의 자동·수동 CI에서 앱 로직이나 영상 매트 불일치가 아닌 두 환경 결함이
