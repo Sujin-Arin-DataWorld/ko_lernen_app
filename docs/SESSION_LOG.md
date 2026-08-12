@@ -1,5 +1,33 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — UX Gallery 02C 실제 듣기 문제 상태 보강
+
+**왜.** 02C registry가 quest 없는 인사 시나리오를 기본 `dialog` stage로 열어 실제
+듣기 문제 대신 대화 한 줄을 보여 주고 있었다. runtime type만 맞는 Gallery 검증으로는
+목업의 질문·선택지·검사 CTA와 무쓰기 상호작용을 증명할 수 없었다.
+
+**무엇을.** 02C를 별도 고정 `Scenario`의 `ScenarioStage.quest`로 열고 실제 production
+`HoerverstehenQuest`가 `Was sagt die Person?`, 한국어 3개 선택지,
+`Meine Antwort prüfen`을 렌더하도록 선택 후 확인 모드를 추가했다. 이 모드는 fixture의
+`confirmSelection`이 true일 때만 켜지므로 기존 production quest의 선택 즉시 채점 계약은
+유지된다. player는 해당 quest가 끝나기 전 중복 `Weiter`를 숨기고, Gallery preview에서는
+자동/수동 TTS를 막아 캐시·Firebase·OS TTS로 빠지지 않는다. 정답 상호작용은 preview
+경계 안에서만 완료되며 course evidence·SharedPreferences를 쓰지 않는다.
+
+**검증.** 먼저 실제 `HoerverstehenQuest`가 0개라는 RED를 확인한 뒤, 02C 질문·선택지·
+검사·정답 후 `Weiter` 및 prefs 불변 테스트를 GREEN으로 만들었다. 전체 Gallery 테스트
+**29/29 통과**(02C 포함 20패널 308dp·1.3배, 390dp/1024dp 대표 matrix), 관련 scenario/
+무쓰기 회귀 묶음은 직렬 **56/56 통과**했다. `flutter gen-l10n`,
+`flutter analyze --no-pub --fatal-infos`(`No issues found`), `git diff --check` 통과.
+기존 `dedicated_feedback_route_test`의 별점 문구 1건은 변경 전 `5136b84` detached
+worktree에서도 동일 실패해 이번 변경의 회귀가 아님을 분리 확인했다. 코드 커밋
+`0993858`; 이 기록은 규칙에 따른 직후 문서 커밋이다.
+
+**회귀 경계.** Home 합성/흰 매트, assets, pubspec 및 05/06 화면은 변경하지 않았다.
+06B의 typed offline fixture 정합은 05/06 통합 뒤 별도 conflict-resolution 대상으로 남긴다.
+
+---
+
 ### 2026-08-12 (Codex) — 실제 production 위젯 20패널 UX Gallery 완성
 
 **왜.** 기존 Gallery는 `01A–06C` 인벤토리와 탐색 shell만 있었고 내용은 테스트용
