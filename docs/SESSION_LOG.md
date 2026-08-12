@@ -1,5 +1,33 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — truthful three-step course mission parity
+
+**왜.** 01B·02A/B/D·03·04 목업의 표면은 구현됐지만, 목적 장면이 첫 실제 과제에서
+시작되지 않거나 mission CTA가 pack 선택을 한 번 더 요구하고, 자유 탐색·부분 assess
+링크가 코스 진척/한옥/계 증거로 승격될 수 있었다. 완료된 코스를 Path·Home에서 보기만
+해도 초기화하는 경로와 02B의 접힌 legacy 상세도 남아 있었다.
+
+**무엇을.** 온보딩 목적 장면은 첫 실제 task로 직행하고 현재 시도의 첫 성공만 동행자
+제안을 열도록 했다. Course Mission은 실제 catalog를 listen/build/scene 3단계와 고정
+1/3·2/3·3/3 순서로 투영하며, vocab/cloze/satz CTA는 정확한 기존 task와 typed mission
+context를 전달한다. 이 practice는 mission 단계만 진행시키고 mastery는 올리지 않는다.
+grammar/smalltalk/scenario의 현재 exact assess만 `courseEligible`이며, 선언 checkpoint마다
+required concepts와 정확히 같은 링크 하나만 허용한다. 과거 null-link bytes는 보존하되
+진척·한옥·can-do·계 기여에서는 history-only다. 36개 unit의 required concept를 실제
+답할 수 있는 감사된 checkpoint quest에 연결했고, 집 아침·A1 생존 capstone·월세 이체
+장면 및 진짜 누락 배달 complaint 흐름을 추가했다. Home은 Today CTA 하나와 읽기 전용
+build note만 남기고, Path/Home/Course Mission의 표시 load는 저장을 만들거나 완료 코스를
+재시작하지 않는다. Home character compositing과 영상 asset은 이 커밋에서 수정하지 않았다.
+
+**검증.** 변경 Flutter 테스트 20파일 직렬 **148/148**, 실제 data/graph/read-only/build
+묶음 **34/34**, mastery/sync/production 계약 **59/59**, Gye UI/navigation **23/23**,
+`functions/gye` exact-provenance Node **4/4** 통과. 변경 Dart 43경로
+`flutter analyze --no-pub --fatal-infos` `No issues found`; `flutter gen-l10n` 및
+`git diff --check` 통과. 코드/데이터 커밋 `fba5b42`; 이 항목은 규칙에 따른 직후 문서
+커밋이다. 실기기·pixel golden·Home matte WIP·05–06/Gallery 최종 통합은 다음 단계다.
+
+---
+
 ### 2026-08-12 (Codex) — production preview를 여는 Gallery shell
 
 **왜.** 20개 목업의 존재만 세는 인벤토리로는 각 상태가 실제 앱 화면을 재사용하는지
