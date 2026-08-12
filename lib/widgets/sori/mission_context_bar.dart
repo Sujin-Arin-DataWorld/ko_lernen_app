@@ -47,19 +47,27 @@ class MissionContextBar extends StatelessWidget {
                     color: SoriColors.primary,
                   ),
                   const SizedBox(width: Spacing.sm),
-                  Expanded(
+                  Flexible(
                     child: Text(
                       t.missionContextLabel,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: SoriTextTheme.of(
                         context,
                       ).label.copyWith(color: SoriColors.primary),
                     ),
                   ),
-                  Text(
-                    progressLabel,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(color: s.textMuted),
+                  const SizedBox(width: Spacing.sm),
+                  Flexible(
+                    child: Text(
+                      progressLabel,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.end,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: s.textMuted),
+                    ),
                   ),
                 ],
               ),

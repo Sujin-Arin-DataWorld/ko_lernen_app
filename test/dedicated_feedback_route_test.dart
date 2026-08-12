@@ -130,6 +130,7 @@ void main() {
         ScenarioPlayerScreen(
           scenarioId: _scenario.id,
           scenarioLoader: (_) async => _scenario,
+          resultPersister: (_, _, _) async => null,
         ),
       ),
     );
@@ -159,7 +160,8 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
 
-    expect(find.text('3 von 3 Sternen'), findsOneWidget);
+    expect(find.text('DEINE SZENE IST GESPEICHERT'), findsOneWidget);
+    expect(find.text('3 von 3 Sternen'), findsNothing);
     _expectFeedback(tester, type: 'scenario');
   });
 

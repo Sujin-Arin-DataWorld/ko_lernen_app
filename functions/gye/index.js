@@ -491,7 +491,9 @@ exports.on_course_mastery_checkpoint_written = onDocumentWritten(
           }
           const checkpoint = findEligiblePromiseCheckpoint({
             promiseId: meta.weeklyPromiseId,
+            previousCourseMasteryJson: before.course_mastery_json,
             courseMasteryJson,
+            weekKey,
           });
           const receiptRef = gref
             .collection("weekly_contributions")

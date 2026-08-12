@@ -11,6 +11,7 @@ const {
 } = require("./weekly_contribution_runtime");
 
 const cafeOrderMissionContentLinkId = "link:e6a9f1197b48c79f58655c9a";
+const contributionWeekKey = "2026-08-10";
 
 function checkpoint(overrides = {}) {
   return {
@@ -69,6 +70,7 @@ test("only an exact, active, 70-percent course checkpoint is eligible", () => {
   assert.deepEqual(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
     courseMasteryJson: raw,
+    weekKey: contributionWeekKey,
   }), checkpoint({ id: "checkpoint-2", occurredAt: "2026-08-10T13:00:00.000Z" }));
 });
 
@@ -76,18 +78,21 @@ test("malformed, browse-only, or foreign course evidence does not light a lanter
   assert.equal(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
     courseMasteryJson: "not-json",
+    weekKey: contributionWeekKey,
   }), null);
   assert.equal(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
     courseMasteryJson: JSON.stringify({
       scenarioCheckpoints: [checkpoint({ missionContentLinkId: null })],
     }),
+    weekKey: contributionWeekKey,
   }), null);
   assert.equal(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
     courseMasteryJson: JSON.stringify({
       scenarioCheckpoints: [checkpoint({ missionContentLinkId: "" })],
     }),
+    weekKey: contributionWeekKey,
   }), null);
   assert.equal(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
@@ -96,13 +101,79 @@ test("malformed, browse-only, or foreign course evidence does not light a lanter
         missionContentLinkId: "link:wrong-but-nonempty",
       })],
     }),
+    weekKey: contributionWeekKey,
   }), null);
   assert.equal(findEligiblePromiseCheckpoint({
     promiseId: "cafe_order",
     courseMasteryJson: JSON.stringify({
       scenarioCheckpoints: [checkpoint({ courseUnitId: "other" })],
     }),
+    weekKey: contributionWeekKey,
   }), null);
+  assert.equal(findEligiblePromiseCheckpoint({
+    promiseId: "cafe_order",
+    previousCourseMasteryJson: "not-json",
+    courseMasteryJson: JSON.stringify({
+      scenarioCheckpoints: [checkpoint()],
+    }),
+    weekKey: contributionWeekKey,
+  }), null);
+});
+
+test("an old checkpoint is not replayed by a later-week snapshot write", () => {
+  const oldCheckpoint = checkpoint({
+    occurredAt: "2026-08-03T10:00:00.000Z",
+  });
+  const previousCourseMasteryJson = JSON.stringify({
+    completedUnitIds: [],
+    scenarioCheckpoints: [oldCheckpoint],
+  });
+  const courseMasteryJson = JSON.stringify({
+    completedUnitIds: ["unrelated-unit"],
+    scenarioCheckpoints: [oldCheckpoint],
+  });
+
+  assert.equal(findEligiblePromiseCheckpoint({
+    promiseId: "cafe_order",
+    previousCourseMasteryJson,
+    courseMasteryJson,
+    weekKey: contributionWeekKey,
+  }), null);
+});
+
+test("an unchanged current-week checkpoint is not replayed by an unrelated write", () => {
+  const exactCheckpoint = checkpoint();
+  const previousCourseMasteryJson = JSON.stringify({
+    completedUnitIds: [],
+    scenarioCheckpoints: [exactCheckpoint],
+  });
+  const courseMasteryJson = JSON.stringify({
+    completedUnitIds: ["unrelated-unit"],
+    scenarioCheckpoints: [exactCheckpoint],
+  });
+
+  assert.equal(findEligiblePromiseCheckpoint({
+    promiseId: "cafe_order",
+    previousCourseMasteryJson,
+    courseMasteryJson,
+    weekKey: contributionWeekKey,
+  }), null);
+});
+
+test("a newly eligible current-week checkpoint can contribute", () => {
+  const previousCourseMasteryJson = JSON.stringify({
+    scenarioCheckpoints: [checkpoint({ score: 0.69 })],
+  });
+  const newlyEligible = checkpoint({ score: 0.7 });
+
+  assert.deepEqual(findEligiblePromiseCheckpoint({
+    promiseId: "cafe_order",
+    previousCourseMasteryJson,
+    courseMasteryJson: JSON.stringify({
+      scenarioCheckpoints: [newlyEligible],
+    }),
+    weekKey: contributionWeekKey,
+  }), newlyEligible);
 });
 
 test("a contribution is bound to its week and anonymous deterministic receipt", () => {
@@ -146,6 +217,11 @@ test("a contribution is bound to its week and anonymous deterministic receipt", 
   assert.equal(shouldCreditPromiseContribution({
     meta: meta({ weeklyPromiseWeekKey: "2026-08-03" }),
     checkpoint: checkpoint(), weekKey,
+  }), false);
+  assert.equal(shouldCreditPromiseContribution({
+    meta: meta(),
+    checkpoint: checkpoint({ occurredAt: "2026-08-03T10:00:00.000Z" }),
+    weekKey,
   }), false);
   assert.equal(shouldCreditPromiseContribution({
     meta: meta({ weeklyPromiseSchemaVersion: 0 }),

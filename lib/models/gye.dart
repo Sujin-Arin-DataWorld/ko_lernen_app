@@ -43,6 +43,20 @@ extension GyeFeedTypeWire on GyeFeedType {
   };
 }
 
+extension GyeFeedTypeReaction on GyeFeedType {
+  /// Only durable learning milestones can own encouragement reactions.
+  ///
+  /// Keeping this domain rule beside the wire type lets both the Firestore
+  /// read model and the feed UI reject a sticker/reaction as a parent without
+  /// duplicating a UI-only allowlist.
+  bool get supportsReaction =>
+      this == GyeFeedType.packCleared ||
+      this == GyeFeedType.questCompleted ||
+      this == GyeFeedType.levelUp ||
+      this == GyeFeedType.goalAchieved ||
+      this == GyeFeedType.allInChallenge;
+}
+
 DateTime? _ts(Object? v) =>
     v is Timestamp ? v.toDate() : (v is String ? DateTime.tryParse(v) : null);
 

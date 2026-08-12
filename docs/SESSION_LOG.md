@@ -1,5 +1,108 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — UX 01–06 최종 회귀 게이트
+
+**왜.** 20개 production preview를 한 브랜치로 통합한 뒤 전체 테스트를 다시 돌리자 새 코스
+데이터의 audit 기준 수, 세 신규 scenario의 배경 분류, 차분한 02D 결과의 tester feedback,
+Home의 작은 보조 문구 대비, 짧은 가로 화면의 Satz 레이아웃, 주간 Gye 체크포인트 재사용처럼
+focused 테스트만으로는 놓치기 쉬운 경계가 드러났다.
+
+**무엇을.** 콘텐츠 audit manifest를 현재 42 scenarios/193 quests로 맞추고
+`home_morning_routine`, `survival_day_capstone`, `rent_bank_transfer`를 기존 배경 카테고리에
+명시했다. 별·XP 축하를 되살리지 않은 채 02D 저장 결과에 기존 tester feedback card를
+복구했고, focused Home의 보조 문구는 실제 tinted 배경에서 AA 대비를 만족하게 했다.
+Satz는 바깥 `Stack(clipBehavior: Clip.none)`의 마스코트 overhang을 보존하면서 464dp보다
+짧은 본문만 스크롤한다. Gye 서버는 이번 write에서 새로 생기거나 유효 필드가 바뀐 exact
+checkpoint만, 그 `occurredAt`이 같은 KST 주간일 때만 집계하므로 과거 장면이 무관한 다음
+write에서 다시 적립되지 않는다. Gallery 02A/02B no-write 테스트는 번역 문구 대신 production
+CTA key를 누른다.
+
+**검증.** 비-golden Flutter 테스트 **275 files / 3,137 tests 전부 통과**,
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `flutter gen-l10n` 생성 diff 0,
+Home matte **2/2**, 일반 character matte **18/18**, Gye Functions Node **338/338**,
+Firestore Rules **46/46**, `flutter build web --release` 성공, `git diff --check` 통과.
+Windows에서 canonical golden을 갱신하지 않았으며 Linux CI가 정본 비교를 맡는다. Xiaomi
+실기기에서 Home 영상의 흰 사각형이 사라졌는지는 APK 재설치 전까지 외부 검증 경계다.
+코드 커밋: 미확정.
+
+---
+
+### 2026-08-12 (Codex) — Gye 주간 체크포인트 재사용 차단
+
+**왜.** 사용자 문서의 다른 필드만 바뀌어도 보존된 과거 `scenarioCheckpoints`를 다시
+검색해, 지난주 또는 이미 처리한 이번 주 체크포인트가 새 Gye 주간 기여처럼 선택될 수 있었다.
+
+**무엇을.** Gye 기여 후보는 체크포인트 `occurredAt`의 KST 월요일 주간 키가 함수 이벤트의
+주간 키와 정확히 같고, 기여에 영향을 주는 체크포인트 필드가 이전 `course_mastery_json`에
+동일하게 존재하지 않을 때만 선택한다. 이전 스냅샷이 손상됐으면 fail-closed하며, 기존 exact
+course/unit/scenario/assess-link, 70% 기준과 UID를 노출하지 않는 해시 영수증은 유지했다.
+
+**검증.** 회귀 테스트를 먼저 추가해 지난주 재사용과 무관한 이번 주 재사용이 각각 RED임을
+확인했다. 수정 후 focused Node **7/7**, 전체 Gye Functions Node **338/338**, `node --check`
+2파일과 `git diff --check` 통과. 커밋 해시: 미커밋.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 02 no-write CTA 회귀 테스트 복구
+
+**왜.** 02A/02B no-write 테스트가 실제 화면 계약과 무관한 과거 영문 버튼 문구
+(`Review now`, `Start step 1`)를 찾아, 독일어·단계별 CTA로 바뀐 생산 위젯을 누르기 전에
+실패했다.
+
+**무엇을.** 02A는 `home-primary-today` 안의 실제 `SoriButton`, 02B는 생산 화면이
+공개하는 `course-mission-primary-cta`를 찾아 탭하게 했다. callback이 전달받은 destination과
+첫 link를 계속 검증하고, 탭 전후 SharedPreferences 전체 snapshot 동등성 계약도 유지했다.
+생산 UI·저장 동작과 Gallery의 less-spicy 02A–D fixture는 변경하지 않았다.
+
+**검증.** `test/ux_gallery_no_write_test.dart` **6/6 통과**, 해당 테스트 scoped
+`flutter analyze --no-pub --fatal-infos` `No issues found`, `git diff --check` 통과.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 05B–C와 반응 부모 읽기 경계 완성
+
+**왜.** 05B/05C Gallery가 production `GyeScreen`을 쓰면서도 null account session,
+Review fallback, 빈 feed를 주어 계정 전환 pause와 `Zu Heute`만 보이고 실제 장면·반응을
+검토할 수 없었다. 운영 feed도 최신 20개를 문서 종류 구분 없이 자르므로, 새 반응 20개가
+창을 채우면 그 반응이 가리키는 21번째 milestone 부모가 빠져 피드가 비어 보일 수 있었다.
+
+**무엇을.** Gallery의 주간 약속을 실제 A1 주문 unit의 유일한 exact scenario `assess`
+링크로 해석해 `/scenario`와 typed `CoursePracticeContext`를 만들었다. production
+`GyeScreen`/`GyeFeed`에는 부모 성취와 그 아래 실제 sticker reaction을 넣고, 안전 메시지와
+반응 action은 preview 전용 no-op callback으로 열어 storage/Firebase 쓰기를 차단했다.
+운영 `feedStream`은 최신 20개를 유지하되 그 안의 유효한 reaction이 참조하는 누락 부모
+문서만 같은 feed collection에서 exact ID로 보충한다. slash·공백·길이 위반 target,
+sticker/cheer 같은 비-milestone 부모, ID 불일치는 표시하지 않고, append-only 부모 cache와
+일시 read 실패 재시도로 추가 읽기를 제한한다. reactable allowlist는 model과 UI가 공유한다.
+
+**검증.** 최신 반응 20개+누락 부모, 이미 포함된 부모, malformed/forged target,
+cache·일시 실패 재시도, 기존 exact navigation/layout, 05B typed scene, 05C 부모+반응+
+무쓰기 action을 묶은 focused Flutter 테스트 **69/69 통과**. 경고 제거 후 핵심 두 파일
+**56/56 재통과**, 변경 Dart scoped analyze `No issues found`, `git diff --check` 통과.
+실 Firestore 계정 데이터와 쓰기는 실행하지 않았다.
+
+---
+
+### 2026-08-12 (Codex) — Gallery 02A–D 단일 미션 연속성 고정
+
+**왜.** Gallery의 02A·02B·02D는 인사 unit/scene을 사용하고 02C만 실제 문제가 있는
+덜 맵게 주문 장면을 사용했다. 02D의 verified 결과도 저장된 checkpoint를 재검증하지 않고
+직접 만든 값이라, 네 화면을 이어 보아도 같은 학습과 합법적인 숙달 근거를 증명하지 못했다.
+
+**무엇을.** 02A–D가 하나의 `Weniger scharf bestellen` unit, 실제 듣기 quest가 있는
+scenario, vocab→cloze→정확한 scenario `assess` 3-link graph를 공유하게 했다. 02C와 02D의
+mission context는 그 exact assess step을 가리킨다. 02D 결과는 `courseEligible`, unit ID,
+`missionContentLinkId`, 점수와 UTC 시각을 가진 고정 `CourseMasterySnapshot`을
+`ScenarioCanDoResult.fromSnapshot`으로 재검증한 projection만 사용한다. Gallery callback과
+fixture는 계속 storage/Firebase/progress를 쓰지 않는다. 새 context bar가 좁은 독일어 화면에서
+진행 문구를 unconstrained로 놓던 문제는 두 header 문구를 `Flexible`+ellipsis로 제한했다.
+
+**검증.** 02A–D unit/scenario/quest/exact-link/result 일치 계약, 실제 듣기 상호작용,
+308dp·독일어 1.3배 context, 기존 can-do projection을 묶은 focused Flutter 테스트
+**40/40 통과**. scoped analyze와 최종 전체 gate는 통합 완료 뒤 다시 실행한다.
+
+---
+
 ### 2026-08-12 (Codex) — Home 캐릭터 영상 흰 배경 회귀 차단
 
 **왜.** Android 외부 영상 텍스처가 runtime `ColorFiltered` multiply를 기기별로 다르게

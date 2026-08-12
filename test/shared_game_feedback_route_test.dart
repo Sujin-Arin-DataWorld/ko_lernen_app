@@ -162,6 +162,8 @@ void main() {
 
     await tester.tap(find.text('가요'));
     await tester.pump();
+    await tester.ensureVisible(find.text('Überprüfen'));
+    await tester.pump();
     await tester.tap(find.text('Überprüfen'));
     await tester.pump(const Duration(milliseconds: 1201));
     await tester.pump();

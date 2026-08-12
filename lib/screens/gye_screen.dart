@@ -51,6 +51,9 @@ class GyeScreen extends StatefulWidget {
     this.ensureTodayPackAccess,
     this.openTodayRoute,
     this.onOpenMembers,
+    this.onOpenSafeMessage,
+    this.onOpenReaction,
+    this.readOnlyPreview = false,
     this.enableCoach = true,
   });
 
@@ -76,6 +79,12 @@ class GyeScreen extends StatefulWidget {
   final Future<bool> Function(String level)? ensureTodayPackAccess;
   final Future<void> Function(String route, Object? arguments)? openTodayRoute;
   final VoidCallback? onOpenMembers;
+
+  /// Gallery-only action seams. They render the production controls while
+  /// keeping every tap inside a deterministic, write-free preview boundary.
+  final VoidCallback? onOpenSafeMessage;
+  final ValueChanged<String>? onOpenReaction;
+  final bool readOnlyPreview;
   final bool enableCoach;
 
   @override
@@ -205,6 +214,24 @@ class _GyeScreenState extends State<GyeScreen>
     Navigator.of(context).pushNamed('/gye/members', arguments: widget.gyeId);
   }
 
+  void _openSafeMessage(BuildContext context) {
+    final previewAction = widget.onOpenSafeMessage;
+    if (previewAction != null) {
+      previewAction();
+      return;
+    }
+    _openGyeStickerPicker(context, widget.gyeId);
+  }
+
+  void _openReaction(BuildContext context, String eventId) {
+    final previewAction = widget.onOpenReaction;
+    if (previewAction != null) {
+      previewAction(eventId);
+      return;
+    }
+    _openReactionPicker(context, widget.gyeId, eventId);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -213,8 +240,12 @@ class _GyeScreenState extends State<GyeScreen>
       valueListenable:
           widget.accountSessions ?? cloudWriteSessionController.changes,
       builder: (context, accountSession, _) {
-        final actionsAvailable = gyeActionsAvailable(accountSession);
-        if (actionsAvailable && !_statsSynced) {
+        final cloudActionsAvailable = gyeActionsAvailable(accountSession);
+        final safeMessageAvailable =
+            cloudActionsAvailable || widget.onOpenSafeMessage != null;
+        final reactionAvailable =
+            cloudActionsAvailable || widget.onOpenReaction != null;
+        if (cloudActionsAvailable && !_statsSynced) {
           _statsSynced = true;
           // ignore: discarded_futures, unawaited_futures
           GyeService.syncMyMemberStats();
@@ -271,7 +302,7 @@ class _GyeScreenState extends State<GyeScreen>
                     ),
                   ),
                   PopupMenuButton<String>(
-                    enabled: actionsAvailable,
+                    enabled: cloudActionsAvailable,
                     onSelected: (v) {
                       if (v == 'invite') {
                         _shareGyeCode(context, meta.code);
@@ -310,7 +341,8 @@ class _GyeScreenState extends State<GyeScreen>
                       SliverToBoxAdapter(
                         child: Column(
                           children: [
-                            if (!actionsAvailable)
+                            if (!cloudActionsAvailable &&
+                                !widget.readOnlyPreview)
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   Spacing.lg,
@@ -362,7 +394,8 @@ class _GyeScreenState extends State<GyeScreen>
                                           gyeId: widget.gyeId,
                                           meta: meta,
                                           myUid: GyeService.currentUid,
-                                          writesAvailable: actionsAvailable,
+                                          writesAvailable:
+                                              cloudActionsAvailable,
                                           showPausedReason: false,
                                           memberUpdates: widget.memberUpdates,
                                         ),
@@ -382,7 +415,7 @@ class _GyeScreenState extends State<GyeScreen>
                                 ),
                                 child: _SoloInviteCard(
                                   code: meta.code,
-                                  enabled: actionsAvailable,
+                                  enabled: cloudActionsAvailable,
                                 ),
                               ),
                             Padding(
@@ -454,7 +487,7 @@ class _GyeScreenState extends State<GyeScreen>
                                                     expectedMembershipEpoch:
                                                         currentMembershipEpoch,
                                                     actionsAvailable:
-                                                        actionsAvailable,
+                                                        cloudActionsAvailable,
                                                     onCommit: _dedicationService
                                                         .setForCurrentSession,
                                                   ),
@@ -484,11 +517,8 @@ class _GyeScreenState extends State<GyeScreen>
                                     icon: Icons.emoji_emotions_outlined,
                                     accent: SoriColors.gold,
                                     fullWidth: true,
-                                    onTap: actionsAvailable
-                                        ? () => _openGyeStickerPicker(
-                                            context,
-                                            widget.gyeId,
-                                          )
+                                    onTap: safeMessageAvailable
+                                        ? () => _openSafeMessage(context)
                                         : null,
                                   ),
                                   TextButton(
@@ -541,12 +571,9 @@ class _GyeScreenState extends State<GyeScreen>
                                     fsnap.data ?? const [],
                                     bsnap.data ?? const {},
                                   ),
-                                  onReact: actionsAvailable
-                                      ? (eventId) => _openReactionPicker(
-                                          context,
-                                          widget.gyeId,
-                                          eventId,
-                                        )
+                                  onReact: reactionAvailable
+                                      ? (eventId) =>
+                                            _openReaction(context, eventId)
                                       : null,
                                   shrinkWrap: true,
                                 ),
@@ -559,8 +586,8 @@ class _GyeScreenState extends State<GyeScreen>
               ),
               floatingActionButton: FloatingActionButton(
                 key: _fabKey,
-                onPressed: actionsAvailable
-                    ? () => _openGyeStickerPicker(context, widget.gyeId)
+                onPressed: safeMessageAvailable
+                    ? () => _openSafeMessage(context)
                     : null,
                 backgroundColor: SoriColors.primary,
                 tooltip: t.gyeSafeMessage,

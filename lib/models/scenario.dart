@@ -421,6 +421,7 @@ extension ScenarioBackdrop on Scenario {
     'business_meeting_intro': 'office',
     'bank_account': 'office',
     'job_interview': 'office',
+    'rent_bank_transfer': 'office',
     // home — 통화 / 메신저 / 사적인 대화 (2026-08-03 신설)
     'warm_encouragement': 'home',
     'couple_argument': 'home',
@@ -430,9 +431,11 @@ extension ScenarioBackdrop on Scenario {
     'phone_messenger_reply': 'home',
     'delivery_address_confirmation': 'home',
     'clarify_repeat': 'home',
+    'home_morning_routine': 'home',
     // directions — 길 위 (2026-08-04: 8→2, 역·공항·택시로 분리)
     'running_late': 'directions',
     'lost_phone': 'directions',
+    'survival_day_capstone': 'directions',
     // station — 지하철 · 기차 (2026-08-04 신설)
     'subway_transfer': 'station',
     'subway_directions': 'station',

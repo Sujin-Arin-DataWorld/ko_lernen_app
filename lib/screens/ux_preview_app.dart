@@ -5,6 +5,7 @@ import '../data/learner_motivation.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mastery.dart';
 import '../models/course_mission_brief.dart';
+import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/gye.dart';
 import '../models/hanok_build_narrative.dart';
@@ -72,16 +73,19 @@ class UxPreviewRegistry {
       openLink: (_) async {},
     ),
     '02C' => ScenarioPlayerScreen.preview(
-      fixture: const ScenarioPlayerPreviewFixture.action(
-        scenario: _listeningScenario,
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _lessSpicyScenario,
         stage: ScenarioStage.quest,
+        missionStep: _lessSpicySceneStep,
         missionTitle: 'Weniger scharf bestellen',
       ),
     ),
     '02D' => ScenarioPlayerScreen.preview(
-      fixture: const ScenarioPlayerPreviewFixture.result(
-        scenario: _greetingScenario,
-        result: _verifiedResult,
+      fixture: ScenarioPlayerPreviewFixture.result(
+        scenario: _lessSpicyScenario,
+        result: _verifiedLessSpicyResult,
+        missionStep: _lessSpicySceneStep,
+        missionTitle: 'Weniger scharf bestellen',
         onReturn: _ignore,
         onRepeat: _ignore,
       ),
@@ -217,19 +221,19 @@ Widget _todayCourseHome() {
     previewFixture: HomePreviewFixture(
       today: const TodayLearningSnapshot(
         pick: CoursePick(
-          unit: _greetingUnit,
+          unit: _lessSpicyUnit,
           missionNumber: 1,
           totalMissions: 36,
           fraction: 0,
           started: false,
         ),
-        scenario: _greetingScenario,
+        scenario: _lessSpicyScenario,
         destination: TodayLearningDestination(route: '/course/mission'),
       ),
       hanok: projection,
       narrative: HanokBuildNarrative(
         projection: projection,
-        nextUnit: _greetingUnit,
+        nextUnit: _lessSpicyUnit,
       ),
       onOpenToday: (_) {},
       onOpenHanok: _ignore,
@@ -258,9 +262,9 @@ Widget _reviewFirstHome() {
 }
 
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
-  unit: _greetingUnit,
-  links: _greetingMissionLinks,
-  scenarios: const [_greetingScenario],
+  unit: _lessSpicyUnit,
+  links: _lessSpicyMissionLinks,
+  scenarios: const [_lessSpicyScenario],
   isCurrent: true,
 );
 
@@ -344,20 +348,32 @@ Widget _gyePanel({required bool courtyardFocus}) {
     currentMemberUpdates: Stream.value(null),
     dedicationUpdates: Stream.value(const []),
     blockedUidUpdates: Stream.value(const <String>{}),
-    feedUpdates: Stream.value(const <GyeFeedEvent>[]),
+    feedUpdates: Stream.value(_gyePreviewFeed),
     loadTodaySnapshot: () async => const TodayLearningSnapshot(
-      pick: ReviewPick(dueCount: 12),
-      destination: TodayLearningDestination(route: '/review'),
-      dueCount: 12,
+      pick: CoursePick(
+        unit: _gyePromiseUnit,
+        missionNumber: 4,
+        totalMissions: 36,
+        fraction: 0.25,
+        started: true,
+      ),
+      destination: TodayLearningDestination(
+        route: '/course/mission',
+        arguments: 'a1_04_order_request_object',
+      ),
     ),
-    resolvePromiseNavigation: (_, __) async =>
-        const GyePromiseNavigationResolution(
-          kind: GyePromiseNavigationKind.todayFallback,
-          destination: TodayLearningDestination(route: '/review'),
+    resolvePromiseNavigation: (meta, today) async =>
+        GyeWeeklyPromiseNavigation.resolve(
+          meta: meta,
+          today: today,
+          contentLinks: [_gyePromiseAssessLink],
         ),
     ensureTodayPackAccess: (_) async => true,
     openTodayRoute: (_, __) async {},
     onOpenMembers: _ignore,
+    onOpenSafeMessage: _ignore,
+    onOpenReaction: _ignore,
+    readOnlyPreview: true,
     enableCoach: false,
   );
 }
@@ -431,30 +447,25 @@ const _greetingUnit = CourseUnit(
   checkpointContentIds: ['scenario:preview_greeting'],
 );
 
-const _greetingScenario = Scenario(
-  id: 'preview_greeting',
-  level: LearnerLevel.a1,
-  emoji: '👋',
-  register: Register.polite,
-  title: LocalizedText(
-    ko: '첫 인사',
-    de: 'Die erste Begrüßung',
-    en: 'The first greeting',
+const _lessSpicyUnit = CourseUnit(
+  id: 'a1_preview_less_spicy',
+  level: 'a1',
+  order: 1,
+  title: CurriculumText(
+    ko: '덜 맵게 주문하기',
+    de: 'Weniger scharf bestellen',
+    en: 'Order less spicy food',
   ),
-  intro: LocalizedText(
-    ko: '',
-    de: 'Begrüße die Person höflich.',
-    en: 'Greet the person politely.',
+  canDo: CurriculumText(
+    ko: '공손하게 덜 맵게 해 달라고 부탁할 수 있어요.',
+    de: 'Ich kann höflich um weniger scharfes Essen bitten.',
+    en: 'I can politely ask for less spicy food.',
   ),
-  vocab: [],
-  grammarIds: [],
-  dialog: [
-    DialogLine(speaker: 'user', ko: '안녕하세요.', de: 'Guten Tag.', en: 'Hello.'),
-  ],
-  quests: [],
+  requiredConceptIds: ['request_less_spicy'],
+  checkpointContentIds: ['scenario:preview_less_spicy'],
 );
 
-const _listeningScenario = Scenario(
+const _lessSpicyScenario = Scenario(
   id: 'preview_less_spicy',
   level: LearnerLevel.a1,
   emoji: '🍲',
@@ -498,42 +509,113 @@ const _listeningScenario = Scenario(
   ],
 );
 
-final _greetingLink = ContentLink(
-  id: 'preview-greeting-link',
+final _lessSpicyAssessLink = ContentLink(
+  id: 'preview-less-spicy-assess',
   contentKind: CurriculumContentKind.scenario,
-  contentId: _greetingScenario.id,
-  courseUnitId: _greetingUnit.id,
-  conceptIds: const ['greeting'],
+  contentId: _lessSpicyScenario.id,
+  courseUnitId: _lessSpicyUnit.id,
+  conceptIds: const ['request_less_spicy'],
   role: ContentLinkRole.assess,
 );
 
-final _greetingMissionLinks = <ContentLink>[
+final _lessSpicyMissionLinks = <ContentLink>[
   ContentLink(
-    id: 'preview-greeting-vocab',
+    id: 'preview-less-spicy-vocab',
     contentKind: CurriculumContentKind.vocab,
-    contentId: 'preview_greeting_word',
-    courseUnitId: _greetingUnit.id,
-    conceptIds: const ['greeting'],
+    contentId: 'preview_less_spicy_phrase',
+    courseUnitId: _lessSpicyUnit.id,
+    conceptIds: const ['request_less_spicy'],
     role: ContentLinkRole.introduce,
   ),
   ContentLink(
-    id: 'preview-greeting-cloze',
+    id: 'preview-less-spicy-cloze',
     contentKind: CurriculumContentKind.cloze,
-    contentId: 'preview_greeting_build',
-    courseUnitId: _greetingUnit.id,
-    conceptIds: const ['greeting'],
+    contentId: 'preview_less_spicy_build',
+    courseUnitId: _lessSpicyUnit.id,
+    conceptIds: const ['request_less_spicy'],
     role: ContentLinkRole.practice,
   ),
-  _greetingLink,
+  _lessSpicyAssessLink,
 ];
 
-const _verifiedResult = ScenarioCanDoResult(
-  status: ScenarioCanDoStatus.verified,
-  score: 1,
-  courseUnit: _greetingUnit,
-  structureStageBefore: HanokStage.foundation,
-  structureStageAfter: HanokStage.pillars,
+final _lessSpicySceneStep = _requiredLessSpicySceneStep();
+
+CourseMissionStep _requiredLessSpicySceneStep() {
+  final step = CourseMissionStepPlan.fromLinks(
+    _lessSpicyMissionLinks,
+  ).stepForContentLinkId(_lessSpicyAssessLink.id);
+  if (step == null) {
+    throw StateError('The less-spicy assess step must stay in the mission.');
+  }
+  return step;
+}
+
+final _verifiedLessSpicySnapshot = CourseMasterySnapshot(
+  currentCourseUnitId: _lessSpicyUnit.id,
+  completedUnitIds: const ['a1_preview_less_spicy'],
+  scenarioCheckpoints: [
+    ScenarioCheckpointEvidence(
+      id: 'preview-less-spicy-checkpoint',
+      scenarioId: _lessSpicyScenario.id,
+      courseUnitId: _lessSpicyUnit.id,
+      missionContentLinkId: _lessSpicyAssessLink.id,
+      score: 1,
+      occurredAt: DateTime.utc(2026, 8, 12, 7, 45),
+      courseEligible: true,
+    ),
+  ],
 );
+
+final _verifiedLessSpicyResult =
+    ScenarioCanDoResult.fromSnapshot(
+      snapshot: _verifiedLessSpicySnapshot,
+      scenarioId: _lessSpicyScenario.id,
+      courseUnits: const [_lessSpicyUnit],
+      contentLinks: [_lessSpicyAssessLink],
+      structureStageBefore: HanokStage.foundation,
+      structureStageAfter: HanokStage.pillars,
+    ) ??
+    (throw StateError('The less-spicy preview checkpoint must stay valid.'));
+
+const _gyePromiseUnit = CourseUnit(
+  id: 'a1_04_order_request_object',
+  level: 'a1',
+  order: 4,
+  title: CurriculumText(ko: '주문', de: 'Bestellen', en: 'Ordering'),
+  canDo: CurriculumText(
+    ko: '공손하게 주문해요.',
+    de: 'Ich kann höflich bestellen.',
+    en: 'I can order politely.',
+  ),
+  requiredConceptIds: ['concept_object_particle', 'concept_request_polite'],
+  checkpointContentIds: ['scenario:bunshik_tteokbokki'],
+);
+
+final _gyePromiseAssessLink = ContentLink(
+  id: 'link:e6a9f1197b48c79f58655c9a',
+  contentKind: CurriculumContentKind.scenario,
+  contentId: 'bunshik_tteokbokki',
+  courseUnitId: _gyePromiseUnit.id,
+  conceptIds: const ['concept_object_particle', 'concept_request_polite'],
+  role: ContentLinkRole.assess,
+);
+
+const _gyePreviewFeed = <GyeFeedEvent>[
+  GyeFeedEvent(
+    id: 'preview-reaction',
+    type: GyeFeedType.sticker,
+    actorUid: 'preview-jina',
+    actorNickname: 'Jina',
+    payload: {'stickerCode': 2, 'targetEventId': 'preview-contribution'},
+  ),
+  GyeFeedEvent(
+    id: 'preview-contribution',
+    type: GyeFeedType.questCompleted,
+    actorUid: 'preview-min',
+    actorNickname: 'Min',
+    payload: {'questId': 'weekly-promise-scene'},
+  ),
+];
 
 const _pathUnits = <CourseUnit>[
   CourseUnit(

@@ -55,13 +55,51 @@ function parseCourseMasterySnapshot(raw) {
 /// Returns the latest exact course checkpoint that may light this promise.
 /// The source must carry the app's existing active-mission proof; browsing a
 /// scenario, an unrelated course unit, a score below 70%, or malformed data
-/// never becomes a community event.
-function findEligiblePromiseCheckpoint({ promiseId, courseMasteryJson }) {
+/// never becomes a community event. Only a checkpoint created or materially
+/// changed by this write may contribute, and it must belong to the event's
+/// Korea-week so unrelated snapshot writes cannot replay retained history.
+function findEligiblePromiseCheckpoint({
+  promiseId,
+  previousCourseMasteryJson,
+  courseMasteryJson,
+  weekKey,
+}) {
   const promise = weeklyPromiseFor(promiseId);
   const snapshot = parseCourseMasterySnapshot(courseMasteryJson);
-  if (!promise || !snapshot || !Array.isArray(snapshot.scenarioCheckpoints)) {
+  if (!promise ||
+      !snapshot ||
+      !Array.isArray(snapshot.scenarioCheckpoints) ||
+      typeof weekKey !== "string" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(weekKey)) {
     return null;
   }
+
+  let previousCheckpoints = [];
+  if (previousCourseMasteryJson !== undefined &&
+      previousCourseMasteryJson !== null) {
+    const previousSnapshot = parseCourseMasterySnapshot(
+      previousCourseMasteryJson,
+    );
+    if (!previousSnapshot ||
+        !Array.isArray(previousSnapshot.scenarioCheckpoints)) {
+      return null;
+    }
+    previousCheckpoints = previousSnapshot.scenarioCheckpoints;
+  }
+  const previousCheckpointFingerprints = new Set(
+    previousCheckpoints
+      .filter((checkpoint) => checkpoint && typeof checkpoint === "object")
+      .map((checkpoint) => JSON.stringify([
+        checkpoint.id,
+        checkpoint.scenarioId,
+        checkpoint.courseUnitId,
+        checkpoint.missionContentLinkId,
+        checkpoint.score,
+        checkpoint.occurredAt,
+        checkpoint.courseEligible,
+      ])),
+  );
+
   let candidate = null;
   for (const checkpoint of snapshot.scenarioCheckpoints) {
     if (!checkpoint || typeof checkpoint !== "object" ||
@@ -74,6 +112,21 @@ function findEligiblePromiseCheckpoint({ promiseId, courseMasteryJson }) {
         typeof checkpoint.id !== "string" || checkpoint.id.length === 0 ||
         typeof checkpoint.occurredAt !== "string" ||
         Number.isNaN(Date.parse(checkpoint.occurredAt))) {
+      continue;
+    }
+    if (weeklyContributionWeekKey(checkpoint.occurredAt) !== weekKey) {
+      continue;
+    }
+    const checkpointFingerprint = JSON.stringify([
+      checkpoint.id,
+      checkpoint.scenarioId,
+      checkpoint.courseUnitId,
+      checkpoint.missionContentLinkId,
+      checkpoint.score,
+      checkpoint.occurredAt,
+      checkpoint.courseEligible,
+    ]);
+    if (previousCheckpointFingerprints.has(checkpointFingerprint)) {
       continue;
     }
     if (!candidate || checkpoint.occurredAt > candidate.occurredAt) {
@@ -120,6 +173,11 @@ function shouldCreditPromiseContribution({
   // A delayed trigger must not silently merge a new week's evidence into a
   // stale aggregate before the scheduled rollover has closed the old week.
   if (meta.weeklyPromiseWeekKey && meta.weeklyPromiseWeekKey !== weekKey) {
+    return false;
+  }
+  if (typeof checkpoint.occurredAt !== "string" ||
+      Number.isNaN(Date.parse(checkpoint.occurredAt)) ||
+      weeklyContributionWeekKey(checkpoint.occurredAt) !== weekKey) {
     return false;
   }
   return checkpoint.courseEligible === true &&

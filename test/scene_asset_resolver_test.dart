@@ -69,10 +69,10 @@ void main() {
     test('main waits for the manifest before the first app frame', () {
       final source = File('lib/main.dart').readAsStringSync();
       final resolverLoad = source.indexOf('await SceneAssetResolver.load();');
-      final firstRunApp = source.indexOf('runApp(const KoLernenApp());');
+      final productionRunner = source.indexOf('runner(const KoLernenApp());');
 
       expect(resolverLoad, greaterThanOrEqualTo(0));
-      expect(firstRunApp, greaterThan(resolverLoad));
+      expect(productionRunner, greaterThan(resolverLoad));
     });
 
     test('no manifest loaded → category poster + loop', () {

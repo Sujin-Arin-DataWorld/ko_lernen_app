@@ -250,6 +250,7 @@ Future<void> _pumpHome(
     loadHanokProjection: (ratios) async => PersonalHanokProjection.from(ratios),
     loadHanokNarrative: (projection) async =>
         HanokBuildNarrative.empty(projection),
+    connectivityUpdates: const Stream<TodayNetworkStatus>.empty(),
   );
 
   await tester.pumpWidget(

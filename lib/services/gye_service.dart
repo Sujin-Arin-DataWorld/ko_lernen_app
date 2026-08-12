@@ -49,6 +49,79 @@ class GyeLeaveCoordinator {
   }
 }
 
+/// Builds the visible feed window without losing a milestone just because its
+/// newer reactions filled the Firestore query limit.
+///
+/// Feed documents are append-only. A reaction stores only its parent's
+/// document id, so a raw newest-N query can contain the reaction but omit the
+/// older parent. This read model hydrates only exact, valid parent ids and only
+/// accepts a durable reactable milestone. Missing, malformed, reaction, or
+/// non-reactable documents fail closed and never become a visible parent.
+class GyeFeedReadModel {
+  const GyeFeedReadModel._();
+
+  static String? validReactionTargetId(GyeFeedEvent event) {
+    if (event.type != GyeFeedType.sticker) return null;
+    final value = event.payload['targetEventId'];
+    if (value is! String ||
+        value.isEmpty ||
+        value.length > 128 ||
+        value.trim() != value ||
+        value.contains('/')) {
+      return null;
+    }
+    return value;
+  }
+
+  static bool isValidParent(GyeFeedEvent event, String expectedId) =>
+      event.id == expectedId &&
+      event.id.isNotEmpty &&
+      event.type.supportsReaction &&
+      event.payload['targetEventId'] == null;
+
+  static Future<List<GyeFeedEvent>> hydrateReactionParents(
+    List<GyeFeedEvent> recent, {
+    required Future<GyeFeedEvent?> Function(String id) loadParent,
+    Map<String, GyeFeedEvent?>? parentCache,
+  }) async {
+    final cache = parentCache ?? <String, GyeFeedEvent?>{};
+    final presentIds = recent.map((event) => event.id).toSet();
+    final targets = <String>[];
+    for (final event in recent) {
+      final target = validReactionTargetId(event);
+      if (target != null &&
+          !presentIds.contains(target) &&
+          !targets.contains(target)) {
+        targets.add(target);
+      }
+    }
+
+    if (targets.isEmpty) return recent;
+    final hydrated = <GyeFeedEvent>[];
+    for (final target in targets) {
+      GyeFeedEvent? parent;
+      if (cache.containsKey(target)) {
+        parent = cache[target];
+      } else {
+        try {
+          parent = await loadParent(target);
+          // Cache a definitive miss or immutable valid parent. Transient read
+          // errors are not cached, so a later stream snapshot can retry.
+          cache[target] = parent;
+        } catch (_) {
+          continue;
+        }
+      }
+      if (parent != null && isValidParent(parent, target)) {
+        hydrated.add(parent);
+      }
+    }
+    return hydrated.isEmpty
+        ? recent
+        : List<GyeFeedEvent>.unmodifiable([...recent, ...hydrated]);
+  }
+}
+
 /// 계(契) CRUD + 입장 코드. Firestore `gye/{code}` (코드 = 문서 ID = gyeId).
 ///
 /// `SharedPackService` 패턴을 따름: nullable `_db`(웹 Firebase 미설정 안전),
@@ -541,28 +614,37 @@ class GyeService {
     );
   }
 
-  /// 피드 실시간 스트림 (최근 [limit]개, 최신순).
+  /// 피드 실시간 스트림 (최근 [limit]개 + 그 반응의 정확한 부모, 최신순).
   static Stream<List<GyeFeedEvent>> feedStream(String id, {int limit = 20}) {
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
       return Stream.value(const []);
     }
+    final feed = db.collection(_collection).doc(id).collection('feed');
+    final parentCache = <String, GyeFeedEvent?>{};
     return streamWithSession(
       sessions: cloudWriteSessionController,
       uid: uid,
-      source: db
-          .collection(_collection)
-          .doc(id)
-          .collection('feed')
+      source: feed
           .orderBy('createdAt', descending: true)
           .limit(limit)
           .snapshots()
-          .map(
-            (q) => q.docs
+          .asyncMap((q) async {
+            final recent = q.docs
                 .map((d) => GyeFeedEvent.fromDoc(d.id, d.data()))
-                .toList(),
-          ),
+                .toList(growable: false);
+            return GyeFeedReadModel.hydrateReactionParents(
+              recent,
+              parentCache: parentCache,
+              loadParent: (parentId) async {
+                final parent = await feed.doc(parentId).get();
+                return parent.exists
+                    ? GyeFeedEvent.fromDoc(parent.id, parent.data()!)
+                    : null;
+              },
+            );
+          }),
     );
   }
 

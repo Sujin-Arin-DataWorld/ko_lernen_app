@@ -20,6 +20,7 @@ import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
@@ -173,8 +174,13 @@ void main() {
     );
     await tester.pump();
 
-    await tester.ensureVisible(find.text('Review now'));
-    await tester.tap(find.text('Review now'));
+    final todayAction = find.descendant(
+      of: find.byKey(const ValueKey('home-primary-today')),
+      matching: find.byType(SoriButton),
+    );
+    expect(todayAction, findsOneWidget);
+    await tester.ensureVisible(todayAction);
+    await tester.tap(todayAction);
     await tester.pump();
 
     expect(opened?.route, '/review');
@@ -211,7 +217,12 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Start step 1'));
+    final firstStepAction = find.byKey(
+      const ValueKey('course-mission-primary-cta'),
+    );
+    expect(firstStepAction, findsOneWidget);
+    await tester.ensureVisible(firstStepAction);
+    await tester.tap(firstStepAction);
     await tester.pump();
 
     expect(opened?.id, firstLink.id);

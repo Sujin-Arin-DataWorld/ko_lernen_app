@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/config/ux_preview_feature.dart';
 import 'package:ko_lernen_app/main.dart' as app;
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/models/course_mission_brief.dart';
 import 'package:ko_lernen_app/models/ux_preview_catalog.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
@@ -24,6 +26,8 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/ux_preview_app.dart';
 import 'package:ko_lernen_app/screens/ux_preview_gallery_screen.dart';
+import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
@@ -87,6 +91,47 @@ void main() {
       );
       expect(registry.routeFor(panel), '/ux_gallery/${panel.id}');
     }
+  });
+
+  test('02A-D share one quest-bearing exact less-spicy mission', () {
+    const registry = UxPreviewRegistry();
+    UxPreviewPanel panel(String id) =>
+        uxPreviewPanels.singleWhere((item) => item.id == id);
+
+    final home = registry.buildPanel(panel('02A')) as HomeScreen;
+    final mission = registry.buildPanel(panel('02B')) as CourseMissionScreen;
+    final action = registry.buildPanel(panel('02C')) as ScenarioPlayerScreen;
+    final result = registry.buildPanel(panel('02D')) as ScenarioPlayerScreen;
+
+    final today = home.previewFixture!.today;
+    final todayPick = today.pick as CoursePick;
+    final brief = mission.previewBrief!;
+    final actionFixture = action.previewFixture!;
+    final resultFixture = result.previewFixture!;
+    final sceneStep = brief.visibleSteps.singleWhere(
+      (step) => step.phase == CourseMissionPhase.scene,
+    );
+    final assessLink = sceneStep.link;
+
+    expect(todayPick.unit.id, brief.unit.id);
+    expect(today.scenario?.id, brief.targetScenario?.id);
+    expect(actionFixture.scenario.id, brief.targetScenario?.id);
+    expect(resultFixture.scenario.id, brief.targetScenario?.id);
+    expect(actionFixture.scenario.quests, isNotEmpty);
+    expect(assessLink.contentId, actionFixture.scenario.id);
+    expect(brief.unit.checkpointContentIds, contains(assessLink.contentKey));
+    expect(assessLink.exactlyAssesses(brief.unit), isTrue);
+    expect(actionFixture.missionStep?.link.id, assessLink.id);
+    expect(resultFixture.missionStep?.link.id, assessLink.id);
+
+    final verifiedResult = resultFixture.result;
+    expect(verifiedResult?.isVerified, isTrue);
+    expect(verifiedResult?.courseUnit?.id, brief.unit.id);
+    expect(verifiedResult?.score, 1);
+    expect(
+      verifiedResult?.courseUnit?.canDo.de,
+      'Ich kann höflich um weniger scharfes Essen bitten.',
+    );
   });
 
   testWidgets('preview launch returns before production startup', (
@@ -155,7 +200,7 @@ void main() {
       await tester.pump();
 
       expect(find.byType(HoerverstehenQuest), findsOneWidget);
-      expect(find.text('Weniger scharf bestellen'), findsOneWidget);
+      expect(find.text('Weniger scharf bestellen'), findsWidgets);
       expect(find.text('Was sagt die Person?'), findsOneWidget);
       expect(
         find.text('Tippe erst, wenn du die Bitte erkannt hast.'),
@@ -296,6 +341,103 @@ void main() {
     expect(find.text('Reise nach Korea'), findsWidgets);
     expect(find.textContaining('A1'), findsWidgets);
     expect(find.text('Keine Lernbegleitung'), findsOneWidget);
+  });
+
+  test(
+    '05B fixture resolves the exact assessed scene with typed provenance',
+    () async {
+      const registry = UxPreviewRegistry();
+      final panel = uxPreviewPanels.firstWhere((item) => item.id == '05B');
+      final screen = registry.buildPanel(panel) as GyeScreen;
+      final meta = await screen.metaUpdates!.first;
+      final today = await screen.loadTodaySnapshot!();
+      final resolution = await screen.resolvePromiseNavigation!(meta!, today);
+
+      expect(screen.readOnlyPreview, isTrue);
+      expect(screen.onOpenSafeMessage, isNotNull);
+      expect(screen.onOpenReaction, isNotNull);
+      expect(resolution.kind, GyePromiseNavigationKind.eligibleScene);
+      expect(resolution.destination?.route, '/scenario');
+      final context =
+          resolution.destination?.arguments as CoursePracticeContext;
+      expect(context.courseUnitId, 'a1_04_order_request_object');
+      expect(context.initialContentId, 'bunshik_tteokbokki');
+      expect(context.contentLinkId, 'link:e6a9f1197b48c79f58655c9a');
+    },
+  );
+
+  testWidgets('05B-C show an exact scene and a reactable feed without writes', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final before = await _preferencesSnapshot();
+
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '05B'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(find.text('Meine heutige Szene öffnen'), findsOneWidget);
+    expect(find.text('Zu Heute'), findsNothing);
+    expect(
+      find.text(
+        'Kontoänderung läuft. Gruppenaktionen sind geschützt pausiert und '
+        'werden nach Abschluss wieder verfügbar.',
+      ),
+      findsNothing,
+    );
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const ValueKey('gye-promise-primary')))
+          .onTap,
+      isNotNull,
+    );
+    expect(await _preferencesSnapshot(), before);
+
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '05C'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    final safeMessage = find.widgetWithText(
+      SoriButton,
+      'Eine sichere Nachricht senden',
+    );
+    await tester.scrollUntilVisible(
+      safeMessage,
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    tester.widget<SoriButton>(safeMessage).onTap!.call();
+    await tester.pump();
+
+    final parent = find.text('Min hat eine Quest abgeschlossen');
+    await tester.scrollUntilVisible(
+      parent,
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(parent, findsOneWidget);
+    final reactionAction = find.byTooltip('Reagieren');
+    expect(reactionAction, findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Image &&
+            widget.image is AssetImage &&
+            (widget.image as AssetImage).assetName ==
+                'assets/stickers/tiger_clap.png',
+      ),
+      findsOneWidget,
+    );
+    tester
+        .widget<IconButton>(
+          find.ancestor(of: reactionAction, matching: find.byType(IconButton)),
+        )
+        .onPressed!
+        .call();
+    await tester.pump();
+    expect(await _preferencesSnapshot(), before);
+    expect(Storage.userLevelCode, isNull);
   });
 
   testWidgets('06B preview keeps saved review and reconnect actions', (

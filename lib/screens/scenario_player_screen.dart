@@ -29,6 +29,7 @@ import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
@@ -408,17 +409,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (nextKind == ScenarioStage.result) {
       final sc = _scenario;
       if (sc != null) {
-        final lang = Localizations.localeOf(context).languageCode;
-        _feedbackCompletion.complete(
-          () => FeedbackCompletion.scenario(
-            scenarioId: sc.id,
-            contentLabel: sc.title.pick(lang),
-            level: sc.level.display,
-            passed: _passedCount,
-            firstTryPassed: _firstTryPassedCount,
-            total: sc.quests.length,
-          ),
-        );
+        _ensureFeedbackCompletion(sc);
       }
     }
     setState(() {
@@ -1160,6 +1151,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Widget _buildSavedResult(AppL10n t, Scenario scenario, String lang) {
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
+    final feedbackCompletion = _ensureFeedbackCompletion(scenario);
     String? phrase;
     for (final line in scenario.dialog) {
       if (line.speaker.trim().toLowerCase() == 'user' &&
@@ -1190,6 +1183,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             CanDoResultCard(result: result),
             const SizedBox(height: Spacing.md),
             ScenarioStructureResultCard(result: result),
+            const SizedBox(height: Spacing.md),
+          ],
+          if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
+            ContentFeedbackCard(
+              feedbackContext: feedbackCompletion.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              mascotKind: MascotPreference.selectedKind,
+              completedMissionIds: feedbackScope.completedMissionIds,
+            ),
             const SizedBox(height: Spacing.md),
           ],
           if (phrase != null)
@@ -1249,6 +1252,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             child: Text(t.scenarioSavedRepeat),
           ),
         ],
+      ),
+    );
+  }
+
+  FeedbackCompletion _ensureFeedbackCompletion(Scenario scenario) {
+    final lang = Localizations.localeOf(context).languageCode;
+    return _feedbackCompletion.complete(
+      () => FeedbackCompletion.scenario(
+        scenarioId: scenario.id,
+        contentLabel: scenario.title.pick(lang),
+        level: scenario.level.display,
+        passed: _passedCount,
+        firstTryPassed: _firstTryPassedCount,
+        total: scenario.quests.length,
       ),
     );
   }

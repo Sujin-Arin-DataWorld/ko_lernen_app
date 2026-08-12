@@ -211,14 +211,18 @@ class MissionHeroCard extends StatelessWidget {
                   if (c.actionLabel case final actionLabel?) ...[
                     Text(
                       actionLabel,
-                      style: tt.label.copyWith(color: SoriColors.primary),
+                      style: tt.label.copyWith(
+                        color: s.brightness == Brightness.light
+                            ? SoriColors.primaryOnLight
+                            : SoriColors.primaryOnDark,
+                      ),
                     ),
                     const SizedBox(height: Spacing.xs),
                   ],
                   Text(actionTitle, style: tt.cardTitle),
                   if (c.actionMeta case final actionMeta?) ...[
                     const SizedBox(height: Spacing.xs),
-                    Text(actionMeta, style: tt.caption),
+                    Text(actionMeta, style: tt.caption.copyWith(color: s.text)),
                   ],
                   const SizedBox(height: Spacing.md),
                   SoriButton.filled(
@@ -260,7 +264,7 @@ class MissionHeroCard extends StatelessWidget {
                   Text(title, style: tt.label),
                   if (c.supportingBody case final body?) ...[
                     const SizedBox(height: 2),
-                    Text(body, style: tt.caption),
+                    Text(body, style: tt.caption.copyWith(color: s.text)),
                   ],
                 ],
               ),
