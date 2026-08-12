@@ -11,6 +11,21 @@ import 'tiger_video.dart';
 import 'tokens.dart';
 import 'video_lease.dart';
 
+/// Home-only clips with the light Hanji matte already baked into every frame.
+///
+/// Android video textures do not reliably honor a runtime [ColorFiltered]
+/// layer on every renderer/device combination. Keeping these derivatives in a
+/// separate directory preserves the white-matte contract for [CharacterClips]
+/// while allowing the home hero to render without a texture color filter.
+class HomeHeroClips {
+  HomeHeroClips._();
+
+  static const String _homeBase = 'assets/video/home_hero';
+  static const String tigerRise = '$_homeBase/tiger_rise_hanji.mp4';
+  static const String magpieWalkingFront =
+      '$_homeBase/magpie_walking_front_hanji.mp4';
+}
+
 /// **캐릭터 클립 카탈로그** — `assets/video/character/`의 흰 배경 H.264 mp4.
 ///
 /// 배치 계획(docs/INTEGRATION_2026-07-29.md) §2의 캐릭터 클립 16종.
@@ -238,6 +253,14 @@ class CharacterClipPlayer extends StatefulWidget {
   final bool loop;
   final Color blendColor;
 
+  /// Applies the runtime white-matte multiply filter.
+  ///
+  /// Leave this enabled for [CharacterClips]. Set it to false only for an
+  /// asset whose target background color is already baked into its pixels,
+  /// such as [HomeHeroClips]. This removes the problematic color-filter layer
+  /// around Android external video textures without changing other screens.
+  final bool applyMultiplyFilter;
+
   /// 폴백 마스코트. `null`이면 [MascotPreference] 의 nullable 선택 캐릭터를
   /// 쓴다. 사용자가 동반자를 고르지 않았다면 정적 Tiger를 발명하지 않는다.
   final MascotKind? fallbackKind;
@@ -286,6 +309,7 @@ class CharacterClipPlayer extends StatefulWidget {
     this.size = 180,
     this.loop = false,
     this.blendColor = SoriColors.lightBg,
+    this.applyMultiplyFilter = true,
     this.fallbackKind,
     this.fallbackEmotion = MascotEmotion.smile,
     this.staticFallback = true,
@@ -569,13 +593,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
                 //    빌드에서도 헤더가 사라지면 원인은 Skia clip 바깥의 GL
                 //    상태 오염이라는 뜻 → mp4 매트를 크림으로 재출력해
                 //    [ColorFiltered] 자체를 없애는 게 확정 수순이다.
-                child: ColorFiltered(
-                  colorFilter: ColorFilter.mode(
-                    widget.blendColor,
-                    BlendMode.multiply,
-                  ),
-                  child: VideoPlayer(video),
-                ),
+                child: widget.applyMultiplyFilter
+                    ? ColorFiltered(
+                        colorFilter: ColorFilter.mode(
+                          widget.blendColor,
+                          BlendMode.multiply,
+                        ),
+                        child: VideoPlayer(video),
+                      )
+                    : VideoPlayer(video),
               ),
       ),
     );

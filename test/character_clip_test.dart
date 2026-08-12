@@ -4,6 +4,11 @@ import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 
 void main() {
+  test('runtime multiply stays enabled by default for white-matte clips', () {
+    const player = CharacterClipPlayer(asset: CharacterClips.tigerRest);
+    expect(player.applyMultiplyFilter, isTrue);
+  });
+
   test('tiger profile picker is fixed to tiger_sitting2 (Jin 2026-08-06)', () {
     expect(CharacterClips.profileClipCountFor(MascotKind.tiger), 1);
     expect(

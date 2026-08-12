@@ -33,6 +33,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Verify character video mattes
+        run: |
+          python3 tool/check_clip_matte.py --check
+          python3 tool/check_home_hero_matte.py --check
+
       - name: Analyze (error 0 강제 · warning·info 허용)
         run: flutter analyze --no-fatal-warnings --no-fatal-infos
 

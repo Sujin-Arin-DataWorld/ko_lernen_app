@@ -985,9 +985,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         children: [
           // ── 1. 추상 gradient base — baked-in mascot 없음 ──
           // ⚠️ 상단 [_kHeroFlatBackdropFraction] 구간은 **평면 단색**이어야 한다.
-          // 캐릭터 mp4 는 순백(#FFFFFF) 매트를 `blendColor` multiply 로 흡수하는데
-          // (`CharacterClipPlayer`), multiply(흰색, C) 의 결과는 **언제나 정확히 C**
-          // 단색이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
+          // 홈 전용 캐릭터 mp4 는 한지색(`#FAF6EC`) 매트를 미리 합성한 불투명
+          // 영상이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
           // 액자처럼 보인다(2026-08-06 Jin 실기기: "영상 배경색"). 그래서 히어로가
           // 놓이는 상단은 `SoriColors.lightBg` 로 평평하게 깔고 그라데이션은 아래부터.
           Positioned.fill(
@@ -1427,7 +1426,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           ),
 
           // ── 4. 매화 입자 — **콘텐츠 위**에 그린다.
-          // 캐릭터 mp4 는 흰 매트를 multiply 로 흡수한 **불투명 사각형**이라,
+          // 캐릭터 mp4 는 한지색 매트를 미리 합성한 **불투명 사각형**이라,
           // 입자를 아래 깔면 꽃잎이 히어로 영상 경계에서 사라졌다 반대편에서
           // 다시 나타난다(2026-08-06). 위로 올리면 캐릭터 앞을 스치듯 지나가
           // 의도한 앰비언트가 되고, IgnorePointer 라 탭도 안 가로챈다.
@@ -1920,8 +1919,8 @@ class _RoundIconButton extends StatelessWidget {
 
 /// 홈 배경 gradient 중 **평면 단색**으로 유지할 상단 비율.
 ///
-/// 캐릭터 mp4 의 순백 매트는 `multiply(흰색, blendColor) = blendColor` 라
-/// 언제나 정확한 단색 사각형이 된다. 그 사각형이 놓이는 구간의 배경이
+/// 홈 전용 캐릭터 mp4 는 `SoriColors.lightBg` 매트를 미리 합성한 단색
+/// 사각형이다. 그 사각형이 놓이는 구간의 배경이
 /// 그라데이션이면 영상만 밝게 떠 액자처럼 보인다 → 히어로가 차지하는 상단은
 /// `SoriColors.lightBg` 로 평평하게 둔다. 짧은 화면(≈640dp)에서도 밴드 하단이
 /// 이 비율 안에 들어오도록 잡은 값.
@@ -2040,9 +2039,9 @@ class _TigerHero extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child: isDark
-                // multiply 블렌드는 **밝은 배경 전용**(AGENTS·tiger_video.dart).
-                // 다크에서 흰 매트를 크림으로 곱하면 어두운 배경 위에 밝은 사각형이
-                // 그대로 뜬다 → 다크는 정적 마스코트로 간다.
+                // 홈 전용 영상의 한지색 매트는 **밝은 배경 전용**이다.
+                // 다크에서는 어두운 배경 위에 밝은 사각형이 그대로 뜨므로
+                // 정적 마스코트로 간다.
                 ? Mascot(
                     kind: kind,
                     emotion: _emotion,
@@ -2052,18 +2051,17 @@ class _TigerHero extends StatelessWidget {
                 : CharacterClipPlayer(
                     key: ValueKey('home_hero_${kind.name}'),
                     asset: kind == MascotKind.magpie
-                        ? CharacterClips.magpieWalkingFront
-                        : CharacterClips.tigerRise,
+                        ? HomeHeroClips.magpieWalkingFront
+                        : HomeHeroClips.tigerRise,
                     size: bandHeight,
                     loop: true,
+                    // These home-only clips already contain the flat Hanji
+                    // backdrop. Avoid the Android external-texture color
+                    // filter that can expose the original white matte.
+                    applyMultiplyFilter: false,
                     staticFallback: CharacterClipPlayer.videoUnavailable(
                       context,
                     ),
-                    // 흰 매트 multiply 결과 = 정확히 이 색. 홈 배경 상단의
-                    // **평면 구간과 같은 상수**여야 이음매가 사라진다
-                    // (`build` 의 gradient 주석 참고). `s.bg` 가 아니라 상수인
-                    // 이유: 배경 gradient 도 팔레트 무관 상수이기 때문.
-                    blendColor: SoriColors.lightBg,
                     fallbackKind: kind,
                     fallbackEmotion: _emotion,
                   ),
