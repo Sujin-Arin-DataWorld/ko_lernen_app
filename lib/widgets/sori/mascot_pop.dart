@@ -121,15 +121,6 @@ class _MascotPartnerState extends State<MascotPartner>
     );
   }
 
-  /// 화면 좌표계 기준 마스코트 중심. 버스트 원점으로 쓴다.
-  Offset? _center() {
-    final box = context.findRenderObject() as RenderBox?;
-    if (box == null || !box.hasSize) {
-      return null;
-    }
-    return box.localToGlobal(box.size.center(Offset.zero));
-  }
-
   void _fire() {
     _cancelTimers();
     final reduced = SoriMotion.reduceMotion(context);
@@ -153,12 +144,17 @@ class _MascotPartnerState extends State<MascotPartner>
 
     // 버스트는 한 번만 쏜다. "파-박" 두 박자는 이제 시트 두 장(복주머니 → 엽전)의
     // 발사 시차가 만들므로, 여기서 여러 번 쏘면 통짜 시트가 겹쳐 뭉개진다.
-    final origin = _center();
-    if (origin != null) {
-      // intensity 1.35: 기본 1.0 이 "동전·복주머니가 너무 작다"(2026-08-12 Jin
-      // 실기기). 레이아웃이 뷰포트에 맞게 클램프하므로 좁은 폰에서도 안전.
-      DancheongBurst.fire(context, origin: origin, intensity: 1.35);
-    }
+    //
+    // 원점 = **화면 중앙**(높이 45%): 마스코트 중심(카드 우상단 모서리) 발사는
+    // 구석에서 터져 1.35→1.7 로 키워도 "아직 부족"으로 읽혔다(2026-08-12 Jin
+    // 3차: "가운데부터 터져서 화면 중간을 꽉"). intensity 2.4 —
+    // DancheongBurstLayout 이 뷰포트에 맞게 클램프해 화면 밖으로 안 나간다.
+    final size = MediaQuery.sizeOf(context);
+    DancheongBurst.fire(
+      context,
+      origin: Offset(size.width / 2, size.height * 0.45),
+      intensity: 2.4,
+    );
 
     // 햅틱은 시트 두 장의 타이밍에 맞춰 두 번 — 파박을 촉각으로 완성한다.
     HapticFeedback.lightImpact();

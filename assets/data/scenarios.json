@@ -181,7 +181,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "아이스 아메리카노 톨 사이즈",
-      "suffix": "주세요.",
+      "suffix": " 주세요.",
       "options": [
        "으로",
        "로",
@@ -586,9 +586,9 @@
     },
     {
      "speaker": "user",
-     "ko": "안녕하세요. 저는 [이름]이에요.",
-     "de": "Hallo. Ich bin [Name].",
-     "en": "Hello. I'm [Name]."
+     "ko": "안녕하세요. 저는 민수예요.",
+     "de": "Hallo. Ich bin Minsu.",
+     "en": "Hello. I'm Minsu."
     },
     {
      "speaker": "minsu",
@@ -622,7 +622,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "저",
-      "suffix": "[이름]이에요.",
+      "suffix": " 민수예요.",
       "options": [
        "은",
        "는",
@@ -1125,8 +1125,8 @@
     {
      "type": "particlePop",
      "data": {
-      "prefix": "왜 어제 답장",
-      "suffix": "했어?",
+      "prefix": "왜 어제 답장 ",
+      "suffix": " 했어?",
       "options": [
        "안",
        "도",
@@ -1329,7 +1329,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "강남역",
-      "suffix": "가주세요.",
+      "suffix": " 가주세요.",
       "options": [
        "까지",
        "에서",
@@ -1823,7 +1823,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "종로3가",
-      "suffix": "갈아타세요.",
+      "suffix": " 갈아타세요.",
       "options": [
        "에서",
        "까지",
@@ -2268,9 +2268,9 @@
     },
     {
      "speaker": "user",
-     "ko": "예약했는데요, 이름이 [이름]이에요.",
-     "de": "Ich habe reserviert. Mein Name ist [Name].",
-     "en": "I have a reservation. My name is [Name]."
+     "ko": "예약했는데요, 이름이 민수예요.",
+     "de": "Ich habe reserviert. Mein Name ist Minsu.",
+     "en": "I have a reservation. My name is Minsu."
     },
     {
      "speaker": "jieun",
@@ -2303,7 +2303,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "예약",
-      "suffix": "있어요.",
+      "suffix": " 있어요.",
       "options": [
        "이",
        "가",
@@ -2750,7 +2750,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "머리",
-      "suffix": "아파요.",
+      "suffix": " 아파요.",
       "options": [
        "가",
        "이",
@@ -3273,7 +3273,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "저는 해외 마케팅",
-      "suffix": "담당하고 있어요.",
+      "suffix": " 담당하고 있어요.",
       "options": [
        "을",
        "이",
@@ -3577,7 +3577,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "영업일 기준 2~3일 안",
-      "suffix": "처리해 드리겠습니다.",
+      "suffix": " 처리해 드리겠습니다.",
       "options": [
        "에",
        "에서",
@@ -3851,7 +3851,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "3일 후에도 증상이 지속되",
-      "suffix": "다시 오세요.",
+      "suffix": " 다시 오세요.",
       "options": [
        "면",
        "어서",
@@ -4071,7 +4071,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "홍대입구역",
-      "suffix": "가주세요.",
+      "suffix": " 가주세요.",
       "options": [
        "까지",
        "에",
@@ -4291,7 +4291,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "7시",
-      "suffix": "만날까?",
+      "suffix": " 만날까?",
       "options": [
        "에",
        "이",
@@ -4533,7 +4533,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "지하철",
-      "suffix": "놓쳤어.",
+      "suffix": " 놓쳤어.",
       "options": [
        "을",
        "이",
@@ -4775,7 +4775,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "내일 저녁",
-      "suffix": "갑자기 일이 생겼어.",
+      "suffix": " 갑자기 일이 생겼어.",
       "options": [
        "에",
        "이",
@@ -5011,7 +5011,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "몸이 안 좋아",
-      "suffix": "못 갈 것 같아.",
+      "suffix": " 못 갈 것 같아.",
       "options": [
        "서",
        "고",
@@ -5237,7 +5237,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "교대역에서 3호선",
-      "suffix": "갈아타세요.",
+      "suffix": " 갈아타세요.",
       "options": [
        "으로",
        "로",
@@ -5441,7 +5441,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "왕복",
-      "suffix": "주세요.",
+      "suffix": " 주세요.",
       "options": [
        "으로",
        "로",
@@ -5668,7 +5668,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "와이파이 비밀번호",
-      "suffix": "뭐예요?",
+      "suffix": " 뭐예요?",
       "options": [
        "가",
        "이",
@@ -6112,7 +6112,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "사과",
-      "suffix": "주세요.",
+      "suffix": " 주세요.",
       "options": [
        "를",
        "을",
@@ -6594,7 +6594,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "운동",
-      "suffix": "시작했어요.",
+      "suffix": " 시작했어요.",
       "options": [
        "을",
        "를",
@@ -6798,7 +6798,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "통장",
-      "suffix": "만들려고 해요.",
+      "suffix": " 만들려고 해요.",
       "options": [
        "을",
        "를",
@@ -7004,7 +7004,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "경험",
-      "suffix": "있습니다.",
+      "suffix": " 있습니다.",
       "options": [
        "이",
        "가",
@@ -7240,7 +7240,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "너",
-      "suffix": "사랑해.",
+      "suffix": " 사랑해.",
       "options": [
        "를",
        "을",
@@ -7444,7 +7444,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "열",
-      "suffix": "나.",
+      "suffix": " 나.",
       "options": [
        "이",
        "가",
@@ -7648,7 +7648,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "휴대폰",
-      "suffix": "잃어버렸어요.",
+      "suffix": " 잃어버렸어요.",
       "options": [
        "을",
        "를",
@@ -7852,7 +7852,7 @@
      "type": "particlePop",
      "data": {
       "prefix": "선물",
-      "suffix": "사 줄게.",
+      "suffix": " 사 줄게.",
       "options": [
        "을",
        "를",
@@ -8354,8 +8354,8 @@
      },
      "body": {
       "ko": "",
-      "de": "Bei neuen Kontakten ist 안녕하세요, [Name] 씨 eine sichere Eröffnung. Teile nur die Kontaktdaten, die die Situation wirklich braucht; du musst nicht sofort privat werden.",
-      "en": "With a new contact, 안녕하세요, [Name] 씨 is a safe opening. Share only the contact details the situation needs; you do not need to become personal right away."
+      "de": "Bei neuen Kontakten ist 안녕하세요, Minsu 씨 eine sichere Eröffnung. Teile nur die Kontaktdaten, die die Situation wirklich braucht; du musst nicht sofort privat werden.",
+      "en": "With a new contact, 안녕하세요, Minsu 씨 is a safe opening. Share only the contact details the situation needs; you do not need to become personal right away."
      }
     }
    },
