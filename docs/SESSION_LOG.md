@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Gye Node 22·Firestore Rules CI 게이트
+
+**왜.** 기존 CI는 Flutter/Linux golden과 Python 분석 함수는 검사했지만 `functions/gye`의
+배포 엔진(Node 22)과 Firestore Rules emulator를 실행하지 않았다. 주간 checkpoint 적립과
+계정 삭제 경계를 Windows Node 24 성공만으로 게시하면 런타임 차이를 놓칠 수 있었다.
+
+**무엇을.** `ci.yml`에 Ubuntu Node 22, Temurin Java 21, `npm ci`, Gye Functions 전체
+`npm test`, Firestore emulator `npm run test:rules` job을 추가했다. 기존 Flutter·golden·Python
+job과 수동 golden 재생성은 그대로 유지한다.
+
+**검증.** YAML diff와 `git diff --check`를 통과했고, 동일 소스의 로컬 Gye Functions는
+**338/338**, Firestore Rules는 **46/46** 통과했다. 최종 Node 22/Java 21 증명은 PR CI가 맡는다.
+코드 커밋: 미확정.
+
+---
+
 ### 2026-08-12 (Codex) — UX 01–06 최종 회귀 게이트
 
 **왜.** 20개 production preview를 한 브랜치로 통합한 뒤 전체 테스트를 다시 돌리자 새 코스
