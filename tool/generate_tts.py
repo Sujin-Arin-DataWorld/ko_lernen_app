@@ -29,6 +29,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -364,6 +365,12 @@ MIN_DUR_VOWEL = 0.22
 # 경향이 있다. 마지막 두 번은 같은 rate 재추첨(비결정성을 역이용).
 GATE_RATES = (RATE, 0.85, 0.70, 0.55, RATE, 0.70)
 
+# 최대 진폭 하한(dBFS). 길이 게이트만 있던 2026-08-12 1차에서 `하` 가 0.43s 로
+# 통과했지만 실측 max_volume 이 **-48.3dBFS** 였다 — 정상 자모는 -7~-2dBFS 다.
+# 40dB 아래면 진폭 1/100 이라 사실상 안 들린다. 길이와 음량은 서로를 대신하지
+# 못하므로 둘 다 잰다. 여유를 크게 둔 값(정상권보다 20dB 이상 아래만 탈락).
+MIN_PEAK_DBFS = -30.0
+
 
 # 음절당 최소 길이. 2~3음절 단어에 쓴다.
 #
@@ -391,24 +398,53 @@ def _min_duration_for(text):
     return max(MIN_DUR_CONSONANT, MIN_DUR_PER_SYLLABLE * len(syllables))
 
 
+def mp3_peak_dbfs(data):
+    """최대 진폭(dBFS). ffmpeg 이 없으면 None → 음량 게이트를 건너뛴다.
+
+    길이만으로는 못 잡는 실패가 있다. `하` 는 2026-08-12 재생성에서 0.43s 로
+    길이 게이트를 **통과했는데 실측 max_volume 이 -48.3dBFS** 였다 — 정상
+    자모(-7~-2dBFS)보다 40dB 아래, 진폭으로 1/100 이라 사람 귀에는 안 들린다.
+    "길지만 무음"인 take 를 통과시키지 않으려면 음량도 같이 재야 한다.
+    """
+    ffmpeg = shutil.which("ffmpeg")
+    if ffmpeg is None:
+        return None
+    proc = subprocess.run(
+        [ffmpeg, "-v", "info", "-i", "pipe:0", "-af", "volumedetect",
+         "-f", "null", "-"],
+        input=data,
+        capture_output=True,
+    )
+    match = re.search(rb"max_volume: ([-\d.]+) dB", proc.stderr)
+    return float(match.group(1)) if match else None
+
+
 def synth(tok, voice, text):
     floor = _min_duration_for(text)
     if floor <= 0.0:
         return _synth_raw(tok, VOICES[voice], text, RATE)
 
     best = None
-    best_dur = -1.0
+    best_score = None
+    best_dur, best_peak = -1.0, None
     for rate in GATE_RATES:
         data = _synth_raw(tok, VOICES[voice], text, rate)
         dur = mp3_duration(data)
-        if dur > best_dur:
-            best, best_dur = data, dur
-        if dur >= floor:
+        peak = mp3_peak_dbfs(data)
+        loud_ok = peak is None or peak >= MIN_PEAK_DBFS
+        # 들리는 take 를 항상 더 긴 무음 take 보다 우선한다.
+        score = (loud_ok, dur)
+        if best_score is None or score > best_score:
+            best, best_score = data, score
+            best_dur, best_peak = dur, peak
+        if dur >= floor and loud_ok:
             return data
-    # 하한을 못 넘기면 가장 긴 결과를 쓴다 — 실패로 처리해 파일을 비우면 그
+    # 하한을 못 넘기면 가장 좋은 결과를 쓴다 — 실패로 처리해 파일을 비우면 그
     # 글자만 OS 기계음으로 폴백해 더 나쁘다.
-    print(f"  ⚠️ {text!r}: {len(GATE_RATES)}회 모두 {floor:.2f}s 미달 "
-          f"(최장 {best_dur:.2f}s) → 최장본 채택")
+    peak_note = "?" if best_peak is None else f"{best_peak:.1f}dBFS"
+    print(f"  ⚠️ {text!r}: {len(GATE_RATES)}회 모두 {floor:.2f}s / "
+          f"{MIN_PEAK_DBFS:.0f}dBFS 기준 미달 "
+          f"(최선 {best_dur:.2f}s · {peak_note}) → 최선본 채택")
     return best
 
 
