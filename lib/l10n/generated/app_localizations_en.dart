@@ -603,7 +603,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get chosungPadHiddenNote =>
-      'From B1 on there is no key helper — type the word with your Korean keyboard.';
+      'From B1 onwards, there is no key helper. Type the word with your Korean keyboard.';
 
   @override
   String get wordleHowTitle => 'How to play';
@@ -1874,7 +1874,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingStartBody =>
-      'This chooses your first situations – not your ability.';
+      'This sets your first situations. It does not assess your ability.';
 
   @override
   String get onboardingStartTravelTitle => 'Getting around Korea';
@@ -1910,7 +1910,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingStartExistingBody =>
-      'Choose a level or take 8–10 questions';
+      'Choose a level or answer eight to ten questions';
 
   @override
   String get onboardingStartPrimary => 'Open my first scene';
@@ -2051,7 +2051,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingExampleB1Trans =>
-      'Yesterday I watched a movie with a friend. Really fun.';
+      'Yesterday I watched a movie with a friend. It was really fun.';
 
   @override
   String get onboardingExampleB2Trans =>
@@ -2172,7 +2172,7 @@ class AppL10nEn extends AppL10n {
   String get scenariosListTitle => 'Scenarios';
 
   @override
-  String get scenariosListSubtitle => 'Learn by living it';
+  String get scenariosListSubtitle => 'Practise real-life situations';
 
   @override
   String scenariosLocked(Object level) {
@@ -2480,7 +2480,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get missionHeroAllDoneBody =>
-      'Great work! New missions arrive tomorrow.';
+      'You are done for today. New missions are ready tomorrow.';
 
   @override
   String get missionHeroAnotherRound => 'One more round';
@@ -3242,7 +3242,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyeEmptyPreviewCaption =>
-      'A preview of a shared courtyard — never a requirement for your path';
+      'This is a preview of the shared courtyard. It is not required for your learning path.';
 
   @override
   String get homePathCardTitle => 'Learning path';
@@ -3702,11 +3702,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyeExplainWhat =>
-      'A 계 (gye) is an optional small group for learning Korean. Learning alone is complete, too.';
+      'A 계 (gye) is a small group for learning Korean, and joining is up to you. Learning on your own works just as well.';
 
   @override
   String get gyeExplainWhy =>
-      'A shared hanok makes encouragement visible. It is never a competition or a requirement for your learning path.';
+      'A shared hanok shows how you cheer each other on. There is no competition here, and you do not need the group to make progress.';
 
   @override
   String get gyeExplainHow =>
@@ -3717,7 +3717,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePrivacyBody =>
-      'Only that you contributed — never your answers, words, or assessment results.';
+      'It only shows that you contributed. Your answers, words, and assessment results stay private.';
 
   @override
   String get gyeWeeklyEyebrow => 'Together this week';
@@ -4253,14 +4253,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachSilbenStep1Body =>
-      'Fill the grid: each row is a Korean word — words cross at shared syllables. The red cell is selected';
+      'Fill the grid: each row is a Korean word. Words cross at shared syllables. The red cell is selected.';
 
   @override
   String get coachSilbenStep2Title => 'Read the clues';
 
   @override
   String get coachSilbenStep2Body =>
-      'Arrow = direction in the grid. Meaning and example sentence help — ○○ hides the target word';
+      'The arrow shows the direction in the grid. The meaning and example sentence help. ○○ hides the target word.';
 
   @override
   String get coachSilbenStep3Title => 'Tap syllables';
@@ -5370,8 +5370,7 @@ class AppL10nEn extends AppL10n {
   String get sarangbangClear => 'Leave this spot empty';
 
   @override
-  String get sarangbangHubDesc =>
-      'Your next study step begins in the Sarangbang.';
+  String get sarangbangHubDesc => 'Continue learning in the Sarangbang.';
 
   @override
   String get bojagiTitle => 'Bojagi bundle';
@@ -5435,11 +5434,12 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldEarlyEyebrow => 'Your courtyard · A1';
 
   @override
-  String get hanokWorldEarlyTitle => 'A roof begins with a voice.';
+  String get hanokWorldEarlyTitle =>
+      'Your first scene is the start of your Hanok.';
 
   @override
   String get hanokWorldEarlyBody =>
-      'Your foundation grows with every secure sentence from everyday life.';
+      'Every everyday sentence you can use confidently strengthens your foundation.';
 
   @override
   String hanokWorldEarlyVerifiedBody(Object canDo) {
@@ -5454,36 +5454,36 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldMapBody =>
-      'One place, one purpose. Learning does not start from an empty map.';
+      'Each building takes you to a part of Hangul Sori.';
 
   @override
   String get hanokWorldOpenNextScene => 'See the next scene';
 
   @override
-  String get hanokWorldNextBeamTitle => 'Next: the next beam';
+  String get hanokWorldNextBeamTitle => 'Next building step';
 
   @override
   String get hanokWorldExploreHouse => 'Explore my house';
 
   @override
   String hanokWorldSafeSceneProgress(int current, int total) {
-    return '$current of $total scenes secure';
+    return '$current of $total scenarios mastered';
   }
 
   @override
   String get hanokWorldIntro =>
-      'Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.';
+      'Continue learning as your Hanok grows. Each completed building leads to an area of Hangul Sori.';
 
   @override
-  String get hanokWorldLegacyTitle => 'Your courtyard is taking shape';
+  String get hanokWorldLegacyTitle => 'Your courtyard is growing';
 
   @override
   String get hanokWorldLegacyBody =>
-      'Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.';
+      'Finish A1 and A2. Your first B1 progress opens the full Hanok map.';
 
   @override
   String get hanokWorldMapHint =>
-      'Tap a finished building to continue learning there.';
+      'Tap a completed building to continue learning there.';
 
   @override
   String get hanokWorldOpenSarangbang => 'Study in the Sarangbang';
@@ -5496,7 +5496,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldGyeBridgeBody =>
-      'Your private Hanok and the shared Gye courtyard grow side by side. Meet your learning group there.';
+      'The Gye courtyard is separate from your private Hanok. Meet your learning group there.';
 
   @override
   String get hanokWorldGyeBridgeOpen => 'Visit the Gye courtyard';
@@ -5506,7 +5506,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldPlacesBody =>
-      'Use this list to choose a finished place.';
+      'Choose an available place from this list.';
 
   @override
   String get hanokMapPlaceSarangbang => '사랑방\nStudy today';
@@ -5550,7 +5550,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldPurposeDaecheong =>
-      'See your course path and choose the next verified mission.';
+      'View your course path and choose the next available mission.';
 
   @override
   String get hanokWorldPurposeHaengrang =>
@@ -5562,26 +5562,26 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokWorldPurposeHuwon =>
-      'Choose a quiet daily character moment or an existing quest.';
+      'Choose the letter of the day or a quest.';
 
   @override
   String get hanokWorldPurposeSadang =>
-      'Look back at the visible milestones of your learning path.';
+      'View the milestones in your learning path.';
 
   @override
   String get hanokWorldPurposeGyeRoad =>
       'The shared Gye courtyard stays separate from your private Hanok.';
 
   @override
-  String get hanokWorldSelectPlaceTitle => 'Choose a finished place';
+  String get hanokWorldSelectPlaceTitle => 'Choose an available place';
 
   @override
   String get hanokWorldSelectPlaceBody =>
-      'Tap a building on the map or choose one from the accessible list.';
+      'Tap a building on the map or choose one from the list.';
 
   @override
   String hanokWorldPlaceReadyBody(String place) {
-    return '$place is ready to welcome your next study step.';
+    return '$place is now available.';
   }
 
   @override
@@ -5606,8 +5606,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get hanokWorldRevealBody =>
-      'Wood, dust, and dancheong: a new part of your Hanok has taken shape.';
+  String get hanokWorldRevealBody => 'Your Hanok has grown by one area.';
 
   @override
   String get hanokWorldRevealContinue => 'Continue to the map';
@@ -5617,33 +5616,33 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokVenueAnbangBody =>
-      'This quiet inner room keeps the words, pages, and learning collections that matter to you.';
+      'Find your saved words, books, and learning collections here.';
 
   @override
   String get hanokVenueDaecheongBody =>
-      'On the open maru, continue your learning path or make the room your own.';
+      'Continue your learning path or furnish this room.';
 
   @override
   String get hanokVenueHaengrangBody =>
-      'Your practice atelier is waiting in the entrance wing for another round.';
+      'Start another practice round in the entrance wing.';
 
   @override
   String get hanokVenueHuwonBody =>
-      'The rear garden holds a quiet moment for today’s letter or a new quest.';
+      'Use the rear garden for the letter of the day or a new quest.';
 
   @override
   String get hanokVenueSadangBody =>
-      'The shrine keeps the visible traces of everything you have learned.';
+      'View the milestones in your learning path in the shrine.';
 
   @override
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override
-  String get sarangbangStudyIntroTitle => 'Today\'s words have arrived.';
+  String get sarangbangStudyIntroTitle => 'What you learned today';
 
   @override
   String get sarangbangStudyIntroBody =>
-      'Here you can see what you have actually worked for.';
+      'Find your learning progress for today here.';
 
   @override
   String get sarangbangStudySceneLabel => 'Your learning room';
@@ -5656,18 +5655,18 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangFurnishBody =>
-      'New objects come from existing, clearly marked rewards.';
+      'You receive new objects as clearly marked rewards.';
 
   @override
-  String get sarangbangStoredTitle => 'Stored today';
+  String get sarangbangStoredTitle => 'Collected today';
 
   @override
   String get sarangbangStoredEmpty =>
-      'New expressions and secure scenes appear here once you have worked for them.';
+      'New expressions and mastered scenarios appear here once you unlock them.';
 
   @override
   String sarangbangStoredBody(Object detail) {
-    return '$detail · Your current scene remains selected on Home.';
+    return '$detail · Your current scene stays selected on Home.';
   }
 
   @override
@@ -5682,9 +5681,9 @@ class AppL10nEn extends AppL10n {
     String _temp1 = intl.Intl.pluralLogic(
       scenes,
       locale: localeName,
-      other: '$scenes secure scenes',
-      one: '1 secure scene',
-      zero: 'no secure scenes',
+      other: '$scenes mastered scenarios',
+      one: '1 mastered scenario',
+      zero: 'no mastered scenarios',
     );
     String _temp2 = intl.Intl.pluralLogic(
       beams,

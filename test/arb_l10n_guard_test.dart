@@ -43,23 +43,19 @@ void main() {
 
   test('카운트 복수형 미처리 키는 0을 유지한다 (DE)', () {
     final hits = unpluralized(de);
-    expect(hits, isEmpty,
-        reason: 'ICU plural 로 바꿀 것: $hits (§7.1 처방 참조)');
+    expect(hits, isEmpty, reason: 'ICU plural 로 바꿀 것: $hits (§7.1 처방 참조)');
   });
 
   test('카운트 복수형 미처리 키는 0을 유지한다 (EN)', () {
     final hits = unpluralized(en);
-    expect(hits, isEmpty,
-        reason: 'ICU plural 로 바꿀 것: $hits (§7.1 처방 참조)');
+    expect(hits, isEmpty, reason: 'ICU plural 로 바꿀 것: $hits (§7.1 처방 참조)');
   });
 
   test('DE/EN 키는 완전 대칭이다', () {
     final deKeys = de.keys.where((k) => !k.startsWith('@')).toSet();
     final enKeys = en.keys.where((k) => !k.startsWith('@')).toSet();
-    expect(deKeys.difference(enKeys), isEmpty,
-        reason: 'DE 에만 있는 키 — EN 번역 누락');
-    expect(enKeys.difference(deKeys), isEmpty,
-        reason: 'EN 에만 있는 키 — DE 번역 누락');
+    expect(deKeys.difference(enKeys), isEmpty, reason: 'DE 에만 있는 키 — EN 번역 누락');
+    expect(enKeys.difference(deKeys), isEmpty, reason: 'EN 에만 있는 키 — DE 번역 누락');
   });
 
   test('금지 상표·구 명칭이 값에 남아 있지 않다 (Q5·Q6)', () {
@@ -73,7 +69,27 @@ void main() {
         }
       }
     }
-    expect(offenders, isEmpty,
-        reason: 'Q5(Silben-Rätsel)·Q6(Café) 결정 위반: $offenders');
+    expect(
+      offenders,
+      isEmpty,
+      reason: 'Q5(Silben-Rätsel)·Q6(Café) 결정 위반: $offenders',
+    );
+  });
+
+  test('사용자 노출 문구는 편집용 em/en dash를 쓰지 않는다', () {
+    final dash = RegExp('[\u2013\u2014]');
+    final offenders = <String>[];
+    for (final arb in [de, en]) {
+      for (final entry in arb.entries) {
+        final value = entry.value;
+        if (entry.key.startsWith('@') || value is! String) continue;
+        if (dash.hasMatch(value)) offenders.add(entry.key);
+      }
+    }
+    expect(
+      offenders,
+      isEmpty,
+      reason: '문장을 마침표·쉼표 등으로 자연스럽게 다시 써야 함: $offenders',
+    );
   });
 }
