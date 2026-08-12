@@ -334,6 +334,14 @@ void main() {
   test(
     'merge priority retention preserves correction and active checkpoint symmetrically',
     () async {
+      final correctionLinkId = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_correction')
+          .singleWhere((link) => link.role == ContentLinkRole.assess)
+          .id;
+      final checkpointLinkId = catalog
+          .linksForContent(CurriculumContentKind.scenario, 'scenario_greeting')
+          .singleWhere((link) => link.role == ContentLinkRole.assess)
+          .id;
       final ordinaryEvidence = [
         for (var index = 1; index <= 300; index++)
           _evidence(
@@ -354,11 +362,20 @@ void main() {
         placementLevel: 'a1',
         currentCourseUnitId: 'unit_root',
         evidence: [
-          _correctionEvidence(id: 'old-correction', second: 0),
+          _correctionEvidence(
+            id: 'old-correction',
+            second: 0,
+            missionContentLinkId: correctionLinkId,
+          ),
           ...ordinaryEvidence.take(150),
         ],
         scenarioCheckpoints: [
-          _checkpoint(id: 'old-active-checkpoint', second: 0),
+          _checkpoint(
+            id: 'old-active-checkpoint',
+            second: 0,
+            courseEligible: true,
+            missionContentLinkId: checkpointLinkId,
+          ),
           ...ordinaryCheckpoints.take(150),
         ],
       );
@@ -557,7 +574,7 @@ MasteryEvidence _evidence({
   required String id,
   required int second,
   bool isCorrect = true,
-  bool courseEligible = true,
+  bool courseEligible = false,
 }) => MasteryEvidence(
   id: id,
   conceptId: 'concept_greeting',
@@ -572,12 +589,14 @@ MasteryEvidence _evidence({
 MasteryEvidence _correctionEvidence({
   required String id,
   required int second,
+  required String missionContentLinkId,
 }) => MasteryEvidence(
   id: id,
   conceptId: 'concept_correction',
   contentKind: CurriculumContentKind.grammar,
   contentId: 'grammar_correction',
   courseUnitId: 'unit_alpha',
+  missionContentLinkId: missionContentLinkId,
   isCorrect: false,
   occurredAt: _time(second),
   errorReason: MasteryErrorReason.spellingSpacing,
@@ -588,11 +607,13 @@ ScenarioCheckpointEvidence _checkpoint({
   required String id,
   required int second,
   double score = .7,
-  bool courseEligible = true,
+  bool courseEligible = false,
+  String? missionContentLinkId,
 }) => ScenarioCheckpointEvidence(
   id: id,
   scenarioId: 'scenario_greeting',
   courseUnitId: 'unit_root',
+  missionContentLinkId: missionContentLinkId,
   score: score,
   occurredAt: _time(second),
   courseEligible: courseEligible,

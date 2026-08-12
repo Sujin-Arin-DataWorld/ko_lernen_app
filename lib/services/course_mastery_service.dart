@@ -247,6 +247,16 @@ class CourseMasteryService {
     return _snapshot;
   }
 
+  /// Loads the durable course snapshot for read-only screens without creating
+  /// or migrating storage. A path or historical mission view must never reset
+  /// a completed course merely because its current unit is null.
+  CourseMasterySnapshot? readForDisplay() {
+    final snapshot = readForReconciliation();
+    _snapshot = snapshot ?? const CourseMasterySnapshot.empty();
+    _loaded = true;
+    return snapshot;
+  }
+
   /// Reads only durable state that belongs to the sequential course without
   /// migrating, synthesizing, or persisting a canonical snapshot. In
   /// particular, the unrelated legacy user-level fallback is not course state.
@@ -398,9 +408,10 @@ class CourseMasteryService {
     final contextEntry = courseContext == null
         ? null
         : _contextEntryLink(courseContext, kind);
-    final isCourseCheckpointKind = _isCheckpointEvidenceKind(kind);
     final requiresExactAssessment =
-        courseContext != null && isCourseCheckpointKind;
+        courseContext != null && _requiresTypedMissionContext(kind);
+    final requiresSingleConceptAssessment =
+        courseContext != null && _requiresSingleConceptAssessment(kind);
     final requestedConceptId = conceptId?.trim();
     if (requestedConceptId != null && requestedConceptId.isEmpty) {
       throw const FormatException(
@@ -426,11 +437,15 @@ class CourseMasteryService {
         );
       }
     }
+    // A typed route identifies one immutable graph edge. Browse callers never
+    // inherit the active unit merely because their content happens to occur in
+    // it; their answers remain useful history only.
     final eligibleLinks = contextEntry == null
         ? allLinks
         : allLinks
               .where(
                 (link) =>
+                    link.id == contextEntry.id &&
                     link.courseUnitId == contextEntry.courseUnitId &&
                     (!requiresExactAssessment ||
                         link.role == ContentLinkRole.assess),
@@ -443,13 +458,20 @@ class CourseMasteryService {
       );
     }
     if (requiresExactAssessment) {
+      if (eligibleLinks.length != 1 ||
+          !eligibleLinks.single.conceptIds.contains(requestedConceptId)) {
+        throw FormatException(
+          'Course checkpoint ${kind.code}:$normalizedContentId does not '
+          'match concept $requestedConceptId for ${contextEntry!.courseUnitId}.',
+        );
+      }
+    }
+    if (requiresSingleConceptAssessment) {
       // A generic course card may move through other content in the same
       // mission, but each submitted answer still needs exactly one, explicit
       // assess edge. Otherwise a later data edit could make a caller choose
       // which of several concepts the same check should credit.
-      if (eligibleLinks.length != 1 ||
-          eligibleLinks.single.conceptIds.length != 1 ||
-          !eligibleLinks.single.conceptIds.contains(requestedConceptId)) {
+      if (eligibleLinks.single.conceptIds.length != 1) {
         throw FormatException(
           'Course checkpoint ${kind.code}:$normalizedContentId must have '
           'one exact assessment concept for ${contextEntry!.courseUnitId}.',
@@ -475,30 +497,27 @@ class CourseMasteryService {
           'Content ${kind.code}:$normalizedContentId is not linked to concept $id.',
         );
       }
-      final ContentLink? activeLink;
-      if (contextEntry == null) {
-        // Direct grammar/small-talk library visits remain useful history, but
-        // only a typed mission context may make their check course-eligible.
-        activeLink = isCourseCheckpointKind
-            ? null
-            : _activeLinkFor(matchingLinks);
-      } else {
-        activeLink = currentUnit?.id == contextEntry.courseUnitId
-            ? _preferredLink(matchingLinks)
-            : null;
-      }
-      final sourceLink = activeLink ?? _preferredLink(matchingLinks);
+      final activeLink =
+          contextEntry != null && currentUnit?.id == contextEntry.courseUnitId
+          ? contextEntry
+          : null;
       entries.add(
         MasteryEvidence(
           conceptId: id,
           contentKind: kind,
           contentId: normalizedContentId,
-          courseUnitId: sourceLink.courseUnitId,
+          courseUnitId: activeLink?.courseUnitId,
+          missionContentLinkId: activeLink?.id,
           isCorrect: isCorrect,
           occurredAt: timestamp,
           errorReason: errorReason,
           score: checkedScore,
-          courseEligible: activeLink != null,
+          // Only an exact assessment edge may change sequential mastery.
+          // Typed practice still keeps its unit provenance so the mission
+          // brief can advance without pretending that practice was a test.
+          courseEligible:
+              activeLink?.role == ContentLinkRole.assess &&
+              _requiresTypedMissionContext(kind),
         ),
       );
     }
@@ -511,6 +530,7 @@ class CourseMasteryService {
   Future<CourseUpdate> recordScenarioCheckpoint(
     String scenarioId,
     double score, {
+    CoursePracticeContext? courseContext,
     DateTime? occurredAt,
   }) async {
     await _ensureLoaded();
@@ -531,14 +551,24 @@ class CourseMasteryService {
       throw FormatException('Unknown linked scenario: $normalizedScenarioId');
     }
     final activeUnit = currentUnit;
-    final activeCheckpoint = activeUnit == null
+    final contextEntry =
+        courseContext?.isFor(CurriculumContentKind.scenario) == true &&
+            courseContext?.initialContentId == normalizedScenarioId
+        ? courseContext
+        : null;
+    final activeCheckpoint =
+        activeUnit == null ||
+            contextEntry == null ||
+            contextEntry.courseUnitId != activeUnit.id
         ? null
         : links
               .where(
                 (link) =>
                     link.courseUnitId == activeUnit.id &&
-                    link.role == ContentLinkRole.assess &&
-                    activeUnit.checkpointContentIds.contains(link.contentKey),
+                    link.id == contextEntry.contentLinkId &&
+                    link.contentId == contextEntry.initialContentId &&
+                    activeUnit.checkpointContentIds.contains(link.contentKey) &&
+                    link.exactlyAssesses(activeUnit),
               )
               .cast<ContentLink?>()
               .firstWhere((link) => link != null, orElse: () => null);
@@ -549,6 +579,7 @@ class CourseMasteryService {
         ScenarioCheckpointEvidence(
           scenarioId: normalizedScenarioId,
           courseUnitId: sourceLink.courseUnitId,
+          missionContentLinkId: activeCheckpoint?.id,
           score: checkedScore,
           occurredAt: timestamp,
           courseEligible: activeCheckpoint != null,
@@ -567,7 +598,7 @@ class CourseMasteryService {
         .where((item) => item.conceptId == conceptId)
         .toList(growable: false);
     final eligible = evidence
-        .where((item) => item.courseEligible)
+        .where(_isVerifiedCourseEligibleEvidence)
         .toList(growable: false);
     // Free browsing remains visible as history, but never changes sequential
     // course state or creates a retroactive mastery result.
@@ -581,10 +612,9 @@ class CourseMasteryService {
     }
     final accuracy = _accuracy(eligible);
     if (accuracy >= _passThresholdForConcept(conceptId)) {
-      if (eligible.length >= 3 && accuracy >= .85) {
-        return CourseContentState.stableMastery;
-      }
-      return CourseContentState.checkpointPassed;
+      return eligible.length >= 3 && accuracy >= .85
+          ? CourseContentState.stableMastery
+          : CourseContentState.checkpointPassed;
     }
     return CourseContentState.practiceAvailable;
   }
@@ -656,16 +686,27 @@ class CourseMasteryService {
 
   bool _unitPassed(CourseUnit unit) {
     final threshold = unit.passThreshold;
+    final latestScenarioEvidenceAt = <String, DateTime>{};
     for (final conceptId in unit.requiredConceptIds) {
       final evidence = _snapshot.evidence
           .where(
             (item) =>
-                item.courseEligible &&
+                _isVerifiedCourseEligibleEvidence(item) &&
                 item.courseUnitId == unit.id &&
-                item.conceptId == conceptId,
+                item.conceptId == conceptId &&
+                _isVerifiedConceptEvidenceForUnit(item, unit),
           )
           .toList(growable: false);
       if (evidence.isEmpty || _accuracy(evidence) < threshold) return false;
+      for (final item in evidence) {
+        if (item.contentKind == CurriculumContentKind.scenario &&
+            unit.checkpointContentIds.contains(item.contentKey)) {
+          final previous = latestScenarioEvidenceAt[item.contentId];
+          if (previous == null || item.occurredAt.isAfter(previous)) {
+            latestScenarioEvidenceAt[item.contentId] = item.occurredAt;
+          }
+        }
+      }
     }
     if (unit.checkpointContentIds.isEmpty) return true;
     for (final contentKey in unit.checkpointContentIds) {
@@ -682,10 +723,69 @@ class CourseMasteryService {
                 item.scenarioId == pieces.last,
           )
           .toList(growable: false);
-      if (matching.isEmpty) return false;
-      if (_latestCheckpoint(matching).score < threshold) return false;
+      final verifiedMatching = matching
+          .where(_isVerifiedCourseEligibleCheckpoint)
+          .toList(growable: false);
+      if (verifiedMatching.isEmpty) return false;
+      final latestCheckpoint = _latestCheckpoint(verifiedMatching);
+      if (latestCheckpoint.score < threshold) return false;
+      final scenarioEvidenceAt = latestScenarioEvidenceAt[pieces.last];
+      if (scenarioEvidenceAt != null &&
+          latestCheckpoint.occurredAt.isBefore(scenarioEvidenceAt)) {
+        return false;
+      }
     }
     return true;
+  }
+
+  bool _isVerifiedConceptEvidenceForUnit(
+    MasteryEvidence evidence,
+    CourseUnit unit,
+  ) =>
+      _isVerifiedCourseEligibleEvidence(evidence) &&
+      evidence.courseUnitId == unit.id;
+
+  bool _isVerifiedCourseEligibleEvidence(MasteryEvidence evidence) {
+    if (!evidence.courseEligible ||
+        evidence.courseUnitId == null ||
+        evidence.missionContentLinkId == null ||
+        !_requiresTypedMissionContext(evidence.contentKind)) {
+      return false;
+    }
+    return catalog
+        .linksForContent(evidence.contentKind, evidence.contentId)
+        .any(
+          (link) =>
+              link.courseUnitId == evidence.courseUnitId &&
+              link.conceptIds.contains(evidence.conceptId) &&
+              link.role == ContentLinkRole.assess &&
+              evidence.missionContentLinkId == link.id,
+        );
+  }
+
+  bool _isVerifiedCourseEligibleCheckpoint(
+    ScenarioCheckpointEvidence checkpoint,
+  ) {
+    if (!checkpoint.courseEligible ||
+        checkpoint.courseUnitId == null ||
+        checkpoint.missionContentLinkId == null) {
+      return false;
+    }
+    final unit = catalog.courseUnitFor(checkpoint.courseUnitId!);
+    if (unit == null ||
+        !unit.checkpointContentIds.contains(
+          '${CurriculumContentKind.scenario.code}:${checkpoint.scenarioId}',
+        )) {
+      return false;
+    }
+    return catalog
+        .linksForContent(CurriculumContentKind.scenario, checkpoint.scenarioId)
+        .any(
+          (link) =>
+              link.id == checkpoint.missionContentLinkId &&
+              link.courseUnitId == checkpoint.courseUnitId &&
+              link.exactlyAssesses(unit),
+        );
   }
 
   ScenarioCheckpointEvidence _latestCheckpoint(
@@ -709,16 +809,12 @@ class CourseMasteryService {
     return target.prerequisiteUnitIds.every(resolved.contains);
   }
 
-  ContentLink? _activeLinkFor(List<ContentLink> links) {
-    final currentId = _snapshot.currentCourseUnitId;
-    if (currentId == null) return null;
-    for (final link in links) {
-      if (link.courseUnitId == currentId) return link;
-    }
-    return null;
-  }
+  bool _requiresTypedMissionContext(CurriculumContentKind kind) =>
+      kind == CurriculumContentKind.grammar ||
+      kind == CurriculumContentKind.smalltalk ||
+      kind == CurriculumContentKind.scenario;
 
-  bool _isCheckpointEvidenceKind(CurriculumContentKind kind) =>
+  bool _requiresSingleConceptAssessment(CurriculumContentKind kind) =>
       kind == CurriculumContentKind.grammar ||
       kind == CurriculumContentKind.smalltalk;
 
@@ -778,7 +874,7 @@ class CourseMasteryService {
     for (final evidence in entries) {
       // Future/free-browse answers must not create a sequential-course repair
       // item before the learner reaches that linked concept.
-      if (!evidence.courseEligible) continue;
+      if (!_isVerifiedCourseEligibleEvidence(evidence)) continue;
       if (evidence.isCorrect) {
         pending.remove(evidence.conceptId);
       } else if (_needsTargetedRemediation(evidence)) {
@@ -848,7 +944,7 @@ class CourseMasteryService {
       (entry) =>
           unresolved.contains(entry) ||
           (active != null &&
-              entry.courseEligible &&
+              _isVerifiedCourseEligibleEvidence(entry) &&
               entry.courseUnitId == active.id &&
               active.requiredConceptIds.contains(entry.conceptId)),
     );
@@ -873,7 +969,7 @@ class CourseMasteryService {
         .toSet();
     final latestRequired = <String, ScenarioCheckpointEvidence>{};
     for (final entry in entries) {
-      if (entry.courseEligible &&
+      if (_isVerifiedCourseEligibleCheckpoint(entry) &&
           entry.courseUnitId == active.id &&
           requiredScenarioIds.contains(entry.scenarioId)) {
         final previous = latestRequired[entry.scenarioId];
@@ -1088,27 +1184,50 @@ class CourseMasteryService {
         );
       }
     }
+    if (evidence.missionContentLinkId != null) {
+      final missionLinks = links
+          .where(
+            (link) =>
+                link.id == evidence.missionContentLinkId &&
+                link.courseUnitId == evidence.courseUnitId &&
+                link.conceptIds.contains(evidence.conceptId),
+          )
+          .toList(growable: false);
+      if (missionLinks.length != 1 ||
+          (evidence.courseEligible &&
+              missionLinks.single.role != ContentLinkRole.assess)) {
+        throw const FormatException(
+          'Mission evidence does not match one exact graph edge.',
+        );
+      }
+    }
     if (evidence.courseEligible && evidence.courseUnitId == null) {
       throw const FormatException('Eligible evidence requires a course unit.');
     }
     if (evidence.courseEligible &&
-        _isCheckpointEvidenceKind(evidence.contentKind)) {
+        _requiresTypedMissionContext(evidence.contentKind)) {
       final eligibleAssessLinks = links
           .where(
             (link) =>
                 link.courseUnitId == evidence.courseUnitId &&
                 link.role == ContentLinkRole.assess &&
-                link.conceptIds.length == 1 &&
-                link.conceptIds.single == evidence.conceptId,
+                link.conceptIds.contains(evidence.conceptId) &&
+                (!_requiresSingleConceptAssessment(evidence.contentKind) ||
+                    (link.conceptIds.length == 1 &&
+                        link.conceptIds.single == evidence.conceptId)),
           )
           .toList(growable: false);
       final isSpeechStyle =
           evidence.contentKind != CurriculumContentKind.smalltalk ||
           catalog.conceptFor(evidence.conceptId)?.kind ==
               ConceptKind.speechStyle;
-      if (eligibleAssessLinks.length != 1 || !isSpeechStyle) {
+      final hasExactAssessment =
+          _requiresSingleConceptAssessment(evidence.contentKind)
+          ? eligibleAssessLinks.length == 1
+          : eligibleAssessLinks.isNotEmpty;
+      if (!hasExactAssessment || !isSpeechStyle) {
         throw FormatException(
-          'Eligible ${evidence.contentKind.code} evidence must reference one '
+          'Eligible ${evidence.contentKind.code} evidence must reference an '
           'exact assessment concept.',
         );
       }
@@ -1140,7 +1259,7 @@ class CourseMasteryService {
         'Eligible checkpoint requires a course unit.',
       );
     }
-    if (checkpoint.courseEligible) {
+    if (checkpoint.courseEligible && checkpoint.missionContentLinkId != null) {
       final unit = catalog.courseUnitFor(checkpoint.courseUnitId!);
       final hasExactAssessment =
           unit != null &&
@@ -1149,8 +1268,9 @@ class CourseMasteryService {
           ) &&
           links.any(
             (link) =>
+                link.id == checkpoint.missionContentLinkId &&
                 link.courseUnitId == unit.id &&
-                link.role == ContentLinkRole.assess,
+                link.exactlyAssesses(unit),
           );
       if (!hasExactAssessment) {
         throw FormatException(

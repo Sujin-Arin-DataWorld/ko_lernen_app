@@ -31,6 +31,75 @@ void main() {
     expect(pathVisibleLevel('B2'), 'B2');
   });
 
+  test('legacy pack path keeps its dedicated browse level', () {
+    expect(
+      pathLegacyBrowseVisibleLevel(
+        browseLevelCode: 'b1',
+        placementLevelCode: 'a2',
+        legacyUserLevelCode: 'a1',
+      ),
+      'B1',
+    );
+    expect(
+      pathLegacyBrowseVisibleLevel(
+        browseLevelCode: null,
+        placementLevelCode: 'a2',
+        legacyUserLevelCode: 'a1',
+      ),
+      'A2',
+    );
+  });
+
+  test('canonical current course level wins over the legacy browse level', () {
+    const snapshot = CourseMasterySnapshot(
+      placementLevel: 'a2',
+      currentCourseUnitId: 'a2_02',
+    );
+
+    expect(
+      pathCourseVisibleLevel(
+        snapshot: snapshot,
+        courseUnits: _units,
+        fallbackBrowseLevel: 'A1',
+      ),
+      'A2',
+    );
+    expect(pathVisibleLevel('a1'), 'A1');
+  });
+
+  testWidgets(
+    '04C keeps the canonical A2 mission visible when legacy browse is A1',
+    (tester) async {
+      String? openedRoute;
+      Object? openedArguments;
+      await tester.pumpWidget(
+        _host(
+          LearningPathScreen.preview(
+            courseUnits: _units,
+            snapshot: const CourseMasterySnapshot(
+              placementLevel: 'a2',
+              currentCourseUnitId: 'a2_02',
+            ),
+            selectedLevel: 'A1',
+          ),
+          onRoute: (settings) {
+            openedRoute = settings.name;
+            openedArguments = settings.arguments;
+          },
+        ),
+      );
+
+      expect(find.byKey(const ValueKey('path-course-row-a2_02')), findsOne);
+      expect(find.byKey(const ValueKey('path-course-row-a1_03')), findsNothing);
+      final currentMission = find.byKey(const ValueKey('path-current-mission'));
+      await tester.scrollUntilVisible(currentMission, 240);
+      await tester.tap(currentMission);
+      await tester.pumpAndSettle();
+      expect(openedRoute, '/course/mission');
+      expect(openedArguments, 'a2_02');
+    },
+  );
+
   testWidgets('04C preview shows completed, current, and next concise rows', (
     tester,
   ) async {
@@ -196,6 +265,28 @@ const _units = <CourseUnit>[
       ko: '다섯째',
       de: 'Ich kann weitermachen.',
       en: 'I can continue.',
+    ),
+  ),
+  CourseUnit(
+    id: 'a2_01',
+    level: 'a2',
+    order: 1,
+    title: CurriculumText(ko: '일상', de: 'Alltag', en: 'Daily life'),
+    canDo: CurriculumText(
+      ko: '일상',
+      de: 'Im Alltag beginnen',
+      en: 'start daily life',
+    ),
+  ),
+  CourseUnit(
+    id: 'a2_02',
+    level: 'a2',
+    order: 2,
+    title: CurriculumText(ko: '약속', de: 'Verabreden', en: 'Make plans'),
+    canDo: CurriculumText(
+      ko: '약속',
+      de: 'Einen Termin absprechen',
+      en: 'arrange a meeting',
     ),
   ),
 ];

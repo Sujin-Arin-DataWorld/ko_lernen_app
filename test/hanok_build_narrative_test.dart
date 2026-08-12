@@ -45,6 +45,7 @@ const _sceneUnit = CourseUnit(
     de: 'Ich kann eine Alltagsszene sicher abschließen.',
     en: 'I can complete an everyday scene safely.',
   ),
+  requiredConceptIds: ['safe_scene'],
   checkpointContentIds: ['scenario:scene_one', 'scenario:scene_two'],
   passThreshold: .7,
 );
@@ -76,6 +77,7 @@ const _nextSceneUnit = CourseUnit(
     de: 'Ich kann höflich um etwas bitten.',
     en: 'I can make a polite request.',
   ),
+  requiredConceptIds: ['safe_scene'],
   checkpointContentIds: ['scenario:scene_next'],
 );
 
@@ -165,6 +167,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'scene_one',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: _sceneLinks[0].id,
             score: .6,
             occurredAt: DateTime.utc(2026, 8, 10),
             courseEligible: true,
@@ -172,6 +175,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'scene_one',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: _sceneLinks[0].id,
             score: .8,
             occurredAt: DateTime.utc(2026, 8, 11),
             courseEligible: true,
@@ -185,6 +189,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'stale_scene',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: 'stale-scene-link',
             score: 1,
             occurredAt: DateTime.utc(2026, 8, 11),
             courseEligible: true,
@@ -211,6 +216,7 @@ void main() {
             ScenarioCheckpointEvidence(
               scenarioId: 'scene_one',
               courseUnitId: _sceneUnit.id,
+              missionContentLinkId: _sceneLinks[0].id,
               score: .9,
               occurredAt: DateTime.utc(2026, 8, 10),
               courseEligible: true,
@@ -218,6 +224,7 @@ void main() {
             ScenarioCheckpointEvidence(
               scenarioId: 'scene_one',
               courseUnitId: _sceneUnit.id,
+              missionContentLinkId: _sceneLinks[0].id,
               score: .69,
               occurredAt: DateTime.utc(2026, 8, 11),
               courseEligible: true,
@@ -242,6 +249,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'scene_one',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: _sceneLinks[0].id,
             score: .7,
             occurredAt: DateTime.utc(2026, 8, 10),
             courseEligible: true,
@@ -249,6 +257,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'scene_two',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: _sceneLinks[1].id,
             score: .85,
             occurredAt: DateTime.utc(2026, 8, 11),
             courseEligible: true,
@@ -280,6 +289,7 @@ void main() {
           ScenarioCheckpointEvidence(
             scenarioId: 'scene_one',
             courseUnitId: _sceneUnit.id,
+            missionContentLinkId: _sceneLinks[0].id,
             score: .9,
             occurredAt: DateTime.utc(2026, 8, 11),
             courseEligible: true,

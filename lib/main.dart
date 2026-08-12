@@ -589,9 +589,20 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/cloze':
-              final clozeCourseUnitId = settings.arguments as String?;
+              final clozeCourseContext =
+                  coursePracticeContextFromRouteArguments(
+                    settings.arguments,
+                    CurriculumContentKind.cloze,
+                  );
+              final clozeCourseUnitId = courseUnitIdFromActivityRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.cloze,
+              );
               return SoriTransitions.fadeScale(
-                (_) => ClozeGameScreen(courseUnitId: clozeCourseUnitId),
+                (_) => ClozeGameScreen(
+                  courseUnitId: clozeCourseUnitId,
+                  courseContext: clozeCourseContext,
+                ),
                 settings: settings,
               );
             case '/speed_match':
@@ -610,9 +621,19 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/satz_arcade':
-              final satzCourseUnitId = settings.arguments as String?;
+              final satzCourseContext = coursePracticeContextFromRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.satz,
+              );
+              final satzCourseUnitId = courseUnitIdFromActivityRouteArguments(
+                settings.arguments,
+                CurriculumContentKind.satz,
+              );
               return SoriTransitions.fadeScale(
-                (_) => SatzArcadeScreen(courseUnitId: satzCourseUnitId),
+                (_) => SatzArcadeScreen(
+                  courseUnitId: satzCourseUnitId,
+                  courseContext: satzCourseContext,
+                ),
                 settings: settings,
               );
             case '/settings':

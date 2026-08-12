@@ -5,9 +5,10 @@ import 'package:ko_lernen_app/services/onboarding_companion_service.dart';
 void main() {
   final firstSuccess = MasteryEvidence(
     conceptId: 'concept-a',
-    contentKind: CurriculumContentKind.vocab,
-    contentId: 'vocab-a',
+    contentKind: CurriculumContentKind.grammar,
+    contentId: 'grammar-a',
     courseUnitId: 'a1-01',
+    missionContentLinkId: 'link-grammar-a',
     isCorrect: true,
     occurredAt: DateTime.utc(2026, 8, 10),
     courseEligible: true,
@@ -25,6 +26,16 @@ void main() {
     activeCourseLevel: level,
     evidenceIdsBefore: evidenceBefore.map((item) => item.id),
     evidenceAfter: evidenceAfter,
+    contentLinks: [
+      ContentLink(
+        id: 'link-grammar-a',
+        contentKind: CurriculumContentKind.grammar,
+        contentId: 'grammar-a',
+        courseUnitId: 'a1-01',
+        conceptIds: const ['concept-a'],
+        role: ContentLinkRole.assess,
+      ),
+    ],
   );
 
   test('offers only after a correct eligible answer in the active A1 unit', () {
@@ -35,9 +46,10 @@ void main() {
         evidenceAfter: [
           MasteryEvidence(
             conceptId: 'concept-a',
-            contentKind: CurriculumContentKind.vocab,
-            contentId: 'vocab-a',
+            contentKind: CurriculumContentKind.grammar,
+            contentId: 'grammar-a',
             courseUnitId: 'a1-01',
+            missionContentLinkId: 'link-grammar-a',
             isCorrect: false,
             occurredAt: DateTime.utc(2026, 8, 10),
             courseEligible: true,
@@ -51,9 +63,10 @@ void main() {
         evidenceAfter: [
           MasteryEvidence(
             conceptId: 'concept-a',
-            contentKind: CurriculumContentKind.vocab,
-            contentId: 'vocab-a',
+            contentKind: CurriculumContentKind.grammar,
+            contentId: 'grammar-a',
             courseUnitId: 'a1-01',
+            missionContentLinkId: 'link-grammar-a',
             isCorrect: true,
             occurredAt: DateTime.utc(2026, 8, 10),
             courseEligible: false,
@@ -90,6 +103,7 @@ void main() {
         contentKind: firstSuccess.contentKind,
         contentId: firstSuccess.contentId,
         courseUnitId: firstSuccess.courseUnitId,
+        missionContentLinkId: firstSuccess.missionContentLinkId,
         isCorrect: true,
         occurredAt: DateTime.utc(2026, 8, 12),
         courseEligible: true,

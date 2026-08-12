@@ -15,18 +15,29 @@ void main() {
       de: 'Ich kann eine neue Person begrüßen.',
       en: 'I can greet someone new.',
     ),
+    requiredConceptIds: ['concept_greeting'],
     checkpointContentIds: ['scenario:greeting_scene'],
     passThreshold: .7,
+  );
+  final sceneLink = ContentLink(
+    id: 'greeting-scene-assess',
+    contentKind: CurriculumContentKind.scenario,
+    contentId: 'greeting_scene',
+    courseUnitId: unit.id,
+    conceptIds: const ['concept_greeting'],
+    role: ContentLinkRole.assess,
   );
 
   ScenarioCheckpointEvidence checkpoint({
     required double score,
     required bool courseEligible,
     String? courseUnitId = 'a1_01',
+    String? missionContentLinkId = 'greeting-scene-assess',
     int minute = 0,
   }) => ScenarioCheckpointEvidence(
     scenarioId: 'greeting_scene',
     courseUnitId: courseUnitId,
+    missionContentLinkId: missionContentLinkId,
     score: score,
     occurredAt: DateTime.utc(2026, 8, 10, 12, minute),
     courseEligible: courseEligible,
@@ -42,6 +53,7 @@ void main() {
       ),
       scenarioId: 'greeting_scene',
       courseUnits: [unit],
+      contentLinks: [sceneLink],
     );
 
     expect(result?.status, ScenarioCanDoStatus.verified);
@@ -55,6 +67,7 @@ void main() {
       ),
       scenarioId: 'greeting_scene',
       courseUnits: [unit],
+      contentLinks: [sceneLink],
     );
 
     expect(result?.status, ScenarioCanDoStatus.reviewNeeded);
@@ -68,6 +81,27 @@ void main() {
       ),
       scenarioId: 'greeting_scene',
       courseUnits: [unit],
+      contentLinks: [sceneLink],
+    );
+
+    expect(result?.status, ScenarioCanDoStatus.practiceOnly);
+    expect(result?.courseUnit, isNull);
+  });
+
+  test('keeps legacy eligible bytes without an exact link as practice', () {
+    final result = ScenarioCanDoResult.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        scenarioCheckpoints: [
+          checkpoint(
+            score: 1,
+            courseEligible: true,
+            missionContentLinkId: null,
+          ),
+        ],
+      ),
+      scenarioId: 'greeting_scene',
+      courseUnits: [unit],
+      contentLinks: [sceneLink],
     );
 
     expect(result?.status, ScenarioCanDoStatus.practiceOnly);
@@ -79,6 +113,7 @@ void main() {
       snapshot: const CourseMasterySnapshot.empty(),
       scenarioId: 'greeting_scene',
       courseUnits: [unit],
+      contentLinks: [sceneLink],
     );
 
     expect(result, isNull);

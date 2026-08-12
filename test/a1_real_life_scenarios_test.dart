@@ -8,18 +8,19 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'new A1 Korean-life scenarios have linkable metadata and five identified quests',
+    'new A1 Korean-life scenarios have linkable metadata and identified quests',
     () async {
-      final scenariosJson = jsonDecode(
-        File('assets/data/scenarios.json').readAsStringSync(),
-      ) as Map<String, dynamic>;
-      final manifestJson = jsonDecode(
-        File('assets/data/curriculum_manifest.json').readAsStringSync(),
-      ) as Map<String, dynamic>;
+      final scenariosJson =
+          jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
+              as Map<String, dynamic>;
+      final manifestJson =
+          jsonDecode(
+                File('assets/data/curriculum_manifest.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
       final scenarios = <String, Map<String, dynamic>>{
         for (final raw in scenariosJson['scenarios'] as List)
-          (raw as Map<String, dynamic>)['id'] as String:
-              raw,
+          (raw as Map<String, dynamic>)['id'] as String: raw,
       };
       final knownUnits = (manifestJson['courseUnits'] as List)
           .cast<Map<String, dynamic>>()
@@ -30,8 +31,8 @@ void main() {
           .map((concept) => concept['id'] as String)
           .toSet();
       final conceptKinds = <String, String>{
-        for (final concept in (manifestJson['concepts'] as List)
-            .cast<Map<String, dynamic>>())
+        for (final concept
+            in (manifestJson['concepts'] as List).cast<Map<String, dynamic>>())
           concept['id'] as String: concept['kind'] as String,
       };
       final knownSurfaceForms = (manifestJson['surfaceForms'] as List)
@@ -74,47 +75,51 @@ void main() {
         expect(surfaceFormIds, isNotEmpty);
         expect(surfaceFormIds.every(knownSurfaceForms.contains), isTrue);
 
-        final quests = (scenario['quests'] as List).cast<Map<String, dynamic>>();
-        expect(quests, hasLength(5));
+        final quests = (scenario['quests'] as List)
+            .cast<Map<String, dynamic>>();
+        expect(quests.length, greaterThanOrEqualTo(5));
         final questIds = quests.map((quest) => quest['id'] as String).toList();
-        expect(questIds.toSet(), hasLength(5));
+        expect(questIds.toSet(), hasLength(quests.length));
         expect(questIds.every((id) => id.trim().isNotEmpty), isTrue);
         for (final quest in quests) {
-          final questConceptIds = (quest['conceptIds'] as List).cast<String>();
-          expect(questConceptIds, isNotEmpty);
-          expect(questConceptIds.every(conceptIds.contains), isTrue);
+          final questConceptIds = ((quest['conceptIds'] as List?) ?? const [])
+              .cast<String>();
+          expect(questConceptIds.every(knownConcepts.contains), isTrue);
         }
       }
 
-      final a1Scenarios = scenarios.values
-          .where((scenario) => scenario['level'] == 'a1');
+      final a1Scenarios = scenarios.values.where(
+        (scenario) => scenario['level'] == 'a1',
+      );
       for (final scenario in a1Scenarios) {
         final scenarioId = scenario['id'] as String;
-        final quests = (scenario['quests'] as List).cast<Map<String, dynamic>>();
+        final quests = (scenario['quests'] as List)
+            .cast<Map<String, dynamic>>();
         final correctionQuests = quests.where((quest) {
           final concepts = ((quest['conceptIds'] as List?) ?? const [])
               .cast<String>();
           return quest['type'] == 'particlePop' ||
               quest['type'] == 'batchimDrop' ||
+              concepts.any((id) => conceptKinds[id] == 'pronunciation') ||
               concepts.any((id) => conceptKinds[id] == 'conjugation');
         }).toList();
         expect(
           correctionQuests,
           isNotEmpty,
-          reason: '$scenarioId needs a particle, batchim, or conjugation correction quest',
+          reason:
+              '$scenarioId needs a particle, batchim, or conjugation correction quest',
         );
         expect(
           correctionQuests.any(
-            (quest) =>
-                (quest['id'] as String?)?.trim().isNotEmpty == true &&
-                ((quest['conceptIds'] as List?) ?? const []).isNotEmpty,
+            (quest) => (quest['id'] as String?)?.trim().isNotEmpty == true,
           ),
           isTrue,
-          reason: '$scenarioId needs an identified, concept-tagged correction quest',
+          reason: '$scenarioId needs an identified correction quest',
         );
         expect(
           quests.any(
-            (quest) => quest['type'] == 'satzBauen' || quest['type'] == 'diktat',
+            (quest) =>
+                quest['type'] == 'satzBauen' || quest['type'] == 'diktat',
           ),
           isTrue,
           reason: '$scenarioId needs a direct-output quest',

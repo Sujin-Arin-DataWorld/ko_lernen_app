@@ -52,16 +52,28 @@ class HanokLearningReceipt {
     final scenariosById = <String, Scenario>{
       for (final scenario in scenarios) scenario.id: scenario,
     };
-    final assessSceneKeys = <String>{
-      for (final link in contentLinks)
-        if (link.contentKind == CurriculumContentKind.scenario &&
-            link.role == ContentLinkRole.assess)
-          _sceneKey(link.courseUnitId, link.contentId),
-    };
+    final assessSceneLinks = <String, Set<String>>{};
+    for (final link in contentLinks) {
+      final unit = unitsById[link.courseUnitId];
+      if (link.contentKind != CurriculumContentKind.scenario ||
+          unit == null ||
+          !link.exactlyAssesses(unit)) {
+        continue;
+      }
+      assessSceneLinks
+          .putIfAbsent(
+            _sceneKey(link.courseUnitId, link.contentId),
+            () => <String>{},
+          )
+          .add(link.id);
+    }
+    final assessSceneKeys = assessSceneLinks.keys.toSet();
     final latestByScene = <String, ScenarioCheckpointEvidence>{};
     for (final checkpoint in snapshot.scenarioCheckpoints) {
       final unitId = checkpoint.courseUnitId;
-      if (!checkpoint.courseEligible || unitId == null) {
+      if (!checkpoint.courseEligible ||
+          checkpoint.missionContentLinkId == null ||
+          unitId == null) {
         continue;
       }
       final unit = unitsById[unitId];
@@ -70,6 +82,7 @@ class HanokLearningReceipt {
       if (unit == null ||
           !unit.checkpointContentIds.contains(contentId) ||
           !assessSceneKeys.contains(key) ||
+          !assessSceneLinks[key]!.contains(checkpoint.missionContentLinkId) ||
           !checkpoint.score.isFinite ||
           checkpoint.score < 0 ||
           checkpoint.score > 1) {

@@ -60,6 +60,11 @@ void main() {
 
       expect(observer.routeNames, contains('/scenario'));
       expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+      final player = tester.widget<ScenarioPlayerScreen>(
+        find.byType(ScenarioPlayerScreen),
+      );
+      expect(player.startAtFirstTask, isTrue);
+      expect(player.courseContext, isNull);
       expect(find.byType(BottomSheet), findsNothing);
     },
   );

@@ -72,6 +72,18 @@ List<ScenarioStage> buildScenarioStagePlan({
   ];
 }
 
+/// Resolves the first visible stage without letting a route invent progress.
+/// Onboarding may skip explanation pages, but it still enters the existing
+/// quest widget and remains browse-only until a typed course mission opens it.
+int scenarioInitialStageIndex(
+  List<ScenarioStage> plan, {
+  required bool startAtFirstTask,
+}) {
+  if (!startAtFirstTask) return 0;
+  final firstTask = plan.indexOf(ScenarioStage.quest);
+  return firstTask < 0 ? 0 : firstTask;
+}
+
 /// Preserves the scenario result contract: persist once, then navigate.
 Future<void> runScenarioResultAction({
   required Future<void> Function() persistResult,
@@ -140,6 +152,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final ScenarioResultPersister? resultPersister;
   final VoidCallback? onFirstCorrect;
   final VoidCallback? onExit;
+  final bool startAtFirstTask;
   final ScenarioPlayerPreviewFixture? previewFixture;
 
   const ScenarioPlayerScreen({
@@ -150,6 +163,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.resultPersister,
     this.onFirstCorrect,
     this.onExit,
+    this.startAtFirstTask = false,
   }) : previewFixture = null;
 
   ScenarioPlayerScreen.preview({
@@ -161,6 +175,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
        scenarioLoader = null,
        resultPersister = null,
        onFirstCorrect = null,
+       startAtFirstTask = false,
        previewFixture = fixture;
 
   @override
@@ -303,16 +318,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               .courseUnitFor(missionStep.link.courseUnitId)
               ?.title
               .pick(languageCode);
+    final plan = buildScenarioStagePlan(
+      hasRollenspiel: s.dialog.any((line) => line.speaker == 'user'),
+      hasGrammar: s.grammarBlock != null,
+      questCount: s.quests.length,
+    );
+    final initialStage = scenarioInitialStageIndex(
+      plan,
+      startAtFirstTask: widget.startAtFirstTask,
+    );
     setState(() {
       _scenario = s;
       _missionStep = missionStep;
       _missionTitle = missionTitle;
-      _plan = buildScenarioStagePlan(
-        hasRollenspiel: s.dialog.any((l) => l.speaker == 'user'),
-        hasGrammar: s.grammarBlock != null,
-        questCount: s.quests.length,
-      );
+      _plan = plan;
+      _stage = initialStage;
+      _questReady = initialStage == 0;
     });
+    if (initialStage > 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _pageCtrl.hasClients) {
+          _pageCtrl.jumpToPage(initialStage);
+        }
+      });
+    }
   }
 
   Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) async {
@@ -420,6 +449,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             CurriculumContentKind.scenario,
             scenario.id,
             result.passed,
+            courseContext: widget.courseContext,
             conceptId: conceptId,
             errorReason: result.passed
                 ? null
@@ -506,6 +536,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       s.id,
       passed: _passedCount,
       total: s.quests.length,
+      courseContext: widget.courseContext,
     );
 
     // Erster Abschluss → Badge
@@ -550,6 +581,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       snapshot: courseUpdate.snapshot,
       scenarioId: s.id,
       courseUnits: catalog.courseUnits,
+      contentLinks: catalog.contentLinks,
       structureStageBefore: project(beforeSnapshot).structureStage,
       structureStageAfter: project(courseUpdate.snapshot).structureStage,
     );

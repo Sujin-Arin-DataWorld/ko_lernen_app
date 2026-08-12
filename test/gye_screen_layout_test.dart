@@ -172,12 +172,17 @@ void main() {
           de: 'Ich kann höflich bestellen.',
           en: 'I can order politely.',
         ),
+        requiredConceptIds: [
+          'concept_object_particle',
+          'concept_request_polite',
+        ],
       );
       final exactLink = ContentLink(
+        id: 'link:e6a9f1197b48c79f58655c9a',
         contentKind: CurriculumContentKind.scenario,
         contentId: 'bunshik_tteokbokki',
         courseUnitId: activeUnit.id,
-        conceptIds: const ['concept_order_request'],
+        conceptIds: const ['concept_object_particle', 'concept_request_polite'],
         role: ContentLinkRole.assess,
       );
 
@@ -249,6 +254,7 @@ void main() {
       final context = openedArguments as CoursePracticeContext;
       expect(context.courseUnitId, activeUnit.id);
       expect(context.initialContentId, 'bunshik_tteokbokki');
+      expect(context.contentLinkId, exactLink.id);
 
       expect(find.text('Rules & members'), findsOneWidget);
       tester

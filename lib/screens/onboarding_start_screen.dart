@@ -108,6 +108,7 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
         SoriTransitions.fadeScale<void>(
           (sceneContext) => ScenarioPlayerScreen(
             scenarioId: scene.scenarioId,
+            startAtFirstTask: true,
             onExit: () {
               if (!sceneContext.mounted) {
                 return;

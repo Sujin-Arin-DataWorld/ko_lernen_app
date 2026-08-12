@@ -35,6 +35,7 @@ class ScenarioCanDoResult {
     required CourseMasterySnapshot snapshot,
     required String scenarioId,
     required Iterable<CourseUnit> courseUnits,
+    required Iterable<ContentLink> contentLinks,
     HanokStage? structureStageBefore,
     HanokStage? structureStageAfter,
   }) {
@@ -51,7 +52,9 @@ class ScenarioCanDoResult {
     final checkpoint = latest;
     if (checkpoint == null) return null;
 
-    if (!checkpoint.courseEligible || checkpoint.courseUnitId == null) {
+    if (!checkpoint.courseEligible ||
+        checkpoint.missionContentLinkId == null ||
+        checkpoint.courseUnitId == null) {
       return ScenarioCanDoResult(
         status: ScenarioCanDoStatus.practiceOnly,
         score: checkpoint.score,
@@ -64,8 +67,18 @@ class ScenarioCanDoResult {
       (item) => item?.id == checkpoint.courseUnitId,
       orElse: () => null,
     );
-    if (unit == null ||
-        !unit.checkpointContentIds.contains('scenario:$normalizedScenarioId')) {
+    final hasExactAssessment =
+        unit != null &&
+        unit.checkpointContentIds.contains('scenario:$normalizedScenarioId') &&
+        contentLinks.any(
+          (link) =>
+              link.id == checkpoint.missionContentLinkId &&
+              link.contentKind == CurriculumContentKind.scenario &&
+              link.contentId == normalizedScenarioId &&
+              link.courseUnitId == unit.id &&
+              link.exactlyAssesses(unit),
+        );
+    if (!hasExactAssessment) {
       return ScenarioCanDoResult(
         status: ScenarioCanDoStatus.practiceOnly,
         score: checkpoint.score,

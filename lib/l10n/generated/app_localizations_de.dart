@@ -5000,6 +5000,38 @@ class AppL10nDe extends AppL10n {
   String get courseMissionBriefStepSmalltalk => 'In der Situation antworten';
 
   @override
+  String get courseMissionBriefListenTitle => 'Höre die Situation';
+
+  @override
+  String get courseMissionBriefListenBody => 'Erkenne die höfliche Form';
+
+  @override
+  String get courseMissionBriefBuildTitle => 'Baue deinen Satz';
+
+  @override
+  String get courseMissionBriefBuildBody => 'Wähle die fehlenden Wörter';
+
+  @override
+  String get courseMissionBriefSceneTitle => 'Sprich in der Szene';
+
+  @override
+  String get courseMissionBriefSceneBody => 'Eine echte Antwort, kein Raten';
+
+  @override
+  String get courseMissionBriefListenCta => 'Jetzt hören';
+
+  @override
+  String get courseMissionBriefBuildCta => 'Jetzt bauen';
+
+  @override
+  String get courseMissionBriefSceneCta => 'Szene beginnen';
+
+  @override
+  String courseMissionBriefMinutes(int minutes) {
+    return '$minutes Min.';
+  }
+
+  @override
   String get courseMissionPreviewNotice =>
       'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.';
 

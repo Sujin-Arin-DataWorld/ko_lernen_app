@@ -6,21 +6,25 @@ const minimumScenarioScore = 0.7;
 
 // Keep this narrow, explicit allow-list in lockstep with the app's promise
 // picker. A group cannot turn an arbitrary free-browse scenario into a shared
-// contribution by changing a client payload.
+// contribution by changing a client payload. Each missionContentLinkId is the
+// curriculum graph's stable `link` ID for that unit's declared assess edge.
 const weeklyPromiseDefinitions = Object.freeze({
   cafe_order: Object.freeze({
     courseUnitId: "a1_04_order_request_object",
     scenarioId: "bunshik_tteokbokki",
+    missionContentLinkId: "link:e6a9f1197b48c79f58655c9a",
     target: 3,
   }),
   directions: Object.freeze({
     courseUnitId: "a1_06_transport_directions",
     scenarioId: "taxi_kakao",
+    missionContentLinkId: "link:49a189a1b8b9e4fa022a4557",
     target: 3,
   }),
   self_introduction: Object.freeze({
     courseUnitId: "a1_02_self_intro_identity",
     scenarioId: "introduce_yourself",
+    missionContentLinkId: "link:94c139e887716700674589b2",
     target: 3,
   }),
 });
@@ -62,6 +66,7 @@ function findEligiblePromiseCheckpoint({ promiseId, courseMasteryJson }) {
   for (const checkpoint of snapshot.scenarioCheckpoints) {
     if (!checkpoint || typeof checkpoint !== "object" ||
         checkpoint.courseEligible !== true ||
+        checkpoint.missionContentLinkId !== promise.missionContentLinkId ||
         checkpoint.courseUnitId !== promise.courseUnitId ||
         checkpoint.scenarioId !== promise.scenarioId ||
         !isFiniteScore(checkpoint.score) ||
@@ -118,6 +123,7 @@ function shouldCreditPromiseContribution({
     return false;
   }
   return checkpoint.courseEligible === true &&
+    checkpoint.missionContentLinkId === promise.missionContentLinkId &&
     checkpoint.courseUnitId === promise.courseUnitId &&
     checkpoint.scenarioId === promise.scenarioId &&
     isFiniteScore(checkpoint.score) &&

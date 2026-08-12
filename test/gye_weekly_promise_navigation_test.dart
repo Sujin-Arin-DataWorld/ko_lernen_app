@@ -28,6 +28,7 @@ void main() {
       de: 'Ich kann höflich bestellen.',
       en: 'I can order politely.',
     ),
+    requiredConceptIds: ['concept_object_particle', 'concept_request_polite'],
   );
   const staleUnit = CourseUnit(
     id: 'a1_02_self_intro_identity',
@@ -42,10 +43,11 @@ void main() {
   );
 
   ContentLink exactScenarioLink() => ContentLink(
+    id: 'link:e6a9f1197b48c79f58655c9a',
     contentKind: CurriculumContentKind.scenario,
     contentId: 'bunshik_tteokbokki',
     courseUnitId: activeUnit.id,
-    conceptIds: const ['concept_order_request'],
+    conceptIds: const ['concept_object_particle', 'concept_request_polite'],
     role: ContentLinkRole.assess,
   );
 
@@ -107,7 +109,7 @@ void main() {
     final today = courseToday(activeUnit);
     final first = exactScenarioLink();
     final duplicate = ContentLink(
-      id: '${first.id}_duplicate',
+      id: first.id,
       contentKind: first.contentKind,
       contentId: first.contentId,
       courseUnitId: first.courseUnitId,
@@ -118,6 +120,28 @@ void main() {
       meta: promiseMeta,
       today: today,
       contentLinks: [first, duplicate],
+    );
+
+    expect(resolution.kind, GyePromiseNavigationKind.todayFallback);
+    expect(resolution.destination, today.destination);
+  });
+
+  test('rejects a forged nonempty mission link id', () {
+    final today = courseToday(activeUnit);
+    final exact = exactScenarioLink();
+    final forged = ContentLink(
+      id: 'link:wrong-but-nonempty',
+      contentKind: exact.contentKind,
+      contentId: exact.contentId,
+      courseUnitId: exact.courseUnitId,
+      conceptIds: exact.conceptIds,
+      role: exact.role,
+    );
+
+    final resolution = GyeWeeklyPromiseNavigation.resolve(
+      meta: promiseMeta,
+      today: today,
+      contentLinks: [forged],
     );
 
     expect(resolution.kind, GyePromiseNavigationKind.todayFallback);

@@ -7,6 +7,7 @@ class ScenarioCheckpointEvidence {
   final String id;
   final String scenarioId;
   final String? courseUnitId;
+  final String? missionContentLinkId;
   final double score;
   final DateTime occurredAt;
 
@@ -18,6 +19,7 @@ class ScenarioCheckpointEvidence {
     String? id,
     required this.scenarioId,
     this.courseUnitId,
+    this.missionContentLinkId,
     required this.score,
     required this.occurredAt,
     this.courseEligible = false,
@@ -26,6 +28,7 @@ class ScenarioCheckpointEvidence {
            stableContentId('scenario_checkpoint', [
              scenarioId,
              courseUnitId,
+             missionContentLinkId,
              score,
              occurredAt.toUtc().toIso8601String(),
              courseEligible,
@@ -34,6 +37,9 @@ class ScenarioCheckpointEvidence {
   factory ScenarioCheckpointEvidence.fromJson(Map<String, dynamic> json) {
     final scenarioId = json['scenarioId']?.toString().trim() ?? '';
     final courseUnitId = json['courseUnitId']?.toString().trim();
+    final missionContentLinkId = json['missionContentLinkId']
+        ?.toString()
+        .trim();
     final rawScore = json['score'];
     if (rawScore is! num) {
       throw const FormatException(
@@ -52,6 +58,9 @@ class ScenarioCheckpointEvidence {
         occurredAt.millisecondsSinceEpoch == 0 ||
         (rawEligible != null && rawEligible is! bool) ||
         (rawEligible == true &&
+            (courseUnitId == null || courseUnitId.isEmpty)) ||
+        (missionContentLinkId != null &&
+            missionContentLinkId.isNotEmpty &&
             (courseUnitId == null || courseUnitId.isEmpty))) {
       throw const FormatException('Invalid scenario checkpoint evidence.');
     }
@@ -61,6 +70,10 @@ class ScenarioCheckpointEvidence {
       courseUnitId: courseUnitId == null || courseUnitId.isEmpty
           ? null
           : courseUnitId,
+      missionContentLinkId:
+          missionContentLinkId == null || missionContentLinkId.isEmpty
+          ? null
+          : missionContentLinkId,
       score: score,
       occurredAt: occurredAt,
       courseEligible: rawEligible == true,
@@ -71,6 +84,8 @@ class ScenarioCheckpointEvidence {
     'id': id,
     'scenarioId': scenarioId,
     if (courseUnitId != null) 'courseUnitId': courseUnitId,
+    if (missionContentLinkId != null)
+      'missionContentLinkId': missionContentLinkId,
     'score': score,
     'occurredAt': occurredAt.toUtc().toIso8601String(),
     'courseEligible': courseEligible,
@@ -290,13 +305,17 @@ void _validateCanonicalV2Shape(Map<String, dynamic> json) {
     json['evidence'],
     label: 'evidence',
     requiredStringFields: const ['id', 'conceptId', 'contentKind', 'contentId'],
-    optionalStringFields: const ['courseUnitId', 'errorReason'],
+    optionalStringFields: const [
+      'courseUnitId',
+      'missionContentLinkId',
+      'errorReason',
+    ],
   );
   _validateCanonicalEntries(
     json['scenarioCheckpoints'],
     label: 'scenario checkpoint',
     requiredStringFields: const ['id', 'scenarioId'],
-    optionalStringFields: const ['courseUnitId'],
+    optionalStringFields: const ['courseUnitId', 'missionContentLinkId'],
   );
 }
 

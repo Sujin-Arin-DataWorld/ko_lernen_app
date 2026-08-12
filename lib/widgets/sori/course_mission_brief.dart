@@ -73,16 +73,12 @@ class CourseMissionBriefView extends StatelessWidget {
             ),
           ),
         ],
-        const SizedBox(height: Spacing.md),
-        Text(
-          t.courseMissionBriefTime(brief.visibleEstimatedMinutes),
-          style: text.label,
-        ),
         const SizedBox(height: Spacing.sm),
         for (final step in brief.visibleSteps)
           _BriefStepRow(
             step: step,
-            title: _stepTitle(step.link.contentKind, t),
+            title: _stepTitle(step.phase, t),
+            body: _stepBody(step.phase, t),
           ),
         if (brief.remainingStepCount > 0) ...[
           const SizedBox(height: Spacing.xs),
@@ -95,7 +91,7 @@ class CourseMissionBriefView extends StatelessWidget {
         if (brief.isCurrent && firstLink != null)
           SoriButton.filled(
             key: const ValueKey('course-mission-primary-cta'),
-            label: t.courseMissionBriefStart,
+            label: _stepCta(brief.visibleSteps.first.phase, t),
             fullWidth: true,
             onTap: () async => openLink(firstLink),
           )
@@ -112,21 +108,35 @@ class CourseMissionBriefView extends StatelessWidget {
     );
   }
 
-  String _stepTitle(CurriculumContentKind kind, AppL10n t) => switch (kind) {
-    CurriculumContentKind.vocab => t.courseMissionBriefStepVocab,
-    CurriculumContentKind.grammar => t.courseMissionBriefStepGrammar,
-    CurriculumContentKind.cloze => t.courseMissionBriefStepCloze,
-    CurriculumContentKind.satz => t.courseMissionBriefStepSatz,
-    CurriculumContentKind.scenario => t.courseMissionBriefStepScenario,
-    CurriculumContentKind.smalltalk => t.courseMissionBriefStepSmalltalk,
+  String _stepTitle(CourseMissionPhase phase, AppL10n t) => switch (phase) {
+    CourseMissionPhase.listen => t.courseMissionBriefListenTitle,
+    CourseMissionPhase.build => t.courseMissionBriefBuildTitle,
+    CourseMissionPhase.scene => t.courseMissionBriefSceneTitle,
+  };
+
+  String _stepBody(CourseMissionPhase phase, AppL10n t) => switch (phase) {
+    CourseMissionPhase.listen => t.courseMissionBriefListenBody,
+    CourseMissionPhase.build => t.courseMissionBriefBuildBody,
+    CourseMissionPhase.scene => t.courseMissionBriefSceneBody,
+  };
+
+  String _stepCta(CourseMissionPhase phase, AppL10n t) => switch (phase) {
+    CourseMissionPhase.listen => t.courseMissionBriefListenCta,
+    CourseMissionPhase.build => t.courseMissionBriefBuildCta,
+    CourseMissionPhase.scene => t.courseMissionBriefSceneCta,
   };
 }
 
 class _BriefStepRow extends StatelessWidget {
-  const _BriefStepRow({required this.step, required this.title});
+  const _BriefStepRow({
+    required this.step,
+    required this.title,
+    required this.body,
+  });
 
   final CourseMissionBriefStep step;
   final String title;
+  final String body;
 
   @override
   Widget build(BuildContext context) {
@@ -158,16 +168,14 @@ class _BriefStepRow extends StatelessWidget {
                 children: [
                   Text(title, style: text.label),
                   const SizedBox(height: 2),
-                  Text(
-                    t.courseMissionBriefStepMeta(
-                      step.displayIndex,
-                      step.total,
-                      step.estimatedMinutes,
-                    ),
-                    style: text.caption,
-                  ),
+                  Text(body, style: text.caption),
                 ],
               ),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Text(
+              t.courseMissionBriefMinutes(step.estimatedMinutes),
+              style: text.caption,
             ),
           ],
         ),

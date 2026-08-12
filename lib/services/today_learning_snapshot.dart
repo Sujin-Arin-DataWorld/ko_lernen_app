@@ -259,7 +259,10 @@ class TodayLearningSnapshotLoader {
 
   static Future<TodayCourseSourceValue> _loadCourseInput() async {
     final catalog = await CurriculumCatalog.load();
-    final snapshot = await CourseProgressService.shared.refresh();
+    final snapshot = await CourseProgressService.shared.readForDisplay();
+    if (snapshot == null) {
+      return (units: const <CourseUnit>[], snapshot: null);
+    }
     return (units: catalog.courseUnits, snapshot: snapshot);
   }
 

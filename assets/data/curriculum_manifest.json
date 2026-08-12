@@ -43,7 +43,8 @@
                                                     ],
                             "requiredConceptIds":  [
                                                        "concept_identity_formal",
-                                                       "concept_identity_polite"
+                                                       "concept_identity_polite",
+                                                       "concept_identity_casual"
                                                    ],
                             "checkpointContentIds":  [
                                                          "scenario:introduce_yourself"
@@ -219,7 +220,7 @@
                                                        "concept_a1_home_daily"
                                                    ],
                             "checkpointContentIds":  [
-                                                         "scenario:convenience_store"
+                                                         "scenario:home_morning_routine"
                                                      ]
                         },
                         {
@@ -390,8 +391,7 @@
                                                        "concept_a1_survival"
                                                    ],
                             "checkpointContentIds":  [
-                                                         "scenario:airport_arrival",
-                                                         "scenario:bunshik_tteokbokki"
+                                                         "scenario:survival_day_capstone"
                                                      ]
                         },
                         {
@@ -463,8 +463,7 @@
                                                         "a2_02_plans_proposals"
                                                     ],
                             "requiredConceptIds":  [
-                                                       "concept_a2_relationships",
-                                                       "concept_identity_casual"
+                                                       "concept_a2_relationships"
                                                    ],
                             "checkpointContentIds":  [
                                                          "scenario:running_late"
@@ -587,7 +586,7 @@
                                                        "concept_a2_home_money"
                                                    ],
                             "checkpointContentIds":  [
-                                                         "scenario:ktx_ticket"
+                                                         "scenario:rent_bank_transfer"
                                                      ]
                         },
                         {
@@ -659,7 +658,7 @@
                                                        "concept_b1_softening"
                                                    ],
                             "checkpointContentIds":  [
-                                                         "scenario:bank_account"
+                                                         "scenario:company_dinner_hoeshik"
                                                      ]
                         },
                         {

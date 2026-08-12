@@ -12,7 +12,7 @@
    "relationshipContext": "customer_and_service_staff",
    "intent": "order_and_pay",
    "conceptIds": ["concept_a2_services","concept_request_polite"],
-   "surfaceFormIds": ["surface_keopireul"],
+   "surfaceFormIds": ["surface_keopireul","surface_hamnida","surface_haeyo"],
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
@@ -230,6 +230,22 @@
       ],
       "audioKo": "아이스 아메리카노 톨 사이즈로 주세요."
      }
+    },
+    {
+     "id": "quest_cafe_starbucks_basic_05",
+     "conceptIds": ["concept_action_formal","concept_action_polite"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Dieselbe Absicht im Service: zuerst formell, dann höflich-alltäglich — „Ich helfe Ihnen bei der Bestellung.“",
+      "promptEn": "Same service intent: first formal, then everyday polite — “I will help you with your order.”",
+      "options": [
+       {"ko": "주문 도와드리겠습니다. / 주문 도와드릴게요."},
+       {"ko": "주문 도와드릴게요. / 주문 도와드리겠습니다."},
+       {"ko": "주문 도와드리자. / 주문 도와드릴게요."},
+       {"ko": "주문 도와드려. / 주문 도와드리겠습니다."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -372,7 +388,6 @@
    "quests": [
     {
      "id": "quest_airport_arrival_01",
-     "conceptIds": ["concept_greeting_politeness"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "한국 처음이세요?",
@@ -399,7 +414,7 @@
     },
     {
      "id": "quest_airport_arrival_02",
-     "conceptIds": ["concept_identity_polite"],
+     "conceptIds": ["concept_hangul_batchim"],
      "type": "luecken",
      "data": {
       "sentence": "한국 처음 ___ .",
@@ -414,7 +429,6 @@
     },
     {
      "id": "quest_airport_arrival_03",
-     "conceptIds": ["concept_identity_polite"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Eine Woche.",
@@ -441,15 +455,15 @@
      "conceptIds": ["concept_greeting_politeness"],
      "type": "satzBauen",
      "data": {
-      "targetKo": "네, 여기 있어요.",
-      "promptDe": "Ja, hier bitte.",
-      "promptEn": "Yes, here you go.",
+      "targetKo": "안녕하세요. 처음 뵙겠습니다.",
+      "promptDe": "Begrüße eine unbekannte Person sicher.",
+      "promptEn": "Greet a new person safely.",
       "distractors": [
-       "우유",
-       "떡볶이",
-       "강남역까지"
+       "여권 보여 주세요",
+       "일주일이요",
+       "관광이에요"
       ],
-      "audioKo": "네, 여기 있어요."
+      "audioKo": "안녕하세요. 처음 뵙겠습니다."
      }
     },
     {
@@ -487,7 +501,7 @@
    "relationshipContext": "new_acquaintances",
    "intent": "self_introduction",
    "conceptIds": ["concept_identity_formal","concept_identity_polite","concept_a1_first_meeting"],
-   "surfaceFormIds": ["surface_imnida","surface_ieyo_yeyo"],
+   "surfaceFormIds": ["surface_imnida","surface_ieyo_yeyo","surface_iya_ya","surface_hamnida","surface_haeyo","surface_hae"],
    "sidekick": "minsu",
    "xpReward": 150,
    "title": {
@@ -624,7 +638,6 @@
     },
     {
      "id": "quest_introduce_yourself_02",
-     "conceptIds": ["concept_identity_polite"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Woher kommen Sie?",
@@ -648,7 +661,6 @@
     },
     {
      "id": "quest_introduce_yourself_03",
-     "conceptIds": ["concept_identity_formal"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "잘 부탁드립니다.",
@@ -674,6 +686,38 @@
      }
     },
     {
+     "id": "quest_introduce_yourself_06",
+     "conceptIds": ["concept_a1_register_switch","concept_action_formal","concept_action_polite","concept_action_casual"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Dieselbe Absicht in drei Registern: formell, höflich-alltäglich und zu einem engen Freund — „Ich schicke die Kontaktdaten.“",
+      "promptEn": "The same intent in three registers: formal, everyday polite, and to a close friend — “I will send the contact details.”",
+      "options": [
+       {"ko": "연락처를 보내겠습니다. / 연락처를 보낼게요. / 연락처 보낼게."},
+       {"ko": "연락처를 보낼게요. / 연락처를 보내겠습니다. / 연락처 보낼게."},
+       {"ko": "연락처 보낼게. / 연락처를 보낼게요. / 연락처를 보내겠습니다."},
+       {"ko": "연락처를 보냅시다. / 연락처를 보내요. / 연락처를 보내."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_introduce_yourself_07",
+     "conceptIds": ["concept_identity_formal","concept_identity_polite","concept_identity_casual"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Stelle dich als Anna vor: im Bewerbungsgespräch formell, zu einem neuen Kurskontakt höflich und zu einem engen Freund in vereinbartem Banmal.",
+      "promptEn": "Introduce yourself as Anna: formally in an interview, politely to a new classmate, and in agreed banmal to a close friend.",
+      "options": [
+       {"ko": "저는 안나입니다. / 저는 안나예요. / 나는 안나야."},
+       {"ko": "저는 안나예요. / 나는 안나야. / 저는 안나입니다."},
+       {"ko": "나는 안나야. / 저는 안나입니다. / 저는 안나예요."},
+       {"ko": "저는 안나입니다. / 나는 안나입니다. / 저는 안나야."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
      "id": "quest_introduce_yourself_04",
      "conceptIds": ["concept_hangul_batchim"],
      "type": "batchimDrop",
@@ -694,7 +738,6 @@
     },
     {
      "id": "quest_introduce_yourself_05",
-     "conceptIds": ["concept_identity_polite"],
      "type": "diktat",
      "data": {
       "targetKo": "어디서 오셨어요?",
@@ -901,6 +944,22 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_warm_encouragement_04",
+     "conceptIds": ["concept_b1_relationships"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Zu einer nahestehenden Person: Ich weiß, dass es schwer ist. Ich bin da; erzähl es, wenn du bereit bist.",
+      "promptEn": "To someone close: I know it is hard. I am here; tell me when you are ready.",
+      "options": [
+       {"ko": "힘든 거 알아. 내가 여기 있으니까 준비되면 말해 줘."},
+       {"ko": "힘든지 몰라. 준비되기 전에 빨리 말해 줘."},
+       {"ko": "내가 바쁘니까 혼자 해결해 줘."},
+       {"ko": "괜찮으면 말하지 않아도 돼. 나는 갈게."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -1102,6 +1161,22 @@
         "de": "Ich verstehe dich nicht.",
         "en": "I don't understand you."
        }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_couple_argument_04",
+     "conceptIds": ["concept_b1_life"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Die Arbeit war sehr stressig, aber ich hätte antworten müssen. Entschuldige. Ab jetzt melde ich mich, bevor ich nach Hause komme.",
+      "promptEn": "Work was very busy, but I should have replied. I am sorry. From now on, I will contact you before I come home.",
+      "options": [
+       {"ko": "회사 일이 너무 바빴지만 답장은 했어야 했어. 미안해. 다음부터는 집에 오기 전에 연락할게."},
+       {"ko": "회사 일이 바빴으니까 답장할 필요가 없었어. 다음에도 연락하지 않을게."},
+       {"ko": "집에 먼저 왔지만 회사에 답장했어. 미안하지 않아."},
+       {"ko": "회사 일이 끝났어. 다음부터는 집에 오지 않을게."}
       ],
       "correctIndex": 0
      }
@@ -1337,6 +1412,22 @@
       "promptDe": "Bis zur Gangnam Station, bitte.",
       "promptEn": "To Gangnam Station, please."
      }
+    },
+    {
+     "id": "quest_taxi_kakao_06",
+     "conceptIds": ["concept_a1_directions"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Im Taxi: Bitte bis Gangnam Station. In der U-Bahn: Fährt dieser Zug zur City Hall Station?",
+      "promptEn": "In a taxi: Please go to Gangnam Station. On the subway: Does this train go to City Hall Station?",
+      "options": [
+       {"ko": "강남역까지 가 주세요. / 이 열차가 시청역에 가요?"},
+       {"ko": "강남역에서 와 주세요. / 이 열차는 시청역이에요."},
+       {"ko": "시청역까지 걸어가요. / 강남역이 어디예요?"},
+       {"ko": "강남역에 가지 마세요. / 이 열차가 늦어요."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -1561,7 +1652,6 @@
     },
     {
      "id": "quest_bunshik_tteokbokki_05",
-     "conceptIds": ["concept_identity_polite"],
      "type": "diktat",
      "data": {
       "targetKo": "사이다 한 캔이요.",
@@ -1807,6 +1897,22 @@
       ],
       "audioKo": "저기요, 북촌 한옥마을 어떻게 가요?"
      }
+    },
+    {
+     "id": "quest_subway_transfer_05",
+     "conceptIds": ["concept_a2_travel_repair"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich habe die falsche Linie genommen. Bitte erklären Sie mir den Umstieg noch einmal.",
+      "promptEn": "I took the wrong line. Please explain the transfer again.",
+      "options": [
+       {"ko": "잘못된 노선을 탔어요. 환승 방법을 다시 설명해 주세요."},
+       {"ko": "올바른 노선을 탔어요. 환승하지 마세요."},
+       {"ko": "노선이 늦었어요. 다음 역에서 내려 주세요."},
+       {"ko": "환승 방법을 알아요. 다시 설명하지 마세요."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -2020,6 +2126,38 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_company_dinner_hoeshik_04",
+     "conceptIds": ["concept_b1_indirect_speech"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Der Teamleiter hat gesagt, dass die zweite Runde freiwillig ist.",
+      "promptEn": "The team leader said that the second round is optional.",
+      "options": [
+       {"ko": "팀장님이 2차는 자유라고 하셨어요."},
+       {"ko": "팀장님이 2차에 꼭 오라고 하셨어요."},
+       {"ko": "팀장님은 2차가 없다고 들었어요."},
+       {"ko": "팀장님께 2차가 자유냐고 물어보세요."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_company_dinner_hoeshik_05",
+     "conceptIds": ["concept_b1_softening"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Wenn es für Sie in Ordnung ist, dürfte ich heute nur an der ersten Runde teilnehmen?",
+      "promptEn": "If it is all right with you, may I attend only the first round today?",
+      "options": [
+       {"ko": "괜찮으시다면 오늘은 1차까지만 참석해도 될까요?"},
+       {"ko": "오늘은 1차까지만 참석할게요. 괜찮죠?"},
+       {"ko": "괜찮으시면 오늘 회식은 취소해 주세요."},
+       {"ko": "오늘은 2차부터 참석해도 될까요?"}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -2162,7 +2300,6 @@
    "quests": [
     {
      "id": "quest_hotel_checkin_01",
-     "conceptIds": ["concept_a1_contact_address"],
      "type": "particlePop",
      "data": {
       "prefix": "예약",
@@ -2203,33 +2340,23 @@
      }
     },
     {
-     "type": "hoerverstehen",
+     "id": "quest_hotel_checkin_03",
+     "conceptIds": ["concept_a1_time_numbers"],
+     "type": "uebersetzen",
      "data": {
-      "audioKo": "2박 맞으세요?",
+      "promptDe": "Bestätige: zwei Nächte ab dem 15. August; das Frühstück ist um sieben, richtig?",
+      "promptEn": "Confirm: two nights from August 15; breakfast is at seven, right?",
       "options": [
-       {
-        "de": "2 Nächte, korrekt?",
-        "en": "2 nights, correct?"
-       },
-       {
-        "de": "Möchten Sie ein Upgrade?",
-        "en": "Would you like an upgrade?"
-       },
-       {
-        "de": "Haben Sie einen Ausweis?",
-        "en": "Do you have an ID?"
-       },
-       {
-        "de": "Wie viele Personen?",
-        "en": "How many people?"
-       }
+       {"ko": "2박이고 8월 15일부터예요. 조식은 7시 맞죠?"},
+       {"ko": "2명이고 8월 7일부터예요. 조식은 15시 맞죠?"},
+       {"ko": "8박이고 2월 15일부터예요. 조식은 10시 맞죠?"},
+       {"ko": "2박이고 8월 15일까지예요. 조식은 없죠?"}
       ],
       "correctIndex": 0
      }
     },
     {
      "id": "quest_hotel_checkin_04",
-     "conceptIds": ["concept_a1_contact_address"],
      "type": "satzBauen",
      "data": {
       "targetKo": "와이파이 비밀번호 좀 알려주세요.",
@@ -2692,6 +2819,22 @@
       "promptDe": "Wo tut's weh?",
       "promptEn": "What hurts?"
      }
+    },
+    {
+     "id": "quest_pharmacy_headache_05",
+     "conceptIds": ["concept_a2_feelings"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich fühle mich etwas niedergeschlagen und habe auch Kopfschmerzen.",
+      "promptEn": "I feel a little down and I also have a headache.",
+      "options": [
+       {"ko": "기분이 좀 우울하고 머리도 아파요."},
+       {"ko": "기분이 아주 좋고 머리도 괜찮아요."},
+       {"ko": "머리가 우울하고 기분이 아파요."},
+       {"ko": "기분은 모르겠고 약은 안 필요해요."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -2888,6 +3031,22 @@
         "de": "Ist das neu eingetroffen?",
         "en": "Is this newly arrived?"
        }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_myeongdong_shopping_04",
+     "conceptIds": ["concept_a2_services"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Bitte in zwei Servicesituationen um Prüfung: Die Größe ist zu klein / die Lieferung stimmt nicht mit der Bestellung überein.",
+      "promptEn": "Ask for a check in two service situations: the size is too small / the delivered item differs from the order.",
+      "options": [
+       {"ko": "이 사이즈가 너무 작아요. 확인해 주시겠어요? / 배달된 상품이 주문과 달라요. 확인해 주시겠어요?"},
+       {"ko": "이 사이즈가 좋아요. 확인하지 마세요. / 배달된 상품이 주문과 같아요."},
+       {"ko": "이 사이즈를 주문했어요. / 배달 상품을 입어 보시겠어요?"},
+       {"ko": "사이즈가 없어요. / 주문한 상품을 보내지 마세요."}
       ],
       "correctIndex": 0
      }
@@ -3149,6 +3308,38 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_business_meeting_intro_04",
+     "conceptIds": ["concept_b2_formal_opening"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Eröffne die Präsentation formell: Ich bin Anna Kim, zuständig für internationales Marketing bei SoriLab. Heute möchte ich den Einführungsplan vorstellen.",
+      "promptEn": "Open the presentation formally: I am Anna Kim, in charge of overseas marketing at SoriLab. Today I would like to propose the launch plan.",
+      "options": [
+       {"ko": "소리랩 해외 마케팅 담당 김안나입니다. 오늘은 출시 계획을 제안드리고자 합니다."},
+       {"ko": "소리랩에서 일하는 안나예요. 오늘 출시 계획을 말할게요."},
+       {"ko": "김안나라고 해요. 해외 마케팅 계획을 이미 출시했습니다."},
+       {"ko": "소리랩 담당자입니다. 오늘 제안은 취소하고자 합니다."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_business_meeting_intro_05",
+     "conceptIds": ["concept_b2_opinion"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Meiner Meinung nach eignet sich diese Strategie für den deutschen Markt, weil sie Vertrauen betont.",
+      "promptEn": "In my opinion, this strategy suits the German market because it emphasizes trust.",
+      "options": [
+       {"ko": "제 생각에는 이 전략이 신뢰를 강조하기 때문에 독일 시장에 적합합니다."},
+       {"ko": "제 생각과 달리 이 전략은 독일 시장을 강조하지 않습니다."},
+       {"ko": "독일 시장이 신뢰하기 때문에 전략을 취소합니다."},
+       {"ko": "이 전략은 적합하지만 제 생각에는 이유가 없습니다."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -3398,6 +3589,22 @@
       "correctIndex": 0,
       "explanationDe": "안에 = 'innerhalb von'. Zeitangaben + 에 (Zeitpunkt/Frist). 에서 ist falsch, da 에서 einen Ort markiert.",
       "explanationEn": "안에 = 'within'. Time expressions + 에 (time point/deadline). 에서 is wrong here as it marks a place."
+     }
+    },
+    {
+     "id": "quest_complaint_delivery_04",
+     "conceptIds": ["concept_b2_complaint"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Der gelieferte Artikel entspricht nicht der Bestellung. Bitte tauschen Sie ihn bis Freitag um und bestätigen Sie die Abholzeit.",
+      "promptEn": "The delivered item differs from the order. Please exchange it by Friday and confirm the pickup time.",
+      "options": [
+       {"ko": "배송된 상품이 주문과 다릅니다. 금요일까지 교환해 주시고 수거 시간을 확인해 주십시오."},
+       {"ko": "배송된 상품이 주문과 같습니다. 금요일에는 수거하지 마십시오."},
+       {"ko": "주문한 상품을 금요일에 배송하고 교환 시간을 취소해 주십시오."},
+       {"ko": "상품이 늦었지만 교환은 필요 없습니다. 수거해 주십시오."}
+      ],
+      "correctIndex": 0
      }
     }
    ],
@@ -3656,6 +3863,22 @@
       "correctIndex": 0,
       "explanationDe": "-(으)면 = 'wenn / falls' — Konditionalsatz. 지속되다 endet auf einen Vokal → 면 (nicht 으면).",
       "explanationEn": "-(으)면 = 'if / when' — conditional. 지속되다 ends in a vowel → 면 (not 으면)."
+     }
+    },
+    {
+     "id": "quest_doctor_consultation_04",
+     "conceptIds": ["concept_b2_precise_requests"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Bitte erklären Sie, wie oft täglich und ob vor oder nach dem Essen ich das Medikament nehmen soll und ob Nebenwirkungen wie Müdigkeit auftreten können.",
+      "promptEn": "Please explain how many times a day and whether before or after meals I should take the medicine, and whether side effects such as drowsiness may occur.",
+      "options": [
+       {"ko": "이 약을 하루에 몇 번, 식전이나 식후 언제 복용해야 하는지와 졸음 같은 부작용이 있는지 설명해 주시겠습니까?"},
+       {"ko": "이 약을 오늘만 먹고 부작용은 설명하지 않으셔도 됩니다."},
+       {"ko": "식사 전에 졸리면 약을 몇 번 처방해 주시겠습니까?"},
+       {"ko": "약을 복용하지 않아도 되는지 간단히 말씀해 주세요."}
+      ],
+      "correctIndex": 0
      }
     }
    ],
@@ -4103,6 +4326,22 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_plans_with_friend_04",
+     "conceptIds": ["concept_proposal_formal","concept_proposal_polite","concept_proposal_casual"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Schlage dieselbe gemeinsame Mahlzeit formell, höflich-alltäglich und in zwei natürlichen Formen zu einem engen Freund vor.",
+      "promptEn": "Suggest the same shared meal formally, in everyday polite speech, and in two natural forms to a close friend.",
+      "options": [
+       {"ko": "같이 식사할까요? / 같이 식사할래요? / 같이 먹자. / 같이 먹을래?"},
+       {"ko": "같이 식사할래요? / 같이 식사할까요? / 같이 먹을래? / 같이 먹자."},
+       {"ko": "같이 먹자. / 같이 식사할래요? / 같이 식사할까요? / 같이 먹을래?"},
+       {"ko": "같이 식사합시다. / 같이 식사해. / 같이 먹을까요? / 같이 먹겠습니다."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -4329,6 +4568,22 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_running_late_04",
+     "conceptIds": ["concept_a2_relationships"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "An einen engen Freund: Ich bin etwa 30 Minuten zu spät. Sollen wir es auf sieben verschieben?",
+      "promptEn": "To a close friend: I think I will be about 30 minutes late. Shall we move it to seven?",
+      "options": [
+       {"ko": "나 30분 정도 늦을 것 같아. 우리 7시로 미룰까?"},
+       {"ko": "저는 30분 정도 늦을 것 같습니다. 7시로 연기하시겠습니까?"},
+       {"ko": "나 이미 도착했어. 지금 만나자."},
+       {"ko": "우리 약속을 취소하겠습니다."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -4552,6 +4807,22 @@
        {
         "ko": "연락해줘서 고마워!"
        }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_postpone_plans_04",
+     "conceptIds": ["concept_b1_reasons_experience"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich habe schon früher Überstunden gemacht, und heute ist wieder etwas Dringendes dazwischengekommen. Können wir unser Treffen verschieben?",
+      "promptEn": "I have worked overtime before, and something urgent came up again today. Can we postpone our plans?",
+      "options": [
+       {"ko": "전에도 야근한 적이 있는데 오늘도 급한 일이 생겨서, 우리 약속을 미뤄도 될까?"},
+       {"ko": "전에 야근하지 않았고 오늘은 시간이 많아서, 우리 지금 만날까?"},
+       {"ko": "급한 일이 끝났는데 약속을 취소해야 해."},
+       {"ko": "야근한 적이 없지만 다음 주 약속은 이미 미뤘어."}
       ],
       "correctIndex": 0
      }
@@ -5433,6 +5704,22 @@
       "promptDe": "Wo ist eine Steckdose?",
       "promptEn": "Where is a power outlet?"
      }
+    },
+    {
+     "id": "quest_cafe_study_06",
+     "conceptIds": ["concept_a2_work_study"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Bitte in Studium und Arbeit höflich um Hilfe: Erklären Sie diesen Teil noch einmal / Helfen Sie mir bitte beim Prüfen dieser Datei.",
+      "promptEn": "Ask politely for help in study and work: explain this part again / help me check this file.",
+      "options": [
+       {"ko": "이 부분을 잘 모르겠어요. 다시 설명해 주시겠어요? / 이 파일 확인하는 것 좀 도와주시겠어요?"},
+       {"ko": "이 부분을 잘 알아요. 설명하지 마세요. / 이 파일은 이미 확인했어요."},
+       {"ko": "이 부분이 쉬워요. / 이 파일을 지워 주시겠어요?"},
+       {"ko": "설명은 필요 없어요. / 파일을 보내지 마세요."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -5462,14 +5749,14 @@
    "sidekick": "minsu",
    "xpReward": 160,
    "title": {
-    "ko": "배달 음식 주문하기",
-    "de": "Essen liefern lassen",
-    "en": "Ordering food delivery"
+     "ko": "빠진 배달 음식 해결하기",
+     "de": "Ein Problem mit der Lieferung lösen",
+     "en": "Resolving a delivery problem"
    },
    "intro": {
-    "ko": "",
-    "de": "Regnerischer Abend, du willst Hähnchen liefern lassen. Mindestbestellwert? Liefergebühr? Adresse durchgeben.",
-    "en": "Rainy night, you want to order fried chicken. Minimum order? Delivery fee? Give your address."
+     "ko": "지난 주문에서 빠진 콜라를 설명하고 다시 보내 달라고 요청해요.",
+     "de": "Bei der letzten Lieferung fehlte die Cola. Du erklärst das Problem und bittest um eine Lösung.",
+     "en": "The cola was missing from the last delivery. Explain the problem and ask for a solution."
    },
    "vocab": [
     {
@@ -5489,35 +5776,35 @@
      }
     },
     {
-     "korean": "최소 주문 금액",
+     "korean": "빠지다",
      "note": {
-      "ko": "",
-      "de": "Mindestbestellwert.",
-      "en": "minimum order amount."
+      "ko": "주문한 물건이 오지 않다.",
+      "de": "fehlen / ausgelassen sein.",
+      "en": "to be missing / left out."
      }
     },
     {
-     "korean": "배달비",
+     "korean": "주문 번호",
      "note": {
-      "ko": "",
-      "de": "Liefergebühr.",
-      "en": "delivery fee."
+      "ko": "주문을 확인하는 번호.",
+      "de": "Bestellnummer.",
+      "en": "order number."
      }
     },
     {
-     "korean": "주소",
+     "korean": "다시 보내다",
      "note": {
-      "ko": "",
-      "de": "Adresse.",
-      "en": "address."
+      "ko": "한 번 더 보내다.",
+      "de": "erneut schicken.",
+      "en": "to send again."
      }
     },
     {
-     "korean": "얼마나 걸려요",
+     "korean": "바로",
      "note": {
-      "ko": "",
-      "de": "Wie lange dauert es?",
-      "en": "how long does it take?"
+      "ko": "지금 곧.",
+      "de": "sofort / gleich.",
+      "en": "right away."
      }
     }
    ],
@@ -5537,119 +5824,111 @@
    "dialog": [
     {
      "speaker": "user",
-     "ko": "후라이드 한 마리 주문할게요.",
-     "de": "Ich möchte ein ganzes Brathähnchen bestellen.",
-     "en": "I'd like to order one whole fried chicken."
+     "ko": "지난번 주문에는 콜라가 빠졌어요.",
+     "de": "Bei meiner letzten Bestellung hat die Cola gefehlt.",
+     "en": "The cola was missing from my last order."
     },
     {
      "speaker": "minsu",
-     "ko": "최소 주문 금액은 만 오천 원이에요.",
-     "de": "Der Mindestbestellwert liegt bei 15.000 Won.",
-     "en": "The minimum order is 15,000 won."
+     "ko": "죄송합니다. 주문 번호를 알려 주시겠어요?",
+     "de": "Das tut mir leid. Könnten Sie mir die Bestellnummer nennen?",
+     "en": "I'm sorry. Could you tell me the order number?"
     },
     {
      "speaker": "user",
-     "ko": "그럼 콜라도 같이 주세요.",
-     "de": "Dann bitte auch eine Cola dazu.",
-     "en": "Then add a cola too, please."
+     "ko": "2026번이고, 주문 내역에 콜라가 있어요.",
+     "de": "Es ist Nummer 2026, und die Cola steht in der Bestellung.",
+     "en": "It is number 2026, and the cola is listed in the order."
     },
     {
      "speaker": "minsu",
-     "ko": "주소를 말씀해 주시겠어요?",
-     "de": "Könnten Sie mir die Adresse nennen?",
-     "en": "Could you give me the address?"
+     "ko": "확인해 보니 콜라가 누락됐네요.",
+     "de": "Ich habe nachgesehen; die Cola wurde tatsächlich ausgelassen.",
+     "en": "I checked, and the cola was indeed omitted."
     },
     {
      "speaker": "user",
-     "ko": "행복아파트 101동 502호예요.",
-     "de": "Haengbok-Apartment, Gebäude 101, Wohnung 502.",
-     "en": "Haengbok Apt, building 101, unit 502."
+     "ko": "가능하면 지금 다시 보내 주시겠어요?",
+     "de": "Könnten Sie sie, wenn möglich, jetzt noch einmal schicken?",
+     "en": "Could you send it again now, if possible?"
     },
     {
      "speaker": "minsu",
-     "ko": "삼십 분 정도 걸려요.",
-     "de": "Es dauert etwa 30 Minuten.",
-     "en": "It'll take about 30 minutes."
+     "ko": "네, 바로 다시 보내 드리겠습니다.",
+     "de": "Ja, wir schicken sie sofort noch einmal.",
+     "en": "Yes, we will send it again right away."
     }
    ],
    "quests": [
     {
+     "id": "quest_food_delivery_01",
      "type": "hoerverstehen",
      "data": {
-      "audioKo": "주소를 말씀해 주시겠어요?",
+      "audioKo": "콜라가 누락됐네요. 바로 보내 드리겠습니다.",
       "options": [
        {
-        "de": "Könnten Sie mir die Adresse nennen?",
-        "en": "Could you give me the address?"
+        "de": "Die Cola wurde ausgelassen. Wir schicken sie sofort.",
+        "en": "The cola was omitted. We will send it right away."
        },
        {
-        "de": "Wie möchten Sie bezahlen?",
-        "en": "How would you like to pay?"
+        "de": "Die Bestellung wurde storniert.",
+        "en": "The order was canceled."
        },
        {
-        "de": "Möchten Sie noch etwas?",
-        "en": "Would you like anything else?"
+        "de": "Die Cola ist ausverkauft.",
+        "en": "The cola is sold out."
        },
        {
-        "de": "Es ist leider ausverkauft.",
-        "en": "Sorry, it's sold out."
+        "de": "Bitte nennen Sie Ihre Adresse.",
+        "en": "Please give us your address."
        }
       ],
       "correctIndex": 0
      }
     },
     {
+     "id": "quest_food_delivery_02",
+     "conceptIds": ["concept_b1_complaint_resolution"],
      "type": "uebersetzen",
      "data": {
-      "promptDe": "Wie lange dauert es?",
-      "promptEn": "How long does it take?",
+      "promptDe": "Die Cola fehlt. Könnten Sie sie, wenn möglich, jetzt noch einmal schicken?",
+      "promptEn": "The cola is missing. Could you send it again now, if possible?",
       "options": [
-       {
-        "ko": "얼마나 걸려요?"
-       },
-       {
-        "ko": "얼마예요?"
-       },
-       {
-        "ko": "어디예요?"
-       },
-       {
-        "ko": "몇 개예요?"
-       }
+       {"ko": "콜라가 빠졌어요. 가능하면 지금 다시 보내 주시겠어요?"},
+       {"ko": "콜라가 왔어요. 가능하면 다음에는 보내지 마세요."},
+       {"ko": "주문 번호가 빠졌어요. 지금 주문을 취소해 주세요."},
+       {"ko": "콜라를 안 주문했어요. 주소를 다시 알려 주세요."}
       ],
       "correctIndex": 0
      }
     },
     {
+     "id": "quest_food_delivery_03",
      "type": "particlePop",
      "data": {
-      "prefix": "주소",
-      "suffix": "말씀해 주시겠어요?",
+      "prefix": "콜라",
+      "suffix": " 빠졌어요.",
       "options": [
+       "가",
+       "이",
        "를",
        "을",
-       "로",
-       "가",
-       "에",
-       "이"
+       "는",
+       "은"
       ],
       "correctIndex": 0,
-      "explanationDe": "주소 endet auf Vokal (ㅗ) → Objektpartikel 를.",
-      "explanationEn": "주소 ends in a vowel (ㅗ) → object particle 를."
+      "explanationDe": "콜라 endet auf einen Vokal, daher markiert 가 das fehlende Element als Subjekt.",
+      "explanationEn": "콜라 ends in a vowel, so 가 marks the missing item as the subject."
      }
     }
    ],
    "culturalNote": {
-    "title": {
-     "ko": "배달 문화",
-     "de": "Lieferkultur",
-     "en": "Delivery culture"
-    },
-    "body": {
-     "ko": "",
-     "de": "Liefer-Apps wie 배달의민족 bringen in Korea viele verschiedene Gerichte nach Hause. Eine Portion „한 마리“ bezeichnet bei Chicken oft ein ganzes Huhn.",
-     "en": "Delivery apps such as Baemin bring many kinds of food to homes in Korea. For chicken, “한 마리” often means a whole bird."
-    }
+     "title": {"ko": "누락된 주문 알리기", "de": "Fehlende Artikel melden", "en": "Reporting missing items"},
+     "body": {
+      "ko": "배달 음식이 빠졌다면 주문 번호와 누락된 항목을 정확히 말하고 해결 방법을 요청해요.",
+      "de": "Wenn bei einer Lieferung etwas fehlt, nenne Bestellnummer und fehlenden Artikel genau und bitte um eine konkrete Lösung.",
+      "en": "If an item is missing from a delivery, state the order number and missing item clearly and ask for a concrete solution."
+     }
    }
   },
   {
@@ -5779,7 +6058,6 @@
    "quests": [
     {
      "id": "quest_mart_grocery_01",
-     "conceptIds": ["concept_topic_particle"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "다섯 개에 오천 원이에요.",
@@ -5873,6 +6151,35 @@
       "promptDe": "Wie viel kosten die Äpfel?",
       "promptEn": "How much are the apples?"
      }
+    },
+    {
+     "id": "quest_mart_grocery_06",
+     "conceptIds": ["concept_subject_particle"],
+     "type": "particlePop",
+     "data": {
+      "prefix": "누가 왔어요? 수진",
+      "suffix": " 왔어요.",
+      "options": ["이", "가", "은", "는", "을", "를"],
+      "correctIndex": 0,
+      "explanationDe": "수진 endet auf einem Konsonanten, daher markiert 이 die neue Antwort auf 누가? als Subjekt.",
+      "explanationEn": "수진 ends in a consonant, so 이 marks it as the new subject answering 누가?"
+     }
+    },
+    {
+     "id": "quest_mart_grocery_07",
+     "conceptIds": ["concept_a1_negation"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Heute kaufe ich keine Milch. Das hier ist kein Saft.",
+      "promptEn": "Today I am not buying milk. This is not juice.",
+      "options": [
+       {"ko": "오늘은 우유를 안 사요. 이건 주스가 아니에요."},
+       {"ko": "오늘은 우유를 사요. 이건 주스예요."},
+       {"ko": "오늘은 우유가 없어요. 이건 주스를 안 마셔요."},
+       {"ko": "오늘은 우유를 못 사요. 이건 주스가 있어요."}
+      ],
+      "correctIndex": 0
+     }
     }
    ],
    "culturalNote": {
@@ -5885,6 +6192,229 @@
      "ko": "",
      "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra — viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
      "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra — many bring their own. Fruit is often sold in sets ('five for …')."
+    }
+   }
+  },
+  {
+   "id": "home_morning_routine",
+   "level": "a1",
+   "emoji": "🏠",
+   "register": "polite",
+   "courseUnitId": "a1_09_home_daily_life",
+   "speechStyle": "polite",
+   "relationshipContext": "housemates",
+   "intent": "describe_home_routine",
+   "conceptIds": ["concept_a1_home_daily"],
+   "surfaceFormIds": ["surface_haeyo"],
+   "sidekick": "jieun",
+   "xpReward": 115,
+   "title": {"ko": "집에서 보내는 아침", "de": "Ein Morgen zu Hause", "en": "A morning at home"},
+   "intro": {"ko": "룸메이트와 아침 일과를 이야기해요. 일어나서 씻고 아침을 먹는 순서를 말해 보세요.", "de": "Du sprichst mit deiner Mitbewohnerin über eure Morgenroutine. Beschreibe Aufstehen, Waschen und Frühstück in Reihenfolge.", "en": "You talk with your housemate about your morning routine. Describe waking up, washing, and breakfast in order."},
+   "vocab": [
+    {"korean": "일어나다", "note": {"ko": "잠에서 깨다.", "de": "aufstehen", "en": "to get up"}},
+    {"korean": "씻다", "note": {"ko": "몸이나 얼굴을 깨끗하게 하다.", "de": "sich waschen", "en": "to wash"}},
+    {"korean": "아침을 먹다", "note": {"ko": "아침 식사를 하다.", "de": "frühstücken", "en": "to eat breakfast"}},
+    {"korean": "이를 닦다", "note": {"ko": "양치하다.", "de": "Zähne putzen", "en": "to brush one's teeth"}},
+    {"korean": "청소하다", "note": {"ko": "집을 깨끗하게 하다.", "de": "putzen", "en": "to clean"}},
+    {"korean": "집을 나가다", "note": {"ko": "집 밖으로 가다.", "de": "das Haus verlassen", "en": "to leave home"}}
+   ],
+   "grammarIds": ["grammar_a1_polite_present"],
+   "grammarBlock": {"title": {"ko": "아침 일과: V-아/어요", "de": "Morgenroutine: V-아/어요", "en": "Morning routine: V-아/어요"}, "explanation": {"ko": "해요체로 매일 하는 행동을 말해요.", "de": "Mit 해요체 beschreibst du regelmäßige Handlungen.", "en": "Use 해요체 for regular actions."}},
+   "dialog": [
+    {"speaker": "jieun", "ko": "보통 몇 시에 일어나요?", "de": "Um wie viel Uhr stehst du normalerweise auf?", "en": "What time do you usually get up?"},
+    {"speaker": "user", "ko": "보통 7시에 일어나요.", "de": "Normalerweise stehe ich um sieben auf.", "en": "I usually get up at seven."},
+    {"speaker": "jieun", "ko": "일어나서 뭐 해요?", "de": "Was machst du nach dem Aufstehen?", "en": "What do you do after getting up?"},
+    {"speaker": "user", "ko": "먼저 씻고 이를 닦아요.", "de": "Zuerst wasche ich mich und putze die Zähne.", "en": "First I wash and brush my teeth."},
+    {"speaker": "jieun", "ko": "아침도 먹어요?", "de": "Frühstückst du auch?", "en": "Do you eat breakfast too?"},
+    {"speaker": "user", "ko": "네, 아침을 먹고 집을 나가요.", "de": "Ja, ich frühstücke und verlasse dann das Haus.", "en": "Yes, I eat breakfast and then leave home."}
+   ],
+   "quests": [
+    {"id": "quest_home_morning_routine_01", "type": "hoerverstehen", "data": {"audioKo": "먼저 씻고 아침을 먹어요.", "options": [{"de": "Zuerst wasche ich mich und frühstücke.", "en": "First I wash and eat breakfast."}, {"de": "Zuerst gehe ich zur Arbeit.", "en": "First I go to work."}, {"de": "Ich schlafe bis mittags.", "en": "I sleep until noon."}, {"de": "Ich esse abends.", "en": "I eat in the evening."}], "correctIndex": 0}},
+    {"id": "quest_home_morning_routine_02", "type": "luecken", "data": {"sentence": "보통 7시에 ___ .", "options": ["일어나요", "일어났어요", "일어날까요", "일어나세요"], "correctIndex": 0}},
+    {"id": "quest_home_morning_routine_03", "type": "particlePop", "data": {"prefix": "아침", "suffix": " 먹어요.", "options": ["을", "를", "이", "가", "은", "는"], "correctIndex": 0, "explanationDe": "아침 endet auf einen Konsonanten, daher nimmt das Objekt 을.", "explanationEn": "아침 ends in a consonant, so the object takes 을."}},
+    {"id": "quest_home_morning_routine_04", "type": "satzBauen", "data": {"targetKo": "먼저 씻고 아침을 먹어요.", "promptDe": "Zuerst wasche ich mich und frühstücke.", "promptEn": "First I wash and eat breakfast.", "distractors": ["병원", "기차표", "주문"], "audioKo": "먼저 씻고 아침을 먹어요."}},
+    {"id": "quest_home_morning_routine_05", "conceptIds": ["concept_a1_home_daily"], "type": "uebersetzen", "data": {"promptDe": "Zu Hause stehe ich um sieben auf, wasche mich und frühstücke.", "promptEn": "At home I get up at seven, wash, and eat breakfast.", "options": [{"ko": "집에서 7시에 일어나서 씻고 아침을 먹어요."}, {"ko": "회사에서 7시에 일하고 저녁을 먹어요."}, {"ko": "집에서 8시에 자고 아침은 안 먹어요."}, {"ko": "학교에서 씻고 바로 집을 나가요."}], "correctIndex": 0}}
+   ],
+   "culturalNote": {"title": {"ko": "한국의 아침", "de": "Morgen in Korea", "en": "Mornings in Korea"}, "body": {"ko": "아침 식사는 사람마다 달라요.", "de": "Frühstück ist individuell.", "en": "Breakfast varies from person to person."}}
+  },
+  {
+   "id": "survival_day_capstone",
+   "level": "a1",
+   "emoji": "🧭",
+   "register": "polite",
+   "courseUnitId": "a1_16_survival_capstone",
+   "speechStyle": "polite",
+   "relationshipContext": "newcomer_and_service_staff",
+   "intent": "solve_everyday_tasks",
+   "conceptIds": ["concept_a1_survival"],
+   "surfaceFormIds": ["surface_imnida", "surface_deweo_juseyo"],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {"ko": "한국에서의 첫날", "de": "Dein erster Tag in Korea", "en": "Your first day in Korea"},
+   "intro": {"ko": "인사하고 자신을 소개한 뒤 음식을 주문하고 길을 물어요. 못 알아들으면 천천히 다시 말해 달라고 하세요.", "de": "Begrüße eine neue Person, stell dich vor, bestelle Essen, frage nach dem Weg und bitte bei Bedarf um langsame Wiederholung.", "en": "Greet someone new, introduce yourself, order food, ask for directions, and request a slow repetition when needed."},
+   "vocab": [
+    {"korean": "안녕하세요", "note": {"ko": "정중한 인사.", "de": "höfliche Begrüßung", "en": "polite greeting"}},
+    {"korean": "저는 …입니다", "note": {"ko": "공식적인 자기소개.", "de": "formelle Vorstellung", "en": "formal introduction"}},
+    {"korean": "한 인분 주세요", "note": {"ko": "한 사람 분량 주문.", "de": "eine Portion, bitte", "en": "one portion, please"}},
+    {"korean": "어떻게 가요?", "note": {"ko": "길을 묻는 표현.", "de": "Wie komme ich hin?", "en": "How do I get there?"}},
+    {"korean": "다시 말씀해 주세요", "note": {"ko": "되묻기.", "de": "Bitte noch einmal.", "en": "Please say it again."}},
+    {"korean": "천천히 말씀해 주세요", "note": {"ko": "천천히 말해 달라는 요청.", "de": "Bitte langsam sprechen.", "en": "Please speak slowly."}}
+   ],
+   "grammarIds": ["grammar_a1_polite_request"],
+   "grammarBlock": {"title": {"ko": "첫날의 안전한 표현", "de": "Sichere Sätze für den ersten Tag", "en": "Safe phrases for the first day"}, "explanation": {"ko": "처음 만난 사람과 서비스 상황에서는 정중한 말투를 쓰고, 모르면 다시 물어요.", "de": "Mit neuen Personen und im Service verwendest du höfliche Sprache und fragst nach.", "en": "With new people and in service settings, use polite speech and ask again."}},
+   "dialog": [
+    {"speaker": "jieun", "ko": "안녕하세요. 처음 오셨어요?", "de": "Hallo. Sind Sie zum ersten Mal hier?", "en": "Hello. Is this your first time here?"},
+    {"speaker": "user", "ko": "안녕하세요. 저는 안나입니다.", "de": "Hallo. Ich bin Anna.", "en": "Hello. I am Anna."},
+    {"speaker": "user", "ko": "떡볶이 한 인분 주세요.", "de": "Eine Portion Tteokbokki, bitte.", "en": "One portion of tteokbokki, please."},
+    {"speaker": "jieun", "ko": "지하철역은 저쪽 사거리에서 오른쪽이에요.", "de": "Die U-Bahn ist an der Kreuzung dort rechts.", "en": "The subway is to the right at that intersection."},
+    {"speaker": "user", "ko": "잘 못 알아들었어요. 천천히 다시 말씀해 주세요.", "de": "Ich habe es nicht verstanden. Bitte noch einmal langsam.", "en": "I did not understand. Please say it again slowly."},
+    {"speaker": "user", "ko": "지하철역에 어떻게 가요?", "de": "Wie komme ich zur U-Bahn?", "en": "How do I get to the subway?"}
+   ],
+   "quests": [
+    {"id": "quest_survival_day_capstone_01", "type": "hoerverstehen", "data": {"audioKo": "안녕하세요. 저는 안나입니다.", "options": [{"de": "Hallo. Ich bin Anna.", "en": "Hello. I am Anna."}, {"de": "Eine Portion, bitte.", "en": "One portion, please."}, {"de": "Wo ist die U-Bahn?", "en": "Where is the subway?"}, {"de": "Bitte langsamer.", "en": "Please speak more slowly."}], "correctIndex": 0}},
+    {"id": "quest_survival_day_capstone_02", "type": "particlePop", "data": {"prefix": "떡볶이", "suffix": " 한 인분 주세요.", "options": ["를", "을", "이", "가", "은", "는"], "correctIndex": 0, "explanationDe": "떡볶이 endet auf einen Vokal, daher nimmt das Objekt 를.", "explanationEn": "떡볶이 ends in a vowel, so the object takes 를."}},
+    {"id": "quest_survival_day_capstone_03", "type": "satzBauen", "data": {"targetKo": "죄송하지만 천천히 다시 말씀해 주세요.", "promptDe": "Entschuldigung, bitte sagen Sie es noch einmal langsam.", "promptEn": "Sorry, please say it again slowly.", "distractors": ["자동 결제", "비밀번호", "창가 자리"], "audioKo": "죄송하지만 천천히 다시 말씀해 주세요."}},
+    {"id": "quest_survival_day_capstone_04", "type": "diktat", "data": {"targetKo": "지하철역에 어떻게 가요?", "audioKo": "지하철역에 어떻게 가요?", "promptDe": "Wie komme ich zur U-Bahn?", "promptEn": "How do I get to the subway?"}},
+    {"id": "quest_survival_day_capstone_05", "conceptIds": ["concept_a1_survival"], "type": "uebersetzen", "data": {"promptDe": "Wähle die vollständige Folge: begrüßen + vorstellen / bestellen / nach dem Weg fragen / langsame Wiederholung erbitten.", "promptEn": "Choose the complete sequence: greet + introduce / order / ask directions / request a slow repetition.", "options": [{"ko": "안녕하세요. 저는 안나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요."}, {"ko": "안녕. 나는 안나야. / 떡볶이 먹자. / 지하철역에 가. / 빨리 말해 줘."}, {"ko": "저는 안나예요. / 주문하지 않을게요. / 택시를 탔어요. / 잘 알아들었어요."}, {"ko": "처음 뵙겠습니다. / 계산했어요. / 길을 알아요. / 다시 말하지 마세요."}], "correctIndex": 0}}
+   ],
+   "culturalNote": {"title": {"ko": "모르면 되묻기", "de": "Nachfragen ist sicher", "en": "Asking again is safe"}, "body": {"ko": "못 알아들었을 때 정중하게 다시 말해 달라고 하는 것은 자연스럽고 안전해요.", "de": "Es ist natürlich und sicher, höflich um Wiederholung zu bitten.", "en": "It is natural and safe to ask politely for repetition."}}
+  },
+  {
+   "id": "rent_bank_transfer",
+   "level": "a2",
+   "emoji": "🏦",
+   "register": "polite",
+   "courseUnitId": "a2_08_home_money",
+   "speechStyle": "polite",
+   "relationshipContext": "tenant_and_bank_staff",
+   "intent": "clarify_rent_payment",
+   "conceptIds": ["concept_a2_home_money"],
+   "surfaceFormIds": ["surface_haeyo"],
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "월세 자동이체 확인하기",
+    "de": "Die Mietüberweisung klären",
+    "en": "Clarifying a rent transfer"
+   },
+   "intro": {
+    "ko": "은행에서 월세 자동이체 날짜와 수수료를 확인해요. 집과 생활비 정보를 정확히 말해 보세요.",
+    "de": "In der Bank klärst du Datum und Gebühr für die automatische Mietüberweisung. Bestätige Wohn- und Kostenangaben genau.",
+    "en": "At the bank, clarify the date and fee for an automatic rent transfer. Confirm home and living-cost details accurately."
+   },
+   "vocab": [
+    {
+     "korean": "월세",
+     "note": {"ko": "매달 내는 집세.", "de": "monatliche Miete", "en": "monthly rent"}
+    },
+    {
+     "korean": "자동이체",
+     "note": {"ko": "정해진 날에 계좌에서 자동으로 보내는 돈.", "de": "automatische Überweisung", "en": "automatic bank transfer"}
+    },
+    {
+     "korean": "관리비",
+     "note": {"ko": "건물 관리에 드는 비용.", "de": "Nebenkosten / Hausgeld", "en": "maintenance fee"}
+    },
+    {
+     "korean": "수수료",
+     "note": {"ko": "서비스를 이용할 때 내는 비용.", "de": "Gebühr", "en": "fee"}
+    },
+    {
+     "korean": "계좌",
+     "note": {"ko": "은행에서 돈을 보관하고 보내는 곳.", "de": "Bankkonto", "en": "bank account"}
+    },
+    {
+     "korean": "매달",
+     "note": {"ko": "달마다.", "de": "jeden Monat", "en": "every month"}
+    }
+   ],
+   "grammarIds": ["grammar_a2_each"],
+   "grammarBlock": {
+    "title": {"ko": "매달 + 날짜에", "de": "Jeden Monat + Datum", "en": "Every month + date"},
+    "explanation": {
+     "ko": "매달 25일에처럼 반복되는 날짜를 말하고, 금액과 수수료를 확인해요.",
+     "de": "Mit 매달 25일에 nennst du einen wiederkehrenden Termin; danach bestätigst du Betrag und Gebühren.",
+     "en": "Use 매달 25일에 for a recurring date, then confirm the amount and any fees."
+    }
+   },
+   "dialog": [
+    {"speaker": "user", "ko": "월세 자동이체를 신청하고 싶어요.", "de": "Ich möchte einen Dauerauftrag für die Miete einrichten.", "en": "I would like to set up an automatic rent transfer."},
+    {"speaker": "minsu", "ko": "매달 며칠에 보내 드릴까요?", "de": "An welchem Tag sollen wir die Überweisung jeden Monat ausführen?", "en": "On which day should we send it each month?"},
+    {"speaker": "user", "ko": "25일에 보내 주세요.", "de": "Bitte am 25.", "en": "Please send it on the 25th."},
+    {"speaker": "minsu", "ko": "월세는 70만 원이고 관리비는 별도 맞으세요?", "de": "Die Miete beträgt 700.000 Won und die Nebenkosten sind separat, richtig?", "en": "The rent is 700,000 won and the maintenance fee is separate, correct?"},
+    {"speaker": "user", "ko": "네, 맞아요. 이체 수수료가 있어요?", "de": "Ja, richtig. Gibt es eine Überweisungsgebühr?", "en": "Yes, that's right. Is there a transfer fee?"},
+    {"speaker": "minsu", "ko": "아니요, 수수료는 없어요.", "de": "Nein, es gibt keine Gebühr.", "en": "No, there is no fee."}
+   ],
+   "quests": [
+    {
+     "id": "quest_rent_bank_transfer_01",
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "월세는 70만 원이고 관리비는 별도예요.",
+      "options": [
+       {"de": "Die Miete beträgt 700.000 Won; die Nebenkosten sind separat.", "en": "The rent is 700,000 won; the maintenance fee is separate."},
+       {"de": "Miete und Nebenkosten zusammen kosten 700.000 Won.", "en": "Rent and maintenance together cost 700,000 won."},
+       {"de": "Die Überweisung erfolgt am 17.", "en": "The transfer is made on the 17th."},
+       {"de": "Es gibt eine Gebühr von 70.000 Won.", "en": "There is a fee of 70,000 won."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_rent_bank_transfer_02",
+     "type": "luecken",
+     "data": {
+      "sentence": "___ 25일에 월세를 보내 주세요.",
+      "options": ["매달", "어제", "지난달", "한번"],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_rent_bank_transfer_03",
+     "type": "particlePop",
+     "data": {
+      "prefix": "월세",
+      "suffix": " 자동이체로 보내요.",
+      "options": ["를", "을", "이", "가", "은", "는"],
+      "correctIndex": 0,
+      "explanationDe": "월세 endet auf einen Vokal, daher nimmt das Objekt 를.",
+      "explanationEn": "월세 ends in a vowel, so the object takes 를."
+     }
+    },
+    {
+     "id": "quest_rent_bank_transfer_04",
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "이체 수수료도 있어요?",
+      "promptDe": "Gibt es auch eine Überweisungsgebühr?",
+      "promptEn": "Is there also a transfer fee?",
+      "distractors": ["조식", "지하철", "처방전"],
+      "audioKo": "이체 수수료도 있어요?"
+     }
+    },
+    {
+     "id": "quest_rent_bank_transfer_05",
+     "conceptIds": ["concept_a2_home_money"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Die Miete beträgt 700.000 Won, die Nebenkosten sind separat. Bitte richten Sie die automatische Überweisung für den 25. ein. Gibt es eine Gebühr?",
+      "promptEn": "The rent is 700,000 won and the maintenance fee is separate. Please set the automatic transfer for the 25th. Is there a fee?",
+      "options": [
+       {"ko": "월세는 70만 원이고 관리비는 별도예요. 자동이체는 25일로 해 주세요. 수수료가 있어요?"},
+       {"ko": "월세와 관리비는 25만 원이에요. 자동이체 수수료를 보내 주세요."},
+       {"ko": "월세는 이미 냈어요. 관리비와 수수료는 없어요."},
+       {"ko": "자동이체는 70일로 해 주세요. 관리비가 월세예요."}
+      ],
+      "correctIndex": 0
+     }
+    }
+   ],
+   "culturalNote": {
+    "title": {"ko": "월세와 관리비", "de": "Miete und Nebenkosten", "en": "Rent and maintenance fees"},
+    "body": {
+     "ko": "월세와 관리비가 따로 청구되는 경우가 많아요. 계약서의 금액과 이체 날짜를 확인하세요.",
+     "de": "Miete und 관리비 werden häufig getrennt berechnet. Prüfe Betrag und Überweisungstag im Vertrag.",
+     "en": "Rent and 관리비 are often billed separately. Check the amount and transfer date in the contract."
     }
    }
   },
@@ -6447,6 +6977,7 @@
      }
     },
     {
+     "id": "quest_job_interview_02",
      "type": "uebersetzen",
      "data": {
       "promptDe": "Ich gebe mein Bestes.",
@@ -6469,6 +7000,7 @@
      }
     },
     {
+     "id": "quest_job_interview_03",
      "type": "particlePop",
      "data": {
       "prefix": "경험",
@@ -6484,6 +7016,38 @@
       "correctIndex": 0,
       "explanationDe": "경험 endet auf Konsonant (ㅁ) → Subjektpartikel 이 (경험이 있습니다 = 'Erfahrung haben').",
       "explanationEn": "경험 ends in a consonant (ㅁ) → subject particle 이 (경험이 있습니다 = 'to have experience')."
+     }
+    },
+    {
+     "id": "quest_job_interview_04",
+     "conceptIds": ["concept_b2_interview"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich habe drei Jahre Erfahrung in der Leitung internationaler Projekte; meine Stärke ist die sorgfältige Abstimmung von Details.",
+      "promptEn": "I have three years of experience managing international projects; my strength is coordinating details carefully.",
+      "options": [
+       {"ko": "해외 프로젝트를 3년 동안 관리한 경험이 있으며, 세부 사항을 꼼꼼하게 조율하는 것이 제 강점입니다."},
+       {"ko": "해외 프로젝트를 세 번 봤으며, 세부 사항은 다른 사람이 관리합니다."},
+       {"ko": "프로젝트 경험은 없지만 세부 사항을 빨리 끝내는 것이 제 약점입니다."},
+       {"ko": "3년 후에 해외 프로젝트를 시작하며, 제 강점은 조율하지 않는 것입니다."}
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_job_interview_05",
+     "conceptIds": ["concept_b2_advanced"],
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Dieselbe professionelle Bitte zuerst formell-direkt, dann vorsichtig abgemildert: Bitte verlängern Sie die Prüfzeit.",
+      "promptEn": "The same professional request, first formally direct and then carefully softened: please extend the review time.",
+      "options": [
+       {"ko": "검토 시간을 연장해 주시기 바랍니다. / 가능하시다면 검토 시간을 조금 더 주실 수 있을까요?"},
+       {"ko": "검토 시간을 조금 더 주실 수 있을까요? / 검토 시간을 연장해 주시기 바랍니다."},
+       {"ko": "검토 시간을 연장하겠습니다. / 가능하면 검토를 취소해 주세요."},
+       {"ko": "검토 시간이 끝났습니다. / 시간을 더 주지 않으셔도 됩니다."}
+      ],
+      "correctIndex": 0
      }
     }
    ],
@@ -7515,17 +8079,33 @@
        "explanationEn": "이름 ends in a consonant (ㅁ) → use the object particle 을."
       }
      },
-     {
-      "id": "quest_first_class_meeting_05",
+      {
+       "id": "quest_first_class_meeting_05",
       "conceptIds": ["concept_identity_formal"],
       "type": "diktat",
       "data": {
        "targetKo": "저는 안나입니다.",
        "audioKo": "저는 안나입니다.",
        "promptDe": "Ich bin Anna.",
-       "promptEn": "I am Anna."
+        "promptEn": "I am Anna."
+       }
+      },
+      {
+       "id": "quest_first_class_meeting_06",
+       "conceptIds": ["concept_a1_first_meeting"],
+       "type": "uebersetzen",
+       "data": {
+        "promptDe": "Stelle dich im ersten Kurs vor und frage die andere Person, ob es ihr erster Koreanischkurs ist.",
+        "promptEn": "Introduce yourself in the first class and ask whether it is the other person's first Korean class.",
+        "options": [
+         {"ko": "저는 안나입니다. 한국어 수업 처음이세요?"},
+         {"ko": "저는 안나예요. 한국어 수업은 끝났어요?"},
+         {"ko": "나는 안나야. 수업에 가지 마."},
+         {"ko": "안나 씨입니다. 한국어를 가르치세요?"}
+        ],
+        "correctIndex": 0
+       }
       }
-     }
     ],
     "culturalNote": {
      "title": {
@@ -7738,17 +8318,33 @@
        "audioKo": "카카오톡으로 수업 자료 보내 주세요."
       }
      },
-     {
-      "id": "quest_phone_messenger_reply_05",
+      {
+       "id": "quest_phone_messenger_reply_05",
       "conceptIds": ["concept_a1_contact_address", "concept_topic_particle"],
       "type": "diktat",
       "data": {
        "targetKo": "제 전화번호는 010-1234-5678이에요.",
        "audioKo": "제 전화번호는 010-1234-5678이에요.",
        "promptDe": "Meine Telefonnummer ist 010-1234-5678.",
-       "promptEn": "My phone number is 010-1234-5678."
+        "promptEn": "My phone number is 010-1234-5678."
+       }
+      },
+      {
+       "id": "quest_phone_messenger_reply_06",
+       "conceptIds": ["concept_a1_contact_address"],
+       "type": "uebersetzen",
+       "data": {
+        "promptDe": "Bestätige langsam Telefonnummer, Adresse und Zimmernummer.",
+        "promptEn": "Confirm the phone number, address, and room number slowly.",
+        "options": [
+         {"ko": "제 전화번호는 010-1234-5678이고 주소는 성산로 15, 302호예요. 천천히 확인해 주세요."},
+         {"ko": "제 전화번호는 성산로 15이고 주소는 010-1234-5678이에요."},
+         {"ko": "전화번호는 없고 주소는 강남역이에요. 빨리 말해 주세요."},
+         {"ko": "제 방은 15호이고 전화번호는 302예요. 확인하지 마세요."}
+        ],
+        "correctIndex": 0
+       }
       }
-     }
     ],
     "culturalNote": {
      "title": {
@@ -7962,17 +8558,33 @@
        "explanationEn": "주소 ends in a vowel (ㅗ) → use the subject particle 가."
       }
      },
-     {
-      "id": "quest_delivery_address_confirmation_05",
+      {
+       "id": "quest_delivery_address_confirmation_05",
       "conceptIds": ["concept_a1_payment_delivery", "concept_subject_particle"],
       "type": "diktat",
       "data": {
        "targetKo": "주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
        "audioKo": "주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
        "promptDe": "Ist die Adresse Seongsan-ro 15, Mapo-gu, Seoul, Zimmer 302 korrekt?",
-       "promptEn": "Is the address 15 Seongsan-ro, Mapo-gu, Seoul, room 302 correct?"
+        "promptEn": "Is the address 15 Seongsan-ro, Mapo-gu, Seoul, room 302 correct?"
+       }
+      },
+      {
+       "id": "quest_delivery_address_confirmation_06",
+       "conceptIds": ["concept_a1_payment_delivery"],
+       "type": "uebersetzen",
+       "data": {
+        "promptDe": "Die Zahlung erfolgt automatisch. Bitte bestätigen Sie, dass die Lieferadresse Zimmer 302 ist.",
+        "promptEn": "Payment is automatic. Please confirm that the delivery address is room 302.",
+        "options": [
+         {"ko": "자동 결제예요. 배달 주소가 302호인지 확인해 주세요."},
+         {"ko": "현금 결제예요. 배달 주소를 바꿔 주세요."},
+         {"ko": "자동 결제가 아니에요. 302호로 오지 마세요."},
+         {"ko": "배달은 끝났어요. 주소를 확인하지 마세요."}
+        ],
+        "correctIndex": 0
+       }
       }
-     }
     ],
     "culturalNote": {
      "title": {
@@ -8114,7 +8726,6 @@
     "quests": [
      {
       "id": "quest_clarify_repeat_01",
-      "conceptIds": ["concept_a1_clarification"],
       "type": "hoerverstehen",
       "data": {
        "audioKo": "다음 버스는 10분 후에 와요.",
@@ -8194,6 +8805,22 @@
        "audioKo": "다시 말씀해 주세요.",
        "promptDe": "Bitte sagen Sie das noch einmal.",
        "promptEn": "Please say that again."
+      }
+     },
+     {
+      "id": "quest_clarify_repeat_06",
+      "conceptIds": ["concept_a1_clarification"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Ich habe es nicht gut verstanden. Bitte sagen Sie es noch einmal langsam.",
+       "promptEn": "I did not understand well. Please say it again slowly.",
+       "options": [
+        {"ko": "잘 못 알아들었어요. 다시 천천히 말씀해 주세요."},
+        {"ko": "잘 알아들었어요. 더 빨리 말씀해 주세요."},
+        {"ko": "다시 가지 마세요. 천천히 오세요."},
+        {"ko": "못 들었어요. 말씀하지 마세요."}
+       ],
+       "correctIndex": 0
       }
      }
     ],
@@ -8634,17 +9261,33 @@
        "audioKo": "열이 있고 머리가 아파요."
       }
      },
-     {
-      "id": "quest_clinic_safety_05",
+      {
+       "id": "quest_clinic_safety_05",
       "conceptIds": ["concept_a1_health_safety"],
       "type": "diktat",
       "data": {
        "targetKo": "어디가 불편하세요?",
        "audioKo": "어디가 불편하세요?",
        "promptDe": "Was tut Ihnen weh?",
-       "promptEn": "What is bothering you?"
+        "promptEn": "What is bothering you?"
+       }
+      },
+      {
+       "id": "quest_clinic_safety_06",
+       "conceptIds": ["concept_a1_health_safety"],
+       "type": "uebersetzen",
+       "data": {
+        "promptDe": "Ich habe Fieber und starke Kopfschmerzen. Ich brauche Hilfe. Bitte holen Sie eine Ärztin oder einen Arzt.",
+        "promptEn": "I have a fever and a bad headache. I need help. Please get a doctor.",
+        "options": [
+         {"ko": "열이 있고 머리가 많이 아파요. 도움이 필요해요. 의사 선생님을 불러 주세요."},
+         {"ko": "열이 없고 머리도 안 아파요. 도움은 필요 없어요."},
+         {"ko": "배가 고파요. 약국에 가지 마세요."},
+         {"ko": "머리가 좋아요. 의사 선생님이 집에 있어요."}
+        ],
+        "correctIndex": 0
+       }
       }
-     }
     ],
     "culturalNote": {
      "title": {

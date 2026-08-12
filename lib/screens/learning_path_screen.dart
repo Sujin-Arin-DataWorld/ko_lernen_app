@@ -38,6 +38,34 @@ String pathVisibleLevel(String? userLevelCode) {
   return (known.contains(code) ? code : 'a1').toUpperCase();
 }
 
+String pathLegacyBrowseVisibleLevel({
+  required String? browseLevelCode,
+  required String? placementLevelCode,
+  required String? legacyUserLevelCode,
+}) => pathVisibleLevel(
+  browseLevelCode ?? placementLevelCode ?? legacyUserLevelCode,
+);
+
+/// The sequential course follows its canonical snapshot, while the legacy
+/// pack browser may keep the learner's independently selected browse level.
+String pathCourseVisibleLevel({
+  required CourseMasterySnapshot snapshot,
+  required Iterable<CourseUnit> courseUnits,
+  required String fallbackBrowseLevel,
+}) {
+  final currentId = snapshot.currentCourseUnitId;
+  if (currentId != null) {
+    for (final unit in courseUnits) {
+      if (unit.id == currentId) return pathVisibleLevel(unit.level);
+    }
+  }
+  final placement = snapshot.placementLevel;
+  if (placement != null && placement.trim().isNotEmpty) {
+    return pathVisibleLevel(placement);
+  }
+  return pathVisibleLevel(fallbackBrowseLevel);
+}
+
 /// **Lernpfad (학습 경로)** — Duolingo식 진척 시각화.
 ///
 /// "내가 어디 있고, 다음 한 걸음이 무엇인지"를 한 화면에 보여준다:
@@ -104,6 +132,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   int _packTotal = 0;
   String? _nowPackId; // 첫 미완 + 잠금해제 팩 = "지금 할 것"
   String _selectedLevel = 'A1'; // 렌더할 단일 레벨 (온보딩 선택, 대문자)
+  String _courseLevel = 'A1';
   List<CourseUnit> _courseUnits = const [];
   CourseMasterySnapshot? _courseSnapshot;
   bool _showLegacyPractice = false;
@@ -155,6 +184,11 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     _selectedLevel = pathVisibleLevel(preview.selectedLevel);
     _courseUnits = List<CourseUnit>.unmodifiable(preview.courseUnits);
     _courseSnapshot = preview.snapshot;
+    _courseLevel = pathCourseVisibleLevel(
+      snapshot: preview.snapshot,
+      courseUnits: preview.courseUnits,
+      fallbackBrowseLevel: _selectedLevel,
+    );
     _loading = false;
   }
 
@@ -201,7 +235,11 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     }
     final stage =
         (await HanokStructureProjectionService.loadCurrent()).structureStage;
-    final selectedLevel = pathVisibleLevel(Storage.userLevelCode);
+    final selectedLevel = pathLegacyBrowseVisibleLevel(
+      browseLevelCode: Storage.browseLevelCode,
+      placementLevelCode: Storage.placementLevelCode,
+      legacyUserLevelCode: Storage.userLevelCode,
+    );
     final groups = <_LevelGroup>[];
     int cleared = 0;
     int total = 0;
@@ -236,11 +274,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     CourseMasterySnapshot? courseSnapshot;
     try {
       courseCatalog = await CurriculumCatalog.load();
-      courseSnapshot = await CourseProgressService.shared.refresh();
-      if (courseSnapshot.currentCourseUnitId == null) {
-        courseSnapshot = await CourseProgressService.shared
-            .initializeForPlacement(courseSnapshot.placementLevel ?? 'a1');
-      }
+      courseSnapshot = await CourseProgressService.shared.readForDisplay();
     } catch (_) {
       // Existing pack path remains usable if a local curriculum asset is
       // invalid; the mission screen will surface the actionable error.
@@ -248,6 +282,16 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     if (!mounted) {
       return;
     }
+    final courseUnits = List<CourseUnit>.unmodifiable(
+      courseCatalog?.courseUnits ?? const <CourseUnit>[],
+    );
+    final courseLevel = courseSnapshot == null
+        ? selectedLevel
+        : pathCourseVisibleLevel(
+            snapshot: courseSnapshot,
+            courseUnits: courseUnits,
+            fallbackBrowseLevel: selectedLevel,
+          );
     setState(() {
       _stage = stage;
       _groups
@@ -257,9 +301,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _packTotal = total;
       _nowPackId = now;
       _selectedLevel = selectedLevel;
-      _courseUnits = List<CourseUnit>.unmodifiable(
-        courseCatalog?.courseUnits ?? const <CourseUnit>[],
-      );
+      _courseLevel = courseLevel;
+      _courseUnits = courseUnits;
       _courseSnapshot = courseSnapshot;
       _loading = false;
     });
@@ -319,7 +362,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                         courseUnits: _courseUnits,
                         snapshot: _courseSnapshot!,
                         lang: Localizations.localeOf(context).languageCode,
-                        filterLevel: _selectedLevel.toLowerCase(),
+                        filterLevel: _courseLevel.toLowerCase(),
                         onTapUnit: (unit) async {
                           await Navigator.pushNamed(
                             context,

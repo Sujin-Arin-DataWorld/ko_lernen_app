@@ -76,7 +76,8 @@ abstract final class GyeWeeklyPromiseNavigation {
               link.contentKind == CurriculumContentKind.scenario &&
               link.contentId == definition.scenarioId &&
               link.courseUnitId == definition.courseUnitId &&
-              link.role == ContentLinkRole.assess,
+              link.id == definition.missionContentLinkId &&
+              link.exactlyAssesses(activePick.unit),
         )
         .toList(growable: false);
     if (exactLinks.length != 1) {

@@ -8701,6 +8701,66 @@ abstract class AppL10n {
   /// **'In der Situation antworten'**
   String get courseMissionBriefStepSmalltalk;
 
+  /// No description provided for @courseMissionBriefListenTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre die Situation'**
+  String get courseMissionBriefListenTitle;
+
+  /// No description provided for @courseMissionBriefListenBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Erkenne die höfliche Form'**
+  String get courseMissionBriefListenBody;
+
+  /// No description provided for @courseMissionBriefBuildTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Baue deinen Satz'**
+  String get courseMissionBriefBuildTitle;
+
+  /// No description provided for @courseMissionBriefBuildBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle die fehlenden Wörter'**
+  String get courseMissionBriefBuildBody;
+
+  /// No description provided for @courseMissionBriefSceneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprich in der Szene'**
+  String get courseMissionBriefSceneTitle;
+
+  /// No description provided for @courseMissionBriefSceneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine echte Antwort, kein Raten'**
+  String get courseMissionBriefSceneBody;
+
+  /// No description provided for @courseMissionBriefListenCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt hören'**
+  String get courseMissionBriefListenCta;
+
+  /// No description provided for @courseMissionBriefBuildCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt bauen'**
+  String get courseMissionBriefBuildCta;
+
+  /// No description provided for @courseMissionBriefSceneCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Szene beginnen'**
+  String get courseMissionBriefSceneCta;
+
+  /// No description provided for @courseMissionBriefMinutes.
+  ///
+  /// In de, this message translates to:
+  /// **'{minutes} Min.'**
+  String courseMissionBriefMinutes(int minutes);
+
   /// No description provided for @courseMissionPreviewNotice.
   ///
   /// In de, this message translates to:

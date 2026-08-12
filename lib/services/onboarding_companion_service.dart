@@ -12,6 +12,7 @@ class OnboardingCompanionService {
     required String? activeCourseLevel,
     required Iterable<String> evidenceIdsBefore,
     required Iterable<MasteryEvidence> evidenceAfter,
+    required Iterable<ContentLink> contentLinks,
   }) {
     final unitId = activeCourseUnitId?.trim();
     if (introPreviewSeen || unitId == null || unitId.isEmpty) {
@@ -22,12 +23,26 @@ class OnboardingCompanionService {
     }
     final historicalIds = evidenceIdsBefore.toSet();
 
-    return evidenceAfter.any(
-      (item) =>
-          !historicalIds.contains(item.id) &&
-          item.courseEligible &&
-          item.isCorrect &&
-          item.courseUnitId == unitId,
-    );
+    return evidenceAfter.any((item) {
+      if (historicalIds.contains(item.id) ||
+          !item.courseEligible ||
+          item.missionContentLinkId == null ||
+          !item.isCorrect ||
+          item.courseUnitId != unitId ||
+          (item.contentKind != CurriculumContentKind.grammar &&
+              item.contentKind != CurriculumContentKind.smalltalk &&
+              item.contentKind != CurriculumContentKind.scenario)) {
+        return false;
+      }
+      return contentLinks.any(
+        (link) =>
+            link.id == item.missionContentLinkId &&
+            link.courseUnitId == item.courseUnitId &&
+            link.contentKind == item.contentKind &&
+            link.contentId == item.contentId &&
+            link.conceptIds.contains(item.conceptId) &&
+            link.role == ContentLinkRole.assess,
+      );
+    });
   }
 }

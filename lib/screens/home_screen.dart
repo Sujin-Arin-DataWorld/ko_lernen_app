@@ -1133,41 +1133,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             HomeBuildNote(
                               key: const ValueKey('home-hanok-build-note'),
                               narrative: _hanokNarrative,
-                              onOpen: _openHanok,
                             ),
                             if (_dueCount > 0 &&
                                 _todaySnapshot?.pick is! ReviewPick) ...[
                               const SizedBox(height: Spacing.md),
                               _HomeLaterTodayNote(dueCount: _dueCount),
                             ],
-                            const SizedBox(height: Spacing.sm),
-                            Center(
-                              child: TextButton.icon(
-                                key: const ValueKey(
-                                  'home-legacy-dashboard-toggle',
-                                ),
-                                onPressed: () => setState(
-                                  () => _legacyDashboardExpanded =
-                                      !_legacyDashboardExpanded,
-                                ),
-                                style: TextButton.styleFrom(
-                                  foregroundColor: isDark
-                                      ? SoriColors.primaryOnDark
-                                      : SoriColors.primaryOnLight,
-                                ),
-                                icon: Icon(
-                                  _legacyDashboardExpanded
-                                      ? Icons.expand_less_rounded
-                                      : Icons.expand_more_rounded,
-                                ),
-                                label: Text(
-                                  _legacyDashboardExpanded
-                                      ? t.homeFocusLess
-                                      : t.homeFocusMore,
-                                ),
-                              ),
-                            ),
-
                             if (_legacyDashboardExpanded)
                               KeyedSubtree(
                                 key: const ValueKey('home-legacy-dashboard'),
@@ -1478,16 +1449,11 @@ double _homeContentMaxWidth(double available) {
 }
 
 /// Compact, read-only construction note kept on the focused Today surface.
-/// The full map stays available in the collapsed legacy dashboard and Hanok.
+/// The full map stays available in the dedicated Hanok destination.
 class HomeBuildNote extends StatelessWidget {
-  const HomeBuildNote({
-    super.key,
-    required this.narrative,
-    required this.onOpen,
-  });
+  const HomeBuildNote({super.key, required this.narrative});
 
   final HanokBuildNarrative? narrative;
-  final VoidCallback onOpen;
 
   @override
   Widget build(BuildContext context) {
@@ -1503,7 +1469,6 @@ class HomeBuildNote extends StatelessWidget {
       variant: SoriCardVariant.compact,
       accent: SoriColors.primary,
       tinted: true,
-      onTap: onOpen,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -1519,8 +1484,6 @@ class HomeBuildNote extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: Spacing.sm),
-          const Icon(Icons.arrow_forward_rounded, size: 18),
         ],
       ),
     );

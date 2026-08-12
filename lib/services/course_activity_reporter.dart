@@ -37,7 +37,23 @@ class CourseActivityReporter {
   const CourseActivityReporter._();
 
   @visibleForTesting
-  static Future<CourseUpdate> Function(String scenarioId, double score)?
+  static Future<CourseUpdate> Function(
+    CurriculumContentKind kind,
+    String contentId,
+    bool isCorrect,
+    CoursePracticeContext? courseContext,
+    MasteryErrorReason? errorReason,
+    String? conceptId,
+    double? score,
+  )?
+  recordContentAttemptForTesting;
+
+  @visibleForTesting
+  static Future<CourseUpdate> Function(
+    String scenarioId,
+    double score,
+    CoursePracticeContext? courseContext,
+  )?
   recordScenarioCheckpointForTesting;
 
   @visibleForTesting
@@ -45,6 +61,7 @@ class CourseActivityReporter {
 
   @visibleForTesting
   static void resetOverridesForTesting() {
+    recordContentAttemptForTesting = null;
     recordScenarioCheckpointForTesting = null;
     lifePromiseProjectionSyncForTesting = null;
   }
@@ -56,16 +73,29 @@ class CourseActivityReporter {
     CoursePracticeContext? courseContext,
     MasteryErrorReason? errorReason,
     String? conceptId,
+    double? score,
   }) async {
     try {
-      return await CourseProgressService.shared.recordContentAttempt(
-        kind,
-        contentId,
-        isCorrect,
-        courseContext: courseContext,
-        conceptId: conceptId,
-        errorReason: errorReason,
-      );
+      final override = recordContentAttemptForTesting;
+      return override != null
+          ? await override(
+              kind,
+              contentId,
+              isCorrect,
+              courseContext,
+              errorReason,
+              conceptId,
+              score,
+            )
+          : await CourseProgressService.shared.recordContentAttempt(
+              kind,
+              contentId,
+              isCorrect,
+              courseContext: courseContext,
+              conceptId: conceptId,
+              errorReason: errorReason,
+              score: score,
+            );
     } catch (error, stackTrace) {
       debugPrint('Course evidence skipped for $kind:$contentId: $error');
       debugPrintStack(stackTrace: stackTrace);
@@ -77,17 +107,26 @@ class CourseActivityReporter {
     String scenarioId, {
     required int passed,
     required int total,
+    CoursePracticeContext? courseContext,
   }) async {
     try {
       final score = scenarioCheckpointScore(passed: passed, total: total);
       final override = recordScenarioCheckpointForTesting;
       final update = override != null
-          ? await override(scenarioId, score)
+          ? await override(scenarioId, score, courseContext)
           : await CourseProgressService.shared.recordScenarioCheckpoint(
               scenarioId,
               score,
+              courseContext: courseContext,
             );
-      if (score >= .7 && GyeWeeklyPromises.byScenarioId(scenarioId) != null) {
+      final latestCheckpoint = update.snapshot.scenarioCheckpoints.isEmpty
+          ? null
+          : update.snapshot.scenarioCheckpoints.last;
+      if (score >= .7 &&
+          latestCheckpoint?.scenarioId == scenarioId &&
+          latestCheckpoint?.courseEligible == true &&
+          latestCheckpoint?.missionContentLinkId != null &&
+          GyeWeeklyPromises.byScenarioId(scenarioId) != null) {
         _scheduleLifePromiseProjectionSync();
       }
       return update;

@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/card.dart';
 
 void main() {
   setUp(() async {
@@ -80,7 +81,7 @@ void main() {
     },
   );
 
-  testWidgets('keeps one Today action ahead of a collapsed legacy dashboard', (
+  testWidgets('keeps one Today action without a legacy dashboard escape', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(308, 680);
@@ -123,6 +124,17 @@ void main() {
     expect(preview, findsNothing);
     expect(find.byKey(const ValueKey('home-legacy-dashboard')), findsNothing);
     expect(
+      find.byKey(const ValueKey('home-legacy-dashboard-toggle')),
+      findsNothing,
+    );
+    final buildNote = tester.widget<SoriCard>(
+      find.descendant(
+        of: find.byKey(const ValueKey('home-hanok-build-note')),
+        matching: find.byType(SoriCard),
+      ),
+    );
+    expect(buildNote.onTap, isNull);
+    expect(
       tester.getTopLeft(todayHeading).dy,
       lessThan(tester.getTopLeft(primary).dy),
     );
@@ -137,16 +149,6 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Review now'), findsOneWidget);
-
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('home-legacy-dashboard-toggle')),
-    );
-    await tester.tap(
-      find.byKey(const ValueKey('home-legacy-dashboard-toggle')),
-    );
-    await tester.pump();
-    expect(find.byKey(const ValueKey('home-legacy-dashboard')), findsOneWidget);
-    expect(preview, findsOneWidget);
 
     await tester.ensureVisible(find.text('Review now'));
     await tester.pump();
