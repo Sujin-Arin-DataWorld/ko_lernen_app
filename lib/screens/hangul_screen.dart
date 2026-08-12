@@ -15,6 +15,8 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
+import '../services/sound_service.dart';
+import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../services/tts_service.dart';
@@ -894,7 +896,51 @@ class _WriteTabState extends State<_WriteTab> {
     _practiceKey.currentState?.clear();
   }
 
-  void _onStrokeEnd() => setState(() => _strokeCount++);
+  void _onStrokeEnd() {
+    setState(() => _strokeCount++);
+    _checkStrokes();
+  }
+
+  /// 획을 하나 그을 때마다, 정답 획 수를 채웠으면 모양을 대조한다.
+  ///
+  /// 2026-08-12: "제대로 맞게 그리면 맞은 소리 나면서 자동으로 넘어가는 게
+  /// 있었는데 없어졌어"(Jin). 실제로는 그런 코드가 저장소 이력에 한 번도 없었고
+  /// (`git log --all -S`), _onStrokeEnd 는 획 개수만 세고 있었다. 새로 만든다.
+  ///
+  /// 틀렸을 때 오답음을 내거나 캔버스를 지우지는 않는다 — 획을 하나 더 그어
+  /// 고칠 수 있어야 하고, 획순 연습에서 즉시 오답 판정은 과하다. 맞았을 때만
+  /// 보상하고 넘어간다.
+  void _checkStrokes() {
+    final canvas = _practiceKey.currentState;
+    final target = hangulStrokes[_current.letter];
+    if (canvas == null || target == null || target.isEmpty) {
+      return;
+    }
+    if (_strokeCount != target.length) {
+      return;
+    }
+    final size = canvas.canvasSize;
+    if (size == null) {
+      return;
+    }
+    final result = matchStrokes(
+      target: target,
+      drawn: canvas.strokes,
+      canvasSize: size,
+    );
+    if (!result.matched) {
+      return;
+    }
+    SoundService.correct();
+    HapticFeedback.lightImpact();
+    // 정답 획을 눈으로 확인할 틈을 준 뒤 넘어간다 — 즉시 지우면 방금 그린 게
+    // 맞았는지 볼 수가 없다.
+    Future<void>.delayed(const Duration(milliseconds: 650), () {
+      if (mounted) {
+        _next();
+      }
+    });
+  }
 
   Future<void> _finish() async {
     if (_strokeCount == 0) return;
@@ -1173,6 +1219,16 @@ class _PracticeCanvas extends StatefulWidget {
 class _PracticeCanvasState extends State<_PracticeCanvas> {
   final List<List<Offset>> _strokes = [];
   List<Offset>? _current;
+
+  /// 지금까지 그은 획들. 획순 판정([matchStrokes])에 넘긴다.
+  List<List<Offset>> get strokes => _strokes;
+
+  /// 실제로 그린 영역의 크기. 판정은 220×220 기준으로 정규화하므로 필요하다.
+  /// 레이아웃 전이면 null.
+  Size? get canvasSize {
+    final box = context.findRenderObject();
+    return box is RenderBox && box.hasSize ? box.size : null;
+  }
 
   void clear() {
     setState(() {

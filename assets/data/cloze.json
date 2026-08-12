@@ -20,9 +20,9 @@
       "de": "Nein, das ist falsch.",
       "en": "No, that's wrong.",
       "distractors": [
-        "잘 자요",
-        "화이팅",
-        "고마워요"
+        "괜찮아요",
+        "잘 지내요?",
+        "별말씀을요"
       ],
       "topic": "Alltag"
     },
@@ -35,9 +35,9 @@
       "de": "Mein Name ist Christian.",
       "en": "My name is Christian.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "친구",
+        "육",
+        "누나"
       ],
       "topic": "Person"
     },
@@ -50,9 +50,9 @@
       "de": "Wie alt bist du?",
       "en": "How old are you?",
       "distractors": [
+        "밤",
         "가족",
-        "거기",
-        "계란"
+        "거기"
       ],
       "topic": "Person"
     },
@@ -65,9 +65,9 @@
       "de": "Aus welchem Land kommst du?",
       "en": "Which country are you from?",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "책",
+        "화장실",
+        "만"
       ],
       "topic": "Geographie"
     },
@@ -80,9 +80,9 @@
       "de": "Ich bin Student.",
       "en": "I am a student.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "빵",
+        "토요일",
+        "나라"
       ],
       "topic": "Person"
     },
@@ -95,9 +95,9 @@
       "de": "Danke, Lehrerin.",
       "en": "Thank you, teacher.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "여섯",
+        "옆",
+        "형"
       ],
       "topic": "Person"
     },
@@ -110,9 +110,9 @@
       "de": "Das ist mein Freund.",
       "en": "This is my friend.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "지하철",
+        "귀",
+        "남편"
       ],
       "topic": "Beziehungen"
     },
@@ -125,9 +125,9 @@
       "de": "Ich habe einen Freund.",
       "en": "I have a boyfriend.",
       "distractors": [
-        "여자친구",
-        "검은색",
-        "금요일"
+        "시간",
+        "밖",
+        "남동생"
       ],
       "topic": "Beziehungen"
     },
@@ -140,9 +140,9 @@
       "de": "Ich habe eine Freundin.",
       "en": "I have a girlfriend.",
       "distractors": [
-        "남자친구",
-        "검은색",
-        "금요일"
+        "목요일",
+        "아빠",
+        "초록색"
       ],
       "topic": "Beziehungen"
     },
@@ -155,9 +155,9 @@
       "de": "Wie viele Familienmitglieder hast du?",
       "en": "How many people are in your family?",
       "distractors": [
-        "거기",
-        "계란",
-        "고기"
+        "사",
+        "여동생",
+        "공원"
       ],
       "topic": "Familie"
     },
@@ -170,9 +170,9 @@
       "de": "Ich gehe zur Schule.",
       "en": "I go to school.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "옷",
+        "선생님",
+        "구"
       ],
       "topic": "Bildung"
     },
@@ -185,9 +185,9 @@
       "de": "Ich trinke Kaffee.",
       "en": "I drink coffee.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "아버지",
+        "오빠",
+        "십"
       ],
       "topic": "Essen & Trinken"
     },
@@ -200,9 +200,9 @@
       "de": "Hast du ein Handy?",
       "en": "Do you have a cellphone?",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "이름",
+        "학생",
+        "침대"
       ],
       "topic": "Technologie"
     },
@@ -215,9 +215,9 @@
       "de": "Ich nehme den Bus.",
       "en": "I take the bus.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "분",
+        "남자친구",
+        "다리"
       ],
       "topic": "Verkehr"
     },
@@ -231,8 +231,8 @@
       "en": "What are you doing today?",
       "distractors": [
         "가끔",
-        "내일",
-        "늦게"
+        "천천히",
+        "항상"
       ],
       "topic": "Zeit"
     },
@@ -245,9 +245,9 @@
       "de": "Wir treffen uns morgen.",
       "en": "See you tomorrow.",
       "distractors": [
-        "가끔",
-        "늦게",
-        "매일"
+        "매일",
+        "지금",
+        "덜"
       ],
       "topic": "Zeit"
     },
@@ -260,9 +260,9 @@
       "de": "Wo bist du gestern hingegangen?",
       "en": "Where did you go yesterday?",
       "distractors": [
-        "가끔",
         "내일",
-        "늦게"
+        "늦게",
+        "일찍"
       ],
       "topic": "Zeit"
     },
@@ -275,9 +275,9 @@
       "de": "Mein Vater ist zu Hause.",
       "en": "My father is at home.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "화요일",
+        "어머니",
+        "아홉"
       ],
       "topic": "Familie"
     },
@@ -290,9 +290,9 @@
       "de": "Ich rufe meine Mutter an.",
       "en": "I call my mother.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "아래",
+        "빨간색",
+        "엄마"
       ],
       "topic": "Familie"
     },
@@ -305,9 +305,9 @@
       "de": "Ich liebe dich, Papa.",
       "en": "I love you, Dad.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "이",
+        "오른쪽",
+        "백"
       ],
       "topic": "Familie"
     },
@@ -320,9 +320,9 @@
       "de": "Wo bist du, Mama?",
       "en": "Where are you, Mom?",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "라면",
+        "앞",
+        "문"
       ],
       "topic": "Familie"
     },
@@ -335,9 +335,9 @@
       "de": "Mein älterer Bruder ist toll.",
       "en": "My older brother is cool.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "칠",
+        "왼쪽",
+        "커피"
       ],
       "topic": "Familie"
     },
@@ -350,9 +350,9 @@
       "de": "Meine ältere Schwester lacht.",
       "en": "My older sister is laughing.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "점심",
+        "김치",
+        "검은색"
       ],
       "topic": "Familie"
     },
@@ -365,9 +365,9 @@
       "de": "Ich gehe mit meiner Schwester.",
       "en": "I'm going with my older sister.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "채소",
+        "삼",
+        "뒤"
       ],
       "topic": "Familie"
     },
@@ -380,9 +380,9 @@
       "de": "Mein jüngerer Bruder ist Schüler.",
       "en": "My younger brother is a student.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "노란색"
+        "코",
+        "위",
+        "집"
       ],
       "topic": "Familie"
     },
@@ -395,9 +395,9 @@
       "de": "Meine jüngere Schwester ist süß.",
       "en": "My younger sister is cute.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "핸드폰",
+        "사이",
+        "편의점"
       ],
       "topic": "Familie"
     },
@@ -410,9 +410,9 @@
       "de": "Mein Ehemann kocht.",
       "en": "My husband cooks.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "버스",
+        "일요일",
+        "방"
       ],
       "topic": "Familie"
     },
@@ -425,9 +425,9 @@
       "de": "Meine Ehefrau arbeitet.",
       "en": "My wife works.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "여기",
+        "주말",
+        "둘"
       ],
       "topic": "Familie"
     },
@@ -440,9 +440,9 @@
       "de": "Mein Kopf tut weh.",
       "en": "My head hurts.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "과일",
+        "월요일",
+        "손"
       ],
       "topic": "Körper"
     },
@@ -455,9 +455,9 @@
       "de": "Die Beine sind lang.",
       "en": "The legs are long.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "천",
+        "여덟",
+        "일"
       ],
       "topic": "Körper"
     },
@@ -470,9 +470,9 @@
       "de": "Ich mag die Farbe Rot.",
       "en": "I like the color red.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "파란색",
+        "오",
+        "몸"
       ],
       "topic": "Farben"
     },
@@ -485,9 +485,9 @@
       "de": "Der Himmel ist blau.",
       "en": "The sky is blue.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "고기",
+        "사과",
+        "물"
       ],
       "topic": "Farben"
     },
@@ -500,9 +500,9 @@
       "de": "Die Blätter sind grün.",
       "en": "The leaves are green.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "언니",
+        "머리",
+        "발"
       ],
       "topic": "Farben"
     },
@@ -515,9 +515,9 @@
       "de": "Die Banane ist gelb.",
       "en": "The banana is yellow.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "요일",
+        "초",
+        "흰색"
       ],
       "topic": "Farben"
     },
@@ -530,9 +530,9 @@
       "de": "Ich trage weiße Kleidung.",
       "en": "I wear white clothes.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "차",
+        "의자",
+        "넷"
       ],
       "topic": "Farben"
     },
@@ -545,9 +545,9 @@
       "de": "Das ist eine schwarze Tasche.",
       "en": "That's a black bag.",
       "distractors": [
-        "금요일",
-        "남동생",
-        "노란색"
+        "저기",
+        "저녁",
+        "생선"
       ],
       "topic": "Farben"
     },
@@ -560,9 +560,9 @@
       "de": "Ich esse Fleisch.",
       "en": "I eat meat.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "금요일",
+        "일곱",
+        "노란색"
       ],
       "topic": "Essen & Trinken"
     },
@@ -575,9 +575,9 @@
       "de": "Magst du Fisch?",
       "en": "Do you like fish?",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "다섯",
+        "수요일",
+        "하나"
       ],
       "topic": "Essen & Trinken"
     },
@@ -590,9 +590,9 @@
       "de": "Ich esse viel Gemüse.",
       "en": "I eat a lot of vegetables.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "팔",
+        "밥",
+        "안"
       ],
       "topic": "Essen & Trinken"
     },
@@ -605,9 +605,9 @@
       "de": "Das Obst ist lecker.",
       "en": "The fruit is delicious.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "나이",
+        "계란",
+        "입"
       ],
       "topic": "Essen & Trinken"
     },
@@ -620,9 +620,9 @@
       "de": "Ich koche Ramen.",
       "en": "I cook ramen.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "아내",
+        "셋",
+        "도서관"
       ],
       "topic": "Essen & Trinken"
     },
@@ -635,9 +635,9 @@
       "de": "Kimchi ist scharf.",
       "en": "Kimchi is spicy.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "학교",
+        "눈",
+        "시"
       ],
       "topic": "Essen & Trinken"
     },
@@ -650,9 +650,9 @@
       "de": "Ich esse einen Apfel.",
       "en": "I eat an apple.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "열",
+        "아침",
+        "여자친구"
       ],
       "topic": "Essen & Trinken"
     },
@@ -665,9 +665,9 @@
       "de": "Ich koche ein Ei.",
       "en": "I boil an egg.",
       "distractors": [
-        "가족",
-        "거기",
-        "고기"
+        "다리",
+        "몸",
+        "점심"
       ],
       "topic": "Essen & Trinken"
     },
@@ -680,9 +680,9 @@
       "de": "Wo ist die Toilette?",
       "en": "Where is the bathroom?",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "코",
+        "방",
+        "여덟"
       ],
       "topic": "Alltag"
     },
@@ -695,9 +695,9 @@
       "de": "Ich kaufe im Convenience Store.",
       "en": "I buy it at the convenience store.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "버스",
+        "노란색",
+        "이름"
       ],
       "topic": "Alltag"
     },
@@ -710,9 +710,9 @@
       "de": "Ich gehe im Park spazieren.",
       "en": "I take a walk in the park.",
       "distractors": [
-        "가족",
         "거기",
-        "계란"
+        "저녁",
+        "왼쪽"
       ],
       "topic": "Freizeit"
     },
@@ -725,9 +725,9 @@
       "de": "Ich lerne in der Bibliothek.",
       "en": "I study at the library.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "빵",
+        "흰색",
+        "아버지"
       ],
       "topic": "Bildung"
     },
@@ -740,9 +740,9 @@
       "de": "Ich schlafe im Bett.",
       "en": "I sleep in the bed.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "시간",
+        "형",
+        "월요일"
       ],
       "topic": "Alltag"
     },
@@ -755,9 +755,9 @@
       "de": "Ich sitze auf dem Stuhl.",
       "en": "I sit on the chair.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "차",
+        "생선",
+        "편의점"
       ],
       "topic": "Alltag"
     },
@@ -770,9 +770,9 @@
       "de": "Was machst du gerade?",
       "en": "What are you doing now?",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "더",
+        "별로",
+        "오늘"
       ],
       "topic": "Zeit"
     },
@@ -785,9 +785,9 @@
       "de": "Ich esse Frühstück.",
       "en": "I eat breakfast.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "십",
+        "남편",
+        "천"
       ],
       "topic": "Zeit"
     },
@@ -800,9 +800,9 @@
       "de": "Lass uns zusammen Mittagessen.",
       "en": "Let's have lunch together.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "목요일",
+        "여자친구",
+        "오른쪽"
       ],
       "topic": "Zeit"
     },
@@ -815,9 +815,9 @@
       "de": "Ich mache abends Sport.",
       "en": "I exercise in the evening.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "하나",
+        "시",
+        "핸드폰"
       ],
       "topic": "Zeit"
     },
@@ -830,9 +830,9 @@
       "de": "Was machst du am Wochenende?",
       "en": "What do you do on the weekend?",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "아내",
+        "발",
+        "사"
       ],
       "topic": "Zeit"
     },
@@ -845,9 +845,9 @@
       "de": "Ich mache jeden Tag Sport.",
       "en": "I exercise every day.",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "빨리",
+        "자주",
+        "진짜"
       ],
       "topic": "Zeit"
     },
@@ -860,9 +860,9 @@
       "de": "Ich bin immer dankbar.",
       "en": "I'm always grateful.",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "어제",
+        "잠깐",
+        "진짜"
       ],
       "topic": "Alltag"
     },
@@ -875,9 +875,9 @@
       "de": "Ich schaue manchmal Filme.",
       "en": "I sometimes watch movies.",
       "distractors": [
-        "내일",
-        "늦게",
-        "매일"
+        "항상",
+        "일찍",
+        "별로"
       ],
       "topic": "Alltag"
     },
@@ -890,9 +890,9 @@
       "de": "Komm schnell.",
       "en": "Come quickly.",
       "distractors": [
-        "가끔",
+        "자주",
         "내일",
-        "늦게"
+        "오늘"
       ],
       "topic": "Alltag"
     },
@@ -905,9 +905,9 @@
       "de": "Ich gehe zur Arbeit.",
       "en": "I go to work.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "젓가락",
+        "냉장고",
+        "후추"
       ],
       "topic": "Beruf"
     },
@@ -920,9 +920,9 @@
       "de": "Was ist dein Beruf?",
       "en": "What is your occupation?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "열쇠",
+        "모기",
+        "교차로"
       ],
       "topic": "Beruf"
     },
@@ -935,9 +935,9 @@
       "de": "Was ist dein Hobby?",
       "en": "What is your hobby?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "팔찌",
+        "시장",
+        "군인"
       ],
       "topic": "Freizeit"
     },
@@ -950,9 +950,9 @@
       "de": "Wie ist das Wetter?",
       "en": "How is the weather?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "소금",
+        "컵",
+        "양복"
       ],
       "topic": "Wetter"
     },
@@ -965,9 +965,9 @@
       "de": "Welche Jahreszeit magst du?",
       "en": "Which season do you like?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "보라색",
+        "상사",
+        "메뉴"
       ],
       "topic": "Wetter"
     },
@@ -980,9 +980,9 @@
       "de": "Der Sommer ist heiß.",
       "en": "Summer is hot.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "아주머니",
+        "자전거",
+        "시험"
       ],
       "topic": "Wetter"
     },
@@ -995,9 +995,9 @@
       "de": "Das Herbstlaub ist schön.",
       "en": "The autumn leaves are beautiful.",
       "distractors": [
-        "가구",
-        "갈색",
-        "거실"
+        "주황색",
+        "풀",
+        "비빔밥"
       ],
       "topic": "Wetter"
     },
@@ -1010,9 +1010,9 @@
       "de": "Der Winter ist kalt.",
       "en": "Winter is cold.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "쇠고기",
+        "야채",
+        "양말"
       ],
       "topic": "Wetter"
     },
@@ -1025,9 +1025,9 @@
       "de": "Ich gehe ins Krankenhaus.",
       "en": "I go to the hospital.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "중학생",
+        "비행기",
+        "밀가루"
       ],
       "topic": "Gesundheit"
     },
@@ -1040,9 +1040,9 @@
       "de": "Ich esse im Restaurant.",
       "en": "I eat at the restaurant.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "신호등",
+        "회사",
+        "꽃병"
       ],
       "topic": "Essen & Trinken"
     },
@@ -1055,9 +1055,9 @@
       "de": "Ich kaufe auf dem Markt.",
       "en": "I buy at the market.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "수건",
+        "숲",
+        "왕자"
       ],
       "topic": "Einkaufen"
     },
@@ -1070,9 +1070,9 @@
       "de": "Ich gehe zur Bank.",
       "en": "I go to the bank.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "옷걸이",
+        "교과서",
+        "손님"
       ],
       "topic": "Alltag"
     },
@@ -1085,9 +1085,9 @@
       "de": "Ich gehe auf Reise.",
       "en": "I'm going on a trip.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "지갑",
+        "성적",
+        "가수"
       ],
       "topic": "Reise"
     },
@@ -1100,9 +1100,9 @@
       "de": "Ich nehme das Flugzeug.",
       "en": "I take the airplane.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "슬리퍼",
+        "벨트",
+        "회의"
       ],
       "topic": "Verkehr"
     },
@@ -1115,9 +1115,9 @@
       "de": "Ich übernachte im Hotel.",
       "en": "I stay at a hotel.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "샌들",
+        "동료",
+        "가구"
       ],
       "topic": "Reise"
     },
@@ -1130,9 +1130,9 @@
       "de": "Ich höre Musik.",
       "en": "I listen to music.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "여행",
+        "고등학생",
+        "계절"
       ],
       "topic": "Freizeit"
     },
@@ -1145,9 +1145,9 @@
       "de": "Ich schaue einen Film.",
       "en": "I watch a movie.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "휴가",
+        "칫솔",
+        "왕비"
       ],
       "topic": "Freizeit"
     },
@@ -1160,9 +1160,9 @@
       "de": "Morgen habe ich eine Prüfung.",
       "en": "I have an exam tomorrow.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "월세",
+        "스타킹",
+        "인터넷"
       ],
       "topic": "Bildung"
     },
@@ -1175,9 +1175,9 @@
       "de": "Ich mache Hausaufgaben.",
       "en": "I do homework.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "주인",
+        "겨울",
+        "날씨"
       ],
       "topic": "Bildung"
     },
@@ -1190,9 +1190,9 @@
       "de": "Meine Noten sind gut.",
       "en": "My grades are good.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "배",
+        "분홍색",
+        "거울"
       ],
       "topic": "Bildung"
     },
@@ -1205,9 +1205,9 @@
       "de": "Ich genieße meinen Urlaub.",
       "en": "I enjoy my vacation.",
       "distractors": [
-        "가구",
+        "택시",
         "가을",
-        "갈색"
+        "카드"
       ],
       "topic": "Beruf"
     },
@@ -1220,9 +1220,9 @@
       "de": "Ich habe ein Meeting.",
       "en": "I have a meeting.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "유학",
+        "우산",
+        "장갑"
       ],
       "topic": "Beruf"
     },
@@ -1235,9 +1235,9 @@
       "de": "Ich nehme ein Taxi.",
       "en": "I take a taxi.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "왕",
+        "횡단보도",
+        "잼"
       ],
       "topic": "Verkehr"
     },
@@ -1250,9 +1250,9 @@
       "de": "Ich fahre mit dem Zug.",
       "en": "I go by train.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "보증금",
+        "비누",
+        "거실"
       ],
       "topic": "Verkehr"
     },
@@ -1265,9 +1265,9 @@
       "de": "Ich fahre Fahrrad.",
       "en": "I ride a bicycle.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "아저씨",
+        "색깔",
+        "창문"
       ],
       "topic": "Verkehr"
     },
@@ -1280,9 +1280,9 @@
       "de": "Ich habe einen Anruf bekommen.",
       "en": "I got a call.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "갈색",
+        "취미",
+        "대학생"
       ],
       "topic": "Kommunikation"
     },
@@ -1295,9 +1295,9 @@
       "de": "Hast du eine Nachricht geschickt?",
       "en": "Did you send a message?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "바람",
+        "수수료",
+        "월급"
       ],
       "topic": "Kommunikation"
     },
@@ -1310,9 +1310,9 @@
       "de": "Ich nutze das Internet.",
       "en": "I use the internet.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "은행",
+        "환불",
+        "공책"
       ],
       "topic": "Technologie"
     },
@@ -1325,9 +1325,9 @@
       "de": "Ich arbeite am Computer.",
       "en": "I work on the computer.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "사원",
+        "계산서",
+        "공주"
       ],
       "topic": "Technologie"
     },
@@ -1340,9 +1340,9 @@
       "de": "Ich habe keine Geldbörse.",
       "en": "I don't have a wallet.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "지구",
+        "대학교",
+        "배낭"
       ],
       "topic": "Alltag"
     },
@@ -1355,9 +1355,9 @@
       "de": "Ich habe den Schlüssel verloren.",
       "en": "I lost the key.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "배달",
+        "유학생",
+        "눈사람"
       ],
       "topic": "Alltag"
     },
@@ -1370,9 +1370,9 @@
       "de": "Hast du einen Regenschirm?",
       "en": "Do you have an umbrella?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "원피스",
+        "코트",
+        "물고기"
       ],
       "topic": "Wetter"
     },
@@ -1385,9 +1385,9 @@
       "de": "Wie viel kostet das?",
       "en": "How much is this?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "반지",
+        "잃어버리다",
+        "현금"
       ],
       "topic": "Einkaufen"
     },
@@ -1400,9 +1400,9 @@
       "de": "Gibt es einen Rabatt?",
       "en": "Is there a discount?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "변호사",
+        "컴퓨터",
+        "용"
       ],
       "topic": "Einkaufen"
     },
@@ -1415,9 +1415,9 @@
       "de": "Die Quittung bitte.",
       "en": "The receipt, please.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "식당",
+        "할인",
+        "냉면"
       ],
       "topic": "Einkaufen"
     },
@@ -1430,9 +1430,9 @@
       "de": "Ich zahle mit Karte.",
       "en": "I pay by card.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "청소기",
+        "봄",
+        "여름"
       ],
       "topic": "Einkaufen"
     },
@@ -1445,9 +1445,9 @@
       "de": "Das ist wirklich lecker!",
       "en": "It's really delicious!",
       "distractors": [
-        "같이",
-        "곧장",
-        "너무"
+        "좁다",
+        "씹다",
+        "슬프다"
       ],
       "topic": "Alltag"
     },
@@ -1460,9 +1460,9 @@
       "de": "Es ist zu heiß.",
       "en": "It's too hot.",
       "distractors": [
-        "같이",
-        "곧장",
-        "많이"
+        "건강하다",
+        "호텔",
+        "배부르다"
       ],
       "topic": "Alltag"
     },
@@ -1475,9 +1475,9 @@
       "de": "Noch ein bisschen mehr bitte.",
       "en": "A little more, please.",
       "distractors": [
-        "같이",
-        "곧장",
-        "너무"
+        "남다",
+        "회색",
+        "그립다"
       ],
       "topic": "Alltag"
     },
@@ -1490,9 +1490,9 @@
       "de": "Ich habe viel gegessen.",
       "en": "I ate a lot.",
       "distractors": [
-        "같이",
-        "곧장",
-        "너무"
+        "청소하다",
+        "외롭다",
+        "넥타이"
       ],
       "topic": "Alltag"
     },
@@ -1505,9 +1505,9 @@
       "de": "Ich wohne alleine.",
       "en": "I live alone.",
       "distractors": [
-        "같이",
-        "곧장",
-        "너무"
+        "빠르다",
+        "덥다",
+        "면접"
       ],
       "topic": "Alltag"
     },
@@ -1520,9 +1520,9 @@
       "de": "Lass uns zusammen gehen.",
       "en": "Let's go together.",
       "distractors": [
-        "곧장",
-        "너무",
-        "많이"
+        "느리다",
+        "치마",
+        "답답하다"
       ],
       "topic": "Alltag"
     },
@@ -1535,9 +1535,9 @@
       "de": "Ich mache neue Erfahrungen.",
       "en": "I'm having new experiences.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "의미",
+        "기술",
+        "변화"
       ],
       "topic": "Alltag"
     },
@@ -1550,9 +1550,9 @@
       "de": "Ich lerne die koreanische Kultur.",
       "en": "I learn about Korean culture.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "입장권",
+        "조건",
+        "의견"
       ],
       "topic": "Gesellschaft"
     },
@@ -1565,9 +1565,9 @@
       "de": "Wir leben in einer vielfältigen Gesellschaft.",
       "en": "We live in a diverse society.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "서류",
+        "결혼식",
+        "기쁨"
       ],
       "topic": "Gesellschaft"
     },
@@ -1580,9 +1580,9 @@
       "de": "Wir müssen die Umwelt schützen.",
       "en": "We must protect the environment.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "목표",
+        "문장",
+        "문화"
       ],
       "topic": "Umwelt"
     },
@@ -1595,9 +1595,9 @@
       "de": "Ich pflege gute Beziehungen.",
       "en": "I maintain good relationships.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "공과금",
+        "관광",
+        "소화제"
       ],
       "topic": "Beziehungen"
     },
@@ -1610,9 +1610,9 @@
       "de": "Ich setze mir Ziele.",
       "en": "I set goals.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "균형",
+        "취향",
+        "상황"
       ],
       "topic": "Motivation"
     },
@@ -1625,9 +1625,9 @@
       "de": "Gibt es eine gute Methode?",
       "en": "Is there a good way?",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "진통제",
+        "연휴",
+        "결과"
       ],
       "topic": "Alltag"
     },
@@ -1640,9 +1640,9 @@
       "de": "Gibt es ein Problem?",
       "en": "Is there a problem?",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "과정",
+        "뉴스",
+        "정보"
       ],
       "topic": "Alltag"
     },
@@ -1655,9 +1655,9 @@
       "de": "Interessierst du dich für Politik?",
       "en": "Are you interested in politics?",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "미래",
+        "박물관",
+        "출장"
       ],
       "topic": "Gesellschaft"
     },
@@ -1670,9 +1670,9 @@
       "de": "Die Wirtschaft ist schwierig.",
       "en": "The economy is struggling.",
       "distractors": [
-        "건강",
-        "결과",
-        "경험"
+        "대중교통",
+        "스트레스",
+        "거스름돈"
       ],
       "topic": "Gesellschaft"
     },
@@ -1685,9 +1685,9 @@
       "de": "Bildung ist wichtig.",
       "en": "Education is important.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "세월",
+        "옛날",
+        "성격"
       ],
       "topic": "Gesellschaft"
     },
@@ -1700,9 +1700,9 @@
       "de": "Gesundheit ist das Wichtigste.",
       "en": "Health is the most important thing.",
       "distractors": [
-        "결과",
-        "경제",
-        "경험"
+        "어른",
+        "기간",
+        "원인"
       ],
       "topic": "Gesundheit"
     },
@@ -1715,9 +1715,9 @@
       "de": "Die Technologie hat sich entwickelt.",
       "en": "Technology has advanced.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "게시물",
+        "순간",
+        "방법"
       ],
       "topic": "Gesellschaft"
     },
@@ -1730,9 +1730,9 @@
       "de": "Ich habe Stress.",
       "en": "I'm stressed.",
       "distractors": [
-        "다운로드",
-        "다이어트",
-        "가능성"
+        "관계",
+        "책방",
+        "처방전"
       ],
       "topic": "Alltag"
     },
@@ -1745,9 +1745,9 @@
       "de": "Ich ändere meine schlechten Gewohnheiten.",
       "en": "I change my bad habits.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "경제",
+        "두통약",
+        "질문"
       ],
       "topic": "Alltag"
     },
@@ -1760,9 +1760,9 @@
       "de": "Das ist eine gute Gelegenheit.",
       "en": "This is a good opportunity.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "외로움",
+        "보고서",
+        "일정"
       ],
       "topic": "Motivation"
     },
@@ -1775,9 +1775,9 @@
       "de": "Der Lernprozess ist wichtig.",
       "en": "The learning process is important.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "슬픔",
+        "광고",
+        "주사"
       ],
       "topic": "Bildung"
     },
@@ -1790,9 +1790,9 @@
       "de": "Die Situation ist schwierig.",
       "en": "The situation is difficult.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "감기약",
+        "동전",
+        "경험"
       ],
       "topic": "Alltag"
     },
@@ -1805,9 +1805,9 @@
       "de": "Ich suche die Ursache des Problems.",
       "en": "I'm looking for the cause of the problem.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "지불",
+        "신혼여행",
+        "노인"
       ],
       "topic": "Alltag"
     },
@@ -1820,9 +1820,9 @@
       "de": "Das Ergebnis ist gut.",
       "en": "The result is good.",
       "distractors": [
-        "건강",
-        "경제",
-        "경험"
+        "돌잔치",
+        "공연",
+        "고민"
       ],
       "topic": "Alltag"
     },
@@ -1835,9 +1835,9 @@
       "de": "Meine Meinung ist anders.",
       "en": "My opinion is different.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "동물원",
+        "유행",
+        "신용카드"
       ],
       "topic": "Kommunikation"
     },
@@ -1850,9 +1850,9 @@
       "de": "Bitte sagen Sie Ihre Meinung.",
       "en": "Please share your opinion.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "가능성",
+        "대화",
+        "환경"
       ],
       "topic": "Kommunikation"
     },
@@ -1865,9 +1865,9 @@
       "de": "Was ist der Grund?",
       "en": "What is the reason?",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "한계",
+        "면세점",
+        "책임"
       ],
       "topic": "Alltag"
     },
@@ -1880,9 +1880,9 @@
       "de": "Die Bedingungen stimmen.",
       "en": "The conditions are right.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "모임",
+        "지폐",
+        "벌금"
       ],
       "topic": "Alltag"
     },
@@ -1895,9 +1895,9 @@
       "de": "Ich suche Informationen.",
       "en": "I look for information.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "신입사원",
+        "공연장",
+        "입장료"
       ],
       "topic": "Alltag"
     },
@@ -1910,9 +1910,9 @@
       "de": "Letztendlich hat es geklappt.",
       "en": "In the end, it worked out.",
       "distractors": [
-        "반면",
-        "특히",
-        "갑자기"
+        "업무",
+        "다양하다",
+        "건강"
       ],
       "topic": "Alltag"
     },
@@ -1925,9 +1925,9 @@
       "de": "Es hat mir eher geholfen.",
       "en": "It helped me, if anything.",
       "distractors": [
-        "갑자기",
-        "게다가",
-        "드디어"
+        "교통카드",
+        "마음에 들다",
+        "예금"
       ],
       "topic": "Alltag"
     },
@@ -1940,9 +1940,9 @@
       "de": "Außerdem ist es auch lecker.",
       "en": "On top of that, it's tasty too.",
       "distractors": [
-        "갑자기",
-        "드디어",
-        "따라서"
+        "똑같다",
+        "회비",
+        "불편하다"
       ],
       "topic": "Alltag"
     },
@@ -1955,9 +1955,9 @@
       "de": "Daher muss man vorsichtig sein.",
       "en": "Therefore, one must be careful.",
       "distractors": [
-        "갑자기",
-        "게다가",
-        "드디어"
+        "번역하다",
+        "방송",
+        "섭섭하다"
       ],
       "topic": "Alltag"
     },
@@ -1970,9 +1970,9 @@
       "de": "Ich mag besonders koreanisches Essen.",
       "en": "I especially like Korean food.",
       "distractors": [
-        "결국",
-        "반면",
-        "갑자기"
+        "발전하다",
+        "시설",
+        "공유하다"
       ],
       "topic": "Alltag"
     },
@@ -1985,9 +1985,9 @@
       "de": "Es hat plötzlich geregnet.",
       "en": "It suddenly started to rain.",
       "distractors": [
-        "게다가",
-        "드디어",
-        "따라서"
+        "승진",
+        "존댓말",
+        "벌다"
       ],
       "topic": "Alltag"
     },
@@ -2000,9 +2000,9 @@
       "de": "Es ist endlich vorbei!",
       "en": "It's finally over!",
       "distractors": [
-        "갑자기",
-        "게다가",
-        "따라서"
+        "영상",
+        "오히려",
+        "반말"
       ],
       "topic": "Alltag"
     },
@@ -2015,9 +2015,9 @@
       "de": "Es ist gut, aber teuer.",
       "en": "It's good but expensive.",
       "distractors": [
-        "결국",
-        "특히",
-        "갑자기"
+        "차이",
+        "입원하다",
+        "후회하다"
       ],
       "topic": "Alltag"
     },
@@ -2030,9 +2030,9 @@
       "de": "Wir müssen den Konflikt lösen.",
       "en": "We must resolve the conflict.",
       "distractors": [
-        "가설",
-        "강점",
-        "결론"
+        "투자",
+        "고지서",
+        "끈기"
       ],
       "topic": "Gesellschaft"
     },
@@ -2045,9 +2045,9 @@
       "de": "Es gibt verschiedene Standpunkte.",
       "en": "There are various viewpoints.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "지속 가능성",
+        "야경",
+        "현상"
       ],
       "topic": "Denken"
     },
@@ -2060,9 +2060,9 @@
       "de": "Wir haben unterschiedliche Wertvorstellungen.",
       "en": "We have different values.",
       "distractors": [
-        "경쟁력",
-        "생산성",
-        "생태계"
+        "세계",
+        "제도",
+        "모음"
       ],
       "topic": "Gesellschaft"
     },
@@ -2075,9 +2075,9 @@
       "de": "Ich studiere die Theorie.",
       "en": "I study the theory.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "형광등",
+        "자료",
+        "최신식"
       ],
       "topic": "Bildung"
     },
@@ -2090,9 +2090,9 @@
       "de": "Das ist ein neues Forschungsergebnis.",
       "en": "This is a new research finding.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "전략",
+        "차별",
+        "분야"
       ],
       "topic": "Wissenschaft"
     },
@@ -2105,9 +2105,9 @@
       "de": "Ich ziehe eine Schlussfolgerung.",
       "en": "I draw a conclusion.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "기계",
+        "현대",
+        "생산성"
       ],
       "topic": "Denken"
     },
@@ -2120,9 +2120,9 @@
       "de": "Es gibt keinen Beweis.",
       "en": "There is no evidence.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "경우",
+        "통계",
+        "비상"
       ],
       "topic": "Denken"
     },
@@ -2135,9 +2135,9 @@
       "de": "Das ist ein gesellschaftliches Phänomen.",
       "en": "It's a social phenomenon.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "음력",
+        "생신",
+        "계약"
       ],
       "topic": "Gesellschaft"
     },
@@ -2150,9 +2150,9 @@
       "de": "Die Voraussetzung ist falsch.",
       "en": "The premise is wrong.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "관점",
+        "명사",
+        "평등"
       ],
       "topic": "Denken"
     },
@@ -2165,9 +2165,9 @@
       "de": "Ich verstehe den Kontext.",
       "en": "I understand the context.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "태양광",
+        "자식",
+        "핵심"
       ],
       "topic": "Denken"
     },
@@ -2180,9 +2180,9 @@
       "de": "Soziale Wohlfahrt ist wichtig.",
       "en": "Social welfare is important.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "맥락",
+        "재활용",
+        "종류"
       ],
       "topic": "Gesellschaft"
     },
@@ -2195,9 +2195,9 @@
       "de": "Wir schützen die Demokratie.",
       "en": "We protect democracy.",
       "distractors": [
-        "온실가스",
-        "가치관",
-        "경쟁력"
+        "뚜껑",
+        "약점",
+        "양극화"
       ],
       "topic": "Gesellschaft"
     },
@@ -2210,9 +2210,9 @@
       "de": "Freiheit ist wichtig.",
       "en": "Freedom is important.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "쌍둥이",
+        "온도",
+        "반의어"
       ],
       "topic": "Gesellschaft"
     },
@@ -2225,9 +2225,9 @@
       "de": "Nur eins bitte.",
       "en": "Just one, please.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "옆",
+        "요일",
+        "라면"
       ],
       "topic": "Zahlen"
     },
@@ -2240,9 +2240,9 @@
       "de": "Wir treffen uns um fünf.",
       "en": "We meet at five.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "칠",
+        "금요일",
+        "여섯"
       ],
       "topic": "Zahlen"
     },
@@ -2255,9 +2255,9 @@
       "de": "Sechs Leute kommen.",
       "en": "Six people are coming.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "밥",
+        "저기",
+        "초록색"
       ],
       "topic": "Zahlen"
     },
@@ -2270,9 +2270,9 @@
       "de": "Wir starten um sieben.",
       "en": "We leave at seven.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "문",
+        "지하철",
+        "주말"
       ],
       "topic": "Zahlen"
     },
@@ -2285,9 +2285,9 @@
       "de": "Ich bin acht Jahre alt.",
       "en": "I'm eight years old.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "공원",
+        "아홉",
+        "남동생"
       ],
       "topic": "Zahlen"
     },
@@ -2300,9 +2300,9 @@
       "de": "Es ist neun Uhr.",
       "en": "It's nine o'clock.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "책",
+        "집",
+        "수요일"
       ],
       "topic": "Zahlen"
     },
@@ -2315,9 +2315,9 @@
       "de": "Ich habe keine Zeit.",
       "en": "I have no time.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "열",
+        "도서관",
+        "나이"
       ],
       "topic": "Zeit"
     },
@@ -2330,9 +2330,9 @@
       "de": "Welcher Wochentag ist heute?",
       "en": "What day of the week is it?",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "선생님",
+        "친구",
+        "언니"
       ],
       "topic": "Zeit"
     },
@@ -2345,9 +2345,9 @@
       "de": "Wir fangen am Montag an.",
       "en": "We start on Monday.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "여기",
+        "토요일",
+        "가족"
       ],
       "topic": "Zeit"
     },
@@ -2360,9 +2360,9 @@
       "de": "Wir treffen uns am Dienstag.",
       "en": "We meet on Tuesday.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "구",
+        "학생",
+        "어머니"
       ],
       "topic": "Zeit"
     },
@@ -2375,9 +2375,9 @@
       "de": "Mittwoch passt mir gut.",
       "en": "Wednesday works for me.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "커피",
+        "채소",
+        "화요일"
       ],
       "topic": "Zeit"
     },
@@ -2390,9 +2390,9 @@
       "de": "Komm am Donnerstag.",
       "en": "Come on Thursday.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "침대",
+        "나라",
+        "머리"
       ],
       "topic": "Zeit"
     },
@@ -2405,9 +2405,9 @@
       "de": "Wir treffen uns Freitagabend.",
       "en": "We meet on Friday evening.",
       "distractors": [
+        "의자",
         "검은색",
-        "남동생",
-        "노란색"
+        "안"
       ],
       "topic": "Zeit"
     },
@@ -2420,9 +2420,9 @@
       "de": "Am Samstag ruhe ich mich aus.",
       "en": "I rest on Saturday.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "손",
+        "김치",
+        "고기"
       ],
       "topic": "Zeit"
     },
@@ -2435,9 +2435,9 @@
       "de": "Sonntags gehe ich in die Kirche.",
       "en": "I go to church on Sundays.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "아빠",
+        "입",
+        "여동생"
       ],
       "topic": "Zeit"
     },
@@ -2451,8 +2451,8 @@
       "en": "How have you been lately?",
       "distractors": [
         "고마워요",
-        "괜찮아요",
-        "미안해요"
+        "미안해요",
+        "처음 뵙겠습니다"
       ],
       "topic": "Begrüßung"
     },
@@ -2465,7 +2465,7 @@
       "de": "Ich bitte um gute Zusammenarbeit in Zukunft.",
       "en": "I look forward to working with you.",
       "distractors": [
-        "안녕히 가세요",
+        "안녕하세요",
         "안녕히 계세요",
         "감사합니다"
       ],
@@ -2480,9 +2480,9 @@
       "de": "Entschuldigung, einen Moment.",
       "en": "Excuse me — one moment.",
       "distractors": [
-        "감사합니다",
-        "별말씀을요",
-        "안녕하세요"
+        "잘 자요",
+        "네",
+        "잘 부탁드려요"
       ],
       "topic": "Höflichkeit"
     },
@@ -2495,9 +2495,9 @@
       "de": "Koreanisch, du schaffst das!",
       "en": "Korean — you can do it!",
       "distractors": [
-        "아니요",
-        "잘 자요",
-        "고마워요"
+        "죄송합니다",
+        "안녕",
+        "잠시만요"
       ],
       "topic": "Motivation"
     },
@@ -2510,9 +2510,9 @@
       "de": "Unter dem Stuhl steht eine Tasche.",
       "en": "There's a bag under the chair.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "학교",
+        "팔",
+        "백"
       ],
       "topic": "Position"
     },
@@ -2525,9 +2525,9 @@
       "de": "Wir verstehen uns gut.",
       "en": "We get along well.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "일곱",
+        "넷",
+        "파란색"
       ],
       "topic": "Beziehungen"
     },
@@ -2540,9 +2540,9 @@
       "de": "Gehen Sie nach links.",
       "en": "Go to the left.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "누나",
+        "옷",
+        "만"
       ],
       "topic": "Position"
     },
@@ -2555,9 +2555,9 @@
       "de": "Rechts ist die Toilette.",
       "en": "The bathroom is on the right.",
       "distractors": [
-        "검은색",
-        "금요일",
-        "남동생"
+        "앞",
+        "일요일",
+        "사이"
       ],
       "topic": "Position"
     },
@@ -2570,9 +2570,9 @@
       "de": "Lass uns zusammen gehen.",
       "en": "Let's go together.",
       "distractors": [
-        "그거",
-        "이거",
-        "저거"
+        "없다",
+        "맛있다",
+        "만나다"
       ],
       "topic": "Person"
     },
@@ -2585,9 +2585,9 @@
       "de": "Wie viel kostet das?",
       "en": "How much is this?",
       "distractors": [
-        "그거",
         "우리",
-        "저거"
+        "배고프다",
+        "안녕히 가세요"
       ],
       "topic": "Alltag"
     },
@@ -2600,9 +2600,9 @@
       "de": "Das da bitte.",
       "en": "That one, please.",
       "distractors": [
-        "우리",
-        "이거",
-        "저거"
+        "하다",
+        "너",
+        "같은"
       ],
       "topic": "Alltag"
     },
@@ -2615,9 +2615,9 @@
       "de": "Was ist das dort?",
       "en": "What's that over there?",
       "distractors": [
-        "그거",
-        "우리",
-        "이거"
+        "많다",
+        "길다",
+        "앉다"
       ],
       "topic": "Alltag"
     },
@@ -2630,9 +2630,9 @@
       "de": "Setzen Sie sich bitte hier hin.",
       "en": "Please sit here.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "초",
+        "이",
+        "오"
       ],
       "topic": "Position"
     },
@@ -2645,9 +2645,9 @@
       "de": "Da war ich schon mal.",
       "en": "I've been there before.",
       "distractors": [
-        "가족",
-        "계란",
-        "고기"
+        "아래",
+        "밤",
+        "밖"
       ],
       "topic": "Position"
     },
@@ -2660,9 +2660,9 @@
       "de": "Schauen Sie dort hin.",
       "en": "Look over there.",
       "distractors": [
-        "가족",
-        "거기",
-        "계란"
+        "귀",
+        "빨간색",
+        "과일"
       ],
       "topic": "Position"
     },
@@ -2675,9 +2675,9 @@
       "de": "Gibt es auch andere Farben?",
       "en": "Are there other colors too?",
       "distractors": [
-        "같은",
-        "길다",
-        "많다"
+        "싸다",
+        "짧다",
+        "어렵다"
       ],
       "topic": "Beschreibung"
     },
@@ -2690,9 +2690,9 @@
       "de": "Wir gehen zur gleichen Schule.",
       "en": "We go to the same school.",
       "distractors": [
-        "길다",
-        "다른",
-        "많다"
+        "맛없다",
+        "몇",
+        "조용하다"
       ],
       "topic": "Beschreibung"
     },
@@ -2705,9 +2705,9 @@
       "de": "Alle Leute mögen es.",
       "en": "Everyone likes it.",
       "distractors": [
-        "같은",
-        "길다",
-        "다른"
+        "크다",
+        "다른",
+        "비싸다"
       ],
       "topic": "Menge"
     },
@@ -2720,9 +2720,9 @@
       "de": "Warte einen Moment.",
       "en": "Wait a moment.",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "지금",
+        "덜",
+        "빨리"
       ],
       "topic": "Zeit"
     },
@@ -2735,9 +2735,9 @@
       "de": "Bitte sprechen Sie langsam.",
       "en": "Please speak slowly.",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "잠깐",
+        "매일",
+        "어제"
       ],
       "topic": "Alltag"
     },
@@ -2751,7 +2751,7 @@
       "en": "I go to bed early.",
       "distractors": [
         "가끔",
-        "내일",
+        "천천히",
         "늦게"
       ],
       "topic": "Zeit"
@@ -2765,9 +2765,9 @@
       "de": "Gestern bin ich spät schlafen gegangen.",
       "en": "I went to bed late yesterday.",
       "distractors": [
-        "가끔",
-        "내일",
-        "매일"
+        "지금",
+        "더",
+        "내일"
       ],
       "topic": "Zeit"
     },
@@ -2781,8 +2781,8 @@
       "en": "We meet often.",
       "distractors": [
         "가끔",
-        "내일",
-        "늦게"
+        "매일",
+        "빨리"
       ],
       "topic": "Alltag"
     },
@@ -2795,9 +2795,9 @@
       "de": "Ich mag es nicht besonders.",
       "en": "I don't really like it.",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "늦게",
+        "천천히",
+        "일찍"
       ],
       "topic": "Alltag"
     },
@@ -2810,9 +2810,9 @@
       "de": "Das ist echt lecker!",
       "en": "It's really delicious!",
       "distractors": [
-        "가끔",
-        "내일",
-        "늦게"
+        "항상",
+        "어제",
+        "자주"
       ],
       "topic": "Alltag"
     },
@@ -2825,9 +2825,9 @@
       "de": "Die Speisekarte bitte.",
       "en": "The menu, please.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "숙제",
+        "부츠",
+        "문자"
       ],
       "topic": "Essen & Trinken"
     },
@@ -2840,9 +2840,9 @@
       "de": "Lass uns liefern lassen.",
       "en": "Let's order delivery.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "반",
+        "잎",
+        "통장"
       ],
       "topic": "Essen & Trinken"
     },
@@ -2855,9 +2855,9 @@
       "de": "Welche Größe haben Sie?",
       "en": "What size do you take?",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "돼지고기",
+        "냄새",
+        "동네"
       ],
       "topic": "Einkaufen"
     },
@@ -2870,9 +2870,9 @@
       "de": "Gibt es auch andere Farben?",
       "en": "Are there other colors too?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "약",
+        "영화",
+        "기차"
       ],
       "topic": "Einkaufen"
     },
@@ -2885,9 +2885,9 @@
       "de": "Ist Umtausch möglich?",
       "en": "Is an exchange possible?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "음악",
+        "길",
+        "화분"
       ],
       "topic": "Einkaufen"
     },
@@ -2900,9 +2900,9 @@
       "de": "Es sind viele Gäste da.",
       "en": "There are many guests.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "인분",
+        "달력",
+        "병원"
       ],
       "topic": "Einkaufen"
     },
@@ -2915,9 +2915,9 @@
       "de": "Der Verkäufer war freundlich.",
       "en": "The clerk was friendly.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "전화",
+        "불고기",
+        "그릇"
       ],
       "topic": "Einkaufen"
     },
@@ -2930,9 +2930,9 @@
       "de": "Gehen Sie geradeaus.",
       "en": "Go straight ahead.",
       "distractors": [
-        "같이",
-        "너무",
-        "많이"
+        "일어나다",
+        "화장하다",
+        "바쁘다"
       ],
       "topic": "Verkehr"
     },
@@ -2945,9 +2945,9 @@
       "de": "An der Ampel links abbiegen.",
       "en": "Turn left at the traffic light.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "점원",
+        "태양",
+        "집주인"
       ],
       "topic": "Verkehr"
     },
@@ -2960,9 +2960,9 @@
       "de": "Bitte am Zebrastreifen überqueren.",
       "en": "Please cross at the crosswalk.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "교환",
+        "사장",
+        "통화"
       ],
       "topic": "Verkehr"
     },
@@ -2975,9 +2975,9 @@
       "de": "Wir treffen uns an der nächsten Kreuzung.",
       "en": "Let's meet at the next intersection.",
       "distractors": [
-        "냉장고",
-        "보라색",
-        "보증금"
+        "칠판",
+        "맛",
+        "수박"
       ],
       "topic": "Verkehr"
     },
@@ -2990,9 +2990,9 @@
       "de": "Ich habe meinem Vorgesetzten Bericht erstattet.",
       "en": "I reported to my supervisor.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "교수",
+        "잔액",
+        "부엌"
       ],
       "topic": "Beruf"
     },
@@ -3005,9 +3005,9 @@
       "de": "Mein Gehalt wurde erhöht.",
       "en": "My salary went up.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "사이즈",
+        "딸기",
+        "경찰"
       ],
       "topic": "Beruf"
     },
@@ -3020,9 +3020,9 @@
       "de": "Morgen habe ich ein Vorstellungsgespräch.",
       "en": "I have a job interview tomorrow.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "세탁기",
+        "귀걸이",
+        "목도리"
       ],
       "topic": "Beruf"
     },
@@ -3035,9 +3035,9 @@
       "de": "Rosa ist hübsch.",
       "en": "Pink is pretty.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "차림표",
+        "영수증",
+        "눈싸움"
       ],
       "topic": "Farben"
     },
@@ -3050,9 +3050,9 @@
       "de": "Ich mag Lila.",
       "en": "I like purple.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보증금"
+        "반찬",
+        "숟가락",
+        "후식"
       ],
       "topic": "Farben"
     },
@@ -3065,9 +3065,9 @@
       "de": "Die braune Tasche ist schön.",
       "en": "The brown bag is nice.",
       "distractors": [
-        "가구",
-        "가을",
-        "거실"
+        "교실",
+        "땅콩",
+        "구두"
       ],
       "topic": "Farben"
     },
@@ -3080,9 +3080,9 @@
       "de": "Ich trug einen grauen Mantel.",
       "en": "I wore a gray coat.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "보라색",
+        "인터넷",
+        "직업"
       ],
       "topic": "Farben"
     },
@@ -3095,9 +3095,9 @@
       "de": "Orange steht dir gut.",
       "en": "Orange suits you well.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "넥타이",
+        "계산서",
+        "반지"
       ],
       "topic": "Farben"
     },
@@ -3110,9 +3110,9 @@
       "de": "Ich schaue YouTube-Videos.",
       "en": "I watch YouTube videos.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "직진",
+        "영향",
+        "결혼기념일"
       ],
       "topic": "Technologie"
     },
@@ -3125,9 +3125,9 @@
       "de": "Ich habe einen Kommentar hinterlassen.",
       "en": "I left a comment.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "문제",
+        "생활비",
+        "기념품"
       ],
       "topic": "Technologie"
     },
@@ -3140,9 +3140,9 @@
       "de": "Ich habe ein Like gegeben.",
       "en": "I hit Like.",
       "distractors": [
-        "가능성",
-        "게시물",
-        "공통점"
+        "습관",
+        "환자",
+        "집들이"
       ],
       "topic": "Technologie"
     },
@@ -3155,9 +3155,9 @@
       "de": "Meine Followerzahl ist gewachsen.",
       "en": "My follower count grew.",
       "distractors": [
-        "가능성",
-        "게시물",
-        "공통점"
+        "환율",
+        "우회전",
+        "다운로드"
       ],
       "topic": "Technologie"
     },
@@ -3170,9 +3170,9 @@
       "de": "Ich habe einen Beitrag hochgeladen.",
       "en": "I uploaded a post.",
       "distractors": [
-        "가능성",
-        "공통점",
-        "좋아요"
+        "해결",
+        "팔로워",
+        "식비"
       ],
       "topic": "Technologie"
     },
@@ -3185,9 +3185,9 @@
       "de": "Die Deadline ist nächste Woche.",
       "en": "The deadline is next week.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "댓글",
+        "연락",
+        "무대"
       ],
       "topic": "Beruf"
     },
@@ -3200,9 +3200,9 @@
       "de": "Bitte überprüfen Sie den Terminplan.",
       "en": "Please check the schedule.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "미술관",
+        "통역",
+        "책임감"
       ],
       "topic": "Beruf"
     },
@@ -3215,9 +3215,9 @@
       "de": "Ich schreibe das Sitzungsprotokoll.",
       "en": "I write the meeting minutes.",
       "distractors": [
-        "가능성",
-        "게시물",
-        "공통점"
+        "다이어트",
+        "비상구",
+        "명상"
       ],
       "topic": "Beruf"
     },
@@ -3230,9 +3230,9 @@
       "de": "Ich mache gerade eine Diät.",
       "en": "I'm on a diet.",
       "distractors": [
-        "다운로드",
-        "스트레스",
-        "가능성"
+        "외식",
+        "우체국",
+        "좌회전"
       ],
       "topic": "Gesundheit"
     },
@@ -3245,9 +3245,9 @@
       "de": "Ich achte auf meine Ernährung.",
       "en": "I watch my diet.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "공통점",
+        "회의록",
+        "어휘"
       ],
       "topic": "Gesundheit"
     },
@@ -3260,9 +3260,9 @@
       "de": "Work-Life-Balance ist wichtig.",
       "en": "Work-life balance is important.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "안내문",
+        "상가",
+        "마감"
       ],
       "topic": "Gesellschaft"
     },
@@ -3275,9 +3275,9 @@
       "de": "Ich mache eine kurze Pause.",
       "en": "I take a short break.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "놀이공원",
+        "경찰서",
+        "시청"
       ],
       "topic": "Alltag"
     },
@@ -3290,9 +3290,9 @@
       "de": "Jeder hat einen anderen Geschmack.",
       "en": "Everyone has a different taste.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "평일",
+        "안약",
+        "열차"
       ],
       "topic": "Beschreibung"
     },
@@ -3305,9 +3305,9 @@
       "de": "Was bedeutet dieses Wort?",
       "en": "What does this word mean?",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "식단",
+        "휴식",
+        "이유"
       ],
       "topic": "Kommunikation"
     },
@@ -3320,9 +3320,9 @@
       "de": "Es gab eine große Veränderung.",
       "en": "There was a big change.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "생각",
+        "기회",
+        "배우"
       ],
       "topic": "Alltag"
     },
@@ -3335,9 +3335,9 @@
       "de": "Es hat einen guten Einfluss.",
       "en": "It has a good influence.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "관심",
+        "광장",
+        "전통"
       ],
       "topic": "Gesellschaft"
     },
@@ -3350,9 +3350,9 @@
       "de": "Der Unterschied zwischen den beiden Ländern ist groß.",
       "en": "The difference between the two countries is big.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "사회",
+        "교육",
+        "뜻"
       ],
       "topic": "Beschreibung"
     },
@@ -3365,9 +3365,9 @@
       "de": "Wir haben viele Gemeinsamkeiten.",
       "en": "We have a lot in common.",
       "distractors": [
-        "가능성",
-        "게시물",
-        "좋아요"
+        "정치",
+        "문학",
+        "송별회"
       ],
       "topic": "Beziehungen"
     },
@@ -3380,8 +3380,8 @@
       "de": "Es gibt eine Möglichkeit.",
       "en": "There is a possibility.",
       "distractors": [
-        "게시물",
-        "공통점",
+        "표현",
+        "하숙집",
         "좋아요"
       ],
       "topic": "Denken"
@@ -3395,9 +3395,9 @@
       "de": "Ich kenne meine Grenzen.",
       "en": "I know my limits.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "벌금",
+        "문제",
+        "비상구"
       ],
       "topic": "Denken"
     },
@@ -3410,9 +3410,9 @@
       "de": "Die Verantwortung ist groß.",
       "en": "The responsibility is heavy.",
       "distractors": [
-        "건강",
-        "결과",
-        "경제"
+        "마감",
+        "지불",
+        "문학"
       ],
       "topic": "Beruf"
     },
@@ -3425,9 +3425,9 @@
       "de": "Sie hat ein starkes Verantwortungsbewusstsein.",
       "en": "She has a strong sense of responsibility.",
       "distractors": [
-        "가능성",
-        "게시물",
-        "공통점"
+        "공과금",
+        "놀이공원",
+        "열차"
       ],
       "topic": "Beschreibung"
     },
@@ -3440,9 +3440,9 @@
       "de": "Die Verhandlung lief gut.",
       "en": "The negotiation went well.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "결론",
+        "유형",
+        "전체"
       ],
       "topic": "Beruf"
     },
@@ -3455,9 +3455,9 @@
       "de": "Wir haben den Vertrag abgeschlossen.",
       "en": "We signed the contract.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "부부",
+        "몸매",
+        "위험"
       ],
       "topic": "Beruf"
     },
@@ -3470,9 +3470,9 @@
       "de": "Eine Investition ist nötig.",
       "en": "An investment is needed.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "현대인",
+        "비용",
+        "폐기물"
       ],
       "topic": "Gesellschaft"
     },
@@ -3485,9 +3485,9 @@
       "de": "Der Gewinn ist gestiegen.",
       "en": "Profits have risen.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "법",
+        "자유",
+        "비결"
       ],
       "topic": "Gesellschaft"
     },
@@ -3500,9 +3500,9 @@
       "de": "Es kostet viel.",
       "en": "It costs a lot.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "복지",
+        "예절",
+        "철자"
       ],
       "topic": "Gesellschaft"
     },
@@ -3515,9 +3515,9 @@
       "de": "Wir müssen die Produktivität steigern.",
       "en": "We need to raise productivity.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생태계"
+        "배출",
+        "근거",
+        "인권"
       ],
       "topic": "Beruf"
     },
@@ -3530,9 +3530,9 @@
       "de": "Die Wettbewerbsfähigkeit ist stark.",
       "en": "Its competitiveness is strong.",
       "distractors": [
-        "가치관",
-        "생산성",
-        "생태계"
+        "전공",
+        "공간",
+        "형용사"
       ],
       "topic": "Gesellschaft"
     },
@@ -3545,8 +3545,8 @@
       "de": "Wir haben eine neue Strategie entwickelt.",
       "en": "We developed a new strategy.",
       "distractors": [
-        "가설",
-        "갈등",
+        "논문",
+        "평소",
         "강점"
       ],
       "topic": "Beruf"
@@ -3560,9 +3560,9 @@
       "de": "Wir haben die Krise überwunden.",
       "en": "We overcame the crisis.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "자음",
+        "사회생활",
+        "촛불"
       ],
       "topic": "Gesellschaft"
     },
@@ -3575,9 +3575,9 @@
       "de": "Die Zusammenarbeit der beiden Firmen begann.",
       "en": "The collaboration between the two companies began.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "경력",
+        "습도",
+        "연세"
       ],
       "topic": "Beruf"
     },
@@ -3590,9 +3590,9 @@
       "de": "Eine neue Politik wurde angekündigt.",
       "en": "A new policy was announced.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "자원",
+        "느낌",
+        "연구"
       ],
       "topic": "Gesellschaft"
     },
@@ -3605,9 +3605,9 @@
       "de": "Das Bildungssystem ändert sich.",
       "en": "The education system is changing.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "전제",
+        "민주주의",
+        "협업"
       ],
       "topic": "Gesellschaft"
     },
@@ -3620,9 +3620,9 @@
       "de": "Ich erfülle meine Pflicht.",
       "en": "I fulfill my duty.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "세상",
+        "이론",
+        "동의어"
       ],
       "topic": "Gesellschaft"
     },
@@ -3635,9 +3635,9 @@
       "de": "Gleichberechtigung ist wichtig.",
       "en": "Equality is important.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "예의",
+        "주제",
+        "사고"
       ],
       "topic": "Gesellschaft"
     },
@@ -3650,9 +3650,9 @@
       "de": "Diskriminierung muss verschwinden.",
       "en": "Discrimination must disappear.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "말씀",
+        "국기",
+        "오염"
       ],
       "topic": "Gesellschaft"
     },
@@ -3665,9 +3665,9 @@
       "de": "Wir schützen die Menschenrechte.",
       "en": "We protect human rights.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "친척",
+        "자격증",
+        "내용"
       ],
       "topic": "Gesellschaft"
     },
@@ -3680,9 +3680,9 @@
       "de": "Die gesellschaftliche Spaltung verschärft sich.",
       "en": "Social polarization is worsening.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "부사",
+        "생태계",
+        "성함"
       ],
       "topic": "Gesellschaft"
     },
@@ -3695,9 +3695,9 @@
       "de": "Meine Stärke ist Ausdauer.",
       "en": "My strength is perseverance.",
       "distractors": [
-        "가설",
-        "갈등",
-        "결론"
+        "벌",
+        "위기",
+        "유통기한"
       ],
       "topic": "Beruf"
     },
@@ -3710,9 +3710,9 @@
       "de": "Man muss auch seine Schwächen anerkennen.",
       "en": "You have to acknowledge your weaknesses too.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "온실가스",
+        "제사",
+        "출입"
       ],
       "topic": "Beruf"
     },
@@ -3726,8 +3726,8 @@
       "en": "I have ten years of work experience.",
       "distractors": [
         "가설",
-        "갈등",
-        "강점"
+        "정도",
+        "논리"
       ],
       "topic": "Beruf"
     },
@@ -3740,9 +3740,9 @@
       "de": "Welche Zertifikate haben Sie?",
       "en": "What certificates do you have?",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "부분",
+        "자신감",
+        "애인"
       ],
       "topic": "Beruf"
     },
@@ -3755,9 +3755,9 @@
       "de": "Ich habe Selbstvertrauen gewonnen.",
       "en": "I've gained self-confidence.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "학위",
+        "의무",
+        "주의"
       ],
       "topic": "Gefühle"
     },
@@ -3770,9 +3770,9 @@
       "de": "Ich strenge mich beharrlich an.",
       "en": "I work with perseverance.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "잠재력",
+        "오류",
+        "임산부"
       ],
       "topic": "Beschreibung"
     },
@@ -3785,9 +3785,9 @@
       "de": "Sie entfaltet ihr Potenzial.",
       "en": "She brings out her potential.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "동창",
+        "공휴일",
+        "동사"
       ],
       "topic": "Beschreibung"
     },
@@ -3800,9 +3800,9 @@
       "de": "Mir fehlt die Motivation.",
       "en": "I lack motivation.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "가습기",
+        "정책",
+        "온난화"
       ],
       "topic": "Motivation"
     },
@@ -3815,9 +3815,9 @@
       "de": "Sie ist Expertin auf diesem Gebiet.",
       "en": "She is an expert in this field.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "멸종",
+        "서랍",
+        "소풍"
       ],
       "topic": "Bildung"
     },
@@ -3830,9 +3830,9 @@
       "de": "Was studierst du?",
       "en": "What's your major?",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "가치관",
+        "봉투",
+        "인기"
       ],
       "topic": "Bildung"
     },
@@ -3845,9 +3845,9 @@
       "de": "Sie hat den Doktortitel erworben.",
       "en": "She earned a doctoral degree.",
       "distractors": [
-        "가설",
+        "동기",
         "갈등",
-        "강점"
+        "관객"
       ],
       "topic": "Bildung"
     },
@@ -3860,9 +3860,9 @@
       "de": "Ich habe einen Aufsatz veröffentlicht.",
       "en": "I published a paper.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "경쟁력",
+        "윷놀이",
+        "활동"
       ],
       "topic": "Bildung"
     },
@@ -3875,9 +3875,9 @@
       "de": "Die Statistik ist genau.",
       "en": "The statistics are accurate.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "문법",
+        "무료",
+        "수익"
       ],
       "topic": "Denken"
     },
@@ -3890,9 +3890,9 @@
       "de": "Ich habe eine Hypothese aufgestellt.",
       "en": "I set up a hypothesis.",
       "distractors": [
-        "갈등",
-        "강점",
-        "결론"
+        "협상",
+        "동창",
+        "댁"
       ],
       "topic": "Denken"
     },
@@ -3905,9 +3905,9 @@
       "de": "Ich suche einen echten Freund.",
       "en": "I'm looking for a true friend.",
       "distractors": [
-        "친환경",
-        "명확하다",
-        "모호하다"
+        "본질적이다",
+        "모호하다",
+        "명확하다"
       ],
       "topic": "Beschreibung"
     },
@@ -3920,9 +3920,9 @@
       "de": "Das Wohnzimmer ist geräumig.",
       "en": "The living room is spacious.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "열쇠",
+        "젓가락",
+        "청소기"
       ],
       "topic": "Wohnen"
     },
@@ -3935,9 +3935,9 @@
       "de": "Ich koche in der Küche.",
       "en": "I cook in the kitchen.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "통화",
+        "귀걸이",
+        "시장"
       ],
       "topic": "Wohnen"
     },
@@ -3950,9 +3950,9 @@
       "de": "Im Kühlschrank ist Milch.",
       "en": "There is milk in the fridge.",
       "distractors": [
-        "교차로",
-        "보라색",
-        "보증금"
+        "딸기",
+        "팔찌",
+        "사장"
       ],
       "topic": "Wohnen"
     },
@@ -3965,9 +3965,9 @@
       "de": "Ich lasse die Waschmaschine laufen.",
       "en": "I run the washing machine.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "날씨",
+        "할인",
+        "창문"
       ],
       "topic": "Wohnen"
     },
@@ -3980,9 +3980,9 @@
       "de": "Ich sauge mit dem Staubsauger.",
       "en": "I vacuum the floor.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "거울",
+        "손님",
+        "횡단보도"
       ],
       "topic": "Wohnen"
     },
@@ -3995,9 +3995,9 @@
       "de": "Ich habe neue Möbel gekauft.",
       "en": "I bought new furniture.",
       "distractors": [
-        "가을",
-        "갈색",
-        "거실"
+        "음악",
+        "성적",
+        "취미"
       ],
       "topic": "Wohnen"
     },
@@ -4010,9 +4010,9 @@
       "de": "Die Monatsmiete ist teuer.",
       "en": "The monthly rent is expensive.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "스타킹",
+        "시험",
+        "벨트"
       ],
       "topic": "Wohnen"
     },
@@ -4025,9 +4025,9 @@
       "de": "Ich habe die Kaution bezahlt.",
       "en": "I paid the deposit.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "전화",
+        "교수",
+        "땅콩"
       ],
       "topic": "Wohnen"
     },
@@ -4040,9 +4040,9 @@
       "de": "Ich habe den Vermieter angerufen.",
       "en": "I called the landlord.",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "병원",
+        "메뉴",
+        "화분"
       ],
       "topic": "Wohnen"
     },
@@ -4055,9 +4055,9 @@
       "de": "Ich zahle bar.",
       "en": "I'll pay in cash.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "지구",
+        "휴가",
+        "교차로"
       ],
       "topic": "Geld"
     },
@@ -4070,9 +4070,9 @@
       "de": "Ich habe ein Konto eröffnet.",
       "en": "I opened a bank account.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "야채",
+        "회의",
+        "신호등"
       ],
       "topic": "Geld"
     },
@@ -4085,9 +4085,9 @@
       "de": "Der Kontostand reicht nicht.",
       "en": "The balance is insufficient.",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "문자",
+        "치마",
+        "여행"
       ],
       "topic": "Geld"
     },
@@ -4100,9 +4100,9 @@
       "de": "Gibt es eine Gebühr?",
       "en": "Is there a fee?",
       "distractors": [
-        "교차로",
-        "냉장고",
-        "보라색"
+        "호텔",
+        "반",
+        "아저씨"
       ],
       "topic": "Geld"
     },
@@ -4115,9 +4115,9 @@
       "de": "In welcher Währung soll ich zahlen?",
       "en": "Which currency should I pay in?",
       "distractors": [
-        "가구",
-        "가을",
-        "갈색"
+        "컵",
+        "칠판",
+        "월세"
       ],
       "topic": "Geld"
     },
@@ -4130,9 +4130,9 @@
       "de": "Die globale Erwärmung ist ernst.",
       "en": "Global warming is serious.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "경력",
+        "윷놀이",
+        "반의어"
       ],
       "topic": "Umwelt"
     },
@@ -4145,9 +4145,9 @@
       "de": "Die Luftverschmutzung wird immer schlimmer.",
       "en": "Air pollution is getting worse.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "명사",
+        "철자",
+        "현상"
       ],
       "topic": "Umwelt"
     },
@@ -4160,9 +4160,9 @@
       "de": "Wir müssen den CO2-Ausstoß senken.",
       "en": "We must reduce carbon emissions.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "사회생활",
+        "제도",
+        "평등"
       ],
       "topic": "Umwelt"
     },
@@ -4175,9 +4175,9 @@
       "de": "Ich recycle immer.",
       "en": "I always recycle.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "정도",
+        "공간",
+        "벌"
       ],
       "topic": "Umwelt"
     },
@@ -4190,9 +4190,9 @@
       "de": "Viele Tiere sind vom Aussterben bedroht.",
       "en": "Many animals face extinction.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "유통기한",
+        "전략",
+        "봉투"
       ],
       "topic": "Umwelt"
     },
@@ -4205,9 +4205,9 @@
       "de": "Wir müssen das Ökosystem schützen.",
       "en": "We must protect the ecosystem.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "연구",
+        "비상",
+        "협상"
       ],
       "topic": "Umwelt"
     },
@@ -4220,9 +4220,9 @@
       "de": "Wir müssen sparsam mit Ressourcen umgehen.",
       "en": "We must use resources sparingly.",
       "distractors": [
-        "가설",
-        "갈등",
-        "강점"
+        "임산부",
+        "고지서",
+        "오류"
       ],
       "topic": "Umwelt"
     },
@@ -4235,9 +4235,9 @@
       "de": "Abfall zu reduzieren ist wichtig.",
       "en": "Reducing waste is important.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "애인",
+        "소풍",
+        "경우"
       ],
       "topic": "Umwelt"
     },
@@ -4250,9 +4250,9 @@
       "de": "Solarenergie nimmt zu.",
       "en": "Solar energy is increasing.",
       "distractors": [
-        "가치관",
-        "경쟁력",
-        "생산성"
+        "문법",
+        "갈등",
+        "형광등"
       ],
       "topic": "Umwelt"
     },
@@ -4265,9 +4265,9 @@
       "de": "Treibhausgase erwärmen die Erde.",
       "en": "Greenhouse gases warm the earth.",
       "distractors": [
-        "민주주의",
-        "가치관",
-        "경쟁력"
+        "이론",
+        "통계",
+        "모음"
       ],
       "topic": "Umwelt"
     },
@@ -4280,9 +4280,9 @@
       "de": "Ich kaufe oft umweltfreundliche Produkte.",
       "en": "I often buy eco-friendly products.",
       "distractors": [
-        "진정한",
-        "명확하다",
-        "모호하다"
+        "객관적이다",
+        "주관적이다",
+        "진정한"
       ],
       "topic": "Umwelt"
     },
@@ -4295,9 +4295,9 @@
       "de": "Nachhaltigkeit ist sehr wichtig.",
       "en": "Sustainability is very important.",
       "distractors": [
-        "민주주의",
-        "온실가스",
-        "가치관"
+        "잠재력",
+        "평소",
+        "쌍둥이"
       ],
       "topic": "Umwelt"
     }
