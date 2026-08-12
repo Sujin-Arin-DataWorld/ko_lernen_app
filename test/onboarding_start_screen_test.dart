@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/learner_motivation.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/onboarding_first_scene.dart';
+import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -101,6 +103,48 @@ void main() {
       expect(opened?.scenarioId, entry.value, reason: entry.key);
       await tester.pumpWidget(const SizedBox.shrink());
     }
+  });
+
+  testWidgets('first-success screen uses the completed quest copy', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        screen: OnboardingStartScreen(
+          initialMotivation: LearnerMotivation.loved,
+          startNewLearner: (_) async {},
+        ),
+      ),
+    );
+
+    final cta = find.text('Open my first scene');
+    await tester.ensureVisible(cta);
+    await tester.tap(cta);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    final player = tester.widget<ScenarioPlayerScreen>(
+      find.byType(ScenarioPlayerScreen),
+    );
+    final callback = player.onFirstCorrect;
+    expect(callback, isNotNull);
+    callback!(
+      const ScenarioFirstSuccess(
+        phrase: '저는 민수예요.',
+        kind: ScenarioFirstSuccessKind.completion,
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 1000));
+
+    expect(tester.takeException(), isNull);
+    expect(find.byType(FirstVoiceSuccessScreen), findsOneWidget);
+    final success = tester.widget<FirstVoiceSuccessScreen>(
+      find.byType(FirstVoiceSuccessScreen),
+    );
+    expect(success.phrase, '저는 민수예요.');
+    expect(success.canDo, 'Build your sentence');
+    expect(find.text('안녕하세요.'), findsNothing);
   });
 }
 

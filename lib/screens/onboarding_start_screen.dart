@@ -124,35 +124,35 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
     unawaited(
       navigator.pushReplacement<void, void>(
         SoriTransitions.fadeScale<void>(
-          (sceneContext) => ScenarioPlayerScreen(
+          (_) => ScenarioPlayerScreen(
             scenarioId: scene.scenarioId,
             startAtFirstTask: true,
             onExit: () {
-              if (!sceneContext.mounted) {
+              if (!navigator.mounted) {
                 return;
               }
-              Navigator.of(sceneContext).pushAndRemoveUntil(
+              navigator.pushAndRemoveUntil(
                 SoriTransitions.fadeScale((_) => const AppShell()),
                 (route) => false,
               );
             },
-            onFirstCorrect: () {
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                if (!sceneContext.mounted) {
-                  return;
-                }
-                final t = AppL10n.of(sceneContext);
-                unawaited(
-                  Navigator.of(sceneContext).push<void>(
-                    SoriTransitions.fadeScale<void>(
-                      (_) => FirstVoiceSuccessScreen(
-                        canDo: scene.canDo(t),
-                        phrase: scene.successPhrase,
-                      ),
+            onFirstCorrect: (success) {
+              if (!navigator.mounted) {
+                return;
+              }
+              final t = AppL10n.of(navigator.context);
+              unawaited(
+                navigator.push<void>(
+                  SoriTransitions.fadeScale<void>(
+                    (_) => FirstVoiceSuccessScreen(
+                      canDo: success.kind == ScenarioFirstSuccessKind.listening
+                          ? t.moduleListenDesc
+                          : t.courseMissionBriefBuildTitle,
+                      phrase: success.phrase,
                     ),
                   ),
-                );
-              });
+                ),
+              );
             },
           ),
           settings: RouteSettings(

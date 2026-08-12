@@ -108,6 +108,92 @@ class FirstCorrectAttemptGate {
   }
 }
 
+enum ScenarioFirstSuccessKind { listening, completion }
+
+class ScenarioFirstSuccess {
+  const ScenarioFirstSuccess({required this.phrase, required this.kind});
+
+  final String phrase;
+  final ScenarioFirstSuccessKind kind;
+}
+
+typedef ScenarioFirstCorrectCallback =
+    void Function(ScenarioFirstSuccess success);
+
+/// Describes only the Korean expression that the completed quest actually
+/// checked. Invalid or incomplete legacy quest data fails closed.
+ScenarioFirstSuccess? scenarioFirstSuccessForQuest(QuestSpec quest) {
+  final data = quest.data;
+  String? phrase;
+  var kind = ScenarioFirstSuccessKind.completion;
+
+  switch (quest.type) {
+    case QuestType.hoerverstehen:
+      phrase = _questString(data['audioKo']);
+      kind = ScenarioFirstSuccessKind.listening;
+    case QuestType.luecken:
+      final sentence = _questString(data['sentence']);
+      final answer = _correctQuestOption(data);
+      if (sentence != null && answer != null) {
+        phrase = sentence.contains('___')
+            ? sentence.replaceFirst('___', answer)
+            : sentence;
+      }
+    case QuestType.uebersetzen:
+      final answer = _correctQuestValue(data);
+      if (answer is Map) {
+        phrase = _questString(answer['ko']);
+      } else {
+        phrase = _questString(answer);
+      }
+    case QuestType.particlePop:
+      final prefix = _questComponent(data['prefix']);
+      final answer = _correctQuestOption(data);
+      final suffix = _questComponent(data['suffix']);
+      if (prefix != null && answer != null && suffix != null) {
+        phrase = '$prefix$answer$suffix';
+      }
+    case QuestType.batchimDrop:
+      phrase =
+          _questString(data['audioKo']) ?? _questString(data['targetWord']);
+      kind = ScenarioFirstSuccessKind.listening;
+    case QuestType.satzBauen:
+    case QuestType.diktat:
+      phrase = _questString(data['targetKo']) ?? _questString(data['audioKo']);
+    case QuestType.schreiben:
+      phrase = _questString(data['targetKo']);
+  }
+
+  if (phrase == null) return null;
+  return ScenarioFirstSuccess(phrase: phrase, kind: kind);
+}
+
+Object? _correctQuestValue(Map<String, dynamic> data) {
+  final options = data['options'];
+  final index = (data['correctIndex'] as num?)?.toInt();
+  if (options is! List ||
+      index == null ||
+      index < 0 ||
+      index >= options.length) {
+    return null;
+  }
+  return options[index];
+}
+
+String? _correctQuestOption(Map<String, dynamic> data) =>
+    _questString(_correctQuestValue(data));
+
+String? _questString(Object? value) {
+  if (value is! String) return null;
+  final normalized = value.trim();
+  return normalized.isEmpty ? null : normalized;
+}
+
+String? _questComponent(Object? value) {
+  if (value is! String || value.trim().isEmpty) return null;
+  return value;
+}
+
 typedef ScenarioResultPersister =
     Future<ScenarioCanDoResult?> Function(
       Scenario scenario,
@@ -151,7 +237,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
   final ScenarioResultPersister? resultPersister;
-  final VoidCallback? onFirstCorrect;
+  final ScenarioFirstCorrectCallback? onFirstCorrect;
   final VoidCallback? onExit;
   final bool startAtFirstTask;
   final ScenarioPlayerPreviewFixture? previewFixture;
@@ -204,6 +290,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
   bool _resultSaving = false;
   bool _resultPersisted = false;
+  bool _exitRequested = false;
   ScenarioCanDoResult? _canDoResult;
 
   // ── 코치마크 타겟 ──
@@ -440,16 +527,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   void _onQuestComplete(QuestResult result) {
     final scenario = _scenario;
-    if (widget.previewFixture == null &&
-        scenario != null &&
+    QuestSpec? completedQuest;
+    if (scenario != null &&
         _currentQuestIndex >= 0 &&
         _currentQuestIndex < scenario.quests.length) {
       final quest = scenario.quests[_currentQuestIndex];
+      completedQuest = quest;
       // Only audited pilot quest metadata writes concept evidence. Untagged
       // legacy quests still feed the scenario checkpoint at completion, which
       // avoids pretending that a single particle mistake affected every form
       // used elsewhere in the dialogue.
-      if (quest.hasExplicitId && quest.conceptIds.isNotEmpty) {
+      if (widget.previewFixture == null &&
+          quest.hasExplicitId &&
+          quest.conceptIds.isNotEmpty) {
         for (final conceptId in quest.conceptIds) {
           // ignore: discarded_futures
           CourseActivityReporter.recordContentAttempt(
@@ -469,15 +559,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
     if (result.passed) {
-      _onCorrectAnswer();
+      _onCorrectAnswer(
+        firstSuccess: completedQuest == null
+            ? null
+            : scenarioFirstSuccessForQuest(completedQuest),
+      );
     }
     setState(() => _questReady = true);
   }
 
-  void _onCorrectAnswer() {
+  void _onCorrectAnswer({ScenarioFirstSuccess? firstSuccess}) {
     _celebrateCorrect();
-    if (_firstCorrectGate.accept(correct: true)) {
-      widget.onFirstCorrect?.call();
+    if (firstSuccess != null && _firstCorrectGate.accept(correct: true)) {
+      widget.onFirstCorrect?.call(firstSuccess);
     }
   }
 
@@ -1348,14 +1442,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final lang = Localizations.localeOf(context).languageCode;
 
     if (_scenario == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      const scaffold = Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+      return _withExitScope(scaffold);
     }
 
-    return Scaffold(
+    final scaffold = Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close_rounded),
-          onPressed: widget.onExit ?? () => Navigator.pop(context),
+          onPressed: _requestExit,
         ),
         title: Text(
           _scenario!.title.pick(lang),
@@ -1424,6 +1521,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ),
       ),
     );
+    return _withExitScope(scaffold);
+  }
+
+  Widget _withExitScope(Widget child) {
+    final onExit = widget.onExit;
+    if (onExit == null) return child;
+    return PopScope<void>(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _requestExit();
+      },
+      child: child,
+    );
+  }
+
+  void _requestExit() {
+    final onExit = widget.onExit;
+    if (onExit == null) {
+      Navigator.pop(context);
+      return;
+    }
+    if (_exitRequested) return;
+    _exitRequested = true;
+    onExit();
   }
 }
 
