@@ -20,10 +20,13 @@ import '../hanok_tokens.dart';
 class GiwaPattern extends StatelessWidget {
   /// 한 기와 너비 (height와 비례). 기본 12.
   final double tileWidth;
+
   /// 패턴 전체 높이. 기본 [HanokSizing.giwaRowHeight] (12).
   final double height;
+
   /// 기와 색. 기본: dark mode = giwaHi / light mode = giwaShadow
   final Color? color;
+
   /// 가로 fill 비율 (0~1, 1이면 width 전체)
   final double fillRatio;
 
@@ -38,7 +41,8 @@ class GiwaPattern extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isLight = Theme.of(context).brightness == Brightness.light;
-    final tileColor = color ?? (isLight ? HanokColors.giwaShadow : HanokColors.giwaHi);
+    final tileColor =
+        color ?? (isLight ? HanokColors.giwaShadow : HanokColors.giwaHi);
 
     return SizedBox(
       height: height,
@@ -61,7 +65,11 @@ class _GiwaPainter extends CustomPainter {
   final Color tileColor;
   final double fillRatio;
 
-  _GiwaPainter({required this.tileWidth, required this.tileColor, required this.fillRatio});
+  _GiwaPainter({
+    required this.tileWidth,
+    required this.tileColor,
+    required this.fillRatio,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -100,5 +108,7 @@ class _GiwaPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_GiwaPainter old) =>
-      old.tileWidth != tileWidth || old.tileColor != tileColor || old.fillRatio != fillRatio;
+      old.tileWidth != tileWidth ||
+      old.tileColor != tileColor ||
+      old.fillRatio != fillRatio;
 }

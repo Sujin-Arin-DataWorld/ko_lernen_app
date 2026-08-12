@@ -115,8 +115,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
               alignment: Alignment.topRight,
               child: IconButton(
                 icon: Icon(Icons.close_rounded, color: s.textMuted),
-                onPressed:
-                    _busy ? null : () => Navigator.of(context).maybePop(false),
+                onPressed: _busy
+                    ? null
+                    : () => Navigator.of(context).maybePop(false),
               ),
             ),
             Expanded(
@@ -142,8 +143,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
                     ),
                   ),
                   const SizedBox(height: Spacing.lg),
-                  Text(t.paywallTitle,
-                      textAlign: TextAlign.center, style: tt.display),
+                  Text(
+                    t.paywallTitle,
+                    textAlign: TextAlign.center,
+                    style: tt.display,
+                  ),
                   const SizedBox(height: Spacing.sm),
                   Text(
                     t.paywallSubtitle,
@@ -157,8 +161,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(Icons.check_circle_rounded,
-                              size: 22, color: SoriColors.primary),
+                          const Icon(
+                            Icons.check_circle_rounded,
+                            size: 22,
+                            color: SoriColors.primary,
+                          ),
                           const SizedBox(width: Spacing.md),
                           Expanded(child: Text(b, style: tt.body)),
                         ],

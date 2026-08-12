@@ -156,11 +156,7 @@ class _Stone extends StatelessWidget {
       ),
     );
     // §7.1: 시각은 2글자, 스크린리더는 전체 요일명.
-    return Semantics(
-      label: fullDayName,
-      excludeSemantics: true,
-      child: stone,
-    );
+    return Semantics(label: fullDayName, excludeSemantics: true, child: stone);
   }
 }
 

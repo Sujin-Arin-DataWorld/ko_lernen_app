@@ -33,8 +33,9 @@ class StickerPicker extends StatelessWidget {
                       crossAxisCount: 4,
                       padding: const EdgeInsets.all(Spacing.md),
                       children: [
-                        for (final st
-                            in kStickers.where((s) => s.category == c))
+                        for (final st in kStickers.where(
+                          (s) => s.category == c,
+                        ))
                           InkWell(
                             onTap: () => onPick(st.code),
                             borderRadius: BorderRadius.circular(12),
@@ -63,11 +64,11 @@ class StickerPicker extends StatelessWidget {
   }
 
   String _catLabel(AppL10n t, StickerCategory c) => switch (c) {
-        StickerCategory.tiger => t.gyeStickerCatTiger,
-        StickerCategory.magpie => t.gyeStickerCatMagpie,
-        StickerCategory.dancheong => t.gyeStickerCatDancheong,
-        StickerCategory.hangul => t.gyeStickerCatHangul,
-        StickerCategory.food => t.gyeStickerCatFood,
-        StickerCategory.stamp => t.gyeStickerCatStamp,
-      };
+    StickerCategory.tiger => t.gyeStickerCatTiger,
+    StickerCategory.magpie => t.gyeStickerCatMagpie,
+    StickerCategory.dancheong => t.gyeStickerCatDancheong,
+    StickerCategory.hangul => t.gyeStickerCatHangul,
+    StickerCategory.food => t.gyeStickerCatFood,
+    StickerCategory.stamp => t.gyeStickerCatStamp,
+  };
 }

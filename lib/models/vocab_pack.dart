@@ -17,26 +17,19 @@ class VocabPack {
   /// 팩 내 모든 단어 (pack_order 오름차순으로 정렬됨, 마지막에 boss).
   final List<Vocab> words;
 
-  const VocabPack({
-    required this.id,
-    required this.level,
-    required this.words,
-  });
+  const VocabPack({required this.id, required this.level, required this.words});
 
   int get total => words.length;
 
   /// 보스 단어 (팩 끝 2~3 단어).
-  Iterable<Vocab> get bossWords =>
-      words.where((v) => v.isReviewBoss);
+  Iterable<Vocab> get bossWords => words.where((v) => v.isReviewBoss);
 
   /// 일반 단어 (보스 제외).
-  Iterable<Vocab> get normalWords =>
-      words.where((v) => !v.isReviewBoss);
+  Iterable<Vocab> get normalWords => words.where((v) => !v.isReviewBoss);
 
   /// UI 표시용 한 줄 라벨 — 토픽 (DE) 우선, 없으면 ID.
   /// VocabPackService.displayLabel(packId) 이 더 풍부함.
-  String get fallbackLabel =>
-      words.isEmpty ? id : words.first.topic;
+  String get fallbackLabel => words.isEmpty ? id : words.first.topic;
 
   /// `a1_greetings_2` → `a1_greetings`. 디스플레이·정렬용 base ID.
   String get baseId {

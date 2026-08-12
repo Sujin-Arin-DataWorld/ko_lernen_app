@@ -29,10 +29,8 @@ class SoriTransitions {
           opacity: curved,
           child: AnimatedBuilder(
             animation: curved,
-            builder: (_, c) => Transform.scale(
-              scale: 0.94 + curved.value * 0.06,
-              child: c,
-            ),
+            builder: (_, c) =>
+                Transform.scale(scale: 0.94 + curved.value * 0.06, child: c),
             child: child,
           ),
         );

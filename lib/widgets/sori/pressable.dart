@@ -56,7 +56,8 @@ class SoriPressable extends StatefulWidget {
   State<SoriPressable> createState() => _SoriPressableState();
 }
 
-class _SoriPressableState extends State<SoriPressable> with SingleTickerProviderStateMixin {
+class _SoriPressableState extends State<SoriPressable>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
 
   @override
@@ -80,23 +81,38 @@ class _SoriPressableState extends State<SoriPressable> with SingleTickerProvider
   void _down() {
     if (widget.onTap == null && widget.onLongPress == null) return;
     widget.onPressedChanged?.call(true);
-    _ctrl.animateTo(widget.pressScale,
-        duration: SoriMotion.fast, curve: SoriMotion.press);
+    _ctrl.animateTo(
+      widget.pressScale,
+      duration: SoriMotion.fast,
+      curve: SoriMotion.press,
+    );
   }
 
   void _release() {
     widget.onPressedChanged?.call(false);
-    _ctrl.animateTo(1.0,
-        duration: SoriMotion.medium, curve: SoriMotion.release);
+    _ctrl.animateTo(
+      1.0,
+      duration: SoriMotion.medium,
+      curve: SoriMotion.release,
+    );
   }
 
   void _doHaptic() {
     switch (widget.haptic) {
-      case SoriHaptic.light:     HapticFeedback.lightImpact(); break;
-      case SoriHaptic.medium:    HapticFeedback.mediumImpact(); break;
-      case SoriHaptic.heavy:     HapticFeedback.heavyImpact(); break;
-      case SoriHaptic.selection: HapticFeedback.selectionClick(); break;
-      case null: break;
+      case SoriHaptic.light:
+        HapticFeedback.lightImpact();
+        break;
+      case SoriHaptic.medium:
+        HapticFeedback.mediumImpact();
+        break;
+      case SoriHaptic.heavy:
+        HapticFeedback.heavyImpact();
+        break;
+      case SoriHaptic.selection:
+        HapticFeedback.selectionClick();
+        break;
+      case null:
+        break;
     }
   }
 
@@ -127,10 +143,10 @@ class _SoriPressableState extends State<SoriPressable> with SingleTickerProvider
                 : SystemMouseCursors.basic,
             child: GestureDetector(
               behavior: widget.behavior,
-              onTapDown:   (_) => _down(),
-              onTapUp:     (_) => _release(),
+              onTapDown: (_) => _down(),
+              onTapUp: (_) => _release(),
               onTapCancel: _release,
-              onTap:       _onTap,
+              onTap: _onTap,
               onLongPress: widget.onLongPress != null ? _onLongPress : null,
               child: AnimatedBuilder(
                 animation: _ctrl,
@@ -147,13 +163,20 @@ class _SoriPressableState extends State<SoriPressable> with SingleTickerProvider
                     children: [
                       scaled,
                       Positioned(
-                        left: -3, top: -3, right: -3, bottom: -3,
+                        left: -3,
+                        top: -3,
+                        right: -3,
+                        bottom: -3,
                         child: IgnorePointer(
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(SoriRadius.md),
+                              borderRadius: BorderRadius.circular(
+                                SoriRadius.md,
+                              ),
                               border: Border.all(
-                                color: SoriColors.primary.withValues(alpha: 0.55),
+                                color: SoriColors.primary.withValues(
+                                  alpha: 0.55,
+                                ),
                                 width: 2,
                               ),
                             ),

@@ -37,14 +37,17 @@ class QuestTracker {
 
     // 명절 상차림 단어 — Essen & Trinken 의 고정 부분집합.
     final songpyeonCount = vocab
-        .where((v) =>
-            kChuseokFoodWords.contains(v.korean) && seen.contains(v.korean))
+        .where(
+          (v) =>
+              kChuseokFoodWords.contains(v.korean) && seen.contains(v.korean),
+        )
         .length;
 
     // 한글 마스터리 — calligraphyTotalDays / 28 jamo × 100.
     // Wert ist clipped 0..100.
-    final hangulPct =
-        (Storage.calligraphyTotalDays * 100 / 28).clamp(0, 100).round();
+    final hangulPct = (Storage.calligraphyTotalDays * 100 / 28)
+        .clamp(0, 100)
+        .round();
 
     // 한글날 7-Tage-Challenge — Tage innerhalb Hangul-Day-Fenster.
     final hangeulChallenge = _calligraphyDaysInWindow(today, days: 14);
@@ -100,10 +103,9 @@ class QuestTracker {
         // 보상 상자·완료 마커는 위에서 이미 로컬에 기록됐으므로, 소셜 계층이
         // 없거나(오프라인·미로그인) 실패해도 학습 보상은 유실되지 않는다.
         try {
-          await GyeService.broadcastFeed(
-            GyeFeedType.questCompleted,
-            {'questId': p.questId},
-          );
+          await GyeService.broadcastFeed(GyeFeedType.questCompleted, {
+            'questId': p.questId,
+          });
         } catch (_) {
           // 보상은 이미 지급됨 — 소셜 broadcast 실패는 무시.
         }
@@ -204,6 +206,20 @@ bool isHanjaProxyWord(String korean) => korean.replaceAll(' ', '').length >= 2;
 ///
 /// 명절 어휘(송편·추석·한가위…)를 CSV 에 추가하면 여기로 되돌리는 게 맞다.
 const Set<String> kChuseokFoodWords = {
-  '밥', '고기', '생선', '채소', '과일', '사과', '계란', '김치',
-  '차', '물', '먹다', '마시다', '맛있다', '요리하다', '맛', '달다',
+  '밥',
+  '고기',
+  '생선',
+  '채소',
+  '과일',
+  '사과',
+  '계란',
+  '김치',
+  '차',
+  '물',
+  '먹다',
+  '마시다',
+  '맛있다',
+  '요리하다',
+  '맛',
+  '달다',
 };

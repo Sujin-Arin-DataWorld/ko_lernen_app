@@ -264,7 +264,8 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
     }
     if (!mounted || completionGeneration != _completionGeneration) return;
 
-    final delivered = result?.deliveredFeedbackIds.contains(feedbackId) ?? false;
+    final delivered =
+        result?.deliveredFeedbackIds.contains(feedbackId) ?? false;
     setState(() {
       _retryingPending = false;
       if (delivered) {

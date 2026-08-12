@@ -36,8 +36,7 @@ class MadangBackground extends StatelessWidget {
 
     final stageAsset =
         'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_$variant.png';
-    final fallbackAsset =
-        'assets/illustrations/hanok/madang($variant).png';
+    final fallbackAsset = 'assets/illustrations/hanok/madang($variant).png';
 
     return Stack(
       fit: StackFit.expand,
@@ -53,9 +52,7 @@ class MadangBackground extends StatelessWidget {
           Positioned(
             top: 12,
             right: 12,
-            child: SafeArea(
-              child: _StageBadge(stage: stage),
-            ),
+            child: SafeArea(child: _StageBadge(stage: stage)),
           ),
       ],
     );
@@ -132,11 +129,7 @@ class _StageBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            Icons.home_work_outlined,
-            size: 14,
-            color: SoriColors.primary,
-          ),
+          Icon(Icons.home_work_outlined, size: 14, color: SoriColors.primary),
           const SizedBox(width: 4),
           Text(
             _stageShortLabel(stage),
@@ -154,17 +147,17 @@ class _StageBadge extends StatelessWidget {
   // 짧은 KR 라벨 — 홈 배지 폭 제한.
   // 풀 다국어는 vocab_packs_screen 의 _StageLabel 이 ARB 키로 처리한다.
   String _stageShortLabel(HanokStage st) => switch (st) {
-        HanokStage.empty            => '터',
-        HanokStage.foundation       => '주춧돌',
-        HanokStage.pillars          => '기둥',
-        HanokStage.beams            => '대들보',
-        HanokStage.thatchRoof       => '초가',
-        HanokStage.tileRoofPartial  => '기와',
-        HanokStage.tileRoofComplete => '기와 완성',
-        HanokStage.dancheong        => '단청',
-        HanokStage.gate             => '솟을대문',
-        HanokStage.windows          => '창호',
-        HanokStage.sideBuilding     => '사랑채',
-        HanokStage.jongga           => '종갓집',
-      };
+    HanokStage.empty => '터',
+    HanokStage.foundation => '주춧돌',
+    HanokStage.pillars => '기둥',
+    HanokStage.beams => '대들보',
+    HanokStage.thatchRoof => '초가',
+    HanokStage.tileRoofPartial => '기와',
+    HanokStage.tileRoofComplete => '기와 완성',
+    HanokStage.dancheong => '단청',
+    HanokStage.gate => '솟을대문',
+    HanokStage.windows => '창호',
+    HanokStage.sideBuilding => '사랑채',
+    HanokStage.jongga => '종갓집',
+  };
 }

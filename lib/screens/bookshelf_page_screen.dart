@@ -93,10 +93,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
       ),
     );
     if (name == null || name.isEmpty) return;
-    final pack = await CustomPackService.createFromPage(
-      page: page,
-      name: name,
-    );
+    final pack = await CustomPackService.createFromPage(page: page, name: name);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -104,10 +101,9 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
           label: t.btnPlay,
-          onPressed: () => Navigator.of(context).pushNamed(
-            '/custom_pack/play',
-            arguments: pack.id,
-          ),
+          onPressed: () => Navigator.of(
+            context,
+          ).pushNamed('/custom_pack/play', arguments: pack.id),
         ),
       ),
     );
@@ -137,8 +133,10 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.bookshelfPageTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.bookshelfPageTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
@@ -150,59 +148,60 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) => ListView(
-          padding: soriClampPadding(
-            constraints.maxWidth,
-            base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-          ),
-          children: [
-            // 추출 원문 미리보기
-            Container(
-              padding: const EdgeInsets.all(Spacing.md),
-              decoration: BoxDecoration(
-                color: SoriColors.info.withValues(alpha: 0.06),
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-                border: Border.all(
-                    color: SoriColors.info.withValues(alpha: 0.20)),
-              ),
-              child: Text(
-                page.extractedText,
-                style: const TextStyle(fontSize: 14, height: 1.5),
-              ),
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
             ),
-            const SizedBox(height: Spacing.lg),
-
-            if (hasWords) ...[
-              SoriButton(
-                label: t.bookshelfCreatePackCta,
-                icon: Icons.style_outlined,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: _createCustomPack,
+            children: [
+              // 추출 원문 미리보기
+              Container(
+                padding: const EdgeInsets.all(Spacing.md),
+                decoration: BoxDecoration(
+                  color: SoriColors.info.withValues(alpha: 0.06),
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  border: Border.all(
+                    color: SoriColors.info.withValues(alpha: 0.20),
+                  ),
+                ),
+                child: Text(
+                  page.extractedText,
+                  style: const TextStyle(fontSize: 14, height: 1.5),
+                ),
               ),
               const SizedBox(height: Spacing.lg),
-            ],
 
-            if (page.words.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionWords),
-              ...page.words.map((w) => _MiniWordRow(word: w, s: s)),
-              const SizedBox(height: Spacing.lg),
-            ],
+              if (hasWords) ...[
+                SoriButton(
+                  label: t.bookshelfCreatePackCta,
+                  icon: Icons.style_outlined,
+                  variant: SoriButtonVariant.filled,
+                  accent: SoriColors.primary,
+                  fullWidth: true,
+                  onTap: _createCustomPack,
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
 
-            if (page.grammar.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionGrammar),
-              ...page.grammar.map((g) => _MiniGrammarRow(hit: g, s: s)),
-              const SizedBox(height: Spacing.lg),
-            ],
+              if (page.words.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionWords),
+                ...page.words.map((w) => _MiniWordRow(word: w, s: s)),
+                const SizedBox(height: Spacing.lg),
+              ],
 
-            if (page.sentences.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionSentences),
-              ...page.sentences.take(10).map(
-                    (sent) => _MiniSentenceRow(sentence: sent, s: s),
-                  ),
+              if (page.grammar.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionGrammar),
+                ...page.grammar.map((g) => _MiniGrammarRow(hit: g, s: s)),
+                const SizedBox(height: Spacing.lg),
+              ],
+
+              if (page.sentences.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionSentences),
+                ...page.sentences
+                    .take(10)
+                    .map((sent) => _MiniSentenceRow(sentence: sent, s: s)),
+              ],
             ],
-          ],
-        ),
+          ),
         ),
       ),
     );
@@ -219,7 +218,10 @@ class _SectionLabel extends StatelessWidget {
       child: Text(
         label,
         style: const TextStyle(
-            fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 0.4),
+          fontSize: 13,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.4,
+        ),
       ),
     );
   }
@@ -278,15 +280,19 @@ class _MiniGrammarRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(hit.nameDe,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w800, fontSize: 13)),
+          Text(
+            hit.nameDe,
+            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+          ),
           if (hit.matchedText.isNotEmpty)
-            Text('"${hit.matchedText}"',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: s.textMuted,
-                    fontStyle: FontStyle.italic)),
+            Text(
+              '"${hit.matchedText}"',
+              style: TextStyle(
+                fontSize: 12,
+                color: s.textMuted,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
         ],
       ),
     );
@@ -308,15 +314,22 @@ class _MiniSentenceRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(sentence.korean,
-                    style: const TextStyle(
-                        fontSize: 13, fontWeight: FontWeight.w600)),
+                Text(
+                  sentence.korean,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 if (sentence.translationDe.isNotEmpty)
-                  Text(sentence.translationDe,
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: s.textMuted,
-                          fontStyle: FontStyle.italic)),
+                  Text(
+                    sentence.translationDe,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: s.textMuted,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
               ],
             ),
           ),

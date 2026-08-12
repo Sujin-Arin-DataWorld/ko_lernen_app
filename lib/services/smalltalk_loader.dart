@@ -38,11 +38,11 @@ class SmalltalkLoader {
   static List<SmalltalkPhrase> filter({
     required String category,
     String? level,
-  }) =>
-      phrases
-          .where((p) =>
-              p.category == category && (level == null || p.level == level))
-          .toList();
+  }) => phrases
+      .where(
+        (p) => p.category == category && (level == null || p.level == level),
+      )
+      .toList();
 
   static void reset() {
     _cats = null;

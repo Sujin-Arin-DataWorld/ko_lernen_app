@@ -38,7 +38,7 @@ class CourseMissionPathOverview extends StatelessWidget {
                       style: SoriTextTheme.of(context).label,
                     ),
                     TextSpan(
-                      text: ' — ${_contentLabel(step.link.contentKind, t)}',
+                      text: ' · ${_contentLabel(step.link.contentKind, t)}',
                       style: SoriTextTheme.of(context).bodySmall,
                     ),
                   ],

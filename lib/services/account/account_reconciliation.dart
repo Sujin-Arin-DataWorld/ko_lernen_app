@@ -1001,10 +1001,7 @@ class AccountReconciliationCoordinator {
         courseMasteryMerger: courseMasteryMerger,
       );
       if (merge.merged == null) {
-        _diag(
-          'merge.blocked',
-          detail: _summarizeConflicts(merge.conflicts),
-        );
+        _diag('merge.blocked', detail: _summarizeConflicts(merge.conflicts));
         return AccountReconciliationResult(
           AccountReconciliationStatus.blocked,
           conflicts: merge.conflicts,

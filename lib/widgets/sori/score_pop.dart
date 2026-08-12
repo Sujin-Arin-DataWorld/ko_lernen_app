@@ -85,8 +85,9 @@ class _ScorePopState extends State<_ScorePop>
       animation: _c,
       builder: (context, _) {
         final t = _c.value;
-        final rise =
-            widget.reduceMotion ? 0.0 : -52.0 * Curves.easeOut.transform(t);
+        final rise = widget.reduceMotion
+            ? 0.0
+            : -52.0 * Curves.easeOut.transform(t);
         final scale = widget.reduceMotion
             ? 1.0
             : (t < 0.2 ? Curves.easeOutBack.transform(t / 0.2) : 1.0);

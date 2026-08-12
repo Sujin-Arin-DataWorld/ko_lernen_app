@@ -6,37 +6,37 @@
 ///
 /// 진행도 컷오프는 `computeStage()` 의 boundary 테스트에 의해 lock 되어 있음.
 enum HanokStage {
-  empty,             // A1 < 25% — 빈 터
-  foundation,        // A1 25-50% — 주춧돌
-  pillars,           // A1 50-75% — 기둥
-  beams,             // A1 75-100% — 대들보 + 서까래
-  thatchRoof,        // A1 100% / A2 < 25% — 초가지붕 (소박한 첫 집)
-  tileRoofPartial,   // A2 25-75% — 기와 부분
-  tileRoofComplete,  // A2 75-100% — 기와 완성
-  dancheong,         // A2 100% / B1 < 25% — 처마 단청
-  gate,              // B1 25-50% — 솟을대문
-  windows,           // B1 50-100% — 창호지문
-  sideBuilding,      // B2 25-50% — 사랑채
-  jongga;            // B2 50-100% — 종갓집 완성
+  empty, // A1 < 25% — 빈 터
+  foundation, // A1 25-50% — 주춧돌
+  pillars, // A1 50-75% — 기둥
+  beams, // A1 75-100% — 대들보 + 서까래
+  thatchRoof, // A1 100% / A2 < 25% — 초가지붕 (소박한 첫 집)
+  tileRoofPartial, // A2 25-75% — 기와 부분
+  tileRoofComplete, // A2 75-100% — 기와 완성
+  dancheong, // A2 100% / B1 < 25% — 처마 단청
+  gate, // B1 25-50% — 솟을대문
+  windows, // B1 50-100% — 창호지문
+  sideBuilding, // B2 25-50% — 사랑채
+  jongga; // B2 50-100% — 종갓집 완성
 
   /// 시각 분류 — Phase 3 PNG 자산 경로 키.
   /// `assets/illustrations/hanok_stages/stage_{slug}_{light|dark}.png`.
   String get assetSlug => switch (this) {
-        HanokStage.empty            => 'empty',
-        HanokStage.foundation       => 'foundation',
-        HanokStage.pillars          => 'pillars',
-        HanokStage.beams            => 'beams',
-        HanokStage.thatchRoof       => 'thatch',
-        HanokStage.tileRoofPartial  => 'tile_partial',
-        HanokStage.tileRoofComplete => 'tile_complete',
-        HanokStage.dancheong        => 'dancheong',
-        HanokStage.gate             => 'gate',
-        HanokStage.windows          => 'windows',
-        // 파일명은 stage_sidebuilding_light.png (언더스코어 없음) — 과거
-        // 'side_building' 오타로 이 단계만 404 → 그라데이션 폴백이었음(2026-07-30 수정).
-        HanokStage.sideBuilding     => 'sidebuilding',
-        HanokStage.jongga           => 'jongga',
-      };
+    HanokStage.empty => 'empty',
+    HanokStage.foundation => 'foundation',
+    HanokStage.pillars => 'pillars',
+    HanokStage.beams => 'beams',
+    HanokStage.thatchRoof => 'thatch',
+    HanokStage.tileRoofPartial => 'tile_partial',
+    HanokStage.tileRoofComplete => 'tile_complete',
+    HanokStage.dancheong => 'dancheong',
+    HanokStage.gate => 'gate',
+    HanokStage.windows => 'windows',
+    // 파일명은 stage_sidebuilding_light.png (언더스코어 없음) — 과거
+    // 'side_building' 오타로 이 단계만 404 → 그라데이션 폴백이었음(2026-07-30 수정).
+    HanokStage.sideBuilding => 'sidebuilding',
+    HanokStage.jongga => 'jongga',
+  };
 
   /// 단계 순서 0..11 (cinematic transition detection 에 사용).
   int get ordinal => HanokStage.values.indexOf(this);

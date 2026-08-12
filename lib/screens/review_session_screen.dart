@@ -206,6 +206,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         ],
       ),
       body: SoriScreenBackground(
+        // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
+        // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
+        // 얼룩덜룩하게 만든다 — 실측 #FAF6EC → #F7F2E6. 그런데 캐릭터 mp4 는
+        // 흰 매트를 multiply 로 지운 **완전 평면 #FAF6EC** 사각형이라, 색이
+        // 맞아도 "매끈한 밝은 사각형"으로 읽힌다. Jin 이 여러 화면에서 반복
+        // 지적한 "호랑이 흰 배경"의 실제 정체가 이 평면 대 얼룩 대비다.
+        // 배경을 평면으로 두면 사각형이 배경과 **완전히 같은 값**이 된다.
+        noiseAlpha: _done ? 0 : 0.11,
         child: SafeArea(
           child: SoriStudyClamp(
             child: _loading
@@ -233,102 +241,115 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   Widget _buildDone(AppL10n t, SoriSurfaces s) {
     final tt = SoriTextTheme.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(Spacing.xl),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
-            CompanionBuilder(
-              builder: (context, kind) => CharacterClipPlayer(
-                asset: CharacterClips.sessionCompleteFor(kind),
-                size: 120,
-                // The screen uses the HanjiTexture base wash behind the clip.
-                blendColor: SoriColors.lightBg,
-                fallbackKind: kind,
-                fallbackEmotion: MascotEmotion.celebrate,
-              ),
-              noneBuilder: (context) => const Icon(
-                Icons.task_alt_rounded,
-                size: 104,
-                color: SoriColors.success,
-              ),
-            ),
-            const SizedBox(height: Spacing.lg),
-            Text(t.reviewDoneTitle, textAlign: TextAlign.center, style: tt.h1),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              t.reviewDoneBody,
-              textAlign: TextAlign.center,
-              style: tt.body.copyWith(color: s.textMuted),
-            ),
-            const SizedBox(height: Spacing.md),
-            Text(
-              '+${_reviewed * 2} XP',
-              style: tt.h2.copyWith(color: SoriColors.gold),
-            ),
-            // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
-            if (widget.bonusPhrase != null) ...[
-              const SizedBox(height: Spacing.xl),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(Spacing.md),
-                decoration: BoxDecoration(
-                  color: SoriColors.highlight.withValues(alpha: 0.10),
-                  borderRadius: SoriRadius.brMd,
+    // 세로 중앙 정렬 — 예전엔 콘텐츠가 상단에 뭉치고 화면 아래 절반이 통째로
+    // 비어서, 축하 문구와 Schließen 이 호랑이 바로 밑에 달라붙은 덩어리로
+    // 보였다(Jin 2026-08-12 "완성도 떨어져"). 콘텐츠가 화면보다 길어지면
+    // SingleChildScrollView 가 그대로 받아 스크롤한다 — 오버플로 계약 유지.
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: constraints.maxHeight),
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
+                CompanionBuilder(
+                  builder: (context, kind) => CharacterClipPlayer(
+                    asset: CharacterClips.sessionCompleteFor(kind),
+                    size: 120,
+                    // The screen uses the HanjiTexture base wash behind the clip.
+                    blendColor: SoriColors.lightBg,
+                    fallbackKind: kind,
+                    fallbackEmotion: MascotEmotion.celebrate,
+                  ),
+                  noneBuilder: (context) => const Icon(
+                    Icons.task_alt_rounded,
+                    size: 104,
+                    color: SoriColors.success,
+                  ),
                 ),
-                child: Column(
-                  children: [
-                    Text(
-                      t.reviewBonusLabel,
-                      style: tt.label.copyWith(color: SoriColors.highlight),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      widget.bonusPhrase!.ko,
-                      textAlign: TextAlign.center,
-                      style: tt.h3,
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      widget.bonusPhrase!.translation(
-                        Localizations.localeOf(context).languageCode,
-                      ),
-                      textAlign: TextAlign.center,
-                      style: tt.bodySmall.copyWith(color: s.textMuted),
-                    ),
-                    const SizedBox(height: 8),
-                    GestureDetector(
-                      onTap: () => TtsService.speak(widget.bonusPhrase!.ko),
-                      child: const Icon(
-                        Icons.volume_up_rounded,
-                        color: SoriColors.highlight,
-                        size: 22,
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: Spacing.lg),
+                Text(
+                  t.reviewDoneTitle,
+                  textAlign: TextAlign.center,
+                  style: tt.h1,
                 ),
-              ),
-            ],
-            if (_feedbackCompletion.current != null &&
-                feedbackScope != null &&
-                feedbackScope.featureGate.isEnabled) ...[
-              const SizedBox(height: Spacing.xl),
-              ContentFeedbackCard(
-                feedbackContext: _feedbackCompletion.current!.context,
-                featureGate: feedbackScope.featureGate,
-                submitFeedback: feedbackScope.submitFeedback,
-                completedMissionIds: feedbackScope.completedMissionIds,
-              ),
-            ],
-            const SizedBox(height: Spacing.xl),
-            SoriButton.filled(
-              label: t.btnClose,
-              fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  t.reviewDoneBody,
+                  textAlign: TextAlign.center,
+                  style: tt.body.copyWith(color: s.textMuted),
+                ),
+                const SizedBox(height: Spacing.md),
+                Text(
+                  '+${_reviewed * 2} XP',
+                  style: tt.h2.copyWith(color: SoriColors.gold),
+                ),
+                // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
+                if (widget.bonusPhrase != null) ...[
+                  const SizedBox(height: Spacing.xl),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(Spacing.md),
+                    decoration: BoxDecoration(
+                      color: SoriColors.highlight.withValues(alpha: 0.10),
+                      borderRadius: SoriRadius.brMd,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          t.reviewBonusLabel,
+                          style: tt.label.copyWith(color: SoriColors.highlight),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          widget.bonusPhrase!.ko,
+                          textAlign: TextAlign.center,
+                          style: tt.h3,
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          widget.bonusPhrase!.translation(
+                            Localizations.localeOf(context).languageCode,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: tt.bodySmall.copyWith(color: s.textMuted),
+                        ),
+                        const SizedBox(height: 8),
+                        GestureDetector(
+                          onTap: () => TtsService.speak(widget.bonusPhrase!.ko),
+                          child: const Icon(
+                            Icons.volume_up_rounded,
+                            color: SoriColors.highlight,
+                            size: 22,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                if (_feedbackCompletion.current != null &&
+                    feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  const SizedBox(height: Spacing.xl),
+                  ContentFeedbackCard(
+                    feedbackContext: _feedbackCompletion.current!.context,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                    completedMissionIds: feedbackScope.completedMissionIds,
+                  ),
+                ],
+                const SizedBox(height: Spacing.xl),
+                SoriButton.filled(
+                  label: t.btnClose,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).maybePop(),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -490,6 +511,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     double h,
   ) => [
     // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
+    //
+    // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
+    // 0.19(최대 92sp) 대 뒷면 0.11(최대 48sp) = 1.7 배라, 짧은 한국어 단어는
+    // 카드를 꽉 채우고 뒤집으면 독일어가 갑자기 작아져 같은 카드로 안 보였다
+    // (Jin 2026-08-12 "한국어카드일때 글씨 너무 크고 독일어일때 너무 좀…").
+    // 한글은 같은 sp 에서 라틴보다 작게 보이므로 1:1 이 아니라 1.3 배로 둔다.
     FittedBox(
       fit: BoxFit.scaleDown,
       child: Text(
@@ -497,7 +524,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.19, 40, 92),
+          fontSize: _sz(h, 0.155, 38, 72),
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -553,7 +580,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Pretendard',
-            fontSize: _sz(h, 0.11, 26, 48),
+            // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
+            fontSize: _sz(h, 0.125, 28, 54),
             fontWeight: FontWeight.w800,
             height: 1.1,
           ),
@@ -651,7 +679,5 @@ class _SpeakButton extends StatelessWidget {
 /// U+2060 은 폭이 0이고 글리프가 없어 화면에 영향이 없다. 붙이는 대상은 화면에
 /// 그릴 문자열뿐이고, TTS·채점·저장에 쓰는 원본에는 절대 넣지 않는다 — 해시가
 /// 달라져 음성 캐시가 통째로 어긋난다.
-String _noIntraWordBreak(String text) => text
-    .split(' ')
-    .map((word) => word.split('').join('⁠'))
-    .join(' ');
+String _noIntraWordBreak(String text) =>
+    text.split(' ').map((word) => word.split('').join('⁠')).join(' ');

@@ -195,124 +195,137 @@ class _GameOverCardState extends State<GameOverCard>
         feedbackScope?.completedMissionIds ??
         const <String>{};
     final kind = kindOrPreferred;
-    return Padding(
-      padding: const EdgeInsets.all(Spacing.lg),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (kind != null) ...[
-                      if (_feedbackClip == null)
-                        Mascot(
-                          kind: kind,
-                          emotion: widget.mascotEmotion,
-                          size: 104,
-                          animate: true,
-                        )
-                      else
-                        CharacterClipPlayer(
-                          asset: _feedbackClip!,
-                          size: 116,
-                          blendColor: Theme.of(context).scaffoldBackgroundColor,
-                          fallbackKind: kind,
-                          fallbackEmotion: widget.mascotEmotion,
+    // ⚠️ 결과 화면 전체를 **평면 스캐폴드 색**으로 덮는다.
+    // 이 카드를 띄우는 게임 4종(cloze·daily_challenge·satz_arcade·speed_match)은
+    // `SoriScreenBackground` 를 쓰는데, 거기 `_HanjiPainter` 가 반지름 48~163px
+    // 짜리 구름 얼룩(#D4C496 @0.075)을 뿌려 배경을 얼룩덜룩하게 만든다
+    // (실측 #FAF6EC → #F7F2E6). 아래 축하 클립은 흰 매트를 multiply 로 지운
+    // **완전 평면** 사각형이라, blendColor 가 맞아도 "매끈한 밝은 사각형"으로
+    // 읽힌다 — Jin 이 반복 지적한 "호랑이 흰 배경"의 실제 정체.
+    // 바탕을 평면으로 만들면 클립 사각형이 배경과 완전히 같은 값이 된다.
+    return ColoredBox(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (kind != null) ...[
+                        if (_feedbackClip == null)
+                          Mascot(
+                            kind: kind,
+                            emotion: widget.mascotEmotion,
+                            size: 104,
+                            animate: true,
+                          )
+                        else
+                          CharacterClipPlayer(
+                            asset: _feedbackClip!,
+                            size: 116,
+                            blendColor: Theme.of(
+                              context,
+                            ).scaffoldBackgroundColor,
+                            fallbackKind: kind,
+                            fallbackEmotion: widget.mascotEmotion,
+                          ),
+                        const SizedBox(height: Spacing.md),
+                      ],
+                      Text(
+                        widget.headline,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
                         ),
-                      const SizedBox(height: Spacing.md),
-                    ],
-                    Text(
-                      widget.headline,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w900,
                       ),
-                    ),
-                    if (widget.scoreLabel != null) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Text(
-                        widget.scoreLabel!,
-                        style: TextStyle(fontSize: 15, color: s.textMuted),
-                      ),
-                    ],
-                    const SizedBox(height: Spacing.lg),
-                    AnimatedBuilder(
-                      animation: _ctrl,
-                      builder: (_, __) {
-                        final shown = (widget.xpGained * _ctrl.value).round();
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 18,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: SoriColors.gold.withValues(alpha: 0.14),
-                            borderRadius: BorderRadius.circular(
-                              SoriRadius.pill,
-                            ),
-                            border: Border.all(
-                              color: SoriColors.gold.withValues(alpha: 0.5),
-                            ),
-                          ),
-                          child: Text(
-                            '+$shown XP',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                              color: SoriColors.gold,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                    if (widget.isNewBest && widget.newBestLabel != null) ...[
-                      const SizedBox(height: Spacing.md),
-                      _iconLine(
-                        SoriGlyph.record,
-                        widget.newBestLabel!,
-                        SoriColors.gold,
-                      ),
-                    ] else if (widget.bestLabel != null) ...[
-                      const SizedBox(height: Spacing.md),
-                      Text(
-                        widget.bestLabel!,
-                        style: TextStyle(fontSize: 13, color: s.textMuted),
-                      ),
-                    ],
-                    if (widget.streakLabel != null) ...[
-                      const SizedBox(height: Spacing.sm),
-                      _iconLine(
-                        SoriGlyph.streak,
-                        widget.streakLabel!,
-                        SoriColors.tiger,
-                      ),
-                    ],
-                    if (widget.feedbackContext != null &&
-                        feedbackSubmitter != null &&
-                        feedbackFeatureGate.isEnabled) ...[
+                      if (widget.scoreLabel != null) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Text(
+                          widget.scoreLabel!,
+                          style: TextStyle(fontSize: 15, color: s.textMuted),
+                        ),
+                      ],
                       const SizedBox(height: Spacing.lg),
-                      ContentFeedbackCard(
-                        feedbackContext: widget.feedbackContext!,
-                        featureGate: feedbackFeatureGate,
-                        submitFeedback: feedbackSubmitter,
-                        mascotKind: kindOrPreferred,
-                        completedMissionIds: feedbackCompletedMissionIds,
+                      AnimatedBuilder(
+                        animation: _ctrl,
+                        builder: (_, __) {
+                          final shown = (widget.xpGained * _ctrl.value).round();
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 18,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              color: SoriColors.gold.withValues(alpha: 0.14),
+                              borderRadius: BorderRadius.circular(
+                                SoriRadius.pill,
+                              ),
+                              border: Border.all(
+                                color: SoriColors.gold.withValues(alpha: 0.5),
+                              ),
+                            ),
+                            child: Text(
+                              '+$shown XP',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900,
+                                color: SoriColors.gold,
+                              ),
+                            ),
+                          );
+                        },
                       ),
+                      if (widget.isNewBest && widget.newBestLabel != null) ...[
+                        const SizedBox(height: Spacing.md),
+                        _iconLine(
+                          SoriGlyph.record,
+                          widget.newBestLabel!,
+                          SoriColors.gold,
+                        ),
+                      ] else if (widget.bestLabel != null) ...[
+                        const SizedBox(height: Spacing.md),
+                        Text(
+                          widget.bestLabel!,
+                          style: TextStyle(fontSize: 13, color: s.textMuted),
+                        ),
+                      ],
+                      if (widget.streakLabel != null) ...[
+                        const SizedBox(height: Spacing.sm),
+                        _iconLine(
+                          SoriGlyph.streak,
+                          widget.streakLabel!,
+                          SoriColors.tiger,
+                        ),
+                      ],
+                      if (widget.feedbackContext != null &&
+                          feedbackSubmitter != null &&
+                          feedbackFeatureGate.isEnabled) ...[
+                        const SizedBox(height: Spacing.lg),
+                        ContentFeedbackCard(
+                          feedbackContext: widget.feedbackContext!,
+                          featureGate: feedbackFeatureGate,
+                          submitFeedback: feedbackSubmitter,
+                          mascotKind: kindOrPreferred,
+                          completedMissionIds: feedbackCompletedMissionIds,
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-          for (var i = 0; i < widget.actions.length; i++) ...[
-            if (i > 0) const SizedBox(height: Spacing.sm),
-            widget.actions[i],
+            for (var i = 0; i < widget.actions.length; i++) ...[
+              if (i > 0) const SizedBox(height: Spacing.sm),
+              widget.actions[i],
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

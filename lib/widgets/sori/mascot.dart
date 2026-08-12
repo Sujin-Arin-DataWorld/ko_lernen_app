@@ -270,10 +270,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       height: widget.size,
       child: Transform.translate(
         offset: Offset(0, bob),
-        child: Transform.scale(
-          scale: scale,
-          child: framed,
-        ),
+        child: Transform.scale(scale: scale, child: framed),
       ),
     );
   }

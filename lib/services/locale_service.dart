@@ -3,13 +3,18 @@ import 'storage_service.dart';
 
 /// Global locale state — bei Änderung rebuildet die ganze App.
 /// `null` = Systemsprache.
-final ValueNotifier<Locale?> localeNotifier = ValueNotifier<Locale?>(_loadInitial());
+final ValueNotifier<Locale?> localeNotifier = ValueNotifier<Locale?>(
+  _loadInitial(),
+);
 
 Locale? _loadInitial() {
   switch (Storage.localeCode) {
-    case 'de': return const Locale('de');
-    case 'en': return const Locale('en');
-    default:   return null;
+    case 'de':
+      return const Locale('de');
+    case 'en':
+      return const Locale('en');
+    default:
+      return null;
   }
 }
 

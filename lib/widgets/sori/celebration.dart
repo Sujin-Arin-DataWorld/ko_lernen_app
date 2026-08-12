@@ -16,14 +16,21 @@ class SoriCelebration {
 
   /// 일회성 축하 입자 burst를 [Overlay]에 띄운다. 1.5초 후 스스로 사라진다.
   /// `MediaQuery.disableAnimations`(prefers-reduced-motion)가 켜져 있으면 no-op.
-  static void burst(BuildContext context, {Offset? origin, int particles = 30}) {
+  static void burst(
+    BuildContext context, {
+    Offset? origin,
+    int particles = 30,
+  }) {
     if (SoriMotion.reduceMotion(context)) return;
     final overlay = Overlay.maybeOf(context);
     if (overlay == null) return;
     final media = MediaQuery.maybeOf(context);
-    final from = origin ??
-        Offset((media?.size.width ?? 360) / 2,
-            (media?.size.height ?? 720) * 0.36);
+    final from =
+        origin ??
+        Offset(
+          (media?.size.width ?? 360) / 2,
+          (media?.size.height ?? 720) * 0.36,
+        );
 
     late OverlayEntry entry;
     entry = OverlayEntry(
@@ -44,9 +51,12 @@ class SoriCelebration {
     if (overlay == null) return;
     final media = MediaQuery.maybeOf(context);
     // origin 미지정 시 화면 중앙(살짝 위)에서 크게 터진다 — 정답 페이오프.
-    final from = origin ??
-        Offset((media?.size.width ?? 360) / 2,
-            (media?.size.height ?? 720) * 0.42);
+    final from =
+        origin ??
+        Offset(
+          (media?.size.width ?? 360) / 2,
+          (media?.size.height ?? 720) * 0.42,
+        );
 
     late OverlayEntry entry;
     entry = OverlayEntry(
@@ -106,12 +116,13 @@ class _CelebrationLayerState extends State<_CelebrationLayer>
         delay: rnd.nextDouble() * 0.12,
       );
     });
-    _ctrl = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1500),
-    )..addStatusListener((s) {
-        if (s == AnimationStatus.completed) widget.onDone();
-      });
+    _ctrl =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 1500),
+        )..addStatusListener((s) {
+          if (s == AnimationStatus.completed) widget.onDone();
+        });
     _ctrl.forward();
   }
 
@@ -184,8 +195,7 @@ class _ConfettiPainter extends CustomPainter {
       // 바깥으로 뻗다 감속 + 중력 낙하.
       final reach = (1 - math.pow(1 - lt, 2).toDouble()); // easeOut
       final dx = math.cos(p.angle) * p.speed * reach;
-      final dy = math.sin(p.angle) * p.speed * reach +
-          _gravity * lt * lt * 0.5;
+      final dy = math.sin(p.angle) * p.speed * reach + _gravity * lt * lt * 0.5;
       final pos = origin + Offset(dx, dy);
 
       // 끝 35%에서 페이드 + 살짝 축소.
@@ -196,7 +206,8 @@ class _ConfettiPainter extends CustomPainter {
       canvas.save();
       canvas.translate(pos.dx, pos.dy);
       canvas.rotate(p.spin * lt);
-      final paint = Paint()..color = p.color.withValues(alpha: fade.clamp(0.0, 1.0));
+      final paint = Paint()
+        ..color = p.color.withValues(alpha: fade.clamp(0.0, 1.0));
       final r = p.size * scale;
       switch (p.shape) {
         case 0:
@@ -284,12 +295,13 @@ class _CoinBurstLayerState extends State<_CoinBurstLayer>
         delay: rnd.nextDouble() * 0.14,
       );
     });
-    _ctrl = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1300),
-    )..addStatusListener((s) {
-        if (s == AnimationStatus.completed) widget.onDone();
-      });
+    _ctrl =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 1300),
+        )..addStatusListener((s) {
+          if (s == AnimationStatus.completed) widget.onDone();
+        });
     _ctrl.forward();
   }
 
@@ -322,11 +334,12 @@ class _CoinBurstLayerState extends State<_CoinBurstLayer>
     // 바깥으로 뻗다 감속 + 중력 낙하 (별/다이아 입자와 동일 물리).
     final reach = 1 - math.pow(1 - lt, 2).toDouble(); // easeOut
     final dx = math.cos(c.angle) * c.speed * reach;
-    final dy =
-        math.sin(c.angle) * c.speed * reach + _gravity * lt * lt * 0.5;
+    final dy = math.sin(c.angle) * c.speed * reach + _gravity * lt * lt * 0.5;
     final fade = lt < 0.6 ? 1.0 : (1 - (lt - 0.6) / 0.4);
-    final scale =
-        (0.5 + reach * 0.5 - (lt > 0.7 ? (lt - 0.7) * 0.6 : 0)).clamp(0.0, 1.2);
+    final scale = (0.5 + reach * 0.5 - (lt > 0.7 ? (lt - 0.7) * 0.6 : 0)).clamp(
+      0.0,
+      1.2,
+    );
     if (fade <= 0 || scale <= 0) return const SizedBox.shrink();
     return Positioned(
       left: widget.origin.dx + dx - c.size / 2,
@@ -342,8 +355,11 @@ class _CoinBurstLayerState extends State<_CoinBurstLayer>
               width: c.size,
               height: c.size,
               filterQuality: FilterQuality.medium,
-              errorBuilder: (_, __, ___) =>
-                  Icon(Icons.brightness_1, size: c.size, color: SoriColors.gold),
+              errorBuilder: (_, __, ___) => Icon(
+                Icons.brightness_1,
+                size: c.size,
+                color: SoriColors.gold,
+              ),
             ),
           ),
         ),

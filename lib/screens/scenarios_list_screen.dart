@@ -469,7 +469,7 @@ class _ScenarioCardBody extends StatelessWidget {
                       const SizedBox(width: Spacing.xs),
                       Expanded(
                         child: Text(
-                          '5–7 min · +${scenario.xpReward} XP',
+                          '5-7 min · +${scenario.xpReward} XP',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(

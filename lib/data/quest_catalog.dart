@@ -48,8 +48,8 @@ const List<QuestDefinition> kQuestCatalog = [
     type: QuestType.standing,
     name: (de: 'Jangdokdae (Krugterrasse)', en: 'Jangdokdae (jar terrace)'),
     description: (
-      de: 'Meistere 15 Essen & Trinken Wörter — und eine Krug-Terrasse entsteht.',
-      en: 'Master 15 food & drink words — a jar terrace appears.',
+      de: 'Meistere 15 Wörter zu Essen und Trinken, dann entsteht eine Krug-Terrasse.',
+      en: 'Master 15 food and drink words and a jar terrace appears.',
     ),
     target: 15,
     source: QuestSource.foodWordsMastered,
@@ -177,8 +177,8 @@ const List<QuestDefinition> kQuestCatalog = [
     type: QuestType.standing,
     name: (de: 'Irrlicht (도깨비불)', en: 'Goblin fire (도깨비불)'),
     description: (
-      de: 'Meistere 25 Wörter aus Beruf & Bildung — ein Irrlicht wacht über die Nachtstunden.',
-      en: 'Master 25 work & education words — a goblin fire keeps watch over late study hours.',
+      de: 'Meistere 25 Wörter aus Beruf und Bildung, dann wacht ein Irrlicht über die Nachtstunden.',
+      en: 'Master 25 work and education words, and a goblin fire keeps watch over late study hours.',
     ),
     target: 25,
     source: QuestSource.workEducationWordsMastered,

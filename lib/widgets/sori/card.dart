@@ -173,9 +173,7 @@ class _SoriCardState extends State<SoriCard> {
 
     // 라이트 전용 그림자 — 흰 한지 카드가 크림(lightBg) 위에 "떠 있는" 문법.
     final List<BoxShadow>? shadows = isLight
-        ? (_pressed && _interactive
-            ? SoriElevation.medium
-            : SoriElevation.low)
+        ? (_pressed && _interactive ? SoriElevation.medium : SoriElevation.low)
         : null;
 
     Widget content = Padding(
@@ -250,12 +248,20 @@ class _SoriCardState extends State<SoriCard> {
             );
     }
 
-    final card = SizedBox(width: widget.width, height: widget.height, child: body);
+    final card = SizedBox(
+      width: widget.width,
+      height: widget.height,
+      child: body,
+    );
 
     if (!_interactive) {
       return widget.semanticLabel == null
           ? card
-          : Semantics(label: widget.semanticLabel, container: true, child: card);
+          : Semantics(
+              label: widget.semanticLabel,
+              container: true,
+              child: card,
+            );
     }
 
     return Semantics(

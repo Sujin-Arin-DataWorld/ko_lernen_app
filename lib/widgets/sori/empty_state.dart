@@ -166,11 +166,7 @@ class SoriEmptyState extends StatelessWidget {
               ],
               if (onCta != null && ctaLabel != null) ...[
                 const SizedBox(height: Spacing.xl),
-                SoriButton(
-                  label: ctaLabel!,
-                  onTap: onCta,
-                  accent: accentColor,
-                ),
+                SoriButton(label: ctaLabel!, onTap: onCta, accent: accentColor),
               ],
               if (onSecondary != null && secondaryLabel != null) ...[
                 const SizedBox(height: Spacing.sm),

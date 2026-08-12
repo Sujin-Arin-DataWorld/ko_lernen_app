@@ -138,9 +138,7 @@ abstract final class DataMigrationService {
     }
 
     if (from > target) {
-      Storage.lockLearningWrites(
-        'schema downgrade: stored=$from app=$target',
-      );
+      Storage.lockLearningWrites('schema downgrade: stored=$from app=$target');
       return _finish(
         DataMigrationResult(
           status: DataMigrationStatus.futureVersion,
@@ -312,10 +310,7 @@ abstract final class DataMigrationService {
         case 'b':
           await prefs.setBool(entry.key, value as bool);
         case 'sl':
-          await prefs.setStringList(
-            entry.key,
-            (value as List).cast<String>(),
-          );
+          await prefs.setStringList(entry.key, (value as List).cast<String>());
       }
     }
     // 복원된 값은 캐시와 어긋나 있다.

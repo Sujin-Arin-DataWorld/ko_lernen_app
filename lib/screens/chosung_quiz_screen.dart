@@ -947,4 +947,3 @@ class _QuizCard extends StatelessWidget {
     );
   }
 }
-

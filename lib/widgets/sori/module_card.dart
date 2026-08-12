@@ -74,12 +74,11 @@ class ModuleCard extends StatelessWidget {
               Text(title, style: tt.cardTitle),
               if (subtitle != null) ...[
                 const SizedBox(height: 3),
-                Text(
-                  subtitle!,
-                  style: tt.cardSubtitle,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                // ⚠️ 말줄임 없음. 이 카드는 고정 높이 격자가 아니라 내용 높이로
+                // 자라는 Wrap/Row 안에 놓이므로 자를 이유가 없다. 예전 maxLines:2
+                // 는 "Schließ Vokabelpakete ab und sammle Dancheong…" 처럼 설명이
+                // 통째로 잘려 무슨 기능인지 알 수 없게 만들었다(Jin 2026-08-12).
+                Text(subtitle!, style: tt.cardSubtitle),
               ],
             ],
           ),

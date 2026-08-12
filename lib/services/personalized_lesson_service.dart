@@ -23,11 +23,20 @@ class PersonalizedLessonService {
     'everyday': {'Alltag', 'Zeit', 'Position', 'Bewegung', 'Menge', 'Zahlen'},
     'food_shopping': {'Essen & Trinken', 'Einkaufen'},
     'work_study': {
-      'Beruf', 'Bildung', 'Technologie', 'Gesellschaft', 'Wissenschaft',
+      'Beruf',
+      'Bildung',
+      'Technologie',
+      'Gesellschaft',
+      'Wissenschaft',
     },
     'travel': {'Reise', 'Verkehr', 'Wetter', 'Geographie', 'Umwelt'},
     'feelings_people': {
-      'Gefühle', 'Beziehungen', 'Familie', 'Person', 'Denken', 'Kommunikation',
+      'Gefühle',
+      'Beziehungen',
+      'Familie',
+      'Person',
+      'Denken',
+      'Kommunikation',
     },
     'health_body': {'Gesundheit', 'Körper', 'Sport'},
   };
@@ -78,8 +87,7 @@ class PersonalizedLessonService {
     if (pool.isEmpty) return const [];
 
     final topics = _topicsFor(interests);
-    final dueIds =
-        Storage.todayGoalIds(pool.map((v) => v.korean)).toSet();
+    final dueIds = Storage.todayGoalIds(pool.map((v) => v.korean)).toSet();
 
     // Stabiler Sort: kleinerer Score zuerst. Index als Tie-Breaker erhält die
     // (kuratierte) CSV-Reihenfolge → deterministisch ohne Zufall.
@@ -97,10 +105,10 @@ class PersonalizedLessonService {
 
   /// Convenience: liest Level + Interessen aus [Storage].
   static List<Vocab> buildFromStorage(List<Vocab> allVocab) => buildVocabDeck(
-        allVocab,
-        levelCode: Storage.userLevelCode ?? 'A1',
-        interests: Storage.interests.toSet(),
-      );
+    allVocab,
+    levelCode: Storage.userLevelCode ?? 'A1',
+    interests: Storage.interests.toSet(),
+  );
 
   // ── M5: Interesse → Small-talk-Kategorien (smalltalk.json category-ids) ──
   static const Map<String, List<String>> interestSmalltalk = {

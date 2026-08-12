@@ -649,7 +649,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                               // 카드와 같은 충전 규칙(soriFillSize).
                               child: LayoutBuilder(
                                 builder: (context, cardConstraints) {
-                                  final cardH = cardConstraints.maxHeight.isFinite
+                                  final cardH =
+                                      cardConstraints.maxHeight.isFinite
                                       ? cardConstraints.maxHeight
                                       : 360.0;
                                   return GestureDetector(

@@ -133,8 +133,10 @@ class _StatsScreenState extends State<StatsScreen>
               Center(
                 child: Image.asset(
                   'assets/illustrations/mascot/magpie_tiger_together.png',
-                  width: (MediaQuery.sizeOf(context).width - 32)
-                      .clamp(240.0, 420.0),
+                  width: (MediaQuery.sizeOf(context).width - 32).clamp(
+                    240.0,
+                    420.0,
+                  ),
                   fit: BoxFit.contain,
                   filterQuality: FilterQuality.high,
                   errorBuilder: (_, __, ___) =>

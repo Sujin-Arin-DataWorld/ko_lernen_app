@@ -548,7 +548,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  done ? '${w.answer} — ${w.german}' : w.german,
+                  done ? '${w.answer} · ${w.german}' : w.german,
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 15,

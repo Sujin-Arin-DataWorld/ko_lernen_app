@@ -1071,7 +1071,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 title: const Text('Premium (Dev-Override)'),
                 subtitle: const Text(
-                  'Nur Debug — testet Gating/Paywall ohne RevenueCat',
+                  'Nur Debug: testet Gating/Paywall ohne RevenueCat',
                   style: TextStyle(
                     fontSize: 12,
                     color: SoriColors.darkTextMuted,
@@ -1308,7 +1308,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       LearnerLevel.b1 => t.onboardingLevelB1,
       LearnerLevel.b2 => t.onboardingLevelB2,
     };
-    return '${lvl.display} — $name';
+    return '${lvl.display} ($name)';
   }
 
   /// 학습 동반 캐릭터 변경. 저장은 [MascotPreference.set] 하나로 통일 —
@@ -1413,7 +1413,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             mainAxisSize: MainAxisSize.min,
             children: LearnerLevel.values.map((lvl) {
               return RadioListTile<LearnerLevel>(
-                title: Text('${lvl.display} — ${nameFor(lvl)}'),
+                title: Text('${lvl.display} (${nameFor(lvl)})'),
                 value: lvl,
                 activeColor: SoriColors.primary,
               );

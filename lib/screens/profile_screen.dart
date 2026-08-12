@@ -238,10 +238,10 @@ class _ProfileScreenState extends State<ProfileScreen>
   String _levelLabel(AppL10n t) => _levelName(t, _learningStartPoint);
 
   String _levelName(AppL10n t, LearnerLevel level) => switch (level) {
-    LearnerLevel.a1 => '${level.display} — ${t.onboardingLevelA1}',
-    LearnerLevel.a2 => '${level.display} — ${t.onboardingLevelA2}',
-    LearnerLevel.b1 => '${level.display} — ${t.onboardingLevelB1}',
-    LearnerLevel.b2 => '${level.display} — ${t.onboardingLevelB2}',
+    LearnerLevel.a1 => '${level.display} (${t.onboardingLevelA1})',
+    LearnerLevel.a2 => '${level.display} (${t.onboardingLevelA2})',
+    LearnerLevel.b1 => '${level.display} (${t.onboardingLevelB1})',
+    LearnerLevel.b2 => '${level.display} (${t.onboardingLevelB2})',
   };
 
   Future<void> _changeLevel() async {
@@ -530,7 +530,20 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ),
                     ),
                     const SizedBox(width: Spacing.sm),
-                    _Avatar(size: 96, preference: widget.previewCompanion),
+                    _Avatar(
+                      size: 96,
+                      preference: widget.previewCompanion,
+                      // ⚠️ 이 카드의 **실제 채움색**을 넘긴다. 아바타 클립은 흰
+                      // 매트를 multiply 로 지우므로 결과가 이 값이 되는데, 예전엔
+                      // 스캐폴드 크림(#FAF6EC)을 넘겨서 teal 카드(#EDF3ED) 위에
+                      // 크림 사각형이 떴다(Jin 2026-08-12 실기기, 실측 확인).
+                      // 위 SoriCard 의 accent·tinted 와 반드시 같은 인자를 쓴다.
+                      backdrop: SoriCard.resolvedBackground(
+                        context,
+                        accent: SoriColors.primary,
+                        tinted: true,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -744,10 +757,15 @@ class _ProfileScreenState extends State<ProfileScreen>
 // ─────────────────────────────────────────────────────────────────────────
 
 class _Avatar extends StatefulWidget {
-  const _Avatar({this.size = 168, this.preference});
+  const _Avatar({this.size = 168, this.preference, this.backdrop});
 
   final double size;
   final CompanionPreference? preference;
+
+  /// 아바타 **바로 뒤에 실제로 칠해지는 색**. 클립의 흰 매트를 multiply 로
+  /// 지우면 결과가 정확히 이 값이 되므로, 여기에 부모가 그리는 색이 아닌 다른
+  /// 값을 주면 그 차이가 사각형으로 보인다. null 이면 스캐폴드 색으로 폴백한다.
+  final Color? backdrop;
 
   @override
   State<_Avatar> createState() => _AvatarState();
@@ -826,12 +844,14 @@ class _AvatarState extends State<_Avatar> {
           // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이
           // 끝나는 순간 lease 가 반납돼 아바타가 비므로 금지(아래 ⚠️ 참고).
           loop: true,
-          // 뒤에 칠해지는 건 이 화면의 plain Scaffold 색이다. 기본값
-          // (SoriColors.lightBg 상수)로 두면 teal 팔레트 kill-switch에서
-          // 스캐폴드가 #FFFFFF 가 되면서 크림 사각형이 뜬다 — game_reward.dart
-          // 와 같은 근거. `s.bg` 는 SoriSurfaces 가 brightness 만 보고
-          // 팔레트 변종을 못 봐서 부적합.
-          blendColor: Theme.of(context).scaffoldBackgroundColor,
+          // 뒤에 칠해지는 **그 색 그대로**여야 한다. 아바타는 스캐폴드 위가
+          // 아니라 tinted 히어로 카드 안에 있으므로 부모가 카드의 실제 채움색을
+          // [_Avatar.backdrop] 으로 넘긴다. 예전엔 여기서 스캐폴드 색을 읽어
+          // teal 카드(#EDF3ED) 위에 크림(#FAF6EC) 사각형이 떴다.
+          // 폴백으로만 스캐폴드 색을 쓴다 — `s.bg` 는 SoriSurfaces 가 brightness
+          // 만 보고 팔레트 변종을 못 봐서 부적합.
+          blendColor:
+              widget.backdrop ?? Theme.of(context).scaffoldBackgroundColor,
           // Jin 2026-08-06: 프로필 정적 폴백 끔 → 투명(배경 비침).
           // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 는 `!reduceMotion` 을
           //    요구해서(video_lease.dart) 접근성 설정 사용자는 영상을 못 받는데,

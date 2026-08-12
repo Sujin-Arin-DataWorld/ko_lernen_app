@@ -51,7 +51,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㄹ',
     'r/l',
-    "zwischen 'r' und 'l' — rollendes r vor Vokal",
+    "zwischen 'r' und 'l', vor Vokal gerollt",
     "between 'r' and 'l'",
     '라디오',
     'Radio',
@@ -105,8 +105,8 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅊ',
     'ch',
-    "wie 'ch' in Tschüss — aspiriert",
-    "like 'ch' in church — aspirated",
+    "wie 'ch' in Tschüss, aspiriert",
+    "like 'ch' in church, aspirated",
     '책',
     'Buch',
     'book',
@@ -114,8 +114,8 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅋ',
     'k',
-    "wie 'k' in Kalt — stark aspiriert",
-    "like 'k' in kite — strongly aspirated",
+    "wie 'k' in Kalt, stark aspiriert",
+    "like 'k' in kite, strongly aspirated",
     '코',
     'Nase',
     'nose',
@@ -123,8 +123,8 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅌ',
     't',
-    "wie 't' in Tisch — stark aspiriert",
-    "like 't' in top — strongly aspirated",
+    "wie 't' in Tisch, stark aspiriert",
+    "like 't' in top, strongly aspirated",
     '토끼',
     'Hase',
     'rabbit',
@@ -132,8 +132,8 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅍ',
     'p',
-    "wie 'p' in Park — stark aspiriert",
-    "like 'p' in park — strongly aspirated",
+    "wie 'p' in Park, stark aspiriert",
+    "like 'p' in park, strongly aspirated",
     '포도',
     'Traube',
     'grape',
@@ -150,7 +150,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㄲ',
     'kk',
-    "doppeltes ㄱ — gespannt, kein Hauch",
+    "doppeltes ㄱ, gespannt und ohne Hauch",
     "tense ㄱ, no aspiration",
     '꽃',
     'Blume',
@@ -159,7 +159,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㄸ',
     'tt',
-    "doppeltes ㄷ — gespannt",
+    "doppeltes ㄷ, gespannt",
     "tense ㄷ",
     '딸기',
     'Erdbeere',
@@ -168,7 +168,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅃ',
     'pp',
-    "doppeltes ㅂ — gespannt",
+    "doppeltes ㅂ, gespannt",
     "tense ㅂ",
     '빵',
     'Brot',
@@ -177,7 +177,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅆ',
     'ss',
-    "doppeltes ㅅ — gespannt",
+    "doppeltes ㅅ, gespannt",
     "tense ㅅ",
     '쌀',
     'Reis',
@@ -186,7 +186,7 @@ const List<HangulChar> consonants = [
   HangulChar(
     'ㅉ',
     'jj',
-    "doppeltes ㅈ — gespannt",
+    "doppeltes ㅈ, gespannt",
     "tense ㅈ",
     '찌개',
     'Eintopf',
@@ -262,7 +262,7 @@ const List<HangulChar> vowels = [
   HangulChar(
     'ㅡ',
     'eu',
-    "wie 'ü' ohne Lippenrundung — kein dt. Äquivalent",
+    "wie 'ü' ohne Lippenrundung (kein dt. Äquivalent)",
     "no English equivalent",
     '그림',
     'Bild',

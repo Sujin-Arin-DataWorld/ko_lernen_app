@@ -63,8 +63,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '573567222361',
     projectId: 'ko-lernen-app',
     storageBucket: 'ko-lernen-app.firebasestorage.app',
-    androidClientId: '573567222361-clvvao1nbjue9a8seic223cue51pa5cp.apps.googleusercontent.com',
-    iosClientId: '573567222361-uphimptmn43da1snk4hc60rhgjd28ppq.apps.googleusercontent.com',
+    androidClientId:
+        '573567222361-clvvao1nbjue9a8seic223cue51pa5cp.apps.googleusercontent.com',
+    iosClientId:
+        '573567222361-uphimptmn43da1snk4hc60rhgjd28ppq.apps.googleusercontent.com',
     iosBundleId: 'com.sujinarin.koLernenApp',
   );
 }

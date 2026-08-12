@@ -132,15 +132,15 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   }
 
   void _add(BuildContext context) => addToWordbook(
-        context,
-        korean: widget.korean,
-        translationDe: widget.translationDe,
-        translationEn: widget.translationEn,
-        romanization: widget.romanization,
-        posDe: widget.posDe,
-        exampleKorean: widget.exampleKorean,
-        exampleDe: widget.exampleDe,
-      );
+    context,
+    korean: widget.korean,
+    translationDe: widget.translationDe,
+    translationEn: widget.translationEn,
+    romanization: widget.romanization,
+    posDe: widget.posDe,
+    exampleKorean: widget.exampleKorean,
+    exampleDe: widget.exampleDe,
+  );
 
   @override
   Widget build(BuildContext context) {

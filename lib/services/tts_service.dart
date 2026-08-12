@@ -643,9 +643,7 @@ class TtsService {
   /// HD mp3 가 있을 때는 여기까지 오지 않는다. 폴백 전용 처리다.
   static Future<void> _applyFallbackLanguage(String text) async {
     final hasHangul = text.runes.any(
-      (r) =>
-          isHangulSyllable(r) ||
-          (r >= 0x3131 && r <= 0x318E), // 홀자모(ㄱ·ㅏ…)
+      (r) => isHangulSyllable(r) || (r >= 0x3131 && r <= 0x318E), // 홀자모(ㄱ·ㅏ…)
     );
     // localeCode 는 'de' | 'en' | ''(시스템). 빈 값이면 이 앱의 기본인 독일어.
     final language = hasHangul

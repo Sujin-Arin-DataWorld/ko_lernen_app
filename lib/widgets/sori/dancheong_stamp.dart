@@ -33,21 +33,21 @@ import 'package:flutter/material.dart';
 ///     달리 잡았다 — 가로 띠, S자 덩굴, 겹친 고리, 육각 격자, 삼각 소용돌이,
 ///     덩어리 꽃. lotus 는 측면 프로필로, octagon 은 순수 격자로 재작화.
 enum DancheongMotif {
-  lotus,         // 인사·자기소개·가족 (a1 greetings/family/self_intro)
+  lotus, // 인사·자기소개·가족 (a1 greetings/family/self_intro)
   chrysanthemum, // 시간·숫자 (a1 time/numbers)
-  plum,          // 감정·형용사 (a1/a2/b1 feelings·descriptions)
-  bamboo,        // 학교·직장 (a2/b1/b2 work/education)
-  cloud,         // 날씨·건강 (a2 weather, a2/b1 health)
-  octagon,       // 음식·쇼핑 (a1/a2 food/shopping)
-  mountain,      // 교통·여행 (a1/a2 transport)
-  manja,         // 신체·색·위치 (a1 body/colors/position)
+  plum, // 감정·형용사 (a1/a2/b1 feelings·descriptions)
+  bamboo, // 학교·직장 (a2/b1/b2 work/education)
+  cloud, // 날씨·건강 (a2 weather, a2/b1 health)
+  octagon, // 음식·쇼핑 (a1/a2 food/shopping)
+  mountain, // 교통·여행 (a1/a2 transport)
+  manja, // 신체·색·위치 (a1 body/colors/position)
   //  ── 2026-08-04 신설 ──
-  vine,          // 일상 (a1/a2/b1 daily) — 최대 그룹 13팩
-  chilbo,        // 사회·기술·소통 (b1 tech_society, b2 society/communication)
-  gwigap,        // 집·기타 (a2 home, a1/b2 misc)
-  wave,          // 환경 (b2 environment)
-  taegeuk,       // 사고·추상 (b2 thinking)
-  peony,         // 돈 (a2 money)
+  vine, // 일상 (a1/a2/b1 daily) — 최대 그룹 13팩
+  chilbo, // 사회·기술·소통 (b1 tech_society, b2 society/communication)
+  gwigap, // 집·기타 (a2 home, a1/b2 misc)
+  wave, // 환경 (b2 environment)
+  taegeuk, // 사고·추상 (b2 thinking)
+  peony, // 돈 (a2 money)
 }
 
 /// Pack-ID → Motif Mapping. Konsistent über alle Phasen.
@@ -62,8 +62,7 @@ DancheongMotif motifForPackId(String packId) {
     'a2_feelings' ||
     'b1_emotions_relations' ||
     'b1_character_feelings' ||
-    'b1_descriptions_adj' =>
-      DancheongMotif.plum,
+    'b1_descriptions_adj' => DancheongMotif.plum,
     'a2_work' ||
     'a2_education' ||
     'b1_work' ||
@@ -71,28 +70,26 @@ DancheongMotif motifForPackId(String packId) {
     'b2_education' ||
     'b1_work_career' ||
     'a2_people_jobs' ||
-    'a2_school_uni' =>
-      DancheongMotif.bamboo,
+    'a2_school_uni' => DancheongMotif.bamboo,
     'a2_weather' ||
     'a2_health_misc' ||
     'b1_health_education' ||
-    'b1_health_hospital' =>
-      DancheongMotif.cloud,
+    'b1_health_hospital' => DancheongMotif.cloud,
     'a1_food' ||
     'a2_food' ||
     'a2_shopping' ||
     'a2_clothing' ||
     'a2_wearing_verbs' ||
     'a2_restaurant' ||
-    'a2_food_more' =>
-      DancheongMotif.octagon,
+    'a2_food_more' => DancheongMotif.octagon,
     'a1_transport' ||
     'a2_transport' ||
     'b1_travel_transport' ||
-    'b1_city_places' =>
-      DancheongMotif.mountain,
-    'a1_body' || 'a1_colors' || 'a1_position' || 'b2_safety_rules' =>
-      DancheongMotif.manja,
+    'b1_city_places' => DancheongMotif.mountain,
+    'a1_body' ||
+    'a1_colors' ||
+    'a1_position' ||
+    'b2_safety_rules' => DancheongMotif.manja,
     // ── 2026-08-04: 여기부터가 예전에 통째로 fallback 으로 새던 주제들 ──
     'a1_daily' ||
     'a2_daily' ||
@@ -100,18 +97,18 @@ DancheongMotif motifForPackId(String packId) {
     'b1_verbs_daily' ||
     'b2_thinking_verbs' ||
     'b2_modern_life' ||
-    'a2_change_verbs' =>
-      DancheongMotif.vine,
+    'a2_change_verbs' => DancheongMotif.vine,
     'b1_tech_society' ||
     'b2_society' ||
     'b2_communication' ||
     'b1_media_culture' ||
     'b1_communication_lang' ||
-    'b2_language_grammar' =>
-      DancheongMotif.chilbo,
-    'a2_home' || 'a1_misc' || 'b2_misc' || 'b2_household_practical' ||
-    'a2_household' =>
-      DancheongMotif.gwigap,
+    'b2_language_grammar' => DancheongMotif.chilbo,
+    'a2_home' ||
+    'a1_misc' ||
+    'b2_misc' ||
+    'b2_household_practical' ||
+    'a2_household' => DancheongMotif.gwigap,
     'b2_environment' || 'a2_nature' => DancheongMotif.wave,
     'b2_thinking' || 'b2_abstract_concepts' => DancheongMotif.taegeuk,
     'a2_money' || 'b1_money_bank' => DancheongMotif.peony,
@@ -119,8 +116,7 @@ DancheongMotif motifForPackId(String packId) {
     'b1_social_events' ||
     'b2_relationships_people' ||
     'b2_manners_society' ||
-    'b2_honorifics' =>
-      DancheongMotif.lotus,
+    'b2_honorifics' => DancheongMotif.lotus,
     'b1_time_life' || 'b2_events_culture' => DancheongMotif.chrysanthemum,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
@@ -175,13 +171,17 @@ class _DancheongStampState extends State<DancheongStamp>
     // overshoot → settle
     _scale = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween(begin: 1.4, end: 0.95)
-            .chain(CurveTween(curve: Curves.easeOut)),
+        tween: Tween(
+          begin: 1.4,
+          end: 0.95,
+        ).chain(CurveTween(curve: Curves.easeOut)),
         weight: 60,
       ),
       TweenSequenceItem(
-        tween: Tween(begin: 0.95, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOutBack)),
+        tween: Tween(
+          begin: 0.95,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOutBack)),
         weight: 40,
       ),
     ]).animate(_ctrl);
@@ -278,7 +278,9 @@ class _StampPainter extends CustomPainter {
     // Motif
     final motifPaint = Paint()..color = red.withValues(alpha: intensity * 0.95);
     final accentPaint = Paint()
-      ..color = const Color(0xFFD4A22E).withValues(alpha: intensity); // 황 (gold)
+      ..color = const Color(
+        0xFFD4A22E,
+      ).withValues(alpha: intensity); // 황 (gold)
     final tealPaint = Paint()
       ..color = const Color(0xFF1F7A6B).withValues(alpha: intensity); // 녹청
 
@@ -327,7 +329,12 @@ class _StampPainter extends CustomPainter {
 
   // 8-petal lotus (radial)
   void _drawLotus(
-    Canvas c, double cx, double cy, double r, Paint p, Paint accent,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint accent,
   ) {
     const petals = 8;
     final petalLen = r * 0.55;
@@ -349,7 +356,12 @@ class _StampPainter extends CustomPainter {
   }
 
   void _drawChrysanthemum(
-    Canvas c, double cx, double cy, double r, Paint p, Paint accent,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint accent,
   ) {
     // double layer lotus, 12 petals each
     for (int layer = 0; layer < 2; layer++) {
@@ -374,7 +386,12 @@ class _StampPainter extends CustomPainter {
   }
 
   void _drawPlum(
-    Canvas c, double cx, double cy, double r, Paint p, Paint accent,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint accent,
   ) {
     // 5 round petals
     const petals = 5;
@@ -390,7 +407,12 @@ class _StampPainter extends CustomPainter {
   }
 
   void _drawBamboo(
-    Canvas c, double cx, double cy, double r, Paint p, Paint dark,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint dark,
   ) {
     // 3 vertical stalks
     final stalkW = r * 0.15;
@@ -420,9 +442,7 @@ class _StampPainter extends CustomPainter {
     }
   }
 
-  void _drawCloud(
-    Canvas c, double cx, double cy, double r, Paint p,
-  ) {
+  void _drawCloud(Canvas c, double cx, double cy, double r, Paint p) {
     // 3-bump cloud scroll
     final base = cy + r * 0.2;
     c.drawCircle(Offset(cx - r * 0.4, base), r * 0.3, p);
@@ -442,7 +462,12 @@ class _StampPainter extends CustomPainter {
   }
 
   void _drawOctagon(
-    Canvas c, double cx, double cy, double r, Paint p, Paint accent,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint accent,
   ) {
     final sides = 8;
     final outer = r * 0.75;
@@ -477,7 +502,12 @@ class _StampPainter extends CustomPainter {
   }
 
   void _drawMountain(
-    Canvas c, double cx, double cy, double r, Paint p, Paint accent,
+    Canvas c,
+    double cx,
+    double cy,
+    double r,
+    Paint p,
+    Paint accent,
   ) {
     // 3 triangular peaks (irworobongdo simplified)
     final base = cy + r * 0.5;

@@ -27,10 +27,9 @@ class SoriLevelChip extends StatelessWidget {
       ),
       child: Text(
         code,
-        style: SoriTextTheme.of(context).label.copyWith(
-          fontSize: 11,
-          color: Colors.white,
-        ),
+        style: SoriTextTheme.of(
+          context,
+        ).label.copyWith(fontSize: 11, color: Colors.white),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Apple, ArrowRight, BookOpenText, Brain, Check, Gamepad2, Headphones, Languages, MapPin, MessageCircle, Mic2, Play, UsersRound, Volume2 } from "lucide-react";
+import { Apple, ArrowRight, Brain, Check, Coffee, Gamepad2, Headphones, Languages, MapPin, Mic2, Play, Repeat2, Sparkles, UsersRound, Volume2 } from "lucide-react";
 import { TesterAccessForm } from "./tester-access-form";
 import { CookieSettingsButton } from "./cookie-settings-button";
 
@@ -225,13 +225,75 @@ function HanokHero({ locale, compact = false }: { locale: Locale; compact?: bool
   </div>;
 }
 
-function StepCard({ index, title, description }: { index: number; title: string; description: string }) {
-  const icon = index === 1 ? <Headphones size={32}/> : index === 2 ? <Mic2 size={32}/> : <Brain size={32}/>;
-  return <article className="step-card"><div className="step-number">STEP 0{index}</div><div className="step-symbol" aria-hidden="true">{icon}</div><h3>{title}</h3><p>{description}</p></article>;
+const lessonDemo = {
+  en: { session: "LESSON 08 · FIRST MEETINGS", listen: "Hear the shape", speak: "Catch the rhythm", review: "Keep it", ready: "READY TO REVIEW", result: "Lesson clear", reward: "A new hanok beam is yours", play: "Play Korean phrase", score: "GREAT MATCH" },
+  de: { session: "LEKTION 08 · ERSTES TREFFEN", listen: "Hör die Form", speak: "Finde den Rhythmus", review: "Behalte es", ready: "BEREIT ZUM WIEDERHOLEN", result: "Lektion geschafft", reward: "Ein neuer Hanok-Balken gehört dir", play: "Koreanischen Satz abspielen", score: "SEHR GUT" },
+  ko: { session: "08번째 수업 · 첫 만남", listen: "소리의 모양 듣기", speak: "리듬 따라잡기", review: "기억에 남기기", ready: "복습할 준비 완료", result: "수업 완료", reward: "한옥에 새 들보가 생겼어요", play: "한국어 문장 재생", score: "아주 좋아요" },
+} as const;
+
+function Waveform({ compact = false }: { compact?: boolean }) {
+  return <span className={`lesson-wave${compact ? " lesson-wave-compact" : ""}`} aria-hidden="true">{[5,12,22,34,18,42,28,14,30,20,8].map((height,index)=><i key={index} style={{height}}/>)}</span>;
 }
 
-function FeatureCard({ symbol, icon, title, description, wide = false }: { symbol: string; icon: React.ReactNode; title: string; description: string; wide?: boolean }) {
-  return <article className={`feature-card${wide ? " feature-wide" : ""}`}><div className="feature-symbol" aria-hidden="true">{icon}<small>{symbol}</small></div><div><h3>{title}</h3><p>{description}</p></div><ArrowRight className="feature-arrow" aria-hidden="true" size={20}/></article>;
+function LessonStage({ locale, steps }: { locale: Locale; steps: readonly (readonly [string, string])[] }) {
+  const demo = lessonDemo[locale];
+  return <div className="lesson-stage">
+    <div className="lesson-stage-top"><span>{demo.session}</span><span><i/> 5 MIN</span></div>
+    <ol className="lesson-flow">
+      <li className="lesson-beat lesson-beat-listen">
+        <div className="lesson-beat-head"><span>01</span><Headphones aria-hidden="true" size={24}/></div>
+        <small>{demo.listen}</small><h3>{steps[0][0]}</h3><p>{steps[0][1]}</p>
+        <div className="listen-demo"><button type="button" aria-label={demo.play}><Play size={18} fill="currentColor"/></button><div><b>괜찮아요?</b><span>gwaen-chan-a-yo?</span></div><Waveform compact/></div>
+      </li>
+      <li className="lesson-beat lesson-beat-speak">
+        <div className="lesson-beat-head"><span>02</span><Mic2 aria-hidden="true" size={24}/></div>
+        <small>{demo.speak}</small><h3>{steps[1][0]}</h3><p>{steps[1][1]}</p>
+        <div className="speak-demo"><span className="speak-score">{demo.score}</span><b>괜 · 찮 · 아 · 요</b><Waveform/></div>
+      </li>
+      <li className="lesson-beat lesson-beat-review">
+        <div className="lesson-beat-head"><span>03</span><Repeat2 aria-hidden="true" size={24}/></div>
+        <small>{demo.review}</small><h3>{steps[2][0]}</h3><p>{steps[2][1]}</p>
+        <div className="review-demo"><span>{demo.ready}</span><div><b>한</b><b>소</b><b>리</b><em><Check size={18}/></em></div></div>
+      </li>
+    </ol>
+    <div className="lesson-reward"><span><Check size={18}/></span><div><small>{demo.result}</small><b>{demo.reward}</b></div><div className="hanok-line" aria-hidden="true"><i/><i/><i/><i/></div></div>
+  </div>;
+}
+
+const featureDemo = {
+  en: { build: "BUILD A SYLLABLE", sound: "SOUND LAB", due: "DUE TODAY", streak: "day streak", scene: "REAL-LIFE SCENE", game: "QUICK MATCH", correct: "3 IN A ROW", listen: "Listen again", situation: "At a café" },
+  de: { build: "BAUE EINE SILBE", sound: "LAUTLABOR", due: "HEUTE FÄLLIG", streak: "Tage in Folge", scene: "ECHTE SITUATION", game: "SCHNELLES MATCH", correct: "3 RICHTIG", listen: "Noch einmal hören", situation: "Im Café" },
+  ko: { build: "글자 블록 만들기", sound: "소리 연구소", due: "오늘 복습", streak: "일 연속", scene: "생활 속 장면", game: "빠른 소리 맞히기", correct: "3개 연속 정답", listen: "다시 듣기", situation: "카페에서" },
+} as const;
+
+function FeatureShowcase({ locale, features }: { locale: Locale; features: readonly (readonly [string, string, string])[] }) {
+  const demo = featureDemo[locale];
+  return <div className="feature-showcase">
+    <article className="feature-panel feature-hangul">
+      <div className="feature-panel-head"><span>{demo.build}</span><b>{features[0][0]}</b></div>
+      <div className="hangul-builder" aria-hidden="true"><span>ㄱ</span><i>+</i><span>ㅏ</span><i>=</i><strong>가</strong></div>
+      <div className="feature-panel-copy"><div><small>01</small><h3>{features[0][1]}</h3></div><p>{features[0][2]}</p></div>
+    </article>
+    <article className="feature-panel feature-pronunciation">
+      <div className="feature-panel-head"><span>{demo.sound}</span><Volume2 size={21}/></div>
+      <div className="sound-lab"><div><small>ㅓ / ㅗ</small><b>서울 · 소울</b></div><Waveform/><button type="button"><Play size={15} fill="currentColor"/> {demo.listen}</button></div>
+      <div className="feature-panel-copy"><div><small>02</small><h3>{features[1][1]}</h3></div><p>{features[1][2]}</p></div>
+    </article>
+    <article className="feature-panel feature-srs">
+      <div className="feature-panel-head"><span>{demo.due}</span><Brain size={20}/></div>
+      <div className="srs-count"><strong>12</strong><span><b>7</b> {demo.streak}</span></div>
+      <div className="feature-panel-copy"><div><small>03</small><h3>{features[2][1]}</h3></div><p>{features[2][2]}</p></div>
+    </article>
+    <article className="feature-panel feature-games">
+      <div className="feature-panel-head"><span>{demo.game}</span><Gamepad2 size={20}/></div>
+      <div className="game-match"><span>소</span><span>서</span><span className="active">수</span><b><Sparkles size={14}/>{demo.correct}</b></div>
+      <div className="feature-panel-copy"><div><small>05</small><h3>{features[4][1]}</h3></div><p>{features[4][2]}</p></div>
+    </article>
+    <article className="feature-panel feature-everyday">
+      <div className="everyday-scene"><span><Coffee size={19}/>{demo.situation}</span><div><b>아이스 아메리카노 한 잔 주세요.</b><button type="button" aria-label={demo.listen}><Volume2 size={18}/></button></div><small>“One iced Americano, please.”</small></div>
+      <div className="feature-panel-copy"><div><small>{demo.scene}</small><h3>{features[3][1]}</h3></div><p>{features[3][2]}</p></div>
+    </article>
+  </div>;
 }
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -241,15 +303,14 @@ export function Footer({ locale }: { locale: Locale }) {
 
 export function Landing({ locale }: { locale: Locale }) {
   const c = content[locale];
-  const featureIcons = [<BookOpenText key="hangul" size={31}/>, <Volume2 key="pronunciation" size={31}/>, <Brain key="srs" size={31}/>, <MessageCircle key="real-life" size={31}/>, <Gamepad2 key="games" size={31}/>];
   const trustIcons = [<Languages key="languages" size={25}/>, <Headphones key="sounds" size={25}/>, <MapPin key="situations" size={25}/>, <UsersRound key="gye" size={25}/>];
   return <main lang={locale}>
     <Header locale={locale}/>
     <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1>{c.headline}</h1><p className="hero-intro">{c.intro}</p><div className="hero-actions"><ButtonLink href="#tester-access">{c.start}</ButtonLink><ButtonLink href="#how" variant="secondary">{c.secondary}</ButtonLink></div><StoreButtons locale={locale}/><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
 
-    <section className="section how-section" id="how"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.stepsEyebrow}</p><h2>{c.stepsTitle}</h2></div><p>{c.stepsIntro}</p></div><div className="steps-grid">{c.steps.map((step,index)=><StepCard key={step[0]} index={index+1} title={step[0]} description={step[1]}/>)}</div></div></section>
+    <section className="section how-section" id="how"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.stepsEyebrow}</p><h2>{c.stepsTitle}</h2></div><p>{c.stepsIntro}</p></div><LessonStage locale={locale} steps={c.steps}/></div></section>
 
-    <section className="section features-section" id="features"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.featuresEyebrow}</p><h2>{c.featuresTitle}</h2></div><p>{c.featuresIntro}</p></div><div className="features-grid">{c.features.map((feature,index)=><FeatureCard key={feature[1]} symbol={feature[0]} icon={featureIcons[index]} title={feature[1]} description={feature[2]} wide={index > 2}/>)}</div></div></section>
+    <section className="section features-section" id="features"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.featuresEyebrow}</p><h2>{c.featuresTitle}</h2></div><p>{c.featuresIntro}</p></div><FeatureShowcase locale={locale} features={c.features}/></div></section>
 
     <section className="journey-section"><div className="journey-shell"><div className="journey-copy"><p className="eyebrow eyebrow-light korean-brand-copy">{c.journeyEyebrow}</p><h2 className={locale === "ko" ? "ko-emotive-title" : undefined}>{c.journeyTitle}</h2><p>{c.journeyIntro}</p><div className="progress-meta"><span>{c.current}</span><b>{c.complete}</b></div><div className="progress-bar" aria-label={c.complete}><span /></div></div><div><div className="hanok-stage-strip" aria-label="Hanok construction stages">{[
       ["/app-assets/hanok-stages/stage-empty.png", "01"],

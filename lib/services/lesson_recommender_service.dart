@@ -58,8 +58,9 @@ class LessonRecommenderService {
     try {
       for (final level in _levels) {
         final view = await PackProgressService.loadLevelView(level);
-        final hasOpen =
-            view.any((n) => n.progress.status != PackStatus.cleared);
+        final hasOpen = view.any(
+          (n) => n.progress.status != PackStatus.cleared,
+        );
         if (hasOpen) return level;
       }
       return _levels.last; // 전부 클리어 → 최상위.

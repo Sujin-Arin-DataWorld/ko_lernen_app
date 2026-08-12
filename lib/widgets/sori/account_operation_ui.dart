@@ -485,7 +485,8 @@ Future<void> showAccountActionLocked(
   return _showLockedAction(
     context,
     title: t.accountOperationBlockedTitle,
-    body: '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
+    body:
+        '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
     actionLabel: t.accountLockedRefresh,
     action: () async {
       await source?.refreshPendingState();

@@ -102,10 +102,7 @@ MissionPick? recommendMission({
   if (node != null &&
       node.progress.progressFraction > 0 &&
       node.progress.status != PackStatus.cleared) {
-    return PackPick(
-      pack: node.pack,
-      fraction: node.progress.progressFraction,
-    );
+    return PackPick(pack: node.pack, fraction: node.progress.progressFraction);
   }
   // ③ 오늘 복습.
   if (dueCount >= reviewThreshold) {

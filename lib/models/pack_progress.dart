@@ -63,17 +63,16 @@ class PackProgress {
     required String level,
     required int wordsTotal,
     PackStatus status = PackStatus.available,
-  }) =>
-      PackProgress(
-        packId: packId,
-        level: level,
-        status: status,
-        wordsLearned: 0,
-        wordsTotal: wordsTotal,
-        bossAccuracy: 0.0,
-        attempts: 0,
-        clearedAtIso: null,
-      );
+  }) => PackProgress(
+    packId: packId,
+    level: level,
+    status: status,
+    wordsLearned: 0,
+    wordsTotal: wordsTotal,
+    bossAccuracy: 0.0,
+    attempts: 0,
+    clearedAtIso: null,
+  );
 
   PackProgress copyWith({
     PackStatus? status,
@@ -83,27 +82,26 @@ class PackProgress {
     int? attempts,
     String? clearedAtIso,
     bool clearClearedAt = false,
-  }) =>
-      PackProgress(
-        packId: packId,
-        level: level,
-        status: status ?? this.status,
-        wordsLearned: wordsLearned ?? this.wordsLearned,
-        wordsTotal: wordsTotal ?? this.wordsTotal,
-        bossAccuracy: bossAccuracy ?? this.bossAccuracy,
-        attempts: attempts ?? this.attempts,
-        clearedAtIso: clearClearedAt ? null : (clearedAtIso ?? this.clearedAtIso),
-      );
+  }) => PackProgress(
+    packId: packId,
+    level: level,
+    status: status ?? this.status,
+    wordsLearned: wordsLearned ?? this.wordsLearned,
+    wordsTotal: wordsTotal ?? this.wordsTotal,
+    bossAccuracy: bossAccuracy ?? this.bossAccuracy,
+    attempts: attempts ?? this.attempts,
+    clearedAtIso: clearClearedAt ? null : (clearedAtIso ?? this.clearedAtIso),
+  );
 
   Map<String, dynamic> toJson() => {
-        'level': level,
-        'status': status.toJsonValue(),
-        'wordsLearned': wordsLearned,
-        'wordsTotal': wordsTotal,
-        'bossAccuracy': bossAccuracy,
-        'attempts': attempts,
-        'clearedAt': clearedAtIso,
-      };
+    'level': level,
+    'status': status.toJsonValue(),
+    'wordsLearned': wordsLearned,
+    'wordsTotal': wordsTotal,
+    'bossAccuracy': bossAccuracy,
+    'attempts': attempts,
+    'clearedAt': clearedAtIso,
+  };
 
   factory PackProgress.fromJson(String packId, Map<String, dynamic> j) =>
       PackProgress(

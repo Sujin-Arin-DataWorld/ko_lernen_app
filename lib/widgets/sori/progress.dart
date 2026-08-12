@@ -10,7 +10,7 @@ import 'tokens.dart';
 /// SoriProgressBar(value: 0.6, thickness: 10, color: SoriColors.success, animated: true)
 /// ```
 class SoriProgressBar extends StatelessWidget {
-  final double value;          // 0.0 - 1.0
+  final double value; // 0.0 - 1.0
   final double thickness;
   final Color? color;
   final Color? trackColor;

@@ -109,10 +109,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          t.placementProgress(
-            _index + 1,
-            placementDiagnosticQuestions.length,
-          ),
+          t.placementProgress(_index + 1, placementDiagnosticQuestions.length),
           style: SoriTextTheme.of(
             context,
           ).label.copyWith(color: SoriColors.primary),
@@ -237,10 +234,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
           ),
         ),
         const SizedBox(height: Spacing.xl),
-        Text(
-          t.placementChooseYourself,
-          style: SoriTextTheme.of(context).h3,
-        ),
+        Text(t.placementChooseYourself, style: SoriTextTheme.of(context).h3),
         const SizedBox(height: Spacing.sm),
         for (final level in const ['a1', 'a2', 'b1', 'b2'])
           Padding(

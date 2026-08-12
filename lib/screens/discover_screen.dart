@@ -355,22 +355,55 @@ class _FeatureGrid extends StatelessWidget {
         );
         final itemWidth =
             (constraints.maxWidth - Spacing.md * (columns - 1)) / columns;
-        return Wrap(
-          spacing: Spacing.md,
-          runSpacing: Spacing.md,
-          children: [
-            for (final feature in features)
-              SizedBox(
-                width: itemWidth,
-                child: ModuleCard(
-                  icon: feature.icon,
-                  title: feature.title,
-                  subtitle: feature.subtitle,
-                  accent: feature.accent,
-                  ribbonType: feature.ribbonType,
-                  onTap: () => Navigator.pushNamed(context, feature.route),
-                ),
+        // 설명 말줄임을 없앤 뒤로는 카드마다 줄 수가 달라진다. Wrap 은 한 행의
+        // 높이를 맞춰 주지 않아 카드가 들쭉날쭉해지므로, 행 단위로 끊어
+        // IntrinsicHeight + stretch 로 **그 행 안에서만** 높이를 맞춘다.
+        // (전체를 한 높이로 맞추지는 않는다 — 설명이 긴 카드 때문에 짧은 카드가
+        //  통째로 커지면 화면이 낭비된다.)
+        final rows = <Widget>[];
+        for (var start = 0; start < features.length; start += columns) {
+          final end = start + columns > features.length
+              ? features.length
+              : start + columns;
+          final slice = features.sublist(start, end);
+          rows.add(
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var column = 0; column < columns; column++) ...[
+                    if (column > 0) const SizedBox(width: Spacing.md),
+                    SizedBox(
+                      width: itemWidth,
+                      // 마지막 행이 덜 찼을 때 빈 자리 — 남은 카드가 가로로
+                      // 늘어나지 않게 자리만 차지한다.
+                      child: column < slice.length
+                          ? ModuleCard(
+                              icon: slice[column].icon,
+                              title: slice[column].title,
+                              subtitle: slice[column].subtitle,
+                              accent: slice[column].accent,
+                              ribbonType: slice[column].ribbonType,
+                              onTap: () => Navigator.pushNamed(
+                                context,
+                                slice[column].route,
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                    ),
+                  ],
+                ],
               ),
+            ),
+          );
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var i = 0; i < rows.length; i++) ...[
+              if (i > 0) const SizedBox(height: Spacing.md),
+              rows[i],
+            ],
           ],
         );
       },

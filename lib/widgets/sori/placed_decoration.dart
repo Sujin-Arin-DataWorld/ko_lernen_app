@@ -122,10 +122,7 @@ const Map<String, ({String de, String en})> kDecorName = {
     en: 'Bamboo scroll (대나무)',
   ),
   'decoration_pyeonaek': (de: 'Namenstafel (편액)', en: 'Name plaque (편액)'),
-  'decoration_dokkaebi_fire': (
-    de: 'Irrlicht (도깨비불)',
-    en: 'Goblin fire (도깨비불)',
-  ),
+  'decoration_dokkaebi_fire': (de: 'Irrlicht (도깨비불)', en: 'Goblin fire (도깨비불)'),
 };
 
 /// [slug] 의 표시 이름. 미등록이면 슬러그에서 만든 대체 이름.

@@ -16,15 +16,15 @@ class ReviewDeckService {
   static const String customLevelTag = '★'; // 복습 카드 우상단 레벨 표시용
 
   static Vocab _fromWord(ExtractedWord w) => Vocab(
-        korean: w.korean,
-        romanization: w.romanization,
-        german: w.translationDe,
-        level: customLevelTag,
-        posDe: w.posDe,
-        exampleKorean: w.exampleKorean,
-        exampleGerman: w.exampleDe,
-        topic: '',
-      );
+    korean: w.korean,
+    romanization: w.romanization,
+    german: w.translationDe,
+    level: customLevelTag,
+    posDe: w.posDe,
+    exampleKorean: w.exampleKorean,
+    exampleGerman: w.exampleDe,
+    topic: '',
+  );
 
   /// CSV + 커스텀 팩 + 책장 단어를 합친 복습 풀. 한국어 기준 중복 제거.
   static Future<List<Vocab>> allReviewable() async {
@@ -42,7 +42,9 @@ class ReviewDeckService {
       for (final v in await DataLoader.loadVocab()) {
         add(v);
       }
-    } catch (_) {/* CSV 로드 실패 시 커스텀만으로도 동작 */}
+    } catch (_) {
+      /* CSV 로드 실패 시 커스텀만으로도 동작 */
+    }
 
     // 2. 나만의 단어장 (커스텀 팩).
     for (final pack in CustomPackService.getAll()) {
@@ -58,7 +60,9 @@ class ReviewDeckService {
           add(_fromWord(w));
         }
       }
-    } catch (_) {/* best-effort */}
+    } catch (_) {
+      /* best-effort */
+    }
 
     return out;
   }
