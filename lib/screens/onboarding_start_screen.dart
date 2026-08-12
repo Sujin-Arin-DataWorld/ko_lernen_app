@@ -31,7 +31,19 @@ class OnboardingStartScreen extends StatefulWidget {
     this.startNewLearner,
     this.openFirstScene,
     this.initialMotivation,
-  });
+  }) : openPlacement = null,
+       previewMode = false;
+
+  /// Production onboarding rendered with explicit, storage-free actions.
+  /// Both the new-learner and placement branches are intercepted so an
+  /// exploratory Gallery tap cannot initialize or alter course placement.
+  const OnboardingStartScreen.preview({
+    super.key,
+    required this.startNewLearner,
+    required this.openFirstScene,
+    required this.openPlacement,
+    this.initialMotivation = LearnerMotivation.travel,
+  }) : previewMode = true;
 
   /// Lets the first-scene navigation contract be verified without loading the
   /// full curriculum catalog in a widget test. Production uses the built-in
@@ -45,6 +57,8 @@ class OnboardingStartScreen extends StatefulWidget {
   /// Optional preview state; omitting it preserves the stored production
   /// motivation behavior.
   final LearnerMotivation? initialMotivation;
+  final Future<void> Function()? openPlacement;
+  final bool previewMode;
 
   @override
   State<OnboardingStartScreen> createState() => _OnboardingStartScreenState();
@@ -72,6 +86,10 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
     HapticFeedback.mediumImpact();
 
     if (!_startsNew) {
+      if (widget.previewMode) {
+        await widget.openPlacement?.call();
+        return;
+      }
       await Storage.setMotivation(_motivation.id);
       await Storage.setMotivationAsked();
       if (!mounted) {

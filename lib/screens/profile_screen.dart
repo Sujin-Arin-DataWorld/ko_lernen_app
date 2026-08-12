@@ -55,7 +55,26 @@ class ProfileScreen extends StatefulWidget {
     this.onOpenGye,
     this.onOpenAccountDeletion,
     this.enableCoach = true,
-  });
+  }) : previewMode = false;
+
+  /// Production Profile surface with every mutating action disabled and all
+  /// asynchronous account/group state supplied by the Gallery.
+  const ProfileScreen.preview({
+    super.key,
+    required this.accountOperations,
+    required this.cloudDataDeletionJournalState,
+    required this.loadGyeMetas,
+    this.account = const AuthAccountSnapshot(
+      providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
+      displayName: 'Vorschau',
+    ),
+  }) : cloudDataDeletion = null,
+       exportLearningData = null,
+       onOpenAccountControls = null,
+       onOpenGye = null,
+       onOpenAccountDeletion = null,
+       enableCoach = false,
+       previewMode = true;
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
@@ -68,6 +87,7 @@ class ProfileScreen extends StatefulWidget {
   final VoidCallback? onOpenGye;
   final VoidCallback? onOpenAccountDeletion;
   final bool enableCoach;
+  final bool previewMode;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -119,6 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _connectWith(AccountLinkProvider provider) async {
+    if (widget.previewMode) return;
     setState(() => _busy = true);
     try {
       await runConfirmedAccountLink(
@@ -137,6 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _signOut() async {
+    if (widget.previewMode) return;
     try {
       await AuthService.signOut();
     } catch (_) {
@@ -148,6 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _resumeCloudDeletion() async {
+    if (widget.previewMode) return;
     await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
     if (mounted) {
       setState(() {});
@@ -158,6 +181,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Future<void> _showActionLocked(
     CloudBackupDeletionJournalState cloudDeletionState,
   ) {
+    if (widget.previewMode) return Future<void>.value();
     return showAccountActionLocked(
       context,
       operations: _accountOperations,
@@ -167,6 +191,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _changeMotivation() async {
+    if (widget.previewMode) return;
     await showMotivationSheet(context);
     if (mounted) {
       setState(() {});
@@ -187,6 +212,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   };
 
   Future<void> _changeLevel() async {
+    if (widget.previewMode) return;
     final t = AppL10n.of(context);
     final current =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
@@ -226,6 +252,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _changeCompanion() async {
+    if (widget.previewMode) return;
     final t = AppL10n.of(context);
     final current = MascotPreference.preference.value;
     const options = <CompanionPreference>[
@@ -291,6 +318,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _openAccountControls() async {
+    if (widget.previewMode) return;
     final override = widget.onOpenAccountControls;
     if (override != null) {
       override();
@@ -305,6 +333,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   void _openGye() {
+    if (widget.previewMode) return;
     final override = widget.onOpenGye;
     if (override != null) {
       override();
@@ -314,6 +343,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   void _openAccountDeletion() {
+    if (widget.previewMode) return;
     final override = widget.onOpenAccountDeletion;
     if (override != null) {
       override();
@@ -325,6 +355,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _exportLearningData() async {
+    if (widget.previewMode) return;
     if (_exportBusy) return;
     final messenger = ScaffoldMessenger.of(context);
     final t = AppL10n.of(context);
