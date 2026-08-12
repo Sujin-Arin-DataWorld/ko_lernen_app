@@ -5545,6 +5545,40 @@ cp -r assets/illustrations/.backup_uncompressed/* assets/illustrations/
 ---
 
 
+## 2026-08-13 — 법적 링크 404 · 까치 클립 불량 · 계정 잠금 원인 (Claude)
+
+**법적 링크 4개가 전부 404였다.** 사이트를 Next.js 로 옮기며 `.html` 경로가
+사라졌는데 앱은 옛 주소를 부르고 있었다. curl 실측:
+`/account-deletion.html` `/privacy.html` `/terms.html` `/impressum.html`
+= 전부 404, 확장자를 뺀 4개는 전부 200. 앱의 6곳을 교체했다(`261e67c`).
+Play 는 계정 삭제·개인정보 URL 이 살아 있어야 하므로 컴플라이언스 사안이다.
+
+**프로필 까치 클립 교체.** `magpie_bob2.mp4` 는 에셋 불량이다. 실측(960²
+첫 프레임): 눈에 보이는 회색(min 225~239) 15.3%, 그중 5.8% 가 푸른끼
+(#EAE8FE 계열). 다른 클립은 0.5% 미만(magpie_perched 0.30% · tiger_roar
+0.08%). multiply 는 순백만 지우므로 이 그림자가 남아 teal 카드(#EDF3ED)
+위에서 #D9DDEC 푸른 얼룩이 된다. `check_clip_matte.py` 는 **모서리만**
+표본해 못 잡았다 — 모서리는 순백이 맞고 그림자는 새 주변에만 있다.
+→ 깨끗한 `magpie_perched` 로 교체. 홉 애니메이션을 되살리려면 mp4 를 순백
+배경으로 다시 내보내고 상수만 되돌리면 된다.
+⛔ **후속: `check_clip_matte.py` 를 모서리 표본에서 전 프레임 검사로 바꿔야
+같은 불량이 다시 통과하지 못한다.** (미착수)
+
+**계정 잠금 — 링크가 원인이 아니다.** 기기 SharedPreferences 실측:
+`kl_account_transition_journal_v1` = `mode: quiesced`,
+`replacementProvider: google`, `replacementPhase: targetVerified`.
+구글 계정 교체가 "대상 확인"까지 가고 멈춰 소스 계정이 동결됐고, 그래서
+구글 연동과 데이터 삭제가 **동시에** 막힌다. Codex 병행 조사로 근본 원인이
+확정됐다: **계정 Callable 11개 + `account_deletion_worker` 가 2026-08-12
+01:09 UTC 에 Firebase 에서 삭제됐다.** 소스에는 여전히 export 돼 있어 앱
+코드와 배포 상태가 어긋났다. 저널을 지워도 함수가 없으면 삭제를 시작할 수
+없으므로 **배포 복구가 선행**이다. journal 은 실제 교체 대상 UID 를
+참조하므로 임의로 지우지 않았다.
+
+**미해결(내 범위 밖).** ① 계정 함수 11개 + worker 재배포 ② 사이트
+`/api/request-deletion-by-proof` 404(새 사이트에 `app/api` 없음 — 앱은 이
+주소를 부르지 않고 삭제 안내 페이지의 폼이 부른다).
+
 ## 2026-08-13 — 캐릭터 클립 흰 사각형: 진짜 원인 2개 (Claude)
 
 Jin 실기기 반복 지적("호랑이 뿐만 아니라 까치도"). adb 픽셀 실측으로 원인이
