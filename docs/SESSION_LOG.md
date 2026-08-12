@@ -5974,3 +5974,5 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - Added `SoriActivityColors`, the activity/reward/progression contracts, and one catalog for all Learn and Games entries.
 - Added read-only UX Gallery panels `07A`–`07D` for Today, lesson stages, the actual-change reward receipt, and the complete learning journey.
 - No new character, Hanok, AI, or Rive assets were introduced.
+- Added the approved plan as the living specification in `tasks/plan.md` and
+  the vertical-slice verification checklist in `tasks/todo.md`.
