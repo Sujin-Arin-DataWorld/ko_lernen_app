@@ -1,5 +1,65 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Claude) — 5개 병렬 세션 통합: origin/main 흡수
+
+**왜.** 어제 종료된 세션들의 작업이 5갈래로 흩어져 있었다. 로컬 `main` 9커밋,
+`origin/session/2026-08-12-hardening` 17커밋, `codex/ux-{01-02,03-04,05-06}-parity`,
+`codex/ux-gallery-production-previews`. 그 사이 origin/main 은 PR #17·#18 로 45커밋
+전진했다. 무엇이 진짜 새 작업이고 무엇이 이미 들어갔는지 아무도 몰랐다.
+
+**어떻게 판정했나.** 커밋 제목이 아니라 **패치 내용**으로 봤고(`git cherry`), 충돌은
+워킹트리를 건드리지 않는 `git merge-tree` 로 시뮬레이션했다. 스트림마다 분석 에이전트와
+**반증 에이전트**를 붙였다 — "이미 흡수됨" 오판은 작업을 영구히 잃지만 반대(중복 병합)는
+나중에 고칠 수 있으므로, 흡수 판정을 깨뜨리는 쪽에 검증을 몰았다.
+
+**결과.**
+
+- **UX 4스트림 전부 병합 안 함.** PR #17 이 같은 작업을 이미 landing 시켰다. `add/add`
+  충돌 44건이 그 증거였다(origin/main 에 같은 이름 파일이 이미 존재). 병합했으면
+  `gye_weekly_promise_navigation` 의 exact-link 가드 약화, `today_learning_snapshot` 의
+  read 중 write 부활, `home_today_snapshot_test` red 라는 회귀만 얻었다.
+- **로컬 `main` 9커밋 병합**(3faa083). 충돌 6건. `satz_bauen_quest.dart` 는 3요소
+  union — origin/main 의 `SoriMinHeightScroll` 뷰포트 가드(f1320ff)를 유지한 채
+  브랜치의 `SoundService.wrong()` 과 `burstScale:6` 만 바깥 `MascotPartner` 로 이식했다.
+  `character_clip.dart` 를 브랜치 쪽으로 풀었으면 310bb68 의 '동반자 미선택'이 조용히
+  정적 Tiger 로 회귀했다.
+- **하드닝은 17커밋 중 10건만 신규.** merge-base 가 645커밋 전이고 CSV 가 931행 vs
+  559행이라 diff 이식이 불가능해 보존된 재적용 도구로 다시 돌렸다(38277dd, 3dec039).
+  CSV 재번역 410키 전부 매칭(고아 0) → 독일어 396·영어 397건 갱신.
+
+**되돌린 판단 1건.** cloze/satz 를 구 `content_factory` 로 재생성했더니 테스트가
+12→32 실패로 늘었다. origin/main 은 그 뒤 course graph·불변 source ID·audit manifest
+체계로 진화했는데 구 생성기는 `id` 를 만들지 않는다(cloze 286→542 로 늘며 ID 계약
+붕괴). 두 파일을 origin/main 판으로 되돌려 전부 복구했다. **파이프라인이 진화한
+영역에 옛 생성기를 다시 돌리면 안 된다**는 게 이번 교훈이다.
+
+**반증 검증이 뒤집은 1건.** `a81418d` 를 "흡수됨"으로 폐기하려던 판정이 틀렸다.
+origin/main 의 `on_user_deleted` 는 `onDocumentDeleted("users/{uid}")` = **Firestore
+문서** 트리거이고 브랜치판은 `auth.user().onDelete()` = **Auth 계정** 트리거다.
+origin/main 전체에 Auth onDelete 가 0건이라, Console·gcloud·CS 수동으로 계정만
+지워지면 gye 멤버 문서·memberCount 를 정리할 훅이 없었다. `on_auth_user_deleted` 로
+개명해 재구현했다(GCF 는 동일 리전 동명 gen-1/gen-2 공존 불가).
+
+**Blitz-Paare 130% red 는 제품 결함이 아니었다**(e7f2cfd). `didExceedMaxLines` 로
+빨갛던 원인은 `flutter test` 가 **모든 글자를 같은 폭 사각형으로 그리는 테스트 폰트**를
+쓰는 것이었다. 실측: 테스트 폰트 4/4 잘림(라벨 51px) ↔ Pretendard 0/4(87px). 검토했던
+완화안 3개가 전부 무의미함도 실측했다 — maxLines 4 로도 4/4, 3쌍으로도 3/3 잘렸다.
+폭이 문제였고 그 폭이 가짜였다. 제품 코드 무변경, `setUpAll` 에서 실제 폰트만 로드.
+
+**검증.** `flutter analyze` 0 issues. 잔여 테스트 실패는 전부 origin/main 기준선에서도
+동일하게 실패하는 골든 드리프트이며, 별도 워크트리에 origin/main 을 펼쳐 실측 대조했다
+(기준선 11건 = home_layout 2 + screen_layout 9). 함수 테스트 6/6.
+
+**미이식(의도적 보류).** ① quest `hidden` 필드 배선 — origin/main 퀘스트 시스템이
+진화해 설계 재검토 필요. ② `book_preview_screen` hintText l10n 화. ③ GowunBatang
+번들 해제(사용처 0이나 골든 영향 확인 필요). ④ iOS `GoogleService-Info.plist` — Jin
+결정에 따라 **저장소 제외 유지**. ⑤ TTS 자산 재생성은 유료 호출이라 별도 세션.
+
+**Jin 확인 필요.** 테스터 빌드는 `--dart-define=FREE_LAUNCH=true` 주입이 전제다
+(주입 없이 릴리스하면 구매 불가능한 페이월이 남는다).
+
+---
+
 ### 2026-08-12 (Codex) — 온보딩 첫 성공·시스템 뒤로가기 P2 후속
 
 **왜.** 첫 장면의 첫 정답은 실제로 완료한 퀘스트와 무관한 동기별 고정 문구를 성공 화면에
