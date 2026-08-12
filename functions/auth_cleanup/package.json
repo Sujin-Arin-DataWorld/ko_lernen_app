@@ -1,0 +1,13 @@
+{
+  "name": "auth-cleanup-functions",
+  "description": "Auth 계정 삭제 GDPR 캐스케이드 (gen-1 auth onDelete). gye 코드베이스의 on_user_deleted(Firestore 트리거)와 이벤트 소스가 다르다.",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^5.0.0"
+  }
+}

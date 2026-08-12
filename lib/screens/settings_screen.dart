@@ -966,21 +966,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ],
 
-            // ── Werbung ──
-            _Section(label: t.settingsAdsSection),
-            SwitchListTile(
-              title: Text(t.settingsShowAds),
-              subtitle: Text(
-                t.settingsShowAdsDesc,
-                style: SoriTextTheme.of(context).caption,
-              ),
-              value: Storage.adsEnabled,
-              onChanged: (v) async {
-                await Storage.setAdsEnabled(v);
-                if (mounted) setState(() {});
-              },
-              activeThumbColor: SoriColors.primary,
-            ),
+            // ── 광고 섹션 제거 (2026-08-12, hardening fcec48d 이식) ──
+            // 앱에 광고 SDK 가 없다 — ad_service.dart 는 스텁이고 google_mobile_ads
+            // 는 비활성이다. 그런데 설정에 "광고 표시" 토글이 살아 있으면 Play
+            // Data Safety 의 "광고 없음" 진술과 정면으로 모순된다. 토글을 지운다.
+            // (키 자체는 storage_service 에 남기되 기본값을 false 로 내렸다 —
+            //  토글만 지우면 기존 기기에 kl_ads_enabled=true 가 남아 향후 광고를
+            //  도입할 때 기본 ON 이 된다.)
 
             // ── 안내 다시 보기 ──
             _Section(label: t.settingsTutorialResetSection),

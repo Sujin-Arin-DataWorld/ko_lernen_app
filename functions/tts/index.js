@@ -26,6 +26,8 @@ const {
   CALLABLE_OPTIONS,
   TtsRequestError,
   validateTtsRequest,
+  underDailyQuota,
+  DAILY_LIMIT_TTS,
 } = require("./tts_request_guard");
 
 admin.initializeApp();
@@ -48,6 +50,17 @@ const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (
 exports.synthesize_tts = onCall(CALLABLE_OPTIONS, async (request) => {
     try {
       const { text, voice } = validateTtsRequest(request);
+
+      // uid 당 하루 상한. 인증·App Check 를 통과한 뒤에도 남는 과금 위험을
+      // 여기서 막는다 — 토큰이 유출되거나 클라가 폭주해도 계정당 상한이 걸린다.
+      const uid = request.auth.uid;
+      if (!(await underDailyQuota(admin.firestore(), uid, "tts", DAILY_LIMIT_TTS))) {
+        throw new HttpsError(
+          "resource-exhausted",
+          "Daily synthesis limit reached.",
+        );
+      }
+
       const key = cacheKey(voice, text);
       const voiceKey = key.voice;
 

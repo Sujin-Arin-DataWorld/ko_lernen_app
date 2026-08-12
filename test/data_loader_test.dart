@@ -19,7 +19,9 @@ void main() {
 
       final yes = vocab.singleWhere((entry) => entry.korean == '네');
       expect(yes.exampleKorean, '네, 알겠어요.');
-      expect(yes.exampleGerman, 'Ja, das stimmt.');
+      // 2026-08-12 재번역: 'Ja, das stimmt.'(= 그 말이 맞다) 는 오역이었다.
+      // 한국어 '알겠어요' 는 "알아들었다" 이므로 'Ja, verstanden.' 이 맞다.
+      expect(yes.exampleGerman, 'Ja, verstanden.');
 
       final afterQuotedFields = vocab.singleWhere(
         (entry) => entry.korean == '이름',

@@ -1043,7 +1043,11 @@ class Storage {
       _sb('kl_snd_respect_silent', v);
 
   /// Werbung anzeigen? Default true. User kann in Settings deaktivieren.
-  static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
+  /// 광고 표시 여부. **기본값 false** (2026-08-12) — 앱에 광고 SDK 가 없고
+  /// Play Data Safety 에 "광고 없음"으로 신고돼 있다. 설정의 토글은 같은 날
+  /// 제거했다. 기본값을 true 로 두면 기존 기기에 남은 `kl_ads_enabled=true`
+  /// 때문에 향후 광고를 도입할 때 사용자 동의 없이 기본 ON 이 된다.
+  static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? false;
   static Future<void> setAdsEnabled(bool v) async =>
       _prefs?.setBool('kl_ads_enabled', v);
 
