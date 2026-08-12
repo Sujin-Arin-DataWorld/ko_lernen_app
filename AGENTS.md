@@ -36,6 +36,42 @@ Firebase 프로젝트: `ko-lernen-app`
 
 ---
 
+## 설치된 GitHub 스킬 → 요청 라우팅 (2026-08-13)
+
+전역 설치 위치 `~/.agents/skills` (확인: `npx skills ls -g` / 갱신: `npx skills update -g`).
+**아래 상황에 해당하면 작업 전에 그 스킬을 먼저 호출한다.**
+
+| 요청 / 상황 | 스킬 |
+|---|---|
+| 새 기능·설계 요구사항을 캐물어 다듬기 | `grill-me` (ADR·용어집까지 남길 땐 `grill-with-docs`) |
+| 코드베이스 구조 개선점 스캔 | `improve-codebase-architecture` |
+| 브랜치·PR·작업분 리뷰 (표준 vs 스펙 2축 병렬) | `code-review` |
+| 세션 인수인계 문서 작성 | `handoff` |
+| `flutter analyze` 경고 정리 · `dart fix` | `dart-run-static-analysis` |
+| 런타임 에러·스택트레이스 수정 | `dart-fix-runtime-errors` |
+| 순수 Dart 로직 유닛 테스트 | `dart-add-unit-test` |
+| 커버리지(LCOV) 수집 | `dart-collect-coverage` |
+| 위젯 테스트 추가 (`WidgetTester`) | `flutter-add-widget-test` |
+| `integration_test` · 사용자 플로우 자동화 | `flutter-add-integration-test` |
+| UI/Logic/Data 레이어 리팩터 | `flutter-apply-architecture-best-practices` |
+| ARB·l10n 설정 (DE/EN) | `flutter-setup-localization` |
+| 반응형 레이아웃 (폰·태블릿·폴더블) | `flutter-build-responsive-layout` |
+| RenderFlex overflow · unbounded 제약 | `flutter-fix-layout-issues` |
+| `firestore.rules`·Storage rules 감사 | `firebase-security-rules-auditor` |
+| Firestore 모델링·쿼리·인덱스 | `firebase-firestore` |
+| 익명↔Google 링크 등 Auth | `firebase-auth-basics` |
+| Firebase CLI·프로젝트 전환·config 파일 | `firebase-basics` |
+| 크래시 리포팅 | `firebase-crashlytics` |
+| 실제 브라우저 조작·스크린샷·탐색적 QA | `agent-browser` |
+| 로컬 Flutter web 앱 Playwright 검증 | `webapp-testing` |
+| DE/EN 카피의 AI 티 제거 | `humanizer` |
+| 위 표에 없는 능력이 필요할 때 | `find-skills` (설치 후보 탐색) |
+
+⚠️ 스킬은 조언·절차서일 뿐 이 저장소의 규칙보다 우선하지 않는다. 충돌 시 **AGENTS.md 가 이긴다**
+(특히 커밋 금지·SESSION_LOG 기록·하드코딩 문자열 금지·`if/else` 중괄호).
+
+---
+
 ## 파일 맵 (SSoT)
 
 ### 진입점

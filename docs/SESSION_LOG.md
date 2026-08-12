@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude) — GitHub 인기 에이전트 스킬 20종 전역 설치 + 요청 라우팅 표
+
+**무엇을.** Jin 요청("깃에서 핫한 claude skills 20개")으로 skills.sh 리더보드와
+`npx skills find`(설치 수 기준)를 훑어, 인기 상위이면서 이 저장소 업무(Flutter·Dart·
+Firebase·DE/EN l10n·릴리스 QA)와 실제로 맞물리는 20종을 `~/.agents/skills` 에 전역
+설치했다. 코드·에셋 변경 0.
+
+- mattpocock/skills 5 — `grill-me`(839K)·`grill-with-docs`(714K)·
+  `improve-codebase-architecture`(689K)·`handoff`(575K)·`code-review`(318K)
+- vercel-labs/agent-browser 1 — `agent-browser`(663K)
+- anthropics/skills 1 — `webapp-testing`(131K)
+- firebase/agent-skills 5 — `firebase-basics`(128K)·`firebase-auth-basics`(127K)·
+  `firebase-security-rules-auditor`(91K)·`firebase-firestore`(88K)·`firebase-crashlytics`(86K)
+- flutter/agent-plugins 4 — `flutter-apply-architecture-best-practices`(29.5K)·
+  `flutter-add-widget-test`(26.7K)·`flutter-add-integration-test`(26.2K)·`flutter-setup-localization`(25.4K)
+- dart-lang/skills 4 — `dart-run-static-analysis`·`dart-add-unit-test`·
+  `dart-collect-coverage`·`dart-fix-runtime-errors` (각 ~12K)
+
+**왜.** 설치만으로는 "언제 무엇을 쓸지"가 매 세션 재판단 대상이라, `AGENTS.md` 기술 스택
+바로 뒤에 **요청→스킬 라우팅 표**를 넣었다. 이 파일은 모든 에이전트가 세션 시작 시 반드시
+읽으므로 Codex·Cursor·Gemini 세션에서도 같은 매핑이 적용된다. 표 끝에 "충돌 시 AGENTS.md
+가 이긴다"를 명시해 스킬 절차서가 커밋 금지·SESSION_LOG 기록·하드코딩 금지 규칙을 덮지
+못하게 막았다.
+
+**검증.** `npx skills ls -g --json` 기준 외부 소스 스킬 **24개 전부 Claude Code 링크 확인**
+(기존 4종 `find-skills`·`humanizer`·`flutter-build-responsive-layout`·`flutter-fix-layout-issues`
+에 신규 20종을 더한 값). 설치 로그의 `PromptScript does not support global skill installation` 실패는
+이 머신에 없는 다른 에이전트용 어댑터 건이라 Claude Code 동작과 무관하다.
+
+**한계.** skills.sh 검색에 보이는 `flutter-managing-state`·`flutter-theming-apps` 등 4종은
+`flutter/agent-plugins` 루트 discovery에 안 잡혀(하위 디렉터리) 설치되지 않았다. 대신 이
+저장소의 검증 게이트(analyze 0 · 2,711 테스트)에 직접 붙는 `dart-lang/skills` 4종으로 채웠다.
+
+**커밋.** 미커밋 — Jin 확인 후. (변경 파일: `AGENTS.md`, `docs/SESSION_LOG.md` 2개뿐)
+
 ### 2026-08-13 (Codex) — DE/EN 원어민 카피·Humanizer 전수 정리
 
 **범위.** 사용자 요청에 따라 Humanizer의 무환각·false-positive 기준으로 배포되는
