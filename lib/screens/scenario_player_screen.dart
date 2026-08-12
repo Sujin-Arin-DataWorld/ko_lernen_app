@@ -164,7 +164,9 @@ ScenarioFirstSuccess? scenarioFirstSuccessForQuest(QuestSpec quest) {
       phrase = _questString(data['targetKo']);
   }
 
-  if (phrase == null) return null;
+  if (phrase == null) {
+    return null;
+  }
   return ScenarioFirstSuccess(phrase: phrase, kind: kind);
 }
 
@@ -184,13 +186,17 @@ String? _correctQuestOption(Map<String, dynamic> data) =>
     _questString(_correctQuestValue(data));
 
 String? _questString(Object? value) {
-  if (value is! String) return null;
+  if (value is! String) {
+    return null;
+  }
   final normalized = value.trim();
   return normalized.isEmpty ? null : normalized;
 }
 
 String? _questComponent(Object? value) {
-  if (value is! String || value.trim().isEmpty) return null;
+  if (value is! String || value.trim().isEmpty) {
+    return null;
+  }
   return value;
 }
 
@@ -1526,11 +1532,15 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _withExitScope(Widget child) {
     final onExit = widget.onExit;
-    if (onExit == null) return child;
+    if (onExit == null) {
+      return child;
+    }
     return PopScope<void>(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _requestExit();
+        if (!didPop) {
+          _requestExit();
+        }
       },
       child: child,
     );
@@ -1542,7 +1552,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       Navigator.pop(context);
       return;
     }
-    if (_exitRequested) return;
+    if (_exitRequested) {
+      return;
+    }
     _exitRequested = true;
     onExit();
   }

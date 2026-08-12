@@ -16,7 +16,7 @@
 **검증.** 새 회귀를 먼저 추가해 누락된 타입화 성공 API에서 RED를 확인했다. 수정 후 focused
 온보딩/시나리오 **9/9**, 인접 온보딩·시나리오·UX preview/no-write **52/52** 통과,
 변경 5파일 scoped `flutter analyze --no-pub --fatal-infos` `No issues found`, Dart format과
-`git diff --check` 통과. 커밋: 이 항목과 함께 기록.
+`git diff --check` 통과. 구현 커밋: `3ec7212c3519995de333039c5a906269c62a79de`.
 
 ---
 
