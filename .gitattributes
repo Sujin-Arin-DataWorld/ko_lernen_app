@@ -5,3 +5,29 @@
 *.csv text eol=lf
 *.json text eol=lf
 *.arb text eol=lf
+
+# 미디어·서명물은 변환 금지 (2026-08-12) — `* text=auto` 의 휴리스틱이 오탐하면
+# tool/check_home_hero_matte.py 의 sha256 게이트와 check_clip_matte 프레임 검사가
+# 원인 불명으로 깨진다. 명시 선언으로 휴리스틱을 아예 끈다.
+# (session/2026-08-12-hardening 70a76bb 에서 바이너리 선언만 채택. 그 브랜치의
+#  전역 `* text=auto eol=lf` 는 Windows 워크트리 전체 재정규화를 유발해 드롭.)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.wav binary
+*.mp3 binary
+*.mp4 binary
+*.riv binary
+*.ttf binary
+*.otf binary
+*.jar binary
+*.keystore binary
+*.jks binary
+*.pdf binary
+
+# Windows 전용 스크립트만 CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
