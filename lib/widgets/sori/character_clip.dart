@@ -24,6 +24,21 @@ class HomeHeroClips {
   static const String tigerRise = '$_homeBase/tiger_rise_hanji.mp4';
   static const String magpieWalkingFront =
       '$_homeBase/magpie_walking_front_hanji.mp4';
+
+  /// 이 클립들이 **실제로 내놓는** 매트 색. 홈 배경은 이 색에 맞춰야 한다.
+  ///
+  /// 디자인 의도는 `SoriColors.lightBg`(#FAF6EC)지만 파일에서 나오는 값은
+  /// #F9F4EB 다 — H.264 는 4:2:0 크로마 서브샘플링과 양자화 탓에 평평한 RGB 를
+  /// 그대로 보존하지 못한다. **다시 인코딩해도 해결되지 않는다.**
+  ///
+  /// 채널당 1~2 차이지만 큰 사각형이 통째로 그만큼 다르면 경계가 보인다 —
+  /// Jin 이 2026-08-06 부터 세 번 지적한 "동영상 흰 배경"이 이것이다.
+  /// `tool/check_home_hero_matte.py` 는 TOLERANCE=2 라 이 차이를 통과시켰다.
+  ///
+  /// 값의 출처는 `tool/home_hero_matte_report.json` 의 `clips[].matte` 이고
+  /// `test/home_hero_matte_test.dart` 가 둘이 어긋나면 실패한다. 클립을 새로
+  /// 내보내면 그 도구를 다시 돌리고 이 상수를 보고서 값에 맞춘다.
+  static const Color matte = Color(0xFFF9F4EB);
 }
 
 /// **캐릭터 클립 카탈로그** — `assets/video/character/`의 흰 배경 H.264 mp4.

@@ -3150,7 +3150,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String comboPop(int count) {
-    return '${count}er-Combo!';
+    return '$count in Folge';
   }
 
   @override

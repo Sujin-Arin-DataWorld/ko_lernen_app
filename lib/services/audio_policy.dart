@@ -144,6 +144,21 @@ class AudioPolicy extends ChangeNotifier {
 
   /// 복원은 200ms 지연 — 문장을 연달아 읽을 때 사이사이 볼륨이 출렁이는 걸
   /// 막는다 (§5-2).
+  /// 지연 없이 즉시 복원한다. **명시적 정지**(`TtsService.stop`)용.
+  ///
+  /// [noteSpeechEnded] 의 200ms 지연은 문장을 연달아 읽을 때 사이사이 볼륨이
+  /// 출렁이는 걸 막으려는 것이다. 사용자가·화면이 재생을 끊은 경우엔 이어질
+  /// 다음 문장이 없으니 기다릴 이유가 없고, 오히려 주인 없는 타이머만 남는다
+  /// (화면이 dispose 된 뒤에도 타이머가 살아 있는 걸 flutter_test 가 잡아냈다).
+  void restoreDuckNow() {
+    _duckRestore?.cancel();
+    _duckRestore = null;
+    if (_duckActive) {
+      _duckActive = false;
+      notifyListeners();
+    }
+  }
+
   void noteSpeechEnded() {
     _duckRestore?.cancel();
     _duckRestore = Timer(const Duration(milliseconds: 200), () {

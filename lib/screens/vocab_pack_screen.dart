@@ -657,9 +657,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             // 균일한 세로 충전율(review_session 히어로 카드와 동일 규칙).
             child: LayoutBuilder(
               builder: (context, constraints) {
-                final h = constraints.maxHeight.isFinite
-                    ? constraints.maxHeight
-                    : 360.0;
+                // 타이포 기준은 **뷰포트**에서 뽑는다. 남은 공간을 쓰면 미션
+                // 배너 유무만으로 글씨 크기가 달라진다 — (1)에는 배너가 있고
+                // (2)에는 없어 같은 카드인데 (2)가 훨씬 컸다(Jin, 2026-08-12).
+                final h = soriStudyTypeScaleHeight(context);
                 return FlipCard(
                   flipped: _flipped,
                   onTap: () {
@@ -731,12 +732,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         Expanded(
           child: LayoutBuilder(
             builder: (context, constraints) {
-              // 프롬프트 히어로 카드의 학습 텍스트(제시어·로마자)를 세로 영역
-              // 높이에 비례해 키운다. min = 기존 크기라 폰은 사실상 그대로,
-              // 큰 화면·태블릿에서만 커진다(보기 버튼 등 chrome 은 불변).
-              final h = constraints.maxHeight.isFinite
-                  ? constraints.maxHeight
-                  : 360.0;
+              // 프롬프트 히어로 카드의 학습 텍스트(제시어·로마자) 크기.
+              // 학습 단계와 같은 기준(뷰포트)을 써야 단계를 오갈 때 글씨가
+              // 튀지 않는다 — 남은 공간을 쓰면 화면에 얹힌 요소에 따라 달라진다.
+              final h = soriStudyTypeScaleHeight(context);
               final promptCard = SoriCard(
                 variant: SoriCardVariant.hero,
                 accent: _stage == _Stage.boss

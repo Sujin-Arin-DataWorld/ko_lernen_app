@@ -11,6 +11,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'audio_policy.dart';
+import 'hangul_util.dart';
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
@@ -386,7 +387,24 @@ class TtsService {
     return speak(text, voice: voice, rateMultiplier: 0.65);
   }
 
-  static Future<void> stop() => _playbackEngine.stop();
+  static Future<void> stop() {
+    // 진행 중이던 speak 의 완료 처리를 무효화한다.
+    //
+    // 예전에는 재생만 멈추고 토큰은 그대로 뒀다. 그래서 화면이 dispose 되며
+    // stop() 을 불러도, 이미 떠 있던 speak 의 whenComplete 가 나중에 실행돼
+    // AudioPolicy.noteSpeechEnded() 로 200ms 타이머를 새로 걸었다 — 주인 없는
+    // 화면이 앱 전역 타이머를 남기는 셈이다. 위젯 트리가 사라진 뒤 타이머가
+    // 남는 걸 flutter_test 가 잡아내면서 드러났다(2026-08-12).
+    //
+    // 토큰을 올리면 speak(366행)이 발급한 값과 달라져 그 완료 블록이 통째로
+    // 건너뛰어진다 — 새 발화가 끼어들었을 때와 같은 처리다.
+    _speakToken++;
+    speaking.value = false;
+    // 지연 복원(noteSpeechEnded)이 아니라 즉시 복원이다 — 정지했으니 이어질
+    // 다음 문장이 없고, 200ms 타이머를 새로 걸면 방금 없앤 문제가 되살아난다.
+    AudioPolicy.instance.restoreDuckNow();
+    return _playbackEngine.stop();
+  }
 
   static Future<void> _stopPlatforms() async {
     try {
@@ -496,6 +514,7 @@ class TtsService {
   ) async {
     try {
       await _initTts();
+      await _applyFallbackLanguage(text);
       await _tts.setSpeechRate(rate);
       await _tts.setVolume(AudioPolicy.instance.volumeFor(SoundChannel.speech));
       final completion = _guardCompletion(
@@ -606,6 +625,41 @@ class TtsService {
       _ttsInit = true;
     } catch (e) {
       lastError = 'TTS 초기화 실패: $e';
+    }
+  }
+
+  /// 마지막으로 OS 엔진에 넘긴 언어. 같은 언어면 다시 설정하지 않는다
+  /// (setLanguage 는 엔진에 따라 수십 ms 걸린다).
+  static String? _fallbackLanguage;
+
+  /// OS 폴백으로 읽을 때 **텍스트에 맞는 언어**를 고른다.
+  ///
+  /// _initTts 가 ko-KR 을 한 번 설정하고 끝이라, 독일어 문장도 한국어 엔진이
+  /// 읽어 알아들을 수 없는 소리가 났다("독일어랑 한국어랑 구분을 못해" — Jin,
+  /// 2026-08-12 Buchseite einlesen). 한글이 하나라도 있으면 한국어, 아니면
+  /// 학습자의 모국어(독일어/영어)로 본다 — 이 앱에서 비한글 텍스트는 뜻풀이·
+  /// 예문 번역이라 사실상 그 둘뿐이다.
+  ///
+  /// HD mp3 가 있을 때는 여기까지 오지 않는다. 폴백 전용 처리다.
+  static Future<void> _applyFallbackLanguage(String text) async {
+    final hasHangul = text.runes.any(
+      (r) =>
+          isHangulSyllable(r) ||
+          (r >= 0x3131 && r <= 0x318E), // 홀자모(ㄱ·ㅏ…)
+    );
+    // localeCode 는 'de' | 'en' | ''(시스템). 빈 값이면 이 앱의 기본인 독일어.
+    final language = hasHangul
+        ? 'ko-KR'
+        : (Storage.localeCode == 'en' ? 'en-US' : 'de-DE');
+    if (_fallbackLanguage == language) {
+      return;
+    }
+    try {
+      await _tts.setLanguage(language);
+      _fallbackLanguage = language;
+    } catch (e) {
+      // 기기에 그 언어 데이터가 없을 수 있다 — 그대로 두는 편이 낫다.
+      lastError = 'TTS 언어 설정 실패($language): $e';
     }
   }
 

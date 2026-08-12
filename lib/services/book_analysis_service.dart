@@ -292,8 +292,29 @@ class BookAnalysisService {
 
     // Sätze auf '.', '!', '?' splitten (sehr einfach — Cloud Function nutzt
     // KSS für korrekte koreanische Satzgrenzen).
-    final rawSentences = text
-        .split(RegExp(r'(?<=[.!?。！？])\s+|\n+'))
+    // ⚠️ 개행은 문장 경계가 아니다. OCR 은 **책·화면의 줄 폭**에 맞춰 줄을
+    // 바꾸므로 `\n` 에서 자르면 문장이 한복판에서 끊긴다. 2026-08-12 실기기가
+    // 그랬다 — "…CEFR에 입각하여 설계된 A1~C1 전체에", "프로그램을 인터넷
+    // 강의와 오프라인 교육으로 제공하고 및 이민을 준비하는" 같은 조각이
+    // 나열됐다(Jin). 문장부호로 끝나지 않는 줄은 다음 줄과 먼저 이어 붙이고,
+    // 그다음에 문장부호로만 나눈다.
+    final buffer = StringBuffer();
+    for (final line in text.split(RegExp(r'\r?\n'))) {
+      final trimmed = line.trim();
+      if (trimmed.isEmpty) {
+        continue;
+      }
+      if (buffer.isNotEmpty) {
+        // 앞 줄이 문장부호로 끝났으면 진짜 줄바꿈, 아니면 이어지는 줄.
+        final previous = buffer.toString();
+        buffer.write(RegExp(r'[.!?。！？]$').hasMatch(previous) ? '\n' : ' ');
+      }
+      buffer.write(trimmed);
+    }
+
+    final rawSentences = buffer
+        .toString()
+        .split(RegExp(r'(?<=[.!?。！？])\s+'))
         .where((s) => s.trim().isNotEmpty)
         .map(
           (s) => TranslatedSentence(

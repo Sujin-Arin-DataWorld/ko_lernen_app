@@ -55,6 +55,24 @@ double soriStudyContentMaxWidth(double width) =>
 double soriFillSize(double h, double frac, double min, double max) =>
     (h * frac).clamp(min, max).toDouble();
 
+/// 플래시카드 히어로 타이포의 **기준 높이**.
+///
+/// [soriFillSize] 에 넘길 h 를 "남은 세로 공간"에서 뽑으면 화면에 무엇이 더
+/// 얹혔는지에 따라 글씨 크기가 달라진다. 2026-08-12 실기기에서 그게 드러났다:
+/// `Begrüßung & Höflichkeit (1)` 에는 미션 배너("Schritt 1 von 26")가 있어
+/// 카드 영역이 좁고 `(2)` 에는 없어서 넓다 → 같은 카드인데 (2)의 제시어가
+/// 훨씬 커졌다("갑자기 너무 커진상태" — Jin). 단어 길이에 따라 카드가
+/// 들쭉날쭉하다는 오랜 지적도 뿌리가 같다.
+///
+/// 그래서 기준을 **뷰포트 높이**로 옮긴다. 배너·칩·버튼이 붙고 떨어져도 값이
+/// 변하지 않으므로 같은 기기면 언제나 같은 크기가 나온다.
+///
+/// 0.45 는 Jin 이 "이 크기가 좋다"고 한 (1) 상태 — 배너가 있는 레이아웃의 카드
+/// 높이 비율에 맞춘 값이다. 조정할 일이 생기면 이 상수 하나만 건드리면 되고,
+/// `test/vocab_pack_typography_test.dart` 가 (1)과 (2)가 같은지 지킨다.
+double soriStudyTypeScaleHeight(BuildContext context) =>
+    (MediaQuery.sizeOf(context).height * 0.45).clamp(280.0, 520.0).toDouble();
+
 /// Center-clamps immersive study content to [soriStudyContentMaxWidth] so the
 /// card grows with the viewport on tablets. Drop-in replacement for
 /// [SoriCenterClamp] on fixed-focus flashcard/quiz screens — phones unchanged.

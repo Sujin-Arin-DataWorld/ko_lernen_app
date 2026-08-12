@@ -1533,7 +1533,7 @@
   },
   "wbPosAll": "Alle",
   "wbSearchCta": "Meine Wörter durchsuchen",
-  "comboPop": "{count}er-Combo!",
+  "comboPop": "{count} in Folge",
   "@comboPop": {
     "placeholders": {
       "count": {

@@ -1003,8 +1003,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           Color(0xFF0A1310),
                         ]
                       : const [
-                          SoriColors.lightBg,
-                          SoriColors.lightBg,
+                          _kHeroMatte,
+                          _kHeroMatte,
                           Color(0xFFF4ECDA),
                           Color(0xFFEEDFC2),
                         ],
@@ -1925,6 +1925,16 @@ class _RoundIconButton extends StatelessWidget {
 /// `SoriColors.lightBg` 로 평평하게 둔다. 짧은 화면(≈640dp)에서도 밴드 하단이
 /// 이 비율 안에 들어오도록 잡은 값.
 const double _kHeroFlatBackdropFraction = 0.60;
+
+/// 히어로 평면 구간의 배경색 — **영상의 실측 매트에 맞춘다**(반대가 아니다).
+///
+/// 근거와 계약은 [HomeHeroClips.matte] 주석에 있다. 요약: 디자인 의도는
+/// `SoriColors.lightBg`(#FAF6EC)지만 H.264 가 내놓는 값은 #F9F4EB 이고, 다시
+/// 인코딩해도 안 맞는다. 채널당 1~2 차이도 큰 사각형에서는 경계로 보인다.
+///
+/// ⚠️ `SoriColors.lightBg` 자체를 바꾸지 않는 이유: 그건 앱 전체 배경이라 이
+///    1~2 차이를 모든 화면에 퍼뜨린다. 영상이 놓이는 홈 상단에서만 맞춘다.
+const Color _kHeroMatte = HomeHeroClips.matte;
 
 /// 히어로 밴드가 끝날 수 있는 **최대** 위치(dp, 화면 최상단 기준).
 ///

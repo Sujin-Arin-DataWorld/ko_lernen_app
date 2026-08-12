@@ -565,8 +565,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              v.exampleKorean,
+              _noIntraWordBreak(v.exampleKorean),
               textAlign: TextAlign.center,
+              // 두 줄까지 허용한다. 카드 아래 여백이 넉넉한데 예문만 잘리거나
+              // 쪼그라들 이유가 없다(Jin, 2026-08-12).
+              maxLines: 2,
               style: TextStyle(
                 fontFamily: 'Pretendard',
                 fontSize: _sz(h, 0.068, 20, 34),
@@ -637,3 +640,18 @@ class _SpeakButton extends StatelessWidget {
     );
   }
 }
+
+/// 어절 **안에서는** 줄이 바뀌지 않게 낱글자 사이에 U+2060(WORD JOINER)을 넣는다.
+///
+/// Flutter 는 한국어를 CJK 로 보고 글자 사이 아무 데서나 줄을 바꾼다. 그래서
+/// "안녕하세요, 처음 뵙겠습니다." 가 "안녕하세요, 처음 뵙겠습" / "니다." 처럼
+/// 어절 한복판에서 끊겼다(Jin, 2026-08-12 Heute wiederholen). 공백으로 나뉜
+/// 어절 안쪽만 묶어 주면 줄바꿈은 어절 경계에서만 일어난다.
+///
+/// U+2060 은 폭이 0이고 글리프가 없어 화면에 영향이 없다. 붙이는 대상은 화면에
+/// 그릴 문자열뿐이고, TTS·채점·저장에 쓰는 원본에는 절대 넣지 않는다 — 해시가
+/// 달라져 음성 캐시가 통째로 어긋난다.
+String _noIntraWordBreak(String text) => text
+    .split(' ')
+    .map((word) => word.split('').join('⁠'))
+    .join(' ');

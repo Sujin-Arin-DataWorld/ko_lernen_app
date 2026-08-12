@@ -3139,7 +3139,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String comboPop(int count) {
-    return '$count in a row!';
+    return '$count in a row';
   }
 
   @override

@@ -220,12 +220,17 @@ void main() {
       );
       await tester.pump();
       await tester.pump();
+      // 2026-08-12: 화면에 들어오면 첫 대사를 자동 재생한다(B1). 그 끝에
+      // AudioPolicy 가 200ms 덕킹 복원 타이머를 건다 — 흘려보내지 않으면
+      // "pending timer" 로 실패한다. 기능이 아니라 정리 문제다.
+      await tester.pump(const Duration(milliseconds: 300));
       expect(find.byType(ContentFeedbackCard), findsNothing);
 
       await _tapText(tester, 'Geschafft!');
       await tester.pump();
 
       _expectFeedback(tester, type: 'listening');
+      await tester.pump(const Duration(milliseconds: 300));
     },
   );
 
@@ -345,6 +350,8 @@ void main() {
     }
     _expectInsideViewport(tester, controls, const Size(390, 844));
     expect(tester.takeException(), isNull);
+    // 첫 대사 자동재생(B1)이 남긴 AudioPolicy 200ms 덕킹 타이머를 흘려보낸다.
+    await tester.pump(const Duration(milliseconds: 300));
     for (final selectedLabel in speedChoices) {
       await tester.tap(_chip(selectedLabel));
       await tester.pump();
@@ -418,6 +425,9 @@ void main() {
       tester.getTopLeft(_chip('Übersetzung')).dy,
       greaterThan(tester.getTopLeft(_chip('Beides')).dy),
     );
+    // 첫 대사 자동재생(B1)이 남긴 AudioPolicy 200ms 덕킹 타이머를 흘려보낸 뒤
+    // 다음 화면으로 교체한다.
+    await tester.pump(const Duration(milliseconds: 300));
 
     await tester.pumpWidget(
       _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),

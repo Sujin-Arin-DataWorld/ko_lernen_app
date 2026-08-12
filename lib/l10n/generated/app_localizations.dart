@@ -5542,7 +5542,7 @@ abstract class AppL10n {
   /// No description provided for @comboPop.
   ///
   /// In de, this message translates to:
-  /// **'{count}er-Combo!'**
+  /// **'{count} in Folge'**
   String comboPop(int count);
 
   /// No description provided for @pathTitle.

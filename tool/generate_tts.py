@@ -365,23 +365,34 @@ MIN_DUR_VOWEL = 0.22
 GATE_RATES = (RATE, 0.85, 0.70, 0.55, RATE, 0.70)
 
 
-def _syllable_min_duration(text):
-    """한 음절 발화의 길이 하한. 게이트 대상이 아니면 0.0."""
-    if len(text) != 1:
+# 음절당 최소 길이. 2~3음절 단어에 쓴다.
+#
+# 2026-08-12 2차: 게이트를 1음절에만 걸었더니 '우리'·'비해'·'하하' 같은 2음절이
+# 0.26s 로 잘린 채 남아 있었다(polish_tts.py 가 잡아냄). 사람이 "우리"를
+# 0.26초에 발음하지 않는다 — 앞 음절이 통째로 먹힌 상태다.
+MIN_DUR_PER_SYLLABLE = 0.24
+# 이보다 긴 말은 게이트를 걸지 않는다. 길수록 모델이 안정적이고, 재시도 비용만
+# 늘어난다(실측: 4음절 이상에서 잘린 사례 0건).
+MAX_GATED_SYLLABLES = 3
+
+
+def _min_duration_for(text):
+    """발화의 길이 하한. 게이트 대상이 아니면 0.0."""
+    syllables = [c for c in text if 0xAC00 <= ord(c) <= 0xD7A3]
+    if not syllables or len(syllables) > MAX_GATED_SYLLABLES:
         return 0.0
-    code = ord(text)
-    if not (0xAC00 <= code <= 0xD7A3):
-        return 0.0
-    index = code - 0xAC00
-    lead, jong = index // (21 * 28), index % 28
-    # 초성 ㅇ(11) + 종성 없음 = 모음 소리음절(아·어·오…)
-    if lead == 11 and jong == 0:
-        return MIN_DUR_VOWEL
-    return MIN_DUR_CONSONANT
+    if len(syllables) == 1 and len(text) == 1:
+        index = ord(text) - 0xAC00
+        lead, jong = index // (21 * 28), index % 28
+        # 초성 ㅇ(11) + 종성 없음 = 모음 소리음절(아·어·오…)
+        if lead == 11 and jong == 0:
+            return MIN_DUR_VOWEL
+        return MIN_DUR_CONSONANT
+    return max(MIN_DUR_CONSONANT, MIN_DUR_PER_SYLLABLE * len(syllables))
 
 
 def synth(tok, voice, text):
-    floor = _syllable_min_duration(text)
+    floor = _min_duration_for(text)
     if floor <= 0.0:
         return _synth_raw(tok, VOICES[voice], text, RATE)
 

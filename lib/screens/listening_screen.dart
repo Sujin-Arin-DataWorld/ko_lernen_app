@@ -114,6 +114,14 @@ class _ListeningScreenState extends State<ListeningScreen>
           : (_scenarios.isNotEmpty ? _scenarios.first : null);
       _loading = false;
     });
+    // 첫 대사를 바로 들려준다.
+    //
+    // _pickScenario 는 예전부터 _speakCurrent() 를 불렀는데 **처음 들어와서
+    // 자동 선택되는 이 경로**에만 그게 없었다. 그래서 화면에 들어오면 대사만
+    // 떠 있고 소리가 안 나서, 들으려면 반복 버튼을 눌러야 했다("이거 좀
+    // 오류같아서 고쳐야할것같아" — Jin, 2026-08-12). 듣기 연습 화면이 조용히
+    // 시작하는 건 확실히 오작동처럼 보인다.
+    _speakCurrent();
   }
 
   @override
