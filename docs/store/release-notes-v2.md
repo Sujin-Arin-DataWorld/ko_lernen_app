@@ -1,4 +1,4 @@
-# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.5+11)
+# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.5+18)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -50,6 +50,32 @@ Enjoy building your hanok!
 ```
 
 (ca. 470 chars)
+
+---
+
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.5+18 (2026-08-12)
+
+> Play Console 내부 테스트 "출시 노트"에는 아래 **독일어·영어 태그 포함 텍스트만** 붙여넣기.
+> 출시 이름: `18 · Klare Laute, klares Schreiben`
+
+```text
+<de-DE>
+Neu in diesem Build:
+• Hangul-Laute klingen jetzt vollständig und klar, auch bei den bisher zu kurzen Lauten
+• Schreiben zeigt jeden Strich sofort an, auch bei mehrstrichigen Buchstaben
+• Der Tiger auf der Startseite sitzt nicht mehr auf einem hellen Kasten
+• Rollenspiele in Szenarien laufen weiter, statt auf einer leeren Seite zu stoppen
+• Anlaut-Quiz: Die Tastatur bildet jetzt vollständige Wörter mit Vokalen
+</de-DE>
+<en-US>
+New in this build:
+• Hangul sounds now play fully and clearly, including the ones that were cut short
+• Writing practice shows every stroke instantly, including multi-stroke letters
+• The tiger on the home screen no longer sits on a light box
+• Scenario roleplay keeps going instead of stopping on a blank page
+• Anlaut-Quiz: the keyboard can now build complete words with vowels
+</en-US>
+```
 
 ---
 
