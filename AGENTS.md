@@ -228,6 +228,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] `flutter gen-l10n`, ARB 대칭/문법 가드, learning-data/scenario loader 회귀
   15건과 `git diff --check`를 통과했다. 사용자 노출 ARB의 em/en dash 재유입은
   `arb_l10n_guard_test.dart`가 막는다.
+- [x] 범위 한정 커밋 `03980eb`에 이 카피·생성 l10n·회귀 가드·기록만 담았다.
 - [ ] Jin: DE/EN 기기 언어에서 온보딩·한옥 월드·사랑방·위로 시나리오를 한 번씩
   읽고, 브랜드 톤이 맞는지 최종 확인.
 
