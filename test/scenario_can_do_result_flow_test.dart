@@ -79,11 +79,35 @@ void main() {
     expect(gate.accept(correct: true), isFalse);
   });
 
-  testWidgets('saves once, then shows the persisted can-do before returning', (
+  test('first-success copy is derived from the exact completed quest', () {
+    final heard = scenarioFirstSuccessForQuest(
+      const QuestSpec(
+        type: QuestType.hoerverstehen,
+        data: {'audioKo': '한국 처음이세요?'},
+      ),
+    );
+    final completed = scenarioFirstSuccessForQuest(
+      const QuestSpec(
+        type: QuestType.particlePop,
+        data: {
+          'prefix': '저',
+          'suffix': ' 민수예요.',
+          'options': ['은', '는'],
+          'correctIndex': 1,
+        },
+      ),
+    );
+
+    expect(heard?.phrase, '한국 처음이세요?');
+    expect(heard?.kind, ScenarioFirstSuccessKind.listening);
+    expect(completed?.phrase, '저는 민수예요.');
+    expect(completed?.kind, ScenarioFirstSuccessKind.completion);
+  });
+
+  testWidgets('system back delegates to the explicit scenario exit', (
     tester,
   ) async {
-    var saveCalls = 0;
-    var firstCorrectCalls = 0;
+    var exitCalls = 0;
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -92,7 +116,43 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: ScenarioPlayerScreen(
           scenarioId: _scenario.id,
-          onFirstCorrect: () => firstCorrectCalls++,
+          scenarioLoader: (_) async => _scenario,
+          onExit: () => exitCalls++,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(await tester.binding.handlePopRoute(), isTrue);
+    await tester.pump();
+
+    expect(exitCalls, 1);
+    expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.close_rounded));
+    await tester.pump();
+    expect(exitCalls, 1);
+  });
+
+  testWidgets('saves once, then shows the persisted can-do before returning', (
+    tester,
+  ) async {
+    var saveCalls = 0;
+    var firstCorrectCalls = 0;
+    ScenarioFirstSuccess? firstSuccess;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: ScenarioPlayerScreen(
+          scenarioId: _scenario.id,
+          onFirstCorrect: (success) {
+            firstCorrectCalls++;
+            firstSuccess = success;
+          },
           scenarioLoader: (_) async => _scenario,
           resultPersister: (_, _, _) async {
             saveCalls++;
@@ -116,6 +176,8 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 1201));
     expect(firstCorrectCalls, 1);
+    expect(firstSuccess?.phrase, '안녕');
+    expect(firstSuccess?.kind, ScenarioFirstSuccessKind.listening);
     await _tapText(tester, 'Weiter');
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));

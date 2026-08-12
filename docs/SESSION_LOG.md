@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — 온보딩 첫 성공·시스템 뒤로가기 P2 후속
+
+**왜.** 첫 장면의 첫 정답은 실제로 완료한 퀘스트와 무관한 동기별 고정 문구를 성공 화면에
+보여 줄 수 있었다. 또한 첫 장면은 닫기 버튼만 `onExit`을 사용해 Android 시스템 뒤로가기가
+온보딩 종료 경로를 우회했다.
+
+**무엇을.** `ScenarioPlayerScreen`이 완료한 `QuestSpec`의 실제 정답 데이터에서 한국어
+문구와 듣기/완성 종류를 fail-closed로 계산해 타입화 콜백으로 전달한다. 온보딩은 고정
+`successPhrase` 대신 이 값을 사용하고 기존 번역된 듣기/문장 만들기 문구를 재사용한다.
+명시적 `onExit`이 있는 플레이어는 `PopScope.onPopInvokedWithResult`로 시스템 팝을 같은
+종료 경로에 위임하며, 닫기/뒤로가기 중복 요청은 한 번만 처리한다. 저장·진도·매트/영상
+경로는 변경하지 않았다.
+
+**검증.** 새 회귀를 먼저 추가해 누락된 타입화 성공 API에서 RED를 확인했다. 수정 후 focused
+온보딩/시나리오 **9/9**, 인접 온보딩·시나리오·UX preview/no-write **52/52** 통과,
+변경 5파일 scoped `flutter analyze --no-pub --fatal-infos` `No issues found`, Dart format과
+`git diff --check` 통과. 구현 커밋: `3ec7212c3519995de333039c5a906269c62a79de`.
+
+---
+
 ### 2026-08-12 (Codex) — Linux Home golden 기준선 활성화
 
 **왜.** Home golden test는 개별 baseline PNG가 없으면 일반 PR `flutter test`에서 skip된다.
