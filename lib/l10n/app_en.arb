@@ -237,7 +237,7 @@
   "chosungShowHint": "Listen (hint)",
   "chosungCorrect": "✓ Correct!",
   "chosungAnswer": "Answer",
-  "chosungPadHiddenNote": "From B1 on there is no key helper — type the word with your Korean keyboard.",
+  "chosungPadHiddenNote": "From B1 onwards, there is no key helper. Type the word with your Korean keyboard.",
   "wordleHowTitle": "How to play",
   "wordleHowIntro": "Guess the Korean word in 6 tries. The colors give clues.",
   "wordleHowExact": "Exact",
@@ -853,7 +853,7 @@
   "onboardingGoal15min": "15 minutes",
   "onboardingStartEyebrow": "Your first path",
   "onboardingStartTitle": "What do you want to speak Korean for?",
-  "onboardingStartBody": "This chooses your first situations – not your ability.",
+  "onboardingStartBody": "This sets your first situations. It does not assess your ability.",
   "onboardingStartTravelTitle": "Getting around Korea",
   "onboardingStartTravelBody": "Cafés, directions, shopping and help",
   "onboardingStartPeopleTitle": "Talking with people",
@@ -864,7 +864,7 @@
   "onboardingStartNewTitle": "I am just starting",
   "onboardingStartNewBody": "Begin directly with listening and speaking",
   "onboardingStartExistingTitle": "I already know some Korean",
-  "onboardingStartExistingBody": "Choose a level or take 8–10 questions",
+  "onboardingStartExistingBody": "Choose a level or answer eight to ten questions",
   "onboardingStartPrimary": "Open my first scene",
   "onboardingStartChooseLevel": "Choose a level",
   "onboardingStartLoading": "Preparing your first scene…",
@@ -917,7 +917,7 @@
   "onboardingLevelB2Desc": "Fluent, including nuance",
   "onboardingExampleA1Trans": "Hello / Hi.",
   "onboardingExampleA2Trans": "A tall iced Americano, please.",
-  "onboardingExampleB1Trans": "Yesterday I watched a movie with a friend. Really fun.",
+  "onboardingExampleB1Trans": "Yesterday I watched a movie with a friend. It was really fun.",
   "onboardingExampleB2Trans": "The meeting is running long, so I'll be a bit late.",
   "onboardingSkip": "Skip for now (starts at A1)",
   "onboardingPrompt": "Choose your level. You can change it later in Settings.",
@@ -954,7 +954,7 @@
   "homeTigerBubbleResumeSub": "5 minutes is all it takes!",
   "homePathDone": "Done",
   "scenariosListTitle": "Scenarios",
-  "scenariosListSubtitle": "Learn by living it",
+  "scenariosListSubtitle": "Practise real-life situations",
   "scenariosLocked": "Reach {level} to unlock",
   "@scenariosLocked": {
     "placeholders": {
@@ -1001,7 +1001,13 @@
   "scenarioResultSaveRetry": "Try saving again",
   "scenarioStructureChangedTitle": "Your Hanok has changed.",
   "scenarioStructureChangedBody": "New structure: {stage}",
-  "@scenarioStructureChangedBody": {"placeholders": {"stage": {"type": "String"}}},
+  "@scenarioStructureChangedBody": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
   "scenarioStructureUnchangedTitle": "Your Hanok keeps its current structure.",
   "scenarioStructureUnchangedBody": "No new structure was unlocked by this checkpoint.",
   "scenarioStructureUnavailableTitle": "Your Hanok structure",
@@ -1111,7 +1117,7 @@
   "missionHeroReviewMeta": "Today's review",
   "missionHeroScenarioMeta": "Scenario · Level {level}",
   "missionHeroAllDoneTitle": "Done for today",
-  "missionHeroAllDoneBody": "Great work! New missions arrive tomorrow.",
+  "missionHeroAllDoneBody": "You are done for today. New missions are ready tomorrow.",
   "missionHeroAnotherRound": "One more round",
   "missionHeroSemantics": "Next mission: {title}, level {level}",
   "settingsThemeTitle": "Appearance",
@@ -1517,11 +1523,15 @@
   "pathStatusNext": "later",
   "pathCompletedCanDo": "I can: {canDo}",
   "@pathCompletedCanDo": {
-    "placeholders": {"canDo": {}}
+    "placeholders": {
+      "canDo": {}
+    }
   },
   "pathCurrentCanDo": "Now: {canDo}",
   "@pathCurrentCanDo": {
-    "placeholders": {"canDo": {}}
+    "placeholders": {
+      "canDo": {}
+    }
   },
   "pathNextAfterEvidence": "Next after your evidence",
   "pathShowMorePractice": "Show more practice",
@@ -1531,7 +1541,7 @@
   "gyeEmptyLead": "A 계 is a small group that holds a weekly intention together.",
   "gyeFindOrCreate": "Find or create a 계",
   "gyeContinueSolo": "Continue without a group",
-  "gyeEmptyPreviewCaption": "A preview of a shared courtyard — never a requirement for your path",
+  "gyeEmptyPreviewCaption": "This is a preview of the shared courtyard. It is not required for your learning path.",
   "homePathCardTitle": "Learning path",
   "homePathCardSub": "See where you are",
   "homeBrowseTitle": "Browse all",
@@ -1608,7 +1618,9 @@
   "profileSafeSituations": "{count, plural, =0{no safe situations yet} =1{1 safe situation} other{{count} safe situations}}",
   "@profileSafeSituations": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "profileProgressSection": "My progress",
@@ -1711,11 +1723,11 @@
   "navWordbook": "Words",
   "navGye": "Group",
   "gyeTabSubtitle": "Learn together · 계",
-  "gyeExplainWhat": "A 계 (gye) is an optional small group for learning Korean. Learning alone is complete, too.",
-  "gyeExplainWhy": "A shared hanok makes encouragement visible. It is never a competition or a requirement for your learning path.",
+  "gyeExplainWhat": "A 계 (gye) is a small group for learning Korean, and joining is up to you. Learning on your own works just as well.",
+  "gyeExplainWhy": "A shared hanok shows how you cheer each other on. There is no competition here, and you do not need the group to make progress.",
   "gyeExplainHow": "Create a group or join with a 6-digit code when you are ready.",
   "gyePrivacyTitle": "What others see",
-  "gyePrivacyBody": "Only that you contributed — never your answers, words, or assessment results.",
+  "gyePrivacyBody": "It only shows that you contributed. Your answers, words, and assessment results stay private.",
   "gyeWeeklyEyebrow": "Together this week",
   "gyeWeeklyTitle": "Keep the courtyard lights on together.",
   "gyeWeeklyBody": "This count reflects completed packs in your current Gye. It is not a score, ranking, or record of answers.",
@@ -1732,14 +1744,20 @@
   "gyePromiseProgress": "{done} of {target} lanterns are lit",
   "@gyePromiseProgress": {
     "placeholders": {
-      "done": { "type": "int" },
-      "target": { "type": "int" }
+      "done": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
     }
   },
   "gyePromiseRemaining": "{count} more course-linked scene {count, plural, =1{contribution} other{contributions}} this week",
   "@gyePromiseRemaining": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "gyePromiseContributionCompleteTitle": "Anonymous contribution",
@@ -1759,7 +1777,9 @@
   "gyeCourtyardLightsToday": "{count, plural, =0{The first lantern is waiting today.} one{One lantern is lit today.} other{{count} lanterns are lit today.}}",
   "@gyeCourtyardLightsToday": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "gyeCourtyardLightsThree": "Three lanterns are lit today.",
@@ -1824,7 +1844,11 @@
   "practiceDueEmpty": "Open a review whenever you want",
   "practiceDueContext": "{count, plural, =0{No words are waiting for context} =1{1 word is waiting for context} other{{count} words are waiting for context}}",
   "@practiceDueContext": {
-    "placeholders": {"count": {"type": "int"}}
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "practiceWordsPurposeTitle": "Open my words",
   "practiceSecLearn": "Practice something in particular",
@@ -1949,9 +1973,9 @@
   "coachChosungStep3Title": "Type your answer",
   "coachChosungStep3Body": "Type the full Korean word and confirm",
   "coachSilbenStep1Title": "Syllable crossword",
-  "coachSilbenStep1Body": "Fill the grid: each row is a Korean word — words cross at shared syllables. The red cell is selected",
+  "coachSilbenStep1Body": "Fill the grid: each row is a Korean word. Words cross at shared syllables. The red cell is selected.",
   "coachSilbenStep2Title": "Read the clues",
-  "coachSilbenStep2Body": "Arrow = direction in the grid. Meaning and example sentence help — ○○ hides the target word",
+  "coachSilbenStep2Body": "The arrow shows the direction in the grid. The meaning and example sentence help. ○○ hides the target word.",
   "coachSilbenStep3Title": "Tap syllables",
   "coachSilbenStep3Body": "Tap a syllable below to fill the selected cell. Correct ones lock in green, wrong ones shake",
   "coachWordleStep1Title": "6 attempts",
@@ -2193,13 +2217,43 @@
   "courseMissionPreviewTag": "preview",
   "courseMissionStartPractice": "Start practice",
   "courseMissionBriefScene": "Your next scene: {scene}",
-  "@courseMissionBriefScene": {"placeholders": {"scene": {"type": "String"}}},
+  "@courseMissionBriefScene": {
+    "placeholders": {
+      "scene": {
+        "type": "String"
+      }
+    }
+  },
   "courseMissionBriefTime": "{minutes} min to the scene",
-  "@courseMissionBriefTime": {"placeholders": {"minutes": {"type": "int"}}},
+  "@courseMissionBriefTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "courseMissionBriefStepMeta": "Step {current} of {total} · {minutes} min",
-  "@courseMissionBriefStepMeta": {"placeholders": {"current": {"type": "int"}, "total": {"type": "int"}, "minutes": {"type": "int"}}},
+  "@courseMissionBriefStepMeta": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "courseMissionBriefRemaining": "{count, plural, =1{1 more step stays ready after this brief.} other{{count} more steps stay ready after this brief.}}",
-  "@courseMissionBriefRemaining": {"placeholders": {"count": {"type": "int"}}},
+  "@courseMissionBriefRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "courseMissionBriefStart": "Start step 1",
   "courseMissionBriefWhy": "Why this scene?",
   "courseMissionBriefStepVocab": "Hear the key words",
@@ -2218,7 +2272,13 @@
   "courseMissionBriefBuildCta": "Build now",
   "courseMissionBriefSceneCta": "Start the scene",
   "courseMissionBriefMinutes": "{minutes} min",
-  "@courseMissionBriefMinutes": {"placeholders": {"minutes": {"type": "int"}}},
+  "@courseMissionBriefMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "courseMissionPreviewNotice": "You can preview this mission. Scores and progress count only when it is active.",
   "courseSectionToday": "What counts today",
   "courseSectionFamilies": "Expression families",
@@ -2273,14 +2333,18 @@
   "homeTodayReviewMission": "{n, plural, one{Review 1 word in context} other{Review {n} words in context}}",
   "@homeTodayReviewMission": {
     "placeholders": {
-      "n": { "type": "int" }
+      "n": {
+        "type": "int"
+      }
     }
   },
   "homeTodayReviewDescription": "Give your safe sentences a voice.",
   "homeTodayReviewLead": "{n, plural, one{1 word is ready before anything new is added.} other{{n} words are ready before anything new is added.}}",
   "@homeTodayReviewLead": {
     "placeholders": {
-      "n": { "type": "int" }
+      "n": {
+        "type": "int"
+      }
     }
   },
   "homeTodayNextAction": "Your next action",
@@ -2310,13 +2374,25 @@
   "homeHanokPreviewBody": "Your learning makes your Hanok grow.",
   "homeHanokPreviewCta": "Open my Hanok",
   "homeFocusDate": "Today · {weekday}",
-  "@homeFocusDate": {"placeholders": {"weekday": {"type": "String"}}},
+  "@homeFocusDate": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      }
+    }
+  },
   "homeFocusBuildTitle": "Your house grows with real ability.",
   "homeFocusMore": "More learning options",
   "homeFocusLess": "Hide learning options",
   "homeFocusLaterTitle": "Later today",
   "homeFocusLaterBody": "{count} reviews stay ready after your first action.",
-  "@homeFocusLaterBody": {"placeholders": {"count": {"type": "int"}}},
+  "@homeFocusLaterBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "hanokNarrativeVerified": "Structure: {stage}. Verified: {canDo}",
   "@hanokNarrativeVerified": {
     "placeholders": {
@@ -2359,7 +2435,7 @@
   "@_p1_bojagi": {
     "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
   },
-  "sarangbangHubDesc": "Your next study step begins in the Sarangbang.",
+  "sarangbangHubDesc": "Continue learning in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
   "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
@@ -2382,37 +2458,42 @@
   },
   "hanokWorldTitle": "My Hanok world",
   "hanokWorldEarlyEyebrow": "Your courtyard · A1",
-  "hanokWorldEarlyTitle": "A roof begins with a voice.",
-  "hanokWorldEarlyBody": "Your foundation grows with every secure sentence from everyday life.",
+  "hanokWorldEarlyTitle": "Your first scene is the start of your Hanok.",
+  "hanokWorldEarlyBody": "Every everyday sentence you can use confidently strengthens your foundation.",
   "hanokWorldEarlyVerifiedBody": "Your foundation stands: {canDo}",
   "@hanokWorldEarlyVerifiedBody": {
-    "placeholders": {"canDo": {}}
+    "placeholders": {
+      "canDo": {}
+    }
   },
   "hanokWorldMapEyebrow": "Your walkable courtyard",
   "hanokWorldMapTitle": "Where would you like to go?",
-  "hanokWorldMapBody": "One place, one purpose. Learning does not start from an empty map.",
+  "hanokWorldMapBody": "Each building takes you to a part of Hangul Sori.",
   "hanokWorldOpenNextScene": "See the next scene",
-  "hanokWorldNextBeamTitle": "Next: the next beam",
+  "hanokWorldNextBeamTitle": "Next building step",
   "hanokWorldExploreHouse": "Explore my house",
-  "hanokWorldSafeSceneProgress": "{current} of {total} scenes secure",
+  "hanokWorldSafeSceneProgress": "{current} of {total} scenarios mastered",
   "@hanokWorldSafeSceneProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
-  "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
-  "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
-  "hanokWorldLegacyTitle": "Your courtyard is taking shape",
-  "hanokWorldLegacyBody": "Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.",
-  "hanokWorldMapHint": "Tap a finished building to continue learning there.",
+  "hanokWorldIntro": "Continue learning as your Hanok grows. Each completed building leads to an area of Hangul Sori.",
+  "hanokWorldLegacyTitle": "Your courtyard is growing",
+  "hanokWorldLegacyBody": "Finish A1 and A2. Your first B1 progress opens the full Hanok map.",
+  "hanokWorldMapHint": "Tap a completed building to continue learning there.",
   "hanokWorldOpenSarangbang": "Study in the Sarangbang",
   "hanokWorldProgress": "Your Hanok construction progress",
   "hanokWorldGyeBridgeTitle": "The Gye courtyard",
-  "hanokWorldGyeBridgeBody": "Your private Hanok and the shared Gye courtyard grow side by side. Meet your learning group there.",
+  "hanokWorldGyeBridgeBody": "The Gye courtyard is separate from your private Hanok. Meet your learning group there.",
   "hanokWorldGyeBridgeOpen": "Visit the Gye courtyard",
   "hanokWorldPlacesTitle": "Show places as a list",
-  "hanokWorldPlacesBody": "Use this list to choose a finished place.",
+  "hanokWorldPlacesBody": "Choose an available place from this list.",
   "hanokMapPlaceSarangbang": "사랑방\nStudy today",
   "hanokMapPlaceDaecheong": "대청마루\nYour path",
   "hanokMapPlaceHaengrang": "행랑채\nPractice",
@@ -2426,15 +2507,15 @@
   "hanokZoneHuwon": "후원 · Tasks",
   "hanokZoneSadang": "사당 · Achievements",
   "hanokWorldPurposeSarangbang": "Return to today's scene and the expressions you have earned.",
-  "hanokWorldPurposeDaecheong": "See your course path and choose the next verified mission.",
+  "hanokWorldPurposeDaecheong": "View your course path and choose the next available mission.",
   "hanokWorldPurposeHaengrang": "Choose a focused practice or a short game.",
   "hanokWorldPurposeAnchae": "Open your saved words, books, and personal learning collection.",
-  "hanokWorldPurposeHuwon": "Choose a quiet daily character moment or an existing quest.",
-  "hanokWorldPurposeSadang": "Look back at the visible milestones of your learning path.",
+  "hanokWorldPurposeHuwon": "Choose the letter of the day or a quest.",
+  "hanokWorldPurposeSadang": "View the milestones in your learning path.",
   "hanokWorldPurposeGyeRoad": "The shared Gye courtyard stays separate from your private Hanok.",
-  "hanokWorldSelectPlaceTitle": "Choose a finished place",
-  "hanokWorldSelectPlaceBody": "Tap a building on the map or choose one from the accessible list.",
-  "hanokWorldPlaceReadyBody": "{place} is ready to welcome your next study step.",
+  "hanokWorldSelectPlaceTitle": "Choose an available place",
+  "hanokWorldSelectPlaceBody": "Tap a building on the map or choose one from the list.",
+  "hanokWorldPlaceReadyBody": "{place} is now available.",
   "@hanokWorldPlaceReadyBody": {
     "placeholders": {
       "place": {
@@ -2454,8 +2535,12 @@
   "hanokWorldTodaySceneDetail": "{minutes} minutes · say “{expression}”",
   "@hanokWorldTodaySceneDetail": {
     "placeholders": {
-      "minutes": {"type": "int"},
-      "expression": {"type": "String"}
+      "minutes": {
+        "type": "int"
+      },
+      "expression": {
+        "type": "String"
+      }
     }
   },
   "hanokWorldGoThere": "Go there",
@@ -2467,38 +2552,44 @@
       }
     }
   },
-  "hanokWorldRevealBody": "Wood, dust, and dancheong: a new part of your Hanok has taken shape.",
+  "hanokWorldRevealBody": "Your Hanok has grown by one area.",
   "hanokWorldRevealContinue": "Continue to the map",
   "hanokVenueFurnishRoom": "Furnish this room",
-  "hanokVenueAnbangBody": "This quiet inner room keeps the words, pages, and learning collections that matter to you.",
-  "hanokVenueDaecheongBody": "On the open maru, continue your learning path or make the room your own.",
-  "hanokVenueHaengrangBody": "Your practice atelier is waiting in the entrance wing for another round.",
-  "hanokVenueHuwonBody": "The rear garden holds a quiet moment for today’s letter or a new quest.",
-  "hanokVenueSadangBody": "The shrine keeps the visible traces of everything you have learned.",
+  "hanokVenueAnbangBody": "Find your saved words, books, and learning collections here.",
+  "hanokVenueDaecheongBody": "Continue your learning path or furnish this room.",
+  "hanokVenueHaengrangBody": "Start another practice round in the entrance wing.",
+  "hanokVenueHuwonBody": "Use the rear garden for the letter of the day or a new quest.",
+  "hanokVenueSadangBody": "View the milestones in your learning path in the shrine.",
   "@_sarangbang_study": {
     "description": "Sarangbang as the context for the existing daily recommendation."
   },
   "sarangbangStudyTitle": "Sarangbang",
-  "sarangbangStudyIntroTitle": "Today's words have arrived.",
-  "sarangbangStudyIntroBody": "Here you can see what you have actually worked for.",
+  "sarangbangStudyIntroTitle": "What you learned today",
+  "sarangbangStudyIntroBody": "Find your learning progress for today here.",
   "sarangbangStudySceneLabel": "Your learning room",
   "sarangbangStudyFurnish": "Furnish the study room",
   "sarangbangFurnishTitle": "Furnish",
-  "sarangbangFurnishBody": "New objects come from existing, clearly marked rewards.",
-  "sarangbangStoredTitle": "Stored today",
-  "sarangbangStoredEmpty": "New expressions and secure scenes appear here once you have worked for them.",
-  "sarangbangStoredBody": "{detail} · Your current scene remains selected on Home.",
+  "sarangbangFurnishBody": "You receive new objects as clearly marked rewards.",
+  "sarangbangStoredTitle": "Collected today",
+  "sarangbangStoredEmpty": "New expressions and mastered scenarios appear here once you unlock them.",
+  "sarangbangStoredBody": "{detail} · Your current scene stays selected on Home.",
   "@sarangbangStoredBody": {
     "placeholders": {
       "detail": {}
     }
   },
-  "sarangbangStoredRecord": "{expressions, plural, =0{No expressions} =1{1 expression} other{{expressions} expressions}} · {scenes, plural, =0{no secure scenes} =1{1 secure scene} other{{scenes} secure scenes}} · {beams, plural, =0{no beams in the construction plan} =1{1 beam in the construction plan} other{{beams} beams in the construction plan}}",
+  "sarangbangStoredRecord": "{expressions, plural, =0{No expressions} =1{1 expression} other{{expressions} expressions}} · {scenes, plural, =0{no mastered scenarios} =1{1 mastered scenario} other{{scenes} mastered scenarios}} · {beams, plural, =0{no beams in the construction plan} =1{1 beam in the construction plan} other{{beams} beams in the construction plan}}",
   "@sarangbangStoredRecord": {
     "placeholders": {
-      "expressions": {"type": "int"},
-      "scenes": {"type": "int"},
-      "beams": {"type": "int"}
+      "expressions": {
+        "type": "int"
+      },
+      "scenes": {
+        "type": "int"
+      },
+      "beams": {
+        "type": "int"
+      }
     }
   },
   "sarangbangOpenToday": "Open today's scene",

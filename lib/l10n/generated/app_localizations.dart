@@ -1168,7 +1168,7 @@ abstract class AppL10n {
   /// No description provided for @chosungPadHiddenNote.
   ///
   /// In de, this message translates to:
-  /// **'Ab B1 gibt es keine Tastenhilfe mehr — tippe das Wort mit deiner koreanischen Tastatur.'**
+  /// **'Ab B1 gibt es keine Tastenhilfe mehr. Tippe das Wort mit deiner koreanischen Tastatur.'**
   String get chosungPadHiddenNote;
 
   /// No description provided for @wordleHowTitle.
@@ -3406,7 +3406,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartBody.
   ///
   /// In de, this message translates to:
-  /// **'Das bestimmt zuerst die Situationen – nicht deine Fähigkeit.'**
+  /// **'Damit legst du deine ersten Situationen fest. Es ist kein Test deiner Fähigkeiten.'**
   String get onboardingStartBody;
 
   /// No description provided for @onboardingStartTravelTitle.
@@ -3472,7 +3472,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartExistingBody.
   ///
   /// In de, this message translates to:
-  /// **'Level wählen oder 8–10 Fragen testen'**
+  /// **'Level wählen oder acht bis zehn Fragen beantworten'**
   String get onboardingStartExistingBody;
 
   /// No description provided for @onboardingStartPrimary.
@@ -3730,7 +3730,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingExampleB1Trans.
   ///
   /// In de, this message translates to:
-  /// **'Gestern war ich mit einem Freund im Kino. Hat richtig Spaß gemacht.'**
+  /// **'Gestern habe ich mit einem Freund einen Film gesehen. Das hat richtig Spaß gemacht.'**
   String get onboardingExampleB1Trans;
 
   /// No description provided for @onboardingExampleB2Trans.
@@ -3952,7 +3952,7 @@ abstract class AppL10n {
   /// No description provided for @scenariosListSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Lerne durch echte Situationen'**
+  /// **'Übe mit echten Alltagssituationen'**
   String get scenariosListSubtitle;
 
   /// No description provided for @scenariosLocked.
@@ -4456,7 +4456,7 @@ abstract class AppL10n {
   /// No description provided for @missionHeroAllDoneBody.
   ///
   /// In de, this message translates to:
-  /// **'Stark! Morgen warten neue Missionen auf dich.'**
+  /// **'Für heute bist du fertig. Morgen gibt es neue Missionen.'**
   String get missionHeroAllDoneBody;
 
   /// No description provided for @missionHeroAnotherRound.
@@ -5716,7 +5716,7 @@ abstract class AppL10n {
   /// No description provided for @gyeEmptyPreviewCaption.
   ///
   /// In de, this message translates to:
-  /// **'Eine Vorschau auf einen gemeinsamen Hof — nie Voraussetzung für deinen Lernweg'**
+  /// **'Die Vorschau zeigt den gemeinsamen Hof. Er ist keine Voraussetzung für deinen Lernweg.'**
   String get gyeEmptyPreviewCaption;
 
   /// No description provided for @homePathCardTitle.
@@ -6514,13 +6514,13 @@ abstract class AppL10n {
   /// No description provided for @gyeExplainWhat.
   ///
   /// In de, this message translates to:
-  /// **'Eine 계 (Gye) ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.'**
+  /// **'Eine 계 (Gye) ist eine kleine Lerngruppe, ganz freiwillig. Allein zu lernen ist genauso gut.'**
   String get gyeExplainWhat;
 
   /// No description provided for @gyeExplainWhy.
   ///
   /// In de, this message translates to:
-  /// **'Ein gemeinsames Hanok macht Ermutigung sichtbar. Es ist nie ein Wettbewerb und nie Voraussetzung für deinen Lernweg.'**
+  /// **'Ein gemeinsames Hanok zeigt, wie ihr euch gegenseitig anspornt. Einen Wettbewerb gibt es hier nicht, und für deinen Fortschritt brauchst du die Gruppe nicht.'**
   String get gyeExplainWhy;
 
   /// No description provided for @gyeExplainHow.
@@ -6538,7 +6538,7 @@ abstract class AppL10n {
   /// No description provided for @gyePrivacyBody.
   ///
   /// In de, this message translates to:
-  /// **'Nur dass du beigetragen hast — niemals deine Antworten, Wörter oder Prüfungsergebnisse.'**
+  /// **'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.'**
   String get gyePrivacyBody;
 
   /// No description provided for @gyeWeeklyEyebrow.
@@ -7408,7 +7408,7 @@ abstract class AppL10n {
   /// No description provided for @coachSilbenStep1Body.
   ///
   /// In de, this message translates to:
-  /// **'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort — Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt'**
+  /// **'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort. Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt.'**
   String get coachSilbenStep1Body;
 
   /// No description provided for @coachSilbenStep2Title.
@@ -7420,7 +7420,7 @@ abstract class AppL10n {
   /// No description provided for @coachSilbenStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Pfeil = Richtung im Gitter. Bedeutung und Beispielsatz helfen — ○○ steht für das gesuchte Wort'**
+  /// **'Der Pfeil zeigt die Richtung im Gitter. Bedeutung und Beispielsatz helfen. ○○ steht für das gesuchte Wort.'**
   String get coachSilbenStep2Body;
 
   /// No description provided for @coachSilbenStep3Title.
@@ -9376,7 +9376,7 @@ abstract class AppL10n {
   /// No description provided for @sarangbangHubDesc.
   ///
   /// In de, this message translates to:
-  /// **'Dein nächster Lernschritt beginnt im Sarangbang.'**
+  /// **'Lerne im Sarangbang weiter.'**
   String get sarangbangHubDesc;
 
   /// No description provided for @bojagiTitle.
@@ -9496,13 +9496,13 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldEarlyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Ein Dach beginnt mit einer Stimme.'**
+  /// **'Deine erste Szene ist der Anfang deines Hanok.'**
   String get hanokWorldEarlyTitle;
 
   /// No description provided for @hanokWorldEarlyBody.
   ///
   /// In de, this message translates to:
-  /// **'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.'**
+  /// **'Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.'**
   String get hanokWorldEarlyBody;
 
   /// No description provided for @hanokWorldEarlyVerifiedBody.
@@ -9526,7 +9526,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldMapBody.
   ///
   /// In de, this message translates to:
-  /// **'Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.'**
+  /// **'Jedes Gebäude führt zu einem Teil von Hangul Sori.'**
   String get hanokWorldMapBody;
 
   /// No description provided for @hanokWorldOpenNextScene.
@@ -9538,7 +9538,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldNextBeamTitle.
   ///
   /// In de, this message translates to:
-  /// **'Als Nächstes: der nächste Balken'**
+  /// **'Nächster Bauabschnitt'**
   String get hanokWorldNextBeamTitle;
 
   /// No description provided for @hanokWorldExploreHouse.
@@ -9550,31 +9550,31 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldSafeSceneProgress.
   ///
   /// In de, this message translates to:
-  /// **'{current} von {total} Szenen sicher'**
+  /// **'{current} von {total} Szenarien sicher gemeistert'**
   String hanokWorldSafeSceneProgress(int current, int total);
 
   /// No description provided for @hanokWorldIntro.
   ///
   /// In de, this message translates to:
-  /// **'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.'**
+  /// **'Setz dein Lernen dort fort, wo dein Hanok wächst. Jedes gebaute Gebäude führt dich zu einem Bereich von Hangul Sori.'**
   String get hanokWorldIntro;
 
   /// No description provided for @hanokWorldLegacyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Hof nimmt Gestalt an'**
+  /// **'Dein Hof wächst'**
   String get hanokWorldLegacyTitle;
 
   /// No description provided for @hanokWorldLegacyBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.'**
+  /// **'Schließe A1 und A2 ab. Mit deinem ersten Fortschritt in B1 öffnet sich die große Hanok-Karte.'**
   String get hanokWorldLegacyBody;
 
   /// No description provided for @hanokWorldMapHint.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.'**
+  /// **'Tippe auf ein gebautes Gebäude, um dort weiterzulernen.'**
   String get hanokWorldMapHint;
 
   /// No description provided for @hanokWorldOpenSarangbang.
@@ -9598,7 +9598,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldGyeBridgeBody.
   ///
   /// In de, this message translates to:
-  /// **'Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.'**
+  /// **'Der Gye-Hof ist von deiner privaten Hanok getrennt. Dort triffst du deine Lerngruppe.'**
   String get hanokWorldGyeBridgeBody;
 
   /// No description provided for @hanokWorldGyeBridgeOpen.
@@ -9616,7 +9616,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldPlacesBody.
   ///
   /// In de, this message translates to:
-  /// **'Wähle hier einen fertig gebauten Ort aus.'**
+  /// **'Wähle einen verfügbaren Ort aus.'**
   String get hanokWorldPlacesBody;
 
   /// No description provided for @hanokMapPlaceSarangbang.
@@ -9700,7 +9700,7 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldPurposeDaecheong.
   ///
   /// In de, this message translates to:
-  /// **'Sieh deinen Lernpfad und wähle die nächste bestätigte Mission.'**
+  /// **'Sieh deinen Lernpfad und wähle die nächste freigeschaltete Mission.'**
   String get hanokWorldPurposeDaecheong;
 
   /// No description provided for @hanokWorldPurposeHaengrang.
@@ -9718,13 +9718,13 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldPurposeHuwon.
   ///
   /// In de, this message translates to:
-  /// **'Wähle einen ruhigen Zeichenmoment oder eine bestehende Quest.'**
+  /// **'Wähle das Zeichen des Tages oder eine Quest.'**
   String get hanokWorldPurposeHuwon;
 
   /// No description provided for @hanokWorldPurposeSadang.
   ///
   /// In de, this message translates to:
-  /// **'Sieh die sichtbaren Meilensteine deines Lernwegs noch einmal an.'**
+  /// **'Sieh dir die Meilensteine deines Lernwegs an.'**
   String get hanokWorldPurposeSadang;
 
   /// No description provided for @hanokWorldPurposeGyeRoad.
@@ -9736,19 +9736,19 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldSelectPlaceTitle.
   ///
   /// In de, this message translates to:
-  /// **'Einen fertigen Ort wählen'**
+  /// **'Verfügbaren Ort wählen'**
   String get hanokWorldSelectPlaceTitle;
 
   /// No description provided for @hanokWorldSelectPlaceBody.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf ein Gebäude in der Karte oder wähle es aus der zugänglichen Liste.'**
+  /// **'Tippe auf ein Gebäude auf der Karte oder wähle es aus der Liste.'**
   String get hanokWorldSelectPlaceBody;
 
   /// No description provided for @hanokWorldPlaceReadyBody.
   ///
   /// In de, this message translates to:
-  /// **'{place} ist bereit für deinen nächsten Lernschritt.'**
+  /// **'{place} ist jetzt verfügbar.'**
   String hanokWorldPlaceReadyBody(String place);
 
   /// No description provided for @hanokWorldOpenPlace.
@@ -9778,13 +9778,13 @@ abstract class AppL10n {
   /// No description provided for @hanokWorldRevealTitle.
   ///
   /// In de, this message translates to:
-  /// **'{place} ist fertig'**
+  /// **'{place} ist fertig gebaut'**
   String hanokWorldRevealTitle(String place);
 
   /// No description provided for @hanokWorldRevealBody.
   ///
   /// In de, this message translates to:
-  /// **'Holz, Staub und Dancheong: Ein neuer Teil deiner Hanok ist entstanden.'**
+  /// **'Dein Hanok ist um einen Bereich gewachsen.'**
   String get hanokWorldRevealBody;
 
   /// No description provided for @hanokWorldRevealContinue.
@@ -9802,31 +9802,31 @@ abstract class AppL10n {
   /// No description provided for @hanokVenueAnbangBody.
   ///
   /// In de, this message translates to:
-  /// **'Im ruhigen inneren Raum bewahrst du Wörter, Seiten und eigene Lernsammlungen.'**
+  /// **'Hier findest du gespeicherte Wörter, Bücher und eigene Lernsammlungen.'**
   String get hanokVenueAnbangBody;
 
   /// No description provided for @hanokVenueDaecheongBody.
   ///
   /// In de, this message translates to:
-  /// **'Auf dem offenen Maru setzt du deinen Lernweg fort oder richtest den Raum ein.'**
+  /// **'Setz deinen Lernweg fort oder richte den Raum ein.'**
   String get hanokVenueDaecheongBody;
 
   /// No description provided for @hanokVenueHaengrangBody.
   ///
   /// In de, this message translates to:
-  /// **'Im Eingangsflügel wartet dein Übungsatelier auf eine weitere Runde.'**
+  /// **'Im Eingangsflügel kannst du eine weitere Übungsrunde starten.'**
   String get hanokVenueHaengrangBody;
 
   /// No description provided for @hanokVenueHuwonBody.
   ///
   /// In de, this message translates to:
-  /// **'Im hinteren Garten wartet ein ruhiger Moment für dein Zeichen des Tages oder eine neue Quest.'**
+  /// **'Im hinteren Garten findest du das Zeichen des Tages und neue Quests.'**
   String get hanokVenueHuwonBody;
 
   /// No description provided for @hanokVenueSadangBody.
   ///
   /// In de, this message translates to:
-  /// **'Im Ahnenschrein sammelst du sichtbare Spuren deines Lernwegs.'**
+  /// **'Im Ahnenschrein siehst du die Meilensteine deines Lernwegs.'**
   String get hanokVenueSadangBody;
 
   /// No description provided for @sarangbangStudyTitle.
@@ -9838,13 +9838,13 @@ abstract class AppL10n {
   /// No description provided for @sarangbangStudyIntroTitle.
   ///
   /// In de, this message translates to:
-  /// **'Die Worte von heute sind angekommen.'**
+  /// **'Was du heute gelernt hast'**
   String get sarangbangStudyIntroTitle;
 
   /// No description provided for @sarangbangStudyIntroBody.
   ///
   /// In de, this message translates to:
-  /// **'Hier siehst du, was du dir tatsächlich erarbeitet hast.'**
+  /// **'Hier findest du deine heutigen Lernfortschritte.'**
   String get sarangbangStudyIntroBody;
 
   /// No description provided for @sarangbangStudySceneLabel.
@@ -9868,31 +9868,31 @@ abstract class AppL10n {
   /// No description provided for @sarangbangFurnishBody.
   ///
   /// In de, this message translates to:
-  /// **'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Belohnungen.'**
+  /// **'Du erhältst neue Gegenstände als klar gekennzeichnete Belohnungen.'**
   String get sarangbangFurnishBody;
 
   /// No description provided for @sarangbangStoredTitle.
   ///
   /// In de, this message translates to:
-  /// **'Heute abgelegt'**
+  /// **'Heute gesammelt'**
   String get sarangbangStoredTitle;
 
   /// No description provided for @sarangbangStoredEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Neue Ausdrücke und sichere Szenen erscheinen hier, wenn du sie dir erarbeitet hast.'**
+  /// **'Neue Ausdrücke und gemeisterte Szenen erscheinen hier, sobald du sie freigeschaltet hast.'**
   String get sarangbangStoredEmpty;
 
   /// No description provided for @sarangbangStoredBody.
   ///
   /// In de, this message translates to:
-  /// **'{detail} · Deine heutige Szene bleibt auf Start ausgewählt.'**
+  /// **'{detail} · Deine aktuelle Szene bleibt auf der Startseite ausgewählt.'**
   String sarangbangStoredBody(Object detail);
 
   /// No description provided for @sarangbangStoredRecord.
   ///
   /// In de, this message translates to:
-  /// **'{expressions, plural, =0{Keine Ausdrücke} =1{1 Ausdruck} other{{expressions} Ausdrücke}} · {scenes, plural, =0{keine sichere Szene} =1{1 sichere Szene} other{{scenes} sichere Szenen}} · {beams, plural, =0{kein Balken im Bauplan} =1{1 Balken im Bauplan} other{{beams} Balken im Bauplan}}'**
+  /// **'{expressions, plural, =0{Keine Ausdrücke} =1{1 Ausdruck} other{{expressions} Ausdrücke}} · {scenes, plural, =0{keine gemeisterte Szene} =1{1 gemeisterte Szene} other{{scenes} gemeisterte Szenen}} · {beams, plural, =0{kein Balken im Bauplan} =1{1 Balken im Bauplan} other{{beams} Balken im Bauplan}}'**
   String sarangbangStoredRecord(int expressions, int scenes, int beams);
 
   /// No description provided for @sarangbangOpenToday.

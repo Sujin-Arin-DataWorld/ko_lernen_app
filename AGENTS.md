@@ -219,6 +219,19 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### DE/EN 원어민 카피 · Humanizer 검수 (2026-08-13)
+
+- [x] 사용자 노출 DE/EN ARB와 실제 학습 문구를 Humanizer의 무환각·false-positive
+  기준으로 검수했다. 문법 표기·정답·자연스러운 대화는 보존하고, 한옥/사랑방 안내,
+  온보딩/코치, Gye 안내, B1 예문, 문화 노트의 AI식 비유·선언·부자연스러운 표현을
+  간결한 원어민 문장으로 바꿨다.
+- [x] `flutter gen-l10n`, ARB 대칭/문법 가드, learning-data/scenario loader 회귀
+  15건과 `git diff --check`를 통과했다. 사용자 노출 ARB의 em/en dash 재유입은
+  `arb_l10n_guard_test.dart`가 막는다.
+- [x] 범위 한정 커밋 `03980eb`에 이 카피·생성 l10n·회귀 가드·기록만 담았다.
+- [ ] Jin: DE/EN 기기 언어에서 온보딩·한옥 월드·사랑방·위로 시나리오를 한 번씩
+  읽고, 브랜드 톤이 맞는지 최종 확인.
+
 ### 홈 캐릭터 매트 · Satz 정답 버스트 (2026-08-12)
 
 - [x] 홈 전용 한지색 사전 합성 MP4 2개를 분리하고 Android 외부 영상 텍스처의

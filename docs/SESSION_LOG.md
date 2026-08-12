@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Codex) — DE/EN 원어민 카피·Humanizer 전수 정리
+
+**범위.** 사용자 요청에 따라 Humanizer의 무환각·false-positive 기준으로 배포되는
+독일어·영어 문구를 점검했다. 문법 형태·인용된 실제 대화·학습 정답처럼 의미가 있는
+자료는 보존하고, 비유가 겹친 한옥 안내, 선언적인 온보딩/코치 문구, 어색한 B1 예문,
+AI식 대비 문장을 직접적이고 자연스러운 원어민 표현으로 바꿨다.
+
+**변경.** `app_de.arb`·`app_en.arb`의 한옥 월드, 사랑방, 온보딩, 시나리오, Gye
+안내와 코치 문구를 DE/EN 의미 대칭으로 정리하고, 생성 l10n 파일을 다시 만들었다.
+`cloze.json`의 두 A1 표현과 `scenarios.json`의 위로 문화 노트도 자연스러운 문장으로
+고쳤다. 사실·수치·학습 상태·키·placeholder는 추가하거나 변경하지 않았다.
+
+**회귀 방지·검증.** `arb_l10n_guard_test.dart`에 사용자 노출 ARB 값의 em/en dash
+금지 가드를 추가했다. `flutter gen-l10n`, ARB parity/가드, learning-data integrity,
+scenario loader 회귀를 함께 실행해 **15 tests passed**를 확인했고,
+`git diff --check`도 통과했다.
+
+**커밋.** `03980eb` (`fix(l10n): humanize German and English copy`) — 이 항목의
+DE/EN 카피·생성 l10n·회귀 가드·진행 기록만 포함했다. 다른 동시 세션의 미커밋
+파일은 스테이징하지 않았다.
+
 ### 2026-08-12 (Claude) — 2.0.5+18 AAB · Jin 실기기 확인 결과 · ⑧b 열린 항목
 
 **Jin 실기기 확인(2026-08-12 저녁).** ⑤ 바텀시트 · ⑬ Silben 커서 · ⑯ Satz bauen

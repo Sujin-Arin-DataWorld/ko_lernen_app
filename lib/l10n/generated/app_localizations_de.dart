@@ -603,7 +603,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get chosungPadHiddenNote =>
-      'Ab B1 gibt es keine Tastenhilfe mehr — tippe das Wort mit deiner koreanischen Tastatur.';
+      'Ab B1 gibt es keine Tastenhilfe mehr. Tippe das Wort mit deiner koreanischen Tastatur.';
 
   @override
   String get wordleHowTitle => 'Spielanleitung';
@@ -1884,7 +1884,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingStartBody =>
-      'Das bestimmt zuerst die Situationen – nicht deine Fähigkeit.';
+      'Damit legst du deine ersten Situationen fest. Es ist kein Test deiner Fähigkeiten.';
 
   @override
   String get onboardingStartTravelTitle => 'In Korea unterwegs sein';
@@ -1918,7 +1918,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingStartExistingBody =>
-      'Level wählen oder 8–10 Fragen testen';
+      'Level wählen oder acht bis zehn Fragen beantworten';
 
   @override
   String get onboardingStartPrimary => 'Meine erste Szene öffnen';
@@ -2059,7 +2059,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingExampleB1Trans =>
-      'Gestern war ich mit einem Freund im Kino. Hat richtig Spaß gemacht.';
+      'Gestern habe ich mit einem Freund einen Film gesehen. Das hat richtig Spaß gemacht.';
 
   @override
   String get onboardingExampleB2Trans =>
@@ -2179,7 +2179,7 @@ class AppL10nDe extends AppL10n {
   String get scenariosListTitle => 'Szenarien';
 
   @override
-  String get scenariosListSubtitle => 'Lerne durch echte Situationen';
+  String get scenariosListSubtitle => 'Übe mit echten Alltagssituationen';
 
   @override
   String scenariosLocked(Object level) {
@@ -2488,7 +2488,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get missionHeroAllDoneBody =>
-      'Stark! Morgen warten neue Missionen auf dich.';
+      'Für heute bist du fertig. Morgen gibt es neue Missionen.';
 
   @override
   String get missionHeroAnotherRound => 'Noch eine Runde';
@@ -3253,7 +3253,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeEmptyPreviewCaption =>
-      'Eine Vorschau auf einen gemeinsamen Hof — nie Voraussetzung für deinen Lernweg';
+      'Die Vorschau zeigt den gemeinsamen Hof. Er ist keine Voraussetzung für deinen Lernweg.';
 
   @override
   String get homePathCardTitle => 'Lernpfad';
@@ -3715,11 +3715,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeExplainWhat =>
-      'Eine 계 (Gye) ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.';
+      'Eine 계 (Gye) ist eine kleine Lerngruppe, ganz freiwillig. Allein zu lernen ist genauso gut.';
 
   @override
   String get gyeExplainWhy =>
-      'Ein gemeinsames Hanok macht Ermutigung sichtbar. Es ist nie ein Wettbewerb und nie Voraussetzung für deinen Lernweg.';
+      'Ein gemeinsames Hanok zeigt, wie ihr euch gegenseitig anspornt. Einen Wettbewerb gibt es hier nicht, und für deinen Fortschritt brauchst du die Gruppe nicht.';
 
   @override
   String get gyeExplainHow =>
@@ -3730,7 +3730,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyePrivacyBody =>
-      'Nur dass du beigetragen hast — niemals deine Antworten, Wörter oder Prüfungsergebnisse.';
+      'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.';
 
   @override
   String get gyeWeeklyEyebrow => 'Diese Woche zusammen';
@@ -4271,14 +4271,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachSilbenStep1Body =>
-      'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort — Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt';
+      'Fülle das Gitter: Jede Reihe ist ein koreanisches Wort. Wörter kreuzen sich an gemeinsamen Silben. Die rot markierte Zelle ist ausgewählt.';
 
   @override
   String get coachSilbenStep2Title => 'Hinweise lesen';
 
   @override
   String get coachSilbenStep2Body =>
-      'Pfeil = Richtung im Gitter. Bedeutung und Beispielsatz helfen — ○○ steht für das gesuchte Wort';
+      'Der Pfeil zeigt die Richtung im Gitter. Bedeutung und Beispielsatz helfen. ○○ steht für das gesuchte Wort.';
 
   @override
   String get coachSilbenStep3Title => 'Silben antippen';
@@ -5400,8 +5400,7 @@ class AppL10nDe extends AppL10n {
   String get sarangbangClear => 'Platz frei lassen';
 
   @override
-  String get sarangbangHubDesc =>
-      'Dein nächster Lernschritt beginnt im Sarangbang.';
+  String get sarangbangHubDesc => 'Lerne im Sarangbang weiter.';
 
   @override
   String get bojagiTitle => 'Bojagi-Bündel';
@@ -5466,11 +5465,12 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldEarlyEyebrow => 'Dein Hof · A1';
 
   @override
-  String get hanokWorldEarlyTitle => 'Ein Dach beginnt mit einer Stimme.';
+  String get hanokWorldEarlyTitle =>
+      'Deine erste Szene ist der Anfang deines Hanok.';
 
   @override
   String get hanokWorldEarlyBody =>
-      'Dein Fundament wächst mit jedem sicheren Satz aus deinem Alltag.';
+      'Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.';
 
   @override
   String hanokWorldEarlyVerifiedBody(Object canDo) {
@@ -5485,36 +5485,36 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokWorldMapBody =>
-      'Ein Ort, eine Absicht. Lernen startet nicht über eine leere Karte.';
+      'Jedes Gebäude führt zu einem Teil von Hangul Sori.';
 
   @override
   String get hanokWorldOpenNextScene => 'Nächste Szene ansehen';
 
   @override
-  String get hanokWorldNextBeamTitle => 'Als Nächstes: der nächste Balken';
+  String get hanokWorldNextBeamTitle => 'Nächster Bauabschnitt';
 
   @override
   String get hanokWorldExploreHouse => 'Mein Haus erkunden';
 
   @override
   String hanokWorldSafeSceneProgress(int current, int total) {
-    return '$current von $total Szenen sicher';
+    return '$current von $total Szenarien sicher gemeistert';
   }
 
   @override
   String get hanokWorldIntro =>
-      'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.';
+      'Setz dein Lernen dort fort, wo dein Hanok wächst. Jedes gebaute Gebäude führt dich zu einem Bereich von Hangul Sori.';
 
   @override
-  String get hanokWorldLegacyTitle => 'Dein Hof nimmt Gestalt an';
+  String get hanokWorldLegacyTitle => 'Dein Hof wächst';
 
   @override
   String get hanokWorldLegacyBody =>
-      'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.';
+      'Schließe A1 und A2 ab. Mit deinem ersten Fortschritt in B1 öffnet sich die große Hanok-Karte.';
 
   @override
   String get hanokWorldMapHint =>
-      'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.';
+      'Tippe auf ein gebautes Gebäude, um dort weiterzulernen.';
 
   @override
   String get hanokWorldOpenSarangbang => 'Im Sarangbang lernen';
@@ -5527,7 +5527,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokWorldGyeBridgeBody =>
-      'Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.';
+      'Der Gye-Hof ist von deiner privaten Hanok getrennt. Dort triffst du deine Lerngruppe.';
 
   @override
   String get hanokWorldGyeBridgeOpen => 'Gye-Hof besuchen';
@@ -5536,8 +5536,7 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldPlacesTitle => 'Orte als Liste anzeigen';
 
   @override
-  String get hanokWorldPlacesBody =>
-      'Wähle hier einen fertig gebauten Ort aus.';
+  String get hanokWorldPlacesBody => 'Wähle einen verfügbaren Ort aus.';
 
   @override
   String get hanokMapPlaceSarangbang => '사랑방\nHeute lernen';
@@ -5581,7 +5580,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokWorldPurposeDaecheong =>
-      'Sieh deinen Lernpfad und wähle die nächste bestätigte Mission.';
+      'Sieh deinen Lernpfad und wähle die nächste freigeschaltete Mission.';
 
   @override
   String get hanokWorldPurposeHaengrang =>
@@ -5593,26 +5592,26 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokWorldPurposeHuwon =>
-      'Wähle einen ruhigen Zeichenmoment oder eine bestehende Quest.';
+      'Wähle das Zeichen des Tages oder eine Quest.';
 
   @override
   String get hanokWorldPurposeSadang =>
-      'Sieh die sichtbaren Meilensteine deines Lernwegs noch einmal an.';
+      'Sieh dir die Meilensteine deines Lernwegs an.';
 
   @override
   String get hanokWorldPurposeGyeRoad =>
       'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.';
 
   @override
-  String get hanokWorldSelectPlaceTitle => 'Einen fertigen Ort wählen';
+  String get hanokWorldSelectPlaceTitle => 'Verfügbaren Ort wählen';
 
   @override
   String get hanokWorldSelectPlaceBody =>
-      'Tippe auf ein Gebäude in der Karte oder wähle es aus der zugänglichen Liste.';
+      'Tippe auf ein Gebäude auf der Karte oder wähle es aus der Liste.';
 
   @override
   String hanokWorldPlaceReadyBody(String place) {
-    return '$place ist bereit für deinen nächsten Lernschritt.';
+    return '$place ist jetzt verfügbar.';
   }
 
   @override
@@ -5633,12 +5632,12 @@ class AppL10nDe extends AppL10n {
 
   @override
   String hanokWorldRevealTitle(String place) {
-    return '$place ist fertig';
+    return '$place ist fertig gebaut';
   }
 
   @override
   String get hanokWorldRevealBody =>
-      'Holz, Staub und Dancheong: Ein neuer Teil deiner Hanok ist entstanden.';
+      'Dein Hanok ist um einen Bereich gewachsen.';
 
   @override
   String get hanokWorldRevealContinue => 'Weiter zur Karte';
@@ -5648,34 +5647,33 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokVenueAnbangBody =>
-      'Im ruhigen inneren Raum bewahrst du Wörter, Seiten und eigene Lernsammlungen.';
+      'Hier findest du gespeicherte Wörter, Bücher und eigene Lernsammlungen.';
 
   @override
   String get hanokVenueDaecheongBody =>
-      'Auf dem offenen Maru setzt du deinen Lernweg fort oder richtest den Raum ein.';
+      'Setz deinen Lernweg fort oder richte den Raum ein.';
 
   @override
   String get hanokVenueHaengrangBody =>
-      'Im Eingangsflügel wartet dein Übungsatelier auf eine weitere Runde.';
+      'Im Eingangsflügel kannst du eine weitere Übungsrunde starten.';
 
   @override
   String get hanokVenueHuwonBody =>
-      'Im hinteren Garten wartet ein ruhiger Moment für dein Zeichen des Tages oder eine neue Quest.';
+      'Im hinteren Garten findest du das Zeichen des Tages und neue Quests.';
 
   @override
   String get hanokVenueSadangBody =>
-      'Im Ahnenschrein sammelst du sichtbare Spuren deines Lernwegs.';
+      'Im Ahnenschrein siehst du die Meilensteine deines Lernwegs.';
 
   @override
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override
-  String get sarangbangStudyIntroTitle =>
-      'Die Worte von heute sind angekommen.';
+  String get sarangbangStudyIntroTitle => 'Was du heute gelernt hast';
 
   @override
   String get sarangbangStudyIntroBody =>
-      'Hier siehst du, was du dir tatsächlich erarbeitet hast.';
+      'Hier findest du deine heutigen Lernfortschritte.';
 
   @override
   String get sarangbangStudySceneLabel => 'Dein Lernzimmer';
@@ -5688,18 +5686,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangFurnishBody =>
-      'Neue Gegenstände kommen aus bestehenden, klar ausgewiesenen Belohnungen.';
+      'Du erhältst neue Gegenstände als klar gekennzeichnete Belohnungen.';
 
   @override
-  String get sarangbangStoredTitle => 'Heute abgelegt';
+  String get sarangbangStoredTitle => 'Heute gesammelt';
 
   @override
   String get sarangbangStoredEmpty =>
-      'Neue Ausdrücke und sichere Szenen erscheinen hier, wenn du sie dir erarbeitet hast.';
+      'Neue Ausdrücke und gemeisterte Szenen erscheinen hier, sobald du sie freigeschaltet hast.';
 
   @override
   String sarangbangStoredBody(Object detail) {
-    return '$detail · Deine heutige Szene bleibt auf Start ausgewählt.';
+    return '$detail · Deine aktuelle Szene bleibt auf der Startseite ausgewählt.';
   }
 
   @override
@@ -5714,9 +5712,9 @@ class AppL10nDe extends AppL10n {
     String _temp1 = intl.Intl.pluralLogic(
       scenes,
       locale: localeName,
-      other: '$scenes sichere Szenen',
-      one: '1 sichere Szene',
-      zero: 'keine sichere Szene',
+      other: '$scenes gemeisterte Szenen',
+      one: '1 gemeisterte Szene',
+      zero: 'keine gemeisterte Szene',
     );
     String _temp2 = intl.Intl.pluralLogic(
       beams,

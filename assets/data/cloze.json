@@ -2477,8 +2477,8 @@
       "sentenceKo": "＿＿＿ 잠깐만요.",
       "answer": "실례합니다",
       "fullKo": "실례합니다 잠깐만요.",
-      "de": "Entschuldigung, einen Moment.",
-      "en": "Excuse me — one moment.",
+      "de": "Entschuldigung, einen Moment bitte.",
+      "en": "Excuse me, just a moment.",
       "distractors": [
         "잘 자요",
         "네",
@@ -2492,8 +2492,8 @@
       "sentenceKo": "한국어 ＿＿＿!",
       "answer": "화이팅",
       "fullKo": "한국어 화이팅!",
-      "de": "Koreanisch, du schaffst das!",
-      "en": "Korean — you can do it!",
+      "de": "Koreanisch, auf geht's!",
+      "en": "Korean, let's go!",
       "distractors": [
         "죄송합니다",
         "안녕",
