@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/screens/quest_engines/hoerverstehen_quest.dart';
 import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/ux_preview_app.dart';
@@ -140,6 +141,53 @@ void main() {
       '/ux_gallery/01A',
     );
   });
+
+  testWidgets(
+    '02C renders the real listening question and checks without writes',
+    (tester) async {
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final before = await _preferencesSnapshot();
+
+      await tester.pumpWidget(const UxPreviewApp(initialPanelId: '02C'));
+      await tester.pump();
+
+      expect(find.byType(HoerverstehenQuest), findsOneWidget);
+      expect(find.text('Weniger scharf bestellen'), findsOneWidget);
+      expect(find.text('Was sagt die Person?'), findsOneWidget);
+      expect(
+        find.text('Tippe erst, wenn du die Bitte erkannt hast.'),
+        findsOneWidget,
+      );
+      expect(find.text('매워요.'), findsOneWidget);
+      expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
+      expect(find.text('감사합니다.'), findsOneWidget);
+
+      final check = find.text('Meine Antwort prüfen');
+      expect(check, findsOneWidget);
+      expect(find.text('Weiter'), findsNothing);
+      await tester.tap(find.text('안 맵게 해 주세요.'));
+      await tester.pump();
+      expect(
+        tester
+            .widget<SoriButton>(
+              find.widgetWithText(SoriButton, 'Meine Antwort prüfen'),
+            )
+            .onTap,
+        isNotNull,
+      );
+      expect(find.text('Weiter'), findsNothing);
+      expect(await _preferencesSnapshot(), before);
+      await tester.tap(check);
+      await tester.pump(const Duration(milliseconds: 1250));
+
+      expect(find.text('Weiter'), findsOneWidget);
+      expect(await _preferencesSnapshot(), before);
+      expect(Storage.userLevelCode, isNull);
+    },
+  );
 
   testWidgets(
     'representative actions stay inside the no-write preview boundary',

@@ -259,6 +259,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           ? _plan.length - 1
           : _plan.indexOf(preview.stage);
       _stage = requestedIndex < 0 ? 0 : requestedIndex;
+      _questReady = preview.stage != ScenarioStage.quest;
       _resultPersisted = preview.stage == ScenarioStage.result;
       _canDoResult = preview.result;
       _pageCtrl = PageController(initialPage: _stage);
@@ -374,6 +375,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   /// Quest-Index (0-basiert) der aktuellen Stage
   int get _currentQuestIndex => _stage - _questStartStage;
+
+  bool get _currentQuestOwnsPrimaryAction {
+    final scenario = _scenario;
+    if (scenario == null ||
+        _stage < 0 ||
+        _stage >= _plan.length ||
+        _plan[_stage] != ScenarioStage.quest) {
+      return false;
+    }
+    final index = _currentQuestIndex;
+    if (index < 0 || index >= scenario.quests.length) return false;
+    final quest = scenario.quests[index];
+    return quest.type == QuestType.hoerverstehen &&
+        quest.data['confirmSelection'] == true;
+  }
 
   double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
@@ -1004,6 +1020,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       case QuestType.hoerverstehen:
         questWidget = HoerverstehenQuest(
           data: spec.data,
+          audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },
@@ -1283,6 +1300,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _buildBottomBar(AppL10n t) {
     if (_isResultStage) return const SizedBox.shrink();
+    if (_currentQuestOwnsPrimaryAction && !_questReady) {
+      return const SizedBox.shrink();
+    }
 
     final isIntro = _stage == 0;
     final enabled = _questReady;

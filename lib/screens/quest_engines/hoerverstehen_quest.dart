@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
@@ -14,11 +15,13 @@ import 'quest_models.dart';
 class HoerverstehenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final bool audioEnabled;
 
   const HoerverstehenQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.audioEnabled = true,
   });
 
   @override
@@ -30,6 +33,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   int _tries = 0;
   bool _completed = false;
   bool _celebrated = false;
+  bool _evaluating = false;
 
   List<Map<String, dynamic>> get _options {
     final raw = widget.data['options'] as List? ?? const [];
@@ -38,6 +42,17 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
 
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
   String get _audioKo => (widget.data['audioKo'] as String?) ?? '';
+  bool get _requiresConfirmation => widget.data['confirmSelection'] == true;
+
+  String _localizedDataText(String key, String langCode) {
+    final raw = widget.data[key];
+    if (raw is String) return raw;
+    if (raw is Map) {
+      final localized = raw[langCode] ?? raw['de'] ?? raw['en'];
+      return localized is String ? localized : '';
+    }
+    return '';
+  }
 
   @override
   void initState() {
@@ -47,23 +62,40 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       if (!mounted) {
         return;
       }
-      // ignore: discarded_futures
-      TtsService.speak(_audioKo);
+      if (widget.audioEnabled) {
+        // ignore: discarded_futures
+        TtsService.speak(_audioKo);
+      }
     });
   }
 
   Future<void> _playTts() async {
+    if (!widget.audioEnabled) return;
     HapticFeedback.selectionClick();
     await TtsService.speak(_audioKo);
   }
 
   Future<void> _onOptionTap(int idx) async {
-    if (_completed || _selected == idx) return;
+    if (_completed || _evaluating || _selected == idx) return;
+
+    setState(() => _selected = idx);
+    if (_requiresConfirmation) return;
+    await _evaluate(idx);
+  }
+
+  Future<void> _checkSelection() async {
+    if (_selected < 0 || _completed || _evaluating) return;
+    await _evaluate(_selected);
+  }
+
+  Future<void> _evaluate(int idx) async {
+    if (_completed || _evaluating) return;
 
     final isCorrect = idx == _correctIndex;
 
     setState(() {
       _selected = idx;
+      _evaluating = true;
     });
 
     if (isCorrect) {
@@ -76,6 +108,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       if (mounted) {
         widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
       }
+      return;
     } else {
       HapticFeedback.mediumImpact();
       _tries++;
@@ -89,21 +122,33 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
         if (mounted) {
           widget.onComplete(QuestResult(passed: false, firstTry: false));
         }
+        return;
       } else {
         await Future<void>.delayed(const Duration(milliseconds: 700));
-        if (mounted) setState(() => _selected = -1);
+        if (mounted) {
+          setState(() {
+            _selected = -1;
+            _evaluating = false;
+          });
+        }
       }
     }
   }
 
   Color _borderColor(int idx, SoriSurfaces s) {
     if (_selected != idx) return s.surfaceAlt;
+    if (_requiresConfirmation && !_evaluating && !_completed) {
+      return SoriColors.info;
+    }
     if (idx == _correctIndex) return SoriColors.success;
     return SoriColors.danger;
   }
 
   Color _bgColor(int idx, SoriSurfaces s) {
     if (_selected != idx) return s.surface;
+    if (_requiresConfirmation && !_evaluating && !_completed) {
+      return SoriColors.info.withAlpha(26);
+    }
     if (idx == _correctIndex) return SoriColors.success.withAlpha(38);
     return SoriColors.danger.withAlpha(38);
   }
@@ -112,12 +157,28 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   Widget build(BuildContext context) {
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
+    final question = _localizedDataText('question', langCode);
+    final instruction = _localizedDataText('instruction', langCode);
+    final checkLabel = _localizedDataText('checkLabel', langCode);
 
     return Stack(
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            if (question.isNotEmpty) ...[
+              Text(question, style: SoriTextTheme.of(context).h2),
+              if (instruction.isNotEmpty) ...[
+                const SizedBox(height: Spacing.xs),
+                Text(
+                  instruction,
+                  style: SoriTextTheme.of(
+                    context,
+                  ).bodySmall.copyWith(color: s.textMuted),
+                ),
+              ],
+              const SizedBox(height: Spacing.xl),
+            ],
             // TTS-Button + 상주 마스코트 — 한 덩어리로 묶는다.
             // 까치를 코너에 따로 띄우면 "동떨어져 처박힌" 느낌이 나고
             // 스피커와 시선이 경쟁한다. 나란히 두면 "듣고 있는" 관계가 생긴다.
@@ -233,6 +294,18 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                 ),
               );
             }),
+            if (_requiresConfirmation) ...[
+              const SizedBox(height: Spacing.sm),
+              SoriButton.filled(
+                label: checkLabel.isEmpty
+                    ? AppL10n.of(context).btnSubmit
+                    : checkLabel,
+                fullWidth: true,
+                onTap: _selected < 0 || _completed || _evaluating
+                    ? null
+                    : _checkSelection,
+              ),
+            ],
           ],
         ),
       ],

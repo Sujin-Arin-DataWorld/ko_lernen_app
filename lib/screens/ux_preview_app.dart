@@ -72,8 +72,9 @@ class UxPreviewRegistry {
     ),
     '02C' => ScenarioPlayerScreen.preview(
       fixture: const ScenarioPlayerPreviewFixture.action(
-        scenario: _greetingScenario,
-        missionTitle: 'Begrüßen & Hangul',
+        scenario: _listeningScenario,
+        stage: ScenarioStage.quest,
+        missionTitle: 'Weniger scharf bestellen',
       ),
     ),
     '02D' => ScenarioPlayerScreen.preview(
@@ -440,6 +441,50 @@ const _greetingScenario = Scenario(
     DialogLine(speaker: 'user', ko: '안녕하세요.', de: 'Guten Tag.', en: 'Hello.'),
   ],
   quests: [],
+);
+
+const _listeningScenario = Scenario(
+  id: 'preview_less_spicy',
+  level: LearnerLevel.a1,
+  emoji: '🍲',
+  register: Register.polite,
+  title: LocalizedText(
+    ko: '덜 맵게 부탁하기',
+    de: 'Weniger scharf bestellen',
+    en: 'Order less spicy food',
+  ),
+  intro: LocalizedText(
+    ko: '',
+    de: 'Erkenne die höfliche Bitte.',
+    en: 'Recognize the polite request.',
+  ),
+  vocab: [],
+  grammarIds: [],
+  dialog: [],
+  quests: [
+    QuestSpec(
+      type: QuestType.hoerverstehen,
+      data: {
+        'audioKo': '안 맵게 해 주세요.',
+        'question': {
+          'de': 'Was sagt die Person?',
+          'en': 'What is the person saying?',
+        },
+        'instruction': {
+          'de': 'Tippe erst, wenn du die Bitte erkannt hast.',
+          'en': 'Tap only after you recognize the request.',
+        },
+        'options': [
+          {'de': '매워요.', 'en': '매워요.'},
+          {'de': '안 맵게 해 주세요.', 'en': '안 맵게 해 주세요.'},
+          {'de': '감사합니다.', 'en': '감사합니다.'},
+        ],
+        'correctIndex': 1,
+        'confirmSelection': true,
+        'checkLabel': {'de': 'Meine Antwort prüfen', 'en': 'Check my answer'},
+      },
+    ),
+  ],
 );
 
 final _greetingLink = ContentLink(
