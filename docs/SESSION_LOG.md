@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — Claude 최종 SHA 위 재통합·실기기 검증표
+
+- Claude의 `하` 무음 음량 게이트 커밋 `78fa742`를 최종 기준으로 삼고 Hangul
+  carrier·즉시 재생·쓰기 포인터 패치를 다시 적용했다. 자동 병합 뒤
+  `MIN_PEAK_DBFS = -30`과 `ㅃ→빵`, `ㄷ→다리`, `ㅏ→아빠`, `ㅠ→유리`,
+  `ㅢ→의자`가 모두 남아 있음을 확인했다.
+- UX worktree/branch를 전수 대조했다. 완성 01A–06C 계보와 onboarding P2,
+  integration 계보는 이미 최신 main의 조상이다. 오래된 분할 UX 브랜치는 최신
+  main보다 53–74커밋 뒤라 병합하면 course/Gye/no-write 계약을 되돌리므로 제외했다.
+- 한옥 월드는 누락이 아니었다. Redmi Note 10 Pro에서 Discover `Für mich` →
+  `Meine Hanok-Welt`로 진입해 A1 마당과 진행 카드 렌더, 빈 crash buffer를 확인했다.
+- 호랑이 배경은 안팎 샘플이 모두 `#FBF5EB`, Flughafen은 production
+  `airport_arrival` roleplay가 실제 단어 타일과 함께 렌더됨을 확인했다.
+  정확한 상태·미확인 경계는
+  `docs/FINAL_INTEGRATION_AND_DEVICE_VERIFICATION_2026-08-12.md`에 기록했다.
+
 ### 2026-08-12 (Claude) — 26건 전수 검수 + `하` 무음 수정(음량 게이트 신설)
 
 **왜.** Jin: "아직 확인 못 한 거 전부 100% 완료해줘. 26건 검수." 직전 항목에서
