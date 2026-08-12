@@ -470,20 +470,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   /// Quest-Index (0-basiert) der aktuellen Stage
   int get _currentQuestIndex => _stage - _questStartStage;
 
-  bool get _currentQuestOwnsPrimaryAction {
-    final scenario = _scenario;
-    if (scenario == null ||
-        _stage < 0 ||
-        _stage >= _plan.length ||
-        _plan[_stage] != ScenarioStage.quest) {
-      return false;
-    }
-    final index = _currentQuestIndex;
-    if (index < 0 || index >= scenario.quests.length) return false;
-    final quest = scenario.quests[index];
-    return quest.type == QuestType.hoerverstehen &&
-        quest.data['confirmSelection'] == true;
-  }
+  /// 지금 단계가 퀘스트인가. 퀘스트는 자기 CTA 를 직접 그리므로 시나리오의
+  /// Weiter 를 겹쳐 띄우면 안 된다(§ `_buildNextButton` 주석).
+  bool get _isQuestStage =>
+      _scenario != null &&
+      _stage >= 0 &&
+      _stage < _plan.length &&
+      _plan[_stage] == ScenarioStage.quest;
 
   double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
@@ -1417,7 +1410,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _buildBottomBar(AppL10n t) {
     if (_isResultStage) return const SizedBox.shrink();
-    if (_currentQuestOwnsPrimaryAction && !_questReady) {
+    // 퀘스트 단계에서는 퀘스트가 자기 CTA(Überprüfen 등)를 직접 그린다.
+    // 완료 전까지 시나리오의 Weiter 는 **숨긴다** — 비활성으로 남겨두면 한
+    // 화면에 CTA 가 두 개가 되고 아래쪽은 눌리지 않는 죽은 버튼으로 보인다
+    // (Jin 2026-08-13 실기기, Rollenspiel).
+    //
+    // 예전 조건은 `_currentQuestOwnsPrimaryAction` 이었는데 그건
+    // hoerverstehen + confirmSelection 한 조합만 참이라, Satz-bauen 등
+    // 나머지 퀘스트는 전부 이중 CTA 였다.
+    //
+    // `_questReady == false` 는 "이 퀘스트는 완료돼야 넘어간다"는 뜻이고
+    // (`_questReady = !nextNeedsCompletion`), 그런 퀘스트는 자기 완료 수단을
+    // 반드시 갖는다. 완료되면 `_questReady` 가 true 가 되어 Weiter 가 다시
+    // 나타나므로 사용자가 갇히지 않는다.
+    if (_isQuestStage && !_questReady) {
       return const SizedBox.shrink();
     }
 
