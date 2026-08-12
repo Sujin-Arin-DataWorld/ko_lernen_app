@@ -157,10 +157,10 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .lesson-beat p { min-height: 48px; margin: 8px 0 22px; color: var(--muted); font-size: 13px; line-height: 1.5; }
 .lesson-beat-speak p { color: #d9ebe6; }
 .listen-demo { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 10px; padding: 13px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.listen-demo button { width: 42px; height: 42px; display: grid; place-items: center; border: 0; border-radius: 50%; color: white; background: var(--primary); cursor: pointer; }
+.listen-demo .demo-play { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--primary); }
 .listen-demo > div { min-width: 0; display: grid; }
 .listen-demo b { font-size: 16px; }
-.listen-demo span { margin-top: 3px; color: var(--muted); font-size: 9px; }
+.listen-demo > div span { margin-top: 3px; color: var(--muted); font-size: 9px; }
 .lesson-wave { height: 52px; display: flex; align-items: center; justify-content: center; gap: 4px; }
 .lesson-wave i { width: 4px; max-height: 42px; border-radius: 999px; background: currentColor; opacity: .86; }
 .lesson-wave-compact { height: 38px; color: var(--primary); gap: 3px; }
@@ -208,7 +208,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .sound-lab small { color: #37675d; font-size: 10px; font-weight: 800; }
 .sound-lab b { margin-top: 7px; font-size: 22px; }
 .sound-lab .lesson-wave { color: #1f7a6b; }
-.sound-lab button, .everyday-scene button { min-height: 38px; display: inline-flex; align-items: center; gap: 7px; padding: 0 12px; border: 1px solid rgba(24,59,52,.25); border-radius: 12px; color: #183b34; background: rgba(255,255,255,.46); cursor: pointer; font-size: 10px; font-weight: 700; }
+.sound-lab .demo-action, .everyday-scene .demo-play { min-height: 38px; display: inline-flex; align-items: center; gap: 7px; padding: 0 12px; border: 1px solid rgba(24,59,52,.25); border-radius: 12px; color: #183b34; background: rgba(255,255,255,.46); font-size: 10px; font-weight: 700; }
 .srs-count { display: grid; justify-items: start; margin: 4px 0 17px; }
 .srs-count strong { font-size: 82px; line-height: .9; letter-spacing: -.08em; }
 .srs-count span { margin-top: 10px; font-size: 11px; }
@@ -223,7 +223,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .everyday-scene > span { display: flex; align-items: center; gap: 7px; color: #355b79; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
 .everyday-scene > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; }
 .everyday-scene b { font-size: 17px; line-height: 1.35; }
-.everyday-scene button { width: 38px; flex: 0 0 auto; justify-content: center; padding: 0; }
+.everyday-scene .demo-play { width: 38px; flex: 0 0 auto; justify-content: center; padding: 0; }
 .everyday-scene > small { display: block; margin-top: 8px; color: #466a85; font-size: 10px; }
 .trust-grid h3 { margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
 .trust-grid p { margin: 10px 0 0; color: var(--muted); font-size: 15px; font-weight: 400; line-height: 1.62; }
@@ -479,7 +479,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
   .feature-panel-copy p { max-width: none; }
   .sound-lab { grid-template-columns: 1fr; gap: 7px; }
   .sound-lab .lesson-wave { justify-content: start; height: 42px; }
-  .sound-lab button { width: max-content; }
+  .sound-lab .demo-action { width: max-content; }
   .hangul-builder span, .hangul-builder strong { width: 61px; height: 66px; }
   .journey-section { padding: 80px 0; }
   .journey-track li { grid-template-columns: 46px 1fr; gap: 12px; }

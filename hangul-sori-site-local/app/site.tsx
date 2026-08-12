@@ -243,7 +243,7 @@ function LessonStage({ locale, steps }: { locale: Locale; steps: readonly (reado
       <li className="lesson-beat lesson-beat-listen">
         <div className="lesson-beat-head"><span>01</span><Headphones aria-hidden="true" size={24}/></div>
         <small>{demo.listen}</small><h3>{steps[0][0]}</h3><p>{steps[0][1]}</p>
-        <div className="listen-demo"><button type="button" aria-label={demo.play}><Play size={18} fill="currentColor"/></button><div><b>괜찮아요?</b><span>gwaen-chan-a-yo?</span></div><Waveform compact/></div>
+        <div className="listen-demo"><span className="demo-play" aria-hidden="true"><Play size={18} fill="currentColor"/></span><div><b>괜찮아요?</b><span>gwaen-chan-a-yo?</span></div><Waveform compact/></div>
       </li>
       <li className="lesson-beat lesson-beat-speak">
         <div className="lesson-beat-head"><span>02</span><Mic2 aria-hidden="true" size={24}/></div>
@@ -276,7 +276,7 @@ function FeatureShowcase({ locale, features }: { locale: Locale; features: reado
     </article>
     <article className="feature-panel feature-pronunciation">
       <div className="feature-panel-head"><span>{demo.sound}</span><Volume2 size={21}/></div>
-      <div className="sound-lab"><div><small>ㅓ / ㅗ</small><b>서울 · 소울</b></div><Waveform/><button type="button"><Play size={15} fill="currentColor"/> {demo.listen}</button></div>
+      <div className="sound-lab"><div><small>ㅓ / ㅗ</small><b>서울 · 소울</b></div><Waveform/><span className="demo-action"><Play size={15} fill="currentColor"/> {demo.listen}</span></div>
       <div className="feature-panel-copy"><div><small>02</small><h3>{features[1][1]}</h3></div><p>{features[1][2]}</p></div>
     </article>
     <article className="feature-panel feature-srs">
@@ -290,7 +290,7 @@ function FeatureShowcase({ locale, features }: { locale: Locale; features: reado
       <div className="feature-panel-copy"><div><small>05</small><h3>{features[4][1]}</h3></div><p>{features[4][2]}</p></div>
     </article>
     <article className="feature-panel feature-everyday">
-      <div className="everyday-scene"><span><Coffee size={19}/>{demo.situation}</span><div><b>아이스 아메리카노 한 잔 주세요.</b><button type="button" aria-label={demo.listen}><Volume2 size={18}/></button></div><small>“One iced Americano, please.”</small></div>
+      <div className="everyday-scene"><span><Coffee size={19}/>{demo.situation}</span><div><b>아이스 아메리카노 한 잔 주세요.</b><span className="demo-play" aria-hidden="true"><Volume2 size={18}/></span></div><small>{locale === "de" ? "„Einen Iced Americano, bitte.“" : locale === "ko" ? "아이스 아메리카노 한 잔을 주문하는 표현" : "“One iced Americano, please.”"}</small></div>
       <div className="feature-panel-copy"><div><small>{demo.scene}</small><h3>{features[3][1]}</h3></div><p>{features[3][2]}</p></div>
     </article>
   </div>;
