@@ -69,6 +69,14 @@ void main() {
       'account_deletion_terminal_status_receipt_v1':
           'secure-receipt-must-not-export',
       'firebase_refresh_token': 'refresh-token-must-not-export',
+      'firebase_uid': 'uid-identity-must-not-export',
+      'firebase_email': 'email-identity-must-not-export@example.test',
+      'firebase_display_name': 'display-name-must-not-export',
+      'firebase_photo_url': 'photo-url-must-not-export',
+      'firebase_provider_id': 'provider-id-must-not-export',
+      'firebase_fcm_token': 'fcm-token-must-not-export',
+      'firebase_app_check_token': 'app-check-token-must-not-export',
+      'device_installation_id': 'device-id-must-not-export',
       'kl_consent_accepted': true,
       'kl_analytics_consent': true,
       'kl_bookshelf_v1': r'C:\private\photo.jpg',
@@ -114,11 +122,43 @@ void main() {
     expect(encoded, isNot(contains('auth-token-must-not-export')));
     expect(encoded, isNot(contains('secure-receipt-must-not-export')));
     expect(encoded, isNot(contains('refresh-token-must-not-export')));
+    for (final secret in const [
+      'uid-identity-must-not-export',
+      'email-identity-must-not-export@example.test',
+      'display-name-must-not-export',
+      'photo-url-must-not-export',
+      'provider-id-must-not-export',
+      'fcm-token-must-not-export',
+      'app-check-token-must-not-export',
+      'device-id-must-not-export',
+    ]) {
+      expect(encoded, isNot(contains(secret)));
+    }
     expect(encoded, isNot(contains('private\\photo.jpg')));
     expect(encoded, isNot(contains('birthYear')));
     expect(encoded, isNot(contains('"consentAccepted"')));
     expect(encoded, isNot(contains('"analyticsConsent"')));
     expect(encoded, isNot(contains('"journal"')));
+    final exportedKeys = _allKeys(decoded).map((key) => key.toLowerCase());
+    for (final forbidden in const [
+      'uid',
+      'email',
+      'token',
+      'receipt',
+      'journal',
+      'deletion',
+      'consent',
+      'photo',
+      'provider',
+      'account',
+      'device',
+    ]) {
+      expect(
+        exportedKeys.where((key) => key.contains(forbidden)),
+        isEmpty,
+        reason: 'identity/security field fragment "$forbidden" is forbidden',
+      );
+    }
 
     await preferences.reload();
     expect(_snapshot(preferences), before);
@@ -159,3 +199,16 @@ void main() {
 Map<String, Object?> _snapshot(SharedPreferences preferences) => {
   for (final key in preferences.getKeys()) key: preferences.get(key),
 };
+
+Iterable<String> _allKeys(Object? value) sync* {
+  if (value is Map) {
+    for (final entry in value.entries) {
+      yield entry.key.toString();
+      yield* _allKeys(entry.value);
+    }
+  } else if (value is Iterable) {
+    for (final item in value) {
+      yield* _allKeys(item);
+    }
+  }
+}

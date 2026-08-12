@@ -70,8 +70,15 @@ class CourseProgressService {
         );
       });
 
-  Future<CourseMasterySnapshot> initializeForPlacement(String levelCode) =>
-      _serialized((service) => service.initializeForPlacement(levelCode));
+  Future<CourseMasterySnapshot> initializeForPlacement(
+    String levelCode, {
+    bool syncBrowseLevel = false,
+  }) => _serialized(
+    (service) => service.initializeForPlacement(
+      levelCode,
+      syncBrowseLevel: syncBrowseLevel,
+    ),
+  );
 
   Future<CourseMasterySnapshot> selectCourseUnit(String courseUnitId) =>
       _serialized((service) => service.selectCourseUnit(courseUnitId));

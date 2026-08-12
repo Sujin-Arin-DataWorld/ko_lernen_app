@@ -183,7 +183,10 @@ class CourseMasteryService {
   /// Starts the sequential path at the first unit of a chosen CEFR level.
   /// Earlier units are explicitly listed as bypassed prerequisites; they are
   /// never represented as completed work.
-  Future<CourseMasterySnapshot> initializeForPlacement(String levelCode) async {
+  Future<CourseMasterySnapshot> initializeForPlacement(
+    String levelCode, {
+    bool syncBrowseLevel = false,
+  }) async {
     _ensureCatalogUsable();
     final level = _normalizeLevel(levelCode);
     final startingUnit = _orderedUnits
@@ -201,13 +204,18 @@ class CourseMasteryService {
         .map((unit) => unit.id)
         .toList(growable: false);
 
-    _snapshot = CourseMasterySnapshot(
+    final nextSnapshot = CourseMasterySnapshot(
       placementLevel: level,
       currentCourseUnitId: startingUnit.id,
       bypassedPrerequisiteUnitIds: bypassed,
     );
+    await _persistSnapshot(
+      nextSnapshot,
+      mirrorLegacyUserLevel: true,
+      browseLevelCode: syncBrowseLevel ? level : null,
+    );
+    _snapshot = nextSnapshot;
     _loaded = true;
-    await _persist();
     return _snapshot;
   }
 
@@ -1020,31 +1028,20 @@ class CourseMasteryService {
   Future<void> _persistSnapshot(
     CourseMasterySnapshot snapshot, {
     required bool mirrorLegacyUserLevel,
+    String? browseLevelCode,
     void Function()? assertCurrentWrite,
   }) async {
     _ensureCatalogUsable();
     _validateSnapshot(snapshot);
-    await Storage.setCourseMasterySnapshotRawJson(
-      jsonEncode(snapshot.toJson()),
+    await Storage.setCourseMasteryStateAtomically(
+      canonicalSnapshotJson: jsonEncode(snapshot.toJson()),
+      placementLevelCode: snapshot.placementLevel,
+      browseLevelCode: browseLevelCode,
+      currentCourseUnitId: snapshot.currentCourseUnitId,
+      mirrorLegacyUserLevel: mirrorLegacyUserLevel,
       preferences: snapshotPreferences,
       assertCurrentWrite: assertCurrentWrite,
     );
-    if (snapshot.placementLevel != null) {
-      if (mirrorLegacyUserLevel) {
-        await Storage.setPlacementLevelCode(snapshot.placementLevel!);
-      } else {
-        await Storage.setDedicatedCoursePlacementLevelCode(
-          snapshot.placementLevel!,
-        );
-      }
-    } else {
-      await Storage.clearPlacementLevelCode();
-    }
-    if (snapshot.currentCourseUnitId != null) {
-      await Storage.setCourseUnitId(snapshot.currentCourseUnitId!);
-    } else {
-      await Storage.clearCourseUnitId();
-    }
   }
 
   void _ensureCatalogUsable() {

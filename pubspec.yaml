@@ -19,6 +19,9 @@ dependencies:
   # ── Daten / Persistenz ──────────────────────────────────
   csv: ^6.0.0
   shared_preferences: ^2.3.0
+  # Exact pin: 7.0 keeps the current iOS/Xcode floor while supporting this
+  # project's Flutter 3.44, AGP 9.0, and Gradle 9.1 toolchain.
+  connectivity_plus: 7.0.0
 
   # ── Audio / Sprache ─────────────────────────────────────
   flutter_tts: ^4.2.0

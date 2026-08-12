@@ -1,3 +1,5 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
@@ -90,6 +92,49 @@ enum TodayLearningSource { course, pack, scenario, review }
 
 enum TodayLearningAvailability { ready, unavailable }
 
+/// Coarse platform connectivity only. `online` means a network transport is
+/// present, not that every server request is guaranteed to succeed.
+enum TodayNetworkStatus { online, offline, unknown }
+
+/// Typed reason for a snapshot that cannot be presented as fully refreshed.
+/// Local parse/storage failures must never be rendered as an internet outage.
+enum TodayLearningUnavailableReason { offline, remoteService, localData }
+
+/// A source that actually performs a remote read can preserve that typed
+/// failure without leaking raw exceptions into the presentation layer.
+class TodayLearningSourceFailure implements Exception {
+  const TodayLearningSourceFailure.remote()
+    : reason = TodayLearningUnavailableReason.remoteService;
+
+  const TodayLearningSourceFailure.offline()
+    : reason = TodayLearningUnavailableReason.offline;
+
+  final TodayLearningUnavailableReason reason;
+}
+
+typedef TodayNetworkStatusReader = Future<TodayNetworkStatus> Function();
+
+/// Read-only platform connectivity used by Home and the snapshot loader.
+abstract final class TodayLearningConnectivity {
+  static Future<TodayNetworkStatus> currentStatus() async {
+    try {
+      return _statusFor(await Connectivity().checkConnectivity());
+    } catch (_) {
+      return TodayNetworkStatus.unknown;
+    }
+  }
+
+  static Stream<TodayNetworkStatus> get statusChanges =>
+      Connectivity().onConnectivityChanged.map(_statusFor).distinct();
+
+  static TodayNetworkStatus _statusFor(List<ConnectivityResult> results) {
+    if (results.isEmpty) return TodayNetworkStatus.unknown;
+    return results.any((result) => result != ConnectivityResult.none)
+        ? TodayNetworkStatus.online
+        : TodayNetworkStatus.offline;
+  }
+}
+
 typedef TodayCourseSourceValue = ({
   List<CourseUnit> units,
   CourseMasterySnapshot? snapshot,
@@ -135,6 +180,7 @@ class TodayLearningSnapshot {
   final int hardCount;
   final int presentationRevision;
   final TodayLearningAvailability availability;
+  final TodayLearningUnavailableReason? unavailableReason;
   final Set<TodayLearningSource> unavailableSources;
 
   const TodayLearningSnapshot({
@@ -145,16 +191,25 @@ class TodayLearningSnapshot {
     this.hardCount = 0,
     this.presentationRevision = currentPresentationRevision,
     this.availability = TodayLearningAvailability.ready,
+    this.unavailableReason,
     this.unavailableSources = const {},
-  });
+  }) : assert(
+         availability == TodayLearningAvailability.ready
+             ? unavailableReason == null
+             : unavailableReason != null,
+       );
 
   bool get isUnavailable =>
       availability == TodayLearningAvailability.unavailable;
+
+  bool get isOffline =>
+      unavailableReason == TodayLearningUnavailableReason.offline;
 
   factory TodayLearningSnapshot.fromInputs(
     TodayLearningInputs inputs, {
     int hardCount = 0,
     TodayLearningAvailability availability = TodayLearningAvailability.ready,
+    TodayLearningUnavailableReason? unavailableReason,
     Set<TodayLearningSource> unavailableSources = const {},
   }) {
     final pick = recommendMission(
@@ -176,6 +231,7 @@ class TodayLearningSnapshot {
       dueCount: inputs.dueCount,
       hardCount: hardCount,
       availability: availability,
+      unavailableReason: unavailableReason,
       unavailableSources: Set.unmodifiable(unavailableSources),
     );
   }
@@ -191,6 +247,7 @@ class TodayLearningSnapshotLoader {
 
   static Future<TodayLearningSnapshot> load({
     TodayLearningSourceReaders? readers,
+    TodayNetworkStatusReader? networkStatusReader,
   }) async {
     final userLevel =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
@@ -203,6 +260,9 @@ class TodayLearningSnapshotLoader {
           scenario: _loadScenarioInput,
           review: _loadReviewInput,
         );
+    final networkFuture = _readNetworkStatus(
+      networkStatusReader ?? TodayLearningConnectivity.currentStatus,
+    );
 
     // Start every read before awaiting so a slow source does not serialize the
     // remaining local reads.
@@ -227,6 +287,7 @@ class TodayLearningSnapshotLoader {
     final nowNode = await nowNodeFuture;
     final scenario = await scenarioFuture;
     final review = await reviewFuture;
+    final networkStatus = await networkFuture;
 
     final unavailableSources = <TodayLearningSource>{
       if (course.failed) TodayLearningSource.course,
@@ -234,6 +295,21 @@ class TodayLearningSnapshotLoader {
       if (scenario.failed) TodayLearningSource.scenario,
       if (review.failed) TodayLearningSource.review,
     };
+    final sourceReasons = <TodayLearningUnavailableReason>{
+      if (course.failureReason case final reason?) reason,
+      if (nowNode.failureReason case final reason?) reason,
+      if (scenario.failureReason case final reason?) reason,
+      if (review.failureReason case final reason?) reason,
+    };
+    final unavailableReason = networkStatus == TodayNetworkStatus.offline
+        ? TodayLearningUnavailableReason.offline
+        : sourceReasons.contains(TodayLearningUnavailableReason.offline)
+        ? TodayLearningUnavailableReason.offline
+        : sourceReasons.contains(TodayLearningUnavailableReason.remoteService)
+        ? TodayLearningUnavailableReason.remoteService
+        : sourceReasons.isNotEmpty
+        ? TodayLearningUnavailableReason.localData
+        : null;
 
     return TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
@@ -250,9 +326,10 @@ class TodayLearningSnapshotLoader {
         userLevel: scenario.value.userLevel,
       ),
       hardCount: review.value.hardCount,
-      availability: unavailableSources.isEmpty
+      availability: unavailableReason == null
           ? TodayLearningAvailability.ready
           : TodayLearningAvailability.unavailable,
+      unavailableReason: unavailableReason,
       unavailableSources: unavailableSources,
     );
   }
@@ -315,16 +392,34 @@ class TodayLearningSnapshotLoader {
 }
 
 class _Captured<T> {
-  const _Captured({required this.value, this.failed = false});
+  const _Captured({required this.value, this.failureReason});
 
   final T value;
-  final bool failed;
+  final TodayLearningUnavailableReason? failureReason;
+  bool get failed => failureReason != null;
 }
 
 Future<_Captured<T>> _capture<T>(Future<T> Function() read, T fallback) async {
   try {
     return _Captured(value: await read());
+  } on TodayLearningSourceFailure catch (error) {
+    return _Captured(value: fallback, failureReason: error.reason);
   } catch (_) {
-    return _Captured(value: fallback, failed: true);
+    return _Captured(
+      value: fallback,
+      failureReason: TodayLearningUnavailableReason.localData,
+    );
+  }
+}
+
+Future<TodayNetworkStatus> _readNetworkStatus(
+  TodayNetworkStatusReader read,
+) async {
+  try {
+    return await read();
+  } catch (_) {
+    // A platform probe failure is unknown, not proof that the learner is
+    // offline. Healthy local learning remains available.
+    return TodayNetworkStatus.unknown;
   }
 }

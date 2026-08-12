@@ -81,6 +81,49 @@ void main() {
     expect(context.contentLinkId, exactScenarioLink().id);
   });
 
+  test('does not bypass an unavailable Today snapshot', () {
+    final resolution = GyeWeeklyPromiseNavigation.resolve(
+      meta: promiseMeta,
+      today: TodayLearningSnapshot(
+        pick: const CoursePick(
+          unit: activeUnit,
+          missionNumber: 4,
+          totalMissions: 36,
+          fraction: 0.25,
+          started: true,
+        ),
+        destination: const TodayLearningDestination(route: '/course/mission'),
+        availability: TodayLearningAvailability.unavailable,
+        unavailableReason: TodayLearningUnavailableReason.localData,
+        unavailableSources: const {TodayLearningSource.course},
+      ),
+      contentLinks: [exactScenarioLink()],
+    );
+
+    expect(resolution.kind, GyePromiseNavigationKind.unavailable);
+    expect(resolution.destination, isNull);
+  });
+
+  test('does not bypass a different current Today destination', () {
+    final resolution = GyeWeeklyPromiseNavigation.resolve(
+      meta: promiseMeta,
+      today: TodayLearningSnapshot(
+        pick: const CoursePick(
+          unit: activeUnit,
+          missionNumber: 4,
+          totalMissions: 36,
+          fraction: 0.25,
+          started: true,
+        ),
+        destination: const TodayLearningDestination(route: '/review'),
+      ),
+      contentLinks: [exactScenarioLink()],
+    );
+
+    expect(resolution.kind, GyePromiseNavigationKind.todayFallback);
+    expect(resolution.destination?.route, '/review');
+  });
+
   test('falls back to Today when the exact scenario link is absent', () {
     final today = courseToday(activeUnit);
     final resolution = GyeWeeklyPromiseNavigation.resolve(

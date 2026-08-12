@@ -3230,15 +3230,18 @@ class AppL10nDe extends AppL10n {
   String get pathHideMorePractice => 'Weitere Übungen ausblenden';
 
   @override
+  String get gyeVoluntaryEyebrow => 'Freiwillige Lerngemeinschaft';
+
+  @override
   String get gyeEmptyHeadline =>
       'Allein lernen ist vollständig. Zusammen kann es wärmer sein.';
 
   @override
   String get gyeEmptyLead =>
-      'Ein Gye ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.';
+      'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.';
 
   @override
-  String get gyeFindOrCreate => 'Eine Gye finden oder gründen';
+  String get gyeFindOrCreate => 'Eine 계 finden oder gründen';
 
   @override
   String get gyeContinueSolo => 'Ohne Gruppe weiterlernen';
@@ -3347,13 +3350,31 @@ class AppL10nDe extends AppL10n {
   String get profileLearningStartPoint => 'Mein Startpunkt';
 
   @override
+  String get profileLearningStartPointConfirmTitle => 'Startpunkt ändern?';
+
+  @override
+  String get profileLearningStartPointConfirmBody =>
+      'Dabei werden dein bisheriger Kursfortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.';
+
+  @override
+  String get profileLearningStartPointConfirmCancel => 'Abbrechen';
+
+  @override
+  String get profileLearningStartPointConfirmAction =>
+      'Ändern und Kursfortschritt zurücksetzen';
+
+  @override
+  String get profileLearningStartPointChangeFailed =>
+      'Der Startpunkt konnte nicht geändert werden. Versuche es erneut.';
+
+  @override
   String get profileLearningCompanion => 'Lernbegleitung';
 
   @override
   String get profileSpaceSection => 'Mein Raum';
 
   @override
-  String get profileGye => 'Gruppe (Gye)';
+  String get profileGye => 'Gruppe (계)';
 
   @override
   String get profileGyeDescription => 'Freiwillige Lerngemeinschaft öffnen';
@@ -3685,11 +3706,11 @@ class AppL10nDe extends AppL10n {
   String get navGye => 'Gruppe';
 
   @override
-  String get gyeTabSubtitle => 'Zusammen lernen · Gye';
+  String get gyeTabSubtitle => 'Zusammen lernen · 계';
 
   @override
   String get gyeExplainWhat =>
-      'Ein Gye ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.';
+      'Eine 계 (Gye) ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.';
 
   @override
   String get gyeExplainWhy =>
@@ -3700,7 +3721,7 @@ class AppL10nDe extends AppL10n {
       'Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei, wenn du bereit bist.';
 
   @override
-  String get gyePrivacyTitle => 'Was andere sehen können';
+  String get gyePrivacyTitle => 'Was andere sehen';
 
   @override
   String get gyePrivacyBody =>
@@ -3731,7 +3752,7 @@ class AppL10nDe extends AppL10n {
       'Drei Personen üben, sich vorzustellen';
 
   @override
-  String get gyePromiseEyebrow => 'Diese Woche zusammen';
+  String get gyePromiseEyebrow => 'Diese Woche gemeinsam';
 
   @override
   String get gyePromiseCafeOrderTitle =>
@@ -3747,7 +3768,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyePromiseBody =>
-      'Eine Laterne leuchtet nach einer kursgebundenen Szene mit mindestens 70 %. Antworten, Punkte und Mitwirkende bleiben privat.';
+      'Jede Person hilft mit einer abgeschlossenen, passenden Lernhandlung.';
+
+  @override
+  String get gyePromiseEligibility =>
+      'Als Beitrag zählt nur die passende kursgebundene Szene mit mindestens 70 %.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -3784,7 +3809,7 @@ class AppL10nDe extends AppL10n {
       'Keine Rangliste. Kein Druck. Niemand kann den Lernweg anderer blockieren.';
 
   @override
-  String get gyePromiseSceneCta => 'Meine heutige Beitragsszene öffnen';
+  String get gyePromiseSceneCta => 'Meine heutige Szene öffnen';
 
   @override
   String get gyeTodayFallbackCta => 'Zu Heute';
@@ -3813,6 +3838,21 @@ class AppL10nDe extends AppL10n {
   String get gyeCourtyardEyebrow => 'Euer Hof';
 
   @override
+  String gyeCourtyardLightsToday(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Heute leuchten $count Laternen.',
+      one: 'Heute leuchtet eine Laterne.',
+      zero: 'Heute wartet die erste Laterne.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get gyeCourtyardLightsThree => 'Heute leuchten drei Laternen.';
+
+  @override
   String get gyeCourtyardTitle =>
       'Ein gemeinsamer Ort für kleine, sichere Ermutigung.';
 
@@ -3821,7 +3861,7 @@ class AppL10nDe extends AppL10n {
       'Die Hofansicht folgt den vorhandenen Wochenziel-Daten. Sie ändert weder einen persönlichen Kurs noch ein persönliches Hanok.';
 
   @override
-  String get gyeSafeMessage => 'Sichere Ermutigung senden';
+  String get gyeSafeMessage => 'Eine sichere Nachricht senden';
 
   @override
   String get coachGyeTabTitle => 'Gemeinsam lernen';
@@ -5173,7 +5213,7 @@ class AppL10nDe extends AppL10n {
   String get homeTodayPackAction => 'Diese Wörter üben';
 
   @override
-  String get homeTodayReviewAction => 'Jetzt wiederholen';
+  String get homeTodayReviewAction => 'Wiederholen';
 
   @override
   String get homeTodayScenarioAction => 'Diese Szene üben';
@@ -5198,15 +5238,29 @@ class AppL10nDe extends AppL10n {
       'Gib deinen sicheren Sätzen eine Stimme.';
 
   @override
+  String homeTodayReviewLead(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter sind bereit, bevor etwas Neues dazukommt.',
+      one: '1 Wort ist bereit, bevor etwas Neues dazukommt.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get homeTodayNextAction => 'Deine nächste Handlung';
+
+  @override
   String get homeTodayReviewReasonTitle => 'Warum heute wiederholen?';
 
   @override
   String get homeTodayReviewReason =>
-      'Damit Begrüßungen, Bitten und Antworten in der nächsten passenden Situation schneller verfügbar sind.';
+      'Damit Begrüßungen, Bitten und Antworten in der nächsten Szene schneller verfügbar sind.';
 
   @override
   String get homeTodayReviewTime =>
-      'Etwa 3 Minuten · dann geht dein Weg weiter.';
+      'ca. 3 Minuten · danach geht dein Weg weiter';
 
   @override
   String get homeUnavailableEyebrow => 'Verbindung pausiert';
@@ -5217,6 +5271,10 @@ class AppL10nDe extends AppL10n {
   @override
   String get homeUnavailableDescription =>
       'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine gespeicherten Wiederholungen sind bereit.';
+
+  @override
+  String get homeUnavailableDescriptionNoReview =>
+      'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Versuche die Verbindung erneut.';
 
   @override
   String get homeUnavailableSafeTitle => 'Jetzt sicher möglich';
@@ -5230,6 +5288,38 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeUnavailableRetry => 'Erneut verbinden';
+
+  @override
+  String get homeUnavailableRetryGeneric => 'Erneut versuchen';
+
+  @override
+  String get homeRemoteUnavailableEyebrow => 'Dienst kurz pausiert';
+
+  @override
+  String get homeRemoteUnavailableTitle => 'Dein Weg bleibt erhalten.';
+
+  @override
+  String get homeRemoteUnavailableDescription =>
+      'Der Onlinedienst antwortet gerade nicht. Deine gespeicherten Wiederholungen sind bereit.';
+
+  @override
+  String get homeRemoteUnavailableDescriptionNoReview =>
+      'Der Onlinedienst antwortet gerade nicht. Versuche es gleich noch einmal.';
+
+  @override
+  String get homeLocalUnavailableEyebrow => 'Heute braucht einen neuen Versuch';
+
+  @override
+  String get homeLocalUnavailableTitle =>
+      'Dein gespeichertes Lernen bleibt sicher.';
+
+  @override
+  String get homeLocalUnavailableDescription =>
+      'Heute konnte nicht aus den lokalen Lerndaten vorbereitet werden. Deine gespeicherten Wiederholungen sind weiterhin bereit.';
+
+  @override
+  String get homeLocalUnavailableDescriptionNoReview =>
+      'Heute konnte nicht aus den lokalen Lerndaten vorbereitet werden. Versuche, es erneut zu laden.';
 
   @override
   String get homeEmptyCta => 'Gespeicherte Wörter wiederholen';

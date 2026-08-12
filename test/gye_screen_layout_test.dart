@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -146,7 +148,7 @@ void main() {
     expect(
       tester
           .widget<SoriButton>(
-            find.widgetWithText(SoriButton, 'Send a safe encouragement'),
+            find.widgetWithText(SoriButton, 'Send a safe message'),
           )
           .variant,
       SoriButtonVariant.filled,
@@ -244,7 +246,7 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
-      final sceneCta = find.text('Open today’s contribution scene');
+      final sceneCta = find.text('Open today’s scene');
       expect(sceneCta, findsOneWidget);
       tester
           .widget<SoriButton>(find.byKey(const ValueKey('gye-promise-primary')))
@@ -337,7 +339,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('Go to Today'), findsOneWidget);
-    expect(find.text('Open today’s contribution scene'), findsNothing);
+    expect(find.text('Open today’s scene'), findsNothing);
     tester
         .widget<SoriButton>(find.byKey(const ValueKey('gye-promise-primary')))
         .onTap!();
@@ -414,4 +416,120 @@ void main() {
       }
     }
   });
+
+  testWidgets(
+    'German courtyard matches 05B-C at 308dp and 1.3x without identity rows',
+    (tester) async {
+      tester.view.physicalSize = const Size(308, 680);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final semantics = tester.ensureSemantics();
+      final sessions = ValueNotifier<CloudWriteSession?>(
+        const CloudWriteSession(
+          uid: 'preview-user',
+          epoch: 1,
+          mode: CloudWriteMode.ready,
+        ),
+      );
+      addTearDown(sessions.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              disableAnimations: true,
+              textScaler: const TextScaler.linear(1.3),
+            ),
+            child: child!,
+          ),
+          home: GyeScreen(
+            gyeId: 'ABC234',
+            accountSessions: sessions,
+            metaUpdates: Stream<GyeMeta?>.value(
+              const GyeMeta(
+                id: 'ABC234',
+                name: 'Mondhof',
+                code: 'ABC234',
+                ownerId: 'owner',
+                weeklyPromiseSchemaVersion: 1,
+                weeklyPromiseId: 'cafe_order',
+                weeklyPromiseTarget: 3,
+                weeklyPromiseProgress: 3,
+              ),
+            ),
+            memberUpdates: Stream<List<GyeMember>>.value(const [
+              GyeMember(uid: 'owner', nickname: 'Mina', role: GyeRole.owner),
+            ]),
+            currentMemberUpdates: Stream<GyeMember?>.value(null),
+            dedicationUpdates: Stream<List<GyeDedication>>.value(const []),
+            blockedUidUpdates: Stream<Set<String>>.value(const {}),
+            feedUpdates: Stream<List<GyeFeedEvent>>.value(const []),
+            loadTodaySnapshot: () async =>
+                const TodayLearningSnapshot(pick: null),
+            resolvePromiseNavigation: (_, _) async =>
+                const GyePromiseNavigationResolution(
+                  kind: GyePromiseNavigationKind.eligibleScene,
+                  destination: TodayLearningDestination(route: '/scenario'),
+                ),
+            enableCoach: false,
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      expect(find.text('Diese Woche gemeinsam'), findsOneWidget);
+      expect(
+        find.text(
+          'Jede Person hilft mit einer abgeschlossenen, passenden '
+          'Lernhandlung.',
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.text(
+          'Als Beitrag zählt nur die passende kursgebundene Szene mit '
+          'mindestens 70 %.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Meine heutige Szene öffnen'), findsOneWidget);
+      expect(find.text('Anonymer Beitrag'), findsNWidgets(3));
+      expect(find.text('Mina'), findsNothing);
+      await tester.scrollUntilVisible(
+        find.text('Heute leuchten drei Laternen.'),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(find.text('Euer Hof'), findsOneWidget);
+      expect(find.text('Heute leuchten drei Laternen.'), findsOneWidget);
+      expect(
+        find.text('Ein gemeinsamer Ort für kleine, sichere Ermutigung.'),
+        findsOneWidget,
+      );
+      await tester.scrollUntilVisible(
+        find.widgetWithText(SoriButton, 'Eine sichere Nachricht senden'),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final messageButton = find.widgetWithText(
+        SoriButton,
+        'Eine sichere Nachricht senden',
+      );
+      expect(messageButton, findsOneWidget);
+      expect(tester.getSize(messageButton).height, greaterThanOrEqualTo(48));
+      final messageSemantics = tester
+          .getSemantics(messageButton)
+          .getSemanticsData();
+      expect(messageSemantics.label, 'Eine sichere Nachricht senden');
+      expect(messageSemantics.hasAction(SemanticsAction.tap), isTrue);
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
 }

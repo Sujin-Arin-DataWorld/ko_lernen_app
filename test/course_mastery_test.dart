@@ -86,6 +86,37 @@ class _RejectedCanonicalSnapshotWriteStore implements PreferenceStringStore {
   }
 }
 
+class _RejectableCourseStateWriteStore implements PreferenceStringStore {
+  final Map<String, String> _values = <String, String>{};
+
+  String? rejectedKey;
+
+  Map<String, String> get values => Map<String, String>.unmodifiable(_values);
+
+  @override
+  bool containsKey(String key) => _values.containsKey(key);
+
+  @override
+  String? getString(String key) => _values[key];
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    if (key == rejectedKey) return false;
+    _values.remove(key);
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    if (key == rejectedKey) return false;
+    _values[key] = value;
+    return true;
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -271,6 +302,33 @@ void main() {
       expect(Storage.placementLevelCode, oldPlacement);
       expect(Storage.courseUnitId, oldCurrentUnit);
       expect(Storage.courseMasterySnapshotRawJson, oldCanonical);
+    },
+  );
+
+  test(
+    'placement change rolls back every course mirror and memory snapshot after a partial write',
+    () async {
+      final store = _RejectableCourseStateWriteStore();
+      final service = CourseMasteryService(
+        _catalog(),
+        snapshotPreferences: store,
+      );
+      await service.initializeForPlacement('a1', syncBrowseLevel: true);
+      final durableBefore = store.values;
+      final memoryBefore = service.snapshot.toJson();
+      expect(durableBefore[Storage.browseLevelPreferenceKey], 'a1');
+
+      // Reject the active-unit write after placement mirrors have already
+      // been attempted. The operation must remain all-or-nothing.
+      store.rejectedKey = Storage.courseUnitPreferenceKey;
+
+      await expectLater(
+        service.initializeForPlacement('a2', syncBrowseLevel: true),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(store.values, durableBefore);
+      expect(service.snapshot.toJson(), memoryBefore);
     },
   );
 

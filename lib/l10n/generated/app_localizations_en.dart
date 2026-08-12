@@ -3220,15 +3220,18 @@ class AppL10nEn extends AppL10n {
   String get pathHideMorePractice => 'Hide more practice';
 
   @override
+  String get gyeVoluntaryEyebrow => 'Optional learning community';
+
+  @override
   String get gyeEmptyHeadline =>
       'Learning alone is complete. Together can feel warmer.';
 
   @override
   String get gyeEmptyLead =>
-      'A Gye is a small group that holds a weekly intention together.';
+      'A 계 is a small group that holds a weekly intention together.';
 
   @override
-  String get gyeFindOrCreate => 'Find or create a Gye';
+  String get gyeFindOrCreate => 'Find or create a 계';
 
   @override
   String get gyeContinueSolo => 'Continue without a group';
@@ -3335,13 +3338,31 @@ class AppL10nEn extends AppL10n {
   String get profileLearningStartPoint => 'My starting point';
 
   @override
+  String get profileLearningStartPointConfirmTitle => 'Change starting point?';
+
+  @override
+  String get profileLearningStartPointConfirmBody =>
+      'This resets your current course progress, completed units, practice evidence, and scene checks. Saved vocabulary and account data remain intact.';
+
+  @override
+  String get profileLearningStartPointConfirmCancel => 'Cancel';
+
+  @override
+  String get profileLearningStartPointConfirmAction =>
+      'Change and reset course progress';
+
+  @override
+  String get profileLearningStartPointChangeFailed =>
+      'The starting point could not be changed. Try again.';
+
+  @override
   String get profileLearningCompanion => 'Learning companion';
 
   @override
   String get profileSpaceSection => 'My space';
 
   @override
-  String get profileGye => 'Group (Gye)';
+  String get profileGye => 'Group (계)';
 
   @override
   String get profileGyeDescription => 'Open your optional learning group';
@@ -3673,11 +3694,11 @@ class AppL10nEn extends AppL10n {
   String get navGye => 'Group';
 
   @override
-  String get gyeTabSubtitle => 'Learn together · Gye';
+  String get gyeTabSubtitle => 'Learn together · 계';
 
   @override
   String get gyeExplainWhat =>
-      'A gye is an optional small group for learning Korean. Learning alone is complete, too.';
+      'A 계 (gye) is an optional small group for learning Korean. Learning alone is complete, too.';
 
   @override
   String get gyeExplainWhy =>
@@ -3688,7 +3709,7 @@ class AppL10nEn extends AppL10n {
       'Create a group or join with a 6-digit code when you are ready.';
 
   @override
-  String get gyePrivacyTitle => 'What others can see';
+  String get gyePrivacyTitle => 'What others see';
 
   @override
   String get gyePrivacyBody =>
@@ -3735,7 +3756,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePromiseBody =>
-      'A lantern lights after a course-linked scene is completed at 70%. Answers, scores, and who contributed stay private.';
+      'Each person helps with one completed, matching learning action.';
+
+  @override
+  String get gyePromiseEligibility =>
+      'Only the matching course-linked scene completed at 70% counts as a contribution.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -3772,7 +3797,7 @@ class AppL10nEn extends AppL10n {
       'No ranking. No pressure. Nobody can block another learner’s path.';
 
   @override
-  String get gyePromiseSceneCta => 'Open today’s contribution scene';
+  String get gyePromiseSceneCta => 'Open today’s scene';
 
   @override
   String get gyeTodayFallbackCta => 'Go to Today';
@@ -3801,6 +3826,21 @@ class AppL10nEn extends AppL10n {
   String get gyeCourtyardEyebrow => 'Your courtyard';
 
   @override
+  String gyeCourtyardLightsToday(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lanterns are lit today.',
+      one: 'One lantern is lit today.',
+      zero: 'The first lantern is waiting today.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get gyeCourtyardLightsThree => 'Three lanterns are lit today.';
+
+  @override
   String get gyeCourtyardTitle =>
       'A shared place for small, safe encouragement.';
 
@@ -3809,7 +3849,7 @@ class AppL10nEn extends AppL10n {
       'The courtyard visual follows the existing weekly goal data. It does not change anyone\'s personal course or hanok.';
 
   @override
-  String get gyeSafeMessage => 'Send a safe encouragement';
+  String get gyeSafeMessage => 'Send a safe message';
 
   @override
   String get coachGyeTabTitle => 'Learn together';
@@ -5147,7 +5187,7 @@ class AppL10nEn extends AppL10n {
   String get homeTodayPackAction => 'Practice these words';
 
   @override
-  String get homeTodayReviewAction => 'Review now';
+  String get homeTodayReviewAction => 'Review';
 
   @override
   String get homeTodayScenarioAction => 'Practice this scene';
@@ -5170,11 +5210,25 @@ class AppL10nEn extends AppL10n {
   String get homeTodayReviewDescription => 'Give your safe sentences a voice.';
 
   @override
+  String homeTodayReviewLead(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words are ready before anything new is added.',
+      one: '1 word is ready before anything new is added.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get homeTodayNextAction => 'Your next action';
+
+  @override
   String get homeTodayReviewReasonTitle => 'Why review today?';
 
   @override
   String get homeTodayReviewReason =>
-      'So greetings, requests, and answers are easier to reach in the next matching situation.';
+      'So greetings, requests, and answers are easier to reach in the next scene.';
 
   @override
   String get homeTodayReviewTime =>
@@ -5191,6 +5245,10 @@ class AppL10nEn extends AppL10n {
       'New group and account actions briefly need internet. Your saved reviews are ready.';
 
   @override
+  String get homeUnavailableDescriptionNoReview =>
+      'New group and account actions briefly need internet. Try the connection again.';
+
+  @override
   String get homeUnavailableSafeTitle => 'Safe to do now';
 
   @override
@@ -5202,6 +5260,37 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeUnavailableRetry => 'Try again';
+
+  @override
+  String get homeUnavailableRetryGeneric => 'Try again';
+
+  @override
+  String get homeRemoteUnavailableEyebrow => 'Service paused';
+
+  @override
+  String get homeRemoteUnavailableTitle => 'Your path is still saved.';
+
+  @override
+  String get homeRemoteUnavailableDescription =>
+      'The online service is not responding right now. Your saved reviews are ready.';
+
+  @override
+  String get homeRemoteUnavailableDescriptionNoReview =>
+      'The online service is not responding right now. Try again shortly.';
+
+  @override
+  String get homeLocalUnavailableEyebrow => 'Today needs another try';
+
+  @override
+  String get homeLocalUnavailableTitle => 'Your saved learning is still safe.';
+
+  @override
+  String get homeLocalUnavailableDescription =>
+      'Today could not be prepared from the local learning data. Your saved reviews are still ready.';
+
+  @override
+  String get homeLocalUnavailableDescriptionNoReview =>
+      'Today could not be prepared from the local learning data. Try loading it again.';
 
   @override
   String get homeEmptyCta => 'Review saved words';

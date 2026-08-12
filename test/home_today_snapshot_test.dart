@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,7 +38,7 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('Review 12 words in context'), findsOneWidget);
+    expect(find.text('Give your safe sentences a voice.'), findsOneWidget);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
   });
@@ -67,8 +70,8 @@ void main() {
       );
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 120));
-      await tester.ensureVisible(find.text('Review now'));
-      await tester.tap(find.text('Review now'));
+      await tester.ensureVisible(find.text('Review'));
+      await tester.tap(find.text('Review'));
       await tester.pump();
 
       expect(openedRoute, '/review');
@@ -88,8 +91,8 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-
     String? openedRoute;
+
     await tester.pumpWidget(
       _host(
         HomeScreen(
@@ -138,21 +141,31 @@ void main() {
       tester.getTopLeft(todayHeading).dy,
       lessThan(tester.getTopLeft(primary).dy),
     );
-    expect(find.text('Review now'), findsOneWidget);
+    expect(find.text('Today first'), findsOneWidget);
     expect(find.text('Give your safe sentences a voice.'), findsOneWidget);
+    expect(
+      find.text('12 words are ready before anything new is added.'),
+      findsOneWidget,
+    );
+    expect(find.text('Your next action'), findsOneWidget);
+    expect(find.text('Review 12 words in context'), findsOneWidget);
+    expect(
+      find.text('About 3 minutes · then your path continues.'),
+      findsOneWidget,
+    );
     expect(find.text('Why review today?'), findsOneWidget);
     expect(
       find.text(
         'So greetings, requests, and answers are easier to reach in the next '
-        'matching situation. About 3 minutes · then your path continues.',
+        'scene.',
       ),
       findsOneWidget,
     );
-    expect(find.text('Review now'), findsOneWidget);
+    expect(find.text('Review'), findsOneWidget);
 
-    await tester.ensureVisible(find.text('Review now'));
+    await tester.ensureVisible(find.text('Review'));
     await tester.pump();
-    await tester.tap(find.text('Review now'));
+    await tester.tap(find.text('Review'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     expect(openedRoute, '/review');
@@ -161,14 +174,13 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
   });
 
-  testWidgets('keeps one local review action when Today cannot refresh', (
+  testWidgets('local Today failure keeps review without claiming offline', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(308, 680);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    String? openedRoute;
     await tester.pumpWidget(
       _host(
         HomeScreen(
@@ -177,44 +189,31 @@ void main() {
           loadHanokRatios: () async =>
               const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
         ),
-        onGenerateRoute: (settings) {
-          openedRoute = settings.name;
-          return MaterialPageRoute<void>(
-            builder: (_) => const Scaffold(body: SizedBox()),
-          );
-        },
         textScale: 1.3,
       ),
     );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 120));
 
-    expect(find.text('Connection paused'), findsOneWidget);
-    expect(find.text('Your path is waiting for you.'), findsOneWidget);
+    expect(find.text('Connection paused'), findsNothing);
+    expect(find.text('Today needs another try'), findsOneWidget);
+    expect(find.text('Your saved learning is still safe.'), findsOneWidget);
     expect(
       find.text(
-        'New group and account actions briefly need internet. Your saved '
-        'reviews are ready.',
+        'Today could not be prepared from the local learning data. Try loading '
+        'it again.',
       ),
       findsOneWidget,
     );
-    expect(find.text('Review saved words'), findsOneWidget);
+    expect(find.text('Review saved words'), findsNothing);
     expect(find.text('Try again'), findsOneWidget);
     expect(
       tester
-          .widget<SoriButton>(
-            find.widgetWithText(SoriButton, 'Review saved words'),
-          )
+          .widget<SoriButton>(find.widgetWithText(SoriButton, 'Try again'))
           .variant,
       SoriButtonVariant.filled,
     );
-
-    await tester.ensureVisible(find.text('Review saved words'));
-    await tester.pump();
-    await tester.tap(find.text('Review saved words'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
-    expect(openedRoute, '/review');
+    expect(find.widgetWithText(TextButton, 'Try again'), findsNothing);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
@@ -230,7 +229,15 @@ void main() {
           previewMode: true,
           loadTodaySnapshot: () async {
             loads++;
-            if (loads == 1) throw StateError('offline');
+            if (loads == 1) {
+              return const TodayLearningSnapshot(
+                pick: ReviewPick(dueCount: 12),
+                destination: TodayLearningDestination(route: '/review'),
+                dueCount: 12,
+                availability: TodayLearningAvailability.unavailable,
+                unavailableReason: TodayLearningUnavailableReason.offline,
+              );
+            }
             return const TodayLearningSnapshot(
               pick: ReviewPick(dueCount: 12),
               destination: TodayLearningDestination(route: '/review'),
@@ -253,7 +260,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 120));
 
     expect(loads, 2);
-    expect(find.text('Review 12 words in context'), findsOneWidget);
+    expect(find.text('Give your safe sentences a voice.'), findsOneWidget);
     expect(find.text('Try again'), findsNothing);
 
     await tester.pumpWidget(const SizedBox.shrink());
@@ -272,6 +279,7 @@ void main() {
             destination: TodayLearningDestination(route: '/review'),
             dueCount: 12,
             availability: TodayLearningAvailability.unavailable,
+            unavailableReason: TodayLearningUnavailableReason.offline,
             unavailableSources: {TodayLearningSource.course},
           ),
           onOpenSavedReview: () async {},
@@ -282,7 +290,42 @@ void main() {
     await tester.pump(const Duration(milliseconds: 120));
 
     expect(find.text('Connection paused'), findsOneWidget);
-    expect(find.text('Review 12 words in context'), findsNothing);
+    expect(find.text('Give your safe sentences a voice.'), findsNothing);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 1));
+  });
+
+  testWidgets('offline without saved reviews exposes retry as the only CTA', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        HomeScreen(
+          previewMode: true,
+          loadTodaySnapshot: () async => const TodayLearningSnapshot(
+            pick: null,
+            availability: TodayLearningAvailability.unavailable,
+            unavailableReason: TodayLearningUnavailableReason.offline,
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 120));
+
+    final hero = find.byKey(const ValueKey('home-primary-today'));
+    expect(find.text('Connection paused'), findsOneWidget);
+    expect(find.text('Review saved words'), findsNothing);
+    expect(
+      find.descendant(of: hero, matching: find.byType(SoriButton)),
+      findsOneWidget,
+    );
+    expect(find.widgetWithText(SoriButton, 'Try again'), findsOneWidget);
+    expect(
+      find.descendant(of: hero, matching: find.byType(TextButton)),
+      findsNothing,
+    );
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
@@ -326,6 +369,216 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 1));
   });
+
+  testWidgets(
+    'German 308dp Home distinguishes degraded and healthy-empty states',
+    (tester) async {
+      tester.view.physicalSize = const Size(308, 680);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final semantics = tester.ensureSemantics();
+
+      await tester.pumpWidget(
+        _host(
+          HomeScreen(
+            previewMode: true,
+            loadTodaySnapshot: () async => const TodayLearningSnapshot(
+              pick: ReviewPick(dueCount: 12),
+              destination: TodayLearningDestination(route: '/review'),
+              dueCount: 12,
+              availability: TodayLearningAvailability.unavailable,
+              unavailableReason: TodayLearningUnavailableReason.offline,
+              unavailableSources: {TodayLearningSource.course},
+            ),
+            onOpenSavedReview: () async {},
+          ),
+          locale: const Locale('de'),
+          textScale: 1.3,
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+
+      expect(find.text('Verbindung pausiert'), findsOneWidget);
+      expect(find.text('Dein Weg wartet auf dich.'), findsOneWidget);
+      expect(
+        find.text(
+          'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine '
+          'gespeicherten Wiederholungen sind bereit.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Jetzt sicher möglich'), findsOneWidget);
+      expect(
+        find.text(
+          'Gespeicherte Wörter wiederholen und bisherige Inhalte ansehen.',
+        ),
+        findsOneWidget,
+      );
+      final savedReview = find.widgetWithText(
+        SoriButton,
+        'Gespeicherte Wörter wiederholen',
+      );
+      final retry = find.widgetWithText(TextButton, 'Erneut verbinden');
+      expect(savedReview, findsOneWidget);
+      expect(retry, findsOneWidget);
+      expect(tester.getSize(savedReview).height, greaterThanOrEqualTo(48));
+      expect(tester.getSize(retry).height, greaterThanOrEqualTo(48));
+      final savedReviewSemantics = tester
+          .getSemantics(savedReview)
+          .getSemanticsData();
+      expect(savedReviewSemantics.label, 'Gespeicherte Wörter wiederholen');
+      expect(savedReviewSemantics.hasAction(SemanticsAction.tap), isTrue);
+      expect(find.text('Für heute geschafft'), findsNothing);
+      expect(tester.takeException(), isNull);
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpWidget(
+        _host(
+          HomeScreen(
+            previewMode: true,
+            loadTodaySnapshot: () async =>
+                const TodayLearningSnapshot(pick: null),
+            onOpenSavedReview: () async {},
+          ),
+          locale: const Locale('de'),
+          textScale: 1.3,
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+
+      final hero = find.byKey(const ValueKey('home-primary-today'));
+      expect(find.text('Verbindung pausiert'), findsNothing);
+      expect(find.text('Für heute geschafft'), findsOneWidget);
+      expect(
+        find.descendant(of: hero, matching: find.byType(TextButton)),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: hero, matching: find.byType(SoriButton)),
+        findsNothing,
+      );
+      expect(tester.takeException(), isNull);
+
+      semantics.dispose();
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
+
+  testWidgets('German review-first hierarchy stays accessible at 308dp 1.3x', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(308, 680);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final semantics = tester.ensureSemantics();
+
+    await tester.pumpWidget(
+      _host(
+        HomeScreen(
+          previewMode: true,
+          loadTodaySnapshot: () async => const TodayLearningSnapshot(
+            pick: ReviewPick(dueCount: 12),
+            destination: TodayLearningDestination(route: '/review'),
+            dueCount: 12,
+          ),
+          onOpenSavedReview: () async {},
+        ),
+        locale: const Locale('de'),
+        textScale: 1.3,
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 120));
+
+    expect(find.text('Heute zuerst'), findsOneWidget);
+    expect(
+      find.text('Gib deinen sicheren Sätzen eine Stimme.'),
+      findsOneWidget,
+    );
+    expect(
+      find.text('12 Wörter sind bereit, bevor etwas Neues dazukommt.'),
+      findsOneWidget,
+    );
+    expect(find.text('Deine nächste Handlung'), findsOneWidget);
+    expect(find.text('12 Wörter im Kontext wiederholen'), findsOneWidget);
+    expect(
+      find.text('ca. 3 Minuten · danach geht dein Weg weiter'),
+      findsOneWidget,
+    );
+    await tester.ensureVisible(find.widgetWithText(SoriButton, 'Wiederholen'));
+    await tester.pump();
+    final review = find.widgetWithText(SoriButton, 'Wiederholen');
+    expect(review, findsOneWidget);
+    expect(tester.getSize(review).height, greaterThanOrEqualTo(48));
+    final reviewSemantics = tester.getSemantics(review).getSemanticsData();
+    expect(reviewSemantics.label, 'Wiederholen');
+    expect(reviewSemantics.hasAction(SemanticsAction.tap), isTrue);
+    expect(tester.takeException(), isNull);
+
+    semantics.dispose();
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 1));
+  });
+
+  testWidgets(
+    'production connectivity transition opens offline state and reloads on reconnect',
+    (tester) async {
+      final connectivity = StreamController<TodayNetworkStatus>.broadcast();
+      addTearDown(connectivity.close);
+      var online = true;
+      var loads = 0;
+
+      await tester.pumpWidget(
+        _host(
+          HomeScreen(
+            previewMode: true,
+            connectivityUpdates: connectivity.stream,
+            loadTodaySnapshot: () async {
+              loads++;
+              return TodayLearningSnapshot(
+                pick: const ReviewPick(dueCount: 12),
+                destination: const TodayLearningDestination(route: '/review'),
+                dueCount: 12,
+                availability: online
+                    ? TodayLearningAvailability.ready
+                    : TodayLearningAvailability.unavailable,
+                unavailableReason: online
+                    ? null
+                    : TodayLearningUnavailableReason.offline,
+              );
+            },
+            onOpenSavedReview: () async {},
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(find.text('Give your safe sentences a voice.'), findsOneWidget);
+
+      online = false;
+      connectivity.add(TodayNetworkStatus.offline);
+      await tester.pump();
+      expect(find.text('Connection paused'), findsOneWidget);
+      final beforeReconnect = loads;
+
+      online = true;
+      connectivity.add(TodayNetworkStatus.online);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 120));
+      expect(loads, greaterThan(beforeReconnect));
+      expect(find.text('Give your safe sentences a voice.'), findsOneWidget);
+      expect(find.text('Connection paused'), findsNothing);
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
 
   testWidgets('puts a course can-do ahead of mission numbering', (
     tester,
@@ -394,9 +647,10 @@ Widget _host(
   Widget child, {
   RouteFactory? onGenerateRoute,
   double textScale = 1,
+  Locale locale = const Locale('en'),
 }) => MaterialApp(
   theme: AppTheme.light,
-  locale: const Locale('en'),
+  locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   onGenerateRoute: onGenerateRoute,

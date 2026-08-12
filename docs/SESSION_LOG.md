@@ -1,5 +1,49 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Codex) — 05–06 패리티 최종 truth gate
+
+**왜.** 05–06 목업 재대조에서 Gye 약속 CTA가 현재 Today의 실행 가능한 목적지를 우회할
+수 있었고, Profile 시작점은 legacy 레벨만 바꾸거나 기존 canonical 학습 증거를 경고 없이
+초기화할 수 있었다. Today 실패도 실제 오프라인, 원격 일시중단, 로컬 데이터 오류를 같은
+오프라인 문구로 표시했으며, 저장 복습이 0개여도 복습 CTA를 보여 줄 수 있었다.
+
+**무엇을.** Gye 약속 resolver는 현재 Today가 정확한 course mission일 때만 유일한
+`scenario + assess` 링크와 typed `CoursePracticeContext`를 재사용하고, absent/stale/
+ambiguous/unavailable이면 snapshot의 Today 목적지로 정직하게 fallback한다. 05A–C는
+자가확인·건너뛰기, 기여 신원/답/점수 비공개, 익명 기여 행, 규칙·멤버, 집계 기반 등불과
+안전 메시지를 308dp/독일어 1.3배에서도 유지한다.
+
+Profile은 dedicated canonical placement를 legacy보다 우선 표시하고, placement·browse·
+legacy·현재 unit·canonical snapshot을 한 recoverable local operation으로 저장한다. 부분 쓰기
+실패는 모든 mirror와 in-memory snapshot을 이전 값으로 rollback한다. 시작점 변경은 기존
+course progress·완료 unit·연습 증거·scene check 초기화를 2차 확인으로 명시하며, 확인 전과
+취소 뒤에는 exact preference bytes가 바뀌지 않는다. preview fixture의 학습/계정/Gye/export/
+삭제 action은 저장·Firestore·navigation mutation 없이 callback으로만 렌더된다.
+
+Today는 pinned `connectivity_plus 7.0.0`의 production transport stream과 typed
+offline/remote/local reason을 분리한다. online→offline은 즉시 06B로 전환하고 reconnect는
+loader를 다시 호출하며, stale load가 새 상태를 덮지 못한다. due review가 있으면 로컬 복습+
+retry를, 0이면 retry 하나만 보여 주고, healthy-empty는 single CTA로 남긴다. 06C는 review-first
+행동·약 3분·이유를 먼저 읽히게 하며 provenance가 없는 “실제 장면의 단어”나 0% 진행을
+만들지 않는다. DE/EN ARB와 generated l10n, 버튼/히어로 semantics도 함께 맞췄다.
+
+**검증.** exact Gye route, canonical/rollback/Profile reset·preview, export 비밀·identity 제외,
+typed connectivity transition/retry, offline due 12/0, local error not-offline, healthy-empty,
+review-first, 308dp·독일어 1.3배, ARB parity를 묶은 집중 Flutter 테스트 **116/116 통과**.
+온보딩 placement 연계 **8/8**, 접근성·Home hero **46/46**, compact Profile 재검증 **1/1**
+통과. 변경 Dart scoped `flutter analyze --no-pub` **No issues found**, `flutter gen-l10n`,
+`git diff --check` 통과.
+
+**경계.** connectivity transport는 인터넷 도달성 보장이 아니며 captive portal/실기기
+비행기 모드·OS 복구, Firebase/Firestore 실데이터, OS 공유 시트, TalkBack/VoiceOver는 이번
+Windows widget-test 증명 밖이다. account deletion receipt/journal/worker와 lifecycle 보안
+계약은 수정하지 않았다. 01D의 explicit no-companion API는 통합 브랜치에서 Profile의 3종
+selector·none 표시/저장·preview no-write와 함께 결합해야 한다. 목업의 “세 저녁”과 “실제
+장면의 단어”는 현재 schema가 증명하지 못해 각각 검증 가능한 사람/scene promise와 일반
+review provenance로 정직하게 표현했다. 커밋은 이 기록과 같은 커밋에 포함한다.
+
+---
+
 ### 2026-08-12 (Codex) — UX Gallery 02C 실제 듣기 문제 상태 보강
 
 **왜.** 02C registry가 quest 없는 인사 시나리오를 기본 `dialog` stage로 열어 실제

@@ -361,7 +361,11 @@ Widget _gyePanel({required bool courtyardFocus}) {
 Future<List<GyeMeta>> _emptyGyes() async => const [];
 
 Future<TodayLearningSnapshot> _offlineToday() async =>
-    throw StateError('offline preview');
+    const TodayLearningSnapshot(
+      pick: null,
+      availability: TodayLearningAvailability.unavailable,
+      unavailableReason: TodayLearningUnavailableReason.offline,
+    );
 
 void _ignore([Object? _]) {}
 

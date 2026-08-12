@@ -385,14 +385,14 @@ class _GyeScreenState extends State<GyeScreen>
                                   enabled: actionsAvailable,
                                 ),
                               ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.fromLTRB(
                                 Spacing.lg,
                                 0,
                                 Spacing.lg,
                                 Spacing.md,
                               ),
-                              child: _GyeCourtyardContext(),
+                              child: _GyeCourtyardContext(meta: meta),
                             ),
                             LayoutBuilder(
                               builder: (context, c) {
@@ -747,6 +747,13 @@ class _GyeWeeklyPromise extends StatelessWidget {
             isLifePromise ? t.gyePromiseBody : t.gyeWeeklyBody,
             style: SoriTextTheme.of(context).bodySmall,
           ),
+          if (isLifePromise) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.gyePromiseEligibility,
+              style: SoriTextTheme.of(context).caption,
+            ),
+          ],
           const SizedBox(height: Spacing.md),
           board,
           const SizedBox(height: Spacing.md),
@@ -968,20 +975,35 @@ class _AnonymousContributionRow extends StatelessWidget {
 
 /// 05C heading; existing feed, stickers, reports and moderation stay below.
 class _GyeCourtyardContext extends StatelessWidget {
-  const _GyeCourtyardContext();
+  const _GyeCourtyardContext({required this.meta});
+
+  final GyeMeta meta;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final lanterns =
+        (meta.weeklyPromiseSchemaVersion == 1
+                ? meta.weeklyPromiseProgress
+                : meta.weeklyGoalProgress)
+            .clamp(0, 5)
+            .toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(t.gyeCourtyardEyebrow, style: text.label),
         const SizedBox(height: Spacing.xs),
-        Text(t.gyeCourtyardTitle, style: text.h3),
+        Text(
+          lanterns == 3
+              ? t.gyeCourtyardLightsThree
+              : t.gyeCourtyardLightsToday(lanterns),
+          style: text.h3,
+        ),
         const SizedBox(height: Spacing.xs),
-        Text(t.gyeCourtyardBody, style: text.bodySmall),
+        Text(t.gyeCourtyardTitle, style: text.bodySmall),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyeCourtyardBody, style: text.caption),
       ],
     );
   }

@@ -58,6 +58,11 @@ abstract final class GyeWeeklyPromiseNavigation {
     required TodayLearningSnapshot today,
     required Iterable<ContentLink> contentLinks,
   }) {
+    if (today.isUnavailable) {
+      return const GyePromiseNavigationResolution(
+        kind: GyePromiseNavigationKind.unavailable,
+      );
+    }
     final definition = GyeWeeklyPromises.byId(meta.weeklyPromiseId);
     final activePick = today.pick;
     final validPromise =
@@ -66,7 +71,8 @@ abstract final class GyeWeeklyPromiseNavigation {
         meta.weeklyPromiseTarget == definition.target;
     if (!validPromise ||
         activePick is! CoursePick ||
-        activePick.unit.id != definition.courseUnitId) {
+        activePick.unit.id != definition.courseUnitId ||
+        today.destination?.route != '/course/mission') {
       return _todayFallback(today);
     }
 
@@ -99,10 +105,14 @@ abstract final class GyeWeeklyPromiseNavigation {
 
   static GyePromiseNavigationResolution _todayFallback(
     TodayLearningSnapshot today,
-  ) => GyePromiseNavigationResolution(
-    kind: today.destination == null
-        ? GyePromiseNavigationKind.unavailable
-        : GyePromiseNavigationKind.todayFallback,
-    destination: today.destination,
-  );
+  ) => today.isUnavailable
+      ? const GyePromiseNavigationResolution(
+          kind: GyePromiseNavigationKind.unavailable,
+        )
+      : GyePromiseNavigationResolution(
+          kind: today.destination == null
+              ? GyePromiseNavigationKind.unavailable
+              : GyePromiseNavigationKind.todayFallback,
+          destination: today.destination,
+        );
 }

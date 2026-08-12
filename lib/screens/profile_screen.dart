@@ -16,6 +16,7 @@ import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/storage_service.dart';
+import '../services/course_progress_service.dart';
 import '../services/gye_service.dart';
 import '../services/learning_data_export_service.dart';
 import '../data/learner_motivation.dart';
@@ -51,11 +52,19 @@ class ProfileScreen extends StatefulWidget {
     this.cloudDataDeletion,
     this.loadGyeMetas,
     this.exportLearningData,
+    this.initializePlacement,
+    this.previewMode = false,
+    this.previewMotivation,
+    this.previewLevel,
+    this.previewCompanion,
+    this.onChangeMotivation,
+    this.onChangeStartPoint,
+    this.onChangeCompanion,
     this.onOpenAccountControls,
     this.onOpenGye,
     this.onOpenAccountDeletion,
     this.enableCoach = true,
-  }) : previewMode = false;
+  });
 
   /// Production Profile surface with every mutating action disabled and all
   /// asynchronous account/group state supplied by the Gallery.
@@ -68,8 +77,15 @@ class ProfileScreen extends StatefulWidget {
       providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
       displayName: 'Vorschau',
     ),
+    this.previewMotivation,
+    this.previewLevel,
+    this.previewCompanion,
+    this.onChangeMotivation,
+    this.onChangeStartPoint,
+    this.onChangeCompanion,
   }) : cloudDataDeletion = null,
        exportLearningData = null,
+       initializePlacement = null,
        onOpenAccountControls = null,
        onOpenGye = null,
        onOpenAccountDeletion = null,
@@ -83,11 +99,18 @@ class ProfileScreen extends StatefulWidget {
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
   final Future<List<GyeMeta>> Function()? loadGyeMetas;
   final Future<void> Function()? exportLearningData;
+  final Future<void> Function(String levelCode)? initializePlacement;
+  final bool previewMode;
+  final LearnerMotivation? previewMotivation;
+  final LearnerLevel? previewLevel;
+  final CompanionPreference? previewCompanion;
+  final VoidCallback? onChangeMotivation;
+  final VoidCallback? onChangeStartPoint;
+  final VoidCallback? onChangeCompanion;
   final VoidCallback? onOpenAccountControls;
   final VoidCallback? onOpenGye;
   final VoidCallback? onOpenAccountDeletion;
   final bool enableCoach;
-  final bool previewMode;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -129,9 +152,14 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   void initState() {
     super.initState();
-    _gyeMetas = (widget.loadGyeMetas ?? GyeService.myGyeMetas)();
+    final loadGyeMetas = widget.loadGyeMetas;
+    _gyeMetas = loadGyeMetas != null
+        ? loadGyeMetas()
+        : widget.previewMode
+        ? Future<List<GyeMeta>>.value(const <GyeMeta>[])
+        : GyeService.myGyeMetas();
     if (widget.enableCoach) scheduleCoach();
-    if (widget.cloudDataDeletionJournalState == null) {
+    if (!widget.previewMode && widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
@@ -191,18 +219,23 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _changeMotivation() async {
-    if (widget.previewMode) return;
+    if (widget.previewMode) {
+      widget.onChangeMotivation?.call();
+      return;
+    }
     await showMotivationSheet(context);
     if (mounted) {
       setState(() {});
     }
   }
 
-  String _levelLabel(AppL10n t) {
-    final level =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    return _levelName(t, level);
-  }
+  LearnerLevel get _learningStartPoint =>
+      widget.previewLevel ??
+      LearnerLevel.fromCode(Storage.dedicatedCoursePlacementLevelCode) ??
+      LearnerLevel.fromCode(Storage.userLevelCode) ??
+      LearnerLevel.a1;
+
+  String _levelLabel(AppL10n t) => _levelName(t, _learningStartPoint);
 
   String _levelName(AppL10n t, LearnerLevel level) => switch (level) {
     LearnerLevel.a1 => '${level.display} — ${t.onboardingLevelA1}',
@@ -212,10 +245,12 @@ class _ProfileScreenState extends State<ProfileScreen>
   };
 
   Future<void> _changeLevel() async {
-    if (widget.previewMode) return;
+    if (widget.previewMode) {
+      widget.onChangeStartPoint?.call();
+      return;
+    }
     final t = AppL10n.of(context);
-    final current =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final current = _learningStartPoint;
     final selected = await showDialog<LearnerLevel>(
       context: context,
       builder: (dialogContext) => SimpleDialog(
@@ -245,14 +280,54 @@ class _ProfileScreenState extends State<ProfileScreen>
     if (selected == null || selected == current) {
       return;
     }
-    await Storage.setUserLevelCode(selected.code);
+    if (!mounted) return;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(t.profileLearningStartPointConfirmTitle),
+        content: Text(t.profileLearningStartPointConfirmBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(t.profileLearningStartPointConfirmCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(t.profileLearningStartPointConfirmAction),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    try {
+      final initializePlacement = widget.initializePlacement;
+      if (initializePlacement != null) {
+        await initializePlacement(selected.code);
+      } else {
+        await CourseProgressService.shared.initializeForPlacement(
+          selected.code,
+          syncBrowseLevel: true,
+        );
+      }
+    } catch (error, stackTrace) {
+      debugPrint('Profile start-point change failed: $error\n$stackTrace');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(t.profileLearningStartPointChangeFailed)),
+        );
+      }
+      return;
+    }
     if (mounted) {
       setState(() {});
     }
   }
 
   Future<void> _changeCompanion() async {
-    if (widget.previewMode) return;
+    if (widget.previewMode) {
+      widget.onChangeCompanion?.call();
+      return;
+    }
     final t = AppL10n.of(context);
     final current = MascotPreference.preference.value;
     const options = <CompanionPreference>[
@@ -318,12 +393,12 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   Future<void> _openAccountControls() async {
-    if (widget.previewMode) return;
     final override = widget.onOpenAccountControls;
     if (override != null) {
       override();
       return;
     }
+    if (widget.previewMode) return;
     await Navigator.of(
       context,
     ).pushNamed('/settings', arguments: SettingsInitialFocus.account);
@@ -333,30 +408,30 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 
   void _openGye() {
-    if (widget.previewMode) return;
     final override = widget.onOpenGye;
     if (override != null) {
       override();
       return;
     }
+    if (widget.previewMode) return;
     Navigator.pushNamed(context, '/gye/hub');
   }
 
   void _openAccountDeletion() {
-    if (widget.previewMode) return;
     final override = widget.onOpenAccountDeletion;
     if (override != null) {
       override();
       return;
     }
+    if (widget.previewMode) return;
     Navigator.of(
       context,
     ).pushNamed('/settings', arguments: SettingsInitialFocus.accountDeletion);
   }
 
   Future<void> _exportLearningData() async {
-    if (widget.previewMode) return;
     if (_exportBusy) return;
+    if (widget.previewMode && widget.exportLearningData == null) return;
     final messenger = ScaffoldMessenger.of(context);
     final t = AppL10n.of(context);
     setState(() => _exportBusy = true);
@@ -392,7 +467,8 @@ class _ProfileScreenState extends State<ProfileScreen>
     final linked = providers.isDurable;
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
-    final motivation = learnerMotivationFromId(Storage.motivation);
+    final motivation =
+        widget.previewMotivation ?? learnerMotivationFromId(Storage.motivation);
 
     return Scaffold(
       appBar: AppBar(
@@ -454,7 +530,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ),
                     ),
                     const SizedBox(width: Spacing.sm),
-                    const _Avatar(size: 96),
+                    _Avatar(size: 96, preference: widget.previewCompanion),
                   ],
                 ),
               ),
@@ -470,6 +546,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: Column(
                   children: [
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-learning-goal'),
                       icon: motivation?.icon ?? Icons.flag_outlined,
                       label: t.profileLearningGoal,
                       value:
@@ -478,16 +555,17 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                     const Divider(height: 1),
                     _ProfileSettingTile(
+                      key: const ValueKey('profile-learning-start-point'),
                       icon: Icons.school_outlined,
                       label: t.profileLearningStartPoint,
                       value: _levelLabel(t),
                       onTap: _changeLevel,
                     ),
                     const Divider(height: 1),
-                    ValueListenableBuilder<CompanionPreference>(
-                      valueListenable: MascotPreference.preference,
-                      builder: (context, preference, _) => _ProfileSettingTile(
-                        icon: switch (preference) {
+                    if (widget.previewCompanion case final previewPreference?)
+                      _ProfileSettingTile(
+                        key: const ValueKey('profile-learning-companion'),
+                        icon: switch (previewPreference) {
                           CompanionPreference.none =>
                             Icons.person_outline_rounded,
                           CompanionPreference.tiger => Icons.pets_outlined,
@@ -495,14 +573,38 @@ class _ProfileScreenState extends State<ProfileScreen>
                             Icons.flutter_dash_rounded,
                         },
                         label: t.profileLearningCompanion,
-                        value: switch (preference) {
+                        value: switch (previewPreference) {
                           CompanionPreference.none => t.companionNoneName,
                           CompanionPreference.tiger => t.characterNameTiger,
                           CompanionPreference.magpie => t.characterRomanMagpie,
                         },
                         onTap: _changeCompanion,
+                      )
+                    else
+                      ValueListenableBuilder<CompanionPreference>(
+                        valueListenable: MascotPreference.preference,
+                        builder: (context, preference, _) =>
+                            _ProfileSettingTile(
+                              key: const ValueKey('profile-learning-companion'),
+                              icon: switch (preference) {
+                                CompanionPreference.none =>
+                                  Icons.person_outline_rounded,
+                                CompanionPreference.tiger =>
+                                  Icons.pets_outlined,
+                                CompanionPreference.magpie =>
+                                  Icons.flutter_dash_rounded,
+                              },
+                              label: t.profileLearningCompanion,
+                              value: switch (preference) {
+                                CompanionPreference.none => t.companionNoneName,
+                                CompanionPreference.tiger =>
+                                  t.characterNameTiger,
+                                CompanionPreference.magpie =>
+                                  t.characterRomanMagpie,
+                              },
+                              onTap: _changeCompanion,
+                            ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -642,9 +744,10 @@ class _ProfileScreenState extends State<ProfileScreen>
 // ─────────────────────────────────────────────────────────────────────────
 
 class _Avatar extends StatefulWidget {
-  const _Avatar({this.size = 168});
+  const _Avatar({this.size = 168, this.preference});
 
   final double size;
+  final CompanionPreference? preference;
 
   @override
   State<_Avatar> createState() => _AvatarState();
@@ -655,7 +758,19 @@ class _AvatarState extends State<_Avatar> {
   void initState() {
     super.initState();
     // 설정에서 캐릭터를 바꾸면(태고↔조이) 프로필 아바타도 즉시 반영.
-    MascotPreference.preference.addListener(_onKindChanged);
+    if (widget.preference == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant _Avatar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.preference == null && widget.preference != null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    } else if (oldWidget.preference != null && widget.preference == null) {
+      MascotPreference.preference.addListener(_onKindChanged);
+    }
   }
 
   void _onKindChanged() {
@@ -666,7 +781,9 @@ class _AvatarState extends State<_Avatar> {
 
   @override
   void dispose() {
-    MascotPreference.preference.removeListener(_onKindChanged);
+    if (widget.preference == null) {
+      MascotPreference.preference.removeListener(_onKindChanged);
+    }
     super.dispose();
   }
 
@@ -679,7 +796,8 @@ class _AvatarState extends State<_Avatar> {
     // 따른다 — 까치=magpie_bob2 대기 홉, 호랑이(태고)=tiger_sitting2 앉은 자세.
     // 둘 다 **루프 가능**해야 한다: 원샷을 쓰면 재생이 끝나며 텍스처가 회수돼
     // 아바타가 비어 버린다(tiger_walking_front 가 그랬다).
-    final kind = MascotPreference.selectedKind;
+    final preference = widget.preference ?? MascotPreference.preference.value;
+    final kind = MascotPreference.mascotKindFor(preference);
     if (kind == null) {
       return SizedBox.square(
         key: const ValueKey('profile_avatar_none'),

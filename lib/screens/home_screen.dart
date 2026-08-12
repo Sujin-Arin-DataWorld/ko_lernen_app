@@ -118,6 +118,7 @@ class HomeScreen extends StatefulWidget {
   final Future<void> Function()? onOpenSavedReview;
   final TodayLearningPackAccessGate? ensureTodayPackAccess;
   final TodayLearningRouteOpener? openTodayRoute;
+  final Stream<TodayNetworkStatus>? connectivityUpdates;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
@@ -136,6 +137,7 @@ class HomeScreen extends StatefulWidget {
     this.onOpenSavedReview,
     this.ensureTodayPackAccess,
     this.openTodayRoute,
+    this.connectivityUpdates,
   }) : previewFixture = null;
 
   /// The real Home surface with deterministic read-only state. It skips path,
@@ -155,7 +157,8 @@ class HomeScreen extends StatefulWidget {
        previewMode = true,
        onOpenSavedReview = null,
        ensureTodayPackAccess = null,
-       openTodayRoute = null;
+       openTodayRoute = null,
+       connectivityUpdates = null;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -166,8 +169,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   PersonalHanokProjection? _hanokProjection;
   HanokBuildNarrative? _hanokNarrative;
   bool _loadingTodaySnapshot = true;
-  bool _todayUnavailable = false;
   late bool _legacyDashboardExpanded;
+  TodayLearningUnavailableReason? _todayUnavailableReason;
+  StreamSubscription<TodayNetworkStatus>? _connectivitySubscription;
+  int _todayLoadGeneration = 0;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
   int _openableBoxes = 0; // 열 수 있는 보자기(퀘스트 보상) 개수 — 홈 배너 게이트
@@ -198,6 +203,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       return;
     }
     _loadToday();
+    final connectivityUpdates =
+        widget.connectivityUpdates ??
+        (widget.previewMode ? null : TodayLearningConnectivity.statusChanges);
+    _connectivitySubscription = connectivityUpdates?.listen(
+      _handleConnectivityChange,
+    );
     if (!widget.previewMode) {
       WidgetsBinding.instance.addObserver(this);
       _loadPath();
@@ -210,6 +221,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   void dispose() {
+    unawaited(_connectivitySubscription?.cancel());
     if (!widget.previewMode && widget.previewFixture == null) {
       WidgetsBinding.instance.removeObserver(this);
     }
@@ -413,22 +425,23 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// existing destination through the shared access-gated navigator rather
   /// than adding a second decision in the Sarangbang.
   Future<void> _loadToday() async {
+    final generation = ++_todayLoadGeneration;
     if (mounted) {
       setState(() {
         _loadingTodaySnapshot = true;
-        _todayUnavailable = false;
+        _todayUnavailableReason = null;
       });
     }
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final snapshot = await load();
-      if (!mounted) {
+      if (!mounted || generation != _todayLoadGeneration) {
         return;
       }
 
       // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
       var showCourseCard = false;
-      if (!widget.previewMode) {
+      if (!widget.previewMode && !snapshot.isUnavailable) {
         final week = _isoWeek(DateTime.now());
         showCourseCard =
             _courseCardThisWeek || Storage.courseCardWeekShown != week;
@@ -440,27 +453,92 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
       setState(() {
         _todaySnapshot = snapshot;
-        _dueCount = snapshot.isUnavailable ? 0 : snapshot.dueCount;
-        _hardCount = snapshot.isUnavailable ? 0 : snapshot.hardCount;
+        _dueCount = snapshot.dueCount;
+        _hardCount = snapshot.hardCount;
         _openableBoxes = DecorationRewardService.openableBoxCount();
         _courseCardThisWeek = showCourseCard;
         _loadingTodaySnapshot = false;
-        _todayUnavailable = snapshot.isUnavailable;
+        _todayUnavailableReason = snapshot.unavailableReason;
       });
       // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
       if (!widget.previewMode && !snapshot.isUnavailable) {
         _refreshDailyReminder();
       }
-    } catch (_) {
-      if (!mounted) {
+    } catch (error) {
+      if (!mounted || generation != _todayLoadGeneration) {
         return;
       }
       setState(() {
         _loadingTodaySnapshot = false;
-        _todayUnavailable = true;
+        _dueCount = 0;
+        _hardCount = 0;
+        _todayUnavailableReason = error is TodayLearningSourceFailure
+            ? error.reason
+            : TodayLearningUnavailableReason.localData;
       });
     }
   }
+
+  void _handleConnectivityChange(TodayNetworkStatus status) {
+    if (!mounted || status == TodayNetworkStatus.unknown) return;
+    if (status == TodayNetworkStatus.offline) {
+      _todayLoadGeneration++;
+      setState(() {
+        _loadingTodaySnapshot = false;
+        _todayUnavailableReason = TodayLearningUnavailableReason.offline;
+      });
+      return;
+    }
+    if (_todayUnavailableReason == TodayLearningUnavailableReason.offline) {
+      unawaited(_loadToday());
+    }
+  }
+
+  String _todayUnavailableEyebrow(AppL10n t) =>
+      switch (_todayUnavailableReason!) {
+        TodayLearningUnavailableReason.offline => t.homeUnavailableEyebrow,
+        TodayLearningUnavailableReason.remoteService =>
+          t.homeRemoteUnavailableEyebrow,
+        TodayLearningUnavailableReason.localData =>
+          t.homeLocalUnavailableEyebrow,
+      };
+
+  String _todayUnavailableTitle(AppL10n t) =>
+      switch (_todayUnavailableReason!) {
+        TodayLearningUnavailableReason.offline => t.homeUnavailableTitle,
+        TodayLearningUnavailableReason.remoteService =>
+          t.homeRemoteUnavailableTitle,
+        TodayLearningUnavailableReason.localData => t.homeLocalUnavailableTitle,
+      };
+
+  String _todayUnavailableBody(AppL10n t) {
+    final hasSavedReview = _dueCount > 0;
+    return switch (_todayUnavailableReason!) {
+      TodayLearningUnavailableReason.offline =>
+        hasSavedReview
+            ? t.homeUnavailableDescription
+            : t.homeUnavailableDescriptionNoReview,
+      TodayLearningUnavailableReason.remoteService =>
+        hasSavedReview
+            ? t.homeRemoteUnavailableDescription
+            : t.homeRemoteUnavailableDescriptionNoReview,
+      TodayLearningUnavailableReason.localData =>
+        hasSavedReview
+            ? t.homeLocalUnavailableDescription
+            : t.homeLocalUnavailableDescriptionNoReview,
+    };
+  }
+
+  String _todayUnavailableRetryLabel(AppL10n t) =>
+      _todayUnavailableReason == TodayLearningUnavailableReason.offline
+      ? t.homeUnavailableRetry
+      : t.homeUnavailableRetryGeneric;
+
+  IconData get _todayUnavailableIcon => switch (_todayUnavailableReason!) {
+    TodayLearningUnavailableReason.offline => Icons.cloud_off_outlined,
+    TodayLearningUnavailableReason.remoteService => Icons.cloud_sync_outlined,
+    TodayLearningUnavailableReason.localData => Icons.refresh_rounded,
+  };
 
   Future<void> _refreshHome() async {
     if (widget.previewFixture != null) {
@@ -699,15 +777,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       case ReviewPick r:
         return MissionHeroContent(
           kind: MissionHeroKind.review,
-          title: t.homeTodayReviewMission(r.dueCount),
+          title: t.homeTodayReviewDescription,
           contextLabel: t.homeTodayFirst,
           levelCode: null,
-          meta: t.homeTodayReviewDescription,
+          meta: t.homeTodayReviewLead(r.dueCount),
           fraction: 0,
           started: false,
           ctaLabel: t.homeTodayReviewAction,
+          actionLabel: t.homeTodayNextAction,
+          actionTitle: t.homeTodayReviewMission(r.dueCount),
+          actionMeta: t.homeTodayReviewTime,
           supportingTitle: t.homeTodayReviewReasonTitle,
-          supportingBody: '${t.homeTodayReviewReason} ${t.homeTodayReviewTime}',
+          supportingBody: t.homeTodayReviewReason,
           onStart: _openTodayDestination,
         );
       case ScenarioPick sc:
@@ -1036,18 +1117,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 content: _loadingTodaySnapshot
                                     ? null
                                     : _missionHeroContent(t, lang),
-                                unavailable: _todayUnavailable
+                                unavailable: _todayUnavailableReason != null
                                     ? MissionHeroUnavailable(
-                                        eyebrow: t.homeUnavailableEyebrow,
-                                        title: t.homeUnavailableTitle,
-                                        body: t.homeUnavailableDescription,
-                                        ctaLabel: t.homeUnavailableCta,
-                                        onStart: _openSavedReview,
-                                        retryLabel: t.homeUnavailableRetry,
+                                        icon: _todayUnavailableIcon,
+                                        eyebrow: _todayUnavailableEyebrow(t),
+                                        title: _todayUnavailableTitle(t),
+                                        body: _todayUnavailableBody(t),
+                                        ctaLabel: _dueCount > 0
+                                            ? t.homeUnavailableCta
+                                            : null,
+                                        onStart: _dueCount > 0
+                                            ? _openSavedReview
+                                            : null,
+                                        retryLabel: _todayUnavailableRetryLabel(
+                                          t,
+                                        ),
                                         onRetry: _loadToday,
                                       )
                                     : null,
-                                onAnotherRound: _todayUnavailable
+                                onAnotherRound: _todayUnavailableReason != null
                                     ? null
                                     : _openSavedReview,
                                 allDoneCtaLabel: t.homeEmptyCta,

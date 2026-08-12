@@ -5677,6 +5677,12 @@ abstract class AppL10n {
   /// **'Weitere Übungen ausblenden'**
   String get pathHideMorePractice;
 
+  /// No description provided for @gyeVoluntaryEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Freiwillige Lerngemeinschaft'**
+  String get gyeVoluntaryEyebrow;
+
   /// No description provided for @gyeEmptyHeadline.
   ///
   /// In de, this message translates to:
@@ -5686,13 +5692,13 @@ abstract class AppL10n {
   /// No description provided for @gyeEmptyLead.
   ///
   /// In de, this message translates to:
-  /// **'Ein Gye ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.'**
+  /// **'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.'**
   String get gyeEmptyLead;
 
   /// No description provided for @gyeFindOrCreate.
   ///
   /// In de, this message translates to:
-  /// **'Eine Gye finden oder gründen'**
+  /// **'Eine 계 finden oder gründen'**
   String get gyeFindOrCreate;
 
   /// No description provided for @gyeContinueSolo.
@@ -5869,6 +5875,36 @@ abstract class AppL10n {
   /// **'Mein Startpunkt'**
   String get profileLearningStartPoint;
 
+  /// No description provided for @profileLearningStartPointConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt ändern?'**
+  String get profileLearningStartPointConfirmTitle;
+
+  /// No description provided for @profileLearningStartPointConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dabei werden dein bisheriger Kursfortschritt, abgeschlossene Einheiten, Übungsnachweise und Szenen-Checks zurückgesetzt. Gespeicherte Vokabeln und Kontodaten bleiben erhalten.'**
+  String get profileLearningStartPointConfirmBody;
+
+  /// No description provided for @profileLearningStartPointConfirmCancel.
+  ///
+  /// In de, this message translates to:
+  /// **'Abbrechen'**
+  String get profileLearningStartPointConfirmCancel;
+
+  /// No description provided for @profileLearningStartPointConfirmAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Ändern und Kursfortschritt zurücksetzen'**
+  String get profileLearningStartPointConfirmAction;
+
+  /// No description provided for @profileLearningStartPointChangeFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Startpunkt konnte nicht geändert werden. Versuche es erneut.'**
+  String get profileLearningStartPointChangeFailed;
+
   /// No description provided for @profileLearningCompanion.
   ///
   /// In de, this message translates to:
@@ -5884,7 +5920,7 @@ abstract class AppL10n {
   /// No description provided for @profileGye.
   ///
   /// In de, this message translates to:
-  /// **'Gruppe (Gye)'**
+  /// **'Gruppe (계)'**
   String get profileGye;
 
   /// No description provided for @profileGyeDescription.
@@ -6466,13 +6502,13 @@ abstract class AppL10n {
   /// No description provided for @gyeTabSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Zusammen lernen · Gye'**
+  /// **'Zusammen lernen · 계'**
   String get gyeTabSubtitle;
 
   /// No description provided for @gyeExplainWhat.
   ///
   /// In de, this message translates to:
-  /// **'Ein Gye ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.'**
+  /// **'Eine 계 (Gye) ist eine freiwillige kleine Gruppe zum Koreanischlernen. Allein zu lernen ist genauso vollständig.'**
   String get gyeExplainWhat;
 
   /// No description provided for @gyeExplainWhy.
@@ -6490,7 +6526,7 @@ abstract class AppL10n {
   /// No description provided for @gyePrivacyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Was andere sehen können'**
+  /// **'Was andere sehen'**
   String get gyePrivacyTitle;
 
   /// No description provided for @gyePrivacyBody.
@@ -6544,7 +6580,7 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Diese Woche zusammen'**
+  /// **'Diese Woche gemeinsam'**
   String get gyePromiseEyebrow;
 
   /// No description provided for @gyePromiseCafeOrderTitle.
@@ -6568,8 +6604,14 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseBody.
   ///
   /// In de, this message translates to:
-  /// **'Eine Laterne leuchtet nach einer kursgebundenen Szene mit mindestens 70 %. Antworten, Punkte und Mitwirkende bleiben privat.'**
+  /// **'Jede Person hilft mit einer abgeschlossenen, passenden Lernhandlung.'**
   String get gyePromiseBody;
+
+  /// No description provided for @gyePromiseEligibility.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Beitrag zählt nur die passende kursgebundene Szene mit mindestens 70 %.'**
+  String get gyePromiseEligibility;
 
   /// No description provided for @gyePromiseProgress.
   ///
@@ -6616,7 +6658,7 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseSceneCta.
   ///
   /// In de, this message translates to:
-  /// **'Meine heutige Beitragsszene öffnen'**
+  /// **'Meine heutige Szene öffnen'**
   String get gyePromiseSceneCta;
 
   /// No description provided for @gyeTodayFallbackCta.
@@ -6667,6 +6709,18 @@ abstract class AppL10n {
   /// **'Euer Hof'**
   String get gyeCourtyardEyebrow;
 
+  /// No description provided for @gyeCourtyardLightsToday.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{Heute wartet die erste Laterne.} one{Heute leuchtet eine Laterne.} other{Heute leuchten {count} Laternen.}}'**
+  String gyeCourtyardLightsToday(int count);
+
+  /// No description provided for @gyeCourtyardLightsThree.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute leuchten drei Laternen.'**
+  String get gyeCourtyardLightsThree;
+
   /// No description provided for @gyeCourtyardTitle.
   ///
   /// In de, this message translates to:
@@ -6682,7 +6736,7 @@ abstract class AppL10n {
   /// No description provided for @gyeSafeMessage.
   ///
   /// In de, this message translates to:
-  /// **'Sichere Ermutigung senden'**
+  /// **'Eine sichere Nachricht senden'**
   String get gyeSafeMessage;
 
   /// No description provided for @coachGyeTabTitle.
@@ -9034,7 +9088,7 @@ abstract class AppL10n {
   /// No description provided for @homeTodayReviewAction.
   ///
   /// In de, this message translates to:
-  /// **'Jetzt wiederholen'**
+  /// **'Wiederholen'**
   String get homeTodayReviewAction;
 
   /// No description provided for @homeTodayScenarioAction.
@@ -9061,6 +9115,18 @@ abstract class AppL10n {
   /// **'Gib deinen sicheren Sätzen eine Stimme.'**
   String get homeTodayReviewDescription;
 
+  /// No description provided for @homeTodayReviewLead.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, one{1 Wort ist bereit, bevor etwas Neues dazukommt.} other{{n} Wörter sind bereit, bevor etwas Neues dazukommt.}}'**
+  String homeTodayReviewLead(int n);
+
+  /// No description provided for @homeTodayNextAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine nächste Handlung'**
+  String get homeTodayNextAction;
+
   /// No description provided for @homeTodayReviewReasonTitle.
   ///
   /// In de, this message translates to:
@@ -9070,13 +9136,13 @@ abstract class AppL10n {
   /// No description provided for @homeTodayReviewReason.
   ///
   /// In de, this message translates to:
-  /// **'Damit Begrüßungen, Bitten und Antworten in der nächsten passenden Situation schneller verfügbar sind.'**
+  /// **'Damit Begrüßungen, Bitten und Antworten in der nächsten Szene schneller verfügbar sind.'**
   String get homeTodayReviewReason;
 
   /// No description provided for @homeTodayReviewTime.
   ///
   /// In de, this message translates to:
-  /// **'Etwa 3 Minuten · dann geht dein Weg weiter.'**
+  /// **'ca. 3 Minuten · danach geht dein Weg weiter'**
   String get homeTodayReviewTime;
 
   /// No description provided for @homeUnavailableEyebrow.
@@ -9096,6 +9162,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Deine gespeicherten Wiederholungen sind bereit.'**
   String get homeUnavailableDescription;
+
+  /// No description provided for @homeUnavailableDescriptionNoReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Gruppen- und Kontoaktionen brauchen kurz Internet. Versuche die Verbindung erneut.'**
+  String get homeUnavailableDescriptionNoReview;
 
   /// No description provided for @homeUnavailableSafeTitle.
   ///
@@ -9120,6 +9192,60 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Erneut verbinden'**
   String get homeUnavailableRetry;
+
+  /// No description provided for @homeUnavailableRetryGeneric.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get homeUnavailableRetryGeneric;
+
+  /// No description provided for @homeRemoteUnavailableEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dienst kurz pausiert'**
+  String get homeRemoteUnavailableEyebrow;
+
+  /// No description provided for @homeRemoteUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Weg bleibt erhalten.'**
+  String get homeRemoteUnavailableTitle;
+
+  /// No description provided for @homeRemoteUnavailableDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Onlinedienst antwortet gerade nicht. Deine gespeicherten Wiederholungen sind bereit.'**
+  String get homeRemoteUnavailableDescription;
+
+  /// No description provided for @homeRemoteUnavailableDescriptionNoReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Onlinedienst antwortet gerade nicht. Versuche es gleich noch einmal.'**
+  String get homeRemoteUnavailableDescriptionNoReview;
+
+  /// No description provided for @homeLocalUnavailableEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute braucht einen neuen Versuch'**
+  String get homeLocalUnavailableEyebrow;
+
+  /// No description provided for @homeLocalUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein gespeichertes Lernen bleibt sicher.'**
+  String get homeLocalUnavailableTitle;
+
+  /// No description provided for @homeLocalUnavailableDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute konnte nicht aus den lokalen Lerndaten vorbereitet werden. Deine gespeicherten Wiederholungen sind weiterhin bereit.'**
+  String get homeLocalUnavailableDescription;
+
+  /// No description provided for @homeLocalUnavailableDescriptionNoReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute konnte nicht aus den lokalen Lerndaten vorbereitet werden. Versuche, es erneut zu laden.'**
+  String get homeLocalUnavailableDescriptionNoReview;
 
   /// No description provided for @homeEmptyCta.
   ///

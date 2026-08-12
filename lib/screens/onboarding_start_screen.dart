@@ -167,8 +167,10 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
   Future<void> _initializeNewLearner(LearnerMotivation motivation) async {
     // Keep the established placement order. This creates the existing active
     // A1 course context; it does not create assess or mastery evidence.
-    await CourseProgressService.shared.initializeForPlacement('a1');
-    await Storage.setBrowseLevelCode('a1');
+    await CourseProgressService.shared.initializeForPlacement(
+      'a1',
+      syncBrowseLevel: true,
+    );
     await OnboardingFlowService.completeAfterLevelSelection(
       motivation: motivation,
     );

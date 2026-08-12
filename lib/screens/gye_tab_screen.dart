@@ -193,6 +193,12 @@ class _IntroEmpty extends StatelessWidget {
       padding: padding,
       children: [
         const SizedBox(height: Spacing.md),
+        Text(
+          t.gyeVoluntaryEyebrow,
+          textAlign: TextAlign.center,
+          style: tt.label.copyWith(color: SoriColors.primary),
+        ),
+        const SizedBox(height: Spacing.xs),
         Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
         const SizedBox(height: Spacing.xs),
         Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
