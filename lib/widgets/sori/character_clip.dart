@@ -25,20 +25,25 @@ class HomeHeroClips {
   static const String magpieWalkingFront =
       '$_homeBase/magpie_walking_front_hanji.mp4';
 
-  /// 이 클립들이 **실제로 내놓는** 매트 색. 홈 배경은 이 색에 맞춰야 한다.
+  /// 이 클립들이 **기기에서 실제로 렌더되는** 매트 색. 홈 배경은 이 색이다.
   ///
-  /// 디자인 의도는 `SoriColors.lightBg`(#FAF6EC)지만 파일에서 나오는 값은
-  /// #F9F4EB 다 — H.264 는 4:2:0 크로마 서브샘플링과 양자화 탓에 평평한 RGB 를
-  /// 그대로 보존하지 못한다. **다시 인코딩해도 해결되지 않는다.**
+  /// 2026-08-12 실기기(M2101K6G/Android 12) `adb exec-out screencap` 실측값이다.
+  /// 디자인 의도는 `SoriColors.lightBg`(#FAF6EC)지만 8bit limited-range YUV 는
+  /// 그 값을 정확히 담지 못한다(Y=227,Cb=123,Cr=131 → 되돌리면 #FBF5EB).
   ///
-  /// 채널당 1~2 차이지만 큰 사각형이 통째로 그만큼 다르면 경계가 보인다 —
-  /// Jin 이 2026-08-06 부터 세 번 지적한 "동영상 흰 배경"이 이것이다.
-  /// `tool/check_home_hero_matte.py` 는 TOLERANCE=2 라 이 차이를 통과시켰다.
+  /// ⚠️ **이전 값 #F9F4EB 는 틀렸다.** 그건 ffmpeg 가 색공간 태그 없는 파일을
+  ///    BT.601 로 넘겨짚어 디코딩한 값이었다. 같은 파일을 Android MediaCodec 은
+  ///    BT.709 로 읽어 #FBF5EB 를 낸다 — **도구와 폰이 서로 다른 색을 보고
+  ///    있었다.** 그래서 "도구 값에 배경을 맞췄는데 폰에서는 여전히 사각형이
+  ///    보이는" 상태가 2026-08-06 부터 반복됐다.
+  ///    이제 클립에 명시적 BT.709/tv 태그를 박아 해석 모호성을 없앴고
+  ///    (`h264_metadata` bsf — 재인코딩 0, 화질 손실 0), 검사 도구도 swscale
+  ///    대신 정확한 BT.709 행렬로 계산한다.
   ///
   /// 값의 출처는 `tool/home_hero_matte_report.json` 의 `clips[].matte` 이고
   /// `test/home_hero_matte_test.dart` 가 둘이 어긋나면 실패한다. 클립을 새로
   /// 내보내면 그 도구를 다시 돌리고 이 상수를 보고서 값에 맞춘다.
-  static const Color matte = Color(0xFFF9F4EB);
+  static const Color matte = Color(0xFFFBF5EB);
 }
 
 /// **캐릭터 클립 카탈로그** — `assets/video/character/`의 흰 배경 H.264 mp4.

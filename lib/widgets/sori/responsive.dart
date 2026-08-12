@@ -272,6 +272,14 @@ class SoriMinHeightScroll extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, c) {
+        // ⚠️ 높이가 **무한**이면(부모가 이미 스크롤) 자식을 그대로 돌려준다 —
+        //    자연 높이가 정답이고 여기서 스크롤을 겹치면 안 된다.
+        //    단 그 경우 자식 Column 에 `Spacer`/`Expanded` 를 두면 안 된다:
+        //    무한 높이 + flex 자식 = "RenderFlex children have non-zero flex
+        //    but incoming height constraints are unbounded" 로 레이아웃이
+        //    죽어 **화면이 통째로 빈다**(2026-08-12 Flughafen 시나리오 사고).
+        //    하단 고정이 필요하면 flex 대신 `MainAxisAlignment.spaceBetween`
+        //    2-자식 패턴을 써라 — 유한 높이에서만 벌어지고 무한에서는 무해하다.
         if (!c.maxHeight.isFinite || c.maxHeight >= minHeight) return child;
         return SingleChildScrollView(
           child: SizedBox(height: minHeight, child: child),

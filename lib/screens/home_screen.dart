@@ -983,60 +983,69 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     return Scaffold(
       body: Stack(
         children: [
-          // ── 1. 추상 gradient base — baked-in mascot 없음 ──
-          // ⚠️ 상단 [_kHeroFlatBackdropFraction] 구간은 **평면 단색**이어야 한다.
-          // 홈 전용 캐릭터 mp4 는 한지색(`#FAF6EC`) 매트를 미리 합성한 불투명
-          // 영상이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
-          // 액자처럼 보인다(2026-08-06 Jin 실기기: "영상 배경색"). 그래서 히어로가
-          // 놓이는 상단은 `SoriColors.lightBg` 로 평평하게 깔고 그라데이션은 아래부터.
+          // ── 1. 배경 ──
+          // ⚠️ **라이트 모드는 평면 단색이다. 그라데이션을 되돌리지 말 것.**
+          //
+          // 홈 히어로는 한지색 매트를 미리 합성한 **불투명 정사각 mp4** 다.
+          // 배경이 조금이라도 균일하지 않으면 그 사각형만 주변과 달라 액자처럼
+          // 뜬다. Jin 이 2026-08-06 부터 **네 번** 지적한 "호랑이 흰 배경"이다.
+          //
+          // 2026-08-12 실기기 실측(`adb exec-out screencap`, M2101K6G):
+          //   · 영상 사각형 = 본문 세로의 **59.7% ~ 86.3%** 구간
+          //   · 옛 평면 구간 = 0 ~ 60%  → **영상이 통째로 그라데이션 위에 있었다**
+          //   · 사각형 바깥 `#F2DBBD` ↔ 안쪽 `#FBF5EB` → B 채널 **46** 차이
+          //     (직전 세션이 고친 매트 1~2 차이는 전체 오차의 5% 에 불과했다)
+          //
+          // 비율(`0.60` 같은 상수)로는 절대 못 덮는다 — 밴드의 세로 위치는
+          // 미션 카드 높이·글자 배율·기기 높이에 따라 dp 단위로 움직이고,
+          // 무엇보다 **스크롤하면 배경(화면 고정)과 밴드(콘텐츠)가 어긋난다.**
+          // 그래서 라이트 배경 전체를 매트 색으로 평평하게 둔다.
+          // 다크 모드는 히어로가 정지 PNG(투명 배경)라 안전 → 그라데이션 유지.
           Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: isDark
-                      ? const [
+            child: isDark
+                ? const DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
                           Color(0xFF14201E),
                           Color(0xFF14201E),
                           Color(0xFF0E1815),
                           Color(0xFF0A1310),
-                        ]
-                      : const [
-                          _kHeroMatte,
-                          _kHeroMatte,
-                          Color(0xFFF4ECDA),
-                          Color(0xFFEEDFC2),
                         ],
-                  stops: const [0.0, _kHeroFlatBackdropFraction, 0.8, 1.0],
-                ),
-              ),
-            ),
+                        stops: [0.0, 0.60, 0.8, 1.0],
+                      ),
+                    ),
+                  )
+                : const ColoredBox(color: _kHeroMatte),
           ),
 
-          // ── 2. Subtle radial accent — 따뜻한 빛 ──
-          // 히어로 영상 밴드와 **겹치면 안 된다**(위 1번의 매트 이유와 동일:
-          // 영상 사각형 안에는 이 glow 가 안 들어가고 주변에만 들어가 이음매가 생김).
-          // 캐릭터 뒤가 아니라 그 아래 미션 카드 뒤를 덥힌다.
-          Positioned(
-            top: _kHeroBandBottomDp,
-            left: -40,
-            right: -40,
-            height: 360,
-            child: IgnorePointer(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    colors: [
-                      SoriColors.tiger.withValues(alpha: isDark ? 0.15 : 0.10),
-                      SoriColors.tiger.withValues(alpha: 0.0),
-                    ],
-                    radius: 0.7,
+          // ── 2. Subtle radial accent — 따뜻한 빛 · **다크 전용** ──
+          // 라이트에서 이 glow 는 영상 밴드와 겹쳐 사각형 **바깥만** 주황빛으로
+          // 덥히고 안쪽은 그대로 둬서 이음매를 만든다. 선언은 밴드 바닥
+          // 상한 500dp 였지만 실측 밴드 바닥은 **678dp** 였다 — 178dp 겹쳤다.
+          // 라이트의 따뜻함은 카드·마스코트가 담당한다.
+          if (isDark)
+            Positioned(
+              top: _kHeroBandBottomDp,
+              left: -40,
+              right: -40,
+              height: 360,
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      colors: [
+                        SoriColors.tiger.withValues(alpha: 0.15),
+                        SoriColors.tiger.withValues(alpha: 0.0),
+                      ],
+                      radius: 0.7,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
 
           // ── 3. Content ──
           SafeArea(
@@ -1917,34 +1926,25 @@ class _RoundIconButton extends StatelessWidget {
 // B. Character hero — greeting + 말풍선 + 캐릭터 클립 밴드
 // ════════════════════════════════════════════════════════════════════════
 
-/// 홈 배경 gradient 중 **평면 단색**으로 유지할 상단 비율.
+/// 라이트 모드 홈 배경색 — **영상의 실측 매트와 같은 값**(반대가 아니다).
 ///
-/// 홈 전용 캐릭터 mp4 는 `SoriColors.lightBg` 매트를 미리 합성한 단색
-/// 사각형이다. 그 사각형이 놓이는 구간의 배경이
-/// 그라데이션이면 영상만 밝게 떠 액자처럼 보인다 → 히어로가 차지하는 상단은
-/// `SoriColors.lightBg` 로 평평하게 둔다. 짧은 화면(≈640dp)에서도 밴드 하단이
-/// 이 비율 안에 들어오도록 잡은 값.
-const double _kHeroFlatBackdropFraction = 0.60;
-
-/// 히어로 평면 구간의 배경색 — **영상의 실측 매트에 맞춘다**(반대가 아니다).
+/// 근거와 계약은 [HomeHeroClips.matte] 주석에 있다. 요약: 홈 히어로는 매트를
+/// 미리 합성한 불투명 mp4 이고, Android 가 그걸 `#FBF5EB` 로 렌더한다. 배경이
+/// 이 값이 아니거나 균일하지 않으면 영상 사각형이 액자처럼 뜬다.
 ///
-/// 근거와 계약은 [HomeHeroClips.matte] 주석에 있다. 요약: 디자인 의도는
-/// `SoriColors.lightBg`(#FAF6EC)지만 H.264 가 내놓는 값은 #F9F4EB 이고, 다시
-/// 인코딩해도 안 맞는다. 채널당 1~2 차이도 큰 사각형에서는 경계로 보인다.
+/// ⚠️ `SoriColors.lightBg`(#FAF6EC) 자체를 바꾸지 않는 이유: 그건 앱 전체
+///    배경이라 이 1 차이를 모든 화면에 퍼뜨린다. 홈에서만 맞춘다.
 ///
-/// ⚠️ `SoriColors.lightBg` 자체를 바꾸지 않는 이유: 그건 앱 전체 배경이라 이
-///    1~2 차이를 모든 화면에 퍼뜨린다. 영상이 놓이는 홈 상단에서만 맞춘다.
+/// ⚠️ 이 색 위에 **어떤 그라데이션·glow·틴트도 겹치면 안 된다.** 겹치는 순간
+///    영상 사각형만 그 효과를 못 받아 경계가 드러난다. 2026-08-12 실측 기준.
 const Color _kHeroMatte = HomeHeroClips.matte;
 
-/// 히어로 밴드가 끝날 수 있는 **최대** 위치(dp, 화면 최상단 기준).
+/// 다크 모드 radial glow 의 시작 위치(dp, 화면 최상단 기준).
 ///
-/// 따뜻한 radial glow 를 이 아래에만 깔아 영상 사각형 주변에 색차가 안 생기게
-/// 한다. glow 는 바깥 Stack 의 **화면 고정 좌표**인데 밴드 바닥은 동적이므로
-/// (SafeArea + Spacing.md + TopBar 64 + 인사말 + 8 + 말풍선 + [bandHeight])
-/// **상한**을 잡아야 안전하다. 최악 조합 = 상태바 ~28 + 12 + 64 + 2줄 독일어
-/// 인사말 ~52 + 8 + 2줄 말풍선 ~70 + 밴드 상한 216 ≈ 450, 여기에 시스템 글자
-/// 1.3배 여유를 더해 500. 값이 크면 glow 가 더 아래에서 시작할 뿐 무해하지만,
-/// 작으면 밴드와 겹쳐 영상 사각형만 glow 를 못 받아 이음매가 생긴다.
+/// **다크 전용이다.** 라이트에서는 glow 자체를 안 그린다 — 실측 밴드 바닥이
+/// 678dp 라 이 값(500)으로는 겹침을 못 피했고, 애초에 밴드 위치가 미션 카드
+/// 높이·글자 배율·스크롤에 따라 움직여서 어떤 고정 dp 로도 못 피한다.
+/// 다크는 히어로가 투명 배경 PNG 라 겹쳐도 이음매가 안 생긴다.
 const double _kHeroBandBottomDp = 500;
 
 class _TigerHero extends StatelessWidget {

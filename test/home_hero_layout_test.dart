@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 Widget _wrap(Widget child) => MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -140,6 +141,50 @@ void main() {
       });
     });
   }
+
+  testWidgets('라이트 홈 배경은 평면 매트 — 그라데이션·glow 금지', (tester) async {
+    await _pumpHome(tester);
+
+    // 히어로 mp4 는 매트를 합성한 **불투명 사각형**이라, 뒤 배경이 균일하지
+    // 않으면 그 사각형만 주변과 달라 액자처럼 뜬다. 2026-08-12 실기기 실측:
+    // 영상은 본문의 59.7~86.3% 에 있었는데 옛 규칙은 "상단 60%만 평면"이라
+    // 영상이 통째로 그라데이션 위에 있었다(사각형 안팎 B 채널 46 차이).
+    // 밴드는 스크롤·글자배율·미션카드 높이로 움직이므로 비율로는 못 덮는다.
+    final flat = tester
+        .widgetList<ColoredBox>(find.byType(ColoredBox))
+        .where((box) => box.color == HomeHeroClips.matte);
+    expect(
+      flat,
+      isNotEmpty,
+      reason: '라이트 홈 배경이 평면 매트(HomeHeroClips.matte)가 아니다',
+    );
+
+    // 옛 따뜻한 배경 그라데이션과 주황 radial glow 가 되살아나면 실패한다.
+    final forbidden = <Color>{
+      const Color(0xFFF4ECDA),
+      const Color(0xFFEEDFC2),
+      SoriColors.tiger.withValues(alpha: 0.10),
+    };
+    for (final decorated in tester.widgetList<DecoratedBox>(
+      find.byType(DecoratedBox),
+    )) {
+      final decoration = decorated.decoration;
+      if (decoration is! BoxDecoration) {
+        continue;
+      }
+      final gradient = decoration.gradient;
+      if (gradient == null) {
+        continue;
+      }
+      expect(
+        gradient.colors.where(forbidden.contains),
+        isEmpty,
+        reason:
+            '홈 라이트 배경에 그라데이션/glow 가 되살아났다 — '
+            '호랑이 영상 사각형이 다시 드러난다',
+      );
+    }
+  });
 
   testWidgets('explicit no-companion choice removes the Home character band', (
     tester,

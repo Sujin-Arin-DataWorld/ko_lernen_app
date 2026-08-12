@@ -422,7 +422,17 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // few pixels taller than a short landscape viewport, especially during
     // the 300 ms completed-state handoff. Keep the established layout above
     // this threshold and make only the genuinely short case scrollable.
-    final content = Stack(
+    // `pinBottom` = 들어온 세로 제약이 **유한**한가.
+    //
+    // 유한하면(전용 퀘스트 화면처럼 스크롤 없는 Expanded 안) 남는 세로를
+    // `Spacer` 가 흡수해 Prüfen 이 엄지 존에 붙는다. 무한하면(시나리오
+    // 역할극·퀘스트는 `_StageScroll` 의 SingleChildScrollView 안이다)
+    // flex 자식이 "RenderFlex children have non-zero flex but incoming
+    // height constraints are unbounded" 로 레이아웃을 죽여 **스테이지가
+    // 통째로 빈 화면이 된다** — 2026-08-12 Jin 실기기 "Flughafen 시나리오가
+    // 중간에 화면이 안 나온다"의 원인. 그 경우엔 하단 고정을 포기하고
+    // 자연 높이로 흐르게 둔다(부모가 이미 스크롤을 담당한다).
+    Widget content({required bool pinBottom}) => Stack(
       clipBehavior: Clip.none,
       children: [
         Column(
@@ -566,7 +576,8 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
               ],
             ),
             // 남는 세로 공간은 전부 여기로 흡수 — 버튼이 항상 하단에 붙는다.
-            const Spacer(),
+            // ⚠️ 세로가 무한일 때는 넣으면 안 된다(위 `pinBottom` 주석 참고).
+            if (pinBottom) const Spacer(),
             const SizedBox(height: Spacing.md),
 
             // Prüfen-Button.
@@ -602,7 +613,12 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       clipBehavior: Clip.none,
       fit: StackFit.passthrough,
       children: [
-        SoriMinHeightScroll(minHeight: 464, child: content),
+        LayoutBuilder(
+          builder: (_, c) => SoriMinHeightScroll(
+            minHeight: 464,
+            child: content(pinBottom: c.maxHeight.isFinite),
+          ),
+        ),
         // Keep the deliberate overhang outside the short-height scroll view;
         // otherwise SingleChildScrollView clips the mascot above the card.
         Positioned(

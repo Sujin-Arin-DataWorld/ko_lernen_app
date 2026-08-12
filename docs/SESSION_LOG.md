@@ -1,5 +1,72 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-12 (Claude) — 호랑이 흰 배경·Flughafen 공백: 실기기 실측으로 원인 확정
+
+**왜.** 인수인계표(`docs/HANDOFF_2026-08-12.md`)의 열린 문제 2건. 호랑이 흰 배경은
+Jin 이 **네 번** 지적했고 직전 세션이 "원인 확정"이라고 보고했는데도 재현됐다.
+Flughafen 은 신규 보고("중간에 화면이 안 나온다")였고 미조사 상태였다.
+
+**어떻게 했나.** 추측을 금지하고 **실기기 픽셀을 직접 쟀다**(M2101K6G, `adb exec-out
+screencap` → ffmpeg rgb24 → 좌표별 RGB). 코드를 읽어 세운 가설이 아니라 측정이
+원인을 갈랐다.
+
+#### ① 호랑이 흰 배경 — 원인 3개, 직전 가설은 전체 오차의 5% 였다
+
+측정: 영상 사각형은 y 1289–1865px = **본문 세로의 59.7%\~86.3%**. 평면 배경 구간은
+`_kHeroFlatBackdropFraction = 0.60` 이라 **영상이 통째로 그라데이션 위에 있었다.**
+사각형 바깥 `#F2DBBD` ↔ 안쪽 `#FBF5EB` → **B 채널 46 차이.**
+
+- **(a) 배경 그라데이션 겹침 — 지배적.** 비율 상수로는 원리적으로 못 덮는다: 밴드의
+  세로 위치는 미션 카드 높이·글자 배율·기기 높이로 dp 단위 이동하고, 무엇보다
+  **스크롤하면 화면 고정 배경과 콘텐츠가 어긋난다.** → 라이트 모드 배경을 평면
+  단색(`_kHeroMatte`)으로. 다크는 히어로가 투명 PNG 라 그라데이션 유지.
+- **(b) 주황 radial glow 겹침.** `_kHeroBandBottomDp = 500` 선언 vs 실측 밴드 바닥
+  **678dp** — 178dp 겹쳐 사각형 **바깥만** 덥히고 있었다. → 라이트에서 제거(다크 전용).
+- **(c) 매트 상수가 폰 값이 아니었다.** 클립에 색공간 태그가 없어(`color_space=unknown`)
+  **ffmpeg 는 BT.601(`#F9F4EB`), Android MediaCodec 은 BT.709(`#FBF5EB`)** 로 읽었다.
+  직전 세션은 도구 값에 배경을 맞췄으니 폰에서는 오히려 어긋났다. → `h264_metadata`
+  bsf 로 **재인코딩 없이**(무손실, +4바이트, 121/113 프레임 보존) BT.709/tv 태그를 박고,
+  검사 도구는 swscale 대신 **정확한 BT.709 행렬**로 계산하게 고쳤다.
+
+**검증(실기기, 새 빌드 설치 후).** 가로 스캔에서 색 변화 **2회 → 0회**, 좌측 여백
+세로 68샘플 **전부 `#FBF5EB` 단일색**. 사각형 안팎 차이 **46 → 0**.
+
+#### ② Flughafen 시나리오 공백 — `Spacer` 하나가 스테이지를 죽였다
+
+재현: 진행률 0.400 에서 정지, 콘텐츠 영역 **어두운 픽셀 0개**, `Weiter` 영구 비활성.
+`_progress = _stage / (_totalStages - 1)` 이고 총 11단계 → index 4 = **`rollenspiel`**
+(퀘스트가 아니었다).
+
+**근본 원인.** `SoriMinHeightScroll` 은 세로가 무한이면 자식을 제약 없이 돌려준다.
+역할극·satzBauen 퀘스트는 `_StageScroll` 의 `SingleChildScrollView` 안이라 무한이다.
+거기에 `12ffe0f` 가 Prüfen 하단 고정용 **`const Spacer()`** 를 넣었다 → *RenderFlex
+children have non-zero flex but incoming height constraints are unbounded* → 디버그
+빌드(설치본 `DEBUGGABLE` 확인)에서 레이아웃이 죽어 **서브트리가 통째로 paint 되지
+않았다.** `privacy_consent_service.dart` 가 `FlutterError.onError` 를 재정의해서
+logcat 에도 안 남았다. 역할극을 끝내야 `Weiter` 가 열리므로 **영구 막다른 길.**
+
+**고친 방법.** `Spacer` 를 제약 의존적으로: `SatzBauenQuest` 가 들어온 세로 제약이
+유한할 때만(`pinBottom`) `Spacer` 를 쓴다. 유한(전용 퀘스트 화면) = 기존 하단 고정
+그대로, 무한(시나리오) = 자연 높이로 흐르고 부모가 스크롤. `minHeight` 로 고정하는
+안은 폐기했다 — 464 로는 77px 오버플로가 났다.
+**영향 범위는 Flughafen 하나가 아니다** — 모든 시나리오의 역할극 단계와 모든
+satzBauen 퀘스트가 같은 결함이었다.
+
+**검증(실기기).** 어두운 픽셀 **0 → 3,941**, 단어 타일 탭·검증·오답 피드백 정상,
+턴 1 완주 후 **2/3 로 진행** 확인.
+
+**바꾼 파일.** `lib/screens/home_screen.dart`, `lib/widgets/sori/character_clip.dart`,
+`lib/widgets/sori/responsive.dart`(주석만·동작 불변), `lib/screens/quest_engines/satz_bauen_quest.dart`,
+`tool/check_home_hero_matte.py`, `tool/home_hero_matte_report.json`,
+`assets/video/home_hero/*.mp4`(태그만), 테스트 3종.
+
+**회귀 가드.** ① 홈 클립 BT.709/tv 태그 계약 ② 라이트 홈 배경 평면(그라데이션·glow
+금지) ③ `SatzBauenQuest` 가 세로 무한 부모에서 예외 없이 그려지고 높이 > 0.
+
+**미확인.** 26건 전수 재검증은 못 했다 — §2 열린 문제 2건에 집중했다. App Check
+토큰 2건(Wortkette `병가`, Buchseite 단어 추출)은 코드가 아니라 Jin 의 콘솔 등록
+확인 사항이라 손대지 않았다.
+
 ### 2026-08-12 (Claude) — 5개 병렬 세션 통합: origin/main 흡수
 
 **왜.** 어제 종료된 세션들의 작업이 5갈래로 흩어져 있었다. 로컬 `main` 9커밋,
