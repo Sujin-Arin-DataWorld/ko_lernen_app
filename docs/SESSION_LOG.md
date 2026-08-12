@@ -5545,6 +5545,44 @@ cp -r assets/illustrations/.backup_uncompressed/* assets/illustrations/
 ---
 
 
+## 2026-08-13 — 계정 함수 재배포 · 시나리오 이중 CTA (Claude)
+
+**계정 Callable 11개 + `account_deletion_worker` 재배포 완료** (Jin 지시).
+배포 전 실측: 프로젝트에 함수가 **7개뿐**이었고 계정 관련은 하나도 없었다
+(`analyze_korean_text` · `on_pack_cleared` · `on_report_created` ·
+`synthesize_tts_v2` · `weekly_goal_rollover` · `on_auth_user_deleted` ·
+`on_user_deleted`). 배포 후 12/12 확인, 전부 `europe-west3`.
+
+⚠️ 1차 배포는 `User code failed to load. Cannot determine backend
+specification. Timeout after 10000` 으로 실패했는데 **소스 문제가 아니다** —
+로컬에서 `node -e "require('./index.js')"` 는 1.2초에 성공한다. Firebase CLI
+의 함수 탐색 10초 타임아웃(Windows 에서 흔함)이 원인이라
+`FUNCTIONS_DISCOVERY_TIMEOUT=180` 으로 재시도해 성공했다. **다음에 같은
+오류가 나면 코드를 뜯지 말고 이 환경변수부터 올려라.**
+
+**시나리오 이중 CTA 제거**(`0b84602`). 퀘스트의 `Überprüfen` 과 시나리오의
+`Weiter` 가 함께 떠서 아래쪽이 죽은 버튼이었다. 가드가
+`_currentQuestOwnsPrimaryAction`(= hoerverstehen + confirmSelection 한 조합)
+이라 Satz-bauen 등 나머지 퀘스트는 전부 이중이었다. `_isQuestStage` 로
+일반화하고 완료 전에는 **숨긴다**(비활성 아님).
+
+**실기기 검증(디버그 APK 재설치, 데이터 유지).**
+- 프로필 호랑이: 크림 사각형 소멸. 카드색 `#EDF3ED` 가 호랑이 털까지 연속.
+- 프로필 까치: 푸른끼 **0.00%**(19,840 표본). 비카드색 밝은 픽셀 2.0% 는
+  전부 카드색과 1~5 차이인 가장자리 안티에일리어싱. y=350 가로 스캔 전 구간
+  `#EDF3ED` 균일.
+- Entdecken: `Stempelbuch` 3줄 · `Meine Hanok-Welt` 5줄 전문 표시, 행 높이 정렬.
+
+**미확인.** 축하 화면 3종(복습·게임 완주 필요) · 단어카드 크기 · 계정 전환
+재개/삭제 실동작(Jin 이 직접 눌러야 함 — 대신 실행하지 않았다).
+
+**요청받았으나 착수 안 함 — 범위 판단.** "모든 페이지 CTA 하단 고정 + 스크롤
+없이 한 화면". 퀘스트 CTA 는 퀘스트 위젯 **안에서** 그려지므로 호스트가 하단
+고정하려면 엔진 7종이 CTA 를 호스트로 넘기는 공통 계약이 필요하다. 화면 40개를
+눈으로 확인하지 못한 채 건드리는 위험이 커서 별도 작업으로 남긴다. 순서:
+① 퀘스트 CTA 호스트 위임 계약 ② `Scaffold` 하단 고정 슬롯 단일화
+③ 화면별 축소 규칙(`SoriBreakpoints.shortViewport` 토대 활용).
+
 ## 2026-08-13 — 법적 링크 404 · 까치 클립 불량 · 계정 잠금 원인 (Claude)
 
 **법적 링크 4개가 전부 404였다.** 사이트를 Next.js 로 옮기며 `.html` 경로가
