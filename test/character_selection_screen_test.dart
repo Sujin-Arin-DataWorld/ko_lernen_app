@@ -48,7 +48,9 @@ void main() {
     expect(find.textContaining('Taego', findRichText: true), findsWidgets);
     expect(find.textContaining('Joy', findRichText: true), findsWidgets);
     expect(find.text('Verlässlich & mutig'), findsOneWidget);
-    expect(find.text('Fröhlich & lebendig'), findsOneWidget);
+    // 2026-08-12 원어민 교정: 성격 묘사에는 'lebendig'(살아있는) 보다
+    // 'lebhaft'(활발한) 가 자연스럽다 — characterTraitMagpie 값이 바뀌었다.
+    expect(find.text('Fröhlich & lebhaft'), findsOneWidget);
     // 민속 상징 설명 — 산군(호랑이)·길조(까치).
     expect(find.textContaining('Herr der Berge'), findsOneWidget);
     expect(find.textContaining('Glücksbotin'), findsOneWidget);
