@@ -1,0 +1,32 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Small,Pretendard,28,&H00FFFFFF,&H000000FF,&H005D5B0D,&H005D5B0D,-1,0,0,0,100,100,2,0,3,2,0,8,60,60,78,1
+Style: Eyebrow,Pretendard,34,&H00354FBD,&H000000FF,&H00FFF9EE,&H00000000,-1,0,0,0,100,100,3,0,1,1,0,8,70,70,190,1
+Style: Initial,Gowun Dodum,188,&H005D5B0D,&H000000FF,&H00FFF9EE,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,60,60,270,1
+Style: Question,Pretendard,56,&H00232520,&H000000FF,&H00FFF9EE,&H00000000,-1,0,0,0,100,100,-2,0,1,1,0,8,65,65,465,1
+Style: Choice,Pretendard,44,&H00232520,&H000000FF,&H00FFFDF8,&H00000000,-1,0,0,0,100,100,0,0,3,2,0,7,135,120,1300,1
+Style: Correct,Pretendard,32,&H00354FBD,&H000000FF,&H00FFF9EE,&H00000000,-1,0,0,0,100,100,3,0,1,1,0,8,70,70,220,1
+Style: Answer,Gowun Dodum,196,&H005D5B0D,&H000000FF,&H00FFF9EE,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,60,60,315,1
+Style: Roman,Pretendard,60,&H00232520,&H000000FF,&H00FFF9EE,&H00000000,-1,0,0,0,100,100,-1,0,1,1,0,8,60,60,570,1
+Style: CTA,Pretendard,40,&H00FFFFFF,&H000000FF,&H005D5B0D,&H005D5B0D,-1,0,0,0,100,100,-1,0,3,2,0,2,120,120,160,1
+Style: Handle,Pretendard,24,&H006D716E,&H000000FF,&H00FFF9EE,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,30,46,35,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:06.40,Small,,0,0,0,,SORI CHECK #01
+Dialogue: 0,0:00:00.20,0:00:06.40,Eyebrow,,0,0,0,,KANNST DU DAS ERRATEN?
+Dialogue: 0,0:00:00.20,0:00:06.40,Initial,,0,0,0,,ㄱㅂ
+Dialogue: 0,0:00:00.20,0:00:06.40,Question,,0,0,0,,Was heißt „koreanische Reisrolle“?
+Dialogue: 0,0:00:00.70,0:00:06.40,Choice,,0,0,0,,A   김밥\N\NB   고백\N\NC   가방
+Dialogue: 0,0:00:06.40,0:00:09.50,Correct,,0,0,0,,RICHTIG!
+Dialogue: 0,0:00:06.40,0:00:09.50,Answer,,0,0,0,,김밥
+Dialogue: 0,0:00:06.40,0:00:09.50,Roman,,0,0,0,,Gimbap
+Dialogue: 0,0:00:06.40,0:00:09.50,CTA,,0,0,0,,Mehr Sori Checks auf Instagram
+Dialogue: 0,0:00:00.00,0:00:09.50,Handle,,0,0,0,,@hangulsori_learnkorean

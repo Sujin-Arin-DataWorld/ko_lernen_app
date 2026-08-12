@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1856, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="../../../hangul-sori-site-local/node_modules/@fontsource/gowun-dodum/400.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../hangul-sori-site-local/node_modules/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #202523;
+        --teal: #165d5d;
+        --teal-deep: #0c4749;
+        --cream: #fff9ed;
+        --vermilion: #bd4f35;
+        --gold: #d6a940;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1856px;
+        height: 2304px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--cream);
+      }
+
+      body {
+        font-family: "Pretendard Variable", Pretendard, Arial, sans-serif;
+        color: var(--ink);
+      }
+
+      .canvas {
+        position: relative;
+        width: 1856px;
+        height: 2304px;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--cream);
+      }
+
+      .background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .paper-wash {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(180deg, rgba(255, 251, 242, 0.18), transparent 44%),
+          radial-gradient(circle at 76% 7%, rgba(214, 169, 64, 0.09), transparent 18%);
+        pointer-events: none;
+      }
+
+      .content {
+        position: absolute;
+        z-index: 3;
+        top: 116px;
+        left: 124px;
+        right: 124px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .brand img {
+        width: 122px;
+        height: 122px;
+        border-radius: 29px;
+        box-shadow: 0 18px 44px rgba(20, 65, 62, 0.14);
+      }
+
+      .brand-name {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .brand-name strong {
+        font-size: 44px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+      }
+
+      .brand-name span {
+        color: var(--teal);
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .headline {
+        max-width: 1320px;
+        margin: 112px 0 0;
+        color: var(--teal-deep);
+        font-family: "Gowun Dodum", sans-serif;
+        font-size: 158px;
+        font-weight: 400;
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+      }
+
+      .subhead {
+        max-width: 1200px;
+        margin: 38px 0 0;
+        font-size: 53px;
+        font-weight: 650;
+        line-height: 1.22;
+        letter-spacing: -0.025em;
+      }
+
+      .support {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-top: 38px;
+        color: #4a514e;
+        font-size: 30px;
+        font-weight: 560;
+        letter-spacing: 0.005em;
+      }
+
+      .support .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--vermilion);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        min-height: 78px;
+        margin-top: 54px;
+        padding: 0 38px;
+        border-radius: 999px;
+        background: var(--teal-deep);
+        box-shadow: 0 17px 34px rgba(12, 71, 73, 0.18);
+        color: var(--cream);
+        font-size: 29px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .mascot {
+        position: absolute;
+        z-index: 4;
+        left: 52px;
+        bottom: 34px;
+        width: 470px;
+        height: auto;
+        filter: drop-shadow(0 24px 24px rgba(62, 42, 22, 0.17));
+      }
+
+      .footer-mark {
+        position: absolute;
+        z-index: 4;
+        right: 92px;
+        bottom: 70px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: rgba(32, 37, 35, 0.76);
+        font-size: 25px;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      .footer-mark::before {
+        content: "";
+        width: 42px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <img
+        class="background"
+        src="hangul-sori-one-sound-one-space-background-v2.png"
+        alt=""
+      />
+      <div class="paper-wash"></div>
+
+      <section class="content">
+        <div class="brand">
+          <img
+            src="../../../hangul-sori-site-local/public/hangul-sori-logo.png"
+            alt=""
+          />
+          <div class="brand-name">
+            <strong>Hangul Sori</strong>
+            <span>Koreanisch hören und sprechen</span>
+          </div>
+        </div>
+
+        <h1 class="headline">한 소리, 한 칸</h1>
+        <p class="subhead">Ein Laut. Ein Baustein. Dein Hanok.</p>
+        <div class="support">
+          <span>Hören</span>
+          <span class="dot"></span>
+          <span>Nachsprechen</span>
+          <span class="dot"></span>
+          <span>Weiterbauen</span>
+        </div>
+        <div class="cta">Sprich nach. Bau weiter.</div>
+      </section>
+
+      <img
+        class="mascot"
+        src="../../../assets/illustrations/mascot/magpie_tiger_together.png"
+        alt=""
+      />
+      <div class="footer-mark">hangul-sori.com</div>
+    </main>
+  </body>
+</html>

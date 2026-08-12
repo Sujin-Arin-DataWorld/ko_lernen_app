@@ -1,249 +1,273 @@
 import Link from "next/link";
+import { Apple, ArrowRight, BookOpenText, Brain, Check, Gamepad2, Headphones, Languages, MapPin, MessageCircle, Mic2, Play, UsersRound, Volume2 } from "lucide-react";
+import { TesterAccessForm } from "./tester-access-form";
+import { CookieSettingsButton } from "./cookie-settings-button";
 
-type Locale = "de" | "en" | "ko";
+export type Locale = "de" | "en" | "ko";
 
-const copy = {
-  de: {
-    nav: ["App ansehen", "Highlights", "Alle Funktionen"], support: "Support", eyebrow: "Dein Koreanisch. Dein Hanok.",
-    title: <>Koreanisch lernen, das sich wie eine <em>eigene Welt</em> anfühlt.</>,
-    lede: "Lerne Hangul, Wortschatz und Grammatik in deinem eigenen Hanok. Tiger und Elster begleiten dich vom ersten Buchstaben bis zum echten Gespräch.",
-    beta: "Für den Testzugang vormerken", iosState: "iOS in Vorbereitung", androidState: "Android-Test läuft", badges: ["Zum Start kostenlos", "Keine Werbung", "Local-first", "Deutsch & English"],
-    privacyTitle: "Local-first, transparent erklärt.", privacyText: "Lerninhalte und Fotos bleiben standardmäßig auf deinem Gerät. Online-Dienste werden nur für ausgewählte Funktionen genutzt.", privacyLink: "Datenverarbeitung verstehen",
-    previewEyebrow: "Ein Blick in die App", previewTitle: "Nicht nur lernen. In einer Welt weiterkommen.", previewText: "Jeder Bereich hat eine klare Aufgabe. Kurze Lektionen bauen Wissen auf, Wiederholungen halten es fest und dein Hanok zeigt deinen Fortschritt.",
-    featuresEyebrow: "Drei Gründe, weiterzulernen", featuresTitle: "Die besonderen Seiten von Hangul Sori.",
-    journeyEyebrow: "Dein Lernrhythmus", journeyTitle: "Kleine Schritte, die sichtbar etwas aufbauen.",
-    moreTitle: "Alles unter einem Dach", moreText: "Von den ersten Zeichen bis zur Lerngruppe. Öffne die Bereiche, die dich interessieren.",
-    freeTitle: "Zum Start komplett kostenlos.", freeText: "Während der Testphase und zum ersten öffentlichen Release gibt es kein Abo und keinen In-App-Kauf. Falls sich das später ändert, wird es vorher klar angekündigt.",
-    faqTitle: "Häufig gefragt", finalTitle: "Dein erster Buchstabe wartet schon.", finalText: "Starte mit Hangul und baue dir Schritt für Schritt deinen eigenen koreanischen Lernort.",
-  },
+const content = {
   en: {
-    nav: ["See the app", "Highlights", "All features"], support: "Support", eyebrow: "Your Korean. Your hanok.",
-    title: <>Learn Korean in a world that feels <em>entirely your own.</em></>,
-    lede: "Learn Hangul, vocabulary and grammar inside your own hanok. A tiger and magpie guide you from your first letter to a real conversation.",
-    beta: "Join the testing list", iosState: "iOS in preparation", androidState: "Android testing", badges: ["Free at launch", "No ads", "Local-first", "German & English"],
-    privacyTitle: "Local-first, explained clearly.", privacyText: "Learning content and photos stay on your device by default. Online services are used only for selected features.", privacyLink: "Understand data use",
-    previewEyebrow: "Inside the app", previewTitle: "More than lessons. A world that grows with you.", previewText: "Every area has a clear role. Short lessons build knowledge, spaced review makes it stick, and your hanok makes progress visible.",
-    featuresEyebrow: "Three reasons to return", featuresTitle: "What makes Hangul Sori different.",
-    journeyEyebrow: "Your learning rhythm", journeyTitle: "Small steps that build something visible.",
-    moreTitle: "Everything under one roof", moreText: "From your first letter to a study group. Open the areas you want to explore.",
-    freeTitle: "Completely free at launch.", freeText: "There is no subscription or in-app purchase during testing or for the first public release. Any future change will be announced clearly in advance.",
-    faqTitle: "Frequently asked", finalTitle: "Your first letter is waiting.", finalText: "Begin with Hangul and build your own place for learning Korean, one step at a time.",
+    nav: ["How it works", "Features", "For learners"],
+    login: "Log in",
+    start: "Start learning",
+    eyebrow: "한글을, 소리로 배우다",
+    headline: "Learn Korean and build your own hanok.",
+    intro: "Tiger and Magpie guide you through Hangul, pronunciation, everyday Korean and games. Each completed lesson adds to your hanok. In Gye, learners can share progress and encourage each other.",
+    secondary: "See how it works",
+    proof: ["Made for English speakers", "Natural Korean audio", "Lessons take 5 to 10 minutes"],
+    stepsEyebrow: "HOW A LESSON WORKS",
+    stepsTitle: "Listen, speak, then review.",
+    stepsIntro: "Lessons are short. You hear a phrase, say it aloud and review it again before you forget it.",
+    steps: [
+      ["Listen", "Hear natural Korean in short, focused clips."],
+      ["Speak", "Repeat with rhythm and clear mouth cues."],
+      ["Review", "Review useful words and phrases at the right time."],
+    ],
+    featuresEyebrow: "WHAT YOU CAN LEARN",
+    featuresTitle: "Hangul, pronunciation and everyday Korean in one place.",
+    featuresIntro: "Choose the activity you need. Progress carries across lessons, vocabulary review and games.",
+    features: [
+      ["한", "Hangul", "Build syllable blocks and read with confidence."],
+      ["소", "Pronunciation", "Train sound contrasts, rhythm and natural flow."],
+      ["기", "Vocabulary SRS", "Review the right words before they fade."],
+      ["말", "Everyday Korean", "Practice Korean for cafés, transport and conversations with friends."],
+      ["놀이", "Mini games", "Turn quick listening wins into a steady habit."],
+    ],
+    journeyEyebrow: "나의 한옥",
+    journeyTitle: "Your hanok changes as you learn.",
+    journeyIntro: "Lessons and reviews unlock new parts of the building. The stages show what you have finished and what comes next.",
+    journey: ["Hangul foundations", "Sound & rhythm", "Everyday Korean", "Speak with confidence"],
+    current: "Current level",
+    complete: "62% complete",
+    learnersEyebrow: "EXPLANATIONS IN GERMAN AND ENGLISH",
+    learnersTitle: "Explanations for German and English speakers.",
+    learnersIntro: "Compare unfamiliar Korean sounds with examples from German or English. The examples are explained in your language, while the audio stays in Korean.",
+    trust: [
+      ["German or English", "Change the explanation language without losing progress."],
+      ["Sound comparisons", "Use familiar sounds to hear the difference between Korean consonants and vowels."],
+      ["Everyday situations", "Practice Korean for cafés, transport and conversations with friends."],
+      ["Gye learning circles", "Join a small learning group, share progress and send encouragement."],
+    ],
+    finalEyebrow: "TEST HANGUL SORI",
+    finalTitle: "Try the current test version.",
+    finalIntro: "Android testing is open now. The iOS version is in preparation.",
+    socialEyebrow: "LEARN WITH US ON INSTAGRAM",
+    socialTitle: "A little Korean for your feed.",
+    socialIntro: "Try Sori Check, discover how names sound in Hangul and watch a hanok grow one lesson at a time.",
+    socialButton: "Follow on Instagram",
+    socialCards: ["Sori Check", "Your name in Hangul", "One sound. One building block."],
+    footerLine: "Hangul, pronunciation, everyday Korean and learning groups for German and English speakers.",
+  },
+  de: {
+    nav: ["So funktioniert’s", "Funktionen", "Für Lernende"],
+    login: "Anmelden",
+    start: "Jetzt lernen",
+    eyebrow: "한글을, 소리로 배우다",
+    headline: "Lerne Koreanisch und baue deinen eigenen Hanok.",
+    intro: "Tiger und Elster begleiten dich durch Hangul, Aussprache, Alltagssprache und Spiele. Jede abgeschlossene Lektion erweitert deinen Hanok. In Gye können Lernende Fortschritte teilen und sich gegenseitig ermutigen.",
+    secondary: "So funktioniert’s",
+    proof: ["Für Deutschsprachige", "Natürliches Koreanisch", "Lektionen dauern 5 bis 10 Minuten"],
+    stepsEyebrow: "SO LÄUFT EINE LEKTION AB",
+    stepsTitle: "Hören, sprechen, wiederholen.",
+    stepsIntro: "Die Lektionen sind kurz. Du hörst einen Satz, sprichst ihn nach und wiederholst ihn, bevor du ihn wieder vergisst.",
+    steps: [
+      ["Hören", "Natürliches Koreanisch in kurzen, fokussierten Clips."],
+      ["Nachsprechen", "Wiederhole mit Rhythmus und klaren Mundhinweisen."],
+      ["Wiederholen", "Wiederhole nützliche Wörter und Sätze zum richtigen Zeitpunkt."],
+    ],
+    featuresEyebrow: "DAS KANNST DU LERNEN",
+    featuresTitle: "Hangul, Aussprache und Alltagssprache an einem Ort.",
+    featuresIntro: "Wähle die Übung, die du gerade brauchst. Dein Fortschritt bleibt in Lektionen, Vokabeltraining und Spielen erhalten.",
+    features: [
+      ["한", "Hangul", "Baue Silbenblöcke und lies Schritt für Schritt sicher."],
+      ["소", "Aussprache", "Trainiere Lautkontraste, Rhythmus und natürlichen Sprachfluss."],
+      ["기", "Vokabeltraining", "Wiederhole nützliche Wörter zum richtigen Zeitpunkt."],
+      ["말", "Koreanisch im Alltag", "Übe Sprache für Café, Verkehr und tägliche Situationen."],
+      ["놀이", "Minispiele", "Übe Hören und Lesen in kurzen Spielrunden."],
+    ],
+    journeyEyebrow: "나의 한옥",
+    journeyTitle: "Dein Hanok wächst mit deinem Lernfortschritt.",
+    journeyIntro: "Lektionen und Wiederholungen schalten neue Bauteile frei. Die Stufen zeigen, was fertig ist und was als Nächstes kommt.",
+    journey: ["Hangul-Grundlagen", "Laut & Rhythmus", "Koreanisch im Alltag", "Sicher sprechen"],
+    current: "Aktuelles Level",
+    complete: "62 % geschafft",
+    learnersEyebrow: "ERKLÄRUNGEN AUF DEUTSCH UND ENGLISCH",
+    learnersTitle: "Erklärungen für deutsch- und englischsprachige Lernende.",
+    learnersIntro: "Vergleiche neue koreanische Laute mit Beispielen aus dem Deutschen oder Englischen. Die Erklärungen sind in deiner Sprache, das Audio bleibt Koreanisch.",
+    trust: [
+      ["Deutsch oder Englisch", "Wechsle die Erklärungssprache, ohne deinen Fortschritt zu verlieren."],
+      ["Lautvergleiche", "Nutze vertraute Laute, um koreanische Konsonanten und Vokale zu unterscheiden."],
+      ["Alltagssituationen", "Übe Koreanisch für Cafés, Verkehr und Gespräche mit Freunden."],
+      ["Gye-Lernkreise", "Lerne in einer kleinen Gruppe, teile Fortschritte und sende Ermutigungen."],
+    ],
+    finalEyebrow: "HANGUL SORI TESTEN",
+    finalTitle: "Probiere die aktuelle Testversion aus.",
+    finalIntro: "Der Android-Test läuft bereits. Die iOS-Version ist in Vorbereitung.",
+    socialEyebrow: "LERNE MIT UNS AUF INSTAGRAM",
+    socialTitle: "Ein bisschen Koreanisch für deinen Feed.",
+    socialIntro: "Mach beim Sori Check mit, entdecke deinen Namen in Hangul und sieh zu, wie dein Hanok mit jeder Lektion wächst.",
+    socialButton: "Auf Instagram folgen",
+    socialCards: ["Sori Check", "Dein Name in Hangul", "Ein Laut. Ein Baustein."],
+    footerLine: "Hangul, Aussprache, Alltagssprache und Lerngruppen für deutsch- und englischsprachige Lernende.",
   },
   ko: {
-    nav: ["앱 미리보기", "핵심 기능", "전체 기능"], support: "고객지원", eyebrow: "나의 한국어. 나의 한옥.",
-    title: <>나만의 세계 속에서 <em>한국어를 배워보세요.</em></>,
-    lede: "나만의 한옥에서 한글, 어휘, 문법을 배워보세요. 호랑이와 까치가 첫 글자부터 실제 대화까지 함께합니다.",
-    beta: "테스트 소식 받기", iosState: "iOS 출시 준비 중", androidState: "Android 테스트 중", badges: ["출시 초기 무료", "광고 없음", "로컬 우선", "독일어 & 영어 지원"],
-    privacyTitle: "로컬 우선 원칙을 투명하게 설명합니다.", privacyText: "학습 콘텐츠와 사진은 기본적으로 기기에 저장됩니다. 온라인 서비스는 선택한 기능에만 사용됩니다.", privacyLink: "데이터 처리 방식 보기",
-    previewEyebrow: "앱 미리보기", previewTitle: "공부만 하는 앱이 아니라, 함께 자라는 세계.", previewText: "짧은 레슨으로 배우고, 복습 일정으로 기억하고, 성장하는 한옥에서 나의 진도를 확인할 수 있어요.",
-    featuresEyebrow: "계속 배우고 싶은 세 가지 이유", featuresTitle: "한글소리만의 특별한 학습 경험.",
-    journeyEyebrow: "나만의 학습 리듬", journeyTitle: "작은 학습이 눈에 보이는 성장으로 이어집니다.",
-    moreTitle: "한 지붕 아래 모든 기능", moreText: "첫 글자부터 학습 모임까지, 궁금한 영역을 열어보세요.",
-    freeTitle: "첫 출시 버전은 완전히 무료예요.", freeText: "테스트 기간과 첫 공개 출시에서는 구독이나 인앱결제를 제공하지 않습니다. 나중에 변경되는 경우 미리 명확하게 안내합니다.",
-    faqTitle: "자주 묻는 질문", finalTitle: "첫 글자가 기다리고 있어요.", finalText: "한글부터 시작해 나만의 한국어 학습 공간을 한 단계씩 만들어보세요.",
-  },
-};
-
-const TESTER_MAIL = "hello@hangul-sori.com";
-
-const testerAccess = {
-  de: {
-    eyebrow: "Testphase",
-    title: "Hangul Sori ist gerade im Testbetrieb.",
-    text: "Die App ist noch nicht öffentlich im App Store oder bei Google Play erhältlich. Der Android-Test läuft bereits, die iOS-Version wird vorbereitet.",
+    nav: ["학습 방식", "주요 기능", "학습자 안내"],
+    login: "로그인",
+    start: "학습 시작",
+    eyebrow: "한글을, 소리로 배우다",
+    headline: "한국어를 배우며 나만의 한옥을 지어요.",
+    intro: "호랑이와 까치가 한글, 발음, 생활 한국어, 게임 학습을 안내합니다. 수업을 마칠 때마다 한옥에 새로운 부분이 생깁니다. 계에서는 학습자들이 진도를 나누고 서로 응원할 수 있습니다.",
+    secondary: "학습 방식 보기",
+    proof: ["독일어와 영어 설명", "자연스러운 한국어 음성", "5분에서 10분 학습"],
+    stepsEyebrow: "한 수업의 학습 순서",
+    stepsTitle: "듣고, 말하고, 다시 복습해요.",
+    stepsIntro: "짧은 문장을 듣고 소리 내어 따라 말합니다. 잊기 전에 다시 복습합니다.",
     steps: [
-      "Schreib uns kurz eine E-Mail an hello@hangul-sori.com",
-      "Nenne dein Gerät: Android oder iPhone",
-      "Du bekommst deinen Testzugang per E-Mail zurück",
+      ["듣기", "짧고 집중된 음성으로 자연스러운 한국어를 듣습니다."],
+      ["따라 말하기", "리듬과 입 모양 안내에 맞춰 소리를 반복합니다."],
+      ["복습하기", "필요한 단어와 문장을 알맞은 때에 다시 봅니다."],
     ],
-    cta: "Testzugang anfragen",
-    mailNote: "Oder direkt schreiben an",
-    close: "Schließen",
-    subject: "Hangul Sori Testzugang",
-    body: "Hallo Hangul Sori Team,\n\nich möchte gern an der Testphase teilnehmen.\n\nGerät (Android oder iPhone): \nName: \n\nViele Grüße",
+    featuresEyebrow: "배울 수 있는 내용",
+    featuresTitle: "한글, 발음, 생활 한국어를 한곳에서 배워요.",
+    featuresIntro: "필요한 학습을 골라 시작하세요. 수업, 단어 복습, 게임의 진도가 함께 이어집니다.",
+    features: [
+      ["한", "한글", "글자 블록을 이해하고 자신 있게 읽습니다."],
+      ["소", "발음", "소리 차이와 리듬, 자연스러운 흐름을 연습합니다."],
+      ["기", "단어 SRS", "잊기 전에 필요한 단어를 다시 만납니다."],
+      ["말", "실생활 한국어", "카페, 교통, 일상에서 쓰는 표현을 익힙니다."],
+      ["놀이", "미니게임", "짧은 듣기 성공을 꾸준한 습관으로 만듭니다."],
+    ],
+    journeyEyebrow: "나의 한옥",
+    journeyTitle: "학습할수록 한옥이 달라져요.",
+    journeyIntro: "수업과 복습을 마치면 한옥의 새 부분이 열립니다. 단계 이미지에서 완성한 부분과 다음 목표를 확인할 수 있습니다.",
+    journey: ["한글 기초", "소리와 리듬", "생활 한국어", "자연스럽게 말하기"],
+    current: "현재 레벨",
+    complete: "62% 완료",
+    learnersEyebrow: "독일어와 영어 설명",
+    learnersTitle: "독일어와 영어 사용자를 위한 설명을 제공합니다.",
+    learnersIntro: "낯선 한국어 소리를 독일어 또는 영어의 예와 비교합니다. 설명은 선택한 언어로 제공하고, 음성은 한국어로 들려줍니다.",
+    trust: [
+      ["독일어 또는 영어", "진도를 유지한 채 설명 언어를 바꿀 수 있습니다."],
+      ["소리 비교", "익숙한 소리와 비교하며 한국어 자음과 모음의 차이를 듣습니다."],
+      ["생활 속 상황", "카페, 교통, 친구와의 대화에 필요한 한국어를 연습합니다."],
+      ["계 학습 모임", "작은 학습 모임에서 진도를 나누고 서로 응원합니다."],
+    ],
+    finalEyebrow: "한글소리 테스트",
+    finalTitle: "현재 테스트 버전을 사용해 보세요.",
+    finalIntro: "Android 테스트를 진행 중이며 iOS 버전을 준비하고 있습니다.",
+    socialEyebrow: "인스타그램에서 함께 배워요",
+    socialTitle: "피드에서 만나는 짧은 한국어.",
+    socialIntro: "소리 체크에 참여하고, 이름을 한글로 써 보고, 수업마다 자라는 한옥을 만나 보세요.",
+    socialButton: "인스타그램 팔로우",
+    socialCards: ["소리 체크", "내 이름을 한글로", "한 소리. 한 칸."],
+    footerLine: "독일어와 영어 사용자를 위한 한글, 발음, 생활 한국어, 학습 모임.",
   },
+} as const;
+
+const testerCopy = {
   en: {
-    eyebrow: "Testing phase",
-    title: "Hangul Sori is still in testing.",
-    text: "The app is not publicly available on the App Store or Google Play yet. Android testing is already running and the iOS version is in preparation.",
-    steps: [
-      "Send a short email to hello@hangul-sori.com",
-      "Tell us your device: Android or iPhone",
-      "We send your test access back by email",
-    ],
-    cta: "Request test access",
-    mailNote: "Or write directly to",
-    close: "Close",
-    subject: "Hangul Sori test access",
-    body: "Hello Hangul Sori team,\n\nI would like to join the testing phase.\n\nDevice (Android or iPhone): \nName: \n\nBest regards",
+    ios: "iOS in preparation",
+    android: "Android testing",
+  },
+  de: {
+    ios: "iOS in Vorbereitung",
+    android: "Android-Test läuft",
   },
   ko: {
-    eyebrow: "테스터 기간",
-    title: "지금은 테스터 기간입니다.",
-    text: "한글소리는 아직 App Store와 Google Play에 정식 출시되지 않았습니다. Android 테스트가 진행 중이고 iOS 버전은 준비하고 있습니다.",
-    steps: [
-      "hello@hangul-sori.com 으로 메일을 보내주세요",
-      "사용 기기(Android 또는 iPhone)를 알려주세요",
-      "테스터 참여 링크를 메일로 보내드립니다",
-    ],
-    cta: "메일로 테스터 신청하기",
-    mailNote: "또는 바로 메일 보내기",
-    close: "닫기",
-    subject: "한글소리 테스터 신청",
-    body: "한글소리 팀에게,\n\n테스터로 참여하고 싶습니다.\n\n사용 기기(Android 또는 iPhone): \n이름: \n\n감사합니다.",
+    ios: "iOS 준비 중",
+    android: "Android 테스트 중",
   },
-};
+} as const;
 
-const featureGroups = {
-  de: [
-    ["Hangul von Grund auf", "19 Konsonanten, 21 Vokale, Batchim, animierte Strichfolge und Nachzeichnen mit dem Finger."],
-    ["Wortschatz A1 bis B2", "526 Wörter in 61 kleinen Packs, Aussprache, deutsche und englische Übersetzung sowie SM-2-Wiederholung."],
-    ["Grammatik im Kontext", "88 Muster mit verständlichen Erklärungen, Audio und Beispielen aus echten Gesprächen."],
-    ["Szenarien für den Alltag", "Café, Markt, Hotel, U-Bahn, Taxi und Apotheke mit Dialogen, Mini-Quests und Kulturnotizen."],
-    ["Eigene Lernpakete", "Wörter selbst eingeben, Listen per CSV importieren, Fotos ergänzen und eigene Karten sowie Quiz erstellen."],
-    ["Spiele und Hörtraining", "Anlaut-Quiz, Hangul Wordle, Wortkette, Lücken, Übersetzung und Hörmodus mit Tempo und Untertiteln."],
-    ["Fortschritt und Belohnungen", "Streaks, Spezial-Quests, saisonale Belohnungen und ein Hanok, das mit deinem Lernen wächst."],
-    ["Teilen und Gye", "Lernpakete teilen und ab 16 Jahren optional in geschützten Lerngruppen mit Stickern und Anfeuerungen lernen."],
-  ],
-  en: [
-    ["Hangul from the ground up", "19 consonants, 21 vowels, batchim, animated stroke order and finger tracing."],
-    ["Vocabulary from A1 to B2", "526 words in 61 small packs, pronunciation, German and English translations, plus SM-2 review."],
-    ["Grammar in context", "88 patterns with clear explanations, audio and examples that sound like real conversation."],
-    ["Everyday scenarios", "Cafés, markets, hotels, the subway, taxis and pharmacies with dialogue, mini quests and culture notes."],
-    ["Your own learning packs", "Add words, import CSV lists, attach photos and turn your material into cards and quizzes."],
-    ["Games and listening", "Initial sound quiz, Hangul Wordle, word chain, fill-in tasks, translation and listening modes."],
-    ["Progress and rewards", "Streaks, special quests, seasonal rewards and a hanok that grows as you learn."],
-    ["Sharing and Gye", "Share learning packs and, from age 16, optionally learn in protected groups with stickers and cheers."],
-  ],
-  ko: [
-    ["기초부터 배우는 한글", "자음 19개, 모음 21개, 받침, 애니메이션 획순과 손가락 따라 쓰기를 제공합니다."],
-    ["A1부터 B2 어휘", "526개 단어를 61개의 작은 팩으로 나누고 발음, 독일어·영어 번역, SM-2 복습을 제공합니다."],
-    ["맥락으로 배우는 문법", "88개 문법 패턴을 실제 대화 예문, 오디오, 이해하기 쉬운 설명과 함께 배웁니다."],
-    ["실생활 시나리오", "카페, 시장, 호텔, 지하철, 택시, 약국을 대화, 미니 퀘스트, 문화 노트로 연습합니다."],
-    ["나만의 학습 팩", "단어를 직접 추가하고 CSV 목록과 사진을 넣어 나만의 카드와 퀴즈를 만들 수 있습니다."],
-    ["게임과 듣기", "초성 퀴즈, 한글 Wordle, 끝말잇기, 빈칸, 번역, 속도와 자막을 조절하는 듣기 모드가 있습니다."],
-    ["성장과 보상", "연속 학습, 특별 퀘스트, 계절 보상과 함께 학습할수록 한옥이 성장합니다."],
-    ["공유와 계", "학습 팩을 공유하고 만 16세 이상은 스티커와 응원을 사용하는 선택형 학습 그룹에 참여할 수 있습니다."],
-  ],
-};
+function localeHref(locale: Locale) {
+  return locale === "en" ? "/en" : locale === "ko" ? "/ko" : "/de";
+}
+
+function ButtonLink({ href, children, variant = "primary", compact = false }: { href: string; children: React.ReactNode; variant?: "primary" | "secondary" | "ghost"; compact?: boolean }) {
+  return <a className={`button button-${variant}${compact ? " button-compact" : ""}`} href={href}>{children}<ArrowRight aria-hidden="true" size={18} strokeWidth={2.4}/></a>;
+}
+
+function StoreButtons({ locale, light = false }: { locale: Locale; light?: boolean }) {
+  const t = testerCopy[locale];
+  return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
+    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
+    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
+  </div>;
+}
+
+function Brand() {
+  return <span className="brand-mark" aria-label="Hangul Sori"><picture><source media="(max-width: 560px)" srcSet="/icon-192.png"/><img className="brand-logo" src="/hangul-sori-logo.png" alt="" width="44" height="44"/></picture><span><b>Hangul Sori</b><small>한글소리</small></span></span>;
+}
+
+function InstagramIcon({ size = 18 }: { size?: number }) {
+  return <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>;
+}
 
 export function Header({ locale }: { locale: Locale }) {
-  const c = copy[locale];
-  return <header className="topbar">
-    <Link className="brand" href={`/${locale}`} aria-label="Hangul Sori"><img src="/hangul-sori-logo.png" alt=""/><span><b>한글소리</b><small>Hangul Sori</small></span></Link>
-    <nav aria-label="Navigation"><Link href={`/${locale}#preview`}>{c.nav[0]}</Link><Link href={`/${locale}#highlights`}>{c.nav[1]}</Link><Link href={`/${locale}#all-features`}>{c.nav[2]}</Link><Link href="/support">{c.support}</Link></nav>
-    <div className="language" aria-label="Language"><Link className={locale === "de" ? "active" : ""} aria-current={locale === "de" ? "page" : undefined} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} aria-current={locale === "en" ? "page" : undefined} href="/en">EN</Link><Link className={locale === "ko" ? "active" : ""} aria-current={locale === "ko" ? "page" : undefined} href="/ko">한국어</Link></div>
-  </header>;
+  const c = content[locale];
+  return <header className="site-header"><div className="nav-shell">
+    <Link className="brand-link" href={localeHref(locale)}><Brand /></Link>
+    <nav className="desktop-nav" aria-label="Primary navigation"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><Link href="#learners">{c.nav[2]}</Link></nav>
+    <div className="nav-actions"><div className="locale-switch" aria-label="Language"><Link className={locale === "de" ? "active" : ""} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} href="/en">EN</Link></div><a className="login-link" href="#tester-access">{c.login}</a><ButtonLink href="#tester-access" compact>{c.start}</ButtonLink></div>
+  </div></header>;
 }
 
-function StoreButtons({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
-  const c = copy[locale];
-  return <div className={`store-row ${compact ? "compact" : ""}`} aria-label="App availability">
-    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span></span><span><small>{c.iosState}</small>App Store</span></a>
-    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="play">▶</span><span><small>{c.androidState}</small>Google Play</span></a>
+function HanokHero({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
+  const labels = {
+    en: { level: "Your hanok, level 7", status: "3 lessons completed", week: "This week", unlocked: "Roof frame unlocked", mascots: "Tiger and Magpie", welcome: "Welcome back." },
+    de: { level: "Dein Hanok, Level 7", status: "3 Lektionen abgeschlossen", week: "Diese Woche", unlocked: "Dachstuhl freigeschaltet", mascots: "Tiger und Elster", welcome: "Willkommen zurück." },
+    ko: { level: "나의 한옥, 7단계", status: "수업 3개 완료", week: "이번 주", unlocked: "지붕 단계 열림", mascots: "호랑이와 까치", welcome: "다시 만나서 반가워요." },
+  }[locale];
+  return <div className={`hanok-hero-media${compact ? " hanok-hero-media-compact" : ""}`}>
+    <div className="scene-topline"><span>{labels.level}</span><span className="scene-status">{labels.status}</span></div>
+    <video autoPlay muted loop playsInline preload="metadata" poster="/app-assets/hanok-stages/stage-jongga.png" aria-label="Hangul Sori hanok growing as the learner progresses"><source src={compact ? "/app-assets/hanok-jongga.mp4" : "/app-assets/hanok-construction.mp4"} type="video/mp4"/></video>
+    <div className="hanok-media-caption"><img src="/app-assets/taego-joy-duo.png" alt="Hangul Sori tiger and magpie mascots"/><div><small>{compact ? labels.mascots : labels.week}</small><b>{compact ? labels.welcome : labels.unlocked}</b></div></div>
   </div>;
 }
 
-function TesterAccess({ locale }: { locale: Locale }) {
-  const t = testerAccess[locale];
-  const mailto = `mailto:${TESTER_MAIL}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(t.body)}`;
-  return <div className="tester-note" id="tester-access" role="dialog" aria-modal="true" aria-labelledby="tester-access-title">
-    <a className="tester-note-backdrop" href="#tester-access-closed" aria-label={t.close} tabIndex={-1}/>
-    <div className="tester-note-card">
-      <a className="tester-note-close" href="#tester-access-closed" aria-label={t.close}>×</a>
-      <p className="eyebrow">{t.eyebrow}</p>
-      <h2 id="tester-access-title">{t.title}</h2>
-      <p>{t.text}</p>
-      <ol className="tester-note-steps">{t.steps.map((s,i)=><li key={s}><b>{String(i+1).padStart(2,"0")}</b><span>{s}</span></li>)}</ol>
-      <a className="tester-note-cta" href={mailto}>{t.cta} <span>→</span></a>
-      <p className="tester-note-mail">{t.mailNote} <a href={mailto}>{TESTER_MAIL}</a></p>
-    </div>
-  </div>;
+function StepCard({ index, title, description }: { index: number; title: string; description: string }) {
+  const icon = index === 1 ? <Headphones size={32}/> : index === 2 ? <Mic2 size={32}/> : <Brain size={32}/>;
+  return <article className="step-card"><div className="step-number">STEP 0{index}</div><div className="step-symbol" aria-hidden="true">{icon}</div><h3>{title}</h3><p>{description}</p></article>;
 }
 
-function PhoneHero() {
-  return <div className="hero-visual" id="preview" aria-label="Hangul Sori app preview">
-    <div className="sun"/><div className="phone phone-main"><div className="phone-screen hanok-screen"><div className="status"><span>9:41</span><span>● ● ●</span></div><p className="screen-kicker">좋은 아침이에요, Sujin!</p><div className="streak">🔥 12 Tage</div><h2>Dein Hanok</h2><div className="hanok-art"><img src="/hanok-gate.png" alt="Hanok courtyard with a tiger and magpies"/></div><div className="progress-card"><span>Heute</span><b>3 von 5 Lektionen</b><div><i/></div></div><div className="bottom-nav"><b>⌂</b><span>가</span><span>▤</span><span>♙</span></div></div></div>
-    <div className="phone phone-side"><div className="phone-screen lesson-screen"><div className="status"><span>9:41</span><span>● ● ●</span></div><p className="screen-kicker">한글 쓰기</p><h2>오늘의 글자</h2><div className="letter-card"><small>따라 써 보세요</small><strong>ㅎ</strong><span>hieut</span></div><button>연습 시작</button></div></div>
-    <span className="petal p1"/><span className="petal p2"/><span className="petal p3"/>
-  </div>;
+function FeatureCard({ symbol, icon, title, description, wide = false }: { symbol: string; icon: React.ReactNode; title: string; description: string; wide?: boolean }) {
+  return <article className={`feature-card${wide ? " feature-wide" : ""}`}><div className="feature-symbol" aria-hidden="true">{icon}<small>{symbol}</small></div><div><h3>{title}</h3><p>{description}</p></div><ArrowRight className="feature-arrow" aria-hidden="true" size={20}/></article>;
 }
-
-const previews: Record<Locale, string[][]> = {
-  de: [
-    ["한옥", "Dein Hanok", "Fortschritt, den du wachsen siehst"], ["가", "Hangul schreiben", "Strich für Strich sicher lesen"],
-    ["오늘", "SRS-Wortkarten", "Wiederholen, bevor du vergisst"], ["대화", "Echte Gespräche", "Café, U-Bahn, Hotel und mehr"],
-    ["책", "책 한 컷", "Vom Buchtext zum Lernpaket"], ["ㅂ_ㅂ_", "Mini-Games", "Kurze Übungen mit direktem Feedback"],
-  ],
-  en: [
-    ["한옥", "Your hanok", "Progress you can watch grow"], ["가", "Write Hangul", "Read confidently, stroke by stroke"],
-    ["오늘", "SRS vocabulary", "Review before you forget"], ["대화", "Real conversations", "Cafés, subways, hotels and more"],
-    ["책", "One page, one pack", "Turn textbook text into practice"], ["ㅂ_ㅂ_", "Mini-games", "Short exercises with instant feedback"],
-  ],
-  ko: [
-    ["한옥", "나의 한옥", "눈으로 확인하는 학습 성장"], ["가", "한글 쓰기", "획순부터 차근차근 익히기"],
-    ["오늘", "SRS 단어 카드", "잊기 전에 알맞게 복습하기"], ["대화", "실생활 대화", "카페, 지하철, 호텔 등 실제 상황"],
-    ["책", "책 한 컷", "교재의 문장을 나만의 학습 팩으로"], ["ㅂ_ㅂ_", "미니게임", "짧은 연습과 즉각적인 피드백"],
-  ],
-};
 
 export function Footer({ locale }: { locale: Locale }) {
-  return <footer><div className="footer-brand"><img src="/hangul-sori-logo.png" alt=""/><div><b>한글소리</b><span>Learn Korean like learning a song.</span></div></div><div className="footer-links"><Link href="/features">Features</Link><Link href="/support">Support</Link><Link href={locale === "de" ? "/privacy" : `/privacy?lang=${locale}`}>Privacy</Link><Link href="/terms">Terms</Link><Link href="/account-deletion">Account deletion</Link><Link href="/impressum">Impressum</Link><Link href="/press">Press</Link></div><p>© 2026 Sujin Arin DataWorld · Frankfurt am Main</p><Link className="locale-back" href={`/${locale}`}>↑ Top</Link></footer>;
+  const c = content[locale];
+  return <footer className="site-footer"><div className="footer-top"><Brand/><p>{c.footerLine}</p><div className="footer-links"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><a href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer"><InstagramIcon size={15}/>Instagram</a><Link href="/support">Support</Link><Link href="/privacy">Privacy</Link><Link href="/impressum">Impressum</Link><CookieSettingsButton locale={locale}/></div></div><div className="footer-bottom"><span>© 2026 Hangul Sori</span><span>Frankfurt am Main, Germany</span></div></footer>;
 }
 
 export function Landing({ locale }: { locale: Locale }) {
-  const c = copy[locale];
-  const localePreviews = previews[locale];
-  const highlights = locale === "de" ? [
-    ["Dein Hanok wächst mit dir", "Lektionen, Wiederholungen und Quests bauen deinen Hof vom Grundstein bis zum Jongga-Anwesen aus.", "01"],
-    ["Lehrbuch fotografieren, Lernpaket erstellen", "Das Foto und die Texterkennung bleiben lokal. Nur wenn du Analyse oder Übersetzung wählst, kann der extrahierte Text online verarbeitet werden.", "02"],
-    ["Hangul, Wortschatz und echte Gespräche", "Ein zusammenhängender Lernweg mit Schreiben, SRS, Grammatik, Audio, Spielen und alltagstauglichen Dialogen.", "03"],
-  ] : locale === "en" ? [
-    ["Your hanok grows with you", "Lessons, reviews and quests build your courtyard from the first foundation to a complete jongga estate.", "01"],
-    ["Photograph a page, create a learning pack", "The photo and text recognition stay local. Extracted text may be processed online only when you choose analysis or translation.", "02"],
-    ["Hangul, vocabulary and real conversation", "One connected path with writing, SRS, grammar, audio, games and dialogue for everyday situations.", "03"],
-  ] : [
-    ["나와 함께 성장하는 한옥", "레슨, 복습, 퀘스트를 완료하면 빈 마당이 종가 한옥으로 한 단계씩 성장합니다.", "01"],
-    ["교재를 찍고 학습 팩 만들기", "사진과 글자 인식은 기기에서 처리됩니다. 분석이나 번역을 선택할 때만 추출된 텍스트가 온라인에서 처리될 수 있습니다.", "02"],
-    ["한글, 어휘, 실제 대화까지", "쓰기, SRS, 문법, 오디오, 게임, 실생활 대화가 하나의 학습 경로로 연결됩니다.", "03"],
-  ];
-  const steps = locale === "de" ? ["Lernmodus wählen", "Kurz lernen und spielen", "Zum richtigen Zeitpunkt wiederholen", "Den Hanok wachsen sehen"] : locale === "en" ? ["Choose a learning mode", "Learn and play in short sessions", "Review at the right time", "Watch your hanok grow"] : ["학습 모드 선택", "짧게 배우고 게임하기", "복습 일정에 맞춰 기억하기", "성장하는 한옥 확인"];
-  const faqs = locale === "de" ? [
-    ["Funktioniert die App offline?", "Kernlektionen und lokales Lernen sind offline nutzbar. Die App verbindet sich beim Start mit Firebase. Analyse, Übersetzung, dynamische Aussprache, optionale Synchronisierung und Community-Funktionen benötigen eine Verbindung."],
-    ["Werden meine Buchfotos hochgeladen?", "Nein. Auswahl, Zuschnitt und OCR laufen auf dem Gerät. Wenn du Analyse oder Übersetzung anforderst, kann nur der extrahierte und gegebenenfalls korrigierte Text per HTTPS übertragen werden."],
-    ["Brauche ich ein Konto?", "Beim Start wird eine anonyme Firebase-Identität erstellt. Ein Google- oder Apple-Konto musst du nur verknüpfen, wenn du angebotene Backup- und Sync-Funktionen nutzen möchtest."],
-    ["Gibt es Werbung oder Tracking?", "Die App enthält kein aktives Werbe-SDK und nutzt keine Werbe-ID für appübergreifendes Tracking. Analytics und Crashlytics sind getrennte, freiwillige Opt-ins und standardmäßig aus."],
-  ] : locale === "en" ? [
-    ["Does the app work offline?", "Core lessons and local learning work offline. The app connects to Firebase at startup. Analysis, translation, dynamic pronunciation, optional sync and community features require a connection."],
-    ["Are my book photos uploaded?", "No. Selection, cropping and OCR happen on the device. When you request analysis or translation, only extracted and possibly corrected text may be sent over HTTPS."],
-    ["Do I need an account?", "An anonymous Firebase identity is created at startup. You only need to link Google or Apple when you want offered backup and sync features."],
-    ["Does the app use ads or tracking?", "There is no active advertising SDK and no advertising ID is used for cross-app tracking. Analytics and Crashlytics are separate voluntary opt-ins and off by default."],
-  ] : [
-    ["오프라인에서도 사용할 수 있나요?", "핵심 레슨과 로컬 학습은 오프라인에서 사용할 수 있습니다. 앱 시작 시 Firebase에 연결하며 분석, 번역, 동적 발음, 선택형 동기화, 커뮤니티 기능은 인터넷 연결이 필요합니다."],
-    ["교재 사진이 서버로 전송되나요?", "아니요. 사진 선택, 자르기, OCR은 기기에서 처리됩니다. 분석이나 번역을 요청하면 추출하고 수정한 텍스트만 HTTPS로 전송될 수 있습니다."],
-    ["계정이 꼭 필요한가요?", "앱 시작 시 익명 Firebase 식별자가 생성됩니다. 제공되는 백업과 동기화를 사용하려는 경우에만 Google 또는 Apple 계정을 연결하면 됩니다."],
-    ["광고나 추적 기능이 있나요?", "활성 광고 SDK가 없으며 앱 간 추적을 위한 광고 ID를 사용하지 않습니다. Analytics와 Crashlytics는 별도 선택 동의 항목이며 기본적으로 꺼져 있습니다."],
-  ];
-  const launchItems = locale === "de" ? ["Kein Abo", "Keine In-App-Käufe", "Keine Werbung", "Alle im Release freigeschalteten Funktionen ohne Bezahlung"] : locale === "en" ? ["No subscription", "No in-app purchases", "No advertising", "Every feature included in the release is available without payment"] : ["구독 없음", "인앱결제 없음", "광고 없음", "출시 버전에 포함된 모든 기능을 결제 없이 이용"];
-  const featureEyebrow = locale === "ko" ? "A1부터 B2까지" : locale === "en" ? "Features from A1 to B2" : "Features von A1 bis B2";
-  const freeEyebrow = locale === "ko" ? "첫 출시 버전 무료" : locale === "en" ? "Free at launch" : "Zum Start kostenlos";
-  return <main lang={locale}><Header locale={locale}/>
-    <section className="hero"><div className="hero-copy"><p className="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p className="lede">{c.lede}</p><StoreButtons locale={locale}/><a className="beta-link" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} <span>→</span></a><ul className="trust-row">{c.badges.map(x=><li key={x}><i>✓</i> {x}</li>)}</ul></div><PhoneHero/></section>
-    <section className="privacy-strip"><div><span className="shield">◈</span><p><b>{c.privacyTitle}</b><br/>{c.privacyText}</p></div><Link href={locale === "de" ? "/privacy" : `/privacy?lang=${locale}`}>{c.privacyLink} <span>→</span></Link></section>
+  const c = content[locale];
+  const featureIcons = [<BookOpenText key="hangul" size={31}/>, <Volume2 key="pronunciation" size={31}/>, <Brain key="srs" size={31}/>, <MessageCircle key="real-life" size={31}/>, <Gamepad2 key="games" size={31}/>];
+  const trustIcons = [<Languages key="languages" size={25}/>, <Headphones key="sounds" size={25}/>, <MapPin key="situations" size={25}/>, <UsersRound key="gye" size={25}/>];
+  return <main lang={locale}>
+    <Header locale={locale}/>
+    <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1>{c.headline}</h1><p className="hero-intro">{c.intro}</p><div className="hero-actions"><ButtonLink href="#tester-access">{c.start}</ButtonLink><ButtonLink href="#how" variant="secondary">{c.secondary}</ButtonLink></div><StoreButtons locale={locale}/><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
 
-    <section className="section preview-section"><div className="section-heading"><div><p className="eyebrow">{c.previewEyebrow}</p><h2>{c.previewTitle}</h2></div><p>{c.previewText}</p></div><div className="preview-grid">{localePreviews.map((p,i)=><article className={`preview-card preview-${i+1}`} key={p[1]}><div className="mini-screen"><span>{p[0]}</span><i>{i === 0 ? "Level 7" : i === 2 ? (locale === "de" ? "Heute 8" : locale === "en" ? "Due 8" : "오늘 8") : "한글소리"}</i></div><h3>{p[1]}</h3><p>{p[2]}</p></article>)}</div><p className="preview-note">{locale === "ko" ? "실제 출시 빌드의 최종 스크린샷으로 교체될 앱 화면 구성입니다." : locale === "en" ? "Screen compositions ready to be replaced with final captures from the signed release build." : "Bildkompositionen, die vor dem Launch durch finale Aufnahmen des signierten Builds ersetzt werden."}</p></section>
+    <section className="section how-section" id="how"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.stepsEyebrow}</p><h2>{c.stepsTitle}</h2></div><p>{c.stepsIntro}</p></div><div className="steps-grid">{c.steps.map((step,index)=><StepCard key={step[0]} index={index+1} title={step[0]} description={step[1]}/>)}</div></div></section>
 
-    <section className="section highlights" id="highlights"><div className="section-heading"><div><p className="eyebrow">{c.featuresEyebrow}</p><h2>{c.featuresTitle}</h2></div></div><div className="highlight-stack">{highlights.map((h,i)=><article key={h[2]}><span>{h[2]}</span><div><h3>{h[0]}</h3><p>{h[1]}</p></div><div className={`feature-art art-${i+1}`}>{i === 0 ? <><video autoPlay muted loop playsInline preload="metadata" poster="/intro-gate-poster.jpg" aria-hidden="true"><source src="/intro-gate-to-madang.mp4" type="video/mp4"/></video><img className="motion-fallback" src="/intro-gate-poster.jpg" alt=""/></> : <b>{i===1?"책 한 컷":"가 · 말"}</b>}</div></article>)}</div></section>
+    <section className="section features-section" id="features"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.featuresEyebrow}</p><h2>{c.featuresTitle}</h2></div><p>{c.featuresIntro}</p></div><div className="features-grid">{c.features.map((feature,index)=><FeatureCard key={feature[1]} symbol={feature[0]} icon={featureIcons[index]} title={feature[1]} description={feature[2]} wide={index > 2}/>)}</div></div></section>
 
-    <section className="journey"><div className="section"><p className="eyebrow">{c.journeyEyebrow}</p><h2>{c.journeyTitle}</h2><ol>{steps.map((s,i)=><li key={s}><span>{String(i+1).padStart(2,"0")}</span><b>{s}</b></li>)}</ol></div></section>
+    <section className="journey-section"><div className="journey-shell"><div className="journey-copy"><p className="eyebrow eyebrow-light korean-brand-copy">{c.journeyEyebrow}</p><h2 className={locale === "ko" ? "ko-emotive-title" : undefined}>{c.journeyTitle}</h2><p>{c.journeyIntro}</p><div className="progress-meta"><span>{c.current}</span><b>{c.complete}</b></div><div className="progress-bar" aria-label={c.complete}><span /></div></div><div><div className="hanok-stage-strip" aria-label="Hanok construction stages">{[
+      ["/app-assets/hanok-stages/stage-empty.png", "01"],
+      ["/app-assets/hanok-stages/stage-foundation.png", "02"],
+      ["/app-assets/hanok-stages/stage-pillars.png", "03"],
+      ["/app-assets/hanok-stages/stage-roof.png", "04"],
+      ["/app-assets/hanok-stages/stage-jongga.png", "05"],
+    ].map(([src,label],index)=><figure className={index < 3 ? "unlocked" : ""} key={src}><img src={src} alt=""/><figcaption>{label}</figcaption></figure>)}</div><ol className="journey-track">{c.journey.map((item,index)=><li className={index < 2 ? "done" : index === 2 ? "current" : "locked"} key={item}><span className="journey-node">{index < 2 ? <Check size={20} strokeWidth={3}/> : index + 1}</span><div><small>{index === 0 ? "A1 01" : index === 1 ? "A1 02" : index === 2 ? "A1 03" : "A2 01"}</small><b>{item}</b></div></li>)}</ol></div></div></section>
 
-    <section className="section all-features" id="all-features"><div className="section-heading"><div><p className="eyebrow">{featureEyebrow}</p><h2>{c.moreTitle}</h2></div><p>{c.moreText}</p></div><div className="accordion-grid">{featureGroups[locale].map((f,i)=><details key={f[0]} open={i<2}><summary><span>{String(i+1).padStart(2,"0")}</span>{f[0]}<i>+</i></summary><p>{f[1]}</p></details>)}</div></section>
+    <section className="section learners-section" id="learners"><div className="section-shell learner-shell"><div className="learner-copy"><p className="eyebrow">{c.learnersEyebrow}</p><h2>{c.learnersTitle}</h2><p>{c.learnersIntro}</p><div className="language-note"><span>DE</span><span>EN</span><ArrowRight aria-hidden="true" size={19}/><strong>한국어</strong></div></div><div className="trust-grid">{c.trust.map((item,index)=><article key={item[0]}><div className="trust-card-top"><span>{trustIcons[index]}</span><small>0{index+1}</small></div><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
 
-    <section className="section privacy-explainer"><div><p className="eyebrow">Privacy by choice</p><h2>{locale === "ko" ? "어떤 기능이 언제 온라인을 사용하는지 확인하세요." : locale === "en" ? "Know exactly when a feature goes online." : "Du weißt genau, wann eine Funktion online geht."}</h2><p>{locale === "ko" ? "‘100% 오프라인’이라는 단순한 약속 대신, 기능별 처리 방식을 정확하게 보여줍니다." : locale === "en" ? "Instead of a broad 100% offline claim, Hangul Sori explains how each feature handles data." : "Statt eines pauschalen 100-Prozent-offline-Versprechens erklärt Hangul Sori die Verarbeitung pro Funktion."}</p><Link className="text-link" href={locale === "de" ? "/privacy" : `/privacy?lang=${locale}`}>{c.privacyLink} →</Link></div><div className="data-map"><div><span>L</span><p><b>{locale === "ko" ? "기기에 저장" : locale === "en" ? "Stored on device" : "Auf dem Gerät"}</b><small>{locale === "ko" ? "학습 진도, SRS, 사진, 메모" : "Progress, SRS, photos, notes"}</small></p></div><div><span>O</span><p><b>{locale === "ko" ? "사용자가 선택할 때" : locale === "en" ? "Only when selected" : "Nur wenn gewählt"}</b><small>{locale === "ko" ? "분석, 번역, TTS, 동기화" : "Analysis, translation, TTS, sync"}</small></p></div><div><span>✓</span><p><b>{locale === "ko" ? "선택 동의" : locale === "en" ? "Voluntary opt-in" : "Freiwilliges Opt-in"}</b><small>Analytics, Crashlytics, Notifications</small></p></div></div></section>
+    <section className="section social-section" id="instagram"><div className="section-shell"><div className="social-heading"><div><p className="eyebrow">{c.socialEyebrow}</p><h2>{c.socialTitle}</h2><p>{c.socialIntro}</p></div><a className="button button-primary" href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer"><InstagramIcon size={20}/>{c.socialButton}</a></div><div className="social-grid">{[
+      ["/social/sori-check-01.png", c.socialCards[0]],
+      ["/social/name-in-hangul.png", c.socialCards[1]],
+      ["/social/one-sound-one-space.png", c.socialCards[2]],
+    ].map(([src,label], index)=><a className={`social-card social-card-${index + 1}`} key={src} href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer" aria-label={`${label} on Instagram`}><span className="social-media" aria-hidden="true">{index === 0 ? <video autoPlay muted loop playsInline preload="metadata" poster={src}><source src="/social/sori-check-01-reel.mp4" type="video/mp4"/></video> : <img src={src} alt=""/>}</span><span className="social-card-label"><InstagramIcon size={17}/>{label}<ArrowRight size={17}/></span></a>)}</div></div></section>
 
-    <section className="section plans"><div className="section-heading"><div><p className="eyebrow">{freeEyebrow}</p><h2>{c.freeTitle}</h2></div><p>{c.freeText}</p></div><article className="launch-free"><div><span>0 €</span><h3>{locale === "ko" ? "부담 없이 한글소리를 시작하세요" : locale === "en" ? "Start Hangul Sori without a paywall" : "Starte Hangul Sori ohne Bezahlschranke"}</h3></div><ul>{launchItems.map(x=><li key={x}>✓ {x}</li>)}</ul></article></section>
-
-    <section className="section faq"><p className="eyebrow">FAQ</p><h2>{c.faqTitle}</h2><div>{faqs.map(f=><details key={f[0]}><summary>{f[0]}<span>+</span></summary><p>{f[1]}</p></details>)}</div></section>
-    <section className="final-cta"><div className="final-media"><video autoPlay muted loop playsInline preload="metadata" poster="/taego-joy-poster.jpg" aria-hidden="true"><source src="/taego-joy-duo.mp4" type="video/mp4"/></video><img className="motion-fallback" src="/taego-joy-poster.jpg" alt="Hangul Sori tiger and magpie"/></div><div><p className="eyebrow">한글소리 · Hangul Sori</p><h2>{c.finalTitle}</h2><p>{c.finalText}</p><StoreButtons locale={locale} compact/><a className="beta-link light" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} →</a></div></section><a className="mobile-cta" href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Beta">{c.beta} <span>→</span></a><Footer locale={locale}/><TesterAccess locale={locale}/>
+    <section className="final-section" id="start"><div className="final-shell"><div><p className="eyebrow eyebrow-light">{c.finalEyebrow}</p><h2>{c.finalTitle}</h2><p>{c.finalIntro}</p><StoreButtons locale={locale} light/></div><HanokHero locale={locale} compact/></div></section>
+    <Footer locale={locale}/><TesterAccessForm locale={locale}/>
   </main>;
 }

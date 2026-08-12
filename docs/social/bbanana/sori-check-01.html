@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080, initial-scale=1" />
+    <link rel="stylesheet" href="../../../hangul-sori-site-local/node_modules/@fontsource/gowun-dodum/400.css" />
+    <link rel="stylesheet" href="../../../hangul-sori-site-local/node_modules/pretendard/dist/web/variable/pretendardvariable.css" />
+    <style>
+      :root { --cream:#fff9ee; --ink:#202523; --teal:#0d5b5d; --red:#bd4f35; --gold:#d7aa41; }
+      * { box-sizing:border-box; }
+      html, body { width:1080px; height:1920px; margin:0; overflow:hidden; }
+      body { font-family:"Pretendard Variable",sans-serif; color:var(--ink); background:var(--cream); }
+      .canvas { position:relative; width:100%; height:100%; overflow:hidden; background:radial-gradient(circle at 80% 10%,#fffdf7,transparent 32%),linear-gradient(#fffaf0,#f2e2c4); }
+      .mountains { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.67; filter:saturate(.72) contrast(.96); }
+      .top { position:absolute; top:74px; left:72px; right:72px; display:flex; align-items:center; justify-content:space-between; }
+      .brand { display:flex; align-items:center; gap:15px; font-size:26px; font-weight:750; }
+      .brand img { width:66px; height:66px; border-radius:19px; }
+      .episode { padding:13px 20px; border-radius:999px; color:white; background:var(--teal); font-size:17px; font-weight:750; letter-spacing:.1em; }
+      .question { position:absolute; z-index:2; top:220px; left:64px; right:64px; text-align:center; }
+      .question p { margin:0; color:var(--red); font-size:27px; font-weight:750; letter-spacing:.1em; }
+      .initials { margin-top:30px; color:var(--teal); font-family:"Gowun Dodum",sans-serif; font-size:208px; line-height:1; letter-spacing:.02em; }
+      .question h1 { margin:26px auto 0; max-width:900px; font-size:54px; line-height:1.18; letter-spacing:-.045em; }
+      .choices { position:absolute; z-index:4; left:66px; right:66px; top:1270px; display:grid; gap:17px; }
+      .choice { min-height:105px; display:flex; align-items:center; gap:23px; padding:0 26px; border:2px solid rgba(13,91,93,.16); border-radius:27px; background:rgba(255,253,248,.94); box-shadow:0 13px 26px rgba(66,46,21,.08); font-size:32px; font-weight:680; }
+      .choice b { width:52px; height:52px; display:grid; place-items:center; border-radius:17px; color:white; background:var(--teal); font-size:23px; }
+      .answer { position:absolute; z-index:5; left:64px; right:64px; top:1250px; display:none; min-height:365px; padding:42px; border-radius:34px; text-align:center; background:rgba(255,253,248,.96); box-shadow:0 24px 60px rgba(54,41,23,.15); }
+      .answer small { color:var(--red); font-size:20px; font-weight:750; letter-spacing:.12em; }
+      .answer h2 { margin:18px 0 0; color:var(--teal); font-family:"Gowun Dodum",sans-serif; font-size:108px; font-weight:400; line-height:1; }
+      .answer p { margin:14px 0 0; font-size:34px; font-weight:650; }
+      .answer img { position:absolute; right:28px; bottom:-42px; width:265px; border-radius:50%; mix-blend-mode:multiply; }
+      .clip { position:absolute; z-index:3; left:90px; right:90px; top:650px; height:600px; overflow:hidden; border-radius:42px; background:#f8ecd7; box-shadow:0 28px 55px rgba(64,47,25,.13); }
+      .clip video { width:100%; height:100%; object-fit:cover; }
+      .cta { position:absolute; z-index:5; left:80px; right:80px; bottom:75px; text-align:center; color:#3d4642; font-size:24px; font-weight:650; }
+      .cta strong { color:var(--teal); }
+      .handle { position:absolute; z-index:6; right:78px; bottom:35px; color:#707873; font-size:16px; font-weight:700; }
+      body.answer-state .choices { display:none; }
+      body.answer-state .answer { display:block; }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <img class="mountains" src="sori-check-background-bbanana.png" alt="" />
+      <header class="top"><div class="brand"><img src="../../../hangul-sori-site-local/public/hangul-sori-logo.png" alt="" />Hangul Sori</div><span class="episode">SORI CHECK #01</span></header>
+      <section class="question"><p>KANNST DU DAS ERRATEN?</p><div class="initials">ㄱㅂ</div><h1>Was heißt „koreanische Reisrolle“?</h1></section>
+      <div class="clip"><video autoplay muted loop playsinline src="../../../assets/video/character/magpie_choose.mp4"></video></div>
+      <div class="choices"><div class="choice"><b>A</b>김밥</div><div class="choice"><b>B</b>고백</div><div class="choice"><b>C</b>가방</div></div>
+      <div class="answer"><small>RICHTIG!</small><h2>김밥</h2><p>Gimbap</p><img src="../../../assets/stickers/food_kimbap.png" alt="" /></div>
+      <div class="cta"><strong>A, B oder C?</strong> Schreib deine Antwort in die Kommentare.</div>
+      <div class="handle">@hangulsori_learnkorean</div>
+    </main>
+  </body>
+</html>

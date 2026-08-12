@@ -31,6 +31,20 @@ const localBindingConfig = {
         },
       ]
     : [],
+  send_email: [
+    {
+      name: "TESTER_EMAIL",
+      destination_address: "vjinny2@gmail.com",
+      allowed_sender_addresses: ["website@hangul-sori.com"],
+    },
+  ],
+  ratelimits: [
+    {
+      name: "TESTER_RATE_LIMIT",
+      namespace_id: "886231",
+      simple: { limit: 3, period: 60 as const },
+    },
+  ],
 };
 
 export default defineConfig(async () => {

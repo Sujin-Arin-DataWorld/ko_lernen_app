@@ -1,11 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hangul-sori-redesign",
-  "compatibility_date": "2026-08-10",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_date": "2026-05-22",
   "main": "./worker/index.ts",
+  "routes": [
+    { "pattern": "hangul-sori.com", "custom_domain": true },
+    { "pattern": "www.hangul-sori.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "dist/client",
     "not_found_handling": "none",
@@ -13,5 +14,19 @@
   },
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  "send_email": [
+    {
+      "name": "TESTER_EMAIL",
+      "destination_address": "vjinny2@gmail.com",
+      "allowed_sender_addresses": ["website@hangul-sori.com"]
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "TESTER_RATE_LIMIT",
+      "namespace_id": "886231",
+      "simple": { "limit": 3, "period": 60 }
+    }
+  ]
 }

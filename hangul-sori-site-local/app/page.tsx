@@ -3,9 +3,9 @@ import { Landing } from "./site";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/de",
-    languages: { "de-DE": "/de", en: "/en", ko: "/ko", "x-default": "/de" },
+    canonical: "/en",
+    languages: { "de-DE": "/de", en: "/en", ko: "/ko", "x-default": "/en" },
   },
 };
 
-export default function Home(){ return <Landing locale="de"/>; }
+export default function Home(){ return <Landing locale="en"/>; }
