@@ -6,6 +6,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
+import '../services/analytics_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -68,6 +69,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   @override
   void initState() {
     super.initState();
+    Analytics.gameStarted(gameType: 'typing');
     final pack = CustomPackService.getById(widget.packId);
     _pack = pack;
     if (pack != null) {
@@ -131,6 +133,11 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final outcome = await recordGameResult(
       gameId: 'cp_typing',
       xp: _score * 5,
+      score: pct,
+    );
+    await Analytics.gameCompleted(
+      gameType: 'typing',
+      result: pct >= 60 ? 'win' : 'lose',
       score: pct,
     );
     if (mounted) setState(() => _outcome = outcome);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/analytics_service.dart';
 import '../services/premium_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/responsive.dart';
@@ -14,7 +15,11 @@ import '../widgets/sori/tokens.dart';
 /// RevenueCat-Offering verfügbar (Dashboard noch nicht eingerichtet), zeigt
 /// die Seite den Fallback-Preis und einen Hinweis — sie crasht nie.
 class PaywallScreen extends StatefulWidget {
-  const PaywallScreen({super.key});
+  const PaywallScreen({super.key, this.placement = 'unspecified'});
+
+  /// Woher die Paywall geöffnet wurde (Analytics placement). Vom Gate/Route
+  /// gesetzt; Standard 'unspecified'.
+  final String placement;
 
   @override
   State<PaywallScreen> createState() => _PaywallScreenState();
@@ -29,6 +34,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
   void initState() {
     super.initState();
     _load();
+    Analytics.paywallViewed(placement: widget.placement);
   }
 
   Future<void> _load() async {
@@ -60,6 +66,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
       _snack(t.paywallNotAvailable);
       return;
     }
+    Analytics.subscribeStarted(
+      productId: pkg.storeProduct.identifier,
+      placement: widget.placement,
+    );
     setState(() => _busy = true);
     final ok = await PremiumService.purchase(pkg);
     if (!mounted) return;

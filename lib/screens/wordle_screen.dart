@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
+import '../services/analytics_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
@@ -115,6 +116,7 @@ class _WordleScreenState extends State<WordleScreen>
     super.initState();
     _load();
     scheduleCoach();
+    Analytics.gameStarted(gameType: 'wordle');
   }
 
   Future<void> _load({bool random = false}) async {
@@ -306,6 +308,11 @@ class _WordleScreenState extends State<WordleScreen>
           won: won,
           guessCount: _guesses.length + 1,
         ),
+      );
+      Analytics.gameCompleted(
+        gameType: 'wordle',
+        result: won ? 'win' : 'lose',
+        score: _guesses.length + 1,
       );
     }
 

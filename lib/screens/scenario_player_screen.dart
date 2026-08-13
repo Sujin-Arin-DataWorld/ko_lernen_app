@@ -17,6 +17,7 @@ import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/premium_service.dart';
+import '../services/analytics_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
@@ -375,6 +376,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final s = providedLoader != null
         ? await providedLoader(widget.scenarioId)
         : await _loadScenarioFromCatalog(widget.scenarioId);
+    if (s != null) {
+      Analytics.lessonStarted(
+        lessonType: 'scenario',
+        lessonId: s.id,
+        level: s.level.display,
+      );
+    }
     if (s == null) {
       if (mounted) Navigator.pop(context);
       return;
@@ -703,6 +711,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return;
     }
 
+    final done = _scenario;
+    if (done != null) {
+      Analytics.lessonCompleted(
+        lessonType: 'scenario',
+        lessonId: done.id,
+        level: done.level.display,
+      );
+    }
     setState(() => _resultSaving = true);
     try {
       final canDoResult = await _persistResult(stars, earnedXp);

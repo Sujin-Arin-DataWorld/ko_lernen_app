@@ -1353,6 +1353,36 @@ class Storage {
   static Future<void> setConsentInviteShown() async =>
       _prefs?.setBool('kl_consent_invite_shown', true);
 
+  /// Platzierungstest im Onboarding absolviert? Nur für die Analytics-Property
+  /// has_placement (misst, ob Placement die Retention verbessert). Kein PII.
+  static bool get placementTaken =>
+      _prefs?.getBool('kl_placement_taken') ?? false;
+  static Future<void> setPlacementTaken() async =>
+      _prefs?.setBool('kl_placement_taken', true);
+
+  /// Tagesziel heute erreicht gemeldet? Speichert das Datum (yyyy-MM-dd) der
+  /// letzten daily_goal_met-Meldung, damit das Event pro Tag genau einmal
+  /// feuert (Dedup).
+  static String get dailyGoalMetDate =>
+      _prefs?.getString('kl_daily_goal_met_date') ?? '';
+  static Future<void> setDailyGoalMetDate(String date) async =>
+      _prefs?.setString('kl_daily_goal_met_date', date);
+
+  /// True genau einmal pro Tag, sobald die heutige XP das Tagesziel erreicht.
+  /// Persistiert das Datum, damit daily_goal_met nicht erneut feuert. Reine
+  /// Storage-Logik ohne Analytics-Abhängigkeit.
+  static Future<bool> markDailyGoalMetIfReached() async {
+    if (xpToday < dailyGoalXp) {
+      return false;
+    }
+    final today = _today();
+    if (dailyGoalMetDate == today) {
+      return false;
+    }
+    await setDailyGoalMetDate(today);
+    return true;
+  }
+
   /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
   /// 0 = nicht angegeben. Siehe [AgeGateService].
   static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;

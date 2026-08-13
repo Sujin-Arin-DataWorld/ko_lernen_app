@@ -21,6 +21,7 @@ import '../services/sound_service.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
+import '../services/analytics_service.dart';
 import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -67,6 +68,7 @@ class _HangulScreenState extends State<HangulScreen>
       if (_tabs.index != _tabIndex) setState(() => _tabIndex = _tabs.index);
     });
     scheduleCoach();
+    Analytics.lessonStarted(lessonType: 'hangul');
   }
 
   @override
@@ -77,6 +79,7 @@ class _HangulScreenState extends State<HangulScreen>
 
   Future<void> _finishCards(int interactionCount) async {
     final t = AppL10n.of(context);
+    Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'cards');
     final completion = _cardsCompletion.complete(
       () => FeedbackCompletion.hangulCards(
         contentLabel: t.hangulTabCards,
@@ -89,6 +92,7 @@ class _HangulScreenState extends State<HangulScreen>
 
   Future<void> _finishWriting(int strokeCount) async {
     final t = AppL10n.of(context);
+    Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'writing');
     final completion = _writingCompletion.complete(
       () => FeedbackCompletion.hangulWriting(
         contentLabel: t.hangulTabWrite,

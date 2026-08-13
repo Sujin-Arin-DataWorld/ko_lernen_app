@@ -1,5 +1,38 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude, Mac) — Analytics 타입드 이벤트 16종 레거시 셸 배선 (v20 대비)
+
+**배경.** `analytics_service.dart`에 존재만 하고 호출되지 않던 타입드 이벤트 16종을 레거시 셸
+화면에 배선했다(재디자인은 없으므로 `lib/screens/sori_stage/`가 아니라 실제 사용 화면 기준).
+기존 발화 6종(pack_completed 등) 외 전량 활성화. 버전도 `2.0.5+20`으로 올렸다.
+
+**배선 위치.**
+- quiz_completed → `vocab_pack_screen`(보스, quiz_type=vocab_boss)
+- game_started/completed → chosung·wordle·kkeunmari·matching·typing
+- lesson_started/completed → hangul·grammar·scenario·listening
+- onboarding_start → `onboarding_start_screen`, onboarding_completed → `onboarding_flow_service`(퍼널 단일점, has_placement=`Storage.placementTaken`)
+- placement_completed → `placement_diagnostic_screen._choose`
+- tts_played → `tts_service.speak`(중앙 1곳, content_type는 공백/문장부호 휴리스틱 word/sentence)
+- wordbook_add → `wordbook_add.dart`(`source` 파라미터 추가, 기본 'manual')
+- streak_extended/milestone → `main.dart` 부트(touchStreak 전후 비교, milestone {3,7,14,30,50,100})
+- daily_goal_met → `home_screen`(`Storage.markDailyGoalMetIfReached` 1일 1회 dedup)
+- feature_used → `dojangcheop_screen`
+- paywall_viewed/subscribe_started → `paywall_screen`(`placement` 파라미터, 기본 'unspecified')
+
+**신규 Storage.** `placementTaken`(has_placement용) · `dailyGoalMetDate`+`markDailyGoalMetIfReached`(dedup).
+
+**검증.** `flutter analyze lib/` 0 issues · 전체 `flutter test` **3,270 통과 · 실패 0**. 모든 호출은
+동의+미성년 게이트로 no-op 가능(PII 없음: id·enum·버킷·카운트만).
+
+**릴리스 준비(v20).** Windows 전달 번들 `re/`의 업로드 키스토어를 `~/keys/`에 배치하고 SHA-1·
+SHA-256 지문이 Windows 원본과 일치함을 확인(`setup_mac_signing.sh`). 기존 JDK가 없어 OpenJDK 17
+설치(Gradle·keytool용). `re/`·`re 2/`·`re.zip`·`*.keystore`를 `.gitignore`에 추가해 서명 키 커밋
+차단. AAB(`FREE_LAUNCH=true` — RC_ANDROID_KEY 없어 전체개방 무료출시)·iOS IPA(`FREE_LAUNCH=1`,
+`build_ios_ipa.sh`, `LANG=en_US.UTF-8`로 CocoaPods 크래시 회피) 빌드 실행. Jin 요청으로 커밋·푸시.
+
+**남은 미세조정(선택).** wordbook `source`·paywall `placement`를 각 호출부에서 구체값으로 전달 ·
+daily_goal_met를 더 많은 XP 적립 퍼널에 연결 · onboardingStarted entryPoint 정교화.
+
 ### 2026-08-13 (Claude, Mac) — 동의 요청 UX 재설계 구현: 첫 실행 추적요청 제거 + 첫 성공 후 ConsentInviteSheet
 
 **배경.** 첫 실행 동의화면은 법적으론 안전하나(기본 OFF·비강제) 구조적으로 opt-in이 0에

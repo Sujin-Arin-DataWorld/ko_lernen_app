@@ -1,4 +1,5 @@
 import '../data/learner_motivation.dart';
+import 'analytics_service.dart';
 import 'storage_service.dart';
 
 /// Owns the durable boundary between agreeing to onboarding and completing it.
@@ -31,5 +32,9 @@ class OnboardingFlowService {
     if (Storage.sessionCount == 0) {
       await Storage.setSessionCount(1);
     }
+    Analytics.onboardingCompleted(
+      entryLevel: Storage.userLevelCode ?? 'a1',
+      hasPlacement: Storage.placementTaken,
+    );
   }
 }

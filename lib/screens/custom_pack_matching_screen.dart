@@ -7,6 +7,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
+import '../services/analytics_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -71,6 +72,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   @override
   void initState() {
     super.initState();
+    Analytics.gameStarted(gameType: 'matching');
     final pack = CustomPackService.getById(widget.packId);
     _pack = pack;
     if (pack != null) {
@@ -155,6 +157,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
     final xp = _misses == 0 ? _round.length * 4 : _round.length * 3;
     await recordGameResult(gameId: 'cp_matching', xp: xp);
+    await Analytics.gameCompleted(
+      gameType: 'matching',
+      result: 'win',
+      score: _round.length,
+    );
   }
 
   bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;

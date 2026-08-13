@@ -9,6 +9,7 @@ import '../models/onboarding_first_scene.dart';
 import '../motion/transitions.dart';
 import '../services/course_progress_service.dart';
 import '../services/onboarding_flow_service.dart';
+import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -77,6 +78,9 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
     _motivation = OnboardingFirstScene.forMotivation(
       requested ?? LearnerMotivation.travel,
     ).motivation;
+    Analytics.onboardingStarted(
+      entryPoint: Storage.sessionCount == 0 ? 'fresh_install' : 'reinstall',
+    );
   }
 
   Future<void> _continue() async {

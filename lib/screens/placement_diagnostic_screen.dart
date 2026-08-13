@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/placement_diagnostic.dart';
+import '../services/analytics_service.dart';
+import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -77,6 +79,12 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   Future<void> _choose(String levelCode) async {
     if (_saving) return;
     setState(() => _saving = true);
+    await Storage.setPlacementTaken();
+    Analytics.placementCompleted(
+      resultLevel: levelCode,
+      correct: _correct,
+      total: placementDiagnosticQuestions.length,
+    );
     try {
       await widget.onChooseLevel(levelCode);
     } finally {

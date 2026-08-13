@@ -493,10 +493,19 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _siblingPacks,
       bossAccuracy: bossAccuracy,
     );
+    final bossPct = bossTotal == 0
+        ? 0
+        : (bossCorrect * 100 / bossTotal).round();
     await Analytics.packCompleted(
       packId: pack.id,
-      accuracyPct: bossTotal == 0 ? 0 : (bossCorrect * 100 / bossTotal).round(),
+      accuracyPct: bossPct,
       firstClear: result.justCleared,
+    );
+    await Analytics.quizCompleted(
+      quizType: 'vocab_boss',
+      accuracyPct: bossPct,
+      level: pack.level,
+      pass: bossAccuracy >= PackProgressService.bossClearThreshold,
     );
     final missionContext = _missionStep == null ? null : widget.courseContext;
     if (missionContext != null) {

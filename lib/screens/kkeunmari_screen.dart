@@ -8,6 +8,7 @@ import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
+import '../services/analytics_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -112,6 +113,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     super.initState();
     _start();
     scheduleCoach();
+    Analytics.gameStarted(gameType: 'kkeunmari');
   }
 
   Future<void> _start() async {
@@ -325,6 +327,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     setState(() => _end = reason);
     // 사용자 승 (tigerStuck, deadEnd) → 셀러브레이션 + Phase 4 Quest-Tracking.
     final didWin = reason == _End.tigerStuck || reason == _End.deadEnd;
+    Analytics.gameCompleted(
+      gameType: 'kkeunmari',
+      result: didWin ? 'win' : 'lose',
+      score: _chain.length,
+    );
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);

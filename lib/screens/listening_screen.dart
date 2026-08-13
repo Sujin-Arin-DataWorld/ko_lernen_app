@@ -6,6 +6,7 @@ import '../widgets/app_loading.dart';
 import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
+import '../services/analytics_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -114,6 +115,14 @@ class _ListeningScreenState extends State<ListeningScreen>
           : (_scenarios.isNotEmpty ? _scenarios.first : null);
       _loading = false;
     });
+    final started = _selected;
+    if (started != null) {
+      Analytics.lessonStarted(
+        lessonType: 'listening',
+        lessonId: started.id,
+        level: started.level.display,
+      );
+    }
     // 첫 대사를 바로 들려준다.
     //
     // _pickScenario 는 예전부터 _speakCurrent() 를 불렀는데 **처음 들어와서
@@ -184,6 +193,11 @@ class _ListeningScreenState extends State<ListeningScreen>
   Future<void> _finish() async {
     final sc = _selected;
     if (sc == null) return;
+    Analytics.lessonCompleted(
+      lessonType: 'listening',
+      lessonId: sc.id,
+      level: sc.level.display,
+    );
     final lang = Localizations.localeOf(context).languageCode;
     HapticFeedback.heavyImpact();
     final earned = (sc.dialog.length * 8).clamp(40, 120);

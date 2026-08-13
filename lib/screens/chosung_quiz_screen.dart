@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
+import '../services/analytics_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
@@ -150,6 +151,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     super.initState();
     _load();
     scheduleCoach();
+    Analytics.gameStarted(gameType: 'chosung', level: _level);
   }
 
   Future<void> _load() async {
@@ -271,6 +273,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       final accuracy = _roundCorrect / _roundSize;
       final xp = _roundCorrect * 4;
       _roundXp = xp;
+      Analytics.gameCompleted(
+        gameType: 'chosung',
+        result: accuracy >= 0.8 ? 'win' : 'lose',
+        score: (accuracy * 100).round(),
+      );
       recordGameResult(
         gameId: 'chosung',
         xp: xp,

@@ -28,6 +28,7 @@ import '../services/hanok_stage_service.dart';
 import '../services/hanok_build_narrative_service.dart';
 import '../services/hanok_structure_projection_service.dart';
 import '../services/notification_service.dart';
+import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_snapshot.dart';
 import '../services/today_learning_navigation.dart';
@@ -213,6 +214,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       WidgetsBinding.instance.addObserver(this);
       _loadPath();
       _loadHanokPreview();
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted) {
+          return;
+        }
+        if (await Storage.markDailyGoalMetIfReached()) {
+          Analytics.dailyGoalMet(goalType: 'xp', goalValue: Storage.dailyGoalXp);
+        }
+      });
       WidgetsBinding.instance.addPostFrameCallback(
         (_) => _maybeShowIntroFlows(),
       );

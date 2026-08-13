@@ -148,7 +148,15 @@ Future<void> _startProductionApplication(
     debugPrint('Data migration skipped: $error');
   }
 
+  final streakBefore = Storage.streakDays;
   await Storage.touchStreak();
+  final streakAfter = Storage.streakDays;
+  if (streakAfter > streakBefore) {
+    Analytics.streakExtended(streakAfter);
+    if (const {3, 7, 14, 30, 50, 100}.contains(streakAfter)) {
+      Analytics.streakMilestone(streakAfter);
+    }
+  }
   // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
   await AudioPolicy.instance.applyPlatformAudioContext();
   try {

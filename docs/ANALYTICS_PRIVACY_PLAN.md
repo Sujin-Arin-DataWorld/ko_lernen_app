@@ -23,11 +23,19 @@
 | 광고 식별자 제거 | ✅ | Android: `AD_ID` 권한 `tools:node=remove` + `adid=false`(기존). iOS: `GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED=NO` + ad-personalization 기본 거부(신규) → **ATT 프롬프트 불필요** |
 | 동의 UX | ✅ | 첫 실행 `consent_screen`은 환영+ToS/개인정보 링크만(추적 요청 없음). Analytics·Crash 동의는 **첫 성공(첫 팩 결과) 직후 `ConsentInviteSheet`**: 동등한 두 버튼(Ja/Nicht jetzt)+개별설정 링크, 1회만(nagging 금지), <16 자동 제외. 설정에서 철회 |
 | Analytics 서비스 | ✅ | `lib/services/analytics_service.dart` — 동의+미성년 게이트 no-op 래퍼(주입식·테스트가능), `screen_view` 옵저버, 타입드 이벤트, `setUserProperty`·`syncUserProperties()` |
-| 배선된 이벤트 | ✅ | `screen_view`(자동), `pack_completed`, `onboarding_level_selected`, `book_capture_analyzed`, `custom_pack_created`, `gye_created/joined` |
+| 배선된 이벤트 | ✅ | **타입드 16종 전량 배선 완료 (2026-08-13, 레거시 셸)**: 기존 `screen_view`·`pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·`custom_pack_created`·`gye_created/joined` + `quiz_completed`·`game_started/completed`·`lesson_started/completed`·`onboarding_start/completed`·`placement_completed`·`tts_played`·`wordbook_add`·`streak_extended/milestone`·`daily_goal_met`·`feature_used`·`paywall_viewed`·`subscribe_started` |
 | user property (startup 동기화) | ✅ | `learner_level`, `ui_language`, `notif_opt_in`, `streak_bucket` — `main.dart`에서 `Analytics.syncUserProperties()` |
 | Consent Mode v2 | ⬜ 불필요 | 광고 없는 분석-전용 앱엔 hard gate가 더 깔끔. **광고(AdMob) 도입 시** 추가 |
 
-## 2. 이벤트 & user property 스키마 (재디자인 UI가 호출)
+## 2. 이벤트 & user property 스키마 (레거시 셸에 배선 완료)
+
+> ✅ **전량 배선 완료 (2026-08-13, Mac).** 아래 타입드 메서드는 전부 `Analytics.xxx()`로 존재하며
+> (동의 없으면 no-op), 이제 **레거시 셸 화면에 호출까지 연결**됐다(재디자인 없음 → 실제 사용 화면 기준).
+> 위치: lesson=hangul/grammar/scenario/listening · quiz=vocab_boss · game=chosung/wordle/kkeunmari/matching/typing ·
+> onboarding=onboarding_start/flow_service · placement=placement_diagnostic · tts=tts_service(중앙, content_type 휴리스틱) ·
+> wordbook=wordbook_add(`source` 파라미터, 기본 manual) · streak=main.dart 부트 · daily_goal=home(1일 1회 dedup) ·
+> feature_used=dojangcheop · paywall/subscribe=paywall_screen(`placement` 파라미터). 검증: `analyze` 0 · 전체 테스트 3,270 통과.
+> **미세조정 여지:** wordbook `source`·paywall `placement`를 호출부에서 구체값으로 전달, daily_goal_met를 더 많은 XP 퍼널에 연결.
 
 새 화면에서 아래 타입드 메서드만 호출하면 된다(전부 `Analytics.xxx()`로 이미 존재, 동의 없으면 no-op). **저카디널리티·PII 금지** 규칙을 지킬 것.
 

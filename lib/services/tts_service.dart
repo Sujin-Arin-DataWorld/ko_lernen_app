@@ -12,6 +12,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'audio_policy.dart';
 import 'hangul_util.dart';
+import 'analytics_service.dart';
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
@@ -366,6 +367,11 @@ class TtsService {
     final token = ++_speakToken;
     speaking.value = true;
     AudioPolicy.instance.noteSpeechStarted();
+    Analytics.ttsPlayed(
+      contentType: text.trim().contains(RegExp(r'[\s.!?]'))
+          ? 'sentence'
+          : 'word',
+    );
     final result = _playbackEngine.speak(
       text: text,
       voice: voice,

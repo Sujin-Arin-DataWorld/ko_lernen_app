@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/book_page.dart';
+import '../../services/analytics_service.dart';
 import '../../services/custom_pack_service.dart';
 import '../../services/storage_service.dart';
 import 'spotlight_coach.dart';
@@ -21,6 +22,7 @@ Future<void> addToWordbook(
   String exampleKorean = '',
   String exampleDe = '',
   String definitionKo = '',
+  String source = 'manual',
 }) async {
   final t = AppL10n.of(context);
   // Vor dem await einsammeln — kein BuildContext-Zugriff nach await.
@@ -40,6 +42,10 @@ Future<void> addToWordbook(
       definitionKo: definitionKo.trim(),
     ),
   );
+
+  if (res == WordbookAddResult.added) {
+    Analytics.wordbookAdded(source: source);
+  }
 
   final msg = switch (res) {
     WordbookAddResult.added => t.wbAdded(korean),

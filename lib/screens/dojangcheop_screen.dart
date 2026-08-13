@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -52,6 +53,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
   void initState() {
     super.initState();
     scheduleCoach();
+    Analytics.featureUsed('dojangcheop');
   }
 
   @override

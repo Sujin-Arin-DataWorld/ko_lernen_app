@@ -10,6 +10,7 @@ import '../models/feedback_completion.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
 import '../services/storage_service.dart';
@@ -114,6 +115,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     _idx = Storage.grammarLastIdx;
     _load();
     scheduleCoach();
+    Analytics.lessonStarted(lessonType: 'grammar');
   }
 
   Future<void> _load() async {
@@ -401,6 +403,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   Future<void> _finishSession() async {
     if (_sessionSeen.isEmpty) return;
+    Analytics.lessonCompleted(lessonType: 'grammar');
     final t = AppL10n.of(context);
     final completion = _feedbackCompletion.complete(
       () => FeedbackCompletion.grammarSession(
