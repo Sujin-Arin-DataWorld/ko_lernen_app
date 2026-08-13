@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
+import { Apple, ArrowRight, CheckCircle2, LoaderCircle, Play } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import type { Locale } from "./site";
+import { STORE_LINKS } from "./store-links";
 
 const copy = {
   en: {
@@ -46,6 +47,10 @@ const copy = {
     error: "The application could not be sent. Please check the fields and try again.",
     successTitle: "Your application has arrived.",
     successText: "Thank you. We will review your device and learning profile and contact you by email.",
+    installLead: "Your install link is ready:",
+    installIos: "Install via TestFlight",
+    installAndroid: "Install on Google Play",
+    installAndroidNote: "If you don't see the app yet, we'll email your invitation shortly after adding you as a tester.",
     successClose: "Back to the website",
   },
   de: {
@@ -89,6 +94,10 @@ const copy = {
     error: "Die Bewerbung konnte nicht gesendet werden. Bitte prüfe die Felder und versuche es erneut.",
     successTitle: "Deine Bewerbung ist angekommen.",
     successText: "Danke. Wir prüfen dein Gerät und Lernprofil und melden uns per E-Mail.",
+    installLead: "Dein Installationslink ist bereit:",
+    installIos: "Über TestFlight installieren",
+    installAndroid: "Bei Google Play installieren",
+    installAndroidNote: "Falls die App noch nicht erscheint, senden wir dir die Einladung per E-Mail, sobald wir dich als Tester hinzugefügt haben.",
     successClose: "Zurück zur Website",
   },
   ko: {
@@ -132,6 +141,10 @@ const copy = {
     error: "신청을 보내지 못했습니다. 입력 내용을 확인하고 다시 시도해 주세요.",
     successTitle: "신청이 도착했습니다.",
     successText: "감사합니다. 기기와 학습 정보를 확인한 뒤 이메일로 연락드리겠습니다.",
+    installLead: "설치 링크가 준비되어 있어요:",
+    installIos: "TestFlight로 설치하기",
+    installAndroid: "Google Play에서 설치하기",
+    installAndroidNote: "앱이 아직 보이지 않으면, 테스터로 등록한 뒤 초대 메일을 보내드릴게요.",
     successClose: "사이트로 돌아가기",
   },
 } as const;
@@ -143,6 +156,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [platform, setPlatform] = useState<"android" | "ios" | null>(null);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -156,6 +170,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
       return;
     }
 
+    const selectedPlatform = data.get("platform") === "ios" ? "ios" : "android";
     setState("sending");
     setMessage("");
 
@@ -186,6 +201,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
 
       if (!response.ok) throw new Error("tester application rejected");
       form.reset();
+      setPlatform(selectedPlatform);
       setState("success");
     } catch {
       setState("error");
@@ -204,7 +220,22 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
             <p className="eyebrow">{t.eyebrow}</p>
             <h2 id="tester-title">{t.successTitle}</h2>
             <p>{t.successText}</p>
-            <a className="button button-primary" href="#tester-access-closed">{t.successClose}<ArrowRight aria-hidden="true" size={18} /></a>
+            <div className="tester-install">
+              <p className="tester-install-lead">{t.installLead}</p>
+              {platform === "ios" ? (
+                <a className="button button-primary tester-install-cta" href={STORE_LINKS.ios} target="_blank" rel="noopener noreferrer">
+                  <Apple aria-hidden="true" size={18} />{t.installIos}
+                </a>
+              ) : (
+                <>
+                  <a className="button button-primary tester-install-cta" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer">
+                    <Play aria-hidden="true" size={16} fill="currentColor" />{t.installAndroid}
+                  </a>
+                  <small className="tester-install-note">{t.installAndroidNote}</small>
+                </>
+              )}
+            </div>
+            <a className="button button-ghost" href="#tester-access-closed">{t.successClose}<ArrowRight aria-hidden="true" size={18} /></a>
           </div>
         ) : (
           <>
@@ -239,12 +270,12 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
 
               <div className="form-grid">
                 <label className="form-field">
-                  <span>{t.device} <i>*</i></span>
-                  <input name="device" type="text" required maxLength={80} placeholder={t.devicePlaceholder} />
+                  <span>{t.device}</span>
+                  <input name="device" type="text" maxLength={80} placeholder={t.devicePlaceholder} />
                 </label>
                 <label className="form-field">
-                  <span>{t.os} <i>*</i></span>
-                  <input name="osVersion" type="text" required maxLength={40} placeholder={t.osPlaceholder} />
+                  <span>{t.os}</span>
+                  <input name="osVersion" type="text" maxLength={40} placeholder={t.osPlaceholder} />
                 </label>
                 <label className="form-field">
                   <span>{t.language} <i>*</i></span>

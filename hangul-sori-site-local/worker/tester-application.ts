@@ -136,8 +136,6 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
     name.length >= 2 &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
     allowed.platform.has(platform) &&
-    device.length >= 2 &&
-    osVersion.length >= 2 &&
     allowed.explanationLanguage.has(explanationLanguage) &&
     allowed.koreanLevel.has(koreanLevel) &&
     focus.length > 0 &&
@@ -162,8 +160,8 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
     ["Name", name],
     ["Invitation email", email],
     ["Platform", platformLabels[platform] ?? platform],
-    ["Device", device],
-    ["OS version", osVersion],
+    ["Device", device || "—"],
+    ["OS version", osVersion || "—"],
     ["Explanation language", languageLabels[explanationLanguage] ?? explanationLanguage],
     ["Korean level", levelLabels[koreanLevel] ?? koreanLevel],
     ["Testing focus", focusText],
