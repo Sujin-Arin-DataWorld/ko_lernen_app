@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/config/sori_stage_feature.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
@@ -107,7 +108,7 @@ Widget _shellApp({required double textScale}) => MaterialApp(
     ),
     child: child!,
   ),
-  home: const AppShell(),
+  home: const AppShell(featureGate: SoriStageFeatureGate(enabled: true)),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),
   ),

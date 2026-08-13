@@ -16,10 +16,16 @@ void main() {
     await Storage.init();
   });
 
-  test('Sori Stage feature is default-on with an explicit rollback seam', () {
-    expect(const SoriStageFeatureGate().isEnabled, isTrue);
-    expect(const SoriStageFeatureGate(enabled: false).isEnabled, isFalse);
+  test('Sori Stage feature is default-off with an explicit opt-in seam', () {
+    expect(const SoriStageFeatureGate().isEnabled, isFalse);
+    expect(const SoriStageFeatureGate(enabled: true).isEnabled, isTrue);
   });
+
+  // 기본값이 레거시 셸을 고른다는 사실은 위 게이트 계약 테스트와
+  // screen_smoke_test.dart 의 'app shell renders' 가 함께 커버한다. 레거시 홈은
+  // reduce-motion 에도 멈추지 않는 앰비언트 애니메이션이 있어 여기서 셸 전체를
+  // 마운트하면 pumpAndSettle 이 타임아웃한다.
+
 
   testWidgets('390dp shell exposes five roots and profile outside navigation', (
     tester,
@@ -29,7 +35,9 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(_app(const AppShell()));
+    await tester.pumpWidget(
+      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+    );
     await tester.pump();
 
     expect(find.byType(SoriStageShell), findsOneWidget);
@@ -47,7 +55,9 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(_app(const AppShell()));
+    await tester.pumpWidget(
+      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+    );
     await tester.pump();
 
     expect(find.byType(NavigationRail), findsOneWidget);
@@ -62,7 +72,9 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(_app(const AppShell()));
+    await tester.pumpWidget(
+      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+    );
     await tester.pump();
     await tester.tap(find.text('Games').last);
     await tester.pump();

@@ -1,5 +1,37 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude, Windows) — Sori Stage UI 기본값 해제(레거시 셸 복귀) + Analytics 문서 단일화
+
+**배경.** Jin이 어제 병합된 Sori Stage 5탭 UI(`d2c5f94`)의 홈이 마음에 들지 않았다. 새 홈은
+텍스트 우선이라 레거시 홈의 마스코트(태고) 선행 진입이 사라졌다. "이전 디자인으로 되돌려
+달라"는 요청이었고, 함께 받은 지시는 `45779bf`로 reset 하지 말고 Analytics·동의·릴리스 작업을
+전부 보존하라는 것이었다.
+
+**조사 결과 revert가 불필요했다.** ① `45779bf`는 Sori Stage 직전 지점이 아니라 단순 문서
+커밋이었다(reset 했으면 Analytics 3커밋이 날아갔다). 진짜 직전 지점은 머지 `d2c5f94`의 첫
+부모 `416a54f`다. ② 그런데 레거시 UI가 삭제된 적이 없다. `app_shell.dart`가
+`featureGate.isEnabled ? SoriStageShell : LegacyAppShell`로 분기하고 있었고, 코덱스가
+`SoriStageFeatureGate`에 롤백 시임을 미리 넣어뒀다.
+
+**변경.** `lib/config/sori_stage_feature.dart`의 `ENABLE_SORI_STAGE` 기본값을 `true`에서
+`false`로 내렸다(1줄). 파일도 코드도 지우지 않았다. Sori Stage 화면·보상 영수증·퀘스트·SRS·
+Gye 트리거·발음 평가는 전부 `main`에 남아 있고 `--dart-define=ENABLE_SORI_STAGE=true`로 다시
+켜진다. `sori_stage_shell_test.dart`의 "default-on" 계약 단언을 "default-off + 명시 옵트인"
+으로 갱신하고, Sori Stage 셸을 검증하는 위젯 테스트 4곳에 `SoriStageFeatureGate(enabled: true)`
+를 명시 주입해 커버리지를 유지했다.
+
+**문서 단일화.** Windows 세션에서 만든 계측 스펙/계획 2건을 `docs/ANALYTICS_PRIVACY_PLAN.md`
+§6으로 흡수하고 원본을 삭제했다. 같은 주제 문서가 셋이면 맥 세션이 무엇을 읽어야 할지 알 수
+없다. §6에 남은 구현 6건을 적었다: 타입드 이벤트 16종 배선(레거시 화면 기준), 파라미터 허용
+목록 + 계약 테스트, 개인정보 센터 화면, 철회 시 `resetAnalyticsData`, 동의 시각 기록,
+개인정보처리방침 4곳 갱신.
+
+**검증.** `flutter test` 전체 3,264 통과 · 16 스킵 · 실패 0. `flutter analyze` 0 issues.
+`b43bc82`에서 재생성된 홈·learn hub 골든 6장은 깨지지 않았다(레거시 기준이었다).
+복구 지점 태그 `pre-sori-stage-rollback-20260813`(9eb5ff9).
+
+**미확인 (Jin).** 실기기에서 레거시 홈 시각 확인. 이후 작업은 맥 단일 환경으로 이관 예정.
+
 ### 2026-08-13 (Claude) — Analytics/Privacy 심화: 데이터 레이어·미성년 backstop·데이터최소화·설계문서
 
 **배경.** 리서치 2갈래(EU/독일 법률 · GA4/Firebase 베스트프랙티스) 후, UI 재디자인과 무관한

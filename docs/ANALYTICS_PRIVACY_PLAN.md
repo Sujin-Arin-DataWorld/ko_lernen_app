@@ -87,6 +87,36 @@
 - [ ] Google DPF 인증 현황·정확한 SCC 모듈 문구 확인
 - [ ] DPO 필요성·연령검증(자기신고) 강건성 판단
 
+## 6. 남은 구현 (2026-08-13 Windows 세션 인수인계)
+
+이 절은 Windows 세션에서 별도로 세운 계측 스펙을 이 문서로 흡수한 것이다. 중복 문서를
+남기지 않기 위해 여기로 합쳤고 원본 스펙/계획 파일은 삭제했다. **이 문서가 정본이다.**
+
+**전제 — UI는 레거시 셸로 되돌렸다.** `SoriStageFeatureGate`의 기본값이 `false`가 되어
+앱은 `LegacyAppShell`(태고가 먼저 보이는 홈)로 뜬다. §2의 타입드 이벤트를 배선할 대상은
+Sori Stage 5탭이 아니라 **레거시 셸의 화면들**이다. Sori Stage 화면은 코드에 그대로 남아
+있고 `--dart-define=ENABLE_SORI_STAGE=true`로만 보인다.
+
+- [ ] **타입드 이벤트 16종 배선.** §2에 정의만 되어 있고 호출부가 없다. 실제로 호출되는
+      것은 `pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·
+      `custom_pack_created`·`gye_created/joined` 6개뿐이다. 레거시 화면 기준으로 물린다.
+- [ ] **파라미터 허용 목록 + 택소노미 계약 테스트.** §0 원칙 2("PII 절대 금지")가 지금은
+      **규칙으로만** 존재한다. `Analytics.logEvent(name, parameters: {...})`가 public이라
+      호출부에서 임의의 키·값을 넘길 수 있다. 허용 키 집합을 상수로 두고, 전체 이벤트를
+      순회하며 키 허용 여부·이름 40자·값 100자 상한을 검증하는 테스트로 고정한다.
+- [ ] **개인정보 센터 화면.** 개인정보 토글 3종(Analytics·Crash·발음 녹음)이
+      `settings_screen.dart` 1011행 부근, 계정 섹션과 "안내 다시 보기" 다음에 묻혀 있다.
+      Art. 7(3)의 "철회는 부여만큼 쉽게"에 비추어 약하다. 전용 화면으로 승격하고 설정에는
+      진입 항목 하나만 남긴다(토글 복제 금지). 수집하지 않는 항목을 평문으로 명시한다.
+- [ ] **철회 시 `resetAnalyticsData()`.** 분석 동의를 끌 때 앱 인스턴스 ID를 재발급하면
+      이후 데이터가 철회 이전 사용자와 연결되지 않는다. 웹에서 `_ga` 쿠키를 지우는 동작과
+      대칭이며 Art. 17 방어층이다. `PrivacyConsentService`의 분석 끄기 경로에 둔다.
+- [ ] **동의 변경 시각 기록.** Art. 7 Abs. 1 증빙. `kl_analytics_consent_at` 등 ISO 8601
+      문자열로 저장하고 개인정보 센터에 표시한다.
+- [ ] **개인정보처리방침 4곳 갱신** (§5 P0의 항목과 동일). 앱 안 문구와 같은 사실을 말해야
+      한다: `hangul-sori-site-local/app/privacy/page.tsx`(de/en/ko),
+      `docs/store/privacy-en.md`, `docs/privacy.html`, `docs/store/data-safety.md`.
+
 ---
 
 ### 참고 (근거 출처 요약)
