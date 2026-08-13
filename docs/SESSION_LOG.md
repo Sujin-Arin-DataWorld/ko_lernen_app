@@ -42,6 +42,10 @@ Firestore emulator rules test를 실행하지 못했으며, 기존 CI의 Java 21
 conflict-marker scan, `git diff --check`도 통과했다. npm production audit는 기존
 Firebase transitive tree의 moderate 7, high/critical 0이며 breaking downgrade는 하지 않았다.
 
+**커밋.** 최신 main `416a54f`와 Sori Stage `6acd41e`를 보존한 통합 merge는
+`d2c5f94` (`merge: integrate Sori Stage frontend`)다. 이 로그 해시 고정은 바로 다음
+문서 커밋에 포함한다.
+
 **외부 게이트.** Windows 검증은 iOS compile/signing, Android/iOS 실제 마이크,
 live App Check, 배포된 callable, Azure 실처리 지역, 물리 기기 UX를 증명하지 않는다.
 Firebase/Azure 배포도 이번 병합 범위가 아니다. 통합 커밋·push 결과는 다음 로그 또는
