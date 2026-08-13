@@ -1,5 +1,45 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude, Mac) — 동의 요청 UX 재설계 구현: 첫 실행 추적요청 제거 + 첫 성공 후 ConsentInviteSheet
+
+**배경.** 첫 실행 동의화면은 법적으론 안전하나(기본 OFF·비강제) 구조적으로 opt-in이 0에
+수렴했다(토글 무시 가능 + `Weiter` 하나로 통과 + 신뢰 0 시점). Jin 요청: 합법 유지하며 분석
+데이터를 받을 수 있게. 핵심 통찰 — hard gate로 동의 전 수집이 0이라 **첫 실행에 물을 법적
+의무가 없다**. 안 물으면 데이터만 못 받을 뿐. 그래서 요청을 첫 성공 뒤로 미룬다.
+
+**변경.**
+- `consent_screen.dart` — 추적 토글 2종·opt-in 안내문·`setAnalytics/Crash` 호출 제거. 첫
+  실행은 환영+ToS/개인정보 링크만(앱 진입 무커플링). `.preview` 계약 불변.
+- `widgets/sori/consent_invite_sheet.dart`(신규) — 첫 팩 결과 직후 1회 바텀시트. 동등한 두
+  버튼 `Ja, gerne helfen`/`Nicht jetzt`(EDPB 03/2022 균형) + `Einzeln festlegen` 개별 토글
+  (목적별 분리). 게이트: consentAccepted·미요청·미동의·비(非)미성년(Art. 8). 표시 즉시
+  `consentInviteShown` 마킹 → nagging 금지(Art. 7). 스크림 닫기=거부.
+- `main.dart` — `/vocab/result` 라우트를 `ConsentInviteTrigger`로 래핑(결과화면 무수정).
+- `Storage.consentInviteShown`(`kl_consent_invite_shown`) 신규 1회 플래그.
+- ARB de/en — `consentInvite*` 5키(문구는 humanizer 최종 통과 대기).
+- 문서 — `ANALYTICS_PRIVACY_PLAN.md` §1·§7·체크리스트 갱신.
+
+**검증.** `flutter gen-l10n` OK · 변경 4파일 `flutter analyze` 0 issues · 신규
+`consent_invite_sheet_test.dart` 6/6 · 동의화면 연관 회귀 85/85(onboarding·ux_gallery·
+preview·a11y) · arb 가드·privacy minor/consent 계약 19/19. 문구는 humanizer 기준 직접 다듬음.
+
+**남은 것(§3·§7).** 문구 humanizer 확정 · 타입드 이벤트 16종을 레거시 셸에 배선 ·
+`consent_updated` surface 측정 · 개인정보 센터/철회 시 `resetAnalyticsData` · 파라미터 허용목록.
+
+### 2026-08-13 (Claude, Mac) — 워크플로우 정정: 단일 맥 환경 확정 (Windows 재디자인·ARB 충돌 규칙 무효)
+
+**배경.** 이전 세션들(맥·윈도우)이 "Windows가 홈을 재디자인한 뒤 push한다 + 두 기계 동시
+편집이라 ARB 충돌 최소화가 필요하다"는 전제로 문서·조언을 남겼다. 실제로는 재디자인이 없었고
+(Sori Stage를 feature gate로 껐을 뿐), Jin이 맥에서 Android 빌드도 됨을 확인해 모든 작업을 맥
+한 대로 통합한다. 스테일 전제를 모르면 다음 세션이 존재하지 않는 Windows 작업을 기다린다.
+
+**변경.** `AGENTS.md` 상단 규칙 블록에 "개발 환경 = 단일 맥 (2026-08-13 확정)"을 추가해 ① 기계별
+분담 ② ARB 충돌 최소화 규칙 ③ Windows 재디자인 후 push 흐름을 명시적으로 무효 처리하고, 계측
+이벤트 16종은 재디자인 UI가 아니라 레거시 셸 화면에 배선함을 못박았다. `ENABLE_SORI_STAGE`
+기본 false·복구 태그 `pre-sori-stage-rollback-20260813`도 함께 명시했다.
+
+**검증.** 문서 전용(코드 무변경). fast-forward pull로 origin/main `e654817` 동기화 후 편집.
+
 ### 2026-08-13 (Claude, Windows) — Sori Stage UI 기본값 해제(레거시 셸 복귀) + Analytics 문서 단일화
 
 **배경.** Jin이 어제 병합된 Sori Stage 5탭 UI(`d2c5f94`)의 홈이 마음에 들지 않았다. 새 홈은

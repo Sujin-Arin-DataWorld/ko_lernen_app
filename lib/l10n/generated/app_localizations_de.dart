@@ -3623,6 +3623,25 @@ class AppL10nDe extends AppL10n {
       'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.';
 
   @override
+  String get consentInviteTitle => 'Deine erste Lektion sitzt 🎉';
+
+  @override
+  String get consentInviteBody =>
+      'Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.';
+
+  @override
+  String get consentInviteYes => 'Ja, gerne helfen';
+
+  @override
+  String get consentInviteNo => 'Nicht jetzt';
+
+  @override
+  String get consentInviteCustomize => 'Einzeln festlegen';
+
+  @override
+  String get consentInviteSave => 'Speichern';
+
+  @override
   String get grammarEasy => 'Verstanden';
 
   @override

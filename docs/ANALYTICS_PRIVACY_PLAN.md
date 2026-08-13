@@ -21,7 +21,7 @@
 | Hard gate (기본 OFF) | ✅ | Android manifest `firebase_analytics_collection_enabled=false`, iOS `FIREBASE_ANALYTICS_COLLECTION_ENABLED=NO`, Crashlytics 동일. `PrivacyConsentService.applyStored()`가 시작 시 저장 동의 적용 |
 | 미성년자 backstop | ✅ | `PrivacyConsentService.setAnalytics/setCrash` + `Analytics._consentActive()`가 `AgeGateService.isUnderMinAge`면 강제 OFF·persist false |
 | 광고 식별자 제거 | ✅ | Android: `AD_ID` 권한 `tools:node=remove` + `adid=false`(기존). iOS: `GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED=NO` + ad-personalization 기본 거부(신규) → **ATT 프롬프트 불필요** |
-| 동의 UX | ✅ | 첫 실행 `consent_screen`에 granular 토글(Analytics·Crash, 기본 OFF) + 설정 철회 토글. **⚠️ 재디자인 시: <16 사용자에겐 토글을 숨겨라**(backstop이 있지만 UX상으로도) |
+| 동의 UX | ✅ | 첫 실행 `consent_screen`은 환영+ToS/개인정보 링크만(추적 요청 없음). Analytics·Crash 동의는 **첫 성공(첫 팩 결과) 직후 `ConsentInviteSheet`**: 동등한 두 버튼(Ja/Nicht jetzt)+개별설정 링크, 1회만(nagging 금지), <16 자동 제외. 설정에서 철회 |
 | Analytics 서비스 | ✅ | `lib/services/analytics_service.dart` — 동의+미성년 게이트 no-op 래퍼(주입식·테스트가능), `screen_view` 옵저버, 타입드 이벤트, `setUserProperty`·`syncUserProperties()` |
 | 배선된 이벤트 | ✅ | `screen_view`(자동), `pack_completed`, `onboarding_level_selected`, `book_capture_analyzed`, `custom_pack_created`, `gye_created/joined` |
 | user property (startup 동기화) | ✅ | `learner_level`, `ui_language`, `notif_opt_in`, `streak_bucket` — `main.dart`에서 `Analytics.syncUserProperties()` |
@@ -116,11 +116,19 @@ Sori Stage 5탭이 아니라 **레거시 셸의 화면들**이다. Sori Stage �
 - [ ] **개인정보처리방침 4곳 갱신** (§5 P0의 항목과 동일). 앱 안 문구와 같은 사실을 말해야
       한다: `hangul-sori-site-local/app/privacy/page.tsx`(de/en/ko),
       `docs/store/privacy-en.md`, `docs/privacy.html`, `docs/store/data-safety.md`.
-- [ ] **동의 요청 UX 재설계 — 동의율이 0에 수렴하는 구조다.** 아래 §7 참조.
+- [x] **동의 요청 UX 재설계 구현됨 (2026-08-13, Mac).** §7 진단대로: 첫 실행에서 추적 요청 제거 + 첫 성공 후 `ConsentInviteSheet`. 문구는 humanizer 최종 통과 대기.
 
 ## 7. 동의 요청 UX 재설계 (2026-08-13 분석)
 
-현재 첫 실행 동의 화면은 **법적으로는 안전하지만 구조적으로 아무도 켜지 않게 되어 있다.**
+> ✅ **구현됨 (2026-08-13, Mac).** "바꿀 것" 1·2·4를 반영: 첫 실행 `consent_screen`에서
+> 추적 토글 제거(환영+ToS만) → 첫 팩 결과 직후 `ConsentInviteSheet`(동등한 두 버튼
+> Ja/Nicht jetzt + "Einzeln festlegen" 개별설정, 1회, <16 자동 제외, 거부해도 앱 온전 작동).
+> 훅=`/vocab/result` 라우트 래핑. 코드: `lib/widgets/sori/consent_invite_sheet.dart` ·
+> `consent_screen.dart` · `Storage.consentInviteShown` · ARB `consentInvite*`.
+> 테스트: `test/consent_invite_sheet_test.dart`(6). **남음:** 문구 `humanizer` 최종 통과 ·
+> `consent_updated` surface 측정 · 마스코트(태고) 보이스(바꿀 것 3)는 미반영.
+
+아래는 그 근거가 된 진단이다. 첫 실행 동의 화면은 **법적으로는 안전하지만 구조적으로 아무도 켜지 않게 되어 있었다.**
 동의를 못 받으면 §2~§3의 계측·콘솔 설정이 전부 무의미해지므로 이 항목이 계측 배선보다
 우선순위가 높다.
 

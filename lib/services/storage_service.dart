@@ -1344,6 +1344,15 @@ class Storage {
   static Future<void> setCrashConsent(bool v) async =>
       _prefs?.setBool('kl_crash_consent', v);
 
+  /// Der nachgelagerte Analytics/Crash-Opt-in-Dialog wurde bereits einmal
+  /// gezeigt? Wird in dem Moment gesetzt, in dem das Sheet nach dem ersten
+  /// Erfolg erscheint — damit nie erneut gefragt wird (DSGVO Art. 7, kein
+  /// Nagging), unabhängig von der Antwort des Nutzers.
+  static bool get consentInviteShown =>
+      _prefs?.getBool('kl_consent_invite_shown') ?? false;
+  static Future<void> setConsentInviteShown() async =>
+      _prefs?.setBool('kl_consent_invite_shown', true);
+
   /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
   /// 0 = nicht angegeben. Siehe [AgeGateService].
   static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;

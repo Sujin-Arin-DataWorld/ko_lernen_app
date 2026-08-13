@@ -6331,6 +6331,42 @@ abstract class AppL10n {
   /// **'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.'**
   String get consentOptionalHint;
 
+  /// No description provided for @consentInviteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Lektion sitzt 🎉'**
+  String get consentInviteTitle;
+
+  /// No description provided for @consentInviteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.'**
+  String get consentInviteBody;
+
+  /// No description provided for @consentInviteYes.
+  ///
+  /// In de, this message translates to:
+  /// **'Ja, gerne helfen'**
+  String get consentInviteYes;
+
+  /// No description provided for @consentInviteNo.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht jetzt'**
+  String get consentInviteNo;
+
+  /// No description provided for @consentInviteCustomize.
+  ///
+  /// In de, this message translates to:
+  /// **'Einzeln festlegen'**
+  String get consentInviteCustomize;
+
+  /// No description provided for @consentInviteSave.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern'**
+  String get consentInviteSave;
+
   /// No description provided for @grammarEasy.
   ///
   /// In de, this message translates to:
