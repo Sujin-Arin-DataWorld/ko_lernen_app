@@ -338,6 +338,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     final s = SoriSurfaces.of(context);
 
     return QuestLayout(
+      showTtsSpeed: true,
       action: _buildExplanation(langCode, t, s),
       content: Stack(
         clipBehavior: Clip.none,

@@ -214,6 +214,77 @@ void main() {
     expect(high.fileRate, 2);
   });
 
+  // 전역 사용자 배수 (2026-08-13 속도 바) — compose 의 세 번째 축.
+  test('userMultiplier default is identity', () {
+    final a = TtsPlaybackRates.compose(baseRate: 0.42, multiplier: 0.75);
+    final b = TtsPlaybackRates.compose(
+      baseRate: 0.42,
+      multiplier: 0.75,
+      userMultiplier: 1.0,
+    );
+    expect(a.speechRate, b.speechRate);
+    expect(a.fileRate, b.fileRate);
+  });
+
+  test('userMultiplier folds into both speech and file rates', () {
+    final slowUser = TtsPlaybackRates.compose(
+      baseRate: 0.42,
+      multiplier: 1,
+      userMultiplier: 0.5,
+    );
+    final fastUser = TtsPlaybackRates.compose(
+      baseRate: 0.42,
+      multiplier: 1,
+      userMultiplier: 1.5,
+    );
+    expect(slowUser.speechRate, closeTo(0.21, 0.000001));
+    expect(slowUser.fileRate, closeTo(0.5, 0.000001));
+    expect(fastUser.speechRate, closeTo(0.63, 0.000001));
+    expect(fastUser.fileRate, closeTo(1.5, 0.000001));
+  });
+
+  test('speakSlow 0.65 × global 0.5 hits the 0.5 file-rate floor', () {
+    final r = TtsPlaybackRates.compose(
+      baseRate: 0.42,
+      multiplier: 0.65,
+      userMultiplier: 0.5,
+    );
+    expect(r.fileRate, 0.5); // clamp 바닥 — 정직한 최저 배속
+    expect(r.speechRate, closeTo(0.42 * 0.325, 0.000001));
+  });
+
+  test('non-finite userMultiplier is neutralized', () {
+    final r = TtsPlaybackRates.compose(
+      baseRate: 0.42,
+      multiplier: 1,
+      userMultiplier: double.nan,
+    );
+    expect(r.fileRate, closeTo(1, 0.000001));
+  });
+
+  test('engine forwards userMultiplier to the file rate', () async {
+    final platform = _FakePlatform();
+    final engine = TtsPlaybackEngine(
+      resolveFile: (text, voice) async => File('cached.mp3'),
+      platform: platform,
+    );
+    final result = engine.speak(
+      text: '안녕하세요',
+      voice: 'female',
+      baseRate: 0.42,
+      userMultiplier: 1.5,
+    );
+    await Future<void>.delayed(Duration.zero);
+    await Future<void>.delayed(Duration.zero);
+    platform.fileSessions['cached.mp3']?.complete(true);
+    await result;
+    expect(
+      platform.mutations.any((m) => m.startsWith('file:') && m.endsWith(':1.5')),
+      isTrue,
+      reason: 'mutations: ${platform.mutations}',
+    );
+  });
+
   test('file rate failure falls back safely to OS speech', () async {
     final platform = _FakePlatform()..failFileStart = true;
     final engine = TtsPlaybackEngine(

@@ -8,6 +8,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// **Meine Wörter** (v2.0) — durchsucht ALLE selbst gespeicherten Wörter
 /// (alle Custom-Packs zusammengeführt) per Text + Wortart-Filter (Kategorie).
@@ -83,6 +84,7 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
           t.wbSearchTitle,
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SafeArea(
         child: _all.isEmpty

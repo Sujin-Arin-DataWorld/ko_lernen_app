@@ -20,6 +20,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -48,7 +49,6 @@ class _ListeningScreenState extends State<ListeningScreen>
   Scenario? _selected;
   int _step = 0;
   bool _loading = true;
-  double _rate = 1.0; // 0.75 / 1.0 / 1.25 — TTS speech rate multiplier
   _SubMode _subs = _SubMode.both;
   bool _completed = false;
   final ListeningFeedbackCompletionState _feedbackCompletion =
@@ -161,13 +161,13 @@ class _ListeningScreenState extends State<ListeningScreen>
     if (line.speaker == 'narrator' || line.ko.isEmpty) {
       return;
     }
-    // 화면 속도는 요청에만 적용되며 사용자의 전역 TTS 설정은 보존한다.
+    // 속도는 전역 배수(`Storage.ttsSpeed`) 하나만 쓴다 — 화면 로컬 배수는
+    // 화면을 떠나면 사라져 혼란만 줬다 (2026-08-13 전역 속도 바로 통합).
     // 화자→voice 는 scenario_player 와 동일 규칙 — NPC 대사는 male 사전생성
     // 캐시(tts/v3)에 적중해야 재합성·화자 불일치가 없다.
     await TtsService.speak(
       line.ko,
       voice: line.speaker == 'user' ? 'female' : 'male',
-      rateMultiplier: _rate,
     );
   }
 
@@ -208,7 +208,7 @@ class _ListeningScreenState extends State<ListeningScreen>
         contentLabel: sc.title.pick(lang),
         level: sc.level.display,
         lines: sc.dialog.length,
-        rate: _rate,
+        rate: Storage.ttsSpeed,
       ),
     );
     if (!mounted || completion == null) return;
@@ -319,9 +319,7 @@ class _ListeningScreenState extends State<ListeningScreen>
                   KeyedSubtree(
                     key: _controlsBarKey,
                     child: _ControlsBar(
-                      rate: _rate,
                       subs: _subs,
-                      onRate: (r) => setState(() => _rate = r),
                       onSubs: (m) => setState(() => _subs = m),
                       t: t,
                     ),
@@ -426,16 +424,12 @@ class _ListeningScreenState extends State<ListeningScreen>
 // ─── Controls Bar ─────────────────────────────────────────────────────────────
 
 class _ControlsBar extends StatelessWidget {
-  final double rate;
   final _SubMode subs;
-  final ValueChanged<double> onRate;
   final ValueChanged<_SubMode> onSubs;
   final AppL10n t;
 
   const _ControlsBar({
-    required this.rate,
     required this.subs,
-    required this.onRate,
     required this.onSubs,
     required this.t,
   });
@@ -448,34 +442,8 @@ class _ControlsBar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Speed row
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: Spacing.xs,
-            runSpacing: Spacing.xs,
-            children: [
-              Icon(Icons.speed_rounded, size: 16, color: s.textMuted),
-              Text(
-                t.listeningSpeedLabel,
-                style: SoriTextTheme.of(
-                  context,
-                ).caption.copyWith(fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(width: Spacing.xs),
-              ...[0.75, 1.0, 1.25].map((r) {
-                final selected = (rate - r).abs() < 0.01;
-                return SoriChip(
-                  label: '${r}x',
-                  accent: SoriColors.info,
-                  selected: selected,
-                  variant: SoriChipVariant.soft,
-                  onTap: () => onRate(r),
-                  fontSize: 12,
-                  minInteractiveHeight: 44,
-                );
-              }),
-            ],
-          ),
+          // Speed row — 전역 속도 배수 (모든 화면과 공유·영속).
+          const TtsSpeedControl(mode: TtsSpeedControlMode.row),
           const SizedBox(height: Spacing.sm),
           // Subtitle row
           Row(

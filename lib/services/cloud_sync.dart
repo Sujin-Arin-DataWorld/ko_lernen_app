@@ -37,6 +37,7 @@ class CloudSync {
     'app',
     'progress',
     'srs_json',
+    'wrong_count_json',
     'custom_packs_json',
     'bookshelf_json',
     'course_mastery_json',
@@ -103,6 +104,9 @@ class CloudSync {
     if (!Storage.srsIsQuarantined) {
       payload['srs_json'] = Storage.srsRawJson;
     }
+    // 오답 카운터 — SRS 만 복원되고 이게 빠지면 재설치 후 Extra-Lernset 이
+    // 조용히 쪼그라든다. SRS 와 짝으로 백업.
+    payload['wrong_count_json'] = Storage.wrongCountRawJson;
     final customPacks = _portableStructuredJson(
       Storage.customPacksRawJson,
       stripBookshelfThumbnail: false,
@@ -429,6 +433,16 @@ class CloudSync {
     );
     if (srsJson != null && Storage.srsRawJson.isEmpty) {
       await _guardedWrite(beforeWrite, () => Storage.setSrsRawJson(srsJson));
+    }
+    final wrongCountJson = _structuredJson(
+      data['wrong_count_json'],
+      hasExpectedShape: (decoded) => decoded is Map,
+    );
+    if (wrongCountJson != null && Storage.wrongCountRawJson.isEmpty) {
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setWrongCountRawJson(wrongCountJson),
+      );
     }
     final customPacksJson = _portableRestoreJson(
       data['custom_packs_json'],

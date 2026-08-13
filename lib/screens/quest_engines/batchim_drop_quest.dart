@@ -419,6 +419,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     final s = SoriSurfaces.of(context);
 
     return QuestLayout(
+      showTtsSpeed: true,
       action: _buildExplanation(langCode, t, s),
       content: Stack(
         clipBehavior: Clip.none,

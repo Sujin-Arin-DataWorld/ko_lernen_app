@@ -11,6 +11,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/external_link.dart';
 import '../services/storage_service.dart';
 import '../services/audio_policy.dart';
@@ -336,7 +337,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  late double _ttsRate;
   String _appVersion = '-';
   DateTime? _lastBackupAt;
   final ScrollController _scrollController = ScrollController();
@@ -370,7 +370,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
-    _ttsRate = Storage.ttsRate;
     _loadAppVersion();
     _loadLastBackupAt();
     // 계정 pending 저널 admission 을 **화면 진입 즉시** 시작한다.
@@ -750,45 +749,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _Section(label: t.settingsSoundSection),
             const _SoundSettings(),
 
-            // ── TTS Speed ──
+            // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
+            // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
+            // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
             _Section(label: t.settingsTtsRate),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-              child: Column(
-                children: [
-                  Slider(
-                    value: _ttsRate,
-                    min: 0.1,
-                    max: 1.0,
-                    divisions: 9,
-                    label: _ttsRate.toStringAsFixed(2),
-                    onChanged: (v) {
-                      HapticFeedback.selectionClick();
-                      setState(() => _ttsRate = v);
-                    },
-                    onChangeEnd: (v) {
-                      TtsService.setRate(v);
-                      TtsService.speak('안녕하세요');
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        t.settingsTtsRateSlow,
-                        style: SoriTextTheme.of(context).cardSubtitle,
-                      ),
-                      Text(
-                        t.settingsTtsRateNormal,
-                        style: SoriTextTheme.of(context).cardSubtitle,
-                      ),
-                      Text(
-                        t.settingsTtsRateFast,
-                        style: SoriTextTheme.of(context).cardSubtitle,
-                      ),
-                    ],
-                  ),
-                ],
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: TtsSpeedControl(
+                mode: TtsSpeedControlMode.row,
+                onChanged: (_) {
+                  // ignore: discarded_futures
+                  TtsService.speak('안녕하세요');
+                },
               ),
             ),
 

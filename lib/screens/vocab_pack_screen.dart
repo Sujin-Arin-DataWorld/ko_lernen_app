@@ -15,7 +15,9 @@ import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/decoration_reward_service.dart';
+import '../services/learn_session_queue.dart';
 import '../services/pack_progress_service.dart';
+import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -30,11 +32,13 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// **Vocab Pack Play Screen** — Phase 2 의 3-단계 학습 플로우.
@@ -104,9 +108,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   _Stage _stage = _Stage.learn;
 
-  // Stage 1 (learn) state
-  int _learnIdx = 0;
+  // Stage 1 (learn) state — 재출제 큐 (테스터 피드백 ②: "몰라요"가 세션 내에서
+  // 차이를 만들도록). null = 로드 전.
+  LearnSessionQueue<Vocab>? _learnQueue;
+  // SRS 는 단어당 **최초 답변 1회만** 평가 — 재출제로 같은 단어를 여러 번
+  // 틀려도 ease 가 세션 안에서 연타로 깎이지 않게. (오답 카운터는 매번 셈.)
+  final Set<String> _learnSrsRated = {};
   bool _flipped = false;
+  // 카드 서빙마다 증가 — FlipCard re-key용. 같은 setState에서 _flipped=false와
+  // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
+  // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
+  int _learnServe = 0;
 
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
@@ -205,6 +217,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _distractorPool = pool;
         _missionStep = missionStep;
         _missionTitle = missionTitle;
+        _learnQueue = LearnSessionQueue<Vocab>(
+          pack.normalWords.toList(),
+          idOf: (v) => v.korean,
+        );
+        _learnSrsRated.clear();
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
@@ -221,8 +238,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   List<Vocab> get _bossWords => _pack?.bossWords.toList() ?? const [];
 
-  Vocab? get _currentLearn =>
-      _learnIdx < _normalWords.length ? _normalWords[_learnIdx] : null;
+  Vocab? get _currentLearn => _learnQueue?.current;
 
   Vocab? get _currentQuiz {
     switch (_stage) {
@@ -242,8 +258,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (cur == null) return;
     HapticFeedback.lightImpact();
     Storage.addVokSeen(cur.korean);
-    // ignore: discarded_futures
-    Storage.srsReview(cur.korean, gotIt: true);
+    if (_learnSrsRated.add(cur.korean)) {
+      // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
+      // 최초의 정직한 "몰랐다" 평가가 유지된다.
+      // ignore: discarded_futures
+      Storage.srsReview(cur.korean, gotIt: true);
+    }
+    _learnQueue?.markKnown();
     _advanceLearn();
   }
 
@@ -252,8 +273,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (cur == null) return;
     HapticFeedback.mediumImpact();
     Storage.addVokSeen(cur.korean);
+    if (_learnSrsRated.add(cur.korean)) {
+      // ignore: discarded_futures
+      Storage.srsReview(cur.korean, gotIt: false);
+    }
+    // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
+    // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
     // ignore: discarded_futures
-    Storage.srsReview(cur.korean, gotIt: false);
+    Storage.incrementWrongCount(cur.korean);
+    _learnQueue?.markUnknown();
     _advanceLearn();
   }
 
@@ -262,9 +290,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (pack == null) return;
     setState(() {
       _flipped = false;
-      _learnIdx++;
+      _learnServe++;
     });
-    if (_learnIdx >= _normalWords.length) {
+    if (_learnQueue?.isDone ?? true) {
       // Stage 1 끝 — wordsLearned 기록 후 stage 2 진입
       // ignore: discarded_futures
       PackProgressService.recordWordLearned(pack);
@@ -344,21 +372,31 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
   }
 
-  /// 4지선다 옵션 생성 — 정답 + 같은 level pool 에서 3 distractor.
+  /// 4지선다 옵션 생성 — 정답 + 같은 품사·레벨 우선 3 distractor
+  /// (계층 폴백은 `quiz_distractor_service.dart`).
   void _prepareNextQuestion() {
     final cur = _currentQuiz;
     if (cur == null) return;
     final lang = Localizations.localeOf(context).languageCode;
     final correct = cur.translationFor(lang);
-    final pool = _distractorPool
-        .where(
-          (v) => v.korean != cur.korean && v.translationFor(lang) != correct,
-        )
-        .map((v) => v.translationFor(lang))
-        .toSet()
-        .toList();
-    pool.shuffle(_rng);
-    final distractors = pool.take(3).toList();
+    final distractors = buildTranslationDistractors(
+      target: DistractorCandidate(
+        id: cur.korean,
+        translation: correct,
+        pos: cur.posFor(lang),
+        level: cur.level,
+      ),
+      pool: [
+        for (final v in _distractorPool)
+          DistractorCandidate(
+            id: v.korean,
+            translation: v.translationFor(lang),
+            pos: v.posFor(lang),
+            level: v.level,
+          ),
+      ],
+      rng: _rng,
+    );
     final all = <String>[correct, ...distractors];
     all.shuffle(_rng);
     setState(() {
@@ -434,6 +472,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _combo = 0;
       // ignore: discarded_futures
       Storage.srsReview(cur.korean, gotIt: false);
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(cur.korean);
     }
     // 짧은 피드백 후 다음 질문
     Future.delayed(const Duration(milliseconds: 850), _advanceQuiz);
@@ -601,6 +641,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               exampleDe: addable.exampleGerman,
               compact: true,
             ),
+          const TtsSpeedAction(),
         ],
       ),
       body: SoriScreenBackground(
@@ -651,7 +692,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         Row(
           children: [
             SoriChip(
-              label: '${_learnIdx + 1} / ${_normalWords.length}',
+              // 분모 = 고유 단어 수(고정). 재출제 중에는 분자가 유지된다.
+              label:
+                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _normalWords.length}',
               accent: SoriColors.info,
             ),
             const SizedBox(width: Spacing.sm),
@@ -676,13 +719,26 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 // 배너 유무만으로 글씨 크기가 달라진다 — (1)에는 배너가 있고
                 // (2)에는 없어 같은 카드인데 (2)가 훨씬 컸다(Jin, 2026-08-12).
                 final h = soriStudyTypeScaleHeight(context);
+                // 제시어 크기는 **덱에서 가장 긴 단어** 기준으로 한 번 정한다
+                // — 카드(단어)마다 크기가 요동치지 않도록 (2026-08-14 Jin).
+                // 폭 = 카드 폭 − hero 카드 좌우 패딩.
+                final headlineSize = soriUniformFitSize(
+                  context,
+                  texts: [for (final w in _normalWords) w.korean],
+                  maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                  cap: soriFillSize(h, 0.18, 36, 96),
+                  min: 32,
+                  letterSpacing: -0.5,
+                  lineHeight: 1.05,
+                );
                 return FlipCard(
+                  key: ValueKey('learn-$_learnServe'),
                   flipped: _flipped,
                   onTap: () {
                     HapticFeedback.selectionClick();
                     setState(() => _flipped = !_flipped);
                   },
-                  front: _FlipFront(v: cur, h: h),
+                  front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
                   back: _FlipBack(v: cur, h: h),
                 );
               },
@@ -876,7 +932,11 @@ class _FlipFront extends StatelessWidget {
   /// 카드가 놓인 세로 영역의 바운드 높이 — 학습 텍스트를 카드에 비례해 키우는
   /// 기준. `_buildLearn` 의 LayoutBuilder 가 넘겨준다.
   final double h;
-  const _FlipFront({required this.v, required this.h});
+
+  /// 덱 전체가 공유하는 제시어 크기 ([soriUniformFitSize]) — 단어 길이에 따라
+  /// 카드마다 글씨가 커졌다 작아졌다 하지 않는다.
+  final double headlineSize;
+  const _FlipFront({required this.v, required this.h, required this.headlineSize});
 
   @override
   Widget build(BuildContext context) {
@@ -893,14 +953,17 @@ class _FlipFront extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // 제시어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에.
+          // 제시어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값
+          // ([headlineSize]) 하나로 고정 — FittedBox 는 실측 오차용 안전망일 뿐
+          // 정상 경로에서는 절대 개입하지 않는다 (단어 길이별 크기 요동 금지).
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               v.korean,
               textAlign: TextAlign.center,
+              maxLines: 1,
               style: TextStyle(
-                fontSize: soriFillSize(h, 0.18, 36, 96),
+                fontSize: headlineSize,
                 fontWeight: FontWeight.w800,
                 letterSpacing: -0.5,
                 height: 1.05,
@@ -983,20 +1046,19 @@ class _FlipBack extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // 뜻(헤드라인) + 품사 — 의미 묶음. 뜻은 줄바꿈 허용(FittedBox 미사용).
+          // 뜻(헤드라인) + 품사 — 의미 묶음. 뜻은 **고정 크기 + 줄바꿈**:
+          // FittedBox 로 줄이면 뜻 길이마다 카드 글씨가 요동친다 (2026-08-14
+          // Jin — 단어 길이별 크기 변동 금지). 긴 뜻은 같은 크기로 줄만 는다.
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  v.translationFor(lang),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.11, 28, 48),
-                    fontWeight: FontWeight.w800,
-                    height: 1.1,
-                  ),
+              Text(
+                v.translationFor(lang),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: soriFillSize(h, 0.085, 24, 38),
+                  fontWeight: FontWeight.w800,
+                  height: 1.15,
                 ),
               ),
               SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
@@ -1010,32 +1072,58 @@ class _FlipBack extends StatelessWidget {
               ),
             ],
           ),
-          // 예문(한국어 + 번역)을 한 묶음으로.
+          // 예문(한국어 + 번역)을 한 묶음으로 — 탭하면 예문 발음, 길게 누르면
+          // 느리게 (예문 음성은 사전생성 캐시 적중). 인라인 스피커 아이콘이
+          // 들을 수 있음을 알린다 (2026-08-14 Jin: 예문 음성 소실 복구).
           if (v.exampleKorean.isNotEmpty)
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  v.exampleKorean,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.072, 18, 38),
-                    fontWeight: FontWeight.w600,
-                    height: 1.25,
+            SoriPressable(
+              haptic: SoriHaptic.light,
+              onTap: () {
+                // ignore: discarded_futures
+                TtsService.speak(v.exampleKorean);
+              },
+              onLongPress: () {
+                // ignore: discarded_futures
+                TtsService.speakSlow(v.exampleKorean);
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: Icon(
+                            Icons.volume_up_rounded,
+                            size: soriFillSize(h, 0.055, 18, 28),
+                            color: SoriColors.primary,
+                          ),
+                        ),
+                        const WidgetSpan(child: SizedBox(width: 6)),
+                        TextSpan(text: v.exampleKorean),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.072, 18, 38),
+                      fontWeight: FontWeight.w600,
+                      height: 1.25,
+                    ),
                   ),
-                ),
-                SizedBox(height: soriFillSize(h, 0.02, 4, 16)),
-                Text(
-                  v.exampleFor(lang),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.048, 14, 28),
-                    color: s.textMuted,
-                    fontStyle: FontStyle.italic,
-                    height: 1.3,
+                  SizedBox(height: soriFillSize(h, 0.02, 4, 16)),
+                  Text(
+                    v.exampleFor(lang),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.048, 14, 28),
+                      color: s.textMuted,
+                      fontStyle: FontStyle.italic,
+                      height: 1.3,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
         ],
       ),

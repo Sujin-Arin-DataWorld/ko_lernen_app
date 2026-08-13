@@ -9,6 +9,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 책장 페이지 상세.
 ///
@@ -143,6 +144,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
             tooltip: t.btnDelete,
             onPressed: _delete,
           ),
+          const TtsSpeedAction(),
         ],
       ),
       body: SafeArea(

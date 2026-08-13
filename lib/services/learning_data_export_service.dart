@@ -93,7 +93,10 @@ abstract final class LearningDataExportService {
         'activeUnitId': Storage.courseUnitId,
         'mastery': _readCourseMastery(),
       },
-      'review': {'cards': _readReviewCards()},
+      'review': {
+        'cards': _readReviewCards(),
+        'wrongCounts': _readWrongCounts(),
+      },
       'packs': _readPackProgress(),
     };
     final body = const JsonEncoder.withIndent('  ').convert(data);
@@ -154,6 +157,20 @@ abstract final class LearningDataExportService {
       };
     }
     return cards;
+  }
+
+  /// 단어별 누적 오답 횟수 (`kl_wrong_count_v1`) — Extra-Lernset 의 원천.
+  static Map<String, dynamic> _readWrongCounts() {
+    final decoded = _decodeMap(Storage.wrongCountRawJson);
+    if (decoded == null) return const {};
+    final counts = <String, dynamic>{};
+    for (final entry in decoded.entries) {
+      final id = _safeId(entry.key);
+      final value = entry.value;
+      if (id == null || value is! int || value <= 0) continue;
+      counts[id] = value;
+    }
+    return counts;
   }
 
   static Map<String, dynamic> _readPackProgress() {

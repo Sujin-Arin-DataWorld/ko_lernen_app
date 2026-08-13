@@ -16,6 +16,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 class PronunciationStudioScreen extends StatefulWidget {
   const PronunciationStudioScreen({super.key, this.gateway, this.recorder});
@@ -229,7 +230,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(t.pronunciationTitle)),
+      appBar: AppBar(
+        title: Text(t.pronunciationTitle),
+        actions: const [TtsSpeedAction()],
+      ),
       body: SoriScreenBackground(
         child: SoriContentClamp(
           maxWidth: 760,

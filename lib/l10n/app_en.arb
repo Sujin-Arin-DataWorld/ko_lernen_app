@@ -264,9 +264,16 @@
   "settingsLanguageDe": "Deutsch",
   "settingsLanguageEn": "English",
   "settingsTtsRate": "Speech speed",
-  "settingsTtsRateSlow": "Slow",
-  "settingsTtsRateNormal": "Normal",
-  "settingsTtsRateFast": "Fast",
+  "ttsSpeedLabel": "Speed",
+  "ttsSpeedChip": "{speed}×",
+  "@ttsSpeedChip": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "ttsSpeedSheetTitle": "Speech speed",
   "settingsSoundSection": "Sound",
   "settingsSoundMaster": "Sound",
   "settingsSoundMasterDesc": "Turns all app sounds on or off",
@@ -1423,6 +1430,21 @@
   "hardWordsEmptyTitle": "Nothing tricky",
   "hardWordsEmptyBody": "No especially hard words right now. If a word keeps giving you trouble, it will show up here.",
   "hardWordsStudyCta": "Drill these",
+  "hardWordsHardQuizCta": "Hard quiz: spelling",
+  "hardQuizTitle": "Hard quiz",
+  "hardQuizHint": "Pick the correct spelling.",
+  "hardQuizDoneTitle": "Round complete!",
+  "hardQuizScore": "{correct}/{total} correct",
+  "@hardQuizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "wbMatching": "Match pairs",
   "wbMatchingHint": "Tap a Korean word, then its meaning.",
   "wbMatchingNeedMore": "You need at least 2 words with a meaning.",

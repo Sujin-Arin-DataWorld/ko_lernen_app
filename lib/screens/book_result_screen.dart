@@ -22,6 +22,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// Phase 5 (stately-rising-jongga) — Analysis-Result Screen.
@@ -293,6 +294,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
             t.bookResultTitle,
             style: const TextStyle(fontWeight: FontWeight.w800),
           ),
+          actions: const [TtsSpeedAction()],
         ),
         body: SafeArea(
           child: LayoutBuilder(

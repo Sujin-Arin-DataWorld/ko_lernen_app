@@ -355,6 +355,7 @@ void main() {
         'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
         'kl_owned_decor': <String>['decoration_soban'],
         'kl_srs_v1': '{"srs":1}',
+        'kl_wrong_count_v1': '{"하다":2}',
         'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
         'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
         Storage.courseMasterySnapshotPreferenceKey: _courseSnapshotJson(),
@@ -389,6 +390,7 @@ void main() {
           'owned_decor': ['decoration_soban'],
         },
         'srs_json': '{"srs":1}',
+        'wrong_count_json': '{"하다":2}',
         'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
         'course_mastery_json': _courseSnapshotJson(),
       });

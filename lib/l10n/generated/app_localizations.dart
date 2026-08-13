@@ -1285,23 +1285,23 @@ abstract class AppL10n {
   /// **'Sprechtempo'**
   String get settingsTtsRate;
 
-  /// No description provided for @settingsTtsRateSlow.
+  /// No description provided for @ttsSpeedLabel.
   ///
   /// In de, this message translates to:
-  /// **'Langsam'**
-  String get settingsTtsRateSlow;
+  /// **'Tempo'**
+  String get ttsSpeedLabel;
 
-  /// No description provided for @settingsTtsRateNormal.
+  /// No description provided for @ttsSpeedChip.
   ///
   /// In de, this message translates to:
-  /// **'Normal'**
-  String get settingsTtsRateNormal;
+  /// **'{speed}×'**
+  String ttsSpeedChip(String speed);
 
-  /// No description provided for @settingsTtsRateFast.
+  /// No description provided for @ttsSpeedSheetTitle.
   ///
   /// In de, this message translates to:
-  /// **'Schnell'**
-  String get settingsTtsRateFast;
+  /// **'Sprechtempo'**
+  String get ttsSpeedSheetTitle;
 
   /// No description provided for @settingsSoundSection.
   ///
@@ -5388,6 +5388,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gezielt wiederholen'**
   String get hardWordsStudyCta;
+
+  /// No description provided for @hardWordsHardQuizCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Schweres Quiz: Schreibweise'**
+  String get hardWordsHardQuizCta;
+
+  /// No description provided for @hardQuizTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schweres Quiz'**
+  String get hardQuizTitle;
+
+  /// No description provided for @hardQuizHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle die richtige Schreibweise.'**
+  String get hardQuizHint;
+
+  /// No description provided for @hardQuizDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde geschafft!'**
+  String get hardQuizDoneTitle;
+
+  /// No description provided for @hardQuizScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct}/{total} richtig'**
+  String hardQuizScore(int correct, int total);
 
   /// No description provided for @wbMatching.
   ///

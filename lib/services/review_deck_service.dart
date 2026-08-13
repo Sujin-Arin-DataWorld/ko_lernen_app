@@ -3,6 +3,7 @@ import '../models/vocab.dart';
 import 'bookshelf_service.dart';
 import 'custom_pack_service.dart';
 import 'data_loader.dart';
+import 'personalized_lesson_service.dart';
 
 /// A1 (암기 엔진) — 복습 가능한 **모든** 단어의 단일 소스.
 ///
@@ -37,9 +38,12 @@ class ReviewDeckService {
       out.add(v);
     }
 
-    // 1. 기본 CSV (커리큘럼 순서 보존 → "오늘 신규" 선정 순서 유지).
+    // 1. 기본 CSV — 레벨 오름차순 안정 정렬. `todayNewIds` 는 입력 순서대로
+    //    신규 카드를 뽑는데 CSV 원본은 레벨이 뒤섞여 있어, 그대로 두면 A2
+    //    학습자에게 B1/B2 신규 단어가 나간다 (2026-08-13 테스터 리포트:
+    //    "A2인데 양극화"). 레벨 내부의 큐레이션(pack) 순서는 보존한다.
     try {
-      for (final v in await DataLoader.loadVocab()) {
+      for (final v in sortByLevelStable(await DataLoader.loadVocab())) {
         add(v);
       }
     } catch (_) {
@@ -65,5 +69,21 @@ class ReviewDeckService {
     }
 
     return out;
+  }
+
+  /// 레벨 오름차순(A1→A2→B1→B2) **안정** 정렬 — 같은 레벨 안에서는 입력
+  /// 순서(큐레이션·pack_order)를 보존한다. Dart 의 `List.sort` 는 불안정이라
+  /// 원본 인덱스를 tie-breaker 로 쓴다.
+  static List<Vocab> sortByLevelStable(List<Vocab> list) {
+    final indexed = <MapEntry<int, Vocab>>[
+      for (var i = 0; i < list.length; i++) MapEntry(i, list[i]),
+    ];
+    indexed.sort((a, b) {
+      final d =
+          PersonalizedLessonService.levelRank(a.value.level) -
+          PersonalizedLessonService.levelRank(b.value.level);
+      return d != 0 ? d : a.key - b.key;
+    });
+    return [for (final e in indexed) e.value];
   }
 }

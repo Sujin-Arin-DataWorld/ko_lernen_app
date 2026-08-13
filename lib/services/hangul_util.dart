@@ -110,6 +110,23 @@ bool isHangulSyllable(int rune) =>
   );
 }
 
+/// (초성, 중성, 종성) → 완성형 음절 한 글자. [decomposeHangulSyllable] 의
+/// 역함수. 종성 `''` = 받침 없음. 테이블에 없는 자모면 `null`.
+String? composeHangulSyllable(String chosung, String jungsung, String jongsung) {
+  final cho = chosungTable.indexOf(chosung);
+  final jung = jungsungTable.indexOf(jungsung);
+  final jong = jongsungTable.indexOf(jongsung);
+  if (cho < 0 || jung < 0 || jong < 0) {
+    return null;
+  }
+  return String.fromCharCode(
+    hangulSyllableBase +
+        cho * _syllableStride +
+        jung * jongsungTable.length +
+        jong,
+  );
+}
+
 /// Extrahiert die Initial-Konsonanten (초성) eines Hangul-Strings.
 /// Beispiel: "안녕하세요" → "ㅇㄴㅎㅅㅇ"
 String extractChosung(String text) {

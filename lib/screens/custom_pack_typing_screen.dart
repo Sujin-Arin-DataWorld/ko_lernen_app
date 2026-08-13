@@ -21,6 +21,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// A3 — "받아쓰기/스펠링"(Typing). 뜻을 보고 한국어를 직접 입력(인출).
 /// 정답/오답은 메인 SRS 에 반영. 인식보다 강한 기억 효과.
@@ -98,6 +99,10 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final word = _pool[_order[_idx]];
     final ok = _norm(_input.text) == _norm(word.korean);
     Storage.srsReview(word.korean, gotIt: ok); // A1 연동
+    if (!ok) {
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(word.korean);
+    }
     setState(() {
       _correct = ok;
       if (ok) _score++;
@@ -191,6 +196,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SafeArea(
         child: SoriStudyClamp(

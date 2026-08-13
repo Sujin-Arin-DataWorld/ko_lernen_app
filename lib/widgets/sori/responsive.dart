@@ -73,6 +73,71 @@ double soriFillSize(double h, double frac, double min, double max) =>
 double soriStudyTypeScaleHeight(BuildContext context) =>
     (MediaQuery.sizeOf(context).height * 0.45).clamp(280.0, 520.0).toDouble();
 
+/// 덱 전체가 **공유하는 균일 헤드라인 크기** — "단어 길이마다 카드 글씨가
+/// 커졌다 작아졌다" 문제의 근본 수리 (2026-08-14, 테스터·Jin 반복 지적).
+///
+/// `FittedBox(scaleDown)` 은 **현재 단어**만 보고 줄인다: 짧은 단어는 [cap],
+/// 긴 단어는 축소 → 카드를 넘길 때마다 크기가 요동친다. 이 함수는 덱의 모든
+/// 후보 텍스트를 TextPainter 로 실측해, **가장 넓은 텍스트가 [maxWidth] 한
+/// 줄에 들어가는 크기 하나**를 돌려준다. 덱 내내 이 값 하나를 쓰면 어떤
+/// 단어가 나와도 크기가 같다.
+///
+/// - [context] 의 ambient textScaler(OS 접근성 배율 + [SoriStudyScale] 태블릿
+///   부스트)를 실측에 반영하므로, 반드시 렌더링과 **같은 서브트리의 컨텍스트**
+///   로 호출한다.
+/// - 실측은 [DefaultTextStyle] 의 폰트 패밀리를 상속한다 (측정/렌더 폰트 불일치
+///   방지) + 2% 안전 마진.
+/// - 렌더 쪽에는 FittedBox(scaleDown) 을 **안전망으로만** 남겨 둔다 — 실측이
+///   맞으면 절대 개입하지 않아 크기가 균일하고, 폰트 폴백 등으로 1–2% 어긋난
+///   극단 케이스에만 잘림 대신 미세 축소로 받아낸다.
+double soriUniformFitSize(
+  BuildContext context, {
+  required Iterable<String> texts,
+  required double maxWidth,
+  required double cap,
+  required double min,
+  FontWeight fontWeight = FontWeight.w800,
+  double letterSpacing = 0,
+  double lineHeight = 1.0,
+}) {
+  if (!maxWidth.isFinite || maxWidth <= 0) {
+    return cap;
+  }
+  final scaler = MediaQuery.textScalerOf(context);
+  final baseStyle = DefaultTextStyle.of(context).style;
+  var widest = 0.0;
+  for (final text in texts) {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      continue;
+    }
+    final painter = TextPainter(
+      text: TextSpan(
+        text: trimmed,
+        style: baseStyle.copyWith(
+          fontSize: cap,
+          fontWeight: fontWeight,
+          letterSpacing: letterSpacing,
+          height: lineHeight,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+      textScaler: scaler,
+      maxLines: 1,
+    )..layout();
+    final width = painter.width;
+    painter.dispose();
+    if (width > widest) {
+      widest = width;
+    }
+  }
+  final budget = maxWidth * 0.98;
+  if (widest <= budget) {
+    return cap;
+  }
+  return (cap * budget / widest).clamp(min, cap).toDouble();
+}
+
 /// Center-clamps immersive study content to [soriStudyContentMaxWidth] so the
 /// card grows with the viewport on tablets. Drop-in replacement for
 /// [SoriCenterClamp] on fixed-focus flashcard/quiz screens — phones unchanged.

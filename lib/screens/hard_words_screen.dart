@@ -15,6 +15,8 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
+import 'hard_choice_quiz_screen.dart';
 import 'review_session_screen.dart';
 
 /// A2 (암기 엔진) — "어려운 단어" 모음.
@@ -23,7 +25,10 @@ import 'review_session_screen.dart';
 /// "집중 복습"으로 그 단어들만 묶어 복습 세션을 돌린다. CSV·나만의 단어장·책 한 컷
 /// 단어 모두 대상.
 class HardWordsScreen extends StatefulWidget {
-  const HardWordsScreen({super.key});
+  /// 테스트용 — 복습 풀 로더 주입 (기본: [ReviewDeckService.allReviewable]).
+  final Future<List<Vocab>> Function()? deckLoader;
+
+  const HardWordsScreen({super.key, this.deckLoader});
 
   @override
   State<HardWordsScreen> createState() => _HardWordsScreenState();
@@ -66,8 +71,14 @@ class _HardWordsScreenState extends State<HardWordsScreen>
   Future<void> _load() async {
     List<Vocab> hard = const [];
     try {
-      final all = await ReviewDeckService.allReviewable();
-      final ids = Storage.hardIds(all.map((v) => v.korean)).toSet();
+      final all = await (widget.deckLoader ?? ReviewDeckService.allReviewable)();
+      // Extra-Lernset = SRS leech 휴리스틱 ∪ 명시적 오답 3회+ (레벨 불문).
+      // 오답 카운터는 즉시 반응하므로 한 세션에서 3번 틀린 단어도 바로 잡힌다
+      // (2026-08-13 테스터 피드백 ③).
+      final ids = {
+        ...Storage.hardIds(all.map((v) => v.korean)),
+        ...Storage.frequentlyMissedIds(all.map((v) => v.korean)),
+      };
       hard = all.where((v) => ids.contains(v.korean)).toList();
     } catch (_) {
       /* best-effort → empty */
@@ -90,6 +101,7 @@ class _HardWordsScreenState extends State<HardWordsScreen>
           t.hardWordsTitle,
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         particles: true,
@@ -201,25 +213,56 @@ class _HardWordsScreenState extends State<HardWordsScreen>
           : SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(Spacing.lg),
-                child: SoriButton(
-                  label: t.hardWordsStudyCta,
-                  icon: Icons.bolt_rounded,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.danger,
-                  fullWidth: true,
-                  onTap: () async {
-                    await Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => ReviewSessionScreen(
-                          deck: _hard,
-                          title: t.hardWordsTitle,
-                          feedbackContentId: 'hard_words',
-                          feedbackContentLabel: t.hardWordsTitle,
-                        ),
-                      ),
-                    );
-                    if (mounted) _load();
-                  },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // 2단계 연습 — 뜻을 보고 비슷한 철자 4개 중 정답 고르기
+                    // (테스터 피드백 ④의 "어려운 보기" 모드).
+                    SoriButton(
+                      label: t.hardWordsHardQuizCta,
+                      variant: SoriButtonVariant.filled,
+                      accent: SoriColors.danger,
+                      fullWidth: true,
+                      onTap: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => HardChoiceQuizScreen(
+                              deck: _hard,
+                              title: t.hardQuizTitle,
+                            ),
+                          ),
+                        );
+                        if (mounted) {
+                          // ignore: discarded_futures
+                          _load();
+                        }
+                      },
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    SoriButton(
+                      label: t.hardWordsStudyCta,
+                      icon: Icons.bolt_rounded,
+                      variant: SoriButtonVariant.outlined,
+                      accent: SoriColors.danger,
+                      fullWidth: true,
+                      onTap: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ReviewSessionScreen(
+                              deck: _hard,
+                              title: t.hardWordsTitle,
+                              feedbackContentId: 'hard_words',
+                              feedbackContentLabel: t.hardWordsTitle,
+                            ),
+                          ),
+                        );
+                        if (mounted) {
+                          // ignore: discarded_futures
+                          _load();
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

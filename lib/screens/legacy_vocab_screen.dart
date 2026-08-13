@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
+import '../services/review_deck_service.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
@@ -24,6 +25,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
@@ -41,6 +43,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   List<Vocab> _filtered = [];
   int _idx = 0;
   bool _flipped = false;
+  // FlipCard re-key용 서빙 카운터 — 카드 전환 시 뒷면(뜻) 선노출 방지
+  // (계약: flip_card.dart doc-comment).
+  int _serve = 0;
   int _correct = 0;
   int _wrong = 0;
   int _skipped = 0;
@@ -113,8 +118,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     });
     final providedLoader = widget.vocabLoader;
     final loader = providedLoader ?? DataLoader.loadVocab;
-    loader().then((v) {
+    loader().then((raw) {
       if (!mounted) return;
+      // 레벨 오름차순 안정 정렬 — `todayNewIds` 는 입력 순서대로 신규를 뽑아,
+      // 원본 CSV 순서(레벨 뒤섞임)면 A2 학습자에게 B1/B2 신규가 나간다.
+      // ReviewDeckService.allReviewable() 과 같은 규칙.
+      final v = ReviewDeckService.sortByLevelStable(raw);
       // Phase 1 SRS-UX-Patch: nicht ALLE due (= Schock), sondern Tagesziel
       // (10 neu + 15 Wdh., respektiert CSV/pack_order).
       final newIds = Storage.todayNewIds(v.map((e) => e.korean));
@@ -170,6 +179,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _filtered = _filterList();
       _idx = 0;
       _flipped = false;
+      _serve++;
     });
   }
 
@@ -182,6 +192,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _filtered = _filterList();
       _idx = 0;
       _flipped = false;
+      _serve++;
     });
   }
 
@@ -193,6 +204,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _next() {
     setState(() {
       _flipped = false;
+      _serve++;
       _idx = (_idx + 1) % _filtered.length;
     });
     _persistIdx();
@@ -201,6 +213,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _prev() {
     setState(() {
       _flipped = false;
+      _serve++;
       _idx = (_idx - 1 + _filtered.length) % _filtered.length;
     });
     _persistIdx();
@@ -209,6 +222,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _random() {
     setState(() {
       _flipped = false;
+      _serve++;
       _idx = math.Random().nextInt(_filtered.length);
     });
     _persistIdx();
@@ -249,6 +263,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     if (cur != null) {
       // ignore: discarded_futures
       Storage.srsReview(cur.korean, gotIt: false);
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(cur.korean);
     }
     _advanceAfterReview();
   }
@@ -262,6 +278,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           _filtered = _filterList();
           if (_idx >= _filtered.length) _idx = 0;
           _flipped = false;
+          _serve++;
         }
         _dueFeedback.completeIfEligible(
           isDueMode: true,
@@ -357,6 +374,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         ),
         actions: [
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
+          const TtsSpeedAction(),
         ],
       ),
       body: SafeArea(
@@ -448,12 +466,18 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                         child: Stack(
                           children: [
                             SoriStudyScale(
-                              child: FlipCard(
+                              // 코치마크 타겟(GlobalKey)은 KeyedSubtree에 걸고,
+                              // FlipCard는 서빙 카운터 key로 카드마다 새로 만든다
+                              // (뒷면 선노출 방지).
+                              child: KeyedSubtree(
                                 key: _flashCardKey,
-                                flipped: _flipped,
-                                onTap: _onFlip,
-                                front: _Front(v: v, koFirst: _koFirst),
-                                back: _Back(v: v, koFirst: _koFirst),
+                                child: FlipCard(
+                                  key: ValueKey('legacy-$_serve'),
+                                  flipped: _flipped,
+                                  onTap: _onFlip,
+                                  front: _Front(v: v, koFirst: _koFirst),
+                                  back: _Back(v: v, koFirst: _koFirst),
+                                ),
                               ),
                             ),
                             Positioned(

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/tts_speed_control.dart';
 
 /// Gemeinsames Layout aller Quest-Engines.
 ///
@@ -42,11 +43,17 @@ class QuestLayout extends StatelessWidget {
   /// Kante. In einem eigenen Scroll-Bereich würde genau das abgeschnitten.
   static const double _overhang = 14;
 
+  /// Audio-Engines (Diktat, Hörverstehen, Batchim, Partikel) zeigen oben
+  /// rechts den globalen Sprechtempo-Chip (2026-08-13 — Tempo überall, wo
+  /// Sprache abgespielt wird). Engines ohne Audio lassen ihn weg.
+  final bool showTtsSpeed;
+
   const QuestLayout({
     super.key,
     required this.content,
     this.action,
     this.gap = Spacing.md,
+    this.showTtsSpeed = false,
   });
 
   @override
@@ -54,18 +61,27 @@ class QuestLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final pinnedAction = action;
+        final speedBar = showTtsSpeed
+            ? const Align(
+                alignment: Alignment.centerRight,
+                child: TtsSpeedControl(),
+              )
+            : null;
 
         if (!constraints.maxHeight.isFinite) {
-          if (pinnedAction == null) {
+          if (pinnedAction == null && speedBar == null) {
             return content;
           }
           return Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (speedBar != null) ...[speedBar, SizedBox(height: gap)],
               content,
-              SizedBox(height: gap),
-              pinnedAction,
+              if (pinnedAction != null) ...[
+                SizedBox(height: gap),
+                pinnedAction,
+              ],
             ],
           );
         }
@@ -73,6 +89,7 @@ class QuestLayout extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            if (speedBar != null) speedBar,
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.only(top: _overhang),

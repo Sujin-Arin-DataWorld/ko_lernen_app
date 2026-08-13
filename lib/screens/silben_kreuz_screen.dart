@@ -17,6 +17,7 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
 /// (Jin 2026-08-11: "줄끼리 연결이 안 보인다" → 단어들이 공유 음절에서
@@ -311,6 +312,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

@@ -16,10 +16,12 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — CustomPack 학습 화면.
 ///
@@ -45,6 +47,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   CustomPack? _pack;
   int _idx = 0;
   bool _flipped = false;
+  // FlipCard re-key용 서빙 카운터 — 카드 전환 시 뒷면(뜻) 선노출 방지
+  // (계약: flip_card.dart doc-comment).
+  int _serve = 0;
   int _learned = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
@@ -97,6 +102,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     if (pack != null) {
       // A1: 모른 단어 → SRS 간격 짧게 리셋 (내일 다시).
       Storage.srsReview(pack.words[_idx].korean, gotIt: false);
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(pack.words[_idx].korean);
     }
     _advance();
   }
@@ -107,6 +114,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     setState(() {
       _flipped = false;
       _idx++;
+      _serve++;
       if (_idx >= pack.words.length) {
         _feedbackCompletion.complete(
           () => FeedbackCompletion.customPackPlay(
@@ -170,6 +178,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SafeArea(
         child: SoriStudyClamp(
@@ -198,15 +207,26 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     child: FractionallySizedBox(
                       heightFactor: 0.82,
                       child: SoriStudyScale(
-                        child: FlipCard(
+                        // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
+                        // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
+                        // 만든다 (뒷면 선노출 방지).
+                        child: KeyedSubtree(
                           key: _cardKey,
-                          flipped: _flipped,
-                          onTap: () {
-                            HapticFeedback.selectionClick();
-                            setState(() => _flipped = !_flipped);
-                          },
-                          front: _Front(word: w),
-                          back: _Back(word: w),
+                          child: FlipCard(
+                            key: ValueKey('cp-$_serve'),
+                            flipped: _flipped,
+                            onTap: () {
+                              HapticFeedback.selectionClick();
+                              setState(() => _flipped = !_flipped);
+                            },
+                            front: _Front(
+                              word: w,
+                              deckKoreans: [
+                                for (final x in pack.words) x.korean,
+                              ],
+                            ),
+                            back: _Back(word: w),
+                          ),
                         ),
                       ),
                     ),
@@ -337,7 +357,11 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
 class _Front extends StatelessWidget {
   final dynamic word; // ExtractedWord
-  const _Front({required this.word});
+
+  /// 팩 전체 표제어 — 제시어 크기를 덱에서 가장 긴 단어 기준으로 한 번 정해
+  /// 카드마다 크기가 요동치지 않게 한다 ([soriUniformFitSize]).
+  final List<String> deckKoreans;
+  const _Front({required this.word, required this.deckKoreans});
 
   @override
   Widget build(BuildContext context) {
@@ -371,15 +395,24 @@ class _Front extends StatelessWidget {
                       height: 120,
                       borderRadius: BorderRadius.circular(SoriRadius.md),
                     ),
-                  // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로
-                  // 한 줄에 맞춘다.
+                  // 단어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값 하나로
+                  // 고정 (단어 길이별 요동 금지) — FittedBox 는 실측 오차용
+                  // 안전망일 뿐 정상 경로에서는 개입하지 않는다.
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
                       word.korean,
                       textAlign: TextAlign.center,
+                      maxLines: 1,
                       style: TextStyle(
-                        fontSize: soriFillSize(h, 0.19, 34, 92),
+                        fontSize: soriUniformFitSize(
+                          context,
+                          texts: deckKoreans,
+                          maxWidth: constraints.maxWidth,
+                          cap: soriFillSize(h, 0.19, 34, 92),
+                          min: 30,
+                          letterSpacing: -0.5,
+                        ),
                         fontWeight: FontWeight.w800,
                         letterSpacing: -0.5,
                       ),
@@ -454,18 +487,17 @@ class _Back extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          word.translationDe.isNotEmpty
-                              ? word.translationDe
-                              : (word.posDe.isNotEmpty ? word.posDe : '-'),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: soriFillSize(h, 0.11, 26, 48),
-                            fontWeight: FontWeight.w800,
-                            height: 1.1,
-                          ),
+                      // 뜻은 고정 크기 + 줄바꿈 — FittedBox 축소는 뜻 길이마다
+                      // 카드 글씨를 요동치게 한다 (단어 길이별 크기 변동 금지).
+                      Text(
+                        word.translationDe.isNotEmpty
+                            ? word.translationDe
+                            : (word.posDe.isNotEmpty ? word.posDe : '-'),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: soriFillSize(h, 0.085, 22, 38),
+                          fontWeight: FontWeight.w800,
+                          height: 1.15,
                         ),
                       ),
                       if ((word.posDe as String).isNotEmpty) ...[
@@ -481,34 +513,59 @@ class _Back extends StatelessWidget {
                       ],
                     ],
                   ),
-                  // 예문(한국어 + 번역)을 한 묶음으로.
+                  // 예문(한국어 + 번역)을 한 묶음으로 — 탭하면 예문 발음,
+                  // 길게 누르면 느리게 (인라인 스피커 아이콘이 affordance).
                   if ((word.exampleKorean as String).isNotEmpty)
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          word.exampleKorean,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: soriFillSize(h, 0.078, 16, 40),
-                            fontWeight: FontWeight.w600,
-                            height: 1.25,
-                          ),
-                        ),
-                        if ((word.exampleDe as String).isNotEmpty) ...[
-                          SizedBox(height: soriFillSize(h, 0.012, 4, 14)),
-                          Text(
-                            word.exampleDe,
+                    SoriPressable(
+                      haptic: SoriHaptic.light,
+                      onTap: () {
+                        // ignore: discarded_futures
+                        TtsService.speak(word.exampleKorean);
+                      },
+                      onLongPress: () {
+                        // ignore: discarded_futures
+                        TtsService.speakSlow(word.exampleKorean);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                WidgetSpan(
+                                  alignment: PlaceholderAlignment.middle,
+                                  child: Icon(
+                                    Icons.volume_up_rounded,
+                                    size: soriFillSize(h, 0.055, 16, 26),
+                                    color: SoriColors.primary,
+                                  ),
+                                ),
+                                const WidgetSpan(child: SizedBox(width: 6)),
+                                TextSpan(text: word.exampleKorean),
+                              ],
+                            ),
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: soriFillSize(h, 0.05, 13, 30),
-                              color: Colors.black54,
-                              fontStyle: FontStyle.italic,
-                              height: 1.3,
+                              fontSize: soriFillSize(h, 0.078, 16, 40),
+                              fontWeight: FontWeight.w600,
+                              height: 1.25,
                             ),
                           ),
+                          if ((word.exampleDe as String).isNotEmpty) ...[
+                            SizedBox(height: soriFillSize(h, 0.012, 4, 14)),
+                            Text(
+                              word.exampleDe,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: soriFillSize(h, 0.05, 13, 30),
+                                color: Colors.black54,
+                                fontStyle: FontStyle.italic,
+                                height: 1.3,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                 ],
               ),

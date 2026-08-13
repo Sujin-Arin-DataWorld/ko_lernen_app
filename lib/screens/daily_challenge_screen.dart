@@ -9,6 +9,7 @@ import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/cloze_loader.dart';
 import '../services/data_loader.dart';
+import '../services/personalized_lesson_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
@@ -19,6 +20,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// **Tages-Challenge (오늘의 도전)** — ein datums-gesetztes Lückentext-Puzzle.
 ///
@@ -44,6 +46,25 @@ class DailyChallengeScreen extends StatefulWidget {
   static List<ClozeItem> pickDaily(List<ClozeItem> all, int seed, int count) {
     final copy = [...all]..shuffle(Random(seed));
     return copy.take(count).toList();
+  }
+
+  /// 사용자 레벨 이하 문항만 남긴 풀 (rein, testbar).
+  ///
+  /// 데일리는 전 레벨 풀에서 뽑혀 A2 학습자에게 B2 문항('양극화' 등)이
+  /// 일반 카드처럼 노출됐다 (2026-08-13 테스터 리포트). [levelCode] 가 없거나
+  /// (온보딩 전) 캡을 씌운 풀이 [count] 보다 작으면 전체 풀로 폴백해
+  /// 시드 결정성과 작은 fixture 를 그대로 지킨다.
+  static List<ClozeItem> capToLevel(
+    List<ClozeItem> all,
+    String? levelCode,
+    int count,
+  ) {
+    if (levelCode == null) return all;
+    final rank = PersonalizedLessonService.levelRank(levelCode);
+    final capped = all
+        .where((i) => PersonalizedLessonService.levelRank(i.level) <= rank)
+        .toList();
+    return capped.length >= count ? capped : all;
   }
 
   @override
@@ -84,7 +105,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
         : const <Vocab>[];
     if (!mounted) return;
     final round = DailyChallengeScreen.pickDaily(
-      all,
+      DailyChallengeScreen.capToLevel(all, Storage.placementLevelCode, _count),
       DailyChallengeScreen.dailySeed(DateTime.now()),
       _count,
     );
@@ -212,6 +233,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

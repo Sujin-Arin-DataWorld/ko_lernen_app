@@ -165,6 +165,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     final checkLabel = _localizedDataText('checkLabel', langCode);
 
     return QuestLayout(
+      showTtsSpeed: true,
       action: _requiresConfirmation
           ? SoriButton.filled(
               label: checkLabel.isEmpty

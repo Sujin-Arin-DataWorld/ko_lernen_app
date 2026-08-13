@@ -25,6 +25,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 String? unambiguousReviewLevel(Iterable<String> deckLevels) {
@@ -152,6 +153,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
     gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
     Storage.srsReview(_card.korean, gotIt: gotIt);
+    if (!gotIt) {
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(_card.korean);
+    }
     _reviewed++;
     if (_idx + 1 >= _deck.length) {
       _feedbackCompletion.complete(
@@ -203,6 +208,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               exampleDe: _card.exampleGerman,
               compact: true,
             ),
+          const TtsSpeedAction(),
         ],
       ),
       body: SoriScreenBackground(

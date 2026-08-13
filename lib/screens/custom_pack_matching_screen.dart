@@ -20,6 +20,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// A3 — "짝 맞추기"(Matching). 한국어 ↔ 뜻 카드를 짝지어 없앤다.
 /// 가벼운 인출 강화 게임. 한 라운드 최대 6쌍.
@@ -210,6 +211,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SafeArea(
         child: SoriStudyClamp(

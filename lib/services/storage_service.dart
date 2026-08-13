@@ -358,6 +358,7 @@ class Storage {
     _pronunciationProgressMutation = Future<void>.value();
     _unknownStrictKeys.clear();
     _courseMasteryCache = null;
+    _wrongCountCache = null;
     _learningWritesLockReason = null;
   }
 
@@ -369,6 +370,7 @@ class Storage {
     _invalidateSrsCache();
     _invalidatePackCache();
     _courseMasteryCache = null;
+    _wrongCountCache = null;
   }
 
   // ───────── Generic helpers ─────────
@@ -1192,6 +1194,11 @@ class Storage {
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
+  /// 전역 사용자 속도 배수 (0.5–1.5, 기본 1.0). [ttsRate](엔진 base)와 별개 —
+  /// TtsService 가 모든 발화에 곱한다. UI 는 `TtsSpeedControl`.
+  static double get ttsSpeed => _d('kl_tts_speed_v1', 1.0);
+  static Future<void> setTtsSpeed(double v) => _sd('kl_tts_speed_v1', v);
+
   // ── 사운드 (ADR-002 §3-4 확정 키 스킴 — 임의 키명 금지) ──────────────
   // 기본값은 AudioPolicy 가 인자로 넘긴다. 여기서 기본을 박으면 채널 기본값
   // 표(ADR §3-1)와 이중 진실이 된다.
@@ -1712,6 +1719,86 @@ class Storage {
     final due =
         card.nextReviewIso.isEmpty || card.nextReviewIso.compareTo(today) <= 0;
     return due ? MasteryState.reviewDue : MasteryState.strong;
+  }
+
+  // ───────── 단어별 오답 카운터 (Extra-Lernset, 2026-08-13) ─────────
+  // SRS 는 ease/interval 만 남기고 "몇 번 틀렸는지"는 안 남긴다. 테스터 요청
+  // (3회+ 틀린 단어 자동 모음)을 위해 실패 횟수를 명시적으로 영구 저장한다.
+  // 키는 SRS 와 같은 한국어 표제어. 저지분 데이터라 SRS 격리(quarantine)까지는
+  // 두지 않는다 — 파싱 실패 시 빈 맵으로 관대하게 시작.
+  static Map<String, int>? _wrongCountCache;
+
+  static Map<String, int> _loadWrongCounts() {
+    if (_wrongCountCache != null) return _wrongCountCache!;
+    final raw = _s('kl_wrong_count_v1');
+    if (raw.isEmpty) return _wrongCountCache = {};
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic>) return _wrongCountCache = {};
+      final out = <String, int>{};
+      decoded.forEach((k, v) {
+        if (v is int && v > 0) {
+          out[k] = v;
+        }
+      });
+      return _wrongCountCache = out;
+    } catch (_) {
+      return _wrongCountCache = {};
+    }
+  }
+
+  static Future<void> _persistWrongCounts() async {
+    if (_learningWritesLockReason != null) {
+      debugPrint(
+        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_wrong_count_v1 쓰기를 건너뛴다',
+      );
+      return;
+    }
+    await _ss(
+      'kl_wrong_count_v1',
+      jsonEncode(_wrongCountCache ?? const <String, int>{}),
+    );
+  }
+
+  /// 누적 실패 횟수 (모든 리트리벌 실패 — 같은 세션 내 반복 실패도 각각 셈).
+  static int wrongCountOf(String id) => _loadWrongCounts()[id] ?? 0;
+
+  /// 실패 1회 기록. `srsReview(gotIt: false)` 를 부르는 지점 옆에 병치한다.
+  static Future<void> incrementWrongCount(String id) async {
+    final map = _loadWrongCounts();
+    map[id] = (map[id] ?? 0) + 1;
+    await _persistWrongCounts();
+  }
+
+  /// [threshold]회 이상 틀린 단어 IDs — Extra-Lernset 의 명시적 절반
+  /// ([hardIds] 의 leech 휴리스틱과 합집합으로 쓴다). [allIds] 순서 유지.
+  ///
+  /// 카운터는 감소하지 않으므로, SRS 가 이미 강하다고 판정한 단어
+  /// ([MasteryState.strong]) 는 제외한다 — 이것이 자연 졸업 경로.
+  static List<String> frequentlyMissedIds(
+    Iterable<String> allIds, {
+    int threshold = 3,
+    int max = 100,
+  }) {
+    final map = _loadWrongCounts();
+    if (map.isEmpty) return const [];
+    final out = <String>[];
+    for (final id in allIds) {
+      if ((map[id] ?? 0) < threshold) continue;
+      if (vocabMastery(id) == MasteryState.strong) continue;
+      out.add(id);
+      if (out.length >= max) break;
+    }
+    return out;
+  }
+
+  /// Roh-JSON (CloudSync-Backup/Export). Leer = nie etwas falsch.
+  static String get wrongCountRawJson => _s('kl_wrong_count_v1');
+
+  /// Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren.
+  static Future<void> setWrongCountRawJson(String json) async {
+    await _ss('kl_wrong_count_v1', json);
+    _wrongCountCache = null;
   }
 
   // ───────── Szenarien (Phase 5) ─────────

@@ -33,6 +33,7 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_action_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// 문법 학습 본문이 넘치지 않고 들어가는 최소 높이. 이보다 짧은 뷰포트에서는
@@ -521,6 +522,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         ),
         actions: [
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
+          const TtsSpeedAction(),
         ],
       ),
       body: SoriScreenBackground(

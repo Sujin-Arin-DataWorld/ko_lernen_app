@@ -667,13 +667,15 @@ class AppL10nEn extends AppL10n {
   String get settingsTtsRate => 'Speech speed';
 
   @override
-  String get settingsTtsRateSlow => 'Slow';
+  String get ttsSpeedLabel => 'Speed';
 
   @override
-  String get settingsTtsRateNormal => 'Normal';
+  String ttsSpeedChip(String speed) {
+    return '$speed×';
+  }
 
   @override
-  String get settingsTtsRateFast => 'Fast';
+  String get ttsSpeedSheetTitle => 'Speech speed';
 
   @override
   String get settingsSoundSection => 'Sound';
@@ -3045,6 +3047,23 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hardWordsStudyCta => 'Drill these';
+
+  @override
+  String get hardWordsHardQuizCta => 'Hard quiz: spelling';
+
+  @override
+  String get hardQuizTitle => 'Hard quiz';
+
+  @override
+  String get hardQuizHint => 'Pick the correct spelling.';
+
+  @override
+  String get hardQuizDoneTitle => 'Round complete!';
+
+  @override
+  String hardQuizScore(int correct, int total) {
+    return '$correct/$total correct';
+  }
 
   @override
   String get wbMatching => 'Match pairs';

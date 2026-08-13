@@ -250,6 +250,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
 
     return QuestLayout(
+      showTtsSpeed: true,
       action: Opacity(
         opacity: _completed ? 0.5 : 1.0,
         child: Material(

@@ -64,12 +64,18 @@ class TtsPlaybackRates {
   final double speechRate;
   final double fileRate;
 
+  /// [userMultiplier] = 전역 사용자 속도 배수 (`Storage.ttsSpeed`, 프리셋
+  /// 0.5–1.5). 요청별 [multiplier](speakSlow 0.65, 화면 오버라이드)와 곱해져
+  /// mp3(fileRate)·flutter_tts(speechRate) 양쪽에 같은 clamp 로 반영된다.
   static TtsPlaybackRates compose({
     required double baseRate,
     required double multiplier,
+    double userMultiplier = 1.0,
   }) {
     final safeBase = baseRate.isFinite ? baseRate : defaultSpeechRate;
-    final safeMultiplier = multiplier.isFinite ? multiplier : 1.0;
+    final safeUser = userMultiplier.isFinite ? userMultiplier : 1.0;
+    final safeMultiplier =
+        (multiplier.isFinite ? multiplier : 1.0) * safeUser;
     return TtsPlaybackRates(
       speechRate: (safeBase * safeMultiplier).clamp(0.1, 1.0).toDouble(),
       fileRate: ((safeBase / defaultSpeechRate) * safeMultiplier)
@@ -140,6 +146,7 @@ class TtsPlaybackEngine {
     required String voice,
     required double baseRate,
     double rateMultiplier = 1.0,
+    double userMultiplier = 1.0,
   }) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
@@ -154,6 +161,7 @@ class TtsPlaybackEngine {
     final rates = TtsPlaybackRates.compose(
       baseRate: baseRate,
       multiplier: rateMultiplier,
+      userMultiplier: userMultiplier,
     );
     final stopCurrent =
         _serialize<void>(() async {
@@ -377,6 +385,7 @@ class TtsService {
       voice: voice,
       baseRate: Storage.ttsRate,
       rateMultiplier: rateMultiplier,
+      userMultiplier: Storage.ttsSpeed,
     );
     result.whenComplete(() {
       // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
@@ -428,6 +437,27 @@ class TtsService {
   }
 
   static double get rate => Storage.ttsRate;
+
+  // ── 전역 사용자 속도 배수 (2026-08-13, "음성 나오는 모든 곳" 속도 바) ──
+  //
+  // `speak`/`speakSlow` 단일 관문에 곱해지므로 화면별 배선 없이 전역 적용된다.
+  // 재생 중 리튠은 하지 않는다 — 엔진은 요청-로컬 불변 rate 설계(120행)이고,
+  // 발화가 짧아 다음 발화부터 반영해도 충분하다.
+
+  /// 사용자 속도 배수 프리셋 값들 (mp3 fileRate clamp 0.5–2.0 안에서 정직).
+  static const List<double> speedPresets = [0.5, 0.75, 1.0, 1.25, 1.5];
+
+  static ValueNotifier<double>? _speedNotifier;
+
+  /// 현재 전역 배수 — 여러 UI 인스턴스(속도 바·설정)가 함께 구독한다.
+  static ValueNotifier<double> get speedNotifier =>
+      _speedNotifier ??= ValueNotifier<double>(Storage.ttsSpeed);
+
+  static Future<void> setSpeed(double speed) async {
+    final clamped = speed.clamp(speedPresets.first, speedPresets.last);
+    await Storage.setTtsSpeed(clamped.toDouble());
+    speedNotifier.value = clamped.toDouble();
+  }
 
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 

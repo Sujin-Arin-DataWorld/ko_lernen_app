@@ -25,6 +25,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// **Small Talk (스몰토크)** — Gesprächseinstiege nach Kategorie × Level.
@@ -205,6 +206,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           t.smalltalkTitle,
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

@@ -260,6 +260,28 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 테스터 피드백(Andreas) 라운드 — 학습 루프·전역 속도·레벨 수리 (2026-08-13)
+
+- [x] **플립 스포일러 버그 수정** — 카드 전진 시 다음 카드 뜻이 ~190ms 선노출.
+  FlipCard 서빙 카운터 re-key(vocab_pack·custom_pack_play·legacy_vocab) + 회귀 테스트 2종.
+- [x] **세션 내 재출제** — `learn_session_queue.dart`(몰라요→3장 뒤 재삽입, 3회 실패 졸업).
+  SRS는 단어당 최초 1회 평가. Quiz/Boss는 평가라 재출제 없음(의도).
+- [x] **오답 카운터 + Extra-Lernset** — `kl_wrong_count_v1`(7개 화면 배선, 백업/익스포트 동반).
+  hard_words = leech ∪ 오답 3회+, 새 "어려운 철자 퀴즈"(`hard_choice_quiz_screen.dart`,
+  자모 1개 변이 오답 — `hangul_perturbation.dart`).
+- [x] **4지선다 오답 지능화** — `quiz_distractor_service.dart` 품사·레벨 계층 폴백.
+- [x] **전역 음성 속도** — `kl_tts_speed_v1` 프리셋(0.5–1.5×), compose userMultiplier 3축,
+  `sori/tts_speed_control.dart`(row/compact/TtsSpeedAction), 화면 로컬 배수·설정 슬라이더 통합,
+  음성 나오는 화면 전체(퀘스트 포함) 배선.
+- [x] **레벨 혼입 수리** — "A2인데 양극화"의 원인은 데이터가 아니라 노출 경로 3곳:
+  데일리 챌린지 레벨 캡 + ReviewDeck 레벨 오름차순 안정 정렬 + 워들 데일리 타겟 캡.
+- [x] **레벨 감사 도구 + 배치 001** — `tool/audit_vocab_levels.py`·`tool/relevel_vocab.py`
+  (targeted re-pack, id·행수 불변). 명백한 과대분류 16단어 재분류(B2→B1 13, B1→A2 3).
+- [ ] 백로그: 문법 4지선다 유형(설계 완료 — SESSION_LOG 참조), suspects 배치 002,
+  AI-lastig 비주얼 온기 트랙(카피는 8/13 Humanizer 완료).
+- [ ] Jin: 실기기에서 ①카드 플립 스포일러 소거 ②몰라요 재출제 ③철자 퀴즈 ④속도 칩
+  ⑤A2 계정 데일리·새 단어에 B1/B2 미출현 확인.
+
 ### DE/EN 원어민 카피 · Humanizer 검수 (2026-08-13)
 
 - [x] 사용자 노출 DE/EN ARB와 실제 학습 문구를 Humanizer의 무환각·false-positive

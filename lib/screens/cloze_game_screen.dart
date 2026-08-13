@@ -22,6 +22,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// **Lückentext (Cloze)** — das fehlende Wort im echten Satz wählen.
 ///
@@ -287,6 +288,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

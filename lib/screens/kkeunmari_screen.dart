@@ -31,6 +31,7 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 enum _Turn { user, tiger }
 
@@ -389,6 +390,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

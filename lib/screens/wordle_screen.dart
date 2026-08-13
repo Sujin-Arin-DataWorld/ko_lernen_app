@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
+import '../services/personalized_lesson_service.dart';
 import '../services/analytics_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -52,6 +53,40 @@ List<_LS> _check(String guess, String target) {
 
 class WordleScreen extends StatefulWidget {
   const WordleScreen({super.key});
+
+  /// 정답 후보 풀 (rein, testbar) — 2~3음절 순한글 단어.
+  ///
+  /// 데일리(!random)는 [levelCode] 이하 레벨로 캡을 씌운다 — 전 레벨 풀에서
+  /// 뽑으면 A2 학습자에게 B2 단어가 정답으로 나온다 (2026-08-13 테스터
+  /// 리포트 계열). 랜덤 라운드는 의도적으로 전 레벨 유지. 캡 결과가 비면
+  /// 전체로 폴백.
+  static List<String> targetPool(
+    List<Vocab> all, {
+    required bool random,
+    String? levelCode,
+  }) {
+    List<String> build(Iterable<Vocab> src) =>
+        src
+            .where(
+              (v) =>
+                  v.korean.length >= 2 &&
+                  v.korean.length <= 3 &&
+                  v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3),
+            )
+            .map((v) => v.korean)
+            .toSet()
+            .toList()
+          ..sort();
+
+    if (!random && levelCode != null) {
+      final rank = PersonalizedLessonService.levelRank(levelCode);
+      final capped = build(
+        all.where((v) => PersonalizedLessonService.levelRank(v.level) <= rank),
+      );
+      if (capped.isNotEmpty) return capped;
+    }
+    return build(all);
+  }
 
   @override
   State<WordleScreen> createState() => _WordleScreenState();
@@ -123,18 +158,11 @@ class _WordleScreenState extends State<WordleScreen>
     _feedbackCompletion.reset();
     _randomRound = random;
     final all = await DataLoader.loadVocab();
-    final pool =
-        all
-            .where(
-              (v) =>
-                  v.korean.length >= 2 &&
-                  v.korean.length <= 3 &&
-                  v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3),
-            )
-            .map((v) => v.korean)
-            .toSet()
-            .toList()
-          ..sort();
+    final pool = WordleScreen.targetPool(
+      all,
+      random: random,
+      levelCode: Storage.placementLevelCode,
+    );
 
     String target;
     if (random) {

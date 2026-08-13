@@ -11,6 +11,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// An optional practical placement check. It deliberately has no microphone
 /// and exposes the final level choice, so its result is a recommendation only.
@@ -96,7 +97,10 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(t.placementTitle)),
+      appBar: AppBar(
+        title: Text(t.placementTitle),
+        actions: const [TtsSpeedAction()],
+      ),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriCenterClamp(

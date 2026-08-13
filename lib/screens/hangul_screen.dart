@@ -15,6 +15,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../services/sound_service.dart';
@@ -158,6 +159,7 @@ class _HangulScreenState extends State<HangulScreen>
           t.screenHangulTitle,
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
+        actions: const [TtsSpeedAction()],
         bottom: TabBar(
           key: _tabBarKey,
           controller: _tabs,

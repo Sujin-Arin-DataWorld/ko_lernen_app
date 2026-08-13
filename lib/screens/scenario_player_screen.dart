@@ -29,7 +29,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
-import '../widgets/sori/chip.dart';
+import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
@@ -286,8 +286,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
-  // 시나리오 대화 재생 속도 배수 (요청 단위에만 적용 — 전역 Storage.ttsRate 보존).
-  double _dialogRate = 1.0;
   late final PageController _pageCtrl;
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
@@ -940,36 +938,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         children: [
           _StageTitle(t.scenarioDialogTitle, SoriColors.success),
           const SizedBox(height: Spacing.sm),
-          // 재생 속도 조절 — 좁은 화면 대비 Wrap(오버플로 방지). 요청 단위 배수만 적용.
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            runSpacing: Spacing.xs,
-            children: [
-              Icon(Icons.speed_rounded, size: 16, color: ss.textMuted),
-              const SizedBox(width: Spacing.xs),
-              Text(
-                t.listeningSpeedLabel,
-                style: SoriTextTheme.of(
-                  context,
-                ).caption.copyWith(fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(width: Spacing.md),
-              ...[0.75, 1.0, 1.25].map((r) {
-                final selected = (_dialogRate - r).abs() < 0.01;
-                return Padding(
-                  padding: const EdgeInsets.only(right: Spacing.xs),
-                  child: SoriChip(
-                    label: '${r}x',
-                    accent: SoriColors.info,
-                    selected: selected,
-                    variant: SoriChipVariant.soft,
-                    onTap: () => setState(() => _dialogRate = r),
-                    fontSize: 12,
-                  ),
-                );
-              }),
-            ],
-          ),
+          // 재생 속도 조절 — 전역 배수 컨트롤 (모든 화면과 공유·영속).
+          const TtsSpeedControl(mode: TtsSpeedControlMode.row),
           const SizedBox(height: Spacing.lg),
           ...sc.dialog.map((line) {
             final isUser = line.speaker == 'user';
@@ -1014,7 +984,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                 voice: line.speaker == 'user'
                                     ? 'female'
                                     : 'male',
-                                rateMultiplier: _dialogRate,
                               );
                             },
                             child: Column(

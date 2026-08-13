@@ -1,5 +1,114 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Claude, Mac) — 단어카드 글자 크기 단어 길이 무관 고정 + 예문 음성 복구
+
+**증상 (Jin).** "단어카드가 또 단어 길이마다 크기가 바뀌고, 예시에 음성 나오는 게 또 없어졌어."
+
+**원인.** ① 제시어·뜻이 `FittedBox(scaleDown)` — **현재 단어만** 보고 줄이므로 짧은 단어는
+cap(96px), 긴 단어는 축소 → 카드를 넘길 때마다 크기 요동. (8/12에 고친 건 *높이 기준*의
+요동이었고, *단어 길이별* 요동의 뿌리는 FittedBox 였다.) ② vocab_pack `_FlipBack` 예문 블록에
+음성 affordance 가 아예 없음 (legacy 화면에만 있었음).
+
+**수리.**
+- `soriUniformFitSize`(responsive.dart 신규): 덱의 모든 표제어를 TextPainter 로 실측해
+  **가장 긴 단어가 한 줄에 들어가는 크기 하나**를 반환 — 덱 내내 이 값 하나만 사용.
+  ambient textScaler(OS 배율·SoriStudyScale 태블릿 부스트)·DefaultTextStyle 폰트 반영,
+  2% 안전 마진. FittedBox 는 실측 오차용 안전망으로만 남김(정상 경로 개입 0).
+- vocab_pack `_buildLearn` 이 `_normalWords` 기준 공유 크기를 계산해 `_FlipFront.headlineSize`
+  로 주입. 뒷면 뜻은 FittedBox 제거 → **고정 크기 + 줄바꿈**(0.085, 24–38, 긴 뜻은 줄만 는다).
+- custom_pack_play `_Front` 도 동일(`deckKoreans` 주입, 자체 LayoutBuilder 폭 실측),
+  `_Back` 뜻도 고정+줄바꿈.
+- **예문 음성**: vocab_pack·custom_pack_play 뒷면 예문 블록을 `SoriPressable` 로 감싸
+  탭=재생 / 길게=느리게(`TtsService.speak/speakSlow` — 예문은 사전생성 캐시 적중),
+  인라인 스피커 아이콘으로 affordance 표시.
+
+**검증.** 신규 `test/vocab_pack_uniform_card_test.dart` 3건 — 폰 뷰포트(390×844)에서
+짧은/긴 단어의 **렌더된 rect 높이**(FittedBox 변환 포함) 동일 단언(구 코드로 되돌리면
+실패함을 확인), 헬퍼 축소 동작, 뒷면 예문 탭 재생. vocab_pack_typography(배너 유무 동일
+크기)·flip_spoiler·requeue·vocab_pack·custom_pack·screen_smoke·spotlight_coach 전부 그린,
+`flutter analyze` 0. 미커밋.
+
+### 2026-08-13 (Claude, Mac) — 테스터 피드백(Andreas) 라운드: 플립 스포일러·재출제·Extra-Lernset·철자 퀴즈·레벨 혼입·전역 속도
+
+**계기.** 테스터 Andreas 1차 피드백 6건 + Jin 추가 2건(속도 바, "A2인데 양극화").
+
+**① 플립 스포일러 버그 (P0).** 카드 전진 시 다음 카드의 뒷면(뜻)이 ~190ms 먼저 보임.
+원인: `FlipCard`가 re-key 없이 재사용되어 reverse 애니메이션이 교체된 내용 위에서 재생
+(`flip_card.dart` didUpdateWidget). 수정: 서빙 카운터 `ValueKey`로 카드마다 State 재생성 —
+vocab_pack(`learn-$_learnServe`) · custom_pack_play(`cp-$_serve`, 코치 GlobalKey는 KeyedSubtree로
+이전) · legacy_vocab(`legacy-$_serve`). `flip_card.dart`에 re-key 계약 doc-comment.
+회귀 테스트 2종(`flip_card_advance_regression_test`, `vocab_pack_flip_spoiler_test`) —
+수정 제거 시 실패함을 확인(진짜 버그를 잡는 테스트).
+
+**② 세션 내 재출제.** 새 순수 큐 `lib/services/learn_session_queue.dart`
+(몰라요→3장 뒤 재삽입, 3회 실패 시 졸업, 종료 상한 3n, 분모 고정/분자 유지 진행 계약).
+vocab_pack Learn이 `_learnIdx`→`_learnQueue`로 전환. SRS는 단어당 최초 평가 1회만
+(`_learnSrsRated`) — ease 연타 방지. Quiz/Boss는 클리어 게이트·코스 증거라 재출제 없음(의도).
+
+**③ 오답 카운터 + Extra-Lernset.** Storage 새 키 `kl_wrong_count_v1`(korean→count,
+SRS 캐시 패턴 미러, 잠금 존중, resetForTesting/AfterExternalWrite 등록).
+증가 지점 7곳: vocab_pack learn/quiz·custom_pack_play skip·custom_pack_quiz·custom_pack_typing·
+review_session·legacy_vocab. `frequentlyMissedIds`(≥3회, SRS-strong 자연 졸업).
+hard_words 화면 세트 = `hardIds ∪ frequentlyMissedIds`(레벨 불문) + `deckLoader` 테스트 주입.
+CloudSync 백업/복원 + 학습 데이터 익스포트에 `wrong_count_json` 동반.
+
+**④ 보기 난이도.** (a) `quiz_distractor_service.dart` — 같은 품사+레벨→같은 품사→같은
+레벨→전체 계층 폴백으로 4지선다 오답 선별(vocab_pack `_prepareNextQuestion`·custom_pack_quiz
+배선, 표시 언어 POS 기준). (b) `hangul_perturbation.dart` — 혼동 자모 테이블 기반 1-자모 변이
+오답(하다→할다/허다/아다식, 실단어는 blocklist 배제) + `hangul_util.composeHangulSyllable`(역함수).
+(c) 새 화면 `hard_choice_quiz_screen.dart` — Extra-Lernset 전용 "어려운 철자 퀴즈"(뜻→비슷한
+철자 4지선다), hard_words 하단 CTA 2개(철자 퀴즈 + 기존 집중 복습). 코스 증거 미전송(자유 연습).
+l10n 5키(hardWordsHardQuizCta·hardQuiz*) DE/EN.
+
+**⑤ 전역 음성 속도.** 새 키 `kl_tts_speed_v1`(배수 프리셋 0.5/0.75/1/1.25/1.5, 기본 1) —
+`TtsPlaybackRates.compose`에 `userMultiplier` 3축 추가(speechRate·fileRate 동일 clamp),
+`TtsService.speak` 단일 관문이 주입 → 모든 발화 전역 적용. `speedNotifier`/`setSpeed`.
+공유 위젯 `sori/tts_speed_control.dart`(row/compact + `TtsSpeedAction` AppBar 래퍼).
+listening·scenario_player의 화면 로컬 배수(_rate/_dialogRate) 삭제→공유 row로 대체(영속화),
+settings의 0.1–1.0 슬라이더→프리셋 row 교체(미리듣기 유지, settingsTtsRateSlow/Normal/Fast·
+listeningSpeedLabel 키 제거). quest_layout `showTtsSpeed`로 오디오 퀘스트 4종 일괄.
+(20개 화면 AppBar 배선은 아래 TtsSpeedAction 항목 참조.)
+
+**⑥ 레벨 혼입("A2인데 양극화") — 데이터가 아니라 노출 경로가 원인.** 양극화는 CSV상 B2로
+올바름. 실제 leak 3곳 수정: (a) 데일리 챌린지가 전 레벨 클로즈 풀에서 출제
+(`cloze_b2_0030` 정답=양극화) → `capToLevel`(사용자 레벨 캡, 풀 부족 시 폴백, 시드 결정성 유지);
+(b) SRS '오늘의 새 단어'가 CSV 원본 순서(레벨 뒤섞임) 소비 →
+`ReviewDeckService.sortByLevelStable`(레벨 오름차순 안정 정렬, legacy_vocab 직접 로드 경로 동일);
+(c) 워들 데일리 타겟 전 레벨 → `WordleScreen.targetPool` 레벨 캡(랜덤 라운드는 전 레벨 유지).
+
+**⑦ 레벨 감사 도구 + 재분류 배치 001.** `tool/audit_vocab_levels.py`(레벨·팩 리포트
+`docs/data/vocab_level_report.md` + 휴리스틱 suspects CSV + satz/커리큘럼 참조 blocked 플래그) ·
+`tool/relevel_vocab.py`(dry-run 기본, targeted re-pack: id·행수 불변, 기존 팩으로만 이동,
+보스 승격 보수, satz 참조 거부) + `tool/test_relevel_vocab.py` 8건.
+검토 결과 대부분 분류는 건전 — 명백한 과대분류 16단어만 배치 001로 적용
+(B2→B1 13: 경우·내용·부분·전체·정도·종류·느낌·주제·평소·인기·스스로·부부·친척 /
+B1→A2 3: 건강·대화·질문). `docs/data/vocab_pack_map.md` 재생성.
+
+**검증.** `flutter analyze` 0. 신규 테스트 10파일+확장 3파일(플립 2·큐·오답카운터·distractor·
+자모교란·extra-set·철자퀴즈·속도컨트롤·레벨정렬·데일리캡·relevel 파이썬 8건) 전부 통과.
+데이터 회귀(content_id_contract·data_integrity·vocab_pack·pack_progress·course_graph·cloze·
+data_loader) 74건 통과. 전체 `flutter test` **3,287 통과 / 13 skip / 실패 0** (동시 세션
+UI 개편 Phase 0 변경 포함 상태에서 실행). 기존 계약 3건은 새 동작에 맞춰 갱신:
+cloud_sync 백업 열거(+`wrong_count_json`)·listening 속도 칩 라벨(전역 프리셋 ×표기)·
+타이포 래칫(신규 화면 w800→w700, 새 CTA 아이콘 제거로 상한 준수). 미커밋.
+
+**남은 것(다음 세션).** 문법 4지선다 신규 유형(설계만 — grammar.csv 예문 구간 마킹 필요),
+suspects 잔여분 배치 002 검토(b2_safety/household/thinking_verbs 계열), AI-lastig 비주얼 온기
+트랙(카피는 8/13 Humanizer 완료 — 테스터는 구 빌드였을 가능성, 다음 빌드에서 재평가 요청).
+
+### 2026-08-13 (Claude, Mac) — TTS 말속도 칩(TtsSpeedAction)을 20개 화면 AppBar에 전역 배선
+
+**무엇/왜.** TTS 가 재생되는 모든 화면의 AppBar 우측에서 말속도를 즉시 바꿀 수 있도록,
+기존 위젯 `TtsSpeedAction`(`lib/widgets/sori/tts_speed_control.dart`)을 `lib/screens/` 의
+20개 화면 메인 Scaffold AppBar `actions` 에 추가 (로딩/에러/빈/결과-제외 Scaffold 는 건드리지 않음;
+AlertDialog 의 `actions` 도 제외). 대상: vocab_pack · review_session · hard_words · legacy_vocab ·
+custom_pack_play/quiz/typing/matching · placement_diagnostic · pronunciation_studio · book_result ·
+bookshelf_page · smalltalk · kkeunmari · hangul · grammar · wordbook_search · silben_kreuz ·
+cloze_game · daily_challenge. (listening · scenario_player · settings · quest_engines 는 기배선.)
+기존 `actions` 가 있으면 마지막 요소로 append, 없으면 `actions: const [TtsSpeedAction()]` 추가.
+
+**검증.** `flutter analyze lib/screens/` → No issues found. 미커밋.
+
 ### 2026-08-13 (Claude, Mac) — 테스터 피드백이 "앱에 안 보이는" 원인 진단 + 수신함 리더/인덱스
 
 **증상.** "피드백 코드는 만들었는데 앱에 구현이 안 된다." → 원인 2가지 확정.

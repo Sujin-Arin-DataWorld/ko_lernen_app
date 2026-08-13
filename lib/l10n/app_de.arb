@@ -264,9 +264,16 @@
   "settingsLanguageDe": "Deutsch",
   "settingsLanguageEn": "English",
   "settingsTtsRate": "Sprechtempo",
-  "settingsTtsRateSlow": "Langsam",
-  "settingsTtsRateNormal": "Normal",
-  "settingsTtsRateFast": "Schnell",
+  "ttsSpeedLabel": "Tempo",
+  "ttsSpeedChip": "{speed}×",
+  "@ttsSpeedChip": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "ttsSpeedSheetTitle": "Sprechtempo",
   "settingsSoundSection": "Ton",
   "settingsSoundMaster": "Ton",
   "settingsSoundMasterDesc": "Schaltet alle Töne der App ein oder aus",
@@ -1491,6 +1498,21 @@
   "hardWordsEmptyTitle": "Keine Sorgenkinder",
   "hardWordsEmptyBody": "Im Moment gibt es keine besonders schwierigen Wörter. Wenn dir eins immer wieder schwerfällt, erscheint es hier.",
   "hardWordsStudyCta": "Gezielt wiederholen",
+  "hardWordsHardQuizCta": "Schweres Quiz: Schreibweise",
+  "hardQuizTitle": "Schweres Quiz",
+  "hardQuizHint": "Wähle die richtige Schreibweise.",
+  "hardQuizDoneTitle": "Runde geschafft!",
+  "hardQuizScore": "{correct}/{total} richtig",
+  "@hardQuizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "wbMatching": "Paare finden",
   "wbMatchingHint": "Tippe auf ein koreanisches Wort, dann auf seine Bedeutung.",
   "wbMatchingNeedMore": "Mindestens 2 Wörter mit Bedeutung nötig.",

@@ -8,6 +8,7 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
+import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -23,6 +24,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/tts_speed_control.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
 ///
@@ -88,15 +90,27 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   void _buildOptions() {
-    final correct = _pool[_order[_qIdx]].translationDe.trim();
-    final others =
-        _pool
-            .map((w) => w.translationDe.trim())
-            .where((m) => m.isNotEmpty && m != correct)
-            .toSet()
-            .toList()
-          ..shuffle(_rng);
-    final opts = <String>[correct, ...others.take(3)];
+    final word = _pool[_order[_qIdx]];
+    final correct = word.translationDe.trim();
+    // 같은 품사 오답 우선 (커스텀 단어는 레벨이 없어 품사 계층만 작동;
+    // 폴백은 quiz_distractor_service.dart).
+    final distractors = buildTranslationDistractors(
+      target: DistractorCandidate(
+        id: word.korean,
+        translation: correct,
+        pos: word.posDe,
+      ),
+      pool: [
+        for (final w in _pool)
+          DistractorCandidate(
+            id: w.korean,
+            translation: w.translationDe,
+            pos: w.posDe,
+          ),
+      ],
+      rng: _rng,
+    );
+    final opts = <String>[correct, ...distractors];
     opts.shuffle(_rng);
     _options = opts;
     _picked = null;
@@ -117,6 +131,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
+      // ignore: discarded_futures
+      Storage.incrementWrongCount(word.korean);
     }
     Future.delayed(const Duration(milliseconds: 900), () {
       if (!mounted) return;
@@ -210,6 +226,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [TtsSpeedAction()],
       ),
       body: SafeArea(
         child: SoriStudyClamp(

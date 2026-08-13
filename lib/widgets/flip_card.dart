@@ -2,6 +2,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 /// Tappable card that flips horizontally between [front] and [back].
+///
+/// ⚠️ 계약: 표시하는 **단어(내용)가 바뀔 때는 반드시 새 [key]를 줘야 한다**
+/// (예: 서빙 카운터 `ValueKey('learn-$serve')`). key 없이 같은 setState에서
+/// 내용과 `flipped=false`만 바꾸면 이 State가 재사용되어 reverse 애니메이션이
+/// **다음 카드의 뒷면(뜻) 위에서** 재생된다 — 답이 ~190ms 미리 노출된다.
 class FlipCard extends StatefulWidget {
   final Widget front;
   final Widget back;

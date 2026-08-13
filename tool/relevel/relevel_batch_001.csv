@@ -1,0 +1,17 @@
+id,korean,old_level,new_level,target_pack,reason
+vocab_b2_0109,경우,B2,B1,b1_daily_1,B1 필수 추상명사(TOPIK II 초반) — B2 과대분류
+vocab_b2_0117,내용,B2,B1,b1_daily_1,B1 필수 추상명사 — B2 과대분류
+vocab_b2_0116,부분,B2,B1,b1_daily_1,B1 필수 추상명사 — B2 과대분류
+vocab_b2_0110,전체,B2,B1,b1_daily_2,B1 필수 추상명사 — B2 과대분류
+vocab_b2_0111,정도,B2,B1,b1_daily_2,B1 필수 추상명사 — B2 과대분류
+vocab_b2_0112,종류,B2,B1,b1_daily_2,B1 필수 추상명사 — B2 과대분류
+vocab_b2_0113,느낌,B2,B1,b1_daily_3,B1 고빈도 명사 — B2 과대분류
+vocab_b2_0118,주제,B2,B1,b1_daily_3,B1 고빈도 명사 — B2 과대분류
+vocab_b2_0094,평소,B2,B1,b1_daily_3,B1 고빈도 부사성 명사 — B2 과대분류
+vocab_b2_0095,인기,B2,B1,b1_descriptions_1,B1 고빈도 명사(TOPIK I~II 경계) — B2 과대분류
+vocab_b2_0089,스스로,B2,B1,b1_descriptions_1,B1 고빈도 부사 — B2 과대분류
+vocab_b2_0145,부부,B2,B1,b1_emotions_relations_1,B1 관계 명사 — B2 과대분류
+vocab_b2_0146,친척,B2,B1,b1_emotions_relations_1,B1 관계 명사 — B2 과대분류
+vocab_b1_0013,건강,B1,A2,a2_health_misc_1,A2 기초 명사(건강하다가 이미 A2) — B1 과대분류
+vocab_b1_0192,대화,B1,A2,a2_health_misc_2,A2 기초 명사(전화·문자와 동급) — B1 과대분류
+vocab_b1_0195,질문,B1,A2,a2_health_misc_2,A2 기초 명사(시험·숙제와 동급) — B1 과대분류

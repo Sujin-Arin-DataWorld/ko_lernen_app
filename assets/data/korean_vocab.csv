@@ -226,7 +226,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 정치,jeongchi,Politik,B1,Nomen,저는 정치 얘기는 잘 안 해요.,Über Politik rede ich eigentlich nicht.,Gesellschaft,b1_tech_society_1,3,false,politics,Noun,I don't really talk about politics.,vocab_b1_0010
 경제,gyeongje,Wirtschaft,B1,Nomen,요즘 경제가 진짜 어렵네요.,Die Wirtschaftslage ist zurzeit echt schwierig.,Gesellschaft,b1_tech_society_1,4,false,economy,Noun,The economy is really tough these days.,vocab_b1_0011
 교육,gyoyuk,Bildung / Erziehung,B1,Nomen,교육에 진짜 돈이 많이 들어요.,Bildung kostet wirklich viel Geld.,Gesellschaft,b1_tech_society_1,5,false,education,Noun,Education really costs a lot of money.,vocab_b1_0012
-건강,geongang,Gesundheit,B1,Nomen,뭐니 뭐니 해도 건강이 최고예요.,Am Ende ist die Gesundheit doch das Wichtigste.,Gesundheit,b1_health_education,2,false,health,Noun,"At the end of the day, health comes first.",vocab_b1_0013
+건강,geongang,Gesundheit,A2,Nomen,뭐니 뭐니 해도 건강이 최고예요.,Am Ende ist die Gesundheit doch das Wichtigste.,Gesundheit,a2_health_misc_1,10,false,health,Noun,"At the end of the day, health comes first.",vocab_b1_0013
 기술,gisul,Technologie / Technik,B1,Nomen,기술 발전 속도가 진짜 빠르네요.,Die Technik entwickelt sich echt schnell.,Gesellschaft,b1_tech_society_1,6,false,technology / technique,Noun,Technology is advancing really fast.,vocab_b1_0014
 스트레스,seuteuleseu,Stress,B1,Nomen,요즘 스트레스가 너무 심해요.,Zurzeit habe ich echt viel Stress.,Alltag,b1_daily_1,5,false,stress,Noun,I've been really stressed lately.,vocab_b1_0015
 습관,seupgwan,Gewohnheit,B1,Nomen,일찍 자는 습관을 들이려고 해요.,"Ich versuche, mir anzugewöhnen, früh ins Bett zu gehen.",Alltag,b1_daily_1,6,false,habit,Noun,I'm trying to get into the habit of going to bed early.,vocab_b1_0016
@@ -645,10 +645,10 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 어휘,eohwi,Wortschatz,B1,Nomen,어휘를 늘리고 싶어요.,Ich möchte meinen Wortschatz erweitern.,Sprache & Ausdruck,b1_communication_lang_1,2,false,vocabulary,Noun,I want to expand my vocabulary.,vocab_b1_0189
 문장,munjang,Satz,B1,Nomen,이 문장은 조금 어려워요.,Dieser Satz ist etwas schwierig.,Sprache & Ausdruck,b1_communication_lang_1,3,false,sentence,Noun,This sentence is a bit difficult.,vocab_b1_0190
 뜻,tteut,Bedeutung,B1,Nomen,이 단어는 뜻이 두 개예요.,Dieses Wort hat zwei Bedeutungen.,Sprache & Ausdruck,b1_communication_lang_1,4,false,meaning,Noun,This word has two meanings.,vocab_b1_0191
-대화,daehwa,Gespräch,B1,Nomen,한국어로 대화를 연습해요.,Wir üben Gespräche auf Koreanisch.,Sprache & Ausdruck,b1_communication_lang_1,5,false,conversation,Noun,We practice conversations in Korean.,vocab_b1_0192
+대화,daehwa,Gespräch,A2,Nomen,한국어로 대화를 연습해요.,Wir üben Gespräche auf Koreanisch.,Sprache & Ausdruck,a2_health_misc_2,10,false,conversation,Noun,We practice conversations in Korean.,vocab_b1_0192
 번역하다,beonyeokhada,übersetzen,B1,Verb,이 문장을 독일어로 번역해 주세요.,Übersetzen Sie diesen Satz bitte ins Deutsche.,Sprache & Ausdruck,b1_communication_lang_1,6,false,to translate,Verb,Please translate this sentence into German.,vocab_b1_0193
 통역,tongyeok,Dolmetschen,B1,Nomen,친구가 통역을 해 줬어요.,Ein Freund hat für mich gedolmetscht.,Sprache & Ausdruck,b1_communication_lang_1,7,false,interpretation,Noun,A friend interpreted for me.,vocab_b1_0194
-질문,jilmun,Frage,B1,Nomen,질문이 하나 있어요.,Ich habe eine Frage.,Sprache & Ausdruck,b1_communication_lang_1,8,false,question,Noun,I have a question.,vocab_b1_0195
+질문,jilmun,Frage,A2,Nomen,질문이 하나 있어요.,Ich habe eine Frage.,Sprache & Ausdruck,a2_health_misc_2,11,false,question,Noun,I have a question.,vocab_b1_0195
 대답하다,daedaphada,antworten,B1,Verb,질문에 대답해 주세요.,Antworten Sie bitte auf die Frage.,Sprache & Ausdruck,b1_communication_lang_1,9,false,to answer,Verb,Please answer the question.,vocab_b1_0196
 소개하다,sogaehada,vorstellen,B1,Verb,친구를 소개해 줄게요.,Ich stelle dir einen Freund vor.,Sprache & Ausdruck,b1_communication_lang_1,10,true,to introduce,Verb,I will introduce a friend to you.,vocab_b1_0197
 존댓말,jondaenmal,Höflichkeitssprache,B1,Nomen,어른에게는 존댓말을 써요.,Gegenüber Älteren benutzt man die Höflichkeitssprache.,Sprache & Ausdruck,b1_communication_lang_1,11,true,honorific speech,Noun,You use honorific speech with elders.,vocab_b1_0198
@@ -705,13 +705,13 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 현대인,hyeondaein,moderner Mensch,B2,Nomen,현대인은 스트레스가 많아요.,Moderne Menschen haben viel Stress.,Modernes Leben,b2_modern_life_1,2,false,modern person,Noun,Modern people have a lot of stress.,vocab_b2_0086
 최신식,choesinsik,hochmodern,B2,Nomen,이 건물은 최신식 시설을 갖췄어요.,Dieses Gebäude hat eine hochmoderne Ausstattung.,Modernes Leben,b2_modern_life_1,3,false,state-of-the-art,Noun,This building has state-of-the-art facilities.,vocab_b2_0087
 기계,gigye,Maschine,B2,Nomen,이 기계는 사용법이 간단해요.,Diese Maschine ist einfach zu bedienen.,Modernes Leben,b2_modern_life_1,4,false,machine,Noun,This machine is easy to use.,vocab_b2_0088
-스스로,seuseuro,selbst,B2,Adverb,문제를 스스로 해결했어요.,Ich habe das Problem selbst gelöst.,Modernes Leben,b2_modern_life_1,5,false,by oneself,Adverb,I solved the problem by myself.,vocab_b2_0089
+스스로,seuseuro,selbst,B1,Adverb,문제를 스스로 해결했어요.,Ich habe das Problem selbst gelöst.,Modernes Leben,b1_descriptions_1,10,false,by oneself,Adverb,I solved the problem by myself.,vocab_b2_0089
 독립하다,dongniphada,unabhängig werden,B2,Verb,서른 살에 부모님에게서 독립했어요.,Mit dreißig bin ich von zu Hause ausgezogen.,Modernes Leben,b2_modern_life_1,6,false,to become independent,Verb,I became independent from my parents at thirty.,vocab_b2_0090
 공간,gonggan,Raum,B2,Nomen,이 방은 공간이 넓어요.,Dieses Zimmer bietet viel Raum.,Modernes Leben,b2_modern_life_1,7,false,space,Noun,This room has a lot of space.,vocab_b2_0091
 활동,hwaldong,Aktivität,B2,Nomen,동아리 활동을 해요.,Ich mache bei Klubaktivitäten mit.,Modernes Leben,b2_modern_life_1,8,false,activity,Noun,I take part in club activities.,vocab_b2_0092
-외출하다,oechulhada,ausgehen,B2,Verb,잠깐 외출했어요.,Ich war kurz außer Haus.,Modernes Leben,b2_modern_life_1,9,false,to go out,Verb,I went out for a while.,vocab_b2_0093
-평소,pyeongso,gewöhnliche Zeit,B2,Nomen,평소에 일찍 일어나요.,Normalerweise stehe ich früh auf.,Modernes Leben,b2_modern_life_1,10,true,usual times,Noun,I usually get up early.,vocab_b2_0094
-인기,ingi,Beliebtheit,B2,Nomen,이 가수는 인기가 많아요.,Dieser Sänger ist sehr beliebt.,Modernes Leben,b2_modern_life_1,11,true,popularity,Noun,This singer is very popular.,vocab_b2_0095
+외출하다,oechulhada,ausgehen,B2,Verb,잠깐 외출했어요.,Ich war kurz außer Haus.,Modernes Leben,b2_modern_life_1,9,true,to go out,Verb,I went out for a while.,vocab_b2_0093
+평소,pyeongso,gewöhnliche Zeit,B1,Nomen,평소에 일찍 일어나요.,Normalerweise stehe ich früh auf.,Modernes Leben,b1_daily_3,12,false,usual times,Noun,I usually get up early.,vocab_b2_0094
+인기,ingi,Beliebtheit,B1,Nomen,이 가수는 인기가 많아요.,Dieser Sänger ist sehr beliebt.,Modernes Leben,b1_descriptions_1,9,false,popularity,Noun,This singer is very popular.,vocab_b2_0095
 달라지다,dallajida,sich verändern,B2,Verb,동네가 많이 달라졌어요.,Das Viertel hat sich stark verändert.,Modernes Leben,b2_modern_life_1,12,true,to change,Verb,The neighborhood has changed a lot.,vocab_b2_0096
 예절,yejeol,Etikette,B2,Nomen,식사 예절을 배웠어요.,Ich habe Tischmanieren gelernt.,Umgangsformen,b2_manners_society_1,1,false,etiquette,Noun,I learned table manners.,vocab_b2_0097
 예의,yeui,Höflichkeit,B2,Nomen,예의를 지키는 게 중요해요.,Höflichkeit zu wahren ist wichtig.,Umgangsformen,b2_manners_society_1,2,false,manners,Noun,Keeping good manners is important.,vocab_b2_0098
@@ -725,16 +725,16 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 세상,sesang,Welt (Leben),B2,Nomen,세상에는 좋은 사람이 많아요.,Auf der Welt gibt es viele gute Menschen.,Umgangsformen,b2_manners_society_1,10,true,world,Noun,There are many good people in the world.,vocab_b2_0106
 임산부,imsanbu,Schwangere,B2,Nomen,임산부에게 자리를 양보하세요.,Überlassen Sie Schwangeren den Platz.,Umgangsformen,b2_manners_society_1,11,true,pregnant woman,Noun,Give up your seat to pregnant women.,vocab_b2_0107
 무료,muryo,kostenlos,B2,Nomen,입장은 무료예요.,Der Eintritt ist kostenlos.,Umgangsformen,b2_manners_society_1,12,true,free of charge,Noun,Admission is free.,vocab_b2_0108
-경우,gyeongu,Fall,B2,Nomen,비가 올 경우에는 취소돼요.,Im Fall von Regen wird es abgesagt.,Abstrakte Begriffe,b2_abstract_concepts_1,1,false,case,Noun,In case of rain it is canceled.,vocab_b2_0109
-전체,jeonche,Gesamtheit,B2,Nomen,학생 전체가 참여했어요.,Alle Schüler haben teilgenommen.,Abstrakte Begriffe,b2_abstract_concepts_1,2,false,whole,Noun,All the students participated.,vocab_b2_0110
-정도,jeongdo,Ausmaß,B2,Nomen,삼십 분 정도 걸려요.,Es dauert etwa dreißig Minuten.,Abstrakte Begriffe,b2_abstract_concepts_1,3,false,degree,Noun,It takes about thirty minutes.,vocab_b2_0111
-종류,jongnyu,Sorte,B2,Nomen,차 종류가 정말 많네요.,Es gibt wirklich viele Teesorten.,Abstrakte Begriffe,b2_abstract_concepts_1,4,false,kind,Noun,There are so many kinds of tea.,vocab_b2_0112
-느낌,neukkim,Gefühl,B2,Nomen,이 노래는 느낌이 좋아요.,Dieses Lied fühlt sich gut an.,Abstrakte Begriffe,b2_abstract_concepts_1,5,false,feeling,Noun,This song has a good feeling.,vocab_b2_0113
+경우,gyeongu,Fall,B1,Nomen,비가 올 경우에는 취소돼요.,Im Fall von Regen wird es abgesagt.,Abstrakte Begriffe,b1_daily_1,10,false,case,Noun,In case of rain it is canceled.,vocab_b2_0109
+전체,jeonche,Gesamtheit,B1,Nomen,학생 전체가 참여했어요.,Alle Schüler haben teilgenommen.,Abstrakte Begriffe,b1_daily_2,10,false,whole,Noun,All the students participated.,vocab_b2_0110
+정도,jeongdo,Ausmaß,B1,Nomen,삼십 분 정도 걸려요.,Es dauert etwa dreißig Minuten.,Abstrakte Begriffe,b1_daily_2,11,false,degree,Noun,It takes about thirty minutes.,vocab_b2_0111
+종류,jongnyu,Sorte,B1,Nomen,차 종류가 정말 많네요.,Es gibt wirklich viele Teesorten.,Abstrakte Begriffe,b1_daily_2,12,false,kind,Noun,There are so many kinds of tea.,vocab_b2_0112
+느낌,neukkim,Gefühl,B1,Nomen,이 노래는 느낌이 좋아요.,Dieses Lied fühlt sich gut an.,Abstrakte Begriffe,b1_daily_3,10,false,feeling,Noun,This song has a good feeling.,vocab_b2_0113
 핵심,haeksim,Kern,B2,Nomen,문제의 핵심을 말해 주세요.,Nennen Sie bitte den Kern des Problems.,Abstrakte Begriffe,b2_abstract_concepts_1,6,false,core,Noun,Please state the core of the problem.,vocab_b2_0114
 유형,yuhyeong,Typ,B2,Nomen,시험 문제 유형을 분석했어요.,Ich habe die Aufgabentypen der Prüfung analysiert.,Abstrakte Begriffe,b2_abstract_concepts_1,7,false,type,Noun,I analyzed the exam question types.,vocab_b2_0115
-부분,bubun,Teil,B2,Nomen,이 부분을 다시 설명해 주세요.,Erklären Sie diesen Teil bitte noch einmal.,Abstrakte Begriffe,b2_abstract_concepts_1,8,false,part,Noun,Please explain this part again.,vocab_b2_0116
-내용,naeyong,Inhalt,B2,Nomen,책 내용이 어려워요.,Der Inhalt des Buches ist schwierig.,Abstrakte Begriffe,b2_abstract_concepts_1,9,false,content,Noun,The content of the book is difficult.,vocab_b2_0117
-주제,juje,Thema,B2,Nomen,오늘 회의 주제가 뭐예요?,Was ist das Thema der heutigen Sitzung?,Abstrakte Begriffe,b2_abstract_concepts_1,10,true,topic,Noun,What is the topic of today's meeting?,vocab_b2_0118
+부분,bubun,Teil,B1,Nomen,이 부분을 다시 설명해 주세요.,Erklären Sie diesen Teil bitte noch einmal.,Abstrakte Begriffe,b1_daily_1,12,false,part,Noun,Please explain this part again.,vocab_b2_0116
+내용,naeyong,Inhalt,B1,Nomen,책 내용이 어려워요.,Der Inhalt des Buches ist schwierig.,Abstrakte Begriffe,b1_daily_1,11,false,content,Noun,The content of the book is difficult.,vocab_b2_0117
+주제,juje,Thema,B1,Nomen,오늘 회의 주제가 뭐예요?,Was ist das Thema der heutigen Sitzung?,Abstrakte Begriffe,b1_daily_3,11,false,topic,Noun,What is the topic of today's meeting?,vocab_b2_0118
 자료,jaryo,Material,B2,Nomen,발표 자료를 준비했어요.,Ich habe die Präsentationsunterlagen vorbereitet.,Abstrakte Begriffe,b2_abstract_concepts_1,11,true,material,Noun,I prepared the presentation materials.,vocab_b2_0119
 비결,bigyeol,Geheimtipp,B2,Nomen,건강의 비결이 뭐예요?,Was ist das Geheimnis Ihrer Gesundheit?,Abstrakte Begriffe,b2_abstract_concepts_1,12,true,secret,Noun,What is the secret of your health?,vocab_b2_0120
 문법,munbeop,Grammatik,B2,Nomen,한국어 문법은 재미있어요.,Koreanische Grammatik macht Spaß.,Sprache & Grammatik,b2_language_grammar_1,1,false,grammar,Noun,Korean grammar is fun.,vocab_b2_0121
@@ -761,8 +761,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 담다,damda,hineintun,B2,Verb,과일을 바구니에 담았어요.,Ich habe das Obst in den Korb getan.,Haushalt & Praktisches,b2_household_practical_1,10,true,to put in,Verb,I put the fruit in the basket.,vocab_b2_0142
 젖다,jeotda,nass werden,B2,Verb,비에 옷이 다 젖었어요.,Meine Kleidung ist im Regen ganz nass geworden.,Haushalt & Praktisches,b2_household_practical_1,11,true,to get wet,Verb,My clothes got all wet in the rain.,vocab_b2_0143
 말리다,mallida,trocknen,B2,Verb,머리를 말리고 나갈게요.,Ich trockne mir die Haare und gehe dann los.,Haushalt & Praktisches,b2_household_practical_1,12,true,to dry,Verb,I will dry my hair and then leave.,vocab_b2_0144
-부부,bubu,Ehepaar,B2,Nomen,그 부부는 정말 행복해 보여요.,Das Ehepaar sieht wirklich glücklich aus.,Menschen & Beziehungen,b2_relationships_people_1,1,false,married couple,Noun,That couple looks really happy.,vocab_b2_0145
-친척,chincheok,Verwandte,B2,Nomen,명절에 친척들이 모여요.,An Feiertagen kommen die Verwandten zusammen.,Menschen & Beziehungen,b2_relationships_people_1,2,false,relatives,Noun,Relatives gather on holidays.,vocab_b2_0146
+부부,bubu,Ehepaar,B1,Nomen,그 부부는 정말 행복해 보여요.,Das Ehepaar sieht wirklich glücklich aus.,Menschen & Beziehungen,b1_emotions_relations_1,9,false,married couple,Noun,That couple looks really happy.,vocab_b2_0145
+친척,chincheok,Verwandte,B1,Nomen,명절에 친척들이 모여요.,An Feiertagen kommen die Verwandten zusammen.,Menschen & Beziehungen,b1_emotions_relations_1,10,false,relatives,Noun,Relatives gather on holidays.,vocab_b2_0146
 애인,aein,Partner,B2,Nomen,애인과 영화를 봤어요.,Ich habe mit meinem Partner einen Film gesehen.,Menschen & Beziehungen,b2_relationships_people_1,3,false,romantic partner,Noun,I watched a movie with my partner.,vocab_b2_0147
 동창,dongchang,Schulfreund,B2,Nomen,어제 고등학교 동창을 만났어요.,Gestern habe ich einen alten Schulfreund getroffen.,Menschen & Beziehungen,b2_relationships_people_1,4,false,schoolmate,Noun,I met a high school classmate yesterday.,vocab_b2_0148
 자식,jasik,Kind (aus Elternsicht),B2,Nomen,부모는 자식을 걱정해요.,Eltern sorgen sich um ihre Kinder.,Menschen & Beziehungen,b2_relationships_people_1,5,false,one's children,Noun,Parents worry about their children.,vocab_b2_0149
