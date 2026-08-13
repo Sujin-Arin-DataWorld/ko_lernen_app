@@ -7,6 +7,7 @@ import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// Partikel-Pop Quest: Partikel per Drag & Drop in den Slot ziehen.
@@ -336,66 +337,69 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Hinweis
-            Text(
-              t.particlePopHint,
-              style: TextStyle(color: s.textMuted, fontSize: 13),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-
-            // Satz mit Slot
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: s.surfaceAlt, width: 1.5),
+    return QuestLayout(
+      action: _buildExplanation(langCode, t, s),
+      content: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Hinweis
+              Text(
+                t.particlePopHint,
+                style: TextStyle(color: s.textMuted, fontSize: 13),
+                textAlign: TextAlign.center,
               ),
-              child: _buildSentenceRow(langCode, s),
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 20),
 
-            // TTS-Button für vollständige Satz
-            Center(
-              child: OutlinedButton.icon(
-                onPressed: () => TtsService.speak(_fullSentence),
-                icon: const Icon(Icons.volume_up_rounded, size: 18),
-                label: const Text('▶'),
+              // Satz mit Slot
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 20,
+                ),
+                decoration: BoxDecoration(
+                  color: s.surface,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: s.surfaceAlt, width: 1.5),
+                ),
+                child: _buildSentenceRow(langCode, s),
               ),
-            ),
-            const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
-            // Partikel-Chips
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              alignment: WrapAlignment.center,
-              children: _options.asMap().entries.map((entry) {
-                return _buildParticleChip(entry.key, entry.value, s);
-              }).toList(),
-            ),
+              // TTS-Button für vollständige Satz
+              Center(
+                child: OutlinedButton.icon(
+                  onPressed: () => TtsService.speak(_fullSentence),
+                  icon: const Icon(Icons.volume_up_rounded, size: 18),
+                  label: const Text('▶'),
+                ),
+              ),
+              const SizedBox(height: 24),
 
-            // Explanation Card
-            _buildExplanation(langCode, t, s),
-          ],
-        ),
-        Positioned(
-          top: -12,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 56,
-            kind: MascotKind.magpie,
+              // Partikel-Chips
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                alignment: WrapAlignment.center,
+                children: _options.asMap().entries.map((entry) {
+                  return _buildParticleChip(entry.key, entry.value, s);
+                }).toList(),
+              ),
+            ],
           ),
-        ),
-      ],
+          Positioned(
+            top: -12,
+            right: 12,
+            child: MascotPartner(
+              celebrating: _celebrated,
+              size: 56,
+              kind: MascotKind.magpie,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

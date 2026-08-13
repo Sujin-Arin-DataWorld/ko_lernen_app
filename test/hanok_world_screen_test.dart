@@ -169,14 +169,14 @@ void main() {
     await tester.pump();
     await tester.pump();
 
-    final progressLabel = find.text('1 of 2 scenes secure');
+    final progressLabel = find.text('1 of 2 scenarios mastered');
     await tester.scrollUntilVisible(
       progressLabel,
       240,
       scrollable: find.byType(Scrollable).first,
     );
 
-    expect(find.text('Next: the next beam'), findsOneWidget);
+    expect(find.text('Next building step'), findsOneWidget);
     expect(progressLabel, findsOneWidget);
     expect(
       tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
@@ -214,16 +214,16 @@ void main() {
     );
 
     expect(find.text('Dein Hof · A1'), findsOneWidget);
-    expect(find.text('Ein Dach beginnt mit einer Stimme.'), findsOneWidget);
+    expect(find.text('Deine erste Szene ist der Anfang deines Hanok.'), findsOneWidget);
     expect(
       find.text('Dein Fundament steht: jemanden begrüßen.'),
       findsOneWidget,
     );
     final map = find.byType(PersonalHanokMap);
     expect(tester.getSize(map).height, greaterThanOrEqualTo(278));
-    final progress = find.text('1 von 2 Szenen sicher');
+    final progress = find.text('1 von 2 Szenarien sicher gemeistert');
     await tester.scrollUntilVisible(progress, 220);
-    expect(find.text('Als Nächstes: der nächste Balken'), findsOneWidget);
+    expect(find.text('Nächster Bauabschnitt'), findsOneWidget);
     expect(progress, findsOneWidget);
     expect(find.text('Nächste Szene ansehen'), findsOneWidget);
     expect(find.text('Mein Haus erkunden'), findsOneWidget);

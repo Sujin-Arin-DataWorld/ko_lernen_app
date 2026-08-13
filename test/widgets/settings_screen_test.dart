@@ -111,7 +111,10 @@ void main() {
     );
     await tester.pump();
 
-    final version = find.text('Version —');
+    // Der Platzhalter ist bewusst ein einfacher Bindestrich: sichtbare
+    // deutsche und englische Texte tragen keinen Geviertstrich mehr
+    // (Jin 2026-08-13), und `arb_l10n_guard_test.dart` hält das fest.
+    final version = find.text('Version -');
     await _ensureSettingsActionVisible(tester, version);
 
     expect(version, findsOneWidget);

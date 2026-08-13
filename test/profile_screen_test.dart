@@ -90,11 +90,11 @@ void main() {
 
     await tester.tap(find.text('Mein Startpunkt'));
     await tester.pump();
-    expect(find.text('A2 — Grundkenntnisse'), findsOneWidget);
+    expect(find.text('A2 · Grundkenntnisse'), findsOneWidget);
     await tester.tap(
       find.descendant(
         of: find.byType(SimpleDialog),
-        matching: find.text('A1 — Anfänger'),
+        matching: find.text('A1 · Anfänger'),
       ),
     );
     await tester.pump();
@@ -152,7 +152,7 @@ void main() {
       );
       await tester.pump();
 
-      await _selectProfileLevel(tester, 'A2 — Grundkenntnisse');
+      await _selectProfileLevel(tester, 'A2 · Grundkenntnisse');
 
       expect(initializeCalls, 0);
       expect(
@@ -222,7 +222,7 @@ void main() {
       );
       await tester.pump();
 
-      await _chooseProfileLevel(tester, 'A2 — Grundkenntnisse');
+      await _chooseProfileLevel(tester, 'A2 · Grundkenntnisse');
       await tester.pump();
 
       expect(Storage.userLevelCode, 'a2');
@@ -267,8 +267,8 @@ void main() {
       await tester.pumpWidget(_wrap(const ProfileScreen(enableCoach: false)));
       await tester.pump();
 
-      expect(find.text('A2 — Grundkenntnisse'), findsWidgets);
-      expect(find.text('A1 — Anfänger'), findsNothing);
+      expect(find.text('A2 · Grundkenntnisse'), findsWidgets);
+      expect(find.text('A1 · Anfänger'), findsNothing);
       expect(<String, Object?>{
         for (final key in preferences.getKeys()) key: preferences.get(key),
       }, before);
@@ -303,12 +303,12 @@ void main() {
       );
       await tester.pump();
 
-      await _chooseProfileLevel(tester, 'A2 — Grundkenntnisse');
+      await _chooseProfileLevel(tester, 'A2 · Grundkenntnisse');
       await tester.pump();
 
       expect(attemptedLevel, 'a2');
       expect(Storage.userLevelCode, 'a1');
-      expect(find.text('A1 — Anfänger'), findsOneWidget);
+      expect(find.text('A1 · Anfänger'), findsOneWidget);
       expect(
         find.text(
           'Der Startpunkt konnte nicht geändert werden. Versuche es erneut.',
@@ -366,7 +366,7 @@ void main() {
       await tester.pump();
 
       expect(find.text('Reise nach Korea'), findsWidgets);
-      expect(find.text('B1 — Mittelstufe'), findsWidgets);
+      expect(find.text('B1 · Mittelstufe'), findsWidgets);
       expect(find.text('Joy'), findsOneWidget);
       _tile(tester, 'profile-learning-goal').onTap!();
       _tile(tester, 'profile-learning-start-point').onTap!();

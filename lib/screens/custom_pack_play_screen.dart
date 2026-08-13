@@ -459,7 +459,7 @@ class _Back extends StatelessWidget {
                         child: Text(
                           word.translationDe.isNotEmpty
                               ? word.translationDe
-                              : (word.posDe.isNotEmpty ? word.posDe : '—'),
+                              : (word.posDe.isNotEmpty ? word.posDe : '-'),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: soriFillSize(h, 0.11, 26, 48),

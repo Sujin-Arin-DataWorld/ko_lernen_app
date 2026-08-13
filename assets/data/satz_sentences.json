@@ -1419,8 +1419,8 @@
       "id": "satz_a2_0020",
       "level": "a2",
       "targetKo": "답답해서 못 견디겠어요.",
-      "promptDe": "Es ist so beklemmend — ich halte es kaum aus.",
-      "promptEn": "It's so frustrating — I can hardly stand it.",
+      "promptDe": "Es ist so beklemmend, ich halte es kaum aus.",
+      "promptEn": "It's so frustrating. I can hardly stand it.",
       "distractors": [
         "청소해요",
         "또"

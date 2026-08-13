@@ -7,6 +7,7 @@ import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// 받침 드롭 Quest: 빠진 받침을 4개 보기 중 선택.
@@ -417,85 +418,88 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // TTS 재생 버튼
-            Center(
-              child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      HapticFeedback.lightImpact();
-                      TtsService.speak(_audioKo);
-                    },
-                    child: Container(
-                      width: 84,
-                      height: 84,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: SoriColors.info,
-                        boxShadow: [
-                          BoxShadow(
-                            color: SoriColors.info.withAlpha(80),
-                            blurRadius: 16,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.volume_up_rounded,
-                        color: Colors.white,
-                        size: 36,
+    return QuestLayout(
+      action: _buildExplanation(langCode, t, s),
+      content: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // TTS 재생 버튼
+              Center(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        HapticFeedback.lightImpact();
+                        TtsService.speak(_audioKo);
+                      },
+                      child: Container(
+                        width: 84,
+                        height: 84,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: SoriColors.info,
+                          boxShadow: [
+                            BoxShadow(
+                              color: SoriColors.info.withAlpha(80),
+                              blurRadius: 16,
+                              spreadRadius: 2,
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.volume_up_rounded,
+                          color: Colors.white,
+                          size: 36,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    _targetWord,
-                    style: TextStyle(
-                      color: s.textMuted,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
+                    const SizedBox(height: 8),
+                    Text(
+                      _targetWord,
+                      style: TextStyle(
+                        color: s.textMuted,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 28),
+              const SizedBox(height: 28),
 
-            // 음절 표시
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: s.surfaceAlt, width: 1.5),
+              // 음절 표시
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 20,
+                ),
+                decoration: BoxDecoration(
+                  color: s.surface,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: s.surfaceAlt, width: 1.5),
+                ),
+                child: _buildSyllableRow(s),
               ),
-              child: _buildSyllableRow(s),
-            ),
-            const SizedBox(height: 28),
+              const SizedBox(height: 28),
 
-            // 받침 chip 4개
-            _buildChips(s),
-
-            // Explanation card
-            _buildExplanation(langCode, t, s),
-          ],
-        ),
-        Positioned(
-          top: -12,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 56,
-            kind: MascotKind.magpie,
+              // 받침 chip 4개
+              _buildChips(s),
+            ],
           ),
-        ),
-      ],
+          Positioned(
+            top: -12,
+            right: 12,
+            child: MascotPartner(
+              celebrating: _celebrated,
+              size: 56,
+              kind: MascotKind.magpie,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

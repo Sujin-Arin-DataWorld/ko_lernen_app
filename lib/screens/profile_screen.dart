@@ -238,10 +238,10 @@ class _ProfileScreenState extends State<ProfileScreen>
   String _levelLabel(AppL10n t) => _levelName(t, _learningStartPoint);
 
   String _levelName(AppL10n t, LearnerLevel level) => switch (level) {
-    LearnerLevel.a1 => '${level.display} — ${t.onboardingLevelA1}',
-    LearnerLevel.a2 => '${level.display} — ${t.onboardingLevelA2}',
-    LearnerLevel.b1 => '${level.display} — ${t.onboardingLevelB1}',
-    LearnerLevel.b2 => '${level.display} — ${t.onboardingLevelB2}',
+    LearnerLevel.a1 => '${level.display} · ${t.onboardingLevelA1}',
+    LearnerLevel.a2 => '${level.display} · ${t.onboardingLevelA2}',
+    LearnerLevel.b1 => '${level.display} · ${t.onboardingLevelB1}',
+    LearnerLevel.b2 => '${level.display} · ${t.onboardingLevelB2}',
   };
 
   Future<void> _changeLevel() async {

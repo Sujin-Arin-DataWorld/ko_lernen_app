@@ -22,8 +22,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "32°C in Gangnam. Du gehst in ein Café. Klimaanlage ✓. Du willst einen 아아 — Iced Americano, Tall. Aber wie sagt man 'for here or to go' auf Koreanisch?",
-    "en": "32°C in Gangnam. You walk into a café. AC ✓. You want an 아아 — Iced Americano, Tall. But how do you say 'for here or to go' in Korean?"
+    "de": "32°C in Gangnam. Du gehst in ein Café. Klimaanlage ✓. Du willst einen 아아 (Iced Americano, Tall). Aber wie sagt man 'for here or to go' auf Koreanisch?",
+    "en": "32°C in Gangnam. You walk into a café. AC ✓. You want an 아아 (Iced Americano, Tall). But how do you say 'for here or to go' in Korean?"
    },
    "vocab": [
     {
@@ -33,8 +33,8 @@
      ],
      "note": {
       "ko": "",
-      "de": "Kurzform: 아아. Auch im Winter beliebt — siehe Kulturnotiz '얼죽아'.",
-      "en": "Short form: 아아. Popular even in winter — see culture note '얼죽아'."
+      "de": "Kurzform: 아아. Auch im Winter beliebt. Siehe Kulturnotiz '얼죽아'.",
+      "en": "Short form: 아아. Popular even in winter. See culture note '얼죽아'."
      }
     },
     {
@@ -71,8 +71,8 @@
      "korean": "매장에서",
      "note": {
       "ko": "",
-      "de": "im Laden — also für hier (im Gegensatz zu Take-away).",
-      "en": "in the store — i.e. for here (vs. take-away)."
+      "de": "im Laden, also für hier (im Gegensatz zu Take-away).",
+      "en": "in the store: i.e. for here (vs. take-away)."
      }
     },
     {
@@ -87,8 +87,8 @@
      "korean": "진동벨",
      "note": {
       "ko": "",
-      "de": "Vibrationspager — piept, wenn das Getränk fertig ist.",
-      "en": "vibration pager — buzzes when your drink is ready."
+      "de": "Vibrationspager: piept, wenn das Getränk fertig ist.",
+      "en": "vibration pager: buzzes when your drink is ready."
      }
     },
     {
@@ -109,8 +109,8 @@
     },
     "explanation": {
      "ko": "",
-     "de": "Bestellpartikel — 'in / als / mit' bei der Auswahl. Regel: Vokal-Ende → 로 (라떼로). Konsonant-Ende → 으로 (z. B. 김밥으로). Nach ㄹ als Endkonsonant: nur 로 (톨로, nicht 톨으로).",
-     "en": "Ordering particle — 'as / by / with' for selection. Rule: ends in vowel → 로 (라떼로). Ends in consonant → 으로. After ㄹ as final consonant: just 로 (톨로, not 톨으로)."
+     "de": "Bestellpartikel: 'in / als / mit' bei der Auswahl. Regel: Vokal-Ende → 로 (라떼로). Konsonant-Ende → 으로 (z. B. 김밥으로). Nach ㄹ als Endkonsonant: nur 로 (톨로, nicht 톨으로).",
+     "en": "Ordering particle: 'as / by / with' for selection. Rule: ends in vowel → 로 (라떼로). Ends in consonant → 으로. After ㄹ as final consonant: just 로 (톨로, not 톨으로)."
     }
    },
    "dialog": [
@@ -236,8 +236,8 @@
      "conceptIds": ["concept_action_formal","concept_action_polite"],
      "type": "uebersetzen",
      "data": {
-      "promptDe": "Dieselbe Absicht im Service: zuerst formell, dann höflich-alltäglich — „Ich helfe Ihnen bei der Bestellung.“",
-      "promptEn": "Same service intent: first formal, then everyday polite — “I will help you with your order.”",
+      "promptDe": "Dieselbe Absicht im Service: zuerst formell, dann höflich-alltäglich. „Ich helfe Ihnen bei der Bestellung.“",
+      "promptEn": "Same service intent: first formal, then everyday polite. “I will help you with your order.”",
       "options": [
        {"ko": "주문 도와드리겠습니다. / 주문 도와드릴게요."},
        {"ko": "주문 도와드릴게요. / 주문 도와드리겠습니다."},
@@ -281,16 +281,16 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du bist gerade in Incheon gelandet. Erste Reise nach Korea. Der Beamte am Schalter blickt auf — was sagst du?",
-    "en": "You just landed at Incheon. First trip to Korea. The officer at the desk looks up — what do you say?"
+    "de": "Du bist gerade in Incheon gelandet. Erste Reise nach Korea. Der Beamte am Schalter blickt auf. Was sagst du?",
+    "en": "You just landed at Incheon. First trip to Korea. The officer at the desk looks up. What do you say?"
    },
    "vocab": [
     {
      "korean": "여권",
      "note": {
       "ko": "",
-      "de": "Reisepass. Immer griffbereit haben — wird oft kontrolliert.",
-      "en": "Passport. Keep it handy — frequently checked."
+      "de": "Reisepass. Immer griffbereit haben: wird oft kontrolliert.",
+      "en": "Passport. Keep it handy: frequently checked."
      }
     },
     {
@@ -486,8 +486,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Incheon hat separate Linien für Ausländer (foreigners). Beamte sprechen oft Englisch, aber kurze koreanische Antworten zaubern ein Lächeln. Kurz und höflich = perfekt. Du brauchst keine langen Sätze — '관광이에요. 일주일이요' reicht.",
-     "en": "Incheon has separate lines for foreigners. Officers often speak English, but short Korean answers earn smiles. Brief and polite = perfect. No long sentences needed — '관광이에요. 일주일이요' is enough."
+     "de": "Incheon hat separate Linien für Ausländer (foreigners). Beamte sprechen oft Englisch, aber kurze koreanische Antworten zaubern ein Lächeln. Kurz und höflich = perfekt. Du brauchst keine langen Sätze. '관광이에요. 일주일이요' reicht.",
+     "en": "Incheon has separate lines for foreigners. Officers often speak English, but short Korean answers earn smiles. Brief and polite = perfect. No long sentences needed. '관광이에요. 일주일이요' is enough."
     }
    }
   },
@@ -511,16 +511,16 @@
    },
    "intro": {
     "ko": "",
-    "de": "Erster Arbeitstag in Seoul. Du triffst einen neuen Kollegen, Minsu. Eine kurze Vorstellung steht an — auf Koreanisch.",
-    "en": "First day at work in Seoul. You meet a new coworker, Minsu. A short intro coming up — in Korean."
+    "de": "Erster Arbeitstag in Seoul. Du triffst einen neuen Kollegen, Minsu. Eine kurze Vorstellung steht an, auf Koreanisch.",
+    "en": "First day at work in Seoul. You meet a new coworker, Minsu. A short intro coming up, in Korean."
    },
    "vocab": [
     {
      "korean": "처음 뵙겠습니다",
      "note": {
       "ko": "",
-      "de": "Sehr formelle Erstbegrüßung — wörtlich 'ich sehe Sie zum ersten Mal'. Bei Vorstellungen Pflicht.",
-      "en": "Very formal first greeting — literally 'I see you for the first time'. Essential when introducing yourself."
+      "de": "Sehr formelle Erstbegrüßung: wörtlich 'ich sehe Sie zum ersten Mal'. Bei Vorstellungen Pflicht.",
+      "en": "Very formal first greeting: literally 'I see you for the first time'. Essential when introducing yourself."
      }
     },
     {
@@ -559,8 +559,8 @@
      "korean": "잘 부탁드립니다",
      "note": {
       "ko": "",
-      "de": "Wörtlich 'bitte um Ihr Wohlwollen' — kein deutsches Äquivalent. Bei Vorstellungen, neuen Beziehungen, Bitten. Siehe Kulturnotiz.",
-      "en": "Literally 'please treat me kindly' — no English equivalent. Used in intros, new relationships, requests. See culture note."
+      "de": "Wörtlich 'bitte um Ihr Wohlwollen', kein deutsches Äquivalent. Bei Vorstellungen, neuen Beziehungen, Bitten. Siehe Kulturnotiz.",
+      "en": "Literally 'please treat me kindly', no English equivalent. Used in intros, new relationships, requests. See culture note."
      }
     }
    ],
@@ -690,8 +690,8 @@
      "conceptIds": ["concept_a1_register_switch","concept_action_formal","concept_action_polite","concept_action_casual"],
      "type": "uebersetzen",
      "data": {
-      "promptDe": "Dieselbe Absicht in drei Registern: formell, höflich-alltäglich und zu einem engen Freund — „Ich schicke die Kontaktdaten.“",
-      "promptEn": "The same intent in three registers: formal, everyday polite, and to a close friend — “I will send the contact details.”",
+      "promptDe": "Dieselbe Absicht in drei Registern: formell, höflich-alltäglich und zu einem engen Freund. „Ich schicke die Kontaktdaten.“",
+      "promptEn": "The same intent in three registers: formal, everyday polite, and to a close friend. “I will send the contact details.”",
       "options": [
        {"ko": "연락처를 보내겠습니다. / 연락처를 보낼게요. / 연락처 보낼게."},
        {"ko": "연락처를 보낼게요. / 연락처를 보내겠습니다. / 연락처 보낼게."},
@@ -755,8 +755,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Wörtlich 'bitte behandelt mich gut' — kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben — aber lass es NICHT weg. Ohne diese Phrase fehlt etwas.",
-     "en": "Literally 'please treat me well' — no English equivalent. Said at intros, new jobs, requests, even in emails sometimes. Reflects Korean relational culture: 'We're connected now, let's be good to each other.' Might feel excessive — but don't skip it. Without it, something feels missing."
+     "de": "Wörtlich 'bitte behandelt mich gut', kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben, aber lass es NICHT weg. Ohne diese Phrase fehlt etwas.",
+     "en": "Literally 'please treat me well', no English equivalent. Said at intros, new jobs, requests, even in emails sometimes. Reflects Korean relational culture: 'We're connected now, let's be good to each other.' Might feel excessive, but don't skip it. Without it, something feels missing."
     }
    }
   },
@@ -780,24 +780,24 @@
    },
    "intro": {
     "ko": "",
-    "de": "Dein Partner hatte einen miesen Tag. 'Heute war so hart...' — wie tröstest du auf Koreanisch? Tipp: Koreanisch tröstet anders als Deutsch.",
-    "en": "Your partner had a rough day. 'Today was so hard...' — how do you comfort in Korean? Hint: Korean comforting is different from English."
+    "de": "Dein Partner hatte einen miesen Tag. 'Heute war so hart...' Wie tröstest du auf Koreanisch? Tipp: Koreanisch tröstet anders als Deutsch.",
+    "en": "Your partner had a rough day. 'Today was so hard...' How do you comfort in Korean? Hint: Korean comforting is different from English."
    },
    "vocab": [
     {
      "korean": "힘들었지",
      "note": {
       "ko": "",
-      "de": "Es war hart für dich, oder? Anerkennung des Leidens. Nicht 'es wird besser' — sondern 'ich sehe, dass es schwer war'.",
-      "en": "It was hard for you, wasn't it? Acknowledgment of suffering. Not 'it'll get better' — but 'I see it was tough'."
+      "de": "Es war hart für dich, oder? Anerkennung des Leidens. Nicht 'es wird besser', sondern 'ich sehe, dass es schwer war'.",
+      "en": "It was hard for you, wasn't it? Acknowledgment of suffering. Not 'it'll get better', but 'I see it was tough'."
      }
     },
     {
      "korean": "괜찮아",
      "note": {
       "ko": "",
-      "de": "Es ist ok. Vielseitig — Trost, Ablehnung, 'kein Problem'.",
-      "en": "It's ok. Versatile — comfort, refusal, 'no worries'."
+      "de": "Es ist ok. Vielseitig: Trost, Ablehnung, 'kein Problem'.",
+      "en": "It's ok. Versatile: comfort, refusal, 'no worries'."
      }
     },
     {
@@ -995,16 +995,16 @@
    },
    "intro": {
     "ko": "",
-    "de": "Dein Partner ist sauer. Du hast gestern nicht geantwortet. Wie navigierst du diese koreanische Streitkultur — anerkennen, entschuldigen, konkret werden?",
-    "en": "Your partner is upset. You didn't reply yesterday. How do you navigate Korean argument culture — acknowledge, apologize, get specific?"
+    "de": "Dein Partner ist sauer. Du hast gestern nicht geantwortet. Wie navigierst du diese koreanische Streitkultur. Anerkennen, entschuldigen, konkret werden?",
+    "en": "Your partner is upset. You didn't reply yesterday. How do you navigate Korean argument culture. Acknowledge, apologize, get specific?"
    },
    "vocab": [
     {
      "korean": "서운해",
      "note": {
       "ko": "",
-      "de": "Verletzt / enttäuscht — kein 1:1 deutsches Wort. Schwächer als 화나 (sauer), persönlicher als 슬퍼 (traurig). Sehr koreanisch.",
-      "en": "Hurt / disappointed — no 1:1 English word. Softer than 화나 (angry), more personal than 슬퍼 (sad). Very Korean."
+      "de": "Verletzt / enttäuscht: kein 1:1 deutsches Wort. Schwächer als 화나 (sauer), persönlicher als 슬퍼 (traurig). Sehr koreanisch.",
+      "en": "Hurt / disappointed: no 1:1 English word. Softer than 화나 (angry), more personal than 슬퍼 (sad). Very Korean."
      }
     },
     {
@@ -1019,8 +1019,8 @@
      "korean": "내가 잘못했어",
      "note": {
       "ko": "",
-      "de": "Ich habe einen Fehler gemacht / Mein Fehler. Konkrete Übernahme der Schuld — wichtiger als bloßes 미안해.",
-      "en": "I made a mistake / My fault. Concrete ownership — more meaningful than just 미안해."
+      "de": "Ich habe einen Fehler gemacht / Mein Fehler. Konkrete Übernahme der Schuld. Wichtiger als bloßes 미안해.",
+      "en": "I made a mistake / My fault. Concrete ownership. More meaningful than just 미안해."
      }
     },
     {
@@ -1215,8 +1215,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du brauchst ein Taxi zum Hotel. Über KakaoT App bestellt — der Fahrer kommt gleich. Er fragt nach dem Ziel. Wie antwortest du auf Koreanisch?",
-    "en": "You need a taxi to the hotel. Ordered via KakaoT app — driver arriving soon. He asks for your destination. How do you reply in Korean?"
+    "de": "Du brauchst ein Taxi zum Hotel. Über KakaoT App bestellt. Der Fahrer kommt gleich. Er fragt nach dem Ziel. Wie antwortest du auf Koreanisch?",
+    "en": "You need a taxi to the hotel. Ordered via KakaoT app, der Fahrer kommt gleich. He asks for your destination. How do you reply in Korean?"
    },
    "vocab": [
     {
@@ -1266,8 +1266,8 @@
      "korean": "자동 결제",
      "note": {
       "ko": "",
-      "de": "Auto-Zahlung (via App). Du musst NICHT bar bezahlen — die App regelt es.",
-      "en": "Auto-payment (via app). You do NOT pay cash — the app handles it."
+      "de": "Auto-Zahlung (via App). Du musst NICHT bar bezahlen. Die App regelt es.",
+      "en": "Auto-payment (via app). You do NOT pay cash. The app handles it."
      }
     }
    ],
@@ -1280,8 +1280,8 @@
     },
     "explanation": {
      "ko": "",
-     "de": "Endpunkt einer Bewegung — 'bis (zu)'. 강남역까지 = bis Gangnam Station. Auch zeitlich: 5시까지 = bis 5 Uhr. Pendant zu 부터 (ab/von).",
-     "en": "Endpoint of motion — 'up to / until'. 강남역까지 = up to Gangnam Station. Also temporal: 5시까지 = until 5 PM. Pairs with 부터 (from)."
+     "de": "Endpunkt einer Bewegung: 'bis (zu)'. 강남역까지 = bis Gangnam Station. Auch zeitlich: 5시까지 = bis 5 Uhr. Pendant zu 부터 (ab/von).",
+     "en": "Endpoint of motion: 'up to / until'. 강남역까지 = up to Gangnam Station. Also temporal: 5시까지 = until 5 PM. Pairs with 부터 (from)."
     }
    },
    "dialog": [
@@ -1433,8 +1433,8 @@
    "culturalNote": {
     "title": {
      "ko": "카카오 택시 — 결제 안 해도 됨",
-     "de": "KakaoT — Du zahlst NICHT bar",
-     "en": "KakaoT — you don't pay cash"
+     "de": "KakaoT: Du zahlst NICHT bar",
+     "en": "KakaoT: you don't pay cash"
     },
     "body": {
      "ko": "",
@@ -1471,8 +1471,8 @@
      "korean": "떡볶이",
      "note": {
       "ko": "",
-      "de": "Reiskuchen in scharfer Soße — koreanisches Soul Food. In 분식집 allgegenwärtig.",
-      "en": "Rice cakes in spicy sauce — Korean soul food. Everywhere in 분식집."
+      "de": "Reiskuchen in scharfer Soße: koreanisches Soul Food. In 분식집 allgegenwärtig.",
+      "en": "Rice cakes in spicy sauce, Korean soul food. Everywhere in 분식집."
      }
     },
     {
@@ -1511,8 +1511,8 @@
      "korean": "사이다",
      "note": {
       "ko": "",
-      "de": "Klare Limonade (Sprite-ähnlich) — NICHT Cider! 'Cider' auf Koreanisch heißt jede klare Süß-Limo.",
-      "en": "Clear soda (Sprite-like) — NOT cider! 'Cider' in Korean means any clear sweet soda."
+      "de": "Klare Limonade (Sprite-ähnlich): NICHT Cider! 'Cider' auf Koreanisch heißt jede klare Süß-Limo.",
+      "en": "Clear soda (Sprite-like), NOT cider! 'Cider' in Korean means any clear sweet soda."
      }
     }
    ],
@@ -1689,8 +1689,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Koreas Schärfe-Skala ist intensiver. 'Anfänger nicht-scharf' Tteokbokki kann immer noch Schweißausbrüche verursachen. Strategie: '안 맵게' + Verstärker '진짜', '아주' oder '완전'. Manche 분식 ergänzen mit '하얀 떡볶이' (weißer/cremiger Tteokbokki) ohne Gochujang — frag danach falls verfügbar.",
-     "en": "Korea's spice scale runs hotter. 'Beginner not-spicy' tteokbokki can still trigger sweating. Strategy: '안 맵게' + intensifier '진짜', '아주', or '완전'. Some 분식 offer '하얀 떡볶이' (white/creamy tteokbokki) without gochujang — ask if available."
+     "de": "Koreas Schärfe-Skala ist intensiver. 'Anfänger nicht-scharf' Tteokbokki kann immer noch Schweißausbrüche verursachen. Strategie: '안 맵게' + Verstärker '진짜', '아주' oder '완전'. Manche 분식 ergänzen mit '하얀 떡볶이' (weißer/cremiger Tteokbokki) ohne Gochujang. Frag danach falls verfügbar.",
+     "en": "Korea's spice scale runs hotter. 'Beginner not-spicy' tteokbokki can still trigger sweating. Strategy: '안 맵게' + intensifier '진짜', '아주', or '완전'. Some 분식 offer '하얀 떡볶이' (white/creamy tteokbokki) without gochujang. Ask if available."
     }
    }
   },
@@ -1714,8 +1714,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Bukchon Hanok Village wartet. 1호선 → 3호선 mit Umstieg. T-money geladen. Du bist auf der Karte verwirrt — fragst du die nette Frau neben dir auf Koreanisch?",
-    "en": "Bukchon Hanok Village awaits. Line 1 → Line 3 with transfer. T-money loaded. You're confused at the map — should you ask the friendly woman next to you in Korean?"
+    "de": "Bukchon Hanok Village wartet. 1호선 → 3호선 mit Umstieg. T-money geladen. Du bist auf der Karte verwirrt. Fragst du die nette Frau neben dir auf Koreanisch?",
+    "en": "Bukchon Hanok Village awaits. Line 1 → Line 3 with transfer. T-money loaded. You're confused at the map. Should you ask the friendly woman next to you in Korean?"
    },
    "vocab": [
     {
@@ -1776,7 +1776,7 @@
     },
     "explanation": {
      "ko": "",
-     "de": "Bewegung von einem Ort/Linie zu einem anderen. 1호선에서 3호선으로 = von Linie 1 zu Linie 3. 에서 = Ausgangspunkt; (으)로 = Richtung. 호선 endet auf ㄴ → mit Konsonant → 으로. (Aber 종로3가 endet auf Vokal → 종로3가로 wäre korrekt — beachte die Regel.)",
+     "de": "Bewegung von einem Ort/Linie zu einem anderen. 1호선에서 3호선으로 = von Linie 1 zu Linie 3. 에서 = Ausgangspunkt; (으)로 = Richtung. 호선 endet auf ㄴ → mit Konsonant → 으로. (Aber 종로3가 endet auf Vokal → 종로3가로 wäre korrekt. Beachte die Regel.)",
      "en": "Movement from one place/line to another. 1호선에서 3호선으로 = from line 1 to line 3. 에서 = origin; (으)로 = direction. 호선 ends in ㄴ → consonant → 으로."
     }
    },
@@ -1833,8 +1833,8 @@
        "는"
       ],
       "correctIndex": 0,
-      "explanationDe": "에서 markiert den Ort EINER Handlung — hier den Umsteigeort. 'An Jongno 3-ga umsteigen.'",
-      "explanationEn": "에서 marks the location OF an action — here the transfer point. 'Transfer AT Jongno 3-ga.'"
+      "explanationDe": "에서 markiert den Ort EINER Handlung, hier den Umsteigeort. 'An Jongno 3-ga umsteigen.'",
+      "explanationEn": "에서 marks the location OF an action. Here the transfer point. 'Transfer AT Jongno 3-ga.'"
      }
     },
     {
@@ -1918,13 +1918,13 @@
    "culturalNote": {
     "title": {
      "ko": "노약자석은 비어있어도",
-     "de": "Priority-Seats — auch wenn leer",
-     "en": "Priority seats — even if empty"
+     "de": "Priority-Seats: auch wenn leer",
+     "en": "Priority seats: even if empty"
     },
     "body": {
      "ko": "",
-     "de": "Jeder Wagen hat '노약자석' (Sitze für Alte / Schwangere / Behinderte). Auch wenn der Zug leer ist und die Sitze frei sind — Koreaner setzen sich NICHT dort hin. Soziale Regel. Wenn du nicht zur Zielgruppe gehörst, bleib stehen oder nimm reguläre Sitze. Verstoß = peinlich, aber niemand wird dich konfrontieren — sie schauen nur.",
-     "en": "Every car has '노약자석' (seats for elderly / pregnant / disabled). Even if the train is empty and seats are free — Koreans don't sit there. Social rule. If you're not in those groups, stand or take regular seats. Violation = embarrassing, but nobody will confront — they'll just stare."
+     "de": "Jeder Wagen hat '노약자석' (Sitze für Alte / Schwangere / Behinderte). Auch wenn der Zug leer ist und die Sitze frei sind. Koreaner setzen sich NICHT dort hin. Soziale Regel. Wenn du nicht zur Zielgruppe gehörst, bleib stehen oder nimm reguläre Sitze. Verstoß = peinlich, aber niemand wird dich konfrontieren. Sie schauen nur.",
+     "en": "Every car has '노약자석' (seats for elderly / pregnant / disabled). Even if the train is empty and seats are free. Koreans don't sit there. Social rule. If you're not in those groups, stand or take regular seats. Violation = embarrassing, but nobody will confront. They'll just stare."
     }
    }
   },
@@ -1943,21 +1943,21 @@
    "xpReward": 160,
    "title": {
     "ko": "회식 — 1차에서 2차로",
-    "de": "Hoeshik — von 1차 zu 2차",
-    "en": "Hoeshik — 1st round to 2nd"
+    "de": "Hoeshik: von 1차 zu 2차",
+    "en": "Hoeshik: 1st round to 2nd"
    },
    "intro": {
     "ko": "",
-    "de": "Erstes 회식 in deinem koreanischen Job. 1차 (Essen + Bier) ist durch, jetzt zieht das Team weiter zu 2차 (Karaoke). Du bist müde — wie lehnst du höflich ab, ohne die Beziehung zu beschädigen?",
-    "en": "First 회식 (work dinner) at your Korean job. 1차 (food + beer) done, team heading to 2차 (karaoke). You're tired — how do you politely decline without damaging the relationship?"
+    "de": "Erstes 회식 in deinem koreanischen Job. 1차 (Essen + Bier) ist durch, jetzt zieht das Team weiter zu 2차 (Karaoke). Du bist müde. Wie lehnst du höflich ab, ohne die Beziehung zu beschädigen?",
+    "en": "First 회식 (work dinner) at your Korean job. 1차 (food + beer) done, team heading to 2차 (karaoke). You're tired. How do you politely decline without damaging the relationship?"
    },
    "vocab": [
     {
      "korean": "회식",
      "note": {
       "ko": "",
-      "de": "Firmenessen mit Trinken, teils verpflichtend. Wichtiger Teil koreanischer Arbeitskultur — Beziehungen über Soju, nicht im Büro.",
-      "en": "Work dinner with drinking, partly mandatory. Key part of Korean work culture — relationships over soju, not in the office."
+      "de": "Firmenessen mit Trinken, teils verpflichtend. Wichtiger Teil koreanischer Arbeitskultur. Beziehungen über Soju, nicht im Büro.",
+      "en": "Work dinner with drinking, partly mandatory. Key part of Korean work culture. Relationships over soju, not in the office."
      }
     },
     {
@@ -1967,8 +1967,8 @@
      ],
      "note": {
       "ko": "",
-      "de": "Erste Runde — Hauptessen + erste Drinks. Pflicht-Teilnahme oft erwartet.",
-      "en": "First round — main meal + first drinks. Attendance often expected."
+      "de": "Erste Runde: Hauptessen + erste Drinks. Pflicht-Teilnahme oft erwartet.",
+      "en": "First round: main meal + first drinks. Attendance often expected."
      }
     },
     {
@@ -1978,8 +1978,8 @@
      ],
      "note": {
       "ko": "",
-      "de": "Zweite Runde — Bar, Karaoke (노래방), oder weiter trinken. Hier ist Abspringen OK — wenn man's richtig macht.",
-      "en": "Second round — bar, karaoke (노래방), or more drinking. Bailing here is OK — if done right."
+      "de": "Zweite Runde: Bar, Karaoke (노래방), oder weiter trinken. Hier ist Abspringen OK. Wenn man's richtig macht.",
+      "en": "Second round: bar, karaoke (노래방), or more drinking. Bailing here is OK. If done right."
      }
     },
     {
@@ -2010,8 +2010,8 @@
      "korean": "조심히 들어가요",
      "note": {
       "ko": "",
-      "de": "Komm gut heim — Standard-Abschied nach Abendessen / spät am Abend.",
-      "en": "Get home safely — standard farewell after evening meals / late at night."
+      "de": "Komm gut heim: Standard-Abschied nach Abendessen / spät am Abend.",
+      "en": "Get home safely: standard farewell after evening meals / late at night."
      }
     }
    ],
@@ -2024,15 +2024,15 @@
     },
     "explanation": {
      "ko": "",
-     "de": "Bekundet eigene Absicht oder ein Versprechen — auf Höflichkeits-Ebene. 다음에 갈게요 = 'Beim nächsten Mal gehe ich (versprochen)'. Vokal-Ende → ㄹ게요 (가다 → 갈게요). Konsonant-Ende → 을게요 (먹다 → 먹을게요).",
-     "en": "Expresses one's intention or promise — at polite level. 다음에 갈게요 = 'next time I'll go (promise)'. Vowel-ending → ㄹ게요 (가다 → 갈게요). Consonant-ending → 을게요 (먹다 → 먹을게요)."
+     "de": "Bekundet eigene Absicht oder ein Versprechen, auf Höflichkeits-Ebene. 다음에 갈게요 = 'Beim nächsten Mal gehe ich (versprochen)'. Vokal-Ende → ㄹ게요 (가다 → 갈게요). Konsonant-Ende → 을게요 (먹다 → 먹을게요).",
+     "en": "Expresses one's intention or promise, at polite level. 다음에 갈게요 = 'next time I'll go (promise)'. Vowel-ending → ㄹ게요 (가다 → 갈게요). Consonant-ending → 을게요 (먹다 → 먹을게요)."
     }
    },
    "dialog": [
     {
      "speaker": "minsu",
      "ko": "1차 끝났는데, 2차 가실 거죠?",
-     "de": "Die erste Runde ist vorbei — Sie kommen doch zur zweiten, oder?",
+     "de": "Die erste Runde ist vorbei. Sie kommen doch zur zweiten, oder?",
      "en": "First round's done, you'll join the second, right?"
     },
     {
@@ -2163,13 +2163,13 @@
    "culturalNote": {
     "title": {
      "ko": "회식 거절 = 3-Schritt 패턴",
-     "de": "Hoeshik ablehnen — 3-Schritt-Formel",
-     "en": "Declining hoeshik — 3-step formula"
+     "de": "Hoeshik ablehnen: 3-Schritt-Formel",
+     "en": "Declining hoeshik: 3-step formula"
     },
     "body": {
      "ko": "",
-     "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist — die Form zählt mehr als die Wahrheit. Direktheit verletzt das Gesicht des Einladenden.",
-     "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Being too direct makes the inviter lose face."
+     "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist. Die Form zählt mehr als die Wahrheit. Direktheit verletzt das Gesicht des Einladenden.",
+     "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction. Form matters more than truth. Being too direct makes the inviter lose face."
     }
    }
   },
@@ -2193,8 +2193,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Müde nach langem Flug. Du gehst zur Rezeption deines Seoul-Hotels. Pass und Buchung bereit — schaffst du den Check-in auf Koreanisch?",
-    "en": "Tired from a long flight. You walk up to the front desk of your Seoul hotel. Passport and booking ready — can you handle check-in in Korean?"
+    "de": "Müde nach langem Flug. Du gehst zur Rezeption deines Seoul-Hotels. Pass und Buchung bereit. Schaffst du den Check-in auf Koreanisch?",
+    "en": "Tired from a long flight. You walk up to the front desk of your Seoul hotel. Passport and booking ready. Can you handle check-in in Korean?"
    },
    "vocab": [
     {
@@ -2379,8 +2379,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Trinkgeld ist in Korea NICHT üblich — auch nicht im Hotel. Bell-Boy: kein Tipp nötig (versuchen erlaubt, wird oft höflich abgelehnt). Reinigung: kein Tipp im Zimmer lassen. Concierge: nur bei außergewöhnlichem Service ein Geschenk (z.B. Schokolade). Das System läuft auf Servicegehalt, nicht Trinkgeld.",
-     "en": "Tipping is NOT customary in Korea — including hotels. Bellhop: no tip needed (try if you want, often politely refused). Cleaning: don't leave a tip in the room. Concierge: a small gift (e.g., chocolate) is fine for truly exceptional service. The system runs on wages, not tips."
+     "de": "Trinkgeld ist in Korea NICHT üblich. Auch nicht im Hotel. Bell-Boy: kein Tipp nötig (versuchen erlaubt, wird oft höflich abgelehnt). Reinigung: kein Tipp im Zimmer lassen. Concierge: nur bei außergewöhnlichem Service ein Geschenk (z.B. Schokolade). Das System läuft auf Servicegehalt, nicht Trinkgeld.",
+     "en": "Tipping is NOT customary in Korea, including hotels. Bellhop: no tip needed (try if you want, often politely refused). Cleaning: don't leave a tip in the room. Concierge: a small gift (e.g., chocolate) is fine for truly exceptional service. The system runs on wages, not tips."
     }
    }
   },
@@ -2404,8 +2404,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "23 Uhr. Du brauchst Wasser, Schokolade, und einen 김밥. CU oder GS25, 24/7 offen. Eine schnelle Bestellung — wie meisterst du Aufwärmen + Tüte + Quittung?",
-    "en": "11 PM. You need water, chocolate, and a 김밥. CU or GS25, 24/7. A quick stop — how do you handle heating + bag + receipt?"
+    "de": "23 Uhr. Du brauchst Wasser, Schokolade, und einen 김밥. CU oder GS25, 24/7 offen. Eine schnelle Bestellung. Wie meisterst du Aufwärmen + Tüte + Quittung?",
+    "en": "11 PM. You need water, chocolate, and a 김밥. CU or GS25, 24/7. A quick stop. How do you handle heating + bag + receipt?"
    },
    "vocab": [
     {
@@ -2420,8 +2420,8 @@
      "korean": "물",
      "note": {
       "ko": "",
-      "de": "Wasser. Generika ist günstig, ~700–1000 Won pro 500ml.",
-      "en": "Water. Generic is cheap, ~700–1000 won per 500ml."
+      "de": "Wasser. Generika ist günstig, ~700. 1000 Won pro 500ml.",
+      "en": "Water. Generic is cheap, ~700. 1000 won per 500ml."
      }
     },
     {
@@ -2436,8 +2436,8 @@
      "korean": "데워주세요",
      "note": {
       "ko": "",
-      "de": "Bitte aufwärmen. Für 김밥, 도시락, 호빵 etc. — Kassierer macht es kurz in Mikrowelle.",
-      "en": "Please heat it up. For 김밥, 도시락, 호빵 etc. — cashier zaps it quickly in microwave."
+      "de": "Bitte aufwärmen. Für 김밥, 도시락, 호빵 etc.. Kassierer macht es kurz in Mikrowelle.",
+      "en": "Please heat it up. For 김밥, 도시락, 호빵 etc.. Cashier zaps it quickly in microwave."
      }
     },
     {
@@ -2461,8 +2461,8 @@
    "grammarBlock": {
     "title": {
      "ko": "N도 주세요",
-     "de": "N도 (auch N) — Hinzufügen",
-     "en": "N도 (also N) — adding items"
+     "de": "N도 (auch N): Hinzufügen",
+     "en": "N도 (also N): adding items"
     },
     "explanation": {
      "ko": "",
@@ -2616,8 +2616,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Plastiktüte: 100 Won Eco-Charge (gilt seit 2019). Stoffbeutel bringen = sparen. Aufwärmen (데움): KOSTENLOS für 김밥/도시락/호빵. Mikrowelle und manchmal Heißwasser für Cup-Ramen direkt im Laden — viele essen vor Ort am Stehtisch. ATM verfügbar (oft 4-stellige PIN für ausländische Karten kein Problem).",
-     "en": "Plastic bag: 100 won eco-charge (since 2019). Cloth bag = saves money. Heating (데움): FREE for 김밥/도시락/호빵. Microwave and sometimes hot water for cup-ramen right in the store — many people eat at standing tables. ATM available (4-digit PIN usually works for foreign cards)."
+     "de": "Plastiktüte: 100 Won Eco-Charge (gilt seit 2019). Stoffbeutel bringen = sparen. Aufwärmen (데움): KOSTENLOS für 김밥/도시락/호빵. Mikrowelle und manchmal Heißwasser für Cup-Ramen direkt im Laden. Viele essen vor Ort am Stehtisch. ATM verfügbar (oft 4-stellige PIN für ausländische Karten kein Problem).",
+     "en": "Plastic bag: 100 won eco-charge (since 2019). Cloth bag = saves money. Heating (데움): FREE for 김밥/도시락/호빵. Microwave and sometimes hot water for cup-ramen right in the store. Many people eat at standing tables. ATM available (4-digit PIN usually works for foreign cards)."
     }
    }
   },
@@ -2641,24 +2641,24 @@
    },
    "intro": {
     "ko": "",
-    "de": "Pochende Kopfschmerzen nach langem Tag. Du suchst das grüne '약국'-Schild. Ohne Termin, ohne Rezept — der Apotheker hilft direkt. Wie beschreibst du Symptome?",
-    "en": "Pounding headache after a long day. You spot the green '약국' sign. No appointment, no prescription needed — the pharmacist helps directly. How do you describe symptoms?"
+    "de": "Pochende Kopfschmerzen nach langem Tag. Du suchst das grüne '약국'-Schild. Ohne Termin, ohne Rezept. Der Apotheker hilft direkt. Wie beschreibst du Symptome?",
+    "en": "Pounding headache after a long day. You spot the green '약국' sign. No appointment, no prescription needed. The pharmacist helps directly. How do you describe symptoms?"
    },
    "vocab": [
     {
      "korean": "약국",
      "note": {
       "ko": "",
-      "de": "Apotheke (grünes Kreuz-Schild). Überall, oft sonntags geschlossen — gibt 24/7-Apps zum Finden.",
-      "en": "Pharmacy (green cross sign). Everywhere, often closed Sundays — apps help find 24/7 ones."
+      "de": "Apotheke (grünes Kreuz-Schild). Überall, oft sonntags geschlossen. Gibt 24/7-Apps zum Finden.",
+      "en": "Pharmacy (green cross sign). Everywhere, often closed Sundays. Apps help find 24/7 ones."
      }
     },
     {
      "korean": "두통",
      "note": {
       "ko": "",
-      "de": "Kopfschmerz. Auch: 머리가 아파요 (Mein Kopf tut weh — beschreibend).",
-      "en": "Headache. Also: 머리가 아파요 (my head hurts — descriptive)."
+      "de": "Kopfschmerz. Auch: 머리가 아파요 (Mein Kopf tut weh, beschreibend).",
+      "en": "Headache. Also: 머리가 아파요 (my head hurts, descriptive)."
      }
     },
     {
@@ -2870,8 +2870,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Myeong-dong: Koreas Shopping-Mekka. K-Beauty-Samples, Klamotten, Souvenirs. Ein Verkäufer kommt auf dich zu — wirst du gleich abgelehnt oder schaust du dich erst um?",
-    "en": "Myeongdong: Korea's shopping mecca. K-beauty samples, clothes, souvenirs. A clerk walks toward you — do you brush them off or politely browse first?"
+    "de": "Myeong-dong: Koreas Shopping-Mekka. K-Beauty-Samples, Klamotten, Souvenirs. Ein Verkäufer kommt auf dich zu. Wirst du gleich abgelehnt oder schaust du dich erst um?",
+    "en": "Myeongdong: Korea's shopping mecca. K-beauty samples, clothes, souvenirs. A clerk walks toward you. Do you brush them off or politely browse first?"
    },
    "vocab": [
     {
@@ -2902,8 +2902,8 @@
      "korean": "사이즈",
      "note": {
       "ko": "",
-      "de": "Größe. Korea-Größen sind oft kleiner als europäische — Sample probieren!",
-      "en": "Size. Korean sizes often run smaller than European — try samples!"
+      "de": "Größe. Korea-Größen sind oft kleiner als europäische. Sample probieren!",
+      "en": "Size. Korean sizes often run smaller than European. Try samples!"
      }
     },
     {
@@ -3060,8 +3060,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Myeong-dong: Kette-Stores + Marken-Shops → KEIN Feilschen, Preisschilder gelten. Verkäufer sind aktiv aber nicht aufdringlich. '그냥 보는 거예요' beendet jede Belagerung höflich. Dongdaemun-Markt (Stoff, Mode-Wholesale): Feilschen MÖGLICH ('깎아주세요' = bitte Rabatt) — aber moderat, 10–20 %. Touristenfänger-Areas (Itaewon Souvenirs): wahrscheinlich überteuert, prüfen lohnt sich.",
-     "en": "Myeongdong: chain + brand stores → NO bargaining, prices are fixed. Clerks are active but not pushy. '그냥 보는 거예요' politely ends any siege. Dongdaemun market (fabric, fashion wholesale): bargaining POSSIBLE ('깎아주세요' = please discount) — but moderate, 10–20%. Tourist-trap areas (Itaewon souvenirs): likely overpriced, check around."
+     "de": "Myeong-dong: Kette-Stores + Marken-Shops → KEIN Feilschen, Preisschilder gelten. Verkäufer sind aktiv aber nicht aufdringlich. '그냥 보는 거예요' beendet jede Belagerung höflich. Dongdaemun-Markt (Stoff, Mode-Wholesale): Feilschen MÖGLICH ('깎아주세요' = bitte Rabatt), aber moderat, 10. 20 %. Touristenfänger-Areas (Itaewon Souvenirs): wahrscheinlich überteuert, prüfen lohnt sich.",
+     "en": "Myeongdong: chain + brand stores → NO bargaining, prices are fixed. Clerks are active but not pushy. '그냥 보는 거예요' politely ends any siege. Dongdaemun market (fabric, fashion wholesale): bargaining POSSIBLE ('깎아주세요' = please discount), but moderate, 10. 20%. Tourist-trap areas (Itaewon souvenirs): likely overpriced, check around."
     }
    }
   },
@@ -3081,12 +3081,12 @@
    "title": {
     "ko": "비즈니스 미팅 — 첫 인사",
     "de": "Vorstellung beim Geschäftsmeeting",
-    "en": "Business meeting — first introduction"
+    "en": "Business meeting: first introduction"
    },
    "intro": {
     "ko": "",
-    "de": "Du begegnest einem koreanischen Kunden zum ersten Mal. Minsu leitet das Projekt beim Partnerunternehmen. Visitenkarten liegen auf dem Tisch — wie führst du das Gespräch?",
-    "en": "You're meeting a Korean client for the first time. Minsu is the project lead at the partner company. Business cards are on the table — how do you steer the conversation?"
+    "de": "Du begegnest einem koreanischen Kunden zum ersten Mal. Minsu leitet das Projekt beim Partnerunternehmen. Visitenkarten liegen auf dem Tisch. Wie führst du das Gespräch?",
+    "en": "You're meeting a Korean client for the first time. Minsu is the project lead at the partner company. Business cards are on the table. How do you steer the conversation?"
    },
    "vocab": [
     {
@@ -3101,8 +3101,8 @@
      "korean": "명함",
      "note": {
       "ko": "",
-      "de": "Visitenkarte. In Korea mit beiden Händen überreichen und entgegennehmen — fester Bestandteil der Geschäftsetikette.",
-      "en": "Business card. In Korea, present and receive with both hands — a fixed part of business etiquette."
+      "de": "Visitenkarte. In Korea mit beiden Händen überreichen und entgegennehmen. Fester Bestandteil der Geschäftsetikette.",
+      "en": "Business card. In Korea, present and receive with both hands. A fixed part of business etiquette."
      }
     },
     {
@@ -3133,8 +3133,8 @@
      "korean": "편이다",
      "note": {
       "ko": "",
-      "de": "drückt eine Tendenz aus — 'eher, tendenziell'. 저는 꼼꼼한 편이에요 = 'Ich bin eher sorgfältig.' Häufig in Selbstvorstellungen.",
-      "en": "expresses a tendency — 'tend to, rather'. 저는 꼼꼼한 편이에요 = 'I tend to be thorough.' Common in self-introductions."
+      "de": "drückt eine Tendenz aus: 'eher, tendenziell'. 저는 꼼꼼한 편이에요 = 'Ich bin eher sorgfältig.' Häufig in Selbstvorstellungen.",
+      "en": "expresses a tendency: 'tend to, rather'. 저는 꼼꼼한 편이에요 = 'I tend to be thorough.' Common in self-introductions."
      }
     },
     {
@@ -3165,8 +3165,8 @@
      "korean": "앞으로 잘 부탁드립니다",
      "note": {
       "ko": "",
-      "de": "Abschlussformel bei Vorstellungen: sinngemäß 'Ich freue mich auf die Zusammenarbeit.' Nicht wörtlich übersetzbar — als feste Formel einprägen.",
-      "en": "Standard closing phrase: 'I look forward to working with you.' Not literally translatable — just memorize it as a set formula."
+      "de": "Abschlussformel bei Vorstellungen: sinngemäß 'Ich freue mich auf die Zusammenarbeit.' Nicht wörtlich übersetzbar. Als feste Formel einprägen.",
+      "en": "Standard closing phrase: 'I look forward to working with you.' Not literally translatable. Just memorize it as a set formula."
      }
     },
     {
@@ -3190,21 +3190,21 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄴ/는 편이다",
-     "de": "-(으)ㄴ/는 편이다 — Tendenz ausdrücken",
-     "en": "-(으)ㄴ/는 편이다 — expressing tendency"
+     "de": "-(으)ㄴ/는 편이다: Tendenz ausdrücken",
+     "en": "-(으)ㄴ/는 편이다: expressing tendency"
     },
     "explanation": {
      "ko": "",
-     "de": "Drückt aus, dass etwas 'eher / tendenziell' so ist — keine absolute Aussage, sondern eine Einschätzung. Bildung: Adjektiv → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'ich bin eher sorgfältig'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'ich erledige Dinge eher zügig'). Nützlich in Vorstellungsgesprächen und Geschäftsgesprächen, weil es selbstbewusst klingt, ohne zu übertreiben.",
-     "en": "Expresses that something 'tends to be' or is 'rather' a certain way — not an absolute claim, but a general tendency. Formation: Adjective → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'I tend to be thorough'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'I tend to handle things quickly'). Useful in introductions because it sounds confident without overstating."
+     "de": "Drückt aus, dass etwas 'eher / tendenziell' so ist. Keine absolute Aussage, sondern eine Einschätzung. Bildung: Adjektiv → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'ich bin eher sorgfältig'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'ich erledige Dinge eher zügig'). Nützlich in Vorstellungsgesprächen und Geschäftsgesprächen, weil es selbstbewusst klingt, ohne zu übertreiben.",
+     "en": "Expresses that something 'tends to be' or is 'rather' a certain way, not an absolute claim, but a general tendency. Formation: Adjective → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'I tend to be thorough'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'I tend to handle things quickly'). Useful in introductions because it sounds confident without overstating."
     }
    },
    "dialog": [
     {
      "speaker": "minsu",
      "ko": "어서 오세요. 먼 길 오셨네요. 저는 민수라고 합니다. 프로젝트 총괄 담당입니다.",
-     "de": "Herzlich willkommen. Vielen Dank, dass Sie den weiten Weg auf sich genommen haben. Ich bin Minsu — ich bin der Gesamtverantwortliche für das Projekt.",
-     "en": "Welcome. Glad you could make it. I'm Minsu — I'm the overall project lead on our side."
+     "de": "Herzlich willkommen. Vielen Dank, dass Sie den weiten Weg auf sich genommen haben. Ich bin Minsu. Ich bin der Gesamtverantwortliche für das Projekt.",
+     "en": "Welcome. Glad you could make it. I'm Minsu. I'm the overall project lead on our side."
     },
     {
      "speaker": "user",
@@ -3215,13 +3215,13 @@
     {
      "speaker": "minsu",
      "ko": "감사합니다. 저도 드릴게요. 어떤 분야를 담당하고 계세요?",
-     "de": "Danke — hier ist auch meine. Für welchen Bereich sind Sie zuständig?",
-     "en": "Thank you — here's mine as well. What area are you in charge of?"
+     "de": "Danke: hier ist auch meine. Für welchen Bereich sind Sie zuständig?",
+     "en": "Thank you: here's mine as well. What area are you in charge of?"
     },
     {
      "speaker": "user",
      "ko": "저는 해외 마케팅을 담당하고 있습니다. 꼼꼼하게 챙기는 편이라 잘 맞을 것 같습니다.",
-     "de": "Ich bin für internationales Marketing zuständig. Ich arbeite generell sehr sorgfältig — das sollte gut passen.",
+     "de": "Ich bin für internationales Marketing zuständig. Ich arbeite generell sehr sorgfältig. Das sollte gut passen.",
      "en": "I handle international marketing. I tend to be detail-oriented, so I think we'll work well together."
     },
     {
@@ -3233,8 +3233,8 @@
     {
      "speaker": "user",
      "ko": "네, 읽어봤습니다. 몇 가지 말씀드리고 싶은 부분이 있는데, 괜찮으시면 일정을 잡아서 다시 이야기해도 될까요?",
-     "de": "Ja, ich habe sie gelesen. Es gibt ein paar Punkte, die ich gerne ansprechen möchte — wäre es möglich, dafür einen separaten Termin zu vereinbaren?",
-     "en": "Yes, I've read them. There are a few points I'd like to bring up — would it be possible to schedule a separate time to go over them?"
+     "de": "Ja, ich habe sie gelesen. Es gibt ein paar Punkte, die ich gerne ansprechen möchte. Wäre es möglich, dafür einen separaten Termin zu vereinbaren?",
+     "en": "Yes, I've read them. There are a few points I'd like to bring up. Would it be possible to schedule a separate time to go over them?"
     },
     {
      "speaker": "minsu",
@@ -3254,7 +3254,7 @@
         "en": "I don't have much experience in this field yet."
        },
        {
-        "de": "Ich arbeite generell sehr sorgfältig — das sollte gut passen.",
+        "de": "Ich arbeite generell sehr sorgfältig. Das sollte gut passen.",
         "en": "I tend to be detail-oriented, so I think we'll work well together."
        },
        {
@@ -3283,8 +3283,8 @@
        "의"
       ],
       "correctIndex": 0,
-      "explanationDe": "담당하다 ist ein transitives Verb — das Objekt nimmt 을/를. 마케팅 endet auf ㅇ (Konsonant) → 을.",
-      "explanationEn": "담당하다 is a transitive verb — the object takes 을/를. 마케팅 ends in ㅇ (consonant) → 을."
+      "explanationDe": "담당하다 ist ein transitives Verb. Das Objekt nimmt 을/를. 마케팅 endet auf ㅇ (Konsonant) → 을.",
+      "explanationEn": "담당하다 is a transitive verb. The object takes 을/를. 마케팅 ends in ㅇ (consonant) → 을."
      }
     },
     {
@@ -3350,8 +3350,8 @@
     },
     "body": {
      "ko": "한국 비즈니스 자리에서 명함은 두 손으로 주고받는다. 받은 명함은 바로 주머니에 넣지 말고, 테이블 위에 올려두거나 잠깐 살펴보는 것이 예의다. 상대방의 이름이나 직책을 명함으로 확인하는 것은 자연스러운 일이다.",
-     "de": "In koreanischen Geschäftsmeetings werden Visitenkarten mit beiden Händen überreicht und entgegengenommen. Die Karte nicht sofort einstecken — kurz ansehen oder auf dem Tisch liegenlassen. Es ist völlig üblich, Namen und Titel des Gegenübers auf der Karte nachzuschauen.",
-     "en": "In Korean business meetings, business cards are given and received with both hands. Don't immediately pocket the card — glance at it or leave it on the table. It's completely normal to check the other person's name and title on the card."
+     "de": "In koreanischen Geschäftsmeetings werden Visitenkarten mit beiden Händen überreicht und entgegengenommen. Die Karte nicht sofort einstecken. Kurz ansehen oder auf dem Tisch liegenlassen. Es ist völlig üblich, Namen und Titel des Gegenübers auf der Karte nachzuschauen.",
+     "en": "In Korean business meetings, business cards are given and received with both hands. Don't immediately pocket the card. Glance at it or leave it on the table. It's completely normal to check the other person's name and title on the card."
     }
    }
   },
@@ -3375,8 +3375,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du hast online bestellt, aber das falsche Produkt wurde geliefert. Du rufst den Kundendienst an — Jihye nimmt ab. Wie erklärst du das Problem, und was möchtest du erreichen?",
-    "en": "You ordered online but received the wrong item. You call customer service — Jihye picks up. How do you explain the problem, and what outcome do you want?"
+    "de": "Du hast online bestellt, aber das falsche Produkt wurde geliefert. Du rufst den Kundendienst an. Jihye nimmt ab. Wie erklärst du das Problem, und was möchtest du erreichen?",
+    "en": "You ordered online but received the wrong item. You call customer service. Jihye picks up. How do you explain the problem, and what outcome do you want?"
    },
    "vocab": [
     {
@@ -3472,13 +3472,13 @@
    "grammarBlock": {
     "title": {
      "ko": "-았/었더라면 -았/었을 텐데",
-     "de": "-았/었더라면 -았/었을 텐데 — kontrafaktisches Bedauern",
-     "en": "-았/었더라면 -았/었을 텐데 — counterfactual regret"
+     "de": "-았/었더라면 -았/었을 텐데: kontrafaktisches Bedauern",
+     "en": "-았/었더라면 -았/었을 텐데: counterfactual regret"
     },
     "explanation": {
      "ko": "",
-     "de": "Drückt aus, was gewesen wäre, wenn in der Vergangenheit etwas anders gelaufen wäre. Struktur: [Bedingung in der Vergangenheit]-았/었더라면 + [Ergebnis]-았/었을 텐데. Beispiel: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'Wenn das ordentlich geprüft worden wäre, wäre das nicht passiert.' Klingt nach leisem Bedauern oder verdeckter Kritik — ein wichtiger Ton in Beschwerdegesprächen.",
-     "en": "Expresses what would have happened if something in the past had gone differently. Structure: [Past condition]-았/었더라면 + [Result]-았/었을 텐데. Example: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'If it had been checked properly, none of this would have happened.' Conveys quiet regret or implied criticism — an important register in complaint situations."
+     "de": "Drückt aus, was gewesen wäre, wenn in der Vergangenheit etwas anders gelaufen wäre. Struktur: [Bedingung in der Vergangenheit]-았/었더라면 + [Ergebnis]-았/었을 텐데. Beispiel: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'Wenn das ordentlich geprüft worden wäre, wäre das nicht passiert.' Klingt nach leisem Bedauern oder verdeckter Kritik. Ein wichtiger Ton in Beschwerdegesprächen.",
+     "en": "Expresses what would have happened if something in the past had gone differently. Structure: [Past condition]-았/었더라면 + [Result]-았/었을 텐데. Example: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'If it had been checked properly, none of this would have happened.' Conveys quiet regret or implied criticism. An important register in complaint situations."
     }
    },
    "dialog": [
@@ -3636,8 +3636,8 @@
    "xpReward": 200,
    "title": {
     "ko": "병원에서 증상 설명하기",
-    "de": "Beim Arzt — Symptome beschreiben",
-    "en": "At the clinic — describing symptoms"
+    "de": "Beim Arzt: Symptome beschreiben",
+    "en": "At the clinic: describing symptoms"
    },
    "intro": {
     "ko": "",
@@ -3737,8 +3737,8 @@
      "korean": "면 좋겠다",
      "note": {
       "ko": "",
-      "de": "'Es wäre schön, wenn … / Ich würde mich freuen, wenn …' — drückt einen Wunsch aus. 빨리 나으면 좋겠어요 = 'Ich würde mich freuen, wenn ich bald besser wäre.'",
-      "en": "'It would be good if … / I hope …' — expresses a wish. 빨리 나으면 좋겠어요 = 'I hope I get better soon.'"
+      "de": "'Es wäre schön, wenn … / Ich würde mich freuen, wenn …' Drückt einen Wunsch aus. 빨리 나으면 좋겠어요 = 'Ich würde mich freuen, wenn ich bald besser wäre.'",
+      "en": "'It would be good if … / I hope …' Expresses a wish. 빨리 나으면 좋겠어요 = 'I hope I get better soon.'"
      }
     }
    ],
@@ -3751,8 +3751,8 @@
     },
     "explanation": {
      "ko": "",
-     "de": "Zwei Grammatikmuster als Paar:\n\n1. -(으)ㄴ/는 것 같다 — vorsichtige Einschätzung: 'Es scheint, dass / ich glaube, dass.' Mit Adjektiv: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'ich glaube, ich bin erschöpft'). Mit Verb: -는 것 같다 (악화되는 것 같아요 = 'es scheint, als würde es schlimmer'). Mit Nomen: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'ich glaube, ich habe eine Erkältung').\n\n2. -(으)면 좋겠다 — Wunsch oder Hoffnung: 'Es wäre schön, wenn … / Ich würde mich freuen, wenn …'. 빨리 나으면 좋겠어요 = 'Ich hoffe, es geht mir bald besser.' 줄어들면 좋겠어요 = 'Ich wäre froh, wenn es nachlässt.'",
-     "en": "Two grammar patterns used as a pair:\n\n1. -(으)ㄴ/는 것 같다 — careful inference: 'It seems that / I think that.' With adjective: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'I think I'm exhausted'). With verb: -는 것 같다 (악화되는 것 같아요 = 'it seems like it's getting worse'). With noun: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'I think I have a cold').\n\n2. -(으)면 좋겠다 — wish or hope: 'It would be nice if … / I hope …'. 빨리 나으면 좋겠어요 = 'I hope I get better soon.' 줄어들면 좋겠어요 = 'I hope it eases up.'"
+     "de": "Zwei Grammatikmuster als Paar:\n\n1. -(으)ㄴ/는 것 같다. Vorsichtige Einschätzung: 'Es scheint, dass / ich glaube, dass.' Mit Adjektiv: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'ich glaube, ich bin erschöpft'). Mit Verb: -는 것 같다 (악화되는 것 같아요 = 'es scheint, als würde es schlimmer'). Mit Nomen: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'ich glaube, ich habe eine Erkältung').\n\n2. -(으)면 좋겠다. Wunsch oder Hoffnung: 'Es wäre schön, wenn … / Ich würde mich freuen, wenn …'. 빨리 나으면 좋겠어요 = 'Ich hoffe, es geht mir bald besser.' 줄어들면 좋겠어요 = 'Ich wäre froh, wenn es nachlässt.'",
+     "en": "Two grammar patterns used as a pair:\n\n1. -(으)ㄴ/는 것 같다. Careful inference: 'It seems that / I think that.' With adjective: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'I think I'm exhausted'). With verb: -는 것 같다 (악화되는 것 같아요 = 'it seems like it's getting worse'). With noun: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'I think I have a cold').\n\n2. -(으)면 좋겠다. Wish or hope: 'It would be nice if … / I hope …'. 빨리 나으면 좋겠어요 = 'I hope I get better soon.' 줄어들면 좋겠어요 = 'I hope it eases up.'"
     }
    },
    "dialog": [
@@ -3777,7 +3777,7 @@
     {
      "speaker": "user",
      "ko": "한 3~4일 됐어요. 열은 없는 것 같고, 가끔 어지럽기도 해요.",
-     "de": "Ungefähr drei bis vier Tage. Fieber habe ich glaube ich nicht — aber manchmal dreht sich mir auch der Kopf.",
+     "de": "Ungefähr drei bis vier Tage. Fieber habe ich glaube ich nicht, aber manchmal dreht sich mir auch der Kopf.",
      "en": "About three to four days. I don't think I have a fever, but I've also been feeling dizzy at times."
     },
     {
@@ -3789,14 +3789,14 @@
     {
      "speaker": "user",
      "ko": "맞아요, 요즘 일이 많아서 잠을 제대로 못 잔 것 같아요. 빨리 나으면 좋겠는데요.",
-     "de": "Ja, stimmt — ich habe gerade viel um die Ohren und schlafe schlecht. Ich wäre froh, wenn das bald besser würde.",
-     "en": "Yes, that's right — I've had a lot on my plate lately and I haven't been sleeping well. I really hope this clears up soon."
+     "de": "Ja, stimmt: ich habe gerade viel um die Ohren und schlafe schlecht. Ich wäre froh, wenn das bald besser würde.",
+     "en": "Yes, that's right: I've had a lot on my plate lately and I haven't been sleeping well. I really hope this clears up soon."
     },
     {
      "speaker": "subin",
      "ko": "피로와 스트레스가 원인인 것 같네요. 간단한 약 처방해 드릴게요. 충분히 쉬시고, 3일 후에도 증상이 지속되면 다시 오세요.",
-     "de": "Das sieht nach stressbedingter Erschöpfung aus. Ich verschreibe Ihnen etwas. Ruhen Sie sich gut aus — und wenn die Beschwerden nach drei Tagen nicht nachlassen, kommen Sie bitte wieder.",
-     "en": "It looks like stress-induced exhaustion. I'll prescribe something for you. Make sure to rest — and if the symptoms don't ease up after three days, please come back."
+     "de": "Das sieht nach stressbedingter Erschöpfung aus. Ich verschreibe Ihnen etwas. Ruhen Sie sich gut aus, und wenn die Beschwerden nach drei Tagen nicht nachlassen, kommen Sie bitte wieder.",
+     "en": "It looks like stress-induced exhaustion. I'll prescribe something for you. Make sure to rest, and if the symptoms don't ease up after three days, please come back."
     }
    ],
    "quests": [
@@ -3861,8 +3861,8 @@
        "지만"
       ],
       "correctIndex": 0,
-      "explanationDe": "-(으)면 = 'wenn / falls' — Konditionalsatz. 지속되다 endet auf einen Vokal → 면 (nicht 으면).",
-      "explanationEn": "-(으)면 = 'if / when' — conditional. 지속되다 ends in a vowel → 면 (not 으면)."
+      "explanationDe": "-(으)면 = 'wenn / falls', Konditionalsatz. 지속되다 endet auf einen Vokal → 면 (nicht 으면).",
+      "explanationEn": "-(으)면 = 'if / when', conditional. 지속되다 ends in a vowel → 면 (not 으면)."
      }
     },
     {
@@ -3915,16 +3915,16 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du stehst in Sinchon und streckst die Hand aus — ein gelbes Taxi hält an. Ziel: Hongdae-Station. Der Fahrer fragt, welchen Weg du nehmen willst. Wie sagst du ihm Bescheid — und was, wenn er einen Umweg fährt?",
-    "en": "You're in Sinchon with your arm out — a yellow taxi pulls over. Destination: Hongdae station. The driver asks which route you want. How do you tell him — and what if he tries to take the long way around?"
+    "de": "Du stehst in Sinchon und streckst die Hand aus. Ein gelbes Taxi hält an. Ziel: Hongdae-Station. Der Fahrer fragt, welchen Weg du nehmen willst. Wie sagst du ihm Bescheid, und was, wenn er einen Umweg fährt?",
+    "en": "You're in Sinchon with your arm out. A yellow taxi pulls over. Destination: Hongdae station. The driver asks which route you want. How do you tell him, and what if he tries to take the long way around?"
    },
    "vocab": [
     {
      "korean": "기사님",
      "note": {
       "ko": "",
-      "de": "Anrede für den Taxifahrer: 'Herr Fahrer'. Direkte Anrede beim Einsteigen oder wenn man etwas sagen möchte — nie beim Namen nennen.",
-      "en": "Form of address for a driver: 'driver' or 'sir'. Use when getting in or getting the driver's attention — never by name."
+      "de": "Anrede für den Taxifahrer: 'Herr Fahrer'. Direkte Anrede beim Einsteigen oder wenn man etwas sagen möchte. Nie beim Namen nennen.",
+      "en": "Form of address for a driver: 'driver' or 'sir'. Use when getting in or getting the driver's attention, never by name."
      }
     },
     {
@@ -3988,13 +3988,13 @@
    "grammarBlock": {
     "title": {
      "ko": "-(아/어) 주세요 — 부탁 표현",
-     "de": "-(아/어) 주세요 — höfliche Bitten",
-     "en": "-(아/어) 주세요 — polite requests"
+     "de": "-(아/어) 주세요: höfliche Bitten",
+     "en": "-(아/어) 주세요: polite requests"
     },
     "explanation": {
      "ko": "",
-     "de": "Höfliche Bitte: [Verbstamm]-아/어 주세요. Beispiele: 가 주세요 (Bitte fahren Sie), 내려 주세요 (Bitte lassen Sie mich raus), 틀어 주세요 (Bitte stellen Sie ein). Mit -하다-Verben: 해 주세요. Noch höflicher: -아/어 주실 수 있을까요? — für formellere Situationen.",
-     "en": "Polite request: [verb stem]-아/어 주세요. Examples: 가 주세요 (please go/drive), 내려 주세요 (please let me out), 틀어 주세요 (please turn on). With -하다 verbs: 해 주세요. More polite: -아/어 주실 수 있을까요? — for more formal situations."
+     "de": "Höfliche Bitte: [Verbstamm]-아/어 주세요. Beispiele: 가 주세요 (Bitte fahren Sie), 내려 주세요 (Bitte lassen Sie mich raus), 틀어 주세요 (Bitte stellen Sie ein). Mit -하다-Verben: 해 주세요. Noch höflicher: -아/어 주실 수 있을까요? Für formellere Situationen.",
+     "en": "Polite request: [verb stem]-아/어 주세요. Examples: 가 주세요 (please go/drive), 내려 주세요 (please let me out), 틀어 주세요 (please turn on). With -하다 verbs: 해 주세요. More polite: -아/어 주실 수 있을까요? For more formal situations."
     }
    },
    "dialog": [
@@ -4007,8 +4007,8 @@
     {
      "speaker": "junho",
      "ko": "네. 어떤 길로 갈까요? 마포대교나 성산대교로 갈 수 있어요.",
-     "de": "Gerne — welchen Weg soll ich nehmen? Ich kann über die Mapo-Brücke oder die Seongsan-Brücke fahren.",
-     "en": "Sure — which way would you prefer? I can take the Mapo Bridge or the Seongsan Bridge."
+     "de": "Gerne: welchen Weg soll ich nehmen? Ich kann über die Mapo-Brücke oder die Seongsan-Brücke fahren.",
+     "en": "Sure, which way would you prefer? I can take the Mapo Bridge or the Seongsan Bridge."
     },
     {
      "speaker": "user",
@@ -4019,13 +4019,13 @@
     {
      "speaker": "junho",
      "ko": "성산대교 쪽이 좀 덜 막히는 것 같아요. 그쪽으로 갈게요.",
-     "de": "Über die Seongsan-Brücke läuft's gerade etwas flüssiger — da fahre ich dann lang.",
-     "en": "The Seongsan Bridge side looks a bit clearer — I'll head that way."
+     "de": "Über die Seongsan-Brücke läuft's gerade etwas flüssiger, da fahre ich dann lang.",
+     "en": "The Seongsan Bridge side looks a bit clearer. I'll head that way."
     },
     {
      "speaker": "user",
      "ko": "감사해요. 저 여기서 내려주세요, 편의점 앞이요.",
-     "de": "Danke. Können Sie mich hier rauslassen — da vorne vor dem Convenience Store?",
+     "de": "Danke. Können Sie mich hier rauslassen, da vorne vor dem Convenience Store?",
      "en": "Thanks. Can you drop me off here, right in front of that convenience store?"
     },
     {
@@ -4048,7 +4048,7 @@
       "audioKo": "여기서 내려주세요, 편의점 앞이요.",
       "options": [
        {
-        "de": "Können Sie mich hier rauslassen — vor dem Convenience Store?",
+        "de": "Können Sie mich hier rauslassen. Vor dem Convenience Store?",
         "en": "Can you drop me off here, in front of the convenience store?"
        },
        {
@@ -4116,8 +4116,8 @@
     },
     "body": {
      "ko": "한국 택시는 미터기 요금이 기본이다. 카카오T, 우버 외에 일반 택시(주황·노랑)도 많다. 카드 결제는 거의 모든 택시에서 가능하다. '기사님'은 운전기사에 대한 표준 호칭이며, 이름 대신 쓰는 것이 예의다. 목적지는 승차 전 또는 직후에 말하는 것이 좋다.",
-     "de": "In Korea ist der Taxameter Standard — kein Feilschen. Neben Kakao T und Uber gibt es viele normale Taxis (orange oder gelb). Kartenzahlung ist fast überall möglich. '기사님' ist die übliche Anrede für Taxifahrer — nie beim Namen nennen. Das Ziel sollte man direkt nach dem Einsteigen nennen.",
-     "en": "In Korea, metered fares are the norm — no negotiating. Alongside Kakao T and Uber, regular street taxis (orange or yellow) are widely available. Card payment is accepted in almost all taxis. '기사님' is the standard address for drivers — you never use their name. Mention your destination right after getting in."
+     "de": "In Korea ist der Taxameter Standard, kein Feilschen. Neben Kakao T und Uber gibt es viele normale Taxis (orange oder gelb). Kartenzahlung ist fast überall möglich. '기사님' ist die übliche Anrede für Taxifahrer. Nie beim Namen nennen. Das Ziel sollte man direkt nach dem Einsteigen nennen.",
+     "en": "In Korea, metered fares are the norm, no negotiating. Alongside Kakao T and Uber, regular street taxis (orange or yellow) are widely available. Card payment is accepted in almost all taxis. '기사님' is the standard address for drivers. You never use their name. Mention your destination right after getting in."
     }
    }
   },
@@ -4141,8 +4141,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Freitagabend ist frei — und Yuna auch. Ihr wollt etwas unternehmen. Wann, wo, was? Schreib ihr und macht was fest.",
-    "en": "Friday evening is free — and so is Yuna. You want to hang out. When, where, what? Text her and nail something down."
+    "de": "Freitagabend ist frei, und Yuna auch. Ihr wollt etwas unternehmen. Wann, wo, was? Schreib ihr und macht was fest.",
+    "en": "Friday evening is free, and so is Yuna. You want to hang out. When, where, what? Text her and nail something down."
    },
    "vocab": [
     {
@@ -4214,13 +4214,13 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ래? / -(으)ㄹ까? — 제안하기",
-     "de": "-(으)ㄹ래? / -(으)ㄹ까? — Vorschläge machen",
-     "en": "-(으)ㄹ래? / -(으)ㄹ까? — making suggestions"
+     "de": "-(으)ㄹ래? / -(으)ㄹ까? Vorschläge machen",
+     "en": "-(으)ㄹ래? / -(으)ㄹ까? Making suggestions"
     },
     "explanation": {
      "ko": "",
-     "de": "Zwei Formen für Pläne und Vorschläge im Freundeskreis (반말):\n\n-(으)ㄹ래? — fragst du die andere Person direkt: 뭐 먹을래? = 'Was willst du essen?' Vokal-Stamm → -ㄹ래 (갈래?). Konsonant-Stamm → -을래 (먹을래?).\n\n-(으)ㄹ까? — schlägt ihr beide gemeinsam etwas vor: 같이 갈까? = 'Sollen wir zusammen gehen?' Klingt etwas inklusiver.",
-     "en": "Two forms for making plans in casual speech (반말):\n\n-(으)ㄹ래? — asking what the other person wants: 뭐 먹을래? = 'What do you want to eat?' Vowel stem → -ㄹ래 (갈래?). Consonant stem → -을래 (먹을래?).\n\n-(으)ㄹ까? — suggesting something for both of you: 같이 갈까? = 'Should we go together?' Sounds a bit more inclusive."
+     "de": "Zwei Formen für Pläne und Vorschläge im Freundeskreis (반말):\n\n-(으)ㄹ래? Fragst du die andere Person direkt: 뭐 먹을래? = 'Was willst du essen?' Vokal-Stamm → -ㄹ래 (갈래?). Konsonant-Stamm → -을래 (먹을래?).\n\n-(으)ㄹ까? Schlägt ihr beide gemeinsam etwas vor: 같이 갈까? = 'Sollen wir zusammen gehen?' Klingt etwas inklusiver.",
+     "en": "Two forms for making plans in casual speech (반말):\n\n-(으)ㄹ래? Asking what the other person wants: 뭐 먹을래? = 'What do you want to eat?' Vowel stem → -ㄹ래 (갈래?). Consonant stem → -을래 (먹을래?).\n\n-(으)ㄹ까? Suggesting something for both of you: 같이 갈까? = 'Should we go together?' Sounds a bit more inclusive."
     }
    },
    "dialog": [
@@ -4239,7 +4239,7 @@
     {
      "speaker": "user",
      "ko": "홍대 근처에서 저녁 먹고 카페 가는 거 어때?",
-     "de": "Was hältst du davon — erst in Hongdae was essen und dann in ein Café?",
+     "de": "Was hältst du davon: erst in Hongdae was essen und dann in ein Café?",
      "en": "How about dinner around Hongdae and then hitting a café?"
     },
     {
@@ -4268,7 +4268,7 @@
       "audioKo": "홍대 근처에서 저녁 먹고 카페 가는 거 어때?",
       "options": [
        {
-        "de": "Was hältst du davon — erst in Hongdae was essen und dann in ein Café?",
+        "de": "Was hältst du davon: erst in Hongdae was essen und dann in ein Café?",
         "en": "How about dinner around Hongdae and then hitting a café?"
        },
        {
@@ -4377,15 +4377,15 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du bist auf dem Weg zu Jinho — aber 30 Minuten zu spät. Zug verpasst, Stau, was auch immer. Er wartet schon. Was schreibst du?",
-    "en": "You're on your way to meet Jinho — but you're running 30 minutes late. Missed the train, traffic, whatever. He's already there. What do you say?"
+    "de": "Du bist auf dem Weg zu Jinho, aber 30 Minuten zu spät. Zug verpasst, Stau, was auch immer. Er wartet schon. Was schreibst du?",
+    "en": "You're on your way to meet Jinho, but you're running 30 minutes late. Missed the train, traffic, whatever. He's already there. What do you say?"
    },
    "vocab": [
     {
      "korean": "늦을 것 같아",
      "note": {
       "ko": "",
-      "de": "'Ich glaube, ich komme zu spät.' Mit -(으)ㄹ 것 같아 klingt es wie eine Vorhersage — weicher als eine direkte Aussage.",
+      "de": "'Ich glaube, ich komme zu spät.' Mit -(으)ㄹ 것 같아 klingt es wie eine Vorhersage. Weicher als eine direkte Aussage.",
       "en": "'I think I'm going to be late.' The -(으)ㄹ 것 같아 form makes it sound like a reluctant prediction rather than a flat announcement."
      }
     },
@@ -4450,21 +4450,21 @@
    "grammarBlock": {
     "title": {
      "ko": "-고 있어 + -(으)ㄹ 것 같아 — 진행과 예측",
-     "de": "-고 있어 + -(으)ㄹ 것 같아 — Progressiv und Vorhersage",
-     "en": "-고 있어 + -(으)ㄹ 것 같아 — progressive and prediction"
+     "de": "-고 있어 + -(으)ㄹ 것 같아. Progressiv und Vorhersage",
+     "en": "-고 있어 + -(으)ㄹ 것 같아. Progressive and prediction"
     },
     "explanation": {
      "ko": "",
-     "de": "Zwei Muster, die in Verspätungs-Nachrichten fast immer auftauchen:\n\n-고 있어 — drückt aus, was gerade passiert: 지금 가고 있어 = 'Ich bin gerade unterwegs.'\n\n-(으)ㄹ 것 같아 — Einschätzung / Vorhersage: 30분 늦을 것 같아 = 'Ich glaube, ich bin ungefähr 30 Minuten zu spät.' Klingt weicher als eine direkte Aussage — ideal für unangenehme Neuigkeiten.",
-     "en": "Two patterns you'll almost always need when running late:\n\n-고 있어 — describes what's happening right now: 지금 가고 있어 = 'I'm on my way.'\n\n-(으)ㄹ 것 같아 — estimate / prediction: 30분 늦을 것 같아 = 'I think I'll be about 30 minutes late.' Softer than a direct statement — ideal for delivering bad news."
+     "de": "Zwei Muster, die in Verspätungs-Nachrichten fast immer auftauchen:\n\n-고 있어. Drückt aus, was gerade passiert: 지금 가고 있어 = 'Ich bin gerade unterwegs.'\n\n-(으)ㄹ 것 같아. Einschätzung / Vorhersage: 30분 늦을 것 같아 = 'Ich glaube, ich bin ungefähr 30 Minuten zu spät.' Klingt weicher als eine direkte Aussage. Ideal für unangenehme Neuigkeiten.",
+     "en": "Two patterns you'll almost always need when running late:\n\n-고 있어. Describes what's happening right now: 지금 가고 있어 = 'I'm on my way.'\n\n-(으)ㄹ 것 같아. Estimate / prediction: 30분 늦을 것 같아 = 'I think I'll be about 30 minutes late.' Softer than a direct statement. Ideal for delivering bad news."
     }
    },
    "dialog": [
     {
      "speaker": "user",
      "ko": "진호야, 미안해. 나 30분 정도 늦을 것 같아. 지금 지하철 타고 가고 있어.",
-     "de": "Hey Jinho, sorry — ich glaube, ich bin ungefähr 30 Minuten zu spät. Ich bin gerade in der U-Bahn.",
-     "en": "Hey Jinho, sorry — I think I'm going to be about 30 minutes late. I'm on the subway right now."
+     "de": "Hey Jinho, sorry: ich glaube, ich bin ungefähr 30 Minuten zu spät. Ich bin gerade in der U-Bahn.",
+     "en": "Hey Jinho, sorry: I think I'm going to be about 30 minutes late. I'm on the subway right now."
     },
     {
      "speaker": "jinho",
@@ -4475,7 +4475,7 @@
     {
      "speaker": "user",
      "ko": "한 20분? 미안해. 지하철 놓쳐서.",
-     "de": "So etwa 20 Minuten? Sorry — ich hab die U-Bahn verpasst.",
+     "de": "So etwa 20 Minuten? Sorry. Ich hab die U-Bahn verpasst.",
      "en": "Maybe 20 minutes? Sorry, I missed the train."
     },
     {
@@ -4487,8 +4487,8 @@
     {
      "speaker": "user",
      "ko": "고마워. 거의 다 왔어. 5분만 기다려줘.",
-     "de": "Danke. Ich bin fast da — noch fünf Minuten.",
-     "en": "Thanks. I'm almost there — just five more minutes."
+     "de": "Danke. Ich bin fast da, noch fünf Minuten.",
+     "en": "Thanks. I'm almost there: just five more minutes."
     },
     {
      "speaker": "jinho",
@@ -4510,8 +4510,8 @@
       "audioKo": "나 30분 정도 늦을 것 같아. 지금 지하철 타고 가고 있어.",
       "options": [
        {
-        "de": "Ich glaube, ich bin ungefähr 30 Minuten zu spät — ich bin gerade in der U-Bahn.",
-        "en": "I think I'm going to be about 30 minutes late — I'm on the subway right now."
+        "de": "Ich glaube, ich bin ungefähr 30 Minuten zu spät. Ich bin gerade in der U-Bahn.",
+        "en": "I think I'm going to be about 30 minutes late. I'm on the subway right now."
        },
        {
         "de": "Ich bin schon da und warte auf dich.",
@@ -4543,8 +4543,8 @@
        "가"
       ],
       "correctIndex": 0,
-      "explanationDe": "놓치다 ist ein transitives Verb — das Objekt nimmt 을/를. 지하철 endet auf ㄹ (Konsonant) → 을.",
-      "explanationEn": "놓치다 is a transitive verb — the object takes 을/를. 지하철 ends in ㄹ (consonant) → 을."
+      "explanationDe": "놓치다 ist ein transitives Verb. Das Objekt nimmt 을/를. 지하철 endet auf ㄹ (Konsonant) → 을.",
+      "explanationEn": "놓치다 is a transitive verb. The object takes 을/를. 지하철 ends in ㄹ (consonant) → 을."
      }
     },
     {
@@ -4589,13 +4589,13 @@
    "culturalNote": {
     "title": {
      "ko": "ㅋㅋ — 한국의 웃음 표현",
-     "de": "ㅋㅋ — Lachen auf Koreanisch",
-     "en": "ㅋㅋ — laughing in Korean"
+     "de": "ㅋㅋ: Lachen auf Koreanisch",
+     "en": "ㅋㅋ: laughing in Korean"
     },
     "body": {
      "ko": "ㅋ는 웃음소리를 나타내는 자음이다. ㅋㅋ는 영어의 'haha', ㅎㅎ는 좀 더 부드러운 'hehe'에 해당한다. ㅋ가 많을수록 더 크게 웃는다는 의미다. 카카오톡에서 약속에 늦었을 때 상대방이 ㅋㅋ로 답하면 화가 난 게 아니라 괜찮다는 신호다.",
      "de": "ㅋ ist der Konsonant für das Lachen. ㅋㅋ entspricht 'haha', ㅎㅎ ist eher ein sanftes 'hehe'. Je mehr ㅋ's, desto lauter das Lachen. Wenn jemand auf deine Verspätungs-Nachricht mit ㅋㅋ antwortet, bedeutet das: kein Problem, alles gut.",
-     "en": "ㅋ is the consonant for laughing. ㅋㅋ is 'haha', ㅎㅎ is a softer 'hehe'. The more ㅋ's, the harder they're laughing. If someone replies ㅋㅋ when you say you're late, that's a good sign — it means they're not upset."
+     "en": "ㅋ is the consonant for laughing. ㅋㅋ is 'haha', ㅎㅎ is a softer 'hehe'. The more ㅋ's, the harder they're laughing. If someone replies ㅋㅋ when you say you're late, that's a good sign. It means they're not upset."
     }
    }
   },
@@ -4619,8 +4619,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du hast mit Yuna für morgen Abend was ausgemacht — aber jetzt ist etwas dazwischengekommen. Du musst das Treffen verschieben. Wie bittest du darum, ohne sie zu verprellen?",
-    "en": "You had plans with Yuna for tomorrow evening — but something's come up. You need to push the meeting back. How do you ask without leaving things awkward?"
+    "de": "Du hast mit Yuna für morgen Abend was ausgemacht, aber jetzt ist etwas dazwischengekommen. Du musst das Treffen verschieben. Wie bittest du darum, ohne sie zu verprellen?",
+    "en": "You had plans with Yuna for tomorrow evening, but something's come up. You need to push the meeting back. How do you ask without leaving things awkward?"
    },
    "vocab": [
     {
@@ -4659,8 +4659,8 @@
      "korean": "어쩔 수 없지 뭐",
      "note": {
       "ko": "",
-      "de": "Was kann man machen — Ausdruck gelassener Resignation. Akzeptiert die Situation, ohne die andere Person zu belasten.",
-      "en": "Can't be helped — expression of calm resignation. Accepts the situation without making the other person feel guilty."
+      "de": "Was kann man machen: Ausdruck gelassener Resignation. Akzeptiert die Situation, ohne die andere Person zu belasten.",
+      "en": "Can't be helped: expression of calm resignation. Accepts the situation without making the other person feel guilty."
      }
     },
     {
@@ -4692,21 +4692,21 @@
    "grammarBlock": {
     "title": {
      "ko": "-게 됐어 — 뜻밖의 상황 설명하기",
-     "de": "-게 됐어 — unerwartete Änderungen erklären",
-     "en": "-게 됐어 — explaining unexpected changes"
+     "de": "-게 됐어: unerwartete Änderungen erklären",
+     "en": "-게 됐어: explaining unexpected changes"
     },
     "explanation": {
      "ko": "",
-     "de": "-게 됐어 / -게 됐어요 — 'Es hat sich so ergeben, dass …' Drückt aus, dass etwas nicht geplant war, sondern sich so entwickelt hat. Häufig bei Absagen oder Verschiebungen: 일이 생기게 됐어 = 'Es ist was dazwischengekommen.' 못 가게 됐어 = 'Es hat sich ergeben, dass ich nicht kommen kann.' Klingt weniger direkt als 'Ich kann nicht' und schiebt die Verantwortung auf die Situation — das klingt aufrichtiger.",
-     "en": "-게 됐어 — 'It turned out that…' Expresses that something happened unexpectedly, not by your own choice. Common for cancellations and reschedules: 일이 생기게 됐어 = 'Something came up.' 못 가게 됐어 = 'It turned out I can't go.' Sounds less blunt than 'I can't' — it shifts responsibility to the situation, which feels more sincere."
+     "de": "-게 됐어 / -게 됐어요. 'Es hat sich so ergeben, dass …' Drückt aus, dass etwas nicht geplant war, sondern sich so entwickelt hat. Häufig bei Absagen oder Verschiebungen: 일이 생기게 됐어 = 'Es ist was dazwischengekommen.' 못 가게 됐어 = 'Es hat sich ergeben, dass ich nicht kommen kann.' Klingt weniger direkt als 'Ich kann nicht' und schiebt die Verantwortung auf die Situation. Das klingt aufrichtiger.",
+     "en": "-게 됐어: 'It turned out that…' Expresses that something happened unexpectedly, not by your own choice. Common for cancellations and reschedules: 일이 생기게 됐어 = 'Something came up.' 못 가게 됐어 = 'It turned out I can't go.' Sounds less blunt than 'I can't'. It shifts responsibility to the situation, which feels more sincere."
     }
    },
    "dialog": [
     {
      "speaker": "user",
      "ko": "유나야, 진짜 미안한데… 내일 저녁에 갑자기 일이 생겨서.",
-     "de": "Hey Yuna, sorry für die Kurzfristigkeit — aber morgen Abend ist leider was dazwischengekommen.",
-     "en": "Hey Yuna, sorry for the short notice — but something's come up tomorrow evening."
+     "de": "Hey Yuna, sorry für die Kurzfristigkeit, aber morgen Abend ist leider was dazwischengekommen.",
+     "en": "Hey Yuna, sorry for the short notice, but something's come up tomorrow evening."
     },
     {
      "speaker": "yuna",
@@ -4831,13 +4831,13 @@
    "culturalNote": {
     "title": {
      "ko": "어쩔 수 없지 뭐 — 체념의 미학",
-     "de": "'Kann man nichts machen' — koreanische Gelassenheit",
-     "en": "'Can't be helped' — Korean resignation"
+     "de": "'Kann man nichts machen': koreanische Gelassenheit",
+     "en": "'Can't be helped': Korean resignation"
     },
     "body": {
      "ko": "'어쩔 수 없지 뭐'는 상황을 체념하며 받아들이는 표현으로, 상대방에게 부담을 주지 않으면서 실망을 표현하는 방식이다. 한국에서는 불만이나 실망을 직접 표현하는 것보다 이런 완곡한 표현을 쓰는 것이 더 일반적이다.",
-     "de": "'어쩔 수 없지 뭐' (wörtlich: 'Was kann man machen?') ist gelassene Resignation — man akzeptiert die Situation, ohne die andere Person schuldig zu machen. In Korea ist es üblich, Enttäuschung so indirekt auszudrücken, statt sie direkt zu benennen.",
-     "en": "'어쩔 수 없지 뭐' (lit. 'What can you do?') is calm resignation — you're accepting the situation without making the other person feel bad about it. In Korea, expressing disappointment this indirectly is far more common than stating it outright."
+     "de": "'어쩔 수 없지 뭐' (wörtlich: 'Was kann man machen?') ist gelassene Resignation. Man akzeptiert die Situation, ohne die andere Person schuldig zu machen. In Korea ist es üblich, Enttäuschung so indirekt auszudrücken, statt sie direkt zu benennen.",
+     "en": "'어쩔 수 없지 뭐' (lit. 'What can you do?') is calm resignation. You're accepting the situation without making the other person feel bad about it. In Korea, expressing disappointment this indirectly is far more common than stating it outright."
     }
    }
   },
@@ -4861,8 +4861,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Du hast mit Jinho heute Abend was geplant — aber du bist völlig am Ende. Krank, erschöpft, keine Energie. Du musst absagen. Wie machst du das, ohne die Freundschaft zu belasten?",
-    "en": "You and Jinho had plans for tonight — but you're completely drained. Sick, exhausted, out of steam. You need to cancel. How do you do it without making things weird?"
+    "de": "Du hast mit Jinho heute Abend was geplant, aber du bist völlig am Ende. Krank, erschöpft, keine Energie. Du musst absagen. Wie machst du das, ohne die Freundschaft zu belasten?",
+    "en": "You and Jinho had plans for tonight, but you're completely drained. Sick, exhausted, out of steam. You need to cancel. How do you do it without making things weird?"
    },
    "vocab": [
     {
@@ -4877,8 +4877,8 @@
      "korean": "몸이 안 좋다",
      "note": {
       "ko": "",
-      "de": "sich nicht gut fühlen. Neutraler als '아프다' (krank sein) — für leichtere Beschwerden oder allgemeine Erschöpfung.",
-      "en": "to not feel well. More neutral than '아프다' (to be sick) — used for milder discomfort or general exhaustion."
+      "de": "sich nicht gut fühlen. Neutraler als '아프다' (krank sein). Für leichtere Beschwerden oder allgemeine Erschöpfung.",
+      "en": "to not feel well. More neutral than '아프다' (to be sick). Used for milder discomfort or general exhaustion."
      }
     },
     {
@@ -4901,8 +4901,8 @@
      "korean": "당연하지",
      "note": {
       "ko": "",
-      "de": "Natürlich! / Na klar! Ausruf des Einverständnisses — stärker als '그래'.",
-      "en": "Of course! / Obviously! Expression of agreement — stronger than '그래'."
+      "de": "Natürlich! / Na klar! Ausruf des Einverständnisses, stärker als '그래'.",
+      "en": "Of course! / Obviously! Expression of agreement, stronger than '그래'."
      }
     },
     {
@@ -4934,8 +4934,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-아/어서 + 못 -(으)ㄹ 것 같아 — 이유와 결과",
-     "de": "-아/어서 + 못 -(으)ㄹ 것 같아 — Grund und Folge",
-     "en": "-아/어서 + 못 -(으)ㄹ 것 같아 — reason and consequence"
+     "de": "-아/어서 + 못 -(으)ㄹ 것 같아. Grund und Folge",
+     "en": "-아/어서 + 못 -(으)ㄹ 것 같아. Reason and consequence"
     },
     "explanation": {
      "ko": "",
@@ -4947,8 +4947,8 @@
     {
      "speaker": "user",
      "ko": "진호야, 미안한데 오늘 못 갈 것 같아. 갑자기 몸이 안 좋아서.",
-     "de": "Hey Jinho, sorry — ich glaube, ich schaffe es heute nicht. Mir ist plötzlich nicht gut.",
-     "en": "Hey Jinho, I'm sorry — I don't think I can make it tonight. I'm suddenly not feeling well."
+     "de": "Hey Jinho, sorry: ich glaube, ich schaffe es heute nicht. Mir ist plötzlich nicht gut.",
+     "en": "Hey Jinho, I'm sorry: I don't think I can make it tonight. I'm suddenly not feeling well."
     },
     {
      "speaker": "jinho",
@@ -4959,7 +4959,7 @@
     {
      "speaker": "user",
      "ko": "열은 없는 것 같은데, 너무 피곤하고 머리도 아파. 오늘은 그냥 쉬어야 할 것 같아.",
-     "de": "Kein Fieber, glaube ich — aber ich bin total erschöpft und hab Kopfschmerzen. Ich glaube, ich muss mich heute einfach hinlegen.",
+     "de": "Kein Fieber, glaube ich, aber ich bin total erschöpft und hab Kopfschmerzen. Ich glaube, ich muss mich heute einfach hinlegen.",
      "en": "I don't think I have a fever, but I'm exhausted and my head is killing me. I think I just need to lie down today."
     },
     {
@@ -4971,8 +4971,8 @@
     {
      "speaker": "user",
      "ko": "고마워. 다음에 꼭 볼게. 내가 연락할게.",
-     "de": "Danke. Wir holen das auf jeden Fall nach — ich meld mich.",
-     "en": "Thanks. We'll definitely make it up — I'll reach out."
+     "de": "Danke. Wir holen das auf jeden Fall nach. Ich meld mich.",
+     "en": "Thanks. We'll definitely make it up. I'll reach out."
     },
     {
      "speaker": "jinho",
@@ -5021,8 +5021,8 @@
        "도"
       ],
       "correctIndex": 0,
-      "explanationDe": "-아/어서 = 'weil / daher' — verbindet Grund und Folge. 좋다 → 좋아서. Nicht zu verwechseln mit -니까, das ähnlich ist, aber stärkere Betonung hat.",
-      "explanationEn": "-아/어서 = 'because / so' — links cause and result. 좋다 → 좋아서. Different from -니까, which is similar but carries stronger emphasis."
+      "explanationDe": "-아/어서 = 'weil / daher'. Verbindet Grund und Folge. 좋다 → 좋아서. Nicht zu verwechseln mit -니까, das ähnlich ist, aber stärkere Betonung hat.",
+      "explanationEn": "-아/어서 = 'because / so'. Links cause and result. 좋다 → 좋아서. Different from -니까, which is similar but carries stronger emphasis."
      }
     },
     {
@@ -5056,8 +5056,8 @@
     },
     "body": {
      "ko": "한국어에서 직접적인 거절('못 가')보다 '못 갈 것 같아'처럼 예측형으로 말하는 것이 더 자연스럽고 예의 바르게 느껴진다. 이유를 먼저 설명하고 결과를 뒤에 붙이는 구조(-아/어서 + 못 ~)가 일반적이다. '다음에 꼭'은 관계를 유지하고 싶다는 신호다.",
-     "de": "Im Koreanischen klingt 'Ich kann nicht kommen' (못 가) zu direkt — natürlicher und höflicher ist '못 갈 것 같아' (ich glaube, ich kann nicht kommen), weil es wie eine Einschätzung klingt, nicht wie eine Entscheidung. Erst den Grund nennen, dann die Folge — das ist das übliche Muster. '다음에 꼭' (nächstes Mal auf jeden Fall) signalisiert, dass man die Freundschaft schätzt.",
-     "en": "In Korean, 'I can't come' (못 가) sounds too blunt — '못 갈 것 같아' (I don't think I can make it) is softer because it sounds like a reluctant prediction rather than a decision. The usual pattern is to state the reason first, then the outcome. '다음에 꼭' (next time for sure) signals that you value the friendship."
+     "de": "Im Koreanischen klingt 'Ich kann nicht kommen' (못 가) zu direkt. Natürlicher und höflicher ist '못 갈 것 같아' (ich glaube, ich kann nicht kommen), weil es wie eine Einschätzung klingt, nicht wie eine Entscheidung. Erst den Grund nennen, dann die Folge. Das ist das übliche Muster. '다음에 꼭' (nächstes Mal auf jeden Fall) signalisiert, dass man die Freundschaft schätzt.",
+     "en": "In Korean, 'I can't come' (못 가) sounds too blunt. '못 갈 것 같아' (I don't think I can make it) is softer because it sounds like a reluctant prediction rather than a decision. The usual pattern is to state the reason first, then the outcome. '다음에 꼭' (next time for sure) signals that you value the friendship."
     }
    }
   },
@@ -5121,16 +5121,16 @@
      "korean": "교통카드",
      "note": {
       "ko": "",
-      "de": "Verkehrskarte (T-money) — zum Bezahlen.",
-      "en": "transit card (T-money) — to pay fares."
+      "de": "Verkehrskarte (T-money): zum Bezahlen.",
+      "en": "transit card (T-money): to pay fares."
      }
     },
     {
      "korean": "노선도",
      "note": {
       "ko": "",
-      "de": "Liniennetzplan — hängt in jeder Station aus.",
-      "en": "route map — posted in every station."
+      "de": "Liniennetzplan: hängt in jeder Station aus.",
+      "en": "route map: posted in every station."
      }
     }
    ],
@@ -5138,8 +5138,8 @@
    "grammarBlock": {
     "title": {
      "ko": "어떻게 가요?",
-     "de": "어떻게 가요? — Wie komme ich …?",
-     "en": "어떻게 가요? — How do I get …?"
+     "de": "어떻게 가요? Wie komme ich …?",
+     "en": "어떻게 가요? How do I get …?"
     },
     "explanation": {
      "ko": "",
@@ -5260,8 +5260,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Mit der T-money-Karte (교통카드) fährst du U-Bahn, Bus und sogar Taxi — einmal aufladen, überall tippen. An jedem Kiosk erhältlich.",
-     "en": "With a T-money card (교통카드) you ride subway, bus and even taxis — top up once, tap everywhere. Available at any convenience store."
+     "de": "Mit der T-money-Karte (교통카드) fährst du U-Bahn, Bus und sogar Taxi. Einmal aufladen, überall tippen. An jedem Kiosk erhältlich.",
+     "en": "With a T-money card (교통카드) you ride subway, bus and even taxis. Top up once, tap everywhere. Available at any convenience store."
     }
    }
   },
@@ -5342,8 +5342,8 @@
    "grammarBlock": {
     "title": {
      "ko": "N행",
-     "de": "N행 — (Zug) Richtung N",
-     "en": "N행 — (train) bound for N"
+     "de": "N행: (Zug) Richtung N",
+     "en": "N행: (train) bound for N"
     },
     "explanation": {
      "ko": "",
@@ -5487,8 +5487,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Der KTX (고속철도) fährt bis ~305 km/h — Seoul→Busan in ~2,5 Std. Tickets per App 'Korail' oder am Automaten; Fensterplätze (창가) sind schnell weg.",
-     "en": "The KTX bullet train hits ~305 km/h — Seoul→Busan in ~2.5 h. Book via the Korail app or a machine; window seats go fast."
+     "de": "Der KTX (고속철도) fährt bis ~305 km/h. Seoul→Busan in ~2,5 Std. Tickets per App 'Korail' oder am Automaten; Fensterplätze (창가) sind schnell weg.",
+     "en": "The KTX bullet train hits ~305 km/h. Seoul→Busan in ~2.5 h. Book via the Korail app or a machine; window seats go fast."
     }
    }
   },
@@ -5569,8 +5569,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-아/어도 돼요?",
-     "de": "-아/어도 돼요? — Darf ich …?",
-     "en": "-아/어도 돼요? — May I …?"
+     "de": "-아/어도 돼요? Darf ich …?",
+     "en": "-아/어도 돼요? May I …?"
     },
     "explanation": {
      "ko": "",
@@ -5812,8 +5812,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-아/어 주시겠어요?",
-     "de": "-아/어 주시겠어요? — Könnten Sie bitte …?",
-     "en": "-아/어 주시겠어요? — Could you please …?"
+     "de": "-아/어 주시겠어요? Könnten Sie bitte …?",
+     "en": "-아/어 주시겠어요? Could you please …?"
     },
     "explanation": {
      "ko": "",
@@ -6008,8 +6008,8 @@
    "grammarBlock": {
     "title": {
      "ko": "얼마예요?",
-     "de": "얼마예요? — Wie viel kostet das?",
-     "en": "얼마예요? — How much is it?"
+     "de": "얼마예요? Wie viel kostet das?",
+     "en": "얼마예요? How much is it?"
     },
     "explanation": {
      "ko": "",
@@ -6190,8 +6190,8 @@
     },
     "body": {
      "ko": "",
-     "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra — viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
-     "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra — many bring their own. Fruit is often sold in sets ('five for …')."
+     "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra. Viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
+     "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra. Many bring their own. Fruit is often sold in sets ('five for …')."
     }
    }
   },
@@ -6495,8 +6495,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-고 싶어요",
-     "de": "-고 싶어요 — Ich möchte …",
-     "en": "-고 싶어요 — I want to …"
+     "de": "-고 싶어요: Ich möchte …",
+     "en": "-고 싶어요: I want to …"
     },
     "explanation": {
      "ko": "",
@@ -6699,8 +6699,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)려고 하다",
-     "de": "-(으)려고 하다 — vorhaben zu …",
-     "en": "-(으)려고 하다 — intend to …"
+     "de": "-(으)려고 하다: vorhaben zu …",
+     "en": "-(으)려고 하다: intend to …"
     },
     "explanation": {
      "ko": "",
@@ -6903,8 +6903,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ 수 있습니다",
-     "de": "-(으)ㄹ 수 있습니다 — Ich kann … (förmlich)",
-     "en": "-(으)ㄹ 수 있습니다 — I can … (formal)"
+     "de": "-(으)ㄹ 수 있습니다: Ich kann … (förmlich)",
+     "en": "-(으)ㄹ 수 있습니다: I can … (formal)"
     },
     "explanation": {
      "ko": "",
@@ -7084,8 +7084,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Ein ruhiger Abend mit deinem Schatz. Du willst endlich sagen, was du fühlst — auf Koreanisch, in Banmal (du-Form).",
-    "en": "A quiet evening with your sweetheart. You finally want to say how you feel — in Korean, in banmal (casual)."
+    "de": "Ein ruhiger Abend mit deinem Schatz. Du willst endlich sagen, was du fühlst. Auf Koreanisch, in Banmal (du-Form).",
+    "en": "A quiet evening with your sweetheart. You finally want to say how you feel. In Korean, in banmal (casual)."
    },
    "vocab": [
     {
@@ -7141,8 +7141,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ게",
-     "de": "-(으)ㄹ게 — Ich werde … (Versprechen, banmal)",
-     "en": "-(으)ㄹ게 — I'll … (promise, casual)"
+     "de": "-(으)ㄹ게: Ich werde … (Versprechen, banmal)",
+     "en": "-(으)ㄹ게: I'll … (promise, casual)"
     },
     "explanation": {
      "ko": "",
@@ -7288,8 +7288,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Dir geht's nicht gut. Du schreibst/sagst es einem engen Freund — in Banmal. Erkältung? Fieber? Ausruhen.",
-    "en": "You're not feeling well. You tell a close friend — in banmal. A cold? Fever? Get some rest."
+    "de": "Dir geht's nicht gut. Du schreibst/sagst es einem engen Freund, in Banmal. Erkältung? Fieber? Ausruhen.",
+    "en": "You're not feeling well. You tell a close friend, in banmal. A cold? Fever? Get some rest."
    },
    "vocab": [
     {
@@ -7345,8 +7345,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄴ/는 것 같아",
-     "de": "-(으)ㄴ/는 것 같아 — Ich glaube / es scheint (banmal)",
-     "en": "-(으)ㄴ/는 것 같아 — I think / it seems (casual)"
+     "de": "-(으)ㄴ/는 것 같아: Ich glaube / es scheint (banmal)",
+     "en": "-(으)ㄴ/는 것 같아: I think / it seems (casual)"
     },
     "explanation": {
      "ko": "",
@@ -7492,8 +7492,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Mist — dein Handy ist weg. Du gehst zum Fundbüro der U-Bahn. Wo zuletzt gesehen? Melden und nachfragen.",
-    "en": "Ugh — your phone is gone. You go to the subway lost & found. Where last seen? Report it and ask."
+    "de": "Mist: dein Handy ist weg. Du gehst zum Fundbüro der U-Bahn. Wo zuletzt gesehen? Melden und nachfragen.",
+    "en": "Ugh: your phone is gone. You go to the subway lost & found. Where last seen? Report it and ask."
    },
    "vocab": [
     {
@@ -7549,8 +7549,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-아/어 버리다",
-     "de": "-아/어 버리다 — (versehentlich/leider) ganz …",
-     "en": "-아/어 버리다 — (regretfully) completely …"
+     "de": "-아/어 버리다: (versehentlich/leider) ganz …",
+     "en": "-아/어 버리다: (regretfully) completely …"
     },
     "explanation": {
      "ko": "",
@@ -7696,8 +7696,8 @@
    },
    "intro": {
     "ko": "",
-    "de": "Heute hat dein Freund Geburtstag! Gratulier ihm, gib ihm ein Geschenk — in Banmal.",
-    "en": "It's your friend's birthday today! Congratulate them and give a gift — in banmal."
+    "de": "Heute hat dein Freund Geburtstag! Gratulier ihm, gib ihm ein Geschenk, in Banmal.",
+    "en": "It's your friend's birthday today! Congratulate them and give a gift, in banmal."
    },
    "vocab": [
     {
@@ -7753,8 +7753,8 @@
    "grammarBlock": {
     "title": {
      "ko": "-아/어 줄게",
-     "de": "-아/어 줄게 — Ich mach … für dich (banmal)",
-     "en": "-아/어 줄게 — I'll … for you (casual)"
+     "de": "-아/어 줄게: Ich mach … für dich (banmal)",
+     "en": "-아/어 줄게: I'll … for you (casual)"
     },
     "explanation": {
      "ko": "",
@@ -8436,8 +8436,8 @@
     "grammarBlock": {
      "title": {
       "ko": "주소가 맞으세요?",
-      "de": "주소가 맞으세요? — Stimmt die Adresse?",
-      "en": "주소가 맞으세요? — Is the address correct?"
+      "de": "주소가 맞으세요? Stimmt die Adresse?",
+      "en": "주소가 맞으세요? Is the address correct?"
      },
      "explanation": {
       "ko": "",
@@ -8676,8 +8676,8 @@
     "grammarBlock": {
      "title": {
       "ko": "다시 말씀해 주세요",
-      "de": "다시 말씀해 주세요 — Bitte sagen Sie es noch einmal",
-      "en": "다시 말씀해 주세요 — Please say it again"
+      "de": "다시 말씀해 주세요: Bitte sagen Sie es noch einmal",
+      "en": "다시 말씀해 주세요: Please say it again"
      },
      "explanation": {
       "ko": "",
@@ -9137,8 +9137,8 @@
     "grammarBlock": {
      "title": {
       "ko": "열이 있고 머리가 아파요",
-      "de": "열이 있고 머리가 아파요 — Fieber und Kopfschmerzen",
-      "en": "열이 있고 머리가 아파요 — I have a fever and a headache"
+      "de": "열이 있고 머리가 아파요: Fieber und Kopfschmerzen",
+      "en": "열이 있고 머리가 아파요: I have a fever and a headache"
      },
      "explanation": {
       "ko": "",

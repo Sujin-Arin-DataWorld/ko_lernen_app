@@ -77,7 +77,7 @@ class UxPreviewGalleryScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('UX 01–06')),
+      appBar: AppBar(title: const Text('UX 01-06')),
       body: SafeArea(
         child: SoriContentClamp(
           base: const EdgeInsets.fromLTRB(

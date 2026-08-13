@@ -1,5 +1,72 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude) — 퀘스트 CTA 하단 고정 + 노출 DE/EN em dash 292건 제거 + 릴리스 빌드
+
+**무엇을 ① (CTA 하단 고정).** 신설 `lib/screens/quest_engines/quest_layout.dart` 로
+퀘스트 엔진의 **내용과 주 액션을 분리하는 공통 계약**을 만들었다. 높이가 정해져 있으면
+내용만 스크롤하고 CTA 는 아래에 붙고, 높이가 무한하면 예전처럼 쌓는다. 두 갈래가
+필요한 이유는 `satz_arcade_screen` 과 `satz_bauen_unbounded_height_test.dart` 가
+무한 높이 경로를 쓰기 때문이다 — 한 갈래로 만들면 `Expanded` 가 assert 한다.
+
+- 엔진 4개(`hoerverstehen`·`diktat`·`particle_pop`·`batchim_drop`)를 계약에 태웠다.
+  `luecken`·`uebersetzen` 은 탭 즉시 판정이라 CTA 자체가 없어 대상이 아니다.
+- `satz_bauen` 은 **코드를 고치지 않았다**. 이미 `pinBottom` 을 자체 구현해 뒀는데
+  호스트가 무한 높이를 주는 바람에 `c.maxHeight.isFinite` 가 false 라 죽어 있었다.
+  호스트만 고치니 살아났다.
+- 호스트 `scenario_player_screen._buildQuest` 가 `_StageScroll`(무한 높이) 대신
+  **높이가 정해진 상자**를 준다. `PageView` 가 각 페이지에 고정 높이를 주므로 유한하다.
+- 회귀 5건 신설(`test/quest_cta_pinned_test.dart`): CTA 가 뷰포트 하단에 닿는지,
+  내용을 400px 끌어도 CTA 가 안 움직이는지(내용이 **실제로** 스크롤됐는지 함께 단언 —
+  안 그러면 공허한 테스트다), 무한 높이에서 여전히 그려지는지, 3000px 해설 카드에도
+  오버플로가 없는지.
+
+**무엇을 ② (em dash 전수 제거 + humanizer).** ARB 는 이미 깨끗했다 — DE 17·EN 16 건은
+전부 `"description"` 메타데이터라 화면에 안 나온다. 실제 노출 대시는 데이터 에셋에 있었다:
+`scenarios.json` 274 · 소형 5파일 18 · Dart 하드코딩 6 = **292건**. humanizer §14
+우선순위(마침표 → 쉼표 → 콜론)로 재작성한 뒤 전수 검토해 46건을 손봤다. 기계 치환이
+만든 결함은 두 부류였다 — 제목 9쌍의 `?.` 이중 문장부호(`어떻게 가요?. Wie komme ich …?`),
+그리고 동격구가 파편 문장이 된 것(`Eine kurze Vorstellung steht an. Auf Koreanisch.`).
+레벨 라벨 구분자는 저장소가 이미 쓰는 가운뎃점으로 통일했다(`A1 · Anfänger`).
+남은 대시 17건은 한국어 `ko` 값이라 범위 밖이고, Dart 27건은 `debugPrint`·`@Deprecated` 다.
+
+**⚠️ 이번에 내가 넣었다가 잡은 버그.** `— ` 를 `, ` 로 바꾸면서 **`grammar.csv` 의
+따옴표 없는 셀에 쉼표를 넣었다**(`Ich gehe heute früh, ich habe nämlich einen Termin.`).
+80행이 12열→13열이 되며 마지막 `id` 컬럼이 깨졌고, `CurriculumCatalog` 의 grammar ID
+검증이 실패 → `captureForCloudReconciliation()` 예외 → **클라우드 백업에서
+`course_mastery_json` 이 통째로 누락**됐다. 텍스트만 보면 멀쩡해서 눈으로는 안 보이고,
+전체 테스트(29건 실패)로만 드러났다. 마침표로 고쳤다.
+
+**왜 (가드 2종 신설).** `arb_l10n_guard_test.dart` 가 ARB 만 보고 데이터 에셋을 안 봐서
+274건이 그 아래로 빠져나갔다. ⓐ 데이터 에셋의 DE/EN 값 대시 검사 ⓑ `grammar.csv` 열 수
+정합성 검사를 추가했다. **둘 다 음성 테스트로 실제 검출을 확인**했다(구 데이터 복원 시
+실패 / 쉼표 재주입 시 `line 80: 13 != 12`).
+
+**부수 정리.** 오늘 아침 humanizer 커밋 `03980eb` 가 ARB 카피를 바꾸면서 테스트를
+안 고쳐 3건이 계속 실패 중이었다(`hanok_world_screen_test` 2 · `sarangbang_study_screen_test` 1).
+`Ein Dach beginnt mit einer Stimme.` → `Deine erste Szene ist der Anfang deines Hanok.`
+등 현재 ARB 값으로 맞췄다. `mascot_overlay_layout_guard_test` 는 `return Stack(...)`
+이라는 **문자열 모양**을 요구해 리팩터에 걸렸는데, 반환 위치가 아니라 의도를 검사하도록
+바꾸고 "마스코트가 위로 삐져나온다"(`Positioned(top: -N)`) 검사를 **추가**했다 —
+느슨하게 만들지 않고 한 겹 더 채웠다.
+
+**빌드 실패 원인 (내 변경과 무관).** 릴리스 빌드가
+`GeneratedPluginRegistrant.java:134: package dev.flutter.plugins.integration_test
+does not exist` 로 깨졌다. `integration_test` 는 dev_dependency(커밋 `98fc014`)라
+릴리스 클래스패스에서 빠지는데, 디버그 빌드 때 생성된 낡은 등록기가 그걸 참조하고 있었다.
+**`flutter clean` 후 릴리스 빌드가 등록기를 릴리스 변형용으로 재생성하면 해결**된다.
+단 `flutter build` 의 암묵적 `pub get` 이 등록기를 다시 dev 포함 상태로 덮으므로,
+연속 빌드 시 두 번째부터는 **`--no-pub`** 을 붙인다. 등록기는 git 미추적 생성 파일이다.
+
+**검증.** `flutter analyze` **0 issues** · 전체 `flutter test` **3,207 통과 / 14 skip** ·
+`dart format`. ⚠️ `dart format lib/ test/` 이 손대지 않은 테스트 55개를 줄바꿈만
+재배치해서 되돌렸다(변경이 포매팅뿐임을 diff 로 확인 후) — 저장소 규칙대로 본인이 만진
+파일만 남겼다.
+
+**미검증 (Jin 실기기).** 퀘스트 7종에서 `Überprüfen`·`Weiter` 가 실제로 하단에 붙는지,
+짧은 화면·글자 확대에서의 모양, 재작성한 DE/EN 카피의 브랜드 톤.
+
+---
+
 ### 2026-08-13 (Claude) — GitHub 인기 에이전트 스킬 20종 전역 설치 + 요청 라우팅 표
 
 **무엇을.** Jin 요청("깃에서 핫한 claude skills 20개")으로 skills.sh 리더보드와

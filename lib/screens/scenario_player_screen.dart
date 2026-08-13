@@ -1166,7 +1166,25 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         );
     }
 
-    return _StageScroll(
+    // Quests bekommen **eine feste Höhe statt eines Scroll-Rahmens**.
+    //
+    // Nur so kann die Engine ihre eigene Aktion (`Überprüfen`, `Weiter`) unten
+    // am Rand halten und nur den Aufgabenteil scrollen lassen. Vorher lag hier
+    // ein `_StageScroll`; dessen unendliche Höhe hat `QuestLayout` in den
+    // gestapelten Zweig gezwungen und in `SatzBauenQuest` das schon vorhandene
+    // `pinBottom` stillgelegt (`c.maxHeight.isFinite` war false).
+    //
+    // Die `PageView` gibt jeder Seite eine feste Höhe, also ist die Höhe hier
+    // begrenzt. Zu langer Inhalt scrollt innerhalb von `QuestLayout`.
+    final pad = soriClampPadding(
+      MediaQuery.sizeOf(context).width,
+      base: const EdgeInsets.symmetric(
+        horizontal: Spacing.lg,
+        vertical: Spacing.xl,
+      ),
+    );
+    return Padding(
+      padding: pad,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -1175,7 +1193,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             SoriColors.primary,
           ),
           const SizedBox(height: Spacing.xl),
-          questWidget,
+          Expanded(child: questWidget),
         ],
       ),
     );

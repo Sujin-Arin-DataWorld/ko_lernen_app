@@ -309,7 +309,7 @@
    "level": "b2",
    "kind": "opener",
    "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
-   "de": "Die Temperaturunterschiede sind gerade groß — da erkältet man sich leicht.",
+   "de": "Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
    "en": "The temperature swings lately make it easy to catch a cold.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
@@ -709,7 +709,7 @@
    "level": "b1",
    "kind": "opener",
    "ko": "아침에 마신 커피가 맛있어서 하루 시작이 좋네요.",
-   "de": "Der Kaffee heute Morgen war so gut — ein schöner Start in den Tag.",
+   "de": "Der Kaffee heute Morgen war so gut. Ein schöner Start in den Tag.",
    "en": "The coffee this morning was great, so it's a nice start to the day.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [
@@ -839,8 +839,8 @@
    "level": "b2",
    "kind": "question",
    "ko": "요즘 통 볼 만한 게 없던데, 혹시 추천해 줄 거 있어요?",
-   "de": "In letzter Zeit gibt's kaum etwas Gutes — hast du vielleicht eine Empfehlung?",
-   "en": "There's been nothing good to watch lately — got any recommendations?",
+   "de": "In letzter Zeit gibt's kaum etwas Gutes. Hast du vielleicht eine Empfehlung?",
+   "en": "There's been nothing good to watch lately. Got any recommendations?",
    "reply": {
     "ko": "이 드라마 한번 봐 보세요.",
     "de": "Probier mal diese Serie.",
@@ -1505,7 +1505,7 @@
    "level": "b2",
    "kind": "opener",
    "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
-   "de": "Ich hab neulich mit Sport angefangen — ich fühle mich deutlich fitter.",
+   "de": "Ich hab neulich mit Sport angefangen und fühle mich deutlich fitter.",
    "en": "I started working out recently and I definitely feel in better shape.",
    "relationshipContext": "peer",
    "safeAlternativeQuestions": [

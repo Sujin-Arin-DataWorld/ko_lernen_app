@@ -86,7 +86,7 @@ const List<HangulChar> consonants = [
   ),
   HangulChar(
     'ㅇ',
-    '–/ng',
+    '-/ng',
     "stumm am Silbenanfang · 'ng' am Ende",
     "silent at start · 'ng' at end",
     '아기',
