@@ -5982,3 +5982,13 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - Connected Learn and Games to the stable activity catalog and embedded the
   existing Hanok and Gye surfaces without changing their progress contracts.
 - Verified the shell at 390dp and 720dp and ran scoped static analysis cleanly.
+- Replaced word-visibility quest counts with SRS `strong` mastery counts while
+  preserving every existing completion marker and reward.
+- Added exact CTAs or next season-opening dates for all 18 quests and removed
+  internal `Phase-5` / `Phase-6` wording.
+- Added an online-authoritative unique active Gye-member count; only the number
+  is cached and offline state cannot create a new completion.
+- Added the pronunciation pass boundary (79 fails, 80 passes) and bounded,
+  idempotent assessment-ID persistence ahead of the capture/API slice.
+- Verified the progression rules together with the existing quest suites: 35
+  focused tests passed.

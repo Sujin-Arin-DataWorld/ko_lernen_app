@@ -106,8 +106,8 @@ const List<QuestDefinition> kQuestCatalog = [
     type: QuestType.standing,
     name: (de: 'Steinlaterne (장명등)', en: 'Stone lantern (장명등)'),
     description: (
-      de: '100× Aussprache ≥ 80% (Phase-5: Bewertung in Vorbereitung).',
-      en: '100× pronunciation ≥ 80% (Phase-5: scoring upcoming).',
+      de: 'Erreiche 100-mal mindestens 80 % in der Aussprachebewertung.',
+      en: 'Score at least 80% in 100 pronunciation assessments.',
     ),
     target: 100,
     source: QuestSource.pronunciationGood,
@@ -148,8 +148,8 @@ const List<QuestDefinition> kQuestCatalog = [
     type: QuestType.standing,
     name: (de: 'Steinmauer (돌담)', en: 'Stone wall (돌담)'),
     description: (
-      de: 'Sammle 5 Freunde / Gye-Mitglieder (Phase-6).',
-      en: 'Collect 5 friends / gye members (Phase-6).',
+      de: 'Lerne mit 5 aktiven, eindeutigen Gye-Mitgliedern.',
+      en: 'Learn with 5 unique active Gye members.',
     ),
     target: 5,
     source: QuestSource.friendsCount,

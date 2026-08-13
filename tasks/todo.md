@@ -20,12 +20,12 @@
     structure, three closest quests, and observed reward receipt.
   - Verify: progression and reward-delta unit/widget tests.
 
-- [ ] Task 5: Quest actions and mastery
+- [x] Task 5: Quest actions and mastery
   - Acceptance: all 18 quests have an exact action or opening date; word quests
     use SRS `strong`; existing completed rewards never regress.
   - Verify: quest catalog/tracker/action resolver tests.
 
-- [ ] Task 6: Gye unique member trigger
+- [x] Task 6: Gye unique member trigger
   - Acceptance: active UIDs across all Gyes are deduplicated, only the number is
     cached, offline does not create a new completion.
   - Verify: service and quest tracker unit tests.

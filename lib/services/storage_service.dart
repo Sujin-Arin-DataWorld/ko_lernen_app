@@ -850,6 +850,37 @@ class Storage {
   /// 반복형이면 여러 개 쌓일 수 있으므로 Set 이 아니라 List).
   static List<String> get pendingBoxes => _l('kl_reward_boxes');
 
+  static const String _pronunciationPassCountKey =
+      'kl_pronunciation_pass_count_v1';
+  static const String _pronunciationAssessmentIdsKey =
+      'kl_pronunciation_assessment_ids_v1';
+  static const String _pronunciationLastScoreKey =
+      'kl_pronunciation_last_score_v1';
+  static const String _gyeUniqueMemberCountKey =
+      'kl_gye_unique_member_count_v1';
+
+  static int get pronunciationPassCount => _i(_pronunciationPassCountKey);
+  static List<String> get pronunciationAssessmentIds =>
+      _l(_pronunciationAssessmentIdsKey);
+  static double get pronunciationLastScore => _d(_pronunciationLastScoreKey);
+
+  static Future<void> recordPronunciationPass(
+    String assessmentId,
+    double score,
+  ) async {
+    final ids = pronunciationAssessmentIds;
+    if (ids.contains(assessmentId)) return;
+    final bounded = [...ids, assessmentId];
+    if (bounded.length > 200) bounded.removeRange(0, bounded.length - 200);
+    await _sl(_pronunciationAssessmentIdsKey, bounded);
+    await _si(_pronunciationPassCountKey, pronunciationPassCount + 1);
+    await _prefs?.setDouble(_pronunciationLastScoreKey, score);
+  }
+
+  static int get gyeUniqueMemberCount => _i(_gyeUniqueMemberCountKey);
+  static Future<void> setGyeUniqueMemberCount(int value) =>
+      _si(_gyeUniqueMemberCountKey, value < 0 ? 0 : value);
+
   static Future<void> addPendingBox(String questId) async =>
       _sl('kl_reward_boxes', [...pendingBoxes, questId]);
 
