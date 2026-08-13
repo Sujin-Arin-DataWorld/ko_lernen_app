@@ -10,6 +10,7 @@ import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
+import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
@@ -491,6 +492,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       pack,
       _siblingPacks,
       bossAccuracy: bossAccuracy,
+    );
+    await Analytics.packCompleted(
+      packId: pack.id,
+      accuracyPct: bossTotal == 0 ? 0 : (bossCorrect * 100 / bossTotal).round(),
+      firstClear: result.justCleared,
     );
     final missionContext = _missionStep == null ? null : widget.courseContext;
     if (missionContext != null) {

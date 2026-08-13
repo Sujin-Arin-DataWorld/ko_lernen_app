@@ -7,6 +7,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/gye_weekly_promise.dart';
 import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
+import '../services/analytics_service.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
@@ -59,6 +60,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         _code = meta.code;
         _gyeName = meta.name;
       });
+      await Analytics.gyeCreated();
     } on GyeException catch (e) {
       if (mounted) {
         _snack(gyeErrorMessage(AppL10n.of(context), e.error));

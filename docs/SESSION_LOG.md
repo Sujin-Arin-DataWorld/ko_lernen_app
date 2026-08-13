@@ -1,5 +1,34 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude) — 맥 로컬 최신화 + iOS 빌드번호 고정 + Analytics 이벤트 배선
+
+**로컬 최신화.** 맥 로컬 `main`이 `origin/main`과 갈라져 있었다(로컬 1 / 원격 163).
+로컬 단독 커밋 `aa870bb6`은 pubspec `2.0.5+19` bump + `appstore_screenshots/_capture.sh`
+뿐이었고, 원격도 이미 같은 `2.0.5+19`(`da3052ef`)로 수렴해 고유 내용은 스크린샷 헬퍼
+하나였다. `git reset --hard origin/main`으로 정확히 동기화하고(`_capture.sh`는 백업+reflog
+보존), `flutter clean` 후 App Store IPA를 빌드했다.
+
+**iOS 빌드번호 비결정성 수정.** `manageAppVersionAndBuildNumber` 키 부재 시 기본값 true라
+`xcodebuild -exportArchive`(app-store-connect)가 빌드번호를 pubspec의 FLUTTER_BUILD_NUMBER
+보다 하나 크게 만든다(관측: +19 → IPA CFBundleVersion 20). 커밋된 `ios/ExportOptions.plist`에
+`manageAppVersionAndBuildNumber=false`를 못박아 IPA 빌드번호가 pubspec `version` 뒷자리와
+정확히 일치하게 했다(스크립트·수동 xcodebuild 양쪽 경로에 적용). 자격증명이 아닌 보편 설정이라
+커밋 파일이 제자리. `plutil -lint` 통과.
+
+**Analytics 이벤트 배선.** `firebase_analytics ^12.4.6`는 설치돼 있었으나 이벤트 로깅이
+전무했다(logEvent 0건, 옵저버 없음, 래퍼 없음). 신설 `lib/services/analytics_service.dart`:
+동의 없으면 no-op + 모든 호출 try/catch(미초기화 Firebase/웹 안전)로 감싼 `AnalyticsController`
+(주입식, `PrivacyConsentService` 패턴 미러) + GA4-safe 이름의 `Analytics` 파사드 + 명명 라우트를
+`screen_view`로 기록하는 `AnalyticsRouteObserver`. `main.dart` navigatorObservers에 옵저버 등록.
+커스텀 이벤트 6종을 핵심 퍼널에 배선: `pack_completed`(vocab_pack_screen), `onboarding_level_selected`
+(onboarding_level_screen), `book_capture_analyzed`(book_result_screen), `custom_pack_created`
+(custom_pack_service, from_page/empty), `gye_created`/`gye_joined`(gye create/join). DSGVO 동의
+게이팅은 그대로 — 수집은 기본 OFF, 설정 토글로 opt-in해야 GA4에 도달.
+
+**검증.** `flutter analyze`(변경 9파일) 0 issues. 신규 `test/analytics_service_test.dart` 4건
+통과(동의 시 전달·미동의 no-op·에러 삼킴·지연 opt-in 반영). 회귀 확인: custom_pack·gye_service·
+gye_screen·vocab_pack·book_result·onboarding·privacy_consent 등 관련 71건 통과. 미커밋(Jin 확인 후).
+
 ### 2026-08-13 (Codex) — 통합 후 CI 교정 및 Linux 골든 기준 동기화
 
 **첫 push 검증.** `a0bba05`를 `origin/main`에 비강제 fast-forward push한 뒤 CI

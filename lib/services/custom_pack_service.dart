@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 
@@ -8,6 +9,7 @@ import '../models/custom_pack.dart';
 import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
 import 'account/media_cleanup_gate.dart';
+import 'analytics_service.dart';
 import 'auth_service.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
@@ -228,6 +230,7 @@ class CustomPackService {
       page: page,
     );
     await save(pack);
+    unawaited(Analytics.customPackCreated('from_page'));
     return pack;
   }
 
@@ -235,6 +238,7 @@ class CustomPackService {
   static Future<CustomPack> createEmpty({required String name}) async {
     final pack = CustomPack.manual(id: generateId(), name: name);
     await save(pack);
+    unawaited(Analytics.customPackCreated('empty'));
     return pack;
   }
 

@@ -16,6 +16,7 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
+import '../services/analytics_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/onboarding_flow_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -127,6 +128,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
       syncBrowseLevel: true,
     );
     await OnboardingFlowService.completeAfterLevelSelection();
+    await Analytics.onboardingLevelSelected(level.code);
     if (!context.mounted) return;
     await showAccountNudgeSheet(context);
     if (!context.mounted) return;

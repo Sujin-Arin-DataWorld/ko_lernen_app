@@ -49,5 +49,12 @@
        true 로 두면 export 즉시 업로드돼 되돌리기 번거롭다. -->
   <key>destination</key>
   <string>export</string>
+
+  <!-- 빌드 번호를 Xcode 가 임의로 자동 증가시키지 못하게 한다. 기본값(키 부재)은
+       true 라 app-store-connect export 단계에서 빌드 번호가 pubspec 의
+       FLUTTER_BUILD_NUMBER 보다 하나 커진 채(예: +19 → 20) 나온다. false 로
+       못박아 IPA 빌드 번호를 pubspec.yaml 의 version 뒷자리와 정확히 일치시킨다. -->
+  <key>manageAppVersionAndBuildNumber</key>
+  <false/>
 </dict>
 </plist>

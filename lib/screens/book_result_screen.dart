@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/feedback_completion.dart';
+import '../services/analytics_service.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_image_service.dart';
 import '../services/bookshelf_service.dart';
@@ -152,6 +153,13 @@ class _BookResultScreenState extends State<BookResultScreen> {
       if (!res.warnings.contains('offline_stub')) {
         await Storage.incBookSnapCountToday();
       }
+      unawaited(
+        Analytics.bookCaptureAnalyzed(
+          targetLang: targetLang,
+          words: res.words.length,
+          offline: res.warnings.contains('offline_stub'),
+        ),
+      );
       if (!mounted || generation != _analysisGeneration) {
         return;
       }

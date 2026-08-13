@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
+import '../services/analytics_service.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
@@ -44,6 +45,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
         code: _code.text,
         nickname: _nick.text,
       );
+      await Analytics.gyeJoined();
       if (!mounted) {
         return;
       }

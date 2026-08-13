@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'theme.dart';
 import 'config/ux_preview_feature.dart';
 import 'motion/transitions.dart';
+import 'services/analytics_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
@@ -476,7 +477,12 @@ class _KoLernenAppState extends State<KoLernenApp> {
         themeMode: ThemeMode.light,
         // 영상 위젯이 "내 화면 위에 다른 화면이 올라왔는지"를 알아야
         // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
-        navigatorObservers: [soriRouteObserver, DiagnosticsRouteObserver()],
+        // analyticsRouteObserver: 명명 라우트를 screen_view 로 기록(동의 시에만).
+        navigatorObservers: [
+          soriRouteObserver,
+          DiagnosticsRouteObserver(),
+          analyticsRouteObserver,
+        ],
         locale: localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
