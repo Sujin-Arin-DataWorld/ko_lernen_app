@@ -379,12 +379,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (cur == null) return;
     final lang = Localizations.localeOf(context).languageCode;
     final correct = cur.translationFor(lang);
+    // pack 을 실어 보내면 ⓪·① 계층이 **이번 장에서 방금 배운 단어들**을
+    // 보기로 최우선 선발한다 — "잘 지냈어요?"의 오답이 Tee/Wochenende 처럼
+    // 주제부터 다른 단어면 소거법으로 바로 빠진다 (2026-08-14 Jin 제안).
     final distractors = buildTranslationDistractors(
       target: DistractorCandidate(
         id: cur.korean,
         translation: correct,
         pos: cur.posFor(lang),
         level: cur.level,
+        pack: cur.packId,
       ),
       pool: [
         for (final v in _distractorPool)
@@ -393,6 +397,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             translation: v.translationFor(lang),
             pos: v.posFor(lang),
             level: v.level,
+            pack: v.packId,
           ),
       ],
       rng: _rng,

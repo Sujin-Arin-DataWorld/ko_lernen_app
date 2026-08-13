@@ -1,5 +1,64 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Claude, Mac) — 퀴즈 보기 = 그 장에서 배운 단어들 (Jin 제안)
+
+**제안 (Jin).** "잘 지냈어요?"의 보기에 Tee·Wochenende(다른 팩)가 나오면 주제만 봐도
+정답이 드러난다 — 보기는 그 장(예: Höflichkeit (1))에서 배운 단어들이어야 한다.
+
+**구현.** `DistractorCandidate` 에 `pack`(pack_id) 필드 추가,
+`buildTranslationDistractors` 계층 최상단에 ⓪같은 팩∧같은 품사 → ①같은 팩 삽입
+(이하 기존 품사·레벨 계층). 일반 팩(8~13단어)에서는 ⓪·①이 3개를 다 채우므로 보기
+전원이 이번 장의 이웃 단어 — 헷갈리는 만큼 방금 배운 단어 복습 효과. vocab_pack
+`_prepareNextQuestion` 이 target/pool 에 packId 를 실어 보냄 (Quiz·Boss 동일).
+custom_pack_quiz 는 풀 자체가 그 팩뿐이라 변경 없음. pack '' 후보는 기존 계층으로
+자연 강등(기존 테스트 전부 무변).
+
+**검증.** `quiz_distractor_service_test` +4건(팩 우선·팩내 품사 우선·강등·소형 팩 폴백),
+신규 `vocab_pack_same_pack_choices_test`(Learn 완주 → 퀴즈 보기 4개 전부 현재 팩 뜻인지
+화면 검증). requeue·custom_pack 회귀 그린, analyze 0.
+
+### 2026-08-14 (Claude, Mac) — UI 개편 Phase 2a·2b·2c: SoriStage 셸 부활 (마스코트 히어로 이식 + 기본 ON)
+
+**배경.** 2026-08-13 롤백의 유일한 사유("텍스트-우선 Today 가 마스코트 주도 진입을
+잃었다")를 수리하고 5탭 SoriStage 셸을 기본으로 복귀. Jin 이 Phase 0·1 결과 승인 후 진행.
+
+**2a — 추출 (홈 픽셀 불변 게이트).** `home_screen.dart` 의 `_TigerHero`/`_SpeechBubble`/
+`_BubbleTailPainter`/`_DayPhase` → **`widgets/sori/home_hero.dart`**(`SoriCharacterHero` +
+`SoriDayPhase`/`soriDayPhaseFor`/`soriHeroGreeting`, 본문 원문 그대로 + 매트 배경 계약
+doc), `_TopBar`/`_HeaderChip`/`_RoundIconButton` → **`stats_top_bar.dart`**(`SoriStatsTopBar`),
+`_showWeekSheet` 본문 → **`week_sheet.dart`**(`showSoriWeekSheet`). 홈은 소비자로 전환
+(1,617→1,162줄). 게이트: home_layout(34)·home_today_snapshot·home_hanok_narrative·
+home_hero_matte·quest_cta_pinned 등 62 테스트 무변경 통과.
+
+**2b — Today 재구성** (`sori_stage_today_screen.dart`). ① 배경 = 홈과 같은
+`HomeHeroClips.matte`(#FBF5EB) 평면 단색(라이트) — 그라데이션/그레인 금지 계약 주석 +
+`ValueKey('sori-today-bg')`. ② 구성: `SoriStatsTopBar`(스트릭→주간시트·레벨→/stats·
+**프로필 아이콘 신설**·설정) → `SoriCharacterHero`(인사→말풍선→클립 밴드) → 기존 미션
+카드/보자기/한옥 진행/퀘스트. 텍스트 `SoriStageRootHeader` 는 이 탭에서 제거(인사말이
+헤더). ③ `verticalDirection: up` 페인트 순서 안전장치 이관(Android 영상 텍스처).
+④ teal kill-switch 가드: `SoriCharacterHero.forceStatic`(신규 opt-in 파라미터)로
+`palette_variant=teal`(흰 배경)에서 정적 마스코트 경로 강제. ⑤ `now` 주입 파라미터
+(테스트 시계). ⑥ 로딩/오류 상태에도 헤더 즉시 표시(ListView — 낮은 높이 스크롤 수용).
+신설 **`test/sori_stage_today_matte_test.dart`** — 매트 hex 계약 + 히어로/톱바 존재 +
+RootHeader 부재 + Profile 툴팁 + 아침 인사말 고정.
+
+**2c — 기본 전환.** `sori_stage_feature.dart` `defaultValue: false→true` + 이력/롤백 doc
+(`--dart-define=ENABLE_SORI_STAGE=false` 가 한 릴리스 동안 레거시 셸 복귀 경로).
+`sori_stage_shell_test.dart` 게이트 계약을 default-on 으로 갱신.
+
+**파생 수리.** ① `SoriStatsTopBar` 텍스트 배율 1.4 클램프(390dp+200%에서 8px 오버플로
+— 시트 1.3 클램프와 같은 계열). ② 톱바 폭 적응(LayoutBuilder): 프로필 버튼이 추가된
+셸에서는 워드마크 **텍스트**를 (320+56)dp 미만에서 숨기고(로고 유지 — "Hangul…" 말줄임
+제거 효과), (240+56)dp 미만 초협폭(308dp 분할 화면)에서 레벨 칩까지 접는다. 홈은
+프로필 예약폭 0이라 기존 표시 불변.
+
+**검증.** analyze 0 · responsive/responsive_short_height/sori_stage 4스위트/home
+스위트/screen_smoke = 807 통과 · 전체 스위트 재실행(잔여 실패는 병행 세션 영역:
+`window_class_guard` 는 병행 세션이 새로 추가한 `responsive.dart` `maxWidth <= 0`
+유효성 검사가 가드 정규식에 걸린 false-positive — 그쪽 정리 몫) · flutter web 실행으로
+Today 히어로 진입 시각 확인. **Jin 확인 필요: 실기기 Android 매트**(에뮬레이터가
+아니라 실기기 — 홈 매트 결함 이력상 필수) + DE 로케일 문구. 미커밋.
+
 ### 2026-08-14 (Claude, Mac) — 단어카드 글자 크기 단어 길이 무관 고정 + 예문 음성 복구
 
 **증상 (Jin).** "단어카드가 또 단어 길이마다 크기가 바뀌고, 예시에 음성 나오는 게 또 없어졌어."
@@ -27,6 +86,42 @@ cap(96px), 긴 단어는 축소 → 카드를 넘길 때마다 크기 요동. (8
 실패함을 확인), 헬퍼 축소 동작, 뒷면 예문 탭 재생. vocab_pack_typography(배너 유무 동일
 크기)·flip_spoiler·requeue·vocab_pack·custom_pack·screen_smoke·spotlight_coach 전부 그린,
 `flutter analyze` 0. 미커밋.
+
+### 2026-08-13 (Claude, Mac) — UI 개편 Phase 1: 디자인 언어 토큰·공용 위젯 3종 + vocab_packs 파일럿 + 팩 일러스트 14종 생성
+
+**무엇 (코드).**
+- `tokens.dart` 추가만: `SoriTextTheme.hero`(38/w800/−0.8 — Vocabulary급 페이지 헤드라인),
+  `SoriTextTheme.eyebrow`(12/w700/자간1.4/석간주 — 헤드라인 위 소형 라벨),
+  `Spacing.page`(20,20,20,48 — SoriStage 리터럴의 토큰화), `SoriFonts.display`(=sans,
+  미래 한국어 세리프 도입 단일 지점 — 2026-07-01 라틴/한글 분열 실패 재발 방지 주석).
+- 신설 `widgets/sori/app_bar.dart` **SoriAppBar** (좌측 h2 타이틀·eyebrow 옵션·투명 배경·
+  scrolledUnderElevation 0) — raw AppBar 105곳의 수렴점.
+- 신설 `widgets/sori/page_header.dart` **SoriPageHeader** (eyebrow→hero→body→trailing).
+  `SoriStageRootHeader` 는 이것에 위임하도록 재배선(자체 raw TextStyle 3종 제거).
+- 신설 `widgets/sori/illustrated_card.dart` **SoriIllustratedCard** — Vocabulary급 균일
+  그리드 카드 규격: 상단 16:10 일러스트 슬롯(+errorBuilder 폴백 계약), 타이틀/서브타이틀/
+  footer 슬롯, 상태 normal/locked(딤+자물쇠 칩)/premium(골드 칩)/cleared(도장 오버레이).
+- `pack_card.dart` 를 SoriIllustratedCard 기반으로 재구성 — 일러스트
+  `assets/illustrations/packs/{motif}.webp` 규약 해석, 폴백=단청 도장(아트 없이도 배포 가능).
+  공개 API(packId/title/progress/onTap/onLockedTap) 불변 — vocab_packs 호출부 무수정.
+- `vocab_packs_screen.dart` 파일럿: AppBar 3곳 → SoriAppBar, 그리드 childAspectRatio
+  0.92→0.82(일러스트 슬롯 높이). `pubspec.yaml` 에 `assets/illustrations/packs/` 등록.
+
+**무엇 (에셋 — 팩 motif 일러스트 14종 신규 생성).** `docs/ASSET_GENERATION_BIBLE.md`
+Faceted Minhwa 규격(§1.3 팔레트 hex·§1.5 템플릿·무윤곽·단청 점 2군집·한지 그레인)으로
+BBANANA Seedream V4.5 생성. **앵커 1장(bamboo 서재 정물) 생성→검수 후 나머지 13장을
+앵커를 스타일 레퍼런스로 참조시켜 세트 일관성 고정** (전 장 공통: 크림 다이아 배경 +
+단청 점 2군집). 캐릭터(호랑이·까치) 이미지 생성 0 — ⛔ 규칙 준수. 재생성 2회:
+vine(고무신이 크록스로 나와 전통 신발로 재지시), gwigap(풀 인테리어 이탈 → 크림 배경
+비네트로 재지시). 총 16회 생성 = **16 크레딧** (잔여 ~1,040). 산출:
+`assets/illustrations/packs/{lotus,chrysanthemum,plum,bamboo,cloud,octagon,mountain,
+manja,vine,chilbo,gwigap,wave,taegeuk,peony}.webp` — 800px q88 WebP, 장당 21–40KB,
+**세트 전체 404KB**.
+
+**검증.** `flutter analyze` 0 · screen_smoke/accessibility/typography_guard(7)/responsive
+56 통과 · vocab_packs 골든은 Linux 전용(맥 skip) — **Linux CI에서
+`screen_vocab_packs_{medium,expanded}` 재생성 필요(의도된 변화)** · flutter web 실행으로
+파일럿 화면 시각 검증(스크린샷). 미커밋.
 
 ### 2026-08-13 (Claude, Mac) — 테스터 피드백(Andreas) 라운드: 플립 스포일러·재출제·Extra-Lernset·철자 퀴즈·레벨 혼입·전역 속도
 
@@ -95,6 +190,44 @@ cloud_sync 백업 열거(+`wrong_count_json`)·listening 속도 칩 라벨(전�
 **남은 것(다음 세션).** 문법 4지선다 신규 유형(설계만 — grammar.csv 예문 구간 마킹 필요),
 suspects 잔여분 배치 002 검토(b2_safety/household/thinking_verbs 계열), AI-lastig 비주얼 온기
 트랙(카피는 8/13 Humanizer 완료 — 테스터는 구 빌드였을 가능성, 다음 빌드에서 재평가 요청).
+
+### 2026-08-13 (Claude, Mac) — UI 개편 Phase 0: 홈 데드 대시보드 제거 + 데드 허브 화면 삭제 + 스타일 래칫 테스트
+
+**배경.** Vocabulary 앱 수준의 UI/UX 개편(라이트 한지 유지 · SoriStage 셸 부활 · 캐릭터 외
+신규 일러스트 · 단계적) 계획의 첫 단계. 이후 단계가 리스타일할 대상 자체를 줄이고,
+원시 스타일 리터럴이 더 늘지 않게 래칫을 건다. 전체 계획: Jin 승인 플랜
+(Phase 0 정리 → 1 디자인 언어+vocab_packs 파일럿 → 2a/2b/2c SoriStage 셸 부활 → 3 핵심 화면).
+
+**무엇.**
+- `home_screen.dart` 2,665→1,637줄(−1,028). `_legacyDashboardExpanded` 데드 블록(프로덕션에서
+  절대 true 가 안 되는 렌더 사각지대)과 그 블록만 쓰던 고아 심볼 일괄 제거: 필드
+  `legacyDashboardInitiallyExpanded`·`_hardCount`·`_openableBoxes`·`_pathNodes`·`_nowPackId`·
+  `_courseCardThisWeek`·`_hanokProjection`(저장만 하고 아무도 안 읽음), 메서드 `_loadPath`·
+  `_openCourse`·`_isoWeek`·`_openHanok`·`_previewStops`·`_secondaryCards`, 클래스
+  `_HomeHanokPreview`·`_DailyCharCard`·`_ReviewCard`·`_PathCard`·`_HardWordsCard`·`_CourseCard`·
+  `_SectionLabel`, 미사용 import 18개. `pathTourKey` 파라미터 제거(코치 투어는 2026-08-06부터
+  미션 1스텝만 — `app_shell.dart` 의 `_pathTourKey` 도 함께 제거). `_loadHanokPreview` 의
+  내러티브 로드·시네마틱 트리거는 유지(프로덕션 `HomeBuildNote` 가 소비).
+- 완전 데드 화면 2개 삭제: `learn_hub_screen.dart`(202줄)·`wordbook_hub_screen.dart`(174줄)
+  — 라우트 없음, lib/ 참조 0. 테스트 4파일에서 등록 제거 + `screen_learn_hub_*` 골든 3장 삭제.
+  (`wordle_screen.dart` 도 프로덕션 데드지만 **다른 세션이 수정 중이라 삭제 보류** — Phase 4 때.)
+- **기존 `test/typography_guard_test.dart` 에 래칫 3종 추가** (별도 파일 대신 기존 가드에
+  통합 — 문자열/주석 blanking 이 있는 `_expectAtMost` 재사용): 화면 원시 `TextStyle(` ≤449 ·
+  숫자 `BorderRadius.circular(` ≤64 · 화면 원시 `AppBar(` ≤105. 기존 4종(w900/w800/
+  Pretendard 리터럴/아이콘 SoriButton)과 같은 규칙 — 상한은 내려가기만 한다.
+- 테스트 적응: `home_hanok_narrative_test.dart` 는 (사라진 대시보드의 내러티브 라인 대신)
+  상시 노출 `HomeBuildNote` 의 verified can-do 를 단언 — 위젯 자체 렌더링은
+  `hanok_build_narrative_line_test.dart` 가 전담 커버(소비처 `hanok_world_screen` 존속).
+  `home_layout_test.dart` 2열 판정을 한옥 카드 → 히어로 밴드|미션 카드 기하로 교체
+  (1열 시각 순서 = 미션 위·캐릭터 밴드 아래, 코드 주석과 일치), 태블릿 여백 검사는
+  "미션 폭×2+간격" 콘텐츠 폭으로 재정의.
+
+**검증.** `flutter analyze` 0 · home_layout(35) + home_hanok_narrative + home_today_snapshot +
+typography_guard(7) 통과 · goldens/screen_smoke/accessibility_guideline/responsive 스위트
+52 통과(골든 렌더는 Linux 전용이라 맥에서 ~11 skip — 기존 환경성) · 전체 `flutter test`
+3,283 통과 / 13 skip / 실패 5는 **전부 병행 세션의 미커밋 작업 영역**(cloud_sync 백업 필드,
+listening 피드백 레이아웃 2, typography_guard 상한 2 — 뒤 2건은 이후 재실행에서 해소 확인).
+본 세션 편집 파일과 무관. 미커밋.
 
 ### 2026-08-13 (Claude, Mac) — TTS 말속도 칩(TtsSpeedAction)을 20개 화면 AppBar에 전역 배선
 

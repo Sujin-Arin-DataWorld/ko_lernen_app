@@ -12,11 +12,13 @@ DistractorCandidate _c(
   String translation, {
   String pos = '',
   String level = '',
+  String pack = '',
 }) => DistractorCandidate(
   id: id,
   translation: translation,
   pos: pos,
   level: level,
+  pack: pack,
 );
 
 void main() {
@@ -90,6 +92,86 @@ void main() {
       rng: math.Random(1),
     );
     expect(out, ['essen']);
+  });
+
+  // 2026-08-14 Jin 제안: 보기는 **그 장에서 배운 단어들**로.
+  group('same-pack tier', () {
+    test('pack mates beat same-POS+level words from other packs', () {
+      final greeting = _c(
+        '잘 지냈어요',
+        'Wie geht es dir?',
+        pos: 'Ausdruck',
+        level: 'A1',
+        pack: 'a1_greetings_1',
+      );
+      final pool = [
+        // 같은 팩 (품사 제각각) — 이번 장에서 배운 이웃 단어들.
+        _c('안녕하세요', 'Guten Tag', pos: 'Ausdruck', level: 'A1', pack: 'a1_greetings_1'),
+        _c('감사합니다', 'Vielen Dank', pos: 'Ausdruck', level: 'A1', pack: 'a1_greetings_1'),
+        _c('죄송합니다', 'Entschuldigung', pos: 'Nomen', level: 'A1', pack: 'a1_greetings_1'),
+        // 다른 팩 — 주제부터 달라 소거법으로 바로 빠지는 보기들.
+        _c('차', 'Tee', pos: 'Nomen', level: 'A1', pack: 'a1_food_1'),
+        _c('주말', 'Wochenende', pos: 'Ausdruck', level: 'A1', pack: 'a1_time_1'),
+      ];
+      final out = buildTranslationDistractors(
+        target: greeting,
+        pool: pool,
+        rng: math.Random(3),
+      );
+      expect(out, hasLength(3));
+      expect(out, containsAll(['Guten Tag', 'Vielen Dank', 'Entschuldigung']));
+      expect(out, isNot(contains('Tee')));
+      expect(out, isNot(contains('Wochenende')));
+    });
+
+    test('same-pack same-POS ranks above same-pack other-POS', () {
+      final target = _c('하다', 'machen',
+          pos: 'Verb', level: 'A1', pack: 'p1');
+      final pool = [
+        _c('집', 'Haus', pos: 'Nomen', level: 'A1', pack: 'p1'),
+        _c('먹다', 'essen', pos: 'Verb', level: 'A1', pack: 'p1'),
+        _c('가다', 'gehen', pos: 'Verb', level: 'A1', pack: 'p1'),
+        _c('보다', 'sehen', pos: 'Verb', level: 'A1', pack: 'p1'),
+      ];
+      final out = buildTranslationDistractors(
+        target: target,
+        pool: pool,
+        rng: math.Random(5),
+      );
+      // ⓪(팩+품사) 후보 3개가 충분하므로 ①(팩, 타품사)의 Haus 는 밀린다.
+      expect(out, containsAll(['essen', 'gehen', 'sehen']));
+    });
+
+    test('pack-less candidates degrade to the old tiers unchanged', () {
+      final target = _c('하다', 'machen', pos: 'Verb', level: 'A1');
+      final pool = [
+        _c('먹다', 'essen', pos: 'Verb', level: 'A1'),
+        _c('집', 'Haus', pos: 'Nomen', level: 'A1'),
+      ];
+      final out = buildTranslationDistractors(
+        target: target,
+        pool: pool,
+        rng: math.Random(1),
+      );
+      expect(out, ['essen', 'Haus']);
+    });
+
+    test('small pack falls through to lower tiers for the remainder', () {
+      final target = _c('하나', 'eins',
+          pos: 'Nomen', level: 'A1', pack: 'tiny');
+      final pool = [
+        _c('둘', 'zwei', pos: 'Nomen', level: 'A1', pack: 'tiny'),
+        _c('셋', 'drei', pos: 'Nomen', level: 'A1', pack: 'other'),
+        _c('넷', 'vier', pos: 'Nomen', level: 'A1', pack: 'other'),
+      ];
+      final out = buildTranslationDistractors(
+        target: target,
+        pool: pool,
+        rng: math.Random(1),
+      );
+      expect(out.first, 'zwei'); // 팩 우선
+      expect(out, containsAll(['zwei', 'drei', 'vier']));
+    });
   });
 
   test('deterministic with a seeded Random', () {
