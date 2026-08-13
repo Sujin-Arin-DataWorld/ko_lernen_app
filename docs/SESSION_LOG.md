@@ -1,5 +1,52 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Codex) — Sori Stage 최신 main 통합·안전성 보강·전체 회귀
+
+**통합 기준.** 기능 브랜치 `codex/sori-stage-frontend`는 `45779bf`에서
+시작했지만, 통합 직전 `origin/main`은 `416a54f`까지 전진해 있었다. 별도
+`codex/sori-stage-integration-20260813` worktree를 최신 main에서 만든 뒤
+`--no-ff` merge를 수행했다. 충돌 3건은 최신 main의 UX Gallery 제목과 Hanok·
+Sarangbang 테스트 의미를 보존하면서 Sori Stage preview seam만 합쳤다. 최종 fetch에서도
+통합 기준과 `origin/main`은 `0/0`이고, VS Code main checkout은 `main@416a54f`, clean이다.
+
+**리뷰 후 보강.** 명세·코드품질 두 축 독립 리뷰의 P1/P2를 모두 재검증했다.
+
+- Calligraphy를 `/calligraphy`, Hangul mastery를 `/hangul`로 분리하고 Today의
+  상세 route alias까지 카탈로그에 연결했다. 실제 지급되지 않는 고정 XP 약속은 제거했다.
+- Learn/Games의 상태를 코스·단어팩·서예·발음·문법·시나리오·SRS·게임 기록에서
+  읽도록 연결했다. receipt는 XP·스탬프·퀘스트·한옥·Bojagi·개인 기록·Gye 등불의
+  **실제 양의 변화만** 표시하며 같은 전환은 같은 receipt ID를 만든다.
+- 발음 통과 기록은 분리된 세 키 대신 하나의 versioned strict journal로 저장한다.
+  80점 이상, assessment ID 중복 방지, 100회 상한, 쓰기 실패 비완료를 테스트했다.
+  Azure region은 설정으로 우회할 수 없는 `germanywestcentral` 상수로 고정했다.
+- Gye 계원 퀘스트는 `Source.server` 결과만 새 완료로 인정한다. 오프라인에서는 마지막
+  숫자를 보여 주되 완료 확정은 하지 않는다. 여러 Gye의 동일 UID와 본인 UID는 제외한다.
+- Sori Stage 카탈로그·보상·퀘스트 CTA·preview 노출 문구를 대칭 DE/EN ARB로 옮겼다.
+  Settings의 tutorial replay notifier도 새 shell의 Today mission을 다시 가리킨다.
+- Node 22 pronunciation job을 CI에 추가해 request/App Check/크기/쿼터/리전 가드를
+  main push마다 검증한다. Firebase/Azure deploy는 수행하지 않았다.
+
+**검증.** `flutter analyze --no-pub --fatal-infos`는 **No issues found**.
+최종 `flutter test --concurrency=4`는 **3,257 passed / 16 intentional skips / 0 failed**.
+초기 직렬 전체 실행에서 catalog reload의 `setState` callback이 Future를 반환하는 회귀
+1건을 발견해 동기 closure로 고쳤고, 해당 focused test와 전체 suite를 다시 통과시켰다.
+390dp·600dp·720dp·1280dp, 200% text, DE light, EN dark, reduced motion, semantics,
+48dp target 테스트를 포함한다. 최신 코드를 기준으로 real-font 390/1280 screenshots를
+재생성·직접 검토했으며 잘림·겹침과 허위 XP 표시가 없다.
+
+Functions는 pronunciation **5/5**, Gye runtime **338/338**이 통과했다. Gye 첫 실행의
+1건 실패는 새 worktree의 불완전한 `node_modules` 때문에 `firebase-admin/app`을 못 찾은
+환경 실패였고 `npm ci` 후 같은 suite가 전부 통과했다. 로컬 Windows에는 Java가 없어
+Firestore emulator rules test를 실행하지 못했으며, 기존 CI의 Java 21 rules job에서
+검증하도록 남겼다. `flutter build web --release` 성공. 변경 파일 secret scan,
+conflict-marker scan, `git diff --check`도 통과했다. npm production audit는 기존
+Firebase transitive tree의 moderate 7, high/critical 0이며 breaking downgrade는 하지 않았다.
+
+**외부 게이트.** Windows 검증은 iOS compile/signing, Android/iOS 실제 마이크,
+live App Check, 배포된 callable, Azure 실처리 지역, 물리 기기 UX를 증명하지 않는다.
+Firebase/Azure 배포도 이번 병합 범위가 아니다. 통합 커밋·push 결과는 다음 로그 또는
+이 항목의 후속 커밋에서 해시로 고정한다.
+
 ### 2026-08-13 (Claude) — 퀘스트 CTA 하단 고정 + 노출 DE/EN em dash 292건 제거 + 릴리스 빌드
 
 **무엇을 ① (CTA 하단 고정).** 신설 `lib/screens/quest_engines/quest_layout.dart` 로
@@ -6123,3 +6170,97 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **검증:** `dart format --output=none --set-exit-if-changed`는 대상 6파일을 변경하지 않고 통과했다. 지정 통합 `flutter test`는 **421 passed**, `dart run tool/verify_ios_store_contract.dart`는 통과, 범위 `dart analyze --fatal-infos lib/services/app_version_service.dart lib/screens/settings_screen.dart tool/verify_ios_store_contract.dart test/app_version_service_test.dart test/ios_store_contract_test.dart test/store_submission_material_test.dart test/widgets/settings_screen_test.dart`는 **No issues found**, `python tool/test_check_app_store_screenshots.py`는 **18 passed**, `git diff --check`도 통과했다. 전역 `dart analyze --fatal-infos`는 iOS 변경과 무관한 동시 수정 `lib/screens/vocab_pack_screen.dart:331:8`의 unused `_speakCurrent` 하나로 exit 1이어서 통과로 기록하지 않는다.
 - **의도된 외부 게이트:** `dart run tool/verify_ios_firebase_config.dart`는 credential-free Windows checkout에서 예상대로 exit 1이며 `firebase_options iOS`, `ios/Runner/GoogleService-Info.plist`, 해당 Runner target membership 누락을 보고한다. 승인된 macOS 릴리스 담당이 Firebase 구성·서명/archive·Xcode privacy report·실제 iPhone/iPad TestFlight·실캡처·App Store Connect/App Privacy/호스팅 URL 검증을 수행하기 전에는 iOS 제출 완료가 아니다. 정확한 순서는 `docs/store/app-store-connect-v2.0.5.md`를 따른다.
 - **커밋:** not created (not requested). 스테이징·푸시·Apple/Firebase 외부 호출은 하지 않았다.
+# 2026-08-13 — Sori Stage preview foundation
+
+- Created the isolated `codex/sori-stage-frontend` worktree at `45779bf`.
+- Added the default-on `ENABLE_SORI_STAGE` rollout gate without changing legacy routes.
+- Added `SoriActivityColors`, the activity/reward/progression contracts, and one catalog for all Learn and Games entries.
+- Added read-only UX Gallery panels `07A`–`07D` for Today, lesson stages, the actual-change reward receipt, and the complete learning journey.
+- No new character, Hanok, AI, or Rive assets were introduced.
+- Added the approved plan as the living specification in `tasks/plan.md` and
+  the vertical-slice verification checklist in `tasks/todo.md`.
+- Added the production five-root shell: Today, Learn, Games, Hanok, and Gye.
+- Moved Profile out of navigation into a persistent 48dp root-header action,
+  including loading and error states.
+- Connected Learn and Games to the stable activity catalog and embedded the
+  existing Hanok and Gye surfaces without changing their progress contracts.
+- Verified the shell at 390dp and 720dp and ran scoped static analysis cleanly.
+- Replaced word-visibility quest counts with SRS `strong` mastery counts while
+  preserving every existing completion marker and reward.
+- Added exact CTAs or next season-opening dates for all 18 quests and removed
+  internal `Phase-5` / `Phase-6` wording.
+- Added an online-authoritative unique active Gye-member count; only the number
+  is cached and offline state cannot create a new completion.
+- Added the pronunciation pass boundary (79 fails, 80 passes) and bounded,
+  idempotent assessment-ID persistence ahead of the capture/API slice.
+- Verified the progression rules together with the existing quest suites: 35
+  focused tests passed.
+- Added the optional pronunciation studio with a separate, reversible consent,
+  a ten-second PCM16 ceiling, microphone-denial and offline/server fallbacks,
+  and an idempotent score threshold where 79 fails and 80 passes.
+- Added an isolated Node 22 Firebase callable in `europe-west3`. It requires
+  authentication and a limited-use App Check token, enforces request bounds
+  and per-user minute/day quotas, calls Azure Speech in
+  `germanywestcentral`, and returns aggregate scores only. Audio, reference
+  text, and provider details are neither persisted nor logged by app code.
+- Added DE/EN native microphone purpose strings, DE/EN in-app disclosures,
+  privacy-policy details, consent withdrawal, local export fields, and explicit
+  Firestore denial for client access to server-owned quota counters.
+- Closed a consent bypass in Settings with a RED widget test: enabling voice
+  assessment now shows the same full disclosure used by the pronunciation
+  studio before storing consent.
+- Verification for this slice: Node 22 syntax and four Functions tests passed;
+  68 focused Flutter tests passed; platform/privacy contract tests passed; and
+  scoped Dart analysis reported no issues.
+- `npm audit --omit=dev` still reports seven moderate transitive advisories
+  through the current latest `firebase-admin` / `@google-cloud/storage` tree.
+  The suggested forced fix is a breaking downgrade to `firebase-admin@10.3.0`
+  and was intentionally not applied. The new callable does not use Cloud
+  Storage, but this remains an explicit dependency risk for future upgrades.
+- No Azure resource, Firebase function, Firestore rule, remote branch, build,
+  or application deployment was changed by this local implementation.
+- Added an observed-delta reward receipt boundary around Today, Learn, and
+  Games navigation. It takes a read-only snapshot before an activity, waits
+  for the existing route to return, and shows only positive persisted changes
+  in XP, stamps, matching quest progress, Hanok milestones, or openable Bojagi.
+- Snapshot failure never blocks learning, newly visible historical quest
+  progress is ignored, negative/reset values are ignored, and an empty receipt
+  is never shown.
+- Learn and Games rows now expose availability, estimated duration, exact
+  reward condition, and possible reward before the learner starts.
+- Verified the actual catalog-return flow with a widget test and locked the 14
+  Learn plus 10 Games entries to one complete, stable catalog contract.
+- Completed responsive and accessibility verification for the production
+  shell and catalog at 390dp, 600dp, 720dp, and 1280dp, including 200% text,
+  DE light, EN dark, reduced motion, 48dp targets, labels, and contrast.
+- Preserved the typography and window-class ratchets: new headings use bundled
+  supported weights, decorative button icons were removed where the label is
+  sufficient, and the lesson layout uses the shared tablet breakpoint.
+- Kept legacy-shell coverage explicit by injecting the disabled feature gate
+  only in its compatibility test. The production Sori Stage default remains
+  enabled with the compile-time rollback seam intact.
+- Updated stale Hanok and Sarangbang assertions to the current localized
+  product copy and deterministic preview fixtures; the affected 21 tests pass.
+- Captured and reviewed real-font visual evidence at
+  `docs/screenshots/sori-stage-today-390.png` and
+  `docs/screenshots/sori-stage-learn-1280.png`; neither view clips, overlaps,
+  or hides its action-to-reward relationship.
+- Final Flutter verification: `flutter analyze --no-pub` reported no issues;
+  the complete serial suite passed 2,082 tests with 14 intentional skips and
+  zero failures; the two visual evidence goldens also passed when enabled.
+- Node 22.23.2 Functions verification passed all four guard, WAV, aggregate
+  response, and quota-boundary tests. The seven moderate transitive npm audit
+  advisories remain documented because the offered forced fix is a breaking
+  Firebase Admin downgrade.
+- `flutter build web --release` completed successfully. The build reported only
+  existing `flutter_tts_web` WebAssembly dry-run warnings; the normal release
+  web output was produced successfully. No remote deployment was performed.
+- Windows cannot prove iOS compilation, real Android/iOS microphone behavior,
+  live App Check, Firebase callable deployment, Azure regional processing, or
+  physical-device UX. Those remain release gates and are not claimed here.
+- Final isolation proof: the Sori Stage worktree is clean on
+  `codex/sori-stage-frontend`. The VS Code checkout remains clean on `main`
+  and exactly matches `origin/main` (0 ahead / 0 behind). Its HEAD advanced
+  externally from the requested `45779bf` base to `416a54f` while this isolated
+  branch was being implemented; no main checkout file, index, branch, build,
+  dependency, or deployment command was changed by this worktree task.

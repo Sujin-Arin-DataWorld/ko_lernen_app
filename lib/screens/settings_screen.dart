@@ -430,6 +430,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.dispose();
   }
 
+  Future<bool> _confirmPronunciationConsent() async {
+    final t = AppL10n.of(context);
+    return await showDialog<bool>(
+          context: context,
+          barrierDismissible: false,
+          builder: (dialogContext) => AlertDialog(
+            title: Text(t.pronunciationConsentTitle),
+            content: Text(t.pronunciationConsentBody),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: Text(t.pronunciationConsentDecline),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: Text(t.pronunciationConsentAccept),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   Future<void> _loadAppVersion() async {
     try {
       final version = await _appVersionReader.readVersion();
@@ -1005,6 +1028,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
               value: Storage.crashConsent,
               onChanged: (v) async {
                 await PrivacyConsentService.setCrash(v);
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+            ),
+            SwitchListTile(
+              secondary: const Icon(Icons.mic_none_rounded),
+              title: Text(t.settingsPronunciationConsentTitle),
+              subtitle: Text(
+                Storage.pronunciationConsent
+                    ? t.settingsPronunciationConsentDesc
+                    : t.settingsPronunciationConsentOff,
+                style: SoriTextTheme.of(context).caption,
+              ),
+              value: Storage.pronunciationConsent,
+              onChanged: (value) async {
+                if (value && !await _confirmPronunciationConsent()) {
+                  return;
+                }
+                await Storage.setPronunciationConsent(value);
                 if (mounted) {
                   setState(() {});
                 }

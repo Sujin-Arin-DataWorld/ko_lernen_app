@@ -210,9 +210,7 @@ void main() {
     );
     expect(
       tester.getTopLeft(find.text('Dein Lernzimmer')).dy,
-      lessThan(
-        tester.getTopLeft(find.text('Was du heute gelernt hast')).dy,
-      ),
+      lessThan(tester.getTopLeft(find.text('Was du heute gelernt hast')).dy),
     );
     final room = find.byKey(const ValueKey('sarangbang-study-room'));
     final expression = find.text('안 맵게 해 주세요.');

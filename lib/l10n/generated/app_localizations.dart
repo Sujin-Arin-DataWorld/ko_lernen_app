@@ -10080,6 +10080,438 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.'**
   String get accountLinkFailedBody;
+
+  /// No description provided for @soriStageNavToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute'**
+  String get soriStageNavToday;
+
+  /// No description provided for @soriStageNavLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get soriStageNavLearn;
+
+  /// No description provided for @soriStageNavGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele'**
+  String get soriStageNavGames;
+
+  /// No description provided for @soriStageNavHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok'**
+  String get soriStageNavHanok;
+
+  /// No description provided for @soriStageNavGye.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye'**
+  String get soriStageNavGye;
+
+  /// No description provided for @soriStageProfileTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil'**
+  String get soriStageProfileTooltip;
+
+  /// No description provided for @soriStageTodayEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTE'**
+  String get soriStageTodayEyebrow;
+
+  /// No description provided for @soriStageTodayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Satz. Ein Bauteil.'**
+  String get soriStageTodayTitle;
+
+  /// No description provided for @soriStageTodayEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eine kurze Aktivität und baue an deiner Hanok weiter.'**
+  String get soriStageTodayEmpty;
+
+  /// No description provided for @soriStageMissionAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutige Mission starten'**
+  String get soriStageMissionAction;
+
+  /// No description provided for @soriStageBojagiTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Bojagi wartet'**
+  String get soriStageBojagiTitle;
+
+  /// No description provided for @soriStageBojagiBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eines von drei Stücken für dein Zimmer.'**
+  String get soriStageBojagiBody;
+
+  /// No description provided for @soriStageOpenBojagi.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi öffnen'**
+  String get soriStageOpenBojagi;
+
+  /// No description provided for @soriStageHanokNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Hanok jetzt'**
+  String get soriStageHanokNow;
+
+  /// No description provided for @soriStageNextPiece.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächstes Bauteil'**
+  String get soriStageNextPiece;
+
+  /// No description provided for @soriStageClosestQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast geschafft'**
+  String get soriStageClosestQuests;
+
+  /// No description provided for @soriStageLearnTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle, wie du lernen möchtest.'**
+  String get soriStageLearnTitle;
+
+  /// No description provided for @soriStageLearnBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.'**
+  String get soriStageLearnBody;
+
+  /// No description provided for @soriStageGamesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele mit einem klaren Ziel.'**
+  String get soriStageGamesTitle;
+
+  /// No description provided for @soriStageGamesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh XP, Bestleistung und passende Quest, bevor du startest.'**
+  String get soriStageGamesBody;
+
+  /// No description provided for @soriStageMinutes.
+  ///
+  /// In de, this message translates to:
+  /// **'{minutes} Min.'**
+  String soriStageMinutes(int minutes);
+
+  /// No description provided for @soriStagePossibleReward.
+  ///
+  /// In de, this message translates to:
+  /// **'Mögliche Belohnung'**
+  String get soriStagePossibleReward;
+
+  /// No description provided for @soriStageOpenActivity.
+  ///
+  /// In de, this message translates to:
+  /// **'{activity} öffnen'**
+  String soriStageOpenActivity(String activity);
+
+  /// No description provided for @soriStageHanokTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Baue ein Zuhause aus dem, was du kannst.'**
+  String get soriStageHanokTitle;
+
+  /// No description provided for @soriStageHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.'**
+  String get soriStageHanokBody;
+
+  /// No description provided for @soriStageOpenMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Karte öffnen'**
+  String get soriStageOpenMap;
+
+  /// No description provided for @soriStageQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Quests'**
+  String get soriStageQuests;
+
+  /// No description provided for @soriStageDojang.
+  ///
+  /// In de, this message translates to:
+  /// **'Dojang-Heft'**
+  String get soriStageDojang;
+
+  /// No description provided for @soriStageBojagi.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi'**
+  String get soriStageBojagi;
+
+  /// No description provided for @soriStageRooms.
+  ///
+  /// In de, this message translates to:
+  /// **'Räume und Einrichtung'**
+  String get soriStageRooms;
+
+  /// No description provided for @soriStageGyePromise.
+  ///
+  /// In de, this message translates to:
+  /// **'Versprechen dieser Woche'**
+  String get soriStageGyePromise;
+
+  /// No description provided for @soriStageGyeFlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Mission abschließen → Laterne → gemeinsame Hanok'**
+  String get soriStageGyeFlow;
+
+  /// No description provided for @pronunciationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache-Studio'**
+  String get pronunciationTitle;
+
+  /// No description provided for @pronunciationEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'MIT DEM TIGER SPRECHEN'**
+  String get pronunciationEyebrow;
+
+  /// No description provided for @pronunciationIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.'**
+  String get pronunciationIntro;
+
+  /// No description provided for @pronunciationListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get pronunciationListen;
+
+  /// No description provided for @pronunciationRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Stimme aufnehmen'**
+  String get pronunciationRecord;
+
+  /// No description provided for @pronunciationRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme läuft…'**
+  String get pronunciationRecording;
+
+  /// No description provided for @pronunciationStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Stoppen und bewerten'**
+  String get pronunciationStop;
+
+  /// No description provided for @pronunciationContinueWithoutScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Bewertung weiter'**
+  String get pronunciationContinueWithoutScore;
+
+  /// No description provided for @pronunciationNextPhrase.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Satz'**
+  String get pronunciationNextPhrase;
+
+  /// No description provided for @pronunciationConsentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Stimme bewerten lassen?'**
+  String get pronunciationConsentTitle;
+
+  /// No description provided for @pronunciationConsentBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.'**
+  String get pronunciationConsentBody;
+
+  /// No description provided for @pronunciationConsentAccept.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich stimme zu und möchte eine Bewertung'**
+  String get pronunciationConsentAccept;
+
+  /// No description provided for @pronunciationConsentDecline.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Bewertung üben'**
+  String get pronunciationConsentDecline;
+
+  /// No description provided for @pronunciationPermissionDenied.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Mikrofonzugriff wurde nicht erlaubt. Anhören und Nachsprechen bleiben verfügbar.'**
+  String get pronunciationPermissionDenied;
+
+  /// No description provided for @pronunciationAssessmentUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Bewertung ist gerade nicht verfügbar. Deine normale Übung bleibt möglich.'**
+  String get pronunciationAssessmentUnavailable;
+
+  /// No description provided for @pronunciationRateLimited.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.'**
+  String get pronunciationRateLimited;
+
+  /// No description provided for @pronunciationScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprachebewertung'**
+  String get pronunciationScore;
+
+  /// No description provided for @pronunciationScorePassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestanden. Diese Bewertung zählt einmal für deine Aussprache-Quest.'**
+  String get pronunciationScorePassed;
+
+  /// No description provided for @pronunciationScoreTryAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Gute Übung. Erreiche beim nächsten Mal mindestens 80, um die Quest fortzusetzen.'**
+  String get pronunciationScoreTryAgain;
+
+  /// No description provided for @pronunciationAccuracy.
+  ///
+  /// In de, this message translates to:
+  /// **'Genauigkeit'**
+  String get pronunciationAccuracy;
+
+  /// No description provided for @pronunciationFluency.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechfluss'**
+  String get pronunciationFluency;
+
+  /// No description provided for @pronunciationCompleteness.
+  ///
+  /// In de, this message translates to:
+  /// **'Vollständigkeit'**
+  String get pronunciationCompleteness;
+
+  /// No description provided for @settingsPronunciationConsentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einwilligung zur Sprachbewertung'**
+  String get settingsPronunciationConsentTitle;
+
+  /// No description provided for @settingsPronunciationConsentDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Erlaube freiwillige Aufnahmen von höchstens 10 Sekunden zur Bewertung durch Azure Speech in Deutschland West-Mitte. Ausschalten verhindert weitere Bewertungen.'**
+  String get settingsPronunciationConsentDesc;
+
+  /// No description provided for @settingsPronunciationConsentOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.'**
+  String get settingsPronunciationConsentOff;
+
+  /// No description provided for @soriStageReceiptEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'GERADE VERÄNDERT'**
+  String get soriStageReceiptEyebrow;
+
+  /// No description provided for @soriStageReceiptTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernen hat den Weg weitergebracht.'**
+  String get soriStageReceiptTitle;
+
+  /// No description provided for @soriStageReceiptSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Erhaltene Belohnungen'**
+  String get soriStageReceiptSemantics;
+
+  /// No description provided for @soriStageReceiptContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get soriStageReceiptContinue;
+
+  /// No description provided for @soriStageActivityReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt verfügbar'**
+  String get soriStageActivityReady;
+
+  /// No description provided for @soriStageBrandLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'SORI STAGE'**
+  String get soriStageBrandLabel;
+
+  /// No description provided for @soriStageActivityInProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'In Arbeit'**
+  String get soriStageActivityInProgress;
+
+  /// No description provided for @soriStageActivityCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'Abgeschlossen'**
+  String get soriStageActivityCompleted;
+
+  /// No description provided for @soriStageActivityTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  String soriStageActivityTitle(String activityId);
+
+  /// No description provided for @soriStageActivityDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  String soriStageActivityDescription(String activityId);
+
+  /// No description provided for @soriStageCatalogCopy.
+  ///
+  /// In de, this message translates to:
+  /// **'{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Passende Quest} rewardHanok{Verifizierter Hanok-Baufortschritt} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}'**
+  String soriStageCatalogCopy(String copyKey);
+
+  /// No description provided for @questActionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Kalligrafie öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Chosung spielen} other{Öffnen}}}'**
+  String questActionLabel(String actionKey);
+
+  /// No description provided for @questSeasonOpens.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffnet am {date}'**
+  String questSeasonOpens(String date);
+
+  /// No description provided for @soriStagePreviewCopy.
+  ///
+  /// In de, this message translates to:
+  /// **'{copyKey, select, todayEyebrow{HEUTE} todayTitle{Ein Satz. Ein Bauteil.} nearComplete{Fast geschafft} cafeOrder{Im Café bestellen} strongWords{Starke Alltagswörter} sevenDayStreak{Sieben Tage dranbleiben} lessonEyebrow{LEKTION 2 VON 4} lessonPhrase{덜 맵게 해 주세요} listen{Hören} naturalTempo{Natürliches Tempo} speak{Sprechen} rhythmMouth{Rhythmus und Mundbild} remember{Erinnern} withoutHelp{Ohne Hilfe abrufen} beginListening{Mit Hören beginnen} receiptEyebrow{GERADE VERÄNDERT} receiptTitle{Dein Satz trägt jetzt das Dach.} beamStage{DAECHEONG · BALKEN 3} newBeam{1 neuer Balken im Bauplan} xpEarned{Lern-XP +12} completedMission{für die abgeschlossene Mission} questEarned{Quest-Fortschritt +1} scenarioProgress{Alltagsszenen · 4 von 10} hanokEarned{Hanok-Bauteil +1} verifiedSpeaking{durch bestätigtes Sprechen} continueToday{Weiter zu Heute} journeyEyebrow{DEIN WEG} journeyTitle{Alles Lernen baut am selben Ort.} missionEyebrow{WENIGER SCHARF BESTELLEN} missionTitle{Hören. Sprechen. Im Alltag anwenden.} missionReward{Abschließen → Lern-XP + verifizierter Fortschritt} missionStart{Mission starten} bojagiWaiting{1 Bojagi wartet} bojagiBody{Wähle eines von drei Stücken für dein Zimmer.} other{Sori-Stage-Vorschau}}'**
+  String soriStagePreviewCopy(String copyKey);
+
+  /// No description provided for @soriStagePreviewProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{current} von {target}'**
+  String soriStagePreviewProgress(int current, int target);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

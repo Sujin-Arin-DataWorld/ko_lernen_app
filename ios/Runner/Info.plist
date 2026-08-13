@@ -104,5 +104,7 @@
 		<string>Diese App benötigt Zugriff auf die Kamera, um Lehrbuchseiten zu fotografieren und automatisch koreanische Wörter zu extrahieren.</string>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>Diese App benötigt Zugriff auf Ihre Fotos, um eine bereits aufgenommene Lehrbuchseite zur Analyse auszuwählen.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>Hangul Sori uses the microphone only after your consent for a pronunciation assessment of up to 10 seconds.</string>
 	</dict>
 </plist>

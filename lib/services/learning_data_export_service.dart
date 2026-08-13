@@ -83,6 +83,11 @@ abstract final class LearningDataExportService {
           'questCompletions': Storage.questCompletions,
           'ownedDecor': Storage.ownedDecor,
         },
+        'pronunciation': {
+          'passedAssessments': Storage.pronunciationPassCount,
+          'lastScore': Storage.pronunciationLastScore,
+          'assessmentIds': Storage.pronunciationAssessmentIds,
+        },
       },
       'course': {
         'activeUnitId': Storage.courseUnitId,

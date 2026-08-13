@@ -145,6 +145,7 @@ class QuestProgress {
   final int target;
   final bool active; // seasonal 이고 윈도우 밖이면 false
   final bool completed; // current >= target (history 에 저장됨)
+  final bool completionVerified;
   final String? completedAtIso;
 
   const QuestProgress({
@@ -154,6 +155,7 @@ class QuestProgress {
     required this.active,
     required this.completed,
     required this.completedAtIso,
+    this.completionVerified = true,
   });
 
   double get fraction => target == 0 ? 0.0 : (current / target).clamp(0.0, 1.0);

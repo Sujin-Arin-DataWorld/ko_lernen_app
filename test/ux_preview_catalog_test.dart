@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/ux_preview_catalog.dart';
 
 void main() {
-  test('catalog contains every 01A-06C mockup exactly once', () {
+  test('catalog contains every 01A-07D mockup exactly once', () {
     const expected = <String>{
       '01A',
       '01B',
@@ -24,9 +24,13 @@ void main() {
       '06A',
       '06B',
       '06C',
+      '07A',
+      '07B',
+      '07C',
+      '07D',
     };
 
-    expect(uxPreviewPanels, hasLength(20));
+    expect(uxPreviewPanels, hasLength(24));
     expect(uxPreviewPanels.map((panel) => panel.id).toSet(), expected);
   });
 

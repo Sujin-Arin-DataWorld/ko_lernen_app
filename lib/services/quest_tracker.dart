@@ -4,6 +4,7 @@ import '../models/gye.dart';
 import 'data_loader.dart';
 import 'decoration_reward_service.dart';
 import 'gye_service.dart';
+import 'gye_member_quest_service.dart';
 import 'storage_service.dart';
 
 /// Phase 4 (stately-rising-jongga) — Quest-Progress Computation.
@@ -15,31 +16,34 @@ import 'storage_service.dart';
 /// 그 후 카운터가 떨어져도 decoration 은 유지된다.
 class QuestTracker {
   /// Alle Quests + aktueller Stand. `now` für Tests injizierbar.
-  static Future<List<QuestProgress>> computeAll({DateTime? now}) async {
+  static Future<List<QuestProgress>> computeAll({
+    DateTime? now,
+    Future<GyeMemberQuestResult> Function()? loadGyeMembers,
+  }) async {
     final today = now ?? DateTime.now();
     final completions = Storage.questCompletions;
 
     // CSV einmal pro Aufruf — Topic-Subsets aufbauen.
     final vocab = await DataLoader.loadVocab();
-    final seen = Storage.vokSeenIds.toSet();
+    bool isStrong(String word) =>
+        Storage.vocabMastery(word) == MasteryState.strong;
 
     int countSeenWithTopics(Set<String> topics) {
       return vocab
-          .where((v) => topics.contains(v.topic) && seen.contains(v.korean))
+          .where((v) => topics.contains(v.topic) && isStrong(v.korean))
           .length;
     }
 
     // Hanja-Proxy: koreanische Wörter mit ≥ 2 Silben sind häufig 한자어
     // (Approximation — Phase 5 책 한 컷 könnte präzisere POS-Daten liefern).
     final hanjaCount = vocab
-        .where((v) => isHanjaProxyWord(v.korean) && seen.contains(v.korean))
+        .where((v) => isHanjaProxyWord(v.korean) && isStrong(v.korean))
         .length;
 
     // 명절 상차림 단어 — Essen & Trinken 의 고정 부분집합.
     final songpyeonCount = vocab
         .where(
-          (v) =>
-              kChuseokFoodWords.contains(v.korean) && seen.contains(v.korean),
+          (v) => kChuseokFoodWords.contains(v.korean) && isStrong(v.korean),
         )
         .length;
 
@@ -57,6 +61,8 @@ class QuestTracker {
 
     // 카탈로그 루프 **밖**에서 한 번만 만든다 — 안에 두면 topic 카운트가
     // 퀘스트 수만큼 반복 스캔된다.
+    final memberResult =
+        await (loadGyeMembers ?? GyeMemberQuestService.refreshOrCached)();
     final counters = <QuestSource, int>{
       // Topic 기반 소스는 [kQuestTopicSets] 가 단일 정의다 — 여기에 항목을
       // 더하면 계산과 도달 가능성 가드가 함께 따라온다.
@@ -64,11 +70,11 @@ class QuestTracker {
         entry.key: countSeenWithTopics(entry.value),
       QuestSource.hanjaWordsMastered: hanjaCount,
       QuestSource.scenariosCompleted: Storage.completedScenarios.length,
-      QuestSource.pronunciationGood: 0, // Phase 5 ETA
+      QuestSource.pronunciationGood: Storage.pronunciationPassCount,
       QuestSource.kkeunmariWins: Storage.kkeunmariWins,
       QuestSource.hangulMastery: hangulPct,
       QuestSource.streakDays: Storage.streakDays,
-      QuestSource.friendsCount: 0, // Phase 6 ETA
+      QuestSource.friendsCount: memberResult.count,
       QuestSource.songpyeonWords: songpyeonCount,
       QuestSource.yutChosung: Storage.chosungCorrect,
       QuestSource.hangeulChallenge: hangeulChallenge,
@@ -82,6 +88,7 @@ class QuestTracker {
           today: today,
           completions: completions,
           counters: counters,
+          gyeMembersVerifiedOnline: memberResult.verifiedOnline,
         ),
     ];
   }
@@ -141,11 +148,15 @@ class QuestTracker {
     required DateTime today,
     required Map<String, String> completions,
     required Map<QuestSource, int> counters,
+    required bool gyeMembersVerifiedOnline,
   }) {
     final active = def.isActiveOn(today);
     final cur = counters[def.source] ?? 0;
     final alreadyDone = completions.containsKey(def.id);
-    final reached = cur >= def.target;
+    final requiresOnlineVerification = def.source == QuestSource.friendsCount;
+    final completionVerified =
+        !requiresOnlineVerification || gyeMembersVerifiedOnline || alreadyDone;
+    final reached = cur >= def.target && completionVerified;
     return QuestProgress(
       questId: def.id,
       current: cur,
@@ -153,6 +164,7 @@ class QuestTracker {
       active: active,
       completed: alreadyDone || reached,
       completedAtIso: completions[def.id],
+      completionVerified: completionVerified,
     );
   }
 
@@ -162,7 +174,9 @@ class QuestTracker {
     int count = 0;
     for (final iso in dates) {
       final d = DateTime.tryParse(iso);
-      if (d == null) continue;
+      if (d == null) {
+        continue;
+      }
       if (d.isAfter(fromDay.subtract(const Duration(seconds: 1))) &&
           d.isBefore(today.add(const Duration(days: 1)))) {
         count++;

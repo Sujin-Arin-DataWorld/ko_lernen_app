@@ -331,6 +331,29 @@ class GyeService {
     }
   }
 
+  /// Server-authoritative membership list for completion/reward verification.
+  /// Unlike [myGyeIds], an offline, cache-only, or stale-session result throws.
+  static Future<List<String>> myGyeIdsFromServer() async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      throw StateError('Gye membership verification is unavailable.');
+    }
+    final fence = CloudWriteFence(cloudWriteSessionController);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
+      throw StateError('Gye membership verification is unavailable.');
+    }
+    final document = await db
+        .collection('users')
+        .doc(uid)
+        .get(const GetOptions(source: Source.server));
+    if (fence.verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+      throw StateError('The Gye membership read belongs to a stale session.');
+    }
+    return (document.data()?['gyeIds'] as List?)?.cast<String>() ?? const [];
+  }
+
   /// 계 생성 → 메타 + 본인 멤버(계장) 문서. 코드 충돌 시 최대 5회 재시도.
   static Future<GyeMeta> createGye({
     required String name,

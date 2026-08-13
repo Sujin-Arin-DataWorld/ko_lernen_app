@@ -242,6 +242,73 @@ class SrsCard {
   );
 }
 
+class _PronunciationProgressRecord {
+  const _PronunciationProgressRecord({
+    required this.count,
+    required this.assessmentIds,
+    required this.lastScore,
+  });
+
+  final int count;
+  final List<String> assessmentIds;
+  final double lastScore;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+    'version': 2,
+    'count': count,
+    'assessmentIds': assessmentIds,
+    'lastScore': lastScore,
+  };
+
+  static _PronunciationProgressRecord? tryParse(String raw) {
+    if (raw.trim().isEmpty) {
+      return null;
+    }
+    try {
+      final value = jsonDecode(raw);
+      if (value is! Map || value['version'] != 2) {
+        return null;
+      }
+      final count = value['count'];
+      final score = value['lastScore'];
+      final rawIds = value['assessmentIds'];
+      if (count is! int ||
+          count < 0 ||
+          count > 100 ||
+          score is! num ||
+          !score.isFinite ||
+          rawIds is! List) {
+        return null;
+      }
+      final ids = <String>[];
+      for (final value in rawIds) {
+        if (value is! String) {
+          return null;
+        }
+        final id = value.trim();
+        if (id.isEmpty || id.length > 128 || ids.contains(id)) {
+          return null;
+        }
+        ids.add(id);
+      }
+      // Legacy recovery can know that more passes were earned than the older
+      // split-key journal retained assessment IDs for. IDs are only the
+      // duplicate-prevention ledger, so they may trail the authoritative count
+      // but must never exceed it.
+      if (ids.length > count) {
+        return null;
+      }
+      return _PronunciationProgressRecord(
+        count: count,
+        assessmentIds: List.unmodifiable(ids),
+        lastScore: score.toDouble(),
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+}
+
 /// Persistente Speicherung — Lernfortschritt, Spielstand, Einstellungen.
 /// Alle Schlüssel mit Präfix `kl_`. iOS und Android automatisch (über
 /// `SharedPreferences`, das auf iOS `NSUserDefaults` nutzt).
@@ -266,6 +333,7 @@ class Storage {
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
+  static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
 
@@ -287,6 +355,7 @@ class Storage {
     _invalidatePackCache();
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
+    _pronunciationProgressMutation = Future<void>.value();
     _unknownStrictKeys.clear();
     _courseMasteryCache = null;
     _learningWritesLockReason = null;
@@ -849,6 +918,107 @@ class Storage {
   /// 미개봉 꾸러미 — 값은 지급 출처 퀘스트 id (중복 가능: 같은 퀘스트가
   /// 반복형이면 여러 개 쌓일 수 있으므로 Set 이 아니라 List).
   static List<String> get pendingBoxes => _l('kl_reward_boxes');
+
+  static const String _pronunciationPassCountKey =
+      'kl_pronunciation_pass_count_v1';
+  static const String _pronunciationAssessmentIdsKey =
+      'kl_pronunciation_assessment_ids_v1';
+  static const String _pronunciationLastScoreKey =
+      'kl_pronunciation_last_score_v1';
+  static const String _pronunciationProgressKey =
+      'kl_pronunciation_progress_v2';
+  static const String _gyeUniqueMemberCountKey =
+      'kl_gye_unique_member_count_v1';
+
+  static int get pronunciationPassCount => _readPronunciationProgress().count;
+  static List<String> get pronunciationAssessmentIds =>
+      _readPronunciationProgress().assessmentIds;
+  static double get pronunciationLastScore =>
+      _readPronunciationProgress().lastScore;
+
+  static const String _pronunciationConsentKey = 'kl_pronunciation_consent_v1';
+  static bool get pronunciationConsent =>
+      _prefs?.getBool(_pronunciationConsentKey) ?? false;
+  static Future<void> setPronunciationConsent(bool value) async =>
+      _prefs?.setBool(_pronunciationConsentKey, value);
+
+  static Future<bool> recordPronunciationPass(
+    String assessmentId,
+    double score, {
+    PreferenceStringStore? preferences,
+  }) {
+    final operation = _pronunciationProgressMutation.then((_) async {
+      final normalizedId = assessmentId.trim();
+      if (normalizedId.isEmpty ||
+          normalizedId.length > 128 ||
+          !score.isFinite) {
+        return false;
+      }
+      final store =
+          preferences ??
+          (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+      if (store == null) {
+        throw PreferenceWriteException(_pronunciationProgressKey);
+      }
+      await store.reload();
+      final current = _readPronunciationProgress(preferences: store);
+      if (current.assessmentIds.contains(normalizedId) ||
+          current.count >= 100) {
+        return false;
+      }
+      final next = _PronunciationProgressRecord(
+        count: current.count + 1,
+        assessmentIds: <String>[...current.assessmentIds, normalizedId],
+        lastScore: score,
+      );
+      await _ssStrict(
+        _pronunciationProgressKey,
+        jsonEncode(next.toJson()),
+        preferences: store,
+      );
+      return true;
+    });
+    _pronunciationProgressMutation = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return operation;
+  }
+
+  static _PronunciationProgressRecord _readPronunciationProgress({
+    PreferenceStringStore? preferences,
+  }) {
+    final raw =
+        preferences?.getString(_pronunciationProgressKey) ??
+        _s(_pronunciationProgressKey);
+    final decoded = _PronunciationProgressRecord.tryParse(raw);
+    if (decoded != null) {
+      return decoded;
+    }
+    final legacyIds = <String>[];
+    for (final value in _l(_pronunciationAssessmentIdsKey)) {
+      final id = value.trim();
+      if (id.isNotEmpty && id.length <= 128 && !legacyIds.contains(id)) {
+        legacyIds.add(id);
+      }
+    }
+    final boundedIds = legacyIds.length <= 100
+        ? legacyIds
+        : legacyIds.sublist(legacyIds.length - 100);
+    final recoveredCount = [
+      _i(_pronunciationPassCountKey),
+      boundedIds.length,
+    ].reduce((left, right) => left > right ? left : right).clamp(0, 100);
+    return _PronunciationProgressRecord(
+      count: recoveredCount,
+      assessmentIds: boundedIds,
+      lastScore: _d(_pronunciationLastScoreKey),
+    );
+  }
+
+  static int get gyeUniqueMemberCount => _i(_gyeUniqueMemberCountKey);
+  static Future<void> setGyeUniqueMemberCount(int value) =>
+      _si(_gyeUniqueMemberCountKey, value < 0 ? 0 : value);
 
   static Future<void> addPendingBox(String questId) async =>
       _sl('kl_reward_boxes', [...pendingBoxes, questId]);

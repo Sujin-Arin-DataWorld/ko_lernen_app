@@ -5803,4 +5803,373 @@ class AppL10nEn extends AppL10n {
   @override
   String get accountLinkFailedBody =>
       'The operation could not be completed. Please try again in a moment.';
+
+  @override
+  String get soriStageNavToday => 'Today';
+
+  @override
+  String get soriStageNavLearn => 'Learn';
+
+  @override
+  String get soriStageNavGames => 'Games';
+
+  @override
+  String get soriStageNavHanok => 'Hanok';
+
+  @override
+  String get soriStageNavGye => 'Gye';
+
+  @override
+  String get soriStageProfileTooltip => 'Profile';
+
+  @override
+  String get soriStageTodayEyebrow => 'TODAY';
+
+  @override
+  String get soriStageTodayTitle => 'One phrase. One building piece.';
+
+  @override
+  String get soriStageTodayEmpty =>
+      'Choose a short activity and keep your Hanok moving.';
+
+  @override
+  String get soriStageMissionAction => 'Start today\'s mission';
+
+  @override
+  String get soriStageBojagiTitle => 'A Bojagi is waiting';
+
+  @override
+  String get soriStageBojagiBody => 'Choose one of three pieces for your room.';
+
+  @override
+  String get soriStageOpenBojagi => 'Open Bojagi';
+
+  @override
+  String get soriStageHanokNow => 'Your Hanok now';
+
+  @override
+  String get soriStageNextPiece => 'Next building piece';
+
+  @override
+  String get soriStageClosestQuests => 'Nearly complete';
+
+  @override
+  String get soriStageLearnTitle => 'Choose how you want to learn.';
+
+  @override
+  String get soriStageLearnBody =>
+      'Every activity stays connected to your quests and Hanok.';
+
+  @override
+  String get soriStageGamesTitle => 'Play with a clear purpose.';
+
+  @override
+  String get soriStageGamesBody =>
+      'See the XP, personal best, and related quest before you start.';
+
+  @override
+  String soriStageMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String get soriStagePossibleReward => 'Possible reward';
+
+  @override
+  String soriStageOpenActivity(String activity) {
+    return 'Open $activity';
+  }
+
+  @override
+  String get soriStageHanokTitle => 'Build a home from what you can do.';
+
+  @override
+  String get soriStageHanokBody =>
+      'Seven permanent stages show exactly what is built and what opens next.';
+
+  @override
+  String get soriStageOpenMap => 'Open Hanok map';
+
+  @override
+  String get soriStageQuests => 'Quests';
+
+  @override
+  String get soriStageDojang => 'Stamp book';
+
+  @override
+  String get soriStageBojagi => 'Bojagi';
+
+  @override
+  String get soriStageRooms => 'Rooms and furnishing';
+
+  @override
+  String get soriStageGyePromise => 'This week\'s promise';
+
+  @override
+  String get soriStageGyeFlow =>
+      'Mission complete → lantern → shared Hanok progress';
+
+  @override
+  String get pronunciationTitle => 'Pronunciation studio';
+
+  @override
+  String get pronunciationEyebrow => 'SPEAK WITH THE TIGER';
+
+  @override
+  String get pronunciationIntro =>
+      'Listen first. Then record up to 10 seconds if you want an assessment.';
+
+  @override
+  String get pronunciationListen => 'Listen';
+
+  @override
+  String get pronunciationRecord => 'Record my voice';
+
+  @override
+  String get pronunciationRecording => 'Recording…';
+
+  @override
+  String get pronunciationStop => 'Stop and assess';
+
+  @override
+  String get pronunciationContinueWithoutScore => 'Continue without a score';
+
+  @override
+  String get pronunciationNextPhrase => 'Next phrase';
+
+  @override
+  String get pronunciationConsentTitle => 'Use your voice for an assessment?';
+
+  @override
+  String get pronunciationConsentBody =>
+      'With your separate consent, a recording of up to 10 seconds and the shown Korean phrase are sent securely to Microsoft Azure Speech in Germany West Central. Hangul Sori does not store the recording or phrase on its server. Only the scores and a duplicate-prevention ID are saved on this device. You can practise without assessment and withdraw consent in Settings.';
+
+  @override
+  String get pronunciationConsentAccept => 'I agree and want a score';
+
+  @override
+  String get pronunciationConsentDecline => 'Practise without a score';
+
+  @override
+  String get pronunciationPermissionDenied =>
+      'Microphone access was not granted. Listening and repeat-after-me practice are still available.';
+
+  @override
+  String get pronunciationAssessmentUnavailable =>
+      'The score is unavailable right now. Your basic practice still counts.';
+
+  @override
+  String get pronunciationRateLimited =>
+      'You have reached the assessment limit. Continue practising and try again later.';
+
+  @override
+  String get pronunciationScore => 'Pronunciation score';
+
+  @override
+  String get pronunciationScorePassed =>
+      'Passed. This assessment counts once toward your pronunciation quest.';
+
+  @override
+  String get pronunciationScoreTryAgain =>
+      'Good practice. Try again for 80 or more to advance the quest.';
+
+  @override
+  String get pronunciationAccuracy => 'Accuracy';
+
+  @override
+  String get pronunciationFluency => 'Fluency';
+
+  @override
+  String get pronunciationCompleteness => 'Completeness';
+
+  @override
+  String get settingsPronunciationConsentTitle => 'Voice assessment consent';
+
+  @override
+  String get settingsPronunciationConsentDesc =>
+      'Allow optional recordings of up to 10 seconds to be assessed by Azure Speech in Germany West Central. Turning this off stops future assessments.';
+
+  @override
+  String get settingsPronunciationConsentOff =>
+      'Voice assessment is off. Listen-and-repeat practice remains available.';
+
+  @override
+  String get soriStageReceiptEyebrow => 'JUST CHANGED';
+
+  @override
+  String get soriStageReceiptTitle =>
+      'Your learning moved the journey forward.';
+
+  @override
+  String get soriStageReceiptSemantics => 'Earned rewards';
+
+  @override
+  String get soriStageReceiptContinue => 'Continue';
+
+  @override
+  String get soriStageActivityReady => 'Ready now';
+
+  @override
+  String get soriStageBrandLabel => 'SORI STAGE';
+
+  @override
+  String get soriStageActivityInProgress => 'In progress';
+
+  @override
+  String get soriStageActivityCompleted => 'Completed';
+
+  @override
+  String soriStageActivityTitle(String activityId) {
+    String _temp0 = intl.Intl.selectLogic(activityId, {
+      'course': 'Course',
+      'hangul': 'Hangul',
+      'calligraphy': 'Calligraphy',
+      'pronunciation': 'Pronunciation',
+      'vocab_packs': 'Vocabulary packs',
+      'srs': 'SRS review',
+      'hard_words': 'Hard words',
+      'grammar': 'Grammar',
+      'listening': 'Listening',
+      'scenarios': 'Real-life scenarios',
+      'smalltalk': 'Small Talk',
+      'book_capture': 'Scan a book',
+      'bookshelf': 'Bookshelf',
+      'word_search': 'Word search',
+      'daily_game': 'Daily challenge',
+      'chosung': 'Chosung quiz',
+      'syllable_cross': 'Syllable cross',
+      'cloze': 'Cloze',
+      'speed_match': 'Speed Match',
+      'sentence_arcade': 'Sentence arcade',
+      'kkeunmari': 'Kkeunmari',
+      'custom_quiz': 'Custom quiz',
+      'custom_matching': 'Custom matching',
+      'custom_typing': 'Custom typing',
+      'other': 'Learning activity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStageActivityDescription(String activityId) {
+    String _temp0 = intl.Intl.selectLogic(activityId, {
+      'course': 'Your guided path through real situations.',
+      'hangul': 'Build syllables and read with confidence.',
+      'calligraphy': 'Write one character with intention.',
+      'pronunciation': 'Listen, repeat, and optionally assess.',
+      'vocab_packs': 'Learn words by everyday topic.',
+      'srs': 'Strengthen due words at the right moment.',
+      'hard_words': 'Focus on the words that trip you up.',
+      'grammar': 'Understand patterns and use them right away.',
+      'listening': 'Recognize short natural phrases.',
+      'scenarios': 'Practice cafés, transport, and conversations.',
+      'smalltalk': 'Connect short conversations naturally.',
+      'book_capture': 'Bring words in from your own material.',
+      'bookshelf': 'Manage your pages and word lists.',
+      'word_search': 'Find a word and its learning paths.',
+      'daily_game': 'A short mix for today.',
+      'chosung': 'Recognize words from their first sounds.',
+      'syllable_cross': 'Combine syllables and find words.',
+      'cloze': 'Recall the right word in a sentence.',
+      'speed_match': 'Match meanings quickly and accurately.',
+      'sentence_arcade': 'Build sentences under time pressure.',
+      'kkeunmari': 'Play a word chain against the tiger.',
+      'custom_quiz': 'Choose a word pack from your bookshelf.',
+      'custom_matching': 'Strengthen your words as pairs.',
+      'custom_typing': 'Actively recall your own words.',
+      'other': 'Continue learning.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStageCatalogCopy(String copyKey) {
+    String _temp0 = intl.Intl.selectLogic(copyKey, {
+      'firstCompletion': 'On first completion',
+      'finishSession': 'When you finish the session',
+      'verifiedLearning': 'After verified learning',
+      'rewardXp': 'Learning XP',
+      'rewardQuest': 'Related quest',
+      'rewardHanok': 'Verified Hanok construction progress',
+      'rewardStamp': 'Dojang stamp',
+      'rewardBest': 'Personal best',
+      'rewardNone': 'No direct reward',
+      'rewardQuestProgress': 'Quest progress',
+      'rewardHanokPiece': 'New Hanok building piece',
+      'rewardBojagi': 'Bojagi',
+      'rewardGyeLantern': 'Gye lantern',
+      'other': 'Reward',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String questActionLabel(String actionKey) {
+    String _temp0 = intl.Intl.selectLogic(actionKey, {
+      'openQuests': 'Open quests',
+      'openVocabulary': 'Open vocabulary packs',
+      'openScenarios': 'Open real-life scenarios',
+      'practicePronunciation': 'Practice pronunciation',
+      'playKkeunmari': 'Play Kkeunmari',
+      'openHangul': 'Open Hangul',
+      'openCalligraphy': 'Open calligraphy',
+      'openToday': 'Open today\'s mission',
+      'openGye': 'Open Gye',
+      'playChosung': 'Play Chosung',
+      'other': 'Open',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String questSeasonOpens(String date) {
+    return 'Opens $date';
+  }
+
+  @override
+  String soriStagePreviewCopy(String copyKey) {
+    String _temp0 = intl.Intl.selectLogic(copyKey, {
+      'todayEyebrow': 'TODAY',
+      'todayTitle': 'One phrase. One building piece.',
+      'nearComplete': 'Nearly complete',
+      'cafeOrder': 'Order at a café',
+      'strongWords': 'Strong everyday words',
+      'sevenDayStreak': 'Keep going for seven days',
+      'lessonEyebrow': 'LESSON 2 OF 4',
+      'lessonPhrase': '덜 맵게 해 주세요',
+      'listen': 'Listen',
+      'naturalTempo': 'Natural tempo',
+      'speak': 'Speak',
+      'rhythmMouth': 'Rhythm and mouth cues',
+      'remember': 'Remember',
+      'withoutHelp': 'Recall without help',
+      'beginListening': 'Start with listening',
+      'receiptEyebrow': 'JUST CHANGED',
+      'receiptTitle': 'Your phrase now supports the roof.',
+      'beamStage': 'DAECHEONG · BEAM 3',
+      'newBeam': '1 new beam in the construction plan',
+      'xpEarned': 'Learning XP +12',
+      'completedMission': 'for the completed mission',
+      'questEarned': 'Quest progress +1',
+      'scenarioProgress': 'Real-life scenarios · 4 of 10',
+      'hanokEarned': 'Hanok building piece +1',
+      'verifiedSpeaking': 'from verified speaking',
+      'continueToday': 'Continue to Today',
+      'journeyEyebrow': 'YOUR JOURNEY',
+      'journeyTitle': 'Every kind of learning builds in the same place.',
+      'missionEyebrow': 'ORDER LESS SPICY',
+      'missionTitle': 'Listen. Speak. Use it in real life.',
+      'missionReward': 'Complete → learning XP + verified progress',
+      'missionStart': 'Start mission',
+      'bojagiWaiting': '1 Bojagi is waiting',
+      'bojagiBody': 'Choose one of three pieces for your room.',
+      'other': 'Sori Stage preview',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStagePreviewProgress(int current, int target) {
+    return '$current of $target';
+  }
 }

@@ -84,7 +84,7 @@
 
   <section class="section active" id="lang-en" lang="en" role="tabpanel">
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Last updated:</strong> 31 July 2026</p>
+    <p class="meta"><strong>Last updated:</strong> 13 August 2026</p>
 
     <h2>1. Who is responsible</h2>
     <p>The operator of <strong>Hangul Sori</strong> is responsible for the processing described here. Privacy and support contact: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. The legally required operator details are provided in the <a href="impressum.html">Impressum</a>.</p>
@@ -121,6 +121,7 @@
 
     <h3>Pronunciation audio</h3>
     <p>Built-in audio may be downloaded from Firebase Storage. When the user requests pronunciation for dynamic or user-entered Korean text, that text is sent over HTTPS to the configured TTS function and Google Cloud Text-to-Speech. Generated audio may be cached in Firebase Storage and on the device.</p>
+    <p>The optional pronunciation assessment is separate from playback and starts only after explicit voice-processing consent and microphone permission. A microphone recording of no more than 10 seconds and the displayed Korean reference phrase are sent through an authenticated, App Check-protected Firebase callable in <code>europe-west3</code> to Microsoft Azure Speech in <code>germanywestcentral</code>. Hangul Sori does not write the recording, reference phrase, recognized words, or Gye-member identities to its server storage or logs. The callable returns only aggregate pronunciation, accuracy, fluency, and completeness scores plus a client-generated duplicate-prevention ID. The device stores those scores, the count of passed assessments, and bounded duplicate-prevention IDs as learning progress. A per-account rate-limit document stores only counters and time buckets under the Firebase UID. Azure acts as a processor for the transient assessment request under its configured service terms. Turning voice assessment off prevents future recordings; listen-and-repeat remains available.</p>
 
     <h3>Sharing</h3>
     <p>If the user deliberately shares a pack, a portable payload without local image references is uploaded for the sharing function. The Firebase UID can be stored as its creator identifier.</p>
@@ -133,9 +134,10 @@
         <tr><td>Google / Apple sign-in</td><td>Optional durable account link; provider association and any email/display name supplied by the provider.</td></tr>
         <tr><td>RevenueCat</td><td>Subscription/customer management using Firebase UID, customer/entitlement information, and purchase/transaction state when configured.</td></tr>
         <tr><td>DeepL</td><td>Translation of user-requested OCR/text content through the analysis backend.</td></tr>
+        <tr><td>Microsoft Azure Speech</td><td>Optional pronunciation assessment in Germany West Central: a recording of up to 10 seconds and the displayed Korean phrase, processed only after separate consent.</td></tr>
       </tbody>
     </table>
-    <p>The app has no advertising SDK enabled, does not request advertising identifiers, and does not use data for cross-app tracking. It does not request location, contacts, microphone, or broad photo-library access on Android; Android gallery selection uses the system picker.</p>
+    <p>The app has no advertising SDK enabled, does not request advertising identifiers, and does not use data for cross-app tracking. It does not request location or contacts. Microphone access is optional and requested only for the separately consented pronunciation assessment. Android gallery selection uses the system picker, so no broad photo-library permission is requested.</p>
 
     <h2>6. Security, locations, and retention</h2>
     <p>Network data is encrypted in transit using HTTPS/TLS. The repository configures the Gye and TTS functions for <code>europe-west3</code>, and the documented default analysis endpoint also uses <code>europe-west3</code>. This does not prove that every Firebase, Google, DeepL, Apple, or RevenueCat service or every datum is stored in the EU. Firestore, Authentication, Analytics, Crashlytics, Storage, RevenueCat, integration, and retention settings must be verified in the live consoles. We do not state fixed retention periods where the repository does not prove them.</p>
@@ -143,7 +145,7 @@
     <h2>7. Choices, access, and deletion</h2>
     <ul>
       <li>Keep learning data local by not linking Google or Apple.</li>
-      <li>Withdraw Analytics, Crashlytics, or notification opt-ins in Settings.</li>
+      <li>Withdraw Analytics, Crashlytics, notification, or voice-assessment opt-ins in Settings.</li>
       <li>Reset local learning data, delete cloud backup while keeping the account, or delete the full account in the app.</li>
       <li>Request access, correction, export, or processor-side RevenueCat erasure help at <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>.</li>
     </ul>
@@ -156,7 +158,7 @@
 
   <section class="section" id="lang-de" lang="de" role="tabpanel">
     <h1>Datenschutzerklärung</h1>
-    <p class="meta"><strong>Zuletzt aktualisiert:</strong> 31. Juli 2026</p>
+    <p class="meta"><strong>Zuletzt aktualisiert:</strong> 13. August 2026</p>
 
     <h2>1. Verantwortliche Stelle</h2>
     <p>Für die hier beschriebene Verarbeitung ist der Betreiber von <strong>Hangul Sori</strong> verantwortlich. Datenschutz- und Supportkontakt: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. Die gesetzlich erforderlichen Betreiberangaben stehen im <a href="impressum.html">Impressum</a>.</p>
@@ -193,6 +195,7 @@
 
     <h3>Aussprache-Audio</h3>
     <p>Vorproduziertes Audio kann aus Firebase Storage geladen werden. Bei angeforderter Aussprache dynamischer oder selbst eingegebener koreanischer Texte wird der Text über HTTPS an die konfigurierte TTS-Funktion und Google Cloud Text-to-Speech gesendet. Erzeugtes Audio kann in Firebase Storage und lokal zwischengespeichert werden.</p>
+    <p>Die optionale Aussprachebewertung ist von der Wiedergabe getrennt und beginnt nur nach einer ausdrücklichen Einwilligung in die Sprachverarbeitung und der Mikrofonberechtigung. Eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Referenzsatz werden über eine authentifizierte und durch App Check geschützte Firebase-Callable-Funktion in <code>europe-west3</code> an Microsoft Azure Speech in <code>germanywestcentral</code> gesendet. Hangul Sori schreibt weder Aufnahme noch Referenzsatz, erkannte Wörter oder Identitäten von Gye-Mitgliedern in Serverspeicher oder Logs. Zurückgegeben werden nur zusammengefasste Werte für Aussprache, Genauigkeit, Sprechfluss und Vollständigkeit sowie eine vom Client erzeugte ID gegen Doppelzählung. Auf dem Gerät werden diese Werte, die Zahl bestandener Bewertungen und eine begrenzte Liste der Doppelzählungs-IDs als Lernfortschritt gespeichert. Ein nutzerbezogenes Rate-Limit-Dokument speichert unter der Firebase-UID nur Zähler und Zeitfenster. Azure verarbeitet die vorübergehende Bewertungsanfrage als Auftragsverarbeiter gemäß der konfigurierten Dienstbedingungen. Das Ausschalten der Sprachbewertung verhindert weitere Aufnahmen; Anhören und Nachsprechen bleiben verfügbar.</p>
 
     <h3>Teilen</h3>
     <p>Wenn ein Nutzer bewusst ein Lernpaket teilt, wird ein portables Payload ohne lokale Bildreferenzen hochgeladen. Die Firebase-UID kann als Erstellerkennung gespeichert werden.</p>
@@ -205,9 +208,10 @@
         <tr><td>Google-/Apple-Anmeldung</td><td>Optionale dauerhafte Kontoverknüpfung; Anbieterzuordnung und ggf. bereitgestellte E-Mail/Anzeigename.</td></tr>
         <tr><td>RevenueCat</td><td>Abo-/Kundenverwaltung mit Firebase-UID, Kunden-/Berechtigungsinformationen und Kauf-/Transaktionsstatus, wenn konfiguriert.</td></tr>
         <tr><td>DeepL</td><td>Übersetzung nutzerangeforderter OCR-/Textinhalte über das Analyse-Backend.</td></tr>
+        <tr><td>Microsoft Azure Speech</td><td>Optionale Aussprachebewertung in Deutschland West-Mitte: eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz, nur nach gesonderter Einwilligung.</td></tr>
       </tbody>
     </table>
-    <p>Die App enthält kein aktives Werbe-SDK, fordert keine Werbekennung an und betreibt kein appübergreifendes Tracking. Sie fordert weder Standort, Kontakte noch Mikrofon an; unter Android wird auch kein breiter Medienzugriff verlangt, weil die Galerie den System-Picker nutzt.</p>
+    <p>Die App enthält kein aktives Werbe-SDK, fordert keine Werbekennung an und betreibt kein appübergreifendes Tracking. Sie fordert weder Standort noch Kontakte an. Der Mikrofonzugriff ist optional und wird nur für die gesondert eingewilligte Aussprachebewertung angefordert. Unter Android wird kein breiter Medienzugriff verlangt, weil die Galerie den System-Picker nutzt.</p>
 
     <h2>6. Sicherheit, Orte und Aufbewahrung</h2>
     <p>Netzwerkdaten werden per HTTPS/TLS während der Übertragung verschlüsselt. Das Repository konfiguriert Gye- und TTS-Funktionen für <code>europe-west3</code>; auch der dokumentierte Standard-Endpunkt der Analyse nutzt <code>europe-west3</code>. Daraus folgt nicht, dass jeder Firebase-, Google-, DeepL-, Apple- oder RevenueCat-Dienst oder jedes Datum in der EU gespeichert wird. Firestore, Authentication, Analytics, Crashlytics, Storage, RevenueCat, Integrationen und Aufbewahrung sind in den Live-Konsolen zu prüfen. Wo das Repository keine Frist belegt, nennen wir keine feste Aufbewahrungsdauer.</p>
@@ -215,7 +219,7 @@
     <h2>7. Wahlmöglichkeiten, Auskunft und Löschung</h2>
     <ul>
       <li>Ohne Google-/Apple-Verknüpfung bleiben Lerndaten lokal.</li>
-      <li>Analytics, Crashlytics und Benachrichtigungen können in den Einstellungen widerrufen werden.</li>
+      <li>Analytics, Crashlytics, Benachrichtigungen und die Sprachbewertung können in den Einstellungen widerrufen werden.</li>
       <li>Lokale Lerndaten können zurückgesetzt, das Cloud-Backup bei fortbestehendem Konto oder das vollständige Konto in der App gelöscht werden.</li>
       <li>Auskunft, Berichtigung, Export oder Hilfe bei einer RevenueCat-seitigen Löschanfrage: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>.</li>
     </ul>
@@ -228,7 +232,7 @@
 
   <section class="section" id="lang-ko" lang="ko" role="tabpanel">
     <h1>개인정보 처리방침</h1>
-    <p class="meta"><strong>최종 갱신:</strong> 2026년 7월 31일</p>
+    <p class="meta"><strong>최종 갱신:</strong> 2026년 8월 13일</p>
 
     <h2>1. 개인정보 처리 책임자</h2>
     <p><strong>한글소리(Hangul Sori)</strong> 운영자가 이 문서에 설명된 처리를 책임집니다. 개인정보 및 지원 문의: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. 법적으로 필요한 운영자 정보는 <a href="impressum.html">Impressum</a>에서 확인할 수 있습니다.</p>
@@ -265,6 +269,7 @@
 
     <h3>발음 음성</h3>
     <p>내장 음성은 Firebase Storage에서 내려받을 수 있습니다. 동적 또는 사용자 입력 한국어의 발음을 요청하면 텍스트가 HTTPS로 설정된 TTS 함수와 Google Cloud Text-to-Speech에 전송됩니다. 생성 음성은 Firebase Storage와 기기에 캐시될 수 있습니다.</p>
+    <p>선택적 발음 평가는 음성 재생과 분리되어 있으며, 별도의 음성 처리 동의와 마이크 권한을 받은 뒤에만 시작됩니다. 최대 10초의 마이크 녹음과 화면에 표시된 한국어 기준 문장은 인증 및 App Check로 보호된 <code>europe-west3</code> Firebase callable 함수를 거쳐 <code>germanywestcentral</code>의 Microsoft Azure Speech로 전송됩니다. Hangul Sori는 녹음, 기준 문장, 인식된 단어 또는 Gye 계원의 신원을 서버 저장소나 로그에 기록하지 않습니다. 함수는 종합 발음·정확도·유창성·완성도 점수와 클라이언트가 만든 중복 방지 ID만 반환합니다. 기기에는 해당 점수, 통과한 평가 횟수, 제한된 중복 방지 ID 목록이 학습 진도로 저장됩니다. Firebase UID 아래의 사용량 제한 문서에는 횟수와 시간 구간만 저장됩니다. Azure는 설정된 서비스 조건에 따라 일시적인 평가 요청을 처리합니다. 발음 평가 동의를 끄면 이후 녹음은 중단되며 듣고 따라 말하기는 계속 사용할 수 있습니다.</p>
 
     <h3>공유</h3>
     <p>사용자가 단어장을 직접 공유하면 로컬 이미지 참조를 제거한 이동 가능 데이터가 업로드됩니다. Firebase UID가 생성자 식별자로 저장될 수 있습니다.</p>
@@ -277,9 +282,10 @@
         <tr><td>Google / Apple 로그인</td><td>선택적 지속 계정 연결, 공급자 연결 정보 및 공급자가 제공한 이메일/표시 이름.</td></tr>
         <tr><td>RevenueCat</td><td>설정된 경우 Firebase UID, 고객/권한 정보, 구매/거래 상태를 이용한 구독 및 고객 관리.</td></tr>
         <tr><td>DeepL</td><td>분석 백엔드를 통한 사용자 요청 OCR/텍스트 번역.</td></tr>
+        <tr><td>Microsoft Azure Speech</td><td>독일 서중부 리전의 선택적 발음 평가: 별도 동의 후 최대 10초 녹음과 화면에 표시된 한국어 문장을 처리합니다.</td></tr>
       </tbody>
     </table>
-    <p>활성 광고 SDK가 없고 광고 식별자를 요청하지 않으며 앱 간 추적을 하지 않습니다. 위치, 연락처, 마이크 권한을 요청하지 않습니다. Android 갤러리는 시스템 선택기를 사용하므로 광범위한 미디어 권한도 요청하지 않습니다.</p>
+    <p>활성 광고 SDK가 없고 광고 식별자를 요청하지 않으며 앱 간 추적을 하지 않습니다. 위치나 연락처 권한은 요청하지 않습니다. 마이크 권한은 별도로 동의한 발음 평가에만 선택적으로 요청합니다. Android 갤러리는 시스템 선택기를 사용하므로 광범위한 미디어 권한도 요청하지 않습니다.</p>
 
     <h2>6. 보안, 위치 및 보관</h2>
     <p>네트워크 데이터는 HTTPS/TLS로 전송 중 암호화됩니다. 저장소는 Gye 및 TTS 함수를 <code>europe-west3</code>로 설정하고, 문서화된 기본 분석 엔드포인트도 <code>europe-west3</code>를 사용합니다. 이것이 모든 Firebase, Google, DeepL, Apple, RevenueCat 서비스나 모든 데이터가 EU에 저장됨을 뜻하지는 않습니다. Firestore, Authentication, Analytics, Crashlytics, Storage, RevenueCat, 연동 및 보관 설정은 실제 콘솔에서 확인해야 합니다. 저장소가 증명하지 않는 고정 보관 기간은 명시하지 않습니다.</p>
@@ -287,7 +293,7 @@
     <h2>7. 선택, 열람 및 삭제</h2>
     <ul>
       <li>Google/Apple 계정을 연결하지 않으면 학습 데이터가 로컬에 남습니다.</li>
-      <li>설정에서 Analytics, Crashlytics, 알림 동의를 철회할 수 있습니다.</li>
+      <li>설정에서 Analytics, Crashlytics, 알림, 발음 평가 동의를 철회할 수 있습니다.</li>
       <li>앱에서 로컬 학습 데이터 초기화, 계정을 유지한 클라우드 백업 삭제, 전체 계정 삭제를 선택할 수 있습니다.</li>
       <li>열람, 정정, 내보내기 또는 RevenueCat 측 삭제 요청 지원: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>.</li>
     </ul>

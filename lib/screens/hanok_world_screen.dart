@@ -54,6 +54,7 @@ class HanokWorldScreen extends StatefulWidget {
   final Future<void> Function(PersonalHanokVenueAction action)?
   onOpenVenueAction;
   final HanokWorldPreviewData? preview;
+  final bool embedded;
 
   const HanokWorldScreen({
     super.key,
@@ -64,6 +65,7 @@ class HanokWorldScreen extends StatefulWidget {
     this.revealStore = const StoragePersonalHanokRevealStore(),
     this.onOpenVenueAction,
     this.preview,
+    this.embedded = false,
   });
 
   /// Renders the production 03A/03B screen from fixture state. No storage,
@@ -370,7 +372,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     final activeReveal = _activeReveal;
     return Scaffold(
       backgroundColor: s.bg,
-      appBar: AppBar(title: Text(t.hanokWorldTitle)),
+      appBar: widget.embedded ? null : AppBar(title: Text(t.hanokWorldTitle)),
       body: Stack(
         children: [
           SoriScreenBackground(

@@ -31,6 +31,27 @@ Future<void> showDailyCharSheet(
   );
 }
 
+/// Route-owned entry for surfaces that cannot open Home's inline sheet.
+/// The learning widget remains the same implementation used by Home/Hanok.
+class DailyCalligraphyRouteScreen extends StatelessWidget {
+  const DailyCalligraphyRouteScreen({super.key, this.character});
+
+  final String? character;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: Text(AppL10n.of(context).dailyCharTitle)),
+    body: SafeArea(
+      child: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(Spacing.xl),
+          child: _DailyCharSheet(character: character),
+        ),
+      ),
+    ),
+  );
+}
+
 class _DailyCharSheet extends StatefulWidget {
   const _DailyCharSheet({this.character});
 
@@ -55,7 +76,9 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   }
 
   Future<void> _finish() async {
-    if (_finishing || _doneNow || !_guideCompleted) return;
+    if (_finishing || _doneNow || !_guideCompleted) {
+      return;
+    }
     HapticFeedback.heavyImpact();
     final today = DateTime.now();
     _feedbackCompletion.complete(
@@ -69,7 +92,9 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
     setState(() => _finishing = true);
     await Storage.addCalligraphyDate(iso);
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _doneNow = true;
       _finishing = false;
@@ -78,7 +103,9 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   }
 
   void _markGuideCompleted() {
-    if (_guideCompleted) return;
+    if (_guideCompleted) {
+      return;
+    }
     setState(() => _guideCompleted = true);
   }
 
@@ -132,7 +159,9 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
 
   /// 자모 여부 판단 (초성 + 중성 범위)
   bool _isJamo(String char) {
-    if (char.isEmpty) return false;
+    if (char.isEmpty) {
+      return false;
+    }
     final code = char.codeUnitAt(0);
     // 초성/중성: U+3130 ~ U+318F
     return code >= 0x3130 && code <= 0x318F;

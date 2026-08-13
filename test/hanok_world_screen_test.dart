@@ -82,8 +82,7 @@ void main() {
         ),
       ),
     );
-    await tester.pump();
-    await tester.pump();
+    await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text(
         'Structure: Laying foundation stones. Verified: I can greet someone.',
@@ -151,29 +150,24 @@ void main() {
     );
     await tester.pumpWidget(
       _host(
-        HanokWorldScreen(
-          loadRatios: () async =>
-              const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
-          loadProjection: (_) async => projection,
-          loadNarrative: (_) async => HanokBuildNarrative(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative(
             projection: projection,
             safeSceneCount: 1,
             safeScenesTowardNextBeam: 1,
             scenesPerBeam: 2,
             plannedBeamCount: 1,
           ),
-          revealStore: _MemoryRevealStore.initialized(),
         ),
       ),
     );
-    await tester.pump();
-    await tester.pump();
 
     final progressLabel = find.text('1 of 2 scenarios mastered');
-    await tester.scrollUntilVisible(
+    await tester.dragUntilVisible(
       progressLabel,
-      240,
-      scrollable: find.byType(Scrollable).first,
+      find.byType(ListView).first,
+      const Offset(0, -240),
     );
 
     expect(find.text('Next building step'), findsOneWidget);
@@ -214,7 +208,10 @@ void main() {
     );
 
     expect(find.text('Dein Hof · A1'), findsOneWidget);
-    expect(find.text('Deine erste Szene ist der Anfang deines Hanok.'), findsOneWidget);
+    expect(
+      find.text('Deine erste Szene ist der Anfang deines Hanok.'),
+      findsOneWidget,
+    );
     expect(
       find.text('Dein Fundament steht: jemanden begrüßen.'),
       findsOneWidget,
@@ -222,7 +219,11 @@ void main() {
     final map = find.byType(PersonalHanokMap);
     expect(tester.getSize(map).height, greaterThanOrEqualTo(278));
     final progress = find.text('1 von 2 Szenarien sicher gemeistert');
-    await tester.scrollUntilVisible(progress, 220);
+    await tester.dragUntilVisible(
+      progress,
+      find.byType(ListView).first,
+      const Offset(0, -220),
+    );
     expect(find.text('Nächster Bauabschnitt'), findsOneWidget);
     expect(progress, findsOneWidget);
     expect(find.text('Nächste Szene ansehen'), findsOneWidget);

@@ -118,6 +118,28 @@ jobs:
         working-directory: functions/gye
         run: npm run test:rules
 
+  pronunciation-functions-security:
+    name: Pronunciation function security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/pronunciation/package-lock.json
+
+      - name: Install pronunciation function dependencies
+        working-directory: functions/pronunciation
+        run: npm ci
+
+      - name: Test request and regional processing boundaries
+        working-directory: functions/pronunciation
+        run: npm test
+
   # 골든 기준선 재생성 — 수동 실행 전용(workflow_dispatch).
   # 위 build 잡과 **같은 OS·같은 flutter-version** 이어야 의미가 있다. 산출물
   # (test/goldens/baselines/**)을 내려받아 커밋하면 CI 골든이 초록이 된다.

@@ -6,6 +6,7 @@ import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/quest.dart';
 import '../services/quest_tracker.dart';
+import '../services/quest_action_resolver.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -270,6 +271,7 @@ class _QuestTile extends StatelessWidget {
     final def = kQuestById[q.questId];
     if (def == null) return const SizedBox.shrink();
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final isEn = lang == 'en';
     final name = isEn ? def.name.en : def.name.de;
@@ -277,6 +279,12 @@ class _QuestTile extends StatelessWidget {
 
     final isCompleted = q.completed;
     final isLocked = !q.active && !isCompleted;
+    final action = QuestActionResolver.resolve(def.id, now: DateTime.now());
+    final actionLabel = action.labelKey == QuestActionLabelKey.seasonOpens
+        ? t.questSeasonOpens(
+            QuestActionResolver.dateLabel(action.seasonOpensAt!),
+          )
+        : t.questActionLabel(action.labelKey.name);
     final accentColor = isCompleted
         ? SoriColors.success
         : (isLocked ? s.textDim : SoriColors.info);
@@ -365,6 +373,30 @@ class _QuestTile extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            const SizedBox(height: Spacing.sm),
+            if (action.route != null)
+              Align(
+                alignment: Alignment.centerRight,
+                child: SoriButton.ghost(
+                  label: actionLabel,
+                  onTap: () => Navigator.of(
+                    context,
+                  ).pushNamed(action.route!, arguments: action.arguments),
+                ),
+              )
+            else
+              Row(
+                children: [
+                  const Icon(Icons.calendar_month_outlined, size: 18),
+                  const SizedBox(width: Spacing.sm),
+                  Expanded(
+                    child: Text(
+                      actionLabel,
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ],
+              ),
           ],
         ],
       ),

@@ -42,6 +42,7 @@ import 'models/personal_room.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
 import 'screens/character_selection_screen.dart';
+import 'screens/daily_char_sheet.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/app_shell.dart';
 import 'screens/paywall_screen.dart';
@@ -84,6 +85,7 @@ import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_world_screen.dart';
 import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
+import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
@@ -642,9 +644,19 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const DailyChallengeScreen(),
                 settings: settings,
               );
+            case '/calligraphy':
+              return SoriTransitions.fadeScale(
+                (_) => const DailyCalligraphyRouteScreen(),
+                settings: settings,
+              );
             case '/practice':
               return SoriTransitions.fadeScale(
                 (_) => const PracticeHubScreen(),
+                settings: settings,
+              );
+            case '/pronunciation':
+              return SoriTransitions.fadeScale(
+                (_) => const PronunciationStudioScreen(),
                 settings: settings,
               );
             case '/satz_arcade':

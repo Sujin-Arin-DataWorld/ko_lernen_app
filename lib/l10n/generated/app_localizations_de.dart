@@ -5833,4 +5833,375 @@ class AppL10nDe extends AppL10n {
   @override
   String get accountLinkFailedBody =>
       'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.';
+
+  @override
+  String get soriStageNavToday => 'Heute';
+
+  @override
+  String get soriStageNavLearn => 'Lernen';
+
+  @override
+  String get soriStageNavGames => 'Spiele';
+
+  @override
+  String get soriStageNavHanok => 'Hanok';
+
+  @override
+  String get soriStageNavGye => 'Gye';
+
+  @override
+  String get soriStageProfileTooltip => 'Profil';
+
+  @override
+  String get soriStageTodayEyebrow => 'HEUTE';
+
+  @override
+  String get soriStageTodayTitle => 'Ein Satz. Ein Bauteil.';
+
+  @override
+  String get soriStageTodayEmpty =>
+      'Wähle eine kurze Aktivität und baue an deiner Hanok weiter.';
+
+  @override
+  String get soriStageMissionAction => 'Heutige Mission starten';
+
+  @override
+  String get soriStageBojagiTitle => 'Ein Bojagi wartet';
+
+  @override
+  String get soriStageBojagiBody =>
+      'Wähle eines von drei Stücken für dein Zimmer.';
+
+  @override
+  String get soriStageOpenBojagi => 'Bojagi öffnen';
+
+  @override
+  String get soriStageHanokNow => 'Deine Hanok jetzt';
+
+  @override
+  String get soriStageNextPiece => 'Nächstes Bauteil';
+
+  @override
+  String get soriStageClosestQuests => 'Fast geschafft';
+
+  @override
+  String get soriStageLearnTitle => 'Wähle, wie du lernen möchtest.';
+
+  @override
+  String get soriStageLearnBody =>
+      'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.';
+
+  @override
+  String get soriStageGamesTitle => 'Spiele mit einem klaren Ziel.';
+
+  @override
+  String get soriStageGamesBody =>
+      'Sieh XP, Bestleistung und passende Quest, bevor du startest.';
+
+  @override
+  String soriStageMinutes(int minutes) {
+    return '$minutes Min.';
+  }
+
+  @override
+  String get soriStagePossibleReward => 'Mögliche Belohnung';
+
+  @override
+  String soriStageOpenActivity(String activity) {
+    return '$activity öffnen';
+  }
+
+  @override
+  String get soriStageHanokTitle => 'Baue ein Zuhause aus dem, was du kannst.';
+
+  @override
+  String get soriStageHanokBody =>
+      'Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.';
+
+  @override
+  String get soriStageOpenMap => 'Hanok-Karte öffnen';
+
+  @override
+  String get soriStageQuests => 'Quests';
+
+  @override
+  String get soriStageDojang => 'Dojang-Heft';
+
+  @override
+  String get soriStageBojagi => 'Bojagi';
+
+  @override
+  String get soriStageRooms => 'Räume und Einrichtung';
+
+  @override
+  String get soriStageGyePromise => 'Versprechen dieser Woche';
+
+  @override
+  String get soriStageGyeFlow =>
+      'Mission abschließen → Laterne → gemeinsame Hanok';
+
+  @override
+  String get pronunciationTitle => 'Aussprache-Studio';
+
+  @override
+  String get pronunciationEyebrow => 'MIT DEM TIGER SPRECHEN';
+
+  @override
+  String get pronunciationIntro =>
+      'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.';
+
+  @override
+  String get pronunciationListen => 'Anhören';
+
+  @override
+  String get pronunciationRecord => 'Meine Stimme aufnehmen';
+
+  @override
+  String get pronunciationRecording => 'Aufnahme läuft…';
+
+  @override
+  String get pronunciationStop => 'Stoppen und bewerten';
+
+  @override
+  String get pronunciationContinueWithoutScore => 'Ohne Bewertung weiter';
+
+  @override
+  String get pronunciationNextPhrase => 'Nächster Satz';
+
+  @override
+  String get pronunciationConsentTitle => 'Deine Stimme bewerten lassen?';
+
+  @override
+  String get pronunciationConsentBody =>
+      'Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.';
+
+  @override
+  String get pronunciationConsentAccept =>
+      'Ich stimme zu und möchte eine Bewertung';
+
+  @override
+  String get pronunciationConsentDecline => 'Ohne Bewertung üben';
+
+  @override
+  String get pronunciationPermissionDenied =>
+      'Der Mikrofonzugriff wurde nicht erlaubt. Anhören und Nachsprechen bleiben verfügbar.';
+
+  @override
+  String get pronunciationAssessmentUnavailable =>
+      'Die Bewertung ist gerade nicht verfügbar. Deine normale Übung bleibt möglich.';
+
+  @override
+  String get pronunciationRateLimited =>
+      'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.';
+
+  @override
+  String get pronunciationScore => 'Aussprachebewertung';
+
+  @override
+  String get pronunciationScorePassed =>
+      'Bestanden. Diese Bewertung zählt einmal für deine Aussprache-Quest.';
+
+  @override
+  String get pronunciationScoreTryAgain =>
+      'Gute Übung. Erreiche beim nächsten Mal mindestens 80, um die Quest fortzusetzen.';
+
+  @override
+  String get pronunciationAccuracy => 'Genauigkeit';
+
+  @override
+  String get pronunciationFluency => 'Sprechfluss';
+
+  @override
+  String get pronunciationCompleteness => 'Vollständigkeit';
+
+  @override
+  String get settingsPronunciationConsentTitle =>
+      'Einwilligung zur Sprachbewertung';
+
+  @override
+  String get settingsPronunciationConsentDesc =>
+      'Erlaube freiwillige Aufnahmen von höchstens 10 Sekunden zur Bewertung durch Azure Speech in Deutschland West-Mitte. Ausschalten verhindert weitere Bewertungen.';
+
+  @override
+  String get settingsPronunciationConsentOff =>
+      'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.';
+
+  @override
+  String get soriStageReceiptEyebrow => 'GERADE VERÄNDERT';
+
+  @override
+  String get soriStageReceiptTitle => 'Dein Lernen hat den Weg weitergebracht.';
+
+  @override
+  String get soriStageReceiptSemantics => 'Erhaltene Belohnungen';
+
+  @override
+  String get soriStageReceiptContinue => 'Weiter';
+
+  @override
+  String get soriStageActivityReady => 'Jetzt verfügbar';
+
+  @override
+  String get soriStageBrandLabel => 'SORI STAGE';
+
+  @override
+  String get soriStageActivityInProgress => 'In Arbeit';
+
+  @override
+  String get soriStageActivityCompleted => 'Abgeschlossen';
+
+  @override
+  String soriStageActivityTitle(String activityId) {
+    String _temp0 = intl.Intl.selectLogic(activityId, {
+      'course': 'Kurs',
+      'hangul': 'Hangul',
+      'calligraphy': 'Kalligrafie',
+      'pronunciation': 'Aussprache',
+      'vocab_packs': 'Wortpakete',
+      'srs': 'SRS-Wiederholung',
+      'hard_words': 'Schwierige Wörter',
+      'grammar': 'Grammatik',
+      'listening': 'Hören',
+      'scenarios': 'Alltagsszenen',
+      'smalltalk': 'Small Talk',
+      'book_capture': 'Buch fotografieren',
+      'bookshelf': 'Bücherregal',
+      'word_search': 'Wortsuche',
+      'daily_game': 'Tageschallenge',
+      'chosung': 'Chosung-Quiz',
+      'syllable_cross': 'Silben-Kreuz',
+      'cloze': 'Lückensatz',
+      'speed_match': 'Speed Match',
+      'sentence_arcade': 'Satz-Arcade',
+      'kkeunmari': 'Kkeunmari',
+      'custom_quiz': 'Eigenes Quiz',
+      'custom_matching': 'Eigenes Matching',
+      'custom_typing': 'Eigenes Tippen',
+      'other': 'Lernaktivität',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStageActivityDescription(String activityId) {
+    String _temp0 = intl.Intl.selectLogic(activityId, {
+      'course': 'Dein geführter Weg durch echte Situationen.',
+      'hangul': 'Silben bauen und sicher lesen.',
+      'calligraphy': 'Einen Buchstaben bewusst schreiben.',
+      'pronunciation': 'Hören, nachsprechen und auf Wunsch bewerten.',
+      'vocab_packs': 'Wörter nach Alltagsthema lernen.',
+      'srs': 'Fällige Wörter im richtigen Moment stärken.',
+      'hard_words': 'Gezielt an deinen Stolperwörtern arbeiten.',
+      'grammar': 'Muster verstehen und direkt anwenden.',
+      'listening': 'Kurze natürliche Sätze sicher erkennen.',
+      'scenarios': 'Café, Verkehr und Gespräche üben.',
+      'smalltalk': 'Kurze Gespräche flüssig verbinden.',
+      'book_capture': 'Wörter aus deinem Material übernehmen.',
+      'bookshelf': 'Eigene Seiten und Wortlisten verwalten.',
+      'word_search': 'Ein Wort und seine Lernwege finden.',
+      'daily_game': 'Ein kurzer Mix für heute.',
+      'chosung': 'Wörter an ihren Anfangslauten erkennen.',
+      'syllable_cross': 'Silben kombinieren und Wörter finden.',
+      'cloze': 'Das passende Wort im Satz abrufen.',
+      'speed_match': 'Bedeutungen schnell und sicher verbinden.',
+      'sentence_arcade': 'Sätze unter Zeitdruck richtig bauen.',
+      'kkeunmari': 'Eine Wortkette gegen den Tiger spielen.',
+      'custom_quiz': 'Ein Wortpaket im Bücherregal auswählen.',
+      'custom_matching': 'Deine Wörter als Paare festigen.',
+      'custom_typing': 'Deine Wörter aktiv aus dem Gedächtnis holen.',
+      'other': 'Weiterlernen.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStageCatalogCopy(String copyKey) {
+    String _temp0 = intl.Intl.selectLogic(copyKey, {
+      'firstCompletion': 'Beim ersten Abschluss',
+      'finishSession': 'Wenn du die Runde abschließt',
+      'verifiedLearning': 'Nach einem bestätigten Lernerfolg',
+      'rewardXp': 'Lern-XP',
+      'rewardQuest': 'Passende Quest',
+      'rewardHanok': 'Verifizierter Hanok-Baufortschritt',
+      'rewardStamp': 'Dojang-Stempel',
+      'rewardBest': 'Persönliche Bestleistung',
+      'rewardNone': 'Keine direkte Belohnung',
+      'rewardQuestProgress': 'Quest-Fortschritt',
+      'rewardHanokPiece': 'Neues Hanok-Bauteil',
+      'rewardBojagi': 'Bojagi',
+      'rewardGyeLantern': 'Gye-Laterne',
+      'other': 'Belohnung',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String questActionLabel(String actionKey) {
+    String _temp0 = intl.Intl.selectLogic(actionKey, {
+      'openQuests': 'Quests öffnen',
+      'openVocabulary': 'Wortpakete öffnen',
+      'openScenarios': 'Alltagsszenen öffnen',
+      'practicePronunciation': 'Aussprache üben',
+      'playKkeunmari': 'Kkeunmari spielen',
+      'openHangul': 'Hangul öffnen',
+      'openCalligraphy': 'Kalligrafie öffnen',
+      'openToday': 'Heutige Mission öffnen',
+      'openGye': 'Gye öffnen',
+      'playChosung': 'Chosung spielen',
+      'other': 'Öffnen',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String questSeasonOpens(String date) {
+    return 'Öffnet am $date';
+  }
+
+  @override
+  String soriStagePreviewCopy(String copyKey) {
+    String _temp0 = intl.Intl.selectLogic(copyKey, {
+      'todayEyebrow': 'HEUTE',
+      'todayTitle': 'Ein Satz. Ein Bauteil.',
+      'nearComplete': 'Fast geschafft',
+      'cafeOrder': 'Im Café bestellen',
+      'strongWords': 'Starke Alltagswörter',
+      'sevenDayStreak': 'Sieben Tage dranbleiben',
+      'lessonEyebrow': 'LEKTION 2 VON 4',
+      'lessonPhrase': '덜 맵게 해 주세요',
+      'listen': 'Hören',
+      'naturalTempo': 'Natürliches Tempo',
+      'speak': 'Sprechen',
+      'rhythmMouth': 'Rhythmus und Mundbild',
+      'remember': 'Erinnern',
+      'withoutHelp': 'Ohne Hilfe abrufen',
+      'beginListening': 'Mit Hören beginnen',
+      'receiptEyebrow': 'GERADE VERÄNDERT',
+      'receiptTitle': 'Dein Satz trägt jetzt das Dach.',
+      'beamStage': 'DAECHEONG · BALKEN 3',
+      'newBeam': '1 neuer Balken im Bauplan',
+      'xpEarned': 'Lern-XP +12',
+      'completedMission': 'für die abgeschlossene Mission',
+      'questEarned': 'Quest-Fortschritt +1',
+      'scenarioProgress': 'Alltagsszenen · 4 von 10',
+      'hanokEarned': 'Hanok-Bauteil +1',
+      'verifiedSpeaking': 'durch bestätigtes Sprechen',
+      'continueToday': 'Weiter zu Heute',
+      'journeyEyebrow': 'DEIN WEG',
+      'journeyTitle': 'Alles Lernen baut am selben Ort.',
+      'missionEyebrow': 'WENIGER SCHARF BESTELLEN',
+      'missionTitle': 'Hören. Sprechen. Im Alltag anwenden.',
+      'missionReward': 'Abschließen → Lern-XP + verifizierter Fortschritt',
+      'missionStart': 'Mission starten',
+      'bojagiWaiting': '1 Bojagi wartet',
+      'bojagiBody': 'Wähle eines von drei Stücken für dein Zimmer.',
+      'other': 'Sori-Stage-Vorschau',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String soriStagePreviewProgress(int current, int target) {
+    return '$current von $target';
+  }
 }
