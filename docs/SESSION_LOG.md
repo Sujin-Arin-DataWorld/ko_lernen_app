@@ -1,5 +1,37 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude) — Analytics/Privacy 심화: 데이터 레이어·미성년 backstop·데이터최소화·설계문서
+
+**배경.** 리서치 2갈래(EU/독일 법률 · GA4/Firebase 베스트프랙티스) 후, UI 재디자인과 무관한
+데이터/프라이버시 레이어를 심화했다. UI에 박히는 이벤트는 재디자인 후 새 화면에 물리도록
+타입드 메서드만 준비하고, 지금은 밑배관을 깔았다.
+
+**Analytics 서비스 확장** (`analytics_service.dart`). `setUserProperty` + `syncUserProperties()`
+(startup에서 `learner_level`·`ui_language`·`notif_opt_in`·`streak_bucket` 세팅, 동의 없으면 no-op).
+재디자인 UI가 호출할 타입드 이벤트 16종 추가: lesson_started/completed, quiz_completed(정확도+band),
+game_started/completed, feature_used(umbrella), tts_played, wordbook_add, streak_extended/milestone,
+daily_goal_met, onboarding_start/completed, placement_completed, paywall_viewed, subscribe_started.
+전부 저카디널리티·PII 금지.
+
+**미성년(16세 미만) backstop** (DSGVO Art. 8). `PrivacyConsentService.setAnalytics/setCrash`와
+`Analytics._consentActive()`가 `AgeGateService.isUnderMinAge`면 수집을 강제 OFF하고 false로
+persist(자기신고 <16은 유효 동의 불가). 동의가 저장돼 있어도 이벤트/스크린뷰/property 전무.
+테스트 `test/privacy_minor_guard_test.dart`.
+
+**데이터 최소화 P1.** iOS `Info.plist`에 `GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED=NO` +
+ad-personalization 기본 거부 추가(Android는 이미 `AD_ID` 권한 제거 + `adid=false`). IDFA/추적
+없음 → ATT 프롬프트 불필요, App Privacy "Data Not Used to Track You".
+
+**Consent Mode v2는 도입 안 함.** 광고 없는 분석-전용 앱엔 hard gate가 더 깔끔(리서치 결론).
+광고(AdMob) 도입 시 추가.
+
+**설계 문서** `docs/ANALYTICS_PRIVACY_PLAN.md` — 원칙·구현현황·이벤트/property 스키마(재디자인
+배선 가이드)·GA4 리밋·콘솔/스토어 TODO·데이터 활용(Funnel/Audience/Retention/RemoteConfig A-B/
+BigQuery)·P0~P3 체크리스트(⚠️ DPO 항목 포함).
+
+**검증.** `flutter analyze` 0 issues · 전체 `flutter test` **3,264 통과 / 16 skip / 0 실패** ·
+신규 테스트(analytics user property·minor guard) 통과 · 기존 privacy_consent 테스트 불변.
+
 ### 2026-08-13 (Claude) — 첫 실행 동의 화면에 granular Analytics/Crash opt-in
 
 **왜.** 애널리틱스 이벤트를 배선했지만 첫 실행 동의 화면(`consent_screen.dart`)이

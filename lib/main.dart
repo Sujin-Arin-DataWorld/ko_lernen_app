@@ -376,6 +376,8 @@ Future<bool> _initFirebase() async {
     // Einwilligung (Default: aus) auf die SDKs angewendet.
     await PrivacyConsentService.applyStored();
     PrivacyConsentService.installErrorHandlers();
+    // Non-PII Segmentierungs-Properties setzen (no-op ohne Einwilligung).
+    unawaited(Analytics.syncUserProperties());
     return true;
   } catch (_) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter

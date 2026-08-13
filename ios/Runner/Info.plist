@@ -13,6 +13,13 @@
 		<false/>
 		<key>FirebaseMessagingAutoInitEnabled</key>
 		<false/>
+		<!-- Datenminimierung: keine Werbe-Identifikatoren. IDFV-Erhebung aus und
+		     Ad-Personalisierung standardmäßig verweigert. Kein IDFA/Tracking →
+		     kein ATT-Prompt, App-Privacy: "Data Not Used to Track You". -->
+		<key>GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED</key>
+		<false/>
+		<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS</key>
+		<false/>
 		<!-- AdMob iOS ist in v1.0.0 nicht aktiv. Bei Reaktivierung in v1.1+:
 		     1. google_mobile_ads in pubspec.yaml enablen
 		     2. Hier GADApplicationIdentifier mit echter Production-ID eintragen

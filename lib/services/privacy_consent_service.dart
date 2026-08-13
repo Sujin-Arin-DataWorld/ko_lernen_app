@@ -4,6 +4,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 
+import 'age_gate_service.dart';
 import 'storage_service.dart';
 
 abstract interface class AnalyticsConsentClient {
@@ -233,8 +234,11 @@ class PrivacyConsentService {
   PrivacyConsentService._();
 
   static final PrivacyConsentController _controller = PrivacyConsentController(
-    analyticsConsent: () => Storage.analyticsConsent,
-    crashConsent: () => Storage.crashConsent,
+    // DSGVO Art. 8: selbst-angegebene Unter-16 haben nie eine wirksame
+    // Einwilligung → Erhebung bleibt aus, egal was gespeichert ist.
+    analyticsConsent: () =>
+        Storage.analyticsConsent && !AgeGateService.isUnderMinAge,
+    crashConsent: () => Storage.crashConsent && !AgeGateService.isUnderMinAge,
     persistAnalyticsConsent: Storage.setAnalyticsConsent,
     persistCrashConsent: Storage.setCrashConsent,
     analyticsClient: const FirebaseAnalyticsConsentClient(),
@@ -247,17 +251,21 @@ class PrivacyConsentService {
   }
 
   static Future<void> setAnalytics(bool enabled, {bool persist = true}) {
-    return _controller.setAnalytics(enabled, persist: persist);
+    // Selbst-angegebene Unter-16 nie aktivieren, egal was die UI sendet;
+    // dann bewusst false persistieren (nachweisbar aus).
+    final allowed = enabled && !AgeGateService.isUnderMinAge;
+    return _controller.setAnalytics(allowed, persist: persist);
   }
 
   static Future<void> setCrash(bool enabled, {bool persist = true}) {
+    final allowed = enabled && !AgeGateService.isUnderMinAge;
     if (kIsWeb) {
       if (persist) {
-        return Storage.setCrashConsent(enabled);
+        return Storage.setCrashConsent(allowed);
       }
       return Future<void>.value();
     }
-    return _controller.setCrash(enabled, persist: persist);
+    return _controller.setCrash(allowed, persist: persist);
   }
 
   static void installErrorHandlers() {

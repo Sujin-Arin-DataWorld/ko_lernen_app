@@ -10,6 +10,7 @@ class _RecordedEvent {
 class _FakeAnalyticsClient implements AnalyticsEventClient {
   final List<_RecordedEvent> events = [];
   final List<String> screens = [];
+  final List<MapEntry<String, String?>> props = [];
   bool throwOnNext = false;
 
   @override
@@ -31,6 +32,18 @@ class _FakeAnalyticsClient implements AnalyticsEventClient {
       throw StateError('analytics unavailable');
     }
     screens.add(screenName);
+  }
+
+  @override
+  Future<void> setUserProperty({
+    required String name,
+    required String? value,
+  }) async {
+    if (throwOnNext) {
+      throwOnNext = false;
+      throw StateError('analytics unavailable');
+    }
+    props.add(MapEntry(name, value));
   }
 }
 
@@ -92,6 +105,23 @@ void main() {
       consent = true;
       await controller.logEvent('gye_joined');
       expect(client.events.single.name, 'gye_joined');
+    });
+
+    test('forwards user properties only while consent is granted', () async {
+      final client = _FakeAnalyticsClient();
+      var consent = true;
+      final controller = AnalyticsController(
+        hasConsent: () => consent,
+        client: client,
+      );
+
+      await controller.setUserProperty('learner_level', 'A2');
+      consent = false;
+      await controller.setUserProperty('ui_language', 'de');
+
+      expect(client.props, hasLength(1));
+      expect(client.props.single.key, 'learner_level');
+      expect(client.props.single.value, 'A2');
     });
   });
 }
