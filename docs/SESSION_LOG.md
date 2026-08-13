@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude, Mac) — 테스터 피드백이 "앱에 안 보이는" 원인 진단 + 수신함 리더/인덱스
+
+**증상.** "피드백 코드는 만들었는데 앱에 구현이 안 된다." → 원인 2가지 확정.
+
+**원인 ① 클라 게이트(기본 off).** 16개 화면의 피드백 UI 전부
+`feedbackScope.featureGate.isEnabled` 뒤에 있고, `TesterFeedbackFeatureGate.isEnabled`
+(`lib/config/tester_feedback_feature.dart`)는 컴파일 define `ENABLE_TESTER_FEEDBACK`(기본
+**false**) + `!kIsWeb` + `TargetPlatform.android` 세 조건을 모두 요구한다. 즉 일반
+`flutter run`·웹·iOS·정식 릴리스에서는 피드백 UI가 통째로 빠진다(설계대로). 임시 define 테스트로
+증명: define 있으면 `isEnabled==true`, 없으면 `false`. 게이트 켠 위젯 테스트 43건 통과(렌더·제출 정상).
+
+**원인 ② 백엔드 미배포.** 제출 대상 Cloud Function `submitTesterFeedback`(europe-west3,
+`functions/gye/index.js`)가 **배포 목록에 없음**(gcloud functions list 확인). UI를 켜도 제출이
+Firestore `users/{uid}/tester_feedback/{completionId}` 에 도달하지 못하고 로컬 outbox 큐잉만 됨.
+함수 코드 자체는 배포 준비 완료(`tester_feedback_runtime.test.js` 93건 통과).
+
+**수신 경로.** 이 컬렉션은 `firestore.rules` 에서 클라 read 완전 차단(`if false`) → **Admin SDK
+전용**. 사용자별 서브컬렉션이라 collectionGroup 필요.
+- 추가: `scripts/admin/read_tester_feedback.cjs` — collectionGroup('tester_feedback') 리더
+  (Admin SDK, ADC 인증, `--limit/--status/--since/--json`). firebase-admin 는 레포 루트
+  node_modules 재사용. ADC 없을 때 `gcloud auth application-default login` 안내.
+- 추가: `firestore.indexes.json` 에 (status ASC, createdAt DESC) collectionGroup 인덱스
+  (`--status new` 필터용; 기본 createdAt 정렬은 인덱스 불필요).
+
+**배포 완료(Jin 승인 후 Claude 실행).** ① `submitTesterFeedback` europe-west3 배포 →
+**ACTIVE**(gye codebase 단일 함수만 타깃, `functions:gye-firebase-functions:submitTesterFeedback`).
+② `firebase deploy --only firestore:indexes` → tester_feedback (status,createdAt) collectionGroup
+인덱스 포함 배포 성공. 배포 전 `functions/gye`에 `npm ci` 필요(gen2 discovery). 디스크 99%(가용
+126Mi)라 재생성 가능한 `build/`(6.6G) 삭제로 공간 확보 후 진행.
+
+**Jin 후속(남음).** ③ `gcloud auth application-default login`(1회) 후
+`node scripts/admin/read_tester_feedback.cjs` 로 수신함 확인 ④ Android 기기/에뮬에서
+`--dart-define=ENABLE_TESTER_FEEDBACK=true`(+`BETA_UNLOCK_ALL=true`) 빌드로 실제 UI에서 제출 →
+③에서 수신 확인(E2E). 앱 코드 자체는 debug APK 컴파일로 플래그 정상 확인됨. 미커밋.
+
 ### 2026-08-13 (Claude, Mac) — 동의 배너 캐릭터선택 직후로 이동(쿠키배너식) + Android versionCode 자동증가
 
 **동의 재배치(B안).** 첫-팩-후 지연 시트(`/vocab/result` 트리거)를 제거하고, 추적 동의를
