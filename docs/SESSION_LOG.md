@@ -53,9 +53,25 @@
 `GeneratedPluginRegistrant.java:134: package dev.flutter.plugins.integration_test
 does not exist` 로 깨졌다. `integration_test` 는 dev_dependency(커밋 `98fc014`)라
 릴리스 클래스패스에서 빠지는데, 디버그 빌드 때 생성된 낡은 등록기가 그걸 참조하고 있었다.
-**`flutter clean` 후 릴리스 빌드가 등록기를 릴리스 변형용으로 재생성하면 해결**된다.
-단 `flutter build` 의 암묵적 `pub get` 이 등록기를 다시 dev 포함 상태로 덮으므로,
-연속 빌드 시 두 번째부터는 **`--no-pub`** 을 붙인다. 등록기는 git 미추적 생성 파일이다.
+등록기는 **git 미추적 생성 파일**이라 저장소 상태와 무관하고, `flutter pub get` 이
+언제든 재생성한다. 실측한 동작은 이렇다:
+
+- `flutter clean` → `flutter build apk --release` 는 **성공한다**. clean 이 캐시를
+  비워 릴리스 변형용 등록기가 새로 생성되기 때문이다(빌드 후 `integration_test` 참조 0).
+- 그런데 이어서 `flutter build appbundle` 을 돌리면 그 안의 암묵적 `pub get` 이
+  등록기를 **다시 dev 포함 상태로 덮어써** 실패한다.
+- `--no-pub` 만으로는 부족하다 — 이미 오염된 등록기를 되돌리지는 못한다.
+- 실제로 통한 순서: 등록기에서 `IntegrationTestPlugin` 등록 블록만 제거 →
+  `flutter build appbundle --release --no-pub`. (또는 `flutter clean` 을 다시 하고
+  AAB 를 먼저 굽는다. 단 clean 은 이미 만든 APK 산출물도 지운다.)
+- 작업 후 `flutter pub get` 으로 등록기를 원상 복구해 뒀다. **그대로 두면 통합
+  테스트가 조용히 플러그인을 잃는다.**
+
+**산출물.** APK `build/app/outputs/flutter-apk/app-release.apk` 240,525,879 bytes ·
+AAB `build/app/outputs/bundle/release/app-release.aab` 220,183,153 bytes, 둘 다
+`2.0.5+18`. 서명은 release 빌드타입이 `key.properties` 기반 signingConfig 를 물고
+있어 v2/v3 로 붙는다(그래서 v1 `META-INF` 항목은 없다). ⚠️ 이 셸에 `JAVA_HOME` 이
+없어 `apksigner verify` 는 돌리지 못했다 — **서명 자체는 눈으로 확인하지 않았다.**
 
 **검증.** `flutter analyze` **0 issues** · 전체 `flutter test` **3,207 통과 / 14 skip** ·
 `dart format`. ⚠️ `dart format lib/ test/` 이 손대지 않은 테스트 55개를 줄바꿈만
