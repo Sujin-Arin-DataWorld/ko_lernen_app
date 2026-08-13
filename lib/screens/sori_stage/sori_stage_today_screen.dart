@@ -6,6 +6,7 @@ import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/pack_access.dart';
 import '../../services/sori_stage_progression_service.dart';
+import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../services/today_learning_navigation.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
@@ -13,6 +14,7 @@ import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
+import 'sori_stage_reward_receipt_sheet.dart';
 
 class SoriStageTodayScreen extends StatefulWidget {
   const SoriStageTodayScreen({super.key, this.loadSnapshot});
@@ -94,7 +96,10 @@ class _TodayContent extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           padding: padding,
           children: [
-            _TodayMissionStage(snapshot: snapshot),
+            _TodayMissionStage(
+              snapshot: snapshot,
+              onActivityReturned: onRefresh,
+            ),
             if (snapshot.pendingBojagiCount > 0) ...[
               const SizedBox(height: Spacing.lg),
               _PendingBojagi(count: snapshot.pendingBojagiCount),
@@ -122,8 +127,12 @@ class _TodayContent extends StatelessWidget {
 }
 
 class _TodayMissionStage extends StatelessWidget {
-  const _TodayMissionStage({required this.snapshot});
+  const _TodayMissionStage({
+    required this.snapshot,
+    required this.onActivityReturned,
+  });
   final SoriStageProgressionSnapshot snapshot;
+  final VoidCallback onActivityReturned;
 
   @override
   Widget build(BuildContext context) {
@@ -187,16 +196,35 @@ class _TodayMissionStage extends StatelessWidget {
           SoriButton(
             label: t.soriStageMissionAction,
             icon: Icons.play_arrow_rounded,
-            onTap: destination == null
-                ? () => Navigator.of(context).pushNamed('/path')
-                : () => TodayLearningNavigation.open(
+            onTap: () async {
+              final activityId =
+                  contract?.activityId ?? destination?.route ?? 'today';
+              final receipt = await SoriStageRewardReceiptService.capture(
+                activityId: activityId,
+                loadSnapshot: SoriStageProgressionService.load,
+                openActivity: () async {
+                  if (destination == null) {
+                    await Navigator.of(context).pushNamed('/path');
+                    return;
+                  }
+                  await TodayLearningNavigation.open(
                     destination,
                     ensurePackAccess: (level) =>
                         ensurePackAccess(context, level: level),
-                    openRoute: (route, arguments) => Navigator.of(
-                      context,
-                    ).pushNamed(route, arguments: arguments),
-                  ),
+                    openRoute: (route, arguments) async {
+                      await Navigator.of(
+                        context,
+                      ).pushNamed(route, arguments: arguments);
+                    },
+                  );
+                },
+              );
+              if (!context.mounted) return;
+              onActivityReturned();
+              if (receipt != null) {
+                await showSoriStageRewardReceipt(context, receipt);
+              }
+            },
           ),
         ],
       ),

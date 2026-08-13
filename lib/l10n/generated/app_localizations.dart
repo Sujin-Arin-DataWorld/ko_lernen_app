@@ -10422,6 +10422,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.'**
   String get settingsPronunciationConsentOff;
+
+  /// No description provided for @soriStageReceiptEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'GERADE VERÄNDERT'**
+  String get soriStageReceiptEyebrow;
+
+  /// No description provided for @soriStageReceiptTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernen hat den Weg weitergebracht.'**
+  String get soriStageReceiptTitle;
+
+  /// No description provided for @soriStageReceiptSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Erhaltene Belohnungen'**
+  String get soriStageReceiptSemantics;
+
+  /// No description provided for @soriStageReceiptContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get soriStageReceiptContinue;
+
+  /// No description provided for @soriStageActivityReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt verfügbar'**
+  String get soriStageActivityReady;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -2694,5 +2694,10 @@
   "pronunciationCompleteness": "Completeness",
   "settingsPronunciationConsentTitle": "Voice assessment consent",
   "settingsPronunciationConsentDesc": "Allow optional recordings of up to 10 seconds to be assessed by Azure Speech in Germany West Central. Turning this off stops future assessments.",
-  "settingsPronunciationConsentOff": "Voice assessment is off. Listen-and-repeat practice remains available."
+  "settingsPronunciationConsentOff": "Voice assessment is off. Listen-and-repeat practice remains available.",
+  "soriStageReceiptEyebrow": "JUST CHANGED",
+  "soriStageReceiptTitle": "Your learning moved the journey forward.",
+  "soriStageReceiptSemantics": "Earned rewards",
+  "soriStageReceiptContinue": "Continue",
+  "soriStageActivityReady": "Ready now"
 }

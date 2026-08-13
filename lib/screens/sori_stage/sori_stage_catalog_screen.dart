@@ -3,15 +3,23 @@ import 'package:flutter/material.dart';
 import '../../data/sori_activity_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
+import '../../services/sori_stage_progression_service.dart';
+import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
+import 'sori_stage_reward_receipt_sheet.dart';
 
 class SoriStageCatalogScreen extends StatelessWidget {
-  const SoriStageCatalogScreen({super.key, required this.tab});
+  const SoriStageCatalogScreen({
+    super.key,
+    required this.tab,
+    this.loadSnapshot,
+  });
 
   final SoriStageTab tab;
+  final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,12 @@ class SoriStageCatalogScreen extends StatelessWidget {
                   body: isGames ? t.soriStageGamesBody : t.soriStageLearnBody,
                 ),
                 const SizedBox(height: Spacing.xl),
-                for (final entry in entries) _ActivityListRow(entry: entry),
+                for (final entry in entries)
+                  _ActivityListRow(
+                    entry: entry,
+                    loadSnapshot:
+                        loadSnapshot ?? SoriStageProgressionService.load,
+                  ),
               ],
             ),
           ),
@@ -46,9 +59,10 @@ class SoriStageCatalogScreen extends StatelessWidget {
 }
 
 class _ActivityListRow extends StatelessWidget {
-  const _ActivityListRow({required this.entry});
+  const _ActivityListRow({required this.entry, required this.loadSnapshot});
 
   final ActivityCatalogEntry entry;
+  final Future<SoriStageProgressionSnapshot> Function() loadSnapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +78,19 @@ class _ActivityListRow extends StatelessWidget {
       label: t.soriStageOpenActivity(title),
       child: InkWell(
         onTap: unlocked
-            ? () => Navigator.of(
-                context,
-              ).pushNamed(entry.route, arguments: entry.arguments)
+            ? () async {
+                final receipt = await SoriStageRewardReceiptService.capture(
+                  activityId: entry.id,
+                  loadSnapshot: loadSnapshot,
+                  openActivity: () async {
+                    await Navigator.of(
+                      context,
+                    ).pushNamed(entry.route, arguments: entry.arguments);
+                  },
+                );
+                if (!context.mounted || receipt == null) return;
+                await showSoriStageRewardReceipt(context, receipt);
+              }
             : null,
         borderRadius: BorderRadius.circular(SoriRadius.md),
         child: Container(
@@ -116,6 +140,25 @@ class _ActivityListRow extends StatelessWidget {
                     ),
                     const SizedBox(height: Spacing.xs),
                     Text(localCopy(context, entry.description)),
+                    const SizedBox(height: Spacing.sm),
+                    Wrap(
+                      spacing: Spacing.sm,
+                      runSpacing: Spacing.xs,
+                      children: [
+                        _ActivityStatusChip(
+                          icon: unlocked
+                              ? Icons.play_circle_outline_rounded
+                              : Icons.lock_outline_rounded,
+                          label: unlocked
+                              ? t.soriStageActivityReady
+                              : localCopy(context, entry.unlock.explanation!),
+                        ),
+                        _ActivityStatusChip(
+                          icon: Icons.redeem_outlined,
+                          label: localCopy(context, entry.reward.condition),
+                        ),
+                      ],
+                    ),
                     if (rewards.isNotEmpty) ...[
                       const SizedBox(height: Spacing.sm),
                       Row(
@@ -157,4 +200,28 @@ class _ActivityListRow extends StatelessWidget {
     SoriActivityColorRole.review => SoriColors.lightText,
     _ => Colors.white,
   };
+}
+
+class _ActivityStatusChip extends StatelessWidget {
+  const _ActivityStatusChip({required this.icon, required this.label});
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+    decoration: BoxDecoration(
+      color: Theme.of(context).colorScheme.surface.withValues(alpha: .72),
+      borderRadius: BorderRadius.circular(999),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 16),
+        const SizedBox(width: 5),
+        Text(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+      ],
+    ),
+  );
 }

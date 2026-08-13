@@ -6016,3 +6016,14 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
   Storage, but this remains an explicit dependency risk for future upgrades.
 - No Azure resource, Firebase function, Firestore rule, remote branch, build,
   or application deployment was changed by this local implementation.
+- Added an observed-delta reward receipt boundary around Today, Learn, and
+  Games navigation. It takes a read-only snapshot before an activity, waits
+  for the existing route to return, and shows only positive persisted changes
+  in XP, stamps, matching quest progress, Hanok milestones, or openable Bojagi.
+- Snapshot failure never blocks learning, newly visible historical quest
+  progress is ignored, negative/reset values are ignored, and an empty receipt
+  is never shown.
+- Learn and Games rows now expose availability, estimated duration, exact
+  reward condition, and possible reward before the learner starts.
+- Verified the actual catalog-return flow with a widget test and locked the 14
+  Learn plus 10 Games entries to one complete, stable catalog contract.

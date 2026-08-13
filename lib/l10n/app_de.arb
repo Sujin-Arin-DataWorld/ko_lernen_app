@@ -2797,5 +2797,10 @@
   "pronunciationCompleteness": "Vollständigkeit",
   "settingsPronunciationConsentTitle": "Einwilligung zur Sprachbewertung",
   "settingsPronunciationConsentDesc": "Erlaube freiwillige Aufnahmen von höchstens 10 Sekunden zur Bewertung durch Azure Speech in Deutschland West-Mitte. Ausschalten verhindert weitere Bewertungen.",
-  "settingsPronunciationConsentOff": "Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar."
+  "settingsPronunciationConsentOff": "Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.",
+  "soriStageReceiptEyebrow": "GERADE VERÄNDERT",
+  "soriStageReceiptTitle": "Dein Lernen hat den Weg weitergebracht.",
+  "soriStageReceiptSemantics": "Erhaltene Belohnungen",
+  "soriStageReceiptContinue": "Weiter",
+  "soriStageActivityReady": "Jetzt verfügbar"
 }

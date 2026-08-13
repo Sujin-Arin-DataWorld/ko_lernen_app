@@ -17,6 +17,7 @@ enum SoriActivityColorRole {
 }
 
 enum SoriRewardKind {
+  none,
   xp,
   stamp,
   questProgress,

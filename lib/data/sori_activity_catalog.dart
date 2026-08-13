@@ -46,6 +46,13 @@ const _best = RewardContractItem(
   kind: SoriRewardKind.personalBest,
   label: SoriLocalizedCopy(de: 'Persönliche Bestleistung', en: 'Personal best'),
 );
+const _noDirectReward = RewardContractItem(
+  kind: SoriRewardKind.none,
+  label: SoriLocalizedCopy(
+    de: 'Keine direkte Belohnung',
+    en: 'No direct reward',
+  ),
+);
 
 ActivityCatalogEntry _entry({
   required String id,
@@ -249,7 +256,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     minutes: 2,
     color: SoriActivityColorRole.completion,
     icon: 'bookshelf',
-    reward: _contract('bookshelf', _finishSession, []),
+    reward: _contract('bookshelf', _finishSession, [_noDirectReward]),
   ),
   _entry(
     id: 'word_search',
@@ -262,7 +269,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     minutes: 2,
     color: SoriActivityColorRole.listening,
     icon: 'search',
-    reward: _contract('word_search', _finishSession, []),
+    reward: _contract('word_search', _finishSession, [_noDirectReward]),
   ),
   _entry(
     id: 'daily_game',

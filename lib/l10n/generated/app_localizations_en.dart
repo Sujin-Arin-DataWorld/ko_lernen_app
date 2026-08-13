@@ -5992,4 +5992,20 @@ class AppL10nEn extends AppL10n {
   @override
   String get settingsPronunciationConsentOff =>
       'Voice assessment is off. Listen-and-repeat practice remains available.';
+
+  @override
+  String get soriStageReceiptEyebrow => 'JUST CHANGED';
+
+  @override
+  String get soriStageReceiptTitle =>
+      'Your learning moved the journey forward.';
+
+  @override
+  String get soriStageReceiptSemantics => 'Earned rewards';
+
+  @override
+  String get soriStageReceiptContinue => 'Continue';
+
+  @override
+  String get soriStageActivityReady => 'Ready now';
 }

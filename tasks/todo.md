@@ -15,7 +15,7 @@
     first-clear reward, and related quest/Hanok effect.
   - Verify: catalog completeness and navigation widget tests.
 
-- [ ] Task 4: Today and Hanok progression
+- [x] Task 4: Today and Hanok progression
   - Acceptance: Today prioritizes one mission, pending Bojagi, current/next
     structure, three closest quests, and observed reward receipt.
   - Verify: progression and reward-delta unit/widget tests.

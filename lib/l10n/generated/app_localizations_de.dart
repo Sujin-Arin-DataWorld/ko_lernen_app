@@ -6025,4 +6025,19 @@ class AppL10nDe extends AppL10n {
   @override
   String get settingsPronunciationConsentOff =>
       'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.';
+
+  @override
+  String get soriStageReceiptEyebrow => 'GERADE VERÄNDERT';
+
+  @override
+  String get soriStageReceiptTitle => 'Dein Lernen hat den Weg weitergebracht.';
+
+  @override
+  String get soriStageReceiptSemantics => 'Erhaltene Belohnungen';
+
+  @override
+  String get soriStageReceiptContinue => 'Weiter';
+
+  @override
+  String get soriStageActivityReady => 'Jetzt verfügbar';
 }
