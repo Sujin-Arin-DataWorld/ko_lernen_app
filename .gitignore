@@ -144,3 +144,12 @@ test/**/failures/
 
 # CRF 재인코딩 전 원본 비디오 로컬 백업(원본은 git 히스토리에도 있음)
 assets_unused/video_originals/
+
+# 로컬 릴리스 자격증명 (절대 커밋 금지 — 서명 키스토어/ASC 키)
+/re/
+/re 2/
+/re.zip
+*.keystore
+/re 2/
+re 2/
+re 2/
