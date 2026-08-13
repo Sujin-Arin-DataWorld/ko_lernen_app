@@ -1,5 +1,29 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude) — 첫 실행 동의 화면에 granular Analytics/Crash opt-in
+
+**왜.** 애널리틱스 이벤트를 배선했지만 첫 실행 동의 화면(`consent_screen.dart`)이
+`_analytics`/`_crash`를 하드코딩 `false`로 넘겨 사용자에게 **묻지도 않았다** → opt-in율
+사실상 0 → GA4에 데이터가 도달할 수 없는 구조. 반대로 기본 ON은 DSGVO/TTDSG(사전 동의·
+pre-ticked 금지, Planet49) 위반.
+
+**무엇.** 법적 정답이자 데이터·투명성 최적점 = 첫 실행에서 **granular opt-in 토글**을
+투명하게 노출(기본 OFF, 철회는 설정 토글로 유지 = Art. 7(3), 거부해도 앱 사용 가능 = 비결합).
+`_analytics`/`_crash`를 mutable state로 바꾸고, "Nutzungsstatistiken"(Analytics)·
+"Absturzberichte"(Crash) 두 토글을 links와 "Weiter" 사이에 추가. 새 ARB `consentDataOptIn`
+(DE/EN, 목적·기본 OFF·철회 안내). 토글 state는 로컬로만 두고 기존대로 `_accept()`에서만
+적용/영속화 → 미리보기/갤러리 무쓰기 불변.
+
+**중요 구현 디테일.** 토글은 `SwitchListTile`이 **아니다** — ListTile은 intrinsic-height
+측정을 지원하지 않아 이 화면의 `IntrinsicHeight` 안에서 던진다(a11y·profile 테스트가 이걸
+잡았다). 대신 `MergeSemantics`+`Row`+`Switch` 커스텀 행(`_optInRow`)으로 라벨 있는 단일
+토글 노드 + Material Switch 48dp 터치를 보장. 노출 문구는 em/en dash 금지 정책 준수(마침표로
+분할). profile 테스트는 화면이 길어져 작은 뷰포트에서 "Weiter"가 fold 아래로 가므로
+`ensureVisible` 후 탭하도록 갱신(실기기는 스크롤로 정상).
+
+**검증.** `flutter analyze` 0 issues · 접근성(consent 터치/대비/라벨/1.3x/태블릿)·l10n 파리티·
+em-dash 가드·onboarding·ux-gallery-no-write·analytics 등 74건 통과. 미커밋 없음(이 세션에서 커밋·푸시).
+
 ### 2026-08-13 (Claude) — 맥 로컬 최신화 + iOS 빌드번호 고정 + Analytics 이벤트 배선
 
 **로컬 최신화.** 맥 로컬 `main`이 `origin/main`과 갈라져 있었다(로컬 1 / 원격 163).

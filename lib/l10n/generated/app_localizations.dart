@@ -6277,6 +6277,12 @@ abstract class AppL10n {
   /// **'Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.'**
   String get consentCardBody;
 
+  /// No description provided for @consentDataOptIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Optional: Teile anonyme Nutzungsstatistiken und Absturzberichte, damit wir Hangul Sori verbessern können. Standardmäßig aus. Du kannst das hier oder jederzeit in den Einstellungen ändern.'**
+  String get consentDataOptIn;
+
   /// No description provided for @consentContinueCta.
   ///
   /// In de, this message translates to:

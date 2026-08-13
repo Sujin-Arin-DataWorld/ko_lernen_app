@@ -870,6 +870,10 @@ void main() {
     expect(Storage.crashConsent, isFalse);
     expect(find.byType(Checkbox), findsNothing);
 
+    // Der Screen ist mit den optionalen Opt-in-Schaltern scrollbar; auf kleinen
+    // Viewports liegt „Weiter“ unter dem Fold. Erst sichtbar scrollen, dann tippen.
+    await tester.ensureVisible(find.text('Weiter'));
+    await tester.pump();
     await tester.tap(find.text('Weiter'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));

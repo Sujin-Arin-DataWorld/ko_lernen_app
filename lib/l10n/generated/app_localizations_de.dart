@@ -3592,6 +3592,10 @@ class AppL10nDe extends AppL10n {
       'Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.';
 
   @override
+  String get consentDataOptIn =>
+      'Optional: Teile anonyme Nutzungsstatistiken und Absturzberichte, damit wir Hangul Sori verbessern können. Standardmäßig aus. Du kannst das hier oder jederzeit in den Einstellungen ändern.';
+
+  @override
   String get consentContinueCta => 'Weiter';
 
   @override

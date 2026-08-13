@@ -3578,6 +3578,10 @@ class AppL10nEn extends AppL10n {
       'Clearly explained · adjustable in your profile at any time. Groups always remain optional.';
 
   @override
+  String get consentDataOptIn =>
+      'Optional: share anonymous usage statistics and crash reports so we can improve Hangul Sori. Off by default. Change it here or anytime in Settings.';
+
+  @override
   String get consentContinueCta => 'Continue';
 
   @override

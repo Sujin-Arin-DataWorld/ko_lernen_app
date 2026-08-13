@@ -1746,6 +1746,7 @@
   "consentEyebrow": "Bevor du beginnst",
   "consentCardTitle": "Datenschutz & Lernkonto",
   "consentCardBody": "Klar erklärt · jederzeit in deinem Profil anpassbar. Gruppen bleiben immer freiwillig.",
+  "consentDataOptIn": "Optional: Teile anonyme Nutzungsstatistiken und Absturzberichte, damit wir Hangul Sori verbessern können. Standardmäßig aus. Du kannst das hier oder jederzeit in den Einstellungen ändern.",
   "consentContinueCta": "Weiter",
   "consentPrivacyCta": "Datenschutzerklärung",
   "consentTermsCta": "Nutzungsbedingungen",

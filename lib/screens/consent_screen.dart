@@ -21,10 +21,12 @@ const _termsUrl = 'https://hangul-sori.com/terms';
 /// **Consent-Gate** — DSGVO/ToS-Einwilligung beim ersten Start.
 ///
 /// Erscheint nur, solange [Storage.consentAccepted] false ist (vom Intro
-/// vorgeschaltet). Optionale Analytics/Crashlytics bleiben beim ersten Start
-/// aus; die Zustimmung ist bewusst kein zweites Einstellungsformular. Nach
-/// Zustimmung geht es zur Level-Auswahl — oder direkt nach Hause, falls das
-/// Level schon gewählt wurde.
+/// vorgeschaltet). Analytics und Crashlytics sind **granulare Opt-ins**
+/// (Default aus): transparent beim ersten Start wählbar und jederzeit im
+/// Profil widerrufbar (DSGVO Art. 7 Abs. 3). Nur was angekreuzt wird, wird
+/// aktiviert — „Weiter“ funktioniert auch ohne Zustimmung (keine Kopplung).
+/// Nach Zustimmung geht es zur Level-Auswahl — oder direkt nach Hause, falls
+/// das Level schon gewählt wurde.
 class ConsentScreen extends StatefulWidget {
   const ConsentScreen({super.key}) : onPreviewAccepted = null;
 
@@ -39,8 +41,8 @@ class ConsentScreen extends StatefulWidget {
 }
 
 class _ConsentScreenState extends State<ConsentScreen> {
-  final bool _analytics = false;
-  final bool _crash = false;
+  bool _analytics = false;
+  bool _crash = false;
 
   Future<void> _accept(BuildContext context) async {
     HapticFeedback.mediumImpact();
@@ -74,6 +76,58 @@ class _ConsentScreenState extends State<ConsentScreen> {
     Navigator.of(
       context,
     ).pushReplacement(SoriTransitions.fadeScale((_) => next));
+  }
+
+  /// Ein granularer Opt-in-Schalter. Bewusst KEIN [SwitchListTile] — ListTile
+  /// unterstützt keine Intrinsic-Height-Messung und würde im
+  /// IntrinsicHeight-Layout dieses Screens werfen. [MergeSemantics] fasst Text
+  /// und Schalter zu einem beschrifteten, umschaltbaren Screenreader-Knoten
+  /// zusammen; der Material-Switch garantiert das 48-dp-Touchziel.
+  Widget _optInRow({
+    required SoriSurfaces s,
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required bool value,
+    required ValueChanged<bool> onChanged,
+  }) {
+    return MergeSemantics(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+        child: Row(
+          children: [
+            Icon(icon, size: 22, color: s.textMuted),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: s.text,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      height: 1.4,
+                      color: s.textMuted,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Switch(value: value, onChanged: onChanged),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -162,6 +216,36 @@ class _ConsentScreenState extends State<ConsentScreen> {
                               label: Text(t.consentTermsCta),
                             ),
                           ],
+                        ),
+                        const SizedBox(height: Spacing.lg),
+                        // Granulares Opt-in (Default aus). Nur lokaler State —
+                        // angewendet/persistiert wird erst in _accept(), damit
+                        // Vorschau/Galerie nichts schreiben.
+                        Text(
+                          t.consentDataOptIn,
+                          style: TextStyle(
+                            fontSize: 13,
+                            height: 1.5,
+                            color: s.textMuted,
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.xs),
+                        _optInRow(
+                          s: s,
+                          icon: Icons.insights_outlined,
+                          title: t.settingsAnalyticsTitle,
+                          subtitle: t.settingsAnalyticsDesc,
+                          value: _analytics,
+                          onChanged: (v) => setState(() => _analytics = v),
+                        ),
+                        const SizedBox(height: Spacing.xs),
+                        _optInRow(
+                          s: s,
+                          icon: Icons.bug_report_outlined,
+                          title: t.settingsCrashTitle,
+                          subtitle: t.settingsCrashDesc,
+                          value: _crash,
+                          onChanged: (v) => setState(() => _crash = v),
                         ),
                         const Spacer(),
                         SoriButton.filled(
