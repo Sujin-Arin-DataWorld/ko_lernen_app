@@ -52,6 +52,23 @@ gradle.taskGraph.whenReady {
 }
 val hasReleaseKey = releaseSigningError == null
 
+// versionCode 자동 증가 — git 커밋 수 기반. 커밋마다 +1 이라 Play 재업로드 시
+// versionCode 충돌(이미 올라간 20 등)을 원천 차단한다. versionName(2.0.5)은 그대로.
+// git 사용 불가 시(소스 zip 등) 안전 폴백 21(>이미 올라간 20).
+val autoVersionCode: Int = run {
+    try {
+        val process = ProcessBuilder("git", "rev-list", "--count", "HEAD")
+            .directory(rootProject.projectDir)
+            .redirectErrorStream(true)
+            .start()
+        val text = process.inputStream.bufferedReader().readText().trim()
+        process.waitFor()
+        text.toInt()
+    } catch (e: Exception) {
+        21
+    }
+}
+
 android {
     namespace = "com.sujinarin.ko_lernen_app"
     compileSdk = flutter.compileSdkVersion
@@ -69,7 +86,7 @@ android {
         applicationId = "com.sujinarin.ko_lernen_app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
+        versionCode = autoVersionCode
         versionName = flutter.versionName
     }
 
