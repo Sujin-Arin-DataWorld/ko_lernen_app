@@ -8,6 +8,7 @@ import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/responsive.dart';
@@ -144,6 +145,10 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
       );
       return;
     }
+    // 캐릭터 선택 직후 · 온보딩(레벨/배치) 전 → 추적 동의(쿠키배너식) 1회 요청.
+    // consentAccepted 이후이므로 여기서 물으면 이후 온보딩 퍼널을 계측할 수 있다.
+    await ConsentInviteSheet.maybeShow(context);
+    if (!mounted) return;
     Navigator.of(context).pushReplacement(
       SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
     );

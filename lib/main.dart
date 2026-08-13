@@ -100,7 +100,6 @@ import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
 import 'screens/ux_preview_app.dart';
 import 'widgets/sori/dancheong_burst.dart';
-import 'widgets/sori/consent_invite_sheet.dart';
 import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_video.dart';
 import 'widgets/sori/mascot_preference.dart';
@@ -586,11 +585,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             case '/vocab/result':
               return SoriTransitions.fadeScale(
-                // Erster echter Erfolg → nachgelagerte, kontextbezogene
-                // Analytics/Crash-Einladung (einmalig, vgl. ConsentInviteSheet).
-                (_) => ConsentInviteTrigger(
-                  child: VocabPackResultScreen.fromArgs(settings.arguments),
-                ),
+                (_) => VocabPackResultScreen.fromArgs(settings.arguments),
                 settings: settings,
               );
             case '/vocab/legacy':

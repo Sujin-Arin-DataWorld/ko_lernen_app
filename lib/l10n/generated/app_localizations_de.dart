@@ -3623,17 +3623,17 @@ class AppL10nDe extends AppL10n {
       'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.';
 
   @override
-  String get consentInviteTitle => 'Deine erste Lektion sitzt 🎉';
+  String get consentInviteTitle => 'Hilf mit, Hangul Sori besser zu machen';
 
   @override
   String get consentInviteBody =>
       'Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.';
 
   @override
-  String get consentInviteYes => 'Ja, gerne helfen';
+  String get consentInviteYes => 'Alles erlauben';
 
   @override
-  String get consentInviteNo => 'Nicht jetzt';
+  String get consentInviteNo => 'Nur das Nötigste';
 
   @override
   String get consentInviteCustomize => 'Einzeln festlegen';

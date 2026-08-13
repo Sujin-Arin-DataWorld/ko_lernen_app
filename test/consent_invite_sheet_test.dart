@@ -32,7 +32,7 @@ Future<void> _pump(WidgetTester tester) async {
   await tester.pumpAndSettle();
 }
 
-Finder get _yes => find.text('Ja, gerne helfen');
+Finder get _yes => find.text('Alles erlauben');
 
 void main() {
   setUp(() {
@@ -99,7 +99,7 @@ void main() {
     await _init(const {'kl_consent_accepted': true});
     await _pump(tester);
 
-    await tester.tap(find.text('Nicht jetzt'));
+    await tester.tap(find.text('Nur das Nötigste'));
     await tester.pumpAndSettle();
 
     expect(Storage.analyticsConsent, isFalse);

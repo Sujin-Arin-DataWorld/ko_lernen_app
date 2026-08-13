@@ -3609,17 +3609,17 @@ class AppL10nEn extends AppL10n {
       'Both are optional and can be changed anytime in Settings.';
 
   @override
-  String get consentInviteTitle => 'First lesson down 🎉';
+  String get consentInviteTitle => 'Help make Hangul Sori better';
 
   @override
   String get consentInviteBody =>
       'We never see what you learn. Anonymous stats only show us where learners get stuck, so we can fix exactly that. No name, no email, no learning content.';
 
   @override
-  String get consentInviteYes => 'Yes, happy to help';
+  String get consentInviteYes => 'Allow all';
 
   @override
-  String get consentInviteNo => 'Not now';
+  String get consentInviteNo => 'Only essentials';
 
   @override
   String get consentInviteCustomize => 'Choose individually';

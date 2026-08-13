@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Claude, Mac) — 동의 배너 캐릭터선택 직후로 이동(쿠키배너식) + Android versionCode 자동증가
+
+**동의 재배치(B안).** 첫-팩-후 지연 시트(`/vocab/result` 트리거)를 제거하고, 추적 동의를
+**캐릭터 선택 직후·온보딩 전**(`character_selection_screen._proceed`, consentAccepted 이후)에
+`ConsentInviteSheet.maybeShow`로 띄운다. 이렇게 하면 이후 온보딩 퍼널(레벨선택·배치·첫 학습)까지
+계측 가능. 버튼은 쿠키배너식 **동등 두 버튼** `Alles erlauben`/`Nur das Nötigste` + `Einzeln festlegen`
+(개별). EDPB 균형 준수. 제목 `Hilf mit, Hangul Sori besser zu machen`. 1회 표시·<16 제외 게이트 불변.
+ARB(de/en)·테스트 문구 갱신.
+
+**Android versionCode 자동증가.** `android/app/build.gradle.kts`에서 versionCode를 **git 커밋 수
+기반**으로 전환(`ProcessBuilder git rev-list --count HEAD`, 폴백 21). Play 재업로드 versionCode 충돌
+(이미 올라간 20)을 원천 차단. versionName(2.0.5) 불변. iOS는 빌드 21로 상향(pubspec `+21` — 20은 ASC에
+이미 올라감).
+
+**검증.** `flutter analyze lib/` 0 issues · 전체 `flutter test` **3,270 통과 · 실패 0**.
+
 ### 2026-08-13 (Claude, Mac) — Analytics 타입드 이벤트 16종 레거시 셸 배선 (v20 대비)
 
 **배경.** `analytics_service.dart`에 존재만 하고 호출되지 않던 타입드 이벤트 16종을 레거시 셸

@@ -1755,10 +1755,10 @@
   "consentAnalyticsOptIn": "Anonyme Nutzungsstatistiken teilen (optional)",
   "consentCrashOptIn": "Anonyme Absturzberichte teilen (optional)",
   "consentOptionalHint": "Beides ist freiwillig und jederzeit in den Einstellungen änderbar.",
-  "consentInviteTitle": "Deine erste Lektion sitzt 🎉",
+  "consentInviteTitle": "Hilf mit, Hangul Sori besser zu machen",
   "consentInviteBody": "Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.",
-  "consentInviteYes": "Ja, gerne helfen",
-  "consentInviteNo": "Nicht jetzt",
+  "consentInviteYes": "Alles erlauben",
+  "consentInviteNo": "Nur das Nötigste",
   "consentInviteCustomize": "Einzeln festlegen",
   "consentInviteSave": "Speichern",
   "@_grammar_difficulty": {

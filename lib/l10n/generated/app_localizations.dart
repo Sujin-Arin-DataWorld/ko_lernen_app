@@ -6334,7 +6334,7 @@ abstract class AppL10n {
   /// No description provided for @consentInviteTitle.
   ///
   /// In de, this message translates to:
-  /// **'Deine erste Lektion sitzt 🎉'**
+  /// **'Hilf mit, Hangul Sori besser zu machen'**
   String get consentInviteTitle;
 
   /// No description provided for @consentInviteBody.
@@ -6346,13 +6346,13 @@ abstract class AppL10n {
   /// No description provided for @consentInviteYes.
   ///
   /// In de, this message translates to:
-  /// **'Ja, gerne helfen'**
+  /// **'Alles erlauben'**
   String get consentInviteYes;
 
   /// No description provided for @consentInviteNo.
   ///
   /// In de, this message translates to:
-  /// **'Nicht jetzt'**
+  /// **'Nur das Nötigste'**
   String get consentInviteNo;
 
   /// No description provided for @consentInviteCustomize.
