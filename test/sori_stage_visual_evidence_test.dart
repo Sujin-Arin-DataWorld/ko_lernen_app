@@ -57,6 +57,9 @@ void main() {
 }
 
 Future<void> _loadRealFonts() async {
+  if (!_captureEvidence) {
+    return;
+  }
   final loader = FontLoader('Pretendard');
   for (final path in const <String>[
     'assets/fonts/Pretendard/PretendardStd-Regular.otf',
@@ -73,9 +76,15 @@ Future<void> _loadRealFonts() async {
   var flutterRoot = File(Platform.resolvedExecutable).parent;
   File materialPath;
   while (true) {
-    materialPath = File(
-      '${flutterRoot.path}/bin/cache/artifacts/material_fonts/'
-      'materialicons-regular.otf',
+    final materialDirectory =
+        '${flutterRoot.path}/bin/cache/artifacts/material_fonts';
+    final candidates = <File>[
+      File('$materialDirectory/MaterialIcons-Regular.otf'),
+      File('$materialDirectory/materialicons-regular.otf'),
+    ];
+    materialPath = candidates.firstWhere(
+      (candidate) => candidate.existsSync(),
+      orElse: () => candidates.first,
     );
     if (materialPath.existsSync()) {
       break;

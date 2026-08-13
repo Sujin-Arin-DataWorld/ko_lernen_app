@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-13 (Codex) — 통합 후 CI 교정 및 Linux 골든 기준 동기화
+
+**첫 push 검증.** `a0bba05`를 `origin/main`에 비강제 fast-forward push한 뒤 CI
+run `31664582048`을 끝까지 확인했다. Pronunciation Node 22 job과 Gye runtime·
+Firestore rules job은 통과했다. 실패 항목 중 Learn/Home의 골든 6건과 book-analysis
+데이터 복사본 불일치는 Sori Stage 통합 전 최신 main의 run `31657492373`에서도 같은
+파일·같은 픽셀 수로 이미 재현되던 기준선 부채였다. Sori Stage가 새로 만든 실패는
+evidence test가 skip 상태에서도 Linux의 대소문자가 다른 Material Icons 경로를 먼저
+읽던 setup 1건뿐이었다.
+
+**교정.** evidence test는 캡처 플래그가 꺼져 있으면 폰트를 읽지 않고 즉시 반환하며,
+캡처 시에는 `MaterialIcons-Regular.otf`와 소문자 경로를 모두 지원한다. 배포 함수의
+`grammar_patterns.json`은 앱의 canonical `assets/data/grammar_patterns.json`과 SHA-256
+`B1DC1880F0590E36F9870947ADC90D093067A7D601A87A92751B4D15085920EB`로 정확히
+동기화했다. canonical GitHub Actions Linux·Flutter 3.44.0 환경의 수동 재생성 run
+`31665437028`에서 내려받은 아티팩트를 비교한 결과, 기존 baseline과 달라진 파일은
+실패했던 6개뿐이었다. 각 파일의 SHA-256이 첫 CI의 대응 `testImage`와 정확히 같음을
+확인하고 그 6개만 반영했다. 나머지 baseline은 변경하지 않았다. 모바일·데스크톱
+대표 이미지를 직접 검토해 구조적 잘림·겹침·에셋 손실이 없음을 확인했다.
+
 ### 2026-08-13 (Codex) — Sori Stage 최신 main 통합·안전성 보강·전체 회귀
 
 **통합 기준.** 기능 브랜치 `codex/sori-stage-frontend`는 `45779bf`에서
