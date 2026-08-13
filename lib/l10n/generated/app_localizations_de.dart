@@ -5939,4 +5939,90 @@ class AppL10nDe extends AppL10n {
   @override
   String get soriStageGyeFlow =>
       'Mission abschließen → Laterne → gemeinsame Hanok';
+
+  @override
+  String get pronunciationTitle => 'Aussprache-Studio';
+
+  @override
+  String get pronunciationEyebrow => 'MIT DEM TIGER SPRECHEN';
+
+  @override
+  String get pronunciationIntro =>
+      'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.';
+
+  @override
+  String get pronunciationListen => 'Anhören';
+
+  @override
+  String get pronunciationRecord => 'Meine Stimme aufnehmen';
+
+  @override
+  String get pronunciationRecording => 'Aufnahme läuft…';
+
+  @override
+  String get pronunciationStop => 'Stoppen und bewerten';
+
+  @override
+  String get pronunciationContinueWithoutScore => 'Ohne Bewertung weiter';
+
+  @override
+  String get pronunciationNextPhrase => 'Nächster Satz';
+
+  @override
+  String get pronunciationConsentTitle => 'Deine Stimme bewerten lassen?';
+
+  @override
+  String get pronunciationConsentBody =>
+      'Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.';
+
+  @override
+  String get pronunciationConsentAccept =>
+      'Ich stimme zu und möchte eine Bewertung';
+
+  @override
+  String get pronunciationConsentDecline => 'Ohne Bewertung üben';
+
+  @override
+  String get pronunciationPermissionDenied =>
+      'Der Mikrofonzugriff wurde nicht erlaubt. Anhören und Nachsprechen bleiben verfügbar.';
+
+  @override
+  String get pronunciationAssessmentUnavailable =>
+      'Die Bewertung ist gerade nicht verfügbar. Deine normale Übung bleibt möglich.';
+
+  @override
+  String get pronunciationRateLimited =>
+      'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.';
+
+  @override
+  String get pronunciationScore => 'Aussprachebewertung';
+
+  @override
+  String get pronunciationScorePassed =>
+      'Bestanden. Diese Bewertung zählt einmal für deine Aussprache-Quest.';
+
+  @override
+  String get pronunciationScoreTryAgain =>
+      'Gute Übung. Erreiche beim nächsten Mal mindestens 80, um die Quest fortzusetzen.';
+
+  @override
+  String get pronunciationAccuracy => 'Genauigkeit';
+
+  @override
+  String get pronunciationFluency => 'Sprechfluss';
+
+  @override
+  String get pronunciationCompleteness => 'Vollständigkeit';
+
+  @override
+  String get settingsPronunciationConsentTitle =>
+      'Einwilligung zur Sprachbewertung';
+
+  @override
+  String get settingsPronunciationConsentDesc =>
+      'Erlaube freiwillige Aufnahmen von höchstens 10 Sekunden zur Bewertung durch Azure Speech in Deutschland West-Mitte. Ausschalten verhindert weitere Bewertungen.';
+
+  @override
+  String get settingsPronunciationConsentOff =>
+      'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.';
 }

@@ -864,6 +864,12 @@ class Storage {
       _l(_pronunciationAssessmentIdsKey);
   static double get pronunciationLastScore => _d(_pronunciationLastScoreKey);
 
+  static const String _pronunciationConsentKey = 'kl_pronunciation_consent_v1';
+  static bool get pronunciationConsent =>
+      _prefs?.getBool(_pronunciationConsentKey) ?? false;
+  static Future<void> setPronunciationConsent(bool value) async =>
+      _prefs?.setBool(_pronunciationConsentKey, value);
+
   static Future<void> recordPronunciationPass(
     String assessmentId,
     double score,

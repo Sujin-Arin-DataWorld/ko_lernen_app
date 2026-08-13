@@ -5992,3 +5992,27 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
   idempotent assessment-ID persistence ahead of the capture/API slice.
 - Verified the progression rules together with the existing quest suites: 35
   focused tests passed.
+- Added the optional pronunciation studio with a separate, reversible consent,
+  a ten-second PCM16 ceiling, microphone-denial and offline/server fallbacks,
+  and an idempotent score threshold where 79 fails and 80 passes.
+- Added an isolated Node 22 Firebase callable in `europe-west3`. It requires
+  authentication and a limited-use App Check token, enforces request bounds
+  and per-user minute/day quotas, calls Azure Speech in
+  `germanywestcentral`, and returns aggregate scores only. Audio, reference
+  text, and provider details are neither persisted nor logged by app code.
+- Added DE/EN native microphone purpose strings, DE/EN in-app disclosures,
+  privacy-policy details, consent withdrawal, local export fields, and explicit
+  Firestore denial for client access to server-owned quota counters.
+- Closed a consent bypass in Settings with a RED widget test: enabling voice
+  assessment now shows the same full disclosure used by the pronunciation
+  studio before storing consent.
+- Verification for this slice: Node 22 syntax and four Functions tests passed;
+  68 focused Flutter tests passed; platform/privacy contract tests passed; and
+  scoped Dart analysis reported no issues.
+- `npm audit --omit=dev` still reports seven moderate transitive advisories
+  through the current latest `firebase-admin` / `@google-cloud/storage` tree.
+  The suggested forced fix is a breaking downgrade to `firebase-admin@10.3.0`
+  and was intentionally not applied. The new callable does not use Cloud
+  Storage, but this remains an explicit dependency risk for future upgrades.
+- No Azure resource, Firebase function, Firestore rule, remote branch, build,
+  or application deployment was changed by this local implementation.

@@ -35,6 +35,9 @@ void main() {
       'kl_stamps_earned': <String>['lotus'],
       'kl_earned_badges': <String>['first_week'],
       'kl_owned_decor': <String>['moon_lamp'],
+      'kl_pronunciation_pass_count_v1': 2,
+      'kl_pronunciation_last_score_v1': 87.5,
+      'kl_pronunciation_assessment_ids_v1': <String>['p-1', 'p-2'],
       'kl_quests_completed_v1': jsonEncode({
         'q_first': '2026-08-10T12:00:00.000Z',
       }),
@@ -115,6 +118,11 @@ void main() {
     ]);
     expect(decoded['review']['cards']['word_1']['reviewCount'], 2);
     expect(decoded['packs']['travel_a2']['wordsLearned'], 8);
+    expect(decoded['progress']['pronunciation'], {
+      'passedAssessments': 2,
+      'lastScore': 87.5,
+      'assessmentIds': ['p-1', 'p-2'],
+    });
 
     final encoded = utf8.decode(package.bytes);
     expect(encoded, isNot(contains('1990')));

@@ -102,6 +102,9 @@
     <!-- Internet wird für Firebase (Cloud-Sync, Crashlytics, Analytics,
          Remote Config) benötigt. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Optional pronunciation assessment. Requested only after a separate
+         in-app voice-processing consent; basic listen-and-repeat remains. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- M3: lokale Benachrichtigungen (tägliche Lern-Erinnerung). Kein FCM. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />

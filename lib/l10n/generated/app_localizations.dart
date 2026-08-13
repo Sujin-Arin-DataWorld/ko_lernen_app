@@ -10272,6 +10272,156 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mission abschließen → Laterne → gemeinsame Hanok'**
   String get soriStageGyeFlow;
+
+  /// No description provided for @pronunciationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache-Studio'**
+  String get pronunciationTitle;
+
+  /// No description provided for @pronunciationEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'MIT DEM TIGER SPRECHEN'**
+  String get pronunciationEyebrow;
+
+  /// No description provided for @pronunciationIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.'**
+  String get pronunciationIntro;
+
+  /// No description provided for @pronunciationListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get pronunciationListen;
+
+  /// No description provided for @pronunciationRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Stimme aufnehmen'**
+  String get pronunciationRecord;
+
+  /// No description provided for @pronunciationRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme läuft…'**
+  String get pronunciationRecording;
+
+  /// No description provided for @pronunciationStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Stoppen und bewerten'**
+  String get pronunciationStop;
+
+  /// No description provided for @pronunciationContinueWithoutScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Bewertung weiter'**
+  String get pronunciationContinueWithoutScore;
+
+  /// No description provided for @pronunciationNextPhrase.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Satz'**
+  String get pronunciationNextPhrase;
+
+  /// No description provided for @pronunciationConsentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Stimme bewerten lassen?'**
+  String get pronunciationConsentTitle;
+
+  /// No description provided for @pronunciationConsentBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.'**
+  String get pronunciationConsentBody;
+
+  /// No description provided for @pronunciationConsentAccept.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich stimme zu und möchte eine Bewertung'**
+  String get pronunciationConsentAccept;
+
+  /// No description provided for @pronunciationConsentDecline.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Bewertung üben'**
+  String get pronunciationConsentDecline;
+
+  /// No description provided for @pronunciationPermissionDenied.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Mikrofonzugriff wurde nicht erlaubt. Anhören und Nachsprechen bleiben verfügbar.'**
+  String get pronunciationPermissionDenied;
+
+  /// No description provided for @pronunciationAssessmentUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Bewertung ist gerade nicht verfügbar. Deine normale Übung bleibt möglich.'**
+  String get pronunciationAssessmentUnavailable;
+
+  /// No description provided for @pronunciationRateLimited.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast das Bewertungslimit erreicht. Übe weiter und versuche es später erneut.'**
+  String get pronunciationRateLimited;
+
+  /// No description provided for @pronunciationScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprachebewertung'**
+  String get pronunciationScore;
+
+  /// No description provided for @pronunciationScorePassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestanden. Diese Bewertung zählt einmal für deine Aussprache-Quest.'**
+  String get pronunciationScorePassed;
+
+  /// No description provided for @pronunciationScoreTryAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Gute Übung. Erreiche beim nächsten Mal mindestens 80, um die Quest fortzusetzen.'**
+  String get pronunciationScoreTryAgain;
+
+  /// No description provided for @pronunciationAccuracy.
+  ///
+  /// In de, this message translates to:
+  /// **'Genauigkeit'**
+  String get pronunciationAccuracy;
+
+  /// No description provided for @pronunciationFluency.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechfluss'**
+  String get pronunciationFluency;
+
+  /// No description provided for @pronunciationCompleteness.
+  ///
+  /// In de, this message translates to:
+  /// **'Vollständigkeit'**
+  String get pronunciationCompleteness;
+
+  /// No description provided for @settingsPronunciationConsentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einwilligung zur Sprachbewertung'**
+  String get settingsPronunciationConsentTitle;
+
+  /// No description provided for @settingsPronunciationConsentDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Erlaube freiwillige Aufnahmen von höchstens 10 Sekunden zur Bewertung durch Azure Speech in Deutschland West-Mitte. Ausschalten verhindert weitere Bewertungen.'**
+  String get settingsPronunciationConsentDesc;
+
+  /// No description provided for @settingsPronunciationConsentOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.'**
+  String get settingsPronunciationConsentOff;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

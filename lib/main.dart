@@ -84,6 +84,7 @@ import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_world_screen.dart';
 import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
+import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
@@ -645,6 +646,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/practice':
               return SoriTransitions.fadeScale(
                 (_) => const PracticeHubScreen(),
+                settings: settings,
+              );
+            case '/pronunciation':
+              return SoriTransitions.fadeScale(
+                (_) => const PronunciationStudioScreen(),
                 settings: settings,
               );
             case '/satz_arcade':

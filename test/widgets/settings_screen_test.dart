@@ -118,6 +118,46 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets(
+    'voice assessment can only be enabled after the separate disclosure',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final consentTitle = find.text('Einwilligung zur Sprachbewertung');
+      await _ensureSettingsActionVisible(tester, consentTitle);
+      final consentSwitch = find.ancestor(
+        of: consentTitle,
+        matching: find.byType(SwitchListTile),
+      );
+
+      await tester.tap(consentSwitch);
+      await tester.pumpAndSettle();
+
+      expect(Storage.pronunciationConsent, isFalse);
+      expect(find.text('Deine Stimme bewerten lassen?'), findsOneWidget);
+
+      await tester.tap(find.text('Ich stimme zu und möchte eine Bewertung'));
+      await tester.pumpAndSettle();
+
+      expect(Storage.pronunciationConsent, isTrue);
+      expect(find.byType(AlertDialog), findsNothing);
+    },
+  );
+
   testWidgets('settings link entry confirms before safe operation starts', (
     tester,
   ) async {

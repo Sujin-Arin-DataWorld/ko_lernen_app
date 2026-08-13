@@ -65,6 +65,8 @@ dependencies:
   image_cropper:  ^8.0.2
   # 권한 요청 (카메라 + 사진)
   permission_handler: ^11.3.1
+  # Explicitly consented, at-most-10-second PCM16 pronunciation assessment.
+  record: ^7.1.1
   # Cloud Function HTTP 호출
   http: ^1.2.2
   # 단어 첨부 사진을 앱 문서 폴더에 영구 저장 (나만의 단어장 v2.0)

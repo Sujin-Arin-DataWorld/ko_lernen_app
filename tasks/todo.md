@@ -30,12 +30,12 @@
     cached, offline does not create a new completion.
   - Verify: service and quest tracker unit tests.
 
-- [ ] Task 7: Optional pronunciation assessment
+- [x] Task 7: Optional pronunciation assessment
   - Acceptance: explicit consent, ten-second PCM16 capture, callable auth/App
     Check/size/rate gates, 80 threshold, idempotent assessment IDs, fallback.
   - Verify: Flutter service/screen tests and Node function tests.
 
-- [ ] Task 8: Privacy, permissions, and data lifecycle
+- [x] Task 8: Privacy, permissions, and data lifecycle
   - Acceptance: DE/EN mic strings, privacy copy, export/delete coverage, consent
     reset, and non-retention claims match code.
   - Verify: platform contract and data export/reset tests.

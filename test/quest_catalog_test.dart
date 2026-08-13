@@ -26,7 +26,8 @@ void main() {
       expect(
         QuestSource.values.toSet().difference(used),
         isEmpty,
-        reason: '이 소스를 쓰는 퀘스트가 없습니다 — QuestTracker 의 계산이 버려지고 '
+        reason:
+            '이 소스를 쓰는 퀘스트가 없습니다 — QuestTracker 의 계산이 버려지고 '
             '장식도 도달 불가가 됩니다',
       );
     });
@@ -77,10 +78,12 @@ void main() {
     });
 
     test('expected counts: 14 standing + 4 seasonal', () {
-      final standing =
-          kQuestCatalog.where((q) => q.type == QuestType.standing).length;
-      final seasonal =
-          kQuestCatalog.where((q) => q.type == QuestType.seasonal).length;
+      final standing = kQuestCatalog
+          .where((q) => q.type == QuestType.standing)
+          .length;
+      final seasonal = kQuestCatalog
+          .where((q) => q.type == QuestType.seasonal)
+          .length;
       expect(standing, 14);
       expect(seasonal, 4);
     });
@@ -119,7 +122,8 @@ void main() {
       expect(
         QuestSource.values.toSet().difference(classified),
         isEmpty,
-        reason: '새 QuestSource 입니다 — 어휘 바운드 / 행동 카운터 / 의도적 미구현 '
+        reason:
+            '새 QuestSource 입니다 — 어휘 바운드 / 행동 카운터 / 의도적 미구현 '
             '중 하나로 분류해야 도달 가능성 가드가 빠짐없이 돕니다',
       );
       expect(
@@ -141,14 +145,11 @@ void main() {
 
     test('어휘 상한이 target 이상이다 — 도달 불가 퀘스트 금지', () async {
       final vocab = await DataLoader.loadVocab();
-      expect(
-        vocab,
-        isNotEmpty,
-        reason: 'CSV 로드 실패 — ${DataLoader.lastError}',
-      );
+      expect(vocab, isNotEmpty, reason: 'CSV 로드 실패 — ${DataLoader.lastError}');
 
-      final guarded =
-          kQuestCatalog.where((q) => _vocabBoundSources.contains(q.source));
+      final guarded = kQuestCatalog.where(
+        (q) => _vocabBoundSources.contains(q.source),
+      );
       expect(guarded, isNotEmpty, reason: '가드가 아무 퀘스트도 안 보고 있습니다');
 
       for (final q in guarded) {
@@ -156,7 +157,8 @@ void main() {
         expect(
           ceiling,
           greaterThanOrEqualTo(q.target),
-          reason: '${q.id}: target ${q.target} > 어휘 상한 $ceiling '
+          reason:
+              '${q.id}: target ${q.target} > 어휘 상한 $ceiling '
               '(${q.source.name}) — 완료가 불가능해 ${q.decorationSlug} 장식이 '
               '영원히 안 뜹니다. target 을 낮추거나 소스의 어휘 집합을 넓히세요.',
         );
@@ -167,13 +169,15 @@ void main() {
     // 마스터해야 하는 목표는 형식상 도달 가능해도 실제로는 도달하지 않는다.
     test('target 이 어휘 상한의 80% 를 넘지 않는다 — 실질 도달 가능성', () async {
       final vocab = await DataLoader.loadVocab();
-      for (final q
-          in kQuestCatalog.where((q) => _vocabBoundSources.contains(q.source))) {
+      for (final q in kQuestCatalog.where(
+        (q) => _vocabBoundSources.contains(q.source),
+      )) {
         final ceiling = _vocabCeiling(q.source, vocab);
         expect(
           q.target,
           lessThanOrEqualTo((ceiling * 0.8).floor()),
-          reason: '${q.id}: target ${q.target} / 상한 $ceiling — 코퍼스의 '
+          reason:
+              '${q.id}: target ${q.target} / 상한 $ceiling — 코퍼스의 '
               '${(q.target * 100 / ceiling).round()}% 를 요구합니다. 80% 이하로 '
               '낮추거나 어휘를 늘리세요.',
         );
@@ -184,12 +188,14 @@ void main() {
       final vocab = await DataLoader.loadVocab();
       final corpusTopics = vocab.map((v) => v.topic).toSet();
       for (final entry in kQuestTopicSets.entries) {
-        final missing =
-            entry.value.where((t) => !corpusTopics.contains(t)).toSet();
+        final missing = entry.value
+            .where((t) => !corpusTopics.contains(t))
+            .toSet();
         expect(
           missing,
           isEmpty,
-          reason: '${entry.key.name}: CSV 에 없는 topic $missing — 오타이거나 '
+          reason:
+              '${entry.key.name}: CSV 에 없는 topic $missing — 오타이거나 '
               '움라우트 인코딩 드리프트입니다 (조용히 0 으로 세집니다)',
         );
       }
@@ -200,12 +206,14 @@ void main() {
     test('kChuseokFoodWords 는 전부 코퍼스에 실재한다', () async {
       final vocab = await DataLoader.loadVocab();
       final corpus = vocab.map((v) => v.korean).toSet();
-      final missing =
-          kChuseokFoodWords.where((w) => !corpus.contains(w)).toSet();
+      final missing = kChuseokFoodWords
+          .where((w) => !corpus.contains(w))
+          .toSet();
       expect(
         missing,
         isEmpty,
-        reason: 'korean_vocab.csv 에 없는 단어 $missing — 이 단어들은 절대 세지지 '
+        reason:
+            'korean_vocab.csv 에 없는 단어 $missing — 이 단어들은 절대 세지지 '
             '않으므로 q_chuseok 의 실제 상한이 조용히 내려갑니다',
       );
     });
@@ -213,8 +221,12 @@ void main() {
 
   group('SeasonWindow.contains', () {
     test('non-wrapping window — Chuseok (Sep 1 - Oct 15)', () {
-      const w =
-          SeasonWindow(startMonth: 9, startDay: 1, endMonth: 10, endDay: 15);
+      const w = SeasonWindow(
+        startMonth: 9,
+        startDay: 1,
+        endMonth: 10,
+        endDay: 15,
+      );
       expect(w.contains(DateTime(2026, 9, 1)), isTrue);
       expect(w.contains(DateTime(2026, 9, 30)), isTrue);
       expect(w.contains(DateTime(2026, 10, 15)), isTrue);
@@ -223,8 +235,12 @@ void main() {
     });
 
     test('Children\'s Day window straddles month boundary', () {
-      const w =
-          SeasonWindow(startMonth: 4, startDay: 28, endMonth: 5, endDay: 8);
+      const w = SeasonWindow(
+        startMonth: 4,
+        startDay: 28,
+        endMonth: 5,
+        endDay: 8,
+      );
       expect(w.contains(DateTime(2026, 4, 27)), isFalse);
       expect(w.contains(DateTime(2026, 4, 28)), isTrue);
       expect(w.contains(DateTime(2026, 5, 8)), isTrue);
@@ -232,8 +248,12 @@ void main() {
     });
 
     test('year-wrap window (Dec → Jan)', () {
-      const w =
-          SeasonWindow(startMonth: 12, startDay: 20, endMonth: 1, endDay: 10);
+      const w = SeasonWindow(
+        startMonth: 12,
+        startDay: 20,
+        endMonth: 1,
+        endDay: 10,
+      );
       expect(w.contains(DateTime(2026, 12, 20)), isTrue);
       expect(w.contains(DateTime(2026, 12, 31)), isTrue);
       expect(w.contains(DateTime(2026, 1, 5)), isTrue);
@@ -286,6 +306,8 @@ const Set<QuestSource> _behaviourSources = {
   QuestSource.hangeulChallenge,
   QuestSource.yutChosung,
   QuestSource.childrensDayCalligraphy,
+  QuestSource.pronunciationGood,
+  QuestSource.friendsCount,
 };
 
 /// **의도적 미구현** — `QuestTracker.computeAll` 이 하드코딩 0 을 넣는다
@@ -295,10 +317,7 @@ const Set<QuestSource> _behaviourSources = {
 /// 어휘 가드로 잡는 게 의미가 없다. 그래서 제외한다 — 여기서 검사하면 어휘를
 /// 아무리 늘려도 영영 빨간 테스트가 되고, 진짜 어휘 문제까지 같이 묻힌다.
 /// 해당 Phase 가 오면 이 목록에서 빼고 실제 카운터를 연결한다.
-const Set<QuestSource> _intentionallyUnimplementedSources = {
-  QuestSource.pronunciationGood, // Phase 5 — 발음 평가 시스템 대기
-  QuestSource.friendsCount, // Phase 6 — 계(契) 친구 수 대기
-};
+const Set<QuestSource> _intentionallyUnimplementedSources = {};
 
 /// 소스가 도달할 수 있는 **최대 카운트** — 학습자가 코퍼스를 전부 마스터했을 때.
 ///

@@ -1,2 +1,3 @@
 "NSCameraUsageDescription" = "Hangul Sori verwendet die Kamera, um Lehrbuchseiten zu fotografieren und koreanische Wörter auf deinem Gerät zu erkennen.";
 "NSPhotoLibraryUsageDescription" = "Hangul Sori ermöglicht dir, ein Foto einer Lehrbuchseite auszuwählen, um koreanische Wörter auf deinem Gerät zu erkennen.";
+"NSMicrophoneUsageDescription" = "Hangul Sori verwendet das Mikrofon nur nach deiner Zustimmung für eine bis zu 10 Sekunden lange Aussprachebewertung.";

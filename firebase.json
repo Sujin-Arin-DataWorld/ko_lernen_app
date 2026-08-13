@@ -41,6 +41,11 @@
       "source": "functions/tts",
       "codebase": "tts-firebase-functions",
       "runtime": "nodejs22"
+    },
+    {
+      "source": "functions/pronunciation",
+      "codebase": "pronunciation-firebase-functions",
+      "runtime": "nodejs22"
     }
   ],
   "hosting": {

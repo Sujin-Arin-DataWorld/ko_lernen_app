@@ -5908,4 +5908,88 @@ class AppL10nEn extends AppL10n {
   @override
   String get soriStageGyeFlow =>
       'Mission complete → lantern → shared Hanok progress';
+
+  @override
+  String get pronunciationTitle => 'Pronunciation studio';
+
+  @override
+  String get pronunciationEyebrow => 'SPEAK WITH THE TIGER';
+
+  @override
+  String get pronunciationIntro =>
+      'Listen first. Then record up to 10 seconds if you want an assessment.';
+
+  @override
+  String get pronunciationListen => 'Listen';
+
+  @override
+  String get pronunciationRecord => 'Record my voice';
+
+  @override
+  String get pronunciationRecording => 'Recording…';
+
+  @override
+  String get pronunciationStop => 'Stop and assess';
+
+  @override
+  String get pronunciationContinueWithoutScore => 'Continue without a score';
+
+  @override
+  String get pronunciationNextPhrase => 'Next phrase';
+
+  @override
+  String get pronunciationConsentTitle => 'Use your voice for an assessment?';
+
+  @override
+  String get pronunciationConsentBody =>
+      'With your separate consent, a recording of up to 10 seconds and the shown Korean phrase are sent securely to Microsoft Azure Speech in Germany West Central. Hangul Sori does not store the recording or phrase on its server. Only the scores and a duplicate-prevention ID are saved on this device. You can practise without assessment and withdraw consent in Settings.';
+
+  @override
+  String get pronunciationConsentAccept => 'I agree and want a score';
+
+  @override
+  String get pronunciationConsentDecline => 'Practise without a score';
+
+  @override
+  String get pronunciationPermissionDenied =>
+      'Microphone access was not granted. Listening and repeat-after-me practice are still available.';
+
+  @override
+  String get pronunciationAssessmentUnavailable =>
+      'The score is unavailable right now. Your basic practice still counts.';
+
+  @override
+  String get pronunciationRateLimited =>
+      'You have reached the assessment limit. Continue practising and try again later.';
+
+  @override
+  String get pronunciationScore => 'Pronunciation score';
+
+  @override
+  String get pronunciationScorePassed =>
+      'Passed. This assessment counts once toward your pronunciation quest.';
+
+  @override
+  String get pronunciationScoreTryAgain =>
+      'Good practice. Try again for 80 or more to advance the quest.';
+
+  @override
+  String get pronunciationAccuracy => 'Accuracy';
+
+  @override
+  String get pronunciationFluency => 'Fluency';
+
+  @override
+  String get pronunciationCompleteness => 'Completeness';
+
+  @override
+  String get settingsPronunciationConsentTitle => 'Voice assessment consent';
+
+  @override
+  String get settingsPronunciationConsentDesc =>
+      'Allow optional recordings of up to 10 seconds to be assessed by Azure Speech in Germany West Central. Turning this off stops future assessments.';
+
+  @override
+  String get settingsPronunciationConsentOff =>
+      'Voice assessment is off. Listen-and-repeat practice remains available.';
 }

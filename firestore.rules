@@ -498,6 +498,13 @@ service cloud.firestore {
         allow read, create, update, delete: if false;
       }
 
+      // Server-owned pronunciation quota counters. Clients must not read or
+      // alter these values; the callable uses Admin SDK and account deletion
+      // removes them with the users/{uid} tree.
+      match /pronunciation_rate_limits/{document=**} {
+        allow read, create, update, delete: if false;
+      }
+
       match /tester_passport/state {
         allow get: if isOwner(uid);
         allow list, create, update, delete: if false;
@@ -510,6 +517,7 @@ service cloud.firestore {
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
           && collectionName != 'tester_feedback_rate_limits'
+          && collectionName != 'pronunciation_rate_limits'
           && collectionName != 'tester_passport';
         allow create, update: if isOwner(uid)
           && collectionName != 'packs'
@@ -517,6 +525,7 @@ service cloud.firestore {
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
           && collectionName != 'tester_feedback_rate_limits'
+          && collectionName != 'pronunciation_rate_limits'
           && collectionName != 'tester_passport'
           && !exists(accountDeletionPath(uid))
           && backupSubcollectionWriteAllowed(uid, collectionName);
@@ -530,6 +539,7 @@ service cloud.firestore {
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
           && collectionName != 'tester_feedback_rate_limits'
+          && collectionName != 'pronunciation_rate_limits'
           && collectionName != 'tester_passport';
       }
     }
