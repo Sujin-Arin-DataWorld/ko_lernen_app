@@ -29,7 +29,7 @@ class SoriStageRewardReceiptSheet extends StatelessWidget {
                 t.soriStageReceiptEyebrow,
                 style: const TextStyle(
                   color: SoriColors.accent,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   letterSpacing: 1.1,
                 ),
               ),
@@ -39,7 +39,7 @@ class SoriStageRewardReceiptSheet extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 26,
                   height: 1.15,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: Spacing.lg),
@@ -82,7 +82,7 @@ class _RewardLine extends StatelessWidget {
           child: Text(
             '${item.amount == null ? '' : '+${item.amount} '}'
             '${localCopy(context, item.label)}',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
           ),
         ),
       ],

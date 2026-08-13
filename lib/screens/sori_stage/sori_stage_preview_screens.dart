@@ -68,7 +68,8 @@ class SoriStageLessonPreviewScreen extends StatelessWidget {
             Expanded(
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  final horizontal = constraints.maxWidth >= 720;
+                  final horizontal =
+                      constraints.maxWidth >= SoriBreakpoints.tablet;
                   final stages = const [
                     _LessonStage(
                       icon: Icons.headphones_rounded,
@@ -95,20 +96,12 @@ class SoriStageLessonPreviewScreen extends StatelessWidget {
                             for (final stage in stages) Expanded(child: stage),
                           ],
                         )
-                      : Column(
-                          children: [
-                            for (final stage in stages) Expanded(child: stage),
-                          ],
-                        );
+                      : ListView(children: stages);
                 },
               ),
             ),
             const SizedBox(height: Spacing.lg),
-            SoriButton(
-              label: 'Mit Hören beginnen',
-              onTap: () {},
-              icon: Icons.play_arrow_rounded,
-            ),
+            SoriButton(label: 'Mit Hören beginnen', onTap: () {}),
           ],
         ),
       ),
@@ -147,7 +140,7 @@ class SoriStageRewardReceiptPreviewScreen extends StatelessWidget {
                     'DAEChEONG · BALKEN 3',
                     style: TextStyle(
                       color: SoriColors.gold,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -157,7 +150,7 @@ class SoriStageRewardReceiptPreviewScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ],
@@ -234,7 +227,7 @@ class _MissionStage extends StatelessWidget {
           'WENIGER SCHARF BESTELLEN',
           style: TextStyle(
             color: SoriColors.gold,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
             letterSpacing: 1.1,
           ),
         ),
@@ -244,7 +237,7 @@ class _MissionStage extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontSize: 28,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: Spacing.xl),
@@ -264,11 +257,7 @@ class _MissionStage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: Spacing.lg),
-        SoriButton(
-          label: 'Mission starten',
-          onTap: () {},
-          icon: Icons.play_arrow_rounded,
-        ),
+        SoriButton(label: 'Mission starten', onTap: () {}),
       ],
     ),
   );
@@ -294,7 +283,7 @@ class _BojagiCallout extends StatelessWidget {
             children: [
               Text(
                 '1 Bojagi wartet',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
               Text('Wähle eines von drei Stücken für dein Zimmer.'),
             ],
@@ -322,7 +311,7 @@ class _PreviewHeader extends StatelessWidget {
         eyebrow,
         style: TextStyle(
           color: light ? SoriColors.gold : SoriColors.accent,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w700,
           letterSpacing: 1.2,
         ),
       ),
@@ -333,7 +322,7 @@ class _PreviewHeader extends StatelessWidget {
           color: light ? Colors.white : null,
           fontSize: 32,
           height: 1.05,
-          fontWeight: FontWeight.w900,
+          fontWeight: FontWeight.w700,
         ),
       ),
     ],
@@ -346,7 +335,7 @@ class _SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
     label,
-    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
+    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
   );
 }
 
@@ -407,13 +396,14 @@ class _LessonStage extends StatelessWidget {
         borderRadius: BorderRadius.circular(SoriRadius.lg),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, size: 48),
           const SizedBox(height: Spacing.md),
           Text(
             label,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.xs),
           Text(detail, textAlign: TextAlign.center),
@@ -440,7 +430,7 @@ class _ReceiptLine extends StatelessWidget {
       backgroundColor: SoriColors.primarySoft,
       child: Icon(icon, color: SoriColors.primaryDark),
     ),
-    title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
+    title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
     subtitle: Text(detail),
   );
 }
@@ -478,7 +468,7 @@ class _ActivityRow extends StatelessWidget {
                   entry.title.de,
                   style: const TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(

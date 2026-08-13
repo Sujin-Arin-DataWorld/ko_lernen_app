@@ -49,7 +49,7 @@ class SoriStageGyeScreen extends StatelessWidget {
                             child: Text(
                               t.soriStageGyeFlow,
                               style: const TextStyle(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),

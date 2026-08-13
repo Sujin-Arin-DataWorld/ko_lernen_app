@@ -30,7 +30,7 @@ class SoriStageRootHeader extends StatelessWidget {
                 eyebrow.toUpperCase(),
                 style: const TextStyle(
                   color: SoriColors.accent,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   letterSpacing: 1.1,
                 ),
               ),
@@ -40,7 +40,7 @@ class SoriStageRootHeader extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 30,
                   height: 1.08,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               if (body != null) ...[

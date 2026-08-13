@@ -211,7 +211,11 @@ void main() {
     expect(
       tester.getTopLeft(find.text('Dein Lernzimmer')).dy,
       lessThan(
-        tester.getTopLeft(find.text('Die Worte von heute sind angekommen.')).dy,
+        tester
+            .getTopLeft(
+              find.text('Hier findest du deine heutigen Lernfortschritte.'),
+            )
+            .dy,
       ),
     );
     final room = find.byKey(const ValueKey('sarangbang-study-room'));
@@ -219,7 +223,7 @@ void main() {
     expect(expression, findsOneWidget);
     expect(find.descendant(of: room, matching: expression), findsOneWidget);
     expect(
-      find.text('1 Ausdruck · 1 sichere Szene · 1 Balken im Bauplan'),
+      find.text('1 Ausdruck · 1 gemeisterte Szene · 1 Balken im Bauplan'),
       findsOneWidget,
     );
     final record = find.byKey(const ValueKey('sarangbang-today-link'));

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/config/sori_stage_feature.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -104,7 +105,7 @@ void main() {
         locale: const Locale('de'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        home: const AppShell(),
+        home: const AppShell(featureGate: SoriStageFeatureGate(enabled: false)),
       ),
     );
 

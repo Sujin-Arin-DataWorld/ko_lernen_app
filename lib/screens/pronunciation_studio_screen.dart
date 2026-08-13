@@ -225,7 +225,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                 t.pronunciationEyebrow,
                 style: const TextStyle(
                   color: SoriColors.accent,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   letterSpacing: 1.1,
                 ),
               ),
@@ -251,7 +251,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                         style: const TextStyle(
                           fontSize: 36,
                           height: 1.2,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -316,7 +316,6 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
               const SizedBox(height: Spacing.lg),
               SoriButton.ghost(
                 label: t.pronunciationContinueWithoutScore,
-                icon: Icons.arrow_forward_rounded,
                 onTap: _nextPhrase,
                 fullWidth: true,
               ),
@@ -357,7 +356,7 @@ class _ScorePanel extends StatelessWidget {
               result.pronunciationScore.round().toString(),
               style: TextStyle(
                 fontSize: 56,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
                 color: accent,
               ),
             ),
@@ -400,7 +399,7 @@ class _ScoreRow extends StatelessWidget {
         Expanded(child: Text(label)),
         Text(
           score.round().toString(),
-          style: const TextStyle(fontWeight: FontWeight.w800),
+          style: const TextStyle(fontWeight: FontWeight.w700),
         ),
       ],
     ),

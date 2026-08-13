@@ -40,7 +40,7 @@
     reset, and non-retention claims match code.
   - Verify: platform contract and data export/reset tests.
 
-- [ ] Task 9: Complete verification and handoff
+- [x] Task 9: Complete verification and handoff
   - Acceptance: focused and full tests, analysis, responsive/a11y screenshots,
     local commits, session log, and clean-main proof are recorded.
   - Verify: repository gates plus read-only main `git status`.

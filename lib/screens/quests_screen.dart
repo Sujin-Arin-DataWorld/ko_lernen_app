@@ -374,7 +374,6 @@ class _QuestTile extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: SoriButton.ghost(
                   label: actionLabel,
-                  icon: Icons.arrow_forward_rounded,
                   onTap: () => Navigator.of(
                     context,
                   ).pushNamed(action.route!, arguments: action.arguments),

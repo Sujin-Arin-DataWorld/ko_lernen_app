@@ -128,7 +128,7 @@ class _ActivityListRow extends StatelessWidget {
                             title,
                             style: const TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ),
@@ -141,9 +141,8 @@ class _ActivityListRow extends StatelessWidget {
                     const SizedBox(height: Spacing.xs),
                     Text(localCopy(context, entry.description)),
                     const SizedBox(height: Spacing.sm),
-                    Wrap(
-                      spacing: Spacing.sm,
-                      runSpacing: Spacing.xs,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         _ActivityStatusChip(
                           icon: unlocked
@@ -153,6 +152,7 @@ class _ActivityListRow extends StatelessWidget {
                               ? t.soriStageActivityReady
                               : localCopy(context, entry.unlock.explanation!),
                         ),
+                        const SizedBox(height: Spacing.xs),
                         _ActivityStatusChip(
                           icon: Icons.redeem_outlined,
                           label: localCopy(context, entry.reward.condition),
@@ -216,11 +216,16 @@ class _ActivityStatusChip extends StatelessWidget {
       borderRadius: BorderRadius.circular(999),
     ),
     child: Row(
-      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, size: 16),
         const SizedBox(width: 5),
-        Text(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+        Expanded(
+          child: Text(
+            label,
+            style: const TextStyle(fontWeight: FontWeight.w700),
+          ),
+        ),
       ],
     ),
   );

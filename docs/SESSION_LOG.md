@@ -6027,3 +6027,37 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
   reward condition, and possible reward before the learner starts.
 - Verified the actual catalog-return flow with a widget test and locked the 14
   Learn plus 10 Games entries to one complete, stable catalog contract.
+- Completed responsive and accessibility verification for the production
+  shell and catalog at 390dp, 600dp, 720dp, and 1280dp, including 200% text,
+  DE light, EN dark, reduced motion, 48dp targets, labels, and contrast.
+- Preserved the typography and window-class ratchets: new headings use bundled
+  supported weights, decorative button icons were removed where the label is
+  sufficient, and the lesson layout uses the shared tablet breakpoint.
+- Kept legacy-shell coverage explicit by injecting the disabled feature gate
+  only in its compatibility test. The production Sori Stage default remains
+  enabled with the compile-time rollback seam intact.
+- Updated stale Hanok and Sarangbang assertions to the current localized
+  product copy and deterministic preview fixtures; the affected 21 tests pass.
+- Captured and reviewed real-font visual evidence at
+  `docs/screenshots/sori-stage-today-390.png` and
+  `docs/screenshots/sori-stage-learn-1280.png`; neither view clips, overlaps,
+  or hides its action-to-reward relationship.
+- Final Flutter verification: `flutter analyze --no-pub` reported no issues;
+  the complete serial suite passed 2,082 tests with 14 intentional skips and
+  zero failures; the two visual evidence goldens also passed when enabled.
+- Node 22.23.2 Functions verification passed all four guard, WAV, aggregate
+  response, and quota-boundary tests. The seven moderate transitive npm audit
+  advisories remain documented because the offered forced fix is a breaking
+  Firebase Admin downgrade.
+- `flutter build web --release` completed successfully. The build reported only
+  existing `flutter_tts_web` WebAssembly dry-run warnings; the normal release
+  web output was produced successfully. No remote deployment was performed.
+- Windows cannot prove iOS compilation, real Android/iOS microphone behavior,
+  live App Check, Firebase callable deployment, Azure regional processing, or
+  physical-device UX. Those remain release gates and are not claimed here.
+- Final isolation proof: the Sori Stage worktree is clean on
+  `codex/sori-stage-frontend`. The VS Code checkout remains clean on `main`
+  and exactly matches `origin/main` (0 ahead / 0 behind). Its HEAD advanced
+  externally from the requested `45779bf` base to `416a54f` while this isolated
+  branch was being implemented; no main checkout file, index, branch, build,
+  dependency, or deployment command was changed by this worktree task.

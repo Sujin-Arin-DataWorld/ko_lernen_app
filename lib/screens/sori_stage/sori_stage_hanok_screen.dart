@@ -43,18 +43,15 @@ class SoriStageHanokScreen extends StatelessWidget {
                     children: [
                       SoriButton.ghost(
                         label: t.soriStageQuests,
-                        icon: Icons.task_alt_outlined,
                         onTap: () => Navigator.of(context).pushNamed('/quests'),
                       ),
                       SoriButton.ghost(
                         label: t.soriStageDojang,
-                        icon: Icons.approval_outlined,
                         onTap: () =>
                             Navigator.of(context).pushNamed('/dojangcheop'),
                       ),
                       SoriButton.ghost(
                         label: t.soriStageBojagi,
-                        icon: Icons.redeem_outlined,
                         onTap: () => Navigator.of(context).pushNamed('/bojagi'),
                       ),
                     ],

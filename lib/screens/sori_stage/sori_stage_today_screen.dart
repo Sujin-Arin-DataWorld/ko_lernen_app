@@ -112,7 +112,7 @@ class _TodayContent extends StatelessWidget {
                 t.soriStageClosestQuests,
                 style: const TextStyle(
                   fontSize: 22,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: Spacing.sm),
@@ -157,7 +157,7 @@ class _TodayMissionStage extends StatelessWidget {
             'SORI STAGE',
             style: TextStyle(
               color: SoriColors.gold,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
             ),
           ),
@@ -170,7 +170,7 @@ class _TodayMissionStage extends StatelessWidget {
               color: Colors.white,
               fontSize: 26,
               height: 1.12,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
             ),
           ),
           if (rewardText.isNotEmpty) ...[
@@ -195,7 +195,6 @@ class _TodayMissionStage extends StatelessWidget {
           const SizedBox(height: Spacing.xl),
           SoriButton(
             label: t.soriStageMissionAction,
-            icon: Icons.play_arrow_rounded,
             onTap: () async {
               final activityId =
                   contract?.activityId ?? destination?.route ?? 'today';
@@ -265,7 +264,7 @@ class _PendingBojagi extends StatelessWidget {
                     '${t.soriStageBojagiTitle} · $count',
                     style: const TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(t.soriStageBojagiBody),
@@ -274,7 +273,7 @@ class _PendingBojagi extends StatelessWidget {
             ),
             Text(
               t.soriStageOpenBojagi,
-              style: const TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w700),
             ),
           ],
         ),
@@ -316,7 +315,7 @@ class _HanokProgress extends StatelessWidget {
                     t.soriStageHanokNow,
                     style: const TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -324,7 +323,7 @@ class _HanokProgress extends StatelessWidget {
                   '$built / $total',
                   style: const TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
@@ -374,7 +373,7 @@ class _QuestProgressRow extends StatelessWidget {
       ),
       trailing: Text(
         '${progress.current} / ${progress.target}',
-        style: const TextStyle(fontWeight: FontWeight.w800),
+        style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       onTap: () => Navigator.of(context).pushNamed('/quests'),
     );
