@@ -5,9 +5,11 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
+import '../models/scenario.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
+import '../services/learner_level_selection.dart';
 import '../services/analytics_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -64,6 +66,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   bool _dictionaryChecking = false;
   int _roundGeneration = 0;
   String _errorMsg = '';
+  LearnerLevel _maxLevel = LearnerLevel.a1;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
 
@@ -120,6 +123,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   Future<void> _start() async {
     _roundGeneration++;
     _feedbackCompletion.reset();
+    _maxLevel = learnerLevelForStoredCode(Storage.userLevelCode);
     await KkeunmariEngine.load();
     if (!mounted) return;
     // M1: Vokabel-Keys laden → nur Kkeunmari-Wörter, die echte Vokabeln sind,
@@ -139,7 +143,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       setState(() => _loading = false);
       return;
     }
-    final start = KkeunmariEngine.pickStart();
+    final start = KkeunmariEngine.pickStart(maxLevel: _maxLevel);
     setState(() {
       _chain = [start];
       _used
@@ -274,8 +278,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       Storage.srsReview(w.word, gotIt: true);
     }
 
-    // dead_end → 호랑이 응답 불가 → 사용자 승 직전, 한 박자 쉬고 종료.
-    if (w.isDeadEnd) {
+    // The bundle-level `is_dead_end` is only a full-pool snapshot. A real
+    // turn must use the learner-level subset and already-used words, otherwise
+    // a stale next_count can end a valid chain (or delay an impossible one).
+    if (KkeunmariEngine.nextCountFor(w.last, _used, maxLevel: _maxLevel) == 0) {
       _stopTimer();
       Future.delayed(const Duration(milliseconds: 1000), () {
         if (mounted) _endGame(_End.deadEnd);
@@ -292,7 +298,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   void _tigerMove() {
     if (!mounted || _end != _End.none) return;
-    final next = KkeunmariEngine.pickTigerNext(_required, _used);
+    final next = KkeunmariEngine.pickTigerNext(
+      _required,
+      _used,
+      maxLevel: _maxLevel,
+    );
     if (next == null) {
       _endGame(_End.tigerStuck);
       return;

@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../models/scenario.dart';
+
 /// 끝말잇기 (Word Chain) 엔진.
 ///
-/// `assets/data/kkeunmari_pool.json` 의 큐레이션 단어 풀(392 단어)을 사용한다.
+/// `assets/data/kkeunmari_pool.json` 의 큐레이션 단어 풀(2,634 단어)을 사용한다.
 /// 각 단어에는 `first`/`last` 음절과 `is_dead_end` 메타데이터가 있다.
 /// (2026-06-18: OpenSubtitles 자막조각 미번역 2,061개 제거 후 next_count/is_dead_end 재계산.)
 ///
@@ -90,10 +92,102 @@ class KkeunmariEngine {
 
   static List<KkeunmariWord> get pool => _cached ?? const [];
 
-  /// "안전한" 시작 단어 — 후속 단어가 충분히 많은 것 (next_count ≥ 2)을 우선.
-  static KkeunmariWord pickStart() {
-    final safe = pool.where((w) => !w.isDeadEnd && w.nextCount >= 2).toList();
-    final source = safe.isEmpty ? pool : safe;
+  /// Test seam for deterministic level-scope and chain-viability probes.
+  /// Production code always populates the pool through [load].
+  static void setPoolForTesting(List<KkeunmariWord> words) {
+    _cached = List<KkeunmariWord>.unmodifiable(words);
+    lastError = null;
+  }
+
+  static List<KkeunmariWord> _cumulativePool(LearnerLevel? maxLevel) {
+    if (maxLevel == null) {
+      return pool;
+    }
+    return pool.where((word) {
+      final wordLevel = LearnerLevel.fromCode(word.level);
+      return wordLevel != null && wordLevel.rank <= maxLevel.rank;
+    }).toList();
+  }
+
+  static List<KkeunmariWord> _availableCandidates(
+    Iterable<KkeunmariWord> source,
+    Set<String> usedWords, {
+    String? requiredFirst,
+  }) {
+    return source.where((word) {
+      if (usedWords.contains(word.word)) {
+        return false;
+      }
+      return requiredFirst == null || word.first == requiredFirst;
+    }).toList();
+  }
+
+  /// The bundle's `next_count` and `is_dead_end` fields describe the complete
+  /// pool. Once a learner-level subset and used-word set are applied, calculate
+  /// viability from that live subset instead.
+  static int _liveNextCount(
+    KkeunmariWord word,
+    Iterable<KkeunmariWord> source,
+    Set<String> usedWords,
+  ) {
+    return source
+        .where(
+          (candidate) =>
+              candidate.word != word.word &&
+              !usedWords.contains(candidate.word) &&
+              candidate.first == word.last,
+        )
+        .length;
+  }
+
+  /// Returns live candidates in fairness order for the current subset.
+  ///
+  /// `next_count` in the asset describes the complete, unused corpus. A game
+  /// turn has a smaller scope: words above the learner level and words already
+  /// played are unavailable. Two or more live replies keep the next learner
+  /// turn resilient, so prefer those first; one live reply remains a valid
+  /// chain and must stay inside the scoped pool before considering fallback.
+  static List<KkeunmariWord> _prioritizedLiveCandidates(
+    List<KkeunmariWord> candidates,
+    Iterable<KkeunmariWord> source,
+    Set<String> usedWords,
+  ) {
+    final liveCounts = <KkeunmariWord, int>{
+      for (final word in candidates)
+        word: _liveNextCount(word, source, usedWords),
+    };
+    final safe = candidates
+        .where((word) => (liveCounts[word] ?? 0) >= 2)
+        .toList();
+    if (safe.isNotEmpty) {
+      return safe;
+    }
+    return candidates.where((word) => (liveCounts[word] ?? 0) >= 1).toList();
+  }
+
+  /// "안전한" 시작 단어 — 현재 살아 있는 후보 집합 안에 후속 단어가 있는 것을 우선.
+  ///
+  /// With [maxLevel], candidates first come from the cumulative A1..level
+  /// subset. If that subset has no live chain, the full pool is used as a
+  /// fallback so a sparse B1/B2 pool cannot create an unwinnable opening.
+  static KkeunmariWord pickStart({LearnerLevel? maxLevel}) {
+    final usedWords = <String>{};
+    final scoped = _cumulativePool(maxLevel);
+    final scopedCandidates = _availableCandidates(scoped, usedWords);
+    final scopedLive = _prioritizedLiveCandidates(
+      scopedCandidates,
+      scoped,
+      usedWords,
+    );
+    if (scopedLive.isNotEmpty) {
+      return scopedLive[_rng.nextInt(scopedLive.length)];
+    }
+
+    final allCandidates = _availableCandidates(pool, usedWords);
+    final allLive = _prioritizedLiveCandidates(allCandidates, pool, usedWords);
+    final source = allLive.isNotEmpty
+        ? allLive
+        : (scopedCandidates.isNotEmpty ? scopedCandidates : allCandidates);
     return source[_rng.nextInt(source.length)];
   }
 
@@ -105,19 +199,74 @@ class KkeunmariEngine {
   }
 
   /// 호랑이의 다음 단어 — [requiredFirst] 음절로 시작하는 미사용 단어 중 선택.
-  /// 사용자에게 너무 가혹하지 않도록 가능하면 dead_end가 아닌 단어를 고른다.
-  /// 후보가 0이면 null → 호랑이 패배 (사용자 승).
+  /// Candidate set the tiger may use for this turn.
+  ///
+  /// The returned list uses the same cumulative-scope, live-chain and
+  /// full-pool fallback rules as [pickTigerNext]. Keeping the choice in one
+  /// place means the UI's dynamic next-count cannot disagree with the move
+  /// the tiger will actually make.
+  static List<KkeunmariWord> _tigerCandidates(
+    String requiredFirst,
+    Set<String> usedWords, {
+    LearnerLevel? maxLevel,
+  }) {
+    final scoped = _cumulativePool(maxLevel);
+    final scopedCandidates = _availableCandidates(
+      scoped,
+      usedWords,
+      requiredFirst: requiredFirst,
+    );
+    final scopedLive = _prioritizedLiveCandidates(
+      scopedCandidates,
+      scoped,
+      usedWords,
+    );
+    if (scopedLive.isNotEmpty) {
+      return scopedLive;
+    }
+
+    final allCandidates = _availableCandidates(
+      pool,
+      usedWords,
+      requiredFirst: requiredFirst,
+    );
+    if (allCandidates.isEmpty) {
+      return const [];
+    }
+    final allLive = _prioritizedLiveCandidates(allCandidates, pool, usedWords);
+    return allLive.isNotEmpty
+        ? allLive
+        : (scopedCandidates.isNotEmpty ? scopedCandidates : allCandidates);
+  }
+
+  /// Current number of viable tiger replies under the active learner scope.
+  ///
+  /// This deliberately does *not* read a record's persisted `next_count`.
+  /// Used words and the cumulative A1..current-level subset change every
+  /// turn, so only the live candidate list is authoritative in play.
+  static int nextCountFor(
+    String requiredFirst,
+    Set<String> usedWords, {
+    LearnerLevel? maxLevel,
+  }) => _tigerCandidates(requiredFirst, usedWords, maxLevel: maxLevel).length;
+
+  /// Selects a fair tiger reply from the current live candidate set.
+  ///
+  /// A null return means no allowed reply exists → tiger is stuck and the
+  /// learner wins the turn.
   static KkeunmariWord? pickTigerNext(
     String requiredFirst,
-    Set<String> usedWords,
-  ) {
-    final candidates = pool
-        .where((w) => w.first == requiredFirst && !usedWords.contains(w.word))
-        .toList();
-    if (candidates.isEmpty) return null;
-    // Prefer safe (non-dead-end) so the user has a chance to continue.
-    final safe = candidates.where((w) => !w.isDeadEnd).toList();
-    final source = safe.isNotEmpty ? safe : candidates;
+    Set<String> usedWords, {
+    LearnerLevel? maxLevel,
+  }) {
+    final source = _tigerCandidates(
+      requiredFirst,
+      usedWords,
+      maxLevel: maxLevel,
+    );
+    if (source.isEmpty) {
+      return null;
+    }
     return source[_rng.nextInt(source.length)];
   }
 

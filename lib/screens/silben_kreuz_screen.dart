@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/silben_puzzle.dart';
+import '../services/learner_level_selection.dart';
 import '../services/silben_puzzle_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -108,6 +109,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   @override
   void initState() {
     super.initState();
+    _level = learnerLevelDisplayForStoredCode(Storage.userLevelCode);
     _load();
   }
 
@@ -351,6 +353,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               child: GestureDetector(
                 onTap: () => _openLevel(l),
                 child: Container(
+                  key: ValueKey('silben-level-$l'),
                   margin: const EdgeInsets.symmetric(horizontal: 3),
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   decoration: BoxDecoration(

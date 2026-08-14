@@ -6102,6 +6102,24 @@ class AppL10nEn extends AppL10n {
       'Listen first. Then record up to 10 seconds if you want an assessment.';
 
   @override
+  String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
+
+  @override
+  String get pronunciationPhrasesUnavailableTitle =>
+      'Pronunciation practice unavailable';
+
+  @override
+  String get pronunciationPhrasesUnavailableBody =>
+      'The pronunciation practice could not be loaded. Please try again.';
+
+  @override
+  String get pronunciationPhrasesEmptyTitle => 'No pronunciation practice yet';
+
+  @override
+  String get pronunciationPhrasesEmptyBody =>
+      'There are no reviewed sentences available for your learning level yet.';
+
+  @override
   String get pronunciationListen => 'Listen';
 
   @override

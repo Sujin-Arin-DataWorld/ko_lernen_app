@@ -2,6 +2,18 @@
 
 > 실행 세션은 이 문서 + `docs/HANDOFF_UI_OVERHAUL_2026-08-14_V2.md` §3(방법론)을 정본으로 삼는다.
 
+> **C0 구현 정정 (2026-08-14):** 실제 승인 병합은 축약된 리뷰 CSV가 아니라
+> schema-complete draft를 원본으로 사용한다. `apply_review.py`는 기본 preview이며
+> `--apply`가 있을 때만 exact `assets/data/` target과 audit manifest를 함께 갱신하고,
+> 전체 validator 실패 시 둘 다 원복한다. `--no-manifest` 우회·직접 `.bak` 산출은
+> 지원하지 않는다. 세부 정본은 `tools/content_factory/review/README.md`와
+> `docs/CONTENT_ARCHITECTURE.md`다.
+
+> **콘텐츠 전용 실행 범위 (2026-08-14):** 이번 C0와 Batch 01은 콘텐츠 검수·데이터·
+> 학습 난이도 계약만 다룬다. `lib/screens/sori_stage/`, Today 추천 표시, paywall 카피,
+> 새 motif/디자인은 UI/UX v2 트랙으로 보류한다. C1의 Today 추천 센서는 실제 승인된
+> 시나리오·코스가 병합된 뒤 UI 소유 세션에서 별도 수용 기준으로 구현한다.
+
 > 선행 UI/UX 개편(Phase 0~3)은 `dcef0ba3`으로 완료·배포 대기. 이 계획은 그 후속 —
 > **콘텐츠 깊이**를 중급(B1/B2)에서 A1/A2급으로 끌어올린다. 실행은 별도 세션.
 > 방법론은 `docs/HANDOFF_UI_OVERHAUL_2026-08-14_V2.md` §3(사이클·래칫 실측·파괴-복원 센서·SESSION_LOG) 그대로.
@@ -45,10 +57,10 @@ Jin 확정 결정 3건:
 
 콘텐츠를 붓기 전에 수도관부터. 목표: "생성 → 검수 → 번들 → 검증"이 기계적으로 돌게.
 
-1. **리뷰 시트 워크플로 신설** `tools/content_factory/review/` — 콘텐츠 유형별 CSV 시트
-   (`ko, de, en, level, 대상파일, 대상필드, 상태(draft/approved/rejected), Jin메모`).
-   세션이 draft 생성 → Jin이 상태 표기 → 세션이 approved만 자산으로 변환하는 스크립트
-   (`tools/content_factory/apply_review.py` 신설, 기존 build_*.py 패턴 참조).
+1. **리뷰 시트 워크플로 신설** `tools/content_factory/review/` — 콘텐츠 유형별 CSV 승인 원장
+   (`id, level, ko, de, en, field_notes, 상태|status, Jin메모`). 실제 본문은 별도의
+   schema-complete draft에 둔다. 세션이 draft 생성 → Jin이 `ok`/`approved`/`fix:`/`no`
+   상태 표기 → `apply_review.py`가 승인 id만 draft에서 append한다.
 2. **검증 스크립트 1개** `tools/content_factory/validate_content.py`: 레벨 whitelist,
    grammar 16열/quiz 규칙(같은 레벨 distractor 정확히 3개, focus 문구가 예문에 정확히 1회),
    시나리오 최소치(≥6 vocab, ≥6 dialog, ≥3 quests — data_integrity와 동일 기준),
@@ -99,7 +111,8 @@ Jin 확정 결정 3건:
    - `vocab_pack_service.dart` `packDisplayMap`(DE/EN 라벨) + `packOrderInLevel`
    - `dancheong_stamp.dart` `motifForPackId` switch 추가 (누락 시 lotus 폴백 + 전수 테스트 실패)
    - `curriculum_manifest.json` `vocabPackUnitMap`
-   - `build_vocab_packs.py`의 `PACK_DISPLAY`/`PACK_ORDER_IN_LEVEL` 동기화 (파일 주석의 요구)
+   - 새 pack-assignment 도구가 출력한 `packDisplayMap`/`packOrderInLevel` 동기화 스텁만
+     검수 후 반영 (`scripts/build_vocab_packs.py`는 읽거나 재실행하지 않음)
 3. **모티프 이미지**: 기존 14종을 주제 기준으로 재배정하는 것을 기본으로 하되, 레벨당 45팩이면
    반복이 심해지므로 **신규 모티프 4~6종 생성 옵션** — 기존 앵커 런북(핸드오프 v1 §5) +
    `scripts/apply_paper_grain.py` 그레인 필수. `DancheongMotif` enum 확장 + webp 2벌(팩/스탬프).
@@ -184,7 +197,12 @@ kkeunmari: first/last가 word의 실제 첫/끝 음절과 일치 (재계산 검�
 manifest: content_audit_manifest.json 수치 == 실제 파일 카운트
 ```
 
-**A-2. `apply_review.py`** — 승인분만 병합. CLI: `python3 ... apply_review.py review/<시트>.csv --target assets/data/<파일>`. 동작: `상태==ok` 행만 대상 파일에 병합(json은 정렬 유지 append, csv는 말미) → 백업 `.bak` 생성 → validate_content.py 자동 호출 → audit manifest 수치 자동 bump(`--no-manifest`로 끔). `fix:` 행은 stderr로 목록만 출력(세션이 수정 후 재시트).
+**A-2. `apply_review.py`** — 승인분만 병합. CLI:
+`python3 ... apply_review.py review/<시트>.csv --draft <schema-complete-draft> --target assets/data/<파일> [--apply]`.
+기본은 preview이고, `상태==ok|approved` 행의 id만 draft에서 읽는다. `--apply`일 때만
+지원되는 exact target에 append → 해당 audit manifest count 갱신 → `validate_content.py`
+전체 실행을 하나의 트랜잭션으로 수행한다. 어느 단계든 실패하면 target·manifest를 모두
+원복하며, manifest 우회 옵션은 없다. `fix:`/`no`/`draft` 행은 stderr에 남기되 절대 병합하지 않는다.
 
 **A-3. `add_b_level_packs.py`** — 승인된 신규 단어의 팩 배정. 입력: 병합 완료된 korean_vocab.csv + `TOPIC_TO_PACK_B1_V2`/`_B2_V2` dict(스크립트 내 정의). 출력: pack_id/pack_order/is_review_boss 열 채움 + `docs/data/vocab_pack_map_v2.md` 리뷰 표 + **Dart 동기화 스텁 출력**(packDisplayMap/packOrderInLevel/motifForPackId에 붙여넣을 코드 조각을 stdout으로 생성 — 손 전사 금지). 기존 팩의 행은 불변(신규 id만 대상). 보스: 팩 후미 min(3,max(2,n//4)).
 
@@ -243,4 +261,8 @@ flutter test  # 전체
 
 ## 실행 순서 요약
 
-C0(파이프라인+코드5) → C1(시나리오+코스 = 듣기·퀘스트 동시 해결) → C2(게임 풀) → C3(어휘 팩+모티프) → C4(문법·발음·TTS·마감). 각 Phase: 생성 → validate → Jin 시트 → 병합 → 게이트 전체 → SESSION_LOG. 총 예상 10~13 작업일 + Jin 검수 시간.
+C0(파이프라인+코드5) → **Jin의 C0 파이프라인·seed 검수** → C3(어휘 기반·팩+모티프)
+→ C4 일부(필요한 문법 기반) → C1(시나리오+코스 = 듣기·퀘스트 동시 해결) → C2(게임 풀)
+→ C4(발음 확장·TTS·페이월 카피·최종 검증) 순서로 진행한다. Satz의 같은 레벨 vocab
+참조와 시나리오의 grammar ID 참조가 아직 없을 때 자산을 병합하지 않기 위한 순서다.
+각 Phase: 생성 → validate → Jin 시트 → 병합 → 게이트 전체 → SESSION_LOG. 총 예상 10~13 작업일 + Jin 검수 시간.

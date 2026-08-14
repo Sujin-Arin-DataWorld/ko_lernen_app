@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "batch": "01",
+  "status": "review_only_draft",
+  "provenance": {
+    "approvedTrack": "docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md#첫-제작-배치",
+    "scope": "B1 housing and contracts; B2 formal agreements; service small talk; sentence games derived from the candidate vocabulary examples",
+    "createdAt": "2026-08-14",
+    "requiresJinReview": true
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv",
+      "review": "tools/content_factory/review/c3_batch01_vocab.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch01_grammar_b1_b2.csv",
+      "review": "tools/content_factory/review/c4_batch01_grammar.csv",
+      "count": 8,
+      "levels": {
+        "b1": 4,
+        "b2": 4
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch01_smalltalk_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch01_smalltalk.csv",
+      "count": 16,
+      "levels": {
+        "b1": 8,
+        "b2": 8
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch01_cloze_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch01_cloze.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch01_satz_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch01_satz.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    }
+  ],
+  "recordCount": 96,
+  "vocabPacks": [
+    {
+      "packId": "b1_housing_contract_1",
+      "level": "b1",
+      "orderInLevel": 19,
+      "orderRange": [1, 12],
+      "reviewBossOrders": [10, 11, 12],
+      "displayLabel": {
+        "ko": "주거·계약",
+        "de": "Wohnen & Vertrag",
+        "en": "Housing & Contracts"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_05_complaint_resolution",
+        "conceptIds": ["concept_b1_complaint_resolution"]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "b2_formal_agreement_1",
+      "level": "b2",
+      "orderInLevel": 18,
+      "orderRange": [1, 12],
+      "reviewBossOrders": [10, 11, 12],
+      "displayLabel": {
+        "ko": "공식 합의·계약",
+        "de": "Formelle Vereinbarungen",
+        "en": "Formal Agreements"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_03_precise_requests",
+        "conceptIds": ["concept_b2_precise_requests"]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_b1_tendency",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "id": "grammar_b1_prepared_state",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": ["concept_b1_life"]
+    },
+    {
+      "id": "grammar_b1_near_miss",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "id": "grammar_b1_state_while",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "id": "grammar_b2_formal_reason",
+      "level": "b2",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"]
+    },
+    {
+      "id": "grammar_b2_formal_arrangement",
+      "level": "b2",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"]
+    },
+    {
+      "id": "grammar_b2_formal_reference",
+      "level": "b2",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": ["concept_b2_formal_opening"]
+    },
+    {
+      "id": "grammar_b2_inclusion",
+      "level": "b2",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"]
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "b1",
+      "category": "transport",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": ["concept_b1_life"]
+    },
+    {
+      "level": "b1",
+      "category": "shopping",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "level": "b1",
+      "category": "phone",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "level": "b1",
+      "category": "emergency",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "level": "b2",
+      "category": "transport",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"]
+    },
+    {
+      "level": "b2",
+      "category": "shopping",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    },
+    {
+      "level": "b2",
+      "category": "phone",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": ["concept_b2_formal_opening"]
+    },
+    {
+      "level": "b2",
+      "category": "emergency",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "b1",
+      "topic": "Wohnen & Vertrag",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": ["concept_b1_complaint_resolution"]
+    },
+    {
+      "level": "b2",
+      "topic": "Formelle Vereinbarungen",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "b1",
+      "vocabPackId": "b1_housing_contract_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_formal_agreement_1",
+      "count": 12
+    }
+  ],
+  "mergeOrder": ["vocab with curriculum companion mapping", "grammar with grammarRuleMap companion mapping", "smalltalk with category companion mapping", "cloze with topic companion mapping", "satz after same-level vocabulary exists"],
+  "nonMergeGuards": [
+    "Every review row is draft; no Batch 01 record may be appended to assets/data yet.",
+    "Before an approved merge, add the declared vocabPackUnitMap, grammarRuleMap, smalltalkCategoryUnitMap, and clozeTopicUnitMap companions in the same reviewed content change so the full validator remains true.",
+    "Add pack display labels, pack order, and the declared Dancheong motif only in the later approved pack integration change.",
+    "No TTS synthesis or Firebase Storage upload is authorized for this review-only batch."
+  ]
+}

@@ -30,6 +30,15 @@ void main() {
     final satzItems = (satz['items'] as List).cast<Map<String, dynamic>>();
     expect(satzItems, hasLength(191));
     _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 191);
+
+    final pronunciation = _jsonObject('assets/data/pronunciation_phrases.json');
+    final pronunciationPhrases = (pronunciation['phrases'] as List)
+        .cast<Map<String, dynamic>>();
+    expect(pronunciationPhrases, hasLength(4));
+    _expectRawIds(
+      pronunciationPhrases.map((item) => item['id']?.toString() ?? ''),
+      4,
+    );
   });
 
   test('explicit IDs survive copy edits and source list reordering', () {

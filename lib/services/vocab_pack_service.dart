@@ -105,9 +105,10 @@ class VocabPackService {
 
   // ── 디스플레이 정의 ──────────────────────────────────────────────────
   //
-  // 출처: scripts/build_vocab_packs.py 의 PACK_DISPLAY. 두 곳을 동기화 유지!
-  // 변경 시 둘 다 수정 + 단위 테스트 (build_vocab_packs 출력 vs displayLabel)
-  // 으로 확인.
+  // ⛔ scripts/build_vocab_packs.py 는 11열 시대의 레거시 도구라 절대 실행하지
+  // 않는다. 실행하면 현재 15열 CSV의 EN 열·stable id가 손상된다.
+  // 새 팩은 tools/content_factory/plan_pack_assignments.py 의 read-only 검증과
+  // Jin 검수 뒤에 이 map·순서·curriculum companion을 함께 명시적으로 갱신한다.
   //
   // 형식: base_pack_id → (DE, EN)
   static const Map<String, (String, String)> packDisplayMap = {
@@ -208,7 +209,9 @@ class VocabPackService {
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
-  /// 변경 시 build_vocab_packs.py 의 PACK_ORDER_IN_LEVEL 와 동기화.
+  /// 새 팩은 legacy build_vocab_packs.py와 동기화하지 않는다. Jin 검수 뒤
+  /// plan_pack_assignments.py의 preflight와 companion curriculum mapping을
+  /// 통과한 명시적 변경으로만 이 순서를 늘린다.
   static const Map<String, int> packOrderInLevel = {
     // A1
     'a1_greetings': 1,

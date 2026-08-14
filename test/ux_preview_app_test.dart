@@ -26,7 +26,6 @@ import 'package:ko_lernen_app/screens/ux_preview_app.dart';
 import 'package:ko_lernen_app/screens/ux_preview_gallery_screen.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
-import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
 
 import 'package:ko_lernen_app/services/storage_service.dart';

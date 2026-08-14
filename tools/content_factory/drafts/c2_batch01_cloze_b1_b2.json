@@ -1,0 +1,268 @@
+{
+  "items": [
+    {
+      "id": "cloze_b1_0056",
+      "level": "b1",
+      "sentenceKo": "＿＿＿에 인터넷 요금도 포함되어 있나요?",
+      "answer": "관리비",
+      "fullKo": "관리비에 인터넷 요금도 포함되어 있나요?",
+      "de": "Sind die Internetkosten in den Nebenkosten enthalten?",
+      "en": "Are the internet charges included in the maintenance fee?",
+      "distractors": ["계약서", "수리비", "난방"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0057",
+      "level": "b1",
+      "sentenceKo": "＿＿＿에 서명하기 전에 내용을 다시 확인했어요.",
+      "answer": "계약서",
+      "fullKo": "계약서에 서명하기 전에 내용을 다시 확인했어요.",
+      "de": "Ich habe den Inhalt noch einmal geprüft, bevor ich den Vertrag unterschrieben habe.",
+      "en": "I checked the contents again before signing the contract.",
+      "distractors": ["관리비", "부동산", "이삿짐"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0058",
+      "level": "b1",
+      "sentenceKo": "＿＿＿가 바뀌면 관리인에게 알려야 해요.",
+      "answer": "세입자",
+      "fullKo": "세입자가 바뀌면 관리인에게 알려야 해요.",
+      "de": "Wenn der Mieter oder die Mieterin wechselt, muss man die Hausverwaltung informieren.",
+      "en": "If the tenant changes, you have to notify the building manager.",
+      "distractors": ["중개인", "부동산", "관리비"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0059",
+      "level": "b1",
+      "sentenceKo": "다음 달 초에 새 아파트에 ＿＿＿ 예정이에요.",
+      "answer": "입주할",
+      "fullKo": "다음 달 초에 새 아파트에 입주할 예정이에요.",
+      "de": "Anfang nächsten Monats werde ich in die neue Wohnung einziehen.",
+      "en": "I am planning to move into the new apartment at the beginning of next month.",
+      "distractors": ["퇴거할", "연장할", "설명할"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0060",
+      "level": "b1",
+      "sentenceKo": "계약이 끝나면 정해진 날짜에 ＿＿＿ 해요.",
+      "answer": "퇴거해야",
+      "fullKo": "계약이 끝나면 정해진 날짜에 퇴거해야 해요.",
+      "de": "Wenn der Vertrag endet, muss man zum vereinbarten Termin ausziehen.",
+      "en": "When the contract ends, you have to move out on the agreed date.",
+      "distractors": ["입주해야", "연장해야", "결정해야"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0061",
+      "level": "b1",
+      "sentenceKo": "집주인과 상의해서 계약 기간을 1년 더 ＿＿＿.",
+      "answer": "연장했어요",
+      "fullKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
+      "de": "Nach Rücksprache mit dem Vermieter habe ich die Vertragslaufzeit um ein Jahr verlängert.",
+      "en": "After talking with the landlord I extended the contract term by another year.",
+      "distractors": ["퇴거했어요", "입주했어요", "설명했어요"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0062",
+      "level": "b1",
+      "sentenceKo": "누수 때문에 ＿＿＿가 예상보다 많이 들었어요.",
+      "answer": "수리비",
+      "fullKo": "누수 때문에 수리비가 예상보다 많이 들었어요.",
+      "de": "Wegen des Wasserlecks sind die Reparaturkosten höher ausgefallen als erwartet.",
+      "en": "Because of the water leak the repair costs were higher than expected.",
+      "distractors": ["관리비", "계약서", "이삿짐"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0063",
+      "level": "b1",
+      "sentenceKo": "천장에서 ＿＿＿가 생겨서 바로 부동산에 연락했어요.",
+      "answer": "누수",
+      "fullKo": "천장에서 누수가 생겨서 바로 부동산에 연락했어요.",
+      "de": "Es gab ein Wasserleck an der Decke, deshalb habe ich sofort das Immobilienbüro angerufen.",
+      "en": "There was a water leak in the ceiling so I called the real estate agency right away.",
+      "distractors": ["난방", "관리비", "세입자"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0064",
+      "level": "b1",
+      "sentenceKo": "＿＿＿이 잘 안 돼서 관리실에 문의했어요.",
+      "answer": "난방",
+      "fullKo": "난방이 잘 안 돼서 관리실에 문의했어요.",
+      "de": "Die Heizung funktionierte nicht richtig, deshalb habe ich bei der Hausverwaltung nachgefragt.",
+      "en": "The heating was not working properly so I asked the building management about it.",
+      "distractors": ["누수", "부동산", "관리비"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0065",
+      "level": "b1",
+      "sentenceKo": "근처 ＿＿＿에서 이 집을 소개해 줬어요.",
+      "answer": "부동산",
+      "fullKo": "근처 부동산에서 이 집을 소개해 줬어요.",
+      "de": "Ein Immobilienbüro in der Nähe hat mir diese Wohnung gezeigt.",
+      "en": "A nearby real estate agency showed me this home.",
+      "distractors": ["중개인", "세입자", "관리비"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0066",
+      "level": "b1",
+      "sentenceKo": "＿＿＿에게 계약 조건을 자세히 설명해 달라고 했어요.",
+      "answer": "중개인",
+      "fullKo": "중개인에게 계약 조건을 자세히 설명해 달라고 했어요.",
+      "de": "Ich habe den Makler gebeten, die Vertragsbedingungen genau zu erklären.",
+      "en": "I asked the real estate agent to explain the contract terms in detail.",
+      "distractors": ["세입자", "부동산", "이삿짐"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b1_0067",
+      "level": "b1",
+      "sentenceKo": "＿＿＿은 오전에 먼저 새 집으로 보냈어요.",
+      "answer": "이삿짐",
+      "fullKo": "이삿짐은 오전에 먼저 새 집으로 보냈어요.",
+      "de": "Die Umzugssachen habe ich am Vormittag zuerst in die neue Wohnung schicken lassen.",
+      "en": "I sent the moving belongings to the new home first thing in the morning.",
+      "distractors": ["계약서", "관리비", "수리비"],
+      "topic": "Wohnen & Vertrag"
+    },
+    {
+      "id": "cloze_b2_0058",
+      "level": "b2",
+      "sentenceKo": "계약서의 ＿＿＿을 하나씩 검토해 보겠습니다.",
+      "answer": "조항",
+      "fullKo": "계약서의 조항을 하나씩 검토해 보겠습니다.",
+      "de": "Wir werden die Klauseln des Vertrags einzeln prüfen.",
+      "en": "We will review the clauses of the contract one by one.",
+      "distractors": ["기한", "효력", "합의서"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0059",
+      "level": "b2",
+      "sentenceKo": "중도에 계약을 ＿＿＿ 위약금이 발생할 수 있어요.",
+      "answer": "해지하려면",
+      "fullKo": "중도에 계약을 해지하려면 위약금이 발생할 수 있어요.",
+      "de": "Wenn Sie den Vertrag vorzeitig kündigen, kann eine Vertragsstrafe anfallen.",
+      "en": "If you terminate the contract early a penalty may apply.",
+      "distractors": ["갱신하려면", "위반하려면", "유예하려면"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0060",
+      "level": "b2",
+      "sentenceKo": "조건을 확인한 뒤에 계약을 ＿＿＿ 했습니다.",
+      "answer": "갱신하기로",
+      "fullKo": "조건을 확인한 뒤에 계약을 갱신하기로 했습니다.",
+      "de": "Nachdem wir die Bedingungen geprüft hatten, beschlossen wir den Vertrag zu erneuern.",
+      "en": "After reviewing the terms we decided to renew the contract.",
+      "distractors": ["해지하기로", "협의하기로", "유예하기로"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0061",
+      "level": "b2",
+      "sentenceKo": "변경 사항은 양측이 충분히 ＿＿＿ 뒤에 결정해야 합니다.",
+      "answer": "협의한",
+      "fullKo": "변경 사항은 양측이 충분히 협의한 뒤에 결정해야 합니다.",
+      "de": "Änderungen sollten erst beschlossen werden, nachdem beide Seiten sie ausreichend abgestimmt haben.",
+      "en": "Changes should be decided only after both sides have discussed them sufficiently.",
+      "distractors": ["갱신한", "이행한", "위반한"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0062",
+      "level": "b2",
+      "sentenceKo": "당사자는 합의한 의무를 성실히 ＿＿＿ 합니다.",
+      "answer": "이행해야",
+      "fullKo": "당사자는 합의한 의무를 성실히 이행해야 합니다.",
+      "de": "Die Vertragsparteien müssen die vereinbarten Pflichten gewissenhaft erfüllen.",
+      "en": "The parties must faithfully fulfill their agreed obligations.",
+      "distractors": ["해지해야", "갱신해야", "위반해야"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0063",
+      "level": "b2",
+      "sentenceKo": "모든 ＿＿＿가 서명한 뒤에 절차를 진행하겠습니다.",
+      "answer": "당사자",
+      "fullKo": "모든 당사자가 서명한 뒤에 절차를 진행하겠습니다.",
+      "de": "Wir setzen das Verfahren fort, nachdem alle Vertragsparteien unterschrieben haben.",
+      "en": "We will proceed after all parties have signed.",
+      "distractors": ["계약", "합의서", "조항"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0064",
+      "level": "b2",
+      "sentenceKo": "서명 이후에야 합의서가 ＿＿＿을 갖습니다.",
+      "answer": "효력",
+      "fullKo": "서명 이후에야 합의서가 효력을 갖습니다.",
+      "de": "Die Vereinbarung wird erst nach der Unterschrift wirksam.",
+      "en": "The agreement takes effect only after it is signed.",
+      "distractors": ["기한", "조항", "서면"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0065",
+      "level": "b2",
+      "sentenceKo": "제출 ＿＿＿을 지키기 어려우면 미리 알려 주세요.",
+      "answer": "기한",
+      "fullKo": "제출 기한을 지키기 어려우면 미리 알려 주세요.",
+      "de": "Bitte teilen Sie uns frühzeitig mit, wenn die Einreichungsfrist schwer einzuhalten ist.",
+      "en": "Please let us know in advance if it will be difficult to meet the submission deadline.",
+      "distractors": ["조항", "효력", "유예"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0066",
+      "level": "b2",
+      "sentenceKo": "변경 내용은 ＿＿＿으로 확인해 두는 것이 좋습니다.",
+      "answer": "서면",
+      "fullKo": "변경 내용은 서면으로 확인해 두는 것이 좋습니다.",
+      "de": "Es ist besser, Änderungen schriftlich festzuhalten.",
+      "en": "It is better to confirm changes in writing.",
+      "distractors": ["조항", "기한", "효력"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0067",
+      "level": "b2",
+      "sentenceKo": "＿＿＿에는 양쪽의 책임과 기한을 분명히 적었습니다.",
+      "answer": "합의서",
+      "fullKo": "합의서에는 양쪽의 책임과 기한을 분명히 적었습니다.",
+      "de": "In der Vereinbarung haben wir die Pflichten und Fristen beider Seiten klar festgehalten.",
+      "en": "The agreement clearly states both sides' responsibilities and deadlines.",
+      "distractors": ["계약", "조항", "기한"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0068",
+      "level": "b2",
+      "sentenceKo": "상대방이 조항을 ＿＿＿ 해결 절차를 시작할 수 있습니다.",
+      "answer": "위반하면",
+      "fullKo": "상대방이 조항을 위반하면 해결 절차를 시작할 수 있습니다.",
+      "de": "Wenn die andere Seite eine Klausel verletzt, kann ein Lösungsverfahren eingeleitet werden.",
+      "en": "If the other party violates a clause a resolution process can be started.",
+      "distractors": ["이행하면", "갱신하면", "협의하면"],
+      "topic": "Formelle Vereinbarungen"
+    },
+    {
+      "id": "cloze_b2_0069",
+      "level": "b2",
+      "sentenceKo": "지급 기한을 한 달 ＿＿＿ 주실 수 있는지 문의했습니다.",
+      "answer": "유예해",
+      "fullKo": "지급 기한을 한 달 유예해 주실 수 있는지 문의했습니다.",
+      "de": "Ich habe angefragt, ob die Zahlungsfrist um einen Monat aufgeschoben werden kann.",
+      "en": "I asked whether the payment deadline could be deferred by one month.",
+      "distractors": ["협의해", "해지해", "갱신해"],
+      "topic": "Formelle Vereinbarungen"
+    }
+  ]
+}

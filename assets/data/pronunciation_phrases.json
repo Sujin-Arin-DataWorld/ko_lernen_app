@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "pronunciation_a1_0001",
+      "level": "a1",
+      "ko": "안녕하세요",
+      "de": "Guten Tag.",
+      "en": "Hello.",
+      "focus": "ㅎ 발음"
+    },
+    {
+      "id": "pronunciation_a1_0002",
+      "level": "a1",
+      "ko": "감사합니다",
+      "de": "Danke.",
+      "en": "Thank you.",
+      "focus": "비음화"
+    },
+    {
+      "id": "pronunciation_a2_0001",
+      "level": "a2",
+      "ko": "덜 맵게 해 주세요",
+      "de": "Bitte weniger scharf.",
+      "en": "Please make it less spicy.",
+      "focus": "경음화"
+    },
+    {
+      "id": "pronunciation_a2_0002",
+      "level": "a2",
+      "ko": "지하철역이 어디예요?",
+      "de": "Wo ist die U-Bahn-Station?",
+      "en": "Where is the subway station?",
+      "focus": "연음"
+    }
+  ]
+}
