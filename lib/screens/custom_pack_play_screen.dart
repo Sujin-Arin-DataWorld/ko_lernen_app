@@ -13,6 +13,8 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -83,6 +85,15 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     scheduleCoach();
   }
 
+  // §P2-5 플립 게이트 힌트 칩 트리거.
+  final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
+
+  @override
+  void dispose() {
+    _flipHintTrigger.dispose();
+    super.dispose();
+  }
+
   void _gotIt() {
     final pack = _pack;
     if (pack == null) return;
@@ -97,7 +108,10 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     _advance();
   }
 
-  void _skip() {
+  /// §P2-2 개명: 옛 `_skip` — 이름과 달리 **완전한 음성 판정**이다
+  /// (srsReview(gotIt:false) + incrementWrongCount). 라벨도 btnNichtGewusst
+  /// 로 정정 (기존 btnSkip 오표기).
+  void _dontKnow() {
     HapticFeedback.selectionClick();
     final pack = _pack;
     if (pack != null) {
@@ -106,6 +120,13 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       // ignore: discarded_futures
       Storage.incrementWrongCount(pack.words[_idx].korean);
     }
+    _advance();
+  }
+
+  /// ↓ 스킵 (§P2-2) — **기록 없는 전진**. `_advance` 는 완료 슬롯 외 아무
+  /// 기록도 남기지 않는 무기록 경로다.
+  void _defer() {
+    HapticFeedback.selectionClick();
     _advance();
   }
 
@@ -169,6 +190,17 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     final w = pack.words[_idx];
     final s = SoriSurfaces.of(context);
 
+    // §P2-5: 4방향 덱 코치 — 기존 cpPlay 코치가 이미 표시된 뒤에만 (겹침 방지).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _cardKey,
+          afterCoachIds: const ['cpPlay'],
+        );
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -204,85 +236,125 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 Expanded(
                   // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음) +
                   // 상하 여백으로 코치마크·버튼 공간 확보.
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Skip. 하단 버튼은 접근성 정본으로 유지.
-                  child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
-                    enabled: _flipped,
-                    onSwipeRight: _gotIt,
-                    onSwipeLeft: _skip,
-                    rightBadge: SoriSwipeBadge(
-                      label: t.btnGewusst,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.btnSkip,
-                      icon: Icons.redo_rounded,
-                      color: SoriColors.info,
-                    ),
-                    child: Center(
-                      child: FractionallySizedBox(
-                        heightFactor: 0.82,
-                        // P1 (2026-08-14): 카드 슬롯 고정 — 폭 핀이 없으면
-                        // FlipCard._fitFace 의 세로 스크롤이 가로 제약을 loose 로
-                        // 통과시켜 카드 폭이 단어 내재폭으로 신축한다.
-                        // 센서: test/deck_card_geometry_test.dart.
-                        child: SizedBox(
-                          key: const ValueKey('deck-card-slot'),
-                          width: double.infinity,
-                          child: SoriStudyScale(
-                            // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
-                            // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
-                            // 만든다 (뒷면 선노출 방지).
-                            child: KeyedSubtree(
-                              key: _cardKey,
-                              child: FlipCard(
-                                key: ValueKey('cp-$_serve'),
-                                flipped: _flipped,
-                                onTap: () {
-                                  HapticFeedback.selectionClick();
-                                  setState(() => _flipped = !_flipped);
-                                },
-                                front: _Front(
-                                  word: w,
-                                  deckKoreans: [
-                                    for (final x in pack.words) x.korean,
-                                  ],
+                  // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
+                  // ↓=기록 없는 스킵. ↑ 저장은 이 화면에서 비노출(§P2-2:
+                  // 단어가 정의상 이미 사용자 팩 소속 — quickAdd 는 quick pack
+                  // 내부만 dedupe 하므로 무의미하거나 중복 복사가 된다).
+                  child: Stack(
+                    fit: StackFit.passthrough,
+                    children: [
+                      SoriSwipeCard(
+                        // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                        // 카드에 SRS가 기록되는 데이터 버그 방지.
+                        enabled: _flipped,
+                        onSwipeRight: _gotIt,
+                        onSwipeLeft: _dontKnow,
+                        onSwipeDown: _defer,
+                        onBlockedHorizontalDrag: () => _flipHintTrigger.value++,
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                        ),
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.close_rounded,
+                          color: SoriColors.danger,
+                        ),
+                        downBadge: SoriSwipeBadge(
+                          label: t.btnSkip,
+                          icon: Icons.arrow_downward_rounded,
+                          color: SoriColors.info,
+                        ),
+                        // 덱 스택 미리보기 — 다음 카드 **앞면만** (§P2-1).
+                        underlay: _idx + 1 < pack.words.length
+                            ? _faceSlot(pack, pack.words[_idx + 1])
+                            : null,
+                        child: Center(
+                          child: FractionallySizedBox(
+                            heightFactor: 0.82,
+                            // P1 (2026-08-14): 카드 슬롯 고정 — 폭 핀이 없으면
+                            // FlipCard._fitFace 의 세로 스크롤이 가로 제약을
+                            // loose 로 통과시켜 카드 폭이 단어 내재폭으로
+                            // 신축한다. 센서: test/deck_card_geometry_test.dart.
+                            child: SizedBox(
+                              key: const ValueKey('deck-card-slot'),
+                              width: double.infinity,
+                              child: SoriStudyScale(
+                                // 코치마크 타겟(GlobalKey)은 렌더객체 없는
+                                // KeyedSubtree에 걸고, FlipCard 자체는 서빙
+                                // 카운터 key로 카드마다 새로 만든다 (뒷면
+                                // 선노출 방지).
+                                child: KeyedSubtree(
+                                  key: _cardKey,
+                                  child: FlipCard(
+                                    key: ValueKey('cp-$_serve'),
+                                    flipped: _flipped,
+                                    onTap: () {
+                                      HapticFeedback.selectionClick();
+                                      setState(() => _flipped = !_flipped);
+                                    },
+                                    front: _Front(
+                                      word: w,
+                                      deckKoreans: [
+                                        for (final x in pack.words) x.korean,
+                                      ],
+                                    ),
+                                    back: _Back(word: w),
+                                  ),
                                 ),
-                                back: _Back(word: w),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      Positioned(
+                        top: Spacing.sm,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: SoriDeckFlipHint(trigger: _flipHintTrigger),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: Spacing.md),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnSkip,
-                        variant: SoriButtonVariant.outlined,
-                        accent: SoriColors.info,
-                        onTap: _skip,
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.md),
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnGewusst,
-                        variant: SoriButtonVariant.filled,
-                        accent: SoriColors.success,
-                        onTap: _gotIt,
-                      ),
-                    ),
-                  ],
+                // §P2-3: 텍스트 CTA → 아이콘 버튼 바. ⚠️ 의도적 행동 변경:
+                // 판정 버튼에 플립 게이트 확장 — flipgate 계약의 강화
+                // (custom_pack_flipgate_test 갱신 + SESSION_LOG 기록).
+                // ↑ 저장은 비노출 (§P2-2 — showSave: false).
+                SoriDeckActionBar(
+                  onDontKnow: _dontKnow,
+                  onKnow: _gotIt,
+                  onSkip: _defer,
+                  judgmentsEnabled: _flipped,
+                  onBlockedJudgmentTap: () => _flipHintTrigger.value++,
+                  showSave: false,
+                  dontKnowLabel: t.btnNichtGewusst,
+                  knowLabel: t.btnGewusst,
+                  skipLabel: t.btnSkip,
+                  saveLabel: t.deckActionSave,
                 ),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// 덱 스택 underlay 용 앞면 슬롯 — 본 카드와 동일한 지오메트리 경로.
+  Widget _faceSlot(CustomPack pack, dynamic word) {
+    return Center(
+      child: FractionallySizedBox(
+        heightFactor: 0.82,
+        child: SizedBox(
+          width: double.infinity,
+          child: SoriStudyScale(
+            child: _Front(
+              word: word,
+              deckKoreans: [for (final x in pack.words) x.korean],
             ),
           ),
         ),

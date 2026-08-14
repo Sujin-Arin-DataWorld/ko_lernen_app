@@ -18,6 +18,8 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
@@ -314,6 +316,26 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _next();
   }
 
+  // §P2-5 플립 게이트 힌트 칩 트리거.
+  final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
+
+  @override
+  void dispose() {
+    _flipHintTrigger.dispose();
+    super.dispose();
+  }
+
+  /// ↑ 저장 (§P2-2) — **추가 전용**. 이미 즐겨찾기면 no-op(스프링백만) —
+  /// 토글 그대로 쓰면 재스와이프가 해제되고 favorites 모드에선 리스트가
+  /// 즉석 축소된다. 해제는 기존 별 탭 경로만.
+  void _favoriteAdd() {
+    final cur = _current;
+    if (cur == null || _favorites.contains(cur.korean)) {
+      return;
+    }
+    _toggleFavorite(cur.korean);
+  }
+
   void _onFlip() {
     HapticFeedback.selectionClick();
     setState(() => _flipped = !_flipped);
@@ -379,6 +401,17 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         ),
       );
     }
+
+    // §P2-5: 4방향 덱 코치 — 기존 legacyVocab 코치가 이미 표시된 뒤에만.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _flashCardKey,
+          afterCoachIds: const ['legacyVocab'],
+        );
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -462,8 +495,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 const SizedBox(height: 10),
 
                 // Card with swipe judgment + favorite star overlay
-                // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
+                // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
+                // ↑=즐겨찾기 추가 전용, ↓=스킵(기존 ⏭ 카운터).
                 Expanded(
                   child: Center(
                     child: FractionallySizedBox(
@@ -473,10 +506,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                           SoriSwipeCard(
                             // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
                             // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
-                            // 버튼 행도 if (_flipped) 게이트 — 동일 계약.
+                            // 버튼 바의 판정 2개도 같은 게이트 — 동일 계약.
                             enabled: _flipped,
                             onSwipeRight: _gewusst,
                             onSwipeLeft: _nichtGewusst,
+                            onSwipeUp: _favoriteAdd,
+                            onSwipeDown: _skip,
+                            onBlockedHorizontalDrag: () =>
+                                _flipHintTrigger.value++,
                             rightBadge: SoriSwipeBadge(
                               label: t.btnGewusst,
                               icon: Icons.check_rounded,
@@ -487,6 +524,23 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                               icon: Icons.close_rounded,
                               color: SoriColors.danger,
                             ),
+                            upBadge: SoriSwipeBadge(
+                              label: t.deckActionSave,
+                              icon: Icons.star_rounded,
+                              color: SoriColors.goldOnLight,
+                            ),
+                            downBadge: SoriSwipeBadge(
+                              label: t.btnSkip,
+                              icon: Icons.arrow_downward_rounded,
+                              color: SoriColors.info,
+                            ),
+                            // 덱 스택 미리보기 — 다음 카드 **앞면만** (§P2-1,
+                            // 랩어라운드 :_next 와 대칭).
+                            underlay: _filtered.length > 1
+                                ? _faceSlot(
+                                    _filtered[(_idx + 1) % _filtered.length],
+                                  )
+                                : null,
                             // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
                             // 애니메이션에서 별이 제자리에 남지 않도록.
                             child: Stack(
@@ -553,6 +607,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                               ],
                             ),
                           ),
+                          Positioned(
+                            top: Spacing.sm,
+                            left: 0,
+                            right: 0,
+                            child: Center(
+                              child: SoriDeckFlipHint(
+                                trigger: _flipHintTrigger,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -560,33 +624,22 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 ),
                 const SizedBox(height: 12),
 
-                // Answer buttons (only when flipped)
-                if (_flipped) ...[
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnGewusst,
-                          icon: Icons.check,
-                          accent: SoriColors.success,
-                          fullWidth: true,
-                          onTap: _gewusst,
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close,
-                          fullWidth: true,
-                          destructive: true,
-                          onTap: _nichtGewusst,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                ],
+                // §P2-3: 플립 시에만 나타나던 판정 행 + 하단 Skip 버튼을 상시
+                // 아이콘 버튼 바로 흡수 — 카드 슬롯이 플립 상태와 무관하게
+                // 고정된다 (deck_card_geometry 센서). ↑ 저장 = 즐겨찾기 추가.
+                SoriDeckActionBar(
+                  onDontKnow: _nichtGewusst,
+                  onKnow: _gewusst,
+                  onSkip: _skip,
+                  onSave: _favoriteAdd,
+                  judgmentsEnabled: _flipped,
+                  onBlockedJudgmentTap: () => _flipHintTrigger.value++,
+                  dontKnowLabel: t.btnNichtGewusst,
+                  knowLabel: t.btnGewusst,
+                  skipLabel: t.btnSkip,
+                  saveLabel: t.deckActionSave,
+                ),
+                const SizedBox(height: Spacing.sm),
 
                 // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
                 Row(
@@ -659,15 +712,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                     const SizedBox(width: Spacing.xs + 2),
                     Expanded(
                       child: SoriButton.outlined(
-                        label: t.btnSkip,
-                        icon: Icons.skip_next,
-                        fullWidth: true,
-                        onTap: _skip,
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriButton.outlined(
                         label: t.btnRandom,
                         icon: Icons.shuffle,
                         fullWidth: true,
@@ -690,6 +734,22 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  /// 덱 스택 underlay 용 앞면 슬롯 — 본 카드와 동일한 지오메트리 경로.
+  Widget _faceSlot(Vocab v) {
+    return SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: SoriStudyScale(
+        child: _Front(
+          v: v,
+          koFirst: _koFirst,
+          deckKoreans: _deckKoreans,
+          deckTranslations: _deckTranslations(context),
         ),
       ),
     );

@@ -15,9 +15,10 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
+
+import 'helpers/deck_actions.dart';
 
 Vocab _word(int n, String korean, {bool boss = false}) => Vocab(
   id: 'uc_v$n',
@@ -93,10 +94,7 @@ void main() {
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
-    tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((b) => b.label == t.vocabPackGotIt)
-        .onTap!();
+    tapDeckAction(tester, t.vocabPackGotIt);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
@@ -171,8 +169,10 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
 
     // 뒷면: 예문 + 스피커 아이콘 + 탭/롱프레스 가능한 SoriPressable.
+    // (§P2 덱 스택 underlay 가 다음 카드 앞면의 스피커 아이콘도 렌더하므로
+    // 아이콘은 1개 이상 — 예문 SoriPressable 단언이 핵심이다.)
     expect(find.textContaining('하나 예문입니다.'), findsOneWidget);
-    expect(find.byIcon(Icons.volume_up_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.volume_up_rounded), findsWidgets);
     final pressable = tester.widget<SoriPressable>(
       find.byType(SoriPressable).first,
     );

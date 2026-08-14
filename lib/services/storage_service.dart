@@ -1303,6 +1303,9 @@ class Storage {
     'stats',
     'quests',
     'scenarios',
+    // Sori Deck 4방향 스와이프 공용 코치 (deck_coach.dart — ScreenCoachMixin
+    // 밖의 공용 헬퍼지만 같은 레지스트리로 resetTutorials 커버리지를 받는다).
+    'soriDeck',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).

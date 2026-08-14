@@ -3007,6 +3007,30 @@ abstract class AppL10n {
   /// **'Gewusst'**
   String get vocabPackGotIt;
 
+  /// No description provided for @deckActionSave.
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get deckActionSave;
+
+  /// No description provided for @deckFlipFirstHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Erst antippen und umdrehen'**
+  String get deckFlipFirstHint;
+
+  /// No description provided for @coachSoriDeckTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte wischen'**
+  String get coachSoriDeckTitle;
+
+  /// No description provided for @coachSoriDeckBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
+  String get coachSoriDeckBody;
+
   /// No description provided for @vocabPackStageLearn.
   ///
   /// In de, this message translates to:
@@ -7378,7 +7402,7 @@ abstract class AppL10n {
   /// No description provided for @coachVocabPackStep1.
   ///
   /// In de, this message translates to:
-  /// **'Schritt 1 · Lernen: Karten umdrehen und einprägen'**
+  /// **'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen — rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen'**
   String get coachVocabPackStep1;
 
   /// No description provided for @coachVocabPackStep2.
@@ -7954,7 +7978,7 @@ abstract class AppL10n {
   /// No description provided for @coachReviewStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück'**
+  /// **'\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück. Nach dem Umdrehen geht auch Wischen: rechts = gewusst, links = nicht gewusst.'**
   String get coachReviewStep2Body;
 
   /// No description provided for @coachLegacyVocabTitle.

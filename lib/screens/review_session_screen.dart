@@ -17,6 +17,8 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/mascot.dart';
@@ -121,7 +123,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     // M5: vorgegebener personalisierter Deck hat Vorrang.
     if (widget.deck != null) {
       setState(() {
-        _deck = widget.deck!;
+        // §P2: ↓ 스킵이 덱 순서를 바꾸므로 호출부 리스트를 변형하지 않게 복사.
+        _deck = List.of(widget.deck!);
         _loading = false;
       });
       return;
@@ -145,6 +148,52 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Vocab get _card => _deck[_idx];
+
+  // §P2-5 플립 게이트 힌트 칩 트리거.
+  final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
+
+  @override
+  void dispose() {
+    _flipHintTrigger.dispose();
+    super.dispose();
+  }
+
+  /// ↑ 저장 (§P2-2) — AppBar 의 [AddToWordbookButton] 이 접근성 정본이고
+  /// ↑ 는 같은 동작의 가속 경로. SRS/오답 접근 금지, 전진 없음.
+  void _saveCurrent() {
+    if (_loading || _done || _deck.isEmpty) {
+      return;
+    }
+    final card = _card;
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: card.korean,
+      translationDe: card.german,
+      romanization: card.romanization,
+      posDe: card.posDe,
+      exampleKorean: card.exampleKorean,
+      exampleDe: card.exampleGerman,
+      source: 'deck_swipe',
+    );
+  }
+
+  /// ↓ 스킵 (§P2-2) — 현재 카드를 덱 맨 뒤로 + 앞면 리셋. SRS 기록 없음.
+  /// 현재 카드가 이미 마지막 위치면 맨뒤-이동이 no-op — 스프링백만.
+  void _deferCurrent() {
+    if (_loading || _done || _deck.isEmpty) {
+      return;
+    }
+    if (_idx >= _deck.length - 1) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() {
+      final card = _deck.removeAt(_idx);
+      _deck.add(card);
+      _flipped = false;
+    });
+  }
 
   String? get _unambiguousDeckLevel {
     return unambiguousReviewLevel(_deck.map((word) => word.level));
@@ -367,6 +416,17 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     final total = _deck.length;
     final tt = SoriTextTheme.of(context);
 
+    // §P2-5: 4방향 덱 코치 — 기존 review 코치가 이미 표시된 뒤에만.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _cardKey,
+          afterCoachIds: const ['review'],
+        );
+      }
+    });
+
     return Column(
       children: [
         Padding(
@@ -424,91 +484,91 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ? constraints.maxHeight
                     : 360.0;
                 final cardH = h * 0.82;
+                final Vocab? next = _idx + 1 < _deck.length
+                    ? _deck[_idx + 1]
+                    : null;
                 return Center(
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
-                  // 접근성·발견가능성의 정본으로 그대로 남는다.
-                  child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
-                    enabled: _flipped,
-                    onSwipeRight: () => _answer(true),
-                    onSwipeLeft: () => _answer(false),
-                    rightBadge: SoriSwipeBadge(
-                      label: t.btnGewusst,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.btnNichtGewusst,
-                      icon: Icons.close_rounded,
-                      color: SoriColors.danger,
-                    ),
-                    child: SoriPressable(
-                      key: _cardKey,
-                      onTap: () => setState(() => _flipped = !_flipped),
-                      haptic: SoriHaptic.selection,
-                      child: SizedBox(
-                        // P1 공통 센서 finder — test/deck_card_geometry_test.dart.
-                        key: const ValueKey('deck-card-slot'),
-                        width: double.infinity,
-                        height: cardH,
-                        child: SoriStudyScale(
-                          child: SoriCard(
-                            variant: SoriCardVariant.hero,
-                            accent: SoriColors.primary,
-                            tinted: !_flipped,
-                            child: LayoutBuilder(
-                              builder: (context, cc) {
-                                // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
-                                // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
-                                // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
-                                // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
-                                // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
-                                final ch = cc.maxHeight.isFinite
-                                    ? cc.maxHeight
-                                    : 360.0;
-                                // P1-2 (2026-08-14, 의도된 시각 변화): 제시어
-                                // 크기를 per-word FittedBox 단독에서 **덱 공유
-                                // 균일값**으로 — 단어마다 글자 크기가 튀지
-                                // 않는다 (custom_pack_play 선례 복제).
-                                // FittedBox 는 실측 오차용 안전망으로만 남는다.
-                                final headlineSize = soriUniformFitSize(
-                                  context,
-                                  texts: [for (final v in _deck) v.korean],
-                                  maxWidth: cc.maxWidth,
-                                  cap: _sz(ch, 0.155, 38, 72),
-                                  min: 30,
-                                  fontWeight: FontWeight.w900,
-                                  lineHeight: 1.05,
-                                );
-                                return SingleChildScrollView(
-                                  child: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                      minHeight: cc.maxHeight,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: _flipped
-                                          ? _backList(card, s, tt, t, ch)
-                                          : _frontList(
-                                              card,
-                                              s,
-                                              tt,
-                                              t,
-                                              ch,
-                                              headlineSize,
-                                            ),
-                                    ),
+                  // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
+                  // ↑=저장(가속 경로), ↓=맨 뒤로 미루기. 탭 플립과 공존.
+                  child: Stack(
+                    fit: StackFit.passthrough,
+                    children: [
+                      SoriSwipeCard(
+                        // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                        // 카드에 SRS가 기록되는 데이터 버그 방지.
+                        enabled: _flipped,
+                        onSwipeRight: () => _answer(true),
+                        onSwipeLeft: () => _answer(false),
+                        onSwipeUp: _saveCurrent,
+                        onSwipeDown: _deferCurrent,
+                        onBlockedHorizontalDrag: () => _flipHintTrigger.value++,
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                        ),
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.close_rounded,
+                          color: SoriColors.danger,
+                        ),
+                        upBadge: SoriSwipeBadge(
+                          label: t.deckActionSave,
+                          icon: Icons.redeem_rounded,
+                          color: SoriColors.goldOnLight,
+                        ),
+                        downBadge: SoriSwipeBadge(
+                          label: t.btnSkip,
+                          icon: Icons.arrow_downward_rounded,
+                          color: SoriColors.info,
+                        ),
+                        // 덱 스택 미리보기 — 다음 카드 **앞면만** (§P2-1).
+                        underlay: next == null
+                            ? null
+                            : SizedBox(
+                                width: double.infinity,
+                                height: cardH,
+                                child: SoriStudyScale(
+                                  child: _heroCardBody(
+                                    next,
+                                    s,
+                                    tt,
+                                    t,
+                                    showBack: false,
                                   ),
-                                );
-                              },
+                                ),
+                              ),
+                        child: SoriPressable(
+                          key: _cardKey,
+                          onTap: () => setState(() => _flipped = !_flipped),
+                          haptic: SoriHaptic.selection,
+                          child: SizedBox(
+                            // P1 공통 센서 finder —
+                            // test/deck_card_geometry_test.dart.
+                            key: const ValueKey('deck-card-slot'),
+                            width: double.infinity,
+                            height: cardH,
+                            child: SoriStudyScale(
+                              child: _heroCardBody(
+                                card,
+                                s,
+                                tt,
+                                t,
+                                showBack: _flipped,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      Positioned(
+                        top: Spacing.sm,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: SoriDeckFlipHint(trigger: _flipHintTrigger),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
@@ -522,29 +582,73 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             Spacing.lg,
             Spacing.lg,
           ),
-          child: Row(
+          // §P2-3: 텍스트 CTA → 아이콘 버튼 바. ⚠️ 의도적 행동 변경: 판정
+          // 버튼에 플립 게이트 확장 — flipgate 계약의 강화(완화 금지).
+          // _answerRowKey 재부착 필수 — SpotlightCoach 2단계 타깃.
+          child: SoriDeckActionBar(
             key: _answerRowKey,
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNichtGewusst,
-                  destructive: true,
-                  fullWidth: true,
-                  onTap: () => _answer(false),
-                ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.btnGewusst,
-                  fullWidth: true,
-                  onTap: () => _answer(true),
-                ),
-              ),
-            ],
+            onDontKnow: () => _answer(false),
+            onKnow: () => _answer(true),
+            onSkip: _deferCurrent,
+            onSave: _saveCurrent,
+            judgmentsEnabled: _flipped,
+            onBlockedJudgmentTap: () => _flipHintTrigger.value++,
+            dontKnowLabel: t.btnNichtGewusst,
+            knowLabel: t.btnGewusst,
+            skipLabel: t.btnSkip,
+            saveLabel: t.deckActionSave,
           ),
         ),
       ],
+    );
+  }
+
+  /// 히어로 카드 본문 — 본 카드와 덱 스택 underlay(다음 카드 앞면)가 공유.
+  /// P1 의 덱 공유 균일 헤드라인 계산을 포함해 **본문 그대로** 추출했다.
+  Widget _heroCardBody(
+    Vocab card,
+    SoriSurfaces s,
+    SoriTextTheme tt,
+    AppL10n t, {
+    required bool showBack,
+  }) {
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.primary,
+      tinted: !showBack,
+      child: LayoutBuilder(
+        builder: (context, cc) {
+          // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 → 텍스트가 카드
+          // 크기에 비례해 커지고(기기 무관 균일 충전율) 세로는 spaceEvenly 로
+          // 카드를 채운다. 콘텐츠가 카드보다 커지는 드문 경우엔
+          // SingleChildScrollView 가 스크롤로 받아낸다(기존 계약 유지).
+          final ch = cc.maxHeight.isFinite ? cc.maxHeight : 360.0;
+          // P1-2 (2026-08-14, 의도된 시각 변화): 제시어 크기를 per-word
+          // FittedBox 단독에서 **덱 공유 균일값**으로 — 단어마다 글자 크기가
+          // 튀지 않는다 (custom_pack_play 선례 복제). FittedBox 는 실측
+          // 오차용 안전망으로만 남는다.
+          final headlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final v in _deck) v.korean],
+            maxWidth: cc.maxWidth,
+            cap: _sz(ch, 0.155, 38, 72),
+            min: 30,
+            fontWeight: FontWeight.w900,
+            lineHeight: 1.05,
+          );
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: cc.maxHeight),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: showBack
+                    ? _backList(card, s, tt, t, ch)
+                    : _frontList(card, s, tt, t, ch, headlineSize),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 

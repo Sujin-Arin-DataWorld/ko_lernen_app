@@ -1667,6 +1667,19 @@ class AppL10nDe extends AppL10n {
   String get vocabPackGotIt => 'Gewusst';
 
   @override
+  String get deckActionSave => 'Merken';
+
+  @override
+  String get deckFlipFirstHint => 'Erst antippen und umdrehen';
+
+  @override
+  String get coachSoriDeckTitle => 'Karte wischen';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+
+  @override
   String get vocabPackStageLearn => 'Lernen';
 
   @override
@@ -4246,7 +4259,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen: Karten umdrehen und einprägen';
+      'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen — rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen';
 
   @override
   String get coachVocabPackStep2 =>
@@ -4590,7 +4603,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachReviewStep2Body =>
-      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück';
+      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück. Nach dem Umdrehen geht auch Wischen: rechts = gewusst, links = nicht gewusst.';
 
   @override
   String get coachLegacyVocabTitle => 'Karteikarte';

@@ -1,5 +1,70 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P2: Sori Deck 2.0 — 4방향 덱
+
+**무엇/왜.** 핸드오프 §P2 실행 — 학습 카드가 데이팅앱급 "들고 넘기는 물건"이
+된다. 판정 무결성(SRS)은 1비트도 안 흔들린다. Jin 확정 §1: 좌=모름 · 우=앎 ·
+위=저장 · 아래=스킵, 하단은 미니 원형 아이콘 버튼(모름=`?`).
+
+- **`SoriSwipeCard` 4방향 확장** (`swipe_card.dart`): 수평 전용 →
+  `onPan*` + **지배축 잠금**(누적 12px, 반대축 무시 — 대각 이중 트리거 차단).
+  `enabled:false` 수평은 콜백을 죽이는 대신 **저항 드래그**(표시 ×0.15) +
+  원시 24px 초과 1회 `onBlockedHorizontalDrag` 힌트 훅 — 단 **좌/우 콜백
+  0회 계약 불변**(flipgate 센서 유지). 수직 임계 `min(120, 높이×0.25)`/
+  vy 700. ↓ = 하단 퇴장, **↑ = 퇴장 없음**(커밋 1회 후 스프링백 — 저장은
+  전진이 아니다). `underlay`(덱 스택, 다음 카드 **앞면만**) — 진행도는
+  커밋 거리 정규화, **위 드래그는 p 계산 제외**, IgnorePointer.
+- **`LearnSessionQueue.defer()` + `peekNext`**: markUnknown 과 동일 재삽입
+  기하, misses 증가 없음(졸업 경로 차단), `deferred` outcome 신설.
+- **신규 공용 `deck_action_bar.dart`**: [?모름 64dp·accent 테두리] [↓스킵
+  48dp] [복주머니 저장 48dp·gold] [✓앎 64dp·primary 채움]. 아이콘은
+  `assets/illustrations/deck/action_*.webp`(§R-3 드롭 전 Material 폴백 —
+  폴백 우선 배포, pubspec 등록 + .gitkeep 동일 커밋). 판정 2개는 플립 전
+  opacity 0.38 + 탭 시 힌트.
+- **4화면 배선** (§P2-2 표 그대로): vocab_pack(↑ quickAdd `deck_swipe` ·
+  ↓ defer→`_advanceLearn`), review(↑ 저장 · ↓ 맨뒤 이동+앞면 리셋 · 덱은
+  `List.of` 복사), custom(**`_skip`→`_dontKnow` 개명** — 이름과 달리 완전한
+  음성 판정이었다, 배지 `btnNichtGewusst` 정정 · ↑ 비노출 `showSave:false` ·
+  ↓ 기록 없는 전진), legacy(↑ 즐겨찾기 **추가 전용** · ↓ 기존 ⏭ 카운터 ·
+  플립 시에만 나타나던 판정 행+Skip 버튼을 상시 바로 흡수 — 카드 슬롯이
+  플립 무관 고정, prev/Hören/Random 보조 행 유지).
+- **⚠️ 의도적 행동 변경**: review·custom 의 판정 **버튼**에 플립 게이트
+  확장(기존은 앞면에서도 `_answer`/SRS 기록) — flipgate 계약의 강화.
+  기존 테스트 2건(앞면 버튼 판정 단언)을 의도 변경으로 갱신 + 앞면 버튼
+  탭 → SRS 0 센서 신설.
+- **§P2-5 발견성**: `deck_coach.dart` — `SoriDeckFlipHint` 칩(150ms 페이드,
+  3초 소멸, 트리거당 1회) + `maybeShowSoriDeckCoach`(공용 헬퍼 —
+  ScreenCoachMixin 은 State 당 1 coachId 라 공유 불가. `'soriDeck'` 을
+  `kScreenCoachIds` 등록 → resetTutorials 커버리지. 화면 자체 코치가 표시된
+  뒤에만 발화해 오버레이 겹침 방지. 4방향 화살표는 CustomPaint 대신
+  `Icons.open_with_rounded` 아이콘 슬롯 재사용 — 최소침습 편차, 기록).
+  vocab_pack 은 FeatureCoach 시트 유지 + `coachVocabPackStep1` 스와이프
+  서술 갱신, `coachReviewStep2Body` 도 갱신. 신규 ARB 4키 DE/EN
+  (`deckActionSave`·`deckFlipFirstHint`·`coachSoriDeckTitle`·`coachSoriDeckBody`).
+- **🔴 부수 발견·수리 — `MediaMutationLock` 좀비 앵커**: static `_tail` 이
+  죽은 fake-async zone 의 완료 future 로 남아, 서로 다른 testWidgets 두 개가
+  각각 quickAdd 를 부르면 두 번째가 **영원히 대기**했다(기존 잠복 지뢰 —
+  §P2 덱 센서가 발견). 큐가 빌 때 앵커를 현재 zone 에서 재생성(＋pending
+  카운터). 프로덕션(단일 zone) 무해.
+- **테스트 하니스 정비**: 옛 `SoriButton.firstWhere(label).onTap!()` 패턴을
+  공용 `test/helpers/deck_actions.dart` 의 `tapDeckAction`(Semantics 라벨 →
+  SoriPressable 콜백)으로 이관(9파일). 기존 flipgate 3파일에 코치 오버레이
+  차단 플래그(`kl_tut_*`)를 심어 **드래그 단언의 공허함(RenderAbsorbPointer
+  가 삼킴)을 제거** — HANDOFF_REMAINING "Phase 5 실행 대기"의 보강 요구
+  이행. legacy 지오메트리 센서는 플립 단언을 풀 rect 로 강화(바 상시화 결과).
+
+**검증.** `flutter analyze` 0 · P2 배터리 **87 green** (swipe_card 11 ·
+deck_vertical_gesture 7 · vocab_pack_flipgate 2 신설 · 기존 flipgate 3화면
+(버튼 게이트 센서 포함) · deck_card_geometry 4 · learn_queue 12(defer/peekNext
+4 신설) · requeue·spoiler·uniform·typography·ledger·feedback-route 등) +
+responsive·responsive_short_height·accessibility·screen_smoke **784 green** ·
+래칫 7종 불변.
+
+**Jin 실기기 대기.** 4방향 손맛 · 좌우 엣지 vs 시스템 back 제스처 · 위 스와이프
+vs 알림 셰이드 · 햅틱 강도 (§J-3).
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P1: 카드 고정 지오메트리 수리 + 센서
 
 **무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P1 실행. 카드 폭이 단어

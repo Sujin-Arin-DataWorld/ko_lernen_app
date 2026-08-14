@@ -23,6 +23,10 @@ enum LearnAnswerOutcome {
 
   /// [LearnSessionQueue.maxMisses]번째 몰라요 — 세션에서는 더 묻지 않는다.
   graduated,
+
+  /// ↓ 스킵([LearnSessionQueue.defer]) — 판정 없이 몇 장 뒤로 미뤘다.
+  /// [LearnSessionQueue.maxMisses] 졸업 경로와 무관 (misses 증가 없음).
+  deferred,
 }
 
 class LearnSessionQueue<T> {
@@ -53,6 +57,10 @@ class LearnSessionQueue<T> {
   /// 지금 서빙 중인 단어. 큐가 비면 null.
   T? get current => _queue.isEmpty ? null : _queue.first;
 
+  /// 다음에 서빙될 단어 — 덱 스택 미리보기(underlay) 전용 읽기 API.
+  /// 큐에 두 장 미만이면 null.
+  T? get peekNext => _queue.length > 1 ? _queue[1] : null;
+
   bool get isDone => _queue.isEmpty;
 
   /// 1-based 진행 분자. 재출제 중에는 유지되고, 단어가 빠질 때만 전진.
@@ -82,6 +90,18 @@ class LearnSessionQueue<T> {
     }
     _queue.insert(math.min(reinsertGap, _queue.length), item);
     return LearnAnswerOutcome.requeued;
+  }
+
+  /// ↓ 스킵 — **기록 없는 미루기** (Sori Deck 2.0 §P2-4). [markUnknown] 과
+  /// 동일한 재삽입 기하([reinsertGap]장 뒤), 단 misses **증가 없음**(졸업
+  /// 경로 차단). [servedPosition] 규칙도 markUnknown 과 동일 — 큐 길이가
+  /// 불변이므로 진행바는 후퇴하지 않는다. 큐 1장이면 재삽입 = 같은 카드
+  /// 재서빙 (유효 — 무한 defer 는 사용자 선택).
+  LearnAnswerOutcome defer() {
+    _requireCurrent();
+    final item = _queue.removeAt(0);
+    _queue.insert(math.min(reinsertGap, _queue.length), item);
+    return LearnAnswerOutcome.deferred;
   }
 
   void _requireCurrent() {

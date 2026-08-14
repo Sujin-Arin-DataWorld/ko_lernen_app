@@ -1660,6 +1660,19 @@ class AppL10nEn extends AppL10n {
   String get vocabPackGotIt => 'Got it';
 
   @override
+  String get deckActionSave => 'Save';
+
+  @override
+  String get deckFlipFirstHint => 'Tap the card to flip it first';
+
+  @override
+  String get coachSoriDeckTitle => 'Swipe the card';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Swipe the card: right = knew it, left = didn\'t know, up = save, down = skip.';
+
+  @override
   String get vocabPackStageLearn => 'Learn';
 
   @override
@@ -4229,7 +4242,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Step 1 · Learn: flip the cards and study them';
+      'Step 1 · Learn: tap to flip the card, then swipe — right = knew it, left = didn\'t know, up = save, down = skip';
 
   @override
   String get coachVocabPackStep2 => 'Step 2 · Quiz: pick the right translation';
@@ -4570,7 +4583,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachReviewStep2Body =>
-      '\"Got it\" extends the interval · \"Didn\'t know\" brings the card back sooner';
+      '\"Got it\" extends the interval · \"Didn\'t know\" brings the card back sooner. After flipping you can also swipe: right = got it, left = didn\'t know.';
 
   @override
   String get coachLegacyVocabTitle => 'Flashcard';

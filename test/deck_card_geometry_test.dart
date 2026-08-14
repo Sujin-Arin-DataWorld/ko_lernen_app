@@ -14,7 +14,8 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+
+import 'helpers/deck_actions.dart';
 
 /// **P1 카드 고정 지오메트리 센서** (UI 개편 2, 2026-08-14).
 ///
@@ -78,6 +79,8 @@ void main() {
       'kl_tut_cpPlay': true,
       'kl_tut_review': true,
       'kl_tut_legacyVocab': true,
+      'kl_tut_soriDeck': true,
+      'kl_tut_wordbook': true,
     });
     await Storage.init();
     await Storage.setTutVocabPackSeen();
@@ -129,10 +132,7 @@ void main() {
       expectSameRect(front1, slotRect(tester), '플립 전/후 슬롯 rect 동일');
 
       // 긴 단어 카드로 전진.
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.vocabPackGotIt)
-          .onTap!();
+      tapDeckAction(tester, t.vocabPackGotIt);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
       expect(find.text(longKo), findsOneWidget);
@@ -165,6 +165,8 @@ void main() {
       SharedPreferences.setMockInitialValues({
         'kl_user_level': 'a1',
         'kl_tut_cpPlay': true,
+        'kl_tut_soriDeck': true,
+        'kl_tut_wordbook': true,
         'kl_custom_packs_v1': jsonEncode({
           packId: {
             'name': 'Geo Pack',
@@ -191,10 +193,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 450));
       expectSameRect(front1, slotRect(tester), '플립 전/후 슬롯 rect 동일');
 
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.btnGewusst)
-          .onTap!();
+      tapDeckAction(tester, t.btnGewusst);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
       expect(find.text(longKo), findsOneWidget);
@@ -224,10 +223,7 @@ void main() {
       expectSameRect(front1, slotRect(tester), '플립 전/후 슬롯 rect 동일');
 
       // 판정으로 다음(긴 단어) 카드.
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.btnGewusst)
-          .onTap!();
+      tapDeckAction(tester, t.btnGewusst);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
       expect(find.text(longKo), findsOneWidget);
@@ -255,21 +251,16 @@ void main() {
       // 400 − 좌우 padding 12×2.
       expect(front1.width, closeTo(376, 0.5), reason: '슬롯 폭 = 가용폭 가득');
 
-      // 플립 — legacy 는 판정 버튼 행이 플립 시에만 나타나 카드가 위로 밀린다
-      // (기존 화면 동작). P2-3 이 이 행을 상시 액션 바로 흡수하면 top 까지
-      // 불변이 된다 — 여기서는 크기(폭·높이) 불변만 단언한다.
+      // 플립 — §P2-3 상시 액션 바가 옛 조건부 판정 행을 흡수해 카드 슬롯이
+      // 플립 상태와 완전히 무관해졌다 (풀 rect 단언).
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
-      final flipped1 = slotRect(tester);
-      expect(flipped1.width, closeTo(front1.width, 0.1));
+      expectSameRect(front1, slotRect(tester), '플립 전/후 슬롯 rect 동일');
 
       // 판정 없는 전진(스킵) → 긴 단어 카드.
       final t = await AppL10n.delegate.load(const Locale('de'));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.btnSkip)
-          .onTap!();
+      tapDeckAction(tester, t.btnSkip);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
       expect(find.text(longKo), findsOneWidget);

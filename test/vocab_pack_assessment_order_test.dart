@@ -11,8 +11,9 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
+
+import 'helpers/deck_actions.dart';
 
 Vocab _word(int index, {bool boss = false}) => Vocab(
   id: 'order-$index',
@@ -33,10 +34,7 @@ Future<void> _revealAndMarkKnown(WidgetTester tester, AppL10n t) async {
   tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 400));
-  tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((button) => button.label == t.vocabPackGotIt)
-      .onTap!();
+  tapDeckAction(tester, t.vocabPackGotIt);
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 400));
 }
