@@ -6,9 +6,9 @@
 
 **센서.** `test/deck_card_geometry_test.dart`를 추가해 네 화면 모두에서 짧은 값과 긴 값의 슬롯 rect 동일, 플립 전후 rect 동일, 슬롯 폭과 `SoriSwipeCard` 가용 폭 동일을 고정했다. 카드 판정·SRS·wrong-count·서빙 순서와 기존 flip gate는 변경하지 않았다.
 
-**검증.** Cloud VM에 Flutter/Dart가 없어 SDK 3.44.0 설치 후 실행한다. 현재는 `git diff --check`와 Dart format을 포함한 기계 검증 대기 상태다.
+**검증.** Cloud VM에 Flutter 3.44.0을 설치해 `flutter analyze --no-pub --fatal-infos` 0 issues, P1 집중 배터리 **29/29 통과**를 확인했다. 센서의 `width: double.infinity`를 실제로 제거하면 `deck_card_geometry_test`가 `Infinity` 대신 `null`을 관측해 RED가 되고, 복원 뒤 GREEN이 되는 파괴-복원 프로토콜도 통과했다. `dart format`과 `git diff --check`도 통과했다.
 
-**커밋:** 테스트 전 스냅샷 커밋에 포함하고, 검증 결과와 최종 해시는 후속 갱신한다.
+**커밋:** `c7bf909` (`fix(ui): pin learning deck geometry`) + `1c674bd` (`test(ui): stabilize deck geometry sensors`). 최종 검증 기록은 후속 커밋에 포함한다.
 
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 

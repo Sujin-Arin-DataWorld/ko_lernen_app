@@ -57,6 +57,11 @@ void _expectSlotFillsSwipe(WidgetTester tester) {
   expect(slot, findsOneWidget);
   expect(swipe, findsOneWidget);
   expect(
+    tester.widget<SizedBox>(slot).width,
+    double.infinity,
+    reason: 'loose swipe stacks require an explicit full-width deck slot',
+  );
+  expect(
     tester.getRect(slot).width,
     closeTo(tester.getRect(swipe).width, 0.01),
   );
