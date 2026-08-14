@@ -224,6 +224,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     ),
                     child: Center(
                       child: FractionallySizedBox(
+                        // P1: 덱 센서의 공통 finder — 폭·높이가 단어 텍스트와
+                        // 무관하게 고정됨을 증명하는 슬롯.
+                        key: const ValueKey('deck-card-slot'),
                         heightFactor: 0.82,
                         child: SoriStudyScale(
                           // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
@@ -389,6 +392,9 @@ class _Front extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      // P1: SoriCard 는 width:null 이면 내재폭(card.dart) — 슬롯 폭이 텍스트
+      // 길이에 따라 신축하던 회귀의 진짜 결함 지점이라 여기서 명시한다.
+      width: double.infinity,
       // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해 커지고
       // (기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
       // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가 스크롤로 받아낸다.
@@ -486,6 +492,9 @@ class _Back extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      // P1: SoriCard 는 width:null 이면 내재폭(card.dart) — 앞면과 동일하게
+      // 명시해 슬롯 폭 신축을 막는다.
+      width: double.infinity,
       // 앞면과 동일: 카드 안쪽 높이 기준으로 텍스트를 키우고 spaceEvenly 로 채운다.
       child: LayoutBuilder(
         builder: (context, constraints) {

@@ -1,5 +1,62 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud Agent) — UI/UX 개편 2 §P1 카드 고정 지오메트리 수리 + 센서
+
+**무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P1(최우선 — 3회차 재발 회귀)을
+구현했다. 4개 덱 화면(vocab_pack Learn·review_session·custom_pack_play·legacy_vocab)의
+카드 슬롯이 단어 텍스트 길이와 완전히 무관하게 가용 폭을 채우도록 고쳤다:
+
+- **`vocab_pack_screen.dart` Learn** — `SoriSwipeCard` 의 child 를 슬롯 높이 소스인
+  바깥 `LayoutBuilder(box)` 로 감싼 `SizedBox(key: 'deck-card-slot', width:
+  double.infinity, height: box.maxHeight)` 로 고정. `SoriStudyScale`/`soriUniformFitSize`
+  계산은 문서 경고대로 그 서브트리 **안**에 그대로 남겼다(태블릿 textScaler 부스트와
+  측정 컨텍스트 불일치 방지). `_FlipFront`/`_FlipBack` 의 `SoriCard` 에도
+  `width: double.infinity` 이중 안전벨트를 추가했다(파괴-복원으로 실제 결함 지점임을
+  증명 — 아래 검증 참고).
+- **`custom_pack_play_screen.dart`** — `_Front`/`_Back` 의 `SoriCard` 에
+  `width: double.infinity` 를 추가했다(진짜 결함 지점 — 기존에 폭 핀이 전혀 없었다).
+  높이는 기존 `FractionallySizedBox(heightFactor: 0.82)` 그대로 두고 슬롯 키만 부여.
+- **`review_session_screen.dart`** — 폭·높이는 이미 정본으로 핀돼 있었다(:426, :451-453
+  주석 "절대 지우지 말 것"). 슬롯 키만 부여해 4화면 공통 센서 finder 로 통일.
+- **`legacy_vocab_screen.dart`** — 폭(`_Front`/`_Back` `width: double.infinity`)·높이
+  (`FractionallySizedBox(heightFactor: 0.82)`) 모두 이미 핀돼 있었다. 슬롯 키만 부여.
+- **P1-2 타이포 지터 정합(사이징만, 리스타일 아님).** `review_session_screen.dart` 의
+  앞/뒷면 헤드라인을 per-word `FittedBox(scaleDown)` 단독에서 `soriUniformFitSize`
+  (덱 공유 균일 크기) 로 바꿔 custom_pack_play 의 선례와 정렬했다(`_deck` 는 오늘의
+  목표로 캡돼 있어 실측 비용 문제 없음). `legacy_vocab_screen.dart` 도 같은 방식으로
+  한국어 헤드라인만 바꿨는데, 이 화면의 'all' 모드는 전체 단어장(900+)일 수 있어
+  `soriUniformFitSize` 의 `texts` 를 등간격 stride 로 최대 60개 표본으로 캡하는
+  `_sampledForUniformFit` 헬퍼를 신설했다(전수 스캔 O(n) 실측 잭 방지 — 문서에 없는
+  판단이지만 실측 비용 폭주를 막기 위한 필수 보강).
+
+**신규 센서 — 진짜 산출물.** `test/deck_card_geometry_test.dart` (4화면 × 짧은/긴 단어 +
+플립 전/후 rect 비교 + 가용폭 채움 단언). legacy_vocab 은 판정 버튼 행이 `if (_flipped)`
+로만 나타나는 기존 설계(P2 아이콘 액션바 이전 구조) 때문에 플립 전/후 **폭**만 비교하고,
+같은 플립 상태(앞면)의 카드 1 vs 카드 2(긴 단어) 는 rect 전체를 비교한다. **파괴-복원
+프로토콜**: vocab_pack Learn 의 슬롯 `width: double.infinity` 와 `_FlipFront`/`_FlipBack`
+의 이중 안전벨트를 모두 주석 처리하면 짧은 단어 카드가 53~347px(폭 294px)로 좁아져
+①단언이 실제로 빨개지는 것을 확인했고(53.0,124.0,347.0,716.0 vs 원래 38.3,...,361.7,...),
+복원 후 다시 green 임을 재확인했다 — 커밋에는 복원된 상태만 포함한다.
+
+**검증.** `flutter analyze --fatal-infos` 0 issues. P1 관련 배터리(swipe/flipgate 13건 ·
+`flip_card_advance_regression` 2건 · `vocab_pack_requeue`/`flip_spoiler` · `study_scale` ·
+`vocab_pack_uniform_card` · 신규 `deck_card_geometry` 4건) 전부 green. 전체
+`flutter test --no-pub --concurrency=1 --reporter expanded`: **3306 passed, 2 skipped,
+14 failed** — 실패 14건은 전부 `test/goldens/`(design_components·screen_layout) 픽셀
+비교이며, 내 변경을 stash 한 clean HEAD(`e3fb927`)에서도 동일하게 실패함을 직접
+재현·확인했다(이 샌드박스의 폰트/렌더 환경이 골든 기준선을 생성한 CI 와 달라 발생하는
+기존 환경성 drift — `HANDOFF_REMAINING_TASKS_2026-08-14.md` §1 이 이미 Linux CI 재생성을
+별도 대기 항목으로 남겨 둔 상태와 일치). 내 4개 스크린 파일 변경 범위 밖의 실패다.
+
+**미착수(§3 Phase 지도 순서대로 다음 세션에서 진행).** P2(Sori Deck 2.0 4방향 스와이프·
+아이콘 액션바·`LearnSessionQueue.defer`/`peekNext`·코치마크) · P3(Today 리디자인) ·
+P4(카탈로그 폴리시) · P5(Gye 압축·Hanok 숏컷) · §R(리소그래프 파이프라인 + 신규 에셋
+6종 — BBANANA/Adobe MCP 및 Jin 시각 승인 게이트가 필요해 이 환경에서는 착수하지
+않았다). P1 은 문서상 "단독 배포 가능"이 명시된 최우선 항목이라 이번 세션은 이것부터
+완결했다.
+
+**커밋:** 이 로그 갱신과 함께 기록.
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.

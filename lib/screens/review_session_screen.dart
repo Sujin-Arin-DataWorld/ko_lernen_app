@@ -449,6 +449,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        // P1: 덱 센서의 공통 finder — 이 화면은 이미 폭/높이가
+                        // 정본으로 핀되어 있었다. 다른 3화면과 같은 키로
+                        // 통일해 센서가 4화면을 동일 방식으로 검증한다.
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -475,8 +479,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: _flipped
-                                          ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                                          ? _backList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              cc.maxWidth,
+                                            )
+                                          : _frontList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              cc.maxWidth,
+                                            ),
                                     ),
                                   ),
                                 );
@@ -536,8 +554,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double maxWidth,
   ) => [
-    // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
+    // 단어 — 카드를 채우는 대형 헤드라인.
+    //
+    // P1-2: 카드 하나만 보고 줄이는 per-word FittedBox 는 단어가 바뀔 때마다
+    // 글씨 크기가 요동친다 — [soriUniformFitSize] 로 덱 전체에서 가장 넓은
+    // 단어가 한 줄에 들어가는 크기 하나를 구해 모든 카드가 공유한다
+    // (custom_pack_play_screen.dart _Front 선례). FittedBox 는 실측 오차용
+    // 안전망으로만 남긴다 — 정상 경로에서는 개입하지 않는다.
     //
     // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
     // 0.19(최대 92sp) 대 뒷면 0.11(최대 48sp) = 1.7 배라, 짧은 한국어 단어는
@@ -551,7 +576,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: soriUniformFitSize(
+            context,
+            texts: [for (final word in _deck) word.korean],
+            maxWidth: maxWidth,
+            cap: _sz(h, 0.155, 38, 72),
+            min: 32,
+            fontWeight: FontWeight.w900,
+            letterSpacing: 0,
+          ),
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -595,11 +628,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double maxWidth,
   ) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
-      // 뜻 (헤드라인) — 긴 독일어(예: "Entschuldigung (formell)")가 큰 폰트로
-      // 3줄 폭주하지 않도록 FittedBox 로 한 줄에 맞춰 축소한다.
+      // 뜻 (헤드라인) — P1-2: 앞면과 같은 이유로 덱 공유 균일 크기
+      // ([soriUniformFitSize]) 로 바꾼다. FittedBox 는 실측 오차 안전망.
       FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
@@ -608,7 +642,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           style: TextStyle(
             fontFamily: 'Pretendard',
             // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
-            fontSize: _sz(h, 0.125, 28, 54),
+            fontSize: soriUniformFitSize(
+              context,
+              texts: [for (final word in _deck) word.translationFor(lang)],
+              maxWidth: maxWidth,
+              cap: _sz(h, 0.125, 28, 54),
+              min: 24,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0,
+            ),
             fontWeight: FontWeight.w800,
             height: 1.1,
           ),

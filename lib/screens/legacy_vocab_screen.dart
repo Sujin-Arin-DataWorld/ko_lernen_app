@@ -55,6 +55,25 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   String _topic = 'Alle';
   bool _koFirst = true;
 
+  /// P1-2: [soriUniformFitSize] 실측 비용을 [_filtered] 크기와 무관하게
+  /// 상수로 묶는 표본 크기. 'all' 모드에서는 [_filtered] 가 전체 단어장
+  /// (900+ 개)일 수 있어 매 리빌드마다 그만큼 TextPainter.layout 을 돌리면
+  /// 눈에 보이는 잭이 난다 — 균일 크기의 목적(단어 길이별 카드 크기 요동
+  /// 방지)은 "가장 넓은 후보를 대표하는 표본"만으로도 충족되므로, 등간격
+  /// stride 샘플링으로 실측 횟수를 상한선 이하로 고정한다.
+  static const int _uniformFitSampleCap = 60;
+
+  List<String> get _uniformFitKoreans =>
+      _sampledForUniformFit([for (final w in _filtered) w.korean]);
+
+  static List<String> _sampledForUniformFit(List<String> all) {
+    if (all.length <= _uniformFitSampleCap) return all;
+    final step = all.length / _uniformFitSampleCap;
+    return [
+      for (var i = 0; i < _uniformFitSampleCap; i++) all[(i * step).floor()],
+    ];
+  }
+
   /// 'due' = Tagesziel (neu + Wiederholung, capped), 'favorites' = ⭐ markierte, 'all' = alle.
   ///
   /// Phase 1 SRS-UX-Patch (stately-rising-jongga):
@@ -457,6 +476,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 Expanded(
                   child: Center(
                     child: FractionallySizedBox(
+                      // P1: 덱 센서의 공통 finder.
+                      key: const ValueKey('deck-card-slot'),
                       heightFactor: 0.82,
                       child: Stack(
                         children: [
@@ -488,8 +509,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                                       key: ValueKey('legacy-$_serve'),
                                       flipped: _flipped,
                                       onTap: _onFlip,
-                                      front: _Front(v: v, koFirst: _koFirst),
-                                      back: _Back(v: v, koFirst: _koFirst),
+                                      front: _Front(
+                                        v: v,
+                                        koFirst: _koFirst,
+                                        deckKoreans: _uniformFitKoreans,
+                                      ),
+                                      back: _Back(
+                                        v: v,
+                                        koFirst: _koFirst,
+                                        deckKoreans: _uniformFitKoreans,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -789,7 +818,15 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 class _Front extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Front({required this.v, required this.koFirst});
+
+  /// P1-2: 덱이 공유하는 균일 헤드라인 크기 표본 ([soriUniformFitSize]) —
+  /// 단어 길이에 따라 카드마다 글씨가 커졌다 작아졌다 하지 않는다.
+  final List<String> deckKoreans;
+  const _Front({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -812,8 +849,10 @@ class _Front extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
-          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 한 줄이라
-          // FittedBox 로 폭에 맞춰 줄이고, 번역은 여러 단어일 수 있어 줄바꿈 허용.
+          // 헤드라인 = koFirst 순서상 먼저 보이는 값. P1-2: 한국어 단어는
+          // [soriUniformFitSize] 로 덱 공유 균일 크기(단어 길이별 요동
+          // 방지) + FittedBox 는 실측 오차 안전망으로만. 번역은 여러
+          // 단어일 수 있어 줄바꿈 허용(사이징 불변).
           final Widget headline = koFirst
               ? FittedBox(
                   fit: BoxFit.scaleDown,
@@ -821,7 +860,13 @@ class _Front extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 38, 92),
+                      fontSize: soriUniformFitSize(
+                        context,
+                        texts: deckKoreans,
+                        maxWidth: constraints.maxWidth,
+                        cap: soriFillSize(h, 0.19, 38, 92),
+                        min: 32,
+                      ),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.info,
                       height: 1.15,
@@ -973,7 +1018,15 @@ class _MasteryChip extends StatelessWidget {
 class _Back extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Back({required this.v, required this.koFirst});
+
+  /// P1-2: 덱이 공유하는 균일 헤드라인 크기 표본 ([soriUniformFitSize]) —
+  /// 단어 길이에 따라 카드마다 글씨가 커졌다 작아졌다 하지 않는다.
+  final List<String> deckKoreans;
+  const _Back({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -992,8 +1045,9 @@ class _Back extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
-          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
-          // 한 줄에 맞추고, 번역은 줄바꿈 허용.
+          // 헤드라인 = koFirst 순서상 먼저 보이는 값. P1-2: 한국어 단어는
+          // [soriUniformFitSize] 로 덱 공유 균일 크기, 번역은 기존 사이징
+          // 그대로(줄바꿈 허용이라 요동 영향이 적다).
           final Widget headline = koFirst
               ? FittedBox(
                   fit: BoxFit.scaleDown,
@@ -1014,7 +1068,13 @@ class _Back extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 36, 92),
+                      fontSize: soriUniformFitSize(
+                        context,
+                        texts: deckKoreans,
+                        maxWidth: constraints.maxWidth,
+                        cap: soriFillSize(h, 0.19, 36, 92),
+                        min: 30,
+                      ),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,

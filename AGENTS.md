@@ -264,6 +264,21 @@ flutter run -d <android-id>   # 안드로이드
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.
+- [x] **§P1 카드 고정 지오메트리 수리 + 센서 (2026-08-14, Cursor Cloud Agent).**
+ `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P1(최우선)을 완료했다 — 4개 덱 화면
+ (vocab_pack Learn·review·custom_pack·legacy_vocab) 전부 카드 슬롯을 `deck-card-slot`
+ 키로 통일하고, 단어 텍스트 길이와 무관하게 가용 폭을 채우도록 폭 핀을 고쳤다
+ (custom_pack_play 는 이전에 폭 핀이 전혀 없던 진짜 결함 지점). review_session·
+ legacy_vocab 헤드라인도 `soriUniformFitSize` 덱 공유 균일 크기로 정렬했다(legacy 는
+ 900+ 항목 실측 비용 방지용 60개 stride 표본 헬퍼 신설). 신규
+ `test/deck_card_geometry_test.dart` 4건 + 파괴-복원 프로토콜로 폭 라인이 실제 결함
+ 지점임을 증명했다. `flutter analyze` 0 · P1 배터리 green · 전체 `flutter test`
+ 3306 passed/2 skipped/14 failed(전부 `test/goldens/` 환경성 drift, clean HEAD에서도
+ 동일 재현 확인 — 내 범위 밖). 미커밋(Jin 확인 후).
+- [ ] **§P2~§P5 + §R (다음 세션).** Sori Deck 2.0(4방향 스와이프·아이콘 액션바)·Today
+ 리디자인·카탈로그 폴리시·Gye/Hanok 압축·리소그래프 에셋 6종은 이 세션에서 미착수.
+ §R 은 BBANANA/Adobe MCP + Jin 시각 승인 게이트가 필요해 이 클라우드 환경에서 착수하지
+ 않았다.
 - [~] 콘텐츠 확장 C0의 검수 파이프라인·발음 seed·레벨/게임 계약은 UI/UX v2와 섞지 않는 별도 콘텐츠 기반 작업으로 진행 중이다. Today unavailable·UX preview 변경은 UI 보류 브랜치에 둔다.
 - [ ] 콘텐츠 전용 트랙: C0 검수 게이트 확인 → Jin 검수용 B1/B2 Batch 01 초안 → 승인된 데이터만 병합한다. 실제 TTS 합성·업로드와 대량 자산 병합은 별도 승인 전까지 금지한다.
 
