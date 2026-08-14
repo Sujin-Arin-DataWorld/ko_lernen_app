@@ -11,7 +11,6 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 /// 테스터 리포트 재현 테스트: Learn 단계에서 카드 A를 '알아요'로 넘기는 순간
 /// 카드 B의 뜻(뒷면)이 플립 애니메이션 잔상으로 먼저 보이면 안 된다.

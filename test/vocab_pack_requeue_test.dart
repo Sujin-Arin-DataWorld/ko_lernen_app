@@ -15,7 +15,6 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',

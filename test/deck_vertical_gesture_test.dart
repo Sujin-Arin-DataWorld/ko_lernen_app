@@ -81,23 +81,6 @@ Future<void> _dragCard(WidgetTester tester, Offset offset) async {
   await tester.pumpAndSettle();
 }
 
-/// 저장은 화면에서 fire-and-forget(`ignore: discarded_futures`)이라 테스트가
-/// await 할 손잡이가 없다. 고정 지연으로 재면 플레이키하므로 조건이 참이 될
-/// 때까지 **실제 비동기**를 흘리며 폴링한다.
-Future<void> _waitFor(
-  WidgetTester tester,
-  bool Function() condition, {
-  Duration timeout = const Duration(seconds: 2),
-}) async {
-  final sw = Stopwatch()..start();
-  while (!condition() && sw.elapsed < timeout) {
-    await tester.runAsync(
-      () => Future<void>.delayed(const Duration(milliseconds: 10)),
-    );
-    await tester.pump();
-  }
-}
-
 /// ↑ 저장이 이 화면에 **배선돼 있는가**.
 ///
 /// 저장의 영속화까지 이 파일에서 단언하지 않는 이유: `addToWordbook` 은
