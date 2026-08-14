@@ -103,6 +103,160 @@ void main() {
   // §C-3b: enabled=false 일 때 스와이프가 판정되지 않는지 검증.
   // legacy_vocab 에서 플립 전(_flipped=false) 스와이프로 SRS 오답이
   // 기록되던 데이터 버그의 회귀 방지.
+  // ── Sori Deck 2.0: 4방향 ──────────────────────────────────────────
+
+  Widget host4({
+    VoidCallback? onLeft,
+    VoidCallback? onRight,
+    VoidCallback? onUp,
+    VoidCallback? onDown,
+    VoidCallback? onBlocked,
+    bool enabled = true,
+    Widget? underlay,
+  }) => MaterialApp(
+    home: MediaQuery(
+      data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
+      child: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 400,
+            height: 300,
+            child: SoriSwipeCard(
+              enabled: enabled,
+              onSwipeLeft: onLeft,
+              onSwipeRight: onRight,
+              onSwipeUp: onUp,
+              onSwipeDown: onDown,
+              onBlockedHorizontalDrag: onBlocked,
+              underlay: underlay,
+              child: const ColoredBox(
+                color: Colors.white,
+                child: Center(child: Text('카드')),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  testWidgets('위 스와이프 = onSwipeUp 1회 (다른 방향 0)', (tester) async {
+    var up = 0, down = 0, left = 0, right = 0;
+    await tester.pumpWidget(
+      host4(
+        onUp: () => up++,
+        onDown: () => down++,
+        onLeft: () => left++,
+        onRight: () => right++,
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(0, -140));
+    await tester.pumpAndSettle();
+
+    expect(up, 1);
+    expect([down, left, right], [0, 0, 0]);
+  });
+
+  testWidgets('아래 스와이프 = onSwipeDown 1회 (다른 방향 0)', (tester) async {
+    var up = 0, down = 0, left = 0, right = 0;
+    await tester.pumpWidget(
+      host4(
+        onUp: () => up++,
+        onDown: () => down++,
+        onLeft: () => left++,
+        onRight: () => right++,
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(0, 140));
+    await tester.pumpAndSettle();
+
+    expect(down, 1);
+    expect([up, left, right], [0, 0, 0]);
+  });
+
+  testWidgets('수직 임계 미달은 판정 없이 복귀한다', (tester) async {
+    var calls = 0;
+    await tester.pumpWidget(host4(onUp: () => calls++, onDown: () => calls++));
+
+    await tester.drag(find.text('카드'), const Offset(0, -40));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('카드'), const Offset(0, 40));
+    await tester.pumpAndSettle();
+
+    expect(calls, 0);
+  });
+
+  testWidgets('대각 드래그는 지배축 한 방향만 커밋한다', (tester) async {
+    var up = 0, down = 0, left = 0, right = 0;
+    await tester.pumpWidget(
+      host4(
+        onUp: () => up++,
+        onDown: () => down++,
+        onLeft: () => left++,
+        onRight: () => right++,
+      ),
+    );
+
+    // 오른쪽이 더 큰 대각선 → 수평만 커밋되어야 한다.
+    await tester.drag(find.text('카드'), const Offset(220, 150));
+    await tester.pumpAndSettle();
+
+    expect(right, 1, reason: '지배축(수평)만 커밋');
+    expect(down, 0, reason: '반대축 델타는 잠금 후 무시된다');
+    expect([up, left], [0, 0]);
+  });
+
+  testWidgets('enabled=false: 좌우 0회 + 힌트 1회, 위/아래는 정상 동작', (tester) async {
+    var judged = 0, up = 0, down = 0, blocked = 0;
+    await tester.pumpWidget(
+      host4(
+        enabled: false,
+        onLeft: () => judged++,
+        onRight: () => judged++,
+        onUp: () => up++,
+        onDown: () => down++,
+        onBlocked: () => blocked++,
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+    expect(judged, 0, reason: '플립 게이트: 판정 콜백 0');
+    expect(blocked, 1, reason: '드래그당 힌트 1회');
+
+    // 위/아래는 판정이 아니므로 게이트와 무관하게 동작한다.
+    await tester.drag(find.text('카드'), const Offset(0, -140));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('카드'), const Offset(0, 140));
+    await tester.pumpAndSettle();
+    expect(up, 1);
+    expect(down, 1);
+    expect(judged, 0);
+  });
+
+  testWidgets('underlay 는 히트테스트되지 않는다', (tester) async {
+    var underlayTaps = 0;
+    await tester.pumpWidget(
+      host4(
+        onRight: () {},
+        underlay: GestureDetector(
+          onTap: () => underlayTaps++,
+          child: const ColoredBox(
+            color: Colors.amber,
+            child: Center(child: Text('다음카드')),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text('다음카드'), findsOneWidget, reason: '덱 스택은 그려진다');
+    await tester.tap(find.text('카드'));
+    await tester.pumpAndSettle();
+    expect(underlayTaps, 0, reason: 'IgnorePointer — 뒷 카드는 만질 수 없다');
+  });
+
   testWidgets('enabled=false 스와이프는 판정되지 않는다 (regression §C-1-1)', (
     tester,
   ) async {

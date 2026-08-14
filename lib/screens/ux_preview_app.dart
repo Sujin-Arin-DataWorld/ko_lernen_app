@@ -209,8 +209,6 @@ class _UxPreviewNavigationBoundary extends StatelessWidget {
   );
 }
 
-
-
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   unit: _lessSpicyUnit,
   links: _lessSpicyMissionLinks,
@@ -329,8 +327,6 @@ Widget _gyePanel({required bool courtyardFocus}) {
 }
 
 Future<List<GyeMeta>> _emptyGyes() async => const [];
-
-
 
 void _ignore([Object? _]) {}
 

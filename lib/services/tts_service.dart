@@ -74,8 +74,7 @@ class TtsPlaybackRates {
   }) {
     final safeBase = baseRate.isFinite ? baseRate : defaultSpeechRate;
     final safeUser = userMultiplier.isFinite ? userMultiplier : 1.0;
-    final safeMultiplier =
-        (multiplier.isFinite ? multiplier : 1.0) * safeUser;
+    final safeMultiplier = (multiplier.isFinite ? multiplier : 1.0) * safeUser;
     return TtsPlaybackRates(
       speechRate: (safeBase * safeMultiplier).clamp(0.1, 1.0).toDouble(),
       fileRate: ((safeBase / defaultSpeechRate) * safeMultiplier)

@@ -71,7 +71,8 @@ class _HardWordsScreenState extends State<HardWordsScreen>
   Future<void> _load() async {
     List<Vocab> hard = const [];
     try {
-      final all = await (widget.deckLoader ?? ReviewDeckService.allReviewable)();
+      final all =
+          await (widget.deckLoader ?? ReviewDeckService.allReviewable)();
       // Extra-Lernset = SRS leech 휴리스틱 ∪ 명시적 오답 3회+ (레벨 불문).
       // 오답 카운터는 즉시 반응하므로 한 세션에서 3번 틀린 단어도 바로 잡힌다
       // (2026-08-13 테스터 피드백 ③).

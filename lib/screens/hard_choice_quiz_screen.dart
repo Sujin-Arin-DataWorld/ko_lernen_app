@@ -76,10 +76,13 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
       /* best-effort — 덱 표제어만으로도 동작 */
     }
     if (!mounted) return;
-    final round = widget.deck
-        .where((v) => v.german.trim().isNotEmpty || v.english.trim().isNotEmpty)
-        .toList()
-      ..shuffle(_rng);
+    final round =
+        widget.deck
+            .where(
+              (v) => v.german.trim().isNotEmpty || v.english.trim().isNotEmpty,
+            )
+            .toList()
+          ..shuffle(_rng);
     setState(() {
       _blocklist = blocklist;
       _round = round;

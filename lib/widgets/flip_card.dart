@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
+import 'sori/scroll_if_needed.dart';
+
 /// Tappable card that flips horizontally between [front] and [back].
 ///
 /// ⚠️ 계약: 표시하는 **단어(내용)가 바뀔 때는 반드시 새 [key]를 줘야 한다**
@@ -98,6 +100,8 @@ class _FlipCardState extends State<FlipCard>
       builder: (context, constraints) {
         if (!constraints.maxHeight.isFinite) return face;
         return SingleChildScrollView(
+          // 스크롤은 넘칠 때만 — 아니면 덱의 위/아래 스와이프를 먹는다.
+          physics: kSoriCardFacePhysics,
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
             child: face,

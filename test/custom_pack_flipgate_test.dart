@@ -29,6 +29,10 @@ void _tapDeckAction(WidgetTester tester, String name) {
       ?.call();
 }
 
+/// 카드 슬롯 — 텍스트 노드가 아니라 **실제 스와이프 래퍼가 감싼 카드**를
+/// 잡아야 제스처가 확실히 도달한다.
+final Finder _cardSlot = find.byKey(const ValueKey('deck-card-slot'));
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -74,6 +78,18 @@ void main() {
       'kl_user_level': 'a1',
       'kl_streak_days': 0,
       'kl_xp': 0,
+      // ⚠️ 첫 진입 코치 오버레이(SpotlightCoach)는 전면 스크림으로 **모든
+      // 포인터를 흡수**한다. 이 플래그들이 없으면 합성 드래그가 카드에
+      // 닿지 않고 "기록 0" 단언이 조용히 공허해진다.
+      'kl_tut_wordbook': true,
+      'kl_tut_vocab_pack': true,
+      'kl_tut_pack_quiz': true,
+      'kl_tut_pack_boss': true,
+      'kl_tut_home_tour': true,
+      'kl_tut_review': true,
+      'kl_tut_legacyVocab': true,
+      'kl_tut_cpPlay': true,
+      'kl_tut_soriDeck': true,
       'kl_custom_packs_v1': packJson,
     });
     await Storage.init();
@@ -108,11 +124,7 @@ void main() {
     final srsBefore = Storage.srsCard('도서관');
 
     // 앞면 상태에서 우측 임계 초과 드래그
-    await tester.drag(
-      find.text('도서관'),
-      const Offset(220, 0),
-      warnIfMissed: false,
-    );
+    await tester.drag(_cardSlot, const Offset(220, 0), warnIfMissed: false);
     await tester.pumpAndSettle();
 
     final srsAfter = Storage.srsCard('도서관');
@@ -140,11 +152,7 @@ void main() {
 
     final srsBefore = Storage.srsCard('도서관');
 
-    await tester.drag(
-      find.text('도서관'),
-      const Offset(-220, 0),
-      warnIfMissed: false,
-    );
+    await tester.drag(_cardSlot, const Offset(-220, 0), warnIfMissed: false);
     await tester.pumpAndSettle();
 
     final srsAfter = Storage.srsCard('도서관');
@@ -193,11 +201,7 @@ void main() {
     final srsBefore2 = Storage.srsCard('의자');
 
     // 카드 2: 플립 없이 우측 스와이프 → 무시되어야 함
-    await tester.drag(
-      find.text('의자'),
-      const Offset(220, 0),
-      warnIfMissed: false,
-    );
+    await tester.drag(_cardSlot, const Offset(220, 0), warnIfMissed: false);
     await tester.pumpAndSettle();
 
     final srsAfter2 = Storage.srsCard('의자');

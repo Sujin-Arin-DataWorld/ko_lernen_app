@@ -14,6 +14,7 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -457,6 +458,8 @@ class _Front extends StatelessWidget {
                     ? constraints.minHeight
                     : 360.0);
           return SingleChildScrollView(
+            // 스크롤은 넘칠 때만 — 아니면 덱의 위/아래 스와이프를 먹는다.
+            physics: kSoriCardFacePhysics,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: h),
               child: Column(
@@ -554,6 +557,8 @@ class _Back extends StatelessWidget {
                     ? constraints.minHeight
                     : 360.0);
           return SingleChildScrollView(
+            // 스크롤은 넘칠 때만 — 아니면 덱의 위/아래 스와이프를 먹는다.
+            physics: kSoriCardFacePhysics,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: h),
               child: Column(

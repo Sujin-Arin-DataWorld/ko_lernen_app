@@ -61,9 +61,7 @@ class TtsSpeedControl extends StatelessWidget {
   String _fmt(double v) {
     // 1.0 → '1', 0.75 → '0.75' (독일어권도 소수점 표기는 ×배속 관례를 따른다).
     final s = v.toStringAsFixed(2);
-    return s
-        .replaceFirst(RegExp(r'0+$'), '')
-        .replaceFirst(RegExp(r'\.$'), '');
+    return s.replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
   }
 
   Widget _buildRow(BuildContext context, double speed) {
