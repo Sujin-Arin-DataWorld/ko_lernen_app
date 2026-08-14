@@ -183,6 +183,24 @@ void main() {
       expect(PackProgressService.wordsLearnedIn(pack1), 2);
       expect(PackProgressService.wordsLearnedIn(pack2), 1);
     });
+
+    test('learning all current-pack words preserves Boss clear and unlock', () async {
+      for (final word in pack1.learnWords) {
+        await Storage.addVokSeen(word.korean);
+      }
+      await PackProgressService.recordWordLearned(pack1);
+
+      final learned = PackProgressService.get(pack1.id)!;
+      expect(learned.wordsLearned, pack1.total);
+
+      final result = await PackProgressService.recordBossAttempt(
+        pack1,
+        allPacks,
+        bossAccuracy: PackProgressService.bossClearThreshold,
+      );
+      expect(result.progress.status, PackStatus.cleared);
+      expect(result.nextUnlocked?.id, pack2.id);
+    });
   });
 
   group('Storage.packProgressJson round-trip', () {

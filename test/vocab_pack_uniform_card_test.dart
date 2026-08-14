@@ -81,11 +81,7 @@ void main() {
     final pack = VocabPack(
       id: 'a1_uc_1',
       level: 'A1',
-      words: [
-        _word(1, short),
-        _word(2, long),
-        _word(3, '셋째', boss: true),
-      ],
+      words: [_word(1, short), _word(2, long), _word(3, '셋째', boss: true)],
     );
     final t = await _pump(tester, pack);
 
@@ -94,6 +90,9 @@ void main() {
     final shortSize = tester.widget<Text>(find.text(short)).style!.fontSize!;
 
     // 카드 2 (긴 단어)로 전진.
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
     tester
         .widgetList<SoriButton>(find.byType(SoriButton))
         .firstWhere((b) => b.label == t.vocabPackGotIt)
@@ -121,38 +120,40 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('deck-uniform size shrinks below the cap when a long word exists',
-      (tester) async {
-    // 순수 헬퍼 검증 — 짧은 덱은 cap, 긴 단어가 섞이면 cap 미만의 공유값.
-    late double onlyShort;
-    late double withLong;
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Builder(
-          builder: (context) {
-            onlyShort = soriUniformFitSize(
-              context,
-              texts: const ['하나', '둘'],
-              maxWidth: 400,
-              cap: 96,
-              min: 30,
-            );
-            withLong = soriUniformFitSize(
-              context,
-              texts: const ['하나', '지속가능성발전소에서'],
-              maxWidth: 400,
-              cap: 96,
-              min: 30,
-            );
-            return const SizedBox.shrink();
-          },
+  testWidgets(
+    'deck-uniform size shrinks below the cap when a long word exists',
+    (tester) async {
+      // 순수 헬퍼 검증 — 짧은 덱은 cap, 긴 단어가 섞이면 cap 미만의 공유값.
+      late double onlyShort;
+      late double withLong;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Builder(
+            builder: (context) {
+              onlyShort = soriUniformFitSize(
+                context,
+                texts: const ['하나', '둘'],
+                maxWidth: 400,
+                cap: 96,
+                min: 30,
+              );
+              withLong = soriUniformFitSize(
+                context,
+                texts: const ['하나', '지속가능성발전소에서'],
+                maxWidth: 400,
+                cap: 96,
+                min: 30,
+              );
+              return const SizedBox.shrink();
+            },
+          ),
         ),
-      ),
-    );
-    expect(onlyShort, 96);
-    expect(withLong, lessThan(96));
-    expect(withLong, greaterThanOrEqualTo(30));
-  });
+      );
+      expect(onlyShort, 96);
+      expect(withLong, lessThan(96));
+      expect(withLong, greaterThanOrEqualTo(30));
+    },
+  );
 
   testWidgets('flipped back offers tappable example audio', (tester) async {
     final pack = VocabPack(

@@ -12,28 +12,25 @@ import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
-Vocab _word(
-  String packId,
-  int n, {
-  bool boss = false,
-  String prefix = 'GER',
-}) => Vocab(
-  id: '${packId}_v$n',
-  korean: '$packId단어$n',
-  romanization: 'r$n',
-  german: '$prefix-$packId-$n',
-  level: 'A1',
-  posDe: 'Nomen',
-  exampleKorean: '',
-  exampleGerman: '',
-  topic: 'test',
-  packId: packId,
-  packOrder: n,
-  isReviewBoss: boss,
-);
+Vocab _word(String packId, int n, {bool boss = false, String prefix = 'GER'}) =>
+    Vocab(
+      id: '${packId}_v$n',
+      korean: '$packId단어$n',
+      romanization: 'r$n',
+      german: '$prefix-$packId-$n',
+      level: 'A1',
+      posDe: 'Nomen',
+      exampleKorean: '',
+      exampleGerman: '',
+      topic: 'test',
+      packId: packId,
+      packOrder: n,
+      isReviewBoss: boss,
+    );
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -61,7 +58,9 @@ void main() {
     final sibling = VocabPack(
       id: 'a1_food_1',
       level: 'A1',
-      words: [for (var i = 1; i <= 8; i++) _word('a1_food_1', i, prefix: 'OTHER')],
+      words: [
+        for (var i = 1; i <= 8; i++) _word('a1_food_1', i, prefix: 'OTHER'),
+      ],
     );
 
     await tester.pumpWidget(
@@ -81,9 +80,12 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
-    // Learn 4장을 전부 '알아요'로 통과 → 퀴즈 진입.
+    // Learn은 Boss 단어까지 포함한 현재 팩 5장을 모두 통과한 뒤 Quiz로 간다.
     final t = await AppL10n.delegate.load(const Locale('de'));
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
+      tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
       tester
           .widgetList<SoriButton>(find.byType(SoriButton))
           .firstWhere((b) => b.label == t.vocabPackGotIt)

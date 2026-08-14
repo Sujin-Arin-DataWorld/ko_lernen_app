@@ -2,6 +2,9 @@
 """
 build_vocab_packs.py — vocab CSV에 pack_id / pack_order / is_review_boss 컬럼 추가.
 
+역사적 생성기 주의: 현재 `korean_vocab.csv`는 이 스크립트가 예상하는 11열보다
+확장된 15열 정본이다. 현재 CSV를 이 스크립트로 재생성하지 않는다.
+
 플랜: docs/plans/stately-rising-jongga.md §3 (Phase 1 — 데이터 구조)
 
 입력:  assets/data/korean_vocab.csv   (8 컬럼: korean, romanization, german,
@@ -16,7 +19,8 @@ build_vocab_packs.py — vocab CSV에 pack_id / pack_order / is_review_boss 컬�
   - 팩당 8~13 단어 (5~10분 세션)
   - 큰 topic (>13) 은 sub-pack 으로 split (e.g. a1_daily_1, a1_daily_2)
   - 작은 topic (≤3) 은 a{N}_misc 로 merge
-  - 각 팩 마지막 3 단어 = is_review_boss=True (보스 단어 — 클리어 조건)
+  - 각 팩 마지막 3 단어 = is_review_boss=True (현재 팩 Boss 평가 멤버십)
+    이 플래그는 이전 팩/SRS 복습을 뜻하지 않으며, 앱 Learn 단계에서 먼저 노출된다.
   - 멱등 (재실행 시 동일 결과)
 """
 
@@ -366,7 +370,11 @@ def split_oversize_packs(rows: list[Row]) -> None:
 
 
 def assign_pack_order_and_boss(rows: list[Row]) -> None:
-    """3차: pack 내 order 부여 + 마지막 3 단어 boss 마킹."""
+    """역사적 3차: pack 내 order 부여 + current-pack Boss 멤버십 마킹.
+
+    현재 정본 CSV는 relevel 작업 뒤 Boss 단어가 물리적으로 마지막 행이라는
+    보장을 하지 않는다. 이 함수의 위치 기반 규칙을 현재 CSV에 재적용하지 않는다.
+    """
     grouped: dict[str, list[Row]] = OrderedDict()
     for row in rows:
         grouped.setdefault(row.pack_id, []).append(row)

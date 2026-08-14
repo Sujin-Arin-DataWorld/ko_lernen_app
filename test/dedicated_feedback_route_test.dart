@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
@@ -198,11 +199,23 @@ void main() {
       await tester.pump();
       await tester.pump();
 
+      // Current-pack Boss words are taught in Learn before their recognition
+      // assessment, so reveal the gloss and complete the Learn card first.
+      tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      tester
+          .widgetList<SoriButton>(find.byType(SoriButton))
+          .firstWhere((button) => button.label == 'Gewusst')
+          .onTap!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+
       final correct = find.byWidgetPredicate(
         (widget) => widget is QuizChoice && widget.isCorrect,
       );
       expect(correct, findsOneWidget);
-      await tester.tap(correct);
+      tester.widget<QuizChoice>(correct).onSelected!();
       await tester.pump(const Duration(seconds: 2));
       await tester.pump(const Duration(seconds: 2));
 

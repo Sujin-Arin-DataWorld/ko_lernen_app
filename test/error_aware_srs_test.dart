@@ -1,13 +1,14 @@
 // Error-aware review unit tests.
 //
 // Verifies QuestSpec.targetVocabKeys() returns the right Korean keys per
-// quest type, and that the differential SRS loop in scenario_player_screen
-// only downgrades words actually attached to failed quests.
+// quest type, and that scenario completion only writes negative SRS evidence
+// for words directly attached to failed quests.
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 QuestSpec _hv({required List<String> options, required int correctIndex}) =>
@@ -87,33 +88,77 @@ void main() {
     });
   });
 
-  group('differential SRS — failed quest words resurface sooner', () {
+  group('scenario SRS evidence', () {
     setUp(() async {
       Storage.resetForTesting();
       SharedPreferences.setMockInitialValues({});
       await Storage.init();
     });
 
-    test('missed key gets 1-day interval, other key gets 3-day-or-more', () async {
-      // Seed SRS so both words have already been seen once (interval=1 after
-      // first review). Then the next "got it" pushes to 3 days; "not got it"
-      // stays at 1 day. That difference is what makes failed words resurface
-      // sooner — the exact mechanic implemented in Storage.srsReview.
-      await Storage.srsReview('아메리카노', gotIt: true);
-      await Storage.srsReview('라떼', gotIt: true);
+    test(
+      'only a failed quest target changes; passed and listed-only words get no success credit',
+      () async {
+        const scenario = Scenario(
+          id: 'srs-evidence',
+          level: LearnerLevel.a1,
+          emoji: '🐯',
+          register: Register.polite,
+          title: LocalizedText(ko: '', de: '', en: ''),
+          intro: LocalizedText(ko: '', de: '', en: ''),
+          vocab: [
+            VocabRef(korean: '실패'),
+            VocabRef(korean: '성공'),
+            VocabRef(korean: '소개만'),
+          ],
+          grammarIds: [],
+          dialog: [],
+          quests: [
+            QuestSpec(
+              type: QuestType.uebersetzen,
+              data: {
+                'options': ['실패'],
+                'correctIndex': 0,
+              },
+            ),
+            QuestSpec(
+              type: QuestType.uebersetzen,
+              data: {
+                'options': ['성공'],
+                'correctIndex': 0,
+              },
+            ),
+          ],
+        );
 
-      // Simulate scenario completion: 아메리카노 missed (failed quest target),
-      // 라떼 not missed.
-      await Storage.srsReview('아메리카노', gotIt: false);
-      await Storage.srsReview('라떼', gotIt: true);
+        // Every word starts at the 1-day state. A positive completion write
+        // would promote it to three days, making accidental credit observable.
+        for (final korean in ['실패', '성공', '소개만']) {
+          await Storage.srsReview(korean, gotIt: true);
+        }
 
-      final missed = Storage.srsCard('아메리카노');
-      final hit = Storage.srsCard('라떼');
-      expect(missed, isNotNull);
-      expect(hit, isNotNull);
-      expect(missed!.intervalDays, 1, reason: 'missed word back to 1-day');
-      expect(hit!.intervalDays, greaterThan(missed.intervalDays),
-          reason: 'non-missed word advances further');
-    });
+        await recordScenarioFailedQuestSrs(
+          scenario: scenario,
+          failedQuestIndices: const [0],
+        );
+
+        final missed = Storage.srsCard('실패')!;
+        final passed = Storage.srsCard('성공')!;
+        final listedOnly = Storage.srsCard('소개만')!;
+        expect(missed.intervalDays, 1, reason: 'failed target stays due soon');
+        expect(missed.reviewCount, 2);
+        expect(
+          passed.intervalDays,
+          1,
+          reason: 'passed quest gets no auto credit',
+        );
+        expect(passed.reviewCount, 1);
+        expect(
+          listedOnly.intervalDays,
+          1,
+          reason: 'scenario vocab shown but not assessed gets no auto credit',
+        );
+        expect(listedOnly.reviewCount, 1);
+      },
+    );
   });
 }

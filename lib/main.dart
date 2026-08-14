@@ -72,6 +72,7 @@ import 'screens/learning_path_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/vocab_pack_result_screen.dart';
+import 'screens/vocab_pack_recall_screen.dart';
 import 'screens/vocab_pack_screen.dart';
 import 'screens/vocab_packs_screen.dart';
 import 'screens/grammar_screen.dart';
@@ -586,6 +587,30 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/vocab/result':
               return SoriTransitions.fadeScale(
                 (_) => VocabPackResultScreen.fromArgs(settings.arguments),
+                settings: settings,
+              );
+            case '/vocab/recall':
+              final rawRecallArguments = settings.arguments;
+              final routeMapCandidate = settings.arguments;
+              final recallArgs = routeMapCandidate is Map
+                  ? routeMapCandidate.cast<String, dynamic>()
+                  : const <String, dynamic>{};
+              final String id;
+              if (rawRecallArguments is String) {
+                id = rawRecallArguments;
+              } else {
+                id = recallArgs['packId'] as String? ?? '';
+              }
+              final rawSessionPositiveSrsWordIds =
+                  recallArgs['sessionPositiveSrsWordIds'];
+              return SoriTransitions.fadeScale(
+                (_) => VocabPackRecallScreen(
+                  packId: id,
+                  sessionPositiveSrsWordIds:
+                      rawSessionPositiveSrsWordIds is Iterable
+                      ? rawSessionPositiveSrsWordIds.whereType<String>().toSet()
+                      : const <String>{},
+                ),
                 settings: settings,
               );
             case '/vocab/legacy':

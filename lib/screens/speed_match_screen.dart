@@ -51,6 +51,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   List<Vocab> _rightOrder = const []; // Bedeutungsspalte (gemischt)
   String? _selLeftKo;
   String? _wrongRightKo;
+  // Wörter mit mindestens einem Fehlversuch in der laufenden Runde behalten
+  // ihren negativen SRS-Nachweis, auch wenn der Spieler sie danach korrekt
+  // zuordnet und damit Punkte erhält.
+  final Set<String> _missedKorean = {};
 
   int _score = 0;
   int _combo = 0;
@@ -138,6 +142,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
     for (var i = 0; i < _slotCount && _pool.isNotEmpty; i++) {
       _active.add(_pool.removeLast());
     }
+    _missedKorean.clear();
     setState(() {
       _score = 0;
       _combo = 0;
@@ -183,7 +188,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
       _score++;
       _combo++;
       if (_combo > _bestCombo) _bestCombo = _combo;
-      Storage.srsReview(right.korean, gotIt: true);
+      if (!_missedKorean.contains(right.korean)) {
+        unawaited(Storage.srsReview(right.korean, gotIt: true));
+      }
       if (_combo >= 3) {
         SoundService.combo();
       } else {
@@ -201,6 +208,11 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
+      final missedKorean = _selLeftKo!;
+      if (_missedKorean.add(missedKorean)) {
+        unawaited(Storage.srsReview(missedKorean, gotIt: false));
+        unawaited(Storage.incrementWrongCount(missedKorean));
+      }
       setState(() => _wrongRightKo = right.translationFor(lang));
       Future.delayed(const Duration(milliseconds: 400), () {
         if (mounted) setState(() => _wrongRightKo = null);

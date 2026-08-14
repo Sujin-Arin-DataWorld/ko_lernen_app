@@ -44,9 +44,9 @@ import '../widgets/sori/wordbook_add.dart';
 /// **Vocab Pack Play Screen** — Phase 2 의 3-단계 학습 플로우.
 ///
 /// 단계 진행:
-///   1. **learn**   — 일반 단어 flip cards. "Gewusst" → SRS update + 다음.
+///   1. **learn**   — 현재 팩의 모든 단어 flip cards (Boss 단어 포함).
 ///   2. **quiz**    — 일반 단어 4지선다 (한국어 → 독일어).
-///   3. **boss**    — 보스 단어 4지선다 + TTS 재생 (한국어 발음 듣고 의미).
+///   3. **boss**    — 현재 팩 Boss 단어 4지선다 + TTS 재생 (인식 평가).
 ///
 /// 모든 단계 끝나면 결과 화면(`/vocab/result`)으로 push & replace.
 ///
@@ -83,6 +83,8 @@ Map<String, dynamic> vocabPackResultArguments({
   required String? nextUnlockedPackId,
   required FeedbackCompletion feedbackCompletion,
   CoursePracticeContext? courseContext,
+  bool showHardWordsCta = false,
+  Set<String> sessionPositiveSrsWordIds = const <String>{},
 }) => <String, dynamic>{
   'packId': packId,
   'packLevel': packLevel,
@@ -96,7 +98,50 @@ Map<String, dynamic> vocabPackResultArguments({
   'completionId': feedbackCompletion.context.completionId,
   'feedbackContext': feedbackCompletion.context,
   'courseContext': courseContext,
+  'showHardWordsCta': showHardWordsCta,
+  'sessionPositiveSrsWordIds': sessionPositiveSrsWordIds.toList(
+    growable: false,
+  ),
 };
+
+/// Returns a one-time assessment order that is shuffled but never leaves a
+/// multi-item list in its original order. The caller supplies [rng] so tests
+/// can use `Random(seed)` while the app uses an unseeded session RNG.
+List<T> shuffledAssessmentOrder<T>(
+  Iterable<T> items, {
+  required math.Random rng,
+}) {
+  final original = items.toList(growable: false);
+  final shuffled = List<T>.of(original)..shuffle(rng);
+  if (shuffled.length > 1 && _sameAssessmentOrder(shuffled, original)) {
+    final first = shuffled.removeAt(0);
+    shuffled.add(first);
+  }
+  return shuffled;
+}
+
+bool _sameAssessmentOrder<T>(List<T> left, List<T> right) {
+  if (left.length != right.length) {
+    return false;
+  }
+  for (var i = 0; i < left.length; i++) {
+    if (left[i] != right[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/// Only offer the existing Hard Words set when an item missed in this pack
+/// session has reached its existing leech or explicit-wrong-count threshold.
+bool shouldOfferHardWordPractice(Iterable<String> sessionMissedWordIds) {
+  final ids = sessionMissedWordIds.toSet();
+  if (ids.isEmpty) {
+    return false;
+  }
+  return Storage.hardIds(ids).isNotEmpty ||
+      Storage.frequentlyMissedIds(ids).isNotEmpty;
+}
 
 class _VocabPackScreenState extends State<VocabPackScreen> {
   bool _loading = true;
@@ -115,6 +160,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 틀려도 ease 가 세션 안에서 연타로 깎이지 않게. (오답 카운터는 매번 셈.)
   final Set<String> _learnSrsRated = {};
   bool _flipped = false;
+  // 앞면을 보는 것만으로는 단어 뜻을 가르쳤다고 볼 수 없다. 카드 뒷면을 한 번
+  // 연 뒤에만 판정/스와이프를 허용해, Boss 단어를 포함한 모든 Learn 단어가
+  // 평가 전 의도적으로 노출되도록 한다.
+  bool _learnCardRevealed = false;
   // 카드 서빙마다 증가 — FlipCard re-key용. 같은 setState에서 _flipped=false와
   // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
   // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
@@ -131,6 +180,21 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   // 동일 pack 내에서 distractor 풀로 사용. pack이 너무 작으면 sibling pack 단어로 채움.
   List<Vocab> _distractorPool = [];
+
+  // Learn 단계가 끝난 뒤 한 번만 만드는 평가 순서. 일반 Quiz와 Boss의
+  // current-pack 멤버십은 그대로 두되, Learn 순서가 힌트가 되지 않게 한다.
+  List<Vocab> _quizQuestions = const [];
+  List<Vocab> _bossQuestions = const [];
+  bool _assessmentOrdersPrepared = false;
+  final _assessmentOrderRng = math.Random();
+
+  // 이 세션에서 틀린 단어만 결과의 Hard Words CTA 후보가 된다. 기존
+  // hard/leech 기준을 넘은 경우에만 CTA를 노출해 단발 오답을 과잉 분기하지 않는다.
+  final Set<String> _sessionMissedWordIds = {};
+  // Result-screen typed recall receives this local set so it can add a direct
+  // positive only when this pack session has not already done so for the word.
+  // This is ephemeral route state, not a new persisted attempt model.
+  final Set<String> _sessionPositiveSrsWordIds = {};
 
   final _rng = math.Random();
 
@@ -218,10 +282,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _learnQueue = LearnSessionQueue<Vocab>(
-          pack.normalWords.toList(),
+          pack.learnWords.toList(),
           idOf: (v) => v.korean,
         );
         _learnSrsRated.clear();
+        _flipped = false;
+        _learnCardRevealed = false;
+        _sessionMissedWordIds.clear();
+        _sessionPositiveSrsWordIds.clear();
+        _quizQuestions = const [];
+        _bossQuestions = const [];
+        _assessmentOrdersPrepared = false;
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
@@ -234,9 +305,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
   }
 
-  List<Vocab> get _normalWords => _pack?.normalWords.toList() ?? const [];
-
-  List<Vocab> get _bossWords => _pack?.bossWords.toList() ?? const [];
+  List<Vocab> get _learnWords => _pack?.learnWords.toList() ?? const [];
 
   Vocab? get _currentLearn => _learnQueue?.current;
 
@@ -245,15 +314,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       case _Stage.learn:
         return null;
       case _Stage.quiz:
-        return _qIdx < _normalWords.length ? _normalWords[_qIdx] : null;
+        return _qIdx < _quizQuestions.length ? _quizQuestions[_qIdx] : null;
       case _Stage.boss:
-        return _qIdx < _bossWords.length ? _bossWords[_qIdx] : null;
+        return _qIdx < _bossQuestions.length ? _bossQuestions[_qIdx] : null;
     }
   }
 
   // ── Stage 1 (Learn) ────────────────────────────────────────────────
 
   void _learnGotIt() {
+    if (!_learnCardRevealed) {
+      return;
+    }
     final cur = _currentLearn;
     if (cur == null) return;
     HapticFeedback.lightImpact();
@@ -261,14 +333,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (_learnSrsRated.add(cur.korean)) {
       // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
       // 최초의 정직한 "몰랐다" 평가가 유지된다.
-      // ignore: discarded_futures
-      Storage.srsReview(cur.korean, gotIt: true);
+      _recordSessionPositiveSrs(cur.korean);
     }
     _learnQueue?.markKnown();
     _advanceLearn();
   }
 
   void _learnDontKnow() {
+    if (!_learnCardRevealed) {
+      return;
+    }
     final cur = _currentLearn;
     if (cur == null) return;
     HapticFeedback.mediumImpact();
@@ -279,6 +353,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
+    _sessionMissedWordIds.add(cur.korean);
     // ignore: discarded_futures
     Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
@@ -290,20 +365,58 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (pack == null) return;
     setState(() {
       _flipped = false;
+      _learnCardRevealed = false;
       _learnServe++;
     });
     if (_learnQueue?.isDone ?? true) {
-      // Stage 1 끝 — wordsLearned 기록 후 stage 2 진입
+      // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
+      // wordsLearned 기록 및 평가 단계로 진입.
       // ignore: discarded_futures
       PackProgressService.recordWordLearned(pack);
       _enterQuiz();
     }
   }
 
+  void _toggleLearnFlip() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      if (!_flipped) {
+        _learnCardRevealed = true;
+      }
+      _flipped = !_flipped;
+    });
+  }
+
+  void _recordSessionPositiveSrs(String korean) {
+    _sessionPositiveSrsWordIds.add(korean);
+    // ignore: discarded_futures
+    Storage.srsReview(korean, gotIt: true);
+  }
+
   // ── Stage 2 / 3 (Quiz / Boss) ──────────────────────────────────────
 
+  void _prepareAssessmentOrders() {
+    if (_assessmentOrdersPrepared) {
+      return;
+    }
+    final pack = _pack;
+    if (pack == null) {
+      return;
+    }
+    _quizQuestions = shuffledAssessmentOrder(
+      pack.normalWords,
+      rng: _assessmentOrderRng,
+    );
+    _bossQuestions = shuffledAssessmentOrder(
+      pack.bossWords,
+      rng: _assessmentOrderRng,
+    );
+    _assessmentOrdersPrepared = true;
+  }
+
   void _enterQuiz() {
-    if (_normalWords.isEmpty) {
+    _prepareAssessmentOrders();
+    if (_quizQuestions.isEmpty) {
       // 일반 단어 없으면 바로 boss
       _enterBoss();
       return;
@@ -338,7 +451,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _enterBoss() {
-    if (_bossWords.isEmpty) {
+    _prepareAssessmentOrders();
+    if (_bossQuestions.isEmpty) {
       // 보스 없으면 perfect로 간주 (edge case — 작은 팩)
       _finish(bossAccuracy: 1.0, bossCorrect: 0, bossTotal: 0);
       return;
@@ -436,8 +550,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _selectedChoice = i;
       _choiceLocked = true;
     });
-    // Only scored recall stages become course evidence. The earlier card
-    // self-rating stays in SRS only, so a tap cannot unlock a mission.
+    // Only scored recognition-assessment stages become course evidence. The
+    // earlier card self-rating stays in SRS only, so a tap cannot unlock a
+    // mission. `vocabularyRecall` is a legacy enum name, not a claim that the
+    // four-choice Boss is independent recall.
     // ignore: discarded_futures
     CourseActivityReporter.recordContentAttempt(
       CurriculumContentKind.vocab,
@@ -462,19 +578,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
         Storage.addVokSeen(cur.korean);
-        // ignore: discarded_futures
-        Storage.srsReview(cur.korean, gotIt: true);
+        _recordSessionPositiveSrs(cur.korean);
       } else {
         _bossCorrect++;
         Storage.addVokSeen(cur.korean);
-        // ignore: discarded_futures
-        Storage.srsReview(cur.korean, gotIt: true);
+        _recordSessionPositiveSrs(cur.korean);
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
+      _sessionMissedWordIds.add(cur.korean);
       // ignore: discarded_futures
       Storage.srsReview(cur.korean, gotIt: false);
       // ignore: discarded_futures
@@ -487,17 +602,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   void _advanceQuiz() {
     if (!mounted) return;
     final isQuiz = _stage == _Stage.quiz;
-    final total = isQuiz ? _normalWords.length : _bossWords.length;
+    final total = isQuiz ? _quizQuestions.length : _bossQuestions.length;
     if (_qIdx + 1 >= total) {
       if (isQuiz) {
         _enterBoss();
       } else {
         _finish(
-          bossAccuracy: _bossWords.isEmpty
+          bossAccuracy: _bossQuestions.isEmpty
               ? 1.0
-              : _bossCorrect / _bossWords.length,
+              : _bossCorrect / _bossQuestions.length,
           bossCorrect: _bossCorrect,
-          bossTotal: _bossWords.length,
+          bossTotal: _bossQuestions.length,
         );
       }
       return;
@@ -530,7 +645,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       bossCorrect: bossCorrect,
       bossTotal: bossTotal,
       quizCorrect: _quizCorrect,
-      quizTotal: _normalWords.length,
+      quizTotal: _quizQuestions.length,
     );
     // SiblingPacks 같은 level (이미 _siblingPacks). 정렬된 pack list.
     final result = await PackProgressService.recordBossAttempt(
@@ -554,7 +669,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     );
     final missionContext = _missionStep == null ? null : widget.courseContext;
     if (missionContext != null) {
-      final totalAnswers = _normalWords.length + bossTotal;
+      final totalAnswers = _quizQuestions.length + bossTotal;
       final correctAnswers = _quizCorrect + bossCorrect;
       final courseScore = totalAnswers == 0
           ? 0.0
@@ -564,6 +679,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         missionContext.initialContentId,
         courseScore >= .70,
         courseContext: missionContext,
+        // Legacy enum spelling only; this score is from four-choice
+        // recognition assessment, not an independent-recall gate.
         errorReason: courseScore >= .70
             ? null
             : MasteryErrorReason.vocabularyRecall,
@@ -593,11 +710,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         bossCorrect: bossCorrect,
         bossTotal: bossTotal,
         quizCorrect: _quizCorrect,
-        quizTotal: _normalWords.length,
+        quizTotal: _quizQuestions.length,
         justCleared: result.justCleared,
         nextUnlockedPackId: result.nextUnlocked?.id,
         feedbackCompletion: feedbackCompletion,
         courseContext: _missionStep == null ? null : widget.courseContext,
+        showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
+        sessionPositiveSrsWordIds: _sessionPositiveSrsWordIds,
       ),
     );
   }
@@ -688,7 +807,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   Widget _buildLearn(AppL10n t) {
     final cur = _currentLearn;
     if (cur == null) {
-      // 일반 단어 0개인 edge case (보스만 있는 팩) → 바로 quiz/boss
+      // 빈 팩 edge case → 바로 quiz/boss
       WidgetsBinding.instance.addPostFrameCallback((_) => _enterQuiz());
       return const SizedBox.shrink();
     }
@@ -699,7 +818,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             SoriChip(
               // 분모 = 고유 단어 수(고정). 재출제 중에는 분자가 유지된다.
               label:
-                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _normalWords.length}',
+                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}',
               accent: SoriColors.info,
             ),
             const SizedBox(width: Spacing.sm),
@@ -729,7 +848,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 // 폭 = 카드 폭 − hero 카드 좌우 패딩.
                 final headlineSize = soriUniformFitSize(
                   context,
-                  texts: [for (final w in _normalWords) w.korean],
+                  texts: [for (final w in _learnWords) w.korean],
                   maxWidth: constraints.maxWidth - Spacing.xl * 2,
                   cap: soriFillSize(h, 0.18, 36, 96),
                   min: 32,
@@ -739,10 +858,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 return FlipCard(
                   key: ValueKey('learn-$_learnServe'),
                   flipped: _flipped,
-                  onTap: () {
-                    HapticFeedback.selectionClick();
-                    setState(() => _flipped = !_flipped);
-                  },
+                  onTap: _toggleLearnFlip,
                   front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
                   back: _FlipBack(v: cur, h: h),
                 );
@@ -758,7 +874,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 label: t.vocabPackDontKnow,
                 variant: SoriButtonVariant.outlined,
                 accent: SoriColors.danger,
-                onTap: _learnDontKnow,
+                onTap: _learnCardRevealed ? _learnDontKnow : null,
               ),
             ),
             const SizedBox(width: Spacing.md),
@@ -767,7 +883,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 label: t.vocabPackGotIt,
                 variant: SoriButtonVariant.filled,
                 accent: SoriColors.success,
-                onTap: _learnGotIt,
+                onTap: _learnCardRevealed ? _learnGotIt : null,
               ),
             ),
           ],
@@ -783,8 +899,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       return const Center(child: CircularProgressIndicator());
     }
     final total = _stage == _Stage.quiz
-        ? _normalWords.length
-        : _bossWords.length;
+        ? _quizQuestions.length
+        : _bossQuestions.length;
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 

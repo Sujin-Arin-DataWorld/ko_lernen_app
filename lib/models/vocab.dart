@@ -17,7 +17,9 @@ class Vocab {
   // optional 기본값을 가진다.
   //   packId       — '' 면 팩 미할당 (마이그레이션 직후·테스트 fixture)
   //   packOrder    — 0 면 미할당
-  //   isReviewBoss — 팩 끝 보스 단어 (클리어 조건). 기본 false.
+  //   isReviewBoss — 현재 팩의 Boss 평가 멤버십. 장기 SRS 복습/이전 팩 단어를
+  //                   뜻하지 않으며, Learn 단계에서 다른 현재 팩 단어와 함께
+  //                   의도적으로 노출된다. 기본 false.
   final String packId;
   final int packOrder;
   final bool isReviewBoss;

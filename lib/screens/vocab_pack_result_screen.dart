@@ -36,6 +36,8 @@ import '../widgets/sori/tokens.dart';
 ///   - `completionId`: String
 ///   - `packLevel`: String
 ///   - `feedbackContext`: ContentFeedbackContext
+///   - `showHardWordsCta`: bool (this session has a threshold-reaching miss)
+///   - `sessionPositiveSrsWordIds`: an iterable of String (ephemeral coalescing)
 class VocabPackResultScreen extends StatelessWidget {
   final String packId;
   final double bossAccuracy;
@@ -49,6 +51,8 @@ class VocabPackResultScreen extends StatelessWidget {
   final String? packLevel;
   final ContentFeedbackContext? feedbackContext;
   final CoursePracticeContext? courseContext;
+  final bool showHardWordsCta;
+  final Set<String> sessionPositiveSrsWordIds;
 
   const VocabPackResultScreen({
     super.key,
@@ -64,12 +68,15 @@ class VocabPackResultScreen extends StatelessWidget {
     this.packLevel,
     this.feedbackContext,
     this.courseContext,
+    this.showHardWordsCta = false,
+    this.sessionPositiveSrsWordIds = const <String>{},
   });
 
   /// Factory aus Navigator-args. Falls Map fehlt → defaults.
   factory VocabPackResultScreen.fromArgs(Object? args) {
     final m = (args is Map) ? args : const <String, dynamic>{};
     final rawCourseContext = m['courseContext'];
+    final rawSessionPositiveSrsWordIds = m['sessionPositiveSrsWordIds'];
     return VocabPackResultScreen(
       packId: m['packId'] as String? ?? '',
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
@@ -85,6 +92,10 @@ class VocabPackResultScreen extends StatelessWidget {
       courseContext: rawCourseContext is CoursePracticeContext
           ? rawCourseContext
           : null,
+      showHardWordsCta: m['showHardWordsCta'] as bool? ?? false,
+      sessionPositiveSrsWordIds: rawSessionPositiveSrsWordIds is Iterable
+          ? rawSessionPositiveSrsWordIds.whereType<String>().toSet()
+          : const <String>{},
     );
   }
 
@@ -277,6 +288,42 @@ class VocabPackResultScreen extends StatelessWidget {
                                 ),
                           ),
                         ),
+                      if (bossTotal > 0) ...[
+                        const SizedBox(height: Spacing.sm),
+                        SoriEntrance(
+                          delay: Duration(milliseconds: _cleared ? 960 : 240),
+                          child: _CtaButton(
+                            label: t.vocabPackResultRecallCta,
+                            icon: Icons.keyboard_alt_outlined,
+                            variant: SoriButtonVariant.outlined,
+                            accent: SoriColors.accent,
+                            onTap: () => Navigator.of(context).pushNamed(
+                              '/vocab/recall',
+                              arguments: <String, dynamic>{
+                                'packId': packId,
+                                'sessionPositiveSrsWordIds':
+                                    sessionPositiveSrsWordIds.toList(
+                                      growable: false,
+                                    ),
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                      if (showHardWordsCta) ...[
+                        const SizedBox(height: Spacing.sm),
+                        SoriEntrance(
+                          delay: Duration(milliseconds: _cleared ? 980 : 260),
+                          child: _CtaButton(
+                            label: t.vocabPackResultHardWordsCta,
+                            icon: Icons.bolt_rounded,
+                            variant: SoriButtonVariant.outlined,
+                            accent: SoriColors.danger,
+                            onTap: () =>
+                                Navigator.of(context).pushNamed('/hard_words'),
+                          ),
+                        ),
+                      ],
                       const SizedBox(height: Spacing.sm),
                       SoriEntrance(
                         delay: Duration(milliseconds: _cleared ? 1000 : 280),

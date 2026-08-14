@@ -78,7 +78,7 @@ void main() {
       expect(p.subIndex, null);
     });
 
-    test('bossWords / normalWords split correctly', () {
+    test('bossWords stay in the current pack learn set', () {
       final words = [
         _v('a', packId: 'p', packOrder: 1, isBoss: false),
         _v('b', packId: 'p', packOrder: 2, isBoss: false),
@@ -88,6 +88,7 @@ void main() {
       final p = VocabPack(id: 'p', level: 'A1', words: words);
       expect(p.bossWords.map((v) => v.korean), ['c', 'd']);
       expect(p.normalWords.map((v) => v.korean), ['a', 'b']);
+      expect(p.learnWords.map((v) => v.korean), ['a', 'b', 'c', 'd']);
       expect(p.total, 4);
     });
   });

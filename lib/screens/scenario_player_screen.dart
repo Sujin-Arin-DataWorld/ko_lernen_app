@@ -95,6 +95,24 @@ Future<void> runScenarioResultAction({
   await navigate();
 }
 
+/// Records only failed, directly assessed quest targets as negative SRS
+/// evidence. Reaching a scenario result page is not evidence that every word
+/// displayed in [Scenario.vocab] was independently answered correctly.
+Future<void> recordScenarioFailedQuestSrs({
+  required Scenario scenario,
+  required Iterable<int> failedQuestIndices,
+}) async {
+  final missedKeys = <String>{};
+  for (final index in failedQuestIndices) {
+    if (index >= 0 && index < scenario.quests.length) {
+      missedKeys.addAll(scenario.quests[index].targetVocabKeys());
+    }
+  }
+  for (final missed in missedKeys) {
+    await Storage.srsReview(missed, gotIt: false);
+  }
+}
+
 /// One screen instance is one learning attempt. Historical mastery and a
 /// second correct answer in the same attempt cannot reopen first-success UX.
 class FirstCorrectAttemptGate {
@@ -650,23 +668,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       await Storage.earnBadge('cafe_starter');
     }
 
-    // Error-aware SRS: Ziel-Vokabeln gescheiterter Quests werden als
-    // "nicht gewusst" gewertet (1-Tages-Intervall), alle anderen als
-    // "gewusst". Wörter aus gescheiterten Quests, die nicht in der
-    // Szenario-Vokabelliste stehen, werden ebenfalls heruntergestuft.
-    final missedKeys = <String>{};
-    for (final idx in _failedQuestIndices) {
-      if (idx >= 0 && idx < s.quests.length) {
-        missedKeys.addAll(s.quests[idx].targetVocabKeys());
-      }
-    }
-    final scenarioKeys = s.vocab.map((v) => v.korean).toSet();
-    for (final v in s.vocab) {
-      await Storage.srsReview(v.korean, gotIt: !missedKeys.contains(v.korean));
-    }
-    for (final missed in missedKeys.difference(scenarioKeys)) {
-      await Storage.srsReview(missed, gotIt: false);
-    }
+    await recordScenarioFailedQuestSrs(
+      scenario: s,
+      failedQuestIndices: _failedQuestIndices,
+    );
 
     if (courseUpdate == null) return null;
     final catalog = await CurriculumCatalog.load();

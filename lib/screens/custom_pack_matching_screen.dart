@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -44,6 +45,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   List<String> _rightDe = const []; // 뜻 열 (셔플)
   int? _selLeft; // 선택된 한국어 index
   final Set<String> _matched = {}; // 맞춘 한국어
+  // 이번 라운드에서 한 번이라도 잘못 짝지은 단어. 이후 정답은 게임 보상은
+  // 유지하지만 SRS 성공 증거로 올리지 않는다.
+  final Set<String> _missedKorean = {};
   String? _wrongRight; // 방금 틀린 뜻 (빨강 플래시)
   int _misses = 0; // 라운드 내 오답 탭 수 (XP 보상에 반영)
 
@@ -105,6 +109,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _rightDe = _round.map((w) => w.translationDe.trim()).toList()
       ..shuffle(_rng);
     _matched.clear();
+    _missedKorean.clear();
     _selLeft = null;
     _wrongRight = null;
     _misses = 0;
@@ -129,7 +134,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     if (de == expected) {
       HapticFeedback.lightImpact();
       SoundService.correct();
-      Storage.srsReview(ko, gotIt: true); // 인출 강화 → 메인 SRS 반영
+      // Eine spätere Korrektur darf XP und den Spielfortschritt abschließen,
+      // aber keine positive SRS-Evidenz über den vorherigen Fehlversuch legen.
+      if (!_missedKorean.contains(ko)) {
+        unawaited(Storage.srsReview(ko, gotIt: true));
+      }
       setState(() {
         _matched.add(ko);
         _selLeft = null;
@@ -140,6 +149,12 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _misses++;
+      // Pro Wort/Runde genau ein negativer Lernnachweis. Wiederholte Taps auf
+      // dieselbe falsche Zuordnung dürfen den Zähler nicht künstlich aufblasen.
+      if (_missedKorean.add(ko)) {
+        unawaited(Storage.srsReview(ko, gotIt: false));
+        unawaited(Storage.incrementWrongCount(ko));
+      }
       setState(() => _wrongRight = de);
       Future.delayed(const Duration(milliseconds: 450), () {
         if (mounted) setState(() => _wrongRight = null);
