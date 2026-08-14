@@ -2835,5 +2835,61 @@
   "soriStageActivityStart": "Start",
   "soriStageActivityDetails": "Details for {activity}",
   "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
-  "soriStageActivityLocked": "Locked"
+  "soriStageActivityLocked": "Locked",
+  "soriStageTodayMissionEyebrow": "TODAY'S MISSION",
+  "@soriStageTodayMissionEyebrow": {
+    "description": "UI overhaul 2: Today mission card eyebrow"
+  },
+  "soriStageMissionStart": "Start",
+  "@soriStageMissionStart": {
+    "description": "UI overhaul 2: Today mission CTA — title already names the activity"
+  },
+  "hanokStageName_empty": "Building plot",
+  "@hanokStageName_empty": {
+    "description": "UI overhaul 2: short HanokStage.empty label"
+  },
+  "hanokStageName_foundation": "Foundation",
+  "@hanokStageName_foundation": {
+    "description": "UI overhaul 2: short HanokStage.foundation label"
+  },
+  "hanokStageName_pillars": "Pillars",
+  "@hanokStageName_pillars": {
+    "description": "UI overhaul 2: short HanokStage.pillars label"
+  },
+  "hanokStageName_beams": "Beams",
+  "@hanokStageName_beams": {
+    "description": "UI overhaul 2: short HanokStage.beams label"
+  },
+  "hanokStageName_thatchRoof": "Thatched roof",
+  "@hanokStageName_thatchRoof": {
+    "description": "UI overhaul 2: short HanokStage.thatchRoof label"
+  },
+  "hanokStageName_tileRoofPartial": "First tiles",
+  "@hanokStageName_tileRoofPartial": {
+    "description": "UI overhaul 2: short HanokStage.tileRoofPartial label"
+  },
+  "hanokStageName_tileRoofComplete": "Tiled roof",
+  "@hanokStageName_tileRoofComplete": {
+    "description": "UI overhaul 2: short HanokStage.tileRoofComplete label"
+  },
+  "hanokStageName_dancheong": "Dancheong",
+  "@hanokStageName_dancheong": {
+    "description": "UI overhaul 2: short HanokStage.dancheong label"
+  },
+  "hanokStageName_gate": "Gate",
+  "@hanokStageName_gate": {
+    "description": "UI overhaul 2: short HanokStage.gate label"
+  },
+  "hanokStageName_windows": "Windows",
+  "@hanokStageName_windows": {
+    "description": "UI overhaul 2: short HanokStage.windows label"
+  },
+  "hanokStageName_sideBuilding": "Side building",
+  "@hanokStageName_sideBuilding": {
+    "description": "UI overhaul 2: short HanokStage.sideBuilding label"
+  },
+  "hanokStageName_jongga": "Jongga",
+  "@hanokStageName_jongga": {
+    "description": "UI overhaul 2: short HanokStage.jongga label"
+  }
 }

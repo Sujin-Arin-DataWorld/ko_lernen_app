@@ -10836,6 +10836,90 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gesperrt'**
   String get soriStageActivityLocked;
+
+  /// UI overhaul 2: Today mission card eyebrow
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTIGE MISSION'**
+  String get soriStageTodayMissionEyebrow;
+
+  /// UI overhaul 2: Today mission CTA — title already names the activity
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageMissionStart;
+
+  /// UI overhaul 2: short HanokStage.empty label
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz'**
+  String get hanokStageName_empty;
+
+  /// UI overhaul 2: short HanokStage.foundation label
+  ///
+  /// In de, this message translates to:
+  /// **'Fundament'**
+  String get hanokStageName_foundation;
+
+  /// UI overhaul 2: short HanokStage.pillars label
+  ///
+  /// In de, this message translates to:
+  /// **'Säulen'**
+  String get hanokStageName_pillars;
+
+  /// UI overhaul 2: short HanokStage.beams label
+  ///
+  /// In de, this message translates to:
+  /// **'Balken'**
+  String get hanokStageName_beams;
+
+  /// UI overhaul 2: short HanokStage.thatchRoof label
+  ///
+  /// In de, this message translates to:
+  /// **'Strohdach'**
+  String get hanokStageName_thatchRoof;
+
+  /// UI overhaul 2: short HanokStage.tileRoofPartial label
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Ziegel'**
+  String get hanokStageName_tileRoofPartial;
+
+  /// UI overhaul 2: short HanokStage.tileRoofComplete label
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegeldach'**
+  String get hanokStageName_tileRoofComplete;
+
+  /// UI overhaul 2: short HanokStage.dancheong label
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong'**
+  String get hanokStageName_dancheong;
+
+  /// UI overhaul 2: short HanokStage.gate label
+  ///
+  /// In de, this message translates to:
+  /// **'Tor'**
+  String get hanokStageName_gate;
+
+  /// UI overhaul 2: short HanokStage.windows label
+  ///
+  /// In de, this message translates to:
+  /// **'Fenster'**
+  String get hanokStageName_windows;
+
+  /// UI overhaul 2: short HanokStage.sideBuilding label
+  ///
+  /// In de, this message translates to:
+  /// **'Nebengebäude'**
+  String get hanokStageName_sideBuilding;
+
+  /// UI overhaul 2: short HanokStage.jongga label
+  ///
+  /// In de, this message translates to:
+  /// **'Jongga'**
+  String get hanokStageName_jongga;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

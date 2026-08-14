@@ -44,6 +44,10 @@ String soriHeroGreeting(AppL10n t, SoriDayPhase phase) {
 /// 호출부는 홈 `build` 의 배경 주석과 `verticalDirection: up` 페인트 순서
 /// 안전장치도 함께 따라야 한다.
 class SoriCharacterHero extends StatelessWidget {
+  /// Clip zoom for CharacterClipPlayer only (matte matches bg → crop invisible).
+  /// Keep ≤ 1.3 — foot/tail clipping is a device gate, not a code constant chase.
+  static const double _kHeroZoom = 1.2;
+
   final String greeting;
   final String bubble;
   final SoriDayPhase phase;
@@ -161,22 +165,31 @@ class SoriCharacterHero extends StatelessWidget {
                     size: bandHeight * 0.92,
                     animate: true,
                   )
-                : CharacterClipPlayer(
-                    key: ValueKey('home_hero_${kind.name}'),
-                    asset: kind == MascotKind.magpie
-                        ? HomeHeroClips.magpieWalkingFront
-                        : HomeHeroClips.tigerRise,
-                    size: bandHeight,
-                    loop: true,
-                    // These home-only clips already contain the flat Hanji
-                    // backdrop. Avoid the Android external-texture color
-                    // filter that can expose the original white matte.
-                    applyMultiplyFilter: false,
-                    staticFallback: CharacterClipPlayer.videoUnavailable(
-                      context,
+                // Clip is square + matte-baked (#FBF5EB == light bg), so
+                // crop is invisible — scale enlarges the character without
+                // a visible frame. Cap 1.3 on device; do not zoom Mascot PNG.
+                : ClipRect(
+                    child: Transform.scale(
+                      scale: _kHeroZoom,
+                      alignment: Alignment.bottomCenter,
+                      child: CharacterClipPlayer(
+                        key: ValueKey('home_hero_${kind.name}'),
+                        asset: kind == MascotKind.magpie
+                            ? HomeHeroClips.magpieWalkingFront
+                            : HomeHeroClips.tigerRise,
+                        size: bandHeight,
+                        loop: true,
+                        // These home-only clips already contain the flat Hanji
+                        // backdrop. Avoid the Android external-texture color
+                        // filter that can expose the original white matte.
+                        applyMultiplyFilter: false,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      ),
                     ),
-                    fallbackKind: kind,
-                    fallbackEmotion: _emotion,
                   ),
           ),
         );

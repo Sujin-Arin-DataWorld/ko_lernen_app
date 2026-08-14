@@ -19,6 +19,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
@@ -348,7 +349,7 @@ class _QuestTile extends StatelessWidget {
                 ),
               const SizedBox(width: Spacing.sm),
               // 보상 미리보기 — 이 퀘스트로 언락되는 마당 장식.
-              _RewardThumb(slug: def.decorationSlug, earned: isCompleted),
+              RewardThumb(slug: def.decorationSlug, earned: isCompleted),
             ],
           ),
           const SizedBox(height: 4),
@@ -484,39 +485,6 @@ class _QuestSummary extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-/// Belohnungs-Vorschau — die Hof-Dekoration, die diese Quest freischaltet.
-/// Nicht freigeschaltet → gedimmt. Fehlendes PNG → Geschenk-Icon.
-class _RewardThumb extends StatelessWidget {
-  final String slug;
-  final bool earned;
-  const _RewardThumb({required this.slug, required this.earned});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final giftIcon = Icon(
-      Icons.card_giftcard_rounded,
-      size: 22,
-      color: earned ? SoriColors.success : s.textDim,
-    );
-    return Opacity(
-      opacity: earned ? 1.0 : 0.4,
-      child: SizedBox(
-        width: 34,
-        height: 34,
-        // 자산이 없는 슬러그는 로드 시도 없이 선물 아이콘 (웹 404 방지).
-        child: kAvailableDecorations.contains(slug)
-            ? Image.asset(
-                'assets/illustrations/decorations/$slug.png',
-                fit: BoxFit.contain,
-                errorBuilder: (_, __, ___) => giftIcon,
-              )
-            : giftIcon,
       ),
     );
   }

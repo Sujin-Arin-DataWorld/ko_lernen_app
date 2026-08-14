@@ -1,5 +1,18 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P3 Today 리디자인
+
+**무엇/왜.** Today 탭의 3중 반복 미션 카피·아이콘-텍스트 블록·작은 히어로를 일러스트 언어로 바꾼다 (`docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P3). `_TodayUnavailableMissionStage`는 현재 트리에 없어 조기 반환을 추가하지 않았고, 이후 병행 세션이 넣으면 보존하도록 주석만 남겼다.
+
+**변경.**
+- P3-1 `_TodayMissionStage` v2: 다크 그린 카드 + `activityForRoute`/`activityIllustrationAsset` 21:9 일러스트 + `soriStageTodayMissionEyebrow` + 활동 제목 + `soriRewardIcon` 칩 + `soriStageMissionStart` CTA.
+- P3-2 `home_hero.dart`: `CharacterClipPlayer`만 `ClipRect`+`Transform.scale(1.2, bottomCenter)`. Mascot PNG 폴백·밴드 높이·매트 계약 불변.
+- P3-3 `_HanokProgress` 스테이지 배너(`hanok_stages` + `assetSlug`)·`$built / 7`·`hanokStageName_*` exhaustive 헬퍼. `_QuestProgressRow` → `SoriCard(compact)` + `RewardThumb`를 `lib/widgets/sori/reward_thumb.dart`로 승격(quests_screen 공유).
+
+**검증.** `flutter gen-l10n` · `flutter analyze` (touched 5 files) 0 issues · `sori_stage_today_matte_test` + `home_hero_matte_test` **10 passed**.
+
+**커밋:** 이 로그와 함께 `feat(ui): redesign Today mission stage (P3)` 브랜치 커밋.
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.

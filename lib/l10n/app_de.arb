@@ -2938,5 +2938,61 @@
   "soriStagePreviewProgress": "{current} von {target}",
   "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
   "soriStageActivityStart": "Starten",
-  "soriStageActivityLocked": "Gesperrt"
+  "soriStageActivityLocked": "Gesperrt",
+  "soriStageTodayMissionEyebrow": "HEUTIGE MISSION",
+  "@soriStageTodayMissionEyebrow": {
+    "description": "UI overhaul 2: Today mission card eyebrow"
+  },
+  "soriStageMissionStart": "Starten",
+  "@soriStageMissionStart": {
+    "description": "UI overhaul 2: Today mission CTA — title already names the activity"
+  },
+  "hanokStageName_empty": "Bauplatz",
+  "@hanokStageName_empty": {
+    "description": "UI overhaul 2: short HanokStage.empty label"
+  },
+  "hanokStageName_foundation": "Fundament",
+  "@hanokStageName_foundation": {
+    "description": "UI overhaul 2: short HanokStage.foundation label"
+  },
+  "hanokStageName_pillars": "Säulen",
+  "@hanokStageName_pillars": {
+    "description": "UI overhaul 2: short HanokStage.pillars label"
+  },
+  "hanokStageName_beams": "Balken",
+  "@hanokStageName_beams": {
+    "description": "UI overhaul 2: short HanokStage.beams label"
+  },
+  "hanokStageName_thatchRoof": "Strohdach",
+  "@hanokStageName_thatchRoof": {
+    "description": "UI overhaul 2: short HanokStage.thatchRoof label"
+  },
+  "hanokStageName_tileRoofPartial": "Erste Ziegel",
+  "@hanokStageName_tileRoofPartial": {
+    "description": "UI overhaul 2: short HanokStage.tileRoofPartial label"
+  },
+  "hanokStageName_tileRoofComplete": "Ziegeldach",
+  "@hanokStageName_tileRoofComplete": {
+    "description": "UI overhaul 2: short HanokStage.tileRoofComplete label"
+  },
+  "hanokStageName_dancheong": "Dancheong",
+  "@hanokStageName_dancheong": {
+    "description": "UI overhaul 2: short HanokStage.dancheong label"
+  },
+  "hanokStageName_gate": "Tor",
+  "@hanokStageName_gate": {
+    "description": "UI overhaul 2: short HanokStage.gate label"
+  },
+  "hanokStageName_windows": "Fenster",
+  "@hanokStageName_windows": {
+    "description": "UI overhaul 2: short HanokStage.windows label"
+  },
+  "hanokStageName_sideBuilding": "Nebengebäude",
+  "@hanokStageName_sideBuilding": {
+    "description": "UI overhaul 2: short HanokStage.sideBuilding label"
+  },
+  "hanokStageName_jongga": "Jongga",
+  "@hanokStageName_jongga": {
+    "description": "UI overhaul 2: short HanokStage.jongga label"
+  }
 }
