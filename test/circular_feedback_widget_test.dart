@@ -11,9 +11,7 @@ import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
@@ -79,17 +77,6 @@ void main() {
     expect(completions, 2);
   });
 
-  testWidgets('focused Home keeps the legacy daily card out of Today', (
-    tester,
-  ) async {
-    await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const HomeScreen(dailyCharacter: '가')));
-    await tester.pump(const Duration(seconds: 2));
-
-    expect(find.text('Look at today’s letter'), findsNothing);
-    expect(find.text('Watch the stroke-order guide'), findsNothing);
-    expect(tester.takeException(), isNull);
-  });
 
   testWidgets('daily character requires the guide before completion feedback', (
     tester,
@@ -222,44 +209,6 @@ void main() {
     );
   });
 
-  testWidgets('Wordle result is safe and a random round gets a new identity', (
-    tester,
-  ) async {
-    await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const WordleScreen()));
-    await _pumpUntil(tester, find.byType(TextField));
-
-    final first = await _loseWordle(tester);
-    final answerText = tester.widget<Text>(
-      find.byWidgetPredicate(
-        (widget) =>
-            widget is Text && widget.data?.startsWith('Answer: ') == true,
-      ),
-    );
-    final actualTarget = answerText.data!.substring('Answer: '.length);
-    final firstWire = first.feedbackContext.toWire();
-    for (final field in ['contentId', 'contentLabel', 'scoreSummary']) {
-      expect(
-        firstWire[field],
-        isNot(contains(actualTarget)),
-        reason: '$field must not contain the live Wordle target',
-      );
-    }
-    expect(first.feedbackContext.contentId, 'wordle_daily');
-    expect(first.feedbackContext.contentLabel, 'Silben-Rätsel');
-    expect(first.feedbackContext.scoreSummary, 'result:loss; guesses:6');
-
-    await tester.tap(find.text('New word').first);
-    await _pumpUntil(tester, find.byType(TextField));
-    expect(find.byType(ContentFeedbackCard), findsNothing);
-
-    final second = await _loseWordle(tester);
-    expect(second.feedbackContext.contentId, 'wordle_random');
-    expect(
-      second.feedbackContext.completionId,
-      isNot(first.feedbackContext.completionId),
-    );
-  });
 
   testWidgets('Kkeunmari timeout renders feedback and replay resets identity', (
     tester,
@@ -597,18 +546,6 @@ Future<void> _skipChosungRound(WidgetTester tester) async {
     await tester.pump();
   }
   expect(find.byType(ContentFeedbackCard), findsOneWidget);
-}
-
-Future<ContentFeedbackCard> _loseWordle(WidgetTester tester) async {
-  final length = tester.widget<TextField>(find.byType(TextField)).maxLength!;
-  final guess = List.filled(length, '가').join();
-  for (var i = 0; i < 6; i++) {
-    await tester.enterText(find.byType(TextField), guess);
-    await tester.tap(find.text('Submit'));
-    await tester.pump();
-  }
-  expect(find.byType(ContentFeedbackCard), findsOneWidget);
-  return tester.widget<ContentFeedbackCard>(find.byType(ContentFeedbackCard));
 }
 
 Future<void> _pumpUntil(

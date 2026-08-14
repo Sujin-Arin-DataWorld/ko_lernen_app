@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/config/sori_stage_feature.dart';
+
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -93,7 +93,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('04A labels the primary tab Üben', (tester) async {
+  testWidgets('04A shell shows Learn tab in Sori Stage', (tester) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -105,13 +105,12 @@ void main() {
         locale: const Locale('de'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        home: const AppShell(featureGate: SoriStageFeatureGate(enabled: false)),
+        home: const AppShell(),
       ),
     );
 
-    final navigation = tester.widget<NavigationBar>(find.byType(NavigationBar));
-    final practice = navigation.destinations[1] as NavigationDestination;
-    expect(practice.label, 'Üben');
+    // Phase 4: Sori Stage shell — tab labels are: Today, Learn, Games, Hanok, Gye
+    expect(find.text('Learn'), findsWidgets);
     await tester.pump(const Duration(seconds: 1));
   });
 }

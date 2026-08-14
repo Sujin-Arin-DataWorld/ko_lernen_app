@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
@@ -26,7 +26,7 @@ import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
+import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
@@ -51,7 +51,7 @@ void main() {
   final screens = <String, Widget>{
     'app shell': const AppShell(),
     'intro gate': const IntroGateScreen(),
-    'home': const HomeScreen(),
+    'home': const SoriStageTodayScreen(),
     'personal hanok world': const HanokWorldScreen(),
     'practice hub': const PracticeHubScreen(),
     'sarangbang study': const SarangbangStudyScreen(),
@@ -68,7 +68,7 @@ void main() {
     'grammar': const GrammarScreen(),
     'hangul': const HangulScreen(),
     'listening': const ListeningScreen(),
-    'wordle': const WordleScreen(),
+    'wordle': const SilbenKreuzScreen(),
     'chosung': const ChosungQuizScreen(),
     'kkeunmari': const KkeunmariScreen(),
     'scenarios list': const ScenariosListScreen(),
@@ -115,7 +115,7 @@ Widget _wrap(Widget child) {
       if (settings.name == '/' || settings.name == '/onboarding') {
         return MaterialPageRoute<void>(
           builder: (_) => settings.name == '/'
-              ? const HomeScreen()
+              ? const SoriStageTodayScreen()
               : const OnboardingLevelScreen(),
         );
       }

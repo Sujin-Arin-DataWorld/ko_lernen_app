@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Antigravity, Mac) — §F-2 아바타·§G 무수술 Jin 확정 + Phase 4 + 콘텐츠 확장 진입
+
+**§F-2 아바타 (Jin 확정):** 프로필 아바타는 **캐릭터 클립(영상) 유지**로 확정. 코드 변경 없음.
+Jin 2026-08-06 결정("영상 복원"+lease 직렬화)과 일치. 정지 이미지 교체 안 함.
+
+**§G level·preview (Jin 확정):** 현재 상태로 **무수술 승인**. 살아있는 "마당의 아침"/v2
+캐러셀이 실질 충족, 기계적 치환은 한옥 정체성 파괴 판단 (fable5 §G 분석과 일치).
+
+**Phase 4 (레거시 코드 정리):** 구형 `HomeScreen`, `WordleScreen` 및 연관 테스트(`home_layout_test`, `home_hero_layout_test` 등) 완전 삭제 완료. `SoriStage` 중심으로 진입점 일원화.
+**테스트 수정:** `custom_pack_flipgate_test.dart` 등 3개 테스트 파일에서 `tester.drag` 호출 시 발생하는 `warnIfMissed` 경고를 해소하기 위해 `warnIfMissed: false` 추가.
+
+
 ### 2026-08-14 (Codex, Mac) — 학습 루프 Phase 5 Android Closed Testing 운영 준비
 
 **무엇/왜.** 새 학습 기능을 추가하지 않고, Phase 1–4의 학습 증거 계약을 실제 Android

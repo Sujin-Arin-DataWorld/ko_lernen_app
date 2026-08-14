@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/vocab.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
+
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/personalized_lesson_service.dart';
 import 'package:ko_lernen_app/services/review_deck_service.dart';
@@ -73,42 +73,5 @@ void main() {
       );
       last = rank;
     }
-  });
-
-  group('WordleScreen.targetPool', () {
-    final mixed = [
-      _v('하나', 'A1'),
-      _v('학교', 'A2'),
-      _v('양극화', 'B2'),
-      _v('민주주의도', 'B2'), // 4음절+ → 풀 제외 대상
-      _v('hello', 'A1'), // 비한글 → 제외
-    ];
-
-    test('daily round caps at user level', () {
-      final pool = WordleScreen.targetPool(
-        mixed,
-        random: false,
-        levelCode: 'a2',
-      );
-      expect(pool, containsAll(['하나', '학교']));
-      expect(pool, isNot(contains('양극화')));
-    });
-
-    test('random round keeps all levels', () {
-      final pool = WordleScreen.targetPool(mixed, random: true, levelCode: 'a2');
-      expect(pool, contains('양극화'));
-    });
-
-    test('no level set → full pool; capped-empty falls back', () {
-      expect(
-        WordleScreen.targetPool(mixed, random: false, levelCode: null),
-        contains('양극화'),
-      );
-      final onlyB2 = [_v('양극화', 'B2')];
-      expect(
-        WordleScreen.targetPool(onlyB2, random: false, levelCode: 'a1'),
-        contains('양극화'),
-      );
-    });
   });
 }

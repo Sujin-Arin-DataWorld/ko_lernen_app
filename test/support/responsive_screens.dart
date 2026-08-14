@@ -25,7 +25,7 @@ import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
@@ -46,7 +46,7 @@ import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
+import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 /// 반응형 회귀를 거는 화면들 — **무인자 생성자만**.
@@ -55,7 +55,7 @@ import 'package:ko_lernen_app/theme.dart';
 /// `responsive_short_height_test.dart` 의 상태 변형 그룹이 따로 맡는다.
 Map<String, Widget> responsiveScreens() => <String, Widget>{
   'app shell': const AppShell(),
-  'home': const HomeScreen(),
+  'home': const SoriStageTodayScreen(),
   'personal hanok world': const HanokWorldScreen(),
   'practice hub': const PracticeHubScreen(),
   'sarangbang study': const SarangbangStudyScreen(),
@@ -72,7 +72,7 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'vocab packs': const VocabPacksScreen(),
   'grammar': const GrammarScreen(),
   'hangul': const HangulScreen(),
-  'wordle': const WordleScreen(),
+  'wordle': const SilbenKreuzScreen(),
   'kkeunmari': const KkeunmariScreen(),
   'dojangcheop': const DojangcheopScreen(),
   'listening': const ListeningScreen(),

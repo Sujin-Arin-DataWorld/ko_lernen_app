@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/config/sori_stage_feature.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
@@ -16,14 +15,7 @@ void main() {
     await Storage.init();
   });
 
-  test('Sori Stage feature is default-on with an explicit rollback seam', () {
-    // 2026-08-14 Phase 2c: 마스코트 히어로 이식(2b)으로 2026-08-13 롤백 사유가
-    // 해소되어 기본값을 다시 켰다. 레거시 셸은 `enabled: false`(또는
-    // `--dart-define=ENABLE_SORI_STAGE=false`)로 한 릴리스 동안 되돌릴 수 있다.
-    expect(const SoriStageFeatureGate().isEnabled, isTrue);
-    expect(const SoriStageFeatureGate(enabled: false).isEnabled, isFalse);
-  });
-
+  // Phase 4: SoriStageFeatureGate 제거 — AppShell은 항상 SoriStageShell.
 
   testWidgets('390dp shell exposes five roots and profile outside navigation', (
     tester,
@@ -34,7 +26,7 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(
-      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+      _app(const AppShell()),
     );
     await tester.pump();
 
@@ -54,7 +46,7 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(
-      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+      _app(const AppShell()),
     );
     await tester.pump();
 
@@ -71,7 +63,7 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(
-      _app(const AppShell(featureGate: SoriStageFeatureGate(enabled: true))),
+      _app(const AppShell()),
     );
     await tester.pump();
     await tester.tap(find.text('Games').last);

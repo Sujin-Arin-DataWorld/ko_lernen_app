@@ -5,22 +5,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mission_brief.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
 import 'package:ko_lernen_app/models/hanok_stage.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/scenario_can_do_result.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/course_mission_screen.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
-import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
@@ -147,47 +140,6 @@ void main() {
     expect(await _preferencesSnapshot(), equals(before));
   });
 
-  testWidgets('02A preview opens Today through callback without Home writes', (
-    tester,
-  ) async {
-    final before = await _preferencesSnapshot();
-    final projection = PersonalHanokProjection.from(
-      const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-    );
-    TodayLearningDestination? opened;
-    await tester.pumpWidget(
-      _host(
-        HomeScreen.preview(
-          now: () => DateTime(2026, 8, 11),
-          previewFixture: HomePreviewFixture(
-            today: const TodayLearningSnapshot(
-              pick: ReviewPick(dueCount: 4),
-              destination: TodayLearningDestination(route: '/review'),
-              dueCount: 4,
-            ),
-            hanok: projection,
-            narrative: HanokBuildNarrative.empty(projection),
-            onOpenToday: (destination) => opened = destination,
-          ),
-        ),
-      ),
-    );
-    await tester.pump();
-
-    final todayAction = find.descendant(
-      of: find.byKey(const ValueKey('home-primary-today')),
-      matching: find.byType(SoriButton),
-    );
-    expect(todayAction, findsOneWidget);
-    await tester.ensureVisible(todayAction);
-    await tester.tap(todayAction);
-    await tester.pump();
-
-    expect(opened?.route, '/review');
-    expect(await _preferencesSnapshot(), equals(before));
-    await tester.pumpWidget(const SizedBox.shrink());
-    await tester.pump(const Duration(seconds: 1));
-  });
 
   testWidgets('02B preview opens its displayed first link without writes', (
     tester,

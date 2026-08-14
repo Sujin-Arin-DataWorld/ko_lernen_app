@@ -15,9 +15,7 @@ import 'package:ko_lernen_app/screens/discover_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/gye_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
-import 'package:ko_lernen_app/screens/learning_path_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
@@ -26,9 +24,11 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/ux_preview_app.dart';
 import 'package:ko_lernen_app/screens/ux_preview_gallery_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
+import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
-import 'package:ko_lernen_app/services/mission_recommender.dart';
+
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
@@ -66,7 +66,7 @@ void main() {
       '01B': OnboardingStartScreen,
       '01C': FirstVoiceSuccessScreen,
       '01D': CharacterSelectionScreen,
-      '02A': HomeScreen,
+      '02A': SoriStageTodayPreviewScreen,
       '02B': CourseMissionScreen,
       '02C': ScenarioPlayerScreen,
       '02D': ScenarioPlayerScreen,
@@ -80,8 +80,8 @@ void main() {
       '05B': GyeScreen,
       '05C': GyeScreen,
       '06A': ProfileScreen,
-      '06B': HomeScreen,
-      '06C': HomeScreen,
+      '06B': SoriStageTodayPreviewScreen,
+      '06C': SoriStageTodayPreviewScreen,
       '07A': SoriStageTodayPreviewScreen,
       '07B': SoriStageLessonPreviewScreen,
       '07C': SoriStageRewardReceiptPreviewScreen,
@@ -103,13 +103,10 @@ void main() {
     UxPreviewPanel panel(String id) =>
         uxPreviewPanels.singleWhere((item) => item.id == id);
 
-    final home = registry.buildPanel(panel('02A')) as HomeScreen;
     final mission = registry.buildPanel(panel('02B')) as CourseMissionScreen;
     final action = registry.buildPanel(panel('02C')) as ScenarioPlayerScreen;
     final result = registry.buildPanel(panel('02D')) as ScenarioPlayerScreen;
 
-    final today = home.previewFixture!.today;
-    final todayPick = today.pick as CoursePick;
     final brief = mission.previewBrief!;
     final actionFixture = action.previewFixture!;
     final resultFixture = result.previewFixture!;
@@ -118,8 +115,6 @@ void main() {
     );
     final assessLink = sceneStep.link;
 
-    expect(todayPick.unit.id, brief.unit.id);
-    expect(today.scenario?.id, brief.targetScenario?.id);
     expect(actionFixture.scenario.id, brief.targetScenario?.id);
     expect(resultFixture.scenario.id, brief.targetScenario?.id);
     expect(actionFixture.scenario.quests, isNotEmpty);

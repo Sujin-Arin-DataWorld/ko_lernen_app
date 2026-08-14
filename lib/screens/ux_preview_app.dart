@@ -33,7 +33,6 @@ import 'first_voice_success_screen.dart';
 import 'gye_screen.dart';
 import 'gye_tab_screen.dart';
 import 'hanok_world_screen.dart';
-import 'home_screen.dart';
 import 'learning_path_screen.dart';
 import 'onboarding_start_screen.dart';
 import 'practice_hub_screen.dart';
@@ -68,7 +67,7 @@ class UxPreviewRegistry {
       chooseCompanionOverride: _ignoreAsync,
     ),
     '01D' => CharacterSelectionScreen.preview(onPreviewComplete: (_) {}),
-    '02A' => _todayCourseHome(),
+    '02A' => const SoriStageTodayPreviewScreen(),
     '02B' => CourseMissionScreen.preview(
       brief: _missionBrief(),
       openLink: (_) async {},
@@ -122,14 +121,8 @@ class UxPreviewRegistry {
       previewLevel: LearnerLevel.a1,
       previewCompanion: CompanionPreference.none,
     ),
-    '06B' => HomeScreen(
-      previewMode: true,
-      loadTodaySnapshot: _offlineToday,
-      onOpenSavedReview: _ignoreAsync,
-      ensureTodayPackAccess: (_) async => true,
-      openTodayRoute: (_, __) async {},
-    ),
-    '06C' => _reviewFirstHome(),
+    '06B' => const SoriStageTodayPreviewScreen(),
+    '06C' => const SoriStageTodayPreviewScreen(),
     '07A' => const SoriStageTodayPreviewScreen(),
     '07B' => const SoriStageLessonPreviewScreen(),
     '07C' => const SoriStageRewardReceiptPreviewScreen(),
@@ -216,55 +209,7 @@ class _UxPreviewNavigationBoundary extends StatelessWidget {
   );
 }
 
-Widget _todayCourseHome() {
-  final projection = PersonalHanokProjection.from(
-    const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
-  );
-  return HomeScreen.preview(
-    now: () => DateTime(2026, 8, 12),
-    dailyCharacter: '한',
-    previewFixture: HomePreviewFixture(
-      today: const TodayLearningSnapshot(
-        pick: CoursePick(
-          unit: _lessSpicyUnit,
-          missionNumber: 1,
-          totalMissions: 36,
-          fraction: 0,
-          started: false,
-        ),
-        scenario: _lessSpicyScenario,
-        destination: TodayLearningDestination(route: '/course/mission'),
-      ),
-      hanok: projection,
-      narrative: HanokBuildNarrative(
-        projection: projection,
-        nextUnit: _lessSpicyUnit,
-      ),
-      onOpenToday: (_) {},
-      onOpenHanok: _ignore,
-    ),
-  );
-}
 
-Widget _reviewFirstHome() {
-  final projection = PersonalHanokProjection.from(
-    const LevelRatios(a1: .5, a2: 0, b1: 0, b2: 0),
-  );
-  return HomeScreen.preview(
-    now: () => DateTime(2026, 8, 12),
-    previewFixture: HomePreviewFixture(
-      today: const TodayLearningSnapshot(
-        pick: ReviewPick(dueCount: 12),
-        destination: TodayLearningDestination(route: '/review'),
-        dueCount: 12,
-      ),
-      hanok: projection,
-      narrative: HanokBuildNarrative.empty(projection),
-      onOpenToday: (_) {},
-      onOpenHanok: _ignore,
-    ),
-  );
-}
 
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   unit: _lessSpicyUnit,
@@ -385,14 +330,7 @@ Widget _gyePanel({required bool courtyardFocus}) {
 
 Future<List<GyeMeta>> _emptyGyes() async => const [];
 
-Future<TodayLearningSnapshot> _offlineToday() async =>
-    const TodayLearningSnapshot(
-      pick: ReviewPick(dueCount: 12),
-      destination: TodayLearningDestination(route: '/review'),
-      dueCount: 12,
-      availability: TodayLearningAvailability.unavailable,
-      unavailableReason: TodayLearningUnavailableReason.offline,
-    );
+
 
 void _ignore([Object? _]) {}
 

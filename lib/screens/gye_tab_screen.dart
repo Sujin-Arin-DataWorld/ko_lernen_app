@@ -11,8 +11,9 @@ import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/age_gate_prompt.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
-import 'home_screen.dart'; // showGyeChooser
 
 /// **Lerngruppe(계) 탭** — BottomNav 탭 3 (D4-5 방향 C: 탭 유지 + 맥락화).
 ///
@@ -390,4 +391,69 @@ class _GyeCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// 계(契) 진입 — 내 계 목록 + 만들기/입장 선택 바텀시트.
+///
+/// Phase 4: home_screen.dart 에서 이동 (2026-08-14).
+Future<void> showGyeChooser(BuildContext context) async {
+  // GDPR-K: 16세 미만은 계 진입 차단(생년 미상 시 입력 요청). 서비스도 backstop.
+  if (!await ensureGyeAgeAllowed(context)) {
+    return;
+  }
+  if (!context.mounted) {
+    return;
+  }
+  final t = AppL10n.of(context);
+  showSoriSheet<void>(
+    context: context,
+    builder: (sheetCtx) => FutureBuilder<List<GyeMeta>>(
+      future: GyeService.myGyeMetas(),
+      builder: (ctx, snap) {
+        final mine = snap.data ?? const <GyeMeta>[];
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: Spacing.md),
+            Text(t.gyeChooserTitle, style: SoriTextTheme.of(context).h3),
+            const SizedBox(height: Spacing.sm),
+            for (final g in mine)
+              ListTile(
+                leading: const Icon(
+                  Icons.groups_2_outlined,
+                  color: SoriColors.primary,
+                ),
+                title: Text(g.name),
+                subtitle: Text(g.code),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  Navigator.of(context).pushNamed('/gye', arguments: g.id);
+                },
+              ),
+            if (mine.isNotEmpty) const Divider(height: 1),
+            ListTile(
+              leading: const Icon(
+                Icons.add_home_outlined,
+                color: SoriColors.primary,
+              ),
+              title: Text(t.gyeChooserCreate),
+              onTap: () {
+                Navigator.of(sheetCtx).pop();
+                Navigator.of(context).pushNamed('/gye/create');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.login_rounded, color: SoriColors.info),
+              title: Text(t.gyeChooserJoin),
+              onTap: () {
+                Navigator.of(sheetCtx).pop();
+                Navigator.of(context).pushNamed('/gye/join');
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+        );
+      },
+    ),
+  );
 }

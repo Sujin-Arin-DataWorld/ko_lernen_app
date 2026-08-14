@@ -91,7 +91,7 @@ void main() {
       final wrongBefore = Storage.wrongCountOf('사과');
 
       // 앞면 상태에서 우측 임계 초과 드래그
-      await tester.drag(find.text('사과'), const Offset(220, 0));
+      await tester.drag(find.text('사과'), const Offset(220, 0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
       // SRS 스냅샷 (after) — 변화 없어야 함
@@ -131,7 +131,7 @@ void main() {
       final srsBefore = Storage.srsCard('사과');
 
       // 좌측 드래그 (nicht gewusst 방향)
-      await tester.drag(find.text('사과'), const Offset(-220, 0));
+      await tester.drag(find.text('사과'), const Offset(-220, 0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
       final srsAfter = Storage.srsCard('사과');

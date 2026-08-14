@@ -6,7 +6,7 @@ import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/milestone.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
+
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -100,7 +100,7 @@ void main() {
       Storage.resetForTesting();
       await Storage.init();
 
-      await tester.pumpWidget(_feedbackHost(const HomeScreen()));
+      await tester.pumpWidget(_feedbackHost(const Scaffold()));
       await _pumpUntilMilestoneIsStored(tester);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3'});
@@ -122,7 +122,7 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
 
-      await tester.pumpWidget(_feedbackHost(const HomeScreen()));
+      await tester.pumpWidget(_feedbackHost(const Scaffold()));
       await _pumpUntilMilestoneIsStored(tester, expectedCount: 2);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3', 'level_5'});

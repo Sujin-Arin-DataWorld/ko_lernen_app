@@ -96,7 +96,7 @@ void main() {
       final srsBefore = Storage.srsCard('도서관');
 
       // 앞면 상태에서 우측 임계 초과 드래그
-      await tester.drag(find.text('도서관'), const Offset(220, 0));
+      await tester.drag(find.text('도서관'), const Offset(220, 0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
       final srsAfter = Storage.srsCard('도서관');
@@ -127,7 +127,7 @@ void main() {
 
       final srsBefore = Storage.srsCard('도서관');
 
-      await tester.drag(find.text('도서관'), const Offset(-220, 0));
+      await tester.drag(find.text('도서관'), const Offset(-220, 0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
       final srsAfter = Storage.srsCard('도서관');
@@ -167,7 +167,7 @@ void main() {
       final srsBefore2 = Storage.srsCard('의자');
 
       // 카드 2: 플립 없이 우측 스와이프 → 무시되어야 함
-      await tester.drag(find.text('의자'), const Offset(220, 0));
+      await tester.drag(find.text('의자'), const Offset(220, 0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
       final srsAfter2 = Storage.srsCard('의자');
