@@ -376,11 +376,13 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
               if (widget.underlay != null)
                 Positioned.fill(
                   child: IgnorePointer(
-                    child: Transform.translate(
-                      offset: Offset(0, 10 * (1 - underlayProgress)),
-                      child: Transform.scale(
-                        scale: 0.95 + 0.05 * underlayProgress,
-                        child: widget.underlay,
+                    child: ExcludeSemantics(
+                      child: Transform.translate(
+                        offset: Offset(0, 10 * (1 - underlayProgress)),
+                        child: Transform.scale(
+                          scale: 0.95 + 0.05 * underlayProgress,
+                          child: widget.underlay,
+                        ),
                       ),
                     ),
                   ),

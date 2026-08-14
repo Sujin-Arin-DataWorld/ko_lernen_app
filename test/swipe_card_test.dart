@@ -176,12 +176,13 @@ void main() {
   testWidgets('위 스와이프는 저장을 1회 호출하고 카드는 복귀한다', (tester) async {
     var saves = 0;
     await tester.pumpWidget(host(onUp: () => saves++));
+    final before = tester.getCenter(find.text('카드'));
 
     await tester.drag(find.text('카드'), const Offset(0, -180));
     await tester.pumpAndSettle();
 
     expect(saves, 1);
-    expect(tester.getCenter(find.text('카드')), const Offset(200, 400));
+    expect(tester.getCenter(find.text('카드')), before);
   });
 
   testWidgets('아래 스와이프는 스킵을 정확히 1회 호출한다', (tester) async {

@@ -50,7 +50,7 @@ void main() {
     expect(find.bySemanticsLabel('Nicht gewusst'), findsOneWidget);
     expect(find.bySemanticsLabel('Überspringen'), findsOneWidget);
     expect(find.bySemanticsLabel('Merken'), findsOneWidget);
-    expect(find.bySemanticsLabel('Gewusst'), findsOneWidget);
+    expect(find.bySemanticsLabel('Gewusst!'), findsOneWidget);
 
     final sizes = tester
         .widgetList<Container>(find.byType(Container))
@@ -85,7 +85,7 @@ void main() {
     );
 
     await tester.tap(find.bySemanticsLabel('Nicht gewusst'));
-    await tester.tap(find.bySemanticsLabel('Gewusst'));
+    await tester.tap(find.bySemanticsLabel('Gewusst!'));
     await tester.tap(find.bySemanticsLabel('Überspringen'));
     await tester.tap(find.bySemanticsLabel('Merken'));
     await tester.pump();
@@ -111,6 +111,6 @@ void main() {
 
     expect(find.bySemanticsLabel('Merken'), findsNothing);
     expect(find.bySemanticsLabel('Nicht gewusst'), findsOneWidget);
-    expect(find.bySemanticsLabel('Gewusst'), findsOneWidget);
+    expect(find.bySemanticsLabel('Gewusst!'), findsOneWidget);
   });
 }

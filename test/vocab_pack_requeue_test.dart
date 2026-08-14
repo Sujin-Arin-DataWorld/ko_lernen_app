@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',
@@ -50,11 +50,9 @@ Future<AppL10n> _pump(WidgetTester tester, VocabPack pack) async {
   return AppL10n.delegate.load(const Locale('de'));
 }
 
-void _tapButton(WidgetTester tester, String label) {
-  tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((b) => b.label == label)
-      .onTap!();
+void _tapButton(WidgetTester tester, {required bool known}) {
+  final bar = tester.widget<DeckActionBar>(find.byType(DeckActionBar));
+  known ? bar.onKnow() : bar.onDontKnow();
 }
 
 Future<void> _revealCurrentLearnCard(WidgetTester tester) async {
@@ -63,9 +61,12 @@ Future<void> _revealCurrentLearnCard(WidgetTester tester) async {
   await tester.pump(const Duration(milliseconds: 400));
 }
 
-Future<void> _revealAndTapButton(WidgetTester tester, String label) async {
+Future<void> _revealAndTapButton(
+  WidgetTester tester, {
+  required bool known,
+}) async {
   await _revealCurrentLearnCard(tester);
-  _tapButton(tester, label);
+  _tapButton(tester, known: known);
 }
 
 Future<void> _settle(WidgetTester tester) async {
@@ -98,40 +99,37 @@ void main() {
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('1 / 4'), findsOneWidget);
     expect(
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == t.vocabPackDontKnow)
-          .onTap,
-      isNull,
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).judgmentsEnabled,
+      isFalse,
       reason: 'Learn actions stay unavailable until the gloss is revealed',
     );
 
     // 단어1 뜻을 확인한 뒤 몰라요 → 분자 유지, 단어2 서빙.
-    await _revealAndTapButton(tester, t.vocabPackDontKnow);
+    await _revealAndTapButton(tester, known: false);
     await _settle(tester);
     expect(find.text('재단어2'), findsOneWidget);
     expect(find.text('1 / 4'), findsOneWidget);
     expect(Storage.wrongCountOf('재단어1'), 1);
 
     // 단어2·3 알아요 → 단어1이 다시 나온다.
-    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _revealAndTapButton(tester, known: true);
     await _settle(tester);
     expect(find.text('재단어3'), findsOneWidget);
     expect(find.text('2 / 4'), findsOneWidget);
 
-    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _revealAndTapButton(tester, known: true);
     await _settle(tester);
     // Current-pack Boss word is intentionally taught before either assessment.
     expect(find.text('재단어4'), findsOneWidget);
     expect(find.text('3 / 4'), findsOneWidget);
 
-    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _revealAndTapButton(tester, known: true);
     await _settle(tester);
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('4 / 4'), findsOneWidget);
 
     // 재출제에서 알아요 → Learn 종료, 퀴즈 진입 (Learn 버튼 소멸).
-    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _revealAndTapButton(tester, known: true);
     await _settle(tester);
     expect(find.text(t.vocabPackDontKnow), findsNothing);
     expect(tester.takeException(), isNull);
@@ -156,7 +154,7 @@ void main() {
         findsOneWidget,
         reason: '${word.korean} must be taught in Learn before assessment',
       );
-      _tapButton(tester, t.vocabPackGotIt);
+      _tapButton(tester, known: true);
       await _settle(tester);
     }
 
@@ -176,7 +174,7 @@ void main() {
 
     for (var i = 0; i < 3; i++) {
       expect(find.text('재단어1'), findsOneWidget);
-      await _revealAndTapButton(tester, t.vocabPackDontKnow);
+      await _revealAndTapButton(tester, known: false);
       await _settle(tester);
     }
 

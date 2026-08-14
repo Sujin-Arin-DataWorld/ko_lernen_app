@@ -15,7 +15,7 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
 
 const _slotKey = ValueKey('deck-card-slot');
@@ -123,10 +123,7 @@ void main() {
     await _flip(tester);
     expect(tester.getRect(find.byKey(_slotKey)), front);
 
-    tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((button) => button.label == 'Gewusst')
-        .onTap!();
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
     await tester.pumpAndSettle();
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);
@@ -157,7 +154,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     expect(tester.getRect(find.byKey(_slotKey)), front);
 
-    await tester.tap(find.text('Gewusst!'));
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
     await tester.pumpAndSettle();
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);
@@ -221,7 +218,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     expect(tester.getRect(find.byKey(_slotKey)), front);
 
-    await tester.tap(find.widgetWithText(SoriButton, 'Gewusst!'));
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
     await tester.pumpAndSettle();
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);
@@ -249,7 +246,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
     expect(tester.getRect(find.byKey(_slotKey)), front);
 
-    await tester.tap(find.text('Gewusst!'));
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
     await tester.pumpAndSettle();
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);

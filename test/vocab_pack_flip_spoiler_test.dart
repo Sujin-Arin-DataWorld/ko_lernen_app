@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 /// 테스터 리포트 재현 테스트: Learn 단계에서 카드 A를 '알아요'로 넘기는 순간
 /// 카드 B의 뜻(뒷면)이 플립 애니메이션 잔상으로 먼저 보이면 안 된다.
@@ -81,11 +81,7 @@ void main() {
 
     // '알아요' → 카드 2로 전진. (탭 좌표는 테스트 뷰포트의 오버레이에 가려
     // 불안정하므로 버튼 콜백을 직접 호출한다.)
-    final t = await AppL10n.delegate.load(const Locale('de'));
-    tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((b) => b.label == t.vocabPackGotIt)
-        .onTap!();
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
 
     // 플립 애니메이션(380ms) 전 구간에서 카드 2의 뜻이 절대 안 보여야 한다.
     for (var elapsed = 0; elapsed <= 400; elapsed += 16) {

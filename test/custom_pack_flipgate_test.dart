@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 /// §C-3c flipgate 센서: custom_pack_play 화면 — "앞면(flipped=false) 드래그 시
@@ -71,115 +70,124 @@ void main() {
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: MediaQuery(
-      data: const MediaQueryData(
-        size: Size(400, 800),
-        disableAnimations: true,
-      ),
+      data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
       child: const CustomPackPlayScreen(packId: packId),
     ),
   );
 
-  testWidgets(
-    '앞면(flipped=false) 우측 드래그 → SRS 미기록 (§C-1-1 regression)',
-    (tester) async {
-      tester.view.physicalSize = const Size(400, 800);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets('앞면(flipped=false) 우측 드래그 → SRS 미기록 (§C-1-1 regression)', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(buildScreen());
-      await tester.pump(const Duration(milliseconds: 500));
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
 
-      // 앞면(한국어)이 보여야 함
-      expect(find.text('도서관'), findsOneWidget);
+    // 앞면(한국어)이 보여야 함
+    expect(find.text('도서관'), findsOneWidget);
 
-      final srsBefore = Storage.srsCard('도서관');
+    final srsBefore = Storage.srsCard('도서관');
 
-      // 앞면 상태에서 우측 임계 초과 드래그
-      await tester.drag(find.text('도서관'), const Offset(220, 0), warnIfMissed: false);
-      await tester.pumpAndSettle();
+    // 앞면 상태에서 우측 임계 초과 드래그
+    await tester.drag(
+      find.text('도서관'),
+      const Offset(220, 0),
+      warnIfMissed: false,
+    );
+    await tester.pumpAndSettle();
 
-      final srsAfter = Storage.srsCard('도서관');
+    final srsAfter = Storage.srsCard('도서관');
 
-      expect(
-        srsAfter?.reviewCount,
-        srsBefore?.reviewCount,
-        reason: 'srsReview 미호출 (앞면 스와이프 = enabled:false)',
-      );
+    expect(
+      srsAfter?.reviewCount,
+      srsBefore?.reviewCount,
+      reason: 'srsReview 미호출 (앞면 스와이프 = enabled:false)',
+    );
 
-      // 같은 카드 유지
-      expect(find.text('도서관'), findsOneWidget);
-    },
-  );
+    // 같은 카드 유지
+    expect(find.text('도서관'), findsOneWidget);
+  });
 
-  testWidgets(
-    '앞면 좌측 드래그 → SRS 미기록 (§C-1-1 regression, left)',
-    (tester) async {
-      tester.view.physicalSize = const Size(400, 800);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets('앞면 좌측 드래그 → SRS 미기록 (§C-1-1 regression, left)', (tester) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(buildScreen());
-      await tester.pump(const Duration(milliseconds: 500));
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
 
-      expect(find.text('도서관'), findsOneWidget);
+    expect(find.text('도서관'), findsOneWidget);
 
-      final srsBefore = Storage.srsCard('도서관');
+    final srsBefore = Storage.srsCard('도서관');
 
-      await tester.drag(find.text('도서관'), const Offset(-220, 0), warnIfMissed: false);
-      await tester.pumpAndSettle();
+    await tester.drag(
+      find.text('도서관'),
+      const Offset(-220, 0),
+      warnIfMissed: false,
+    );
+    await tester.pumpAndSettle();
 
-      final srsAfter = Storage.srsCard('도서관');
+    final srsAfter = Storage.srsCard('도서관');
 
-      expect(
-        srsAfter?.reviewCount,
-        srsBefore?.reviewCount,
-        reason: 'srsReview 미호출 (앞면 좌측 스와이프)',
-      );
+    expect(
+      srsAfter?.reviewCount,
+      srsBefore?.reviewCount,
+      reason: 'srsReview 미호출 (앞면 좌측 스와이프)',
+    );
 
-      expect(find.text('도서관'), findsOneWidget);
-    },
-  );
+    expect(find.text('도서관'), findsOneWidget);
+  });
 
-  testWidgets(
-    '버튼 판정→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)',
-    (tester) async {
-      tester.view.physicalSize = const Size(400, 800);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets('버튼 판정→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)', (tester) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(buildScreen());
-      await tester.pump(const Duration(milliseconds: 500));
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
 
-      // 카드 1: 도서관
-      expect(find.text('도서관'), findsOneWidget);
+    // 카드 1: 도서관
+    expect(find.text('도서관'), findsOneWidget);
 
-      // 하단 "Gewusst!" 버튼으로 카드 1 판정 — 버튼은 SoriSwipeCard 밖에
-      // 있어 GestureDetector 간섭 없이 확실히 발동.
-      await tester.tap(find.widgetWithText(SoriButton, 'Gewusst!'));
-      await tester.pumpAndSettle();
+    // 플립 전 판정 버튼은 힌트만 보여 주고 SRS를 기록하지 않는다.
+    await tester.tap(find.bySemanticsLabel('Gewusst!'));
+    await tester.pump();
+    expect(find.text('도서관'), findsOneWidget);
+    expect(Storage.srsCard('도서관')?.reviewCount, isNull);
 
-      // 카드 2: 의자 — 리셋으로 앞면이어야 함
-      expect(find.text('의자'), findsOneWidget);
+    // 뒤집은 뒤 같은 접근성 버튼으로 판정한다.
+    await tester.tap(find.text('도서관'));
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.tap(find.bySemanticsLabel('Gewusst!'));
+    await tester.pumpAndSettle();
 
-      final srsBefore2 = Storage.srsCard('의자');
+    // 카드 2: 의자 — 리셋으로 앞면이어야 함
+    expect(find.text('의자'), findsOneWidget);
 
-      // 카드 2: 플립 없이 우측 스와이프 → 무시되어야 함
-      await tester.drag(find.text('의자'), const Offset(220, 0), warnIfMissed: false);
-      await tester.pumpAndSettle();
+    final srsBefore2 = Storage.srsCard('의자');
 
-      final srsAfter2 = Storage.srsCard('의자');
+    // 카드 2: 플립 없이 우측 스와이프 → 무시되어야 함
+    await tester.drag(
+      find.text('의자'),
+      const Offset(220, 0),
+      warnIfMissed: false,
+    );
+    await tester.pumpAndSettle();
 
-      expect(
-        srsAfter2?.reviewCount,
-        srsBefore2?.reviewCount,
-        reason: '다음 카드는 _flipped=false 리셋 → 스와이프 무시',
-      );
+    final srsAfter2 = Storage.srsCard('의자');
 
-      // 여전히 두 번째 카드 유지
-      expect(find.text('의자'), findsOneWidget);
-    },
-  );
+    expect(
+      srsAfter2?.reviewCount,
+      srsBefore2?.reviewCount,
+      reason: '다음 카드는 _flipped=false 리셋 → 스와이프 무시',
+    );
+
+    // 여전히 두 번째 카드 유지
+    expect(find.text('의자'), findsOneWidget);
+  });
 }
