@@ -449,6 +449,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        // 슬롯 핀 (P1) — 4개 덱 화면 공통 finder.
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -466,6 +468,32 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                 final ch = cc.maxHeight.isFinite
                                     ? cc.maxHeight
                                     : 360.0;
+                                // 헤드라인 크기는 **덱 공유값 하나** — 카드마다
+                                // FittedBox 가 현재 단어만 보고 줄이면 넘길
+                                // 때마다 글씨가 튄다 (custom_pack 선례).
+                                // FittedBox 는 실측 오차용 안전망으로 남는다.
+                                final koSize = soriUniformFitSize(
+                                  context,
+                                  texts: [for (final w in _deck) w.korean],
+                                  maxWidth: cc.maxWidth,
+                                  cap: _sz(ch, 0.155, 38, 72),
+                                  min: 28,
+                                  lineHeight: 1.05,
+                                );
+                                final String lang = Localizations.localeOf(
+                                  context,
+                                ).languageCode;
+                                final deSize = soriUniformFitSize(
+                                  context,
+                                  texts: [
+                                    for (final w in _deck)
+                                      w.translationFor(lang),
+                                  ],
+                                  maxWidth: cc.maxWidth,
+                                  cap: _sz(ch, 0.125, 28, 54),
+                                  min: 22,
+                                  lineHeight: 1.1,
+                                );
                                 return SingleChildScrollView(
                                   child: ConstrainedBox(
                                     constraints: BoxConstraints(
@@ -475,8 +503,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: _flipped
-                                          ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                                          ? _backList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              deSize,
+                                            )
+                                          : _frontList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              koSize,
+                                            ),
                                     ),
                                   ),
                                 );
@@ -536,6 +578,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) => [
     // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
     //
@@ -551,7 +594,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: headlineSize,
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -595,6 +638,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
@@ -607,8 +651,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Pretendard',
-            // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
-            fontSize: _sz(h, 0.125, 28, 54),
+            // 앞면(0.155)의 약 0.8 배 cap — 위 주석의 1.3 배 계약. 실제 값은
+            // 덱 전체 번역으로 한 번 계산된 공유값이다.
+            fontSize: headlineSize,
             fontWeight: FontWeight.w800,
             height: 1.1,
           ),
