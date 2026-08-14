@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/curriculum.dart';
 import '../../models/hanok_build_narrative.dart';
-import '../../models/hanok_stage.dart';
+import 'hanok_stage_label.dart';
 import 'tokens.dart';
 
 /// One text-first line that keeps the legacy construction stage and the
@@ -22,7 +22,7 @@ class HanokBuildNarrativeLine extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
-    final stage = _stageLabel(t, narrative.projection.structureStage);
+    final stage = soriHanokStageLabel(t, narrative.projection.structureStage);
     final verified = narrative.verifiedUnit;
     final next = narrative.nextUnit;
     final value = switch ((verified, next)) {
@@ -60,19 +60,4 @@ class HanokBuildNarrativeLine extends StatelessWidget {
       ],
     );
   }
-
-  static String _stageLabel(AppL10n t, HanokStage stage) => switch (stage) {
-    HanokStage.empty => t.hanokStageEmpty,
-    HanokStage.foundation => t.hanokStageFoundation,
-    HanokStage.pillars => t.hanokStagePillars,
-    HanokStage.beams => t.hanokStageBeams,
-    HanokStage.thatchRoof => t.hanokStageThatch,
-    HanokStage.tileRoofPartial => t.hanokStageTilePartial,
-    HanokStage.tileRoofComplete => t.hanokStageTileComplete,
-    HanokStage.dancheong => t.hanokStageDancheong,
-    HanokStage.gate => t.hanokStageGate,
-    HanokStage.windows => t.hanokStageWindows,
-    HanokStage.sideBuilding => t.hanokStageSideBuilding,
-    HanokStage.jongga => t.hanokStageJongga,
-  };
 }

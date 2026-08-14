@@ -6370,4 +6370,10 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachSoriDeckBody =>
       'Swipe the card: right = knew it, left = did not know, up = save, down = skip.';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'TODAY\'S MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Start';
 }

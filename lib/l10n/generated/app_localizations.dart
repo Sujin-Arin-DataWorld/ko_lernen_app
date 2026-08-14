@@ -10854,6 +10854,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
   String get coachSoriDeckBody;
+
+  /// Eyebrow über der Missionskarte auf Heute
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTIGE MISSION'**
+  String get soriStageTodayMissionEyebrow;
+
+  /// Knopf auf der Missionskarte — der Titel sagt bereits, worum es geht
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageMissionStart;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

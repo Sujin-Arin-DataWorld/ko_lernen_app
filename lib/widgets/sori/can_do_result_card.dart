@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../models/hanok_stage.dart';
+import 'hanok_stage_label.dart';
 import '../../models/scenario_can_do_result.dart';
 import 'card.dart';
 import 'tokens.dart';
@@ -114,7 +114,7 @@ class ScenarioStructureResultCard extends StatelessWidget {
         ? t.scenarioStructureUnavailableBody
         : changed
         ? t.scenarioStructureChangedBody(
-            _stageLabel(t, result.structureStageAfter!),
+            soriHanokStageLabel(t, result.structureStageAfter!),
           )
         : t.scenarioStructureUnchangedBody;
     final accent = changed ? SoriColors.success : SoriColors.primary;
@@ -149,19 +149,4 @@ class ScenarioStructureResultCard extends StatelessWidget {
       ),
     );
   }
-
-  String _stageLabel(AppL10n t, HanokStage stage) => switch (stage) {
-    HanokStage.empty => t.hanokStageEmpty,
-    HanokStage.foundation => t.hanokStageFoundation,
-    HanokStage.pillars => t.hanokStagePillars,
-    HanokStage.beams => t.hanokStageBeams,
-    HanokStage.thatchRoof => t.hanokStageThatch,
-    HanokStage.tileRoofPartial => t.hanokStageTilePartial,
-    HanokStage.tileRoofComplete => t.hanokStageTileComplete,
-    HanokStage.dancheong => t.hanokStageDancheong,
-    HanokStage.gate => t.hanokStageGate,
-    HanokStage.windows => t.hanokStageWindows,
-    HanokStage.sideBuilding => t.hanokStageSideBuilding,
-    HanokStage.jongga => t.hanokStageJongga,
-  };
 }

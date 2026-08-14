@@ -3013,5 +3013,13 @@
   "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
   "@coachSoriDeckBody": {
     "description": "Coachmark für das 4-Wege-Kartendeck"
+  },
+  "soriStageTodayMissionEyebrow": "HEUTIGE MISSION",
+  "@soriStageTodayMissionEyebrow": {
+    "description": "Eyebrow über der Missionskarte auf Heute"
+  },
+  "soriStageMissionStart": "Starten",
+  "@soriStageMissionStart": {
+    "description": "Knopf auf der Missionskarte — der Titel sagt bereits, worum es geht"
   }
 }

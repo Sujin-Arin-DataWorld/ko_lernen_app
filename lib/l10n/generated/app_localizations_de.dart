@@ -6404,4 +6404,10 @@ class AppL10nDe extends AppL10n {
   @override
   String get coachSoriDeckBody =>
       'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'HEUTIGE MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Starten';
 }
