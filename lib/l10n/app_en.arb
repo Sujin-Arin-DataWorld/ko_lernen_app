@@ -2838,5 +2838,13 @@
   "soriStageActivityLocked": "Locked",
   "deckActionSave": "Save",
   "deckFlipFirstHint": "Tap the card to flip it first",
-  "coachSoriDeckBody": "Swipe the card: right = knew it, left = did not know, up = save, down = skip."
+  "coachSoriDeckBody": "Swipe the card: right = knew it, left = did not know, up = save, down = skip.",
+  "soriStageTodayMissionEyebrow": "TODAY'S MISSION",
+  "soriStageMissionStart": "Start",
+  "hanokStageName": "{stage, select, empty{Building site} foundation{Foundation} pillars{Pillars} beams{Beams} thatchRoof{Thatched roof} tileRoofPartial{First roof tiles} tileRoofComplete{Tiled roof} dancheong{Dancheong} gate{Gate} windows{Windows} sideBuilding{Sarangchae} jongga{Jongga} other{Hanok}}",
+  "@hanokStageName": {"placeholders": {"stage": {"type": "String"}}},
+  "gyeShowcaseCaption": "This is what your shared hanok can look like",
+  "gyeExplainWhatShort": "A small, voluntary study group.",
+  "gyeExplainWhyShort": "One shared hanok, no competition.",
+  "gyeExplainHowShort": "Join with a 6-digit code."
 }

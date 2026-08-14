@@ -161,22 +161,31 @@ class SoriCharacterHero extends StatelessWidget {
                     size: bandHeight * 0.92,
                     animate: true,
                   )
-                : CharacterClipPlayer(
-                    key: ValueKey('home_hero_${kind.name}'),
-                    asset: kind == MascotKind.magpie
-                        ? HomeHeroClips.magpieWalkingFront
-                        : HomeHeroClips.tigerRise,
-                    size: bandHeight,
-                    loop: true,
-                    // These home-only clips already contain the flat Hanji
-                    // backdrop. Avoid the Android external-texture color
-                    // filter that can expose the original white matte.
-                    applyMultiplyFilter: false,
-                    staticFallback: CharacterClipPlayer.videoUnavailable(
-                      context,
+                : ClipRect(
+                    child: Transform.scale(
+                      // Home clips are square with the same baked matte as the
+                      // surrounding #FBF5EB plane. A restrained crop removes
+                      // empty headroom without changing the source character.
+                      scale: 1.2,
+                      alignment: Alignment.bottomCenter,
+                      child: CharacterClipPlayer(
+                        key: ValueKey('home_hero_${kind.name}'),
+                        asset: kind == MascotKind.magpie
+                            ? HomeHeroClips.magpieWalkingFront
+                            : HomeHeroClips.tigerRise,
+                        size: bandHeight,
+                        loop: true,
+                        // These home-only clips already contain the flat Hanji
+                        // backdrop. Avoid the Android external-texture color
+                        // filter that can expose the original white matte.
+                        applyMultiplyFilter: false,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      ),
                     ),
-                    fallbackKind: kind,
-                    fallbackEmotion: _emotion,
                   ),
           ),
         );

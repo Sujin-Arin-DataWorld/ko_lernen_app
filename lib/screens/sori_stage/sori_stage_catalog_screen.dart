@@ -62,6 +62,13 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
           break;
         }
       }
+    } else {
+      for (final entry in entries) {
+        if (entry.id == 'daily_game') {
+          heroEntry = entry;
+          break;
+        }
+      }
     }
     final gridEntries = heroEntry == null
         ? entries
@@ -206,6 +213,11 @@ class _ActivityGridCard extends StatelessWidget {
         progress?.state ??
         (locked ? SoriActivityState.locked : SoriActivityState.ready);
     final unlocked = !locked;
+    final current = progress?.current;
+    final footer =
+        state == SoriActivityState.ready && (current == null || current <= 0)
+        ? null
+        : _StateLabel(state: state, progress: progress, entry: entry);
 
     // §C-3c P1-④: 리시트 캡처 플로우를 한 곳으로 — onTap/시트 양쪽이 사용.
     Future<void> start() async {
@@ -238,18 +250,30 @@ class _ActivityGridCard extends StatelessWidget {
 
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      imageOverlay: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.55),
+          borderRadius: SoriRadius.brPill,
+        ),
+        child: Text(
+          t.soriStageMinutes(entry.minutes),
+          style: SoriTextTheme.of(
+            context,
+          ).caption.copyWith(color: Colors.white),
+        ),
+      ),
+      footer: footer,
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked

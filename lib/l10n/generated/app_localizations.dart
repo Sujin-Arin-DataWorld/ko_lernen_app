@@ -10854,6 +10854,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
   String get coachSoriDeckBody;
+
+  /// No description provided for @soriStageTodayMissionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTIGE MISSION'**
+  String get soriStageTodayMissionEyebrow;
+
+  /// No description provided for @soriStageMissionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageMissionStart;
+
+  /// No description provided for @hanokStageName.
+  ///
+  /// In de, this message translates to:
+  /// **'{stage, select, empty{Bauplatz} foundation{Fundament} pillars{Säulen} beams{Balken} thatchRoof{Strohdach} tileRoofPartial{Erste Ziegel} tileRoofComplete{Ziegeldach} dancheong{Dancheong} gate{Tor} windows{Fenster} sideBuilding{Sarangchae} jongga{Jongga} other{Hanok}}'**
+  String hanokStageName(String stage);
+
+  /// No description provided for @gyeShowcaseCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'So kann euer gemeinsames Hanok aussehen'**
+  String get gyeShowcaseCaption;
+
+  /// No description provided for @gyeExplainWhatShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kleine, freiwillige Lerngruppe.'**
+  String get gyeExplainWhatShort;
+
+  /// No description provided for @gyeExplainWhyShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsames Hanok, kein Wettbewerb.'**
+  String get gyeExplainWhyShort;
+
+  /// No description provided for @gyeExplainHowShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitritt mit 6-stelligem Code.'**
+  String get gyeExplainHowShort;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

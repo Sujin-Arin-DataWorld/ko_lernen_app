@@ -34,6 +34,7 @@ class SoriIllustratedCard extends StatelessWidget {
     this.subtitle,
     this.illustrationAsset,
     this.fallback,
+    this.imageOverlay,
     this.footer,
     this.state = SoriIllustratedCardState.normal,
     this.overlay,
@@ -52,6 +53,7 @@ class SoriIllustratedCard extends StatelessWidget {
 
   /// 일러스트 부재/로드 실패 시 슬롯에 그릴 위젯 (아이콘·도장 등).
   final Widget? fallback;
+  final Widget? imageOverlay;
 
   /// 타이틀 아래 슬롯 — 진행 점, 카운트, 칩 등.
   final Widget? footer;
@@ -145,10 +147,21 @@ class SoriIllustratedCard extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: imageAspectRatio,
-                  child: _Illustration(
-                    asset: illustrationAsset,
-                    fallback: fallback,
-                    dimmed: _locked,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      _Illustration(
+                        asset: illustrationAsset,
+                        fallback: fallback,
+                        dimmed: _locked,
+                      ),
+                      if (imageOverlay != null)
+                        Positioned(
+                          right: Spacing.sm,
+                          bottom: Spacing.sm,
+                          child: imageOverlay!,
+                        ),
+                    ],
                   ),
                 ),
               ),

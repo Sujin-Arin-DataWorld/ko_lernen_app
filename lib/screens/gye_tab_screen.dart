@@ -137,6 +137,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   return _IntroEmpty(
                     introKey: _introKey,
                     padding: padding,
+                    embedded: widget.embedded,
                     onFindOrCreate:
                         widget.onFindOrCreate ?? () => showGyeChooser(context),
                     onContinueSolo:
@@ -168,12 +169,14 @@ class _IntroEmpty extends StatelessWidget {
   final EdgeInsets padding;
   final VoidCallback onFindOrCreate;
   final VoidCallback onContinueSolo;
+  final bool embedded;
 
   const _IntroEmpty({
     required this.introKey,
     required this.padding,
     required this.onFindOrCreate,
     required this.onContinueSolo,
+    required this.embedded,
   });
 
   /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
@@ -197,56 +200,64 @@ class _IntroEmpty extends StatelessWidget {
     return ListView(
       padding: padding,
       children: [
-        const SizedBox(height: Spacing.md),
-        Text(
-          t.gyeVoluntaryEyebrow,
-          textAlign: TextAlign.center,
-          style: tt.label.copyWith(color: SoriColors.primary),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
+        if (!embedded) ...[
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.gyeVoluntaryEyebrow,
+            textAlign: TextAlign.center,
+            style: tt.label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.gyeEmptyLead,
+            textAlign: TextAlign.center,
+            style: tt.bodySmall,
+          ),
+        ],
         const SizedBox(height: Spacing.md),
         ClipRRect(
           borderRadius: SoriRadius.brLg,
           child: AspectRatio(
             aspectRatio: 393 / 220,
-            child: GyeHanok(meta: _previewMeta),
+            child: GyeHanok(meta: _previewMeta, showcase: true),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
-        KeyedSubtree(
-          key: introKey,
-          child: SoriCard(
-            variant: SoriCardVariant.base,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
-              ],
-            ),
-          ),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          t.gyeShowcaseCaption,
+          textAlign: TextAlign.center,
+          style: tt.caption,
         ),
         const SizedBox(height: Spacing.md),
-        SoriCard(
-          variant: SoriCardVariant.compact,
-          accent: SoriColors.primary,
-          tinted: true,
+        KeyedSubtree(
+          key: introKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(t.gyePrivacyTitle, style: tt.cardTitle),
+              _Point(
+                icon: Icons.groups_2_outlined,
+                text: t.gyeExplainWhatShort,
+              ),
               const SizedBox(height: Spacing.xs),
-              Text(t.gyePrivacyBody, style: tt.bodySmall),
+              _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhyShort),
+              const SizedBox(height: Spacing.xs),
+              _Point(icon: Icons.tag_rounded, text: t.gyeExplainHowShort),
             ],
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.xs),
+        Row(
+          children: [
+            Expanded(child: Text(t.gyePrivacyTitle, style: tt.label)),
+            IconButton(
+              tooltip: t.soriStageActivityDetails(t.gyePrivacyTitle),
+              onPressed: () => _showGyeDetails(context),
+              icon: const Icon(Icons.info_outline_rounded),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.sm),
         SoriButton.filled(
           label: t.gyeFindOrCreate,
           icon: Icons.groups_2_outlined,
@@ -269,26 +280,47 @@ class _Point extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, size: 18, color: SoriColors.primary),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 13,
-              height: 1.4,
-              color: s.textMuted,
-            ),
-          ),
-        ),
-      ],
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: SoriColors.primary),
+          const SizedBox(width: Spacing.sm),
+          Expanded(child: Text(text, style: SoriTextTheme.of(context).label)),
+        ],
+      ),
     );
   }
+}
+
+void _showGyeDetails(BuildContext context) {
+  final t = AppL10n.of(context);
+  showSoriSheet<void>(
+    context: context,
+    builder: (sheetContext) => Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(t.gyeEmptyHeadline, style: SoriTextTheme.of(context).h3),
+        const SizedBox(height: Spacing.md),
+        Text(t.gyeExplainWhat, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.sm),
+        Text(t.gyeExplainWhy, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.sm),
+        Text(t.gyeExplainHow, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.md),
+        Text(t.gyePrivacyTitle, style: SoriTextTheme.of(context).cardTitle),
+        const SizedBox(height: Spacing.xs),
+        Text(t.gyePrivacyBody, style: SoriTextTheme.of(context).bodySmall),
+        const SizedBox(height: Spacing.lg),
+        SoriButton.filled(
+          label: MaterialLocalizations.of(context).closeButtonLabel,
+          fullWidth: true,
+          onTap: () => Navigator.of(sheetContext).pop(),
+        ),
+      ],
+    ),
+  );
 }
 
 // ── 계 목록 ───────────────────────────────────────────────────────────────────

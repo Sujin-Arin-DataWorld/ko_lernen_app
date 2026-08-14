@@ -6370,4 +6370,43 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachSoriDeckBody =>
       'Swipe the card: right = knew it, left = did not know, up = save, down = skip.';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'TODAY\'S MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Start';
+
+  @override
+  String hanokStageName(String stage) {
+    String _temp0 = intl.Intl.selectLogic(stage, {
+      'empty': 'Building site',
+      'foundation': 'Foundation',
+      'pillars': 'Pillars',
+      'beams': 'Beams',
+      'thatchRoof': 'Thatched roof',
+      'tileRoofPartial': 'First roof tiles',
+      'tileRoofComplete': 'Tiled roof',
+      'dancheong': 'Dancheong',
+      'gate': 'Gate',
+      'windows': 'Windows',
+      'sideBuilding': 'Sarangchae',
+      'jongga': 'Jongga',
+      'other': 'Hanok',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get gyeShowcaseCaption =>
+      'This is what your shared hanok can look like';
+
+  @override
+  String get gyeExplainWhatShort => 'A small, voluntary study group.';
+
+  @override
+  String get gyeExplainWhyShort => 'One shared hanok, no competition.';
+
+  @override
+  String get gyeExplainHowShort => 'Join with a 6-digit code.';
 }

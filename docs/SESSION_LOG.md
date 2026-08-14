@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P3–P5 시각 수렴 구현 중
+
+**Today P3.** 미션 카드를 실제 활동 카탈로그의 제목·21:9 일러스트·보상 종류별 아이콘으로 재구성하고 CTA는 짧은 `Starten/Start`로 분리했다. 한옥 진행은 현 단계 PNG 배너와 현지화된 12단계 이름을 사용하며 enum 원문을 제거했다. 퀘스트 행은 공용 `SoriRewardThumb`을 쓰는 compact 카드로 바꿨고, 보자기 대기 블록도 실제 보자기 썸네일을 사용한다. 홈 캐릭터 클립은 소스 픽셀을 바꾸지 않고 하단 고정 1.2배 줌만 적용했다.
+
+**카탈로그 P4.** 일반 카드 일러스트 슬롯을 원본과 같은 4:3으로 복원하고, 분 표기를 이미지 내부 오버레이로 옮겼다. 진행이 없는 ready footer는 숨기며 Games의 `daily_game`도 Learn의 vocab hero와 같은 방식으로 승격했다. `SoriIllustratedCard.imageOverlay`는 기본 null이라 기존 소비처 동작은 불변이다.
+
+**Gye/Hanok P5.** 임베디드 Gye 빈 상태의 중복 대형 헤더를 제거하고 공동 한옥 8레이어를 모두 실체화한 showcase, 짧은 설명 카드 3개, 장문 상세 시트로 압축했다. Hanok 하단 고스트 텍스트는 실제 도장·보자기·퀘스트 보상 썸네일을 쓰는 3개 균등 shortcut tile로 교체했다. 1차 배포는 handoff의 fallback 규칙대로 count 없이 진행한다.
+
+**검증.** DE/EN ARB 생성, analyze, Today/catalog/Gye/Hanok 반응형·접근성·스모크 매트릭스는 테스트 전 스냅샷 커밋 후 실행한다.
+
+**커밋:** 검증 전 스냅샷에 포함하고 최종 해시는 후속 갱신한다.
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 Sori Deck 2.0 구현 중
 
 **무엇/왜.** P1 고정 지오메트리 위에 `SoriSwipeCard`를 지배축 잠금 방식의 4방향 pan으로 확장했다. 좌/우는 기존 플립 게이트 판정, 위는 저장 후 제자리 복귀, 아래는 평가 없는 스킵이며, 다음 카드 앞면 underlay는 포인터를 받지 않는다. `LearnSessionQueue`에는 miss를 늘리지 않는 `defer()`와 `peekNext`를 추가했다. 공용 `DeckActionBar`는 64dp 판정 2개와 48dp 스킵/저장 버튼을 한 줄에 배치하고, 커스텀 WebP가 승인되기 전에는 Material 아이콘으로 강등한다. 캐릭터·콘텐츠 C0·SRS 원장 계약은 변경하지 않았다.

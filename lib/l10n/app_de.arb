@@ -2941,5 +2941,13 @@
   "soriStageActivityLocked": "Gesperrt",
   "deckActionSave": "Merken",
   "deckFlipFirstHint": "Erst antippen und umdrehen",
-  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen."
+  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
+  "soriStageTodayMissionEyebrow": "HEUTIGE MISSION",
+  "soriStageMissionStart": "Starten",
+  "hanokStageName": "{stage, select, empty{Bauplatz} foundation{Fundament} pillars{Säulen} beams{Balken} thatchRoof{Strohdach} tileRoofPartial{Erste Ziegel} tileRoofComplete{Ziegeldach} dancheong{Dancheong} gate{Tor} windows{Fenster} sideBuilding{Sarangchae} jongga{Jongga} other{Hanok}}",
+  "@hanokStageName": {"placeholders": {"stage": {"type": "String"}}},
+  "gyeShowcaseCaption": "So kann euer gemeinsames Hanok aussehen",
+  "gyeExplainWhatShort": "Eine kleine, freiwillige Lerngruppe.",
+  "gyeExplainWhyShort": "Ein gemeinsames Hanok, kein Wettbewerb.",
+  "gyeExplainHowShort": "Beitritt mit 6-stelligem Code."
 }
