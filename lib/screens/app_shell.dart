@@ -57,7 +57,6 @@ class _LegacyAppShellState extends State<LegacyAppShell> {
   // NavigationBar를 Stack으로 감싸고 각 탭 위치에 크기 0 앵커를 올린다.
   // 이 방식은 NavigationBar 레이아웃에 전혀 영향을 주지 않는다.
   final List<GlobalKey> _tabKeys = List.generate(5, (_) => GlobalKey());
-  final GlobalKey _pathTourKey = GlobalKey();
   final GlobalKey _missionTourKey = GlobalKey();
   // Stage B 예약: final GlobalKey _bookTourKey = GlobalKey();
 
@@ -227,10 +226,7 @@ class _LegacyAppShellState extends State<LegacyAppShell> {
                   controller: _tabScrollControllers[0],
                   child: TickerMode(
                     enabled: _index == 0,
-                    child: HomeScreen(
-                      pathTourKey: _pathTourKey,
-                      missionTourKey: _missionTourKey,
-                    ),
+                    child: HomeScreen(missionTourKey: _missionTourKey),
                   ),
                 ),
                 PrimaryScrollController(

@@ -13,6 +13,7 @@ import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import 'app_shell.dart';
@@ -207,17 +208,15 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(
-                        t.onboardingStartEyebrow,
-                        style: text.label.copyWith(color: SoriColors.primary),
+                      // §G 공통 프레임: 상단 여백 + eyebrow/hero/본문.
+                      const SizedBox(height: Spacing.xl),
+                      SoriPageHeader(
+                        eyebrow: t.onboardingStartEyebrow,
+                        title: t.onboardingStartTitle,
+                        body: t.onboardingStartBody,
                       ),
-                      const SizedBox(height: Spacing.sm),
-                      Text(t.onboardingStartTitle, style: text.h1),
-                      const SizedBox(height: Spacing.sm),
-                      Text(t.onboardingStartBody, style: text.bodySmall),
-                      const SizedBox(height: Spacing.lg),
+                      const SizedBox(height: Spacing.xl),
                       _ChoiceTile(
-                        icon: LearnerMotivation.travel.icon,
                         title: t.onboardingStartTravelTitle,
                         body: t.onboardingStartTravelBody,
                         selected: _motivation == LearnerMotivation.travel,
@@ -227,7 +226,6 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                       ),
                       const SizedBox(height: Spacing.sm),
                       _ChoiceTile(
-                        icon: LearnerMotivation.loved.icon,
                         title: t.onboardingStartPeopleTitle,
                         body: t.onboardingStartPeopleBody,
                         selected: _motivation == LearnerMotivation.loved,
@@ -237,7 +235,6 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                       ),
                       const SizedBox(height: Spacing.sm),
                       _ChoiceTile(
-                        icon: LearnerMotivation.career.icon,
                         title: t.onboardingStartWorkTitle,
                         body: t.onboardingStartWorkBody,
                         selected: _motivation == LearnerMotivation.career,
@@ -250,7 +247,6 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                       Text(t.onboardingStartPoint, style: text.label),
                       const SizedBox(height: Spacing.sm),
                       _ChoiceTile(
-                        icon: Icons.hearing_rounded,
                         title: t.onboardingStartNewTitle,
                         body: t.onboardingStartNewBody,
                         selected: _startsNew,
@@ -258,7 +254,6 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                       ),
                       const SizedBox(height: Spacing.sm),
                       _ChoiceTile(
-                        icon: Icons.route_outlined,
                         title: t.onboardingStartExistingTitle,
                         body: t.onboardingStartExistingBody,
                         selected: !_startsNew,
@@ -296,16 +291,16 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
   }
 }
 
+/// §G 설문 옵션 카드 — Vocabulary 정석: **텍스트 + 우측 라디오만**
+/// (아이콘 남발 금지). 선택 상태는 SoriCard 의 selectable 규격이 그린다.
 class _ChoiceTile extends StatelessWidget {
   const _ChoiceTile({
-    required this.icon,
     required this.title,
     required this.body,
     required this.selected,
     required this.onTap,
   });
 
-  final IconData icon;
   final String title;
   final String body;
   final bool selected;
@@ -320,13 +315,8 @@ class _ChoiceTile extends StatelessWidget {
       onTap: onTap,
       semanticLabel: title,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
-            selected ? Icons.check_circle_rounded : icon,
-            color: selected ? SoriColors.primary : SoriColors.lightTextMuted,
-          ),
-          const SizedBox(width: Spacing.md),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -336,6 +326,13 @@ class _ChoiceTile extends StatelessWidget {
                 Text(body, style: text.cardSubtitle),
               ],
             ),
+          ),
+          const SizedBox(width: Spacing.md),
+          Icon(
+            selected
+                ? Icons.check_circle_rounded
+                : Icons.radio_button_off_rounded,
+            color: selected ? SoriColors.primary : SoriColors.lightTextMuted,
           ),
         ],
       ),

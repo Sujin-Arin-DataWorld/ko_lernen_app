@@ -33,7 +33,8 @@ void main() {
   test('FontWeight.w900 은 더 늘지 않는다 (번들에 900 페이스가 없다)', () {
     // 기준선 2026-07-31: 46곳 / 28파일. 목표 0.
     // 2026-08-03 R1-e: 온보딩 레벨 배지 w900 1곳 제거 → 45 로 래칫 하향.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 40, 'FontWeight.w900');
+    // 2026-08-14 Phase 3(§D~§F) 재실측: 40→35 (_StatTile w900 제거 포함).
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 35, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -43,7 +44,8 @@ void main() {
     // raw TextStyle 17개를 `SoriTextTheme` 프리셋으로 교체(실측 188) —
     // 08-01 임시 상향(193)을 **189 로 복원**. §4.3 "카드 제목 w800 금지"에 따라
     // 카드·행 제목 2곳은 h3(w700) 로 강등했다.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 180, 'FontWeight.w800');
+    // 2026-08-14 Phase 3(§D~§F) 재실측: 180→168 (stats·profile 카드 제목 강등).
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 168, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
@@ -51,12 +53,63 @@ void main() {
     // ⚠️ 이 패턴은 **문자열 리터럴 안에** 산다. clean 소스에서는 리터럴이
     // 공백으로 지워져 있어 절대 매치되지 않는다(= 조용히 통과하는 가짜 가드).
     // 반드시 raw 를 봐야 한다.
+    // 2026-08-14 Phase 3(§D~§F) 재실측: 119→94.
     _expectAtMost(
       sources,
       RegExp("fontFamily: 'Pretendard'"),
-      119,
+      94,
       "fontFamily: 'Pretendard'",
       useRaw: true,
+    );
+  });
+
+  // ── 2026-08-13 UI 개편 Phase 0 추가 래칫 3종 ──────────────────────────
+  // Vocabulary급 개편의 전제 = "모든 스타일이 토큰·공용 컴포넌트를 지나간다".
+  // 아래 상한도 위와 같은 규칙: 실측에서 출발해 내려가기만 한다.
+
+  test('화면의 원시 TextStyle( 생성은 더 늘지 않는다', () {
+    // 기준선 2026-08-13 (Phase 0 데드코드 제거 후 실측). 목표 ~50 —
+    // 신규 텍스트는 SoriTextTheme.of(context) 프리셋 사용.
+    // 2026-08-14: 449→438 (Phase 3-1 catalog grid → SoriIllustratedCard).
+    // 2026-08-14: 438→437 (§C-1-9 _StateLabel raw TextStyle → tt.cardSubtitle).
+    // 2026-08-14: 437→426 (§D Today 폴리시 — 미션 스테이지·보자기·한옥·퀘스트
+    // 행 전부 SoriTextTheme 토큰화. 이 하향이 §D 의 파괴-복원 센서다).
+    // 2026-08-14: 426→420 (§E stats — 앱바·칩·XP 서픽스·히트맵·지표값 토큰화.
+    // §E 의 파괴-복원 센서).
+    // 2026-08-14: 420→412 (§F profile — 앱바·게스트/연결 카드·통계 타일 토큰화.
+    // §F 의 파괴-복원 센서).
+    // 2026-08-14: 412→409 (§G consent 헤더 → SoriPageHeader. §G 의 센서).
+    _expectAtMost(
+      sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
+      RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
+      409,
+      'lib/screens/ 원시 TextStyle(',
+    );
+  });
+
+  test('숫자 리터럴 BorderRadius.circular( 는 더 늘지 않는다', () {
+    // 기준선 2026-08-13 실측. 목표 0 — SoriRadius.* 사용.
+    // 2026-08-14: 64→60 (§D Today 진행바 radius 12/8 → SoriRadius.sm/xs 등).
+    // 2026-08-14: 60→57 (§E stats — 스트릭 아이콘 박스·실드 필·히트맵 셀).
+    // 2026-08-14: 57→54 (§G preview — Skip 필·글로우 캡슐·페이지 도트 토큰화).
+    _expectAtMost(
+      sources,
+      RegExp(r'BorderRadius\.circular\(\s*[0-9]'),
+      54,
+      '숫자 리터럴 BorderRadius.circular(',
+    );
+  });
+
+  test('화면의 원시 AppBar( 는 더 늘지 않는다', () {
+    // 기준선 2026-08-13 실측. Phase 1 의 공용 SoriAppBar 로 수렴 —
+    // 새 화면·새 AppBar 는 SoriAppBar 를 쓴다.
+    // 2026-08-14: 105→100 (§E stats 2곳 SoriAppBar 전환 + Phase 3 잔여 정리
+    // 재실측). 100→99 (§F profile SoriAppBar 전환).
+    _expectAtMost(
+      sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
+      RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
+      99,
+      'lib/screens/ 원시 AppBar(',
     );
   });
 

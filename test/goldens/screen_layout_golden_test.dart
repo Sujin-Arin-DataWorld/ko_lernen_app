@@ -5,7 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -87,7 +86,6 @@ void main() {
       // `accessibility_guideline_test`(터치영역·대비·라벨)가 덮는다.
       final screens = <String, Widget Function()>{
         'settings': SettingsScreen.new,
-        'learn_hub': LearnHubScreen.new,
         'vocab_packs': VocabPacksScreen.new,
       };
 

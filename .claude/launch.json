@@ -2,16 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "hangulsori-web",
+      "name": "flutter-web",
       "runtimeExecutable": "flutter",
-      "runtimeArgs": ["run", "-d", "web-server", "--web-port=8099", "--web-hostname=127.0.0.1"],
-      "port": 8099
-    },
-    {
-      "name": "tiger-sim",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8131", "--directory", "/tmp/tiger_sim"],
-      "port": 8131
+      "runtimeArgs": ["run", "-d", "web-server", "--web-port=8765"],
+      "port": 8765
     }
   ]
 }

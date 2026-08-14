@@ -27,7 +27,6 @@ import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
-import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
@@ -47,7 +46,6 @@ import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
-import 'package:ko_lernen_app/screens/wordbook_hub_screen.dart';
 import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -59,7 +57,6 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'app shell': const AppShell(),
   'home': const HomeScreen(),
   'personal hanok world': const HanokWorldScreen(),
-  'learn hub': const LearnHubScreen(),
   'practice hub': const PracticeHubScreen(),
   'sarangbang study': const SarangbangStudyScreen(),
   'sarangbang furnish': const SarangbangFurnishScreen(),
@@ -69,7 +66,6 @@ Map<String, Widget> responsiveScreens() => <String, Widget>{
   'daecheong furnish': const PersonalRoomFurnishScreen(
     surface: PersonalRoomSurface.daecheongmaru,
   ),
-  'wordbook hub': const WordbookHubScreen(),
   'scenarios list': const ScenariosListScreen(),
   'settings': const SettingsScreen(),
   'stats': const StatsScreen(),

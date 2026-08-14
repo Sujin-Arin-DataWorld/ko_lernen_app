@@ -9,6 +9,7 @@
   "paywallBenefit5": "Buchschnappschuss ohne Tageslimit",
   "paywallPriceFallback": "5 € / Monat",
   "paywallPricePerMonth": "/ Monat",
+  "paywallEyebrow": "Premium",
   "paywallCtaStart": "Premium freischalten",
   "paywallCtaRestore": "Käufe wiederherstellen",
   "paywallClose": "Vielleicht später",
@@ -129,6 +130,7 @@
   "btnSubmit": "Prüfen",
   "btnNext": "Weiter",
   "btnPrev": "Zurück",
+  "legacyVocabPrevious": "Vorherige Karte",
   "btnRandom": "Zufällig",
   "btnGewusst": "Gewusst!",
   "btnNichtGewusst": "Nicht gewusst",
@@ -787,8 +789,8 @@
   "vocabPackBossReplayAudio": "Erneut anhören",
   "vocabPackTapToFlip": "Tippen zum Umdrehen",
   "vocabPackResultTitle": "Ergebnis",
-  "vocabPackResultCleared": "Paket geschafft!",
-  "vocabPackResultClearedAgain": "Schon gemeistert. Gut wiederholt!",
+  "vocabPackResultCleared": "Paket abgeschlossen!",
+  "vocabPackResultClearedAgain": "Schon abgeschlossen. Gut wiederholt!",
   "vocabPackResultRetry": "Fast geschafft. Versuch es noch einmal!",
   "vocabPackResultBossLabel": "Boss-Genauigkeit",
   "vocabPackResultQuizLabel": "Quiz",
@@ -800,8 +802,47 @@
     }
   },
   "vocabPackResultRetryCta": "Nochmal versuchen",
+  "vocabPackResultRecallCta": "Auf Koreanisch abrufen",
+  "vocabPackResultHardWordsCta": "Schwierige Wörter üben",
   "vocabPackResultBackToGrid": "Zurück zu den Paketen",
-  "vocabPackResultGeschafft": "Geschafft! Du hast dieses Vokabelpaket gemeistert.",
+  "vocabPackResultGeschafft": "Geschafft! Wiederhole diese Wörter später noch einmal.",
+  "vocabPackRecallTitle": "Aus dem Gedächtnis",
+  "vocabPackRecallIntro": "Optional: Sieh die Bedeutung und tippe das koreanische Wort.",
+  "vocabPackRecallPrompt": "Wie heißt das auf Koreanisch?",
+  "vocabPackRecallInputHint": "Auf Koreanisch eingeben …",
+  "vocabPackRecallHintCta": "Erste Silbe zeigen",
+  "vocabPackRecallHintLabel": "Beginnt mit „{hint}“",
+  "@vocabPackRecallHintLabel": {
+    "placeholders": {
+      "hint": {}
+    }
+  },
+  "vocabPackRecallShowAnswerCta": "Antwort zeigen",
+  "vocabPackRecallCorrect": "Richtig. Direkt erinnert.",
+  "vocabPackRecallCorrectWithHint": "Richtig, mit Hinweis.",
+  "vocabPackRecallIncorrect": "Nicht ganz.",
+  "vocabPackRecallRevealed": "Antwort gezeigt.",
+  "vocabPackRecallAnswer": "Richtig: {answer}",
+  "@vocabPackRecallAnswer": {
+    "placeholders": {
+      "answer": {}
+    }
+  },
+  "vocabPackRecallDoneTitle": "Abrufübung beendet",
+  "vocabPackRecallDoneScore": "{correct} von {total} direkt erinnert",
+  "@vocabPackRecallDoneScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "vocabPackRecallReviewLater": "Wiederhole diese Wörter später noch einmal.",
+  "vocabPackRecallBackToResult": "Zurück zum Ergebnis",
+  "vocabPackRecallNoBossWords": "Dieses Paket hat keine Boss-Wörter für die Tippübung.",
   "moduleStatsTitle": "Statistik",
   "moduleStatsDesc": "Streak, Karten, Genauigkeit",
   "settingsCloudSection": "Cloud-Backup",
@@ -2793,6 +2834,8 @@
   "soriStagePossibleReward": "Mögliche Belohnung",
   "soriStageOpenActivity": "{activity} öffnen",
   "@soriStageOpenActivity": {"placeholders": {"activity": {"type": "String"}}},
+  "soriStageActivityDetails": "Details zu {activity}",
+  "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
   "soriStageHanokTitle": "Baue ein Zuhause aus dem, was du kannst.",
   "soriStageHanokBody": "Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.",
   "soriStageOpenMap": "Hanok-Karte öffnen",
@@ -2848,5 +2891,7 @@
   "soriStagePreviewCopy": "{copyKey, select, todayEyebrow{HEUTE} todayTitle{Ein Satz. Ein Bauteil.} nearComplete{Fast geschafft} cafeOrder{Im Café bestellen} strongWords{Starke Alltagswörter} sevenDayStreak{Sieben Tage dranbleiben} lessonEyebrow{LEKTION 2 VON 4} lessonPhrase{덜 맵게 해 주세요} listen{Hören} naturalTempo{Natürliches Tempo} speak{Sprechen} rhythmMouth{Rhythmus und Mundbild} remember{Erinnern} withoutHelp{Ohne Hilfe abrufen} beginListening{Mit Hören beginnen} receiptEyebrow{GERADE VERÄNDERT} receiptTitle{Dein Satz trägt jetzt das Dach.} beamStage{DAECHEONG · BALKEN 3} newBeam{1 neuer Balken im Bauplan} xpEarned{Lern-XP +12} completedMission{für die abgeschlossene Mission} questEarned{Quest-Fortschritt +1} scenarioProgress{Alltagsszenen · 4 von 10} hanokEarned{Hanok-Bauteil +1} verifiedSpeaking{durch bestätigtes Sprechen} continueToday{Weiter zu Heute} journeyEyebrow{DEIN WEG} journeyTitle{Alles Lernen baut am selben Ort.} missionEyebrow{WENIGER SCHARF BESTELLEN} missionTitle{Hören. Sprechen. Im Alltag anwenden.} missionReward{Abschließen → Lern-XP + verifizierter Fortschritt} missionStart{Mission starten} bojagiWaiting{1 Bojagi wartet} bojagiBody{Wähle eines von drei Stücken für dein Zimmer.} other{Sori-Stage-Vorschau}}",
   "@soriStagePreviewCopy": {"placeholders": {"copyKey": {"type": "String"}}},
   "soriStagePreviewProgress": "{current} von {target}",
-  "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}}
+  "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
+  "soriStageActivityStart": "Starten",
+  "soriStageActivityLocked": "Gesperrt"
 }

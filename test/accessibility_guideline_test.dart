@@ -3,15 +3,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
-import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 /// Flutter 공식 접근성 가이드라인 자동 검사.
@@ -45,11 +52,20 @@ void main() {
   /// 진입 빈도가 높고 상호작용이 밀집한 화면들.
   final screens = <String, Widget Function()>{
     'settings': SettingsScreen.new,
-    'learn hub': LearnHubScreen.new,
     'practice hub': PracticeHubScreen.new,
     'vocab packs': VocabPacksScreen.new,
     'stats': StatsScreen.new,
     'consent': ConsentScreen.new,
+    // §G (2026-08-14): 온보딩 진입 2화면 — 설문 옵션·레벨 사다리가 터치 밀집.
+    'onboarding start': OnboardingStartScreen.new,
+    'onboarding level': OnboardingLevelScreen.new,
+    // §D (2026-08-14): 기본 셸의 첫 화면 — 미션 스테이지·보자기·한옥 진행이
+    // 상호작용 밀집 구간이라 매트릭스에 상주시킨다. 픽스처 주입으로
+    // Storage/실시간 시각에 묶이지 않는다.
+    'sori today': () => SoriStageTodayScreen(
+      loadSnapshot: () async => _todaySnapshot(),
+      now: () => DateTime(2026, 8, 14, 9),
+    ),
   };
 
   Future<SemanticsHandle> pumpScreen(
@@ -107,11 +123,7 @@ void main() {
     // 터치 영역은 그대로인 경우를 잡는다.
     for (final entry in screens.entries) {
       testWidgets(entry.key, (tester) async {
-        final handle = await pumpScreen(
-          tester,
-          entry.value(),
-          textScale: 1.3,
-        );
+        final handle = await pumpScreen(tester, entry.value(), textScale: 1.3);
         await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
         handle.dispose();
       });
@@ -148,4 +160,23 @@ Widget _wrap(Widget child, {double textScale = 1.0}) => MaterialApp(
           child: child,
         ),
   onGenerateRoute: (settings) => null,
+);
+
+/// sori today 픽스처 — 미션 스테이지(보상행 포함)·보자기 배너·한옥 진행이
+/// 모두 그려지는 상태 (sori_stage_today_matte_test.dart 미러).
+SoriStageProgressionSnapshot _todaySnapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 12),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 12,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+  ),
+  quests: const [],
+  pendingBojagiCount: 1,
+  stampCount: 4,
+  xp: 320,
+  streakDays: 6,
+  todayReward: null,
 );

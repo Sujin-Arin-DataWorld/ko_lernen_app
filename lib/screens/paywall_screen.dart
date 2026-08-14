@@ -4,7 +4,9 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/analytics_service.dart';
 import '../services/premium_service.dart';
+import '../widgets/sori/activity_illustration.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -137,32 +139,34 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   base: const EdgeInsets.fromLTRB(24, 8, 24, 24),
                 ),
                 children: [
-                  Center(
-                    child: Container(
-                      width: 72,
-                      height: 72,
-                      decoration: BoxDecoration(
-                        color: SoriColors.gold.withValues(alpha: 0.15),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.workspace_premium_rounded,
-                        size: 40,
-                        color: SoriColors.gold,
+                  // §H: 일러스트 히어로 — 규약 `reward/paywall_hero.webp`,
+                  // 미도착 시 보자기 폴백 (화면이 아트보다 먼저 배포된다).
+                  ClipRRect(
+                    borderRadius: SoriRadius.brLg,
+                    child: AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: Image.asset(
+                        rewardIllustrationAsset('paywall_hero'),
+                        fit: BoxFit.cover,
+                        filterQuality: FilterQuality.high,
+                        errorBuilder: (_, _, _) => ColoredBox(
+                          color: SoriColors.gold.withValues(alpha: 0.12),
+                          child: Padding(
+                            padding: const EdgeInsets.all(Spacing.lg),
+                            child: Image.asset(
+                              'assets/illustrations/reward/reward_bojagi_closed.png',
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: Spacing.lg),
-                  Text(
-                    t.paywallTitle,
-                    textAlign: TextAlign.center,
-                    style: tt.display,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    t.paywallSubtitle,
-                    textAlign: TextAlign.center,
-                    style: tt.body.copyWith(color: s.textMuted),
+                  const SizedBox(height: Spacing.xl),
+                  SoriPageHeader(
+                    eyebrow: t.paywallEyebrow,
+                    title: t.paywallTitle,
+                    body: t.paywallSubtitle,
                   ),
                   const SizedBox(height: Spacing.xl),
                   ...benefits.map(
@@ -172,9 +176,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Icon(
-                            Icons.check_circle_rounded,
+                            Icons.check_rounded,
                             size: 22,
-                            color: SoriColors.primary,
+                            color: SoriColors.success,
                           ),
                           const SizedBox(width: Spacing.md),
                           Expanded(child: Text(b, style: tt.body)),
@@ -193,21 +197,36 @@ class _PaywallScreenState extends State<PaywallScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (_loadingOffering)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
-                    )
-                  else
-                    Text(
-                      _priceLabel(t),
-                      textAlign: TextAlign.center,
-                      style: tt.h2.copyWith(color: s.text),
+                  // §H: 가격 카드 — raised 바탕 + primary 강조 테두리(선택 상태
+                  // 규격) + numeral 가격.
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Spacing.lg,
+                      vertical: Spacing.md,
                     ),
+                    decoration: BoxDecoration(
+                      color: SoriColors.lightSurfaceRaised,
+                      borderRadius: SoriRadius.brLg,
+                      border: Border.all(color: SoriColors.primary, width: 1.5),
+                    ),
+                    child: _loadingOffering
+                        ? const Center(
+                            child: SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            ),
+                          )
+                        : Text(
+                            _priceLabel(t),
+                            textAlign: TextAlign.center,
+                            style: tt.numeral.copyWith(
+                              color: s.text,
+                              fontSize: 24,
+                            ),
+                          ),
+                  ),
                   const SizedBox(height: Spacing.md),
                   SoriButton.filled(
                     label: _busy ? t.paywallProcessing : t.paywallCtaStart,

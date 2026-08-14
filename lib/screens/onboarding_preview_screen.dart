@@ -162,8 +162,8 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                       backgroundColor: SoriColors.lightSurfaceRaised,
                       foregroundColor: s.text,
                       elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: SoriRadius.brLg,
                       ),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 14,
@@ -296,7 +296,8 @@ class _PreviewPage extends StatelessWidget {
                 width: 240,
                 height: 130,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(130),
+                  // 130 높이 캡슐 — pill 토큰이면 절반 초과 radius 로 동일 형상.
+                  borderRadius: SoriRadius.brPill,
                   gradient: RadialGradient(
                     colors: [
                       accentColor.withValues(alpha: 0.26),
@@ -440,7 +441,8 @@ class _DotIndicator extends StatelessWidget {
             color: isActive
                 ? SoriColors.primary
                 : s.textDim.withValues(alpha: 0.45),
-            borderRadius: BorderRadius.circular(4),
+            // 8px 도트/캡슐 — pill 토큰 (§G-5 도트 토큰화).
+            borderRadius: SoriRadius.brPill,
           ),
         );
       }),

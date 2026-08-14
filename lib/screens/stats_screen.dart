@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
@@ -9,6 +10,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -91,12 +93,7 @@ class _StatsScreenState extends State<StatsScreen>
 
     if (isFirstEntry) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            t.statsHeader,
-            style: const TextStyle(fontWeight: FontWeight.w800),
-          ),
-        ),
+        appBar: SoriAppBar(title: t.statsHeader),
         body: SafeArea(
           child: SoriEmptyState(
             asset: 'assets/illustrations/empty/studyroom_waiting.png',
@@ -112,12 +109,7 @@ class _StatsScreenState extends State<StatsScreen>
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.statsHeader,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
+      appBar: SoriAppBar(title: t.statsHeader),
       body: SoriScreenBackground(
         child: SafeArea(
           child: ListView(
@@ -160,19 +152,28 @@ class _StatsScreenState extends State<StatsScreen>
               ),
               const SizedBox(height: 12),
 
+              // §E: 섹션 구분은 전부 SoriSectionHeader — 카드 안 제목 중복 제거.
               // P1-4: G9 7일 heatmap
+              SoriSectionHeader(t.statsThisWeek),
               _StreakWeekHeatmap(streak: Storage.streakDays),
               const SizedBox(height: 16),
 
               // ── Szenario-Fortschritt (XP/Level/Badges) ──
+              SoriSectionHeader(
+                t.statsXpTitle,
+                trailing: Text(
+                  t.statsLevelLabel(Storage.xpLevel),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).label.copyWith(color: SoriColors.primary),
+                ),
+              ),
               _XpCard(
                 xp: Storage.xp,
                 level: Storage.xpLevel,
                 toNext: Storage.xpToNext,
                 scenariosDone: Storage.completedScenarios.length,
                 badges: Storage.earnedBadges,
-                title: t.statsXpTitle,
-                levelLabel: t.statsLevelLabel(Storage.xpLevel),
                 toNextLabel: t.statsToNextLevel(
                   Storage.xpToNext,
                   Storage.xpLevel + 1,
@@ -181,9 +182,10 @@ class _StatsScreenState extends State<StatsScreen>
                 badgesTitle: t.statsBadgesTitle,
                 noBadges: t.statsNoBadges,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
 
               // Vocab
+              SoriSectionHeader(t.statsGamesSection),
               _StatCard(
                 icon: Icons.style_outlined,
                 title: t.moduleVocabTitle,
@@ -306,7 +308,7 @@ class _StreakHero extends StatelessWidget {
             height: 64,
             decoration: BoxDecoration(
               color: SoriColors.warning.withValues(alpha: 0.20),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: SoriRadius.brMd,
             ),
             alignment: Alignment.center,
             child: Icon(
@@ -351,7 +353,7 @@ class _StreakHero extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: SoriColors.primary.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(999),
+                        borderRadius: SoriRadius.brPill,
                         border: Border.all(
                           color: SoriColors.primary.withValues(alpha: 0.30),
                         ),
@@ -367,11 +369,9 @@ class _StreakHero extends StatelessWidget {
                           const SizedBox(width: 4),
                           Text(
                             '$shieldLabel × $shields',
-                            style: TextStyle(
-                              color: SoriColors.primary,
-                              fontSize: 11,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: SoriTextTheme.of(
+                              context,
+                            ).label.copyWith(color: SoriColors.primary),
                           ),
                         ],
                       ),
@@ -402,21 +402,35 @@ class _StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    // §E-4: 게임별 카드 규율 — compact + 아이콘 44 박스 + cardTitle
+    // (§4.3 카드 제목 w800 금지 — 색·크기 강조 대신 위계는 섹션 헤더가 진다).
     return SoriCard(
-      variant: SoriCardVariant.base,
+      variant: SoriCardVariant.compact,
       accent: color,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, color: color, size: 22),
-              const SizedBox(width: 8),
-              Text(
-                title,
-                style: SoriTextTheme.of(
-                  context,
-                ).h3.copyWith(color: color, fontWeight: FontWeight.w800),
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.16),
+                  borderRadius: SoriRadius.brSm,
+                ),
+                alignment: Alignment.center,
+                child: Icon(icon, color: color, size: 22),
+              ),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: tt.cardTitle,
+                ),
               ),
             ],
           ),
@@ -434,8 +448,6 @@ class _XpCard extends StatelessWidget {
   final int toNext;
   final int scenariosDone;
   final List<String> badges;
-  final String title;
-  final String levelLabel;
   final String toNextLabel;
   final String scenariosLabel;
   final String badgesTitle;
@@ -447,8 +459,6 @@ class _XpCard extends StatelessWidget {
     required this.toNext,
     required this.scenariosDone,
     required this.badges,
-    required this.title,
-    required this.levelLabel,
     required this.toNextLabel,
     required this.scenariosLabel,
     required this.badgesTitle,
@@ -476,38 +486,7 @@ class _XpCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              const Icon(
-                Icons.bolt_rounded,
-                color: SoriColors.primary,
-                size: 22,
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: SoriTextTheme.of(context).h3.copyWith(
-                    color: SoriColors.primary,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                levelLabel,
-                maxLines: 1,
-                style: SoriTextTheme.of(context).bodySmall.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: Color.lerp(SoriColors.primary, s.text, 0.2),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-
+          // §E: 제목·레벨은 카드 밖 SoriSectionHeader 로 승격 — 카드는 데이터만.
           // XP big number + scenarios chip
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -533,11 +512,9 @@ class _XpCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 3),
                       child: Text(
                         'XP',
-                        style: TextStyle(
-                          color: s.textMuted,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                        ),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).label.copyWith(color: s.textMuted),
                       ),
                     ),
                   ],
@@ -611,69 +588,58 @@ class _StreakWeekHeatmap extends StatelessWidget {
     return SoriCard(
       variant: SoriCardVariant.compact,
       padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            AppL10n.of(context).statsThisWeek,
-            style: SoriTextTheme.of(context).label.copyWith(color: s.textMuted),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(7, (i) {
-              final isToday = i == today;
-              final isDone = streak > (6 - i);
-              final color = isDone
-                  ? SoriColors.success
-                  : isToday
-                  ? SoriColors.warning
-                  : s.border;
+      // §E: 제목은 카드 밖 SoriSectionHeader(statsThisWeek) 로 승격.
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List.generate(7, (i) {
+          final isToday = i == today;
+          final isDone = streak > (6 - i);
+          final color = isDone
+              ? SoriColors.success
+              : isToday
+              ? SoriColors.warning
+              : s.border;
 
-              return Column(
-                children: [
-                  Text(
-                    days[i],
-                    style: TextStyle(
-                      fontSize: 9,
-                      color: s.textMuted,
-                      fontWeight: FontWeight.w600,
-                    ),
+          return Column(
+            children: [
+              Text(
+                days[i],
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(color: s.textMuted),
+              ),
+              const SizedBox(height: 6),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: isDone ? 1.0 : 0.15),
+                  borderRadius: BorderRadius.circular(SoriRadius.xs),
+                  border: isToday && !isDone
+                      ? Border.all(color: color, width: 1.5)
+                      : null,
+                ),
+                child: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: Center(
+                    child: isDone
+                        ? const Icon(
+                            Icons.check_rounded,
+                            size: 14,
+                            color: Colors.white,
+                          )
+                        : isToday
+                        ? const Icon(
+                            Icons.favorite_rounded,
+                            size: 10,
+                            color: SoriColors.warning,
+                          )
+                        : null,
                   ),
-                  const SizedBox(height: 6),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: color.withValues(alpha: isDone ? 1.0 : 0.15),
-                      borderRadius: BorderRadius.circular(6),
-                      border: isToday && !isDone
-                          ? Border.all(color: color, width: 1.5)
-                          : null,
-                    ),
-                    child: SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: Center(
-                        child: isDone
-                            ? const Icon(
-                                Icons.check_rounded,
-                                size: 14,
-                                color: Colors.white,
-                              )
-                            : isToday
-                            ? const Icon(
-                                Icons.favorite_rounded,
-                                size: 10,
-                                color: SoriColors.warning,
-                              )
-                            : null,
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            }),
-          ),
-        ],
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }
@@ -700,11 +666,15 @@ class _MetricRow extends StatelessWidget {
           Text(label, style: SoriTextTheme.of(context).body),
           Text(
             value,
-            style: TextStyle(
-              color: accent ? SoriColors.primary : s.text,
-              fontSize: accent ? 18 : 15,
-              fontWeight: accent ? FontWeight.w800 : FontWeight.w700,
-            ),
+            // §E: 수치는 tabular — 정렬 유지. 강조 행은 h3 + primary.
+            style:
+                (accent
+                        ? SoriTextTheme.of(context).h3
+                        : SoriTextTheme.of(context).cardTitle)
+                    .copyWith(
+                      color: accent ? SoriColors.primary : s.text,
+                      fontFeatures: const [FontFeature.tabularFigures()],
+                    ),
           ),
         ],
       ),

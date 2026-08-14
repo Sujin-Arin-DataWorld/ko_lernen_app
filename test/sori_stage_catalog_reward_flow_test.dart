@@ -37,6 +37,16 @@ void main() {
       ),
     );
 
+    // §C-1-11 히어로 카드(단어팩 대형 진입)가 상단에 추가되어 'Course' 타일이
+    // 기본 뷰포트의 lazy sliver 밖에 있을 수 있다 — 빌드시킨 뒤(scrollUntil)
+    // 뷰포트 안으로 정렬(ensureVisible)하고 탭.
+    await tester.scrollUntilVisible(
+      find.text('Course'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(find.text('Course'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Course'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Complete activity'));

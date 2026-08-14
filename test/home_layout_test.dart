@@ -13,8 +13,6 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mission_hero_card.dart';
-import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
-import 'package:ko_lernen_app/widgets/sori/hanok_build_narrative_line.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 /// 2026-08-07 태블릿 홈 — **폰 레이아웃을 가운데 세워 둔 것**이 문제였다.
@@ -87,10 +85,11 @@ void main() {
             await _pumpHome(tester, size: size, textScale: scale);
             expect(_isTwoColumn(tester), isFalse);
 
-            // 히어로가 미션 **위**에 있고 옆이 아니다.
-            final hero = tester.getRect(find.byType(MissionHeroCard));
-            final hanok = tester.getRect(_hanokFinder);
-            expect(hero.bottom, lessThanOrEqualTo(hanok.top + 0.01));
+            // 1열 시각 순서: 미션 카드가 위, 장식 캐릭터 밴드는 그 아래다
+            // (home_screen.dart 1열 분기 주석 — Today 와 단일 행동이 먼저).
+            final heroBand = tester.getRect(find.byType(CharacterClipPlayer));
+            final mission = tester.getRect(find.byType(MissionHeroCard));
+            expect(mission.bottom, lessThanOrEqualTo(heroBand.top + 0.01));
           },
         );
       }
@@ -126,40 +125,16 @@ void main() {
       expect(overlap, greaterThan(0), reason: '같은 행이면 세로 구간이 겹친다');
     });
 
-    testWidgets('한옥은 지도 | 능력 설명 2열로 바뀐다', (tester) async {
-      await _pumpHome(tester, size: const Size(1280, 800));
-
-      final map = tester.getRect(find.byType(PersonalHanokMap));
-      final narrative = tester.getRect(find.byType(HanokBuildNarrativeLine));
-
-      expect(
-        narrative.left,
-        greaterThanOrEqualTo(map.right),
-        reason: '능력 설명이 지도 오른쪽',
-      );
-      final overlap =
-          (map.bottom < narrative.bottom ? map.bottom : narrative.bottom) -
-          (map.top > narrative.top ? map.top : narrative.top);
-      expect(overlap, greaterThan(0), reason: '지도와 능력 설명이 같은 행');
-
-      // 지도는 여전히 상한을 넘지 않는다 — 2열이라고 그림을 키우지 않는다.
-      expect(map.width, lessThanOrEqualTo(kHanokPreviewMaxWidth + 0.01));
-    });
-
-    testWidgets('1열에서는 능력 설명이 지도 아래에 그대로 남는다 (회귀 방향)', (tester) async {
-      await _pumpHome(tester, size: const Size(360, 800));
-
-      final map = tester.getRect(find.byType(PersonalHanokMap));
-      final narrative = tester.getRect(find.byType(HanokBuildNarrativeLine));
-      expect(narrative.top, greaterThanOrEqualTo(map.bottom - 0.01));
-    });
-
     testWidgets('태블릿에서 좌우 빈 공간이 화면의 절반을 먹지 않는다', (tester) async {
       // 변경 전 실측: 1280dp 에서 콘텐츠 608dp, 한쪽 여백 336dp (= 52.5% 낭비).
+      // 2열에서 미션 카드는 오른쪽 Expanded 절반을 가득 채우므로
+      // 콘텐츠 폭 = 미션 폭 × 2 + 열 간격이다. (히어로 클립 자체는 셀 안에서
+      // 정사각 상한으로 중앙 정렬되므로 폭 측정에 못 쓴다.)
       await _pumpHome(tester, size: const Size(1280, 800));
 
-      final hanok = tester.getRect(_hanokFinder);
-      final unused = 1280 - hanok.width;
+      final mission = tester.getRect(find.byType(MissionHeroCard));
+      final contentWidth = mission.width * 2 + kHomeColumnGap;
+      final unused = 1280 - contentWidth;
       expect(
         unused / 1280,
         lessThan(0.30),
@@ -217,13 +192,12 @@ void main() {
   });
 }
 
-final _hanokFinder = find.byKey(const ValueKey('home-hanok-preview'));
-
-/// 미션 카드가 한옥 카드보다 좁으면 행을 나눠 쓴 것 = 2열.
+/// 2열 = 히어로 밴드와 미션 카드가 같은 행(히어로 열이 미션 왼쪽).
+/// 1열이면 히어로 밴드가 미션 카드 위에 쌓여 가로 분리가 없다.
 bool _isTwoColumn(WidgetTester tester) {
-  final mission = tester.getSize(find.byType(MissionHeroCard)).width;
-  final hanok = tester.getSize(_hanokFinder).width;
-  return mission < hanok - 1;
+  final mission = tester.getRect(find.byType(MissionHeroCard));
+  final heroBand = tester.getRect(find.byType(CharacterClipPlayer));
+  return heroBand.right <= mission.left + 0.01;
 }
 
 /// [railWidth] 는 `AppShell` 의 NavigationRail 을 흉내 낸다 — 홈에 실제로
@@ -240,7 +214,6 @@ Future<void> _pumpHome(
   addTearDown(tester.view.resetDevicePixelRatio);
 
   final home = HomeScreen(
-    legacyDashboardInitiallyExpanded: true,
     loadTodaySnapshot: () async => TodayLearningSnapshot(
       pick: const ReviewPick(dueCount: 12),
       dueCount: 12,

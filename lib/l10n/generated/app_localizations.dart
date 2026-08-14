@@ -151,6 +151,12 @@ abstract class AppL10n {
   /// **'/ Monat'**
   String get paywallPricePerMonth;
 
+  /// No description provided for @paywallEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Premium'**
+  String get paywallEyebrow;
+
   /// No description provided for @paywallCtaStart.
   ///
   /// In de, this message translates to:
@@ -744,6 +750,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zurück'**
   String get btnPrev;
+
+  /// No description provided for @legacyVocabPrevious.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorherige Karte'**
+  String get legacyVocabPrevious;
 
   /// No description provided for @btnRandom.
   ///
@@ -3046,13 +3058,13 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultCleared.
   ///
   /// In de, this message translates to:
-  /// **'Paket geschafft!'**
+  /// **'Paket abgeschlossen!'**
   String get vocabPackResultCleared;
 
   /// No description provided for @vocabPackResultClearedAgain.
   ///
   /// In de, this message translates to:
-  /// **'Schon gemeistert. Gut wiederholt!'**
+  /// **'Schon abgeschlossen. Gut wiederholt!'**
   String get vocabPackResultClearedAgain;
 
   /// No description provided for @vocabPackResultRetry.
@@ -3091,6 +3103,18 @@ abstract class AppL10n {
   /// **'Nochmal versuchen'**
   String get vocabPackResultRetryCta;
 
+  /// No description provided for @vocabPackResultRecallCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Koreanisch abrufen'**
+  String get vocabPackResultRecallCta;
+
+  /// No description provided for @vocabPackResultHardWordsCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierige Wörter üben'**
+  String get vocabPackResultHardWordsCta;
+
   /// No description provided for @vocabPackResultBackToGrid.
   ///
   /// In de, this message translates to:
@@ -3100,8 +3124,110 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultGeschafft.
   ///
   /// In de, this message translates to:
-  /// **'Geschafft! Du hast dieses Vokabelpaket gemeistert.'**
+  /// **'Geschafft! Wiederhole diese Wörter später noch einmal.'**
   String get vocabPackResultGeschafft;
+
+  /// No description provided for @vocabPackRecallTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus dem Gedächtnis'**
+  String get vocabPackRecallTitle;
+
+  /// No description provided for @vocabPackRecallIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Optional: Sieh die Bedeutung und tippe das koreanische Wort.'**
+  String get vocabPackRecallIntro;
+
+  /// No description provided for @vocabPackRecallPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie heißt das auf Koreanisch?'**
+  String get vocabPackRecallPrompt;
+
+  /// No description provided for @vocabPackRecallInputHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Koreanisch eingeben …'**
+  String get vocabPackRecallInputHint;
+
+  /// No description provided for @vocabPackRecallHintCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Silbe zeigen'**
+  String get vocabPackRecallHintCta;
+
+  /// No description provided for @vocabPackRecallHintLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Beginnt mit „{hint}“'**
+  String vocabPackRecallHintLabel(Object hint);
+
+  /// No description provided for @vocabPackRecallShowAnswerCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort zeigen'**
+  String get vocabPackRecallShowAnswerCta;
+
+  /// No description provided for @vocabPackRecallCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig. Direkt erinnert.'**
+  String get vocabPackRecallCorrect;
+
+  /// No description provided for @vocabPackRecallCorrectWithHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig, mit Hinweis.'**
+  String get vocabPackRecallCorrectWithHint;
+
+  /// No description provided for @vocabPackRecallIncorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht ganz.'**
+  String get vocabPackRecallIncorrect;
+
+  /// No description provided for @vocabPackRecallRevealed.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort gezeigt.'**
+  String get vocabPackRecallRevealed;
+
+  /// No description provided for @vocabPackRecallAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig: {answer}'**
+  String vocabPackRecallAnswer(Object answer);
+
+  /// No description provided for @vocabPackRecallDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Abrufübung beendet'**
+  String get vocabPackRecallDoneTitle;
+
+  /// No description provided for @vocabPackRecallDoneScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} direkt erinnert'**
+  String vocabPackRecallDoneScore(int correct, int total);
+
+  /// No description provided for @vocabPackRecallReviewLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederhole diese Wörter später noch einmal.'**
+  String get vocabPackRecallReviewLater;
+
+  /// No description provided for @vocabPackRecallBackToResult.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Ergebnis'**
+  String get vocabPackRecallBackToResult;
+
+  /// No description provided for @vocabPackRecallNoBossWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Paket hat keine Boss-Wörter für die Tippübung.'**
+  String get vocabPackRecallNoBossWords;
 
   /// No description provided for @moduleStatsTitle.
   ///
@@ -10291,6 +10417,12 @@ abstract class AppL10n {
   /// **'{activity} öffnen'**
   String soriStageOpenActivity(String activity);
 
+  /// No description provided for @soriStageActivityDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Details zu {activity}'**
+  String soriStageActivityDetails(String activity);
+
   /// No description provided for @soriStageHanokTitle.
   ///
   /// In de, this message translates to:
@@ -10584,6 +10716,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{current} von {target}'**
   String soriStagePreviewProgress(int current, int target);
+
+  /// No description provided for @soriStageActivityStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageActivityStart;
+
+  /// No description provided for @soriStageActivityLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesperrt'**
+  String get soriStageActivityLocked;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -7,6 +7,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/external_link.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
@@ -75,7 +76,6 @@ class _ConsentScreenState extends State<ConsentScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     return Scaffold(
       body: SafeArea(
         child: SoriCenterClamp(
@@ -92,34 +92,12 @@ class _ConsentScreenState extends State<ConsentScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const Spacer(),
-                        Text(
-                          t.consentEyebrow,
-                          style: SoriTextTheme.of(
-                            context,
-                          ).label.copyWith(color: SoriColors.primary),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        Text(
-                          t.consentTitle,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 24,
-                            fontWeight: FontWeight.w900,
-                            color: s.text,
-                            letterSpacing: -0.4,
-                            height: 1.2,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          t.consentBody,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 14.5,
-                            height: 1.55,
-                            color: s.textMuted,
-                          ),
+                        // §G 공통 프레임: eyebrow + hero 헤드라인 + 본문 1줄 —
+                        // 법적 문구(ARB 키)는 그대로, 프레임만 교체.
+                        SoriPageHeader(
+                          eyebrow: t.consentEyebrow,
+                          title: t.consentTitle,
+                          body: t.consentBody,
                         ),
                         const SizedBox(height: Spacing.lg),
                         SoriCard(
@@ -169,14 +147,10 @@ class _ConsentScreenState extends State<ConsentScreen> {
                         Text(
                           t.consentFootnote,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 11.5,
-                            height: 1.4,
-                            // textDim 은 한지 배경 위에서 대비 2.89 로 WCAG AA
-                            // (4.5)에 못 미친다. 동의 조건을 설명하는 문장이라
-                            // 읽히지 않으면 안 된다 → textMuted(5.52).
-                            color: s.textMuted,
-                          ),
+                          // textDim 은 한지 배경 위에서 대비 2.89 로 WCAG AA
+                          // (4.5)에 못 미친다. 동의 조건을 설명하는 문장이라
+                          // 읽히지 않으면 안 된다 → caption(= textMuted 5.52).
+                          style: SoriTextTheme.of(context).caption,
                         ),
                         const SizedBox(height: 4),
                       ],

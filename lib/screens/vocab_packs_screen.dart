@@ -15,6 +15,7 @@ import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -66,7 +67,21 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     // and the sequential course mission.
     final code = Storage.browseLevelCode ?? Storage.placementLevelCode;
     _level = _normalizeLevel(code);
+    // §H 프리미엄 티저: 구매/복원 직후 골드 왕관 칩이 즉시 사라지게.
+    premiumNotifier.addListener(_onPremiumChanged);
     _load();
+  }
+
+  void _onPremiumChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
+  void dispose() {
+    premiumNotifier.removeListener(_onPremiumChanged);
+    super.dispose();
   }
 
   String _normalizeLevel(String? code) {
@@ -228,28 +243,20 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
 
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            t.vocabPacksTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
-          ),
-        ),
+        appBar: SoriAppBar(title: t.vocabPacksTitle),
         body: const AppLoading(),
       );
     }
     if (_loadError != null) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabPacksTitle)),
+        appBar: SoriAppBar(title: t.vocabPacksTitle),
         body: AppError(message: _loadError!, onRetry: _load),
       );
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.vocabPacksTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.vocabPacksTitle,
         actions: [
           IconButton(
             icon: const Icon(Icons.workspace_premium_outlined),
@@ -335,7 +342,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                               crossAxisCount: 2,
                               mainAxisSpacing: Spacing.md,
                               crossAxisSpacing: Spacing.md,
-                              childAspectRatio: 0.92,
+                              // 일러스트 슬롯(16:10)이 얹힌 카드라 세로가
+                              // 길어졌다 (구 0.92 — 텍스트 전용 카드 기준).
+                              childAspectRatio: 0.82,
                             ),
                         delegate: SliverChildBuilderDelegate((context, i) {
                           final e = _packs[i];
@@ -343,6 +352,10 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                             packId: e.pack.id,
                             title: VocabPackService.displayLabel(e.pack.id),
                             progress: e.progress,
+                            // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
+                            // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
+                            premium:
+                                _level != 'A1' && !PremiumService.isPremium,
                             onTap: () => _onPackTap(e.pack),
                             onLockedTap: () => _onLockedTap(e.pack),
                           );

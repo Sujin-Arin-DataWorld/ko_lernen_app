@@ -92,6 +92,8 @@ void main() {
       );
       await tester.pump();
       if (entry.key != 'Getting around Korea') {
+        // §G 히어로 헤더로 하단 옵션이 초기 뷰포트 밖일 수 있다.
+        await tester.ensureVisible(find.text(entry.key));
         await tester.tap(find.text(entry.key));
         await tester.pump();
       }

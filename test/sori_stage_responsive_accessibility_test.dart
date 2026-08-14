@@ -86,6 +86,26 @@ void main() {
     await expectLater(tester, meetsGuideline(textContrastGuideline));
     semantics.dispose();
   });
+
+  // §C-3b: 1280dp에서 카탈로그 오버플로가 재발하지 않는지 검증.
+  // §C-1-4 수리 전에는 soriGridColumns가 클램프 전 전체 폭(1280)을 받아
+  // 880px 안에 6열 → 18px 오버플로가 발생했다.
+  testWidgets('1280dp catalog does not overflow (regression §C-1-4)', (
+    tester,
+  ) async {
+    _setViewport(tester, const Size(1280, 900));
+    await tester.pumpWidget(
+      _catalogApp(
+        locale: const Locale('en'),
+        theme: AppTheme.light,
+        disableAnimations: true,
+      ),
+    );
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+    expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
+  });
 }
 
 void _setViewport(WidgetTester tester, Size size) {

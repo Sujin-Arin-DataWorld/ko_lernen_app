@@ -340,7 +340,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                             // This is an available-content threshold rather
                             // than a screen-width threshold: an AppShell rail
                             // consumes width on tablets.
-                            if (constraints.maxWidth >= 640) {
+                            if (constraints.maxWidth >=
+                                SoriBreakpoints.tabletContent) {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

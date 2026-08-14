@@ -37,6 +37,9 @@ class AppL10nDe extends AppL10n {
   String get paywallPricePerMonth => '/ Monat';
 
   @override
+  String get paywallEyebrow => 'Premium';
+
+  @override
   String get paywallCtaStart => 'Premium freischalten';
 
   @override
@@ -367,6 +370,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get btnPrev => 'Zurück';
+
+  @override
+  String get legacyVocabPrevious => 'Vorherige Karte';
 
   @override
   String get btnRandom => 'Zufällig';
@@ -1685,10 +1691,11 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultTitle => 'Ergebnis';
 
   @override
-  String get vocabPackResultCleared => 'Paket geschafft!';
+  String get vocabPackResultCleared => 'Paket abgeschlossen!';
 
   @override
-  String get vocabPackResultClearedAgain => 'Schon gemeistert. Gut wiederholt!';
+  String get vocabPackResultClearedAgain =>
+      'Schon abgeschlossen. Gut wiederholt!';
 
   @override
   String get vocabPackResultRetry => 'Fast geschafft. Versuch es noch einmal!';
@@ -1711,11 +1718,77 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultRetryCta => 'Nochmal versuchen';
 
   @override
+  String get vocabPackResultRecallCta => 'Auf Koreanisch abrufen';
+
+  @override
+  String get vocabPackResultHardWordsCta => 'Schwierige Wörter üben';
+
+  @override
   String get vocabPackResultBackToGrid => 'Zurück zu den Paketen';
 
   @override
   String get vocabPackResultGeschafft =>
-      'Geschafft! Du hast dieses Vokabelpaket gemeistert.';
+      'Geschafft! Wiederhole diese Wörter später noch einmal.';
+
+  @override
+  String get vocabPackRecallTitle => 'Aus dem Gedächtnis';
+
+  @override
+  String get vocabPackRecallIntro =>
+      'Optional: Sieh die Bedeutung und tippe das koreanische Wort.';
+
+  @override
+  String get vocabPackRecallPrompt => 'Wie heißt das auf Koreanisch?';
+
+  @override
+  String get vocabPackRecallInputHint => 'Auf Koreanisch eingeben …';
+
+  @override
+  String get vocabPackRecallHintCta => 'Erste Silbe zeigen';
+
+  @override
+  String vocabPackRecallHintLabel(Object hint) {
+    return 'Beginnt mit „$hint“';
+  }
+
+  @override
+  String get vocabPackRecallShowAnswerCta => 'Antwort zeigen';
+
+  @override
+  String get vocabPackRecallCorrect => 'Richtig. Direkt erinnert.';
+
+  @override
+  String get vocabPackRecallCorrectWithHint => 'Richtig, mit Hinweis.';
+
+  @override
+  String get vocabPackRecallIncorrect => 'Nicht ganz.';
+
+  @override
+  String get vocabPackRecallRevealed => 'Antwort gezeigt.';
+
+  @override
+  String vocabPackRecallAnswer(Object answer) {
+    return 'Richtig: $answer';
+  }
+
+  @override
+  String get vocabPackRecallDoneTitle => 'Abrufübung beendet';
+
+  @override
+  String vocabPackRecallDoneScore(int correct, int total) {
+    return '$correct von $total direkt erinnert';
+  }
+
+  @override
+  String get vocabPackRecallReviewLater =>
+      'Wiederhole diese Wörter später noch einmal.';
+
+  @override
+  String get vocabPackRecallBackToResult => 'Zurück zum Ergebnis';
+
+  @override
+  String get vocabPackRecallNoBossWords =>
+      'Dieses Paket hat keine Boss-Wörter für die Tippübung.';
 
   @override
   String get moduleStatsTitle => 'Statistik';
@@ -5954,6 +6027,11 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String soriStageActivityDetails(String activity) {
+    return 'Details zu $activity';
+  }
+
+  @override
   String get soriStageHanokTitle => 'Baue ein Zuhause aus dem, was du kannst.';
 
   @override
@@ -6246,4 +6324,10 @@ class AppL10nDe extends AppL10n {
   String soriStagePreviewProgress(int current, int target) {
     return '$current von $target';
   }
+
+  @override
+  String get soriStageActivityStart => 'Starten';
+
+  @override
+  String get soriStageActivityLocked => 'Gesperrt';
 }

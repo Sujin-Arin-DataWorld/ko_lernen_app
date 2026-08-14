@@ -1,33 +1,55 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
+import '../../data/learner_motivation.dart';
 import '../../data/quest_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/pack_access.dart';
+import '../../services/palette_service.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../services/storage_service.dart';
 import '../../services/today_learning_navigation.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/character_clip.dart';
+import '../../widgets/sori/home_hero.dart';
+import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/responsive.dart';
-import '../../widgets/sori/screen_background.dart';
+import '../../widgets/sori/section_header.dart';
 import '../../widgets/sori/spotlight_coach.dart';
+import '../../widgets/sori/stats_top_bar.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/week_sheet.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
 
+/// **SoriStage Today** — 마스코트 히어로가 이끄는 오늘 화면.
+///
+/// 2026-08-14 Phase 2b: 2026-08-13 롤백의 유일한 결함("텍스트-우선 홈이
+/// 마스코트 주도 진입을 잃었다")을 수리 — 홈의 [SoriStatsTopBar] +
+/// [SoriCharacterHero] 를 이식하고, 텍스트 RootHeader 는 이 탭에서 제거했다
+/// (인사말이 곧 헤더다).
+///
+/// ⚠️ **배경 계약 (홈과 동일)**: 라이트 = [HomeHeroClips.matte] 평면 단색.
+/// 히어로 클립이 한지색 매트를 미리 합성한 불투명 mp4 라, 배경이 이 값이
+/// 아니거나 균일하지 않으면 영상 사각형이 액자처럼 뜬다 (2026-08-12 실측,
+/// 상세는 home_hero.dart 와 홈 build 주석). 그라데이션·한지 그레인 금지.
 class SoriStageTodayScreen extends StatefulWidget {
   const SoriStageTodayScreen({
     super.key,
     this.loadSnapshot,
     this.replayHomeTour,
+    this.now,
   });
 
   final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
   final ValueListenable<int>? replayHomeTour;
+
+  /// 테스트/골든용 시계 주입 — 인사말(시간대)이 실제 시각에 묶이지 않게.
+  final DateTime Function()? now;
 
   @override
   State<SoriStageTodayScreen> createState() => _SoriStageTodayScreenState();
@@ -100,46 +122,126 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
     _future = (widget.loadSnapshot ?? SoriStageProgressionService.load)();
   });
 
+  Future<void> _showWeekSheet() async {
+    await showSoriWeekSheet(context);
+    if (mounted) {
+      setState(() {}); // 시트에서 돌아온 뒤 스트릭/XP 칩 최신화.
+    }
+  }
+
+  SoriDayPhase get _phase =>
+      soriDayPhaseFor(widget.now?.call() ?? DateTime.now());
+
+  /// 헤더 + 히어로 블록.
+  ///
+  /// `verticalDirection: up` = **배치는 그대로, paint 순서만 역전** — 히어로
+  /// 영상 텍스처가 자기보다 먼저 그려진 형제(로고·칩·인사말)를 지우는 Android
+  /// 컴포지터 문제의 구조적 차단. 홈 build 의 동일 주석 참조. 시각 결과는
+  /// [톱바 → 인사 → 말풍선 → 밴드] 그대로다.
+  Widget _header(BuildContext context, AppL10n t) {
+    final topBar = SoriStatsTopBar(
+      streak: Storage.streakDays,
+      level: Storage.xpLevel,
+      xp: Storage.xp,
+      onStreakTap: () {
+        // ignore: discarded_futures
+        _showWeekSheet();
+      },
+      onStatsTap: () => Navigator.pushNamed(context, '/stats'),
+      onProfileTap: () => Navigator.pushNamed(context, '/profile'),
+      profileTooltip: t.soriStageProfileTooltip,
+    );
+
+    final hero = ValueListenableBuilder<CompanionPreference>(
+      valueListenable: MascotPreference.preference,
+      builder: (context, preference, _) {
+        final kind = MascotPreference.mascotKindFor(preference);
+        if (kind == null) {
+          return const SizedBox.shrink(
+            key: ValueKey('sori-today-companion-hidden'),
+          );
+        }
+        return SoriCharacterHero(
+          greeting: soriHeroGreeting(t, _phase),
+          bubble: homeTigerBubble(
+            t,
+            streak: Storage.streakDays,
+            xp: Storage.xp,
+            motivation: learnerMotivationFromId(Storage.motivation),
+            kind: kind,
+          ),
+          phase: _phase,
+          kind: kind,
+          // teal kill-switch: 흰 배경 위 한지 매트 클립은 액자가 된다 →
+          // 다크와 같은 정적 마스코트 경로로.
+          forceStatic: paletteVariantNotifier.value == PaletteVariant.teal,
+        );
+      },
+    );
+
+    return Column(
+      verticalDirection: VerticalDirection.up,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [hero, topBar],
+    );
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-    body: SoriScreenBackground(
-      child: SafeArea(
-        child: Column(
-          children: [
-            SoriContentClamp(
-              maxWidth: 880,
-              base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-              builder: (context, padding) => Padding(
-                padding: padding,
-                child: SoriStageRootHeader(
-                  eyebrow: AppL10n.of(context).soriStageTodayEyebrow,
-                  title: AppL10n.of(context).soriStageTodayTitle,
-                ),
-              ),
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    return Scaffold(
+      body: Stack(
+        children: [
+          // 배경 계약: 클래스 doc-comment 참조. 라이트 = 매트 평면 단색.
+          Positioned.fill(
+            child: ColoredBox(
+              key: const ValueKey('sori-today-bg'),
+              color: isDark ? s.bg : HomeHeroClips.matte,
             ),
-            Expanded(
-              child: FutureBuilder<SoriStageProgressionSnapshot>(
-                future: _future,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const AppLoading();
-                  }
-                  if (!snapshot.hasData) {
-                    return _TodayError(onRetry: _reload);
-                  }
+          ),
+          SafeArea(
+            child: FutureBuilder<SoriStageProgressionSnapshot>(
+              future: _future,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
                   return _TodayContent(
                     snapshot: snapshot.requireData,
                     onRefresh: _reload,
                     missionTourKey: _missionTourKey,
+                    header: _header(context, t),
                   );
-                },
-              ),
+                }
+                // 로딩/오류에도 헤더(톱바+히어로)는 즉시 보인다 — 홈과 같은
+                // "캐릭터가 먼저 맞이하는" 진입이자, 셸 테스트의 Profile 툴팁
+                // 계약(스냅샷 로드와 무관)이기도 하다. ListView 인 이유:
+                // 낮은 높이(가로 폰·분할 화면 360dp)에서 헤더+스피너가 화면을
+                // 넘칠 수 있어 스크롤로 받는다.
+                final bool waiting =
+                    snapshot.connectionState == ConnectionState.waiting;
+                return SoriContentClamp(
+                  maxWidth: 880,
+                  base: Spacing.page,
+                  builder: (context, padding) => ListView(
+                    padding: padding,
+                    children: [
+                      _header(context, t),
+                      const SizedBox(height: Spacing.xxl),
+                      if (waiting)
+                        const AppLoading()
+                      else
+                        _TodayError(onRetry: _reload),
+                    ],
+                  ),
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    ),
-  );
+    );
+  }
 }
 
 class _TodayContent extends StatelessWidget {
@@ -147,23 +249,27 @@ class _TodayContent extends StatelessWidget {
     required this.snapshot,
     required this.onRefresh,
     required this.missionTourKey,
+    required this.header,
   });
   final SoriStageProgressionSnapshot snapshot;
   final VoidCallback onRefresh;
   final GlobalKey missionTourKey;
+  final Widget header;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return SoriContentClamp(
       maxWidth: 880,
-      base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
+      base: Spacing.page,
       builder: (context, padding) => RefreshIndicator(
         onRefresh: () async => onRefresh(),
         child: ListView(
           physics: const AlwaysScrollableScrollPhysics(),
           padding: padding,
           children: [
+            header,
+            const SizedBox(height: Spacing.sm),
             _TodayMissionStage(
               key: missionTourKey,
               snapshot: snapshot,
@@ -177,14 +283,9 @@ class _TodayContent extends StatelessWidget {
             _HanokProgress(snapshot: snapshot),
             if (snapshot.closestQuests.isNotEmpty) ...[
               const SizedBox(height: Spacing.xl),
-              Text(
-                t.soriStageClosestQuests,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
+              // §D: 섹션 제목은 SoriSectionHeader(골드 hairline) 규격 —
+              // 자체 하단 여백(Spacing.sm)을 갖는다.
+              SoriSectionHeader(t.soriStageClosestQuests),
               for (final quest in snapshot.closestQuests)
                 _QuestProgressRow(progress: quest),
             ],
@@ -207,6 +308,7 @@ class _TodayMissionStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     final destination = snapshot.today.destination;
     final contract = snapshot.todayReward;
     final rewardText =
@@ -225,23 +327,16 @@ class _TodayMissionStage extends StatelessWidget {
         children: [
           Text(
             t.soriStageBrandLabel,
-            style: const TextStyle(
-              color: SoriColors.gold,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.2,
-            ),
+            // §D: eyebrow 토큰 — 짙은 한옥 스테이지 위라 석간주 대신 골드.
+            style: tt.eyebrow.copyWith(color: SoriColors.gold),
           ),
           const SizedBox(height: Spacing.sm),
           Text(
             destination == null
                 ? t.soriStageTodayEmpty
                 : t.soriStageMissionAction,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              height: 1.12,
-              fontWeight: FontWeight.w700,
-            ),
+            // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지 헤더 전용.
+            style: tt.h1.copyWith(color: Colors.white),
           ),
           if (rewardText.isNotEmpty) ...[
             const SizedBox(height: Spacing.lg),
@@ -253,9 +348,8 @@ class _TodayMissionStage extends StatelessWidget {
                 Expanded(
                   child: Text(
                     '${t.soriStagePossibleReward}: $rewardText',
-                    style: const TextStyle(
+                    style: tt.label.copyWith(
                       color: SoriActivityColors.onHanokStage,
-                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -309,6 +403,7 @@ class _PendingBojagi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed('/bojagi'),
       borderRadius: BorderRadius.circular(SoriRadius.md),
@@ -332,21 +427,12 @@ class _PendingBojagi extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '${t.soriStageBojagiTitle} · $count',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Text(t.soriStageBojagiBody),
+                  Text('${t.soriStageBojagiTitle} · $count', style: tt.h3),
+                  Text(t.soriStageBojagiBody, style: tt.bodySmall),
                 ],
               ),
             ),
-            Text(
-              t.soriStageOpenBojagi,
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
+            Text(t.soriStageOpenBojagi, style: tt.label),
           ],
         ),
       ),
@@ -360,6 +446,7 @@ class _HanokProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     final built = snapshot.hanok.unlocked.length;
     const total = 7;
     return InkWell(
@@ -382,20 +469,12 @@ class _HanokProgress extends StatelessWidget {
                   color: SoriColors.primaryDark,
                 ),
                 const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Text(
-                    t.soriStageHanokNow,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
+                Expanded(child: Text(t.soriStageHanokNow, style: tt.h3)),
                 Text(
                   '$built / $total',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                  // §D: 진행 수치는 tabular — 조각이 늘어도 자리 흔들림 없음.
+                  style: tt.h3.copyWith(
+                    fontFeatures: const [FontFeature.tabularFigures()],
                   ),
                 ),
               ],
@@ -404,13 +483,13 @@ class _HanokProgress extends StatelessWidget {
             LinearProgressIndicator(
               value: snapshot.hanok.constructionFraction,
               minHeight: 12,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
               color: SoriColors.primaryDark,
             ),
             const SizedBox(height: Spacing.sm),
             Text(
               '${t.soriStageNextPiece}: ${snapshot.hanok.structureStage.name}',
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: tt.label,
             ),
           ],
         ),
@@ -428,24 +507,27 @@ class _QuestProgressRow extends StatelessWidget {
       (quest) => quest.id == progress.questId,
     );
     final language = Localizations.localeOf(context).languageCode;
+    final tt = SoriTextTheme.of(context);
     return ListTile(
       contentPadding: EdgeInsets.zero,
       minVerticalPadding: Spacing.sm,
       title: Text(
         language == 'de' ? definition.name.de : definition.name.en,
-        style: const TextStyle(fontWeight: FontWeight.w700),
+        style: tt.cardTitle,
       ),
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 6),
         child: LinearProgressIndicator(
           value: progress.fraction,
           minHeight: 8,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(SoriRadius.xs),
         ),
       ),
       trailing: Text(
         '${progress.current} / ${progress.target}',
-        style: const TextStyle(fontWeight: FontWeight.w700),
+        style: tt.label.copyWith(
+          fontFeatures: const [FontFeature.tabularFigures()],
+        ),
       ),
       onTap: () => Navigator.of(context).pushNamed('/quests'),
     );

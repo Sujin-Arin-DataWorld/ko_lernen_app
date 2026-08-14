@@ -58,12 +58,13 @@ void main() {
   });
 
   test('폭 비교에 숫자 리터럴을 직접 쓰지 않는다', () {
-    // 기준선 2026-08-06: 1곳.
-    //   lib/screens/sarangbang_screen.dart — `constraints.maxWidth >= 640`
-    //   (사랑방 실내 배치 전용 값. SoriBreakpoints.tabletContent 와 같은 640 이라
-    //    상수로 옮길 수 있다. 다음 사랑방 작업에서 정리하고 상한을 0 으로 내릴 것.)
+    // 기준선 2026-08-06: 1곳 (sarangbang `>= 640`) — 2026-08-14 §D 수습에서
+    // SoriBreakpoints.tabletContent 상수로 이관 완료.
     //
-    // 새로 추가할 때는 windowClassFor(width) 또는 SoriBreakpoints.* 를 쓴다.
+    // 남은 1곳: lib/widgets/sori/responsive.dart `soriUniformFitSize` 의
+    //   `maxWidth <= 0` — 브레이크포인트가 아니라 **유효성(비양수 폭) 가드**다.
+    //   이 정규식이 구분 못 하는 정당한 예외라 상한 1 을 점유한다. 새 폭 비교는
+    //   windowClassFor(width) 또는 SoriBreakpoints.* 를 쓴다.
     _expectAtMost(
       sources,
       RegExp(
@@ -108,11 +109,7 @@ void main() {
         )
         .map((s) => s.path)
         .toList();
-    expect(
-      users,
-      isNotEmpty,
-      reason: 'window_class.dart 를 쓰는 곳이 없다 — 배선이 빠졌다',
-    );
+    expect(users, isNotEmpty, reason: 'window_class.dart 를 쓰는 곳이 없다 — 배선이 빠졌다');
   });
 }
 

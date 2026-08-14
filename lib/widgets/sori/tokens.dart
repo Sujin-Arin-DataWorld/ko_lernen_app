@@ -31,6 +31,11 @@ class Spacing {
   static const EdgeInsets pageH = EdgeInsets.symmetric(horizontal: 18);
   static const EdgeInsets cardInner = EdgeInsets.all(16);
   static const EdgeInsets cardCompact = EdgeInsets.all(12);
+
+  /// 표준 페이지 패딩 (2026-08-13 UI 개편 Phase 1).
+  /// SoriStage 화면들이 손으로 쓰던 `fromLTRB(20, 20, 20, 48)` 리터럴의 토큰화 —
+  /// 위 20 = 헤더 위 숨, 아래 48 = 스크롤 끝 여유. 새 화면은 이걸 쓴다.
+  static const EdgeInsets page = EdgeInsets.fromLTRB(20, 20, 20, 48);
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -444,6 +449,14 @@ class SoriFonts {
   /// @deprecated 명조 폐기 — sans의 alias. 신규 코드는 [sans] 사용.
   static const String serif = sans;
   static const List<String> serifFallback = [sans];
+
+  /// 디스플레이(대형 헤드라인) 폰트 — **미래 한국어 세리프 도입의 단일 지점**
+  /// (2026-08-13 UI 개편 D1). 지금은 sans 와 동일: Vocabulary급 위계는 폰트
+  /// 혼용이 아니라 [SoriTextTheme.hero] 크기 + [SoriTextTheme.eyebrow] 대비로
+  /// 만든다. 라이선스 검토된 한국어 세리프(마루부리급)를 번들하게 되면 이 상수
+  /// 하나만 바꾼다 — 2026-07-01 라틴/한글 분열 실패를 반복하지 않기 위해
+  /// **한국어 글리프가 있는 세리프만** 허용.
+  static const String display = sans;
 }
 
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
@@ -475,6 +488,27 @@ class SoriTextTheme {
     weight: FontWeight.w800,
     letterSpacing: -0.5,
     height: 1.15,
+  );
+
+  /// 페이지 대형 헤드라인 (2026-08-13 UI 개편 Phase 1).
+  /// Vocabulary급 "화면당 1메시지" 위계의 앵커 — [eyebrow] 와 짝으로 쓴다.
+  /// [display](32) 는 컴팩트 맥락용으로 유지.
+  TextStyle get hero => _base(
+    fontSize: 38,
+    weight: FontWeight.w800,
+    letterSpacing: -0.8,
+    height: 1.08,
+  );
+
+  /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
+  /// `SoriStageRootHeader` 가 손으로 쓰던 패턴의 토큰화 — 호출부에서
+  /// `.toUpperCase()` 는 직접 한다 (독일어 ß 등 로케일 정책은 호출부 소관).
+  TextStyle get eyebrow => _base(
+    fontSize: 12,
+    weight: FontWeight.w700,
+    letterSpacing: 1.4,
+    height: 1.2,
+    color: SoriColors.accent,
   );
   TextStyle get h1 => _base(
     fontSize: 24,

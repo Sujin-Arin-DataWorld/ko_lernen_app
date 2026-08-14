@@ -11,6 +11,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
@@ -239,14 +240,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                         ),
                       ),
                       const SizedBox(height: Spacing.xs),
-                      Text(
-                        t.onboardingCompanionEyebrow,
-                        style: text.label.copyWith(color: SoriColors.primary),
+                      // §G 공통 프레임 — 캐릭터 패널·클립·색은 픽셀 불변.
+                      SoriPageHeader(
+                        eyebrow: t.onboardingCompanionEyebrow,
+                        title: t.characterSelectionTitle,
+                        body: t.onboardingCompanionPrompt,
                       ),
-                      const SizedBox(height: Spacing.sm),
-                      Text(t.characterSelectionTitle, style: text.h1),
-                      const SizedBox(height: Spacing.sm),
-                      Text(t.onboardingCompanionPrompt, style: text.bodySmall),
                       const SizedBox(height: Spacing.lg),
                       _OptionalCharacterCard(
                         key: const ValueKey('companion-option-tiger'),

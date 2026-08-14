@@ -368,13 +368,13 @@ void main() {
       expect(find.text('Reise nach Korea'), findsWidgets);
       expect(find.text('B1 · Mittelstufe'), findsWidgets);
       expect(find.text('Joy'), findsOneWidget);
-      _tile(tester, 'profile-learning-goal').onTap!();
-      _tile(tester, 'profile-learning-start-point').onTap!();
-      _tile(tester, 'profile-learning-companion').onTap!();
-      _tile(tester, 'profile-account-controls').onTap!();
-      _tile(tester, 'profile-gye').onTap!();
-      _tile(tester, 'profile-learning-data-export').onTap!();
-      _tile(tester, 'profile-account-delete').onTap!();
+      (await _tile(tester, 'profile-learning-goal')).onTap!();
+      (await _tile(tester, 'profile-learning-start-point')).onTap!();
+      (await _tile(tester, 'profile-learning-companion')).onTap!();
+      (await _tile(tester, 'profile-account-controls')).onTap!();
+      (await _tile(tester, 'profile-gye')).onTap!();
+      (await _tile(tester, 'profile-learning-data-export')).onTap!();
+      (await _tile(tester, 'profile-account-delete')).onTap!();
       await tester.pump();
 
       expect(motivationTaps, 1);
@@ -438,10 +438,10 @@ void main() {
     expect(find.text('Mondhof'), findsOneWidget);
     expect(find.text('Meine Lerndaten'), findsOneWidget);
     expect(find.text('Konto löschen'), findsOneWidget);
-    _tile(tester, 'profile-account-controls').onTap!();
-    _tile(tester, 'profile-gye').onTap!();
-    _tile(tester, 'profile-learning-data-export').onTap!();
-    _tile(tester, 'profile-account-delete').onTap!();
+    (await _tile(tester, 'profile-account-controls')).onTap!();
+    (await _tile(tester, 'profile-gye')).onTap!();
+    (await _tile(tester, 'profile-learning-data-export')).onTap!();
+    (await _tile(tester, 'profile-account-delete')).onTap!();
     await tester.pump();
     expect(accountCalls, 1);
     expect(gyeCalls, 1);
@@ -489,13 +489,13 @@ void main() {
     );
     await tester.pump();
 
-    _tile(tester, 'profile-account-controls').onTap!();
+    (await _tile(tester, 'profile-account-controls')).onTap!();
     await tester.pump();
     expect(destinations.last, SettingsInitialFocus.account);
     tester.state<NavigatorState>(find.byType(Navigator)).pop();
     await tester.pump();
 
-    _tile(tester, 'profile-account-delete').onTap!();
+    (await _tile(tester, 'profile-account-delete')).onTap!();
     await tester.pump();
     expect(destinations.last, SettingsInitialFocus.accountDeletion);
   });
@@ -900,12 +900,20 @@ Widget _wrap(Widget child) {
   );
 }
 
-ListTile _tile(WidgetTester tester, String key) => tester.widget<ListTile>(
-  find.descendant(
-    of: find.byKey(ValueKey(key)),
-    matching: find.byType(ListTile),
-  ),
-);
+/// §F(2026-08-14) 섹션 헤더가 레이아웃을 키워 하단 타일이 lazy ListView 의
+/// 빌드 범위 밖일 수 있다 — 먼저 스크롤해 빌드시킨 뒤 위젯을 돌려준다.
+Future<ListTile> _tile(WidgetTester tester, String key) async {
+  final finder = find.byKey(ValueKey(key));
+  await tester.scrollUntilVisible(
+    finder,
+    160,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await tester.pump();
+  return tester.widget<ListTile>(
+    find.descendant(of: finder, matching: find.byType(ListTile)),
+  );
+}
 
 Future<void> _chooseProfileLevel(WidgetTester tester, String levelLabel) async {
   await _selectProfileLevel(tester, levelLabel);
@@ -915,6 +923,13 @@ Future<void> _chooseProfileLevel(WidgetTester tester, String levelLabel) async {
 }
 
 Future<void> _selectProfileLevel(WidgetTester tester, String levelLabel) async {
+  // §F 섹션 헤더로 타일이 뷰포트 밖일 수 있다 — 빌드까지 스크롤(ensureVisible
+  // 는 미빌드 lazy 자식을 못 찾는다).
+  await tester.scrollUntilVisible(
+    find.text('Mein Startpunkt'),
+    120,
+    scrollable: find.byType(Scrollable).first,
+  );
   await tester.ensureVisible(find.text('Mein Startpunkt'));
   await tester.pump();
   await tester.tap(find.text('Mein Startpunkt'));

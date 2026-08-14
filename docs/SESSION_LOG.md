@@ -1,5 +1,272 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Claude Code, Mac) — §I 에셋 완주: 활동 24종 + paywall_hero + 종이 그레인
+
+**생성 (BBANANA Seedream V4.5, 앵커 참조, 29크레딧 = 25 + 재생성 4):**
+- 활동 일러스트 24종 (`assets/illustrations/activities/{id}.webp`) + `reward/paywall_hero.webp`(16:9).
+- 검수 탈락→재생성 4: calligraphy(카드에 한글 텍스트), vocab_packs(만화식 검은 외곽선),
+  srs(3D 질감+크리스탈), paywall_hero(포토리얼 한옥). 재생성 프롬프트에 위반 항목을
+  명시적으로 금지("ENTIRELY BLANK card" / "NO black outlines" / "flat paper-cutout")하면 잡힌다.
+- 프롬프트 골격·후처리 = 핸드오프 §5 런북 (앵커 URL 참조 필수).
+
+**종이 그레인 후처리 (Jin 피드백: "벡터같이 깨끗함 — 인쇄물 질감 원함"):**
+- 재생성 대신 로컬 후처리로 해결 (크레딧 0, 세트 일관, 강도 튜닝 가능):
+  `scratchpad/grain.py` — 미세 가우시안 입자(σ5) + 1/6 해상도 저주파 섬유 얼룩(σ4),
+  휘도만 (색상 불변). venv(pillow/numpy) → 800px jpg → cwebp q84.
+- **활동 24 + paywall + 팩 motif 14 전부 동일 처리** (세트 일관성).
+  팩 원본(그레인 전)은 미추적 상태라 `scratchpad/packs_orig/` 에 백업해 둠 — Jin 이
+  되돌리고 싶으면 거기서 복원.
+- 용량: activities 2.1MB(평균 ~87KB/장 — 그레인이 엔트로피를 늘려 60KB 목표 초과,
+  질감과 맞바꾼 의도적 트레이드오프), packs 1.2MB, paywall_hero 180KB.
+
+**검증:** 내 소관 배치(smoke·teaser·reward_flow·a11y) 68 green. 현재 스위트의 실패는
+**전부 병행 세션 소관**: ① data_integrity — `vocab_pack_recall_screen.dart` 가 부재 에셋
+`mascot/tiger_idle.png` 참조(캐릭터 영역, 미개입), ② 래칫 초과 — 그쪽 신규 화면들이
+raw TextStyle +11 · w800 +7 · AppBar +5 추가 (상한 상향 금지 — 그쪽에서 토큰화해야 함),
+③ main.dart:604 argument_type 에러 (그쪽 편집 중). 잔여 크레딧 ~1,010.
+
+### 2026-08-14 (Codex, Mac) — Phase 2: 선택형 Boss 단어 한국어 타이핑 회상
+
+**무엇/왜.** Phase 1 뒤의 선택형 active recall을 결과 화면 CTA로 추가했다. 새
+`VocabPackRecallScreen`은 **현재 팩의 `bossWords`만** 의미(DE/EN)→한국어 직접 입력으로
+제시하며, Boss 자체는 계속 4지선다 인식 평가로 남는다. 팩 clear·다음 팩 unlock·도장·XP·코스
+진행은 기존 Boss 결과만 사용하고 이 선택형 연습은 바꾸지 않는다.
+
+**정직한 증거.** 회상 순서는 별도 셔플한다. 힌트 없는 첫 타이핑 정답만 positive SRS 후보가
+되지만, Learn/Boss에서 같은 팩 세션 중 이미 positive를 준 단어는 다시 승급시키지 않는다.
+힌트를 쓴 정답은 연습 피드백만 남긴다. 오답 또는 정답 보기는 negative SRS와 wrong-count를
+한 번 기록한 뒤 해당 입력을 잠가 즉시 고친 답이 성공 증거를 덮어쓰지 못하게 했다. 회상에서
+새로 hard/frequent 임계치에 닿은 오답은 완료 화면의 기존 Hard Words CTA로 이어진다. 새 pure
+helper가 공백 정규화·채점·고정 seed 순서를 테스트 가능하게 한다.
+
+**검증.** `flutter gen-l10n`; 관련 targeted Flutter tests **50 passed** (새 회상 grading/order/
+SRS/CTA + 기존 pack clear/unlock·result route·ARB guard); `flutter analyze` → **No issues found**;
+`git diff --check` 통과.
+**커밋: 미생성 (요청 없음).**
+
+### 2026-08-14 (Codex, Mac) — Phase 1: 팩 Boss 노출·정직한 학습 증거 수리
+
+**무엇/왜.** `is_review_boss`를 이전 팩 복습 신호가 아닌 **현재 팩 Boss 인식 평가
+멤버십**으로 확정했다. `VocabPack.learnWords`가 Boss를 포함한 현재 팩 전체를 반환하고,
+Learn 큐·진행 분모·공유 글자 크기가 이를 사용한다. 각 Learn 카드는 뜻 뒷면을 한 번
+열어야 버튼/스와이프 판정이 가능해 Boss가 첫 노출 4지선다가 되지 않는다. Quiz/Boss
+문제 순서는 Learn 완료 뒤 각각 한 번 셔플·캐시하며, 순수 helper는 고정 seed 테스트와
+identity-rotation을 지원한다(선택지 셔플은 기존 RNG 유지).
+
+**증거·카피.** Matching/Speed Match는 라운드 첫 오답만 negative SRS+wrong count로
+기록하고, 이후 정답은 점수·XP·완료를 유지하되 positive SRS를 덮어쓰지 않는다. Scenario
+완료의 `s.vocab` 전체 automatic positive SRS를 제거하고 실패한 직접 퀘스트 target만
+negative로 남겼다. 결과 DE/EN은 `completed`/`abgeschlossen`과 `review later` 표현으로
+교체했고, 세션 오답 중 기존 hard/frequent 기준 도달 단어가 있을 때만 `/hard_words` CTA를
+표시한다. CSV는 수정·재정렬하지 않았고, 역사적 11열 생성 스크립트는 현재 15열 CSV를
+재생성하지 말라는 주석만 보강했다.
+
+**검증.** `flutter gen-l10n`; Phase 1 targeted 105 tests green (Learn/Boss exposure,
+seeded order, persistent clear/unlock, result CTA/copy, Matching·Speed Match·Scenario SRS,
+DE/EN guards 포함); `flutter analyze` → **No issues found**; `git diff --check` 통과.
+**커밋: 미생성 (요청 없음).**
+
+### 2026-08-14 (Claude Code, Mac) — §G 온보딩 + §H 페이월·프리미엄 티저 완료
+
+**§G 온보딩 (지시서 §G):**
+- `consent_screen`: eyebrow/타이틀/본문 → `SoriPageHeader` (법적 문구·로직 불변), footnote → caption.
+- `onboarding_start_screen`: `SoriPageHeader` + 옵션 카드를 정석(텍스트+우측 라디오, 아이콘 제거)으로.
+  테스트 수리: 히어로 헤더로 세 번째 옵션이 뷰포트 밖 → 탭 전 `ensureVisible`.
+- `character_selection_screen`: 헤더만 `SoriPageHeader` (캐릭터 패널·클립·색 픽셀 불변).
+- ⚠️ **판단 2건 (Jin 확인 요망)**: `onboarding_level_screen`·`onboarding_preview_screen` 은
+  **무수술** — 지시서의 기계 치환(SoriCard(selectable)/SoriIllustratedCard)이 살아있는
+  "마당의 아침"·v2 캐러셀 템플릿(한옥 처마·영상 승격·투명 히어로)을 파괴한다고 판단.
+  실질(토큰 위계·팔레트 액센트·폴백 계약)은 이미 충족. preview 는 radius 3곳만 토큰화.
+- `accessibility_guideline_test` 매트릭스에 onboarding start/level 추가 (8화면 × 5그룹 = 40 green).
+
+**§H 페이월 + 프리미엄 티저:**
+- `paywall_screen`: 16:9 일러스트 히어로(`rewardIllustrationAsset('paywall_hero')`,
+  폴백=reward_bojagi_closed) + `SoriPageHeader`(신규 ARB `paywallEyebrow` DE/EN) +
+  혜택 check/success + 가격 카드(raised+primary 테두리+numeral). 결제 로직 불변.
+- `activity_illustration.dart` 에 `rewardIllustrationAsset` 규약 리졸버 신설 — 리터럴
+  에셋 무결성 가드(data_integrity)는 실재 파일만 고정, 폴백 우선 배포는 규약 경로.
+- **프리미엄 티저**: `PackCard` 에 `premium` 상태(골드 왕관 칩, 선행 잠금이 우선) +
+  `vocab_packs_screen` 에 `_level != 'A1' && !isPremium` 배선 + `premiumNotifier`
+  구독(구매 즉시 해제). 센서 테스트 `vocab_packs_premium_teaser_test.dart` 3건
+  (A2 왕관 표시 / A1 부재 / notifier flip 즉시 소멸). ⚠️ 테스트 요령: CSV rootBundle
+  로드는 fake-async 에서 안 풀림 → `tester.runAsync(() => VocabPackService.loadAll())`
+  프리웜 필수.
+- ⚠️ **BBANANA MCP 가 커넥터 설정에서 비활성** — paywall_hero·활동 24종 아트 생성
+  불가(§I 미착수). 재활성화 후 핸드오프 §5 런북(앵커 URL)으로 생성만 하면 규약이 집는다.
+
+**래칫 (§G):** 화면 raw TextStyle 412→409 · radius 57→54.
+
+**병행 세션 주의:** 12:02경 외부 편집(vocab_pack_screen·vocab_pack_result_screen·ARB 등)
+착지. `flutter gen-l10n` 재실행으로 정합 회복. 현재 유일 실패
+`scenario_srs_persistence_flow_test`("completion only records negative SRS …") 는
+**외부 세션 소관** — 기록만, 미수리. 그 외 전체 스위트 green (내 마지막 실측 3334+).
+
+### 2026-08-14 (Claude Code, Mac) — Antigravity 인수: §C 완주(P1-7·§C-1-11) + §D Today 폴리시
+
+**인수 배경:** Antigravity 크레딧 소진으로 중단 → Jin 지시로 Claude Code 가 직접 완수.
+
+**중단 잔해 수습 (컴파일 4건):**
+- `soriStageActivityDetails` EN ARB 키 부재 → `app_en.arb` 최상위에 추가 + `flutter gen-l10n`.
+- `legacy_vocab_flipgate_test.dart`: 존재하지 않는 `Storage.wrongCount(` → 실제 API `wrongCountOf(` 교체.
+
+**P1-7 보상 아이콘 공용화:** 새 파일 `lib/widgets/sori/reward_icon.dart`
+(`soriRewardIcon(SoriRewardKind)`) — 활동 시트(약속)와 리시트(이행)가 같은 매핑·같은
+'+N 라벨' 표기를 쓴다. 양쪽의 사설 매핑/표기 삭제.
+
+**§C-1-11 Learn 히어로 카드:** `vocab_packs` 를 그리드에서 빼 상단 대형 진입 카드로 승격
+(`SliverMainAxisGroup` + `SliverToBoxAdapter`, 21/9 배너). `SoriIllustratedCard` 에
+`shrinkWrap` 변형 추가 (비고정 높이에서 Expanded 예외 방지). reward_flow 테스트는
+`scrollUntilVisible` + `ensureVisible` 로 히어로가 밀어낸 'Course' 타일을 가시화 후 탭.
+
+**§D Today 폴리시 (`sori_stage_today_screen.dart`):** raw TextStyle 12곳 → 토큰
+(_TodayMissionStage: eyebrow(gold)·h1(white)·label / _PendingBojagi: h3·bodySmall·label /
+_HanokProgress: h3+tabular·label / _QuestProgressRow: cardTitle·label+tabular),
+퀘스트 섹션 제목 → `SoriSectionHeader`, 진행바 radius 12/8 → `SoriRadius.sm/xs`.
+`accessibility_guideline_test.dart` 매트릭스에 'sori today' 추가 (픽스처 주입, 6항목).
+
+**window_class 가드 수습:** sarangbang `>= 640` → `SoriBreakpoints.tabletContent` 이관
+(가드 주석의 기존 TODO 이행). 남은 1곳 = responsive.dart 유효성 가드(주석 갱신).
+
+**§E stats (`stats_screen.dart`):** AppBar 2곳 → `SoriAppBar` / 섹션 3개(이번 주·
+시나리오 진행·게임) → `SoriSectionHeader`(레벨 라벨은 trailing 으로 승격, 카드 안
+중복 제목 제거) / 게임 카드 → compact + 아이콘 44 박스 + cardTitle(§4.3 w800 금지) /
+지표값 tabular / 히트맵·실드 필·아이콘 박스 radius 토큰화. 통계 로직·지표 불변.
+
+**§F profile (`profile_screen.dart`):** `SoriAppBar` 전환 / `_ProfileSectionLabel` →
+`SoriSectionHeader` 위임(호출부 간격 SizedBox 3개 제거) / 게스트·연결 카드와
+`_StatTile` 토큰화(w900 1·w800 2·Pretendard 리터럴 3 제거). GDPR·계정 로직 무변경.
+⚠️ **§F-2(아바타 정지 이미지) 미적용**: 코드에 기록된 Jin 2026-08-06 결정
+("프로필 아바타 = 캐릭터 영상 복원", lease 직렬화)과 충돌 — 작업지시서보다 Jin
+실기기 결정을 우선, 클립 아바타 유지. Jin 재확인 필요.
+- `profile_screen_test.dart` 수리: §F 섹션 헤더로 하단 타일이 lazy 빌드 범위 밖 →
+  `_tile` 을 scrollUntilVisible 선행 async 헬퍼로, `_selectProfileLevel` 도 동일.
+
+**래칫 하향 (= §D~§F 파괴-복원 센서):** 화면 raw TextStyle 437→426(§D)→420(§E)→412(§F) ·
+숫자 BorderRadius.circular 64→60→57 · 화면 raw AppBar 105→99 · w900 40→35 ·
+w800 180→168 · Pretendard 리터럴 119→94.
+
+**검증:** analyze 0 · **전체 스위트 3311 green** (skip 13 = Linux 골든). 커밋 없음 (Jin 대기).
+
+### 2026-08-14 (Antigravity/Gemini, Mac) — §C 잔여 수리 완료: 시트·prev·회귀테스트·레이어이동
+
+**§C-3b 회귀 테스트 2건 추가:**
+1. `sori_stage_responsive_accessibility_test.dart`: 1280dp 카탈로그 오버플로 회귀 테스트 (§C-1-4).
+2. `swipe_card_test.dart`: `enabled=false` 스와이프 무시 회귀 테스트 (§C-1-1).
+
+**§C-1-2 prev 복원 (Jin 확정):**
+- 판정 덱 유지 + `_prev()` 메서드 복원 (판정 없이 이전 카드로, SRS 영향 0).
+- 하단 행 맨 앞에 `navigate_before_rounded` 44×44 아이콘 버튼 추가.
+- **계약 변경**: 기존은 스와이프 전용 (prev 없음) → 판정 덱 유지하면서 prev 공존.
+
+**§C-2 카드 상세 시트 (showSoriActivitySheet):**
+- 새 파일 `lib/widgets/sori/activity_sheet.dart` — 설명(§C-1-5) + 보상 계약(§C-1-6) + 잠금 설명 + CTA.
+- `SoriIllustratedCard`에 `onLongPress` 파라미터 추가 (`illustrated_card.dart`).
+- 카탈로그 배선: 일반 카드 롱프레스=시트, 잠긴 카드 탭=시트.
+- ARB 키 추가: `soriStageActivityStart` (EN: Start, DE: Starten), `soriStageActivityLocked` (EN: Locked, DE: Gesperrt).
+
+**§C-1-10 레이어 역전 수리:**
+- `soriActivityColor`/`soriActivityIcon` 정본을 `widgets/sori/activity_illustration.dart`로 이동.
+- `sori_stage_common.dart`에서 `export ... show` re-export (기존 consumer 무수정).
+
+**§C-1-12 .gitkeep:** `assets/illustrations/activities/.gitkeep` 존재 확인.
+
+**검증 (§K 매트릭스):** analyze 0 · 전체 82 테스트 green
+(typography_guard 7 + swipe_card 5 + catalog_reward 4 + flip_regression 2 +
+vocab_pack_requeue 3 + screen_smoke 24 + responsive_a11y 10(1280dp 포함) +
+shell + matte 3 + accessibility_guideline 32).
+
+### 2026-08-14 (Antigravity/Gemini, Mac) — §C-1 P0 수리 (작업지시서 v2 피드백 반영)
+
+**수리 4건 + minor 2건:**
+1. **§C-1-1 [P0]** `legacy_vocab_screen.dart`: `SoriSwipeCard(enabled: _flipped)` 추가 —
+   플립 전 스와이프가 답도 안 본 카드에 SRS 오답 + wrongCount를 기록하던 데이터 버그 수리.
+   기존 버튼 행의 `if (_flipped)` 게이트와 동일 계약.
+2. **§C-1-3 [minor]** 즐겨찾기 별을 SoriSwipeCard child 내부 Stack으로 이동 —
+   퇴장 애니메이션에서 별이 제자리에 남던 문제 수리.
+3. **§C-1-4 [P0]** `sori_stage_catalog_screen.dart`: `soriGridColumns` 호출에
+   `constraints.maxWidth - padding.horizontal` + `outerPadding: 0` 전달 —
+   1280dp에서 880px 클램프 안에 6열이 들어가 18px 오버플로 수리.
+   discover_screen.dart:349 패턴 준수.
+4. **§C-1-9 [minor]** `_StateLabel` raw TextStyle(11px) → `tt.cardSubtitle.copyWith(fontWeight: FontWeight.w600)`.
+5. **§C-1-7 [minor]** `dart format` 실행 (2파일).
+6. 래칫 하향: `TextStyle(` 438→437.
+
+**§C-1-2 (prev 포기):** 판정 덱 유지가 더 낫다고 판단하나, 결정 변경은 Jin 승인 필요 — 별도 확인 대기.
+**§C-1-5~6 (활동 설명·보상 표면 복원):** §C-2 "카드 상세 시트" 구현 필요. Jin 결정 사항.
+
+**검증.** analyze 0 · 래칫 7/7 · swipe_card 4종 · catalog_reward_flow 4종 · flip_regression 2종 ·
+vocab_pack_requeue 3종 · screen_smoke 24종 · responsive_accessibility 8종(1280dp 포함) ·
+shell 테스트 · matte 3종 · accessibility_guideline 32종 — **전부 green**.
+
+### 2026-08-14 (Claude, Mac) — Phase 3-1·4-A 리뷰(3에이전트 워크플로) + 작업지시서 v2
+
+**무엇.** Antigravity 세션의 카탈로그 그리드·스와이프 확산 산출물을 리뷰 워크플로
+(코드리뷰 2 + 검증 실행 1)로 검증하고, 남은 Phase 상세 실행 스펙을
+**`docs/UI_OVERHAUL_WORK_ORDER_2026-08-14.md`** 로 작성 (HANDOFF §4 대체 — 방법론 7루프·
+디자인 4기둥/5앵커·화면별 와이어·활동 일러스트 24종 주제표·테스트 매트릭스).
+
+**리뷰 결과 (지시서 §C 상세).** major 5: ① legacy_vocab 플립 전 스와이프가 미확인 카드에
+SRS 오답+wrongCount 기록(→ `enabled: _flipped` 수리 지시) ② legacy_vocab prev 기능 소실
++핸드오프 계약(넘김 덱) 임의 변경 ③ 카탈로그 1280dp 카드당 RenderFlex 18px 오버플로
+(soriGridColumns 에 클램프 전 폭 전달 — 스크래치 테스트 실측) ④ 활동 설명 표면 0곳
+⑤ 보상 계약(condition+items) 표면 소멸. minor 9 (dart format 미준수 2파일, 잠김 카드
+시맨틱, raw TextStyle 11px, 레이어 역전 import, Learn 대형 진입 카드 누락, .gitkeep
+커밋 동반 등). praise: 리시트 플로우/헤더/l10n 보존, vocab_pack Learn 배선 완전 정확.
+
+**검증 실행.** 그 세션이 건너뛴 14개 스위트 = **804 통과 / 0 실패**, analyze 0 —
+단 1280dp 오버플로·플립 전 오판정은 기존 커버리지 밖(green≠무결함, 회귀 테스트 추가 지시).
+정보 유실 2건(설명·보상)은 "카드 상세 시트"로 복원하는 구조안 제시(지시서 §C-2), 최종은
+Jin 제품 결정. 본 세션은 문서 2개(지시서 신설·핸드오프 포인터)만 편집 — 코드 무수정
+(병행 세션 파일 존중). 미커밋.
+
+
+### 2026-08-14 (Antigravity/Gemini, Mac) — Phase 3-1: Catalog Grid Overhaul
+
+**카탈로그 그리드.** `sori_stage_catalog_screen.dart` 의 `_ActivityListRow` 리스트(96px
+컬러 박스 행) → `SoriIllustratedCard` 그리드로 전환:
+- 신설 `widgets/sori/activity_illustration.dart` — `activityIllustrationAsset(id)` 경로
+  규약 + `ActivityIconFallback`(원형 컬러 배경 + 아이콘, 아트 0장이어도 시각 성립).
+- `SliverGrid` + `soriGridColumns(width, target:160, min:2)` → 폰 2열, 태블릿 3-4열.
+- 각 카드: 16:10 일러스트 슬롯 + 타이틀 + 서브타이틀(분) + footer(상태 컬러 도트 + 라벨).
+- `_ActivityStatusChip` 삭제 → 간결한 `_StateLabel`(컬러 도트 + 한줄 텍스트).
+- 기존 네비게이션/보상영수증 플로우 100% 보존.
+- `pubspec.yaml`에 `assets/illustrations/activities/` 등록, `.gitkeep` 생성.
+- 래칫 하향: `TextStyle(` 449→438 (`typography_guard_test.dart`).
+
+**검증.** analyze 0 issues · 래칫 7/7 green.
+
+### 2026-08-14 (Antigravity/Gemini, Mac) — Phase 4-A 스와이프 확산 (legacy_vocab + vocab_pack Learn)
+
+**스와이프 확산.** `SoriSwipeCard` 판정 스와이프를 2개 추가 화면에 배선:
+- **`legacy_vocab_screen.dart`**: 기존 `GestureDetector`(속도 기반 넘김) → `SoriSwipeCard`
+  (우=Gewusst/좌=Nicht gewusst). `FlipCard` + ★즐겨찾기 오버레이 유지, `_prev()` 미사용
+  함수 제거.
+- **`vocab_pack_screen.dart`**: Learn 단계 `FlipCard`를 `SoriSwipeCard`로 래핑
+  (우=GotIt/좌=DontKnow). `SoriStudyScale` + `LayoutBuilder`(uniform headline sizing) 내부
+  구조 보존.
+- 양쪽 모두 하단 버튼 행은 **접근성 정본으로 유지**(handoff §1.5 계약).
+
+**검증.** `flutter analyze` 0 error / 0 warning (legacy_vocab + vocab_pack 대상).
+
+### 2026-08-14 (Claude, Mac) — 스와이프 판정(데이팅앱식) + UI 개편 인수인계 문서
+
+**스와이프.** Jin 요청 "wusst/nicht wusst 를 클릭 말고 좌/우 스와이프로". 신설
+`lib/widgets/sori/swipe_card.dart` **SoriSwipeCard**(+SoriSwipeBadge) — 임계 폭35%/700px/s,
+틴더식 기울임+판정 스탬프(진행 비례 opacity), 자식 탭(플립)과 공존, reduce-motion 즉시판정,
+**버튼 행은 접근성 정본으로 유지**(스와이프는 가속 경로). 컨트롤러는 initState 생성(late-lazy
+는 미사용 dispose 시 TickerMode 조회 크래시 — 실측 후 수리). 배선: `review_session_screen`
+(우=Gewusst/좌=Nicht gewusst → `_answer`) · `custom_pack_play_screen`(우=`_gotIt`/좌=`_skip`).
+테스트 `test/swipe_card_test.dart` 4종 + 병행 세션의 flip 회귀 3종과 동시 green. 잔여
+(legacy_vocab·vocab_pack Learn 브라우즈 넘김, 코치마크, 실기기 back 제스처 충돌 확인)는
+인수인계 문서 §4-A.
+
+**인수인계.** `docs/HANDOFF_UI_OVERHAUL_2026-08-14.md` 신설 — 다음 AI 세션(Antigravity/
+Opus 4.6)이 100% 이어받도록: 미션·Jin 구속 결정·완료 상태(Phase 0/1/2/에셋/스와이프)·
+계약과 gotcha(매트, verticalDirection up, hex 단언, 래칫, 병행 세션)·Phase 3/4 상세 스펙·
+**에셋 생성 런북(BBANANA 앵커 참조 워크플로 + 변환 파이프라인)**·검증 루틴·Jin 대기 항목.
+
+**검증.** analyze 0 · swipe/flip/review 13 테스트 green. 미커밋.
+
 ### 2026-08-14 (Claude, Mac) — 퀴즈 보기 = 그 장에서 배운 단어들 (Jin 제안)
 
 **제안 (Jin).** "잘 지냈어요?"의 보기에 Tee·Wochenende(다른 팩)가 나오면 주제만 봐도

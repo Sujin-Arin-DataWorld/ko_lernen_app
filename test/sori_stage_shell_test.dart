@@ -16,15 +16,13 @@ void main() {
     await Storage.init();
   });
 
-  test('Sori Stage feature is default-off with an explicit opt-in seam', () {
-    expect(const SoriStageFeatureGate().isEnabled, isFalse);
-    expect(const SoriStageFeatureGate(enabled: true).isEnabled, isTrue);
+  test('Sori Stage feature is default-on with an explicit rollback seam', () {
+    // 2026-08-14 Phase 2c: 마스코트 히어로 이식(2b)으로 2026-08-13 롤백 사유가
+    // 해소되어 기본값을 다시 켰다. 레거시 셸은 `enabled: false`(또는
+    // `--dart-define=ENABLE_SORI_STAGE=false`)로 한 릴리스 동안 되돌릴 수 있다.
+    expect(const SoriStageFeatureGate().isEnabled, isTrue);
+    expect(const SoriStageFeatureGate(enabled: false).isEnabled, isFalse);
   });
-
-  // 기본값이 레거시 셸을 고른다는 사실은 위 게이트 계약 테스트와
-  // screen_smoke_test.dart 의 'app shell renders' 가 함께 커버한다. 레거시 홈은
-  // reduce-motion 에도 멈추지 않는 앰비언트 애니메이션이 있어 여기서 셸 전체를
-  // 마운트하면 pumpAndSettle 이 타임아웃한다.
 
 
   testWidgets('390dp shell exposes five roots and profile outside navigation', (

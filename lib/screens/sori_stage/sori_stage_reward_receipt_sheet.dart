@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
 
@@ -75,7 +76,7 @@ class _RewardLine extends StatelessWidget {
             color: SoriActivityColors.reward.withValues(alpha: .24),
             borderRadius: BorderRadius.circular(SoriRadius.sm),
           ),
-          child: Icon(_icon(item.kind), color: SoriColors.goldOnLight),
+          child: Icon(soriRewardIcon(item.kind), color: SoriColors.goldOnLight),
         ),
         const SizedBox(width: Spacing.md),
         Expanded(
@@ -88,17 +89,6 @@ class _RewardLine extends StatelessWidget {
       ],
     ),
   );
-
-  IconData _icon(SoriRewardKind kind) => switch (kind) {
-    SoriRewardKind.none => Icons.info_outline_rounded,
-    SoriRewardKind.xp => Icons.bolt_rounded,
-    SoriRewardKind.stamp => Icons.approval_rounded,
-    SoriRewardKind.questProgress => Icons.task_alt_rounded,
-    SoriRewardKind.hanokProgress => Icons.roofing_rounded,
-    SoriRewardKind.bojagi => Icons.redeem_rounded,
-    SoriRewardKind.gyeLantern => Icons.lightbulb_rounded,
-    SoriRewardKind.personalBest => Icons.emoji_events_rounded,
-  };
 }
 
 Future<void> showSoriStageRewardReceipt(

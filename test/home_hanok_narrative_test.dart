@@ -34,7 +34,7 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('shows the read-only verified can-do beside the existing Hanok', (
+  testWidgets('shows the read-only verified can-do in the build note', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -49,7 +49,6 @@ void main() {
         home: MediaQuery(
           data: const MediaQueryData(disableAnimations: true),
           child: HomeScreen(
-            legacyDashboardInitiallyExpanded: true,
             loadTodaySnapshot: () async => TodayLearningSnapshot(
               pick: const ReviewPick(dueCount: 1),
               dueCount: 1,
@@ -73,12 +72,9 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    expect(
-      find.text(
-        'Structure: Laying foundation stones. Verified: I can greet someone.',
-      ),
-      findsOneWidget,
-    );
+    // The legacy dashboard's narrative line is gone (2026-08-13 cleanup);
+    // the always-visible HomeBuildNote surfaces the verified can-do instead.
+    expect(find.text('I can greet someone.'), findsOneWidget);
   });
 
   testWidgets('shows course-backed structure when legacy packs are empty', (
@@ -97,7 +93,6 @@ void main() {
         home: MediaQuery(
           data: const MediaQueryData(disableAnimations: true),
           child: HomeScreen(
-            legacyDashboardInitiallyExpanded: true,
             loadTodaySnapshot: () async => TodayLearningSnapshot(
               pick: const ReviewPick(dueCount: 1),
               dueCount: 1,
@@ -119,12 +114,9 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    expect(
-      find.text(
-        'Structure: Laying foundation stones. Verified: I can greet someone.',
-      ),
-      findsOneWidget,
-    );
+    // The legacy dashboard's narrative line is gone (2026-08-13 cleanup);
+    // the always-visible HomeBuildNote surfaces the verified can-do instead.
+    expect(find.text('I can greet someone.'), findsOneWidget);
   });
 }
 

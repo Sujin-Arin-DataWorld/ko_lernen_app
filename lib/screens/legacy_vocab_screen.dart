@@ -25,6 +25,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -210,7 +211,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _persistIdx();
   }
 
+  // §C-1-2: prev 복원. 판정 덱 유지 + prev 버튼(하단 행).
+  // 판정 없이 이전 카드로 되돌아간다 (SRS 영향 0).
   void _prev() {
+    if (_filtered.isEmpty) return;
     setState(() {
       _flipped = false;
       _serve++;
@@ -447,67 +451,78 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 ),
                 const SizedBox(height: 10),
 
-                // Card with swipe + favorite star overlay
+                // Card with swipe judgment + favorite star overlay
+                // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
+                // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
                 Expanded(
-                  child: GestureDetector(
-                    onHorizontalDragEnd: (d) {
-                      if (d.primaryVelocity == null) return;
-                      if (d.primaryVelocity! < -250) {
-                        _next();
-                      } else if (d.primaryVelocity! > 250) {
-                        _prev();
-                      }
-                    },
-                    // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음)
-                    // + 상하 여백. 별 오버레이가 카드와 함께 정렬되도록 Stack째 래핑.
-                    child: Center(
-                      child: FractionallySizedBox(
-                        heightFactor: 0.82,
-                        child: Stack(
-                          children: [
-                            SoriStudyScale(
-                              // 코치마크 타겟(GlobalKey)은 KeyedSubtree에 걸고,
-                              // FlipCard는 서빙 카운터 key로 카드마다 새로 만든다
-                              // (뒷면 선노출 방지).
-                              child: KeyedSubtree(
-                                key: _flashCardKey,
-                                child: FlipCard(
-                                  key: ValueKey('legacy-$_serve'),
-                                  flipped: _flipped,
-                                  onTap: _onFlip,
-                                  front: _Front(v: v, koFirst: _koFirst),
-                                  back: _Back(v: v, koFirst: _koFirst),
-                                ),
-                              ),
+                  child: Center(
+                    child: FractionallySizedBox(
+                      heightFactor: 0.82,
+                      child: Stack(
+                        children: [
+                          SoriSwipeCard(
+                            // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                            // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
+                            // 버튼 행도 if (_flipped) 게이트 — 동일 계약.
+                            enabled: _flipped,
+                            onSwipeRight: _gewusst,
+                            onSwipeLeft: _nichtGewusst,
+                            rightBadge: SoriSwipeBadge(
+                              label: t.btnGewusst,
+                              icon: Icons.check_rounded,
+                              color: SoriColors.success,
                             ),
-                            Positioned(
-                              top: 12,
-                              right: 12,
-                              child: SoriPressable(
-                                onTap: () => _toggleFavorite(v.korean),
-                                haptic: SoriHaptic.light,
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: SoriSurfaces.of(
-                                      context,
-                                    ).bg.withValues(alpha: 0.4),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(
-                                    _favorites.contains(v.korean)
-                                        ? Icons.star_rounded
-                                        : Icons.star_outline_rounded,
-                                    color: _favorites.contains(v.korean)
-                                        ? SoriColors.warning
-                                        : SoriSurfaces.of(context).textDim,
-                                    size: 28,
+                            leftBadge: SoriSwipeBadge(
+                              label: t.btnNichtGewusst,
+                              icon: Icons.close_rounded,
+                              color: SoriColors.danger,
+                            ),
+                            // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
+                            // 애니메이션에서 별이 제자리에 남지 않도록.
+                            child: Stack(
+                              children: [
+                                SoriStudyScale(
+                                  child: KeyedSubtree(
+                                    key: _flashCardKey,
+                                    child: FlipCard(
+                                      key: ValueKey('legacy-$_serve'),
+                                      flipped: _flipped,
+                                      onTap: _onFlip,
+                                      front: _Front(v: v, koFirst: _koFirst),
+                                      back: _Back(v: v, koFirst: _koFirst),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Positioned(
+                                  top: 12,
+                                  right: 12,
+                                  child: SoriPressable(
+                                    onTap: () => _toggleFavorite(v.korean),
+                                    haptic: SoriHaptic.light,
+                                    child: Container(
+                                      padding: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        color: SoriSurfaces.of(
+                                          context,
+                                        ).bg.withValues(alpha: 0.4),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(
+                                        _favorites.contains(v.korean)
+                                            ? Icons.star_rounded
+                                            : Icons.star_outline_rounded,
+                                        color: _favorites.contains(v.korean)
+                                            ? SoriColors.warning
+                                            : SoriSurfaces.of(context).textDim,
+                                        size: 28,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -542,9 +557,36 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                   const SizedBox(height: Spacing.sm),
                 ],
 
-                // Bottom row
+                // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
                 Row(
                   children: [
+                    // Prev: 이전 카드 (판정 없음)
+                    Semantics(
+                      label: t.legacyVocabPrevious,
+                      button: true,
+                      child: SoriPressable(
+                        onTap: _prev,
+                        haptic: SoriHaptic.selection,
+                        child: Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                            border: Border.all(
+                              color: SoriSurfaces.of(context).border,
+                              width: 1.5,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.navigate_before_rounded,
+                            size: 22,
+                            color: SoriSurfaces.of(context).text,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.xs + 2),
                     Expanded(
                       child: SoriPressable(
                         onTap: () => TtsService.speak(v.korean),

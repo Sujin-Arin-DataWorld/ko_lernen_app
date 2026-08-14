@@ -148,6 +148,13 @@ flutter:
     - assets/illustrations/empty/
     - assets/illustrations/error/
     - assets/illustrations/onboarding/
+    # 단어팩 motif 일러스트 (2026-08-13 UI 개편 Phase 1) — 규약:
+    # packs/{DancheongMotif.name}.webp. 파일이 없으면 PackCard 가 단청 도장
+    # 폴백을 그리므로, 아트 드롭 전에도 화면은 정상 배포된다.
+    - assets/illustrations/packs/
+    # 활동 카탈로그 일러스트 (Phase 3) — 규약:
+    # activities/{activityId}.webp. 폴백 = ActivityIconFallback(원형 아이콘).
+    - assets/illustrations/activities/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/

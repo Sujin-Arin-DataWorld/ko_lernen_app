@@ -2,26 +2,33 @@ import 'package:flutter/material.dart';
 
 import '../../models/pack_progress.dart';
 import 'dancheong_stamp.dart';
-import 'pressable.dart';
+import 'illustrated_card.dart';
 import 'sori_icon.dart';
 import 'tokens.dart';
 
-/// Pack-Karten Tile für die Pack-Marktplatz-Grid (Phase 2).
+/// Pack-Karten Tile für die Pack-Marktplatz-Grid.
 ///
-/// Drei Zustände:
-///   - **locked**   — Schloss-Icon + erklärender Subtitle ("Vorheriger Pack
-///                    zuerst klären"). Tap → Toast / SnackBar.
-///   - **available / inProgress** — Topic-Icon + Progress-Dots + Tap-Action.
+/// 2026-08-13 UI 개편 Phase 1: [SoriIllustratedCard] 규격으로 재구성 —
+/// 상단에 motif 별 일러스트 슬롯(`assets/illustrations/packs/{motif}.webp`,
+/// 규약 기반: 파일을 넣기만 하면 뜬다), 폴백은 기존 단청 도장.
+///
+/// Vier Zustände:
+///   - **locked**   — 딤 처리 + 자물쇠 칩 + "Vorher klären" 힌트.
+///   - **premium**  — §H 프리미엄 티저: 골드 왕관 칩 (탭 → 페이월 게이트).
+///     선행 잠금(자물쇠)과 시각적으로 구분되는 별도 상태다.
+///   - **available / inProgress** — 일러스트 + Progress-Dots + Tap-Action.
 ///   - **cleared**  — DancheongStamp Overlay rechts oben + tap nochmal.
-///
-/// Größe: ~160×180, passt in 2-Spalten-Grid auf typischen Geräten (360-440 dp
-/// width).
 class PackCard extends StatelessWidget {
   final String packId;
   final String title;
   final PackProgress progress;
   final VoidCallback? onTap;
   final VoidCallback? onLockedTap;
+
+  /// §H: 이 팩이 프리미엄 구독 뒤에 있음을 카드에서 미리 보여준다
+  /// (기존엔 탭 후 인터스티셜에서만 드러나 전환 기회를 잃었다).
+  /// 선행 잠금이 있으면 자물쇠가 우선한다.
+  final bool premium;
 
   const PackCard({
     super.key,
@@ -30,6 +37,7 @@ class PackCard extends StatelessWidget {
     required this.progress,
     this.onTap,
     this.onLockedTap,
+    this.premium = false,
   });
 
   bool get _locked => progress.status == PackStatus.locked;
@@ -37,150 +45,56 @@ class PackCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
     final motif = motifForPackId(packId);
 
-    final bg = _locked
-        ? s.surface.withValues(alpha: 0.5)
-        : (_cleared ? s.bg : s.surface);
-
-    final border = _cleared
-        ? SoriColors.success
-        : (_locked ? s.text.withValues(alpha: 0.12) : SoriColors.info);
-
-    return SoriPressable(
+    return SoriIllustratedCard(
+      title: title,
+      state: _locked
+          ? SoriIllustratedCardState.locked
+          : premium
+          ? SoriIllustratedCardState.premium
+          : _cleared
+          ? SoriIllustratedCardState.cleared
+          : SoriIllustratedCardState.normal,
+      illustrationAsset: 'assets/illustrations/packs/${motif.name}.webp',
+      fallback: DancheongStamp(motif: motif, size: 44, animate: false),
+      overlay: _cleared
+          ? DancheongStamp(
+              motif: motif,
+              size: 44,
+              animate: false,
+              stamped: true,
+            )
+          : null,
+      footer: _BottomRow(progress: progress, locked: _locked),
       onTap: _locked ? onLockedTap : onTap,
-      haptic: _locked ? SoriHaptic.selection : SoriHaptic.light,
-      child: Semantics(
-        button: true,
-        label: _semanticsLabel(),
-        child: Container(
-          decoration: BoxDecoration(
-            color: bg,
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-            border: Border.all(color: border, width: 1.2),
-          ),
-          padding: const EdgeInsets.all(Spacing.md),
-          child: Stack(
-            // 클리어 도장이 `Positioned(top: -4, right: -4)` 로 카드 밖까지
-            // 걸치는데, 기본값 Clip.hardEdge 면 RenderStack 이 음수 오프셋을
-            // overflow 로 보고 잘라내 도장 모서리가 깎인다. 저장소의 다른
-            // 음수 Positioned(wordle·퀘스트 엔진 6종)는 전부 Clip.none 이다.
-            clipBehavior: Clip.none,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Topic icon / lock
-                  _TopRow(
-                    motif: motif,
-                    locked: _locked,
-                    cleared: _cleared,
-                    accent: _topIconColor(s),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  // Title
-                  Text(
-                    title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      height: 1.2,
-                      color: _locked ? s.text.withValues(alpha: 0.5) : s.text,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  // Bottom: progress dots or unlock hint
-                  _BottomRow(
-                    progress: progress,
-                    locked: _locked,
-                    accent: _bottomAccent(s),
-                  ),
-                ],
-              ),
-              // Cleared stamp overlay (top-right)
-              if (_cleared)
-                Positioned(
-                  top: -4,
-                  right: -4,
-                  child: DancheongStamp(
-                    motif: motif,
-                    size: 44,
-                    animate: false,
-                    stamped: true,
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ),
+      semanticsLabel: _semanticsLabel(),
     );
   }
 
-  Color _topIconColor(SoriSurfaces s) {
-    if (_locked) return s.text.withValues(alpha: 0.4);
-    if (_cleared) return SoriColors.success;
-    return SoriColors.info;
-  }
-
-  Color _bottomAccent(SoriSurfaces s) {
-    if (_locked) return s.text.withValues(alpha: 0.4);
-    return SoriColors.info;
-  }
-
   String _semanticsLabel() {
-    final state = _cleared ? 'geklärt' : (_locked ? 'gesperrt' : 'verfügbar');
+    final state = _locked
+        ? 'gesperrt'
+        : premium
+        ? 'Premium'
+        : _cleared
+        ? 'geklärt'
+        : 'verfügbar';
     final progressStr =
         '${progress.wordsLearned} von ${progress.wordsTotal} gelernt';
     return 'Pack $title, $state, $progressStr';
   }
 }
 
-class _TopRow extends StatelessWidget {
-  final DancheongMotif motif;
-  final bool locked;
-  final bool cleared;
-  final Color accent;
-  const _TopRow({
-    required this.motif,
-    required this.locked,
-    required this.cleared,
-    required this.accent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    if (locked) {
-      return Icon(Icons.lock_rounded, size: 24, color: accent);
-    }
-    // Use a small static stamp as topic icon (cleared cards show big overlay)
-    return Opacity(
-      opacity: cleared ? 0.0 : 1.0, // cleared 카드는 오른쪽 위 큰 도장 사용
-      child: SizedBox(
-        width: 32,
-        height: 32,
-        child: DancheongStamp(motif: motif, size: 32),
-      ),
-    );
-  }
-}
-
 class _BottomRow extends StatelessWidget {
   final PackProgress progress;
   final bool locked;
-  final Color accent;
-  const _BottomRow({
-    required this.progress,
-    required this.locked,
-    required this.accent,
-  });
+  const _BottomRow({required this.progress, required this.locked});
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final accent = locked ? s.text.withValues(alpha: 0.4) : SoriColors.info;
     if (locked) {
       return Row(
         mainAxisSize: MainAxisSize.min,

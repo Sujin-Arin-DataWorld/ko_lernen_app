@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
+import '../widgets/sori/app_bar.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/responsive.dart';
@@ -471,11 +473,8 @@ class _ProfileScreenState extends State<ProfileScreen>
         widget.previewMotivation ?? learnerMotivationFromId(Storage.motivation);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.profileTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.profileTitle,
         actions: [
           IconButton(
             icon: const Icon(Icons.settings_outlined),
@@ -553,7 +552,6 @@ class _ProfileScreenState extends State<ProfileScreen>
                 label: t.profileLearningSection,
                 action: t.profileEditAction,
               ),
-              const SizedBox(height: Spacing.sm),
               SoriCard(
                 variant: SoriCardVariant.base,
                 child: Column(
@@ -623,7 +621,6 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
               const SizedBox(height: Spacing.lg),
               _ProfileSectionLabel(label: t.profileSpaceSection),
-              const SizedBox(height: Spacing.sm),
               SoriCard(
                 variant: SoriCardVariant.base,
                 child: Column(
@@ -737,7 +734,6 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
               const SizedBox(height: Spacing.lg),
               _ProfileSectionLabel(label: t.profileProgressSection),
-              const SizedBox(height: Spacing.sm),
               const _StatsRow(),
               const SizedBox(height: Spacing.md),
               SoriButton.outlined(
@@ -910,25 +906,17 @@ class _GuestCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   t.profileGuestBadge,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  style: SoriTextTheme.of(context).h3.copyWith(color: s.text),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          Text(
-            t.profileGuestDesc,
-            style: TextStyle(fontSize: 13, height: 1.45, color: s.textMuted),
-          ),
+          Text(t.profileGuestDesc, style: SoriTextTheme.of(context).bodySmall),
           const SizedBox(height: 8),
           Text(
             t.accountSafeConnectExplain,
-            style: TextStyle(fontSize: 12.5, height: 1.4, color: s.textMuted),
+            style: SoriTextTheme.of(context).caption,
           ),
           const SizedBox(height: 16),
           SoriButton.filled(
@@ -982,12 +970,10 @@ class _ConnectedCard extends StatelessWidget {
                   t.settingsCloudSignedIn(name ?? 'Google'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  // §4.3: 카드 제목 w800 금지 — cardTitle(15/w700).
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardTitle.copyWith(color: s.text),
                 ),
               ),
             ],
@@ -995,7 +981,7 @@ class _ConnectedCard extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             t.profileConnectedDesc,
-            style: TextStyle(fontSize: 13, height: 1.45, color: s.textMuted),
+            style: SoriTextTheme.of(context).bodySmall,
           ),
           const SizedBox(height: 12),
           Align(
@@ -1018,16 +1004,14 @@ class _ProfileSectionLabel extends StatelessWidget {
   final String label;
   final String? action;
 
+  // §F-3: 손글씨 라벨 → 공용 SoriSectionHeader(골드 hairline) 위임.
+  // 자체 하단 여백(Spacing.sm)을 가지므로 호출부의 간격 SizedBox 는 제거됨.
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-    child: Row(
-      children: [
-        Expanded(child: Text(label, style: SoriTextTheme.of(context).label)),
-        if (action != null)
-          Text(action!, style: SoriTextTheme.of(context).caption),
-      ],
-    ),
+  Widget build(BuildContext context) => SoriSectionHeader(
+    label,
+    trailing: action == null
+        ? null
+        : Text(action!, style: SoriTextTheme.of(context).caption),
   );
 }
 
@@ -1132,12 +1116,10 @@ class _StatTile extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             value,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 22,
-              fontWeight: FontWeight.w900,
-              color: s.text,
-            ),
+            // w900 은 번들에 없어 조용히 800 렌더 — numeral(tabular/w800)로.
+            style: SoriTextTheme.of(
+              context,
+            ).numeral.copyWith(fontSize: 22, color: s.text),
           ),
           const SizedBox(height: 2),
           Text(
@@ -1145,7 +1127,7 @@ class _StatTile extends StatelessWidget {
             textAlign: TextAlign.center,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontSize: 11, color: s.textMuted, height: 1.2),
+            style: SoriTextTheme.of(context).caption,
           ),
         ],
       ),
