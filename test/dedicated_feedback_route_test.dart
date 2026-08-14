@@ -18,7 +18,6 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
