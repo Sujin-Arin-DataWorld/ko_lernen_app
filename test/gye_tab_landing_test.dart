@@ -54,7 +54,7 @@ void main() {
     );
     expect(find.text('Was andere sehen'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.info_outline_rounded));
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 500));
     expect(
       find.textContaining('bleiben privat'),
       findsOneWidget,
