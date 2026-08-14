@@ -326,7 +326,7 @@ class _TodayMissionStage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: SoriActivityColors.hanokStage,
-        borderRadius: SoriRadius.brXl,
+        borderRadius: const BorderRadius.all(Radius.circular(SoriRadius.xl)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -588,7 +588,9 @@ class _QuestProgressRow extends StatelessWidget {
                   LinearProgressIndicator(
                     value: progress.fraction,
                     minHeight: 8,
-                    borderRadius: SoriRadius.brXs,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(SoriRadius.xs),
+                    ),
                   ),
                 ],
               ),
