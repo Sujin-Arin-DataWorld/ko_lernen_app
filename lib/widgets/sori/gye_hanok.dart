@@ -21,10 +21,19 @@ class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
 
+  /// **쇼케이스 모드** — 단계별 불투명도 계산을 건너뛰고 8요소를 전부 실체화한다.
+  ///
+  /// 아직 계가 없는 사용자에게 "이렇게 될 수 있다"를 보여 주는 자리(빈 상태
+  /// 프리뷰)에서 쓴다. 진행도 기반 렌더는 요소 절반이 0.22 유령이라 **영감을
+  /// 줘야 할 그림이 깨져 보인다** — 실제 진행을 보여 주는 계 마당에서는
+  /// 절대 켜지 않는다.
+  final bool showcase;
+
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.showcase = false,
   });
 
   @override
@@ -71,6 +80,9 @@ class _GyeHanokState extends State<GyeHanok>
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
   double _baseOpacity(int i, GyeLanternProgress progress) {
+    if (widget.showcase) {
+      return 1.0;
+    }
     if (i < progress.permanentElementCount) {
       return 1.0;
     }

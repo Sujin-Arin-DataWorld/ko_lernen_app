@@ -94,24 +94,13 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                 children: [
                   Text(
                     t.navGye,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                      color: s.text,
-                      letterSpacing: -0.3,
-                      height: 1.1,
-                    ),
+                    style: SoriTextTheme.of(context).h3.copyWith(color: s.text),
                   ),
                   Text(
                     t.gyeTabSubtitle,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w500,
-                      color: s.textMuted,
-                      height: 1.2,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).caption.copyWith(color: s.textMuted),
                   ),
                 ],
               ),
@@ -137,6 +126,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   return _IntroEmpty(
                     introKey: _introKey,
                     padding: padding,
+                    embedded: widget.embedded,
                     onFindOrCreate:
                         widget.onFindOrCreate ?? () => showGyeChooser(context),
                     onContinueSolo:
@@ -169,11 +159,18 @@ class _IntroEmpty extends StatelessWidget {
   final VoidCallback onFindOrCreate;
   final VoidCallback onContinueSolo;
 
+  /// 셸(SoriStage Gye 탭) 안에 들어갔는가.
+  ///
+  /// true 면 자체 eyebrow/헤드라인/리드를 **그리지 않는다** — 셸이 이미
+  /// 38px 헤드라인을 갖고 있어 화면에 큰 텍스트가 두 개 경쟁하면 둘 다 진다.
+  final bool embedded;
+
   const _IntroEmpty({
     required this.introKey,
     required this.padding,
     required this.onFindOrCreate,
     required this.onContinueSolo,
+    this.embedded = false,
   });
 
   /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
@@ -198,24 +195,40 @@ class _IntroEmpty extends StatelessWidget {
       padding: padding,
       children: [
         const SizedBox(height: Spacing.md),
-        Text(
-          t.gyeVoluntaryEyebrow,
-          textAlign: TextAlign.center,
-          style: tt.label.copyWith(color: SoriColors.primary),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
-        const SizedBox(height: Spacing.md),
+        // 임베디드일 때는 셸 헤더가 유일한 대형 텍스트다 (화면당 1메시지).
+        if (!embedded) ...[
+          Text(
+            t.gyeVoluntaryEyebrow,
+            textAlign: TextAlign.center,
+            style: tt.label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.gyeEmptyLead,
+            textAlign: TextAlign.center,
+            style: tt.bodySmall,
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
         ClipRRect(
           borderRadius: SoriRadius.brLg,
           child: AspectRatio(
             aspectRatio: 393 / 220,
-            child: GyeHanok(meta: _previewMeta),
+            // 아직 계가 없는 사람에게 보여 주는 그림이다 — 진행도 렌더는
+            // 8요소 중 셋이 0.22 유령이라 깨져 보인다. 전부 실체화한다.
+            child: GyeHanok(meta: _previewMeta, showcase: true),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          t.gyeShowcaseCaption,
+          textAlign: TextAlign.center,
+          style: tt.caption,
+        ),
+        const SizedBox(height: Spacing.md),
+        // 문단 3개 → 한 줄 칩 카드 3개. 원문은 버리지 않고 ⓘ 시트로 강등한다.
         KeyedSubtree(
           key: introKey,
           child: SoriCard(
@@ -223,11 +236,23 @@ class _IntroEmpty extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
+                _Point(
+                  icon: Icons.groups_2_outlined,
+                  text: t.gyeExplainWhatShort,
+                ),
                 const SizedBox(height: 10),
-                _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
+                _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhyShort),
                 const SizedBox(height: 10),
-                _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
+                _Point(icon: Icons.tag_rounded, text: t.gyeExplainHowShort),
+                const SizedBox(height: Spacing.xs),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton.icon(
+                    onPressed: () => _showGyeExplainSheet(context),
+                    icon: const Icon(Icons.info_outline_rounded, size: 18),
+                    label: Text(t.gyeExplainMore),
+                  ),
+                ),
               ],
             ),
           ),
@@ -237,6 +262,10 @@ class _IntroEmpty extends StatelessWidget {
           variant: SoriCardVariant.compact,
           accent: SoriColors.primary,
           tinted: true,
+          // ⚠️ 프라이버시 본문은 **접지 않는다**. "무엇이 남에게 보이는가"는
+          // 설명이 아니라 고지라, 탭 뒤로 숨기면 안 된다 (gye_tab_landing_test
+          // 가 이 결정을 고정하고 있고 그 판단이 옳다). 압축 대상은 위의
+          // 설명 문단 셋뿐이다.
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -261,6 +290,43 @@ class _IntroEmpty extends StatelessWidget {
   }
 }
 
+/// 짧게 줄인 설명의 원문을 담는 상세 시트.
+///
+/// 카드 규율의 대가로 정보를 **버리는 게 아니라 강등**한다 — 기존 장문 ARB
+/// 키(gyeExplainWhat/Why/How)는 삭제하지 않고 여기 산다.
+///
+/// 프라이버시 고지는 여기에 **넣지 않는다** — 랜딩에 그대로 남는다.
+Future<void> _showGyeExplainSheet(BuildContext context) {
+  return showSoriSheet<void>(
+    context: context,
+    builder: (context) {
+      final t = AppL10n.of(context);
+      final tt = SoriTextTheme.of(context);
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(
+          Spacing.lg,
+          Spacing.sm,
+          Spacing.lg,
+          Spacing.xl,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(t.gyeEmptyHeadline, style: tt.h2),
+            const SizedBox(height: Spacing.md),
+            _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
+            const SizedBox(height: Spacing.md),
+            _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
+            const SizedBox(height: Spacing.md),
+            _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
+          ],
+        ),
+      );
+    },
+  );
+}
+
 class _Point extends StatelessWidget {
   final IconData icon;
   final String text;
@@ -278,12 +344,9 @@ class _Point extends StatelessWidget {
         Expanded(
           child: Text(
             text,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 13,
-              height: 1.4,
-              color: s.textMuted,
-            ),
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
           ),
         ),
       ],
@@ -365,23 +428,18 @@ class _GyeCard extends StatelessWidget {
               children: [
                 Text(
                   gye.name,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardTitle.copyWith(color: s.text),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.gyeMembersN(gye.memberCount),
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 12,
-                    color: s.textMuted,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardSubtitle.copyWith(color: s.textMuted),
                 ),
               ],
             ),

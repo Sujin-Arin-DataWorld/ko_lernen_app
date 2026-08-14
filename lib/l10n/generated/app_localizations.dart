@@ -10866,6 +10866,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Starten'**
   String get soriStageMissionStart;
+
+  /// Bildunterschrift unter der Hanok-Vorschau im leeren Gye-Zustand
+  ///
+  /// In de, this message translates to:
+  /// **'So kann euer gemeinsames Hanok aussehen'**
+  String get gyeShowcaseCaption;
+
+  /// Kurzfassung: Was ist ein Gye
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kleine, freiwillige Lerngruppe.'**
+  String get gyeExplainWhatShort;
+
+  /// Kurzfassung: Wozu ein Gye
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsames Hanok, kein Wettbewerb.'**
+  String get gyeExplainWhyShort;
+
+  /// Kurzfassung: Wie man beitritt
+  ///
+  /// In de, this message translates to:
+  /// **'Beitritt mit 6-stelligem Code.'**
+  String get gyeExplainHowShort;
+
+  /// Öffnet die ausführliche Erklärung als Bottom Sheet
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr dazu'**
+  String get gyeExplainMore;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

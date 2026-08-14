@@ -3021,5 +3021,25 @@
   "soriStageMissionStart": "Starten",
   "@soriStageMissionStart": {
     "description": "Knopf auf der Missionskarte — der Titel sagt bereits, worum es geht"
+  },
+  "gyeShowcaseCaption": "So kann euer gemeinsames Hanok aussehen",
+  "@gyeShowcaseCaption": {
+    "description": "Bildunterschrift unter der Hanok-Vorschau im leeren Gye-Zustand"
+  },
+  "gyeExplainWhatShort": "Eine kleine, freiwillige Lerngruppe.",
+  "@gyeExplainWhatShort": {
+    "description": "Kurzfassung: Was ist ein Gye"
+  },
+  "gyeExplainWhyShort": "Ein gemeinsames Hanok, kein Wettbewerb.",
+  "@gyeExplainWhyShort": {
+    "description": "Kurzfassung: Wozu ein Gye"
+  },
+  "gyeExplainHowShort": "Beitritt mit 6-stelligem Code.",
+  "@gyeExplainHowShort": {
+    "description": "Kurzfassung: Wie man beitritt"
+  },
+  "gyeExplainMore": "Mehr dazu",
+  "@gyeExplainMore": {
+    "description": "Öffnet die ausführliche Erklärung als Bottom Sheet"
   }
 }

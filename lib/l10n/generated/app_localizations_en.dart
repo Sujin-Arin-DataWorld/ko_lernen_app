@@ -6376,4 +6376,20 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageMissionStart => 'Start';
+
+  @override
+  String get gyeShowcaseCaption =>
+      'This is what your shared hanok can look like';
+
+  @override
+  String get gyeExplainWhatShort => 'A small, voluntary study group.';
+
+  @override
+  String get gyeExplainWhyShort => 'A shared hanok, not a competition.';
+
+  @override
+  String get gyeExplainHowShort => 'Join with a 6-digit code.';
+
+  @override
+  String get gyeExplainMore => 'More about this';
 }

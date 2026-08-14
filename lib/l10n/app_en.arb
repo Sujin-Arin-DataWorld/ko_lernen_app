@@ -2918,5 +2918,25 @@
   "soriStageMissionStart": "Start",
   "@soriStageMissionStart": {
     "description": "Button on the mission card — the title already says what it is"
+  },
+  "gyeShowcaseCaption": "This is what your shared hanok can look like",
+  "@gyeShowcaseCaption": {
+    "description": "Caption under the hanok preview in the empty Gye state"
+  },
+  "gyeExplainWhatShort": "A small, voluntary study group.",
+  "@gyeExplainWhatShort": {
+    "description": "Short version: what a Gye is"
+  },
+  "gyeExplainWhyShort": "A shared hanok, not a competition.",
+  "@gyeExplainWhyShort": {
+    "description": "Short version: why join a Gye"
+  },
+  "gyeExplainHowShort": "Join with a 6-digit code.",
+  "@gyeExplainHowShort": {
+    "description": "Short version: how to join"
+  },
+  "gyeExplainMore": "More about this",
+  "@gyeExplainMore": {
+    "description": "Opens the full explanation as a bottom sheet"
   }
 }
