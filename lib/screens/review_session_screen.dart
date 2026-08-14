@@ -17,12 +17,14 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
@@ -109,6 +111,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     super.initState();
     _load();
     scheduleCoach();
+    scheduleSoriDeckCoachAfter(
+      context,
+      targetKey: _cardKey,
+      screenCoachId: coachId,
+      coachReady: () => coachReady,
+    );
     // K-Culture 노트 로드 후 카드 반영.
     CultureNotesService.load().then((_) {
       if (mounted) {
@@ -152,7 +160,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   void _answer(bool gotIt) {
     // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
-    gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
+    if (gotIt) {
+      HapticFeedback.mediumImpact();
+    } else {
+      HapticFeedback.lightImpact();
+    }
     Storage.srsReview(_card.korean, gotIt: gotIt);
     if (!gotIt) {
       // ignore: discarded_futures
@@ -175,7 +187,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       Storage.addXp(_reviewed * 2);
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) SoriCelebration.burst(context);
+        if (mounted) {
+          SoriCelebration.burst(context);
+        }
       });
     } else {
       setState(() {
@@ -183,6 +197,57 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
       });
     }
+  }
+
+  /// ↓ 스킵 — SRS/wrongCount 없이 현재 카드를 맨 뒤로 이동.
+  /// 이미 마지막이면 전진 no-op (스와이프는 스프링백).
+  void _deferCurrent() {
+    if (_deck.isEmpty) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    if (_idx >= _deck.length - 1) {
+      return;
+    }
+    setState(() {
+      final card = _deck.removeAt(_idx);
+      _deck.add(card);
+      _flipped = false;
+    });
+  }
+
+  /// ↑ 저장 — 전진 없음. AppBar AddToWordbookButton 과 동일 경로.
+  Future<void> _saveCurrent() async {
+    if (!mounted || _deck.isEmpty || _done) {
+      return;
+    }
+    final card = _card;
+    await addToWordbook(
+      context,
+      korean: card.korean,
+      translationDe: card.german,
+      romanization: card.romanization,
+      posDe: card.posDe,
+      exampleKorean: card.exampleKorean,
+      exampleDe: card.exampleGerman,
+      source: 'deck_swipe',
+    );
+  }
+
+  void _showFlipFirstHint() {
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(t.deckFlipFirstHint),
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
   }
 
   @override
@@ -424,16 +489,21 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ? constraints.maxHeight
                     : 360.0;
                 final cardH = h * 0.82;
+                final next = (_idx + 1 < _deck.length) ? _deck[_idx + 1] : null;
                 return Center(
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
-                  // 접근성·발견가능성의 정본으로 그대로 남는다.
+                  // 2026-08-14: 데이팅앱식 4방향 스와이프 — →앎 ←모름 ↑저장 ↓스킵.
+                  // 하단 SoriDeckActionBar 가 접근성 정본.
                   child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
+                    // §C-1-1: 플립 전 좌/우 스와이프 금지.
                     enabled: _flipped,
                     onSwipeRight: () => _answer(true),
                     onSwipeLeft: () => _answer(false),
+                    onSwipeUp: () {
+                      // ignore: discarded_futures
+                      _saveCurrent();
+                    },
+                    onSwipeDown: _deferCurrent,
+                    onBlockedHorizontalDrag: _showFlipFirstHint,
                     rightBadge: SoriSwipeBadge(
                       label: t.btnGewusst,
                       icon: Icons.check_rounded,
@@ -441,14 +511,23 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ),
                     leftBadge: SoriSwipeBadge(
                       label: t.btnNichtGewusst,
-                      icon: Icons.close_rounded,
+                      icon: Icons.question_mark_rounded,
                       color: SoriColors.danger,
                     ),
+                    underlay: next == null
+                        ? null
+                        : IgnorePointer(
+                            child: _ReviewUnderlayFront(
+                              korean: next.korean,
+                              height: cardH,
+                            ),
+                          ),
                     child: SoriPressable(
                       key: _cardKey,
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -476,7 +555,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                           MainAxisAlignment.spaceEvenly,
                                       children: _flipped
                                           ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                                          : _frontList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              cc.maxWidth,
+                                            ),
                                     ),
                                   ),
                                 );
@@ -499,26 +585,21 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             Spacing.lg,
             Spacing.lg,
           ),
-          child: Row(
+          child: SoriDeckActionBar(
             key: _answerRowKey,
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNichtGewusst,
-                  destructive: true,
-                  fullWidth: true,
-                  onTap: () => _answer(false),
-                ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.btnGewusst,
-                  fullWidth: true,
-                  onTap: () => _answer(true),
-                ),
-              ),
-            ],
+            judgmentEnabled: _flipped,
+            onJudgmentBlocked: _showFlipFirstHint,
+            onDontKnow: () => _answer(false),
+            onKnow: () => _answer(true),
+            onSkip: _deferCurrent,
+            onSave: () {
+              // ignore: discarded_futures
+              _saveCurrent();
+            },
+            dontKnowLabel: t.btnNichtGewusst,
+            knowLabel: t.btnGewusst,
+            skipLabel: t.btnSkip,
+            saveLabel: t.deckActionSave,
           ),
         ),
       ],
@@ -536,7 +617,20 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
-  ) => [
+    double cardInnerWidth,
+  ) {
+    // UI/UX 개편 2 P1: 덱 전체 표제어 기준으로 한 번 측정 — per-word FittedBox
+    // 단독이면 카드마다 글자 크기가 튄다 (custom_pack 선례).
+    final headlineSize = soriUniformFitSize(
+      context,
+      texts: [for (final w in _deck) w.korean],
+      maxWidth: cardInnerWidth,
+      cap: _sz(h, 0.155, 38, 72),
+      min: 32,
+      fontWeight: FontWeight.w900,
+      lineHeight: 1.05,
+    );
+    return [
     // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
     //
     // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
@@ -549,9 +643,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       child: Text(
         v.korean,
         textAlign: TextAlign.center,
+        maxLines: 1,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: headlineSize,
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -588,6 +683,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       ),
     ),
   ];
+  }
 
   List<Widget> _backList(
     Vocab v,
@@ -660,6 +756,42 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           child: CultureNoteCard(korean: v.korean),
         ),
     ];
+  }
+}
+
+/// 덱 스택 underlay — 다음 카드 앞면(한국어)만. 뒷면 노출 금지.
+class _ReviewUnderlayFront extends StatelessWidget {
+  const _ReviewUnderlayFront({required this.korean, required this.height});
+
+  final String korean;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: height,
+      child: SoriCard(
+        variant: SoriCardVariant.hero,
+        accent: SoriColors.primary,
+        tinted: true,
+        width: double.infinity,
+        child: Center(
+          child: Text(
+            korean,
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 36,
+              fontWeight: FontWeight.w900,
+              height: 1.05,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

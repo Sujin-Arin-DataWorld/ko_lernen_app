@@ -10920,6 +10920,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jongga'**
   String get hanokStageName_jongga;
+
+  /// UI overhaul 2: deckActionSave
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get deckActionSave;
+
+  /// UI overhaul 2: deckFlipFirstHint
+  ///
+  /// In de, this message translates to:
+  /// **'Erst antippen und umdrehen'**
+  String get deckFlipFirstHint;
+
+  /// UI overhaul 2: coachSoriDeckBody
+  ///
+  /// In de, this message translates to:
+  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
+  String get coachSoriDeckBody;
+
+  /// UI overhaul 2: gyeShowcaseCaption
+  ///
+  /// In de, this message translates to:
+  /// **'So kann euer gemeinsames Hanok aussehen'**
+  String get gyeShowcaseCaption;
+
+  /// UI overhaul 2: gyeExplainWhatShort
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kleine, freiwillige Lerngruppe.'**
+  String get gyeExplainWhatShort;
+
+  /// UI overhaul 2: gyeExplainWhyShort
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsames Hanok, kein Wettbewerb.'**
+  String get gyeExplainWhyShort;
+
+  /// UI overhaul 2: gyeExplainHowShort
+  ///
+  /// In de, this message translates to:
+  /// **'Beitritt mit 6-stelligem Code.'**
+  String get gyeExplainHowShort;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

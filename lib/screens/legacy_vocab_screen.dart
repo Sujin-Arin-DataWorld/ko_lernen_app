@@ -18,12 +18,14 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -103,6 +105,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _idx = Storage.vokLastIdx;
     _load();
     scheduleCoach();
+    scheduleSoriDeckCoachAfter(
+      context,
+      targetKey: _flashCardKey,
+      screenCoachId: coachId,
+      coachReady: () => coachReady,
+    );
     // K-Culture 노트 로드 후 카드 반영.
     CultureNotesService.load().then((_) {
       if (mounted) {
@@ -304,6 +312,34 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _next();
   }
 
+  /// ↑ 즐겨찾기 추가 전용 — 이미 있으면 no-op (해제는 별 탭만).
+  void _favoriteAddOnly() {
+    final v = _current;
+    if (v == null) {
+      return;
+    }
+    if (_favorites.contains(v.korean)) {
+      return;
+    }
+    _toggleFavorite(v.korean);
+  }
+
+  void _showFlipFirstHint() {
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(t.deckFlipFirstHint),
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
   void _onFlip() {
     HapticFeedback.selectionClick();
     setState(() => _flipped = !_flipped);
@@ -452,112 +488,133 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 const SizedBox(height: 10),
 
                 // Card with swipe judgment + favorite star overlay
-                // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
+                // 2026-08-14: 4방향 덱 — →앎 ←모름 ↑즐겨찾기 ↓스킵.
                 Expanded(
                   child: Center(
                     child: FractionallySizedBox(
                       heightFactor: 0.82,
-                      child: Stack(
-                        children: [
-                          SoriSwipeCard(
-                            // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                            // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
-                            // 버튼 행도 if (_flipped) 게이트 — 동일 계약.
-                            enabled: _flipped,
-                            onSwipeRight: _gewusst,
-                            onSwipeLeft: _nichtGewusst,
-                            rightBadge: SoriSwipeBadge(
-                              label: t.btnGewusst,
-                              icon: Icons.check_rounded,
-                              color: SoriColors.success,
-                            ),
-                            leftBadge: SoriSwipeBadge(
-                              label: t.btnNichtGewusst,
-                              icon: Icons.close_rounded,
-                              color: SoriColors.danger,
-                            ),
-                            // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
-                            // 애니메이션에서 별이 제자리에 남지 않도록.
-                            child: Stack(
+                      child: SizedBox(
+                        key: const ValueKey('deck-card-slot'),
+                        width: double.infinity,
+                        child: Builder(
+                          builder: (context) {
+                            final next = _filtered.length > 1
+                                ? _filtered[(_idx + 1) % _filtered.length]
+                                : null;
+                            final deckKoreans = [
+                              for (final w in _filtered) w.korean,
+                            ];
+                            return Stack(
                               children: [
-                                SoriStudyScale(
-                                  child: KeyedSubtree(
-                                    key: _flashCardKey,
-                                    child: FlipCard(
-                                      key: ValueKey('legacy-$_serve'),
-                                      flipped: _flipped,
-                                      onTap: _onFlip,
-                                      front: _Front(v: v, koFirst: _koFirst),
-                                      back: _Back(v: v, koFirst: _koFirst),
-                                    ),
+                                SoriSwipeCard(
+                                  // §C-1-1: 플립 전 좌/우 스와이프 금지.
+                                  enabled: _flipped,
+                                  onSwipeRight: _gewusst,
+                                  onSwipeLeft: _nichtGewusst,
+                                  onSwipeUp: _favoriteAddOnly,
+                                  onSwipeDown: _skip,
+                                  onBlockedHorizontalDrag: _showFlipFirstHint,
+                                  rightBadge: SoriSwipeBadge(
+                                    label: t.btnGewusst,
+                                    icon: Icons.check_rounded,
+                                    color: SoriColors.success,
                                   ),
-                                ),
-                                Positioned(
-                                  top: 12,
-                                  right: 12,
-                                  child: SoriPressable(
-                                    onTap: () => _toggleFavorite(v.korean),
-                                    haptic: SoriHaptic.light,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: SoriSurfaces.of(
-                                          context,
-                                        ).bg.withValues(alpha: 0.4),
-                                        shape: BoxShape.circle,
+                                  leftBadge: SoriSwipeBadge(
+                                    label: t.btnNichtGewusst,
+                                    icon: Icons.question_mark_rounded,
+                                    color: SoriColors.danger,
+                                  ),
+                                  underlay: next == null
+                                      ? null
+                                      : IgnorePointer(
+                                          child: _Front(
+                                            v: next,
+                                            koFirst: _koFirst,
+                                            deckKoreans: deckKoreans,
+                                          ),
+                                        ),
+                                  // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
+                                  // 애니메이션에서 별이 제자리에 남지 않도록.
+                                  child: Stack(
+                                    children: [
+                                      SoriStudyScale(
+                                        child: KeyedSubtree(
+                                          key: _flashCardKey,
+                                          child: FlipCard(
+                                            key: ValueKey('legacy-$_serve'),
+                                            flipped: _flipped,
+                                            onTap: _onFlip,
+                                            front: _Front(
+                                              v: v,
+                                              koFirst: _koFirst,
+                                              deckKoreans: deckKoreans,
+                                            ),
+                                            back: _Back(
+                                              v: v,
+                                              koFirst: _koFirst,
+                                              deckKoreans: deckKoreans,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      child: Icon(
-                                        _favorites.contains(v.korean)
-                                            ? Icons.star_rounded
-                                            : Icons.star_outline_rounded,
-                                        color: _favorites.contains(v.korean)
-                                            ? SoriColors.warning
-                                            : SoriSurfaces.of(context).textDim,
-                                        size: 28,
+                                      Positioned(
+                                        top: 12,
+                                        right: 12,
+                                        child: SoriPressable(
+                                          onTap: () =>
+                                              _toggleFavorite(v.korean),
+                                          haptic: SoriHaptic.light,
+                                          child: Container(
+                                            padding: const EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                              color: SoriSurfaces.of(
+                                                context,
+                                              ).bg.withValues(alpha: 0.4),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              _favorites.contains(v.korean)
+                                                  ? Icons.star_rounded
+                                                  : Icons.star_outline_rounded,
+                                              color:
+                                                  _favorites.contains(v.korean)
+                                                  ? SoriColors.warning
+                                                  : SoriSurfaces.of(
+                                                      context,
+                                                    ).textDim,
+                                              size: 28,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ),
                               ],
-                            ),
-                          ),
-                        ],
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 12),
 
-                // Answer buttons (only when flipped)
-                if (_flipped) ...[
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnGewusst,
-                          icon: Icons.check,
-                          accent: SoriColors.success,
-                          fullWidth: true,
-                          onTap: _gewusst,
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close,
-                          fullWidth: true,
-                          destructive: true,
-                          onTap: _nichtGewusst,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                ],
+                SoriDeckActionBar(
+                  judgmentEnabled: _flipped,
+                  onJudgmentBlocked: _showFlipFirstHint,
+                  onDontKnow: _nichtGewusst,
+                  onKnow: _gewusst,
+                  onSkip: _skip,
+                  onSave: _favoriteAddOnly,
+                  dontKnowLabel: t.btnNichtGewusst,
+                  knowLabel: t.btnGewusst,
+                  skipLabel: t.btnSkip,
+                  saveLabel: t.deckActionSave,
+                ),
+                const SizedBox(height: Spacing.sm),
 
-                // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
+                // Bottom auxiliary row — prev / TTS / Random (Skip absorbed above)
                 Row(
                   children: [
                     // Prev: 이전 카드 (판정 없음)
@@ -623,15 +680,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             ],
                           ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriButton.outlined(
-                        label: t.btnSkip,
-                        icon: Icons.skip_next,
-                        fullWidth: true,
-                        onTap: _skip,
                       ),
                     ),
                     const SizedBox(width: Spacing.xs + 2),
@@ -789,7 +837,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 class _Front extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Front({required this.v, required this.koFirst});
+  final List<String> deckKoreans;
+  const _Front({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -812,6 +865,15 @@ class _Front extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
+          // UI/UX 개편 2 P1: 덱 전체 표제어 기준 균일 크기.
+          final koreanSize = soriUniformFitSize(
+            context,
+            texts: deckKoreans,
+            maxWidth: constraints.maxWidth,
+            cap: soriFillSize(h, 0.19, 38, 92),
+            min: 30,
+            lineHeight: 1.15,
+          );
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 한 줄이라
           // FittedBox 로 폭에 맞춰 줄이고, 번역은 여러 단어일 수 있어 줄바꿈 허용.
           final Widget headline = koFirst
@@ -820,8 +882,9 @@ class _Front extends StatelessWidget {
                   child: Text(
                     v.korean,
                     textAlign: TextAlign.center,
+                    maxLines: 1,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 38, 92),
+                      fontSize: koreanSize,
                       fontWeight: FontWeight.w800,
                       color: SoriColors.info,
                       height: 1.15,
@@ -973,7 +1036,12 @@ class _MasteryChip extends StatelessWidget {
 class _Back extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Back({required this.v, required this.koFirst});
+  final List<String> deckKoreans;
+  const _Back({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -992,6 +1060,14 @@ class _Back extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
+          final koreanSize = soriUniformFitSize(
+            context,
+            texts: deckKoreans,
+            maxWidth: constraints.maxWidth,
+            cap: soriFillSize(h, 0.19, 36, 92),
+            min: 30,
+            lineHeight: 1.2,
+          );
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
           // 한 줄에 맞추고, 번역은 줄바꿈 허용.
           final Widget headline = koFirst
@@ -1013,8 +1089,9 @@ class _Back extends StatelessWidget {
                   child: Text(
                     v.korean,
                     textAlign: TextAlign.center,
+                    maxLines: 1,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 36, 92),
+                      fontSize: koreanSize,
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,

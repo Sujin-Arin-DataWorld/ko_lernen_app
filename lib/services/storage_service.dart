@@ -1303,6 +1303,7 @@ class Storage {
     'stats',
     'quests',
     'scenarios',
+    'soriDeck',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).

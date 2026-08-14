@@ -1,5 +1,13 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P2-2 덱 액션바·4방향 배선
+
+**무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P2-2: review / custom_pack_play / legacy_vocab 에 `SoriDeckActionBar` + ↑↓ 스와이프·underlay·플립힌트를 배선. custom의 `_skip`→`_dontKnow` 개명 + 진짜 `_defer` 분리. `soriDeck` 코치 헬퍼·`kScreenCoachIds` 등록. ARB `deckActionSave`/`deckFlipFirstHint`/`coachSoriDeckBody` 추가.
+
+**검증.** `dart analyze` on touched screens + `sori_deck_coach` + `storage_service` (+ vocab_pack duplicate import fix) → 0 issues.
+
+**커밋:** (이 항목과 함께)
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P3 Today 리디자인
 
 **무엇/왜.** Today 탭의 3중 반복 미션 카피·아이콘-텍스트 블록·작은 히어로를 일러스트 언어로 바꾼다 (`docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P3). `_TodayUnavailableMissionStage`는 현재 트리에 없어 조기 반환을 추가하지 않았고, 이후 병행 세션이 넣으면 보존하도록 주석만 남겼다.

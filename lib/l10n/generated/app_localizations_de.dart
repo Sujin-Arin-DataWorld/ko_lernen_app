@@ -6436,4 +6436,26 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokStageName_jongga => 'Jongga';
+
+  @override
+  String get deckActionSave => 'Merken';
+
+  @override
+  String get deckFlipFirstHint => 'Erst antippen und umdrehen';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+
+  @override
+  String get gyeShowcaseCaption => 'So kann euer gemeinsames Hanok aussehen';
+
+  @override
+  String get gyeExplainWhatShort => 'Eine kleine, freiwillige Lerngruppe.';
+
+  @override
+  String get gyeExplainWhyShort => 'Ein gemeinsames Hanok, kein Wettbewerb.';
+
+  @override
+  String get gyeExplainHowShort => 'Beitritt mit 6-stelligem Code.';
 }

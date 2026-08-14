@@ -2994,5 +2994,33 @@
   "hanokStageName_jongga": "Jongga",
   "@hanokStageName_jongga": {
     "description": "UI overhaul 2: short HanokStage.jongga label"
+  },
+  "deckActionSave": "Merken",
+  "@deckActionSave": {
+    "description": "UI overhaul 2: deckActionSave"
+  },
+  "deckFlipFirstHint": "Erst antippen und umdrehen",
+  "@deckFlipFirstHint": {
+    "description": "UI overhaul 2: deckFlipFirstHint"
+  },
+  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
+  "@coachSoriDeckBody": {
+    "description": "UI overhaul 2: coachSoriDeckBody"
+  },
+  "gyeShowcaseCaption": "So kann euer gemeinsames Hanok aussehen",
+  "@gyeShowcaseCaption": {
+    "description": "UI overhaul 2: gyeShowcaseCaption"
+  },
+  "gyeExplainWhatShort": "Eine kleine, freiwillige Lerngruppe.",
+  "@gyeExplainWhatShort": {
+    "description": "UI overhaul 2: gyeExplainWhatShort"
+  },
+  "gyeExplainWhyShort": "Ein gemeinsames Hanok, kein Wettbewerb.",
+  "@gyeExplainWhyShort": {
+    "description": "UI overhaul 2: gyeExplainWhyShort"
+  },
+  "gyeExplainHowShort": "Beitritt mit 6-stelligem Code.",
+  "@gyeExplainHowShort": {
+    "description": "UI overhaul 2: gyeExplainHowShort"
   }
 }

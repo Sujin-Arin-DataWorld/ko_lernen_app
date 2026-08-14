@@ -13,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -20,6 +21,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -81,11 +83,19 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     super.initState();
     _pack = CustomPackService.getById(widget.packId);
     scheduleCoach();
+    scheduleSoriDeckCoachAfter(
+      context,
+      targetKey: _cardKey,
+      screenCoachId: coachId,
+      coachReady: () => coachReady,
+    );
   }
 
   void _gotIt() {
     final pack = _pack;
-    if (pack == null) return;
+    if (pack == null) {
+      return;
+    }
     HapticFeedback.lightImpact();
     final w = pack.words[_idx];
     Storage.addVokSeen(w.korean);
@@ -97,7 +107,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     _advance();
   }
 
-  void _skip() {
+  /// ← 모름 — 완전한 음성 판정 (SRS negative + wrong count).
+  void _dontKnow() {
     HapticFeedback.selectionClick();
     final pack = _pack;
     if (pack != null) {
@@ -109,9 +120,53 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     _advance();
   }
 
+  /// ↓ 스킵 — SRS/wrongCount 없는 전진.
+  void _defer() {
+    HapticFeedback.selectionClick();
+    final pack = _pack;
+    if (pack == null) {
+      return;
+    }
+    if (_idx >= pack.words.length) {
+      return;
+    }
+    setState(() {
+      _idx++;
+      _flipped = false;
+      _serve++;
+      if (_idx >= pack.words.length) {
+        _feedbackCompletion.complete(
+          () => FeedbackCompletion.customPackPlay(
+            packId: pack.id,
+            learned: _learned,
+            total: pack.totalWords,
+          ),
+        );
+      }
+    });
+  }
+
+  void _showFlipFirstHint() {
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(t.deckFlipFirstHint),
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
   void _advance() {
     final pack = _pack;
-    if (pack == null) return;
+    if (pack == null) {
+      return;
+    }
     setState(() {
       _flipped = false;
       _idx++;
@@ -204,75 +259,86 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 Expanded(
                   // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음) +
                   // 상하 여백으로 코치마크·버튼 공간 확보.
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Skip. 하단 버튼은 접근성 정본으로 유지.
-                  child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
-                    enabled: _flipped,
-                    onSwipeRight: _gotIt,
-                    onSwipeLeft: _skip,
-                    rightBadge: SoriSwipeBadge(
-                      label: t.btnGewusst,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.btnSkip,
-                      icon: Icons.redo_rounded,
-                      color: SoriColors.info,
-                    ),
-                    child: Center(
-                      child: FractionallySizedBox(
-                        heightFactor: 0.82,
-                        child: SoriStudyScale(
-                          // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
-                          // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
-                          // 만든다 (뒷면 선노출 방지).
-                          child: KeyedSubtree(
-                            key: _cardKey,
-                            child: FlipCard(
-                              key: ValueKey('cp-$_serve'),
-                              flipped: _flipped,
-                              onTap: () {
-                                HapticFeedback.selectionClick();
-                                setState(() => _flipped = !_flipped);
-                              },
-                              front: _Front(
-                                word: w,
-                                deckKoreans: [
-                                  for (final x in pack.words) x.korean,
-                                ],
+                  // 2026-08-14: 4방향 덱 — →앎 ←모름 ↓스킵 (↑저장 비노출).
+                  child: Builder(
+                    builder: (context) {
+                      final next = (_idx + 1 < pack.words.length)
+                          ? pack.words[_idx + 1]
+                          : null;
+                      final deckKoreans = [
+                        for (final x in pack.words) x.korean,
+                      ];
+                      return SoriSwipeCard(
+                        // §C-1-1: 플립 전 좌/우 스와이프 금지.
+                        enabled: _flipped,
+                        onSwipeRight: _gotIt,
+                        onSwipeLeft: _dontKnow,
+                        onSwipeDown: _defer,
+                        onBlockedHorizontalDrag: _showFlipFirstHint,
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                        ),
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.question_mark_rounded,
+                          color: SoriColors.danger,
+                        ),
+                        underlay: next == null
+                            ? null
+                            : IgnorePointer(
+                                child: _Front(
+                                  word: next,
+                                  deckKoreans: deckKoreans,
+                                ),
                               ),
-                              back: _Back(word: w),
+                        child: Center(
+                          child: FractionallySizedBox(
+                            heightFactor: 0.82,
+                            child: SizedBox(
+                              key: const ValueKey('deck-card-slot'),
+                              width: double.infinity,
+                              child: SoriStudyScale(
+                                // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
+                                // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
+                                // 만든다 (뒷면 선노출 방지).
+                                child: KeyedSubtree(
+                                  key: _cardKey,
+                                  child: FlipCard(
+                                    key: ValueKey('cp-$_serve'),
+                                    flipped: _flipped,
+                                    onTap: () {
+                                      HapticFeedback.selectionClick();
+                                      setState(() => _flipped = !_flipped);
+                                    },
+                                    front: _Front(
+                                      word: w,
+                                      deckKoreans: deckKoreans,
+                                    ),
+                                    back: _Back(word: w),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(height: Spacing.md),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnSkip,
-                        variant: SoriButtonVariant.outlined,
-                        accent: SoriColors.info,
-                        onTap: _skip,
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.md),
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnGewusst,
-                        variant: SoriButtonVariant.filled,
-                        accent: SoriColors.success,
-                        onTap: _gotIt,
-                      ),
-                    ),
-                  ],
+                SoriDeckActionBar(
+                  showSave: false,
+                  judgmentEnabled: _flipped,
+                  onJudgmentBlocked: _showFlipFirstHint,
+                  onDontKnow: _dontKnow,
+                  onKnow: _gotIt,
+                  onSkip: _defer,
+                  dontKnowLabel: t.btnNichtGewusst,
+                  knowLabel: t.btnGewusst,
+                  skipLabel: t.btnSkip,
+                  saveLabel: t.deckActionSave,
                 ),
               ],
             ),
@@ -389,6 +455,7 @@ class _Front extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      width: double.infinity,
       // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해 커지고
       // (기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
       // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가 스크롤로 받아낸다.
@@ -486,6 +553,7 @@ class _Back extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      width: double.infinity,
       // 앞면과 동일: 카드 안쪽 높이 기준으로 텍스트를 키우고 spaceEvenly 로 채운다.
       child: LayoutBuilder(
         builder: (context, constraints) {

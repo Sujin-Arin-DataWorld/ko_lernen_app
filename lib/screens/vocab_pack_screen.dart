@@ -36,6 +36,7 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/swipe_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/screen_background.dart';
@@ -357,6 +358,51 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
     _advanceLearn();
+  }
+
+  /// ↓ 스킵 — SRS/wrongCount 없이 재삽입 후 전진 (§P2).
+  void _learnDefer() {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    _learnQueue?.defer();
+    _advanceLearn();
+  }
+
+  /// ↑ 저장 — 전진 없음. 단어장 quickAdd.
+  Future<void> _saveCurrent() async {
+    final cur = _currentLearn;
+    if (cur == null || !mounted) {
+      return;
+    }
+    await addToWordbook(
+      context,
+      korean: cur.korean,
+      translationDe: cur.german,
+      romanization: cur.romanization,
+      posDe: cur.posDe,
+      exampleKorean: cur.exampleKorean,
+      exampleDe: cur.exampleGerman,
+      source: 'deck_swipe',
+    );
+  }
+
+  void _showFlipFirstHint() {
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(t.deckFlipFirstHint),
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
   }
 
   void _advanceLearn() {
@@ -847,67 +893,94 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         const SizedBox(height: Spacing.md),
         // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
         // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
+        // UI/UX 개편 2 P1: 카드 슬롯 폭·높이를 단어와 무관하게 고정.
         Expanded(
-          child: SoriSwipeCard(
-            enabled: _learnCardRevealed,
-            onSwipeRight: _learnGotIt,
-            onSwipeLeft: _learnDontKnow,
-            rightBadge: SoriSwipeBadge(
-              label: t.vocabPackGotIt,
-              icon: Icons.check_rounded,
-              color: SoriColors.success,
-            ),
-            leftBadge: SoriSwipeBadge(
-              label: t.vocabPackDontKnow,
-              icon: Icons.close_rounded,
-              color: SoriColors.danger,
-            ),
-            child: SoriStudyScale(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final h = soriStudyTypeScaleHeight(context);
-                  final headlineSize = soriUniformFitSize(
-                    context,
-                    texts: [for (final w in _learnWords) w.korean],
-                    maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                    cap: soriFillSize(h, 0.18, 36, 96),
-                    min: 32,
-                    letterSpacing: -0.5,
-                    lineHeight: 1.05,
-                  );
-                  return FlipCard(
-                    key: ValueKey('learn-$_learnServe'),
-                    flipped: _flipped,
-                    onTap: _toggleLearnFlip,
-                    front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
-                    back: _FlipBack(v: cur, h: h),
-                  );
+          child: LayoutBuilder(
+            builder: (context, box) {
+              final next = _learnQueue?.peekNext;
+              return SoriSwipeCard(
+                enabled: _learnCardRevealed,
+                onSwipeRight: _learnGotIt,
+                onSwipeLeft: _learnDontKnow,
+                onSwipeUp: () {
+                  // ignore: discarded_futures
+                  _saveCurrent();
                 },
-              ),
-            ),
+                onSwipeDown: _learnDefer,
+                onBlockedHorizontalDrag: _showFlipFirstHint,
+                rightBadge: SoriSwipeBadge(
+                  label: t.vocabPackGotIt,
+                  icon: Icons.check_rounded,
+                  color: SoriColors.success,
+                ),
+                leftBadge: SoriSwipeBadge(
+                  label: t.vocabPackDontKnow,
+                  icon: Icons.question_mark_rounded,
+                  color: SoriColors.danger,
+                ),
+                underlay: next == null
+                    ? null
+                    : IgnorePointer(
+                        child: Opacity(
+                          opacity: 1,
+                          child: _FlipFront(
+                            v: next,
+                            h: soriStudyTypeScaleHeight(context),
+                            headlineSize: 36,
+                          ),
+                        ),
+                      ),
+                child: SizedBox(
+                  key: const ValueKey('deck-card-slot'),
+                  width: double.infinity,
+                  height: box.maxHeight,
+                  child: SoriStudyScale(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final h = soriStudyTypeScaleHeight(context);
+                        final headlineSize = soriUniformFitSize(
+                          context,
+                          texts: [for (final w in _learnWords) w.korean],
+                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                          cap: soriFillSize(h, 0.18, 36, 96),
+                          min: 32,
+                          letterSpacing: -0.5,
+                          lineHeight: 1.05,
+                        );
+                        return FlipCard(
+                          key: ValueKey('learn-$_learnServe'),
+                          flipped: _flipped,
+                          onTap: _toggleLearnFlip,
+                          front: _FlipFront(
+                            v: cur,
+                            h: h,
+                            headlineSize: headlineSize,
+                          ),
+                          back: _FlipBack(v: cur, h: h),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
         const SizedBox(height: Spacing.md),
-        Row(
-          children: [
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackDontKnow,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.danger,
-                onTap: _learnCardRevealed ? _learnDontKnow : null,
-              ),
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackGotIt,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.success,
-                onTap: _learnCardRevealed ? _learnGotIt : null,
-              ),
-            ),
-          ],
+        SoriDeckActionBar(
+          judgmentEnabled: _learnCardRevealed,
+          onJudgmentBlocked: _showFlipFirstHint,
+          onDontKnow: _learnDontKnow,
+          onKnow: _learnGotIt,
+          onSkip: _learnDefer,
+          onSave: () {
+            // ignore: discarded_futures
+            _saveCurrent();
+          },
+          dontKnowLabel: t.vocabPackDontKnow,
+          knowLabel: t.vocabPackGotIt,
+          skipLabel: t.btnSkip,
+          saveLabel: t.deckActionSave,
         ),
       ],
     );
@@ -1095,6 +1168,7 @@ class _FlipFront extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -1188,6 +1262,7 @@ class _FlipBack extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,

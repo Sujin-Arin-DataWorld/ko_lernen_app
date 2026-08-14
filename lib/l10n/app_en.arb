@@ -2891,5 +2891,33 @@
   "hanokStageName_jongga": "Jongga",
   "@hanokStageName_jongga": {
     "description": "UI overhaul 2: short HanokStage.jongga label"
+  },
+  "deckActionSave": "Save",
+  "@deckActionSave": {
+    "description": "UI overhaul 2: deckActionSave"
+  },
+  "deckFlipFirstHint": "Tap the card to flip it first",
+  "@deckFlipFirstHint": {
+    "description": "UI overhaul 2: deckFlipFirstHint"
+  },
+  "coachSoriDeckBody": "Swipe the card: right = know it, left = don't know, up = save, down = skip.",
+  "@coachSoriDeckBody": {
+    "description": "UI overhaul 2: coachSoriDeckBody"
+  },
+  "gyeShowcaseCaption": "This is what your shared hanok can look like",
+  "@gyeShowcaseCaption": {
+    "description": "UI overhaul 2: gyeShowcaseCaption"
+  },
+  "gyeExplainWhatShort": "A small, voluntary learning group.",
+  "@gyeExplainWhatShort": {
+    "description": "UI overhaul 2: gyeExplainWhatShort"
+  },
+  "gyeExplainWhyShort": "A shared hanok, not a competition.",
+  "@gyeExplainWhyShort": {
+    "description": "UI overhaul 2: gyeExplainWhyShort"
+  },
+  "gyeExplainHowShort": "Join with a 6-digit code.",
+  "@gyeExplainHowShort": {
+    "description": "UI overhaul 2: gyeExplainHowShort"
   }
 }

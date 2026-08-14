@@ -15,55 +15,69 @@ class SoriSwipeBadge {
   });
 }
 
-/// **SoriSwipeCard** — 데이팅앱식 좌/우 스와이프 판정·넘김 래퍼 (2026-08-14).
+/// **SoriSwipeCard** — 데이팅앱식 4방향 스와이프 래퍼 (UI/UX 개편 2 §P2).
 ///
-/// 학습 카드에 겹쳐 **탭과 공존**한다: 자식(SoriPressable 등)의 탭/플립은
-/// 그대로 두고, 수평 드래그만 가로챈다. 임계(폭 35% 또는 700px/s 플링)를
-/// 넘기면 카드가 그 방향으로 날아가며 콜백이 1회 불린다 — 판정 후 부모가
-/// 다음 카드를 서빙하면 위치는 소리 없이 중앙으로 복귀한다(카드 내용 교체는
-/// 부모의 서빙 키 재생성 계약을 따른다).
+/// - ←/→ : 판정(모름/앎). [enabled] 게이트 대상 — 플립 전에는 저항 드래그만.
+/// - ↑ : 저장. 게이트 무관, 퇴장 없이 스프링백. [onSwipeUp] null 이면 꺼짐.
+/// - ↓ : 스킵. 게이트 무관, 하단 퇴장. [onSwipeDown] null 이면 꺼짐.
 ///
-/// 두 가지 용법:
-/// - **판정 덱** (복습 세션): [rightBadge]=Gewusst(성공색)·[leftBadge]=
-///   Nicht gewusst(위험색) 스탬프가 드래그 진행에 비례해 떠오른다.
-///   버튼 행은 제거하지 않는다 — 스위치 접근·발견가능성의 정본은 버튼이고
-///   스와이프는 가속 경로다.
-/// - **넘김 덱** (단어장 브라우즈): 배지 없이 왼쪽=다음/오른쪽=이전.
-///
-/// reduce-motion 에서는 퇴장/복귀 애니메이션 없이 즉시 판정·복귀한다
-/// (드래그 추적 자체는 직접 조작이라 유지).
+/// 기존 [onSwipeLeft]/[onSwipeRight]/[enabled] 의미는 불변(호출부 무수정 컴파일).
 class SoriSwipeCard extends StatefulWidget {
   const SoriSwipeCard({
     super.key,
     required this.child,
     this.onSwipeLeft,
     this.onSwipeRight,
+    this.onSwipeUp,
+    this.onSwipeDown,
     this.leftBadge,
     this.rightBadge,
+    this.upBadge,
+    this.downBadge,
     this.enabled = true,
+    this.onBlockedHorizontalDrag,
+    this.underlay,
   });
 
   final Widget child;
   final VoidCallback? onSwipeLeft;
   final VoidCallback? onSwipeRight;
+  final VoidCallback? onSwipeUp;
+  final VoidCallback? onSwipeDown;
   final SoriSwipeBadge? leftBadge;
   final SoriSwipeBadge? rightBadge;
+  final SoriSwipeBadge? upBadge;
+  final SoriSwipeBadge? downBadge;
+
+  /// "좌/우 판정 허용" — flipgate 센서가 이 의미를 물고 있다.
   final bool enabled;
+
+  /// 플립 전 수평 시도(원시 24px+) → 힌트 훅. 드래그당 1회.
+  final VoidCallback? onBlockedHorizontalDrag;
+
+  /// 덱 스택 미리보기(다음 카드 앞면). null 이면 스택 없음.
+  final Widget? underlay;
 
   @override
   State<SoriSwipeCard> createState() => _SoriSwipeCardState();
 }
 
+enum _SwipeAxis { horizontal, vertical }
+
 class _SoriSwipeCardState extends State<SoriSwipeCard>
     with SingleTickerProviderStateMixin {
   static const double _commitFraction = 0.35;
   static const double _commitVelocity = 700;
+  static const double _axisLockPx = 12;
+  static const double _blockedHintRawPx = 24;
 
-  // late-lazy 로 두면 컨트롤러를 한 번도 안 쓴 채 dispose 될 때(리듀스 모션
-  // 경로) unmount 중 TickerMode 조상 조회로 크래시한다 — initState 에서 생성.
   late final AnimationController _ctrl;
   double _dx = 0;
+  double _dy = 0;
+  double _blockedRawDx = 0;
+  bool _blockedHintFired = false;
   bool _committing = false;
+  _SwipeAxis? _axis;
 
   @override
   void initState() {
@@ -77,87 +91,236 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
     super.dispose();
   }
 
-  bool get _canSwipe =>
-      widget.enabled &&
-      (widget.onSwipeLeft != null || widget.onSwipeRight != null);
+  bool get _hasHorizontal =>
+      widget.onSwipeLeft != null || widget.onSwipeRight != null;
+  bool get _hasVertical =>
+      widget.onSwipeUp != null || widget.onSwipeDown != null;
+  bool get _canPan => _hasHorizontal || _hasVertical;
 
-  void _onDragUpdate(DragUpdateDetails details) {
-    if (!_canSwipe || _committing) {
+  void _onPanStart(DragStartDetails details) {
+    if (_committing) {
       return;
     }
-    setState(() => _dx += details.delta.dx);
+    _axis = null;
+    _blockedRawDx = 0;
+    _blockedHintFired = false;
   }
 
-  void _onDragEnd(DragEndDetails details, double width) {
-    if (!_canSwipe || _committing) {
+  void _onPanUpdate(DragUpdateDetails details, double height) {
+    if (!_canPan || _committing) {
       return;
     }
-    final double v = details.velocity.pixelsPerSecond.dx;
-    final bool right = _dx > width * _commitFraction || v > _commitVelocity;
-    final bool left = _dx < -width * _commitFraction || v < -_commitVelocity;
-    if (right && widget.onSwipeRight != null) {
-      _commit(width, 1, widget.onSwipeRight!);
-    } else if (left && widget.onSwipeLeft != null) {
-      _commit(width, -1, widget.onSwipeLeft!);
-    } else {
-      _springBack();
+    final dx = details.delta.dx;
+    final dy = details.delta.dy;
+
+    if (_axis == null) {
+      final tentativeDx = _dx + dx;
+      final tentativeDy = _dy + dy;
+      if (tentativeDx.abs() >= _axisLockPx ||
+          tentativeDy.abs() >= _axisLockPx) {
+        _axis = tentativeDx.abs() >= tentativeDy.abs()
+            ? _SwipeAxis.horizontal
+            : _SwipeAxis.vertical;
+      }
+    }
+
+    if (_axis == _SwipeAxis.horizontal) {
+      if (!widget.enabled) {
+        // 저항 드래그 — 표시는 0.15×, 힌트는 원시 손가락 이동량 기준.
+        _blockedRawDx += dx;
+        setState(() => _dx += dx * 0.15);
+        if (!_blockedHintFired &&
+            _blockedRawDx.abs() > _blockedHintRawPx &&
+            widget.onBlockedHorizontalDrag != null) {
+          _blockedHintFired = true;
+          widget.onBlockedHorizontalDrag!();
+        }
+        return;
+      }
+      if (!_hasHorizontal) {
+        return;
+      }
+      setState(() => _dx += dx);
+      return;
+    }
+
+    if (_axis == _SwipeAxis.vertical) {
+      if (!_hasVertical) {
+        return;
+      }
+      // up = negative dy; down = positive dy
+      final nextDy = _dy + dy;
+      if (nextDy < 0 && widget.onSwipeUp == null) {
+        return;
+      }
+      if (nextDy > 0 && widget.onSwipeDown == null) {
+        return;
+      }
+      setState(() => _dy = nextDy);
     }
   }
 
-  void _commit(double width, int direction, VoidCallback callback) {
+  double _verticalThreshold(double height) =>
+      (height * 0.25).clamp(1.0, 120.0);
+
+  void _onPanEnd(DragEndDetails details, double width, double height) {
+    if (!_canPan || _committing) {
+      _resetDrag();
+      return;
+    }
+    final vx = details.velocity.pixelsPerSecond.dx;
+    final vy = details.velocity.pixelsPerSecond.dy;
+    final vThresh = _verticalThreshold(height);
+
+    if (_axis == _SwipeAxis.horizontal && widget.enabled) {
+      final right = _dx > width * _commitFraction || vx > _commitVelocity;
+      final left = _dx < -width * _commitFraction || vx < -_commitVelocity;
+      if (right && widget.onSwipeRight != null) {
+        _commitExit(Offset(width * 1.3, 0), widget.onSwipeRight!);
+        return;
+      }
+      if (left && widget.onSwipeLeft != null) {
+        _commitExit(Offset(-width * 1.3, 0), widget.onSwipeLeft!);
+        return;
+      }
+    } else if (_axis == _SwipeAxis.vertical) {
+      final up = _dy < -vThresh || vy < -_commitVelocity;
+      final down = _dy > vThresh || vy > _commitVelocity;
+      if (up && widget.onSwipeUp != null) {
+        _commitSave(widget.onSwipeUp!);
+        return;
+      }
+      if (down && widget.onSwipeDown != null) {
+        _commitExit(Offset(0, height * 1.1), widget.onSwipeDown!);
+        return;
+      }
+    }
+    _springBack();
+  }
+
+  void _resetDrag() {
+    _axis = null;
+    _blockedRawDx = 0;
+    _blockedHintFired = false;
+  }
+
+  void _commitExit(Offset to, VoidCallback callback) {
     // ignore: discarded_futures
     HapticFeedback.selectionClick();
     if (SoriMotion.reduceMotion(context)) {
-      setState(() => _dx = 0);
+      setState(() {
+        _dx = 0;
+        _dy = 0;
+      });
+      _resetDrag();
       callback();
       return;
     }
     _committing = true;
     _animate(
-      to: direction * width * 1.3,
+      toDx: to.dx,
+      toDy: to.dy,
       duration: SoriMotion.fast,
       curve: SoriMotion.emphasis,
       onDone: () {
         _committing = false;
-        // 다음 카드가 중앙에서 등장하도록 위치는 애니메이션 없이 복귀.
-        setState(() => _dx = 0);
+        setState(() {
+          _dx = 0;
+          _dy = 0;
+        });
+        _resetDrag();
         callback();
+      },
+    );
+  }
+
+  /// ↑ 저장 — 퇴장 없음, 콜백 후 스프링백.
+  void _commitSave(VoidCallback callback) {
+    // ignore: discarded_futures
+    HapticFeedback.selectionClick();
+    callback();
+    if (SoriMotion.reduceMotion(context)) {
+      setState(() {
+        _dx = 0;
+        _dy = 0;
+      });
+      _resetDrag();
+      return;
+    }
+    _committing = true;
+    _animate(
+      toDx: 0,
+      toDy: 0,
+      duration: SoriMotion.medium,
+      curve: SoriMotion.release,
+      onDone: () {
+        _committing = false;
+        _resetDrag();
       },
     );
   }
 
   void _springBack() {
     if (SoriMotion.reduceMotion(context)) {
-      setState(() => _dx = 0);
+      setState(() {
+        _dx = 0;
+        _dy = 0;
+      });
+      _resetDrag();
       return;
     }
-    _animate(to: 0, duration: SoriMotion.medium, curve: SoriMotion.release);
+    _animate(
+      toDx: 0,
+      toDy: 0,
+      duration: SoriMotion.medium,
+      curve: SoriMotion.release,
+      onDone: _resetDrag,
+    );
   }
 
   void _animate({
-    required double to,
+    required double toDx,
+    required double toDy,
     required Duration duration,
     required Curve curve,
     VoidCallback? onDone,
   }) {
-    final Animation<double> anim = _ctrl.drive(
-      Tween<double>(begin: _dx, end: to).chain(CurveTween(curve: curve)),
+    final beginDx = _dx;
+    final beginDy = _dy;
+    final Animation<double> t = _ctrl.drive(
+      CurveTween(curve: curve),
     );
     void tick() {
-      if (mounted) {
-        setState(() => _dx = anim.value);
+      if (!mounted) {
+        return;
       }
+      final p = t.value;
+      setState(() {
+        _dx = beginDx + (toDx - beginDx) * p;
+        _dy = beginDy + (toDy - beginDy) * p;
+      });
     }
 
-    anim.addListener(tick);
+    t.addListener(tick);
     _ctrl.duration = duration;
     _ctrl.forward(from: 0).whenCompleteOrCancel(() {
-      anim.removeListener(tick);
+      t.removeListener(tick);
       if (mounted) {
-        setState(() => _dx = to);
+        setState(() {
+          _dx = toDx;
+          _dy = toDy;
+        });
         onDone?.call();
       }
     });
+  }
+
+  double _underlayProgress(double width, double height) {
+    // 위(-dy) 드래그는 p 계산에서 제외 (저장은 전진이 아님).
+    final hProg = width > 0 ? _dx.abs() / (0.35 * width) : 0.0;
+    final downOnly = _dy > 0 ? _dy : 0.0;
+    final vProg = downOnly / _verticalThreshold(height);
+    return (hProg > vProg ? hProg : vProg).clamp(0.0, 1.0);
   }
 
   @override
@@ -167,44 +330,97 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
         final double width = constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
-        final double progress = (_dx / width).clamp(-1.0, 1.0);
-        // 틴더식 기울임 — 아래 모서리를 축으로 살짝(최대 ~9°).
-        final double angle = progress * 0.16;
+        final double height = constraints.maxHeight.isFinite
+            ? constraints.maxHeight
+            : MediaQuery.sizeOf(context).height;
+        final double hProgress = (_dx / width).clamp(-1.0, 1.0);
+        final double angle = (_axis == _SwipeAxis.vertical)
+            ? 0.0
+            : hProgress * 0.16;
+        final double vScale = (_axis == _SwipeAxis.vertical)
+            ? (1.0 - (_dy.abs() / (height * 0.5)).clamp(0.0, 1.0) * 0.03)
+            : 1.0;
+
+        final underlayP = widget.underlay == null
+            ? 0.0
+            : (_committing && _dy >= 0
+                  ? 1.0
+                  : _underlayProgress(width, height));
+        final reduce = SoriMotion.reduceMotion(context);
 
         final Widget card = Transform.translate(
-          offset: Offset(_dx, 0),
+          offset: Offset(_dx, _dy),
           child: Transform.rotate(
             angle: angle,
             alignment: Alignment.bottomCenter,
-            child: Stack(
-              children: [
-                widget.child,
-                if (widget.rightBadge != null)
-                  _Stamp(
-                    badge: widget.rightBadge!,
-                    opacity: ((progress - 0.08) / 0.25).clamp(0.0, 1.0),
-                    alignment: Alignment.topLeft,
-                    tilt: -0.15,
-                  ),
-                if (widget.leftBadge != null)
-                  _Stamp(
-                    badge: widget.leftBadge!,
-                    opacity: ((-progress - 0.08) / 0.25).clamp(0.0, 1.0),
-                    alignment: Alignment.topRight,
-                    tilt: 0.15,
-                  ),
-              ],
+            child: Transform.scale(
+              scale: vScale,
+              child: Stack(
+                children: [
+                  widget.child,
+                  if (widget.rightBadge != null)
+                    _Stamp(
+                      badge: widget.rightBadge!,
+                      opacity: ((hProgress - 0.08) / 0.25).clamp(0.0, 1.0),
+                      alignment: Alignment.topLeft,
+                      tilt: -0.15,
+                    ),
+                  if (widget.leftBadge != null)
+                    _Stamp(
+                      badge: widget.leftBadge!,
+                      opacity: ((-hProgress - 0.08) / 0.25).clamp(0.0, 1.0),
+                      alignment: Alignment.topRight,
+                      tilt: 0.15,
+                    ),
+                  if (widget.upBadge != null)
+                    _Stamp(
+                      badge: widget.upBadge!,
+                      opacity: ((-_dy / 80) - 0.08).clamp(0.0, 1.0),
+                      alignment: Alignment.bottomCenter,
+                      tilt: 0,
+                    ),
+                  if (widget.downBadge != null)
+                    _Stamp(
+                      badge: widget.downBadge!,
+                      opacity: ((_dy / 80) - 0.08).clamp(0.0, 1.0),
+                      alignment: Alignment.topCenter,
+                      tilt: 0,
+                    ),
+                ],
+              ),
             ),
           ),
         );
 
         return GestureDetector(
           behavior: HitTestBehavior.translucent,
-          onHorizontalDragUpdate: _canSwipe ? _onDragUpdate : null,
-          onHorizontalDragEnd: _canSwipe
-              ? (details) => _onDragEnd(details, width)
+          onPanStart: _canPan ? _onPanStart : null,
+          onPanUpdate: _canPan
+              ? (d) => _onPanUpdate(d, height)
               : null,
-          child: card,
+          onPanEnd: _canPan
+              ? (d) => _onPanEnd(d, width, height)
+              : null,
+          child: Stack(
+            children: [
+              if (widget.underlay != null)
+                Positioned.fill(
+                  child: IgnorePointer(
+                    child: Transform.translate(
+                      offset: Offset(
+                        0,
+                        reduce ? 10 : 10 * (1 - underlayP),
+                      ),
+                      child: Transform.scale(
+                        scale: reduce ? 0.95 : 0.95 + 0.05 * underlayP,
+                        child: widget.underlay,
+                      ),
+                    ),
+                  ),
+                ),
+              card,
+            ],
+          ),
         );
       },
     );
