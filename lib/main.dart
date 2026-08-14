@@ -24,6 +24,7 @@ import 'services/content_feedback_service.dart';
 import 'services/content_feedback_lifecycle.dart';
 import 'services/picker_recovery_service.dart';
 import 'services/palette_service.dart';
+import 'services/pack_session_srs_ledger.dart';
 import 'services/premium_service.dart';
 import 'services/scene_asset_resolver.dart';
 import 'services/notification_service.dart';
@@ -601,15 +602,14 @@ class _KoLernenAppState extends State<KoLernenApp> {
               } else {
                 id = recallArgs['packId'] as String? ?? '';
               }
-              final rawSessionPositiveSrsWordIds =
-                  recallArgs['sessionPositiveSrsWordIds'];
+              final recallSession = PackRecallSession.fromRouteArgument(
+                recallArgs['recallSession'],
+                expectedPackId: id,
+              );
               return SoriTransitions.fadeScale(
                 (_) => VocabPackRecallScreen(
                   packId: id,
-                  sessionPositiveSrsWordIds:
-                      rawSessionPositiveSrsWordIds is Iterable
-                      ? rawSessionPositiveSrsWordIds.whereType<String>().toSet()
-                      : const <String>{},
+                  recallSession: recallSession,
                 ),
                 settings: settings,
               );

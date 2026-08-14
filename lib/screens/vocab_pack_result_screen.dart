@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/content_feedback.dart';
 import '../models/course_practice_context.dart';
 import '../services/pack_progress_service.dart';
+import '../services/pack_session_srs_ledger.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
@@ -37,7 +38,7 @@ import '../widgets/sori/tokens.dart';
 ///   - `packLevel`: String
 ///   - `feedbackContext`: ContentFeedbackContext
 ///   - `showHardWordsCta`: bool (this session has a threshold-reaching miss)
-///   - `sessionPositiveSrsWordIds`: an iterable of String (ephemeral coalescing)
+///   - `recallSession`: a typed, ephemeral pack-session evidence ledger
 class VocabPackResultScreen extends StatelessWidget {
   final String packId;
   final double bossAccuracy;
@@ -52,7 +53,7 @@ class VocabPackResultScreen extends StatelessWidget {
   final ContentFeedbackContext? feedbackContext;
   final CoursePracticeContext? courseContext;
   final bool showHardWordsCta;
-  final Set<String> sessionPositiveSrsWordIds;
+  final PackRecallSession? recallSession;
 
   const VocabPackResultScreen({
     super.key,
@@ -69,16 +70,16 @@ class VocabPackResultScreen extends StatelessWidget {
     this.feedbackContext,
     this.courseContext,
     this.showHardWordsCta = false,
-    this.sessionPositiveSrsWordIds = const <String>{},
+    this.recallSession,
   });
 
   /// Factory aus Navigator-args. Falls Map fehlt → defaults.
   factory VocabPackResultScreen.fromArgs(Object? args) {
     final m = (args is Map) ? args : const <String, dynamic>{};
     final rawCourseContext = m['courseContext'];
-    final rawSessionPositiveSrsWordIds = m['sessionPositiveSrsWordIds'];
+    final packId = m['packId'] as String? ?? '';
     return VocabPackResultScreen(
-      packId: m['packId'] as String? ?? '',
+      packId: packId,
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
       bossCorrect: (m['bossCorrect'] as num?)?.toInt() ?? 0,
       bossTotal: (m['bossTotal'] as num?)?.toInt() ?? 0,
@@ -93,9 +94,10 @@ class VocabPackResultScreen extends StatelessWidget {
           ? rawCourseContext
           : null,
       showHardWordsCta: m['showHardWordsCta'] as bool? ?? false,
-      sessionPositiveSrsWordIds: rawSessionPositiveSrsWordIds is Iterable
-          ? rawSessionPositiveSrsWordIds.whereType<String>().toSet()
-          : const <String>{},
+      recallSession: PackRecallSession.fromRouteArgument(
+        m['recallSession'],
+        expectedPackId: packId,
+      ),
     );
   }
 
@@ -301,10 +303,7 @@ class VocabPackResultScreen extends StatelessWidget {
                               '/vocab/recall',
                               arguments: <String, dynamic>{
                                 'packId': packId,
-                                'sessionPositiveSrsWordIds':
-                                    sessionPositiveSrsWordIds.toList(
-                                      growable: false,
-                                    ),
+                                'recallSession': recallSession,
                               },
                             ),
                           ),

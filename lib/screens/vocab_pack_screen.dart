@@ -17,6 +17,7 @@ import '../services/curriculum_catalog.dart';
 import '../services/decoration_reward_service.dart';
 import '../services/learn_session_queue.dart';
 import '../services/pack_progress_service.dart';
+import '../services/pack_session_srs_ledger.dart';
 import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -84,7 +85,7 @@ Map<String, dynamic> vocabPackResultArguments({
   required FeedbackCompletion feedbackCompletion,
   CoursePracticeContext? courseContext,
   bool showHardWordsCta = false,
-  Set<String> sessionPositiveSrsWordIds = const <String>{},
+  PackRecallSession? recallSession,
 }) => <String, dynamic>{
   'packId': packId,
   'packLevel': packLevel,
@@ -99,9 +100,7 @@ Map<String, dynamic> vocabPackResultArguments({
   'feedbackContext': feedbackCompletion.context,
   'courseContext': courseContext,
   'showHardWordsCta': showHardWordsCta,
-  'sessionPositiveSrsWordIds': sessionPositiveSrsWordIds.toList(
-    growable: false,
-  ),
+  'recallSession': recallSession,
 };
 
 /// Returns a one-time assessment order that is shuffled but never leaves a
@@ -191,10 +190,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 이 세션에서 틀린 단어만 결과의 Hard Words CTA 후보가 된다. 기존
   // hard/leech 기준을 넘은 경우에만 CTA를 노출해 단발 오답을 과잉 분기하지 않는다.
   final Set<String> _sessionMissedWordIds = {};
-  // Result-screen typed recall receives this local set so it can add a direct
-  // positive only when this pack session has not already done so for the word.
-  // This is ephemeral route state, not a new persisted attempt model.
-  final Set<String> _sessionPositiveSrsWordIds = {};
+  // One ephemeral ledger follows this pack through its optional result/typed
+  // recall route. It coalesces each word's SRS evidence without adding a
+  // persisted LearningAttempt model or migration.
+  PackRecallSession? _recallSession;
 
   final _rng = math.Random();
 
@@ -289,7 +288,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _flipped = false;
         _learnCardRevealed = false;
         _sessionMissedWordIds.clear();
-        _sessionPositiveSrsWordIds.clear();
+        _recallSession = PackRecallSession.forPack(packId: pack.id);
         _quizQuestions = const [];
         _bossQuestions = const [];
         _assessmentOrdersPrepared = false;
@@ -333,7 +332,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (_learnSrsRated.add(cur.korean)) {
       // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
       // 최초의 정직한 "몰랐다" 평가가 유지된다.
-      _recordSessionPositiveSrs(cur.korean);
+      _recordSessionSrs(cur.korean, gotIt: true);
     }
     _learnQueue?.markKnown();
     _advanceLearn();
@@ -348,8 +347,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     HapticFeedback.mediumImpact();
     Storage.addVokSeen(cur.korean);
     if (_learnSrsRated.add(cur.korean)) {
-      // ignore: discarded_futures
-      Storage.srsReview(cur.korean, gotIt: false);
+      _recordSessionSrs(cur.korean, gotIt: false);
     }
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
@@ -387,10 +385,25 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     });
   }
 
-  void _recordSessionPositiveSrs(String korean) {
-    _sessionPositiveSrsWordIds.add(korean);
+  void _recordSessionSrs(String korean, {required bool gotIt}) {
+    final session = _recallSession;
+    if (session == null) {
+      return;
+    }
+    final action = gotIt
+        ? session.recordPositiveFor(
+            expectedPackId: session.packId,
+            wordId: korean,
+          )
+        : session.recordNegativeFor(
+            expectedPackId: session.packId,
+            wordId: korean,
+          );
+    if (!action.writesSrs) {
+      return;
+    }
     // ignore: discarded_futures
-    Storage.srsReview(korean, gotIt: true);
+    Storage.srsReview(korean, gotIt: action.gotIt!);
   }
 
   // ── Stage 2 / 3 (Quiz / Boss) ──────────────────────────────────────
@@ -578,11 +591,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
         Storage.addVokSeen(cur.korean);
-        _recordSessionPositiveSrs(cur.korean);
+        _recordSessionSrs(cur.korean, gotIt: true);
       } else {
         _bossCorrect++;
         Storage.addVokSeen(cur.korean);
-        _recordSessionPositiveSrs(cur.korean);
+        _recordSessionSrs(cur.korean, gotIt: true);
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
@@ -590,8 +603,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       SoundService.wrong();
       _combo = 0;
       _sessionMissedWordIds.add(cur.korean);
-      // ignore: discarded_futures
-      Storage.srsReview(cur.korean, gotIt: false);
+      _recordSessionSrs(cur.korean, gotIt: false);
       // ignore: discarded_futures
       Storage.incrementWrongCount(cur.korean);
     }
@@ -716,7 +728,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         feedbackCompletion: feedbackCompletion,
         courseContext: _missionStep == null ? null : widget.courseContext,
         showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
-        sessionPositiveSrsWordIds: _sessionPositiveSrsWordIds,
+        recallSession: _recallSession,
       ),
     );
   }

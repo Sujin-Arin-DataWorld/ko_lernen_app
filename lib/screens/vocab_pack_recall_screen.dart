@@ -7,6 +7,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/sound_service.dart';
+import '../services/pack_session_srs_ledger.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -27,21 +28,22 @@ import '../widgets/sori/tts_speed_control.dart';
 ///
 /// This comes after the Pack result and never changes clear, unlock, stamp, or
 /// XP behaviour. Boss remains the pack's four-choice recognition assessment;
-/// this surface adds a separate, stronger typed-recall opportunity. Existing
-/// current-pack SRS positives are supplied so a direct success cannot promote
-/// the same card a second time in one pack session.
+/// this surface adds a separate, stronger typed-recall opportunity. A valid
+/// current-pack session is supplied by the result route so reopen attempts
+/// share the same ephemeral SRS evidence ledger. Missing or mismatched route
+/// state remains useful practice but intentionally writes no learning data.
 class VocabPackRecallScreen extends StatefulWidget {
   final String packId;
   final Future<VocabPack?> Function(String packId)? packLoader;
   final math.Random? orderRng;
-  final Set<String> sessionPositiveSrsWordIds;
+  final PackRecallSession? recallSession;
 
   const VocabPackRecallScreen({
     super.key,
     required this.packId,
     this.packLoader,
     this.orderRng,
-    this.sessionPositiveSrsWordIds = const <String>{},
+    this.recallSession,
   });
 
   @override
@@ -186,15 +188,31 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   }
 
   Future<void> _recordEvidence(Vocab word, VocabRecallGrade grade) async {
+    final session = widget.recallSession;
+    if (session == null || !session.isValidForPack(widget.packId)) {
+      return;
+    }
     switch (grade.evidence) {
       case VocabRecallEvidence.positive:
-        if (widget.sessionPositiveSrsWordIds.contains(word.korean)) {
-          return;
+        final action = session.recordPositiveFor(
+          expectedPackId: widget.packId,
+          wordId: word.korean,
+        );
+        if (action.writesSrs) {
+          await Storage.srsReview(word.korean, gotIt: action.gotIt!);
         }
-        await Storage.srsReview(word.korean, gotIt: true);
         return;
       case VocabRecallEvidence.negative:
-        await Storage.srsReview(word.korean, gotIt: false);
+        final action = session.recordNegativeFor(
+          expectedPackId: widget.packId,
+          wordId: word.korean,
+        );
+        if (action.writesSrs) {
+          await Storage.srsReview(word.korean, gotIt: action.gotIt!);
+        }
+        // The ledger coalesces SRS scheduling only. Every genuine miss keeps
+        // the existing wrong-count behavior, but practice-only route payloads
+        // return above without recording either kind of learning evidence.
         await Storage.incrementWrongCount(word.korean);
         return;
       case VocabRecallEvidence.none:
