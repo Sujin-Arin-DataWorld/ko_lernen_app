@@ -110,7 +110,7 @@ void main() {
     );
 
     // Phase 4: Sori Stage shell — tab labels are: Today, Learn, Games, Hanok, Gye
-    expect(find.text('Learn'), findsWidgets);
+    expect(find.text('Lernen'), findsWidgets);
     await tester.pump(const Duration(seconds: 1));
   });
 }

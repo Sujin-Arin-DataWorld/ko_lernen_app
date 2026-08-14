@@ -446,7 +446,17 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
 
+    await tester.scrollUntilVisible(
+      find.text('Gespeicherte Wörter wiederholen'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Gespeicherte Wörter wiederholen'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Erneut verbinden'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Erneut verbinden'), findsOneWidget);
   });
 
