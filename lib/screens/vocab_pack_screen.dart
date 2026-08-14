@@ -31,6 +31,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
@@ -168,6 +169,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
   // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
   int _learnServe = 0;
+  final SoriDeckHintController _deckHint = SoriDeckHintController();
 
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
@@ -308,6 +310,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   List<Vocab> get _learnWords => _pack?.learnWords.toList() ?? const [];
 
   Vocab? get _currentLearn => _learnQueue?.current;
+  Vocab? get _nextLearn => _learnQueue?.peekNext;
 
   Vocab? get _currentQuiz {
     switch (_stage) {
@@ -359,6 +362,33 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     _advanceLearn();
   }
 
+  void _saveCurrentLearn() {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: cur.korean,
+      translationDe: cur.german,
+      translationEn: cur.english,
+      romanization: cur.romanization,
+      posDe: cur.posDe,
+      exampleKorean: cur.exampleKorean,
+      exampleDe: cur.exampleGerman,
+      source: 'deck_swipe',
+    );
+  }
+
+  void _deferCurrentLearn() {
+    if (_currentLearn == null) {
+      return;
+    }
+    _learnQueue?.defer();
+    _advanceLearn();
+  }
+
   void _advanceLearn() {
     final pack = _pack;
     if (pack == null) return;
@@ -384,6 +414,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       }
       _flipped = !_flipped;
     });
+  }
+
+  @override
+  void dispose() {
+    _deckHint.dispose();
+    super.dispose();
   }
 
   void _recordSessionSrs(String korean, {required bool gotIt}) {
@@ -853,6 +889,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               enabled: _learnCardRevealed,
               onSwipeRight: _learnGotIt,
               onSwipeLeft: _learnDontKnow,
+              onSwipeUp: _saveCurrentLearn,
+              onSwipeDown: _deferCurrentLearn,
+              onBlockedHorizontalDrag: _deckHint.show,
               rightBadge: SoriSwipeBadge(
                 label: t.vocabPackGotIt,
                 icon: Icons.check_rounded,
@@ -860,38 +899,52 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               ),
               leftBadge: SoriSwipeBadge(
                 label: t.vocabPackDontKnow,
-                icon: Icons.close_rounded,
+                icon: Icons.question_mark_rounded,
                 color: SoriColors.danger,
               ),
-              child: SizedBox(
-                key: const ValueKey('deck-card-slot'),
-                width: double.infinity,
-                height: box.maxHeight,
-                child: SoriStudyScale(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      final h = soriStudyTypeScaleHeight(context);
-                      final headlineSize = soriUniformFitSize(
-                        context,
-                        texts: [for (final w in _learnWords) w.korean],
-                        maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                        cap: soriFillSize(h, 0.18, 36, 96),
-                        min: 32,
-                        letterSpacing: -0.5,
-                        lineHeight: 1.05,
-                      );
-                      return FlipCard(
-                        key: ValueKey('learn-$_learnServe'),
-                        flipped: _flipped,
-                        onTap: _toggleLearnFlip,
-                        front: _FlipFront(
-                          v: cur,
-                          h: h,
-                          headlineSize: headlineSize,
-                        ),
-                        back: _FlipBack(v: cur, h: h),
-                      );
-                    },
+              upBadge: SoriSwipeBadge(
+                label: t.deckActionSave,
+                icon: Icons.redeem_rounded,
+                color: SoriColors.goldOnLight,
+              ),
+              downBadge: SoriSwipeBadge(
+                label: t.btnSkip,
+                icon: Icons.arrow_downward_rounded,
+                color: SoriSurfaces.of(context).textMuted,
+              ),
+              underlay: _buildLearnUnderlay(_nextLearn, box.maxHeight),
+              child: SoriDeckFlipHint(
+                controller: _deckHint,
+                child: SizedBox(
+                  key: const ValueKey('deck-card-slot'),
+                  width: double.infinity,
+                  height: box.maxHeight,
+                  child: SoriStudyScale(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final h = soriStudyTypeScaleHeight(context);
+                        final headlineSize = soriUniformFitSize(
+                          context,
+                          texts: [for (final w in _learnWords) w.korean],
+                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                          cap: soriFillSize(h, 0.18, 36, 96),
+                          min: 32,
+                          letterSpacing: -0.5,
+                          lineHeight: 1.05,
+                        );
+                        return FlipCard(
+                          key: ValueKey('learn-$_learnServe'),
+                          flipped: _flipped,
+                          onTap: _toggleLearnFlip,
+                          front: _FlipFront(
+                            v: cur,
+                            h: h,
+                            headlineSize: headlineSize,
+                          ),
+                          back: _FlipBack(v: cur, h: h),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -899,28 +952,42 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ),
         ),
         const SizedBox(height: Spacing.md),
-        Row(
-          children: [
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackDontKnow,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.danger,
-                onTap: _learnCardRevealed ? _learnDontKnow : null,
-              ),
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackGotIt,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.success,
-                onTap: _learnCardRevealed ? _learnGotIt : null,
-              ),
-            ),
-          ],
+        DeckActionBar(
+          judgmentsEnabled: _learnCardRevealed,
+          onDontKnow: _learnDontKnow,
+          onSkip: _deferCurrentLearn,
+          onSave: _saveCurrentLearn,
+          onKnow: _learnGotIt,
+          onBlockedJudgment: _deckHint.show,
         ),
       ],
+    );
+  }
+
+  Widget? _buildLearnUnderlay(Vocab? next, double height) {
+    if (next == null) {
+      return null;
+    }
+    return SizedBox(
+      width: double.infinity,
+      height: height,
+      child: SoriStudyScale(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final h = soriStudyTypeScaleHeight(context);
+            final headlineSize = soriUniformFitSize(
+              context,
+              texts: [for (final word in _learnWords) word.korean],
+              maxWidth: constraints.maxWidth - Spacing.xl * 2,
+              cap: soriFillSize(h, 0.18, 36, 96),
+              min: 32,
+              letterSpacing: -0.5,
+              lineHeight: 1.05,
+            );
+            return _FlipFront(v: next, h: h, headlineSize: headlineSize);
+          },
+        ),
+      ),
     );
   }
 

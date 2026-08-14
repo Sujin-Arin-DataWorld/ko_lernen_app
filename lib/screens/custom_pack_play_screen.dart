@@ -10,6 +10,7 @@ import '../services/tts_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
@@ -56,6 +57,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
+  final SoriDeckHintController _deckHint = SoriDeckHintController();
 
   @override
   String get coachId => 'cpPlay';
@@ -97,7 +99,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     _advance();
   }
 
-  void _skip() {
+  void _dontKnow() {
     HapticFeedback.selectionClick();
     final pack = _pack;
     if (pack != null) {
@@ -107,6 +109,18 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       Storage.incrementWrongCount(pack.words[_idx].korean);
     }
     _advance();
+  }
+
+  void _defer() {
+    final pack = _pack;
+    if (pack == null || _idx >= pack.words.length) {
+      return;
+    }
+    setState(() {
+      _flipped = false;
+      _idx++;
+      _serve++;
+    });
   }
 
   void _advance() {
@@ -126,6 +140,12 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    _deckHint.dispose();
+    super.dispose();
   }
 
   @override
@@ -211,44 +231,57 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     // 카드에 SRS가 기록되는 데이터 버그 방지.
                     enabled: _flipped,
                     onSwipeRight: _gotIt,
-                    onSwipeLeft: _skip,
+                    onSwipeLeft: _dontKnow,
+                    onSwipeDown: _defer,
+                    onBlockedHorizontalDrag: _deckHint.show,
                     rightBadge: SoriSwipeBadge(
                       label: t.btnGewusst,
                       icon: Icons.check_rounded,
                       color: SoriColors.success,
                     ),
                     leftBadge: SoriSwipeBadge(
-                      label: t.btnSkip,
-                      icon: Icons.redo_rounded,
-                      color: SoriColors.info,
+                      label: t.btnNichtGewusst,
+                      icon: Icons.question_mark_rounded,
+                      color: SoriColors.danger,
                     ),
-                    child: Center(
-                      child: FractionallySizedBox(
-                        widthFactor: 1,
-                        heightFactor: 0.82,
-                        child: SizedBox(
-                          key: const ValueKey('deck-card-slot'),
-                          width: double.infinity,
-                          child: SoriStudyScale(
-                            // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
-                            // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
-                            // 만든다 (뒷면 선노출 방지).
-                            child: KeyedSubtree(
-                              key: _cardKey,
-                              child: FlipCard(
-                                key: ValueKey('cp-$_serve'),
-                                flipped: _flipped,
-                                onTap: () {
-                                  HapticFeedback.selectionClick();
-                                  setState(() => _flipped = !_flipped);
-                                },
-                                front: _Front(
-                                  word: w,
-                                  deckKoreans: [
-                                    for (final x in pack.words) x.korean,
-                                  ],
+                    downBadge: SoriSwipeBadge(
+                      label: t.btnSkip,
+                      icon: Icons.arrow_downward_rounded,
+                      color: s.textMuted,
+                    ),
+                    underlay: _idx + 1 < pack.words.length
+                        ? _CustomDeckUnderlay(word: pack.words[_idx + 1])
+                        : null,
+                    child: SoriDeckFlipHint(
+                      controller: _deckHint,
+                      child: Center(
+                        child: FractionallySizedBox(
+                          widthFactor: 1,
+                          heightFactor: 0.82,
+                          child: SizedBox(
+                            key: const ValueKey('deck-card-slot'),
+                            width: double.infinity,
+                            child: SoriStudyScale(
+                              // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
+                              // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
+                              // 만든다 (뒷면 선노출 방지).
+                              child: KeyedSubtree(
+                                key: _cardKey,
+                                child: FlipCard(
+                                  key: ValueKey('cp-$_serve'),
+                                  flipped: _flipped,
+                                  onTap: () {
+                                    HapticFeedback.selectionClick();
+                                    setState(() => _flipped = !_flipped);
+                                  },
+                                  front: _Front(
+                                    word: w,
+                                    deckKoreans: [
+                                      for (final x in pack.words) x.korean,
+                                    ],
+                                  ),
+                                  back: _Back(word: w),
                                 ),
-                                back: _Back(word: w),
                               ),
                             ),
                           ),
@@ -258,26 +291,13 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                   ),
                 ),
                 const SizedBox(height: Spacing.md),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnSkip,
-                        variant: SoriButtonVariant.outlined,
-                        accent: SoriColors.info,
-                        onTap: _skip,
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.md),
-                    Expanded(
-                      child: SoriButton(
-                        label: t.btnGewusst,
-                        variant: SoriButtonVariant.filled,
-                        accent: SoriColors.success,
-                        onTap: _gotIt,
-                      ),
-                    ),
-                  ],
+                DeckActionBar(
+                  judgmentsEnabled: _flipped,
+                  onDontKnow: _dontKnow,
+                  onSkip: _defer,
+                  onKnow: _gotIt,
+                  onBlockedJudgment: _deckHint.show,
+                  showSave: false,
                 ),
               ],
             ),
@@ -599,6 +619,31 @@ class _Back extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class _CustomDeckUnderlay extends StatelessWidget {
+  const _CustomDeckUnderlay({required this.word});
+
+  final dynamic word;
+
+  @override
+  Widget build(BuildContext context) {
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.info,
+      tinted: true,
+      width: double.infinity,
+      child: Center(
+        child: Text(
+          word.korean,
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.fade,
+          style: SoriTextTheme.of(context).h1,
+        ),
       ),
     );
   }

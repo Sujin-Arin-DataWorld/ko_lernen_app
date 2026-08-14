@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 Sori Deck 2.0 구현 중
+
+**무엇/왜.** P1 고정 지오메트리 위에 `SoriSwipeCard`를 지배축 잠금 방식의 4방향 pan으로 확장했다. 좌/우는 기존 플립 게이트 판정, 위는 저장 후 제자리 복귀, 아래는 평가 없는 스킵이며, 다음 카드 앞면 underlay는 포인터를 받지 않는다. `LearnSessionQueue`에는 miss를 늘리지 않는 `defer()`와 `peekNext`를 추가했다. 공용 `DeckActionBar`는 64dp 판정 2개와 48dp 스킵/저장 버튼을 한 줄에 배치하고, 커스텀 WebP가 승인되기 전에는 Material 아이콘으로 강등한다. 캐릭터·콘텐츠 C0·SRS 원장 계약은 변경하지 않았다.
+
+**화면 배선.** 단어팩 Learn·복습·커스텀팩·레거시 단어장의 기존 판정 핸들러를 그대로 재사용한다. 위 저장은 단어팩/복습의 quick wordbook과 레거시 즐겨찾기 추가 전용으로 연결하고 커스텀팩에서는 숨겼다. 아래 스킵은 모든 화면에서 플립/서빙 키를 앞면으로 복구하며 SRS·wrong-count를 호출하지 않는다. 판정 버튼도 review/custom을 포함해 플립 전에는 기록하지 않고 힌트를 표시한다.
+
+**센서/검증.** swipe 4방향·지배축·저항 힌트·underlay hit test, action bar 게이트/크기, queue defer/peekNext 테스트를 추가했다. Flutter analyze와 화면별 무기록 센서는 테스트 전 스냅샷 커밋 후 실행한다.
+
+**커밋:** 검증 전 스냅샷에 포함하고 최종 해시는 후속 갱신한다.
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P1 카드 지오메트리
 
 **무엇/왜.** `HANDOFF_UI_OVERHAUL_2_2026-08-14.md`의 최우선 P1을 구현했다. 단어팩 Learn·복습·커스텀팩·레거시 단어장 네 덱에 공통 `deck-card-slot`을 두고 폭을 가용 영역에 고정해, 짧은 단어와 긴 단어 또는 플립 앞뒤 상태가 카드 rect를 바꾸지 못하게 했다. 단어팩과 커스텀팩의 hero `SoriCard`에도 `width: double.infinity` 이중 가드를 추가했다. 복습·레거시 덱은 현재 카드별 `FittedBox` 크기 대신 덱 전체의 한국어/번역 목록을 `soriUniformFitSize`로 측정해 같은 면의 글자 크기가 카드마다 흔들리지 않게 했다.

@@ -6360,4 +6360,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageActivityLocked => 'Locked';
+
+  @override
+  String get deckActionSave => 'Save';
+
+  @override
+  String get deckFlipFirstHint => 'Tap the card to flip it first';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Swipe the card: right = knew it, left = did not know, up = save, down = skip.';
 }

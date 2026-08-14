@@ -11,7 +11,12 @@ void main() {
   Widget host({
     VoidCallback? onLeft,
     VoidCallback? onRight,
+    VoidCallback? onUp,
+    VoidCallback? onDown,
+    VoidCallback? onBlocked,
     VoidCallback? onTap,
+    VoidCallback? onUnderlayTap,
+    bool enabled = true,
   }) => MaterialApp(
     home: MediaQuery(
       data: const MediaQueryData(
@@ -24,8 +29,21 @@ void main() {
             width: 400,
             height: 300,
             child: SoriSwipeCard(
+              enabled: enabled,
               onSwipeLeft: onLeft,
               onSwipeRight: onRight,
+              onSwipeUp: onUp,
+              onSwipeDown: onDown,
+              onBlockedHorizontalDrag: onBlocked,
+              underlay: onUnderlayTap == null
+                  ? null
+                  : GestureDetector(
+                      onTap: onUnderlayTap,
+                      child: const ColoredBox(
+                        color: Colors.grey,
+                        child: Center(child: Text('다음 카드')),
+                      ),
+                    ),
               rightBadge: const SoriSwipeBadge(
                 label: 'Gewusst',
                 icon: Icons.check_rounded,
@@ -153,5 +171,86 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(calls, 0, reason: 'enabled=false 이므로 판정 콜백 호출 0');
+  });
+
+  testWidgets('위 스와이프는 저장을 1회 호출하고 카드는 복귀한다', (tester) async {
+    var saves = 0;
+    await tester.pumpWidget(host(onUp: () => saves++));
+
+    await tester.drag(find.text('카드'), const Offset(0, -180));
+    await tester.pumpAndSettle();
+
+    expect(saves, 1);
+    expect(tester.getCenter(find.text('카드')), const Offset(200, 400));
+  });
+
+  testWidgets('아래 스와이프는 스킵을 정확히 1회 호출한다', (tester) async {
+    var skips = 0;
+    await tester.pumpWidget(host(onDown: () => skips++));
+
+    await tester.drag(find.text('카드'), const Offset(0, 180));
+    await tester.pumpAndSettle();
+
+    expect(skips, 1);
+  });
+
+  testWidgets('수직 임계 미달은 콜백 없이 복귀한다', (tester) async {
+    var calls = 0;
+    await tester.pumpWidget(host(onUp: () => calls++, onDown: () => calls++));
+
+    await tester.drag(find.text('카드'), const Offset(0, 40));
+    await tester.pumpAndSettle();
+
+    expect(calls, 0);
+  });
+
+  testWidgets('대각선 드래그는 지배축 하나만 커밋한다', (tester) async {
+    var rights = 0;
+    var downs = 0;
+    await tester.pumpWidget(
+      host(onRight: () => rights++, onDown: () => downs++),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(220, 150));
+    await tester.pumpAndSettle();
+
+    expect(rights, 1);
+    expect(downs, 0);
+  });
+
+  testWidgets('enabled=false 수평은 저항과 힌트만, 수직은 동작한다', (tester) async {
+    var judgments = 0;
+    var blocked = 0;
+    var skips = 0;
+    await tester.pumpWidget(
+      host(
+        enabled: false,
+        onLeft: () => judgments++,
+        onRight: () => judgments++,
+        onDown: () => skips++,
+        onBlocked: () => blocked++,
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('카드'), const Offset(0, 180));
+    await tester.pumpAndSettle();
+
+    expect(judgments, 0);
+    expect(blocked, 1);
+    expect(skips, 1);
+  });
+
+  testWidgets('underlay는 포인터를 받지 않는다', (tester) async {
+    var underlayTaps = 0;
+    await tester.pumpWidget(
+      host(onRight: () {}, onUnderlayTap: () => underlayTaps++),
+    );
+
+    await tester.tap(find.text('다음 카드'), warnIfMissed: false);
+    await tester.pump();
+
+    expect(underlayTaps, 0);
   });
 }

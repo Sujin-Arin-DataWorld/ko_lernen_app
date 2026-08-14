@@ -2835,5 +2835,8 @@
   "soriStageActivityStart": "Start",
   "soriStageActivityDetails": "Details for {activity}",
   "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
-  "soriStageActivityLocked": "Locked"
+  "soriStageActivityLocked": "Locked",
+  "deckActionSave": "Save",
+  "deckFlipFirstHint": "Tap the card to flip it first",
+  "coachSoriDeckBody": "Swipe the card: right = knew it, left = did not know, up = save, down = skip."
 }

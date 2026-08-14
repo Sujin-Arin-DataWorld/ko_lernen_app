@@ -2938,5 +2938,8 @@
   "soriStagePreviewProgress": "{current} von {target}",
   "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
   "soriStageActivityStart": "Starten",
-  "soriStageActivityLocked": "Gesperrt"
+  "soriStageActivityLocked": "Gesperrt",
+  "deckActionSave": "Merken",
+  "deckFlipFirstHint": "Erst antippen und umdrehen",
+  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen."
 }
