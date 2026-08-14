@@ -2,12 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/learner_motivation.dart';
+import '../../data/milestone.dart';
 import '../../data/quest_catalog.dart';
 import '../../data/sori_activity_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/quest.dart';
+import '../../models/feedback_completion.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/pack_access.dart';
+import '../../services/decoration_reward_service.dart';
 import '../../services/palette_service.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
@@ -19,6 +22,7 @@ import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/mascot_preference.dart';
+import '../../widgets/sori/milestone_celebration.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/reward_thumb.dart';
@@ -63,6 +67,7 @@ class SoriStageTodayScreen extends StatefulWidget {
 class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   late Future<SoriStageProgressionSnapshot> _future;
   final GlobalKey _missionTourKey = GlobalKey();
+  bool _celebrating = false;
 
   @override
   void initState() {
@@ -77,6 +82,10 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                 !Storage.tutHomeTourSeen) {
               _startHomeTour();
             }
+            // Phase 4 removed the legacy Home owner. Sori Stage Today is now
+            // the single surface that presents newly reached milestones.
+            // ignore: discarded_futures
+            _maybeCelebrateMilestone();
           });
         })
         .onError((_, _) {});
@@ -123,9 +132,70 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
     );
   }
 
-  void _reload() => setState(() {
-    _future = (widget.loadSnapshot ?? SoriStageProgressionService.load)();
-  });
+  void _reload() {
+    final next = (widget.loadSnapshot ?? SoriStageProgressionService.load)();
+    setState(() => _future = next);
+    next
+        .then<void>((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              // ignore: discarded_futures
+              _maybeCelebrateMilestone();
+            }
+          });
+        })
+        .onError((_, _) {});
+  }
+
+  Future<void> _maybeCelebrateMilestone() async {
+    if (!mounted || _celebrating || !Storage.tutHomeTourSeen) {
+      return;
+    }
+    final newly = newlyReachedMilestones(
+      streak: Storage.streakDays,
+      level: Storage.xpLevel,
+      vocab: Storage.vokSeenIds.length,
+      celebrated: Storage.celebratedMilestones.toSet(),
+    );
+    if (newly.isEmpty) {
+      return;
+    }
+    const priority = <MilestoneType, int>{
+      MilestoneType.streak: 3,
+      MilestoneType.level: 2,
+      MilestoneType.vocab: 1,
+    };
+    final top = newly.reduce((a, b) {
+      final pa = priority[a.type]!;
+      final pb = priority[b.type]!;
+      if (pa != pb) {
+        return pa > pb ? a : b;
+      }
+      return a.value >= b.value ? a : b;
+    });
+    _celebrating = true;
+    try {
+      await DecorationRewardService.ensurePendingBox(
+        '${DecorationRewardService.kMilestoneSourcePrefix}${top.id}',
+      );
+      await Storage.markMilestonesCelebrated([top.id]);
+      if (!mounted) {
+        return;
+      }
+      final feedbackContext = FeedbackCompletion.milestone(
+        milestoneId: top.id,
+        milestoneType: top.type.name,
+        value: top.value,
+      ).context;
+      await showMilestoneCelebration(
+        context,
+        top,
+        feedbackContext: feedbackContext,
+      );
+    } finally {
+      _celebrating = false;
+    }
+  }
 
   Future<void> _showWeekSheet() async {
     await showSoriWeekSheet(context);

@@ -439,25 +439,15 @@ void main() {
     expect(Storage.userLevelCode, isNull);
   });
 
-  testWidgets('06B preview keeps saved review and reconnect actions', (
+  testWidgets('06B preview uses the current Sori Stage Today surface', (
     tester,
   ) async {
     await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06B'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
 
-    await tester.scrollUntilVisible(
-      find.text('Gespeicherte Wörter wiederholen'),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    expect(find.text('Gespeicherte Wörter wiederholen'), findsOneWidget);
-    await tester.scrollUntilVisible(
-      find.text('Erneut verbinden'),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    expect(find.text('Erneut verbinden'), findsOneWidget);
+    expect(find.text('Ein Satz. Ein Bauteil.'), findsOneWidget);
+    expect(find.text('Im Café bestellen'), findsWidgets);
   });
 
   for (final panel in uxPreviewPanels) {

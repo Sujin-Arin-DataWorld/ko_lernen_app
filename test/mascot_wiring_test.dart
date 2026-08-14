@@ -233,7 +233,7 @@ void main() {
         'lib/screens/book_result_screen.dart',
         'lib/screens/chosung_quiz_screen.dart',
         'lib/screens/custom_pack_play_screen.dart',
-        'lib/screens/home_screen.dart',
+        'lib/screens/sori_stage/sori_stage_today_screen.dart',
         'lib/screens/kkeunmari_screen.dart',
         'lib/screens/profile_screen.dart',
         'lib/screens/review_session_screen.dart',
@@ -307,7 +307,9 @@ void main() {
     });
 
     test('홈은 s.textDim 을 쓰지 않는다 (2.89:1)', () {
-      final src = File('lib/screens/home_screen.dart').readAsStringSync();
+      final src = File(
+        'lib/screens/sori_stage/sori_stage_today_screen.dart',
+      ).readAsStringSync();
       expect(src.contains('s.textDim'), isFalse);
     });
   });

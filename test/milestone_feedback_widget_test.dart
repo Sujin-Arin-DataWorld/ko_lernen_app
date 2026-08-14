@@ -6,9 +6,15 @@ import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/milestone.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
@@ -100,7 +106,7 @@ void main() {
       Storage.resetForTesting();
       await Storage.init();
 
-      await tester.pumpWidget(_feedbackHost(const Scaffold()));
+      await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3'});
@@ -122,7 +128,7 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
 
-      await tester.pumpWidget(_feedbackHost(const Scaffold()));
+      await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester, expectedCount: 2);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3', 'level_5'});
@@ -166,4 +172,26 @@ Widget _feedbackHost(Widget child) => MaterialApp(
     child: routeChild ?? const SizedBox.shrink(),
   ),
   home: child,
+);
+
+Widget _today() => SoriStageTodayScreen(
+  loadSnapshot: () async => _snapshot(),
+  now: () => DateTime(2026, 8, 14, 9),
+);
+
+SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 1),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 1,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: 0, b1: 0, b2: 0),
+  ),
+  quests: const [],
+  pendingBojagiCount: 0,
+  stampCount: 0,
+  xp: 400,
+  streakDays: 3,
+  todayReward: null,
 );
