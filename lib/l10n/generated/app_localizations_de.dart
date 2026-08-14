@@ -3740,6 +3740,70 @@ class AppL10nDe extends AppL10n {
   String get grammarHard => 'Schwierig';
 
   @override
+  String get grammarChoiceCta => 'Mit Beispielen üben';
+
+  @override
+  String get grammarChoiceTitle => 'Grammatik üben';
+
+  @override
+  String get grammarChoiceEyebrow => 'Satz erkennen';
+
+  @override
+  String get grammarChoiceInstruction =>
+      'Welche koreanische Grammatik passt zum hervorgehobenen Teil?';
+
+  @override
+  String grammarChoicePromptSemantics(String sentence, String focus) {
+    return 'Satz: $sentence. Hervorgehobener Teil: $focus.';
+  }
+
+  @override
+  String get grammarChoiceCorrect => 'Richtig.';
+
+  @override
+  String grammarChoiceIncorrect(String pattern) {
+    return 'Passend ist: $pattern';
+  }
+
+  @override
+  String get grammarChoiceKoreanExampleLabel => 'Beispiel auf Koreanisch';
+
+  @override
+  String get grammarChoiceExplanationLabel => 'Warum das passt';
+
+  @override
+  String get grammarChoiceFinish => 'Ergebnis ansehen';
+
+  @override
+  String get grammarChoiceDoneTitle => 'Runde beendet';
+
+  @override
+  String grammarChoiceScore(int correct, int total) {
+    return '$correct von $total richtig';
+  }
+
+  @override
+  String get grammarChoicePracticeOnly =>
+      'Diese Übung verändert deinen Kursfortschritt nicht.';
+
+  @override
+  String get grammarChoiceAgain => 'Neue Runde';
+
+  @override
+  String get grammarChoiceBack => 'Zur Grammatik';
+
+  @override
+  String get grammarChoiceUnavailableTitle => 'Noch keine Übung verfügbar';
+
+  @override
+  String get grammarChoiceUnavailableBody =>
+      'Für diese Stufe gibt es noch nicht genügend geprüfte Beispiele.';
+
+  @override
+  String get grammarChoiceSaveError =>
+      'Diese Schwierigkeitsmarkierung konnte nicht gespeichert werden. Du kannst trotzdem weitermachen.';
+
+  @override
   String get navHome => 'Start';
 
   @override

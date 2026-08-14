@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../motion/transitions.dart';
 import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
@@ -35,6 +36,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
+import 'grammar_choice_quiz_screen.dart';
 
 /// 문법 학습 본문이 넘치지 않고 들어가는 최소 높이. 이보다 짧은 뷰포트에서는
 /// [SoriMinHeightScroll] 이 이 높이의 본문을 스크롤시킨다.
@@ -271,6 +273,18 @@ class _GrammarScreenState extends State<GrammarScreen>
       _idx = math.Random().nextInt(_filtered.length);
     });
     _persistIdx();
+  }
+
+  /// This is intentionally a separate, free-practice route. Course grammar
+  /// checkpoints retain their scoped three-choice evidence contract; opening
+  /// this four-choice recognition exercise must never unlock a mission.
+  void _openChoicePractice() {
+    final initialLevel = _level == 'Alle' ? null : _level;
+    Navigator.of(context).push(
+      SoriTransitions.fadeScale(
+        (_) => GrammarChoiceQuizScreen(initialLevel: initialLevel),
+      ),
+    );
   }
 
   Future<void> _showCheckpoint(
@@ -521,6 +535,13 @@ class _GrammarScreenState extends State<GrammarScreen>
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
         actions: [
+          if (!_isCoursePractice)
+            IconButton(
+              key: const Key('grammar-choice-cta'),
+              tooltip: t.grammarChoiceCta,
+              icon: const Icon(Icons.fact_check_outlined),
+              onPressed: _openChoicePractice,
+            ),
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
           const TtsSpeedAction(),
         ],

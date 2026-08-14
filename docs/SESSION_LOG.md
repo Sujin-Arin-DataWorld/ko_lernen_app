@@ -1,5 +1,55 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — 학습 루프 후속 Phase 4: 팩 세션 SRS 증거 원장
+
+**무엇/왜.** `PackSessionSrsLedger`와 `PackRecallSession`을 추가해 한 팩의 Learn,
+Quiz, Boss 및 선택형 타이핑 회상이 단어별 하나의 임시 증거 상태를 공유하게 했다. 첫
+positive만 SRS에 기록하고, 그 뒤의 첫 failure는 실제 negative SRS로 한 번 덮어쓴다.
+negative 뒤의 같은 세션 내 recognition/typing 성공은 SRS-neutral이다. 이것은 저장되는
+attempt 모델이 아니며 마이그레이션도 없다.
+
+**경계·호환성.** genuine miss의 기존 wrong-count는 매번 유지한다. 결과→회상 재진입은
+같은 객체를 유지하지만, 누락·손상·다른 pack의 route payload는 여전히 연습할 수 있을 뿐
+SRS와 wrong-count 모두 기록하지 않는다. 70% clear, 잠금 해제, XP, 도장, Boss의 4지선다
+인식 평가와 코스 증거는 바꾸지 않았다.
+
+**검증.** ledger transition·Learn→Quiz→Boss·회상 재진입/route provenance regression,
+pack clear/unlock targeted suites 통과. `flutter analyze` → **No issues found**;
+전체 `flutter test` → **3376 passed, 13 skipped**; `be4492ea` 기준 visual test 2건과
+현재 test 모두 통과했다. CSV AssetBundle fake-async preload만 테스트에 추가했고 골든은
+갱신하지 않았다. `git diff --check` 통과.
+**커밋:** `b9353796` (`fix(learning): coalesce pack-session SRS evidence`).
+
+### 2026-08-14 (Codex, Mac) — 학습 루프 후속 Phase 3: 문법 4지선다 예문 연습
+
+**무엇/왜.** 독일어·영어 예문의 의미 핵심 구간을 강조하고, 같은 레벨의 한국어 문법
+4개 중 맞는 패턴을 고르는 독립 연습 화면 `GrammarChoiceQuizScreen`을 추가했다. 기존
+Grammar 라이브러리에서만 열리며, 코스 문맥의 3지선다 checkpoint에는 CTA도 경로도
+추가하지 않았다. 답을 고르면 한국어 예문과 정답을 보이고, 설명까지 자동 스크롤한 뒤
+다음 문제 또는 결과로 진행한다.
+
+**정직한 증거 경계.** 이 연습은 `CourseActivityReporter`, 팩 unlock, XP, vocab SRS를
+호출하지 않는다. 오답만 기존 local `grammarHard` 필터에 남기며, 이후 정답도 그 기록을
+조용히 지우지 않는다. 위젯 회귀는 course mastery·팩 진행도·vocab SRS raw 상태가
+정답/오답 전후 그대로임을 고정한다.
+
+**콘텐츠 공정성.** `grammar.csv`를 16열 append-only schema로 확장했다. 123행 모두
+명시적인 `quiz_enabled` 상태를 가지며, non-irregular 116행에는 검수된 같은 레벨
+`quiz_distractor_ids` 3개가 있고 불규칙 활용 7개는 disabled다. Dart의 부분 conflict map과
+무작위 distractor fallback을 없애 authored canonical option set만 사용하며, question/option
+표시 순서만 seeded RNG로 섞는다. 행·focus·option 계약은 model, content integrity test와
+content factory가 모두 fail-closed로 검증한다.
+
+**피드백·복구.** 답 전에는 type subtitle을 숨기고, 답 뒤에만 Korean 예문과 target 설명을
+보인다. `grammarHard` 저장을 Continue 전에 await하며 실패는 DE/EN 메시지로 표시한다.
+CSV/DataLoader 오류는 benign empty가 아니라 실제 grammar cache 재읽기를 하는 retry UI로,
+강조 문장은 sentence+focus를 함께 읽는 semantics label로 처리했다.
+
+**검증.** `flutter gen-l10n`; grammar choice unit·widget·course boundary·data integrity·ARB
+parity·short-height/visual regression targeted tests, `flutter analyze`, 전체 `flutter test`
+**3376 passed, 13 skipped**, `git diff --check` 통과.
+**커밋:** `feat(grammar): add curated example-choice practice` (이 항목을 포함한 다음 커밋).
+
 ### 2026-08-14 (Codex, Mac) — 팩 Boss/SRS Phase 1·2 통합 게시
 
 **게시.** `b439dc76` (`feat(learning): teach pack Boss words before assessment`)를

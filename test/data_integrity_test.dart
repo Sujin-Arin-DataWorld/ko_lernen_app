@@ -139,6 +139,15 @@ void main() {
         'example_korean',
         'example_german',
         'note',
+        'type_en',
+        'explanation_en',
+        'example_en',
+        'note_en',
+        'id',
+        'quiz_focus_de',
+        'quiz_focus_en',
+        'quiz_enabled',
+        'quiz_distractor_ids',
       ]);
 
       final vocabKeys = <String>{};
@@ -156,16 +165,90 @@ void main() {
       }
 
       final grammarKeys = <String>{};
+      final grammarById = <String, List<dynamic>>{};
       for (final row in grammarRows.skip(1)) {
-        expect(row.length, greaterThanOrEqualTo(7));
+        expect(row.length, 16);
         expect(
-          grammarKeys.add(row[0].toString()),
+          grammarKeys.add(row[11].toString()),
           isTrue,
-          reason: 'Duplicate grammar key: ${row[0]}',
+          reason: 'Duplicate grammar id: ${row[11]}',
         );
+        grammarById[row[11].toString()] = row;
         expect(['A1', 'A2', 'B1', 'B2'], contains(row[1].toString()));
-        for (final i in [0, 1, 2, 3, 4, 5]) {
+        for (final i in Iterable<int>.generate(15)) {
           expect(row[i].toString().trim(), isNotEmpty);
+        }
+        expect(
+          _occurrences(row[5].toString(), row[12].toString()),
+          1,
+          reason: 'quiz_focus_de must occur once: ${row[11]}',
+        );
+        expect(
+          _occurrences(row[9].toString(), row[13].toString()),
+          1,
+          reason: 'quiz_focus_en must occur once: ${row[11]}',
+        );
+        expect(
+          ['true', 'false'],
+          contains(row[14].toString()),
+          reason: 'quiz_enabled must be explicit: ${row[11]}',
+        );
+        if (row[14].toString() == 'true') {
+          final distractors = row[15]
+              .toString()
+              .split('|')
+              .where((id) => id.trim().isNotEmpty)
+              .toList(growable: false);
+          expect(
+            distractors,
+            hasLength(3),
+            reason:
+                'enabled grammar needs three authored distractors: ${row[11]}',
+          );
+          expect(
+            distractors.toSet(),
+            hasLength(3),
+            reason: 'distractors must be unique: ${row[11]}',
+          );
+          expect(
+            distractors,
+            isNot(contains(row[11].toString())),
+            reason: 'target cannot distract itself: ${row[11]}',
+          );
+        } else {
+          expect(
+            row[15].toString().trim(),
+            isEmpty,
+            reason: 'disabled grammar must not expose options: ${row[11]}',
+          );
+        }
+      }
+
+      for (final row in grammarRows.skip(1)) {
+        if (row[14].toString() != 'true') {
+          continue;
+        }
+        for (final distractorId
+            in row[15]
+                .toString()
+                .split('|')
+                .where((id) => id.trim().isNotEmpty)) {
+          final distractor = grammarById[distractorId];
+          expect(
+            distractor,
+            isNotNull,
+            reason: 'unknown authored distractor $distractorId for ${row[11]}',
+          );
+          expect(
+            distractor![1].toString(),
+            row[1].toString(),
+            reason: 'distractor must stay same-level: ${row[11]}',
+          );
+          expect(
+            distractor[14].toString(),
+            'true',
+            reason: 'disabled grammar cannot be an option: ${row[11]}',
+          );
         }
       }
     });
@@ -262,6 +345,22 @@ void _expectHeader(List<dynamic> actual, List<String> expected) {
     actual.take(expected.length).map((e) => e.toString()).toList(),
     expected,
   );
+}
+
+int _occurrences(String source, String needle) {
+  if (needle.isEmpty) {
+    return 0;
+  }
+  var count = 0;
+  var start = 0;
+  while (true) {
+    final found = source.indexOf(needle, start);
+    if (found < 0) {
+      return count;
+    }
+    count++;
+    start = found + needle.length;
+  }
 }
 
 void _expectQuestData(String type, Map<String, dynamic> data, String label) {

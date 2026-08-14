@@ -10,19 +10,27 @@ DE-Erklärungen/Beispiele neu verfasst im Stil der Bestandszeilen.
 grammarRuleMap: neue IDs erben die Regel eines thematischen Geschwister-Eintrags
 (Text-Insertion, Manifest-Formatierung bleibt unangetastet).
 
+The live corpus now has a 16-column choice-practice contract. This historical
+expansion source deliberately fails closed if a future row lacks reviewed
+focus and distractor metadata; do not regenerate the current CSV with it.
+
 ⚠️ Von Claude verfasst — Jin sollte KO/DE stichprobenartig prüfen.
 Nutzung: python tools/content_factory/add_grammar_expansion.py --write
 """
 import csv
-import io
 import json
 import os
-import re
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 GRAMMAR = os.path.join(ROOT, "assets", "data", "grammar.csv")
 MANIFEST = os.path.join(ROOT, "assets", "data", "curriculum_manifest.json")
+GRAMMAR_HEADER = [
+    "pattern", "level", "type_de", "explanation_de", "example_korean",
+    "example_german", "note", "type_en", "explanation_en", "example_en",
+    "note_en", "id", "quiz_focus_de", "quiz_focus_en", "quiz_enabled",
+    "quiz_distractor_ids",
+]
 
 # (id, sibling_id_für_rule_map, pattern, level, type_de, expl_de, ex_ko, ex_de,
 #  note_de, type_en, expl_en, ex_en, note_en)
@@ -325,6 +333,44 @@ ROWS = [
 def main():
     with open(GRAMMAR, encoding="utf-8") as f:
         existing_rows = list(csv.reader(f))
+    if not existing_rows or existing_rows[0] != GRAMMAR_HEADER:
+        raise SystemExit(
+            "grammar.csv must use the reviewed 16-column choice-practice schema"
+        )
+    if any(len(row) != len(GRAMMAR_HEADER) for row in existing_rows[1:]):
+        raise SystemExit("grammar.csv contains an incomplete choice-practice row")
+
+    # Do not let this historical generator bless a partly authored choice
+    # exercise. Future source additions must arrive with all reviewed prompt
+    # and option data; this tool has no safe way to infer either one.
+    rows_by_id = {row[11].strip(): row for row in existing_rows[1:]}
+    if "" in rows_by_id or len(rows_by_id) != len(existing_rows) - 1:
+        raise SystemExit("grammar.csv needs one unique non-empty id per row")
+    for row in existing_rows[1:]:
+        grammar_id = row[11].strip()
+        if not row[12].strip() or not row[13].strip():
+            raise SystemExit(f"{grammar_id} is missing a reviewed quiz focus")
+        enabled = row[14].strip().lower()
+        if enabled not in {"true", "false"}:
+            raise SystemExit(f"{grammar_id} needs explicit quiz_enabled=true/false")
+        distractor_ids = [item.strip() for item in row[15].split("|") if item.strip()]
+        if enabled == "false":
+            if distractor_ids:
+                raise SystemExit(f"disabled {grammar_id} must not expose distractors")
+            continue
+        if len(distractor_ids) != 3 or len(set(distractor_ids)) != 3:
+            raise SystemExit(f"{grammar_id} needs exactly three unique distractors")
+        if grammar_id in distractor_ids:
+            raise SystemExit(f"{grammar_id} cannot distract from itself")
+        for distractor_id in distractor_ids:
+            distractor = rows_by_id.get(distractor_id)
+            if distractor is None:
+                raise SystemExit(f"{grammar_id} references missing {distractor_id}")
+            if distractor[1] != row[1] or distractor[14].strip().lower() != "true":
+                raise SystemExit(
+                    f"{grammar_id} needs enabled same-level distractor {distractor_id}"
+                )
+
     existing_patterns = {r[0] for r in existing_rows[1:]}
     existing_ids = {r[11] for r in existing_rows[1:]}
 
@@ -343,7 +389,7 @@ def main():
 
     rule_map = find(manifest, "grammarRuleMap")
 
-    to_add, map_lines = [], []
+    to_add = []
     for (gid, sibling, pattern, level, tde, ede, exko, exde, note,
          ten, een, exen, noteen) in ROWS:
         if pattern in existing_patterns or gid in existing_ids:
@@ -352,33 +398,20 @@ def main():
         assert sibling in rule_map, f"sibling fehlt: {sibling}"
         to_add.append([pattern, level, tde, ede, exko, exde, note,
                        ten, een, exen, noteen, gid])
-        rule = rule_map[sibling]
-        map_lines.append(
-            '                           "%s": {"courseUnitId": "%s", "conceptIds": %s},'
-            % (gid, rule["courseUnitId"], json.dumps(rule["conceptIds"]))
-        )
 
     print(f"neu: {len(to_add)} Grammatikpunkte")
     for r in to_add:
         print(f"  {r[11]}  {r[0]}  [{r[1]}]")
 
-    if "--write" in sys.argv and to_add:
-        buf = io.StringIO()
-        w = csv.writer(buf, lineterminator="\n")
-        for r in to_add:
-            w.writerow(r)
-        with open(GRAMMAR, "a", encoding="utf-8", newline="") as f:
-            f.write(buf.getvalue())
+    if to_add:
+        raise SystemExit(
+            "Refusing to append legacy 12-column grammar rows. Add reviewed "
+            "quiz_focus_de, quiz_focus_en, quiz_enabled, and exactly three "
+            "quiz_distractor_ids to this source before extending the corpus."
+        )
 
-        anchor = re.search(r'"grammarRuleMap":\s*\{\n', manifest_text)
-        assert anchor, "grammarRuleMap-Anker nicht gefunden"
-        pos = anchor.end()
-        manifest_text = (manifest_text[:pos] + "\n".join(map_lines) + "\n" +
-                         manifest_text[pos:])
-        json.loads(manifest_text)  # Syntax-Check vor dem Schreiben
-        with open(MANIFEST, "w", encoding="utf-8", newline="") as f:
-            f.write(manifest_text)
-        print(f"\n✅ {len(to_add)} Zeilen an grammar.csv + grammarRuleMap ergänzt")
+    if "--write" in sys.argv:
+        print("\nKeine Erweiterung geschrieben (alle Quellzeilen existieren).")
     else:
         print("\n(Dry-Run — mit --write schreiben)")
 

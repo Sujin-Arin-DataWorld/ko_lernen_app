@@ -58,6 +58,17 @@ class DataLoader {
     lastError = null;
   }
 
+  /// Invalidates only the grammar asset cache for an explicit retry.
+  ///
+  /// A failed grammar load is cached as an empty list so ordinary callers do
+  /// not repeatedly parse a broken asset. A learner who taps the visible
+  /// retry action, however, must get a real second read instead of the same
+  /// cached failure state.
+  static void resetGrammar() {
+    _grammars = null;
+    lastError = null;
+  }
+
   static List<List<dynamic>> _parseCsv(String raw) {
     final normalized = raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
     return const CsvToListConverter(

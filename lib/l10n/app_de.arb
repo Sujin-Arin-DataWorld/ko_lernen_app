@@ -1829,6 +1829,51 @@
   },
   "grammarEasy": "Verstanden",
   "grammarHard": "Schwierig",
+  "grammarChoiceCta": "Mit Beispielen üben",
+  "grammarChoiceTitle": "Grammatik üben",
+  "grammarChoiceEyebrow": "Satz erkennen",
+  "grammarChoiceInstruction": "Welche koreanische Grammatik passt zum hervorgehobenen Teil?",
+  "grammarChoicePromptSemantics": "Satz: {sentence}. Hervorgehobener Teil: {focus}.",
+  "@grammarChoicePromptSemantics": {
+    "placeholders": {
+      "sentence": {
+        "type": "String"
+      },
+      "focus": {
+        "type": "String"
+      }
+    }
+  },
+  "grammarChoiceCorrect": "Richtig.",
+  "grammarChoiceIncorrect": "Passend ist: {pattern}",
+  "@grammarChoiceIncorrect": {
+    "placeholders": {
+      "pattern": {
+        "type": "String"
+      }
+    }
+  },
+  "grammarChoiceKoreanExampleLabel": "Beispiel auf Koreanisch",
+  "grammarChoiceExplanationLabel": "Warum das passt",
+  "grammarChoiceFinish": "Ergebnis ansehen",
+  "grammarChoiceDoneTitle": "Runde beendet",
+  "grammarChoiceScore": "{correct} von {total} richtig",
+  "@grammarChoiceScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarChoicePracticeOnly": "Diese Übung verändert deinen Kursfortschritt nicht.",
+  "grammarChoiceAgain": "Neue Runde",
+  "grammarChoiceBack": "Zur Grammatik",
+  "grammarChoiceUnavailableTitle": "Noch keine Übung verfügbar",
+  "grammarChoiceUnavailableBody": "Für diese Stufe gibt es noch nicht genügend geprüfte Beispiele.",
+  "grammarChoiceSaveError": "Diese Schwierigkeitsmarkierung konnte nicht gespeichert werden. Du kannst trotzdem weitermachen.",
   "@_bottom_nav": {
     "description": "BottomNav 5 Ziele mit einem durchsuchbaren Feature-Katalog (2026-08-10)."
   },

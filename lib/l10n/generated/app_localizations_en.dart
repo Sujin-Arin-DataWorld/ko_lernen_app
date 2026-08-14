@@ -3724,6 +3724,70 @@ class AppL10nEn extends AppL10n {
   String get grammarHard => 'Difficult';
 
   @override
+  String get grammarChoiceCta => 'Practice with examples';
+
+  @override
+  String get grammarChoiceTitle => 'Grammar practice';
+
+  @override
+  String get grammarChoiceEyebrow => 'Recognize the sentence';
+
+  @override
+  String get grammarChoiceInstruction =>
+      'Which Korean grammar pattern matches the highlighted part?';
+
+  @override
+  String grammarChoicePromptSemantics(String sentence, String focus) {
+    return 'Sentence: $sentence. Highlighted part: $focus.';
+  }
+
+  @override
+  String get grammarChoiceCorrect => 'Correct.';
+
+  @override
+  String grammarChoiceIncorrect(String pattern) {
+    return 'The matching pattern is: $pattern';
+  }
+
+  @override
+  String get grammarChoiceKoreanExampleLabel => 'Example in Korean';
+
+  @override
+  String get grammarChoiceExplanationLabel => 'Why this fits';
+
+  @override
+  String get grammarChoiceFinish => 'See result';
+
+  @override
+  String get grammarChoiceDoneTitle => 'Round complete';
+
+  @override
+  String grammarChoiceScore(int correct, int total) {
+    return '$correct of $total correct';
+  }
+
+  @override
+  String get grammarChoicePracticeOnly =>
+      'This practice does not change your course progress.';
+
+  @override
+  String get grammarChoiceAgain => 'New round';
+
+  @override
+  String get grammarChoiceBack => 'Back to grammar';
+
+  @override
+  String get grammarChoiceUnavailableTitle => 'No practice available yet';
+
+  @override
+  String get grammarChoiceUnavailableBody =>
+      'This level does not have enough reviewed examples yet.';
+
+  @override
+  String get grammarChoiceSaveError =>
+      'We couldn\'t save this difficulty marker. You can still continue.';
+
+  @override
   String get navHome => 'Home';
 
   @override

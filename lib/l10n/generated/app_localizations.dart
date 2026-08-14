@@ -6535,6 +6535,114 @@ abstract class AppL10n {
   /// **'Schwierig'**
   String get grammarHard;
 
+  /// No description provided for @grammarChoiceCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Beispielen üben'**
+  String get grammarChoiceCta;
+
+  /// No description provided for @grammarChoiceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik üben'**
+  String get grammarChoiceTitle;
+
+  /// No description provided for @grammarChoiceEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz erkennen'**
+  String get grammarChoiceEyebrow;
+
+  /// No description provided for @grammarChoiceInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Welche koreanische Grammatik passt zum hervorgehobenen Teil?'**
+  String get grammarChoiceInstruction;
+
+  /// No description provided for @grammarChoicePromptSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz: {sentence}. Hervorgehobener Teil: {focus}.'**
+  String grammarChoicePromptSemantics(String sentence, String focus);
+
+  /// No description provided for @grammarChoiceCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig.'**
+  String get grammarChoiceCorrect;
+
+  /// No description provided for @grammarChoiceIncorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Passend ist: {pattern}'**
+  String grammarChoiceIncorrect(String pattern);
+
+  /// No description provided for @grammarChoiceKoreanExampleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel auf Koreanisch'**
+  String get grammarChoiceKoreanExampleLabel;
+
+  /// No description provided for @grammarChoiceExplanationLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum das passt'**
+  String get grammarChoiceExplanationLabel;
+
+  /// No description provided for @grammarChoiceFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get grammarChoiceFinish;
+
+  /// No description provided for @grammarChoiceDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde beendet'**
+  String get grammarChoiceDoneTitle;
+
+  /// No description provided for @grammarChoiceScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} richtig'**
+  String grammarChoiceScore(int correct, int total);
+
+  /// No description provided for @grammarChoicePracticeOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übung verändert deinen Kursfortschritt nicht.'**
+  String get grammarChoicePracticeOnly;
+
+  /// No description provided for @grammarChoiceAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Runde'**
+  String get grammarChoiceAgain;
+
+  /// No description provided for @grammarChoiceBack.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Grammatik'**
+  String get grammarChoiceBack;
+
+  /// No description provided for @grammarChoiceUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Übung verfügbar'**
+  String get grammarChoiceUnavailableTitle;
+
+  /// No description provided for @grammarChoiceUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Stufe gibt es noch nicht genügend geprüfte Beispiele.'**
+  String get grammarChoiceUnavailableBody;
+
+  /// No description provided for @grammarChoiceSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Schwierigkeitsmarkierung konnte nicht gespeichert werden. Du kannst trotzdem weitermachen.'**
+  String get grammarChoiceSaveError;
+
   /// No description provided for @navHome.
   ///
   /// In de, this message translates to:

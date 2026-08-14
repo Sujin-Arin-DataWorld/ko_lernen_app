@@ -285,11 +285,23 @@ flutter run -d <android-id>   # 안드로이드
   Phase 2와 함께 `b439dc76`으로 게시했다.
 - [x] **선택형 타이핑 회상 Phase 2 (2026-08-14)** — 팩 결과에서 current-pack Boss
   단어만 뜻→한국어로 직접 입력하는 별도 연습을 연다. 팩 clear·unlock·도장·XP는
-  바꾸지 않으며, 힌트 없는 첫 입력 성공만 현재 세션의 기존 positive와 중복되지 않게
-  SRS로 반영하고, 오답/정답 보기만 negative SRS+wrong-count로 기록한다.
+  바꾸지 않으며, 힌트 없는 첫 입력 성공은 공유 pack-session ledger가 아직 unrated일
+  때만 SRS에 반영한다. valid 세션의 genuine miss는 기존 wrong-count를 유지하고,
+  negative 뒤 재오픈 성공은 SRS-neutral이다.
   `b439dc76`으로 Phase 1과 함께 게시했다.
-- [ ] 백로그: 문법 4지선다 유형(설계 완료 — SESSION_LOG 참조), suspects 배치 002,
-  AI-lastig 비주얼 온기 트랙(카피는 8/13 Humanizer 완료).
+- [x] **문법 4지선다 예문 연습 (학습 루프 후속 Phase 3, 2026-08-14)** — Grammar
+  라이브러리의 별도 free-practice 화면에서 DE/EN 예문 핵심 구간→동레벨 Korean grammar
+  4지선다를 제공한다. 코스 checkpoint·XP·팩 unlock·vocab SRS는 건드리지 않고, 오답만
+  기존 local `grammarHard`에 남긴다. 16열 CSV의 authored canonical 3-option set만 쓰며,
+  7개 불규칙 활용은 disabled다. 답 전 type subtitle은 숨기고 저장 오류/CSV 오류는
+  localized recovery UI로 보인다. `feat(grammar): add curated example-choice practice`에
+  게시한다.
+- [x] **팩 세션 SRS 증거 hardening Phase 4 (2026-08-14)** — Learn·Quiz·Boss·typed recall이
+  `PackSessionSrsLedger` 하나를 공유한다. 첫 positive는 1회만, positive 뒤 첫 negative는
+  1회 실제 failure로 덮고, negative 뒤 성공은 neutral이다. result→recall 재진입은 같은
+  임시 객체를 쓰며 route provenance가 없거나 pack이 다르면 practice-only다.
+  `b9353796` (`fix(learning): coalesce pack-session SRS evidence`)으로 게시했다.
+- [ ] 백로그: suspects 배치 002, AI-lastig 비주얼 온기 트랙(카피는 8/13 Humanizer 완료).
 - [ ] Jin: 실기기에서 ①카드 플립 스포일러 소거 ②몰라요 재출제 ③철자 퀴즈 ④속도 칩
   ⑤A2 계정 데일리·새 단어에 B1/B2 미출현 확인.
 

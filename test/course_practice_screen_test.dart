@@ -60,10 +60,39 @@ void main() {
 
       expect(find.text('Quick check'), findsOneWidget);
       expect(find.text(target.pattern), findsNothing);
+      expect(
+        find.byKey(const Key('grammar-choice-cta'), skipOffstage: false),
+        findsNothing,
+      );
       expect(tester.takeException(), isNull);
       await _disposeCourseScreen(tester);
     },
   );
+
+  testWidgets('grammar library opens separate four-choice practice', (
+    tester,
+  ) async {
+    // This test verifies the entry point rather than asset-bundle scheduling.
+    // Preload the source just as the preceding course check does, so it stays
+    // independent of a prior test resetting the shared loader cache.
+    expect((await tester.runAsync(DataLoader.loadGrammar))!, isNotEmpty);
+    await tester.pumpWidget(_wrap(const GrammarScreen()));
+    await _settleCourseScreen(tester);
+
+    final cta = find.byKey(
+      const Key('grammar-choice-cta'),
+      skipOffstage: false,
+    );
+    expect(cta, findsOneWidget);
+    await tester.ensureVisible(cta);
+    await tester.tap(cta);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('Grammar practice'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await _disposeCourseScreen(tester);
+  });
 
   testWidgets(
     'smalltalk assessment does not reveal the correct relationship before selection',

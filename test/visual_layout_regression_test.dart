@@ -34,6 +34,11 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
+      // AssetBundle I/O completes outside the fake frame clock. This test
+      // verifies geometry, so preload the CSV through real async time first.
+      final grammar = await tester.runAsync(DataLoader.loadGrammar);
+      expect(grammar, isNotEmpty);
+
       await tester.pumpWidget(
         _wrap(const GrammarScreen(), simulateAndroidSystemInsets: true),
       );

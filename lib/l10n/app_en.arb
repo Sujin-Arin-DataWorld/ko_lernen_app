@@ -1761,6 +1761,51 @@
   },
   "grammarEasy": "Got it",
   "grammarHard": "Difficult",
+  "grammarChoiceCta": "Practice with examples",
+  "grammarChoiceTitle": "Grammar practice",
+  "grammarChoiceEyebrow": "Recognize the sentence",
+  "grammarChoiceInstruction": "Which Korean grammar pattern matches the highlighted part?",
+  "grammarChoicePromptSemantics": "Sentence: {sentence}. Highlighted part: {focus}.",
+  "@grammarChoicePromptSemantics": {
+    "placeholders": {
+      "sentence": {
+        "type": "String"
+      },
+      "focus": {
+        "type": "String"
+      }
+    }
+  },
+  "grammarChoiceCorrect": "Correct.",
+  "grammarChoiceIncorrect": "The matching pattern is: {pattern}",
+  "@grammarChoiceIncorrect": {
+    "placeholders": {
+      "pattern": {
+        "type": "String"
+      }
+    }
+  },
+  "grammarChoiceKoreanExampleLabel": "Example in Korean",
+  "grammarChoiceExplanationLabel": "Why this fits",
+  "grammarChoiceFinish": "See result",
+  "grammarChoiceDoneTitle": "Round complete",
+  "grammarChoiceScore": "{correct} of {total} correct",
+  "@grammarChoiceScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarChoicePracticeOnly": "This practice does not change your course progress.",
+  "grammarChoiceAgain": "New round",
+  "grammarChoiceBack": "Back to grammar",
+  "grammarChoiceUnavailableTitle": "No practice available yet",
+  "grammarChoiceUnavailableBody": "This level does not have enough reviewed examples yet.",
+  "grammarChoiceSaveError": "We couldn't save this difficulty marker. You can still continue.",
   "@_bottom_nav": {
     "description": "Bottom navigation with five destinations and a searchable feature catalog (2026-08-10)."
   },
