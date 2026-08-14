@@ -1,4 +1,8 @@
-# 인수인계 v2 — UI 개편 Phase 3 (2026-08-14, Claude Code 세션 종료 시점)
+# 인수인계 v2 — UI 개편 Phase 0~3 완주 (2026-08-14, Claude Code)
+
+> **커밋 상태**: Phase 0~3 + §I 에셋 39장 = **`dcef0ba3` 로 커밋·origin/main 푸시 완료**
+> (104 파일, Jin 지시). 병행 세션의 vocab-pack/SRS 클러스터는 의도적으로 제외 —
+> §5 파일 소유권 참조. Jin 이 에셋(그레인 처리 포함) 승인함 (2026-08-14).
 
 > **읽는 순서**: 이 문서(현재 상태·프로세스) → `UI_OVERHAUL_WORK_ORDER_2026-08-14.md`(상세 지시서, §A~§K) → `HANDOFF_UI_OVERHAUL_2026-08-14.md`(v1: 구속 결정·계약 8종·에셋 런북 §5 — 여전히 유효).
 > v1 §4 는 지시서가 대체했고, 지시서 §D~§H 는 **이 세션에서 완료**됐다. 남은 것은 §I(에셋)·§J(Phase 4)·Jin 검증뿐이다.
@@ -62,6 +66,61 @@ raw TextStyle 437→426(§D)→420(§E)→412(§F)→409(§G) · radius 64→60�
 
 ## 5. 이 세션이 만든/크게 바꾼 파일 (스테이징 후보)
 
-**신규**: `lib/widgets/sori/reward_icon.dart` · `test/vocab_packs_premium_teaser_test.dart` · `test/legacy_vocab_flipgate_test.dart`(Antigravity 초안, 내가 수리)
+**신규**: `lib/widgets/sori/reward_icon.dart` · `test/vocab_packs_premium_teaser_test.dart` · `test/legacy_vocab_flipgate_test.dart`(Antigravity 초안, 내가 수리) · `scripts/apply_paper_grain.py`
 **변경(내 소관)**: `sori_stage_today_screen` · `sori_stage_catalog_screen` · `sori_stage_reward_receipt_sheet` · `widgets/sori/{activity_sheet,illustrated_card,pack_card,activity_illustration}` · `stats_screen` · `profile_screen` · `consent_screen` · `onboarding_start_screen` · `character_selection_screen` · `onboarding_preview_screen` · `paywall_screen` · `vocab_packs_screen` · `sarangbang_screen`(640 상수화) · `app_en/de.arb`(paywallEyebrow, soriStageActivityDetails) · `test/{typography_guard,window_class_guard,accessibility_guideline,profile_screen,onboarding_start_screen,sori_stage_catalog_reward_flow}_test.dart` · `docs/SESSION_LOG.md`
 **외부 세션 소관 (건드리지 마라)**: `vocab_pack_screen` · `vocab_pack_result_screen` · `custom_pack_*` · `review_deck_service` · `daily_challenge` · `legacy_vocab_screen`(스와이프 배선부) · `flip_card` 등.
+
+## 6. 다음 세션 로드맵 (기술 상세 — 2026-08-14 저녁 확정)
+
+### 6.1 즉시 (다음 세션 첫 30분)
+
+1. **병행 세션 수렴 확인** — 커밋 `dcef0ba3` 이후 워킹트리에 남은 것은 전부
+   vocab-pack/SRS 클러스터다. 그 세션이 끝나면 반드시:
+   - `flutter analyze` 0 확인 (마지막 실측: `main.dart:604` argument_type 에러 — 그쪽 리콜 라우트)
+   - `data_integrity` green (그쪽 `vocab_pack_recall_screen.dart` 가 부재 에셋
+     `mascot/tiger_idle.png` 참조 중 — ⛔ 캐릭터 에셋은 생성 금지, 기존 mascot 파일로 경로 교체가 정답)
+   - **래칫 원복**: 그쪽 신규 화면들이 raw TextStyle +11 · w800 +7 · AppBar +5 초과.
+     상한 상향 금지 — 그쪽 화면을 SoriTextTheme/SoriAppBar 로 토큰화해서 내려야 한다.
+2. **Linux 골든 재생성** — 맥에서 불가(기준선은 Linux 정본, `screen_layout_golden_test.dart` 주석):
+   ```
+   flutter test --update-goldens test/goldens   # Linux CI/도커에서만
+   ```
+   Phase 1~3 이 의도적으로 바꾼 화면(vocab_packs·catalog·today·stats·profile·온보딩·페이월)의
+   기준선을 갱신하고, 나머지가 무변경인지 diff 로 확인한다.
+
+### 6.2 스토어 배포 (Jin 실기기 검증 후)
+
+- **전제**: ① 병행 세션 수렴(위 6.1), ② Jin 실기기 Android 매트 확인(에뮬레이터는 거짓말 이력),
+  ③ Linux 골든 green.
+- iOS: 메모리 노트 — CocoaPods 는 `LANG=en_US.UTF-8` 필요, `build_ipa.sh` 업로드 스텝에
+  cp 버그 있음 → IPA 를 altool 로 직접 업로드. ML Kit 때문에 arm64 시뮬레이터 빌드 불가.
+- Android: versionCode 는 git 커밋수 자동증가(2026-08-13 세션).
+- `FREE_LAUNCH=1` 게이트 상태를 릴리스 전에 Jin 과 재확인 (프리미엄 티저가 이제 카드에 보인다).
+
+### 6.3 에셋 파이프라인 (승인됨 — 재사용법)
+
+- **생성**: v1 핸드오프 §5 런북 (Seedream V4.5 + 앵커 URL). **검수 탈락 4유형과 교정 패턴**
+  (이번 실측): ① 텍스트 침입 → "ENTIRELY BLANK … no markings of any kind" ② 만화식 검은
+  외곽선 → "NO black outlines, flat matte color planes like paper cutouts" ③ 3D/사진 질감 →
+  "flat paper-cutout, no wood grain texture, no 3D shading" ④ 포토리얼 배경 → 전체 장면을
+  "the ENTIRE scene drawn as flat matte paper-cutout" 로 감싼다. 1차 합격률 21/25.
+- **그레인**: `scripts/apply_paper_grain.py` (venv pillow/numpy) → `cwebp -q 84`.
+  전 세트(39장) 기본값(fine 5.0/coarse 4.0) 적용·승인됨. 새 아트는 반드시 같은 처리를
+  거쳐야 세트가 갈라지지 않는다. 그레인 전 팩 원본은 스크래치패드와 함께 소멸 —
+  필요 시 앵커로 재생성.
+- **온보딩 아트 3~4장**(plan 의 에셋 표)은 미생성 — preview 화면이 기존 PNG 로 살아 있어
+  우선순위 낮음. 만들 거면 같은 런북+그레인.
+
+### 6.4 Phase 4 마감 (배포 1릴리스 후 — 지시서 §J)
+
+- 삭제: `LegacyAppShell`·`home_screen.dart`(공용 위젯으로 이미 추출됨)·`wordle_screen.dart`
+  + 라우트/테스트 항목. 각각 grep 참조 0 확인 후.
+- 래칫 수렴 目標: raw TextStyle 409→~50, AppBar 99→~10 (나머지 ~60화면 SoriAppBar 스윕),
+  radius 54→0, Pretendard 94→0. 스윕 순서는 진입 빈도순 (settings → practice hub → 게임들).
+- iOS teal 아이콘 정합, 다크모드 재검토는 그 뒤.
+
+### 6.5 검증 상태 스냅샷 (커밋 시점)
+
+- 내 소관 배치(smoke 24·teaser 3·reward_flow·a11y 40·guards) green. DE 문구 검수 완료
+  (paywallEyebrow/soriStageActivity*/legacyVocabPrevious/statsGamesSection — 자연 독일어 확인).
+- 전체 스위트의 실패는 전부 병행 세션 소관 3건 (6.1 참조). 잔여 BBANANA 크레딧 ~1,010.
