@@ -41,19 +41,15 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
-    expect(
-      find.text(
-        'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander '
-        'hält.',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text('Eine kleine, freiwillige Lerngruppe.'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('Was andere sehen'),
       180,
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Was andere sehen'), findsOneWidget);
+    await tester.tap(find.byIcon(Icons.info_outline_rounded));
+    await tester.pumpAndSettle();
     expect(
       find.textContaining('bleiben privat'),
       findsOneWidget,

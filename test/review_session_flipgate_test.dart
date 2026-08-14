@@ -177,4 +177,25 @@ void main() {
     // 여전히 두 번째 카드 유지
     expect(find.text('선생님'), findsOneWidget);
   });
+
+  testWidgets('아래 스와이프는 평가 없이 다음 카드 앞면으로 이동한다', (tester) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
+    final before = Storage.srsCard('학교');
+
+    await tester.drag(
+      find.byKey(const ValueKey('deck-card-slot')),
+      const Offset(0, 220),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('선생님'), findsOneWidget);
+    expect(find.text('Lehrer'), findsNothing);
+    expect(Storage.srsCard('학교')?.reviewCount, before?.reviewCount);
+  });
 }

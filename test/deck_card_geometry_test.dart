@@ -251,4 +251,44 @@ void main() {
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);
   });
+
+  testWidgets('pack Learn down-swipe defers without SRS evidence', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final pack = VocabPack(
+      id: 'a1_geometry_1',
+      level: 'A1',
+      words: [
+        _word(1, '물', 'Wasser'),
+        _word(2, '집', 'Haus'),
+        _word(3, '끝', 'Ende', boss: true),
+      ],
+    );
+    await tester.pumpWidget(
+      _host(
+        VocabPackScreen(
+          packId: pack.id,
+          packLoader: (_) async => pack,
+          siblingPacksLoader: (_) async => [pack],
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    final before = Storage.srsCard('물');
+    final wrongBefore = Storage.wrongCountOf('물');
+
+    await tester.drag(find.byKey(_slotKey), const Offset(0, 220));
+    await tester.pumpAndSettle();
+
+    expect(find.text('집'), findsOneWidget);
+    expect(find.text('Haus'), findsNothing);
+    expect(Storage.srsCard('물')?.reviewCount, before?.reviewCount);
+    expect(Storage.wrongCountOf('물'), wrongBefore);
+  });
 }
