@@ -18,6 +18,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_background.dart';
@@ -424,43 +425,63 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     : 360.0;
                 final cardH = h * 0.82;
                 return Center(
-                  child: SoriPressable(
-                    key: _cardKey,
-                    onTap: () => setState(() => _flipped = !_flipped),
-                    haptic: SoriHaptic.selection,
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: cardH,
-                      child: SoriStudyScale(
-                        child: SoriCard(
-                          variant: SoriCardVariant.hero,
-                          accent: SoriColors.primary,
-                          tinted: !_flipped,
-                          child: LayoutBuilder(
-                            builder: (context, cc) {
-                              // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
-                              // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
-                              // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
-                              // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
-                              // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
-                              final ch = cc.maxHeight.isFinite
-                                  ? cc.maxHeight
-                                  : 360.0;
-                              return SingleChildScrollView(
-                                child: ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    minHeight: cc.maxHeight,
+                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
+                  // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
+                  // 접근성·발견가능성의 정본으로 그대로 남는다.
+                  child: SoriSwipeCard(
+                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                    // 카드에 SRS가 기록되는 데이터 버그 방지.
+                    enabled: _flipped,
+                    onSwipeRight: () => _answer(true),
+                    onSwipeLeft: () => _answer(false),
+                    rightBadge: SoriSwipeBadge(
+                      label: t.btnGewusst,
+                      icon: Icons.check_rounded,
+                      color: SoriColors.success,
+                    ),
+                    leftBadge: SoriSwipeBadge(
+                      label: t.btnNichtGewusst,
+                      icon: Icons.close_rounded,
+                      color: SoriColors.danger,
+                    ),
+                    child: SoriPressable(
+                      key: _cardKey,
+                      onTap: () => setState(() => _flipped = !_flipped),
+                      haptic: SoriHaptic.selection,
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: cardH,
+                        child: SoriStudyScale(
+                          child: SoriCard(
+                            variant: SoriCardVariant.hero,
+                            accent: SoriColors.primary,
+                            tinted: !_flipped,
+                            child: LayoutBuilder(
+                              builder: (context, cc) {
+                                // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
+                                // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
+                                // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
+                                // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
+                                // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
+                                final ch = cc.maxHeight.isFinite
+                                    ? cc.maxHeight
+                                    : 360.0;
+                                return SingleChildScrollView(
+                                  child: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      minHeight: cc.maxHeight,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: _flipped
+                                          ? _backList(card, s, tt, t, ch)
+                                          : _frontList(card, s, tt, t, ch),
+                                    ),
                                   ),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: _flipped
-                                        ? _backList(card, s, tt, t, ch)
-                                        : _frontList(card, s, tt, t, ch),
-                                  ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),

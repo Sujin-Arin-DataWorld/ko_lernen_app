@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Antigravity, Mac) — 스와이프 flipgate 보강 + 파괴-복원 규율 완성
+
+**무엇/왜.** 스와이프 판정 배선이 들어간 3화면(custom_pack_play, review_session,
+vocab_pack)에서 `SoriSwipeCard(enabled: _flipped)` 게이트가 빠져 있었다 — 앞면
+(한국어만 보이는 상태)에서 스와이프하면 SRS가 오염되는 데이터 버그.
+custom_pack_play_screen.dart와 review_session_screen.dart에 `enabled: _flipped` 추가.
+(vocab_pack_screen.dart는 이미 적용 확인.)
+
+**센서 테스트 6건.** `review_session_flipgate_test.dart`(2건)와
+`custom_pack_flipgate_test.dart`(2건) 신규 생성 — 기존 `legacy_vocab_flipgate_test.dart`(2건)과
+합쳐 3화면 × 좌우 = flipgate 센서 6건 완성.
+
+**파괴-복원 통과.** 두 화면의 `enabled: _flipped` 한 줄을 각각 주석 처리 → 센서 red 확인 →
+복원 → green 확인. 전체 flipgate 배터리 11/11 green (swipe 5 + flipgate 6).
+
+**검증.** `flutter analyze` 0 issues. 새 테스트 4/4 green. 기존 swipe 배터리 포함 11/11 green.
+
+
 ### 2026-08-14 (Codex, Mac) — 학습 루프 후속 Phase 4: 팩 세션 SRS 증거 원장
 
 **무엇/왜.** `PackSessionSrsLedger`와 `PackRecallSession`을 추가해 한 팩의 Learn,

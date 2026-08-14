@@ -13,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
@@ -203,29 +204,48 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 Expanded(
                   // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음) +
                   // 상하 여백으로 코치마크·버튼 공간 확보.
-                  child: Center(
-                    child: FractionallySizedBox(
-                      heightFactor: 0.82,
-                      child: SoriStudyScale(
-                        // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
-                        // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
-                        // 만든다 (뒷면 선노출 방지).
-                        child: KeyedSubtree(
-                          key: _cardKey,
-                          child: FlipCard(
-                            key: ValueKey('cp-$_serve'),
-                            flipped: _flipped,
-                            onTap: () {
-                              HapticFeedback.selectionClick();
-                              setState(() => _flipped = !_flipped);
-                            },
-                            front: _Front(
-                              word: w,
-                              deckKoreans: [
-                                for (final x in pack.words) x.korean,
-                              ],
+                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
+                  // 왼쪽=Skip. 하단 버튼은 접근성 정본으로 유지.
+                  child: SoriSwipeCard(
+                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                    // 카드에 SRS가 기록되는 데이터 버그 방지.
+                    enabled: _flipped,
+                    onSwipeRight: _gotIt,
+                    onSwipeLeft: _skip,
+                    rightBadge: SoriSwipeBadge(
+                      label: t.btnGewusst,
+                      icon: Icons.check_rounded,
+                      color: SoriColors.success,
+                    ),
+                    leftBadge: SoriSwipeBadge(
+                      label: t.btnSkip,
+                      icon: Icons.redo_rounded,
+                      color: SoriColors.info,
+                    ),
+                    child: Center(
+                      child: FractionallySizedBox(
+                        heightFactor: 0.82,
+                        child: SoriStudyScale(
+                          // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
+                          // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
+                          // 만든다 (뒷면 선노출 방지).
+                          child: KeyedSubtree(
+                            key: _cardKey,
+                            child: FlipCard(
+                              key: ValueKey('cp-$_serve'),
+                              flipped: _flipped,
+                              onTap: () {
+                                HapticFeedback.selectionClick();
+                                setState(() => _flipped = !_flipped);
+                              },
+                              front: _Front(
+                                word: w,
+                                deckKoreans: [
+                                  for (final x in pack.words) x.korean,
+                                ],
+                              ),
+                              back: _Back(word: w),
                             ),
-                            back: _Back(word: w),
                           ),
                         ),
                       ),

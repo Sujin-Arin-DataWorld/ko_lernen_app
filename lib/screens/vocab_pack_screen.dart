@@ -35,6 +35,7 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
+import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/screen_background.dart';
@@ -844,37 +845,45 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ],
         ),
         const SizedBox(height: Spacing.md),
+        // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
+        // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
         Expanded(
-          child: SoriStudyScale(
-            // 카드가 놓인 세로 영역(Expanded)은 바운드 높이다. 그 높이를 읽어
-            // 앞/뒷면 학습 텍스트를 카드 크기에 비례해 키운다 → 기기와 무관하게
-            // 균일한 세로 충전율(review_session 히어로 카드와 동일 규칙).
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                // 타이포 기준은 **뷰포트**에서 뽑는다. 남은 공간을 쓰면 미션
-                // 배너 유무만으로 글씨 크기가 달라진다 — (1)에는 배너가 있고
-                // (2)에는 없어 같은 카드인데 (2)가 훨씬 컸다(Jin, 2026-08-12).
-                final h = soriStudyTypeScaleHeight(context);
-                // 제시어 크기는 **덱에서 가장 긴 단어** 기준으로 한 번 정한다
-                // — 카드(단어)마다 크기가 요동치지 않도록 (2026-08-14 Jin).
-                // 폭 = 카드 폭 − hero 카드 좌우 패딩.
-                final headlineSize = soriUniformFitSize(
-                  context,
-                  texts: [for (final w in _learnWords) w.korean],
-                  maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                  cap: soriFillSize(h, 0.18, 36, 96),
-                  min: 32,
-                  letterSpacing: -0.5,
-                  lineHeight: 1.05,
-                );
-                return FlipCard(
-                  key: ValueKey('learn-$_learnServe'),
-                  flipped: _flipped,
-                  onTap: _toggleLearnFlip,
-                  front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
-                  back: _FlipBack(v: cur, h: h),
-                );
-              },
+          child: SoriSwipeCard(
+            enabled: _learnCardRevealed,
+            onSwipeRight: _learnGotIt,
+            onSwipeLeft: _learnDontKnow,
+            rightBadge: SoriSwipeBadge(
+              label: t.vocabPackGotIt,
+              icon: Icons.check_rounded,
+              color: SoriColors.success,
+            ),
+            leftBadge: SoriSwipeBadge(
+              label: t.vocabPackDontKnow,
+              icon: Icons.close_rounded,
+              color: SoriColors.danger,
+            ),
+            child: SoriStudyScale(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final h = soriStudyTypeScaleHeight(context);
+                  final headlineSize = soriUniformFitSize(
+                    context,
+                    texts: [for (final w in _learnWords) w.korean],
+                    maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                    cap: soriFillSize(h, 0.18, 36, 96),
+                    min: 32,
+                    letterSpacing: -0.5,
+                    lineHeight: 1.05,
+                  );
+                  return FlipCard(
+                    key: ValueKey('learn-$_learnServe'),
+                    flipped: _flipped,
+                    onTap: _toggleLearnFlip,
+                    front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
+                    back: _FlipBack(v: cur, h: h),
+                  );
+                },
+              ),
             ),
           ),
         ),
@@ -1069,7 +1078,11 @@ class _FlipFront extends StatelessWidget {
   /// 덱 전체가 공유하는 제시어 크기 ([soriUniformFitSize]) — 단어 길이에 따라
   /// 카드마다 글씨가 커졌다 작아졌다 하지 않는다.
   final double headlineSize;
-  const _FlipFront({required this.v, required this.h, required this.headlineSize});
+  const _FlipFront({
+    required this.v,
+    required this.h,
+    required this.headlineSize,
+  });
 
   @override
   Widget build(BuildContext context) {
