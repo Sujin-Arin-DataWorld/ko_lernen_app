@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — UI/UX v2 인수인계 기준점 게시
+
+**무엇/왜.** Jin의 명시 승인에 따라, 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 커밋 `79ae4a0c`와 함께 UI/UX v2 구현 인수인계 문서 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`를 Git 기준점에 추가했다. `AGENTS.md`의 오래된 feature-gate/레거시 홈 설명도 실제 정본으로 바로잡아 다음 UI 세션이 서로 모순된 지시를 받지 않게 했다.
+
+**경계.** 콘텐츠 확장 C0의 미커밋 파이프라인·데이터·앱 동작 변경과 Android 생성 report는 이 기준점에 넣지 않았다. UI 작업은 별도 worktree/작업 단위에서, 콘텐츠 작업은 별도 C0 기반 브랜치에서 계속 분리한다.
+
+**검증.** `git fetch --dry-run origin`, `git diff --check`, 커밋 직전 staged 파일 목록이 `AGENTS.md`와 UI handoff 문서뿐임을 확인했다. 동기화 전 `main...origin/main`은 ahead/behind `2/0`이었다.
+
+**커밋:** `86f5453b` (`docs: publish UI overhaul v2 handoff baseline`). 이 로그 갱신은 이 documentation-only 후속 커밋에 포함한다.
+
 ### 2026-08-14 (Antigravity, Mac) — §F-2 아바타·§G 무수술 Jin 확정 + Phase 4 + 콘텐츠 확장 진입
 
 **§F-2 아바타 (Jin 확정):** 프로필 아바타는 **캐릭터 클립(영상) 유지**로 확정. 코드 변경 없음.
