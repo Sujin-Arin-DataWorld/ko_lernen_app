@@ -1,5 +1,30 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P4: 카탈로그 폴리시
+
+**무엇/왜.** 핸드오프 §P4 — "거대 아이콘 벽" → 정돈된 일러스트 카탈로그.
+구조·시트·리시트 플로우 불변.
+
+- **이미지 슬롯 16:10 → 4:3** (그리드; 히어로는 21:9 유지) — 원본(800×600)과
+  일치 → 크롭 0, 오브젝트 체감 ~17% 축소. `childAspectRatio` 0.78→0.72
+  재실측(산식 주석 §A-2) — 4:3 이미지가 셀에서 더 크므로 셀을 세로로.
+- **footer 조건화** — 상태 신호는 모델 4값뿐(`SoriActivityState`), 활동별
+  "보상대기/신규" 신호는 모델에 없다. `ready && (current==null || ≤0)` →
+  footer null (전 카드 동일 "Jetzt verfügbar" ×N 노이즈 제거).
+  locked/inProgress/completed 는 표시. ARB `soriStageActivityReady` 존치.
+- **분(分) 표기 이동** — subtitle → 이미지 우하단 미니 필(black@0.55 +
+  white `tt.caption` + pill). `SoriIllustratedCard` 에 선택 파라미터
+  `imageOverlay` 신설 — 배치는 **이미지 슬롯 내부** Stack(카드 전체 Stack 에
+  넣으면 footer 위에 얹힘). 기본 null — 팩 그리드 등 기존 호출부 영향 0.
+- **Games 탭 히어로** — Learn(vocab_packs) 전용이던 히어로 승격을 Games 의
+  `daily_game` 에 대칭 적용, 그리드 제거 로직 동일.
+
+**검증.** `flutter analyze` 0 · catalog 2스위트 + responsive 2종(**기존
+1280dp 카탈로그 케이스 green 유지** — 파괴-복원으로 감도 증명된 케이스) +
+접근성 스위트 = 773 green · 래칫 불변.
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P3: Today 리디자인
 
 **무엇/왜.** 핸드오프 §P3 — "무대에 오늘의 주인공을 올려라". 미션 카드가

@@ -6871,6 +6871,36 @@ abstract class AppL10n {
   /// **'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.'**
   String get gyePrivacyBody;
 
+  /// No description provided for @gyeExplainWhatShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kleine, freiwillige Lerngruppe.'**
+  String get gyeExplainWhatShort;
+
+  /// No description provided for @gyeExplainWhyShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsames Hanok, kein Wettbewerb.'**
+  String get gyeExplainWhyShort;
+
+  /// No description provided for @gyeExplainHowShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitritt mit 6-stelligem Code.'**
+  String get gyeExplainHowShort;
+
+  /// No description provided for @gyeShowcaseCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'So kann euer gemeinsames Hanok aussehen'**
+  String get gyeShowcaseCaption;
+
+  /// No description provided for @gyeExplainMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr erfahren'**
+  String get gyeExplainMore;
+
   /// No description provided for @gyeWeeklyEyebrow.
   ///
   /// In de, this message translates to:

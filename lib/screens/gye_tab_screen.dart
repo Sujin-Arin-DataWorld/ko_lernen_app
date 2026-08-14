@@ -83,35 +83,21 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     return Scaffold(
       appBar: widget.embedded
           ? null
           : AppBar(
               titleSpacing: 16,
+              // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    t.navGye,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                      color: s.text,
-                      letterSpacing: -0.3,
-                      height: 1.1,
-                    ),
-                  ),
+                  Text(t.navGye, style: tt.h3.copyWith(height: 1.1)),
                   Text(
                     t.gyeTabSubtitle,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w500,
-                      color: s.textMuted,
-                      height: 1.2,
-                    ),
+                    style: tt.caption.copyWith(color: s.textMuted, height: 1.2),
                   ),
                 ],
               ),
@@ -137,6 +123,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   return _IntroEmpty(
                     introKey: _introKey,
                     padding: padding,
+                    embedded: widget.embedded,
                     onFindOrCreate:
                         widget.onFindOrCreate ?? () => showGyeChooser(context),
                     onContinueSolo:
@@ -169,11 +156,16 @@ class _IntroEmpty extends StatelessWidget {
   final VoidCallback onFindOrCreate;
   final VoidCallback onContinueSolo;
 
+  /// §P5-1: 임베디드(SoriStage 셸)일 때 자체 eyebrow/헤드라인/리드를 뺀다 —
+  /// 셸 헤더(`SoriStageRootHeader`)가 유일한 대형 텍스트다 (화면당 1메시지).
+  final bool embedded;
+
   const _IntroEmpty({
     required this.introKey,
     required this.padding,
     required this.onFindOrCreate,
     required this.onContinueSolo,
+    this.embedded = false,
   });
 
   /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
@@ -194,59 +186,79 @@ class _IntroEmpty extends StatelessWidget {
     final tt = SoriTextTheme.of(context);
     // 05A: headline → courtyard → privacy → one chooser CTA → explicit skip.
     // The 16+ and join/create safety gates still live in [showGyeChooser].
+    // §P5-1: 390×844 에서 스크롤 없이 CTA 도달(±1줄) — 화면당 1메시지.
     return ListView(
       padding: padding,
       children: [
-        const SizedBox(height: Spacing.md),
-        Text(
-          t.gyeVoluntaryEyebrow,
-          textAlign: TextAlign.center,
-          style: tt.label.copyWith(color: SoriColors.primary),
-        ),
+        // §P5-1-1: 헤드라인 단일화 — 임베디드에서는 셸 헤더가 유일한 대형
+        // 텍스트다. 비임베디드(직접 라우트)만 자체 헤드라인을 유지한다.
+        if (!embedded) ...[
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.gyeVoluntaryEyebrow,
+            textAlign: TextAlign.center,
+            style: tt.label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.gyeEmptyLead,
+            textAlign: TextAlign.center,
+            style: tt.bodySmall,
+          ),
+        ],
         const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
-        const SizedBox(height: Spacing.md),
+        // §P5-1-2: 유령 프리뷰 → 쇼케이스 — 8레이어 전부 실체(1.0).
+        // (기존: 4 실체 · 1 부분 · 3 유령(0.22) — 영감을 줘야 할 그림이
+        // 깨져 보였다.)
         ClipRRect(
           borderRadius: SoriRadius.brLg,
           child: AspectRatio(
             aspectRatio: 393 / 220,
-            child: GyeHanok(meta: _previewMeta),
+            child: GyeHanok(meta: _previewMeta, showcase: true),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          t.gyeShowcaseCaption,
+          textAlign: TextAlign.center,
+          style: tt.caption,
+        ),
+        const SizedBox(height: Spacing.sm),
+        // §P5-1-3: 문단 3개 → 1줄 칩 카드 3개. 기존 장문 키 3종은 삭제하지
+        // 않고 ⓘ 상세 시트로 강등 (§C-2 원칙: 정보는 버리지 않고 강등한다).
         KeyedSubtree(
           key: introKey,
-          child: SoriCard(
-            variant: SoriCardVariant.base,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: Spacing.md),
-        SoriCard(
-          variant: SoriCardVariant.compact,
-          accent: SoriColors.primary,
-          tinted: true,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(t.gyePrivacyTitle, style: tt.cardTitle),
+              _ShortPointCard(
+                icon: Icons.groups_2_outlined,
+                text: t.gyeExplainWhatShort,
+                trailing: _DetailsInfoButton(
+                  onTap: () => _showDetails(context),
+                ),
+              ),
               const SizedBox(height: Spacing.xs),
-              Text(t.gyePrivacyBody, style: tt.bodySmall),
+              _ShortPointCard(
+                icon: Icons.spa_outlined,
+                text: t.gyeExplainWhyShort,
+              ),
+              const SizedBox(height: Spacing.xs),
+              _ShortPointCard(
+                icon: Icons.tag_rounded,
+                text: t.gyeExplainHowShort,
+              ),
             ],
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.xs),
+        // §P5-1-4: 프라이버시 카드 → 1줄. 본문은 같은 ⓘ 시트에 수록.
+        _ShortPointCard(
+          icon: Icons.lock_outline_rounded,
+          text: t.gyePrivacyTitle,
+        ),
+        const SizedBox(height: Spacing.md),
         SoriButton.filled(
           label: t.gyeFindOrCreate,
           icon: Icons.groups_2_outlined,
@@ -259,34 +271,111 @@ class _IntroEmpty extends StatelessWidget {
       ],
     );
   }
+
+  /// ⓘ 상세 시트 — 강등된 장문 설명 3종 + 프라이버시 본문 (키 삭제 없음).
+  void _showDetails(BuildContext context) {
+    final t = AppL10n.of(context);
+    showSoriSheet<void>(
+      context: context,
+      builder: (ctx) {
+        final tt = SoriTextTheme.of(ctx);
+        final s = SoriSurfaces.of(ctx);
+        Widget point(IconData icon, String text) => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, size: 18, color: SoriColors.primary),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                text,
+                style: tt.bodySmall.copyWith(color: s.textMuted),
+              ),
+            ),
+          ],
+        );
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(t.gyeEmptyHeadline, style: tt.h3),
+            const SizedBox(height: Spacing.md),
+            point(Icons.groups_2_outlined, t.gyeExplainWhat),
+            const SizedBox(height: 10),
+            point(Icons.spa_outlined, t.gyeExplainWhy),
+            const SizedBox(height: 10),
+            point(Icons.tag_rounded, t.gyeExplainHow),
+            const SizedBox(height: Spacing.md),
+            Text(t.gyePrivacyTitle, style: tt.cardTitle),
+            const SizedBox(height: Spacing.xs),
+            Text(t.gyePrivacyBody, style: tt.bodySmall),
+            const SizedBox(height: Spacing.md),
+          ],
+        );
+      },
+    );
+  }
 }
 
-class _Point extends StatelessWidget {
+/// §P5-1-3: 1줄 칩 카드 — SoriCard(compact) + 아이콘 20 + 단문.
+class _ShortPointCard extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Widget? trailing;
 
-  const _Point({required this.icon, required this.text});
+  const _ShortPointCard({
+    required this.icon,
+    required this.text,
+    this.trailing,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, size: 18, color: SoriColors.primary),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 13,
-              height: 1.4,
-              color: s.textMuted,
-            ),
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      // 밀도 패스 (§P5-1 완료 조건: 390×844 스크롤 없이 CTA 도달) — 1줄
+      // 칩이라 compact 기본(12)보다 얇은 세로 패딩으로 충분하다.
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.md,
+        vertical: Spacing.xs + 2,
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: SoriColors.primary),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Text(text, style: tt.bodySmall.copyWith(color: s.text)),
           ),
+          if (trailing != null) trailing!,
+        ],
+      ),
+    );
+  }
+}
+
+/// 칩 행 우측 ⓘ — 강등된 상세 설명 시트 진입 (탭타깃 48dp).
+class _DetailsInfoButton extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const _DetailsInfoButton({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    // 탭타깃 48dp — accessibility_guideline 게이트가 40dp 를 실측으로 잡았다.
+    return SizedBox.square(
+      dimension: 48,
+      child: IconButton(
+        tooltip: t.gyeExplainMore,
+        padding: EdgeInsets.zero,
+        onPressed: onTap,
+        icon: Icon(
+          Icons.info_outline_rounded,
+          size: 20,
+          color: SoriSurfaces.of(context).textMuted,
         ),
-      ],
+      ),
     );
   }
 }
@@ -363,25 +452,19 @@ class _GyeCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
                 Text(
                   gye.name,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.gyeMembersN(gye.memberCount),
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 12,
-                    color: s.textMuted,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardSubtitle.copyWith(color: s.textMuted),
                 ),
               ],
             ),

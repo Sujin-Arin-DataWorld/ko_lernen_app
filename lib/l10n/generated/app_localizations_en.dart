@@ -3910,6 +3910,22 @@ class AppL10nEn extends AppL10n {
       'It only shows that you contributed. Your answers, words, and assessment results stay private.';
 
   @override
+  String get gyeExplainWhatShort => 'A small, voluntary study group.';
+
+  @override
+  String get gyeExplainWhyShort => 'A shared hanok, not a competition.';
+
+  @override
+  String get gyeExplainHowShort => 'Join with a 6-digit code.';
+
+  @override
+  String get gyeShowcaseCaption =>
+      'This is what your shared hanok can look like';
+
+  @override
+  String get gyeExplainMore => 'Learn more';
+
+  @override
   String get gyeWeeklyEyebrow => 'Together this week';
 
   @override

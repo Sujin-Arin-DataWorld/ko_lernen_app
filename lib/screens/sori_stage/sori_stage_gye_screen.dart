@@ -28,10 +28,14 @@ class SoriStageGyeScreen extends StatelessWidget {
                       eyebrow: t.soriStageNavGye,
                       title: t.soriStageGyePromise,
                     ),
-                    const SizedBox(height: Spacing.md),
+                    const SizedBox(height: Spacing.sm),
                     Container(
                       width: double.infinity,
-                      padding: const EdgeInsets.all(Spacing.lg),
+                      // §P5-1 밀도 패스 — 390×844 스크롤 없는 CTA 도달.
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.lg,
+                        vertical: Spacing.md,
+                      ),
                       decoration: BoxDecoration(
                         color: SoriActivityColors.collaboration.withValues(
                           alpha: .16,
@@ -48,9 +52,8 @@ class SoriStageGyeScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               t.soriStageGyeFlow,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                              ),
+                              // §P5-1-5: raw TextStyle(w700) → 토큰 수렴.
+                              style: SoriTextTheme.of(context).label,
                             ),
                           ),
                         ],
