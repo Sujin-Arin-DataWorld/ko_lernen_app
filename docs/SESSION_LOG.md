@@ -1,5 +1,45 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — Linux 골든 일괄 재생성 + 검증 마감
+
+**무엇/왜.** `HANDOFF_REMAINING_TASKS.md` §1(맥 불가 — Linux CI 전용)의 골든
+재생성을 CI 정본 환경(Linux + Flutter 3.44.0, `ci.yml` 핀과 동일)에서 실행.
+기존 기준선은 클린 HEAD 에서도 실패하던 stale 상태였다(ae024af6 이후 미재생성).
+`flutter test --update-goldens test/goldens` → screen_layout(settings ·
+vocab_packs 재생성 + **sori_today 3장 신설**) · design_components ·
+personal_hanok_map(무변경 일치) → 재검증 15/15 green.
+
+**검증 마감.** `flutter analyze` 0 · 전체 `flutter test` 결과는 아래 항목
+참조(이 세션 마지막 실행 기록). AGENTS.md "현재 진행 중인 작업"에 UI 개편 2
+섹션 추가.
+
+**커밋:** 이 항목과 같은 커밋.
+
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §R-1: 리소그래프 파이프라인 + Jin 게이트 샘플
+
+**무엇/왜.** Jin 확정 §1-5(아날로그 = 리소그래프 인쇄 느낌)의 파이프라인
+`scripts/apply_riso_v2.py` 신설 — 기존 `apply_paper_grain.py`(정본 이력
+보존)의 확장. 5단계: ① 그레인 **추가분**(fine +2.0/coarse +1.5 — 번들 39장은
+이미 5.0/4.0 기베이크·원본 소멸) ② 잉크 미스레지스터(R 채널 +1.5,+0.5px
+60% 블렌드) ③ 잉크 스펙클(0.4%, L<40% 면) ④ 가장자리 번짐(1px 팽창, 20%)
+⑤ 웜 캐스트(4% #F4E8D0). 시드 = crc32(파일명) — 파일별 결정적.
+
+**게이트 구조 (§J-1).** 기본 모드 `--samples` 는 번들 무접촉 —
+`docs/assets/riso_samples_2026-08-14/` 에 before/after 3쌍(bamboo ·
+listening · paywall_hero)만 출력. 번들 39장 일괄은 `--apply --jin-approved`
+둘 다 있어야 실행(미승인 전량 처리를 스크립트 차원에서 차단 — exit 2 실측).
+`gye/`·`hanok_stages/`·`stamps/` 는 스코프 제외.
+
+**시각 검수(에이전트).** bamboo before/after 비교 — 웜 캐스트·죽간 가장자리
+R판 어긋남·벼루 다크면 스펙클·그레인 강화가 뚜렷하되 형태를 잡아먹지 않음.
+**최종 승인은 Jin** — 승인 후 일괄 적용 + asset-integrity/매트 가드 재실행.
+
+**§R-3 아이콘 6종은 이 환경에서 생성 불가** (BBANANA MCP 부재) — §P2 가
+Material 폴백으로 선배포됐고, 규약 경로(`assets/illustrations/deck/
+action_*.webp`)에 드롭만 하면 자동 적용된다 (pubspec 등록 완료).
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P5: Gye 압축 + Hanok 숏컷 타일
 
 **무엇/왜.** 핸드오프 §P5 — Gye 빈 상태를 390×844 에서 스크롤 없이 CTA 도달

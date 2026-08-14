@@ -261,6 +261,40 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### UI/UX 개편 2 "Sori Deck × 리소그래프 한지" 구현 (2026-08-14, Cursor Cloud)
+
+> 정본 = `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`. 브랜치
+> `cursor/ui-overhaul-2-7fbe` (PR 드래프트), Phase 단위 커밋 분리.
+
+- [x] **P1 카드 고정 지오메트리** — 4개 덱 화면 슬롯 핀(`deck-card-slot`) +
+ SoriCard 폭 이중 벨트 + review/legacy 덱-균일 타이포. 센서
+ `deck_card_geometry_test`(파괴-복원 실측: 두 벨트 모두 파괴 시에만 red).
+- [x] **P2 Sori Deck 2.0** — 좌=모름·우=앎·위=저장·아래=스킵. `SoriSwipeCard`
+ pan+지배축 잠금·저항 드래그·underlay(다음 카드 앞면만), 공용
+ `SoriDeckActionBar`(원형 아이콘, §R-3 드롭 전 Material 폴백),
+ `LearnSessionQueue.defer/peekNext`, 힌트 칩+`soriDeck` 코치, ARB DE/EN.
+ ↑/↓ 는 SRS·wrongCount·ledger 무접촉, review/custom 버튼도 플립 게이트
+ (의도적 강화). 부수: `MediaMutationLock` 좀비 zone 앵커 수리.
+- [x] **P3 Today 리디자인** — 미션 카드 = 활동 21:9 포스터 + 보상 칩 +
+ "Starten", 히어로 클립 1.2× 크롭-줌(에셋 불변), 한옥 스테이지 배너 +
+ `hanokStageDisplayName`(enum 원문 노출 수리), 퀘스트 행 SoriCard+
+ `SoriRewardThumb`(위젯 층 승격).
+- [x] **P4 카탈로그 폴리시** — 그리드 4:3(크롭 0)·footer 조건화·분 필
+ (`SoriIllustratedCard.imageOverlay`)·Games `daily_game` 히어로.
+- [x] **P5 Gye 압축 + Hanok 숏컷** — 임베디드 헤드라인 단일화·쇼케이스
+ 프리뷰(8레이어 1.0)·단문 칩+ⓘ 시트(장문 키 보존)·390×844 무스크롤 CTA
+ 센서·Hanok 일러스트 타일 3개(퀘스트/도장/보자기 카운트).
+- [x] **§R-1 리소 파이프라인** — `scripts/apply_riso_v2.py`(그레인 delta·
+ 미스레지스터·스펙클·번짐·웜캐스트, crc32 시드) + Jin 게이트 샘플 3쌍
+ (`docs/assets/riso_samples_2026-08-14/`). `--apply` 는 `--jin-approved`
+ 없이는 exit 2 — 미승인 전량 처리 스크립트 차원 차단.
+- [x] **Linux 골든 재생성** (HANDOFF_REMAINING §1) — CI 정본 환경(Linux +
+ Flutter 3.44.0)에서 일괄 재생성 + `screen_sori_today` 3장 신설, 15/15 green.
+- [ ] **Jin 게이트**: §R 샘플 before/after 승인 → `--apply --jin-approved`
+ 일괄 + asset-integrity 재실행 · §R-3 덱 아이콘 6종(BBANANA/Adobe — 규약
+ 경로 드롭만 하면 자동 적용) · 실기기 4방향 손맛/엣지 제스처/히어로 줌
+ 잘림(1.15~1.3) · 덱 높이 정합(§J-7)·custom ↑ 의미(§J-8) 결정.
+
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.

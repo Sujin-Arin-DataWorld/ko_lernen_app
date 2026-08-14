@@ -109,8 +109,10 @@ void main() {
       ),
     );
 
-    // Phase 4: Sori Stage shell — tab labels are: Today, Learn, Games, Hanok, Gye
-    expect(find.text('Learn'), findsWidgets);
+    // Phase 4: Sori Stage shell — DE 로케일 탭 라벨 (soriStageNavLearn).
+    // 79ae4a0 직후 'Learn' 리터럴로 남아 있던 죽은 기대값 수리 (2026-08-14).
+    final t = await AppL10n.delegate.load(const Locale('de'));
+    expect(find.text(t.soriStageNavLearn), findsWidgets);
     await tester.pump(const Duration(seconds: 1));
   });
 }

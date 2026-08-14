@@ -7432,7 +7432,7 @@ abstract class AppL10n {
   /// No description provided for @coachVocabPackStep1.
   ///
   /// In de, this message translates to:
-  /// **'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen — rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen'**
+  /// **'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen'**
   String get coachVocabPackStep1;
 
   /// No description provided for @coachVocabPackStep2.

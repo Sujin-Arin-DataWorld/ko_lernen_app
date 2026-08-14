@@ -4274,7 +4274,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen — rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen';
+      'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen';
 
   @override
   String get coachVocabPackStep2 =>

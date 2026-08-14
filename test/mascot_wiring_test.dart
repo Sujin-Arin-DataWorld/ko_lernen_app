@@ -233,7 +233,10 @@ void main() {
         'lib/screens/book_result_screen.dart',
         'lib/screens/chosung_quiz_screen.dart',
         'lib/screens/custom_pack_play_screen.dart',
-        'lib/screens/home_screen.dart',
+        // home_screen.dart 는 Phase 4(79ae4a0) 레거시 삭제로 소멸 — 현 홈
+        // 표면은 SoriStage Today + 공용 home_hero 다 (2026-08-14 죽은 참조 수리).
+        'lib/screens/sori_stage/sori_stage_today_screen.dart',
+        'lib/widgets/sori/home_hero.dart',
         'lib/screens/kkeunmari_screen.dart',
         'lib/screens/profile_screen.dart',
         'lib/screens/review_session_screen.dart',
@@ -307,8 +310,14 @@ void main() {
     });
 
     test('홈은 s.textDim 을 쓰지 않는다 (2.89:1)', () {
-      final src = File('lib/screens/home_screen.dart').readAsStringSync();
-      expect(src.contains('s.textDim'), isFalse);
+      // home_screen.dart 삭제(79ae4a0) 후 현 홈 표면으로 재지정 (2026-08-14).
+      for (final path in const [
+        'lib/screens/sori_stage/sori_stage_today_screen.dart',
+        'lib/widgets/sori/home_hero.dart',
+      ]) {
+        final src = File(path).readAsStringSync();
+        expect(src.contains('s.textDim'), isFalse, reason: path);
+      }
     });
   });
 }

@@ -4258,7 +4258,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Step 1 · Learn: tap to flip the card, then swipe — right = knew it, left = didn\'t know, up = save, down = skip';
+      'Step 1 · Learn: tap to flip the card, then swipe. Right = knew it, left = didn\'t know, up = save, down = skip';
 
   @override
   String get coachVocabPackStep2 => 'Step 2 · Quiz: pick the right translation';
