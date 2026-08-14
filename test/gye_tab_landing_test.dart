@@ -62,7 +62,7 @@ void main() {
           'gyePrivacyBody 는 기여 사실만 공개되고 답변·단어·평가 결과는 '
           '비공개임을 말해야 한다',
     );
-    await tester.tap(find.text('Schließen'));
+    Navigator.of(tester.element(find.textContaining('bleiben privat'))).pop();
     await tester.pump(const Duration(milliseconds: 500));
     await tester.scrollUntilVisible(
       find.text('Eine 계 finden oder gründen'),
