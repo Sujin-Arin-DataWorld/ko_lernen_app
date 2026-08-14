@@ -83,8 +83,7 @@ void main() {
       for (final entry in milestoneThresholds.entries) {
         for (final th in entry.value) {
           final id = Milestone(entry.key, th).id;
-          final source =
-              '${DecorationRewardService.kMilestoneSourcePrefix}$id';
+          final source = '${DecorationRewardService.kMilestoneSourcePrefix}$id';
           expect(
             DecorationRewardService.isRewardSource(source),
             isTrue,

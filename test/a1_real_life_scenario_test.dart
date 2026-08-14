@@ -32,8 +32,7 @@ void main() {
       for (final scenario in a1) {
         expect(
           scenario.quests.any(
-            (quest) =>
-                quest.hasExplicitId && quest.conceptIds.isNotEmpty,
+            (quest) => quest.hasExplicitId && quest.conceptIds.isNotEmpty,
           ),
           isTrue,
           reason: '${scenario.id} needs targeted corrective evidence',

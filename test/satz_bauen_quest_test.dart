@@ -40,31 +40,38 @@ void main() {
     test('requires exactly one matching mark in the final slot', () {
       const target = '우유 어디 있어요?';
       expect(
-        SatzBauenQuest.hasCorrectTerminalPunctuation(
-          ['우유', '어디', '있어요', '?'],
-          target,
-        ),
+        SatzBauenQuest.hasCorrectTerminalPunctuation([
+          '우유',
+          '어디',
+          '있어요',
+          '?',
+        ], target),
         isTrue,
       );
       expect(
-        SatzBauenQuest.hasCorrectTerminalPunctuation(
-          ['우유', '어디', '있어요'],
-          target,
-        ),
+        SatzBauenQuest.hasCorrectTerminalPunctuation([
+          '우유',
+          '어디',
+          '있어요',
+        ], target),
         isFalse,
       );
       expect(
-        SatzBauenQuest.hasCorrectTerminalPunctuation(
-          ['우유', '?', '어디', '있어요'],
-          target,
-        ),
+        SatzBauenQuest.hasCorrectTerminalPunctuation([
+          '우유',
+          '?',
+          '어디',
+          '있어요',
+        ], target),
         isFalse,
       );
       expect(
-        SatzBauenQuest.hasCorrectTerminalPunctuation(
-          ['우유', '어디', '있어요', '!'],
-          target,
-        ),
+        SatzBauenQuest.hasCorrectTerminalPunctuation([
+          '우유',
+          '어디',
+          '있어요',
+          '!',
+        ], target),
         isFalse,
       );
     });

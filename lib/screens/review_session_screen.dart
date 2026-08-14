@@ -18,6 +18,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -71,6 +72,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   List<Vocab> _deck = [];
   int _idx = 0;
   bool _flipped = false;
+  // 플립 전 판정을 시도하면 힌트 칩을 띄운다 (스와이프 발견성).
+  // 카운터만 올리고 표시 수명은 DeckFlipHint 가 관리한다.
+  int _flipHintTick = 0;
   int _reviewed = 0;
   bool _done = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -183,6 +187,91 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
       });
     }
+  }
+
+  /// ↑ 저장 — 판정이 아니다. AppBar 의 [AddToWordbookButton] 과 **같은
+  /// 동작**이고, 위 스와이프는 그 가속 경로다. SRS·오답 카운터 불변.
+  void _saveCurrent() {
+    if (_deck.isEmpty) {
+      return;
+    }
+    final v = _card;
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: v.korean,
+      translationDe: v.german,
+      translationEn: v.translationFor('en'),
+      romanization: v.romanization,
+      posDe: v.posDe,
+      exampleKorean: v.exampleKorean,
+      exampleDe: v.exampleGerman,
+      source: 'deck_swipe',
+    );
+  }
+
+  /// ↓ 스킵 — 지금 답하지 않고 이 카드를 덱 맨 뒤로 보낸다. SRS·오답
+  /// 카운터에 아무것도 남기지 않는다 (판정이 아니다).
+  void _deferCurrent() {
+    if (_deck.length <= 1 || _idx >= _deck.length) {
+      // 덱이 한 장이거나 이미 마지막이면 맨뒤-이동이 no-op → 스프링백만.
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() {
+      final Vocab card = _deck.removeAt(_idx);
+      _deck.add(card);
+      // 재서빙 리셋 — 없으면 다음 카드가 뒷면(정답)으로 서빙되고 판정
+      // 게이트가 열린 채가 된다 (flipgate 계약 위반).
+      _flipped = false;
+    });
+  }
+
+  /// 덱 스택 미리보기 — 다음 카드의 **앞면만**. 뒷면을 그리면 정답이 새어
+  /// 나간다. 현재 카드에 거의 가려지지만 가장자리가 "뒤에 카드가 더 있다"를
+  /// 말해 준다.
+  Widget? _nextCardPreview(double cardH) {
+    if (_idx + 1 >= _deck.length) {
+      return null;
+    }
+    final Vocab next = _deck[_idx + 1];
+    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    final t = AppL10n.of(context);
+    return SizedBox(
+      width: double.infinity,
+      height: cardH,
+      child: SoriStudyScale(
+        child: SoriCard(
+          variant: SoriCardVariant.hero,
+          accent: SoriColors.primary,
+          tinted: true,
+          width: double.infinity,
+          child: LayoutBuilder(
+            builder: (context, cc) {
+              final ch = cc.maxHeight.isFinite ? cc.maxHeight : cardH;
+              final koSize = soriUniformFitSize(
+                context,
+                texts: [for (final w in _deck) w.korean],
+                maxWidth: cc.maxWidth,
+                cap: _sz(ch, 0.155, 38, 72),
+                min: 28,
+                lineHeight: 1.05,
+              );
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: _frontList(next, s, tt, t, ch, koSize),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// 힌트 표시 요청 — 실제 수명(3초)은 [DeckFlipHint] 가 소유한다.
+  void _showFlipFirstHint() {
+    setState(() => _flipHintTick++);
   }
 
   @override
@@ -424,111 +513,136 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ? constraints.maxHeight
                     : 360.0;
                 final cardH = h * 0.82;
-                return Center(
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
-                  // 접근성·발견가능성의 정본으로 그대로 남는다.
-                  child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
-                    enabled: _flipped,
-                    onSwipeRight: () => _answer(true),
-                    onSwipeLeft: () => _answer(false),
-                    rightBadge: SoriSwipeBadge(
-                      label: t.btnGewusst,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.btnNichtGewusst,
-                      icon: Icons.close_rounded,
-                      color: SoriColors.danger,
-                    ),
-                    child: SoriPressable(
-                      key: _cardKey,
-                      onTap: () => setState(() => _flipped = !_flipped),
-                      haptic: SoriHaptic.selection,
-                      child: SizedBox(
-                        // 슬롯 핀 (P1) — 4개 덱 화면 공통 finder.
-                        key: const ValueKey('deck-card-slot'),
-                        width: double.infinity,
-                        height: cardH,
-                        child: SoriStudyScale(
-                          child: SoriCard(
-                            variant: SoriCardVariant.hero,
-                            accent: SoriColors.primary,
-                            tinted: !_flipped,
-                            child: LayoutBuilder(
-                              builder: (context, cc) {
-                                // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
-                                // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
-                                // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
-                                // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
-                                // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
-                                final ch = cc.maxHeight.isFinite
-                                    ? cc.maxHeight
-                                    : 360.0;
-                                // 헤드라인 크기는 **덱 공유값 하나** — 카드마다
-                                // FittedBox 가 현재 단어만 보고 줄이면 넘길
-                                // 때마다 글씨가 튄다 (custom_pack 선례).
-                                // FittedBox 는 실측 오차용 안전망으로 남는다.
-                                final koSize = soriUniformFitSize(
-                                  context,
-                                  texts: [for (final w in _deck) w.korean],
-                                  maxWidth: cc.maxWidth,
-                                  cap: _sz(ch, 0.155, 38, 72),
-                                  min: 28,
-                                  lineHeight: 1.05,
-                                );
-                                final String lang = Localizations.localeOf(
-                                  context,
-                                ).languageCode;
-                                final deSize = soriUniformFitSize(
-                                  context,
-                                  texts: [
-                                    for (final w in _deck)
-                                      w.translationFor(lang),
-                                  ],
-                                  maxWidth: cc.maxWidth,
-                                  cap: _sz(ch, 0.125, 28, 54),
-                                  min: 22,
-                                  lineHeight: 1.1,
-                                );
-                                return SingleChildScrollView(
-                                  child: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                      minHeight: cc.maxHeight,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: _flipped
-                                          ? _backList(
-                                              card,
-                                              s,
-                                              tt,
-                                              t,
-                                              ch,
-                                              deSize,
-                                            )
-                                          : _frontList(
-                                              card,
-                                              s,
-                                              tt,
-                                              t,
-                                              ch,
-                                              koSize,
-                                            ),
-                                    ),
-                                  ),
-                                );
-                              },
+                return Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Center(
+                      // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
+                      // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
+                      // 접근성·발견가능성의 정본으로 그대로 남는다.
+                      child: SoriSwipeCard(
+                        // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                        // 카드에 SRS가 기록되는 데이터 버그 방지. 위/아래는
+                        // 판정이 아니므로 이 게이트와 무관하다.
+                        enabled: _flipped,
+                        onSwipeRight: () => _answer(true),
+                        onSwipeLeft: () => _answer(false),
+                        onSwipeUp: _saveCurrent,
+                        onSwipeDown: _deferCurrent,
+                        onBlockedHorizontalDrag: _showFlipFirstHint,
+                        underlay: _nextCardPreview(cardH),
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                          asset: deckActionAsset('know'),
+                        ),
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.question_mark_rounded,
+                          color: SoriColors.danger,
+                          asset: deckActionAsset('dontknow'),
+                        ),
+                        upBadge: SoriSwipeBadge(
+                          label: t.deckActionSave,
+                          icon: Icons.redeem_rounded,
+                          color: SoriColors.gold,
+                          asset: deckActionAsset('save'),
+                        ),
+                        downBadge: SoriSwipeBadge(
+                          label: t.btnSkip,
+                          icon: Icons.arrow_downward_rounded,
+                          color: SoriColors.info,
+                          asset: deckActionAsset('skip'),
+                        ),
+                        child: SoriPressable(
+                          key: _cardKey,
+                          onTap: () => setState(() => _flipped = !_flipped),
+                          haptic: SoriHaptic.selection,
+                          child: SizedBox(
+                            // 슬롯 핀 (P1) — 4개 덱 화면 공통 finder.
+                            key: const ValueKey('deck-card-slot'),
+                            width: double.infinity,
+                            height: cardH,
+                            child: SoriStudyScale(
+                              child: SoriCard(
+                                variant: SoriCardVariant.hero,
+                                accent: SoriColors.primary,
+                                tinted: !_flipped,
+                                child: LayoutBuilder(
+                                  builder: (context, cc) {
+                                    // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
+                                    // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
+                                    // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
+                                    // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
+                                    // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
+                                    final ch = cc.maxHeight.isFinite
+                                        ? cc.maxHeight
+                                        : 360.0;
+                                    // 헤드라인 크기는 **덱 공유값 하나** — 카드마다
+                                    // FittedBox 가 현재 단어만 보고 줄이면 넘길
+                                    // 때마다 글씨가 튄다 (custom_pack 선례).
+                                    // FittedBox 는 실측 오차용 안전망으로 남는다.
+                                    final koSize = soriUniformFitSize(
+                                      context,
+                                      texts: [for (final w in _deck) w.korean],
+                                      maxWidth: cc.maxWidth,
+                                      cap: _sz(ch, 0.155, 38, 72),
+                                      min: 28,
+                                      lineHeight: 1.05,
+                                    );
+                                    final String lang = Localizations.localeOf(
+                                      context,
+                                    ).languageCode;
+                                    final deSize = soriUniformFitSize(
+                                      context,
+                                      texts: [
+                                        for (final w in _deck)
+                                          w.translationFor(lang),
+                                      ],
+                                      maxWidth: cc.maxWidth,
+                                      cap: _sz(ch, 0.125, 28, 54),
+                                      min: 22,
+                                      lineHeight: 1.1,
+                                    );
+                                    return SingleChildScrollView(
+                                      child: ConstrainedBox(
+                                        constraints: BoxConstraints(
+                                          minHeight: cc.maxHeight,
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: _flipped
+                                              ? _backList(
+                                                  card,
+                                                  s,
+                                                  tt,
+                                                  t,
+                                                  ch,
+                                                  deSize,
+                                                )
+                                              : _frontList(
+                                                  card,
+                                                  s,
+                                                  tt,
+                                                  t,
+                                                  ch,
+                                                  koSize,
+                                                ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
+                    DeckFlipHint(trigger: _flipHintTick),
+                  ],
                 );
               },
             ),
@@ -541,26 +655,18 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             Spacing.lg,
             Spacing.lg,
           ),
-          child: Row(
+          // ⚠️ _answerRowKey 는 코치마크 2단계의 타깃이다 — 새 바에 반드시
+          // 다시 붙여야 SpotlightCoach 가 스텝을 조용히 건너뛰지 않는다.
+          child: DeckActionBar(
             key: _answerRowKey,
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNichtGewusst,
-                  destructive: true,
-                  fullWidth: true,
-                  onTap: () => _answer(false),
-                ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.btnGewusst,
-                  fullWidth: true,
-                  onTap: () => _answer(true),
-                ),
-              ),
-            ],
+            onDontKnow: () => _answer(false),
+            onKnow: () => _answer(true),
+            onSkip: _deferCurrent,
+            onSave: _saveCurrent,
+            // 버튼도 카드 스와이프와 같은 플립 게이트를 받는다 (의도된 강화):
+            // 답을 보지 않은 카드에 SRS 를 남기는 경로를 버튼에서도 막는다.
+            judgmentEnabled: _flipped,
+            onBlockedJudgment: _showFlipFirstHint,
           ),
         ),
       ],

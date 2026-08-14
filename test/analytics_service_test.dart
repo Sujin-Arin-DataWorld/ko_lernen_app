@@ -56,7 +56,10 @@ void main() {
         client: client,
       );
 
-      await controller.logEvent('pack_completed', parameters: {'pack_id': 'a1'});
+      await controller.logEvent(
+        'pack_completed',
+        parameters: {'pack_id': 'a1'},
+      );
       await controller.logScreenView('/vocab');
 
       expect(client.events, hasLength(1));

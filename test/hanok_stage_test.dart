@@ -55,36 +55,18 @@ void main() {
 
   group('computeStage — B1 phase (A2 = 100%)', () {
     test('B1 < 25% → dancheong', () {
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.0),
-        HanokStage.dancheong,
-      );
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.249),
-        HanokStage.dancheong,
-      );
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.0), HanokStage.dancheong);
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.249), HanokStage.dancheong);
     });
 
     test('B1 25-50% → gate', () {
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.25),
-        HanokStage.gate,
-      );
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.499),
-        HanokStage.gate,
-      );
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.25), HanokStage.gate);
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.499), HanokStage.gate);
     });
 
     test('B1 50-99% → windows', () {
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.5),
-        HanokStage.windows,
-      );
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 0.99),
-        HanokStage.windows,
-      );
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.5), HanokStage.windows);
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 0.99), HanokStage.windows);
     });
   });
 
@@ -101,14 +83,8 @@ void main() {
     });
 
     test('B2 50-100% → jongga', () {
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 1.0, b2: 0.5),
-        HanokStage.jongga,
-      );
-      expect(
-        _compute(a1: 1.0, a2: 1.0, b1: 1.0, b2: 1.0),
-        HanokStage.jongga,
-      );
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 1.0, b2: 0.5), HanokStage.jongga);
+      expect(_compute(a1: 1.0, a2: 1.0, b1: 1.0, b2: 1.0), HanokStage.jongga);
     });
   });
 
@@ -127,10 +103,7 @@ void main() {
     test('out-of-range inputs clamp safely', () {
       expect(_compute(a1: -0.5), HanokStage.empty);
       expect(_compute(a1: 1.5), HanokStage.thatchRoof);
-      expect(
-        _compute(a1: 2.0, a2: 2.0, b1: 2.0, b2: 2.0),
-        HanokStage.jongga,
-      );
+      expect(_compute(a1: 2.0, a2: 2.0, b1: 2.0, b2: 2.0), HanokStage.jongga);
     });
   });
 
@@ -183,5 +156,4 @@ HanokStage _compute({
   double a2 = 0.0,
   double b1 = 0.0,
   double b2 = 0.0,
-}) =>
-    computeStage(a1Ratio: a1, a2Ratio: a2, b1Ratio: b1, b2Ratio: b2);
+}) => computeStage(a1Ratio: a1, a2Ratio: a2, b1Ratio: b1, b2Ratio: b2);

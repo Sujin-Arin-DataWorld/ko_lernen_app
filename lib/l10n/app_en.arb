@@ -2772,10 +2772,22 @@
   "soriStageGamesTitle": "Play with a clear purpose.",
   "soriStageGamesBody": "See the XP, personal best, and related quest before you start.",
   "soriStageMinutes": "{minutes} min",
-  "@soriStageMinutes": {"placeholders": {"minutes": {"type": "int"}}},
+  "@soriStageMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "soriStagePossibleReward": "Possible reward",
   "soriStageOpenActivity": "Open {activity}",
-  "@soriStageOpenActivity": {"placeholders": {"activity": {"type": "String"}}},
+  "@soriStageOpenActivity": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageHanokTitle": "Build a home from what you can do.",
   "soriStageHanokBody": "Seven permanent stages show exactly what is built and what opens next.",
   "soriStageOpenMap": "Open Hanok map",
@@ -2819,21 +2831,84 @@
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
   "soriStageActivityTitle": "{activityId, select, course{Course} hangul{Hangul} calligraphy{Calligraphy} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{SRS review} hard_words{Hard words} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} bookshelf{Bookshelf} word_search{Word search} daily_game{Daily challenge} chosung{Chosung quiz} syllable_cross{Syllable cross} cloze{Cloze} speed_match{Speed Match} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
-  "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityTitle": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Write one character with intention.} pronunciation{Listen, repeat, and optionally assess.} vocab_packs{Learn words by everyday topic.} srs{Strengthen due words at the right moment.} hard_words{Focus on the words that trip you up.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
-  "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityDescription": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{On first completion} finishSession{When you finish the session} verifiedLearning{After verified learning} rewardXp{Learning XP} rewardQuest{Related quest} rewardHanok{Verified Hanok construction progress} rewardStamp{Dojang stamp} rewardBest{Personal best} rewardNone{No direct reward} rewardQuestProgress{Quest progress} rewardHanokPiece{New Hanok building piece} rewardBojagi{Bojagi} rewardGyeLantern{Gye lantern} other{Reward}}}",
-  "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStageCatalogCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "questActionLabel": "{actionKey, select, openQuests{Open quests} openVocabulary{Open vocabulary packs} openScenarios{Open real-life scenarios} practicePronunciation{Practice pronunciation} playKkeunmari{Play Kkeunmari} openHangul{Open Hangul} openCalligraphy{Open calligraphy} openToday{Open today's mission} openGye{Open Gye} playChosung{Play Chosung} other{Open}}}",
-  "@questActionLabel": {"placeholders": {"actionKey": {"type": "String"}}},
+  "@questActionLabel": {
+    "placeholders": {
+      "actionKey": {
+        "type": "String"
+      }
+    }
+  },
   "questSeasonOpens": "Opens {date}",
-  "@questSeasonOpens": {"placeholders": {"date": {"type": "String"}}},
+  "@questSeasonOpens": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewCopy": "{copyKey, select, todayEyebrow{TODAY} todayTitle{One phrase. One building piece.} nearComplete{Nearly complete} cafeOrder{Order at a café} strongWords{Strong everyday words} sevenDayStreak{Keep going for seven days} lessonEyebrow{LESSON 2 OF 4} lessonPhrase{덜 맵게 해 주세요} listen{Listen} naturalTempo{Natural tempo} speak{Speak} rhythmMouth{Rhythm and mouth cues} remember{Remember} withoutHelp{Recall without help} beginListening{Start with listening} receiptEyebrow{JUST CHANGED} receiptTitle{Your phrase now supports the roof.} beamStage{DAECHEONG · BEAM 3} newBeam{1 new beam in the construction plan} xpEarned{Learning XP +12} completedMission{for the completed mission} questEarned{Quest progress +1} scenarioProgress{Real-life scenarios · 4 of 10} hanokEarned{Hanok building piece +1} verifiedSpeaking{from verified speaking} continueToday{Continue to Today} journeyEyebrow{YOUR JOURNEY} journeyTitle{Every kind of learning builds in the same place.} missionEyebrow{ORDER LESS SPICY} missionTitle{Listen. Speak. Use it in real life.} missionReward{Complete → learning XP + verified progress} missionStart{Start mission} bojagiWaiting{1 Bojagi is waiting} bojagiBody{Choose one of three pieces for your room.} other{Sori Stage preview}}",
-  "@soriStagePreviewCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStagePreviewCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewProgress": "{current} of {target}",
-  "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
+  "@soriStagePreviewProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageActivityStart": "Start",
   "soriStageActivityDetails": "Details for {activity}",
-  "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
-  "soriStageActivityLocked": "Locked"
+  "@soriStageActivityDetails": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
+  "soriStageActivityLocked": "Locked",
+  "deckActionSave": "Save",
+  "@deckActionSave": {
+    "description": "Deck: add the card to your word list (swipe up)"
+  },
+  "deckFlipFirstHint": "Tap the card to flip it first",
+  "@deckFlipFirstHint": {
+    "description": "Hint shown when swiping before flipping"
+  },
+  "coachSoriDeckBody": "Swipe the card: right = knew it, left = did not know, up = save, down = skip.",
+  "@coachSoriDeckBody": {
+    "description": "Coachmark for the four-way card deck"
+  }
 }

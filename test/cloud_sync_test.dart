@@ -1179,11 +1179,7 @@ void main() {
       'progress': {
         'earned_stamps': ['cloud-stamp'],
         'quest_completions': {'cloud-quest': '2026-07-02T00:00:00.000Z'},
-        'owned_decor': [
-          'decoration_soban',
-          'decoration_munbangsau',
-          7,
-        ],
+        'owned_decor': ['decoration_soban', 'decoration_munbangsau', 7],
       },
       'srs_json': '',
       'custom_packs_json': null,
@@ -1193,10 +1189,7 @@ void main() {
     expect(Storage.vokSeenIds, ['local-v', 'cloud-v']);
     expect(Storage.grammarSeen, ['local-g', 'cloud-g']);
     expect(Storage.earnedStamps, ['local-stamp', 'cloud-stamp']);
-    expect(
-      Storage.ownedDecor,
-      ['decoration_soban', 'decoration_munbangsau'],
-    );
+    expect(Storage.ownedDecor, ['decoration_soban', 'decoration_munbangsau']);
     expect(
       Storage.questCompletions.keys,
       containsAll(['local-quest', 'cloud-quest']),

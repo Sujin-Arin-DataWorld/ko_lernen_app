@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
@@ -93,9 +94,14 @@ void main() {
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
+    // Sori Deck 2.0: 판정은 DeckActionBar 의 미니 아이콘 버튼이다.
     tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((b) => b.label == t.vocabPackGotIt)
+        .widget<SoriPressable>(
+          find.descendant(
+            of: find.byKey(deckActionKey('know')),
+            matching: find.byType(SoriPressable),
+          ),
+        )
         .onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
@@ -171,10 +177,17 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
 
     // 뒷면: 예문 + 스피커 아이콘 + 탭/롱프레스 가능한 SoriPressable.
+    // ⚠️ 덱 스택(underlay) 이 다음 카드의 앞면을 뒤에 그리므로 화면 전체를
+    // 세면 스피커가 둘이다. 계약은 "뒤집힌 **현재** 카드의 예문이 재생
+    // 가능한가" 이므로 현재 카드 슬롯 안으로 범위를 좁힌다.
+    final slot = find.byKey(const ValueKey('deck-card-slot'));
     expect(find.textContaining('하나 예문입니다.'), findsOneWidget);
-    expect(find.byIcon(Icons.volume_up_rounded), findsOneWidget);
+    expect(
+      find.descendant(of: slot, matching: find.byIcon(Icons.volume_up_rounded)),
+      findsOneWidget,
+    );
     final pressable = tester.widget<SoriPressable>(
-      find.byType(SoriPressable).first,
+      find.descendant(of: slot, matching: find.byType(SoriPressable)).first,
     );
     expect(pressable.onTap, isNotNull);
     expect(pressable.onLongPress, isNotNull);

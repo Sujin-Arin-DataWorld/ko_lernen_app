@@ -49,25 +49,26 @@ void main() {
     await Storage.setTutSeen('hardWords');
   });
 
-  testWidgets('word with 3 explicit misses appears without being an SRS leech', (
-    tester,
-  ) async {
-    // leech 조건(리뷰 3회+)은 전혀 만족하지 않는 신선한 단어.
-    for (var i = 0; i < 3; i++) {
-      await Storage.incrementWrongCount('양극화');
-    }
-    expect(Storage.hardIds(['양극화']), isEmpty);
+  testWidgets(
+    'word with 3 explicit misses appears without being an SRS leech',
+    (tester) async {
+      // leech 조건(리뷰 3회+)은 전혀 만족하지 않는 신선한 단어.
+      for (var i = 0; i < 3; i++) {
+        await Storage.incrementWrongCount('양극화');
+      }
+      expect(Storage.hardIds(['양극화']), isEmpty);
 
-    await _pump(tester, [_v('양극화'), _v('멀쩡한단어')]);
-    final t = await AppL10n.delegate.load(const Locale('de'));
+      await _pump(tester, [_v('양극화'), _v('멀쩡한단어')]);
+      final t = await AppL10n.delegate.load(const Locale('de'));
 
-    expect(find.text('양극화'), findsOneWidget);
-    expect(find.text('멀쩡한단어'), findsNothing);
-    // 두 CTA 모두 노출 — 철자 퀴즈(신규) + 집중 복습(기존).
-    expect(find.text(t.hardWordsHardQuizCta), findsOneWidget);
-    expect(find.text(t.hardWordsStudyCta), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+      expect(find.text('양극화'), findsOneWidget);
+      expect(find.text('멀쩡한단어'), findsNothing);
+      // 두 CTA 모두 노출 — 철자 퀴즈(신규) + 집중 복습(기존).
+      expect(find.text(t.hardWordsHardQuizCta), findsOneWidget);
+      expect(find.text(t.hardWordsStudyCta), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('empty state when nothing is hard', (tester) async {
     await _pump(tester, [_v('멀쩡한단어')]);

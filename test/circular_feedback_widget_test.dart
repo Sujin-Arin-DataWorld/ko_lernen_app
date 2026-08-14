@@ -77,7 +77,6 @@ void main() {
     expect(completions, 2);
   });
 
-
   testWidgets('daily character requires the guide before completion feedback', (
     tester,
   ) async {
@@ -208,7 +207,6 @@ void main() {
       isNot(firstCard.feedbackContext.completionId),
     );
   });
-
 
   testWidgets('Kkeunmari timeout renders feedback and replay resets identity', (
     tester,

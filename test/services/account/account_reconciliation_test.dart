@@ -1255,10 +1255,7 @@ void main() {
         restored.packProgress['pack-a']?.toJson(),
         snapshot.packProgress['pack-a']?.toJson(),
       );
-      expect(
-        Storage.ownedDecor,
-        ['decoration_soban', 'decoration_munbangsau'],
-      );
+      expect(Storage.ownedDecor, ['decoration_soban', 'decoration_munbangsau']);
       expect(jsonDecode(Storage.srsRawJson), snapshot.srsCards);
     },
   );

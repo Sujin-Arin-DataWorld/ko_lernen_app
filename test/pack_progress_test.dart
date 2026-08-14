@@ -35,25 +35,26 @@ void main() {
     });
 
     test('progressFraction handles zero total', () {
-      final p = PackProgress.fresh(
-        packId: 'p', level: 'A1', wordsTotal: 0,
-      );
+      final p = PackProgress.fresh(packId: 'p', level: 'A1', wordsTotal: 0);
       expect(p.progressFraction, 0.0);
     });
 
     test('progressFraction clamps to 1.0', () {
       final p = PackProgress(
-        packId: 'p', level: 'A1', status: PackStatus.cleared,
-        wordsLearned: 100, wordsTotal: 9,
-        bossAccuracy: 1.0, attempts: 1, clearedAtIso: '2026-01-01',
+        packId: 'p',
+        level: 'A1',
+        status: PackStatus.cleared,
+        wordsLearned: 100,
+        wordsTotal: 9,
+        bossAccuracy: 1.0,
+        attempts: 1,
+        clearedAtIso: '2026-01-01',
       );
       expect(p.progressFraction, 1.0);
     });
 
     test('copyWith preserves immutables', () {
-      final p = PackProgress.fresh(
-        packId: 'p', level: 'A1', wordsTotal: 9,
-      );
+      final p = PackProgress.fresh(packId: 'p', level: 'A1', wordsTotal: 9);
       final p2 = p.copyWith(wordsLearned: 5);
       expect(p2.packId, 'p');
       expect(p2.level, 'A1');
@@ -63,9 +64,14 @@ void main() {
 
     test('copyWith clearClearedAt resets timestamp', () {
       final p = PackProgress(
-        packId: 'p', level: 'A1', status: PackStatus.cleared,
-        wordsLearned: 9, wordsTotal: 9,
-        bossAccuracy: 0.9, attempts: 1, clearedAtIso: '2026-01-01',
+        packId: 'p',
+        level: 'A1',
+        status: PackStatus.cleared,
+        wordsLearned: 9,
+        wordsTotal: 9,
+        bossAccuracy: 0.9,
+        attempts: 1,
+        clearedAtIso: '2026-01-01',
       );
       final p2 = p.copyWith(clearClearedAt: true);
       expect(p2.clearedAtIso, null);
@@ -73,10 +79,13 @@ void main() {
 
     test('toJson / fromJson round-trip', () {
       final p = PackProgress(
-        packId: 'a1_greetings_1', level: 'A1',
+        packId: 'a1_greetings_1',
+        level: 'A1',
         status: PackStatus.cleared,
-        wordsLearned: 9, wordsTotal: 9,
-        bossAccuracy: 0.85, attempts: 2,
+        wordsLearned: 9,
+        wordsTotal: 9,
+        bossAccuracy: 0.85,
+        attempts: 2,
         clearedAtIso: '2026-05-31T12:00:00',
       );
       final json = p.toJson();

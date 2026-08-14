@@ -25,6 +25,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -44,6 +45,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   List<Vocab> _filtered = [];
   int _idx = 0;
   bool _flipped = false;
+  // 플립 전 판정을 시도하면 힌트 칩을 띄운다 (스와이프 발견성).
+  // 카운터만 올리고 표시 수명은 DeckFlipHint 가 관리한다.
+  int _flipHintTick = 0;
   // FlipCard re-key용 서빙 카운터 — 카드 전환 시 뒷면(뜻) 선노출 방지
   // (계약: flip_card.dart doc-comment).
   int _serve = 0;
@@ -313,6 +317,39 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _next();
   }
 
+  /// ↑ 저장 — 즐겨찾기 **추가 전용**. `_toggleFavorite` 를 그대로 쓰면 같은
+  /// 카드를 다시 위로 밀 때 즐겨찾기가 **해제**되고, favorites 모드에서는
+  /// 리스트가 즉석에서 줄어든다. 해제는 별 탭 경로만 담당한다.
+  void _favoriteCurrent() {
+    final v = _current;
+    if (v == null || _favorites.contains(v.korean)) {
+      return;
+    }
+    _toggleFavorite(v.korean);
+  }
+
+  /// 덱 스택 미리보기 — 다음 카드의 **앞면만**. 랩어라운드는 `_next` 와
+  /// 대칭이다 (마지막 카드 뒤에는 첫 카드가 온다).
+  Widget? _nextCardPreview() {
+    if (_filtered.length <= 1) {
+      return null;
+    }
+    final Vocab next = _filtered[(_idx + 1) % _filtered.length];
+    return SoriStudyScale(
+      child: _Front(
+        v: next,
+        koFirst: _koFirst,
+        deckKoreans: _deckKoreans,
+        deckTranslations: _deckTranslations(context),
+      ),
+    );
+  }
+
+  /// 힌트 표시 요청 — 실제 수명(3초)은 [DeckFlipHint] 가 소유한다.
+  void _showFlipFirstHint() {
+    setState(() => _flipHintTick++);
+  }
+
   void _onFlip() {
     HapticFeedback.selectionClick();
     setState(() => _flipped = !_flipped);
@@ -464,124 +501,136 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
                 // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
                 Expanded(
-                  child: Center(
-                    child: FractionallySizedBox(
-                      // 슬롯 핀 (P1) — 4개 덱 화면 공통 finder.
-                      key: const ValueKey('deck-card-slot'),
-                      widthFactor: 1,
-                      heightFactor: 0.82,
-                      child: Stack(
-                        children: [
-                          SoriSwipeCard(
-                            // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                            // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
-                            // 버튼 행도 if (_flipped) 게이트 — 동일 계약.
-                            enabled: _flipped,
-                            onSwipeRight: _gewusst,
-                            onSwipeLeft: _nichtGewusst,
-                            rightBadge: SoriSwipeBadge(
-                              label: t.btnGewusst,
-                              icon: Icons.check_rounded,
-                              color: SoriColors.success,
-                            ),
-                            leftBadge: SoriSwipeBadge(
-                              label: t.btnNichtGewusst,
-                              icon: Icons.close_rounded,
-                              color: SoriColors.danger,
-                            ),
-                            // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
-                            // 애니메이션에서 별이 제자리에 남지 않도록.
-                            child: Stack(
-                              children: [
-                                SoriStudyScale(
-                                  child: KeyedSubtree(
-                                    key: _flashCardKey,
-                                    child: FlipCard(
-                                      key: ValueKey('legacy-$_serve'),
-                                      flipped: _flipped,
-                                      onTap: _onFlip,
-                                      front: _Front(
-                                        v: v,
-                                        koFirst: _koFirst,
-                                        deckKoreans: _deckKoreans,
-                                        deckTranslations: _deckTranslations(
-                                          context,
-                                        ),
-                                      ),
-                                      back: _Back(
-                                        v: v,
-                                        koFirst: _koFirst,
-                                        deckKoreans: _deckKoreans,
-                                        deckTranslations: _deckTranslations(
-                                          context,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Center(
+                        child: FractionallySizedBox(
+                          // 슬롯 핀 (P1) — 4개 덱 화면 공통 finder.
+                          key: const ValueKey('deck-card-slot'),
+                          widthFactor: 1,
+                          heightFactor: 0.82,
+                          child: Stack(
+                            children: [
+                              SoriSwipeCard(
+                                // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
+                                // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
+                                // 버튼 바도 같은 게이트 — 동일 계약.
+                                enabled: _flipped,
+                                onSwipeRight: _gewusst,
+                                onSwipeLeft: _nichtGewusst,
+                                onSwipeUp: _favoriteCurrent,
+                                onSwipeDown: _skip,
+                                onBlockedHorizontalDrag: _showFlipFirstHint,
+                                underlay: _nextCardPreview(),
+                                rightBadge: SoriSwipeBadge(
+                                  label: t.btnGewusst,
+                                  icon: Icons.check_rounded,
+                                  color: SoriColors.success,
+                                  asset: deckActionAsset('know'),
+                                ),
+                                leftBadge: SoriSwipeBadge(
+                                  label: t.btnNichtGewusst,
+                                  icon: Icons.question_mark_rounded,
+                                  color: SoriColors.danger,
+                                  asset: deckActionAsset('dontknow'),
+                                ),
+                                upBadge: SoriSwipeBadge(
+                                  label: t.deckActionSave,
+                                  icon: Icons.star_rounded,
+                                  color: SoriColors.gold,
+                                  asset: deckActionAsset('save'),
+                                ),
+                                downBadge: SoriSwipeBadge(
+                                  label: t.btnSkip,
+                                  icon: Icons.arrow_downward_rounded,
+                                  color: SoriColors.info,
+                                  asset: deckActionAsset('skip'),
+                                ),
+                                // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
+                                // 애니메이션에서 별이 제자리에 남지 않도록.
+                                child: Stack(
+                                  children: [
+                                    SoriStudyScale(
+                                      child: KeyedSubtree(
+                                        key: _flashCardKey,
+                                        child: FlipCard(
+                                          key: ValueKey('legacy-$_serve'),
+                                          flipped: _flipped,
+                                          onTap: _onFlip,
+                                          front: _Front(
+                                            v: v,
+                                            koFirst: _koFirst,
+                                            deckKoreans: _deckKoreans,
+                                            deckTranslations: _deckTranslations(
+                                              context,
+                                            ),
+                                          ),
+                                          back: _Back(
+                                            v: v,
+                                            koFirst: _koFirst,
+                                            deckKoreans: _deckKoreans,
+                                            deckTranslations: _deckTranslations(
+                                              context,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 12,
-                                  right: 12,
-                                  child: SoriPressable(
-                                    onTap: () => _toggleFavorite(v.korean),
-                                    haptic: SoriHaptic.light,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: SoriSurfaces.of(
-                                          context,
-                                        ).bg.withValues(alpha: 0.4),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Icon(
-                                        _favorites.contains(v.korean)
-                                            ? Icons.star_rounded
-                                            : Icons.star_outline_rounded,
-                                        color: _favorites.contains(v.korean)
-                                            ? SoriColors.warning
-                                            : SoriSurfaces.of(context).textDim,
-                                        size: 28,
+                                    Positioned(
+                                      top: 12,
+                                      right: 12,
+                                      child: SoriPressable(
+                                        onTap: () => _toggleFavorite(v.korean),
+                                        haptic: SoriHaptic.light,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            color: SoriSurfaces.of(
+                                              context,
+                                            ).bg.withValues(alpha: 0.4),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Icon(
+                                            _favorites.contains(v.korean)
+                                                ? Icons.star_rounded
+                                                : Icons.star_outline_rounded,
+                                            color: _favorites.contains(v.korean)
+                                                ? SoriColors.warning
+                                                : SoriSurfaces.of(
+                                                    context,
+                                                  ).textDim,
+                                            size: 28,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                      DeckFlipHint(trigger: _flipHintTick),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 12),
 
-                // Answer buttons (only when flipped)
-                if (_flipped) ...[
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnGewusst,
-                          icon: Icons.check,
-                          accent: SoriColors.success,
-                          fullWidth: true,
-                          onTap: _gewusst,
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close,
-                          fullWidth: true,
-                          destructive: true,
-                          onTap: _nichtGewusst,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                ],
+                // Sori Deck 2.0 — 판정 행을 **항상 표시되는** 아이콘 바로
+                // 흡수했다. 예전엔 `if (_flipped)` 라 뒤집는 순간 행이
+                // 나타나며 카드 높이가 64px 줄었다 (플립마다 카드가 튀는
+                // 원인). 이제 자리를 늘 지키고 잠금은 투명도로만 말한다.
+                DeckActionBar(
+                  onDontKnow: _nichtGewusst,
+                  onKnow: _gewusst,
+                  onSkip: _skip,
+                  onSave: _favoriteCurrent,
+                  judgmentEnabled: _flipped,
+                  onBlockedJudgment: _showFlipFirstHint,
+                ),
+                const SizedBox(height: Spacing.sm),
 
                 // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
                 Row(
@@ -651,15 +700,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                         ),
                       ),
                     ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriButton.outlined(
-                        label: t.btnSkip,
-                        icon: Icons.skip_next,
-                        fullWidth: true,
-                        onTap: _skip,
-                      ),
-                    ),
+                    // Skip 은 위 DeckActionBar 로 흡수됐다 (중복 제거).
+                    // prev·Hören·Random 은 4버튼 바 스코프 밖이라 유지한다.
                     const SizedBox(width: Spacing.xs + 2),
                     Expanded(
                       child: SoriButton.outlined(

@@ -10836,6 +10836,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gesperrt'**
   String get soriStageActivityLocked;
+
+  /// Deck: Karte ins Wörterbuch legen (nach oben wischen)
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get deckActionSave;
+
+  /// Hinweis, wenn vor dem Umdrehen gewischt wird
+  ///
+  /// In de, this message translates to:
+  /// **'Erst antippen und umdrehen'**
+  String get deckFlipFirstHint;
+
+  /// Coachmark für das 4-Wege-Kartendeck
+  ///
+  /// In de, this message translates to:
+  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
+  String get coachSoriDeckBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

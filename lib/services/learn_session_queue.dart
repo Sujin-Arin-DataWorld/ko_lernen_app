@@ -23,6 +23,9 @@ enum LearnAnswerOutcome {
 
   /// [LearnSessionQueue.maxMisses]번째 몰라요 — 세션에서는 더 묻지 않는다.
   graduated,
+
+  /// 스킵(아래 스와이프) — 몇 장 뒤에 다시 나온다. 실패로 **세지 않는다**.
+  deferred,
 }
 
 class LearnSessionQueue<T> {
@@ -83,6 +86,23 @@ class LearnSessionQueue<T> {
     _queue.insert(math.min(reinsertGap, _queue.length), item);
     return LearnAnswerOutcome.requeued;
   }
+
+  /// 스킵 — 지금은 답하지 않고 몇 장 뒤로 미룬다.
+  ///
+  /// [markUnknown] 과 재삽입 기하는 같지만 **실패를 세지 않는다**: 스킵은
+  /// 판정이 아니므로 졸업(=Extra-Lernset 편입) 경로를 타면 안 된다. 큐가
+  /// 한 장뿐이면 재삽입이 곧 같은 카드 재서빙이고, 그건 유효하다 —
+  /// 무한 스킵은 사용자의 선택이다.
+  LearnAnswerOutcome defer() {
+    _requireCurrent();
+    final item = _queue.removeAt(0);
+    _queue.insert(math.min(reinsertGap, _queue.length), item);
+    return LearnAnswerOutcome.deferred;
+  }
+
+  /// 다음에 서빙될 항목 — 덱 스택(underlay) 미리보기 전용 **읽기** API.
+  /// 큐를 전혀 바꾸지 않는다.
+  T? get peekNext => _queue.length > 1 ? _queue[1] : null;
 
   void _requireCurrent() {
     if (_queue.isEmpty) {

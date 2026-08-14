@@ -220,8 +220,7 @@ void main() {
     expect(
       ragged,
       isEmpty,
-      reason:
-          '열이 밀렸다. 셀 안에 쉼표를 넣으려면 셀 전체를 따옴표로 감싸야 한다: $ragged',
+      reason: '열이 밀렸다. 셀 안에 쉼표를 넣으려면 셀 전체를 따옴표로 감싸야 한다: $ragged',
     );
   });
 }

@@ -32,7 +32,10 @@ void main() {
     for (final word in ['하다', '양극화', '값', '띄어쓰기']) {
       for (final rune in word.runes) {
         final p = decomposeHangulSyllable(rune)!;
-        expect(composeHangulSyllable(p.$1, p.$2, p.$3), String.fromCharCode(rune));
+        expect(
+          composeHangulSyllable(p.$1, p.$2, p.$3),
+          String.fromCharCode(rune),
+        );
       }
     }
     expect(composeHangulSyllable('ㅏ', 'ㅏ', ''), isNull); // 초성 자리에 모음
@@ -86,11 +89,7 @@ void main() {
     for (var seed = 0; seed < 40; seed++) {
       all.addAll(nearMissDistractors('하다', rng: math.Random(seed), count: 3));
     }
-    final out = nearMissDistractors(
-      '하다',
-      rng: math.Random(1),
-      blocklist: all,
-    );
+    final out = nearMissDistractors('하다', rng: math.Random(1), blocklist: all);
     expect(out, isNot(contains('하다')));
     expect(out, hasLength(3)); // 3차 폴백이 blocklist 충돌을 허용
   });

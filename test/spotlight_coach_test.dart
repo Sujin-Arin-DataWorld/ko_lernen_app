@@ -55,7 +55,9 @@ void main() {
       expect(completed, isTrue);
     });
 
-    testWidgets('GlobalKey 미부착(측정 불가) → 모든 단계 skip → onComplete', (tester) async {
+    testWidgets('GlobalKey 미부착(측정 불가) → 모든 단계 skip → onComplete', (
+      tester,
+    ) async {
       // targetKey를 아무 위젯에도 부착하지 않음 → currentContext == null → skip
       final unmountedKey = GlobalKey();
       bool completed = false;
@@ -268,9 +270,7 @@ void main() {
     });
 
     test('resetTutorials 후 false 복귀', () async {
-      SharedPreferences.setMockInitialValues({
-        'kl_tut_home_tour': true,
-      });
+      SharedPreferences.setMockInitialValues({'kl_tut_home_tour': true});
       await Storage.init();
       expect(Storage.tutHomeTourSeen, isTrue);
       await Storage.resetTutorials();

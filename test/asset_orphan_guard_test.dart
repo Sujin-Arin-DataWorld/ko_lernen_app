@@ -64,7 +64,8 @@ void main() {
       expect(
         libSource.contains(evidence),
         isTrue,
-        reason: '$dir 를 동적 조립 폴더로 면제했는데 lib/ 에 "$evidence" 가 '
+        reason:
+            '$dir 를 동적 조립 폴더로 면제했는데 lib/ 에 "$evidence" 가 '
             '없습니다 — 렌더 코드가 사라졌다면 폴더째 고아입니다',
       );
     });
@@ -96,7 +97,8 @@ void main() {
     expect(
       orphans,
       isEmpty,
-      reason: '이 파일들은 AAB 에 들어가는데 lib/ 어디서도 안 부릅니다.\n'
+      reason:
+          '이 파일들은 AAB 에 들어가는데 lib/ 어디서도 안 부릅니다.\n'
           '셋 중 하나를 하세요 — ① 실제로 배선한다, '
           '② assets_unused/pending_review/ 로 격리하고 README 에 사유·복원조건을 '
           '적는다, ③ 런타임 조립이면 dynamicDirs 에 조립 근거와 함께 등록한다.\n'

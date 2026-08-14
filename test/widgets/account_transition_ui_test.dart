@@ -583,8 +583,7 @@ void main() {
   );
 }
 
-Future<AccountUiPendingState> _readsNone() async =>
-    AccountUiPendingState.none;
+Future<AccountUiPendingState> _readsNone() async => AccountUiPendingState.none;
 
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),

@@ -55,7 +55,10 @@ void main() {
 
   group('키 전송', () {
     test('enum 이름을 키로 쓴다', () async {
-      await DiagnosticsService.setKey(DiagnosticKey.currentRoute, '/vocab/pack');
+      await DiagnosticsService.setKey(
+        DiagnosticKey.currentRoute,
+        '/vocab/pack',
+      );
       expect(sink.keys, containsPair('currentRoute', '/vocab/pack'));
     });
 
@@ -100,10 +103,7 @@ void main() {
 
     test('breadcrumb 도 길이 상한을 지킨다', () async {
       await DiagnosticsService.logBreadcrumb('e' * 500);
-      expect(
-        sink.messages.single.length,
-        DiagnosticsService.maxMessageLength,
-      );
+      expect(sink.messages.single.length, DiagnosticsService.maxMessageLength);
     });
 
     test('상한이 사용자 입력을 통째로 담기엔 충분히 짧다', () {

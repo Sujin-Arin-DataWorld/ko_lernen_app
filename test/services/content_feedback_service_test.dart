@@ -38,13 +38,14 @@ void main() {
   );
 
   test('resume does not report an ID when durable deletion fails', () async {
-    final store = _MemoryStore(
-      <ContentFeedbackOutboxItem>[_pending('feedback-still-queued')],
-      failNextClear: true,
-    );
+    final store = _MemoryStore(<ContentFeedbackOutboxItem>[
+      _pending('feedback-still-queued'),
+    ], failNextClear: true);
     final service = _service(
       store: store,
-      client: _SequencedClient(<Object>[ContentFeedbackAcknowledgement.accepted]),
+      client: _SequencedClient(<Object>[
+        ContentFeedbackAcknowledgement.accepted,
+      ]),
     );
 
     final result = await service.resumePending();
@@ -103,8 +104,10 @@ ContentFeedbackOutboxItem _pending(String feedbackId) {
 }
 
 class _MemoryStore implements FeedbackOutboxStore {
-  _MemoryStore(List<ContentFeedbackOutboxItem> items, {this.failNextClear = false})
-    : items = List.of(items);
+  _MemoryStore(
+    List<ContentFeedbackOutboxItem> items, {
+    this.failNextClear = false,
+  }) : items = List.of(items);
 
   List<ContentFeedbackOutboxItem> items;
   bool failNextClear;

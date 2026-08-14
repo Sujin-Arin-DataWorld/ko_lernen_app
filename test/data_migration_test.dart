@@ -215,7 +215,11 @@ void main() {
       );
 
       expect(result.status, DataMigrationStatus.failed);
-      expect(prefs.getString('kl_keep'), 'original', reason: '변형된 값이 되돌아오지 않았다');
+      expect(
+        prefs.getString('kl_keep'),
+        'original',
+        reason: '변형된 값이 되돌아오지 않았다',
+      );
       expect(
         prefs.getString('kl_half_written'),
         isNull,
@@ -264,7 +268,10 @@ void main() {
         steps: {2: (p) async {}},
       );
 
-      expect(prefs.getString(DataMigrationService.journalPreferenceKey), isNull);
+      expect(
+        prefs.getString(DataMigrationService.journalPreferenceKey),
+        isNull,
+      );
       expect(prefs.getString(DataMigrationService.backupPreferenceKey), isNull);
     });
 
@@ -273,13 +280,12 @@ void main() {
       await DataMigrationService.run(
         preferences: prefs,
         targetVersion: 3,
-        steps: {
-          2: (p) async {},
-          3: (p) async => throw StateError('실패'),
-        },
+        steps: {2: (p) async {}, 3: (p) async => throw StateError('실패')},
       );
 
-      final journal = prefs.getString(DataMigrationService.journalPreferenceKey);
+      final journal = prefs.getString(
+        DataMigrationService.journalPreferenceKey,
+      );
       expect(journal, isNotNull);
       final decoded = jsonDecode(journal!) as Map<String, dynamic>;
       expect(decoded['step'], 2, reason: '2단계까지는 끝났다는 기록이 남아야 한다');
@@ -333,11 +339,7 @@ void main() {
       await bootWith({DataMigrationService.versionPreferenceKey: 99});
       await DataMigrationService.run(preferences: prefs, targetVersion: 1);
 
-      expect(
-        storedVersion(),
-        99,
-        reason: '도장을 낮추면 다음 신버전 실행이 마이그레이션을 다시 돌린다',
-      );
+      expect(storedVersion(), 99, reason: '도장을 낮추면 다음 신버전 실행이 마이그레이션을 다시 돌린다');
     });
 
     test('정상 상태로 돌아오면 잠금이 풀린다', () async {

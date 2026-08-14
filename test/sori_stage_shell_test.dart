@@ -25,9 +25,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
 
     expect(find.byType(SoriStageShell), findsOneWidget);
@@ -45,9 +43,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
 
     expect(find.byType(NavigationRail), findsOneWidget);
@@ -62,9 +58,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
     await tester.tap(find.text('Games').last);
     await tester.pump();

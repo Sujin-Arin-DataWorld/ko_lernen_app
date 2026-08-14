@@ -6,24 +6,24 @@ import 'package:ko_lernen_app/services/personalized_lesson_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 Vocab _v(String ko, String level, String topic) => Vocab(
-      korean: ko,
-      romanization: '',
-      german: 'x',
-      level: level,
-      posDe: '',
-      exampleKorean: '',
-      exampleGerman: '',
-      topic: topic,
-    );
+  korean: ko,
+  romanization: '',
+  german: 'x',
+  level: level,
+  posDe: '',
+  exampleKorean: '',
+  exampleGerman: '',
+  topic: topic,
+);
 
 SmalltalkPhrase _sp(String cat, String level) => SmalltalkPhrase(
-      category: cat,
-      level: level,
-      kind: 'question',
-      ko: 'q',
-      de: 'q',
-      en: 'q',
-    );
+  category: cat,
+  level: level,
+  kind: 'question',
+  ko: 'q',
+  de: 'q',
+  en: 'q',
+);
 
 void main() {
   setUp(() async {
@@ -70,8 +70,10 @@ void main() {
   });
 
   test('smalltalkCategoriesFor: travel → enthält travel; leer → leer', () {
-    expect(PersonalizedLessonService.smalltalkCategoriesFor({'travel'}),
-        contains('travel'));
+    expect(
+      PersonalizedLessonService.smalltalkCategoriesFor({'travel'}),
+      contains('travel'),
+    );
     expect(PersonalizedLessonService.smalltalkCategoriesFor(const {}), isEmpty);
   });
 

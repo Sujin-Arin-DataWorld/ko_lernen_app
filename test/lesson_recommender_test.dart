@@ -29,15 +29,22 @@ void main() {
   Future<void> store(String id, String level, int total, PackStatus s) async {
     await Storage.setPackProgressJson(
       id,
-      PackProgress.fresh(packId: id, level: level, wordsTotal: total, status: s)
-          .toJson(),
+      PackProgress.fresh(
+        packId: id,
+        level: level,
+        wordsTotal: total,
+        status: s,
+      ).toJson(),
     );
   }
 
   test('번들 CSV 가 테스트에서 로드된다 (전제)', () async {
     final all = await VocabPackService.loadAll();
-    expect(all, isNotEmpty,
-        reason: 'korean_vocab.csv 가 flutter test 에서 로드되어야 함');
+    expect(
+      all,
+      isNotEmpty,
+      reason: 'korean_vocab.csv 가 flutter test 에서 로드되어야 함',
+    );
     expect(all.any((p) => p.level == 'A1'), isTrue);
   });
 

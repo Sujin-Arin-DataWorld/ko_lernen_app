@@ -117,18 +117,21 @@ void main() {
       expect(Storage.pendingBoxes, ['q_punggyeong']);
     });
 
-    test('finishes a completion with an already-persisted reward box', () async {
-      for (var i = 0; i < 10; i++) {
-        await Storage.incKkeunmariWins();
-      }
-      await Storage.addPendingBox('q_punggyeong');
+    test(
+      'finishes a completion with an already-persisted reward box',
+      () async {
+        for (var i = 0; i < 10; i++) {
+          await Storage.incKkeunmariWins();
+        }
+        await Storage.addPendingBox('q_punggyeong');
 
-      final list = await QuestTracker.computeAll();
-      await QuestTracker.persistNewCompletions(list);
+        final list = await QuestTracker.computeAll();
+        await QuestTracker.persistNewCompletions(list);
 
-      expect(Storage.hasQuestCompleted('q_punggyeong'), isTrue);
-      expect(Storage.pendingBoxes, ['q_punggyeong']);
-    });
+        expect(Storage.hasQuestCompleted('q_punggyeong'), isTrue);
+        expect(Storage.pendingBoxes, ['q_punggyeong']);
+      },
+    );
 
     test('idempotent — second call no-op', () async {
       await Storage.markQuestCompleted('q_kkachi_nest');

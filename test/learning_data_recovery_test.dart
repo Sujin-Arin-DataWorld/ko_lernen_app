@@ -320,7 +320,8 @@ void main() {
       expect(
         payload.containsKey('srs_json'),
         isFalse,
-        reason: '손상본을 올리면 기기 한 대의 손상이 클라우드의 멀쩡한 백업을 덮어써 '
+        reason:
+            '손상본을 올리면 기기 한 대의 손상이 클라우드의 멀쩡한 백업을 덮어써 '
             '모든 기기로 번진다. write 는 merge:true 라 키를 빼면 서버 값이 남는다.',
       );
       // 나머지 진행도는 계속 백업된다 — 전체 동기화를 멈추는 게 아니다.

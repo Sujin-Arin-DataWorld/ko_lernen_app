@@ -60,12 +60,15 @@ void main() {
       expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
     });
 
-    test('wrong review → due again today (interval reset to 1, aber heute schon erledigt sodass nextReview=morgen)', () async {
-      // SM-2 (storage_service.dart): falsch → intervalDays=1, nextReviewIso=today+1d
-      // → also nicht heute fällig.
-      await Storage.srsReview('a', gotIt: false);
-      expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
-    });
+    test(
+      'wrong review → due again today (interval reset to 1, aber heute schon erledigt sodass nextReview=morgen)',
+      () async {
+        // SM-2 (storage_service.dart): falsch → intervalDays=1, nextReviewIso=today+1d
+        // → also nicht heute fällig.
+        await Storage.srsReview('a', gotIt: false);
+        expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
+      },
+    );
 
     test('caps to max', () async {
       // Simuliere mehrere Karten mit nextReviewIso in der Vergangenheit.

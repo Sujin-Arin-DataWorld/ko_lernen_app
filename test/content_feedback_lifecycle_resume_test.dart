@@ -91,7 +91,9 @@ void main() {
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
     await tester.pumpAndSettle();
 
-    expect(deliveries.deliveredFeedbackIds, const <String>{'feedback-delivered'});
+    expect(deliveries.deliveredFeedbackIds, const <String>{
+      'feedback-delivered',
+    });
   });
 
   testWidgets('disposed observers do not report a late resume result', (

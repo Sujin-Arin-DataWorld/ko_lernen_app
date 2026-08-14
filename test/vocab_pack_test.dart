@@ -18,8 +18,14 @@ void main() {
   group('Vocab.fromRow', () {
     test('handles legacy 8-column row (no pack info)', () {
       final v = Vocab.fromRow(const [
-        '안녕', 'annyeong', 'Hallo', 'A1',
-        'Ausdruck', '안녕!', 'Hallo!', 'Begrüßung',
+        '안녕',
+        'annyeong',
+        'Hallo',
+        'A1',
+        'Ausdruck',
+        '안녕!',
+        'Hallo!',
+        'Begrüßung',
       ]);
       expect(v.korean, '안녕');
       expect(v.packId, '');
@@ -29,9 +35,17 @@ void main() {
 
     test('handles 11-column row (with pack info)', () {
       final v = Vocab.fromRow(const [
-        '안녕', 'annyeong', 'Hallo', 'A1',
-        'Ausdruck', '안녕!', 'Hallo!', 'Begrüßung',
-        'a1_greetings_1', '2', 'true',
+        '안녕',
+        'annyeong',
+        'Hallo',
+        'A1',
+        'Ausdruck',
+        '안녕!',
+        'Hallo!',
+        'Begrüßung',
+        'a1_greetings_1',
+        '2',
+        'true',
       ]);
       expect(v.packId, 'a1_greetings_1');
       expect(v.packOrder, 2);
@@ -40,12 +54,32 @@ void main() {
 
     test('handles is_review_boss capitalization variants', () {
       final v1 = Vocab.fromRow(const [
-        'a', 'a', 'A', 'A1', '', '', '', 'T', 'p', '1', 'TRUE',
+        'a',
+        'a',
+        'A',
+        'A1',
+        '',
+        '',
+        '',
+        'T',
+        'p',
+        '1',
+        'TRUE',
       ]);
       expect(v1.isReviewBoss, true);
 
       final v2 = Vocab.fromRow(const [
-        'a', 'a', 'A', 'A1', '', '', '', 'T', 'p', '1', 'False',
+        'a',
+        'a',
+        'A',
+        'A1',
+        '',
+        '',
+        '',
+        'T',
+        'p',
+        '1',
+        'False',
       ]);
       expect(v2.isReviewBoss, false);
     });
@@ -116,10 +150,7 @@ void main() {
     });
 
     test('unknown pack falls back to id', () {
-      expect(
-        VocabPackService.displayLabel('zz_unknown_99'),
-        'zz_unknown_99',
-      );
+      expect(VocabPackService.displayLabel('zz_unknown_99'), 'zz_unknown_99');
     });
   });
 
@@ -144,22 +175,22 @@ void main() {
   });
 }
 
-Vocab _v(String korean, {
+Vocab _v(
+  String korean, {
   String packId = '',
   int packOrder = 0,
   bool isBoss = false,
   String level = 'A1',
-}) =>
-    Vocab(
-      korean: korean,
-      romanization: korean,
-      german: korean,
-      level: level,
-      posDe: '',
-      exampleKorean: '',
-      exampleGerman: '',
-      topic: '',
-      packId: packId,
-      packOrder: packOrder,
-      isReviewBoss: isBoss,
-    );
+}) => Vocab(
+  korean: korean,
+  romanization: korean,
+  german: korean,
+  level: level,
+  posDe: '',
+  exampleKorean: '',
+  exampleGerman: '',
+  topic: '',
+  packId: packId,
+  packOrder: packOrder,
+  isReviewBoss: isBoss,
+);

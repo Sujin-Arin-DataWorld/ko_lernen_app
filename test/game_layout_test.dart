@@ -228,11 +228,7 @@ void main() {
         final spread =
             heights.reduce((a, b) => a > b ? a : b) -
             heights.reduce((a, b) => a < b ? a : b);
-        expect(
-          spread,
-          lessThan(0.01),
-          reason: '타일 높이가 서로 달라졌다: $heights',
-        );
+        expect(spread, lessThan(0.01), reason: '타일 높이가 서로 달라졌다: $heights');
 
         final labels = find.text(longGerman);
         expect(labels, findsNWidgets(scenario.expectedPairs));

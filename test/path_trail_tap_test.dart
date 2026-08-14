@@ -24,8 +24,8 @@ List<SoriPathStop> _buildStops(int n, void Function(String id) onTap) {
         status: i < 3
             ? PackStatus.cleared
             : i == 3
-                ? PackStatus.inProgress
-                : PackStatus.locked,
+            ? PackStatus.inProgress
+            : PackStatus.locked,
         fraction: i == 3 ? 0.62 : 0,
         isNow: i == 3,
         nodeKey: ValueKey('pack_$i'),
@@ -65,17 +65,17 @@ void main() {
   // "동작 줄이기"를 켜 펄스를 멈춘다 → pumpAndSettle 정상화(a11y 경로도 검증).
   setUp(() {
     TestWidgetsFlutterBinding.ensureInitialized()
-            .platformDispatcher
-            .accessibilityFeaturesTestValue =
-        const FakeAccessibilityFeatures(disableAnimations: true);
+        .platformDispatcher
+        .accessibilityFeaturesTestValue = const FakeAccessibilityFeatures(
+      disableAnimations: true,
+    );
   });
   tearDown(() {
     TestWidgetsFlutterBinding.instance.platformDispatcher
         .clearAccessibilityFeaturesTestValue();
   });
 
-  testWidgets('레벨 하나의 팩 19개가 전부 탭된다 (하나도 빠지지 않음)',
-      (tester) async {
+  testWidgets('레벨 하나의 팩 19개가 전부 탭된다 (하나도 빠지지 않음)', (tester) async {
     const n = 19;
     final tapped = <String>{};
     await tester.pumpWidget(_host(_buildStops(n, tapped.add)));
@@ -90,10 +90,13 @@ void main() {
       await tester.pump();
     }
 
-    expect(tapped.length, n, reason: '탭이 누락된 팩: ${{
-      for (var i = 0; i < n; i++)
-        if (!tapped.contains('pack_$i')) 'pack_$i',
-    }}');
+    expect(
+      tapped.length,
+      n,
+      reason:
+          '탭이 누락된 팩: ${{for (var i = 0; i < n; i++)
+            if (!tapped.contains('pack_$i')) 'pack_$i'}}',
+    );
   });
 
   testWidgets('4개 레벨 76개 팩 전부 탭된다', (tester) async {
@@ -112,8 +115,7 @@ void main() {
     expect(tapped.length, n);
   });
 
-  testWidgets('잠금 노드도 탭이 잡힌다 (잠금 힌트를 띄워야 하므로)',
-      (tester) async {
+  testWidgets('잠금 노드도 탭이 잡힌다 (잠금 힌트를 띄워야 하므로)', (tester) async {
     final tapped = <String>{};
     await tester.pumpWidget(_host(_buildStops(8, tapped.add)));
     await tester.pumpAndSettle();
@@ -125,13 +127,15 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(f);
       await tester.pump();
-      expect(tapped.contains('pack_$i'), isTrue,
-          reason: '잠금 노드 pack_$i 가 탭에 반응하지 않았다');
+      expect(
+        tapped.contains('pack_$i'),
+        isTrue,
+        reason: '잠금 노드 pack_$i 가 탭에 반응하지 않았다',
+      );
     }
   });
 
-  testWidgets('탭 타깃이 Material 최소 48dp 이상이고 서로 겹치지 않는다',
-      (tester) async {
+  testWidgets('탭 타깃이 Material 최소 48dp 이상이고 서로 겹치지 않는다', (tester) async {
     const n = 12;
     await tester.pumpWidget(_host(_buildStops(n, (_) {})));
     await tester.pumpAndSettle();
@@ -145,14 +149,16 @@ void main() {
     }
     for (var i = 0; i < n; i++) {
       for (var j = i + 1; j < n; j++) {
-        expect(rects[i].overlaps(rects[j]), isFalse,
-            reason: '노드 $i 와 $j 의 탭 영역이 겹친다 — 위 노드가 탭을 가로챈다');
+        expect(
+          rects[i].overlaps(rects[j]),
+          isFalse,
+          reason: '노드 $i 와 $j 의 탭 영역이 겹친다 — 위 노드가 탭을 가로챈다',
+        );
       }
     }
   });
 
-  testWidgets('노드가 트랙 밖으로 나가지 않는다 (clip → 탭 소실 방지)',
-      (tester) async {
+  testWidgets('노드가 트랙 밖으로 나가지 않는다 (clip → 탭 소실 방지)', (tester) async {
     const n = 12;
     const width = 360.0;
     await tester.pumpWidget(_host(_buildStops(n, (_) {}), width: width));
@@ -161,10 +167,16 @@ void main() {
     final track = tester.getRect(find.byType(SoriPathTrail));
     for (var i = 0; i < n; i++) {
       final r = tester.getRect(find.byKey(ValueKey('pack_$i')));
-      expect(r.left, greaterThanOrEqualTo(track.left - 0.5),
-          reason: '노드 $i 가 왼쪽으로 넘쳤다');
-      expect(r.right, lessThanOrEqualTo(track.right + 0.5),
-          reason: '노드 $i 가 오른쪽으로 넘쳤다');
+      expect(
+        r.left,
+        greaterThanOrEqualTo(track.left - 0.5),
+        reason: '노드 $i 가 왼쪽으로 넘쳤다',
+      );
+      expect(
+        r.right,
+        lessThanOrEqualTo(track.right + 0.5),
+        reason: '노드 $i 가 오른쪽으로 넘쳤다',
+      );
     }
   });
 
@@ -184,8 +196,7 @@ void main() {
     expect(tapped.length, n);
   });
 
-  testWidgets('큰 글자 설정(textScale 1.8)에서도 오버플로 없이 전부 탭된다',
-      (tester) async {
+  testWidgets('큰 글자 설정(textScale 1.8)에서도 오버플로 없이 전부 탭된다', (tester) async {
     const n = 10;
     final tapped = <String>{};
     await tester.pumpWidget(

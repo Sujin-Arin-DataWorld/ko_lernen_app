@@ -49,11 +49,13 @@ void main() {
     expect(Storage.pendingBoxes.length, boxes);
   });
 
-  test('syncEarnedRewards never throws and is idempotent on a clean state',
-      () async {
-    await QuestTracker.syncEarnedRewards();
-    final boxes = Storage.pendingBoxes.length;
-    await QuestTracker.syncEarnedRewards();
-    expect(Storage.pendingBoxes.length, boxes);
-  });
+  test(
+    'syncEarnedRewards never throws and is idempotent on a clean state',
+    () async {
+      await QuestTracker.syncEarnedRewards();
+      final boxes = Storage.pendingBoxes.length;
+      await QuestTracker.syncEarnedRewards();
+      expect(Storage.pendingBoxes.length, boxes);
+    },
+  );
 }

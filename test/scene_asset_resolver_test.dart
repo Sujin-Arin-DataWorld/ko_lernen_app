@@ -159,7 +159,11 @@ void main() {
         'lib/models/scenario.dart',
       ).readAsStringSync().replaceAll('\r\n', '\n');
       final start = src.indexOf('static const _categoryById');
-      expect(start, greaterThanOrEqualTo(0), reason: '_categoryById 를 찾지 못했습니다');
+      expect(
+        start,
+        greaterThanOrEqualTo(0),
+        reason: '_categoryById 를 찾지 못했습니다',
+      );
       final end = src.indexOf('\n  };\n', start);
       expect(end, greaterThan(start));
       return RegExp(r"'([a-z0-9_]+)': '([a-z]+)'")

@@ -35,6 +35,7 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
@@ -168,6 +169,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
   // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
   int _learnServe = 0;
+  // 플립 전 판정을 시도하면 힌트 칩을 띄운다 (스와이프 발견성).
+  // 카운터만 올리고 표시 수명은 DeckFlipHint 가 관리한다.
+  int _flipHintTick = 0;
 
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
@@ -357,6 +361,49 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
     _advanceLearn();
+  }
+
+  /// ↑ 저장 — 판정이 아니다. SRS·오답 카운터·ledger 를 건드리지 않고
+  /// 단어만 빠른 저장 팩에 넣는다. 카드는 전진하지 않는다 (저장은 전진이
+  /// 아니다 — 스와이프도 제자리로 돌아온다).
+  void _saveCurrent() {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    final lang = Localizations.localeOf(context).languageCode;
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: cur.korean,
+      translationDe: cur.german,
+      translationEn: cur.translationFor('en'),
+      romanization: cur.romanization,
+      posDe: cur.posDe,
+      exampleKorean: cur.exampleKorean,
+      exampleDe: cur.exampleFor(lang),
+      source: 'deck_swipe',
+    );
+  }
+
+  /// ↓ 스킵 — "모르는 티 안 내고 넘기기". 판정이 아니므로 SRS·오답 카운터에
+  /// 아무것도 남기지 않고, 실패로도 세지 않는다([LearnSessionQueue.defer]).
+  /// 재서빙 리셋은 `_advanceLearn` 이 맡는다 — defer 는 큐를 비우지 않으므로
+  /// 거기서 `isDone → _enterQuiz` 분기가 발동할 일은 없다.
+  void _learnDefer() {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    _learnQueue?.defer();
+    _advanceLearn();
+  }
+
+  /// 플립 전 판정을 시도했을 때 — 카드를 먼저 뒤집으라는 1회성 힌트.
+  /// 힌트 표시 요청 — 실제 수명(3초)은 [DeckFlipHint] 가 소유한다.
+  void _showFlipFirstHint() {
+    setState(() => _flipHintTick++);
   }
 
   void _advanceLearn() {
@@ -845,92 +892,133 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ],
         ),
         const SizedBox(height: Spacing.md),
-        // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-        // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
+        // Sori Deck 2.0 — 4방향: 우=앎 · 좌=모름 · 위=저장 · 아래=스킵.
+        // 하단 아이콘 바는 접근성 정본이고 스와이프는 가속 경로다.
         Expanded(
           // 바깥 LayoutBuilder 는 **슬롯 높이의 소스일 뿐**이다 (box.maxHeight).
           // 타이포 계산은 아래 SoriStudyScale 안쪽 LayoutBuilder 에 남는다.
           child: LayoutBuilder(
             builder: (context, box) {
-              return SoriSwipeCard(
-                enabled: _learnCardRevealed,
-                onSwipeRight: _learnGotIt,
-                onSwipeLeft: _learnDontKnow,
-                rightBadge: SoriSwipeBadge(
-                  label: t.vocabPackGotIt,
-                  icon: Icons.check_rounded,
-                  color: SoriColors.success,
-                ),
-                leftBadge: SoriSwipeBadge(
-                  label: t.vocabPackDontKnow,
-                  icon: Icons.close_rounded,
-                  color: SoriColors.danger,
-                ),
-                // 카드 슬롯 고정 (P1). SoriSwipeCard 내부 Stack 은 기본 loose 라
-                // 바깥에서 죈 제약이 자식까지 안 내려간다 → 핀은 child 안쪽에
-                // 있어야 한다. width 가 없으면 FlipCard._fitFace 의 세로
-                // SingleChildScrollView 가 가로 제약을 loose 로 통과시켜
-                // SoriCard 가 텍스트 내재폭으로 신축한다 (= 단어 길이에 따라
-                // 카드가 커졌다 작아졌다 하는 회귀). 절대 지우지 말 것.
-                child: SizedBox(
-                  key: const ValueKey('deck-card-slot'),
-                  width: double.infinity,
-                  height: box.maxHeight.isFinite ? box.maxHeight : null,
-                  child: SoriStudyScale(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final h = soriStudyTypeScaleHeight(context);
-                        final headlineSize = soriUniformFitSize(
-                          context,
-                          texts: [for (final w in _learnWords) w.korean],
-                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                          cap: soriFillSize(h, 0.18, 36, 96),
-                          min: 32,
-                          letterSpacing: -0.5,
-                          lineHeight: 1.05,
-                        );
-                        return FlipCard(
-                          key: ValueKey('learn-$_learnServe'),
-                          flipped: _flipped,
-                          onTap: _toggleLearnFlip,
-                          front: _FlipFront(
-                            v: cur,
-                            h: h,
-                            headlineSize: headlineSize,
-                          ),
-                          back: _FlipBack(v: cur, h: h),
-                        );
-                      },
+              return Stack(
+                children: [
+                  SoriSwipeCard(
+                    enabled: _learnCardRevealed,
+                    onSwipeRight: _learnGotIt,
+                    onSwipeLeft: _learnDontKnow,
+                    onSwipeUp: _saveCurrent,
+                    onSwipeDown: _learnDefer,
+                    onBlockedHorizontalDrag: _showFlipFirstHint,
+                    underlay: _learnUnderlay(box.maxHeight),
+                    rightBadge: SoriSwipeBadge(
+                      label: t.vocabPackGotIt,
+                      icon: Icons.check_rounded,
+                      color: SoriColors.success,
+                      asset: deckActionAsset('know'),
+                    ),
+                    leftBadge: SoriSwipeBadge(
+                      label: t.vocabPackDontKnow,
+                      icon: Icons.question_mark_rounded,
+                      color: SoriColors.danger,
+                      asset: deckActionAsset('dontknow'),
+                    ),
+                    upBadge: SoriSwipeBadge(
+                      label: t.deckActionSave,
+                      icon: Icons.redeem_rounded,
+                      color: SoriColors.gold,
+                      asset: deckActionAsset('save'),
+                    ),
+                    downBadge: SoriSwipeBadge(
+                      label: t.btnSkip,
+                      icon: Icons.arrow_downward_rounded,
+                      color: SoriColors.info,
+                      asset: deckActionAsset('skip'),
+                    ),
+                    // 카드 슬롯 고정 (P1). SoriSwipeCard 내부 Stack 은 기본 loose 라
+                    // 바깥에서 죈 제약이 자식까지 안 내려간다 → 핀은 child 안쪽에
+                    // 있어야 한다. width 가 없으면 FlipCard._fitFace 의 세로
+                    // SingleChildScrollView 가 가로 제약을 loose 로 통과시켜
+                    // SoriCard 가 텍스트 내재폭으로 신축한다 (= 단어 길이에 따라
+                    // 카드가 커졌다 작아졌다 하는 회귀). 절대 지우지 말 것.
+                    child: SizedBox(
+                      key: const ValueKey('deck-card-slot'),
+                      width: double.infinity,
+                      height: box.maxHeight.isFinite ? box.maxHeight : null,
+                      child: SoriStudyScale(
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final h = soriStudyTypeScaleHeight(context);
+                            final headlineSize = soriUniformFitSize(
+                              context,
+                              texts: [for (final w in _learnWords) w.korean],
+                              maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                              cap: soriFillSize(h, 0.18, 36, 96),
+                              min: 32,
+                              letterSpacing: -0.5,
+                              lineHeight: 1.05,
+                            );
+                            return FlipCard(
+                              key: ValueKey('learn-$_learnServe'),
+                              flipped: _flipped,
+                              onTap: _toggleLearnFlip,
+                              front: _FlipFront(
+                                v: cur,
+                                h: h,
+                                headlineSize: headlineSize,
+                              ),
+                              back: _FlipBack(v: cur, h: h),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  DeckFlipHint(trigger: _flipHintTick),
+                ],
               );
             },
           ),
         ),
         const SizedBox(height: Spacing.md),
-        Row(
-          children: [
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackDontKnow,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.danger,
-                onTap: _learnCardRevealed ? _learnDontKnow : null,
-              ),
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: SoriButton(
-                label: t.vocabPackGotIt,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.success,
-                onTap: _learnCardRevealed ? _learnGotIt : null,
-              ),
-            ),
-          ],
+        DeckActionBar(
+          onDontKnow: _learnDontKnow,
+          onKnow: _learnGotIt,
+          onSkip: _learnDefer,
+          onSave: _saveCurrent,
+          judgmentEnabled: _learnCardRevealed,
+          onBlockedJudgment: _showFlipFirstHint,
+          dontKnowLabel: t.vocabPackDontKnow,
+          knowLabel: t.vocabPackGotIt,
         ),
       ],
+    );
+  }
+
+  /// 덱 스택 미리보기 — 다음 카드의 **앞면만**. 뒷면을 미리 그리면 정답이
+  /// 새어 나간다 (FlipCard re-key 계약과 같은 원칙).
+  Widget? _learnUnderlay(double slotHeight) {
+    final Vocab? next = _learnQueue?.peekNext;
+    if (next == null) {
+      return null;
+    }
+    return SoriStudyScale(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final h = soriStudyTypeScaleHeight(context);
+          return _FlipFront(
+            v: next,
+            h: h,
+            headlineSize: soriUniformFitSize(
+              context,
+              texts: [for (final w in _learnWords) w.korean],
+              maxWidth: constraints.maxWidth - Spacing.xl * 2,
+              cap: soriFillSize(h, 0.18, 36, 96),
+              min: 32,
+              letterSpacing: -0.5,
+              lineHeight: 1.05,
+            ),
+          );
+        },
+      ),
     );
   }
 

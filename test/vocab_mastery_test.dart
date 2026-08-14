@@ -34,14 +34,16 @@ void main() {
       expect(Storage.vocabMastery('아메리카노'), MasteryState.learning);
     });
 
-    test('third correct review → strong (interval > 3 days, not due yet)',
-        () async {
-      await Storage.srsReview('아메리카노', gotIt: true);
-      await Storage.srsReview('아메리카노', gotIt: true);
-      await Storage.srsReview('아메리카노', gotIt: true);
-      // nextReview ≈ today + 3*ease ≈ today + 8 days → strong now.
-      expect(Storage.vocabMastery('아메리카노'), MasteryState.strong);
-    });
+    test(
+      'third correct review → strong (interval > 3 days, not due yet)',
+      () async {
+        await Storage.srsReview('아메리카노', gotIt: true);
+        await Storage.srsReview('아메리카노', gotIt: true);
+        await Storage.srsReview('아메리카노', gotIt: true);
+        // nextReview ≈ today + 3*ease ≈ today + 8 days → strong now.
+        expect(Storage.vocabMastery('아메리카노'), MasteryState.strong);
+      },
+    );
 
     test('strong card past its nextReview → reviewDue', () async {
       await Storage.srsReview('아메리카노', gotIt: true);
@@ -55,15 +57,17 @@ void main() {
       );
     });
 
-    test('miss after long interval → learning (interval resets to 1)',
-        () async {
-      await Storage.srsReview('커피', gotIt: true);
-      await Storage.srsReview('커피', gotIt: true);
-      await Storage.srsReview('커피', gotIt: true);
-      expect(Storage.vocabMastery('커피'), MasteryState.strong);
+    test(
+      'miss after long interval → learning (interval resets to 1)',
+      () async {
+        await Storage.srsReview('커피', gotIt: true);
+        await Storage.srsReview('커피', gotIt: true);
+        await Storage.srsReview('커피', gotIt: true);
+        expect(Storage.vocabMastery('커피'), MasteryState.strong);
 
-      await Storage.srsReview('커피', gotIt: false);
-      expect(Storage.vocabMastery('커피'), MasteryState.learning);
-    });
+        await Storage.srsReview('커피', gotIt: false);
+        expect(Storage.vocabMastery('커피'), MasteryState.learning);
+      },
+    );
   });
 }

@@ -170,11 +170,7 @@ void main() {
       final target = hangulStrokes['ㅇ']!;
       final tiny = circlePoints(const Offset(110, 110), 8);
       expect(
-        matchStrokes(
-          target: target,
-          drawn: [tiny],
-          canvasSize: canvas,
-        ).matched,
+        matchStrokes(target: target, drawn: [tiny], canvasSize: canvas).matched,
         isFalse,
       );
     });

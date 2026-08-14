@@ -50,10 +50,10 @@ void main() {
       final plan = buildChosungHintPlan('한국', HintMode.chosungVowel);
       final syllables = plan.units.whereType<ChosungHintSyllable>().toList();
       expect(syllables.length, 2);
-      expect(
-        syllables.map((s) => (s.chosung, s.jungsung, s.jongsung)),
-        [('ㅎ', 'ㅏ', 'ㄴ'), ('ㄱ', 'ㅜ', 'ㄱ')],
-      );
+      expect(syllables.map((s) => (s.chosung, s.jungsung, s.jongsung)), [
+        ('ㅎ', 'ㅏ', 'ㄴ'),
+        ('ㄱ', 'ㅜ', 'ㄱ'),
+      ]);
       expect(syllables.every((s) => s.hasJongsung), isTrue);
     });
 

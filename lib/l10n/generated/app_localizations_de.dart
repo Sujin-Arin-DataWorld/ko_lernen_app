@@ -6394,4 +6394,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageActivityLocked => 'Gesperrt';
+
+  @override
+  String get deckActionSave => 'Merken';
+
+  @override
+  String get deckFlipFirstHint => 'Erst antippen und umdrehen';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
 }

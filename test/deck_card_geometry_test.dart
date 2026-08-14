@@ -33,7 +33,7 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 /// 짧은 단어 / 매우 긴 단어 쌍 — 폭 신축이 있으면 rect 가 갈라진다.
@@ -157,8 +157,7 @@ void main() {
       // 탭 대신 핸들러 직접 호출 — 이 화면들은 첫 진입 코치 오버레이가 합성
       // 탭을 삼킬 수 있고, 지오메트리는 제스처 라우팅과 무관하다
       // (선례: vocab_pack_uniform_card_test).
-      final AppL10n t = await AppL10n.delegate.load(const Locale('de'));
-      _tapButton(tester, t.vocabPackGotIt);
+      _tapDeckAction(tester, 'know');
       await tester.pumpAndSettle();
 
       expect(find.text(kLongKo), findsOneWidget);
@@ -195,7 +194,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.getRect(kSlot), first, reason: '플립 후 rect 불변');
 
-      _tapButton(tester, 'Gewusst!');
+      _tapDeckAction(tester, 'know');
       await tester.pumpAndSettle();
       expect(find.text(kLongKo), findsOneWidget);
       expect(tester.getRect(kSlot), first, reason: '긴 단어에서 rect 불변');
@@ -244,7 +243,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.getRect(kSlot), first, reason: '플립 후 rect 불변');
 
-      _tapButton(tester, 'Gewusst!');
+      _tapDeckAction(tester, 'know');
       await tester.pumpAndSettle();
       expect(find.text(kLongKo), findsOneWidget);
       expect(tester.getRect(kSlot), first, reason: '긴 단어에서 rect 불변');
@@ -272,18 +271,15 @@ void main() {
       final Rect first = tester.getRect(kSlot);
       _expectSlotFillsWidth(tester);
 
-      // ⚠️ 이 화면의 플립 후 rect 불변은 **아직 성립하지 않는다** — 판정 행이
-      // `if (_flipped)` 라 뒤집는 순간 그 행이 나타나며 Expanded 가용 높이를
-      // ~64px 먹는다 (폭이 아니라 세로 레이아웃 문제). §P2-3 이 그 행을 항상
-      // 표시되는 DeckActionBar 로 흡수하면 성립하므로, 단언은 그때 켠다.
-      final Rect beforeFlip = first;
+      // P1 에서는 이 단언이 성립하지 않았다 — 판정 행이 `if (_flipped)` 라
+      // 뒤집는 순간 나타나며 Expanded 가용 높이를 ~64px 먹었다. §P2-3 이 그
+      // 행을 **항상 표시되는** DeckActionBar 로 흡수해 이제 성립한다.
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pumpAndSettle();
-      final Rect afterFlip = tester.getRect(kSlot);
       expect(
-        afterFlip.width,
-        beforeFlip.width,
-        reason: '플립이 카드 **폭**을 바꾸면 안 된다 (P1 계약)',
+        tester.getRect(kSlot),
+        first,
+        reason: '플립 후 rect 불변 (판정 바가 항상 자리를 지킨다)',
       );
       _expectSlotFillsWidth(tester);
       expect(tester.takeException(), isNull);
@@ -291,10 +287,14 @@ void main() {
   });
 }
 
-/// 라벨로 [SoriButton] 을 찾아 핸들러를 직접 호출한다.
-void _tapButton(WidgetTester tester, String label) {
+/// DeckActionBar 의 미니 아이콘 버튼을 키로 찾아 핸들러를 직접 호출한다.
+void _tapDeckAction(WidgetTester tester, String name) {
   tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((b) => b.label == label)
+      .widget<SoriPressable>(
+        find.descendant(
+          of: find.byKey(deckActionKey(name)),
+          matching: find.byType(SoriPressable),
+        ),
+      )
       .onTap!();
 }

@@ -19,12 +19,18 @@ void main() {
   group('decodePortableRemote empty-string handling (the fix)', () {
     test('empty string is treated as absent, not invalid', () {
       expect(CustomPackService.decodePortableRemote('').state.name, 'absent');
-      expect(CustomPackService.decodePortableRemote('   ').state.name, 'absent');
+      expect(
+        CustomPackService.decodePortableRemote('   ').state.name,
+        'absent',
+      );
       expect(CustomPackService.decodePortableRemote(null).state.name, 'absent');
     });
 
     test('valid and malformed inputs are unchanged', () {
-      expect(CustomPackService.decodePortableRemote('{}').state.name, 'present');
+      expect(
+        CustomPackService.decodePortableRemote('{}').state.name,
+        'present',
+      );
       expect(
         CustomPackService.decodePortableRemote('not json').state.name,
         'invalid',
@@ -55,13 +61,15 @@ void main() {
       await Storage.init();
     });
 
-    test('load() succeeds (no FormatException) for an account without custom packs',
-        () async {
-      final snapshot = await LocalAccountReconciliationStore.load();
-      expect(snapshot.srsCards.length, 2);
-      expect(snapshot.packProgress.length, 1);
-      expect(snapshot.courseMastery, isNotNull);
-      expect(snapshot.customPacks, isEmpty);
-    });
+    test(
+      'load() succeeds (no FormatException) for an account without custom packs',
+      () async {
+        final snapshot = await LocalAccountReconciliationStore.load();
+        expect(snapshot.srsCards.length, 2);
+        expect(snapshot.packProgress.length, 1);
+        expect(snapshot.courseMastery, isNotNull);
+        expect(snapshot.customPacks, isEmpty);
+      },
+    );
   });
 }

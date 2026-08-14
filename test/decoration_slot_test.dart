@@ -24,7 +24,8 @@ void main() {
         expect(
           byCategory[slot.accepts],
           isNotEmpty,
-          reason: '슬롯 ${slot.id} 는 ${slot.accepts.name} 를 받는데 '
+          reason:
+              '슬롯 ${slot.id} 는 ${slot.accepts.name} 를 받는데 '
               '그 카테고리의 장식이 하나도 없습니다 — 영원히 비는 슬롯이 됩니다',
         );
       }
@@ -40,16 +41,22 @@ void main() {
         expect(s.leftFrac, inInclusiveRange(0.0, 1.0), reason: s.id);
         expect(s.bottomFrac, inInclusiveRange(0.0, 1.0), reason: s.id);
         expect(s.widthFrac, greaterThan(0.0), reason: s.id);
-        expect(s.leftFrac + s.widthFrac, lessThanOrEqualTo(1.0),
-            reason: '${s.id} 가 오른쪽으로 넘칩니다');
+        expect(
+          s.leftFrac + s.widthFrac,
+          lessThanOrEqualTo(1.0),
+          reason: '${s.id} 가 오른쪽으로 넘칩니다',
+        );
       }
     });
 
     test('상대 크기가 0 초과 1 이하다', () {
       kDecorScale.forEach((slug, scale) {
         expect(scale, greaterThan(0.0), reason: slug);
-        expect(scale, lessThanOrEqualTo(1.0),
-            reason: '$slug 의 scale 이 1 을 넘으면 슬롯 밖으로 나갑니다');
+        expect(
+          scale,
+          lessThanOrEqualTo(1.0),
+          reason: '$slug 의 scale 이 1 을 넘으면 슬롯 밖으로 나갑니다',
+        );
       });
     });
 
@@ -61,12 +68,15 @@ void main() {
         byCat.putIfAbsent(cat, () => {}).add(decorScale(slug));
       });
       for (final slot in kSarangbangSlots) {
-        final count = kDecorCategory.values.where((c) => c == slot.accepts).length;
+        final count = kDecorCategory.values
+            .where((c) => c == slot.accepts)
+            .length;
         if (count < 2) continue; // 후보가 하나면 비교할 게 없다
         expect(
           byCat[slot.accepts]!.length,
           greaterThan(1),
-          reason: '${slot.accepts.name} 아이템이 $count 개인데 크기가 전부 같습니다 '
+          reason:
+              '${slot.accepts.name} 아이템이 $count 개인데 크기가 전부 같습니다 '
               '— kDecorScale 에 실제 크기 차이를 반영하세요',
         );
       }
@@ -77,14 +87,24 @@ void main() {
       // 바닥 앵커 경로로 떨어져 조용히 아래로 처진다.
       for (final s in kSarangbangSlots) {
         if (s.anchor == DecorAnchor.center) {
-          expect(s.heightFrac, greaterThan(0.0),
-              reason: '${s.id} 는 center 앵커인데 heightFrac 이 0 입니다');
-          expect(s.bottomFrac + s.heightFrac, lessThanOrEqualTo(1.0),
-              reason: '${s.id} 가 위로 넘칩니다');
+          expect(
+            s.heightFrac,
+            greaterThan(0.0),
+            reason: '${s.id} 는 center 앵커인데 heightFrac 이 0 입니다',
+          );
+          expect(
+            s.bottomFrac + s.heightFrac,
+            lessThanOrEqualTo(1.0),
+            reason: '${s.id} 가 위로 넘칩니다',
+          );
         } else {
-          expect(s.heightFrac, 0.0,
-              reason: '${s.id} 는 bottom 앵커라 높이를 고정하면 안 됩니다 '
-                  '(마당과 같은 규약: 폭만 고정)');
+          expect(
+            s.heightFrac,
+            0.0,
+            reason:
+                '${s.id} 는 bottom 앵커라 높이를 고정하면 안 됩니다 '
+                '(마당과 같은 규약: 폭만 고정)',
+          );
         }
       }
     });
@@ -92,8 +112,11 @@ void main() {
     test('벽 슬롯은 center, 바닥 슬롯은 bottom 앵커다', () {
       for (final s in kSarangbangSlots) {
         if (s.accepts == DecorCategory.wall || s.accepts == DecorCategory.peg) {
-          expect(s.anchor, DecorAnchor.center,
-              reason: '${s.id} — 걸리는 것은 높이가 제각각이라 바닥을 맞추면 처집니다');
+          expect(
+            s.anchor,
+            DecorAnchor.center,
+            reason: '${s.id} — 걸리는 것은 높이가 제각각이라 바닥을 맞추면 처집니다',
+          );
         } else {
           expect(s.anchor, DecorAnchor.bottom, reason: s.id);
         }
@@ -125,7 +148,8 @@ void main() {
         expect(
           File('$decorDir/$slug.png').existsSync(),
           isTrue,
-          reason: '$decorDir/$slug.png 없음 — 화이트리스트에만 있고 파일이 없으면 '
+          reason:
+              '$decorDir/$slug.png 없음 — 화이트리스트에만 있고 파일이 없으면 '
               '조용히 placeholder 가 뜹니다',
         );
       }
@@ -149,7 +173,8 @@ void main() {
       expect(
         onDisk.difference(kAvailableDecorations),
         isEmpty,
-        reason: '이 장식들은 파일이 있는데 kAvailableDecorations 에 없어 '
+        reason:
+            '이 장식들은 파일이 있는데 kAvailableDecorations 에 없어 '
             '화면에 placeholder 로 뜹니다 — 셋에 추가하세요',
       );
     });

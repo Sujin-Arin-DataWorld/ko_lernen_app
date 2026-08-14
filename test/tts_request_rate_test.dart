@@ -279,7 +279,9 @@ void main() {
     platform.fileSessions['cached.mp3']?.complete(true);
     await result;
     expect(
-      platform.mutations.any((m) => m.startsWith('file:') && m.endsWith(':1.5')),
+      platform.mutations.any(
+        (m) => m.startsWith('file:') && m.endsWith(':1.5'),
+      ),
       isTrue,
       reason: 'mutations: ${platform.mutations}',
     );

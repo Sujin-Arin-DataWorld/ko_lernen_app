@@ -17,11 +17,13 @@ QuestSpec _hv({required List<String> options, required int correctIndex}) =>
       data: {'options': options, 'correctIndex': correctIndex},
     );
 
-QuestSpec _luecken({required List<String> options, required int correctIndex}) =>
-    QuestSpec(
-      type: QuestType.luecken,
-      data: {'options': options, 'correctIndex': correctIndex},
-    );
+QuestSpec _luecken({
+  required List<String> options,
+  required int correctIndex,
+}) => QuestSpec(
+  type: QuestType.luecken,
+  data: {'options': options, 'correctIndex': correctIndex},
+);
 
 QuestSpec _uebersetzen({
   required List<String> options,
@@ -34,8 +36,7 @@ QuestSpec _uebersetzen({
 QuestSpec _batchim(String targetWord) =>
     QuestSpec(type: QuestType.batchimDrop, data: {'targetWord': targetWord});
 
-QuestSpec _particle() =>
-    const QuestSpec(type: QuestType.particlePop, data: {});
+QuestSpec _particle() => const QuestSpec(type: QuestType.particlePop, data: {});
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -43,24 +44,30 @@ void main() {
   group('QuestSpec.targetVocabKeys', () {
     test('hoerverstehen returns the correct-index option', () {
       expect(
-        _hv(options: ['아메리카노', '카페라떼', '카푸치노'], correctIndex: 1)
-            .targetVocabKeys(),
+        _hv(
+          options: ['아메리카노', '카페라떼', '카푸치노'],
+          correctIndex: 1,
+        ).targetVocabKeys(),
         ['카페라떼'],
       );
     });
 
     test('luecken returns the correct-index option', () {
       expect(
-        _luecken(options: ['에서', '으로', '에게'], correctIndex: 2)
-            .targetVocabKeys(),
+        _luecken(
+          options: ['에서', '으로', '에게'],
+          correctIndex: 2,
+        ).targetVocabKeys(),
         ['에게'],
       );
     });
 
     test('uebersetzen returns the correct-index option', () {
       expect(
-        _uebersetzen(options: ['커피', '차', '주스'], correctIndex: 0)
-            .targetVocabKeys(),
+        _uebersetzen(
+          options: ['커피', '차', '주스'],
+          correctIndex: 0,
+        ).targetVocabKeys(),
         ['커피'],
       );
     });

@@ -11,15 +11,12 @@ import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 /// Jetzt wird der eine Controller wiederverwendet (nur Dauer + reset/forward).
 void main() {
   Widget canvasFor(String letter) => MaterialApp(
-        home: Scaffold(
-          body: Center(
-            child: StrokeCanvas(
-              letter: letter,
-              strokes: hangulStrokes[letter]!,
-            ),
-          ),
-        ),
-      );
+    home: Scaffold(
+      body: Center(
+        child: StrokeCanvas(letter: letter, strokes: hangulStrokes[letter]!),
+      ),
+    ),
+  );
 
   testWidgets('Buchstabenwechsel wirft keinen Ticker-Fehler', (tester) async {
     await tester.pumpWidget(canvasFor('ㄱ')); // 1 Strich

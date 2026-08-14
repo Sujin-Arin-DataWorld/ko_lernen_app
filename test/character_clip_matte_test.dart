@@ -13,20 +13,25 @@ void main() {
 
   late Map<String, Map<String, dynamic>> byName;
 
-  List<File> clips() => clipDir
-      .listSync()
-      .whereType<File>()
-      .where((file) => file.path.endsWith('.mp4'))
-      .toList()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  List<File> clips() =>
+      clipDir
+          .listSync()
+          .whereType<File>()
+          .where((file) => file.path.endsWith('.mp4'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   setUpAll(() {
-    expect(reportFile.existsSync(), isTrue,
-        reason: 'Run `python tool/check_clip_matte.py` first.');
+    expect(
+      reportFile.existsSync(),
+      isTrue,
+      reason: 'Run `python tool/check_clip_matte.py` first.',
+    );
     final report =
         json.decode(reportFile.readAsStringSync()) as Map<String, dynamic>;
     byName = {
-      for (final entry in (report['clips'] as List).cast<Map<String, dynamic>>())
+      for (final entry
+          in (report['clips'] as List).cast<Map<String, dynamic>>())
         entry['path'] as String: entry,
     };
   });
@@ -35,10 +40,16 @@ void main() {
     expect(clipDir.existsSync(), isTrue);
     final onDisk = clips().map((file) => file.uri.pathSegments.last).toSet();
     final inReport = byName.keys.toSet();
-    expect(onDisk.difference(inReport), isEmpty,
-        reason: 'Run `python tool/check_clip_matte.py` to add new clips.');
-    expect(inReport.difference(onDisk), isEmpty,
-        reason: 'Run `python tool/check_clip_matte.py` to remove stale clips.');
+    expect(
+      onDisk.difference(inReport),
+      isEmpty,
+      reason: 'Run `python tool/check_clip_matte.py` to add new clips.',
+    );
+    expect(
+      inReport.difference(onDisk),
+      isEmpty,
+      reason: 'Run `python tool/check_clip_matte.py` to remove stale clips.',
+    );
   });
 
   test('report byte sizes match bundled character clips', () {
@@ -50,8 +61,11 @@ void main() {
         drifted.add(name);
       }
     }
-    expect(drifted, isEmpty,
-        reason: 'Run `python tool/check_clip_matte.py` after replacing clips.');
+    expect(
+      drifted,
+      isEmpty,
+      reason: 'Run `python tool/check_clip_matte.py` after replacing clips.',
+    );
   });
 
   test('every bundled character clip has a white multiply-safe matte', () {
@@ -61,17 +75,20 @@ void main() {
         bad.add('${entry['path']}: ${entry['matte']} -- ${entry['reason']}');
       }
     }
-    expect(bad, isEmpty,
-        reason: 'Non-white mattes remain visible through BlendMode.multiply.');
+    expect(
+      bad,
+      isEmpty,
+      reason: 'Non-white mattes remain visible through BlendMode.multiply.',
+    );
   });
 
   test('CharacterClips ↔ 번들 클립이 양방향으로 일치한다', () {
-    final source =
-        File('lib/widgets/sori/character_clip.dart').readAsStringSync();
-    final references = RegExp(r"\$_base/([a-zA-Z0-9_.-]+\.mp4)")
-        .allMatches(source)
-        .map((match) => match.group(1)!)
-        .toSet();
+    final source = File(
+      'lib/widgets/sori/character_clip.dart',
+    ).readAsStringSync();
+    final references = RegExp(
+      r"\$_base/([a-zA-Z0-9_.-]+\.mp4)",
+    ).allMatches(source).map((match) => match.group(1)!).toSet();
     expect(references, isNotEmpty);
     final onDisk = clips().map((file) => file.uri.pathSegments.last).toSet();
 
@@ -89,7 +106,8 @@ void main() {
     expect(
       onDisk.difference(references),
       isEmpty,
-      reason: '이 클립들은 번들에 들어가는데 CharacterClips 가 안 부릅니다 — '
+      reason:
+          '이 클립들은 번들에 들어가는데 CharacterClips 가 안 부릅니다 — '
           '상수를 추가하거나 assets_unused/pending_review/ 로 격리하세요',
     );
   });

@@ -6,11 +6,11 @@ void main() {
   final now = DateTime(2026, 6, 5);
 
   GyeMember mk(String uid, int contrib, {DateTime? joined}) => GyeMember(
-        uid: uid,
-        nickname: uid,
-        weeklyPacksContributed: contrib,
-        joinedAt: joined ?? DateTime(2026, 1, 1), // 기본: 오래 전 가입
-      );
+    uid: uid,
+    nickname: uid,
+    weeklyPacksContributed: contrib,
+    joinedAt: joined ?? DateTime(2026, 1, 1), // 기본: 오래 전 가입
+  );
 
   test('최다 기여 → 든든이', () {
     final all = [mk('a', 5), mk('b', 3), mk('c', 0)];

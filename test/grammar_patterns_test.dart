@@ -10,8 +10,7 @@ void main() {
   late List<Map<String, dynamic>> patterns;
 
   setUpAll(() {
-    final raw =
-        File('assets/data/grammar_patterns.json').readAsStringSync();
+    final raw = File('assets/data/grammar_patterns.json').readAsStringSync();
     patterns = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
   });
 
@@ -31,8 +30,11 @@ void main() {
         ]) {
           final v = p[key];
           expect(v, isA<String>(), reason: 'missing $key in ${p['id']}');
-          expect((v as String).isNotEmpty, isTrue,
-              reason: 'empty $key in ${p['id']}');
+          expect(
+            (v as String).isNotEmpty,
+            isTrue,
+            reason: 'empty $key in ${p['id']}',
+          );
         }
       }
     });
@@ -47,8 +49,11 @@ void main() {
 
     test('all levels A1-B2', () {
       for (final p in patterns) {
-        expect(['A1', 'A2', 'B1', 'B2'], contains(p['level']),
-            reason: 'bad level for ${p['id']}');
+        expect(
+          ['A1', 'A2', 'B1', 'B2'],
+          contains(p['level']),
+          reason: 'bad level for ${p['id']}',
+        );
       }
     });
 

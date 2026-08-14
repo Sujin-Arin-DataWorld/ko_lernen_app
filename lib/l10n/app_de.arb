@@ -2875,12 +2875,30 @@
   "soriStageGamesTitle": "Spiele mit einem klaren Ziel.",
   "soriStageGamesBody": "Sieh XP, Bestleistung und passende Quest, bevor du startest.",
   "soriStageMinutes": "{minutes} Min.",
-  "@soriStageMinutes": {"placeholders": {"minutes": {"type": "int"}}},
+  "@soriStageMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "soriStagePossibleReward": "Mögliche Belohnung",
   "soriStageOpenActivity": "{activity} öffnen",
-  "@soriStageOpenActivity": {"placeholders": {"activity": {"type": "String"}}},
+  "@soriStageOpenActivity": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageActivityDetails": "Details zu {activity}",
-  "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
+  "@soriStageActivityDetails": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageHanokTitle": "Baue ein Zuhause aus dem, was du kannst.",
   "soriStageHanokBody": "Sieben dauerhafte Stufen zeigen genau, was gebaut ist und was als Nächstes öffnet.",
   "soriStageOpenMap": "Hanok-Karte öffnen",
@@ -2924,19 +2942,76 @@
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
   "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
-  "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityTitle": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
-  "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityDescription": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Passende Quest} rewardHanok{Verifizierter Hanok-Baufortschritt} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}",
-  "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStageCatalogCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "questActionLabel": "{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Kalligrafie öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Chosung spielen} other{Öffnen}}}",
-  "@questActionLabel": {"placeholders": {"actionKey": {"type": "String"}}},
+  "@questActionLabel": {
+    "placeholders": {
+      "actionKey": {
+        "type": "String"
+      }
+    }
+  },
   "questSeasonOpens": "Öffnet am {date}",
-  "@questSeasonOpens": {"placeholders": {"date": {"type": "String"}}},
+  "@questSeasonOpens": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewCopy": "{copyKey, select, todayEyebrow{HEUTE} todayTitle{Ein Satz. Ein Bauteil.} nearComplete{Fast geschafft} cafeOrder{Im Café bestellen} strongWords{Starke Alltagswörter} sevenDayStreak{Sieben Tage dranbleiben} lessonEyebrow{LEKTION 2 VON 4} lessonPhrase{덜 맵게 해 주세요} listen{Hören} naturalTempo{Natürliches Tempo} speak{Sprechen} rhythmMouth{Rhythmus und Mundbild} remember{Erinnern} withoutHelp{Ohne Hilfe abrufen} beginListening{Mit Hören beginnen} receiptEyebrow{GERADE VERÄNDERT} receiptTitle{Dein Satz trägt jetzt das Dach.} beamStage{DAECHEONG · BALKEN 3} newBeam{1 neuer Balken im Bauplan} xpEarned{Lern-XP +12} completedMission{für die abgeschlossene Mission} questEarned{Quest-Fortschritt +1} scenarioProgress{Alltagsszenen · 4 von 10} hanokEarned{Hanok-Bauteil +1} verifiedSpeaking{durch bestätigtes Sprechen} continueToday{Weiter zu Heute} journeyEyebrow{DEIN WEG} journeyTitle{Alles Lernen baut am selben Ort.} missionEyebrow{WENIGER SCHARF BESTELLEN} missionTitle{Hören. Sprechen. Im Alltag anwenden.} missionReward{Abschließen → Lern-XP + verifizierter Fortschritt} missionStart{Mission starten} bojagiWaiting{1 Bojagi wartet} bojagiBody{Wähle eines von drei Stücken für dein Zimmer.} other{Sori-Stage-Vorschau}}",
-  "@soriStagePreviewCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStagePreviewCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewProgress": "{current} von {target}",
-  "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
+  "@soriStagePreviewProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageActivityStart": "Starten",
-  "soriStageActivityLocked": "Gesperrt"
+  "soriStageActivityLocked": "Gesperrt",
+  "deckActionSave": "Merken",
+  "@deckActionSave": {
+    "description": "Deck: Karte ins Wörterbuch legen (nach oben wischen)"
+  },
+  "deckFlipFirstHint": "Erst antippen und umdrehen",
+  "@deckFlipFirstHint": {
+    "description": "Hinweis, wenn vor dem Umdrehen gewischt wird"
+  },
+  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
+  "@coachSoriDeckBody": {
+    "description": "Coachmark für das 4-Wege-Kartendeck"
+  }
 }

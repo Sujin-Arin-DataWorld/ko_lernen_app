@@ -78,7 +78,10 @@ void main() {
     final poslessTarget = _c('하다', 'machen', level: 'A1');
     final out = buildTranslationDistractors(
       target: poslessTarget,
-      pool: [posless, _c('집', 'Haus', pos: 'Nomen', level: 'B2')],
+      pool: [
+        posless,
+        _c('집', 'Haus', pos: 'Nomen', level: 'B2'),
+      ],
       rng: math.Random(1),
     );
     // 품사 계층(①②)은 비어 있고 ③(같은 레벨) → ④ 순.
@@ -106,9 +109,27 @@ void main() {
       );
       final pool = [
         // 같은 팩 (품사 제각각) — 이번 장에서 배운 이웃 단어들.
-        _c('안녕하세요', 'Guten Tag', pos: 'Ausdruck', level: 'A1', pack: 'a1_greetings_1'),
-        _c('감사합니다', 'Vielen Dank', pos: 'Ausdruck', level: 'A1', pack: 'a1_greetings_1'),
-        _c('죄송합니다', 'Entschuldigung', pos: 'Nomen', level: 'A1', pack: 'a1_greetings_1'),
+        _c(
+          '안녕하세요',
+          'Guten Tag',
+          pos: 'Ausdruck',
+          level: 'A1',
+          pack: 'a1_greetings_1',
+        ),
+        _c(
+          '감사합니다',
+          'Vielen Dank',
+          pos: 'Ausdruck',
+          level: 'A1',
+          pack: 'a1_greetings_1',
+        ),
+        _c(
+          '죄송합니다',
+          'Entschuldigung',
+          pos: 'Nomen',
+          level: 'A1',
+          pack: 'a1_greetings_1',
+        ),
         // 다른 팩 — 주제부터 달라 소거법으로 바로 빠지는 보기들.
         _c('차', 'Tee', pos: 'Nomen', level: 'A1', pack: 'a1_food_1'),
         _c('주말', 'Wochenende', pos: 'Ausdruck', level: 'A1', pack: 'a1_time_1'),
@@ -125,8 +146,7 @@ void main() {
     });
 
     test('same-pack same-POS ranks above same-pack other-POS', () {
-      final target = _c('하다', 'machen',
-          pos: 'Verb', level: 'A1', pack: 'p1');
+      final target = _c('하다', 'machen', pos: 'Verb', level: 'A1', pack: 'p1');
       final pool = [
         _c('집', 'Haus', pos: 'Nomen', level: 'A1', pack: 'p1'),
         _c('먹다', 'essen', pos: 'Verb', level: 'A1', pack: 'p1'),
@@ -157,8 +177,7 @@ void main() {
     });
 
     test('small pack falls through to lower tiers for the remainder', () {
-      final target = _c('하나', 'eins',
-          pos: 'Nomen', level: 'A1', pack: 'tiny');
+      final target = _c('하나', 'eins', pos: 'Nomen', level: 'A1', pack: 'tiny');
       final pool = [
         _c('둘', 'zwei', pos: 'Nomen', level: 'A1', pack: 'tiny'),
         _c('셋', 'drei', pos: 'Nomen', level: 'A1', pack: 'other'),

@@ -46,9 +46,13 @@ void main() {
         await Storage.setPackProgressJson(
           packs[i].id,
           PackProgress(
-            packId: packs[i].id, level: 'A1', status: PackStatus.cleared,
-            wordsLearned: packs[i].total, wordsTotal: packs[i].total,
-            bossAccuracy: 0.9, attempts: 1,
+            packId: packs[i].id,
+            level: 'A1',
+            status: PackStatus.cleared,
+            wordsLearned: packs[i].total,
+            wordsTotal: packs[i].total,
+            bossAccuracy: 0.9,
+            attempts: 1,
             clearedAtIso: '2026-05-31T00:00:00Z',
           ).toJson(),
         );
@@ -63,9 +67,13 @@ void main() {
         await Storage.setPackProgressJson(
           p.id,
           PackProgress(
-            packId: p.id, level: 'A1', status: PackStatus.cleared,
-            wordsLearned: p.total, wordsTotal: p.total,
-            bossAccuracy: 0.9, attempts: 1,
+            packId: p.id,
+            level: 'A1',
+            status: PackStatus.cleared,
+            wordsLearned: p.total,
+            wordsTotal: p.total,
+            bossAccuracy: 0.9,
+            attempts: 1,
             clearedAtIso: '2026-05-31T00:00:00Z',
           ).toJson(),
         );
@@ -80,9 +88,14 @@ void main() {
       await Storage.setPackProgressJson(
         packs.first.id,
         PackProgress(
-          packId: packs.first.id, level: 'A1', status: PackStatus.inProgress,
-          wordsLearned: 3, wordsTotal: packs.first.total,
-          bossAccuracy: 0.4, attempts: 1, clearedAtIso: null,
+          packId: packs.first.id,
+          level: 'A1',
+          status: PackStatus.inProgress,
+          wordsLearned: 3,
+          wordsTotal: packs.first.total,
+          bossAccuracy: 0.4,
+          attempts: 1,
+          clearedAtIso: null,
         ).toJson(),
       );
       final ratios = await HanokStageService.levelRatios();
@@ -110,8 +123,11 @@ void main() {
       await Storage.markHanokStageSeen('empty');
       await Storage.markHanokStageSeen('foundation');
       await Storage.markHanokStageSeen('pillars');
-      expect(Storage.seenHanokStages.toSet(),
-          {'empty', 'foundation', 'pillars'});
+      expect(Storage.seenHanokStages.toSet(), {
+        'empty',
+        'foundation',
+        'pillars',
+      });
     });
   });
 }

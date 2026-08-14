@@ -22,7 +22,10 @@ void main() {
     );
 
     expect(find.byType(MadangBackground), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sarangbang')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
+      findsNothing,
+    );
   });
 
   testWidgets('shows final map targets at the full construction milestone', (
@@ -45,8 +48,14 @@ void main() {
       const ValueKey('personal-hanok-zone-sarangbang'),
     );
     expect(sarangbang, findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-huwon')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-gyeRoad')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-huwon')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-gyeRoad')),
+      findsNothing,
+    );
     final size = tester.getSize(sarangbang);
     expect(size.width, greaterThanOrEqualTo(44));
     expect(size.height, greaterThanOrEqualTo(44));
@@ -55,7 +64,9 @@ void main() {
     expect(tapped, PersonalHanokZone.sarangbang);
   });
 
-  testWidgets('does not expose a building before its own milestone', (tester) async {
+  testWidgets('does not expose a building before its own milestone', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       _host(
         PersonalHanokMap(
@@ -67,10 +78,22 @@ void main() {
       ),
     );
 
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sarangbang')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-anchae')), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-daecheongmaru')), findsNothing);
-    expect(find.byKey(const ValueKey('personal-hanok-zone-sadang')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sarangbang')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-anchae')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-daecheongmaru')),
+      findsNothing,
+    );
+    expect(
+      find.byKey(const ValueKey('personal-hanok-zone-sadang')),
+      findsNothing,
+    );
   });
 
   testWidgets('opens the Daecheongmaru target without the Anchae stealing it', (

@@ -18,27 +18,24 @@ void main() {
     await Storage.init();
   });
 
-  test(
-    'programmatic reset completes beside a pending cloud deletion journal '
-    'and preserves that journal',
-    () async {
-      final journal = _pendingJournal();
-      final preferences = await SharedPreferences.getInstance();
-      await preferences.setString(
-        CloudBackupDeletionJournal.storageKey,
-        jsonEncode(journal.toJson()),
-      );
-      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+  test('programmatic reset completes beside a pending cloud deletion journal '
+      'and preserves that journal', () async {
+    final journal = _pendingJournal();
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setString(
+      CloudBackupDeletionJournal.storageKey,
+      jsonEncode(journal.toJson()),
+    );
+    await preferences.setString('kl_progress_for_reset_test', 'remove-me');
 
-      await Storage.resetAll();
+    await Storage.resetAll();
 
-      expect(
-        preferences.getString(CloudBackupDeletionJournal.storageKey),
-        jsonEncode(journal.toJson()),
-      );
-      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
-    },
-  );
+    expect(
+      preferences.getString(CloudBackupDeletionJournal.storageKey),
+      jsonEncode(journal.toJson()),
+    );
+    expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+  });
 
   test(
     'programmatic reset preserves a persisted replacement journal',
@@ -63,49 +60,43 @@ void main() {
     },
   );
 
-  test(
-    'programmatic reset completes beside an account deletion checkpoint '
-    'and preserves that checkpoint',
-    () async {
-      final preferences = await SharedPreferences.getInstance();
-      await preferences.setString(
-        Storage.accountDeletionCheckpointPreferenceKey,
-        'pending-account-deletion',
-      );
-      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+  test('programmatic reset completes beside an account deletion checkpoint '
+      'and preserves that checkpoint', () async {
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setString(
+      Storage.accountDeletionCheckpointPreferenceKey,
+      'pending-account-deletion',
+    );
+    await preferences.setString('kl_progress_for_reset_test', 'remove-me');
 
-      await Storage.resetAll();
+    await Storage.resetAll();
 
-      expect(
-        preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
-        'pending-account-deletion',
-      );
-      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
-    },
-  );
+    expect(
+      preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
+      'pending-account-deletion',
+    );
+    expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+  });
 
-  test(
-    'programmatic reset completes beside a feedback-activation checkpoint '
-    'and preserves that checkpoint',
-    () async {
-      final preferences = await SharedPreferences.getInstance();
-      await preferences.setString(
+  test('programmatic reset completes beside a feedback-activation checkpoint '
+      'and preserves that checkpoint', () async {
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setString(
+      Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey,
+      'completed-feedback-activation',
+    );
+    await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+
+    await Storage.resetAll();
+
+    expect(
+      preferences.getString(
         Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey,
-        'completed-feedback-activation',
-      );
-      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
-
-      await Storage.resetAll();
-
-      expect(
-        preferences.getString(
-          Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey,
-        ),
-        'completed-feedback-activation',
-      );
-      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
-    },
-  );
+      ),
+      'completed-feedback-activation',
+    );
+    expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+  });
 
   test(
     'strict reset also preserves a persisted pending cloud deletion journal',

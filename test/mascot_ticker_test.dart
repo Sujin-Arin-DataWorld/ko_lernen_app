@@ -10,13 +10,14 @@ import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 /// jetzt nutzt _MascotState TickerProviderStateMixin.
 void main() {
   Widget mascot(bool animate) => MaterialApp(
-        home: Scaffold(
-          body: Center(child: Mascot.tiger(animate: animate)),
-        ),
-      );
+    home: Scaffold(
+      body: Center(child: Mascot.tiger(animate: animate)),
+    ),
+  );
 
-  testWidgets('animate-Toggle true→false→true wirft keinen Ticker-Fehler',
-      (tester) async {
+  testWidgets('animate-Toggle true→false→true wirft keinen Ticker-Fehler', (
+    tester,
+  ) async {
     await tester.pumpWidget(mascot(true)); // Ticker #1
     await tester.pump(const Duration(milliseconds: 50));
 

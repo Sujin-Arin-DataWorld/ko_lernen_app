@@ -179,7 +179,8 @@ class _FixedResultOperations implements AccountUiOperations {
   bool get appleSignInAvailable => false;
 
   @override
-  Future<AccountUiLinkResult> link(AccountLinkProvider provider) async => result;
+  Future<AccountUiLinkResult> link(AccountLinkProvider provider) async =>
+      result;
 
   @override
   Future<AccountTransitionResult> confirmReplacement(

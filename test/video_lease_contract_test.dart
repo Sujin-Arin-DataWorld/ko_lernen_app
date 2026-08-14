@@ -60,11 +60,7 @@ void main() {
   group('동시 소유 상한', () {
     test('클라이언트 1개 — 정확히 1개를 만든다', () async {
       final c = makeCoordinator();
-      c.coordinator.register(
-        asset: 'a.mp4',
-        eligible: true,
-        onGranted: (_) {},
-      );
+      c.coordinator.register(asset: 'a.mp4', eligible: true, onGranted: (_) {});
       await c.coordinator.settle();
 
       expect(c.alive, hasLength(1));
@@ -240,7 +236,11 @@ void main() {
         dispose: (handle) async => alive.remove(handle),
       );
 
-      coordinator.register(asset: 'good.mp4', eligible: true, onGranted: (_) {});
+      coordinator.register(
+        asset: 'good.mp4',
+        eligible: true,
+        onGranted: (_) {},
+      );
       final broken = coordinator.register(
         asset: 'broken.mp4',
         eligible: true,

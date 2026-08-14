@@ -85,25 +85,24 @@ void main() {
     tester,
   ) async {
     final minorYear = DateTime.now().year - 12;
-    await _init({
-      'kl_consent_accepted': true,
-      'kl_birth_year': minorYear,
-    });
+    await _init({'kl_consent_accepted': true, 'kl_birth_year': minorYear});
     await _pump(tester);
 
     expect(_yes, findsNothing);
   });
 
-  testWidgets('"Nicht jetzt" lässt beide Zwecke aus, markiert aber als gefragt',
-      (tester) async {
-    await _init(const {'kl_consent_accepted': true});
-    await _pump(tester);
+  testWidgets(
+    '"Nicht jetzt" lässt beide Zwecke aus, markiert aber als gefragt',
+    (tester) async {
+      await _init(const {'kl_consent_accepted': true});
+      await _pump(tester);
 
-    await tester.tap(find.text('Nur das Nötigste'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Nur das Nötigste'));
+      await tester.pumpAndSettle();
 
-    expect(Storage.analyticsConsent, isFalse);
-    expect(Storage.crashConsent, isFalse);
-    expect(Storage.consentInviteShown, isTrue);
-  });
+      expect(Storage.analyticsConsent, isFalse);
+      expect(Storage.crashConsent, isFalse);
+      expect(Storage.consentInviteShown, isTrue);
+    },
+  );
 }

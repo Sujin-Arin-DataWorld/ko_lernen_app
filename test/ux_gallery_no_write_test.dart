@@ -140,7 +140,6 @@ void main() {
     expect(await _preferencesSnapshot(), equals(before));
   });
 
-
   testWidgets('02B preview opens its displayed first link without writes', (
     tester,
   ) async {

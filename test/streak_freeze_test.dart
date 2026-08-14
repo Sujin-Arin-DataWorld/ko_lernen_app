@@ -117,18 +117,21 @@ void main() {
       expect(Storage.streakFreezeLastUsed, '2026-01-03');
     });
 
-    test('skip 1 day on day-6 with freeze → reaches 7, refill keeps tokens', () async {
-      // Streak=6 → use freeze to reach 7 → refill grants +1 back.
-      await _resetStorage({
-        'kl_last_open_date': '2026-01-06',
-        'kl_streak_days': 6,
-        'kl_streak_freezes': 1,
-      });
-      await Storage.touchStreak(now: _d(2026, 1, 8)); // 1 missed day
-      expect(Storage.streakDays, 7);
-      // Used -1, milestone +1 → net 1.
-      expect(Storage.streakFreezes, 1);
-      expect(Storage.streakFreezeLastUsed, '2026-01-08');
-    });
+    test(
+      'skip 1 day on day-6 with freeze → reaches 7, refill keeps tokens',
+      () async {
+        // Streak=6 → use freeze to reach 7 → refill grants +1 back.
+        await _resetStorage({
+          'kl_last_open_date': '2026-01-06',
+          'kl_streak_days': 6,
+          'kl_streak_freezes': 1,
+        });
+        await Storage.touchStreak(now: _d(2026, 1, 8)); // 1 missed day
+        expect(Storage.streakDays, 7);
+        // Used -1, milestone +1 → net 1.
+        expect(Storage.streakFreezes, 1);
+        expect(Storage.streakFreezeLastUsed, '2026-01-08');
+      },
+    );
   });
 }

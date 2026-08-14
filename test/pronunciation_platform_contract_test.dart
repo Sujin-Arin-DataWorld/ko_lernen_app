@@ -66,15 +66,12 @@ void main() {
     expect(pronunciation['runtime'], 'nodejs22');
   });
 
-  test('clients cannot manipulate server-owned pronunciation quota counters', () {
-    final rules = File('firestore.rules').readAsStringSync();
-    expect(
-      rules,
-      contains('match /pronunciation_rate_limits/{document=**}'),
-    );
-    expect(
-      rules,
-      contains("collectionName != 'pronunciation_rate_limits'"),
-    );
-  });
+  test(
+    'clients cannot manipulate server-owned pronunciation quota counters',
+    () {
+      final rules = File('firestore.rules').readAsStringSync();
+      expect(rules, contains('match /pronunciation_rate_limits/{document=**}'));
+      expect(rules, contains("collectionName != 'pronunciation_rate_limits'"));
+    },
+  );
 }

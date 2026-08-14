@@ -109,9 +109,7 @@ void main() {
       expect(scaled, 20);
     });
 
-    testWidgets('태블릿(1280) → 히어로 글씨 1.35배 + OS 배율과 곱셈 합성', (
-      tester,
-    ) async {
+    testWidgets('태블릿(1280) → 히어로 글씨 1.35배 + OS 배율과 곱셈 합성', (tester) async {
       tester.view.physicalSize = const Size(1280, 900);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);

@@ -59,19 +59,22 @@ void main() {
     });
   });
 
-  test('allReviewable serves the real CSV in non-decreasing level order', () async {
-    final all = await ReviewDeckService.allReviewable();
-    expect(all, isNotEmpty);
-    // 신규 커스텀 팩/책장이 없는 fresh 상태 → 전부 CSV 단어.
-    var last = 0;
-    for (final v in all) {
-      final rank = PersonalizedLessonService.levelRank(v.level);
-      expect(
-        rank >= last,
-        isTrue,
-        reason: '${v.korean} (${v.level}) appears after a higher level',
-      );
-      last = rank;
-    }
-  });
+  test(
+    'allReviewable serves the real CSV in non-decreasing level order',
+    () async {
+      final all = await ReviewDeckService.allReviewable();
+      expect(all, isNotEmpty);
+      // 신규 커스텀 팩/책장이 없는 fresh 상태 → 전부 CSV 단어.
+      var last = 0;
+      for (final v in all) {
+        final rank = PersonalizedLessonService.levelRank(v.level);
+        expect(
+          rank >= last,
+          isTrue,
+          reason: '${v.korean} (${v.level}) appears after a higher level',
+        );
+        last = rank;
+      }
+    },
+  );
 }

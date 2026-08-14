@@ -83,11 +83,7 @@ void main() {
     });
 
     test('전 미션 완료면 코스를 건너뛴다(다음 소스로)', () {
-      final pick = _run(
-        units: units,
-        completed: {'u1', 'u2', 'u3'},
-        due: 99,
-      );
+      final pick = _run(units: units, completed: {'u1', 'u2', 'u3'}, due: 99);
       expect(pick, isA<ReviewPick>());
     });
 
@@ -103,7 +99,9 @@ void main() {
 
   group('② 진행 중 팩', () {
     test('시작한(fraction>0) 미완 팩이면 PackPick', () {
-      final pick = _run(nowNode: _node('p1', status: PackStatus.inProgress, learned: 4));
+      final pick = _run(
+        nowNode: _node('p1', status: PackStatus.inProgress, learned: 4),
+      );
       expect(pick, isA<PackPick>());
       expect((pick as PackPick).fraction, greaterThan(0));
     });
