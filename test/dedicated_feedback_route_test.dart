@@ -18,7 +18,8 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
@@ -92,6 +93,30 @@ const _listeningScenario = Scenario(
   ],
   quests: [],
 );
+
+/// 카드를 뒤집는다 — 판정은 플립 뒤에만 열린다 (flipgate 계약).
+void _flipCard(WidgetTester tester) {
+  final flip = find.byType(FlipCard);
+  if (flip.evaluate().isNotEmpty) {
+    tester.widget<FlipCard>(flip.first).onTap!();
+    return;
+  }
+  // review 는 FlipCard 대신 SoriPressable 로 뒤집는다.
+  tester.widget<SoriPressable>(find.byType(SoriPressable).first).onTap!();
+}
+
+/// Learn 하단 판정은 Sori Deck 2.0 에서 대형 텍스트 CTA 가 아니라
+/// DeckActionBar 의 미니 아이콘 버튼이다. 키로 찾아 핸들러를 직접 호출한다.
+void _tapDeckKnow(WidgetTester tester) {
+  tester
+      .widget<SoriPressable>(
+        find.descendant(
+          of: find.byKey(deckActionKey('know')),
+          matching: find.byType(SoriPressable),
+        ),
+      )
+      .onTap!();
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -204,10 +229,7 @@ void main() {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == 'Gewusst')
-          .onTap!();
+      _tapDeckKnow(tester);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
@@ -252,7 +274,10 @@ void main() {
     (tester) async {
       await tester.pumpWidget(_app(const ReviewSessionScreen(deck: [_word])));
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      // Sori Deck 2.0: 판정은 아이콘 바이고 **버튼도 플립 게이트**를 받는다.
+      _flipCard(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+      _tapDeckKnow(tester);
       await tester.pump();
 
       _expectFeedback(tester, type: 'review');
@@ -284,7 +309,9 @@ void main() {
         _app(const CustomPackPlayScreen(packId: 'private-pack')),
       );
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      _flipCard(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+      _tapDeckKnow(tester);
       await tester.pump();
 
       final card = _expectFeedback(tester, type: 'custom_wordbook');
@@ -307,9 +334,9 @@ void main() {
       );
       await tester.pump();
       expect(find.byType(ContentFeedbackCard), findsNothing);
-      await tester.tap(find.text(_word.korean));
-      await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      _flipCard(tester);
+      await tester.pump(const Duration(milliseconds: 400));
+      _tapDeckKnow(tester);
       await tester.pump();
 
       _expectFeedback(tester, type: 'legacy_vocab');

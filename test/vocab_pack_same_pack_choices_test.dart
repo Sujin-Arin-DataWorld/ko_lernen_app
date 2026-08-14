@@ -13,7 +13,8 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 Vocab _word(String packId, int n, {bool boss = false, String prefix = 'GER'}) =>
@@ -31,6 +32,18 @@ Vocab _word(String packId, int n, {bool boss = false, String prefix = 'GER'}) =>
       packOrder: n,
       isReviewBoss: boss,
     );
+
+/// Learn 하단 판정은 Sori Deck 2.0 에서 DeckActionBar 의 미니 아이콘 버튼이다.
+void _tapDeckKnow(WidgetTester tester) {
+  tester
+      .widget<SoriPressable>(
+        find.descendant(
+          of: find.byKey(deckActionKey('know')),
+          matching: find.byType(SoriPressable),
+        ),
+      )
+      .onTap!();
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -81,15 +94,11 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
 
     // Learn은 Boss 단어까지 포함한 현재 팩 5장을 모두 통과한 뒤 Quiz로 간다.
-    final t = await AppL10n.delegate.load(const Locale('de'));
     for (var i = 0; i < 5; i++) {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.vocabPackGotIt)
-          .onTap!();
+      _tapDeckKnow(tester);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
     }

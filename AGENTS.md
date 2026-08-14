@@ -261,6 +261,29 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### UI/UX 개편 2 구현 (2026-08-14, 브랜치 `cursor/ui-overhaul-2-sori-deck-0704`)
+
+> 정본 지시서 = `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`. 상세 기록은 SESSION_LOG 최상단.
+
+- [x] **P1 카드 고정 지오메트리** (`99b9ba8`) — 원인은 폭이었다. 4화면 공통 슬롯 키
+ `deck-card-slot` + 폭·높이 핀. 파괴-복원 실측: 핀을 빼면 368px 가용에 슬롯 294px → red.
+- [x] **P2 Sori Deck 2.0** (`428a91a`·`083d036`·`0cf945b`) — 4방향 스와이프(지배축 잠금),
+ 덱 스택 underlay(앞면만), `DeckActionBar` 미니 아이콘 4개, `LearnSessionQueue.defer/peekNext`,
+ 코치. ⚠️ **판정 버튼도 플립 게이트를 받도록 강화**(review·custom 은 앞면 버튼으로 SRS 를
+ 남길 수 있었다) — 옛 텍스트 CTA 를 라벨로 찾던 테스트 9개를 의도 변경으로 갱신.
+- [x] **기존 flipgate 센서 3화면이 공허했음을 실측·수리** — 코치 스크림의 포인터 흡수 +
+ underlay 로 인한 텍스트 오탐 + 비동기 SRS. 이제 게이트를 지우면 red 다.
+ (AGENTS.md 가 미결로 남겨 둔 missed-hit-test 항목이 이것이다.)
+- [x] **제품 결함 수리**: 카드 안쪽 세로 스크롤이 스크롤할 게 없어도 아레나에서 이겨
+ 위/아래 스와이프를 먹었다 → `ScrollOnlyIfOverflowing`.
+- [x] **P3 Today** (`cb41b58`) · **P4 카탈로그** (`5adda81`) · **P5 Gye/Hanok** (`c9f6e9d`) ·
+ **§R 리소 파이프라인 + 덱 에셋 슬롯** (`5e11e60`).
+- [ ] **Jin**: 실기기 4방향 손맛·엣지 제스처·알림 셰이드 / `_kHeroZoom` 1.15~1.3 미세조정 /
+ §R 샘플 3장 승인 / §R-3 아이콘 4종 시안 / Linux 골든 재생성(`screen_sori_today` 신설 포함).
+- [ ] **선행 부채(내 범위 밖)**: base `e3fb927` 에서도 동일하게 실패하는 14건 —
+ Linux 골든 9(3.44 기준선 vs 3.47) · `mascot_wiring` 2 · `milestone_feedback`·
+ `practice_hub_flow`·`ux_preview_app` 각 1(Phase 4 레거시 삭제 후속으로 보인다).
+
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.

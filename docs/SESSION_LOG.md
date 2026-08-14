@@ -1,5 +1,102 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud Agent) — UI/UX 개편 2 P1~P5 + §R 구현
+
+`docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` 를 따라 P1~P5 와 §R 을 Phase 단위
+커밋으로 구현했다. 브랜치 `cursor/ui-overhaul-2-sori-deck-0704`.
+
+**P1 — 카드 고정 지오메트리 (`99b9ba8`).** Jin 3번째 재발 리포트의 실측 원인은
+**폭**이었다: `FlipCard._fitFace` 의 세로 `SingleChildScrollView` 가 가로 제약을
+loose 로 통과시키고 `SoriSwipeCard` 내부 `Stack` 도 기본 loose 라, `width` 핀이
+없는 `SoriCard(hero)` 가 텍스트 내재폭으로 신축했다. 4화면에 공통 슬롯 키
+`deck-card-slot` 을 주고 폭·높이를 고정했다. 타이포 계산은 `SoriStudyScale`
+서브트리 안에 남겼다(밖에서 재면 태블릿 textScaler 부스트를 못 봐 측정≠렌더).
+review·legacy 헤드라인은 per-word `FittedBox` → 덱 공유 `soriUniformFitSize`
+(의도된 시각 변화). 신규 `test/deck_card_geometry_test.dart`.
+**파괴-복원 실측**: 폭 핀을 전부 빼면 슬롯이 가용 368px 대신 **294px** 로 줄어
+red, 복원하면 green. 슬롯 핀만으로도, 카드 벨트만으로도 각각 충분함을 확인.
+
+**P2 — Sori Deck 2.0 (`428a91a`·`083d036`·`0cf945b`).** 좌=모름·우=앎·위=저장·
+아래=스킵. 수평 전용 → pan + 지배축 잠금(12px)으로 대각 이중 커밋을 구조적으로
+차단. 위는 퇴장 없이 스프링백(저장은 전진이 아니다), 아래는 하단 퇴장.
+`enabled:false` 는 좌/우 콜백 0 계약을 유지하되 저항 드래그(15%)로 스와이프의
+존재를 알리고 원시 24px 에서 힌트를 1회 부른다 — 예전엔 핸들러가 통째로 null
+이라 플립 전엔 카드가 1px 도 안 움직였다. 덱 스택(underlay)은 다음 카드의
+**앞면만** 그리고 `ExcludeSemantics`·`IgnorePointer` 로 장식에 머문다.
+대형 텍스트 CTA 2개 → `DeckActionBar` 미니 원형 아이콘 4개(모름은 X 가 아니라
+`?`), 커스텀 아트는 규약 경로이고 없으면 Material 폴백.
+`LearnSessionQueue.defer()`/`peekNext` 추가.
+
+⚠️ **의도된 계약 변경**: 판정 버튼도 이제 플립 게이트를 받는다. review·custom 은
+앞면 버튼으로 SRS 를 남길 수 있었다. 잠금은 투명도로만 말해 자리를 지키므로
+legacy 에서 뒤집을 때 카드가 64px 튀던 것도 사라졌다(P1 의 legacy 플립 단언을
+이번에 켰다). 옛 버튼을 라벨로 찾던 테스트 9개를 의도 변경으로 갱신했다.
+
+**이 과정에서 잡은 것 2건.**
+① **기존 flipgate 센서 3화면이 전부 공허하게 통과하고 있었다** — `enabled: _flipped`
+를 지워도 green. 원인 세 겹: 첫 진입 SpotlightCoach 스크림이 `RenderAbsorbPointer`
+로 모든 합성 포인터를 흡수(AGENTS.md 가 미결로 남긴 missed-hit-test 경고의 정체) ·
+단언이 텍스트 노드를 세는데 underlay 가 다음/이전 단어를 뒤에 그림 · SRS 쓰기가
+비동기라 `pumpAndSettle` 뒤에도 안 보임. 셋 다 고쳐 이제 세 화면 모두 게이트를
+지우면 red 다.
+② **제품 결함**: 카드 안쪽 세로 스크롤(짧은 뷰포트용 안전망)이 스크롤할 게 없어도
+제스처 아레나에서 이겨 **위/아래 스와이프를 통째로 먹었다**. `ScrollOnlyIfOverflowing`
+물리로 넘칠 때만 드래그를 받게 했다(넘치는 카드는 읽기가 우선이라 그대로 둔다).
+
+신규 센서: `deck_vertical_gesture_test`(13, 화면마다 **양성 대조** 선행) ·
+`deck_action_bar_test`(5) · `swipe_card_test` +6.
+
+**P3 — Today (`cb41b58`).** eyebrow·제목·CTA 가 같은 ARB 키라 "오늘의 미션 시작"이
+두 번 반복되고 활동 이름·그림이 화면에 없었다. 21:9 활동 일러스트 배너 + 활동
+제목 + 보상 **아이템별** 칩(kind 가 아이템마다 달라 단일 아이콘으로 못 뭉친다) +
+"Starten". 히어로 크롭-줌 1.2 — 클립이 정사각+매트라 밴드를 키우면 여백만 커지고,
+매트가 배경과 같은 단색이라 확대 크롭이 안 보이는 성질을 이용(에셋 재생성 없음).
+한옥 블록은 아이콘 → 현 단계 배너 + `structureStage.name` enum 원문 노출 수리.
+라벨 매핑이 이미 두 벌 있어서 세 번째 사본 대신 `soriHanokStageLabel` 로 승격.
+퀘스트 행은 맨 `ListTile` → `SoriCard(compact)` + `SoriRewardThumb`(quests_screen
+private 위젯을 위젯 층으로 승격).
+
+**P4 — 카탈로그 (`5adda81`).** 이미지 슬롯 16:10 → **4:3**(활동 아트는 800×600
+원본이라 16:10 이 높이 16.7% 를 잘라 오브젝트를 더 확대하고 있었다). 소요 시간을
+이미지 우하단 미니 필로(신설 `imageOverlay` 슬롯, 배치는 반드시 이미지 슬롯 안 —
+카드 Stack 에 넣으면 footer 위에 얹힌다). ready + 진행 수치 없음이면 footer 를 접는다
+(전 카드 동일한 "Jetzt verfügbar" 는 노이즈). Games 탭도 `daily_game` 히어로 승격.
+`childAspectRatio: 0.78` 상수 → **실측 산식**: 셀 높이 = 이미지(폭 비례) +
+본문(글자 크기 비례)이라 고정 비율로는 못 맞춘다. 390dp@1.0 216.7→206.7(여백 감소),
+@1.3 216.7→**223.4**(예전엔 고정이라 큰 글자에서 넘칠 수 있었다).
+
+**P5 — Gye·Hanok (`c9f6e9d`).** 임베디드 Gye 는 셸 헤더와 경쟁하던 자체 헤드라인을
+숨기고, 한옥 프리뷰에 `showcase` 모드(8레이어 전부 실체화 — 진행도 렌더는 셋이 0.22
+유령이라 영감을 줘야 할 그림이 깨져 보였다)를 신설했다. 설명 문단 3개 → 한 줄 칩 +
+ⓘ 시트(원문 ARB 는 강등, 삭제 아님).
+⚠️ **핸드오프 §P5-1-4 를 따르지 않은 지점**: 프라이버시 고지는 시트로 내리지 않고
+랜딩에 남겼다. "무엇이 남에게 보이는가"는 설명이 아니라 고지이고
+`gye_tab_landing_test` 가 그 결정을 고정하고 있다.
+Hanok 숏컷은 고스트 텍스트 3개 → 일러스트 타일 3개(번들의 도장 14·장식 24·보자기가
+이 표면에서 하나도 안 쓰이고 있었다). 카운트는 상수 대신 실제 계산(퀘스트 총계는
+시즌 윈도우가 열리면 늘어난다).
+
+**§R — 아트 (`5e11e60`).** `scripts/apply_riso_v2.py`: 그레인 추가분 + R 채널만 미는
+색판 어긋남 + 어두운 면의 밝은 스펙클 + 가장자리 번짐 + 한지 아이보리 웜 캐스트.
+번들 39장은 이미 그레인이 구워져 있고 원본이 소멸했으므로 ①은 **추가분**이 기본값.
+기존 `apply_paper_grain.py` 는 배포 세트의 정본 이력이라 보존. 실측: 텍스처 std
+10.71 · 투명 알파 보존 · `crc32(파일명)` 시드라 재실행 바이트 동일 · 출력은 항상
+별도 접미. ⛔ 샘플 3장 Jin 승인 전 전량 처리 금지(docstring 명시).
+`assets/illustrations/deck/` 는 `.gitkeep` + pubspec 등록을 같은 커밋에 넣었다.
+
+**검증.** `flutter analyze` **신규 0** — 잔여 11건은 이 환경의 Flutter 3.47 이 새로
+추가한 `unawaited_return_in_try_block` 린트가 손대지 않은 서비스 파일에서 내는
+툴체인 드리프트다(base 커밋에서도 동일). 전체 `flutter test` **3,337 passed /
+14 failed**, 그 14건은 base 커밋 `e3fb927` 을 worktree 로 체크아웃해 같은 파일을
+돌려 **동일하게 실패함을 실측**한 기존 항목이다: Linux 골든 9(맥/CI 3.44 기준선 vs
+여기 3.47) · `mascot_wiring` 2 · `milestone_feedback` 1 · `practice_hub_flow` 1 ·
+`ux_preview_app` 1 (뒤 5건은 Phase 4 레거시 삭제 후속으로 보인다 — 내 범위 밖이라
+기록만 한다).
+
+**Jin 대기.** 실기기 4방향 손맛·엣지 제스처·알림 셰이드 충돌 / `_kHeroZoom`
+1.15~1.3 미세조정(발·꼬리 잘림) / §R 샘플 3장 승인 / §R-3 아이콘 4종 시안 /
+Linux 골든 재생성(`screen_sori_today` 신설 포함).
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.
