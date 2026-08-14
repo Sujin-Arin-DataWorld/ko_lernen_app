@@ -7,8 +7,8 @@
 > **⛔ 개발 환경 = 단일 맥 (2026-08-13 확정).** 모든 개발이 맥 한 대로 통합됐다(Jin이 맥에서 Android 빌드도 가능함을 확인). 아래는 **전부 무효 — 어떤 세션도 이걸 전제로 대기/분담하지 말 것:**
 > - ~~"Windows=UI/Android · Mac=데이터/iOS" 기계별 분담~~
 > - ~~두 기계 동시 편집을 전제한 "ARB 충돌 최소화 규칙"~~ (기계가 한 대뿐이니 ARB 충돌 자체가 없다)
-> - ~~"Windows에서 홈을 재디자인한 뒤 push" 흐름~~ — **재디자인은 일어나지 않았다.** Sori Stage는 feature gate(`ENABLE_SORI_STAGE`, 기본 `false`)로 꺼져 레거시 마스코트 홈으로 복귀했을 뿐, 화면 코드는 `main`에 그대로 있다(`--dart-define=ENABLE_SORI_STAGE=true`로 재활성, 복구 태그 `pre-sori-stage-rollback-20260813`). **대기해야 할 Windows 후속 작업은 존재하지 않는다.**
-> - 따라서 `docs/ANALYTICS_PRIVACY_PLAN.md`가 "재디자인 UI가 호출"이라 적은 타입드 이벤트 16종은 **레거시 셸 화면**에 배선한다. `lib/screens/sori_stage/`에 물리면 기본 빌드에서 실행되지 않는다.
+> - ~~"Windows에서 홈을 재디자인한 뒤 push" 흐름~~ — **Sori Stage가 현재 기본 홈 정본이다.** `79ae4a0c`가 feature gate와 레거시 `HomeScreen`/`WordleScreen`을 제거했으며, 캐릭터가 있는 5탭 Sori Stage 셸을 유지한다. UI/UX 개편 2의 구현 정본은 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`이다.
+> - 따라서 `docs/ANALYTICS_PRIVACY_PLAN.md`의 타입드 이벤트 16종은 **현재 활성 Sori Stage 셸**에 배선한다. 콘텐츠 확장 C0의 미커밋 변경과 UI/UX 개편 2는 별도 작업 단위로 유지한다.
 
 ---
 
