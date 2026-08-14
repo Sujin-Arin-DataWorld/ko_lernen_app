@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P1 카드 지오메트리
+
+**무엇/왜.** `HANDOFF_UI_OVERHAUL_2_2026-08-14.md`의 최우선 P1을 구현했다. 단어팩 Learn·복습·커스텀팩·레거시 단어장 네 덱에 공통 `deck-card-slot`을 두고 폭을 가용 영역에 고정해, 짧은 단어와 긴 단어 또는 플립 앞뒤 상태가 카드 rect를 바꾸지 못하게 했다. 단어팩과 커스텀팩의 hero `SoriCard`에도 `width: double.infinity` 이중 가드를 추가했다. 복습·레거시 덱은 현재 카드별 `FittedBox` 크기 대신 덱 전체의 한국어/번역 목록을 `soriUniformFitSize`로 측정해 같은 면의 글자 크기가 카드마다 흔들리지 않게 했다.
+
+**센서.** `test/deck_card_geometry_test.dart`를 추가해 네 화면 모두에서 짧은 값과 긴 값의 슬롯 rect 동일, 플립 전후 rect 동일, 슬롯 폭과 `SoriSwipeCard` 가용 폭 동일을 고정했다. 카드 판정·SRS·wrong-count·서빙 순서와 기존 flip gate는 변경하지 않았다.
+
+**검증.** Cloud VM에 Flutter/Dart가 없어 SDK 3.44.0 설치 후 실행한다. 현재는 `git diff --check`와 Dart format을 포함한 기계 검증 대기 상태다.
+
+**커밋:** 테스트 전 스냅샷 커밋에 포함하고, 검증 결과와 최종 해시는 후속 갱신한다.
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.

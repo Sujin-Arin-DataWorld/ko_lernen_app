@@ -479,47 +479,61 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             ),
                             // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
                             // 애니메이션에서 별이 제자리에 남지 않도록.
-                            child: Stack(
-                              children: [
-                                SoriStudyScale(
-                                  child: KeyedSubtree(
-                                    key: _flashCardKey,
-                                    child: FlipCard(
-                                      key: ValueKey('legacy-$_serve'),
-                                      flipped: _flipped,
-                                      onTap: _onFlip,
-                                      front: _Front(v: v, koFirst: _koFirst),
-                                      back: _Back(v: v, koFirst: _koFirst),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 12,
-                                  right: 12,
-                                  child: SoriPressable(
-                                    onTap: () => _toggleFavorite(v.korean),
-                                    haptic: SoriHaptic.light,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: SoriSurfaces.of(
-                                          context,
-                                        ).bg.withValues(alpha: 0.4),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Icon(
-                                        _favorites.contains(v.korean)
-                                            ? Icons.star_rounded
-                                            : Icons.star_outline_rounded,
-                                        color: _favorites.contains(v.korean)
-                                            ? SoriColors.warning
-                                            : SoriSurfaces.of(context).textDim,
-                                        size: 28,
+                            child: SizedBox(
+                              key: const ValueKey('deck-card-slot'),
+                              width: double.infinity,
+                              child: Stack(
+                                children: [
+                                  SoriStudyScale(
+                                    child: KeyedSubtree(
+                                      key: _flashCardKey,
+                                      child: FlipCard(
+                                        key: ValueKey('legacy-$_serve'),
+                                        flipped: _flipped,
+                                        onTap: _onFlip,
+                                        front: _Front(
+                                          v: v,
+                                          koFirst: _koFirst,
+                                          deck: _filtered,
+                                        ),
+                                        back: _Back(
+                                          v: v,
+                                          koFirst: _koFirst,
+                                          deck: _filtered,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Positioned(
+                                    top: 12,
+                                    right: 12,
+                                    child: SoriPressable(
+                                      onTap: () => _toggleFavorite(v.korean),
+                                      haptic: SoriHaptic.light,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8),
+                                        decoration: BoxDecoration(
+                                          color: SoriSurfaces.of(
+                                            context,
+                                          ).bg.withValues(alpha: 0.4),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Icon(
+                                          _favorites.contains(v.korean)
+                                              ? Icons.star_rounded
+                                              : Icons.star_outline_rounded,
+                                          color: _favorites.contains(v.korean)
+                                              ? SoriColors.warning
+                                              : SoriSurfaces.of(
+                                                  context,
+                                                ).textDim,
+                                          size: 28,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -789,7 +803,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 class _Front extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Front({required this.v, required this.koFirst});
+  final List<Vocab> deck;
+  const _Front({required this.v, required this.koFirst, required this.deck});
 
   @override
   Widget build(BuildContext context) {
@@ -812,6 +827,22 @@ class _Front extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
+          final koreanHeadlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final word in deck) word.korean],
+            maxWidth: constraints.maxWidth - Spacing.xl * 2,
+            cap: soriFillSize(h, 0.19, 38, 92),
+            min: 30,
+            lineHeight: 1.15,
+          );
+          final translationHeadlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final word in deck) word.translationFor(lang)],
+            maxWidth: constraints.maxWidth - Spacing.xl * 2,
+            cap: soriFillSize(h, 0.12, 28, 48),
+            min: 24,
+            lineHeight: 1.15,
+          );
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 한 줄이라
           // FittedBox 로 폭에 맞춰 줄이고, 번역은 여러 단어일 수 있어 줄바꿈 허용.
           final Widget headline = koFirst
@@ -821,7 +852,7 @@ class _Front extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 38, 92),
+                      fontSize: koreanHeadlineSize,
                       fontWeight: FontWeight.w800,
                       color: SoriColors.info,
                       height: 1.15,
@@ -832,7 +863,7 @@ class _Front extends StatelessWidget {
                   v.translationFor(lang),
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: soriFillSize(h, 0.12, 28, 48),
+                    fontSize: translationHeadlineSize,
                     fontWeight: FontWeight.w800,
                     color: SoriColors.info,
                     height: 1.15,
@@ -973,7 +1004,8 @@ class _MasteryChip extends StatelessWidget {
 class _Back extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Back({required this.v, required this.koFirst});
+  final List<Vocab> deck;
+  const _Back({required this.v, required this.koFirst, required this.deck});
 
   @override
   Widget build(BuildContext context) {
@@ -992,6 +1024,22 @@ class _Back extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
+          final koreanHeadlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final word in deck) word.korean],
+            maxWidth: constraints.maxWidth - Spacing.xl * 2,
+            cap: soriFillSize(h, 0.19, 36, 92),
+            min: 30,
+            lineHeight: 1.2,
+          );
+          final translationHeadlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final word in deck) word.translationFor(lang)],
+            maxWidth: constraints.maxWidth - Spacing.xl * 2,
+            cap: soriFillSize(h, 0.12, 28, 48),
+            min: 24,
+            lineHeight: 1.2,
+          );
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
           // 한 줄에 맞추고, 번역은 줄바꿈 허용.
           final Widget headline = koFirst
@@ -1001,7 +1049,7 @@ class _Back extends StatelessWidget {
                     v.translationFor(lang),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.12, 28, 48),
+                      fontSize: translationHeadlineSize,
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,
@@ -1014,7 +1062,7 @@ class _Back extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 36, 92),
+                      fontSize: koreanHeadlineSize,
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,

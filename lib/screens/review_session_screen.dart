@@ -449,6 +449,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -466,6 +467,31 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                 final ch = cc.maxHeight.isFinite
                                     ? cc.maxHeight
                                     : 360.0;
+                                final lang = Localizations.localeOf(
+                                  context,
+                                ).languageCode;
+                                final koreanHeadlineSize = soriUniformFitSize(
+                                  context,
+                                  texts: [
+                                    for (final word in _deck) word.korean,
+                                  ],
+                                  maxWidth: cc.maxWidth - Spacing.xl * 2,
+                                  cap: _sz(ch, 0.155, 38, 72),
+                                  min: 30,
+                                  lineHeight: 1.05,
+                                );
+                                final translationHeadlineSize =
+                                    soriUniformFitSize(
+                                      context,
+                                      texts: [
+                                        for (final word in _deck)
+                                          word.translationFor(lang),
+                                      ],
+                                      maxWidth: cc.maxWidth - Spacing.xl * 2,
+                                      cap: _sz(ch, 0.125, 28, 54),
+                                      min: 24,
+                                      lineHeight: 1.1,
+                                    );
                                 return SingleChildScrollView(
                                   child: ConstrainedBox(
                                     constraints: BoxConstraints(
@@ -475,8 +501,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: _flipped
-                                          ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                                          ? _backList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              translationHeadlineSize,
+                                            )
+                                          : _frontList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              koreanHeadlineSize,
+                                            ),
                                     ),
                                   ),
                                 );
@@ -536,6 +576,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) => [
     // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
     //
@@ -551,7 +592,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: headlineSize,
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),
@@ -595,6 +636,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
@@ -608,7 +650,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           style: TextStyle(
             fontFamily: 'Pretendard',
             // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
-            fontSize: _sz(h, 0.125, 28, 54),
+            // 덱 전체 뜻 중 가장 긴 값에 맞춘 공유 크기라 카드별 지터가 없다.
+            fontSize: headlineSize,
             fontWeight: FontWeight.w800,
             height: 1.1,
           ),

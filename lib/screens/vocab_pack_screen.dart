@@ -848,41 +848,52 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
         // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
         Expanded(
-          child: SoriSwipeCard(
-            enabled: _learnCardRevealed,
-            onSwipeRight: _learnGotIt,
-            onSwipeLeft: _learnDontKnow,
-            rightBadge: SoriSwipeBadge(
-              label: t.vocabPackGotIt,
-              icon: Icons.check_rounded,
-              color: SoriColors.success,
-            ),
-            leftBadge: SoriSwipeBadge(
-              label: t.vocabPackDontKnow,
-              icon: Icons.close_rounded,
-              color: SoriColors.danger,
-            ),
-            child: SoriStudyScale(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final h = soriStudyTypeScaleHeight(context);
-                  final headlineSize = soriUniformFitSize(
-                    context,
-                    texts: [for (final w in _learnWords) w.korean],
-                    maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                    cap: soriFillSize(h, 0.18, 36, 96),
-                    min: 32,
-                    letterSpacing: -0.5,
-                    lineHeight: 1.05,
-                  );
-                  return FlipCard(
-                    key: ValueKey('learn-$_learnServe'),
-                    flipped: _flipped,
-                    onTap: _toggleLearnFlip,
-                    front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
-                    back: _FlipBack(v: cur, h: h),
-                  );
-                },
+          child: LayoutBuilder(
+            builder: (context, box) => SoriSwipeCard(
+              enabled: _learnCardRevealed,
+              onSwipeRight: _learnGotIt,
+              onSwipeLeft: _learnDontKnow,
+              rightBadge: SoriSwipeBadge(
+                label: t.vocabPackGotIt,
+                icon: Icons.check_rounded,
+                color: SoriColors.success,
+              ),
+              leftBadge: SoriSwipeBadge(
+                label: t.vocabPackDontKnow,
+                icon: Icons.close_rounded,
+                color: SoriColors.danger,
+              ),
+              child: SizedBox(
+                key: const ValueKey('deck-card-slot'),
+                width: double.infinity,
+                height: box.maxHeight,
+                child: SoriStudyScale(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final h = soriStudyTypeScaleHeight(context);
+                      final headlineSize = soriUniformFitSize(
+                        context,
+                        texts: [for (final w in _learnWords) w.korean],
+                        maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                        cap: soriFillSize(h, 0.18, 36, 96),
+                        min: 32,
+                        letterSpacing: -0.5,
+                        lineHeight: 1.05,
+                      );
+                      return FlipCard(
+                        key: ValueKey('learn-$_learnServe'),
+                        flipped: _flipped,
+                        onTap: _toggleLearnFlip,
+                        front: _FlipFront(
+                          v: cur,
+                          h: h,
+                          headlineSize: headlineSize,
+                        ),
+                        back: _FlipBack(v: cur, h: h),
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
           ),
@@ -1095,6 +1106,7 @@ class _FlipFront extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -1188,6 +1200,7 @@ class _FlipBack extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
