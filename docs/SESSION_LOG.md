@@ -1,5 +1,13 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — 덱 커스텀 아이콘 승인 전 Web 404 제거
+
+**무엇/왜.** 390×844·1280×800 브라우저 시각 QA에서 P1–P5 레이아웃은 모두 정상였지만, 아직 Jin 시각 승인을 받지 않은 `assets/illustrations/deck/action_*.webp` 네 파일을 `Image.asset`이 먼저 요청해 Web 콘솔에 404를 남겼다. `_deckCustomAssetsReady=false` 명시 게이트를 추가해 승인 전에는 네트워크/asset 요청 없이 Material 폴백을 바로 렌더한다. §R-3 파일을 실제 번들한 뒤 상수 하나만 true로 바꾸면 기존 `errorBuilder` 안전망과 함께 커스텀 도장 아이콘이 활성화된다.
+
+**검증.** deck action bar 위젯 테스트·전체 analyzer·Web release 재검증 후 기록한다.
+
+**커밋:** 후속 커밋에 포함.
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P3–P5 시각 수렴 완료
 
 **Today P3.** 미션 카드를 실제 활동 카탈로그의 제목·21:9 일러스트·보상 종류별 아이콘으로 재구성하고 CTA는 짧은 `Starten/Start`로 분리했다. 한옥 진행은 현 단계 PNG 배너와 현지화된 12단계 이름을 사용하며 enum 원문을 제거했다. 퀘스트 행은 공용 `SoriRewardThumb`을 쓰는 compact 카드로 바꿨고, 보자기 대기 블록도 실제 보자기 썸네일을 사용한다. 홈 캐릭터 클립은 소스 픽셀을 바꾸지 않고 하단 고정 1.2배 줌만 적용했다.

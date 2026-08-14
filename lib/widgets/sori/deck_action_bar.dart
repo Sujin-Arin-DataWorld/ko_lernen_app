@@ -6,6 +6,11 @@ import '../../l10n/generated/app_localizations.dart';
 import 'motion.dart';
 import 'tokens.dart';
 
+/// Jin이 §R-3 커스텀 WebP 시안을 승인하고 실제 파일을 번들한 뒤 true로
+/// 전환한다. 승인 전에는 존재하지 않는 asset을 요청하지 않아 Web 404를 남기지
+/// 않고, 아래 Material 아이콘이 명시적인 선배포 폴백이 된다.
+const bool _deckCustomAssetsReady = false;
+
 class SoriDeckHintController extends ChangeNotifier {
   Timer? _timer;
   bool _visible = false;
@@ -231,20 +236,24 @@ class _DeckActionButtonState extends State<_DeckActionButton> {
                     : Border.all(color: widget.border!, width: 1.5),
               ),
               alignment: Alignment.center,
-              child: Image.asset(
-                'assets/illustrations/deck/${widget.assetName}',
-                width: widget.size >= 60 ? 32 : 24,
-                height: widget.size >= 60 ? 32 : 24,
-                errorBuilder: (_, _, _) => Icon(
-                  widget.fallbackIcon,
-                  color: widget.foreground,
-                  size: widget.size >= 60 ? 32 : 24,
-                ),
-              ),
+              child: _deckCustomAssetsReady
+                  ? Image.asset(
+                      'assets/illustrations/deck/${widget.assetName}',
+                      width: widget.size >= 60 ? 32 : 24,
+                      height: widget.size >= 60 ? 32 : 24,
+                      errorBuilder: (_, _, _) => _fallbackIcon(),
+                    )
+                  : _fallbackIcon(),
             ),
           ),
         ),
       ),
     );
   }
+
+  Widget _fallbackIcon() => Icon(
+    widget.fallbackIcon,
+    color: widget.foreground,
+    size: widget.size >= 60 ? 32 : 24,
+  );
 }
