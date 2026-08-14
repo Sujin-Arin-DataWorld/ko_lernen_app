@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'account/account_transition_journal.dart';
+import 'media_mutation_lock.dart';
 import '../models/personal_room.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
@@ -356,6 +357,7 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
     _courseMasteryCache = null;
     _wrongCountCache = null;

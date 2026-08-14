@@ -1,5 +1,18 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor) — Sori Deck 센서 격리 · MediaMutationLock 존 고정
+
+**무엇/왜.** 개편 2 수직 제스처 센서에서 review ↑ `quickAdd`가 같은 파일의 앞 테스트 뒤에만 실패했다. 원인은 학습 계약이 아니라 `MediaMutationLock`이 이전 `testWidgets` fake-async 존의 Future tail을 다음 테스트에 물리는 것이었다. 그 꼬리는 완료되지 않아 저장이 no-op처럼 보였다.
+
+**구현.**
+- 락을 Future 체인 대신 busy+waiter 핸드오프로 바꿨다. `Storage.resetForTesting`이 락을 비운다.
+- Review 주입 덱은 initState에서 복사만 하고 setState 하지 않는다(호출자 리스트 오염 방지).
+- 기하/수직 테스트는 `UniqueKey`로 화면을 재마운트하고, ↑는 단어 텍스트를, ↓는 `SoriSwipeCard`를 잡는다.
+
+**검증.** `flutter analyze --fatal-infos` 0. Overhaul 2 suite `--concurrency=1` **59 passed** (queue/swipe/flipgate/geometry/vertical/uniform/requeue/spoiler/typography). `media_lifecycle` + `wordbook_quick_add` **39 passed**.
+
+**커밋:** 이 로그와 같은 커밋.
+
 ### 2026-08-14 (Cursor) — UI/UX 개편 2 Sori Deck × 리소그래프 한지
 
 **무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` 정본대로 학습 카드를 4방향 덱(좌=모름·우=앎·위=저장·아래=스킵)으로 완성하고, Today/Catalog/Gye/Hanok을 일러스트 언어로 압축했다. Sori Stage 5탭 셸·flipgate·`PackSessionSrsLedger`는 강화만 했고 완화하지 않았다. 위/아래는 SRS·wrongCount·ledger·학습 analytics에 쓰지 않는다.

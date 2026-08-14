@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sori_deck_coach.dart';
+import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
 
 Vocab _v(String korean, String german, {String id = 'v'}) => Vocab(
   id: id,
@@ -57,7 +58,22 @@ Future<void> _quietCoach() async {
   await Storage.setTutSeen('cpPlay');
   await Storage.setTutSeen('legacyVocab');
   await Storage.setTutVocabPackSeen();
+  await Storage.setTutWordbookSeen();
   resetSoriDeckCoachSessionForTest();
+}
+
+Future<void> _swipeDeck(WidgetTester tester, Offset delta) async {
+  await tester.drag(find.byType(SoriSwipeCard), delta, warnIfMissed: false);
+  await tester.pumpAndSettle();
+}
+
+Future<void> _swipeUpWord(WidgetTester tester, String korean) async {
+  await tester.drag(
+    find.text(korean).first,
+    const Offset(0, -180),
+    warnIfMissed: false,
+  );
+  await tester.pumpAndSettle();
 }
 
 bool _quickHas(String korean) {
@@ -93,6 +109,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         VocabPackScreen(
+          key: UniqueKey(),
           packId: pack.id,
           packLoader: (_) async => pack,
           siblingPacksLoader: (_) async => [pack],
@@ -103,12 +120,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('사과'), findsWidgets);
 
-    await tester.drag(
-      find.text('사과').first,
-      const Offset(0, 180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, 180));
 
     expect(Storage.srsCard('사과')?.reviewCount, isNull);
     expect(Storage.wrongCountOf('사과'), 0);
@@ -133,6 +145,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         VocabPackScreen(
+          key: UniqueKey(),
           packId: pack.id,
           packLoader: (_) async => pack,
           siblingPacksLoader: (_) async => [pack],
@@ -142,13 +155,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
-    await tester.drag(
-      find.text('사과').first,
-      const Offset(0, -180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
-
+    await _swipeUpWord(tester, '사과');
     expect(find.text('사과'), findsWidgets);
     expect(Storage.srsCard('사과')?.reviewCount, isNull);
     expect(_quickHas('사과'), isTrue);
@@ -159,6 +166,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         ReviewSessionScreen(
+          key: UniqueKey(),
           deck: [
             _v('학교', 'Schule', id: 'r1'),
             _v('선생님', 'Lehrer', id: 'r2'),
@@ -168,12 +176,7 @@ void main() {
     );
     await tester.pump(const Duration(milliseconds: 400));
 
-    await tester.drag(
-      find.text('학교').first,
-      const Offset(0, 180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, 180));
 
     expect(Storage.srsCard('학교')?.reviewCount, isNull);
     expect(Storage.wrongCountOf('학교'), 0);
@@ -190,6 +193,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         ReviewSessionScreen(
+          key: UniqueKey(),
           deck: [
             _v('학교', 'Schule', id: 'r1'),
             _v('선생님', 'Lehrer', id: 'r2'),
@@ -198,14 +202,9 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('학교'), findsWidgets);
 
-    await tester.drag(
-      find.text('학교').first,
-      const Offset(0, -180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
-
+    await _swipeUpWord(tester, '학교');
     expect(find.text('학교'), findsWidgets);
     expect(Storage.srsCard('학교')?.reviewCount, isNull);
     expect(_quickHas('학교'), isTrue);
@@ -213,6 +212,7 @@ void main() {
 
   testWidgets('custom ↓ 스킵은 기록 없이 전진한다', (tester) async {
     _viewport(tester);
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_custom_packs_v1': jsonEncode({
         'cp_vert': {
@@ -251,16 +251,12 @@ void main() {
     await Storage.init();
     await _quietCoach();
     await tester.pumpWidget(
-      _app(const CustomPackPlayScreen(packId: 'cp_vert')),
+      _app(CustomPackPlayScreen(key: UniqueKey(), packId: 'cp_vert')),
     );
+    await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    await tester.drag(
-      find.text('도서관').first,
-      const Offset(0, 180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, 180));
 
     expect(Storage.srsCard('도서관')?.reviewCount, isNull);
     expect(Storage.wrongCountOf('도서관'), 0);
@@ -273,6 +269,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         LegacyVocabScreen(
+          key: UniqueKey(),
           vocabLoader: () async => [
             _v('사과', 'Apfel', id: 'l1'),
             _v('바나나', 'Banane', id: 'l2'),
@@ -283,21 +280,11 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    await tester.drag(
-      find.text('사과').first,
-      const Offset(0, -180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, -180));
     expect(Storage.vokFavorites, contains('사과'));
     expect(find.text('사과'), findsWidgets);
 
-    await tester.drag(
-      find.text('사과').first,
-      const Offset(0, -180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, -180));
     expect(Storage.vokFavorites, contains('사과'));
     expect(Storage.srsCard('사과')?.reviewCount, isNull);
   });
@@ -307,6 +294,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         LegacyVocabScreen(
+          key: UniqueKey(),
           vocabLoader: () async => [
             _v('사과', 'Apfel', id: 'l1'),
             _v('바나나', 'Banane', id: 'l2'),
@@ -317,12 +305,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    await tester.drag(
-      find.text('사과').first,
-      const Offset(0, 180),
-      warnIfMissed: false,
-    );
-    await tester.pumpAndSettle();
+    await _swipeDeck(tester, const Offset(0, 180));
 
     expect(Storage.srsCard('사과')?.reviewCount, isNull);
     expect(find.text('바나나'), findsWidgets);

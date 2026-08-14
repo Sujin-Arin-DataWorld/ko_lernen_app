@@ -124,10 +124,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   Future<void> _load() async {
     // M5: vorgegebener personalisierter Deck hat Vorrang.
     if (widget.deck != null) {
-      setState(() {
-        _deck = widget.deck!;
-        _loading = false;
-      });
+      // initState 경로 — setState 금지. 호출자 리스트를 복사해 defer가
+      // widget.deck 원본을 뒤집지 않게 한다.
+      _deck = List<Vocab>.from(widget.deck!);
+      _loading = false;
       return;
     }
     List<Vocab> deck = [];

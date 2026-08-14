@@ -274,6 +274,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **P3** Today 미션 포스터 · 히어로 1.2 줌 · 한옥 배너/`hanokStageLabel` · 퀘스트 `RewardThumb`.
 - [x] **P4** 카탈로그 4:3 · ready footer 숨김 · 분(分) 이미지 오버레이 · Games `daily_game` 히어로.
 - [x] **P5** Gye 쇼케이스+단문 칩 · Hanok 숏컷 타일 3종.
+- [x] **센서 격리** `MediaMutationLock` busy+waiter + review 덱 복사 + UniqueKey 재마운트. Overhaul 2 suite 59 passed.
 - [~] **§R** `scripts/apply_riso_v2.py` 추가. 샘플 3장 Jin 승인 전 39장 일괄 처리 금지. 덱 아이콘 webp는 Material `errorBuilder` 폴백으로 선배포.
 - [ ] Jin: 4방향 손맛·히어로 줌 잘림·리소 샘플 3장·아이콘 시안·Linux `screen_sori_today` 골든.
 

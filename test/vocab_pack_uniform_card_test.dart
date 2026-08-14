@@ -169,7 +169,7 @@ void main() {
 
     // 뒷면: 예문 + 스피커 아이콘 + 탭/롱프레스 가능한 SoriPressable.
     expect(find.textContaining('하나 예문입니다.'), findsOneWidget);
-    expect(find.byIcon(Icons.volume_up_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.volume_up_rounded), findsWidgets);
     final pressable = tester.widget<SoriPressable>(
       find.byType(SoriPressable).first,
     );

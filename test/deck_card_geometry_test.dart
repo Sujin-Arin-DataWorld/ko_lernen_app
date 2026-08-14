@@ -95,6 +95,7 @@ void main() {
       await tester.pumpWidget(
         _app(
           VocabPackScreen(
+            key: UniqueKey(),
             packId: pack.id,
             packLoader: (_) async => pack,
             siblingPacksLoader: (_) async => [pack],
@@ -114,7 +115,7 @@ void main() {
     expect(longRect, shortRect);
     _assertSlotPinned(tester);
 
-    await tester.tap(find.text(_longKo), warnIfMissed: false);
+    await tester.tap(find.byKey(_slot), warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(tester.getRect(find.byKey(_slot)), longRect);
   });
@@ -125,7 +126,12 @@ void main() {
     _viewport(tester);
     Future<void> pump(Vocab word) async {
       await tester.pumpWidget(
-        _app(ReviewSessionScreen(deck: [word, _v('n', '다음', 'nächste')])),
+        _app(
+          ReviewSessionScreen(
+            key: UniqueKey(),
+            deck: [word, _v('n', '다음', 'nächste')],
+          ),
+        ),
       );
       await tester.pump(const Duration(milliseconds: 400));
     }
@@ -138,7 +144,7 @@ void main() {
     final longRect = tester.getRect(find.byKey(_slot));
     expect(longRect, shortRect);
 
-    await tester.tap(find.text(_longKo), warnIfMissed: false);
+    await tester.tap(find.byKey(_slot), warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(tester.getRect(find.byKey(_slot)), longRect);
   });
@@ -148,6 +154,7 @@ void main() {
   ) async {
     _viewport(tester);
     Future<void> pump(String korean, String german) async {
+      Storage.resetForTesting();
       SharedPreferences.setMockInitialValues({
         'kl_custom_packs_v1': jsonEncode({
           'cp_geo': {
@@ -186,8 +193,9 @@ void main() {
       await Storage.init();
       await _quietCoach();
       await tester.pumpWidget(
-        _app(const CustomPackPlayScreen(packId: 'cp_geo')),
+        _app(CustomPackPlayScreen(key: UniqueKey(), packId: 'cp_geo')),
       );
+      await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
     }
 
@@ -199,7 +207,7 @@ void main() {
     final longRect = tester.getRect(find.byKey(_slot));
     expect(longRect, shortRect);
 
-    await tester.tap(find.text(_longKo), warnIfMissed: false);
+    await tester.tap(find.byKey(_slot), warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(tester.getRect(find.byKey(_slot)), longRect);
   });
@@ -212,6 +220,7 @@ void main() {
       await tester.pumpWidget(
         _app(
           LegacyVocabScreen(
+            key: UniqueKey(),
             vocabLoader: () async => [word, _v('n', '다음', 'nächste')],
           ),
         ),
@@ -228,7 +237,7 @@ void main() {
     final longRect = tester.getRect(find.byKey(_slot));
     expect(longRect, shortRect);
 
-    await tester.tap(find.text(_longKo), warnIfMissed: false);
+    await tester.tap(find.byKey(_slot), warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(tester.getRect(find.byKey(_slot)), longRect);
   });
