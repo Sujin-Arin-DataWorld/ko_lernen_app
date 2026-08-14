@@ -1,6 +1,6 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P3–P5 시각 수렴 구현 중
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P3–P5 시각 수렴 완료
 
 **Today P3.** 미션 카드를 실제 활동 카탈로그의 제목·21:9 일러스트·보상 종류별 아이콘으로 재구성하고 CTA는 짧은 `Starten/Start`로 분리했다. 한옥 진행은 현 단계 PNG 배너와 현지화된 12단계 이름을 사용하며 enum 원문을 제거했다. 퀘스트 행은 공용 `SoriRewardThumb`을 쓰는 compact 카드로 바꿨고, 보자기 대기 블록도 실제 보자기 썸네일을 사용한다. 홈 캐릭터 클립은 소스 픽셀을 바꾸지 않고 하단 고정 1.2배 줌만 적용했다.
 
@@ -8,19 +8,23 @@
 
 **Gye/Hanok P5.** 임베디드 Gye 빈 상태의 중복 대형 헤더를 제거하고 공동 한옥 8레이어를 모두 실체화한 showcase, 짧은 설명 카드 3개, 장문 상세 시트로 압축했다. Hanok 하단 고스트 텍스트는 실제 도장·보자기·퀘스트 보상 썸네일을 쓰는 3개 균등 shortcut tile로 교체했다. 1차 배포는 handoff의 fallback 규칙대로 count 없이 진행한다.
 
-**검증.** DE/EN ARB 생성, analyze, Today/catalog/Gye/Hanok 반응형·접근성·스모크 매트릭스는 테스트 전 스냅샷 커밋 후 실행한다.
+**보존 수리.** 레거시 Home 삭제 뒤 소비처가 0이 된 마일스톤 축하를 활성 Sori Stage Today의 단일 소유로 옮겼다. 기존 우선순위·보자기 선지급·한 번만 마킹·피드백 문맥을 그대로 복원했고 전용 위젯 회귀를 현행 Today fixture로 고쳤다.
 
-**커밋:** 검증 전 스냅샷에 포함하고 최종 해시는 후속 갱신한다.
+**검증.** DE/EN ARB 생성, analyze 0, Today/catalog/Gye/Hanok·스모크·접근성·short-height 집중 매트릭스 **460/460 통과**. Linux/Flutter 3.44.0에서 기존 stale 9장과 신규 Today 3장 골든을 재생성했고 `test/goldens` **15/15 통과**했다. 신규 Today compact/medium/expanded PNG를 직접 검수해 일러스트 누락·오버플로·헤더 경쟁이 없음을 확인했다.
 
-### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 Sori Deck 2.0 구현 중
+**커밋:** `47de728`(시각 언어), `5f49106`(토큰 수리), `923220d`(마일스톤 소유 복원), `1a6cc56`/`395edc6`/`5347ae7`(Today fixture·precache·Linux goldens).
+
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 Sori Deck 2.0 완료
 
 **무엇/왜.** P1 고정 지오메트리 위에 `SoriSwipeCard`를 지배축 잠금 방식의 4방향 pan으로 확장했다. 좌/우는 기존 플립 게이트 판정, 위는 저장 후 제자리 복귀, 아래는 평가 없는 스킵이며, 다음 카드 앞면 underlay는 포인터를 받지 않는다. `LearnSessionQueue`에는 miss를 늘리지 않는 `defer()`와 `peekNext`를 추가했다. 공용 `DeckActionBar`는 64dp 판정 2개와 48dp 스킵/저장 버튼을 한 줄에 배치하고, 커스텀 WebP가 승인되기 전에는 Material 아이콘으로 강등한다. 캐릭터·콘텐츠 C0·SRS 원장 계약은 변경하지 않았다.
 
 **화면 배선.** 단어팩 Learn·복습·커스텀팩·레거시 단어장의 기존 판정 핸들러를 그대로 재사용한다. 위 저장은 단어팩/복습의 quick wordbook과 레거시 즐겨찾기 추가 전용으로 연결하고 커스텀팩에서는 숨겼다. 아래 스킵은 모든 화면에서 플립/서빙 키를 앞면으로 복구하며 SRS·wrong-count를 호출하지 않는다. 판정 버튼도 review/custom을 포함해 플립 전에는 기록하지 않고 힌트를 표시한다.
 
-**센서/검증.** swipe 4방향·지배축·저항 힌트·underlay hit test, action bar 게이트/크기, queue defer/peekNext 테스트를 추가했다. Flutter analyze와 화면별 무기록 센서는 테스트 전 스냅샷 커밋 후 실행한다.
+**코치.** 기존 review/custom/legacy 코치가 끝난 뒤에만 공용 `soriDeck` Spotlight가 한 번 뜨도록 별도 helper를 추가했다. 기존 State별 coach ID를 침범하지 않고 resetTutorials 레지스트리를 그대로 탄다. vocab pack의 기존 FeatureCoach 경로는 보존한다.
 
-**커밋:** 검증 전 스냅샷에 포함하고 최종 해시는 후속 갱신한다.
+**센서/검증.** swipe 4방향·지배축·저항 힌트·underlay hit test, action bar 게이트/크기, queue defer/peekNext, 네 화면 down-swipe SRS/wrong-count 무기록과 다음 카드 앞면을 고정했다. P2 핵심 집중 매트릭스 **46/46**, 이후 전체 deck/feedback/assessment 회귀도 통과했다.
+
+**커밋:** `0fffa2d`(4방향 core), `6ec4e43`(typed arithmetic), `e3b52c2`/`3525a32`/`66a0088`(회귀 센서·화면 흐름), `9ab2fdb`(공용 1회 코치).
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P1 카드 지오메트리
 
