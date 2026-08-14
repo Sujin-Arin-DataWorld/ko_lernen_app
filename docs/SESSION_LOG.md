@@ -24,7 +24,7 @@
 
 **검증.** `dart analyze` 대상 6파일 0 issues. `flutter test` gye_tab_landing(3)·sori_stage_responsive_accessibility(1280dp 회귀 포함)·sori_stage_catalog_reward_flow green. 타이포 래칫 Pretendard 94→85, screens TextStyle 409→384.
 
-**커밋.** `512f7b0`
+**커밋.** `1588283`
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P2-2 덱 액션바·4방향 배선
 
