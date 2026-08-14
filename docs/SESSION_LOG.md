@@ -1,5 +1,58 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — 콘텐츠 DB 작성 정본과 C0 기반 게시
+
+**무엇/왜.** 미래 세션이 B1/B2 콘텐츠를 안전하게 확장할 수 있도록
+`docs/CONTENT_AUTHORING_GUIDE.md`를 작성했다. 실제 loader·validator·review tool을 기준으로
+모든 컬럼, ID·레벨·번역·참조·팩·curriculum·review 상태 규칙과 배치별 검증 순서를 명시했다.
+어휘·문법·시나리오·스몰토크·Cloze·Satzbau·발음은 KO/DE/EN을 모두 작성해야 하지만, 현재
+실벤·끝말잇기 런타임 schema는 DE 전용임도 분명히 기록했다. 사용하지 않는 EN 필드를
+임의로 넣는 대신, 해당 두 게임의 영어 지원은 별도 schema/UX 작업으로 분리한다.
+
+**검증·경계.** 라이브 validator, Batch 01 overlay validator(96 records), Python 회귀 41건,
+`flutter analyze`, 전체 `flutter test`, `git diff --check`를 통과했다. Batch 01은 여전히
+review-only `draft`이며 앱 자산·실제 TTS·Firebase 업로드·UI/Sori Stage는 변경하지 않았다.
+현재 `apply_review.py`는 하나의 asset과 audit manifest만 원자적으로 갱신하므로, 신규
+pack/curriculum/scenario를 실제 병합하는 다중 파일 트랜잭션은 후속 도구가 생기기 전까지
+실행하지 않는다.
+
+**커밋:** `e0698688` (`feat(content): establish C0 authoring foundation`). 이 로그 및 AGENTS
+체크리스트 갱신은 뒤따르는 documentation-only 커밋에 포함한다.
+
+### 2026-08-14 (Codex, Mac) — 콘텐츠 전용 C0 완료 및 B1/B2 Batch 01 Jin 검수 준비
+
+**무엇/왜.** UI/UX v2 및 현재 기본 홈인 캐릭터 Sori Stage에는 손대지 않고, 콘텐츠 확장을
+안전하게 시작할 C0 기반을 콘텐츠 브랜치에만 만들었다. `validate_content.py`를 현재
+vocab·grammar·scenario·game·발음·audit manifest의 빠른 실패 게이트로 정리했고,
+`apply_review.py`는 schema-complete draft와 `id`/`상태` 승인 원장만으로 작동하는
+preview-first·원자적 병합기로 고정했다. 신규 vocab pack은 11–12개, 연속 순번, 마지막
+2–3 Boss, 전원 승인 및 metadata/curriculum 사전검증을 통과하지 않으면 preview/apply
+모두 거부한다. `scripts/build_vocab_packs.py`는 현 15열 CSV를 훼손할 수 있으므로 실행
+금지 경고를 도구·서비스에 남겼다.
+
+**학습 계약.** 저장된 소문자 CEFR 코드를 정규화해 초성·실벤은 정확 레벨, 듣기는
+정확→가장 가까운 하위→전체, 끝말잇기는 A1부터 사용자 레벨까지 누적→실제 체인이 없을
+때만 전체 풀로 선택하게 했다. 기존 하드코딩 발음 4문장은 versioned
+`pronunciation_phrases.json` 승인 seed로 이관했고, 로더 오류/빈 목록에서는 TTS·녹음을
+막고 재시도 UI를 보인다. TTS 수집기는 발음 corpus를 포함하지만 이번에는 dry-run만
+수행했다.
+
+**Batch 01.** 앱 자산에는 B1/B2 본문을 병합하지 않았다. 대신
+`tools/content_factory/drafts/`와 `review/`에 검수 전용 96개 레코드(단어 24, 문법 8,
+스몰토크 16, Cloze 24, Satzbau 24)를 만들었다. B1 주거·계약과 B2 격식 계약·협상 주제,
+지정 ID, B1 #19/B2 #18 pack 계획, 기존 motif·curriculum 동반 매핑을 모두 포함한다.
+모든 원장은 `draft`이며, Batch overlay validator가 review의 ko/de/en까지 실제 draft 투영값과
+정확히 같은지 확인한다.
+
+**검증.** `validate_content.py`, read-only `validate_batch_01.py`(96 records), Python 회귀
+**41건**, 승인 없는 5개 `apply_review.py` preview(각각 0 append), pack assignment preflight,
+TTS `--dry-run` **5,288** 발화(인증·합성·로컬 write·업로드 없음), C0 Flutter focused
+**40건**, `flutter analyze` 0 issues, 전체 `flutter test` 및 `git diff --check`를 통과했다.
+
+**경계.** `lib/screens/sori_stage/`, Today 추천, paywall 카피, 새 motif/디자인, 실제
+TTS/Firebase 업로드는 변경하지 않았다. Batch 01 검수와 별도 콘텐츠 병합 지시 전에는
+`--apply`를 실행하지 않는다.
+
 ### 2026-08-14 (Codex, Mac) — UI/UX v2 인수인계 기준점 게시
 
 **무엇/왜.** Jin의 명시 승인에 따라, 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 커밋 `79ae4a0c`와 함께 UI/UX v2 구현 인수인계 문서 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`를 Git 기준점에 추가했다. `AGENTS.md`의 오래된 feature-gate/레거시 홈 설명도 실제 정본으로 바로잡아 다음 UI 세션이 서로 모순된 지시를 받지 않게 했다.
