@@ -447,6 +447,11 @@ void main() {
     await tester.pump(const Duration(milliseconds: 150));
 
     expect(find.text('Ein Satz. Ein Bauteil.'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Im Café bestellen'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Im Café bestellen'), findsWidgets);
   });
 

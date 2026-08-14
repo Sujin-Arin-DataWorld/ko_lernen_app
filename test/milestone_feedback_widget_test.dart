@@ -108,6 +108,7 @@ void main() {
 
       await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester);
+      await tester.pump(const Duration(milliseconds: 500));
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3'});
       expect(find.byType(ContentFeedbackCard), findsOneWidget);
@@ -130,6 +131,7 @@ void main() {
 
       await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester, expectedCount: 2);
+      await tester.pump(const Duration(milliseconds: 500));
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3', 'level_5'});
       expect(find.byType(ContentFeedbackCard), findsOneWidget);
