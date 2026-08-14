@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
@@ -204,10 +205,7 @@ void main() {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == 'Gewusst')
-          .onTap!();
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
@@ -252,7 +250,9 @@ void main() {
     (tester) async {
       await tester.pumpWidget(_app(const ReviewSessionScreen(deck: [_word])));
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      await tester.tap(find.text(_word.korean));
+      await tester.pump(const Duration(milliseconds: 400));
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
       await tester.pump();
 
       _expectFeedback(tester, type: 'review');
@@ -284,7 +284,9 @@ void main() {
         _app(const CustomPackPlayScreen(packId: 'private-pack')),
       );
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      await tester.tap(find.text(_privateWord));
+      await tester.pump(const Duration(milliseconds: 400));
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
       await tester.pump();
 
       final card = _expectFeedback(tester, type: 'custom_wordbook');
@@ -309,7 +311,7 @@ void main() {
       expect(find.byType(ContentFeedbackCard), findsNothing);
       await tester.tap(find.text(_word.korean));
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
       await tester.pump();
 
       _expectFeedback(tester, type: 'legacy_vocab');

@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 Vocab _word(int index, {required String packId, bool boss = false}) => Vocab(
@@ -28,7 +28,7 @@ Vocab _word(int index, {required String packId, bool boss = false}) => Vocab(
   isReviewBoss: boss,
 );
 
-Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
+Future<void> _pumpPack(WidgetTester tester, VocabPack pack) async {
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -48,22 +48,14 @@ Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
   );
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 300));
-  return AppL10n.delegate.load(const Locale('de'));
 }
 
-Future<void> _learnKnown(
-  WidgetTester tester,
-  AppL10n t, {
-  required int count,
-}) async {
+Future<void> _learnKnown(WidgetTester tester, {required int count}) async {
   for (var index = 0; index < count; index++) {
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
-    tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((button) => button.label == t.vocabPackGotIt)
-        .onTap!();
+    tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
   }
@@ -107,9 +99,9 @@ void main() {
           _word(5, packId: packId, boss: true),
         ],
       );
-      final t = await _pumpPack(tester, pack);
+      await _pumpPack(tester, pack);
 
-      await _learnKnown(tester, t, count: pack.total);
+      await _learnKnown(tester, count: pack.total);
       for (var index = 0; index < pack.normalWords.length; index++) {
         await _answerCurrent(tester, correct: true);
       }
@@ -146,9 +138,9 @@ void main() {
           _word(4, packId: packId),
         ],
       );
-      final t = await _pumpPack(tester, pack);
+      await _pumpPack(tester, pack);
 
-      await _learnKnown(tester, t, count: pack.total);
+      await _learnKnown(tester, count: pack.total);
 
       final currentWord = tester
           .widgetList<Text>(find.byType(Text))
