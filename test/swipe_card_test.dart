@@ -154,4 +154,94 @@ void main() {
 
     expect(calls, 0, reason: 'enabled=false 이므로 판정 콜백 호출 0');
   });
+
+  testWidgets('up and down commits each callback once', (tester) async {
+    var upCalls = 0;
+    var downCalls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(400, 800),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 400,
+                height: 300,
+                child: SoriSwipeCard(
+                  onSwipeUp: () => upCalls++,
+                  onSwipeDown: () => downCalls++,
+                  child: const ColoredBox(
+                    color: Colors.white,
+                    child: Center(child: Text('카드')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    // Up swipe
+    await tester.drag(find.text('카드'), const Offset(0, -150));
+    await tester.pumpAndSettle();
+    expect(upCalls, 1);
+    expect(downCalls, 0);
+
+    // Down swipe
+    await tester.drag(find.text('카드'), const Offset(0, 150));
+    await tester.pumpAndSettle();
+    expect(upCalls, 1);
+    expect(downCalls, 1);
+  });
+
+  testWidgets('enabled=false triggers onBlockedHorizontalDrag on horizontal drag', (
+    tester,
+  ) async {
+    var blockedCalls = 0;
+    var leftCalls = 0;
+    var upCalls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(400, 800),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 400,
+                height: 300,
+                child: SoriSwipeCard(
+                  enabled: false,
+                  onSwipeLeft: () => leftCalls++,
+                  onSwipeUp: () => upCalls++,
+                  onBlockedHorizontalDrag: () => blockedCalls++,
+                  child: const ColoredBox(
+                    color: Colors.white,
+                    child: Center(child: Text('카드')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(-60, 0));
+    await tester.pumpAndSettle();
+
+    expect(leftCalls, 0);
+    expect(blockedCalls, 1);
+
+    // Vertical gestures work even if enabled=false
+    await tester.drag(find.text('카드'), const Offset(0, -150));
+    await tester.pumpAndSettle();
+    expect(upCalls, 1);
+  });
 }

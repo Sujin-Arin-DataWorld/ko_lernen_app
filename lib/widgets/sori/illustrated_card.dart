@@ -37,6 +37,7 @@ class SoriIllustratedCard extends StatelessWidget {
     this.footer,
     this.state = SoriIllustratedCardState.normal,
     this.overlay,
+    this.imageOverlay,
     this.onTap,
     this.onLongPress,
     this.semanticsLabel,
@@ -60,6 +61,9 @@ class SoriIllustratedCard extends StatelessWidget {
 
   /// [SoriIllustratedCardState.cleared] 일 때 우상단에 얹는 위젯 (단청 도장).
   final Widget? overlay;
+
+  /// 이미지 슬롯 내부 우하단 등에 얹는 미니 오버레이 (예: 소요 시간 필).
+  final Widget? imageOverlay;
 
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -145,10 +149,21 @@ class SoriIllustratedCard extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: imageAspectRatio,
-                  child: _Illustration(
-                    asset: illustrationAsset,
-                    fallback: fallback,
-                    dimmed: _locked,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      _Illustration(
+                        asset: illustrationAsset,
+                        fallback: fallback,
+                        dimmed: _locked,
+                      ),
+                      if (imageOverlay != null)
+                        Positioned(
+                          bottom: Spacing.xs,
+                          right: Spacing.xs,
+                          child: imageOverlay!,
+                        ),
+                    ],
                   ),
                 ),
               ),

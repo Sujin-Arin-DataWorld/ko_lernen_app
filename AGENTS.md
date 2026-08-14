@@ -261,6 +261,16 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### UI/UX v2 "Sori Deck × 리소그래프 한지" 개편 완주 (2026-08-14)
+
+- [x] **§P1: 카드 고정 지오메트리 수리 + 센서** — 4개 덱 화면(`vocab_pack`, `custom_pack_play`, `review_session`, `legacy_vocab`)에 `deck-card-slot` 고정 핀 및 덱 균일 headline sizing(`soriUniformFitSize`) 적용. 센서 테스트 `test/deck_card_geometry_test.dart` 추가.
+- [x] **§P2: Sori Deck 2.0 4방향 스와이프 & 덱 액션 바** — `SoriSwipeCard` 4방향 제스처(우=앎, 좌=모름, 위=저장, 아래=스킵) 확장, 미니 원형 `DeckActionBar`, `LearnSessionQueue.defer()/peekNext` 추가, 힌트 칩/코치마크 및 SRS 무결성 센서(`test/deck_vertical_gesture_test.dart`, `test/vocab_pack_flipgate_test.dart`) 추가.
+- [x] **§P3: Today 리디자인** — `_TodayMissionStage` v2 3중 반복 해체, `activityForRoute` 21:9 배너, 보상 아이콘 칩, 마스코트 히어로 줌 1.2배(`home_hero.dart`), 한옥 12단계 배너 + enum 로컬라이즈, `_QuestProgressRow` 컴팩트 카드 및 공용 `RewardThumb` 승격.
+- [x] **§P4: 카탈로그 폴리시** — `SoriIllustratedCard` 이미지 4:3 비율 복원, 미니 분 필 `imageOverlay`, Games 탭 `daily_game` 히어로 승격, ready 상태 footer 조건화.
+- [x] **§P5: Gye 압축 + Hanok 숏컷 타일** — `GyeHanok` showcase 모드, `GyeTabScreen` 임베디드 헤더 정리 및 단문 칩/상세 시트화, `SoriStageHanokScreen` 3종 일러스트 숏컷 타일(`_HanokShortcutTile`).
+- [x] **§R: 리소그래프 파이프라인 & 에셋 규약** — `scripts/apply_riso_v2.py` 구현, `pubspec.yaml`에 `assets/illustrations/deck/` 등록 및 `.gitkeep` 추가, ARB DE/EN 동기화.
+- [ ] Jin/릴리스 owner 실기기 검증: 4방향 스와이프 손맛, Today 히어로 줌 잘림/매트, 리소 질감 확인, Linux 골든 갱신.
+
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.

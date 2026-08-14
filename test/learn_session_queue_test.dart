@@ -93,5 +93,29 @@ void main() {
     expect(q.isDone, isTrue);
     expect(q.markKnown, throwsStateError);
     expect(q.markUnknown, throwsStateError);
+    expect(q.defer, throwsStateError);
+  });
+
+  test('defer reinserts without increasing misses and never graduates', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    expect(q.peekNext, 'b');
+
+    // defer 10 times on 'a'
+    for (var i = 0; i < 10; i++) {
+      expect(q.defer(), LearnAnswerOutcome.deferred);
+      expect(q.missesOf('a'), 0);
+      expect(q.uniqueTotal, 5);
+    }
+  });
+
+  test('peekNext returns 2nd item or null when <= 1 item', () {
+    final q2 = _q(['a', 'b']);
+    expect(q2.peekNext, 'b');
+
+    final q1 = _q(['a']);
+    expect(q1.peekNext, isNull);
+
+    final q0 = _q([]);
+    expect(q0.peekNext, isNull);
   });
 }

@@ -94,10 +94,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                 children: [
                   Text(
                     t.navGye,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
+                    style: tt.h2.copyWith(
                       color: s.text,
                       letterSpacing: -0.3,
                       height: 1.1,
@@ -105,10 +102,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   ),
                   Text(
                     t.gyeTabSubtitle,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w500,
+                    style: tt.caption.copyWith(
                       color: s.textMuted,
                       height: 1.2,
                     ),
@@ -137,6 +131,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   return _IntroEmpty(
                     introKey: _introKey,
                     padding: padding,
+                    embedded: widget.embedded,
                     onFindOrCreate:
                         widget.onFindOrCreate ?? () => showGyeChooser(context),
                     onContinueSolo:
@@ -168,12 +163,14 @@ class _IntroEmpty extends StatelessWidget {
   final EdgeInsets padding;
   final VoidCallback onFindOrCreate;
   final VoidCallback onContinueSolo;
+  final bool embedded;
 
   const _IntroEmpty({
     required this.introKey,
     required this.padding,
     required this.onFindOrCreate,
     required this.onContinueSolo,
+    this.embedded = false,
   });
 
   /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
@@ -188,48 +185,91 @@ class _IntroEmpty extends StatelessWidget {
     weeklyGoalProgress: 3,
   );
 
+  void _showDetailsSheet(BuildContext context) {
+    final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
+    showSoriSheet(
+      context: context,
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(t.gyeEmptyHeadline, style: tt.h2),
+            const SizedBox(height: Spacing.md),
+            Text(t.gyeExplainWhat, style: tt.body),
+            const SizedBox(height: Spacing.sm),
+            Text(t.gyeExplainWhy, style: tt.body),
+            const SizedBox(height: Spacing.sm),
+            Text(t.gyeExplainHow, style: tt.body),
+            const SizedBox(height: Spacing.lg),
+            Text(t.gyePrivacyTitle, style: tt.h3),
+            const SizedBox(height: Spacing.xs),
+            Text(t.gyePrivacyBody, style: tt.bodySmall),
+            const SizedBox(height: Spacing.xl),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
-    // 05A: headline → courtyard → privacy → one chooser CTA → explicit skip.
-    // The 16+ and join/create safety gates still live in [showGyeChooser].
+    final s = SoriSurfaces.of(context);
+
     return ListView(
       padding: padding,
       children: [
-        const SizedBox(height: Spacing.md),
-        Text(
-          t.gyeVoluntaryEyebrow,
-          textAlign: TextAlign.center,
-          style: tt.label.copyWith(color: SoriColors.primary),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
-        const SizedBox(height: Spacing.xs),
-        Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
-        const SizedBox(height: Spacing.md),
+        if (!embedded) ...[
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.gyeVoluntaryEyebrow,
+            textAlign: TextAlign.center,
+            style: tt.label.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeEmptyLead, textAlign: TextAlign.center, style: tt.bodySmall),
+          const SizedBox(height: Spacing.md),
+        ],
         ClipRRect(
           borderRadius: SoriRadius.brLg,
           child: AspectRatio(
             aspectRatio: 393 / 220,
-            child: GyeHanok(meta: _previewMeta),
+            child: const GyeHanok(meta: _previewMeta, showcase: true),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          t.gyeShowcaseCaption,
+          textAlign: TextAlign.center,
+          style: tt.caption.copyWith(color: s.textMuted),
+        ),
+        const SizedBox(height: Spacing.md),
         KeyedSubtree(
           key: introKey,
-          child: SoriCard(
-            variant: SoriCardVariant.base,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
-                const SizedBox(height: 10),
-                _Point(icon: Icons.tag_rounded, text: t.gyeExplainHow),
-              ],
-            ),
+          child: Column(
+            children: [
+              _CompactPoint(
+                icon: Icons.groups_2_outlined,
+                text: t.gyeExplainWhatShort,
+              ),
+              const SizedBox(height: Spacing.xs),
+              _CompactPoint(
+                icon: Icons.spa_outlined,
+                text: t.gyeExplainWhyShort,
+              ),
+              const SizedBox(height: Spacing.xs),
+              _CompactPoint(
+                icon: Icons.tag_rounded,
+                text: t.gyeExplainHowShort,
+                onInfoTap: () => _showDetailsSheet(context),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: Spacing.md),
@@ -237,12 +277,18 @@ class _IntroEmpty extends StatelessWidget {
           variant: SoriCardVariant.compact,
           accent: SoriColors.primary,
           tinted: true,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text(t.gyePrivacyTitle, style: tt.cardTitle),
-              const SizedBox(height: Spacing.xs),
-              Text(t.gyePrivacyBody, style: tt.bodySmall),
+              Expanded(
+                child: Text(
+                  t.gyePrivacyTitle,
+                  style: tt.cardTitle,
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.info_outline_rounded, size: 20, color: s.textMuted),
+                onPressed: () => _showDetailsSheet(context),
+              ),
             ],
           ),
         ),
@@ -261,32 +307,40 @@ class _IntroEmpty extends StatelessWidget {
   }
 }
 
-class _Point extends StatelessWidget {
+class _CompactPoint extends StatelessWidget {
   final IconData icon;
   final String text;
+  final VoidCallback? onInfoTap;
 
-  const _Point({required this.icon, required this.text});
+  const _CompactPoint({
+    required this.icon,
+    required this.text,
+    this.onInfoTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, size: 18, color: SoriColors.primary),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 13,
-              height: 1.4,
-              color: s.textMuted,
+    final tt = SoriTextTheme.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: SoriColors.primary),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Text(
+              text,
+              style: tt.bodySmall.copyWith(color: s.text),
             ),
           ),
-        ),
-      ],
+          if (onInfoTap != null)
+            IconButton(
+              icon: Icon(Icons.info_outline_rounded, size: 18, color: s.textMuted),
+              onPressed: onInfoTap,
+            ),
+        ],
+      ),
     );
   }
 }
@@ -365,23 +419,14 @@ class _GyeCard extends StatelessWidget {
               children: [
                 Text(
                   gye.name,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  style: tt.cardTitle.copyWith(color: s.text),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.gyeMembersN(gye.memberCount),
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 12,
-                    color: s.textMuted,
-                  ),
+                  style: tt.cardSubtitle.copyWith(color: s.textMuted),
                 ),
               ],
             ),

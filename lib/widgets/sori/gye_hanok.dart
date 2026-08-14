@@ -20,11 +20,13 @@ import 'tokens.dart';
 class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
+  final bool showcase;
 
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.showcase = false,
   });
 
   @override
@@ -70,7 +72,11 @@ class _GyeHanokState extends State<GyeHanok>
       GyeLanternProgress.fromMeta(widget.meta, elementCount: _elements.length);
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
+  /// [widget.showcase] 가 true 이면 8레이어 전부 1.0 (프리뷰 쇼케이스).
   double _baseOpacity(int i, GyeLanternProgress progress) {
+    if (widget.showcase) {
+      return 1.0;
+    }
     if (i < progress.permanentElementCount) {
       return 1.0;
     }

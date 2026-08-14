@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud Agent) — UI/UX 개편 2 "Sori Deck × 리소그래프 한지" 완주 (P1~P5, §R)
+
+**무엇/왜.** `HANDOFF_UI_OVERHAUL_2_2026-08-14.md` 명세에 따라 UI/UX 개편 2를 완주했다:
+1. **§P1 (카드 고정 지오메트리 수리 + 센서):** 4개 덱 화면(`vocab_pack_screen`, `custom_pack_play_screen`, `review_session_screen`, `legacy_vocab_screen`)에 `deck-card-slot` 키와 `width: double.infinity` 고정 핀 및 덱 균일 headline sizing(`soriUniformFitSize`) 적용. 센서 테스트 `test/deck_card_geometry_test.dart` 추가.
+2. **§P2 (Sori Deck 2.0 4방향 스와이프 & 덱 액션 바):**
+   - `SoriSwipeCard` 4방향 확장 (우=앎, 좌=모름, 위=저장, 아래=스킵) + 지배축 잠금 + 저항 드래그 + underlay 덱스택 + `deckFlipFirstHint` 칩.
+   - 신규 공용 `DeckActionBar` (64dp 모름(?), 48dp 스킵(↓), 48dp 저장(복주머니), 64dp 앎(✓)) 컴포넌트 생성 및 4개 화면 배선.
+   - `LearnSessionQueue` 에 `defer()` 및 `peekNext` 추가 및 단위 테스트 `test/learn_session_queue_test.dart` 확장.
+   - 4방향 제스처 및 SRS 무결성 센서 `test/deck_vertical_gesture_test.dart` 및 `test/vocab_pack_flipgate_test.dart` 추가, `test/swipe_card_test.dart` 확장.
+   - 스포트라이트 코치마크 `maybeShowSoriDeckCoach` 헬퍼(`lib/widgets/sori/coach_helper.dart`) 및 `soriDeck` 튜토리얼 ID 등록.
+3. **§P3 (Today 리디자인):**
+   - `_TodayMissionStage` v2: 3중 반복 제거, `activityForRoute` 일러스트 배너(21:9), 골드 eyebrow, `tt.h1` 타이틀, 보상별 아이콘 칩, "Starten" CTA.
+   - 마스코트 히어로 밴드 `_kHeroZoom = 1.2` (발 위치 bottomCenter 고정).
+   - `_HanokProgress` 한옥 12단계 배너(16:5) + `$built / 7` + `hanokStageLocalizedName` enum 로컬라이즈.
+   - `_QuestProgressRow` → `SoriCard(compact)` 행 + 공용 `RewardThumb`(`lib/widgets/sori/reward_thumb.dart`) 연동.
+4. **§P4 (카탈로그 폴리시):**
+   - `SoriIllustratedCard` 이미지 슬롯 16:10 → 4:3 복원, 미니 소요 시간 필 `imageOverlay` 지원.
+   - `_StateLabel` ready & 0진행 시 footer 숨김 처리.
+   - Games 탭에서 `daily_game` 대형 진입 카드 hero 승격.
+5. **§P5 (Gye 압축 + Hanok 숏컷 타일):**
+   - `GyeHanok` `showcase: true` 지원 (8레이어 1.0).
+   - `GyeTabScreen` 임베디드 시 자체 헤더 숨김, 3개 문단 → `_CompactPoint` 칩 3개 + ⓘ 상세 시트, 프라이버시 카드 1줄 + ⓘ 시트, `tt.label` 등 Pretendard raw TextStyle 토큰화.
+   - `SoriStageHanokScreen` 고스트 텍스트 버튼 3개 → `_HanokShortcutTile` 3개 (Quests, Dojang, Bojagi).
+6. **§R (리소그래프 파이프라인 & 에셋 등록):**
+   - `scripts/apply_riso_v2.py` (그레인 추가, 잉크 미스레지스터, 스펙클, 가장자리 번짐, 웜 캐스트) 구현.
+   - `pubspec.yaml` 에 `assets/illustrations/deck/` 등록 및 `.gitkeep` 추가.
+   - ARB DE/EN 쌍 신규 키 추가 (l10n 동기화).
+
+**검증.**
+- `test/deck_card_geometry_test.dart`, `test/deck_vertical_gesture_test.dart`, `test/vocab_pack_flipgate_test.dart`, `test/swipe_card_test.dart`, `test/learn_session_queue_test.dart` 등 센서 테스트 일체 통과.
+- `typography_guard_test.dart` 래칫 하향 (raw TextStyle 409→395, Pretendard 94→88).
+
+**커밋:** 이 로그와 함께 커밋.
+
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.

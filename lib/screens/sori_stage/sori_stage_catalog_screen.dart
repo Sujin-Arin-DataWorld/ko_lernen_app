@@ -52,15 +52,14 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
         .toList();
     final isGames = widget.tab == SoriStageTab.games;
 
-    // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
+    // §C-1-11 & §P4-4: Learn 탭은 단어팩, Games 탭은 daily_game 을
     // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    final heroTargetId = isGames ? 'daily_game' : 'vocab_packs';
+    for (final entry in entries) {
+      if (entry.id == heroTargetId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -236,20 +235,37 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    final tt = SoriTextTheme.of(context);
+    final isReadyEmpty =
+        state == SoriActivityState.ready &&
+        (progress?.current == null || (progress?.current ?? 0) <= 0);
+
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
+      imageOverlay: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.55),
+          borderRadius: BorderRadius.circular(SoriRadius.pill),
+        ),
+        child: Text(
+          t.soriStageMinutes(entry.minutes),
+          style: tt.caption.copyWith(color: Colors.white),
+        ),
+      ),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      footer: isReadyEmpty
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked

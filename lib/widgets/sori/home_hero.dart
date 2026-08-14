@@ -147,6 +147,9 @@ class SoriCharacterHero extends StatelessWidget {
         // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 가 `!reduceMotion` 을 요구해
         // (video_lease.dart) 접근성 설정 사용자는 영상을 아예 못 받는데, 폴백까지
         // 꺼 두면 히어로 밴드가 통째로 빈칸이 된다.
+        // §P3-2: _kHeroZoom = 1.2 — 클립은 정사각+매트 베이크(#FBF5EB=배경 동일)라 크롭 불가시.
+        // 발 위치 bottomCenter 고정하여 캐릭터 확대.
+        const double heroZoom = 1.2;
         final band = SizedBox(
           height: bandHeight,
           width: double.infinity,
@@ -161,22 +164,28 @@ class SoriCharacterHero extends StatelessWidget {
                     size: bandHeight * 0.92,
                     animate: true,
                   )
-                : CharacterClipPlayer(
-                    key: ValueKey('home_hero_${kind.name}'),
-                    asset: kind == MascotKind.magpie
-                        ? HomeHeroClips.magpieWalkingFront
-                        : HomeHeroClips.tigerRise,
-                    size: bandHeight,
-                    loop: true,
-                    // These home-only clips already contain the flat Hanji
-                    // backdrop. Avoid the Android external-texture color
-                    // filter that can expose the original white matte.
-                    applyMultiplyFilter: false,
-                    staticFallback: CharacterClipPlayer.videoUnavailable(
-                      context,
+                : ClipRect(
+                    child: Transform.scale(
+                      scale: heroZoom,
+                      alignment: Alignment.bottomCenter,
+                      child: CharacterClipPlayer(
+                        key: ValueKey('home_hero_${kind.name}'),
+                        asset: kind == MascotKind.magpie
+                            ? HomeHeroClips.magpieWalkingFront
+                            : HomeHeroClips.tigerRise,
+                        size: bandHeight,
+                        loop: true,
+                        // These home-only clips already contain the flat Hanji
+                        // backdrop. Avoid the Android external-texture color
+                        // filter that can expose the original white matte.
+                        applyMultiplyFilter: false,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      ),
                     ),
-                    fallbackKind: kind,
-                    fallbackEmotion: _emotion,
                   ),
           ),
         );
