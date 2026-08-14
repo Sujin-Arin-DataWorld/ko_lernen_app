@@ -1,0 +1,9 @@
+# 덱 액션 아이콘 (Sori Deck 2.0 · §R-3) — 규약:
+#   deck/action_{dontknow,skip,save,know}.webp   512px, 장당 ≤30KB, 투명
+#   deck/stamp_{know,dontknow}.webp              카드 판정 오버레이용
+#
+# 아직 비어 있어도 배포에 지장 없다: DeckActionBar / SoriSwipeBadge 가
+# errorBuilder 로 Material 아이콘 폴백을 그린다 (폴백 우선 배포).
+#
+# ⚠️ 이 디렉터리와 pubspec 등록은 **같은 커밋**에 있어야 한다 — 분리하면
+# fresh checkout 빌드가 깨진다.
