@@ -106,6 +106,13 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         body: t.coachReviewStep2Body,
         icon: Icons.thumbs_up_down_rounded,
       ),
+      // Sori Deck 2.0 — 4방향 의미를 첫 진입에서 한 번 설명한다.
+      SpotlightStep(
+        targetKey: _cardKey,
+        title: t.deckActionSave,
+        body: t.coachSoriDeckBody,
+        icon: Icons.swipe_rounded,
+      ),
     ];
   }
 

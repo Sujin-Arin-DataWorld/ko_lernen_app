@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/storage_service.dart';
 import 'chip.dart';
 import 'motion.dart';
 import 'pressable.dart';
+import 'spotlight_coach.dart';
 import 'tokens.dart';
 
 /// 덱 액션 아이콘의 규약 경로. 에셋이 없으면 [_DeckActionButton] 이 Material
@@ -126,6 +128,53 @@ class DeckActionBar extends StatelessWidget {
     );
   }
 }
+
+/// 프로세스 세션 1회 가드 — 같은 실행 안에서 화면을 여러 번 오가도 덱 코치를
+/// 두 번 띄우지 않는다 (저장 플래그는 비동기라 첫 왕복에서 늦을 수 있다).
+bool _soriDeckCoachShownThisSession = false;
+
+/// 4방향 덱 코치마크를 **첫 1회만** 띄운다.
+///
+/// `ScreenCoachMixin` 을 쓸 수 없다: 그건 State 당 coachId 가 하나라
+/// 이미 'review'·'legacyVocab'·'cpPlay' 를 쓰고 있는 세 화면과 공존할 수
+/// 없다. 그래서 같은 저장 플래그 체계(`kl_tut_soriDeck`)만 공유하는 헬퍼로
+/// 둔다 — `Storage.kScreenCoachIds` 에 등록돼 있어 "튜토리얼 초기화"가
+/// 이것도 함께 되돌린다.
+Future<void> maybeShowSoriDeckCoach(
+  BuildContext context,
+  GlobalKey targetKey,
+) async {
+  if (_soriDeckCoachShownThisSession || Storage.tutSeen(kSoriDeckCoachId)) {
+    return;
+  }
+  if (targetKey.currentContext == null) {
+    return;
+  }
+  _soriDeckCoachShownThisSession = true;
+  final t = AppL10n.of(context);
+  SpotlightCoach.show(
+    context,
+    steps: [
+      SpotlightStep(
+        targetKey: targetKey,
+        title: t.deckActionSave,
+        body: t.coachSoriDeckBody,
+        icon: Icons.swipe_rounded,
+      ),
+    ],
+    onComplete: () {
+      // ignore: discarded_futures
+      Storage.setTutSeen(kSoriDeckCoachId);
+    },
+  );
+}
+
+/// `Storage.kScreenCoachIds` 에 등록된 덱 코치 id.
+const String kSoriDeckCoachId = 'soriDeck';
+
+/// 테스트용 — 프로세스 세션 가드 리셋.
+@visibleForTesting
+void resetSoriDeckCoachSessionGuard() => _soriDeckCoachShownThisSession = false;
 
 /// 플립 전 판정을 시도했을 때 카드 위에 잠깐 뜨는 힌트 칩.
 ///

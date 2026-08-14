@@ -172,6 +172,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 플립 전 판정을 시도하면 힌트 칩을 띄운다 (스와이프 발견성).
   // 카운터만 올리고 표시 수명은 DeckFlipHint 가 관리한다.
   int _flipHintTick = 0;
+  // 덱 코치마크 타깃 (카드 슬롯).
+  final GlobalKey _deckCardKey = GlobalKey();
 
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
@@ -215,6 +217,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         await showFeatureCoachSheet(context, FeatureCoach.vocabPack);
         await Storage.setTutVocabPackSeen();
       }
+      if (!mounted) {
+        return;
+      }
+      // 기존 코치가 끝난 뒤(또는 미발화 시) 4방향 덱을 1회 안내한다.
+      await maybeShowSoriDeckCoach(context, _deckCardKey);
     });
   }
 

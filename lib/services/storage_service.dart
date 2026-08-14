@@ -1303,6 +1303,9 @@ class Storage {
     'stats',
     'quests',
     'scenarios',
+    // 4방향 학습 덱 (Sori Deck 2.0) — 화면이 아니라 공용 위젯이 띄우지만
+    // 저장·초기화 체계는 같이 쓴다.
+    'soriDeck',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).

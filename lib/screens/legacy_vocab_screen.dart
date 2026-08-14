@@ -95,6 +95,13 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         body: t.coachLegacyVocabBody,
         icon: Icons.style_outlined,
       ),
+      // Sori Deck 2.0 — 4방향 의미를 첫 진입에서 한 번 설명한다.
+      SpotlightStep(
+        targetKey: _flashCardKey,
+        title: t.deckActionSave,
+        body: t.coachSoriDeckBody,
+        icon: Icons.swipe_rounded,
+      ),
     ];
   }
 
