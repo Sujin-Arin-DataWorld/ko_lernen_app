@@ -14,6 +14,8 @@
 
 **커밋:** `47de728`(시각 언어), `5f49106`(토큰 수리), `923220d`(마일스톤 소유 복원), `1a6cc56`/`395edc6`/`5347ae7`(Today fixture·precache·Linux goldens).
 
+**최종 통합 게이트.** 최종 clean tree에서 `flutter analyze --no-pub --fatal-infos` 0 issues, 전체 `flutter test --no-pub --concurrency=4` **3,339 passed / 2 intentional skips / 0 failed**, `flutter build web --release --no-pub` 성공, `git diff --check`, clean `git status`를 확인했다. Web의 `flutter_tts_web` 3건은 기존 Wasm dry-run 경고이며 일반 release 산출물은 정상 생성됐다.
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 Sori Deck 2.0 완료
 
 **무엇/왜.** P1 고정 지오메트리 위에 `SoriSwipeCard`를 지배축 잠금 방식의 4방향 pan으로 확장했다. 좌/우는 기존 플립 게이트 판정, 위는 저장 후 제자리 복귀, 아래는 평가 없는 스킵이며, 다음 카드 앞면 underlay는 포인터를 받지 않는다. `LearnSessionQueue`에는 miss를 늘리지 않는 `defer()`와 `peekNext`를 추가했다. 공용 `DeckActionBar`는 64dp 판정 2개와 48dp 스킵/저장 버튼을 한 줄에 배치하고, 커스텀 WebP가 승인되기 전에는 Material 아이콘으로 강등한다. 캐릭터·콘텐츠 C0·SRS 원장 계약은 변경하지 않았다.
