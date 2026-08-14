@@ -225,26 +225,34 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     child: Center(
                       child: FractionallySizedBox(
                         heightFactor: 0.82,
-                        child: SoriStudyScale(
-                          // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
-                          // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
-                          // 만든다 (뒷면 선노출 방지).
-                          child: KeyedSubtree(
-                            key: _cardKey,
-                            child: FlipCard(
-                              key: ValueKey('cp-$_serve'),
-                              flipped: _flipped,
-                              onTap: () {
-                                HapticFeedback.selectionClick();
-                                setState(() => _flipped = !_flipped);
-                              },
-                              front: _Front(
-                                word: w,
-                                deckKoreans: [
-                                  for (final x in pack.words) x.korean,
-                                ],
+                        // P1 (2026-08-14): 카드 슬롯 고정 — 폭 핀이 없으면
+                        // FlipCard._fitFace 의 세로 스크롤이 가로 제약을 loose 로
+                        // 통과시켜 카드 폭이 단어 내재폭으로 신축한다.
+                        // 센서: test/deck_card_geometry_test.dart.
+                        child: SizedBox(
+                          key: const ValueKey('deck-card-slot'),
+                          width: double.infinity,
+                          child: SoriStudyScale(
+                            // 코치마크 타겟(GlobalKey)은 렌더객체 없는 KeyedSubtree에
+                            // 걸고, FlipCard 자체는 서빙 카운터 key로 카드마다 새로
+                            // 만든다 (뒷면 선노출 방지).
+                            child: KeyedSubtree(
+                              key: _cardKey,
+                              child: FlipCard(
+                                key: ValueKey('cp-$_serve'),
+                                flipped: _flipped,
+                                onTap: () {
+                                  HapticFeedback.selectionClick();
+                                  setState(() => _flipped = !_flipped);
+                                },
+                                front: _Front(
+                                  word: w,
+                                  deckKoreans: [
+                                    for (final x in pack.words) x.korean,
+                                  ],
+                                ),
+                                back: _Back(word: w),
                               ),
-                              back: _Back(word: w),
                             ),
                           ),
                         ),
@@ -389,6 +397,8 @@ class _Front extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      // P1 이중 안전벨트: 슬롯 핀과 별개로 카드 자체도 항상 가용폭을 채운다.
+      width: double.infinity,
       // 카드 안쪽 높이를 폰트·간격 기준으로 삼아 텍스트가 카드에 비례해 커지고
       // (기기 무관 균일 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
       // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가 스크롤로 받아낸다.
@@ -486,6 +496,8 @@ class _Back extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      // P1 이중 안전벨트 — _Front 와 동일 계약.
+      width: double.infinity,
       // 앞면과 동일: 카드 안쪽 높이 기준으로 텍스트를 키우고 spaceEvenly 로 채운다.
       child: LayoutBuilder(
         builder: (context, constraints) {

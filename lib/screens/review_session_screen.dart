@@ -449,6 +449,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        // P1 공통 센서 finder — test/deck_card_geometry_test.dart.
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -466,6 +468,20 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                 final ch = cc.maxHeight.isFinite
                                     ? cc.maxHeight
                                     : 360.0;
+                                // P1-2 (2026-08-14, 의도된 시각 변화): 제시어
+                                // 크기를 per-word FittedBox 단독에서 **덱 공유
+                                // 균일값**으로 — 단어마다 글자 크기가 튀지
+                                // 않는다 (custom_pack_play 선례 복제).
+                                // FittedBox 는 실측 오차용 안전망으로만 남는다.
+                                final headlineSize = soriUniformFitSize(
+                                  context,
+                                  texts: [for (final v in _deck) v.korean],
+                                  maxWidth: cc.maxWidth,
+                                  cap: _sz(ch, 0.155, 38, 72),
+                                  min: 30,
+                                  fontWeight: FontWeight.w900,
+                                  lineHeight: 1.05,
+                                );
                                 return SingleChildScrollView(
                                   child: ConstrainedBox(
                                     constraints: BoxConstraints(
@@ -476,7 +492,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                                           MainAxisAlignment.spaceEvenly,
                                       children: _flipped
                                           ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                                          : _frontList(
+                                              card,
+                                              s,
+                                              tt,
+                                              t,
+                                              ch,
+                                              headlineSize,
+                                            ),
                                     ),
                                   ),
                                 );
@@ -536,8 +559,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) => [
-    // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
+    // 단어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값([headlineSize],
+    // soriUniformFitSize) 하나 — 단어 길이에 따라 카드마다 요동치지 않는다
+    // (P1-2, 2026-08-14). FittedBox 는 실측 오차용 안전망일 뿐 정상 경로에서는
+    // 개입하지 않는다.
     //
     // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
     // 0.19(최대 92sp) 대 뒷면 0.11(최대 48sp) = 1.7 배라, 짧은 한국어 단어는
@@ -551,7 +578,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: headlineSize,
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),

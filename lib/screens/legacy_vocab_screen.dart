@@ -200,6 +200,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   Vocab? get _current =>
       _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
 
+  // P1-2 (2026-08-14): 덱 공유 균일 헤드라인의 실측 후보 — 현재 필터된 덱의
+  // 전 표제어/번역. 단어마다 FittedBox 가 몰래 줄여 글자 크기가 튀는 문제의
+  // 근본 수리 (custom_pack_play 선례).
+  List<String> get _deckKoreans => [for (final v in _filtered) v.korean];
+
+  List<String> _deckTranslations(BuildContext context) {
+    final lang = Localizations.localeOf(context).languageCode;
+    return [for (final v in _filtered) v.translationFor(lang)];
+  }
+
   void _persistIdx() => Storage.setVokLastIdx(_idx);
 
   void _next() {
@@ -481,15 +491,36 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             // 애니메이션에서 별이 제자리에 남지 않도록.
                             child: Stack(
                               children: [
-                                SoriStudyScale(
-                                  child: KeyedSubtree(
-                                    key: _flashCardKey,
-                                    child: FlipCard(
-                                      key: ValueKey('legacy-$_serve'),
-                                      flipped: _flipped,
-                                      onTap: _onFlip,
-                                      front: _Front(v: v, koFirst: _koFirst),
-                                      back: _Back(v: v, koFirst: _koFirst),
+                                // P1 (2026-08-14): 카드 슬롯 고정 — 폭·높이 핀.
+                                // 센서: test/deck_card_geometry_test.dart.
+                                SizedBox(
+                                  key: const ValueKey('deck-card-slot'),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  child: SoriStudyScale(
+                                    child: KeyedSubtree(
+                                      key: _flashCardKey,
+                                      child: FlipCard(
+                                        key: ValueKey('legacy-$_serve'),
+                                        flipped: _flipped,
+                                        onTap: _onFlip,
+                                        front: _Front(
+                                          v: v,
+                                          koFirst: _koFirst,
+                                          deckKoreans: _deckKoreans,
+                                          deckTranslations: _deckTranslations(
+                                            context,
+                                          ),
+                                        ),
+                                        back: _Back(
+                                          v: v,
+                                          koFirst: _koFirst,
+                                          deckKoreans: _deckKoreans,
+                                          deckTranslations: _deckTranslations(
+                                            context,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -789,7 +820,17 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 class _Front extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Front({required this.v, required this.koFirst});
+
+  /// P1-2: 덱 전체 표제어/번역 — 제시어 크기를 덱에서 가장 넓은 텍스트 기준
+  /// 하나로 정해 카드마다 크기가 요동치지 않게 한다 ([soriUniformFitSize]).
+  final List<String> deckKoreans;
+  final List<String> deckTranslations;
+  const _Front({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+    required this.deckTranslations,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -813,7 +854,9 @@ class _Front extends StatelessWidget {
                     ? constraints.minHeight
                     : 360.0);
           // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 한 줄이라
-          // FittedBox 로 폭에 맞춰 줄이고, 번역은 여러 단어일 수 있어 줄바꿈 허용.
+          // 덱 공유 균일값(soriUniformFitSize)으로 크기를 고정하고(P1-2 —
+          // per-word FittedBox 단독은 단어마다 크기가 튄다), 번역은 여러
+          // 단어일 수 있어 줄바꿈 허용. FittedBox 는 안전망으로만 남는다.
           final Widget headline = koFirst
               ? FittedBox(
                   fit: BoxFit.scaleDown,
@@ -821,7 +864,14 @@ class _Front extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 38, 92),
+                      fontSize: soriUniformFitSize(
+                        context,
+                        texts: deckKoreans,
+                        maxWidth: constraints.maxWidth,
+                        cap: soriFillSize(h, 0.19, 38, 92),
+                        min: 30,
+                        lineHeight: 1.15,
+                      ),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.info,
                       height: 1.15,
@@ -973,7 +1023,16 @@ class _MasteryChip extends StatelessWidget {
 class _Back extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
-  const _Back({required this.v, required this.koFirst});
+
+  /// P1-2: 덱 전체 표제어/번역 — [_Front] 와 같은 균일 크기 계약.
+  final List<String> deckKoreans;
+  final List<String> deckTranslations;
+  const _Back({
+    required this.v,
+    required this.koFirst,
+    required this.deckKoreans,
+    required this.deckTranslations,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -992,8 +1051,8 @@ class _Back extends StatelessWidget {
               : (constraints.minHeight.isFinite && constraints.minHeight > 0
                     ? constraints.minHeight
                     : 360.0);
-          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 한국어 단어는 FittedBox 로
-          // 한 줄에 맞추고, 번역은 줄바꿈 허용.
+          // 헤드라인 = koFirst 순서상 먼저 보이는 값. 크기는 덱 공유 균일값
+          // (P1-2, soriUniformFitSize) — FittedBox 는 안전망으로만 남는다.
           final Widget headline = koFirst
               ? FittedBox(
                   fit: BoxFit.scaleDown,
@@ -1001,7 +1060,14 @@ class _Back extends StatelessWidget {
                     v.translationFor(lang),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.12, 28, 48),
+                      fontSize: soriUniformFitSize(
+                        context,
+                        texts: deckTranslations,
+                        maxWidth: constraints.maxWidth,
+                        cap: soriFillSize(h, 0.12, 28, 48),
+                        min: 22,
+                        lineHeight: 1.2,
+                      ),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,
@@ -1014,7 +1080,14 @@ class _Back extends StatelessWidget {
                     v.korean,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.19, 36, 92),
+                      fontSize: soriUniformFitSize(
+                        context,
+                        texts: deckKoreans,
+                        maxWidth: constraints.maxWidth,
+                        cap: soriFillSize(h, 0.19, 36, 92),
+                        min: 30,
+                        lineHeight: 1.2,
+                      ),
                       fontWeight: FontWeight.w800,
                       color: SoriColors.success,
                       height: 1.2,

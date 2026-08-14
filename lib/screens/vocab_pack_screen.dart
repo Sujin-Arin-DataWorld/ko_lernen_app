@@ -848,43 +848,67 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
         // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
         Expanded(
-          child: SoriSwipeCard(
-            enabled: _learnCardRevealed,
-            onSwipeRight: _learnGotIt,
-            onSwipeLeft: _learnDontKnow,
-            rightBadge: SoriSwipeBadge(
-              label: t.vocabPackGotIt,
-              icon: Icons.check_rounded,
-              color: SoriColors.success,
-            ),
-            leftBadge: SoriSwipeBadge(
-              label: t.vocabPackDontKnow,
-              icon: Icons.close_rounded,
-              color: SoriColors.danger,
-            ),
-            child: SoriStudyScale(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final h = soriStudyTypeScaleHeight(context);
-                  final headlineSize = soriUniformFitSize(
-                    context,
-                    texts: [for (final w in _learnWords) w.korean],
-                    maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                    cap: soriFillSize(h, 0.18, 36, 96),
-                    min: 32,
-                    letterSpacing: -0.5,
-                    lineHeight: 1.05,
-                  );
-                  return FlipCard(
-                    key: ValueKey('learn-$_learnServe'),
-                    flipped: _flipped,
-                    onTap: _toggleLearnFlip,
-                    front: _FlipFront(v: cur, h: h, headlineSize: headlineSize),
-                    back: _FlipBack(v: cur, h: h),
-                  );
-                },
-              ),
-            ),
+          // P1 (2026-08-14): 카드 슬롯 고정. 바깥 LayoutBuilder 는 슬롯 높이
+          // 소스(box.maxHeight)로만 쓴다. SizedBox 가 SoriSwipeCard 의 child
+          // **안쪽**에 있어야 하는 이유: 내부 Stack 이 기본 loose 라 바깥에서
+          // 죄어도 자식까지 안 내려간다 (swipe_card.dart). 이 폭 핀이 없으면
+          // FlipCard._fitFace 의 세로 SingleChildScrollView 가 가로 제약을
+          // loose 로 통과시켜 카드 폭이 단어 내재폭으로 신축한다 —
+          // review_session_screen "절대 지우지 말 것" 주석과 같은 계약.
+          // 센서: test/deck_card_geometry_test.dart.
+          child: LayoutBuilder(
+            builder: (context, box) {
+              return SoriSwipeCard(
+                enabled: _learnCardRevealed,
+                onSwipeRight: _learnGotIt,
+                onSwipeLeft: _learnDontKnow,
+                rightBadge: SoriSwipeBadge(
+                  label: t.vocabPackGotIt,
+                  icon: Icons.check_rounded,
+                  color: SoriColors.success,
+                ),
+                leftBadge: SoriSwipeBadge(
+                  label: t.vocabPackDontKnow,
+                  icon: Icons.close_rounded,
+                  color: SoriColors.danger,
+                ),
+                child: SizedBox(
+                  key: const ValueKey('deck-card-slot'),
+                  width: double.infinity,
+                  height: box.maxHeight,
+                  // ⚠️ soriUniformFitSize 계산은 반드시 SoriStudyScale 서브트리
+                  // 안에 남는다 — 태블릿 textScaler 부스트(≤1.35×)를 실측에
+                  // 반영해야 FittedBox 안전망이 정상 경로에서 발동하지 않는다.
+                  child: SoriStudyScale(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final h = soriStudyTypeScaleHeight(context);
+                        final headlineSize = soriUniformFitSize(
+                          context,
+                          texts: [for (final w in _learnWords) w.korean],
+                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                          cap: soriFillSize(h, 0.18, 36, 96),
+                          min: 32,
+                          letterSpacing: -0.5,
+                          lineHeight: 1.05,
+                        );
+                        return FlipCard(
+                          key: ValueKey('learn-$_learnServe'),
+                          flipped: _flipped,
+                          onTap: _toggleLearnFlip,
+                          front: _FlipFront(
+                            v: cur,
+                            h: h,
+                            headlineSize: headlineSize,
+                          ),
+                          back: _FlipBack(v: cur, h: h),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
         const SizedBox(height: Spacing.md),
@@ -1095,6 +1119,9 @@ class _FlipFront extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
       tinted: true,
+      // P1 이중 안전벨트: SoriCard 는 width: null 이면 내재폭 — 슬롯 핀과
+      // 별개로 카드 자체도 항상 가용폭을 채운다 (단어 길이별 폭 신축 금지).
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -1188,6 +1215,8 @@ class _FlipBack extends StatelessWidget {
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
       tinted: true,
+      // P1 이중 안전벨트 — _FlipFront 와 동일 계약.
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,

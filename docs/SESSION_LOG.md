@@ -1,5 +1,45 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P1: 카드 고정 지오메트리 수리 + 센서
+
+**무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P1 실행. 카드 폭이 단어
+내재폭으로 신축하던 회귀(Jin 3번째 재발 지적)를 4개 덱 화면 전부에서 구조적으로
+봉인했다. 기능 변화 0 — 시각 변화는 수리의 결과(카드 폭 항상 가용폭 가득 +
+review/legacy 글자 크기 덱-균일화)로만 발생.
+
+- `vocab_pack_screen` Learn: 바깥 `LayoutBuilder`(슬롯 높이 소스) →
+  `SoriSwipeCard` child **안쪽**에 `SizedBox(key: 'deck-card-slot',
+  width: double.infinity, height: box.maxHeight)` 핀 신설.
+  `soriUniformFitSize` 계산은 `SoriStudyScale` 서브트리 안에 보존(태블릿
+  textScaler 부스트 측정 정합). `_FlipFront`/`_FlipBack` `SoriCard` 에
+  `width: double.infinity` 이중 안전벨트.
+- `custom_pack_play_screen`: `FractionallySizedBox(0.82)` 안에 같은 슬롯 핀 +
+  `_Front`/`_Back` 폭 벨트.
+- `review_session_screen`: 기존 폭·높이 핀은 정본 그대로, 슬롯 키만 부여.
+  **P1-2(의도된 시각 변화)**: 앞면 제시어를 per-word `FittedBox` 단독 →
+  `soriUniformFitSize` 덱 공유 균일값으로 (custom 선례 복제).
+- `legacy_vocab_screen`: 슬롯 핀(`SizedBox.expand` 상당) + 앞/뒷면 헤드라인
+  (`:818`, `:998` 상당)을 덱 공유 균일값으로. **P1-2 의도된 시각 변화.**
+
+**센서.** 신규 `test/deck_card_geometry_test.dart` — 4화면 × (① 짧은 단어
+"물" vs 매우 긴 단어+`Internationaler Führerschein`급 번역에서 슬롯 rect 완전
+동일 ② 같은 카드 플립 전/후 rect 동일 ③ 슬롯 폭 == 가용폭). legacy 는 판정
+버튼 행이 플립 시에만 나타나는 **기존 화면 동작** 때문에 플립 단언을 크기
+불변으로 한정 — P2-3 상시 액션 바가 흡수하면 풀 rect 로 강화한다.
+
+**파괴-복원 프로토콜 실측.** 슬롯 `width: double.infinity` 한 줄만 파괴 →
+이중 안전벨트(SoriCard 폭 핀)가 가려 green 유지. **두 벨트를 모두 파괴**하면
+vocab_pack 센서 red (③ 폭 단언 실패) → 복원 후 green. 즉 폭 회귀는 두 겹의
+독립 핀이 지키고, 센서는 둘 다 뚫려야만 울린다. 높이 라인은 핸드오프 예고대로
+`_fitFace` 가 이미 잡고 있어 파괴해도 red 없음 — 폭 라인만 증명 대상.
+
+**검증.** `flutter analyze` 0 · P1 배터리 43개 green (deck_card_geometry 4 ·
+uniform 3 · study_scale · flipgate 8(3화면) · swipe_card 5 ·
+flip_card_advance_regression · requeue · flip_spoiler · vocab_pack_typography ·
+typography_guard 래칫 7종 불변).
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.
