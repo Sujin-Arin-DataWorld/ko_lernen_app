@@ -52,15 +52,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
         .toList();
     final isGames = widget.tab == SoriStageTab.games;
 
-    // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
-    // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
+    // §C-1-11: 각 탭의 핵심 진입점을 그리드 타일이 아니라 **대형 진입
+    // 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다. Learn 은
+    // 단어팩, Games 는 오늘의 게임이 그 자리다(탭 간 대칭).
+    final String heroId = isGames ? 'daily_game' : 'vocab_packs';
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    for (final entry in entries) {
+      if (entry.id == heroId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -77,13 +77,17 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                 // §C-1-4: 패딩 뺀 실제 가용폭으로 컬럼 산출 —
                 // discover_screen.dart:349 패턴. 기존은 클램프 전 전체 폭이
                 // 들어가 1280dp에서 880px 안에 6열 → 18px 오버플로.
+                final double available =
+                    constraints.maxWidth - padding.horizontal;
                 final columns = soriGridColumns(
-                  constraints.maxWidth - padding.horizontal,
+                  available,
                   target: 160,
                   min: 2,
                   outerPadding: 0,
                   spacing: Spacing.md,
                 );
+                final double cellWidth =
+                    (available - Spacing.md * (columns - 1)) / columns;
                 return CustomScrollView(
                   slivers: [
                     SliverPadding(
@@ -143,7 +147,10 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                     crossAxisCount: columns,
                                     mainAxisSpacing: Spacing.md,
                                     crossAxisSpacing: Spacing.md,
-                                    childAspectRatio: 0.78,
+                                    childAspectRatio: _cellAspectRatio(
+                                      context,
+                                      cellWidth,
+                                    ),
                                   ),
                               delegate: SliverChildBuilderDelegate((
                                 context,
@@ -236,25 +243,87 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    // 상태 신호가 "지금 바로 할 수 있음" 하나뿐이면 footer 를 접는다 —
+    // 전 카드가 똑같이 "Jetzt verfügbar" 를 다는 건 정보가 아니라 노이즈다.
+    // (잠금·진행 중·완료는 카드마다 다르므로 계속 표시한다.)
+    final bool footerIsNoise =
+        state == SoriActivityState.ready &&
+        (progress?.current == null || progress!.current! <= 0);
+
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      // 활동 아트는 800×600(4:3)이다. 16:10 슬롯은 높이의 16.7% 를 잘라내
+      // 중앙 오브젝트를 더 확대했다 — "거대 아이콘 벽"의 절반은 이 크롭이
+      // 원인이었다. 원본 비율로 되돌리면 크롭 0, 체감 크기 ~17% 감소.
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      // 소요 시간은 제목 아래 한 줄을 통째로 먹을 만큼 중요하지 않다 →
+      // 이미지 우하단 미니 필로 내린다.
+      imageOverlay: _MinutesPill(label: t.soriStageMinutes(entry.minutes)),
+      footer: footerIsNoise
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked
           ? t.soriStageOpenActivity(title)
           : t.soriStageActivityDetails(title),
+    );
+  }
+}
+
+/// 그리드 셀의 가로:세로 비.
+///
+/// 고정 상수(예전 0.78)로는 못 맞춘다 — 셀 높이는 **이미지(폭 비례) + 본문
+/// (글자 크기 비례)** 이라 좁은 셀일수록 본문 비중이 커지고, 시스템 글자
+/// 확대에서는 본문만 커진다. 그래서 실측 합에서 도출한다:
+///
+///   이미지 = cellWidth ÷ (4/3)                        (활동 아트 원본 비율)
+///   본문   = 패딩 sm(8)+md(16)
+///          + 제목 cardTitle 15sp × height 1.3 × 2줄
+///          + footer 간격 xs(4) + cardSubtitle 13sp × height 1.3
+///
+/// (`illustrated_card.dart` 의 body 구성과 `SoriTextTheme` 값에서 온 숫자다.
+/// 그쪽을 바꾸면 여기도 같이 바꾼다.) footer 는 상태에 따라 접히지만 **있을
+/// 때를 기준**으로 잡아야 한 그리드 안에서 카드 높이가 들쭉날쭉하지 않는다.
+double _cellAspectRatio(BuildContext context, double cellWidth) {
+  if (!cellWidth.isFinite || cellWidth <= 0) {
+    return 0.78;
+  }
+  final scaler = MediaQuery.textScalerOf(context);
+  const double padding = Spacing.sm + Spacing.md;
+  final double title = scaler.scale(15) * 1.3 * 2;
+  final double footer = Spacing.xs + scaler.scale(13) * 1.3;
+  final double height = cellWidth / (4 / 3) + padding + title + footer;
+  return cellWidth / height;
+}
+
+/// 이미지 우하단의 소요 시간 필.
+class _MinutesPill extends StatelessWidget {
+  const _MinutesPill({required this.label});
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        // ⚠️ withOpacity 는 deprecated — 저장소는 .withValues 로 이관 완료.
+        color: Colors.black.withValues(alpha: 0.55),
+        borderRadius: SoriRadius.brPill,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
+      ),
     );
   }
 }
