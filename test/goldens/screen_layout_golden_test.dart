@@ -5,11 +5,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -87,6 +93,10 @@ void main() {
       final screens = <String, Widget Function()>{
         'settings': SettingsScreen.new,
         'vocab_packs': VocabPacksScreen.new,
+        'sori_today': () => SoriStageTodayScreen(
+          loadSnapshot: () async => _todaySnapshot(),
+          now: () => DateTime(2026, 8, 14, 9),
+        ),
       };
 
       final viewports = <String, Size>{
@@ -139,4 +149,21 @@ Widget _wrap(Widget child) => MaterialApp(
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: child,
   onGenerateRoute: (settings) => null,
+);
+
+SoriStageProgressionSnapshot _todaySnapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 12),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 12,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+  ),
+  quests: const [],
+  pendingBojagiCount: 1,
+  stampCount: 4,
+  xp: 320,
+  streakDays: 6,
+  todayReward: null,
 );
