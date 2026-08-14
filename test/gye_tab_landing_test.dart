@@ -41,26 +41,45 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
+    // UI overhaul 2 §P5-1: long paragraphs → short chips; detail via ⓘ sheet.
+    // 1.3× text scale pushes chips below the first viewport — ListView builds
+    // lazily, so scroll before asserting.
+    await tester.scrollUntilVisible(
+      find.text('Eine kleine, freiwillige Lerngruppe.'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(
-      find.text(
-        'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander '
-        'hält.',
-      ),
+      find.text('Eine kleine, freiwillige Lerngruppe.'),
       findsOneWidget,
     );
+    expect(
+      find.text('Ein gemeinsames Hanok, kein Wettbewerb.'),
+      findsOneWidget,
+    );
+    expect(find.text('Beitritt mit 6-stelligem Code.'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('Was andere sehen'),
       180,
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Was andere sehen'), findsOneWidget);
+    // Privacy body is demoted into the shared ⓘ detail sheet.
+    await tester.tap(find.byIcon(Icons.info_outline_rounded).last);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
     expect(
       find.textContaining('bleiben privat'),
-      findsOneWidget,
+      findsWidgets,
       reason:
-          'gyePrivacyBody 는 기여 사실만 공개되고 답변·단어·평가 결과는 '
-          '비공개임을 말해야 한다',
+          'gyePrivacyBody 는 ⓘ 시트에 남아 기여 사실만 공개되고 '
+          '답변·단어·평가 결과는 비공개임을 말해야 한다',
     );
+    Navigator.of(
+      tester.element(find.textContaining('bleiben privat').first),
+    ).pop();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
     await tester.scrollUntilVisible(
       find.text('Eine 계 finden oder gründen'),
       320,
@@ -105,6 +124,35 @@ void main() {
     expect(find.textContaining('Wochenziel-Daten'), findsOneWidget);
     expect(find.text('Mondhof'), findsOneWidget);
   });
+
+  testWidgets('embedded empty Gye hides own headline under shell header', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await _pump(
+      tester,
+      () async => const <GyeMeta>[],
+      embedded: true,
+    );
+
+    expect(find.text('Freiwillige Lerngemeinschaft'), findsNothing);
+    expect(
+      find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
+      findsNothing,
+    );
+    expect(
+      find.text('So kann euer gemeinsames Hanok aussehen'),
+      findsOneWidget,
+    );
+    expect(
+      find.text('Eine kleine, freiwillige Lerngruppe.'),
+      findsOneWidget,
+    );
+    expect(find.text('Eine 계 finden oder gründen'), findsOneWidget);
+  });
 }
 
 Future<void> _pump(
@@ -113,6 +161,7 @@ Future<void> _pump(
   VoidCallback? onFindOrCreate,
   VoidCallback? onContinueSolo,
   double textScale = 1,
+  bool embedded = false,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -131,6 +180,7 @@ Future<void> _pump(
         onFindOrCreate: onFindOrCreate,
         onContinueSolo: onContinueSolo,
         enableCoach: false,
+        embedded: embedded,
       ),
     ),
   );

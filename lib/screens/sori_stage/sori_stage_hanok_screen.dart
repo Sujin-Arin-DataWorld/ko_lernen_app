@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../widgets/sori/button.dart';
+import '../../widgets/sori/card.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
+import '../bojagi_screen.dart' show kBojagiClosed;
 import '../hanok_world_screen.dart';
 import 'sori_stage_common.dart';
+
+/// Quests 숏컷용 대표 장식 — reward_thumb 공용화가 오기 전 직접 경로.
+const String _kQuestShortcutThumb =
+    'assets/illustrations/decorations/decoration_maehwa.png';
+
+const String _kDojangShortcutThumb =
+    'assets/illustrations/stamps/stamp_lotus.png';
 
 class SoriStageHanokScreen extends StatelessWidget {
   const SoriStageHanokScreen({super.key});
@@ -36,23 +44,35 @@ class SoriStageHanokScreen extends StatelessWidget {
                 top: false,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-                  child: Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.sm,
+                  // UI overhaul 2 §P5-2: 고스트 버튼 → 일러스트 숏컷 타일 3.
+                  // 카운트 배선은 후속 — 1차는 타일+라벨만.
+                  child: Row(
                     children: [
-                      SoriButton.ghost(
-                        label: t.soriStageQuests,
-                        onTap: () => Navigator.of(context).pushNamed('/quests'),
+                      Expanded(
+                        child: _HanokShortcutTile(
+                          asset: _kQuestShortcutThumb,
+                          label: t.soriStageQuests,
+                          onTap: () =>
+                              Navigator.of(context).pushNamed('/quests'),
+                        ),
                       ),
-                      SoriButton.ghost(
-                        label: t.soriStageDojang,
-                        onTap: () =>
-                            Navigator.of(context).pushNamed('/dojangcheop'),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: _HanokShortcutTile(
+                          asset: _kDojangShortcutThumb,
+                          label: t.soriStageDojang,
+                          onTap: () =>
+                              Navigator.of(context).pushNamed('/dojangcheop'),
+                        ),
                       ),
-                      SoriButton.ghost(
-                        label: t.soriStageBojagi,
-                        onTap: () => Navigator.of(context).pushNamed('/bojagi'),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: _HanokShortcutTile(
+                          asset: kBojagiClosed,
+                          label: t.soriStageBojagi,
+                          onTap: () =>
+                              Navigator.of(context).pushNamed('/bojagi'),
+                        ),
                       ),
                     ],
                   ),
@@ -60,6 +80,61 @@ class SoriStageHanokScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _HanokShortcutTile extends StatelessWidget {
+  const _HanokShortcutTile({
+    required this.asset,
+    required this.label,
+    required this.onTap,
+  });
+
+  final String asset;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return Semantics(
+      button: true,
+      label: label,
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        onTap: onTap,
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.sm,
+          vertical: Spacing.md,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: 40,
+              height: 40,
+              child: Image.asset(
+                asset,
+                fit: BoxFit.contain,
+                errorBuilder: (_, _, _) => Icon(
+                  Icons.image_outlined,
+                  size: 28,
+                  color: SoriSurfaces.of(context).textMuted,
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.xs),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: tt.cardTitle,
+            ),
+          ],
         ),
       ),
     );

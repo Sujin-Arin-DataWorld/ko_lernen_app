@@ -265,10 +265,11 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.
 - [x] **개편 2 §P3 Today 리디자인** — `_TodayMissionStage` v2(활동 일러스트·eyebrow·칩·Starten CTA), 히어로 `ClipRect`+`Transform.scale(1.2)`(캐릭터 클립만), `_HanokProgress` 스테이지 배너+`hanokStageName_*`, `_QuestProgressRow`→`SoriCard`+공용 `RewardThumb`.
+- [x] **개편 2 §P4 카탈로그** — 4:3 슬롯·footer 조건화·분 imageOverlay·Games `daily_game` 히어로. 1280dp 카탈로그 회귀 green.
+- [x] **개편 2 §P5 Gye/Hanok** — 임베디드 헤드라인 숨김·`GyeHanok(showcase)`·단문 칩+ⓘ 시트·Hanok 일러스트 숏컷 타일 3(카운트 후속).
 - [~] 콘텐츠 확장 C0의 검수 파이프라인·발음 seed·레벨/게임 계약은 UI/UX v2와 섞지 않는 별도 콘텐츠 기반 작업으로 진행 중이다. Today unavailable·UX preview 변경은 UI 보류 브랜치에 둔다.
 - [ ] 콘텐츠 전용 트랙: C0 검수 게이트 확인 → Jin 검수용 B1/B2 Batch 01 초안 → 승인된 데이터만 병합한다. 실제 TTS 합성·업로드와 대량 자산 병합은 별도 승인 전까지 금지한다.
-- [ ] 개편 2 잔여: P1/P2 덱 · P4 카탈로그 · P5 Gye/Hanok · §R 리소그래프.
-
+- [ ] 개편 2 잔여: P1/P2 덱 · §R 리소그래프 · Hanok 숏컷 카운트 배선.
 ### 테스터 피드백(Andreas) 라운드 — 학습 루프·전역 속도·레벨 수리 (2026-08-13)
 
 - [x] **플립 스포일러 버그 수정** — 카드 전진 시 다음 카드 뜻이 ~190ms 선노출.

@@ -21,10 +21,15 @@ class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
 
+  /// true 면 단계 불투명도 계산을 우회하고 8레이어 전부 1.0 — 빈 상태
+  /// 쇼케이스 프리뷰용 (UI overhaul 2 §P5-1).
+  final bool showcase;
+
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.showcase = false,
   });
 
   @override
@@ -70,7 +75,11 @@ class _GyeHanokState extends State<GyeHanok>
       GyeLanternProgress.fromMeta(widget.meta, elementCount: _elements.length);
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
+  /// [GyeHanok.showcase] 면 전부 1.0.
   double _baseOpacity(int i, GyeLanternProgress progress) {
+    if (widget.showcase) {
+      return 1.0;
+    }
     if (i < progress.permanentElementCount) {
       return 1.0;
     }

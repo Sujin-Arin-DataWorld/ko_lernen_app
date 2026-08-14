@@ -54,10 +54,11 @@ void main() {
     // 공백으로 지워져 있어 절대 매치되지 않는다(= 조용히 통과하는 가짜 가드).
     // 반드시 raw 를 봐야 한다.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 119→94.
+    // 2026-08-14 UI overhaul 2 §P5-1: gye AppBar/_GyeCard/_Point → 토큰. 94→85.
     _expectAtMost(
       sources,
       RegExp("fontFamily: 'Pretendard'"),
-      94,
+      85,
       "fontFamily: 'Pretendard'",
       useRaw: true,
     );
@@ -79,10 +80,11 @@ void main() {
     // 2026-08-14: 420→412 (§F profile — 앱바·게스트/연결 카드·통계 타일 토큰화.
     // §F 의 파괴-복원 센서).
     // 2026-08-14: 412→409 (§G consent 헤더 → SoriPageHeader. §G 의 센서).
+    // 2026-08-14 UI overhaul 2 §P5-1: gye raw TextStyle → 토큰. 409→384.
     _expectAtMost(
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
-      409,
+      384,
       'lib/screens/ 원시 TextStyle(',
     );
   });

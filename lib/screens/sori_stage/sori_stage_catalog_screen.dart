@@ -52,15 +52,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
         .toList();
     final isGames = widget.tab == SoriStageTab.games;
 
-    // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
-    // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
+    // §C-1-11 / UI overhaul 2 §P4: Learn → vocab_packs, Games → daily_game
+    // 를 그리드 타일이 아니라 **대형 진입 카드**로 승격 — 그리드에서는 빼서
+    // 중복을 피한다.
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    final heroId = isGames ? 'daily_game' : 'vocab_packs';
+    for (final entry in entries) {
+      if (entry.id == heroId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -139,11 +139,18 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                             ),
                             sliver: SliverGrid(
                               gridDelegate:
+                                  // UI overhaul 2 §P4 — 그리드 셀 산식 (width/height):
+                                  // imageH = W × 3/4  (4:3 슬롯; 구 16:10은 W/1.6)
+                                  // bodyH ≈ sm(8) + cardTitle×2(~39) + xs(4)
+                                  //         + footer(~24) + md(16) ≈ 91
+                                  //         (분 표기는 imageOverlay로 이동 → subtitle 0)
+                                  // H = 0.75W + 91 → W=160일 때 H≈211 → W/H≈0.76
+                                  // 0.74 = 1.3× 글자 배율에서 body 팽창 여유.
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: columns,
                                     mainAxisSpacing: Spacing.md,
                                     crossAxisSpacing: Spacing.md,
-                                    childAspectRatio: 0.78,
+                                    childAspectRatio: 0.74,
                                   ),
                               delegate: SliverChildBuilderDelegate((
                                 context,
@@ -179,7 +186,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
 /// 2026-08-14 Phase 3: 활동 카드 — [SoriIllustratedCard] 규격.
 ///
 /// 상단 일러스트 슬롯(규약 `activities/{id}.webp`, 미존재 시 아이콘 원형 폴백)
-/// + 타이틀 + 서브타이틀(분) + footer(상태 칩).
+/// + 타이틀 + imageOverlay(분) + footer(상태 칩, 조건부).
 class _ActivityGridCard extends StatelessWidget {
   const _ActivityGridCard({
     required this.entry,
@@ -194,12 +201,13 @@ class _ActivityGridCard extends StatelessWidget {
   final Future<SoriStageProgressionSnapshot> Function() loadSnapshot;
   final VoidCallback onActivityReturned;
 
-  /// §C-1-11: Learn 탭 상단 대형 진입 카드 — 와이드 배너 비율 + 비고정 높이.
+  /// §C-1-11: Learn/Games 탭 상단 대형 진입 카드 — 와이드 배너 비율 + 비고정 높이.
   final bool hero;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     final title = localCopy(context, entry.title);
     final locked = isActivityLocked(entry, progress);
     final state =
@@ -236,20 +244,38 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    // UI overhaul 2 §P4: ready + 진행 없음 → footer null (전 카드 동일
+    // "Jetzt verfügbar" 노이즈 제거). locked/inProgress/completed 는 유지.
+    final current = progress?.current;
+    final hideReadyFooter =
+        state == SoriActivityState.ready && (current == null || current <= 0);
+
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      imageOverlay: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.55),
+          borderRadius: SoriRadius.brPill,
+        ),
+        child: Text(
+          t.soriStageMinutes(entry.minutes),
+          style: tt.caption.copyWith(color: Colors.white),
+        ),
+      ),
+      footer: hideReadyFooter
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked

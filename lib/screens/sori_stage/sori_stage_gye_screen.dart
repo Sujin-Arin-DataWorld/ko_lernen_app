@@ -12,6 +12,7 @@ class SoriStageGyeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -48,9 +49,7 @@ class SoriStageGyeScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               t.soriStageGyeFlow,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                              ),
+                              style: tt.label,
                             ),
                           ),
                         ],

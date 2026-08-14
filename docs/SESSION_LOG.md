@@ -1,5 +1,16 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P4 카탈로그 + §P5 Gye/Hanok
+
+**무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P4·§P5 구현.
+- **P4 Catalog**: 이미지 슬롯 `hero?21/9:4/3`(구 16/10), 그리드 `childAspectRatio` 0.74 + 산식 주석, ready+진행없음 footer null, 분 필을 `SoriIllustratedCard.imageOverlay`(AspectRatio 내부 Stack)로 이동, Games 탭 `daily_game` 히어로 승격.
+- **P5-1 Gye**: 임베디드 시 `_IntroEmpty` 헤드라인 숨김, `GyeHanok(showcase:)` 8레이어 1.0 + `gyeShowcaseCaption`, 장문 3단락→단문 칩+ⓘ `showSoriSheet`, 프라이버시 1줄+동일 시트, AppBar/`_GyeCard`/미션칩 raw Pretendard→토큰.
+- **P5-2 Hanok**: 고스트 버튼 3→일러스트 숏컷 타일(Quests/Dojang/Bojagi). 카운트는 1차 생략.
+
+**검증.** `dart analyze` 대상 6파일 0 issues. `flutter test` gye_tab_landing(3)·sori_stage_responsive_accessibility(1280dp 회귀 포함)·sori_stage_catalog_reward_flow green. 타이포 래칫 Pretendard 94→85, screens TextStyle 409→384.
+
+**커밋.** (이 항목과 동일 커밋)
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P2-2 덱 액션바·4방향 배선
 
 **무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P2-2: review / custom_pack_play / legacy_vocab 에 `SoriDeckActionBar` + ↑↓ 스와이프·underlay·플립힌트를 배선. custom의 `_skip`→`_dontKnow` 개명 + 진짜 `_defer` 분리. `soriDeck` 코치 헬퍼·`kScreenCoachIds` 등록. ARB `deckActionSave`/`deckFlipFirstHint`/`coachSoriDeckBody` 추가.
