@@ -225,6 +225,21 @@
       "count": 12
     }
   ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "b1",
+      "vocabIdRange": [248, 259],
+      "clozeIdRange": [56, 67],
+      "satzIdRange": [50, 61]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [205, 216],
+      "clozeIdRange": [58, 69],
+      "satzIdRange": [42, 53]
+    }
+  ],
   "mergeOrder": ["vocab with curriculum companion mapping", "grammar with grammarRuleMap companion mapping", "smalltalk with category companion mapping", "cloze with topic companion mapping", "satz after same-level vocabulary exists"],
   "nonMergeGuards": [
     "Every review row is draft; no Batch 01 record may be appended to assets/data yet.",

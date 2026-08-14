@@ -9,7 +9,8 @@ unit must all be named before Jin can approve the content.
 Usage:
     python3 tools/content_factory/plan_pack_assignments.py \
       --draft tools/content_factory/drafts/batch_01_vocab.csv \
-      --metadata tools/content_factory/drafts/batch_01_pack_metadata.json
+      --metadata tools/content_factory/drafts/batch_01_pack_metadata.json \
+      --reserved-metadata tools/content_factory/drafts/batch_01_manifest.json
 
 The metadata file is a small JSON document:
 
@@ -37,6 +38,12 @@ the pack base and next UI order from the repository. The earlier minimal
 ``packs`` format remains accepted for compatibility, but new batches should
 not duplicate mapping facts in both files.
 
+When an earlier review-only batch has not reached the app asset yet, repeat
+``--reserved-metadata`` for each of its ``vocabPacks`` manifests.  Their
+declared ``orderInLevel`` values reserve a contiguous prefix immediately
+after the live UI order, so a later batch plans the following slot without
+pretending that the earlier batch was already merged.
+
 IMPORTANT: this is not a replacement for ``apply_review.py``.  It never
 writes files and must never invoke ``scripts/build_vocab_packs.py``.  That
 legacy migration script only understands the old 11-column vocabulary schema
@@ -52,7 +59,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 from validate_content import LOWER_LEVELS, VOCAB_HEADER
 
@@ -139,10 +146,15 @@ def _positive_integer_list(value: Any, *, label: str) -> list[int]:
     return value
 
 
-def _normalise_vocab_pack_manifest_entry(entry: dict[str, Any], index: int) -> dict[str, Any]:
+def _normalise_vocab_pack_manifest_entry(
+    entry: dict[str, Any],
+    index: int,
+    *,
+    source_label: str = "metadata",
+) -> dict[str, Any]:
     """Convert Batch 01's single-source manifest shape into planner fields."""
 
-    label = f"metadata vocabPacks[{index}]"
+    label = f"{source_label} vocabPacks[{index}]"
     pack_id = _require_string(entry, "packId", label)
     level = _require_string(entry, "level", label).lower()
     if level not in LOWER_LEVELS:
@@ -206,7 +218,11 @@ def _normalise_vocab_pack_manifest_entry(entry: dict[str, Any], index: int) -> d
     }
 
 
-def _load_metadata(path: Path) -> list[dict[str, Any]]:
+def _load_metadata(
+    path: Path,
+    *,
+    source_label: str = "metadata",
+) -> list[dict[str, Any]]:
     """Accept the legacy minimal ``packs`` file or Batch 01's richer manifest."""
 
     payload = _read_json(path)
@@ -224,7 +240,11 @@ def _load_metadata(path: Path) -> list[dict[str, Any]]:
         if any(not isinstance(item, dict) for item in legacy_packs):
             raise PackAssignmentError(f"{path}: every packs item must be an object")
         return [
-            {**item, "_format": "packs", "_source_label": f"metadata packs[{index}]"}
+            {
+                **item,
+                "_format": "packs",
+                "_source_label": f"{source_label} packs[{index}]",
+            }
             for index, item in enumerate(legacy_packs)
         ]
     if manifest_packs is not None:
@@ -235,10 +255,33 @@ def _load_metadata(path: Path) -> list[dict[str, Any]]:
         if any(not isinstance(item, dict) for item in manifest_packs):
             raise PackAssignmentError(f"{path}: every vocabPacks item must be an object")
         return [
-            _normalise_vocab_pack_manifest_entry(item, index)
+            _normalise_vocab_pack_manifest_entry(
+                item,
+                index,
+                source_label=source_label,
+            )
             for index, item in enumerate(manifest_packs)
         ]
     raise PackAssignmentError(f"{path}: metadata needs a packs or vocabPacks array")
+
+
+def _load_reserved_metadata(path: Path) -> list[dict[str, Any]]:
+    """Load a pending predecessor manifest, refusing the legacy shape.
+
+    A reservation is an externally visible promise about a future UI order.
+    It therefore needs the richer ``vocabPacks`` schema, including its
+    explicit pack identity and complete multilingual label, rather than the
+    old compatibility-only ``packs`` metadata format.
+    """
+
+    payload = _read_json(path)
+    if not isinstance(payload, dict):
+        raise PackAssignmentError(f"{path}: reserved metadata root must be an object")
+    if payload.get("packs") is not None or payload.get("vocabPacks") is None:
+        raise PackAssignmentError(
+            f"{path}: reserved metadata must contain a vocabPacks array, not legacy packs",
+        )
+    return _load_metadata(path, source_label=f"reserved metadata {path}")
 
 
 def _pack_order_map(path: Path) -> dict[str, int]:
@@ -359,6 +402,112 @@ def _validate_metadata_entry(
     )
 
 
+def _reserved_plans_by_level(
+    paths: Iterable[Path],
+    *,
+    known_motifs: set[str],
+    curriculum_units: dict[str, str],
+    current_order_map: dict[str, int],
+    existing_pack_bases: set[str],
+    current_metadata_bases: set[str],
+) -> dict[str, list[PackPlan]]:
+    """Validate pending batch manifests and return their reserved UI slots.
+
+    A predecessor is not part of the live CSV or Dart order map yet.  It must
+    nevertheless be just as valid as a current manifest, cannot reuse a
+    current or current-batch base, and must reserve every next slot in order.
+    This is deliberately metadata-only and never opens or writes a draft.
+    """
+
+    reserved_by_base: dict[str, PackPlan] = {}
+    reserved_orders_by_level: dict[str, dict[int, str]] = {}
+
+    for raw_path in paths:
+        path = Path(raw_path).resolve()
+        entries = _load_reserved_metadata(path)
+        for index, entry in enumerate(entries):
+            (
+                pack_id_base,
+                level,
+                order,
+                label_de,
+                label_en,
+                motif,
+                curriculum_unit_id,
+            ) = _validate_metadata_entry(
+                entry,
+                index=index,
+                known_motifs=known_motifs,
+                curriculum_units=curriculum_units,
+            )
+            label = str(entry.get("_source_label") or f"reserved metadata {path}")
+            if entry.get("_format") != "vocabPacks":
+                raise PackAssignmentError(
+                    f"{label}: reserved metadata must use vocabPacks",
+                )
+            if order is None:
+                raise PackAssignmentError(
+                    f"{label}: reserved vocabPacks requires a declared orderInLevel",
+                )
+            if pack_id_base in existing_pack_bases or pack_id_base in current_order_map:
+                raise PackAssignmentError(
+                    f"{label}: reserved packIdBase already exists in live content: "
+                    f"{pack_id_base!r}",
+                )
+            if pack_id_base in current_metadata_bases:
+                raise PackAssignmentError(
+                    f"{label}: reserved packIdBase conflicts with current metadata: "
+                    f"{pack_id_base!r}",
+                )
+            if pack_id_base in reserved_by_base:
+                raise PackAssignmentError(
+                    f"duplicate reserved metadata packIdBase {pack_id_base!r}",
+                )
+            orders_for_level = reserved_orders_by_level.setdefault(level, {})
+            existing_base = orders_for_level.get(order)
+            if existing_base is not None:
+                raise PackAssignmentError(
+                    f"duplicate reserved {level} orderInLevel {order}: "
+                    f"{existing_base!r} and {pack_id_base!r}",
+                )
+            plan = PackPlan(
+                pack_id_base=pack_id_base,
+                level=level,
+                order_in_level=order,
+                label_de=label_de,
+                label_en=label_en,
+                motif=motif,
+                curriculum_unit_id=curriculum_unit_id,
+                pack_ids=(),
+            )
+            reserved_by_base[pack_id_base] = plan
+            orders_for_level[order] = pack_id_base
+
+    result: dict[str, list[PackPlan]] = {}
+    for level, orders_for_level in reserved_orders_by_level.items():
+        existing_orders = [
+            order
+            for base, order in current_order_map.items()
+            if base.startswith(f"{level}_")
+        ]
+        if not existing_orders:
+            raise PackAssignmentError(f"current packOrderInLevel has no {level} entries")
+        live_last_order = max(existing_orders)
+        expected_orders = list(
+            range(live_last_order + 1, live_last_order + len(orders_for_level) + 1),
+        )
+        actual_orders = sorted(orders_for_level)
+        if actual_orders != expected_orders:
+            raise PackAssignmentError(
+                f"reserved {level} orderInLevel must form the contiguous prefix "
+                f"after live order: expected {expected_orders}, got {actual_orders}",
+            )
+        result[level] = [
+            reserved_by_base[orders_for_level[order]] for order in actual_orders
+        ]
+    return result
+
+
 def _validate_draft_rows(
     rows: list[dict[str, str]],
     *,
@@ -407,11 +556,14 @@ def validate_plan(
     metadata_path: Path,
     *,
     root: Path = ROOT,
+    reserved_metadata_paths: Iterable[Path] = (),
 ) -> list[PackPlan]:
     """Validate a proposed vocabulary batch without writing any file.
 
     ``root`` is injectable for tests.  Production callers should leave it at
     the repository root so the current static assets are the source of truth.
+    ``reserved_metadata_paths`` can name earlier review-only ``vocabPacks``
+    manifests whose contiguous future UI slots must be treated as occupied.
     """
 
     root = root.resolve()
@@ -460,6 +612,15 @@ def validate_plan(
             pack_ids=(),
         )
         metadata_source_by_base[pack_id_base] = entry
+
+    reserved_by_level = _reserved_plans_by_level(
+        reserved_metadata_paths,
+        known_motifs=known_motifs,
+        curriculum_units=curriculum_units,
+        current_order_map=current_order_map,
+        existing_pack_bases=existing_pack_bases,
+        current_metadata_bases=set(metadata_by_base),
+    )
 
     # A review draft can legitimately also contain approved additions to an
     # *existing* pack.  Those rows are not a new pack assignment and therefore
@@ -546,7 +707,21 @@ def validate_plan(
         ]
         if not existing_orders:
             raise PackAssignmentError(f"current packOrderInLevel has no {level} entries")
-        next_order = max(existing_orders) + 1
+        reserved_for_level = reserved_by_level.get(level, [])
+        reserved_orders = {plan.order_in_level for plan in reserved_for_level}
+        declared_reserved_collisions = sorted(
+            {
+                plan.order_in_level
+                for plan in plans_for_level
+                if plan.order_in_level != 0 and plan.order_in_level in reserved_orders
+            },
+        )
+        if declared_reserved_collisions:
+            raise PackAssignmentError(
+                f"{level}: metadata orderInLevel conflicts with reserved predecessor "
+                f"order(s) {declared_reserved_collisions}",
+            )
+        next_order = max(existing_orders) + len(reserved_for_level) + 1
         expected_orders = list(range(next_order, next_order + len(plans_for_level)))
         declared_orders = [plan.order_in_level for plan in plans_for_level]
         if any(order == 0 for order in declared_orders):
@@ -579,6 +754,18 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--draft", required=True, help="schema-complete vocab CSV draft")
     parser.add_argument("--metadata", required=True, help="JSON pack-assignment metadata")
+    parser.add_argument(
+        "--reserved-metadata",
+        "--predecessor-metadata",
+        action="append",
+        default=[],
+        dest="reserved_metadata",
+        metavar="PATH",
+        help=(
+            "repeat for each earlier pending vocabPacks manifest whose declared "
+            "orderInLevel reserves the preceding slot"
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -590,7 +777,11 @@ def main(argv: list[str] | None = None) -> int:
         file=sys.stderr,
     )
     try:
-        plans = validate_plan(Path(args.draft), Path(args.metadata))
+        plans = validate_plan(
+            Path(args.draft),
+            Path(args.metadata),
+            reserved_metadata_paths=[Path(path) for path in args.reserved_metadata],
+        )
     except PackAssignmentError as error:
         print(f"✗ {error}", file=sys.stderr)
         return 1

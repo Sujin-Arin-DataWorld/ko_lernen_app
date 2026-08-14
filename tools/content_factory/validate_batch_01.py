@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import shutil
 import tempfile
 from collections import Counter, defaultdict
@@ -48,6 +49,44 @@ class ArtifactSpec:
     header: tuple[str, ...] | None
     count: int
     levels: dict[str, int]
+
+
+@dataclass(frozen=True)
+class ArtifactContract:
+    """The app-asset shape that a review-only artifact will eventually target."""
+
+    target: str
+    collection: str | None
+    header: tuple[str, ...] | None
+
+
+ARTIFACT_CONTRACTS: dict[str, ArtifactContract] = {
+    "vocab": ArtifactContract(
+        target="korean_vocab.csv",
+        collection=None,
+        header=tuple(VOCAB_HEADER),
+    ),
+    "grammar": ArtifactContract(
+        target="grammar.csv",
+        collection=None,
+        header=tuple(GRAMMAR_HEADER),
+    ),
+    "smalltalk": ArtifactContract(
+        target="smalltalk.json",
+        collection="phrases",
+        header=None,
+    ),
+    "cloze": ArtifactContract(
+        target="cloze.json",
+        collection="items",
+        header=None,
+    ),
+    "satz": ArtifactContract(
+        target="satz_sentences.json",
+        collection="items",
+        header=None,
+    ),
+}
 
 
 ARTIFACT_SPECS: dict[str, ArtifactSpec] = {
@@ -273,13 +312,30 @@ def _copy_json(value: Any) -> Any:
     return json.loads(json.dumps(value, ensure_ascii=False))
 
 
-def _parse_manifest(root: Path, manifest_path: Path) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+def _parse_manifest(
+    root: Path,
+    manifest_path: Path,
+    *,
+    enforce_batch_01_contract: bool,
+) -> tuple[dict[str, Any], dict[str, dict[str, Any]], dict[str, ArtifactSpec]]:
+    """Read a review-only batch manifest without relying on its file name.
+
+    Batch 01 remains deliberately immutable, but later batches use the same
+    overlay graph with their own paths, counts, and reserved ID ranges.  All
+    currently supported review batches contain the five authored asset kinds;
+    specialised assets (scenarios, puzzles, grammar-pattern mirrors) keep
+    their dedicated pipelines.
+    """
+
     manifest = _read_json(manifest_path)
     if not isinstance(manifest, dict):
         _fail(f"{manifest_path}: root must be an object")
     if manifest.get("version") != 1:
         _fail(f"{manifest_path}: version must be 1")
-    if manifest.get("batch") != "01":
+    batch = _required_string(manifest.get("batch"), f"{manifest_path}: batch")
+    if re.fullmatch(r"\d{2,}", batch) is None:
+        _fail(f"{manifest_path}: batch must be a zero-padded numeric string")
+    if enforce_batch_01_contract and batch != "01":
         _fail(f"{manifest_path}: batch must be the string '01'")
     if manifest.get("status") != "review_only_draft":
         _fail(f"{manifest_path}: status must be review_only_draft before Jin review")
@@ -297,27 +353,63 @@ def _parse_manifest(root: Path, manifest_path: Path) -> tuple[dict[str, Any], di
         kind = _required_string(artifact.get("kind"), f"{manifest_path}: artifacts[{index}].kind")
         if kind in by_kind:
             _fail(f"{manifest_path}: duplicate artifact kind {kind!r}")
-        if kind not in ARTIFACT_SPECS:
-            _fail(f"{manifest_path}: unsupported Batch 01 artifact kind {kind!r}")
+        if kind not in ARTIFACT_CONTRACTS:
+            _fail(f"{manifest_path}: unsupported review-batch artifact kind {kind!r}")
         by_kind[kind] = artifact
     if set(by_kind) != set(ARTIFACT_SPECS):
         _fail(
-            f"{manifest_path}: artifacts must be exactly {', '.join(sorted(ARTIFACT_SPECS))}",
+            f"{manifest_path}: artifacts must be exactly {', '.join(sorted(ARTIFACT_CONTRACTS))}",
         )
-    if manifest.get("recordCount") != 96:
+    record_count = manifest.get("recordCount")
+    if type(record_count) is not int or record_count < 1:
+        _fail(f"{manifest_path}: recordCount must be a positive integer")
+    if enforce_batch_01_contract and record_count != 96:
         _fail(f"{manifest_path}: recordCount must be 96")
 
-    for kind, spec in ARTIFACT_SPECS.items():
-        artifact = by_kind[kind]
-        if artifact.get("draft") != str(spec.draft):
-            _fail(f"{manifest_path}: {kind}.draft must be {spec.draft}")
-        if artifact.get("review") != str(spec.review):
-            _fail(f"{manifest_path}: {kind}.review must be {spec.review}")
-        if artifact.get("count") != spec.count:
-            _fail(f"{manifest_path}: {kind}.count must be {spec.count}")
-        if artifact.get("levels") != spec.levels:
-            _fail(f"{manifest_path}: {kind}.levels must be {spec.levels}")
-    return manifest, by_kind
+    dynamic_specs: dict[str, ArtifactSpec] = {}
+    for kind, artifact in by_kind.items():
+        contract = ARTIFACT_CONTRACTS[kind]
+        draft = Path(_required_string(artifact.get("draft"), f"{manifest_path}: {kind}.draft"))
+        review = Path(_required_string(artifact.get("review"), f"{manifest_path}: {kind}.review"))
+        count = artifact.get("count")
+        if type(count) is not int or count < 1:
+            _fail(f"{manifest_path}: {kind}.count must be a positive integer")
+        raw_levels = artifact.get("levels")
+        if not isinstance(raw_levels, dict) or not raw_levels:
+            _fail(f"{manifest_path}: {kind}.levels must be a nonempty object")
+        levels: dict[str, int] = {}
+        for level, level_count in raw_levels.items():
+            normalized = _level(level, f"{manifest_path}: {kind}.levels key")
+            if type(level_count) is not int or level_count < 1:
+                _fail(f"{manifest_path}: {kind}.levels[{level!r}] must be a positive integer")
+            if normalized in levels:
+                _fail(f"{manifest_path}: {kind}.levels duplicates {normalized.upper()}")
+            levels[normalized] = level_count
+        if sum(levels.values()) != count:
+            _fail(f"{manifest_path}: {kind}.levels must total its count")
+        dynamic_specs[kind] = ArtifactSpec(
+            kind=kind,
+            draft=draft,
+            review=review,
+            target=contract.target,
+            collection=contract.collection,
+            header=contract.header,
+            count=count,
+            levels=levels,
+        )
+
+    if enforce_batch_01_contract:
+        for kind, spec in ARTIFACT_SPECS.items():
+            artifact = by_kind[kind]
+            if artifact.get("draft") != str(spec.draft):
+                _fail(f"{manifest_path}: {kind}.draft must be {spec.draft}")
+            if artifact.get("review") != str(spec.review):
+                _fail(f"{manifest_path}: {kind}.review must be {spec.review}")
+            if artifact.get("count") != spec.count:
+                _fail(f"{manifest_path}: {kind}.count must be {spec.count}")
+            if artifact.get("levels") != spec.levels:
+                _fail(f"{manifest_path}: {kind}.levels must be {spec.levels}")
+    return manifest, by_kind, dynamic_specs
 
 
 def _load_artifact(root: Path, spec: ArtifactSpec, entry: dict[str, Any]) -> ArtifactPayload:
@@ -363,7 +455,11 @@ def _record_level_counts(records: Iterable[dict[str, Any]], label: str) -> Count
     return result
 
 
-def _validate_artifact_records(payload: ArtifactPayload) -> None:
+def _validate_artifact_records(
+    payload: ArtifactPayload,
+    *,
+    expected_ids: set[str] | None = None,
+) -> None:
     spec = payload.spec
     if len(payload.records) != spec.count:
         _fail(f"{payload.draft_path}: expected {spec.count} records, got {len(payload.records)}")
@@ -376,8 +472,7 @@ def _validate_artifact_records(payload: ArtifactPayload) -> None:
         ids.append(ident)
     if len(ids) != len(set(ids)):
         _fail(f"{payload.draft_path}: draft has duplicate IDs")
-    expected_ids = EXPECTED_IDS[spec.kind]
-    if set(ids) != expected_ids:
+    if expected_ids is not None and set(ids) != expected_ids:
         missing = sorted(expected_ids - set(ids))
         unexpected = sorted(set(ids) - expected_ids)
         details: list[str] = []
@@ -470,6 +565,120 @@ def _validate_review_ledger(payload: ArtifactPayload) -> None:
                 _fail(
                     f"{payload.review_path}:{row_number}.{field} must exactly match "
                     f"{payload.draft_path}[{record_index}]'s canonical draft projection",
+                )
+
+
+def _numbered_derivation_ids(
+    entry: dict[str, Any],
+    *,
+    key: str,
+    kind: str,
+    level: str,
+    label: str,
+) -> list[str]:
+    raw_range = entry.get(key)
+    if (
+        not isinstance(raw_range, list)
+        or len(raw_range) != 2
+        or any(type(value) is not int or value < 1 for value in raw_range)
+        or raw_range[0] > raw_range[1]
+    ):
+        _fail(f"{label}.{key} must be an ascending two-number ID range")
+    return [
+        f"{kind}_{level}_{number:04d}"
+        for number in range(raw_range[0], raw_range[1] + 1)
+    ]
+
+
+def _validate_sentence_derivations(
+    manifest: dict[str, Any],
+    payloads: dict[str, ArtifactPayload],
+) -> None:
+    """Keep authored game translations tied to their canonical vocab example.
+
+    Cloze and Satzbau are deliberately derived from a vocabulary example in
+    Batch 01/02.  A manifest-owned numeric correspondence avoids silently
+    drifting punctuation, terminology, or an entire translation after a later
+    edit.  The field is optional for batches that do not claim this one-to-one
+    derivation, but current content batches require full coverage.
+    """
+
+    raw_sets = manifest.get("sentenceDerivationSets")
+    if raw_sets is None:
+        return
+    if not isinstance(raw_sets, list) or not raw_sets:
+        _fail("sentenceDerivationSets must be a nonempty array when present")
+    by_kind = {
+        kind: {
+            _required_string(record.get("id"), f"{kind} draft id"): record
+            for record in payloads[kind].records
+        }
+        for kind in ("vocab", "cloze", "satz")
+    }
+    used_ids: dict[str, set[str]] = {kind: set() for kind in by_kind}
+    for index, entry in enumerate(raw_sets):
+        label = f"sentenceDerivationSets[{index}]"
+        if not isinstance(entry, dict):
+            _fail(f"{label} must be an object")
+        level = _level(entry.get("level"), f"{label}.level")
+        vocab_ids = _numbered_derivation_ids(
+            entry,
+            key="vocabIdRange",
+            kind="vocab",
+            level=level,
+            label=label,
+        )
+        cloze_ids = _numbered_derivation_ids(
+            entry,
+            key="clozeIdRange",
+            kind="cloze",
+            level=level,
+            label=label,
+        )
+        satz_ids = _numbered_derivation_ids(
+            entry,
+            key="satzIdRange",
+            kind="satz",
+            level=level,
+            label=label,
+        )
+        if len(vocab_ids) != len(cloze_ids) or len(vocab_ids) != len(satz_ids):
+            _fail(f"{label}: vocab/cloze/satz ID ranges must have equal lengths")
+        for vocab_id, cloze_id, satz_id in zip(vocab_ids, cloze_ids, satz_ids):
+            try:
+                vocab = by_kind["vocab"][vocab_id]
+                cloze = by_kind["cloze"][cloze_id]
+                satz = by_kind["satz"][satz_id]
+            except KeyError as error:
+                _fail(f"{label}: missing declared derivation source {error.args[0]!r}")
+            for kind, ident, record in (
+                ("vocab", vocab_id, vocab),
+                ("cloze", cloze_id, cloze),
+                ("satz", satz_id, satz),
+            ):
+                if _level(record.get("level"), f"{ident}.level") != level:
+                    _fail(f"{label}: {ident} does not match {level.upper()}")
+                if ident in used_ids[kind]:
+                    _fail(f"{label}: {ident} appears in more than one derivation set")
+                used_ids[kind].add(ident)
+            expected = (
+                ("Korean", vocab.get("example_korean"), cloze.get("fullKo"), satz.get("targetKo")),
+                ("German", vocab.get("example_german"), cloze.get("de"), satz.get("promptDe")),
+                ("English", vocab.get("example_english"), cloze.get("en"), satz.get("promptEn")),
+            )
+            for language, source, cloze_value, satz_value in expected:
+                if source != cloze_value or source != satz_value:
+                    _fail(
+                        f"{label}: {vocab_id}/{cloze_id}/{satz_id} {language} "
+                        "must exactly share the canonical vocabulary example",
+                    )
+    if manifest.get("requiresCompleteSentenceDerivations") is True:
+        for kind, records in by_kind.items():
+            if set(records) != used_ids[kind]:
+                missing = sorted(set(records) - used_ids[kind])
+                _fail(
+                    "sentenceDerivationSets must cover every "
+                    f"{kind} record (missing {', '.join(missing)})",
                 )
 
 
@@ -807,6 +1016,7 @@ def _add_new_mapping(target: dict[str, Any], key: str, value: Any, label: str) -
 def _write_overlay(
     root: Path,
     overlay_root: Path,
+    specs: dict[str, ArtifactSpec],
     payloads: dict[str, ArtifactPayload],
     additions: CurriculumAdditions,
 ) -> dict[str, int]:
@@ -821,7 +1031,7 @@ def _write_overlay(
     except OSError as error:
         _fail(f"cannot create disposable Batch 01 overlay: {error}")
 
-    for spec in ARTIFACT_SPECS.values():
+    for spec in specs.values():
         payload = payloads[spec.kind]
         target = overlay_data / spec.target
         if spec.header is not None:

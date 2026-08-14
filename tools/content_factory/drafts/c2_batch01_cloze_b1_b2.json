@@ -171,7 +171,7 @@
       "sentenceKo": "변경 사항은 양측이 충분히 ＿＿＿ 뒤에 결정해야 합니다.",
       "answer": "협의한",
       "fullKo": "변경 사항은 양측이 충분히 협의한 뒤에 결정해야 합니다.",
-      "de": "Änderungen sollten erst beschlossen werden, nachdem beide Seiten sie ausreichend abgestimmt haben.",
+      "de": "Änderungen sollten erst beschlossen werden, nachdem beide Seiten sich darüber eingehend beraten haben.",
       "en": "Changes should be decided only after both sides have discussed them sufficiently.",
       "distractors": ["갱신한", "이행한", "위반한"],
       "topic": "Formelle Vereinbarungen"
