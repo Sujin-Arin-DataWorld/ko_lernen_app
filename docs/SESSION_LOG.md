@@ -13,7 +13,7 @@
 
 **검증.** `flutter analyze` (덱/팩 터치 파일) 0 · `python3 -m py_compile scripts/apply_riso_v2.py` · targeted suite **72 passed** (swipe/queue/geometry/vertical/uniform/spoiler/flipgate×3/requeue/srs/same_pack/assessment/study_scale/today+home matte/gye_tab).
 
-**커밋.** 
+**커밋.** `1588283`
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P4 카탈로그 + §P5 Gye/Hanok
 
@@ -24,7 +24,7 @@
 
 **검증.** `dart analyze` 대상 6파일 0 issues. `flutter test` gye_tab_landing(3)·sori_stage_responsive_accessibility(1280dp 회귀 포함)·sori_stage_catalog_reward_flow green. 타이포 래칫 Pretendard 94→85, screens TextStyle 409→384.
 
-**커밋.** `1588283`
+**커밋.** `512f7b0`
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P2-2 덱 액션바·4방향 배선
 
