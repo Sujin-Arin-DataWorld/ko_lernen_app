@@ -94,4 +94,39 @@ void main() {
     expect(q.markKnown, throwsStateError);
     expect(q.markUnknown, throwsStateError);
   });
+
+  test('defer re-inserts without misses or graduation', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+
+    for (var i = 0; i < 10; i++) {
+      expect(q.defer(), LearnAnswerOutcome.deferred);
+      expect(q.missesOf('a'), 0);
+      expect(q.uniqueTotal, 5);
+      expect(q.isDone, isFalse);
+    }
+  });
+
+  test('defer uses the same bounded reinsert gap', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+
+    q.defer();
+    final served = <String>[];
+    while (!q.isDone) {
+      served.add(q.current!);
+      q.markKnown();
+    }
+
+    expect(served, ['b', 'c', 'd', 'a', 'e']);
+  });
+
+  test('peekNext is null for one or empty item queues', () {
+    final two = _q(['a', 'b']);
+    expect(two.peekNext, 'b');
+
+    final one = _q(['a']);
+    expect(one.peekNext, isNull);
+
+    final empty = _q([]);
+    expect(empty.peekNext, isNull);
+  });
 }

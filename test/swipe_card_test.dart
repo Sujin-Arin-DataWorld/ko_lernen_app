@@ -11,6 +11,11 @@ void main() {
   Widget host({
     VoidCallback? onLeft,
     VoidCallback? onRight,
+    VoidCallback? onUp,
+    VoidCallback? onDown,
+    VoidCallback? onBlockedHorizontalDrag,
+    Widget? underlay,
+    bool enabled = true,
     VoidCallback? onTap,
   }) => MaterialApp(
     home: MediaQuery(
@@ -24,8 +29,13 @@ void main() {
             width: 400,
             height: 300,
             child: SoriSwipeCard(
+              enabled: enabled,
               onSwipeLeft: onLeft,
               onSwipeRight: onRight,
+              onSwipeUp: onUp,
+              onSwipeDown: onDown,
+              onBlockedHorizontalDrag: onBlockedHorizontalDrag,
+              underlay: underlay,
               rightBadge: const SoriSwipeBadge(
                 label: 'Gewusst',
                 icon: Icons.check_rounded,
@@ -153,5 +163,60 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(calls, 0, reason: 'enabled=false 이므로 판정 콜백 호출 0');
+  });
+
+  testWidgets('vertical swipes commit up and down exactly once', (tester) async {
+    var up = 0;
+    var down = 0;
+    await tester.pumpWidget(host(onUp: () => up++, onDown: () => down++));
+
+    await tester.drag(find.text('카드'), const Offset(0, -150));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('카드'), const Offset(0, 150));
+    await tester.pumpAndSettle();
+
+    expect(up, 1);
+    expect(down, 1);
+  });
+
+  testWidgets('blocked horizontal drag gives one hint but vertical still works', (
+    tester,
+  ) async {
+    var hints = 0;
+    var up = 0;
+    await tester.pumpWidget(
+      host(
+        enabled: false,
+        onLeft: () {},
+        onRight: () {},
+        onUp: () => up++,
+        onBlockedHorizontalDrag: () => hints++,
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(100, 0));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('카드'), const Offset(0, -150));
+    await tester.pumpAndSettle();
+
+    expect(hints, 1);
+    expect(up, 1);
+  });
+
+  testWidgets('underlay is present but cannot receive taps', (tester) async {
+    var underlayTaps = 0;
+    await tester.pumpWidget(
+      host(
+        underlay: GestureDetector(
+          onTap: () => underlayTaps++,
+          child: const Text('다음 카드'),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('다음 카드'));
+    await tester.pump();
+
+    expect(underlayTaps, 0);
   });
 }

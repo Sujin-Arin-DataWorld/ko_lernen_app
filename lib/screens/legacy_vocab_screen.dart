@@ -18,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
@@ -304,6 +305,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _next();
   }
 
+  void _saveCurrentFavorite() {
+    final current = _current;
+    if (current == null || _favorites.contains(current.korean)) {
+      return;
+    }
+    _toggleFavorite(current.korean);
+  }
+
   void _onFlip() {
     HapticFeedback.selectionClick();
     setState(() => _flipped = !_flipped);
@@ -467,6 +476,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             enabled: _flipped,
                             onSwipeRight: _gewusst,
                             onSwipeLeft: _nichtGewusst,
+                            onSwipeUp: _saveCurrentFavorite,
+                            onSwipeDown: _skip,
                             rightBadge: SoriSwipeBadge(
                               label: t.btnGewusst,
                               icon: Icons.check_rounded,
@@ -479,47 +490,52 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             ),
                             // §C-1-3: 별을 child 내부 Stack으로 — 퇴장
                             // 애니메이션에서 별이 제자리에 남지 않도록.
-                            child: Stack(
-                              children: [
-                                SoriStudyScale(
-                                  child: KeyedSubtree(
-                                    key: _flashCardKey,
-                                    child: FlipCard(
-                                      key: ValueKey('legacy-$_serve'),
-                                      flipped: _flipped,
-                                      onTap: _onFlip,
-                                      front: _Front(v: v, koFirst: _koFirst),
-                                      back: _Back(v: v, koFirst: _koFirst),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 12,
-                                  right: 12,
-                                  child: SoriPressable(
-                                    onTap: () => _toggleFavorite(v.korean),
-                                    haptic: SoriHaptic.light,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: SoriSurfaces.of(
-                                          context,
-                                        ).bg.withValues(alpha: 0.4),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Icon(
-                                        _favorites.contains(v.korean)
-                                            ? Icons.star_rounded
-                                            : Icons.star_outline_rounded,
-                                        color: _favorites.contains(v.korean)
-                                            ? SoriColors.warning
-                                            : SoriSurfaces.of(context).textDim,
-                                        size: 28,
+                            child: SizedBox(
+                              key: const ValueKey('deck-card-slot'),
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: Stack(
+                                children: [
+                                  SoriStudyScale(
+                                    child: KeyedSubtree(
+                                      key: _flashCardKey,
+                                      child: FlipCard(
+                                        key: ValueKey('legacy-$_serve'),
+                                        flipped: _flipped,
+                                        onTap: _onFlip,
+                                        front: _Front(v: v, koFirst: _koFirst),
+                                        back: _Back(v: v, koFirst: _koFirst),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Positioned(
+                                    top: 12,
+                                    right: 12,
+                                    child: SoriPressable(
+                                      onTap: () => _toggleFavorite(v.korean),
+                                      haptic: SoriHaptic.light,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8),
+                                        decoration: BoxDecoration(
+                                          color: SoriSurfaces.of(
+                                            context,
+                                          ).bg.withValues(alpha: 0.4),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Icon(
+                                          _favorites.contains(v.korean)
+                                              ? Icons.star_rounded
+                                              : Icons.star_outline_rounded,
+                                          color: _favorites.contains(v.korean)
+                                              ? SoriColors.warning
+                                              : SoriSurfaces.of(context).textDim,
+                                          size: 28,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -529,33 +545,17 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 ),
                 const SizedBox(height: 12),
 
-                // Answer buttons (only when flipped)
-                if (_flipped) ...[
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnGewusst,
-                          icon: Icons.check,
-                          accent: SoriColors.success,
-                          fullWidth: true,
-                          onTap: _gewusst,
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: SoriButton.filled(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close,
-                          fullWidth: true,
-                          destructive: true,
-                          onTap: _nichtGewusst,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                ],
+                DeckActionBar(
+                  dontKnowLabel: t.btnNichtGewusst,
+                  skipLabel: t.btnSkip,
+                  saveLabel: t.wbAddTooltip,
+                  knowLabel: t.btnGewusst,
+                  onDontKnow: _flipped ? _nichtGewusst : null,
+                  onSkip: _skip,
+                  onSave: _saveCurrentFavorite,
+                  onKnow: _flipped ? _gewusst : null,
+                ),
+                const SizedBox(height: Spacing.sm),
 
                 // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
                 Row(
@@ -623,15 +623,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             ],
                           ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriButton.outlined(
-                        label: t.btnSkip,
-                        icon: Icons.skip_next,
-                        fullWidth: true,
-                        onTap: _skip,
                       ),
                     ),
                     const SizedBox(width: Spacing.xs + 2),

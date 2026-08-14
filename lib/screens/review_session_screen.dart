@@ -9,6 +9,7 @@ import '../services/review_deck_service.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -183,6 +184,32 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
       });
     }
+  }
+
+  void _deferCurrent() {
+    if (_idx + 1 >= _deck.length) {
+      return;
+    }
+    setState(() {
+      final card = _deck.removeAt(_idx);
+      _deck.add(card);
+      _flipped = false;
+    });
+  }
+
+  void _saveCurrent() {
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: _card.korean,
+      translationDe: _card.german,
+      translationEn: _card.english,
+      romanization: _card.romanization,
+      posDe: _card.posDe,
+      exampleKorean: _card.exampleKorean,
+      exampleDe: _card.exampleGerman,
+      source: 'deck_swipe',
+    );
   }
 
   @override
@@ -434,6 +461,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     enabled: _flipped,
                     onSwipeRight: () => _answer(true),
                     onSwipeLeft: () => _answer(false),
+                    onSwipeUp: _saveCurrent,
+                    onSwipeDown: _deferCurrent,
                     rightBadge: SoriSwipeBadge(
                       label: t.btnGewusst,
                       icon: Icons.check_rounded,
@@ -449,6 +478,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       onTap: () => setState(() => _flipped = !_flipped),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
+                        key: const ValueKey('deck-card-slot'),
                         width: double.infinity,
                         height: cardH,
                         child: SoriStudyScale(
@@ -499,26 +529,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             Spacing.lg,
             Spacing.lg,
           ),
-          child: Row(
+          child: DeckActionBar(
             key: _answerRowKey,
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNichtGewusst,
-                  destructive: true,
-                  fullWidth: true,
-                  onTap: () => _answer(false),
-                ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.btnGewusst,
-                  fullWidth: true,
-                  onTap: () => _answer(true),
-                ),
-              ),
-            ],
+            dontKnowLabel: t.btnNichtGewusst,
+            skipLabel: t.btnSkip,
+            saveLabel: t.wbAddTooltip,
+            knowLabel: t.btnGewusst,
+            onDontKnow: _flipped ? () => _answer(false) : null,
+            onSkip: _deferCurrent,
+            onSave: _saveCurrent,
+            onKnow: _flipped ? () => _answer(true) : null,
           ),
         ),
       ],

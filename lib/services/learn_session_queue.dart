@@ -23,6 +23,9 @@ enum LearnAnswerOutcome {
 
   /// [LearnSessionQueue.maxMisses]번째 몰라요 — 세션에서는 더 묻지 않는다.
   graduated,
+
+  /// 무기록으로 몇 장 뒤에 다시 낸다.
+  deferred,
 }
 
 class LearnSessionQueue<T> {
@@ -53,6 +56,9 @@ class LearnSessionQueue<T> {
   /// 지금 서빙 중인 단어. 큐가 비면 null.
   T? get current => _queue.isEmpty ? null : _queue.first;
 
+  /// 다음 카드의 앞면 프리뷰용 읽기 전용 값.
+  T? get peekNext => _queue.length > 1 ? _queue[1] : null;
+
   bool get isDone => _queue.isEmpty;
 
   /// 1-based 진행 분자. 재출제 중에는 유지되고, 단어가 빠질 때만 전진.
@@ -82,6 +88,17 @@ class LearnSessionQueue<T> {
     }
     _queue.insert(math.min(reinsertGap, _queue.length), item);
     return LearnAnswerOutcome.requeued;
+  }
+
+  /// 기록 없이 현재 단어를 [reinsertGap]장 뒤에 다시 낸다.
+  ///
+  /// SRS, wrong-count, miss/graduation 상태를 바꾸지 않는다. 사용자가 단순히
+  /// 이번 카드를 넘긴 경우라 세션 진행도도 후퇴하지 않는다.
+  LearnAnswerOutcome defer() {
+    _requireCurrent();
+    final item = _queue.removeAt(0);
+    _queue.insert(math.min(reinsertGap, _queue.length), item);
+    return LearnAnswerOutcome.deferred;
   }
 
   void _requireCurrent() {
