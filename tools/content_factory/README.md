@@ -11,7 +11,8 @@
 새 콘텐츠의 정본 워크플로는 기존 개별 `add_*`/`build_*` 스크립트가 아니라
 `validate_content.py`와 `apply_review.py`다. 생성 draft는 앱이 읽는 완전한
 CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만으로 승인 여부를
-기록한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
+기록한다. Batch 01의 고정 계약은 `validate_batch_01.py`로, 이후 batch의 manifest
+계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
 
 > **신규 작성자는 먼저 [`docs/CONTENT_AUTHORING_GUIDE.md`](../../docs/CONTENT_AUTHORING_GUIDE.md)를
@@ -23,6 +24,11 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 ```bash
 # 현재 자산의 빠른 실패 게이트
 python3 tools/content_factory/validate_content.py
+
+# review-only batch의 schema, review projection, companion mapping, 이전 미병합
+# batch 예약, 그리고 disposable app-data overlay를 모두 검사한다. 어떤 source도 쓰지 않는다.
+python3 tools/content_factory/validate_review_batch.py \
+  --manifest tools/content_factory/drafts/batch_02_manifest.json
 
 # 기본값: preview만. 파일을 쓰지 않는다.
 python3 tools/content_factory/apply_review.py \
@@ -107,6 +113,18 @@ suffix를 포함하고, 도구가 base와 현재 UI의 다음 `orderInLevel`을 
 정확히 일치해야 한다. 이전 최소 `packs` metadata 형식도 호환을 위해 읽을 수 있지만,
 새 batch에는 쓰지 않는다. 실제 UI map·motif switch·curriculum manifest를 수정하는
 것은 콘텐츠 승인 뒤의 별도 동반 변경이다.
+
+### 미병합 predecessor 예약
+
+Batch 02처럼 앞 review-only batch가 아직 `assets/data/`에 들어가지 않았으면, 새 manifest의
+`predecessorManifests`에 그 manifest를 repository-relative path로 적는다. 이 필드는 단순한
+순번 힌트가 아니다. generic validator는 이전 draft의 모든 ID와 한국어 표제어, 그리고
+`vocabPackUnitMap`·`grammarRuleMap`·`smalltalkCategoryUnitMap`·`clozeTopicUnitMap`을
+예약한다. 같은 mapping 값의 재사용은 가능하지만, ID·표제어·mapping 값이 충돌하면 fail-closed다.
+
+이전 batch가 실제 다중 파일 integration으로 live asset과 curriculum에 병합된 뒤에는 후속
+manifest에서 그 predecessor path를 제거한다. 이미 live인 콘텐츠는 일반 overlay validator가
+중복을 검사한다.
 
 ### 금지: `scripts/build_vocab_packs.py` 재실행
 

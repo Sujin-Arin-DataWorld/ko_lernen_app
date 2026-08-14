@@ -193,9 +193,10 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 `batch_02_manifest.json`과 `c2/c3/c4_batch02_*` 파일을 별도로
-만든다. Batch 02에는 Batch 01 validator를 복사해 숫자만 바꾸지 말고, 별도 batch-specific
-preflight/test 또는 일반화된 검증 계약을 먼저 추가한다. 이미 검수 중인 Batch 01을
-느슨하게 만들어서는 안 된다.
+만든다. Batch 02부터는 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
+overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
+순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
+`validate_batch_01.py`의 고정 96-record/ID 계약은 절대 느슨하게 만들지 않는다.
 
 ### 4.3 Batch 01 review 동기화
 
@@ -223,6 +224,19 @@ Batch 01의 review projection은 다음과 같다.
 | smalltalk | `ko` | `de` | `en` |
 | Cloze | `fullKo` | `de` | `en` |
 | Satzbau | `targetKo` | `promptDe` | `promptEn` |
+
+8열 CSV는 **승인 상태의 원장**이지 전체 콘텐츠를 축약해 다시 쓰는 두 번째 원본이 아니다.
+Jin은 승인 전에 아래 명령으로 schema-complete 문장, 문법 설명, reply/follow-up, answer와
+distractor를 한 Markdown packet에서 확인한다.
+
+```bash
+python3 tools/content_factory/render_review_packet.py \
+  --manifest tools/content_factory/drafts/batch_01_manifest.json \
+  --output tools/content_factory/review/batch_01_review_packet.md
+```
+
+생성된 packet은 읽기 전용 검수 증거다. 문구 수정은 draft에서 하고, packet을 다시 만든다.
+`field_notes`에는 최소한 pack/category/topic과 answer·source 관계를 남긴다.
 
 문구를 draft에서 고쳤다면 review의 해당 projection도 꼭 같이 고친다. 반대로 review CSV에서
 문구만 고치면 실제 병합 원문은 바뀌지 않으므로 잘못된 수정이다.
@@ -681,6 +695,9 @@ functions/analyze_korean_text/grammar_patterns.json
 | `smalltalkCategoryMappings` | `(level, category)` → unit/concept 의도 |
 | `clozeTopicMappings` | `(level, topic)` → unit/concept 의도 |
 | `satzDependencies` | Satz가 의존하는 same-level vocab pack과 count |
+| `sentenceDerivationSets` | vocab example ↔ Cloze ↔ Satz의 번호 범위. 세 언어 문장이 동일한지 검증 |
+| `requiresCompleteSentenceDerivations` | `true`면 해당 세 종류의 모든 record가 위 1:1 파생 관계에 속해야 함 |
+| `predecessorManifests` | 아직 live에 없는 앞 review batch의 manifest 경로. pack 순번뿐 아니라 모든 draft ID·vocab 표제어·네 curriculum mapping group을 예약한다. 같은 mapping 값만 공유 가능 |
 | `mergeOrder` | 실제 asset 병합 순서 |
 | `nonMergeGuards` | 승인 전 금지 조건 |
 
@@ -725,10 +742,20 @@ python3 tools/content_factory/validate_content.py
 # Batch 01의 96 record + review snapshot + overlay 검사
 python3 tools/content_factory/validate_batch_01.py
 
+# Batch 02 이후의 manifest-driven overlay 검사
+python3 tools/content_factory/validate_review_batch.py \
+  --manifest tools/content_factory/drafts/batch_02_manifest.json
+
 # 새 vocab pack의 label/motif/order/curriculum 읽기 전용 사전검사
 python3 tools/content_factory/plan_pack_assignments.py \
   --draft tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv \
   --metadata tools/content_factory/drafts/batch_01_manifest.json
+
+# 앞의 review-only pack이 아직 app map에 병합되지 않았을 때만 예약을 함께 준다.
+python3 tools/content_factory/plan_pack_assignments.py \
+  --draft tools/content_factory/drafts/c3_batch02_vocab_b1_b2.csv \
+  --metadata tools/content_factory/drafts/batch_02_manifest.json \
+  --reserved-metadata tools/content_factory/drafts/batch_01_manifest.json
 
 # review preview: 어떤 파일도 쓰지 않음
 python3 tools/content_factory/apply_review.py \
@@ -874,4 +901,5 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - Batch 01 파일·수량·mapping 의도: `tools/content_factory/drafts/README.md`, `batch_01_manifest.json`
 - review 상태와 transactional 병합: `tools/content_factory/review/README.md`
 - 기계 검증: `tools/content_factory/validate_content.py`, `validate_batch_01.py`,
-  `plan_pack_assignments.py`, `apply_review.py`
+  `validate_review_batch.py`, `plan_pack_assignments.py`, `render_review_packet.py`,
+  `apply_review.py`

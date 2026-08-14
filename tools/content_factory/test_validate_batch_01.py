@@ -15,6 +15,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -73,6 +74,10 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         path = self._fixture_path("tools/content_factory/drafts/batch_01_manifest.json")
         return path, json.loads(path.read_text(encoding="utf-8"))
 
+    def _batch02_manifest(self) -> tuple[Path, dict[str, object]]:
+        path = self._fixture_path("tools/content_factory/drafts/batch_02_manifest.json")
+        return path, json.loads(path.read_text(encoding="utf-8"))
+
     def _write_manifest(self, path: Path, manifest: dict[str, object]) -> None:
         path.write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
@@ -80,6 +85,13 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         )
 
     def _rewrite_review(
+        self,
+        relative: str,
+        mutate: object,
+    ) -> None:
+        self._rewrite_csv(relative, mutate)
+
+    def _rewrite_csv(
         self,
         relative: str,
         mutate: object,
@@ -110,6 +122,12 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             encoding="utf-8",
         )
 
+    def _validate_batch02(self) -> batch.BatchValidationResult:
+        return batch.validate_review_batch(
+            root=self.root,
+            manifest_path=Path("tools/content_factory/drafts/batch_02_manifest.json"),
+        )
+
     def test_current_batch_passes_and_does_not_write_any_fixture_source(self) -> None:
         before = self._snapshot()
 
@@ -138,6 +156,147 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         )
 
         with self.assertRaisesRegex(batch.BatchValidationError, "상태 must be exactly 'draft'"):
+            batch.validate_batch_01(root=self.root)
+
+    def test_generic_validator_accepts_a_later_batch_manifest_without_batch01_ids(self) -> None:
+        path, manifest = self._manifest()
+        manifest["batch"] = "02"
+        self._write_manifest(path, manifest)
+
+        result = batch.validate_review_batch(
+            root=self.root,
+            manifest_path=path,
+        )
+
+        self.assertEqual(96, result.record_count)
+
+    def test_later_batch_rejects_any_predecessor_draft_id_reuse(self) -> None:
+        self._rewrite_json(
+            "tools/content_factory/drafts/c2_batch02_smalltalk_b1_b2.json",
+            lambda payload: payload["phrases"][0].update({"id": "smalltalk_b1_0037"}),
+        )
+        self._rewrite_review(
+            "tools/content_factory/review/c2_batch02_smalltalk.csv",
+            lambda rows: rows[0].update({"id": "smalltalk_b1_0037"}),
+        )
+
+        with self.assertRaisesRegex(batch.BatchValidationError, "reuses predecessor draft ID"):
+            self._validate_batch02()
+
+    def test_later_batch_rejects_predecessor_vocabulary_headword_reuse(self) -> None:
+        self._rewrite_csv(
+            "tools/content_factory/drafts/c3_batch02_vocab_b1_b2.csv",
+            lambda rows: rows[0].update({"korean": "관리비"}),
+        )
+        self._rewrite_review(
+            "tools/content_factory/review/c3_batch02_vocab.csv",
+            lambda rows: rows[0].update({"ko": "관리비"}),
+        )
+        self._rewrite_json(
+            "tools/content_factory/drafts/c2_batch02_satz_b1_b2.json",
+            lambda payload: payload["items"][0].update({"vocabKo": "관리비"}),
+        )
+
+        with self.assertRaisesRegex(
+            batch.BatchValidationError,
+            "reuses predecessor draft headword",
+        ):
+            self._validate_batch02()
+
+    def test_later_batch_rejects_conflicting_predecessor_companion_mapping(self) -> None:
+        path, manifest = self._batch02_manifest()
+        mappings = manifest["smalltalkCategoryMappings"]
+        self.assertIsInstance(mappings, list)
+        phone = next(
+            entry
+            for entry in mappings
+            if entry["level"] == "b1" and entry["category"] == "phone"
+        )
+        phone["courseUnitId"] = "b1_01_experience_reasons"
+        phone["conceptIds"] = ["concept_b1_reasons_experience"]
+        self._write_manifest(path, manifest)
+
+        with self.assertRaisesRegex(
+            batch.BatchValidationError,
+            "conflicting predecessor smalltalkCategoryUnitMap entry",
+        ):
+            self._validate_batch02()
+
+    def test_later_batch_allows_an_identical_predecessor_companion_mapping(self) -> None:
+        # Batch 02 intentionally shares B1 phone, B2 phone, and B2 shopping
+        # ownership with Batch 01.  Bypass the unrelated final overlay here so
+        # this test isolates the reservation guard itself.
+        with mock.patch.object(batch, "_write_overlay", return_value={}):
+            with mock.patch.object(batch.ContentValidator, "validate", return_value=[]):
+                result = self._validate_batch02()
+
+        self.assertEqual(96, result.record_count)
+
+    def test_batch02_satz_distractors_keep_reviewed_alternate_sentences_impossible(self) -> None:
+        """Do not restore tile pairs that complete a second natural answer.
+
+        Satzbau accepts an exact target at runtime, but a distractor pair that
+        also completes the visible prefix makes the exercise pedagogically
+        ambiguous.  These reviewed pairs are deliberately incompatible noun
+        fragments, so this sentinel protects the human-language correction.
+        """
+
+        payload = json.loads(
+            self._fixture_path(
+                "tools/content_factory/drafts/c2_batch02_satz_b1_b2.json",
+            ).read_text(encoding="utf-8"),
+        )
+        actual = {
+            item["id"]: item["distractors"]
+            for item in payload["items"]
+            if item["id"]
+            in {
+                "satz_b1_0062",
+                "satz_b1_0067",
+                "satz_b1_0068",
+                "satz_b1_0070",
+                "satz_b1_0071",
+                "satz_b1_0072",
+                "satz_b2_0054",
+                "satz_b2_0055",
+                "satz_b2_0058",
+                "satz_b2_0060",
+                "satz_b2_0061",
+                "satz_b2_0063",
+            }
+        }
+        self.assertEqual(
+            {
+                "satz_b1_0062": ["회의실을", "참석 여부를"],
+                "satz_b1_0067": ["회의실을", "마감일을"],
+                "satz_b1_0068": ["참석 여부를", "회의실을"],
+                "satz_b1_0070": ["회의실을", "참석 여부를"],
+                "satz_b1_0071": ["회의실을", "업무 분담을"],
+                "satz_b1_0072": ["마감일을", "참석 여부를"],
+                "satz_b2_0054": ["서면 답변을", "보상 방안을"],
+                "satz_b2_0055": ["민원을", "서면 답변을"],
+                "satz_b2_0058": ["서면 답변을", "보상 방안을"],
+                "satz_b2_0060": ["서면 답변을", "보상 방안을"],
+                "satz_b2_0061": ["보상 방안을", "서면 답변을"],
+                "satz_b2_0063": ["민원을", "보상 방안을"],
+            },
+            actual,
+        )
+
+    def test_rejects_a_derived_translation_that_drifts_from_its_vocab_source(self) -> None:
+        self._rewrite_json(
+            "tools/content_factory/drafts/c2_batch01_cloze_b1_b2.json",
+            lambda payload: payload["items"][0].update({"de": "A different translation."}),
+        )
+        self._rewrite_review(
+            "tools/content_factory/review/c2_batch01_cloze.csv",
+            lambda rows: rows[0].update({"de": "A different translation."}),
+        )
+
+        with self.assertRaisesRegex(
+            batch.BatchValidationError,
+            "must exactly share the canonical vocabulary example",
+        ):
             batch.validate_batch_01(root=self.root)
 
     def test_rejects_missing_curriculum_companion_mapping(self) -> None:

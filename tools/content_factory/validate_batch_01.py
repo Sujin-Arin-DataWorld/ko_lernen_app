@@ -196,6 +196,22 @@ class BatchValidationResult:
     planned_pack_ids: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class PredecessorReviewBatch:
+    """Validated review-only facts reserved by an earlier pending batch.
+
+    A predecessor is not part of ``assets/data`` yet, so the normal overlay
+    cannot discover collisions with it by itself.  Keep the schema-complete
+    records and their future curriculum additions available long enough to
+    fail the later batch before either batch reaches an integration change.
+    """
+
+    manifest_path: Path
+    batch: str
+    payloads: dict[str, ArtifactPayload]
+    additions: CurriculumAdditions
+
+
 class BatchValidationError(ValueError):
     """One or more non-reviewable Batch 01 contract violations."""
 
@@ -987,11 +1003,18 @@ def _run_pack_preflight(
     root: Path,
     payload: ArtifactPayload,
     manifest_path: Path,
+    *,
+    predecessor_manifest_paths: Iterable[Path] = (),
 ) -> tuple[str, ...]:
     """Run the shared planner against this very manifest, without writes."""
 
     try:
-        plans = pack_planner.validate_plan(payload.draft_path, manifest_path, root=root)
+        plans = pack_planner.validate_plan(
+            payload.draft_path,
+            manifest_path,
+            root=root,
+            reserved_metadata_paths=predecessor_manifest_paths,
+        )
     except pack_planner.PackAssignmentError as error:
         _fail(f"vocabulary pack preflight failed: {error}")
     planned_ids = tuple(sorted(pack_id for plan in plans for pack_id in plan.pack_ids))
@@ -1009,7 +1032,11 @@ def _run_pack_preflight(
 
 def _add_new_mapping(target: dict[str, Any], key: str, value: Any, label: str) -> None:
     if key in target:
-        _fail(f"overlay curriculum already has {label} entry for {key!r}")
+        if target[key] != value:
+            _fail(
+                f"overlay curriculum has a conflicting {label} entry for {key!r}",
+            )
+        return
     target[key] = value
 
 
@@ -1092,17 +1119,209 @@ def _write_overlay(
     return counts
 
 
-def validate_batch_01(
+def _resolve_predecessor_manifests(root: Path, manifest: dict[str, Any]) -> tuple[Path, ...]:
+    """Resolve declared earlier review batches without allowing path escape."""
+
+    raw_paths = manifest.get("predecessorManifests", [])
+    if raw_paths is None:
+        raw_paths = []
+    if not isinstance(raw_paths, list) or any(
+        not isinstance(path, str) or not path.strip() for path in raw_paths
+    ):
+        _fail("predecessorManifests must be an array of repository-relative paths")
+    resolved: list[Path] = []
+    for index, raw_path in enumerate(raw_paths):
+        path = _resolve_under_root(root, raw_path, f"predecessorManifests[{index}]")
+        if not path.is_file():
+            _fail(f"predecessorManifests[{index}]: file does not exist: {raw_path}")
+        if path in resolved:
+            _fail(f"predecessorManifests has duplicate path {raw_path!r}")
+        resolved.append(path)
+    return tuple(resolved)
+
+
+def _load_predecessor_review_batches(
+    root: Path,
+    *,
+    current_manifest_path: Path,
+    current_batch: str,
+    manifest_paths: Iterable[Path],
+) -> tuple[PredecessorReviewBatch, ...]:
+    """Load predecessor drafts as reservations, without creating an overlay.
+
+    ``plan_pack_assignments.py`` deliberately reads only predecessor pack
+    metadata because it needs to reserve future UI order.  The review-batch
+    validator has a wider responsibility: no later unmerged batch may reuse
+    an earlier draft record, vocabulary headword, or incompatible curriculum
+    mapping.  Read the same schema-complete draft/review pair here so those
+    reservations are checked before the current batch can be called valid.
+    """
+
+    current_number = int(current_batch)
+    predecessors: list[PredecessorReviewBatch] = []
+    for manifest_path in manifest_paths:
+        if manifest_path == current_manifest_path:
+            _fail("predecessorManifests must not contain the current manifest")
+        manifest, entries, specs = _parse_manifest(
+            root,
+            manifest_path,
+            enforce_batch_01_contract=False,
+        )
+        predecessor_batch = _required_string(
+            manifest.get("batch"),
+            f"{manifest_path}: batch",
+        )
+        if int(predecessor_batch) >= current_number:
+            _fail(
+                f"{manifest_path}: predecessor batch {predecessor_batch} must be earlier "
+                f"than current batch {current_batch}",
+            )
+
+        payloads: dict[str, ArtifactPayload] = {}
+        for kind, spec in specs.items():
+            payload = _load_artifact(root, spec, entries[kind])
+            _validate_artifact_records(payload)
+            _validate_review_ledger(payload)
+            payloads[kind] = payload
+        actual_count = sum(len(payload.records) for payload in payloads.values())
+        if actual_count != manifest["recordCount"]:
+            _fail(
+                f"{manifest_path}: recordCount must equal the artifact total "
+                f"({actual_count})",
+            )
+        _validate_sentence_derivations(manifest, payloads)
+        predecessors.append(
+            PredecessorReviewBatch(
+                manifest_path=manifest_path,
+                batch=predecessor_batch,
+                payloads=payloads,
+                additions=_validate_companions(root, manifest, payloads),
+            ),
+        )
+    return tuple(predecessors)
+
+
+def _curriculum_mapping_groups(
+    additions: CurriculumAdditions,
+) -> dict[str, dict[str, Any]]:
+    """Expose the four future curriculum maps under their asset field names."""
+
+    return {
+        "vocabPackUnitMap": additions.vocab_pack_unit_map,
+        "grammarRuleMap": additions.grammar_rule_map,
+        "smalltalkCategoryUnitMap": additions.smalltalk_category_unit_map,
+        "clozeTopicUnitMap": additions.cloze_topic_unit_map,
+    }
+
+
+def _validate_predecessor_reservations(
+    *,
+    current_manifest_path: Path,
+    current_payloads: dict[str, ArtifactPayload],
+    current_additions: CurriculumAdditions,
+    predecessors: Iterable[PredecessorReviewBatch],
+) -> None:
+    """Reject later drafts that collide with still-unmerged predecessors.
+
+    Identical companion entries intentionally remain legal: two batches can
+    author phrases in the same category if that category is owned by the same
+    curriculum unit.  A different value for an already-reserved key would
+    make the eventual multi-file integration order-dependent, so fail closed.
+    """
+
+    reserved_ids: dict[str, str] = {}
+    reserved_korean: dict[str, str] = {}
+    reserved_mappings: dict[str, dict[str, tuple[Any, str]]] = {
+        name: {} for name in _curriculum_mapping_groups(current_additions)
+    }
+
+    for predecessor in predecessors:
+        source_label = f"Batch {predecessor.batch} ({predecessor.manifest_path})"
+        for payload in predecessor.payloads.values():
+            for index, record in enumerate(payload.records):
+                ident = _required_string(
+                    record.get("id"),
+                    f"{payload.draft_path}[{index}].id",
+                )
+                existing_source = reserved_ids.get(ident)
+                if existing_source is not None:
+                    _fail(
+                        f"predecessor manifests reuse draft ID {ident!r}: "
+                        f"{existing_source} and {source_label}",
+                    )
+                reserved_ids[ident] = source_label
+
+        for index, record in enumerate(predecessor.payloads["vocab"].records):
+            korean = _required_string(
+                record.get("korean"),
+                f"{predecessor.payloads['vocab'].draft_path}[{index}].korean",
+            )
+            existing_source = reserved_korean.get(korean)
+            if existing_source is not None:
+                _fail(
+                    f"predecessor manifests reuse vocabulary Korean headword {korean!r}: "
+                    f"{existing_source} and {source_label}",
+                )
+            reserved_korean[korean] = source_label
+
+        for map_name, entries in _curriculum_mapping_groups(predecessor.additions).items():
+            reserved_group = reserved_mappings[map_name]
+            for key, value in entries.items():
+                existing = reserved_group.get(key)
+                if existing is not None and existing[0] != value:
+                    _fail(
+                        f"predecessor manifests have conflicting {map_name} entry "
+                        f"for {key!r}: {existing[1]} and {source_label}",
+                    )
+                reserved_group[key] = (value, source_label)
+
+    for payload in current_payloads.values():
+        for index, record in enumerate(payload.records):
+            ident = _required_string(record.get("id"), f"{payload.draft_path}[{index}].id")
+            existing_source = reserved_ids.get(ident)
+            if existing_source is not None:
+                _fail(
+                    f"{current_manifest_path}: draft ID {ident!r} reuses predecessor "
+                    f"draft ID from {existing_source}",
+                )
+
+    for index, record in enumerate(current_payloads["vocab"].records):
+        korean = _required_string(
+            record.get("korean"),
+            f"{current_payloads['vocab'].draft_path}[{index}].korean",
+        )
+        existing_source = reserved_korean.get(korean)
+        if existing_source is not None:
+            _fail(
+                f"{current_manifest_path}: vocabulary Korean headword {korean!r} "
+                f"reuses predecessor draft headword from {existing_source}",
+            )
+
+    for map_name, entries in _curriculum_mapping_groups(current_additions).items():
+        for key, value in entries.items():
+            existing = reserved_mappings[map_name].get(key)
+            if existing is not None and existing[0] != value:
+                _fail(
+                    f"{current_manifest_path}: conflicting predecessor {map_name} "
+                    f"entry for {key!r} from {existing[1]}",
+                )
+
+
+def validate_review_batch(
     *,
     root: Path = ROOT,
-    manifest_path: Path | None = None,
+    manifest_path: Path,
+    enforce_batch_01_contract: bool = False,
 ) -> BatchValidationResult:
-    """Validate the complete Batch 01 draft without changing repository files."""
+    """Validate a complete review-only B1/B2 batch without writing sources.
+
+    It supports future batches with their own file names, record counts, ID
+    ranges, and pending predecessor pack reservations.  The caller opts into
+    the immutable Batch 01 contract only for its historic fixed handoff.
+    """
 
     root = root.resolve()
-    if manifest_path is None:
-        manifest_path = root / DEFAULT_MANIFEST
-    elif not manifest_path.is_absolute():
+    if not manifest_path.is_absolute():
         manifest_path = root / manifest_path
     manifest_path = manifest_path.resolve()
     try:
@@ -1110,31 +1329,75 @@ def validate_batch_01(
     except ValueError:
         _fail("manifest path must stay under the repository root")
 
-    manifest, entries = _parse_manifest(root, manifest_path)
+    manifest, entries, specs = _parse_manifest(
+        root,
+        manifest_path,
+        enforce_batch_01_contract=enforce_batch_01_contract,
+    )
     payloads: dict[str, ArtifactPayload] = {}
-    for kind, spec in ARTIFACT_SPECS.items():
+    for kind, spec in specs.items():
         payload = _load_artifact(root, spec, entries[kind])
-        _validate_artifact_records(payload)
+        _validate_artifact_records(
+            payload,
+            expected_ids=EXPECTED_IDS[kind] if enforce_batch_01_contract else None,
+        )
         _validate_review_ledger(payload)
         payloads[kind] = payload
-    if sum(len(payload.records) for payload in payloads.values()) != 96:
-        _fail("Batch 01 artifacts must total exactly 96 records")
+    actual_count = sum(len(payload.records) for payload in payloads.values())
+    if actual_count != manifest["recordCount"]:
+        _fail(
+            f"{manifest_path}: recordCount must equal the artifact total "
+            f"({actual_count})",
+        )
 
+    _validate_sentence_derivations(manifest, payloads)
     additions = _validate_companions(root, manifest, payloads)
-    planned_pack_ids = _run_pack_preflight(root, payloads["vocab"], manifest_path)
+    predecessor_manifest_paths = _resolve_predecessor_manifests(root, manifest)
+    predecessors = _load_predecessor_review_batches(
+        root,
+        current_manifest_path=manifest_path,
+        current_batch=manifest["batch"],
+        manifest_paths=predecessor_manifest_paths,
+    )
+    _validate_predecessor_reservations(
+        current_manifest_path=manifest_path,
+        current_payloads=payloads,
+        current_additions=additions,
+        predecessors=predecessors,
+    )
+    planned_pack_ids = _run_pack_preflight(
+        root,
+        payloads["vocab"],
+        manifest_path,
+        predecessor_manifest_paths=predecessor_manifest_paths,
+    )
 
-    with tempfile.TemporaryDirectory(prefix="batch01-content-overlay-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="review-batch-content-overlay-") as temporary:
         overlay_root = Path(temporary) / "repo"
-        inventory_counts = _write_overlay(root, overlay_root, payloads, additions)
+        inventory_counts = _write_overlay(root, overlay_root, specs, payloads, additions)
         issues = ContentValidator(overlay_root).validate()
     if issues:
         raise BatchValidationError(
             [f"overlay {issue.source}: {issue.message}" for issue in issues],
         )
     return BatchValidationResult(
-        record_count=96,
+        record_count=actual_count,
         inventory_counts=inventory_counts,
         planned_pack_ids=planned_pack_ids,
+    )
+
+
+def validate_batch_01(
+    *,
+    root: Path = ROOT,
+    manifest_path: Path | None = None,
+) -> BatchValidationResult:
+    """Validate the historic immutable Batch 01 handoff without writes."""
+
+    return validate_review_batch(
+        root=root,
+        manifest_path=manifest_path or DEFAULT_MANIFEST,
+        enforce_batch_01_contract=True,
     )
 
 

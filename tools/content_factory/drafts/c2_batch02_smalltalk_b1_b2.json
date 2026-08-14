@@ -20,7 +20,7 @@
         {
           "turnKind": "question",
           "ko": "참석이 어려우시면 다른 시간을 찾아볼까요?",
-          "de": "Falls es schwierig ist teilzunehmen, sollen wir nach einer anderen Zeit suchen?",
+          "de": "Falls die Teilnahme schwierig ist, sollen wir nach einem anderen Termin suchen?",
           "en": "If it is difficult to attend, shall we look for another time?"
         }
       ],
@@ -263,7 +263,7 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "구체적인 일정도 함께 알려 주시면 좋겠습니다.",
-        "de": "Eine konkrete Frist wäre ebenfalls hilfreich.",
+        "de": "Ein konkreter Zeitplan wäre ebenfalls hilfreich.",
         "en": "A specific timeline would also be helpful."
       }
     },
@@ -329,9 +329,9 @@
       "de": "Welchem Verfahren muss ich folgen, wenn ich gegen die Entscheidung Einspruch einlegen möchte?",
       "en": "What procedure should I follow if I want to appeal the decision?",
       "reply": {
-        "ko": "정해진 기간 안에 서면으로 신청서를 제출하시면 됩니다.",
-        "de": "Sie müssen den Antrag innerhalb der festgelegten Frist schriftlich einreichen.",
-        "en": "You need to submit the application in writing within the specified period."
+        "ko": "정해진 기간 안에 서면으로 이의신청서를 제출하시면 됩니다.",
+        "de": "Sie müssen den Einspruch innerhalb der festgelegten Frist schriftlich einreichen.",
+        "en": "You need to submit the appeal in writing within the specified period."
       },
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
@@ -356,7 +356,7 @@
       "kind": "opener",
       "ko": "문제가 해결되지 않으면 상위 부서에 공식적으로 문의할 예정입니다.",
       "de": "Falls das Problem nicht gelöst wird, werde ich mich offiziell an die übergeordnete Stelle wenden.",
-      "en": "If the issue is not resolved, I intend to contact the higher department formally.",
+      "en": "If the issue is not resolved, I intend to contact the appropriate higher-level department formally.",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {

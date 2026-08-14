@@ -44,6 +44,16 @@ id,level,ko,de,en,field_notes,status,jin_memo
   Batch manifest를 `--pack-metadata`로 넘겨 read-only pack-assignment 사전검사까지
   통과해야 합니다. 기존 pack에 대한 명시적 유지보수 append는 이 metadata 요건 밖입니다.
 
+검수할 때는 8열 원장만 보지 않습니다. 아래 명령으로 draft의 모든 field, reply/follow-up,
+answer/distractor와 원장 상태를 한 packet으로 렌더링합니다. 수정은 항상 draft에서 하고,
+packet은 다시 생성합니다.
+
+```bash
+python3 tools/content_factory/render_review_packet.py \
+  --manifest tools/content_factory/drafts/batch_02_manifest.json \
+  --output tools/content_factory/review/batch_02_review_packet.md
+```
+
 먼저 항상 preview를 실행합니다. 기본 실행은 어떤 자산도 쓰지 않습니다.
 
 ```bash

@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "batch": "02",
+  "status": "review_only_draft",
+  "provenance": {
+    "approvedTrack": "docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md#제작-순서",
+    "scope": "B1 workplace coordination and schedule changes; B2 formal complaints, remedies, and escalation; sentence games derived from the candidate vocabulary examples",
+    "createdAt": "2026-08-14",
+    "requiresJinReview": true
+  },
+  "predecessorManifests": [
+    "tools/content_factory/drafts/batch_01_manifest.json"
+  ],
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch02_vocab_b1_b2.csv",
+      "review": "tools/content_factory/review/c3_batch02_vocab.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch02_grammar_b1_b2.csv",
+      "review": "tools/content_factory/review/c4_batch02_grammar.csv",
+      "count": 8,
+      "levels": {
+        "b1": 4,
+        "b2": 4
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch02_smalltalk_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch02_smalltalk.csv",
+      "count": 16,
+      "levels": {
+        "b1": 8,
+        "b2": 8
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch02_cloze_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch02_cloze.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch02_satz_b1_b2.json",
+      "review": "tools/content_factory/review/c2_batch02_satz.csv",
+      "count": 24,
+      "levels": {
+        "b1": 12,
+        "b2": 12
+      }
+    }
+  ],
+  "recordCount": 96,
+  "vocabPacks": [
+    {
+      "packId": "b1_work_coordination_1",
+      "level": "b1",
+      "orderInLevel": 20,
+      "orderRange": [1, 12],
+      "reviewBossOrders": [10, 11, 12],
+      "displayLabel": {
+        "ko": "업무 조율·일정",
+        "de": "Arbeitskoordination & Termine",
+        "en": "Work Coordination & Schedules"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_03_work_softening",
+        "conceptIds": ["concept_b1_softening"]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "b2_formal_complaint_1",
+      "level": "b2",
+      "orderInLevel": 19,
+      "orderRange": [1, 12],
+      "reviewBossOrders": [10, 11, 12],
+      "displayLabel": {
+        "ko": "공식 민원·시정",
+        "de": "Formelle Beschwerde & Abhilfe",
+        "en": "Formal Complaints & Remedies"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_04_complaint_resolution",
+        "conceptIds": ["concept_b2_complaint"]
+      },
+      "motif": "manja",
+      "motifEnum": "DancheongMotif.manja"
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_b1_scheduled_arrangement",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "id": "grammar_b1_as_soon_as",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "id": "grammar_b1_planned_future",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "id": "grammar_b1_soft_request",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "id": "grammar_b2_formal_written_request",
+      "level": "b2",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    },
+    {
+      "id": "grammar_b2_explicit_formal_request",
+      "level": "b2",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    },
+    {
+      "id": "grammar_b2_formal_regarding",
+      "level": "b2",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    },
+    {
+      "id": "grammar_b2_established_premise",
+      "level": "b2",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "b1",
+      "category": "work_study",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "level": "b1",
+      "category": "phone",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "level": "b2",
+      "category": "shopping",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    },
+    {
+      "level": "b2",
+      "category": "phone",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": ["concept_b2_formal_opening"]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "b1",
+      "topic": "Arbeitskoordination & Termine",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"]
+    },
+    {
+      "level": "b2",
+      "topic": "Formelle Beschwerde & Abhilfe",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "b1",
+      "vocabPackId": "b1_work_coordination_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_formal_complaint_1",
+      "count": 12
+    }
+  ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "b1",
+      "vocabIdRange": [260, 271],
+      "clozeIdRange": [68, 79],
+      "satzIdRange": [62, 73]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [217, 228],
+      "clozeIdRange": [70, 81],
+      "satzIdRange": [54, 65]
+    }
+  ],
+  "mergeOrder": [
+    "vocab with curriculum companion mapping",
+    "grammar with grammarRuleMap companion mapping",
+    "smalltalk with category companion mapping",
+    "cloze with topic companion mapping",
+    "satz after same-level vocabulary exists"
+  ],
+  "nonMergeGuards": [
+    "Every review row is draft; no Batch 02 record may be appended to assets/data yet.",
+    "Batch 01 and Batch 02 companion mappings must be merged by a future multi-file integration transaction, not manually or with asset-only apply_review.py.",
+    "The predecessor manifest reserves B1 order 19 and B2 order 18; Batch 02 must retain B1 order 20 and B2 order 19.",
+    "No TTS synthesis or Firebase Storage upload is authorized for this review-only batch."
+  ]
+}

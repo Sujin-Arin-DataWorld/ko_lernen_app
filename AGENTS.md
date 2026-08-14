@@ -267,8 +267,9 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 콘텐츠 확장 C0 기반을 UI/UX v2와 분리한 `codex/content-foundation-c0`에 `e0698688`로 게시했다: 검수 파이프라인·발음 seed·레벨/게임 계약·TTS dry-run 계약과 회귀 센서가 통과했다. Today unavailable·UX preview 변경은 계속 UI 보류 브랜치에 둔다.
 - [x] Jin 검수용 B1/B2 Batch 01 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 `tools/content_factory/drafts/`·`review/`에만 만들었다. 앱의 B1/B2 본문은 아직 늘리지 않았고 모든 상태는 `draft`다.
 - [x] `docs/CONTENT_AUTHORING_GUIDE.md`를 콘텐츠 DB 작성 정본으로 추가했다. 새 콘텐츠는 실제 schema·KO/DE/EN·ID·참조·review 규칙을 이 문서와 validator로 먼저 확인한다(실벤·끝말잇기는 현재 DE-only schema).
-- [ ] Jin은 Batch 01 원장에서 `ok`/`approved`만 명시한다. `draft`·`fix:`·`no`·부분 승인된 신규 vocab pack은 병합하지 않는다.
-- [ ] 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드, 대량 자산 병합, Batch 01 이후 콘텐츠 데이터 병합·커밋·푸시는 Jin의 별도 승인 전까지 금지한다.
+- [x] Jin 검수용 B1/B2 Batch 02 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 동일한 review-only 경로에 추가했다. B1 업무 조율·일정 변경과 B2 공식 민원·시정·상위 부서 문의를 다루며, Batch 01의 ID·표제어·curriculum ownership과 pack 순번을 predecessor reservation으로 보호한다. 앱 본문·TTS·UI는 바꾸지 않았고 모든 상태는 `draft`다.
+- [ ] Jin은 Batch 01/02 원장에서 `ok`/`approved`만 명시한다. `draft`·`fix:`·`no`·부분 승인된 신규 vocab pack은 병합하지 않는다.
+- [ ] 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드, 대량 자산 병합, Batch 01/02 이후 콘텐츠 데이터 병합·커밋·푸시는 Jin의 별도 승인 전까지 금지한다.
 
 ### 테스터 피드백(Andreas) 라운드 — 학습 루프·전역 속도·레벨 수리 (2026-08-13)
 

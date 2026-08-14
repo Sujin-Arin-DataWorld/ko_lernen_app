@@ -89,3 +89,24 @@ TTS dry-run 수량을 다시 확인한다.
 
 수량 목표를 한 번에 무검수 병합하지 않고, 이 batch의 Jin 피드백을 이후 대형 batch의
 스타일 기준으로 삼는다.
+
+## 검수 배치 현황
+
+두 배치 모두 review-only다. `assets/data/`의 B1/B2 학습 본문, TTS, Firebase Storage,
+UI에는 아직 병합하지 않았다.
+
+| Batch | B1 | B2 | 수량 | 검수 상태 |
+| --- | --- | --- | ---: | --- |
+| 01 | 주거·임대·계약 | 격식 계약·협상 | 96 | 모든 원장 `draft`; B1 #19/B2 #18 pack 예약 |
+| 02 | 업무 조율·일정 변경 | 공식 민원·시정·상위 부서 문의 | 96 | 모든 원장 `draft`; Batch 01을 predecessor로 예약, B1 #20/B2 #19 pack 예약 |
+
+Batch 02는 24개의 canonical vocab example을 Cloze와 Satzbau에 1:1로 파생한다. validator는
+KO/DE/EN의 완전 일치, review projection, predecessor ID·표제어·curriculum mapping 충돌,
+pack 순번을 함께 검사한다. Satzbau의 오답 tile은 정답의 앞부분 뒤에 다른 자연스러운 완성
+문장을 만들지 않는 검수된 조합만 사용한다.
+
+Jin은 compact CSV만 보지 말고 `render_review_packet.py`로 만든 full packet에서 문법 설명,
+대화 reply/follow-up, Cloze answer/distractor, Satzbau tile을 읽은 뒤 `ok` 또는 `approved`만
+기록한다. Batch 01과 02는 새 pack과 companion mapping이 포함되므로 현 asset-only
+`apply_review.py --apply`로 부분 병합하지 않는다. 별도 다중 파일 integration transaction이
+준비되고 Jin이 명시 승인한 뒤에만 순서대로 반영한다.

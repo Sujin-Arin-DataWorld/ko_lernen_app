@@ -1,5 +1,58 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — B1/B2 Batch 02 검수 배치와 후속 batch 충돌 게이트
+
+**무엇/왜.** Batch 01의 Jin 검수 경계를 넓히지 않은 채, 다음 review-only 96개를
+`tools/content_factory/drafts/`·`review/`에 준비했다. B1은 업무 조율·일정 변경,
+B2는 공식 민원·시정·상위 부서 문의를 다룬다. 각 레벨에 단어 12, quiz-ready 문법 4,
+스몰토크 8, canonical 단어 예문에서 1:1로 파생한 Cloze 12와 Satzbau 12를 넣었다.
+독일어 쉼표·격식 화법과 영어의 자연스러운 의미를 다듬었고, 민원 이의제기 응답과
+Satzbau/Cloze 오답이 다른 자연스러운 정답을 만들던 항목도 검수해 교체했다.
+
+**파이프라인.** `validate_review_batch.py`와 manifest-driven overlay를 추가해 Batch 02부터
+파일 경로·수량·레벨·review projection·curriculum companion·sentence derivation을 검사한다.
+`predecessorManifests`는 이제 앞 미병합 batch의 pack order만 아니라 모든 record ID,
+vocab 한국어 표제어, 네 curriculum mapping group을 예약한다. 동일한 mapping ownership은
+허용하지만 다른 값의 재사용은 fail-closed다. 회귀 테스트는 predecessor ID/표제어/mapping
+충돌 거부, 동일 mapping 허용, 그리고 Satzbau의 검수된 안전 distractor tile을 고정한다.
+`render_review_packet.py`는 compact CSV 대신 모든 authored field와 Jin 원장을 한 Markdown
+packet으로 렌더링한다.
+
+**검증.** 현재 HEAD의 깨끗한 asset baseline에 Batch 02 draft·review·validator만 얹은
+disposable fixture에서 `validate_review_batch.py --manifest batch_02_manifest.json`이
+96 record 및 `b1_work_coordination_1`/`b2_formal_complaint_1` pack plan으로 통과했다.
+Batch validator와 pack planner Python 회귀는 **26건** 통과했고, renderer와 Python compile도
+통과했다. 현재 worktree의 전체 live validator는 바로 아래 Gemini의 진행 중 A1/A2 대확장
+작업에 중복 표제어·미완성 grammar mapping이 남아 있어 통과하지 않는다. 그 live asset은
+이번 Batch 02 작업에서 수정하거나 되돌리지 않았다. `git diff --check`는 통과했다.
+
+**경계.** 앱이 읽는 B1/B2 자산, TTS 합성·로컬 write·Firebase Storage, Sori Stage/UI 및
+커밋·push는 수행하지 않았다. 모든 Batch 02 review 상태는 `draft`이며, 별도 multi-file
+integration transaction과 Jin의 명시 승인이 있기 전에는 `apply_review.py --apply`를 쓰지 않는다.
+
+**커밋:** 없음. 현재 브랜치에 이미 존재하는 사용자 커밋과 동시 A1/A2 작업을 섞지 않고 Jin의
+명시 지시를 기다린다.
+
+### 2026-08-15 (Gemini, Mac) — A1/A2 콘텐츠 대확장 + 미디어 구절 + humanizer 스킬
+
+**무엇/왜.** A1/A2 레벨 콘텐츠를 대폭 확충했다. 외국인 학습자가 실생활에서 바로 쓸 수 있는
+단어·문법·구절 중심. Jin 요청: 반말 A2, 카페·편의점·배달앱·병원·이사·BBQ 등 실생활 주제,
+인스타/핸드폰 충전기/피곤·짜증·잠 못 자는 상황, K-Pop/힙합/K-Drama 영감 자체 예문(저작권 100% 안전).
+
+**변경 목록:**
+- `assets/data/korean_vocab.csv`: A1 +114단어(12팩), A2 +118단어(11팩), 총 232단어 추가
+- `lib/services/vocab_pack_service.dart`: 23팩 display/order 등록
+- `assets/data/curriculum_manifest.json`: vocabPackUnitMap +23, grammarRuleMap +20 매핑
+- `assets/data/grammar.csv`: A1 +10, A2 +10 문법 패턴 (32→42, 41→51)
+- `assets/data/kkeunmari_pool.json`: 끝말잇기 풀 재빌드 (2634→2861, +227 noun)
+- `assets/data/media_phrases.json`: [NEW] K-Pop/K-Drama/힙합 영감 80구절 (A1:31, A2:49)
+- `lib/models/media_phrase.dart`: [NEW] MediaPhrase 모델
+- `lib/services/data_loader.dart`: loadMediaPhrases() 추가
+- humanizer 스킬 2종 설치 (blader/humanizer, daleseo/korean-skills)
+
+**검증:** `flutter analyze` — No issues found (2회 통과). ID 유니크 확인, 레벨별 카운트 검증.
+**커밋:** Jin 명시적 요청 시.
+
 ### 2026-08-14 (Codex, Mac) — 콘텐츠 DB 작성 정본과 C0 기반 게시
 
 **무엇/왜.** 미래 세션이 B1/B2 콘텐츠를 안전하게 확장할 수 있도록
