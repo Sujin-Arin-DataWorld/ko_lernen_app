@@ -1,12 +1,190 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
+### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
 
-**무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.
+**무엇/왜.** B2를 단어 수만 늘리는 방식에서 벗어나, 선택의 근거·읽기 반응·표현의 사회적
+효과를 설명하고 산출하는 세 개의 자체 집필 pillar로 확장했다. 새
+`docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`는 각 pillar를 12단어 → 문법 2개 →
+스몰토크 4개 → 같은 canonical 예문의 Cloze/Satzbau 12개로 잇는 설계를 고정한다.
+외부 자료에서 얻은 CEFR 기능 신호와 언어 형태는 neutral brief로 재정의할 수 있으나,
+원문 표현·단원 배열·예문·활동 순서는 쓰지 않는다고 `CONTENT_SOURCE_POLICY.md`와 작성
+가이드에 명시했다.
 
-**검증.** `flutter analyze` → **No issues found**.
+**Batch 03 (review-only, 126건).** `tools/content_factory/drafts/`와 `review/`에만 다음을
+추가했다. 모든 review 상태는 `draft`이고 모든 `field_notes`에 `rights: original`을 남겼다.
 
-**커밋:** 이 로그와 함께 documentation/test-only 후속 커밋으로 기록.
+- B2 vocab 36: `b2_decisions_perspectives_1`, `b2_reading_response_1`,
+  `b2_language_society_1` (각 12단어·마지막 3 Boss)
+- B2 grammar 6: `A/V-기에`, `V-기 나름이다`, `A/V-(으)ㄴ/는 듯하다`, `V-고 나서야`,
+  `N을/를 둘러싸고`, `V-다가는`
+- B2 smalltalk 12: 기존 `daily`·`mood`·`screen` category 안에서 관계 맥락, 안전한
+  대안 질문, follow-up, 질문형 reply를 모두 갖춘 대화
+- Cloze 36 + Satzbau 36: 각 항목이 해당 vocab canonical KO/DE/EN 예문을 정확히 공유
+
+**검수 체인 복구.** 기존 라이브 B2 pack 순서가 18–20을 이미 사용하므로, 아직 미병합인
+Batch 01/02의 B2 `orderInLevel`을 21/22로 재예약하고 Batch 03은 23–25로 잡았다. ID와
+본문은 바꾸지 않았다. 이로써 Batch 01/02/03의 predecessor reservation과 pack planner가
+같은 순번 정본을 읽는다.
+
+**검증.** `python3 tools/content_factory/validate_content.py`, Batch 01 pre-review overlay,
+Batch 02/03 manifest-driven overlay 모두 통과했다. `test_validate_content.py` 8건,
+Batch 03의 36개 exact vocab→Cloze→Satz derivation·126개 draft/rights ledger 검사,
+`flutter analyze` 0 issues, `flutter test test/content_audit_manifest_test.dart
+test/data_integrity_test.dart` 6건, `git diff --check`도 통과했다.
+
+**경계.** 앱 `assets/data` 병합, TTS 합성·로컬 write·Firebase Storage, UI/디자인은 하지
+않았다. 커밋·push는 Jin의 명시 지시 대기다.
+
+### 2026-08-15 (Antigravity, Mac) — Flutter·Git·Python 자율 실행 규칙 적용
+
+**무엇/왜.** Antigravity 및 모든 AI 세션에서 `flutter`, `git`, `python` 등 개발/검증에 필요한 모든 터미널 명령을 매번 사용자 승인/확인 대기 없이 즉시 직접 실행하도록 규칙을 영구 적용했다.
+- `.agents/rules/no-approval-needed.md`: 터미널 명령어 자율 실행 및 확인 생략 원칙 갱신
+- `AGENTS.md`: 최상단 SSoT 규칙에 명령어 자율 실행 지침 추가
+
+**검증:** `.agents/rules/no-approval-needed.md` 및 `AGENTS.md` 반영 완료.
+**커밋:** Jin의 명시 지시 대기.
+
+
+**무엇/왜.** 외부 교재·추출물의 표현과 편집 구성이 앱 콘텐츠에 유입되지 않도록
+`docs/CONTENT_SOURCE_POLICY.md`와 작성 정본의 격리 규칙을 추가했다. 신규 draft는
+독립 학습 목적만 provenance에 적고, `field_notes`/review에 `rights: original`을 남긴다.
+출처가 불명확한 기존 후보는 이름만 바꿔 재사용하지 않고 권리 검토 후 유지·재작성·제외를
+결정한다. 개별 문법 형태 같은 언어 사실은 독립 콘텐츠의 학습 목표로 사용할 수 있지만,
+문형 묶음·순서·예문·설명·활동 구조는 가져오지 않는다고 구분했다.
+
+**복구.** `korean_vocab.csv`에 들어간 CSV 주석 행을 제거했다. 잘못된 행이 다시 들어와도
+`validate_content.py`가 `NoneType` 예외로 멈추지 않고 검수 가능한 오류를 보고하도록
+보강하고 회귀 테스트를 추가했다.
+
+**검증.** malformed-row 단일 회귀 테스트와 `git diff --check`는 통과했다. 전체
+`validate_content.py`는 더 이상 예외로 멈추지 않고, 기존 라이브 asset의 계약 위반
+**421건**(대량 확장 후 중복 표제어·문법 focus/참조·scenario/curriculum mapping·audit
+count 등)을 보고한다. 이 항목들은 이번 격리 변경에서 임의로 삭제하거나 재작성하지
+않았으며, 별도 데이터 복구 배치로 처리한다.
+
+**커밋:** Jin의 명시 지시 대기.
+
+### 2026-08-15 (Gemini, Mac) — B2 콘텐츠 확장 (인생·문학·언어 주제)
+
+**무엇/왜.** B2 수준 어휘·표현·문법 패턴을 독립 구성으로 추가.
+인생과 가치관, 문학과 감성, 언어와 변화 3개 주제 팩 + 문법 10개.
+전체 단어·예문은 100% 자체 창작.
+
+**변경 목록:**
+- `korean_vocab.csv`: B2 +30단어 (3팩: 인생과 가치관/문학과 감성/언어와 변화)
+- `vocab_pack_service.dart`: 3팩 display+order 등록 (b2_life_values/literature_emotion/language_change)
+- `grammar.csv`: B2 +10 문법 (는데도 척하다/데다가 기까지/다가는/간접화법/봤자/는 바람에/뿐만 아니라/도록/ㄹ 만하다/는 셈이다)
+- `curriculum_manifest.json`: vocabPackUnitMap +3, grammarRuleMap +10
+- `kkeunmari_pool.json`: 2861→2867 (+6 noun)
+
+**검증:** `flutter analyze` No issues found. ID 유니크 1192/1192 확인.
+
+### 2026-08-15 (Codex, Mac) — B1/B2 Batch 02 검수 배치와 후속 batch 충돌 게이트
+
+**무엇/왜.** Batch 01의 Jin 검수 경계를 넓히지 않은 채, 다음 review-only 96개를
+`tools/content_factory/drafts/`·`review/`에 준비했다. B1은 업무 조율·일정 변경,
+B2는 공식 민원·시정·상위 부서 문의를 다룬다. 각 레벨에 단어 12, quiz-ready 문법 4,
+스몰토크 8, canonical 단어 예문에서 1:1로 파생한 Cloze 12와 Satzbau 12를 넣었다.
+독일어 쉼표·격식 화법과 영어의 자연스러운 의미를 다듬었고, 민원 이의제기 응답과
+Satzbau/Cloze 오답이 다른 자연스러운 정답을 만들던 항목도 검수해 교체했다.
+
+**파이프라인.** `validate_review_batch.py`와 manifest-driven overlay를 추가해 Batch 02부터
+파일 경로·수량·레벨·review projection·curriculum companion·sentence derivation을 검사한다.
+`predecessorManifests`는 이제 앞 미병합 batch의 pack order만 아니라 모든 record ID,
+vocab 한국어 표제어, 네 curriculum mapping group을 예약한다. 동일한 mapping ownership은
+허용하지만 다른 값의 재사용은 fail-closed다. 회귀 테스트는 predecessor ID/표제어/mapping
+충돌 거부, 동일 mapping 허용, 그리고 Satzbau의 검수된 안전 distractor tile을 고정한다.
+`render_review_packet.py`는 compact CSV 대신 모든 authored field와 Jin 원장을 한 Markdown
+packet으로 렌더링한다.
+
+**검증.** 현재 HEAD의 깨끗한 asset baseline에 Batch 02 draft·review·validator만 얹은
+disposable fixture에서 `validate_review_batch.py --manifest batch_02_manifest.json`이
+96 record 및 `b1_work_coordination_1`/`b2_formal_complaint_1` pack plan으로 통과했다.
+Batch validator와 pack planner Python 회귀는 **26건** 통과했고, renderer와 Python compile도
+통과했다. 현재 worktree의 전체 live validator는 바로 아래 Gemini의 진행 중 A1/A2 대확장
+작업에 중복 표제어·미완성 grammar mapping이 남아 있어 통과하지 않는다. 그 live asset은
+이번 Batch 02 작업에서 수정하거나 되돌리지 않았다. `git diff --check`는 통과했다.
+
+**경계.** 앱이 읽는 B1/B2 자산, TTS 합성·로컬 write·Firebase Storage, Sori Stage/UI 및
+커밋·push는 수행하지 않았다. 모든 Batch 02 review 상태는 `draft`이며, 별도 multi-file
+integration transaction과 Jin의 명시 승인이 있기 전에는 `apply_review.py --apply`를 쓰지 않는다.
+
+**커밋:** 없음. 현재 브랜치에 이미 존재하는 사용자 커밋과 동시 A1/A2 작업을 섞지 않고 Jin의
+명시 지시를 기다린다.
+
+### 2026-08-15 (Gemini, Mac) — A1/A2 콘텐츠 대확장 + 미디어 구절 + humanizer 스킬
+
+**무엇/왜.** A1/A2 레벨 콘텐츠를 대폭 확충했다. 외국인 학습자가 실생활에서 바로 쓸 수 있는
+단어·문법·구절 중심. Jin 요청: 반말 A2, 카페·편의점·배달앱·병원·이사·BBQ 등 실생활 주제,
+인스타/핸드폰 충전기/피곤·짜증·잠 못 자는 상황, K-Pop/힙합/K-Drama 영감 자체 예문(저작권 100% 안전).
+
+**변경 목록:**
+- `assets/data/korean_vocab.csv`: A1 +114단어(12팩), A2 +118단어(11팩), 총 232단어 추가
+- `lib/services/vocab_pack_service.dart`: 23팩 display/order 등록
+- `assets/data/curriculum_manifest.json`: vocabPackUnitMap +23, grammarRuleMap +20 매핑
+- `assets/data/grammar.csv`: A1 +10, A2 +10 문법 패턴 (32→42, 41→51)
+- `assets/data/kkeunmari_pool.json`: 끝말잇기 풀 재빌드 (2634→2861, +227 noun)
+- `assets/data/media_phrases.json`: [NEW] K-Pop/K-Drama/힙합 영감 80구절 (A1:31, A2:49)
+- `lib/models/media_phrase.dart`: [NEW] MediaPhrase 모델
+- `lib/services/data_loader.dart`: loadMediaPhrases() 추가
+- humanizer 스킬 2종 설치 (blader/humanizer, daleseo/korean-skills)
+
+**검증:** `flutter analyze` — No issues found (2회 통과). ID 유니크 확인, 레벨별 카운트 검증.
+**커밋:** Jin 명시적 요청 시.
+
+### 2026-08-14 (Codex, Mac) — 콘텐츠 DB 작성 정본과 C0 기반 게시
+
+**무엇/왜.** 미래 세션이 B1/B2 콘텐츠를 안전하게 확장할 수 있도록
+`docs/CONTENT_AUTHORING_GUIDE.md`를 작성했다. 실제 loader·validator·review tool을 기준으로
+모든 컬럼, ID·레벨·번역·참조·팩·curriculum·review 상태 규칙과 배치별 검증 순서를 명시했다.
+어휘·문법·시나리오·스몰토크·Cloze·Satzbau·발음은 KO/DE/EN을 모두 작성해야 하지만, 현재
+실벤·끝말잇기 런타임 schema는 DE 전용임도 분명히 기록했다. 사용하지 않는 EN 필드를
+임의로 넣는 대신, 해당 두 게임의 영어 지원은 별도 schema/UX 작업으로 분리한다.
+
+**검증·경계.** 라이브 validator, Batch 01 overlay validator(96 records), Python 회귀 41건,
+`flutter analyze`, 전체 `flutter test`, `git diff --check`를 통과했다. Batch 01은 여전히
+review-only `draft`이며 앱 자산·실제 TTS·Firebase 업로드·UI/Sori Stage는 변경하지 않았다.
+현재 `apply_review.py`는 하나의 asset과 audit manifest만 원자적으로 갱신하므로, 신규
+pack/curriculum/scenario를 실제 병합하는 다중 파일 트랜잭션은 후속 도구가 생기기 전까지
+실행하지 않는다.
+
+**커밋:** `e0698688` (`feat(content): establish C0 authoring foundation`). 이 로그 및 AGENTS
+체크리스트 갱신은 뒤따르는 documentation-only 커밋에 포함한다.
+
+### 2026-08-14 (Codex, Mac) — 콘텐츠 전용 C0 완료 및 B1/B2 Batch 01 Jin 검수 준비
+
+**무엇/왜.** UI/UX v2 및 현재 기본 홈인 캐릭터 Sori Stage에는 손대지 않고, 콘텐츠 확장을
+안전하게 시작할 C0 기반을 콘텐츠 브랜치에만 만들었다. `validate_content.py`를 현재
+vocab·grammar·scenario·game·발음·audit manifest의 빠른 실패 게이트로 정리했고,
+`apply_review.py`는 schema-complete draft와 `id`/`상태` 승인 원장만으로 작동하는
+preview-first·원자적 병합기로 고정했다. 신규 vocab pack은 11–12개, 연속 순번, 마지막
+2–3 Boss, 전원 승인 및 metadata/curriculum 사전검증을 통과하지 않으면 preview/apply
+모두 거부한다. `scripts/build_vocab_packs.py`는 현 15열 CSV를 훼손할 수 있으므로 실행
+금지 경고를 도구·서비스에 남겼다.
+
+**학습 계약.** 저장된 소문자 CEFR 코드를 정규화해 초성·실벤은 정확 레벨, 듣기는
+정확→가장 가까운 하위→전체, 끝말잇기는 A1부터 사용자 레벨까지 누적→실제 체인이 없을
+때만 전체 풀로 선택하게 했다. 기존 하드코딩 발음 4문장은 versioned
+`pronunciation_phrases.json` 승인 seed로 이관했고, 로더 오류/빈 목록에서는 TTS·녹음을
+막고 재시도 UI를 보인다. TTS 수집기는 발음 corpus를 포함하지만 이번에는 dry-run만
+수행했다.
+
+**Batch 01.** 앱 자산에는 B1/B2 본문을 병합하지 않았다. 대신
+`tools/content_factory/drafts/`와 `review/`에 검수 전용 96개 레코드(단어 24, 문법 8,
+스몰토크 16, Cloze 24, Satzbau 24)를 만들었다. B1 주거·계약과 B2 격식 계약·협상 주제,
+지정 ID, B1 #19/B2 #18 pack 계획, 기존 motif·curriculum 동반 매핑을 모두 포함한다.
+모든 원장은 `draft`이며, Batch overlay validator가 review의 ko/de/en까지 실제 draft 투영값과
+정확히 같은지 확인한다.
+
+**검증.** `validate_content.py`, read-only `validate_batch_01.py`(96 records), Python 회귀
+**41건**, 승인 없는 5개 `apply_review.py` preview(각각 0 append), pack assignment preflight,
+TTS `--dry-run` **5,288** 발화(인증·합성·로컬 write·업로드 없음), C0 Flutter focused
+**40건**, `flutter analyze` 0 issues, 전체 `flutter test` 및 `git diff --check`를 통과했다.
+
+**경계.** `lib/screens/sori_stage/`, Today 추천, paywall 카피, 새 motif/디자인, 실제
+TTS/Firebase 업로드는 변경하지 않았다. Batch 01 검수와 별도 콘텐츠 병합 지시 전에는
+`--apply`를 실행하지 않는다.
+>>>>>>> codex/content-foundation-c0
 
 ### 2026-08-14 (Codex, Mac) — UI/UX v2 인수인계 기준점 게시
 

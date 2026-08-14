@@ -5,6 +5,7 @@ import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/analytics_service.dart';
+import '../services/learner_level_selection.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
@@ -149,6 +150,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   @override
   void initState() {
     super.initState();
+    _level = learnerLevelDisplayForStoredCode(Storage.userLevelCode);
     _load();
     scheduleCoach();
     Analytics.gameStarted(gameType: 'chosung', level: _level);
@@ -448,6 +450,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                   horizontal: Spacing.xs,
                                 ),
                                 child: SoriChip(
+                                  key: ValueKey('chosung-level-$lvl'),
                                   label: lvl,
                                   accent: SoriColors.primary,
                                   selected: selected,

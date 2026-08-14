@@ -10603,6 +10603,36 @@ abstract class AppL10n {
   /// **'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.'**
   String get pronunciationIntro;
 
+  /// No description provided for @pronunciationPhrasesLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausspracheübungen werden geladen …'**
+  String get pronunciationPhrasesLoading;
+
+  /// No description provided for @pronunciationPhrasesUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausspracheübungen nicht verfügbar'**
+  String get pronunciationPhrasesUnavailableTitle;
+
+  /// No description provided for @pronunciationPhrasesUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Ausspracheübungen konnten nicht geladen werden. Bitte versuche es noch einmal.'**
+  String get pronunciationPhrasesUnavailableBody;
+
+  /// No description provided for @pronunciationPhrasesEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Ausspracheübungen'**
+  String get pronunciationPhrasesEmptyTitle;
+
+  /// No description provided for @pronunciationPhrasesEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für deinen Lernstand sind gerade keine geprüften Sätze verfügbar.'**
+  String get pronunciationPhrasesEmptyBody;
+
   /// No description provided for @pronunciationListen.
   ///
   /// In de, this message translates to:

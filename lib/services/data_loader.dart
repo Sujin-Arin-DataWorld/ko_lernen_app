@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
 
 import '../models/vocab.dart';
 import '../models/grammar.dart';
+import '../models/media_phrase.dart';
 
 class DataLoader {
   static List<Vocab>? _vocabs;
   static List<Grammar>? _grammars;
+  static List<MediaPhrase>? _mediaPhrases;
   static String? lastError;
 
   static Future<List<Vocab>> loadVocab() async {
@@ -55,7 +58,28 @@ class DataLoader {
   static void reset() {
     _vocabs = null;
     _grammars = null;
+    _mediaPhrases = null;
     lastError = null;
+  }
+
+  /// K-Pop / K-Drama / 힙합 영감 구절 로더.
+  static Future<List<MediaPhrase>> loadMediaPhrases() async {
+    if (_mediaPhrases != null) return _mediaPhrases!;
+    try {
+      final raw =
+          await rootBundle.loadString('assets/data/media_phrases.json');
+      final data = json.decode(raw) as Map<String, dynamic>;
+      final list = data['phrases'] as List<dynamic>;
+      _mediaPhrases = list
+          .map((e) => MediaPhrase.fromJson(e as Map<String, dynamic>))
+          .toList();
+      lastError = null;
+      return _mediaPhrases!;
+    } catch (e) {
+      lastError = 'Medieninhalte konnten nicht geladen werden.\n$e';
+      _mediaPhrases = [];
+      return _mediaPhrases!;
+    }
   }
 
   /// Invalidates only the grammar asset cache for an explicit retry.

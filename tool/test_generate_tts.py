@@ -41,6 +41,21 @@ class TtsGeneratorContractTest(unittest.TestCase):
         missing = [t for t in satz_targets if t not in female]
         self.assertEqual(missing, [])
 
+        # Pronunciation studio: every reviewed Korean reference sentence is
+        # played through the default female TTS path.
+        with open(
+            _os.path.join(root, "assets/data/pronunciation_phrases.json"),
+            encoding="utf-8",
+        ) as f:
+            pronunciation_targets = [
+                (item.get("ko") or "").strip()
+                for item in json.load(f).get("phrases", [])
+            ]
+        pronunciation_targets = [text for text in pronunciation_targets if text]
+        self.assertGreaterEqual(len(pronunciation_targets), 4)
+        missing = [text for text in pronunciation_targets if text not in female]
+        self.assertEqual(missing, [])
+
         # 듣기(Hören)=시나리오 대화: user=여성, NPC=남성 화자 매핑 표본 확인.
         with open(
             _os.path.join(root, "assets/data/scenarios.json"), encoding="utf-8"
@@ -69,6 +84,22 @@ class TtsGeneratorContractTest(unittest.TestCase):
                 generate_tts.gcloud_argv("auth", "print-access-token"),
                 [r"C:\\Tools\\GoogleCloudSDK\\gcloud.cmd", "auth", "print-access-token"],
             )
+
+    def test_dry_run_never_authenticates_synthesizes_or_uploads(self):
+        pairs = [("female", "안녕하세요"), ("male", "감사합니다")]
+        with (
+            patch.object(generate_tts, "collect", return_value=pairs),
+            patch.object(generate_tts, "_auth") as auth,
+            patch.object(generate_tts, "synth") as synth,
+            patch.object(generate_tts.subprocess, "run") as run,
+            patch("builtins.print"),
+        ):
+            result = generate_tts.main(["--dry-run"])
+
+        self.assertEqual(result, 0)
+        auth.assert_not_called()
+        synth.assert_not_called()
+        run.assert_not_called()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,430 @@
+{
+  "version": 1,
+  "_comment": "Batch 01 review-only draft. Existing category metadata remains the canonical source in assets/data/smalltalk.json.",
+  "phrases": [
+    {
+      "id": "smalltalk_b1_0037",
+      "category": "transport",
+      "level": "b1",
+      "kind": "question",
+      "ko": "이 버스가 시청역에 가는지 아세요?",
+      "de": "Wissen Sie, ob dieser Bus zur Station City Hall fährt?",
+      "en": "Do you know whether this bus goes to City Hall Station?",
+      "reply": {
+        "ko": "네, 다음 정류장에서 갈아타시면 돼요.",
+        "de": "Ja, Sie müssen an der nächsten Haltestelle umsteigen.",
+        "en": "Yes, you need to transfer at the next stop."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "가까운 지하철역이 어디인지 아세요?",
+          "de": "Wissen Sie, wo die nächste U-Bahn-Station ist?",
+          "en": "Do you know where the nearest subway station is?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "알려 주셔서 감사합니다.",
+        "de": "Danke für den Hinweis.",
+        "en": "Thanks for letting me know."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0038",
+      "category": "transport",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "출근 시간에는 지하철이 너무 붐비는 편이에요.",
+      "de": "Zur Pendelzeit ist die U-Bahn ziemlich voll.",
+      "en": "The subway is fairly crowded during rush hour.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "출근은 보통 어떻게 하세요?",
+          "de": "Wie kommen Sie normalerweise zur Arbeit?",
+          "en": "How do you usually get to work?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 시간을 아낄 수 있어서 타게 돼요.",
+        "de": "Trotzdem nehme ich sie, weil ich damit Zeit spare.",
+        "en": "I still take it because it saves time."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0039",
+      "category": "shopping",
+      "level": "b1",
+      "kind": "question",
+      "ko": "이 상품은 교환이나 환불이 가능한가요?",
+      "de": "Kann ich diesen Artikel umtauschen oder zurückgeben?",
+      "en": "Can I exchange or return this item?",
+      "reply": {
+        "ko": "영수증이 있으면 일주일 안에 가능해요.",
+        "de": "Mit dem Kassenbon geht das innerhalb einer Woche.",
+        "en": "With the receipt, you can do that within a week."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이 제품의 보증 기간은 얼마나 되나요?",
+          "de": "Wie lange gilt die Garantie für dieses Produkt?",
+          "en": "How long is the warranty for this product?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그럼 영수증을 잘 보관해야겠네요.",
+        "de": "Dann sollte ich den Kassenbon gut aufbewahren.",
+        "en": "Then I should keep the receipt safe."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0040",
+      "category": "shopping",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "요즘은 필요한 것만 사려고 노력해요.",
+      "de": "In letzter Zeit versuche ich, nur das zu kaufen, was ich wirklich brauche.",
+      "en": "These days I try to buy only what I really need.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "요즘 사고 싶은 물건이 있으세요?",
+          "de": "Gibt es gerade etwas, das Sie gern kaufen würden?",
+          "en": "Is there anything you would like to buy these days?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그래도 세일하면 계획에 없던 물건도 사게 돼요.",
+        "de": "Bei einem Sale kaufe ich trotzdem manchmal Dinge, die ich nicht geplant hatte.",
+        "en": "But when there is a sale, I still sometimes buy things I had not planned on."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0041",
+      "category": "phone",
+      "level": "b1",
+      "kind": "question",
+      "ko": "지금 통화 괜찮으세요, 아니면 나중에 다시 연락드릴까요?",
+      "de": "Passt ein Anruf gerade, oder soll ich mich später noch einmal melden?",
+      "en": "Is now a good time to talk, or should I contact you again later?",
+      "reply": {
+        "ko": "지금은 회의 중이라서 오후에 연락 주시면 좋겠어요.",
+        "de": "Ich bin gerade in einer Besprechung. Bitte melden Sie sich am Nachmittag.",
+        "en": "I am in a meeting right now. Please contact me this afternoon."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "메시지로 남겨 드릴까요?",
+          "de": "Soll ich Ihnen eine Nachricht hinterlassen?",
+          "en": "Would you like me to leave you a message?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "네, 그때 다시 연락드릴게요.",
+        "de": "Ja, dann melde ich mich noch einmal.",
+        "en": "Okay, I will contact you again then."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0042",
+      "category": "phone",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "전화보다 메시지로 먼저 연락하는 편이에요.",
+      "de": "Ich nehme meist erst per Nachricht Kontakt auf statt direkt anzurufen.",
+      "en": "I tend to message first rather than call right away.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "전화와 메시지 중에 어떤 방법이 더 편하세요?",
+          "de": "Was ist Ihnen lieber: telefonieren oder Nachrichten schreiben?",
+          "en": "Which do you prefer: calling or messaging?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "상대방이 편할 때 답할 수 있어서요.",
+        "de": "So kann die andere Person antworten, wenn es ihr passt.",
+        "en": "That way the other person can reply when it is convenient."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0043",
+      "category": "emergency",
+      "level": "b1",
+      "kind": "question",
+      "ko": "지갑을 잃어버렸는데 어디에 신고해야 하나요?",
+      "de": "Ich habe meine Geldbörse verloren. Wo sollte ich das melden?",
+      "en": "I lost my wallet. Where should I report it?",
+      "reply": {
+        "ko": "가까운 경찰서나 분실물 센터에 먼저 문의해 보세요.",
+        "de": "Fragen Sie zuerst bei der nächsten Polizeistation oder beim Fundbüro nach.",
+        "en": "First ask at the nearest police station or lost-and-found center."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "분실물 센터가 어디에 있는지 아세요?",
+          "de": "Wissen Sie, wo das Fundbüro ist?",
+          "en": "Do you know where the lost-and-found center is?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "알겠습니다. 바로 가 볼게요.",
+        "de": "Alles klar. Ich gehe sofort hin.",
+        "en": "All right. I will go there right away."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0044",
+      "category": "emergency",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "비상시에 연락할 사람의 번호를 휴대폰에 저장해 뒀어요.",
+      "de": "Ich habe die Nummer einer Kontaktperson für Notfälle im Handy gespeichert.",
+      "en": "I saved the number of an emergency contact in my phone.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "휴대폰에 자주 쓰는 번호를 저장해 두셨어요?",
+          "de": "Haben Sie wichtige Nummern in Ihrem Handy gespeichert?",
+          "en": "Have you saved important numbers in your phone?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "급할 때는 당황해서 번호가 생각나지 않을 수 있잖아요.",
+        "de": "In einer dringenden Situation fällt einem die Nummer vielleicht nicht sofort ein.",
+        "en": "In an urgent situation, you might not remember the number right away."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0037",
+      "category": "transport",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이 열차가 공항까지 가는 가장 빠른 경로인지 확인해 주시겠습니까?",
+      "de": "Könnten Sie bestätigen, ob dieser Zug die schnellste Verbindung zum Flughafen ist?",
+      "en": "Could you confirm whether this train is the fastest route to the airport?",
+      "reply": {
+        "ko": "네, 환승 없이 가는 가장 빠른 노선입니다.",
+        "de": "Ja, das ist die schnellste Verbindung ohne Umsteigen.",
+        "en": "Yes, it is the fastest route without a transfer."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "공항까지 예상 소요 시간이 얼마나 됩니까?",
+          "de": "Wie lange dauert die Fahrt zum Flughafen voraussichtlich?",
+          "en": "How long will the trip to the airport take approximately?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인해 주셔서 감사합니다.",
+        "de": "Danke für die Auskunft.",
+        "en": "Thank you for confirming."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0038",
+      "category": "transport",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
+      "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
+      "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "약속 장소까지 얼마나 걸릴 것 같으세요?",
+          "de": "Wie lange brauchen Sie voraussichtlich bis zum Treffpunkt?",
+          "en": "How long do you think it will take to get to the meeting place?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "조금 기다리더라도 상대방을 기다리게 하는 것보다 낫다고 생각해요.",
+        "de": "Ich finde es besser, selbst kurz zu warten, als andere warten zu lassen.",
+        "en": "I think it is better to wait briefly myself than to make someone else wait."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0039",
+      "category": "shopping",
+      "level": "b2",
+      "kind": "question",
+      "ko": "구매 조건을 서면으로 확인할 수 있을까요?",
+      "de": "Könnte ich die Kaufbedingungen schriftlich bestätigt bekommen?",
+      "en": "Could I have the purchase terms confirmed in writing?",
+      "reply": {
+        "ko": "네, 이메일로 보내 드리겠습니다.",
+        "de": "Ja, ich schicke sie Ihnen per E-Mail.",
+        "en": "Yes, I will send them to you by email."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "취소 조건도 함께 안내해 주시겠습니까?",
+          "de": "Könnten Sie mir auch die Stornobedingungen nennen?",
+          "en": "Could you also tell me the cancellation terms?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인한 뒤에 결정하겠습니다.",
+        "de": "Ich entscheide, nachdem ich sie geprüft habe.",
+        "en": "I will decide after I have reviewed them."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0040",
+      "category": "shopping",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
+      "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
+      "en": "I tend to check the return conditions before the price.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "물건을 살 때 가장 먼저 확인하는 조건이 뭐예요?",
+          "de": "Welche Bedingung prüfen Sie beim Kauf zuerst?",
+          "en": "What condition do you check first when buying something?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "문제가 생겼을 때 기준이 분명해야 서로 편하니까요.",
+        "de": "Wenn etwas passiert, ist es für beide Seiten leichter, wenn die Regeln klar sind.",
+        "en": "If a problem comes up, it is easier for everyone when the rules are clear."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0041",
+      "category": "phone",
+      "level": "b2",
+      "kind": "question",
+      "ko": "지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?",
+      "de": "Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+      "en": "If it is difficult to talk now, could you please let me know a suitable time?",
+      "reply": {
+        "ko": "오늘 오후 세 시 이후에는 통화할 수 있습니다.",
+        "de": "Heute kann ich ab drei Uhr nachmittags telefonieren.",
+        "en": "I can talk after 3 p.m. today."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "핵심 내용을 이메일로 먼저 보내 드릴까요?",
+          "de": "Soll ich Ihnen die wichtigsten Punkte zuerst per E-Mail schicken?",
+          "en": "Would you like me to send the main points by email first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 시간에 맞춰 다시 연락드리겠습니다.",
+        "de": "Ich melde mich dann zu dieser Zeit noch einmal.",
+        "en": "I will contact you again at that time."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0042",
+      "category": "phone",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "중요한 내용은 통화 후에 메일로 다시 정리해 두는 편이에요.",
+      "de": "Wichtige Punkte fasse ich nach einem Telefonat meist noch einmal per E-Mail zusammen.",
+      "en": "I tend to summarize important points by email after a call.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "통화한 내용을 따로 기록해 두세요?",
+          "de": "Halten Sie die Inhalte von Telefonaten separat fest?",
+          "en": "Do you keep a separate record of what was discussed on calls?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "나중에 확인할 때 오해가 줄어들어서요.",
+        "de": "So gibt es später weniger Missverständnisse beim Nachsehen.",
+        "en": "That reduces misunderstandings when checking later."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0043",
+      "category": "emergency",
+      "level": "b2",
+      "kind": "question",
+      "ko": "긴급한 상황인데 도움을 받을 수 있는 담당 부서로 연결해 주시겠습니까?",
+      "de": "Es handelt sich um eine dringende Situation. Könnten Sie mich mit der zuständigen Stelle verbinden?",
+      "en": "This is an urgent situation. Could you connect me with the responsible department?",
+      "reply": {
+        "ko": "네, 바로 담당 부서로 연결해 드리겠습니다.",
+        "de": "Ja, ich verbinde Sie sofort mit der zuständigen Stelle.",
+        "en": "Yes, I will connect you to the responsible department right away."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금 바로 취해야 할 조치가 있습니까?",
+          "de": "Gibt es eine Maßnahme, die ich jetzt sofort ergreifen sollte?",
+          "en": "Is there an action I should take immediately?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "신속히 도와주셔서 감사합니다.",
+        "de": "Vielen Dank für Ihre schnelle Hilfe.",
+        "en": "Thank you for your prompt help."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0044",
+      "category": "emergency",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "비상 상황에서는 정확한 위치와 상황을 먼저 설명하는 것이 중요하더라고요.",
+      "de": "In einer Notlage ist es wichtig, zuerst den genauen Ort und die Situation zu erklären.",
+      "en": "In an emergency, it is important to explain the exact location and situation first.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "비상시에 필요한 정보를 미리 정리해 두셨어요?",
+          "de": "Haben Sie wichtige Informationen für Notfälle vorher zusammengestellt?",
+          "en": "Have you prepared the information needed in an emergency?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 도움을 주는 사람이 더 빨리 판단할 수 있어요.",
+        "de": "Dann kann die helfende Person schneller entscheiden, was zu tun ist.",
+        "en": "That lets the person helping decide what to do more quickly."
+      }
+    }
+  ]
+}

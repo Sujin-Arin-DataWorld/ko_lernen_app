@@ -6135,6 +6135,25 @@ class AppL10nDe extends AppL10n {
       'Höre zuerst zu. Nimm danach freiwillig bis zu 10 Sekunden für eine Bewertung auf.';
 
   @override
+  String get pronunciationPhrasesLoading =>
+      'Ausspracheübungen werden geladen …';
+
+  @override
+  String get pronunciationPhrasesUnavailableTitle =>
+      'Ausspracheübungen nicht verfügbar';
+
+  @override
+  String get pronunciationPhrasesUnavailableBody =>
+      'Die Ausspracheübungen konnten nicht geladen werden. Bitte versuche es noch einmal.';
+
+  @override
+  String get pronunciationPhrasesEmptyTitle => 'Noch keine Ausspracheübungen';
+
+  @override
+  String get pronunciationPhrasesEmptyBody =>
+      'Für deinen Lernstand sind gerade keine geprüften Sätze verfügbar.';
+
+  @override
   String get pronunciationListen => 'Anhören';
 
   @override

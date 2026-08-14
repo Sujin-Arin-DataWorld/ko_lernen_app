@@ -7,6 +7,7 @@ import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
+import '../services/learner_level_selection.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -29,6 +30,33 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 
 enum _SubMode { both, koOnly, nativeOnly, off }
+
+/// Chooses the initial listening scenario without dropping a higher-level
+/// learner to the first (normally A1) asset when their exact level is sparse.
+///
+/// Exact-level material remains the first choice. If it is unavailable, the
+/// closest lower available level is selected; only a completely non-cumulative
+/// fixture falls back to the first playable scenario.
+Scenario? selectInitialListeningScenario(
+  Iterable<Scenario> scenarios,
+  LearnerLevel userLevel,
+) {
+  final playable = scenarios.where((scenario) => scenario.dialog.isNotEmpty);
+  final exact = playable.where((scenario) => scenario.level == userLevel);
+  if (exact.isNotEmpty) {
+    return exact.first;
+  }
+
+  for (var rank = userLevel.rank; rank >= LearnerLevel.a1.rank; rank--) {
+    final level = LearnerLevel.values[rank];
+    final closestLower = playable.where((scenario) => scenario.level == level);
+    if (closestLower.isNotEmpty) {
+      return closestLower.first;
+    }
+  }
+
+  return playable.isEmpty ? null : playable.first;
+}
 
 /// Listening 모드 — 시나리오 dialog를 TTS로 step by step 재생한다.
 ///
@@ -103,16 +131,13 @@ class _ListeningScreenState extends State<ListeningScreen>
         ? await providedLoader()
         : await ScenarioLoader.load();
     if (!mounted) return;
-    final userLevel =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    final preferred = list
-        .where((s) => s.level == userLevel && s.dialog.isNotEmpty)
+    final userLevel = learnerLevelForStoredCode(Storage.userLevelCode);
+    final playable = list
+        .where((scenario) => scenario.dialog.isNotEmpty)
         .toList();
     setState(() {
-      _scenarios = list.where((s) => s.dialog.isNotEmpty).toList();
-      _selected = preferred.isNotEmpty
-          ? preferred.first
-          : (_scenarios.isNotEmpty ? _scenarios.first : null);
+      _scenarios = playable;
+      _selected = selectInitialListeningScenario(playable, userLevel);
       _loading = false;
     });
     final started = _selected;

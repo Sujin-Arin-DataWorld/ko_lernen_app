@@ -1,0 +1,292 @@
+{
+  "items": [
+    {
+      "id": "satz_b1_0062",
+      "level": "b1",
+      "targetKo": "팀원들과 일정을 조율한 뒤에 회의 시간을 확정했어요.",
+      "promptDe": "Nachdem ich den Zeitplan mit dem Team abgestimmt hatte, habe ich den Besprechungstermin festgelegt.",
+      "promptEn": "After coordinating the schedule with the team, I confirmed the meeting time.",
+      "distractors": [
+        "회의실을",
+        "참석 여부를"
+      ],
+      "vocabKo": "조율하다"
+    },
+    {
+      "id": "satz_b1_0063",
+      "level": "b1",
+      "targetKo": "회의 참석 여부를 오늘 안에 알려 주세요.",
+      "promptDe": "Bitte teilen Sie uns noch heute mit, ob Sie an der Besprechung teilnehmen können.",
+      "promptEn": "Please let us know by today whether you can attend the meeting.",
+      "distractors": [
+        "연락을",
+        "기다려"
+      ],
+      "vocabKo": "참석 여부"
+    },
+    {
+      "id": "satz_b1_0064",
+      "level": "b1",
+      "targetKo": "마감일이 가까운 업무의 우선순위를 먼저 정했어요.",
+      "promptDe": "Wir haben zuerst die Prioritäten für die Aufgaben mit naher Abgabefrist festgelegt.",
+      "promptEn": "We first set the priorities for tasks with approaching deadlines.",
+      "distractors": [
+        "회의실을",
+        "예약했어요"
+      ],
+      "vocabKo": "우선순위"
+    },
+    {
+      "id": "satz_b1_0065",
+      "level": "b1",
+      "targetKo": "오후 회의를 위해 3층 회의실을 예약했어요.",
+      "promptDe": "Für die Besprechung am Nachmittag habe ich einen Raum im dritten Stock reserviert.",
+      "promptEn": "I reserved a meeting room on the third floor for the afternoon meeting.",
+      "distractors": [
+        "참석자를",
+        "변경했어요"
+      ],
+      "vocabKo": "회의실"
+    },
+    {
+      "id": "satz_b1_0066",
+      "level": "b1",
+      "targetKo": "담당자가 부재중이라 제가 그분을 대체해 업무를 맡기로 했어요.",
+      "promptDe": "Da die zuständige Person nicht da war, habe ich zugesagt, sie zu vertreten.",
+      "promptEn": "Since the person in charge was unavailable, I agreed to take over their duties.",
+      "distractors": [
+        "연락드릴",
+        "예정이에요"
+      ],
+      "vocabKo": "대체하다"
+    },
+    {
+      "id": "satz_b1_0067",
+      "level": "b1",
+      "targetKo": "자료가 늦게 도착해서 회의 시작이 20분 지연됐어요.",
+      "promptDe": "Weil die Unterlagen spät ankamen, hat sich der Beginn der Besprechung um zwanzig Minuten verzögert.",
+      "promptEn": "Because the materials arrived late, the start of the meeting was delayed by 20 minutes.",
+      "distractors": [
+        "회의실을",
+        "마감일을"
+      ],
+      "vocabKo": "지연되다"
+    },
+    {
+      "id": "satz_b1_0068",
+      "level": "b1",
+      "targetKo": "회의 전에 업무 분담을 정해서 각자 맡을 일을 확인했어요.",
+      "promptDe": "Vor der Besprechung haben wir die Aufgabenverteilung festgelegt und geprüft, wer was übernimmt.",
+      "promptEn": "Before the meeting we agreed on the division of tasks and confirmed what each person would handle.",
+      "distractors": [
+        "참석 여부를",
+        "회의실을"
+      ],
+      "vocabKo": "업무 분담"
+    },
+    {
+      "id": "satz_b1_0069",
+      "level": "b1",
+      "targetKo": "이 보고서의 마감일은 다음 주 금요일이에요.",
+      "promptDe": "Die Abgabefrist für diesen Bericht ist nächsten Freitag.",
+      "promptEn": "The deadline for this report is next Friday.",
+      "distractors": [
+        "참석자는",
+        "오늘"
+      ],
+      "vocabKo": "마감일"
+    },
+    {
+      "id": "satz_b1_0070",
+      "level": "b1",
+      "targetKo": "결정이 늦어져서 회의를 다음 주로 미뤘어요.",
+      "promptDe": "Da sich die Entscheidung verzögerte, haben wir die Besprechung auf nächste Woche verschoben.",
+      "promptEn": "Because the decision was delayed, we postponed the meeting until next week.",
+      "distractors": [
+        "회의실을",
+        "참석 여부를"
+      ],
+      "vocabKo": "미루다"
+    },
+    {
+      "id": "satz_b1_0071",
+      "level": "b1",
+      "targetKo": "참석 인원을 확인한 뒤에 최종 일정을 확정할게요.",
+      "promptDe": "Nachdem ich die Zahl der Teilnehmenden geprüft habe, werde ich den endgültigen Termin festlegen.",
+      "promptEn": "After checking the number of participants, I will finalize the schedule.",
+      "distractors": [
+        "회의실을",
+        "업무 분담을"
+      ],
+      "vocabKo": "확정하다"
+    },
+    {
+      "id": "satz_b1_0072",
+      "level": "b1",
+      "targetKo": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
+      "promptDe": "Da die Teamleitung abwesend war, habe ich per E-Mail Bericht erstattet.",
+      "promptEn": "Since the team leader was unavailable, I sent a report by email.",
+      "distractors": [
+        "마감일을",
+        "참석 여부를"
+      ],
+      "vocabKo": "부재중"
+    },
+    {
+      "id": "satz_b1_0073",
+      "level": "b1",
+      "targetKo": "일정 변경에 협조해 주셔서 감사합니다.",
+      "promptDe": "Vielen Dank, dass Sie bei der Terminänderung mitgewirkt haben.",
+      "promptEn": "Thank you for cooperating with the schedule change.",
+      "distractors": [
+        "확인해",
+        "주시면"
+      ],
+      "vocabKo": "협조하다"
+    },
+    {
+      "id": "satz_b2_0054",
+      "level": "b2",
+      "targetKo": "접수된 민원에 대해 담당 부서가 검토를 시작했습니다.",
+      "promptDe": "Die zuständige Abteilung hat mit der Prüfung der eingereichten Beschwerde begonnen.",
+      "promptEn": "The responsible department has begun reviewing the complaint that was filed.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "민원"
+    },
+    {
+      "id": "satz_b2_0055",
+      "level": "b2",
+      "targetKo": "제품의 결함이 확인되면 즉시 교환 절차를 안내해 드리겠습니다.",
+      "promptDe": "Wenn ein Produktmangel bestätigt wird, informieren wir Sie unverzüglich über das Umtauschverfahren.",
+      "promptEn": "If a product defect is confirmed, we will promptly explain the exchange procedure.",
+      "distractors": [
+        "민원을",
+        "서면 답변을"
+      ],
+      "vocabKo": "결함"
+    },
+    {
+      "id": "satz_b2_0056",
+      "level": "b2",
+      "targetKo": "불편을 드린 점에 대해 적절한 보상 방안을 검토하겠습니다.",
+      "promptDe": "Wir werden angemessene Möglichkeiten der Entschädigung für die entstandenen Unannehmlichkeiten prüfen.",
+      "promptEn": "We will review appropriate compensation options for the inconvenience caused.",
+      "distractors": [
+        "결함을",
+        "처리하겠습니다"
+      ],
+      "vocabKo": "보상"
+    },
+    {
+      "id": "satz_b2_0057",
+      "level": "b2",
+      "targetKo": "같은 문제가 반복되지 않도록 절차상의 문제를 시정하겠습니다.",
+      "promptDe": "Wir werden die Probleme im Verfahren beheben, damit sich dasselbe Problem nicht wiederholt.",
+      "promptEn": "We will correct the procedural issues so that the same problem does not recur.",
+      "distractors": [
+        "서면",
+        "답변드리겠습니다"
+      ],
+      "vocabKo": "시정하다"
+    },
+    {
+      "id": "satz_b2_0058",
+      "level": "b2",
+      "targetKo": "재발을 막기 위해 원인을 분석하고 개선안을 마련했습니다.",
+      "promptDe": "Um ein erneutes Auftreten zu verhindern, haben wir die Ursache analysiert und Verbesserungsmaßnahmen ausgearbeitet.",
+      "promptEn": "To prevent recurrence, we analyzed the cause and prepared improvement measures.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "재발"
+    },
+    {
+      "id": "satz_b2_0059",
+      "level": "b2",
+      "targetKo": "제출하신 이의 제기는 어제 공식적으로 접수했습니다.",
+      "promptDe": "Wir haben Ihren eingereichten Einspruch gestern offiziell entgegengenommen.",
+      "promptEn": "We officially received your submitted objection yesterday.",
+      "distractors": [
+        "서면",
+        "답변을"
+      ],
+      "vocabKo": "접수하다"
+    },
+    {
+      "id": "satz_b2_0060",
+      "level": "b2",
+      "targetKo": "담당 부서에서 관련 서류를 검토한 뒤 민원을 처리할 예정입니다.",
+      "promptDe": "Die zuständige Abteilung wird die Beschwerde bearbeiten, nachdem sie die relevanten Unterlagen geprüft hat.",
+      "promptEn": "The responsible department will process the complaint after reviewing the relevant documents.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "처리하다"
+    },
+    {
+      "id": "satz_b2_0061",
+      "level": "b2",
+      "targetKo": "담당 부서에서 확인한 뒤 서면으로 답변드리겠습니다.",
+      "promptDe": "Nach Prüfung durch die zuständige Abteilung werden wir Ihnen schriftlich antworten.",
+      "promptEn": "After the responsible department has reviewed the matter, we will respond to you in writing.",
+      "distractors": [
+        "보상 방안을",
+        "서면 답변을"
+      ],
+      "vocabKo": "담당 부서"
+    },
+    {
+      "id": "satz_b2_0062",
+      "level": "b2",
+      "targetKo": "결과에 대한 이의 제기는 안내된 기한 안에 제출해 주시기 바랍니다.",
+      "promptDe": "Bitte reichen Sie einen Einspruch gegen das Ergebnis innerhalb der angegebenen Frist ein.",
+      "promptEn": "Please submit any objection to the result within the stated deadline.",
+      "distractors": [
+        "보상을",
+        "요청해"
+      ],
+      "vocabKo": "이의 제기"
+    },
+    {
+      "id": "satz_b2_0063",
+      "level": "b2",
+      "targetKo": "검토가 끝나는 대로 서면 답변을 보내드리겠습니다.",
+      "promptDe": "Sobald die Prüfung abgeschlossen ist, senden wir Ihnen eine schriftliche Antwort.",
+      "promptEn": "As soon as the review is complete, we will send you a written response.",
+      "distractors": [
+        "민원을",
+        "보상 방안을"
+      ],
+      "vocabKo": "서면 답변"
+    },
+    {
+      "id": "satz_b2_0064",
+      "level": "b2",
+      "targetKo": "확인된 결함에 대해 필요한 조치를 이미 취했습니다.",
+      "promptDe": "Wir haben bereits die notwendigen Maßnahmen hinsichtlich des bestätigten Mangels ergriffen.",
+      "promptEn": "We have already taken the necessary action regarding the confirmed defect.",
+      "distractors": [
+        "서면",
+        "답변을"
+      ],
+      "vocabKo": "조치"
+    },
+    {
+      "id": "satz_b2_0065",
+      "level": "b2",
+      "targetKo": "누락된 내용을 보완한 뒤 다시 제출해 주시기 바랍니다.",
+      "promptDe": "Bitte ergänzen Sie die fehlenden Angaben und reichen Sie die Unterlagen anschließend erneut ein.",
+      "promptEn": "Please supplement the missing information and then submit the documents again.",
+      "distractors": [
+        "민원을",
+        "처리해"
+      ],
+      "vocabKo": "보완하다"
+    }
+  ]
+}

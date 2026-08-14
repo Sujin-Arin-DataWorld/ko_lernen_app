@@ -1,0 +1,430 @@
+{
+  "version": 1,
+  "_comment": "Batch 02 review-only draft. Existing category metadata remains the canonical source in assets/data/smalltalk.json.",
+  "phrases": [
+    {
+      "id": "smalltalk_b1_0045",
+      "category": "work_study",
+      "level": "b1",
+      "kind": "question",
+      "ko": "회의 시간이 바뀌었는데 참석 가능하신가요?",
+      "de": "Die Uhrzeit des Meetings hat sich geändert. Können Sie teilnehmen?",
+      "en": "The meeting time has changed. Will you be able to attend?",
+      "reply": {
+        "ko": "네, 새 시간에도 참석할 수 있어요.",
+        "de": "Ja, ich kann auch zur neuen Uhrzeit teilnehmen.",
+        "en": "Yes, I can attend at the new time as well."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "참석이 어려우시면 다른 시간을 찾아볼까요?",
+          "de": "Falls die Teilnahme schwierig ist, sollen wir nach einem anderen Termin suchen?",
+          "en": "If it is difficult to attend, shall we look for another time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인해 주셔서 감사합니다. 일정에 반영할게요.",
+        "de": "Danke für die Rückmeldung. Ich trage es in den Terminplan ein.",
+        "en": "Thanks for confirming. I will update the schedule."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0046",
+      "category": "work_study",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "이번 주 업무 우선순위를 다시 조율해야 할 것 같아요.",
+      "de": "Ich glaube, wir sollten die Prioritäten für diese Woche noch einmal abstimmen.",
+      "en": "I think we should coordinate this week's work priorities again.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금 가장 먼저 처리해야 할 일이 뭐라고 생각하세요?",
+          "de": "Was sollte Ihrer Meinung nach jetzt zuerst erledigt werden?",
+          "en": "What do you think should be handled first right now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 기준으로 업무를 나누면 더 명확할 것 같아요.",
+        "de": "Wenn wir die Aufgaben danach aufteilen, wird es wohl klarer.",
+        "en": "It will probably be clearer if we divide the tasks on that basis."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0047",
+      "category": "work_study",
+      "level": "b1",
+      "kind": "question",
+      "ko": "마감일을 하루 미뤄도 괜찮을까요?",
+      "de": "Wäre es in Ordnung, die Frist um einen Tag zu verschieben?",
+      "en": "Would it be all right to postpone the deadline by one day?",
+      "reply": {
+        "ko": "네, 이유를 알려 주시면 조정해 볼게요.",
+        "de": "Ja, wenn Sie mir den Grund nennen, können wir das anpassen.",
+        "en": "Yes, if you let me know the reason, we can adjust it."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "현재 일정에서 어떤 부분이 가장 어려우세요?",
+          "de": "Welcher Teil des aktuellen Zeitplans ist für Sie am schwierigsten?",
+          "en": "Which part of the current schedule is most difficult for you?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그럼 변경된 마감일을 팀에 공유하겠습니다.",
+        "de": "Dann teile ich die geänderte Frist dem Team mit.",
+        "en": "Then I will share the revised deadline with the team."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0048",
+      "category": "work_study",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "회의실이 바뀌면 바로 알려 드릴게요.",
+      "de": "Ich gebe Ihnen sofort Bescheid, falls sich der Besprechungsraum ändert.",
+      "en": "I will let you know right away if the meeting room changes.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "현재 회의실 위치를 모두 확인하셨나요?",
+          "de": "Haben alle den aktuellen Besprechungsraum bestätigt?",
+          "en": "Has everyone confirmed the current meeting room?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "혼란이 없도록 메일에도 적어 둘게요.",
+        "de": "Damit es keine Verwirrung gibt, schreibe ich es auch in die E-Mail.",
+        "en": "To avoid confusion, I will include it in the email as well."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0049",
+      "category": "phone",
+      "level": "b1",
+      "kind": "question",
+      "ko": "담당자분이 부재중이신데, 대신 확인해 주실 수 있나요?",
+      "de": "Die zuständige Person ist nicht da. Könnten Sie das bitte stellvertretend prüfen?",
+      "en": "The person in charge is away. Could you check this on their behalf?",
+      "reply": {
+        "ko": "네, 내용을 확인한 뒤에 연락드리겠습니다.",
+        "de": "Ja, ich prüfe die Angaben und melde mich danach bei Ihnen.",
+        "en": "Yes, I will check the details and contact you afterward."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "담당자분이 언제 돌아오시는지 알 수 있을까요?",
+          "de": "Könnten Sie mir sagen, wann die zuständige Person zurück ist?",
+          "en": "Could you tell me when the person in charge will be back?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "도와주셔서 감사합니다. 연락을 기다리겠습니다.",
+        "de": "Danke für Ihre Hilfe. Ich warte dann auf Ihre Rückmeldung.",
+        "en": "Thank you for your help. I will wait for your reply."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0050",
+      "category": "phone",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "일정이 지연될 것 같아서 먼저 연락드렸어요.",
+      "de": "Ich melde mich frühzeitig, weil sich der Zeitplan vermutlich verzögert.",
+      "en": "I am contacting you early because the schedule is likely to be delayed.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "변경된 예상 시간을 알려 드려도 될까요?",
+          "de": "Darf ich Ihnen die neue voraussichtliche Zeit mitteilen?",
+          "en": "May I let you know the revised expected time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확정되는 대로 다시 안내드리겠습니다.",
+        "de": "Sobald es feststeht, gebe ich Ihnen erneut Bescheid.",
+        "en": "I will update you again as soon as it is confirmed."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0051",
+      "category": "phone",
+      "level": "b1",
+      "kind": "question",
+      "ko": "참석 여부를 오늘 안에 회신해 주실 수 있을까요?",
+      "de": "Könnten Sie uns bitte noch heute mitteilen, ob Sie teilnehmen?",
+      "en": "Could you please let us know by today whether you will attend?",
+      "reply": {
+        "ko": "네, 오후까지 확인해서 답변드리겠습니다.",
+        "de": "Ja, ich prüfe es bis zum Nachmittag und gebe Ihnen Bescheid.",
+        "en": "Yes, I will check by this afternoon and let you know."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "답변이 늦어지면 미리 메시지를 남겨 주실 수 있나요?",
+          "de": "Könnten Sie mir vorher eine Nachricht hinterlassen, falls sich Ihre Antwort verzögert?",
+          "en": "Could you leave me a message in advance if your reply will be delayed?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "감사합니다. 인원을 확정하는 데 도움이 될 거예요.",
+        "de": "Danke. Das hilft uns, die Teilnehmerzahl festzulegen.",
+        "en": "Thank you. That will help us finalize the number of participants."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0052",
+      "category": "phone",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "업무 분담을 조정한 내용을 메일로 보내 드렸어요.",
+      "de": "Ich habe Ihnen die angepasste Aufgabenverteilung per E-Mail geschickt.",
+      "en": "I sent you the adjusted task allocation by email.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "맡기 어려운 업무가 있으면 말씀해 주시겠어요?",
+          "de": "Könnten Sie mir Bescheid geben, falls eine Aufgabe für Sie schwer zu übernehmen ist?",
+          "en": "Could you let me know if any task is difficult for you to take on?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "필요하면 함께 다시 조정해 볼게요.",
+        "de": "Bei Bedarf können wir die Verteilung gemeinsam noch einmal anpassen.",
+        "en": "If necessary, we can adjust the allocation together again."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0045",
+      "category": "shopping",
+      "level": "b2",
+      "kind": "question",
+      "ko": "제품의 결함에 대해 담당 부서의 검토를 요청드려도 되겠습니까?",
+      "de": "Darf ich um eine Prüfung des Produktmangels durch die zuständige Abteilung bitten?",
+      "en": "May I request that the responsible department review the product defect?",
+      "reply": {
+        "ko": "네, 관련 내용을 접수한 뒤 담당 부서에 전달하겠습니다.",
+        "de": "Ja, wir nehmen die Angaben auf und leiten sie an die zuständige Abteilung weiter.",
+        "en": "Yes, we will record the details and forward them to the responsible department."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "검토에 필요한 자료가 더 있는지 알려 주시겠습니까?",
+          "de": "Könnten Sie mir sagen, ob für die Prüfung weitere Unterlagen benötigt werden?",
+          "en": "Could you tell me whether any additional documents are needed for the review?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "접수 번호도 함께 안내해 주시면 감사하겠습니다.",
+        "de": "Ich wäre Ihnen dankbar, wenn Sie mir auch die Vorgangsnummer nennen könnten.",
+        "en": "I would appreciate it if you could also provide the case number."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0046",
+      "category": "shopping",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "동일한 문제가 재발하지 않도록 시정 조치가 필요하다고 생각합니다.",
+      "de": "Ich halte Korrekturmaßnahmen für notwendig, damit dasselbe Problem nicht erneut auftritt.",
+      "en": "I believe corrective action is needed to prevent the same problem from recurring.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "재발 방지를 위해 어떤 조치를 계획하고 계신가요?",
+          "de": "Welche Maßnahmen planen Sie, um ein erneutes Auftreten zu verhindern?",
+          "en": "What measures are you planning to prevent a recurrence?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "구체적인 일정도 함께 알려 주시면 좋겠습니다.",
+        "de": "Ein konkreter Zeitplan wäre ebenfalls hilfreich.",
+        "en": "A specific timeline would also be helpful."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0047",
+      "category": "phone",
+      "level": "b2",
+      "kind": "question",
+      "ko": "접수된 민원의 처리 현황을 서면으로 안내해 주시겠습니까?",
+      "de": "Könnten Sie mich schriftlich über den Bearbeitungsstand der eingereichten Beschwerde informieren?",
+      "en": "Could you provide a written update on the status of the complaint that was submitted?",
+      "reply": {
+        "ko": "네, 현재 진행 상황과 다음 절차를 메일로 보내 드리겠습니다.",
+        "de": "Ja, wir senden Ihnen den aktuellen Stand und die nächsten Schritte per E-Mail zu.",
+        "en": "Yes, we will send you the current status and the next steps by email."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "답변을 받을 수 있는 예상 날짜도 알려 주시겠습니까?",
+          "de": "Könnten Sie mir auch einen voraussichtlichen Termin für die Antwort nennen?",
+          "en": "Could you also tell me the expected date for a response?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "기록으로 남겨 주셔서 감사합니다.",
+        "de": "Danke, dass Sie dies schriftlich festhalten.",
+        "en": "Thank you for putting that in writing."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0048",
+      "category": "shopping",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "이 사안에 대한 보상 기준을 먼저 확인하고 싶습니다.",
+      "de": "Ich möchte zunächst die Kriterien für eine Entschädigung in diesem Fall prüfen.",
+      "en": "I would first like to confirm the criteria for compensation in this matter.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "적용 가능한 보상 방안을 설명해 주시겠습니까?",
+          "de": "Könnten Sie mir die möglichen Entschädigungsoptionen erläutern?",
+          "en": "Could you explain the compensation options that may apply?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인한 뒤에 제 입장을 말씀드리겠습니다.",
+        "de": "Nach der Prüfung werde ich Ihnen meine Position mitteilen.",
+        "en": "After reviewing them, I will let you know my position."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0049",
+      "category": "phone",
+      "level": "b2",
+      "kind": "question",
+      "ko": "결정에 이의를 제기하려면 어떤 절차를 따라야 합니까?",
+      "de": "Welchem Verfahren muss ich folgen, wenn ich gegen die Entscheidung Einspruch einlegen möchte?",
+      "en": "What procedure should I follow if I want to appeal the decision?",
+      "reply": {
+        "ko": "정해진 기간 안에 서면으로 이의신청서를 제출하시면 됩니다.",
+        "de": "Sie müssen den Einspruch innerhalb der festgelegten Frist schriftlich einreichen.",
+        "en": "You need to submit the appeal in writing within the specified period."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "신청서 양식과 제출처를 안내해 주시겠습니까?",
+          "de": "Könnten Sie mir das Formular und die zuständige Einreichungsstelle nennen?",
+          "en": "Could you provide the form and the appropriate submission office?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "기한을 놓치지 않도록 바로 준비하겠습니다.",
+        "de": "Ich werde es sofort vorbereiten, damit ich die Frist nicht versäume.",
+        "en": "I will prepare it right away so that I do not miss the deadline."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0050",
+      "category": "phone",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "문제가 해결되지 않으면 상위 부서에 공식적으로 문의할 예정입니다.",
+      "de": "Falls das Problem nicht gelöst wird, werde ich mich offiziell an die übergeordnete Stelle wenden.",
+      "en": "If the issue is not resolved, I intend to contact the appropriate higher-level department formally.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 전에 이 부서에서 검토할 수 있는 방법이 있을까요?",
+          "de": "Gibt es vorher noch eine Möglichkeit, dass diese Abteilung den Fall prüft?",
+          "en": "Is there a way for this department to review the case before that?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "가능하면 이 단계에서 원만히 해결하고 싶습니다.",
+        "de": "Wenn möglich, möchte ich die Angelegenheit auf dieser Ebene einvernehmlich lösen.",
+        "en": "If possible, I would like to resolve the matter amicably at this level."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0051",
+      "category": "phone",
+      "level": "b2",
+      "kind": "question",
+      "ko": "언제까지 어떤 보완 조치를 완료하실 예정인지 알려 주시겠습니까?",
+      "de": "Könnten Sie mir mitteilen, welche ergänzenden Maßnahmen Sie bis wann abschließen wollen?",
+      "en": "Could you let me know which additional corrective measures you plan to complete and by when?",
+      "reply": {
+        "ko": "다음 주 수요일까지 필요한 조치를 마치고 결과를 안내드리겠습니다.",
+        "de": "Wir schließen die erforderlichen Maßnahmen bis nächsten Mittwoch ab und informieren Sie über das Ergebnis.",
+        "en": "We will complete the necessary measures by next Wednesday and inform you of the result."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "진행 상황을 중간에 확인할 수 있는 연락처가 있습니까?",
+          "de": "Gibt es eine Kontaktstelle, bei der ich den Zwischenstand erfragen kann?",
+          "en": "Is there a contact point where I can ask about the interim progress?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "약속한 일정과 조치를 기록으로 남겨 주시면 감사하겠습니다.",
+        "de": "Ich wäre Ihnen dankbar, wenn Sie den vereinbarten Termin und die Maßnahmen schriftlich festhalten.",
+        "en": "I would appreciate it if you could record the agreed timeline and measures in writing."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0052",
+      "category": "phone",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "서면 답변을 받은 뒤 필요한 후속 조치를 검토하겠습니다.",
+      "de": "Nachdem ich die schriftliche Antwort erhalten habe, werde ich die notwendigen weiteren Schritte prüfen.",
+      "en": "After receiving the written response, I will review the necessary next steps.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "답변에 포함될 내용과 발송 예정일을 확인해 주시겠습니까?",
+          "de": "Könnten Sie bitte bestätigen, welche Punkte die Antwort enthalten wird und wann sie versandt wird?",
+          "en": "Could you confirm what the response will include and when it will be sent?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "답변을 검토한 뒤에 필요한 경우 다시 연락드리겠습니다.",
+        "de": "Nach der Prüfung der Antwort melde ich mich bei Bedarf erneut.",
+        "en": "After reviewing the response, I will contact you again if necessary."
+      }
+    }
+  ]
+}

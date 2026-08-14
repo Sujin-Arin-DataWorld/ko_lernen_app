@@ -1,0 +1,364 @@
+{
+  "items": [
+    {
+      "id": "cloze_b1_0068",
+      "level": "b1",
+      "sentenceKo": "팀원들과 일정을 ＿＿＿ 뒤에 회의 시간을 확정했어요.",
+      "answer": "조율한",
+      "fullKo": "팀원들과 일정을 조율한 뒤에 회의 시간을 확정했어요.",
+      "de": "Nachdem ich den Zeitplan mit dem Team abgestimmt hatte, habe ich den Besprechungstermin festgelegt.",
+      "en": "After coordinating the schedule with the team, I confirmed the meeting time.",
+      "distractors": [
+        "확정한",
+        "미룬",
+        "대체한"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0069",
+      "level": "b1",
+      "sentenceKo": "회의 ＿＿＿를 오늘 안에 알려 주세요.",
+      "answer": "참석 여부",
+      "fullKo": "회의 참석 여부를 오늘 안에 알려 주세요.",
+      "de": "Bitte teilen Sie uns noch heute mit, ob Sie an der Besprechung teilnehmen können.",
+      "en": "Please let us know by today whether you can attend the meeting.",
+      "distractors": [
+        "업무 분담",
+        "우선순위",
+        "마감일"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0070",
+      "level": "b1",
+      "sentenceKo": "마감일이 가까운 업무의 ＿＿＿를 먼저 정했어요.",
+      "answer": "우선순위",
+      "fullKo": "마감일이 가까운 업무의 우선순위를 먼저 정했어요.",
+      "de": "Wir haben zuerst die Prioritäten für die Aufgaben mit naher Abgabefrist festgelegt.",
+      "en": "We first set the priorities for tasks with approaching deadlines.",
+      "distractors": [
+        "참석 여부",
+        "업무 분담",
+        "회의실"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0071",
+      "level": "b1",
+      "sentenceKo": "오후 회의를 위해 3층 ＿＿＿을 예약했어요.",
+      "answer": "회의실",
+      "fullKo": "오후 회의를 위해 3층 회의실을 예약했어요.",
+      "de": "Für die Besprechung am Nachmittag habe ich einen Raum im dritten Stock reserviert.",
+      "en": "I reserved a meeting room on the third floor for the afternoon meeting.",
+      "distractors": [
+        "업무 분담",
+        "참석 여부",
+        "마감일"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0072",
+      "level": "b1",
+      "sentenceKo": "담당자가 부재중이라 제가 그분을 ＿＿＿ 업무를 맡기로 했어요.",
+      "answer": "대체해",
+      "fullKo": "담당자가 부재중이라 제가 그분을 대체해 업무를 맡기로 했어요.",
+      "de": "Da die zuständige Person nicht da war, habe ich zugesagt, sie zu vertreten.",
+      "en": "Since the person in charge was unavailable, I agreed to take over their duties.",
+      "distractors": [
+        "조율하기로",
+        "확정하기로",
+        "미루기로"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0073",
+      "level": "b1",
+      "sentenceKo": "자료가 늦게 도착해서 회의 시작이 20분 ＿＿＿.",
+      "answer": "지연됐어요",
+      "fullKo": "자료가 늦게 도착해서 회의 시작이 20분 지연됐어요.",
+      "de": "Weil die Unterlagen spät ankamen, hat sich der Beginn der Besprechung um zwanzig Minuten verzögert.",
+      "en": "Because the materials arrived late, the start of the meeting was delayed by 20 minutes.",
+      "distractors": [
+        "확정됐어요",
+        "대체됐어요",
+        "조율됐어요"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0074",
+      "level": "b1",
+      "sentenceKo": "회의 전에 ＿＿＿을 정해서 각자 맡을 일을 확인했어요.",
+      "answer": "업무 분담",
+      "fullKo": "회의 전에 업무 분담을 정해서 각자 맡을 일을 확인했어요.",
+      "de": "Vor der Besprechung haben wir die Aufgabenverteilung festgelegt und geprüft, wer was übernimmt.",
+      "en": "Before the meeting we agreed on the division of tasks and confirmed what each person would handle.",
+      "distractors": [
+        "참석 여부",
+        "회의실",
+        "우선순위"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0075",
+      "level": "b1",
+      "sentenceKo": "이 보고서의 ＿＿＿은 다음 주 금요일이에요.",
+      "answer": "마감일",
+      "fullKo": "이 보고서의 마감일은 다음 주 금요일이에요.",
+      "de": "Die Abgabefrist für diesen Bericht ist nächsten Freitag.",
+      "en": "The deadline for this report is next Friday.",
+      "distractors": [
+        "참석 여부",
+        "우선순위",
+        "회의실"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0076",
+      "level": "b1",
+      "sentenceKo": "결정이 늦어져서 회의를 다음 주로 ＿＿＿.",
+      "answer": "미뤘어요",
+      "fullKo": "결정이 늦어져서 회의를 다음 주로 미뤘어요.",
+      "de": "Da sich die Entscheidung verzögerte, haben wir die Besprechung auf nächste Woche verschoben.",
+      "en": "Because the decision was delayed, we postponed the meeting until next week.",
+      "distractors": [
+        "확정했어요",
+        "조율했어요",
+        "대체했어요"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0077",
+      "level": "b1",
+      "sentenceKo": "참석 인원을 확인한 뒤에 최종 일정을 ＿＿＿.",
+      "answer": "확정할게요",
+      "fullKo": "참석 인원을 확인한 뒤에 최종 일정을 확정할게요.",
+      "de": "Nachdem ich die Zahl der Teilnehmenden geprüft habe, werde ich den endgültigen Termin festlegen.",
+      "en": "After checking the number of participants, I will finalize the schedule.",
+      "distractors": [
+        "조율할게요",
+        "대체할게요",
+        "미룰게요"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0078",
+      "level": "b1",
+      "sentenceKo": "팀장님이 ＿＿＿ 메일로 보고드렸어요.",
+      "answer": "부재중이셔서",
+      "fullKo": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
+      "de": "Da die Teamleitung abwesend war, habe ich per E-Mail Bericht erstattet.",
+      "en": "Since the team leader was unavailable, I sent a report by email.",
+      "distractors": [
+        "회의실",
+        "마감일",
+        "업무 분담"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b1_0079",
+      "level": "b1",
+      "sentenceKo": "일정 변경에 ＿＿＿ 주셔서 감사합니다.",
+      "answer": "협조해",
+      "fullKo": "일정 변경에 협조해 주셔서 감사합니다.",
+      "de": "Vielen Dank, dass Sie bei der Terminänderung mitgewirkt haben.",
+      "en": "Thank you for cooperating with the schedule change.",
+      "distractors": [
+        "회의실",
+        "마감일",
+        "참석 여부"
+      ],
+      "topic": "Arbeitskoordination & Termine"
+    },
+    {
+      "id": "cloze_b2_0070",
+      "level": "b2",
+      "sentenceKo": "접수된 ＿＿＿에 대해 담당 부서가 검토를 시작했습니다.",
+      "answer": "민원",
+      "fullKo": "접수된 민원에 대해 담당 부서가 검토를 시작했습니다.",
+      "de": "Die zuständige Abteilung hat mit der Prüfung der eingereichten Beschwerde begonnen.",
+      "en": "The responsible department has begun reviewing the complaint that was filed.",
+      "distractors": [
+        "결함",
+        "보상",
+        "조치"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0071",
+      "level": "b2",
+      "sentenceKo": "제품의 ＿＿＿이 확인되면 즉시 교환 절차를 안내해 드리겠습니다.",
+      "answer": "결함",
+      "fullKo": "제품의 결함이 확인되면 즉시 교환 절차를 안내해 드리겠습니다.",
+      "de": "Wenn ein Produktmangel bestätigt wird, informieren wir Sie unverzüglich über das Umtauschverfahren.",
+      "en": "If a product defect is confirmed, we will promptly explain the exchange procedure.",
+      "distractors": [
+        "오류",
+        "손상",
+        "불편"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0072",
+      "level": "b2",
+      "sentenceKo": "불편을 드린 점에 대해 적절한 ＿＿＿ 방안을 검토하겠습니다.",
+      "answer": "보상",
+      "fullKo": "불편을 드린 점에 대해 적절한 보상 방안을 검토하겠습니다.",
+      "de": "Wir werden angemessene Möglichkeiten der Entschädigung für die entstandenen Unannehmlichkeiten prüfen.",
+      "en": "We will review appropriate compensation options for the inconvenience caused.",
+      "distractors": [
+        "결함",
+        "민원",
+        "서면 답변"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0073",
+      "level": "b2",
+      "sentenceKo": "같은 문제가 반복되지 않도록 절차상의 문제를 ＿＿＿.",
+      "answer": "시정하겠습니다",
+      "fullKo": "같은 문제가 반복되지 않도록 절차상의 문제를 시정하겠습니다.",
+      "de": "Wir werden die Probleme im Verfahren beheben, damit sich dasselbe Problem nicht wiederholt.",
+      "en": "We will correct the procedural issues so that the same problem does not recur.",
+      "distractors": [
+        "보완하겠습니다",
+        "처리하겠습니다",
+        "접수하겠습니다"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0074",
+      "level": "b2",
+      "sentenceKo": "＿＿＿을 막기 위해 원인을 분석하고 개선안을 마련했습니다.",
+      "answer": "재발",
+      "fullKo": "재발을 막기 위해 원인을 분석하고 개선안을 마련했습니다.",
+      "de": "Um ein erneutes Auftreten zu verhindern, haben wir die Ursache analysiert und Verbesserungsmaßnahmen ausgearbeitet.",
+      "en": "To prevent recurrence, we analyzed the cause and prepared improvement measures.",
+      "distractors": [
+        "결함",
+        "보상",
+        "민원"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0075",
+      "level": "b2",
+      "sentenceKo": "제출하신 이의 제기는 어제 공식적으로 ＿＿＿.",
+      "answer": "접수했습니다",
+      "fullKo": "제출하신 이의 제기는 어제 공식적으로 접수했습니다.",
+      "de": "Wir haben Ihren eingereichten Einspruch gestern offiziell entgegengenommen.",
+      "en": "We officially received your submitted objection yesterday.",
+      "distractors": [
+        "처리했습니다",
+        "시정했습니다",
+        "보완했습니다"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0076",
+      "level": "b2",
+      "sentenceKo": "담당 부서에서 관련 서류를 검토한 뒤 민원을 ＿＿＿ 예정입니다.",
+      "answer": "처리할",
+      "fullKo": "담당 부서에서 관련 서류를 검토한 뒤 민원을 처리할 예정입니다.",
+      "de": "Die zuständige Abteilung wird die Beschwerde bearbeiten, nachdem sie die relevanten Unterlagen geprüft hat.",
+      "en": "The responsible department will process the complaint after reviewing the relevant documents.",
+      "distractors": [
+        "보완할",
+        "시정할",
+        "접수할"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0077",
+      "level": "b2",
+      "sentenceKo": "＿＿＿에서 확인한 뒤 서면으로 답변드리겠습니다.",
+      "answer": "담당 부서",
+      "fullKo": "담당 부서에서 확인한 뒤 서면으로 답변드리겠습니다.",
+      "de": "Nach Prüfung durch die zuständige Abteilung werden wir Ihnen schriftlich antworten.",
+      "en": "After the responsible department has reviewed the matter, we will respond to you in writing.",
+      "distractors": [
+        "보상 방안",
+        "서면 답변",
+        "이의 제기"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0078",
+      "level": "b2",
+      "sentenceKo": "결과에 대한 ＿＿＿는 안내된 기한 안에 제출해 주시기 바랍니다.",
+      "answer": "이의 제기",
+      "fullKo": "결과에 대한 이의 제기는 안내된 기한 안에 제출해 주시기 바랍니다.",
+      "de": "Bitte reichen Sie einen Einspruch gegen das Ergebnis innerhalb der angegebenen Frist ein.",
+      "en": "Please submit any objection to the result within the stated deadline.",
+      "distractors": [
+        "서면 답변",
+        "결함",
+        "조치"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0079",
+      "level": "b2",
+      "sentenceKo": "검토가 끝나는 대로 ＿＿＿을 보내드리겠습니다.",
+      "answer": "서면 답변",
+      "fullKo": "검토가 끝나는 대로 서면 답변을 보내드리겠습니다.",
+      "de": "Sobald die Prüfung abgeschlossen ist, senden wir Ihnen eine schriftliche Antwort.",
+      "en": "As soon as the review is complete, we will send you a written response.",
+      "distractors": [
+        "민원",
+        "결함",
+        "이의 제기"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0080",
+      "level": "b2",
+      "sentenceKo": "확인된 결함에 대해 필요한 ＿＿＿를 이미 취했습니다.",
+      "answer": "조치",
+      "fullKo": "확인된 결함에 대해 필요한 조치를 이미 취했습니다.",
+      "de": "Wir haben bereits die notwendigen Maßnahmen hinsichtlich des bestätigten Mangels ergriffen.",
+      "en": "We have already taken the necessary action regarding the confirmed defect.",
+      "distractors": [
+        "민원",
+        "결함",
+        "보상"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    },
+    {
+      "id": "cloze_b2_0081",
+      "level": "b2",
+      "sentenceKo": "누락된 내용을 ＿＿＿ 뒤 다시 제출해 주시기 바랍니다.",
+      "answer": "보완한",
+      "fullKo": "누락된 내용을 보완한 뒤 다시 제출해 주시기 바랍니다.",
+      "de": "Bitte ergänzen Sie die fehlenden Angaben und reichen Sie die Unterlagen anschließend erneut ein.",
+      "en": "Please supplement the missing information and then submit the documents again.",
+      "distractors": [
+        "접수한",
+        "처리한",
+        "검토한"
+      ],
+      "topic": "Formelle Beschwerde & Abhilfe"
+    }
+  ]
+}

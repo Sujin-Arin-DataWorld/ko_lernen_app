@@ -3,7 +3,8 @@
 사전생성 TTS — **모든 고정 학습 콘텐츠**를 Google Cloud Text-to-Speech 로
 합성해 Firebase Storage 에 업로드한다. 소스(collect() 참고):
   단어장(단어·예문) · 시나리오 대화(듣기/Hören 화면 포함) · 문법 예문 ·
-  스몰토크 · 빈칸(cloze) · 끝말잇기 단어 풀 · Satz-bauen 목표문장.
+  스몰토크 · 빈칸(cloze) · 끝말잇기 단어 풀 · Satz-bauen 목표문장 ·
+  발음 스튜디오 문장.
   (문법·스몰토크·빈칸·끝말잇기는 2026-08-11, satz 는 2026-08-12 추가 — 빠진
   소스는 런타임 CF 폴백만 있어 오프라인·CF 실패 시 옛날 OS 음성이 섞여 들렸다.)
 
@@ -22,8 +23,10 @@ voice: 'female' = ko-KR-Chirp3-HD-Zephyr     (단어·예문·user 대화 기본
 
 실행:
     python3 tool/generate_tts.py
+    python3 tool/generate_tts.py --dry-run  # 인증·합성·업로드 없이 수집 목록 확인
 """
 
+import argparse
 import base64
 import csv
 import hashlib
@@ -32,7 +35,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import urllib.error
 import urllib.request
 
@@ -203,7 +205,15 @@ def collect():
     # (Hören/듣기 화면은 별도 소스가 없다 — listening_screen.dart 는 §2 의
     #  시나리오 대화를 같은 화자→voice 규칙(user=여, 그 외=남)으로 재생한다.)
 
-    # 8. 시나리오 **퀘스트 데이터**의 오디오 문자열 — §2(대화)와 별개!
+    # 8. 발음 스튜디오 — 모든 reviewed Korean reference sentence 는 기본 여성
+    #    TTS 로 재생한다. C4 에서 레벨별로 확장될 JSON 이므로 이 수집이 없으면
+    #    신규 문장이 조용히 OS TTS 폴백으로 내려간다.
+    pronunciation_data = _load_json("assets/data/pronunciation_phrases.json")
+    for phrase in pronunciation_data.get("phrases", []):
+        if isinstance(phrase, dict):
+            add_female(phrase.get("ko"))
+
+    # 9. 시나리오 **퀘스트 데이터**의 오디오 문자열 — §2(대화)와 별개!
     #    2026-08-11 실측: 퀘스트 발화 94개 중 76개가 미수집 → 코스 미션의
     #    듣기/받아쓰기/조사팝/문장조립 스피커가 전부 OS 폴백(기계음)이었다.
     #    각 엔진의 파생 규칙 그대로:
@@ -233,7 +243,7 @@ def collect():
                         + (data.get("suffix") or "")
                     )
 
-    # 9. 한글 화면 + 오늘의 글자 — Dart const 소스라 정규식으로 추출.
+    # 10. 한글 화면 + 오늘의 글자 — Dart const 소스라 정규식으로 추출.
     #    2026-08-12 전수조사: 이 세 부류가 미수집 → 한글 탭이 전부 OS 폴백.
     #    a) 발음 표본: 대부분은 자음+ㅡ(ㅉ→쯔)·ㅇ+모음으로 만들되, 실기기에서
     #       단음절 오인이 확인된 ㅃ·ㄷ·ㅏ·ㅠ·ㅢ는 안정적인 예시어를 쓴다.
@@ -292,7 +302,7 @@ def collect():
         for m in _re.finditer(r"'.':\s*'([^']+)'", names_block.group(1)):
             add_female(m.group(1))
 
-    # 10. 배치고사(placement) 질문 — placement_diagnostic.dart 의
+    # 11. 배치고사(placement) 질문 — placement_diagnostic.dart 의
     #     korean: '...' 필드 (placement_diagnostic_screen.dart:47 발화).
     with open(
         os.path.join(ROOT, "lib/services/placement_diagnostic.dart"),
@@ -483,17 +493,62 @@ def demo(tok):
     print(f"✅ 데모 완료 → {base}  (남성 후보 청취 후 1종 선택)")
 
 
-def main():
-    if not API_KEY:
-        print("ℹ️  GOOGLE_TTS_API_KEY 미설정 → gcloud 인증 시도(SDK 필요).")
-        print("    API 키를 쓰면 gcloud 없이 됩니다(권장). 보고 참고.")
+def _parse_args(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Pre-generate reviewed Korean learning audio."
+    )
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument(
+        "--demo",
+        action="store_true",
+        help="Synthesize local voice comparison clips without uploading.",
+    )
+    modes.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="List collected utterances without authentication, synthesis, or upload.",
+    )
+    return parser.parse_args(argv)
 
-    if "--demo" in sys.argv:
+
+def _print_dry_run(pairs):
+    """Print the exact immutable requests without creating local artifacts.
+
+    The path is included so a reviewer can compare the planned request against
+    the cache namespace before any billable Google API call is made.
+    """
+    total_characters = sum(len(text) for _, text in pairs)
+    female = sum(1 for voice, _ in pairs if voice == "female")
+    male = len(pairs) - female
+    print(
+        f"DRY RUN — {len(pairs)} utterances ({female} female, {male} male; "
+        f"{total_characters:,} Korean characters)."
+    )
+    print("No authentication, synthesis, local writes, or upload will run.")
+    for voice, text in pairs:
+        print(f"{voice}\t{cache_relative_path(voice, text)}\t{text}")
+
+
+def main(argv=None):
+    args = _parse_args(argv)
+
+    if args.demo:
+        if not API_KEY:
+            print("ℹ️  GOOGLE_TTS_API_KEY 미설정 → gcloud 인증 시도(SDK 필요).")
+            print("    API 키를 쓰면 gcloud 없이 됩니다(권장). 보고 참고.")
         demo(_auth())
-        return
+        return 0
 
     pairs = collect()
     print(f"발화 {len(pairs)}개 (dedup 후)")
+
+    if args.dry_run:
+        _print_dry_run(pairs)
+        return 0
+
+    if not API_KEY:
+        print("ℹ️  GOOGLE_TTS_API_KEY 미설정 → gcloud 인증 시도(SDK 필요).")
+        print("    API 키를 쓰면 gcloud 없이 됩니다(권장). 보고 참고.")
 
     tok = _auth()
     made = 0
@@ -533,7 +588,8 @@ def main():
         check=True,
     )
     print("✅ 완료")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -105,9 +105,10 @@ class VocabPackService {
 
   // ── 디스플레이 정의 ──────────────────────────────────────────────────
   //
-  // 출처: scripts/build_vocab_packs.py 의 PACK_DISPLAY. 두 곳을 동기화 유지!
-  // 변경 시 둘 다 수정 + 단위 테스트 (build_vocab_packs 출력 vs displayLabel)
-  // 으로 확인.
+  // ⛔ scripts/build_vocab_packs.py 는 11열 시대의 레거시 도구라 절대 실행하지
+  // 않는다. 실행하면 현재 15열 CSV의 EN 열·stable id가 손상된다.
+  // 새 팩은 tools/content_factory/plan_pack_assignments.py 의 read-only 검증과
+  // Jin 검수 뒤에 이 map·순서·curriculum companion을 함께 명시적으로 갱신한다.
   //
   // 형식: base_pack_id → (DE, EN)
   static const Map<String, (String, String)> packDisplayMap = {
@@ -125,6 +126,19 @@ class VocabPackService {
     'a1_daily': ('Tägliche Aktivitäten', 'Daily Activities'),
     'a1_transport': ('Verkehr & Bewegung', 'Transport & Movement'),
     'a1_misc': ('Sonstiges', 'Miscellaneous'),
+    // A1 신규 2026-08 (콘텐츠 확장)
+    'a1_reactions': ('Reaktionen', 'Reactions'),
+    'a1_cafe_order': ('Café-Bestellung', 'Café Order'),
+    'a1_convenience': ('Im Convenience Store', 'Convenience Store'),
+    'a1_directions': ('Wegfragen', 'Asking Directions'),
+    'a1_phone_sns': ('KakaoTalk & SNS', 'KakaoTalk & SNS'),
+    'a1_classroom': ('Im Unterricht', 'In Class'),
+    'a1_home_items': ('Zu Hause', 'At Home'),
+    'a1_taste_food': ('Geschmack', 'Taste'),
+    'a1_emotions_basic': ('Gefühle (Basis)', 'Basic Feelings'),
+    'a1_seasons': ('Jahreszeiten & Wetter', 'Seasons & Weather'),
+    'a1_shopping_basic': ('Einkaufen (Basis)', 'Basic Shopping'),
+    'a1_exclamations': ('Ausrufe', 'Exclamations'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),
@@ -151,6 +165,18 @@ class VocabPackService {
     'a2_people_jobs': ('Menschen & Berufe', 'People & Jobs'),
     'a2_school_uni': ('Schule & Uni', 'School & University'),
     'a2_change_verbs': ('Zustandsverben', 'State-change Verbs'),
+    // A2 신규 2026-08 (콘텐츠 확장)
+    'a2_delivery_app': ('Lieferapp', 'Delivery App'),
+    'a2_korean_food': ('Koreanisches Essen', 'Korean Food'),
+    'a2_banmal_intro': ('Informelle Sprache', 'Informal Speech'),
+    'a2_culture_words': ('K-Kultur-Wörter', 'K-Culture Words'),
+    'a2_dating_sns': ('Dating & SNS', 'Dating & SNS'),
+    'a2_holidays': ('Feiertage & Feste', 'Holidays & Festivals'),
+    'a2_hospital': ('Beim Arzt', 'At the Doctor'),
+    'a2_moving_house': ('Umzug & Wohnung', 'Moving & Housing'),
+    'a2_hobby': ('Hobbys & Freizeit', 'Hobbies & Free Time'),
+    'a2_natural_spoken': ('Umgangssprache', 'Spoken Korean'),
+    'a2_bbq_culture': ('BBQ-Kultur', 'BBQ Culture'),
     // B1
     'b1_daily': ('Alltag (B1)', 'Daily Life (B1)'),
     'b1_descriptions': ('Beschreibung (B1)', 'Descriptions (B1)'),
@@ -205,10 +231,16 @@ class VocabPackService {
     'b2_events_culture': ('Feste & Traditionen', 'Festivals & Traditions'),
     'b2_thinking_verbs': ('Handeln & Verändern (B2)', 'Action & Change (B2)'),
     'b2_honorifics': ('Ehrensprache (높임말)', 'Honorific Speech'),
+    // B2 확장 (2026-08-15)
+    'b2_life_values': ('Lebensphilosophie', 'Life Philosophy'),
+    'b2_literature_emotion': ('Literatur & Gefühle', 'Literature & Emotions'),
+    'b2_language_change': ('Sprache & Wandel', 'Language & Change'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
-  /// 변경 시 build_vocab_packs.py 의 PACK_ORDER_IN_LEVEL 와 동기화.
+  /// 새 팩은 legacy build_vocab_packs.py와 동기화하지 않는다. Jin 검수 뒤
+  /// plan_pack_assignments.py의 preflight와 companion curriculum mapping을
+  /// 통과한 명시적 변경으로만 이 순서를 늘린다.
   static const Map<String, int> packOrderInLevel = {
     // A1
     'a1_greetings': 1,
@@ -224,6 +256,18 @@ class VocabPackService {
     'a1_descriptions': 11,
     'a1_transport': 12,
     'a1_misc': 13,
+    'a1_reactions': 14,
+    'a1_cafe_order': 15,
+    'a1_convenience': 16,
+    'a1_directions': 17,
+    'a1_phone_sns': 18,
+    'a1_classroom': 19,
+    'a1_home_items': 20,
+    'a1_taste_food': 21,
+    'a1_emotions_basic': 22,
+    'a1_seasons': 23,
+    'a1_shopping_basic': 24,
+    'a1_exclamations': 25,
     // A2
     'a2_daily': 1,
     'a2_food': 2,
@@ -246,6 +290,17 @@ class VocabPackService {
     'a2_people_jobs': 19,
     'a2_school_uni': 20,
     'a2_change_verbs': 21,
+    'a2_delivery_app': 22,
+    'a2_korean_food': 23,
+    'a2_banmal_intro': 24,
+    'a2_culture_words': 25,
+    'a2_dating_sns': 26,
+    'a2_holidays': 27,
+    'a2_hospital': 28,
+    'a2_moving_house': 29,
+    'a2_hobby': 30,
+    'a2_natural_spoken': 31,
+    'a2_bbq_culture': 32,
     // B1
     'b1_daily': 1,
     'b1_descriptions': 2,
@@ -283,5 +338,9 @@ class VocabPackService {
     'b2_events_culture': 15,
     'b2_thinking_verbs': 16,
     'b2_honorifics': 17,
+    // B2 확장 (2026-08-15)
+    'b2_life_values': 18,
+    'b2_literature_emotion': 19,
+    'b2_language_change': 20,
   };
 }

@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "_comment": "Batch 03 review-only draft. It uses existing daily, mood, and screen category metadata from assets/data/smalltalk.json.",
+  "phrases": [
+    {
+      "id": "smalltalk_b2_0053",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?",
+      "de": "Sie stehen vor einer wichtigen Entscheidung. Was ist Ihnen dabei am wichtigsten?",
+      "en": "You are facing an important decision. What matters most to you as you decide?",
+      "reply": {
+        "ko": "저는 나중에 후회하지 않을 선택인지 먼저 생각해요.",
+        "de": "Ich frage mich zuerst, ob ich diese Wahl später bereuen würde.",
+        "en": "I first ask myself whether I would regret the choice later."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "서로 다른 기준을 적어 보면 어떨까요?",
+          "de": "Wollen wir die unterschiedlichen Maßstäbe einmal aufschreiben?",
+          "en": "Shall we write down the different criteria?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 제 생각도 더 정리될 것 같아요.",
+        "de": "Das würde mir helfen, meine Gedanken besser zu ordnen.",
+        "en": "That would help me sort out my thoughts more clearly."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0054",
+      "category": "daily",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "제 소신을 지키고 싶지만, 이번에는 타협할 부분도 있어 보여요.",
+      "de": "Ich möchte meiner Überzeugung treu bleiben, aber diesmal sehe ich auch Raum für einen Kompromiss.",
+      "en": "I want to stay true to my convictions, but this time I can also see room for compromise.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "어느 부분은 꼭 지키고 싶은지 먼저 정리해 볼까요?",
+          "de": "Wollen wir zuerst klären, welchen Teil Sie unbedingt bewahren möchten?",
+          "en": "Shall we first clarify which part you definitely want to keep?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 선을 정하면 양보할 부분도 더 잘 보일 것 같아요.",
+        "de": "Wenn diese Grenze klar ist, wird auch deutlicher, wo ein Zugeständnis möglich ist.",
+        "en": "Once that boundary is clear, it will be easier to see where a concession is possible."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0055",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
+      "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
+      "en": "When people disagree, where do you think a reasonable concession is possible?",
+      "reply": {
+        "ko": "핵심 기준을 해치지 않는 범위라면 양보할 수 있어요.",
+        "de": "Solange der zentrale Maßstab nicht verletzt wird, kann ich Zugeständnisse machen.",
+        "en": "I can make concessions as long as they do not undermine the core principle."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "각자의 우선순위를 먼저 확인해 볼까요?",
+          "de": "Wollen wir zuerst die Prioritäten beider Seiten prüfen?",
+          "en": "Shall we first check both sides' priorities?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 절충안을 찾기 쉬울 것 같아요.",
+        "de": "Dann dürfte es leichter sein, eine Kompromisslösung zu finden.",
+        "en": "That should make it easier to find a compromise solution."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0056",
+      "category": "daily",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "결단을 내리기 전에 이 선택이 누구에게 어떤 영향을 주는지 되돌아보고 있어요.",
+      "de": "Bevor ich mich entscheide, denke ich darüber nach, wen diese Wahl wie betrifft.",
+      "en": "Before I decide, I am reflecting on who this choice will affect and how.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "놓치고 있는 사람이나 결과가 있을까요?",
+          "de": "Gibt es Menschen oder Folgen, die wir noch übersehen?",
+          "en": "Are there people or consequences we may still be overlooking?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 점까지 생각한 뒤에 결정을 내리고 싶어요.",
+        "de": "Diesen Punkt möchte ich noch bedenken, bevor ich entscheide.",
+        "en": "I would like to consider that before making the decision."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0057",
+      "category": "mood",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
+      "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
+      "en": "Which part of this text stayed with you the longest after reading?",
+      "reply": {
+        "ko": "마지막에 나온 짧은 질문이 오래 남았어요.",
+        "de": "Die kurze Frage am Ende ist mir besonders lange nachgegangen.",
+        "en": "The short question at the end stayed with me for a long time."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
+          "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil hinterlassen hat?",
+          "en": "Would you describe what feeling that part left behind?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "저는 그 여운 때문에 글 전체를 다시 생각하게 됐어요.",
+        "de": "Dieser Nachklang hat mich den ganzen Text noch einmal anders sehen lassen.",
+        "en": "That lingering impression made me think about the whole text again."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0058",
+      "category": "mood",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "저는 이 문장이 단순한 묘사라기보다 상징처럼 느껴졌어요.",
+      "de": "Für mich wirkte dieser Satz eher wie ein Symbol als wie eine bloße Beschreibung.",
+      "en": "To me, this sentence felt more like a symbol than a simple description.",
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다른 상징으로 읽힐 만한 부분도 있었나요?",
+          "de": "Gab es noch andere Stellen, die sich symbolisch lesen lassen?",
+          "en": "Were there other parts that could be read symbolically?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 해석을 들으니 장면의 의미가 더 넓어지는 것 같아요.",
+        "de": "Wenn ich diese Deutung höre, wirkt die Szene vielschichtiger.",
+        "en": "Hearing that interpretation makes the scene feel more layered."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0059",
+      "category": "mood",
+      "level": "b2",
+      "kind": "question",
+      "ko": "작가의 시선에 공감하셨나요, 아니면 다른 해석이 더 설득력 있었나요?",
+      "de": "Konnten Sie den Blickwinkel der Autorin nachvollziehen, oder fanden Sie eine andere Deutung überzeugender?",
+      "en": "Did you relate to the author's perspective, or did another interpretation seem more convincing?",
+      "reply": {
+        "ko": "저는 주인공이 말하지 못한 불안에 더 공감했어요.",
+        "de": "Ich konnte stärker mit der unausgesprochenen Angst der Hauptfigur mitfühlen.",
+        "en": "I empathized more with the main character's unspoken anxiety."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "문장에서 그렇게 느낀 근거를 하나 골라 볼까요?",
+          "de": "Wollen wir eine Stelle auswählen, die diese Deutung stützt?",
+          "en": "Shall we choose one line that supports that interpretation?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 근거를 듣고 나니 다른 해석도 이해돼요.",
+        "de": "Mit dieser Begründung kann ich auch die andere Deutung besser verstehen.",
+        "en": "Hearing that evidence helps me understand the other interpretation too."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0060",
+      "category": "mood",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "마지막 문장의 여운 때문에 글을 다 읽고도 한동안 생각이 났어요.",
+      "de": "Der Nachklang des letzten Satzes hat mich auch nach dem Lesen noch eine Weile beschäftigt.",
+      "en": "The lingering effect of the last sentence stayed on my mind even after I finished the text.",
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 여운이 어떤 감정에서 왔다고 느끼세요?",
+          "de": "Aus welchem Gefühl kam dieser Nachklang Ihrer Meinung nach?",
+          "en": "What feeling do you think created that lingering effect?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "저는 아쉬움과 안도감이 함께 남았다고 느꼈어요.",
+        "de": "Für mich blieben gleichzeitig Bedauern und Erleichterung zurück.",
+        "en": "For me, it left both regret and relief."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0061",
+      "category": "screen",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이 표현이 왜 불편하게 들릴 수 있는지 함께 생각해 볼까요?",
+      "de": "Wollen wir gemeinsam überlegen, warum dieser Ausdruck unangenehm wirken könnte?",
+      "en": "Shall we think together about why this expression might sound uncomfortable?",
+      "reply": {
+        "ko": "네, 말투와 상황을 함께 보면 이유가 더 분명해질 것 같아요.",
+        "de": "Ja, wenn wir Tonfall und Situation zusammen betrachten, wird der Grund wohl klarer.",
+        "en": "Yes, looking at the tone and situation together should make the reason clearer."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "상대방에게 더 완곡하게 말할 방법을 찾아볼까요?",
+          "de": "Wollen wir eine schonendere Formulierung für die andere Person finden?",
+          "en": "Shall we find a more considerate way to say it to the other person?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "뜻은 유지하면서도 더 안전하게 말할 수 있겠어요.",
+        "de": "So können wir die Bedeutung beibehalten und es zugleich vorsichtiger sagen.",
+        "en": "That lets us keep the meaning while saying it more safely."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0062",
+      "category": "screen",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
+      "de": "Online kann derselbe Satz je nach Ton und Klangwirkung völlig unterschiedlich aufgenommen werden.",
+      "en": "Online, the same words can be received very differently depending on tone and connotation.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이 문장을 더 분명하고 덜 차갑게 바꿔 볼까요?",
+          "de": "Wollen wir diesen Satz klarer und weniger kühl formulieren?",
+          "en": "Shall we rephrase this sentence to sound clearer and less cold?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 의도가 더 잘 전달될 것 같아요.",
+        "de": "Dann kommt die Absicht vermutlich besser an.",
+        "en": "That should make the intention come across more clearly."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0063",
+      "category": "screen",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이 용례가 지금도 자연스럽게 쓰인다고 보세요?",
+      "de": "Finden Sie, dass dieses Verwendungsbeispiel heute noch natürlich klingt?",
+      "en": "Do you think this usage example still sounds natural today?",
+      "reply": {
+        "ko": "상황에 따라 다르지만 공식 자리에서는 조금 낡게 들릴 수 있어요.",
+        "de": "Das hängt von der Situation ab, aber in einem formellen Rahmen kann es etwas altmodisch wirken.",
+        "en": "It depends on the setting, but in a formal context it can sound a little dated."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사전 예문 말고 최근 대화에서 들은 적이 있나요?",
+          "de": "Haben Sie den Ausdruck auch außerhalb eines Wörterbuchbeispiels kürzlich gehört?",
+          "en": "Have you heard the expression recently outside a dictionary example?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "실제 상황을 비교해 보면 쓰임이 더 분명해질 것 같아요.",
+        "de": "Wenn wir reale Situationen vergleichen, wird der Gebrauch wohl klarer.",
+        "en": "Comparing real situations should make its use clearer."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0064",
+      "category": "screen",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
+      "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
+      "en": "Using slang carelessly without knowing the other person's background can easily cause misunderstandings.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "같은 뜻을 더 중립적으로 말하면 어떻게 될까요?",
+          "de": "Wie könnte man dieselbe Bedeutung neutraler ausdrücken?",
+          "en": "How could we express the same meaning more neutrally?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 표현이면 상대가 의도를 오해할 가능성도 줄겠어요.",
+        "de": "Mit dieser Formulierung ist es weniger wahrscheinlich, dass die Absicht missverstanden wird.",
+        "en": "With that wording, the intention is less likely to be misunderstood."
+      }
+    }
+  ]
+}

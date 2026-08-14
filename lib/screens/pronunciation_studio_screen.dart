@@ -5,13 +5,18 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/pronunciation_phrase.dart';
+import '../services/learner_level_selection.dart';
 import '../services/pronunciation_assessment_client.dart';
+import '../services/pronunciation_phrase_loader.dart';
 import '../services/pronunciation_progress_service.dart';
 import '../services/pronunciation_recorder.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -19,10 +24,18 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
 class PronunciationStudioScreen extends StatefulWidget {
-  const PronunciationStudioScreen({super.key, this.gateway, this.recorder});
+  const PronunciationStudioScreen({
+    super.key,
+    this.gateway,
+    this.recorder,
+    this.phraseLoader,
+  });
 
   final PronunciationAssessmentGateway? gateway;
   final PronunciationRecorder? recorder;
+
+  /// Test seam; production reads the versioned pronunciation asset.
+  final Future<List<PronunciationPhrase>> Function()? phraseLoader;
 
   @override
   State<PronunciationStudioScreen> createState() =>
@@ -30,12 +43,6 @@ class PronunciationStudioScreen extends StatefulWidget {
 }
 
 class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
-  static const List<String> _phrases = <String>[
-    '안녕하세요',
-    '감사합니다',
-    '덜 맵게 해 주세요',
-    '지하철역이 어디예요?',
-  ];
   static final math.Random _random = math.Random.secure();
 
   late final PronunciationRecorder _recorder;
@@ -44,13 +51,22 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   Completer<void>? _audioDone;
   Timer? _stopTimer;
   final BytesBuilder _audio = BytesBuilder(copy: false);
+  List<PronunciationPhrase> _phrases = const <PronunciationPhrase>[];
   int _phraseIndex = 0;
+  bool _loading = true;
+  bool _loadFailed = false;
   bool _recording = false;
   bool _assessing = false;
+  String? _recordingReferenceText;
   String? _notice;
   PronunciationAssessmentResult? _result;
 
-  String get _phrase => _phrases[_phraseIndex];
+  PronunciationPhrase? get _currentPhrase {
+    if (_phrases.isEmpty) {
+      return null;
+    }
+    return _phrases[_phraseIndex % _phrases.length];
+  }
 
   @override
   void initState() {
@@ -58,6 +74,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _recorder = widget.recorder ?? RecordPronunciationRecorder();
     _gateway =
         widget.gateway ?? FirebasePronunciationAssessmentGateway.production();
+    _loadPhrases();
   }
 
   @override
@@ -67,6 +84,50 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _recorder.dispose();
     TtsService.stop();
     super.dispose();
+  }
+
+  Future<void> _loadPhrases() async {
+    final usesBundledAsset = widget.phraseLoader == null;
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
+    try {
+      final source = widget.phraseLoader ?? PronunciationPhraseLoader.load;
+      final allPhrases = await source();
+      final visiblePhrases = PronunciationPhraseLoader.forLearnerLevel(
+        allPhrases,
+        learnerLevelForStoredCode(Storage.userLevelCode),
+      );
+      final failed =
+          usesBundledAsset && PronunciationPhraseLoader.lastError != null;
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _phrases = visiblePhrases;
+        _phraseIndex = 0;
+        _loading = false;
+        _loadFailed = failed;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _phrases = const <PronunciationPhrase>[];
+        _phraseIndex = 0;
+        _loading = false;
+        _loadFailed = true;
+      });
+    }
+  }
+
+  void _retryPhraseLoad() {
+    if (widget.phraseLoader == null) {
+      PronunciationPhraseLoader.reset();
+    }
+    _loadPhrases();
   }
 
   Future<bool> _ensureConsent() async {
@@ -100,6 +161,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   }
 
   Future<void> _startRecording() async {
+    final phrase = _currentPhrase;
+    if (phrase == null) {
+      return;
+    }
     final t = AppL10n.of(context);
     if (!await _ensureConsent()) {
       setState(() => _notice = t.settingsPronunciationConsentOff);
@@ -118,6 +183,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _audio.clear();
     _result = null;
     _notice = null;
+    _recordingReferenceText = phrase.ko;
     try {
       final stream = await _recorder.startPcm16Stream();
       _audioDone = Completer<void>();
@@ -146,6 +212,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
         setState(() => _recording = true);
       }
     } catch (_) {
+      _recordingReferenceText = null;
       if (mounted) {
         setState(() => _notice = t.pronunciationPermissionDenied);
       }
@@ -162,6 +229,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       _assessing = true;
     });
     try {
+      final referenceText = _recordingReferenceText;
+      if (referenceText == null) {
+        throw StateError('Missing pronunciation phrase reference text');
+      }
       await _recorder.stop();
       await _audioDone?.future.timeout(const Duration(seconds: 2));
       await _audioSubscription?.cancel();
@@ -171,7 +242,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           : captured;
       final result = await _gateway.assess(
         pcm16: pcm,
-        referenceText: _phrase,
+        referenceText: referenceText,
         assessmentId: _newAssessmentId(),
       );
       if (result.passed) {
@@ -203,6 +274,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
         );
       }
     } finally {
+      _recordingReferenceText = null;
       if (mounted) {
         setState(() => _assessing = false);
       }
@@ -218,6 +290,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   }
 
   void _nextPhrase() {
+    if (_phrases.isEmpty) {
+      return;
+    }
     setState(() {
       _phraseIndex = (_phraseIndex + 1) % _phrases.length;
       _result = null;
@@ -228,13 +303,37 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final surfaces = SoriSurfaces.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.pronunciationTitle),
-        actions: const [TtsSpeedAction()],
-      ),
-      body: SoriScreenBackground(
+    final phrase = _currentPhrase;
+    final Widget body;
+    if (_loading) {
+      body = AppLoading(message: t.pronunciationPhrasesLoading);
+    } else if (_loadFailed) {
+      body = SoriScreenBackground(
+        child: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_encourage.png',
+          icon: Icons.volume_off_rounded,
+          title: t.pronunciationPhrasesUnavailableTitle,
+          body: t.pronunciationPhrasesUnavailableBody,
+          ctaLabel: t.btnRetry,
+          onCta: _retryPhraseLoad,
+          accent: SoriActivityColors.speaking,
+        ),
+      );
+    } else if (phrase == null) {
+      body = SoriScreenBackground(
+        child: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_encourage.png',
+          icon: Icons.record_voice_over_outlined,
+          title: t.pronunciationPhrasesEmptyTitle,
+          body: t.pronunciationPhrasesEmptyBody,
+          ctaLabel: t.btnRetry,
+          onCta: _retryPhraseLoad,
+          accent: SoriActivityColors.speaking,
+        ),
+      );
+    } else {
+      final surfaces = SoriSurfaces.of(context);
+      body = SoriScreenBackground(
         child: SoriContentClamp(
           maxWidth: 760,
           base: const EdgeInsets.all(Spacing.lg),
@@ -264,9 +363,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                     const Mascot.tiger(size: 132),
                     const SizedBox(height: Spacing.md),
                     Semantics(
-                      label: _phrase,
+                      label: phrase.ko,
                       child: Text(
-                        _phrase,
+                        phrase.ko,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 36,
@@ -286,7 +385,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                           icon: Icons.volume_up_rounded,
                           onTap: _recording || _assessing
                               ? null
-                              : () => TtsService.speakSlow(_phrase),
+                              : () => TtsService.speakSlow(phrase.ko),
                         ),
                         SoriButton.filled(
                           label: _recording
@@ -336,13 +435,21 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
               const SizedBox(height: Spacing.lg),
               SoriButton.ghost(
                 label: t.pronunciationContinueWithoutScore,
-                onTap: _nextPhrase,
+                onTap: _recording || _assessing ? null : _nextPhrase,
                 fullWidth: true,
               ),
             ],
           ),
         ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(t.pronunciationTitle),
+        actions: const [TtsSpeedAction()],
       ),
+      body: body,
     );
   }
 }
