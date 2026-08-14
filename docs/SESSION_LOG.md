@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — 팩 Boss/SRS Phase 1·2 통합 게시
+
+**게시.** `b439dc76` (`feat(learning): teach pack Boss words before assessment`)를
+`main`에 만들었다. Phase 1의 Boss 선학습·공정한 SRS evidence·shuffle·결과 카피와
+Phase 2의 선택형 Korean typing recall을 함께 담는다. `main.dart`의 `/vocab/recall`
+route도 이 커밋에 포함했다. `vocab_pack_screen.dart`의 병행 SoriSwipeCard 래퍼와
+`custom_pack_play`·`review_session`의 외부 변경은 의도적으로 제외했다.
+
+**수렴.** 회상 빈 상태의 잘못된 `tiger_idle.png` 참조를 기존
+`tiger_sitting2.png`로 교체했다. 새 화면은 `SoriAppBar`와 `SoriTextTheme`을 사용하고
+명확한 라벨의 버튼에서 장식 아이콘을 제거해, 래칫 상한을 올리지 않고 통과시켰다.
+
+**검증.** 관련 Flutter tests **101 passed** (Boss 노출·seeded order·SRS evidence·typing
+recall·pack unlock·ARB·data integrity·typography/window guards 포함), `flutter analyze`
+0 issues, `git diff --check` 통과. 이 로그·AGENTS·handoff 정정은 즉시 뒤따르는 docs
+커밋에 기록한다.
+
 ### 2026-08-14 (Claude Code, Mac) — §I 에셋 완주: 활동 24종 + paywall_hero + 종이 그레인
 
 **생성 (BBANANA Seedream V4.5, 앵커 참조, 29크레딧 = 25 + 재생성 4):**

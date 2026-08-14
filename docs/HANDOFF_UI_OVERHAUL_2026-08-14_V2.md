@@ -3,6 +3,11 @@
 > **커밋 상태**: Phase 0~3 + §I 에셋 39장 = **`dcef0ba3` 로 커밋·origin/main 푸시 완료**
 > (104 파일, Jin 지시). 병행 세션의 vocab-pack/SRS 클러스터는 의도적으로 제외 —
 > §5 파일 소유권 참조. Jin 이 에셋(그레인 처리 포함) 승인함 (2026-08-14).
+>
+> **후속 수렴 (Codex, 2026-08-14)**: 해당 vocab-pack/SRS Phase 1·2는
+> **`b439dc76`**으로 별도 커밋·게시됐다. `/vocab/recall` 라우트, asset-integrity,
+> Sori typography/AppBar 래칫까지 모두 green이다. 이 커밋은 병행 스와이프 UI
+> 변경(`custom_pack_play`·`review_session`·`vocab_pack_screen` 래퍼)을 포함하지 않았다.
 
 > **읽는 순서**: 이 문서(현재 상태·프로세스) → `UI_OVERHAUL_WORK_ORDER_2026-08-14.md`(상세 지시서, §A~§K) → `HANDOFF_UI_OVERHAUL_2026-08-14.md`(v1: 구속 결정·계약 8종·에셋 런북 §5 — 여전히 유효).
 > v1 §4 는 지시서가 대체했고, 지시서 §D~§H 는 **이 세션에서 완료**됐다. 남은 것은 §I(에셋)·§J(Phase 4)·Jin 검증뿐이다.
@@ -74,13 +79,10 @@ raw TextStyle 437→426(§D)→420(§E)→412(§F)→409(§G) · radius 64→60�
 
 ### 6.1 즉시 (다음 세션 첫 30분)
 
-1. **병행 세션 수렴 확인** — 커밋 `dcef0ba3` 이후 워킹트리에 남은 것은 전부
-   vocab-pack/SRS 클러스터다. 그 세션이 끝나면 반드시:
-   - `flutter analyze` 0 확인 (마지막 실측: `main.dart:604` argument_type 에러 — 그쪽 리콜 라우트)
-   - `data_integrity` green (그쪽 `vocab_pack_recall_screen.dart` 가 부재 에셋
-     `mascot/tiger_idle.png` 참조 중 — ⛔ 캐릭터 에셋은 생성 금지, 기존 mascot 파일로 경로 교체가 정답)
-   - **래칫 원복**: 그쪽 신규 화면들이 raw TextStyle +11 · w800 +7 · AppBar +5 초과.
-     상한 상향 금지 — 그쪽 화면을 SoriTextTheme/SoriAppBar 로 토큰화해서 내려야 한다.
+1. ~~**병행 세션 수렴 확인**~~ — ✅ `b439dc76`으로 vocab-pack/SRS Phase 1·2를
+   별도 게시했다. `flutter analyze` 0, `data_integrity` green, 그리고 새 recall
+   화면은 기존 `tiger_sitting2.png`·`SoriAppBar`·`SoriTextTheme`으로 수렴했다.
+   래칫 상한은 올리지 않았다. 아직 미커밋인 스와이프 UI 변경은 별도 세션 소관이다.
 2. **Linux 골든 재생성** — 맥에서 불가(기준선은 Linux 정본, `screen_layout_golden_test.dart` 주석):
    ```
    flutter test --update-goldens test/goldens   # Linux CI/도커에서만

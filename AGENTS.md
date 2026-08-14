@@ -282,11 +282,12 @@ flutter run -d <android-id>   # 안드로이드
   current-pack Boss 평가 멤버십으로 문서화하고 모든 Boss 단어의 Learn 뒷면 노출을
   강제했다. 평가 순서는 1회 셔플, 결과는 completed/cleared/review later 카피,
   게임·시나리오 SRS는 실제 오답 증거만 반영한다. 105 targeted tests·analyze green,
-  커밋 미생성(Jin 요청 없음).
+  Phase 2와 함께 `b439dc76`으로 게시했다.
 - [x] **선택형 타이핑 회상 Phase 2 (2026-08-14)** — 팩 결과에서 current-pack Boss
   단어만 뜻→한국어로 직접 입력하는 별도 연습을 연다. 팩 clear·unlock·도장·XP는
   바꾸지 않으며, 힌트 없는 첫 입력 성공만 현재 세션의 기존 positive와 중복되지 않게
   SRS로 반영하고, 오답/정답 보기만 negative SRS+wrong-count로 기록한다.
+  `b439dc76`으로 Phase 1과 함께 게시했다.
 - [ ] 백로그: 문법 4지선다 유형(설계 완료 — SESSION_LOG 참조), suspects 배치 002,
   AI-lastig 비주얼 온기 트랙(카피는 8/13 Humanizer 완료).
 - [ ] Jin: 실기기에서 ①카드 플립 스포일러 소거 ②몰라요 재출제 ③철자 퀴즈 ④속도 칩
