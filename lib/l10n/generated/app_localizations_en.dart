@@ -6026,6 +6026,48 @@ class AppL10nEn extends AppL10n {
   String get soriStageMissionAction => 'Start today\'s mission';
 
   @override
+  String get soriStageTodayMissionEyebrow => 'TODAY\'S MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Start';
+
+  @override
+  String get hanokStageNameEmpty => 'Building site';
+
+  @override
+  String get hanokStageNameFoundation => 'Foundation';
+
+  @override
+  String get hanokStageNamePillars => 'Pillars';
+
+  @override
+  String get hanokStageNameBeams => 'Beams';
+
+  @override
+  String get hanokStageNameThatchRoof => 'Thatched roof';
+
+  @override
+  String get hanokStageNameTileRoofPartial => 'First roof tiles';
+
+  @override
+  String get hanokStageNameTileRoofComplete => 'Tiled roof';
+
+  @override
+  String get hanokStageNameDancheong => 'Dancheong';
+
+  @override
+  String get hanokStageNameGate => 'Gate';
+
+  @override
+  String get hanokStageNameWindows => 'Windows';
+
+  @override
+  String get hanokStageNameSideBuilding => 'Sarangchae annex';
+
+  @override
+  String get hanokStageNameJongga => 'Jongga estate';
+
+  @override
   String get soriStageBojagiTitle => 'A Bojagi is waiting';
 
   @override

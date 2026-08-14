@@ -10471,6 +10471,90 @@ abstract class AppL10n {
   /// **'Heutige Mission starten'**
   String get soriStageMissionAction;
 
+  /// No description provided for @soriStageTodayMissionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTIGE MISSION'**
+  String get soriStageTodayMissionEyebrow;
+
+  /// No description provided for @soriStageMissionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageMissionStart;
+
+  /// No description provided for @hanokStageNameEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz'**
+  String get hanokStageNameEmpty;
+
+  /// No description provided for @hanokStageNameFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Fundament'**
+  String get hanokStageNameFoundation;
+
+  /// No description provided for @hanokStageNamePillars.
+  ///
+  /// In de, this message translates to:
+  /// **'Säulen'**
+  String get hanokStageNamePillars;
+
+  /// No description provided for @hanokStageNameBeams.
+  ///
+  /// In de, this message translates to:
+  /// **'Balken'**
+  String get hanokStageNameBeams;
+
+  /// No description provided for @hanokStageNameThatchRoof.
+  ///
+  /// In de, this message translates to:
+  /// **'Strohdach'**
+  String get hanokStageNameThatchRoof;
+
+  /// No description provided for @hanokStageNameTileRoofPartial.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Ziegel'**
+  String get hanokStageNameTileRoofPartial;
+
+  /// No description provided for @hanokStageNameTileRoofComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegeldach'**
+  String get hanokStageNameTileRoofComplete;
+
+  /// No description provided for @hanokStageNameDancheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong'**
+  String get hanokStageNameDancheong;
+
+  /// No description provided for @hanokStageNameGate.
+  ///
+  /// In de, this message translates to:
+  /// **'Tor'**
+  String get hanokStageNameGate;
+
+  /// No description provided for @hanokStageNameWindows.
+  ///
+  /// In de, this message translates to:
+  /// **'Fenster'**
+  String get hanokStageNameWindows;
+
+  /// No description provided for @hanokStageNameSideBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangchae'**
+  String get hanokStageNameSideBuilding;
+
+  /// No description provided for @hanokStageNameJongga.
+  ///
+  /// In de, this message translates to:
+  /// **'Jongga-Haus'**
+  String get hanokStageNameJongga;
+
   /// No description provided for @soriStageBojagiTitle.
   ///
   /// In de, this message translates to:

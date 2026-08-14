@@ -6058,6 +6058,48 @@ class AppL10nDe extends AppL10n {
   String get soriStageMissionAction => 'Heutige Mission starten';
 
   @override
+  String get soriStageTodayMissionEyebrow => 'HEUTIGE MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Starten';
+
+  @override
+  String get hanokStageNameEmpty => 'Bauplatz';
+
+  @override
+  String get hanokStageNameFoundation => 'Fundament';
+
+  @override
+  String get hanokStageNamePillars => 'Säulen';
+
+  @override
+  String get hanokStageNameBeams => 'Balken';
+
+  @override
+  String get hanokStageNameThatchRoof => 'Strohdach';
+
+  @override
+  String get hanokStageNameTileRoofPartial => 'Erste Ziegel';
+
+  @override
+  String get hanokStageNameTileRoofComplete => 'Ziegeldach';
+
+  @override
+  String get hanokStageNameDancheong => 'Dancheong';
+
+  @override
+  String get hanokStageNameGate => 'Tor';
+
+  @override
+  String get hanokStageNameWindows => 'Fenster';
+
+  @override
+  String get hanokStageNameSideBuilding => 'Sarangchae';
+
+  @override
+  String get hanokStageNameJongga => 'Jongga-Haus';
+
+  @override
   String get soriStageBojagiTitle => 'Ein Bojagi wartet';
 
   @override
