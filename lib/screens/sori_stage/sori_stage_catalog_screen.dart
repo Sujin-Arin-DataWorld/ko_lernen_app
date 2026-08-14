@@ -54,13 +54,13 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
 
     // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
     // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
+    // §P4-4: Games 탭도 대칭 — daily_game(오늘의 게임)을 히어로로 승격.
+    final heroId = isGames ? 'daily_game' : 'vocab_packs';
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    for (final entry in entries) {
+      if (entry.id == heroId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -143,7 +143,18 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                     crossAxisCount: columns,
                                     mainAxisSpacing: Spacing.md,
                                     crossAxisSpacing: Spacing.md,
-                                    childAspectRatio: 0.78,
+                                    // §P4-1 재실측 산식: 셀 높이 = 폭/r.
+                                    // 구성 = 4:3 이미지(0.75×폭) + 본문
+                                    // (패딩 8+12 + 제목 ≤2줄 + footer 행 —
+                                    // 분(分) subtitle 은 §P4-3 으로 이미지 필로
+                                    // 이동). 좁은 폭(169dp@390 뷰포트)·글자
+                                    // 2.0 배에서 제목 2줄+footer 가 최대
+                                    // ~130px → 0.75 는 169/(127+130)=0.66…
+                                    // 이 아니라 body 가 Expanded+spaceBetween
+                                    // 으로 흡수하는 슬랙 포함 실측값이다 —
+                                    // 390/720/1280 × 1.0/1.3/2.0 매트릭스와
+                                    // 기존 1280dp 회귀로 검증 (§T-P4).
+                                    childAspectRatio: 0.72,
                                   ),
                               delegate: SliverChildBuilderDelegate((
                                 context,
@@ -236,25 +247,60 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    // §P4-2: 상태 신호는 모델의 4값뿐 — 잠금 0 상태에서 전 카드 동일한
+    // "Jetzt verfügbar" ×N 은 노이즈다. ready + 무진행이면 footer 를 없앤다
+    // (locked/inProgress/completed 는 표시). ARB soriStageActivityReady 키는
+    // 삭제하지 않는다.
+    final bool silentReady =
+        state == SoriActivityState.ready &&
+        (progress?.current == null || (progress?.current ?? 0) <= 0);
+
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
+      // §P4-3: 분(分) 표기는 subtitle → 이미지 우하단 미니 필로 이동.
+      subtitle: null,
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      // §P4-1: 그리드 이미지 슬롯을 원본(800×600)과 같은 4:3 으로 — 크롭 0,
+      // "거대 아이콘" 체감 ~17% 축소. 히어로 카드는 와이드 배너 유지.
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      imageOverlay: _MinutesPill(label: t.soriStageMinutes(entry.minutes)),
+      footer: silentReady
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked
           ? t.soriStageOpenActivity(title)
           : t.soriStageActivityDetails(title),
+    );
+  }
+}
+
+/// §P4-3: 이미지 슬롯 우하단 분(分) 미니 필.
+class _MinutesPill extends StatelessWidget {
+  const _MinutesPill({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: const BoxDecoration(
+        // ⚠️ withOpacity 는 deprecated — 저장소는 전부 .withValues 이관 완료.
+        color: Color(0x8C000000), // black @0.55
+        borderRadius: SoriRadius.brPill,
+      ),
+      child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
     );
   }
 }

@@ -1,5 +1,45 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P3: Today 리디자인
+
+**무엇/왜.** 핸드오프 §P3 — "무대에 오늘의 주인공을 올려라". 미션 카드가
+3중 반복 텍스트("Heutige Mission starten" ×2 + brand eyebrow) 대신 오늘 활동의
+포스터가 되고, 히어로 아래 블록들이 하나의 일러스트 언어로 통일된다. 구조
+(ListView 순서)·매트 계약·`verticalDirection: up` 불변.
+
+- **`_TodayMissionStage` v2**: 상단 21:9 활동 일러스트(기존
+  `activityForRoute` → `activityIllustrationAsset` — 신규 조회 함수 발명 없음,
+  라우트 4종 전부 webp 실재. `entry == null` 1차 강등 게이트 + errorBuilder
+  2차 가드) + eyebrow 신규 ARB `soriStageTodayMissionEyebrow` + 제목 =
+  활동 로컬라이즈드 타이틀 + 보상 ' · ' 조인 문자열 → **아이템별 칩**
+  (`soriRewardIcon(kind)` 16px — kind 가 아이템마다 다르므로 단일 roofing
+  아이콘 금지) + CTA "Starten"(신규 `soriStageMissionStart`). 미션 없음
+  경로는 기존 문구 유지.
+- **§P3-2 히어로 크롭-줌**: `home_hero.dart` 의 `CharacterClipPlayer` 를
+  `ClipRect` + `Transform.scale(1.2, bottomCenter)` — 클립은 정사각+매트
+  베이크(#FBF5EB=배경 동일)라 크롭 불가시인 걸 이용해 에셋 재생성 없이
+  까치를 키운다(⛔ 캐릭터 AI 생성 금지 규칙 준수 — 픽셀 소스 불변).
+  forceStatic/다크의 Mascot PNG(투명 배경)는 줌 미적용. `_kHeroZoom` 1.3
+  초과 금지 — Jin 실기기 게이트(발/꼬리 잘림, 1.15~1.3 미세조정).
+- **`_HanokProgress` → 한옥 스테이지 배너 카드**: 16:5 배너(기존 12장 규약
+  `hanok_stages/stage_{slug}_light.png` 재사용) + 우하단 `n / 7` tabular +
+  진행바 유지. **enum 원문("empty") 노출 수리** — 신규
+  `widgets/sori/hanok_stage_names.dart` 의 exhaustive switch DE/EN 12값
+  (`hanokStageName*` ARB) — 다른 표면도 재사용.
+- **`_QuestProgressRow` → SoriCard(compact) + 보상 썸네일**: quests 화면의
+  `_RewardThumb` 를 **`widgets/sori/reward_thumb.dart`(SoriRewardThumb)로
+  승격** 공유(widgets → screens import 금지 §C-1-10 선례), 행 탭 라우팅 불변.
+- **골든 신설**: `screen_layout_golden_test.dart` screens 맵에 `sori_today`
+  추가 (`now`/`loadSnapshot` 시임 주입 — matte 테스트와 같은 픽스처).
+  기준선 생성은 아래 골든 재생성 항목과 함께.
+
+**검증.** `flutter analyze` 0 · matte 3종 + a11y(sori today 포함) +
+sori_stage 4스위트 + smoke/responsive 822 green · 래칫 불변.
+
+**Jin 실기기 대기.** 히어로 줌 1.2 의 발끝/꼬리 잘림·매트 경계 (§J-4).
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P2: Sori Deck 2.0 — 4방향 덱
 
 **무엇/왜.** 핸드오프 §P2 실행 — 학습 카드가 데이팅앱급 "들고 넘기는 물건"이
