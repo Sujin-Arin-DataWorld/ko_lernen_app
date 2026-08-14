@@ -41,6 +41,11 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
+    await tester.scrollUntilVisible(
+      find.text('Eine kleine, freiwillige Lerngruppe.'),
+      180,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Eine kleine, freiwillige Lerngruppe.'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('Was andere sehen'),
