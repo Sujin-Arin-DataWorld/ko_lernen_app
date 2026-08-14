@@ -543,9 +543,18 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 ),
                 const SizedBox(height: 12),
 
-                // Answer buttons (only when flipped)
-                if (_flipped) ...[
-                  Row(
+                // Answer buttons stay in the layout before and after the flip so
+                // the fixed deck slot never changes height. Before the answer is
+                // visible they are excluded from paint, hit testing, and
+                // semantics while their space remains reserved.
+                Visibility(
+                  visible: _flipped,
+                  maintainSize: true,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  maintainSemantics: false,
+                  maintainInteractivity: false,
+                  child: Row(
                     children: [
                       Expanded(
                         child: SoriButton.filled(
@@ -568,8 +577,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       ),
                     ],
                   ),
-                  const SizedBox(height: Spacing.sm),
-                ],
+                ),
+                const SizedBox(height: Spacing.sm),
 
                 // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
                 Row(

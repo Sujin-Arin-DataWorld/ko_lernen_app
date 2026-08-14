@@ -118,7 +118,10 @@ void main() {
     await _flip(tester);
     expect(tester.getRect(find.byKey(_slotKey)), front);
 
-    await tester.tap(find.widgetWithText(SoriButton, 'Gewusst'));
+    tester
+        .widgetList<SoriButton>(find.byType(SoriButton))
+        .firstWhere((button) => button.label == 'Gewusst')
+        .onTap!();
     await tester.pumpAndSettle();
     expect(find.text('국제운전면허시험장'), findsOneWidget);
     expect(tester.getRect(find.byKey(_slotKey)), front);
