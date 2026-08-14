@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Gemini, Mac) — 세종 한국어 5B 영감 B2 콘텐츠 확장
+
+**무엇/왜.** `docs/sejong_korean_5b_extracted.md` 3705줄~ (6과 후회하지 않는 삶, 7과 한국의 수필,
+8과 생겨나는 말 사라지는 말)의 B2-C1 수준 어휘·표현·문법 패턴을 참고해 자체 구성 콘텐츠 추가.
+단어를 똑같이 베끼지 않고 해당 수준·주제에 어울리는 자체 예문으로 구성.
+
+**변경 목록:**
+- `korean_vocab.csv`: B2 +30단어 (3팩: 인생과 가치관/문학과 감성/언어와 변화)
+- `vocab_pack_service.dart`: 3팩 display+order 등록 (b2_life_values/literature_emotion/language_change)
+- `grammar.csv`: B2 +10 문법 (는데도 척하다/데다가 기까지/다가는/간접화법/봤자/는 바람에/뿐만 아니라/도록/ㄹ 만하다/는 셈이다)
+- `curriculum_manifest.json`: vocabPackUnitMap +3, grammarRuleMap +10
+- `kkeunmari_pool.json`: 2861→2867 (+6 noun)
+
+**검증:** `flutter analyze` No issues found. ID 유니크 1192/1192 확인.
+
 ### 2026-08-15 (Codex, Mac) — B1/B2 Batch 02 검수 배치와 후속 batch 충돌 게이트
 
 **무엇/왜.** Batch 01의 Jin 검수 경계를 넓히지 않은 채, 다음 review-only 96개를

@@ -2001,7 +2001,10 @@
     "a2_moving_house": "a2_08_home_money",
     "a2_hobby": "a2_02_plans_proposals",
     "a2_natural_spoken": "a2_03_chat_relationships",
-    "a2_bbq_culture": "a2_02_plans_proposals"
+    "a2_bbq_culture": "a2_02_plans_proposals",
+    "b2_life_values": "b2_u6_life",
+    "b2_literature_emotion": "b2_u7_literature",
+    "b2_language_change": "b2_u8_language"
   },
   "contentLinks": [
     {
@@ -2630,12 +2633,7 @@
         "concept_b2_opinion"
       ]
     },
-    "grammar_b2_not_only": {
-      "courseUnitId": "b2_02_professional_opinion",
-      "conceptIds": [
-        "concept_b2_opinion"
-      ]
-    },
+    "grammar_b2_not_only": "b2_u7_literature",
     "grammar_b2_as_long_as": {
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
@@ -2871,7 +2869,16 @@
     "grammar_a2_experience": "a2_01_haeyo_transition",
     "grammar_a2_because_nikka": "a2_04_feelings_health",
     "grammar_a2_progressive_form": "a2_03_chat_relationships",
-    "grammar_a2_if_when": "a2_01_haeyo_transition"
+    "grammar_a2_if_when": "a2_01_haeyo_transition",
+    "grammar_b2_pretense_contrast": "b2_u6_life",
+    "grammar_b2_addition_even": "b2_u7_literature",
+    "grammar_b2_warning_keep": "b2_u8_language",
+    "grammar_b2_indirect_speech": "b2_u6_life",
+    "grammar_b2_futility": "b2_u6_life",
+    "grammar_b2_unexpected_cause": "b2_u7_literature",
+    "grammar_b2_ensure": "b2_u8_language",
+    "grammar_b2_worth_doing": "b2_u8_language",
+    "grammar_b2_practically": "b2_u8_language"
   },
   "smalltalkCategoryUnitMap": {
     "a1:transport": {

@@ -2,7 +2,7 @@
  "meta": {
   "source": "표준국어대사전(stdict) 명사 검증 + hermitdave/FrequencyWords ko_50k(빈도) + korean_vocab.csv 글로스 + DeepL DE",
   "generated_by": "tools/content_factory/build_kkeunmari_pool.py",
-  "total": 2861,
+  "total": 2867,
   "license": "CC BY-SA 2.0 KR (국립국어원 표준국어대사전) / CC BY-SA 4.0 (hermitdave FrequencyWords)",
   "attribution": [
    "국립국어원 표준국어대사전 (stdict.korean.go.kr) — CC BY-SA 2.0 KR",
@@ -28623,6 +28623,66 @@
    "topic": "BBQ-Kultur",
    "next_count": 0,
    "is_dead_end": true
+  },
+  {
+   "word": "편견",
+   "first": "편",
+   "last": "견",
+   "level": "B2",
+   "german": "Vorurteil",
+   "topic": "",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "좌우명",
+   "first": "좌",
+   "last": "명",
+   "level": "B2",
+   "german": "Lebensmotto",
+   "topic": "",
+   "next_count": 12,
+   "is_dead_end": false
+  },
+  {
+   "word": "문학성",
+   "first": "문",
+   "last": "성",
+   "level": "B2",
+   "german": "literarische Qualität",
+   "topic": "",
+   "next_count": 13,
+   "is_dead_end": false
+  },
+  {
+   "word": "대표작",
+   "first": "대",
+   "last": "작",
+   "level": "B2",
+   "german": "Hauptwerk",
+   "topic": "",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "글귀",
+   "first": "글",
+   "last": "귀",
+   "level": "B2",
+   "german": "Zitat / Textpassage",
+   "topic": "",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "신조어",
+   "first": "신",
+   "last": "어",
+   "level": "B2",
+   "german": "Neologismus / neues Wort",
+   "topic": "",
+   "next_count": 14,
+   "is_dead_end": false
   }
  ]
 }
