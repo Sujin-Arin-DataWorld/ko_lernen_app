@@ -122,6 +122,15 @@ void main() {
 
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
+            if (screen.key == 'sori_today') {
+              await tester.runAsync(
+                () => precacheImage(
+                  const AssetImage('assets/illustrations/activities/srs.webp'),
+                  tester.element(find.byType(SoriStageTodayScreen)),
+                ),
+              );
+              await tester.pump();
+            }
             await tester.pump(const Duration(milliseconds: 100));
             await tester.pump(const Duration(milliseconds: 1200));
 
