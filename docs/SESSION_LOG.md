@@ -4,9 +4,9 @@
 
 **무엇/왜.** 390×844·1280×800 브라우저 시각 QA에서 P1–P5 레이아웃은 모두 정상였지만, 아직 Jin 시각 승인을 받지 않은 `assets/illustrations/deck/action_*.webp` 네 파일을 `Image.asset`이 먼저 요청해 Web 콘솔에 404를 남겼다. `_deckCustomAssetsReady=false` 명시 게이트를 추가해 승인 전에는 네트워크/asset 요청 없이 Material 폴백을 바로 렌더한다. §R-3 파일을 실제 번들한 뒤 상수 하나만 true로 바꾸면 기존 `errorBuilder` 안전망과 함께 커스텀 도장 아이콘이 활성화된다.
 
-**검증.** deck action bar 위젯 테스트·전체 analyzer·Web release 재검증 후 기록한다.
+**검증.** `flutter analyze --no-pub --fatal-infos` 0 issues, deck action bar **3/3**, `flutter build web --release --no-pub`, `git diff --check`, clean status를 통과했다. Web build의 `flutter_tts_web` Wasm dry-run 3건은 기존 upstream 경고다.
 
-**커밋:** 후속 커밋에 포함.
+**커밋:** `8d16c0c` (`fix(ui): avoid requests for unapproved deck art`). 이 검증 기록은 직후 문서 커밋에 포함한다.
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P3–P5 시각 수렴 완료
 
