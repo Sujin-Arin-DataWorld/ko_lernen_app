@@ -6,7 +6,7 @@
 
 **검증.** `dart analyze` on touched screens + `sori_deck_coach` + `storage_service` (+ vocab_pack duplicate import fix) → 0 issues.
 
-**커밋:** (이 항목과 함께)
+**커밋:** `f6c9c0d` (`feat(deck): wire SoriDeckActionBar + 4-way gestures on review/custom/legacy`)
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P3 Today 리디자인
 
