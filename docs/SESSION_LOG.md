@@ -13,7 +13,7 @@
 
 **검증.** `flutter analyze` (덱/팩 터치 파일) 0 · `python3 -m py_compile scripts/apply_riso_v2.py` · targeted suite **72 passed** (swipe/queue/geometry/vertical/uniform/spoiler/flipgate×3/requeue/srs/same_pack/assessment/study_scale/today+home matte/gye_tab).
 
-**커밋.** (이 항목과 동일 커밋)
+**커밋.** 
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P4 카탈로그 + §P5 Gye/Hanok
 
