@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX v2 P1/P2 Sori Deck 기반 구현
+
+**무엇/왜.** UI/UX 개편 2의 최우선 학습 덱 경로를 구현했다. 네 학습 화면의 카드 슬롯에
+공통 `deck-card-slot` 키와 명시 폭을 부여해 카드 rect가 단어 내용에 종속되지 않게 했고,
+`SoriSwipeCard`를 4방향 pan 덱으로 확장했다. 좌/우는 기존 SRS 판정 게이트를 보존하고,
+위는 저장 후 제자리 복귀, 아래는 무기록 defer/skip으로 처리한다. `LearnSessionQueue`에는
+무기록 `defer()`와 next-card preview용 `peekNext`를 추가했으며, 기존 텍스트 CTA를
+접근성 우선의 원형 `DeckActionBar`로 바꿨다. 커스텀 덱 아이콘은 규약 경로와 Material
+fallback을 먼저 배선했고 실제 비캐릭터 아트 드롭은 별도 Jin 승인 게이트로 남긴다.
+
+**무결성 경계.** custom/review/vocab의 판정은 기존 핸들러만 호출한다. custom의 ↓는
+무기록 전진, legacy의 ↑는 이미 저장되지 않은 즐겨찾기만 추가하며, 모든 방향 전진은
+앞면/flip gate를 재설정한다. 콘텐츠 확장 C0와 캐릭터 에셋은 변경하지 않았다.
+
+**검증.** `git diff --check` 통과. `test/swipe_card_test.dart`에 up/down·blocked horizontal
+hint·underlay hit-test 회귀를, `learn_session_queue_test.dart`에 defer/peekNext 회귀를
+추가했다. 이 Cloud VM에는 `flutter`/`dart` SDK가 설치돼 있지 않아 format/analyze/test는
+실행하지 못했다. CI 또는 Flutter SDK가 있는 환경에서 P1/P2 전체 매트릭스를 실행해야 한다.
+
+**커밋:** `e6c70e2` (`feat(learning): add four-direction Sori Deck`).
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.
