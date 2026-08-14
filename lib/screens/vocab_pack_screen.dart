@@ -920,13 +920,29 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 ),
                 underlay: next == null
                     ? null
-                    : IgnorePointer(
-                        child: Opacity(
-                          opacity: 1,
-                          child: _FlipFront(
-                            v: next,
-                            h: soriStudyTypeScaleHeight(context),
-                            headlineSize: 36,
+                    : SizedBox(
+                        width: double.infinity,
+                        height: box.maxHeight,
+                        child: SoriStudyScale(
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              final h = soriStudyTypeScaleHeight(context);
+                              final headlineSize = soriUniformFitSize(
+                                context,
+                                texts: [for (final w in _learnWords) w.korean],
+                                maxWidth:
+                                    constraints.maxWidth - Spacing.xl * 2,
+                                cap: soriFillSize(h, 0.18, 36, 96),
+                                min: 32,
+                                letterSpacing: -0.5,
+                                lineHeight: 1.05,
+                              );
+                              return _FlipFront(
+                                v: next,
+                                h: h,
+                                headlineSize: headlineSize,
+                              );
+                            },
                           ),
                         ),
                       ),

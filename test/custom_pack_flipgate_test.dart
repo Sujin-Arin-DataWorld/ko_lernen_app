@@ -7,8 +7,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 /// §C-3c flipgate 센서: custom_pack_play 화면 — "앞면(flipped=false) 드래그 시
 /// SRS 기록 0 + 카드 인덱스 불변".
@@ -55,6 +56,7 @@ void main() {
   });
 
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
       'kl_streak_days': 0,
@@ -62,6 +64,7 @@ void main() {
       'kl_custom_packs_v1': packJson,
     });
     await Storage.init();
+    await Storage.setTutSeen('cpPlay');
   });
 
   Widget buildScreen() => MaterialApp(
@@ -143,7 +146,7 @@ void main() {
   );
 
   testWidgets(
-    '버튼 판정→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)',
+    '플립 후 판정 버튼→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)',
     (tester) async {
       tester.view.physicalSize = const Size(400, 800);
       tester.view.devicePixelRatio = 1;
@@ -156,9 +159,10 @@ void main() {
       // 카드 1: 도서관
       expect(find.text('도서관'), findsOneWidget);
 
-      // 하단 "Gewusst!" 버튼으로 카드 1 판정 — 버튼은 SoriSwipeCard 밖에
-      // 있어 GestureDetector 간섭 없이 확실히 발동.
-      await tester.tap(find.widgetWithText(SoriButton, 'Gewusst!'));
+      // P2-3: 판정 버튼 flipgate — FlipCard 플립 후 onKnow.
+      tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+      await tester.pumpAndSettle();
+      tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar)).onKnow();
       await tester.pumpAndSettle();
 
       // 카드 2: 의자 — 리셋으로 앞면이어야 함
@@ -180,6 +184,33 @@ void main() {
 
       // 여전히 두 번째 카드 유지
       expect(find.text('의자'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    '앞면 판정 버튼 탭 → SRS 0 (P2-3 버튼 게이트)',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(buildScreen());
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(find.text('도서관'), findsOneWidget);
+      final srsBefore = Storage.srsCard('도서관');
+
+      await tester.tap(find.byKey(const ValueKey('deck-action-know')));
+      await tester.pumpAndSettle();
+
+      final srsAfter = Storage.srsCard('도서관');
+      expect(
+        srsAfter?.reviewCount,
+        srsBefore?.reviewCount,
+        reason: '플립 전 판정 버튼은 SRS를 남기지 않는다',
+      );
+      expect(find.text('도서관'), findsOneWidget);
     },
   );
 }

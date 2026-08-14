@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',
@@ -51,10 +51,16 @@ Future<AppL10n> _pump(WidgetTester tester, VocabPack pack) async {
 }
 
 void _tapButton(WidgetTester tester, String label) {
-  tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((b) => b.label == label)
-      .onTap!();
+  final bar = tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar));
+  if (label == bar.knowLabel) {
+    bar.onKnow();
+  } else if (label == bar.dontKnowLabel) {
+    bar.onDontKnow();
+  } else if (label == bar.skipLabel) {
+    bar.onSkip();
+  } else {
+    fail('unknown deck action label: $label');
+  }
 }
 
 Future<void> _revealCurrentLearnCard(WidgetTester tester) async {
@@ -98,11 +104,8 @@ void main() {
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('1 / 4'), findsOneWidget);
     expect(
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == t.vocabPackDontKnow)
-          .onTap,
-      isNull,
+      tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar)).judgmentEnabled,
+      isFalse,
       reason: 'Learn actions stay unavailable until the gloss is revealed',
     );
 
@@ -130,10 +133,10 @@ void main() {
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('4 / 4'), findsOneWidget);
 
-    // 재출제에서 알아요 → Learn 종료, 퀴즈 진입 (Learn 버튼 소멸).
+    // 재출제에서 알아요 → Learn 종료, 퀴즈 진입 (덱 액션바 소멸).
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
-    expect(find.text(t.vocabPackDontKnow), findsNothing);
+    expect(find.byType(SoriDeckActionBar), findsNothing);
     expect(tester.takeException(), isNull);
   });
 
@@ -181,7 +184,7 @@ void main() {
     }
 
     // 졸업 → Learn 종료 (퀴즈 스테이지로 전환).
-    expect(find.text(t.vocabPackDontKnow), findsNothing);
+    expect(find.byType(SoriDeckActionBar), findsNothing);
     expect(Storage.wrongCountOf('재단어1'), 3);
     expect(tester.takeException(), isNull);
   });

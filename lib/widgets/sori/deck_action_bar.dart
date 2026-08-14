@@ -50,6 +50,7 @@ class _SoriDeckActionBarState extends State<SoriDeckActionBar> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _DeckActionButton(
+          key: const ValueKey('deck-action-dontknow'),
           size: 64,
           label: widget.dontKnowLabel,
           asset: 'assets/illustrations/deck/action_dontknow.webp',
@@ -70,6 +71,7 @@ class _SoriDeckActionBarState extends State<SoriDeckActionBar> {
         ),
         const SizedBox(width: Spacing.lg),
         _DeckActionButton(
+          key: const ValueKey('deck-action-skip'),
           size: 48,
           label: widget.skipLabel,
           asset: 'assets/illustrations/deck/action_skip.webp',
@@ -82,6 +84,7 @@ class _SoriDeckActionBarState extends State<SoriDeckActionBar> {
         if (widget.showSave) ...[
           const SizedBox(width: Spacing.lg),
           _DeckActionButton(
+            key: const ValueKey('deck-action-save'),
             size: 48,
             label: widget.saveLabel,
             asset: 'assets/illustrations/deck/action_save.webp',
@@ -95,6 +98,7 @@ class _SoriDeckActionBarState extends State<SoriDeckActionBar> {
         ],
         const SizedBox(width: Spacing.lg),
         _DeckActionButton(
+          key: const ValueKey('deck-action-know'),
           size: 64,
           label: widget.knowLabel,
           asset: 'assets/illustrations/deck/action_know.webp',
@@ -119,6 +123,7 @@ class _SoriDeckActionBarState extends State<SoriDeckActionBar> {
 
 class _DeckActionButton extends StatefulWidget {
   const _DeckActionButton({
+    super.key,
     required this.size,
     required this.label,
     required this.asset,

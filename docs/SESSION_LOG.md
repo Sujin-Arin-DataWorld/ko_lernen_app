@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 P2 센서·§R 파이프라인 마감
+
+**무엇/왜.** 개편 2 본선(P1/P2) 센서 배터리와 리소그래프 후처리 스크립트를 닫는다. 텍스트 CTA→아이콘 바로 바뀐 뒤 깨진 회귀를 전부 `SoriDeckActionBar` 콜백/`judgmentEnabled` 계약으로 이전하고, §P2-6 수직 제스처·defer/peekNext·버튼 게이트를 고정한다. §R-1은 Jin 샘플 게이트 전 **스크립트만** 추가(전량 에셋 처리 금지).
+
+**변경.**
+- `deck_action_bar.dart`: `ValueKey('deck-action-*')` 센서 훅.
+- `vocab_pack_screen.dart`: underlay도 `SoriStudyScale`+동일 `soriUniformFitSize` (하드코딩 36 제거).
+- 신규 `test/deck_vertical_gesture_test.dart`; `swipe_card_test` ↑/↓/blocked; `learn_session_queue_test` defer×10·peekNext.
+- 회귀 갱신: geometry/uniform/flipgate/requeue/spoiler/srs_ledger/same_pack/assessment_order → 아이콘 바.
+- 신규 `scripts/apply_riso_v2.py` (grain delta·misreg·speckle·edge bleed·warm cast, crc32 seed, `--inplace` 승인 후).
+
+**검증.** `flutter analyze` (덱/팩 터치 파일) 0 · `python3 -m py_compile scripts/apply_riso_v2.py` · targeted suite **72 passed** (swipe/queue/geometry/vertical/uniform/spoiler/flipgate×3/requeue/srs/same_pack/assessment/study_scale/today+home matte/gye_tab).
+
+**커밋.** (이 항목과 동일 커밋)
+
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P4 카탈로그 + §P5 Gye/Hanok
 
 **무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` §P4·§P5 구현.
@@ -9,7 +24,7 @@
 
 **검증.** `dart analyze` 대상 6파일 0 issues. `flutter test` gye_tab_landing(3)·sori_stage_responsive_accessibility(1280dp 회귀 포함)·sori_stage_catalog_reward_flow green. 타이포 래칫 Pretendard 94→85, screens TextStyle 409→384.
 
-**커밋.** (이 항목과 동일 커밋)
+**커밋.** `512f7b0`
 
 ### 2026-08-14 (Cursor Cloud) — UI/UX 개편 2 §P2-2 덱 액션바·4방향 배선
 

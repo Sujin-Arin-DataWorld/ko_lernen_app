@@ -15,7 +15,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 
@@ -85,23 +85,23 @@ void main() {
     );
     final t = await _pump(tester, pack);
 
-    // 카드 1 (짧은 단어) — 렌더된 rect 는 FittedBox 변환까지 반영한다.
-    final shortRect = tester.getRect(find.text(short));
-    final shortSize = tester.widget<Text>(find.text(short)).style!.fontSize!;
+    // 카드 1 (짧은 단어) — 슬롯 자손만 측정 (underlay 제외).
+    final slot = find.byKey(const ValueKey('deck-card-slot'));
+    final shortFinder = find.descendant(of: slot, matching: find.text(short));
+    final shortRect = tester.getRect(shortFinder);
+    final shortSize = tester.widget<Text>(shortFinder).style!.fontSize!;
 
-    // 카드 2 (긴 단어)로 전진.
+    // 카드 2 (긴 단어)로 전진 — P2 아이콘 바 onKnow (hit-test 우회).
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
-    tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .firstWhere((b) => b.label == t.vocabPackGotIt)
-        .onTap!();
+    tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar)).onKnow();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    final longRect = tester.getRect(find.text(long));
-    final longSize = tester.widget<Text>(find.text(long)).style!.fontSize!;
+    final longFinder = find.descendant(of: slot, matching: find.text(long));
+    final longRect = tester.getRect(longFinder);
+    final longSize = tester.widget<Text>(longFinder).style!.fontSize!;
 
     expect(
       longSize,
@@ -171,8 +171,9 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
 
     // 뒷면: 예문 + 스피커 아이콘 + 탭/롱프레스 가능한 SoriPressable.
+    // underlay 앞면에도 TTS 아이콘이 있어 1개 이상일 수 있다 (§P2 덱 스택).
     expect(find.textContaining('하나 예문입니다.'), findsOneWidget);
-    expect(find.byIcon(Icons.volume_up_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.volume_up_rounded), findsAtLeastNWidgets(1));
     final pressable = tester.widget<SoriPressable>(
       find.byType(SoriPressable).first,
     );

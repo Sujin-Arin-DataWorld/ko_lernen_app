@@ -154,4 +154,121 @@ void main() {
 
     expect(calls, 0, reason: 'enabled=false 이므로 판정 콜백 호출 0');
   });
+
+  testWidgets('임계 초과 하단 스와이프 = onSwipeDown 1회 (판정 0)', (tester) async {
+    var downs = 0;
+    var rights = 0;
+    var lefts = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(400, 800),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 400,
+                height: 300,
+                child: SoriSwipeCard(
+                  onSwipeLeft: () => lefts++,
+                  onSwipeRight: () => rights++,
+                  onSwipeDown: () => downs++,
+                  child: const ColoredBox(
+                    color: Colors.white,
+                    child: Center(child: Text('카드')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(0, 160));
+    await tester.pumpAndSettle();
+
+    expect(downs, 1);
+    expect(rights, 0);
+    expect(lefts, 0);
+  });
+
+  testWidgets('임계 초과 상단 스와이프 = onSwipeUp 1회 + 카드 잔류', (tester) async {
+    var ups = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(400, 800),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 400,
+                height: 300,
+                child: SoriSwipeCard(
+                  onSwipeUp: () => ups++,
+                  onSwipeRight: () {},
+                  child: const ColoredBox(
+                    color: Colors.white,
+                    child: Center(child: Text('카드')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(0, -160));
+    await tester.pumpAndSettle();
+
+    expect(ups, 1);
+    expect(find.text('카드'), findsOneWidget);
+  });
+
+  testWidgets('enabled=false 수평 저항 드래그 → onBlockedHorizontalDrag 1회', (
+    tester,
+  ) async {
+    var blocked = 0;
+    var calls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(400, 800),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 400,
+                height: 300,
+                child: SoriSwipeCard(
+                  enabled: false,
+                  onBlockedHorizontalDrag: () => blocked++,
+                  onSwipeLeft: () => calls++,
+                  onSwipeRight: () => calls++,
+                  child: const ColoredBox(
+                    color: Colors.white,
+                    child: Center(child: Text('카드')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.drag(find.text('카드'), const Offset(80, 0));
+    await tester.pumpAndSettle();
+
+    expect(blocked, 1);
+    expect(calls, 0);
+  });
 }

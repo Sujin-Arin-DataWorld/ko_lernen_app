@@ -17,9 +17,15 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 const _slotKey = ValueKey('deck-card-slot');
+
+/// P2: 텍스트 CTA → 덱 아이콘 바 onKnow 콜백 (hit-test 안정).
+Future<void> _tapKnow(WidgetTester tester) async {
+  tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar)).onKnow();
+  await _settle(tester);
+}
 
 Vocab _word(int n, String korean, {String german = 'Wort'}) => Vocab(
   id: 'geo_v$n',
@@ -103,13 +109,8 @@ void main() {
       await _settle(tester);
       expect(tester.getRect(slot), shortRect);
 
-      // Advance to long word.
-      final t = await AppL10n.delegate.load(const Locale('de'));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.vocabPackGotIt)
-          .onTap!();
-      await _settle(tester);
+      // Advance to long word via deck know icon.
+      await _tapKnow(tester);
 
       expect(find.text(long), findsOneWidget);
       final longRect = tester.getRect(slot);
@@ -196,12 +197,7 @@ void main() {
       await _settle(tester);
       expect(tester.getRect(slot), shortRect);
 
-      final t = await AppL10n.delegate.load(const Locale('de'));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.btnGewusst)
-          .onTap!();
-      await _settle(tester);
+      await _tapKnow(tester);
 
       final longRect = tester.getRect(slot);
       expect(longRect.width, shortRect.width);

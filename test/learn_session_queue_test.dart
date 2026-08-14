@@ -93,5 +93,46 @@ void main() {
     expect(q.isDone, isTrue);
     expect(q.markKnown, throwsStateError);
     expect(q.markUnknown, throwsStateError);
+    expect(q.defer, throwsStateError);
+  });
+
+  test('defer reinserts like markUnknown but never graduates', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    expect(q.defer(), LearnAnswerOutcome.deferred);
+    expect(q.missesOf('a'), 0);
+    expect(q.uniqueTotal, 5);
+    // remaining [b,c,d,e] insert at min(3,4)=3 → b,c,d,a,e
+    final served = <String>[];
+    while (!q.isDone) {
+      served.add(q.current!);
+      q.markKnown();
+    }
+    expect(served, ['b', 'c', 'd', 'a', 'e']);
+  });
+
+  test('defer ×10 never graduates; uniqueTotal unchanged', () {
+    final q = _q(['a', 'b', 'c']);
+    for (var i = 0; i < 10; i++) {
+      expect(q.defer(), LearnAnswerOutcome.deferred);
+      expect(q.missesOf('a'), 0);
+      expect(q.isDone, isFalse);
+    }
+    expect(q.uniqueTotal, 3);
+    expect(q.current, isNotNull);
+  });
+
+  test('peekNext: 2+/1/0 cards', () {
+    final multi = _q(['a', 'b', 'c']);
+    expect(multi.peekNext, 'b');
+    multi.markKnown();
+    expect(multi.peekNext, 'c');
+    multi.markKnown();
+    expect(multi.peekNext, isNull);
+
+    final single = _q(['only']);
+    expect(single.peekNext, isNull);
+
+    final empty = _q([]);
+    expect(empty.peekNext, isNull);
   });
 }

@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 /// §C-3c flipgate 센서: review_session 화면 — "앞면(flipped=false) 드래그 시
 /// SRS 기록 0 + 카드 인덱스 불변".
@@ -43,12 +44,14 @@ void main() {
   ];
 
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
       'kl_streak_days': 0,
       'kl_xp': 0,
     });
     await Storage.init();
+    await Storage.setTutSeen('review');
   });
 
   Widget buildScreen() => MaterialApp(
@@ -130,7 +133,7 @@ void main() {
   );
 
   testWidgets(
-    '버튼 판정→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)',
+    '플립 후 판정 버튼→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)',
     (tester) async {
       tester.view.physicalSize = const Size(400, 800);
       tester.view.devicePixelRatio = 1;
@@ -143,9 +146,10 @@ void main() {
       // 카드 1: 학교
       expect(find.text('학교'), findsOneWidget);
 
-      // 하단 "Gewusst!" 버튼으로 카드 1 판정 — 버튼은 플립 상태와 무관하게
-      // 항상 접근 가능 (접근성 정본).
-      await tester.tap(find.text('Gewusst!'));
+      // P2-3: 판정 버튼도 flipgate — 플립 후 onKnow.
+      await tester.tap(find.text('학교'));
+      await tester.pumpAndSettle();
+      tester.widget<SoriDeckActionBar>(find.byType(SoriDeckActionBar)).onKnow();
       await tester.pumpAndSettle();
 
       // 카드 2: 선생님 — 리셋으로 앞면이어야 함
@@ -167,6 +171,35 @@ void main() {
 
       // 여전히 두 번째 카드 유지
       expect(find.text('선생님'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    '앞면 판정 버튼 탭 → SRS 0 (P2-3 버튼 게이트)',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(buildScreen());
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(find.text('학교'), findsOneWidget);
+      final srsBefore = Storage.srsCard('학교');
+
+      // 앞면에서는 judgmentEnabled=false → onKnow는 바에서 막히므로
+      // 바의 onTap 경로(게이트)를 탭으로 검증.
+      await tester.tap(find.byKey(const ValueKey('deck-action-know')));
+      await tester.pumpAndSettle();
+
+      final srsAfter = Storage.srsCard('학교');
+      expect(
+        srsAfter?.reviewCount,
+        srsBefore?.reviewCount,
+        reason: '플립 전 판정 버튼은 SRS를 남기지 않는다',
+      );
+      expect(find.text('학교'), findsOneWidget);
     },
   );
 }
