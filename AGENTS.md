@@ -267,6 +267,16 @@ flutter run -d <android-id>   # 안드로이드
 - [~] 콘텐츠 확장 C0의 검수 파이프라인·발음 seed·레벨/게임 계약은 UI/UX v2와 섞지 않는 별도 콘텐츠 기반 작업으로 진행 중이다. Today unavailable·UX preview 변경은 UI 보류 브랜치에 둔다.
 - [ ] 콘텐츠 전용 트랙: C0 검수 게이트 확인 → Jin 검수용 B1/B2 Batch 01 초안 → 승인된 데이터만 병합한다. 실제 TTS 합성·업로드와 대량 자산 병합은 별도 승인 전까지 금지한다.
 
+### UI/UX 개편 2 — Sori Deck × 리소그래프 한지 (2026-08-14)
+
+- [x] **P1** 카드 슬롯 `deck-card-slot` 폭 핀 + review/legacy `soriUniformFitSize` 덱 균일화. 센서 `test/deck_card_geometry_test.dart`.
+- [x] **P2** 4방향 `SoriSwipeCard` · `DeckActionBar` · `defer()`/`peekNext` · 플립 힌트 · `soriDeck` 코치. flipgate는 버튼까지 강화(완화 금지).
+- [x] **P3** Today 미션 포스터 · 히어로 1.2 줌 · 한옥 배너/`hanokStageLabel` · 퀘스트 `RewardThumb`.
+- [x] **P4** 카탈로그 4:3 · ready footer 숨김 · 분(分) 이미지 오버레이 · Games `daily_game` 히어로.
+- [x] **P5** Gye 쇼케이스+단문 칩 · Hanok 숏컷 타일 3종.
+- [~] **§R** `scripts/apply_riso_v2.py` 추가. 샘플 3장 Jin 승인 전 39장 일괄 처리 금지. 덱 아이콘 webp는 Material `errorBuilder` 폴백으로 선배포.
+- [ ] Jin: 4방향 손맛·히어로 줌 잘림·리소 샘플 3장·아이콘 시안·Linux `screen_sori_today` 골든.
+
 ### 테스터 피드백(Andreas) 라운드 — 학습 루프·전역 속도·레벨 수리 (2026-08-13)
 
 - [x] **플립 스포일러 버그 수정** — 카드 전진 시 다음 카드 뜻이 ~190ms 선노출.

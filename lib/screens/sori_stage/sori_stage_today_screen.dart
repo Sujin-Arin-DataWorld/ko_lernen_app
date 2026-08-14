@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/learner_motivation.dart';
 import '../../data/quest_catalog.dart';
+import '../../data/sori_activity_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
@@ -13,8 +14,13 @@ import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../services/storage_service.dart';
 import '../../services/today_learning_navigation.dart';
 import '../../widgets/app_loading.dart';
+import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/card.dart';
 import '../../widgets/sori/character_clip.dart';
+import '../../widgets/sori/hanok_stage_label.dart';
+import '../../widgets/sori/reward_icon.dart';
+import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/responsive.dart';
@@ -311,13 +317,9 @@ class _TodayMissionStage extends StatelessWidget {
     final tt = SoriTextTheme.of(context);
     final destination = snapshot.today.destination;
     final contract = snapshot.todayReward;
-    final rewardText =
-        contract?.items
-            .map((item) => localCopy(context, item.label))
-            .join(' · ') ??
-        '';
+    final entry = activityForRoute(destination?.route);
     return Container(
-      padding: const EdgeInsets.all(Spacing.xl),
+      padding: EdgeInsets.zero,
       decoration: BoxDecoration(
         color: SoriActivityColors.hanokStage,
         borderRadius: BorderRadius.circular(SoriRadius.xl),
@@ -325,71 +327,112 @@ class _TodayMissionStage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            t.soriStageBrandLabel,
-            // §D: eyebrow 토큰 — 짙은 한옥 스테이지 위라 석간주 대신 골드.
-            style: tt.eyebrow.copyWith(color: SoriColors.gold),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            destination == null
-                ? t.soriStageTodayEmpty
-                : t.soriStageMissionAction,
-            // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지 헤더 전용.
-            style: tt.h1.copyWith(color: Colors.white),
-          ),
-          if (rewardText.isNotEmpty) ...[
-            const SizedBox(height: Spacing.lg),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          if (entry != null)
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(SoriRadius.xl),
+              ),
+              child: AspectRatio(
+                aspectRatio: 21 / 9,
+                child: Image.asset(
+                  activityIllustrationAsset(entry.id),
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                ),
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Icon(Icons.roofing_rounded, color: SoriColors.gold),
-                const SizedBox(width: Spacing.sm),
-                Expanded(
-                  child: Text(
-                    '${t.soriStagePossibleReward}: $rewardText',
-                    style: tt.label.copyWith(
-                      color: SoriActivityColors.onHanokStage,
-                    ),
+                Text(
+                  t.soriStageTodayMissionEyebrow,
+                  style: tt.eyebrow.copyWith(color: SoriColors.gold),
+                ),
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  destination == null
+                      ? t.soriStageTodayEmpty
+                      : (entry == null
+                            ? t.soriStageMissionAction
+                            : localCopy(context, entry.title)),
+                  style: tt.h1.copyWith(color: Colors.white),
+                ),
+                if (contract != null && contract.items.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.lg),
+                  Wrap(
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.sm,
+                    children: [
+                      for (final item in contract.items)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: Spacing.sm,
+                            vertical: Spacing.xs,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.12),
+                            borderRadius: SoriRadius.brPill,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                soriRewardIcon(item.kind),
+                                size: 16,
+                                color: SoriActivityColors.onHanokStage,
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                localCopy(context, item.label),
+                                style: tt.label.copyWith(
+                                  color: SoriActivityColors.onHanokStage,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
                   ),
+                ],
+                const SizedBox(height: Spacing.xl),
+                SoriButton(
+                  label: t.soriStageMissionStart,
+                  onTap: () async {
+                    final activityId =
+                        contract?.activityId ?? destination?.route ?? 'today';
+                    final receipt = await SoriStageRewardReceiptService.capture(
+                      activityId: activityId,
+                      loadSnapshot: SoriStageProgressionService.load,
+                      openActivity: () async {
+                        if (destination == null) {
+                          await Navigator.of(context).pushNamed('/path');
+                          return;
+                        }
+                        await TodayLearningNavigation.open(
+                          destination,
+                          ensurePackAccess: (level) =>
+                              ensurePackAccess(context, level: level),
+                          openRoute: (route, arguments) async {
+                            await Navigator.of(
+                              context,
+                            ).pushNamed(route, arguments: arguments);
+                          },
+                        );
+                      },
+                    );
+                    if (!context.mounted) {
+                      return;
+                    }
+                    onActivityReturned();
+                    if (receipt != null) {
+                      await showSoriStageRewardReceipt(context, receipt);
+                    }
+                  },
                 ),
               ],
             ),
-          ],
-          const SizedBox(height: Spacing.xl),
-          SoriButton(
-            label: t.soriStageMissionAction,
-            onTap: () async {
-              final activityId =
-                  contract?.activityId ?? destination?.route ?? 'today';
-              final receipt = await SoriStageRewardReceiptService.capture(
-                activityId: activityId,
-                loadSnapshot: SoriStageProgressionService.load,
-                openActivity: () async {
-                  if (destination == null) {
-                    await Navigator.of(context).pushNamed('/path');
-                    return;
-                  }
-                  await TodayLearningNavigation.open(
-                    destination,
-                    ensurePackAccess: (level) =>
-                        ensurePackAccess(context, level: level),
-                    openRoute: (route, arguments) async {
-                      await Navigator.of(
-                        context,
-                      ).pushNamed(route, arguments: arguments);
-                    },
-                  );
-                },
-              );
-              if (!context.mounted) {
-                return;
-              }
-              onActivityReturned();
-              if (receipt != null) {
-                await showSoriStageRewardReceipt(context, receipt);
-              }
-            },
           ),
         ],
       ),
@@ -461,24 +504,35 @@ class _HanokProgress extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                const Icon(
-                  Icons.home_work_outlined,
-                  size: 34,
-                  color: SoriColors.primaryDark,
+            ClipRRect(
+              borderRadius: SoriRadius.brLg,
+              child: AspectRatio(
+                aspectRatio: 16 / 5,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      'assets/illustrations/hanok_stages/stage_${snapshot.hanok.structureStage.assetSlug}_light.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                    ),
+                    Positioned(
+                      right: Spacing.md,
+                      bottom: Spacing.sm,
+                      child: Text(
+                        '$built / $total',
+                        style: tt.h3.copyWith(
+                          color: Colors.white,
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: Spacing.md),
-                Expanded(child: Text(t.soriStageHanokNow, style: tt.h3)),
-                Text(
-                  '$built / $total',
-                  // §D: 진행 수치는 tabular — 조각이 늘어도 자리 흔들림 없음.
-                  style: tt.h3.copyWith(
-                    fontFeatures: const [FontFeature.tabularFigures()],
-                  ),
-                ),
-              ],
+              ),
             ),
+            const SizedBox(height: Spacing.md),
+            Text(t.soriStageHanokNow, style: tt.h3),
             const SizedBox(height: Spacing.md),
             LinearProgressIndicator(
               value: snapshot.hanok.constructionFraction,
@@ -488,7 +542,7 @@ class _HanokProgress extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.sm),
             Text(
-              '${t.soriStageNextPiece}: ${snapshot.hanok.structureStage.name}',
+              '${t.soriStageNextPiece}: ${hanokStageLabel(t, snapshot.hanok.structureStage)}',
               style: tt.label,
             ),
           ],
@@ -508,28 +562,42 @@ class _QuestProgressRow extends StatelessWidget {
     );
     final language = Localizations.localeOf(context).languageCode;
     final tt = SoriTextTheme.of(context);
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      minVerticalPadding: Spacing.sm,
-      title: Text(
-        language == 'de' ? definition.name.de : definition.name.en,
-        style: tt.cardTitle,
-      ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(top: 6),
-        child: LinearProgressIndicator(
-          value: progress.fraction,
-          minHeight: 8,
-          borderRadius: BorderRadius.circular(SoriRadius.xs),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        onTap: () => Navigator.of(context).pushNamed('/quests'),
+        child: Row(
+          children: [
+            const RewardThumb(slug: kRewardThumbShowcaseSlug, size: 34),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    language == 'de' ? definition.name.de : definition.name.en,
+                    style: tt.cardTitle,
+                  ),
+                  const SizedBox(height: 6),
+                  LinearProgressIndicator(
+                    value: progress.fraction,
+                    minHeight: 8,
+                    borderRadius: BorderRadius.circular(SoriRadius.xs),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Text(
+              '${progress.current} / ${progress.target}',
+              style: tt.label.copyWith(
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+            ),
+          ],
         ),
       ),
-      trailing: Text(
-        '${progress.current} / ${progress.target}',
-        style: tt.label.copyWith(
-          fontFeatures: const [FontFeature.tabularFigures()],
-        ),
-      ),
-      onTap: () => Navigator.of(context).pushNamed('/quests'),
     );
   }
 }

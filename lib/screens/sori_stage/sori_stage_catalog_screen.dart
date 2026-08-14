@@ -55,12 +55,11 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
     // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    final heroId = isGames ? 'daily_game' : 'vocab_packs';
+    for (final entry in entries) {
+      if (entry.id == heroId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -138,13 +137,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                               bottom: padding.bottom,
                             ),
                             sliver: SliverGrid(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: columns,
-                                    mainAxisSpacing: Spacing.md,
-                                    crossAxisSpacing: Spacing.md,
-                                    childAspectRatio: 0.78,
-                                  ),
+                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: columns,
+                                mainAxisSpacing: Spacing.md,
+                                crossAxisSpacing: Spacing.md,
+                                // 4:3 image (h = w * 0.75) + ~102dp title/footer
+                                // band. childAspectRatio = w / (w*0.75 + 102)
+                                // ≈ 0.72 at the 160dp target cell.
+                                childAspectRatio: 0.72,
+                              ),
                               delegate: SliverChildBuilderDelegate((
                                 context,
                                 index,
@@ -236,25 +237,50 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    final readyQuiet =
+        state == SoriActivityState.ready &&
+        (progress?.current == null || progress!.current! <= 0);
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      imageOverlay: _MinutesPill(label: t.soriStageMinutes(entry.minutes)),
+      footer: readyQuiet
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked
           ? t.soriStageOpenActivity(title)
           : t.soriStageActivityDetails(title),
+    );
+  }
+}
+
+class _MinutesPill extends StatelessWidget {
+  const _MinutesPill({required this.label});
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.55),
+        borderRadius: SoriRadius.brPill,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
+      ),
     );
   }
 }

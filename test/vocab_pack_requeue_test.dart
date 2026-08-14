@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',
@@ -51,10 +51,12 @@ Future<AppL10n> _pump(WidgetTester tester, VocabPack pack) async {
 }
 
 void _tapButton(WidgetTester tester, String label) {
-  tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((b) => b.label == label)
-      .onTap!();
+  final bar = tester.widget<DeckActionBar>(find.byType(DeckActionBar));
+  if (label == bar.knowLabel) {
+    bar.onKnow();
+  } else {
+    bar.onDontKnow();
+  }
 }
 
 Future<void> _revealCurrentLearnCard(WidgetTester tester) async {
@@ -98,11 +100,8 @@ void main() {
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('1 / 4'), findsOneWidget);
     expect(
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == t.vocabPackDontKnow)
-          .onTap,
-      isNull,
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).judgmentEnabled,
+      isFalse,
       reason: 'Learn actions stay unavailable until the gloss is revealed',
     );
 

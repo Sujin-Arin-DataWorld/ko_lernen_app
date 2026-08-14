@@ -155,6 +155,7 @@ flutter:
     # 활동 카탈로그 일러스트 (Phase 3) — 규약:
     # activities/{activityId}.webp. 폴백 = ActivityIconFallback(원형 아이콘).
     - assets/illustrations/activities/
+    - assets/illustrations/deck/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/

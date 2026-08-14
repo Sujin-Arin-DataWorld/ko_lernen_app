@@ -20,11 +20,13 @@ import 'tokens.dart';
 class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
+  final bool showcase;
 
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.showcase = false,
   });
 
   @override
@@ -123,7 +125,9 @@ class _GyeHanokState extends State<GyeHanok>
         base >= 1.0 &&
         progress.hasWeeklyGoal;
     final p = reduce ? 0.0 : _pulse.value;
-    final opacity = building ? (base + p * 0.14).clamp(0.0, 1.0) : base;
+    final opacity = widget.showcase
+        ? 1.0
+        : (building ? (base + p * 0.14).clamp(0.0, 1.0) : base);
 
     Widget child = Image.asset(
       'assets/illustrations/gye/${_elements[i].slug}.png',

@@ -67,6 +67,8 @@ class SoriCharacterHero extends StatelessWidget {
     this.forceStatic = false,
   });
 
+  static const double _kHeroZoom = 1.2;
+
   MascotEmotion get _emotion {
     switch (phase) {
       case SoriDayPhase.morning:
@@ -161,22 +163,30 @@ class SoriCharacterHero extends StatelessWidget {
                     size: bandHeight * 0.92,
                     animate: true,
                   )
-                : CharacterClipPlayer(
-                    key: ValueKey('home_hero_${kind.name}'),
-                    asset: kind == MascotKind.magpie
-                        ? HomeHeroClips.magpieWalkingFront
-                        : HomeHeroClips.tigerRise,
-                    size: bandHeight,
-                    loop: true,
-                    // These home-only clips already contain the flat Hanji
-                    // backdrop. Avoid the Android external-texture color
-                    // filter that can expose the original white matte.
-                    applyMultiplyFilter: false,
-                    staticFallback: CharacterClipPlayer.videoUnavailable(
-                      context,
+                : ClipRect(
+                    child: Transform.scale(
+                      // 클립은 정사각+매트 베이크(#FBF5EB=배경 동일)라 크롭 불가시.
+                      // 1.3 초과 금지 — 발/그림자 잘림은 실기기에서만 판정 가능.
+                      scale: _kHeroZoom,
+                      alignment: Alignment.bottomCenter,
+                      child: CharacterClipPlayer(
+                        key: ValueKey('home_hero_${kind.name}'),
+                        asset: kind == MascotKind.magpie
+                            ? HomeHeroClips.magpieWalkingFront
+                            : HomeHeroClips.tigerRise,
+                        size: bandHeight,
+                        loop: true,
+                        // These home-only clips already contain the flat Hanji
+                        // backdrop. Avoid the Android external-texture color
+                        // filter that can expose the original white matte.
+                        applyMultiplyFilter: false,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      ),
                     ),
-                    fallbackKind: kind,
-                    fallbackEmotion: _emotion,
                   ),
           ),
         );

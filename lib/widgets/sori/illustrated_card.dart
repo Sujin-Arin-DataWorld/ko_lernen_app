@@ -42,6 +42,7 @@ class SoriIllustratedCard extends StatelessWidget {
     this.semanticsLabel,
     this.imageAspectRatio = 16 / 10,
     this.shrinkWrap = false,
+    this.imageOverlay,
   });
 
   final String title;
@@ -71,6 +72,9 @@ class SoriIllustratedCard extends StatelessWidget {
   /// spaceBetween 으로 채우지만, 비고정 높이에서 Expanded 는 예외를 던진다 —
   /// true 면 본문이 내용만큼만 차지한다 (footer 는 내용 뒤에 붙음).
   final bool shrinkWrap;
+
+  /// 이미지 슬롯 우하단 등 — 카드 전체가 아니라 일러스트 안에만 얹는다.
+  final Widget? imageOverlay;
 
   bool get _locked => state == SoriIllustratedCardState.locked;
 
@@ -145,10 +149,21 @@ class SoriIllustratedCard extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: imageAspectRatio,
-                  child: _Illustration(
-                    asset: illustrationAsset,
-                    fallback: fallback,
-                    dimmed: _locked,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      _Illustration(
+                        asset: illustrationAsset,
+                        fallback: fallback,
+                        dimmed: _locked,
+                      ),
+                      if (imageOverlay != null)
+                        Positioned(
+                          right: Spacing.sm,
+                          bottom: Spacing.sm,
+                          child: imageOverlay!,
+                        ),
+                    ],
                   ),
                 ),
               ),

@@ -18,6 +18,9 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/deck_flip_hint.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -66,7 +69,7 @@ class ReviewSessionScreen extends StatefulWidget {
 }
 
 class _ReviewSessionScreenState extends State<ReviewSessionScreen>
-    with ScreenCoachMixin<ReviewSessionScreen> {
+    with ScreenCoachMixin<ReviewSessionScreen>, DeckFlipHintMixin {
   bool _loading = true;
   List<Vocab> _deck = [];
   int _idx = 0;
@@ -109,6 +112,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     super.initState();
     _load();
     scheduleCoach();
+    maybeShowSoriDeckCoach(context, _cardKey, afterCoachId: 'review');
     // K-Culture 노트 로드 후 카드 반영.
     CultureNotesService.load().then((_) {
       if (mounted) {
@@ -183,6 +187,34 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
       });
     }
+  }
+
+  void _deferCurrent() {
+    if (_deck.isEmpty || _idx >= _deck.length - 1) {
+      return;
+    }
+    setState(() {
+      final card = _deck.removeAt(_idx);
+      _deck.add(card);
+      _flipped = false;
+    });
+  }
+
+  Future<void> _saveCurrent() async {
+    if (_loading || _deck.isEmpty || _done) {
+      return;
+    }
+    final card = _card;
+    await addToWordbook(
+      context,
+      korean: card.korean,
+      translationDe: card.german,
+      romanization: card.romanization,
+      posDe: card.posDe,
+      exampleKorean: card.exampleKorean,
+      exampleDe: card.exampleGerman,
+      source: 'deck_swipe',
+    );
   }
 
   @override
@@ -424,68 +456,130 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ? constraints.maxHeight
                     : 360.0;
                 final cardH = h * 0.82;
+                final next = _idx + 1 < _deck.length ? _deck[_idx + 1] : null;
                 return Center(
-                  // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-                  // 왼쪽=Nicht gewusst. 탭 플립과 공존하고, 하단 버튼 행은
-                  // 접근성·발견가능성의 정본으로 그대로 남는다.
-                  child: SoriSwipeCard(
-                    // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                    // 카드에 SRS가 기록되는 데이터 버그 방지.
-                    enabled: _flipped,
-                    onSwipeRight: () => _answer(true),
-                    onSwipeLeft: () => _answer(false),
-                    rightBadge: SoriSwipeBadge(
-                      label: t.btnGewusst,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.btnNichtGewusst,
-                      icon: Icons.close_rounded,
-                      color: SoriColors.danger,
-                    ),
-                    child: SoriPressable(
-                      key: _cardKey,
-                      onTap: () => setState(() => _flipped = !_flipped),
-                      haptic: SoriHaptic.selection,
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: cardH,
-                        child: SoriStudyScale(
-                          child: SoriCard(
-                            variant: SoriCardVariant.hero,
-                            accent: SoriColors.primary,
-                            tinted: !_flipped,
-                            child: LayoutBuilder(
-                              builder: (context, cc) {
-                                // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
-                                // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
-                                // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
-                                // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
-                                // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
-                                final ch = cc.maxHeight.isFinite
-                                    ? cc.maxHeight
-                                    : 360.0;
-                                return SingleChildScrollView(
-                                  child: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                      minHeight: cc.maxHeight,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: _flipped
-                                          ? _backList(card, s, tt, t, ch)
-                                          : _frontList(card, s, tt, t, ch),
+                  child: Stack(
+                    children: [
+                      SoriSwipeCard(
+                        enabled: _flipped,
+                        onSwipeRight: () => _answer(true),
+                        onSwipeLeft: () => _answer(false),
+                        onSwipeUp: _saveCurrent,
+                        onSwipeDown: _idx >= _deck.length - 1
+                            ? null
+                            : _deferCurrent,
+                        onBlockedHorizontalDrag: showDeckFlipHint,
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                          asset: 'assets/illustrations/deck/stamp_know.webp',
+                        ),
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.question_mark_rounded,
+                          color: SoriColors.danger,
+                          asset:
+                              'assets/illustrations/deck/stamp_dontknow.webp',
+                        ),
+                        upBadge: SoriSwipeBadge(
+                          label: t.deckActionSave,
+                          icon: Icons.redeem_rounded,
+                          color: SoriColors.gold,
+                        ),
+                        downBadge: SoriSwipeBadge(
+                          label: t.btnSkip,
+                          icon: Icons.arrow_downward_rounded,
+                          color: SoriColors.info,
+                        ),
+                        underlay: next == null
+                            ? null
+                            : SizedBox(
+                                width: double.infinity,
+                                height: cardH,
+                                child: SoriCard(
+                                  variant: SoriCardVariant.hero,
+                                  accent: SoriColors.primary,
+                                  tinted: true,
+                                  width: double.infinity,
+                                  child: Center(
+                                    child: Text(
+                                      next.korean,
+                                      textAlign: TextAlign.center,
+                                      style: tt.h1,
                                     ),
                                   ),
-                                );
-                              },
+                                ),
+                              ),
+                        child: SoriPressable(
+                          key: _cardKey,
+                          onTap: () => setState(() => _flipped = !_flipped),
+                          haptic: SoriHaptic.selection,
+                          child: SizedBox(
+                            key: const ValueKey('deck-card-slot'),
+                            width: double.infinity,
+                            height: cardH,
+                            child: SoriStudyScale(
+                              child: SoriCard(
+                                variant: SoriCardVariant.hero,
+                                accent: SoriColors.primary,
+                                tinted: !_flipped,
+                                child: LayoutBuilder(
+                                  builder: (context, cc) {
+                                    // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 →
+                                    // 텍스트가 카드 크기에 비례해 커지고(기기 무관 균일
+                                    // 충전율) 세로는 spaceEvenly 로 카드를 채운다. 콘텐츠가
+                                    // 카드보다 커지는 드문 경우엔 SingleChildScrollView 가
+                                    // 스크롤로 받아낸다(오버플로 방지, 기존 계약 유지).
+                                    final ch = cc.maxHeight.isFinite
+                                        ? cc.maxHeight
+                                        : 360.0;
+                                    final headlineSize = soriUniformFitSize(
+                                      context,
+                                      texts: [for (final w in _deck) w.korean],
+                                      maxWidth: cc.maxWidth - Spacing.xl * 2,
+                                      cap: _sz(ch, 0.155, 38, 72),
+                                      min: 32,
+                                      letterSpacing: -0.5,
+                                      lineHeight: 1.05,
+                                    );
+                                    return SingleChildScrollView(
+                                      child: ConstrainedBox(
+                                        constraints: BoxConstraints(
+                                          minHeight: cc.maxHeight,
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: _flipped
+                                              ? _backList(card, s, tt, t, ch)
+                                              : _frontList(
+                                                  card,
+                                                  s,
+                                                  tt,
+                                                  t,
+                                                  ch,
+                                                  headlineSize,
+                                                ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: DeckFlipHintChip(visible: deckFlipHintVisible),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
@@ -499,26 +593,18 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             Spacing.lg,
             Spacing.lg,
           ),
-          child: Row(
+          child: DeckActionBar(
             key: _answerRowKey,
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNichtGewusst,
-                  destructive: true,
-                  fullWidth: true,
-                  onTap: () => _answer(false),
-                ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.btnGewusst,
-                  fullWidth: true,
-                  onTap: () => _answer(true),
-                ),
-              ),
-            ],
+            dontKnowLabel: t.btnNichtGewusst,
+            skipLabel: t.btnSkip,
+            saveLabel: t.deckActionSave,
+            knowLabel: t.btnGewusst,
+            onDontKnow: () => _answer(false),
+            onSkip: _deferCurrent,
+            onSave: _saveCurrent,
+            onKnow: () => _answer(true),
+            judgmentEnabled: _flipped,
+            onBlockedJudgment: showDeckFlipHint,
           ),
         ),
       ],
@@ -536,14 +622,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     SoriTextTheme tt,
     AppL10n t,
     double h,
+    double headlineSize,
   ) => [
-    // 단어 — 카드를 채우는 대형 헤드라인. 긴 단어는 scaleDown 으로 한 줄에 맞춘다.
-    //
-    // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
-    // 0.19(최대 92sp) 대 뒷면 0.11(최대 48sp) = 1.7 배라, 짧은 한국어 단어는
-    // 카드를 꽉 채우고 뒤집으면 독일어가 갑자기 작아져 같은 카드로 안 보였다
-    // (Jin 2026-08-12 "한국어카드일때 글씨 너무 크고 독일어일때 너무 좀…").
-    // 한글은 같은 sp 에서 라틴보다 작게 보이므로 1:1 이 아니라 1.3 배로 둔다.
     FittedBox(
       fit: BoxFit.scaleDown,
       child: Text(
@@ -551,7 +631,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Pretendard',
-          fontSize: _sz(h, 0.155, 38, 72),
+          fontSize: headlineSize,
           fontWeight: FontWeight.w900,
           height: 1.05,
         ),

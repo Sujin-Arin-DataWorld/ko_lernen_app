@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 Vocab _word(String packId, int n, {bool boss = false, String prefix = 'GER'}) =>
@@ -86,10 +86,7 @@ void main() {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((b) => b.label == t.vocabPackGotIt)
-          .onTap!();
+      tester.widget<DeckActionBar>(find.byType(DeckActionBar)).onKnow();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
     }

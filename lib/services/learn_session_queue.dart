@@ -23,6 +23,9 @@ enum LearnAnswerOutcome {
 
   /// [LearnSessionQueue.maxMisses]번째 몰라요 — 세션에서는 더 묻지 않는다.
   graduated,
+
+  /// 스킵 — 같은 간격으로 다시 나오지만 실패로 세지 않는다.
+  deferred,
 }
 
 class LearnSessionQueue<T> {
@@ -53,6 +56,9 @@ class LearnSessionQueue<T> {
   /// 지금 서빙 중인 단어. 큐가 비면 null.
   T? get current => _queue.isEmpty ? null : _queue.first;
 
+  /// 덱 스택 underlay 전용 — 다음 장. 1장 이하면 null.
+  T? get peekNext => _queue.length > 1 ? _queue[1] : null;
+
   bool get isDone => _queue.isEmpty;
 
   /// 1-based 진행 분자. 재출제 중에는 유지되고, 단어가 빠질 때만 전진.
@@ -82,6 +88,14 @@ class LearnSessionQueue<T> {
     }
     _queue.insert(math.min(reinsertGap, _queue.length), item);
     return LearnAnswerOutcome.requeued;
+  }
+
+  /// 스킵 — [markUnknown] 과 같은 재삽입 기하, misses 증가 없음.
+  LearnAnswerOutcome defer() {
+    _requireCurrent();
+    final item = _queue.removeAt(0);
+    _queue.insert(math.min(reinsertGap, _queue.length), item);
+    return LearnAnswerOutcome.deferred;
   }
 
   void _requireCurrent() {

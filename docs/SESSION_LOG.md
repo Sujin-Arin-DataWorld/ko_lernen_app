@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor) — UI/UX 개편 2 Sori Deck × 리소그래프 한지
+
+**무엇/왜.** `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md` 정본대로 학습 카드를 4방향 덱(좌=모름·우=앎·위=저장·아래=스킵)으로 완성하고, Today/Catalog/Gye/Hanok을 일러스트 언어로 압축했다. Sori Stage 5탭 셸·flipgate·`PackSessionSrsLedger`는 강화만 했고 완화하지 않았다. 위/아래는 SRS·wrongCount·ledger·학습 analytics에 쓰지 않는다.
+
+**구현.**
+- P1: 4화면 `ValueKey('deck-card-slot')` + vocab_pack/`_FlipFront·Back` `width: infinity`. review/legacy 헤드라인을 `soriUniformFitSize`로 덱 균일화.
+- P2: `SoriSwipeCard` pan+축잠금+저항 드래그+underlay. `DeckActionBar` 원형 아이콘(커스텀 webp, Material fallback). `LearnSessionQueue.defer`/`peekNext`. `DeckFlipHintMixin` + `maybeShowSoriDeckCoach`. custom은 ↑ 비노출. review/custom 판정 버튼도 flipgate.
+- P3: Today 미션 21:9 포스터·보상 칩·`soriStageMissionStart`. 히어로 `ClipRect`+1.2 zoom(다크/static Mascot 제외). 한옥 16:5 배너+`hanokStageLabel`. 퀘스트 `SoriCard`+`RewardThumb`.
+- P4: 카탈로그 이미지 4:3, `childAspectRatio: 0.72`, ready footer null, 분 표기 `imageOverlay`, Games `daily_game` 히어로.
+- P5: Gye `showcase: true`·단문 칩+ⓘ 시트. Hanok Quests/Dojang/Bojagi 타일.
+- §R: `scripts/apply_riso_v2.py`만 추가. 39장 일괄 처리 없음. `assets/illustrations/deck/` + pubspec 같은 변경 세트.
+
+**의도 변경.** review/custom 앞면 판정 버튼은 이제 SRS 0(힌트만). 기존 SoriButton 라벨 탭 헬퍼는 `DeckActionBar.onKnow/onDontKnow`로 옮김.
+
+**검증.** `flutter gen-l10n` 후 analyze + queue/swipe/flipgate/geometry/vertical/uniform/typography 센서. 폭 라인 파괴-복원은 테스트 세션에서 기록. Linux `screen_sori_today` 골든은 기준선 없이 신설하지 않음(CI red 방지).
+
+**커밋:** 이 로그와 같은 커밋.
+
 ### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
 
 **무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.

@@ -392,6 +392,12 @@ class SoriSurfaces {
 
   static SoriSurfaces of(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark ? dark : light;
+
+  /// 라이트 한지의 뜬 면. 다크는 [surface] 로 강등.
+  Color get raised =>
+      brightness == Brightness.light ? SoriColors.lightSurfaceRaised : surface;
+
+  Color get alt => surfaceAlt;
 }
 
 // ─────────────────────────────────────────────────────────────────────────

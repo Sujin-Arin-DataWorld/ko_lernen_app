@@ -4246,7 +4246,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen: Karten umdrehen und einprägen';
+      'Schritt 1 · Lernen: Karte umdrehen, dann wischen. Rechts gewusst, links nicht.';
 
   @override
   String get coachVocabPackStep2 =>
@@ -4590,7 +4590,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachReviewStep2Body =>
-      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück';
+      'Wischen oder tippen: rechts gewusst, links nicht. Hoch merkt das Wort, runter überspringt.';
 
   @override
   String get coachLegacyVocabTitle => 'Karteikarte';
@@ -6394,4 +6394,71 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageActivityLocked => 'Gesperrt';
+
+  @override
+  String get deckActionSave => 'Merken';
+
+  @override
+  String get deckFlipFirstHint => 'Erst antippen und umdrehen';
+
+  @override
+  String get coachSoriDeckTitle => 'Sori Deck';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'HEUTIGE MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Starten';
+
+  @override
+  String get hanokStageName_empty => 'Bauplatz';
+
+  @override
+  String get hanokStageName_foundation => 'Fundament';
+
+  @override
+  String get hanokStageName_pillars => 'Säulen';
+
+  @override
+  String get hanokStageName_beams => 'Balken';
+
+  @override
+  String get hanokStageName_thatchRoof => 'Strohdach';
+
+  @override
+  String get hanokStageName_tileRoofPartial => 'Erste Ziegel';
+
+  @override
+  String get hanokStageName_tileRoofComplete => 'Ziegeldach';
+
+  @override
+  String get hanokStageName_dancheong => 'Dancheong';
+
+  @override
+  String get hanokStageName_gate => 'Tor';
+
+  @override
+  String get hanokStageName_windows => 'Fenster';
+
+  @override
+  String get hanokStageName_sideBuilding => 'Sarangchae';
+
+  @override
+  String get hanokStageName_jongga => 'Jongga';
+
+  @override
+  String get gyeShowcaseCaption => 'So kann euer gemeinsames Hanok aussehen';
+
+  @override
+  String get gyeExplainWhatShort => 'Eine kleine, freiwillige Lerngruppe.';
+
+  @override
+  String get gyeExplainWhyShort => 'Ein gemeinsames Hanok, kein Wettbewerb.';
+
+  @override
+  String get gyeExplainHowShort => 'Beitritt mit 6-stelligem Code.';
 }
