@@ -22,7 +22,8 @@ VocabPackScreen gesture 증거가 들어올 때까지 exact candidate 재검증,
 Internal/Closed Testing 업로드를 하지 않는다. 기존 `PackSessionSrsLedger`,
 `PackRecallSession`, clear/unlock/XP/stamp, analytics 이벤트는 바꾸지 않았다.
 
-**커밋:** 미생성 (요청 없음).
+**커밋:** `e723ddc7` (`docs(release): prepare Phase 5 Android closed testing`). 이
+기록 갱신은 바로 뒤의 documentation-only 커밋에 포함한다.
 
 ### 2026-08-14 (Antigravity, Mac) — 스와이프 flipgate 보강 + 파괴-복원 규율 완성
 
