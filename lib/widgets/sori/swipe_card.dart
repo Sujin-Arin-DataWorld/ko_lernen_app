@@ -305,7 +305,7 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
         final double underlayProgress = math
             .max(
               _dx.abs() / (width * _commitFraction),
-              _dy > 0 ? _dy / verticalThreshold : 0,
+              _dy > 0 ? _dy / verticalThreshold : 0.0,
             )
             .clamp(0.0, 1.0);
         // 틴더식 기울임 — 아래 모서리를 축으로 살짝(최대 ~9°).
