@@ -1,5 +1,42 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P5: Gye 압축 + Hanok 숏컷 타일
+
+**무엇/왜.** 핸드오프 §P5 — Gye 빈 상태를 390×844 에서 스크롤 없이 CTA 도달
+(±1줄)·화면당 1메시지로 압축하고, Hanok 고스트 텍스트 버튼을 일러스트 숏컷
+타일로 바꾼다. `showGyeChooser` 플로우 불변.
+
+- **P5-1 Gye**: ① 임베디드일 때 `_IntroEmpty` 자체 eyebrow/헤드라인/리드
+  제거(셸 헤더가 유일한 대형 텍스트, `embedded` 플래그). ② `GyeHanok` 에
+  `showcase:` 신설 — 8레이어 전부 1.0(기존 4실체·1부분·3유령 프리뷰가 깨져
+  보였음), gold 펄스도 쇼케이스에서 제외. 캡션 신규 ARB `gyeShowcaseCaption`.
+  ③ 문단 3개(`_Point`, raw Pretendard 13) → 1줄 칩 카드 3개(신규 단문 ARB
+  `gyeExplain*Short`) — **장문 키 3종은 삭제하지 않고 ⓘ 상세 시트로 강등**
+  (`showSoriSheet`, §C-2 원칙). ④ 프라이버시 카드 → 1줄 + 같은 시트에 본문.
+  ⑤ 셸 미션 칩 raw `TextStyle(w700)` → `tt.label`. ⑥ raw Pretendard 수렴:
+  `_GyeCard`·비임베디드 AppBar 타이틀. **밀도 패스**(칩 세로 패딩 6·간격
+  축소·셸 미션 칩 v-패딩 md)로 390×844 실측 통과 — 신규
+  `test/gye_embedded_fit_test.dart` 가 "임베디드 자체 헤드라인 없음 + CTA
+  스크롤 없이 도달(±1줄)"을 고정. **a11y 게이트가 ⓘ 40dp 를 실측으로 잡아
+  48dp 로 수리** (게이트의 존재 이유 그대로).
+- **P5-2 Hanok 숏컷**: `SoriButton.ghost` 3개 → `SoriCard(compact)` 타일 3개
+  (썸네일 40 → 라벨 → 카운트, Semantics "라벨, 카운트" 병합, 전체 탭타깃).
+  Quests = 대표 장식(`decoration_maehwa`, SoriRewardThumb 공용) +
+  `done/total`(= quests_screen `_QuestSummary` 계산식 재사용 — 14 는 상수가
+  아니다), Dojang = `stamp_lotus.png` + 획득∩`DancheongMotif` 14종
+  (dojangcheop 선례), Bojagi = `kBojagiClosed` 상수 재사용 + Today 와 동일
+  소스(`pendingBojagiCount`). 카운트는 진행 스냅샷 `FutureBuilder` — 로드
+  전에는 타일+라벨만 (폴백 우선). `loadSnapshot` 테스트 시임 추가.
+  `HanokWorldScreen(embedded:)`·헤더 불변.
+- **의도된 테스트 갱신**: `gye_tab_landing_test` 의 장문 문단 노출 단언 →
+  단문 칩 + ⓘ 시트에서 장문/프라이버시 본문 도달 단언으로 (정보 강등 계약).
+  접근성 매트릭스에 `gye tab` 케이스 신설.
+
+**검증.** `flutter analyze` 0 · gye landing/fit + a11y(+gye) + smoke +
+responsive 2종 + shell + 래칫 = **802 green**.
+
+**커밋:** 이 항목과 같은 커밋.
+
 ### 2026-08-14 (Cursor Cloud, Fable 5) — UI 개편 2 §P4: 카탈로그 폴리시
 
 **무엇/왜.** 핸드오프 §P4 — "거대 아이콘 벽" → 정돈된 일러스트 카탈로그.
