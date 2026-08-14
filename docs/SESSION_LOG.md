@@ -1,5 +1,13 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — main 정적 분석 기준점 정리
+
+**무엇/왜.** `test/ux_preview_app_test.dart`에 같은 Sori Stage preview 라이브러리를 두 번 import한 기존 analyzer 경고를 한 줄 제거했다. UI 동작·Sori Stage·콘텐츠 데이터에는 영향이 없으며, 다음 UI/UX v2 세션이 경고 없는 `main`에서 시작하도록 기준점을 정리했다.
+
+**검증.** `flutter analyze` → **No issues found**.
+
+**커밋:** 이 로그와 함께 documentation/test-only 후속 커밋으로 기록.
+
 ### 2026-08-14 (Codex, Mac) — UI/UX v2 인수인계 기준점 게시
 
 **무엇/왜.** Jin의 명시 승인에 따라, 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 커밋 `79ae4a0c`와 함께 UI/UX v2 구현 인수인계 문서 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`를 Git 기준점에 추가했다. `AGENTS.md`의 오래된 feature-gate/레거시 홈 설명도 실제 정본으로 바로잡아 다음 UI 세션이 서로 모순된 지시를 받지 않게 했다.
