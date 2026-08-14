@@ -9,9 +9,28 @@
 vocab_packs 재생성 + **sori_today 3장 신설**) · design_components ·
 personal_hanok_map(무변경 일치) → 재검증 15/15 green.
 
-**검증 마감.** `flutter analyze` 0 · 전체 `flutter test` 결과는 아래 항목
-참조(이 세션 마지막 실행 기록). AGENTS.md "현재 진행 중인 작업"에 UI 개편 2
-섹션 추가.
+**전체 스위트 실측 + 기존(main) 실패 정리.** 전체 `flutter test` =
+**3,342 통과 · skip 2 · 실패 6** (P1~§R 전부 반영 상태). 실패 6건을
+클린 `main`(e3fb927) 대조로 분류:
+
+- **내 몫 1건 수리**: `arb_l10n_guard` — 내가 갱신한 `coachVocabPackStep1`
+  DE/EN 에 em dash 재유입 → 마침표 문장으로 재작성, guard green.
+- **main 기존 실패 5건** (전부 `79ae4a0` 레거시 삭제 잔재 — 클린 main 에서
+  동일 실패 실측):
+  - `mascot_wiring` 2건 — 삭제된 `home_screen.dart` 죽은 참조. **수리**:
+    가드 목록을 현 홈 표면(sori_stage_today_screen + home_hero)으로 재지정.
+  - `practice_hub_flow` "04A shell shows Learn tab" — DE 로케일 셸에서
+    영문 'Learn' 리터럴 기대. **수리**: `t.soriStageNavLearn` 로.
+  - `milestone_feedback_widget` "Home persists…" — **기록만**: 프로덕션에서
+    `showMilestoneCelebration` 호출자가 0 이다. 레거시 홈 삭제가 마일스톤
+    자축 기능 전체를 고아로 만들었다(위젯·테스트만 잔존). SoriStage Today
+    재배선은 제품 결정이 필요한 별도 작업 — Phase 4 삭제 세션/Jin 몫.
+  - `ux_preview_app` "06B preview" — **기록만**: 06B(Offline) 패널이
+    `SoriStageTodayPreviewScreen` 스텁에 매핑돼 있다. offline/unavailable
+    프리뷰 구현은 AGENTS 명시대로 **UI 보류 브랜치** 소관.
+
+**검증 마감.** `flutter analyze` 0 · 수리 후 남은 실패 = 위 기록-전용 2건
+(둘 다 main 기존). AGENTS.md "현재 진행 중인 작업"에 UI 개편 2 섹션 추가.
 
 **커밋:** 이 항목과 같은 커밋.
 
