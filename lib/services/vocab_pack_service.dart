@@ -231,7 +231,7 @@ class VocabPackService {
     'b2_events_culture': ('Feste & Traditionen', 'Festivals & Traditions'),
     'b2_thinking_verbs': ('Handeln & Verändern (B2)', 'Action & Change (B2)'),
     'b2_honorifics': ('Ehrensprache (높임말)', 'Honorific Speech'),
-    // B2 세종 5B 영감 (2026-08-15)
+    // B2 확장 (2026-08-15)
     'b2_life_values': ('Lebensphilosophie', 'Life Philosophy'),
     'b2_literature_emotion': ('Literatur & Gefühle', 'Literature & Emotions'),
     'b2_language_change': ('Sprache & Wandel', 'Language & Change'),
@@ -338,7 +338,7 @@ class VocabPackService {
     'b2_events_culture': 15,
     'b2_thinking_verbs': 16,
     'b2_honorifics': 17,
-    // B2 세종 5B 영감 (2026-08-15)
+    // B2 확장 (2026-08-15)
     'b2_life_values': 18,
     'b2_literature_emotion': 19,
     'b2_language_change': 20,
