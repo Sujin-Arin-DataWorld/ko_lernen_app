@@ -8,7 +8,9 @@ Before editing any record, read the complete
 particular, Batch 01 has a fixed 96-record/ID/order contract: enrich an
 existing record in place, but create a later batch for any additional record.
 
-Every current batch totals 96 records:
+Batch 01 and Batch 02 each total 96 records. A later batch declares its own
+complete count in its manifest; it may cover one level only when that is the
+review scope.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -18,10 +20,14 @@ Every current batch totals 96 records:
 | Cloze | 12 | 12 | 24 |
 | Satzbau | 12 | 12 | 24 |
 
+Batch 03 is a B2-only depth loop: 36 vocabulary records, 6 grammar cards, 12
+small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
+
 | Batch | B1 scope | B2 scope | Pack order reservation |
 | --- | --- | --- | --- |
-| 01 | housing, tenancy, moving, practical contracts | formal agreements, obligations, precise requests | B1 #19, B2 #18 |
-| 02 | workplace coordination and schedule changes | formal complaints, remedies, escalation | B1 #20, B2 #19; reserves Batch 01 |
+| 01 | housing, tenancy, moving, practical contracts | formal agreements, obligations, precise requests | B1 #19, B2 #21 |
+| 02 | workplace coordination and schedule changes | formal complaints, remedies, escalation | B1 #20, B2 #22; reserves Batch 01 |
+| 03 | — | decisions and perspectives; reading responses; language in society | B2 #23–25; reserves Batch 01/02 |
 
 Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 

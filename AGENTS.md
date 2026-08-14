@@ -8,8 +8,8 @@
 > - ~~"Windows=UI/Android · Mac=데이터/iOS" 기계별 분담~~
 > - ~~두 기계 동시 편집을 전제한 "ARB 충돌 최소화 규칙"~~ (기계가 한 대뿐이니 ARB 충돌 자체가 없다)
 > - ~~"Windows에서 홈을 재디자인한 뒤 push" 흐름~~ — **Sori Stage가 현재 기본 홈 정본이다.** `79ae4a0c`가 feature gate와 레거시 `HomeScreen`/`WordleScreen`을 제거했으며, 캐릭터가 있는 5탭 Sori Stage 셸을 유지한다. UI/UX 개편 2의 구현 정본은 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`이다.
-> - 따라서 `docs/ANALYTICS_PRIVACY_PLAN.md`의 타입드 이벤트 16종은 **현재 활성 Sori Stage 셸**에 배선한다. 콘텐츠 확장 C0의 미커밋 변경과 UI/UX 개편 2는 별도 작업 단위로 유지한다.
-
+> **⛔ 명령어 자율 실행 (승인 대기 생략):** `flutter`, `git`, `python`, `bash` 등 개발/검증에 필요한 모든 터미널 명령(`run_command`)은 **사용자에게 매번 질문하거나 확인 대기하지 않고 즉시 직접 실행**한다. (단, `git commit`/`push`는 Jin의 명시적 요청 시에만 수행)
+>
 ---
 
 
@@ -268,8 +268,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] Jin 검수용 B1/B2 Batch 01 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 `tools/content_factory/drafts/`·`review/`에만 만들었다. 앱의 B1/B2 본문은 아직 늘리지 않았고 모든 상태는 `draft`다.
 - [x] `docs/CONTENT_AUTHORING_GUIDE.md`를 콘텐츠 DB 작성 정본으로 추가했다. 새 콘텐츠는 실제 schema·KO/DE/EN·ID·참조·review 규칙을 이 문서와 validator로 먼저 확인한다(실벤·끝말잇기는 현재 DE-only schema).
 - [x] Jin 검수용 B1/B2 Batch 02 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 동일한 review-only 경로에 추가했다. B1 업무 조율·일정 변경과 B2 공식 민원·시정·상위 부서 문의를 다루며, Batch 01의 ID·표제어·curriculum ownership과 pack 순번을 predecessor reservation으로 보호한다. 앱 본문·TTS·UI는 바꾸지 않았고 모든 상태는 `draft`다.
-- [ ] Jin은 Batch 01/02 원장에서 `ok`/`approved`만 명시한다. `draft`·`fix:`·`no`·부분 승인된 신규 vocab pack은 병합하지 않는다.
-- [ ] 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드, 대량 자산 병합, Batch 01/02 이후 콘텐츠 데이터 병합·커밋·푸시는 Jin의 별도 승인 전까지 금지한다.
+- [x] 외부 저작물의 표현·단원 배열은 배제하되, 개별 문법 형태와 CEFR 기능 목표를 neutral brief로 재정의하는 출처 정책을 `docs/CONTENT_SOURCE_POLICY.md`와 콘텐츠 작성 정본에 추가했다. 앞으로 독립 작성 증거가 없는 후보는 review-only 권리 검토를 거치며, 기존 후보를 이름만 바꿔 재사용하지 않는다.
+- [x] Jin 검수용 B2 Batch 03 심화 초안 126개(단어 36·문법 6·스몰토크 12·Cloze 36·Satzbau 36)를 review-only 경로에 추가했다. 선택과 관점·읽기와 반응·말과 사회의 세 자체 집필 pillar를 단어→문법→산출 루프로 묶었으며, Batch 01/02의 예약과 live B2 pack 순서를 보존하도록 B2 UI 순번을 21–25로 재정렬했다. 앱 본문·TTS·UI는 바꾸지 않았고 모든 상태는 `draft`다.
+- [ ] Jin은 Batch 01/02/03 원장에서 `ok`/`approved`만 명시한다. `draft`·`fix:`·`no`·부분 승인된 신규 vocab pack은 병합하지 않는다.
+- [ ] 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드, 대량 자산 병합, Batch 01–03 이후 콘텐츠 데이터 병합·커밋·푸시는 Jin의 별도 승인 전까지 금지한다.
 
 ### 테스터 피드백(Andreas) 라운드 — 학습 루프·전역 속도·레벨 수리 (2026-08-13)
 

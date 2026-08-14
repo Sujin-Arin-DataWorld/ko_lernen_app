@@ -86,7 +86,7 @@
     {
       "packId": "b2_formal_complaint_1",
       "level": "b2",
-      "orderInLevel": 19,
+      "orderInLevel": 22,
       "orderRange": [1, 12],
       "reviewBossOrders": [10, 11, 12],
       "displayLabel": {
@@ -229,7 +229,7 @@
   "nonMergeGuards": [
     "Every review row is draft; no Batch 02 record may be appended to assets/data yet.",
     "Batch 01 and Batch 02 companion mappings must be merged by a future multi-file integration transaction, not manually or with asset-only apply_review.py.",
-    "The predecessor manifest reserves B1 order 19 and B2 order 18; Batch 02 must retain B1 order 20 and B2 order 19.",
+    "The predecessor manifest reserves B1 order 19 and B2 order 21; Batch 02 must retain B1 order 20 and B2 order 22.",
     "No TTS synthesis or Firebase Storage upload is authorized for this review-only batch."
   ]
 }

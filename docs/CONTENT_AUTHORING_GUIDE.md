@@ -30,6 +30,28 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 4. 독일어와 영어를 함께 작성하고, 같은 의미인지 검수한다.
 5. review 원장을 draft와 동기화하고, Jin 승인 전에는 `--apply`, 실제 TTS, 커밋을 하지 않는다.
 
+### 0.1 외부 교재·저작물 격리
+
+앱의 학습 본문은 독립 창작물이어야 한다. 제3자 교재, 워크북, 유료 강의, PDF, 음원,
+번역문, 추출 텍스트는 콘텐츠 생성 프롬프트·draft·review 원장·앱 asset에 넣지 않는다.
+무료 열람 또는 비상업 교육 목적의 배포가 앱의 복제·번역·개작·상업 이용 허락을 뜻하지는
+않는다.
+
+- 사용할 수 있는 입력은 일반 CEFR 기술어, 사전의 개별 언어 사실, 적법하게 이용 가능한
+  공개 자료, 그리고 Hangul Sori가 직접 정한 학습 목표다.
+- 문법 형태 자체는 언어 사실이므로, 예를 들어 `-다가는`을 독립 작성한 B2 학습 목표로
+  삼을 수 있다. 다만 특정 교재의 문형 묶음·과별 순서·어휘 선정·활동 흐름을 함께
+  옮기지 않고, 원문과 무관한 상황·예문·설명·문항·DE/EN 번역을 새로 작성한다.
+- 특정 교재의 문장, 대화, 문제, 정답, 번역, 문형 설명, 단원 제목, 어휘 선정·배열,
+  쪽수·활동 순서, 삽화·음원은 사용 금지다. 교재를 요약해 만든 표나 JSON도 같은 제한을
+  받는다.
+- 새 manifest의 `provenance.scope`에는 독립적으로 정한 학습 목적만 쓴다. 출판물명,
+  저자명, 페이지, 단원 번호, 추출 파일 경로를 적지 않는다. `field_notes`에는
+  `rights: original`을 남기고, 검수자는 문장·번역·선택지가 독립 작성됐는지 확인한다.
+- 기존 live asset에 출처가 불명확한 후보가 발견되면, 이름만 지워 계속 쓰지 않는다.
+  별도 rights review에서 유지·재작성·제외를 결정하며, 새 콘텐츠가 그 후보를 재사용하지
+  않는다.
+
 ## 1. 가장 중요한 규칙 12개
 
 1. **모든 새 학습 본문에는 DE와 EN가 모두 필요하다.** 독일어는 주 학습자 언어이고,
@@ -192,11 +214,22 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 - 새 draft/review 파일을 Batch 01 manifest에 임의 추가
 - Batch 01의 `recordCount`만 늘리기
 
-더 풍성한 새 콘텐츠는 `batch_02_manifest.json`과 `c2/c3/c4_batch02_*` 파일을 별도로
-만든다. Batch 02부터는 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
+더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
+파일을 별도로 만든다. Batch 02부터는 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
 `validate_batch_01.py`의 고정 96-record/ID 계약은 절대 느슨하게 만들지 않는다.
+
+### 4.4 Batch 03: B2 심화 루프의 예
+
+`batch_03_manifest.json`은 B2만 다루는 126-record 예시다. 세 개의 12단어 pack마다
+문법 2개, 스몰토크 4개, canonical 단어 예문에서 정확히 파생한 Cloze 12개와 Satzbau 12개를
+둔다. 이처럼 다음 batch는 “B1/B2를 반드시 반반”으로 맞추지 않는다. 학습 목적·ID 예약·
+커리큘럼 ownership·검수 가능성이 먼저이고, 총수는 manifest가 정한다.
+
+이 batch의 교육 설계 이유와 자체 집필 경계는
+`docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`를 따른다. 그 문서는 학습 기능을 설명할 뿐
+외부 저작물의 문장·단원·배열을 콘텐츠 소스로 삼지 않는다.
 
 ### 4.3 Batch 01 review 동기화
 
@@ -889,7 +922,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - 기존 ID/표제어/pack/category/curriculum을 먼저 읽어 중복과 참조 오류를 피해.
 - 새 vocab pack이면 11~12행, 연속 pack_order, 마지막 2~3 Boss, metadata와 planner를 준비해.
 - review CSV는 공통 header와 draft projection을 정확히 맞추고 모든 상태를 draft로 둬.
-- Batch 01에는 행을 추가하지 말고, 추가 수량은 Batch 02로 분리해.
+- Batch 01에는 행을 추가하지 말고, 추가 수량은 다음 번호의 독립 batch로 분리해.
 - validate_content.py, 필요한 preflight, apply_review preview까지만 실행하고 --apply는 실행하지 마.
 - 마지막에 변경 파일, 미병합 수량, 검증 결과, Jin이 검수할 review 파일을 보고해.
 ```
@@ -898,6 +931,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 
 - 구조/레벨 소유권: `docs/CONTENT_ARCHITECTURE.md`
 - B1/B2 제작 순서와 품질 기준: `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`
+- B2 심화 루프의 자체 집필 설계: `docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`
 - Batch 01 파일·수량·mapping 의도: `tools/content_factory/drafts/README.md`, `batch_01_manifest.json`
 - review 상태와 transactional 병합: `tools/content_factory/review/README.md`
 - 기계 검증: `tools/content_factory/validate_content.py`, `validate_batch_01.py`,

@@ -227,10 +227,13 @@ class ContentValidator:
             packs[pack_id].append(row)
 
         for pack_id, words in sorted(packs.items()):
-            levels = {word["level"] for word in words}
+            levels = {(word.get("level") or "").strip() for word in words}
             if len(levels) != 1:
                 self.issue(name, f"pack {pack_id!r} mixes levels {sorted(levels)}")
-            bosses = sum(word["is_review_boss"].lower() == "true" for word in words)
+            bosses = sum(
+                (word.get("is_review_boss") or "").lower() == "true"
+                for word in words
+            )
             if bosses not in (2, 3):
                 self.issue(name, f"pack {pack_id!r} has {bosses} Boss words; expected 2 or 3")
         return {row["korean"]: row["level"].lower() for row in rows if row.get("korean")}

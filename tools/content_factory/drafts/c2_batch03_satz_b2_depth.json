@@ -1,0 +1,328 @@
+{
+  "items": [
+    {
+      "id": "satz_b2_0066",
+      "level": "b2",
+      "targetKo": "두 사람은 서로 한 걸음씩 양보해 현실적인 방안으로 타협했어요.",
+      "promptDe": "Beide Seiten gaben etwas nach und einigten sich auf eine realistische Lösung.",
+      "promptEn": "Both sides gave a little and reached a realistic compromise.",
+      "distractors": ["현실적인 기준을", "결정을 내렸어요"],
+      "vocabKo": "타협하다"
+    },
+    {
+      "id": "satz_b2_0067",
+      "level": "b2",
+      "targetKo": "주관이 다르다고 해서 상대의 판단이 틀린 것은 아니에요.",
+      "promptDe": "Nur weil sich subjektive Sichtweisen unterscheiden, ist die Einschätzung der anderen Person nicht falsch.",
+      "promptEn": "A different subjective view does not make the other person's judgment wrong.",
+      "distractors": ["상대의 말투가", "다른 것은"],
+      "vocabKo": "주관"
+    },
+    {
+      "id": "satz_b2_0068",
+      "level": "b2",
+      "targetKo": "이번 결정에서는 빠른 결과보다 오래 지킬 수 있는 기준을 우선시하려고 해요.",
+      "promptDe": "Bei dieser Entscheidung möchte ich einen Maßstab priorisieren, den ich langfristig einhalten kann.",
+      "promptEn": "For this decision, I want to prioritize a standard I can uphold over time.",
+      "distractors": ["빠른 결과를", "설명하려고 해요"],
+      "vocabKo": "우선시하다"
+    },
+    {
+      "id": "satz_b2_0069",
+      "level": "b2",
+      "targetKo": "의견 차이를 줄이려면 서로가 받아들일 수 있는 양보가 필요해요.",
+      "promptDe": "Um unterschiedliche Meinungen einander anzunähern, braucht es Zugeständnisse, die beide Seiten akzeptieren können.",
+      "promptEn": "To narrow a difference of opinion, both sides need concessions they can accept.",
+      "distractors": ["결과가", "더 중요해요"],
+      "vocabKo": "양보"
+    },
+    {
+      "id": "satz_b2_0070",
+      "level": "b2",
+      "targetKo": "그는 어려운 상황에서도 남을 성급히 판단하지 않겠다는 신념을 지켰어요.",
+      "promptDe": "Auch in schwierigen Situationen hielt er an seiner Überzeugung fest, andere nicht vorschnell zu beurteilen.",
+      "promptEn": "Even in difficult situations, he held on to his conviction not to judge others too quickly.",
+      "distractors": ["결정을", "바로 내렸어요"],
+      "vocabKo": "신념"
+    },
+    {
+      "id": "satz_b2_0071",
+      "level": "b2",
+      "targetKo": "무엇이 중요한지에 대한 기준이 다르면 같은 선택도 다르게 보일 수 있어요.",
+      "promptDe": "Wenn sich die Maßstäbe dafür unterscheiden, was wichtig ist, kann dieselbe Wahl unterschiedlich wirken.",
+      "promptEn": "When people use different criteria for what matters, the same choice can look different.",
+      "distractors": ["말투가", "비슷해 보여요"],
+      "vocabKo": "기준"
+    },
+    {
+      "id": "satz_b2_0072",
+      "level": "b2",
+      "targetKo": "회의에서는 비용보다 안전을 우선해야 한다는 이견이 제기됐어요.",
+      "promptDe": "In der Sitzung wurde die abweichende Meinung vorgebracht, Sicherheit müsse vor Kosten stehen.",
+      "promptEn": "At the meeting, someone raised the view that safety should come before cost.",
+      "distractors": ["비용을 줄여야", "결정됐어요"],
+      "vocabKo": "이견"
+    },
+    {
+      "id": "satz_b2_0073",
+      "level": "b2",
+      "targetKo": "두 제안의 장점을 살린 절충안을 찾으면 갈등을 줄일 수 있어요.",
+      "promptDe": "Eine Kompromisslösung, die die Stärken beider Vorschläge aufgreift, kann Konflikte verringern.",
+      "promptEn": "A compromise that keeps the strengths of both proposals can reduce conflict.",
+      "distractors": ["새 기준을", "설명할 수 있어요"],
+      "vocabKo": "절충안"
+    },
+    {
+      "id": "satz_b2_0074",
+      "level": "b2",
+      "targetKo": "관리자는 결정의 결과를 설명할 책무가 있어요.",
+      "promptDe": "Leitende Personen haben die Verantwortung, die Folgen ihrer Entscheidungen zu erklären.",
+      "promptEn": "Leaders have a responsibility to explain the consequences of their decisions.",
+      "distractors": ["기회가", "남아 있어요"],
+      "vocabKo": "책무"
+    },
+    {
+      "id": "satz_b2_0075",
+      "level": "b2",
+      "targetKo": "정보가 충분하지 않아도 어느 순간에는 결단을 내려야 할 때가 있어요.",
+      "promptDe": "Auch wenn Informationen fehlen, kommt der Moment, in dem man eine Entscheidung treffen muss.",
+      "promptEn": "Even without complete information, there comes a time when you have to make a decision.",
+      "distractors": ["설명을 들어야", "결과를 기다려야"],
+      "vocabKo": "결단"
+    },
+    {
+      "id": "satz_b2_0076",
+      "level": "b2",
+      "targetKo": "모두가 반대해도 자신의 소신을 차분히 설명했어요.",
+      "promptDe": "Obwohl alle anderer Meinung waren, erklärte sie ihre eigene Überzeugung ruhig.",
+      "promptEn": "Even though everyone disagreed, she calmly explained her own conviction.",
+      "distractors": ["상대의 의견을", "그대로 따랐어요"],
+      "vocabKo": "소신"
+    },
+    {
+      "id": "satz_b2_0077",
+      "level": "b2",
+      "targetKo": "그 선택이 남긴 영향을 되돌아보며 다음 기준을 세웠어요.",
+      "promptDe": "Im Rückblick auf die Folgen dieser Wahl habe ich einen neuen Maßstab für die nächste Entscheidung gesetzt.",
+      "promptEn": "Reflecting on the effects of that choice, I set a new criterion for my next decision.",
+      "distractors": ["같은 결과를", "기다렸어요"],
+      "vocabKo": "되돌아보다"
+    },
+    {
+      "id": "satz_b2_0078",
+      "level": "b2",
+      "targetKo": "짧은 문장이었지만 읽고 난 뒤에도 긴 여운이 남았어요.",
+      "promptDe": "Der Satz war kurz, aber er klang noch lange nach, nachdem ich ihn gelesen hatte.",
+      "promptEn": "It was a short sentence, but it stayed with me long after I had read it.",
+      "distractors": ["긴 설명이", "필요했어요"],
+      "vocabKo": "여운"
+    },
+    {
+      "id": "satz_b2_0079",
+      "level": "b2",
+      "targetKo": "작가는 직접 말하지 않고 한 장면에 여러 감정을 함축했어요.",
+      "promptDe": "Die Autorin sprach es nicht direkt aus, sondern verdichtete mehrere Gefühle in einer Szene.",
+      "promptEn": "The author did not say it directly but condensed several feelings into one scene.",
+      "distractors": ["한 문장에", "반복했어요"],
+      "vocabKo": "함축"
+    },
+    {
+      "id": "satz_b2_0080",
+      "level": "b2",
+      "targetKo": "비가 그친 거리의 묘사가 장면을 눈앞에 그리게 했어요.",
+      "promptDe": "Die Beschreibung der Straße nach dem Regen ließ die Szene vor meinem inneren Auge entstehen.",
+      "promptEn": "The description of the street after the rain brought the scene to life.",
+      "distractors": ["말투가", "더 또렷했어요"],
+      "vocabKo": "묘사"
+    },
+    {
+      "id": "satz_b2_0081",
+      "level": "b2",
+      "targetKo": "낯선 사람을 바라보는 화자의 시선이 글 전체의 분위기를 만들어요.",
+      "promptDe": "Der Blickwinkel der erzählenden Person auf die Fremden prägt die Stimmung des ganzen Textes.",
+      "promptEn": "The narrator's perspective on the strangers shapes the mood of the whole text.",
+      "distractors": ["시간의 순서가", "결말을 만들어요"],
+      "vocabKo": "시선"
+    },
+    {
+      "id": "satz_b2_0082",
+      "level": "b2",
+      "targetKo": "저는 주인공이 말하지 못한 불안에 더 공감했어요.",
+      "promptDe": "Ich konnte besonders mit der Angst mitfühlen, die die Hauptfigur nicht aussprechen konnte.",
+      "promptEn": "I especially empathized with the anxiety the main character could not put into words.",
+      "distractors": ["작가의 설명을", "그대로 믿었어요"],
+      "vocabKo": "공감하다"
+    },
+    {
+      "id": "satz_b2_0083",
+      "level": "b2",
+      "targetKo": "같은 문장도 독자의 경험에 따라 여러 방식으로 해석될 수 있어요.",
+      "promptDe": "Derselbe Satz kann je nach Erfahrung der lesenden Person unterschiedlich interpretiert werden.",
+      "promptEn": "The same sentence can be interpreted in different ways depending on the reader's experience.",
+      "distractors": ["같은 뜻으로", "정착할 수 있어요"],
+      "vocabKo": "해석"
+    },
+    {
+      "id": "satz_b2_0084",
+      "level": "b2",
+      "targetKo": "첫 문단의 차분한 인상이 마지막의 긴장과 대조됐어요.",
+      "promptDe": "Der ruhige Eindruck des ersten Abschnitts stand im Kontrast zur Spannung am Ende.",
+      "promptEn": "The calm impression of the first paragraph contrasted with the tension at the end.",
+      "distractors": ["상징이", "반복됐어요"],
+      "vocabKo": "인상"
+    },
+    {
+      "id": "satz_b2_0085",
+      "level": "b2",
+      "targetKo": "반복해서 나오는 창문은 인물의 망설임을 보여 주는 상징처럼 느껴졌어요.",
+      "promptDe": "Das wiederkehrende Fenster wirkte wie ein Symbol für das Zögern der Figur.",
+      "promptEn": "The recurring window felt like a symbol of the character's hesitation.",
+      "distractors": ["배경이", "조용해졌어요"],
+      "vocabKo": "상징"
+    },
+    {
+      "id": "satz_b2_0086",
+      "level": "b2",
+      "targetKo": "시간 순서를 바꾼 서술 덕분에 결말의 의미가 더 또렷해졌어요.",
+      "promptDe": "Durch die veränderte zeitliche Erzählweise wurde die Bedeutung des Endes deutlicher.",
+      "promptEn": "Changing the order of time in the narration made the ending clearer.",
+      "distractors": ["용례 덕분에", "글이 짧아졌어요"],
+      "vocabKo": "서술"
+    },
+    {
+      "id": "satz_b2_0087",
+      "level": "b2",
+      "targetKo": "누군가를 용서하는 장면이 제게 가장 큰 울림을 줬어요.",
+      "promptDe": "Die Szene, in der jemand vergeben wird, hat mich am stärksten berührt.",
+      "promptEn": "The scene in which someone is forgiven resonated with me the most.",
+      "distractors": ["설명을", "더해 줬어요"],
+      "vocabKo": "울림"
+    },
+    {
+      "id": "satz_b2_0088",
+      "level": "b2",
+      "targetKo": "밝은 배경과 무거운 대사의 대조가 인물의 외로움을 드러냈어요.",
+      "promptDe": "Der Gegensatz zwischen hellem Hintergrund und schweren Worten machte die Einsamkeit der Figur sichtbar.",
+      "promptEn": "The contrast between the bright setting and the heavy dialogue revealed the character's loneliness.",
+      "distractors": ["표현 방식이", "기준을 보여 줬어요"],
+      "vocabKo": "대조"
+    },
+    {
+      "id": "satz_b2_0089",
+      "level": "b2",
+      "targetKo": "글을 읽고 난 뒤 제 행동을 돌아보는 성찰의 시간이 필요했어요.",
+      "promptDe": "Nach der Lektüre brauchte ich Zeit, um über mein eigenes Verhalten nachzudenken.",
+      "promptEn": "After reading the text, I needed time to reflect on my own actions.",
+      "distractors": ["대조의", "결과가 필요했어요"],
+      "vocabKo": "성찰"
+    },
+    {
+      "id": "satz_b2_0090",
+      "level": "b2",
+      "targetKo": "같은 뜻이라도 '부탁'과 '요구'는 어감이 달라요.",
+      "promptDe": "Auch wenn beide Wörter Ähnliches bedeuten, haben 부탁 und 요구 eine andere Klangwirkung.",
+      "promptEn": "Even though they have a similar meaning, 부탁 and 요구 carry different connotations.",
+      "distractors": ["용례가", "같아요"],
+      "vocabKo": "어감"
+    },
+    {
+      "id": "satz_b2_0091",
+      "level": "b2",
+      "targetKo": "답변의 내용보다 차가운 말투가 더 불편하게 느껴졌어요.",
+      "promptDe": "Mehr als der Inhalt der Antwort wirkte der kühle Sprechton unangenehm.",
+      "promptEn": "More than the content of the reply, its cold tone felt uncomfortable.",
+      "distractors": ["대조가", "더 중요했어요"],
+      "vocabKo": "말투"
+    },
+    {
+      "id": "satz_b2_0092",
+      "level": "b2",
+      "targetKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
+      "promptDe": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
+      "promptEn": "Dictionary usage examples show the situations in which this expression is used.",
+      "distractors": ["상징을", "설명할 수 있어요"],
+      "vocabKo": "용례"
+    },
+    {
+      "id": "satz_b2_0093",
+      "level": "b2",
+      "targetKo": "관용어는 낱말을 그대로 번역하면 뜻이 잘 전달되지 않을 수 있어요.",
+      "promptDe": "Bei Redewendungen geht die Bedeutung leicht verloren, wenn man die einzelnen Wörter wörtlich übersetzt.",
+      "promptEn": "With idiomatic expressions, the meaning can be lost when the words are translated literally.",
+      "distractors": ["비속어는", "항상 쉬워요"],
+      "vocabKo": "관용어"
+    },
+    {
+      "id": "satz_b2_0094",
+      "level": "b2",
+      "targetKo": "공식 안내문에서는 상황에 맞는 격식을 지키는 것이 중요해요.",
+      "promptDe": "In einer offiziellen Mitteilung ist es wichtig, ein zur Situation passendes Maß an Formellheit zu wahren.",
+      "promptEn": "In an official notice, it is important to use a level of formality that fits the situation.",
+      "distractors": ["상징을", "반복하는 것이"],
+      "vocabKo": "격식"
+    },
+    {
+      "id": "satz_b2_0095",
+      "level": "b2",
+      "targetKo": "비속어는 가까운 사이에서도 상대에 따라 무례하게 들릴 수 있어요.",
+      "promptDe": "Auch unter vertrauten Menschen kann derbe Sprache je nach Gegenüber unhöflich wirken.",
+      "promptEn": "Even among close people, slang can sound rude depending on who hears it.",
+      "distractors": ["관용어는", "쉽게 통용될 수 있어요"],
+      "vocabKo": "비속어"
+    },
+    {
+      "id": "satz_b2_0096",
+      "level": "b2",
+      "targetKo": "거절할 때는 이유를 덧붙이면 표현이 더 완곡해져요.",
+      "promptDe": "Wenn man bei einer Ablehnung einen Grund ergänzt, wirkt die Formulierung indirekter und schonender.",
+      "promptEn": "Adding a reason when you decline makes the wording more indirect and considerate.",
+      "distractors": ["길어지면", "더 강해져요"],
+      "vocabKo": "완곡하다"
+    },
+    {
+      "id": "satz_b2_0097",
+      "level": "b2",
+      "targetKo": "한때 유행한 표현도 시간이 지나면 더 이상 널리 통용되지 않을 수 있어요.",
+      "promptDe": "Auch ein Ausdruck, der einmal beliebt war, kann mit der Zeit nicht mehr allgemein gebräuchlich sein.",
+      "promptEn": "Even an expression that was once popular may no longer be widely used over time.",
+      "distractors": ["자연스럽게", "설명될 수 있어요"],
+      "vocabKo": "통용되다"
+    },
+    {
+      "id": "satz_b2_0098",
+      "level": "b2",
+      "targetKo": "새로운 말이 여러 세대에 자연스럽게 쓰이면 일상어로 정착할 수 있어요.",
+      "promptDe": "Wenn ein neues Wort von mehreren Generationen selbstverständlich verwendet wird, kann es sich als Alltagssprache etablieren.",
+      "promptEn": "When a new word is naturally used across generations, it can become established in everyday language.",
+      "distractors": ["서술로", "대조될 수 있어요"],
+      "vocabKo": "정착하다"
+    },
+    {
+      "id": "satz_b2_0099",
+      "level": "b2",
+      "targetKo": "의도를 설명하지 않은 짧은 답장은 불필요한 오해를 낳기 쉬워요.",
+      "promptDe": "Eine kurze Antwort ohne Erklärung der Absicht kann leicht unnötige Missverständnisse hervorrufen.",
+      "promptEn": "A short reply that does not explain its intent can easily cause unnecessary misunderstandings.",
+      "distractors": ["새로운 용례를", "정착시키기 쉬워요"],
+      "vocabKo": "오해를 낳다"
+    },
+    {
+      "id": "satz_b2_0100",
+      "level": "b2",
+      "targetKo": "같은 의견도 표현 방식에 따라 상대가 받아들이는 느낌이 달라져요.",
+      "promptDe": "Je nach Art der Formulierung kann dieselbe Meinung beim Gegenüber anders ankommen.",
+      "promptEn": "The same opinion can land differently depending on how it is phrased.",
+      "distractors": ["시간에", "변하지 않아요"],
+      "vocabKo": "표현 방식"
+    },
+    {
+      "id": "satz_b2_0101",
+      "level": "b2",
+      "targetKo": "여러 상황의 대화를 비교해 보면 상황에 맞는 언어 감각이 자라요.",
+      "promptDe": "Wenn man Gespräche aus verschiedenen Situationen vergleicht, entwickelt sich ein Gespür für passende Sprache.",
+      "promptEn": "Comparing conversations from different situations builds a feel for language that fits the context.",
+      "distractors": ["상징이", "같아져요"],
+      "vocabKo": "언어 감각"
+    }
+  ]
+}

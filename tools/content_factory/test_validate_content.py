@@ -8,6 +8,7 @@ Run with:
 from __future__ import annotations
 
 import copy
+import csv
 import json
 from pathlib import Path
 import sys
@@ -43,6 +44,31 @@ class ContentValidatorTest(unittest.TestCase):
 
     def test_current_repository_content_passes(self) -> None:
         self.assertEqual(ContentValidator().validate(), [])
+
+    def test_malformed_vocab_row_is_reported_without_crashing(self) -> None:
+        with (Path("assets/data") / "korean_vocab.csv").open(
+            encoding="utf-8-sig",
+            newline="",
+        ) as handle:
+            reader = csv.DictReader(handle)
+            header = list(reader.fieldnames or [])
+            valid_row = next(reader)
+        malformed_row = {field: None for field in header}
+
+        validator = ContentValidator()
+        original_load_csv = validator.load_csv
+
+        def load_csv(name: str):
+            if name == "korean_vocab.csv":
+                return header, [valid_row, malformed_row]
+            return original_load_csv(name)
+
+        validator.load_csv = load_csv  # type: ignore[method-assign]
+        validator.validate_vocab()
+
+        messages = self._messages(validator)
+        self.assertTrue(any("row 3 has an empty required field" in message for message in messages))
+        self.assertTrue(any("row 3 has invalid vocab id" in message for message in messages))
 
     def test_pronunciation_requires_version_and_real_string_identity(self) -> None:
         pronunciation = copy.deepcopy(self._asset_json("pronunciation_phrases.json"))

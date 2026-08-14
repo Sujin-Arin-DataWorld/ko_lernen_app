@@ -1,5 +1,69 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
+
+**무엇/왜.** B2를 단어 수만 늘리는 방식에서 벗어나, 선택의 근거·읽기 반응·표현의 사회적
+효과를 설명하고 산출하는 세 개의 자체 집필 pillar로 확장했다. 새
+`docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`는 각 pillar를 12단어 → 문법 2개 →
+스몰토크 4개 → 같은 canonical 예문의 Cloze/Satzbau 12개로 잇는 설계를 고정한다.
+외부 자료에서 얻은 CEFR 기능 신호와 언어 형태는 neutral brief로 재정의할 수 있으나,
+원문 표현·단원 배열·예문·활동 순서는 쓰지 않는다고 `CONTENT_SOURCE_POLICY.md`와 작성
+가이드에 명시했다.
+
+**Batch 03 (review-only, 126건).** `tools/content_factory/drafts/`와 `review/`에만 다음을
+추가했다. 모든 review 상태는 `draft`이고 모든 `field_notes`에 `rights: original`을 남겼다.
+
+- B2 vocab 36: `b2_decisions_perspectives_1`, `b2_reading_response_1`,
+  `b2_language_society_1` (각 12단어·마지막 3 Boss)
+- B2 grammar 6: `A/V-기에`, `V-기 나름이다`, `A/V-(으)ㄴ/는 듯하다`, `V-고 나서야`,
+  `N을/를 둘러싸고`, `V-다가는`
+- B2 smalltalk 12: 기존 `daily`·`mood`·`screen` category 안에서 관계 맥락, 안전한
+  대안 질문, follow-up, 질문형 reply를 모두 갖춘 대화
+- Cloze 36 + Satzbau 36: 각 항목이 해당 vocab canonical KO/DE/EN 예문을 정확히 공유
+
+**검수 체인 복구.** 기존 라이브 B2 pack 순서가 18–20을 이미 사용하므로, 아직 미병합인
+Batch 01/02의 B2 `orderInLevel`을 21/22로 재예약하고 Batch 03은 23–25로 잡았다. ID와
+본문은 바꾸지 않았다. 이로써 Batch 01/02/03의 predecessor reservation과 pack planner가
+같은 순번 정본을 읽는다.
+
+**검증.** `python3 tools/content_factory/validate_content.py`, Batch 01 pre-review overlay,
+Batch 02/03 manifest-driven overlay 모두 통과했다. `test_validate_content.py` 8건,
+Batch 03의 36개 exact vocab→Cloze→Satz derivation·126개 draft/rights ledger 검사,
+`flutter analyze` 0 issues, `flutter test test/content_audit_manifest_test.dart
+test/data_integrity_test.dart` 6건, `git diff --check`도 통과했다.
+
+**경계.** 앱 `assets/data` 병합, TTS 합성·로컬 write·Firebase Storage, UI/디자인은 하지
+않았다. 커밋·push는 Jin의 명시 지시 대기다.
+
+### 2026-08-15 (Antigravity, Mac) — Flutter·Git·Python 자율 실행 규칙 적용
+
+**무엇/왜.** Antigravity 및 모든 AI 세션에서 `flutter`, `git`, `python` 등 개발/검증에 필요한 모든 터미널 명령을 매번 사용자 승인/확인 대기 없이 즉시 직접 실행하도록 규칙을 영구 적용했다.
+- `.agents/rules/no-approval-needed.md`: 터미널 명령어 자율 실행 및 확인 생략 원칙 갱신
+- `AGENTS.md`: 최상단 SSoT 규칙에 명령어 자율 실행 지침 추가
+
+**검증:** `.agents/rules/no-approval-needed.md` 및 `AGENTS.md` 반영 완료.
+**커밋:** Jin의 명시 지시 대기.
+
+
+**무엇/왜.** 외부 교재·추출물의 표현과 편집 구성이 앱 콘텐츠에 유입되지 않도록
+`docs/CONTENT_SOURCE_POLICY.md`와 작성 정본의 격리 규칙을 추가했다. 신규 draft는
+독립 학습 목적만 provenance에 적고, `field_notes`/review에 `rights: original`을 남긴다.
+출처가 불명확한 기존 후보는 이름만 바꿔 재사용하지 않고 권리 검토 후 유지·재작성·제외를
+결정한다. 개별 문법 형태 같은 언어 사실은 독립 콘텐츠의 학습 목표로 사용할 수 있지만,
+문형 묶음·순서·예문·설명·활동 구조는 가져오지 않는다고 구분했다.
+
+**복구.** `korean_vocab.csv`에 들어간 CSV 주석 행을 제거했다. 잘못된 행이 다시 들어와도
+`validate_content.py`가 `NoneType` 예외로 멈추지 않고 검수 가능한 오류를 보고하도록
+보강하고 회귀 테스트를 추가했다.
+
+**검증.** malformed-row 단일 회귀 테스트와 `git diff --check`는 통과했다. 전체
+`validate_content.py`는 더 이상 예외로 멈추지 않고, 기존 라이브 asset의 계약 위반
+**421건**(대량 확장 후 중복 표제어·문법 focus/참조·scenario/curriculum mapping·audit
+count 등)을 보고한다. 이 항목들은 이번 격리 변경에서 임의로 삭제하거나 재작성하지
+않았으며, 별도 데이터 복구 배치로 처리한다.
+
+**커밋:** Jin의 명시 지시 대기.
+
 ### 2026-08-15 (Gemini, Mac) — B2 콘텐츠 확장 (인생·문학·언어 주제)
 
 **무엇/왜.** B2 수준 어휘·표현·문법 패턴을 독립 구성으로 추가.
