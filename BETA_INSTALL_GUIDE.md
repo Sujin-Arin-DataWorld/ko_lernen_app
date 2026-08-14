@@ -1,113 +1,88 @@
-# 🚀 Hangul Sori 내부 테스터 설치 가이드
+# Hangul Sori Android Closed Testing 안내
 
-> 새 APK를 만들기 전에는 `pubspec.yaml`의 `version:`을 확인하고, 이미 배포한
-> Android 빌드보다 높은 build number를 사용하세요.
->
-> 테스터에게 보낼 때 이 파일과 APK를 함께 공유하세요.
+이 안내는 학습 루프 Phase 5의 Android 비공개 베타용이다. 설치는 **Google Play
+Closed Testing** 경로만 사용한다. APK를 따로 내려받거나 Play Protect 경고를 우회하지
+않는다. 그래야 실제 출시 경로의 App Check, 업데이트, 서명 동작을 함께 확인할 수 있다.
 
----
+테스트 기간과 현재 후보의 정확한 커밋, versionCode, opt-in 링크는
+docs/store/closed-testing-checklist-v2.md의 실행 기록에서 확인한다.
 
-## 📱 어떤 APK 보내면 되나?
+## 테스터가 설치하는 방법
 
-| 폰 종류 | 파일 |
-|---|---|
-| **거의 모든 안드로이드** (2017년 이후) | `app-arm64-v8a-release.apk` (23 MB) ⭐ |
-| 오래된 안드로이드 (2017 이전, 저가 폰) | `app-armeabi-v7a-release.apk` (20 MB) |
-| 에뮬레이터 / 인텔 태블릿 (드뭄) | `app-x86_64-release.apk` (24 MB) |
+1. 초대받은 Google 계정으로 Play Console opt-in 링크를 연다.
+2. **Tester werden**을 선택한 뒤 Google Play에서 Hangul Sori를 설치하거나 업데이트한다.
+3. Play Store의 앱 정보에서 beta 트랙과 새 버전이 보이는지 확인한다.
+4. 문제가 있으면 앱을 삭제하거나 데이터를 초기화하기 전에 Tiger Pulse 피드백을 남긴다.
+   기존 설치 위 업데이트 보존은 별도 검증 항목이다.
 
-**99%는 arm64-v8a 하나면 충분합니다.** 모르겠으면 그것만 보내세요.
+### 테스터에게 보낼 짧은 독일어 안내
 
-파일 위치:
+```text
+Danke, dass du Hangul Sori im geschlossenen Android-Test ausprobierst.
+
+Bitte öffne den Einladungslink mit deinem Google-Konto, tritt dem Test bei und
+installiere oder aktualisiere die App über Google Play. Bitte installiere keine
+APK-Datei aus einem Chat oder einer Cloud.
+
+Probiere im ersten verfügbaren Vokabel-Pack jede Lernkarte aus, beantworte Quiz
+und Boss und prüfe danach, ob der nächste Pack bei mindestens 70 % freigeschaltet
+wird. Du kannst Wörter freiwillig eintippen. Das blockiert deinen Fortschritt nicht.
+
+Melde Probleme über Tiger Pulse. Bitte schreibe dort keine Kontaktdaten,
+persönlichen Informationen oder koreanischen Lernantworten hinein.
 ```
-build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-```
 
----
+## 배정된 첫 팩 확인
 
-## 📤 APK 친구에게 보내는 방법
+첫 사용 흐름에서는 첫 번째 사용 가능한 단어팩을 열고 아래를 확인한다.
 
-**옵션 A — 카카오톡** (가장 빠름)
-1. 카톡 채팅창 → 첨부 아이콘 → **파일** → APK 선택 → 전송
-2. 친구가 받은 파일 탭 → 안드로이드가 자동으로 설치 화면 열어줌
+1. Learn에서 **모든 카드의 앞면과 뒷면**을 본다. Boss 단어도 Learn에서 먼저 보인다.
+2. Learn 뒤 Quiz와 Boss의 문제 순서가 Learn 순서를 그대로 반복하지 않는다.
+3. Boss에서 70% 이상을 맞히면 팩은 clear되고 다음 팩이 열린다.
+4. 앱을 종료해 다시 열어도 팩 완료와 다음 팩 잠금 해제 상태가 유지된다.
+5. Boss는 4지선다 인식 평가다. 장기 숙달이나 독립 회상 평가로 해석하지 않는다.
 
-**옵션 B — 구글 드라이브 / 클라우드 링크**
-1. 드라이브에 APK 업로드 → 공유 링크 복사
-2. 친구에게 링크 전송 → 다운로드 후 설치
+의도적으로 틀린 뒤 다시 맞혀도 완료, XP, 재시도 흐름은 정상이어야 한다. 단발 오답은
+Hard Words 안내를 만들지 않는다. 기존 기준에 닿을 만큼 반복해서 틀린 단어에서만
+어려운 단어 연습 안내가 보일 수 있다.
 
-**옵션 C — USB 직접 연결**
-1. 폰을 Windows PC에 USB로 연결 → 휴대폰에서 "파일 전송"(MTP) 모드 선택
-2. 파일 탐색기에서 휴대폰의 Downloads/ 폴더로 APK 복사
-3. 폰에서 파일 매니저 → Downloads → APK 탭 → 설치
+결과 화면의 선택형 타이핑 회상은 사용해도 되고 건너뛰어도 된다. 힌트와 정답 보기의
+의미가 분명한지, 그리고 이 연습이 팩 완료나 다음 팩 해금을 막지 않는지를 알려 달라.
 
----
+## 담당별 추가 확인
 
-## 📲 안드로이드에서 설치 (친구가 할 일)
+- 새 계정 또는 새 앱 데이터: 첫 학습 경로를 처음부터 확인한다.
+- 기존 설치를 업데이트: 설치 전 데이터를 지우지 않고, 업데이트 뒤 팩 진행도가 남는지 확인한다.
+- 기기 매트릭스: Android 버전과 화면 크기, 130~150% 글자 크기, 회전, 분할 화면을 나누어 확인한다.
 
-처음 한 번만:
+배정된 조건이 무엇인지 확실하지 않으면 테스트 담당자에게 먼저 물어본다. 임의로
+계정을 바꾸거나 데이터를 초기화하지 않는다.
 
-1. APK 파일 탭 → **"이 출처에서 설치 허용"** 권한 요청 → 허용
-   - (또는 사전에: 설정 → 보안 → "출처를 알 수 없는 앱 설치" 활성화)
-2. **"설치"** 탭
-3. 끝! 앱 서랍에 **"Hangul Sori"** 아이콘 (세종대왕 익선관 모양) 생김
+## 피드백과 개인정보
 
-⚠️ 첫 설치 시 Google Play Protect 경고가 뜰 수 있음:
-- **"무시하고 설치"** 누르면 됨 (베타 앱이라 정상)
-- "이 앱은 안전하지 않을 수 있음" = Google Play를 안 거쳐서 그런 거지 진짜 위험은 X
+Tiger Pulse의 구조화된 피드백을 우선 사용한다. 다음 정보를 짧게 적으면 충분하다.
 
----
+- 문제가 난 화면과 재현 순서
+- 기대한 동작과 실제 동작
+- 기기 모델, Android 버전, 글자 크기, 네트워크 상태
 
-## ✅ 친구가 처음 열 때 체크 리스트
+자유 텍스트에는 이름, 이메일, 연락처, 계정 식별자, 학습 답안, 또는 개인정보가 보이는
+스크린샷을 넣지 않는다. 스크린샷이 꼭 필요하면 개인정보와 학습 답안을 가린다.
 
-1. **레벨 선택 화면** 등장 (A1~B2) → 자기 레벨 선택 → 시작
-2. **홈** 화면:
-   - 상단: 🔥 streak + ⚡ XP + Lv
-   - "오늘의 글자" 카드 (Daily Calligraphy)
-   - "Heute empfohlen ✨" Hero 카드 → 시나리오 추천
-   - 2×2 그리드: Hangul / Vocab / Grammar / Listen
-   - 게임: Anlaut Quiz / Wordle
-3. **시나리오 카페** 진입 → Intro → Vocab → Dialog (TTS 동작) → Grammar → 3 Quests → Result
-4. **설정**:
-   - 언어 (Deutsch / English / 시스템)
-   - **테마 (Hell / Dunkel / Systemvorgabe)** ← 새 기능!
-   - 레벨 변경 (A1~B2)
-   - 데이터 초기화
+## Release owner only: Closed-testing AAB
 
----
+테스터에게 이 명령이나 AAB를 전달하지 않는다. 정확한 clean release commit에서만 아래
+명령을 실행하고, Play Console의 최고 versionCode보다 큰지 먼저 확인한다.
 
-## 🐛 알려진 한계 (베타)
-
-- iOS 빌드 별도 (App Store 제출 필요 — 본인은 macOS 있어서 가능, 친구는 Android만)
-- 한국어 TTS 품질은 폰 OS에 의존 (Galaxy = 좋음, 외산 폰 = 보통)
-- AdMob 광고 = 테스트 모드 (실제 광고 안 뜸)
-- Firebase 클라우드 sync는 google-services.json 없으면 자동 비활성 (로컬은 정상)
-- B2 (고급) 시나리오 아직 없음 — B1까지만
-
----
-
-## 💬 피드백 받는 법
-
-친구가 사용 후 알려달라고 할 것:
-
-1. **재미있었던 시나리오** / **어색했던 표현**
-2. **마스코트** (지은/민수) 인상 어땠는지
-3. **라이트 / 다크 모드** 어느 쪽 더 좋은지
-4. **버그**: 크래시했거나 안 보이는 텍스트 등 → 스크린샷 + 어떤 화면인지
-5. **다음 시나리오 어떤 거 보고 싶은지** (편의점 외 어떤 상황?)
-
----
-
-## Internal tester APK (feedback enabled)
-
-Run this command from the repository root for internal Android testers. It
-explicitly enables tester feedback and beta premium access. `--split-per-abi`
-creates separate APKs; send `app-arm64-v8a-release.apk` to almost all modern
-Android phones.
-
-코드 업데이트 후:
 ```bash
-flutter build apk --release --split-per-abi --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true
-# → ABI별 APK 생성 (1-2분)
-# → 친구에게 새 파일 다시 보내기
+release_sha=$(git rev-parse --short HEAD)
+flutter build appbundle --release --obfuscate \
+  --split-debug-info=build/app/outputs/symbols \
+  --dart-define=ENABLE_TESTER_FEEDBACK=true \
+  --dart-define=BETA_UNLOCK_ALL=true \
+  --dart-define=GIT_COMMIT="$release_sha"
 ```
 
-설치 시 기존 앱 위에 업데이트 (데이터 유지).
+BETA_UNLOCK_ALL=true는 beta의 premium 접근만 연다. 팩 진행도, 70% clear, 다음 팩
+잠금 해제를 우회하지 않는다. 전체 후보 절차와 14일 종료 기준은
+docs/store/closed-testing-checklist-v2.md를 따른다.

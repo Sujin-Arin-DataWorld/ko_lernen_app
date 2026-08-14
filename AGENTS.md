@@ -301,9 +301,23 @@ flutter run -d <android-id>   # 안드로이드
   1회 실제 failure로 덮고, negative 뒤 성공은 neutral이다. result→recall 재진입은 같은
   임시 객체를 쓰며 route provenance가 없거나 pack이 다르면 practice-only다.
   `b9353796` (`fix(learning): coalesce pack-session SRS evidence`)으로 게시했다.
+- [x] **학습 루프 Phase 5 운영 준비 (2026-08-14)** — Android 비공개 beta의 단일 운영
+  정본을 `docs/store/closed-testing-checklist-v2.md`로 재구성했다. 정확한 clean
+  candidate, versionCode/commit/AAB hash 기록, Internal Play→Closed Testing 순서, 10명
+  이상·14일 배정, P0/P1/P2 기준, opt-in Analytics/Crashlytics·Tiger Pulse의 개인정보
+  경계를 명시했다. `BETA_INSTALL_GUIDE.md`는 APK sideload 안내를 Play 설치 안내로
+  교체했고, beta define·GIT_COMMIT·DE/EN release-note 계약은 회귀 테스트로 고정했다.
+- [~] **Phase 5 실행 대기** — 외부 소유 flip-gate 변경 `ae024af6`은 별도 commit으로
+  도착했지만, custom/review widget test의 첫 텍스트 drag가 coach의
+  `RenderAbsorbPointer`에 막혀 missed-hit-test 경고를 낸다. 실제 swipe wrapper를 잡고
+  앞면 무기록·뒤집은 뒤 positive/negative 및 wrong-count를 검증하는 보강 handoff와
+  VocabPackScreen gesture-level 증거가 필요하다. 그 뒤에만 정확한 clean worktree에서
+  final candidate를 검증·빌드한다. 현재 작업 루트에서 AAB를 만들지 않는다.
 - [ ] 백로그: suspects 배치 002, AI-lastig 비주얼 온기 트랙(카피는 8/13 Humanizer 완료).
-- [ ] Jin: 실기기에서 ①카드 플립 스포일러 소거 ②몰라요 재출제 ③철자 퀴즈 ④속도 칩
-  ⑤A2 계정 데일리·새 단어에 B1/B2 미출현 확인.
+- [ ] Jin/릴리스 owner: 외부 flip-gate 인계 확인 → Play Console 최고 versionCode 확인 →
+  Internal Play 설치·App Check·업데이트 보존 확인 → 10명 이상 14일 Closed Testing과
+  P0/P1/P2 트리아지 실행. Boss는 recognition assessment, typing recall은 optional
+  practice로 안내한다.
 
 ### DE/EN 원어민 카피 · Humanizer 검수 (2026-08-13)
 

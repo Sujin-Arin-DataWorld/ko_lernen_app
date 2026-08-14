@@ -1,9 +1,39 @@
-# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.5+18)
+# Release Notes — v2.0.x (Closed Testing archive + candidate templates)
 
+> 새 Android Closed Testing 후보의 exact commit, versionCode, 날짜는
+> `docs/store/closed-testing-checklist-v2.md`에서 검증한 뒤에만 기록한다.
+> 이 파일의 이전 Build 번호는 역사 기록이며 새 AAB의 버전 근거가 아니다.
+>
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
 > v1.0 → v2.0 ist der "**stately-rising-jongga**" Update — Pack-System,
 > Hanok-Visualisierung, Special Quests, Snap-and-Learn.
+
+---
+
+## Nächster Android Closed-Testing-Kandidat — Learning Loop Phase 5
+
+> Play Console에는 아래 언어 태그를 포함한 텍스트만 붙여넣는다. release name과
+> versionCode는 clean candidate가 확정된 뒤 채운다.
+
+```text
+<de-DE>
+Neu in diesem Testbuild:
+• Alle Boss-Wörter siehst du jetzt zuerst in der Lernphase.
+• Quiz und Boss mischen die Fragen nach dem Lernen.
+• Der Abschluss zeigt klar, was abgeschlossen ist und was du später wiederholen kannst.
+• Du kannst Wörter freiwillig eintippen. Das blockiert deinen Fortschritt nicht.
+• Grammatikbeispiele haben eine Übung mit geprüften Antwortmöglichkeiten.
+</de-DE>
+<en-US>
+New in this test build:
+• Every Boss word now appears in Learn before the assessment.
+• Quiz and Boss questions are shuffled after learning.
+• Completion text makes clear what you finished and what you can review later.
+• The typing exercise is optional and does not block progress.
+• Grammar examples now have a practice activity with reviewed answer choices.
+</en-US>
+```
 
 ---
 

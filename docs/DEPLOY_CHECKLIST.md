@@ -1,8 +1,12 @@
-# 배포 체크리스트 — 한글소리 (Android / Play Console)
+# 역사적 배포 체크리스트 — 한글소리 (Android / Play Console)
 
 > **2026-08-04 디자인 개편(R1~R7):** 다음 릴리스(+11)부터 §12 검증은 [`DESIGN_R7_CLOSEOUT_2026-08-04.md`](DESIGN_R7_CLOSEOUT_2026-08-04.md)의 결산·실기기 목록을 게이트에 포함한다.
 
-> **역사적 기록:** 이 문서는 Build `2.0.1+6` 기준 체크리스트다. 현재 릴리스의 단일 기준 문서는 [`RELEASE_RUNBOOK_2026-08-02.md`](RELEASE_RUNBOOK_2026-08-02.md)이며, 이 문서의 과거 해시나 버전 번호를 새 AAB 업로드에 사용하지 않는다.
+> **역사적 기록:** 이 문서는 Build `2.0.1+6` 기준 체크리스트다. 현재 학습 루프
+> Android beta의 단일 운영 기준은
+> [`store/closed-testing-checklist-v2.md`](store/closed-testing-checklist-v2.md)다.
+> 이 문서와 `RELEASE_RUNBOOK_2026-08-02.md`의 과거 해시나 버전 번호를 새 AAB
+> 업로드에 사용하지 않는다.
 
 **대상:** `com.sujinarin.ko_lernen_app` · `version: 2.0.1+6`
 **최종 점검:** 2026-08-01 (Windows 릴리스 게이트 실측)

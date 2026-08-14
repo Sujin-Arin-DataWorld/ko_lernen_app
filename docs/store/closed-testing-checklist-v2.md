@@ -1,247 +1,263 @@
-# Closed Testing Readiness Checklist — v2.0.0-alpha
+# Android Closed Testing readiness checklist
 
-> ⚠️ **이 문서는 인프라 배포 절차(Firestore rules · Cloud Functions · AAB 업로드)의 정본이다.**
-> 기기·화면·접근성·네트워크·데이터 안전 등 **수동 QA 는
-> `docs/store/RELEASE_QA_CHECKLIST.md`** 로 옮겼다(2026-08-06). 두 문서를 함께 쓴다.
+> **Phase 5 학습 루프 안정화의 운영 정본이다.** 일반적인 수동 기기 QA는
+> docs/store/RELEASE_QA_CHECKLIST.md를 함께 사용한다. 이전 v2.0 alpha의
+> 5–10명, 1주, 61팩 수치는 역사 기록일 뿐 이번 후보의 기준이 아니다.
+>
+> 이번 대상은 Android 비공개 베타, **10명 이상, 14일**이다. iOS 출시, 새 학습 기능,
+> SRS 스케줄 재설계, 새 telemetry는 이 절차에 포함하지 않는다.
 
-> Phase 1-5.2 코드 작성 끝. 이 문서는 **Jin이 Closed Testing 출시까지 직접 실행할 작업** 전체 목록.
-> 작성: 2026-06-01
+## 0. 후보 기록과 중단 조건
 
----
+이 표는 실제 clean release commit을 정한 뒤에만 채운다. Play Console의 최고
+versionCode를 확인하기 전에는 버전이나 출시일을 추측해 쓰지 않는다.
 
-## 0. 직전 세션 검증 결과
+| 항목 | 확인값 |
+|---|---|
+| release commit SHA | [ ] |
+| git commit 수 기반 Android versionCode | [ ] |
+| pubspec versionName | [ ] |
+| Play Console 최고 기존 versionCode | [ ] |
+| AAB SHA-256 | [ ] |
+| Internal testing 설치 확인 시각 | [ ] |
+| Closed Testing 시작일 / 종료 예정일 | [ ] / [ ] |
+| 초대 / opt-in / 핵심 흐름 완료 | [ ] / [ ] / [ ] |
+| 업데이트 보존 완료 / 기기 매트릭스 완료 | [ ] / [ ] |
+| 외부 flip-gate handoff commit SHA | [ ] |
 
-- ✅ `flutter analyze`: **0 issues**
-- ✅ `flutter test`: **197/197** 통과 (Phase 1-5 + 회귀)
-- ✅ 마스코트 백업 복원 완료 (직전 세션, tiger 12개 모두 원본 사이즈)
-- ✅ 새 코드 라우트 모두 등록 + 홈 진입로 + Settings endpoint UI
+### 지금 후보를 만들 수 있는가?
 
----
+- [ ] 외부 소유의 vocab_pack_screen.dart, review_session_screen.dart,
+  custom_pack_play_screen.dart와 관련 flip-gate 테스트가 **별도 commit SHA와 함께**
+  인계되었다.
+- [ ] 그 인계에는 flutter analyze 0 issues와 아래 정확한 검증 명령의 통과가 포함된다.
+  `flutter test test/swipe_card_test.dart test/custom_pack_flipgate_test.dart
+  test/review_session_flipgate_test.dart`
+- [ ] flip-gate 회귀는 텍스트가 아니라 SoriSwipeCard wrapper의 key/finder를 잡는다.
+  각 화면에서 뒤집기 전 좌·우 swipe가 SRS 0이고, 뒤집은 뒤 swipe는 해당 화면의 기존
+  positive/negative 흐름을 기록함을 보인다. VocabPackScreen 수준의 증거도 포함한다.
+- [ ] 정확한 release commit에서 만든 **clean worktree**만 사용한다. 현재 작업 루트의
+  미인계 변경, untracked test, 또는 빌드 산출물을 섞지 않는다.
+- [ ] 아래의 자동 게이트와 Internal Play 설치를 통과했다.
 
-## 1. 인프라 (배포)
+위 항목 하나라도 비어 있으면 AAB를 업로드하거나 Closed Testing을 시작하지 않는다.
+특히 외부 변경이 진행 중인 더러운 worktree에서 빌드하지 않는다.
 
-### 1.1 Firestore Rules
+> **현재 인계 판정 (2026-08-14).** `ae024af6`은 별도 커밋으로 도착했지만 아직 이
+> 게이트를 통과하지 못했다. `custom_pack_flipgate_test.dart`와
+> `review_session_flipgate_test.dart`의 첫 드래그는 `SoriSwipeCard`가 아닌 텍스트를
+> 대상으로 하며, 첫 실행 coach의 `RenderAbsorbPointer`에서 missed-hit-test 경고가 난다.
+> 따라서 11개 테스트의 green 결과만으로는 실제 스와이프/SRS 경계를 증명하지 못한다.
+> coach 상태를 명시적으로 고정하고 wrapper를 직접 드래그해, 앞면 좌·우 무기록과
+> 뒤집은 뒤 positive/negative·wrong-count 기록을 검증하는 보강 인계가 필요하다.
+
+## 1. Phase 5에서 지키는 학습 계약
+
+- PackSessionSrsLedger와 PackRecallSession은 임시 세션 한정이다. 새 persisted attempt
+  모델이나 migration을 추가하지 않는다.
+- Boss는 모든 Boss 단어를 Learn에서 본 뒤의 4지선다 **인식 평가**다. recall gate나
+  장기 mastery 증거라고 부르지 않는다.
+- 선택형 타이핑 회상은 연습이다. 팩 clear, 다음 팩 unlock, XP, stamp, 코스 진행을
+  막거나 바꾸지 않는다.
+- 70% Boss clear, 영구 clear, 다음 팩 unlock, XP, stamp의 기존 동작을 유지한다.
+- BETA_UNLOCK_ALL=true는 beta의 premium entitlement만 연다. 저장된 pack progress,
+  70% clear, 다음 팩 잠금 해제는 우회하지 않는다.
+- ENABLE_TESTER_FEEDBACK=true는 Android의 구조화된 tester feedback만 켠다. 학습
+  흐름의 조건이나 새 telemetry가 아니다.
+
+## 2. clean release candidate 만들기
+
+§2.1부터 §2.4까지는 같은 terminal session에서 순서대로 실행한다. 그래야 exact
+release commit 변수와 clean-tree 검사가 AAB 생성 직전까지 이어진다.
+
+### 2.1 인계 확인 후 exact commit 고정
+
+1. 외부 소유 변경의 담당자가 독립 커밋과 handoff 근거를 제공한다.
+2. 그 커밋을 포함할지 결정한 exact SHA를 기록한다. 미완성 변경은 다음 후보로 미룬다.
+3. 깨끗한 분리 worktree를 만들고, 그 안에서만 후보를 검증한다.
+
 ```bash
-cd /Users/sujinpark/Developer/ko_lernen_app
-firebase deploy --only firestore:rules
+git worktree add --detach /tmp/hangul-sori-phase5-candidate <release-sha>
+cd /tmp/hangul-sori-phase5-candidate
+release_commit=$(git rev-parse HEAD)
+release_sha=$(git rev-parse --short HEAD)
+test -z "$(git status --porcelain)"
 ```
-**기대**: `✔ Deploy complete!` + console URL.
-**실패 시**: `.firebaserc` 활성 프로젝트 확인 (`firebase use`).
 
-### 1.2 Cloud Function (선택 — 권장)
+기대값은 마지막 명령이 성공하는 것이다. ignored local signing credentials는
+release machine에만 두고, 값이나 경로를 문서·로그·피드백에 쓰지 않는다.
 
-a. DeepL Free 키 발급 (https://www.deepl.com/pro-api/free) — 월 500K 문자.
+### 2.2 versionCode와 commit 주입
 
-b. Firebase Functions config 설정:
+Android versionCode는 gradle이 release commit의 git commit 수로 계산한다. 후보 SHA에서
+다음을 확인하고 Play Console의 최고 existing versionCode보다 큰 값만 사용한다.
+
 ```bash
-firebase functions:config:set deepl.api_key="YOUR_DEEPL_KEY_HERE"
+git rev-parse --short HEAD
+git rev-list --count HEAD
+grep '^version:' pubspec.yaml
 ```
 
-c. 의존성 + 배포:
-```bash
-cd functions/analyze_korean_text/
-pip install -t . -r requirements.txt   # 또는 firebase가 처리
-cd ../..
-# 이 repo의 함수 소스는 functions/analyze_korean_text입니다.
-# root firebase.json에 functions 코드베이스 설정이 없으면 다음 명령이 실패할 수 있습니다.
-firebase deploy --only functions
-```
-**기대**: 함수 URL 출력 — 형식 `https://us-central1-ko-lernen-app.cloudfunctions.net/analyze_korean_text`.
+versionName은 pubspec.yaml에서, versionCode는 위 commit count에서 읽는다. 둘 중 어느
+값도 과거 release notes의 숫자로 대체하지 않는다.
 
-> 참고: `firebase deploy --only functions:analyze_korean_text`는 현재 `firebase.json`에 해당 named target이 정의되어 있지 않으면 실패합니다.
-
-d. URL 을 앱 Settings 의 "Cloud-Analyse-Endpoint" 에 붙여넣기.
-
-**배포 안 한 상태에서도 동작**: 책 한 컷이 "Server nicht erreichbar — nur Grammatikmuster offline" 배너 + 31개 grammar pattern 만 표시. Closed Testing v1 에는 OK.
-
----
-
-## 2. 코드 빌드 검증 (Jin 로컬)
+### 2.3 자동 사전 게이트
 
 ```bash
-cd /Users/sujinpark/Developer/ko_lernen_app
-flutter clean
 flutter pub get
 flutter gen-l10n
+git diff --exit-code
+test -z "$(git status --porcelain)"
+test "$(git rev-parse HEAD)" = "$release_commit"
+flutter test --concurrency=1 \
+  test/pack_session_srs_ledger_test.dart \
+  test/vocab_pack_srs_ledger_integration_test.dart \
+  test/vocab_pack_recall_test.dart \
+  test/vocab_pack_assessment_order_test.dart \
+  test/pack_progress_service_test.dart \
+  test/game_srs_evidence_test.dart \
+  test/scenario_srs_persistence_flow_test.dart \
+  test/grammar_choice_quiz_test.dart \
+  test/grammar_choice_quiz_screen_test.dart \
+  test/course_graph_test.dart \
+  test/content_id_contract_test.dart \
+  test/data_integrity_test.dart \
+  test/learning_data_recovery_test.dart \
+  test/data_migration_test.dart \
+  test/arb_l10n_guard_test.dart
+flutter test --dart-define=BETA_UNLOCK_ALL=true test/pack_progress_service_test.dart
 flutter analyze
 flutter test
+git diff --exit-code
+test -z "$(git status --porcelain)"
+test "$(git rev-parse HEAD)" = "$release_commit"
+git diff --check
 ```
-**기대**: 0 errors, 0 info (chosung known issue 1건만), 197+ 케이스 통과.
 
----
+Visual source를 승인해 바꾼 경우가 아니면 goldens를 갱신하지 않는다. golden의 정본은
+Linux CI다. visual_layout_regression_test.dart가 실패하면 clean be4492ea 기준과
+비교해 이번 후보의 회귀인지 먼저 분류한다.
 
-## 3. 실기기 시각 검증 (SIM unlock 후)
+### 2.4 Closed-testing AAB
 
 ```bash
-flutter run -d 9053622f   # M2101K6G (Redmi Note 10)
+git diff --exit-code
+test -z "$(git status --porcelain)"
+test "$(git rev-parse HEAD)" = "$release_commit"
+flutter build appbundle --release --obfuscate \
+  --split-debug-info=build/app/outputs/symbols \
+  --dart-define=ENABLE_TESTER_FEEDBACK=true \
+  --dart-define=BETA_UNLOCK_ALL=true \
+  --dart-define=GIT_COMMIT="$release_sha"
+shasum -a 256 build/app/outputs/bundle/release/app-release.aab
 ```
 
-### 3.1 핵심 시나리오 (8 단계)
+기대 산출물은 build/app/outputs/bundle/release/app-release.aab와
+build/app/outputs/symbols/다. AAB SHA-256를 §0 표에 기록한다. 이 AAB는 exact clean
+commit과 1:1이어야 하며, 루트 worktree에서 만든 다른 AAB로 바꿔치기하지 않는다.
 
-1. **온보딩** — 솟을대문 인트로 → 레벨 A1 선택 → 홈
-2. **홈 진입로 신규 카드 확인** — 책 한 컷 / 책장 / 퀘스트 카드 3개 보임
-3. **단어팩 흐름** — `/vocab` → 첫 팩 (a1_greetings_1) 만 available, 나머지 잠김
-4. **첫 팩 학습** — learn → quiz → boss → ≥70% → 도장 + 다음 팩 unlock 토스트
-5. **한옥 시네마틱** — 홈 진입 시 "Sockel legen" 등 토스트 (첫 stage 전환)
-6. **책 한 컷** — `/book` → 카메라 권한 → 사진 → 자르기 → OCR → 분석 → 결과
-7. **커스텀 팩 생성** — 결과 화면 "Create Custom Pack" → 이름 입력 → SnackBar "Play" → flip cards
-8. **Settings endpoint** — Settings → "Cloud-Analyse-Endpoint" 섹션 → URL 입력 → Save → 재실행 후 보존 확인
+## 3. Play Internal testing 먼저
 
-### 3.2 회귀 체크 (기존 기능)
+Closed Testing에 올리기 전 Internal testing에서 아래를 release build로 확인한다.
 
-- [ ] Hangul drill 화면 정상
-- [ ] Grammar 화면 정상
-- [ ] Wordle / Anlaut Quiz / Kkeunmari 정상
-- [ ] Stats 화면 정상
-- [ ] Settings 다른 옵션 (TTS 속도, 언어, Cloud Backup) 정상
-- [ ] 다크 모드 전환 — 모든 화면 가독성
+- [ ] 올바른 versionCode와 SHA의 AAB가 업로드되었다.
+- [ ] Play Store에서 설치한 release build가 시작한다.
+- [ ] App Check / Play Integrity가 실제 Play 설치 경로에서 유효하다.
+- [ ] 기존 설치 위 업데이트 후 pack progress와 학습 데이터가 남는다.
+- [ ] release-only crash, signing, minify, asset 누락이 없다.
+- [ ] 동의한 성인 tester 한 명 이상에서 opt-in Analytics/Crashlytics 수신을 확인했다.
+- [ ] 개인정보와 학습 답안이 없는 Tiger Pulse 1건을 실제 결과 화면에서 제출했고,
+  App Check 보호 경로를 거쳐 accepted/delivered 상태가 확인되었다.
 
----
+Analytics와 Crashlytics는 opt-in이며 self-attested age의 보수적 gate가 수집을 차단할 수
+있다. 따라서
+Crashlytics의 “새 크래시 없음”은 동의한 tester 범위에서만 해석한다. 기존
+pack_completed, quiz_completed, Crashlytics, Tiger Pulse만 사용하고 새 이벤트나
+debug SRS 화면을 추가하지 않는다.
 
-## 4. 출시 자료 (이번 세션 완료)
+Internal 항목이 통과하면 opt-in 링크와 release notes를 준비해 Closed Testing으로
+승격한다. 테스터용 설치 및 개인정보 안내는 BETA_INSTALL_GUIDE.md를 보낸다.
 
-- ✅ `docs/privacy.html` v2 (2026-06-01) — Camera + DeepL 명시 (EN/DE/KO)
-- ✅ `docs/store/data-safety.md` v2 — SDK audit + User-generated text + Photos stay on device
-- ✅ `docs/store/release-notes-v2.md` — DE/EN release notes (500자 한도 내)
-- ✅ `docs/store/listing-de.md` — 짧은 설명 + 프로모 텍스트 + 전체 설명 v2.0 업데이트
-- ✅ `docs/store/listing-en.md` — 동일
+## 4. 14일 Closed Testing 배정
 
-### 4.1 Privacy URL 활성화
+### 4.1 최소 인원과 분담
 
-```bash
-# docs/privacy.html 이 github-pages 로 자동 배포됨 (docs/CNAME 활용)
-# 변경 사항 커밋 + push 만 하면 됨
-git add docs/privacy.html docs/store/
-git commit -m "v2.0: privacy + data-safety + listing update"
-git push origin main
-```
-배포 확인: <https://hangul-sori.com/privacy.html> 에서 "Zuletzt aktualisiert: 2026-06-01" 확인.
+| 그룹 | 최소 인원 | 맡은 확인 |
+|---|---:|---|
+| 새 계정 또는 새 앱 데이터 | 4 | 첫 팩의 전체 Learn, Quiz/Boss, 70% clear, 다음 팩 unlock |
+| 기존 설치 위 업데이트 | 2 | 업데이트 전 데이터를 보존한 뒤 재실행과 pack progress 유지 |
+| 기기·접근성 매트릭스 | 나머지 | Android 버전·화면 크기·130–150% 글자·회전·분할 화면 |
 
----
+한 tester가 둘 이상의 조건을 맡을 수 있지만, 10명 이상이 opt-in하고 실제 핵심 흐름을
+완료해야 한다. roster에는 계정 종류, 기기, Android 버전, 담당 조건과 함께
+**invited / opted-in / core-flow-complete / update-preservation-complete /
+device-matrix-complete** 상태만 최소한으로 기록한다. 이름, 이메일, 학습 답안은 roster에
+넣지 않는다.
 
-## 5. AAB 빌드
+### 4.2 모두가 하는 핵심 팩 흐름
 
-### Internal closed-testing AAB (feedback enabled)
+1. 첫 사용 가능한 pack에서 모든 Learn 카드의 앞·뒷면을 본다.
+2. Boss 단어도 assessment 전에 Learn에서 의도적으로 노출됐는지 확인한다.
+3. Quiz와 Boss가 Learn 순서를 그대로 반복하지 않는지 확인한다.
+4. Boss 70% clear, 결과 문구, 다음 pack unlock을 확인한다.
+5. 앱 재실행 후 완료와 unlock이 유지되는지 확인한다.
 
-Run this exact command from the repository root for Play Console internal and
-closed testers.
+### 4.3 오답과 선택형 회상
 
-```bash
-# Check pubspec.yaml before building. Its build number must be higher than the
-# highest build number already uploaded to Play Console; never reset it to an
-# older value.
+- 오답 뒤 재시도, XP, 완료 흐름은 정상이어야 한다.
+- 단발 오답은 Hard Words CTA를 만들지 않는다. 기존 hard/frequent 기준에 닿은 반복
+  오답에서만 어려운 단어 연습 CTA가 자연스럽게 보일 수 있다.
+- raw SRS 전이는 공개 beta에서 보지 않는다. ledger regression tests가 정본이다.
+- 선택형 타이핑 회상은 사용 여부, 힌트/정답 보기의 이해도, 진도 압박이 없는지를
+  확인한다. 건너뛰어도 pack 결과와 unlock은 변하지 않아야 한다.
 
-flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true
-```
+## 5. 관측, 피드백, 매일 트리아지
 
-### Production AAB (feedback disabled)
+### 5.1 수집 범위
 
-Run this separate PowerShell command from the repository root for an Android
-production release with payments. Set `RC_ANDROID_KEY` to the live public
-Android SDK key from the production RevenueCat project; the guard stops before
-building when it is absent or malformed. Do not add an
-`ENABLE_TESTER_FEEDBACK` define.
+기존 opt-in Analytics의 pack_completed/quiz_completed, Crashlytics, 결과 화면의
+구조화된 Tiger Pulse feedback만 본다. 새 행동 분석 이벤트를 추가하지 않는다.
 
-```powershell
-$env:RC_ANDROID_KEY = '<paste-live-RevenueCat-Android-SDK-key>'
-if ([string]::IsNullOrWhiteSpace($env:RC_ANDROID_KEY) -or $env:RC_ANDROID_KEY -notmatch '^goog_[A-Za-z0-9_-]{8,}$') { throw 'Set RC_ANDROID_KEY to the live RevenueCat Android SDK key before building.' }
-flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY --dart-define=BETA_UNLOCK_ALL=false
-```
+테스터에게 자유 텍스트에 개인정보, 연락처, 계정 식별자, 한국어 학습 답안을 넣지
+말라고 안내한다. 스크린샷은 필요한 경우 개인정보와 답안을 가린다.
 
-**산출물**:
-- `build/app/outputs/bundle/release/app-release.aab` (~55~70MB 추정)
-- `build/app/outputs/symbols/` (난독화 심볼 — Crashlytics 스택 trace 복원용)
+### 5.2 우선순위
 
-빌드 검증:
-```bash
-Get-Item build/app/outputs/bundle/release/app-release.aab | Select-Object Name, Length
-# < 100MB 기대 (Play Store limit 200MB AAB)
-```
+| 등급 | 정의 | 조치 |
+|---|---|---|
+| P0 | 크래시, 데이터 손실/손상, 잘못된 SRS positive credit, clear/unlock 회귀, 진행 불가 | 즉시 rollout 중단, hotfix |
+| P1 | 정상 학습 흐름 차단, 오도하는 결과 문구, 핵심 음성·입력·피드백 실패 | 수정 후 관련 학습 회귀와 전체 게이트 재실행 |
+| P2 | 비차단 UI, 카피, 선호도 문제 | 다음 Phase 후보로만 기록 |
 
----
+매일 feedback과 Crashlytics를 분류하고, 같은 문제의 재현 단계, 영향 기기, release
+commit을 한 줄로 남긴다. P0 또는 P1을 수정한 후보는 §2부터 다시 검증한다. 14일
+동안 기능 범위를 넓히지 않는다.
 
-## 6. Play Console — Closed Testing 트랙
+## 6. 종료 판단
 
-### 6.1 사전 준비 (Console)
+Closed Testing 종료일에 아래가 모두 참일 때만 Phase 5를 닫는다.
 
-- [ ] Privacy URL: `https://hangul-sori.com/privacy.html` 등록
-- [ ] App Access: "All functionality is available without special access"
-- [ ] Data Safety 폼 — `docs/store/data-safety.md` Table 그대로 옮기기
-- [ ] Content Rating IARC 13+
-- [ ] Target Audience: 13–15 + 16–17 + 18+ (3개 체크)
-- [ ] App Category: Education
-- [ ] Contact email: `hello@hangul-sori.com`
+- [ ] P0 미해결 0
+- [ ] P1 미해결 0
+- [ ] 10명 이상이 opt-in하고 핵심 pack 흐름을 완료함
+- [ ] 새 계정 또는 새 앱 데이터 핵심 흐름 완료 4명 이상
+- [ ] 기존 설치 업데이트 보존 완료 2명 이상
+- [ ] 나머지 배정의 Android 버전·화면 크기·130–150% 글자·회전·분할 화면 매트릭스가 완료됨
+- [ ] 동의 범위의 Crashlytics에 새 학습 흐름 크래시가 없음
+- [ ] tester feedback이 P0/P1/P2로 분류됨
+- [ ] release commit, versionCode, AAB SHA, 기간, 결과가 docs/SESSION_LOG.md와
+  AGENTS.md의 진행 체크리스트에 반영됨
 
-### 6.2 Closed Testing 트랙 생성
+14일 결과를 본 뒤에만 Learning Phase 6을 계획한다. 회상 CTA의 사용성, 오답 패턴,
+tester 피드백이 충분할 때만 active recall의 빈도나 스케줄을 논의한다. Boss를
+독립 recall 증거로 승격하지 않는다.
 
-1. Play Console → 테스트 → **Closed Testing**
-2. 트랙 이름: "v2.0-alpha"
-3. AAB 업로드 + Native debug symbols 업로드
-4. Release Notes (DE + EN) 붙여넣기 (`release-notes-v2.md`)
-5. Tester 이메일 그룹 만들기 → 5-10명
-6. "Save → Review → Start rollout to Closed Testing"
+## 7. 범위 밖
 
-### 6.3 Tester 초대 템플릿
+- active recall 의무화 또는 required typing gate
+- SRS scheduling redesign
+- global LearningAttempt 모델 또는 migration
+- 새 행동 분석 이벤트
+- UI-overhaul Phase 4, texture work, iOS release
 
-```
-Hi [Name],
-
-Wir haben ein größeres Update für Hangul Sori — v2.0-alpha.
-Würdest du als Closed Tester die neuen Funktionen ausprobieren?
-
-Neu:
-• Vokabel-Packs (526 Wörter, 61 Packs)
-• Hanok-System — dein Hof wächst mit dir
-• 17 Spezial-Quests
-• 📷 Snap-and-Learn — Lehrbuchseite fotografieren → automatische Analyse
-
-Mit dieser E-Mail-Adresse kannst du die Tester-Version installieren:
-[Opt-in Link aus Play Console kopieren]
-
-Wir würden uns über Feedback freuen — gerne per E-Mail oder direkt im "About"-Screen den Daumen-runter-Knopf nutzen.
-
-Vielen Dank!
-Sujin
-```
-
----
-
-## 7. 모니터링 (출시 후 1주)
-
-### 7.1 Crashlytics
-- Firebase Console → Crashlytics → ko-lernen-app
-- v2.0 crash rate 목표: < 0.5% sessions
-
-### 7.2 Analytics
-- Firebase Console → Analytics
-- Active users, screen flow
-- 새 화면 (book_capture, bookshelf, custom_pack_play) 의 retention 관찰
-
-### 7.3 Tester 피드백
-- Email 또는 Play Console feedback
-- 우선순위 분류:
-  - **Sev 1 (즉시 patch)**: 크래시, 데이터 손실, 권한 거부 후 회복 불가
-  - **Sev 2 (v2.0.1)**: UX 혼란, 잘못된 번역, OCR 정확도 낮음
-  - **Sev 3 (백로그)**: 디자인 호불호, 추가 기능 요청
-
----
-
-## 8. v2.0.1 가능성 (Closed Testing 피드백 기반)
-
-- 책 한 컷 OCR 정확도 낮으면 → 이미지 전처리 (Adaptive threshold) 추가
-- 사용자가 q_jangdokdae (50개 음식 단어) 목표 비현실적 의견 → 목표 25 로 조정
-- In-app account deletion (Play 정책 2024 권장 사항) — Phase 8 v2 후보
-
----
-
-## 9. v3.0 Roadmap (Closed Testing 안정화 후)
-
-- **Phase 6** — 계 (커뮤니티) 데이터 모델 + 모임방 + 주간 목표 + 스티커 (3주)
-- **Phase 7** — 모더레이션 + GDPR-K (16세 미만 가드)
-- **v3.0 Public Release**
-
----
-
-**작성**: Claude
-**검토 대기**: Jin
-**커밋 권한**: Jin 명시 요청 시
+**작성:** 2026-08-14 · **커밋/푸시:** Jin의 별도 명시 요청이 있을 때만

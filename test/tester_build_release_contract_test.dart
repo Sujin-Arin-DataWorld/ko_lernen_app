@@ -4,11 +4,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test(
-    'tester and production build runbooks keep feedback defines explicit',
+    'closed-testing and production runbooks keep release defines explicit',
     () async {
       final betaGuide = await File('BETA_INSTALL_GUIDE.md').readAsString();
       final checklist = await File(
         'docs/store/closed-testing-checklist-v2.md',
+      ).readAsString();
+      final releaseNotes = await File(
+        'docs/store/release-notes-v2.md',
       ).readAsString();
       final sessionNotes = await File(
         'docs/SESSION_CHANGES_2026-07-31.md',
@@ -17,59 +20,90 @@ void main() {
         'docs/store/subscription-setup-runbook.md',
       ).readAsString();
 
-      final testerApk = _fencedBuildBlockAfter(
+      final testerGuideAab = _fencedBuildBlockAfter(
         betaGuide,
-        'Internal tester APK',
+        'Release owner only: Closed-testing AAB',
       );
       final testerAab = _fencedBuildBlockAfter(
         checklist,
-        'Internal closed-testing AAB',
+        '2.4 Closed-testing AAB',
       );
       final testerAabSection = _sectionAfterHeading(
         checklist,
-        'Internal closed-testing AAB',
+        '2.4 Closed-testing AAB',
       );
       final sessionTesterAab = _fencedBuildBlockAfter(
         sessionNotes,
-        'Internal closed-testing AAB',
+        'Internal closed-testing AAB (feedback enabled)',
       );
       final sessionTesterAabSection = _sectionAfterHeading(
         sessionNotes,
-        'Internal closed-testing AAB',
+        'Internal closed-testing AAB (feedback enabled)',
       );
-      final productionAab = _fencedBuildBlockAfter(checklist, 'Production AAB');
       final subscriptionProductionAab = _fencedBuildBlockAfter(
         subscriptionRunbook,
-        'Production subscription AAB',
+        'Production subscription AAB (feedback disabled)',
       );
 
-      for (final command in [testerApk, testerAab, sessionTesterAab]) {
+      for (final command in [testerGuideAab, testerAab, sessionTesterAab]) {
         expect(command, contains('--dart-define=ENABLE_TESTER_FEEDBACK=true'));
         expect(command, contains('--dart-define=BETA_UNLOCK_ALL=true'));
         expect(command, isNot(contains('/Users/')));
-        expect(command, isNot(contains('\\\n')));
       }
-      for (final command in [productionAab, subscriptionProductionAab]) {
-        expect(command, contains('--dart-define=BETA_UNLOCK_ALL=false'));
-        expect(
-          command,
-          contains(r'--dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY'),
-        );
-        expect(command, contains(r'IsNullOrWhiteSpace($env:RC_ANDROID_KEY)'));
-        expect(command, isNot(contains('ENABLE_TESTER_FEEDBACK')));
-        expect(command, isNot(contains('goog_xxxxxxxxxxxxxxxx')));
-        expect(command, isNot(contains('/Users/')));
-        expect(command, isNot(contains('\\\n')));
+      for (final command in [testerGuideAab, testerAab]) {
+        expect(command, contains(r'--dart-define=GIT_COMMIT="$release_sha"'));
       }
-      expect(checklist, contains('highest build number already uploaded'));
+      expect(
+        subscriptionProductionAab,
+        contains('--dart-define=BETA_UNLOCK_ALL=false'),
+      );
+      expect(
+        subscriptionProductionAab,
+        contains(r'--dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY'),
+      );
+      expect(
+        subscriptionProductionAab,
+        contains(r'IsNullOrWhiteSpace($env:RC_ANDROID_KEY)'),
+      );
+      expect(
+        subscriptionProductionAab,
+        isNot(contains('ENABLE_TESTER_FEEDBACK')),
+      );
+      expect(
+        subscriptionProductionAab,
+        isNot(contains('goog_xxxxxxxxxxxxxxxx')),
+      );
+      expect(subscriptionProductionAab, isNot(contains('/Users/')));
+
+      expect(checklist, contains('10명 이상, 14일'));
+      expect(checklist, contains('git rev-list --count HEAD'));
+      expect(checklist, contains('git diff --exit-code'));
+      expect(checklist, contains(r'test -z "$(git status --porcelain)"'));
+      expect(
+        checklist,
+        contains('BETA_UNLOCK_ALL=true는 beta의 premium entitlement만 연다.'),
+      );
+      expect(checklist, contains('SoriSwipeCard wrapper'));
+      expect(checklist, contains('App Check 보호 경로를 거쳐 accepted/delivered 상태'));
+      expect(checklist, contains('10명 이상이 opt-in하고 실제 핵심 흐름을'));
+      expect(checklist, contains('완료해야 한다.'));
       expect(testerAabSection, isNot(contains('1.0.1+2')));
       expect(sessionNotes, contains('highest build number already uploaded'));
       expect(sessionTesterAabSection, isNot(contains('2.0.1+5')));
-      expect(betaGuide, contains('Windows PC'));
-      expect(betaGuide, isNot(contains('Mac 연결')));
+      expect(betaGuide, contains('Google Play'));
+      expect(betaGuide, contains('Closed Testing'));
+      expect(betaGuide, isNot(contains('Windows PC')));
+      expect(betaGuide, isNot(contains('Play Protect 경고가 뜰 수 있음')));
       expect(
-        checklist,
-        contains('Get-Item build/app/outputs/bundle/release/app-release.aab'),
+        releaseNotes,
+        contains('Nächster Android Closed-Testing-Kandidat'),
+      );
+      expect(releaseNotes, contains('Du kannst Wörter freiwillig eintippen.'));
+      expect(
+        releaseNotes,
+        contains(
+          'The typing exercise is optional and does not block progress.',
+        ),
       );
     },
   );
@@ -92,9 +126,12 @@ String _fencedBuildBlockAfter(String source, String heading) {
 }
 
 String _sectionAfterHeading(String source, String heading) {
-  final headingStart = source.indexOf(heading);
-  if (headingStart < 0) return '';
-  final firstNewline = source.indexOf('\n', headingStart);
+  final headingMatch = RegExp(
+    r'^#{1,6}\s+' + RegExp.escape(heading) + r'\s*#*\s*$',
+    multiLine: true,
+  ).firstMatch(source);
+  if (headingMatch == null) return '';
+  final firstNewline = source.indexOf('\n', headingMatch.end);
   if (firstNewline < 0) return '';
   var sectionEnd = source.length;
   var lineStart = firstNewline + 1;
@@ -105,7 +142,7 @@ String _sectionAfterHeading(String source, String heading) {
     final line = source.substring(lineStart, lineEnd).trim();
     if (line.startsWith('```')) {
       insideFence = !insideFence;
-    } else if (!insideFence && RegExp(r'^#{1,3} ').hasMatch(line)) {
+    } else if (!insideFence && RegExp(r'^#{1,6} ').hasMatch(line)) {
       sectionEnd = lineStart;
       break;
     }

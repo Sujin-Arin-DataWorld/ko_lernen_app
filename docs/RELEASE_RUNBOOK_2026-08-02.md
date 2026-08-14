@@ -1,12 +1,16 @@
-# 배포 런북 — v2.0.4+10 내부 테스트 (2026-08-03, final Android build source `9d1a019`)
+# 역사적 배포 런북 — v2.0.4+10 내부 테스트 (2026-08-03, final Android build source `9d1a019`)
 
-> **목적:** "로컬·깃 최신화 이외에, 앱이 진짜 유저(내부 테스터)에게 보이기까지 해야 하는 일" 전수 리스트 + 상태 + 실행 절차.
-> 게이트 상세는 [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md), 코드 상태는 [`AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md`](AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md).
-> 아래의 v2.0.1~v2.0.3 섹션은 과거 기록이다. 새 업로드에는 이 문서의 **§0-A** 산출물과 `docs/store/release-notes-v2.md`의 Build 2.0.4+10 블록만 사용한다.
+> **역사 기록이다.** 아래의 commit, versionCode, AAB hash, Windows 경로는 2026-08-03
+> 빌드에만 해당한다. 새 업로드의 기준으로 사용하지 않는다.
+>
+> 학습 루프 Phase 5 Android Closed Testing의 현재 운영 정본은
+> [`store/closed-testing-checklist-v2.md`](store/closed-testing-checklist-v2.md)다.
+> 일반 실기기 QA는 [`store/RELEASE_QA_CHECKLIST.md`](store/RELEASE_QA_CHECKLIST.md)를
+> 함께 쓴다.
 
 ---
 
-## §0-A. 현재 업로드 대상 — v2.0.4+10 (versionCode 10, 2026-08-03 18:26)
+## §0-A. 역사 당시 업로드 대상 — v2.0.4+10 (versionCode 10, 2026-08-03 18:26)
 
 **빌드 소스:** `9d1a019` (`pubspec.yaml` `2.0.4+10`, main == origin/main, 워킹트리 clean 실측 후 빌드). 정본 `cde9509`(3세션 통합: Tiger Pulse + 코스 진도 가드 + CourseMastery v2/typed 동기화) + design-refresh 흡수 병합 `297d9f4`(계획 v1.2·roar SFX 배선·클립 인계) + 릴리스 준비 `9d1a019`. **+9 빌드(6893293)에 없던 cb66d4f·84537c2·f209290 하드닝이 이 빌드에 최초 포함된다.**
 
@@ -84,7 +88,7 @@
 
 번들 계약 스팟체크(zipfile 실측): **growl_tiger.mp3 포함 ✓ · magpie_moon.mp4 부재 ✓ · mp4 30개 ✓**. 빌드: `flutter clean` → `pub get` → `build appbundle --release`(582s) → `build apk --release`(871s), 2026-08-02 16:22/16:37.
 
-### §2-B. ⚠️ 최종 — versionCode 7 (2026-08-02 18:50, **HEAD `415541e` 커밋 완료 후 빌드**) — **이게 업로드 대상**
+### §2-B. (역사) 최종 — versionCode 7 (2026-08-02 18:50, **HEAD `415541e` 커밋 완료 후 빌드**)
 
 | 산출물 | 크기 | SHA-256 |
 |---|---|---|
@@ -102,7 +106,7 @@
 
 > ✅ **v7 Play 내부 테스트 업로드 완료** (2026-08-02 저녁, Jin).
 
-### §2-C. 최신 — versionCode 8 (2.0.2, 2026-08-02 20:47) — **다음 업로드 대상**
+### §2-C. (역사) 최신 — versionCode 8 (2.0.2, 2026-08-02 20:47)
 
 **포함 델타(v7 대비): 레벨 연동 실전 커리큘럼** (`49ce0a3`/병합 `31a6e5c`, Codex 세션) — 코스 그래프·A1 미션 16·8문항 진단·개념 숙달/보정·`/course/mission` 화면·학습 데이터 재생성. 이 클론 게이트 재검증: **analyze 0 · 전체 1,350 통과**(+44 신규). 코드 clean 실측 후 빌드(HEAD `31a6e5c` + pubspec +8).
 

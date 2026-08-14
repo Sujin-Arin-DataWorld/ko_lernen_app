@@ -3,10 +3,25 @@
 > **이 문서가 출시 전 수동 검증의 정본이다.**
 > 자동화된 것은 CI가 매번 돌린다(§0). 여기 남은 항목은 **사람과 실기기만 할 수 있는 것**이다.
 >
-> 이전 문서: `docs/JIN_VERIFY_CHECKLIST.md`(v2.0.0, ARCHIVED) ·
-> `docs/store/closed-testing-checklist-v2.md`(인프라 배포 절차는 계속 유효 — 그쪽 참조).
+> 학습 루프 Phase 5의 Android Closed Testing 운영·후보 기록·14일 종료 조건은
+> `docs/store/closed-testing-checklist-v2.md`가 정본이다. 이 문서는 그 절차에서
+> 참조하는 실기기 QA 매트릭스다.
 >
-> 작성 2026-08-06 · 대상 `2.0.5+13` 후보
+> 작성 2026-08-06 · 현재 후보의 commit/versionCode는 closed-testing 정본에서 실제
+> 검증 뒤 기록한다. iOS 항목은 장기 QA로 유지하지만 이번 Android beta의 종료 게이트는 아니다.
+
+---
+
+## Phase 5 학습 루프 Android beta acceptance
+
+이 절은 `docs/store/closed-testing-checklist-v2.md`의 §3–§6과 함께만 완료 처리한다.
+
+- [ ] Play Internal testing에서 설치한 release build로 App Check, update 보존, release-only
+  asset/minify/crash를 확인했다.
+- [ ] 첫 pack에서 모든 Learn 카드 노출 → Quiz/Boss shuffled order → 70% clear → 다음 pack
+  unlock → 재실행 보존을 확인했다.
+- [ ] 10명 이상, 14일의 Closed Testing 배정과 P0/P1/P2 트리아지가 진행 중이다.
+- [ ] Boss를 recognition assessment로, typing recall을 optional practice로 안내한다.
 
 ---
 

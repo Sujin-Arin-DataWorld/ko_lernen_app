@@ -1,5 +1,29 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-14 (Codex, Mac) — 학습 루프 Phase 5 Android Closed Testing 운영 준비
+
+**무엇/왜.** 새 학습 기능을 추가하지 않고, Phase 1–4의 학습 증거 계약을 실제 Android
+비공개 베타에서 검증할 수 있도록 운영 정본을 정리했다. Play Closed Testing 전용 설치
+안내, clean exact-commit 후보 절차, `GIT_COMMIT`/beta define 계약, Internal Play→14일
+10명 이상 배정, 업데이트 보존·기기 매트릭스·P0/P1/P2·개인정보 경계를 문서와 회귀
+테스트로 고정했다. DE/EN 테스터 안내와 release note도 Boss를 인식 평가로, typing을
+진도를 막지 않는 선택 연습으로만 표현했다.
+
+**검증.** clean published baseline `13689c66`에서 `flutter gen-l10n`, 학습 핵심 targeted
+suite **142 passed**, `flutter analyze` 0 issues, 전체 `flutter test` **3376 passed,
+13 skipped**, `BETA_UNLOCK_ALL=true` pack-progress test **17 passed**, clean diff를
+확인했다. 현재 루트에서는 release-runbook contract test 통과, `flutter analyze` 0 issues,
+`git diff --check` 통과. 외부 handoff `ae024af6`의 정확한 flip-gate 명령은 **11/11
+passed**이나, custom/review 첫 drag가 실제 wrapper를 hit하지 못하는 warning을 낸다.
+
+**의도적 보류.** `ae024af6`은 독립 커밋이지만 그 경고 때문에 실제 swipe·SRS evidence를
+보장하는 handoff로 수락하지 않았다. wrapper-targeted pre/post-flip regression과
+VocabPackScreen gesture 증거가 들어올 때까지 exact candidate 재검증, AAB 생성, Play
+Internal/Closed Testing 업로드를 하지 않는다. 기존 `PackSessionSrsLedger`,
+`PackRecallSession`, clear/unlock/XP/stamp, analytics 이벤트는 바꾸지 않았다.
+
+**커밋:** 미생성 (요청 없음).
+
 ### 2026-08-14 (Antigravity, Mac) — 스와이프 flipgate 보강 + 파괴-복원 규율 완성
 
 **무엇/왜.** 스와이프 판정 배선이 들어간 3화면(custom_pack_play, review_session,
