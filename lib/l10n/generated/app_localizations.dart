@@ -10855,6 +10855,12 @@ abstract class AppL10n {
   /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
   String get coachSoriDeckBody;
 
+  /// No description provided for @coachSoriDeckTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Vier Wege für deine Karte'**
+  String get coachSoriDeckTitle;
+
   /// No description provided for @soriStageTodayMissionEyebrow.
   ///
   /// In de, this message translates to:

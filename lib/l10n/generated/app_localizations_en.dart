@@ -6372,6 +6372,9 @@ class AppL10nEn extends AppL10n {
       'Swipe the card: right = knew it, left = did not know, up = save, down = skip.';
 
   @override
+  String get coachSoriDeckTitle => 'Four ways to use the card';
+
+  @override
   String get soriStageTodayMissionEyebrow => 'TODAY\'S MISSION';
 
   @override

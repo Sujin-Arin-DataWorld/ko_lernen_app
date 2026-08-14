@@ -24,6 +24,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/swipe_card.dart';
@@ -145,6 +146,15 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         _loadFailed = v.isEmpty && DataLoader.lastError != null;
         _filtered = _filterList();
         if (_idx >= _filtered.length) _idx = 0;
+      });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          maybeShowSoriDeckCoach(
+            context,
+            targetKey: _flashCardKey,
+            existingCoachSeen: Storage.tutSeen(coachId),
+          );
+        }
       });
     });
   }

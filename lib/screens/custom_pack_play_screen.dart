@@ -21,6 +21,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -83,6 +84,15 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     super.initState();
     _pack = CustomPackService.getById(widget.packId);
     scheduleCoach();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _cardKey,
+          existingCoachSeen: Storage.tutSeen(coachId),
+        );
+      }
+    });
   }
 
   void _gotIt() {

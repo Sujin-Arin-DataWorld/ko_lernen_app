@@ -24,6 +24,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_deck_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
@@ -126,6 +127,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _deck = widget.deck!;
         _loading = false;
       });
+      _scheduleDeckCoach();
       return;
     }
     List<Vocab> deck = [];
@@ -143,6 +145,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     setState(() {
       _deck = deck;
       _loading = false;
+    });
+    _scheduleDeckCoach();
+  }
+
+  void _scheduleDeckCoach() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _cardKey,
+          existingCoachSeen: Storage.tutSeen(coachId),
+        );
+      }
     });
   }
 

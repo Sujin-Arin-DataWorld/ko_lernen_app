@@ -2942,6 +2942,7 @@
   "deckActionSave": "Merken",
   "deckFlipFirstHint": "Erst antippen und umdrehen",
   "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
+  "coachSoriDeckTitle": "Vier Wege für deine Karte",
   "soriStageTodayMissionEyebrow": "HEUTIGE MISSION",
   "soriStageMissionStart": "Starten",
   "hanokStageName": "{stage, select, empty{Bauplatz} foundation{Fundament} pillars{Säulen} beams{Balken} thatchRoof{Strohdach} tileRoofPartial{Erste Ziegel} tileRoofComplete{Ziegeldach} dancheong{Dancheong} gate{Tor} windows{Fenster} sideBuilding{Sarangchae} jongga{Jongga} other{Hanok}}",
