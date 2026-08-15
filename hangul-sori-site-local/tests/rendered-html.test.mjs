@@ -48,7 +48,8 @@ test("renders finished site metadata", async () => {
   assert.doesNotMatch(html, /class=["'][^"']*analytics-consent/i);
   assert.match(html, /instagram\.com\/hangulsori_learnkorean/i);
   assert.match(html, /social\/sori-check-01\.png/i);
-  assert.match(html, /href=["']#tester-access["']/i);
+  assert.match(html, /href=["']https:\/\/testflight\.apple\.com\/join\/sbvJNQSt["']/i);
+  assert.match(html, /iOS beta available/i);
   assert.match(html, /name=["']platform["']/i);
   assert.match(html, /name=["']focus["']/i);
   assert.match(html, /name=["']privacyAcknowledged["']/i);
