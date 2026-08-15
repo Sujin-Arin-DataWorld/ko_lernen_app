@@ -9187,6 +9187,18 @@ abstract class AppL10n {
   /// **'Wähle die fehlenden Wörter'**
   String get courseMissionBriefBuildBody;
 
+  /// No description provided for @courseMissionBriefCheckpointTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mach den Abschlusscheck'**
+  String get courseMissionBriefCheckpointTitle;
+
+  /// No description provided for @courseMissionBriefCheckpointBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Löse die letzte Aufgabe dieser Mission'**
+  String get courseMissionBriefCheckpointBody;
+
   /// No description provided for @courseMissionBriefSceneTitle.
   ///
   /// In de, this message translates to:
@@ -9210,6 +9222,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jetzt bauen'**
   String get courseMissionBriefBuildCta;
+
+  /// No description provided for @courseMissionBriefCheckpointCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Abschlusscheck starten'**
+  String get courseMissionBriefCheckpointCta;
 
   /// No description provided for @courseMissionBriefSceneCta.
   ///

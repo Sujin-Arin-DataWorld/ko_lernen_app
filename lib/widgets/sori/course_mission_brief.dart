@@ -111,18 +111,21 @@ class CourseMissionBriefView extends StatelessWidget {
   String _stepTitle(CourseMissionPhase phase, AppL10n t) => switch (phase) {
     CourseMissionPhase.listen => t.courseMissionBriefListenTitle,
     CourseMissionPhase.build => t.courseMissionBriefBuildTitle,
+    CourseMissionPhase.checkpoint => t.courseMissionBriefCheckpointTitle,
     CourseMissionPhase.scene => t.courseMissionBriefSceneTitle,
   };
 
   String _stepBody(CourseMissionPhase phase, AppL10n t) => switch (phase) {
     CourseMissionPhase.listen => t.courseMissionBriefListenBody,
     CourseMissionPhase.build => t.courseMissionBriefBuildBody,
+    CourseMissionPhase.checkpoint => t.courseMissionBriefCheckpointBody,
     CourseMissionPhase.scene => t.courseMissionBriefSceneBody,
   };
 
   String _stepCta(CourseMissionPhase phase, AppL10n t) => switch (phase) {
     CourseMissionPhase.listen => t.courseMissionBriefListenCta,
     CourseMissionPhase.build => t.courseMissionBriefBuildCta,
+    CourseMissionPhase.checkpoint => t.courseMissionBriefCheckpointCta,
     CourseMissionPhase.scene => t.courseMissionBriefSceneCta,
   };
 }

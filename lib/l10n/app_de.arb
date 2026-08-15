@@ -2487,10 +2487,13 @@
   "courseMissionBriefListenBody": "Erkenne die höfliche Form",
   "courseMissionBriefBuildTitle": "Baue deinen Satz",
   "courseMissionBriefBuildBody": "Wähle die fehlenden Wörter",
+  "courseMissionBriefCheckpointTitle": "Mach den Abschlusscheck",
+  "courseMissionBriefCheckpointBody": "Löse die letzte Aufgabe dieser Mission",
   "courseMissionBriefSceneTitle": "Sprich in der Szene",
   "courseMissionBriefSceneBody": "Eine echte Antwort, kein Raten",
   "courseMissionBriefListenCta": "Jetzt hören",
   "courseMissionBriefBuildCta": "Jetzt bauen",
+  "courseMissionBriefCheckpointCta": "Abschlusscheck starten",
   "courseMissionBriefSceneCta": "Szene beginnen",
   "courseMissionBriefMinutes": "{minutes} Min.",
   "@courseMissionBriefMinutes": {

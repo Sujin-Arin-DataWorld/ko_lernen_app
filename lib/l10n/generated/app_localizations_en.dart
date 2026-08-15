@@ -5281,6 +5281,13 @@ class AppL10nEn extends AppL10n {
   String get courseMissionBriefBuildBody => 'Choose the missing words';
 
   @override
+  String get courseMissionBriefCheckpointTitle => 'Complete the final check';
+
+  @override
+  String get courseMissionBriefCheckpointBody =>
+      'Answer the last task for this mission';
+
+  @override
   String get courseMissionBriefSceneTitle => 'Speak in the scene';
 
   @override
@@ -5291,6 +5298,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseMissionBriefBuildCta => 'Build now';
+
+  @override
+  String get courseMissionBriefCheckpointCta => 'Start the final check';
 
   @override
   String get courseMissionBriefSceneCta => 'Start the scene';

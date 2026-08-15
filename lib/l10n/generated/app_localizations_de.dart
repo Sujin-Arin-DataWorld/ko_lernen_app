@@ -5309,6 +5309,13 @@ class AppL10nDe extends AppL10n {
   String get courseMissionBriefBuildBody => 'Wähle die fehlenden Wörter';
 
   @override
+  String get courseMissionBriefCheckpointTitle => 'Mach den Abschlusscheck';
+
+  @override
+  String get courseMissionBriefCheckpointBody =>
+      'Löse die letzte Aufgabe dieser Mission';
+
+  @override
   String get courseMissionBriefSceneTitle => 'Sprich in der Szene';
 
   @override
@@ -5319,6 +5326,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseMissionBriefBuildCta => 'Jetzt bauen';
+
+  @override
+  String get courseMissionBriefCheckpointCta => 'Abschlusscheck starten';
 
   @override
   String get courseMissionBriefSceneCta => 'Szene beginnen';

@@ -2402,10 +2402,13 @@
   "courseMissionBriefListenBody": "Recognize the polite form",
   "courseMissionBriefBuildTitle": "Build your sentence",
   "courseMissionBriefBuildBody": "Choose the missing words",
+  "courseMissionBriefCheckpointTitle": "Complete the final check",
+  "courseMissionBriefCheckpointBody": "Answer the last task for this mission",
   "courseMissionBriefSceneTitle": "Speak in the scene",
   "courseMissionBriefSceneBody": "One real answer, no guessing",
   "courseMissionBriefListenCta": "Listen now",
   "courseMissionBriefBuildCta": "Build now",
+  "courseMissionBriefCheckpointCta": "Start the final check",
   "courseMissionBriefSceneCta": "Start the scene",
   "courseMissionBriefMinutes": "{minutes} min",
   "@courseMissionBriefMinutes": {
