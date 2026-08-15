@@ -707,6 +707,6 @@ NO text, transparent background. [§1.6 closing line]
 - **단일 자급자족본**: `HANGUL_SORI_STYLE_GUIDE.md` + `HANGUL_SORI_DESIGN_TOKENS.md`(팔레트) + `stately-rising-jongga-assets.md`(한옥/장식/도장/스티커/마스코트 바이블)의 생성 필수 내용을 이 파일 하나로 흡수. 이제 AI는 **이 파일만 읽으면** 동일 스타일로 신규 자산 생성 가능.
 - **현 상태 진단**: `tiger_sleepy`·`tiger_thinking`이 다른 화풍 → 교체 1순위로 명시. 통일된 faceted 세트(idle/blink/happy/wingup/wingdown) 보존.
 - **확장**: 호랑이 expressive variant delta(happy/celebrate/sad/thinking/sleepy) 풀 프롬프트, 까치 바이블, 한옥 건축 어휘 + 템플릿 + 완성 예시, 도장 8 motif, 스티커 6 카테고리, 후처리 파이프라인 포함.
-- **문서 정리(전수조사 후)**: 흩어진 이미지 생성 문서 9종을 `docs/_archive/`로 이동(삭제 X, 매핑은 `docs/_archive/README.md`). 현행 체계 = **HOW**(이 파일) + **WHAT**(`IMAGES_TO_CREATE.md`) + **WHERE**(`assets/REGISTRY.md`) + **부록**(`plans/stately-rising-jongga-assets.md` 낱장 95장). `HANGUL_SORI_STYLE_GUIDE.md`·`mascot_pose_sheet_v2.md`는 이 파일에 흡수되어 아카이브됨. `HANGUL_SORI_DESIGN_TOKENS.md`는 코드용 디자인시스템 문서라 별도 유지.
+- **문서 정리(전수조사 후)**: 흩어진 과거 이미지 생성 문서는 이 바이블이 필요한 계약을 흡수한 뒤 working tree에서 제거했다. 완료 문서는 Git history로 복구한다. 현행 체계 = **HOW**(이 파일) + **WHAT**(`IMAGES_TO_CREATE.md`) + **WHERE**(`assets/REGISTRY.md`) + **부록**(`plans/stately-rising-jongga-assets.md` 낱장 95장). `HANGUL_SORI_DESIGN_TOKENS.md`는 코드용 디자인시스템 문서라 별도 유지.
 
 > 이 문서는 `docs/plans/mascot_pose_sheet_v2.md`(요약판)를 포함·확장한다. 신규 자산 생성 시 **이 ASSET_GENERATION_BIBLE.md를 우선** 참조.

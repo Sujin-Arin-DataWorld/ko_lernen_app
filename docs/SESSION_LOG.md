@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
+
+**무엇/왜.** 현재 작업 정본이 아닌 과거 설계·실행 계획·아카이브 문서 63개를
+working tree에서 제거했다. 대상은 `docs/_archive/` 전체, 2026-07-31 archive,
+완료된 `docs/superpowers/` plan/spec, 그리고 서로만 교차 참조하던 2026-05~06
+audit/roadmap 묶음이다. Git history에는 그대로 남으므로 필요하면
+`git log --all -- docs/<path>`로 복구할 수 있다.
+
+**보존/정본.** 현재 UI는 `HANDOFF_UI_OVERHAUL_2_2026-08-14.md`, 콘텐츠는
+`CONTENT_AUTHORING_GUIDE.md`·`CONTENT_ARCHITECTURE.md`·`CONTENT_SOURCE_POLICY.md`,
+시각 자산은 `ASSET_GENERATION_BIBLE.md`, 릴리스는
+`RELEASE_RUNBOOK_2026-08-02.md`를 유지했다. 아직 코드에 연결된 개인 한옥 설계
+2개도 보존했다. 새 `docs/README.md`가 이 정본과 문서 유지 규칙을 한 곳에서
+안내한다.
+
+**컨텍스트 절감.** 필수 진입점 `AGENTS.md`의 완료 이력 약 80KB를 현재 게이트
+7개로 압축했다. 상세 변경/검증 이력은 이 로그가 계속 맡으므로, 새 세션은
+재사용 가능한 계약만 읽고 과거 계획을 작업 지시처럼 오인하지 않는다.
+
+**검증/커밋.** 삭제 전후 Git 추적·참조를 대조하고, 남은 활성 SSoT 경로와
+`git diff --check`를 확인했다. 앱 코드·학습 데이터·TTS·에셋은 변경하지 않았다.
+커밋/푸시는 Jin의 별도 지시 전까지 하지 않는다.
+
 ### 2026-08-15 (Codex, Mac) — 최종 main 동기화 및 잔여 브랜치/worktree 무손실 감사
 
 **기준점.** UI·콘텐츠·TTS 통합 `f718106c`와 기록 `968dcf33`은 `main`과
