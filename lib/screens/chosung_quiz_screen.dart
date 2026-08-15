@@ -164,7 +164,12 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
             .where(
               (v) =>
                   v.level == _level &&
-                  v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3),
+                  // C1/C2 vocabulary is intentionally phrase-based. Spaces
+                  // are rendered as literal hint separators and remain
+                  // typeable with the system keyboard used above A2.
+                  v.korean.runes.every(
+                    (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
+                  ),
             )
             .toList()
           ..shuffle(Random());
