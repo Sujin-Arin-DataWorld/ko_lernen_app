@@ -529,7 +529,9 @@ class CloudSync {
 
   static String? _supportedLevel(Object? value) {
     final level = _nonEmptyString(value)?.toLowerCase();
-    return const {'a1', 'a2', 'b1', 'b2'}.contains(level) ? level : null;
+    return const {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}.contains(level)
+        ? level
+        : null;
   }
 
   static DateTime? _strictUtcTimestamp(String value) {

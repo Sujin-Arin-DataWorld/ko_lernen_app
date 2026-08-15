@@ -191,7 +191,14 @@ def collect():
     #    grammar_screen.dart:745  TtsService.speak(g.exampleKorean) (기본 여성).
     with open(os.path.join(ROOT, "assets/data/grammar.csv"), encoding="utf-8") as f:
         for row in csv.reader(f):
-            if len(row) >= 5 and row[1].strip() in ("A1", "A2", "B1", "B2"):
+            if len(row) >= 5 and row[1].strip() in (
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+            ):
                 add_female(row[4])
 
     # 4. 스몰토크 — phrases 안의 모든 ko (opener·대안질문·followUp).
@@ -589,6 +596,15 @@ def main(argv=None):
     if args.dry_run:
         _print_dry_run(pairs)
         return 0
+
+    # Every non-dry-run mode reads from or uploads to Cloud Storage. Check this
+    # before authentication and before any billable synthesis request.
+    if shutil.which("gcloud") is None and shutil.which("gcloud.cmd") is None:
+        raise SystemExit(
+            "TTS 실행 중단: gcloud가 PATH에 없습니다. Google Cloud SDK를 "
+            "설치하고 Storage 인증을 마친 뒤 다시 실행하세요. 합성 및 업로드는 "
+            "시작되지 않았습니다."
+        )
 
     if args.verify_storage:
         expected = {cache_relative_path(voice, text) for voice, text in pairs}

@@ -2137,6 +2137,20 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelB2Desc => 'Fluent, including nuance';
 
   @override
+  String get onboardingLevelC1 => 'Proficient';
+
+  @override
+  String get onboardingLevelC1Desc =>
+      'Evidence, institutions, precise nuance';
+
+  @override
+  String get onboardingLevelC2 => 'Expert';
+
+  @override
+  String get onboardingLevelC2Desc =>
+      'Nuanced analysis and rhetorical control';
+
+  @override
   String get onboardingExampleA1Trans => 'Hello / Hi.';
 
   @override
@@ -2149,6 +2163,14 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingExampleB2Trans =>
       'The meeting is running long, so I\'ll be a bit late.';
+
+  @override
+  String get onboardingExampleC1Trans =>
+      'I will separate confirmed facts from our current interpretation.';
+
+  @override
+  String get onboardingExampleC2Trans =>
+      'Treating silence as consent can make the framing of a question restrict participation.';
 
   @override
   String get onboardingSkip => 'Skip for now (starts at A1)';
@@ -2215,6 +2237,22 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingLevelB2Learn =>
       'Work and news, nuance, idioms, honorifics.';
+
+  @override
+  String get onboardingLevelC1Can =>
+      'You discuss complex topics and qualify your conclusions.';
+
+  @override
+  String get onboardingLevelC1Learn =>
+      'Evidence, uncertainty, inclusive systems, and public explanations.';
+
+  @override
+  String get onboardingLevelC2Can =>
+      'You analyze assumptions, framing, and institutional language.';
+
+  @override
+  String get onboardingLevelC2Learn =>
+      'Discourse, interpretation, technology ethics, and accountable decisions.';
 
   @override
   String get homeHeroGreetingMorning => 'Good morning!';

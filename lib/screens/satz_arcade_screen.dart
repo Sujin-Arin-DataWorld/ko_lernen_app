@@ -46,7 +46,7 @@ class SatzArcadeScreen extends StatefulWidget {
 
 class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   static const _roundSize = 8;
-  static const _levels = ['a1', 'a2', 'b1', 'b2'];
+  static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 
   List<SatzSentence> _all = const [];
   bool _loading = true;

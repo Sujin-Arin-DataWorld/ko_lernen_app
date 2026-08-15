@@ -26,8 +26,9 @@ from typing import Any, Iterable
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
 
-LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2"))
+LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 UPPER_LEVELS = frozenset(level.upper() for level in LOWER_LEVELS)
+SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2"))
 SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
 CONTENT_KINDS = frozenset(
     ("vocab", "grammar", "scenario", "smalltalk", "cloze", "satz")
@@ -202,7 +203,7 @@ class ContentValidator:
             if level not in UPPER_LEVELS:
                 self.issue(name, f"{label} has invalid level {row.get('level')!r}")
             ident = (row.get("id") or "").strip()
-            if not re.fullmatch(r"vocab_(a1|a2|b1|b2)_\d+", ident):
+            if not re.fullmatch(r"vocab_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{label} has invalid vocab id {ident!r}")
             elif ident.split("_")[1].upper() != level and ident not in LEGACY_VOCAB_LEVEL_EXCEPTIONS:
                 self.issue(name, f"{label} id level disagrees with row level: {ident} vs {level}")
@@ -251,7 +252,7 @@ class ContentValidator:
                 self.issue(name, f"{label} has an empty required field")
             ident = (row.get("id") or "").strip()
             level = (row.get("level") or "").lower()
-            if not re.fullmatch(r"grammar_(a1|a2|b1|b2)_[a-z0-9_]+", ident):
+            if not re.fullmatch(r"grammar_(a1|a2|b1|b2|c1|c2)_[a-z0-9_]+", ident):
                 self.issue(name, f"{label} has invalid grammar id {ident!r}")
             elif ident.split("_")[1] != level:
                 self.issue(
@@ -329,7 +330,7 @@ class ContentValidator:
             seen.add(ident)
             level = scenario.get("level")
             if not isinstance(level, str) or level.lower() not in LOWER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 string")
+                self.issue(name, f"{ident} level must be an A1-C2 string")
             self._localized(name, f"{ident}.title", scenario.get("title"), require_ko=False)
             self._localized(name, f"{ident}.intro", scenario.get("intro"), require_ko=False)
             self._localized(name, f"{ident}.grammarBlock.title", self._nested(scenario, "grammarBlock", "title"), require_ko=False)
@@ -453,8 +454,8 @@ class ContentValidator:
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
             if level not in LOWER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 string")
-            if not re.fullmatch(r"satz_(a1|a2|b1|b2)_\d+", ident):
+                self.issue(name, f"{ident} level must be an A1-C2 string")
+            if not re.fullmatch(r"satz_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid satz id")
             elif ident.split("_")[1] != level:
                 self.issue(name, f"{ident} id level disagrees with {level}")
@@ -506,8 +507,8 @@ class ContentValidator:
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
             if level not in LOWER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 string")
-            if not re.fullmatch(r"smalltalk_(a1|a2|b1|b2)_\d+", ident):
+                self.issue(name, f"{ident} level must be an A1-C2 string")
+            if not re.fullmatch(r"smalltalk_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid smalltalk id")
             elif ident.split("_")[1] != level:
                 self.issue(name, f"{ident} id level disagrees with {level}")
@@ -610,7 +611,7 @@ class ContentValidator:
         if not isinstance(levels, dict):
             self.issue(name, "root must contain a levels object")
             return
-        missing_levels = UPPER_LEVELS - set(levels)
+        missing_levels = SILBEN_REQUIRED_LEVELS - set(levels)
         if missing_levels:
             self.issue(name, f"missing CEFR level keys: {', '.join(sorted(missing_levels))}")
         seen_ids: set[str] = set()
@@ -730,7 +731,7 @@ class ContentValidator:
             seen.add(word)
             raw_level = item.get("level")
             if not isinstance(raw_level, str) or raw_level.upper() not in UPPER_LEVELS:
-                self.issue(name, f"{word} level must be an A1–B2 string")
+                self.issue(name, f"{word} level must be an A1-C2 string")
             first = item.get("first")
             last = item.get("last")
             if not self._is_nonempty_string(first):
@@ -785,7 +786,7 @@ class ContentValidator:
             seen.add(ident)
             level = item.get("level")
             if not isinstance(level, str) or level not in UPPER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 uppercase string")
+                self.issue(name, f"{ident} level must be an A1-C2 uppercase string")
             for field in ("regex", "name_de", "name_en", "explanation_de", "explanation_en"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
@@ -846,7 +847,7 @@ class ContentValidator:
                 ident = f"<invalid pronunciation {index}>"
             else:
                 ident = raw_ident.strip()
-            if not re.fullmatch(r"pronunciation_(a1|a2|b1|b2)_\d+", ident):
+            if not re.fullmatch(r"pronunciation_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"invalid id {ident!r}")
             if ident in seen:
                 self.issue(name, f"duplicate id {ident!r}")
@@ -854,7 +855,7 @@ class ContentValidator:
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
             if level not in LOWER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 string")
+                self.issue(name, f"{ident} level must be an A1-C2 string")
             elif ident.startswith("pronunciation_") and ident.split("_")[1] != level:
                 self.issue(name, f"{ident} id level disagrees with {level}")
             for field in ("ko", "de", "en", "focus"):
@@ -994,19 +995,39 @@ class ContentValidator:
         satz_items = satz.get("items", []) if isinstance(satz, dict) else []
         satz_ids = self._ids_from_records("satz_sentences.json", satz_items, "item")
 
+        source_ids_by_kind = {
+            "vocab": vocab_ids,
+            "grammar": grammar_ids,
+            "smalltalk": smalltalk_ids,
+            "cloze": cloze_ids,
+            "satz": satz_ids,
+            "scenario": scenario_ids,
+        }
+        raw_units = manifest.get("courseUnits")
+        if isinstance(raw_units, list):
+            for index, unit in enumerate(raw_units):
+                if not isinstance(unit, dict):
+                    continue
+                unit_id = str(unit.get("id") or f"<unit {index}>")
+                checkpoints = unit.get("checkpointContentIds")
+                if not isinstance(checkpoints, list) or not checkpoints:
+                    self.issue(name, f"course unit {unit_id!r} needs checkpointContentIds")
+                    continue
+                for checkpoint in checkpoints:
+                    if not isinstance(checkpoint, str) or checkpoint.count(":") != 1:
+                        self.issue(name, f"course unit {unit_id!r} has invalid checkpoint {checkpoint!r}")
+                        continue
+                    kind, source_id = checkpoint.split(":", 1)
+                    known_ids = source_ids_by_kind.get(kind)
+                    if known_ids is None or source_id not in known_ids:
+                        self.issue(name, f"course unit {unit_id!r} references missing checkpoint {checkpoint!r}")
+
         self._validate_explicit_content_links(
             name,
             manifest.get("contentLinks"),
             unit_concepts,
             concept_ids,
-            {
-                "vocab": vocab_ids,
-                "grammar": grammar_ids,
-                "smalltalk": smalltalk_ids,
-                "cloze": cloze_ids,
-                "satz": satz_ids,
-                "scenario": scenario_ids,
-            },
+            source_ids_by_kind,
         )
 
     def _curriculum_units(
@@ -1371,8 +1392,8 @@ class ContentValidator:
             raw_level = item.get("level")
             level = raw_level.lower() if isinstance(raw_level, str) else ""
             if level not in LOWER_LEVELS:
-                self.issue(name, f"{ident} level must be an A1–B2 string")
-            if not re.fullmatch(r"cloze_(a1|a2|b1|b2)_\d+", ident):
+                self.issue(name, f"{ident} level must be an A1-C2 string")
+            if not re.fullmatch(r"cloze_(a1|a2|b1|b2|c1|c2)_\d+", ident):
                 self.issue(name, f"{ident} has invalid cloze id")
             elif ident.split("_")[1] != level:
                 self.issue(name, f"{ident} id level disagrees with {level}")

@@ -244,6 +244,8 @@ class _ProfileScreenState extends State<ProfileScreen>
     LearnerLevel.a2 => '${level.display} · ${t.onboardingLevelA2}',
     LearnerLevel.b1 => '${level.display} · ${t.onboardingLevelB1}',
     LearnerLevel.b2 => '${level.display} · ${t.onboardingLevelB2}',
+    LearnerLevel.c1 => '${level.display} · ${t.onboardingLevelC1}',
+    LearnerLevel.c2 => '${level.display} · ${t.onboardingLevelC2}',
   };
 
   Future<void> _changeLevel() async {

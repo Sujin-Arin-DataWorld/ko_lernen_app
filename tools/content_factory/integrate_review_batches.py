@@ -273,6 +273,80 @@ def _add_mapping(target: dict[str, Any], key: str, value: Any, label: str) -> No
     target[key] = value
 
 
+def _merge_curriculum_extensions(
+    curriculum: dict[str, Any],
+    batches: Iterable[BatchPayload],
+) -> None:
+    """Append manifest-owned concepts and course units before mapping content.
+
+    Earlier review batches only targeted already-shipped A1-B2 units.  C1/C2
+    is the first track that must create curriculum nodes in the same atomic
+    transaction as its content.  Keep this fail-closed so a partial concept or
+    unit can never be written ahead of its reviewed records.
+    """
+
+    concepts = curriculum.get("concepts")
+    units = curriculum.get("courseUnits")
+    if not isinstance(concepts, list) or not isinstance(units, list):
+        raise IntegrationError(
+            "curriculum_manifest.json: concepts and courseUnits must be arrays",
+        )
+    if any(not isinstance(item, dict) for item in concepts):
+        raise IntegrationError("curriculum_manifest.json: concepts must contain objects")
+    if any(not isinstance(item, dict) for item in units):
+        raise IntegrationError("curriculum_manifest.json: courseUnits must contain objects")
+
+    concept_by_id = {str(item.get("id") or "").strip(): item for item in concepts}
+    unit_by_id = {str(item.get("id") or "").strip(): item for item in units}
+    if "" in concept_by_id or len(concept_by_id) != len(concepts):
+        raise IntegrationError("curriculum_manifest.json: concept IDs must be unique and nonempty")
+    if "" in unit_by_id or len(unit_by_id) != len(units):
+        raise IntegrationError("curriculum_manifest.json: course-unit IDs must be unique and nonempty")
+
+    pending_concepts: list[dict[str, Any]] = []
+    pending_units: list[dict[str, Any]] = []
+    for batch in batches:
+        raw = batch.manifest.get("curriculumExtensions")
+        if raw is None:
+            continue
+        if not isinstance(raw, dict):
+            raise IntegrationError(
+                f"{batch.manifest_path}: curriculumExtensions must be an object",
+            )
+        raw_concepts = raw.get("concepts")
+        raw_units = raw.get("courseUnits")
+        if not isinstance(raw_concepts, list) or not isinstance(raw_units, list):
+            raise IntegrationError(
+                f"{batch.manifest_path}: curriculumExtensions needs concepts and courseUnits arrays",
+            )
+        for label, incoming, live, pending in (
+            ("concept", raw_concepts, concept_by_id, pending_concepts),
+            ("course unit", raw_units, unit_by_id, pending_units),
+        ):
+            for item in incoming:
+                if not isinstance(item, dict):
+                    raise IntegrationError(
+                        f"{batch.manifest_path}: curriculum extension {label} must be an object",
+                    )
+                ident = str(item.get("id") or "").strip()
+                if not ident:
+                    raise IntegrationError(
+                        f"{batch.manifest_path}: curriculum extension {label} needs an id",
+                    )
+                existing = live.get(ident)
+                if existing is not None and existing != item:
+                    raise IntegrationError(
+                        f"{batch.manifest_path}: conflicting curriculum {label} {ident!r}",
+                    )
+                if existing is None:
+                    copied = json.loads(json.dumps(item, ensure_ascii=False))
+                    live[ident] = copied
+                    pending.append(copied)
+
+    concepts.extend(pending_concepts)
+    units.extend(pending_units)
+
+
 def _merge_batch_mappings(curriculum: dict[str, Any], batches: Iterable[BatchPayload]) -> dict[str, dict[str, Any]]:
     fields = ("vocabPackUnitMap", "grammarRuleMap", "smalltalkCategoryUnitMap", "clozeTopicUnitMap")
     for field in fields:
@@ -473,7 +547,7 @@ def _ensure_motifs(motif_text: str, packs: dict[str, dict[str, Any]]) -> str:
     missing = [base for base in packs if f"'{base}'" not in motif_text]
     if not missing:
         return motif_text
-    lines = ["    // Reviewed B1/B2 content packs — existing motif pipeline only."]
+    lines = ["    // Reviewed A1-C2 content packs using the existing motif pipeline."]
     for base in missing:
         lines.append(f"    '{base}' => DancheongMotif.{packs[base]['motif']},")
     anchor = "    _ => DancheongMotif.lotus,"
@@ -517,6 +591,7 @@ def _write_stage(
                 target.write_text(_json_text(current_root), encoding="utf-8")
 
         curriculum = _read_json(staged_data / "curriculum_manifest.json")
+        _merge_curriculum_extensions(curriculum, batches)
         packs = _merge_batch_mappings(curriculum, batches)
 
         if restore_b2_recovery:

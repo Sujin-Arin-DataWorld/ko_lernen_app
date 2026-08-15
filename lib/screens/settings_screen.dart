@@ -1321,6 +1321,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       LearnerLevel.a2 => t.onboardingLevelA2,
       LearnerLevel.b1 => t.onboardingLevelB1,
       LearnerLevel.b2 => t.onboardingLevelB2,
+      LearnerLevel.c1 => t.onboardingLevelC1,
+      LearnerLevel.c2 => t.onboardingLevelC2,
     };
     return '${lvl.display} · $name';
   }
@@ -1405,6 +1407,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       LearnerLevel.a2 => t.onboardingLevelA2,
       LearnerLevel.b1 => t.onboardingLevelB1,
       LearnerLevel.b2 => t.onboardingLevelB2,
+      LearnerLevel.c1 => t.onboardingLevelC1,
+      LearnerLevel.c2 => t.onboardingLevelC2,
     };
 
     showDialog(

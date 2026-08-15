@@ -1,5 +1,46 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
+
+**참고자료와 저작권 안전선.** 제공된 세종학당 PDF 17권, 총 1,817쪽을 텍스트 추출과
+대표 페이지 렌더로 전수 확인했다. 참고 범위는 CEFR별 주제 폭, 과업 유형, 문법 기능,
+어휘장 분포 같은 추상적 교육 설계에 한정했다. 원문 문장·대화·문제·선택지·등장인물·
+단원 순서·고유 분류명은 가져오지 않았고, 출처형 지시문과 문구 표식도 자동 검사했다.
+파일별 해시·쪽수·허용/배제 규칙은 `REFERENCE_ABSTRACTION_AUDIT_2026-08-15.md`, 새
+트랙의 독립 기획은 `ADVANCED_CONTENT_TRACK_2026-08-15.md`에 고정했다.
+
+**독립 창작 콘텐츠.** Batch 03 핵심 레코드 126개의 정확히 4배인 **504개**를 새로
+집필했다. 레벨별 B2/C1/C2 각 168개이며, 전체 구성은 단어 144, 문법 24, 실생활
+대화·듣기 48, Cloze 144, Satzbau 144다. 협업·디지털 판단·경계 설정, 접근성·근거
+평가·위험 소통·지속 가능한 지역 선택, 제도 조정·서사 관점·언어와 권력·기술 윤리를
+다루되 실제 한국어 화자의 편안한 높임말과 반말, 완곡한 이견, 후속 질문, 안전한 대체
+응답을 섞었다. KO/DE/EN, 원본 권리 메타데이터, 승인 review 원장과 merged manifest를
+동시에 만들고 live asset에 원자적으로 승격했다. 결과 inventory는 vocab 1,188/117팩,
+grammar 176, smalltalk 285, Cloze 514, Satzbau 419다.
+
+**앱·커리큘럼 연동.** 기존 A1–B2 한정 레벨 계약을 선택·저장·동기화·추천·Today·복습·
+단어팩·퀴즈·프로필·경로 화면에서 A1–C2로 확장했다. C1/C2 개념 4개와 유닛 4개를
+추가했고 각 유닛은 vocab/grammar/smalltalk/cloze/satz 링크와 정확히 하나의 실제
+checkpoint를 가진다. checkpoint가 scenario만 허용하던 숨은 가정을 제거해 콘텐츠 종류별
+ID를 일반적으로 해석하고, 해당 유닛·개념으로 되돌아오는 assess edge를 검증한다.
+시나리오와 음절 퍼즐처럼 아직 C1/C2 전용 데이터가 없는 모드는 빈 화면 대신 검증된
+하위 레벨로 안전하게 폴백하며, 존재하지 않는 고급 시나리오를 가장하지 않는다.
+
+**TTS 상태.** 신규 발화 504개 전부에 기존 v3 SHA-1 캐시 계약의 immutable Storage
+경로를 만든 manifest를 추가했다. 계획 corpus는 총 6,321개(female 6,146/male 175,
+한국어 61,681자)다. 실제 합성·업로드도 승인 범위에서 실행을 시도했으나 이 실행 환경에
+`GOOGLE_TTS_API_KEY`/`GOOGLE_TTS_API_KEY_2`와 `gcloud` 인증이 없어 preflight에서
+중단됐다. 비용 발생, 음원 생성, Storage 쓰기는 시작되지 않았다. 생성기는 이 조건을
+합성 전에 명확히 실패하도록 보강했으며, 신규 504개는 자격 증명 대기 상태다. 따라서
+음원이 검증되기 전에는 main 라이브 병합을 완료로 간주하지 않는다.
+
+**검증/커밋.** 콘텐츠 전체 validator, 승인 승격 validator, 504개 TTS manifest와
+6,321개 전체 corpus 교차검증, content factory Python **37건**, Python compile,
+JSON/ARB parity 1,830키, 새 단어·예문·문법 예문 유일성, 출처형 문구 부재,
+trailing-whitespace 검사를 통과했다. 로컬 환경에는 Flutter/Dart SDK가 없어 GitHub CI의
+analyze/test/web build를 최종 게이트로 사용한다. 본문 commit 해시는 이 항목을 포함한
+commit에서 자기참조할 수 없으므로 직후 기록 commit에 고정한다.
+
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
 **무엇/왜.** 현재 작업 정본이 아닌 과거 설계·실행 계획·아카이브 문서 63개를

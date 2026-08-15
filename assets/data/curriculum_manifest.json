@@ -876,6 +876,102 @@
       "checkpointContentIds": [
         "scenario:job_interview"
       ]
+    },
+    {
+      "id": "c1_01_evidence_public_reasoning",
+      "level": "c1",
+      "order": 1,
+      "title": {
+        "ko": "근거와 공공 설명",
+        "de": "Evidenz und öffentliche Erklärung",
+        "en": "Evidence and Public Explanation"
+      },
+      "canDo": {
+        "ko": "불확실한 자료를 과장하지 않고 근거와 한계를 구분해 설명할 수 있어요.",
+        "de": "Ich kann unsichere Daten erklären, ohne sie zu übertreiben, und Evidenz klar von Grenzen trennen.",
+        "en": "I can explain uncertain evidence without exaggeration and distinguish findings from limitations."
+      },
+      "prerequisiteUnitIds": [
+        "b2_06_advanced_capstone"
+      ],
+      "requiredConceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "checkpointContentIds": [
+        "smalltalk:smalltalk_c1_0011"
+      ]
+    },
+    {
+      "id": "c1_02_inclusive_sustainable_systems",
+      "level": "c1",
+      "order": 2,
+      "title": {
+        "ko": "포용성과 지속 가능성",
+        "de": "Inklusion und Nachhaltigkeit",
+        "en": "Inclusion and Sustainability"
+      },
+      "canDo": {
+        "ko": "접근성, 비용, 참여와 지역 여건의 상충 관계를 조정해 제안을 만들 수 있어요.",
+        "de": "Ich kann Zielkonflikte zwischen Zugänglichkeit, Kosten, Beteiligung und lokalen Bedingungen abwägen.",
+        "en": "I can balance accessibility, cost, participation, and local conditions in a practical proposal."
+      },
+      "prerequisiteUnitIds": [
+        "c1_01_evidence_public_reasoning"
+      ],
+      "requiredConceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c1_taking_into_account"
+      ]
+    },
+    {
+      "id": "c2_01_interpretation_institutions",
+      "level": "c2",
+      "order": 1,
+      "title": {
+        "ko": "해석, 언어와 제도",
+        "de": "Deutung, Sprache und Institutionen",
+        "en": "Interpretation, Language, and Institutions"
+      },
+      "canDo": {
+        "ko": "담론의 전제와 제도적 권한을 드러내고 여러 해석을 근거로 비교할 수 있어요.",
+        "de": "Ich kann Prämissen im Diskurs und institutionelle Macht sichtbar machen und Deutungen evidenzbasiert vergleichen.",
+        "en": "I can expose assumptions and institutional power in discourse and compare interpretations using evidence."
+      },
+      "prerequisiteUnitIds": [
+        "c1_02_inclusive_sustainable_systems"
+      ],
+      "requiredConceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "checkpointContentIds": [
+        "smalltalk:smalltalk_c2_0012"
+      ]
+    },
+    {
+      "id": "c2_02_technology_public_ethics",
+      "level": "c2",
+      "order": 2,
+      "title": {
+        "ko": "기술윤리와 공공 책임",
+        "de": "Technikethik und öffentliche Verantwortung",
+        "en": "Technology Ethics and Public Accountability"
+      },
+      "canDo": {
+        "ko": "자동화 시스템의 이익과 위험을 평가하고 책임 있는 절차를 구체적으로 설계할 수 있어요.",
+        "de": "Ich kann Nutzen und Risiken automatisierter Systeme bewerten und verantwortliche Verfahren konkret entwerfen.",
+        "en": "I can evaluate automated systems and design concrete, accountable procedures."
+      },
+      "prerequisiteUnitIds": [
+        "c2_01_interpretation_institutions"
+      ],
+      "requiredConceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c2_even_assuming"
+      ]
     }
   ],
   "concepts": [
@@ -1553,6 +1649,66 @@
         "de": "Dieselbe Absicht angemessener umformen.",
         "en": "Rephrase the same intent more appropriately."
       }
+    },
+    {
+      "id": "concept_c1_evidence_reasoning",
+      "level": "c1",
+      "kind": "speechStyle",
+      "title": {
+        "ko": "근거와 불확실성",
+        "de": "Evidenz & Unsicherheit",
+        "en": "Evidence & Uncertainty"
+      },
+      "explanation": {
+        "ko": "자료의 한계와 불확실성을 밝히며 결론의 강도를 조절해요.",
+        "de": "Grenzen und Unsicherheit von Daten benennen und die Stärke einer Schlussfolgerung angemessen abstufen.",
+        "en": "State limitations and uncertainty while calibrating the strength of a conclusion."
+      }
+    },
+    {
+      "id": "concept_c1_inclusive_systems",
+      "level": "c1",
+      "kind": "situation",
+      "title": {
+        "ko": "포용적인 제도 설계",
+        "de": "Inklusive Systemgestaltung",
+        "en": "Inclusive System Design"
+      },
+      "explanation": {
+        "ko": "당사자의 선택권, 접근성, 유지 비용을 함께 고려해 실행 가능한 제도를 제안해요.",
+        "de": "Wahlmöglichkeiten, Zugänglichkeit und laufende Kosten gemeinsam berücksichtigen und umsetzbare Systeme vorschlagen.",
+        "en": "Propose workable systems that account for choice, accessibility, and ongoing cost."
+      }
+    },
+    {
+      "id": "concept_c2_discourse_institutions",
+      "level": "c2",
+      "kind": "speechStyle",
+      "title": {
+        "ko": "담론과 제도 해석",
+        "de": "Diskurs & Institutionen",
+        "en": "Discourse & Institutions"
+      },
+      "explanation": {
+        "ko": "표현이 책임과 권한, 기억과 해석의 틀을 어떻게 만드는지 비판적으로 분석해요.",
+        "de": "Kritisch analysieren, wie Sprache Rahmen für Verantwortung, Macht, Erinnerung und Deutung schafft.",
+        "en": "Critically analyze how language frames responsibility, power, memory, and interpretation."
+      }
+    },
+    {
+      "id": "concept_c2_accountable_systems",
+      "level": "c2",
+      "kind": "situation",
+      "title": {
+        "ko": "책임 있는 기술 시스템",
+        "de": "Verantwortliche technische Systeme",
+        "en": "Accountable Technology Systems"
+      },
+      "explanation": {
+        "ko": "자동화된 결정의 추적 가능성, 이의 제기, 철회권과 책임 소재를 설계해요.",
+        "de": "Nachvollziehbarkeit, Einspruch, Widerruf und Verantwortlichkeit automatisierter Entscheidungen gestalten.",
+        "en": "Design traceability, appeals, withdrawal rights, and accountability for automated decisions."
+      }
     }
   ],
   "surfaceForms": [
@@ -1988,7 +2144,19 @@
     "b2_language_society": "b2_02_professional_opinion",
     "b2_life_values": "b2_02_professional_opinion",
     "b2_literature_emotion": "b2_06_advanced_capstone",
-    "b2_language_change": "b2_02_professional_opinion"
+    "b2_language_change": "b2_02_professional_opinion",
+    "b2_collaborative_feedback": "b2_02_professional_opinion",
+    "b2_digital_judgment": "b2_02_professional_opinion",
+    "c1_accessible_participation": "c1_02_inclusive_sustainable_systems",
+    "c1_evidence_reasoning": "c1_01_evidence_public_reasoning",
+    "c2_institutional_mediation": "c2_01_interpretation_institutions",
+    "c2_narrative_perspective": "c2_01_interpretation_institutions",
+    "b2_shared_space_coordination": "b2_04_complaint_resolution",
+    "b2_personal_boundaries": "b2_04_complaint_resolution",
+    "c1_risk_communication": "c1_01_evidence_public_reasoning",
+    "c1_sustainable_tradeoffs": "c1_02_inclusive_sustainable_systems",
+    "c2_language_framing": "c2_01_interpretation_institutions",
+    "c2_technology_ethics": "c2_02_technology_public_ethics"
   },
   "contentLinks": [
     {
@@ -3156,6 +3324,150 @@
       "conceptIds": [
         "concept_b2_advanced"
       ]
+    },
+    "grammar_b2_not_automatic_conclusion": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_outcome_depends": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_turning_point": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_shared_merit": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_in_light_of": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_compared_with": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_only_course": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "grammar_b2_instead_tradeoff": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "grammar_c1_rather_than": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "grammar_c1_even_at_cost": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "grammar_c1_no_exaggeration": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "grammar_c1_unless_condition": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "grammar_c1_two_sides": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c1_excessive_result": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c1_room_for": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c1_taking_into_account": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c2_regardless_of": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_even_if_concession": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_expected_assumption": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_fortunate_counterfactual": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_even_assuming": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "grammar_c2_if_indeed": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "grammar_c2_nothing_more_than": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "grammar_c2_likely_negative": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -3686,6 +3998,54 @@
       "conceptIds": [
         "concept_b2_complaint"
       ]
+    },
+    "c1:daily": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:work_study": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "c1:transport": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:health": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "c2:work_study": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:daily": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "c2:screen": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:mood": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
     }
   },
   "smalltalkCheckpointPhraseMap": {
@@ -3765,6 +4125,18 @@
     "b2:formelle beschwerde & abhilfe": "b2_04_complaint_resolution",
     "b2:entscheidungen & perspektiven": "b2_02_professional_opinion",
     "b2:lesen & reaktionen": "b2_06_advanced_capstone",
-    "b2:sprache & gesellschaft": "b2_02_professional_opinion"
+    "b2:sprache & gesellschaft": "b2_02_professional_opinion",
+    "b2:teamarbeit & feedback": "b2_02_professional_opinion",
+    "b2:digitale aufmerksamkeit": "b2_02_professional_opinion",
+    "c1:zugänglichkeit & teilhabe": "c1_02_inclusive_sustainable_systems",
+    "c1:forschung & evidenz": "c1_01_evidence_public_reasoning",
+    "c2:institutionelle vermittlung": "c2_01_interpretation_institutions",
+    "c2:erinnerung & erzählperspektive": "c2_01_interpretation_institutions",
+    "b2:gemeinsame räume & rücksicht": "b2_04_complaint_resolution",
+    "b2:rhythmus & grenzen": "b2_04_complaint_resolution",
+    "c1:risiko & öffentliche information": "c1_01_evidence_public_reasoning",
+    "c1:nachhaltige entscheidungen vor ort": "c1_02_inclusive_sustainable_systems",
+    "c2:sprache, deutung & macht": "c2_01_interpretation_institutions",
+    "c2:technikethik & verantwortung": "c2_02_technology_public_ethics"
   }
 }

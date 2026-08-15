@@ -16,7 +16,6 @@ void main() {
     expect(pathVisibleLevel(''), 'A1');
     expect(pathVisibleLevel('   '), 'A1');
     expect(pathVisibleLevel('nonsense'), 'A1');
-    expect(pathVisibleLevel('c1'), 'A1');
   });
 
   test('returns the chosen level upper-cased', () {
@@ -24,11 +23,14 @@ void main() {
     expect(pathVisibleLevel('a2'), 'A2');
     expect(pathVisibleLevel('b1'), 'B1');
     expect(pathVisibleLevel('b2'), 'B2');
+    expect(pathVisibleLevel('c1'), 'C1');
+    expect(pathVisibleLevel('c2'), 'C2');
   });
 
   test('tolerates surrounding whitespace and upper-case input', () {
     expect(pathVisibleLevel(' a2 '), 'A2');
     expect(pathVisibleLevel('B2'), 'B2');
+    expect(pathVisibleLevel(' C2 '), 'C2');
   });
 
   test('legacy pack path keeps its dedicated browse level', () {

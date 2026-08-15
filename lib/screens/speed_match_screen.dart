@@ -39,7 +39,7 @@ class SpeedMatchScreen extends StatefulWidget {
 class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   static const _seconds = 60;
   static const _regularSlots = 5;
-  static const _levels = ['a1', 'a2', 'b1', 'b2'];
+  static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 
   final Random _rng = Random();
   List<Vocab> _all = const [];

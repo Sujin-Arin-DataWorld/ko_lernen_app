@@ -71,7 +71,7 @@ class ReviewDeckService {
     return out;
   }
 
-  /// 레벨 오름차순(A1→A2→B1→B2) **안정** 정렬 — 같은 레벨 안에서는 입력
+  /// 레벨 오름차순(A1부터 C2) **안정** 정렬. 같은 레벨 안에서는 입력
   /// 순서(큐레이션·pack_order)를 보존한다. Dart 의 `List.sort` 는 불안정이라
   /// 원본 인덱스를 tie-breaker 로 쓴다.
   static List<Vocab> sortByLevelStable(List<Vocab> list) {

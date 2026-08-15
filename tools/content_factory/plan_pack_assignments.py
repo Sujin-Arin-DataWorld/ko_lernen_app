@@ -71,8 +71,8 @@ CURRICULUM_PATH = DATA_DIR / "curriculum_manifest.json"
 PACK_SERVICE_PATH = ROOT / "lib" / "services" / "vocab_pack_service.dart"
 STAMP_PATH = ROOT / "lib" / "widgets" / "sori" / "dancheong_stamp.dart"
 
-VOCAB_ID_RE = re.compile(r"vocab_(a1|a2|b1|b2)_\d+")
-PACK_BASE_RE = re.compile(r"(a1|a2|b1|b2)_[a-z0-9]+(?:_[a-z0-9]+)*")
+VOCAB_ID_RE = re.compile(r"vocab_(a1|a2|b1|b2|c1|c2)_\d+")
+PACK_BASE_RE = re.compile(r"(a1|a2|b1|b2|c1|c2)_[a-z0-9]+(?:_[a-z0-9]+)*")
 
 
 class PackAssignmentError(ValueError):
@@ -158,7 +158,7 @@ def _normalise_vocab_pack_manifest_entry(
     pack_id = _require_string(entry, "packId", label)
     level = _require_string(entry, "level", label).lower()
     if level not in LOWER_LEVELS:
-        raise PackAssignmentError(f"{label}: level must be one of A1–B2")
+        raise PackAssignmentError(f"{label}: level must be one of A1-C2")
     if not PACK_BASE_RE.fullmatch(pack_id) or not pack_id.startswith(f"{level}_"):
         raise PackAssignmentError(f"{label}: invalid or level-mismatched packId {pack_id!r}")
     pack_id_base = _pack_base(pack_id)
@@ -342,6 +342,44 @@ def _curriculum_units(path: Path) -> dict[str, str]:
     return result
 
 
+def _curriculum_extension_units(path: Path) -> dict[str, str]:
+    """Read review-only course units declared by an advanced batch manifest."""
+
+    payload = _read_json(path)
+    extensions = payload.get("curriculumExtensions") if isinstance(payload, dict) else None
+    if extensions is None:
+        return {}
+    if not isinstance(extensions, dict):
+        raise PackAssignmentError(f"{path}: curriculumExtensions must be an object")
+    units = extensions.get("courseUnits")
+    if not isinstance(units, list):
+        raise PackAssignmentError(
+            f"{path}: curriculumExtensions.courseUnits must be an array",
+        )
+    result: dict[str, str] = {}
+    for number, unit in enumerate(units, start=1):
+        if not isinstance(unit, dict):
+            raise PackAssignmentError(
+                f"{path}: curriculumExtensions.courseUnits[{number}] must be an object",
+            )
+        ident = unit.get("id")
+        level = unit.get("level")
+        if not isinstance(ident, str) or not ident.strip():
+            raise PackAssignmentError(
+                f"{path}: curriculumExtensions.courseUnits[{number}] needs an id",
+            )
+        if not isinstance(level, str) or level.lower() not in LOWER_LEVELS:
+            raise PackAssignmentError(
+                f"{path}: curriculumExtensions.courseUnits[{number}] has an invalid level",
+            )
+        if ident in result:
+            raise PackAssignmentError(
+                f"{path}: duplicate curriculum extension unit {ident!r}",
+            )
+        result[ident] = level.lower()
+    return result
+
+
 def _validate_metadata_entry(
     entry: dict[str, Any],
     *,
@@ -353,7 +391,7 @@ def _validate_metadata_entry(
     pack_id_base = _require_string(entry, "packIdBase", label)
     level = _require_string(entry, "level", label).lower()
     if level not in LOWER_LEVELS:
-        raise PackAssignmentError(f"{label}: level must be one of A1–B2")
+        raise PackAssignmentError(f"{label}: level must be one of A1-C2")
     if not PACK_BASE_RE.fullmatch(pack_id_base):
         raise PackAssignmentError(f"{label}: packIdBase has an invalid shape: {pack_id_base!r}")
     if _pack_base(pack_id_base) != pack_id_base:
@@ -490,9 +528,7 @@ def _reserved_plans_by_level(
             for base, order in current_order_map.items()
             if base.startswith(f"{level}_")
         ]
-        if not existing_orders:
-            raise PackAssignmentError(f"current packOrderInLevel has no {level} entries")
-        live_last_order = max(existing_orders)
+        live_last_order = max(existing_orders) if existing_orders else 0
         expected_orders = list(
             range(live_last_order + 1, live_last_order + len(orders_for_level) + 1),
         )
@@ -567,12 +603,22 @@ def validate_plan(
     """
 
     root = root.resolve()
+    reserved_metadata_paths = tuple(Path(path) for path in reserved_metadata_paths)
     _, existing_rows = _read_csv(root / "assets" / "data" / "korean_vocab.csv")
     _, draft_rows = _read_csv(draft_path.resolve())
     draft_by_pack = _validate_draft_rows(draft_rows, existing_rows=existing_rows)
     metadata_entries = _load_metadata(metadata_path.resolve())
     known_motifs = _known_motifs(root / "lib" / "widgets" / "sori" / "dancheong_stamp.dart")
     curriculum_units = _curriculum_units(root / "assets" / "data" / "curriculum_manifest.json")
+    for source_path in (metadata_path.resolve(), *[path.resolve() for path in reserved_metadata_paths]):
+        for unit_id, level in _curriculum_extension_units(source_path).items():
+            existing_level = curriculum_units.get(unit_id)
+            if existing_level is not None and existing_level != level:
+                raise PackAssignmentError(
+                    f"{source_path}: curriculum unit {unit_id!r} conflicts with level "
+                    f"{existing_level}",
+                )
+            curriculum_units[unit_id] = level
     current_order_map = _pack_order_map(root / "lib" / "services" / "vocab_pack_service.dart")
 
     existing_pack_ids = {(row.get("pack_id") or "").strip() for row in existing_rows}
@@ -705,8 +751,6 @@ def validate_plan(
             for base, order in current_order_map.items()
             if base.startswith(f"{level}_")
         ]
-        if not existing_orders:
-            raise PackAssignmentError(f"current packOrderInLevel has no {level} entries")
         reserved_for_level = reserved_by_level.get(level, [])
         reserved_orders = {plan.order_in_level for plan in reserved_for_level}
         declared_reserved_collisions = sorted(
@@ -721,7 +765,7 @@ def validate_plan(
                 f"{level}: metadata orderInLevel conflicts with reserved predecessor "
                 f"order(s) {declared_reserved_collisions}",
             )
-        next_order = max(existing_orders) + len(reserved_for_level) + 1
+        next_order = (max(existing_orders) if existing_orders else 0) + len(reserved_for_level) + 1
         expected_orders = list(range(next_order, next_order + len(plans_for_level)))
         declared_orders = [plan.order_in_level for plan in plans_for_level]
         if any(order == 0 for order in declared_orders):

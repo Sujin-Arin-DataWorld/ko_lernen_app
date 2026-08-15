@@ -56,6 +56,8 @@ void main() {
       expect(learnerLevelDisplayForStoredCode('a2'), 'A2');
       expect(learnerLevelDisplayForStoredCode('b1'), 'B1');
       expect(learnerLevelDisplayForStoredCode('B2'), 'B2');
+      expect(learnerLevelDisplayForStoredCode('c1'), 'C1');
+      expect(learnerLevelDisplayForStoredCode('C2'), 'C2');
       expect(learnerLevelDisplayForStoredCode(null), 'A1');
     });
   });

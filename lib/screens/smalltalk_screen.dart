@@ -188,6 +188,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         return SoriColors.warning;
       case 'b2':
         return SoriColors.accent;
+      case 'c1':
+        return SoriColors.hangul;
+      case 'c2':
+        return SoriColors.primary;
       default:
         return SoriColors.primary;
     }
@@ -313,6 +317,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               _levelChip('B1', 'b1'),
               const SizedBox(width: 6),
               _levelChip('B2', 'b2'),
+              const SizedBox(width: 6),
+              _levelChip('C1', 'c1'),
+              const SizedBox(width: 6),
+              _levelChip('C2', 'c2'),
             ],
           ),
         ),

@@ -3877,6 +3877,18 @@ abstract class AppL10n {
   /// **'Fließend, auch Nuancen'**
   String get onboardingLevelB2Desc;
 
+  /// No description provided for @onboardingLevelC1.
+  String get onboardingLevelC1;
+
+  /// No description provided for @onboardingLevelC1Desc.
+  String get onboardingLevelC1Desc;
+
+  /// No description provided for @onboardingLevelC2.
+  String get onboardingLevelC2;
+
+  /// No description provided for @onboardingLevelC2Desc.
+  String get onboardingLevelC2Desc;
+
   /// No description provided for @onboardingExampleA1Trans.
   ///
   /// In de, this message translates to:
@@ -3900,6 +3912,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Das Meeting zieht sich, ich komme wohl etwas später.'**
   String get onboardingExampleB2Trans;
+
+  /// No description provided for @onboardingExampleC1Trans.
+  String get onboardingExampleC1Trans;
+
+  /// No description provided for @onboardingExampleC2Trans.
+  String get onboardingExampleC2Trans;
 
   /// No description provided for @onboardingSkip.
   ///
@@ -4014,6 +4032,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.'**
   String get onboardingLevelB2Learn;
+
+  /// No description provided for @onboardingLevelC1Can.
+  String get onboardingLevelC1Can;
+
+  /// No description provided for @onboardingLevelC1Learn.
+  String get onboardingLevelC1Learn;
+
+  /// No description provided for @onboardingLevelC2Can.
+  String get onboardingLevelC2Can;
+
+  /// No description provided for @onboardingLevelC2Learn.
+  String get onboardingLevelC2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
   ///

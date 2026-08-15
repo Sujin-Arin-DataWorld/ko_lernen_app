@@ -1,0 +1,6585 @@
+{
+  "version": 1,
+  "batch": "05",
+  "createdAt": "2026-08-15",
+  "status": "awaiting_credentials",
+  "statusReason": "The corpus and immutable paths are verified, but synthesis and upload require an authorized Google TTS API key and gcloud Storage session.",
+  "provider": "Google Cloud Text-to-Speech",
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "cacheRevision": "v3",
+  "voiceMap": {
+    "female": "ko-KR-Chirp3-HD-Zephyr"
+  },
+  "authorization": {
+    "approvedBy": "Jin",
+    "approvedAt": "2026-08-15",
+    "scope": "synthesize, verify, upload, and publish Batch 05 audio"
+  },
+  "counts": {
+    "vocabHeadwords": 144,
+    "vocabExamples": 144,
+    "grammarExamples": 24,
+    "smalltalkTurns": 192,
+    "uniqueAudioObjects": 504,
+    "corpusBeforeBatch": 5817,
+    "corpusAfterBatch": 6321
+  },
+  "deduplication": {
+    "rule": "sha1(voice + '|' + trimmed text)",
+    "note": "The 144 cloze prompts and 144 sentence-building targets reuse vocabulary example audio and do not create extra cache objects."
+  },
+  "entries": [
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일정이 겹치다",
+      "cachePath": "tts/v3/female/a2d10b816edfeefa6f006767f0821f71ea6c6294.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0265",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 주에는 회의가 세 개나 겹쳐서 발표 준비 시간을 다시 잡아야 해요.",
+      "cachePath": "tts/v3/female/056952f6a2600b3e54a90d8e77321bafa890abbd.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0265",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "우선순위를 조정하다",
+      "cachePath": "tts/v3/female/3bea68358361c88879f0eb61b1324f9d12641b88.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0266",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "급한 요청이 들어와서 오늘 할 일의 우선순위를 조금 조정했어요.",
+      "cachePath": "tts/v3/female/5e936986dc31e56d09d7a085480a1f96ea8a5df1.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0266",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "의견을 좁히다",
+      "cachePath": "tts/v3/female/eca3dda914ee13278bf26585cf78c0f58916923c.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0267",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선택지가 너무 많으니 두 안의 장단점을 비교해서 의견을 좁혀 봐요.",
+      "cachePath": "tts/v3/female/bc8fe224709e37244bb1bb12313059d63ea91818.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0267",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "초안을 돌리다",
+      "cachePath": "tts/v3/female/be208063e0e1eeaaa2f7b9386ccbb13c57e17042.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0268",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "먼저 초안을 팀에 돌리고 빠진 내용이 있는지 확인할게요.",
+      "cachePath": "tts/v3/female/41e50f21d8adbf4c55f352bc181c59f1cee39ae0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0268",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "피드백을 반영하다",
+      "cachePath": "tts/v3/female/052506e64a8a26f54bf06ead99664e03f721efaa.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0269",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "받은 피드백을 전부 넣기보다 이번 목표에 맞는 것부터 반영했어요.",
+      "cachePath": "tts/v3/female/f291fff6f8f55c622dd03fece488ea9169f901bf.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0269",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "역할을 나누다",
+      "cachePath": "tts/v3/female/1c2f7920db61f1ef8ef1401f8fd586ca91ffefaf.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0270",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한 사람이 다 맡으면 늦어질 수 있으니 조사와 발표 역할을 나눠요.",
+      "cachePath": "tts/v3/female/a308368c175030625addab72d9d3e32af875fa94.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0270",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "마감이 촉박하다",
+      "cachePath": "tts/v3/female/f0b50b33dcfbb8db9b41a76603005da5946459fd.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0271",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "마감이 촉박하긴 하지만 범위를 줄이면 금요일까지 끝낼 수 있어요.",
+      "cachePath": "tts/v3/female/cb38949bf9461d892a9a1f30a5d7b9b2a9d01ca2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0271",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "방향을 틀다",
+      "cachePath": "tts/v3/female/40638e1539a198d7f2e370391e4f472c4c62473d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0272",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사용자 반응이 예상과 달라서 기획 방향을 중간에 틀었어요.",
+      "cachePath": "tts/v3/female/5d17bf20f7fa09b951b781e6f0a0a1243852af52.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0272",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수정을 책임지다",
+      "cachePath": "tts/v3/female/4d0470b193bda279c375763cb8747763afbfe110.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0273",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 오류는 제가 놓쳐서 생겼으니 수정은 제가 책임질게요.",
+      "cachePath": "tts/v3/female/e7b8fa32dd9fb20b0fd8a67e838f07f8d48c5624.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0273",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "합의점을 찾다",
+      "cachePath": "tts/v3/female/c5c1d9d1858437ceceb15c4f1dc11ee2c04b83bf.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0274",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서로 원하는 게 다르지만 일정만 조금 조정하면 합의점을 찾을 수 있어요.",
+      "cachePath": "tts/v3/female/df4a75e1ed38e5799f4ec5abb8bb01b8e30d51e2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0274",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "의견을 완곡하게 전하다",
+      "cachePath": "tts/v3/female/fd5d5975e4c257ef2d25ae6ed57367ea880112d1.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0275",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "바로 안 된다고 하기보다 어려운 이유를 덧붙여 의견을 완곡하게 전했어요.",
+      "cachePath": "tts/v3/female/f2cc735df23495b9997943cdf8f6498e5156c229.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0275",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "후속 조치를 정하다",
+      "cachePath": "tts/v3/female/17a74f2aeaa96ccd1023bf9c40580e41c2773b0f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0276",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의가 끝나기 전에 담당자와 후속 조치를 정해 두죠.",
+      "cachePath": "tts/v3/female/911689569e2a8dedde81987316e4a44cda900f9d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0276",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "알림을 꺼 두다",
+      "cachePath": "tts/v3/female/ec4e0d2b2418a7d37b3d315b7dd82c7234a7495b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0277",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "보고서를 쓰는 한 시간 동안은 메신저 알림을 꺼 뒀어요.",
+      "cachePath": "tts/v3/female/28c89434d0d97cb1016d6e204b92e65fcc41a193.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0277",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "출처를 확인하다",
+      "cachePath": "tts/v3/female/8f36b131ecb0b1d9fbba9cf3b4af793119a3830d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0278",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "제목만 보고 공유하지 말고 원문과 출처를 먼저 확인해요.",
+      "cachePath": "tts/v3/female/2211fcfb35a3a4e3554045193bb9946a92951e3b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0278",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "맥락이 빠지다",
+      "cachePath": "tts/v3/female/8bc4580fd6a3488676e3221deffe344e4f258cc8.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0279",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "짧게 잘린 영상에서는 앞뒤 맥락이 빠져 뜻이 달라 보일 수 있어요.",
+      "cachePath": "tts/v3/female/8174954be12ecacb1c1ef56438d5bc10bf7aba94.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0279",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "과장되어 퍼지다",
+      "cachePath": "tts/v3/female/8dddcf77f0d9208300a79c380588d1577ca0d40e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0280",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확인되지 않은 숫자가 사실처럼 과장되어 퍼졌어요.",
+      "cachePath": "tts/v3/female/0913ab6cac92da7a1782761e876c94a4393e0d32.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0280",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "집중이 흐트러지다",
+      "cachePath": "tts/v3/female/c3fc32170596f4a4c9564f92e41002405a27819a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0281",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "알림이 계속 울리면 짧은 글을 읽을 때도 집중이 쉽게 흐트러져요.",
+      "cachePath": "tts/v3/female/8386eded17b5cb1797b71b2263ff953beb927b47.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0281",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "반응을 유도하다",
+      "cachePath": "tts/v3/female/fb9ec914c5b8f0c391895769cf3589880cf0fbfe.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0282",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 제목은 내용을 설명하기보다 화난 반응을 유도하려고 만든 것 같아요.",
+      "cachePath": "tts/v3/female/6d28706a42c9be459338946d731787e1187de45b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0282",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사실과 의견을 구분하다",
+      "cachePath": "tts/v3/female/790673044b70d8f1dce0a22be8fcf1a1c2d6ad92.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0283",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기사를 읽을 때 확인된 사실과 기자의 해석을 구분해 봐요.",
+      "cachePath": "tts/v3/female/f83a9b8b629e72fa60fd2e11460b27bd3fb0cabb.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0283",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기록이 남다",
+      "cachePath": "tts/v3/female/9f451fe175fe4f3d3319e3b4fd4d5a7763997177.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0284",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "단체 대화방에서는 가벼운 농담도 기록으로 남는다는 걸 기억해야 해요.",
+      "cachePath": "tts/v3/female/e0bf5d0689bfab54fb18dece3884cbf72a3c0f29.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0284",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "계정을 보호하다",
+      "cachePath": "tts/v3/female/0f72f797e442adceceb7688f3aab3c276a36527b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0285",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 비밀번호를 여러 곳에서 쓰지 않는 것만으로도 계정을 더 안전하게 보호할 수 있어요.",
+      "cachePath": "tts/v3/female/30043c601259608d993c3d5dcd9ae6af1e2fb734.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0285",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "화면에서 눈을 떼다",
+      "cachePath": "tts/v3/female/c32a5d9b8229bde7069c1926503b9ca01cdefe0a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0286",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "머리가 멍해질 때는 오 분만이라도 화면에서 눈을 떼고 쉬어요.",
+      "cachePath": "tts/v3/female/bd52d3e14ceffae7c08f8ddb4fc511e120f4cf1f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0286",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "링크를 의심하다",
+      "cachePath": "tts/v3/female/a12a9d78a3507b15eec2f10a155e67ebd8228f6b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0287",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "주소가 낯설거나 로그인을 재촉하면 일단 링크부터 의심해요.",
+      "cachePath": "tts/v3/female/b0031694e97282f22bd59ae72b8d814909d7b323.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0287",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "교차 확인하다",
+      "cachePath": "tts/v3/female/22d72f8c3569ceb689865e14b5b91fc9a5e78fe2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0288",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "중요한 소식은 서로 다른 두 출처에서 교차 확인한 뒤에 전달했어요.",
+      "cachePath": "tts/v3/female/bfaf5bd4d5ea1900beaa128d26af12742c34372a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0288",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "접근성을 확보하다",
+      "cachePath": "tts/v3/female/b6b22fe0e1a8b445de7c3cce0d860eb23e9568f0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0001",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "입구만 넓히는 것으로 끝내지 말고 안내와 신청 절차의 접근성도 함께 확보해야 합니다.",
+      "cachePath": "tts/v3/female/d5b70aa8315a93394b42e691d3c6ceee5f3ff196.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0001",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "동선을 가로막다",
+      "cachePath": "tts/v3/female/943b52b324b3a130c0519646edbc3f7c5872d0a3.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0002",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "안내대를 복도 한가운데 두면 휠체어나 유모차의 동선을 가로막을 수 있습니다.",
+      "cachePath": "tts/v3/female/c15c3008008f08917845bf9e30270a51b85a0cfa.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0002",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선택지를 마련하다",
+      "cachePath": "tts/v3/female/7a3195d0b1b5989c42ae472d3b032f66a24618f4.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0003",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "현장 설명을 듣기 어려운 사람을 위해 자막과 문서 안내를 선택지로 마련했습니다.",
+      "cachePath": "tts/v3/female/2408212be845a2f43865858a472aa004594cf675.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0003",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "당사자의 의견을 듣다",
+      "cachePath": "tts/v3/female/a406e56ec1c23f06ad1f1c9b90fd4127f825c596.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0004",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "편의를 추측해서 정하기 전에 실제 이용 당사자의 의견부터 들었습니다.",
+      "cachePath": "tts/v3/female/75a3d042dffe0720b00425cecba3b9bca53a5a3a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0004",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기준을 일괄 적용하다",
+      "cachePath": "tts/v3/female/5b89714cd186a92fe2d418b47e29d264a93986a0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0005",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "상황이 다른데 같은 기준을 일괄 적용하면 오히려 누군가를 배제할 수 있습니다.",
+      "cachePath": "tts/v3/female/24189da732567d3c76ac7f3ea9830cff387631aa.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0005",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "예외를 두다",
+      "cachePath": "tts/v3/female/b5ff24ec93a618fbbaefb6eccd0171dc9b29dc37.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0006",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "원칙은 유지하되 건강이나 돌봄 사정이 있는 경우에는 예외를 둘 필요가 있습니다.",
+      "cachePath": "tts/v3/female/f58a286f441279126bee50751bf14dda4df18264.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0006",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불편을 감수하다",
+      "cachePath": "tts/v3/female/75ee8e5cf20ae3183a221d57b5fde8ea9b15774e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0007",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이용자가 매번 불편을 감수하게 두는 대신 운영 절차 자체를 바꿔야 합니다.",
+      "cachePath": "tts/v3/female/c67ffd8218b27943f9dfc75073726a056cee7908.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0007",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이용을 보장하다",
+      "cachePath": "tts/v3/female/00c95333d2b20a86e97344f1b48eecbb312a943a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0008",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "정보는 공개하는 데 그치지 않고 누구나 실제로 이용할 수 있도록 보장해야 합니다.",
+      "cachePath": "tts/v3/female/fdc159c38517c127e5a09d4f61f26e4ee56d7acc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0008",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "개선안을 제시하다",
+      "cachePath": "tts/v3/female/7a4d9f7fc14b9d5edef162b766040e10d10b76c3.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0009",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "문제만 지적하면 논의가 멈출 수 있어서 비용까지 고려한 개선안을 함께 제시했습니다.",
+      "cachePath": "tts/v3/female/7fca6a4d524861100fe6b6bed9ca262a1baef9cc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0009",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "우선순위에서 밀리다",
+      "cachePath": "tts/v3/female/e3e4681279037b213aadc92a9472d10a7938ea71.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0010",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "접근성 문제는 급하지 않다는 이유로 자꾸 우선순위에서 밀리곤 합니다.",
+      "cachePath": "tts/v3/female/b6ea9d89e434e38a6b2f0927410d92d617d7a6de.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0010",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사후에 보완하다",
+      "cachePath": "tts/v3/female/e1c9bcc67451655270bea4cdac5000bd8fd9558f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0011",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "행사 당일에야 통역이 없다는 걸 알게 되어 사후에 보완할 수밖에 없었습니다.",
+      "cachePath": "tts/v3/female/bce63c360a3492609c7df59acbfc20e00f2c11fc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0011",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "참여 장벽을 낮추다",
+      "cachePath": "tts/v3/female/85c0a5640673759a5deea1cc6bea7e04cf3ec204.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0012",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "신청서를 간단히 바꾸고 전화 접수도 열어 참여 장벽을 낮췄습니다.",
+      "cachePath": "tts/v3/female/16531b6eef99d80c48c5c8c91b5191ce8bcc0511.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0012",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "표본이 치우치다",
+      "cachePath": "tts/v3/female/87aefd5064af3ea1372056bb93793546d243a622.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0013",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "온라인 설문만 사용하면 인터넷을 자주 쓰지 않는 사람은 빠져 표본이 치우칠 수 있습니다.",
+      "cachePath": "tts/v3/female/fd78224a41aecc08dc10bf1268df6ab214a84cf2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0013",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "변수를 통제하다",
+      "cachePath": "tts/v3/female/25ab871392c457c29b38a5d22d0dc309c06796db.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0014",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수면 시간의 영향을 보려면 카페인 섭취 같은 다른 변수를 가능한 한 통제해야 합니다.",
+      "cachePath": "tts/v3/female/f4bc146c540390014b200d6d6467d114bdf2d36f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0014",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과를 재현하다",
+      "cachePath": "tts/v3/female/69650d4bcba0b4fcff3518b355c8cfb473b450f4.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0015",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 절차를 따랐는데도 결과를 재현하지 못해 측정 조건을 다시 확인했습니다.",
+      "cachePath": "tts/v3/female/86d7efa2b95b7fd09638b1fbaef9a73dfbb7433a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0015",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "상관관계를 인과로 해석하다",
+      "cachePath": "tts/v3/female/a134733cd70af2f4a04e18c1641d26294999343f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0016",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "두 수치가 함께 움직였다는 이유만으로 상관관계를 인과로 해석해서는 안 됩니다.",
+      "cachePath": "tts/v3/female/f003fbade5b378b763ea54cec1d3500004b1a243.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0016",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "전제를 밝히다",
+      "cachePath": "tts/v3/female/ebc78d69b096aff712d8c0da0f504d97c4751d6b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0017",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "계산 결과를 제시하기 전에 어떤 가정을 두었는지 전제를 분명히 밝혔습니다.",
+      "cachePath": "tts/v3/female/768809fbbd25a8b174fd39284039533cd46cb1d7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0017",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "근거가 충분하다",
+      "cachePath": "tts/v3/female/a5ec1a4586edf032fbb4c279df09c654626844c6.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0018",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사례 두 건만으로 일반화하기에는 근거가 충분하지 않습니다.",
+      "cachePath": "tts/v3/female/82e7232507793f18035e378f54ab3d5c1c1a7f05.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0018",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수치를 부풀리다",
+      "cachePath": "tts/v3/female/d197a9cab5e5e28c149de937ce6cdf40c0d34c06.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0019",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일부 기간만 골라 보여 주면 실제 변화보다 수치를 부풀려 보이게 할 수 있습니다.",
+      "cachePath": "tts/v3/female/fe95ddf244fd31636af137d6030e5ab11b32db08.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0019",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "해석이 엇갈리다",
+      "cachePath": "tts/v3/female/677f0feb2e3e70dc9cebd950ebfb909625cdeeb0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0020",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 결과를 두고도 연구 목적에 따라 해석이 엇갈렸습니다.",
+      "cachePath": "tts/v3/female/268765f799c511cceb788c4f74310dc7b0119f63.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0020",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "반례를 들다",
+      "cachePath": "tts/v3/female/bf6213e5d3157e7471e54ddb0752fea057427ced.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0021",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "주장에 맞지 않는 반례를 하나만 들어도 조건을 더 정확히 다듬을 수 있습니다.",
+      "cachePath": "tts/v3/female/b3fed9b55ff79683ad6e67ab2e7c8512407a0664.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0021",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한계를 인정하다",
+      "cachePath": "tts/v3/female/795f44d3efab8e5247a2b86393275bb85ef5aae1.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0022",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 분석의 한계를 솔직히 인정해야 다음 연구가 선명해집니다.",
+      "cachePath": "tts/v3/female/cc669f81ccf50d9af8e89e410ab325dc9ec7b642.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0022",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결론을 유보하다",
+      "cachePath": "tts/v3/female/736e86d63a6dadf7d9b9be17244bf45a6656b4ff.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0023",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "추가 자료가 들어오기 전까지는 어느 쪽이 맞는지 결론을 유보하겠습니다.",
+      "cachePath": "tts/v3/female/8974bbf46cca9bcee14924f680af3b3eeb3d8e71.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0023",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자료를 대조하다",
+      "cachePath": "tts/v3/female/88a14d73ac85e3aa545dd7f14523cf1f69892027.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0024",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "인터뷰 내용과 실제 이용 기록을 대조하니 기억과 행동 사이에 차이가 보였습니다.",
+      "cachePath": "tts/v3/female/dc9eedf5cb03da7a5d0ddef6f6c13c18a5ab967d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0024",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이해관계가 얽히다",
+      "cachePath": "tts/v3/female/90030e0ab3ee7f0a503aabe88bb6847873c785b7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0001",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한 부서만의 문제가 아니라 예산과 인사 권한까지 이해관계가 얽혀 있습니다.",
+      "cachePath": "tts/v3/female/a5bbdc78bf6da398be60093e3fac60772f1dd081.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0001",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "권한을 위임하다",
+      "cachePath": "tts/v3/female/7d3f2f6c302c601a5d16ab313b3000ecad4d8d0d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0002",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "현장 판단이 늦어지지 않도록 일정 금액 이하의 결정 권한은 지역 팀에 위임했습니다.",
+      "cachePath": "tts/v3/female/d5c88160aa700960af88ee9ffa7788225b99002b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0002",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "절차적 정당성",
+      "cachePath": "tts/v3/female/937c34d5ea8a6493fccdf397313b9427857d72d5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0003",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과가 합리적이어도 의견을 낼 기회가 없었다면 절차적 정당성을 얻기 어렵습니다.",
+      "cachePath": "tts/v3/female/010c6bf5879360182ce7e62e52073d2b8ecf3a2a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0003",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "책임 소재를 가리다",
+      "cachePath": "tts/v3/female/a742f5e0c4cae562c56731b99219ee45e1cc7c7c.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0004",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사고 원인을 찾는 일과 책임 소재를 가리는 일을 한꺼번에 하면 조사 자체가 방어적으로 흐를 수 있습니다.",
+      "cachePath": "tts/v3/female/f9e8101f707454a702604bf4e9864fe9e59eb20d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0004",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "유예 기간을 두다",
+      "cachePath": "tts/v3/female/8623e0a931cb1b44ab0bf2da1a68b71eb4b379fc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0005",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새 기준을 바로 적용하면 준비가 덜 된 기관이 있어 석 달의 유예 기간을 두었습니다.",
+      "cachePath": "tts/v3/female/2c52640086c22fc8c760e1efa39f349c09fc5578.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0005",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "합의가 결렬되다",
+      "cachePath": "tts/v3/female/2f230c2f6c1a4896b6db8c89f974209b17e6a89a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0006",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "핵심 조항의 해석 차이를 좁히지 못해 막판에 합의가 결렬되었습니다.",
+      "cachePath": "tts/v3/female/81129a02b7d4862abc2bd1345f22a57c24364a99.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0006",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이견을 조율하다",
+      "cachePath": "tts/v3/female/cdcc2714939ecd34cac96710e6352bd7554ca944.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0007",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "표결에 앞서 소수 의견이 무엇인지 확인하며 이견을 조율했습니다.",
+      "cachePath": "tts/v3/female/449865fe618e58b8f4259aad4dcc7c2bf92ad8ba.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0007",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "안건을 상정하다",
+      "cachePath": "tts/v3/female/75c464d4b388ba5e648b6073912d95559ba5bf47.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0008",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "실무 검토가 끝난 제안만 다음 운영위원회 안건으로 상정하기로 했습니다.",
+      "cachePath": "tts/v3/female/bf44977b960d3d25606f19db02122b0cf1e8045b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0008",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발언권을 보장하다",
+      "cachePath": "tts/v3/female/19661a16cbffbb27a6123448ac35efab837c0f20.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0009",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의 시간이 길어지더라도 직접 영향을 받는 사람의 발언권은 보장해야 합니다.",
+      "cachePath": "tts/v3/female/ec692f342000be67fc8e30bd45ce6a95395d9ecc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0009",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기준을 명문화하다",
+      "cachePath": "tts/v3/female/d7c901bfe82ca8a1e985cad6a0e5be166552f506.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0010",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "담당자마다 판단이 달라지지 않도록 예외 승인 기준을 문서로 명문화했습니다.",
+      "cachePath": "tts/v3/female/3d57f453cca8bcae06bfa2fe2c166334bec57d98.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0010",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "부작용을 상쇄하다",
+      "cachePath": "tts/v3/female/aa90127bc359f44297892d09c7bfa8894e50b8c9.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0011",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지원 대상을 넓히면서 생길 수 있는 행정 부담은 절차 간소화로 상쇄하려고 합니다.",
+      "cachePath": "tts/v3/female/7f1a66301eb06c0d69055588675f95d51a9de607.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0011",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "시행착오를 줄이다",
+      "cachePath": "tts/v3/female/2c172eef7b068414ff09041a48982b76b3583b81.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0012",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "전면 시행 전에 작은 지역에서 시험해 보면 예상하지 못한 시행착오를 줄일 수 있습니다.",
+      "cachePath": "tts/v3/female/e9434f7614f01dd49b98faf8003aacd3da356a91.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0012",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기억을 재구성하다",
+      "cachePath": "tts/v3/female/2e39c5cf0b41202f1e9861439a36614d6ff65405.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0013",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "인터뷰이는 당시 기록을 다시 읽으며 오래된 기억을 조금씩 재구성했습니다.",
+      "cachePath": "tts/v3/female/65e5764f35177c5d21a84b4e0c7231dac5eeee83.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0013",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서술자가 거리를 두다",
+      "cachePath": "tts/v3/female/3c0c359ecf96ad44b9c78678effdde6b1a817816.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0014",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서술자가 사건을 단정하지 않고 한발 물러서면서 독자가 스스로 판단하게 합니다.",
+      "cachePath": "tts/v3/female/9e49fbaf1aa97717f04e3aa098daf1acb9659e5e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0014",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "시점을 교차하다",
+      "cachePath": "tts/v3/female/2d2398a495e220bf8b29c4fcfd55c62fd1ba98d2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0015",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 하루를 세 인물의 시점으로 교차해 보여 주니 서로의 오해가 선명해집니다.",
+      "cachePath": "tts/v3/female/db9f28985123ada9243c071099b25a3739221317.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0015",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "여백을 남기다",
+      "cachePath": "tts/v3/female/ee13796b4ad47d8cd82f0aea12751ac5ffa69515.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0016",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "모든 감정을 설명하지 않고 여백을 남겨 둔 문장이 오히려 오래 기억에 남았습니다.",
+      "cachePath": "tts/v3/female/3d20b15d52e01c108a956abdaa745fc9afe0fd6d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0016",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "암시를 포착하다",
+      "cachePath": "tts/v3/female/00d3fdd145e0723bfdcffd2a11eed63210d8351b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0017",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "첫 장면의 사소한 물건이 마지막에 다시 등장한다는 암시를 포착했어요.",
+      "cachePath": "tts/v3/female/8376ad824bd8effd00c3c729d0ad2059433f632f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0017",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "맥락을 전복하다",
+      "cachePath": "tts/v3/female/7cfec9b915507ceabe05b3abf25502948c4caad5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0018",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "익숙한 영웅담의 맥락을 전복해 주변 인물의 침묵을 중심에 놓았습니다.",
+      "cachePath": "tts/v3/female/e768cc19283a104258ff6ab818a30beb51daa4e7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0018",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "단서를 흘리다",
+      "cachePath": "tts/v3/female/fa33fed0debc7727f943461ee128b092843a7359.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0019",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "작가는 정답을 바로 밝히지 않고 대화 곳곳에 작은 단서를 흘립니다.",
+      "cachePath": "tts/v3/female/4786de901f555a8bf82b5226214dc227575e9352.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0019",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "해석의 여지를 두다",
+      "cachePath": "tts/v3/female/6985632f339267aecb3851abd71e6b2c712d100b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0020",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결말을 확정하지 않아 두 인물의 선택을 다르게 볼 여지를 두었습니다.",
+      "cachePath": "tts/v3/female/6ae9af8cac0cc6a2cf65499376e76d4e64a29276.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0020",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "인물에 이입하다",
+      "cachePath": "tts/v3/female/dc2dbb4d075c5845055069a50817f9de05a79706.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0021",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "처음에는 주인공에게 이입했지만 다른 인물의 기록을 읽고 판단이 흔들렸습니다.",
+      "cachePath": "tts/v3/female/8a8ebf25fb90c5c45cb8713c6db72b52725d0df8.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0021",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서사가 맞물리다",
+      "cachePath": "tts/v3/female/c15e0e4a709b295e86b2b6f525397ab2747fe9c1.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0022",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "따로 진행되던 두 서사가 마지막 장면에서 맞물리며 앞의 장면들이 새롭게 보입니다.",
+      "cachePath": "tts/v3/female/027479ea6e230cf1f3c77836ee9b533be060ce1c.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0022",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "관점을 비틀다",
+      "cachePath": "tts/v3/female/a8c23433d86582d72b41ba955b4297399ca68366.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0023",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "익숙한 사건을 어린아이의 눈으로 보여 줘 관점을 살짝 비틀었습니다.",
+      "cachePath": "tts/v3/female/9729609d8239de1cedf10a626069a3cd07e741b3.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0023",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결말을 유보하다",
+      "cachePath": "tts/v3/female/ffae9edfb231edadfe6c990ce3793803f33c39aa.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0024",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이야기는 갈등을 다 풀지 않은 채 결말을 유보하고 독자에게 다음 장면을 맡깁니다.",
+      "cachePath": "tts/v3/female/45394f5283e9a8e7b0e8a0afd971ccd24c3c059e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0024",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공용 공간을 비워 두다",
+      "cachePath": "tts/v3/female/33138a53e77749ad68fd9a22aff23c54b2823062.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0289",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "택배가 올 수 있으니 현관 앞 공용 공간은 비워 두는 게 좋겠어요.",
+      "cachePath": "tts/v3/female/ef48f1ce2e63c82e259c380beec051968430d9ab.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0289",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사용 시간을 나눠 쓰다",
+      "cachePath": "tts/v3/female/522cc4e13bf6067b3e6ef505accd4196abf40c1d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0290",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "세탁기가 한 대뿐이라 저녁 시간을 한 시간씩 나눠 쓰기로 했어요.",
+      "cachePath": "tts/v3/female/5258b6dd7889475b595f5fd1e963fe86b352fb02.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0290",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "먼저 양해를 구하다",
+      "cachePath": "tts/v3/female/c797238dd7a95e2b97a6ad0e3065ced604df55fb.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0291",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오늘 손님이 늦게까지 있을 것 같아서 옆집에 먼저 양해를 구했어요.",
+      "cachePath": "tts/v3/female/56549b0f6c2f6ee6e41faa2b8827c1bf64e8cae8.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0291",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "소음이 복도까지 들리다",
+      "cachePath": "tts/v3/female/805bdb9d698b531d57e479822f671ba4fd243f3f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0292",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의실 문을 닫았는데도 소음이 복도까지 들려서 목소리를 조금 낮췄어요.",
+      "cachePath": "tts/v3/female/6e851723bfc7c5589812c23db051081a55ac2de7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0292",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "예약을 미리 취소하다",
+      "cachePath": "tts/v3/female/a5ae1f1c5460c09ff4286d51ed978ba48f91aff7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0293",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "모임 인원이 줄어서 쓰지 않을 회의실 예약은 미리 취소했어요.",
+      "cachePath": "tts/v3/female/27327901b4db71e0513ef8982ea4212a675cc0ac.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0293",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "순서를 다시 정하다",
+      "cachePath": "tts/v3/female/788529c157244525db9f59240fdbe285abd0b547.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0294",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "준비가 덜 된 팀이 있어서 발표 순서를 현장에서 다시 정했어요.",
+      "cachePath": "tts/v3/female/a9d59f7b2b9143c8303065463721369ca5ec6c6b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0294",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불편 사항을 공유하다",
+      "cachePath": "tts/v3/female/e03e53934a997a4105da638a11b52659c49d5dac.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0295",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "에어컨 소리가 너무 커서 관리 채팅방에 불편 사항을 공유했어요.",
+      "cachePath": "tts/v3/female/fb397e2bb240c5eb1f9b1e49c97b841a240edeba.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0295",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "안내문을 눈에 띄게 붙이다",
+      "cachePath": "tts/v3/female/51cc31938b004b9f0883613a6c93cea24432e5d5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0296",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "출입문이 바뀌어서 엘리베이터 앞에 안내문을 눈에 띄게 붙였어요.",
+      "cachePath": "tts/v3/female/a3aa6e4d5e5bdef4982fe6626f4c5137d93a18b3.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0296",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서로 한발씩 양보하다",
+      "cachePath": "tts/v3/female/6d44e99472d477ab6323ad8295373f95e444eded.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0297",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이용 시간을 두고 계속 다투기보다 서로 한발씩 양보해서 해결했어요.",
+      "cachePath": "tts/v3/female/5fbae0f0aea30645db00719a88c203771f7ab538.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0297",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이용 규칙을 다시 확인하다",
+      "cachePath": "tts/v3/female/47b36db9ae594e3f51cbd518d75a5122d4ca067b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0298",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "주말에도 연습실을 쓸 수 있는지 이용 규칙을 다시 확인해 볼게요.",
+      "cachePath": "tts/v3/female/9e70f123c42ae47863829e02c57a8b20134beab9.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0298",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "뒷사람을 위해 정리하다",
+      "cachePath": "tts/v3/female/f02de8522ec97c0bbc37a42adb777920bcd56b7f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0299",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의가 끝난 뒤에는 뒷사람을 위해 의자와 케이블을 정리해 주세요.",
+      "cachePath": "tts/v3/female/ba1c6c8e03da203dc455fbc167184e591ef62c57.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0299",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "문제를 조용히 풀다",
+      "cachePath": "tts/v3/female/9e08bfee196f664e497c83af8635a2f9fe934fa7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0300",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "누구 잘못인지 따지기 전에 당사자끼리 문제를 조용히 풀어 보려고 해요.",
+      "cachePath": "tts/v3/female/b2eeebf985e2d498fbadb3ecb965aa9bb9e1c8e5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0300",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연락이 뜸해지다",
+      "cachePath": "tts/v3/female/aaecfcc665f33ee8f5873f94d05096cffa27c794.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0301",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "요즘 일이 몰려서 친한 친구들에게도 연락이 뜸해졌어요.",
+      "cachePath": "tts/v3/female/26226df23ba901edb2d6025b94cb6514e9bc3a44.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0301",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "혼자 있을 시간이 필요하다",
+      "cachePath": "tts/v3/female/f5cf9a3ea9fa21d973e41142987e443b16016573.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0302",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오늘은 생각을 정리하고 싶어서 저녁에 혼자 있을 시간이 좀 필요해요.",
+      "cachePath": "tts/v3/female/31650235049c70c3eeb93520549716d187211fdc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0302",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "부탁을 정중히 거절하다",
+      "cachePath": "tts/v3/female/b6ffd64829eef009617e13015b5ce11a37744d66.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0303",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 주는 여유가 없어서 이유를 설명하고 부탁을 정중히 거절했어요.",
+      "cachePath": "tts/v3/female/5977238e34ae000eb775142cb53b94820d9203eb.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0303",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일정에 여유를 두다",
+      "cachePath": "tts/v3/female/cd1c2fd9131508d6f893f409c958fe47399dee06.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0304",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "약속 사이에 이동 시간이 필요해서 일정에 삼십 분 정도 여유를 뒀어요.",
+      "cachePath": "tts/v3/female/3ae56ade67dc8b96e65c02dcfe945b76edfcd22a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0304",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "무리해서 맞추다",
+      "cachePath": "tts/v3/female/8ff7c45c8d394a056603da46c6df546d06d7e58a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0305",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "모든 모임에 무리해서 맞추다 보니 정작 쉴 시간이 없어졌어요.",
+      "cachePath": "tts/v3/female/ead0e0a4be123a524c431bb7c96a54111347c3dc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0305",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잠깐 숨을 돌리다",
+      "cachePath": "tts/v3/female/91308b97175f6f9c2b2737d46172ade65ea62e85.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0306",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의가 연달아 있으니 다음 일정 전에 십 분만 숨을 돌리고 갈게요.",
+      "cachePath": "tts/v3/female/26c35b754b46a0a2f01c41dc23907f88aed9bd53.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0306",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기분을 솔직히 말하다",
+      "cachePath": "tts/v3/female/3ca4a6af55f659841d98e9426f4ea5c276797c61.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0307",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "괜찮은 척하기보다 서운했던 이유를 차분히 말했어요.",
+      "cachePath": "tts/v3/female/46c7607d65825bed404f32cda1b6219a328454b1.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0307",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "답장을 재촉하지 않다",
+      "cachePath": "tts/v3/female/657d9041d67abe35d33465f88429bf1972313067.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0308",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "바쁜 걸 알고 있어서 급한 일이 아니면 답장을 재촉하지 않아요.",
+      "cachePath": "tts/v3/female/b61e750b9fc1fb70bed6f14085347ce883cc81db.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0308",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선을 분명히 긋다",
+      "cachePath": "tts/v3/female/459a1ec1df57fc4e9f01303483014e66416c50e6.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0309",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "퇴근 뒤에는 업무 연락을 받기 어렵다고 미리 선을 분명히 그었어요.",
+      "cachePath": "tts/v3/female/f1cdf7fae71a157342345aed86b91fea7387bd6c.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0309",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "마음에 담아 두다",
+      "cachePath": "tts/v3/female/b5cdace71814e66cef797ae6dfc470c03a362737.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0310",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "작은 오해를 오래 마음에 담아 두면 관계가 더 어색해질 수 있어요.",
+      "cachePath": "tts/v3/female/8398de2b034a69069f9f40478abf7ed0bd65203a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0310",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "대화를 다음으로 미루다",
+      "cachePath": "tts/v3/female/d5d1974700532ce14b6ffd7bbcbcfa45d6c69e9a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0311",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금은 둘 다 감정이 올라와 있으니 대화를 내일로 미루는 게 어때요?",
+      "cachePath": "tts/v3/female/ed442e9da3309448c43ef8be41cd075c65aaa28f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0311",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서로의 방식을 존중하다",
+      "cachePath": "tts/v3/female/073e40195ff644fff6e79b74c6d81c20295bbe2f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0312",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연락 빈도는 달라도 서로의 방식을 존중하면 서운함이 줄어들어요.",
+      "cachePath": "tts/v3/female/fbc80531b805b02229ce93da11a70fb45a2e7c6d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_b2_0312",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불확실성을 명시하다",
+      "cachePath": "tts/v3/female/c55314f7775ef24077f5dcb484a3fa4047187799.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0025",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수치가 아직 바뀔 수 있다는 불확실성을 발표 첫머리에 명시했어요.",
+      "cachePath": "tts/v3/female/85de2bd0a83245b37c109c07b3b3ae01e48a5b9b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0025",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "위험을 과소평가하다",
+      "cachePath": "tts/v3/female/3f1d7caf8953d6e720b67a3d3cae743cb5ff1284.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0026",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "드문 일이라는 이유만으로 피해 규모까지 과소평가해서는 안 돼요.",
+      "cachePath": "tts/v3/female/b1a578419409e0203ba395e1a58c64e79c07960a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0026",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "경고 수위를 조절하다",
+      "cachePath": "tts/v3/female/44dbab0824ac0293dd274d4e712b944e9b067a74.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0027",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새로운 정보가 들어올 때마다 근거에 맞춰 경고 수위를 조절해야 합니다.",
+      "cachePath": "tts/v3/female/6e4b9d2fb4b87fcf473ca0213922fb03d479347f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0027",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "가능성과 확률을 구분하다",
+      "cachePath": "tts/v3/female/479dad1a4098ea14fc063353da4dc72c00b5a81e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0028",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일어날 수 있다는 말과 실제로 일어날 확률이 높다는 말은 구분해야 해요.",
+      "cachePath": "tts/v3/female/c105151cd325ca9c08326a681a0cfe3cb8521641.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0028",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "최악의 상황을 가정하다",
+      "cachePath": "tts/v3/female/4bb5dd0712cfa102d0680e2da5eb50314d79b60b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0029",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "대피 계획은 최악의 상황을 가정하되 일상적인 대응도 가능하게 짜야 해요.",
+      "cachePath": "tts/v3/female/9b4d278150c0424977dd88b527c61ecf26794ffe.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0029",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "정보 공백을 메우다",
+      "cachePath": "tts/v3/female/ef04465c0244c98d485b0121c52a18dc17b52356.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0030",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공식 설명이 늦어지자 확인되지 않은 소문이 정보 공백을 메우기 시작했어요.",
+      "cachePath": "tts/v3/female/0b225206bc946dbcc865282e2d2b6330c13550f0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0030",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발표 시점을 앞당기다",
+      "cachePath": "tts/v3/female/f4e89d0b41d80d92ca24935641c7176628fda23b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0031",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "추측이 커지는 걸 막기 위해 잠정 결과라도 발표 시점을 앞당겼어요.",
+      "cachePath": "tts/v3/female/30b42b63844f94f96478c531a477af9fe7e28333.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0031",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잘못된 안심을 주다",
+      "cachePath": "tts/v3/female/6404cd5dfa50215ac55710eeab5f2608546a713f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0032",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자료가 부족한데도 괜찮다고 단정하면 사람들에게 잘못된 안심을 줄 수 있어요.",
+      "cachePath": "tts/v3/female/df267549398a1192a041ca29f1a6c6e74ee6d25f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0032",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "조치의 근거를 공개하다",
+      "cachePath": "tts/v3/female/47ff6cd6cc862bad3f77e49efd7ef2203273bd90.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0033",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불편한 제한일수록 왜 필요한지 조치의 근거를 함께 공개해야 해요.",
+      "cachePath": "tts/v3/female/992f8da12e8f2d129611bcc44332c0dc3dc533f0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0033",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "과도한 불안을 막다",
+      "cachePath": "tts/v3/female/b54145d6f5b663b2e52c68abe1796be21cb9dba0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0034",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "위험을 숨기지 않으면서도 과도한 불안을 막을 수 있는 표현을 골랐어요.",
+      "cachePath": "tts/v3/female/f9fd8c7490f75ac3bca0dee38c94ec509bf6b42f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0034",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "상황을 계속 갱신하다",
+      "cachePath": "tts/v3/female/300cfa48a68208e5cf9469067580101659e15d56.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0035",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확정된 내용이 적더라도 바뀐 점을 중심으로 상황을 계속 갱신하겠습니다.",
+      "cachePath": "tts/v3/female/3c240cb05ad4b728ab75b10ac61d2b67dac01f17.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0035",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "책임 있게 정정하다",
+      "cachePath": "tts/v3/female/f0973d2dd54f66b15c0690a9b5e55805410028fb.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0036",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잘못 전한 수치가 확인되면 이유와 영향을 설명하며 책임 있게 정정해야 합니다.",
+      "cachePath": "tts/v3/female/f4527302e584b1d3cc03c392e47613f96d7cb1af.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0036",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일회성 행사로 끝나다",
+      "cachePath": "tts/v3/female/63bdc1d6225826a994983da05cea3a8de6da43b8.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0037",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "분리배출 캠페인이 일회성 행사로 끝나지 않으려면 담당 인력과 예산이 필요해요.",
+      "cachePath": "tts/v3/female/4782165c37d2157e7e9dea2506d84920a7f6c008.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0037",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "유지 비용을 따지다",
+      "cachePath": "tts/v3/female/313d8b95ce4cace3e2b6b00c6c60f43b0a96c117.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0038",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "설치 가격만 보지 말고 앞으로 들 유지 비용까지 따져 봐야 해요.",
+      "cachePath": "tts/v3/female/0f2a1d7ddaef424b40b4264c8a976e7f8fcfc702.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0038",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "생활 동선을 고려하다",
+      "cachePath": "tts/v3/female/da91628140af754e8db9e2ae72a7eaee96260f52.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0039",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수거함은 보기 좋은 곳보다 사람들이 실제로 지나는 동선을 고려해 놓아야 해요.",
+      "cachePath": "tts/v3/female/e057287f561d01796e45cd6e2b0c20ee56303650.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0039",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "효과가 눈에 보이다",
+      "cachePath": "tts/v3/female/1be55bd49438197b442fea86f036cafebc85a6fc.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0040",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "전기 사용량이 매달 공개되자 절약 효과가 눈에 보이기 시작했어요.",
+      "cachePath": "tts/v3/female/ecd5c71454819404d2f01f8aa56dae51c8534dd3.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0040",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "부담을 고르게 나누다",
+      "cachePath": "tts/v3/female/d1ec52318928f795016a9511039db3df647c96ab.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0041",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새 제도가 오래가려면 비용과 수고를 몇 사람에게만 맡기지 말고 고르게 나눠야 해요.",
+      "cachePath": "tts/v3/female/cf0e6d2f8bae438855a98d238438530d19985b52.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0041",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선택의 폭을 넓히다",
+      "cachePath": "tts/v3/female/2a020b053736078b79f809b95346f66d581d4a58.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0042",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "대중교통 간격을 줄이면 차를 두고 올 수 있는 선택의 폭이 넓어져요.",
+      "cachePath": "tts/v3/female/ab7ce04bc450a634546e7b0b506cb24ddece393f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0042",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "장기적인 효과를 따지다",
+      "cachePath": "tts/v3/female/6f0632cd9829411cb0e2e68d0e6a81d483aeb100.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0043",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "당장 눈에 띄는 성과뿐 아니라 오 년 뒤의 효과도 따져서 결정했어요.",
+      "cachePath": "tts/v3/female/8a67a662c9bf8e9e092b89aed673e3120114b3d5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0043",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기존 시설을 활용하다",
+      "cachePath": "tts/v3/female/b182cad17df18e273029d5aaf08388014d730922.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0044",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새 건물을 짓기 전에 비어 있는 주민센터 같은 기존 시설을 활용할 수 있는지 살펴봤어요.",
+      "cachePath": "tts/v3/female/ea447bb65e56acb0ada498e212d1f34fff88e9ed.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0044",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "예상 수요를 산정하다",
+      "cachePath": "tts/v3/female/61d504b5c05a0531795089b7c6d07ac0a9b7d46a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0045",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "충전기를 설치하기 전에 시간대별 이용 기록으로 예상 수요를 산정했어요.",
+      "cachePath": "tts/v3/female/87699054edc4558c27ec2fc54a3002b46e73c91f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0045",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "참여를 꾸준히 끌어내다",
+      "cachePath": "tts/v3/female/7d9a7767e92742968b6baeaae72b631f2e750af5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0046",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "작은 성과를 정기적으로 보여 주는 것이 참여를 꾸준히 끌어내는 데 도움이 됐어요.",
+      "cachePath": "tts/v3/female/8016d601095b03fdb8c97cabebf13902759ed251.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0046",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "보여 주기식 대책에 그치다",
+      "cachePath": "tts/v3/female/ab04272104d5a079d92c82bf1a5b532454cebcbe.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0047",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사진 촬영 뒤에 관리가 멈춘다면 보여 주기식 대책에 그칠 가능성이 커요.",
+      "cachePath": "tts/v3/female/556d065a4eb7e379077cc97b355512bc70c98697.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0047",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지역 여건에 맞추다",
+      "cachePath": "tts/v3/female/f0cc632267ce762804982bbb81f5eb4e037c2254.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0048",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다른 도시의 성공 사례도 교통과 인구 구성을 보고 지역 여건에 맞춰야 해요.",
+      "cachePath": "tts/v3/female/0275f37cb69e6ca26c4f08e44df0ecc5862cc214.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c1_0048",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "논점을 흐리다",
+      "cachePath": "tts/v3/female/70f07aa21c2166aeaa4b10ceb9bcca876c14548f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0025",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "개인의 말투만 문제 삼으면 제도가 만든 불균형이라는 논점이 흐려질 수 있어요.",
+      "cachePath": "tts/v3/female/f6c4a52fa2d892b1401a465756adfba8424d13c7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0025",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "전제를 숨기다",
+      "cachePath": "tts/v3/female/a90e9199597ab8403fec798c0a824b3e7d6b203d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0026",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "효율이 가장 중요하다는 전제를 숨긴 채 선택지가 하나뿐이라고 말하고 있어요.",
+      "cachePath": "tts/v3/female/e5e3583aef84b7c6ec7011ee2f5cfcde6447f08e.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0026",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "책임을 개인에게 돌리다",
+      "cachePath": "tts/v3/female/afb012c774bd3df2696538cd2c709500b37eca41.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0027",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "구조적인 문제를 생활 습관 탓으로만 설명하면 책임을 개인에게 돌리게 돼요.",
+      "cachePath": "tts/v3/female/1c0c70cf4727f595b96ed1d2ae96a2a9cf652817.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0027",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "범주를 임의로 나누다",
+      "cachePath": "tts/v3/female/586d235b46acc8db4c8417aa78109a3a1cb4ac83.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0028",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연속적인 차이를 둘로만 나누면 범주를 임의로 만들었다는 비판을 피하기 어려워요.",
+      "cachePath": "tts/v3/female/e92fa86195d91a7b6694c9f5fc0602ce6679332a.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0028",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "표현의 수위를 낮추다",
+      "cachePath": "tts/v3/female/8f13fe76800d0238ef3981610124c321e78b6842.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0029",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "갈등을 줄이려고 표현의 수위는 낮췄지만 요구의 핵심까지 지우지는 않았어요.",
+      "cachePath": "tts/v3/female/ca1d4b0b7f40403109b2d59a63a5a18f7cbf63b6.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0029",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "침묵을 동의로 간주하다",
+      "cachePath": "tts/v3/female/0eabb700ff243a1301092f15faa46afdd000ab39.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0030",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "말하지 않았다는 이유로 침묵을 동의로 간주하면 참여하기 어려운 사람을 배제할 수 있어요.",
+      "cachePath": "tts/v3/female/185859469fede84ffb78f58e214623fdadb0d1ce.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0030",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이름을 붙일 권한을 갖다",
+      "cachePath": "tts/v3/female/44574727b8322b21964212d29dfc3eea6d475640.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0031",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "어떤 상태를 문제라고 이름 붙일 권한을 누가 갖는지부터 물어야 해요.",
+      "cachePath": "tts/v3/female/8c9adff6ffb497a0e5ce557cdc7360f27d8f4c55.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0031",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발화를 맥락에서 떼어 내다",
+      "cachePath": "tts/v3/female/9a42625dc7920a615976380273a507c588f85aad.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0032",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한 문장만 잘라 발화를 맥락에서 떼어 내면 원래 의도와 반대로 읽힐 수 있어요.",
+      "cachePath": "tts/v3/female/111cd74577a27bddc0ca019dde40b813c04d745f.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0032",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불균형을 자연스럽게 보이게 하다",
+      "cachePath": "tts/v3/female/e95518facc19e20a7aefcebc1b0fb5126d3be446.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0033",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "늘 그래 왔다는 표현은 바꿀 수 있는 불균형을 자연스럽게 보이게 할 때가 있어요.",
+      "cachePath": "tts/v3/female/da8746cc995a9f33768492b16cfa86fa0246d197.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0033",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "반박의 틀을 제한하다",
+      "cachePath": "tts/v3/female/82f51635e5d4081710cc9526675b436010a31c72.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0034",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "찬반 중 하나만 고르게 하면 문제 제기 방식 자체가 반박의 틀을 제한할 수 있어요.",
+      "cachePath": "tts/v3/female/0c9af92ffeed99fce198b48043cae958b156a68b.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0034",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "모호함을 전략적으로 남기다",
+      "cachePath": "tts/v3/female/781fc9b98af46bb45847fe05482f423c8a646cb4.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0035",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서로 다른 집단의 지지를 얻으려고 핵심 용어의 모호함을 전략적으로 남겼어요.",
+      "cachePath": "tts/v3/female/c816af1b6bded710ff843b851695f3cdac011fac.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0035",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "상대의 언어를 빌려 말하다",
+      "cachePath": "tts/v3/female/dd607e67bb8943d1aef8fcf1747f4c4e5b199572.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0036",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "반박하려고 상대의 언어를 그대로 빌렸지만 오히려 그 전제를 강화하고 말았어요.",
+      "cachePath": "tts/v3/female/f1d0f1fc265f6b12929a007a837082e0c3a6e0a9.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0036",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결정 과정을 추적하다",
+      "cachePath": "tts/v3/female/7379c924412ad18e3caf94314bdbb7bb636b893d.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0037",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과에 이의를 제기하려면 어떤 자료가 어떻게 반영됐는지 결정 과정을 추적할 수 있어야 해요.",
+      "cachePath": "tts/v3/female/0577fd430453ebb23ddc0cc98de186e8ab4d4075.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0037",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "설명 가능성을 확보하다",
+      "cachePath": "tts/v3/female/2de9a10a8318bc6c4b245a675b8f474d4b353409.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0038",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "정확도가 조금 높더라도 이유를 전혀 설명할 수 없다면 설명 가능성을 더 확보해야 해요.",
+      "cachePath": "tts/v3/female/eca2cba831e59fd63f00577ff0f52b162ec56e92.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0038",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오류가 누적되다",
+      "cachePath": "tts/v3/female/54a47d13212a5dcc08753ef90adbc5022e3808e5.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0039",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "초기 입력이 조금씩 틀리면 다음 단계로 갈수록 오류가 누적될 수 있어요.",
+      "cachePath": "tts/v3/female/2aaf726911b927a508869053617b3387c0781844.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0039",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "편향을 증폭하다",
+      "cachePath": "tts/v3/female/369bd3065d432694980fa60540c9446dad7055a0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0040",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "과거의 불균형한 기록을 그대로 학습하면 시스템이 기존 편향을 증폭할 수 있어요.",
+      "cachePath": "tts/v3/female/9e44a1f90eff1a86461351a425a7d6532bedc450.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0040",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이의 제기 절차를 마련하다",
+      "cachePath": "tts/v3/female/c76a7fa4f073dee539996c6a7518ccfe1bb502e7.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0041",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동 판정이 틀릴 수 있는 만큼 당사자가 설명을 요구할 이의 제기 절차를 마련해야 해요.",
+      "cachePath": "tts/v3/female/8c20149645662608e7004b2e70b7a33f1981afb2.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0041",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "인간의 판단을 대체하다",
+      "cachePath": "tts/v3/female/f3f14582a7bc81ab9506a9a7aef2d72cb7cc5943.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0042",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "도구가 결정을 돕는 것과 인간의 판단을 완전히 대체하는 것은 구분해야 합니다.",
+      "cachePath": "tts/v3/female/efbbd1c01ab62c2cf1745dbdf1b304604bf377fe.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0042",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "데이터의 출처를 소명하다",
+      "cachePath": "tts/v3/female/4cf03e9ff6fba58ec44574f36ba276896d84cbb0.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0043",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "학습 자료를 공개하기 어렵더라도 데이터의 출처와 수집 동의 여부는 소명해야 해요.",
+      "cachePath": "tts/v3/female/d92d2d9d3551210bd5df13dcfe9f94d8086a9c20.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0043",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "책임을 시스템 탓으로 돌리다",
+      "cachePath": "tts/v3/female/caef04d2aeeb30d2a846bda2448aa8c45a8b4026.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0044",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동으로 나온 결과라는 말만으로 책임을 시스템 탓으로 돌릴 수는 없어요.",
+      "cachePath": "tts/v3/female/6900ef1beb6015cd55dd1072c47f30805dad1a5c.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0044",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동화를 맹신하다",
+      "cachePath": "tts/v3/female/a6e70eae3372e70d7515ffe0448621d0b1812771.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0045",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "처리 속도가 빠르다는 이유로 자동화를 맹신하면 드문 오류를 놓치기 쉬워요.",
+      "cachePath": "tts/v3/female/8bc646efe8bc521a8d83c111e038d2333e6f3119.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0045",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "예외 사례를 처리하다",
+      "cachePath": "tts/v3/female/f4f380df1425e3a763fc4bccada638d18cb53284.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0046",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "평균적인 이용자만 기준으로 삼으면 예외 사례를 제대로 처리하기 어려워요.",
+      "cachePath": "tts/v3/female/2e539d1a7f79b84fcae0f9e838e6495c1fa7be41.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0046",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "감시 범위를 제한하다",
+      "cachePath": "tts/v3/female/99a647746a9196b32b338b8bfa8e49226d5c5791.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0047",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "안전을 위한 장치라도 목적과 기간을 정해 감시 범위를 제한해야 해요.",
+      "cachePath": "tts/v3/female/8f394d793d741ca640733b3e4ee6a3f4056f58be.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0047",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "철회할 권리를 보장하다",
+      "cachePath": "tts/v3/female/3197031c4ab6b4473d96c76e914f67e46bdb9077.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0048",
+          "field": "korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "처음에 동의했더라도 나중에 데이터 제공을 철회할 권리를 보장해야 합니다.",
+      "cachePath": "tts/v3/female/1c42317f7257da8f725510d07655e0e49268b644.mp3",
+      "sourceRefs": [
+        {
+          "type": "vocab",
+          "id": "vocab_c2_0048",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연락이 뜸하다고 해서 마음까지 멀어진 것은 아니에요.",
+      "cachePath": "tts/v3/female/5e744267638ef6e63bfebbac4a9bd8f9836cda83.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_not_automatic_conclusion",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공용 공간이 편해지느냐는 이용 규칙을 서로 지키느냐에 달려 있어요.",
+      "cachePath": "tts/v3/female/e072315ca6eeaba000eb847e73c98f3189e27961.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_outcome_depends",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이웃과 소음 문제를 이야기한 것을 계기로 공용 공간 규칙을 다시 정했어요.",
+      "cachePath": "tts/v3/female/ac72c8b83d451e7c653bb7bbf781139c47ccd5db.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_turning_point",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "답장을 재촉하지 않는다는 점에서 그 메시지는 상대의 시간을 배려하고 있어요.",
+      "cachePath": "tts/v3/female/58b0a5f3b08b6510c72f7c6ca1a255067b343655.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_shared_merit",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금까지의 이용 기록에 비추어 볼 때 저녁 예약을 두 구간으로 나누는 게 좋겠어요.",
+      "cachePath": "tts/v3/female/f17d329b123736e5c3dbfd2edc0563b852f831e4.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_in_light_of",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "첫 안내문은 글자가 작은 데 비해 새 안내문은 멀리서도 잘 보여요.",
+      "cachePath": "tts/v3/female/d78538fbb85df82bac024cfddd5d5bd7ea20a84d.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_compared_with",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이미 생긴 불편을 탓하기보다 다음에는 어떻게 막을지 함께 정할 따름이에요.",
+      "cachePath": "tts/v3/female/713adb9f8ce431123b48c6dffbc39a28b515e535.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_only_course",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의를 길게 하는 대신 핵심 쟁점을 미리 문서로 공유해요.",
+      "cachePath": "tts/v3/female/01a7138b96d95590e7bfd925f870f0914d49ef80.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_b2_instead_tradeoff",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "불확실한 수치를 확정된 것처럼 발표할 바에야 잠정치라고 분명히 밝히는 편이 나아요.",
+      "cachePath": "tts/v3/female/ef185e0fabbb0fe21989faebe70423faf493ddd0.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_rather_than",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발표가 조금 늦어지는 한이 있어도 잘못된 수치는 먼저 바로잡아야 합니다.",
+      "cachePath": "tts/v3/female/2299b917887b879221971ec4afb43a6c44bacae7.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_even_at_cost",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "신뢰를 지키는 데에는 빠른 발표만큼 책임 있는 정정이 중요하다고 해도 과언이 아니에요.",
+      "cachePath": "tts/v3/female/f02f844b1c4c7263c1ee80a65a31401da7919160.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_no_exaggeration",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "조치의 근거를 공개하지 않는 한 사람들의 협조를 오래 기대하기 어려워요.",
+      "cachePath": "tts/v3/female/1bde567bfd78ce3efca633e4b0d9d8af8a15dd44.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_unless_condition",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이 대책은 초기 비용을 줄이는 한편 기존 시설을 다시 쓸 수 있게 해요.",
+      "cachePath": "tts/v3/female/146aabd8ca78839aabd0736e9ba72d556363e9c6.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_two_sides",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "눈에 보이는 성과만 서두른 나머지 정작 유지 비용을 계산하지 못했어요.",
+      "cachePath": "tts/v3/female/e3445ef6792291021334e98ac7194fbbd3802ffa.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_excessive_result",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "현재 수요만 보면 규모가 작아 보이지만 이용 시간이 늘면 다시 검토할 여지가 있어요.",
+      "cachePath": "tts/v3/female/89050b0b36f9f771c44a8540027834c4505d78a2.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_room_for",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지역마다 이동 방식이 다른 점을 감안하면 같은 제도를 그대로 적용하기는 어려워요.",
+      "cachePath": "tts/v3/female/0dc93a8f70033861a85cbc59e4227710610cef6e.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c1_taking_into_account",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이의 제기 절차는 이용 경로나 판단 결과를 불문하고 누구에게나 열려 있어야 합니다.",
+      "cachePath": "tts/v3/female/8f5fab731d73344d9c4425e5c88ed5356c2890fb.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_regardless_of",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "검토에 시간이 더 걸릴지언정 자동 판정의 이유를 묻는 권리까지 없애서는 안 돼요.",
+      "cachePath": "tts/v3/female/1727ab994aa21432be79ba9e67c1b84988ae1964.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_even_if_concession",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동화가 편향을 줄이리라 여겨졌지만 자료 자체의 불균형은 그대로 남아 있었어요.",
+      "cachePath": "tts/v3/female/0e933e1e09f339a2113999c803f06517e47dd02e.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_expected_assumption",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결정 기록을 남겨 두었기에 망정이지 그렇지 않았다면 오류가 어디서 시작됐는지 찾기 어려웠을 거예요.",
+      "cachePath": "tts/v3/female/f011f244d6bf9f973a0cf4b9b27005b0132ed571.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_fortunate_counterfactual",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "시스템의 평균 정확도가 높다고 치더라도 피해를 본 사람이 이의를 제기할 통로는 필요해요.",
+      "cachePath": "tts/v3/female/fb1d32862a659bfb0fa5ab412b804bde3c4da5bb.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_even_assuming",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기술이 사람의 기회를 좌우할진대 그 판단 기준은 공개적인 검토를 견딜 수 있어야 합니다.",
+      "cachePath": "tts/v3/female/5ee73c4b08c1244c6ac7e6c47e2dd230c61b5995.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_if_indeed",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "설명할 수 없는 높은 점수는 검증이 끝나기 전까지 하나의 출력값에 불과해요.",
+      "cachePath": "tts/v3/female/b5ca01e27eb7ff5e50a8a83668b77da1b4b31846.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_nothing_more_than",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동 결과에 책임자가 없으면 오류가 생겼을 때 서로 시스템 탓만 하기 십상이에요.",
+      "cachePath": "tts/v3/female/c238133e20e4bda692b7f6946c05bda89c158e18.mp3",
+      "sourceRefs": [
+        {
+          "type": "grammar",
+          "id": "grammar_c2_likely_negative",
+          "field": "example_korean"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
+      "cachePath": "tts/v3/female/179f926c16902f759f5fea9de983eec3d6c8b06e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0065",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "저는 좋은 점을 짧게 듣고 나서 고칠 부분을 구체적으로 듣는 게 편해요.",
+      "cachePath": "tts/v3/female/f9095a3481af9783809936e8ad0b1968a6b1ffbf.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0065",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번에는 어떤 방식이 편한지 먼저 정해 볼까요?",
+      "cachePath": "tts/v3/female/e42da91836085f542d49b04a0dc76145f9e32e47.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0065",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "방식을 먼저 맞추면 내용에 더 집중할 수 있겠네요.",
+      "cachePath": "tts/v3/female/3556aaf6c4c943eca82aa2c4d755504b383476d8.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0065",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의가 자꾸 옆길로 새는데, 흐름을 어떻게 잡으면 좋을까요?",
+      "cachePath": "tts/v3/female/3aaf7f6556e4ce18b70eae2045a970c89bb2f86a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0066",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "남은 안건을 화면에 띄우고 하나씩 끝내는 게 좋겠어요.",
+      "cachePath": "tts/v3/female/1f8f2d3078cb568ca6f2d48ec5f8b3485b34fe78.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0066",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금 꼭 결정할 것부터 골라 볼까요?",
+      "cachePath": "tts/v3/female/da50ac26f5c0a97052a7cdf3249a7124e2bfdb7a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0066",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그러면 급하지 않은 얘기는 따로 남겨 둘 수 있겠어요.",
+      "cachePath": "tts/v3/female/7195fbffb3eb11c44657f4502428172396bd86c8.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0066",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 주에 일이 너무 겹쳤는데, 어느 약속부터 조정하는 게 나을까요?",
+      "cachePath": "tts/v3/female/f5b128236814677aabac42240aa7165c3caac57c.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0067",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다른 사람이 준비할 시간이 필요한 약속부터 확인해 볼 것 같아요.",
+      "cachePath": "tts/v3/female/f491be37ac1dec426218ff353718e05bc081da53.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0067",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "마감과 관련된 약속을 따로 표시해 볼까요?",
+      "cachePath": "tts/v3/female/95632eb648d7146e05bb91b4ff9cedaf146c0f24.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0067",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그렇게 보면 미뤄도 되는 일이 더 잘 보이겠어요.",
+      "cachePath": "tts/v3/female/12bf08a94b8835815094690dd4178f05cffb8f1f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0067",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "제목은 자극적인데 내용은 애매해요. 이 링크를 공유해도 될까요?",
+      "cachePath": "tts/v3/female/54b79183f58d407970da8c68467a65f3c96b4a4b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0068",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "저라면 원문과 날짜를 먼저 확인하고 결정할 것 같아요.",
+      "cachePath": "tts/v3/female/f6e02f77268856a19d98a6b28998d99b748cc302.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0068",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 내용을 다룬 다른 출처도 찾아볼까요?",
+      "cachePath": "tts/v3/female/02599dc5831b89e56969507945200b15e2e9fe2b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0068",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "두 곳을 비교하면 빠진 맥락도 보일 수 있겠네요.",
+      "cachePath": "tts/v3/female/2d03d1de143bdcd971043bd33449c72de3d4866a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0068",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "쉬는 중인데도 자꾸 휴대폰을 보게 돼요. 어디에 두면 덜 신경 쓰일까요?",
+      "cachePath": "tts/v3/female/528f6558bb3584c6eacc45dd051f875c9d7c1bb3.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0069",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "저는 충전기를 침대에서 먼 곳에 두니까 조금 나아졌어요.",
+      "cachePath": "tts/v3/female/fea094fb586a7e12f962baee500fd7e76c4c3e4b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0069",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "알림부터 한 시간만 꺼 볼까요?",
+      "cachePath": "tts/v3/female/cc1bf6263b4dff0a24243cc6348d73fc6b75dead.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0069",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한 시간 정도면 부담 없이 시험해 볼 수 있겠어요.",
+      "cachePath": "tts/v3/female/811973442532dd0a48763060f39852aa1490386a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0069",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발표 자료에 나온 통계의 출처가 안 보여요. 그대로 써도 괜찮을까요?",
+      "cachePath": "tts/v3/female/36fcaf4d47baad68f3cbed682baa5cc42ad46d78.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0070",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "출처를 찾지 못하면 수치는 빼고 경향만 조심스럽게 말하겠어요.",
+      "cachePath": "tts/v3/female/9e7a0ac383cdbbd29a67933969cdecfe0af8f600.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0070",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자료를 만든 사람에게 원본 링크를 물어볼까요?",
+      "cachePath": "tts/v3/female/3e7d351f860b01c56aebc58513cdc8cf582ca5f1.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0070",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확인된 뒤에 넣으면 발표도 더 믿을 만해지겠네요.",
+      "cachePath": "tts/v3/female/c0271608699f64e13be1d76b362439cbfeff42d9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0070",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
+      "cachePath": "tts/v3/female/f301b2e6fdd95163f84d3e63c53a4665afbc56f5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0071",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "바로 설명하기보다 어떤 점이 걱정되는지 먼저 물어볼 것 같아요.",
+      "cachePath": "tts/v3/female/8da24e75ef45973cd5c0bc153bb7f505e1d3f709.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0071",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잠깐 메모한 뒤에 답해도 괜찮다고 말해 볼까요?",
+      "cachePath": "tts/v3/female/adae06efc65f82d92add779e5da40a403f997a1f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0071",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "생각할 틈이 있으면 말투도 한결 부드러워질 것 같아요.",
+      "cachePath": "tts/v3/female/8065dfbd976d3d362749d6a6251c1952ff653390.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0071",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금 표결할까요, 아니면 의견 차이를 조금 더 이야기할까요?",
+      "cachePath": "tts/v3/female/6f1ab142091ac7812742d7e353e8263e4e0e0520.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0072",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과에 큰 영향을 주는 쟁점 하나만 더 듣고 표결하면 좋겠어요.",
+      "cachePath": "tts/v3/female/1e09a5ad4bb4fad129fa0377a4d622480ee193b1.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0072",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "아직 말하지 못한 사람이 있는지 먼저 확인할까요?",
+      "cachePath": "tts/v3/female/56864fd0e4201cd2218e8034664b7c6bb25e6a8b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0072",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 확인이 끝나면 결과도 더 잘 받아들일 수 있겠어요.",
+      "cachePath": "tts/v3/female/5d164a8a5c9edbe793d406579371ff833c157202.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0072",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공용 세탁기 시간이 겹쳤어요. 이번에는 어떻게 나눠 쓰면 좋을까요?",
+      "cachePath": "tts/v3/female/cd2f3b0e7a83fedca903cd794991b6ffb2dfed15.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0073",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "저는 늦게 들어오니까 먼저 쓰시고, 저는 아홉 시부터 쓸게요.",
+      "cachePath": "tts/v3/female/88eb346eea0f6b77267053097689d611d54039c4.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0073",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "각자 꼭 필요한 시간을 먼저 말해 볼까요?",
+      "cachePath": "tts/v3/female/098ccde25a559848e6c7c2c478a16b6d1c35f909.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0073",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "필요한 시간을 알면 서로 한발씩 양보하기 쉽겠어요.",
+      "cachePath": "tts/v3/female/84b17fc3f9359b68973939f57f7f6eeaa3648a9d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0073",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오늘 손님이 늦게까지 있을 것 같은데 옆집에 뭐라고 말하면 자연스러울까요?",
+      "cachePath": "tts/v3/female/4289d12475ea036055e48076ce0df181ea5be358.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0074",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "늦어도 열한 시에는 조용히 하겠다고 먼저 양해를 구하면 좋겠어요.",
+      "cachePath": "tts/v3/female/9bfde440540e831e15764b3f6991afa2f923f3cd.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0074",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "혹시 불편하면 바로 알려 달라고 덧붙일까요?",
+      "cachePath": "tts/v3/female/7c3a1361dfc146fbec408f618e302289f46fe13d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0074",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 말이 있으면 일방적인 통보처럼 들리지 않겠네요.",
+      "cachePath": "tts/v3/female/da258d048883c6b864c12503c8a016ab0c8e09c0.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0074",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "출입문 변경 안내를 붙였는데 사람들이 계속 지나쳐요. 뭐가 문제일까요?",
+      "cachePath": "tts/v3/female/9747c16ee5ef06bed1994cf0c32c50aa7aa17a8f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0075",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "글자가 작고 동선에서 조금 벗어나 있어서 그런 것 같아요.",
+      "cachePath": "tts/v3/female/0ca1e343f91f24a06f83a53b90efb32a1ae7bcd5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0075",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "실제로 걸어가면서 어느 위치가 보이는지 확인해 볼까요?",
+      "cachePath": "tts/v3/female/a889c10959c7cd740858ce2c2718f45afe69e938.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0075",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사용자 눈높이에서 보면 붙일 자리가 달라질 수 있겠어요.",
+      "cachePath": "tts/v3/female/51bfe12c3b774091696dc2887c8c60fcdd73fd84.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0075",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공용 주방에 제 물건이 남아 있었어요. 기분 상하지 않게 어떻게 풀까요?",
+      "cachePath": "tts/v3/female/e88db46b2c55398c14157a9c5ac59bbc32569a38.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0076",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "누구 탓인지 묻기보다 같이 정리할 시간을 정해 보겠어요.",
+      "cachePath": "tts/v3/female/24f2e99930df333dc3e0ca766daec4ffe9118c3e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0076",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "각자 자주 쓰는 물건의 자리를 먼저 정할까요?",
+      "cachePath": "tts/v3/female/1295dde9db4a1b6707dc41ae2a339d31ebbdb98e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0076",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자리가 정해지면 같은 일이 덜 생기겠네요.",
+      "cachePath": "tts/v3/female/649c503b4292af77e2f99951b9f1e8bd8f556a24.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0076",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "요즘 답장이 느린데 제가 너무 무심해 보일까 봐 걱정돼요.",
+      "cachePath": "tts/v3/female/df2c824b24addc4e4dc4655d61281e6b58f4ccb7.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0077",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "바쁜 시기라고 짧게 알려 주면 상대도 이유를 짐작하지 않아도 돼요.",
+      "cachePath": "tts/v3/female/865947c346ae695f6fa258e462d21fe31e031902.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0077",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금 여유가 없지만 나중에 답하겠다고 한 줄 보내 볼까요?",
+      "cachePath": "tts/v3/female/a151efc662f7045d668aa6c0d9ed688983d837ed.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0077",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 정도면 관계를 챙기면서도 무리하지 않을 수 있겠어요.",
+      "cachePath": "tts/v3/female/211bc8ce71d3ec45fb640b3a3be6c7008d45c3a8.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0077",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이번 주 부탁은 맡기 어려운데 너무 차갑지 않게 거절하려면 어떻게 말할까요?",
+      "cachePath": "tts/v3/female/f12b455b45abc1f2b70e2eb69d9bd263884d717a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0078",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "지금 맡으면 마감을 지키기 어렵다고 솔직히 말하겠어요.",
+      "cachePath": "tts/v3/female/0ee9d33815619b893f028f29ec3d0f8c50f487a0.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0078",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "대신 다음 주에 검토만 도울 수 있다고 제안할까요?",
+      "cachePath": "tts/v3/female/360a5ccf70743e5977cdc4661c576d74baf0a81c.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0078",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "가능한 범위를 말하면 거절 뒤에도 협력할 길이 남겠네요.",
+      "cachePath": "tts/v3/female/69f2c42cfe9788de7137bee8e0ced2867301dd4c.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0078",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "둘 다 화가 난 상태인데 지금 끝까지 이야기하는 게 좋을까요?",
+      "cachePath": "tts/v3/female/1435091599a01ee23b5c130ad311c9f7f6232fd7.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0079",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오늘은 핵심만 확인하고 내일 다시 이야기하는 게 나을 것 같아요.",
+      "cachePath": "tts/v3/female/a569d3e8feaa529fb2bf09eb0b66f3bf9123622f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0079",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "대화를 피하려는 게 아니라는 말도 같이 할까요?",
+      "cachePath": "tts/v3/female/8340b9f25948172a097eda3f18db6d818e243688.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0079",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 말을 들으면 미루자는 제안도 덜 불안하게 느껴지겠어요.",
+      "cachePath": "tts/v3/female/744336a05ea498c7e201df772cf73119531e04a8.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0079",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "우리는 연락하는 방식이 너무 달라요. 한쪽만 참지 않으려면 어떻게 해야 할까요?",
+      "cachePath": "tts/v3/female/16e8e594821a4e6457d39c6022542c930e184a55.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0080",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "서로 편한 빈도와 꼭 연락이 필요한 상황을 따로 정해 보면 좋겠어요.",
+      "cachePath": "tts/v3/female/337e765f66a7b9e37d68a6ae82db9a0dd1e8c450.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0080",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "일주일만 시험해 보고 다시 조정할까요?",
+      "cachePath": "tts/v3/female/3967d0df03dc9b5e176d96262e3ec6b5904b1d5d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0080",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "시험 기간이 있으면 둘 다 부담 없이 의견을 말할 수 있겠네요.",
+      "cachePath": "tts/v3/female/74f0640a9c577576a7971034d80381ded6f62aee.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_b2_0080",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새 안내 방식이 실제로 접근성을 높였는지 어떻게 확인할까요?",
+      "cachePath": "tts/v3/female/dafa45e1fdca194ac168becbcb5eaa4e14be271a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0001",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "변경 전후에 어디서 막혔는지 이용자에게 직접 물어보는 게 좋겠어요.",
+      "cachePath": "tts/v3/female/2f57ed12c70540aa16ba26cd4e1080ebf130e336.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0001",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "특정 이용자와 동선을 함께 걸어 볼까요?",
+      "cachePath": "tts/v3/female/a593e5a663d5341638e04aedf6f4716ec67e14fa.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0001",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그렇게 보면 수치만으로 놓친 불편도 보이겠네요.",
+      "cachePath": "tts/v3/female/737d84366df341c86e4d5c6a7f5189fd0ef537e3.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0001",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "개선안을 정하기 전에 당사자에게 어떤 질문부터 해야 할까요?",
+      "cachePath": "tts/v3/female/efcded4b7c3c66cd03f587657484998669333a10.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0002",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "무엇이 불편한지보다 어떤 순간에 선택권이 사라지는지 묻고 싶어요.",
+      "cachePath": "tts/v3/female/fca538b2ecd937b8b3b39b6890f84f1994d7701b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0002",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "원하는 해결 방식도 여러 개 들어 볼까요?",
+      "cachePath": "tts/v3/female/9a6ff0503a5a4d92ac0a71f07c4dc53441302f98.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0002",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "문제와 해법을 함께 들으면 일방적으로 정할 위험이 줄겠어요.",
+      "cachePath": "tts/v3/female/deaa79f264c1ea1905fdbb169674aa74e0b4493c.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0002",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이 결과가 가설을 뒷받침한다고 봐도 될까요, 아니면 아직 자료가 부족할까요?",
+      "cachePath": "tts/v3/female/1f89689ffe6ded5e72fe014d0524ab8cc0972f85.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0003",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "방향은 맞지만 표본이 작아서 결론은 유보하는 게 좋겠어요.",
+      "cachePath": "tts/v3/female/b1b9ee3f6cf9f66f7ce1950a4f9aaeccab22c984.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0003",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 조건에서 다시 나오는지 먼저 확인할까요?",
+      "cachePath": "tts/v3/female/f7e1a248531be37f71e35fe54b5a7cdeb37835ad.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0003",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "재현 여부를 보면 우연인지 판단하기 쉬워지겠네요.",
+      "cachePath": "tts/v3/female/b108bd01454d9c112ec721f2c400c2acb2163443.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0003",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발표에서 연구의 한계를 어디까지 말해야 흐름을 해치지 않을까요?",
+      "cachePath": "tts/v3/female/9d29cf9b646578ed73f0af7863effccbee3bedbc.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0004",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결론에 직접 영향을 주는 한계 두 가지만 본문에 넣겠어요.",
+      "cachePath": "tts/v3/female/7aa86cafb6c47c6c43788664ff1c2602bf9c45d4.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0004",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "나머지는 질문이 나오면 보여 줄 슬라이드로 남겨 둘까요?",
+      "cachePath": "tts/v3/female/d7c27bdf3b16ae7c5346afa28ca444e8c1e961e6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0004",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "핵심은 지키면서도 숨긴다는 인상은 피할 수 있겠어요.",
+      "cachePath": "tts/v3/female/fbea9990615f81df01cb98d4f4f0644e843737b1.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0004",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "엘리베이터가 멈췄는데 계단을 이용하기 어려운 분께 어떤 대안을 안내해야 할까요?",
+      "cachePath": "tts/v3/female/8fa14179f9f8f76e4e99afea623b07d8732e7294.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0005",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이유만 설명하지 말고 이용 가능한 다른 출입구와 도움 요청 방법을 함께 안내해야 해요.",
+      "cachePath": "tts/v3/female/cc58cb0b1b2463aa706279d73f15ac40406f6df6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0005",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "실제로 이동 가능한 경로인지 직원이 먼저 확인할까요?",
+      "cachePath": "tts/v3/female/df80cbf24b2cc7590a047f440c807ee196a74512.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0005",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확인되지 않은 길을 안내해 다시 막히는 일은 피할 수 있겠네요.",
+      "cachePath": "tts/v3/female/2aca813086938a09de997878ae38261c8e388095.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0005",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연구 결과와 제 개인 경험이 다를 때는 어떻게 이야기하는 게 좋을까요?",
+      "cachePath": "tts/v3/female/19d7b3c23f10278cee572a3c2849f4caa96b3fc9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0006",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "제 경험을 반례처럼 단정하지 않고 적용 조건이 달랐을 수 있다고 말하겠어요.",
+      "cachePath": "tts/v3/female/f2e46adf2f03a26f2739e0b050ab757dd98aae1f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0006",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "연구가 다룬 대상과 제 상황을 나눠 볼까요?",
+      "cachePath": "tts/v3/female/dffba53cbb63d49c1ee153ea3f53225144b4a591.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0006",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그렇게 하면 둘 중 하나를 무시하지 않고 차이를 설명할 수 있겠어요.",
+      "cachePath": "tts/v3/female/6697d8b5c66b6babd1c1d6f7b534b00a4e21b70d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0006",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "모두에게 같은 기준을 적용하면 공정하다고 볼 수 있을까요?",
+      "cachePath": "tts/v3/female/86016389c823c44ef898ee859e75dddd0d170b52.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0007",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "출발 조건이 다르면 필요한 예외가 있는지도 함께 봐야 해요.",
+      "cachePath": "tts/v3/female/7268494491cf4319db3a92a904882701a55e27de.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0007",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "예외를 허용할 기준부터 공개할까요?",
+      "cachePath": "tts/v3/female/4ae2fe3503b6a8b1118dce29b4a803e0380567a5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0007",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기준이 보이면 특혜라는 오해도 줄일 수 있겠네요.",
+      "cachePath": "tts/v3/female/abe151d2eca974f65a380e690733b1ac6b044f89.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0007",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과가 아직 불확실한데 회의에서 어느 정도까지 말해도 될까요?",
+      "cachePath": "tts/v3/female/d0de716125f70a2613ad1faeee51339b8eb7ffcf.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0008",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확인된 사실과 현재 해석을 나눠서 말하면 좋겠어요.",
+      "cachePath": "tts/v3/female/e9a5016ceb528f4c74150add928e791d644c977a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0008",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "바뀔 수 있는 부분을 슬라이드에 표시할까요?",
+      "cachePath": "tts/v3/female/4306781a7721ca087988790598d0abfe1686c092.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0008",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "듣는 사람도 확정된 내용과 추정을 구분하기 쉬워지겠네요.",
+      "cachePath": "tts/v3/female/3d893152726fbc9a95870dad72f5fad579b2e099.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0008",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "확정된 내용이 적은데 첫 공지에서 무엇부터 밝혀야 할까요?",
+      "cachePath": "tts/v3/female/230f9124ad3815e6a6b826a50277d84ff89c2cc1.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0009",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "아는 것과 모르는 것, 다음 갱신 시간을 먼저 말해야 해요.",
+      "cachePath": "tts/v3/female/e9add2294ee0380457aa66fa4de4ed05dea1014d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0009",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사람들이 지금 해야 할 행동도 한 줄로 정리할까요?",
+      "cachePath": "tts/v3/female/08aea3045e7caa669b054fc15560a35964e112b9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0009",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "정보가 적어도 다음 행동과 확인 시점은 분명해지겠어요.",
+      "cachePath": "tts/v3/female/a5f20dc202104f17386c7a9cd426bac2aebc7578.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0009",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "가능성은 있지만 확률이 낮다는 말을 어떻게 전하면 덜 헷갈릴까요?",
+      "cachePath": "tts/v3/female/d8277681215639229f2dde3bcdc2e1aeb5a532f9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0010",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "가능 여부와 예상 빈도를 한 문장에서 따로 말하겠어요.",
+      "cachePath": "tts/v3/female/46f619b79242a416895fc9c1aa8decf8673c48e9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0010",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "숫자와 함께 일상적인 비교를 덧붙일까요?",
+      "cachePath": "tts/v3/female/76cbd953b7c0b2fb4c6b1f651299846c641e798e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0010",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "비교가 정확하다면 숫자의 크기를 이해하는 데 도움이 되겠네요.",
+      "cachePath": "tts/v3/female/8f508ea57f825b7ec93fb9af46475871328b2482.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0010",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발표한 수치가 틀렸다는 걸 알았어요. 정정문에 무엇을 넣어야 할까요?",
+      "cachePath": "tts/v3/female/8270c3f6852c6f065fb5355589552d6d2322783d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0011",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잘못된 값과 바른 값, 결론에 미치는 영향을 함께 밝혀야 해요.",
+      "cachePath": "tts/v3/female/d5bcefe4231475307cce4d9ec4f194b4f0460447.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0011",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "오류가 생긴 이유도 확인된 범위에서 설명할까요?",
+      "cachePath": "tts/v3/female/1deef5832acb71826d0b57ce541fbbe9fd4f80d5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0011",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 설명이 있으면 같은 실수를 막는 조치도 설득력을 얻겠어요.",
+      "cachePath": "tts/v3/female/6aad64afed6b2a6601843142db853c78b957223e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0011",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "소문이 커지고 있는데 완전한 결과를 기다렸다가 발표해야 할까요?",
+      "cachePath": "tts/v3/female/8d5f6e7af33b5fc241d98598588de61f5c4a1c83.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0012",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "잠정 결과라는 표시와 한계를 붙여 먼저 알리는 편이 낫겠어요.",
+      "cachePath": "tts/v3/female/1e6a33f29876cd3f025f252b0cf0bc4fa26811c3.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0012",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다음 발표 시점을 함께 약속할까요?",
+      "cachePath": "tts/v3/female/fd9091230e3d4d6917c360ce1fad02b9c52863b4.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0012",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그러면 빈 정보를 소문이 대신 채우는 시간을 줄일 수 있겠네요.",
+      "cachePath": "tts/v3/female/aa75e22bab1bcf17163fc46d5875378d5988c2b6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0012",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "좋은 취지의 행사가 한 번으로 끝나지 않게 하려면 무엇이 필요할까요?",
+      "cachePath": "tts/v3/female/a9af52c9ac0e7aba14987b066ba2cf5015c04ab5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0013",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다음 담당자와 점검 날짜를 행사 전에 정해 두어야 해요.",
+      "cachePath": "tts/v3/female/2e919c56e73a8e7cfaf390984d4c37ff252d4770.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0013",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "작은 목표를 한 달 단위로 잡아 볼까요?",
+      "cachePath": "tts/v3/female/6a63afb9893f4b9dbcd0a8e6922f9430e41700a5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0013",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "성과가 보이면 참여를 이어 갈 이유도 생기겠네요.",
+      "cachePath": "tts/v3/female/82580820bb84f8a7b0d9db01b27b802860839d32.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0013",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "설치비는 싼데 유지비가 높은 장비를 골라도 될까요?",
+      "cachePath": "tts/v3/female/45d9a9536f868109430dc5ed65a6914c88fda712.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0014",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
+      "cachePath": "tts/v3/female/1b65cdec820bbc76cf2b1f19ea527af6a39c0d31.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0014",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "관리할 인력이 있는지도 확인할까요?",
+      "cachePath": "tts/v3/female/99bb28d7ab86af903d944ef73c2db21569f7ac06.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0014",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "가격표 밖의 부담까지 보면 선택이 달라질 수 있겠네요.",
+      "cachePath": "tts/v3/female/5bb53a128b7dffe577e4e4698b9ce171daedfa91.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0014",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다른 도시에서 성공한 제도를 우리 지역에도 그대로 가져와도 될까요?",
+      "cachePath": "tts/v3/female/9f92ced356fb1a7146dd55056695301ff97c728e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0015",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "인구 구성과 이동 방식이 달라서 먼저 작은 구역에서 시험해야 해요.",
+      "cachePath": "tts/v3/female/b15548d261fdacb1b5265a30469ca891dc31f1f2.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0015",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "현지 이용자에게 가장 불편한 지점부터 물을까요?",
+      "cachePath": "tts/v3/female/03a9949736daf3d74daba0ea748a33cf276242d4.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0015",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "성공 사례의 원리만 남기고 실행 방식은 조정할 수 있겠네요.",
+      "cachePath": "tts/v3/female/e0a2018fcdb5dfa0885524f23e32dfe237a5a128.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0015",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "새 규칙의 부담이 몇 사람에게만 몰리지 않게 하려면 어떻게 할까요?",
+      "cachePath": "tts/v3/female/b890a8d11cd0633086fd994af3bb8c94b7fa976f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0016",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "시간과 비용, 보이지 않는 수고를 따로 적어서 나눠 봐야 해요.",
+      "cachePath": "tts/v3/female/40ae8309c6a6f08f9890ce6eae7e38805e17c4cd.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0016",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "혜택을 받는 사람도 역할을 맡도록 할까요?",
+      "cachePath": "tts/v3/female/bda925cb574500b83a29d90e794126ec955158c7.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0016",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "혜택과 부담을 함께 보면 더 오래 갈 합의를 만들 수 있겠네요.",
+      "cachePath": "tts/v3/female/aeed55be4af6e6f902b99fab01e59e67d03c6766.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c1_0016",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+      "cachePath": "tts/v3/female/a80e48bbce7a0937b86aa0c419520f643cbd4605.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0001",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결정의 전제와 놓친 위험을 나중에 검토하려면 남겨야 해요.",
+      "cachePath": "tts/v3/female/48ca703c793e41b59847c383a5c250e0f136028f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0001",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "의견뿐 아니라 채택되지 않은 이유도 기록할까요?",
+      "cachePath": "tts/v3/female/2fbfd6a583796a4835db4c86c71acfcac2d21d47.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0001",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 기록이 있으면 결과가 달라졌을 때 책임 있게 되짚을 수 있겠네요.",
+      "cachePath": "tts/v3/female/2051fffab2e5b7c5f78062856070dd1f58a79e4a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0001",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과가 좋아도 절차가 불공정했다면 그 결정을 받아들여야 할까요?",
+      "cachePath": "tts/v3/female/9502c331553b45027cec95a0a527693be49d48b6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0002",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "한 번의 좋은 결과가 다음 결정의 불공정한 절차를 정당화하지는 못해요.",
+      "cachePath": "tts/v3/female/0b60731342257b325f85abb334c8e2da7823bf58.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0002",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "누가 발언하고 이의를 제기할 수 있었는지 살펴볼까요?",
+      "cachePath": "tts/v3/female/1fb3545f80a39d7da8597fa8ee6f7c6b58b574df.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0002",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "절차를 보면 운이 좋았던 결과인지도 구분할 수 있겠네요.",
+      "cachePath": "tts/v3/female/ed7b712de41b92e80044e121fd236590f3c0b118.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0002",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "합의를 빨리 만들기보다 지켜야 할 원칙부터 정하는 게 나을까요?",
+      "cachePath": "tts/v3/female/5d28b9b8ff63866cc64980b61c0a594810d0aebc.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0003",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "원칙을 먼저 알면 양보할 부분과 넘지 못할 선을 구분할 수 있어요.",
+      "cachePath": "tts/v3/female/8ea1e79d1765b433119c9e03be30da74f7345c10.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0003",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "각 원칙이 누구를 보호하는지도 적어 볼까요?",
+      "cachePath": "tts/v3/female/a820b9d21807bcec1ab761d0b0fcc2a59075caea.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0003",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 목적이 보이면 추상적인 구호에 그치지 않겠네요.",
+      "cachePath": "tts/v3/female/14f52550b26eca34865ff7be95bcdf8c91850135.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0003",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "같은 사건을 다룬 두 기사가 완전히 다르게 느껴지는 이유가 뭘까요?",
+      "cachePath": "tts/v3/female/9efeb11e3dacb10f2dd77c065cf9213903ab1d7a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0004",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "누구의 말을 먼저 배치하고 어떤 원인을 생략했는지 비교해 보고 싶어요.",
+      "cachePath": "tts/v3/female/beecbf1154615f5cf90b1fe9410c5458df815ecd.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0004",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "제목에서 책임의 주체를 어떻게 부르는지도 볼까요?",
+      "cachePath": "tts/v3/female/716ff03f6a7f70f100f7799f8a86661c0ad4e6ac.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0004",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 표현을 보면 기사마다 만든 해석의 틀이 드러나겠네요.",
+      "cachePath": "tts/v3/female/d39307e3ed07e98f41cd46124a546d8cb26ffa27.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0004",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "상대의 선택에 동의하지 않아도 그 마음에는 공감할 수 있을까요?",
+      "cachePath": "tts/v3/female/0ed236264aa4c4b9588a6355f9f46d0e241d9459.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0005",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선택의 결과를 비판하면서도 그때 느낀 두려움은 이해할 수 있어요.",
+      "cachePath": "tts/v3/female/087a5994cbb2ce1f59d221b724b6f8b521497f44.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0005",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "공감과 동의를 나눠서 말해 볼까요?",
+      "cachePath": "tts/v3/female/a2e2ec1a387e29f5cc1fdd3bcb2fa4a463a4687d.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0005",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그렇게 말하면 비판도 사람 자체를 밀어내지 않겠네요.",
+      "cachePath": "tts/v3/female/cc5471bd86e2223e0576e763125e07796c77fd19.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0005",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
+      "cachePath": "tts/v3/female/807ac988656b90654a8775fc8c19833c58d5a5d6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0006",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "본문의 단서와 충돌하지 않는 범위라면 여러 해석이 가능하다고 봐요.",
+      "cachePath": "tts/v3/female/741655065bbfcedab7bbf1f1fcb4338866dfa8dc.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0006",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "각 해석이 설명하지 못하는 장면도 찾아볼까요?",
+      "cachePath": "tts/v3/female/02dcc60706a242ea60590c592e476db87532074b.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0006",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "반례까지 보면 더 설득력 있는 해석을 가릴 수 있겠네요.",
+      "cachePath": "tts/v3/female/867e35f1a0ae6c5347588a609c0b3911a54ca485.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0006",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "규칙을 문서로 남기면 자동으로 공정해질까요?",
+      "cachePath": "tts/v3/female/dc2915fc5f5afd88d2a03c9ec229cba70b1327b1.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0007",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "문서화는 시작일 뿐이고 적용 결과와 이의 제기 가능성도 봐야 해요.",
+      "cachePath": "tts/v3/female/c435f3ddf49db3fb2562cac86cb6bf6896eba18c.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0007",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "누가 규칙을 만들고 바꿀 수 있는지 확인할까요?",
+      "cachePath": "tts/v3/female/0e2f868bc64fa24f98474546895590a82cdd0a95.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0007",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "권한까지 보면 글로 드러나지 않은 불균형도 보이겠네요.",
+      "cachePath": "tts/v3/female/54f15313ff12e733c161e4de3ac75b3fa824abf9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0007",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결정을 빨리 내려야 할 때 이견을 어디까지 보존해야 할까요?",
+      "cachePath": "tts/v3/female/abd35da314bd8e9998f31ce33b230cb6f17944b8.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0008",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "실행을 막지 않는 선에서 핵심 반론과 재검토 조건은 남겨야 해요.",
+      "cachePath": "tts/v3/female/db5d1cd1dff8e49792d29bd699638a7c675c13ee.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0008",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결정 뒤 다시 볼 날짜를 지금 정할까요?",
+      "cachePath": "tts/v3/female/445ab1978858a3bce7e76cb4bb234cd1625365ac.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0008",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그러면 속도를 내면서도 반론을 지워 버리지는 않겠네요.",
+      "cachePath": "tts/v3/female/6ed00fffb8273211c1dde9ddbc94d3ab264413d5.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0008",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
+      "cachePath": "tts/v3/female/f67748ab6f5302e654adb4ebd0378029d522452f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0009",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
+      "cachePath": "tts/v3/female/a1847aef6777225be545e3de4e656245f7c59e3a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0009",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "당사자가 쓰는 표현부터 들어 볼까요?",
+      "cachePath": "tts/v3/female/68840537b8d57a9f7d7d10f747ce1f166897bdd9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0009",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "이름을 정하기 전부터 권력 관계를 살필 수 있겠네요.",
+      "cachePath": "tts/v3/female/8f725c2da3763d2a7f31f30875f70bcae193dbc2.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0009",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "짧은 영상에 나온 한 문장만으로 발언자의 뜻을 판단해도 될까요?",
+      "cachePath": "tts/v3/female/eee18755ec3755adeaaa56b8bab5c47203c6a689.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0010",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "앞뒤 질문과 발언이 나온 상황을 확인하기 전에는 판단을 미루겠어요.",
+      "cachePath": "tts/v3/female/9b13a6483c287621f9a32ff6496e56407a8b99b3.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0010",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "전체 영상이나 원문 기록을 찾아볼까요?",
+      "cachePath": "tts/v3/female/725aafcec48922a0be1570a169905c3dcc848d49.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0010",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "맥락을 되찾으면 잘린 문장이 만든 인상도 달라질 수 있겠네요.",
+      "cachePath": "tts/v3/female/836c653f7ebaf761c46288cc93d1bd723c27f365.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0010",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
+      "cachePath": "tts/v3/female/fb898ecc92d6e9395b5ac9085c9dfef9b4425131.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0011",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "발언하기 어려운 이유가 있을 수 있어서 의사를 따로 확인해야 해요.",
+      "cachePath": "tts/v3/female/c08ed268a5cdd67ed7cfa5c7e75966b6f67e9c9f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0011",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "익명으로 의견을 낼 방법도 열어 둘까요?",
+      "cachePath": "tts/v3/female/3f7a949fdc7f7b1f5bfa37ee866f80f17c74581f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0011",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "여러 통로가 있으면 침묵에 의미를 억지로 붙이지 않아도 되겠네요.",
+      "cachePath": "tts/v3/female/3814f49a3ff41e13b246b022a892b25b5fbc5225.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0011",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "질문이 찬성과 반대만 요구할 때 어떤 관점이 사라질 수 있을까요?",
+      "cachePath": "tts/v3/female/ba654fc8e3ddcbbbf8298fd9f604c778a972b0c6.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0012",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "조건부 동의나 질문의 전제 자체에 대한 비판이 빠질 수 있어요.",
+      "cachePath": "tts/v3/female/b14496bf0f63aa2b8761441d1909adc412f4646a.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0012",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "답변자가 선택지를 새로 만들 수 있게 할까요?",
+      "cachePath": "tts/v3/female/1bce93d06a368f1f4481a6d7768a5c7dffc41ff4.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0012",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그러면 질문이 미리 정한 틀도 함께 검토할 수 있겠네요.",
+      "cachePath": "tts/v3/female/bd309ea614b2f3a1123a8f9881cbb570a8442a9f.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0012",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+      "cachePath": "tts/v3/female/baffe7c85674caa43b101f30f7f5f4fab0ab255e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0013",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+      "cachePath": "tts/v3/female/f1a4759e5e2f50508c80e5707c1becd7c2148226.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0013",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "결과가 바뀐 수정 이력도 보존할까요?",
+      "cachePath": "tts/v3/female/4d31dab9d742e752d82e09d533bc6c29fc171176.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0013",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+      "cachePath": "tts/v3/female/bbe5153eae86ea91c5f4f76ba623db785c04dcf2.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0013",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?",
+      "cachePath": "tts/v3/female/3da01e36b9692c87570379d8742aeec59732cf1e.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0014",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+      "cachePath": "tts/v3/female/97f78589b31d8384ae8238d20773d3416b6cbf81.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0014",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "기계가 아닌 사람에게 설명을 요청할 수 있게 할까요?",
+      "cachePath": "tts/v3/female/700a7e45f3f7ec67dc2b29ab5c2bd9b4a55d1443.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0014",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
+      "cachePath": "tts/v3/female/82854ab25c619a29dca54d127bbc70b2e8d63ce9.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0014",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "자동화가 사람보다 빠르면 결과를 그대로 믿어도 될까요?",
+      "cachePath": "tts/v3/female/52dec1c46ae76665434d79724ffd1e1cb98dffba.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0015",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "속도는 장점이지만 드문 오류와 편향을 따로 점검해야 해요.",
+      "cachePath": "tts/v3/female/a7045e27828a95f5b79a325b019ef363d48e4a01.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0015",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "사람이 꼭 검토할 조건을 먼저 정할까요?",
+      "cachePath": "tts/v3/female/090d570740d734139cd75c01e9af1c66c4d40a50.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0015",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "개입 기준이 있으면 자동화를 믿거나 거부하는 문제로만 보지 않겠네요.",
+      "cachePath": "tts/v3/female/4fde5765c66a0feb37757f39e18557e345b87b20.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0015",
+          "field": "followUp.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?",
+      "cachePath": "tts/v3/female/e7d08f59ec70ab7f89ca9655acb183eb4a766a80.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0016",
+          "field": "ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "목적과 기간, 접근 권한을 좁히고 필요가 끝나면 기록을 지워야 해요.",
+      "cachePath": "tts/v3/female/73801f1646721ec0fc096f3f3441a17649b00290.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0016",
+          "field": "reply.ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "수집에 동의하지 않을 대안도 마련할까요?",
+      "cachePath": "tts/v3/female/59b883f03f4cdd62ad0e9182efda0efa54fdf160.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0016",
+          "field": "safeAlternativeQuestions[0].ko"
+        }
+      ]
+    },
+    {
+      "voice": "female",
+      "voiceName": "ko-KR-Chirp3-HD-Zephyr",
+      "text": "선택권이 있어야 안전이라는 목적이 무제한 감시로 번지지 않겠네요.",
+      "cachePath": "tts/v3/female/33d1393ff79338bf53980162550dcc2f8e67a817.mp3",
+      "sourceRefs": [
+        {
+          "type": "smalltalk",
+          "id": "smalltalk_c2_0016",
+          "field": "followUp.ko"
+        }
+      ]
+    }
+  ]
+}

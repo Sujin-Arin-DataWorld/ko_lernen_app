@@ -5,7 +5,7 @@ import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/grammar_choice_quiz.dart';
 
-const _levels = <String>['A1', 'A2', 'B1', 'B2'];
+const _levels = <String>['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 /// These seven rows need a Korean-form prompt, not a translation-choice
 /// question. Their disabled state is deliberately explicit in the CSV.
@@ -31,7 +31,7 @@ void main() {
       final byId = {for (final item in grammar) item.id: item};
       final disabled = grammar.where((item) => !item.quizEnabled).toList();
 
-      expect(grammar, hasLength(152));
+      expect(grammar, hasLength(176));
       expect(
         disabled.map((item) => item.id),
         unorderedEquals(_disabledIrregularIds),

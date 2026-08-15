@@ -2147,6 +2147,20 @@ class AppL10nDe extends AppL10n {
   String get onboardingLevelB2Desc => 'Fließend, auch Nuancen';
 
   @override
+  String get onboardingLevelC1 => 'Kompetent';
+
+  @override
+  String get onboardingLevelC1Desc =>
+      'Evidenz, Institutionen, präzise Nuancen';
+
+  @override
+  String get onboardingLevelC2 => 'Expertenniveau';
+
+  @override
+  String get onboardingLevelC2Desc =>
+      'Feine Analyse und rhetorische Kontrolle';
+
+  @override
   String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
 
   @override
@@ -2159,6 +2173,14 @@ class AppL10nDe extends AppL10n {
   @override
   String get onboardingExampleB2Trans =>
       'Das Meeting zieht sich, ich komme wohl etwas später.';
+
+  @override
+  String get onboardingExampleC1Trans =>
+      'Ich werde bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.';
+
+  @override
+  String get onboardingExampleC2Trans =>
+      'Wer Schweigen als Zustimmung wertet, kann schon durch den Rahmen einer Frage Beteiligung einschränken.';
 
   @override
   String get onboardingSkip => 'Später entscheiden (A1 als Start)';
@@ -2224,6 +2246,22 @@ class AppL10nDe extends AppL10n {
   @override
   String get onboardingLevelB2Learn =>
       'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.';
+
+  @override
+  String get onboardingLevelC1Can =>
+      'Du diskutierst komplexe Themen und stufst Schlussfolgerungen genau ab.';
+
+  @override
+  String get onboardingLevelC1Learn =>
+      'Evidenz, Unsicherheit, inklusive Systeme und öffentliche Erklärungen.';
+
+  @override
+  String get onboardingLevelC2Can =>
+      'Du analysierst Prämissen, Deutungsrahmen und institutionelle Sprache.';
+
+  @override
+  String get onboardingLevelC2Learn =>
+      'Diskurs, Interpretation, Technikethik und verantwortliche Entscheidungen.';
 
   @override
   String get homeHeroGreetingMorning => 'Guten Morgen!';

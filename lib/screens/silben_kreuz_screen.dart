@@ -122,7 +122,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _byLevel = data;
       _loading = false;
     });
-    _openLevel(_level);
+    final resolvedLevel = (_byLevel[_level]?.isNotEmpty ?? false)
+        ? _level
+        : _levels.reversed.firstWhere(
+            (candidate) => _byLevel[candidate]?.isNotEmpty ?? false,
+            orElse: () => 'A1',
+          );
+    _openLevel(resolvedLevel);
   }
 
   void _openLevel(String level) {

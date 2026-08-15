@@ -1348,7 +1348,7 @@ class CourseMasteryService {
 
   String _normalizeLevel(String value) {
     final level = value.trim().toLowerCase();
-    if (!const {'a1', 'a2', 'b1', 'b2'}.contains(level)) {
+    if (!const {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}.contains(level)) {
       throw FormatException('Unsupported placement level: $value');
     }
     return level;
@@ -1359,6 +1359,8 @@ class CourseMasteryService {
     'a2' => 1,
     'b1' => 2,
     'b2' => 3,
+    'c1' => 4,
+    'c2' => 5,
     _ => throw FormatException('Unsupported curriculum level: $level'),
   };
 

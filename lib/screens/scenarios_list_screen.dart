@@ -102,6 +102,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         return SoriColors.warning;
       case LearnerLevel.b2:
         return SoriColors.hangul;
+      case LearnerLevel.c1:
+        return SoriColors.accent;
+      case LearnerLevel.c2:
+        return SoriColors.primary;
     }
   }
 
@@ -184,7 +188,9 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
             const SizedBox(height: Spacing.lg),
 
             // Per-Level Sections
-            for (final level in LearnerLevel.values) ...[
+            for (final level in LearnerLevel.values.where(
+              (candidate) => _all.any((scenario) => scenario.level == candidate),
+            )) ...[
               _LevelSection(
                 level: level,
                 accent: _levelColor(level),
@@ -593,7 +599,9 @@ class _LessonPathHeader extends StatelessWidget {
             spacing: Spacing.xs + 2,
             runSpacing: Spacing.xs,
             children: [
-              for (final lvl in LearnerLevel.values)
+              for (final lvl in LearnerLevel.values.where(
+                (candidate) => all.any((scenario) => scenario.level == candidate),
+              ))
                 _LevelProgressChip(
                   level: lvl,
                   scenarios: all.where((sc) => sc.level == lvl).toList(),

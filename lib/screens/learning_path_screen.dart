@@ -29,12 +29,12 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 경로가 렌더할 단일 CEFR 레벨을 정한다. 학습자의 온보딩 선택
-/// ([Storage.userLevelCode], 소문자 'a1'..'b2')이 진실의 출처이며, 온보딩 전
+/// ([Storage.userLevelCode], 소문자 'a1'..'c2')이 진실의 출처이며, 온보딩 전
 /// (null·빈값·알 수 없는 값)에는 A1으로 폴백해 경로가 절대 비지 않게 한다.
-/// 반환은 팩/표시용 대문자 코드('A1'..'B2').
+/// 반환은 팩/표시용 대문자 코드('A1'..'C2').
 String pathVisibleLevel(String? userLevelCode) {
   final code = (userLevelCode ?? '').trim().toLowerCase();
-  const known = {'a1', 'a2', 'b1', 'b2'};
+  const known = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'};
   return (known.contains(code) ? code : 'a1').toUpperCase();
 }
 
@@ -70,13 +70,13 @@ String pathCourseVisibleLevel({
 ///
 /// "내가 어디 있고, 다음 한 걸음이 무엇인지"를 한 화면에 보여준다:
 ///   1. 상단: 한옥 12단계 (현재 단계 이미지 + 전체 클리어 진행률)
-///   2. 본문: 레벨(A1~B2)별 단어팩 노드 — 완료(체크)/현재("Jetzt")/잠금(자물쇠).
+///   2. 본문: 레벨(A1~C2)별 단어팩 노드 — 완료(체크)/현재("Jetzt")/잠금(자물쇠).
 ///
 /// 데이터: [HanokStageService.currentStage] + [PackProgressService.loadLevelView]
 /// (둘 다 기존 서비스 — 새 저장소 없음). 노드 탭 → `/vocab/pack`.
 ///
 /// **레벨 스코프**: 경로 본문(코스 미션 + 단어팩 노드)은 학습자가 온보딩에서
-/// 고른 **한 레벨만** 보여준다([pathVisibleLevel]). 전체 A1~B2 나열은 초보자에게
+/// 고른 **한 레벨만** 보여준다([pathVisibleLevel]). 전체 A1~C2 나열은 초보자에게
 /// 압도적이라 선택 레벨로 좁힌다. 상단 한옥 헤더의 진행도는 "집 전체"를 뜻하므로
 /// 여전히 전 레벨 합산.
 class LearningPathPreviewData {
@@ -137,7 +137,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   CourseMasterySnapshot? _courseSnapshot;
   bool _showLegacyPractice = false;
 
-  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2'];
+  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
   // ── 코치마크 타겟 ──
   final GlobalKey _nowNodeKey = GlobalKey();
@@ -399,7 +399,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                               total: _packTotal,
                             ),
                             const SizedBox(height: Spacing.xl),
-                            // 선택한 레벨만 렌더 — 전체 A1~B2 나열 대신.
+                            // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
                             for (final g in _groups)
                               if (g.level == _selectedLevel)
                                 ..._levelSection(t, g),
@@ -486,7 +486,7 @@ class _CourseMissionPath extends StatelessWidget {
   final CourseMasterySnapshot snapshot;
   final String lang;
 
-  /// 소문자 CEFR 코드('a1'..'b2') — 이 레벨의 미션만 렌더한다.
+  /// 소문자 CEFR 코드('a1'..'c2') — 이 레벨의 미션만 렌더한다.
   final String filterLevel;
   final ValueChanged<CourseUnit> onTapUnit;
 
@@ -494,7 +494,8 @@ class _CourseMissionPath extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final grouped = <String, List<CourseUnit>>{
-      for (final level in const ['a1', 'a2', 'b1', 'b2']) level: <CourseUnit>[],
+      for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'])
+        level: <CourseUnit>[],
     };
     for (final unit in courseUnits) {
       if (unit.level != filterLevel) {

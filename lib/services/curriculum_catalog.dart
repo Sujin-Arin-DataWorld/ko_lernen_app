@@ -515,27 +515,27 @@ _LinkBuild _buildLinks({
       }
     }
   }
-  // Checkpoints are intentional graph edges, not a UI-only list. A scenario
-  // may be reused by several later missions (for example, first meetings are
-  // revisited for titles and register). Add one assess edge per declared
-  // checkpoint so its result can unlock exactly that mission; its required
-  // concepts define the evidence scope at that point in the course.
+  // Checkpoints are intentional graph edges, not a UI-only list. Earlier
+  // courses used scenarios only; advanced courses can assess a reviewed
+  // grammar choice or small-talk turn as well. Add one immutable assess edge
+  // per declaration so every supported content screen can unlock a mission.
   for (final unit in manifest.courseUnits) {
     for (final checkpoint in unit.checkpointContentIds) {
       final pieces = checkpoint.split(':');
-      if (pieces.length != 2 ||
-          pieces.first != CurriculumContentKind.scenario.code ||
-          pieces.last.trim().isEmpty) {
+      final kind = pieces.length == 2
+          ? CurriculumContentKindX.tryFromCode(pieces.first)
+          : null;
+      if (kind == null || pieces.last.trim().isEmpty) {
         result.issues.add(
-          ['invalid', 'scenario', 'checkpoint', checkpoint].join(' '),
+          ['invalid', 'content', 'checkpoint', checkpoint].join(' '),
         );
         continue;
       }
       addMapped(
-        kind: CurriculumContentKind.scenario,
+        kind: kind,
         contentId: pieces.last,
         courseUnitId: unit.id,
-        ruleLabel: ['scenario', 'checkpoint', unit.id].join(' '),
+        ruleLabel: ['content', 'checkpoint', unit.id].join(' '),
         role: ContentLinkRole.assess,
         conceptIds: unit.requiredConceptIds,
       );
@@ -727,21 +727,21 @@ List<String> _validateDefinitions(
       issues.add(['ambiguous', 'checkpoint', 'link', entry.key].join(' '));
     }
   }
-  // Every declared scenario checkpoint must resolve to one immutable edge
-  // whose concept set exactly equals the unit assessment contract. This keeps
-  // a shared scenario's source metadata from creating a subset or superset
-  // checkpoint that different consumers could interpret differently.
+  // Every declared checkpoint must resolve to one immutable edge whose
+  // concept set exactly equals the unit assessment contract.
   for (final unit in manifest.courseUnits) {
     for (final checkpoint in unit.checkpointContentIds) {
       final pieces = checkpoint.split(':');
-      if (pieces.length != 2 ||
-          pieces.first != CurriculumContentKind.scenario.code) {
+      final kind = pieces.length == 2
+          ? CurriculumContentKindX.tryFromCode(pieces.first)
+          : null;
+      if (kind == null) {
         continue;
       }
       final exact = links
           .where(
             (link) =>
-                link.contentKind == CurriculumContentKind.scenario &&
+                link.contentKind == kind &&
                 link.contentId == pieces.last &&
                 link.exactlyAssesses(unit),
           )
@@ -750,7 +750,7 @@ List<String> _validateDefinitions(
         issues.add(
           [
             'ambiguous',
-            'scenario',
+            kind.code,
             'checkpoint',
             unit.id,
             checkpoint,
@@ -1063,7 +1063,14 @@ String _packBase(String packId) {
 }
 
 bool _validLevel(String value) =>
-    const {'a1', 'a2', 'b1', 'b2'}.contains(value.trim().toLowerCase());
+    const {
+      'a1',
+      'a2',
+      'b1',
+      'b2',
+      'c1',
+      'c2',
+    }.contains(value.trim().toLowerCase());
 
 List<String> _sortedDistinct(Iterable<String> values) =>
     values.toSet().toList()..sort();

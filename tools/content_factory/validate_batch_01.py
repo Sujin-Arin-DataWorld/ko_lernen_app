@@ -187,6 +187,8 @@ class CurriculumAdditions:
     smalltalk_category_unit_map: dict[str, dict[str, Any]]
     cloze_topic_unit_map: dict[str, str]
     vocab_packs: tuple[dict[str, Any], ...]
+    course_units: tuple[dict[str, Any], ...]
+    concepts: tuple[dict[str, Any], ...]
 
 
 @dataclass(frozen=True)
@@ -285,8 +287,8 @@ def _required_string(value: Any, label: str) -> str:
 
 def _level(value: Any, label: str) -> str:
     normalized = _required_string(value, label).lower()
-    if normalized not in {"a1", "a2", "b1", "b2"}:
-        _fail(f"{label} must be an A1–B2 level")
+    if normalized not in {"a1", "a2", "b1", "b2", "c1", "c2"}:
+        _fail(f"{label} must be an A1-C2 level")
     return normalized
 
 
@@ -698,7 +700,15 @@ def _validate_sentence_derivations(
                 )
 
 
-def _course_catalog(root: Path) -> tuple[dict[str, dict[str, Any]], set[str]]:
+def _course_catalog(
+    root: Path,
+    batch_manifest: dict[str, Any],
+) -> tuple[
+    dict[str, dict[str, Any]],
+    set[str],
+    tuple[dict[str, Any], ...],
+    tuple[dict[str, Any], ...],
+]:
     manifest = _read_json(root / "assets" / "data" / "curriculum_manifest.json")
     if not isinstance(manifest, dict):
         _fail("curriculum_manifest.json: root must be an object")
@@ -714,14 +724,90 @@ def _course_catalog(root: Path) -> tuple[dict[str, dict[str, Any]], set[str]]:
         if ident in units:
             _fail(f"curriculum_manifest.json: duplicate course unit {ident!r}")
         units[ident] = unit
-    concepts = {
-        _required_string(concept.get("id"), f"concepts[{index}].id")
-        for index, concept in enumerate(concepts_raw)
-        if isinstance(concept, dict)
-    }
-    if len(concepts) != len(concepts_raw):
+    concept_levels: dict[str, str] = {}
+    for index, concept in enumerate(concepts_raw):
+        if not isinstance(concept, dict):
+            continue
+        concept_id = _required_string(concept.get("id"), f"concepts[{index}].id")
+        if concept_id in concept_levels:
+            _fail(f"curriculum_manifest.json: duplicate concept {concept_id!r}")
+        concept_levels[concept_id] = _level(
+            concept.get("level"),
+            f"concepts[{index}].level",
+        )
+    if len(concept_levels) != len(concepts_raw):
         _fail("curriculum_manifest.json: every concept must be an object with an id")
-    return units, concepts
+
+    raw_extensions = batch_manifest.get("curriculumExtensions")
+    if raw_extensions is None:
+        return units, set(concept_levels), (), ()
+    if not isinstance(raw_extensions, dict):
+        _fail("curriculumExtensions must be an object")
+    extension_concepts = raw_extensions.get("concepts")
+    extension_units = raw_extensions.get("courseUnits")
+    if not isinstance(extension_concepts, list) or not isinstance(extension_units, list):
+        _fail("curriculumExtensions.concepts and courseUnits must be arrays")
+    if any(not isinstance(entry, dict) for entry in extension_concepts):
+        _fail("curriculumExtensions.concepts must contain only objects")
+    if any(not isinstance(entry, dict) for entry in extension_units):
+        _fail("curriculumExtensions.courseUnits must contain only objects")
+
+    copied_concepts: list[dict[str, Any]] = []
+    for index, concept in enumerate(extension_concepts):
+        concept_id = _required_string(
+            concept.get("id"),
+            f"curriculumExtensions.concepts[{index}].id",
+        )
+        if concept_id in concept_levels:
+            _fail(f"curriculumExtensions duplicates concept {concept_id!r}")
+        level = _level(
+            concept.get("level"),
+            f"curriculumExtensions.concepts[{index}].level",
+        )
+        concept_levels[concept_id] = level
+        copied_concepts.append(_copy_json(concept))
+
+    copied_units: list[dict[str, Any]] = []
+    for index, unit in enumerate(extension_units):
+        unit_id = _required_string(
+            unit.get("id"),
+            f"curriculumExtensions.courseUnits[{index}].id",
+        )
+        if unit_id in units:
+            _fail(f"curriculumExtensions duplicates course unit {unit_id!r}")
+        level = _level(
+            unit.get("level"),
+            f"curriculumExtensions.courseUnits[{index}].level",
+        )
+        required = unit.get("requiredConceptIds")
+        if (
+            not isinstance(required, list)
+            or not required
+            or any(not isinstance(value, str) or not value.strip() for value in required)
+        ):
+            _fail(
+                f"curriculumExtensions.courseUnits[{index}].requiredConceptIds "
+                "must be a nonempty string array",
+            )
+        for concept_id in required:
+            if concept_id not in concept_levels:
+                _fail(
+                    f"curriculumExtensions course unit {unit_id!r} references "
+                    f"unknown concept {concept_id!r}",
+                )
+            if concept_levels[concept_id] != level:
+                _fail(
+                    f"curriculumExtensions course unit {unit_id!r} and concept "
+                    f"{concept_id!r} have different levels",
+                )
+        units[unit_id] = unit
+        copied_units.append(_copy_json(unit))
+    return (
+        units,
+        set(concept_levels),
+        tuple(copied_units),
+        tuple(copied_concepts),
+    )
 
 
 def _validate_course_binding(
@@ -791,7 +877,10 @@ def _validate_companions(
     manifest: dict[str, Any],
     payloads: dict[str, ArtifactPayload],
 ) -> CurriculumAdditions:
-    units, concepts = _course_catalog(root)
+    units, concepts, extension_units, extension_concepts = _course_catalog(
+        root,
+        manifest,
+    )
     vocab_records = payloads["vocab"].records
     grammar_records = payloads["grammar"].records
     smalltalk_records = payloads["smalltalk"].records
@@ -921,6 +1010,11 @@ def _validate_companions(
         )
         smalltalk_map[key] = {"courseUnitId": unit_id, "conceptIds": concept_ids}
 
+    smalltalk_by_id = {
+        _required_string(record.get("id"), f"smalltalk[{index}].id"): record
+        for index, record in enumerate(smalltalk_records)
+    }
+
     def cloze_source_key(record: dict[str, Any], index: int) -> str:
         level = _level(record.get("level"), f"cloze[{index}].level")
         topic = _required_string(record.get("topic"), f"cloze[{index}].topic").lower()
@@ -953,6 +1047,56 @@ def _validate_companions(
             concepts=concepts,
         )
         cloze_map[key] = unit_id
+
+    # Newly declared course units must end in one real, same-level assessment
+    # from this reviewed batch. This prevents an advanced unit from appearing
+    # in the path while its completion trigger still points at legacy content.
+    for index, unit in enumerate(extension_units):
+        unit_id = _required_string(
+            unit.get("id"),
+            f"curriculumExtensions.courseUnits[{index}].id",
+        )
+        unit_level = _level(
+            unit.get("level"),
+            f"curriculumExtensions.courseUnits[{index}].level",
+        )
+        raw_required = unit.get("requiredConceptIds")
+        required = list(raw_required) if isinstance(raw_required, list) else []
+        checkpoints = unit.get("checkpointContentIds")
+        if (
+            not isinstance(checkpoints, list)
+            or len(checkpoints) != 1
+            or not isinstance(checkpoints[0], str)
+            or checkpoints[0].count(":") != 1
+        ):
+            _fail(
+                f"curriculumExtensions course unit {unit_id!r} must declare "
+                "exactly one kind:id checkpoint",
+            )
+        kind, source_id = checkpoints[0].split(":", 1)
+        if kind == "grammar":
+            source = grammar_by_id.get(source_id)
+            rule = grammar_map.get(source_id)
+            if source is None or rule is None:
+                _fail(f"course unit {unit_id!r} checkpoint references unknown grammar {source_id!r}")
+            source_level = _level(source.get("level"), f"grammar {source_id}.level")
+        elif kind == "smalltalk":
+            source = smalltalk_by_id.get(source_id)
+            if source is None:
+                _fail(f"course unit {unit_id!r} checkpoint references unknown smalltalk {source_id!r}")
+            semantic_key = smalltalk_source_key(source, -1)
+            rule = smalltalk_map.get(semantic_key)
+            source_level = _level(source.get("level"), f"smalltalk {source_id}.level")
+        else:
+            _fail(
+                f"course unit {unit_id!r} checkpoint kind must be grammar or smalltalk, got {kind!r}",
+            )
+        if source_level != unit_level:
+            _fail(f"course unit {unit_id!r} checkpoint must stay in {unit_level.upper()}")
+        if rule is None or rule.get("courseUnitId") != unit_id:
+            _fail(f"course unit {unit_id!r} checkpoint is not mapped back to that unit")
+        if set(rule.get("conceptIds") or []) != set(required):
+            _fail(f"course unit {unit_id!r} checkpoint must assess its exact required concepts")
 
     vocab_by_korean = {
         _required_string(record.get("korean"), f"vocab[{index}].korean"): record
@@ -996,6 +1140,8 @@ def _validate_companions(
         smalltalk_category_unit_map=smalltalk_map,
         cloze_topic_unit_map=cloze_map,
         vocab_packs=tuple(vocab_packs),
+        course_units=extension_units,
+        concepts=extension_concepts,
     )
 
 
@@ -1080,6 +1226,24 @@ def _write_overlay(
     curriculum = _read_json(curriculum_path)
     if not isinstance(curriculum, dict):
         _fail(f"{curriculum_path}: root must be an object")
+    for field, records in (
+        ("concepts", additions.concepts),
+        ("courseUnits", additions.course_units),
+    ):
+        current_records = curriculum.get(field)
+        if not isinstance(current_records, list):
+            _fail(f"{curriculum_path}: {field} must be an array")
+        existing_ids = {
+            record.get("id")
+            for record in current_records
+            if isinstance(record, dict)
+        }
+        for record in records:
+            ident = record.get("id")
+            if ident in existing_ids:
+                _fail(f"overlay curriculum duplicates {field} id {ident!r}")
+            current_records.append(_copy_json(record))
+            existing_ids.add(ident)
     for field in (
         "vocabPackUnitMap",
         "grammarRuleMap",

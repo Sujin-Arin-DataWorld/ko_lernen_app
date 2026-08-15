@@ -324,7 +324,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   String? _recommendation(AppL10n t) {
     if (_roundDurationsMs.isEmpty) return null;
     final accuracy = _roundCorrect / _roundSize;
-    final levels = ['A1', 'A2', 'B1', 'B2'];
+    final levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     final idx = levels.indexOf(_level);
     if (accuracy >= 0.9 && idx < levels.length - 1) {
       return t.chosungRoundLevelUp(levels[idx + 1]);
@@ -443,7 +443,14 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                           Row(
                             key: _levelRowKey,
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
+                            children: [
+                              'A1',
+                              'A2',
+                              'B1',
+                              'B2',
+                              'C1',
+                              'C2',
+                            ].map((lvl) {
                               final selected = _level == lvl;
                               return Padding(
                                 padding: const EdgeInsets.symmetric(

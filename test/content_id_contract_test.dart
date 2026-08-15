@@ -12,24 +12,24 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
     final vocabRows = _csvRows('assets/data/korean_vocab.csv');
-    expect(vocabRows, hasLength(1045));
+    expect(vocabRows, hasLength(1189));
     expect(vocabRows.first.last, 'id');
-    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 1044);
+    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 1188);
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(237));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 237);
+    expect(phrases, hasLength(285));
+    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 285);
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();
-    expect(clozeItems, hasLength(370));
-    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 370);
+    expect(clozeItems, hasLength(514));
+    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 514);
 
     final satz = _jsonObject('assets/data/satz_sentences.json');
     final satzItems = (satz['items'] as List).cast<Map<String, dynamic>>();
-    expect(satzItems, hasLength(275));
-    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 275);
+    expect(satzItems, hasLength(419));
+    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 419);
 
     final pronunciation = _jsonObject('assets/data/pronunciation_phrases.json');
     final pronunciationPhrases = (pronunciation['phrases'] as List)

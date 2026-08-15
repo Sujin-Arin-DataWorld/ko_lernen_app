@@ -22,15 +22,17 @@ enum LearnerLevel {
   a1,
   a2,
   b1,
-  b2;
+  b2,
+  c1,
+  c2;
 
-  /// Lower-case Code für Persistenz: 'a1', 'a2', 'b1', 'b2'.
+  /// Lower-case CEFR code for persistence: 'a1' through 'c2'.
   String get code => name;
 
-  /// Anzeige-Variante: 'A1', 'A2', 'B1', 'B2'.
+  /// Upper-case display form: 'A1' through 'C2'.
   String get display => name.toUpperCase();
 
-  /// 0..3 — für Vergleichsoperationen (Lock/Unlock).
+  /// 0..5 for lock and unlock comparisons.
   int get rank => index;
 
   static LearnerLevel? fromCode(String? c) {
