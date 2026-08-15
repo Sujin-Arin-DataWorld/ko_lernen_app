@@ -1,37 +1,5 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-15 (Codex, Mac) — v2.0.6 Android AAB·iOS IPA 생성 및 Apple 자동 업로드
-
-**정확한 소스와 포함 범위.** 앱 바이너리는 `main`의 `0620f0c4`에서 만들었고,
-UI/UX·콘텐츠·TTS 통합 `f718106c`와 기록 `968dcf33`이 모두 그 조상임을 확인했다.
-빌드 도중 `main`이 `11b659e7`까지 이동했지만 추가된 두 커밋은 `AGENTS.md`와 `docs/`
-정리뿐이며 `lib/`, `assets/`, `l10n/`, Android/iOS 설정 등 앱 빌드 입력은 동일하다.
-
-**Android.** beta/closed-testing 계약인 `ENABLE_TESTER_FEEDBACK=true`,
-`BETA_UNLOCK_ALL=true`, `GIT_COMMIT=0620f0c4`와 난독화/split debug info로 signed AAB
-`2.0.6 (1042)`를 생성했다. package는 `com.sujinarin.ko_lernen_app`, JAR 서명과 upload
-인증서를 확인했고 SHA-256은
-`6827b7ddd13563e89d2301872223f90d4c31dde550e2964df589a94314d8a011`이다. AAB와
-3 ABI 난독화 심볼은
-`~/Developer/release_artifacts/hangul-sori-2.0.6-1042-0620f0c4/`에 보관했다. 연결된
-Android 기기가 없어 이번에는 설치·실기기 실행을 수행하지 않았다.
-
-**iOS와 Apple.** `FREE_LAUNCH=true`, `GIT_COMMIT=0620f0c4`로 Firebase 설정·스토어
-계약·Korean OCR Pod 게이트를 통과하고 App Store 서명 IPA `2.0.6 (23)`을 만들었다.
-bundle ID `com.sujinarin.koLernenApp`, iOS 15.5+, Team `J866ZNXJD6`, 앱 코드서명과
-Korean OCR 리소스를 확인했다. IPA SHA-256은
-`6d65037da51fd9dc690f26ce1ded7ded20e117199cecc5b228d87739e450663a`이다. App Store
-Connect API의 `validate-app`과 `upload-app`은 모두 오류 없이 성공했고 Delivery UUID는
-`358eb6b3-5b5c-4949-b036-fb5142713e30`이다. 이는 새 빌드 업로드만 수행한 것이며 기존
-빌드의 상태 변경, 심사 제출, 자동 출시는 하지 않았다. 마지막 API 확인 시 신규 build 23은
-아직 Apple 처리 목록에 반영되기 전이었다.
-
-**저장소 정렬·검증.** 바이너리에 주입한 버전과 다음 기본 iOS 빌드를 맞추기 위해
-`pubspec.yaml`을 `2.0.6+23`으로 갱신했다. `flutter analyze --no-pub --fatal-infos`는
-0 issues, Android/iOS 빌드 성공, 서버 검증·업로드 성공, 산출물 재해시 일치를 확인했다.
-재생성 가능한 Android/iOS 중간 산출물과 전용 캐시만 정리해 영구 AAB·IPA·심볼을
-보존했다. 이 변경의 첫 커밋 해시는 바로 다음 기록 커밋에 고정한다.
-
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
 **무엇/왜.** 현재 작업 정본이 아닌 과거 설계·실행 계획·아카이브 문서 63개를
