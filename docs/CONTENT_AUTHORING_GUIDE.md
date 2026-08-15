@@ -1,10 +1,11 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** C0 정본 · 2026-08-14
+> **상태:** C0 정본 + C1 Batch 04 scenario live baseline · 2026-08-15
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
 > `tools/content_factory/validate_content.py`, `apply_review.py`,
+> `integrate_review_batches.py`, `integrate_scenario_batch.py`,
 > `plan_pack_assignments.py`, `validate_batch_01.py`이며, 이 문서와 충돌하면 코드의
 > fail-closed 규칙을 따른다.
 
@@ -61,8 +62,10 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
    번역에서 질문을 진술문으로, 공적 요청을 친한 말로 바꾸지 않는다.
 3. **ID·레벨·행 순서는 콘텐츠 문구가 아니다.** 검수가 시작된 뒤에는 재번호·재정렬·ID
    교체를 하지 않는다. 문구를 고칠 때도 참조와 review 원장을 같이 갱신한다.
-4. **앱 본문을 손으로 append하지 않는다.** 승인된 ID만 `apply_review.py`를 통해 병합한다.
-   이 도구는 manifest와 전체 validator를 함께 실행하고 실패 시 원복한다.
+4. **앱 본문을 손으로 append하지 않는다.** 기존 한 asset의 유지보수는
+   `apply_review.py`, 새 vocab/grammar/game batch의 여러 asset·curriculum·pack map 병합은
+   `integrate_review_batches.py`, scenario batch의 data·curriculum·backdrop 병합은
+   `integrate_scenario_batch.py`를 통해서만 한다. 모든 통합기는 validator 실패 시 원복한다.
 5. **CSV 헤더·열 순서는 API다.** 열을 추가·삭제·번역·재배열하지 않는다. 쉼표, 큰따옴표,
    줄바꿈이 있는 값은 RFC CSV quoting으로 저장한다.
 6. **레벨 표기 대소문자는 파일마다 다르다.** “보기 좋게 통일”하면 validator가 깨진다.
@@ -72,10 +75,10 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 8. **게임 문장은 단어 예문에서 파생한다.** Cloze/Satz는 같은 레벨의 vocab 예문·표제어를
    참조해야 한다. 단어보다 게임을 먼저 앱에 넣지 않는다.
 9. **커리큘럼 연결 없이 새 콘텐츠를 병합하지 않는다.** vocab pack, grammar, smalltalk,
-   cloze, scenario에는 미래의 전용 통합 변경에서 대응 `curriculum_manifest.json` mapping이
-   필요하다. 현재 C0의 `apply_review.py`만으로 그 multi-file 통합을 시도하지 않는다.
-10. **Batch 01은 고정 검수 계약이다.** 96개 행에 새 행을 추가하지 않는다. 더 많은 양은
-    Batch 02를 새로 만든다.
+   cloze, scenario에는 대응 `curriculum_manifest.json` mapping이 필요하다. target-local
+   `apply_review.py`로 multi-file 통합을 시도하지 않고, 유형에 맞는 검증 transaction을 사용한다.
+10. **Batch 01–04는 고정 live 계약이다.** 이미 승인된 행을 추가·삭제·재번호하지 않는다.
+    더 많은 양은 다음 독립 단위인 Batch 05를 새로 만든다.
 11. **생성 스크립트가 항상 안전한 것은 아니다.** 특히 `scripts/build_vocab_packs.py`는
     절대 실행하지 않는다. §15의 금지 목록을 따른다.
 12. **placeholder를 넣지 않는다.** `TODO`, `TBD`, 빈 번역, 임시 영문, 추측한 번역,
@@ -170,9 +173,12 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
   쓰지 않는다.
 - 한국어·독일어·영어 모두 앞뒤 공백을 남기지 않는다.
 
-## 4. Batch 01: 지금 보강 가능한 범위와 잠금
+## 4. Batch 01–04: live baseline과 잠금
 
-현재 Batch 01은 아래 다섯 초안과 다섯 review 원장으로 구성된 **고정 96-record 계약**이다.
+Batch 01은 아래 다섯 초안과 다섯 review 원장으로 구성된 **고정 96-record 계약**이며,
+2026-08-15에 live asset으로 승격됐다. Batch 02(96 record)와 Batch 03(126 record)도
+같은 방식으로 이미 live다. C1 Batch 04 scenario도 전용 transaction으로 live다. 이 section은 그 history를 고치기 위한 규칙과 다음 Batch 05+
+작성자가 재사용할 잠금 규칙을 설명한다.
 
 | Draft | 앱 병합 대상 | B1 | B2 | 합계 |
 | --- | --- | ---: | ---: | ---: |
@@ -182,7 +188,7 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 | `c2_batch01_cloze_b1_b2.json` | `assets/data/cloze.json`의 `items` | 12 | 12 | 24 |
 | `c2_batch01_satz_b1_b2.json` | `assets/data/satz_sentences.json`의 `items` | 12 | 12 | 24 |
 
-### 4.1 가능: 기존 96개 항목의 품질 보강
+### 4.1 가능: 기존 live 항목의 품질 보강
 
 다음은 기존 ID·level·순서·개수를 유지하는 한 가능하다.
 
@@ -215,7 +221,8 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. Batch 02부터는 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
+파일을 별도로 만든다. 현재 다음 번호는 **Batch 05**다. Batch 05부터는
+`validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
 `validate_batch_01.py`의 고정 96-record/ID 계약은 절대 느슨하게 만들지 않는다.
@@ -231,7 +238,7 @@ overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·
 `docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`를 따른다. 그 문서는 학습 기능을 설명할 뿐
 외부 저작물의 문장·단원·배열을 콘텐츠 소스로 삼지 않는다.
 
-### 4.3 Batch 01 review 동기화
+### 4.3 Batch 01 review 원장과 역사적 동기화
 
 Batch 01 review header는 정확히 아래와 같아야 한다.
 
@@ -245,7 +252,7 @@ id,level,ko,de,en,field_notes,상태,jin_memo
 | `level` | draft level의 대문자 표기 |
 | `ko`, `de`, `en` | 아래 projection과 **한 글자까지** 동일한 읽기 전용 snapshot |
 | `field_notes` | 비어 있으면 안 됨. 검수자가 봐야 할 relation, source, answer, pack 정보 |
-| `상태` | Jin 검수 전에는 정확히 `draft`; Jin은 `ok` 또는 `approved`로만 승인 |
+| `상태` | 작성 시작은 정확히 `draft`; live Batch 01 원장은 `approved`. Jin은 `ok` 또는 `approved`로만 승인 |
 | `jin_memo` | 선택. 승인/수정 사유를 기록 |
 
 Batch 01의 review projection은 다음과 같다.
@@ -274,9 +281,9 @@ python3 tools/content_factory/render_review_packet.py \
 문구를 draft에서 고쳤다면 review의 해당 projection도 꼭 같이 고친다. 반대로 review CSV에서
 문구만 고치면 실제 병합 원문은 바뀌지 않으므로 잘못된 수정이다.
 
-`validate_batch_01.py`는 **Jin 검수 전**에만 실행한다. 모든 `상태`가 `draft`인 것을
-검사하므로 Jin이 `approved`를 입력한 뒤에는 실패하는 것이 정상이다. 승인 후에는
-`apply_review.py` preview를 사용한다.
+`validate_batch_01.py`의 draft-only snapshot 검사는 Batch 01 작성 당시의 역사적 검수
+증거다. live baseline을 다시 검수할 때는 `validate_content.py`와 해당 integration test를
+사용한다. 새 Batch 04+는 `validate_review_batch.py`와 preview를 사용한다.
 
 ## 5. Vocabulary — 15열 CSV 전체 명세
 
@@ -503,7 +510,8 @@ C0의 preview/apply로 우회하지 않는다. 관계 맥락과 맞지 않는 �
 ## 10. Scenario — `scenarios` JSON 전체 명세
 
 시나리오는 C1 이후에 실제 신규 vocab·grammar·course mapping이 존재할 때만 만든다.
-Batch 01에는 아직 scenario를 넣지 않는다. 새 scenario는 아래 필드를 갖는 완전 object다.
+Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. 새 scenario는 아래
+필드를 갖는 완전 object다.
 
 ```json
 {
@@ -734,12 +742,14 @@ functions/analyze_korean_text/grammar_patterns.json
 | `mergeOrder` | 실제 asset 병합 순서 |
 | `nonMergeGuards` | 승인 전 금지 조건 |
 
-새 콘텐츠를 실제로 앱 본문에 넣을 때, 아래 대응 mapping이 필요하다. 단, **현재 C0의
-`apply_review.py` 트랜잭션은 target asset과 audit manifest만 쓴다.**
-`curriculum_manifest.json`이나 Dart pack map을 함께 원자적으로 쓰는 통합기는 아직 없다.
-따라서 approval만으로 이 mapping들을 미리 손편집하거나 `--apply`를 시도하면 전체
-validator가 rollback시키는 것이 정상이다. 먼저 아래 동반 변경을 함께 검토·검증하는
-전용 통합 작업을 구현한 뒤에만 실제 병합을 계획한다.
+새 콘텐츠를 실제로 앱 본문에 넣을 때, 아래 대응 mapping이 필요하다. target-local
+`apply_review.py`는 target asset과 audit manifest만 쓴다. 여러 asset과
+`curriculum_manifest.json`·Dart pack map을 함께 쓰는 승인 병합은
+`integrate_review_batches.py`가 원자적으로 다룬다. scenario data·curriculum link·Dart
+backdrop map의 승인 병합은 `integrate_scenario_batch.py`가 다룬다. Batch 01–03은 전자,
+Batch 04는 후자 경로로 승격됐다.
+approval만으로 mapping을 미리 손편집하거나 `apply_review.py --apply`만 실행하는 것은
+금지다. 새 batch에서는 아래 동반 변경을 integration manifest와 함께 검토·검증한다.
 
 | 새 콘텐츠 | `curriculum_manifest.json` 동반 변경 |
 | --- | --- |
@@ -757,8 +767,8 @@ introduce/practice/assess/review 근거가 있을 때만 추가한다.
 새 vocab pack에는 `curriculum_manifest.json` 외에도 Dart
 `VocabPackService.packDisplayMap`과 `packOrderInLevel`의 동반 항목이 필요하다. 새
 scenario에는 위 §10의 `ScenarioBackdrop._categoryById` 동반 항목도 필요하다. 이것들은
-현재 `apply_review.py`가 쓰지 않는 파일이다. **직접 선편집으로 우회하지 말고**, C1/C3
-통합 세션에서 multi-file transaction·회귀 테스트를 갖춘 뒤 함께 처리한다.
+target-local `apply_review.py`가 쓰지 않는 파일이다. **직접 선편집으로 우회하지 말고**,
+지원되는 multi-file integration transaction과 회귀 테스트를 갖춘 뒤 함께 처리한다.
 
 `content_audit_manifest.json`은 초안 카운터가 아니라 **실제 앱 자산 inventory**다.
 draft를 만들 때 수치를 올리지 않는다. `apply_review.py --apply`가 지원하는 target은
@@ -772,30 +782,21 @@ draft를 만들 때 수치를 올리지 않는다. `apply_review.py --apply`가 
 # 현재 live asset의 빠른 실패 검사
 python3 tools/content_factory/validate_content.py
 
-# Batch 01의 96 record + review snapshot + overlay 검사
-python3 tools/content_factory/validate_batch_01.py
-
-# Batch 02 이후의 manifest-driven overlay 검사
+# 새 Batch 05+의 manifest-driven overlay 검사
 python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_02_manifest.json
+  --manifest tools/content_factory/drafts/batch_05_manifest.json
 
 # 새 vocab pack의 label/motif/order/curriculum 읽기 전용 사전검사
 python3 tools/content_factory/plan_pack_assignments.py \
-  --draft tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv \
-  --metadata tools/content_factory/drafts/batch_01_manifest.json
-
-# 앞의 review-only pack이 아직 app map에 병합되지 않았을 때만 예약을 함께 준다.
-python3 tools/content_factory/plan_pack_assignments.py \
-  --draft tools/content_factory/drafts/c3_batch02_vocab_b1_b2.csv \
-  --metadata tools/content_factory/drafts/batch_02_manifest.json \
-  --reserved-metadata tools/content_factory/drafts/batch_01_manifest.json
+  --draft tools/content_factory/drafts/c3_batch05_vocab_b1_b2.csv \
+  --metadata tools/content_factory/drafts/batch_05_manifest.json
 
 # review preview: 어떤 파일도 쓰지 않음
 python3 tools/content_factory/apply_review.py \
-  tools/content_factory/review/c3_batch01_vocab.csv \
-  --draft tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv \
+  tools/content_factory/review/c3_batch05_vocab.csv \
+  --draft tools/content_factory/drafts/c3_batch05_vocab_b1_b2.csv \
   --target assets/data/korean_vocab.csv \
-  --pack-metadata tools/content_factory/drafts/batch_01_manifest.json
+  --pack-metadata tools/content_factory/drafts/batch_05_manifest.json
 ```
 
 다른 asset도 같은 모양으로 preview한다.
@@ -809,7 +810,7 @@ scenario    → assets/data/scenarios.json
 pronunciation → assets/data/pronunciation_phrases.json
 ```
 
-preview에서 `0 approved record(s)`가 보이는 것은 모든 상태가 `draft`인 현재로서는 정상이다.
+preview에서 `0 approved record(s)`가 보이는 것은 새 batch의 모든 상태가 `draft`인 동안에는 정상이다.
 
 ### 13.2 Jin 검수 후: 승인 상태와 preview
 
@@ -820,28 +821,34 @@ Jin은 review 원장에서 `상태`를 `ok` 또는 `approved`로 바꾸고, 필�
 승인 후에는 먼저 다시 preview하고, 그 결과가 Jin이 승인한 ID와 정확히 맞는지 확인한다.
 새 vocab pack은 한 행이라도 pending이면 preview 자체가 실패하는 것이 정상이다.
 
-### 13.3 실제 병합: 별도 통합 구현과 Jin 명시 지시 뒤에만
+### 13.3 실제 병합: 통합기와 Jin 명시 지시 뒤에만
 
-Jin이 `--apply`와 커밋을 명시하더라도, 새 vocab/grammar/smalltalk/cloze/scenario에는
-현재 C0에 없는 multi-file integration transaction이 먼저 필요하다. 그 통합기가
-curriculum mapping, 새 vocab의 Dart pack maps, 새 scenario의 backdrop mapping을 함께
-검증·원자적으로 다루지 못하면 `apply_review.py --apply`를 실행하지 않는다. 직접 asset을
+새 vocab/grammar/smalltalk/cloze/Satz에는 `integrate_review_batches.py`처럼 curriculum
+mapping과 새 vocab의 Dart pack map을 함께 검증·원자적으로 다루는 통합기가 필요하다.
+새 scenario에는 `integrate_scenario_batch.py`처럼 curriculum mapping과 backdrop mapping을
+함께 검증·원자적으로 다루는 전용 통합기가 필요하다.
+이 조건과 Jin의 명시 지시가 없으면 실제 asset 병합을 실행하지 않는다. 직접 asset을
 선편집해 validator를 통과시키는 것은 금지다.
 
-그 통합 구현과 Jin의 명시 지시가 모두 갖춰진 뒤에만, 아래 target-local transaction을
-실행한다.
+새 Batch 05+의 모든 review ledger가 승인됐고 Jin의 명시 지시가 있을 때만 유형에 맞는
+multi-file transaction을 실행한다.
 
 ```bash
-python3 tools/content_factory/apply_review.py \
-  tools/content_factory/review/c3_batch01_vocab.csv \
-  --draft tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv \
-  --target assets/data/korean_vocab.csv \
-  --pack-metadata tools/content_factory/drafts/batch_01_manifest.json \
+python3 tools/content_factory/integrate_review_batches.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json \
   --apply
 ```
 
-`--apply`는 target write → audit manifest 갱신 → 전체 `validate_content.py`를 하나의
-트랜잭션으로 처리한다. 중간 validator 실패 시 target과 manifest를 원상복구한다.
+scenario-only batch는 아래 전용 경로를 쓴다.
+
+```bash
+python3 tools/content_factory/integrate_scenario_batch.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply
+```
+
+`--apply`는 모든 data asset·curriculum mapping·pack UI map·audit manifest → 전체
+`validate_content.py`를 하나의 트랜잭션으로 처리한다. 중간 validator 실패 시 모든 target과
+manifest를 원상복구한다.
 `--no-manifest` 우회는 존재하지 않는다.
 
 병합의 정본 순서는 다음이다.
@@ -883,10 +890,10 @@ vocab pack + 동반 mapping
 ### review / 검증
 
 - [ ] review header, ID 순서, row count, level, projection copy가 draft와 맞다.
-- [ ] Jin 검수 전 모든 Batch 01 `상태`가 정확히 `draft`다.
-- [ ] `validate_batch_01.py`와 `plan_pack_assignments.py`가 통과했다.
+- [ ] 새 Batch 05+의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
+- [ ] `validate_review_batch.py`와 `plan_pack_assignments.py`가 통과했다.
 - [ ] `validate_content.py`가 통과했다.
-- [ ] `apply_review.py`는 `--apply` 없는 preview만 실행했다.
+- [ ] Jin의 명시 지시 전에는 `apply_review.py`, `integrate_review_batches.py`, 또는 `integrate_scenario_batch.py`의 `--apply`를 실행하지 않았다.
 - [ ] 실제 새 발화를 넣었다면 TTS는 `--dry-run`만 실행했다.
 
 ## 15. 절대 하지 말 것
@@ -922,7 +929,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - 기존 ID/표제어/pack/category/curriculum을 먼저 읽어 중복과 참조 오류를 피해.
 - 새 vocab pack이면 11~12행, 연속 pack_order, 마지막 2~3 Boss, metadata와 planner를 준비해.
 - review CSV는 공통 header와 draft projection을 정확히 맞추고 모든 상태를 draft로 둬.
-- Batch 01에는 행을 추가하지 말고, 추가 수량은 다음 번호의 독립 batch로 분리해.
+- Batch 01–04에는 행을 추가하지 말고, 추가 수량은 Batch 05의 독립 manifest/draft/review로 분리해.
 - validate_content.py, 필요한 preflight, apply_review preview까지만 실행하고 --apply는 실행하지 마.
 - 마지막에 변경 파일, 미병합 수량, 검증 결과, Jin이 검수할 review 파일을 보고해.
 ```
@@ -936,4 +943,4 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - review 상태와 transactional 병합: `tools/content_factory/review/README.md`
 - 기계 검증: `tools/content_factory/validate_content.py`, `validate_batch_01.py`,
   `validate_review_batch.py`, `plan_pack_assignments.py`, `render_review_packet.py`,
-  `apply_review.py`
+  `apply_review.py`, `integrate_review_batches.py`

@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 const _unit = CourseUnit(
   id: 'preview_unit',
@@ -60,6 +61,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    TigerStageVideo.videoReady = false;
     final view =
         TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
     view.physicalSize = const Size(480, 900);
@@ -118,6 +120,8 @@ void main() {
       find.byKey(const ValueKey('companion-selection-continue')),
     );
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 2500));
+    await tester.pump();
 
     expect(completedKind, MascotKind.magpie);
     expect(MascotPreference.preference.value, CompanionPreference.tiger);
@@ -139,7 +143,6 @@ void main() {
     expect(MascotPreference.preference.value, CompanionPreference.tiger);
     expect(await _preferencesSnapshot(), equals(before));
   });
-
 
   testWidgets('02B preview opens its displayed first link without writes', (
     tester,

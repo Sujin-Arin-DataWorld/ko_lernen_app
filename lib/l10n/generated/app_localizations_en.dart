@@ -160,10 +160,10 @@ class AppL10nEn extends AppL10n {
       'In Korea, the magpie is a bird of good luck that brings happy news. Joy celebrates your progress and keeps lessons light.';
 
   @override
-  String get characterSelectedTiger => '태고가 선택되었습니다.';
+  String get characterSelectedTiger => 'You chose Taego.';
 
   @override
-  String get characterSelectedMagpie => '조이가 선택되었습니다.';
+  String get characterSelectedMagpie => 'You chose Joy.';
 
   @override
   String get characterSelectionHint => 'Tap your study buddy';

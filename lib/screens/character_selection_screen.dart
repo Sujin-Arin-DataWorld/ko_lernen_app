@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
 import 'onboarding_level_screen.dart';
 
@@ -29,12 +30,10 @@ const Color _kMagpieStageMoon = Color(0xFFFFFCF2); // Hanji Light
 /// **캐릭터 선택 + 첫 인사**
 ///
 /// 첫 실행 후 호랑이/까치 중 선택 → 선택한 캐릭터가 **말 없이 몸짓으로**
-/// 인사한다 (호랑이: 앞발 번쩍 / 까치: 신나는 짹짹 클립).
+/// 확정을 알린다 (호랑이: 목례 / 까치: 착지).
 ///
 /// 2026-07-29 배치 계획: A0 학습자에게 통문장 한국어 TTS 인사는 소외감을
-/// 주어 제거. 소리는 사람 목소리가 아닌 동물 SFX로만 —
-/// `assets/sfx/greet_tiger.mp3` / `greet_magpie.mp3`가 존재하면 자동 재생
-/// (없으면 무음, 클립만). 이후 homScreen에서 선택한 캐릭터가 메인 사이드킥.
+/// 주어 제거. 이후 homeScreen에서 선택한 캐릭터가 메인 사이드킥이 된다.
 class CharacterSelectionScreen extends StatefulWidget {
   const CharacterSelectionScreen({
     super.key,
@@ -72,7 +71,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   MascotKind? _selected;
   bool _isLoading = false;
   bool _navigated = false;
-  Timer? _advanceGuard;
+  bool _showConfirmation = false;
   final ScrollController _scroll = ScrollController();
 
   // 선택 전 미리보기는 **정적 호흡 마스코트만** 쓴다 (2026-08-02 실기기 검수).
@@ -87,7 +86,6 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
   @override
   void dispose() {
-    _advanceGuard?.cancel();
     _scroll.dispose();
     super.dispose();
   }
@@ -111,26 +109,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     await MascotPreference.set(kind);
     if (!mounted) return;
-
-    // 확정 화면은 정적 마스코트 + 캡션(영상 없음 → 깜빡임 0)이라 영상 완료
-    // 콜백이 없다. "선택되었습니다"를 잠깐 보여준 뒤 이 타이머가 **딱 한 번**
-    // 다음 단계로 넘긴다. _navigated 가드로 라우트 겹침·2중 이동을 막는다.
-    _advanceGuard?.cancel();
-    _advanceGuard = Timer(
-      const Duration(milliseconds: 2400),
-      () => unawaited(_proceed()),
-    );
+    setState(() => _showConfirmation = true);
   }
 
   Future<void> _proceed() async {
     if (!mounted || _navigated) return;
     _navigated = true;
-    if (widget.optional) {
-      await Storage.setIntroPreviewSeen();
-      if (!mounted) return;
-      await _completeOptional();
-      return;
-    }
     debugPrint(
       '[ONBOARD] Character.proceed -> '
       '${Storage.consentAccepted ? "OnboardingLevelScreen" : "ConsentScreen"} '
@@ -157,7 +141,6 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
   Future<void> _skipOptional() async {
     if (!widget.optional || _isLoading || _navigated) return;
-    _advanceGuard?.cancel();
     _navigated = true;
     if (widget.previewMode) {
       await widget.onPreviewComplete?.call(null);
@@ -173,24 +156,40 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     if (!widget.optional || _selected == null || _isLoading || _navigated) {
       return;
     }
-    _advanceGuard?.cancel();
     setState(() => _isLoading = true);
-    _navigated = true;
     if (widget.previewMode) {
-      await widget.onPreviewComplete?.call(_selected);
+      if (!mounted) return;
+      setState(() => _showConfirmation = true);
       return;
     }
     await MascotPreference.set(_selected!);
     if (!mounted) return;
     await Storage.setIntroPreviewSeen();
     if (!mounted) return;
-    await _completeOptional();
+    setState(() => _showConfirmation = true);
   }
 
-  void _changeOptionalSelection() {
-    if (!widget.optional || _isLoading || _navigated) return;
-    _advanceGuard?.cancel();
-    setState(() => _selected = null);
+  /// 선택 전용 원샷이 실제로 끝난 뒤에만 다음 단계로 간다.
+  ///
+  /// 영상이 불가능하거나 명시적으로 실패한 기기에서는
+  /// [CharacterClipPlayer.fallbackCompleteAfter]가 같은 콜백을 전달한다.
+  /// 따라서 까치의 7초 클립을 잘라 버리던 고정 2.4초 화면 타이머가 없고,
+  /// lifecycle/route 비가시 상태에서는 플레이어의 lease와 함께 완료도 멈춘다.
+  Future<void> _finishConfirmedSelection() async {
+    if (!mounted || !_showConfirmation || _selected == null || _navigated) {
+      return;
+    }
+    if (!widget.optional) {
+      await _proceed();
+      return;
+    }
+
+    _navigated = true;
+    if (widget.previewMode) {
+      await widget.onPreviewComplete?.call(_selected);
+      return;
+    }
+    await _completeOptional();
   }
 
   Future<void> _completeOptional() async {
@@ -203,6 +202,82 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     if (navigator.canPop()) {
       navigator.pop(true);
     }
+  }
+
+  Widget _buildConfirmationScreen(BuildContext context, AppL10n t) {
+    final selected = _selected!;
+    final scaffoldColor = Theme.of(context).scaffoldBackgroundColor;
+
+    return Scaffold(
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(Spacing.lg),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // 명시적 확정 뒤에는 선택한 캐릭터의 전용 원샷 하나만
+                      // 재생한다. 후보 화면을 정적으로 유지했으므로 디코더
+                      // handoff도 없고, 완료 콜백이 navigation의 단일 시계다.
+                      CharacterClipPlayer(
+                        key: ValueKey<String>(
+                          'character-confirmation-${selected.name}',
+                        ),
+                        asset: CharacterClips.chooseFor(selected),
+                        size: (constraints.maxWidth - 48)
+                            .clamp(260.0, 480.0)
+                            .toDouble(),
+                        loop: false,
+                        blendColor: scaffoldColor,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                        fallbackKind: selected,
+                        fallbackEmotion: MascotEmotion.celebrate,
+                        // 영상 불가/실패만 기존 캡션 노출 시간으로 대체한다.
+                        fallbackCompleteAfter: const Duration(
+                          milliseconds: 2400,
+                        ),
+                        onCompleted: () =>
+                            unawaited(_finishConfirmedSelection()),
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      Text(
+                        selected == MascotKind.magpie
+                            ? t.characterSelectedMagpie
+                            : t.characterSelectedTiger,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                          color: SoriColors.primary,
+                        ),
+                      ),
+                      if (widget.optional) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Text(
+                          t.onboardingCompanionSelectionBody,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 13.5,
+                            height: 1.45,
+                            color: SoriColors.lightTextMuted,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildOptionalCompanionScreen(BuildContext context, AppL10n t) {
@@ -373,6 +448,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
+    if (_showConfirmation && _selected != null) {
+      return _buildConfirmationScreen(context, t);
+    }
     if (widget.optional) {
       return _buildOptionalCompanionScreen(context, t);
     }
@@ -389,182 +467,96 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    // 선택 전엔 **전부 정지** (이 기기 디코더 버그로 영상 교대 시
-                    // 흰 프레임 번쩍 — State 상단 주석). 선택하면 카드/제목을
-                    // 걷고 **고른 캐릭터의 단일 확정 영상**이 화면 폭을 가득
-                    // 채운다 (2026-08-05 Jin: "선택되면 video 만든거 크게").
-                    children: _selected == null
-                        ? [
-                            // 상단 듀오 히어로 — 태고·조이 루프 영상(taego-joy-duo
-                            // .mp4, 1280×720/16:9). contain + 16:9 박스라 **크롭 0**
-                            // (전부 보임, Jin 2026-08-05). videoReady=false(테스트)·
-                            // reduce-motion·다크면 taego-joy-duo.png 포스터로 폴백.
-                            // 단일 정속 루프라 확정 화면의 텍스처 교대 번쩍과는
-                            // 달리 비교적 안정적이나, 이 기기 디코더 버그상 잔깜빡
-                            // 여지는 남는다(폴백 체인이 방어).
-                            SoriEntrance(
-                              child: ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 400,
-                                ),
-                                child: const HanokHeader(
-                                  asset:
-                                      'assets/illustrations/hanok/taego-joy-duo.png',
-                                  loopAsset:
-                                      'assets/video/loops/taego-joy-duo.mp4',
-                                  aspectRatio: 16 / 9,
-                                  radius: 16,
-                                  animate: true,
-                                  fit: BoxFit.contain,
-                                  fallbackIcon: Icons.pets,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 24),
-                            SoriEntrance(
-                              delay: const Duration(milliseconds: 90),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    t.characterSelectionTitle,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w800,
-                                      height: 1.3,
-                                    ),
-                                  ),
-                                  // 탭 유도 한 줄 (배지/필 금지 → 본문 인라인).
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    t.characterSelectionHint,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      fontSize: 13.5,
-                                      color: SoriColors.lightTextMuted,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 24),
-                            // 세로 배열 — 위 호랑이 / 아래 까치. 둘 다 정적 호흡
-                            // 마스코트. 성격 대비는 일월(日月) 무대로:
-                            // 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
-                            SoriEntrance(
-                              delay: const Duration(milliseconds: 180),
-                              child: _CharacterCard(
-                                kind: MascotKind.tiger,
-                                name: t.characterNameTiger,
-                                roman: t.characterRomanTiger,
-                                trait: t.characterTraitTiger,
-                                description: t.characterDescTiger,
-                                accent: SoriColors.tigerOnLight,
-                                panelColor: _kTigerStagePanel,
-                                discColor: _kTigerStageSun,
-                                discAtRight: true,
-                                isSelected: false,
-                                onTap: _isLoading
-                                    ? null
-                                    : () => _handleSelection(MascotKind.tiger),
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            SoriEntrance(
-                              delay: const Duration(milliseconds: 300),
-                              child: _CharacterCard(
-                                kind: MascotKind.magpie,
-                                name: t.characterNameMagpie,
-                                roman: t.characterRomanMagpie,
-                                trait: t.characterTraitMagpie,
-                                description: t.characterDescMagpie,
-                                accent: SoriColors.primary,
-                                panelColor: _kMagpieStagePanel,
-                                discColor: _kMagpieStageMoon,
-                                discAtRight: false,
-                                isSelected: false,
-                                onTap: _isLoading
-                                    ? null
-                                    : () => _handleSelection(MascotKind.magpie),
-                              ),
-                            ),
-                            if (widget.optional) ...[
-                              const SizedBox(height: 16),
-                              SoriButton.outlined(
-                                label: t.onboardingCompanionSkip,
-                                fullWidth: true,
-                                onTap: _skipOptional,
-                              ),
-                            ],
-                          ]
-                        : [
-                            // 선택 확정 — 이 기기(Impeller, Android<33)에서 영상
-                            // 텍스처 교대는 흰 프레임 번쩍("왔다갔다")을 유발하는
-                            // OS 레벨 버그라 소프트웨어로 못 막는다(State 상단 주석:
-                            // "ImageTextureEntry can't wait on the fence"). 확정
-                            // 화면에서 영상이 라우트 전환과 겹쳐 번쩍이면 "두 화면이
-                            // 동시에 뜬 에러"처럼 보였다(Jin 실기기). 그래서 확정은
-                            // **정적 대형 마스코트 + 캡션**으로 고정 — 디코더 0 →
-                            // 깜빡임 0. 정적 이미지는 프레임을 캐릭터로 가득 채워
-                            // 이전 영상보다 커 보인다. 진행은 _handleSelection 의
-                            // 타이머가 딱 한 번, 캡션을 읽을 만큼 보여준 뒤 넘긴다.
-                            Mascot(
-                              key: ValueKey<String>(
-                                'confirm_${_selected!.name}',
-                              ),
-                              kind: _selected!,
-                              emotion: MascotEmotion.celebrate,
-                              size: (constraints.maxWidth - 48)
-                                  .clamp(260.0, 480.0)
-                                  .toDouble(),
-                              animate: false,
-                            ),
-                            const SizedBox(height: 20),
-                            // "태고가 선택되었습니다 / 조이가 선택되었습니다" —
-                            // 볼드 + 브랜드 녹청(SoriColors.primary).
+                    // 후보 화면은 **전부 정지**. 선택 저장이 끝나면 이 트리는
+                    // 내려가고, 별도 확정 화면에서 고른 캐릭터의 choose 원샷
+                    // 하나만 재생한다.
+                    children: [
+                      // 상단 듀오는 정적 포스터. 선택 직후 choose 영상이
+                      // 유일한 디코더가 되도록 ambient loop를 만들지 않는다.
+                      SoriEntrance(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          child: const HanokHeader(
+                            asset:
+                                'assets/illustrations/hanok/taego-joy-duo.png',
+                            loopAsset: 'assets/video/loops/taego-joy-duo.mp4',
+                            aspectRatio: 16 / 9,
+                            radius: 16,
+                            animate: false,
+                            fit: BoxFit.contain,
+                            fallbackIcon: Icons.pets,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 90),
+                        child: Column(
+                          children: [
                             Text(
-                              _selected == MascotKind.magpie
-                                  ? (widget.optional
-                                        ? t.onboardingCompanionSelectedMagpie
-                                        : t.characterSelectedMagpie)
-                                  : (widget.optional
-                                        ? t.onboardingCompanionSelectedTiger
-                                        : t.characterSelectedTiger),
+                              t.characterSelectionTitle,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 28,
                                 fontWeight: FontWeight.w800,
-                                color: SoriColors.primary,
+                                height: 1.3,
                               ),
                             ),
-                            if (widget.optional) ...[
-                              const SizedBox(height: 8),
-                              Text(
-                                t.onboardingCompanionSelectionBody,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 13.5,
-                                  height: 1.45,
-                                  color: SoriColors.lightTextMuted,
-                                ),
+                            // 탭 유도 한 줄 (배지/필 금지 → 본문 인라인).
+                            const SizedBox(height: 8),
+                            Text(
+                              t.characterSelectionHint,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 13.5,
+                                color: SoriColors.lightTextMuted,
                               ),
-                              const SizedBox(height: 24),
-                              SoriButton.filled(
-                                label: t.onboardingCompanionContinue,
-                                fullWidth: true,
-                                onTap: _isLoading
-                                    ? null
-                                    : _confirmOptionalSelection,
-                              ),
-                              const SizedBox(height: 8),
-                              TextButton(
-                                onPressed: _isLoading
-                                    ? null
-                                    : _changeOptionalSelection,
-                                child: Text(t.onboardingCompanionChange),
-                              ),
-                            ],
+                            ),
                           ],
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      // 세로 배열 — 위 호랑이 / 아래 까치. 둘 다 정적 호흡
+                      // 마스코트. 성격 대비는 일월(日月) 무대로:
+                      // 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 180),
+                        child: _CharacterCard(
+                          kind: MascotKind.tiger,
+                          name: t.characterNameTiger,
+                          roman: t.characterRomanTiger,
+                          trait: t.characterTraitTiger,
+                          description: t.characterDescTiger,
+                          accent: SoriColors.tigerOnLight,
+                          panelColor: _kTigerStagePanel,
+                          discColor: _kTigerStageSun,
+                          discAtRight: true,
+                          isSelected: false,
+                          onTap: _isLoading
+                              ? null
+                              : () => _handleSelection(MascotKind.tiger),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 300),
+                        child: _CharacterCard(
+                          kind: MascotKind.magpie,
+                          name: t.characterNameMagpie,
+                          roman: t.characterRomanMagpie,
+                          trait: t.characterTraitMagpie,
+                          description: t.characterDescMagpie,
+                          accent: SoriColors.primary,
+                          panelColor: _kMagpieStagePanel,
+                          discColor: _kMagpieStageMoon,
+                          discAtRight: false,
+                          isSelected: false,
+                          onTap: _isLoading
+                              ? null
+                              : () => _handleSelection(MascotKind.magpie),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

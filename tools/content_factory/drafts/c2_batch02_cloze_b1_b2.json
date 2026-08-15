@@ -63,11 +63,11 @@
     {
       "id": "cloze_b1_0072",
       "level": "b1",
-      "sentenceKo": "담당자가 부재중이라 제가 그분을 ＿＿＿ 업무를 맡기로 했어요.",
-      "answer": "대체해",
-      "fullKo": "담당자가 부재중이라 제가 그분을 대체해 업무를 맡기로 했어요.",
-      "de": "Da die zuständige Person nicht da war, habe ich zugesagt, sie zu vertreten.",
-      "en": "Since the person in charge was unavailable, I agreed to take over their duties.",
+      "sentenceKo": "담당자가 부재중이라 제가 ＿＿＿ 업무를 맡기로 했어요.",
+      "answer": "대신",
+      "fullKo": "담당자가 부재중이라 제가 대신 업무를 맡기로 했어요.",
+      "de": "Da die zuständige Person nicht da war, habe ich die Aufgaben stellvertretend übernommen.",
+      "en": "Since the person in charge was unavailable, I took over the duties temporarily.",
       "distractors": [
         "조율하기로",
         "확정하기로",

@@ -120,6 +120,17 @@ DancheongMotif motifForPackId(String packId) {
     'b1_time_life' || 'b2_events_culture' => DancheongMotif.chrysanthemum,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
+    // Reviewed B1/B2 content packs — existing motif pipeline only.
+    'b1_housing_contract' => DancheongMotif.gwigap,
+    'b2_formal_agreement' => DancheongMotif.chilbo,
+    'b1_work_coordination' => DancheongMotif.bamboo,
+    'b2_formal_complaint' => DancheongMotif.manja,
+    'b2_decisions_perspectives' => DancheongMotif.taegeuk,
+    'b2_reading_response' => DancheongMotif.chrysanthemum,
+    'b2_language_society' => DancheongMotif.chilbo,
+    'b2_life_values' => DancheongMotif.taegeuk,
+    'b2_literature_emotion' => DancheongMotif.chrysanthemum,
+    'b2_language_change' => DancheongMotif.chilbo,
     _ => DancheongMotif.lotus,
   };
 }

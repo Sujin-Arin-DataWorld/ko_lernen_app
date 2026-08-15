@@ -15,6 +15,8 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
 import 'package:ko_lernen_app/widgets/sori/stats_top_bar.dart';
 
@@ -29,9 +31,11 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
       'kl_user_level': 'a1',
+      'kl_preferred_mascot': 'tiger',
       'kl_tut_home_tour': true,
     });
     await Storage.init();
+    MascotPreference.load();
   });
 
   Future<void> pumpToday(
@@ -85,6 +89,46 @@ void main() {
     expect(find.byType(SoriStageRootHeader), findsNothing);
     // 프로필 진입은 톱바 아이콘으로 유지 (셸 테스트의 byTooltip 계약).
     expect(find.byTooltip('Profile'), findsOneWidget);
+  });
+
+  testWidgets('Today 호랑이는 무크롭 standing idle을 중앙 확대한다', (tester) async {
+    await pumpToday(tester);
+
+    final player = tester.widget<CharacterClipPlayer>(
+      find.byType(CharacterClipPlayer),
+    );
+    expect(player.asset, HomeHeroClips.tigerThinking);
+    expect(player.loop, isTrue);
+    final scale = tester.widget<Transform>(
+      find.byKey(const ValueKey('home_hero_tiger_scale')),
+    );
+    expect(scale.alignment, Alignment.center);
+  });
+
+  testWidgets('까치 홈 히어로는 기존 보행 루프와 하단 기준을 유지한다', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        home: const Scaffold(
+          body: SoriCharacterHero(
+            greeting: 'Hello',
+            bubble: 'Keep going',
+            phase: SoriDayPhase.morning,
+            kind: MascotKind.magpie,
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final player = tester.widget<CharacterClipPlayer>(
+      find.byType(CharacterClipPlayer),
+    );
+    expect(player.asset, HomeHeroClips.magpieWalkingFront);
+    final scale = tester.widget<Transform>(
+      find.byKey(const ValueKey('home_hero_magpie_scale')),
+    );
+    expect(scale.alignment, Alignment.bottomCenter);
   });
 
   testWidgets('아침 9시 인사말이 헤더를 대신한다', (tester) async {

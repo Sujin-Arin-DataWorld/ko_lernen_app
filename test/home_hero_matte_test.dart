@@ -69,11 +69,7 @@ void main() {
     // swscale 이 아니라 정확한 BT.709 행렬로 계산되며, 실기기 screencap 실측
     // 픽셀(#FBF5EB)과 일치한다.
     final mattes = byName.values.map((e) => e['matte'] as String).toSet();
-    expect(
-      mattes,
-      hasLength(1),
-      reason: '클립마다 매트가 다르면 배경 하나로는 맞출 수 없다',
-    );
+    expect(mattes, hasLength(1), reason: '클립마다 매트가 다르면 배경 하나로는 맞출 수 없다');
     final hex = mattes.single.replaceFirst('#', '');
     expect(
       HomeHeroClips.matte,
@@ -86,7 +82,10 @@ void main() {
 
   test('report covers exactly the two bundled home hero clips', () {
     final onDisk = clips().map((file) => file.uri.pathSegments.last).toSet();
-    expect(onDisk, {'magpie_walking_front_hanji.mp4', 'tiger_rise_hanji.mp4'});
+    expect(onDisk, {
+      'magpie_walking_front_hanji.mp4',
+      'tiger_thinking_hanji.mp4',
+    });
     expect(byName.keys.toSet(), onDisk);
   });
 
@@ -138,6 +137,6 @@ void main() {
 
   test('derived clips preserve the source frame counts', () {
     expect(byName['magpie_walking_front_hanji.mp4']?['frames_sampled'], 113);
-    expect(byName['tiger_rise_hanji.mp4']?['frames_sampled'], 121);
+    expect(byName['tiger_thinking_hanji.mp4']?['frames_sampled'], 240);
   });
 }

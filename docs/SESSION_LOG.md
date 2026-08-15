@@ -1,5 +1,126 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — UI 영상·콘텐츠 Batch 01–04 main 통합 및 전체 회귀 정렬
+
+**무엇/왜.** Jin이 이 세션의 전체 작업 트리를 `main`에 커밋·push하라고 명시 승인했다.
+따라서 아래에 기록된 Today 무크롭 호랑이, 캐릭터별 choose 확정 화면, Gye 공동 한옥
+성장 영상, 승인 콘텐츠 Batch 01–04, TTS corpus/Storage 동기화, 생성·통합 도구와 회귀
+센서를 한 원자적 통합 범위로 묶었다. 콘텐츠 승격 후에도 남아 있던 이전 정본 고정값을
+실제 inventory인 vocab **1,044개 / 105팩**, grammar **152개**로 갱신했고, DE/EN 스토어
+문구와 자동 생성 `vocab_pack_map`/`vocab_level_report`도 같은 수치로 맞췄다. 새 문법 5행의
+편집용 em/en dash는 자연스러운 콜론으로 교정해 사용자 노출 문장부호 가드를 회복했다.
+
+**검증/커밋.** `validate_content.py`, content factory Python unit **53건**,
+캐릭터 matte **18/18**, 전체 Flutter test **3,394건 통과 / 의도적 skip 14건 / 실패 0**,
+Android debug asset bundle, `flutter analyze --no-pub --fatal-infos`, `git diff --check`를
+최종 통과한 뒤 `main`에 커밋·`origin/main`에 push한다. 최초 통합 commit hash는 직후
+문서 기록 커밋에서 고정한다. 이후 별도 브랜치/worktree는 ancestry뿐 아니라 고유 커밋과
+실제 tree diff까지 감사해 미흡수 작업을 보존하고, 완전히 흡수·대체된 대상만 삭제한다.
+
+### 2026-08-15 (Codex, Mac) — C1 Batch 04 시나리오 16개 승인 승격
+
+**무엇/왜.** Jin의 시나리오·듣기·TTS·main 통합 승인에 따라 독립 집필한 Batch 04
+시나리오 16개(B1 8/B2 8)를 `assets/data/scenarios.json`에 승격했다. 각 시나리오는
+KO/DE/EN 제목·도입·대화·퀘스트, 같은 레벨의 승인 vocabulary/grammar 참조, 기존
+scene backdrop만 사용한다. 16개 assess link를 `curriculum_manifest.json`에 함께
+추가하고 audit count와 `ScenarioBackdrop` map도 같은 원자적 통합 도구에서 갱신했다.
+review 원장 16행은 모두 `approved`와 Jin 승인 메모를 가지며 manifest는 `merged`다.
+앱 신규 실데이터는 시나리오 42→58, 시나리오 퀘스트 177→241이다. TTS는 실제로
+합성·Storage 동기화했다. 수집 정본은 5,817개(female 5,642/male 175, 47,451 Korean
+characters)이며, 최종 Storage 검증은 `expected 5817, remote 5872, missing 0, stale 55`다.
+55개 stale key는 현 corpus에 없는 과거 캐시이며 삭제하지 않았다.
+
+**안전장치.** `integrate_scenario_batch.py`는 draft/review/manifest 일치, 승인 상태,
+중복 ID, curriculum link, 기존 backdrop key를 fail-closed로 검사한다. 모든 출력을
+임시 repository에서 먼저 검증한 뒤 일괄 교체하고, 실패 시 원본을 복구한다. 이미 병합된
+상태의 재실행도 payload/link/backdrop drift가 있으면 실패한다. 다음 신규 작성 번호는
+Batch 05이며, Batch 04를 새 초안에 재사용하지 않는다.
+
+**TTS 안전장치.** 기존 생성기는 로컬 캐시만 봐서 이미 Storage에 있는 키를 다시 합성할 수
+있었다. `--missing-from-storage`는 원격 v3 key를 먼저 대조해 누락분만 합성·rsync하고,
+`--verify-storage`는 합성·write 없이 expected/remote/missing을 fail-closed로 확인한다.
+짧은 발화 품질 gate는 유지하되, 429는 전체 process를 종료하지 않는 retryable item 오류로
+처리한다. 실제 실행은 Google 할당량에 맞춰 4 worker로 했다.
+
+**검증/커밋.** `validate_content.py` 통과, Batch 04 재실행 preview에서 시나리오 58/
+퀘스트 241을 확인했고, content factory Python 전체 53건, `flutter analyze` 0 issues,
+전체 `flutter test`, `git diff --check`를 통과했다. commit hash는 이 main 통합 직후
+문서 기록 커밋에 고정한다.
+
+### 2026-08-15 (Codex, Mac) — 승인 호랑이 choose·Gye 성장 영상·DE/EN 확정 화면
+
+**무엇/왜.** Jin이 승인한 `bbanana-20260815104332-10e35f.mp4`를 캐릭터 선택의
+`tiger_choose.mp4` 정본으로 교체했다. 생성 원본은 1440²/5.04초/18.8Mbps였고 앱용은
+전신·꼬리·그림자 여백을 그대로 보존한 960²/24fps H.264, BT.709/tv, 무음 1.18MiB로
+파생했다. 기존 가장자리 접촉본은 `assets_unused/video/tiger_choose_cropped_20260815.mp4`로
+보존했다. 까치는 기존 `magpie_choose.mp4`를 그대로 사용한다. 선택 확정 화면은 두 캐릭터
+각자의 `_choose` 원샷과 실제 완료 콜백을 유지하면서 한국어로 남아 있던 캡션을 독일어
+`Du hast Taego/Joy ausgewählt.`와 영어 `You chose Taego/Joy.`로 복구했다.
+
+Jin이 선택한 `df.mp4`는 오디오 트랙을 제거하고 화질 재압축 없이 BT.709/tv 메타데이터와
+fast-start를 부여해 `assets/video/gye/gye_shared_hanok_build.mp4`로 추가했다. Gye empty의
+16:9 슬롯에서 빈 마당→공동 한옥 완성을 10.04초 동안 **1회만** 재생하고 마지막 프레임을
+유지한다. 시작/끝이 다른 영상을 반복해 완성 한옥이 사라지는 점프는 의도적으로 막았다.
+reduce-motion·영상 불가·초기화 실패 때는 9.7초 완성 프레임에서 만든 WebP 포스터를
+표시한다. 실제 가입 계의 `GyeHanok` 진행도 합성은 건드리지 않았다.
+
+**검증/커밋.** 두 신규 영상은 H.264/yuv420p/24fps/BT.709/tv이며 오디오 stream 0임을
+확인했다. `check_clip_matte.py`에서 캐릭터 18종 전부 통과(새 호랑이 순백 100%),
+캐릭터 선택/Gye/video lease 회귀 59건, `flutter analyze --no-pub --fatal-infos` 0 issues,
+Android debug asset bundle 생성과 네 연결 asset의 실제 포함, `git diff --check`를
+통과했다. 완성 포스터와 앱용 호랑이 5구간 contact sheet도 직접 시각 검수했다.
+Jin의 이번 요청은 적용이며 commit/push 지시는 아니므로 변경은 **미커밋**이다.
+
+### 2026-08-15 (Codex, Mac) — B1/B2 Batch 01–03 앱 본문 승격 및 B2 누락 원본 복구
+
+**무엇/왜.** Jin의 명시 지시에 따라 review-only였던 독립 창작 Batch 01–03의 318개
+검수 record를 실제 앱 콘텐츠로 승격했다. 단어·문법·스몰토크·Cloze·Satzbau를 각각의
+정본 asset과 curriculum mapping, pack label/order, 단청 motif mapping에 같은 트랜잭션으로
+반영했고, 모든 review 원장은 `approved` 및 Jin의 승인 메모로 고정했다. 이전 정본 commit에
+있었으나 뒤의 대규모 asset 재작성에서 사라진 자체 B2 콘텐츠도 repository history에서만
+복구했다(단어 30, 문법 7, 끝말잇기 6). Batch 01–03과 겹치는 문법 2개는 중복 복구하지
+않았고, 표제어 충돌 2개는 독립 작성 문장과 함께 고쳐 유일성을 보존했다.
+
+**결과.** 현재 live inventory는 vocab 1,044(A1 211/A2 271/B1 281/B2 281), grammar
+152(A1 32/A2 41/B1 41/B2 38), smalltalk 237, Cloze 370, Satzbau 275, 끝말잇기 2,640이다.
+이 승격 시점에는 Batch 04가 없어 만들거나 가짜로 채우지 않았고, 이후 별도 승인된
+C1 시나리오 Batch 04는 위 항목의 전용 원자적 흐름으로 추가했다. TTS 합성·Storage
+업로드·UI/Sori Stage·새 디자인 자산은 이 작업의 범위 밖으로 유지했다.
+
+**검증/커밋.** `validate_content.py`, Batch 01–03 검수 검증, Python unit test 53건,
+Flutter 전체 test 453건, `flutter analyze --no-fatal-infos --no-fatal-warnings`,
+`git diff --check`를 통과했다. Jin의 이번 지시는 앱 본문 병합이며 commit/push 지시는
+아니므로 콘텐츠 변경은 **미커밋**이다.
+
+### 2026-08-15 (Codex, Mac) — Today 호랑이 무크롭·Gye 공동마당·캐릭터 선택 영상
+
+**무엇/왜.** Jin의 Android 실기기 캡처를 기준으로 세 표면을 다시 분리했다. Today의
+기존 `tiger_rise_hanji.mp4`는 Flutter의 1.2배 하단 확대뿐 아니라 원본 프레임 자체에서
+기상 중 머리가 잘리고, 원샷을 루프해 자세가 크게 튀었다. 경계 접촉이 없고 시작/끝이
+안정적인 10초 standing idle `tiger_thinking.mp4`를 홈 한지 매트로 사전 합성한
+`tiger_thinking_hanji.mp4`로 교체하고, 호랑이는 1.2배 중앙 정렬·까치는 기존 하단 정렬을
+유지했다. 이전 rise 파생본은 번들에서 빼되 `assets_unused/video/`에 보존했다.
+
+Gye 빈 화면은 완성 종가 배경 위에 서로 다른 원근의 `gye_*` 8장을 모두 불투명 합성하던
+`showcase` 경로를 제거했다. `hanok_construction.mp4`의 5.4초 공동마당 장면을 1280×720
+WebP 한 장으로 추출해 empty 소개에만 쓰고, 실제 가입 계의 주간/누적 진행도 합성
+`GyeHanok`은 그대로 유지했다. 캐릭터 선택은 후보·상단 듀오를 정적으로 유지한 뒤 명시적
+확정에서 `CharacterClips.chooseFor`의 `tiger_choose.mp4`/`magpie_choose.mp4` 한 편만 크게
+재생한다. 고정 2.4초 화면 타이머는 제거하고 영상의 실제 `onCompleted`에서 한 번만
+이동하며, 영상 불가/실패 때만 2.4초 정적 폴백이 같은 완료 경로를 쓴다.
+
+**의도적 비채택.** `walking_front`는 보행 중 피사체가 커지고 루프 경계가 튀며,
+`sitting2`는 홈의 서 있는 동작을 대체하지 못해 Today에 쓰지 않았다. Gye에는 번들 제외된
+반려 프로토타입 `hanok_compound`, 인트로 의미·오디오·잘린 마지막 프레임을 가진
+`intro_gate_to_madang.mp4`, 진행도를 설명하지 못하는 한옥 캐릭터 루프를 쓰지 않았다.
+장기적인 가입 계 전용 고정 캔버스 stage 0–8 제작은 별도 자산 작업으로 남겼다.
+
+**검증/커밋.** 홈 파생 영상은 960×960·24fps·240프레임·BT.709/tv이며 두 홈 클립 모두
+Android 실측 한지 매트 `#FBF5EB` 100%를 `tool/check_home_hero_matte.py`로 확인했다.
+변경·인접 회귀 **115건 통과**, `flutter analyze --no-pub --fatal-infos` 0 issues,
+Gye WebP 시각 검수와 `git diff --check`를 확인했다. 현재 변경은 Jin의 별도 commit/push
+지시가 없어 **미커밋**이다.
+
 ### 2026-08-15 (Codex, Mac) — v2.0.5 Android 검수 설치·App Store build 22 업로드·worktree 정리
 
 **Android 산출물.** exact clean release commit `0f3ff35f`에서 beta 계약

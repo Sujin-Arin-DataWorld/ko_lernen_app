@@ -235,6 +235,13 @@ class VocabPackService {
     'b2_life_values': ('Lebensphilosophie', 'Life Philosophy'),
     'b2_literature_emotion': ('Literatur & Gefühle', 'Literature & Emotions'),
     'b2_language_change': ('Sprache & Wandel', 'Language & Change'),
+    'b1_housing_contract': ('Wohnen & Vertrag', 'Housing & Contracts'),
+    'b2_formal_agreement': ('Formelle Vereinbarungen', 'Formal Agreements'),
+    'b1_work_coordination': ('Arbeitskoordination & Termine', 'Work Coordination & Schedules'),
+    'b2_formal_complaint': ('Formelle Beschwerde & Abhilfe', 'Formal Complaints & Remedies'),
+    'b2_decisions_perspectives': ('Entscheidungen & Perspektiven', 'Decisions & Perspectives'),
+    'b2_reading_response': ('Lesen & Reaktionen', 'Reading & Responses'),
+    'b2_language_society': ('Sprache & Gesellschaft', 'Language & Society'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -342,5 +349,12 @@ class VocabPackService {
     'b2_life_values': 18,
     'b2_literature_emotion': 19,
     'b2_language_change': 20,
+    'b1_housing_contract': 19,
+    'b2_formal_agreement': 21,
+    'b1_work_coordination': 20,
+    'b2_formal_complaint': 22,
+    'b2_decisions_perspectives': 23,
+    'b2_reading_response': 24,
+    'b2_language_society': 25,
   };
 }

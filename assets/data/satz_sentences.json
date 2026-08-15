@@ -2302,6 +2302,1014 @@
         "심각해요"
       ],
       "vocabKo": "지속 가능성"
+    },
+    {
+      "id": "satz_b1_0050",
+      "level": "b1",
+      "targetKo": "관리비에 인터넷 요금도 포함되어 있나요?",
+      "promptDe": "Sind die Internetkosten in den Nebenkosten enthalten?",
+      "promptEn": "Are the internet charges included in the maintenance fee?",
+      "distractors": [
+        "계약서를",
+        "수리비가"
+      ],
+      "vocabKo": "관리비"
+    },
+    {
+      "id": "satz_b1_0051",
+      "level": "b1",
+      "targetKo": "계약서에 서명하기 전에 내용을 다시 확인했어요.",
+      "promptDe": "Ich habe den Inhalt noch einmal geprüft, bevor ich den Vertrag unterschrieben habe.",
+      "promptEn": "I checked the contents again before signing the contract.",
+      "distractors": [
+        "이삿짐은",
+        "부동산에서"
+      ],
+      "vocabKo": "계약서"
+    },
+    {
+      "id": "satz_b1_0052",
+      "level": "b1",
+      "targetKo": "세입자가 바뀌면 관리인에게 알려야 해요.",
+      "promptDe": "Wenn der Mieter oder die Mieterin wechselt, muss man die Hausverwaltung informieren.",
+      "promptEn": "If the tenant changes, you have to notify the building manager.",
+      "distractors": [
+        "중개인에게",
+        "계약서를"
+      ],
+      "vocabKo": "세입자"
+    },
+    {
+      "id": "satz_b1_0053",
+      "level": "b1",
+      "targetKo": "다음 달 초에 새 아파트에 입주할 예정이에요.",
+      "promptDe": "Anfang nächsten Monats werde ich in die neue Wohnung einziehen.",
+      "promptEn": "I am planning to move into the new apartment at the beginning of next month.",
+      "distractors": [
+        "퇴거해야",
+        "수리비가"
+      ],
+      "vocabKo": "입주하다"
+    },
+    {
+      "id": "satz_b1_0054",
+      "level": "b1",
+      "targetKo": "계약이 끝나면 정해진 날짜에 퇴거해야 해요.",
+      "promptDe": "Wenn der Vertrag endet, muss man zum vereinbarten Termin ausziehen.",
+      "promptEn": "When the contract ends, you have to move out on the agreed date.",
+      "distractors": [
+        "입주할",
+        "연장했어요"
+      ],
+      "vocabKo": "퇴거하다"
+    },
+    {
+      "id": "satz_b1_0055",
+      "level": "b1",
+      "targetKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
+      "promptDe": "Nach Rücksprache mit dem Vermieter habe ich die Vertragslaufzeit um ein Jahr verlängert.",
+      "promptEn": "After talking with the landlord I extended the contract term by another year.",
+      "distractors": [
+        "퇴거해야",
+        "누수가"
+      ],
+      "vocabKo": "연장하다"
+    },
+    {
+      "id": "satz_b1_0056",
+      "level": "b1",
+      "targetKo": "누수 때문에 수리비가 예상보다 많이 들었어요.",
+      "promptDe": "Wegen des Wasserlecks sind die Reparaturkosten höher ausgefallen als erwartet.",
+      "promptEn": "Because of the water leak the repair costs were higher than expected.",
+      "distractors": [
+        "관리비에",
+        "이삿짐은"
+      ],
+      "vocabKo": "수리비"
+    },
+    {
+      "id": "satz_b1_0057",
+      "level": "b1",
+      "targetKo": "천장에서 누수가 생겨서 바로 부동산에 연락했어요.",
+      "promptDe": "Es gab ein Wasserleck an der Decke, deshalb habe ich sofort das Immobilienbüro angerufen.",
+      "promptEn": "There was a water leak in the ceiling so I called the real estate agency right away.",
+      "distractors": [
+        "난방이",
+        "계약서에"
+      ],
+      "vocabKo": "누수"
+    },
+    {
+      "id": "satz_b1_0058",
+      "level": "b1",
+      "targetKo": "난방이 잘 안 돼서 관리실에 문의했어요.",
+      "promptDe": "Die Heizung funktionierte nicht richtig, deshalb habe ich bei der Hausverwaltung nachgefragt.",
+      "promptEn": "The heating was not working properly so I asked the building management about it.",
+      "distractors": [
+        "세입자가",
+        "수리비가"
+      ],
+      "vocabKo": "난방"
+    },
+    {
+      "id": "satz_b1_0059",
+      "level": "b1",
+      "targetKo": "근처 부동산에서 이 집을 소개해 줬어요.",
+      "promptDe": "Ein Immobilienbüro in der Nähe hat mir diese Wohnung gezeigt.",
+      "promptEn": "A nearby real estate agency showed me this home.",
+      "distractors": [
+        "중개인에게",
+        "계약서를"
+      ],
+      "vocabKo": "부동산"
+    },
+    {
+      "id": "satz_b1_0060",
+      "level": "b1",
+      "targetKo": "중개인에게 계약 조건을 자세히 설명해 달라고 했어요.",
+      "promptDe": "Ich habe den Makler gebeten, die Vertragsbedingungen genau zu erklären.",
+      "promptEn": "I asked the real estate agent to explain the contract terms in detail.",
+      "distractors": [
+        "세입자가",
+        "입주할"
+      ],
+      "vocabKo": "중개인"
+    },
+    {
+      "id": "satz_b1_0061",
+      "level": "b1",
+      "targetKo": "이삿짐은 오전에 먼저 새 집으로 보냈어요.",
+      "promptDe": "Die Umzugssachen habe ich am Vormittag zuerst in die neue Wohnung schicken lassen.",
+      "promptEn": "I sent the moving belongings to the new home first thing in the morning.",
+      "distractors": [
+        "계약서에",
+        "누수가"
+      ],
+      "vocabKo": "이삿짐"
+    },
+    {
+      "id": "satz_b2_0042",
+      "level": "b2",
+      "targetKo": "계약서의 조항을 하나씩 검토해 보겠습니다.",
+      "promptDe": "Wir werden die Klauseln des Vertrags einzeln prüfen.",
+      "promptEn": "We will review the clauses of the contract one by one.",
+      "distractors": [
+        "기한을",
+        "효력을"
+      ],
+      "vocabKo": "조항"
+    },
+    {
+      "id": "satz_b2_0043",
+      "level": "b2",
+      "targetKo": "중도에 계약을 해지하려면 위약금이 발생할 수 있어요.",
+      "promptDe": "Wenn Sie den Vertrag vorzeitig kündigen, kann eine Vertragsstrafe anfallen.",
+      "promptEn": "If you terminate the contract early a penalty may apply.",
+      "distractors": [
+        "갱신하기로",
+        "유예해"
+      ],
+      "vocabKo": "해지하다"
+    },
+    {
+      "id": "satz_b2_0044",
+      "level": "b2",
+      "targetKo": "조건을 확인한 뒤에 계약을 갱신하기로 했습니다.",
+      "promptDe": "Nachdem wir die Bedingungen geprüft hatten, beschlossen wir den Vertrag zu erneuern.",
+      "promptEn": "After reviewing the terms we decided to renew the contract.",
+      "distractors": [
+        "위반하면",
+        "이행해야"
+      ],
+      "vocabKo": "갱신하다"
+    },
+    {
+      "id": "satz_b2_0045",
+      "level": "b2",
+      "targetKo": "변경 사항은 양측이 충분히 협의한 뒤에 결정해야 합니다.",
+      "promptDe": "Änderungen sollten erst beschlossen werden, nachdem beide Seiten sich darüber eingehend beraten haben.",
+      "promptEn": "Changes should be decided only after both sides have discussed them sufficiently.",
+      "distractors": [
+        "해지하려면",
+        "효력을"
+      ],
+      "vocabKo": "협의하다"
+    },
+    {
+      "id": "satz_b2_0046",
+      "level": "b2",
+      "targetKo": "당사자는 합의한 의무를 성실히 이행해야 합니다.",
+      "promptDe": "Die Vertragsparteien müssen die vereinbarten Pflichten gewissenhaft erfüllen.",
+      "promptEn": "The parties must faithfully fulfill their agreed obligations.",
+      "distractors": [
+        "갱신하기로",
+        "조항을"
+      ],
+      "vocabKo": "이행하다"
+    },
+    {
+      "id": "satz_b2_0047",
+      "level": "b2",
+      "targetKo": "모든 당사자가 서명한 뒤에 절차를 진행하겠습니다.",
+      "promptDe": "Wir setzen das Verfahren fort, nachdem alle Vertragsparteien unterschrieben haben.",
+      "promptEn": "We will proceed after all parties have signed.",
+      "distractors": [
+        "합의서에는",
+        "기한을"
+      ],
+      "vocabKo": "당사자"
+    },
+    {
+      "id": "satz_b2_0048",
+      "level": "b2",
+      "targetKo": "서명 이후에야 합의서가 효력을 갖습니다.",
+      "promptDe": "Die Vereinbarung wird erst nach der Unterschrift wirksam.",
+      "promptEn": "The agreement takes effect only after it is signed.",
+      "distractors": [
+        "조항을",
+        "해지하려면"
+      ],
+      "vocabKo": "효력"
+    },
+    {
+      "id": "satz_b2_0049",
+      "level": "b2",
+      "targetKo": "제출 기한을 지키기 어려우면 미리 알려 주세요.",
+      "promptDe": "Bitte teilen Sie uns frühzeitig mit, wenn die Einreichungsfrist schwer einzuhalten ist.",
+      "promptEn": "Please let us know in advance if it will be difficult to meet the submission deadline.",
+      "distractors": [
+        "서면으로",
+        "효력을"
+      ],
+      "vocabKo": "기한"
+    },
+    {
+      "id": "satz_b2_0050",
+      "level": "b2",
+      "targetKo": "변경 내용은 서면으로 확인해 두는 것이 좋습니다.",
+      "promptDe": "Es ist besser, Änderungen schriftlich festzuhalten.",
+      "promptEn": "It is better to confirm changes in writing.",
+      "distractors": [
+        "조항으로",
+        "기한을"
+      ],
+      "vocabKo": "서면"
+    },
+    {
+      "id": "satz_b2_0051",
+      "level": "b2",
+      "targetKo": "합의서에는 양쪽의 책임과 기한을 분명히 적었습니다.",
+      "promptDe": "In der Vereinbarung haben wir die Pflichten und Fristen beider Seiten klar festgehalten.",
+      "promptEn": "The agreement clearly states both sides' responsibilities and deadlines.",
+      "distractors": [
+        "조항을",
+        "유예해"
+      ],
+      "vocabKo": "합의서"
+    },
+    {
+      "id": "satz_b2_0052",
+      "level": "b2",
+      "targetKo": "상대방이 조항을 위반하면 해결 절차를 시작할 수 있습니다.",
+      "promptDe": "Wenn die andere Seite eine Klausel verletzt, kann ein Lösungsverfahren eingeleitet werden.",
+      "promptEn": "If the other party violates a clause a resolution process can be started.",
+      "distractors": [
+        "이행해야",
+        "갱신하기로"
+      ],
+      "vocabKo": "위반하다"
+    },
+    {
+      "id": "satz_b2_0053",
+      "level": "b2",
+      "targetKo": "지급 기한을 한 달 유예해 주실 수 있는지 문의했습니다.",
+      "promptDe": "Ich habe angefragt, ob die Zahlungsfrist um einen Monat aufgeschoben werden kann.",
+      "promptEn": "I asked whether the payment deadline could be deferred by one month.",
+      "distractors": [
+        "해지하려면",
+        "효력을"
+      ],
+      "vocabKo": "유예하다"
+    },
+    {
+      "id": "satz_b1_0062",
+      "level": "b1",
+      "targetKo": "팀원들과 일정을 조율한 뒤에 회의 시간을 확정했어요.",
+      "promptDe": "Nachdem ich den Zeitplan mit dem Team abgestimmt hatte, habe ich den Besprechungstermin festgelegt.",
+      "promptEn": "After coordinating the schedule with the team, I confirmed the meeting time.",
+      "distractors": [
+        "회의실을",
+        "참석 여부를"
+      ],
+      "vocabKo": "조율하다"
+    },
+    {
+      "id": "satz_b1_0063",
+      "level": "b1",
+      "targetKo": "회의 참석 여부를 오늘 안에 알려 주세요.",
+      "promptDe": "Bitte teilen Sie uns noch heute mit, ob Sie an der Besprechung teilnehmen können.",
+      "promptEn": "Please let us know by today whether you can attend the meeting.",
+      "distractors": [
+        "연락을",
+        "기다려"
+      ],
+      "vocabKo": "참석 여부"
+    },
+    {
+      "id": "satz_b1_0064",
+      "level": "b1",
+      "targetKo": "마감일이 가까운 업무의 우선순위를 먼저 정했어요.",
+      "promptDe": "Wir haben zuerst die Prioritäten für die Aufgaben mit naher Abgabefrist festgelegt.",
+      "promptEn": "We first set the priorities for tasks with approaching deadlines.",
+      "distractors": [
+        "회의실을",
+        "예약했어요"
+      ],
+      "vocabKo": "우선순위"
+    },
+    {
+      "id": "satz_b1_0065",
+      "level": "b1",
+      "targetKo": "오후 회의를 위해 3층 회의실을 예약했어요.",
+      "promptDe": "Für die Besprechung am Nachmittag habe ich einen Raum im dritten Stock reserviert.",
+      "promptEn": "I reserved a meeting room on the third floor for the afternoon meeting.",
+      "distractors": [
+        "참석자를",
+        "변경했어요"
+      ],
+      "vocabKo": "회의실"
+    },
+    {
+      "id": "satz_b1_0066",
+      "level": "b1",
+      "targetKo": "담당자가 부재중이라 제가 대신 업무를 맡기로 했어요.",
+      "promptDe": "Da die zuständige Person nicht da war, habe ich die Aufgaben stellvertretend übernommen.",
+      "promptEn": "Since the person in charge was unavailable, I took over the duties temporarily.",
+      "distractors": [
+        "연락드릴",
+        "예정이에요"
+      ],
+      "vocabKo": "대신하다"
+    },
+    {
+      "id": "satz_b1_0067",
+      "level": "b1",
+      "targetKo": "자료가 늦게 도착해서 회의 시작이 20분 지연됐어요.",
+      "promptDe": "Weil die Unterlagen spät ankamen, hat sich der Beginn der Besprechung um zwanzig Minuten verzögert.",
+      "promptEn": "Because the materials arrived late, the start of the meeting was delayed by 20 minutes.",
+      "distractors": [
+        "회의실을",
+        "마감일을"
+      ],
+      "vocabKo": "지연되다"
+    },
+    {
+      "id": "satz_b1_0068",
+      "level": "b1",
+      "targetKo": "회의 전에 업무 분담을 정해서 각자 맡을 일을 확인했어요.",
+      "promptDe": "Vor der Besprechung haben wir die Aufgabenverteilung festgelegt und geprüft, wer was übernimmt.",
+      "promptEn": "Before the meeting we agreed on the division of tasks and confirmed what each person would handle.",
+      "distractors": [
+        "참석 여부를",
+        "회의실을"
+      ],
+      "vocabKo": "업무 분담"
+    },
+    {
+      "id": "satz_b1_0069",
+      "level": "b1",
+      "targetKo": "이 보고서의 마감일은 다음 주 금요일이에요.",
+      "promptDe": "Die Abgabefrist für diesen Bericht ist nächsten Freitag.",
+      "promptEn": "The deadline for this report is next Friday.",
+      "distractors": [
+        "참석자는",
+        "오늘"
+      ],
+      "vocabKo": "마감일"
+    },
+    {
+      "id": "satz_b1_0070",
+      "level": "b1",
+      "targetKo": "결정이 늦어져서 회의를 다음 주로 미뤘어요.",
+      "promptDe": "Da sich die Entscheidung verzögerte, haben wir die Besprechung auf nächste Woche verschoben.",
+      "promptEn": "Because the decision was delayed, we postponed the meeting until next week.",
+      "distractors": [
+        "회의실을",
+        "참석 여부를"
+      ],
+      "vocabKo": "미루다"
+    },
+    {
+      "id": "satz_b1_0071",
+      "level": "b1",
+      "targetKo": "참석 인원을 확인한 뒤에 최종 일정을 확정할게요.",
+      "promptDe": "Nachdem ich die Zahl der Teilnehmenden geprüft habe, werde ich den endgültigen Termin festlegen.",
+      "promptEn": "After checking the number of participants, I will finalize the schedule.",
+      "distractors": [
+        "회의실을",
+        "업무 분담을"
+      ],
+      "vocabKo": "확정하다"
+    },
+    {
+      "id": "satz_b1_0072",
+      "level": "b1",
+      "targetKo": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
+      "promptDe": "Da die Teamleitung abwesend war, habe ich per E-Mail Bericht erstattet.",
+      "promptEn": "Since the team leader was unavailable, I sent a report by email.",
+      "distractors": [
+        "마감일을",
+        "참석 여부를"
+      ],
+      "vocabKo": "부재중"
+    },
+    {
+      "id": "satz_b1_0073",
+      "level": "b1",
+      "targetKo": "일정 변경에 협조해 주셔서 감사합니다.",
+      "promptDe": "Vielen Dank, dass Sie bei der Terminänderung mitgewirkt haben.",
+      "promptEn": "Thank you for cooperating with the schedule change.",
+      "distractors": [
+        "확인해",
+        "주시면"
+      ],
+      "vocabKo": "협조하다"
+    },
+    {
+      "id": "satz_b2_0054",
+      "level": "b2",
+      "targetKo": "접수된 민원에 대해 담당 부서가 검토를 시작했습니다.",
+      "promptDe": "Die zuständige Abteilung hat mit der Prüfung der eingereichten Beschwerde begonnen.",
+      "promptEn": "The responsible department has begun reviewing the complaint that was filed.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "민원"
+    },
+    {
+      "id": "satz_b2_0055",
+      "level": "b2",
+      "targetKo": "제품의 결함이 확인되면 즉시 교환 절차를 안내해 드리겠습니다.",
+      "promptDe": "Wenn ein Produktmangel bestätigt wird, informieren wir Sie unverzüglich über das Umtauschverfahren.",
+      "promptEn": "If a product defect is confirmed, we will promptly explain the exchange procedure.",
+      "distractors": [
+        "민원을",
+        "서면 답변을"
+      ],
+      "vocabKo": "결함"
+    },
+    {
+      "id": "satz_b2_0056",
+      "level": "b2",
+      "targetKo": "불편을 드린 점에 대해 적절한 보상 방안을 검토하겠습니다.",
+      "promptDe": "Wir werden angemessene Möglichkeiten der Entschädigung für die entstandenen Unannehmlichkeiten prüfen.",
+      "promptEn": "We will review appropriate compensation options for the inconvenience caused.",
+      "distractors": [
+        "결함을",
+        "처리하겠습니다"
+      ],
+      "vocabKo": "보상"
+    },
+    {
+      "id": "satz_b2_0057",
+      "level": "b2",
+      "targetKo": "같은 문제가 반복되지 않도록 절차상의 문제를 시정하겠습니다.",
+      "promptDe": "Wir werden die Probleme im Verfahren beheben, damit sich dasselbe Problem nicht wiederholt.",
+      "promptEn": "We will correct the procedural issues so that the same problem does not recur.",
+      "distractors": [
+        "서면",
+        "답변드리겠습니다"
+      ],
+      "vocabKo": "시정하다"
+    },
+    {
+      "id": "satz_b2_0058",
+      "level": "b2",
+      "targetKo": "재발을 막기 위해 원인을 분석하고 개선안을 마련했습니다.",
+      "promptDe": "Um ein erneutes Auftreten zu verhindern, haben wir die Ursache analysiert und Verbesserungsmaßnahmen ausgearbeitet.",
+      "promptEn": "To prevent recurrence, we analyzed the cause and prepared improvement measures.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "재발"
+    },
+    {
+      "id": "satz_b2_0059",
+      "level": "b2",
+      "targetKo": "제출하신 이의 제기는 어제 공식적으로 접수했습니다.",
+      "promptDe": "Wir haben Ihren eingereichten Einspruch gestern offiziell entgegengenommen.",
+      "promptEn": "We officially received your submitted objection yesterday.",
+      "distractors": [
+        "서면",
+        "답변을"
+      ],
+      "vocabKo": "접수하다"
+    },
+    {
+      "id": "satz_b2_0060",
+      "level": "b2",
+      "targetKo": "담당 부서에서 관련 서류를 검토한 뒤 민원을 처리할 예정입니다.",
+      "promptDe": "Die zuständige Abteilung wird die Beschwerde bearbeiten, nachdem sie die relevanten Unterlagen geprüft hat.",
+      "promptEn": "The responsible department will process the complaint after reviewing the relevant documents.",
+      "distractors": [
+        "서면 답변을",
+        "보상 방안을"
+      ],
+      "vocabKo": "처리하다"
+    },
+    {
+      "id": "satz_b2_0061",
+      "level": "b2",
+      "targetKo": "담당 부서에서 확인한 뒤 서면으로 답변드리겠습니다.",
+      "promptDe": "Nach Prüfung durch die zuständige Abteilung werden wir Ihnen schriftlich antworten.",
+      "promptEn": "After the responsible department has reviewed the matter, we will respond to you in writing.",
+      "distractors": [
+        "보상 방안을",
+        "서면 답변을"
+      ],
+      "vocabKo": "담당 부서"
+    },
+    {
+      "id": "satz_b2_0062",
+      "level": "b2",
+      "targetKo": "결과에 대한 이의 제기는 안내된 기한 안에 제출해 주시기 바랍니다.",
+      "promptDe": "Bitte reichen Sie einen Einspruch gegen das Ergebnis innerhalb der angegebenen Frist ein.",
+      "promptEn": "Please submit any objection to the result within the stated deadline.",
+      "distractors": [
+        "보상을",
+        "요청해"
+      ],
+      "vocabKo": "이의 제기"
+    },
+    {
+      "id": "satz_b2_0063",
+      "level": "b2",
+      "targetKo": "검토가 끝나는 대로 서면 답변을 보내드리겠습니다.",
+      "promptDe": "Sobald die Prüfung abgeschlossen ist, senden wir Ihnen eine schriftliche Antwort.",
+      "promptEn": "As soon as the review is complete, we will send you a written response.",
+      "distractors": [
+        "민원을",
+        "보상 방안을"
+      ],
+      "vocabKo": "서면 답변"
+    },
+    {
+      "id": "satz_b2_0064",
+      "level": "b2",
+      "targetKo": "확인된 결함에 대해 필요한 조치를 이미 취했습니다.",
+      "promptDe": "Wir haben bereits die notwendigen Maßnahmen hinsichtlich des bestätigten Mangels ergriffen.",
+      "promptEn": "We have already taken the necessary action regarding the confirmed defect.",
+      "distractors": [
+        "서면",
+        "답변을"
+      ],
+      "vocabKo": "조치"
+    },
+    {
+      "id": "satz_b2_0065",
+      "level": "b2",
+      "targetKo": "누락된 내용을 보완한 뒤 다시 제출해 주시기 바랍니다.",
+      "promptDe": "Bitte ergänzen Sie die fehlenden Angaben und reichen Sie die Unterlagen anschließend erneut ein.",
+      "promptEn": "Please supplement the missing information and then submit the documents again.",
+      "distractors": [
+        "민원을",
+        "처리해"
+      ],
+      "vocabKo": "보완하다"
+    },
+    {
+      "id": "satz_b2_0066",
+      "level": "b2",
+      "targetKo": "두 사람은 서로 한 걸음씩 양보해 현실적인 방안으로 타협했어요.",
+      "promptDe": "Beide Seiten gaben etwas nach und einigten sich auf eine realistische Lösung.",
+      "promptEn": "Both sides gave a little and reached a realistic compromise.",
+      "distractors": [
+        "현실적인 기준을",
+        "결정을 내렸어요"
+      ],
+      "vocabKo": "타협하다"
+    },
+    {
+      "id": "satz_b2_0067",
+      "level": "b2",
+      "targetKo": "주관이 다르다고 해서 상대의 판단이 틀린 것은 아니에요.",
+      "promptDe": "Nur weil sich subjektive Sichtweisen unterscheiden, ist die Einschätzung der anderen Person nicht falsch.",
+      "promptEn": "A different subjective view does not make the other person's judgment wrong.",
+      "distractors": [
+        "상대의 말투가",
+        "다른 것은"
+      ],
+      "vocabKo": "주관"
+    },
+    {
+      "id": "satz_b2_0068",
+      "level": "b2",
+      "targetKo": "이번 결정에서는 빠른 결과보다 장기적인 영향을 충분히 숙고하려고 해요.",
+      "promptDe": "Bei dieser Entscheidung möchte ich die langfristigen Folgen statt nur schneller Ergebnisse gründlich abwägen.",
+      "promptEn": "For this decision, I want to weigh the long-term consequences carefully rather than just quick results.",
+      "distractors": [
+        "빠른 결과를",
+        "설명하려고 해요"
+      ],
+      "vocabKo": "숙고하다"
+    },
+    {
+      "id": "satz_b2_0069",
+      "level": "b2",
+      "targetKo": "의견 차이를 줄이려면 서로가 받아들일 수 있는 양보가 필요해요.",
+      "promptDe": "Um unterschiedliche Meinungen einander anzunähern, braucht es Zugeständnisse, die beide Seiten akzeptieren können.",
+      "promptEn": "To narrow a difference of opinion, both sides need concessions they can accept.",
+      "distractors": [
+        "결과가",
+        "더 중요해요"
+      ],
+      "vocabKo": "양보"
+    },
+    {
+      "id": "satz_b2_0070",
+      "level": "b2",
+      "targetKo": "그는 어려운 상황에서도 남을 성급히 판단하지 않겠다는 신념을 지켰어요.",
+      "promptDe": "Auch in schwierigen Situationen hielt er an seiner Überzeugung fest, andere nicht vorschnell zu beurteilen.",
+      "promptEn": "Even in difficult situations, he held on to his conviction not to judge others too quickly.",
+      "distractors": [
+        "결정을",
+        "바로 내렸어요"
+      ],
+      "vocabKo": "신념"
+    },
+    {
+      "id": "satz_b2_0071",
+      "level": "b2",
+      "targetKo": "무엇이 중요한지에 대한 기준이 다르면 같은 선택도 다르게 보일 수 있어요.",
+      "promptDe": "Wenn sich die Maßstäbe dafür unterscheiden, was wichtig ist, kann dieselbe Wahl unterschiedlich wirken.",
+      "promptEn": "When people use different criteria for what matters, the same choice can look different.",
+      "distractors": [
+        "말투가",
+        "비슷해 보여요"
+      ],
+      "vocabKo": "기준"
+    },
+    {
+      "id": "satz_b2_0072",
+      "level": "b2",
+      "targetKo": "회의에서는 비용보다 안전을 우선해야 한다는 이견이 제기됐어요.",
+      "promptDe": "In der Sitzung wurde die abweichende Meinung vorgebracht, Sicherheit müsse vor Kosten stehen.",
+      "promptEn": "At the meeting, someone raised the view that safety should come before cost.",
+      "distractors": [
+        "비용을 줄여야",
+        "결정됐어요"
+      ],
+      "vocabKo": "이견"
+    },
+    {
+      "id": "satz_b2_0073",
+      "level": "b2",
+      "targetKo": "두 제안의 장점을 살린 절충안을 찾으면 갈등을 줄일 수 있어요.",
+      "promptDe": "Eine Kompromisslösung, die die Stärken beider Vorschläge aufgreift, kann Konflikte verringern.",
+      "promptEn": "A compromise that keeps the strengths of both proposals can reduce conflict.",
+      "distractors": [
+        "새 기준을",
+        "설명할 수 있어요"
+      ],
+      "vocabKo": "절충안"
+    },
+    {
+      "id": "satz_b2_0074",
+      "level": "b2",
+      "targetKo": "관리자는 결정의 결과를 설명할 책무가 있어요.",
+      "promptDe": "Leitende Personen haben die Verantwortung, die Folgen ihrer Entscheidungen zu erklären.",
+      "promptEn": "Leaders have a responsibility to explain the consequences of their decisions.",
+      "distractors": [
+        "기회가",
+        "남아 있어요"
+      ],
+      "vocabKo": "책무"
+    },
+    {
+      "id": "satz_b2_0075",
+      "level": "b2",
+      "targetKo": "정보가 충분하지 않아도 어느 순간에는 결단을 내려야 할 때가 있어요.",
+      "promptDe": "Auch wenn Informationen fehlen, kommt der Moment, in dem man eine Entscheidung treffen muss.",
+      "promptEn": "Even without complete information, there comes a time when you have to make a decision.",
+      "distractors": [
+        "설명을 들어야",
+        "결과를 기다려야"
+      ],
+      "vocabKo": "결단"
+    },
+    {
+      "id": "satz_b2_0076",
+      "level": "b2",
+      "targetKo": "모두가 반대해도 자신의 소신을 차분히 설명했어요.",
+      "promptDe": "Obwohl alle anderer Meinung waren, erklärte sie ihre eigene Überzeugung ruhig.",
+      "promptEn": "Even though everyone disagreed, she calmly explained her own conviction.",
+      "distractors": [
+        "상대의 의견을",
+        "그대로 따랐어요"
+      ],
+      "vocabKo": "소신"
+    },
+    {
+      "id": "satz_b2_0077",
+      "level": "b2",
+      "targetKo": "그 선택이 남긴 영향을 되돌아보며 다음 기준을 세웠어요.",
+      "promptDe": "Im Rückblick auf die Folgen dieser Wahl habe ich einen neuen Maßstab für die nächste Entscheidung gesetzt.",
+      "promptEn": "Reflecting on the effects of that choice, I set a new criterion for my next decision.",
+      "distractors": [
+        "같은 결과를",
+        "기다렸어요"
+      ],
+      "vocabKo": "되돌아보다"
+    },
+    {
+      "id": "satz_b2_0078",
+      "level": "b2",
+      "targetKo": "짧은 문장이었지만 읽고 난 뒤에도 긴 여운이 남았어요.",
+      "promptDe": "Der Satz war kurz, aber er klang noch lange nach, nachdem ich ihn gelesen hatte.",
+      "promptEn": "It was a short sentence, but it stayed with me long after I had read it.",
+      "distractors": [
+        "긴 설명이",
+        "필요했어요"
+      ],
+      "vocabKo": "여운"
+    },
+    {
+      "id": "satz_b2_0079",
+      "level": "b2",
+      "targetKo": "작가는 직접 말하지 않고 한 장면에 여러 감정을 함축했어요.",
+      "promptDe": "Die Autorin sprach es nicht direkt aus, sondern verdichtete mehrere Gefühle in einer Szene.",
+      "promptEn": "The author did not say it directly but condensed several feelings into one scene.",
+      "distractors": [
+        "한 문장에",
+        "반복했어요"
+      ],
+      "vocabKo": "함축"
+    },
+    {
+      "id": "satz_b2_0080",
+      "level": "b2",
+      "targetKo": "비가 그친 거리의 묘사가 장면을 눈앞에 그리게 했어요.",
+      "promptDe": "Die Beschreibung der Straße nach dem Regen ließ die Szene vor meinem inneren Auge entstehen.",
+      "promptEn": "The description of the street after the rain brought the scene to life.",
+      "distractors": [
+        "말투가",
+        "더 또렷했어요"
+      ],
+      "vocabKo": "묘사"
+    },
+    {
+      "id": "satz_b2_0081",
+      "level": "b2",
+      "targetKo": "낯선 사람을 바라보는 화자의 시선이 글 전체의 분위기를 만들어요.",
+      "promptDe": "Der Blickwinkel der erzählenden Person auf die Fremden prägt die Stimmung des ganzen Textes.",
+      "promptEn": "The narrator's perspective on the strangers shapes the mood of the whole text.",
+      "distractors": [
+        "시간의 순서가",
+        "결말을 만들어요"
+      ],
+      "vocabKo": "시선"
+    },
+    {
+      "id": "satz_b2_0082",
+      "level": "b2",
+      "targetKo": "저는 주인공이 말하지 못한 불안에 더 공감했어요.",
+      "promptDe": "Ich konnte besonders mit der Angst mitfühlen, die die Hauptfigur nicht aussprechen konnte.",
+      "promptEn": "I especially empathized with the anxiety the main character could not put into words.",
+      "distractors": [
+        "작가의 설명을",
+        "그대로 믿었어요"
+      ],
+      "vocabKo": "공감하다"
+    },
+    {
+      "id": "satz_b2_0083",
+      "level": "b2",
+      "targetKo": "같은 문장도 독자의 경험에 따라 여러 방식으로 해석될 수 있어요.",
+      "promptDe": "Derselbe Satz kann je nach Erfahrung der lesenden Person unterschiedlich interpretiert werden.",
+      "promptEn": "The same sentence can be interpreted in different ways depending on the reader's experience.",
+      "distractors": [
+        "같은 뜻으로",
+        "정착할 수 있어요"
+      ],
+      "vocabKo": "해석"
+    },
+    {
+      "id": "satz_b2_0084",
+      "level": "b2",
+      "targetKo": "첫 문단의 차분한 인상이 마지막의 긴장과 대조됐어요.",
+      "promptDe": "Der ruhige Eindruck des ersten Abschnitts stand im Kontrast zur Spannung am Ende.",
+      "promptEn": "The calm impression of the first paragraph contrasted with the tension at the end.",
+      "distractors": [
+        "상징이",
+        "반복됐어요"
+      ],
+      "vocabKo": "인상"
+    },
+    {
+      "id": "satz_b2_0085",
+      "level": "b2",
+      "targetKo": "반복해서 나오는 창문은 인물의 망설임을 보여 주는 상징처럼 느껴졌어요.",
+      "promptDe": "Das wiederkehrende Fenster wirkte wie ein Symbol für das Zögern der Figur.",
+      "promptEn": "The recurring window felt like a symbol of the character's hesitation.",
+      "distractors": [
+        "배경이",
+        "조용해졌어요"
+      ],
+      "vocabKo": "상징"
+    },
+    {
+      "id": "satz_b2_0086",
+      "level": "b2",
+      "targetKo": "시간 순서를 바꾼 서술 덕분에 결말의 의미가 더 또렷해졌어요.",
+      "promptDe": "Durch die veränderte zeitliche Erzählweise wurde die Bedeutung des Endes deutlicher.",
+      "promptEn": "Changing the order of time in the narration made the ending clearer.",
+      "distractors": [
+        "용례 덕분에",
+        "글이 짧아졌어요"
+      ],
+      "vocabKo": "서술"
+    },
+    {
+      "id": "satz_b2_0087",
+      "level": "b2",
+      "targetKo": "누군가를 용서하는 장면이 제게 가장 큰 울림을 줬어요.",
+      "promptDe": "Die Szene, in der jemand vergeben wird, hat mich am stärksten berührt.",
+      "promptEn": "The scene in which someone is forgiven resonated with me the most.",
+      "distractors": [
+        "설명을",
+        "더해 줬어요"
+      ],
+      "vocabKo": "울림"
+    },
+    {
+      "id": "satz_b2_0088",
+      "level": "b2",
+      "targetKo": "밝은 배경과 무거운 대사의 대조가 인물의 외로움을 드러냈어요.",
+      "promptDe": "Der Gegensatz zwischen hellem Hintergrund und schweren Worten machte die Einsamkeit der Figur sichtbar.",
+      "promptEn": "The contrast between the bright setting and the heavy dialogue revealed the character's loneliness.",
+      "distractors": [
+        "표현 방식이",
+        "기준을 보여 줬어요"
+      ],
+      "vocabKo": "대조"
+    },
+    {
+      "id": "satz_b2_0089",
+      "level": "b2",
+      "targetKo": "글을 읽고 난 뒤 제 행동을 돌아보는 성찰의 시간이 필요했어요.",
+      "promptDe": "Nach der Lektüre brauchte ich Zeit, um über mein eigenes Verhalten nachzudenken.",
+      "promptEn": "After reading the text, I needed time to reflect on my own actions.",
+      "distractors": [
+        "대조의",
+        "결과가 필요했어요"
+      ],
+      "vocabKo": "성찰"
+    },
+    {
+      "id": "satz_b2_0090",
+      "level": "b2",
+      "targetKo": "같은 뜻이라도 '부탁'과 '요구'는 어감이 달라요.",
+      "promptDe": "Auch wenn beide Wörter Ähnliches bedeuten, haben 부탁 und 요구 eine andere Klangwirkung.",
+      "promptEn": "Even though they have a similar meaning, 부탁 and 요구 carry different connotations.",
+      "distractors": [
+        "용례가",
+        "같아요"
+      ],
+      "vocabKo": "어감"
+    },
+    {
+      "id": "satz_b2_0091",
+      "level": "b2",
+      "targetKo": "답변의 내용보다 차가운 말투가 더 불편하게 느껴졌어요.",
+      "promptDe": "Mehr als der Inhalt der Antwort wirkte der kühle Sprechton unangenehm.",
+      "promptEn": "More than the content of the reply, its cold tone felt uncomfortable.",
+      "distractors": [
+        "대조가",
+        "더 중요했어요"
+      ],
+      "vocabKo": "말투"
+    },
+    {
+      "id": "satz_b2_0092",
+      "level": "b2",
+      "targetKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
+      "promptDe": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
+      "promptEn": "Dictionary usage examples show the situations in which this expression is used.",
+      "distractors": [
+        "상징을",
+        "설명할 수 있어요"
+      ],
+      "vocabKo": "용례"
+    },
+    {
+      "id": "satz_b2_0093",
+      "level": "b2",
+      "targetKo": "관용어는 낱말을 그대로 번역하면 뜻이 잘 전달되지 않을 수 있어요.",
+      "promptDe": "Bei Redewendungen geht die Bedeutung leicht verloren, wenn man die einzelnen Wörter wörtlich übersetzt.",
+      "promptEn": "With idiomatic expressions, the meaning can be lost when the words are translated literally.",
+      "distractors": [
+        "비속어는",
+        "항상 쉬워요"
+      ],
+      "vocabKo": "관용어"
+    },
+    {
+      "id": "satz_b2_0094",
+      "level": "b2",
+      "targetKo": "공식 안내문에서는 상황에 맞는 격식을 지키는 것이 중요해요.",
+      "promptDe": "In einer offiziellen Mitteilung ist es wichtig, ein zur Situation passendes Maß an Formellheit zu wahren.",
+      "promptEn": "In an official notice, it is important to use a level of formality that fits the situation.",
+      "distractors": [
+        "상징을",
+        "반복하는 것이"
+      ],
+      "vocabKo": "격식"
+    },
+    {
+      "id": "satz_b2_0095",
+      "level": "b2",
+      "targetKo": "비속어는 가까운 사이에서도 상대에 따라 무례하게 들릴 수 있어요.",
+      "promptDe": "Auch unter vertrauten Menschen kann derbe Sprache je nach Gegenüber unhöflich wirken.",
+      "promptEn": "Even among close people, slang can sound rude depending on who hears it.",
+      "distractors": [
+        "관용어는",
+        "쉽게 통용될 수 있어요"
+      ],
+      "vocabKo": "비속어"
+    },
+    {
+      "id": "satz_b2_0096",
+      "level": "b2",
+      "targetKo": "거절할 때는 이유를 덧붙이면 표현이 더 완곡해져요.",
+      "promptDe": "Wenn man bei einer Ablehnung einen Grund ergänzt, wirkt die Formulierung indirekter und schonender.",
+      "promptEn": "Adding a reason when you decline makes the wording more indirect and considerate.",
+      "distractors": [
+        "길어지면",
+        "더 강해져요"
+      ],
+      "vocabKo": "완곡하다"
+    },
+    {
+      "id": "satz_b2_0097",
+      "level": "b2",
+      "targetKo": "한때 유행한 표현도 시간이 지나면 더 이상 널리 통용되지 않을 수 있어요.",
+      "promptDe": "Auch ein Ausdruck, der einmal beliebt war, kann mit der Zeit nicht mehr allgemein gebräuchlich sein.",
+      "promptEn": "Even an expression that was once popular may no longer be widely used over time.",
+      "distractors": [
+        "자연스럽게",
+        "설명될 수 있어요"
+      ],
+      "vocabKo": "통용되다"
+    },
+    {
+      "id": "satz_b2_0098",
+      "level": "b2",
+      "targetKo": "새로운 말이 여러 세대에 자연스럽게 쓰이면 일상어로 정착할 수 있어요.",
+      "promptDe": "Wenn ein neues Wort von mehreren Generationen selbstverständlich verwendet wird, kann es sich als Alltagssprache etablieren.",
+      "promptEn": "When a new word is naturally used across generations, it can become established in everyday language.",
+      "distractors": [
+        "서술로",
+        "대조될 수 있어요"
+      ],
+      "vocabKo": "정착하다"
+    },
+    {
+      "id": "satz_b2_0099",
+      "level": "b2",
+      "targetKo": "의도를 설명하지 않은 짧은 답장은 불필요한 오해를 낳기 쉬워요.",
+      "promptDe": "Eine kurze Antwort ohne Erklärung der Absicht kann leicht unnötige Missverständnisse hervorrufen.",
+      "promptEn": "A short reply that does not explain its intent can easily cause unnecessary misunderstandings.",
+      "distractors": [
+        "새로운 용례를",
+        "정착시키기 쉬워요"
+      ],
+      "vocabKo": "오해를 낳다"
+    },
+    {
+      "id": "satz_b2_0100",
+      "level": "b2",
+      "targetKo": "같은 의견도 표현 방식에 따라 상대가 받아들이는 느낌이 달라져요.",
+      "promptDe": "Je nach Art der Formulierung kann dieselbe Meinung beim Gegenüber anders ankommen.",
+      "promptEn": "The same opinion can land differently depending on how it is phrased.",
+      "distractors": [
+        "시간에",
+        "변하지 않아요"
+      ],
+      "vocabKo": "표현 방식"
+    },
+    {
+      "id": "satz_b2_0101",
+      "level": "b2",
+      "targetKo": "여러 상황의 대화를 비교해 보면 상황에 맞는 언어 감각이 자라요.",
+      "promptDe": "Wenn man Gespräche aus verschiedenen Situationen vergleicht, entwickelt sich ein Gespür für passende Sprache.",
+      "promptEn": "Comparing conversations from different situations builds a feel for language that fits the context.",
+      "distractors": [
+        "상징이",
+        "같아져요"
+      ],
+      "vocabKo": "언어 감각"
     }
   ]
 }

@@ -10,9 +10,11 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 void main() {
   setUp(() async {
+    TigerStageVideo.videoReady = false;
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -99,7 +101,7 @@ void main() {
     expect(continueAction, isNotNull);
     continueAction!();
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 350));
+    await tester.pump(const Duration(milliseconds: 2500));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 

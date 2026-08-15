@@ -161,10 +161,10 @@ class AppL10nDe extends AppL10n {
       'In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.';
 
   @override
-  String get characterSelectedTiger => '태고가 선택되었습니다.';
+  String get characterSelectedTiger => 'Du hast Taego ausgewählt.';
 
   @override
-  String get characterSelectedMagpie => '조이가 선택되었습니다.';
+  String get characterSelectedMagpie => 'Du hast Joy ausgewählt.';
 
   @override
   String get characterSelectionHint => 'Tipp deinen Lernfreund an';

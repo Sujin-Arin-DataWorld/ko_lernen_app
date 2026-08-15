@@ -24,6 +24,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 import validate_batch_01 as batch
+import integrate_review_batches as integration
 
 
 class Batch01PreReviewValidationTest(unittest.TestCase):
@@ -53,6 +54,109 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         )
         self._copy_file("lib/services/vocab_pack_service.dart")
         self._copy_file("lib/widgets/sori/dancheong_stamp.dart")
+        self._rewind_promoted_batches()
+
+    def _rewind_promoted_batches(self) -> None:
+        """Keep the pre-review validator fixture independent of live promotion."""
+
+        data = self.root / "assets" / "data"
+        vocab_bases: set[str] = set()
+
+        # C1 Batch 04 scenarios rely on C0 grammar that this fixture rewinds.
+        # Exclude just their live payload and content links, while retaining
+        # the already-approved C1 review source for independent coverage.
+        scenario_manifest = json.loads(
+            (self.root / "tools/content_factory/drafts/batch_04_manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        scenario_draft = json.loads(
+            (self.root / scenario_manifest["artifacts"][0]["draft"]).read_text(
+                encoding="utf-8"
+            )
+        )
+        scenario_ids = {row["id"] for row in scenario_draft["scenarios"]}
+        scenarios_path = data / "scenarios.json"
+        scenarios = json.loads(scenarios_path.read_text(encoding="utf-8"))
+        scenarios["scenarios"] = [
+            row for row in scenarios["scenarios"] if row["id"] not in scenario_ids
+        ]
+        scenarios_path.write_text(
+            json.dumps(scenarios, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        curriculum_path = data / "curriculum_manifest.json"
+        curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
+        curriculum["contentLinks"] = [
+            row for row in curriculum["contentLinks"] if row.get("contentId") not in scenario_ids
+        ]
+        curriculum_path.write_text(
+            json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        audit_path = data / "content_audit_manifest.json"
+        audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        for source in audit["sources"]:
+            if source["kind"] == "scenario":
+                source["count"] = len(scenarios["scenarios"])
+            elif source["kind"] == "scenarioQuest":
+                source["count"] = sum(len(row["quests"]) for row in scenarios["scenarios"])
+        audit_path.write_text(
+            json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+        # Batch 04 promotes scenarios through its own C1 integrator.  This
+        # fixture intentionally rewinds only the C0 multi-artifact batches.
+        for manifest_path in [
+            self.root / "tools/content_factory/drafts" / f"batch_{number:02d}_manifest.json"
+            for number in (1, 2, 3)
+        ]:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            for artifact in manifest["artifacts"]:
+                kind = artifact["kind"]
+                target_name, collection, _ = integration.TARGETS[kind]
+                target = data / target_name
+                draft = self.root / artifact["draft"]
+                if collection is None:
+                    header, incoming = batch._read_csv(draft)
+                    current_header, current = batch._read_csv(target)
+                    self.assertEqual(header, current_header)
+                    incoming_ids = {row["id"] for row in incoming}
+                    batch._write_csv(target, current_header, [row for row in current if row["id"] not in incoming_ids])
+                else:
+                    payload = json.loads(target.read_text(encoding="utf-8"))
+                    incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
+                    incoming_ids = {row["id"] for row in incoming}
+                    payload[collection] = [row for row in payload[collection] if row["id"] not in incoming_ids]
+                    target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+            vocab_bases.update(integration._base_pack_id(pack["packId"]) for pack in manifest["vocabPacks"])
+            manifest["status"] = "review_only_draft"
+            manifest["provenance"].pop("approval", None)
+            manifest["provenance"].pop("mergedAt", None)
+            manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            for artifact in manifest["artifacts"]:
+                review = self.root / artifact["review"]
+                header, rows = batch._read_csv(review)
+                for row in rows:
+                    row["상태"] = "draft"
+                    row["jin_memo"] = ""
+                batch._write_csv(review, header, rows)
+
+        service = self.root / "lib/services/vocab_pack_service.dart"
+        service_text = service.read_text(encoding="utf-8")
+        for base in vocab_bases:
+            while True:
+                line = next(
+                    (
+                        candidate
+                        for candidate in service_text.splitlines(keepends=True)
+                        if candidate.lstrip().startswith(f"'{base}':")
+                    ),
+                    "",
+                )
+                if not line:
+                    break
+                service_text = service_text.replace(line, "", 1)
+        service.write_text(service_text, encoding="utf-8")
 
     def _copy_file(self, relative: str) -> None:
         source = REPO_ROOT / relative

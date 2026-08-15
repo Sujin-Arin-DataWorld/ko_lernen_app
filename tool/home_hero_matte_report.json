@@ -21,9 +21,9 @@
       "reason": ""
     },
     {
-      "path": "tiger_rise_hanji.mp4",
-      "bytes": 1116954,
-      "sha256": "876711E4064A1536179850B1E5F9CE7B923C612D0239FFB5773C0896329486EA",
+      "path": "tiger_thinking_hanji.mp4",
+      "bytes": 574250,
+      "sha256": "1102664DB4DF6A43D993C5FC38860D69440913859134B46077EC25D494D13ECB",
       "ok": true,
       "color_tags": {
         "color_space": "bt709",
@@ -33,7 +33,7 @@
       },
       "matte": "#FBF5EB",
       "match_ratio": 1.0,
-      "frames_sampled": 121,
+      "frames_sampled": 240,
       "reason": ""
     }
   ]

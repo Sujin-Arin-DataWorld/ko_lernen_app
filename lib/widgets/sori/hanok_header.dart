@@ -187,7 +187,7 @@ class HanokHeader extends StatelessWidget {
   static const double _askBelowHeight = 700;
 }
 
-/// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 무음 루프 크로스페이드.
+/// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 영상 크로스페이드.
 ///
 /// 초기화 실패(영상 미존재 포함)는 조용히 포스터 유지 — 콜사이트마다 영상이
 /// 있을 필요가 없다. [HanokHeader] 내부용이었다가 시나리오 인트로 아트·
@@ -203,6 +203,11 @@ class SoriPosterLoop extends StatefulWidget {
   /// 포스터·영상 BoxFit — [HanokHeader.fit] 을 그대로 전달받는다(기본 cover).
   final BoxFit fit;
 
+  /// `true`면 기존 앰비언트 헤더처럼 반복하고, `false`면 한 번 재생한 뒤
+  /// 마지막 프레임을 유지한다. 시작/끝 구도가 다른 건축 성장 영상은 반복 시
+  /// 완성 한옥이 빈 마당으로 튀므로 반드시 원샷으로 사용한다.
+  final bool loop;
+
   /// 루프 음량은 **파라미터로 받지 않는다.** [AudioPolicy] 가 단일 진실원천이다
   /// (ADR-002 §3-2) — `SoundChannel.ambience` 의 on/off·볼륨·에셋별 정규화
   /// 게인·TTS 더킹이 전부 `volumeFor()` 한 곳에서 결정된다.
@@ -214,6 +219,7 @@ class SoriPosterLoop extends StatefulWidget {
     required this.videoAsset,
     required this.poster,
     this.fit = BoxFit.cover,
+    this.loop = true,
   });
 
   @override
@@ -238,7 +244,7 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
       eligible: false,
       prepare: (video) async {
         await video.setVolume(_ambienceVolume());
-        await video.setLooping(true);
+        await video.setLooping(widget.loop);
       },
       onGranted: _onGranted,
       onRevoked: _onRevoked,

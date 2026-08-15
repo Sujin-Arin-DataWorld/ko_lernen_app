@@ -18,15 +18,18 @@ voice: 'female' = ko-KR-Chirp3-HD-Zephyr     (단어·예문·user 대화 기본
   1. `gcloud auth login` (vjinny2@gmail.com) + 프로젝트 ko-lernen-app
   2. Cloud Text-to-Speech API 활성화 (이미 됨)
   3. Firebase Storage 활성화 → 아래 BUCKET 을 실제 버킷명으로 교정
-  4. 재실행 안전: 로컬에 이미 만든 mp3 + Storage 에 이미 있는 객체는 건너뜀
-       (rsync 가 변경분만 업로드)
+  4. 재실행 안전: 로컬에 이미 만든 mp3는 건너뛴다. `--missing-from-storage`는
+       Firebase Storage 키까지 대조해 실제 누락분만 합성하고 rsync로 업로드한다.
 
 실행:
     python3 tool/generate_tts.py
     python3 tool/generate_tts.py --dry-run  # 인증·합성·업로드 없이 수집 목록 확인
+    python3 tool/generate_tts.py --missing-from-storage --workers 4
+    python3 tool/generate_tts.py --verify-storage  # 원격 키 완전성만 검사
 """
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import base64
 import csv
 import hashlib
@@ -117,6 +120,28 @@ def cache_relative_path(voice, text):
 def _auth():
     """API 키가 설정돼 있으면 gcloud 불필요(None 반환). 없으면 gcloud 토큰."""
     return None if API_KEY else token()
+
+
+def remote_cache_paths():
+    """Return immutable v3 object paths already present in Firebase Storage."""
+    prefix = f"gs://{BUCKET}/"
+    result = subprocess.run(
+        gcloud_argv(
+            "storage",
+            "ls",
+            "--recursive",
+            f"gs://{BUCKET}/tts/{TTS_CACHE_REVISION}/",
+        ),
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    return {
+        line.removeprefix(prefix)
+        for line in result.stdout.splitlines()
+        if line.startswith(prefix) and line.endswith(".mp3")
+    }
 
 
 def collect():
@@ -332,7 +357,10 @@ def _synth_raw(tok, voice_name, text, rate):
         resp = json.load(urllib.request.urlopen(req))
     except urllib.error.HTTPError as e:  # 403(API 미활성)·400 등 본문 노출.
         detail = e.read().decode("utf-8", "ignore")[:400]
-        raise SystemExit(f"TTS API 오류 {e.code}: {detail}")
+        # A single quota-limited request must not terminate an in-flight
+        # batch before the successfully synthesized cache can be uploaded.
+        # The caller reports this item and a later missing-only run retries it.
+        raise RuntimeError(f"TTS API 오류 {e.code}: {detail}") from e
     return base64.b64decode(resp["audioContent"])
 
 
@@ -508,6 +536,22 @@ def _parse_args(argv=None):
         action="store_true",
         help="List collected utterances without authentication, synthesis, or upload.",
     )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=16,
+        help="Concurrent synthesis requests (default: 16; ignored by --dry-run).",
+    )
+    parser.add_argument(
+        "--missing-from-storage",
+        action="store_true",
+        help="Synthesize only cache keys absent from Firebase Storage, then rsync them.",
+    )
+    parser.add_argument(
+        "--verify-storage",
+        action="store_true",
+        help="Compare the collected corpus with Firebase Storage without synthesis or writes.",
+    )
     return parser.parse_args(argv)
 
 
@@ -546,32 +590,71 @@ def main(argv=None):
         _print_dry_run(pairs)
         return 0
 
+    if args.verify_storage:
+        expected = {cache_relative_path(voice, text) for voice, text in pairs}
+        remote_paths = remote_cache_paths()
+        missing = sorted(expected - remote_paths)
+        unexpected = sorted(remote_paths - expected)
+        print(
+            f"Storage verify — expected {len(expected)}, remote {len(remote_paths)}, "
+            f"missing {len(missing)}, stale {len(unexpected)}"
+        )
+        for path in missing:
+            print(f"MISSING\t{path}")
+        return 1 if missing else 0
+
     if not API_KEY:
         print("ℹ️  GOOGLE_TTS_API_KEY 미설정 → gcloud 인증 시도(SDK 필요).")
         print("    API 키를 쓰면 gcloud 없이 됩니다(권장). 보고 참고.")
 
+    if args.workers < 1:
+        raise SystemExit("--workers must be at least 1")
+    remote_paths = set()
+    if args.missing_from_storage:
+        print("Firebase Storage v3 캐시 확인 중…")
+        remote_paths = remote_cache_paths()
+        print(f"원격 캐시 {len(remote_paths)}개")
     tok = _auth()
-    made = 0
-    skipped = 0
-    for i, (voice, text) in enumerate(pairs):
-        path = os.path.join(OUT, *cache_relative_path(voice, text).split("/"))
+    pending = []
+    local_skipped = 0
+    remote_skipped = 0
+    for voice, text in pairs:
+        relative_path = cache_relative_path(voice, text)
+        path = os.path.join(OUT, *relative_path.split("/"))
         if os.path.exists(path) and os.path.getsize(path) > 0:
-            skipped += 1
+            local_skipped += 1
+            continue
+        if relative_path in remote_paths:
+            remote_skipped += 1
             continue
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        try:
-            data = synth(tok, voice, text)
-            with open(path, "wb") as fh:
-                fh.write(data)
-            made += 1
-            if made % 50 == 0:
-                print(f"  합성 {made}…")
-            if not API_KEY and made % 300 == 0:  # gcloud 토큰 1h 만료 방어
-                tok = token()
-        except Exception as e:  # noqa: BLE001
-            print("FAIL", repr(text[:24]), str(e)[:100])
+        pending.append((voice, text, path))
 
-    print(f"합성 {made}개 / 건너뜀 {skipped}개 → 업로드 시작")
+    def synthesize_one(item):
+        voice, text, path = item
+        data = synth(tok, voice, text)
+        with open(path, "wb") as fh:
+            fh.write(data)
+        return text
+
+    made = 0
+    print(f"병렬 합성 시작: {len(pending)}개, workers={args.workers}")
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        futures = {pool.submit(synthesize_one, item): item for item in pending}
+        for future in as_completed(futures):
+            voice, text, _ = futures[future]
+            try:
+                future.result()
+                made += 1
+                if made % 50 == 0:
+                    print(f"  합성 {made}…")
+            except Exception as e:  # noqa: BLE001
+                print("FAIL", repr(text[:24]), str(e)[:100])
+
+    print(
+        f"합성 {made}개 / 로컬 건너뜀 {local_skipped}개 / "
+        f"원격 건너뜀 {remote_skipped}개 → 업로드 시작"
+    )
 
     # Upload only this immutable revision.  Prior revision files stay untouched.
     revision_root = os.path.join(OUT, "tts", TTS_CACHE_REVISION)

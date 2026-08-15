@@ -1,6 +1,6 @@
 # B2 심화 콘텐츠 트랙 — 독립 집필 설계
 
-> 상태: Batch 03 review-only 초안의 설계 정본 · 2026-08-15
+> 상태: Batch 03 live 앱 본문의 설계 정본 · 2026-08-15
 
 이 트랙의 목표는 B2를 “어려운 한자어가 많은 B1”로 늘리는 것이 아니라, 학습자가 한
 입장에 이유를 붙이고, 텍스트의 뉘앙스를 해석하고, 말의 효과와 등록(register)을 조절하게
@@ -45,10 +45,11 @@ Jin 검수와 커리큘럼 병합 뒤에만 이 루프 위에 올린다.
 | Cloze | 12 | 36 | canonical 예문에서 answer 한 번만 가림 |
 | Satzbau | 12 | 36 | Cloze·어휘 예문과 KO/DE/EN가 정확히 일치 |
 
-모든 초안은 `tools/content_factory/drafts/`와 `tools/content_factory/review/`에만 둔다.
-`assets/data/`, TTS, Firebase, UI, 신규 motif 이미지는 이 트랙의 범위 밖이다. 리뷰 원장의
-상태는 시작 시 모두 `draft`이며, Jin의 `ok` 또는 `approved`와 함께 필요한 curriculum
-companion mapping이 준비되기 전에는 병합하지 않는다.
+원래 초안은 `tools/content_factory/drafts/`와 `tools/content_factory/review/`에 보존한다.
+2026-08-15 Jin의 명시 지시로 126 record와 필요한 curriculum companion mapping은
+`assets/data/`에 승격됐다. TTS, Firebase, UI, 신규 motif 이미지는 여전히 이 트랙의 범위
+밖이다. 이후 Batch 05+의 review 원장은 시작 시 모두 `draft`이며, Jin의 `ok` 또는
+`approved`와 필요한 mapping이 갖춰지기 전에는 병합하지 않는다.
 
 ## 집필 기준
 
@@ -62,9 +63,9 @@ companion mapping이 준비되기 전에는 병합하지 않는다.
 
 ## 후속 순서
 
-1. Batch 03의 KO 자연스러움·DE/EN 번역·Boss 난도·문법 focus를 Jin이 검수한다.
-2. 승인된 완전 pack만 어휘 → 문법 → 스몰토크/Cloze/Satz 순서로 companion mapping과 함께
-   통합한다.
-3. 통합된 same-level vocab·grammar ID를 참조해 3개의 짧은 B2 시나리오와 듣기 문항을
-   별도 batch로 설계한다.
-4. 마지막에만 TTS 요청 수를 다시 계산하고 실제 합성 여부를 결정한다.
+1. live Batch 03의 KO 자연스러움·DE/EN 번역·Boss 난도·문법 focus는 실제 앱에서 계속
+   검수한다.
+2. [완료] 통합된 same-level vocab·grammar ID를 참조한 C1 Batch 04 시나리오 16개
+   (B1 8/B2 8)와 듣기 퀘스트를 별도 승인·통합했다.
+3. [완료] Storage v3에 5,817개 현재 corpus key가 모두 존재하는지 `--verify-storage`로
+   확인했다. 이후 새 발화는 `--missing-from-storage --workers 4`로 누락분만 합성한다.

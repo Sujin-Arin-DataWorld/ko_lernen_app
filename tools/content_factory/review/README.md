@@ -4,6 +4,12 @@
 리뷰 시트에서 `id`와 `상태`(또는 `status`)만 읽습니다. 나머지 열은 검수 맥락과
 감사 기록용이며, 그 값을 앱 자산으로 변환하거나 보완하지 않습니다.
 
+Batch 01–04의 모든 ledger는 2026-08-15 live 승격을 기록하는 `approved` 상태다. 새
+Batch 05+는 모든 행을 `draft`로 시작한다. 여러 asset·curriculum·pack UI map이 필요한
+새 vocab/grammar/game batch는 `apply_review.py` 단독 `--apply`가 아니라
+`integrate_review_batches.py --manifest ...`로, scenario-only batch는
+`integrate_scenario_batch.py --manifest ...`로 원자적으로 승격한다.
+
 ## 공통 헤더와 상태
 
 최소 헤더는 아래 둘 중 하나입니다. 두 상태 열을 한 파일에 함께 넣으면 모호하므로
@@ -63,7 +69,7 @@ python3 tools/content_factory/apply_review.py \
   --target assets/data/korean_vocab.csv
 ```
 
-Jin이 preview와 draft를 확인한 뒤에만 `--apply`를 추가합니다.
+Jin이 preview와 draft를 확인한 뒤에만, 기존 한 asset의 유지보수에는 `--apply`를 추가합니다.
 
 ```bash
 python3 tools/content_factory/apply_review.py \
@@ -77,3 +83,12 @@ python3 tools/content_factory/apply_review.py \
 대상 자산 append → 해당 audit manifest count 갱신 → 전체 `validate_content.py` 순으로
 검사합니다. 어느 단계든 실패하면 대상 자산과 manifest를 모두 원래 내용으로 되돌립니다.
 `--no-manifest` 우회는 지원하지 않습니다.
+
+새 vocab pack·grammar·smalltalk·Cloze·Satz를 묶는 review batch는 preview 뒤 전체
+ledger와 companion mapping을 다음처럼 함께 적용한다.
+
+```bash
+python3 tools/content_factory/integrate_review_batches.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json \
+  --apply
+```

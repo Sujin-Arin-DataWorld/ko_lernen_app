@@ -145,13 +145,13 @@ class SoriCharacterHero extends StatelessWidget {
           ),
         );
 
-        // 캐릭터 밴드 — Jin 2026-08-06: 홈 히어로 = 캐릭터별 **단일 클립 루프**.
-        // 까치=magpie_walking_front, 호랑이(태고)=tiger_rise. bob2↔bob3 교대는 클립 사이
-        // 디코더 핸드오프마다 정적 폴백이 번쩍여 폐지 → 루프는 핸드오프가 없다.
+        // 캐릭터 밴드 — 홈 히어로 = 캐릭터별 **단일 클립 루프**.
+        // 까치=magpie_walking_front, 호랑이(태고)=tiger_thinking standing idle.
+        // `tiger_rise`는 원샷인데다 원본에서 기상 중 머리가 잘리고 루프 경계가
+        // 튀므로 홈에서 제외했다. bob2↔bob3 교대도 클립 사이 디코더 핸드오프마다
+        // 정적 폴백이 번쩍여 폐지 → 한 화면에는 루프 하나만 유지한다.
         // staticFallback:false → 로드 전/실패에도 흰 박스 대신 투명(배경 그대로).
-        // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 가 `!reduceMotion` 을 요구해
-        // (video_lease.dart) 접근성 설정 사용자는 영상을 아예 못 받는데, 폴백까지
-        // 꺼 두면 히어로 밴드가 통째로 빈칸이 된다.
+        // 영상 불가·다크에서는 정적 폴백을 명시적으로 켠다.
         final band = SizedBox(
           height: bandHeight,
           width: double.infinity,
@@ -175,13 +175,19 @@ class SoriCharacterHero extends StatelessWidget {
                 // ⚠️ forceStatic/다크의 Mascot PNG 는 투명 배경 — 줌 금지.
                 : ClipRect(
                     child: Transform.scale(
+                      key: ValueKey('home_hero_${kind.name}_scale'),
                       scale: _kHeroZoom,
-                      alignment: Alignment.bottomCenter,
+                      // 까치는 바닥 그림자를 유지해야 해 하단 고정. 호랑이
+                      // standing idle은 상하 여백이 충분해 중앙 확대해야 머리와
+                      // 발이 함께 안전하다.
+                      alignment: kind == MascotKind.magpie
+                          ? Alignment.bottomCenter
+                          : Alignment.center,
                       child: CharacterClipPlayer(
                         key: ValueKey('home_hero_${kind.name}'),
                         asset: kind == MascotKind.magpie
                             ? HomeHeroClips.magpieWalkingFront
-                            : HomeHeroClips.tigerRise,
+                            : HomeHeroClips.tigerThinking,
                         size: bandHeight,
                         loop: true,
                         // These home-only clips already contain the flat Hanji

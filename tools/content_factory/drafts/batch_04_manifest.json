@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "batch": "04",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original B1/B2 scenario and listening-dialog expansion tied to approved Hangul Sori content.",
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "Batch 04 scenarios, listening dialogue, curriculum links, and TTS synthesis"
+    },
+    "mergedAt": "2026-08-15"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/c1_batch04_scenarios_b1_b2.json",
+      "review": "tools/content_factory/review/c1_batch04_scenarios.csv",
+      "count": 16,
+      "levels": {
+        "b1": 8,
+        "b2": 8
+      }
+    }
+  ],
+  "recordCount": 16,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_leak_report",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_move_in_handover",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_contract_appointment",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_heating_safety_call",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_team_meeting_coordination",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_attendance_followup",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_covering_absence",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_reschedule_request",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_contract_clause_inquiry",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_deadline_deferral_request",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_signature_scope_confirmation",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_remedy_plan_request",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_objection_status_request",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_decision_criteria_workshop",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_reading_circle_response",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_public_wording_feedback",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "b1_leak_report": "home",
+    "b1_move_in_handover": "office",
+    "b1_contract_appointment": "office",
+    "b1_heating_safety_call": "home",
+    "b1_team_meeting_coordination": "office",
+    "b1_attendance_followup": "office",
+    "b1_covering_absence": "office",
+    "b1_reschedule_request": "office",
+    "b2_contract_clause_inquiry": "office",
+    "b2_deadline_deferral_request": "office",
+    "b2_signature_scope_confirmation": "office",
+    "b2_remedy_plan_request": "office",
+    "b2_objection_status_request": "office",
+    "b2_decision_criteria_workshop": "office",
+    "b2_reading_circle_response": "cafe",
+    "b2_public_wording_feedback": "cafe"
+  },
+  "mergeOrder": [
+    "scenario + contentLinks + scenario backdrop + audit manifest"
+  ]
+}

@@ -57,9 +57,14 @@ TOLERANCE = 2
 # pixels as background drift.
 MIN_MATCH_RATIO = 0.99
 EXPECTED_FRAMES = {
-    "tiger_rise_hanji.mp4": 121,
+    "tiger_thinking_hanji.mp4": 240,
     "magpie_walking_front_hanji.mp4": 113,
 }
+# `tiger_thinking_hanji` regeneration contract: libx264 `slow`, CRF 19, with
+# RGB pre-emphasis r=250/255, g=245/255, b=234/255 before yuv420p. The input
+# tint (#FAF5EA) compensates x264 chroma quantization and lands on the device
+# matte YUV (227,123,131) / #FBF5EB; it is not an app UI color. Encoding the
+# nominal #FAF6EC directly lands one Cr step low and makes the two clips drift.
 # 홈 클립은 반드시 이 태그를 들고 있어야 한다. 없으면 디코더마다 다른 색이
 # 나오고, 그게 2026-08-06~08-12 내내 "동영상 흰 배경"으로 보고된 원인이다.
 REQUIRED_TAGS = {

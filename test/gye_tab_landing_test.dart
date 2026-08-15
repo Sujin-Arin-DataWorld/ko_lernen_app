@@ -11,9 +11,12 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 void main() {
   setUp(() async {
+    TigerStageVideo.videoReady = false;
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_tut_gye_tab': true});
     await Storage.init();
@@ -41,6 +44,20 @@ void main() {
     expect(
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
+    );
+    expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
+    expect(
+      find.byType(GyeHanok),
+      findsNothing,
+      reason: '빈 화면은 진행도 레이어 8장을 한꺼번에 합성하지 않는다',
+    );
+    final showcase = tester.widget<Image>(
+      find.byKey(const ValueKey('gye-showcase-artwork')),
+    );
+    expect((showcase.image as AssetImage).assetName, GyeShowcaseArtwork.asset);
+    expect(
+      GyeShowcaseArtwork.videoAsset,
+      'assets/video/gye/gye_shared_hanok_build.mp4',
     );
     // §P5-1 (2026-08-14, 의도된 변경): 문단 3개 → 1줄 칩 카드. 장문 설명은
     // 삭제되지 않고 ⓘ 상세 시트로 강등됐다 (§C-2 원칙).

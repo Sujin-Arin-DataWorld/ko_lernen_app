@@ -220,18 +220,6 @@ class _IntroEmpty extends StatelessWidget {
     this.embedded = false,
   });
 
-  /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
-  /// "함께 지으면 자란다"를 실물 성장 중간 단계로 시연한다.
-  static const GyeMeta _previewMeta = GyeMeta(
-    id: 'preview',
-    name: '',
-    code: '',
-    ownerId: '',
-    lifetimeGoalsAchieved: 3,
-    weeklyGoalPacks: 5,
-    weeklyGoalProgress: 3,
-  );
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -261,14 +249,14 @@ class _IntroEmpty extends StatelessWidget {
           ),
         ],
         const SizedBox(height: Spacing.xs),
-        // §P5-1-2: 유령 프리뷰 → 쇼케이스 — 8레이어 전부 실체(1.0).
-        // (기존: 4 실체 · 1 부분 · 3 유령(0.22) — 영감을 줘야 할 그림이
-        // 깨져 보였다.)
+        // §P5-1-2: 빈 화면은 진행도 합성이 아니라 단일 공동마당 쇼케이스.
+        // 서로 다른 원근의 8개 레이어를 완성 종가 위에 모두 켜던 방식은
+        // 건물이 뭉쳐 보이므로 실제 가입 계의 진행도 renderer와 분리한다.
         ClipRRect(
           borderRadius: SoriRadius.brLg,
           child: AspectRatio(
             aspectRatio: 393 / 220,
-            child: GyeHanok(meta: _previewMeta, showcase: true),
+            child: const GyeShowcaseArtwork(),
           ),
         ),
         const SizedBox(height: Spacing.xs),

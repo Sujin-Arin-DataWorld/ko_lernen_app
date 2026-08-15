@@ -25,11 +25,11 @@
     {
       "id": "cloze_b2_0084",
       "level": "b2",
-      "sentenceKo": "이번 결정에서는 빠른 결과보다 오래 지킬 수 있는 기준을 ＿＿＿ 해요.",
-      "answer": "우선시하려고",
-      "fullKo": "이번 결정에서는 빠른 결과보다 오래 지킬 수 있는 기준을 우선시하려고 해요.",
-      "de": "Bei dieser Entscheidung möchte ich einen Maßstab priorisieren, den ich langfristig einhalten kann.",
-      "en": "For this decision, I want to prioritize a standard I can uphold over time.",
+      "sentenceKo": "이번 결정에서는 빠른 결과보다 장기적인 영향을 충분히 ＿＿＿ 해요.",
+      "answer": "숙고하려고",
+      "fullKo": "이번 결정에서는 빠른 결과보다 장기적인 영향을 충분히 숙고하려고 해요.",
+      "de": "Bei dieser Entscheidung möchte ich die langfristigen Folgen statt nur schneller Ergebnisse gründlich abwägen.",
+      "en": "For this decision, I want to weigh the long-term consequences carefully rather than just quick results.",
       "distractors": ["바꾸려고", "피하려고", "기억하려고"],
       "topic": "Entscheidungen & Perspektiven"
     },

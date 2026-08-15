@@ -9,7 +9,9 @@ import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 /// 캐릭터 선택 화면 (2026-08-03 일월 무대 리디자인) 스모크.
 ///
@@ -20,6 +22,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    TigerStageVideo.videoReady = false;
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -55,6 +58,11 @@ void main() {
     expect(find.textContaining('Herr der Berge'), findsOneWidget);
     expect(find.textContaining('Glücksbotin'), findsOneWidget);
     expect(find.text('Tipp deinen Lernfreund an'), findsOneWidget);
+    expect(
+      find.byType(CharacterClipPlayer),
+      findsNothing,
+      reason: '선택 전에는 native ambient video를 만들지 않는다',
+    );
     expect(tester.takeException(), isNull);
   });
 
@@ -73,7 +81,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('호랑이 탭 → 정적 확정 화면 → 동의 화면으로 진행', (tester) async {
+  testWidgets('호랑이 탭 → tiger choose 완료 → 동의 화면으로 진행', (tester) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -84,13 +92,20 @@ void main() {
     await tester.tap(find.textContaining('태고', findRichText: true));
     await tester.pump();
 
-    // 선택 확정 — 영상 대신 정적 대형 마스코트 + 볼드 녹청 캡션.
-    // 카드/제목은 걷히고 확정 연출만 남는다.
-    expect(find.text('태고가 선택되었습니다.'), findsOneWidget);
+    // videoReady=false인 테스트에서는 정적 폴백이 보이지만, 화면 계약은
+    // tiger_choose 원샷이고 실제 영상 완료 콜백과 같은 경로로 진행한다.
+    final player = tester.widget<CharacterClipPlayer>(
+      find.byType(CharacterClipPlayer),
+    );
+    expect(player.asset, CharacterClips.tigerChoose);
+    expect(player.loop, isFalse);
+    expect(find.text('Du hast Taego ausgewählt.'), findsOneWidget);
     expect(find.text('Tipp deinen Lernfreund an'), findsNothing);
 
-    // _advanceGuard 2400ms 타이머 → 미동의라 ConsentScreen 으로.
-    await tester.pump(const Duration(milliseconds: 2500));
+    await tester.pump(const Duration(milliseconds: 2300));
+    expect(find.byType(ConsentScreen), findsNothing);
+    // 영상 불가 폴백의 2400ms가 끝나면 미동의라 ConsentScreen 으로.
+    await tester.pump(const Duration(milliseconds: 200));
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.byType(ConsentScreen), findsOneWidget);
 
@@ -161,6 +176,11 @@ void main() {
     expect(find.text('Taego will learn with you.'), findsOneWidget);
     expect(tester.widget<SoriButton>(continueButton).onTap, isNotNull);
     expect(
+      find.byType(CharacterClipPlayer),
+      findsNothing,
+      reason: '카드 탭은 선택만 staging하고 확정 영상은 Continue 뒤에 연다',
+    );
+    expect(
       find.byKey(const ValueKey('companion-option-magpie')),
       findsOneWidget,
     );
@@ -176,10 +196,23 @@ void main() {
     await tester.tap(continueButton);
     await tester.pump();
 
-    expect(completed, isTrue);
+    expect(completed, isFalse);
     expect(Storage.introPreviewSeen, isTrue);
     preferences = await SharedPreferences.getInstance();
     expect(preferences.getString('kl_preferred_mascot'), 'magpie');
+    final player = tester.widget<CharacterClipPlayer>(
+      find.byType(CharacterClipPlayer),
+    );
+    expect(player.asset, CharacterClips.magpieChoose);
+    expect(player.loop, isFalse);
+    expect(find.text('You chose Joy.'), findsOneWidget);
+    expect(find.byKey(const ValueKey('companion-option-tiger')), findsNothing);
+
+    await tester.pump(const Duration(milliseconds: 2300));
+    expect(completed, isFalse);
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump();
+    expect(completed, isTrue);
     expect(tester.takeException(), isNull);
   });
 

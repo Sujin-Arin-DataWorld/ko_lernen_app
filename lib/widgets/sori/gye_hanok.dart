@@ -5,8 +5,51 @@ import '../../models/gye.dart';
 import '../../models/gye_lantern_progress.dart';
 import '../../models/hanok_stage.dart';
 import 'gye_dedication_layer.dart';
+import 'hanok_header.dart';
 import 'madang_background.dart';
+import 'tiger_video.dart' show TigerStageVideo;
 import 'tokens.dart';
+
+/// 계가 아직 없을 때 보여 주는 공동마당 완성 예시.
+///
+/// 진행도용 [GyeHanok] 레이어 8장을 한꺼번에 켜면 서로 다른 원근과 축척이
+/// 완성 종가 배경 위에 겹쳐져 건물이 뭉쳐 보인다. 빈 화면은 진행도 시뮬레이션이
+/// 아니라 영감용 한 장면이므로, 동일한 Faceted Minhwa 세계관의 단일 16:9
+/// courtyard 프레임을 쓴다. 실제 가입한 계의 주간/누적 진행 표현과는 분리한다.
+class GyeShowcaseArtwork extends StatelessWidget {
+  static const String asset =
+      'assets/illustrations/gye/gye_showcase_courtyard.webp';
+  static const String videoAsset =
+      'assets/video/gye/gye_shared_hanok_build.mp4';
+
+  const GyeShowcaseArtwork({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final poster = Image.asset(
+      key: const ValueKey('gye-showcase-artwork'),
+      asset,
+      fit: BoxFit.cover,
+      alignment: Alignment.center,
+      gaplessPlayback: true,
+      excludeFromSemantics: true,
+      errorBuilder: (_, __, ___) => const MadangBackground(
+        stage: HanokStage.jongga,
+        child: SizedBox.expand(),
+      ),
+    );
+    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+      return poster;
+    }
+    return SoriPosterLoop(
+      key: const ValueKey('gye-showcase-build-video'),
+      videoAsset: videoAsset,
+      poster: poster,
+      fit: BoxFit.cover,
+      loop: false,
+    );
+  }
+}
 
 /// 계 공동 한옥 — 종갓집 배경 위에 계 추가 요소(gye_* 8장)를 합성. plan §7.5.
 ///
@@ -21,17 +64,10 @@ class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
 
-  /// §P5-1 (2026-08-14): 쇼케이스 모드 — 단계 불투명도 계산을 우회하고
-  /// **8레이어 전부 1.0** 으로 그린다. 빈 상태의 "이렇게 자랄 수 있다"
-  /// 미리보기용 — 유령(0.22) 레이어가 섞인 그림은 영감을 주기는커녕 깨져
-  /// 보인다. 실제 계 마당(진행도 표현)에는 절대 쓰지 말 것.
-  final bool showcase;
-
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
-    this.showcase = false,
   });
 
   @override
@@ -73,16 +109,8 @@ class _GyeHanokState extends State<GyeHanok>
     _syncPulse();
   }
 
-  @override
-  void didUpdateWidget(covariant GyeHanok oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.showcase != widget.showcase) {
-      _syncPulse();
-    }
-  }
-
   void _syncPulse() {
-    final shouldAnimate = !widget.showcase && !SoriMotion.reduceMotion(context);
+    final shouldAnimate = !SoriMotion.reduceMotion(context);
     if (shouldAnimate) {
       if (!_pulse.isAnimating) {
         _pulse.repeat(reverse: true);
@@ -104,9 +132,6 @@ class _GyeHanokState extends State<GyeHanok>
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
   double _baseOpacity(int i, GyeLanternProgress progress) {
-    if (widget.showcase) {
-      return 1.0;
-    }
     if (i < progress.permanentElementCount) {
       return 1.0;
     }
@@ -133,7 +158,7 @@ class _GyeHanokState extends State<GyeHanok>
               GyeDedicationLayer(dedications: widget.dedications),
             ],
           );
-          if (widget.showcase || reduce) {
+          if (reduce) {
             return content();
           }
           return AnimatedBuilder(
@@ -156,9 +181,7 @@ class _GyeHanokState extends State<GyeHanok>
     // "짓는 중" = 다음 요소(미완성). 진행률과 무관하게 은은히 호흡해 살아있게.
     final building = i == progress.permanentElementCount && base < 1.0;
     // The gold treatment acknowledges the present illustration state only.
-    // 쇼케이스(§P5-1)는 진행 연출 없이 완성본만 보여 준다.
     final complete =
-        !widget.showcase &&
         i == progress.permanentElementCount &&
         base >= 1.0 &&
         progress.hasWeeklyGoal;

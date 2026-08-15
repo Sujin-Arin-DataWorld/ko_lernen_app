@@ -9,11 +9,17 @@
 ## C0 정본: 생성 → Jin 검수 → 승인 병합
 
 새 콘텐츠의 정본 워크플로는 기존 개별 `add_*`/`build_*` 스크립트가 아니라
-`validate_content.py`와 `apply_review.py`다. 생성 draft는 앱이 읽는 완전한
+`validate_content.py`, `apply_review.py`, 그리고 여러 asset을 함께 다루는
+`integrate_review_batches.py`/`integrate_scenario_batch.py`다. 생성 draft는 앱이 읽는 완전한
 CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만으로 승인 여부를
 기록한다. Batch 01의 고정 계약은 `validate_batch_01.py`로, 이후 batch의 manifest
 계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
+
+> **2026-08-15 live baseline.** C0 Batch 01–03과 C1 시나리오 Batch 04는 Jin 승인 뒤
+> `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 05이며 새
+> manifest/draft/review로 시작한다. 새 vocab·grammar·smalltalk·Cloze·Satz에는
+> `apply_review.py` 단독 append가 아니라 아래의 multi-asset 통합기를 사용한다.
 
 > **신규 작성자는 먼저 [`docs/CONTENT_AUTHORING_GUIDE.md`](../../docs/CONTENT_AUTHORING_GUIDE.md)를
 > 전부 읽는다.** 이 문서는 KO/DE/EN 병기, 모든 draft 열·JSON field, Batch 01 고정
@@ -36,11 +42,24 @@ python3 tools/content_factory/apply_review.py \
   --draft /absolute/path/<schema-complete-draft>.json \
   --target assets/data/<target>.json
 
-# Jin이 approved ID를 확인한 뒤에만 병합한다.
+# 기존 asset 하나만 변경하는 유지보수에서 Jin이 approved ID를 확인한 뒤에만 병합한다.
 python3 tools/content_factory/apply_review.py \
   tools/content_factory/review/<phase>_<type>.csv \
   --draft /absolute/path/<schema-complete-draft>.json \
   --target assets/data/<target>.json --apply
+
+# 새 review-only batch의 vocab·grammar·smalltalk·Cloze·Satz와 동반 curriculum/UI map을
+# validator/rollback과 하나의 transaction으로 병합한다. --manifest를 명시한 기본은 preview다.
+python3 tools/content_factory/integrate_review_batches.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json
+
+# Jin의 명시 승인 뒤에만 쓴다. --approve-all은 review 원장의 완전 pack 승인만 허용한다.
+python3 tools/content_factory/integrate_review_batches.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply --approve-all
+
+# scenario-only batch는 scenario data·curriculum·backdrop을 함께 다룬다.
+python3 tools/content_factory/integrate_scenario_batch.py \
+  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply
 ```
 
 `ok`와 `approved`만 병합 가능하다. 빈 값·`draft`·`fix: ...`·`no`·`rejected`는
@@ -130,8 +149,7 @@ manifest에서 그 predecessor path를 제거한다. 이미 live인 콘텐츠는
 
 이 스크립트는 현재 15열 `korean_vocab.csv` 이전의 migration 도구다. 재실행하면
 영어 열과 명시적 ID를 포함한 현 스키마를 훼손할 수 있다. B1/B2 확장은 승인된
-완전 draft를 `apply_review.py`로 병합하고, 별도의 신규 pack-assignment 도구가
-생긴 뒤에만 pack 필드를 다룬다. 기존 pack 행은 불변이다.
+완전 draft를 승인 원장과 함께 multi-asset 통합기로 병합한다. 기존 pack 행은 불변이다.
 
 ### TTS 수집 확인
 
@@ -141,11 +159,19 @@ python3 tool/generate_tts.py --dry-run
 
 `--dry-run`은 현재 정적 자산을 `(voice, Korean text)` 단위로 dedup해 출력할
 뿐이며, 인증·합성·로컬 파일 생성·Firebase Storage 업로드를 수행하지 않는다.
-2026-08-14의 실제 수집 기준은 **5,288개 요청**(female 5,161 / male 127)이다.
-과거 문서의 약 1,314개 수치는 현재 비용 견적이나 완료 기준으로 쓰지 않는다.
+2026-08-15의 실제 수집 기준은 **5,817개 요청**(female 5,642 / male 175)이다.
+과거 문서의 5,288개 또는 약 1,314개 수치는 현재 비용 견적이나 완료 기준으로 쓰지 않는다.
 자산에 새 한국어 발화가 들어갈 때마다 dry-run 수량과 목록을 다시 검수한다.
 실제 `python3 tool/generate_tts.py` 실행 및 업로드는 Jin의 명시적 권한과 계정으로만
 수행한다.
+
+실제 승인 실행에서는 전체 local cache만 보고 재합성하지 않는다. 먼저 아래로 Firebase
+Storage와 대조한 뒤, 누락분만 합성한다.
+
+```bash
+python3 tool/generate_tts.py --missing-from-storage --workers 4
+python3 tool/generate_tts.py --verify-storage
+```
 
 ---
 
@@ -250,7 +276,8 @@ quests[{type, data}], culturalNote{ko,de,en}`
 ## 워크플로우 요약
 
 1. 완전 스키마 draft 생성 → 2. `validate_content.py` → 3. Jin 리뷰 원장 작성 →
-4. `apply_review.py` preview → 5. approved만 `--apply` 병합 → 6. validator +
+4. `apply_review.py` preview → 5. complete approved batch만 `integrate_review_batches.py --apply`
+병합 → 6. validator +
 Flutter 콘텐츠/그래프 게이트 → 7. 새 발화가 있으면 TTS dry-run → 8. Jin 커밋
 지시 대기.
 

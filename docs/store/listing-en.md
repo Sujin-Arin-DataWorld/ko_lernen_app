@@ -37,7 +37,7 @@ rewards, and use the decorations you collect to furnish rooms in your hanok.
 WHAT YOU CAN LEARN
 
 • Hangul from the ground up: consonants, vowels, and final consonants.
-• 930 vocabulary entries in 95 themed packs, from A1 to B2.
+• 1,044 vocabulary entries in 105 themed packs, from A1 to B2.
 • 39 real-life scenarios for places such as a cafe, market, hotel, subway, and
   pharmacy.
 • Grammar in context, listening, translation, and review activities.

@@ -17,7 +17,7 @@ Korean home) that grows as you learn.
 In this beta you can try:
 
 • Hangul from scratch — consonants, vowels, and final consonants
-• 930 vocabulary entries in themed packs, from A1 to B2
+• 1,044 vocabulary entries in themed packs, from A1 to B2
 • 39 real-life scenarios (cafe, market, hotel, subway, pharmacy, and more)
 • Grammar in context, plus listening, translation, and review
 • Special quests with Bojagi rewards that furnish rooms in your hanok

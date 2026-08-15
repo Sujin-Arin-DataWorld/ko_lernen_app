@@ -1,12 +1,18 @@
 {
   "version": 1,
   "batch": "01",
-  "status": "review_only_draft",
+  "status": "merged",
   "provenance": {
     "approvedTrack": "docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md#첫-제작-배치",
     "scope": "B1 housing and contracts; B2 formal agreements; service small talk; sentence games derived from the candidate vocabulary examples",
     "createdAt": "2026-08-14",
-    "requiresJinReview": true
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "all records promoted to bundled app content"
+    },
+    "mergedAt": "2026-08-15"
   },
   "artifacts": [
     {
@@ -66,8 +72,15 @@
       "packId": "b1_housing_contract_1",
       "level": "b1",
       "orderInLevel": 19,
-      "orderRange": [1, 12],
-      "reviewBossOrders": [10, 11, 12],
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
       "displayLabel": {
         "ko": "주거·계약",
         "de": "Wohnen & Vertrag",
@@ -75,7 +88,9 @@
       },
       "curriculum": {
         "courseUnitId": "b1_05_complaint_resolution",
-        "conceptIds": ["concept_b1_complaint_resolution"]
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ]
       },
       "motif": "gwigap",
       "motifEnum": "DancheongMotif.gwigap"
@@ -84,8 +99,15 @@
       "packId": "b2_formal_agreement_1",
       "level": "b2",
       "orderInLevel": 21,
-      "orderRange": [1, 12],
-      "reviewBossOrders": [10, 11, 12],
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
       "displayLabel": {
         "ko": "공식 합의·계약",
         "de": "Formelle Vereinbarungen",
@@ -93,7 +115,9 @@
       },
       "curriculum": {
         "courseUnitId": "b2_03_precise_requests",
-        "conceptIds": ["concept_b2_precise_requests"]
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ]
       },
       "motif": "chilbo",
       "motifEnum": "DancheongMotif.chilbo"
@@ -104,49 +128,65 @@
       "id": "grammar_b1_tendency",
       "level": "b1",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "id": "grammar_b1_prepared_state",
       "level": "b1",
       "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": ["concept_b1_life"]
+      "conceptIds": [
+        "concept_b1_life"
+      ]
     },
     {
       "id": "grammar_b1_near_miss",
       "level": "b1",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "id": "grammar_b1_state_while",
       "level": "b1",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "id": "grammar_b2_formal_reason",
       "level": "b2",
       "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": ["concept_b2_precise_requests"]
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
     },
     {
       "id": "grammar_b2_formal_arrangement",
       "level": "b2",
       "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": ["concept_b2_precise_requests"]
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
     },
     {
       "id": "grammar_b2_formal_reference",
       "level": "b2",
       "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": ["concept_b2_formal_opening"]
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ]
     },
     {
       "id": "grammar_b2_inclusion",
       "level": "b2",
       "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": ["concept_b2_precise_requests"]
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
     }
   ],
   "smalltalkCategoryMappings": [
@@ -154,49 +194,65 @@
       "level": "b1",
       "category": "transport",
       "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": ["concept_b1_life"]
+      "conceptIds": [
+        "concept_b1_life"
+      ]
     },
     {
       "level": "b1",
       "category": "shopping",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "level": "b1",
       "category": "phone",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "level": "b1",
       "category": "emergency",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "level": "b2",
       "category": "transport",
       "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": ["concept_b2_precise_requests"]
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
     },
     {
       "level": "b2",
       "category": "shopping",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     },
     {
       "level": "b2",
       "category": "phone",
       "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": ["concept_b2_formal_opening"]
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ]
     },
     {
       "level": "b2",
       "category": "emergency",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     }
   ],
   "clozeTopicMappings": [
@@ -204,13 +260,17 @@
       "level": "b1",
       "topic": "Wohnen & Vertrag",
       "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": ["concept_b1_complaint_resolution"]
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
     },
     {
       "level": "b2",
       "topic": "Formelle Vereinbarungen",
       "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": ["concept_b2_precise_requests"]
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
     }
   ],
   "satzDependencies": [
@@ -229,18 +289,42 @@
   "sentenceDerivationSets": [
     {
       "level": "b1",
-      "vocabIdRange": [248, 259],
-      "clozeIdRange": [56, 67],
-      "satzIdRange": [50, 61]
+      "vocabIdRange": [
+        248,
+        259
+      ],
+      "clozeIdRange": [
+        56,
+        67
+      ],
+      "satzIdRange": [
+        50,
+        61
+      ]
     },
     {
       "level": "b2",
-      "vocabIdRange": [205, 216],
-      "clozeIdRange": [58, 69],
-      "satzIdRange": [42, 53]
+      "vocabIdRange": [
+        205,
+        216
+      ],
+      "clozeIdRange": [
+        58,
+        69
+      ],
+      "satzIdRange": [
+        42,
+        53
+      ]
     }
   ],
-  "mergeOrder": ["vocab with curriculum companion mapping", "grammar with grammarRuleMap companion mapping", "smalltalk with category companion mapping", "cloze with topic companion mapping", "satz after same-level vocabulary exists"],
+  "mergeOrder": [
+    "vocab with curriculum companion mapping",
+    "grammar with grammarRuleMap companion mapping",
+    "smalltalk with category companion mapping",
+    "cloze with topic companion mapping",
+    "satz after same-level vocabulary exists"
+  ],
   "nonMergeGuards": [
     "Every review row is draft; no Batch 01 record may be appended to assets/data yet.",
     "Before an approved merge, add the declared vocabPackUnitMap, grammarRuleMap, smalltalkCategoryUnitMap, and clozeTopicUnitMap companions in the same reviewed content change so the full validator remains true.",

@@ -21,11 +21,11 @@
     {
       "id": "satz_b2_0068",
       "level": "b2",
-      "targetKo": "이번 결정에서는 빠른 결과보다 오래 지킬 수 있는 기준을 우선시하려고 해요.",
-      "promptDe": "Bei dieser Entscheidung möchte ich einen Maßstab priorisieren, den ich langfristig einhalten kann.",
-      "promptEn": "For this decision, I want to prioritize a standard I can uphold over time.",
+      "targetKo": "이번 결정에서는 빠른 결과보다 장기적인 영향을 충분히 숙고하려고 해요.",
+      "promptDe": "Bei dieser Entscheidung möchte ich die langfristigen Folgen statt nur schneller Ergebnisse gründlich abwägen.",
+      "promptEn": "For this decision, I want to weigh the long-term consequences carefully rather than just quick results.",
       "distractors": ["빠른 결과를", "설명하려고 해요"],
-      "vocabKo": "우선시하다"
+      "vocabKo": "숙고하다"
     },
     {
       "id": "satz_b2_0069",

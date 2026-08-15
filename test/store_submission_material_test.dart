@@ -15,12 +15,12 @@ void main() {
     );
     expect(germanListing, contains('`Hangul Sori: Koreanisch`'));
     expect(germanListing, contains('`Koreanisch im eigenen Hanok`'));
-    expect(englishListing, contains('930 vocabulary entries'));
-    expect(englishListing, contains('95 themed packs'));
+    expect(englishListing, contains('1,044 vocabulary entries'));
+    expect(englishListing, contains('105 themed packs'));
     expect(englishListing, contains('39 real-life scenarios'));
     expect(englishListing, contains('17 special quests'));
-    expect(germanListing, contains('930 Vokabeleinträge'));
-    expect(germanListing, contains('95 Themenpacks'));
+    expect(germanListing, contains('1.044 Vokabeleinträge'));
+    expect(germanListing, contains('105 Themenpacks'));
     expect(germanListing, contains('39 Alltagsszenarien'));
     expect(germanListing, contains('17 Spezial-Quests'));
     expect(englishListing, isNot(contains('526')));

@@ -21,7 +21,13 @@ class HomeHeroClips {
   HomeHeroClips._();
 
   static const String _homeBase = 'assets/video/home_hero';
-  static const String tigerRise = '$_homeBase/tiger_rise_hanji.mp4';
+
+  /// 홈의 호랑이 대기 루프.
+  ///
+  /// `tiger_rise`는 원샷 기상 동작이라 원본 프레임부터 머리가 잘리고 루프
+  /// 경계에서 자세가 크게 튄다. 경계 여백과 이음새가 안전한 standing idle을
+  /// 한지 매트로 사전 합성해 홈 전용으로 쓴다.
+  static const String tigerThinking = '$_homeBase/tiger_thinking_hanji.mp4';
   static const String magpieWalkingFront =
       '$_homeBase/magpie_walking_front_hanji.mp4';
 

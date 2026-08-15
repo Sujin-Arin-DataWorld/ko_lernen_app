@@ -85,11 +85,11 @@
     },
     {
       "path": "tiger_choose.mp4",
-      "bytes": 1012660,
+      "bytes": 1238934,
       "ok": true,
-      "matte": "#E5E5E5",
-      "white_ratio": 0.985,
-      "frames_sampled": 97,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
       "reason": ""
     },
     {

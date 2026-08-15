@@ -1,9 +1,9 @@
 id,level,ko,de,en,field_notes,상태,jin_memo
-grammar_b1_tendency,B1,A/V-(으)ㄴ/는 편이다,Tendenz und Vergleich,Tendency and comparison,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b1_prepared_state,B1,V-아/어 놓다,Vorbereitetes Ergebnis,Prepared result state,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b1_near_miss,B1,V-(으)ㄹ 뻔하다,Beinahe geschehen,Near miss,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b1_state_while,B1,V-(으)ㄴ 채(로),Zustand beibehalten,Maintaining a state,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b2_formal_reason,B2,V-(으)므로,Formeller Grund,Formal reason,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b2_formal_arrangement,B2,V-도록 하다,Formelle Regelung,Formal arrangement,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b2_formal_reference,B2,V-(으)ㄴ/는 바,Formeller Bezug,Formal reference,quiz-ready; exact focus and full 16 columns in draft,draft,
-grammar_b2_inclusion,B2,N을/를 비롯한,Einschluss und Aufzählung,Inclusion and listing,quiz-ready; exact focus and full 16 columns in draft,draft,
+grammar_b1_tendency,B1,A/V-(으)ㄴ/는 편이다,Tendenz und Vergleich,Tendency and comparison,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b1_prepared_state,B1,V-아/어 놓다,Vorbereitetes Ergebnis,Prepared result state,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b1_near_miss,B1,V-(으)ㄹ 뻔하다,Beinahe geschehen,Near miss,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b1_state_while,B1,V-(으)ㄴ 채(로),Zustand beibehalten,Maintaining a state,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b2_formal_reason,B2,V-(으)므로,Formeller Grund,Formal reason,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b2_formal_arrangement,B2,V-도록 하다,Formelle Regelung,Formal arrangement,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b2_formal_reference,B2,V-(으)ㄴ/는 바,Formeller Bezug,Formal reference,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).
+grammar_b2_inclusion,B2,N을/를 비롯한,Einschluss und Aufzählung,Inclusion and listing,quiz-ready; exact focus and full 16 columns in draft,approved,Jin explicit app-integration approval (2026-08-15).

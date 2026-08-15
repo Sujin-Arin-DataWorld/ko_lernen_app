@@ -1,0 +1,2501 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "b1_leak_report",
+      "level": "b1",
+      "emoji": "💧",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "tenant_and_real_estate_staff",
+      "intent": "report_property_damage",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "누수 신고하기",
+        "de": "Ein Wasserleck melden",
+        "en": "Reporting a water leak"
+      },
+      "intro": {
+        "ko": "욕실 천장에서 물이 떨어집니다. 부동산에 상황을 설명하고 방문 시간을 정하세요.",
+        "de": "Aus der Badezimmerdecke tropft Wasser. Erkläre dem Immobilienbüro die Lage und vereinbare einen Termin.",
+        "en": "Water is dripping from the bathroom ceiling. Explain the problem to the real estate office and arrange a visit."
+      },
+      "vocab": [
+        {
+          "korean": "누수"
+        },
+        {
+          "korean": "수리비"
+        },
+        {
+          "korean": "부동산"
+        },
+        {
+          "korean": "중개인"
+        },
+        {
+          "korean": "난방"
+        },
+        {
+          "korean": "관리비"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_tendency"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 편이다",
+          "de": "A/V-(으)ㄴ/는 편이다: Tendenz beschreiben",
+          "en": "A/V-(으)ㄴ/는 편이다: describing a tendency"
+        },
+        "explanation": {
+          "ko": "이 표현은 어떤 상태가 비교적 그렇다고 말할 때 쓴다. 단정하지 않고 상황의 정도를 설명할 수 있다.",
+          "de": "Mit dieser Form beschreibst du eine Tendenz. Sie klingt weniger absolut und passt gut, wenn du das Ausmaß eines Problems erklärst.",
+          "en": "Use this form to describe a tendency. It is less absolute and works well when you explain how serious a problem is."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 욕실 천장에서 누수가 생긴 것 같아요.",
+          "de": "Guten Tag. Es scheint, als gäbe es ein Wasserleck an der Badezimmerdecke.",
+          "en": "Hello. I think there is a water leak from the bathroom ceiling."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "불편을 드려 죄송합니다. 물이 많이 새는 편인가요?",
+          "de": "Das tut mir leid. Läuft ziemlich viel Wasser aus?",
+          "en": "I'm sorry about that. Is quite a lot of water leaking?"
+        },
+        {
+          "speaker": "user",
+          "ko": "바닥이 젖을 정도라서 사진을 찍어 뒀어요.",
+          "de": "Der Boden ist schon nass, deshalb habe ich Fotos gemacht.",
+          "en": "The floor is wet, so I took some photos."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "사진을 보내 주시면 수리 기사님과 시간을 조율할게요.",
+          "de": "Wenn Sie die Fotos schicken, stimme ich einen Termin mit dem Reparaturtechniker ab.",
+          "en": "If you send the photos, I'll coordinate a time with the repair technician."
+        },
+        {
+          "speaker": "user",
+          "ko": "내일 오후에는 집에 있을 수 있어요.",
+          "de": "Morgen Nachmittag kann ich zu Hause sein.",
+          "en": "I can be at home tomorrow afternoon."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "확인했습니다. 방문 시간과 수리비 안내를 문자로 보내 드리겠습니다.",
+          "de": "Verstanden. Ich schicke Ihnen die Besuchszeit und Informationen zu den Reparaturkosten per Nachricht.",
+          "en": "Understood. I'll text you the visit time and information about the repair costs."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "불편을 드려 죄송합니다. 물이 많이 새는 편인가요?",
+            "options": [
+              {
+                "de": "Läuft ziemlich viel Wasser aus?",
+                "en": "Is quite a lot of water leaking?"
+              },
+              {
+                "de": "Ist die Heizung ausgefallen?",
+                "en": "Has the heating stopped working?"
+              },
+              {
+                "de": "Haben Sie die Miete schon überwiesen?",
+                "en": "Have you transferred the rent already?"
+              },
+              {
+                "de": "Ist der Vertrag unterschrieben?",
+                "en": "Has the contract been signed?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Der Boden ist schon nass, deshalb habe ich Fotos gemacht.",
+            "promptEn": "The floor is wet, so I took some photos.",
+            "options": [
+              {
+                "ko": "바닥이 젖을 정도라서 사진을 찍어 뒀어요."
+              },
+              {
+                "ko": "바닥을 닦을 뻔했어요."
+              },
+              {
+                "ko": "사진을 보내면 안 돼요."
+              },
+              {
+                "ko": "수리비가 비싼 편이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "사진을 보내 주시면 수리 기사님과 시간을 조율할게요.",
+            "promptDe": "Schreibe: Wenn Sie die Fotos schicken, stimme ich einen Termin mit dem Reparaturtechniker ab.",
+            "promptEn": "Write: If you send the photos, I'll coordinate a time with the repair technician."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_move_in_handover",
+      "level": "b1",
+      "emoji": "📦",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "tenant_and_building_manager",
+      "intent": "complete_move_in_handover",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "입주 전 열쇠 받기",
+        "de": "Schlüsselübergabe vor dem Einzug",
+        "en": "Picking up keys before moving in"
+      },
+      "intro": {
+        "ko": "다음 주 입주를 앞두고 관리실에서 열쇠와 안내를 받습니다.",
+        "de": "Vor deinem Einzug nächste Woche holst du Schlüssel und Hinweise bei der Hausverwaltung ab.",
+        "en": "Before moving in next week, you collect the keys and instructions from the building office."
+      },
+      "vocab": [
+        {
+          "korean": "입주하다"
+        },
+        {
+          "korean": "이삿짐"
+        },
+        {
+          "korean": "계약서"
+        },
+        {
+          "korean": "세입자"
+        },
+        {
+          "korean": "퇴거하다"
+        },
+        {
+          "korean": "연장하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_prepared_state"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 놓다",
+          "de": "V-아/어 놓다: etwas vorbereitet haben",
+          "en": "V-아/어 놓다: having something prepared"
+        },
+        "explanation": {
+          "ko": "어떤 일을 미리 해 두고 그 결과가 남아 있음을 말한다. 준비된 서류나 사진을 설명할 때 자연스럽다.",
+          "de": "Die Form sagt, dass du etwas im Voraus erledigt hast und das Ergebnis noch da ist. Sie passt zu Unterlagen oder Fotos, die schon bereitliegen.",
+          "en": "This form says you did something in advance and the result remains. It works naturally for documents or photos you already prepared."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "다음 주에 입주할 예정이라 열쇠를 받으러 왔어요.",
+          "de": "Ich ziehe nächste Woche ein und bin wegen der Schlüssel hier.",
+          "en": "I'm moving in next week, so I'm here to pick up the keys."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "계약서와 신분증을 준비해 놓으셨나요?",
+          "de": "Haben Sie den Vertrag und Ihren Ausweis schon bereitgelegt?",
+          "en": "Have you prepared your contract and ID?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 둘 다 가져왔어요. 이삿짐은 토요일 오전에 들어올 거예요.",
+          "de": "Ja, ich habe beides dabei. Die Umzugssachen kommen am Samstagvormittag.",
+          "en": "Yes, I brought both. The moving boxes will arrive on Saturday morning."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋습니다. 엘리베이터 사용 시간도 예약해 놓았어요.",
+          "de": "Gut. Ich habe auch ein Zeitfenster für den Aufzug reserviert.",
+          "en": "Great. I've also reserved a time slot for the elevator."
+        },
+        {
+          "speaker": "user",
+          "ko": "전 세입자가 퇴거한 뒤에 청소는 끝났나요?",
+          "de": "Ist die Reinigung abgeschlossen, nachdem der vorherige Mieter ausgezogen ist?",
+          "en": "Was the cleaning finished after the previous tenant moved out?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 확인해 두었습니다. 문제가 있으면 입주 후 사흘 안에 알려 주세요.",
+          "de": "Ja, das haben wir kontrolliert. Falls etwas nicht stimmt, melden Sie sich bitte innerhalb von drei Tagen nach dem Einzug.",
+          "en": "Yes, we checked that. If you notice a problem, please let us know within three days of moving in."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "좋습니다. 엘리베이터 사용 시간도 예약해 놓았어요.",
+            "options": [
+              {
+                "de": "Ich habe auch ein Zeitfenster für den Aufzug reserviert.",
+                "en": "I've also reserved a time slot for the elevator."
+              },
+              {
+                "de": "Der Aufzug ist heute außer Betrieb.",
+                "en": "The elevator is out of service today."
+              },
+              {
+                "de": "Die Schlüssel sind noch nicht fertig.",
+                "en": "The keys are not ready yet."
+              },
+              {
+                "de": "Der Vertrag muss verlängert werden.",
+                "en": "The contract needs to be extended."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Haben Sie den Vertrag und Ihren Ausweis schon bereitgelegt?",
+            "promptEn": "Have you prepared your contract and ID?",
+            "options": [
+              {
+                "ko": "계약서와 신분증을 준비해 놓으셨나요?"
+              },
+              {
+                "ko": "계약서에 서명할 뻔했어요."
+              },
+              {
+                "ko": "신분증을 잃어버린 채로 왔어요."
+              },
+              {
+                "ko": "계약을 연장할 예정이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "이삿짐은 토요일 오전에 들어올 거예요.",
+            "promptDe": "Schreibe: Die Umzugssachen kommen am Samstagvormittag.",
+            "promptEn": "Write: The moving boxes will arrive on Saturday morning."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_contract_appointment",
+      "level": "b1",
+      "emoji": "🗓️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "tenant_and_real_estate_agent",
+      "intent": "avoid_missing_contract_appointment",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "계약 약속 다시 확인하기",
+        "de": "Den Vertragstermin noch einmal prüfen",
+        "en": "Confirming a contract appointment"
+      },
+      "intro": {
+        "ko": "계약 설명을 들으러 가는 날입니다. 시간을 놓치지 않도록 중개인에게 다시 확인하세요.",
+        "de": "Heute ist dein Termin für die Vertragsbesprechung. Prüfe die Zeit noch einmal mit der Maklerin.",
+        "en": "Today is your appointment to go over the contract. Confirm the time with the real estate agent."
+      },
+      "vocab": [
+        {
+          "korean": "계약서"
+        },
+        {
+          "korean": "중개인"
+        },
+        {
+          "korean": "부동산"
+        },
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "입주하다"
+        },
+        {
+          "korean": "퇴거하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_near_miss"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 뻔하다",
+          "de": "V-(으)ㄹ 뻔하다: beinahe geschehen",
+          "en": "V-(으)ㄹ 뻔하다: almost happened"
+        },
+        "explanation": {
+          "ko": "원하지 않은 일이 거의 일어날 뻔했지만 실제로는 피했다는 뜻이다.",
+          "de": "Damit sagst du, dass etwas Unerwünschtes fast passiert wäre, aber im letzten Moment nicht passiert ist.",
+          "en": "Use this to say something unwanted almost happened but was avoided in the end."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 오늘 계약 설명 약속이 오후 세 시 맞지요?",
+          "de": "Guten Tag. Unser Termin zur Vertragsbesprechung ist heute um drei Uhr, richtig?",
+          "en": "Hello. Our appointment to go over the contract is at three today, right?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 맞습니다. 부동산 사무실에서 기다리고 있을게요.",
+          "de": "Ja, genau. Ich warte im Immobilienbüro auf Sie.",
+          "en": "Yes, that's right. I'll be waiting at the real estate office."
+        },
+        {
+          "speaker": "user",
+          "ko": "다행이에요. 달력에 두 시로 적어 놓아서 약속을 놓칠 뻔했어요.",
+          "de": "Zum Glück. In meinem Kalender stand zwei Uhr, deshalb hätte ich den Termin fast verpasst.",
+          "en": "Good thing. I wrote two o'clock in my calendar, so I almost missed the appointment."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "미리 확인해 주셔서 좋습니다. 계약서 초안은 읽어 보셨어요?",
+          "de": "Gut, dass Sie noch einmal nachgefragt haben. Konnten Sie den Vertragsentwurf schon lesen?",
+          "en": "I'm glad you checked. Were you able to read the draft contract?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 관리비가 무엇에 포함되는지 설명을 듣고 싶어요.",
+          "de": "Ja, ich möchte wissen, was in den Nebenkosten enthalten ist.",
+          "en": "Yes, I'd like to know what is included in the maintenance fees."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 입주 날짜와 퇴거 조건도 함께 설명드리겠습니다.",
+          "de": "Verstanden. Ich erkläre Ihnen auch den Einzugstermin und die Auszugsbedingungen.",
+          "en": "Understood. I'll also explain the move-in date and the move-out conditions."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "다행이에요. 달력에 두 시로 적어 놓아서 약속을 놓칠 뻔했어요.",
+            "options": [
+              {
+                "de": "In meinem Kalender stand zwei Uhr, deshalb hätte ich den Termin fast verpasst.",
+                "en": "I wrote two o'clock in my calendar, so I almost missed the appointment."
+              },
+              {
+                "de": "Ich habe den Vertrag noch nicht erhalten.",
+                "en": "I haven't received the contract yet."
+              },
+              {
+                "de": "Die Nebenkosten sind schon bezahlt.",
+                "en": "The maintenance fees have already been paid."
+              },
+              {
+                "de": "Ich möchte morgen ausziehen.",
+                "en": "I'd like to move out tomorrow."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich möchte wissen, was in den Nebenkosten enthalten ist.",
+            "promptEn": "I'd like to know what is included in the maintenance fees.",
+            "options": [
+              {
+                "ko": "관리비가 무엇에 포함되는지 설명을 듣고 싶어요."
+              },
+              {
+                "ko": "관리비를 연장하고 싶어요."
+              },
+              {
+                "ko": "관리비를 두고 올 뻔했어요."
+              },
+              {
+                "ko": "관리비가 끝난 채로 왔어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "달력에 두 시로 적어 놓아서 약속을 놓칠 뻔했어요.",
+            "promptDe": "Schreibe: In meinem Kalender stand zwei Uhr, deshalb hätte ich den Termin fast verpasst.",
+            "promptEn": "Write: I wrote two o'clock in my calendar, so I almost missed the appointment."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_heating_safety_call",
+      "level": "b1",
+      "emoji": "♨️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "tenant_and_building_manager",
+      "intent": "ask_about_heating_safety",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "난방을 켠 채로 외출했을 때",
+        "de": "Wenn die Heizung beim Weggehen anbleibt",
+        "en": "When the heating was left on"
+      },
+      "intro": {
+        "ko": "외출 후 난방을 켜 둔 것이 생각났습니다. 관리실에 안전과 점검 방법을 물어보세요.",
+        "de": "Nach dem Weggehen fällt dir ein, dass die Heizung noch an war. Frage die Hausverwaltung nach Sicherheit und Kontrolle.",
+        "en": "After leaving home, you remember the heating was still on. Ask the building office about safety and how to check it."
+      },
+      "vocab": [
+        {
+          "korean": "난방"
+        },
+        {
+          "korean": "누수"
+        },
+        {
+          "korean": "수리비"
+        },
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "세입자"
+        },
+        {
+          "korean": "부동산"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_state_while"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄴ 채(로)",
+          "de": "V-(으)ㄴ 채(로): einen Zustand beibehalten",
+          "en": "V-(으)ㄴ 채(로): keeping a state"
+        },
+        "explanation": {
+          "ko": "어떤 상태를 바꾸지 않고 다음 행동을 했음을 나타낸다. 안전이나 생활 습관을 말할 때 쓸 수 있다.",
+          "de": "Die Form beschreibt, dass ein Zustand unverändert bleibt, während etwas anderes passiert. Sie passt auch zu Sicherheitsregeln.",
+          "en": "This form says a state remains unchanged while something else happens. It is useful for routines and safety rules."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "방금 외출했는데 난방을 켠 채로 나온 것 같아요.",
+          "de": "Ich bin gerade weggegangen und glaube, dass ich die Heizung angelassen habe.",
+          "en": "I just left home and think I left the heating on."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "온도를 아주 높게 설정해 두셨나요?",
+          "de": "Haben Sie die Temperatur sehr hoch eingestellt?",
+          "en": "Did you set the temperature very high?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요, 낮게 해 뒀는데 창문도 열린 채일까 봐 걱정돼요.",
+          "de": "Nein, sie war niedrig eingestellt, aber ich mache mir Sorgen, dass auch ein Fenster offen sein könnte.",
+          "en": "No, I set it low, but I'm worried a window may also be open."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "가능하면 돌아가서 확인해 주세요. 누수나 이상한 냄새가 있으면 바로 연락하시고요.",
+          "de": "Wenn möglich, gehen Sie bitte zurück und prüfen Sie es. Melden Sie sich sofort, falls es ein Leck oder einen ungewöhnlichen Geruch gibt.",
+          "en": "If possible, please go back and check. Contact us right away if there is a leak or an unusual smell."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 문제가 있으면 수리비가 생기기 전에 먼저 알려 드릴게요.",
+          "de": "Verstanden. Falls etwas nicht stimmt, melde ich mich, bevor Reparaturkosten entstehen.",
+          "en": "Understood. If there is a problem, I'll let you know before repair costs arise."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 안전이 먼저예요. 확인 후에 문자 한 번 보내 주세요.",
+          "de": "Ja, Sicherheit geht vor. Schicken Sie uns nach der Kontrolle bitte kurz eine Nachricht.",
+          "en": "Yes, safety comes first. Please send us a short message after you check."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "가능하면 돌아가서 확인해 주세요. 누수나 이상한 냄새가 있으면 바로 연락하시고요.",
+            "options": [
+              {
+                "de": "Wenn möglich, gehen Sie bitte zurück und prüfen Sie es.",
+                "en": "If possible, please go back and check."
+              },
+              {
+                "de": "Die Heizung wird morgen ersetzt.",
+                "en": "The heating will be replaced tomorrow."
+              },
+              {
+                "de": "Die Nebenkosten sind zu hoch.",
+                "en": "The maintenance fees are too high."
+              },
+              {
+                "de": "Sie müssen heute ausziehen.",
+                "en": "You need to move out today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich bin gerade weggegangen und glaube, dass ich die Heizung angelassen habe.",
+            "promptEn": "I just left home and think I left the heating on.",
+            "options": [
+              {
+                "ko": "방금 외출했는데 난방을 켠 채로 나온 것 같아요."
+              },
+              {
+                "ko": "난방을 켜 놓을 뻔했어요."
+              },
+              {
+                "ko": "난방을 연장할 예정이에요."
+              },
+              {
+                "ko": "난방이 비싼 편이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "창문도 열린 채일까 봐 걱정돼요.",
+            "promptDe": "Schreibe: Ich mache mir Sorgen, dass auch ein Fenster offen sein könnte.",
+            "promptEn": "Write: I'm worried a window may also be open."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_team_meeting_coordination",
+      "level": "b1",
+      "emoji": "👥",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworkers",
+      "intent": "coordinate_planned_meeting",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "정해진 회의 역할 조율하기",
+        "de": "Rollen für ein geplantes Meeting abstimmen",
+        "en": "Coordinating roles for a scheduled meeting"
+      },
+      "intro": {
+        "ko": "내일 회의의 참석자와 역할이 정해져 있습니다. 동료와 준비 상황을 확인하세요.",
+        "de": "Für das morgige Meeting stehen Teilnehmer und Rollen fest. Prüfe mit einem Kollegen den Vorbereitungsstand.",
+        "en": "The participants and roles for tomorrow's meeting are set. Check the preparation with a colleague."
+      },
+      "vocab": [
+        {
+          "korean": "조율하다"
+        },
+        {
+          "korean": "참석 여부"
+        },
+        {
+          "korean": "우선순위"
+        },
+        {
+          "korean": "회의실"
+        },
+        {
+          "korean": "업무 분담"
+        },
+        {
+          "korean": "마감일"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_scheduled_arrangement"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-기로 되어 있다",
+          "de": "V-기로 되어 있다: fest vereinbart sein",
+          "en": "V-기로 되어 있다: be scheduled or agreed"
+        },
+        "explanation": {
+          "ko": "이미 정해진 일정이나 역할을 설명할 때 쓴다. 개인의 즉흥적인 계획보다 정해진 약속에 가깝다.",
+          "de": "Damit beschreibst du einen bereits festgelegten Termin oder eine vereinbarte Rolle. Es klingt verbindlicher als ein spontaner Plan.",
+          "en": "Use this for a schedule or role that has already been agreed. It sounds more fixed than a spontaneous plan."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "내일 회의에는 모든 팀원이 참석하기로 되어 있지요?",
+          "de": "Für das Meeting morgen sollen doch alle Teammitglieder teilnehmen, oder?",
+          "en": "All team members are scheduled to attend tomorrow's meeting, right?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 참석 여부는 오늘 안에 다시 확인하기로 되어 있어요.",
+          "de": "Ja, wir sollen die Teilnahme noch heute einmal bestätigen.",
+          "en": "Yes, we're scheduled to confirm attendance once more today."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 저는 업무 분담표와 우선순위를 정리할게요.",
+          "de": "Gut. Ich ordne die Aufgabenverteilung und die Prioritäten.",
+          "en": "Great. I'll organize the task assignments and priorities."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "저는 3층 회의실을 예약하고 자료를 준비할게요.",
+          "de": "Ich reserviere den Besprechungsraum im dritten Stock und bereite die Unterlagen vor.",
+          "en": "I'll reserve the meeting room on the third floor and prepare the materials."
+        },
+        {
+          "speaker": "user",
+          "ko": "마감일이 가까운 안건부터 다루기로 되어 있나요?",
+          "de": "Sollen wir zuerst die Punkte mit der nahen Frist behandeln?",
+          "en": "Are we scheduled to handle the items with the closest deadline first?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 그렇게 하기로 했어요. 바뀌는 점이 있으면 바로 공유할게요.",
+          "de": "Ja, das haben wir so vereinbart. Wenn sich etwas ändert, teile ich es sofort.",
+          "en": "Yes, that's what we agreed. If anything changes, I'll share it right away."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "네, 참석 여부는 오늘 안에 다시 확인하기로 되어 있어요.",
+            "options": [
+              {
+                "de": "Wir sollen die Teilnahme noch heute einmal bestätigen.",
+                "en": "We're scheduled to confirm attendance once more today."
+              },
+              {
+                "de": "Das Meeting wurde abgesagt.",
+                "en": "The meeting was cancelled."
+              },
+              {
+                "de": "Die Unterlagen sind verloren gegangen.",
+                "en": "The documents have been lost."
+              },
+              {
+                "de": "Der Termin ist noch nicht entschieden.",
+                "en": "The time has not been decided yet."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich ordne die Aufgabenverteilung und die Prioritäten.",
+            "promptEn": "I'll organize the task assignments and priorities.",
+            "options": [
+              {
+                "ko": "저는 업무 분담표와 우선순위를 정리할게요."
+              },
+              {
+                "ko": "회의실을 두고 올 뻔했어요."
+              },
+              {
+                "ko": "마감일을 연장한 채로 왔어요."
+              },
+              {
+                "ko": "참석 여부가 비싼 편이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "바뀌는 점이 있으면 바로 공유할게요.",
+            "promptDe": "Schreibe: Wenn sich etwas ändert, teile ich es sofort.",
+            "promptEn": "Write: If anything changes, I'll share it right away."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_attendance_followup",
+      "level": "b1",
+      "emoji": "📩",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworkers",
+      "intent": "confirm_attendance_after_replies",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "참석 답변이 오는 대로",
+        "de": "Sobald die Zusagen eintreffen",
+        "en": "As soon as attendance replies arrive"
+      },
+      "intro": {
+        "ko": "회의 참석 답변을 기다리고 있습니다. 답변이 오는 순서에 따라 일정을 확정하세요.",
+        "de": "Du wartest auf Rückmeldungen zur Teilnahme. Finalisiere den Termin, sobald die Antworten eintreffen.",
+        "en": "You are waiting for attendance replies. Finalize the schedule as the replies come in."
+      },
+      "vocab": [
+        {
+          "korean": "참석 여부"
+        },
+        {
+          "korean": "확정하다"
+        },
+        {
+          "korean": "지연되다"
+        },
+        {
+          "korean": "회의실"
+        },
+        {
+          "korean": "마감일"
+        },
+        {
+          "korean": "조율하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_as_soon_as"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 대로",
+          "de": "V-는 대로: sobald etwas geschieht",
+          "en": "V-는 대로: as soon as something happens"
+        },
+        "explanation": {
+          "ko": "앞의 일이 확인되거나 끝난 직후에 다음 일을 하겠다는 뜻이다.",
+          "de": "Die Form verbindet zwei Schritte direkt: Sobald der erste bestätigt oder erledigt ist, folgt der zweite.",
+          "en": "This form links two steps directly: as soon as the first is confirmed or finished, the second follows."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "아직 두 분이 참석 여부를 답하지 않았어요.",
+          "de": "Zwei Personen haben ihre Teilnahme noch nicht bestätigt.",
+          "en": "Two people have not replied about attendance yet."
+        },
+        {
+          "speaker": "user",
+          "ko": "답이 오는 대로 회의실과 시간을 확정할게요.",
+          "de": "Sobald die Antworten kommen, lege ich Raum und Uhrzeit endgültig fest.",
+          "en": "As soon as the replies come in, I'll finalize the room and time."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "한 분은 자료가 늦게 도착해서 답변이 지연된다고 했어요.",
+          "de": "Eine Person sagte, die Antwort verzögere sich, weil die Unterlagen spät ankommen.",
+          "en": "One person said their reply is delayed because the materials are arriving late."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 마감일 전에 임시 일정을 먼저 공유해 볼까요?",
+          "de": "Dann teilen wir vor der Frist zuerst einen vorläufigen Termin, oder?",
+          "en": "Then shall we share a provisional schedule before the deadline?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 참석 인원이 확인되는 대로 조율해서 알려 주세요.",
+          "de": "Gut. Sobald die Teilnehmerzahl feststeht, stimmen Sie sich bitte ab und geben Bescheid.",
+          "en": "Sounds good. As soon as the attendee count is confirmed, please coordinate and let everyone know."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 오늘 오후까지 확정된 내용을 메일로 보내겠습니다.",
+          "de": "Ja, ich sende die endgültigen Informationen bis heute Nachmittag per E-Mail.",
+          "en": "Yes, I'll email the finalized details by this afternoon."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "좋아요. 참석 인원이 확인되는 대로 조율해서 알려 주세요.",
+            "options": [
+              {
+                "de": "Sobald die Teilnehmerzahl feststeht, stimmen Sie sich bitte ab und geben Bescheid.",
+                "en": "As soon as the attendee count is confirmed, please coordinate and let everyone know."
+              },
+              {
+                "de": "Der Besprechungsraum ist heute geschlossen.",
+                "en": "The meeting room is closed today."
+              },
+              {
+                "de": "Die Frist wurde gestrichen.",
+                "en": "The deadline was removed."
+              },
+              {
+                "de": "Die Unterlagen müssen gedruckt werden.",
+                "en": "The materials need to be printed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Sobald die Antworten kommen, lege ich Raum und Uhrzeit endgültig fest.",
+            "promptEn": "As soon as the replies come in, I'll finalize the room and time.",
+            "options": [
+              {
+                "ko": "답이 오는 대로 회의실과 시간을 확정할게요."
+              },
+              {
+                "ko": "회의실을 확정할 뻔했어요."
+              },
+              {
+                "ko": "답이 온 채로 기다렸어요."
+              },
+              {
+                "ko": "시간을 연장할 예정이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "참석 인원이 확인되는 대로 조율해서 알려 주세요.",
+            "promptDe": "Schreibe: Sobald die Teilnehmerzahl feststeht, stimmen Sie sich bitte ab und geben Bescheid.",
+            "promptEn": "Write: As soon as the attendee count is confirmed, please coordinate and let everyone know."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_covering_absence",
+      "level": "b1",
+      "emoji": "🧩",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworkers",
+      "intent": "plan_temporary_coverage",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "부재중인 동료 대신 업무 맡기",
+        "de": "Eine abwesende Kollegin vertreten",
+        "en": "Covering for an absent coworker"
+      },
+      "intro": {
+        "ko": "담당자가 자리를 비운 동안 업무를 대신 맡습니다. 동료와 다음 절차를 정하세요.",
+        "de": "Während die zuständige Person abwesend ist, übernimmst du Aufgaben. Lege mit einem Kollegen die nächsten Schritte fest.",
+        "en": "You are taking over tasks while the person in charge is away. Set the next steps with a coworker."
+      },
+      "vocab": [
+        {
+          "korean": "대신하다"
+        },
+        {
+          "korean": "부재중"
+        },
+        {
+          "korean": "업무 분담"
+        },
+        {
+          "korean": "지연되다"
+        },
+        {
+          "korean": "우선순위"
+        },
+        {
+          "korean": "마감일"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_planned_future"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 예정이다",
+          "de": "V-(으)ㄹ 예정이다: geplanter Termin",
+          "en": "V-(으)ㄹ 예정이다: planned future action"
+        },
+        "explanation": {
+          "ko": "확정되었거나 비교적 구체적인 미래 계획을 말할 때 쓴다.",
+          "de": "Damit beschreibst du einen konkreten, geplanten Schritt in der Zukunft.",
+          "en": "Use this for a concrete action that is planned for the future."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "담당자분이 이번 주 내내 부재중이세요.",
+          "de": "Die zuständige Person ist die ganze Woche abwesend.",
+          "en": "The person in charge is away all week."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 제가 먼저 고객 문의를 대신 처리할 예정이에요.",
+          "de": "Dann werde ich zuerst die Kundenanfragen vertretungsweise bearbeiten.",
+          "en": "Then I plan to handle the customer inquiries first."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "감사합니다. 업무 분담은 오늘 오후에 다시 정할까요?",
+          "de": "Danke. Sollen wir die Aufgabenverteilung heute Nachmittag noch einmal festlegen?",
+          "en": "Thank you. Shall we set the task assignments again this afternoon?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 마감일이 가까운 일의 우선순위부터 확인할게요.",
+          "de": "Ja, ich prüfe zuerst die Prioritäten der Aufgaben mit naher Frist.",
+          "en": "Yes, I'll first check the priorities of tasks with close deadlines."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "자료가 늦어지면 회의도 지연될 수 있어요.",
+          "de": "Wenn die Unterlagen später kommen, kann sich auch das Meeting verzögern.",
+          "en": "If the materials arrive late, the meeting may be delayed too."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 진행 상황을 정리해서 내일 아침에 공유할 예정입니다.",
+          "de": "Verstanden. Ich plane, den Fortschritt zusammenzufassen und morgen früh zu teilen.",
+          "en": "Understood. I plan to summarize the progress and share it tomorrow morning."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "그럼 제가 먼저 고객 문의를 대신 처리할 예정이에요.",
+            "options": [
+              {
+                "de": "Dann werde ich zuerst die Kundenanfragen vertretungsweise bearbeiten.",
+                "en": "Then I plan to handle the customer inquiries first."
+              },
+              {
+                "de": "Ich werde diese Woche nicht arbeiten.",
+                "en": "I won't work this week."
+              },
+              {
+                "de": "Der Kunde hat den Vertrag verlängert.",
+                "en": "The customer extended the contract."
+              },
+              {
+                "de": "Das Meeting ist schon vorbei.",
+                "en": "The meeting is already over."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich plane, den Fortschritt zusammenzufassen und morgen früh zu teilen.",
+            "promptEn": "I plan to summarize the progress and share it tomorrow morning.",
+            "options": [
+              {
+                "ko": "진행 상황을 정리해서 내일 아침에 공유할 예정입니다."
+              },
+              {
+                "ko": "진행 상황을 공유할 뻔했어요."
+              },
+              {
+                "ko": "진행 상황을 공유한 채로 왔어요."
+              },
+              {
+                "ko": "진행 상황이 비싼 편이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "마감일이 가까운 일의 우선순위부터 확인할게요.",
+            "promptDe": "Schreibe: Ich prüfe zuerst die Prioritäten der Aufgaben mit naher Frist.",
+            "promptEn": "Write: I'll first check the priorities of tasks with close deadlines."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b1_reschedule_request",
+      "level": "b1",
+      "emoji": "🔄",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworkers",
+      "intent": "request_schedule_change",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "회의 일정 부드럽게 바꾸기",
+        "de": "Einen Meetingtermin höflich verschieben",
+        "en": "Rescheduling a meeting politely"
+      },
+      "intro": {
+        "ko": "예정된 회의 시간이 다른 업무와 겹칩니다. 상대방에게 정중하게 변경을 부탁하세요.",
+        "de": "Die geplante Besprechung überschneidet sich mit einer anderen Aufgabe. Bitte höflich um eine Änderung.",
+        "en": "The planned meeting overlaps with another task. Ask politely to change it."
+      },
+      "vocab": [
+        {
+          "korean": "미루다"
+        },
+        {
+          "korean": "회의실"
+        },
+        {
+          "korean": "참석 여부"
+        },
+        {
+          "korean": "확정하다"
+        },
+        {
+          "korean": "협조하다"
+        },
+        {
+          "korean": "일정"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_soft_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시면 좋겠다",
+          "de": "V-아/어 주시면 좋겠다: höfliche Bitte",
+          "en": "V-아/어 주시면 좋겠다: a soft request"
+        },
+        "explanation": {
+          "ko": "상대에게 부탁할 때 직접 명령하지 않고 바람을 부드럽게 전한다.",
+          "de": "Mit dieser Form bittest du freundlich, ohne wie ein Befehl zu klingen.",
+          "en": "This form makes a request sound considerate rather than demanding."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "죄송하지만 내일 오전 회의 시간을 조금 미뤄 주시면 좋겠어요.",
+          "de": "Entschuldigung, aber könnten Sie die Besprechung morgen Vormittag etwas verschieben?",
+          "en": "I'm sorry, but could you move tomorrow morning's meeting a little later?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "다른 일정과 겹치나요?",
+          "de": "Überschneidet sie sich mit einem anderen Termin?",
+          "en": "Does it overlap with another schedule?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 고객과의 통화가 길어질 수 있어서요.",
+          "de": "Ja, das Gespräch mit einem Kunden könnte länger dauern.",
+          "en": "Yes, the call with a client may run long."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 참석 여부를 다시 확인해서 오후로 미뤄 볼게요.",
+          "de": "Dann prüfe ich die Teilnahme noch einmal und versuche, den Termin auf den Nachmittag zu verschieben.",
+          "en": "Then I'll reconfirm attendance and try to move it to the afternoon."
+        },
+        {
+          "speaker": "user",
+          "ko": "협조해 주시면 정말 감사하겠습니다. 회의실도 변경이 가능한지 부탁드려요.",
+          "de": "Ich wäre Ihnen sehr dankbar für Ihre Unterstützung. Bitte prüfen Sie auch, ob der Raum geändert werden kann.",
+          "en": "I'd really appreciate your help. Please also check whether the meeting room can be changed."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 확정되는 대로 새 일정을 보내 드릴게요.",
+          "de": "Verstanden. Sobald alles feststeht, schicke ich Ihnen den neuen Termin.",
+          "en": "Understood. As soon as it is finalized, I'll send you the new schedule."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "죄송하지만 내일 오전 회의 시간을 조금 미뤄 주시면 좋겠어요.",
+            "options": [
+              {
+                "de": "Könnten Sie die Besprechung morgen Vormittag etwas verschieben?",
+                "en": "Could you move tomorrow morning's meeting a little later?"
+              },
+              {
+                "de": "Das Meeting muss heute abgesagt werden.",
+                "en": "The meeting must be cancelled today."
+              },
+              {
+                "de": "Ich habe den Termin vergessen.",
+                "en": "I forgot the appointment."
+              },
+              {
+                "de": "Der Raum ist zu klein.",
+                "en": "The room is too small."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich wäre Ihnen sehr dankbar für Ihre Unterstützung.",
+            "promptEn": "I'd really appreciate your help.",
+            "options": [
+              {
+                "ko": "협조해 주시면 정말 감사하겠습니다."
+              },
+              {
+                "ko": "협조를 미룰 뻔했어요."
+              },
+              {
+                "ko": "협조한 채로 기다렸어요."
+              },
+              {
+                "ko": "협조할 예정이에요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "확정되는 대로 새 일정을 보내 드릴게요.",
+            "promptDe": "Schreibe: Sobald alles feststeht, schicke ich Ihnen den neuen Termin.",
+            "promptEn": "Write: As soon as it is finalized, I'll send you the new schedule."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_contract_clause_inquiry",
+      "level": "b2",
+      "emoji": "📄",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "contracting_parties",
+      "intent": "request_clause_clarification",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 200,
+      "title": {
+        "ko": "계약 조항을 공식적으로 문의하기",
+        "de": "Eine Vertragsklausel formell klären",
+        "en": "Clarifying a contract clause formally"
+      },
+      "intro": {
+        "ko": "계약서의 책임 범위가 불명확합니다. 상대방에게 조항의 뜻과 수정 가능성을 물어보세요.",
+        "de": "Der Verantwortungsbereich im Vertrag ist unklar. Frage die andere Partei nach der Bedeutung der Klausel und einer möglichen Änderung.",
+        "en": "The scope of responsibility in the contract is unclear. Ask the other party what the clause means and whether it can be revised."
+      },
+      "vocab": [
+        {
+          "korean": "조항"
+        },
+        {
+          "korean": "당사자"
+        },
+        {
+          "korean": "효력"
+        },
+        {
+          "korean": "합의서"
+        },
+        {
+          "korean": "서면"
+        },
+        {
+          "korean": "협의하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_reason"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)므로",
+          "de": "V-(으)므로: formeller Grund",
+          "en": "V-(으)므로: formal reason"
+        },
+        "explanation": {
+          "ko": "공문이나 공식 안내에서 이유를 분명하게 밝히고 결론을 연결할 때 쓴다.",
+          "de": "Diese formelle Begründung passt zu schriftlichen Mitteilungen und klaren Entscheidungen.",
+          "en": "Use this formal reason connector in written notices and clear decisions."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제7조의 책임 범위가 넓게 보이므로 내용을 확인하고 싶습니다.",
+          "de": "Da der Verantwortungsbereich in Artikel 7 weit gefasst wirkt, möchte ich den Inhalt klären.",
+          "en": "Since the scope of responsibility in Article 7 appears broad, I would like to clarify it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어떤 부분이 불분명하다고 보셨는지 말씀해 주시겠습니까?",
+          "de": "Könnten Sie sagen, welcher Teil aus Ihrer Sicht unklar ist?",
+          "en": "Could you tell me which part you find unclear?"
+        },
+        {
+          "speaker": "user",
+          "ko": "모든 당사자가 같은 의무를 지는지, 아니면 역할에 따라 다른지 알고 싶습니다.",
+          "de": "Ich möchte wissen, ob alle Vertragsparteien dieselben Pflichten haben oder ob sie je nach Rolle unterschiedlich sind.",
+          "en": "I'd like to know whether all parties have the same obligations or whether they differ by role."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 부분은 서면으로 정리한 뒤 다시 협의할 수 있습니다.",
+          "de": "Diesen Punkt können wir schriftlich festhalten und anschließend noch einmal abstimmen.",
+          "en": "We can put that point in writing and discuss it again afterward."
+        },
+        {
+          "speaker": "user",
+          "ko": "수정한 합의서가 효력을 갖는 시점도 함께 알려 주시기 바랍니다.",
+          "de": "Bitte teilen Sie uns auch mit, ab wann die überarbeitete Vereinbarung gültig wird.",
+          "en": "Please also let us know when the revised agreement will take effect."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "검토가 끝나면 두 당사자에게 수정안을 보내 드리겠습니다.",
+          "de": "Nach Abschluss der Prüfung schicke ich beiden Parteien den Änderungsvorschlag.",
+          "en": "Once the review is complete, I will send the proposed revision to both parties."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "제7조의 책임 범위가 넓게 보이므로 내용을 확인하고 싶습니다.",
+            "options": [
+              {
+                "de": "Da der Verantwortungsbereich in Artikel 7 weit gefasst wirkt, möchte ich den Inhalt klären.",
+                "en": "Since the scope of responsibility in Article 7 appears broad, I would like to clarify it."
+              },
+              {
+                "de": "Ich möchte den Vertrag heute kündigen.",
+                "en": "I would like to terminate the contract today."
+              },
+              {
+                "de": "Die Frist ist bereits abgelaufen.",
+                "en": "The deadline has already passed."
+              },
+              {
+                "de": "Wir brauchen keine schriftliche Vereinbarung.",
+                "en": "We do not need a written agreement."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Bitte teilen Sie uns auch mit, ab wann die überarbeitete Vereinbarung gültig wird.",
+            "promptEn": "Please also let us know when the revised agreement will take effect.",
+            "options": [
+              {
+                "ko": "수정한 합의서가 효력을 갖는 시점도 함께 알려 주시기 바랍니다."
+              },
+              {
+                "ko": "합의서를 해지하고 싶습니다."
+              },
+              {
+                "ko": "조항을 위반한 채로 왔습니다."
+              },
+              {
+                "ko": "효력을 유예할 뻔했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "그 부분은 서면으로 정리한 뒤 다시 협의할 수 있습니다.",
+            "promptDe": "Schreibe: Diesen Punkt können wir schriftlich festhalten und anschließend noch einmal abstimmen.",
+            "promptEn": "Write: We can put that point in writing and discuss it again afterward."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_deadline_deferral_request",
+      "level": "b2",
+      "emoji": "⏳",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "contracting_parties",
+      "intent": "arrange_deadline_deferral",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "제출 기한 유예 요청하기",
+        "de": "Eine Fristverlängerung beantragen",
+        "en": "Requesting a deadline deferral"
+      },
+      "intro": {
+        "ko": "예상치 못한 자료 검토가 필요해졌습니다. 계약 상대방에게 기한 유예를 공식적으로 요청하세요.",
+        "de": "Eine unerwartete Prüfung von Unterlagen ist nötig. Bitte die Vertragspartnerin formell um einen Aufschub.",
+        "en": "An unexpected document review is needed. Formally ask the other party for a deadline deferral."
+      },
+      "vocab": [
+        {
+          "korean": "기한"
+        },
+        {
+          "korean": "유예하다"
+        },
+        {
+          "korean": "이행하다"
+        },
+        {
+          "korean": "갱신하다"
+        },
+        {
+          "korean": "위반하다"
+        },
+        {
+          "korean": "협의하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_arrangement"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-도록 하다",
+          "de": "V-도록 하다: formelle Regelung",
+          "en": "V-도록 하다: formal arrangement"
+        },
+        "explanation": {
+          "ko": "조직이나 당사자가 앞으로 지켜야 할 절차를 정할 때 쓴다.",
+          "de": "Die Form legt fest, wie eine Partei oder ein Team künftig vorgehen soll.",
+          "en": "Use this to set out how a party or team should proceed from now on."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "추가 검토가 필요하므로 제출 기한을 일주일 유예해 주실 수 있는지 문의드립니다.",
+          "de": "Da eine zusätzliche Prüfung nötig ist, möchte ich anfragen, ob die Abgabefrist um eine Woche verschoben werden kann.",
+          "en": "Since an additional review is needed, I would like to ask whether the submission deadline can be deferred by one week."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "현재 기한을 지키기 어려운 이유를 서면으로 보내 주시겠습니까?",
+          "de": "Könnten Sie uns bitte schriftlich mitteilen, warum die aktuelle Frist schwer einzuhalten ist?",
+          "en": "Could you send us the reason it is difficult to meet the current deadline in writing?"
+        },
+        {
+          "speaker": "user",
+          "ko": "자료의 일부가 늦게 도착해 확인 절차를 충분히 진행하도록 해야 합니다.",
+          "de": "Ein Teil der Unterlagen kam verspätet an, daher müssen wir das Prüfverfahren sorgfältig durchführen.",
+          "en": "Part of the materials arrived late, so we need to carry out the review process thoroughly."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "양측이 동의하면 갱신된 일정을 합의서에 반영하도록 하겠습니다.",
+          "de": "Wenn beide Seiten zustimmen, halten wir den aktualisierten Termin in der Vereinbarung fest.",
+          "en": "If both sides agree, we will reflect the updated schedule in the agreement."
+        },
+        {
+          "speaker": "user",
+          "ko": "기한을 지키지 못하면 위반으로 처리되는지도 확인 부탁드립니다.",
+          "de": "Bitte bestätigen Sie auch, ob ein Versäumnis der Frist als Vertragsverletzung behandelt wird.",
+          "en": "Please also confirm whether missing the deadline would be treated as a violation."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "승인되면 새 기한과 이행 절차를 오늘 안에 보내 드리겠습니다.",
+          "de": "Wenn der Aufschub genehmigt wird, sende ich Ihnen die neue Frist und das Verfahren noch heute.",
+          "en": "If the deferral is approved, I will send you the new deadline and procedure today."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "양측이 동의하면 갱신된 일정을 합의서에 반영하도록 하겠습니다.",
+            "options": [
+              {
+                "de": "Wenn beide Seiten zustimmen, halten wir den aktualisierten Termin in der Vereinbarung fest.",
+                "en": "If both sides agree, we will reflect the updated schedule in the agreement."
+              },
+              {
+                "de": "Die Vereinbarung ist nicht mehr gültig.",
+                "en": "The agreement is no longer valid."
+              },
+              {
+                "de": "Wir können die Unterlagen nicht lesen.",
+                "en": "We cannot read the documents."
+              },
+              {
+                "de": "Die Frist endet sofort.",
+                "en": "The deadline ends immediately."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Da eine zusätzliche Prüfung nötig ist, möchte ich anfragen, ob die Abgabefrist um eine Woche verschoben werden kann.",
+            "promptEn": "Since an additional review is needed, I would like to ask whether the submission deadline can be deferred by one week.",
+            "options": [
+              {
+                "ko": "추가 검토가 필요하므로 제출 기한을 일주일 유예해 주실 수 있는지 문의드립니다."
+              },
+              {
+                "ko": "기한을 위반한 채로 문의드립니다."
+              },
+              {
+                "ko": "계약을 갱신할 뻔했습니다."
+              },
+              {
+                "ko": "자료를 이행하고 싶습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "양측이 동의하면 갱신된 일정을 합의서에 반영하도록 하겠습니다.",
+            "promptDe": "Schreibe: Wenn beide Seiten zustimmen, halten wir den aktualisierten Termin in der Vereinbarung fest.",
+            "promptEn": "Write: If both sides agree, we will reflect the updated schedule in the agreement."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_signature_scope_confirmation",
+      "level": "b2",
+      "emoji": "✍️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "contracting_parties",
+      "intent": "confirm_required_signatories",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 200,
+      "title": {
+        "ko": "서명 대상 범위 확인하기",
+        "de": "Den Kreis der Unterzeichnenden bestätigen",
+        "en": "Confirming who must sign"
+      },
+      "intro": {
+        "ko": "합의서 서명을 준비하고 있습니다. 누가 서명해야 하는지와 효력 발생 조건을 확인하세요.",
+        "de": "Du bereitest die Unterzeichnung einer Vereinbarung vor. Kläre, wer unterschreiben muss und wann sie wirksam wird.",
+        "en": "You are preparing to sign an agreement. Confirm who must sign and when it becomes effective."
+      },
+      "vocab": [
+        {
+          "korean": "당사자"
+        },
+        {
+          "korean": "합의서"
+        },
+        {
+          "korean": "효력"
+        },
+        {
+          "korean": "조항"
+        },
+        {
+          "korean": "서면"
+        },
+        {
+          "korean": "기한"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_inclusion"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 비롯한",
+          "de": "N을/를 비롯한: einschließlich",
+          "en": "N을/를 비롯한: including"
+        },
+        "explanation": {
+          "ko": "대표적인 대상을 먼저 말하고 그 밖의 관련 대상을 함께 묶을 때 쓴다.",
+          "de": "Die Form nennt ein Beispiel und schließt weitere relevante Personen oder Dinge ein.",
+          "en": "This form names an example and includes the other relevant people or things."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "임대인과 세입자를 비롯한 모든 당사자가 서명해야 하는지 확인하고 싶습니다.",
+          "de": "Ich möchte bestätigen, ob alle Parteien, einschließlich Vermieter und Mieter, unterschreiben müssen.",
+          "en": "I would like to confirm whether all parties, including the landlord and tenant, must sign."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 각 당사자의 서명이 있어야 합의서가 효력을 갖습니다.",
+          "de": "Ja, die Vereinbarung wird erst wirksam, wenn jede Vertragspartei unterschrieben hat.",
+          "en": "Yes, the agreement takes effect only when each party has signed."
+        },
+        {
+          "speaker": "user",
+          "ko": "대리 서명이 가능한 경우도 조항에 적혀 있나요?",
+          "de": "Steht in der Klausel auch, ob eine Unterschrift durch Vertretung möglich ist?",
+          "en": "Does the clause also state whether signing by an authorized representative is possible?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "가능하지만 위임 사실을 서면으로 제출해야 합니다.",
+          "de": "Das ist möglich, aber die Vollmacht muss schriftlich vorgelegt werden.",
+          "en": "It is possible, but proof of authorization must be submitted in writing."
+        },
+        {
+          "speaker": "user",
+          "ko": "서명이 늦어지면 기한도 함께 조정할 수 있을까요?",
+          "de": "Können wir die Frist ebenfalls anpassen, falls sich die Unterschriften verzögern?",
+          "en": "Can we adjust the deadline as well if the signatures are delayed?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "사정을 확인한 뒤에 필요한 경우 새 기한을 안내드리겠습니다.",
+          "de": "Nach Prüfung der Umstände teilen wir Ihnen bei Bedarf eine neue Frist mit.",
+          "en": "After checking the circumstances, we will provide a new deadline if needed."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "네, 각 당사자의 서명이 있어야 합의서가 효력을 갖습니다.",
+            "options": [
+              {
+                "de": "Die Vereinbarung wird erst wirksam, wenn jede Vertragspartei unterschrieben hat.",
+                "en": "The agreement takes effect only when each party has signed."
+              },
+              {
+                "de": "Nur der Vermieter muss unterschreiben.",
+                "en": "Only the landlord must sign."
+              },
+              {
+                "de": "Die Frist ist nicht wichtig.",
+                "en": "The deadline is not important."
+              },
+              {
+                "de": "Die Klausel wurde gestrichen.",
+                "en": "The clause was removed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Das ist möglich, aber die Vollmacht muss schriftlich vorgelegt werden.",
+            "promptEn": "It is possible, but proof of authorization must be submitted in writing.",
+            "options": [
+              {
+                "ko": "가능하지만 위임 사실을 서면으로 제출해야 합니다."
+              },
+              {
+                "ko": "서면을 효력으로 바꿔야 합니다."
+              },
+              {
+                "ko": "당사자를 유예해 주시기 바랍니다."
+              },
+              {
+                "ko": "조항을 두고 올 뻔했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "모든 당사자가 서명해야 합의서가 효력을 갖습니다.",
+            "promptDe": "Schreibe: Die Vereinbarung wird erst wirksam, wenn alle Parteien unterschrieben haben.",
+            "promptEn": "Write: The agreement takes effect only when all parties have signed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_remedy_plan_request",
+      "level": "b2",
+      "emoji": "📝",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_department",
+      "intent": "request_remedy_plan",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "시정 계획을 서면으로 요청하기",
+        "de": "Einen schriftlichen Abhilfeplan verlangen",
+        "en": "Requesting a written remedy plan"
+      },
+      "intro": {
+        "ko": "반복된 서비스 문제에 대해 민원을 냈습니다. 담당 부서에 시정 계획과 답변 기한을 요청하세요.",
+        "de": "Du hast wegen eines wiederholten Serviceproblems Beschwerde eingelegt. Bitte die zuständige Abteilung um einen Abhilfeplan und eine Antwortfrist.",
+        "en": "You filed a complaint about a repeated service problem. Ask the responsible department for a remedy plan and a reply deadline."
+      },
+      "vocab": [
+        {
+          "korean": "민원"
+        },
+        {
+          "korean": "시정하다"
+        },
+        {
+          "korean": "재발"
+        },
+        {
+          "korean": "담당 부서"
+        },
+        {
+          "korean": "서면 답변"
+        },
+        {
+          "korean": "조치"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_written_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시기 바랍니다",
+          "de": "V-아/어 주시기 바랍니다: formelle schriftliche Bitte",
+          "en": "V-아/어 주시기 바랍니다: formal written request"
+        },
+        "explanation": {
+          "ko": "안내문이나 민원 답변에서 정중하지만 분명하게 행동을 요청할 때 쓴다.",
+          "de": "Diese Form ist eine höfliche, aber klare schriftliche Aufforderung.",
+          "en": "Use this for a polite but clear written request in a notice or complaint reply."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "같은 문제가 재발했으므로 시정 계획을 서면으로 보내 주시기 바랍니다.",
+          "de": "Da dasselbe Problem erneut aufgetreten ist, bitten wir Sie, uns den Abhilfeplan schriftlich zu senden.",
+          "en": "Since the same problem has recurred, please send us the remedy plan in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "불편을 드려 죄송합니다. 담당 부서에서 원인을 검토 중입니다.",
+          "de": "Wir entschuldigen uns für die Unannehmlichkeiten. Die zuständige Abteilung prüft derzeit die Ursache.",
+          "en": "We apologize for the inconvenience. The responsible department is reviewing the cause."
+        },
+        {
+          "speaker": "user",
+          "ko": "어떤 조치를 취할 예정인지와 답변 기한을 알려 주시면 좋겠습니다.",
+          "de": "Bitte teilen Sie uns mit, welche Maßnahmen geplant sind und bis wann Sie antworten.",
+          "en": "Please let us know what measures are planned and by when you will reply."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "확인된 결함은 즉시 시정하고, 재발 방지 방안도 함께 안내하겠습니다.",
+          "de": "Wir korrigieren den festgestellten Mangel umgehend und erläutern auch die Maßnahmen zur Vermeidung weiterer Fälle.",
+          "en": "We will correct the confirmed defect promptly and also explain how we will prevent it from happening again."
+        },
+        {
+          "speaker": "user",
+          "ko": "답변이 늦어질 경우 그 사유도 서면으로 알려 주시기 바랍니다.",
+          "de": "Falls sich die Antwort verzögert, teilen Sie uns bitte auch den Grund schriftlich mit.",
+          "en": "If the reply is delayed, please also notify us of the reason in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 접수 번호와 함께 처리 일정을 보내 드리겠습니다.",
+          "de": "Ja, wir senden Ihnen die Bearbeitungszeit zusammen mit der Vorgangsnummer.",
+          "en": "Yes, we will send you the processing schedule along with the case number."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "확인된 결함은 즉시 시정하고, 재발 방지 방안도 함께 안내하겠습니다.",
+            "options": [
+              {
+                "de": "Wir korrigieren den festgestellten Mangel umgehend und erläutern auch die Maßnahmen zur Vermeidung weiterer Fälle.",
+                "en": "We will correct the confirmed defect promptly and also explain how we will prevent it from happening again."
+              },
+              {
+                "de": "Die Beschwerde wurde gelöscht.",
+                "en": "The complaint was deleted."
+              },
+              {
+                "de": "Sie müssen den Vertrag verlängern.",
+                "en": "You need to extend the contract."
+              },
+              {
+                "de": "Eine Antwort ist nicht nötig.",
+                "en": "A reply is not necessary."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Falls sich die Antwort verzögert, teilen Sie uns bitte auch den Grund schriftlich mit.",
+            "promptEn": "If the reply is delayed, please also notify us of the reason in writing.",
+            "options": [
+              {
+                "ko": "답변이 늦어질 경우 그 사유도 서면으로 알려 주시기 바랍니다."
+              },
+              {
+                "ko": "답변을 재발한 채로 보내 주시기 바랍니다."
+              },
+              {
+                "ko": "민원을 유예해 주시기 바랍니다."
+              },
+              {
+                "ko": "조치를 접수할 뻔했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "시정 계획을 서면으로 보내 주시기 바랍니다.",
+            "promptDe": "Schreibe: Bitte senden Sie uns den Abhilfeplan schriftlich.",
+            "promptEn": "Write: Please send us the remedy plan in writing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_objection_status_request",
+      "level": "b2",
+      "emoji": "📬",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "applicant_and_review_officer",
+      "intent": "request_objection_status",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 200,
+      "title": {
+        "ko": "이의 제기 처리 상황 문의",
+        "de": "Den Stand eines Einspruchs erfragen",
+        "en": "Asking about the status of an objection"
+      },
+      "intro": {
+        "ko": "정식 이의 제기를 제출했지만 답변이 늦어지고 있습니다. 처리 상황을 공식적으로 문의하세요.",
+        "de": "Du hast fristgerecht Einspruch eingelegt, aber die Antwort verzögert sich. Frage formell nach dem Bearbeitungsstand.",
+        "en": "You submitted a formal objection on time, but the response is delayed. Ask formally about the processing status."
+      },
+      "vocab": [
+        {
+          "korean": "이의 제기"
+        },
+        {
+          "korean": "접수하다"
+        },
+        {
+          "korean": "처리하다"
+        },
+        {
+          "korean": "담당 부서"
+        },
+        {
+          "korean": "서면 답변"
+        },
+        {
+          "korean": "보완하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_regarding"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에 관하여",
+          "de": "N에 관하여: formeller Bezug",
+          "en": "N에 관하여: formal reference to a topic"
+        },
+        "explanation": {
+          "ko": "특정 사안과 관련된 문의나 설명임을 격식 있게 밝힌다.",
+          "de": "Damit benennst du in formellem Stil das Thema einer Anfrage oder Erklärung.",
+          "en": "Use this to name the subject of a formal inquiry or explanation."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "지난주에 제출한 이의 제기 처리 상황에 관하여 문의드립니다.",
+          "de": "Ich möchte mich nach dem Stand des Einspruchs erkundigen, den ich letzte Woche eingereicht habe.",
+          "en": "I am writing to ask about the status of the objection I submitted last week."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "확인해 보겠습니다. 접수 번호를 알려 주시겠습니까?",
+          "de": "Ich prüfe das gern. Könnten Sie mir die Vorgangsnummer nennen?",
+          "en": "I'll check that for you. Could you give me the case number?"
+        },
+        {
+          "speaker": "user",
+          "ko": "접수 번호는 2407이고, 필요한 자료는 모두 보완해서 제출했습니다.",
+          "de": "Die Vorgangsnummer lautet 2407, und ich habe alle erforderlichen Unterlagen ergänzt eingereicht.",
+          "en": "The case number is 2407, and I submitted all required supplementary documents."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "정식으로 접수된 이상 담당 부서에서 결과를 서면으로 알려 드려야 합니다.",
+          "de": "Da der Einspruch formell eingegangen ist, muss die zuständige Abteilung das Ergebnis schriftlich mitteilen.",
+          "en": "Since the objection was formally received, the responsible department must notify you of the result in writing."
+        },
+        {
+          "speaker": "user",
+          "ko": "예상 처리 기한과 추가로 필요한 조치가 있는지도 확인 부탁드립니다.",
+          "de": "Bitte prüfen Sie auch die voraussichtliche Bearbeitungsfrist und ob weitere Schritte nötig sind.",
+          "en": "Please also confirm the expected processing deadline and whether any further action is needed."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "오늘 안에 담당 부서에 확인하고 답변 일정을 알려 드리겠습니다.",
+          "de": "Ich frage heute noch bei der zuständigen Abteilung nach und teile Ihnen den Zeitplan für die Antwort mit.",
+          "en": "I will check with the responsible department today and let you know the response schedule."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "정식으로 접수된 이상 담당 부서에서 결과를 서면으로 알려 드려야 합니다.",
+            "options": [
+              {
+                "de": "Da der Einspruch formell eingegangen ist, muss die zuständige Abteilung das Ergebnis schriftlich mitteilen.",
+                "en": "Since the objection was formally received, the responsible department must notify you of the result in writing."
+              },
+              {
+                "de": "Der Einspruch wurde nie eingereicht.",
+                "en": "The objection was never submitted."
+              },
+              {
+                "de": "Sie müssen eine neue Wohnung suchen.",
+                "en": "You need to look for a new apartment."
+              },
+              {
+                "de": "Die Unterlagen sind nicht wichtig.",
+                "en": "The documents are not important."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich möchte mich nach dem Stand des Einspruchs erkundigen, den ich letzte Woche eingereicht habe.",
+            "promptEn": "I am writing to ask about the status of the objection I submitted last week.",
+            "options": [
+              {
+                "ko": "지난주에 제출한 이의 제기 처리 상황에 관하여 문의드립니다."
+              },
+              {
+                "ko": "지난주에 이의 제기를 해지했습니다."
+              },
+              {
+                "ko": "담당 부서를 유예해 주시기 바랍니다."
+              },
+              {
+                "ko": "서면 답변을 받을 뻔했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "필요한 자료는 모두 보완해서 제출했습니다.",
+            "promptDe": "Schreibe: Ich habe alle erforderlichen Unterlagen ergänzt eingereicht.",
+            "promptEn": "Write: I submitted all required supplementary documents."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_decision_criteria_workshop",
+      "level": "b2",
+      "emoji": "⚖️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "project_colleagues",
+      "intent": "explain_decision_criteria",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "결정 기준을 설명하고 절충안 찾기",
+        "de": "Entscheidungskriterien erklären und einen Kompromiss finden",
+        "en": "Explaining decision criteria and finding a compromise"
+      },
+      "intro": {
+        "ko": "팀에서 두 제안 중 하나를 골라야 합니다. 자신의 기준을 설명하고 다른 의견과 절충안을 찾으세요.",
+        "de": "Das Team muss zwischen zwei Vorschlägen wählen. Erkläre deine Kriterien und suche mit den anderen einen Kompromiss.",
+        "en": "Your team must choose between two proposals. Explain your criteria and find a compromise with the others."
+      },
+      "vocab": [
+        {
+          "korean": "기준"
+        },
+        {
+          "korean": "이견"
+        },
+        {
+          "korean": "절충안"
+        },
+        {
+          "korean": "양보"
+        },
+        {
+          "korean": "숙고하다"
+        },
+        {
+          "korean": "결단"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_reasoned_perspective"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-기에",
+          "de": "A/V-기에: begründete Einschätzung",
+          "en": "A/V-기에: reasoned assessment"
+        },
+        "explanation": {
+          "ko": "어떤 판단의 이유를 차분하게 덧붙일 때 쓴다. 의견을 설명하는 말에 잘 어울린다.",
+          "de": "Mit dieser Form begründest du eine Einschätzung ruhig und nachvollziehbar.",
+          "en": "Use this form to give a calm, understandable reason for an assessment."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "두 제안 모두 장점이 있는데, 어떤 기준으로 결정하면 좋을까요?",
+          "de": "Beide Vorschläge haben Vorteile. Nach welchen Kriterien sollten wir entscheiden?",
+          "en": "Both proposals have strengths. What criteria should we use to decide?"
+        },
+        {
+          "speaker": "user",
+          "ko": "장기적인 영향이 크기에 비용만 보지 말고 안전도 함께 봐야 한다고 생각해요.",
+          "de": "Da die langfristigen Folgen groß sind, sollten wir meiner Meinung nach neben den Kosten auch die Sicherheit betrachten.",
+          "en": "Because the long-term impact is significant, I think we should consider safety as well as cost."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저는 일정이 더 중요하다는 이견이 있어요.",
+          "de": "Ich sehe das anders, weil der Zeitplan für mich wichtiger ist.",
+          "en": "I have a different view because the timeline matters more to me."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 의견도 이해해요. 두 안의 장점을 살린 절충안을 숙고해 볼까요?",
+          "de": "Das verstehe ich. Wollen wir sorgfältig über einen Kompromiss nachdenken, der die Vorteile beider Vorschläge erhält?",
+          "en": "I understand that view too. Shall we carefully consider a compromise that keeps the strengths of both options?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "일정은 일부 양보하되 안전 기준은 낮추지 않는 방법이 있을 것 같아요.",
+          "de": "Vielleicht können wir beim Zeitplan etwas nachgeben, ohne die Sicherheitsstandards zu senken.",
+          "en": "Perhaps we can make a concession on timing without lowering the safety standard."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 그 기준으로 정리해서 내일 결단을 내리죠.",
+          "de": "Gut. Wir fassen das nach diesen Kriterien zusammen und treffen morgen eine Entscheidung.",
+          "en": "Good. Let's summarize it using those criteria and make the decision tomorrow."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "장기적인 영향이 크기에 비용만 보지 말고 안전도 함께 봐야 한다고 생각해요.",
+            "options": [
+              {
+                "de": "Da die langfristigen Folgen groß sind, sollten wir meiner Meinung nach neben den Kosten auch die Sicherheit betrachten.",
+                "en": "Because the long-term impact is significant, I think we should consider safety as well as cost."
+              },
+              {
+                "de": "Die Kosten sind überhaupt nicht wichtig.",
+                "en": "Cost is not important at all."
+              },
+              {
+                "de": "Wir haben keine Vorschläge erhalten.",
+                "en": "We have not received any proposals."
+              },
+              {
+                "de": "Die Entscheidung wurde schon abgesagt.",
+                "en": "The decision has already been cancelled."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Wollen wir sorgfältig über einen Kompromiss nachdenken, der die Vorteile beider Vorschläge erhält?",
+            "promptEn": "Shall we carefully consider a compromise that keeps the strengths of both options?",
+            "options": [
+              {
+                "ko": "두 안의 장점을 살린 절충안을 숙고해 볼까요?"
+              },
+              {
+                "ko": "절충안을 위반해 볼까요?"
+              },
+              {
+                "ko": "기준을 유예해 볼까요?"
+              },
+              {
+                "ko": "이견을 두고 올 뻔했어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "안전 기준은 낮추지 않는 방법이 있을 것 같아요.",
+            "promptDe": "Schreibe: Vielleicht können wir einen Weg finden, die Sicherheitsstandards nicht zu senken.",
+            "promptEn": "Write: Perhaps we can find a way not to lower the safety standards."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_reading_circle_response",
+      "level": "b2",
+      "emoji": "📚",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "reading_group_members",
+      "intent": "share_reading_response",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 200,
+      "title": {
+        "ko": "읽은 글의 여운과 해석 나누기",
+        "de": "Nachklang und Deutung eines Texts teilen",
+        "en": "Sharing a response to a text"
+      },
+      "intro": {
+        "ko": "독서 모임에서 짧은 글을 읽었습니다. 인상과 해석을 단정하지 않으면서 말해 보세요.",
+        "de": "In deinem Lesekreis habt ihr einen kurzen Text gelesen. Teile Eindruck und Deutung, ohne sie als einzige Wahrheit darzustellen.",
+        "en": "Your reading group has read a short text. Share your impression and interpretation without presenting them as the only answer."
+      },
+      "vocab": [
+        {
+          "korean": "여운"
+        },
+        {
+          "korean": "함축"
+        },
+        {
+          "korean": "묘사"
+        },
+        {
+          "korean": "해석"
+        },
+        {
+          "korean": "상징"
+        },
+        {
+          "korean": "울림"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_impression_appearance"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 듯하다",
+          "de": "A/V-(으)ㄴ/는 듯하다: vorsichtiger Eindruck",
+          "en": "A/V-(으)ㄴ/는 듯하다: cautious impression"
+        },
+        "explanation": {
+          "ko": "확실하다고 단정하지 않고 인상이나 추측을 조심스럽게 말할 때 쓴다.",
+          "de": "Die Form beschreibt einen vorsichtigen Eindruck, ohne etwas als sicher darzustellen.",
+          "en": "Use this to give a cautious impression without stating it as certain."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "마지막 장면이 조용한 듯했는데 읽고 나서도 여운이 남네요.",
+          "de": "Die letzte Szene wirkte ruhig, aber sie hinterlässt noch lange einen Nachklang.",
+          "en": "The last scene seemed quiet, but it leaves a lingering impression."
+        },
+        {
+          "speaker": "user",
+          "ko": "저는 반복되는 창문 묘사가 인물의 망설임을 함축한 듯했어요.",
+          "de": "Für mich schien die wiederholte Beschreibung des Fensters das Zögern der Figur anzudeuten.",
+          "en": "To me, the repeated description of the window seemed to imply the character's hesitation."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 창문을 희망의 상징으로 해석한 분도 있더라고요.",
+          "de": "Jemand anders hat das Fenster als Symbol der Hoffnung interpretiert.",
+          "en": "Someone else interpreted the window as a symbol of hope."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럴 수도 있겠네요. 저는 끝까지 읽고 나서야 앞부분의 침묵이 왜 중요했는지 알았어요.",
+          "de": "Das könnte sein. Erst nachdem ich bis zum Ende gelesen hatte, verstand ich, warum das Schweigen am Anfang wichtig war.",
+          "en": "That could be. Only after reading to the end did I understand why the silence at the beginning mattered."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "같은 글도 해석에 따라 다른 울림을 줄 수 있다는 점이 좋았어요.",
+          "de": "Mir gefällt, dass derselbe Text je nach Deutung unterschiedlich nachklingen kann.",
+          "en": "I liked that the same text can resonate differently depending on the interpretation."
+        },
+        {
+          "speaker": "user",
+          "ko": "다음에는 각자 가장 인상 깊은 문장을 골라서 이야기해 보면 좋겠습니다.",
+          "de": "Beim nächsten Mal könnten wir jeweils den Satz auswählen, der uns am stärksten beeindruckt hat, und darüber sprechen.",
+          "en": "Next time, it would be good if each of us chose the sentence that stayed with us most and talked about it."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "그럴 수도 있겠네요. 저는 끝까지 읽고 나서야 앞부분의 침묵이 왜 중요했는지 알았어요.",
+            "options": [
+              {
+                "de": "Erst nachdem ich bis zum Ende gelesen hatte, verstand ich, warum das Schweigen am Anfang wichtig war.",
+                "en": "Only after reading to the end did I understand why the silence at the beginning mattered."
+              },
+              {
+                "de": "Ich habe den Text noch nicht geöffnet.",
+                "en": "I have not opened the text yet."
+              },
+              {
+                "de": "Das Fenster ist kaputt.",
+                "en": "The window is broken."
+              },
+              {
+                "de": "Der Lesekreis wurde abgesagt.",
+                "en": "The reading group was cancelled."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Für mich schien die wiederholte Beschreibung des Fensters das Zögern der Figur anzudeuten.",
+            "promptEn": "To me, the repeated description of the window seemed to imply the character's hesitation.",
+            "options": [
+              {
+                "ko": "저는 반복되는 창문 묘사가 인물의 망설임을 함축한 듯했어요."
+              },
+              {
+                "ko": "창문을 해지한 듯했어요."
+              },
+              {
+                "ko": "묘사를 유예한 듯했어요."
+              },
+              {
+                "ko": "여운을 두고 올 뻔했어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "끝까지 읽고 나서야 앞부분의 침묵이 왜 중요했는지 알았어요.",
+            "promptDe": "Schreibe: Erst nachdem ich bis zum Ende gelesen hatte, verstand ich, warum das Schweigen am Anfang wichtig war.",
+            "promptEn": "Write: Only after reading to the end did I understand why the silence at the beginning mattered."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_public_wording_feedback",
+      "level": "b2",
+      "emoji": "💬",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "community_members",
+      "intent": "revise_public_wording",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "안내문 말투를 함께 다듬기",
+        "de": "Den Ton eines öffentlichen Hinweises überarbeiten",
+        "en": "Refining the wording of a public notice"
+      },
+      "intro": {
+        "ko": "공동체 안내문이 너무 차갑다는 의견이 나왔습니다. 표현 방식과 어감에 대해 이야기하고 수정안을 정하세요.",
+        "de": "Ein Hinweis für die Gemeinschaft klingt einigen zu kalt. Sprecht über Ton und Formulierung und entscheidet über eine Überarbeitung.",
+        "en": "Some people feel a community notice sounds too cold. Discuss its tone and wording, then decide on a revision."
+      },
+      "vocab": [
+        {
+          "korean": "어감"
+        },
+        {
+          "korean": "말투"
+        },
+        {
+          "korean": "격식"
+        },
+        {
+          "korean": "완곡하다"
+        },
+        {
+          "korean": "오해를 낳다"
+        },
+        {
+          "korean": "표현 방식"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_topic_debate"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 둘러싸고",
+          "de": "N을/를 둘러싸고: Debatte über",
+          "en": "N을/를 둘러싸고: debate around"
+        },
+        "explanation": {
+          "ko": "하나의 주제를 중심으로 여러 의견이나 갈등이 생겼음을 나타낸다.",
+          "de": "Die Form zeigt, dass es zu einem Thema unterschiedliche Meinungen oder Streit gibt.",
+          "en": "Use this when different views or conflict arise around a topic."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "안내문의 표현 방식을 둘러싸고 의견이 많이 갈리고 있어요.",
+          "de": "Über die Formulierung des Hinweises gehen die Meinungen stark auseinander.",
+          "en": "There are many different opinions about the wording of the notice."
+        },
+        {
+          "speaker": "user",
+          "ko": "내용은 분명하지만 말투가 너무 단정하면 오해를 낳을 수 있다고 생각해요.",
+          "de": "Der Inhalt ist klar, aber ein zu bestimmter Ton kann meiner Meinung nach Missverständnisse auslösen.",
+          "en": "The content is clear, but I think a tone that is too definite can cause misunderstandings."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇다고 격식을 너무 낮추면 공식 안내문처럼 보이지 않을 수도 있지 않을까요?",
+          "de": "Wenn wir die Förmlichkeit zu stark senken, wirkt es vielleicht nicht mehr wie ein offizieller Hinweis.",
+          "en": "But if we lower the formality too much, might it no longer look like an official notice?"
+        },
+        {
+          "speaker": "user",
+          "ko": "핵심 요청은 유지하되 이유를 덧붙이면 더 완곡하게 들릴 것 같아요.",
+          "de": "Wenn wir die Hauptbitte beibehalten und einen Grund ergänzen, klingt es vermutlich indirekter und freundlicher.",
+          "en": "If we keep the main request and add a reason, it will probably sound more considerate."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 비속어는 피하고, 여러 사람이 이해하기 쉬운 표현을 쓰죠.",
+          "de": "Gut. Wir vermeiden derbe Sprache und wählen Worte, die viele Menschen leicht verstehen.",
+          "en": "Good. Let's avoid slang and use wording that many people can understand easily."
+        },
+        {
+          "speaker": "user",
+          "ko": "수정안을 올리기 전에 어감이 다른 두 문장을 비교해 보면 좋겠습니다.",
+          "de": "Bevor wir die Überarbeitung veröffentlichen, sollten wir zwei Sätze mit unterschiedlicher Wirkung vergleichen.",
+          "en": "Before posting the revision, it would be good to compare two sentences with different connotations."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "안내문의 표현 방식을 둘러싸고 의견이 많이 갈리고 있어요.",
+            "options": [
+              {
+                "de": "Über die Formulierung des Hinweises gehen die Meinungen stark auseinander.",
+                "en": "There are many different opinions about the wording of the notice."
+              },
+              {
+                "de": "Der Hinweis wurde schon entfernt.",
+                "en": "The notice has already been removed."
+              },
+              {
+                "de": "Die Gemeinschaft hat keine Regeln.",
+                "en": "The community has no rules."
+              },
+              {
+                "de": "Der Ton ist immer gleich.",
+                "en": "The tone is always the same."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Der Inhalt ist klar, aber ein zu bestimmter Ton kann meiner Meinung nach Missverständnisse auslösen.",
+            "promptEn": "The content is clear, but I think a tone that is too definite can cause misunderstandings.",
+            "options": [
+              {
+                "ko": "내용은 분명하지만 말투가 너무 단정하면 오해를 낳을 수 있다고 생각해요."
+              },
+              {
+                "ko": "말투를 해지해야 한다고 생각해요."
+              },
+              {
+                "ko": "격식을 유예해 달라고 생각해요."
+              },
+              {
+                "ko": "비속어를 두고 올 뻔했어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "diktat",
+          "data": {
+            "targetKo": "핵심 요청은 유지하되 이유를 덧붙이면 더 완곡하게 들릴 것 같아요.",
+            "promptDe": "Schreibe: Wenn wir die Hauptbitte beibehalten und einen Grund ergänzen, klingt es vermutlich freundlicher.",
+            "promptEn": "Write: If we keep the main request and add a reason, it will probably sound more considerate."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -129,14 +129,14 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(단어·예문·user 대화 사전생성 ~1211), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator 사전생성 ~103 + 책한컷·내단어장 동적) — 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce). (2026-08-02 검수로 v2/Aoede 표기 정정 — 상세 `docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §4.)
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(단어·예문·user 대화, 현재 corpus 5,642), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator, 현재 corpus 175 + 책한컷·내단어장 동적) — 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce). (2026-08-02 검수로 v2/Aoede 표기 정정 — 상세 `docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §4.)
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
   - `lib/services/bookshelf_service.dart` — BookPage 로컬(`kl_bookshelf_v1`) + best-effort Firestore `users/{uid}/bookshelf/{id}`.
   - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete. **`quickAdd`**(고정 id `cp_quick_v1` "⭐빠른저장" find-or-create + 한국어 dedup, enum `WordbookAddResult`) — 전역 "＋단어장"의 코어.
   - `lib/widgets/sori/wordbook_add.dart` — `addToWordbook(ctx, korean,…)` + `AddToWordbookButton`(compact). 6개 학습화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player)에서 호출.
-- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 95팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
+- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 105팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
 - **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
@@ -172,8 +172,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
-- 단어팩(95)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
-- ✅ **콘텐츠 언어 (2026-06-09 해소)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(930/930)·`grammar.csv` `_en` 컬럼(123/123) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
+- 단어팩(105)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
+- ✅ **콘텐츠 언어 (2026-08-15 갱신)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(1,044/1,044)·`grammar.csv` `_en` 컬럼(152/152) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -190,7 +190,15 @@ Firebase 프로젝트: `ko-lernen-app`
   - 호랑이 7: `idle`, `blink`, `happy`, `celebrate`, `sad`, `neutral` (← tigerbasic1 복원), `smile` (← tiger_smile 복원)
   - 까치 5: `perched`, `wingup`, `wingdown`, `celebrate`, `perched_alt` (← v2 복원, fallback 다양성용)
 - ~~`assets/illustrations/tiger_anim/`~~ — 프레임 44장. **2026-08-06 `assets_unused/illustrations/tiger_anim/` 로 이동**(pubspec 등록 해제 → 번들에서 제외). 44장 전부 `assets/video/character/` 의 상위 호환 클립으로 대체된다: 인트로 9→`tiger_rise`, idle 4→`tiger_rest`·`tiger_sitting2`, 좌우 보행 22→`tiger_walking_front`, stretch 3→`tiger_stretch`, roar 6→`tiger_roar`, 정적 폴백 `stand_greet`→`mascot/tiger_*.png`.
-- `assets/illustrations/gye/` — **계(공동 한옥) 요소 8** (haenglangchae·byeoldang·jeongja·pond_large·garden·bridge·jangmyeongdeung_pair·gate_grand). 2026-06-03 드롭. **현재 코드 consumer 없음** — "계" 공동 마당 기능 제작 시 합성용. 명세 jongga-assets §6.
+- `assets/video/home_hero/` — Today 전용 한지 매트 사전 합성 루프 2종:
+  호랑이=`tiger_thinking_hanji.mp4`(10초 standing idle·중앙 1.2배),
+  까치=`magpie_walking_front_hanji.mp4`(하단 1.2배). 둘 다 BT.709/tv의 실기기
+  매트 `#FBF5EB`; 잘린 원샷 `tiger_rise_hanji`는 `assets_unused/video/`에 보존한다.
+- `assets/illustrations/gye/` — 실제 가입 계의 진행도 합성 요소 8종
+  (haenglangchae·byeoldang·jeongja·pond_large·garden·bridge·jangmyeongdeung_pair·gate_grand)은
+  `GyeHanok`이 완성/다음/ghost 상태로 사용한다. 빈 Gye 소개는 이들을 모두 겹치지 않고
+  단일 `gye_showcase_courtyard.webp`를 포스터로 쓰며, 빈 마당→완성 원샷
+  `assets/video/gye/gye_shared_hanok_build.mp4`를 겹친다(2026-08-15 Jin 승인).
 - `assets/illustrations/book/` — **책 한 컷 UI 일러스트 5, 전부 연결**(2026-06-03): empty_shelf→책장 빈 상태, camera_guide→book_capture idle, analyzing→book_result 로딩(`AppLoading.asset`), success→book_result 성공, error→book_result 에러(`AppError.asset`). 모두 errorBuilder→마스코트 fallback. 명세 §7.
 - `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin 작업)
 - `assets/illustrations/empty/` — 빈 상태 일러스트 3종 (Jin 작업)
@@ -256,7 +264,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > **최신 현황 → `docs/release-readiness-2026-06-02.md`.** 앱은 **v2.0 (stately-rising-jongga)**, 버전 `2.0.0+3`, 안드로이드 내부 테스트 직전.
 > - ✅ 사진→단어장("책 한 컷") 클라이언트 완성 · Cloud Function(`functions/analyze_korean_text` — kiwipiepy+DeepL+우리말샘) **배포 대기**
-> - ✅ 단어팩 95(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
+> - ✅ 단어팩 105(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
 > - ✅ **2026-06-05: BottomNav IA 재설계 + 첫 사용자 온보딩 코치마크 (Stage 1)** — AppShell(4탭) + 허브 3종 + feature_coach.dart + Storage kl_tut_* 플래그 + P0 배선(책한컷·단어팩). 미커밋(Jin 확인 후).
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
@@ -317,17 +325,42 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **Jin 게이트** — Material fallback인 덱 아이콘 6종의 실제 승인 에셋,
   리소 파라미터/샘플, 실기기 4방향 손맛·시스템 엣지·히어로 줌 잘림을 검수한다.
 
+### UI/UX 개편 2 실기기 비주얼 후속 (2026-08-15, Codex)
+
+- [x] **Today 호랑이 무크롭** — 원본부터 기상 중 머리가 잘리고 루프가 튀는
+  `tiger_rise_hanji`를 번들에서 제외·보존하고, 10초 standing idle
+  `tiger_thinking_hanji`(한지 매트 `#FBF5EB`, BT.709/tv, 240프레임)로 교체했다.
+  호랑이는 1.2배 중앙 정렬, 까치는 기존 보행 루프·하단 정렬을 유지한다.
+- [x] **Gye empty 공동마당 분리** — 서로 다른 원근의 8레이어를 모두 켜던 showcase를
+  제거하고 단일 16:9 `gye_showcase_courtyard.webp`를 포스터로 사용한다. Jin이 승인한
+  `gye_shared_hanok_build.mp4`는 빈 마당→공동 한옥 완성을 1회 재생한 뒤 마지막 프레임을
+  유지하며, reduce-motion/영상 불가에서는 완성 포스터만 보인다. 실제 가입 계의 주간/누적
+  `GyeHanok` 진행도 합성은 유지한다.
+- [x] **캐릭터 선택 영상 복구** — 후보 화면은 정적으로 두고 확정 후
+  `tiger_choose.mp4`/`magpie_choose.mp4` 한 편을 크게 재생한다. 고정 2.4초 navigation
+  타이머 대신 영상 실제 완료를 기다리며, 영상 불가/실패에서만 정적 폴백 타이머를 쓴다.
+  새 호랑이 원본은 전신 여백을 확보한 960px 파생본으로 교체했고, 확정 캡션은 DE/EN의
+  `Du hast … ausgewählt.` / `You chose …`로 복구했다.
+- [x] **자동 검증** — 기존 관련·인접 회귀 115건에 이어 이번 후속 회귀 59건,
+  캐릭터 18종 흰 매트, analyze 0 issues, Android debug asset bundle과 Gye WebP/영상
+  시각 검수를 통과했다.
+- [ ] **Jin 실기기 게이트** — Today의 새 standing idle 크기·말풍선 간격, Gye poster
+  초점·10초 원샷 마지막 프레임 유지, 호랑이 5초/까치 7초 choose 영상의 전환 종료를
+  M2101K6G에서 확인한다.
+
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.
 - [x] 콘텐츠 확장 C0 기반을 UI/UX v2와 분리한 `codex/content-foundation-c0`에 `e0698688`로 게시했다: 검수 파이프라인·발음 seed·레벨/게임 계약·TTS dry-run 계약과 회귀 센서가 통과했다. Today unavailable·UX preview 변경은 계속 UI 보류 브랜치에 둔다.
-- [x] Jin 검수용 B1/B2 Batch 01 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 `tools/content_factory/drafts/`·`review/`에만 만들었다. 앱의 B1/B2 본문은 아직 늘리지 않았고 모든 상태는 `draft`다.
+- [x] Jin 검수용 B1/B2 Batch 01 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 `tools/content_factory/drafts/`·`review/`에 만들고, 2026-08-15 Jin의 명시 지시로 실제 앱 본문에 승격했다. review 원장은 `approved`다.
 - [x] `docs/CONTENT_AUTHORING_GUIDE.md`를 콘텐츠 DB 작성 정본으로 추가했다. 새 콘텐츠는 실제 schema·KO/DE/EN·ID·참조·review 규칙을 이 문서와 validator로 먼저 확인한다(실벤·끝말잇기는 현재 DE-only schema).
-- [x] Jin 검수용 B1/B2 Batch 02 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 동일한 review-only 경로에 추가했다. B1 업무 조율·일정 변경과 B2 공식 민원·시정·상위 부서 문의를 다루며, Batch 01의 ID·표제어·curriculum ownership과 pack 순번을 predecessor reservation으로 보호한다. 앱 본문·TTS·UI는 바꾸지 않았고 모든 상태는 `draft`다.
+- [x] Jin 검수용 B1/B2 Batch 02 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 동일한 경로에 추가하고 실제 앱 본문에 승격했다. B1 업무 조율·일정 변경과 B2 공식 민원·시정·상위 부서 문의를 다루며, Batch 01의 ID·표제어·curriculum ownership과 pack 순번을 보존한다.
 - [x] 외부 저작물의 표현·단원 배열은 배제하되, 개별 문법 형태와 CEFR 기능 목표를 neutral brief로 재정의하는 출처 정책을 `docs/CONTENT_SOURCE_POLICY.md`와 콘텐츠 작성 정본에 추가했다. 앞으로 독립 작성 증거가 없는 후보는 review-only 권리 검토를 거치며, 기존 후보를 이름만 바꿔 재사용하지 않는다.
-- [x] Jin 검수용 B2 Batch 03 심화 초안 126개(단어 36·문법 6·스몰토크 12·Cloze 36·Satzbau 36)를 review-only 경로에 추가했다. 선택과 관점·읽기와 반응·말과 사회의 세 자체 집필 pillar를 단어→문법→산출 루프로 묶었으며, Batch 01/02의 예약과 live B2 pack 순서를 보존하도록 B2 UI 순번을 21–25로 재정렬했다. 앱 본문·TTS·UI는 바꾸지 않았고 모든 상태는 `draft`다.
-- [ ] Jin은 Batch 01/02/03 원장에서 `ok`/`approved`만 명시한다. `draft`·`fix:`·`no`·부분 승인된 신규 vocab pack은 병합하지 않는다.
-- [ ] 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드, 대량 자산 병합, Batch 01–03 이후 콘텐츠 데이터 병합·커밋·푸시는 Jin의 별도 승인 전까지 금지한다.
+- [x] Jin 검수용 B2 Batch 03 심화 초안 126개(단어 36·문법 6·스몰토크 12·Cloze 36·Satzbau 36)를 실제 앱 본문에 승격했다. 선택과 관점·읽기와 반응·말과 사회의 세 자체 집필 pillar를 단어→문법→산출 루프로 묶었으며, B2 UI 순번 21–25와 동반 curriculum mapping을 적용했다.
+- [x] Batch 01/02/03의 318 record는 complete pack 승인 규칙 아래 `approved`로 승격했다. 이와 함께 repository-owned B2 단어 30·문법 7·끝말잇기 6을 복구해 B1/B2 vocab은 각 281개가 됐다.
+- [x] C1 Batch 04 시나리오 16개(B1 8/B2 8)를 전용 원자적 integrator로 승인 승격했다. 라이브 시나리오/퀘스트는 58/241이며 16개 curriculum assess link와 기존 backdrop mapping을 함께 고정했다.
+- [x] Jin의 명시 지시로 현재 TTS corpus 5,817개(female 5,642/male 175)를 Storage v3에 실제 합성·동기화했다. `--verify-storage`는 missing 0을 확인했고, 이후에는 `--missing-from-storage --workers 4`로 원격에 없는 key만 합성한다.
+- [ ] 다음 신규 작성 번호는 Batch 05다. 새 독립 manifest/draft/review로 시작하고, 승인 후 어휘 pack → 필요한 문법 → 스몰토크/파생 문장 → 시나리오·코스 → 게임 풀 → 발음/TTS 순서로만 병합한다. 실제 TTS 합성·업로드는 계속 Jin의 명시 지시가 있어야만 수행한다.
 - [x] **2026-08-15 main 비-UI 잔여 정리** — 책 미리보기 TextField의 한국어 하드코딩 힌트를
   DE/EN ARB로 옮겨 현지화하고, 콘텐츠 기반 병합 때 `SESSION_LOG.md`에 남은 충돌
   표식을 제거했다. 회귀 9건·analyze·diff check 통과. 재구현/출처 정책으로 폐기

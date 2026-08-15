@@ -1,7 +1,9 @@
-# B1/B2 review-only content drafts
+# B1/B2 content batch drafts
 
-This directory contains schema-complete **review-only** B1/B2 batches. None is
-an app asset, and no file here may be copied into `assets/data/` by hand.
+This directory preserves the schema-complete source for B1/B2 batches. C0 Batch
+01–03 and C1 scenario Batch 04 were promoted to app assets on 2026-08-15; their drafts and ledgers are
+the immutable review history, not a second app-data source. No file here may
+be copied into `assets/data/` by hand.
 
 Before editing any record, read the complete
 [`CONTENT_AUTHORING_GUIDE.md`](../../../docs/CONTENT_AUTHORING_GUIDE.md). In
@@ -10,7 +12,7 @@ existing record in place, but create a later batch for any additional record.
 
 Batch 01 and Batch 02 each total 96 records. A later batch declares its own
 complete count in its manifest; it may cover one level only when that is the
-review scope.
+review scope. The next new batch number is **05**.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -28,6 +30,7 @@ small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
 | 01 | housing, tenancy, moving, practical contracts | formal agreements, obligations, precise requests | B1 #19, B2 #21 |
 | 02 | workplace coordination and schedule changes | formal complaints, remedies, escalation | B1 #20, B2 #22; reserves Batch 01 |
 | 03 | — | decisions and perspectives; reading responses; language in society | B2 #23–25; reserves Batch 01/02 |
+| 04 | eight real-life scenarios | eight real-life scenarios | scenario-only; curriculum assess links + existing backdrops |
 
 Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
@@ -39,35 +42,38 @@ Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
 Each `batch_XX_manifest.json` is the machine-readable handoff. It names every
 draft/review pair and declares the curriculum, pack, motif, category, and
-topic companions required for a later approved merge. Those companion mappings
-are intentionally not applied to the live curriculum in a review-only batch.
+topic companions required for an approved merge. Batch 01–04 mappings are
+already live; a future review-only Batch 05 keeps its mappings in the manifest
+until the single approved multi-file transaction promotes them.
 
-Validate Batch 01 with its immutable contract. Validate every later batch with
-the generic manifest-driven overlay.
+Batch 01's draft-only validator is preserved as historical regression coverage.
+Validate a new Batch 05+ with the generic manifest-driven overlay.
 
 ```bash
-python3 tools/content_factory/validate_batch_01.py
 python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_02_manifest.json
+  --manifest tools/content_factory/drafts/batch_05_manifest.json
 ```
 
 ## Review and merge boundary
 
-All linked sheets in `../review/` use the exact common header and every row is
-currently `draft`. Jin changes only the review status to `ok` or `approved`
-after checking the full schema-complete record in this directory. Before
-review, render the complete packet rather than treating the compact CSV as a
-second content source.
+All linked sheets in `../review/` use the exact common header. Batch 01–04
+rows are `approved` because they are live. A new Batch 05 starts entirely as
+`draft`; Jin changes only its review status to `ok` or `approved` after
+checking the full schema-complete record in this directory. Before review,
+render the complete packet rather than treating the compact CSV as a second
+content source.
 
 ```bash
 python3 tools/content_factory/render_review_packet.py \
-  --manifest tools/content_factory/drafts/batch_02_manifest.json \
-  --output tools/content_factory/review/batch_02_review_packet.md
+  --manifest tools/content_factory/drafts/batch_05_manifest.json \
+  --output tools/content_factory/review/batch_05_review_packet.md
 ```
 
-Before any approved append, a content integrator must make the companion
+Before any approved promotion, a content integrator must make the companion
 curriculum mappings from the manifest available in the same reviewed change.
 That is necessary because the C0 validator correctly rejects a new pack,
 grammar rule, small-talk category, or cloze topic that has no curriculum route.
-Use `apply_review.py` preview first; do not bypass the manifest/validator
-transaction and do not run TTS while this batch is still review-only.
+Use `apply_review.py` preview first, then the multi-file
+`integrate_review_batches.py --manifest ...` transaction; do not bypass the
+manifest/validator transaction and do not run TTS while this batch is still
+review-only.

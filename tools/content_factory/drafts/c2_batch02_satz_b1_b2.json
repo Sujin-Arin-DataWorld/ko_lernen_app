@@ -51,14 +51,14 @@
     {
       "id": "satz_b1_0066",
       "level": "b1",
-      "targetKo": "담당자가 부재중이라 제가 그분을 대체해 업무를 맡기로 했어요.",
-      "promptDe": "Da die zuständige Person nicht da war, habe ich zugesagt, sie zu vertreten.",
-      "promptEn": "Since the person in charge was unavailable, I agreed to take over their duties.",
+      "targetKo": "담당자가 부재중이라 제가 대신 업무를 맡기로 했어요.",
+      "promptDe": "Da die zuständige Person nicht da war, habe ich die Aufgaben stellvertretend übernommen.",
+      "promptEn": "Since the person in charge was unavailable, I took over the duties temporarily.",
       "distractors": [
         "연락드릴",
         "예정이에요"
       ],
-      "vocabKo": "대체하다"
+      "vocabKo": "대신하다"
     },
     {
       "id": "satz_b1_0067",

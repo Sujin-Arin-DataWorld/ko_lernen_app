@@ -352,13 +352,13 @@ abstract class AppL10n {
   /// No description provided for @characterSelectedTiger.
   ///
   /// In de, this message translates to:
-  /// **'태고가 선택되었습니다.'**
+  /// **'Du hast Taego ausgewählt.'**
   String get characterSelectedTiger;
 
   /// No description provided for @characterSelectedMagpie.
   ///
   /// In de, this message translates to:
-  /// **'조이가 선택되었습니다.'**
+  /// **'Du hast Joy ausgewählt.'**
   String get characterSelectedMagpie;
 
   /// No description provided for @characterSelectionHint.

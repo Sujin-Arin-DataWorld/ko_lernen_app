@@ -276,12 +276,17 @@ static const double _kHeroZoom = 1.2;  // 주석: 클립은 정사각+매트 베
 ClipRect(
   child: Transform.scale(
     scale: _kHeroZoom,
-    alignment: Alignment.bottomCenter,   // 발 위치 고정, 위쪽 여백을 먹는다
+    alignment: kind == MascotKind.magpie
+        ? Alignment.bottomCenter          // 까치 발/그림자 위치 고정
+        : Alignment.center,               // 호랑이 standing idle 상하 무크롭
     child: CharacterClipPlayer(size: bandHeight, ...),
   ),
 )
 ```
 
+- 2026-08-15 실기기 시각 검수: 원본부터 기상 중 머리가 잘리고 루프 경계가 튀는
+  `tiger_rise_hanji`는 번들에서 제외했다. 호랑이는 경계 접촉 없는 10초
+  `tiger_thinking_hanji` standing idle을 중앙 1.2배로 쓰고, 까치만 기존 하단 정렬을 유지한다.
 - `forceStatic`/다크 경로의 `Mascot` PNG(:158-163)는 투명 배경 — **줌 적용 금지**.
 - 밴드 높이 산식(:92-111)·캡·매트 계약 불변. `sori_stage_today_matte_test` green 유지.
 - **Jin 실기기 게이트**: 발끝/꼬리 잘림·매트 경계 확인 후 1.15~1.3 미세조정.
@@ -323,7 +328,7 @@ ClipRect(
 **목표**: 390×844 에서 **스크롤 없이** CTA 도달(±1줄). 화면당 1메시지.
 
 1. **헤드라인 단일화** — `_IntroEmpty`(:191-261)에 `embedded` 플래그를 전달해, 임베디드일 때 자체 eyebrow/헤드라인/리드(:201-209) **제거**. 셸 헤더가 유일한 대형 텍스트.
-2. **유령 프리뷰 → 쇼케이스** — `gye_hanok.dart` 에 `showcase: bool` 신설: true 면 단계 불투명도 계산(:73-81) 우회, **8레이어 전부 1.0**. `_IntroEmpty` 프리뷰(:211-217)는 `showcase: true` + 캡션 신규 ARB `gyeShowcaseCaption` DE "So kann euer gemeinsames Hanok aussehen" / EN "This is what your shared hanok can look like" — `tt.caption` 중앙. (현재는 permanent = 1+3 = 4 실체·1개 0.69·3개 0.22 유령 — `gye_lantern_progress.dart:35-38` — 영감을 줘야 할 그림이 깨져 보인다.)
+2. **유령 프리뷰 → 단일 공동마당 성장 쇼케이스** — 2026-08-15 실기기 시각 검수로 기존 `showcase: true`(완성 종가 위에 서로 다른 원근의 `gye_*` 8장을 모두 1.0 합성)는 건물이 한곳에 뭉쳐 보여 **폐기**했다. `_IntroEmpty`는 393:220 슬롯에서 `assets/video/gye/gye_shared_hanok_build.mp4`의 빈 마당→공동 한옥 완성을 한 번 재생하고 마지막 프레임을 유지한다. 오디오는 제거했으며 reduce-motion·영상 불가·초기화 실패에서는 같은 영상 9.7초 프레임의 `assets/illustrations/gye/gye_showcase_courtyard.webp` 포스터를 쓴다. 기존 `gyeShowcaseCaption`과 실제 가입 계의 `GyeHanok` 진행도(완성/다음/ghost)는 별도 renderer로 보존한다. 향후 가입 계 자체를 다시 그릴 때만 동일 고정 캔버스 stage 0–8을 제작한다.
 3. **문단 3개 → 1줄 칩 카드 3개** — `_Point`(:264-292, raw Pretendard TextStyle)를 `SoriCard(compact)` + `Icon 20` + **신규 단문 ARB** 로: `gyeExplainWhatShort` "Eine kleine, freiwillige Lerngruppe." / `gyeExplainWhyShort` "Ein gemeinsames Hanok, kein Wettbewerb." / `gyeExplainHowShort` "Beitritt mit 6-stelligem Code." (EN 쌍). **기존 장문 키 3종은 삭제하지 않고 ⓘ 상세 시트로 강등** — `showSoriSheet` 기반, 칩 행 우측 ⓘ 1개 (`UI_OVERHAUL_WORK_ORDER` §C-2 원칙: 정보는 버리지 않고 강등한다).
 4. **프라이버시 카드 → 1줄** — :236-248 을 `gyePrivacyTitle` 1줄 + 동일 ⓘ 시트에 `gyePrivacyBody` 수록.
 5. 미션 칩(`sori_stage_gye_screen.dart:32-58`)의 raw `TextStyle(fontWeight: w700)` → `tt.label` 계열.

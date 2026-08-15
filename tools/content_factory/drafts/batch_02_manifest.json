@@ -1,12 +1,18 @@
 {
   "version": 1,
   "batch": "02",
-  "status": "review_only_draft",
+  "status": "merged",
   "provenance": {
     "approvedTrack": "docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md#제작-순서",
     "scope": "B1 workplace coordination and schedule changes; B2 formal complaints, remedies, and escalation; sentence games derived from the candidate vocabulary examples",
     "createdAt": "2026-08-14",
-    "requiresJinReview": true
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "all records promoted to bundled app content"
+    },
+    "mergedAt": "2026-08-15"
   },
   "predecessorManifests": [
     "tools/content_factory/drafts/batch_01_manifest.json"
@@ -69,8 +75,15 @@
       "packId": "b1_work_coordination_1",
       "level": "b1",
       "orderInLevel": 20,
-      "orderRange": [1, 12],
-      "reviewBossOrders": [10, 11, 12],
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
       "displayLabel": {
         "ko": "업무 조율·일정",
         "de": "Arbeitskoordination & Termine",
@@ -78,7 +91,9 @@
       },
       "curriculum": {
         "courseUnitId": "b1_03_work_softening",
-        "conceptIds": ["concept_b1_softening"]
+        "conceptIds": [
+          "concept_b1_softening"
+        ]
       },
       "motif": "bamboo",
       "motifEnum": "DancheongMotif.bamboo"
@@ -87,8 +102,15 @@
       "packId": "b2_formal_complaint_1",
       "level": "b2",
       "orderInLevel": 22,
-      "orderRange": [1, 12],
-      "reviewBossOrders": [10, 11, 12],
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
       "displayLabel": {
         "ko": "공식 민원·시정",
         "de": "Formelle Beschwerde & Abhilfe",
@@ -96,7 +118,9 @@
       },
       "curriculum": {
         "courseUnitId": "b2_04_complaint_resolution",
-        "conceptIds": ["concept_b2_complaint"]
+        "conceptIds": [
+          "concept_b2_complaint"
+        ]
       },
       "motif": "manja",
       "motifEnum": "DancheongMotif.manja"
@@ -107,49 +131,65 @@
       "id": "grammar_b1_scheduled_arrangement",
       "level": "b1",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "id": "grammar_b1_as_soon_as",
       "level": "b1",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "id": "grammar_b1_planned_future",
       "level": "b1",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "id": "grammar_b1_soft_request",
       "level": "b1",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "id": "grammar_b2_formal_written_request",
       "level": "b2",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     },
     {
       "id": "grammar_b2_explicit_formal_request",
       "level": "b2",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     },
     {
       "id": "grammar_b2_formal_regarding",
       "level": "b2",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     },
     {
       "id": "grammar_b2_established_premise",
       "level": "b2",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     }
   ],
   "smalltalkCategoryMappings": [
@@ -157,25 +197,33 @@
       "level": "b1",
       "category": "work_study",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "level": "b1",
       "category": "phone",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "level": "b2",
       "category": "shopping",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     },
     {
       "level": "b2",
       "category": "phone",
       "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": ["concept_b2_formal_opening"]
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ]
     }
   ],
   "clozeTopicMappings": [
@@ -183,13 +231,17 @@
       "level": "b1",
       "topic": "Arbeitskoordination & Termine",
       "courseUnitId": "b1_03_work_softening",
-      "conceptIds": ["concept_b1_softening"]
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     },
     {
       "level": "b2",
       "topic": "Formelle Beschwerde & Abhilfe",
       "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": ["concept_b2_complaint"]
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
     }
   ],
   "satzDependencies": [
@@ -208,15 +260,33 @@
   "sentenceDerivationSets": [
     {
       "level": "b1",
-      "vocabIdRange": [260, 271],
-      "clozeIdRange": [68, 79],
-      "satzIdRange": [62, 73]
+      "vocabIdRange": [
+        260,
+        271
+      ],
+      "clozeIdRange": [
+        68,
+        79
+      ],
+      "satzIdRange": [
+        62,
+        73
+      ]
     },
     {
       "level": "b2",
-      "vocabIdRange": [217, 228],
-      "clozeIdRange": [70, 81],
-      "satzIdRange": [54, 65]
+      "vocabIdRange": [
+        217,
+        228
+      ],
+      "clozeIdRange": [
+        70,
+        81
+      ],
+      "satzIdRange": [
+        54,
+        65
+      ]
     }
   ],
   "mergeOrder": [

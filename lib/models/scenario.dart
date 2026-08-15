@@ -409,6 +409,23 @@ class Scenario {
 /// clinic 계열(`doctor_consultation`·`clinic_safety`)은 배경이 없어 market 유지.
 extension ScenarioBackdrop on Scenario {
   static const _categoryById = <String, String>{
+    // Reviewed C1 Batch 04 scenarios. Existing backdrop pipeline only.
+    'b1_leak_report': 'home',
+    'b1_move_in_handover': 'office',
+    'b1_contract_appointment': 'office',
+    'b1_heating_safety_call': 'home',
+    'b1_team_meeting_coordination': 'office',
+    'b1_attendance_followup': 'office',
+    'b1_covering_absence': 'office',
+    'b1_reschedule_request': 'office',
+    'b2_contract_clause_inquiry': 'office',
+    'b2_deadline_deferral_request': 'office',
+    'b2_signature_scope_confirmation': 'office',
+    'b2_remedy_plan_request': 'office',
+    'b2_objection_status_request': 'office',
+    'b2_decision_criteria_workshop': 'office',
+    'b2_reading_circle_response': 'cafe',
+    'b2_public_wording_feedback': 'cafe',
     // cafe — 카페 · 캐주얼한 만남 (2026-08-04: 10→7, 업무 3건은 office 로)
     'cafe_starbucks_basic': 'cafe',
     'introduce_yourself': 'cafe',
