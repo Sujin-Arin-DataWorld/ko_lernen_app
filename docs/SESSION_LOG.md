@@ -44,8 +44,8 @@ Batch 05이며, Batch 04를 새 초안에 재사용하지 않는다.
 
 **검증/커밋.** `validate_content.py` 통과, Batch 04 재실행 preview에서 시나리오 58/
 퀘스트 241을 확인했고, content factory Python 전체 53건, `flutter analyze` 0 issues,
-전체 `flutter test`, `git diff --check`를 통과했다. commit hash는 이 main 통합 직후
-문서 기록 커밋에 고정한다.
+전체 `flutter test`, `git diff --check`를 통과했다. UI·콘텐츠·TTS 통합 commit은
+`f718106c`이며, 이 해시 기록은 바로 다음 문서 commit에 고정한다.
 
 ### 2026-08-15 (Codex, Mac) — 승인 호랑이 choose·Gye 성장 영상·DE/EN 확정 화면
 
