@@ -159,8 +159,9 @@ python3 tool/generate_tts.py --dry-run
 
 `--dry-run`은 현재 정적 자산을 `(voice, Korean text)` 단위로 dedup해 출력할
 뿐이며, 인증·합성·로컬 파일 생성·Firebase Storage 업로드를 수행하지 않는다.
-2026-08-15의 계획 corpus는 **6,321개 요청**(female 6,146 / male 175)이다. 기존
-5,817개는 Storage missing 0으로 검증됐고, Batch 05 신규 504개는 합성 자격 증명 대기다.
+2026-08-15의 live corpus는 **6,321개 요청**(female 6,146 / male 175)이다. Batch 05
+신규 504개까지 합성·업로드한 뒤 Storage를 `expected 6321, remote 6376, missing 0,
+stale 55`로 검증했다. stale 55개는 immutable 과거 캐시이므로 삭제하지 않는다.
 과거 문서의 5,288개 또는 약 1,314개 수치는 현재 비용 견적이나 완료 기준으로 쓰지 않는다.
 자산에 새 한국어 발화가 들어갈 때마다 dry-run 수량과 목록을 다시 검수한다.
 실제 `python3 tool/generate_tts.py` 실행 및 업로드는 Jin의 명시적 권한과 계정으로만
@@ -173,6 +174,11 @@ Storage와 대조한 뒤, 누락분만 합성한다.
 python3 tool/generate_tts.py --missing-from-storage --workers 4
 python3 tool/generate_tts.py --verify-storage
 ```
+
+Chirp3-HD가 `429 Resource exhausted`를 반환해도 성공한 로컬·원격 파일은 보존된다.
+1분 이상 기다린 뒤 `--missing-from-storage --workers 1`로 재실행하면 실제 누락분만
+이어 만들 수 있다. `✅ 완료`는 해당 실행의 업로드 종료이고, 전체 완료 판정은 반드시
+`--verify-storage`의 `missing 0`으로 한다.
 
 ---
 

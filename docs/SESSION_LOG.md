@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex Work Mode) — Batch 05 TTS 504개 합성·Storage 완전성 검증
+
+**결과.** Jin의 인증된 Windows PowerShell과 gcloud 세션에서 Batch 05 신규 발화
+504개를 Google Cloud Text-to-Speech의 `ko-KR-Chirp3-HD-Zephyr`로 합성하고 기존 v3
+SHA-1 immutable 경로에 업로드했다. 첫 실행은 Chirp3-HD 요청 한도 429 이후에도 성공한
+203개를 보존·업로드했고, 1분 이상 기다린 뒤 `--missing-from-storage --workers 1`로
+남은 301개만 재개해 모두 업로드했다. 최종 검증은 `expected 6321, remote 6376,
+missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐시이며 삭제하지
+않았다.
+
+**정본 동기화.** `build_batch_05_tts_manifest.py`와 생성 manifest의 상태를
+`storage_verified`로 바꾸고, 실행 주체·명령·expected/remote/missing/stale 증거와 stale
+보존 정책을 구조화했다. 콘텐츠 팩토리 README에는 429 발생 시 성공분을 버리지 않고
+저속 missing-only 실행으로 재개하는 절차와 `missing 0`만을 전체 완료 기준으로 삼는
+규칙을 추가했다. 이제 TTS는 릴리스 차단 항목이 아니며, main 병합 전 남은 외부 게이트는
+실제로 시작·완료된 Flutter GitHub Actions 검증이다.
+
 ### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
 
 **참고자료와 저작권 안전선.** 제공된 세종학당 PDF 17권, 총 1,817쪽을 텍스트 추출과

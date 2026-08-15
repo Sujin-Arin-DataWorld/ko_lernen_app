@@ -2,8 +2,8 @@
   "version": 1,
   "batch": "05",
   "createdAt": "2026-08-15",
-  "status": "awaiting_credentials",
-  "statusReason": "The corpus and immutable paths are verified, but synthesis and upload require an authorized Google TTS API key and gcloud Storage session.",
+  "status": "storage_verified",
+  "statusReason": "All 504 Batch 05 objects were synthesized and uploaded. The integrated Storage verification returned expected 6321, remote 6376, missing 0, and stale 55.",
   "provider": "Google Cloud Text-to-Speech",
   "bucket": "ko-lernen-app.firebasestorage.app",
   "cacheRevision": "v3",
@@ -14,6 +14,17 @@
     "approvedBy": "Jin",
     "approvedAt": "2026-08-15",
     "scope": "synthesize, verify, upload, and publish Batch 05 audio"
+  },
+  "storageVerification": {
+    "verifiedAt": "2026-08-15",
+    "verifiedBy": "Jin",
+    "environment": "authenticated Windows PowerShell and gcloud session",
+    "command": "python tool/generate_tts.py --verify-storage",
+    "expectedObjects": 6321,
+    "remoteObjects": 6376,
+    "missingObjects": 0,
+    "staleObjects": 55,
+    "stalePolicy": "retain immutable historical cache objects"
   },
   "counts": {
     "vocabHeadwords": 144,
