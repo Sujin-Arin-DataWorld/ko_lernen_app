@@ -478,8 +478,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                           const SizedBox(height: 8),
 
                           // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            spacing: Spacing.sm,
+                            runSpacing: Spacing.xs,
                             children: [
                               SoriChip(
                                 label: '초성 + 모음',
@@ -494,7 +496,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                         () => _mode = HintMode.chosungVowel,
                                       ),
                               ),
-                              const SizedBox(width: Spacing.sm),
                               SoriChip(
                                 label: '초성 only',
                                 icon: Icons.flash_on_rounded,
