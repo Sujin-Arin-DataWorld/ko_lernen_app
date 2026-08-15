@@ -9,8 +9,9 @@ $14.74지만 billed amount는 $0였다. 활성 Actions artifact는 63개, 262.68
 500MiB 한도에는 아직 못 미치지만 기존 90일 보관을 유지하면 빠르게 누적될 상태였다.
 Flutter, pip, npm cache는 이미 적용돼 있어 캐시 부재를 원인으로 보지 않았다.
 
-**변경.** 같은 workflow, event, PR 또는 ref의 오래된 실행을 취소하는 concurrency를
-추가했다. Markdown과 docs 전용 push/PR은 Flutter CI를 만들지 않는다. 수동 실행은 기본
+**변경.** 같은 브랜치의 자동·수동 CI 중 오래된 실행을 취소하는 concurrency를
+추가했다. 골든 생성은 별도 그룹으로 유지한다. Markdown과 docs 전용 push/PR은 Flutter
+CI를 만들지 않는다. 수동 실행은 기본
 task=ci와 실제 기준선 교체용 task=regenerate-goldens로 분리해 전체 CI와 골든 테스트가
 한 번에 중복 실행되지 않게 했다. 기존 네 필수 job 이름과 analyze, 전체 test, web release
 build, 세 보안 테스트는 유지했다. 정상 범위를 넘는 실행은 job별 8분에서 25분 timeout으로
@@ -20,9 +21,11 @@ task와 비용 안전장치로 동기화했다.
 
 **검증/커밋.** YAML 파싱, event/input/job 구조, concurrency, 경로 필터, timeout,
 artifact retention, FFmpeg 재사용 조건을 로컬 구조 검사로 확인했다. 구현 commit은
-`40dd32a1` (`ci: reduce Actions usage`)이다. 실제 GitHub-hosted runner 검증은 Jin이
-설정하는 월 $5 hard cap이 반영된 뒤 새 run으로 확인하며, 통과 전 main 병합 금지 조건은
-유지한다.
+`40dd32a1` (`ci: reduce Actions usage`), 자동·수동 실행 교차 중복 제거 보강 commit은
+`c4517493` (`ci: deduplicate manual and automatic runs`)이다. GitHub run #406에서
+workflow 파싱, 네 필수 job 생성, 수동 골든 job skip까지 확인했으나 네 필수 job은 step
+실행 전에 계정 billing/spending-limit 경고로 중단됐다. 월 $5 hard cap 반영 뒤 실제
+runner 통과를 확인하며, 그 전 main 병합 금지 조건은 유지한다.
 
 ### 2026-08-15 (Codex Work Mode) — Batch 05 TTS 504개 합성·Storage 완전성 검증
 
