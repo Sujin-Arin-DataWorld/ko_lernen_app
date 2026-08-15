@@ -51,6 +51,18 @@ TTS 504개 Storage 검증이 끝나기 전에는 main에 병합하지 않는다.
 후속 A1–C2 계약 보완 commit은 `519782e7` (`fix: align advanced content contracts`)이며,
 이 해시 기록은 바로 다음 문서 commit에 포함한다.
 
+**공개 표면 동기화와 프리뷰 재검수.** 실제 Cloudflare 프리뷰를 브라우저로 열어 보니
+앱 데이터는 A1–C2로 확장됐지만 공개 랜딩·앱 홈 설명·별도 웹 기능 페이지·README·스토어
+등록 문구에는 A1–B2/526단어/61팩/문법 88개라는 과거 수치가 남아 있었다. 현재 live
+inventory인 단어 1,188개·117팩, 문법 176개, A1–C2와 끝말잇기 2,634개를 DE/EN/KO
+표면에 동기화하고 초성 퀴즈의 레벨 안내도 C2까지 맞췄다. 기능 commit은 `be172750`
+(`fix: synchronize A1-C2 product surfaces`)이다. Cloudflare commit preview
+`a71e1599-hangulsori.sujin-arin-park.workers.dev`는 배포 성공 후 한국어 DOM에서 새 범위와
+수치를 모두 표시했고, 과거 표식은 0건, 앱 문서에서 발생한 console error/warn은 0건이었다.
+GitHub Actions run #401은 코드 step을 한 번도 시작하지 못하고 네 job 모두 기존과 같은
+계정 결제/지출 한도 오류로 차단됐으므로, Flutter CI 및 TTS Storage 검증 전 main 병합
+금지 조건은 그대로 유지한다.
+
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
 **무엇/왜.** 현재 작업 정본이 아닌 과거 설계·실행 계획·아카이브 문서 63개를
