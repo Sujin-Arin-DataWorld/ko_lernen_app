@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex Work Mode) — GitHub Pro 실제 CI 검증과 회귀 수정
+
+**검출.** GitHub Pro 전환 뒤 final-head run #408이 실제 runner에서 실행됐다. Book
+analysis, Gye, pronunciation 보안 job과 Flutter analyze는 통과했다. 전체 Flutter
+테스트는 3,403건 통과, 5건 실패였다. 실패는 오래된 scenario 전용 checkpoint 가정 1건,
+실제 끝말잇기 2,640개와 2,634개 감사 수치 불일치 1건, Today 골든 3건이었다. 실패
+artifact 12개를 master/test/masked diff로 직접 비교했으며 오버플로나 레이아웃 붕괴는
+없었다. 영상 가능 여부에 따른 마스코트 프레임과 늦게 로드된 SRS 삽화가 차이의 원인이었다.
+
+**수정.** checkpoint 검증을 선언된 content kind를 해석하는 범용 계약으로 바꿔 C1/C2의
+smalltalk·grammar assessment도 정확한 단일 edge로 검증한다. 감사 매니페스트와 공개
+DE/EN/KO 끝말잇기 수치를 실제 2,640개로 복원했다. Today 골든은 test seam으로 정적
+마스코트를 강제하고 SRS·마스코트 이미지를 선로딩하며, 검수한 Linux run #408 test image
+세 장을 새 기준선으로 승격했다. 테스트 범위나 필수 job은 줄이지 않았다.
+
+**검증/커밋.** 변경 텍스트의 단일 치환, JSON parse와 kkeunmari=2,640, checkpoint kind
+해석, 정적 hero seam, 세 PNG 크기와 blob 생성을 구조적으로 확인했다. 구현 commit은
+`d2610774` (`fix: resolve final CI regressions`)이다. 이 기록까지 한 번의
+branch ref 이동으로 게시해 중간 commit의 불필요한 CI 실행을 만들지 않았다. 최종
+GitHub Actions가 실제로 모두 통과하기 전에는 main에 병합하지 않는다.
+
 ### 2026-08-15 (Codex Work Mode) — GitHub Actions 사용량·비용 최적화
 
 **원인 실측.** 8월 1일부터 15일까지 단일 CI workflow가 210회 실행됐다. 구성은
