@@ -57,6 +57,7 @@ class SoriStageTodayScreen extends StatefulWidget {
     this.onHomeTourStarted,
     this.enableMilestoneCelebrations,
     this.active = true,
+    this.forceStaticHero = false,
   });
 
   final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
@@ -76,6 +77,9 @@ class SoriStageTodayScreen extends StatefulWidget {
   /// effects (tour and milestone sheet) are admitted only while this tab is
   /// visible.
   final bool active;
+
+  /// Keeps the mascot frame deterministic in pixel tests.
+  final bool forceStaticHero;
 
   @override
   State<SoriStageTodayScreen> createState() => _SoriStageTodayScreenState();
@@ -389,7 +393,9 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
           kind: kind,
           // teal kill-switch: 흰 배경 위 한지 매트 클립은 액자가 된다 →
           // 다크와 같은 정적 마스코트 경로로.
-          forceStatic: paletteVariantNotifier.value == PaletteVariant.teal,
+          forceStatic:
+              widget.forceStaticHero ||
+              paletteVariantNotifier.value == PaletteVariant.teal,
         );
       },
     );

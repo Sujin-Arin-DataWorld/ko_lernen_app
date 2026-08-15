@@ -766,7 +766,7 @@ void main() {
   );
 
   test(
-    'every declared scenario checkpoint has an assessment link for its exact mission',
+    'every declared checkpoint has an assessment link for its exact mission',
     () async {
       final catalog = await CurriculumCatalog.load();
 
@@ -778,12 +778,15 @@ void main() {
             hasLength(2),
             reason: 'invalid checkpoint $checkpoint',
           );
-          expect(pieces.first, CurriculumContentKind.scenario.code);
-
-          final links = catalog.linksForContent(
-            CurriculumContentKind.scenario,
-            pieces.last,
+          final kind = CurriculumContentKindX.tryFromCode(pieces.first);
+          expect(
+            kind,
+            isNotNull,
+            reason: 'unknown checkpoint kind in $checkpoint',
           );
+          if (kind == null) continue;
+
+          final links = catalog.linksForContent(kind, pieces.last);
           expect(
             links.where((link) => link.exactlyAssesses(unit)),
             hasLength(1),
