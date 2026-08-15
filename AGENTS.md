@@ -278,9 +278,9 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **다음 콘텐츠**: Batch 06은 새 기획 전에 Batch 05 실사용 피드백과 C1/C2
   코스 완료율을 먼저 확인한다. 어떤 주제든 review-only draft·권리 검토·validator를
   통과한 뒤 앱 데이터에 쓴다.
-- [ ] **Batch 05 TTS/Storage**: 전체 6,321개와 신규 504개의 불변 캐시 키는 검증됐다.
-  기존 5,817개는 Storage missing 0이며, 신규 504개는 Google TTS 키와 `gcloud`
-  Storage 인증이 있는 환경에서 합성·업로드한 뒤 `--verify-storage`로 닫는다.
+- [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
+  Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
+  과거 immutable stale 객체는 삭제하지 않는다.
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
