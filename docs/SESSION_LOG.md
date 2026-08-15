@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex Work Mode) — Mac 정본 0fcc2253 정렬과 Today 골든 안정화
+
+**정본 확인.** Jin이 맥에서 push한 임시 브랜치
+`codex/mac-head-088cc53`의 실제 Git 객체는 `0fcc2253`이며,
+현재 원격 `main`과 identical임을 확인했다. Batch 05 PR은 콘텐츠·TTS·CI 최적화
+변경을 보존한 채 이 커밋을 두 번째 부모로 병합했다.
+
+**CI 진단과 수정.** run #414는 보안 3종과 analyze를 통과했고 전체 Flutter test는
+3,405 passed, 3 failed, 2 skipped였다. 실패는 Today compact·medium·expanded 골든
+3장뿐이며 모두 1.29%, 13,253px 차이였다. artifact의 master/test/isolated diff를
+직접 비교해 공통 정적 호랑이 `tiger_sitting2.png` 렌더만 달라졌고 나머지 픽셀,
+레이아웃, 텍스트와 에셋은 동일함을 확인했다. 실제 Linux testImage 3장을 canonical
+기준선으로 승격했으며 제품 UI 코드는 변경하지 않았다.
+
+**검증/커밋.** 세 PNG byte 길이와 base64 완전성을 검사해 blob으로 만들고, 잘못된
+기준점을 설명하던 임시 세션 기록은 제거했다. 정렬·기준선 merge 커밋은
+`6a1682a5`이다. 최종 GitHub Actions가 analyze, 전체 test와 web
+release build까지 통과하기 전에는 main에 병합하지 않는다.
+
 ### 2026-08-15 (Codex Work Mode) — GitHub Pro 실제 CI 검증과 회귀 수정
 
 **검출.** GitHub Pro 전환 뒤 final-head run #408이 실제 runner에서 실행됐다. Book
