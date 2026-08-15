@@ -1,23 +1,5 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-15 (Codex Work Mode) — 잘못된 릴리스 커밋 2개 히스토리 제외
-
-**결과.** 사용자 승인에 따라 잘못 생성된 `429a8f4d`, `8ab3e6eb`를 단순 revert
-상태로 남기지 않고 활성 브랜치 히스토리에서 제외했다. `main`은 두 커밋 직전
-`11b659e7`로 복구하고, PR은 잘못된 main 병합 직전
-`6957a8dc`에서 깨끗하게 이어지도록 재구성했다.
-
-**보존 범위.** Batch 05 콘텐츠, CI 비용 최적화, 최종 회귀 수정과 TTS Storage 검증은
-유지했다. 잘못된 릴리스 커밋을 처리하려고 임시로 만들었던 merge·revert·기록 커밋만
-활성 브랜치에서 함께 제외했다. 외부 AAB·IPA나 App Store Connect 상태는 변경하지
-않았다.
-
-**검증/커밋.** 정리 전 main `9da08813`, PR
-`045ed621`를 재확인했다. PR 정본 `6957a8dc`와
-정리 전 PR의 실질 차이는 AGENTS의 완료된 TTS 상태뿐이어서, 해당 상태만
-`d987a772`로 다시 적용했다. 강제 ref 이동 대상은 위 두 개의
-정확한 SHA로 제한했다.
-
 ### 2026-08-15 (Codex Work Mode) — GitHub Pro 실제 CI 검증과 회귀 수정
 
 **검출.** GitHub Pro 전환 뒤 final-head run #408이 실제 runner에서 실행됐다. Book
