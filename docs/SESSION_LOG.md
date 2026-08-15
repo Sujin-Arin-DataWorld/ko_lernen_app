@@ -1,5 +1,29 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex Work Mode) — GitHub Actions 사용량·비용 최적화
+
+**원인 실측.** 8월 1일부터 15일까지 단일 CI workflow가 210회 실행됐다. 구성은
+push 147회, pull_request 39회, workflow_dispatch 24회였고, 최근 정상 1회는 네 필수
+job 합산 약 16 billable minutes였다. GitHub Billing 화면의 8월 gross usage 합계는
+$14.74지만 billed amount는 $0였다. 활성 Actions artifact는 63개, 262.68MiB로 무료
+500MiB 한도에는 아직 못 미치지만 기존 90일 보관을 유지하면 빠르게 누적될 상태였다.
+Flutter, pip, npm cache는 이미 적용돼 있어 캐시 부재를 원인으로 보지 않았다.
+
+**변경.** 같은 workflow, event, PR 또는 ref의 오래된 실행을 취소하는 concurrency를
+추가했다. Markdown과 docs 전용 push/PR은 Flutter CI를 만들지 않는다. 수동 실행은 기본
+task=ci와 실제 기준선 교체용 task=regenerate-goldens로 분리해 전체 CI와 골든 테스트가
+한 번에 중복 실행되지 않게 했다. 기존 네 필수 job 이름과 analyze, 전체 test, web release
+build, 세 보안 테스트는 유지했다. 정상 범위를 넘는 실행은 job별 8분에서 25분 timeout으로
+차단하고, runner에 이미 있는 FFmpeg는 재설치하지 않는다. 실패 diff는 3일, 수동 골든은
+7일만 보관하며 workflow token은 contents read로 제한했다. AGENTS.md의 PR 게이트도 같은
+task와 비용 안전장치로 동기화했다.
+
+**검증/커밋.** YAML 파싱, event/input/job 구조, concurrency, 경로 필터, timeout,
+artifact retention, FFmpeg 재사용 조건을 로컬 구조 검사로 확인했다. 구현 commit은
+`40dd32a1` (`ci: reduce Actions usage`)이다. 실제 GitHub-hosted runner 검증은 Jin이
+설정하는 월 $5 hard cap이 반영된 뒤 새 run으로 확인하며, 통과 전 main 병합 금지 조건은
+유지한다.
+
 ### 2026-08-15 (Codex Work Mode) — Batch 05 TTS 504개 합성·Storage 완전성 검증
 
 **결과.** Jin의 인증된 Windows PowerShell과 gcloud 세션에서 Batch 05 신규 발화
