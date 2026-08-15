@@ -1,5 +1,29 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — 최종 main 동기화 및 잔여 브랜치/worktree 무손실 감사
+
+**기준점.** UI·콘텐츠·TTS 통합 `f718106c`와 기록 `968dcf33`은 `main`과
+`origin/main`에 동일하게 존재하며 ahead/behind는 0/0이다. 전체 Flutter test는
+**3,394건 통과 / 의도적 skip 14건 / 실패 0**, `flutter analyze --no-pub
+--fatal-infos`는 0 issues, 콘텐츠 validator와 Python 53건, Android debug asset bundle,
+`git diff --check`도 통과했다.
+
+**실제 포함 감사.** `git worktree list --porcelain`, local/remote refs, ahead/behind,
+merge-base, `git cherry`, 고유 commit patch, 5개 변경 파일의 현재 tree와 PR 상태를 함께
+대조했다. 등록 worktree는 처음부터 main 하나였고 원격도 main 하나뿐이었다. 유일한 잔여
+로컬 브랜치 `codex/ui-c0-deferred`는 main보다 23 commit 뒤/고유 2 commit 앞이었지만,
+핵심 `70cc9de9`의 UX preview 두 파일은 현재 main과 정확히 같고 Today unavailable·투어
+차단·retry 센서는 `08a77fd6`에서 비활성 탭·오래된 async·milestone 세대 안전성까지
+강화되어 흡수됐다. `6960acea`는 이 보류 브랜치를 계속 보존한다는 당시 기록뿐이라 현재
+merge하면 문서가 거짓이 된다. 따라서 두 commit은 새 병합 대상이 아니며 전체 branch를
+merge/cherry-pick하면 최신 UI·콘텐츠를 대량 되돌리는 회귀가 된다.
+
+**정리.** 위 증거를 확인한 뒤 로컬 `codex/ui-c0-deferred`만 삭제했다. Git에 등록되지 않은
+동일 저장소 worktree도 Codex/Claude/Developer 경로에서 발견되지 않았다. 다른 저장소인
+`skin-compass-engine`의 worktree는 범위 밖이라 건드리지 않았다. 최종 topology는 등록
+worktree 1개, local branch 1개(main), remote branch 1개(origin/main)다. 이 기록의 commit
+hash는 직후 문서 커밋에 고정한다.
+
 ### 2026-08-15 (Codex, Mac) — UI 영상·콘텐츠 Batch 01–04 main 통합 및 전체 회귀 정렬
 
 **무엇/왜.** Jin이 이 세션의 전체 작업 트리를 `main`에 커밋·push하라고 명시 승인했다.
@@ -13,9 +37,9 @@
 **검증/커밋.** `validate_content.py`, content factory Python unit **53건**,
 캐릭터 matte **18/18**, 전체 Flutter test **3,394건 통과 / 의도적 skip 14건 / 실패 0**,
 Android debug asset bundle, `flutter analyze --no-pub --fatal-infos`, `git diff --check`를
-최종 통과한 뒤 `main`에 커밋·`origin/main`에 push한다. 최초 통합 commit hash는 직후
-문서 기록 커밋에서 고정한다. 이후 별도 브랜치/worktree는 ancestry뿐 아니라 고유 커밋과
-실제 tree diff까지 감사해 미흡수 작업을 보존하고, 완전히 흡수·대체된 대상만 삭제한다.
+최종 통과했다. 통합 commit은 `f718106c`, 해시 기록 commit은 `968dcf33`이며 둘 다
+`origin/main`에 push됐다. 이후 별도 브랜치/worktree는 ancestry뿐 아니라 고유 커밋과
+실제 tree diff까지 감사해 미흡수 작업을 보존하고, 완전히 흡수·대체된 대상만 삭제했다.
 
 ### 2026-08-15 (Codex, Mac) — C1 Batch 04 시나리오 16개 승인 승격
 

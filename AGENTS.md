@@ -279,9 +279,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] iOS 무료 출시 후보 `2.0.5 (22)`를 App Store Connect API로 서버 검증하고
   업로드했다. 업로드는 빌드 처리만 시작했으며 심사 제출이나 출시는 수행하지 않았다.
 - [x] 최종 통합·폐기 판단 기록과 main 포함 관계를 대조한 뒤 superseded UI 후보 원격
-  브랜치 8개, 최종 통합/non-UI 브랜치와 별도 worktree 2개를 삭제했다. `main`에 없는
-  `codex/ui-c0-deferred`는 로컬에 보존했다. 현재 등록 worktree와 원격 branch는 각각
-  main 하나뿐이다.
+  브랜치 8개, 최종 통합/non-UI 브랜치와 별도 worktree 2개를 삭제했다. 당시 보존한
+  `codex/ui-c0-deferred`도 후속 `08a77fd6`의 강화된 Today 경계에 전부 흡수됐음을
+  2026-08-15 재감사해 삭제했다. 현재 등록 worktree와 로컬·원격 branch는 모두 main
+  하나뿐이다.
 - [ ] Jin 운영: App Store Connect 처리 완료 후 TestFlight 실기기 확인. Android AAB는
   Play Console에 아직 업로드하지 않았으므로 Internal testing에서 설치·App Check·데이터
   보존을 확인한 뒤 Closed Testing으로 승격한다.
@@ -318,7 +319,7 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **§R-1 production 적용** — 현재 after 샘플이 94,656/92,450/174,198B로
   모두 70KiB를 초과한다. 파라미터/압축 최적화와 Jin 시각 승인 전까지 production
   WebP 39장은 변경하지 않는다.
-- [x] **최종 검증** — 핵심 회귀 88건, 접근성 45건, 전체 3,391건 통과 + 의도적
+- [x] **최종 검증** — 핵심 회귀 88건, 접근성 45건, 후속 콘텐츠·영상 포함 전체 3,394건 통과 + 의도적
   skip 14건/실패 0, `flutter analyze --fatal-infos` 0 issues, macOS Web release
   build 성공. PR들의 GitHub Actions 실패는 코드가 아니라 저장소 billing gate라
   현재 통합본의 CI 증거로 사용하지 않는다.
@@ -351,7 +352,7 @@ flutter run -d <android-id>   # 안드로이드
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.
-- [x] 콘텐츠 확장 C0 기반을 UI/UX v2와 분리한 `codex/content-foundation-c0`에 `e0698688`로 게시했다: 검수 파이프라인·발음 seed·레벨/게임 계약·TTS dry-run 계약과 회귀 센서가 통과했다. Today unavailable·UX preview 변경은 계속 UI 보류 브랜치에 둔다.
+- [x] 콘텐츠 확장 C0 기반을 UI/UX v2와 분리한 `codex/content-foundation-c0`에 `e0698688`로 게시했다: 검수 파이프라인·발음 seed·레벨/게임 계약·TTS dry-run 계약과 회귀 센서가 통과했다. 당시 분리한 Today unavailable·UX preview 변경은 최종 UI 통합 `08a77fd6`에서 더 강한 active-tab/milestone 안전성과 함께 흡수됐다.
 - [x] Jin 검수용 B1/B2 Batch 01 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 `tools/content_factory/drafts/`·`review/`에 만들고, 2026-08-15 Jin의 명시 지시로 실제 앱 본문에 승격했다. review 원장은 `approved`다.
 - [x] `docs/CONTENT_AUTHORING_GUIDE.md`를 콘텐츠 DB 작성 정본으로 추가했다. 새 콘텐츠는 실제 schema·KO/DE/EN·ID·참조·review 규칙을 이 문서와 validator로 먼저 확인한다(실벤·끝말잇기는 현재 DE-only schema).
 - [x] Jin 검수용 B1/B2 Batch 02 초안 96개(단어 24·문법 8·스몰토크 16·Cloze 24·Satzbau 24)를 동일한 경로에 추가하고 실제 앱 본문에 승격했다. B1 업무 조율·일정 변경과 B2 공식 민원·시정·상위 부서 문의를 다루며, Batch 01의 ID·표제어·curriculum ownership과 pack 순번을 보존한다.
