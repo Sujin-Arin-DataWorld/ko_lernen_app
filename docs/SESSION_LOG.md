@@ -21,7 +21,9 @@ audit/roadmap 묶음이다. Git history에는 그대로 남으므로 필요하�
 
 **검증/커밋.** 삭제 전후 Git 추적·참조를 대조하고, 남은 활성 SSoT 경로와
 `git diff --check`를 확인했다. 앱 코드·학습 데이터·TTS·에셋은 변경하지 않았다.
-커밋/푸시는 Jin의 별도 지시 전까지 하지 않는다.
+Jin의 명시 지시에 따라 정리 본문은 `0d632d6f`
+(`docs: prune superseded documentation`)로 커밋했고, 이 해시 기록은 바로 다음
+문서 커밋에 남긴다.
 
 ### 2026-08-15 (Codex, Mac) — 최종 main 동기화 및 잔여 브랜치/worktree 무손실 감사
 
