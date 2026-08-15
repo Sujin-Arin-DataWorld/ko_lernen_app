@@ -306,13 +306,13 @@ class AppL10nDe extends AppL10n {
   String get moduleVocabTitle => 'Vokabeln';
 
   @override
-  String get moduleVocabDesc => '500+ Karten · A1 → B2 · TTS';
+  String get moduleVocabDesc => '1.188 Karten · A1 → C2 · TTS';
 
   @override
   String get moduleGrammarTitle => 'Grammatik';
 
   @override
-  String get moduleGrammarDesc => '85+ Muster · auf Deutsch erklärt';
+  String get moduleGrammarDesc => '176 Muster · A1 → C2';
 
   @override
   String get moduleListenTitle => 'Hören';
@@ -4509,7 +4509,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachChosungStep2Body =>
-      'Wähle dein Level von A1 bis B2 und ob Vokale angezeigt werden';
+      'Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden';
 
   @override
   String get coachChosungStep3Title => 'Antwort eingeben';

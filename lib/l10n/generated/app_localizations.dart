@@ -622,7 +622,7 @@ abstract class AppL10n {
   /// No description provided for @moduleVocabDesc.
   ///
   /// In de, this message translates to:
-  /// **'500+ Karten · A1 → B2 · TTS'**
+  /// **'1.188 Karten · A1 → C2 · TTS'**
   String get moduleVocabDesc;
 
   /// No description provided for @moduleGrammarTitle.
@@ -634,7 +634,7 @@ abstract class AppL10n {
   /// No description provided for @moduleGrammarDesc.
   ///
   /// In de, this message translates to:
-  /// **'85+ Muster · auf Deutsch erklärt'**
+  /// **'176 Muster · A1 → C2'**
   String get moduleGrammarDesc;
 
   /// No description provided for @moduleListenTitle.
@@ -7786,7 +7786,7 @@ abstract class AppL10n {
   /// No description provided for @coachChosungStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Wähle dein Level von A1 bis B2 und ob Vokale angezeigt werden'**
+  /// **'Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden'**
   String get coachChosungStep2Body;
 
   /// No description provided for @coachChosungStep3Title.
