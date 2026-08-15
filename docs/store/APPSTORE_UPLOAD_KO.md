@@ -153,7 +153,7 @@ Organizer → Distribute App 으로도 올릴 수 있다.
 | 증상 | 원인 / 해결 |
 |---|---|
 | `No suitable application record was found` | ② 앱 레코드 미생성. 먼저 만들 것 |
-| `The bundle version must be higher than...` | 빌드번호 중복. `pubspec.yaml` 의 `version:` 뒷자리(`2.0.5+13` 의 `13`)만 올리고 재빌드. **Android `versionCode` 와 같은 값을 공유**하므로, Play 용으로 올린 번호는 iOS 에서도 이미 소모된 것으로 보고 관리할 것 |
+| `The bundle version must be higher than...` | iOS 빌드번호 중복. `pubspec.yaml`의 `version:` 뒷자리 또는 `flutter build ipa --build-number=N`을 이전 App Store Connect 업로드보다 크게 잡고 재빌드한다. Android `versionCode`는 release commit count로 별도 관리하므로 두 스토어의 숫자가 같을 필요는 없다. |
 | ipa 가 안 나오고 서명 오류 | Xcode 에서 Team 미선택. §4 앞부분 다시 |
 | `verify_ios_firebase_config` 실패 | `GoogleService-Info.plist` 미생성 또는 Runner 타깃 멤버십 미체크. **게이트를 우회하지 말 것** |
 | Podfile.lock 에 GoogleMLKit 없음 | `cd ios && pod install --repo-update` 재실행 |

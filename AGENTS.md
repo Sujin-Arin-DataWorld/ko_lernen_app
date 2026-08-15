@@ -261,6 +261,23 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### v2.0.5 release artifacts and App Store upload (2026-08-15)
+
+- [x] exact source `0f3ff35f`에서 signed Android AAB를 생성했다. versionName은
+  `2.0.5`, git-count versionCode는 `1036`이며 SHA-256은 세션 로그에 기록했다.
+- [x] 같은 AAB에서 universal APK와 기존 debug 설치를 보존하는 device-preview APK를
+  만들었다. 연결된 M2101K6G에 `adb install -r`로 `2.0.5 (1036)` 업데이트 설치 후
+  launcher 실행까지 확인했다. device-preview APK는 로컬 검수 전용이며 Play 제출물이 아니다.
+- [x] iOS 무료 출시 후보 `2.0.5 (22)`를 App Store Connect API로 서버 검증하고
+  업로드했다. 업로드는 빌드 처리만 시작했으며 심사 제출이나 출시는 수행하지 않았다.
+- [x] 최종 통합·폐기 판단 기록과 main 포함 관계를 대조한 뒤 superseded UI 후보 원격
+  브랜치 8개, 최종 통합/non-UI 브랜치와 별도 worktree 2개를 삭제했다. `main`에 없는
+  `codex/ui-c0-deferred`는 로컬에 보존했다. 현재 등록 worktree와 원격 branch는 각각
+  main 하나뿐이다.
+- [ ] Jin 운영: App Store Connect 처리 완료 후 TestFlight 실기기 확인. Android AAB는
+  Play Console에 아직 업로드하지 않았으므로 Internal testing에서 설치·App Check·데이터
+  보존을 확인한 뒤 Closed Testing으로 승격한다.
+
 ### UI/UX 개편 2 최종 통합 — Sori Deck × 일러스트 Stage (2026-08-15, Codex)
 
 > 정본 = `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`. Cursor 8개 후보
@@ -479,8 +496,9 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **`docs/store/APPSTORE_UPLOAD_KO.md`** — 한국어 순서표 (`a506813`·`ed51a18`).
   ⚠️ **앱 레코드는 파일 없이 먼저 만든다** — 없으면 업로드가
   `No suitable application record was found` 로 거부된다.
-  빌드번호는 Android `versionCode` 와 **한 값을 공유**하므로 Play 로 소모한 번호는
-  App Store 에서 재사용 불가.
+  iOS `CFBundleVersion`은 pubspec의 `+N` 또는 `--build-number`로 관리하고 Android
+  `versionCode`는 release commit count로 관리한다. 두 스토어에서 각각 이전 업로드보다
+  큰 값이어야 하며 서로 같은 숫자일 필요는 없다.
 - [x] **실제 macOS 빌드 경로 검증 (2026-08-10).** 완전 로컬 복사본에서 `pub get` ·
   CocoaPods(33 dependencies/83 pods) · Swift Package resolution · Firebase/스토어 계약
   검증까지 통과했고, Release archive는 Xcode 서명 단계까지 도달했다. Desktop/iCloud의

@@ -1,5 +1,51 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — v2.0.5 Android 검수 설치·App Store build 22 업로드·worktree 정리
+
+**Android 산출물.** exact clean release commit `0f3ff35f`에서 beta 계약
+`ENABLE_TESTER_FEEDBACK=true`·`BETA_UNLOCK_ALL=true`와 obfuscation/split debug info를
+적용해 signed AAB `2.0.5 (1036)`을 만들었다. AAB SHA-256은
+`32f50dea922170c0aded96cc2056ce60405bce5d1f10ebab71a27a10849a8d3f`이며 upload
+인증서와 JAR 서명을 확인했다. 난독화 심볼은 같은 산출물 폴더의 `android-symbols/`에
+보관했다. Google bundletool 1.18.3으로 만든 universal APK는 package/version을 다시
+검사했고 SHA-256은 `20e61455f077a02e90f34aae3756ff496d72220f8bc8ca46aa418d7ac23f76cb`다.
+
+**Android 기기 검수.** 연결된 M2101K6G의 기존 앱은 debug 인증서라 release APK의
+업데이트 설치가 Android의 signature 보호로 거절됐다. 앱을 삭제해 데이터를 잃지 않고,
+동일 universal APK의 로컬 검수 복사본만 기존 debug 인증서로 다시 서명했다. v2/v3 서명,
+package `com.sujinarin.ko_lernen_app`, `2.0.5 (1036)`을 확인한 뒤 `adb install -r` 성공과
+launcher 실행을 확인했다. device-preview SHA-256은
+`d50ba60a12d56009086c352c42a4b7f600a35e2b4e3a89b705c953c42e8dc4be`이며 Play 제출에
+사용하지 않는다.
+
+**iOS build와 업로드.** `FREE_LAUNCH=true`로 Firebase/스토어 계약 및 Korean OCR Pod
+게이트를 통과했다. pubspec의 build 21은 App Store Connect에 이미 있어 첫 업로드가
+중복으로 거절됐고 기존 빌드나 배포 상태에는 영향이 없었다. 같은 source commit에서
+`--build-number=22`로 다시 archive해 `Hangul Sori 2.0.5 (22)`, iOS 15.5+, bundle ID
+`com.sujinarin.koLernenApp`을 확인했다. App Store Connect API의 `validate-app`은 오류 0,
+`upload-app`은 **UPLOAD SUCCEEDED**였고 Delivery UUID는
+`ff09cc15-dd2e-46d1-b5ec-5cc82f998474`다. IPA SHA-256은
+`be5445117b45110e516bc4262086f8a5d4506dc1119e94d1d27c0606da680902`다. 심사 제출이나
+출시는 하지 않았다. 추후 중복 방지를 위해 pubspec 정본도 `2.0.5+22`로 맞췄다.
+
+**산출물/출시노트.** AAB·Android symbols·release universal APK·device-preview APK·IPA는
+`~/Developer/release_artifacts/hangul-sori-2.0.5-1036-0f3ff35f/`에 보관했다. 자연스러운
+DE/EN 스토어 문구는 `docs/store/release-notes-v2.0.5.md`에 고정했다. iOS와 Android의
+빌드번호가 같아야 한다는 오래된 문서 설명은 현재 계약(iOS `+N`, Android git-count)에
+맞게 수정했다.
+
+**브랜치/worktree 정리.** `main` 포함 관계, 최종 tree, PR #19–#26의 고유 커밋과
+최종 통합 기록을 대조했다. `codex/non-ui-main-cleanup`과
+`codex/ui-overhaul-2-final-integration`은 ancestry/tree 모두 main에 포함됐고, 8개 UI
+후보는 최종 `1ebf2658`에서 필요한 부분만 선별 흡수한 뒤 나머지를 의도적으로 폐기한
+superseded 구현이었다. 별도 worktree 2개와 이 로컬/원격 브랜치 및 후보 원격 브랜치
+8개를 삭제했다. `codex/ui-c0-deferred`는 main에 없는 고유 커밋 2개·파일 6개라 로컬에
+보존했다. 최종 등록 worktree는 main 하나, 원격 브랜치는 origin/main 하나이며 2.1GB
+이상의 별도 worktree 공간을 회수했다.
+
+**커밋.** Gradle wrapper 복구는 `0f3ff35f`로 먼저 main에 push했다. 버전 정렬,
+출시노트, 업로드·정리 기록은 이 후속 문서 커밋에 포함한다.
+
 ### 2026-08-15 (Codex, Mac) — Android release Gradle wrapper 계약 복구
 
 **무엇/왜.** Jin의 AAB·App Store 빌드 요청으로 Android release 경로를 실제 실행하자,
