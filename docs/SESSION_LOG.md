@@ -48,7 +48,8 @@ GitHub 계정의 결제 실패 또는 Actions 지출 한도 오류로 차단됐�
 해석하거나 workflow를 약화해 우회하지 않는다. Flutter analyze/test/web build와 신규
 TTS 504개 Storage 검증이 끝나기 전에는 main에 병합하지 않는다. 본문 commit은
 `daee6951` (`feat: add original B2-C2 content batch 05`), 해시 기록 commit은 `b498f3b6`다.
-후속 A1–C2 계약 보완 commit 해시는 직후 기록 commit에 고정한다.
+후속 A1–C2 계약 보완 commit은 `519782e7` (`fix: align advanced content contracts`)이며,
+이 해시 기록은 바로 다음 문서 commit에 포함한다.
 
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
