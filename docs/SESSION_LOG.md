@@ -70,7 +70,8 @@ surfaces`). Jin의 2026-08-15 명시 지시에 따라 이 로그 후속 커밋�
 `git diff --check` 통과. 삭제 대상 3개는 `git ls-remote --heads` 결과 0건,
 고아 안전참조는 로컬 브랜치 목록에서 제거됨을 확인했다.
 
-**커밋.** 미수행 (Jin의 명시적 지시 없음).
+**커밋.** 코드 `ee32501b` (`fix(book): localize preview hint and retire stale
+branches`). 이 커밋 해시 기록은 직후 문서 커밋에 포함한다.
 
 ### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
 
