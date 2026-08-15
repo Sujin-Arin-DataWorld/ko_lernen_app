@@ -1098,7 +1098,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bookCaptureSubtitle =>
-      'The image stays on your device. Only the extracted text is analyzed.';
+      'Keep the page straight, sharp, and tightly cropped. The image stays on your device; only extracted text is analyzed.';
 
   @override
   String get bookCaptureCamera => 'Camera';
@@ -1111,7 +1111,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bookCaptureErrorNoKorean =>
-      'No Korean detected. Try a clearer photo.';
+      'No reliable Korean was detected. Retake the page straight on, sharper, and closer.';
 
   @override
   String get bookCaptureErrorPermission =>
@@ -1135,11 +1135,19 @@ class AppL10nEn extends AppL10n {
 
   @override
   String bookPreviewHint(int count) {
-    return '$count text blocks detected. Fix any typos if needed.';
+    return '$count text lines detected. Compare and fix any errors.';
   }
 
   @override
   String get bookPreviewTextFieldHint => 'Korean text…';
+
+  @override
+  String get bookPreviewQualityWarning =>
+      'Uncertain or unsupported script was removed. Check the Korean text carefully before analysis.';
+
+  @override
+  String get bookPreviewSevereQualityWarning =>
+      'The photo or text recognition is too uncertain. Retaking the photo is recommended. To continue anyway, first correct the OCR text yourself.';
 
   @override
   String get bookPreviewAnalyze => 'Analyze';
@@ -1539,6 +1547,18 @@ class AppL10nEn extends AppL10n {
   @override
   String get bookResultRateLimited =>
       'Cloud analysis limit reached. Please try again in a minute.';
+
+  @override
+  String get bookResultQualityNotice =>
+      'Uncertain or non-Korean content was kept out of vocabulary, grammar, and audio.';
+
+  @override
+  String get bookResultTranslationUnavailable =>
+      'The translation service did not return every meaning. Check the result before saving or try again.';
+
+  @override
+  String get bookResultNoKoreanNotice =>
+      'No reliable Korean text remained. Check the text or retake the page.';
 
   @override
   String get bookResultSectionWords => 'Words';

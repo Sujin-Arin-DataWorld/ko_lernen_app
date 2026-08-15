@@ -1,66 +1,174 @@
 #!/usr/bin/env bash
-# CF 배포 전 사전점검 (preflight) — 네트워크 불필요, 전부 로컬.
-# 배포 사이클 낭비 전에 설정 누락 / 문법 오류 / deploy 목록 누락을 잡는다.
-#
-# 사용:  bash functions/preflight.sh
-# 통과 → exit 0, 하나라도 실패 → exit 1 (배포 중단 신호).
-# 배포 절차 본문: docs/store/cloud-function-deploy.md
+# Cloud deployment preflight. It is read-only and never deploys or mutates
+# Firestore. Use `bash functions/preflight.sh analyze` to check only the Python
+# book-analysis component, or omit the argument for repository-wide checks.
 
-cd "$(dirname "$0")/.." || exit 2 # repo root
+set -u
+cd "$(dirname "$0")/.." || exit 2
+
+component="${1:-all}"
+case "$component" in
+  all|analyze) ;;
+  *)
+    printf 'usage: bash functions/preflight.sh [all|analyze]\n' >&2
+    exit 2
+    ;;
+esac
+
 fail=0
-ok() { printf '✅ %s\n' "$1"; }
+ok() { printf '[PASS] %s\n' "$1"; }
 bad() {
-  printf '❌ %s\n' "$1"
+  printf '[FAIL] %s\n' "$1"
   fail=1
 }
 
-echo "── analyze_korean_text (Python · gcloud) ──"
-if [ -f functions/analyze_korean_text/.env ] &&
-  grep -Eq '^DEEPL_API_KEY=.+' functions/analyze_korean_text/.env; then
-  ok ".env DEEPL_API_KEY 설정됨"
-else
-  bad ".env 없음 또는 DEEPL_API_KEY 빈값 (functions/analyze_korean_text/.env) — gitignored, Jin 로컬에만"
+python_cmd=()
+if [ -n "${ANALYSIS_PYTHON:-}" ] &&
+  "$ANALYSIS_PYTHON" -c 'import sys;raise SystemExit(sys.version_info[:2] != (3, 12))' 2>/dev/null; then
+  python_cmd=("$ANALYSIS_PYTHON")
+elif command -v python >/dev/null 2>&1 &&
+  python -c 'import sys;raise SystemExit(sys.version_info[:2] != (3, 12))' 2>/dev/null; then
+  python_cmd=(python)
+elif command -v python3.12 >/dev/null 2>&1 &&
+  python3.12 -c 'import sys;raise SystemExit(sys.version_info[:2] != (3, 12))' 2>/dev/null; then
+  python_cmd=(python3.12)
+elif command -v py >/dev/null 2>&1 &&
+  py -3.12 -c 'import sys;raise SystemExit(sys.version_info[:2] != (3, 12))' 2>/dev/null; then
+  python_cmd=(py -3.12)
+elif command -v python3 >/dev/null 2>&1 &&
+  python3 -c 'import sys;raise SystemExit(sys.version_info[:2] != (3, 12))' 2>/dev/null; then
+  python_cmd=(python3)
 fi
-grep -q 'google-cloud-firestore' functions/analyze_korean_text/requirements.txt &&
-  ok "requirements: google-cloud-firestore (번역 캐시)" ||
-  bad "requirements: google-cloud-firestore 누락 → 번역 캐시 비활성"
-python3 -m py_compile functions/analyze_korean_text/main.py 2>/dev/null &&
-  ok "main.py py_compile" || bad "main.py 문법 오류"
-[ -f functions/analyze_korean_text/smoke_test.py ] &&
-  ok "smoke_test.py 존재" || bad "smoke_test.py 없음"
 
-echo ""
-echo "── gye (Node · firebase deploy) ──"
-node --check functions/gye/index.js 2>/dev/null &&
-  ok "gye/index.js 문법" || bad "gye/index.js 문법 오류"
-for fn in on_pack_cleared weekly_goal_rollover on_report_created; do
-  grep -q "exports.$fn" functions/gye/index.js &&
-    ok "index.js exports: $fn" || bad "index.js exports 누락: $fn"
-done
-grep -q 'firebase-functions/v2' functions/gye/index.js &&
-  ok "gye 함수: 2nd gen (v2 API)" ||
-  bad "gye 함수가 v2(2nd gen) 아님 → europe-west3 Firestore 트리거 미지원"
-grep -q 'europe-west3' functions/gye/index.js &&
-  ok "gye region: europe-west3 (Firestore와 일치)" ||
-  bad "gye region 미설정"
-[ -f functions/gye/smoke_test.js ] &&
-  ok "smoke_test.js 존재" || bad "smoke_test.js 없음"
-
-echo ""
-echo "── Firestore (rules · indexes) ──"
-for fn in isAdmin isActiveGyeMember; do
-  grep -q "function $fn" firestore.rules &&
-    ok "rules: $fn()" || bad "rules: $fn() 누락"
-done
-for f in firestore.indexes.json firebase.json functions/gye/package.json; do
-  python3 -c "import json;json.load(open('$f', encoding='utf-8'))" 2>/dev/null &&
-    ok "JSON valid: $f" || bad "JSON 깨짐: $f"
-done
-
-echo ""
-if [ "$fail" -eq 0 ]; then
-  echo "🟢 PREFLIGHT PASS — cloud-function-deploy.md §2~7 배포 진행"
+printf '%s\n' '--- analyze_korean_text (Python / gcloud) ---'
+if [ "${#python_cmd[@]}" -eq 0 ]; then
+  bad 'Python 3.12 runtime not found'
 else
-  echo "🔴 PREFLIGHT FAIL — 위 ❌ 수정 후 재실행"
+  ok "Python $("${python_cmd[@]}" -c 'import platform;print(platform.python_version())')"
+fi
+
+analysis_dir='functions/analyze_korean_text'
+
+if [ "${#python_cmd[@]}" -gt 0 ]; then
+  if "${python_cmd[@]}" -c \
+    'import deepl, firebase_admin, flask, functions_framework, kiwipiepy; from google.cloud import firestore' \
+    >/dev/null 2>&1; then
+    ok 'requirements imports available'
+  else
+    bad 'requirements imports failed; install requirements.txt into Python 3.12'
+  fi
+
+  if "${python_cmd[@]}" -m py_compile \
+    "$analysis_dir/main.py" \
+    "$analysis_dir/dictionary_validation.py" \
+    "$analysis_dir/grammar_analysis.py" \
+    "$analysis_dir/security.py" \
+    "$analysis_dir/text_quality.py" \
+    "$analysis_dir/smoke_test.py" \
+    "$analysis_dir/verify_deployed_source.py" \
+    "$analysis_dir/cleanup_translation_cache.py" 2>/dev/null; then
+    ok 'runtime and operator Python modules compile'
+  else
+    bad 'Python module compilation failed'
+  fi
+
+  if "${python_cmd[@]}" "$analysis_dir/verify_deployed_source.py" \
+    --check-gcloud-upload --check-app-ids >/dev/null; then
+    ok 'upload closure and deploy App IDs match actual mobile configs'
+  else
+    bad 'source upload closure or mobile App ID contract drifted'
+  fi
+
+  test_output="$({
+    cd "$analysis_dir" || exit 2
+    "${python_cmd[@]}" -m unittest discover -s . -p 'test_*.py' -v
+  } 2>&1)"
+  test_status=$?
+  if [ "$test_status" -eq 0 ] &&
+    ! printf '%s\n' "$test_output" | grep -Eq 'skipped=[1-9][0-9]*'; then
+    ok 'full unittest discovery passed with skip=0'
+  else
+    bad 'full unittest discovery failed or skipped tests'
+    printf '%s\n' "$test_output"
+  fi
+
+  if (
+    cd "$analysis_dir" || exit 2
+    "${python_cmd[@]}" -m unittest test_translation_cache_contract.py >/dev/null
+  ) 2>/dev/null; then
+    ok 'translation_cache rule and expiresAt TTL JSON are exact'
+  else
+    bad 'translation_cache rule or expiresAt TTL JSON drifted'
+  fi
+fi
+
+if [ "$component" = 'analyze' ]; then
+  if [ "$fail" -eq 0 ]; then
+    printf '%s\n' '[PASS] ANALYSIS PREFLIGHT COMPLETE - no deployment performed'
+  else
+    printf '%s\n' '[FAIL] ANALYSIS PREFLIGHT BLOCKED - no deployment performed'
+    exit 1
+  fi
+  exit 0
+fi
+
+printf '\n%s\n' '--- gye (Node / Firebase) ---'
+if node --check functions/gye/index.js 2>/dev/null; then
+  ok 'gye/index.js syntax'
+else
+  bad 'gye/index.js syntax or Node PATH failure'
+fi
+for fn in on_pack_cleared weekly_goal_rollover on_report_created; do
+  if grep -q "exports.$fn" functions/gye/index.js; then
+    ok "index.js export: $fn"
+  else
+    bad "index.js export missing: $fn"
+  fi
+done
+if grep -q 'firebase-functions/v2' functions/gye/index.js; then
+  ok 'gye uses 2nd gen API'
+else
+  bad 'gye does not use firebase-functions/v2'
+fi
+if grep -q 'europe-west3' functions/gye/index.js; then
+  ok 'gye region is europe-west3'
+else
+  bad 'gye region is missing'
+fi
+if [ -f functions/gye/smoke_test.js ]; then
+  ok 'gye smoke_test.js exists'
+else
+  bad 'gye smoke_test.js missing'
+fi
+
+printf '\n%s\n' '--- Firestore configuration ---'
+for fn in isAdmin isActiveGyeMember; do
+  if grep -q "function $fn" firestore.rules; then
+    ok "rules helper: $fn"
+  else
+    bad "rules helper missing: $fn"
+  fi
+done
+if grep -Eq 'match /translation_cache/\{document=\*\*\}' firestore.rules; then
+  ok 'translation_cache has an explicit server-only rule'
+else
+  bad 'translation_cache server-only rule missing'
+fi
+if [ "${#python_cmd[@]}" -gt 0 ]; then
+  for file in firestore.indexes.json firebase.json functions/gye/package.json; do
+    if "${python_cmd[@]}" -c \
+      "import json;json.load(open('$file', encoding='utf-8'))" 2>/dev/null; then
+      ok "valid JSON: $file"
+    else
+      bad "invalid JSON: $file"
+    fi
+  done
+fi
+
+printf '\n'
+if [ "$fail" -eq 0 ]; then
+  printf '%s\n' '[PASS] PREFLIGHT COMPLETE - no deployment performed'
+else
+  printf '%s\n' '[FAIL] PREFLIGHT BLOCKED - no deployment performed'
   exit 1
 fi

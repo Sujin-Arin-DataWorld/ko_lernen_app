@@ -183,17 +183,47 @@ class Analytics {
   static Future<void> bookCaptureAnalyzed({
     required String targetLang,
     required int words,
+    required int grammar,
+    required int sentences,
     required bool offline,
+    required String resultStatus,
+    required String warningBucket,
+    String ocrQuality = 'unmeasured',
   }) {
     return logEvent(
       'book_capture_analyzed',
-      parameters: {
-        'target_lang': targetLang,
-        'words': words,
-        'offline': offline ? 1 : 0,
-      },
+      parameters: bookCaptureAnalysisParameters(
+        targetLang: targetLang,
+        words: words,
+        grammar: grammar,
+        sentences: sentences,
+        offline: offline,
+        resultStatus: resultStatus,
+        warningBucket: warningBucket,
+        ocrQuality: ocrQuality,
+      ),
     );
   }
+
+  static Map<String, Object> bookCaptureAnalysisParameters({
+    required String targetLang,
+    required int words,
+    required int grammar,
+    required int sentences,
+    required bool offline,
+    required String resultStatus,
+    required String warningBucket,
+    required String ocrQuality,
+  }) => {
+    'target_lang': targetLang,
+    'words': words,
+    'grammar': grammar,
+    'sentences': sentences,
+    'offline': offline ? 1 : 0,
+    'result_status': resultStatus,
+    'warning_bucket': warningBucket,
+    'ocr_quality': ocrQuality,
+  };
 
   /// A custom word pack was created. [source] is `from_page` (from a captured
   /// book page) or `empty` (blank manual pack).

@@ -153,12 +153,7 @@ void main() {
       await tester.pumpWidget(
         _bookResultHost(
           featureGate: const TesterFeedbackFeatureGate(enabled: false),
-          result: const BookAnalysisResult(
-            words: [],
-            grammar: [],
-            sentences: [],
-            warnings: [],
-          ),
+          result: _result(warnings: const []),
         ),
       );
       await tester.pump();
@@ -190,11 +185,110 @@ void main() {
       );
     },
   );
+
+  testWidgets('empty result offers retry and retake but no save or TTS', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _bookResultHost(
+        featureGate: const TesterFeedbackFeatureGate(enabled: false),
+        result: const BookAnalysisResult(
+          words: [],
+          grammar: [],
+          sentences: [],
+          warnings: ['empty_analysis_result'],
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.icon == Icons.bookmark_add_outlined,
+      ),
+      findsNothing,
+    );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.icon == Icons.refresh_rounded,
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.icon == Icons.replay_outlined,
+      ),
+      findsOneWidget,
+    );
+    expect(find.byIcon(Icons.volume_up_rounded), findsNothing);
+  });
+
+  testWidgets('contaminated visible cards expose no TTS or wordbook action', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _bookResultHost(
+        featureGate: const TesterFeedbackFeatureGate(enabled: false),
+        result: _result(warnings: const ['invalid_response_filtered']),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(find.byIcon(Icons.volume_up_rounded), findsNothing);
+    expect(find.byIcon(Icons.add_rounded), findsNothing);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.icon == Icons.bookmark_add_outlined,
+      ),
+      findsNothing,
+    );
+  });
+
+  testWidgets('corrected severe capture stays saveable but keeps its warning', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _bookResultHost(
+        featureGate: const TesterFeedbackFeatureGate(enabled: false),
+        result: _result(warnings: const []),
+        args: const {
+          'text': '교정한 한국어 문장입니다.',
+          'qualityWarnings': ['image_blur_severe'],
+          'qualityOverrideByTextEdit': true,
+          'ocrQuality': {'confidenceUnavailable': true},
+        },
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(
+      find.text(
+        'Uncertain or non-Korean content was kept out of vocabulary, grammar, and audio.',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.icon == Icons.bookmark_add_outlined,
+      ),
+      findsOneWidget,
+    );
+    expect(find.byIcon(Icons.volume_up_rounded), findsWidgets);
+  });
 }
 
 Widget _bookResultHost({
   required TesterFeedbackFeatureGate featureGate,
   required BookAnalysisResult result,
+  Map<String, dynamic> args = const {'text': 'fixture text'},
 }) => MaterialApp(
   locale: const Locale('en'),
   localizationsDelegates: AppL10n.localizationsDelegates,
@@ -206,7 +300,7 @@ Widget _bookResultHost({
     ),
     resumePending: () async => const ContentFeedbackResumeResult(),
     child: BookResultScreen(
-      args: const {'text': 'fixture text'},
+      args: args,
       analyzer: ({required text, required targetLang}) async => result,
     ),
   ),

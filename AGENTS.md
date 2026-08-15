@@ -296,6 +296,14 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.
+- [x] **책 한 컷 로컬 하드닝**: ML Kit Korean 단일 인식, 공용 NFC/혼합-text 계약,
+  사진 선명도·명암·회전 gate와 3단 정렬, 엄격한 응답 schema/언어 검증, 빈·오염 결과의
+  저장·팩·TTS 차단, DE/EN 출처, Kiwi 관형형, source-free 30일 cache, exact source
+  allowlist와 배포 verifier를 구현했다. Flutter/Python/Firestore 회귀와 preflight는 통과했다.
+- [ ] **책 한 컷 운영 게이트 (Jin 승인 필요)**: 2026-08-15 live Gen2는 필수 모듈이 빠진
+  구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
+  Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
+  촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별

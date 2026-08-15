@@ -10,7 +10,9 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/book_result_screen.dart';
 import 'package:ko_lernen_app/services/book_analysis_service.dart';
+import 'package:ko_lernen_app/services/bookshelf_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 class _RecordingClient extends http.BaseClient {
   final Completer<Map<String, dynamic>> requestBody =
@@ -127,6 +129,43 @@ void main() {
       find.text('Cloud analysis limit reached. Please try again in a minute.'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('bookshelf save never persists unsupported or bidi OCR text', (
+    tester,
+  ) async {
+    final result = BookAnalysisResult(
+      words: [ExtractedWord.manual(korean: '안녕', translationDe: 'Hallo')],
+      grammar: const [],
+      sentences: const [],
+      warnings: const [],
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: BookResultScreen(
+          args: const {'text': '안녕مرحبا하세요\u202E'},
+          analyzer: ({required text, required targetLang}) async => result,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    final save = find.byWidgetPredicate(
+      (widget) =>
+          widget is SoriButton && widget.icon == Icons.bookmark_add_outlined,
+    );
+    tester.widget<SoriButton>(save).onTap!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    final saved = BookshelfService.getAllLocal().single;
+    expect(saved.extractedText, contains('안녕'));
+    expect(saved.extractedText, isNot(contains('مرحبا')));
+    expect(saved.extractedText, isNot(contains('\u202E')));
   });
 
   testWidgets(

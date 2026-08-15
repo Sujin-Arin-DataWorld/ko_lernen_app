@@ -16,7 +16,10 @@ from typing import Any, Callable, Mapping
 
 
 DEFAULT_ALLOWED_APP_IDS = frozenset(
-    {"1:573567222361:android:38d26a50001ee64c356748"}
+    {
+        "1:573567222361:android:38d26a50001ee64c356748",
+        "1:573567222361:ios:0f8c0734410bb6cc356748",
+    }
 )
 QUOTA_COLLECTION = "service_quotas"
 QUOTA_SCOPE = "book_analysis_v1"
@@ -74,7 +77,7 @@ class QuotaState:
 
 
 def allowed_firebase_app_ids() -> frozenset[str]:
-    """Reads a comma-separated allowlist; defaults to the released Android app."""
+    """Reads a comma-separated allowlist for the configured Android/iOS apps."""
     configured = {
         item.strip()
         for item in os.environ.get("ALLOWED_FIREBASE_APP_IDS", "").split(",")

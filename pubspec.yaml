@@ -60,9 +60,13 @@ dependencies:
   # OCR: ML Kit (on-device, 무료, 한국어 지원)
   # 0.16 aligns its iOS ML Kit dependencies with Firebase 12.
   google_mlkit_text_recognition: ^0.16.0
+  # OCR 입력의 조합형 자모(NFD)를 서버와 같은 NFC 계약으로 정규화.
+  unorm_dart: ^0.3.2
   # 사진 캡쳐 + 자르기
   image_picker:   ^1.2.3
   image_cropper:  ^8.0.2
+  # 촬영 품질 게이트(리사이즈·선명도·명암) 로컬 계산.
+  image: 4.8.0
   # 권한 요청 (카메라 + 사진)
   permission_handler: ^11.3.1
   # Explicitly consented, at-most-10-second PCM16 pronunciation assessment.

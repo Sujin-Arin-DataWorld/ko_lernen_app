@@ -6,11 +6,9 @@ Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
     See `docs/store/cloud-function-deploy.md` for the supported
     `gcloud functions deploy analyze_korean_text --gen2 ...` command.
 
-**Env vars** — in `.env` (im selben Ordner, via .gitignore ausgeschlossen):
+**Runtime environment** — injected by the supported Secret Manager deploy flow:
     DEEPL_API_KEY=...            # DeepL Übersetzung (DE/EN)
-    URIMALSAEM_API_KEY=...       # 우리말샘 / NIKL — koreanische Definitionen
-    Vorlage: `.env.example`. Pass secrets through the supported gcloud
-    deployment flow described in the runbook; do not commit `.env`.
+    The function never reads a source-local dotenv file.
 
 **Request**:
     POST <function-url>
@@ -18,7 +16,10 @@ Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
     Body: { "text": "...", "lang": "de" }
 
 **Response** (success):
-    { "words": [...], "grammar": [...], "sentences": [...], "warnings": [...] }
+    {
+      "words": [...], "grammar": [...], "sentences": [...],
+      "warnings": [...], "analysisLanguage": "de"
+    }
 
 **Status**: deployable Python Gen2 source directory; it is not a named Firebase
 Functions codebase in `firebase.json`. The Flutter client keeps a local fallback
@@ -28,27 +29,29 @@ when the deployed endpoint is unavailable.
 from __future__ import annotations
 
 import hashlib
-import html
 import json
+import logging
 import os
 import re
-import urllib.parse
-import urllib.request
+from collections.abc import Sequence
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import functions_framework
 from flask import Request, Response
+
 from dictionary_validation import validate_exact_noun
 from grammar_analysis import detect_grammar, localize_pos_tag, normalize_language
 from security import (
-    AuthenticationFailed,
-    FirestoreQuotaGate,
     KKEUNMARI_DICTIONARY_QUOTA_POLICY,
     KKEUNMARI_QUOTA_SCOPE,
+    AuthenticationFailed,
+    FirestoreQuotaGate,
     QuotaExceeded,
     QuotaStoreUnavailable,
     verify_caller,
 )
+from text_quality import prepare_korean_analysis_text, split_korean_sentences
 
 # Lazy imports — nur initialisieren wenn aufgerufen.
 _KIWI = None
@@ -58,29 +61,7 @@ _FS_TRIED = False
 _QUOTA_GATE: FirestoreQuotaGate | None = None
 _DICTIONARY_QUOTA_GATE: FirestoreQuotaGate | None = None
 _MAX_REQUEST_BYTES = 20_000
-
-
-# ── .env Loader ──────────────────────────────────────────────────────────
-# Firebase liest `.env` beim Deploy automatisch in die Runtime-Umgebung.
-# Für lokale Ausführung / Emulator laden wir die Datei hier zusätzlich
-# (best effort). `.env` ist via .gitignore ausgeschlossen — Keys NICHT committen.
-def _load_dotenv() -> None:
-    path = os.path.join(os.path.dirname(__file__), ".env")
-    try:
-        with open(path, encoding="utf-8") as f:
-            for raw in f:
-                line = raw.strip()
-                if not line or line.startswith("#") or "=" not in line:
-                    continue
-                key, _, value = line.partition("=")
-                os.environ.setdefault(
-                    key.strip(), value.strip().strip('"').strip("'")
-                )
-    except FileNotFoundError:
-        pass
-
-
-_load_dotenv()
+_LOGGER = logging.getLogger(__name__)
 
 
 def _quota_gate() -> FirestoreQuotaGate:
@@ -116,6 +97,57 @@ def _warning_response(
     return response
 
 
+def _analysis_response(
+    language: str,
+    *,
+    words: list[dict[str, Any]] | None = None,
+    grammar: list[dict[str, Any]] | None = None,
+    sentences: list[dict[str, Any]] | None = None,
+    warnings: Sequence[str] = (),
+) -> Response:
+    """Return the complete success schema, including empty quality results."""
+
+    return Response(
+        json.dumps(
+            {
+                "words": words or [],
+                "grammar": grammar or [],
+                "sentences": sentences or [],
+                "warnings": list(dict.fromkeys(warnings)),
+                "analysisLanguage": language,
+            },
+            ensure_ascii=False,
+        ),
+        status=200,
+        mimetype="application/json",
+    )
+
+
+def _log_analysis_result(
+    status: str,
+    language: str,
+    *,
+    character_count: int,
+    word_count: int = 0,
+    grammar_count: int = 0,
+    sentence_count: int = 0,
+    warnings: Sequence[str] = (),
+) -> None:
+    """Emit operational counts and machine codes, never OCR text or user IDs."""
+
+    _LOGGER.info(
+        "book_analysis status=%s lang=%s chars=%d words=%d grammar=%d "
+        "sentences=%d warnings=%s",
+        status,
+        language,
+        character_count,
+        word_count,
+        grammar_count,
+        sentence_count,
+        ",".join(dict.fromkeys(warnings)) or "none",
+    )
+
+
 # ── Grammar patterns ─────────────────────────────────────────────────────
 
 
@@ -123,10 +155,28 @@ def _warning_response(
 
 
 def split_sentences(text: str) -> list[str]:
-    """KSS would be more accurate but adds ~200MB cold-start.
-    Fallback: simple split on terminal punctuation + line breaks."""
-    parts = re.split(r"(?<=[.!?。！？])\s+|\n+", text)
-    return [p.strip() for p in parts if p.strip()]
+    """Split reflowed Korean source without treating OCR wraps as sentences."""
+    return split_korean_sentences(text)
+
+
+def _sentence_spans(
+    text: str,
+    sentences: Sequence[str],
+) -> list[tuple[int, int, str]]:
+    """Locate prepared sentences without another morphology pass."""
+
+    spans: list[tuple[int, int, str]] = []
+    cursor = 0
+    for sentence in sentences:
+        start = text.find(sentence, cursor)
+        if start < 0:
+            start = text.find(sentence)
+        if start < 0:
+            continue
+        end = start + len(sentence)
+        spans.append((start, end, sentence))
+        cursor = end
+    return spans
 
 
 # ── Kiwi word extraction (no Java needed) ────────────────────────────────
@@ -145,11 +195,14 @@ def extract_words(
     text: str,
     max_words: int = 30,
     language: object = "de",
+    *,
+    tokens: Sequence[object] | None = None,
 ) -> list[dict[str, Any]]:
-    kiwi = _get_kiwi()
+    if tokens is None:
+        tokens = _get_kiwi().tokenize(text, normalize_coda=True)
     seen: dict[str, str] = {}
     ordered: list[str] = []
-    for token in kiwi.tokenize(text, normalize_coda=True):
+    for token in tokens:
         tag = str(token.tag).split(".")[-1]  # "POS.NNG" → "NNG"
         if tag in _POS_KEEP and token.form not in seen:
             seen[token.form] = tag
@@ -192,6 +245,8 @@ def _get_deepl():
 # Firestore-Fehler degradiert **still** zu direkter DeepL-Übersetzung —
 # der P0-Pfad (Übersetzung) bricht durch den Cache niemals.
 _CACHE_COLLECTION = "translation_cache"
+_CACHE_VERSION = "ko-source-v3-ttl"
+_CACHE_TTL = timedelta(days=30)
 
 
 def _get_firestore():
@@ -205,11 +260,57 @@ def _get_firestore():
         _FS_CLIENT = firestore.Client()
     except Exception:
         _FS_CLIENT = None
+        _LOGGER.warning("translation_cache_unavailable")
     return _FS_CLIENT
 
 
 def _cache_key(text: str, target: str) -> str:
-    return hashlib.sha256(f"{target}\n{text}".encode("utf-8")).hexdigest()
+    return hashlib.sha256(
+        f"{_CACHE_VERSION}\nKO\n{target}\n{text}".encode("utf-8")
+    ).hexdigest()
+
+
+def _cache_expires_at() -> datetime:
+    """Return a Firestore TTL timestamp based on the runtime server clock."""
+
+    return datetime.now(timezone.utc) + _CACHE_TTL
+
+
+def _cached_translation(
+    data: object,
+    target: str,
+    *,
+    now: datetime | None = None,
+) -> str:
+    """Return a current cache value, treating legacy/expired entries as misses."""
+
+    if not isinstance(data, dict):
+        return ""
+    if data.get("version") != _CACHE_VERSION or data.get("lang") != target:
+        return ""
+    expires_at = data.get("expiresAt")
+    if not isinstance(expires_at, datetime):
+        return ""
+    if expires_at.tzinfo is None:
+        expires_at = expires_at.replace(tzinfo=timezone.utc)
+    current_time = now or datetime.now(timezone.utc)
+    if expires_at <= current_time:
+        return ""
+    translation = data.get("t")
+    if isinstance(translation, str) and translation.strip():
+        return translation
+    return ""
+
+
+def _cache_payload(translation: str, target: str) -> dict[str, object]:
+    """Build the source-free cache document allowed by the privacy contract."""
+
+    return {
+        "t": translation,
+        "lang": target,
+        "version": _CACHE_VERSION,
+        "expiresAt": _cache_expires_at(),
+    }
 
 
 def translate_batch(items: list[str], target: str) -> dict[str, str]:
@@ -232,11 +333,12 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
             for snap in fs.get_all(refs):
                 if snap.exists:
                     item = key_to_item.get(snap.id)
-                    val = (snap.to_dict() or {}).get("t", "")
+                    val = _cached_translation(snap.to_dict(), target_code)
                     if item and val:
                         out[item] = val
             pending = [it for it in pending if it not in out]
         except Exception:  # Cache-Lesefehler → alles übersetzen
+            _LOGGER.warning("translation_cache_read_failed")
             out, pending = {}, list(dict.fromkeys(items))
 
     # 2) Nur Misses an DeepL.
@@ -248,9 +350,10 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
         else:
             try:
                 results = translator.translate_text(
-                    pending, target_lang=target_code)
+                    pending, target_lang=target_code, source_lang="KO")
                 fresh = {src: r.text for src, r in zip(pending, results)}
             except Exception:  # pragma: no cover — best-effort
+                _LOGGER.warning("deepl_sentence_translation_failed")
                 fresh = {it: "" for it in pending}
             out.update(fresh)
             # 3) Neue Übersetzungen cachen (best-effort, nur nicht-leere).
@@ -264,7 +367,7 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
                         batch.set(
                             fs.collection(_CACHE_COLLECTION).document(
                                 _cache_key(src, target_code)),
-                            {"t": txt, "src": src, "lang": target_code},
+                            _cache_payload(txt, target_code),
                         )
                         n += 1
                         if n % 400 == 0:
@@ -273,7 +376,7 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
                     if n % 400 != 0:
                         batch.commit()
                 except Exception:
-                    pass
+                    _LOGGER.warning("translation_cache_write_failed")
 
     # Alle Eingabe-Keys garantieren.
     return {it: out.get(it, "") for it in items}
@@ -328,7 +431,7 @@ def translate_words_with_context(
             for snap in fs.get_all(refs):
                 if snap.exists:
                     kor = id_to_word.get(snap.id)
-                    val = (snap.to_dict() or {}).get("t", "")
+                    val = _cached_translation(snap.to_dict(), target_code)
                     if kor and val:
                         result[kor] = val
             pending = {
@@ -336,6 +439,7 @@ def translate_words_with_context(
                 if kor not in result
             }
         except Exception:  # Cache-Lesefehler → alles neu übersetzen
+            _LOGGER.warning("translation_cache_read_failed")
             result, pending = {}, dict(word_example)
 
     if not pending:
@@ -356,11 +460,15 @@ def translate_words_with_context(
     for ex, kors in by_context.items():
         try:
             results = translator.translate_text(
-                kors, target_lang=target_code, context=(ex or None)
+                kors,
+                target_lang=target_code,
+                source_lang="KO",
+                context=(ex or None),
             )
             for kor, r in zip(kors, results):
                 fresh[kor] = r.text
         except Exception:  # pragma: no cover — best-effort
+            _LOGGER.warning("deepl_word_translation_failed")
             for kor in kors:
                 fresh[kor] = ""
     result.update(fresh)
@@ -378,7 +486,7 @@ def translate_words_with_context(
                     fs.collection(_CACHE_COLLECTION).document(
                         _cache_key(f"{kor}\x1e{ex}", target_code)
                     ),
-                    {"t": txt, "src": kor, "lang": target_code},
+                    _cache_payload(txt, target_code),
                 )
                 n += 1
                 if n % 400 == 0:
@@ -387,80 +495,9 @@ def translate_words_with_context(
             if n % 400 != 0:
                 batch.commit()
         except Exception:
-            pass
+            _LOGGER.warning("translation_cache_write_failed")
 
     return result
-
-
-# ── 표준국어대사전 (stdict / NIKL) Definitionen ───────────────────────────
-# Liefert eine kurze koreanische Definition (뜻풀이) pro Wort. Best effort.
-# Wichtig: NIKL-Wörterbücher ordnen Homonyme (먹다1=taub, 먹다2=essen) nach
-# Etymologie, NICHT nach Häufigkeit — die "übliche" Bedeutung ist per API
-# nicht erkennbar. Darum: bei mehreren Homonym-Einträgen lieber WEGLASSEN,
-# statt eine falsche Bedeutung zu zeigen. Die DeepL-Übersetzung trägt ohnehin.
-# Lizenz: stdict-Definitionen sind CC BY-SA 2.0 KR → Attribution in den
-# Datenquellen (settingsDataSources / DATA_LICENSES.md) ergänzen.
-_STDICT_URL = "https://stdict.korean.go.kr/api/search.do"
-
-
-def _fetch_definition(word: str, api_key: str, pos_ko: str = "") -> str:
-    params = urllib.parse.urlencode({
-        "key": api_key,
-        "q": word,
-        "req_type": "json",
-        "num": "10",         # stdict erlaubt nur 10–100
-        "advanced": "n",
-    })
-    url = f"{_STDICT_URL}?{params}"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "HangulSori/2.0"})
-        with urllib.request.urlopen(req, timeout=2.5) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except Exception:  # pragma: no cover — best effort
-        return ""
-    try:
-        items = data.get("channel", {}).get("item", [])
-        if isinstance(items, dict):
-            items = [items]
-        # 표제어 정확 일치만 (복합어/파생어 제외).
-        exact = [it for it in items if it.get("word") == word]
-        if not exact:
-            return ""
-        # 품사가 주어지면 먼저 좁힌다 (명사/동사/형용사).
-        if pos_ko:
-            posed = [it for it in exact if it.get("pos") == pos_ko]
-            if posed:
-                exact = posed
-        # 동음이의어(먹다1/먹다2 …)가 둘 이상이면 어떤 게 흔한 뜻인지 API 로
-        # 알 수 없으므로 안전하게 생략 — 틀린 뜻을 절대 보여주지 않는다.
-        if len(exact) != 1:
-            return ""
-        sense = exact[0].get("sense", {})
-        if isinstance(sense, list):
-            sense = sense[0] if sense else {}
-        definition = sense.get("definition", "")
-        # HTML 태그 + 엔티티(&lt; 등) 정리.
-        return re.sub(r"<[^>]+>", "", html.unescape(definition)).strip()
-    except (KeyError, IndexError, AttributeError, TypeError):
-        return ""
-
-
-def enrich_definitions(words: list[dict[str, Any]], max_lookups: int = 20) -> None:
-    """Fügt jedem Wort (in-place) `definitionKo` hinzu. Best effort."""
-    api_key = os.environ.get("STDICT_API_KEY") or os.environ.get(
-        "URIMALSAEM_API_KEY", ""
-    )
-    if not api_key:
-        for w in words:
-            w["definitionKo"] = ""
-        return
-    pos_ko = {"Nomen": "명사", "Verb": "동사", "Adjektiv": "형용사"}
-    for i, w in enumerate(words):
-        w["definitionKo"] = (
-            _fetch_definition(w["korean"], api_key, pos_ko.get(w.get("pos", ""), ""))
-            if i < max_lookups
-            else ""
-        )
 
 
 # ── Cloud Function entrypoint ────────────────────────────────────────────
@@ -480,13 +517,17 @@ def analyze_korean_text(request: Request) -> Response:
     body = request.get_json(silent=True)
     if not isinstance(body, dict):
         body = {}
-    text = (body.get("text") or "").strip()
+    raw_text = body.get("text")
+    if raw_text is None:
+        raw_text = ""
+    if not isinstance(raw_text, str):
+        return _warning_response("invalid_text", 400)
+    text = raw_text.strip()
     lang = normalize_language(body.get("lang"))
     if not text:
-        return Response(
-            json.dumps({"warnings": ["empty_text"]}),
-            status=200,
-            mimetype="application/json",
+        return _analysis_response(
+            lang,
+            warnings=("empty_text",),
         )
     if len(text) > 5000:
         return Response(
@@ -494,6 +535,21 @@ def analyze_korean_text(request: Request) -> Response:
             status=400,
             mimetype="application/json",
         )
+
+    prepared = prepare_korean_analysis_text(text)
+    quality_warnings = list(prepared.warnings)
+    if not prepared.text:
+        _log_analysis_result(
+            "rejected_no_korean",
+            lang,
+            character_count=len(text),
+            warnings=quality_warnings,
+        )
+        return _analysis_response(
+            lang,
+            warnings=quality_warnings,
+        )
+    text = prepared.text
 
     try:
         _quota_gate().consume(caller.uid)
@@ -506,9 +562,15 @@ def analyze_korean_text(request: Request) -> Response:
     except QuotaStoreUnavailable:
         return _warning_response("service_unavailable", 503)
 
-    grammar = detect_grammar(text, lang)
     sentences = split_sentences(text)
-    words = extract_words(text, language=lang)
+    try:
+        tokens = list(_get_kiwi().tokenize(text, normalize_coda=True))
+    except Exception:  # pragma: no cover - runtime dependency failure
+        tokens = []
+        quality_warnings.append("morphology_unavailable")
+        _LOGGER.warning("book_analysis_morphology_unavailable")
+    grammar = detect_grammar(text, lang, tokens=tokens)
+    words = extract_words(text, language=lang, tokens=tokens)
 
     # 문장은 batch 번역(문장 자체가 문맥), 단어는 그 단어가 든 예문을 DeepL
     # context 로 실어 번역 → 다의어 해소("걸리다"=시간이면 dauern / 경찰이면
@@ -516,25 +578,30 @@ def analyze_korean_text(request: Request) -> Response:
     target = "DE" if lang == "de" else "EN-US"
     sentence_translations = translate_batch(sentences, target)
     word_translations = translate_words_with_context(words, sentences, target)
+    if any(not sentence_translations.get(sentence) for sentence in sentences) or any(
+        not word_translations.get(word["korean"]) for word in words
+    ):
+        quality_warnings.append("translation_unavailable")
 
-    # 한국어 뜻풀이(definitionKo)는 v1.0 에서 비활성화.
-    # NIKL 사전 API(우리말샘·표준국어대사전·krdict) 모두 동음이의어의 "대표 뜻"을
-    # 안정적으로 주지 못함 (밥→형벌, 먹다→귀먹다, krdict 도 슬랭 다수). 독일 학습자에겐
-    # 독일어 번역+예문이 핵심이라 가치 낮고, 호출 제거로 응답 속도도 향상.
-    # 클라이언트는 definitionKo 빈 값이면 자동 숨김(isNotEmpty 가드). → definitionKo 는 "".
-    # v1.1 재검토: 고정 단어장 큐레이션 또는 LLM 문맥 기반 sense 선택.
-    # enrich_definitions(words)
-
-    # 단어의 예문 찾기 — 동사 활용(걸리다→걸려요) 때문에 stem 부분문자열 매칭이
-    # 실패하므로, 문장을 형태소 분석해 form→대표문장 역인덱스를 만든다(문장당 1회).
-    kiwi = _get_kiwi()
+    # 단어의 예문 찾기 — 위에서 만든 한 번의 Kiwi 결과와 문자 offset을 재사용한다.
+    # 동사 활용(걸리다→걸려요)도 stem form으로 대표 문장을 찾을 수 있다.
     form_to_sentence: dict[str, str] = {}
-    for s in sentences:
-        try:
-            for token in kiwi.tokenize(s, normalize_coda=True):
-                form_to_sentence.setdefault(token.form, s)
-        except Exception:  # pragma: no cover — best-effort
-            pass
+    sentence_spans = _sentence_spans(text, sentences)
+    for token in tokens:
+        token_start = getattr(token, "start", None)
+        if not isinstance(token_start, int):
+            continue
+        sentence = next(
+            (
+                sentence_text
+                for start, end, sentence_text in sentence_spans
+                if start <= token_start < end
+            ),
+            "",
+        )
+        token_form = str(getattr(token, "form", ""))
+        if token_form and sentence:
+            form_to_sentence.setdefault(token_form, sentence)
 
     enriched_words = []
     sentence_lookup = {s: sentence_translations.get(s, "") for s in sentences}
@@ -556,18 +623,25 @@ def analyze_korean_text(request: Request) -> Response:
             "exampleTranslation": sentence_lookup.get(example, ""),
         })
 
-    return Response(
-        json.dumps({
-            "words": enriched_words,
-            "grammar": grammar,
-            "sentences": [
-                {"korean": s, "translation": sentence_lookup[s]}
-                for s in sentences
-            ],
-            "warnings": [],
-        }, ensure_ascii=False),
-        status=200,
-        mimetype="application/json",
+    sentence_results = [
+        {"korean": sentence, "translation": sentence_lookup[sentence]}
+        for sentence in sentences
+    ]
+    _log_analysis_result(
+        "complete",
+        lang,
+        character_count=len(text),
+        word_count=len(enriched_words),
+        grammar_count=len(grammar),
+        sentence_count=len(sentence_results),
+        warnings=quality_warnings,
+    )
+    return _analysis_response(
+        lang,
+        words=enriched_words,
+        grammar=grammar,
+        sentences=sentence_results,
+        warnings=quality_warnings,
     )
 
 

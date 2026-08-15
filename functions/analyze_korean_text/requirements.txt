@@ -1,6 +1,6 @@
 functions-framework==3.*
 flask==3.*
-kiwipiepy==0.19.*
+kiwipiepy==0.19.1
 deepl==1.18.0
 google-cloud-firestore==2.*
 firebase-admin==7.5.0

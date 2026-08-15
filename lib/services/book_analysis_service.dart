@@ -6,6 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 
 import '../models/book_page.dart';
+import 'book_analysis_text.dart';
 
 /// Phase 5 (stately-rising-jongga) — Cloud Function 클라이언트 + 로컬 fallback.
 ///
@@ -49,35 +50,79 @@ class BookAnalysisService {
       return BookAnalysisResult.empty();
     }
     final language = normalizeTargetLanguage(targetLang);
+    final prepared = BookAnalysisTextPreprocessor.prepare(trimmed);
+    if (!prepared.hasKoreanText) {
+      return BookAnalysisResult(
+        words: const [],
+        grammar: const [],
+        sentences: const [],
+        warnings: prepared.warnings,
+        analysisLanguage: language,
+      );
+    }
 
     final credentials = await (credentialsProvider ?? firebaseCredentials)();
     if (credentials == null) {
       return _localStub(
-        trimmed,
+        prepared.text,
         language,
+        warnings: prepared.warnings,
         warning: 'remote_credentials_unavailable',
       );
     }
 
     try {
       final response = await _requestAnalysis(
-        text: trimmed,
+        text: prepared.text,
         language: language,
         credentials: credentials,
         client: client,
       );
       if (response.statusCode == 200) {
-        final body = jsonDecode(response.body) as Map<String, dynamic>;
-        return _parseCloudResponse(body);
+        Object? decoded;
+        try {
+          decoded = jsonDecode(response.body);
+        } on FormatException {
+          return _blockedResult(
+            language,
+            warnings: {...prepared.warnings, 'invalid_response_schema'},
+          );
+        }
+        if (decoded is! Map || decoded.keys.any((key) => key is! String)) {
+          return _blockedResult(
+            language,
+            warnings: {...prepared.warnings, 'invalid_response_schema'},
+          );
+        }
+        return _parseCloudResponse(
+          decoded.cast<String, dynamic>(),
+          language: language,
+          clientWarnings: prepared.warnings,
+        );
       }
       if (response.statusCode == 429) {
-        return _localStub(trimmed, language, warning: 'server_rate_limited');
+        return _localStub(
+          prepared.text,
+          language,
+          warnings: prepared.warnings,
+          warning: 'server_rate_limited',
+        );
       }
       if (response.statusCode == 401 || response.statusCode == 403) {
         return _localStub(
-          trimmed,
+          prepared.text,
           language,
+          warnings: prepared.warnings,
           warning: 'remote_credentials_unavailable',
+        );
+      }
+      if (response.statusCode == 422) {
+        return BookAnalysisResult(
+          words: const [],
+          grammar: const [],
+          sentences: const [],
+          warnings: {...prepared.warnings, 'no_korean_text'}.toList(),
+          analysisLanguage: language,
         );
       }
     } catch (_) {
@@ -85,7 +130,12 @@ class BookAnalysisService {
     }
 
     // Local fallback — Grammar-Patterns matchen, Wörter mit Placeholders.
-    return _localStub(trimmed, language);
+    return _localStub(
+      prepared.text,
+      language,
+      warnings: prepared.warnings,
+      warning: 'remote_analysis_failed',
+    );
   }
 
   /// Shared credential source for protected learning endpoints.
@@ -154,13 +204,20 @@ class BookAnalysisService {
   static Future<ExtractedWord?> autoFill(
     String korean, {
     String targetLang = 'de',
+    http.Client? client,
+    BookAnalysisCredentialsProvider? credentialsProvider,
   }) async {
     final word = korean.trim();
     if (word.isEmpty) {
       return null;
     }
-    final result = await analyze(text: word, targetLang: targetLang);
-    if (result.words.isEmpty) {
+    final result = await analyze(
+      text: word,
+      targetLang: targetLang,
+      client: client,
+      credentialsProvider: credentialsProvider,
+    );
+    if (!result.isSaveable || result.words.isEmpty) {
       return null;
     }
     final match = result.words.firstWhere(
@@ -168,6 +225,7 @@ class BookAnalysisService {
       orElse: () => result.words.first,
     );
     if (match.translationDe.trim().isEmpty &&
+        match.translationEn.trim().isEmpty &&
         match.definitionKo.trim().isEmpty) {
       return null; // 오프라인/번역 없음 → 직접 입력 유도
     }
@@ -176,55 +234,201 @@ class BookAnalysisService {
 
   // ── Cloud parsing ──────────────────────────────────────────────────
 
-  static BookAnalysisResult _parseCloudResponse(Map<String, dynamic> body) {
-    final warnings = <String>[];
+  static BookAnalysisResult _blockedResult(
+    String language, {
+    required Iterable<String> warnings,
+  }) => BookAnalysisResult(
+    words: const [],
+    grammar: const [],
+    sentences: const [],
+    warnings: warnings.toSet().toList(growable: false),
+    analysisLanguage: language,
+  );
 
-    final wordsJson = (body['words'] as List?) ?? const [];
-    final words = wordsJson.map((e) {
-      final m = (e as Map).cast<String, dynamic>();
-      return ExtractedWord(
-        korean: m['korean'] as String? ?? '',
-        romanization: m['romanization'] as String? ?? '',
-        posDe: m['pos'] as String? ?? '',
-        translationDe: (m['translation'] as String?) ?? '',
-        translationEn: (m['translationEn'] as String?) ?? '',
-        exampleKorean: m['example'] as String? ?? '',
-        exampleDe: m['exampleTranslation'] as String? ?? '',
-        definitionKo: m['definitionKo'] as String? ?? '',
-        savedToPackId: null,
+  static BookAnalysisResult _parseCloudResponse(
+    Map<String, dynamic> body, {
+    required String language,
+    Iterable<String> clientWarnings = const [],
+  }) {
+    final warnings = <String>{...clientWarnings};
+    var invalidResponse = false;
+
+    const requiredListFields = {'words', 'grammar', 'sentences', 'warnings'};
+    if (requiredListFields.any((field) => body[field] is! List) ||
+        body['analysisLanguage'] is! String ||
+        !const {'de', 'en'}.contains(body['analysisLanguage'])) {
+      return _blockedResult(
+        language,
+        warnings: {...warnings, 'invalid_response_schema'},
       );
-    }).toList();
-
-    final grammarJson = (body['grammar'] as List?) ?? const [];
-    final grammar = grammarJson.map((e) {
-      final m = (e as Map).cast<String, dynamic>();
-      return GrammarHit(
-        patternId: m['id'] as String? ?? '',
-        nameDe: m['nameDe'] as String? ?? '',
-        matchedText: m['matched'] as String? ?? '',
-        level: m['level'] as String? ?? '',
-        explanationDe: m['explanationDe'] as String? ?? '',
+    }
+    if (body['analysisLanguage'] != language) {
+      return _blockedResult(
+        language,
+        warnings: {...warnings, 'wrong_analysis_language'},
       );
-    }).toList();
+    }
 
-    final sentJson = (body['sentences'] as List?) ?? const [];
-    final sentences = sentJson.map((e) {
-      final m = (e as Map).cast<String, dynamic>();
-      return TranslatedSentence(
-        korean: m['korean'] as String? ?? '',
-        translationDe: m['translation'] as String? ?? '',
+    String clean(Object? value, int maxLength) {
+      if (value == null) return '';
+      if (value is! String) {
+        invalidResponse = true;
+        return '';
+      }
+      final sanitized = BookAnalysisTextPreprocessor.sanitizeUnexpectedScripts(
+        value,
       );
-    }).toList();
+      if (sanitized.removedCharacterCount > 0 ||
+          sanitized.removedFormatControlCount > 0) {
+        invalidResponse = true;
+      }
+      var text = sanitized.text.trim();
+      if (text.length > maxLength) {
+        text = text.substring(0, maxLength).trimRight();
+        invalidResponse = true;
+      }
+      return text;
+    }
 
-    if ((body['warnings'] as List?)?.isNotEmpty ?? false) {
-      warnings.addAll((body['warnings'] as List).map((e) => e.toString()));
+    List<dynamic> list(Object? value, int maxItems) {
+      if (value is! List) {
+        invalidResponse = true;
+        return const [];
+      }
+      if (value.length > maxItems) {
+        invalidResponse = true;
+      }
+      return value.take(maxItems).toList(growable: false);
+    }
+
+    for (final warning in list(body['warnings'], 20)) {
+      if (warning is String &&
+          RegExp(r'^[a-z0-9_:-]{1,80}$').hasMatch(warning)) {
+        warnings.add(warning);
+      } else {
+        invalidResponse = true;
+      }
+    }
+    final translationUnavailable = warnings.contains('translation_unavailable');
+
+    final words = <ExtractedWord>[];
+    for (final entry in list(body['words'], 30)) {
+      if (entry is! Map) {
+        invalidResponse = true;
+        continue;
+      }
+      final item = entry.cast<Object?, Object?>();
+      final korean = clean(item['korean'], 40);
+      if (!RegExp(r'^[\uAC00-\uD7A3]{1,20}$').hasMatch(korean)) {
+        invalidResponse = true;
+        continue;
+      }
+      final translation = clean(item['translation'], 240);
+      if (!RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(translation)) {
+        if (!translationUnavailable) invalidResponse = true;
+        continue;
+      }
+      final explicitEnglish = clean(item['translationEn'], 240);
+      final example = clean(item['example'], 500);
+      words.add(
+        ExtractedWord(
+          korean: korean,
+          romanization: clean(item['romanization'], 120),
+          posDe: clean(item['pos'], 80),
+          // translationDe remains the legacy primary-meaning slot used by
+          // custom-pack games. translationLanguage records its real language.
+          translationDe: translation,
+          translationEn: language == 'en' ? translation : explicitEnglish,
+          translationLanguage: language,
+          exampleKorean:
+              BookAnalysisTextPreprocessor.containsHangulSyllable(example)
+              ? example
+              : '',
+          exampleDe: clean(item['exampleTranslation'], 500),
+          definitionKo: clean(item['definitionKo'], 500),
+          savedToPackId: null,
+        ),
+      );
+    }
+
+    final grammar = <GrammarHit>[];
+    final seenGrammar = <String>{};
+    for (final entry in list(body['grammar'], 40)) {
+      if (entry is! Map) {
+        invalidResponse = true;
+        continue;
+      }
+      final item = entry.cast<Object?, Object?>();
+      final id = clean(item['id'], 64);
+      final matched = clean(item['matched'], 160);
+      if (!RegExp(r'^[a-zA-Z0-9_-]{1,64}$').hasMatch(id) ||
+          !BookAnalysisTextPreprocessor.containsHangulSyllable(matched) ||
+          !seenGrammar.add(id)) {
+        invalidResponse = true;
+        continue;
+      }
+      final level = clean(item['level'], 8);
+      final name = clean(item['nameDe'], 160);
+      final explanation = clean(item['explanationDe'], 600);
+      if (!RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(name) ||
+          !RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(explanation)) {
+        invalidResponse = true;
+        continue;
+      }
+      if (!const {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}.contains(level)) {
+        invalidResponse = true;
+      }
+      grammar.add(
+        GrammarHit(
+          patternId: id,
+          nameDe: name,
+          matchedText: matched,
+          level: const {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}.contains(level)
+              ? level
+              : '',
+          explanationDe: explanation,
+        ),
+      );
+    }
+
+    final sentences = <TranslatedSentence>[];
+    for (final entry in list(body['sentences'], 20)) {
+      if (entry is! Map) {
+        invalidResponse = true;
+        continue;
+      }
+      final item = entry.cast<Object?, Object?>();
+      final korean = clean(item['korean'], 600);
+      final translation = clean(item['translation'], 800);
+      if (!BookAnalysisTextPreprocessor.containsHangulSyllable(korean)) {
+        invalidResponse = true;
+        continue;
+      }
+      if (!RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(translation) &&
+          !translationUnavailable) {
+        invalidResponse = true;
+        continue;
+      }
+      sentences.add(
+        TranslatedSentence(
+          korean: korean,
+          translationDe: translation,
+          translationLanguage: language,
+        ),
+      );
+    }
+
+    if (invalidResponse) warnings.add('invalid_response_filtered');
+    if (words.isEmpty && grammar.isEmpty && sentences.isEmpty) {
+      warnings.add('empty_analysis_result');
     }
 
     return BookAnalysisResult(
       words: words,
       grammar: grammar,
       sentences: sentences,
-      warnings: warnings,
+      warnings: warnings.toList(growable: false),
+      analysisLanguage: language,
     );
   }
 
@@ -253,6 +457,7 @@ class BookAnalysisService {
   static Future<BookAnalysisResult> _localStub(
     String text,
     String targetLang, {
+    Iterable<String> warnings = const [],
     String? warning,
   }) async {
     final patterns = await _loadGrammarPatterns();
@@ -261,6 +466,7 @@ class BookAnalysisService {
     for (final p in patterns) {
       final id = p['id'] as String? ?? '';
       if (usedPatternIds.contains(id)) continue;
+      if (p['detector'] != null && p['detector'] != 'regex') continue;
       final regex = p['regex'] as String? ?? '';
       if (regex.isEmpty) continue;
       try {
@@ -320,6 +526,7 @@ class BookAnalysisService {
           (s) => TranslatedSentence(
             korean: s.trim(),
             translationDe: '', // 번역 미실행
+            translationLanguage: targetLang,
           ),
         )
         .toList();
@@ -328,7 +535,13 @@ class BookAnalysisService {
       words: const [],
       grammar: grammar,
       sentences: rawSentences,
-      warnings: ['offline_stub', if (warning != null) warning],
+      warnings: {
+        'offline_stub',
+        'offline_grammar_reduced',
+        ...warnings,
+        if (warning != null) warning,
+      }.toList(growable: false),
+      analysisLanguage: targetLang,
     );
   }
 }

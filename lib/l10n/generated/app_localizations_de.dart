@@ -1102,7 +1102,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookCaptureSubtitle =>
-      'Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.';
+      'Seite gerade, scharf und eng zugeschnitten aufnehmen. Das Bild bleibt auf deinem Gerät; nur erkannter Text wird analysiert.';
 
   @override
   String get bookCaptureCamera => 'Kamera';
@@ -1115,7 +1115,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookCaptureErrorNoKorean =>
-      'Kein Koreanisch erkannt. Bitte mach ein schärferes Foto.';
+      'Kein verlässliches Koreanisch erkannt. Fotografiere die Seite gerade, scharf und näher.';
 
   @override
   String get bookCaptureErrorPermission =>
@@ -1139,11 +1139,19 @@ class AppL10nDe extends AppL10n {
 
   @override
   String bookPreviewHint(int count) {
-    return '$count Textblöcke erkannt. Korrigiere sie bei Bedarf.';
+    return '$count Textzeilen erkannt. Vergleiche und korrigiere sie bei Bedarf.';
   }
 
   @override
   String get bookPreviewTextFieldHint => 'Koreanischer Text …';
+
+  @override
+  String get bookPreviewQualityWarning =>
+      'Unsichere oder nicht unterstützte Schrift wurde entfernt. Prüfe den koreanischen Text vor der Analyse sorgfältig.';
+
+  @override
+  String get bookPreviewSevereQualityWarning =>
+      'Die Aufnahme oder Texterkennung ist zu unsicher. Nimm das Foto am besten neu auf. Wenn du trotzdem fortfahren möchtest, korrigiere zuerst selbst den OCR-Text.';
 
   @override
   String get bookPreviewAnalyze => 'Analysieren';
@@ -1546,6 +1554,18 @@ class AppL10nDe extends AppL10n {
   @override
   String get bookResultRateLimited =>
       'Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.';
+
+  @override
+  String get bookResultQualityNotice =>
+      'Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.';
+
+  @override
+  String get bookResultTranslationUnavailable =>
+      'Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.';
+
+  @override
+  String get bookResultNoKoreanNotice =>
+      'Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.';
 
   @override
   String get bookResultSectionWords => 'Wörter';

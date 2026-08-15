@@ -64,14 +64,41 @@ flutter test        # 기대: 직전 197건 수준 통과
 
 ---
 
-## 3. Firebase 배포 — 🔴/🟠
-- [ ] **Firestore 규칙 배포** (필수): `firebase deploy --only firestore:rules`
-- [ ] **Cloud Function 배포** (강력 권장 — 안 하면 책 한 컷이 번역·단어추출·정의 없이 문법패턴만):
-  - ✅ **API 키는 이미 코드에 반영됨** — `functions/analyze_korean_text/.env` 에 `DEEPL_API_KEY`(:fx Free) + `URIMALSAEM_API_KEY` 저장. `.gitignore` 처리되어 GitHub에 안 올라감. Firebase가 deploy 시 `.env`를 런타임 환경변수로 자동 로드.
-  - 배포: `firebase deploy --only functions` (`firebase.json`의 functions.source = `functions/analyze_korean_text` 확인됨)
-  - 출력된 함수 URL을 앱 **설정 → "Cloud-Analyse-Endpoint"** 에 붙여넣고 저장 → 재실행 후 유지 확인.
-  - ⚠️ **우리말샘 키는 이 세션 네트워크 제한으로 실호출 검증 못 함**(403 터널). 배포 후 실제 페이지 분석 시 단어 카드에 "📖 뜻풀이"가 나오는지로 확인.
-- [ ] 배포 후 책 한 컷으로 실제 한국어 페이지 분석 → 단어/번역(DeepL)/정의(우리말샘) 나오는지.
+## 3. Firebase/GCP 배포 — 🔴/🟠
+- [ ] **분석 전용 preflight**:
+  - Python 3.12 가상환경에 `requirements.txt` 설치.
+  - `bash functions/preflight.sh analyze`가 dependency import, 전체 unittest
+    discovery(skip 0), 7-file source allowlist, server-only cache/TTL 계약까지 통과.
+- [ ] **비밀·런타임 계정**:
+  - 과거 채팅에 붙인 DeepL 키는 재사용하지 않고 회전.
+  - `DEEPL_API_KEY`는 Secret Manager에서 전용
+    `hangul-sori-book-analysis` 서비스 계정에만 접근 허용.
+  - `deploy.env.yaml`에는 Android+iOS App ID만 있고 API 키는 0개.
+- [ ] **Firestore 규칙+TTL 배포**:
+  `firebase deploy --only firestore:rules,firestore:indexes` 후
+  `translation_cache.expiresAt` TTL이 ACTIVE인지 확인.
+- [ ] **Python Gen2 `analyze_korean_text` 재배포**:
+  - `firebase deploy --only functions`가 아니라 `docs/store/cloud-function-deploy.md`의
+    `gcloud functions deploy ... --runtime=python312`를 사용한다.
+  - 배포 source는 `.gcloudignore`가 허용한 runtime 7개 파일만 포함한다.
+  - DeepL은 `--set-secrets`, App ID는 비밀 없는 `--env-vars-file`로 주입한다.
+  - 앱 endpoint는 안전을 위해 코드에 고정돼 있다. 설정 화면에 임의 URL을
+    넣지 않는다.
+- [ ] **배포 source 동일성**:
+  `verify_deployed_source.py --function=analyze_korean_text`가 storage generation의
+  7-file manifest와 canonical SHA를 로컬 소스와 동일하다고 판정.
+- [ ] **양 플랫폼 signed smoke**: Android/iOS에서 각각 Firebase Auth + App Check
+  토큰으로 `smoke_test.py`를 통과한다. Android=`de`/`Nomen`,
+  iOS=`en`/`Noun`, `analysisLanguage`, 번역, 혼합 KO+DE/EN+Arabic을 확인하고,
+  Auth만/App Check만/Auth+변조 App Check가 각각 401인지 독립 검증한다.
+- [ ] **캐시 개인정보 정리**:
+  - `cleanup_translation_cache.py` 기본 dry-run의 값 없는 집계 확인.
+  - 새 함수 SHA+smoke+TTL을 닫고 Jin이 삭제를 명시 승인한 뒤에만
+    `--apply`; 이후 dry-run `matched=0`, 새 문서 `src` 0건 확인.
+- [ ] **실제 교재 기기 테스트**: 단일/2단/3단, 0/90/180/270도,
+  흐림·저대비·비스듬·반사·원근 및 iOS confidence-null,
+  KO+DE와 KO+EN 페이지에서 사진→교정→단어/문법/문장→저장을 확인한다.
+  `definitionKo`는 정확도 문제로 의도적으로 빈 값이며 검증 항목이 아니다.
 - [ ] DeepL Free 한도(50만 자/월) 모니터링 — 테스터 많아지면 Pro 검토.
 - [ ] (출시 후) Crashlytics·Analytics 콘솔에 release 빌드 데이터 수신 확인.
 

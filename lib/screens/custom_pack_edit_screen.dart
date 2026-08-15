@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -11,6 +10,7 @@ import '../models/custom_pack.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_image_service.dart';
 import '../services/custom_pack_service.dart';
+import '../services/custom_pack_import_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
@@ -77,8 +77,17 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   }
 
   void _reload() {
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() => _pack = CustomPackService.getById(widget.packId));
+  }
+
+  void _speakKorean(String value) {
+    final safe = sanitizeCustomPackKoreanWord(value);
+    if (safe.isNotEmpty) {
+      TtsService.speak(safe);
+    }
   }
 
   Future<void> _addOrEdit({int? index}) async {
@@ -219,6 +228,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     final pack = _pack;
     if (pack == null) return;
     final t = AppL10n.of(context);
+    final language = Localizations.localeOf(context).languageCode == 'en'
+        ? 'en'
+        : 'de';
     final controller = TextEditingController();
     final raw = await showDialog<String>(
       context: context,
@@ -257,28 +269,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
         ],
       ),
     );
+    controller.dispose();
     if (raw == null || raw.trim().isEmpty) return;
 
-    final rows = const CsvToListConverter(
-      shouldParseNumbers: false,
-      eol: '\n',
-    ).convert(raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n'));
-
-    final words = <ExtractedWord>[];
-    for (final row in rows) {
-      if (row.isEmpty) continue;
-      final korean = row[0].toString().trim();
-      if (korean.isEmpty) continue;
-      final meaning = row.length > 1 ? row[1].toString().trim() : '';
-      final example = row.length > 2 ? row[2].toString().trim() : '';
-      words.add(
-        ExtractedWord.manual(
-          korean: korean,
-          translationDe: meaning,
-          exampleKorean: example,
-        ),
-      );
-    }
+    final words = parseCustomPackCsvWords(raw, translationLanguage: language);
 
     if (!mounted) return;
     if (words.isEmpty) {
@@ -473,7 +467,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           return _WordTile(
                             word: w,
                             onTap: () => _addOrEdit(index: i),
-                            onSpeak: () => TtsService.speak(w.korean),
+                            onSpeak: () => _speakKorean(w.korean),
                             onDelete: () => _deleteWord(i),
                           );
                         },
@@ -598,6 +592,8 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   late final TextEditingController _meaning;
   late final TextEditingController _example;
   String _definitionKo = '';
+  String? _translationLanguage;
+  String _translationEn = '';
   String _imagePath = '';
   PendingMediaLease? _pendingLease;
   File? _pendingPreview;
@@ -619,6 +615,8 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       text: widget.existing?.exampleKorean ?? '',
     );
     _definitionKo = widget.existing?.definitionKo ?? '';
+    _translationLanguage = widget.existing?.translationLanguage;
+    _translationEn = widget.existing?.translationEn ?? '';
     _imagePath = widget.existing?.imagePath ?? '';
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // ignore: discarded_futures
@@ -760,7 +758,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   }
 
   Future<void> _autoFill() async {
-    final word = _korean.text.trim();
+    final word = sanitizeCustomPackKoreanWord(_korean.text);
     final t = AppL10n.of(context);
     if (word.isEmpty) {
       setState(() => _autoNote = t.wbNeedKorean);
@@ -787,6 +785,8 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
           _example.text = result.exampleKorean;
         }
         _definitionKo = result.definitionKo;
+        _translationLanguage = result.translationLanguage;
+        _translationEn = result.translationEn;
         _autoNote = null;
       }
     });
@@ -794,25 +794,25 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
 
   void _save() {
     final t = AppL10n.of(context);
-    final korean = _korean.text.trim();
-    if (korean.isEmpty) {
+    final existing = widget.existing;
+    final korean = sanitizeCustomPackKoreanWord(_korean.text);
+    final language =
+        _translationLanguage ??
+        (Localizations.localeOf(context).languageCode == 'en' ? 'en' : 'de');
+    final meaning = _meaning.text.trim();
+    final word = buildCustomPackEditedWord(
+      existing: existing,
+      korean: korean,
+      meaning: meaning,
+      translationEn: _translationEn,
+      translationLanguage: language,
+      exampleKorean: _example.text.trim(),
+      definitionKo: _definitionKo,
+    );
+    if (word.korean.isEmpty) {
       setState(() => _autoNote = t.wbNeedKorean);
       return;
     }
-    final existing = widget.existing;
-    final word = existing == null
-        ? ExtractedWord.manual(
-            korean: korean,
-            translationDe: _meaning.text.trim(),
-            exampleKorean: _example.text.trim(),
-            definitionKo: _definitionKo,
-          )
-        : existing.copyWithEditable(
-            korean: korean,
-            translationDe: _meaning.text.trim(),
-            exampleKorean: _example.text.trim(),
-            definitionKo: _definitionKo,
-          );
     _submitted = true;
     Navigator.of(context).pop(
       _WordEditorResult(
@@ -846,7 +846,12 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
             border: const OutlineInputBorder(),
             suffixIcon: IconButton(
               icon: Icon(Icons.volume_up_rounded, color: SoriColors.primary),
-              onPressed: () => TtsService.speak(_korean.text.trim()),
+              onPressed: () {
+                final safe = sanitizeCustomPackKoreanWord(_korean.text);
+                if (safe.isNotEmpty) {
+                  TtsService.speak(safe);
+                }
+              },
             ),
           ),
         ),

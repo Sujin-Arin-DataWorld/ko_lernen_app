@@ -2044,7 +2044,7 @@ abstract class AppL10n {
   /// No description provided for @bookCaptureSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.'**
+  /// **'Seite gerade, scharf und eng zugeschnitten aufnehmen. Das Bild bleibt auf deinem Gerät; nur erkannter Text wird analysiert.'**
   String get bookCaptureSubtitle;
 
   /// No description provided for @bookCaptureCamera.
@@ -2068,7 +2068,7 @@ abstract class AppL10n {
   /// No description provided for @bookCaptureErrorNoKorean.
   ///
   /// In de, this message translates to:
-  /// **'Kein Koreanisch erkannt. Bitte mach ein schärferes Foto.'**
+  /// **'Kein verlässliches Koreanisch erkannt. Fotografiere die Seite gerade, scharf und näher.'**
   String get bookCaptureErrorNoKorean;
 
   /// No description provided for @bookCaptureErrorPermission.
@@ -2110,7 +2110,7 @@ abstract class AppL10n {
   /// No description provided for @bookPreviewHint.
   ///
   /// In de, this message translates to:
-  /// **'{count} Textblöcke erkannt. Korrigiere sie bei Bedarf.'**
+  /// **'{count} Textzeilen erkannt. Vergleiche und korrigiere sie bei Bedarf.'**
   String bookPreviewHint(int count);
 
   /// No description provided for @bookPreviewTextFieldHint.
@@ -2118,6 +2118,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Koreanischer Text …'**
   String get bookPreviewTextFieldHint;
+
+  /// No description provided for @bookPreviewQualityWarning.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsichere oder nicht unterstützte Schrift wurde entfernt. Prüfe den koreanischen Text vor der Analyse sorgfältig.'**
+  String get bookPreviewQualityWarning;
+
+  /// No description provided for @bookPreviewSevereQualityWarning.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufnahme oder Texterkennung ist zu unsicher. Nimm das Foto am besten neu auf. Wenn du trotzdem fortfahren möchtest, korrigiere zuerst selbst den OCR-Text.'**
+  String get bookPreviewSevereQualityWarning;
 
   /// No description provided for @bookPreviewAnalyze.
   ///
@@ -2790,6 +2802,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.'**
   String get bookResultRateLimited;
+
+  /// No description provided for @bookResultQualityNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.'**
+  String get bookResultQualityNotice;
+
+  /// No description provided for @bookResultTranslationUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.'**
+  String get bookResultTranslationUnavailable;
+
+  /// No description provided for @bookResultNoKoreanNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.'**
+  String get bookResultNoKoreanNotice;
 
   /// No description provided for @bookResultSectionWords.
   ///

@@ -2046,3 +2046,31 @@ test("only one of concurrent tenth and eleventh joins can succeed", async () => 
     1,
   );
 });
+
+test("translation cache is never available through a client SDK", async () => {
+  await environment.withSecurityRulesDisabled(async (context) => {
+    await setDoc(doc(context.firestore(), "translation_cache", "digest"), {
+      t: "translation",
+      lang: "DE",
+      version: "current",
+      expiresAt: Timestamp.now(),
+    });
+  });
+
+  const signedDb = client("learner");
+  const signedRef = doc(signedDb, "translation_cache", "digest");
+  const anonymousDb = environment.unauthenticatedContext().firestore();
+  const anonymousRef = doc(anonymousDb, "translation_cache", "digest");
+
+  await assertFails(getDoc(signedRef));
+  await assertFails(getDocs(collection(signedDb, "translation_cache")));
+  await assertFails(setDoc(signedRef, {
+    t: "tampered",
+    lang: "DE",
+    version: "current",
+    expiresAt: serverTimestamp(),
+  }));
+  await assertFails(deleteDoc(signedRef));
+  await assertFails(getDoc(anonymousRef));
+  await assertFails(setDoc(anonymousRef, { t: "tampered" }));
+});

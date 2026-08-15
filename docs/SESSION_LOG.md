@@ -271,6 +271,96 @@ missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐�
 실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
 `847eee9a` (`chore: verify batch 05 TTS storage`)다.
 
+### 2026-08-16 (Codex) — 책 한 컷 실물 8종 레이아웃 2차 감사
+
+**샘플과 개인정보 경계.** 사용자가 제공한 한국어-only 캡처, KO+DE/EN 교재 사진
+8장을 저장소 밖에서 읽기 전용으로 확인했다. 원본을 복사·편집·커밋하거나 외부 OCR에
+전송하지 않았다. #3/#4/#5/#7 JPEG는 EXIF Orientation=1인데 실제 글자 픽셀이 90°
+돌아가 있고 #2 PNG도 옆으로 누워 있어 EXIF 보정만으로는 처리할 수 없다.
+
+**1차 복구로 닫힌 범위.** Korean 단일 ML Kit, NFC/Arabic·bidi·control 정제,
+1~3단 및 넓은 band separator 정렬, 이미지 선명도·명암 gate, 엄격한 DE/EN 응답·저장
+계약, 안전한 custom-pack 입력 상한, 실제 Kiwi 관형형 회귀, cache/App-ID/source 배포
+검증은 로컬 변경과 자동 테스트로 보강했다. 다만 OCR line의 bbox/block 관계를 최종
+문자열로 평탄화하는 현재 계약은 그대로이므로 실물 혼합 교재 완료를 주장하지 않는다.
+
+**실물에서 확인된 남은 P0.** 전역 blur/contrast는 8장을 대부분 정상으로 보므로
+quarter-turn, 작은 글씨, 국소 반사, 프레임 잘림, 옆 페이지 침입을 별도 측정해야 한다.
+`대청소를 해요 do a big clean`, `내일 morgen`, 독일어 설명 안의 `-지 않다`처럼
+구분자 없는 혼합 줄은 문자 regex만으로 역할을 판별할 수 없다. 다음 구현은
+`Document > Region > Line > Span` 좌표 그래프, 조건부 0/90/180/270 선택, band별
+recursive layout, `sentence/expression/headword/grammarMeta/gloss/speaker/noise` 역할 분류,
+source-unit provenance가 있는 서버 v2 계약 순서로 진행한다. Google Cloud 문서 OCR은
+한국어 의미 분리를 대신하지 않으므로 사용자 승인 자료에서 정량 A/B 우위가 확인될 때만
+선택적 fallback 후보로 검토한다.
+
+**완료 기준.** 실제 원본은 gitignored private challenge set으로만 사용하고 저장소에는
+같은 구조의 독립 창작 synthetic fixture를 둔다. Android/iOS 양쪽에서 방향 선택,
+한국어 문자 precision/recall, inline DE/EN leakage 0, column/card merge 0, 문법 카드
+precision, TTS·저장 오염 0을 측정하기 전에는 기능 복구 완료나 운영 완료로 선언하지
+않는다. 사용자 지시에 따라 1차 로컬 안전 복구와 이 2차 감사 기록은 다음 구현 전 기준
+커밋으로 보관한다. 기준점 재검증에서 책 분석 관련 Flutter 회귀 **84/84**, custom-pack
+집중 회귀 **6/6**, Python 3.12 analyze preflight 전체, `flutter analyze --no-pub
+--fatal-infos`를 통과했다. 제공된 원본 사진·Secret은 커밋 대상에 없으며 푸시·배포·
+TTL 설정·cache 삭제는 수행하지 않았다. scene graph·자동 quarter-turn·역할 분류와
+태고/조이 질의 기능은 이 기준점 이후의 별도 구현이다.
+
+### 2026-08-15 (Codex) — 책 한 컷 혼합 교재 로컬 복구·운영 안전 게이트
+
+**원인과 운영 경계.** 같은 사진을 Korean/Latin ML Kit 인식기에 각각 보내 서로 다른
+오인식을 합치던 계약, 실제 Unicode/Hangul 검증 부재, OCR 개행을 문장 경계로 보던 서버,
+DE/EN/Arabic 조각을 한국어 문장·TTS·저장 후보로 신뢰하던 클라이언트가 주원인이었다.
+live Gen2 source는 현재 저장소와 다르고 필수 보안·문법·정제 모듈이 없으며, 이 세션에서
+함수·Rules·TTL·Secret을 배포하지 않았으므로 **운영 복구 완료를 주장하지 않는다**.
+
+**OCR·촬영·교정.** ML Kit Korean 단일 인식기와 최대 3단 열 정렬을 사용한다. Dart와
+Python이 같은 golden JSON을 읽어 NFC, zero-width/bidi/control 제거, 예상 밖 script run
+공백 치환, 명확한 gloss만 제거하는 계약을 공유한다. `Berlin에`, `K-pop 음악`,
+`서울에서 K-pop`은 보존하고 Arabic, bidi/zero-width, C0/C1 control은
+분석·TTS·저장 경계에서 제거한다. 구버전 local/Firestore/portable 책도 역직렬화 때
+같은 정제를 적용하고, 안전한 한국어/선택 언어 뜻이 남지 않는 항목은 팩·TTS 전에
+제외한다. 512px
+축소본의 Laplacian/명암, 지원하지 않는 문자 비율, 저신뢰 Korean line 비율, 3줄 이상
+중앙 회전각을 측정하며 iOS처럼 confidence가 전부 null이면 별도 경고한다. severe 사진은
+재촬영이 기본이고, 공백 변경이 아닌 안전한 한글 직접 교정이 있어야 분석 버튼이 열린다.
+picker/crop JPEG 품질을 100으로 맞추고 preview에 실제 로컬 사진을 표시한다.
+
+**분석·문법·저장 계약.** 서버는 `analysisLanguage`, `words`, `grammar`, `sentences`,
+`warnings`를 항상 반환하고 클라이언트는 필수 schema와 요청 언어 일치를 강제한다. 빈 결과,
+필수 key 누락, 전부 필터됨, 일부 응답 오염은 `isSaveable=false`로 저장·팩 생성·TTS를
+차단한다. 번역 장애 때 한국어 문장·문법은 보존하되 뜻 없는 단어는 단어장에 넣지 않는다.
+Kiwi tokenize 결과 하나를 단어·예문·문법에 공유하고 `VV/VA + ETM + 후행 명사`로
+`좋은 책`/`먹은 음식`/`먹을 음식`을 각각 현재/과거/미래 한 카드로 판별하며
+`저는 학생이에요`는 검출하지 않는다. offline 정규식은 fail-closed하고
+`offline_grammar_reduced`를 노출한다. 자동채움·수동 입력·CSV와 기존 게임 호환 슬롯은
+DE/EN `translationLanguage` provenance를 보존한다. 분석 analytics에는 원문·경로·UID가
+아닌 제한된 count/category만 남긴다.
+
+**개인정보·안전 배포.** 번역 cache v3는 `src`를 쓰지 않고 30일 `expiresAt`을 저장하며
+legacy/만료 문서는 miss 처리한다. Firestore 클라이언트 접근 금지와 TTL 설정, 값 없는
+dry-run 정리 도구를 추가했다. source-local `.gcloudignore`와 preflight는 실제 gcloud
+upload 목록을 런타임 7파일 exact allowlist로 검사하고 `.env*`·test·smoke·pyc를 배제한다.
+DeepL은 source `.env`가 아닌 Secret Manager와 전용 서비스 계정으로 주입하고 Android/iOS
+App ID만 비밀 없는 env YAML에 둔다. 배포 후 storage source ZIP의 manifest/SHA를 로컬과
+비교하는 verifier와 Auth/App Check를 각각 독립 실패시키는 signed smoke를 추가했다.
+
+**로컬 검증.** `flutter analyze --no-pub --fatal-infos`는 0 issue. 통합 선별 회귀
+**89/89**과 추가 media/l10n 회귀 **85/85**, Python 3.12 requirements 환경의 전체
+unittest discovery **62/62, skip 0**, signed-smoke mock **17/17**, Firestore emulator
+**47/47, skip 0**을 통과했다. 실제 Kiwi 0.19에서도 관형형 양성·조사 음성을 확인했다.
+`bash functions/preflight.sh analyze`는 Python 3.12.10, dependency import, 전체 discovery,
+양 플랫폼 App ID, 실제 gcloud 7-file manifest, server-only cache/TTL 계약을 모두 통과했고
+`py_compile`, JSON parity, `git diff --check`도 통과했다.
+
+**운영 read-only 증거와 남은 승인 게이트.** cache dry-run은 `scanned=379`,
+`source_bearing=379`, `missing_expires_at=379`, `version_mismatch=379`, `matched=379`,
+`deleted=0`이었다. live TTL 정책은 없고, live source verifier는 예상대로 추가 파일 3개와
+필수 파일 4개 누락으로 실패했다. 따라서 다음 순서는 별도 운영 승인 후 Secret/전용 계정,
+Rules+TTL, Python Gen2 배포, source SHA 일치, Android `de`/iOS `en` signed smoke, 실제
+단일·2단·3단/회전·흐림·저대비 교재 촬영, 마지막으로 별도 삭제 승인 후 cache cleanup이다.
+커밋·푸시·배포·Secret 생성·TTL 설정·cache 삭제는 수행하지 않았고, 별도 세션의 PR #27
+브랜치·커밋·병합에도 관여하지 않았다.
+
 ### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
 
 **참고자료와 저작권 안전선.** 제공된 세종학당 PDF 17권, 총 1,817쪽을 텍스트 추출과

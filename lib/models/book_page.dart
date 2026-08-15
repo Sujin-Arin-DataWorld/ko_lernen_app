@@ -3,7 +3,44 @@
 // 사용자가 한국어 교재 페이지를 사진 찍어서 분석한 결과를 표현.
 // Local + Firestore 양쪽에 사용되는 plain DTO.
 
+import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
+
+String _bookLanguage(Object? value) => value == 'en' ? 'en' : 'de';
+
+String _safeSupportedText(Object? value) =>
+    BookAnalysisTextPreprocessor.sanitizeUnexpectedScripts(
+      value is String ? value : '',
+    ).text;
+
+String _safeKoreanText(Object? value) =>
+    BookAnalysisTextPreprocessor.prepare(value is String ? value : '').text;
+
+const int maxExtractedWordKoreanCharacters = 80;
+const int maxExtractedWordMeaningCharacters = 240;
+const int maxExtractedWordExampleCharacters = 500;
+const int maxExtractedWordDefinitionCharacters = 500;
+
+String _limitCodePoints(String value, int maximum) =>
+    String.fromCharCodes(value.runes.take(maximum));
+
+String _safeWordKorean(Object? value) => _limitCodePoints(
+  _safeKoreanText(value).replaceAll(RegExp(r'\s+'), ' ').trim(),
+  maxExtractedWordKoreanCharacters,
+);
+
+String _safeWordMeaning(Object? value) => _limitCodePoints(
+  _safeSupportedText(value).replaceAll(RegExp(r'\s+'), ' ').trim(),
+  maxExtractedWordMeaningCharacters,
+);
+
+String _safeWordExample(Object? value) =>
+    _limitCodePoints(_safeKoreanText(value), maxExtractedWordExampleCharacters);
+
+String _safeWordDefinition(Object? value) => _limitCodePoints(
+  _safeSupportedText(value),
+  maxExtractedWordDefinitionCharacters,
+);
 
 String? _managedRefFor(Object? value, ManagedMediaKind kind) {
   final reference = ManagedMediaRef.tryParse(value);
@@ -16,6 +53,7 @@ class ExtractedWord {
   final String posDe; // 'Nomen' / 'Verb' / 'Adjektiv' / ...
   final String translationDe;
   final String translationEn;
+  final String translationLanguage;
   final String exampleKorean; // 추출 텍스트 중 첫 등장 문장 (옵션)
   final String exampleDe;
   final String definitionKo; // 우리말샘 국어사전 뜻풀이 (옵션, 없으면 '')
@@ -31,6 +69,7 @@ class ExtractedWord {
     required this.exampleKorean,
     required this.exampleDe,
     required this.savedToPackId,
+    this.translationLanguage = 'de',
     this.definitionKo = '',
     this.imagePath = '',
   });
@@ -40,6 +79,7 @@ class ExtractedWord {
     required String korean,
     required String translationDe,
     String translationEn = '',
+    String translationLanguage = 'de',
     String romanization = '',
     String posDe = '',
     String exampleKorean = '',
@@ -47,14 +87,15 @@ class ExtractedWord {
     String definitionKo = '',
     String imagePath = '',
   }) => ExtractedWord(
-    korean: korean,
-    romanization: romanization,
-    posDe: posDe,
-    translationDe: translationDe,
-    translationEn: translationEn,
-    exampleKorean: exampleKorean,
-    exampleDe: exampleDe,
-    definitionKo: definitionKo,
+    korean: _safeWordKorean(korean),
+    romanization: _safeWordMeaning(romanization),
+    posDe: _safeWordMeaning(posDe),
+    translationDe: _safeWordMeaning(translationDe),
+    translationEn: _safeWordMeaning(translationEn),
+    translationLanguage: _bookLanguage(translationLanguage),
+    exampleKorean: _safeWordExample(exampleKorean),
+    exampleDe: _safeWordMeaning(exampleDe),
+    definitionKo: _safeWordDefinition(definitionKo),
     imagePath: imagePath,
     savedToPackId: null,
   );
@@ -65,6 +106,7 @@ class ExtractedWord {
     'posDe': posDe,
     'translationDe': translationDe,
     'translationEn': translationEn,
+    'translationLanguage': translationLanguage,
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
     'definitionKo': definitionKo,
@@ -78,6 +120,7 @@ class ExtractedWord {
     'posDe': posDe,
     'translationDe': translationDe,
     'translationEn': translationEn,
+    'translationLanguage': translationLanguage,
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
     'definitionKo': definitionKo,
@@ -87,28 +130,30 @@ class ExtractedWord {
   Map<String, dynamic> toJson() => toLocalJson();
 
   factory ExtractedWord.fromLocalJson(Map<String, dynamic> j) => ExtractedWord(
-    korean: j['korean'] as String? ?? '',
-    romanization: j['romanization'] as String? ?? '',
-    posDe: j['posDe'] as String? ?? '',
-    translationDe: j['translationDe'] as String? ?? '',
-    translationEn: j['translationEn'] as String? ?? '',
-    exampleKorean: j['exampleKorean'] as String? ?? '',
-    exampleDe: j['exampleDe'] as String? ?? '',
-    definitionKo: j['definitionKo'] as String? ?? '',
+    korean: _safeWordKorean(j['korean']),
+    romanization: _safeWordMeaning(j['romanization']),
+    posDe: _safeWordMeaning(j['posDe']),
+    translationDe: _safeWordMeaning(j['translationDe']),
+    translationEn: _safeWordMeaning(j['translationEn']),
+    translationLanguage: _bookLanguage(j['translationLanguage']),
+    exampleKorean: _safeWordExample(j['exampleKorean']),
+    exampleDe: _safeWordMeaning(j['exampleDe']),
+    definitionKo: _safeWordDefinition(j['definitionKo']),
     imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
   );
 
   factory ExtractedWord.fromPortableJson(Map<String, dynamic> j) =>
       ExtractedWord(
-        korean: j['korean'] as String? ?? '',
-        romanization: j['romanization'] as String? ?? '',
-        posDe: j['posDe'] as String? ?? '',
-        translationDe: j['translationDe'] as String? ?? '',
-        translationEn: j['translationEn'] as String? ?? '',
-        exampleKorean: j['exampleKorean'] as String? ?? '',
-        exampleDe: j['exampleDe'] as String? ?? '',
-        definitionKo: j['definitionKo'] as String? ?? '',
+        korean: _safeWordKorean(j['korean']),
+        romanization: _safeWordMeaning(j['romanization']),
+        posDe: _safeWordMeaning(j['posDe']),
+        translationDe: _safeWordMeaning(j['translationDe']),
+        translationEn: _safeWordMeaning(j['translationEn']),
+        translationLanguage: _bookLanguage(j['translationLanguage']),
+        exampleKorean: _safeWordExample(j['exampleKorean']),
+        exampleDe: _safeWordMeaning(j['exampleDe']),
+        definitionKo: _safeWordDefinition(j['definitionKo']),
         imagePath: '',
         savedToPackId: j['savedToPackId'] as String?,
       );
@@ -123,6 +168,7 @@ class ExtractedWord {
         posDe: posDe,
         translationDe: translationDe,
         translationEn: translationEn,
+        translationLanguage: translationLanguage,
         exampleKorean: exampleKorean,
         exampleDe: exampleDe,
         definitionKo: definitionKo,
@@ -135,19 +181,24 @@ class ExtractedWord {
   ExtractedWord copyWithEditable({
     String? korean,
     String? translationDe,
+    String? translationEn,
+    String? translationLanguage,
     String? exampleKorean,
     String? definitionKo,
     String? imagePath,
     bool clearImage = false,
   }) => ExtractedWord(
-    korean: korean ?? this.korean,
+    korean: _safeWordKorean(korean ?? this.korean),
     romanization: romanization,
     posDe: posDe,
-    translationDe: translationDe ?? this.translationDe,
-    translationEn: translationEn,
-    exampleKorean: exampleKorean ?? this.exampleKorean,
+    translationDe: _safeWordMeaning(translationDe ?? this.translationDe),
+    translationEn: _safeWordMeaning(translationEn ?? this.translationEn),
+    translationLanguage: _bookLanguage(
+      translationLanguage ?? this.translationLanguage,
+    ),
+    exampleKorean: _safeWordExample(exampleKorean ?? this.exampleKorean),
     exampleDe: exampleDe,
-    definitionKo: definitionKo ?? this.definitionKo,
+    definitionKo: _safeWordDefinition(definitionKo ?? this.definitionKo),
     imagePath: clearImage ? '' : (imagePath ?? this.imagePath),
     savedToPackId: savedToPackId,
   );
@@ -187,11 +238,11 @@ class GrammarHit {
   };
 
   factory GrammarHit.fromJson(Map<String, dynamic> j) => GrammarHit(
-    patternId: j['patternId'] as String? ?? '',
-    nameDe: j['nameDe'] as String? ?? '',
-    matchedText: j['matchedText'] as String? ?? '',
-    level: j['level'] as String? ?? '',
-    explanationDe: j['explanationDe'] as String? ?? '',
+    patternId: _safeSupportedText(j['patternId']),
+    nameDe: _safeSupportedText(j['nameDe']),
+    matchedText: _safeKoreanText(j['matchedText']),
+    level: _safeSupportedText(j['level']),
+    explanationDe: _safeSupportedText(j['explanationDe']),
   );
 }
 
@@ -199,18 +250,25 @@ class GrammarHit {
 class TranslatedSentence {
   final String korean;
   final String translationDe;
+  final String translationLanguage;
 
-  const TranslatedSentence({required this.korean, required this.translationDe});
+  const TranslatedSentence({
+    required this.korean,
+    required this.translationDe,
+    this.translationLanguage = 'de',
+  });
 
   Map<String, dynamic> toJson() => {
     'korean': korean,
     'translationDe': translationDe,
+    'translationLanguage': translationLanguage,
   };
 
   factory TranslatedSentence.fromJson(Map<String, dynamic> j) =>
       TranslatedSentence(
-        korean: j['korean'] as String? ?? '',
-        translationDe: j['translationDe'] as String? ?? '',
+        korean: _safeKoreanText(j['korean']),
+        translationDe: _safeSupportedText(j['translationDe']),
+        translationLanguage: _bookLanguage(j['translationLanguage']),
       );
 }
 
@@ -243,6 +301,7 @@ class BookPage {
 
   /// 이 페이지에서 만든 커스텀 팩 ID (선택).
   final String? customPackId;
+  final String analysisLanguage;
 
   const BookPage({
     required this.id,
@@ -254,6 +313,7 @@ class BookPage {
     required this.sentences,
     required this.capturedAtIso,
     required this.customPackId,
+    this.analysisLanguage = 'de',
   });
 
   Map<String, dynamic> toFirestoreJson() => {
@@ -265,6 +325,7 @@ class BookPage {
     'sentences': sentences.map((s) => s.toJson()).toList(),
     'capturedAt': capturedAtIso,
     'customPackId': customPackId,
+    'analysisLanguage': analysisLanguage,
   };
 
   Map<String, dynamic> toLocalJson() => {
@@ -280,6 +341,7 @@ class BookPage {
     'sentences': sentences.map((s) => s.toJson()).toList(),
     'capturedAt': capturedAtIso,
     'customPackId': customPackId,
+    'analysisLanguage': analysisLanguage,
   };
 
   factory BookPage.fromJson(String id, Map<String, dynamic> j) => BookPage(
@@ -288,52 +350,68 @@ class BookPage {
       j['localThumbnailPath'],
       ManagedMediaKind.book,
     ),
-    extractedText: j['extractedText'] as String? ?? '',
+    extractedText: _safeKoreanText(j['extractedText']),
     note: j['note'] as String? ?? '',
     words: ((j['words'] as List?) ?? const [])
         .map(
-          (e) =>
-              ExtractedWord.fromLocalJson((e as Map).cast<String, dynamic>()),
+          (entry) => ExtractedWord.fromLocalJson(
+            (entry as Map).cast<String, dynamic>(),
+          ),
         )
+        .where(_isSafeLegacyWord)
         .toList(),
     grammar: ((j['grammar'] as List?) ?? const [])
-        .map((e) => GrammarHit.fromJson((e as Map).cast<String, dynamic>()))
+        .map(
+          (entry) =>
+              GrammarHit.fromJson((entry as Map).cast<String, dynamic>()),
+        )
+        .where(_isSafeLegacyGrammar)
         .toList(),
     sentences: ((j['sentences'] as List?) ?? const [])
         .map(
-          (e) =>
-              TranslatedSentence.fromJson((e as Map).cast<String, dynamic>()),
+          (entry) => TranslatedSentence.fromJson(
+            (entry as Map).cast<String, dynamic>(),
+          ),
         )
+        .where(_isSafeLegacySentence)
         .toList(),
     capturedAtIso: j['capturedAt'] as String? ?? '',
     customPackId: j['customPackId'] as String?,
+    analysisLanguage: _bookLanguage(j['analysisLanguage']),
   );
 
   factory BookPage.fromPortableJson(String id, Map<String, dynamic> j) =>
       BookPage(
         id: id,
         localThumbnailPath: null,
-        extractedText: j['extractedText'] as String? ?? '',
+        extractedText: _safeKoreanText(j['extractedText']),
         note: j['note'] as String? ?? '',
         words: ((j['words'] as List?) ?? const [])
             .map(
-              (e) => ExtractedWord.fromPortableJson(
-                (e as Map).cast<String, dynamic>(),
+              (entry) => ExtractedWord.fromPortableJson(
+                (entry as Map).cast<String, dynamic>(),
               ),
             )
+            .where(_isSafeLegacyWord)
             .toList(),
         grammar: ((j['grammar'] as List?) ?? const [])
-            .map((e) => GrammarHit.fromJson((e as Map).cast<String, dynamic>()))
+            .map(
+              (entry) =>
+                  GrammarHit.fromJson((entry as Map).cast<String, dynamic>()),
+            )
+            .where(_isSafeLegacyGrammar)
             .toList(),
         sentences: ((j['sentences'] as List?) ?? const [])
             .map(
-              (e) => TranslatedSentence.fromJson(
-                (e as Map).cast<String, dynamic>(),
+              (entry) => TranslatedSentence.fromJson(
+                (entry as Map).cast<String, dynamic>(),
               ),
             )
+            .where(_isSafeLegacySentence)
             .toList(),
         capturedAtIso: j['capturedAt'] as String? ?? '',
         customPackId: j['customPackId'] as String?,
+        analysisLanguage: _bookLanguage(j['analysisLanguage']),
       );
 
   BookPage copyWith({String? localThumbnailPath}) => BookPage(
@@ -346,27 +424,65 @@ class BookPage {
     sentences: sentences,
     capturedAtIso: capturedAtIso,
     customPackId: customPackId,
+    analysisLanguage: analysisLanguage,
   );
 }
 
+bool _isSafeLegacyWord(ExtractedWord word) {
+  if (!BookAnalysisTextPreprocessor.containsHangulSyllable(word.korean)) {
+    return false;
+  }
+  final selectedMeaning = word.translationLanguage == 'en'
+      ? (word.translationEn.isNotEmpty
+            ? word.translationEn
+            : word.translationDe)
+      : word.translationDe;
+  return selectedMeaning.trim().isNotEmpty;
+}
+
+bool _isSafeLegacyGrammar(GrammarHit grammar) =>
+    BookAnalysisTextPreprocessor.containsHangulSyllable(grammar.matchedText);
+
+bool _isSafeLegacySentence(TranslatedSentence sentence) =>
+    BookAnalysisTextPreprocessor.containsHangulSyllable(sentence.korean);
+
 /// 분석 결과 (Cloud Function 응답에서 직접 변환).
 class BookAnalysisResult {
+  static const Set<String> blockingWarnings = {
+    'no_korean_text',
+    'invalid_response_schema',
+    'wrong_analysis_language',
+    'empty_analysis_result',
+    'invalid_response_filtered',
+  };
+
   final List<ExtractedWord> words;
   final List<GrammarHit> grammar;
   final List<TranslatedSentence> sentences;
   final List<String> warnings; // 예: "DeepL rate limit, 18 단어 번역 안 됨"
+  final String analysisLanguage;
 
   const BookAnalysisResult({
     required this.words,
     required this.grammar,
     required this.sentences,
     required this.warnings,
+    this.analysisLanguage = 'de',
   });
+
+  bool get hasMeaningfulResult =>
+      words.isNotEmpty || grammar.isNotEmpty || sentences.isNotEmpty;
+
+  /// Only results whose server contract and content passed every safety gate
+  /// may reach TTS, the bookshelf, or a custom pack.
+  bool get isSaveable =>
+      hasMeaningfulResult && !warnings.any(blockingWarnings.contains);
 
   factory BookAnalysisResult.empty() => const BookAnalysisResult(
     words: [],
     grammar: [],
     sentences: [],
     warnings: ['analysis_unavailable'],
+    analysisLanguage: 'de',
   );
 }
