@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
+
+**원인과 수정.** GitHub Actions run `31913714832`는 C1/C2의 구문형 어휘가 모두
+공백을 포함하는데 초성 덱이 완성형 한글만 허용해 C2 화면을 만들지 못했다. 후속
+`43655dd6`이 ASCII 공백을 허용해 구문형 어휘를 실제로 플레이할 수 있게 했지만,
+run `31914341718`에서 320dp·130% 글자 배율의 난이도 토글 `Row`가 오른쪽으로 18px
+넘치는 다음 실제 회귀가 드러났다. 두 난이도 칩을 중앙 정렬 `Wrap`으로 바꾸고 기존
+간격을 `spacing`/`runSpacing`으로 보존했다. 구현 커밋은 `020d5a8`이다.
+
+**검증.** 실패한 단일 320dp 회귀는 1건 통과했고,
+`test/c0_level_selection_test.dart`와 `test/advanced_checkpoint_mastery_test.dart`의
+결합 회귀는 **15 passed**, 대상 `flutter analyze --no-pub`는 **No issues found**,
+`git diff --check`는 통과했다. AAB 생성·배포는 수행하지 않았다. PR의 기존 web release
+build는 최종 원격 CI에서 전체 test와 보안 3종 뒤 확인하며, 그 실행이 모두 성공한
+경우에만 `main`에 병합한다.
+
 ### 2026-08-16 (Codex Work Mode) - PR #27 최종 리뷰 차단 3건 보완
 
 **원인과 수정.** 기존 최종 HEAD의 GitHub Actions CI #417은 보안 3종, Flutter 분석,
