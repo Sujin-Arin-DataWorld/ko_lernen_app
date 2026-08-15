@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex Work Mode) — Batch 05 최종 CI 전면 통과
+
+**결과.** PR head `d3435e47`의 GitHub Actions run #416
+(`31911797427`)이 success로 완료됐다. Book analysis, Pronunciation, Gye/Firestore
+보안 3종과 Flutter Analyze & Build가 모두 통과했다.
+
+**검증 범위.** 캐릭터 영상 매트 검사, `flutter analyze`, 전체 Flutter test,
+Today 골든 3폭과 `flutter build web --release`가 성공했다. run #414에서 남았던
+Today 골든 3건은 0건이 되었고 실패 diff artifact도 생성되지 않았다. 수동 골든 생성
+job은 의도대로 skipped라 중복 비용이 들지 않았다.
+
+**정본 동기화.** AGENTS의 TTS 서비스 설명에 남아 있던 자격 증명 대기 문구를 실제
+완료 결과 expected 6,321, remote 6,376, missing 0, stale 55로 맞췄다. 이 커밋은
+Markdown 문서만 변경하므로 최적화된 CI `paths-ignore` 대상이며, 검증된 앱·데이터·
+골든 blob은 `d3435e47`와 동일하다. PR #27을 ready로 전환하고 이 exact
+문서 후속 head를 `main`에 merge한다.
+
 ### 2026-08-16 (Codex Work Mode) — Mac 정본 0fcc2253 정렬과 Today 골든 안정화
 
 **정본 확인.** Jin이 맥에서 push한 임시 브랜치
