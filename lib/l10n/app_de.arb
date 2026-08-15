@@ -533,6 +533,7 @@
       }
     }
   },
+  "bookPreviewTextFieldHint": "Koreanischer Text …",
   "bookPreviewAnalyze": "Analysieren",
   "bookPreviewRetake": "Neu aufnehmen",
   "bookResultTitle": "Ergebnis",

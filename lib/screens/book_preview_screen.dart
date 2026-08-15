@@ -102,9 +102,9 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                         height: 1.5,
                         fontWeight: FontWeight.w500,
                       ),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: '한국어 텍스트…',
+                        hintText: t.bookPreviewTextFieldHint,
                       ),
                     ),
                   ),

@@ -1139,6 +1139,9 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get bookPreviewTextFieldHint => 'Korean text…';
+
+  @override
   String get bookPreviewAnalyze => 'Analyze';
 
   @override

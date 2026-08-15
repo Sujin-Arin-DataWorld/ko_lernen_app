@@ -50,6 +50,28 @@ advance 탭에도 Next/Done semantics를 추가했다.
 surfaces`). Jin의 2026-08-15 명시 지시에 따라 이 로그 후속 커밋과 함께 `main`에
 병합·push한다. production Riso asset 적용은 여전히 별도 시각 승인 전까지 하지 않는다.
 
+### 2026-08-15 (Codex, Mac) — main 비-UI 잔여 정리
+
+**무엇/왜.** 2026-08-12 하드닝 통합 때 의도적으로 보류했던 책 미리보기 입력창
+힌트를 DE/EN ARB 키로 옮겨 독일어/영어 UI에 한국어 문구가 하드코딩되지 않게 했다.
+콘텐츠 기반 브랜치를 `main`에 병합하며 문서 본문에 남은
+`>>>>>>> codex/content-foundation-c0` 표식도 제거했다. UI/UX v2, Sori Deck,
+콘텐츠 draft/live asset은 변경하지 않았다. `AGENTS.md`의 현재 작업 체크리스트에도
+완료 경계와 검증을 남겼다.
+
+**브랜치 정리.** Jin의 명시적 삭제 승인 후 PR·worktree 미연결을 재확인하고,
+이미 재구현된 `session/2026-08-12-hardening`, 금지 출처 자료인
+`cursor/extract-pdf-text-48ce`·`cursor/sejong-5b-outline-a937` 원격 브랜치와
+규격 부적합 고아 WIP 로컬 안전참조를 삭제했다. `main`,
+`codex/non-ui-main-cleanup`, 현재 UI/UX v2 작업 및 `codex/ui-c0-deferred`는 보존했다.
+
+**검증.** `flutter gen-l10n` 생성 후 신규 DE/EN 힌트 위젯 회귀와 기존 책 이미지
+소유권 회귀 **9건 통과**, `flutter analyze --fatal-infos` = `No issues found`,
+`git diff --check` 통과. 삭제 대상 3개는 `git ls-remote --heads` 결과 0건,
+고아 안전참조는 로컬 브랜치 목록에서 제거됨을 확인했다.
+
+**커밋.** 미수행 (Jin의 명시적 지시 없음).
+
 ### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
 
 **무엇/왜.** B2를 단어 수만 늘리는 방식에서 벗어나, 선택의 근거·읽기 반응·표현의 사회적

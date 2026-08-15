@@ -2113,6 +2113,12 @@ abstract class AppL10n {
   /// **'{count} Textblöcke erkannt. Korrigiere sie bei Bedarf.'**
   String bookPreviewHint(int count);
 
+  /// No description provided for @bookPreviewTextFieldHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanischer Text …'**
+  String get bookPreviewTextFieldHint;
+
   /// No description provided for @bookPreviewAnalyze.
   ///
   /// In de, this message translates to:
