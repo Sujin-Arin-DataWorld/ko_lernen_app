@@ -440,9 +440,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                           const SizedBox(height: Spacing.md),
 
                           // ── 레벨 선택 ──────────────────────────────────────────
-                          Row(
+                          Wrap(
                             key: _levelRowKey,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            alignment: WrapAlignment.center,
+                            spacing: Spacing.sm,
+                            runSpacing: Spacing.xs,
                             children: [
                               'A1',
                               'A2',
@@ -452,24 +454,19 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                               'C2',
                             ].map((lvl) {
                               final selected = _level == lvl;
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: Spacing.xs,
-                                ),
-                                child: SoriChip(
-                                  key: ValueKey('chosung-level-$lvl'),
-                                  label: lvl,
-                                  accent: SoriColors.primary,
-                                  selected: selected,
-                                  variant: SoriChipVariant.soft,
-                                  fontSize: 13,
-                                  onTap: selected
-                                      ? null
-                                      : () {
-                                          setState(() => _level = lvl);
-                                          _load();
-                                        },
-                                ),
+                              return SoriChip(
+                                key: ValueKey('chosung-level-$lvl'),
+                                label: lvl,
+                                accent: SoriColors.primary,
+                                selected: selected,
+                                variant: SoriChipVariant.soft,
+                                fontSize: 13,
+                                onTap: selected
+                                    ? null
+                                    : () {
+                                        setState(() => _level = lvl);
+                                        _load();
+                                      },
                               );
                             }).toList(),
                           ),

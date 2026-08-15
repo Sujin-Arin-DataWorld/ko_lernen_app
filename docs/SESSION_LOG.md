@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex Work Mode) - PR #27 최종 리뷰 차단 3건 보완
+
+**원인과 수정.** 기존 최종 HEAD의 GitHub Actions CI #417은 보안 3종, Flutter 분석,
+전체 테스트, 웹 릴리스 빌드까지 통과했다. 병합 직전 자동 리뷰에서 C1/C2의
+grammar/smalltalk checkpoint가 완료 판정되지 않는 P1, 좁은 화면에서 A1-C2 레벨 칩이
+넘치는 P2, Batch 05 승격 뒤 Batch 01-03 역사 fixture가 현재 catalog를 기준으로
+재검증되어 깨지는 P2를 추가로 확인했다. CourseMasteryService는 선언된 checkpoint
+종류를 파싱해 scenario는 기존 aggregate score, grammar/smalltalk는 같은 유닛과 정확한
+assess edge의 최신 검증 evidence로 판정한다. 초성 레벨 선택은 중앙 정렬 Wrap으로
+바꾸고 320dp, 130% 글자 배율 회귀 테스트를 추가했다. 콘텐츠 팩토리 fixture는 Batch 05
+504개, 새 pack order, curriculum extension과 content link를 역사 재실행 catalog에서만
+제외하며 승인된 live data와 manifest는 바꾸지 않는다.
+
+**검증.** 최종 원격 draft/review 정본을 기준으로
+`python3 -m unittest discover -s tools/content_factory -p 'test_*.py'` 53건,
+`python3 tools/content_factory/validate_content.py`, Python compile,
+trailing-whitespace 검사를 통과했다. 새 C1/C2 진도와 compact layout Flutter 회귀는
+로컬 sparse 환경에 Flutter SDK가 없어 실행하지 않았으며, 이 변경 HEAD의 GitHub Actions
+전체 analyze/test/web build가 성공하기 전에는 병합하지 않는다.
+
 ### 2026-08-16 (Codex Work Mode) — Batch 05 최종 CI 전면 통과
 
 **결과.** PR head `d3435e47`의 GitHub Actions run #416

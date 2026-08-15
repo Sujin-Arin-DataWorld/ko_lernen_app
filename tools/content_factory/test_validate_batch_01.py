@@ -62,6 +62,42 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         data = self.root / "assets" / "data"
         vocab_bases: set[str] = set()
 
+        def remove_artifacts(manifest: dict[str, object]) -> set[str]:
+            """Remove one promoted manifest's authored rows from the fixture."""
+
+            removed_ids: set[str] = set()
+            artifacts = manifest.get("artifacts")
+            self.assertIsInstance(artifacts, list)
+            for artifact in artifacts:
+                self.assertIsInstance(artifact, dict)
+                kind = artifact["kind"]
+                target_name, collection, _ = integration.TARGETS[kind]
+                target = data / target_name
+                draft = self.root / artifact["draft"]
+                if collection is None:
+                    header, incoming = batch._read_csv(draft)
+                    current_header, current = batch._read_csv(target)
+                    self.assertEqual(header, current_header)
+                    incoming_ids = {row["id"] for row in incoming}
+                    batch._write_csv(
+                        target,
+                        current_header,
+                        [row for row in current if row["id"] not in incoming_ids],
+                    )
+                else:
+                    payload = json.loads(target.read_text(encoding="utf-8"))
+                    incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
+                    incoming_ids = {row["id"] for row in incoming}
+                    payload[collection] = [
+                        row for row in payload[collection] if row["id"] not in incoming_ids
+                    ]
+                    target.write_text(
+                        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                        encoding="utf-8",
+                    )
+                removed_ids.update(incoming_ids)
+            return removed_ids
+
         # C1 Batch 04 scenarios rely on C0 grammar that this fixture rewinds.
         # Exclude just their live payload and content links, while retaining
         # the already-approved C1 review source for independent coverage.
@@ -110,23 +146,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             for number in (1, 2, 3)
         ]:
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            for artifact in manifest["artifacts"]:
-                kind = artifact["kind"]
-                target_name, collection, _ = integration.TARGETS[kind]
-                target = data / target_name
-                draft = self.root / artifact["draft"]
-                if collection is None:
-                    header, incoming = batch._read_csv(draft)
-                    current_header, current = batch._read_csv(target)
-                    self.assertEqual(header, current_header)
-                    incoming_ids = {row["id"] for row in incoming}
-                    batch._write_csv(target, current_header, [row for row in current if row["id"] not in incoming_ids])
-                else:
-                    payload = json.loads(target.read_text(encoding="utf-8"))
-                    incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
-                    incoming_ids = {row["id"] for row in incoming}
-                    payload[collection] = [row for row in payload[collection] if row["id"] not in incoming_ids]
-                    target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            remove_artifacts(manifest)
 
             vocab_bases.update(integration._base_pack_id(pack["packId"]) for pack in manifest["vocabPacks"])
             manifest["status"] = "review_only_draft"
@@ -140,6 +160,109 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
                     row["상태"] = "draft"
                     row["jin_memo"] = ""
                 batch._write_csv(review, header, rows)
+
+        # Any later merged C0 batch is absent from the historical Batch 01-03
+        # catalog. Discover it from its manifest instead of hard-coding Batch
+        # 05 so the replay remains stable after future content promotions.
+        replay_paths = {
+            self.root
+            / "tools/content_factory/drafts"
+            / f"batch_{number:02d}_manifest.json"
+            for number in (1, 2, 3)
+        }
+        later_manifests: list[dict[str, object]] = []
+        for candidate_path in sorted(
+            (self.root / "tools/content_factory/drafts").glob("batch_*_manifest.json")
+        ):
+            if candidate_path in replay_paths:
+                continue
+            candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+            artifact_kinds = {
+                artifact.get("kind")
+                for artifact in candidate.get("artifacts", [])
+                if isinstance(artifact, dict)
+            }
+            if candidate.get("status") == "merged" and artifact_kinds == set(
+                integration.TARGETS
+            ):
+                later_manifests.append(candidate)
+
+        later_removed_ids: set[str] = set()
+        later_bases: set[str] = set()
+        later_grammar_ids: set[str] = set()
+        later_smalltalk_mappings: list[dict[str, object]] = []
+        later_cloze_mappings: list[dict[str, object]] = []
+        extension_unit_ids: set[str] = set()
+        extension_concept_ids: set[str] = set()
+        for manifest in later_manifests:
+            later_removed_ids.update(remove_artifacts(manifest))
+            later_bases.update(
+                integration._base_pack_id(pack["packId"])
+                for pack in manifest.get("vocabPacks", [])
+            )
+            later_grammar_ids.update(
+                intent["id"] for intent in manifest.get("grammarIntents", [])
+            )
+            later_smalltalk_mappings.extend(
+                manifest.get("smalltalkCategoryMappings", [])
+            )
+            later_cloze_mappings.extend(manifest.get("clozeTopicMappings", []))
+            extension = manifest.get("curriculumExtensions", {})
+            extension_unit_ids.update(
+                row["id"] for row in extension.get("courseUnits", [])
+            )
+            extension_concept_ids.update(
+                row["id"] for row in extension.get("concepts", [])
+            )
+        vocab_bases.update(later_bases)
+
+        curriculum_path = data / "curriculum_manifest.json"
+        curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
+        curriculum["courseUnits"] = [
+            row for row in curriculum["courseUnits"] if row["id"] not in extension_unit_ids
+        ]
+        curriculum["concepts"] = [
+            row for row in curriculum["concepts"] if row["id"] not in extension_concept_ids
+        ]
+        for base in later_bases:
+            curriculum["vocabPackUnitMap"].pop(base, None)
+        for ident in later_grammar_ids:
+            curriculum["grammarRuleMap"].pop(ident, None)
+
+        remaining_smalltalk = json.loads(
+            (data / "smalltalk.json").read_text(encoding="utf-8")
+        )["phrases"]
+        remaining_smalltalk_keys = {
+            f"{row['level'].lower()}:{row['category'].lower()}"
+            for row in remaining_smalltalk
+        }
+        for mapping in later_smalltalk_mappings:
+            key = f"{mapping['level'].lower()}:{mapping['category'].lower()}"
+            if key not in remaining_smalltalk_keys:
+                curriculum["smalltalkCategoryUnitMap"].pop(key, None)
+        for ident in later_removed_ids:
+            curriculum["smalltalkCheckpointPhraseMap"].pop(ident, None)
+
+        remaining_cloze = json.loads(
+            (data / "cloze.json").read_text(encoding="utf-8")
+        )["items"]
+        remaining_cloze_keys = {
+            f"{row['level'].lower()}:{row['topic'].lower()}" for row in remaining_cloze
+        }
+        for mapping in later_cloze_mappings:
+            key = f"{mapping['level'].lower()}:{mapping['topic'].lower()}"
+            if key not in remaining_cloze_keys:
+                curriculum["clozeTopicUnitMap"].pop(key, None)
+        curriculum["contentLinks"] = [
+            row
+            for row in curriculum["contentLinks"]
+            if row.get("contentId") not in later_removed_ids
+            and row.get("courseUnitId") not in extension_unit_ids
+        ]
+        curriculum_path.write_text(
+            json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
         service = self.root / "lib/services/vocab_pack_service.dart"
         service_text = service.read_text(encoding="utf-8")

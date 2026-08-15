@@ -732,27 +732,59 @@ class CourseMasteryService {
     if (unit.checkpointContentIds.isEmpty) return true;
     for (final contentKey in unit.checkpointContentIds) {
       final pieces = contentKey.split(':');
-      if (pieces.length != 2 ||
-          pieces.first != CurriculumContentKind.scenario.code) {
+      final kind = pieces.length == 2
+          ? CurriculumContentKindX.tryFromCode(pieces.first)
+          : null;
+      final contentId = pieces.length == 2 ? pieces.last.trim() : '';
+      if (kind == null || contentId.isEmpty) {
         return false;
       }
-      final matching = _snapshot.scenarioCheckpoints
+
+      if (kind == CurriculumContentKind.scenario) {
+        final verifiedMatching = _snapshot.scenarioCheckpoints
+            .where(
+              (item) =>
+                  item.courseEligible &&
+                  item.courseUnitId == unit.id &&
+                  item.scenarioId == contentId &&
+                  _isVerifiedCourseEligibleCheckpoint(item),
+            )
+            .toList(growable: false);
+        if (verifiedMatching.isEmpty) {
+          return false;
+        }
+        final latestCheckpoint = _latestCheckpoint(verifiedMatching);
+        if (latestCheckpoint.score < threshold) {
+          return false;
+        }
+        final scenarioEvidenceAt = latestScenarioEvidenceAt[contentId];
+        if (scenarioEvidenceAt != null &&
+            latestCheckpoint.occurredAt.isBefore(scenarioEvidenceAt)) {
+          return false;
+        }
+        continue;
+      }
+
+      if (kind != CurriculumContentKind.grammar &&
+          kind != CurriculumContentKind.smalltalk) {
+        return false;
+      }
+      final verifiedMatching = _snapshot.evidence
           .where(
             (item) =>
-                item.courseEligible &&
                 item.courseUnitId == unit.id &&
-                item.scenarioId == pieces.last,
+                item.contentKind == kind &&
+                item.contentId == contentId &&
+                _isVerifiedCourseEligibleEvidence(item),
           )
           .toList(growable: false);
-      final verifiedMatching = matching
-          .where(_isVerifiedCourseEligibleCheckpoint)
-          .toList(growable: false);
-      if (verifiedMatching.isEmpty) return false;
-      final latestCheckpoint = _latestCheckpoint(verifiedMatching);
-      if (latestCheckpoint.score < threshold) return false;
-      final scenarioEvidenceAt = latestScenarioEvidenceAt[pieces.last];
-      if (scenarioEvidenceAt != null &&
-          latestCheckpoint.occurredAt.isBefore(scenarioEvidenceAt)) {
+      if (verifiedMatching.isEmpty) {
+        return false;
+      }
+      final latestCheckpoint = _latestEvidence(verifiedMatching);
+      if (!latestCheckpoint.isCorrect ||
+          (latestCheckpoint.score != null &&
+              latestCheckpoint.score! < threshold)) {
         return false;
       }
     }
@@ -817,6 +849,13 @@ class CourseMasteryService {
   ScenarioCheckpointEvidence _latestCheckpoint(
     List<ScenarioCheckpointEvidence> entries,
   ) {
+    return entries.reduce(
+      (latest, candidate) =>
+          candidate.occurredAt.isAfter(latest.occurredAt) ? candidate : latest,
+    );
+  }
+
+  MasteryEvidence _latestEvidence(List<MasteryEvidence> entries) {
     return entries.reduce(
       (latest, candidate) =>
           candidate.occurredAt.isAfter(latest.occurredAt) ? candidate : latest,
