@@ -30,7 +30,8 @@ Connect API의 `validate-app`과 `upload-app`은 모두 오류 없이 성공했�
 `pubspec.yaml`을 `2.0.6+23`으로 갱신했다. `flutter analyze --no-pub --fatal-infos`는
 0 issues, Android/iOS 빌드 성공, 서버 검증·업로드 성공, 산출물 재해시 일치를 확인했다.
 재생성 가능한 Android/iOS 중간 산출물과 전용 캐시만 정리해 영구 AAB·IPA·심볼을
-보존했다. 이 변경의 첫 커밋 해시는 바로 다음 기록 커밋에 고정한다.
+보존했다. 버전 정렬과 릴리스 기록 커밋은 `429a8f4d`이며, 이 해시 기록은 바로 다음
+문서 커밋에 포함한다.
 
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
