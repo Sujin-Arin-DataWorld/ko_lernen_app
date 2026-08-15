@@ -279,6 +279,9 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **TTS corpus/Storage**: 현재 corpus 5,817개는 Storage 검증에서 missing 0이다.
   실제 합성·업로드는 Jin의 명시 지시가 있을 때만 하고, 기본은
   `tool/generate_tts.py --verify-storage`로 확인한다.
+- [x] **v2.0.6 산출물·Apple 업로드**: UI/UX·콘텐츠 통합 `f718106c`를 포함한 앱 입력에서
+  Android `2.0.6 (1042)` AAB와 iOS `2.0.6 (23)` IPA를 생성·서명 검증했다. iOS는
+  App Store Connect 검증·업로드까지 성공했으며 심사 제출이나 출시는 하지 않았다.
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
