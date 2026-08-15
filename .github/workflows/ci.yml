@@ -1,24 +1,45 @@
 name: CI
 
-# "살아있는 한옥" 회귀 방지 — push/PR마다 analyze(error 0) + 빌드 성공을 강제.
-# warning은 통과(개발 중 미완성 기능의 unused 파라미터 등은 빌드 무해).
-# 컴파일이나 정적 분석 error가 나면 자동 차단된다.
+# "살아있는 한옥" 회귀 방지. 코드 변경은 analyze/test/build와 보안 경계를 검증하되,
+# 문서 전용 변경과 이미 대체된 실행은 유료 runner 시간을 쓰지 않는다.
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
   pull_request:
     branches: [main]
-  # 골든 기준선 재생성(수동). 골든은 렌더러 고정이 전제라 **CI 환경(Linux +
-  # 아래 flutter-version 핀)이 정본**이다. Windows/macOS 에서
-  # `--update-goldens` 를 돌리면 그 머신 래스터라이즈가 박혀 CI 가 빨간불이
-  # 된다 — 반드시 이 잡으로 만들고, 산출물을 내려받아 커밋할 것.
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
   workflow_dispatch:
+    inputs:
+      task:
+        description: 실행할 작업
+        required: false
+        default: ci
+        type: choice
+        options:
+          - ci
+          - regenerate-goldens
+
+permissions:
+  contents: read
+
+# 같은 PR/브랜치에 새 실행이 생기면 오래된 실행을 취소한다. 수동 CI와 골든 생성은
+# 서로 취소하지 않도록 task를 그룹 키에 포함한다.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ inputs.task || 'ci' }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Analyze & Build
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,10 +54,12 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Install FFmpeg for matte verification
+      - name: Ensure FFmpeg for matte verification
         run: |
-          sudo apt-get update
-          sudo apt-get install --no-install-recommends --yes ffmpeg
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --no-install-recommends --yes ffmpeg
+          fi
 
       - name: Verify character video mattes
         run: |
@@ -46,28 +69,27 @@ jobs:
       - name: Analyze (error 0 강제 · warning·info 허용)
         run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
-      # 2026-07-31 추가 — 그동안 CI가 테스트를 아예 안 돌리고 있었다.
-      # 골든 테스트가 없어 responsive_test(오버플로 검사)와 소스 가드 래칫이
-      # 유일한 회귀 그물이다. 이 스텝이 없으면 그 그물이 CI에서 무용지물.
+      # responsive/source guards까지 포함한 전체 회귀 그물이다.
       - name: Test
         run: flutter test
 
-      # 골든이 깨지면 실제 렌더 이미지를 받아봐야 "진짜 회귀"인지 "환경 차이"인지
-      # 구분할 수 있다. LocalFileComparator 가 test/goldens/failures/ 에
-      # _masterImage/_testImage/_isolatedDiff/_maskedDiff 를 남긴다.
       - name: Upload golden failure diffs
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: golden-failures
           path: test/goldens/failures/**
+          if-no-files-found: ignore
+          retention-days: 3
 
       - name: Build web (release)
         run: flutter build web --release
 
   book-analysis-security:
     name: Book analysis security
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,7 +110,9 @@ jobs:
 
   gye-functions-security:
     name: Gye functions and rules security
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -120,7 +144,9 @@ jobs:
 
   pronunciation-functions-security:
     name: Pronunciation function security
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -140,13 +166,13 @@ jobs:
         working-directory: functions/pronunciation
         run: npm test
 
-  # 골든 기준선 재생성 — 수동 실행 전용(workflow_dispatch).
-  # 위 build 잡과 **같은 OS·같은 flutter-version** 이어야 의미가 있다. 산출물
-  # (test/goldens/baselines/**)을 내려받아 커밋하면 CI 골든이 초록이 된다.
+  # 골든은 수동 task=regenerate-goldens에서만 만든다. 일반 수동 CI와 동시에
+  # 실행하지 않아 전체 Flutter 테스트를 중복 과금하지 않는다.
   regenerate-goldens:
     name: Regenerate goldens (manual)
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && inputs.task == 'regenerate-goldens'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -169,3 +195,4 @@ jobs:
         with:
           name: goldens-linux-3-44-0
           path: test/goldens/baselines/**
+          retention-days: 7

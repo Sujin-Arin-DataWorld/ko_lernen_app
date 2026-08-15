@@ -310,18 +310,23 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
 
 1. 브랜치 push 완료 확인
 2. PR 생성 또는 갱신
-3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch` 로 명시 실행**
-   (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는 예외 이벤트다)
+3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch`의 기본
+   `task=ci`로 명시 실행** (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는
+   예외 이벤트다)
 4. run 이 **실제로 생성됐는지 확인** (run id 를 확보한다)
-5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security
+5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security ·
+   Gye functions/rules security · Pronunciation function security
 6. **run 이 존재하고 결과를 확인하기 전까지 "PR 준비됨" 이라고 보고하지 않는다**
 
 자동 트리거를 기다리며 시간을 보내지 말 것. 안 붙으면 3번을 바로 실행한다.
 사람이 UI 에서 직접 만든 PR 은 원래대로 `pull_request` 트리거가 동작하므로 두 경로가 공존한다.
 
-**⚠️ `workflow_dispatch` 로 돌리면 `regenerate-goldens` 잡도 함께 실행된다** (그 잡이
-`if: github.event_name == 'workflow_dispatch'` 게이트라서). 아티팩트만 올리고 커밋하지 않으므로
-무해하지만, 골든 기준선을 교체할 때는 그 아티팩트가 정본이다.
+**비용 안전장치.** 같은 PR/브랜치의 이전 실행은 `concurrency`가 취소하고, Markdown과
+`docs/**`만 바뀐 push/PR은 Flutter CI를 만들지 않는다. 일반 수동 검증은 기본
+`task=ci`만 사용한다. 골든 기준선을 실제로 교체할 때만 `task=regenerate-goldens`를
+선택하며, 이 모드는 일반 CI 네 job을 중복 실행하지 않는다. 실패 diff는 3일, 재생성
+골든은 7일만 보관한다. 문서 전용 PR에 CI가 없는 것은 의도된 상태지만, 코드·데이터·에셋·
+설정 변경이 하나라도 있으면 위 6단계 게이트를 그대로 적용한다.
 
 ---
 
