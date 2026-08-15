@@ -18,8 +18,10 @@ DE/EN/KO 끝말잇기 수치를 실제 2,640개로 복원했다. Today 골든은
 **검증/커밋.** 변경 텍스트의 단일 치환, JSON parse와 kkeunmari=2,640, checkpoint kind
 해석, 정적 hero seam, 세 PNG 크기와 blob 생성을 구조적으로 확인했다. 구현 commit은
 `d2610774` (`fix: resolve final CI regressions`)이다. 이 기록까지 한 번의
-branch ref 이동으로 게시해 중간 commit의 불필요한 CI 실행을 만들지 않았다. 최종
-GitHub Actions가 실제로 모두 통과하기 전에는 main에 병합하지 않는다.
+branch ref 이동으로 게시해 중간 commit의 불필요한 CI 실행을 만들지 않았다. Git
+object ref 게시가 pull_request run을 만들지 않아, 이 기록의 contents update로 최종 필수
+검증을 한 번만 요청한다. GitHub Actions가 실제로 모두 통과하기 전에는 main에 병합하지
+않는다.
 
 ### 2026-08-15 (Codex Work Mode) — GitHub Actions 사용량·비용 최적화
 
