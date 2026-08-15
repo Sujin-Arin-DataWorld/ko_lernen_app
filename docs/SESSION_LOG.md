@@ -44,7 +44,8 @@ superseded 구현이었다. 별도 worktree 2개와 이 로컬/원격 브랜치 
 이상의 별도 worktree 공간을 회수했다.
 
 **커밋.** Gradle wrapper 복구는 `0f3ff35f`로 먼저 main에 push했다. 버전 정렬,
-출시노트, 업로드·정리 기록은 이 후속 문서 커밋에 포함한다.
+출시노트, 업로드·정리 기록은 `4e7ac07a`에 포함했다. 이 해시 기록은 직후 문서
+커밋으로 main에 push한다.
 
 ### 2026-08-15 (Codex, Mac) — Android release Gradle wrapper 계약 복구
 
