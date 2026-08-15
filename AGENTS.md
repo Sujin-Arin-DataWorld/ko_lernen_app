@@ -267,7 +267,8 @@ flutter run -d <android-id>   # 안드로이드
 > (Fable/Opus/Sonnet/Grok 4.5/Grok 4.6/Gemini/Sol/Terra)를 코드·테스트·범위로
 > 비교했다. PR #19(Fable)를 구조적 골격으로 삼고 #21(Sol)의 milestone/asset
 > gate, Grok 4.6의 mutation lock 등만 선별한 최종 후보는
-> `codex/ui-overhaul-2-final-integration`이다. 아직 커밋·push·PR은 하지 않았다.
+> `codex/ui-overhaul-2-final-integration`이다. 통합 코드 커밋은 `08a77fd6`이며,
+> Jin의 2026-08-15 명시 지시에 따라 이 기록과 함께 `main`에 병합·push한다.
 
 - [x] **P1/P2 Deck 2.0** — 4개 덱의 고정 `deck-card-slot`, 좌=모름·우=앎·
   위=저장·아래=스킵, 지배축/방향별 clamp, 다음 카드 앞면 underlay, flip gate,

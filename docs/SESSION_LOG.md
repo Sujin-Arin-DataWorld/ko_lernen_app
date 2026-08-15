@@ -46,8 +46,9 @@ advance 탭에도 Next/Done semantics를 추가했다.
 산출물은 정상 생성됐다. 후보 PR의 GitHub Actions 실패는 저장소 billing gate라 코드
 판정 근거에서 제외하고 이 exact worktree의 로컬 검증을 사용했다.
 
-**커밋/배포.** 없음. Jin의 명시 지시 전에는 commit·push·PR 생성·production asset
-적용을 하지 않는다.
+**커밋/배포.** 통합 코드 `08a77fd6` (`feat(ui): finalize Sori Deck 2.0 and Stage
+surfaces`). Jin의 2026-08-15 명시 지시에 따라 이 로그 후속 커밋과 함께 `main`에
+병합·push한다. production Riso asset 적용은 여전히 별도 시각 승인 전까지 하지 않는다.
 
 ### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
 
