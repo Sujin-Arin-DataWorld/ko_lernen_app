@@ -40,12 +40,20 @@ void main() {
             'en': 'The meeting was postponed until tomorrow.',
             'focus': '유음화',
           },
+          {
+            'id': 'pronunciation_c2_0001',
+            'level': 'c2',
+            'ko': '책임 소재를 분명히 짚고 넘어가겠습니다.',
+            'de': 'Ich werde die Verantwortlichkeit klar benennen.',
+            'en': 'I will clearly identify where responsibility lies.',
+            'focus': '된소리되기',
+          },
         ],
       }),
     );
 
-    expect(phrases, hasLength(1));
-    expect(phrases.single.level, LearnerLevel.b1);
+    expect(phrases, hasLength(2));
+    expect(phrases.last.level, LearnerLevel.c2);
     expect(
       () => PronunciationPhraseLoader.parse(
         '{"version": 1, "phrases": [{"id": "bad"}]}',
@@ -106,6 +114,22 @@ void main() {
         en: 'Please submit your opinion in writing.',
         focus: '연음',
       ),
+      PronunciationPhrase(
+        id: 'pronunciation_c1_0001',
+        level: LearnerLevel.c1,
+        ko: '자료의 한계를 함께 밝혀야 합니다.',
+        de: 'Die Grenzen der Daten müssen ebenfalls genannt werden.',
+        en: 'The limitations of the data must also be stated.',
+        focus: '비음화',
+      ),
+      PronunciationPhrase(
+        id: 'pronunciation_c2_0001',
+        level: LearnerLevel.c2,
+        ko: '책임 소재를 분명히 짚고 넘어가겠습니다.',
+        de: 'Ich werde die Verantwortlichkeit klar benennen.',
+        en: 'I will clearly identify where responsibility lies.',
+        focus: '된소리되기',
+      ),
     ];
 
     expect(
@@ -132,6 +156,13 @@ void main() {
         LearnerLevel.b2,
       ).map((phrase) => phrase.id),
       hasLength(4),
+    );
+    expect(
+      PronunciationPhraseLoader.forLearnerLevel(
+        phrases,
+        LearnerLevel.c2,
+      ).map((phrase) => phrase.id),
+      hasLength(6),
     );
   });
 }

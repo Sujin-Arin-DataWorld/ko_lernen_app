@@ -1,6 +1,6 @@
 # 콘텐츠 아키텍처 계약
 
-> **상태:** C0 정본 · 2026-08-14
+> **상태:** Batch 05 A1–C2 정본 · 2026-08-15
 >
 > 이 문서는 콘텐츠를 많이 추가하기 전에 지켜야 할 레벨 선택·코스 연결·검수
 > 경계를 고정한다. C0는 서로 다른 학습 경험을 하나의 전역 레벨 정책으로
@@ -8,13 +8,13 @@
 
 ## 1. 레벨 코드 경계
 
-`Storage`에는 소문자 CEFR 코드(`a1`, `a2`, `b1`, `b2`)를 저장한다.
+`Storage`에는 소문자 CEFR 코드(`a1`, `a2`, `b1`, `b2`, `c1`, `c2`)를 저장한다.
 JSON 번들과 레벨 선택 UI는 파일별 관례에 따라 대문자(`A1` 등) 또는 소문자를
 쓴다. 새 화면이나 로더는 둘을 직접 문자열 비교하지 않고 다음 경계를 거친다.
 
 ```dart
 final level = learnerLevelForStoredCode(Storage.userLevelCode);
-final display = level.display; // A1, A2, B1, B2
+final display = level.display; // A1, A2, B1, B2, C1, C2
 ```
 
 - `LearnerLevel.fromCode`은 대소문자를 허용하는 유일한 파서다.
@@ -44,8 +44,8 @@ final display = level.display; // A1, A2, B1, B2
 
 | 의미론 | 계약 | 현재 사용처 |
 | --- | --- | --- |
-| **정확 일치** | 선택된 CEFR과 같은 레벨 항목만 기본 덱으로 쓴다. 해당 레벨이 비었으면 화면의 기존 빈/전체 폴백 규칙을 따르며, 다른 레벨을 조용히 우선하지 않는다. | C0: `ChosungQuizScreen`과 `SilbenKreuzScreen`은 `userLevelCode → LearnerLevel.display`를 초기 선택값으로 쓰고 각각 vocab `level`/실벤 JSON 레벨 키를 정확히 고른다. 라이브러리: Cloze·Satz는 `browseLevelCode ?? placementLevelCode`로 정확 필터를 시작한다. |
-| **가까운 하위 폴백** | 먼저 정확 레벨을 고르고, 없으면 사용자보다 낮은 레벨 중 가장 높은 것을 고른다. 그마저 없을 때만 전체 playable 목록을 쓴다. | C0 `ListeningScreen`: 대사가 있는 시나리오만 대상으로 한다. B2에 B2 대사가 있으면 A1 첫 행이 앞에 있어도 B2를 고른다. |
+| **정확 일치** | 선택된 CEFR과 같은 레벨 항목만 기본 덱으로 쓴다. 해당 레벨이 비었으면 화면의 기존 빈/전체 폴백 규칙을 따른다. | `ChosungQuizScreen`, Cloze, Satz, 단어팩은 A1–C2 exact 필터를 쓴다. |
+| **가까운 하위 폴백** | 먼저 정확 레벨을 고르고, 없으면 사용자보다 낮은 레벨 중 가장 높은 것을 고른다. 그마저 없을 때만 전체 playable 목록을 쓴다. | C1/C2 전용 데이터가 아직 없는 `ListeningScreen`, Today 시나리오, A1–B2 전용 `SilbenKreuzScreen`. |
 | **누적** | `A1..현재 rank`를 함께 사용할 수 있다. 하위 레벨 복습이 학습 경험의 일부다. | C0 `KkeunmariEngine`의 시작·호랑이 응답, `PronunciationStudio`의 문장 목록. 기존 Daily Challenge도 `placementLevelCode` 이하를 캡으로 쓴다. |
 | **rank 잠금** | 현재 레벨보다 높은 항목은 노출하되 시작/보상 근거가 될 수 없다. | `ScenariosListScreen`은 높은 CEFR 구역을 잠근다. Sori Stage Today의 `MissionRecommender`도 `scenario.level <= userLevel`일 때만 시나리오 미션을 반환한다. |
 
@@ -54,7 +54,7 @@ final display = level.display; // A1, A2, B1, B2
 - 끝말잇기는 시작 단어와 호랑이 응답을 `A1..userLevel` 후보에서 먼저 고른다.
   현재 사용 단어를 뺀 **실시간** 후보로 다음 연결 가능성을 계산한다. 번들 전체의
   `next_count`/`is_dead_end`를 레벨 부분집합의 진실로 재사용하지 않는다.
-- 그 부분집합에 살아 있는 체인이 없을 때만 전체 풀로 폴백한다. 이 폴백은 B1/B2
+- 그 부분집합에 살아 있는 체인이 없을 때만 전체 풀로 폴백한다. 이 폴백은 고급 레벨
   풀이 아직 희소해서 게임을 시작하지 못하는 문제를 막기 위한 것이며, 부분집합이
   가능할 때 더 높은 단어를 섞을 근거가 아니다.
 - 사용자가 입력한 사전 단어의 전체 풀 검증은 기존 계약 그대로다. C0 스코프는
@@ -80,7 +80,7 @@ final display = level.display; // A1, A2, B1, B2
 
 ## 5. 후속 콘텐츠 병합의 그래프 계약
 
-C1 이후 데이터는 `contentLinks`만 늘려서 코스에 연결하지 않는다.
+C1/C2 데이터는 `contentLinks`만 늘려서 코스에 연결하지 않는다.
 `CurriculumCatalog`은 다음 서로 다른 선언을 합쳐 링크를 만든다.
 
 | 콘텐츠 | 정본 연결 |
@@ -92,8 +92,10 @@ C1 이후 데이터는 `contentLinks`만 늘려서 코스에 연결하지 않는
 | satz | 같은 레벨의 `vocabKo`가 가리키는 vocab pack을 통해 파생 |
 | scenario | 시나리오의 `courseUnitId`, `grammarIds`, concept/context와 unit checkpoint |
 
-`contentLinks`는 명시적 보강 링크다. 현재의 명시적 항목은 시나리오 평가
-checkpoint이며, 자동 매핑을 대신하는 범용 목록이 아니다. 신규 시나리오는
+`contentLinks`는 명시적 보강 링크다. checkpoint는 `scenario`뿐 아니라 검수된
+`grammar` 또는 `smalltalk` 같은 지원 콘텐츠 종류도 쓸 수 있지만, 선언된 unit과
+required concept을 정확히 평가하는 immutable edge가 하나여야 한다. 자동 매핑을
+대신하는 범용 목록이 아니다. 신규 시나리오는
 존재하는 grammar ID·course unit·concept을 참조해야 하고, 신규 Satz는 먼저 같은
 레벨 vocab이 병합되어야 한다. 따라서 초안 작성은 병렬로 해도 실제 자산 병합은
 어휘 기반 → 필요한 문법 → 시나리오/코스 → 게임 순서를 지킨다.
@@ -101,11 +103,10 @@ checkpoint이며, 자동 매핑을 대신하는 범용 목록이 아니다. 신�
 모든 병합 후에는 `CurriculumCatalog`의 orphan/unknown/ambiguous 검증과
 `content_audit_manifest` 수량 검증을 함께 통과해야 한다.
 
-### C1 Today 추천 수용 센서 (C0에서 예약)
+### 고급 레벨의 데이터 부재 센서
 
-C1이 실제 B1/B2 시나리오를 병합할 때에는 별도 서비스·위젯 센서를 추가한다.
-최소 증거는 **B1 사용자 + 미완료로 병합된 B1 시나리오**에서 `TodayLearningSnapshot`이
-그 시나리오의 유효한 destination을 만들고 Sori Stage Today가 그 추천을 표시한다는
-것이다. C0는 존재하지 않는 시나리오나 코스 연결을 테스트 데이터에 섞어 이 조건을
-가짜로 통과시키지 않는다. 이 센서는 실제 C1 레코드·course unit·grammar 참조가 모두
-검수·병합된 뒤에만 작성한다.
+Batch 05는 C1/C2 vocab·grammar·smalltalk·Cloze·Satz와 코스 유닛을 제공하지만 전용
+scenario와 실벤은 만들지 않았다. Today와 Listening은 가장 가까운 하위 시나리오를,
+실벤은 가장 가까운 제공 레벨을 선택한다. 존재하지 않는 C1/C2 데이터를 테스트 fixture로
+가짜 생성해 exact 콘텐츠처럼 보이게 하지 않는다. 전용 데이터가 실제 승인·병합되면
+exact 선택 회귀 테스트를 추가하고 폴백을 그대로 유지할지 다시 결정한다.

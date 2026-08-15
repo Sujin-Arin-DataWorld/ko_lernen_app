@@ -25,6 +25,10 @@ checkpoint를 가진다. checkpoint가 scenario만 허용하던 숨은 가정을
 ID를 일반적으로 해석하고, 해당 유닛·개념으로 되돌아오는 assess edge를 검증한다.
 시나리오와 음절 퍼즐처럼 아직 C1/C2 전용 데이터가 없는 모드는 빈 화면 대신 검증된
 하위 레벨로 안전하게 폴백하며, 존재하지 않는 고급 시나리오를 가장하지 않는다.
+추가 계약 감사에서 Python validator는 C1/C2 pronunciation ID를 허용하지만 Flutter
+`PronunciationPhrase` 정규식은 B2까지만 받는 불일치를 찾아 A1–C2로 맞추고, C2 parse와
+누적 필터 회귀 테스트를 추가했다. 작성 가이드·콘텐츠 팩토리 README·콘텐츠 아키텍처도
+Batch 05 live/다음 Batch 06/A1–C2 규칙으로 동기화했다.
 
 **TTS 상태.** 신규 발화 504개 전부에 기존 v3 SHA-1 캐시 계약의 immutable Storage
 경로를 만든 manifest를 추가했다. 계획 corpus는 총 6,321개(female 6,146/male 175,
@@ -37,11 +41,14 @@ ID를 일반적으로 해석하고, 해당 유닛·개념으로 되돌아오는 
 **검증/커밋.** 콘텐츠 전체 validator, 승인 승격 validator, 504개 TTS manifest와
 6,321개 전체 corpus 교차검증, content factory Python **37건**, Python compile,
 JSON/ARB parity 1,830키, 새 단어·예문·문법 예문 유일성, 출처형 문구 부재,
-trailing-whitespace 검사를 통과했다. 로컬 환경에는 Flutter/Dart SDK가 없어 GitHub CI의
-analyze/test/web build를 최종 게이트로 사용한다. 본문 commit 해시는 이 항목을 포함한
-commit에서 자기참조할 수 없으므로 직후 기록 commit에 고정한다. 본문 commit은
-`daee6951` (`feat: add original B2-C2 content batch 05`)이며, 이 해시 기록은 바로 다음
-문서 commit에 포함한다.
+trailing-whitespace 검사를 통과했다. 추가로 앱 노출 한국어 360개를 PDF 추출문 18,905개
+구간과 정규화 exact/near-match로 대조해 모두 0건임을 확인했다. 로컬 환경에는
+Flutter/Dart SDK가 없어 PR #27에서 GitHub CI를 실행했으나, 네 job 모두 step 0개 상태에서
+GitHub 계정의 결제 실패 또는 Actions 지출 한도 오류로 차단됐다. 코드 실패 결과로
+해석하거나 workflow를 약화해 우회하지 않는다. Flutter analyze/test/web build와 신규
+TTS 504개 Storage 검증이 끝나기 전에는 main에 병합하지 않는다. 본문 commit은
+`daee6951` (`feat: add original B2-C2 content batch 05`), 해시 기록 commit은 `b498f3b6`다.
+후속 A1–C2 계약 보완 commit 해시는 직후 기록 commit에 고정한다.
 
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 

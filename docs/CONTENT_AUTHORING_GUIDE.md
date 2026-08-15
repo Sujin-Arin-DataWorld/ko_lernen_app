@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** C0 정본 + C1 Batch 04 scenario live baseline · 2026-08-15
+> **상태:** Batch 01–05 live 정본 + A1–C2 확장 계약 · 2026-08-15
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
@@ -19,7 +19,7 @@
 | **승인 원장** | `tools/content_factory/review/` | Jin이 ID별 승인 상태를 남기는 CSV | 원칙적으로 `상태`와 `jin_memo`만 편집 |
 | **앱 본문** | `assets/data/` | Flutter 앱이 실제로 읽는 정본 | 승인 전 직접 편집 금지 |
 
-새로운 B1/B2 문장을 쓰는 일은 UI/UX v2, Sori Stage, Today 추천, 페이월 카피, 신규
+새로운 B1–C2 문장을 쓰는 일은 UI/UX v2, Sori Stage, Today 추천, 페이월 카피, 신규
 motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합성·Firebase Storage 업로드도
 없다.
 
@@ -77,8 +77,8 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 9. **커리큘럼 연결 없이 새 콘텐츠를 병합하지 않는다.** vocab pack, grammar, smalltalk,
    cloze, scenario에는 대응 `curriculum_manifest.json` mapping이 필요하다. target-local
    `apply_review.py`로 multi-file 통합을 시도하지 않고, 유형에 맞는 검증 transaction을 사용한다.
-10. **Batch 01–04는 고정 live 계약이다.** 이미 승인된 행을 추가·삭제·재번호하지 않는다.
-    더 많은 양은 다음 독립 단위인 Batch 05를 새로 만든다.
+10. **Batch 01–05는 고정 live 계약이다.** 이미 승인된 행을 추가·삭제·재번호하지 않는다.
+    더 많은 양은 다음 독립 단위인 Batch 06을 새로 만든다.
 11. **생성 스크립트가 항상 안전한 것은 아니다.** 특히 `scripts/build_vocab_packs.py`는
     절대 실행하지 않는다. §15의 금지 목록을 따른다.
 12. **placeholder를 넣지 않는다.** `TODO`, `TBD`, 빈 번역, 임시 영문, 추측한 번역,
@@ -101,13 +101,13 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 
 ### 2.2 현재 언어 지원의 실제 경계
 
-대부분의 새 B1/B2 작성 대상은 DE와 EN를 모두 지원하지만, 모든 기존 게임 schema가 이미
+대부분의 새 B1–C2 작성 대상은 DE와 EN를 모두 지원하지만, 모든 기존 게임 schema가 이미
 영어 필드를 갖는 것은 아니다. 존재하지 않는 필드를 content-only batch에서 임의로 추가하면
 앱이 읽지 않거나 validator/loader 계약이 어긋난다.
 
 | 유형 | 현재 learner-facing 언어 필드 | 새 콘텐츠 작성 규칙 |
 | --- | --- | --- |
-| vocab, grammar, scenario, smalltalk, Cloze, Satzbau, pronunciation | KO + DE + EN | 세 언어를 모두 채운다. 이것이 현재 B1/B2 확장 기본값이다. |
+| vocab, grammar, scenario, smalltalk, Cloze, Satzbau, pronunciation | KO + DE + EN | 세 언어를 모두 채운다. 이것이 현재 B1–C2 확장 기본값이다. |
 | `grammar_patterns.json` | DE + EN 설명/이름, KO regex 대상 | DE/EN를 모두 채우고 Cloud Function mirror도 함께 갱신한다. |
 | 실벤 `silben_puzzles.json` | Korean answer/example + `german`, `exampleDe` | **현재 EN field가 없다.** 임의 `english`/`exampleEn`을 추가하지 않는다. 영어 지원은 loader·UI·tests를 포함한 별도 schema 변경이다. |
 | 끝말잇기 `kkeunmari_pool.json` | Korean word + `german` | **현재 EN gloss field가 없다.** EN를 가짜/미사용 필드로 넣지 않는다. 별도 앱 schema 작업이 필요하다. |
@@ -116,12 +116,14 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 field”를 구분한다. 이번 Batch 01의 다섯 작성 대상은 모두 DE/EN를 갖는다. 실벤·끝말잇기의
 영어 확장은 콘텐츠만의 일이 아니므로 별도 코드/UX 계획으로 분리한다.
 
-### 2.3 B1/B2의 교육적 경계
+### 2.3 B1–C2의 교육적 경계
 
 | 레벨 | 쓰는 상황 | 언어적 목표 | 피해야 할 것 |
 | --- | --- | --- | --- |
 | B1 | 주거, 직장, 서비스 문제, 건강, 일상 행정, 관계 조율 | 이유·대조, 완곡한 요청, 경험·계획 설명, 실제 문제 해결 | A1 단어를 희귀 전문용어로 치환해 난도만 올리는 방식 |
 | B2 | 격식 문의, 합의·협상, 행정·민원, 추상 논의, 간접·문어적 설명 | 등록(register), 조건·양보·근거, 정확한 요청, 협의·의무 표현 | 현실에서 쓰지 않는 법률어/한자어 나열, 번역투 공문체 |
+| C1 | 근거 평가, 접근성, 위험 소통, 지속 가능한 선택, 공공 설명 | 불확실성 조절, 여러 이해관계의 조정, 전제와 한계 명시 | 전문용어만 늘리거나 결론을 근거보다 강하게 단정하는 방식 |
+| C2 | 제도 조정, 담론과 권력, 서사 관점, 기술 윤리와 책임 | 함의·관점·책임 소재를 정밀하게 구분하고 대안을 설계 | 과장된 학술체, 실제 화자가 쓰지 않는 현학적 문장 |
 
 독일어/영어 번역은 한 언어에서 자연스럽고 다른 언어에서 어색할 수 있다. 따라서 다음을
 각각 확인한다.
@@ -137,10 +139,11 @@ field”를 구분한다. 이번 Batch 01의 다섯 작성 대상은 모두 DE/E
 
 | 파일/유형 | 허용 값 | 표기 |
 | --- | --- | --- |
-| `korean_vocab.csv`, `grammar.csv`, review 원장 | `A1`, `A2`, `B1`, `B2` | **대문자** |
-| smalltalk, cloze, Satzbau, scenario, pronunciation JSON | `a1`, `a2`, `b1`, `b2` | **소문자** |
-| `silben_puzzles.json`의 `levels` key, 끝말잇기, grammar patterns | `A1`, `A2`, `B1`, `B2` | **대문자** |
-| Storage의 학습자 레벨 | `a1`, `a2`, `b1`, `b2` | 앱 코드가 소문자로 저장 |
+| `korean_vocab.csv`, `grammar.csv`, review 원장 | `A1`, `A2`, `B1`, `B2`, `C1`, `C2` | **대문자** |
+| smalltalk, cloze, Satzbau, scenario, pronunciation JSON | `a1`, `a2`, `b1`, `b2`, `c1`, `c2` | **소문자** |
+| 끝말잇기, grammar patterns | `A1`, `A2`, `B1`, `B2`, `C1`, `C2` | **대문자** |
+| `silben_puzzles.json`의 `levels` key | `A1`, `A2`, `B1`, `B2` | **현재 네 key만 필수** |
+| Storage의 학습자 레벨 | `a1`, `a2`, `b1`, `b2`, `c1`, `c2` | 앱 코드가 소문자로 저장 |
 
 ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloze_b1_0070`은
 `"level": "b1"`이어야 하고, `vocab_b2_0217`은 CSV `level`이 `B2`여야 한다.
@@ -149,12 +152,12 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 
 | 유형 | 패턴 | 예 |
 | --- | --- | --- |
-| vocab | `vocab_(a1|a2|b1|b2)_####` | `vocab_b1_0248` |
-| grammar | `grammar_(a1|a2|b1|b2)_lowercase_slug` | `grammar_b2_formal_reason` |
-| smalltalk | `smalltalk_(a1|a2|b1|b2)_####` | `smalltalk_b1_0037` |
-| Cloze | `cloze_(a1|a2|b1|b2)_####` | `cloze_b2_0058` |
-| Satzbau | `satz_(a1|a2|b1|b2)_####` | `satz_b1_0050` |
-| pronunciation | `pronunciation_(a1|a2|b1|b2)_####` | `pronunciation_a2_0002` |
+| vocab | `vocab_(a1|a2|b1|b2|c1|c2)_####` | `vocab_c1_0001` |
+| grammar | `grammar_(a1|a2|b1|b2|c1|c2)_lowercase_slug` | `grammar_c2_even_assuming` |
+| smalltalk | `smalltalk_(a1|a2|b1|b2|c1|c2)_####` | `smalltalk_c1_0001` |
+| Cloze | `cloze_(a1|a2|b1|b2|c1|c2)_####` | `cloze_c2_0001` |
+| Satzbau | `satz_(a1|a2|b1|b2|c1|c2)_####` | `satz_c1_0001` |
+| pronunciation | `pronunciation_(a1|a2|b1|b2|c1|c2)_####` | `pronunciation_c2_0001` |
 | 실벤 | `skz_<lowercase-level>_###` | `skz_b1_021` |
 | OCR grammar pattern | `g_lowercase_slug` | `g_progressive` |
 | scenario | lowercase ASCII letters, digits, underscore only | `formal_contract_inquiry` |
@@ -173,12 +176,13 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
   쓰지 않는다.
 - 한국어·독일어·영어 모두 앞뒤 공백을 남기지 않는다.
 
-## 4. Batch 01–04: live baseline과 잠금
+## 4. Batch 01–05: live baseline과 잠금
 
 Batch 01은 아래 다섯 초안과 다섯 review 원장으로 구성된 **고정 96-record 계약**이며,
 2026-08-15에 live asset으로 승격됐다. Batch 02(96 record)와 Batch 03(126 record)도
-같은 방식으로 이미 live다. C1 Batch 04 scenario도 전용 transaction으로 live다. 이 section은 그 history를 고치기 위한 규칙과 다음 Batch 05+
-작성자가 재사용할 잠금 규칙을 설명한다.
+같은 방식으로 이미 live다. Batch 04 scenario 16개와 Batch 05 B2/C1/C2 레코드 504개도
+각 전용 transaction으로 live다. 이 section은 그 history를 고치기 위한 규칙과 다음
+Batch 06+ 작성자가 재사용할 잠금 규칙을 설명한다.
 
 | Draft | 앱 병합 대상 | B1 | B2 | 합계 |
 | --- | --- | ---: | ---: | ---: |
@@ -221,7 +225,7 @@ Batch 01은 아래 다섯 초안과 다섯 review 원장으로 구성된 **고�
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. 현재 다음 번호는 **Batch 05**다. Batch 05부터는
+파일을 별도로 만든다. 현재 다음 번호는 **Batch 06**이다. Batch 05부터는
 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
@@ -231,7 +235,7 @@ overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·
 
 `batch_03_manifest.json`은 B2만 다루는 126-record 예시다. 세 개의 12단어 pack마다
 문법 2개, 스몰토크 4개, canonical 단어 예문에서 정확히 파생한 Cloze 12개와 Satzbau 12개를
-둔다. 이처럼 다음 batch는 “B1/B2를 반드시 반반”으로 맞추지 않는다. 학습 목적·ID 예약·
+둔다. 이처럼 다음 batch는 레벨별 수량을 기계적으로 같게 맞추지 않는다. 학습 목적·ID 예약·
 커리큘럼 ownership·검수 가능성이 먼저이고, 총수는 manifest가 정한다.
 
 이 batch의 교육 설계 이유와 자체 집필 경계는
@@ -300,7 +304,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 | `korean` | 하나의 한국어 표제어, 전역 중복 불가 | 동사는 사전형(`-다`), 명사는 표제형. 예문/게임의 참조와 철자까지 일치 |
 | `romanization` | 소문자 RR 스타일, 필요 시 단어 사이 공백 | IPA, 독일어식 표기, 숫자, 한글, diacritic을 넣지 않음. 기존 표기와 일관성 유지 |
 | `german` | 비어 있지 않은 짧고 자연스러운 뜻 | 이 레코드의 뜻 하나를 명확히. 성별이 중요한 직업명은 자연스럽게 표기 |
-| `level` | `A1`/`A2`/`B1`/`B2` 대문자 | ID·pack prefix와 일치 |
+| `level` | `A1`/`A2`/`B1`/`B2`/`C1`/`C2` 대문자 | ID·pack prefix와 일치 |
 | `pos_de` | `Nomen`, `Verb`, `Adjektiv`, `Adverb`, `Ausdruck`, `Pronomen` 중 기존 taxonomy | 한국어 표제형과 뜻에 맞춤 |
 | `example_korean` | 완결된 자연스러운 한국어 예문 | 표제어 또는 자연스러운 활용형을 반드시 포함. 이후 Cloze/Satz의 원문 |
 | `example_german` | 예문의 자연스러운 독일어 번역 | 표제어 gloss가 아니라 전체 문장 번역 |
@@ -365,7 +369,7 @@ pattern,level,type_de,explanation_de,example_korean,example_german,note,type_en,
 | 열 | 값 규칙 |
 | --- | --- |
 | `pattern` | 정확한 한국어 문법 표기. 품사/형태를 명시: 예 `V-아/어 놓다`, `A/V-(으)ㄴ/는 편이다` |
-| `level` | `A1`/`A2`/`B1`/`B2` 대문자 |
+| `level` | `A1`/`A2`/`B1`/`B2`/`C1`/`C2` 대문자 |
 | `type_de` | 짧은 독일어 범주명 |
 | `explanation_de` | 의미·용법·제약을 설명하는 자연스러운 독일어 |
 | `example_korean` | 해당 문법의 목표 용법을 한 번 분명히 보이는 자연스러운 문장 |
@@ -429,7 +433,7 @@ Draft root는 아래 형태다. live asset의 `categories`는 정본이므로 dr
 | --- | --- |
 | `id` | `smalltalk_<level>_####`, 전역 유일 |
 | `category` | live `categories[].id` 중 하나. 현재: `weather`, `mood`, `weekend`, `food`, `daily`, `screen`, `music`, `hobby`, `travel`, `work_study`, `family`, `health`, `kpop`, `dating`, `interview`, `job_hunting`, `moving`, `hospital`, `transport`, `shopping`, `phone`, `emergency` |
-| `level` | 소문자 `a1`/`a2`/`b1`/`b2` |
+| `level` | 소문자 `a1`/`a2`/`b1`/`b2`/`c1`/`c2` |
 | `kind` | 정확히 `opener`, `question`, `reaction` 중 하나 |
 | `ko`, `de`, `en` | 모두 nonempty. 주 문장 하나의 정확한 삼언어 대응 |
 | `relationshipContext` | 정확히 `peer`, `classmate`, `coworker`, `close_friend`, `family`, `service` 중 하나 |
@@ -509,8 +513,9 @@ C0의 preview/apply로 우회하지 않는다. 관계 맥락과 맞지 않는 �
 
 ## 10. Scenario — `scenarios` JSON 전체 명세
 
-시나리오는 C1 이후에 실제 신규 vocab·grammar·course mapping이 존재할 때만 만든다.
-Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. 새 scenario는 아래
+시나리오는 해당 레벨의 실제 vocab·grammar·course mapping이 존재할 때만 만든다.
+Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. C1/C2 전용
+시나리오는 아직 없으므로 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
 필드를 갖는 완전 object다.
 
 ```json
@@ -746,8 +751,8 @@ functions/analyze_korean_text/grammar_patterns.json
 `apply_review.py`는 target asset과 audit manifest만 쓴다. 여러 asset과
 `curriculum_manifest.json`·Dart pack map을 함께 쓰는 승인 병합은
 `integrate_review_batches.py`가 원자적으로 다룬다. scenario data·curriculum link·Dart
-backdrop map의 승인 병합은 `integrate_scenario_batch.py`가 다룬다. Batch 01–03은 전자,
-Batch 04는 후자 경로로 승격됐다.
+backdrop map의 승인 병합은 `integrate_scenario_batch.py`가 다룬다. Batch 01–03과 05는
+전자, Batch 04는 후자 경로로 승격됐다.
 approval만으로 mapping을 미리 손편집하거나 `apply_review.py --apply`만 실행하는 것은
 금지다. 새 batch에서는 아래 동반 변경을 integration manifest와 함께 검토·검증한다.
 
@@ -782,21 +787,21 @@ draft를 만들 때 수치를 올리지 않는다. `apply_review.py --apply`가 
 # 현재 live asset의 빠른 실패 검사
 python3 tools/content_factory/validate_content.py
 
-# 새 Batch 05+의 manifest-driven overlay 검사
+# 새 Batch 06+의 manifest-driven overlay 검사
 python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
 # 새 vocab pack의 label/motif/order/curriculum 읽기 전용 사전검사
 python3 tools/content_factory/plan_pack_assignments.py \
-  --draft tools/content_factory/drafts/c3_batch05_vocab_b1_b2.csv \
-  --metadata tools/content_factory/drafts/batch_05_manifest.json
+  --draft tools/content_factory/drafts/c3_batchXX_vocab.csv \
+  --metadata tools/content_factory/drafts/batch_XX_manifest.json
 
 # review preview: 어떤 파일도 쓰지 않음
 python3 tools/content_factory/apply_review.py \
-  tools/content_factory/review/c3_batch05_vocab.csv \
-  --draft tools/content_factory/drafts/c3_batch05_vocab_b1_b2.csv \
+  tools/content_factory/review/c3_batchXX_vocab.csv \
+  --draft tools/content_factory/drafts/c3_batchXX_vocab.csv \
   --target assets/data/korean_vocab.csv \
-  --pack-metadata tools/content_factory/drafts/batch_05_manifest.json
+  --pack-metadata tools/content_factory/drafts/batch_XX_manifest.json
 ```
 
 다른 asset도 같은 모양으로 preview한다.
@@ -830,12 +835,12 @@ mapping과 새 vocab의 Dart pack map을 함께 검증·원자적으로 다루�
 이 조건과 Jin의 명시 지시가 없으면 실제 asset 병합을 실행하지 않는다. 직접 asset을
 선편집해 validator를 통과시키는 것은 금지다.
 
-새 Batch 05+의 모든 review ledger가 승인됐고 Jin의 명시 지시가 있을 때만 유형에 맞는
+새 Batch 06+의 모든 review ledger가 승인됐고 Jin의 명시 지시가 있을 때만 유형에 맞는
 multi-file transaction을 실행한다.
 
 ```bash
 python3 tools/content_factory/integrate_review_batches.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json \
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json \
   --apply
 ```
 
@@ -866,7 +871,7 @@ vocab pack + 동반 mapping
 
 ### 모든 draft
 
-- [ ] 내용이 B1/B2 목표와 맞고 실제 상황에서 자연스럽다.
+- [ ] 내용이 목표 B1–C2 레벨과 맞고 실제 상황에서 자연스럽다.
 - [ ] KO, DE, EN가 모두 있고 서로 같은 의미·관계·register를 가진다.
 - [ ] ID가 유일하고 level 표기/ID prefix가 맞다.
 - [ ] 기존 live asset과 모든 pending draft에서 duplicate headword/ID를 확인했다.
@@ -890,7 +895,7 @@ vocab pack + 동반 mapping
 ### review / 검증
 
 - [ ] review header, ID 순서, row count, level, projection copy가 draft와 맞다.
-- [ ] 새 Batch 05+의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
+- [ ] 새 Batch 06+의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
 - [ ] `validate_review_batch.py`와 `plan_pack_assignments.py`가 통과했다.
 - [ ] `validate_content.py`가 통과했다.
 - [ ] Jin의 명시 지시 전에는 `apply_review.py`, `integrate_review_batches.py`, 또는 `integrate_scenario_batch.py`의 `--apply`를 실행하지 않았다.
@@ -911,7 +916,7 @@ vocab pack + 동반 mapping
 | 오래된 개별 `add_*`/`build_*` 문서의 `--write` 예시를 신규 batch 정본으로 사용 | C0 draft/review/transaction 규칙보다 오래된 workflow일 수 있음 |
 
 `tools/content_factory/README.md`의 C0 섹션과 이 문서가 신규 콘텐츠 정본이다. 그 아래의
-historical maintenance script 설명은 기존 자산 유지보수 참고용이며, 신규 B1/B2 batch의
+historical maintenance script 설명은 기존 자산 유지보수 참고용이며, 신규 B1–C2 batch의
 작성·승인·병합 지시로 해석하지 않는다.
 
 ## 16. 새 세션에 그대로 줄 수 있는 요청문
@@ -920,7 +925,7 @@ historical maintenance script 설명은 기존 자산 유지보수 참고용이�
 AGENTS.md와 docs/CONTENT_AUTHORING_GUIDE.md를 먼저 전부 읽어.
 UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작업해.
 
-대상: [B1 또는 B2] / [유형: vocab|grammar|smalltalk|cloze|satz|scenario]
+대상: [B1 또는 B2 또는 C1 또는 C2] / [유형: vocab|grammar|smalltalk|cloze|satz|scenario]
 주제: [주제]
 수량: [수량]
 
@@ -929,7 +934,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - 기존 ID/표제어/pack/category/curriculum을 먼저 읽어 중복과 참조 오류를 피해.
 - 새 vocab pack이면 11~12행, 연속 pack_order, 마지막 2~3 Boss, metadata와 planner를 준비해.
 - review CSV는 공통 header와 draft projection을 정확히 맞추고 모든 상태를 draft로 둬.
-- Batch 01–04에는 행을 추가하지 말고, 추가 수량은 Batch 05의 독립 manifest/draft/review로 분리해.
+- Batch 01–05에는 행을 추가하지 말고, 추가 수량은 Batch 06의 독립 manifest/draft/review로 분리해.
 - validate_content.py, 필요한 preflight, apply_review preview까지만 실행하고 --apply는 실행하지 마.
 - 마지막에 변경 파일, 미병합 수량, 검증 결과, Jin이 검수할 review 파일을 보고해.
 ```
@@ -938,6 +943,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 
 - 구조/레벨 소유권: `docs/CONTENT_ARCHITECTURE.md`
 - B1/B2 제작 순서와 품질 기준: `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`
+- B2/C1/C2 독립 창작 설계: `docs/ADVANCED_CONTENT_TRACK_2026-08-15.md`
 - B2 심화 루프의 자체 집필 설계: `docs/B2_DEPTH_CONTENT_TRACK_2026-08-15.md`
 - Batch 01 파일·수량·mapping 의도: `tools/content_factory/drafts/README.md`, `batch_01_manifest.json`
 - review 상태와 transactional 병합: `tools/content_factory/review/README.md`
