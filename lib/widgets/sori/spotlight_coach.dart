@@ -208,7 +208,9 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final step = widget.steps[_i];
+    final isLast = _i == widget.steps.length - 1;
     final padding = step.cutoutPadding;
 
     // cutoutPadding을 rect에 적용해 painter에 최종 hole만 전달
@@ -229,23 +231,27 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
       child: Stack(
         children: [
           // ─ 딤 + 구멍 레이어 (탭 → 다음 단계)
-          GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: _next,
-            child: AnimatedBuilder(
-              animation: pulseAnim,
-              builder: (ctx, _) {
-                return CustomPaint(
-                  painter: _SpotlightPainter(
-                    hole: hole,
-                    radius: step.cutoutRadius,
-                    shape: step.shape,
-                    pulse: pulseAnim.value,
-                    reduceMotion: widget.reduceMotion,
-                  ),
-                  child: const SizedBox.expand(),
-                );
-              },
+          Semantics(
+            button: true,
+            label: isLast ? t.navTourDone : t.navTourNext,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: _next,
+              child: AnimatedBuilder(
+                animation: pulseAnim,
+                builder: (ctx, _) {
+                  return CustomPaint(
+                    painter: _SpotlightPainter(
+                      hole: hole,
+                      radius: step.cutoutRadius,
+                      shape: step.shape,
+                      pulse: pulseAnim.value,
+                      reduceMotion: widget.reduceMotion,
+                    ),
+                    child: const SizedBox.expand(),
+                  );
+                },
+              ),
             ),
           ),
 

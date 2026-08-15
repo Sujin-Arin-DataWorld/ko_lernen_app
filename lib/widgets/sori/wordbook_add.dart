@@ -82,6 +82,7 @@ class AddToWordbookButton extends StatefulWidget {
   final String exampleKorean;
   final String exampleDe;
   final bool compact;
+  final bool coachEnabled;
 
   const AddToWordbookButton({
     super.key,
@@ -93,6 +94,7 @@ class AddToWordbookButton extends StatefulWidget {
     this.exampleKorean = '',
     this.exampleDe = '',
     this.compact = false,
+    this.coachEnabled = true,
   });
 
   @override
@@ -102,16 +104,43 @@ class AddToWordbookButton extends StatefulWidget {
 class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   // 세션 내 1회만 — 한 화면에 버튼이 여럿이거나 화면을 옮겨도 첫 1개만 안내.
   static bool _coachShownThisSession = false;
+  static int _tutorialResetRevision = Storage.tutorialResetRevision;
   final GlobalKey _coachKey = GlobalKey();
+
+  void _syncTutorialReset() {
+    final revision = Storage.tutorialResetRevision;
+    if (_tutorialResetRevision != revision) {
+      _tutorialResetRevision = revision;
+      _coachShownThisSession = false;
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    if (_coachShownThisSession || Storage.tutWordbookSeen) {
+    _scheduleCoach();
+  }
+
+  @override
+  void didUpdateWidget(covariant AddToWordbookButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if ((!oldWidget.coachEnabled && widget.coachEnabled) ||
+        (oldWidget.korean.trim().isEmpty && widget.korean.trim().isNotEmpty)) {
+      _scheduleCoach();
+    }
+  }
+
+  void _scheduleCoach() {
+    _syncTutorialReset();
+    if (!widget.coachEnabled ||
+        _coachShownThisSession ||
+        Storage.tutWordbookSeen) {
       return;
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      _syncTutorialReset();
       if (!mounted ||
+          !widget.coachEnabled ||
           _coachShownThisSession ||
           Storage.tutWordbookSeen ||
           widget.korean.trim().isEmpty) {

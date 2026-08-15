@@ -18,11 +18,12 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'helpers/deck_actions.dart';
 
 const _privatePackName =
     'private.name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
@@ -111,6 +112,8 @@ void main() {
       'kl_tut_listening': true,
       'kl_tut_review': true,
       'kl_tut_legacyVocab': true,
+      'kl_tut_soriDeck': true,
+      'kl_tut_wordbook': true,
       'kl_user_level': 'a1',
     });
     await Storage.init();
@@ -204,10 +207,7 @@ void main() {
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == 'Gewusst')
-          .onTap!();
+      tapDeckAction(tester, 'Gewusst');
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
@@ -252,7 +252,10 @@ void main() {
     (tester) async {
       await tester.pumpWidget(_app(const ReviewSessionScreen(deck: [_word])));
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      // §P2-3: 판정 버튼도 플립 게이트 — 카드를 뒤집은 뒤에만 판정 가능.
+      await tester.tap(find.text(_word.korean), warnIfMissed: false);
+      await tester.pump();
+      tapDeckAction(tester, 'Gewusst!');
       await tester.pump();
 
       _expectFeedback(tester, type: 'review');
@@ -284,7 +287,11 @@ void main() {
         _app(const CustomPackPlayScreen(packId: 'private-pack')),
       );
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      // §P2-3: 판정 버튼도 플립 게이트 — 카드를 뒤집은 뒤에만 판정 가능.
+      tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      tapDeckAction(tester, 'Gewusst!');
       await tester.pump();
 
       final card = _expectFeedback(tester, type: 'custom_wordbook');
@@ -309,7 +316,8 @@ void main() {
       expect(find.byType(ContentFeedbackCard), findsNothing);
       await tester.tap(find.text(_word.korean));
       await tester.pump();
-      await _tapText(tester, 'Gewusst!');
+      await tester.pump(const Duration(milliseconds: 400));
+      tapDeckAction(tester, 'Gewusst!');
       await tester.pump();
 
       _expectFeedback(tester, type: 'legacy_vocab');

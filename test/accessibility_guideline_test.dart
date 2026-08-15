@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
@@ -65,6 +66,14 @@ void main() {
     'sori today': () => SoriStageTodayScreen(
       loadSnapshot: () async => _todaySnapshot(),
       now: () => DateTime(2026, 8, 14, 9),
+    ),
+    // §P5-1 (2026-08-14): 압축된 Gye 빈 상태 — 칩 카드·ⓘ·CTA 의 터치영역/
+    // 대비/라벨을 매트릭스에 상주시킨다. 코치·서비스 시임으로 결정적.
+    'gye tab': () => GyeTabScreen(
+      loadGyeMetas: () async => const [],
+      onFindOrCreate: () {},
+      onContinueSolo: () {},
+      enableCoach: false,
     ),
   };
 

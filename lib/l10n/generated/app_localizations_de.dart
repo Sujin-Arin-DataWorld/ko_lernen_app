@@ -1667,6 +1667,23 @@ class AppL10nDe extends AppL10n {
   String get vocabPackGotIt => 'Gewusst';
 
   @override
+  String get deckActionSave => 'Merken';
+
+  @override
+  String get deckFlipFirstHint => 'Erst antippen und umdrehen';
+
+  @override
+  String get coachSoriDeckTitle => 'Karte wischen';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+
+  @override
+  String get coachSoriDeckBodyNoSave =>
+      'Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.';
+
+  @override
   String get vocabPackStageLearn => 'Lernen';
 
   @override
@@ -3912,6 +3929,21 @@ class AppL10nDe extends AppL10n {
       'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.';
 
   @override
+  String get gyeExplainWhatShort => 'Eine kleine, freiwillige Lerngruppe.';
+
+  @override
+  String get gyeExplainWhyShort => 'Ein gemeinsames Hanok, kein Wettbewerb.';
+
+  @override
+  String get gyeExplainHowShort => 'Beitritt mit 6-stelligem Code.';
+
+  @override
+  String get gyeShowcaseCaption => 'So kann euer gemeinsames Hanok aussehen';
+
+  @override
+  String get gyeExplainMore => 'Mehr erfahren';
+
+  @override
   String get gyeWeeklyEyebrow => 'Diese Woche zusammen';
 
   @override
@@ -4246,7 +4278,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen: Karten umdrehen und einprägen';
+      'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen';
 
   @override
   String get coachVocabPackStep2 =>
@@ -4590,7 +4622,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachReviewStep2Body =>
-      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück';
+      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück. Nach dem Umdrehen geht auch Wischen: rechts = gewusst, links = nicht gewusst.';
 
   @override
   String get coachLegacyVocabTitle => 'Karteikarte';
@@ -6043,6 +6075,48 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageMissionAction => 'Heutige Mission starten';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'HEUTIGE MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Starten';
+
+  @override
+  String get hanokStageNameEmpty => 'Bauplatz';
+
+  @override
+  String get hanokStageNameFoundation => 'Fundament';
+
+  @override
+  String get hanokStageNamePillars => 'Säulen';
+
+  @override
+  String get hanokStageNameBeams => 'Balken';
+
+  @override
+  String get hanokStageNameThatchRoof => 'Strohdach';
+
+  @override
+  String get hanokStageNameTileRoofPartial => 'Erste Ziegel';
+
+  @override
+  String get hanokStageNameTileRoofComplete => 'Ziegeldach';
+
+  @override
+  String get hanokStageNameDancheong => 'Dancheong';
+
+  @override
+  String get hanokStageNameGate => 'Tor';
+
+  @override
+  String get hanokStageNameWindows => 'Fenster';
+
+  @override
+  String get hanokStageNameSideBuilding => 'Sarangchae';
+
+  @override
+  String get hanokStageNameJongga => 'Jongga-Haus';
 
   @override
   String get soriStageBojagiTitle => 'Ein Bojagi wartet';

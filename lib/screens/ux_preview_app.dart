@@ -14,6 +14,7 @@ import '../models/personal_hanok.dart';
 import '../models/personal_room.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
+import '../models/sori_stage_progression.dart';
 import '../models/ux_preview_catalog.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
@@ -40,6 +41,7 @@ import 'profile_screen.dart';
 import 'sarangbang_screen.dart';
 import 'scenario_player_screen.dart';
 import 'sori_stage/sori_stage_preview_screens.dart';
+import 'sori_stage/sori_stage_today_screen.dart';
 import 'ux_preview_gallery_screen.dart';
 
 /// Maps every documented UX panel to its production widget and a deterministic
@@ -121,7 +123,13 @@ class UxPreviewRegistry {
       previewLevel: LearnerLevel.a1,
       previewCompanion: CompanionPreference.none,
     ),
-    '06B' => const SoriStageTodayPreviewScreen(),
+    // Offline is a real Today availability state, rather than a visual mock.
+    // The injected snapshot keeps the gallery read-only while exercising the
+    // same safe-review and retry boundary as the canonical Stage home.
+    '06B' => SoriStageTodayScreen(
+      loadSnapshot: _loadOfflineTodayPreview,
+      now: _previewTodayNow,
+    ),
     '06C' => const SoriStageTodayPreviewScreen(),
     '07A' => const SoriStageTodayPreviewScreen(),
     '07B' => const SoriStageLessonPreviewScreen(),
@@ -209,8 +217,6 @@ class _UxPreviewNavigationBoundary extends StatelessWidget {
   );
 }
 
-
-
 CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   unit: _lessSpicyUnit,
   links: _lessSpicyMissionLinks,
@@ -277,6 +283,32 @@ Widget _sarangbang() => SarangbangStudyScreen.preview(
   onOpenRecommendation: (_) async {},
 );
 
+/// The Offline gallery panel must exercise the actual Sori Stage fallback,
+/// without consulting storage or a remote source. The snapshot deliberately
+/// carries no reward contract: a partial Today read never promises a reward.
+Future<SoriStageProgressionSnapshot> _loadOfflineTodayPreview() async =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
+        availability: TodayLearningAvailability.unavailable,
+        unavailableReason: TodayLearningUnavailableReason.offline,
+        unavailableSources: {TodayLearningSource.course},
+      ),
+      hanok: PersonalHanokProjection.from(
+        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+      ),
+      quests: const [],
+      pendingBojagiCount: 0,
+      stampCount: 4,
+      xp: 320,
+      streakDays: 6,
+      todayReward: null,
+    );
+
+DateTime _previewTodayNow() => DateTime(2026, 8, 14, 9);
+
 Widget _gyePanel({required bool courtyardFocus}) {
   final meta = GyeMeta(
     id: courtyardFocus ? 'HOF506' : 'LICHT5',
@@ -329,8 +361,6 @@ Widget _gyePanel({required bool courtyardFocus}) {
 }
 
 Future<List<GyeMeta>> _emptyGyes() async => const [];
-
-
 
 void _ignore([Object? _]) {}
 

@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/gye_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
@@ -79,7 +80,7 @@ void main() {
       '05B': GyeScreen,
       '05C': GyeScreen,
       '06A': ProfileScreen,
-      '06B': SoriStageTodayPreviewScreen,
+      '06B': SoriStageTodayScreen,
       '06C': SoriStageTodayPreviewScreen,
       '07A': SoriStageTodayPreviewScreen,
       '07B': SoriStageLessonPreviewScreen,

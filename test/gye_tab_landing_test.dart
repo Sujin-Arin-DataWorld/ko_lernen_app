@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
@@ -41,19 +42,29 @@ void main() {
       find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
       findsOneWidget,
     );
-    expect(
-      find.text(
-        'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander '
-        'hält.',
-      ),
-      findsOneWidget,
-    );
+    // §P5-1 (2026-08-14, 의도된 변경): 문단 3개 → 1줄 칩 카드. 장문 설명은
+    // 삭제되지 않고 ⓘ 상세 시트로 강등됐다 (§C-2 원칙).
     await tester.scrollUntilVisible(
-      find.text('Was andere sehen'),
+      find.text('Eine kleine, freiwillige Lerngruppe.'),
       180,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Was andere sehen'), findsOneWidget);
+    await tester.pump();
+    expect(find.text('Eine kleine, freiwillige Lerngruppe.'), findsOneWidget);
+    // ⓘ 시트: 강등된 장문 3종 + 프라이버시 본문이 전부 도달 가능하다.
+    await tester.ensureVisible(find.byTooltip('Mehr erfahren'));
+    await tester.pump();
+    await tester.tap(find.byTooltip('Mehr erfahren'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(
+      find.text(
+        'Eine 계 (Gye) ist eine kleine Lerngruppe, ganz freiwillig. '
+        'Allein zu lernen ist genauso gut.',
+      ),
+      findsOneWidget,
+      reason: '장문 gyeExplainWhat 은 ⓘ 시트에서 살아 있어야 한다 (키 삭제 금지)',
+    );
     expect(
       find.textContaining('bleiben privat'),
       findsOneWidget,
@@ -61,6 +72,15 @@ void main() {
           'gyePrivacyBody 는 기여 사실만 공개되고 답변·단어·평가 결과는 '
           '비공개임을 말해야 한다',
     );
+    await tester.tapAt(const Offset(5, 5)); // 시트 밖 탭 = 닫기
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.scrollUntilVisible(
+      find.text('Was andere sehen'),
+      180,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Was andere sehen'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('Eine 계 finden oder gründen'),
       320,
@@ -105,6 +125,43 @@ void main() {
     expect(find.textContaining('Wochenziel-Daten'), findsOneWidget);
     expect(find.text('Mondhof'), findsOneWidget);
   });
+
+  testWidgets('parent rebuild reuses one Gye load future', (tester) async {
+    var loads = 0;
+    Future<List<GyeMeta>> loader() async {
+      loads++;
+      return const <GyeMeta>[];
+    }
+
+    await _pump(tester, loader);
+    expect(loads, 1);
+    await _pump(tester, loader);
+    expect(loads, 1);
+  });
+
+  testWidgets('Gye load failure is not disguised as an empty membership', (
+    tester,
+  ) async {
+    await _pump(tester, () async => throw StateError('offline'), settle: false);
+
+    expect(find.byType(AppError), findsOneWidget);
+    expect(find.text('Freiwillige Lerngemeinschaft'), findsNothing);
+  });
+
+  testWidgets('inactive embedded Gye loads only when activated', (
+    tester,
+  ) async {
+    var loads = 0;
+    Future<List<GyeMeta>> loader() async {
+      loads++;
+      return const <GyeMeta>[];
+    }
+
+    await _pump(tester, loader, active: false, settle: false);
+    expect(loads, 0);
+    await _pump(tester, loader, active: true);
+    expect(loads, 1);
+  });
 }
 
 Future<void> _pump(
@@ -113,6 +170,8 @@ Future<void> _pump(
   VoidCallback? onFindOrCreate,
   VoidCallback? onContinueSolo,
   double textScale = 1,
+  bool active = true,
+  bool settle = true,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -131,11 +190,14 @@ Future<void> _pump(
         onFindOrCreate: onFindOrCreate,
         onContinueSolo: onContinueSolo,
         enableCoach: false,
+        active: active,
       ),
     ),
   );
-  // The existing shared-hanok preview intentionally has a repeating pulse,
-  // so `pumpAndSettle` would never terminate here.
-  await tester.pump();
-  await tester.pump(const Duration(milliseconds: 100));
+  if (settle) {
+    await tester.pumpAndSettle();
+  } else {
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+  }
 }

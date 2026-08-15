@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_common.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
@@ -14,6 +15,7 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
+import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
 import 'package:ko_lernen_app/widgets/sori/stats_top_bar.dart';
 
 /// SoriStage Today 의 **매트 배경 계약** (`home_hero_matte_test.dart` 의 화면판).
@@ -32,17 +34,25 @@ void main() {
     await Storage.init();
   });
 
-  Future<void> pumpToday(WidgetTester tester) async {
+  Future<void> pumpToday(
+    WidgetTester tester, {
+    SoriStageProgressionSnapshot? snapshot,
+    Locale locale = const Locale('en'),
+    double textScale = 1,
+  }) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
-        locale: const Locale('en'),
+        locale: locale,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: MediaQuery(
-          data: const MediaQueryData(disableAnimations: true),
+          data: MediaQueryData(
+            disableAnimations: true,
+            textScaler: TextScaler.linear(textScale),
+          ),
           child: SoriStageTodayScreen(
-            loadSnapshot: () async => _snapshot(),
+            loadSnapshot: () async => snapshot ?? _snapshot(),
             now: () => DateTime(2026, 8, 14, 9),
           ),
         ),
@@ -83,6 +93,49 @@ void main() {
     final l10n = await AppL10n.delegate.load(const Locale('en'));
     expect(find.text(l10n.homeHeroGreetingMorning), findsOneWidget);
   });
+
+  testWidgets('실제 보상 2종과 가장 가까운 퀘스트 썸네일까지 렌더한다', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpToday(tester, snapshot: _richSnapshot());
+
+    expect(find.text('Learning XP'), findsOneWidget);
+    expect(find.text('Related quest'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('Jangdokdae (jar terrace)'),
+      260,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+
+    expect(find.byType(SoriRewardThumb), findsOneWidget);
+    expect(find.text('Jangdokdae (jar terrace)'), findsOneWidget);
+    expect(find.text('3 / 15'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('long German reward wraps at 390dp and 200 percent text', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await pumpToday(
+      tester,
+      snapshot: _longRewardSnapshot(),
+      locale: const Locale('de'),
+      textScale: 2,
+    );
+
+    expect(find.text('Verifizierter Hanok-Baufortschritt'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
@@ -101,3 +154,73 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
   streakDays: 6,
   todayReward: null,
 );
+
+SoriStageProgressionSnapshot _richSnapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 12),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 12,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+  ),
+  quests: const [
+    QuestProgress(
+      questId: 'q_jangdokdae',
+      current: 3,
+      target: 15,
+      active: true,
+      completed: false,
+      completedAtIso: null,
+    ),
+  ],
+  pendingBojagiCount: 0,
+  stampCount: 4,
+  xp: 320,
+  streakDays: 6,
+  todayReward: const RewardContract(
+    activityId: 'srs',
+    condition: SoriLocalizedCopy(de: 'Lernen', en: 'Learn'),
+    items: [
+      RewardContractItem(
+        kind: SoriRewardKind.xp,
+        amount: 15,
+        label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+      ),
+      RewardContractItem(
+        kind: SoriRewardKind.questProgress,
+        label: SoriLocalizedCopy(de: 'Passende Quest', en: 'Related quest'),
+      ),
+    ],
+  ),
+);
+
+SoriStageProgressionSnapshot _longRewardSnapshot() =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
+      ),
+      hanok: PersonalHanokProjection.from(
+        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+      ),
+      quests: const [],
+      pendingBojagiCount: 0,
+      stampCount: 4,
+      xp: 320,
+      streakDays: 6,
+      todayReward: const RewardContract(
+        activityId: 'srs',
+        condition: SoriLocalizedCopy(de: 'Lernen', en: 'Learn'),
+        items: [
+          RewardContractItem(
+            kind: SoriRewardKind.hanokProgress,
+            label: SoriLocalizedCopy(
+              de: 'Verifizierter Hanok-Baufortschritt',
+              en: 'Verified Hanok construction progress',
+            ),
+          ),
+        ],
+      ),
+    );

@@ -19,10 +19,12 @@ class SoriStageCatalogScreen extends StatefulWidget {
     super.key,
     required this.tab,
     this.loadSnapshot,
+    this.active = true,
   });
 
   final SoriStageTab tab;
   final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
+  final bool active;
 
   @override
   State<SoriStageCatalogScreen> createState() => _SoriStageCatalogScreenState();
@@ -40,6 +42,17 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     _progress = _load();
   }
 
+  @override
+  void didUpdateWidget(covariant SoriStageCatalogScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.active &&
+        ((!oldWidget.active && widget.active) ||
+            oldWidget.loadSnapshot != widget.loadSnapshot ||
+            oldWidget.tab != widget.tab)) {
+      _progress = _load();
+    }
+  }
+
   void _reload() => setState(() {
     _progress = _load();
   });
@@ -54,13 +67,13 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
 
     // §C-1-11: Learn 탭은 단어팩(핵심 학습 경로)을 그리드 타일이 아니라
     // **대형 진입 카드**로 승격한다 — 그리드에서는 빼서 중복을 피한다.
+    // §P4-4: Games 탭도 대칭 — daily_game(오늘의 게임)을 히어로로 승격.
+    final heroId = isGames ? 'daily_game' : 'vocab_packs';
     ActivityCatalogEntry? heroEntry;
-    if (!isGames) {
-      for (final entry in entries) {
-        if (entry.id == 'vocab_packs') {
-          heroEntry = entry;
-          break;
-        }
+    for (final entry in entries) {
+      if (entry.id == heroId) {
+        heroEntry = entry;
+        break;
       }
     }
     final gridEntries = heroEntry == null
@@ -77,13 +90,17 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                 // §C-1-4: 패딩 뺀 실제 가용폭으로 컬럼 산출 —
                 // discover_screen.dart:349 패턴. 기존은 클램프 전 전체 폭이
                 // 들어가 1280dp에서 880px 안에 6열 → 18px 오버플로.
+                final double available =
+                    constraints.maxWidth - padding.horizontal;
                 final columns = soriGridColumns(
-                  constraints.maxWidth - padding.horizontal,
+                  available,
                   target: 160,
                   min: 2,
                   outerPadding: 0,
                   spacing: Spacing.md,
                 );
+                final double cellWidth =
+                    (available - Spacing.md * (columns - 1)) / columns;
                 return CustomScrollView(
                   slivers: [
                     SliverPadding(
@@ -109,61 +126,70 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     ),
                     FutureBuilder<SoriStageProgressionSnapshot>(
                       future: _progress,
-                      builder: (context, snapshot) => SliverMainAxisGroup(
-                        slivers: [
-                          if (heroEntry case final hero?)
+                      builder: (context, snapshot) {
+                        final ready =
+                            snapshot.connectionState == ConnectionState.done &&
+                            !snapshot.hasError;
+                        final activityProgress = ready
+                            ? snapshot.data?.activityProgress
+                            : null;
+                        return SliverMainAxisGroup(
+                          slivers: [
+                            if (heroEntry case final hero?)
+                              SliverPadding(
+                                padding: EdgeInsets.only(
+                                  left: padding.left,
+                                  right: padding.right,
+                                  bottom: Spacing.md,
+                                ),
+                                sliver: SliverToBoxAdapter(
+                                  child: _ActivityGridCard(
+                                    entry: hero,
+                                    hero: true,
+                                    progress: activityProgress?[hero.id],
+                                    loadSnapshot:
+                                        widget.loadSnapshot ??
+                                        SoriStageProgressionService.load,
+                                    onActivityReturned: _reload,
+                                  ),
+                                ),
+                              ),
                             SliverPadding(
                               padding: EdgeInsets.only(
                                 left: padding.left,
                                 right: padding.right,
-                                bottom: Spacing.md,
+                                bottom: padding.bottom,
                               ),
-                              sliver: SliverToBoxAdapter(
-                                child: _ActivityGridCard(
-                                  entry: hero,
-                                  hero: true,
-                                  progress:
-                                      snapshot.data?.activityProgress[hero.id],
-                                  loadSnapshot:
-                                      widget.loadSnapshot ??
-                                      SoriStageProgressionService.load,
-                                  onActivityReturned: _reload,
-                                ),
+                              sliver: SliverGrid(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: columns,
+                                      mainAxisSpacing: Spacing.md,
+                                      crossAxisSpacing: Spacing.md,
+                                      childAspectRatio: _cellAspectRatio(
+                                        context,
+                                        cellWidth,
+                                      ),
+                                    ),
+                                delegate: SliverChildBuilderDelegate((
+                                  context,
+                                  index,
+                                ) {
+                                  final entry = gridEntries[index];
+                                  return _ActivityGridCard(
+                                    entry: entry,
+                                    progress: activityProgress?[entry.id],
+                                    loadSnapshot:
+                                        widget.loadSnapshot ??
+                                        SoriStageProgressionService.load,
+                                    onActivityReturned: _reload,
+                                  );
+                                }, childCount: gridEntries.length),
                               ),
                             ),
-                          SliverPadding(
-                            padding: EdgeInsets.only(
-                              left: padding.left,
-                              right: padding.right,
-                              bottom: padding.bottom,
-                            ),
-                            sliver: SliverGrid(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: columns,
-                                    mainAxisSpacing: Spacing.md,
-                                    crossAxisSpacing: Spacing.md,
-                                    childAspectRatio: 0.78,
-                                  ),
-                              delegate: SliverChildBuilderDelegate((
-                                context,
-                                index,
-                              ) {
-                                final entry = gridEntries[index];
-                                return _ActivityGridCard(
-                                  entry: entry,
-                                  progress:
-                                      snapshot.data?.activityProgress[entry.id],
-                                  loadSnapshot:
-                                      widget.loadSnapshot ??
-                                      SoriStageProgressionService.load,
-                                  onActivityReturned: _reload,
-                                );
-                              }, childCount: gridEntries.length),
-                            ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 );
@@ -236,25 +262,85 @@ class _ActivityGridCard extends StatelessWidget {
       onStart: start,
     );
 
+    // §P4-2: 상태 신호는 모델의 4값뿐 — 잠금 0 상태에서 전 카드 동일한
+    // "Jetzt verfügbar" ×N 은 노이즈다. ready + 무진행이면 footer 를 없앤다
+    // (locked/inProgress/completed 는 표시). ARB soriStageActivityReady 키는
+    // 삭제하지 않는다.
+    final bool silentReady =
+        state == SoriActivityState.ready &&
+        (progress?.current == null || (progress?.current ?? 0) <= 0);
+
     return SoriIllustratedCard(
       title: title,
-      subtitle: t.soriStageMinutes(entry.minutes),
+      // §P4-3: 분(分) 표기는 subtitle → 이미지 우하단 미니 필로 이동.
+      subtitle: null,
       state: unlocked
           ? SoriIllustratedCardState.normal
           : SoriIllustratedCardState.locked,
       shrinkWrap: hero,
-      imageAspectRatio: hero ? 21 / 9 : 16 / 10,
+      // §P4-1: 그리드 이미지 슬롯을 원본(800×600)과 같은 4:3 으로 — 크롭 0,
+      // "거대 아이콘" 체감 ~17% 축소. 히어로 카드는 와이드 배너 유지.
+      imageAspectRatio: hero ? 21 / 9 : 4 / 3,
       illustrationAsset: activityIllustrationAsset(entry.id),
       fallback: ActivityIconFallback(
         iconName: entry.iconName,
         colorRole: entry.colorRole,
       ),
-      footer: _StateLabel(state: state, progress: progress, entry: entry),
+      imageOverlay: _MinutesPill(label: t.soriStageMinutes(entry.minutes)),
+      footer: silentReady
+          ? null
+          : _StateLabel(state: state, progress: progress, entry: entry),
       onTap: unlocked ? start : openSheet,
       onLongPress: unlocked ? openSheet : null,
       semanticsLabel: unlocked
           ? t.soriStageOpenActivity(title)
           : t.soriStageActivityDetails(title),
+    );
+  }
+}
+
+/// Grid ratio derived from the 4:3 image plus the maximum two-line title and
+/// status footer. Unlike a fixed constant, this continues to fit when system
+/// text scaling grows while keeping every card in the row the same height.
+double _cellAspectRatio(BuildContext context, double cellWidth) {
+  if (!cellWidth.isFinite || cellWidth <= 0) {
+    return 0.78;
+  }
+  final scaler = MediaQuery.textScalerOf(context);
+  final tt = SoriTextTheme.of(context);
+  final titleStyle = tt.cardTitle;
+  final footerStyle = tt.cardSubtitle;
+  const double bodyPadding = Spacing.sm + Spacing.md;
+  final double title =
+      scaler.scale(titleStyle.fontSize!) * (titleStyle.height ?? 1) * 2;
+  final double footer =
+      Spacing.xs +
+      scaler.scale(footerStyle.fontSize!) * (footerStyle.height ?? 1);
+  // Two physical border pixels plus a small rounding allowance keep the
+  // fixed-height grid honest at tablet comfort scale and 200% OS text.
+  const double layoutAllowance = 4;
+  final double height =
+      cellWidth / (4 / 3) + bodyPadding + title + footer + layoutAllowance;
+  return cellWidth / height;
+}
+
+/// §P4-3: 이미지 슬롯 우하단 분(分) 미니 필.
+class _MinutesPill extends StatelessWidget {
+  const _MinutesPill({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: const BoxDecoration(
+        // ⚠️ withOpacity 는 deprecated — 저장소는 전부 .withValues 이관 완료.
+        color: Color(0x8C000000), // black @0.55
+        borderRadius: SoriRadius.brPill,
+      ),
+      child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,9 +8,16 @@ import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/milestone.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
@@ -21,6 +30,7 @@ void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     Storage.resetForTesting();
+    DecorationRewardService.resetForTesting();
     await Storage.init();
   });
 
@@ -100,7 +110,7 @@ void main() {
       Storage.resetForTesting();
       await Storage.init();
 
-      await tester.pumpWidget(_feedbackHost(const Scaffold()));
+      await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3'});
@@ -122,7 +132,7 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pump();
 
-      await tester.pumpWidget(_feedbackHost(const Scaffold()));
+      await tester.pumpWidget(_feedbackHost(_today()));
       await _pumpUntilMilestoneIsStored(tester, expectedCount: 2);
 
       expect(Storage.celebratedMilestones.toSet(), {'streak_3', 'level_5'});
@@ -138,6 +148,58 @@ void main() {
       await tester.pump(const Duration(seconds: 2));
     },
   );
+
+  testWidgets('hidden Today never consumes or presents a loaded milestone', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_home_tour': true,
+      'kl_streak_days': 3,
+      'kl_hanok_stages_seen_v1': ['empty'],
+    });
+    Storage.resetForTesting();
+    await Storage.init();
+    final firstLoad = Completer<SoriStageProgressionSnapshot>();
+    var loads = 0;
+    Future<SoriStageProgressionSnapshot> load() {
+      loads++;
+      return loads == 1 ? firstLoad.future : Future.value(_snapshot());
+    }
+
+    final active = ValueNotifier<bool>(true);
+    addTearDown(active.dispose);
+    await tester.pumpWidget(
+      _feedbackHost(
+        ValueListenableBuilder<bool>(
+          valueListenable: active,
+          builder: (context, isActive, _) => SoriStageTodayScreen(
+            loadSnapshot: load,
+            now: () => DateTime(2026, 8, 14, 9),
+            enableMilestoneCelebrations: true,
+            active: isActive,
+          ),
+        ),
+      ),
+    );
+
+    await tester.pump();
+    active.value = false;
+    await tester.pump();
+    firstLoad.complete(_snapshot());
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(Storage.celebratedMilestones, isEmpty);
+    expect(Storage.pendingBoxes, isEmpty);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+
+    active.value = true;
+    await tester.pump();
+    await _pumpUntilMilestoneIsStored(tester);
+    expect(loads, 2);
+    expect(Storage.celebratedMilestones, ['streak_3']);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 2));
+  });
 }
 
 Future<void> _pumpUntilMilestoneIsStored(
@@ -146,9 +208,13 @@ Future<void> _pumpUntilMilestoneIsStored(
 }) async {
   for (var attempt = 0; attempt < 30; attempt++) {
     await tester.pump(const Duration(milliseconds: 100));
-    if (Storage.celebratedMilestones.length == expectedCount) return;
+    if (Storage.celebratedMilestones.length == expectedCount &&
+        find.byType(ContentFeedbackCard).evaluate().isNotEmpty) {
+      return;
+    }
   }
   expect(Storage.celebratedMilestones, hasLength(expectedCount));
+  expect(find.byType(ContentFeedbackCard), findsOneWidget);
 }
 
 Widget _feedbackHost(Widget child) => MaterialApp(
@@ -166,4 +232,27 @@ Widget _feedbackHost(Widget child) => MaterialApp(
     child: routeChild ?? const SizedBox.shrink(),
   ),
   home: child,
+);
+
+Widget _today() => SoriStageTodayScreen(
+  loadSnapshot: () async => _snapshot(),
+  now: () => DateTime(2026, 8, 14, 9),
+  enableMilestoneCelebrations: true,
+);
+
+SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 1),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 1,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: 0, b1: 0, b2: 0),
+  ),
+  quests: const [],
+  pendingBojagiCount: 0,
+  stampCount: 0,
+  xp: 400,
+  streakDays: 3,
+  todayReward: null,
 );

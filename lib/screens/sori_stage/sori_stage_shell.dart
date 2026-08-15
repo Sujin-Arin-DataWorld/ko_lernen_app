@@ -102,11 +102,14 @@ class _SoriStageShellState extends State<SoriStageShell> {
       ],
     );
     final screens = [
-      SoriStageTodayScreen(replayHomeTour: widget.replayHomeTour),
-      const SoriStageCatalogScreen(tab: SoriStageTab.learn),
-      const SoriStageCatalogScreen(tab: SoriStageTab.games),
-      const SoriStageHanokScreen(),
-      const SoriStageGyeScreen(),
+      SoriStageTodayScreen(
+        replayHomeTour: widget.replayHomeTour,
+        active: _index == 0,
+      ),
+      SoriStageCatalogScreen(tab: SoriStageTab.learn, active: _index == 1),
+      SoriStageCatalogScreen(tab: SoriStageTab.games, active: _index == 2),
+      SoriStageHanokScreen(active: _index == 3),
+      SoriStageGyeScreen(active: _index == 4),
     ];
 
     return Scaffold(

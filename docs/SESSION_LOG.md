@@ -1,5 +1,54 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — UI/UX 개편 2 후보 8개 비교와 최종 통합본
+
+**선정.** 동일 핸드오프에서 나온 Cursor 후보 8개(Fable·Opus·Sonnet·Grok 4.5·
+Grok 4.6·Gemini·Sol·Terra)와 PR #19/#20/#21을 구현 범위, 상태 소유권, 접근성,
+반응형, 테스트의 실제 민감도로 비교했다. P1–P5와 §R의 연결이 가장 온전한
+PR #19/Fable(`5456ca2a`)를 구조적 골격으로 선택했다. #21/Sol의 Today milestone
+소유권·미승인 asset gate·회귀 센서, Grok 4.6의 `MediaMutationLock` 격리 등 검증된
+부분만 가져왔다. #20/Opus와 나머지 후보는 독점적 장점보다 누락·stale 상태·과도한
+변경 범위가 커 원본 그대로의 merge 대상에서 제외했다. 최종 단일 후보 브랜치는
+`codex/ui-overhaul-2-final-integration`이며 세 PR 어느 것도 직접 merge하지 않는다.
+
+**Deck.** 4개 학습 덱에 고정 카드 슬롯, 좌/우 판정·위 저장·아래 defer, 방향별
+gesture clamp, 다음 카드 앞면 underlay, flip gate, 48dp action bar와 접근 가능한
+hint를 통합했다. 마지막 review 카드에는 동작하지 않는 skip이 기록을 만들지 않고,
+custom deck의 미지원 위 swipe도 움직임/배지를 만들지 않는다. `quickAdd`는 하나의
+mutation lock 안에서 읽기→dedupe→쓰기를 끝내 동시 같은 단어 저장도 한 건만 남긴다.
+튜토리얼 reset은 세션 guard까지 갱신하되 테스트 storage teardown과는 분리했다.
+Vocab은 핸드오프 정본인 전용 `FeatureCoach.vocabPack` 3단계를 유지하고 wordbook
+spotlight는 그 modal 종료 뒤에만 연다. 승인된 커스텀 아이콘이 없으므로 action bar는
+의도적으로 Material fallback을 사용한다.
+
+**Stage.** Today는 활성 탭/generation을 milestone write와 modal 전후에 검사해 숨은
+탭이나 오래된 future가 보상을 소비하지 못하게 했고, 한 방문 한 보상 후 snapshot을
+갱신한다. unavailable 상태는 학습 추천·보상·tour write 없이 read-only다. Catalog는
+활성화 refresh와 실제 text/comfort scale 기반 셀 높이를 사용한다. Gye는 build마다
+future를 재생성하지 않고 활성화·nested route 복귀 때 reload하며 실패를 빈 계로
+위장하지 않는다. Hanok은 실제 퀘스트/도장/보자기 수를 쓰고 route 복귀/탭 활성화 때
+갱신하며 세 shortcut 모두 스크린리더 activate action을 제공한다. Spotlight의 전체화면
+advance 탭에도 Next/Done semantics를 추가했다.
+
+**리소그래프 경계.** `scripts/apply_riso_v2.py --samples`는 세 before/after와
+`approval_manifest.json`을 만들고, apply는 `--jin-approved`와 승인 manifest SHA-256,
+정확한 대상 39개, 각 preimage SHA-256, q88 70KiB 제한을 모두 통과해야만 임시 디렉터리
+결과를 production에 옮긴다. 승인 누락/잘못된 해시는 각각 exit 2, 대상은 39/39 원본
+해시 일치다. 현재 after가 bamboo 94,656B, listening 92,450B, paywall 174,198B로 모두
+제한을 넘으므로 production WebP는 하나도 변경하지 않았다. 파라미터 최적화와 Jin의
+시각 승인 전까지 §R production 적용은 보류다.
+
+**검증.** 핵심 13파일 회귀 **88건**, 접근성 **45건**, 전체 Flutter 테스트
+**3,391건 통과 + 의도적 skip 14건 + 실패 0건**. `flutter analyze --no-pub
+--fatal-infos` 0 issues, `flutter build web --release --no-pub` 성공, Python compile,
+리소 승인 누락/오류 hash 차단, 39개 원본 hash, `git diff --check`를 확인했다. Web
+빌드의 Wasm dry-run 경고 3건은 변경 밖 `flutter_tts 4.2.5` JS interop이며 JS release
+산출물은 정상 생성됐다. 후보 PR의 GitHub Actions 실패는 저장소 billing gate라 코드
+판정 근거에서 제외하고 이 exact worktree의 로컬 검증을 사용했다.
+
+**커밋/배포.** 없음. Jin의 명시 지시 전에는 commit·push·PR 생성·production asset
+적용을 하지 않는다.
+
 ### 2026-08-15 (Codex, Mac) — B2 심화 자체 집필 Batch 03과 검수 체인 복구
 
 **무엇/왜.** B2를 단어 수만 늘리는 방식에서 벗어나, 선택의 근거·읽기 반응·표현의 사회적
@@ -44,6 +93,7 @@ test/data_integrity_test.dart` 6건, `git diff --check`도 통과했다.
 **검증:** `.agents/rules/no-approval-needed.md` 및 `AGENTS.md` 반영 완료.
 **커밋:** Jin의 명시 지시 대기.
 
+### 2026-08-15 (Codex, Mac) — 콘텐츠 출처 격리 정책과 malformed CSV 복구
 
 **무엇/왜.** 외부 교재·추출물의 표현과 편집 구성이 앱 콘텐츠에 유입되지 않도록
 `docs/CONTENT_SOURCE_POLICY.md`와 작성 정본의 격리 규칙을 추가했다. 신규 draft는
@@ -184,7 +234,6 @@ TTS `--dry-run` **5,288** 발화(인증·합성·로컬 write·업로드 없음)
 **경계.** `lib/screens/sori_stage/`, Today 추천, paywall 카피, 새 motif/디자인, 실제
 TTS/Firebase 업로드는 변경하지 않았다. Batch 01 검수와 별도 콘텐츠 병합 지시 전에는
 `--apply`를 실행하지 않는다.
->>>>>>> codex/content-foundation-c0
 
 ### 2026-08-14 (Codex, Mac) — UI/UX v2 인수인계 기준점 게시
 

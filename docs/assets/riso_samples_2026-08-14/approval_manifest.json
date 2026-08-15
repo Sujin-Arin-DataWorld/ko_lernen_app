@@ -1,0 +1,94 @@
+{
+  "pipeline_parameters": {
+    "bleed_opacity": 0.2,
+    "bleed_radius_px": 1,
+    "coarse_delta": 1.5,
+    "fine_delta": 2.0,
+    "max_webp_bytes": 71680,
+    "misregister_blend": 0.6,
+    "misregister_shift": [
+      1.5,
+      0.5
+    ],
+    "speckle_density": 0.004,
+    "speckle_luma_max": 0.4,
+    "warm_cast": 0.04,
+    "warm_color": [
+      244,
+      232,
+      208
+    ],
+    "webp_quality": 88
+  },
+  "samples": [
+    {
+      "after": "docs/assets/riso_samples_2026-08-14/bamboo.riso_v2.webp",
+      "after_bytes": 94656,
+      "after_sha256": "bd2ee9229644bccfbec6dacd1878dbc34e41c3cc19904d8dec110ae744589750",
+      "before": "docs/assets/riso_samples_2026-08-14/bamboo.before.webp",
+      "before_sha256": "17618cf79860045c4d7a1e49bcda64815e8e848470dd65f845a521c59ce1d615",
+      "source": "assets/illustrations/packs/bamboo.webp",
+      "source_sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e"
+    },
+    {
+      "after": "docs/assets/riso_samples_2026-08-14/listening.riso_v2.webp",
+      "after_bytes": 92450,
+      "after_sha256": "3cda06b8e30c78ed4b15c7852815a0fa61b25cfb165823d1221cb2b63ac6cc1b",
+      "before": "docs/assets/riso_samples_2026-08-14/listening.before.webp",
+      "before_sha256": "8535225dbc1040f3ca64a84188a2e93a4bb4d5764bb093e2ad3999cc0627f944",
+      "source": "assets/illustrations/activities/listening.webp",
+      "source_sha256": "7ff8742bba87adf0309b0b1adf62734700be672b64d1ab28a758d2e9069aab2e"
+    },
+    {
+      "after": "docs/assets/riso_samples_2026-08-14/paywall_hero.riso_v2.webp",
+      "after_bytes": 174198,
+      "after_sha256": "9593048211f0994c012748c8888a2ec1874f57a652d148e5826a221f68cdd83a",
+      "before": "docs/assets/riso_samples_2026-08-14/paywall_hero.before.webp",
+      "before_sha256": "1e4a298559fe2ed119d062007a18f9c15bad309e26a40a96c5bcf6302165c031",
+      "source": "assets/illustrations/reward/paywall_hero.webp",
+      "source_sha256": "70cc70333ebc8a9e088e160a9c8504c0f41550b9256fbe06a11d33e53c62750d"
+    }
+  ],
+  "schema": 1,
+  "target_preimage_sha256": {
+    "assets/illustrations/activities/book_capture.webp": "43e4cf3c9fa394d2706f8e060d0b57140b498664296357d6c74b92a3f6416192",
+    "assets/illustrations/activities/bookshelf.webp": "21c775be5d9cd625426f9094f8294f1e8225316a7030da2527818f0f2babefdf",
+    "assets/illustrations/activities/calligraphy.webp": "152ebcf5bbeb24f19bb90f011736013fc5821d151a0d600aa58c1b30972f9829",
+    "assets/illustrations/activities/chosung.webp": "49aa02c02279ae8d1b92216b61d4fb8c5520d4c368b0ae09b977174d3879b41a",
+    "assets/illustrations/activities/cloze.webp": "d9c35878b0c7c5fd7a267d89128e677a6950a48832c31897d53e69a10c607bf9",
+    "assets/illustrations/activities/course.webp": "40b3cb1192893a49d306ae6edd8c5b469b2601a8a77f18c2d17f678a5555ce6b",
+    "assets/illustrations/activities/custom_matching.webp": "2da3c678c109dffb164d36deb8749f6305cab1f8b6786f2675cbd725ab6978f2",
+    "assets/illustrations/activities/custom_quiz.webp": "95a789f432fdc149de12911407d1ef3df869222a1eefe62b9443110caeb688d0",
+    "assets/illustrations/activities/custom_typing.webp": "9fc43c973d608f30b5cc509ea34ae1b9410fc11d6b440b5b2fffcee1bd080d19",
+    "assets/illustrations/activities/daily_game.webp": "01a7b80d9699c3bc04622d7f3613a11074cf7a0e241eed6db89b7cb9038b8b5f",
+    "assets/illustrations/activities/grammar.webp": "330c7b9ef18e6ebe4718b8f141a899026397d5cabc5805d5d44fa7e749d4bdb1",
+    "assets/illustrations/activities/hangul.webp": "77cb04dde970a0c06d9730a01c8ef43724672bfcb801e34a09874eac85850b02",
+    "assets/illustrations/activities/hard_words.webp": "2b4b54c4ad179260d6716aa62c40dfa7a6a43f3a40137819fa79fdf082473f6a",
+    "assets/illustrations/activities/kkeunmari.webp": "1653ca7f9980c9a5e40624e4b890d1515eb3791a1bfb0edaff52d3ed7001f19d",
+    "assets/illustrations/activities/listening.webp": "7ff8742bba87adf0309b0b1adf62734700be672b64d1ab28a758d2e9069aab2e",
+    "assets/illustrations/activities/pronunciation.webp": "fb6d9be0f7f0a4eeb0f0bce6a66743dd16ed3d4cff9467d76d91dd9961992391",
+    "assets/illustrations/activities/scenarios.webp": "fa8df13eff1dacd1d2f0cda4c3809bd85fd44bbdb6de850fa81b46f7f7311372",
+    "assets/illustrations/activities/sentence_arcade.webp": "83ea42125bf1a21000423fff29c10dad079a4527f38fdece270cae4f6c87c312",
+    "assets/illustrations/activities/smalltalk.webp": "bad8279ccf1638fdf6054fc1b4fb052db61c1a818116286e7b6ce7ae5c0b5ed9",
+    "assets/illustrations/activities/speed_match.webp": "bb84e5c15aa900a92af845e8e283dcc55773e7cf176176f1b72fcfb8bb9f1c9a",
+    "assets/illustrations/activities/srs.webp": "7627d4088a9109ef19710ceba7df36edbf5c83a55b408c9890bc3809c2681156",
+    "assets/illustrations/activities/syllable_cross.webp": "688bca9d768491bcaa4487d6450cdddde3357c536d6b905f06bf81922b398e13",
+    "assets/illustrations/activities/vocab_packs.webp": "1facf8ff344ca7d09362e8e639593caca8910e8e60f6532d3d1e8140c8d1dcc0",
+    "assets/illustrations/activities/word_search.webp": "fee3b57d0bd4b539e9db137462ecaf2300ca197bcf0791714056268eb48a8c21",
+    "assets/illustrations/packs/bamboo.webp": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+    "assets/illustrations/packs/chilbo.webp": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
+    "assets/illustrations/packs/chrysanthemum.webp": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+    "assets/illustrations/packs/cloud.webp": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
+    "assets/illustrations/packs/gwigap.webp": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+    "assets/illustrations/packs/lotus.webp": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+    "assets/illustrations/packs/manja.webp": "f9b47d8c7ed59e32d3ca85bdfd8b3d6019acfeacd6b33db65dc7d059ac6a55ee",
+    "assets/illustrations/packs/mountain.webp": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+    "assets/illustrations/packs/octagon.webp": "f5bfbe5d3f12abfa7620439377edd5b5680483dd758ac5d5c1d5232a0ec87225",
+    "assets/illustrations/packs/peony.webp": "538575cd3d84a0c422128875ccd504344cebb8a472dc76914647d72a8e04d8d6",
+    "assets/illustrations/packs/plum.webp": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+    "assets/illustrations/packs/taegeuk.webp": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
+    "assets/illustrations/packs/vine.webp": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+    "assets/illustrations/packs/wave.webp": "6a9cf0f7e3975eb538a85ddeda2d869b410139d516a02cd1c03305bee375340f",
+    "assets/illustrations/reward/paywall_hero.webp": "70cc70333ebc8a9e088e160a9c8504c0f41550b9256fbe06a11d33e53c62750d"
+  }
+}

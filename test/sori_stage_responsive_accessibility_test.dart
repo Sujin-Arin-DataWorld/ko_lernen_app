@@ -106,6 +106,32 @@ void main() {
     expect(tester.takeException(), isNull);
     expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
   });
+
+  for (final size in const <Size>[
+    Size(390, 844),
+    Size(720, 1024),
+    Size(1280, 900),
+  ]) {
+    for (final textScale in const <double>[1, 1.3, 2]) {
+      testWidgets('catalog fits ${size.width}dp at ${textScale}x text', (
+        tester,
+      ) async {
+        _setViewport(tester, size);
+        await tester.pumpWidget(
+          _catalogApp(
+            locale: const Locale('de'),
+            theme: AppTheme.light,
+            disableAnimations: true,
+            textScale: textScale,
+          ),
+        );
+        await tester.pump();
+
+        expect(tester.takeException(), isNull);
+        expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
+      });
+    }
+  }
 }
 
 void _setViewport(WidgetTester tester, Size size) {
@@ -138,6 +164,7 @@ Widget _catalogApp({
   required Locale locale,
   required ThemeData theme,
   required bool disableAnimations,
+  double textScale = 1,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: theme,
@@ -145,7 +172,10 @@ Widget _catalogApp({
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   builder: (context, child) => MediaQuery(
-    data: MediaQuery.of(context).copyWith(disableAnimations: disableAnimations),
+    data: MediaQuery.of(context).copyWith(
+      disableAnimations: disableAnimations,
+      textScaler: TextScaler.linear(textScale),
+    ),
     child: child!,
   ),
   home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),

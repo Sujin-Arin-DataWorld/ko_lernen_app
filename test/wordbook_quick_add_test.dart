@@ -21,7 +21,9 @@ void main() {
 
   test('quickAdd legt Schnellspeicher an und fügt das Wort hinzu', () async {
     final r = await CustomPackService.quickAdd(
-        defaultPackName: '⭐ Schnellspeicher', word: w('사과', 'Apfel'));
+      defaultPackName: '⭐ Schnellspeicher',
+      word: w('사과', 'Apfel'),
+    );
     expect(r, WordbookAddResult.added);
 
     final pack = CustomPackService.getById(CustomPackService.quickPackId);
@@ -32,9 +34,14 @@ void main() {
   });
 
   test('gleiches Wort zweimal → alreadyExists (kein Duplikat)', () async {
-    await CustomPackService.quickAdd(defaultPackName: '⭐', word: w('사과', 'Apfel'));
+    await CustomPackService.quickAdd(
+      defaultPackName: '⭐',
+      word: w('사과', 'Apfel'),
+    );
     final r2 = await CustomPackService.quickAdd(
-        defaultPackName: '⭐', word: w('사과', 'Apfel'));
+      defaultPackName: '⭐',
+      word: w('사과', 'Apfel'),
+    );
     expect(r2, WordbookAddResult.alreadyExists);
     expect(
       CustomPackService.getById(CustomPackService.quickPackId)!.words.length,
@@ -42,10 +49,35 @@ void main() {
     );
   });
 
+  test('gleichzeitiges Speichern desselben Worts bleibt atomar', () async {
+    final results = await Future.wait([
+      CustomPackService.quickAdd(defaultPackName: '⭐', word: w('사과', 'Apfel')),
+      CustomPackService.quickAdd(defaultPackName: '⭐', word: w('사과', 'Apfel')),
+    ]);
+
+    expect(
+      results,
+      containsAll([WordbookAddResult.added, WordbookAddResult.alreadyExists]),
+    );
+    expect(
+      CustomPackService.getById(CustomPackService.quickPackId)!.words,
+      hasLength(1),
+    );
+  });
+
   test('mehrere verschiedene Wörter landen im selben Pack', () async {
-    await CustomPackService.quickAdd(defaultPackName: '⭐', word: w('사과', 'Apfel'));
-    await CustomPackService.quickAdd(defaultPackName: '⭐', word: w('물', 'Wasser'));
-    await CustomPackService.quickAdd(defaultPackName: '⭐', word: w('책', 'Buch'));
+    await CustomPackService.quickAdd(
+      defaultPackName: '⭐',
+      word: w('사과', 'Apfel'),
+    );
+    await CustomPackService.quickAdd(
+      defaultPackName: '⭐',
+      word: w('물', 'Wasser'),
+    );
+    await CustomPackService.quickAdd(
+      defaultPackName: '⭐',
+      word: w('책', 'Buch'),
+    );
     expect(
       CustomPackService.getById(CustomPackService.quickPackId)!.words.length,
       3,
@@ -54,7 +86,9 @@ void main() {
 
   test('leeres koreanisches Wort → failed', () async {
     final r = await CustomPackService.quickAdd(
-        defaultPackName: '⭐', word: w('   ', 'x'));
+      defaultPackName: '⭐',
+      word: w('   ', 'x'),
+    );
     expect(r, WordbookAddResult.failed);
   });
 }

@@ -5,11 +5,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -87,6 +93,13 @@ void main() {
       final screens = <String, Widget Function()>{
         'settings': SettingsScreen.new,
         'vocab_packs': VocabPacksScreen.new,
+        // §P3 (2026-08-14): Today 미션 카드 v2·한옥 배너·퀘스트 카드의 배치
+        // 골든. 결정적 렌더를 위해 now/loadSnapshot 시임 주입 (1차 핸드오프
+        // §3-4 픽스처 원칙 — sori_stage_today_matte_test 와 같은 스냅샷).
+        'sori_today': () => SoriStageTodayScreen(
+          loadSnapshot: () async => _todaySnapshot(),
+          now: () => DateTime(2026, 8, 14, 9),
+        ),
       };
 
       final viewports = <String, Size>{
@@ -112,6 +125,15 @@ void main() {
 
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
+            if (screen.key == 'sori_today') {
+              await tester.runAsync(
+                () => precacheImage(
+                  const AssetImage('assets/illustrations/activities/srs.webp'),
+                  tester.element(find.byType(SoriStageTodayScreen)),
+                ),
+              );
+              await tester.pump();
+            }
             await tester.pump(const Duration(milliseconds: 100));
             await tester.pump(const Duration(milliseconds: 1200));
 
@@ -139,4 +161,24 @@ Widget _wrap(Widget child) => MaterialApp(
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: child,
   onGenerateRoute: (settings) => null,
+);
+
+/// sori_today 골든 픽스처 — 미션 스테이지 일러스트·보자기·한옥 배너의
+/// 결정적 레이아웃. 보상행과 퀘스트 진행 카드의 rich-state 계약은
+/// `sori_stage_today_matte_test.dart`가 별도 픽스처로 검증한다.
+SoriStageProgressionSnapshot _todaySnapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 12),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 12,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+  ),
+  quests: const [],
+  pendingBojagiCount: 1,
+  stampCount: 4,
+  xp: 320,
+  streakDays: 6,
+  todayReward: null,
 );

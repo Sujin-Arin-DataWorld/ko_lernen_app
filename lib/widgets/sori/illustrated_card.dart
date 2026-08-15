@@ -37,6 +37,7 @@ class SoriIllustratedCard extends StatelessWidget {
     this.footer,
     this.state = SoriIllustratedCardState.normal,
     this.overlay,
+    this.imageOverlay,
     this.onTap,
     this.onLongPress,
     this.semanticsLabel,
@@ -60,6 +61,11 @@ class SoriIllustratedCard extends StatelessWidget {
 
   /// [SoriIllustratedCardState.cleared] 일 때 우상단에 얹는 위젯 (단청 도장).
   final Widget? overlay;
+
+  /// 이미지 슬롯 **내부** 우하단에 얹는 위젯 (§P4-3 — 분(分) 미니 필 등).
+  /// ⚠️ 카드 전체 Stack 이 아니라 이미지 ClipRRect 안에 배치된다 — 밖에
+  /// 두면 footer 위에 얹힌다. 기본 null — 기존 호출부(팩 그리드 등) 영향 0.
+  final Widget? imageOverlay;
 
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -145,11 +151,29 @@ class SoriIllustratedCard extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: imageAspectRatio,
-                  child: _Illustration(
-                    asset: illustrationAsset,
-                    fallback: fallback,
-                    dimmed: _locked,
-                  ),
+                  // §P4-3: imageOverlay 는 이미지 슬롯 내부 Stack — 필이
+                  // 이미지 위에만 얹히고 footer 를 침범하지 않는다.
+                  child: imageOverlay == null
+                      ? _Illustration(
+                          asset: illustrationAsset,
+                          fallback: fallback,
+                          dimmed: _locked,
+                        )
+                      : Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            _Illustration(
+                              asset: illustrationAsset,
+                              fallback: fallback,
+                              dimmed: _locked,
+                            ),
+                            Positioned(
+                              right: Spacing.xs + 2,
+                              bottom: Spacing.xs + 2,
+                              child: imageOverlay!,
+                            ),
+                          ],
+                        ),
                 ),
               ),
               if (shrinkWrap) body else Expanded(child: body),

@@ -48,6 +48,10 @@ void main() {
       'kl_user_level': 'a1',
       'kl_streak_days': 0,
       'kl_xp': 0,
+      // 코치 오버레이(AbsorbPointer)가 드래그를 삼켜 단언이 공허해지는 것 방지.
+      'kl_tut_legacyVocab': true,
+      'kl_tut_soriDeck': true,
+      'kl_tut_wordbook': true,
     });
     await Storage.init();
     DataLoader.reset();
@@ -60,13 +64,8 @@ void main() {
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: MediaQuery(
-      data: const MediaQueryData(
-        size: Size(400, 800),
-        disableAnimations: true,
-      ),
-      child: LegacyVocabScreen(
-        vocabLoader: () async => testVocab,
-      ),
+      data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
+      child: LegacyVocabScreen(vocabLoader: () async => testVocab),
     ),
   );
 
@@ -91,7 +90,11 @@ void main() {
       final wrongBefore = Storage.wrongCountOf('사과');
 
       // 앞면 상태에서 우측 임계 초과 드래그
-      await tester.drag(find.text('사과'), const Offset(220, 0), warnIfMissed: false);
+      await tester.drag(
+        find.text('사과'),
+        const Offset(220, 0),
+        warnIfMissed: false,
+      );
       await tester.pumpAndSettle();
 
       // SRS 스냅샷 (after) — 변화 없어야 함
@@ -114,36 +117,39 @@ void main() {
     },
   );
 
-  testWidgets(
-    '앞면(flipped=false) 좌측 드래그 → SRS 미기록 (§C-1-1 regression, left)',
-    (tester) async {
-      tester.view.physicalSize = const Size(400, 800);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets('앞면(flipped=false) 좌측 드래그 → SRS 미기록 (§C-1-1 regression, left)', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(buildScreen());
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 500));
+    await tester.pumpWidget(buildScreen());
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
 
-      expect(find.text('사과'), findsOneWidget);
+    expect(find.text('사과'), findsOneWidget);
 
-      final srsBefore = Storage.srsCard('사과');
+    final srsBefore = Storage.srsCard('사과');
 
-      // 좌측 드래그 (nicht gewusst 방향)
-      await tester.drag(find.text('사과'), const Offset(-220, 0), warnIfMissed: false);
-      await tester.pumpAndSettle();
+    // 좌측 드래그 (nicht gewusst 방향)
+    await tester.drag(
+      find.text('사과'),
+      const Offset(-220, 0),
+      warnIfMissed: false,
+    );
+    await tester.pumpAndSettle();
 
-      final srsAfter = Storage.srsCard('사과');
+    final srsAfter = Storage.srsCard('사과');
 
-      expect(
-        srsAfter?.reviewCount,
-        srsBefore?.reviewCount,
-        reason: 'srsReview 미호출 (앞면 좌측 스와이프)',
-      );
+    expect(
+      srsAfter?.reviewCount,
+      srsBefore?.reviewCount,
+      reason: 'srsReview 미호출 (앞면 좌측 스와이프)',
+    );
 
-      // 여전히 같은 카드
-      expect(find.text('사과'), findsOneWidget);
-    },
-  );
+    // 여전히 같은 카드
+    expect(find.text('사과'), findsOneWidget);
+  });
 }

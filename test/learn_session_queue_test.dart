@@ -46,15 +46,18 @@ void main() {
     expect(q.servedPosition, 2);
   });
 
-  test('single always-missed word is re-served immediately, then graduates', () {
-    final q = _q(['a']);
-    expect(q.markUnknown(), LearnAnswerOutcome.requeued);
-    expect(q.current, 'a');
-    expect(q.markUnknown(), LearnAnswerOutcome.requeued);
-    expect(q.markUnknown(), LearnAnswerOutcome.graduated);
-    expect(q.isDone, isTrue);
-    expect(q.missesOf('a'), 3);
-  });
+  test(
+    'single always-missed word is re-served immediately, then graduates',
+    () {
+      final q = _q(['a']);
+      expect(q.markUnknown(), LearnAnswerOutcome.requeued);
+      expect(q.current, 'a');
+      expect(q.markUnknown(), LearnAnswerOutcome.requeued);
+      expect(q.markUnknown(), LearnAnswerOutcome.graduated);
+      expect(q.isDone, isTrue);
+      expect(q.missesOf('a'), 3);
+    },
+  );
 
   test('servedPosition holds during re-asks (denominator never changes)', () {
     final q = _q(['a', 'b', 'c']);
@@ -65,19 +68,22 @@ void main() {
     expect(q.uniqueTotal, 3);
   });
 
-  test('termination bound: always-wrong user finishes in ≤ maxMisses × n serves', () {
-    final q = _q(List.generate(10, (i) => 'w$i'));
-    var serves = 0;
-    while (!q.isDone) {
-      serves++;
-      q.markUnknown();
-      expect(serves, lessThanOrEqualTo(30));
-    }
-    expect(serves, 30);
-    for (var i = 0; i < 10; i++) {
-      expect(q.missesOf('w$i'), 3);
-    }
-  });
+  test(
+    'termination bound: always-wrong user finishes in ≤ maxMisses × n serves',
+    () {
+      final q = _q(List.generate(10, (i) => 'w$i'));
+      var serves = 0;
+      while (!q.isDone) {
+        serves++;
+        q.markUnknown();
+        expect(serves, lessThanOrEqualTo(30));
+      }
+      expect(serves, 30);
+      for (var i = 0; i < 10; i++) {
+        expect(q.missesOf('w$i'), 3);
+      }
+    },
+  );
 
   test('graduated word (3rd miss) leaves without reinsertion', () {
     final q = _q(['a', 'b']);
@@ -93,5 +99,54 @@ void main() {
     expect(q.isDone, isTrue);
     expect(q.markKnown, throwsStateError);
     expect(q.markUnknown, throwsStateError);
+    expect(q.defer, throwsStateError);
+  });
+
+  // ── §P2-4 defer() + peekNext ──────────────────────────────────────────
+
+  test('defer reinserts after reinsertGap without counting a miss', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    expect(q.defer(), LearnAnswerOutcome.deferred);
+    // markUnknown 과 동일 기하 — 남은 [b,c,d,e] 의 index 3 에 삽입.
+    final served = <String>[];
+    while (!q.isDone) {
+      served.add(q.current!);
+      q.markKnown();
+    }
+    expect(served, ['b', 'c', 'd', 'a', 'e']);
+  });
+
+  test('defer x10 never graduates and keeps uniqueTotal', () {
+    final q = _q(['a', 'b']);
+    for (var i = 0; i < 10; i++) {
+      expect(q.defer(), LearnAnswerOutcome.deferred);
+      expect(q.isDone, isFalse, reason: 'defer 는 큐를 비우지 않는다');
+    }
+    expect(q.missesOf('a'), 0);
+    expect(q.missesOf('b'), 0);
+    expect(q.uniqueTotal, 2);
+    // 진행바 후퇴 금지 — servedPosition 은 defer 로 변하지 않는다.
+    expect(q.servedPosition, 1);
+  });
+
+  test('defer on a single-card queue re-serves the same card', () {
+    final q = _q(['a']);
+    expect(q.defer(), LearnAnswerOutcome.deferred);
+    expect(q.current, 'a');
+    expect(q.isDone, isFalse);
+  });
+
+  test('peekNext exposes the second card only', () {
+    final two = _q(['a', 'b']);
+    expect(two.peekNext, 'b');
+    final one = _q(['a']);
+    expect(one.peekNext, isNull);
+    final zero = _q([]);
+    expect(zero.peekNext, isNull);
+    // defer 뒤에도 peekNext 는 재배치된 큐를 그대로 반영한다.
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    q.defer(); // → b,c,d,a,e
+    expect(q.current, 'b');
+    expect(q.peekNext, 'c');
   });
 }
