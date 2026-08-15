@@ -261,6 +261,45 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### UI/UX 개편 2 최종 통합 — Sori Deck × 일러스트 Stage (2026-08-15, Codex)
+
+> 정본 = `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`. Cursor 8개 후보
+> (Fable/Opus/Sonnet/Grok 4.5/Grok 4.6/Gemini/Sol/Terra)를 코드·테스트·범위로
+> 비교했다. PR #19(Fable)를 구조적 골격으로 삼고 #21(Sol)의 milestone/asset
+> gate, Grok 4.6의 mutation lock 등만 선별한 최종 후보는
+> `codex/ui-overhaul-2-final-integration`이다. 통합 코드 커밋은 `08a77fd6`이며,
+> Jin의 2026-08-15 명시 지시에 따라 이 기록과 함께 `main`에 병합·push한다.
+
+- [x] **P1/P2 Deck 2.0** — 4개 덱의 고정 `deck-card-slot`, 좌=모름·우=앎·
+  위=저장·아래=스킵, 지배축/방향별 clamp, 다음 카드 앞면 underlay, flip gate,
+  `LearnSessionQueue.defer/peekNext`, 원자적 `quickAdd`, 세대 안전 mutation lock,
+  접근 가능한 공용 action bar·live hint·DE/EN 코치까지 통합했다. vocab pack은
+  정본대로 전역 spotlight 대신 전용 3단계 `FeatureCoach.vocabPack`을 유지한다.
+- [x] **P3 Today** — illustration-first 21:9 미션, 보상·한옥·퀘스트 표면과
+  unavailable read-only 경계를 유지했다. 비활성 탭/오래된 async 결과가 milestone을
+  쓰거나 숨은 modal을 열 수 없고, 한 방문에는 한 보상만 표시한 뒤 snapshot을 갱신한다.
+- [x] **P4 Catalog** — 4:3 무크롭 일러스트·조건부 footer·분 pill을 적용하고,
+  활성화 시 진행도를 새로 읽는다. 390/720/1280dp × text scale 1.0/1.3/2.0의
+  9조합에서 실제 타이포/comfort scale 기반 높이를 검증한다.
+- [x] **P5 Gye/Hanok** — Gye future 안정화·활성화/route 복귀 refresh·오류 경계·
+  정적 showcase와 Hanok 퀘스트/도장/보자기 실카운트·route 복귀 refresh·스크린리더
+  tap action을 적용했다. 셸의 비활성 탭은 초기 I/O를 미룬다.
+- [x] **코치/접근성 보강** — Settings의 실제 tutorial reset만 세션 guard를
+  무효화하고, 테스트 teardown은 사용자 reset을 흉내 내지 않는다. Spotlight 전체화면
+  advance 영역에도 Next/Done 라벨을 부여했다.
+- [x] **§R-1 샘플/안전 게이트** — `scripts/apply_riso_v2.py`와 샘플 3쌍,
+  승인 manifest를 만들었다. apply는 Jin 승인 manifest SHA-256·정확한 39경로·원본
+  SHA-256·q88 장당 70KiB를 모두 만족해야 원자적으로 덮어쓴다.
+- [ ] **§R-1 production 적용** — 현재 after 샘플이 94,656/92,450/174,198B로
+  모두 70KiB를 초과한다. 파라미터/압축 최적화와 Jin 시각 승인 전까지 production
+  WebP 39장은 변경하지 않는다.
+- [x] **최종 검증** — 핵심 회귀 88건, 접근성 45건, 전체 3,391건 통과 + 의도적
+  skip 14건/실패 0, `flutter analyze --fatal-infos` 0 issues, macOS Web release
+  build 성공. PR들의 GitHub Actions 실패는 코드가 아니라 저장소 billing gate라
+  현재 통합본의 CI 증거로 사용하지 않는다.
+- [ ] **Jin 게이트** — Material fallback인 덱 아이콘 6종의 실제 승인 에셋,
+  리소 파라미터/샘플, 실기기 4방향 손맛·시스템 엣지·히어로 줌 잘림을 검수한다.
+
 ### UI/UX v2 기준점·콘텐츠 확장 분리 (2026-08-14)
 
 - [x] 캐릭터가 있는 5탭 Sori Stage를 기본 홈으로 유지하는 Phase 4 기준점과 UI/UX v2 인수인계 문서를 `79ae4a0c`/`86f5453b`로 기록했다. UI 구현은 이 기준점에서 별도 worktree/작업 단위로 진행한다.

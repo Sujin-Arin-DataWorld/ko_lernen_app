@@ -21,10 +21,17 @@ class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
   final Iterable<GyeDedication> dedications;
 
+  /// §P5-1 (2026-08-14): 쇼케이스 모드 — 단계 불투명도 계산을 우회하고
+  /// **8레이어 전부 1.0** 으로 그린다. 빈 상태의 "이렇게 자랄 수 있다"
+  /// 미리보기용 — 유령(0.22) 레이어가 섞인 그림은 영감을 주기는커녕 깨져
+  /// 보인다. 실제 계 마당(진행도 표현)에는 절대 쓰지 말 것.
+  final bool showcase;
+
   const GyeHanok({
     super.key,
     required this.meta,
     this.dedications = const <GyeDedication>[],
+    this.showcase = false,
   });
 
   @override
@@ -57,7 +64,33 @@ class _GyeHanokState extends State<GyeHanok>
     _pulse = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1800),
-    )..repeat(reverse: true);
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _syncPulse();
+  }
+
+  @override
+  void didUpdateWidget(covariant GyeHanok oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.showcase != widget.showcase) {
+      _syncPulse();
+    }
+  }
+
+  void _syncPulse() {
+    final shouldAnimate = !widget.showcase && !SoriMotion.reduceMotion(context);
+    if (shouldAnimate) {
+      if (!_pulse.isAnimating) {
+        _pulse.repeat(reverse: true);
+      }
+      return;
+    }
+    _pulse.stop();
+    _pulse.value = 0;
   }
 
   @override
@@ -71,6 +104,9 @@ class _GyeHanokState extends State<GyeHanok>
 
   /// 요소 기본 실체화 — 완성(1.0) / 다음=기존 주간 목표 비율 / 그 뒤=ghost.
   double _baseOpacity(int i, GyeLanternProgress progress) {
+    if (widget.showcase) {
+      return 1.0;
+    }
     if (i < progress.permanentElementCount) {
       return 1.0;
     }
@@ -90,17 +126,19 @@ class _GyeHanokState extends State<GyeHanok>
         builder: (ctx, c) {
           final w = c.maxWidth;
           final h = c.maxHeight;
+          Widget content() => Stack(
+            children: [
+              for (var i = 0; i < _elements.length; i++)
+                _element(i, progress, w, h, reduce),
+              GyeDedicationLayer(dedications: widget.dedications),
+            ],
+          );
+          if (widget.showcase || reduce) {
+            return content();
+          }
           return AnimatedBuilder(
             animation: _pulse,
-            builder: (context, _) {
-              return Stack(
-                children: [
-                  for (var i = 0; i < _elements.length; i++)
-                    _element(i, progress, w, h, reduce),
-                  GyeDedicationLayer(dedications: widget.dedications),
-                ],
-              );
-            },
+            builder: (context, _) => content(),
           );
         },
       ),
@@ -118,7 +156,9 @@ class _GyeHanokState extends State<GyeHanok>
     // "짓는 중" = 다음 요소(미완성). 진행률과 무관하게 은은히 호흡해 살아있게.
     final building = i == progress.permanentElementCount && base < 1.0;
     // The gold treatment acknowledges the present illustration state only.
+    // 쇼케이스(§P5-1)는 진행 연출 없이 완성본만 보여 준다.
     final complete =
+        !widget.showcase &&
         i == progress.permanentElementCount &&
         base >= 1.0 &&
         progress.hasWeeklyGoal;

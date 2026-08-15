@@ -255,16 +255,22 @@ class CustomPackService {
   }) async {
     if (word.korean.trim().isEmpty) return WordbookAddResult.failed;
     try {
-      var pack = getById(quickPackId);
-      if (pack == null) {
-        pack = CustomPack.manual(id: quickPackId, name: defaultPackName);
-        await save(pack);
-      }
-      if (pack.words.any((w) => w.korean == word.korean)) {
-        return WordbookAddResult.alreadyExists;
-      }
-      await addWord(quickPackId, word);
-      return WordbookAddResult.added;
+      return await MediaMutationLock.run(() async {
+        // Find/create, dedupe, and append are one read-modify-write. Calling
+        // save/addWord from here would re-enter the non-reentrant lock and,
+        // more importantly, let two simultaneous save gestures both pass the
+        // dedupe check.
+        final raw = Map<String, dynamic>.from(_readRaw());
+        var pack = _packFromRaw(raw, quickPackId);
+        pack ??= CustomPack.manual(id: quickPackId, name: defaultPackName);
+        if (pack.words.any((w) => w.korean == word.korean)) {
+          return WordbookAddResult.alreadyExists;
+        }
+        final updated = pack.copyWith(words: [...pack.words, word]);
+        raw[quickPackId] = updated.toLocalJson();
+        await _writeRawStrict(raw);
+        return WordbookAddResult.added;
+      });
     } catch (_) {
       return WordbookAddResult.failed;
     }

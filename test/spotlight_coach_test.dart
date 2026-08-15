@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_coach.dart';
 import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 
 /// SpotlightCoach 유닛 테스트.
@@ -55,7 +56,9 @@ void main() {
       expect(completed, isTrue);
     });
 
-    testWidgets('GlobalKey 미부착(측정 불가) → 모든 단계 skip → onComplete', (tester) async {
+    testWidgets('GlobalKey 미부착(측정 불가) → 모든 단계 skip → onComplete', (
+      tester,
+    ) async {
       // targetKey를 아무 위젯에도 부착하지 않음 → currentContext == null → skip
       final unmountedKey = GlobalKey();
       bool completed = false;
@@ -268,13 +271,50 @@ void main() {
     });
 
     test('resetTutorials 후 false 복귀', () async {
-      SharedPreferences.setMockInitialValues({
-        'kl_tut_home_tour': true,
-      });
+      SharedPreferences.setMockInitialValues({'kl_tut_home_tour': true});
       await Storage.init();
       expect(Storage.tutHomeTourSeen, isTrue);
       await Storage.resetTutorials();
       expect(Storage.tutHomeTourSeen, isFalse);
     });
+  });
+
+  testWidgets('resetTutorials clears the Sori Deck session guard', (
+    tester,
+  ) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({'kl_tut_soriDeck': false});
+    await Storage.init();
+    final targetKey = GlobalKey();
+    late BuildContext hostContext;
+
+    await tester.pumpWidget(
+      wrap(
+        Builder(
+          builder: (context) {
+            hostContext = context;
+            return Scaffold(
+              body: Center(
+                child: SizedBox(key: targetKey, width: 120, height: 120),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+
+    maybeShowSoriDeckCoach(hostContext, targetKey: targetKey);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 50));
+    expect(find.text('Karte wischen'), findsOneWidget);
+    await tester.tap(find.text('Fertig'));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(Storage.tutSeen('soriDeck'), isTrue);
+
+    await Storage.resetTutorials();
+    maybeShowSoriDeckCoach(hostContext, targetKey: targetKey);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 50));
+    expect(find.text('Karte wischen'), findsOneWidget);
   });
 }

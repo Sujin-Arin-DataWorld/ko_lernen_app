@@ -1660,6 +1660,23 @@ class AppL10nEn extends AppL10n {
   String get vocabPackGotIt => 'Got it';
 
   @override
+  String get deckActionSave => 'Save';
+
+  @override
+  String get deckFlipFirstHint => 'Tap the card to flip it first';
+
+  @override
+  String get coachSoriDeckTitle => 'Swipe the card';
+
+  @override
+  String get coachSoriDeckBody =>
+      'Swipe the card: right = knew it, left = didn\'t know, up = save, down = skip.';
+
+  @override
+  String get coachSoriDeckBodyNoSave =>
+      'Swipe the card: right = knew it, left = didn\'t know, down = skip. In other decks, swipe up to save the word.';
+
+  @override
   String get vocabPackStageLearn => 'Learn';
 
   @override
@@ -3897,6 +3914,22 @@ class AppL10nEn extends AppL10n {
       'It only shows that you contributed. Your answers, words, and assessment results stay private.';
 
   @override
+  String get gyeExplainWhatShort => 'A small, voluntary study group.';
+
+  @override
+  String get gyeExplainWhyShort => 'A shared hanok, not a competition.';
+
+  @override
+  String get gyeExplainHowShort => 'Join with a 6-digit code.';
+
+  @override
+  String get gyeShowcaseCaption =>
+      'This is what your shared hanok can look like';
+
+  @override
+  String get gyeExplainMore => 'Learn more';
+
+  @override
   String get gyeWeeklyEyebrow => 'Together this week';
 
   @override
@@ -4229,7 +4262,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Step 1 · Learn: flip the cards and study them';
+      'Step 1 · Learn: tap to flip the card, then swipe. Right = knew it, left = didn\'t know, up = save, down = skip';
 
   @override
   String get coachVocabPackStep2 => 'Step 2 · Quiz: pick the right translation';
@@ -4570,7 +4603,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachReviewStep2Body =>
-      '\"Got it\" extends the interval · \"Didn\'t know\" brings the card back sooner';
+      '\"Got it\" extends the interval · \"Didn\'t know\" brings the card back sooner. After flipping you can also swipe: right = got it, left = didn\'t know.';
 
   @override
   String get coachLegacyVocabTitle => 'Flashcard';
@@ -6011,6 +6044,48 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageMissionAction => 'Start today\'s mission';
+
+  @override
+  String get soriStageTodayMissionEyebrow => 'TODAY\'S MISSION';
+
+  @override
+  String get soriStageMissionStart => 'Start';
+
+  @override
+  String get hanokStageNameEmpty => 'Building site';
+
+  @override
+  String get hanokStageNameFoundation => 'Foundation';
+
+  @override
+  String get hanokStageNamePillars => 'Pillars';
+
+  @override
+  String get hanokStageNameBeams => 'Beams';
+
+  @override
+  String get hanokStageNameThatchRoof => 'Thatched roof';
+
+  @override
+  String get hanokStageNameTileRoofPartial => 'First roof tiles';
+
+  @override
+  String get hanokStageNameTileRoofComplete => 'Tiled roof';
+
+  @override
+  String get hanokStageNameDancheong => 'Dancheong';
+
+  @override
+  String get hanokStageNameGate => 'Gate';
+
+  @override
+  String get hanokStageNameWindows => 'Windows';
+
+  @override
+  String get hanokStageNameSideBuilding => 'Sarangchae annex';
+
+  @override
+  String get hanokStageNameJongga => 'Jongga estate';
 
   @override
   String get soriStageBojagiTitle => 'A Bojagi is waiting';

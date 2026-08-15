@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'account/account_transition_journal.dart';
 import '../models/personal_room.dart';
+import 'media_mutation_lock.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -336,6 +337,7 @@ class Storage {
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
+  static int _tutorialResetRevision = 0;
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -356,6 +358,7 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
     _courseMasteryCache = null;
     _wrongCountCache = null;
@@ -1303,6 +1306,9 @@ class Storage {
     'stats',
     'quests',
     'scenarios',
+    // Sori Deck 4방향 스와이프 공용 코치 (deck_coach.dart — ScreenCoachMixin
+    // 밖의 공용 헬퍼지만 같은 레지스트리로 resetTutorials 커버리지를 받는다).
+    'soriDeck',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).
@@ -1310,6 +1316,13 @@ class Storage {
       _prefs == null ? true : (_prefs!.getBool('kl_tut_$id') ?? false);
   static Future<void> setTutSeen(String id) async =>
       _prefs?.setBool('kl_tut_$id', true);
+
+  /// In-memory revision for process-wide coach guards. The user-facing
+  /// Settings reset advances it so helpers outside [ScreenCoachMixin] can
+  /// invalidate their session-only suppression without a service→widget
+  /// dependency. Test storage teardown intentionally does not impersonate a
+  /// user-requested tutorial reset.
+  static int get tutorialResetRevision => _tutorialResetRevision;
 
   /// 온보딩 3장 미리보기 캐러셀 표시됨? (Stage 2)
   static bool get introPreviewSeen =>
@@ -1330,6 +1343,7 @@ class Storage {
       _sb('kl_tut_wordbook', false),
       for (final id in kScreenCoachIds) _sb('kl_tut_$id', false),
     ]);
+    _tutorialResetRevision++;
   }
 
   /// DSGVO/ToS-Einwilligung beim ersten Start akzeptiert? (Consent-Gate)

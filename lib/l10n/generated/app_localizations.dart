@@ -3007,6 +3007,36 @@ abstract class AppL10n {
   /// **'Gewusst'**
   String get vocabPackGotIt;
 
+  /// No description provided for @deckActionSave.
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get deckActionSave;
+
+  /// No description provided for @deckFlipFirstHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Erst antippen und umdrehen'**
+  String get deckFlipFirstHint;
+
+  /// No description provided for @coachSoriDeckTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte wischen'**
+  String get coachSoriDeckTitle;
+
+  /// No description provided for @coachSoriDeckBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
+  String get coachSoriDeckBody;
+
+  /// No description provided for @coachSoriDeckBodyNoSave.
+  ///
+  /// In de, this message translates to:
+  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.'**
+  String get coachSoriDeckBodyNoSave;
+
   /// No description provided for @vocabPackStageLearn.
   ///
   /// In de, this message translates to:
@@ -6847,6 +6877,36 @@ abstract class AppL10n {
   /// **'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.'**
   String get gyePrivacyBody;
 
+  /// No description provided for @gyeExplainWhatShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kleine, freiwillige Lerngruppe.'**
+  String get gyeExplainWhatShort;
+
+  /// No description provided for @gyeExplainWhyShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein gemeinsames Hanok, kein Wettbewerb.'**
+  String get gyeExplainWhyShort;
+
+  /// No description provided for @gyeExplainHowShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitritt mit 6-stelligem Code.'**
+  String get gyeExplainHowShort;
+
+  /// No description provided for @gyeShowcaseCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'So kann euer gemeinsames Hanok aussehen'**
+  String get gyeShowcaseCaption;
+
+  /// No description provided for @gyeExplainMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr erfahren'**
+  String get gyeExplainMore;
+
   /// No description provided for @gyeWeeklyEyebrow.
   ///
   /// In de, this message translates to:
@@ -7378,7 +7438,7 @@ abstract class AppL10n {
   /// No description provided for @coachVocabPackStep1.
   ///
   /// In de, this message translates to:
-  /// **'Schritt 1 · Lernen: Karten umdrehen und einprägen'**
+  /// **'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen'**
   String get coachVocabPackStep1;
 
   /// No description provided for @coachVocabPackStep2.
@@ -7954,7 +8014,7 @@ abstract class AppL10n {
   /// No description provided for @coachReviewStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück'**
+  /// **'\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück. Nach dem Umdrehen geht auch Wischen: rechts = gewusst, links = nicht gewusst.'**
   String get coachReviewStep2Body;
 
   /// No description provided for @coachLegacyVocabTitle.
@@ -10446,6 +10506,90 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Heutige Mission starten'**
   String get soriStageMissionAction;
+
+  /// No description provided for @soriStageTodayMissionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'HEUTIGE MISSION'**
+  String get soriStageTodayMissionEyebrow;
+
+  /// No description provided for @soriStageMissionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get soriStageMissionStart;
+
+  /// No description provided for @hanokStageNameEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz'**
+  String get hanokStageNameEmpty;
+
+  /// No description provided for @hanokStageNameFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Fundament'**
+  String get hanokStageNameFoundation;
+
+  /// No description provided for @hanokStageNamePillars.
+  ///
+  /// In de, this message translates to:
+  /// **'Säulen'**
+  String get hanokStageNamePillars;
+
+  /// No description provided for @hanokStageNameBeams.
+  ///
+  /// In de, this message translates to:
+  /// **'Balken'**
+  String get hanokStageNameBeams;
+
+  /// No description provided for @hanokStageNameThatchRoof.
+  ///
+  /// In de, this message translates to:
+  /// **'Strohdach'**
+  String get hanokStageNameThatchRoof;
+
+  /// No description provided for @hanokStageNameTileRoofPartial.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Ziegel'**
+  String get hanokStageNameTileRoofPartial;
+
+  /// No description provided for @hanokStageNameTileRoofComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegeldach'**
+  String get hanokStageNameTileRoofComplete;
+
+  /// No description provided for @hanokStageNameDancheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong'**
+  String get hanokStageNameDancheong;
+
+  /// No description provided for @hanokStageNameGate.
+  ///
+  /// In de, this message translates to:
+  /// **'Tor'**
+  String get hanokStageNameGate;
+
+  /// No description provided for @hanokStageNameWindows.
+  ///
+  /// In de, this message translates to:
+  /// **'Fenster'**
+  String get hanokStageNameWindows;
+
+  /// No description provided for @hanokStageNameSideBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangchae'**
+  String get hanokStageNameSideBuilding;
+
+  /// No description provided for @hanokStageNameJongga.
+  ///
+  /// In de, this message translates to:
+  /// **'Jongga-Haus'**
+  String get hanokStageNameJongga;
 
   /// No description provided for @soriStageBojagiTitle.
   ///

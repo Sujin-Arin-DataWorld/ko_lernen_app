@@ -13,7 +13,8 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+
+import 'helpers/deck_actions.dart';
 
 Vocab _word(int n, {bool boss = false}) => Vocab(
   id: 'rq_v$n',
@@ -51,10 +52,7 @@ Future<AppL10n> _pump(WidgetTester tester, VocabPack pack) async {
 }
 
 void _tapButton(WidgetTester tester, String label) {
-  tester
-      .widgetList<SoriButton>(find.byType(SoriButton))
-      .firstWhere((b) => b.label == label)
-      .onTap!();
+  tapDeckAction(tester, label);
 }
 
 Future<void> _revealCurrentLearnCard(WidgetTester tester) async {
@@ -97,13 +95,16 @@ void main() {
 
     expect(find.text('재단어1'), findsOneWidget);
     expect(find.text('1 / 4'), findsOneWidget);
+    // §P2-3: 판정 버튼은 뜻 공개 전에는 힌트 훅만 발동한다 — 탭해도 판정
+    // 기록 0 + 같은 카드 유지 (게이트의 행동 단언, 옛 onTap==null 단언 대체).
+    _tapButton(tester, t.vocabPackDontKnow);
+    await _settle(tester);
+    expect(find.text('재단어1'), findsOneWidget);
+    expect(find.text('1 / 4'), findsOneWidget);
     expect(
-      tester
-          .widgetList<SoriButton>(find.byType(SoriButton))
-          .firstWhere((button) => button.label == t.vocabPackDontKnow)
-          .onTap,
-      isNull,
-      reason: 'Learn actions stay unavailable until the gloss is revealed',
+      Storage.wrongCountOf('재단어1'),
+      0,
+      reason: 'Learn judgments stay unavailable until the gloss is revealed',
     );
 
     // 단어1 뜻을 확인한 뒤 몰라요 → 분자 유지, 단어2 서빙.

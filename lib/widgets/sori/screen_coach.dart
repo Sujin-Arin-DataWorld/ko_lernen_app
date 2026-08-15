@@ -19,6 +19,15 @@ import 'spotlight_coach.dart';
 mixin ScreenCoachMixin<T extends StatefulWidget> on State<T> {
   // 같은 세션에 화면을 다시 들어가도(새 State) 재발화 안 함 — 프로세스 전역.
   static final Set<String> _firedThisSession = <String>{};
+  static int _tutorialResetRevision = Storage.tutorialResetRevision;
+
+  void _syncTutorialReset() {
+    final revision = Storage.tutorialResetRevision;
+    if (_tutorialResetRevision != revision) {
+      _tutorialResetRevision = revision;
+      _firedThisSession.clear();
+    }
+  }
 
   /// storage 키 접미. `Storage.kScreenCoachIds`에 반드시 등록.
   String get coachId;
@@ -33,6 +42,7 @@ mixin ScreenCoachMixin<T extends StatefulWidget> on State<T> {
 
   /// initState에서 1회 호출 — 첫 진입·미표시면 다음 프레임에 코치마크 예약.
   void scheduleCoach() {
+    _syncTutorialReset();
     assert(
       Storage.kScreenCoachIds.contains(coachId),
       'coachId "$coachId" missing from Storage.kScreenCoachIds',
@@ -44,6 +54,7 @@ mixin ScreenCoachMixin<T extends StatefulWidget> on State<T> {
   }
 
   void _tryShow() {
+    _syncTutorialReset();
     if (!mounted ||
         _firedThisSession.contains(coachId) ||
         Storage.tutSeen(coachId)) {
