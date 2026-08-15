@@ -39,7 +39,9 @@ ID를 일반적으로 해석하고, 해당 유닛·개념으로 되돌아오는 
 JSON/ARB parity 1,830키, 새 단어·예문·문법 예문 유일성, 출처형 문구 부재,
 trailing-whitespace 검사를 통과했다. 로컬 환경에는 Flutter/Dart SDK가 없어 GitHub CI의
 analyze/test/web build를 최종 게이트로 사용한다. 본문 commit 해시는 이 항목을 포함한
-commit에서 자기참조할 수 없으므로 직후 기록 commit에 고정한다.
+commit에서 자기참조할 수 없으므로 직후 기록 commit에 고정한다. 본문 commit은
+`daee6951` (`feat: add original B2-C2 content batch 05`)이며, 이 해시 기록은 바로 다음
+문서 commit에 포함한다.
 
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
