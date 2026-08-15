@@ -21,8 +21,10 @@ merge/cherry-pick하면 최신 UI·콘텐츠를 대량 되돌리는 회귀가 �
 **정리.** 위 증거를 확인한 뒤 로컬 `codex/ui-c0-deferred`만 삭제했다. Git에 등록되지 않은
 동일 저장소 worktree도 Codex/Claude/Developer 경로에서 발견되지 않았다. 다른 저장소인
 `skin-compass-engine`의 worktree는 범위 밖이라 건드리지 않았다. 최종 topology는 등록
-worktree 1개, local branch 1개(main), remote branch 1개(origin/main)다. 이 기록의 commit
-hash는 직후 문서 커밋에 고정한다.
+worktree 1개, local branch 1개(main), remote branch 1개(origin/main)다. 감사 기록 commit은
+`16b52d82`다. 브랜치가 차지하는 별도 worktree 공간은 없었으므로 추적 파일·Git 객체는
+건드리지 않고 재생성 가능한 `build` 409MiB와 `.dart_tool` 175MiB만 `flutter clean`으로
+정리했다. macOS 가용 공간은 3.9GiB→4.8GiB로 늘었다.
 
 ### 2026-08-15 (Codex, Mac) — UI 영상·콘텐츠 Batch 01–04 main 통합 및 전체 회귀 정렬
 
