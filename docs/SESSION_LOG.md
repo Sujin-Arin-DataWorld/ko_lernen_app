@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-15 (Codex, Mac) — Android release Gradle wrapper 계약 복구
+
+**무엇/왜.** Jin의 AAB·App Store 빌드 요청으로 Android release 경로를 실제 실행하자,
+`com.android.application` 9.0.1이 요구하는 최소 Gradle 9.1보다 wrapper 8.9가 낮아
+`bundleRelease`가 앱 컴파일 전에 중단됐다. `bab833fc`에서 기능 변경과 무관하게
+정상값 `gradle-9.1.0-all.zip`이 8.9로 되돌아간 회귀였으므로, 이전 릴리스 정본인
+9.1.0을 복구하고 자동 생성된 날짜 주석을 제거했다. 앱 코드·데이터·릴리스 플래그는
+바꾸지 않았다.
+
+**검증/커밋.** Homebrew OpenJDK 17에서 wrapper가 Gradle 9.1.0을 실행하고
+`./gradlew :app:tasks --no-daemon`가 `BUILD SUCCESSFUL`로 Android 프로젝트와 플러그인을
+구성함을 확인했다. 최종 signed AAB·IPA·App Store Connect 업로드 결과와 산출물 해시는
+후속 기록에 남긴다. 코드와 이 기록은 `fix(build): restore Gradle 9.1 release wrapper`
+커밋에 함께 포함한다.
+
 ### 2026-08-15 (Codex, Mac) — UI/UX 개편 2 후보 8개 비교와 최종 통합본
 
 **선정.** 동일 핸드오프에서 나온 Cursor 후보 8개(Fable·Opus·Sonnet·Grok 4.5·
