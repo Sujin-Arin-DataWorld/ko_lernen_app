@@ -15,7 +15,8 @@ missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐�
 보존 정책을 구조화했다. 콘텐츠 팩토리 README에는 429 발생 시 성공분을 버리지 않고
 저속 missing-only 실행으로 재개하는 절차와 `missing 0`만을 전체 완료 기준으로 삼는
 규칙을 추가했다. 이제 TTS는 릴리스 차단 항목이 아니며, main 병합 전 남은 외부 게이트는
-실제로 시작·완료된 Flutter GitHub Actions 검증이다.
+실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
+`847eee9a` (`chore: verify batch 05 TTS storage`)다.
 
 ### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
 
