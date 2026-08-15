@@ -50,7 +50,7 @@ const content = {
     ],
     finalEyebrow: "TEST HANGUL SORI",
     finalTitle: "Try the current test version.",
-    finalIntro: "Android testing is open now. The iOS version is in preparation.",
+    finalIntro: "iOS and Android testing are open now.",
     socialEyebrow: "LEARN WITH US ON INSTAGRAM",
     socialTitle: "A little Korean for your feed.",
     socialIntro: "Try Sori Check, discover how names sound in Hangul and watch a hanok grow one lesson at a time.",
@@ -102,7 +102,7 @@ const content = {
     ],
     finalEyebrow: "HANGUL SORI TESTEN",
     finalTitle: "Probiere die aktuelle Testversion aus.",
-    finalIntro: "Der Android-Test läuft bereits. Die iOS-Version ist in Vorbereitung.",
+    finalIntro: "Die Tests für iOS und Android sind jetzt geöffnet.",
     socialEyebrow: "LERNE MIT UNS AUF INSTAGRAM",
     socialTitle: "Ein bisschen Koreanisch für deinen Feed.",
     socialIntro: "Mach beim Sori Check mit, entdecke deinen Namen in Hangul und sieh zu, wie dein Hanok mit jeder Lektion wächst.",
@@ -154,7 +154,7 @@ const content = {
     ],
     finalEyebrow: "한글소리 테스트",
     finalTitle: "현재 테스트 버전을 사용해 보세요.",
-    finalIntro: "Android 테스트를 진행 중이며 iOS 버전을 준비하고 있습니다.",
+    finalIntro: "iOS와 Android 테스트를 지금 이용할 수 있습니다.",
     socialEyebrow: "인스타그램에서 함께 배워요",
     socialTitle: "피드에서 만나는 짧은 한국어.",
     socialIntro: "소리 체크에 참여하고, 이름을 한글로 써 보고, 수업마다 자라는 한옥을 만나 보세요.",
@@ -164,17 +164,27 @@ const content = {
   },
 } as const;
 
+const IOS_TESTFLIGHT = {
+  // Set isAvailable to false before deploying an update that closes iOS testing.
+  // All iOS CTAs will then return visitors to the existing tester application form.
+  isAvailable: true,
+  url: "https://testflight.apple.com/join/sbvJNQSt",
+} as const;
+
 const testerCopy = {
   en: {
-    ios: "iOS in preparation",
+    iosAvailable: "iOS beta available",
+    iosUnavailable: "iOS in preparation",
     android: "Android testing",
   },
   de: {
-    ios: "iOS in Vorbereitung",
+    iosAvailable: "iOS-Beta verfügbar",
+    iosUnavailable: "iOS in Vorbereitung",
     android: "Android-Test läuft",
   },
   ko: {
-    ios: "iOS 준비 중",
+    iosAvailable: "iOS 베타 이용 가능",
+    iosUnavailable: "iOS 준비 중",
     android: "Android 테스트 중",
   },
 } as const;
@@ -189,8 +199,9 @@ function ButtonLink({ href, children, variant = "primary", compact = false }: { 
 
 function StoreButtons({ locale, light = false }: { locale: Locale; light?: boolean }) {
   const t = testerCopy[locale];
+  const iosTestingOpen = IOS_TESTFLIGHT.isAvailable;
   return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
-    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
+    <a className="store-button" href={iosTestingOpen ? IOS_TESTFLIGHT.url : "#tester-access"} target={iosTestingOpen ? "_blank" : undefined} rel={iosTestingOpen ? "noopener noreferrer" : undefined} aria-haspopup={iosTestingOpen ? undefined : "dialog"}><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{iosTestingOpen ? t.iosAvailable : t.iosUnavailable}</small><b>App Store</b></span></a>
     <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
   </div>;
 }
