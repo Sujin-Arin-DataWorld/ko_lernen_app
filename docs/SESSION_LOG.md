@@ -9,12 +9,17 @@ run `31914341718`에서 320dp·130% 글자 배율의 난이도 토글 `Row`가 �
 넘치는 다음 실제 회귀가 드러났다. 두 난이도 칩을 중앙 정렬 `Wrap`으로 바꾸고 기존
 간격을 `spacing`/`runSpacing`으로 보존했다. 구현 커밋은 `020d5a8`이다.
 
-**검증.** 실패한 단일 320dp 회귀는 1건 통과했고,
-`test/c0_level_selection_test.dart`와 `test/advanced_checkpoint_mastery_test.dart`의
-결합 회귀는 **15 passed**, 대상 `flutter analyze --no-pub`는 **No issues found**,
-`git diff --check`는 통과했다. AAB 생성·배포는 수행하지 않았다. PR의 기존 web release
-build는 최종 원격 CI에서 전체 test와 보안 3종 뒤 확인하며, 그 실행이 모두 성공한
-경우에만 `main`에 병합한다.
+추가 경로 점검에서는 전용 scenario가 없는 C1/C2 미션이 모든 비-scenario 활동을 한
+`build` 단계로 묶어, 첫 cloze를 마치면 선언된 grammar/smalltalk checkpoint까지 완료된
+것처럼 숨기는 진도 차단을 확인했다. 유닛에 정확히 선언된 비-scenario checkpoint를
+별도의 마지막 단계와 번역된 CTA로 노출했다. 구현 커밋은 `bc7d18b`이다.
+
+**검증.** 320dp 화면, 기존 A1 미션 순서, C1/C2의 listen → build → exact checkpoint
+노출·진도 판정, ARB 번역 계약을 묶은 Flutter test **37건이 모두 통과**했다. 변경 대상
+5개 파일의 `flutter analyze --no-pub`는 **No issues found**, `git diff --check`도
+통과했다. AAB 생성·배포는 수행하지 않았다. PR의 기존 web release build는 최종 원격
+CI에서 전체 test와 보안 3종 뒤 확인하며, 그 실행이 모두 성공한 경우에만 `main`에
+병합한다.
 
 ### 2026-08-16 (Codex Work Mode) - PR #27 최종 리뷰 차단 3건 보완
 
