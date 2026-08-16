@@ -115,7 +115,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
   bool get _qualityOverrideByTextEdit =>
       widget.args['qualityOverrideByTextEdit'] == true;
   String get _ocrQuality {
-    if (_qualityOverrideByTextEdit) return 'severe_override';
+    if (_qualityOverrideByTextEdit) {
+      return 'severe_override';
+    }
     final ocr = widget.args['ocrQuality'];
     if (ocr is Map && ocr['confidenceUnavailable'] == true) {
       return 'unmeasured';
@@ -133,23 +135,37 @@ class _BookResultScreenState extends State<BookResultScreen> {
     if (result.warnings.contains('invalid_response_filtered')) {
       return 'blocked_content';
     }
-    if (result.warnings.contains('no_korean_text')) return 'blocked_no_korean';
-    if (!result.hasMeaningfulResult) return 'blocked_empty';
+    if (result.warnings.contains('no_korean_text')) {
+      return 'blocked_no_korean';
+    }
+    if (!result.hasMeaningfulResult) {
+      return 'blocked_empty';
+    }
     if (result.warnings.contains('translation_unavailable')) {
       return 'partial_translation';
     }
-    if (result.warnings.contains('offline_stub')) return 'offline';
-    if (_qualityOverrideByTextEdit) return 'success_capture_override';
+    if (result.warnings.contains('offline_stub')) {
+      return 'offline';
+    }
+    if (_qualityOverrideByTextEdit) {
+      return 'success_capture_override';
+    }
     return 'success';
   }
 
   String _warningBucketFor(BookAnalysisResult result) {
-    if (result.warnings.contains('invalid_response_schema')) return 'schema';
-    if (result.warnings.contains('wrong_analysis_language')) return 'language';
+    if (result.warnings.contains('invalid_response_schema')) {
+      return 'schema';
+    }
+    if (result.warnings.contains('wrong_analysis_language')) {
+      return 'language';
+    }
     if (result.warnings.contains('invalid_response_filtered')) {
       return 'content';
     }
-    if (result.warnings.contains('no_korean_text')) return 'no_korean';
+    if (result.warnings.contains('no_korean_text')) {
+      return 'no_korean';
+    }
     if (result.warnings.contains('translation_unavailable')) {
       return 'translation';
     }
@@ -164,8 +180,12 @@ class _BookResultScreenState extends State<BookResultScreen> {
     )) {
       return 'capture_quality';
     }
-    if (result.warnings.contains('offline_stub')) return 'remote';
-    if (_captureQualityWarnings.isNotEmpty) return 'capture_quality';
+    if (result.warnings.contains('offline_stub')) {
+      return 'remote';
+    }
+    if (_captureQualityWarnings.isNotEmpty) {
+      return 'capture_quality';
+    }
     return 'none';
   }
 
@@ -264,7 +284,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _save() async {
     final res = _result;
-    if (res == null || !res.isSaveable || !_saveIntent.canStart) return;
+    if (res == null || !res.isSaveable || !_saveIntent.canStart) {
+      return;
+    }
     final operation = _saveIntent.run((pageId, capturedAtIso) async {
       final page = BookPage(
         id: pageId,
@@ -612,7 +634,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _createCustomPack(AppL10n t) async {
     final res = _result;
-    if (res == null || !res.isSaveable || res.words.isEmpty) return;
+    if (res == null || !res.isSaveable || res.words.isEmpty) {
+      return;
+    }
     final controller = TextEditingController(
       text: 'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
     );

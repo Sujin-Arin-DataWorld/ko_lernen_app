@@ -292,7 +292,9 @@ class BookAnalysisService {
     }
 
     String clean(Object? value, int maxLength) {
-      if (value == null) return '';
+      if (value == null) {
+        return '';
+      }
       if (value is! String) {
         invalidResponse = true;
         return '';

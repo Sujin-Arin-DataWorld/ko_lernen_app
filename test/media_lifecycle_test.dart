@@ -278,7 +278,7 @@ void main() {
       final source = File('${sandbox.path}${Platform.pathSeparator}word.jpg')
         ..writeAsBytesSync([2]);
       final pending = await store.stage(source, ManagedMediaKind.word);
-      final staleExpected = original.copyWithEditable(korean: 'shifted');
+      final staleExpected = original.copyWithEditable(korean: '바뀐말');
 
       await expectLater(
         CustomPackService.updateWordWithMedia(
@@ -301,8 +301,8 @@ void main() {
   );
 
   test('shifted delete index cannot remove a different word', () async {
-    final expected = detailedWord('').copyWithEditable(korean: 'expected');
-    final shifted = detailedWord('').copyWithEditable(korean: 'shifted');
+    final expected = detailedWord('').copyWithEditable(korean: '예상단어');
+    final shifted = detailedWord('').copyWithEditable(korean: '바뀐단어');
     await Storage.setCustomPacksRawJson(
       jsonEncode({
         'pack': CustomPack.manual(
@@ -320,15 +320,15 @@ void main() {
 
     expect(
       CustomPackService.getById('pack')!.words.map((word) => word.korean),
-      ['shifted', 'expected'],
+      ['바뀐단어', '예상단어'],
     );
   });
 
   test(
     'concurrent duplicate delete commits once and rejects the retry',
     () async {
-      final expected = detailedWord('').copyWithEditable(korean: 'first');
-      final shifted = detailedWord('').copyWithEditable(korean: 'second');
+      final expected = detailedWord('').copyWithEditable(korean: '첫째');
+      final shifted = detailedWord('').copyWithEditable(korean: '둘째');
       await Storage.setCustomPacksRawJson(
         jsonEncode({
           'pack': CustomPack.manual(
@@ -350,7 +350,7 @@ void main() {
       expect(outcomes.whereType<StateError>(), hasLength(1));
       expect(
         CustomPackService.getById('pack')!.words.map((word) => word.korean),
-        ['second'],
+        ['둘째'],
       );
     },
   );
@@ -365,8 +365,8 @@ void main() {
       await store.finalize(oldPromotion);
       final expected = detailedWord(
         oldPromotion.reference.encoded,
-      ).copyWithEditable(korean: 'first');
-      final shifted = detailedWord('').copyWithEditable(korean: 'second');
+      ).copyWithEditable(korean: '첫째');
+      final shifted = detailedWord('').copyWithEditable(korean: '둘째');
       await Storage.setCustomPacksRawJson(
         jsonEncode({
           'pack': CustomPack.manual(
@@ -384,7 +384,7 @@ void main() {
         expectedOriginal: expected,
       );
 
-      expect(updated?.words.map((word) => word.korean), ['second']);
+      expect(updated?.words.map((word) => word.korean), ['둘째']);
       expect(await store.resolve(oldPromotion.reference), isNotNull);
       await expectLater(
         CustomPackService.deleteWord('pack', 0, expectedOriginal: expected),
@@ -392,7 +392,7 @@ void main() {
       );
       expect(
         CustomPackService.getById('pack')!.words.map((word) => word.korean),
-        ['second'],
+        ['둘째'],
       );
     },
   );
@@ -407,8 +407,8 @@ void main() {
       await store.finalize(oldPromotion);
       final deleted = detailedWord(
         oldPromotion.reference.encoded,
-      ).copyWithEditable(korean: 'delete-me');
-      final survivor = detailedWord('').copyWithEditable(korean: 'survivor');
+      ).copyWithEditable(korean: '삭제할말');
+      final survivor = detailedWord('').copyWithEditable(korean: '남은말');
       await Storage.setCustomPacksRawJson(
         jsonEncode({
           'pack': CustomPack.manual(
@@ -438,7 +438,7 @@ void main() {
 
       final result = CustomPackService.getById('pack')!;
       expect(result.name, 'After');
-      expect(result.words.map((word) => word.korean), ['survivor']);
+      expect(result.words.map((word) => word.korean), ['남은말']);
       expect(
         result.words.any(
           (word) => word.imagePath == oldPromotion.reference.encoded,
