@@ -3,9 +3,14 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 import { handleTesterApplication, type TesterApplicationEnv } from "./tester-application";
 
+declare const __HANGUL_SORI_RELEASE_ID__: string;
+
+interface AssetFetcher {
+  fetch(request: Request): Promise<Response>;
+}
+
 interface Env extends TesterApplicationEnv {
-  ASSETS: Fetcher;
-  DB: D1Database;
+  ASSETS: AssetFetcher;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -46,6 +51,7 @@ function contentSecurityPolicy(nonce: string) {
 
 async function withSecurityHeaders(response: Response, url: URL) {
   const headers = new Headers(response.headers);
+  headers.set("x-hangul-sori-release", __HANGUL_SORI_RELEASE_ID__);
   headers.set("x-content-type-options", "nosniff");
   headers.set("x-frame-options", "DENY");
   headers.set("referrer-policy", "no-referrer");
@@ -100,7 +106,16 @@ const worker = {
       }, allowedWidths), url);
     }
 
-    return withSecurityHeaders(await handler.fetch(request, env, ctx), url);
+    const appResponse = await handler.fetch(request, env, ctx);
+    if (appResponse.status === 404) {
+      const headers = new Headers(appResponse.headers);
+      headers.set("content-type", "text/plain; charset=UTF-8");
+      headers.delete("content-length");
+      headers.delete("content-encoding");
+      return withSecurityHeaders(new Response("Not Found", { status: 404, headers }), url);
+    }
+
+    return withSecurityHeaders(appResponse, url);
   },
 };
 

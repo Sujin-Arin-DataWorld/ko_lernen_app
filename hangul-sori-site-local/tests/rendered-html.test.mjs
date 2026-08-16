@@ -2,6 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 test("renders finished site metadata", async () => {
+  const releaseManifest = JSON.parse(
+    await import("node:fs/promises").then(({ readFile }) =>
+      readFile(new URL("../dist/release.json", import.meta.url), "utf8"),
+    ),
+  );
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -29,6 +34,7 @@ test("renders finished site metadata", async () => {
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   assert.equal(response.headers.get("x-frame-options"), "DENY");
   assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+  assert.equal(response.headers.get("x-hangul-sori-release"), releaseManifest.releaseId);
   const html = await response.text();
   assert.match(html, /Learn Korean and build your own hanok\./i);
   assert.match(html, /한글을, 소리로 배우다/);
@@ -185,6 +191,75 @@ test("rejects tester submissions without a same-origin browser request", async (
   assert.equal(sent.length, 0);
 });
 
+test("reports production bindings and blocks tester POSTs on preview hosts", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("tester-bindings", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const sent = [];
+  const limits = [];
+  const env = {
+    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+    TESTER_EMAIL: { send: async (message) => sent.push(message) },
+    TESTER_RATE_LIMIT: { limit: async (options) => {
+      limits.push(options);
+      return { success: true };
+    } },
+  };
+
+  const diagnostic = await worker.fetch(
+    new Request("https://hangul-sori.com/api/tester-application"),
+    env,
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(diagnostic.status, 405);
+  assert.equal(diagnostic.headers.get("x-hangul-sori-email-binding"), "ready");
+  assert.equal(diagnostic.headers.get("x-hangul-sori-rate-limit-binding"), "ready");
+
+  const preview = await worker.fetch(
+    new Request("https://staging-hangul-sori.workers.dev/api/tester-application", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "origin": "https://staging-hangul-sori.workers.dev",
+        "x-hangul-sori-form": "tester-application",
+      },
+      body: "{}",
+    }),
+    env,
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(preview.status, 404);
+  assert.equal(sent.length, 0);
+  assert.equal(limits.length, 0);
+});
+
+test("fails closed when a production tester binding is missing", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("tester-missing-binding", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const sent = [];
+  const response = await worker.fetch(
+    new Request("https://hangul-sori.com/api/tester-application", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "origin": "https://hangul-sori.com",
+        "x-hangul-sori-form": "tester-application",
+      },
+      body: "{}",
+    }),
+    {
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+      TESTER_EMAIL: { send: async (message) => sent.push(message) },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { ok: false, error: "service_unavailable" });
+  assert.equal(sent.length, 0);
+});
+
 test("renders every public route with the expected launch content", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("routes", `${process.pid}-${Date.now()}`);
@@ -217,4 +292,20 @@ test("renders every public route with the expected launch content", async () => 
       assert.doesNotMatch(html, /Launch-Blocker|Platzhalter/i);
     }
   }
+});
+
+test("preserves the production plain-text 404 contract", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("not-found", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const response = await worker.fetch(
+    new Request("https://hangul-sori.com/this-route-does-not-exist"),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  assert.equal(response.status, 404);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/plain\b/i);
+  assert.equal(await response.text(), "Not Found");
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
 });

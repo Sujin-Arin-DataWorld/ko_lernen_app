@@ -1,88 +1,110 @@
-# 한글소리 사이트 로컬 수정 안내
+# 한글소리 웹사이트 로컬 수정 안내
 
-이 폴더는 현재 배포된 한글소리 사이트의 수정용 원본 프로젝트입니다. 단순 화면 캡처가 아니라 React, TypeScript, CSS와 이미지 및 영상이 포함된 실제 소스입니다.
+이 폴더가 `hangul-sori.com`의 실제 원본입니다. React, TypeScript, CSS,
+이미지·영상, 테스터 신청 API와 Cloudflare Worker 설정까지 부모
+`ko_lernen_app` GitHub 저장소가 모두 추적합니다. ZIP이나 ChatGPT Sites는 사용하지
+않습니다.
 
-## 1. Mac에서 사이트 열기
+## 1. Mac 또는 Windows에서 열기
 
-이 프로젝트는 Python 프로젝트가 아니므로 `venv`를 켤 필요가 없습니다. Node.js를 사용합니다.
-
-터미널에서 압축을 푼 폴더로 이동한 뒤 아래 명령을 실행하세요.
+`.node-version`에 고정된 **Node.js 24.18.0**을 설치한 뒤 이 폴더에서 실행합니다.
+다른 Node 메이저 버전이면 `npm ci`가 일부러 실패해 잘못된 환경의 배포를 막습니다.
 
 ```bash
-node -v
-npm install
+npm ci
 npm run dev
 ```
 
-Node.js 버전은 `22.13.0` 이상이 필요합니다. `npm run dev`를 실행하면 터미널에 로컬 주소가 표시됩니다. 그 주소를 브라우저에서 열면 수정 중인 사이트를 확인할 수 있습니다.
+터미널에 표시된 로컬 주소를 브라우저에서 열면 됩니다. 종료는 `Control + C`입니다.
 
-종료할 때는 터미널에서 `Control + C`를 누르세요.
-
-## 2. 가장 자주 수정할 파일
+## 2. 자주 수정하는 파일
 
 | 수정할 내용 | 파일 |
 | --- | --- |
-| 독일어, 영어, 한국어 메인 문구 | `app/site.tsx` |
-| 메인 화면 구성과 각 섹션 | `app/site.tsx` |
-| 색상, 글꼴, 카드, 모바일 디자인 | `app/globals.css` |
-| 사이트 제목과 검색용 설명 | `app/layout.tsx` |
-| 개인정보 처리방침과 법적 공통 레이아웃 | `app/legal.tsx` |
-| 개인정보 처리방침 페이지 | `app/privacy/page.tsx` |
+| 독일어·영어·한국어 메인 문구와 섹션 | `app/site.tsx` |
+| 색상·글꼴·카드·모바일 디자인 | `app/globals.css` |
+| 사이트 제목·검색 설명 | `app/layout.tsx` |
+| 스토어·TestFlight 주소 | `app/store-links.ts` |
+| 개인정보 처리방침 | `app/privacy/page.tsx` |
 | 이용약관 | `app/terms/page.tsx` |
 | Impressum | `app/impressum/page.tsx` |
 | 고객지원 | `app/support/page.tsx` |
 | 계정 삭제 안내 | `app/account-deletion/page.tsx` |
-| 전체 기능 페이지 | `app/features/page.tsx` |
-| Press 페이지 | `app/press/page.tsx` |
-| 로고, 한옥 이미지, 영상 | `public/` 폴더 |
+| 테스터 신청 API | `worker/tester-application.ts` |
+| 로고·이미지·영상 | `public/` |
 
-## 3. 이미지와 영상 바꾸기
+## 3. 배포 전 확인
 
-현재 사이트에서 사용하는 주요 파일은 다음과 같습니다.
-
-| 화면 | 파일 |
-| --- | --- |
-| 한글소리 로고 | `public/hangul-sori-logo.png` |
-| 메인 휴대폰의 한옥 | `public/hanok-gate.png` |
-| 한옥 입장 영상 | `public/intro-gate-to-madang.mp4` |
-| 호랑이와 까치 영상 | `public/taego-joy-duo.mp4` |
-| 영상 정지 화면 | `public/intro-gate-poster.jpg`, `public/taego-joy-poster.jpg` |
-| 브라우저 아이콘 | `public/icon-192.png`, `public/favicon.svg` |
-
-가장 쉬운 교체 방법은 새 파일을 같은 이름으로 `public/` 폴더에 덮어쓰는 것입니다. 파일명을 바꾸면 `app/site.tsx` 안의 `/파일명`도 함께 바꿔야 합니다.
-
-## 4. 색상 바꾸기
-
-`app/globals.css` 상단의 `:root`에서 대표 색상을 한 번에 바꿀 수 있습니다.
-
-```css
-:root {
-  --ink: #20312e;
-  --cream: #fbf7ed;
-  --paper: #fffdf8;
-  --jade: #176d62;
-  --jade-dark: #0d5149;
-  --red: #b7483b;
-  --gold: #d79c35;
-  --blue: #3c7384;
-}
+```bash
+npm run deploy:check
 ```
 
-## 5. 언어별 주소
+이 한 명령이 lint, TypeScript, 예전 `dist/` 제거, 새 빌드, 공개 경로,
+개인정보 동의, 보안 헤더, 테스터 신청, TestFlight 링크, Worker 바인딩,
+Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 16개 자동 테스트를 모두
+검사합니다. Sites 실행 파일, 필수 원본, 배포 식별자가 빠진 상태도 실패합니다.
 
-- 독일어: `/de`
-- 영어: `/en`
-- 한국어: `/ko`
-- 개인정보 처리방침: `/privacy`
-- 이용약관: `/terms`
-- 고객지원: `/support`
-- 계정 삭제: `/account-deletion`
-- 전체 기능: `/features`
-- Press: `/press`
-- Impressum: `/impressum`
+## 4. 직접 배포
 
-## 6. 다시 온라인 사이트에 반영하기
+처음 한 번만 Cloudflare에 로그인합니다.
 
-수정한 폴더를 다시 ZIP으로 압축해 ChatGPT에 올리고, `현재 Hangul Sori Sites 프로젝트에 이 수정본을 반영해줘`라고 요청하면 됩니다. `.openai/hosting.json`은 기존 Sites 프로젝트를 식별하므로 삭제하지 않는 것이 좋습니다.
+```bash
+npm run cloudflare:login
+```
 
-`node_modules`, `dist`, `.next` 폴더는 다시 압축할 필요가 없습니다. `npm install`과 빌드 과정에서 자동으로 만들어집니다.
+직접 배포할 때는 변경을 먼저 Git에 커밋하고 `main`을 `origin/main`에 push해야 합니다.
+그다음 아래 한 명령이면 빌드·테스트·dry-run·운영 배포·실제 도메인 확인이 순서대로
+실행됩니다.
+
+```bash
+npm run deploy
+```
+
+이 명령은 편집 중인 미커밋 파일, `main`이 아닌 브랜치, 최신 원격 `main`보다 오래된
+빌드를 운영에 올리지 않습니다. 배포된 모든 응답의 Git SHA를 확인하고, 새 버전 검증이
+실패했는데 그 버전이 아직 운영을 소유하고 있으면 직전 Worker 버전으로 자동 복구합니다.
+
+반드시 이 `hangul-sori-site-local` 폴더에서 실행하세요. 저장소 최상단의 예전
+`hangulsori` 정적 Worker 설정은 `wrangler.legacy-docs.jsonc`로 격리되어 있으며,
+현재 도메인 배포에는 사용하지 않습니다.
+
+운영 트래픽을 바꾸지 않고 버전만 올리려면 `npm run deploy:preview`를 사용합니다.
+Worker에서 Preview URLs가 켜져 있어야 별도 주소로 열 수 있습니다.
+
+운영 배포 없이 현재 사이트만 다시 확인하려면 아래 명령을 사용합니다.
+
+```bash
+npm run verify:live
+npm run verify:live:external  # Apple TestFlight 도착 페이지까지 확인
+```
+
+실수로 apex 또는 `www` Custom Domain을 삭제했다면 Cloudflare 화면에서 임의로
+추가·삭제하지 말고 아래 한 명령으로 코드에 선언된 두 도메인을 복구합니다.
+
+```bash
+npm run repair:domains
+```
+
+이 명령은 먼저 도메인·Sites 차단 계약을 검사한 뒤 `wrangler.jsonc`에 선언된 두
+Custom Domain만 다시 연결하고 운영 주소를 검증합니다. 앱 빌드가 깨졌거나 `dist/`가
+없는 긴급 상황에서도 사용할 수 있습니다. Wrangler가 trigger 명령의 experimental
+경고를 표시하는 것은 현재 고정 버전에서 정상입니다. 명령 자체가 실패하면 코드를
+고친 뒤 전체 재배포 명령인 `npm run deploy`를 사용합니다.
+
+## 5. Git push 자동배포
+
+Cloudflare Workers Builds에서 GitHub 저장소를 한 번 연결합니다.
+
+- Worker: `hangul-sori-redesign`
+- Production branch: `main`
+- Root directory: `/hangul-sori-site-local`
+- Build command: `npm run deploy:check`
+- Deploy command: `npm run deploy:production`
+- Builds for non-production branches: 끔
+- Watch path: `hangul-sori-site-local/*`
+
+연결 후에는 사이트 파일 수정 → `npm run deploy:check` → 커밋 → `main` push만 하면
+됩니다. 첫 Workers Build가 실제로 성공해 정확한 커밋 SHA가 두 도메인에 나타난 것을
+확인하기 전에는 토큰 권한과 자동배포 완료를 가정하지 않습니다. 기존 Sites 프로젝트와
+저장소 루트의 레거시 `hangulsori` Worker 자동빌드는 끕니다. 자세한 복구·롤백 절차는
+`WORKER_RELEASE.md`에 있습니다.

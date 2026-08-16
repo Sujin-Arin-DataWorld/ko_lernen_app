@@ -35,6 +35,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  website:
+    name: Website source and Worker release gate
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: hangul-sori-site-local
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pinned website Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: hangul-sori-site-local/.node-version
+          cache: npm
+          cache-dependency-path: hangul-sori-site-local/package-lock.json
+
+      - name: Install locked website dependencies
+        run: npm ci
+
+      - name: Verify owned website release
+        run: npm run deploy:check
+
   build:
     name: Analyze & Build
     if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'

@@ -1,5 +1,43 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — Sites 탈출 배포 안전장치·자동화 정본 완성
+
+**현재 운영과 범위.** 운영 Custom Domain은 계속 `hangul-sori-redesign`이 소유하며,
+read-only 재확인 시 active deployment는 dashboard source의 version 24
+`2ca21ed9-e9d6-41a2-9be5-7aad11fb910c` 100%였다. 이 버전에는 Git release header와
+새 binding 진단 header가 아직 없어 최신 로컬 변경이 운영에 배포됐다고 주장하지 않는다.
+이번 단계에서는 Cloudflare 설정 변경·Worker 업로드·Git commit/push를 하지 않았다.
+
+**소유 코드와 안전 배포.** Node 24.18.0을 `.node-version`과 engine-strict로 고정하고
+React 19.2.8, Vinext 1.0.0-beta.6, Vite 8.2.1, Wrangler 4.123.0 및 관련 toolchain을
+호환 보안 버전으로 올렸다. build가 dirty source fingerprint 또는 clean Git SHA를 Worker
+응답과 `dist/release.json`에 함께 기록하며, 운영 deploy는 clean·committed main,
+`origin/main`, Workers Builds SHA가 모두 일치할 때만 허용한다. Wrangler structured
+NDJSON에서 새 version ID를 읽고 두 도메인의 exact SHA·11 routes·plain-text 404·21 owned
+assets·security headers·Email/Rate Limit binding·TestFlight CTA를 확인한다. 검증 실패 시
+다른 배포가 끼어들지 않았을 때만 직전 exact version으로 자동 rollback한다. production
+tester POST는 Email 또는 Rate Limit binding이 없으면 503으로 fail-closed하고,
+workers.dev preview POST는 email/rate-limit 호출 전에 404로 차단한다.
+
+**Sites 제거와 로컬 검증.** 바깥 구형 Sites 저장소·snapshot·ZIP은 recoverable
+`_site_migration_backup_20260816`으로 옮기고 Sites remote/global credential provider를
+끊었다. canonical `.openai`, Sites plugin/scripts/auth, 중첩 Git, root default Worker,
+`docs/CNAME`, dead D1/Drizzle와 민감한 ignored Wrangler deploy log는 제거했다. lockfile
+기준 `npm ci` 뒤 최종 `npm run deploy:check`는 lint error 0(기존 `<img>` warning 3),
+TypeScript, fresh build, **16/16 tests**, Wrangler strict dry-run(933.05 KiB, gzip
+274.65 KiB), 전체 `npm audit --audit-level=high` 0 vulnerabilities를 통과했다. GitHub
+CI에도 같은 website gate를 추가했다. 11 routes의 desktop/mobile 22/22, public assets
+21/21, TestFlight 실제 도착, tester modal, 404, consent lifecycle 재감사도 회귀 0이다.
+
+**남은 외부 게이트.** redesign Workers Builds 연결은 존재하지만 deploy command는 아직
+기본 `npx wrangler deploy`, build history는 0이며 repository-root legacy `hangulsori`
+trigger 2개도 활성 상태다. Sites control plane의 project/version 14와 `www` custom-domain
+claim도 active라 edge가 현재 Worker를 반환해도 재충돌 위험이 남는다. 별도 승인 후 사이트
+경로만 main에 커밋·push하고, redesign command/watch path 수정과 legacy trigger 중지,
+첫 자동 build exact SHA 확인을 먼저 마친다. 그 뒤 Sites 쪽 apex/www claim만 제거하되
+Cloudflare Worker의 두 domain은 유지한다. 명시적 승인 시에만 실제 tester email canary 한
+건을 보내며, 과거 OAuth grant 폐기·재로그인도 외부 보안 게이트로 남는다.
+
 ### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
 
 **원인과 수정.** GitHub Actions run `31913714832`는 C1/C2의 구문형 어휘가 모두

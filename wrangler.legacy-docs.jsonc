@@ -1,0 +1,17 @@
+// Archived configuration for the old docs-only `hangulsori` Worker.
+// Do not use this for hangul-sori.com. The owned website deploys only from
+// hangul-sori-site-local/wrangler.jsonc to `hangul-sori-redesign`.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hangulsori",
+  "compatibility_date": "2026-05-20",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "docs"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}

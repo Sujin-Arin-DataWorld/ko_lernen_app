@@ -8,7 +8,7 @@ type EmailPayload = {
 };
 
 export interface TesterApplicationEnv {
-  TESTER_EMAIL: { send(message: EmailPayload): Promise<unknown> };
+  TESTER_EMAIL?: { send(message: EmailPayload): Promise<unknown> };
   TESTER_RATE_LIMIT?: { limit(options: { key: string }): Promise<{ success: boolean }> };
 }
 
@@ -17,6 +17,14 @@ const responseHeaders = {
   "content-type": "application/json; charset=utf-8",
   "x-content-type-options": "nosniff",
 };
+
+const submissionHosts = new Set([
+  "hangul-sori.com",
+  "www.hangul-sori.com",
+  "localhost",
+  "127.0.0.1",
+  "[::1]",
+]);
 
 const allowed = {
   locale: new Set<string>(["de", "en", "ko"]),
@@ -91,8 +99,18 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
   if (request.method !== "POST") {
     return new Response(JSON.stringify({ ok: false, error: "method_not_allowed" }), {
       status: 405,
-      headers: { ...responseHeaders, allow: "POST" },
+      headers: {
+        ...responseHeaders,
+        allow: "POST",
+        "x-hangul-sori-email-binding": typeof env?.TESTER_EMAIL?.send === "function" ? "ready" : "missing",
+        "x-hangul-sori-rate-limit-binding": typeof env?.TESTER_RATE_LIMIT?.limit === "function" ? "ready" : "missing",
+      },
     });
+  }
+
+  const hostname = new URL(request.url).hostname.toLowerCase();
+  if (!submissionHosts.has(hostname)) {
+    return json({ ok: false, error: "not_found" }, 404);
   }
 
   if (
@@ -101,6 +119,16 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
     !sameOrigin(request)
   ) {
     return json({ ok: false, error: "invalid_request" }, 403);
+  }
+
+  const emailBinding = env?.TESTER_EMAIL;
+  const rateLimitBinding = env?.TESTER_RATE_LIMIT;
+  const isProductionHost = hostname === "hangul-sori.com" || hostname === "www.hangul-sori.com";
+  if (
+    typeof emailBinding?.send !== "function" ||
+    (isProductionHost && typeof rateLimitBinding?.limit !== "function")
+  ) {
+    return json({ ok: false, error: "service_unavailable" }, 503);
   }
 
   const contentLength = Number(request.headers.get("content-length") ?? 0);
@@ -145,11 +173,11 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
 
   if (!isValid) return json({ ok: false, error: "invalid_form" }, 400);
 
-  if (env.TESTER_RATE_LIMIT) {
+  if (rateLimitBinding) {
     const ip = request.headers.get("cf-connecting-ip") ?? "unavailable";
     const [emailLimit, ipLimit] = await Promise.all([
-      env.TESTER_RATE_LIMIT.limit({ key: `email:${await anonymousRateLimitKey(email)}` }),
-      env.TESTER_RATE_LIMIT.limit({ key: `ip:${await anonymousRateLimitKey(ip)}` }),
+      rateLimitBinding.limit({ key: `email:${await anonymousRateLimitKey(email)}` }),
+      rateLimitBinding.limit({ key: `ip:${await anonymousRateLimitKey(ip)}` }),
     ]);
     if (!emailLimit.success || !ipLimit.success) return json({ ok: false, error: "rate_limited" }, 429);
   }
@@ -183,7 +211,7 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
   const html = `<div style="font-family:Arial,sans-serif;color:#1a1f1d;line-height:1.55"><h1 style="font-size:22px">New Hangul Sori tester application</h1><table style="width:100%;max-width:680px;border-collapse:collapse">${tableRows}</table><h2 style="margin-top:24px;font-size:16px">Notes</h2><p>${escapeHtml(notes || "None")}</p><p style="margin-top:24px;color:#5c6660;font-size:12px">The applicant confirmed they are at least 16, can send brief feedback, and acknowledged the tester application privacy notice.</p></div>`;
 
   try {
-    await env.TESTER_EMAIL.send({
+    await emailBinding.send({
       to: "vjinny2@gmail.com",
       from: { email: "website@hangul-sori.com", name: "Hangul Sori Website" },
       replyTo: email,
