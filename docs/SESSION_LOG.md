@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 준비된 브랜치 통합 중 Book 계약 정합화
+
+**수정.** Book 강화 커밋의 13개 단일 행 `if`를 저장소 중괄호 규칙에 맞췄다.
+또한 한국어 입력 전처리가 한글 없는 값을 의도대로 거부한 뒤 기존 미디어 수명주기
+테스트의 `first`/`second` 같은 영문 임시값이 모두 빈 값으로 정리되던 문제를 확인했다.
+삭제·잠금·이미지 정리 제품 코드는 바꾸지 않고, 해당 테스트의 단어 식별값만 서로 다른
+유효 한글로 교체해 원래의 동시 삭제·낡은 인덱스 방지 계약을 복원했다. 구현 커밋은
+`a29b608c`이다.
+
+**검증.** 통합 범위 집중 Flutter test **237/237**, 미디어·Book 전처리·Book 페이지
+회귀 **46/46**, 전체 Flutter test **3,522 통과 / 14 수동·환경 검사 skip / 실패 0**,
+Book Python unittest **70/70**, CI 분류기 **9/9**, `flutter analyze --no-pub`
+**No issues found**, Book 배포 소스 7파일 allowlist·모바일 App ID·업로드 manifest 검사,
+`git diff --check`가 모두 통과했다. 원격 CI·병합·배포는 수행하지 않았다.
+
 ### 2026-08-16 (Codex) — 카드 판정 배치와 첫 공개 상태 유지
 
 **원인과 수정.** Review, Legacy Vocab, Custom Pack의 좌우 판정 허용 여부가 카드의
