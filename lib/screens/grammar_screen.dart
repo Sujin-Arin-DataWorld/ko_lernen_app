@@ -698,7 +698,10 @@ class _GrammarScreenState extends State<GrammarScreen>
                                         key: _cardKey,
                                         flipped: _flipped,
                                         onTap: canRecordCheckpoint
-                                            ? null
+                                            ? () => _showCheckpoint(
+                                                g,
+                                                assessmentLink!,
+                                              )
                                             : _onFlip,
                                         front: canRecordCheckpoint
                                             ? _CourseCheckpointFront(

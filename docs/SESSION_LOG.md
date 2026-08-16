@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
+
+**원인과 수정.** 코스에서 문법 체크포인트로 열린 카드는 하단 `Kurz prüfen`만
+채점 경로를 열고, 화면의 가장 큰 입력 표면인 `FlipCard`에는
+`canRecordCheckpoint ? null : _onFlip`이 연결돼 있었다. 따라서
+`grammar_b2_counterfactual_past`의 `V-았/었더라면` 카드 자체를 누르면 실제로 아무
+반응도 없었다. 일반 학습 카드의 앞뒤 뒤집기는 유지하면서, 채점 가능한 코스 카드는
+카드 탭과 하단 CTA가 동일한 `_showCheckpoint`를 열도록 바꿨다. 정답·콘텐츠·코스 증거
+계약은 변경하지 않았다.
+
+**회귀와 검증.** 실제 B2 `b2_04_complaint_resolution` assess link를 로드해 해당 카드를
+선택하고, 카드 탭 → 체크 시트 → `V-았/었더라면` 정답 버튼 실제 탭 → 증거 저장 성공
+문구까지 확인하는 위젯 회귀를 추가했다. 수정 전에는 `FlipCard.onTap == null`로 실패했고
+수정 후 통과한다. 문법·체크포인트·피드백·짧은 화면 회귀는 **321/321** 통과했고,
+`flutter analyze --fatal-infos`는 **No issues found**였다. 실제 Android 기기 입력은
+이번 로컬 검증에 포함되지 않았다. 구현 커밋은 `3ff92bab`이며 최신 로컬 `main`에
+병합한다. 원격 푸시는 별도 요청이 없어 수행하지 않는다.
+
 ### 2026-08-16 (Codex) — 살아 있는 한옥 V1 확장형 선행 계약 구현
 
 **근거와 경계.** PR #27의 B2·C1·C2 신규 콘텐츠 504개와 기존 TTS는 정상적인
