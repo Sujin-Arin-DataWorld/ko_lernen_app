@@ -618,16 +618,20 @@ bool _isRelevantCorrection(String source, String candidate) {
       _hasNegativePolarity(source) != _hasNegativePolarity(candidate)) {
     return false;
   }
-  if (longest <= 4) {
-    return distance <= 1;
-  }
-  if (similarity < 0.68) {
-    return false;
-  }
-
   final sourceWords = _semanticContentWords(source);
   final candidateWords = _semanticContentWords(candidate);
-  if (sourceWords.length >= 2 && candidateWords.length >= 2) {
+  if (sourceWords.length != candidateWords.length) {
+    if (_withoutWhitespace(source) != _withoutWhitespace(candidate)) {
+      return false;
+    }
+  } else if (sourceWords.length == 1) {
+    if (!_isMorphologicallyPreservedWord(
+      sourceWords.single,
+      candidateWords.single,
+    )) {
+      return false;
+    }
+  } else if (sourceWords.length >= 2) {
     final preserved = _countPreservedContentWords(sourceWords, candidateWords);
     final sourceCoverage = preserved / sourceWords.length;
     final candidateCoverage = preserved / candidateWords.length;
@@ -635,8 +639,16 @@ bool _isRelevantCorrection(String source, String candidate) {
       return false;
     }
   }
+  if (longest <= 4) {
+    return distance <= 1;
+  }
+  if (similarity < 0.68) {
+    return false;
+  }
   return true;
 }
+
+String _withoutWhitespace(String value) => value.replaceAll(RegExp(r'\s+'), '');
 
 List<String> _contentWords(String value) => _tokenizeForDiff(value)
     .where((token) => token.text.runes.every(_isDiffWordRune))
@@ -710,7 +722,32 @@ bool _isMorphologicallyPreservedWord(String source, String candidate) {
   if (sourceRunes.length < 2 || candidateRunes.length < 2) {
     return false;
   }
-  return _editDistance(sourceRunes, candidateRunes) <= 1;
+  final sourcePhonemes = _hangulPhonemeRunes(sourceKey);
+  final candidatePhonemes = _hangulPhonemeRunes(candidateKey);
+  final longest = sourcePhonemes.length > candidatePhonemes.length
+      ? sourcePhonemes.length
+      : candidatePhonemes.length;
+  final distance = _editDistance(sourcePhonemes, candidatePhonemes);
+  return 1 - (distance / longest) >= 0.75;
+}
+
+List<int> _hangulPhonemeRunes(String value) {
+  final result = <int>[];
+  for (final rune in value.runes) {
+    if (rune < 0xAC00 || rune > 0xD7A3) {
+      result.add(rune);
+      continue;
+    }
+    final offset = rune - 0xAC00;
+    result
+      ..add(0x1100 + offset ~/ 588)
+      ..add(0x1161 + (offset % 588) ~/ 28);
+    final finalConsonant = offset % 28;
+    if (finalConsonant != 0) {
+      result.add(0x11A7 + finalConsonant);
+    }
+  }
+  return result;
 }
 
 String _koreanMorphologyKey(String word) {
@@ -829,8 +866,123 @@ bool _hasSameNumericMarkers(String source, String candidate) {
       .allMatches(candidate)
       .map((match) => match.group(0))
       .toList(growable: false);
-  return listEquals(sourceNumbers, candidateNumbers);
+  return listEquals(sourceNumbers, candidateNumbers) &&
+      listEquals(
+        _koreanNumericMarkers(source),
+        _koreanNumericMarkers(candidate),
+      );
 }
+
+List<String> _koreanNumericMarkers(String value) {
+  final words = _contentWords(value);
+  final markers = <String>[];
+  for (var index = 0; index < words.length; index++) {
+    final word = words[index];
+    if (_standaloneKoreanNumbers.contains(word)) {
+      markers.add(word);
+    }
+    if (_koreanNumberWords.contains(word) && index + 1 < words.length) {
+      final counter = words[index + 1];
+      if (_koreanCounters.contains(counter)) {
+        markers.add('$word:$counter');
+      }
+    }
+    for (final counter in _koreanCounters) {
+      if (!word.endsWith(counter) || word == counter) {
+        continue;
+      }
+      final number = word.substring(0, word.length - counter.length);
+      if (_koreanNumberWords.contains(number)) {
+        markers.add('$number:$counter');
+        break;
+      }
+    }
+  }
+  return markers;
+}
+
+const Set<String> _koreanNumberWords = <String>{
+  '영',
+  '공',
+  '일',
+  '이',
+  '삼',
+  '사',
+  '오',
+  '육',
+  '칠',
+  '팔',
+  '구',
+  '십',
+  '백',
+  '천',
+  '만',
+  '하나',
+  '한',
+  '둘',
+  '두',
+  '셋',
+  '세',
+  '넷',
+  '네',
+  '다섯',
+  '여섯',
+  '일곱',
+  '여덟',
+  '아홉',
+  '열',
+  '스물',
+  '스무',
+  '서른',
+  '마흔',
+  '쉰',
+  '예순',
+  '일흔',
+  '여든',
+  '아흔',
+};
+
+const Set<String> _standaloneKoreanNumbers = <String>{
+  '하나',
+  '둘',
+  '셋',
+  '넷',
+  '다섯',
+  '여섯',
+  '일곱',
+  '여덟',
+  '아홉',
+  '열',
+  '스물',
+  '서른',
+  '마흔',
+  '쉰',
+  '예순',
+  '일흔',
+  '여든',
+  '아흔',
+  '첫째',
+  '둘째',
+  '셋째',
+};
+
+const Set<String> _koreanCounters = <String>{
+  '개',
+  '명',
+  '번',
+  '살',
+  '시',
+  '분',
+  '초',
+  '권',
+  '잔',
+  '병',
+  '마리',
+  '대',
+  '장',
+  '층',
+  '원',
+};
 
 bool _hasNegativePolarity(String value) {
   return _contentWords(value).any(
@@ -956,9 +1108,7 @@ List<_DiffToken> _tokenizeForDiff(String value) {
     } else {
       flushWord(offset);
       final character = String.fromCharCode(rune);
-      if (character.trim().isNotEmpty) {
-        tokens.add(_DiffToken(character, offset, offset + width));
-      }
+      tokens.add(_DiffToken(character, offset, offset + width));
     }
     offset += width;
   }
@@ -979,5 +1129,14 @@ String _tokenSlice(String source, List<_DiffToken> tokens, int start, int end) {
   if (start >= end) {
     return '';
   }
-  return source.substring(tokens[start].start, tokens[end - 1].end).trim();
+  return _showWhitespace(
+    source.substring(tokens[start].start, tokens[end - 1].end),
+  );
 }
+
+String _showWhitespace(String value) => value
+    .replaceAll('\r\n', '↵')
+    .replaceAll('\r', '↵')
+    .replaceAll('\n', '↵')
+    .replaceAll('\t', '⇥')
+    .replaceAll(' ', '␠');

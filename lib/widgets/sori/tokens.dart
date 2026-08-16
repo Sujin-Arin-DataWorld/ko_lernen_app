@@ -46,6 +46,9 @@ class Spacing {
 /// 480은 폰엔 시각 변화 0, 넓은 화면만 가운데 정렬된다.
 /// 적용은 [soriClampPadding] / [SoriContentClamp] (responsive.dart) 참조.
 class SoriBreakpoints {
+  /// Very narrow phone content where two comparison panels must stack.
+  static const double narrowPhone = 360;
+
   /// 기본 콘텐츠 컬럼 (홈·리스트·설정).
   static const double content = 480;
 

@@ -552,15 +552,13 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   // 문장
                   if (r.sentences.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionSentences),
-                    ...r.sentences
-                        .take(8)
-                        .map(
-                          (s) => _SentenceCard(
-                            sentence: s,
-                            result: r,
-                            allowTts: r.isSaveable,
-                          ),
-                        ),
+                    ...r.sentences.map(
+                      (s) => _SentenceCard(
+                        sentence: s,
+                        result: r,
+                        allowTts: r.isSaveable,
+                      ),
+                    ),
                     const SizedBox(height: Spacing.lg),
                   ],
                   if (feedbackCompletion != null &&

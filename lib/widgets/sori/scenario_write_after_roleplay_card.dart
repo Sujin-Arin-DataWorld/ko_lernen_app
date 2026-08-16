@@ -272,7 +272,7 @@ class _SuggestionComparison extends StatelessWidget {
         LayoutBuilder(
           builder: (context, constraints) {
             final useVerticalLayout =
-                constraints.maxWidth < 360 ||
+                constraints.maxWidth < SoriBreakpoints.narrowPhone ||
                 MediaQuery.textScalerOf(context).scale(1) > 1.3;
             final original = _TextPanel(
               label: t.scenarioWriteAfterRoleplayOriginalLabel,

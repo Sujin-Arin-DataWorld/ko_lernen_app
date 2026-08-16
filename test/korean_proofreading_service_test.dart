@@ -356,7 +356,7 @@ void main() {
     test(
       'rejects numeric polarity and lexical drift in short responses',
       () async {
-        final responses = <String>['2개', '잘돼', '불 주세요.'];
+        final responses = <String>['2개', '잘돼', '불 주세요.', '불', '두 개', '학원'];
         messenger.setMockMethodCallHandler(channel, (call) async {
           final arguments = (call.arguments as Map).cast<String, Object>();
           return <String, Object>{
@@ -374,12 +374,48 @@ void main() {
         final numericDrift = await service.proofread('1개');
         final polarityDrift = await service.proofread('안돼');
         final lexicalDrift = await service.proofread('물 주세요.');
+        final oneSyllableDrift = await service.proofread('물');
+        final koreanNumberDrift = await service.proofread('한 개');
+        final shortWordDrift = await service.proofread('학교');
 
         expect(numericDrift.error, KoreanProofreadingError.irrelevantResponse);
         expect(polarityDrift.error, KoreanProofreadingError.irrelevantResponse);
         expect(lexicalDrift.error, KoreanProofreadingError.irrelevantResponse);
+        expect(
+          oneSyllableDrift.error,
+          KoreanProofreadingError.irrelevantResponse,
+        );
+        expect(
+          koreanNumberDrift.error,
+          KoreanProofreadingError.irrelevantResponse,
+        );
+        expect(
+          shortWordDrift.error,
+          KoreanProofreadingError.irrelevantResponse,
+        );
       },
     );
+
+    test('keeps a short Korean spelling correction available', () async {
+      messenger.setMockMethodCallHandler(
+        channel,
+        (call) async => <String, Object>{
+          'status': 'completed',
+          'sourceText': '되요',
+          'suggestions': <String>['돼요'],
+          'isFinal': true,
+        },
+      );
+      final service = KoreanProofreadingService(
+        channel: channel,
+        isAndroidOverride: true,
+      );
+
+      final result = await service.proofread('되요');
+
+      expect(result.isSuccessful, isTrue);
+      expect(result.suggestion, '돼요');
+    });
 
     test('rejects a semantically different multi-token rewrite', () async {
       messenger.setMockMethodCallHandler(
@@ -415,8 +451,35 @@ void main() {
       expect(replacement.single.replacementText, '학생이에요');
       expect(insertion, hasLength(1));
       expect(insertion.single.originalText, '');
-      expect(insertion.single.replacementText, '아주');
+      expect(insertion.single.replacementText, '아주␠');
       expect(diffKoreanProofreadingTokens('같아요.', '같아요.'), isEmpty);
+    });
+
+    test('preserves spacing-only and punctuation-spacing changes', () {
+      final repeatedSpace = diffKoreanProofreadingTokens('안녕  친구', '안녕 친구');
+      final punctuationSpace = diffKoreanProofreadingTokens(
+        '안녕 , 친구',
+        '안녕, 친구',
+      );
+
+      expect(repeatedSpace, isNotEmpty);
+      expect(
+        repeatedSpace.any(
+          (change) =>
+              change.originalText.contains('␠') ||
+              change.replacementText.contains('␠'),
+        ),
+        isTrue,
+      );
+      expect(punctuationSpace, isNotEmpty);
+      expect(
+        punctuationSpace.any(
+          (change) =>
+              change.originalText.contains('␠') ||
+              change.replacementText.contains('␠'),
+        ),
+        isTrue,
+      );
     });
   });
 }

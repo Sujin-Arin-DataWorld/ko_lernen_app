@@ -132,6 +132,44 @@ void main() {
     );
   });
 
+  testWidgets('every analyzed sentence keeps its companion question button', (
+    tester,
+  ) async {
+    final sentences = List<TranslatedSentence>.generate(
+      20,
+      (index) => TranslatedSentence(
+        korean: '검증 문장 ${index + 1}입니다.',
+        translationDe: 'Verified sentence ${index + 1}.',
+        translationLanguage: 'en',
+        sourceUnitId: 'unit:$index',
+      ),
+    );
+    final result = BookAnalysisResult(
+      words: const <ExtractedWord>[],
+      grammar: const <GrammarHit>[],
+      sentences: sentences,
+      warnings: const <String>[],
+      analysisLanguage: 'en',
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: BookResultScreen(
+          args: const {'text': '검증 문장'},
+          analyzer: ({required text, required targetLang}) async => result,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(find.text('검증 문장 20입니다.'), findsOneWidget);
+    expect(find.byTooltip('Ask your companion'), findsNWidgets(20));
+  });
+
   testWidgets('bookshelf save never persists unsupported or bidi OCR text', (
     tester,
   ) async {

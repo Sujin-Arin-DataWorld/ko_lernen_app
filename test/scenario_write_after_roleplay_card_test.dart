@@ -167,6 +167,45 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('spacing-only correction remains visible as a validated change', (
+    tester,
+  ) async {
+    final gateway = _FakeGateway(
+      availability: const KoreanProofreadingAvailability(
+        status: KoreanProofreadingStatus.available,
+      ),
+      result: const KoreanProofreadingResult(
+        status: KoreanProofreadingStatus.completed,
+        originalText: '안녕  친구',
+        suggestion: '안녕 친구',
+      ),
+    );
+    await tester.pumpWidget(
+      app(service: ScenarioWritingCheckService(gateway: gateway)),
+    );
+    await tester.enterText(
+      find.byKey(const ValueKey<String>('scenario-write-input')),
+      '안녕  친구',
+    );
+    await tester.pump();
+    await tester.tap(
+      find.byKey(const ValueKey<String>('scenario-write-check')),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey<String>('scenario-write-changes')),
+      findsOneWidget,
+    );
+    expect(find.text('␠'), findsOneWidget);
+    expect(
+      find.byKey(
+        const ValueKey<String>('scenario-write-change-reason-boundary'),
+      ),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('download starts only after the explicit download button', (
     tester,
   ) async {
