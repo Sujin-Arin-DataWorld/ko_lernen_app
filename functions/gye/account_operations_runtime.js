@@ -2574,21 +2574,30 @@ function createAccountOperationRuntime({
 
       if (!claim.progress.appleRevocationComplete) {
         await renew();
+        let revocationUnavailable = false;
         try {
           await revokeAppleAuthorizationCode({
             authorizationCode,
             uid: identity.uid,
           });
-        } catch {
-          await checkpoint({
-            progress: { statusCode: "apple-revocation-retryable" },
-          });
-          throw repositoryFailure("apple-revocation-pending");
+        } catch (error) {
+          // TN3194: missing/placeholder Apple revoke secrets must not
+          // permanently stall account deletion. Network/provider failures
+          // stay retryable so a fresh authorization code can be supplied.
+          if (error?.code !== "apple/revocation-config-invalid") {
+            await checkpoint({
+              progress: { statusCode: "apple-revocation-retryable" },
+            });
+            throw repositoryFailure("apple-revocation-pending");
+          }
+          revocationUnavailable = true;
         }
         await checkpoint({
           progress: {
             appleRevocationComplete: true,
-            statusCode: null,
+            statusCode: revocationUnavailable
+              ? "apple-revocation-unavailable"
+              : null,
           },
         });
         claim = await repository.claimDeletionWork({

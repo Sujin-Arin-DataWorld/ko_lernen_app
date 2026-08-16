@@ -49,6 +49,21 @@
 		<string>????</string>
 		<key>CFBundleVersion</key>
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
+		<!-- Public reversed iOS Google OAuth client ID. Google Sign-In cannot
+		     return to the app without this URL scheme. The value is derived
+		     from DefaultFirebaseOptions.ios.iosClientId, which is already
+		     committed; it is not a secret. -->
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>com.googleusercontent.apps.573567222361-uphimptmn43da1snk4hc60rhgjd28ppq</string>
+				</array>
+			</dict>
+		</array>
 		<!-- Export-Compliance (US EAR): Die App nutzt ausschließlich
 		     AUSGENOMMENE Verschlüsselung — HTTPS/TLS (Firebase, Cloud
 		     Functions), OS-Keychain (flutter_secure_storage) und Hashing

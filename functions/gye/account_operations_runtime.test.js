@@ -2520,6 +2520,57 @@ async () => {
   assert.equal(JSON.stringify(result).includes(rawAppleCode), false);
 });
 
+test("continues Apple-linked deletion when revoke secrets are unconfigured",
+async () => {
+  const rawAppleCode = "apple-code-used-only-for-unconfigured-secrets";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-unconfigured-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {
+      const error = new Error("Apple revocation is not configured.");
+      error.code = "apple/revocation-config-invalid";
+      throw error;
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "appleRevocationPending",
+  );
+
+  const result = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+
+  assert.equal(result.phase, "authDeleted");
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(
+    stored.deletionProgress.statusCode,
+    "apple-revocation-unavailable",
+  );
+  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+});
+
 test("keeps Apple revocation pending with only a safe resumable failure code",
 async () => {
   const rawAppleCode = "apple-code-that-must-not-enter-a-failure";
