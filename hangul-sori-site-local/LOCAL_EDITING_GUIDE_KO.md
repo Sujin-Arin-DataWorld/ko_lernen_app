@@ -52,8 +52,9 @@ Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 17개 �
 npm run cloudflare:login
 ```
 
-OAuth credential은 평문 설정 파일이 아니라 운영체제 키체인(macOS Keychain 또는
-Windows Credential Manager)에 저장됩니다.
+OAuth credential은 암호화 파일에 저장되고, 복호화 키는 운영체제 키체인(macOS Keychain
+또는 Windows Credential Manager)에 저장됩니다. 키체인을 사용할 수 없으면 평문 파일로
+fallback하지 않고 로그인이 실패합니다.
 
 직접 배포할 때는 변경을 먼저 Git에 커밋하고 `main`을 `origin/main`에 push해야 합니다.
 그다음 아래 한 명령이면 빌드·테스트·dry-run·운영 배포·실제 도메인 확인이 순서대로

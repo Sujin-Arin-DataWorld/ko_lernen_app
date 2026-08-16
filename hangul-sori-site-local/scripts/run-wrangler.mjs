@@ -29,10 +29,14 @@ export class WranglerRunError extends Error {
 
 export function runWrangler(args, options = {}) {
   const { capture = false, env = {}, cwd = projectRoot } = options;
+  const keyringRequired = args.includes("--use-keyring");
   return new Promise((resolveRun, reject) => {
     const child = spawn(process.execPath, [wranglerCli, ...args], {
       cwd,
-      env: wranglerEnvironment(env),
+      env: wranglerEnvironment({
+        ...env,
+        ...(keyringRequired ? { CLOUDFLARE_AUTH_USE_KEYRING: "true" } : {}),
+      }),
       stdio: capture ? ["ignore", "pipe", "pipe"] : "inherit",
       windowsHide: true,
     });

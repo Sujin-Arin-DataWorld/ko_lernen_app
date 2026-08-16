@@ -29,6 +29,10 @@ const liveVerificationSource = await readFile(
   new URL("../scripts/verify-live.mjs", import.meta.url),
   "utf8",
 );
+const runWranglerSource = await readFile(
+  new URL("../scripts/run-wrangler.mjs", import.meta.url),
+  "utf8",
+);
 const cleanBuildSource = await readFile(
   new URL("../scripts/clean-build.mjs", import.meta.url),
   "utf8",
@@ -111,6 +115,7 @@ test("keeps all quality gates and deployment in one command", () => {
   assert.match(packageJson.engines.node, /24\.18\.0/);
   assert.equal(packageJson.scripts.cf, "node scripts/run-wrangler.mjs");
   assert.match(packageJson.scripts["cloudflare:login"], /--use-keyring/);
+  assert.match(runWranglerSource, /CLOUDFLARE_AUTH_USE_KEYRING:\s*"true"/);
   assert.doesNotMatch(JSON.stringify(packageJson), /drizzle|db:generate/i);
   assert.match(productionDeploySource, /WRANGLER_OUTPUT_FILE_PATH/);
   assert.match(productionDeploySource, /rollbackAfterFailure/);

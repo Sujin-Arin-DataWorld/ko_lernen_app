@@ -260,20 +260,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ---
 
-## 현재 진행 중인 작업 (2026-08-15 기준)
+## 현재 진행 중인 작업 (2026-08-16 기준)
 
 > 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
 > 바로 행동할 수 있는 **현재 게이트**만 적는다.
 
 - [x] **웹사이트 로컬 Sites/ZIP 탈출**: 정본은 부모 저장소가 추적하는
   `hangul-sori-site-local/` 하나다. Sites 패키징·Bash·중첩 Git·ZIP·기본 root Worker와
-  Pages CNAME을 격리했고, Node 24.18.0 fresh build·16 tests·strict dry-run·전체 audit를
+  Pages CNAME을 격리했고, Node 24.18.0 fresh build·17 tests·strict dry-run·전체 audit를
   통과했다. 배포는 커밋 SHA 확인과 조건부 자동 rollback을 포함한다.
-- [ ] **웹사이트 GitHub/Cloudflare 최종 전환 (Jin)**: 위 변경은 아직 커밋·main push·
-  운영 배포 전이다. redesign Workers Builds deploy command를 `npm run deploy:production`으로
-  고친 뒤 첫 build의 정확한 SHA를 apex/www에서 확인한다. root 레거시 `hangulsori` build
-  trigger 2개와 Sites custom-domain claim을 끄고 과거 Cloudflare OAuth grant도 폐기·
-  재로그인한다. 로컬 민감 로그 파일은 이미 제거했으며 토큰 값은 출력·복사하지 않는다.
+- [x] **웹사이트 GitHub/Cloudflare 최종 전환**: GitHub `main` push가 redesign Workers
+  Builds의 `npm run deploy:check` → `npm run deploy:production`으로 자동 배포된다. apex/www는
+  `hangul-sori-redesign` production이며 exact release·11 routes·hashed build assets·21 owned
+  assets·API/bindings·TestFlight를 배포 뒤 검사한다. 레거시 `hangulsori` build config/trigger와
+  Sites custom-domain claim은 0개다. 과거 Wrangler OAuth grant와 로컬 credential 파일도
+  폐기했으며, 수동 배포가 필요할 때만 `npm run cloudflare:login`으로 OS keychain 기반
+  credential을 새로 만든다.
 
 - [x] **UI/UX 개편 2**: 정본은 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`이고 구현은
   `main`의 `f718106c`에 통합됐다. 새 화면/흐름의 설계 기준은 이 문서 하나를 사용한다.

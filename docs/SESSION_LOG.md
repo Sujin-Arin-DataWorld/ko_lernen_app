@@ -33,6 +33,17 @@ TestFlight CTA와 실제 Apple 초대 페이지까지 확인했다. favicon 불�
 `*.svg text eol=lf`와 Git-blob 기준 verifier로 재발을 막았다. 실제 tester 신청 POST/메일
 canary는 별도 명시 승인이 없어 보내지 않았다.
 
+**후속 전환 안정화·credential 회전.** 배포 전환 중 이전 HTML이 이미 교체된 hashed
+chunk를 잠깐 참조한 샘플을 계기로, 구현 커밋 `08af45b8`에서 HTML을
+`no-store, max-age=0, must-revalidate`로 고정하고 live verifier가 11 route HTML의 실제
+`/_next/static` 참조를 양 도메인에서 200·non-empty·올바른 JS/CSS MIME·immutable로
+검사하게 했다. 검증 실패는 기존 자동 rollback 경로로 들어간다. modern Workers Assets에
+효과가 없는 legacy `--old-asset-ttl`이나 모든 정적 요청을 과금 Worker 경로로 돌리는
+`run_worker_first`는 사용하지 않았다. 과거 로그에 노출됐던 Wrangler refresh grant는
+`wrangler logout`으로 서버 revoke하고 로컬 credential 파일이 없음을 확인했다. 이후
+`npm run cloudflare:login`은 encrypted credential의 키를 OS keychain에 저장하며,
+keychain 접근이 실패하면 plaintext fallback 없이 중단되도록 환경 계약을 강제한다.
+
 ### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
 
 **원인과 수정.** GitHub Actions run `31913714832`는 C1/C2의 구문형 어휘가 모두
