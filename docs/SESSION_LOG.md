@@ -1,5 +1,33 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 완료 브랜치 통합·Proofreading 의미 보존 마감
+
+**정확한 통합 범위.** 현재 `main` 기준점 `6ef544a6`에는 사이트 보안 마감
+`f7336771`과 카드 PR #28이 이미 포함돼 있었다. 준비된 커밋은 CI
+`e3a60c53 → e9ceb6f9`, 사랑방 `613af000 → 8da39a09`, Book 1차
+`1650ccc9 → f4b6cf0c`, Book 2차 `7ba6f008 → 2a762dff`, 태고·조이·선택형
+Proofreading `343f4655 → bddb200f` 순으로 최신 기준에 cherry-pick했다. 문서 충돌은
+기존 최신 기록과 각 기능 기록을 모두 보존했다. 다른 공유 작업공간의 미커밋 웹·CI
+파일은 포함하거나 수정하지 않았다.
+
+**통합 보완.** Book 중괄호·유효 한글 테스트 정합화는 `a29b608c`, 짧은 응답의
+아라비아 숫자·부정·두 단어 핵심어 변경 차단과 API 24/25 고정·독일어 feature 제목은
+`143dbbb1`이다. 후속 독립 Spec 리뷰에서 찾은 한 글자 핵심어, 한글 수사,
+공백·문장부호 간격 누락, 9번째 이후 문장 질문 누락을 `f1fdc495`에서 보완했다.
+한글 음소 유사도로 `학쌩 → 학생`, `되요 → 돼요` 같은 철자 교정은 유지하되
+`물 → 불`, `학교 → 학원`, `한 개 → 두 개` 같은 의미 변경은 차단한다. 공백은
+`␠`로 표시하며 서버가 이유를 주지 않는다는 경계 문구도 유지한다. 분석기가 허용하는
+최대 20개 문장을 모두 렌더하고 각 문장에 질문 버튼을 제공한다. 좁은 역할극 비교
+배치는 공용 `SoriBreakpoints.narrowPhone`을 사용한다.
+
+**현재 검증.** 통합 전 전체 Flutter test **3,522 통과 / 14 skip / 실패 0**,
+Book Python **70/70**, 통합 집중 Flutter **237/237**, 새 기능 관련 **53/53**,
+후속 의미·공백·20문장·반응형 집중 **37/37**, CI 분류기 **9/9**가 통과했다.
+`flutter analyze --no-pub --fatal-infos`는 **No issues found**, Android base와
+Proofreading feature Kotlin debug 컴파일은 **BUILD SUCCESSFUL**, Book 배포 7파일
+allowlist·App ID·upload manifest와 `git diff --check`도 통과했다. 최종 전체 Flutter
+재검사와 원격 자동 CI 한 번, `main` 병합, 최종 main signed AAB는 다음 단계다.
+
 ### 2026-08-16 (Codex) — 짧은 Proofreading 응답·선택형 전달 보강
 
 **원인과 수정.** 짧은 교정 후보가 숫자·부정 보존 검사보다 먼저 성공 처리되어
