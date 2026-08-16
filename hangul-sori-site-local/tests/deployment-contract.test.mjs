@@ -124,6 +124,8 @@ test("keeps all quality gates and deployment in one command", () => {
   assert.match(liveVerificationSource, /\/_next\/static\//);
   assert.match(liveVerificationSource, /referenced by live HTML must be available/);
   assert.match(liveVerificationSource, /immutable content-hash caching/);
+  assert.match(liveVerificationSource, /function visibleText\(html\)/);
+  assert.match(liveVerificationSource, /visibleText\(html\)\.includes\(marker\)/);
   assert.match(cleanBuildSource, /maxRetries:\s*20/);
   assert.match(cleanBuildSource, /retryDelay:\s*250/);
   assert.match(githubCi, /Website source and Worker release gate/);

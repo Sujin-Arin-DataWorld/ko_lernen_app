@@ -101,6 +101,10 @@ function collectReferencedBuildAssets(html, documentUrl, origin) {
   }
 }
 
+function visibleText(html) {
+  return html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+}
+
 function assertBuildAssetHeaders(response, assetUrl) {
   const contentType = response.headers.get("content-type") ?? "";
   if (new URL(assetUrl).pathname.endsWith(".js")) {
@@ -225,7 +229,10 @@ for (const origin of origins) {
 
     const html = await response.text();
     collectReferencedBuildAssets(html, url, origin);
-    assert.ok(html.includes(marker), `${url} must contain ${JSON.stringify(marker)}`);
+    assert.ok(
+      visibleText(html).includes(marker),
+      `${url} must contain the visible text ${JSON.stringify(marker)}`,
+    );
     if (path === "/") {
       assert.match(
         html,
