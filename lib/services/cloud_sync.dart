@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
+import '../models/learner_level.dart';
 import 'account/cloud_read_result.dart';
 import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
@@ -528,10 +529,7 @@ class CloudSync {
   }
 
   static String? _supportedLevel(Object? value) {
-    final level = _nonEmptyString(value)?.toLowerCase();
-    return const {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}.contains(level)
-        ? level
-        : null;
+    return LearnerLevel.fromCode(_nonEmptyString(value))?.code;
   }
 
   static DateTime? _strictUtcTimestamp(String value) {

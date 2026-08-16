@@ -1,4 +1,5 @@
 import 'content_id.dart';
+import 'learner_level.dart';
 
 /// Legacy content families that can participate in the curriculum graph.
 enum CurriculumContentKind { vocab, grammar, scenario, smalltalk, cloze, satz }
@@ -172,18 +173,23 @@ class CourseUnit {
     this.isPilot = false,
   });
 
-  factory CourseUnit.fromJson(Map<String, dynamic> json) => CourseUnit(
-    id: json['id']?.toString() ?? '',
-    level: json['level']?.toString().toLowerCase() ?? '',
-    order: (json['order'] as num?)?.toInt() ?? 0,
-    title: CurriculumText.fromJson(_stringMap(json['title'])),
-    canDo: CurriculumText.fromJson(_stringMap(json['canDo'])),
-    prerequisiteUnitIds: _stringList(json['prerequisiteUnitIds']),
-    requiredConceptIds: _stringList(json['requiredConceptIds']),
-    checkpointContentIds: _stringList(json['checkpointContentIds']),
-    passThreshold: (json['passThreshold'] as num?)?.toDouble() ?? .7,
-    isPilot: json['isPilot'] == true,
-  );
+  factory CourseUnit.fromJson(Map<String, dynamic> json) {
+    final rawLevel = json['level']?.toString() ?? '';
+    return CourseUnit(
+      id: json['id']?.toString() ?? '',
+      level:
+          LearnerLevel.fromCode(rawLevel)?.code ??
+          rawLevel.trim().toLowerCase(),
+      order: (json['order'] as num?)?.toInt() ?? 0,
+      title: CurriculumText.fromJson(_stringMap(json['title'])),
+      canDo: CurriculumText.fromJson(_stringMap(json['canDo'])),
+      prerequisiteUnitIds: _stringList(json['prerequisiteUnitIds']),
+      requiredConceptIds: _stringList(json['requiredConceptIds']),
+      checkpointContentIds: _stringList(json['checkpointContentIds']),
+      passThreshold: (json['passThreshold'] as num?)?.toDouble() ?? .7,
+      isPilot: json['isPilot'] == true,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -219,10 +225,13 @@ class Concept {
 
   factory Concept.fromJson(Map<String, dynamic> json) {
     final rawKind = json['kind']?.toString();
+    final rawLevel = json['level']?.toString() ?? '';
     final kind = ConceptKindX.tryFromCode(rawKind);
     return Concept(
       id: json['id']?.toString() ?? '',
-      level: json['level']?.toString().toLowerCase() ?? '',
+      level:
+          LearnerLevel.fromCode(rawLevel)?.code ??
+          rawLevel.trim().toLowerCase(),
       kind: kind ?? ConceptKind.situation,
       title: CurriculumText.fromJson(_stringMap(json['title'])),
       explanation: CurriculumText.fromJson(_stringMap(json['explanation'])),

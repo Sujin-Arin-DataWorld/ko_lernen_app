@@ -1,5 +1,67 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 살아 있는 한옥 V1 확장형 선행 계약 구현
+
+**근거와 경계.** PR #27의 B2·C1·C2 신규 콘텐츠 504개와 기존 TTS는 정상적인
+학습 자산으로 그대로 보존한다. 다만 현재 40개 `CourseUnit`은 콘텐츠 밀도가 크게
+다른 탐색·선행 조건용 묶음이며, 영구 한옥 보상 단위로 고정하지 않는다. 새 계약은
+`CourseUnit` 아래에 검증 가능한 `CanDoSegment`를 두고, 코스 숙달 증거만 한옥
+보상으로 투영한다. 작업은 `ee8282b9`에서 분리한
+`codex/cando-segment-contract-20260816` 독립 worktree에서 수행한 뒤 최신
+`origin/main e3c39f59` 위로 재배치했다.
+
+**이번 PR의 첫 안전 수정.** PR #27 이후 실제 단원은 40개인데
+`content_audit_manifest.json`의 그래프 수량이 36으로 남아 있던 정합성 결함을
+수정한다. Flutter 회귀 검사와 콘텐츠 fast-fail validator가 선언값을 실제
+`curriculum_manifest.json`의 단원 수와 대조하게 해, 향후 단원 추가 시 같은 누락을
+병합 전에 차단한다. 한옥 화면·보상·기존 진도에는 아직 영향을 주지 않는다.
+
+**입도 감사 결과.** 원본·파생 콘텐츠 join과 시나리오·평가 의미를 레벨별로 다시
+대조해 첫 `core_2026_v1`을 A1 16, A2 16, B1 18, B2 20, C1 8,
+C2 8, 총 86개 `CanDoSegment`로 정했다. 80개 안은 B1/B2의 독립 산출물 여섯
+개를 숨기므로 전체판으로 쓰지 않는다. 기존 생산 문항 재사용 상한은 40개라 신규·재작성
+평가는 최소 46개이며, 과거 19개 계획을 대체한다. 이번 PR은 schema와 검증 경계만
+추가하고, 86개 영구 ID·평가·한옥 grant는 다음 콘텐츠 PR에서 함께 동결한다.
+
+**계속 늘어나는 콘텐츠 계약.** `CourseUnit`은 탐색·선행 조건용 umbrella로 유지하고,
+영구 보상 권한은 typed `CanDoSegment`에 둔다. 같은 능력의 새 콘텐츠는 level이
+고정된 `ContentSeedAuthority`에서 revisioned `ContentClusterDefinition`으로
+추가하며, 파생 항목의 seed·CourseUnit은 cluster·segment에 정확히 귀속시켜 core 분모를
+바꾸지 않는다. 독립 can-do와 고유 생산 평가는 기존 published track에 끼워 넣지 않고
+기존 non-draft 순서 뒤의 새 extension `ReleaseTrackDefinition`에 발행한다. published
+track·edition·segment·assessment 소유권·한국어 can-do는 append-only이며,
+retired segment는 여러 세대의 successor 계보로 기존 slot을 만족할 수 있다. 제품
+기본 decoder는 non-draft `core_2026_v1`을 여섯 레벨 `16/16/18/20/8/8`, 총
+86개로 검증하고 미완성 core는 draft에서만 허용하며 임의 policy 우회 seam은 노출하지
+않는다. successor는 immutable
+`constructLineageId`가 같고 predecessor가 하나뿐인 선형 계보여야 한다.
+
+**정확한 증거와 공급 계획.** 모든 published segment는 `allOf`, 70% 이상,
+course-eligible exact assess edge, CourseUnit·concept·mode·rubric이 일치하는 typed
+`SegmentAssessmentAuthority`를 요구한다. 선택형·Cloze·Satz는 단독 영구 증거가
+아니다. 별도 브랜치의 `a990d8a3` 상황 씨앗 계획은 그대로 병합하지 않고
+`ContentSeedAuthority → ContentCluster → CanDoSegment` 공급 경로로 흡수했다.
+씨앗·파생 게임 레코드 수는 공급 KPI이며 진행률이나 한옥 보상 분모가 아니다.
+
+**저장소 안전 경계.** 여섯 CEFR 코드의 파싱·정렬을 중앙 `LearnerLevel`로 모으고,
+새 로컬 권한 목록이 생기면 실패하는 source guard를 추가했다. 콘텐츠 validator와
+통합 도구는 실제 단원 수를 level별로 검증·동기화하며, 실패한 batch/scenario 통합은
+Windows 줄바꿈까지 byte-exact로 원복한다. 한옥 자산 provenance는 카메라·socket·
+권리·모델 입력 allowlist·크레딧 ledger를 fail-closed 테스트로 고정했다. 사용자 첨부
+화면과 비바샘 자료는 reference-only이며 번들·모델 입력에서 금지한다.
+
+**구현 커밋과 최종 로컬 검증.** 구현 커밋은 최신 main 재배치 뒤 `1b0d5c33`이다.
+항목별 source-seed·CourseUnit provenance, 70% 하한, canonical 86개 product fixture,
+draft-only 미완성 core, 임의 policy 우회 API 부재, extension 후방 추가, construct
+successor 계보를 포함한 segment catalog 집중 test **34/34**, 콘텐츠 Python 회귀
+**28/28**, 전체 Flutter test **3,624 통과 / 14 수동·환경 검사 skip / 실패 0**가
+통과했다. `flutter analyze --no-pub --fatal-infos`는 **No issues found**였고
+`flutter build web --release --no-pub`도 성공했다. 기존 `flutter_tts 4.2.5`의 Wasm
+dry-run JS interop 경고 3건은 남지만 현재 JS web release를 차단하지 않는다. 독립
+Standards·Spec 재검토의 P0/P1 blocker는 각각 **0건**이며 `git diff --check`도
+통과했다. 원격 exact-head CI는 push 뒤 확인하며, 실제 한옥 권한이나 사용자 기본
+경로는 아직 전환하지 않았다.
+
 ### 2026-08-16 (Codex) — 모바일 웹 DE/EN 전환 복원
 
 **원인과 수정.** 홈페이지 헤더의 DE/EN 전환은 정상 렌더링되고 있었지만 560px 이하

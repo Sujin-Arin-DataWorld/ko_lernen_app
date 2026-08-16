@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../models/learner_level.dart';
 import 'account/reconciliation_errors.dart';
 import 'curriculum_catalog.dart';
 import 'storage_service.dart';
@@ -1386,22 +1387,20 @@ class CourseMasteryService {
       value == null ? null : _validScore(value);
 
   String _normalizeLevel(String value) {
-    final level = value.trim().toLowerCase();
-    if (!const {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}.contains(level)) {
+    final level = LearnerLevel.fromCode(value);
+    if (level == null) {
       throw FormatException('Unsupported placement level: $value');
     }
-    return level;
+    return level.code;
   }
 
-  int _levelRank(String level) => switch (level) {
-    'a1' => 0,
-    'a2' => 1,
-    'b1' => 2,
-    'b2' => 3,
-    'c1' => 4,
-    'c2' => 5,
-    _ => throw FormatException('Unsupported curriculum level: $level'),
-  };
+  int _levelRank(String value) {
+    final level = LearnerLevel.fromCode(value);
+    if (level == null) {
+      throw FormatException('Unsupported curriculum level: $value');
+    }
+    return level.rank;
+  }
 
   List<CourseUnit> get _orderedUnits {
     final units = catalog.courseUnits.toList();
@@ -1579,7 +1578,8 @@ class CourseMasteryService {
     return List.unmodifiable(sorted);
   }
 
-  String? _normalizedPlacement(String? value) => value?.trim().toLowerCase();
+  String? _normalizedPlacement(String? value) =>
+      LearnerLevel.fromCode(value)?.code;
 
   bool _hasSequentialCourseState(CourseMasterySnapshot? snapshot) {
     if (snapshot == null) return false;

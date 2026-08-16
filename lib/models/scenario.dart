@@ -15,35 +15,10 @@
 /// ```
 library;
 
+export 'learner_level.dart';
+
 import 'curriculum.dart' show SpeechStyle, SpeechStyleX;
-
-/// CEFR-Stufe — auch Storage-Schlüssel via [code].
-enum LearnerLevel {
-  a1,
-  a2,
-  b1,
-  b2,
-  c1,
-  c2;
-
-  /// Lower-case CEFR code for persistence: 'a1' through 'c2'.
-  String get code => name;
-
-  /// Upper-case display form: 'A1' through 'C2'.
-  String get display => name.toUpperCase();
-
-  /// 0..5 for lock and unlock comparisons.
-  int get rank => index;
-
-  static LearnerLevel? fromCode(String? c) {
-    if (c == null || c.isEmpty) return null;
-    final norm = c.toLowerCase();
-    for (final lv in values) {
-      if (lv.code == norm) return lv;
-    }
-    return null;
-  }
-}
+import 'learner_level.dart';
 
 /// Eine mehrsprachige Zeichenkette aus dem Scenario-JSON.
 class LocalizedText {

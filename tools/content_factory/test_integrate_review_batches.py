@@ -267,6 +267,20 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
             and row.get("courseUnitId") not in extension_unit_ids
         ]
         curriculum_path.write_text(json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        audit["graph"]["courseUnits"] = len(curriculum["courseUnits"])
+        audit["graph"]["courseUnitsByLevel"] = {
+            level: sum(
+                1
+                for unit in curriculum["courseUnits"]
+                if unit["level"] == level
+            )
+            for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+        }
+        audit_path.write_text(
+            json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
         service = self.root / "lib/services/vocab_pack_service.dart"
         service_text = service.read_text(encoding="utf-8")
@@ -312,6 +326,31 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         self.assertEqual(318, records)
         self.assertEqual(1044, counts["vocab"])
         self.assertEqual([], ContentValidator(self.root).validate())
+        curriculum = json.loads(
+            (self.root / "assets/data/curriculum_manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        audit = json.loads(
+            (self.root / "assets/data/content_audit_manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(
+            len(curriculum["courseUnits"]),
+            audit["graph"]["courseUnits"],
+        )
+        self.assertEqual(
+            {
+                level: sum(
+                    1
+                    for unit in curriculum["courseUnits"]
+                    if unit["level"] == level
+                )
+                for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+            },
+            audit["graph"]["courseUnitsByLevel"],
+        )
         for ledger in (self.root / "tools/content_factory/review").glob("*.csv"):
             with ledger.open(encoding="utf-8-sig", newline="") as handle:
                 rows = list(csv.DictReader(handle))

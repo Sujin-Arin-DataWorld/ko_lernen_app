@@ -293,6 +293,14 @@ flutter run -d <android-id>   # 안드로이드
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
   `docs/CONTENT_AUTHORING_GUIDE.md`, `docs/CONTENT_ARCHITECTURE.md`,
   `docs/CONTENT_SOURCE_POLICY.md`다.
+- [x] **살아 있는 한옥 V1 PR1 선행 계약**: 40개 `CourseUnit`을 영구 보상 수로
+  고정하지 않고 `core_2026_v1`의 검증 가능한 `CanDoSegment`를
+  A1/A2/B1/B2/C1/C2 `16/16/18/20/8/8`, 총 86개로 분리했다. 같은 능력의 새 콘텐츠는
+  cluster revision, 독립 can-do는 후방 extension track으로 추가해 과거 분모·한옥을
+  낮추지 않는다. 정본은 `docs/ADR-003-can-do-segment-authority.md`다.
+- [ ] **살아 있는 한옥 V1 PR2**: 86개 실제 segment ID·content cluster·고유 생산 평가를
+  작성하고 기존 생산형 문항을 감수한다. 재사용 가능한 상한 40개를 제외해 최소 46개를
+  신규·재작성하며, CourseUnit 완료와 생산 도장을 분리한 재평가 경로를 구현한다.
 - [ ] **다음 콘텐츠**: Batch 06은 새 기획 전에 Batch 05 실사용 피드백과 C1/C2
   코스 완료율을 먼저 확인한다. 어떤 주제든 review-only draft·권리 검토·validator를
   통과한 뒤 앱 데이터에 쓴다.

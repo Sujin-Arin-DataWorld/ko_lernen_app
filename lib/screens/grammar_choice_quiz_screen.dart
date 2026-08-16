@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/grammar.dart';
+import '../models/learner_level.dart';
 import '../services/data_loader.dart';
 import '../services/grammar_choice_quiz.dart';
 import '../services/sound_service.dart';
@@ -143,12 +144,12 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   String _resolveLevel(List<Grammar> source) {
     final levels = source.map((grammar) => grammar.level).toSet();
-    final requested = widget.initialLevel?.toUpperCase();
+    final requested = LearnerLevel.fromCode(widget.initialLevel)?.display;
     if (requested != null && levels.contains(requested)) {
       return requested;
     }
-    final learnerLevel = (Storage.userLevelCode ?? '').toUpperCase();
-    if (levels.contains(learnerLevel)) {
+    final learnerLevel = LearnerLevel.fromCode(Storage.userLevelCode)?.display;
+    if (learnerLevel != null && levels.contains(learnerLevel)) {
       return learnerLevel;
     }
     final sorted = levels.toList()..sort();

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
@@ -26,6 +27,12 @@ void main() {
             in (raw['sources'] as List).cast<Map<String, dynamic>>())
           item['kind'] as String: item['count'] as int,
       };
+      final curriculum =
+          jsonDecode(
+                File('assets/data/curriculum_manifest.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final courseUnits = curriculum['courseUnits'] as List<dynamic>;
 
       final scenarios = await ScenarioLoader.load();
       await SmalltalkLoader.load();
@@ -70,6 +77,20 @@ void main() {
 
       expect(actual, expected);
       expect(raw['graph'], containsPair('checkpointThreshold', .7));
+      expect(raw['graph'], containsPair('courseUnits', courseUnits.length));
+      final courseUnitsByLevel = <String, int>{
+        for (final level in LearnerLevel.values) level.code: 0,
+      };
+      for (final unit in courseUnits.cast<Map<String, dynamic>>()) {
+        final level = LearnerLevel.fromCode(unit['level']?.toString());
+        if (level != null) {
+          courseUnitsByLevel[level.code] = courseUnitsByLevel[level.code]! + 1;
+        }
+      }
+      expect(
+        raw['graph'],
+        containsPair('courseUnitsByLevel', courseUnitsByLevel),
+      );
     },
   );
 }

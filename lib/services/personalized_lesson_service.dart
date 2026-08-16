@@ -1,3 +1,4 @@
+import '../models/learner_level.dart';
 import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import 'storage_service.dart';
@@ -59,23 +60,8 @@ class PersonalizedLessonService {
     return out;
   }
 
-  static int levelRank(String code) {
-    switch (code.toUpperCase()) {
-      case 'A2':
-        return 1;
-      case 'B1':
-        return 2;
-      case 'B2':
-        return 3;
-      case 'C1':
-        return 4;
-      case 'C2':
-        return 5;
-      case 'A1':
-      default:
-        return 0;
-    }
-  }
+  static int levelRank(String code) =>
+      (LearnerLevel.fromCode(code) ?? LearnerLevel.a1).rank;
 
   /// Baut den personalisierten Vokabel-Deck (max [maxVocab]).
   /// Rein synchron/lokal — liest nur den SRS-Zustand aus [Storage].
