@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 문화어 홈페이지 production 반영 복구
+
+**원인과 수정.** `cebc4204` 배포는 Worker upload까지 성공했지만, live verifier가
+`/de`의 `Hanok`을 한 덩어리 평문으로 찾아야 했다. 문화어 도움말은 이 단어를 명시적
+`data-cultural-term` 요소로 감싸므로 화면 문장은 같아도 HTML 문자열은 끊긴다. verifier를
+태그를 제거한 visible text로 검사하도록 바꾸고, 해당 계약이 유지되는 정적 테스트를
+추가했다. 문화어 UI나 Worker binding·도메인·rollback 정책은 바꾸지 않았다.
+
+**검증과 배포.** `npm run lint -- --quiet`, typecheck, build, 20개 웹 테스트,
+Cloudflare strict dry-run, `npm audit --audit-level=high`(0 vulnerabilities)와
+`git diff --check`를 통과했다. 구현은 `fc85a997`로 `main`에 push했다. Workers Builds는
+새 Worker version `db5bd99f-c5bc-4eed-9aaa-5563e12d92b9`을 production 100%로 교체하고,
+두 도메인에서 `fc85a99760107803482a142e5a479f43561b3a17`의 release header·11개 경로·22개
+정적 asset·문화어 JSON을 검증했다. 이 환경에는 `agent-browser` CLI가 없어 실제 브라우저
+클릭 자동화는 실행하지 못했지만, live HTML은 두 도메인 모두 `data-cultural-term="hanok"`을
+반환한다.
+
 ### 2026-08-16 (Codex) — 공항 초보자 도움 경로 + Play·홈페이지 자동 배포
 
 **공항 정답 정합성.** `quest_airport_arrival_02`가 음성·대화의
