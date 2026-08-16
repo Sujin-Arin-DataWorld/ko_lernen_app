@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 
 /// §P2-6 flipgate 센서: vocab_pack Learn — "앞면(미공개) 드래그 시 SRS·
@@ -111,6 +112,22 @@ void main() {
     expect(Storage.wrongCountOf('나무'), 0);
   });
 
+  testWidgets('한 번 답을 본 카드는 앞면으로 돌아와도 좌우 판정 가능', (tester) async {
+    await pump(tester);
+
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pumpAndSettle();
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pumpAndSettle();
+    expect(find.text('나무'), findsOneWidget);
+
+    await tester.drag(find.text('나무'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+
+    expect(find.text('2 / 3'), findsOneWidget);
+    expect(Storage.srsCard('나무')?.reviewCount, 1);
+  });
+
   testWidgets(
     'vocab coach queues wordbook spotlight and excludes deck spotlight',
     (tester) async {
@@ -138,10 +155,10 @@ void main() {
         findsOneWidget,
       );
 
-    await tester.tap(find.text('Alles klar!'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
-    await tester.pump();
+      await tester.tap(find.text('Alles klar!'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pump();
 
       expect(find.text('Karte wischen'), findsNothing);
       expect(find.byKey(kSpotlightTooltipKey), findsOneWidget);

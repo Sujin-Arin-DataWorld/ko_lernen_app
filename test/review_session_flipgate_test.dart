@@ -7,13 +7,14 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 import 'helpers/deck_actions.dart';
 
 /// §C-3c flipgate 센서: review_session 화면 — "앞면(flipped=false) 드래그 시
 /// SRS 기록 0 + 카드 인덱스 불변".
 ///
-/// `enabled: _flipped` 배선 한 줄이 지워지면 이 테스트가 빨개진다.
+/// 카드별 공개 이력 게이트 배선이 지워지면 이 테스트가 빨개진다.
 /// (위젯 테스트 swipe_card_test.dart 의 enabled:false 케이스와 상보.)
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -134,6 +135,33 @@ void main() {
     );
 
     expect(find.text('학교'), findsOneWidget);
+  });
+
+  testWidgets('한 번 답을 본 카드는 앞면으로 돌아와도 좌우 판정 가능', (tester) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(buildScreen());
+    await tester.pump(const Duration(milliseconds: 500));
+
+    final card = find.byKey(const ValueKey('deck-card-slot'));
+    final pressable = find.ancestor(
+      of: card,
+      matching: find.byType(SoriPressable),
+    );
+    tester.widget<SoriPressable>(pressable).onTap!();
+    await tester.pumpAndSettle();
+    tester.widget<SoriPressable>(pressable).onTap!();
+    await tester.pumpAndSettle();
+    expect(find.text('학교'), findsOneWidget);
+
+    await tester.drag(find.text('학교'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+
+    expect(find.text('선생님'), findsOneWidget);
+    expect(Storage.srsCard('학교')?.reviewCount, 1);
   });
 
   testWidgets('버튼 판정→다음 카드 플립 없이 스와이프 → SRS 불변 (리셋 경로 센서)', (tester) async {
