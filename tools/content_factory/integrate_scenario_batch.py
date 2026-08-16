@@ -11,20 +11,23 @@ from __future__ import annotations
 
 import argparse
 import csv
+from datetime import date
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import tempfile
 from typing import Any
 
-from validate_content import ContentValidator
+from validate_content import ContentValidator, LOWER_LEVELS
 
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MANIFEST = Path("tools/content_factory/drafts/batch_04_manifest.json")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 APPROVED = frozenset(("approved", "ok"))
+MANIFEST_STATUSES = frozenset(("review_only", "approved", "merged"))
 SCENE_KEYS = frozenset(("airport", "cafe", "convenience", "directions", "home", "hotel", "market", "office", "pharmacy", "restaurant", "station", "taxi"))
 
 
@@ -71,12 +74,26 @@ def _read_review(path: Path) -> list[dict[str, str]]:
     return rows
 
 
-def _validate_batch(root: Path, relative_manifest: Path) -> tuple[Path, dict[str, Any], list[dict[str, Any]], dict[str, str]]:
+def _review_status_is_known(raw: str) -> bool:
+    status = raw.strip().casefold()
+    return status in APPROVED | {"draft", "no", "rejected"} or status.startswith("fix:")
+
+
+def _validate_batch(
+    root: Path,
+    relative_manifest: Path,
+    *,
+    require_approved: bool,
+) -> tuple[Path, dict[str, Any], list[dict[str, Any]], dict[str, str]]:
     manifest_path = _under_root(root, str(relative_manifest))
     manifest = _read_json(manifest_path)
-    if manifest.get("version") != 1 or manifest.get("batch") != "04":
-        raise ScenarioIntegrationError(f"{manifest_path}: expected Batch 04 manifest version 1")
-    if manifest.get("status") not in {"approved", "merged"}:
+    batch = manifest.get("batch")
+    if manifest.get("version") != 1 or not isinstance(batch, str) or not re.fullmatch(r"\d{2,}", batch):
+        raise ScenarioIntegrationError(f"{manifest_path}: expected a numeric batch manifest version 1")
+    manifest_status = manifest.get("status")
+    if manifest_status not in MANIFEST_STATUSES:
+        raise ScenarioIntegrationError(f"{manifest_path}: unknown scenario manifest status")
+    if require_approved and manifest_status not in {"approved", "merged"}:
         raise ScenarioIntegrationError(f"{manifest_path}: status must be approved before promotion")
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, list) or len(artifacts) != 1 or not isinstance(artifacts[0], dict):
@@ -92,19 +109,34 @@ def _validate_batch(root: Path, relative_manifest: Path) -> tuple[Path, dict[str
         raise ScenarioIntegrationError(f"{draft_path}: scenarios must be a nonempty array of objects")
     if artifact.get("count") != len(records) or manifest.get("recordCount") != len(records):
         raise ScenarioIntegrationError(f"{manifest_path}: scenario record count disagrees with its draft")
-    levels = {"b1": 0, "b2": 0}
+    levels: dict[str, int] = {}
     ids: list[str] = []
     for record in records:
         ident = record.get("id")
         level = record.get("level")
-        if not isinstance(ident, str) or not ident or not isinstance(level, str) or level not in levels:
-            raise ScenarioIntegrationError(f"{draft_path}: every record needs an id and B1/B2 lowercase level")
+        if not isinstance(ident, str) or not ident or not isinstance(level, str) or level not in LOWER_LEVELS:
+            raise ScenarioIntegrationError(f"{draft_path}: every record needs an id and A1-C2 lowercase level")
         ids.append(ident)
-        levels[level] += 1
+        levels[level] = levels.get(level, 0) + 1
     if len(ids) != len(set(ids)):
         raise ScenarioIntegrationError(f"{draft_path}: duplicate scenario ID")
     if artifact.get("levels") != levels:
         raise ScenarioIntegrationError(f"{manifest_path}: scenario level counts disagree with draft")
+    if "questCount" in manifest:
+        quests = [
+            quest
+            for record in records
+            for quest in (record.get("quests") if isinstance(record.get("quests"), list) else [])
+        ]
+        if manifest.get("questCount") != len(quests):
+            raise ScenarioIntegrationError(f"{manifest_path}: quest count disagrees with draft")
+        quest_ids: list[str] = []
+        for quest in quests:
+            if not isinstance(quest, dict) or not isinstance(quest.get("id"), str) or not quest["id"].strip():
+                raise ScenarioIntegrationError(f"{draft_path}: counted quests need stable nonempty IDs")
+            quest_ids.append(quest["id"])
+        if len(quest_ids) != len(set(quest_ids)):
+            raise ScenarioIntegrationError(f"{draft_path}: duplicate scenario quest ID")
 
     review_rows = _read_review(review_path)
     if len(review_rows) != len(records):
@@ -120,7 +152,11 @@ def _validate_batch(root: Path, relative_manifest: Path) -> tuple[Path, dict[str
         for key in ("ko", "de", "en"):
             if row.get(key) != title.get(key):
                 raise ScenarioIntegrationError(f"{review_path}: {record['id']} {key} disagrees with title projection")
-        if (row.get("상태") or "").strip().casefold() not in APPROVED:
+        review_status = (row.get("상태") or "").strip().casefold()
+        if not _review_status_is_known(review_status):
+            raise ScenarioIntegrationError(f"{review_path}: {record['id']} has an unknown review status")
+        approval_required = require_approved or manifest_status in {"approved", "merged"}
+        if approval_required and review_status not in APPROVED:
             raise ScenarioIntegrationError(f"{review_path}: {record['id']} is not approved")
 
     links = manifest.get("contentLinks")
@@ -137,7 +173,7 @@ def _validate_batch(root: Path, relative_manifest: Path) -> tuple[Path, dict[str
     return manifest_path, manifest, records, {key: str(value) for key, value in backdrops.items()}
 
 
-def _update_backdrop_map(source: str, backdrops: dict[str, str]) -> str:
+def _update_backdrop_map(source: str, backdrops: dict[str, str], batch: str) -> str:
     for ident, category in backdrops.items():
         existing = f"    '{ident}':"
         if existing in source:
@@ -146,10 +182,10 @@ def _update_backdrop_map(source: str, backdrops: dict[str, str]) -> str:
     missing = [(ident, category) for ident, category in backdrops.items() if f"    '{ident}':" not in source]
     if not missing:
         return source
-    anchor = "    // cafe —"
+    anchor = "    // cafe"
     if anchor not in source:
         raise ScenarioIntegrationError("cannot locate ScenarioBackdrop insertion anchor")
-    lines = ["    // Reviewed C1 Batch 04 scenarios. Existing backdrop pipeline only."]
+    lines = [f"    // Reviewed scenario Batch {batch}. Existing backdrop pipeline only."]
     lines.extend(f"    '{ident}': '{category}'," for ident, category in missing)
     return source.replace(anchor, "\n".join(lines) + "\n" + anchor, 1)
 
@@ -166,7 +202,11 @@ def _atomic_write(path: Path, text: str) -> None:
 
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
-    manifest_path, manifest, records, backdrops = _validate_batch(root, manifest_path)
+    manifest_path, manifest, records, backdrops = _validate_batch(
+        root,
+        manifest_path,
+        require_approved=apply,
+    )
     with tempfile.TemporaryDirectory(prefix="scenario-batch-integration-") as directory:
         stage = Path(directory) / "repo"
         shutil.copytree(root / "assets" / "data", stage / "assets" / "data")
@@ -240,14 +280,18 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             root / "assets" / "data" / "scenarios.json": (data / "scenarios.json").read_text(encoding="utf-8"),
             root / "assets" / "data" / "curriculum_manifest.json": (data / "curriculum_manifest.json").read_text(encoding="utf-8"),
             root / "assets" / "data" / "content_audit_manifest.json": (data / "content_audit_manifest.json").read_text(encoding="utf-8"),
-            backdrop_file: _update_backdrop_map(backdrop_file.read_text(encoding="utf-8"), backdrops),
+            backdrop_file: _update_backdrop_map(
+                backdrop_file.read_text(encoding="utf-8"),
+                backdrops,
+                str(manifest["batch"]),
+            ),
         }
         if not apply:
             return counts, len(records)
         merged_manifest = dict(manifest)
         merged_manifest["status"] = "merged"
         provenance = dict(merged_manifest.get("provenance") or {})
-        provenance["mergedAt"] = "2026-08-15"
+        provenance["mergedAt"] = date.today().isoformat()
         merged_manifest["provenance"] = provenance
         outputs[manifest_path] = _json_text(merged_manifest)
         originals = {path: path.read_text(encoding="utf-8") for path in outputs}

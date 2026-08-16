@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** Batch 01–05 live 정본 + A1–C2 확장 계약 · 2026-08-15
+> **상태:** Batch 01-05 live 정본 + Batch 06 review-only 확장 계약, 2026-08-16
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
@@ -11,10 +11,11 @@
 
 ## 0. 시작 전: 무엇을 어디에 쓰는가
 
-새 콘텐츠를 쓸 때는 다음 세 층을 절대 섞지 않는다.
+새 콘텐츠를 쓸 때는 다음 네 층을 절대 섞지 않는다.
 
 | 층 | 위치 | 역할 | 직접 편집 가능 여부 |
 | --- | --- | --- | --- |
+| **참고 자료 격리** | `tools/content_factory/reference_intake/` | source inventory, page audit, 중립 관찰, clean-room brief | 정해진 열만 편집. 원문 저장 금지 |
 | **초안 원문** | `tools/content_factory/drafts/` | 실제 병합될 모든 필드를 갖춘 schema-complete 콘텐츠 | 예. 작성자가 편집하는 곳 |
 | **승인 원장** | `tools/content_factory/review/` | Jin이 ID별 승인 상태를 남기는 CSV | 원칙적으로 `상태`와 `jin_memo`만 편집 |
 | **앱 본문** | `assets/data/` | Flutter 앱이 실제로 읽는 정본 | 승인 전 직접 편집 금지 |
@@ -25,11 +26,12 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 
 새 세션에게 일을 맡길 때는 먼저 아래 순서를 지시한다.
 
-1. `AGENTS.md`와 이 문서를 전부 읽는다.
-2. 현재 앱 자산을 `python3 tools/content_factory/validate_content.py`로 읽기 전용 검사한다.
-3. `assets/data/`가 아니라 새/기존 `drafts/` 파일만 수정한다.
-4. 독일어와 영어를 함께 작성하고, 같은 의미인지 검수한다.
-5. review 원장을 draft와 동기화하고, Jin 승인 전에는 `--apply`, 실제 TTS, 커밋을 하지 않는다.
+1. `AGENTS.md`, 이 문서, `CONTENT_SOURCE_POLICY.md`를 전부 읽는다.
+2. PDF 또는 OCR 감사가 있으면 `CONTENT_REFERENCE_INTAKE_GUIDE.md`도 전부 읽는다.
+3. 현재 앱 자산과 reference intake를 읽기 전용 검사한다.
+4. `assets/data/`가 아니라 새/기존 `drafts/` 파일만 수정한다.
+5. 독일어와 영어를 함께 작성하고, 같은 의미인지 검수한다.
+6. review 원장을 draft와 동기화하고, Jin 승인 전에는 `--apply`, 실제 TTS, 커밋을 하지 않는다.
 
 ### 0.1 외부 교재·저작물 격리
 
@@ -52,6 +54,10 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 - 기존 live asset에 출처가 불명확한 후보가 발견되면, 이름만 지워 계속 쓰지 않는다.
   별도 rights review에서 유지·재작성·제외를 결정하며, 새 콘텐츠가 그 후보를 재사용하지
   않는다.
+- 외부 PDF의 추출 가능 여부와 image형 표 누락은 격리 감사에서 확인할 수 있다. 파일과
+  페이지 메타데이터는 `reference_intake/` 앞단에만 남기고, 작성자는 source 관련 열이 없는
+  `content_briefs.csv`와 live 앱 데이터만 본다. 상세 절차와 5개 CSV 계약은
+  `CONTENT_REFERENCE_INTAKE_GUIDE.md`가 정본이다.
 
 ## 1. 가장 중요한 규칙 12개
 
@@ -515,7 +521,8 @@ C0의 preview/apply로 우회하지 않는다. 관계 맥락과 맞지 않는 �
 
 시나리오는 해당 레벨의 실제 vocab·grammar·course mapping이 존재할 때만 만든다.
 Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. C1/C2 전용
-시나리오는 아직 없으므로 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
+시나리오는 live에는 아직 없다. Batch 06에 첫 C1/C2 scenario가 review-only로 준비돼
+있지만 승인 통합 전에는 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
 필드를 갖는 완전 object다.
 
 ```json
@@ -787,6 +794,9 @@ draft를 만들 때 수치를 올리지 않는다. `apply_review.py --apply`가 
 # 현재 live asset의 빠른 실패 검사
 python3 tools/content_factory/validate_content.py
 
+# reference inventory와 clean-room brief의 경계 및 live ID 동기화 검사
+python3 tools/content_factory/validate_reference_intake.py
+
 # 새 Batch 06+의 manifest-driven overlay 검사
 python3 tools/content_factory/validate_review_batch.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
@@ -848,7 +858,7 @@ scenario-only batch는 아래 전용 경로를 쓴다.
 
 ```bash
 python3 tools/content_factory/integrate_scenario_batch.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply
 ```
 
 `--apply`는 모든 data asset·curriculum mapping·pack UI map·audit manifest → 전체

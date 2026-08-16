@@ -1,0 +1,7 @@
+observation_id,source_id,audit_id,observation_type,neutral_signal,cefr_candidate,skill_axis,interaction_mode,register_hint,grammar_fact,confidence,rights_gate,status
+obs_0001,ref0002,audit_ref0002_0001,layout_risk,Image-based tables can disappear from ordinary PDF text extraction and require visual sampling,UNSET,reading,page_structure_audit,unset,,high,pass_abstract_only,accepted
+obs_0002,ref0004,audit_ref0004_0001,interaction_pattern,A learning goal benefits from recurring across comprehension response and short production,C1,interaction,multi_step_practice,mixed,,medium,pass_abstract_only,accepted
+obs_0003,ref0006,audit_ref0006_0001,skill_progression,Higher levels should move from personal response toward evidence limits institutions and ethical tradeoffs,C1,mediation,evidence_based_response,business,,medium,pass_abstract_only,accepted
+obs_0004,ref0009,audit_ref0009_0001,interaction_pattern,Productive practice should end with a learner-generated sentence rather than recognition alone,C1,writing,controlled_to_free_production,mixed,,medium,pass_abstract_only,accepted
+obs_0005,ref0010,audit_ref0010_0001,skill_progression,Review should reuse one communicative intent in a new relationship and setting instead of repeating one sentence,C2,interaction,transfer_across_contexts,mixed,,medium,pass_abstract_only,accepted
+obs_0006,ref0003,audit_ref0003_0001,coverage_gap,Extraction audits must measure missing image content before declaring a source fully reviewed,UNSET,reading,coverage_audit,unset,,high,pass_abstract_only,accepted

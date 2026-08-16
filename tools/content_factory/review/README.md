@@ -4,8 +4,8 @@
 리뷰 시트에서 `id`와 `상태`(또는 `status`)만 읽습니다. 나머지 열은 검수 맥락과
 감사 기록용이며, 그 값을 앱 자산으로 변환하거나 보완하지 않습니다.
 
-Batch 01–04의 모든 ledger는 2026-08-15 live 승격을 기록하는 `approved` 상태다. 새
-Batch 05+는 모든 행을 `draft`로 시작한다. 여러 asset·curriculum·pack UI map이 필요한
+Batch 01-05의 모든 ledger는 2026-08-15 live 승격을 기록하는 `approved` 상태다. 새
+Batch 06+는 모든 행을 `draft`로 시작한다. 여러 asset·curriculum·pack UI map이 필요한
 새 vocab/grammar/game batch는 `apply_review.py` 단독 `--apply`가 아니라
 `integrate_review_batches.py --manifest ...`로, scenario-only batch는
 `integrate_scenario_batch.py --manifest ...`로 원자적으로 승격한다.

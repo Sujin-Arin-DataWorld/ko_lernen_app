@@ -1,0 +1,27 @@
+audit_id,source_id,page_start,page_end,method,text_line_count,page_image_count,table_detected,layout_detected,extraction_confidence,visual_review_required,audit_status,notes
+audit_ref0001_0001,ref0001,1,12,combined,,,yes,yes,low,yes,needs_followup,Rendered pages confirm image-oriented learning tables
+audit_ref0002_0001,ref0002,1,12,library_page_read,10,10,yes,yes,low,yes,needs_followup,Ten page images with only ten extracted text lines
+audit_ref0002_0002,ref0002,1,12,local_render,,,yes,yes,high,no,sampled,Local render confirms visible table and layout content
+audit_ref0003_0001,ref0003,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Eight page images with only eight extracted text lines
+audit_ref0003_0002,ref0003,9,12,pdf_text,0,,unknown,unknown,none,yes,needs_followup,Text-only pass found no readable body
+audit_ref0003_0003,ref0003,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms content missing from text-only pass
+audit_ref0004_0001,ref0004,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Eight page images with only eight extracted text lines
+audit_ref0004_0002,ref0004,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms image-oriented conversation tables
+audit_ref0005_0001,ref0005,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0006_0001,ref0006,5,12,library_page_read,11,7,yes,yes,medium,yes,needs_followup,Mixed sample includes image-oriented page regions
+audit_ref0006_0002,ref0006,9,12,pdf_text,1,,unknown,unknown,low,yes,needs_followup,Text-only pass returned title-level content only
+audit_ref0006_0003,ref0006,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms mixed text and table regions
+audit_ref0007_0001,ref0007,1,12,combined,,,unknown,yes,high,no,sampled,Canonical copy has a readable text layer and render
+audit_ref0009_0001,ref0009,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Mixed sample behaves as page images in this range
+audit_ref0009_0002,ref0009,9,12,pdf_text,0,,unknown,unknown,none,yes,needs_followup,Text-only pass found no readable body
+audit_ref0009_0003,ref0009,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms content missing from text-only pass
+audit_ref0010_0001,ref0010,5,12,library_page_read,11,7,yes,yes,medium,yes,needs_followup,Mixed sample includes image-oriented page regions
+audit_ref0010_0002,ref0010,9,12,pdf_text,1,,unknown,unknown,low,yes,needs_followup,Text-only pass returned title-level content only
+audit_ref0010_0003,ref0010,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms mixed text and table regions
+audit_ref0011_0001,ref0011,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0012_0001,ref0012,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0013_0001,ref0013,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0014_0001,ref0014,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0015_0001,ref0015,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0016_0001,ref0016,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0017_0001,ref0017,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable

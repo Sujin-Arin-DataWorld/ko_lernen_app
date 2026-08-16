@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "batch": "06",
+  "status": "review_only",
+  "provenance": {
+    "scope": "Original B1-C2 cross-game scenario pilot based on live curriculum gaps and clean-room product briefs.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "startingMainSha": "e3c39f594cc975659c48671409d7403c7a0639f7",
+    "briefIds": [
+      "brief_b1_repair_followup",
+      "brief_b2_device_escalation",
+      "brief_c1_survey_limits",
+      "brief_c2_automated_appeal"
+    ]
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/c1_batch06_scenarios_b1_c2.json",
+      "review": "tools/content_factory/review/c1_batch06_scenarios.csv",
+      "count": 4,
+      "levels": {
+        "b1": 1,
+        "b2": 1,
+        "c1": 1,
+        "c2": 1
+      }
+    }
+  ],
+  "recordCount": 4,
+  "questCount": 20,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_repair_visit_followup",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_device_failure_escalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_survey_limits_briefing",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_automated_decision_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "b1_repair_visit_followup": "home",
+    "b2_device_failure_escalation": "office",
+    "c1_survey_limits_briefing": "office",
+    "c2_automated_decision_appeal": "office"
+  },
+  "mergeOrder": [
+    "scenario + contentLinks + scenario backdrop + audit manifest"
+  ]
+}

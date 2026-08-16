@@ -1,5 +1,41 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) - PDF 판독 격리 DB와 Batch 06 게임 pilot
+
+**기준과 브랜치.** 웹사이트 수정 커밋인 최신 `main`
+`e3c39f594cc975659c48671409d7403c7a0639f7`에서 콘텐츠 전용
+`agent/reference-intake-batch06-20260816` 브랜치를 분리했다. 웹사이트 파일과 live
+`assets/data/`는 변경하지 않았다. 커밋은 이 항목을 포함한 동일 커밋이다.
+
+**작업지침과 수집 DB.** `CONTENT_REFERENCE_INTAKE_GUIDE.md`를 새 정본으로 만들고
+기존 handoff, expansion work order, authoring guide, source policy, architecture, AGENTS와
+Content Factory README를 연결했다. PDF와 표는
+`source inventory -> page audit -> neutral observation -> clean-room brief -> seed bundle`
+5단계로 분리한다. 17개 파일의 SHA-256, 쪽수, 중복 그룹, text/mixed/image, OCR과
+Library/로컬 렌더 검수 상태, 권리 경계를 CSV로 기록했다. 이미지형 핸드북과 5A/6A/6B의
+mixed 페이지는 일반 PDF 추출만으로 완료 처리하지 않는다. 원문, OCR 문장, 표 셀과 페이지
+이미지는 커밋 또는 생성 입력으로 넘기지 않는다.
+
+**동기화 게이트.** `validate_reference_intake.py`는 5개 CSV의 exact header와 enum,
+source/audit 연결, duplicate 차단, clean-room provenance 누출, live course unit, concept,
+vocab, grammar ID, active scenario draft, quest ID와 type, canonical KO의 Cloze/Satzbau/받아쓰기
+파생 일치를 읽기 전용으로 검사한다. scenario integrator는 Batch 04 하드코딩을 제거해
+A1-C2와 임의 numeric batch를 지원하고, review-only preview는 허용하되 `--apply`는 manifest와
+review가 승인되지 않으면 계속 fail-closed다. 선택적 `questCount`와 안정 quest ID도 검사한다.
+
+**실제 게임 초안.** Batch 06 review-only로 B1, B2, C1, C2 시나리오 각 1개를 독립
+집필했다. 각 시나리오는 dialog 8줄과 `hoerverstehen`, `uebersetzen`, `luecken`,
+`satzBauen`, `diktat` 5개를 포함해 총 scenario 4개, quest 20개다. 기존 live unit, concept,
+vocab, grammar ID만 사용했다. 특히 live scenario가 0개인 C1 근거와 설문 한계, C2 자동화
+결정 이의 제기를 먼저 채웠다. review 원장 4행은 모두 `draft`이며 Jin 승인 전 live asset,
+TTS, Firebase에 병합하지 않는다.
+
+**검증.** 기존 `validate_content.py --json`은 `ok: true`, reference intake validator는
+`ok: true`다. Python regression test는 **7/7 통과**했고 py_compile과 Batch 06 JSON parse도
+통과했다. 기존 merged Batch 04 preview는 scenario 58, quest 241의 현재 inventory를
+유지했고 Batch 06 disposable preview는 scenario 62, quest 261을 계산했다. Batch 06
+`--apply`는 예상대로 `status must be approved before promotion`으로 쓰기 전에 차단됐다.
+
 ### 2026-08-16 (Codex) — 모바일 웹 DE/EN 전환 복원
 
 **원인과 수정.** 홈페이지 헤더의 DE/EN 전환은 정상 렌더링되고 있었지만 560px 이하

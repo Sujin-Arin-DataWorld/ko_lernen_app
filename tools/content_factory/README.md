@@ -16,6 +16,11 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
 
+PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
+[`docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`](../../docs/CONTENT_REFERENCE_INTAKE_GUIDE.md)와
+[`reference_intake/README.md`](reference_intake/README.md)를 따른다. source 원문은 draft로
+넘기지 않으며, `validate_reference_intake.py`가 격리 CSV와 live ID 연결을 검사한다.
+
 > **2026-08-15 live baseline.** Batch 01–04와 B2/C1/C2 Batch 05는 Jin 승인 뒤
 > `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 06이며 새
 > manifest/draft/review로 시작한다. 새 vocab·grammar·smalltalk·Cloze·Satz에는
@@ -30,6 +35,9 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 ```bash
 # 현재 자산의 빠른 실패 게이트
 python3 tools/content_factory/validate_content.py
+
+# source 격리, clean-room brief, live curriculum/vocab/grammar 참조 검사
+python3 tools/content_factory/validate_reference_intake.py
 
 # review-only batch의 schema, review projection, companion mapping, 이전 미병합
 # batch 예약, 그리고 disposable app-data overlay를 모두 검사한다. 어떤 source도 쓰지 않는다.

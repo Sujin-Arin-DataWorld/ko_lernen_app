@@ -32,6 +32,22 @@ Hangul Sori의 학습 데이터는 자체 집필 또는 이용 허락이 확인�
 
 무료 다운로드, 비매품 표시, 비상업 교육 목적의 열람은 앱에 넣을 권한을 증명하지 않는다.
 
+## 허용되는 격리 감사
+
+외부 PDF와 스캔 자료는 콘텐츠 생성 입력으로는 금지하지만, 추출 누락과 제품 자체의 범용
+coverage 공백을 확인하는 읽기 전용 감사에는 사용할 수 있다. 이 예외는 원문을 콘텐츠로
+전환할 권한이 아니라 source를 안전하게 닫기 위한 운영 절차다.
+
+- 파일명, SHA-256, 쪽수, 중복 관계, text/mixed/image 판정은 격리 inventory에 기록할 수 있다.
+- 일반 PDF 추출이 비어 있는지, 표가 이미지인지, 실제 렌더 검수가 필요한지 수치로 기록할 수 있다.
+- 개별 문법 형태 같은 언어 사실 또는 특정 표현을 포함하지 않은 일반 학습 기능만 중립 관찰로 남길 수 있다.
+- 원문, 표 셀, OCR 문장, 페이지별 제목과 목록, source 순서는 draft와 생성 프롬프트에 전달하지 않는다.
+- 독립 작성자는 source 열이 제거된 `content_briefs.csv`만 보고 콘텐츠를 만든다.
+
+격리 감사의 정본 위치와 열 계약은 `docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`와
+`tools/content_factory/reference_intake/`다. OCR 원문과 페이지 렌더는 커밋하지 않는 임시
+파일이어야 하며, 판독과 중첩 검사 뒤 삭제한다.
+
 ## 작성과 검수
 
 1. 작성자는 제품 목표와 필요한 개별 언어 사실만 담은 neutral brief를 만든다. 원문 문장,
@@ -41,6 +57,8 @@ Hangul Sori의 학습 데이터는 자체 집필 또는 이용 허락이 확인�
    유사하지 않은지 확인한다.
 4. 의심 항목은 `fix: rights review` 상태로 두며 앱 asset, TTS, Firebase에는 병합하지 않는다.
 5. 권리 확보가 필요한 자료는 허락 범위, 담당자, 만료일을 별도 권리 원장에 기록한다.
+6. source inventory, page audit, neutral observation, clean-room brief 사이의 경계를
+   `validate_reference_intake.py`로 검사한다.
 
 ## 기존 데이터
 

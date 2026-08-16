@@ -292,10 +292,11 @@ flutter run -d <android-id>   # 안드로이드
   vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
   `docs/CONTENT_AUTHORING_GUIDE.md`, `docs/CONTENT_ARCHITECTURE.md`,
-  `docs/CONTENT_SOURCE_POLICY.md`다.
-- [ ] **다음 콘텐츠**: Batch 06은 새 기획 전에 Batch 05 실사용 피드백과 C1/C2
-  코스 완료율을 먼저 확인한다. 어떤 주제든 review-only draft·권리 검토·validator를
-  통과한 뒤 앱 데이터에 쓴다.
+  `docs/CONTENT_SOURCE_POLICY.md`, `docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`다.
+- [ ] **다음 콘텐츠**: Batch 06은 B1/B2 회귀 표본과 첫 C1/C2 시나리오를 묶은
+  review-only pilot이다. PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가
+  제거된 brief만 독립 집필에 쓴다. review 승인, reference/content validator, preview를
+  모두 통과하기 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.
