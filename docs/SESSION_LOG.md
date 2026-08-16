@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 살아 있는 한옥 V1 PR2 최종 로컬 게이트
+
+**최신 기준과 콘텐츠 경계.** 생산형 재평가 코어 5개 커밋을 최신
+`origin/main d9427e69` 위로 재배치해 구현 HEAD `3218ec0a`를 만들었다. 86개 immutable
+core segment와 118개 평가 요구는 유지하되, Jin의 ID별 승인이 없는 learner-facing
+과제·예시·C1/C2 자료는 `tools/content_factory/drafts/productive_assessments.json`에만
+격리했다. Flutter가 묶는 `assets/data/`에는 해당 JSON이 없으며 production 재평가
+화면은 catalog·snapshot loader를 호출하기 전에 fail closed한다. 테스트만 draft
+catalog를 명시적으로 주입한다.
+
+**검증.** 최신 기준에서 콘텐츠 생성기 Python **12/12**와 두 생성기 `--check`,
+격리·평가·projection 집중 회귀 **84/84**, 전체 serial Flutter suite(`exit 0`,
+Windows golden 12건 skip), 전체 `flutter analyze --no-pub --fatal-infos`
+**No issues found**, `flutter build web --release --no-pub`, `git diff --check`를 통과했다.
+웹 빌드는 `build/web`을 생성했고, 외부 `flutter_tts 4.2.5`의 기존 Wasm dry-run 경고
+3건만 남았다. 독립 Standards·Spec 최종 리뷰는 모두 P0/P1 0이다. push·PR·exact-head
+CI·main 병합은 이 기록 다음 게이트이며 아직 완료로 주장하지 않는다.
+
 ### 2026-08-16 (Codex) — 후속 홈페이지 push가 Play AAB 배포를 취소하던 문제 수정
 
 **원인.** 첫 자동 Play Internal 실행 `31967839728`은 서명 복원과 Flutter quality gate를
