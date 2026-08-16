@@ -248,7 +248,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
         const SizedBox(height: Spacing.xl),
         Text(t.placementChooseYourself, style: SoriTextTheme.of(context).h3),
         const SizedBox(height: Spacing.sm),
-        for (final level in const ['a1', 'a2', 'b1', 'b2'])
+        for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'])
           Padding(
             padding: const EdgeInsets.only(bottom: Spacing.sm),
             child: SoriButton.outlined(

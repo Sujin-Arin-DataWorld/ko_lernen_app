@@ -158,7 +158,10 @@ void main() {
           isTrue,
           reason: 'Duplicate vocab key: ${row[0]}',
         );
-        expect(['A1', 'A2', 'B1', 'B2'], contains(row[3].toString()));
+        expect(
+          ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+          contains(row[3].toString()),
+        );
         for (final i in [0, 1, 2, 3, 4, 5, 6, 7]) {
           expect(row[i].toString().trim(), isNotEmpty);
         }
@@ -174,7 +177,10 @@ void main() {
           reason: 'Duplicate grammar id: ${row[11]}',
         );
         grammarById[row[11].toString()] = row;
-        expect(['A1', 'A2', 'B1', 'B2'], contains(row[1].toString()));
+        expect(
+          ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+          contains(row[1].toString()),
+        );
         for (final i in Iterable<int>.generate(15)) {
           expect(row[i].toString().trim(), isNotEmpty);
         }

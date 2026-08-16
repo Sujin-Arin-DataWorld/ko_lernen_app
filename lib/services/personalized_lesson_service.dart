@@ -67,6 +67,10 @@ class PersonalizedLessonService {
         return 2;
       case 'B2':
         return 3;
+      case 'C1':
+        return 4;
+      case 'C2':
+        return 5;
       case 'A1':
       default:
         return 0;

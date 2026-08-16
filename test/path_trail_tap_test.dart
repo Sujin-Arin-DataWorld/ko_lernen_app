@@ -12,7 +12,7 @@ import 'package:ko_lernen_app/widgets/sori/path_trail.dart';
 /// clip되어 히트테스트에서 빠지고 (2) 겹친 노드가 서로 탭을 가로채면서
 /// 조용히 탭을 잃는다. 이 테스트는 그 두 실패를 잡는다.
 
-const _levels = ['A1', 'A2', 'B1', 'B2'];
+const _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 List<SoriPathStop> _buildStops(int n, void Function(String id) onTap) {
   return [
@@ -230,7 +230,7 @@ void main() {
   });
 
   test('레벨 목록이 비어도 죽지 않는다', () {
-    expect(_levels.length, 4);
+    expect(_levels.length, 6);
     expect(const SoriPathTrail(stops: []).stops, isEmpty);
   });
 }

@@ -1816,7 +1816,7 @@ class Storage {
   }
 
   // ───────── Szenarien (Phase 5) ─────────
-  /// Code wie 'a1', 'a2', 'b1', 'b2' — null bedeutet noch nicht gewählt
+  /// CEFR code from 'a1' through 'c2'. Null means not selected yet.
   /// (Onboarding-Trigger).
   static String? get userLevelCode {
     final v = _s('kl_user_level');

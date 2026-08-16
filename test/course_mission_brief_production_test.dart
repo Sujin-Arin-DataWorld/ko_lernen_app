@@ -183,4 +183,91 @@ void main() {
       anyOf(CurriculumContentKind.cloze, CurriculumContentKind.satz),
     );
   });
+
+  test(
+    'advanced missions expose their exact checkpoint as the final CTA',
+    () async {
+      final catalog = await CurriculumCatalog.load();
+      final scenarios = await ScenarioLoader.load();
+      final advancedUnits = catalog.courseUnits.where(
+        (unit) => const {'c1', 'c2'}.contains(unit.level),
+      );
+
+      for (final unit in advancedUnits) {
+        final links = catalog.linksForCourseUnit(unit.id);
+        final before = CourseMissionBrief.from(
+          unit: unit,
+          links: links,
+          scenarios: scenarios,
+          isCurrent: true,
+          snapshot: CourseMasterySnapshot(currentCourseUnitId: unit.id),
+        );
+        expect(before.visibleSteps.map((step) => step.phase), [
+          CourseMissionPhase.listen,
+          CourseMissionPhase.build,
+          CourseMissionPhase.checkpoint,
+        ], reason: unit.id);
+
+        final listen = before.firstLink!;
+        final afterListenSnapshot = CourseMasterySnapshot(
+          currentCourseUnitId: unit.id,
+          evidence: _correctEvidence(listen, unit, DateTime.utc(2026, 8, 16)),
+        );
+        final afterListen = CourseMissionBrief.from(
+          unit: unit,
+          links: links,
+          scenarios: scenarios,
+          isCurrent: true,
+          snapshot: afterListenSnapshot,
+        );
+        expect(afterListen.visibleSteps.first.phase, CourseMissionPhase.build);
+
+        final build = afterListen.firstLink!;
+        final readyForCheckpoint = CourseMissionBrief.from(
+          unit: unit,
+          links: links,
+          scenarios: scenarios,
+          isCurrent: true,
+          snapshot: afterListenSnapshot.copyWith(
+            evidence: [
+              ...afterListenSnapshot.evidence,
+              ..._correctEvidence(build, unit, DateTime.utc(2026, 8, 16, 0, 1)),
+            ],
+          ),
+        );
+        expect(
+          readyForCheckpoint.visibleSteps.first.phase,
+          CourseMissionPhase.checkpoint,
+          reason: unit.id,
+        );
+        expect(
+          readyForCheckpoint.firstLink?.contentKey,
+          unit.checkpointContentIds.single,
+          reason: unit.id,
+        );
+        expect(readyForCheckpoint.firstLink?.exactlyAssesses(unit), isTrue);
+      }
+    },
+  );
 }
+
+List<MasteryEvidence> _correctEvidence(
+  ContentLink link,
+  CourseUnit unit,
+  DateTime occurredAt,
+) => [
+  for (final conceptId in link.conceptIds)
+    MasteryEvidence(
+      conceptId: conceptId,
+      contentKind: link.contentKind,
+      contentId: link.contentId,
+      courseUnitId: unit.id,
+      missionContentLinkId: link.id,
+      isCorrect: true,
+      occurredAt: occurredAt,
+      score: link.contentKind == CurriculumContentKind.vocab
+          ? unit.passThreshold
+          : null,
+      courseEligible: link.role == ContentLinkRole.assess,
+    ),
+];

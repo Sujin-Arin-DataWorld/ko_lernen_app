@@ -165,7 +165,7 @@ void main() {
     () async {
       await SmalltalkLoader.load();
       final catIds = SmalltalkLoader.categories.map((c) => c.id).toSet();
-      const levels = {'a1', 'a2', 'b1', 'b2'};
+      const levels = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'};
       for (final p in SmalltalkLoader.phrases) {
         expect(
           p.ko.isNotEmpty && p.de.isNotEmpty && p.en.isNotEmpty,

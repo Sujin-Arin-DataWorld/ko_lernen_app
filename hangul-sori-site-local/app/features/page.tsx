@@ -5,9 +5,9 @@ export const metadata: Metadata = { title: "Alle Funktionen", description: "Hang
 
 const groups = [
   ["Hangul lernen", "19 Konsonanten, 21 Vokale, Batchim, animierte Strichreihenfolge, Finger-Nachzeichnen und Erkennen, Schreiben sowie Hören."],
-  ["Vokabeln A1 bis B2", "526 Wörter in 61 kleinen Packs, koreanische Aussprache, deutsche und englische Übersetzung, Karten und SM-2-Wiederholungsplan."],
+  ["Vokabeln A1 bis C2", "1.188 Wörter in 117 kleinen Packs, koreanische Aussprache, deutsche und englische Übersetzung, Karten und SM-2-Wiederholungsplan."],
   ["Eigene Wortlisten", "Wörter selbst ergänzen, Übersetzungen erstellen lassen, Fotos anhängen, CSV-Listen importieren und als Karten oder Quiz üben."],
-  ["Grammatik", "88 Muster von den Grundlagen bis B2, verständliche Erklärungen, Audio und natürliche Beispielsätze."],
+  ["Grammatik", "176 Muster von den Grundlagen bis C2, verständliche Erklärungen, Audio und natürliche Beispielsätze für Alltag, Studium und öffentliche Diskussionen."],
   ["Szenarien", "Dialoge, Wortschatz, Mini-Quests und Kulturhinweise für Café, Markt, Hotel, U-Bahn, Taxi, Apotheke und weitere Alltagssituationen."],
   ["책 한 컷", "Buchseite fotografieren, lokal zuschneiden und per On-Device-OCR erkennen. Auf Wunsch wird der extrahierte Text analysiert, übersetzt und als eigenes Lernpaket gespeichert."],
   ["Spiele", "Anlaut-Quiz, Hangul Wordle, 끝말잇기 Wortkette, Lückentexte, Hör- und Übersetzungsaufgaben mit unmittelbarem Feedback."],

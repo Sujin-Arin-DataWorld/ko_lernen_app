@@ -31,7 +31,7 @@ class CourseMissionBrief {
       for (final kind in CourseMissionPhase.values) kind: <ContentLink>[],
     };
     for (final step in plan.steps) {
-      linksByPhase[_phaseFor(step.link.contentKind)]!.add(step.link);
+      linksByPhase[_phaseFor(step.link, unit)]!.add(step.link);
     }
     linksByPhase[CourseMissionPhase.scene]!.sort((left, right) {
       final rank = _sceneLinkRank(
@@ -108,7 +108,7 @@ class CourseMissionBrief {
   int get remainingStepCount => totalStepCount - visibleSteps.length;
 }
 
-enum CourseMissionPhase { listen, build, scene }
+enum CourseMissionPhase { listen, build, checkpoint, scene }
 
 int _sceneLinkRank(ContentLink link, CourseUnit unit) {
   final declaredIndex = unit.checkpointContentIds.indexOf(link.contentKey);
@@ -161,15 +161,24 @@ class _MissionPhase {
   }
 }
 
-CourseMissionPhase _phaseFor(CurriculumContentKind kind) => switch (kind) {
-  CurriculumContentKind.vocab => CourseMissionPhase.listen,
-  CurriculumContentKind.scenario => CourseMissionPhase.scene,
-  _ => CourseMissionPhase.build,
-};
+CourseMissionPhase _phaseFor(ContentLink link, CourseUnit unit) {
+  if (link.contentKind == CurriculumContentKind.vocab) {
+    return CourseMissionPhase.listen;
+  }
+  if (link.contentKind == CurriculumContentKind.scenario) {
+    return CourseMissionPhase.scene;
+  }
+  if (unit.checkpointContentIds.contains(link.contentKey) &&
+      link.exactlyAssesses(unit)) {
+    return CourseMissionPhase.checkpoint;
+  }
+  return CourseMissionPhase.build;
+}
 
 int _minutesForPhase(CourseMissionPhase kind) => switch (kind) {
   CourseMissionPhase.listen => 1,
   CourseMissionPhase.build => 2,
+  CourseMissionPhase.checkpoint => 1,
   CourseMissionPhase.scene => 1,
 };
 

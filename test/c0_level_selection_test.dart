@@ -56,6 +56,8 @@ void main() {
       expect(learnerLevelDisplayForStoredCode('a2'), 'A2');
       expect(learnerLevelDisplayForStoredCode('b1'), 'B1');
       expect(learnerLevelDisplayForStoredCode('B2'), 'B2');
+      expect(learnerLevelDisplayForStoredCode('c1'), 'C1');
+      expect(learnerLevelDisplayForStoredCode('C2'), 'C2');
       expect(learnerLevelDisplayForStoredCode(null), 'A1');
     });
   });
@@ -245,6 +247,41 @@ void main() {
             .selected,
         isFalse,
       );
+    });
+
+    testWidgets('chosung wraps all level chips on a narrow scaled layout', (
+      tester,
+    ) async {
+      await tester.binding.setSurfaceSize(const Size(320, 800));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await _setStoredLevel('c2');
+      await tester.runAsync(DataLoader.loadVocab);
+
+      await tester.pumpWidget(
+        _screenApp(
+          Builder(
+            builder: (context) => MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: const TextScaler.linear(1.3)),
+              child: const ChosungQuizScreen(),
+            ),
+          ),
+        ),
+      );
+      await _pumpUntil(
+        tester,
+        find.byKey(const ValueKey('chosung-level-C2')),
+      );
+
+      expect(tester.takeException(), isNull);
+      final chipTops = <double>{
+        for (final level in const ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
+          tester
+              .getTopLeft(find.byKey(ValueKey('chosung-level-$level')))
+              .dy,
+      };
+      expect(chipTops.length, greaterThan(1));
     });
 
     testWidgets('silben selects the persisted B2 level, not its A1 default', (

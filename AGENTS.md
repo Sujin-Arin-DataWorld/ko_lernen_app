@@ -97,7 +97,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/vocab/legacy` | LegacyVocabScreen (구 플래시카드) |
 | `/grammar` | GrammarScreen |
 | `/hangul` | HangulScreen |
-| `/chosung` | ChosungQuizScreen (초성 퀴즈 A1-B2) |
+| `/chosung` | ChosungQuizScreen (초성 퀴즈 A1-C2) |
 | `/wordle` | WordleScreen (한글 워들) |
 | `/settings` | SettingsScreen |
 | `/stats` | StatsScreen |
@@ -129,14 +129,14 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(단어·예문·user 대화, 현재 corpus 5,642), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator, 현재 corpus 175 + 책한컷·내단어장 동적) — 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce). (2026-08-02 검수로 v2/Aoede 표기 정정 — 상세 `docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §4.)
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(Batch 05 포함 corpus 6,146), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator corpus 175 + 책한컷·내단어장 동적). 전체 corpus 6,321개를 Storage에서 검증했으며 결과는 expected 6,321, remote 6,376, missing 0, stale 55다. 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송한다. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce).
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
   - `lib/services/bookshelf_service.dart` — BookPage 로컬(`kl_bookshelf_v1`) + best-effort Firestore `users/{uid}/bookshelf/{id}`.
   - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete. **`quickAdd`**(고정 id `cp_quick_v1` "⭐빠른저장" find-or-create + 한국어 dedup, enum `WordbookAddResult`) — 전역 "＋단어장"의 코어.
   - `lib/widgets/sori/wordbook_add.dart` — `addToWordbook(ctx, korean,…)` + `AddToWordbookButton`(compact). 6개 학습화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player)에서 호출.
-- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 105팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
+- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 117팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
 - **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
@@ -167,13 +167,13 @@ Firebase 프로젝트: `ko-lernen-app`
 - ✅ 모션 시스템 일원화 완료 — `flutter_animate` 패키지 제거. `motion.dart` + `lib/motion/transitions.dart` 둘만 공존 (역할 분리: entrance vs route transition).
 
 ### 데이터
-- `assets/data/korean_vocab.csv` — 단어장 (level 필드: A1/A2/B1/B2)
+- `assets/data/korean_vocab.csv` — 단어장 (level 필드: A1/A2/B1/B2/C1/C2)
 - `assets/data/grammar.csv` — 문법
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
-- 단어팩(105)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
-- ✅ **콘텐츠 언어 (2026-08-15 갱신)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(1,044/1,044)·`grammar.csv` `_en` 컬럼(152/152) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
+- 단어팩(117)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
+- ✅ **콘텐츠 언어 (2026-08-15 갱신)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(1,188/1,188)·`grammar.csv` `_en` 컬럼(176/176) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -270,15 +270,17 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
-- [x] **콘텐츠 Batch 01–04**: B1/B2 vocabulary·grammar·smalltalk·Cloze·Satz와
-  16개 시나리오/듣기 퀘스트가 앱 데이터에 통합됐다. 콘텐츠 정본은
+- [x] **콘텐츠 Batch 01–05**: B1/B2 기존 확장에 더해 Batch 05의 B2/C1/C2
+  vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
+  통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
   `docs/CONTENT_AUTHORING_GUIDE.md`, `docs/CONTENT_ARCHITECTURE.md`,
   `docs/CONTENT_SOURCE_POLICY.md`다.
-- [ ] **다음 콘텐츠**: Batch 05는 영화·음악을 특정 저작물 없이 원본 상황으로 구성한다.
-  앱 데이터에 쓰기 전 review-only draft·권리 검토·validator를 통과해야 한다.
-- [x] **TTS corpus/Storage**: 현재 corpus 5,817개는 Storage 검증에서 missing 0이다.
-  실제 합성·업로드는 Jin의 명시 지시가 있을 때만 하고, 기본은
-  `tool/generate_tts.py --verify-storage`로 확인한다.
+- [ ] **다음 콘텐츠**: Batch 06은 새 기획 전에 Batch 05 실사용 피드백과 C1/C2
+  코스 완료율을 먼저 확인한다. 어떤 주제든 review-only draft·권리 검토·validator를
+  통과한 뒤 앱 데이터에 쓴다.
+- [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
+  Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
+  과거 immutable stale 객체는 삭제하지 않는다.
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
@@ -308,18 +310,23 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
 
 1. 브랜치 push 완료 확인
 2. PR 생성 또는 갱신
-3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch` 로 명시 실행**
-   (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는 예외 이벤트다)
+3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch`의 기본
+   `task=ci`로 명시 실행** (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는
+   예외 이벤트다)
 4. run 이 **실제로 생성됐는지 확인** (run id 를 확보한다)
-5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security
+5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security ·
+   Gye functions/rules security · Pronunciation function security
 6. **run 이 존재하고 결과를 확인하기 전까지 "PR 준비됨" 이라고 보고하지 않는다**
 
 자동 트리거를 기다리며 시간을 보내지 말 것. 안 붙으면 3번을 바로 실행한다.
 사람이 UI 에서 직접 만든 PR 은 원래대로 `pull_request` 트리거가 동작하므로 두 경로가 공존한다.
 
-**⚠️ `workflow_dispatch` 로 돌리면 `regenerate-goldens` 잡도 함께 실행된다** (그 잡이
-`if: github.event_name == 'workflow_dispatch'` 게이트라서). 아티팩트만 올리고 커밋하지 않으므로
-무해하지만, 골든 기준선을 교체할 때는 그 아티팩트가 정본이다.
+**비용 안전장치.** 같은 PR/브랜치의 이전 실행은 `concurrency`가 취소하고, Markdown과
+`docs/**`만 바뀐 push/PR은 Flutter CI를 만들지 않는다. 일반 수동 검증은 기본
+`task=ci`만 사용한다. 골든 기준선을 실제로 교체할 때만 `task=regenerate-goldens`를
+선택하며, 이 모드는 일반 CI 네 job을 중복 실행하지 않는다. 실패 diff는 3일, 재생성
+골든은 7일만 보관한다. 문서 전용 PR에 CI가 없는 것은 의도된 상태지만, 코드·데이터·에셋·
+설정 변경이 하나라도 있으면 위 6단계 게이트를 그대로 적용한다.
 
 ---
 

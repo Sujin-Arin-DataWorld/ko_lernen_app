@@ -27,7 +27,8 @@ import '../widgets/sori/tts_speed_control.dart';
 /// **Lückentext (Cloze)** — das fehlende Wort im echten Satz wählen.
 ///
 /// Kontext-Abruf schlägt isolierte Karteikarten (Forschung), füllt aktiv die
-/// dünnen B1/B2-Inhalte, und ist für Erwachsene zufriedenstellender als reines
+/// anspruchsvolle B1-C2-Inhalte und ist für Erwachsene zufriedenstellender
+/// als reines
 /// Wiedererkennen. Sätze + Übersetzungen stammen aus geprüften Vokabel-
 /// Beispielen (assets/data/cloze.json).
 class ClozeGameScreen extends StatefulWidget {
@@ -52,7 +53,7 @@ class ClozeGameScreen extends StatefulWidget {
 
 class _ClozeGameScreenState extends State<ClozeGameScreen> {
   static const _roundSize = 10;
-  static const _levels = ['a1', 'a2', 'b1', 'b2'];
+  static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 
   List<ClozeItem> _all = const [];
   Map<String, Vocab> _vocabByKo = const {};

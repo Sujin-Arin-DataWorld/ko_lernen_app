@@ -1,0 +1,1398 @@
+{
+  "version": 1,
+  "_comment": "Batch 05 independently authored B2, C1, and C2 conversation and listening practice. No source sentence or exercise has been reproduced.",
+  "phrases": [
+    {
+      "id": "smalltalk_b2_0065",
+      "category": "work_study",
+      "level": "b2",
+      "kind": "question",
+      "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
+      "de": "Mögen Sie Feedback lieber direkt, oder möchten Sie zuerst hören, was schon gut funktioniert?",
+      "en": "When you get feedback, do you prefer it directly, or would you rather hear what is working first?",
+      "reply": {
+        "ko": "저는 좋은 점을 짧게 듣고 나서 고칠 부분을 구체적으로 듣는 게 편해요.",
+        "de": "Ich höre gern kurz, was gut ist, und danach konkret, was ich verbessern kann.",
+        "en": "I prefer hearing one good point briefly and then getting specific suggestions for improvement."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이번에는 어떤 방식이 편한지 먼저 정해 볼까요?",
+          "de": "Wollen wir vorher festlegen, welche Form diesmal angenehm ist?",
+          "en": "Shall we agree on what style feels comfortable this time?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "방식을 먼저 맞추면 내용에 더 집중할 수 있겠네요.",
+        "de": "Wenn wir das vorher klären, können wir uns besser auf den Inhalt konzentrieren.",
+        "en": "If we agree on the approach first, we can focus more on the content."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0066",
+      "category": "work_study",
+      "level": "b2",
+      "kind": "question",
+      "ko": "회의가 자꾸 옆길로 새는데, 흐름을 어떻게 잡으면 좋을까요?",
+      "de": "Unsere Besprechung schweift immer wieder ab. Wie können wir sie besser strukturieren?",
+      "en": "The meeting keeps drifting off topic. How could we keep it on track?",
+      "reply": {
+        "ko": "남은 안건을 화면에 띄우고 하나씩 끝내는 게 좋겠어요.",
+        "de": "Wir könnten die offenen Punkte anzeigen und einen nach dem anderen abschließen.",
+        "en": "We could put the remaining items on screen and finish them one by one."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금 꼭 결정할 것부터 골라 볼까요?",
+          "de": "Wollen wir zuerst auswählen, was heute entschieden werden muss?",
+          "en": "Shall we choose what absolutely needs a decision today?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 급하지 않은 얘기는 따로 남겨 둘 수 있겠어요.",
+        "de": "Dann können wir weniger dringende Themen für später festhalten.",
+        "en": "Then we can save the less urgent points for later."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0067",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이번 주에 일이 너무 겹쳤는데, 어느 약속부터 조정하는 게 나을까요?",
+      "de": "Diese Woche überschneidet sich so viel. Welchen Termin sollte ich zuerst verschieben?",
+      "en": "Too many things overlap this week. Which commitment should I adjust first?",
+      "reply": {
+        "ko": "다른 사람이 준비할 시간이 필요한 약속부터 확인해 볼 것 같아요.",
+        "de": "Ich würde zuerst die Termine prüfen, für die andere Vorbereitungszeit brauchen.",
+        "en": "I would first check the commitments that require other people to prepare."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "마감과 관련된 약속을 따로 표시해 볼까요?",
+          "de": "Wollen wir die Termine mit einer Frist gesondert markieren?",
+          "en": "Shall we mark the commitments tied to deadlines?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 보면 미뤄도 되는 일이 더 잘 보이겠어요.",
+        "de": "Dann wird deutlicher, was sich verschieben lässt.",
+        "en": "That would make it easier to see what can be moved."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0068",
+      "category": "screen",
+      "level": "b2",
+      "kind": "question",
+      "ko": "제목은 자극적인데 내용은 애매해요. 이 링크를 공유해도 될까요?",
+      "de": "Der Titel ist reißerisch, aber der Inhalt bleibt vage. Soll ich den Link teilen?",
+      "en": "The headline is dramatic, but the content is vague. Should I share the link?",
+      "reply": {
+        "ko": "저라면 원문과 날짜를 먼저 확인하고 결정할 것 같아요.",
+        "de": "Ich würde zuerst die Originalquelle und das Datum prüfen.",
+        "en": "I would check the original source and date before deciding."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "같은 내용을 다룬 다른 출처도 찾아볼까요?",
+          "de": "Sollen wir noch eine andere Quelle zum selben Thema suchen?",
+          "en": "Shall we look for another source covering the same claim?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "두 곳을 비교하면 빠진 맥락도 보일 수 있겠네요.",
+        "de": "Im Vergleich könnte auch der fehlende Kontext sichtbar werden.",
+        "en": "Comparing two sources may reveal missing context."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0069",
+      "category": "screen",
+      "level": "b2",
+      "kind": "question",
+      "ko": "쉬는 중인데도 자꾸 휴대폰을 보게 돼요. 어디에 두면 덜 신경 쓰일까요?",
+      "de": "Obwohl ich Pause mache, schaue ich ständig aufs Handy. Wo könnte ich es hinlegen, damit es mich weniger ablenkt?",
+      "en": "I keep checking my phone even while resting. Where could I put it so it distracts me less?",
+      "reply": {
+        "ko": "저는 충전기를 침대에서 먼 곳에 두니까 조금 나아졌어요.",
+        "de": "Bei mir half es, das Ladegerät weiter weg vom Bett aufzustellen.",
+        "en": "It helped me to keep the charger away from the bed."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "알림부터 한 시간만 꺼 볼까요?",
+          "de": "Wollen wir die Benachrichtigungen erst einmal für eine Stunde ausschalten?",
+          "en": "Shall we turn notifications off for just an hour first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "한 시간 정도면 부담 없이 시험해 볼 수 있겠어요.",
+        "de": "Eine Stunde lässt sich ohne großen Druck ausprobieren.",
+        "en": "An hour feels easy enough to try."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0070",
+      "category": "work_study",
+      "level": "b2",
+      "kind": "question",
+      "ko": "발표 자료에 나온 통계의 출처가 안 보여요. 그대로 써도 괜찮을까요?",
+      "de": "In den Folien fehlt die Quelle der Statistik. Können wir sie trotzdem verwenden?",
+      "en": "I can't see the source for the statistic in the slides. Is it okay to use it as is?",
+      "reply": {
+        "ko": "출처를 찾지 못하면 수치는 빼고 경향만 조심스럽게 말하겠어요.",
+        "de": "Wenn wir die Quelle nicht finden, würde ich die Zahl weglassen und nur vorsichtig den Trend beschreiben.",
+        "en": "If we cannot find the source, I would remove the number and describe only the trend carefully."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "자료를 만든 사람에게 원본 링크를 물어볼까요?",
+          "de": "Sollen wir die Person, die die Folien erstellt hat, nach dem Originallink fragen?",
+          "en": "Shall we ask whoever made the slides for the original link?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인된 뒤에 넣으면 발표도 더 믿을 만해지겠네요.",
+        "de": "Nach der Prüfung wirkt die Präsentation verlässlicher.",
+        "en": "Including it after verification would make the presentation more credible."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0071",
+      "category": "mood",
+      "level": "b2",
+      "kind": "question",
+      "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
+      "de": "Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren?",
+      "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?",
+      "reply": {
+        "ko": "바로 설명하기보다 어떤 점이 걱정되는지 먼저 물어볼 것 같아요.",
+        "de": "Ich würde nicht sofort erklären, sondern zuerst fragen, welcher Punkt Sorgen macht.",
+        "en": "Instead of explaining right away, I would first ask what part concerns them."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "잠깐 메모한 뒤에 답해도 괜찮다고 말해 볼까요?",
+          "de": "Wollen wir sagen, dass eine Antwort nach einer kurzen Notizpause in Ordnung ist?",
+          "en": "Could you say you need a moment to take notes before answering?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "생각할 틈이 있으면 말투도 한결 부드러워질 것 같아요.",
+        "de": "Mit etwas Bedenkzeit wird auch der Ton wahrscheinlich ruhiger.",
+        "en": "A little thinking time could make the response much gentler."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0072",
+      "category": "work_study",
+      "level": "b2",
+      "kind": "question",
+      "ko": "지금 표결할까요, 아니면 의견 차이를 조금 더 이야기할까요?",
+      "de": "Sollen wir jetzt abstimmen oder die Meinungsunterschiede noch etwas besprechen?",
+      "en": "Should we vote now, or talk through the differences a little more?",
+      "reply": {
+        "ko": "결과에 큰 영향을 주는 쟁점 하나만 더 듣고 표결하면 좋겠어요.",
+        "de": "Ich würde noch einen entscheidenden Streitpunkt anhören und dann abstimmen.",
+        "en": "I would hear one more issue that could affect the outcome, then vote."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "아직 말하지 못한 사람이 있는지 먼저 확인할까요?",
+          "de": "Sollen wir zuerst prüfen, ob jemand noch nicht zu Wort gekommen ist?",
+          "en": "Shall we first check whether anyone has not had a chance to speak?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 확인이 끝나면 결과도 더 잘 받아들일 수 있겠어요.",
+        "de": "Danach dürfte das Ergebnis leichter akzeptiert werden.",
+        "en": "After that check, the result may be easier to accept."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0073",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "공용 세탁기 시간이 겹쳤어요. 이번에는 어떻게 나눠 쓰면 좋을까요?",
+      "de": "Unsere Zeiten für die gemeinsame Waschmaschine überschneiden sich. Wie teilen wir sie diesmal auf?",
+      "en": "Our shared washing-machine times overlap. How should we split them this time?",
+      "reply": {
+        "ko": "저는 늦게 들어오니까 먼저 쓰시고, 저는 아홉 시부터 쓸게요.",
+        "de": "Ich komme später nach Hause. Nutzen Sie sie zuerst, dann bin ich ab neun Uhr dran.",
+        "en": "I get home later, so you can use it first and I'll take it from nine."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "각자 꼭 필요한 시간을 먼저 말해 볼까요?",
+          "de": "Wollen wir zuerst sagen, welche Zeit jede Person wirklich braucht?",
+          "en": "Shall we each say which time we actually need?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "필요한 시간을 알면 서로 한발씩 양보하기 쉽겠어요.",
+        "de": "Wenn wir den Bedarf kennen, können wir leichter aufeinander zugehen.",
+        "en": "Knowing what each person needs should make compromise easier."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0074",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "오늘 손님이 늦게까지 있을 것 같은데 옆집에 뭐라고 말하면 자연스러울까요?",
+      "de": "Meine Gäste bleiben heute wahrscheinlich länger. Wie kann ich das den Nachbarn natürlich sagen?",
+      "en": "My guests may stay late tonight. What would be a natural way to tell the neighbors?",
+      "reply": {
+        "ko": "늦어도 열한 시에는 조용히 하겠다고 먼저 양해를 구하면 좋겠어요.",
+        "de": "Bitten Sie vorher um Verständnis und sagen Sie, dass es spätestens ab elf Uhr ruhig sein wird.",
+        "en": "You could ask for understanding and say you will keep it quiet after eleven at the latest."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "혹시 불편하면 바로 알려 달라고 덧붙일까요?",
+          "de": "Sollen wir hinzufügen, dass sie sich bei Problemen sofort melden können?",
+          "en": "Shall we add that they can let you know right away if it gets disruptive?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 말이 있으면 일방적인 통보처럼 들리지 않겠네요.",
+        "de": "Dann klingt es nicht wie eine einseitige Mitteilung.",
+        "en": "That would keep it from sounding like a one-sided notice."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0075",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "출입문 변경 안내를 붙였는데 사람들이 계속 지나쳐요. 뭐가 문제일까요?",
+      "de": "Wir haben den Hinweis zum neuen Eingang aufgehängt, aber alle laufen daran vorbei. Woran könnte es liegen?",
+      "en": "We posted a notice about the entrance change, but people keep missing it. What might be wrong?",
+      "reply": {
+        "ko": "글자가 작고 동선에서 조금 벗어나 있어서 그런 것 같아요.",
+        "de": "Wahrscheinlich ist die Schrift zu klein und der Hinweis liegt etwas abseits des Laufwegs.",
+        "en": "The text may be too small, and the notice is slightly outside people's path."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "실제로 걸어가면서 어느 위치가 보이는지 확인해 볼까요?",
+          "de": "Wollen wir beim Vorbeigehen prüfen, welche Stelle wirklich sichtbar ist?",
+          "en": "Shall we walk the route and check which spot is actually visible?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "사용자 눈높이에서 보면 붙일 자리가 달라질 수 있겠어요.",
+        "de": "Aus Sicht der Nutzer könnte sich ein besserer Platz ergeben.",
+        "en": "Looking at it from the user's path may reveal a better location."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0076",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "공용 주방에 제 물건이 남아 있었어요. 기분 상하지 않게 어떻게 풀까요?",
+      "de": "Meine Sachen lagen noch in der Gemeinschaftsküche. Wie kläre ich das, ohne jemanden zu verletzen?",
+      "en": "My things were left in the shared kitchen. How can I resolve it without upsetting anyone?",
+      "reply": {
+        "ko": "누구 탓인지 묻기보다 같이 정리할 시간을 정해 보겠어요.",
+        "de": "Ich würde nicht nach Schuld fragen, sondern einen gemeinsamen Aufräumtermin vorschlagen.",
+        "en": "Rather than ask whose fault it is, I would suggest a time to tidy up together."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "각자 자주 쓰는 물건의 자리를 먼저 정할까요?",
+          "de": "Sollen wir zuerst feste Plätze für häufig genutzte Dinge bestimmen?",
+          "en": "Shall we first decide where frequently used items should go?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "자리가 정해지면 같은 일이 덜 생기겠네요.",
+        "de": "Mit festen Plätzen dürfte das seltener passieren.",
+        "en": "Once everything has a place, the same issue should happen less often."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0077",
+      "category": "mood",
+      "level": "b2",
+      "kind": "question",
+      "ko": "요즘 답장이 느린데 제가 너무 무심해 보일까 봐 걱정돼요.",
+      "de": "In letzter Zeit antworte ich langsam und fürchte, gleichgültig zu wirken.",
+      "en": "My replies have been slow lately, and I'm worried I seem uncaring.",
+      "reply": {
+        "ko": "바쁜 시기라고 짧게 알려 주면 상대도 이유를 짐작하지 않아도 돼요.",
+        "de": "Eine kurze Nachricht über die stressige Phase erspart der anderen Person das Rätseln.",
+        "en": "A brief note that you're busy keeps the other person from having to guess why."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금 여유가 없지만 나중에 답하겠다고 한 줄 보내 볼까요?",
+          "de": "Wollen Sie kurz schreiben, dass Sie später antworten, weil gerade wenig Zeit ist?",
+          "en": "Could you send one line saying you are short on time but will reply later?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 정도면 관계를 챙기면서도 무리하지 않을 수 있겠어요.",
+        "de": "So lässt sich die Beziehung pflegen, ohne sich zu überfordern.",
+        "en": "That seems enough to care for the relationship without overextending yourself."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0078",
+      "category": "work_study",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이번 주 부탁은 맡기 어려운데 너무 차갑지 않게 거절하려면 어떻게 말할까요?",
+      "de": "Ich kann die Aufgabe diese Woche nicht übernehmen. Wie lehne ich ab, ohne kalt zu wirken?",
+      "en": "I cannot take on this request this week. How can I decline without sounding cold?",
+      "reply": {
+        "ko": "지금 맡으면 마감을 지키기 어렵다고 솔직히 말하겠어요.",
+        "de": "Ich würde ehrlich sagen, dass ich die Frist nicht halten könnte, wenn ich es jetzt übernehme.",
+        "en": "I would honestly say that taking it on now would make the deadline hard to meet."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "대신 다음 주에 검토만 도울 수 있다고 제안할까요?",
+          "de": "Sollen wir anbieten, nächste Woche zumindest bei der Prüfung zu helfen?",
+          "en": "Could you offer to help with a review next week instead?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "가능한 범위를 말하면 거절 뒤에도 협력할 길이 남겠네요.",
+        "de": "Wenn Sie den möglichen Rahmen nennen, bleibt trotz der Absage Raum für Zusammenarbeit.",
+        "en": "Naming what you can do leaves room to cooperate even after declining."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0079",
+      "category": "mood",
+      "level": "b2",
+      "kind": "question",
+      "ko": "둘 다 화가 난 상태인데 지금 끝까지 이야기하는 게 좋을까요?",
+      "de": "Wir sind beide aufgebracht. Sollten wir das Gespräch trotzdem jetzt zu Ende führen?",
+      "en": "We're both upset. Should we still finish the conversation right now?",
+      "reply": {
+        "ko": "오늘은 핵심만 확인하고 내일 다시 이야기하는 게 나을 것 같아요.",
+        "de": "Ich würde heute nur den Kern klären und morgen weiterreden.",
+        "en": "I think it would be better to confirm the main issue today and talk again tomorrow."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "대화를 피하려는 게 아니라는 말도 같이 할까요?",
+          "de": "Sollen wir auch sagen, dass es nicht darum geht, dem Gespräch auszuweichen?",
+          "en": "Shall we also say that postponing does not mean avoiding the conversation?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 말을 들으면 미루자는 제안도 덜 불안하게 느껴지겠어요.",
+        "de": "Dann wirkt der Vorschlag, später weiterzureden, weniger verunsichernd.",
+        "en": "That would make postponing feel less unsettling."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0080",
+      "category": "daily",
+      "level": "b2",
+      "kind": "question",
+      "ko": "우리는 연락하는 방식이 너무 달라요. 한쪽만 참지 않으려면 어떻게 해야 할까요?",
+      "de": "Wir haben sehr unterschiedliche Kontaktgewohnheiten. Wie verhindern wir, dass nur eine Seite nachgibt?",
+      "en": "We communicate very differently. How can we keep one person from doing all the compromising?",
+      "reply": {
+        "ko": "서로 편한 빈도와 꼭 연락이 필요한 상황을 따로 정해 보면 좋겠어요.",
+        "de": "Wir könnten getrennt klären, welche Häufigkeit angenehm ist und wann eine Nachricht wirklich nötig ist.",
+        "en": "We could agree separately on a comfortable frequency and on situations when contact is important."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "일주일만 시험해 보고 다시 조정할까요?",
+          "de": "Wollen wir es eine Woche testen und danach neu anpassen?",
+          "en": "Shall we try it for a week and adjust afterward?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "시험 기간이 있으면 둘 다 부담 없이 의견을 말할 수 있겠네요.",
+        "de": "Mit einer Testphase können beide Seiten leichter sagen, was funktioniert.",
+        "en": "A trial period would make it easier for both sides to say what works."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0001",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "새 안내 방식이 실제로 접근성을 높였는지 어떻게 확인할까요?",
+      "de": "Wie prüfen wir, ob die neue Information tatsächlich barriereärmer ist?",
+      "en": "How can we check whether the new information actually improved accessibility?",
+      "reply": {
+        "ko": "변경 전후에 어디서 막혔는지 이용자에게 직접 물어보는 게 좋겠어요.",
+        "de": "Wir sollten Nutzer direkt fragen, wo sie vor und nach der Änderung auf Hindernisse gestoßen sind.",
+        "en": "We should ask users directly where they encountered barriers before and after the change."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "특정 이용자와 동선을 함께 걸어 볼까요?",
+          "de": "Wollen wir den Weg gemeinsam mit betroffenen Nutzern abgehen?",
+          "en": "Shall we walk the route with affected users?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 보면 수치만으로 놓친 불편도 보이겠네요.",
+        "de": "So werden auch Probleme sichtbar, die Zahlen allein übersehen.",
+        "en": "That could reveal barriers the numbers alone missed."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0002",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "개선안을 정하기 전에 당사자에게 어떤 질문부터 해야 할까요?",
+      "de": "Welche Frage sollten wir Betroffenen stellen, bevor wir eine Lösung festlegen?",
+      "en": "What should we ask affected people before deciding on an improvement?",
+      "reply": {
+        "ko": "무엇이 불편한지보다 어떤 순간에 선택권이 사라지는지 묻고 싶어요.",
+        "de": "Ich würde nicht nur nach Unbequemlichkeit fragen, sondern danach, wann Wahlmöglichkeiten verloren gehen.",
+        "en": "Rather than only ask what is inconvenient, I would ask when their choices disappear."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "원하는 해결 방식도 여러 개 들어 볼까요?",
+          "de": "Sollen wir auch nach mehreren gewünschten Lösungswegen fragen?",
+          "en": "Shall we ask about several possible ways they would like the issue handled?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "문제와 해법을 함께 들으면 일방적으로 정할 위험이 줄겠어요.",
+        "de": "Wenn wir Problem und Lösung gemeinsam hören, entscheiden wir weniger leicht über die Köpfe anderer hinweg.",
+        "en": "Hearing both the problem and preferred solutions reduces the risk of deciding for people."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0003",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "이 결과가 가설을 뒷받침한다고 봐도 될까요, 아니면 아직 자료가 부족할까요?",
+      "de": "Stützt dieses Ergebnis schon die Hypothese, oder reichen die Daten noch nicht?",
+      "en": "Does this result support the hypothesis, or is the evidence still too limited?",
+      "reply": {
+        "ko": "방향은 맞지만 표본이 작아서 결론은 유보하는 게 좋겠어요.",
+        "de": "Die Richtung passt, aber wegen der kleinen Stichprobe sollten wir das Urteil zurückstellen.",
+        "en": "The direction fits, but the sample is small, so we should withhold the conclusion."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "같은 조건에서 다시 나오는지 먼저 확인할까요?",
+          "de": "Sollen wir zuerst prüfen, ob das Ergebnis unter denselben Bedingungen wiederkehrt?",
+          "en": "Shall we first check whether it repeats under the same conditions?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "재현 여부를 보면 우연인지 판단하기 쉬워지겠네요.",
+        "de": "Die Reproduzierbarkeit hilft uns, Zufall besser einzuschätzen.",
+        "en": "Reproducibility would make it easier to judge whether this was chance."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0004",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "발표에서 연구의 한계를 어디까지 말해야 흐름을 해치지 않을까요?",
+      "de": "Wie ausführlich sollten wir die Grenzen der Studie nennen, ohne den Vortrag zu überladen?",
+      "en": "How much should we say about the study's limitations without disrupting the presentation?",
+      "reply": {
+        "ko": "결론에 직접 영향을 주는 한계 두 가지만 본문에 넣겠어요.",
+        "de": "Ich würde im Hauptteil nur die zwei Einschränkungen nennen, die das Ergebnis direkt beeinflussen.",
+        "en": "I would put only the two limitations that directly affect the conclusion in the main talk."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "나머지는 질문이 나오면 보여 줄 슬라이드로 남겨 둘까요?",
+          "de": "Sollen wir die übrigen Punkte auf einer Reservefolie für Fragen festhalten?",
+          "en": "Shall we keep the rest on a backup slide for questions?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "핵심은 지키면서도 숨긴다는 인상은 피할 수 있겠어요.",
+        "de": "So bleibt der Vortrag klar, ohne den Eindruck zu erwecken, etwas werde verschwiegen.",
+        "en": "That keeps the talk focused without seeming to hide anything."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0005",
+      "category": "transport",
+      "level": "c1",
+      "kind": "question",
+      "ko": "엘리베이터가 멈췄는데 계단을 이용하기 어려운 분께 어떤 대안을 안내해야 할까요?",
+      "de": "Der Aufzug ist außer Betrieb. Welche Alternative bieten wir einer Person an, die die Treppe nicht nutzen kann?",
+      "en": "The elevator is out of service. What alternative should we offer someone who cannot use the stairs?",
+      "reply": {
+        "ko": "이유만 설명하지 말고 이용 가능한 다른 출입구와 도움 요청 방법을 함께 안내해야 해요.",
+        "de": "Wir sollten nicht nur den Grund nennen, sondern einen zugänglichen Eingang und eine Kontaktmöglichkeit anbieten.",
+        "en": "We should not just explain why, but provide an accessible entrance and a way to request assistance."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "실제로 이동 가능한 경로인지 직원이 먼저 확인할까요?",
+          "de": "Soll ein Mitarbeiter vorher prüfen, ob der alternative Weg tatsächlich nutzbar ist?",
+          "en": "Should a staff member first check that the alternative route is actually usable?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인되지 않은 길을 안내해 다시 막히는 일은 피할 수 있겠네요.",
+        "de": "So vermeiden wir, jemanden auf einen ungeprüften und erneut versperrten Weg zu schicken.",
+        "en": "That would avoid sending someone down an unverified route that is blocked again."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0006",
+      "category": "health",
+      "level": "c1",
+      "kind": "question",
+      "ko": "연구 결과와 제 개인 경험이 다를 때는 어떻게 이야기하는 게 좋을까요?",
+      "de": "Wie spreche ich darüber, wenn meine persönliche Erfahrung von einem Studienergebnis abweicht?",
+      "en": "How should I talk about it when my personal experience differs from research findings?",
+      "reply": {
+        "ko": "제 경험을 반례처럼 단정하지 않고 적용 조건이 달랐을 수 있다고 말하겠어요.",
+        "de": "Ich würde meine Erfahrung nicht als Widerlegung darstellen, sondern mögliche Unterschiede der Bedingungen nennen.",
+        "en": "I would not present my experience as a refutation, but mention that the conditions may have differed."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "연구가 다룬 대상과 제 상황을 나눠 볼까요?",
+          "de": "Wollen wir die untersuchte Gruppe und Ihre Situation getrennt betrachten?",
+          "en": "Shall we separate the population in the study from your own situation?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 둘 중 하나를 무시하지 않고 차이를 설명할 수 있겠어요.",
+        "de": "So lässt sich der Unterschied erklären, ohne eine Seite abzuwerten.",
+        "en": "That lets us explain the difference without dismissing either side."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0007",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "모두에게 같은 기준을 적용하면 공정하다고 볼 수 있을까요?",
+      "de": "Ist es fair, wenn für alle dieselbe Regel gilt?",
+      "en": "Is it fair to apply exactly the same rule to everyone?",
+      "reply": {
+        "ko": "출발 조건이 다르면 필요한 예외가 있는지도 함께 봐야 해요.",
+        "de": "Bei unterschiedlichen Ausgangsbedingungen müssen wir auch prüfen, ob Ausnahmen nötig sind.",
+        "en": "If starting conditions differ, we also need to consider whether some exceptions are necessary."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "예외를 허용할 기준부터 공개할까요?",
+          "de": "Sollen wir zuerst die Kriterien für Ausnahmen offenlegen?",
+          "en": "Shall we publish the criteria for exceptions first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "기준이 보이면 특혜라는 오해도 줄일 수 있겠네요.",
+        "de": "Klare Kriterien können den Eindruck von Bevorzugung verringern.",
+        "en": "Visible criteria could reduce the impression of favoritism."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0008",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "결과가 아직 불확실한데 회의에서 어느 정도까지 말해도 될까요?",
+      "de": "Die Ergebnisse sind noch unsicher. Wie viel davon können wir in der Besprechung sagen?",
+      "en": "The results are still uncertain. How much can we say in the meeting?",
+      "reply": {
+        "ko": "확인된 사실과 현재 해석을 나눠서 말하면 좋겠어요.",
+        "de": "Wir sollten bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.",
+        "en": "We should separate confirmed facts from our current interpretation."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "바뀔 수 있는 부분을 슬라이드에 표시할까요?",
+          "de": "Sollen wir auf der Folie markieren, welche Punkte sich noch ändern können?",
+          "en": "Shall we mark which parts may still change on the slide?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "듣는 사람도 확정된 내용과 추정을 구분하기 쉬워지겠네요.",
+        "de": "Dann können Zuhörer leichter zwischen gesicherten Aussagen und Annahmen unterscheiden.",
+        "en": "That would help listeners distinguish confirmed information from inference."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0009",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "확정된 내용이 적은데 첫 공지에서 무엇부터 밝혀야 할까요?",
+      "de": "Nur wenig ist bestätigt. Was sollte die erste Mitteilung unbedingt enthalten?",
+      "en": "Very little is confirmed. What should the first announcement make clear?",
+      "reply": {
+        "ko": "아는 것과 모르는 것, 다음 갱신 시간을 먼저 말해야 해요.",
+        "de": "Zuerst sollten wir sagen, was bekannt ist, was nicht und wann die nächste Aktualisierung kommt.",
+        "en": "We should first state what we know, what we do not, and when the next update will come."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사람들이 지금 해야 할 행동도 한 줄로 정리할까요?",
+          "de": "Sollen wir auch in einem Satz nennen, was die Menschen jetzt tun sollen?",
+          "en": "Shall we also summarize in one line what people should do now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "정보가 적어도 다음 행동과 확인 시점은 분명해지겠어요.",
+        "de": "Auch bei wenigen Informationen werden so die nächsten Schritte und der Zeitpunkt der Prüfung klar.",
+        "en": "Even with limited information, the next action and update time would be clear."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0010",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "가능성은 있지만 확률이 낮다는 말을 어떻게 전하면 덜 헷갈릴까요?",
+      "de": "Wie erklären wir verständlich, dass etwas möglich, aber wenig wahrscheinlich ist?",
+      "en": "How can we clearly explain that something is possible but unlikely?",
+      "reply": {
+        "ko": "가능 여부와 예상 빈도를 한 문장에서 따로 말하겠어요.",
+        "de": "Ich würde Möglichkeit und erwartete Häufigkeit in einem Satz ausdrücklich trennen.",
+        "en": "I would state possibility and expected frequency separately in the same sentence."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "숫자와 함께 일상적인 비교를 덧붙일까요?",
+          "de": "Sollen wir neben der Zahl einen alltagsnahen Vergleich geben?",
+          "en": "Shall we add an everyday comparison alongside the number?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "비교가 정확하다면 숫자의 크기를 이해하는 데 도움이 되겠네요.",
+        "de": "Ein genauer Vergleich kann helfen, die Größenordnung der Zahl zu verstehen.",
+        "en": "If the comparison is accurate, it could help people understand the scale."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0011",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "발표한 수치가 틀렸다는 걸 알았어요. 정정문에 무엇을 넣어야 할까요?",
+      "de": "Wir haben einen Fehler in einer veröffentlichten Zahl entdeckt. Was gehört in die Korrektur?",
+      "en": "We found an error in a published figure. What should the correction include?",
+      "reply": {
+        "ko": "잘못된 값과 바른 값, 결론에 미치는 영향을 함께 밝혀야 해요.",
+        "de": "Wir sollten den falschen und den korrekten Wert sowie die Auswirkung auf die Schlussfolgerung nennen.",
+        "en": "We should state the incorrect value, the corrected value, and how the change affects the conclusion."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "오류가 생긴 이유도 확인된 범위에서 설명할까요?",
+          "de": "Sollen wir auch erklären, wie der Fehler entstanden ist, soweit das geklärt ist?",
+          "en": "Shall we explain how the error happened, as far as we know?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 설명이 있으면 같은 실수를 막는 조치도 설득력을 얻겠어요.",
+        "de": "Mit dieser Erklärung wirken auch die Vorbeugemaßnahmen nachvollziehbarer.",
+        "en": "That explanation would make the preventive steps more credible."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0012",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "소문이 커지고 있는데 완전한 결과를 기다렸다가 발표해야 할까요?",
+      "de": "Gerüchte nehmen zu. Sollten wir trotzdem auf vollständige Ergebnisse warten?",
+      "en": "Rumors are growing. Should we still wait for complete results before speaking?",
+      "reply": {
+        "ko": "잠정 결과라는 표시와 한계를 붙여 먼저 알리는 편이 낫겠어요.",
+        "de": "Ich würde die vorläufigen Ergebnisse mit klarer Kennzeichnung und ihren Grenzen früher mitteilen.",
+        "en": "I would share the preliminary results earlier, clearly labeled with their limitations."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "다음 발표 시점을 함께 약속할까요?",
+          "de": "Sollen wir gleichzeitig den Zeitpunkt der nächsten Mitteilung nennen?",
+          "en": "Shall we commit to a time for the next announcement too?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 빈 정보를 소문이 대신 채우는 시간을 줄일 수 있겠네요.",
+        "de": "So bleibt weniger Zeit, in der Gerüchte die Informationslücke füllen.",
+        "en": "That could reduce the time in which rumors fill the information gap."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0013",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "좋은 취지의 행사가 한 번으로 끝나지 않게 하려면 무엇이 필요할까요?",
+      "de": "Was braucht eine sinnvolle Aktion, damit sie nicht nach einem Termin endet?",
+      "en": "What does a worthwhile initiative need so it does not end after one event?",
+      "reply": {
+        "ko": "다음 담당자와 점검 날짜를 행사 전에 정해 두어야 해요.",
+        "de": "Verantwortliche und ein Prüftermin für die nächste Phase sollten schon vor der Aktion feststehen.",
+        "en": "We should name the next owner and review date before the event happens."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "작은 목표를 한 달 단위로 잡아 볼까요?",
+          "de": "Wollen wir kleine Monatsziele festlegen?",
+          "en": "Shall we set small monthly goals?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "성과가 보이면 참여를 이어 갈 이유도 생기겠네요.",
+        "de": "Sichtbare Fortschritte geben einen Grund, weiterzumachen.",
+        "en": "Visible progress would give people a reason to stay involved."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0014",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "설치비는 싼데 유지비가 높은 장비를 골라도 될까요?",
+      "de": "Das Gerät ist günstig in der Anschaffung, aber teuer im Betrieb. Sollen wir es wählen?",
+      "en": "The equipment is cheap to install but expensive to maintain. Should we choose it?",
+      "reply": {
+        "ko": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
+        "de": "Wir sollten die Gesamtkosten über die Nutzungsdauer und die Alternative bei Ausfällen vergleichen.",
+        "en": "We should compare the full lifetime cost and what happens if it breaks down."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "관리할 인력이 있는지도 확인할까요?",
+          "de": "Sollen wir auch prüfen, ob Personal für die Wartung vorhanden ist?",
+          "en": "Shall we also check whether anyone is available to maintain it?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "가격표 밖의 부담까지 보면 선택이 달라질 수 있겠네요.",
+        "de": "Wenn wir die Belastung jenseits des Preisschilds sehen, kann die Entscheidung anders ausfallen.",
+        "en": "Looking beyond the price tag could change the decision."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0015",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "다른 도시에서 성공한 제도를 우리 지역에도 그대로 가져와도 될까요?",
+      "de": "Können wir ein erfolgreiches Modell aus einer anderen Stadt unverändert übernehmen?",
+      "en": "Can we bring over a successful program from another city without changing it?",
+      "reply": {
+        "ko": "인구 구성과 이동 방식이 달라서 먼저 작은 구역에서 시험해야 해요.",
+        "de": "Wegen anderer Bevölkerungs- und Mobilitätsstrukturen sollten wir es zuerst in einem kleinen Gebiet testen.",
+        "en": "The population and travel patterns differ, so we should pilot it in a small area first."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "현지 이용자에게 가장 불편한 지점부터 물을까요?",
+          "de": "Sollen wir lokale Nutzer zuerst nach den größten Hürden fragen?",
+          "en": "Shall we first ask local users about their biggest barriers?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "성공 사례의 원리만 남기고 실행 방식은 조정할 수 있겠네요.",
+        "de": "So können wir das Grundprinzip übernehmen und die Umsetzung anpassen.",
+        "en": "That would let us keep the principle but adapt the execution."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0016",
+      "category": "daily",
+      "level": "c1",
+      "kind": "question",
+      "ko": "새 규칙의 부담이 몇 사람에게만 몰리지 않게 하려면 어떻게 할까요?",
+      "de": "Wie verhindern wir, dass die neue Regel nur wenige Menschen belastet?",
+      "en": "How can we keep the new rule from placing the burden on only a few people?",
+      "reply": {
+        "ko": "시간과 비용, 보이지 않는 수고를 따로 적어서 나눠 봐야 해요.",
+        "de": "Wir sollten Zeit, Kosten und unsichtbare Arbeit getrennt erfassen und verteilen.",
+        "en": "We should list time, cost, and invisible labor separately, then distribute them."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "혜택을 받는 사람도 역할을 맡도록 할까요?",
+          "de": "Sollen auch diejenigen eine Rolle übernehmen, die von der Regel profitieren?",
+          "en": "Shall we give a role to people who benefit from the rule too?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "혜택과 부담을 함께 보면 더 오래 갈 합의를 만들 수 있겠네요.",
+        "de": "Wenn Nutzen und Aufwand gemeinsam betrachtet werden, kann die Vereinbarung länger tragen.",
+        "en": "Looking at benefits and burdens together could produce a more durable agreement."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0001",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+      "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
+      "en": "Should minority views remain in the minutes even when the majority decides?",
+      "reply": {
+        "ko": "결정의 전제와 놓친 위험을 나중에 검토하려면 남겨야 해요.",
+        "de": "Ja, damit wir später die Voraussetzungen der Entscheidung und übersehene Risiken prüfen können.",
+        "en": "Yes. We need them to review the assumptions behind the decision and any overlooked risks later."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "의견뿐 아니라 채택되지 않은 이유도 기록할까요?",
+          "de": "Sollen wir neben der Position auch festhalten, warum sie nicht übernommen wurde?",
+          "en": "Shall we record not only the view but also why it was not adopted?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 기록이 있으면 결과가 달라졌을 때 책임 있게 되짚을 수 있겠네요.",
+        "de": "Dann lässt sich die Entscheidung verantwortungsvoll nachvollziehen, falls das Ergebnis anders ausfällt.",
+        "en": "That record would let us revisit the decision responsibly if the outcome changes."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0002",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "결과가 좋아도 절차가 불공정했다면 그 결정을 받아들여야 할까요?",
+      "de": "Sollte eine Entscheidung akzeptiert werden, wenn das Ergebnis gut, das Verfahren aber unfair war?",
+      "en": "Should we accept a decision when the result is good but the process was unfair?",
+      "reply": {
+        "ko": "한 번의 좋은 결과가 다음 결정의 불공정한 절차를 정당화하지는 못해요.",
+        "de": "Ein gutes Ergebnis rechtfertigt kein unfaires Verfahren für künftige Entscheidungen.",
+        "en": "One good outcome does not justify an unfair process for future decisions."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "누가 발언하고 이의를 제기할 수 있었는지 살펴볼까요?",
+          "de": "Sollen wir prüfen, wer sprechen und Einwände erheben konnte?",
+          "en": "Shall we examine who was able to speak and raise objections?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "절차를 보면 운이 좋았던 결과인지도 구분할 수 있겠네요.",
+        "de": "Der Blick auf das Verfahren zeigt auch, ob das gute Ergebnis nur Glück war.",
+        "en": "Examining the process may show whether the good outcome was merely luck."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0003",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "합의를 빨리 만들기보다 지켜야 할 원칙부터 정하는 게 나을까요?",
+      "de": "Sollten wir vor einer schnellen Einigung zuerst die unverzichtbaren Prinzipien klären?",
+      "en": "Should we identify nonnegotiable principles before trying to reach a quick consensus?",
+      "reply": {
+        "ko": "원칙을 먼저 알면 양보할 부분과 넘지 못할 선을 구분할 수 있어요.",
+        "de": "Mit klaren Prinzipien lassen sich verhandelbare Punkte und feste Grenzen unterscheiden.",
+        "en": "Clear principles help us distinguish what can be negotiated from what cannot."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "각 원칙이 누구를 보호하는지도 적어 볼까요?",
+          "de": "Sollen wir auch notieren, wen jedes Prinzip schützen soll?",
+          "en": "Shall we note whom each principle is meant to protect?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 목적이 보이면 추상적인 구호에 그치지 않겠네요.",
+        "de": "Dann bleiben die Prinzipien nicht bloß abstrakte Parolen.",
+        "en": "That would keep the principles from becoming abstract slogans."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0004",
+      "category": "screen",
+      "level": "c2",
+      "kind": "question",
+      "ko": "같은 사건을 다룬 두 기사가 완전히 다르게 느껴지는 이유가 뭘까요?",
+      "de": "Warum wirken zwei Artikel über dasselbe Ereignis völlig unterschiedlich?",
+      "en": "Why do two articles about the same event feel completely different?",
+      "reply": {
+        "ko": "누구의 말을 먼저 배치하고 어떤 원인을 생략했는지 비교해 보고 싶어요.",
+        "de": "Ich würde vergleichen, wessen Stimme zuerst kommt und welche Ursachen fehlen.",
+        "en": "I would compare whose voice appears first and which causes are omitted."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "제목에서 책임의 주체를 어떻게 부르는지도 볼까요?",
+          "de": "Sollen wir auch prüfen, wie die Überschriften die Verantwortlichen benennen?",
+          "en": "Shall we also examine how the headlines name the responsible actors?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 표현을 보면 기사마다 만든 해석의 틀이 드러나겠네요.",
+        "de": "Daran wird der jeweilige Deutungsrahmen der Artikel sichtbar.",
+        "en": "That wording could reveal the frame each article constructs."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0005",
+      "category": "mood",
+      "level": "c2",
+      "kind": "question",
+      "ko": "상대의 선택에 동의하지 않아도 그 마음에는 공감할 수 있을까요?",
+      "de": "Kann man die Gefühle eines Menschen nachvollziehen, ohne seiner Entscheidung zuzustimmen?",
+      "en": "Can we empathize with someone's feelings without agreeing with their decision?",
+      "reply": {
+        "ko": "선택의 결과를 비판하면서도 그때 느낀 두려움은 이해할 수 있어요.",
+        "de": "Man kann die Folgen der Entscheidung kritisieren und dennoch die damalige Angst verstehen.",
+        "en": "We can criticize the consequences of the choice while understanding the fear they felt at the time."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "공감과 동의를 나눠서 말해 볼까요?",
+          "de": "Wollen wir Mitgefühl und Zustimmung ausdrücklich trennen?",
+          "en": "Shall we state empathy and agreement separately?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 말하면 비판도 사람 자체를 밀어내지 않겠네요.",
+        "de": "So richtet sich die Kritik nicht gegen die Person als Ganzes.",
+        "en": "That would keep criticism from rejecting the person as a whole."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0006",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
+      "de": "Wie weit darf eine Deutung bei einem offenen Ende gehen?",
+      "en": "How far can interpretation go when a work leaves the ending open?",
+      "reply": {
+        "ko": "본문의 단서와 충돌하지 않는 범위라면 여러 해석이 가능하다고 봐요.",
+        "de": "Mehrere Deutungen sind möglich, solange sie den Hinweisen im Text nicht widersprechen.",
+        "en": "Multiple readings are possible as long as they do not conflict with clues in the text."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "각 해석이 설명하지 못하는 장면도 찾아볼까요?",
+          "de": "Sollen wir auch Szenen suchen, die jede Deutung nicht erklären kann?",
+          "en": "Shall we also identify scenes each interpretation fails to explain?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "반례까지 보면 더 설득력 있는 해석을 가릴 수 있겠네요.",
+        "de": "Gegenbeispiele helfen, die überzeugendere Lesart zu erkennen.",
+        "en": "Considering counterexamples could help us identify the stronger reading."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0007",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "규칙을 문서로 남기면 자동으로 공정해질까요?",
+      "de": "Wird eine Regel automatisch fair, nur weil sie schriftlich festgehalten ist?",
+      "en": "Does writing a rule down automatically make it fair?",
+      "reply": {
+        "ko": "문서화는 시작일 뿐이고 적용 결과와 이의 제기 가능성도 봐야 해요.",
+        "de": "Die Dokumentation ist nur ein Anfang. Wir müssen auch die Folgen der Anwendung und Einspruchsmöglichkeiten prüfen.",
+        "en": "Documentation is only a starting point. We also need to examine outcomes and opportunities to appeal."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "누가 규칙을 만들고 바꿀 수 있는지 확인할까요?",
+          "de": "Sollen wir prüfen, wer die Regel erstellen und ändern darf?",
+          "en": "Shall we check who has the power to create and change the rule?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "권한까지 보면 글로 드러나지 않은 불균형도 보이겠네요.",
+        "de": "Der Blick auf die Zuständigkeit zeigt auch Ungleichheiten, die nicht im Text stehen.",
+        "en": "Examining authority may reveal imbalances that the written rule does not show."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0008",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "결정을 빨리 내려야 할 때 이견을 어디까지 보존해야 할까요?",
+      "de": "Wie viel Dissens sollten wir bewahren, wenn eine schnelle Entscheidung nötig ist?",
+      "en": "How much disagreement should we preserve when a decision must be made quickly?",
+      "reply": {
+        "ko": "실행을 막지 않는 선에서 핵심 반론과 재검토 조건은 남겨야 해요.",
+        "de": "Die zentralen Einwände und Bedingungen für eine spätere Prüfung sollten bleiben, solange sie die Umsetzung nicht blockieren.",
+        "en": "We should preserve the core objections and conditions for review as long as they do not block action."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "결정 뒤 다시 볼 날짜를 지금 정할까요?",
+          "de": "Sollen wir jetzt schon einen Termin für die erneute Prüfung festlegen?",
+          "en": "Shall we set a date now to revisit the decision?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 속도를 내면서도 반론을 지워 버리지는 않겠네요.",
+        "de": "So gewinnen wir Tempo, ohne die Einwände auszulöschen.",
+        "en": "That lets us move quickly without erasing the objections."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0009",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
+      "de": "Wer sollte das Recht haben, einen Zustand als Problem zu benennen?",
+      "en": "Who should have the authority to name a condition as a problem?",
+      "reply": {
+        "ko": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
+        "de": "Die Sprache der Betroffenen und fachliche Kriterien müssen gemeinsam verhandelt werden.",
+        "en": "The language of affected people and professional criteria should be discussed together."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "당사자가 쓰는 표현부터 들어 볼까요?",
+          "de": "Sollen wir zuerst hören, welche Begriffe die Betroffenen selbst verwenden?",
+          "en": "Shall we first listen to the words affected people use themselves?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "이름을 정하기 전부터 권력 관계를 살필 수 있겠네요.",
+        "de": "So können wir die Machtverhältnisse prüfen, bevor überhaupt ein Begriff feststeht.",
+        "en": "That would let us examine the power relationship before choosing a label."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0010",
+      "category": "screen",
+      "level": "c2",
+      "kind": "question",
+      "ko": "짧은 영상에 나온 한 문장만으로 발언자의 뜻을 판단해도 될까요?",
+      "de": "Kann man die Absicht einer Person anhand eines einzigen Satzes in einem kurzen Clip beurteilen?",
+      "en": "Can we judge a speaker's intent from one sentence in a short clip?",
+      "reply": {
+        "ko": "앞뒤 질문과 발언이 나온 상황을 확인하기 전에는 판단을 미루겠어요.",
+        "de": "Ich würde das Urteil zurückstellen, bis die Fragen davor und die Gesprächssituation bekannt sind.",
+        "en": "I would withhold judgment until I know the preceding questions and the setting."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "전체 영상이나 원문 기록을 찾아볼까요?",
+          "de": "Sollen wir nach dem vollständigen Video oder Protokoll suchen?",
+          "en": "Shall we look for the full video or transcript?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "맥락을 되찾으면 잘린 문장이 만든 인상도 달라질 수 있겠네요.",
+        "de": "Mit dem Kontext kann sich auch der Eindruck des Ausschnitts verändern.",
+        "en": "Restoring context may change the impression created by the clip."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0011",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
+      "de": "Dürfen wir Schweigen in einer Besprechung als Zustimmung werten?",
+      "en": "Can we treat someone who stayed silent in a meeting as having agreed?",
+      "reply": {
+        "ko": "발언하기 어려운 이유가 있을 수 있어서 의사를 따로 확인해야 해요.",
+        "de": "Es kann Gründe geben, nicht zu sprechen. Die Zustimmung sollte daher gesondert geprüft werden.",
+        "en": "There may be reasons someone could not speak, so we should confirm their view separately."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "익명으로 의견을 낼 방법도 열어 둘까요?",
+          "de": "Sollen wir auch eine anonyme Rückmeldung ermöglichen?",
+          "en": "Shall we also offer a way to respond anonymously?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "여러 통로가 있으면 침묵에 의미를 억지로 붙이지 않아도 되겠네요.",
+        "de": "Mit mehreren Wegen müssen wir dem Schweigen keine Bedeutung aufzwingen.",
+        "en": "With multiple channels, we would not need to force meaning onto silence."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0012",
+      "category": "screen",
+      "level": "c2",
+      "kind": "question",
+      "ko": "질문이 찬성과 반대만 요구할 때 어떤 관점이 사라질 수 있을까요?",
+      "de": "Welche Perspektiven verschwinden, wenn eine Frage nur Zustimmung oder Ablehnung zulässt?",
+      "en": "What perspectives can disappear when a question allows only yes or no?",
+      "reply": {
+        "ko": "조건부 동의나 질문의 전제 자체에 대한 비판이 빠질 수 있어요.",
+        "de": "Bedingte Zustimmung und Kritik an der Voraussetzung der Frage können verloren gehen.",
+        "en": "Conditional agreement and criticism of the question's premise can disappear."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "답변자가 선택지를 새로 만들 수 있게 할까요?",
+          "de": "Sollen Antwortende eine eigene Option formulieren können?",
+          "en": "Shall we let respondents create their own option?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 질문이 미리 정한 틀도 함께 검토할 수 있겠네요.",
+        "de": "Dann lässt sich auch der vorgegebene Rahmen der Frage prüfen.",
+        "en": "That would let us examine the frame imposed by the question itself."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0013",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+      "de": "Was müssen wir jetzt dokumentieren, um eine automatische Entscheidung später nachvollziehen zu können?",
+      "en": "What should we record now so an automated decision can be traced later?",
+      "reply": {
+        "ko": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+        "de": "Wir müssen Datenversion, Kriterien und den Zeitpunkt menschlicher Eingriffe festhalten.",
+        "en": "We should record the data version, the criteria, and when a person intervened."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "결과가 바뀐 수정 이력도 보존할까요?",
+          "de": "Sollen wir auch Änderungen speichern, die das Ergebnis beeinflusst haben?",
+          "en": "Shall we preserve the revision history that changed the result?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+        "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
+        "en": "Those records would help separate accountability from the point where an error began."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0014",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?",
+      "de": "Welches Verfahren muss für jemanden sichtbar sein, der eine automatische Entscheidung anfechten will?",
+      "en": "What process should be visible to someone who wants to challenge an automated decision?",
+      "reply": {
+        "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+        "de": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
+        "en": "The responsible contact, timeline, required evidence, and review criteria should all be clear."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "기계가 아닌 사람에게 설명을 요청할 수 있게 할까요?",
+          "de": "Soll eine Erklärung durch eine Person verlangt werden können?",
+          "en": "Should they be able to request an explanation from a human?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
+        "de": "Erst eine garantierte menschliche Prüfung macht den Einspruch mehr als bloße Formsache.",
+        "en": "Human review would keep the appeal from becoming a formality."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0015",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "자동화가 사람보다 빠르면 결과를 그대로 믿어도 될까요?",
+      "de": "Dürfen wir ein automatisches Ergebnis einfach übernehmen, nur weil es schneller entsteht?",
+      "en": "Can we trust an automated result as is just because it is faster than a person?",
+      "reply": {
+        "ko": "속도는 장점이지만 드문 오류와 편향을 따로 점검해야 해요.",
+        "de": "Geschwindigkeit ist ein Vorteil, doch seltene Fehler und Verzerrungen müssen gesondert geprüft werden.",
+        "en": "Speed is an advantage, but rare errors and bias still need separate checks."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사람이 꼭 검토할 조건을 먼저 정할까요?",
+          "de": "Sollen wir zuerst festlegen, wann eine menschliche Prüfung zwingend ist?",
+          "en": "Shall we define the conditions that always require human review?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "개입 기준이 있으면 자동화를 믿거나 거부하는 문제로만 보지 않겠네요.",
+        "de": "Mit Interventionskriterien geht es nicht mehr nur um blindes Vertrauen oder Ablehnung.",
+        "en": "With intervention criteria, this becomes more than a choice between blind trust and rejection."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0016",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?",
+      "de": "Wie weit darf Überwachung gehen, wenn sie der Sicherheit dienen soll?",
+      "en": "How far should surveillance be allowed to go when it is intended for safety?",
+      "reply": {
+        "ko": "목적과 기간, 접근 권한을 좁히고 필요가 끝나면 기록을 지워야 해요.",
+        "de": "Zweck, Dauer und Zugriffsrechte müssen begrenzt und die Daten nach Wegfall des Bedarfs gelöscht werden.",
+        "en": "The purpose, duration, and access rights should be limited, and records deleted once the need ends."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "수집에 동의하지 않을 대안도 마련할까요?",
+          "de": "Sollen wir auch eine Alternative für Menschen ohne Einwilligung anbieten?",
+          "en": "Shall we provide an alternative for people who do not consent to collection?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "선택권이 있어야 안전이라는 목적이 무제한 감시로 번지지 않겠네요.",
+        "de": "Wahlmöglichkeiten verhindern, dass Sicherheit zur unbegrenzten Überwachung wird.",
+        "en": "Choice would keep a safety goal from expanding into unlimited surveillance."
+      }
+    }
+  ]
+}

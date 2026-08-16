@@ -306,13 +306,13 @@ class AppL10nDe extends AppL10n {
   String get moduleVocabTitle => 'Vokabeln';
 
   @override
-  String get moduleVocabDesc => '500+ Karten · A1 → B2 · TTS';
+  String get moduleVocabDesc => '1.188 Karten · A1 → C2 · TTS';
 
   @override
   String get moduleGrammarTitle => 'Grammatik';
 
   @override
-  String get moduleGrammarDesc => '85+ Muster · auf Deutsch erklärt';
+  String get moduleGrammarDesc => '176 Muster · A1 → C2';
 
   @override
   String get moduleListenTitle => 'Hören';
@@ -2147,6 +2147,20 @@ class AppL10nDe extends AppL10n {
   String get onboardingLevelB2Desc => 'Fließend, auch Nuancen';
 
   @override
+  String get onboardingLevelC1 => 'Kompetent';
+
+  @override
+  String get onboardingLevelC1Desc =>
+      'Evidenz, Institutionen, präzise Nuancen';
+
+  @override
+  String get onboardingLevelC2 => 'Expertenniveau';
+
+  @override
+  String get onboardingLevelC2Desc =>
+      'Feine Analyse und rhetorische Kontrolle';
+
+  @override
   String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
 
   @override
@@ -2159,6 +2173,14 @@ class AppL10nDe extends AppL10n {
   @override
   String get onboardingExampleB2Trans =>
       'Das Meeting zieht sich, ich komme wohl etwas später.';
+
+  @override
+  String get onboardingExampleC1Trans =>
+      'Ich werde bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.';
+
+  @override
+  String get onboardingExampleC2Trans =>
+      'Wer Schweigen als Zustimmung wertet, kann schon durch den Rahmen einer Frage Beteiligung einschränken.';
 
   @override
   String get onboardingSkip => 'Später entscheiden (A1 als Start)';
@@ -2224,6 +2246,22 @@ class AppL10nDe extends AppL10n {
   @override
   String get onboardingLevelB2Learn =>
       'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.';
+
+  @override
+  String get onboardingLevelC1Can =>
+      'Du diskutierst komplexe Themen und stufst Schlussfolgerungen genau ab.';
+
+  @override
+  String get onboardingLevelC1Learn =>
+      'Evidenz, Unsicherheit, inklusive Systeme und öffentliche Erklärungen.';
+
+  @override
+  String get onboardingLevelC2Can =>
+      'Du analysierst Prämissen, Deutungsrahmen und institutionelle Sprache.';
+
+  @override
+  String get onboardingLevelC2Learn =>
+      'Diskurs, Interpretation, Technikethik und verantwortliche Entscheidungen.';
 
   @override
   String get homeHeroGreetingMorning => 'Guten Morgen!';
@@ -4471,7 +4509,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachChosungStep2Body =>
-      'Wähle dein Level von A1 bis B2 und ob Vokale angezeigt werden';
+      'Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden';
 
   @override
   String get coachChosungStep3Title => 'Antwort eingeben';
@@ -5271,6 +5309,13 @@ class AppL10nDe extends AppL10n {
   String get courseMissionBriefBuildBody => 'Wähle die fehlenden Wörter';
 
   @override
+  String get courseMissionBriefCheckpointTitle => 'Mach den Abschlusscheck';
+
+  @override
+  String get courseMissionBriefCheckpointBody =>
+      'Löse die letzte Aufgabe dieser Mission';
+
+  @override
   String get courseMissionBriefSceneTitle => 'Sprich in der Szene';
 
   @override
@@ -5281,6 +5326,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseMissionBriefBuildCta => 'Jetzt bauen';
+
+  @override
+  String get courseMissionBriefCheckpointCta => 'Abschlusscheck starten';
 
   @override
   String get courseMissionBriefSceneCta => 'Szene beginnen';

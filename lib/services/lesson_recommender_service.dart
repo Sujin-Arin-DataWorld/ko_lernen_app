@@ -1,5 +1,6 @@
 import '../models/pack_progress.dart';
 import 'pack_progress_service.dart';
+import 'storage_service.dart';
 
 /// 추천된 다음 행동의 종류.
 enum LessonKind {
@@ -13,19 +14,26 @@ enum LessonKind {
 /// **다음 레슨 추천 엔진**
 ///
 /// 홈의 학습 경로(Lernpfad)와 **동일한 알고리즘**으로 "지금 할 한 가지"를
-/// 고른다 — 레벨 A1→A2→B1→B2 순서로, 각 레벨의 팩 순서대로 스캔해서
+/// 고른다. 온보딩에서 고른 레벨이 있으면 그 레벨의 팩만 스캔하고, 아직
+/// 선택하지 않은 신규 사용자만 A1부터 C2까지 차례로 스캔해서
 /// `cleared`/`locked` 가 아닌 첫 팩을 추천한다. 이렇게 해야 홈 hero CTA의
 /// 목적지와 경로의 "지금(now)" 노드가 항상 일치한다(일관성 = 품질).
 ///
 /// 비용: [PackProgressService.loadLevelView] 는 캐시된 팩 리스트 + 로컬
 /// SharedPreferences 진행도만 읽으므로 사실상 무료.
 class LessonRecommenderService {
-  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2'];
+  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+  static String? _selectedLevel() {
+    final selected = Storage.userLevelCode?.trim().toUpperCase();
+    return _levels.contains(selected) ? selected : null;
+  }
 
   /// 지금 추천할 팩. 모든 팩을 클리어했으면 `null` (호출자가 복습 등으로 대체).
   static Future<LessonPath?> getNextLesson() async {
     try {
-      for (final level in _levels) {
+      final selected = _selectedLevel();
+      for (final level in selected == null ? _levels : [selected]) {
         final view = await PackProgressService.loadLevelView(level);
         for (final node in view) {
           final status = node.progress.status;
@@ -53,9 +61,11 @@ class LessonRecommenderService {
   }
 
   /// 사용자의 현재 작업 레벨 — 아직 클리어 안 한 팩이 남은 가장 낮은 레벨.
-  /// 전부 끝났으면 최상위 레벨(B2). 실패 시 A1.
+  /// 전부 끝났으면 최상위 레벨(C2). 실패 시 A1.
   static Future<String> getUserLevel() async {
     try {
+      final selected = _selectedLevel();
+      if (selected != null) return selected;
       for (final level in _levels) {
         final view = await PackProgressService.loadLevelView(level);
         final hasOpen = view.any(
@@ -74,7 +84,7 @@ class LessonRecommenderService {
 class LessonPath {
   final LessonKind kind;
   final String packId;
-  final String level; // 'A1' / 'A2' / 'B1' / 'B2'
+  final String level; // 'A1' through 'C2'
 
   const LessonPath({
     required this.kind,

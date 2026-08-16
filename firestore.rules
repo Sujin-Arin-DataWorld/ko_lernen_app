@@ -222,7 +222,19 @@ service cloud.firestore {
         'b2_society_2',
         'b2_thinking_1',
         'b2_thinking_2',
-        'b2_work'
+        'b2_work',
+        'b2_collaborative_feedback_1',
+        'b2_digital_judgment_1',
+        'b2_shared_space_coordination_1',
+        'b2_personal_boundaries_1',
+        'c1_accessible_participation_1',
+        'c1_evidence_reasoning_1',
+        'c1_risk_communication_1',
+        'c1_sustainable_tradeoffs_1',
+        'c2_institutional_mediation_1',
+        'c2_narrative_perspective_1',
+        'c2_language_framing_1',
+        'c2_technology_ethics_1'
       ];
     }
 
@@ -241,12 +253,14 @@ service cloud.firestore {
           'attempts', 'clearedAt', 'updatedAt', 'sync_revision',
           'reconciliation_operation_id'
         ])
-        && data.level in ['A1', 'A2', 'B1', 'B2']
+        && data.level in ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
         && (
           (packId.matches('^a1_.*') && data.level == 'A1')
           || (packId.matches('^a2_.*') && data.level == 'A2')
           || (packId.matches('^b1_.*') && data.level == 'B1')
           || (packId.matches('^b2_.*') && data.level == 'B2')
+          || (packId.matches('^c1_.*') && data.level == 'C1')
+          || (packId.matches('^c2_.*') && data.level == 'C2')
         )
         && data.status in ['locked', 'available', 'inProgress', 'cleared']
         && data.wordsLearned is int

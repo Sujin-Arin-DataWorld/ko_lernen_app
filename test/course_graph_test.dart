@@ -766,7 +766,7 @@ void main() {
   );
 
   test(
-    'every declared scenario checkpoint has an assessment link for its exact mission',
+    'every declared checkpoint has an assessment link for its exact mission',
     () async {
       final catalog = await CurriculumCatalog.load();
 
@@ -778,12 +778,15 @@ void main() {
             hasLength(2),
             reason: 'invalid checkpoint $checkpoint',
           );
-          expect(pieces.first, CurriculumContentKind.scenario.code);
-
-          final links = catalog.linksForContent(
-            CurriculumContentKind.scenario,
-            pieces.last,
+          final kind = CurriculumContentKindX.tryFromCode(pieces.first);
+          expect(
+            kind,
+            isNotNull,
+            reason: 'unknown checkpoint kind in $checkpoint',
           );
+          if (kind == null) continue;
+
+          final links = catalog.linksForContent(kind, pieces.last);
           expect(
             links.where((link) => link.exactlyAssesses(unit)),
             hasLength(1),
@@ -919,13 +922,20 @@ void main() {
         },
       };
 
+      final scenarioBackedUnits = catalog.courseUnits
+          .where(
+            (unit) => unit.checkpointContentIds.every(
+              (checkpoint) => checkpoint.startsWith('scenario:'),
+            ),
+          )
+          .toList(growable: false);
       expect(
         auditedQuestByUnitAndConcept.keys.toSet(),
-        equals(catalog.courseUnits.map((unit) => unit.id).toSet()),
-        reason: 'the semantic audit must cover every course unit',
+        equals(scenarioBackedUnits.map((unit) => unit.id).toSet()),
+        reason: 'the scenario semantic audit must cover every scenario unit',
       );
 
-      for (final unit in catalog.courseUnits) {
+      for (final unit in scenarioBackedUnits) {
         final expected = auditedQuestByUnitAndConcept[unit.id]!;
         expect(
           expected.keys.toSet(),
@@ -964,6 +974,56 @@ void main() {
             reason: '${entry.value} must explicitly assess ${entry.key}',
           );
         }
+      }
+    },
+  );
+
+  test(
+    'C1/C2 units expose every advanced activity and one exact checkpoint',
+    () async {
+      final catalog = await CurriculumCatalog.load();
+      final advancedUnits = catalog.courseUnits
+          .where((unit) => const {'c1', 'c2'}.contains(unit.level))
+          .toList(growable: false);
+
+      expect(catalog.validationIssues, isEmpty);
+      expect(advancedUnits, hasLength(4));
+      const requiredKinds = {
+        CurriculumContentKind.vocab,
+        CurriculumContentKind.grammar,
+        CurriculumContentKind.smalltalk,
+        CurriculumContentKind.cloze,
+        CurriculumContentKind.satz,
+      };
+      for (final unit in advancedUnits) {
+        final links = catalog.linksForCourseUnit(unit.id);
+        expect(unit.checkpointContentIds, hasLength(1));
+        for (final kind in requiredKinds) {
+          expect(
+            links.any((link) => link.contentKind == kind),
+            isTrue,
+            reason: '${unit.id} has no ${kind.code} content',
+          );
+        }
+
+        final checkpoint = unit.checkpointContentIds.single.split(':');
+        final checkpointKind = CurriculumContentKindX.tryFromCode(
+          checkpoint.first,
+        );
+        expect(checkpointKind, isNotNull);
+        final exact = links
+            .where(
+              (link) =>
+                  link.contentKind == checkpointKind &&
+                  link.contentId == checkpoint.last &&
+                  link.exactlyAssesses(unit),
+            )
+            .toList(growable: false);
+        expect(
+          exact,
+          hasLength(1),
+          reason: '${unit.id} checkpoint must resolve to one assessment edge',
+        );
       }
     },
   );

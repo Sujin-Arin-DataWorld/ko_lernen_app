@@ -33,7 +33,7 @@ import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 String? unambiguousReviewLevel(Iterable<String> deckLevels) {
-  const supported = {'A1', 'A2', 'B1', 'B2'};
+  const supported = {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'};
   final levels = deckLevels.map((level) => level.trim().toUpperCase()).toSet();
   if (levels.length != 1 || !supported.contains(levels.single)) return null;
   return levels.single;

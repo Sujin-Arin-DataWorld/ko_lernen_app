@@ -164,7 +164,12 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
             .where(
               (v) =>
                   v.level == _level &&
-                  v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3),
+                  // C1/C2 vocabulary is intentionally phrase-based. Spaces
+                  // are rendered as literal hint separators and remain
+                  // typeable with the system keyboard used above A2.
+                  v.korean.runes.every(
+                    (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
+                  ),
             )
             .toList()
           ..shuffle(Random());
@@ -324,7 +329,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   String? _recommendation(AppL10n t) {
     if (_roundDurationsMs.isEmpty) return null;
     final accuracy = _roundCorrect / _roundSize;
-    final levels = ['A1', 'A2', 'B1', 'B2'];
+    final levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     final idx = levels.indexOf(_level);
     if (accuracy >= 0.9 && idx < levels.length - 1) {
       return t.chosungRoundLevelUp(levels[idx + 1]);
@@ -440,37 +445,43 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                           const SizedBox(height: Spacing.md),
 
                           // ── 레벨 선택 ──────────────────────────────────────────
-                          Row(
+                          Wrap(
                             key: _levelRowKey,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
+                            alignment: WrapAlignment.center,
+                            spacing: Spacing.sm,
+                            runSpacing: Spacing.xs,
+                            children: [
+                              'A1',
+                              'A2',
+                              'B1',
+                              'B2',
+                              'C1',
+                              'C2',
+                            ].map((lvl) {
                               final selected = _level == lvl;
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: Spacing.xs,
-                                ),
-                                child: SoriChip(
-                                  key: ValueKey('chosung-level-$lvl'),
-                                  label: lvl,
-                                  accent: SoriColors.primary,
-                                  selected: selected,
-                                  variant: SoriChipVariant.soft,
-                                  fontSize: 13,
-                                  onTap: selected
-                                      ? null
-                                      : () {
-                                          setState(() => _level = lvl);
-                                          _load();
-                                        },
-                                ),
+                              return SoriChip(
+                                key: ValueKey('chosung-level-$lvl'),
+                                label: lvl,
+                                accent: SoriColors.primary,
+                                selected: selected,
+                                variant: SoriChipVariant.soft,
+                                fontSize: 13,
+                                onTap: selected
+                                    ? null
+                                    : () {
+                                        setState(() => _level = lvl);
+                                        _load();
+                                      },
                               );
                             }).toList(),
                           ),
                           const SizedBox(height: 8),
 
                           // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            spacing: Spacing.sm,
+                            runSpacing: Spacing.xs,
                             children: [
                               SoriChip(
                                 label: '초성 + 모음',
@@ -485,7 +496,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                         () => _mode = HintMode.chosungVowel,
                                       ),
                               ),
-                              const SizedBox(width: Spacing.sm),
                               SoriChip(
                                 label: '초성 only',
                                 icon: Icons.flash_on_rounded,

@@ -8,7 +8,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
 
-const _levels = {'a1', 'a2', 'b1', 'b2'};
+const _levels = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'};
 
 void main() {
   group('satz_sentences.json integrity', () {

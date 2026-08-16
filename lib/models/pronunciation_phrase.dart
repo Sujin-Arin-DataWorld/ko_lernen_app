@@ -31,7 +31,9 @@ class PronunciationPhrase {
     }
 
     final id = _requiredString(json, 'id');
-    final idMatch = RegExp(r'^pronunciation_(a1|a2|b1|b2)_\d+$').firstMatch(id);
+    final idMatch = RegExp(
+      r'^pronunciation_(a1|a2|b1|b2|c1|c2)_\d+$',
+    ).firstMatch(id);
     if (idMatch == null) {
       throw FormatException('Invalid pronunciation phrase id: $id');
     }

@@ -120,7 +120,7 @@ DancheongMotif motifForPackId(String packId) {
     'b1_time_life' || 'b2_events_culture' => DancheongMotif.chrysanthemum,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
-    // Reviewed B1/B2 content packs — existing motif pipeline only.
+    // Reviewed A1-C2 content packs using the existing motif pipeline.
     'b1_housing_contract' => DancheongMotif.gwigap,
     'b2_formal_agreement' => DancheongMotif.chilbo,
     'b1_work_coordination' => DancheongMotif.bamboo,
@@ -131,6 +131,19 @@ DancheongMotif motifForPackId(String packId) {
     'b2_life_values' => DancheongMotif.taegeuk,
     'b2_literature_emotion' => DancheongMotif.chrysanthemum,
     'b2_language_change' => DancheongMotif.chilbo,
+    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    'b2_collaborative_feedback' => DancheongMotif.bamboo,
+    'b2_digital_judgment' => DancheongMotif.chilbo,
+    'c1_accessible_participation' => DancheongMotif.gwigap,
+    'c1_evidence_reasoning' => DancheongMotif.taegeuk,
+    'c2_institutional_mediation' => DancheongMotif.manja,
+    'c2_narrative_perspective' => DancheongMotif.chrysanthemum,
+    'b2_shared_space_coordination' => DancheongMotif.gwigap,
+    'b2_personal_boundaries' => DancheongMotif.plum,
+    'c1_risk_communication' => DancheongMotif.manja,
+    'c1_sustainable_tradeoffs' => DancheongMotif.wave,
+    'c2_language_framing' => DancheongMotif.chilbo,
+    'c2_technology_ethics' => DancheongMotif.taegeuk,
     _ => DancheongMotif.lotus,
   };
 }

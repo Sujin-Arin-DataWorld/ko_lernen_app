@@ -16,8 +16,8 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
 
-> **2026-08-15 live baseline.** C0 Batch 01–03과 C1 시나리오 Batch 04는 Jin 승인 뒤
-> `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 05이며 새
+> **2026-08-15 live baseline.** Batch 01–04와 B2/C1/C2 Batch 05는 Jin 승인 뒤
+> `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 06이며 새
 > manifest/draft/review로 시작한다. 새 vocab·grammar·smalltalk·Cloze·Satz에는
 > `apply_review.py` 단독 append가 아니라 아래의 multi-asset 통합기를 사용한다.
 
@@ -25,7 +25,7 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 > 전부 읽는다.** 이 문서는 KO/DE/EN 병기, 모든 draft 열·JSON field, Batch 01 고정
 > 경계, 커리큘럼 동반 mapping, preview/승인 순서를 한곳에 고정한다. 이 README 아래의
 > 개별 `add_*`/`build_*` 스크립트 설명은 기존 자산의 역사적 유지보수 참고일 뿐이며,
-> 신규 B1/B2 batch의 직접 작성·`--write` 지시로 사용하지 않는다.
+> 신규 B1–C2 batch의 직접 작성·`--write` 지시로 사용하지 않는다.
 
 ```bash
 # 현재 자산의 빠른 실패 게이트
@@ -34,7 +34,7 @@ python3 tools/content_factory/validate_content.py
 # review-only batch의 schema, review projection, companion mapping, 이전 미병합
 # batch 예약, 그리고 disposable app-data overlay를 모두 검사한다. 어떤 source도 쓰지 않는다.
 python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_02_manifest.json
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
 # 기본값: preview만. 파일을 쓰지 않는다.
 python3 tools/content_factory/apply_review.py \
@@ -51,15 +51,15 @@ python3 tools/content_factory/apply_review.py \
 # 새 review-only batch의 vocab·grammar·smalltalk·Cloze·Satz와 동반 curriculum/UI map을
 # validator/rollback과 하나의 transaction으로 병합한다. --manifest를 명시한 기본은 preview다.
 python3 tools/content_factory/integrate_review_batches.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
 # Jin의 명시 승인 뒤에만 쓴다. --approve-all은 review 원장의 완전 pack 승인만 허용한다.
 python3 tools/content_factory/integrate_review_batches.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply --approve-all
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply --approve-all
 
 # scenario-only batch는 scenario data·curriculum·backdrop을 함께 다룬다.
 python3 tools/content_factory/integrate_scenario_batch.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply
 ```
 
 `ok`와 `approved`만 병합 가능하다. 빈 값·`draft`·`fix: ...`·`no`·`rejected`는
@@ -148,7 +148,7 @@ manifest에서 그 predecessor path를 제거한다. 이미 live인 콘텐츠는
 ### 금지: `scripts/build_vocab_packs.py` 재실행
 
 이 스크립트는 현재 15열 `korean_vocab.csv` 이전의 migration 도구다. 재실행하면
-영어 열과 명시적 ID를 포함한 현 스키마를 훼손할 수 있다. B1/B2 확장은 승인된
+영어 열과 명시적 ID를 포함한 현 스키마를 훼손할 수 있다. B1–C2 확장은 승인된
 완전 draft를 승인 원장과 함께 multi-asset 통합기로 병합한다. 기존 pack 행은 불변이다.
 
 ### TTS 수집 확인
@@ -159,7 +159,9 @@ python3 tool/generate_tts.py --dry-run
 
 `--dry-run`은 현재 정적 자산을 `(voice, Korean text)` 단위로 dedup해 출력할
 뿐이며, 인증·합성·로컬 파일 생성·Firebase Storage 업로드를 수행하지 않는다.
-2026-08-15의 실제 수집 기준은 **5,817개 요청**(female 5,642 / male 175)이다.
+2026-08-15의 live corpus는 **6,321개 요청**(female 6,146 / male 175)이다. Batch 05
+신규 504개까지 합성·업로드한 뒤 Storage를 `expected 6321, remote 6376, missing 0,
+stale 55`로 검증했다. stale 55개는 immutable 과거 캐시이므로 삭제하지 않는다.
 과거 문서의 5,288개 또는 약 1,314개 수치는 현재 비용 견적이나 완료 기준으로 쓰지 않는다.
 자산에 새 한국어 발화가 들어갈 때마다 dry-run 수량과 목록을 다시 검수한다.
 실제 `python3 tool/generate_tts.py` 실행 및 업로드는 Jin의 명시적 권한과 계정으로만
@@ -173,12 +175,17 @@ python3 tool/generate_tts.py --missing-from-storage --workers 4
 python3 tool/generate_tts.py --verify-storage
 ```
 
+Chirp3-HD가 `429 Resource exhausted`를 반환해도 성공한 로컬·원격 파일은 보존된다.
+1분 이상 기다린 뒤 `--missing-from-storage --workers 1`로 재실행하면 실제 누락분만
+이어 만들 수 있다. `✅ 완료`는 해당 실행의 업로드 종료이고, 전체 완료 판정은 반드시
+`--verify-storage`의 `missing 0`으로 한다.
+
 ---
 
 ## 역사적 유지보수 스크립트 (신규 batch 정본 아님)
 
 > 아래 스크립트는 이미 존재하는 asset의 제한적 유지보수/재생성 이력을 보존한다. 새
-> B1/B2 콘텐츠를 만들 때 이 절의 `--write` 예시를 실행하지 않는다. 먼저 위 C0 정본과
+> B1–C2 콘텐츠를 만들 때 이 절의 `--write` 예시를 실행하지 않는다. 먼저 위 C0 정본과
 > `docs/CONTENT_AUTHORING_GUIDE.md`의 draft → review → preview 계약을 따른다.
 
 ### (a) `fill_kkeunmari_german.py` — 끝말잇기 독일어 채우기

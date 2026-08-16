@@ -622,7 +622,7 @@ abstract class AppL10n {
   /// No description provided for @moduleVocabDesc.
   ///
   /// In de, this message translates to:
-  /// **'500+ Karten · A1 → B2 · TTS'**
+  /// **'1.188 Karten · A1 → C2 · TTS'**
   String get moduleVocabDesc;
 
   /// No description provided for @moduleGrammarTitle.
@@ -634,7 +634,7 @@ abstract class AppL10n {
   /// No description provided for @moduleGrammarDesc.
   ///
   /// In de, this message translates to:
-  /// **'85+ Muster · auf Deutsch erklärt'**
+  /// **'176 Muster · A1 → C2'**
   String get moduleGrammarDesc;
 
   /// No description provided for @moduleListenTitle.
@@ -3877,6 +3877,18 @@ abstract class AppL10n {
   /// **'Fließend, auch Nuancen'**
   String get onboardingLevelB2Desc;
 
+  /// No description provided for @onboardingLevelC1.
+  String get onboardingLevelC1;
+
+  /// No description provided for @onboardingLevelC1Desc.
+  String get onboardingLevelC1Desc;
+
+  /// No description provided for @onboardingLevelC2.
+  String get onboardingLevelC2;
+
+  /// No description provided for @onboardingLevelC2Desc.
+  String get onboardingLevelC2Desc;
+
   /// No description provided for @onboardingExampleA1Trans.
   ///
   /// In de, this message translates to:
@@ -3900,6 +3912,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Das Meeting zieht sich, ich komme wohl etwas später.'**
   String get onboardingExampleB2Trans;
+
+  /// No description provided for @onboardingExampleC1Trans.
+  String get onboardingExampleC1Trans;
+
+  /// No description provided for @onboardingExampleC2Trans.
+  String get onboardingExampleC2Trans;
 
   /// No description provided for @onboardingSkip.
   ///
@@ -4014,6 +4032,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.'**
   String get onboardingLevelB2Learn;
+
+  /// No description provided for @onboardingLevelC1Can.
+  String get onboardingLevelC1Can;
+
+  /// No description provided for @onboardingLevelC1Learn.
+  String get onboardingLevelC1Learn;
+
+  /// No description provided for @onboardingLevelC2Can.
+  String get onboardingLevelC2Can;
+
+  /// No description provided for @onboardingLevelC2Learn.
+  String get onboardingLevelC2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
   ///
@@ -7756,7 +7786,7 @@ abstract class AppL10n {
   /// No description provided for @coachChosungStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Wähle dein Level von A1 bis B2 und ob Vokale angezeigt werden'**
+  /// **'Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden'**
   String get coachChosungStep2Body;
 
   /// No description provided for @coachChosungStep3Title.
@@ -9157,6 +9187,18 @@ abstract class AppL10n {
   /// **'Wähle die fehlenden Wörter'**
   String get courseMissionBriefBuildBody;
 
+  /// No description provided for @courseMissionBriefCheckpointTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mach den Abschlusscheck'**
+  String get courseMissionBriefCheckpointTitle;
+
+  /// No description provided for @courseMissionBriefCheckpointBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Löse die letzte Aufgabe dieser Mission'**
+  String get courseMissionBriefCheckpointBody;
+
   /// No description provided for @courseMissionBriefSceneTitle.
   ///
   /// In de, this message translates to:
@@ -9180,6 +9222,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jetzt bauen'**
   String get courseMissionBriefBuildCta;
+
+  /// No description provided for @courseMissionBriefCheckpointCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Abschlusscheck starten'**
+  String get courseMissionBriefCheckpointCta;
 
   /// No description provided for @courseMissionBriefSceneCta.
   ///

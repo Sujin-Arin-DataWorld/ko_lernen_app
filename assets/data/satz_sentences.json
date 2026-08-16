@@ -3310,6 +3310,1734 @@
         "같아져요"
       ],
       "vocabKo": "언어 감각"
+    },
+    {
+      "id": "satz_b2_0102",
+      "level": "b2",
+      "targetKo": "이번 주에는 회의가 세 개나 겹쳐서 발표 준비 시간을 다시 잡아야 해요.",
+      "promptDe": "Diese Woche überschneiden sich drei Termine, deshalb müssen wir die Zeit für die Präsentationsvorbereitung neu planen.",
+      "promptEn": "Three meetings overlap this week, so we need to reschedule our presentation prep.",
+      "distractors": [
+        "다음 달 회의는",
+        "자료를 먼저 보내서"
+      ],
+      "vocabKo": "일정이 겹치다"
+    },
+    {
+      "id": "satz_b2_0103",
+      "level": "b2",
+      "targetKo": "급한 요청이 들어와서 오늘 할 일의 우선순위를 조금 조정했어요.",
+      "promptDe": "Wegen einer dringenden Anfrage habe ich die Prioritäten für heute etwas angepasst.",
+      "promptEn": "An urgent request came in, so I adjusted today's priorities a little.",
+      "distractors": [
+        "내일 일정은 그대로",
+        "중요한 일을 먼저"
+      ],
+      "vocabKo": "우선순위를 조정하다"
+    },
+    {
+      "id": "satz_b2_0104",
+      "level": "b2",
+      "targetKo": "선택지가 너무 많으니 두 안의 장단점을 비교해서 의견을 좁혀 봐요.",
+      "promptDe": "Es gibt zu viele Möglichkeiten. Vergleichen wir die Vor- und Nachteile der beiden Vorschläge und grenzen die Auswahl ein.",
+      "promptEn": "There are too many options, so let's compare the two proposals and narrow down our choice.",
+      "distractors": [
+        "세 번째 안을 바로",
+        "결론부터 정하고"
+      ],
+      "vocabKo": "의견을 좁히다"
+    },
+    {
+      "id": "satz_b2_0105",
+      "level": "b2",
+      "targetKo": "먼저 초안을 팀에 돌리고 빠진 내용이 있는지 확인할게요.",
+      "promptDe": "Ich schicke den Entwurf zuerst ans Team und prüfe, ob noch etwas fehlt.",
+      "promptEn": "I'll circulate the draft to the team first and check whether anything is missing.",
+      "distractors": [
+        "최종본을 바로 올리고",
+        "회의실부터 예약해서"
+      ],
+      "vocabKo": "초안을 돌리다"
+    },
+    {
+      "id": "satz_b2_0106",
+      "level": "b2",
+      "targetKo": "받은 피드백을 전부 넣기보다 이번 목표에 맞는 것부터 반영했어요.",
+      "promptDe": "Statt jedes Feedback einzuarbeiten, habe ich zuerst die Punkte berücksichtigt, die zu unserem aktuellen Ziel passen.",
+      "promptEn": "Rather than incorporating every comment, I started with the ones that fit our current goal.",
+      "distractors": [
+        "의견을 모두 그대로",
+        "목표와 상관없는 부분도"
+      ],
+      "vocabKo": "피드백을 반영하다"
+    },
+    {
+      "id": "satz_b2_0107",
+      "level": "b2",
+      "targetKo": "한 사람이 다 맡으면 늦어질 수 있으니 조사와 발표 역할을 나눠요.",
+      "promptDe": "Wenn eine Person alles übernimmt, können wir in Verzug geraten. Teilen wir Recherche und Präsentation auf.",
+      "promptEn": "If one person handles everything, we may fall behind, so let's split up the research and presentation.",
+      "distractors": [
+        "발표는 한 사람만",
+        "조사는 다음 주로"
+      ],
+      "vocabKo": "역할을 나누다"
+    },
+    {
+      "id": "satz_b2_0108",
+      "level": "b2",
+      "targetKo": "마감이 촉박하긴 하지만 범위를 줄이면 금요일까지 끝낼 수 있어요.",
+      "promptDe": "Die Frist ist knapp, aber wenn wir den Umfang verkleinern, schaffen wir es bis Freitag.",
+      "promptEn": "The deadline is tight, but we can finish by Friday if we reduce the scope.",
+      "distractors": [
+        "범위를 더 넓히면",
+        "다음 달까지 미루면"
+      ],
+      "vocabKo": "마감이 촉박하다"
+    },
+    {
+      "id": "satz_b2_0109",
+      "level": "b2",
+      "targetKo": "사용자 반응이 예상과 달라서 기획 방향을 중간에 틀었어요.",
+      "promptDe": "Die Reaktionen der Nutzer fielen anders aus als erwartet, deshalb änderten wir mitten im Prozess die Richtung.",
+      "promptEn": "User reactions differed from what we expected, so we changed direction halfway through.",
+      "distractors": [
+        "처음 계획을 그대로",
+        "예상과 같은 반응이라"
+      ],
+      "vocabKo": "방향을 틀다"
+    },
+    {
+      "id": "satz_b2_0110",
+      "level": "b2",
+      "targetKo": "이번 오류는 제가 놓쳐서 생겼으니 수정은 제가 책임질게요.",
+      "promptDe": "Der Fehler ist passiert, weil ich etwas übersehen habe. Ich übernehme die Korrektur.",
+      "promptEn": "The error happened because I missed something, so I'll take responsibility for fixing it.",
+      "distractors": [
+        "다른 팀이 놓쳤으니",
+        "원인을 모르지만"
+      ],
+      "vocabKo": "수정을 책임지다"
+    },
+    {
+      "id": "satz_b2_0111",
+      "level": "b2",
+      "targetKo": "서로 원하는 게 다르지만 일정만 조금 조정하면 합의점을 찾을 수 있어요.",
+      "promptDe": "Wir wollen unterschiedliche Dinge, aber wenn wir den Zeitplan etwas anpassen, finden wir einen gemeinsamen Nenner.",
+      "promptEn": "We want different things, but we can find common ground if we adjust the schedule a little.",
+      "distractors": [
+        "서로 같은 안을 원해서",
+        "일정을 전혀 바꾸지 않아도"
+      ],
+      "vocabKo": "합의점을 찾다"
+    },
+    {
+      "id": "satz_b2_0112",
+      "level": "b2",
+      "targetKo": "바로 안 된다고 하기보다 어려운 이유를 덧붙여 의견을 완곡하게 전했어요.",
+      "promptDe": "Statt sofort Nein zu sagen, erklärte ich, warum es schwierig ist, und formulierte meine Meinung diplomatischer.",
+      "promptEn": "Instead of saying no outright, I explained why it would be difficult and expressed my view more tactfully.",
+      "distractors": [
+        "이유를 빼고 바로",
+        "상대의 제안을 비웃으며"
+      ],
+      "vocabKo": "의견을 완곡하게 전하다"
+    },
+    {
+      "id": "satz_b2_0113",
+      "level": "b2",
+      "targetKo": "회의가 끝나기 전에 담당자와 후속 조치를 정해 두죠.",
+      "promptDe": "Legen wir vor Ende der Besprechung fest, wer zuständig ist und was als Nächstes passiert.",
+      "promptEn": "Before the meeting ends, let's decide who is responsible and what happens next.",
+      "distractors": [
+        "담당자는 나중에 정하고",
+        "회의가 끝난 뒤 잊어버리기 전에"
+      ],
+      "vocabKo": "후속 조치를 정하다"
+    },
+    {
+      "id": "satz_b2_0114",
+      "level": "b2",
+      "targetKo": "보고서를 쓰는 한 시간 동안은 메신저 알림을 꺼 뒀어요.",
+      "promptDe": "Während ich eine Stunde am Bericht schrieb, habe ich die Messenger-Benachrichtigungen ausgeschaltet.",
+      "promptEn": "I turned off messenger notifications for the hour I spent writing the report.",
+      "distractors": [
+        "메신저를 계속 열어 두고",
+        "보고서를 다 쓴 다음에"
+      ],
+      "vocabKo": "알림을 꺼 두다"
+    },
+    {
+      "id": "satz_b2_0115",
+      "level": "b2",
+      "targetKo": "제목만 보고 공유하지 말고 원문과 출처를 먼저 확인해요.",
+      "promptDe": "Teile einen Beitrag nicht nur wegen der Überschrift. Prüfe zuerst den Originaltext und die Quelle.",
+      "promptEn": "Don't share something based on the headline alone. Check the original text and source first.",
+      "distractors": [
+        "제목만 믿고 바로",
+        "원문은 읽지 않은 채"
+      ],
+      "vocabKo": "출처를 확인하다"
+    },
+    {
+      "id": "satz_b2_0116",
+      "level": "b2",
+      "targetKo": "짧게 잘린 영상에서는 앞뒤 맥락이 빠져 뜻이 달라 보일 수 있어요.",
+      "promptDe": "In einem stark gekürzten Video fehlt oft der Zusammenhang, sodass die Aussage anders wirken kann.",
+      "promptEn": "A short clipped video can lose the surrounding context and make the message seem different.",
+      "distractors": [
+        "전체 영상을 보면",
+        "앞뒤 내용이 모두 남아"
+      ],
+      "vocabKo": "맥락이 빠지다"
+    },
+    {
+      "id": "satz_b2_0117",
+      "level": "b2",
+      "targetKo": "확인되지 않은 숫자가 사실처럼 과장되어 퍼졌어요.",
+      "promptDe": "Eine ungeprüfte Zahl wurde übertrieben weiterverbreitet, als wäre sie eine Tatsache.",
+      "promptEn": "An unverified figure spread in an exaggerated form as if it were a fact.",
+      "distractors": [
+        "검증된 자료만",
+        "아무도 공유하지 않아서"
+      ],
+      "vocabKo": "과장되어 퍼지다"
+    },
+    {
+      "id": "satz_b2_0118",
+      "level": "b2",
+      "targetKo": "알림이 계속 울리면 짧은 글을 읽을 때도 집중이 쉽게 흐트러져요.",
+      "promptDe": "Wenn ständig Benachrichtigungen kommen, verliere ich selbst bei kurzen Texten leicht die Konzentration.",
+      "promptEn": "When notifications keep going off, I lose focus even while reading a short text.",
+      "distractors": [
+        "알림이 모두 꺼지면",
+        "긴 글을 천천히 읽으면"
+      ],
+      "vocabKo": "집중이 흐트러지다"
+    },
+    {
+      "id": "satz_b2_0119",
+      "level": "b2",
+      "targetKo": "그 제목은 내용을 설명하기보다 화난 반응을 유도하려고 만든 것 같아요.",
+      "promptDe": "Die Überschrift soll offenbar weniger informieren als eine wütende Reaktion provozieren.",
+      "promptEn": "That headline seems designed to provoke anger rather than explain the content.",
+      "distractors": [
+        "차분한 설명을 위해",
+        "정보를 정확히 정리하려고"
+      ],
+      "vocabKo": "반응을 유도하다"
+    },
+    {
+      "id": "satz_b2_0120",
+      "level": "b2",
+      "targetKo": "기사를 읽을 때 확인된 사실과 기자의 해석을 구분해 봐요.",
+      "promptDe": "Versuchen wir beim Lesen eines Artikels, bestätigte Fakten von der Deutung des Verfassers zu unterscheiden.",
+      "promptEn": "When reading an article, let's distinguish verified facts from the writer's interpretation.",
+      "distractors": [
+        "모든 문장을 사실로",
+        "기자의 해석만 읽고"
+      ],
+      "vocabKo": "사실과 의견을 구분하다"
+    },
+    {
+      "id": "satz_b2_0121",
+      "level": "b2",
+      "targetKo": "단체 대화방에서는 가벼운 농담도 기록으로 남는다는 걸 기억해야 해요.",
+      "promptDe": "In einem Gruppenchat sollte man daran denken, dass selbst ein beiläufiger Witz gespeichert bleibt.",
+      "promptEn": "In a group chat, remember that even a casual joke remains on record.",
+      "distractors": [
+        "가벼운 농담은 늘",
+        "단체 대화는 바로 지워져서"
+      ],
+      "vocabKo": "기록이 남다"
+    },
+    {
+      "id": "satz_b2_0122",
+      "level": "b2",
+      "targetKo": "같은 비밀번호를 여러 곳에서 쓰지 않는 것만으로도 계정을 더 안전하게 보호할 수 있어요.",
+      "promptDe": "Schon wenn du nicht überall dasselbe Passwort verwendest, kannst du dein Konto besser schützen.",
+      "promptEn": "Simply avoiding the same password across different services can help protect your account.",
+      "distractors": [
+        "같은 비밀번호를 계속 쓰면",
+        "비밀번호를 단체방에 올리면"
+      ],
+      "vocabKo": "계정을 보호하다"
+    },
+    {
+      "id": "satz_b2_0123",
+      "level": "b2",
+      "targetKo": "머리가 멍해질 때는 오 분만이라도 화면에서 눈을 떼고 쉬어요.",
+      "promptDe": "Wenn der Kopf nicht mehr mitmacht, schaue ich wenigstens fünf Minuten vom Bildschirm weg und mache Pause.",
+      "promptEn": "When my head feels foggy, I look away from the screen and rest for at least five minutes.",
+      "distractors": [
+        "계속 화면만 보면서",
+        "쉬지 않고 더 집중해서"
+      ],
+      "vocabKo": "화면에서 눈을 떼다"
+    },
+    {
+      "id": "satz_b2_0124",
+      "level": "b2",
+      "targetKo": "주소가 낯설거나 로그인을 재촉하면 일단 링크부터 의심해요.",
+      "promptDe": "Wenn die Adresse unbekannt wirkt oder zur schnellen Anmeldung drängt, misstraue ich zuerst dem Link.",
+      "promptEn": "If the address looks unfamiliar or pressures me to log in, I treat the link as suspicious.",
+      "distractors": [
+        "낯선 주소라도 바로",
+        "로그인을 서두르라는 말에"
+      ],
+      "vocabKo": "링크를 의심하다"
+    },
+    {
+      "id": "satz_b2_0125",
+      "level": "b2",
+      "targetKo": "중요한 소식은 서로 다른 두 출처에서 교차 확인한 뒤에 전달했어요.",
+      "promptDe": "Eine wichtige Nachricht habe ich erst weitergegeben, nachdem ich sie mit zwei voneinander unabhängigen Quellen abgeglichen hatte.",
+      "promptEn": "I shared the important news only after cross-checking it against two different sources.",
+      "distractors": [
+        "한 출처만 믿고",
+        "확인 없이 바로"
+      ],
+      "vocabKo": "교차 확인하다"
+    },
+    {
+      "id": "satz_c1_0001",
+      "level": "c1",
+      "targetKo": "입구만 넓히는 것으로 끝내지 말고 안내와 신청 절차의 접근성도 함께 확보해야 합니다.",
+      "promptDe": "Ein breiter Eingang allein reicht nicht. Auch Informationen und Anmeldeverfahren müssen zugänglich sein.",
+      "promptEn": "A wider entrance is not enough. We also need to make information and registration procedures accessible.",
+      "distractors": [
+        "입구만 넓히면 충분하니",
+        "안내 절차는 그대로 두고"
+      ],
+      "vocabKo": "접근성을 확보하다"
+    },
+    {
+      "id": "satz_c1_0002",
+      "level": "c1",
+      "targetKo": "안내대를 복도 한가운데 두면 휠체어나 유모차의 동선을 가로막을 수 있습니다.",
+      "promptDe": "Ein Infostand mitten im Flur kann Rollstühlen und Kinderwagen den Weg versperren.",
+      "promptEn": "Placing an information desk in the middle of the corridor can block the route for wheelchairs and strollers.",
+      "distractors": [
+        "안내대를 벽 쪽에 두면",
+        "복도를 넓게 비워 두면"
+      ],
+      "vocabKo": "동선을 가로막다"
+    },
+    {
+      "id": "satz_c1_0003",
+      "level": "c1",
+      "targetKo": "현장 설명을 듣기 어려운 사람을 위해 자막과 문서 안내를 선택지로 마련했습니다.",
+      "promptDe": "Für Personen, die der Erklärung vor Ort schwer folgen können, haben wir Untertitel und schriftliche Informationen als Alternativen bereitgestellt.",
+      "promptEn": "For people who may struggle to follow the in-person explanation, we provided captions and written guidance as alternatives.",
+      "distractors": [
+        "현장 설명만 고집하고",
+        "자막과 문서 안내를 없애"
+      ],
+      "vocabKo": "선택지를 마련하다"
+    },
+    {
+      "id": "satz_c1_0004",
+      "level": "c1",
+      "targetKo": "편의를 추측해서 정하기 전에 실제 이용 당사자의 의견부터 들었습니다.",
+      "promptDe": "Bevor wir Annahmen über ihre Bedürfnisse trafen, haben wir zuerst die Menschen angehört, die das Angebot tatsächlich nutzen.",
+      "promptEn": "Before making assumptions about what would help, we listened to the people who actually use the service.",
+      "distractors": [
+        "필요를 대신 추측한 뒤",
+        "이용자를 빼고 결정해서"
+      ],
+      "vocabKo": "당사자의 의견을 듣다"
+    },
+    {
+      "id": "satz_c1_0005",
+      "level": "c1",
+      "targetKo": "상황이 다른데 같은 기준을 일괄 적용하면 오히려 누군가를 배제할 수 있습니다.",
+      "promptDe": "Wenn unterschiedliche Situationen pauschal nach demselben Maßstab behandelt werden, kann das Menschen erst recht ausschließen.",
+      "promptEn": "Applying the same standard across different situations can end up excluding people.",
+      "distractors": [
+        "상황마다 기준을 조정하면",
+        "사정이 같은 사람에게만"
+      ],
+      "vocabKo": "기준을 일괄 적용하다"
+    },
+    {
+      "id": "satz_c1_0006",
+      "level": "c1",
+      "targetKo": "원칙은 유지하되 건강이나 돌봄 사정이 있는 경우에는 예외를 둘 필요가 있습니다.",
+      "promptDe": "Die Regel kann bestehen bleiben, doch bei gesundheitlichen Gründen oder Betreuungspflichten braucht es Ausnahmen.",
+      "promptEn": "We can keep the rule while allowing exceptions for health needs or caregiving responsibilities.",
+      "distractors": [
+        "어떤 사정도 고려하지 않고",
+        "원칙을 모두 없애고"
+      ],
+      "vocabKo": "예외를 두다"
+    },
+    {
+      "id": "satz_c1_0007",
+      "level": "c1",
+      "targetKo": "이용자가 매번 불편을 감수하게 두는 대신 운영 절차 자체를 바꿔야 합니다.",
+      "promptDe": "Statt den Nutzern jedes Mal Unannehmlichkeiten zuzumuten, sollten wir den Ablauf selbst ändern.",
+      "promptEn": "Instead of making users put up with the same inconvenience every time, we should change the process itself.",
+      "distractors": [
+        "운영 절차는 그대로 두고",
+        "이용자에게 더 쉽게 안내해서"
+      ],
+      "vocabKo": "불편을 감수하다"
+    },
+    {
+      "id": "satz_c1_0008",
+      "level": "c1",
+      "targetKo": "정보는 공개하는 데 그치지 않고 누구나 실제로 이용할 수 있도록 보장해야 합니다.",
+      "promptDe": "Informationen nur zu veröffentlichen reicht nicht. Es muss auch gewährleistet sein, dass alle sie tatsächlich nutzen können.",
+      "promptEn": "Publishing information is not enough. We need to ensure that everyone can actually use it.",
+      "distractors": [
+        "정보만 올려 두면 충분해서",
+        "누가 이용하는지는 보지 않고"
+      ],
+      "vocabKo": "이용을 보장하다"
+    },
+    {
+      "id": "satz_c1_0009",
+      "level": "c1",
+      "targetKo": "문제만 지적하면 논의가 멈출 수 있어서 비용까지 고려한 개선안을 함께 제시했습니다.",
+      "promptDe": "Nur auf das Problem hinzuweisen hätte die Diskussion blockiert. Deshalb habe ich einen Verbesserungsvorschlag samt Kostenrahmen vorgelegt.",
+      "promptEn": "Pointing out the problem alone could stall the discussion, so I also proposed an improvement that accounted for cost.",
+      "distractors": [
+        "문제만 반복해서 말하고",
+        "비용은 전혀 고려하지 않은 채"
+      ],
+      "vocabKo": "개선안을 제시하다"
+    },
+    {
+      "id": "satz_c1_0010",
+      "level": "c1",
+      "targetKo": "접근성 문제는 급하지 않다는 이유로 자꾸 우선순위에서 밀리곤 합니다.",
+      "promptDe": "Fragen der Zugänglichkeit rutschen oft nach hinten, weil sie fälschlich als nicht dringend gelten.",
+      "promptEn": "Accessibility issues often get pushed down the priority list because they are treated as less urgent.",
+      "distractors": [
+        "가장 급한 문제로 다뤄져",
+        "항상 첫 번째 안건이 되어"
+      ],
+      "vocabKo": "우선순위에서 밀리다"
+    },
+    {
+      "id": "satz_c1_0011",
+      "level": "c1",
+      "targetKo": "행사 당일에야 통역이 없다는 걸 알게 되어 사후에 보완할 수밖에 없었습니다.",
+      "promptDe": "Erst am Veranstaltungstag fiel auf, dass eine Verdolmetschung fehlte. Uns blieb nur, nachträglich nachzubessern.",
+      "promptEn": "We discovered on the day of the event that no interpretation was available, so we had no choice but to remedy it afterward.",
+      "distractors": [
+        "행사 전에 통역을 확인해서",
+        "처음부터 충분히 준비했기 때문에"
+      ],
+      "vocabKo": "사후에 보완하다"
+    },
+    {
+      "id": "satz_c1_0012",
+      "level": "c1",
+      "targetKo": "신청서를 간단히 바꾸고 전화 접수도 열어 참여 장벽을 낮췄습니다.",
+      "promptDe": "Wir haben das Formular vereinfacht und Anmeldungen per Telefon ermöglicht, um die Teilnahmehürden zu senken.",
+      "promptEn": "We simplified the form and opened phone registration to lower barriers to participation.",
+      "distractors": [
+        "신청서를 더 복잡하게 만들고",
+        "온라인 접수만 남겨"
+      ],
+      "vocabKo": "참여 장벽을 낮추다"
+    },
+    {
+      "id": "satz_c1_0013",
+      "level": "c1",
+      "targetKo": "온라인 설문만 사용하면 인터넷을 자주 쓰지 않는 사람은 빠져 표본이 치우칠 수 있습니다.",
+      "promptDe": "Bei einer reinen Online-Umfrage fehlen Menschen, die das Internet selten nutzen. Dadurch kann die Stichprobe verzerrt sein.",
+      "promptEn": "An online-only survey may exclude people who rarely use the internet and leave the sample biased.",
+      "distractors": [
+        "모든 집단이 고르게 참여해서",
+        "오프라인 응답도 함께 받아"
+      ],
+      "vocabKo": "표본이 치우치다"
+    },
+    {
+      "id": "satz_c1_0014",
+      "level": "c1",
+      "targetKo": "수면 시간의 영향을 보려면 카페인 섭취 같은 다른 변수를 가능한 한 통제해야 합니다.",
+      "promptDe": "Um den Einfluss der Schlafdauer zu untersuchen, sollten andere Variablen wie der Koffeinkonsum möglichst kontrolliert werden.",
+      "promptEn": "To examine the effect of sleep duration, we need to control other variables such as caffeine intake as much as possible.",
+      "distractors": [
+        "카페인 섭취는 무시하고",
+        "수면 시간과 상관없는 조건만"
+      ],
+      "vocabKo": "변수를 통제하다"
+    },
+    {
+      "id": "satz_c1_0015",
+      "level": "c1",
+      "targetKo": "같은 절차를 따랐는데도 결과를 재현하지 못해 측정 조건을 다시 확인했습니다.",
+      "promptDe": "Obwohl wir dasselbe Verfahren befolgten, konnten wir das Ergebnis nicht reproduzieren und überprüften die Messbedingungen erneut.",
+      "promptEn": "We followed the same procedure but could not reproduce the result, so we checked the measurement conditions again.",
+      "distractors": [
+        "같은 결과가 바로 나와서",
+        "측정 조건을 확인할 필요가 없어"
+      ],
+      "vocabKo": "결과를 재현하다"
+    },
+    {
+      "id": "satz_c1_0016",
+      "level": "c1",
+      "targetKo": "두 수치가 함께 움직였다는 이유만으로 상관관계를 인과로 해석해서는 안 됩니다.",
+      "promptDe": "Nur weil sich zwei Werte gemeinsam verändern, darf eine Korrelation nicht als Ursache und Wirkung gedeutet werden.",
+      "promptEn": "We should not interpret correlation as causation simply because two figures move together.",
+      "distractors": [
+        "두 수치가 함께 움직이니",
+        "다른 설명을 모두 제외하고"
+      ],
+      "vocabKo": "상관관계를 인과로 해석하다"
+    },
+    {
+      "id": "satz_c1_0017",
+      "level": "c1",
+      "targetKo": "계산 결과를 제시하기 전에 어떤 가정을 두었는지 전제를 분명히 밝혔습니다.",
+      "promptDe": "Bevor ich das Ergebnis vorstellte, legte ich klar offen, von welchen Annahmen die Berechnung ausging.",
+      "promptEn": "Before presenting the calculation, I clearly stated the assumptions behind it.",
+      "distractors": [
+        "가정을 숨긴 채",
+        "결과만 먼저 강조하고"
+      ],
+      "vocabKo": "전제를 밝히다"
+    },
+    {
+      "id": "satz_c1_0018",
+      "level": "c1",
+      "targetKo": "사례 두 건만으로 일반화하기에는 근거가 충분하지 않습니다.",
+      "promptDe": "Zwei Einzelfälle reichen als Grundlage für eine Verallgemeinerung nicht aus.",
+      "promptEn": "Two cases do not provide enough evidence for a general conclusion.",
+      "distractors": [
+        "사례 두 건이면 충분해서",
+        "모든 상황에 바로 적용할 만큼"
+      ],
+      "vocabKo": "근거가 충분하다"
+    },
+    {
+      "id": "satz_c1_0019",
+      "level": "c1",
+      "targetKo": "일부 기간만 골라 보여 주면 실제 변화보다 수치를 부풀려 보이게 할 수 있습니다.",
+      "promptDe": "Wer nur ausgewählte Zeiträume zeigt, kann Zahlen größer erscheinen lassen, als die tatsächliche Veränderung rechtfertigt.",
+      "promptEn": "Showing only selected periods can make the figures look larger than the actual change.",
+      "distractors": [
+        "전체 기간을 함께 보여 주면",
+        "선택 기준을 미리 밝히면"
+      ],
+      "vocabKo": "수치를 부풀리다"
+    },
+    {
+      "id": "satz_c1_0020",
+      "level": "c1",
+      "targetKo": "같은 결과를 두고도 연구 목적에 따라 해석이 엇갈렸습니다.",
+      "promptDe": "Dasselbe Ergebnis wurde je nach Forschungsziel unterschiedlich interpretiert.",
+      "promptEn": "The same result was interpreted differently depending on the research goal.",
+      "distractors": [
+        "연구 목적이 같아서",
+        "모두 같은 결론을 내려"
+      ],
+      "vocabKo": "해석이 엇갈리다"
+    },
+    {
+      "id": "satz_c1_0021",
+      "level": "c1",
+      "targetKo": "주장에 맞지 않는 반례를 하나만 들어도 조건을 더 정확히 다듬을 수 있습니다.",
+      "promptDe": "Schon ein Gegenbeispiel kann helfen, die Bedingungen einer Behauptung genauer zu fassen.",
+      "promptEn": "Even one counterexample can help refine the conditions of a claim.",
+      "distractors": [
+        "주장에 맞는 사례만 모으면",
+        "조건을 전혀 바꾸지 않고"
+      ],
+      "vocabKo": "반례를 들다"
+    },
+    {
+      "id": "satz_c1_0022",
+      "level": "c1",
+      "targetKo": "이번 분석의 한계를 솔직히 인정해야 다음 연구가 선명해집니다.",
+      "promptDe": "Wenn wir offen anerkennen, was diese Analyse nicht erklärt, kann die nächste Untersuchung gezielter ansetzen.",
+      "promptEn": "Acknowledging what this analysis cannot explain will make the next study more focused.",
+      "distractors": [
+        "설명하지 못한 부분을 감추면",
+        "모든 결과를 완벽하다고 하면"
+      ],
+      "vocabKo": "한계를 인정하다"
+    },
+    {
+      "id": "satz_c1_0023",
+      "level": "c1",
+      "targetKo": "추가 자료가 들어오기 전까지는 어느 쪽이 맞는지 결론을 유보하겠습니다.",
+      "promptDe": "Bis weitere Daten vorliegen, werde ich kein Urteil darüber fällen, welche Seite recht hat.",
+      "promptEn": "I will withhold judgment on which side is right until more data comes in.",
+      "distractors": [
+        "추가 자료 없이 바로",
+        "어느 쪽이 맞는지 이미"
+      ],
+      "vocabKo": "결론을 유보하다"
+    },
+    {
+      "id": "satz_c1_0024",
+      "level": "c1",
+      "targetKo": "인터뷰 내용과 실제 이용 기록을 대조하니 기억과 행동 사이에 차이가 보였습니다.",
+      "promptDe": "Beim Abgleich der Interviews mit den tatsächlichen Nutzungsdaten zeigte sich ein Unterschied zwischen Erinnerung und Verhalten.",
+      "promptEn": "Comparing the interviews with actual usage records revealed a gap between memory and behavior.",
+      "distractors": [
+        "인터뷰 내용만 보고",
+        "이용 기록을 따로 숨기니"
+      ],
+      "vocabKo": "자료를 대조하다"
+    },
+    {
+      "id": "satz_c2_0001",
+      "level": "c2",
+      "targetKo": "한 부서만의 문제가 아니라 예산과 인사 권한까지 이해관계가 얽혀 있습니다.",
+      "promptDe": "Das Problem betrifft nicht nur eine Abteilung. Auch Budget- und Personalbefugnisse sind miteinander verflochten.",
+      "promptEn": "This is not an issue for one department alone. Budget and personnel authority are also intertwined.",
+      "distractors": [
+        "한 부서만 결정하면 돼서",
+        "예산과 인사 권한은 관계없고"
+      ],
+      "vocabKo": "이해관계가 얽히다"
+    },
+    {
+      "id": "satz_c2_0002",
+      "level": "c2",
+      "targetKo": "현장 판단이 늦어지지 않도록 일정 금액 이하의 결정 권한은 지역 팀에 위임했습니다.",
+      "promptDe": "Damit Entscheidungen vor Ort nicht unnötig warten, wurden Befugnisse bis zu einer bestimmten Summe an die Regionalteams übertragen.",
+      "promptEn": "To prevent delays in local decisions, we delegated authority for amounts below a set threshold to regional teams.",
+      "distractors": [
+        "모든 결정을 본부에 남겨",
+        "현장 팀이 판단하지 못하게"
+      ],
+      "vocabKo": "권한을 위임하다"
+    },
+    {
+      "id": "satz_c2_0003",
+      "level": "c2",
+      "targetKo": "결과가 합리적이어도 의견을 낼 기회가 없었다면 절차적 정당성을 얻기 어렵습니다.",
+      "promptDe": "Auch ein vernünftiges Ergebnis gewinnt kaum Verfahrenslegitimität, wenn Betroffene keine Gelegenheit zur Stellungnahme hatten.",
+      "promptEn": "Even a reasonable outcome may lack procedural legitimacy if people had no chance to voice their views.",
+      "distractors": [
+        "모두 의견을 낼 수 있었다면",
+        "절차가 충분히 공개됐다면"
+      ],
+      "vocabKo": "절차적 정당성"
+    },
+    {
+      "id": "satz_c2_0004",
+      "level": "c2",
+      "targetKo": "사고 원인을 찾는 일과 책임 소재를 가리는 일을 한꺼번에 하면 조사 자체가 방어적으로 흐를 수 있습니다.",
+      "promptDe": "Wenn Ursachenanalyse und Schuldzuweisung gleichzeitig erfolgen, kann die Untersuchung selbst defensiv werden.",
+      "promptEn": "Combining the search for causes with determining blame can make the investigation itself defensive.",
+      "distractors": [
+        "원인과 책임을 분리해 살피면",
+        "책임을 나중에 논의하면"
+      ],
+      "vocabKo": "책임 소재를 가리다"
+    },
+    {
+      "id": "satz_c2_0005",
+      "level": "c2",
+      "targetKo": "새 기준을 바로 적용하면 준비가 덜 된 기관이 있어 석 달의 유예 기간을 두었습니다.",
+      "promptDe": "Da einige Einrichtungen noch nicht vorbereitet waren, wurde für die neue Regelung eine Übergangsfrist von drei Monaten eingeräumt.",
+      "promptEn": "Some institutions were not ready for the new standard, so we allowed a three-month grace period.",
+      "distractors": [
+        "모든 기관이 이미 준비돼서",
+        "새 기준을 오늘부터 바로"
+      ],
+      "vocabKo": "유예 기간을 두다"
+    },
+    {
+      "id": "satz_c2_0006",
+      "level": "c2",
+      "targetKo": "핵심 조항의 해석 차이를 좁히지 못해 막판에 합의가 결렬되었습니다.",
+      "promptDe": "Weil sich die Auslegungsunterschiede bei der zentralen Klausel nicht ausräumen ließen, scheiterte die Einigung in letzter Minute.",
+      "promptEn": "The parties could not narrow their differences over a key clause, and the agreement collapsed at the last minute.",
+      "distractors": [
+        "핵심 조항에 뜻을 모아",
+        "해석 차이가 모두 해소돼"
+      ],
+      "vocabKo": "합의가 결렬되다"
+    },
+    {
+      "id": "satz_c2_0007",
+      "level": "c2",
+      "targetKo": "표결에 앞서 소수 의견이 무엇인지 확인하며 이견을 조율했습니다.",
+      "promptDe": "Vor der Abstimmung wurden die Minderheitspositionen angehört und die unterschiedlichen Auffassungen moderiert.",
+      "promptEn": "Before the vote, we heard the minority views and worked to reconcile the differences.",
+      "distractors": [
+        "소수 의견을 듣지 않고",
+        "표결 결과만 남긴 채"
+      ],
+      "vocabKo": "이견을 조율하다"
+    },
+    {
+      "id": "satz_c2_0008",
+      "level": "c2",
+      "targetKo": "실무 검토가 끝난 제안만 다음 운영위원회 안건으로 상정하기로 했습니다.",
+      "promptDe": "Nur Vorschläge, deren fachliche Prüfung abgeschlossen ist, sollen auf die Tagesordnung der nächsten Sitzung kommen.",
+      "promptEn": "We agreed to place only proposals that have completed working-level review on the next committee agenda.",
+      "distractors": [
+        "실무 검토가 끝나지 않아도",
+        "모든 제안을 바로"
+      ],
+      "vocabKo": "안건을 상정하다"
+    },
+    {
+      "id": "satz_c2_0009",
+      "level": "c2",
+      "targetKo": "회의 시간이 길어지더라도 직접 영향을 받는 사람의 발언권은 보장해야 합니다.",
+      "promptDe": "Auch wenn die Sitzung dadurch länger dauert, muss das Rederecht der unmittelbar Betroffenen gewährleistet sein.",
+      "promptEn": "Even if the meeting runs longer, people directly affected must be guaranteed a chance to speak.",
+      "distractors": [
+        "회의 시간을 줄이기 위해",
+        "직접 영향을 받는 사람을 빼고"
+      ],
+      "vocabKo": "발언권을 보장하다"
+    },
+    {
+      "id": "satz_c2_0010",
+      "level": "c2",
+      "targetKo": "담당자마다 판단이 달라지지 않도록 예외 승인 기준을 문서로 명문화했습니다.",
+      "promptDe": "Damit Entscheidungen nicht von der zuständigen Person abhängen, wurden die Kriterien für Ausnahmen schriftlich festgehalten.",
+      "promptEn": "We codified the exception criteria so decisions would not vary from one person in charge to another.",
+      "distractors": [
+        "담당자마다 다르게 판단하도록",
+        "예외 기준을 말로만 전해"
+      ],
+      "vocabKo": "기준을 명문화하다"
+    },
+    {
+      "id": "satz_c2_0011",
+      "level": "c2",
+      "targetKo": "지원 대상을 넓히면서 생길 수 있는 행정 부담은 절차 간소화로 상쇄하려고 합니다.",
+      "promptDe": "Den zusätzlichen Verwaltungsaufwand durch den erweiterten Zugang wollen wir mit einem einfacheren Verfahren ausgleichen.",
+      "promptEn": "We plan to offset the administrative burden of broader eligibility by simplifying the process.",
+      "distractors": [
+        "절차를 더 복잡하게 만들어",
+        "행정 부담은 고려하지 않고"
+      ],
+      "vocabKo": "부작용을 상쇄하다"
+    },
+    {
+      "id": "satz_c2_0012",
+      "level": "c2",
+      "targetKo": "전면 시행 전에 작은 지역에서 시험해 보면 예상하지 못한 시행착오를 줄일 수 있습니다.",
+      "promptDe": "Ein Test in einer kleinen Region vor der landesweiten Einführung kann unerwartete Anlaufschwierigkeiten verringern.",
+      "promptEn": "Testing in a small area before a full rollout can reduce unexpected trial and error.",
+      "distractors": [
+        "바로 전면 시행하면",
+        "시험 없이 전국에 적용해서"
+      ],
+      "vocabKo": "시행착오를 줄이다"
+    },
+    {
+      "id": "satz_c2_0013",
+      "level": "c2",
+      "targetKo": "인터뷰이는 당시 기록을 다시 읽으며 오래된 기억을 조금씩 재구성했습니다.",
+      "promptDe": "Beim erneuten Lesen der damaligen Aufzeichnungen rekonstruierte die interviewte Person nach und nach ihre Erinnerungen.",
+      "promptEn": "By rereading records from the time, the interviewee gradually reconstructed old memories.",
+      "distractors": [
+        "당시 기록을 보지 않고",
+        "오래된 기억을 그대로 확신하며"
+      ],
+      "vocabKo": "기억을 재구성하다"
+    },
+    {
+      "id": "satz_c2_0014",
+      "level": "c2",
+      "targetKo": "서술자가 사건을 단정하지 않고 한발 물러서면서 독자가 스스로 판단하게 합니다.",
+      "promptDe": "Der Erzähler legt sich nicht fest, sondern hält Abstand und überlässt das Urteil den Lesenden.",
+      "promptEn": "The narrator avoids a firm judgment, steps back, and lets readers decide for themselves.",
+      "distractors": [
+        "서술자가 결론을 단정해",
+        "독자의 판단을 대신 내려"
+      ],
+      "vocabKo": "서술자가 거리를 두다"
+    },
+    {
+      "id": "satz_c2_0015",
+      "level": "c2",
+      "targetKo": "같은 하루를 세 인물의 시점으로 교차해 보여 주니 서로의 오해가 선명해집니다.",
+      "promptDe": "Derselbe Tag wird abwechselnd aus der Sicht dreier Figuren erzählt. Dadurch werden ihre Missverständnisse deutlich.",
+      "promptEn": "Showing the same day through three alternating perspectives makes their misunderstandings clear.",
+      "distractors": [
+        "한 인물의 시점만 고정해서",
+        "같은 장면을 모두 빼고"
+      ],
+      "vocabKo": "시점을 교차하다"
+    },
+    {
+      "id": "satz_c2_0016",
+      "level": "c2",
+      "targetKo": "모든 감정을 설명하지 않고 여백을 남겨 둔 문장이 오히려 오래 기억에 남았습니다.",
+      "promptDe": "Gerade der Satz, der nicht jedes Gefühl aussprach und eine Leerstelle ließ, blieb lange im Gedächtnis.",
+      "promptEn": "The sentence that left some feelings unexplained stayed with me the longest.",
+      "distractors": [
+        "모든 감정을 자세히 설명해",
+        "해석할 틈을 없애서"
+      ],
+      "vocabKo": "여백을 남기다"
+    },
+    {
+      "id": "satz_c2_0017",
+      "level": "c2",
+      "targetKo": "첫 장면의 사소한 물건이 마지막에 다시 등장한다는 암시를 포착했어요.",
+      "promptDe": "Ich habe die Andeutung erkannt, dass der unscheinbare Gegenstand aus der ersten Szene am Ende wieder auftauchen würde.",
+      "promptEn": "I picked up on the hint that the small object from the opening scene would return at the end.",
+      "distractors": [
+        "첫 장면의 물건을 그냥 지나쳐",
+        "마지막 장면만 따로 읽고"
+      ],
+      "vocabKo": "암시를 포착하다"
+    },
+    {
+      "id": "satz_c2_0018",
+      "level": "c2",
+      "targetKo": "익숙한 영웅담의 맥락을 전복해 주변 인물의 침묵을 중심에 놓았습니다.",
+      "promptDe": "Die vertraute Heldenperspektive wird umgekehrt, indem das Schweigen der Nebenfiguren ins Zentrum rückt.",
+      "promptEn": "The familiar heroic framing is overturned by placing the silence of minor characters at the center.",
+      "distractors": [
+        "익숙한 영웅담을 그대로 따라",
+        "주변 인물의 침묵을 지워"
+      ],
+      "vocabKo": "맥락을 전복하다"
+    },
+    {
+      "id": "satz_c2_0019",
+      "level": "c2",
+      "targetKo": "작가는 정답을 바로 밝히지 않고 대화 곳곳에 작은 단서를 흘립니다.",
+      "promptDe": "Die Autorin verrät die Antwort nicht sofort, sondern streut kleine Hinweise in die Dialoge ein.",
+      "promptEn": "The writer does not reveal the answer right away, but scatters small clues throughout the dialogue.",
+      "distractors": [
+        "정답을 첫 문장에 밝히고",
+        "대화에 아무 힌트도 남기지 않아"
+      ],
+      "vocabKo": "단서를 흘리다"
+    },
+    {
+      "id": "satz_c2_0020",
+      "level": "c2",
+      "targetKo": "결말을 확정하지 않아 두 인물의 선택을 다르게 볼 여지를 두었습니다.",
+      "promptDe": "Weil das Ende offenbleibt, lässt sich die Entscheidung der beiden Figuren unterschiedlich deuten.",
+      "promptEn": "By leaving the ending unresolved, the story allows the two characters' choices to be read in different ways.",
+      "distractors": [
+        "결말을 하나로 확정해",
+        "선택의 의미를 모두 설명해서"
+      ],
+      "vocabKo": "해석의 여지를 두다"
+    },
+    {
+      "id": "satz_c2_0021",
+      "level": "c2",
+      "targetKo": "처음에는 주인공에게 이입했지만 다른 인물의 기록을 읽고 판단이 흔들렸습니다.",
+      "promptDe": "Zunächst identifizierte ich mich mit der Hauptfigur. Nach den Aufzeichnungen einer anderen Figur geriet mein Urteil ins Wanken.",
+      "promptEn": "At first I identified with the main character, but another character's account unsettled my judgment.",
+      "distractors": [
+        "다른 인물의 기록은 읽지 않고",
+        "처음 판단이 끝까지 그대로여서"
+      ],
+      "vocabKo": "인물에 이입하다"
+    },
+    {
+      "id": "satz_c2_0022",
+      "level": "c2",
+      "targetKo": "따로 진행되던 두 서사가 마지막 장면에서 맞물리며 앞의 장면들이 새롭게 보입니다.",
+      "promptDe": "Im letzten Bild greifen die beiden getrennten Erzählstränge ineinander, wodurch die früheren Szenen in neuem Licht erscheinen.",
+      "promptEn": "The two separate narrative threads interlock in the final scene and cast the earlier scenes in a new light.",
+      "distractors": [
+        "두 이야기가 끝까지 따로 남아",
+        "마지막 장면과 앞부분이 무관해서"
+      ],
+      "vocabKo": "서사가 맞물리다"
+    },
+    {
+      "id": "satz_c2_0023",
+      "level": "c2",
+      "targetKo": "익숙한 사건을 어린아이의 눈으로 보여 줘 관점을 살짝 비틀었습니다.",
+      "promptDe": "Das vertraute Ereignis wird aus der Sicht eines Kindes erzählt und dadurch leicht verschoben.",
+      "promptEn": "Showing a familiar event through a child's eyes gives the perspective a subtle twist.",
+      "distractors": [
+        "익숙한 시각을 그대로 두고",
+        "어른의 설명만 반복해"
+      ],
+      "vocabKo": "관점을 비틀다"
+    },
+    {
+      "id": "satz_c2_0024",
+      "level": "c2",
+      "targetKo": "이야기는 갈등을 다 풀지 않은 채 결말을 유보하고 독자에게 다음 장면을 맡깁니다.",
+      "promptDe": "Die Geschichte löst den Konflikt nicht vollständig, lässt den Abschluss offen und überlässt den Lesenden die nächste Szene.",
+      "promptEn": "The story leaves some conflict unresolved, defers the ending, and lets readers imagine the next scene.",
+      "distractors": [
+        "갈등을 전부 풀어 버린 뒤",
+        "다음 장면까지 자세히 보여 주며"
+      ],
+      "vocabKo": "결말을 유보하다"
+    },
+    {
+      "id": "satz_b2_0126",
+      "level": "b2",
+      "targetKo": "택배가 올 수 있으니 현관 앞 공용 공간은 비워 두는 게 좋겠어요.",
+      "promptDe": "Da ein Paket kommen könnte, sollten wir den Gemeinschaftsbereich vor der Haustür freihalten.",
+      "promptEn": "A package may arrive, so it would be better to keep the shared area by the entrance clear.",
+      "distractors": [
+        "현관 앞에 상자를 쌓아 두고",
+        "택배가 오지 못하게"
+      ],
+      "vocabKo": "공용 공간을 비워 두다"
+    },
+    {
+      "id": "satz_b2_0127",
+      "level": "b2",
+      "targetKo": "세탁기가 한 대뿐이라 저녁 시간을 한 시간씩 나눠 쓰기로 했어요.",
+      "promptDe": "Weil es nur eine Waschmaschine gibt, haben wir den Abend in einstündige Nutzungszeiten aufgeteilt.",
+      "promptEn": "There is only one washing machine, so we agreed to split the evening into one-hour slots.",
+      "distractors": [
+        "세탁기가 여러 대라서",
+        "각자 아무 때나 오래"
+      ],
+      "vocabKo": "사용 시간을 나눠 쓰다"
+    },
+    {
+      "id": "satz_b2_0128",
+      "level": "b2",
+      "targetKo": "오늘 손님이 늦게까지 있을 것 같아서 옆집에 먼저 양해를 구했어요.",
+      "promptDe": "Da meine Gäste heute wohl länger bleiben, habe ich die Nachbarn vorher um Verständnis gebeten.",
+      "promptEn": "My guests may stay late tonight, so I asked the neighbors for understanding in advance.",
+      "distractors": [
+        "아무 말 없이 음악을 크게 틀고",
+        "손님이 모두 돌아간 다음"
+      ],
+      "vocabKo": "먼저 양해를 구하다"
+    },
+    {
+      "id": "satz_b2_0129",
+      "level": "b2",
+      "targetKo": "회의실 문을 닫았는데도 소음이 복도까지 들려서 목소리를 조금 낮췄어요.",
+      "promptDe": "Obwohl die Tür des Besprechungsraums geschlossen war, war der Lärm im Flur zu hören, also sprachen wir leiser.",
+      "promptEn": "Even with the meeting-room door closed, the noise carried into the hallway, so we lowered our voices.",
+      "distractors": [
+        "아무도 듣지 못해서",
+        "목소리를 더 높이고"
+      ],
+      "vocabKo": "소음이 복도까지 들리다"
+    },
+    {
+      "id": "satz_b2_0130",
+      "level": "b2",
+      "targetKo": "모임 인원이 줄어서 쓰지 않을 회의실 예약은 미리 취소했어요.",
+      "promptDe": "Weil weniger Leute zum Treffen kommen, habe ich die nicht benötigte Raumreservierung rechtzeitig storniert.",
+      "promptEn": "Fewer people are coming, so I canceled the room reservation we no longer need in advance.",
+      "distractors": [
+        "아무도 쓰지 못하도록",
+        "모임 인원이 늘어서"
+      ],
+      "vocabKo": "예약을 미리 취소하다"
+    },
+    {
+      "id": "satz_b2_0131",
+      "level": "b2",
+      "targetKo": "준비가 덜 된 팀이 있어서 발표 순서를 현장에서 다시 정했어요.",
+      "promptDe": "Weil ein Team noch nicht fertig war, legten wir die Präsentationsreihenfolge vor Ort neu fest.",
+      "promptEn": "One team was not ready, so we rearranged the presentation order on the spot.",
+      "distractors": [
+        "모든 팀이 이미 발표한 뒤",
+        "준비가 덜 된 팀을 빼지 않고"
+      ],
+      "vocabKo": "순서를 다시 정하다"
+    },
+    {
+      "id": "satz_b2_0132",
+      "level": "b2",
+      "targetKo": "에어컨 소리가 너무 커서 관리 채팅방에 불편 사항을 공유했어요.",
+      "promptDe": "Die Klimaanlage war sehr laut, deshalb meldete ich das Problem im Verwaltungschat.",
+      "promptEn": "The air conditioner was very loud, so I shared the issue in the building chat.",
+      "distractors": [
+        "문제가 없는 척하고",
+        "누가 고장 냈는지 단정하며"
+      ],
+      "vocabKo": "불편 사항을 공유하다"
+    },
+    {
+      "id": "satz_b2_0133",
+      "level": "b2",
+      "targetKo": "출입문이 바뀌어서 엘리베이터 앞에 안내문을 눈에 띄게 붙였어요.",
+      "promptDe": "Da sich der Eingang geändert hat, brachten wir vor dem Aufzug einen gut sichtbaren Hinweis an.",
+      "promptEn": "The entrance changed, so we posted a clearly visible notice by the elevator.",
+      "distractors": [
+        "사람들이 못 보도록 구석에",
+        "출입문이 그대로라서"
+      ],
+      "vocabKo": "안내문을 눈에 띄게 붙이다"
+    },
+    {
+      "id": "satz_b2_0134",
+      "level": "b2",
+      "targetKo": "이용 시간을 두고 계속 다투기보다 서로 한발씩 양보해서 해결했어요.",
+      "promptDe": "Statt weiter über die Nutzungszeit zu streiten, kamen beide Seiten einander entgegen und lösten das Problem.",
+      "promptEn": "Rather than keep arguing over the schedule, both sides compromised and resolved it.",
+      "distractors": [
+        "자기 시간만 고집하며",
+        "문제를 더 크게 만들려고"
+      ],
+      "vocabKo": "서로 한발씩 양보하다"
+    },
+    {
+      "id": "satz_b2_0135",
+      "level": "b2",
+      "targetKo": "주말에도 연습실을 쓸 수 있는지 이용 규칙을 다시 확인해 볼게요.",
+      "promptDe": "Ich prüfe die Nutzungsregeln noch einmal, um zu sehen, ob der Proberaum auch am Wochenende geöffnet ist.",
+      "promptEn": "I'll check the usage rules again to see whether the practice room is available on weekends.",
+      "distractors": [
+        "가능하다고 마음대로 생각하고",
+        "주말 운영 여부와 상관없이"
+      ],
+      "vocabKo": "이용 규칙을 다시 확인하다"
+    },
+    {
+      "id": "satz_b2_0136",
+      "level": "b2",
+      "targetKo": "회의가 끝난 뒤에는 뒷사람을 위해 의자와 케이블을 정리해 주세요.",
+      "promptDe": "Bitte räumen Sie nach der Besprechung die Stühle und Kabel für die nächste Person auf.",
+      "promptEn": "After the meeting, please tidy the chairs and cables for the next person.",
+      "distractors": [
+        "사용한 물건을 그대로 두고",
+        "다음 사람이 알아서 하도록"
+      ],
+      "vocabKo": "뒷사람을 위해 정리하다"
+    },
+    {
+      "id": "satz_b2_0137",
+      "level": "b2",
+      "targetKo": "누구 잘못인지 따지기 전에 당사자끼리 문제를 조용히 풀어 보려고 해요.",
+      "promptDe": "Bevor wir Schuld zuweisen, möchten wir das Problem ruhig unter den Beteiligten klären.",
+      "promptEn": "Before deciding who is at fault, we are going to try to resolve the issue calmly with those involved.",
+      "distractors": [
+        "모두가 보는 곳에 이름을 올리고",
+        "상대의 설명을 듣지 않은 채"
+      ],
+      "vocabKo": "문제를 조용히 풀다"
+    },
+    {
+      "id": "satz_b2_0138",
+      "level": "b2",
+      "targetKo": "요즘 일이 몰려서 친한 친구들에게도 연락이 뜸해졌어요.",
+      "promptDe": "In letzter Zeit habe ich so viel Arbeit, dass ich mich selbst bei engen Freunden seltener melde.",
+      "promptEn": "Work has piled up lately, so I've been in touch less often even with close friends.",
+      "distractors": [
+        "매일 여유가 많아서",
+        "친구들과 계속 만나며"
+      ],
+      "vocabKo": "연락이 뜸해지다"
+    },
+    {
+      "id": "satz_b2_0139",
+      "level": "b2",
+      "targetKo": "오늘은 생각을 정리하고 싶어서 저녁에 혼자 있을 시간이 좀 필요해요.",
+      "promptDe": "Ich möchte heute meine Gedanken ordnen und brauche am Abend etwas Zeit für mich.",
+      "promptEn": "I want to sort out my thoughts today, so I need some time alone this evening.",
+      "distractors": [
+        "기분을 더 복잡하게 만들려고",
+        "여럿이 밤새 이야기하려고"
+      ],
+      "vocabKo": "혼자 있을 시간이 필요하다"
+    },
+    {
+      "id": "satz_b2_0140",
+      "level": "b2",
+      "targetKo": "이번 주는 여유가 없어서 이유를 설명하고 부탁을 정중히 거절했어요.",
+      "promptDe": "Diese Woche habe ich keine Kapazität, deshalb erklärte ich den Grund und lehnte die Bitte höflich ab.",
+      "promptEn": "I don't have room this week, so I explained why and declined the request politely.",
+      "distractors": [
+        "상대가 싫다고 말하며",
+        "할 수 없는데도 맡겠다고 하고"
+      ],
+      "vocabKo": "부탁을 정중히 거절하다"
+    },
+    {
+      "id": "satz_b2_0141",
+      "level": "b2",
+      "targetKo": "약속 사이에 이동 시간이 필요해서 일정에 삼십 분 정도 여유를 뒀어요.",
+      "promptDe": "Weil ich zwischen den Terminen Fahrzeit brauche, ließ ich etwa dreißig Minuten Puffer im Zeitplan.",
+      "promptEn": "I need travel time between appointments, so I left about thirty minutes of breathing room in my schedule.",
+      "distractors": [
+        "모든 약속을 붙여 잡고",
+        "이동할 필요가 없다고 생각해"
+      ],
+      "vocabKo": "일정에 여유를 두다"
+    },
+    {
+      "id": "satz_b2_0142",
+      "level": "b2",
+      "targetKo": "모든 모임에 무리해서 맞추다 보니 정작 쉴 시간이 없어졌어요.",
+      "promptDe": "Weil ich mich für jedes Treffen überforderte, blieb mir am Ende keine Zeit zum Ausruhen.",
+      "promptEn": "I stretched myself too far to make every gathering, and ended up with no time to rest.",
+      "distractors": [
+        "갈 수 있는 모임만 골라서",
+        "쉬는 날을 먼저 확보해서"
+      ],
+      "vocabKo": "무리해서 맞추다"
+    },
+    {
+      "id": "satz_b2_0143",
+      "level": "b2",
+      "targetKo": "회의가 연달아 있으니 다음 일정 전에 십 분만 숨을 돌리고 갈게요.",
+      "promptDe": "Da ich mehrere Besprechungen hintereinander habe, atme ich vor dem nächsten Termin zehn Minuten durch.",
+      "promptEn": "I have back-to-back meetings, so I'll take a ten-minute breather before the next one.",
+      "distractors": [
+        "쉴 틈 없이 바로",
+        "다음 일정이 끝난 뒤에야"
+      ],
+      "vocabKo": "잠깐 숨을 돌리다"
+    },
+    {
+      "id": "satz_b2_0144",
+      "level": "b2",
+      "targetKo": "괜찮은 척하기보다 서운했던 이유를 차분히 말했어요.",
+      "promptDe": "Statt so zu tun, als sei alles in Ordnung, erklärte ich ruhig, warum ich verletzt war.",
+      "promptEn": "Instead of pretending I was fine, I calmly explained why I felt hurt.",
+      "distractors": [
+        "내 기분을 계속 숨기고",
+        "상대가 알아서 눈치채도록"
+      ],
+      "vocabKo": "기분을 솔직히 말하다"
+    },
+    {
+      "id": "satz_b2_0145",
+      "level": "b2",
+      "targetKo": "바쁜 걸 알고 있어서 급한 일이 아니면 답장을 재촉하지 않아요.",
+      "promptDe": "Ich weiß, dass die Person beschäftigt ist, deshalb dränge ich bei nicht dringenden Dingen nicht auf eine Antwort.",
+      "promptEn": "I know they're busy, so I don't rush them for a reply unless it's urgent.",
+      "distractors": [
+        "메시지를 보낸 지 일 분 만에",
+        "급하지 않아도 여러 번"
+      ],
+      "vocabKo": "답장을 재촉하지 않다"
+    },
+    {
+      "id": "satz_b2_0146",
+      "level": "b2",
+      "targetKo": "퇴근 뒤에는 업무 연락을 받기 어렵다고 미리 선을 분명히 그었어요.",
+      "promptDe": "Ich sagte im Voraus klar, dass ich nach Feierabend nur schwer dienstlich erreichbar bin.",
+      "promptEn": "I made it clear in advance that I'm generally unavailable for work messages after hours.",
+      "distractors": [
+        "밤에도 늘 연락하라고 하고",
+        "내가 원하는 시간을 말하지 않은 채"
+      ],
+      "vocabKo": "선을 분명히 긋다"
+    },
+    {
+      "id": "satz_b2_0147",
+      "level": "b2",
+      "targetKo": "작은 오해를 오래 마음에 담아 두면 관계가 더 어색해질 수 있어요.",
+      "promptDe": "Wenn man ein kleines Missverständnis lange mit sich herumträgt, kann die Beziehung noch angespannter werden.",
+      "promptEn": "Keeping a small misunderstanding bottled up for too long can make the relationship more awkward.",
+      "distractors": [
+        "오해를 그날 바로 풀면",
+        "솔직하게 물어본 뒤에는"
+      ],
+      "vocabKo": "마음에 담아 두다"
+    },
+    {
+      "id": "satz_b2_0148",
+      "level": "b2",
+      "targetKo": "지금은 둘 다 감정이 올라와 있으니 대화를 내일로 미루는 게 어때요?",
+      "promptDe": "Wir sind beide gerade aufgewühlt. Wie wäre es, wenn wir das Gespräch auf morgen verschieben?",
+      "promptEn": "We're both worked up right now. How about postponing the conversation until tomorrow?",
+      "distractors": [
+        "더 화가 난 상태에서",
+        "상대가 말할 틈도 주지 않고"
+      ],
+      "vocabKo": "대화를 다음으로 미루다"
+    },
+    {
+      "id": "satz_b2_0149",
+      "level": "b2",
+      "targetKo": "연락 빈도는 달라도 서로의 방식을 존중하면 서운함이 줄어들어요.",
+      "promptDe": "Auch wenn man sich unterschiedlich oft meldet, gibt es weniger Enttäuschung, wenn man die Art des anderen respektiert.",
+      "promptEn": "Even if you communicate at different frequencies, respecting each other's style reduces hurt feelings.",
+      "distractors": [
+        "연락 습관이 다르다는 이유로",
+        "내 기준에 꼭 맞추라고 하면"
+      ],
+      "vocabKo": "서로의 방식을 존중하다"
+    },
+    {
+      "id": "satz_c1_0025",
+      "level": "c1",
+      "targetKo": "수치가 아직 바뀔 수 있다는 불확실성을 발표 첫머리에 명시했어요.",
+      "promptDe": "Zu Beginn der Mitteilung wurde ausdrücklich gesagt, dass sich die Zahlen noch ändern können.",
+      "promptEn": "At the start of the announcement, we explicitly stated that the figures may still change.",
+      "distractors": [
+        "잠정 수치를 확정된 사실처럼",
+        "변경 가능성을 빼고"
+      ],
+      "vocabKo": "불확실성을 명시하다"
+    },
+    {
+      "id": "satz_c1_0026",
+      "level": "c1",
+      "targetKo": "드문 일이라는 이유만으로 피해 규모까지 과소평가해서는 안 돼요.",
+      "promptDe": "Nur weil etwas selten ist, darf man das mögliche Schadensausmaß nicht unterschätzen.",
+      "promptEn": "Just because an event is rare does not mean we should underestimate the scale of its possible harm.",
+      "distractors": [
+        "드물면 피해가 작다고 단정하고",
+        "빈도가 낮다는 말만 믿고"
+      ],
+      "vocabKo": "위험을 과소평가하다"
+    },
+    {
+      "id": "satz_c1_0027",
+      "level": "c1",
+      "targetKo": "새로운 정보가 들어올 때마다 근거에 맞춰 경고 수위를 조절해야 합니다.",
+      "promptDe": "Mit jeder neuen Information muss die Warnstufe anhand der Belege angepasst werden.",
+      "promptEn": "As new information comes in, the warning level should be calibrated to the evidence.",
+      "distractors": [
+        "상황이 달라져도 같은 경고를",
+        "근거와 상관없이 불안을 키우도록"
+      ],
+      "vocabKo": "경고 수위를 조절하다"
+    },
+    {
+      "id": "satz_c1_0028",
+      "level": "c1",
+      "targetKo": "일어날 수 있다는 말과 실제로 일어날 확률이 높다는 말은 구분해야 해요.",
+      "promptDe": "Man muss unterscheiden zwischen möglich und tatsächlich wahrscheinlich.",
+      "promptEn": "We need to distinguish between something being possible and it being likely to happen.",
+      "distractors": [
+        "가능하면 곧 일어난다고 보고",
+        "확률 수치를 전혀 확인하지 않고"
+      ],
+      "vocabKo": "가능성과 확률을 구분하다"
+    },
+    {
+      "id": "satz_c1_0029",
+      "level": "c1",
+      "targetKo": "대피 계획은 최악의 상황을 가정하되 일상적인 대응도 가능하게 짜야 해요.",
+      "promptDe": "Ein Evakuierungsplan sollte den schlimmsten Fall berücksichtigen und zugleich im Alltag praktikabel sein.",
+      "promptEn": "An evacuation plan should assume the worst-case scenario while remaining workable for routine responses.",
+      "distractors": [
+        "가장 쉬운 경우만 기준으로",
+        "현실적인 절차는 빼고"
+      ],
+      "vocabKo": "최악의 상황을 가정하다"
+    },
+    {
+      "id": "satz_c1_0030",
+      "level": "c1",
+      "targetKo": "공식 설명이 늦어지자 확인되지 않은 소문이 정보 공백을 메우기 시작했어요.",
+      "promptDe": "Als die offizielle Erklärung ausblieb, begannen unbestätigte Gerüchte die Informationslücke zu füllen.",
+      "promptEn": "When the official explanation was delayed, unverified rumors began filling the information gap.",
+      "distractors": [
+        "공식 설명이 바로 나와서",
+        "확인된 정보가 충분한데도"
+      ],
+      "vocabKo": "정보 공백을 메우다"
+    },
+    {
+      "id": "satz_c1_0031",
+      "level": "c1",
+      "targetKo": "추측이 커지는 걸 막기 위해 잠정 결과라도 발표 시점을 앞당겼어요.",
+      "promptDe": "Um weitere Spekulationen zu verhindern, wurde selbst die vorläufige Mitteilung vorgezogen.",
+      "promptEn": "To stop speculation from growing, we brought the announcement forward even though the results were preliminary.",
+      "distractors": [
+        "추측이 더 퍼질 때까지 기다리고",
+        "결과가 완벽해질 때까지 침묵하며"
+      ],
+      "vocabKo": "발표 시점을 앞당기다"
+    },
+    {
+      "id": "satz_c1_0032",
+      "level": "c1",
+      "targetKo": "자료가 부족한데도 괜찮다고 단정하면 사람들에게 잘못된 안심을 줄 수 있어요.",
+      "promptDe": "Wenn man trotz dünner Daten behauptet, alles sei in Ordnung, kann das falsche Sicherheit vermitteln.",
+      "promptEn": "Saying everything is fine when evidence is limited can give people false reassurance.",
+      "distractors": [
+        "근거가 없는데도 안전하다고 확언해",
+        "불확실한 부분을 분명히 밝히고"
+      ],
+      "vocabKo": "잘못된 안심을 주다"
+    },
+    {
+      "id": "satz_c1_0033",
+      "level": "c1",
+      "targetKo": "불편한 제한일수록 왜 필요한지 조치의 근거를 함께 공개해야 해요.",
+      "promptDe": "Gerade bei belastenden Einschränkungen sollte die Begründung der Maßnahme mitveröffentlicht werden.",
+      "promptEn": "The more burdensome a restriction is, the more important it is to disclose the basis for it.",
+      "distractors": [
+        "불편을 감수하라는 말만 하고",
+        "왜 필요한지 설명하지 않은 채"
+      ],
+      "vocabKo": "조치의 근거를 공개하다"
+    },
+    {
+      "id": "satz_c1_0034",
+      "level": "c1",
+      "targetKo": "위험을 숨기지 않으면서도 과도한 불안을 막을 수 있는 표현을 골랐어요.",
+      "promptDe": "Wir wählten Formulierungen, die das Risiko nicht verschweigen und zugleich übermäßige Angst vermeiden.",
+      "promptEn": "We chose wording that does not hide the risk but still prevents excessive anxiety.",
+      "distractors": [
+        "위험을 전혀 언급하지 않고",
+        "자극적인 제목으로 관심만 끌며"
+      ],
+      "vocabKo": "과도한 불안을 막다"
+    },
+    {
+      "id": "satz_c1_0035",
+      "level": "c1",
+      "targetKo": "확정된 내용이 적더라도 바뀐 점을 중심으로 상황을 계속 갱신하겠습니다.",
+      "promptDe": "Auch wenn wenig feststeht, werden wir die Lage mit den jeweils neuen Änderungen fortlaufend aktualisieren.",
+      "promptEn": "Even if little is confirmed, we will keep updating the situation with what has changed.",
+      "distractors": [
+        "첫 공지 뒤에는 아무 말도 하지 않고",
+        "변경 사항이 생겨도 이전 자료만"
+      ],
+      "vocabKo": "상황을 계속 갱신하다"
+    },
+    {
+      "id": "satz_c1_0036",
+      "level": "c1",
+      "targetKo": "잘못 전한 수치가 확인되면 이유와 영향을 설명하며 책임 있게 정정해야 합니다.",
+      "promptDe": "Wenn eine falsche Zahl bestätigt wird, muss sie mit Erklärung zu Ursache und Auswirkung verantwortungsvoll korrigiert werden.",
+      "promptEn": "When a reported figure is found to be wrong, it should be corrected responsibly with an explanation of why and what it affects.",
+      "distractors": [
+        "오류를 발견해도 모른 척하고",
+        "숫자만 몰래 바꾼 뒤"
+      ],
+      "vocabKo": "책임 있게 정정하다"
+    },
+    {
+      "id": "satz_c1_0037",
+      "level": "c1",
+      "targetKo": "분리배출 캠페인이 일회성 행사로 끝나지 않으려면 담당 인력과 예산이 필요해요.",
+      "promptDe": "Damit die Recyclingkampagne keine einmalige Aktion bleibt, braucht sie Personal und Budget.",
+      "promptEn": "The recycling campaign needs staff and a budget if it is not to end as a one-off event.",
+      "distractors": [
+        "하루 사진만 남기고",
+        "다음 운영 계획 없이"
+      ],
+      "vocabKo": "일회성 행사로 끝나다"
+    },
+    {
+      "id": "satz_c1_0038",
+      "level": "c1",
+      "targetKo": "설치 가격만 보지 말고 앞으로 들 유지 비용까지 따져 봐야 해요.",
+      "promptDe": "Man sollte nicht nur den Anschaffungspreis sehen, sondern auch die künftigen laufenden Kosten abwägen.",
+      "promptEn": "We should look beyond the installation price and consider future maintenance costs too.",
+      "distractors": [
+        "처음 가격이 싸다는 이유만으로",
+        "고장 난 뒤의 비용은 생각하지 않고"
+      ],
+      "vocabKo": "유지 비용을 따지다"
+    },
+    {
+      "id": "satz_c1_0039",
+      "level": "c1",
+      "targetKo": "수거함은 보기 좋은 곳보다 사람들이 실제로 지나는 동선을 고려해 놓아야 해요.",
+      "promptDe": "Sammelbehälter sollten nicht nur gut aussehen, sondern dort stehen, wo Menschen tatsächlich vorbeikommen.",
+      "promptEn": "Collection bins should be placed based on where people actually walk, not just where they look good.",
+      "distractors": [
+        "아무도 지나지 않는 구석에",
+        "사진이 잘 나오는 위치만 보고"
+      ],
+      "vocabKo": "생활 동선을 고려하다"
+    },
+    {
+      "id": "satz_c1_0040",
+      "level": "c1",
+      "targetKo": "전기 사용량이 매달 공개되자 절약 효과가 눈에 보이기 시작했어요.",
+      "promptDe": "Als der Stromverbrauch monatlich veröffentlicht wurde, wurden die Einsparerfolge sichtbar.",
+      "promptEn": "Once electricity use was published each month, the savings began to become visible.",
+      "distractors": [
+        "변화를 전혀 측정하지 않고",
+        "결과를 아무에게도 알리지 않아"
+      ],
+      "vocabKo": "효과가 눈에 보이다"
+    },
+    {
+      "id": "satz_c1_0041",
+      "level": "c1",
+      "targetKo": "새 제도가 오래가려면 비용과 수고를 몇 사람에게만 맡기지 말고 고르게 나눠야 해요.",
+      "promptDe": "Damit die neue Regelung Bestand hat, müssen Kosten und Aufwand fair verteilt werden, statt bei wenigen zu landen.",
+      "promptEn": "For the new system to last, its cost and effort should be shared fairly rather than placed on a few people.",
+      "distractors": [
+        "늘 같은 사람만 수고하게 하고",
+        "혜택은 모두가 받지만 비용은 일부만"
+      ],
+      "vocabKo": "부담을 고르게 나누다"
+    },
+    {
+      "id": "satz_c1_0042",
+      "level": "c1",
+      "targetKo": "대중교통 간격을 줄이면 차를 두고 올 수 있는 선택의 폭이 넓어져요.",
+      "promptDe": "Kürzere Taktzeiten im Nahverkehr erweitern die Möglichkeit, das Auto stehen zu lassen.",
+      "promptEn": "More frequent public transport broadens people's options for leaving the car at home.",
+      "distractors": [
+        "버스 운행을 더 줄이면",
+        "차가 없는 사람의 이동을 막으면"
+      ],
+      "vocabKo": "선택의 폭을 넓히다"
+    },
+    {
+      "id": "satz_c1_0043",
+      "level": "c1",
+      "targetKo": "당장 눈에 띄는 성과뿐 아니라 오 년 뒤의 효과도 따져서 결정했어요.",
+      "promptDe": "Wir entschieden nicht nur nach dem sofort sichtbaren Ergebnis, sondern wogen auch die Wirkung in fünf Jahren ab.",
+      "promptEn": "We made the decision by considering not only immediate results but also the effect five years from now.",
+      "distractors": [
+        "사진이 잘 나오는지만 보고",
+        "다음 해 운영은 생각하지 않은 채"
+      ],
+      "vocabKo": "장기적인 효과를 따지다"
+    },
+    {
+      "id": "satz_c1_0044",
+      "level": "c1",
+      "targetKo": "새 건물을 짓기 전에 비어 있는 주민센터 같은 기존 시설을 활용할 수 있는지 살펴봤어요.",
+      "promptDe": "Bevor wir neu bauen, prüften wir, ob sich freie Räume im Bürgerzentrum nutzen lassen.",
+      "promptEn": "Before constructing a new building, we checked whether unused space in the community center could be used.",
+      "distractors": [
+        "사용 가능한 공간을 확인하지 않고",
+        "무조건 새 건물이 필요하다고 보고"
+      ],
+      "vocabKo": "기존 시설을 활용하다"
+    },
+    {
+      "id": "satz_c1_0045",
+      "level": "c1",
+      "targetKo": "충전기를 설치하기 전에 시간대별 이용 기록으로 예상 수요를 산정했어요.",
+      "promptDe": "Vor der Installation der Ladestationen wurde der erwartete Bedarf anhand zeitlicher Nutzungsdaten berechnet.",
+      "promptEn": "Before installing chargers, we estimated demand using usage records by time of day.",
+      "distractors": [
+        "자료 없이 필요한 수량을 정하고",
+        "현재 이용자를 모두 빼고"
+      ],
+      "vocabKo": "예상 수요를 산정하다"
+    },
+    {
+      "id": "satz_c1_0046",
+      "level": "c1",
+      "targetKo": "작은 성과를 정기적으로 보여 주는 것이 참여를 꾸준히 끌어내는 데 도움이 됐어요.",
+      "promptDe": "Regelmäßige Einblicke in kleine Fortschritte halfen dabei, die Beteiligung aufrechtzuerhalten.",
+      "promptEn": "Regularly showing small results helped sustain participation.",
+      "distractors": [
+        "결과를 전혀 공유하지 않아",
+        "참여자에게 변화가 없다고 말해"
+      ],
+      "vocabKo": "참여를 꾸준히 끌어내다"
+    },
+    {
+      "id": "satz_c1_0047",
+      "level": "c1",
+      "targetKo": "사진 촬영 뒤에 관리가 멈춘다면 보여 주기식 대책에 그칠 가능성이 커요.",
+      "promptDe": "Wenn die Pflege nach dem Fototermin endet, bleibt die Maßnahme wahrscheinlich reine Symbolik.",
+      "promptEn": "If maintenance stops after the photo opportunity, the measure is likely to be little more than a show.",
+      "distractors": [
+        "후속 운영을 꼼꼼히 준비하면",
+        "성과를 꾸준히 측정하면서"
+      ],
+      "vocabKo": "보여 주기식 대책에 그치다"
+    },
+    {
+      "id": "satz_c1_0048",
+      "level": "c1",
+      "targetKo": "다른 도시의 성공 사례도 교통과 인구 구성을 보고 지역 여건에 맞춰야 해요.",
+      "promptDe": "Auch erfolgreiche Modelle anderer Städte müssen an Verkehr und Bevölkerungsstruktur vor Ort angepasst werden.",
+      "promptEn": "Even successful ideas from other cities need to be adapted to local transport and demographics.",
+      "distractors": [
+        "인구와 교통이 달라도 똑같이",
+        "현지 이용자의 의견은 듣지 않고"
+      ],
+      "vocabKo": "지역 여건에 맞추다"
+    },
+    {
+      "id": "satz_c2_0025",
+      "level": "c2",
+      "targetKo": "개인의 말투만 문제 삼으면 제도가 만든 불균형이라는 논점이 흐려질 수 있어요.",
+      "promptDe": "Wenn nur der Ton einer Person kritisiert wird, kann der eigentliche Punkt, die strukturelle Ungleichheit, aus dem Blick geraten.",
+      "promptEn": "Focusing only on one person's tone can blur the real issue of structural inequality.",
+      "distractors": [
+        "제도의 영향을 구체적으로 살피면",
+        "핵심 질문에 바로 답하면"
+      ],
+      "vocabKo": "논점을 흐리다"
+    },
+    {
+      "id": "satz_c2_0026",
+      "level": "c2",
+      "targetKo": "효율이 가장 중요하다는 전제를 숨긴 채 선택지가 하나뿐이라고 말하고 있어요.",
+      "promptDe": "Es wird behauptet, es gebe nur eine Wahl, während die Prämisse verborgen bleibt, dass Effizienz über allem steht.",
+      "promptEn": "They claim there is only one option while hiding the assumption that efficiency matters most.",
+      "distractors": [
+        "무엇을 중요하게 보는지 먼저 말하고",
+        "다른 가치도 함께 비교하면서"
+      ],
+      "vocabKo": "전제를 숨기다"
+    },
+    {
+      "id": "satz_c2_0027",
+      "level": "c2",
+      "targetKo": "구조적인 문제를 생활 습관 탓으로만 설명하면 책임을 개인에게 돌리게 돼요.",
+      "promptDe": "Wer ein strukturelles Problem nur mit Lebensgewohnheiten erklärt, wälzt die Verantwortung auf Einzelne ab.",
+      "promptEn": "Explaining a structural problem only as a matter of personal habits shifts responsibility onto individuals.",
+      "distractors": [
+        "제도와 환경의 영향을 함께 살피면",
+        "공공기관의 역할을 분명히 하면"
+      ],
+      "vocabKo": "책임을 개인에게 돌리다"
+    },
+    {
+      "id": "satz_c2_0028",
+      "level": "c2",
+      "targetKo": "연속적인 차이를 둘로만 나누면 범주를 임의로 만들었다는 비판을 피하기 어려워요.",
+      "promptDe": "Wer fließende Unterschiede nur in zwei Gruppen teilt, muss sich den Vorwurf willkürlicher Kategorien gefallen lassen.",
+      "promptEn": "Dividing a continuum into only two groups makes it hard to avoid criticism that the categories are arbitrary.",
+      "distractors": [
+        "구분 기준을 검증하고",
+        "경계 사례를 충분히 살피면"
+      ],
+      "vocabKo": "범주를 임의로 나누다"
+    },
+    {
+      "id": "satz_c2_0029",
+      "level": "c2",
+      "targetKo": "갈등을 줄이려고 표현의 수위는 낮췄지만 요구의 핵심까지 지우지는 않았어요.",
+      "promptDe": "Um den Konflikt zu entschärfen, wurde der Ton gemildert, ohne die Kernforderung zu streichen.",
+      "promptEn": "We toned down the wording to reduce conflict, but did not erase the core demand.",
+      "distractors": [
+        "핵심 요구까지 포기하고",
+        "더 강한 표현만 반복하며"
+      ],
+      "vocabKo": "표현의 수위를 낮추다"
+    },
+    {
+      "id": "satz_c2_0030",
+      "level": "c2",
+      "targetKo": "말하지 않았다는 이유로 침묵을 동의로 간주하면 참여하기 어려운 사람을 배제할 수 있어요.",
+      "promptDe": "Wenn Schweigen als Zustimmung gilt, können Menschen ausgeschlossen werden, denen das Sprechen schwerfällt.",
+      "promptEn": "Treating silence as consent can exclude people who find it difficult to speak up.",
+      "distractors": [
+        "대답하지 않은 사람에게 다시 확인하고",
+        "여러 참여 방식을 마련하면"
+      ],
+      "vocabKo": "침묵을 동의로 간주하다"
+    },
+    {
+      "id": "satz_c2_0031",
+      "level": "c2",
+      "targetKo": "어떤 상태를 문제라고 이름 붙일 권한을 누가 갖는지부터 물어야 해요.",
+      "promptDe": "Zuerst sollte man fragen, wer die Macht hat, einen Zustand überhaupt als Problem zu bezeichnen.",
+      "promptEn": "We should first ask who has the power to label a condition a problem.",
+      "distractors": [
+        "당사자의 표현을 빼고 전문가만",
+        "정의가 중립적이라고 가정한 채"
+      ],
+      "vocabKo": "이름을 붙일 권한을 갖다"
+    },
+    {
+      "id": "satz_c2_0032",
+      "level": "c2",
+      "targetKo": "한 문장만 잘라 발화를 맥락에서 떼어 내면 원래 의도와 반대로 읽힐 수 있어요.",
+      "promptDe": "Wird nur ein Satz herausgeschnitten, kann eine Äußerung entgegen ihrer ursprünglichen Absicht verstanden werden.",
+      "promptEn": "Cutting out a single sentence and removing it from context can reverse its original meaning.",
+      "distractors": [
+        "앞뒤 문장을 함께 인용하고",
+        "누구에게 한 말인지 밝히면"
+      ],
+      "vocabKo": "발화를 맥락에서 떼어 내다"
+    },
+    {
+      "id": "satz_c2_0033",
+      "level": "c2",
+      "targetKo": "늘 그래 왔다는 표현은 바꿀 수 있는 불균형을 자연스럽게 보이게 할 때가 있어요.",
+      "promptDe": "Die Wendung, es sei schon immer so gewesen, lässt veränderbare Ungleichheit manchmal natürlich wirken.",
+      "promptEn": "Saying it has always been this way can make a changeable imbalance seem natural.",
+      "distractors": [
+        "역사적 원인을 구체적으로 밝히면",
+        "다른 방식이 가능하다고 보여 주면"
+      ],
+      "vocabKo": "불균형을 자연스럽게 보이게 하다"
+    },
+    {
+      "id": "satz_c2_0034",
+      "level": "c2",
+      "targetKo": "찬반 중 하나만 고르게 하면 문제 제기 방식 자체가 반박의 틀을 제한할 수 있어요.",
+      "promptDe": "Wenn nur Ja oder Nein möglich ist, kann bereits die Fragestellung den Rahmen der Einwände begrenzen.",
+      "promptEn": "Forcing a yes-or-no choice can make the question itself restrict the frame of rebuttal.",
+      "distractors": [
+        "조건부 답변도 허용하고",
+        "질문 자체에 이의를 제기하게 하면"
+      ],
+      "vocabKo": "반박의 틀을 제한하다"
+    },
+    {
+      "id": "satz_c2_0035",
+      "level": "c2",
+      "targetKo": "서로 다른 집단의 지지를 얻으려고 핵심 용어의 모호함을 전략적으로 남겼어요.",
+      "promptDe": "Um verschiedene Gruppen anzusprechen, ließ man den zentralen Begriff strategisch mehrdeutig.",
+      "promptEn": "To gain support from different groups, they strategically left the key term ambiguous.",
+      "distractors": [
+        "누구나 같은 뜻으로 이해하도록",
+        "적용 기준을 구체적으로 적고"
+      ],
+      "vocabKo": "모호함을 전략적으로 남기다"
+    },
+    {
+      "id": "satz_c2_0036",
+      "level": "c2",
+      "targetKo": "반박하려고 상대의 언어를 그대로 빌렸지만 오히려 그 전제를 강화하고 말았어요.",
+      "promptDe": "Um zu widersprechen, übernahm man die Begriffe der Gegenseite und stärkte damit ungewollt deren Prämisse.",
+      "promptEn": "In trying to rebut the argument, we borrowed the other side's language and ended up reinforcing its assumptions.",
+      "distractors": [
+        "문제의 틀을 새로 만들고",
+        "그 표현이 가진 전제를 거부하며"
+      ],
+      "vocabKo": "상대의 언어를 빌려 말하다"
+    },
+    {
+      "id": "satz_c2_0037",
+      "level": "c2",
+      "targetKo": "결과에 이의를 제기하려면 어떤 자료가 어떻게 반영됐는지 결정 과정을 추적할 수 있어야 해요.",
+      "promptDe": "Um ein Ergebnis anzufechten, muss nachvollziehbar sein, welche Daten wie in die Entscheidung eingeflossen sind.",
+      "promptEn": "To challenge an outcome, people need to be able to trace how each piece of data shaped the decision.",
+      "distractors": [
+        "어떤 기준이 쓰였는지 감추고",
+        "결과만 통보한 뒤"
+      ],
+      "vocabKo": "결정 과정을 추적하다"
+    },
+    {
+      "id": "satz_c2_0038",
+      "level": "c2",
+      "targetKo": "정확도가 조금 높더라도 이유를 전혀 설명할 수 없다면 설명 가능성을 더 확보해야 해요.",
+      "promptDe": "Selbst bei etwas höherer Genauigkeit muss die Erklärbarkeit verbessert werden, wenn Gründe gar nicht genannt werden können.",
+      "promptEn": "Even if accuracy is slightly higher, we need more explainability if the reasons cannot be described at all.",
+      "distractors": [
+        "이유를 묻지 못하게 하고",
+        "정확도 숫자 하나만 공개하며"
+      ],
+      "vocabKo": "설명 가능성을 확보하다"
+    },
+    {
+      "id": "satz_c2_0039",
+      "level": "c2",
+      "targetKo": "초기 입력이 조금씩 틀리면 다음 단계로 갈수록 오류가 누적될 수 있어요.",
+      "promptDe": "Wenn die ersten Eingaben leicht falsch sind, können sich die Fehler in späteren Schritten summieren.",
+      "promptEn": "If early inputs are slightly wrong, errors can accumulate at each later stage.",
+      "distractors": [
+        "초기 자료를 계속 확인하고",
+        "각 단계에서 오류를 바로잡으면"
+      ],
+      "vocabKo": "오류가 누적되다"
+    },
+    {
+      "id": "satz_c2_0040",
+      "level": "c2",
+      "targetKo": "과거의 불균형한 기록을 그대로 학습하면 시스템이 기존 편향을 증폭할 수 있어요.",
+      "promptDe": "Lernt ein System unverändert aus unausgewogenen historischen Daten, kann es bestehende Verzerrungen verstärken.",
+      "promptEn": "Training on imbalanced historical records without adjustment can cause a system to amplify existing bias.",
+      "distractors": [
+        "자료의 불균형을 먼저 보정하고",
+        "영향을 받는 집단별 결과를 점검하면"
+      ],
+      "vocabKo": "편향을 증폭하다"
+    },
+    {
+      "id": "satz_c2_0041",
+      "level": "c2",
+      "targetKo": "자동 판정이 틀릴 수 있는 만큼 당사자가 설명을 요구할 이의 제기 절차를 마련해야 해요.",
+      "promptDe": "Da automatische Entscheidungen falsch sein können, braucht es ein Verfahren, über das Betroffene eine Erklärung verlangen können.",
+      "promptEn": "Because automated decisions can be wrong, there must be an appeals process through which affected people can request an explanation.",
+      "distractors": [
+        "자동 결과는 틀릴 수 없다고 보고",
+        "당사자의 질문을 받지 않은 채"
+      ],
+      "vocabKo": "이의 제기 절차를 마련하다"
+    },
+    {
+      "id": "satz_c2_0042",
+      "level": "c2",
+      "targetKo": "도구가 결정을 돕는 것과 인간의 판단을 완전히 대체하는 것은 구분해야 합니다.",
+      "promptDe": "Es ist zu unterscheiden, ob ein Werkzeug Entscheidungen unterstützt oder menschliches Urteil vollständig ersetzt.",
+      "promptEn": "We should distinguish between a tool supporting a decision and completely replacing human judgment.",
+      "distractors": [
+        "도구가 추천하면 그대로 확정하고",
+        "사람의 검토가 방해가 된다고 보고"
+      ],
+      "vocabKo": "인간의 판단을 대체하다"
+    },
+    {
+      "id": "satz_c2_0043",
+      "level": "c2",
+      "targetKo": "학습 자료를 공개하기 어렵더라도 데이터의 출처와 수집 동의 여부는 소명해야 해요.",
+      "promptDe": "Auch wenn Trainingsdaten nicht vollständig offengelegt werden können, müssen Herkunft und Einwilligung zur Erhebung belegt werden.",
+      "promptEn": "Even when training data cannot be fully disclosed, its source and consent status must be accounted for.",
+      "distractors": [
+        "어디서 모았는지 모른 채 사용하고",
+        "동의 여부를 확인하지 않은 채"
+      ],
+      "vocabKo": "데이터의 출처를 소명하다"
+    },
+    {
+      "id": "satz_c2_0044",
+      "level": "c2",
+      "targetKo": "자동으로 나온 결과라는 말만으로 책임을 시스템 탓으로 돌릴 수는 없어요.",
+      "promptDe": "Die Aussage, das Ergebnis sei automatisch entstanden, reicht nicht aus, um die Verantwortung auf das System zu schieben.",
+      "promptEn": "Saying the result was automated is not enough to shift responsibility onto the system.",
+      "distractors": [
+        "사람이 승인한 과정은 숨기고",
+        "오류가 나면 기계가 했다고만 말하며"
+      ],
+      "vocabKo": "책임을 시스템 탓으로 돌리다"
+    },
+    {
+      "id": "satz_c2_0045",
+      "level": "c2",
+      "targetKo": "처리 속도가 빠르다는 이유로 자동화를 맹신하면 드문 오류를 놓치기 쉬워요.",
+      "promptDe": "Wer Automatisierung nur wegen ihrer Geschwindigkeit blind vertraut, übersieht leicht seltene Fehler.",
+      "promptEn": "Blindly trusting automation because it is fast makes rare errors easy to miss.",
+      "distractors": [
+        "결과를 표본별로 점검하고",
+        "사람이 언제 개입할지 정하면"
+      ],
+      "vocabKo": "자동화를 맹신하다"
+    },
+    {
+      "id": "satz_c2_0046",
+      "level": "c2",
+      "targetKo": "평균적인 이용자만 기준으로 삼으면 예외 사례를 제대로 처리하기 어려워요.",
+      "promptDe": "Wenn nur durchschnittliche Nutzer als Maßstab dienen, lassen sich Ausnahmefälle schwer angemessen bearbeiten.",
+      "promptEn": "If the system is designed only around average users, it will struggle to handle edge cases properly.",
+      "distractors": [
+        "다양한 이용 조건을 시험하고",
+        "드문 상황도 미리 수집하면"
+      ],
+      "vocabKo": "예외 사례를 처리하다"
+    },
+    {
+      "id": "satz_c2_0047",
+      "level": "c2",
+      "targetKo": "안전을 위한 장치라도 목적과 기간을 정해 감시 범위를 제한해야 해요.",
+      "promptDe": "Auch Sicherheitsmaßnahmen brauchen einen klaren Zweck und Zeitraum, um den Umfang der Überwachung zu begrenzen.",
+      "promptEn": "Even a safety measure needs a defined purpose and duration to limit the scope of surveillance.",
+      "distractors": [
+        "필요가 끝나도 계속 수집하고",
+        "무엇에 쓸지 정하지 않은 채"
+      ],
+      "vocabKo": "감시 범위를 제한하다"
+    },
+    {
+      "id": "satz_c2_0048",
+      "level": "c2",
+      "targetKo": "처음에 동의했더라도 나중에 데이터 제공을 철회할 권리를 보장해야 합니다.",
+      "promptDe": "Auch nach einer anfänglichen Einwilligung muss das Recht gewährleistet sein, die Datenfreigabe später zu widerrufen.",
+      "promptEn": "Even after initial consent, people must retain the right to withdraw permission to use their data.",
+      "distractors": [
+        "한 번 동의하면 바꿀 수 없다고 하고",
+        "철회 방법을 알리지 않은 채"
+      ],
+      "vocabKo": "철회할 권리를 보장하다"
     }
   ]
 }

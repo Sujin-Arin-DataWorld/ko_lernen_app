@@ -78,4 +78,16 @@ void main() {
     expect(rec!.level, 'A2');
     expect(rec.kind, LessonKind.newChallenge);
   });
+
+  test('온보딩에서 C1을 고르면 A1 진행도와 무관하게 C1을 추천한다', () async {
+    await Storage.setUserLevelCode('c1');
+    final c1 = await VocabPackService.packsForLevel('C1');
+    expect(c1, isNotEmpty);
+
+    final rec = await LessonRecommenderService.getNextLesson();
+    expect(rec, isNotNull);
+    expect(rec!.level, 'C1');
+    expect(rec.packId, c1.first.id);
+    expect(await LessonRecommenderService.getUserLevel(), 'C1');
+  });
 }

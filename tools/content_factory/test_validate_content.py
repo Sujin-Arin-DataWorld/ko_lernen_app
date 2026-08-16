@@ -84,7 +84,7 @@ class ContentValidatorTest(unittest.TestCase):
         messages = self._messages(validator)
         self.assertTrue(any("version must be a positive integer" in m for m in messages))
         self.assertTrue(any("id must be a string" in m for m in messages))
-        self.assertTrue(any("level must be an A1–B2 string" in m for m in messages))
+        self.assertTrue(any("level must be an A1-C2 string" in m for m in messages))
 
     def test_scenario_vocab_object_and_id_type_are_required(self) -> None:
         scenarios = copy.deepcopy(self._asset_json("scenarios.json"))

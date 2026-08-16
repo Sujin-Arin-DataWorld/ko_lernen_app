@@ -344,14 +344,14 @@ class TodayLearningSnapshotLoader {
   }
 
   static Future<TodayNowNodeSourceValue> _loadNowNode() async {
-    const levels = ['A1', 'A2', 'B1', 'B2'];
-    for (final level in levels) {
-      final view = await PackProgressService.loadLevelView(level);
-      for (final entry in view) {
-        if (entry.progress.status != PackStatus.cleared &&
-            entry.progress.status != PackStatus.locked) {
-          return entry;
-        }
+    final level =
+        (LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1)
+            .display;
+    final view = await PackProgressService.loadLevelView(level);
+    for (final entry in view) {
+      if (entry.progress.status != PackStatus.cleared &&
+          entry.progress.status != PackStatus.locked) {
+        return entry;
       }
     }
     return null;
@@ -367,6 +367,23 @@ class TodayLearningSnapshotLoader {
       if (!completed.contains(scenario.id)) {
         current = scenario;
         break;
+      }
+    }
+    // Advanced levels do not have dedicated scenario packs yet. Prefer the
+    // closest available lower level instead of dropping a C1/C2 learner into
+    // the first A1 scenario in the asset.
+    if (current == null) {
+      for (var rank = userLevel.rank - 1; rank >= LearnerLevel.a1.rank; rank--) {
+        final fallbackLevel = LearnerLevel.values[rank];
+        for (final scenario in scenarios.where(
+          (item) => item.level == fallbackLevel,
+        )) {
+          if (!completed.contains(scenario.id)) {
+            current = scenario;
+            break;
+          }
+        }
+        if (current != null) break;
       }
     }
     if (current == null) {

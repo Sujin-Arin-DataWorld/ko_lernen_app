@@ -306,13 +306,13 @@ class AppL10nEn extends AppL10n {
   String get moduleVocabTitle => 'Vocabulary';
 
   @override
-  String get moduleVocabDesc => '500+ cards · A1 → B2 · TTS';
+  String get moduleVocabDesc => '1,188 cards · A1 → C2 · TTS';
 
   @override
   String get moduleGrammarTitle => 'Grammar';
 
   @override
-  String get moduleGrammarDesc => '85+ patterns · clearly explained';
+  String get moduleGrammarDesc => '176 patterns · A1 → C2';
 
   @override
   String get moduleListenTitle => 'Listening';
@@ -2137,6 +2137,20 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelB2Desc => 'Fluent, including nuance';
 
   @override
+  String get onboardingLevelC1 => 'Proficient';
+
+  @override
+  String get onboardingLevelC1Desc =>
+      'Evidence, institutions, precise nuance';
+
+  @override
+  String get onboardingLevelC2 => 'Expert';
+
+  @override
+  String get onboardingLevelC2Desc =>
+      'Nuanced analysis and rhetorical control';
+
+  @override
   String get onboardingExampleA1Trans => 'Hello / Hi.';
 
   @override
@@ -2149,6 +2163,14 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingExampleB2Trans =>
       'The meeting is running long, so I\'ll be a bit late.';
+
+  @override
+  String get onboardingExampleC1Trans =>
+      'I will separate confirmed facts from our current interpretation.';
+
+  @override
+  String get onboardingExampleC2Trans =>
+      'Treating silence as consent can make the framing of a question restrict participation.';
 
   @override
   String get onboardingSkip => 'Skip for now (starts at A1)';
@@ -2215,6 +2237,22 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingLevelB2Learn =>
       'Work and news, nuance, idioms, honorifics.';
+
+  @override
+  String get onboardingLevelC1Can =>
+      'You discuss complex topics and qualify your conclusions.';
+
+  @override
+  String get onboardingLevelC1Learn =>
+      'Evidence, uncertainty, inclusive systems, and public explanations.';
+
+  @override
+  String get onboardingLevelC2Can =>
+      'You analyze assumptions, framing, and institutional language.';
+
+  @override
+  String get onboardingLevelC2Learn =>
+      'Discourse, interpretation, technology ethics, and accountable decisions.';
 
   @override
   String get homeHeroGreetingMorning => 'Good morning!';
@@ -4453,7 +4491,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachChosungStep2Body =>
-      'Choose a level from A1 to B2 and decide whether to show vowels';
+      'Choose a level from A1 to C2 and decide whether to show vowels';
 
   @override
   String get coachChosungStep3Title => 'Type your answer';
@@ -5243,6 +5281,13 @@ class AppL10nEn extends AppL10n {
   String get courseMissionBriefBuildBody => 'Choose the missing words';
 
   @override
+  String get courseMissionBriefCheckpointTitle => 'Complete the final check';
+
+  @override
+  String get courseMissionBriefCheckpointBody =>
+      'Answer the last task for this mission';
+
+  @override
   String get courseMissionBriefSceneTitle => 'Speak in the scene';
 
   @override
@@ -5253,6 +5298,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseMissionBriefBuildCta => 'Build now';
+
+  @override
+  String get courseMissionBriefCheckpointCta => 'Start the final check';
 
   @override
   String get courseMissionBriefSceneCta => 'Start the scene';

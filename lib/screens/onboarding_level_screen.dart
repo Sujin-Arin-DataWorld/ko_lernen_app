@@ -98,6 +98,9 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     LearnerLevel.a2: '아메리카노 한 잔 주세요',
     LearnerLevel.b1: '어제 친구랑 영화 봤어요',
     LearnerLevel.b2: '회의가 길어져서 좀 늦을 것 같아요',
+    LearnerLevel.c1: '확정된 사실과 현재 해석을 나눠서 설명하겠습니다',
+    LearnerLevel.c2:
+        '침묵을 동의로 간주하면 질문의 틀 자체가 참여를 제한할 수 있습니다',
   };
 
   String _titleFor(AppL10n t, LearnerLevel level) => switch (level) {
@@ -105,6 +108,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     LearnerLevel.a2 => t.onboardingLevelA2,
     LearnerLevel.b1 => t.onboardingLevelB1,
     LearnerLevel.b2 => t.onboardingLevelB2,
+    LearnerLevel.c1 => t.onboardingLevelC1,
+    LearnerLevel.c2 => t.onboardingLevelC2,
   };
 
   String _descFor(AppL10n t, LearnerLevel level) => switch (level) {
@@ -112,6 +117,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     LearnerLevel.a2 => t.onboardingLevelA2Desc,
     LearnerLevel.b1 => t.onboardingLevelB1Desc,
     LearnerLevel.b2 => t.onboardingLevelB2Desc,
+    LearnerLevel.c1 => t.onboardingLevelC1Desc,
+    LearnerLevel.c2 => t.onboardingLevelC2Desc,
   };
 
   String _glossFor(AppL10n t, LearnerLevel level) => switch (level) {
@@ -119,6 +126,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     LearnerLevel.a2 => t.onboardingExampleA2Trans,
     LearnerLevel.b1 => t.onboardingExampleB1Trans,
     LearnerLevel.b2 => t.onboardingExampleB2Trans,
+    LearnerLevel.c1 => t.onboardingExampleC1Trans,
+    LearnerLevel.c2 => t.onboardingExampleC2Trans,
   };
 
   Future<void> _select(BuildContext context, LearnerLevel level) async {
@@ -834,7 +843,7 @@ class _CompareCta extends StatelessWidget {
   }
 }
 
-/// 레벨 4단을 「이미 할 수 있는 것 / 여기서 배우는 것」 두 축으로 비교한다.
+/// 여섯 CEFR 레벨을 「이미 할 수 있는 것 / 여기서 배우는 것」 두 축으로 비교한다.
 ///
 /// 카드 한 장에 다 넣으면 첫 화면이 무거워지므로 시트로 분리했다.
 /// 시트 안에서도 곧바로 선택할 수 있어 되돌아가는 단계가 없다.
@@ -854,6 +863,8 @@ class _LevelCompareSheet extends StatelessWidget {
     LearnerLevel.a2 => t.onboardingLevelA2Can,
     LearnerLevel.b1 => t.onboardingLevelB1Can,
     LearnerLevel.b2 => t.onboardingLevelB2Can,
+    LearnerLevel.c1 => t.onboardingLevelC1Can,
+    LearnerLevel.c2 => t.onboardingLevelC2Can,
   };
 
   String _learnFor(AppL10n t, LearnerLevel level) => switch (level) {
@@ -861,6 +872,8 @@ class _LevelCompareSheet extends StatelessWidget {
     LearnerLevel.a2 => t.onboardingLevelA2Learn,
     LearnerLevel.b1 => t.onboardingLevelB1Learn,
     LearnerLevel.b2 => t.onboardingLevelB2Learn,
+    LearnerLevel.c1 => t.onboardingLevelC1Learn,
+    LearnerLevel.c2 => t.onboardingLevelC2Learn,
   };
 
   @override

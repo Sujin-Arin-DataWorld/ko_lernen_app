@@ -86,7 +86,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
 
   String _normalizeLevel(String? code) {
     final c = (code ?? '').toUpperCase();
-    if (c == 'A1' || c == 'A2' || c == 'B1' || c == 'B2') return c;
+    if (const {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}.contains(c)) return c;
     return 'A1';
   }
 
@@ -273,6 +273,8 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                 PopupMenuItem(value: 'A2', child: Text('A2')),
                 PopupMenuItem(value: 'B1', child: Text('B1')),
                 PopupMenuItem(value: 'B2', child: Text('B2')),
+                PopupMenuItem(value: 'C1', child: Text('C1')),
+                PopupMenuItem(value: 'C2', child: Text('C2')),
               ],
             ),
         ],

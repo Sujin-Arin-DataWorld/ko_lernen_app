@@ -99,6 +99,7 @@ void main() {
         'sori_today': () => SoriStageTodayScreen(
           loadSnapshot: () async => _todaySnapshot(),
           now: () => DateTime(2026, 8, 14, 9),
+          forceStaticHero: true,
         ),
       };
 
@@ -126,12 +127,25 @@ void main() {
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
             if (screen.key == 'sori_today') {
-              await tester.runAsync(
-                () => precacheImage(
-                  const AssetImage('assets/illustrations/activities/srs.webp'),
-                  tester.element(find.byType(SoriStageTodayScreen)),
-                ),
-              );
+              await tester.runAsync(() async {
+                final context = tester.element(
+                  find.byType(SoriStageTodayScreen),
+                );
+                await Future.wait([
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/activities/srs.webp',
+                    ),
+                    context,
+                  ),
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/mascot/tiger_sitting2.png',
+                    ),
+                    context,
+                  ),
+                ]);
+              });
               await tester.pump();
             }
             await tester.pump(const Duration(milliseconds: 100));

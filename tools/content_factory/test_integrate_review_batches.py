@@ -55,6 +55,51 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         """Build a review-only fixture from the shipped, already-merged tree."""
 
         data = self.root / "assets/data"
+
+        def remove_artifacts(manifest: dict[str, object]) -> set[str]:
+            """Remove one promoted manifest's authored rows from the fixture."""
+
+            removed_ids: set[str] = set()
+            artifacts = manifest.get("artifacts")
+            self.assertIsInstance(artifacts, list)
+            for artifact in artifacts:
+                self.assertIsInstance(artifact, dict)
+                kind = artifact["kind"]
+                draft = self.root / artifact["draft"]
+                target_name, collection, _ = integration.TARGETS[kind]
+                target = data / target_name
+                if collection is None:
+                    with draft.open(encoding="utf-8-sig", newline="") as handle:
+                        incoming = list(csv.DictReader(handle))
+                    with target.open(encoding="utf-8-sig", newline="") as handle:
+                        reader = csv.DictReader(handle)
+                        header = list(reader.fieldnames or [])
+                        current = list(reader)
+                    incoming_ids = {row["id"] for row in incoming}
+                    with target.open("w", encoding="utf-8", newline="") as handle:
+                        writer = csv.DictWriter(
+                            handle,
+                            fieldnames=header,
+                            lineterminator="\n",
+                        )
+                        writer.writeheader()
+                        writer.writerows(
+                            row for row in current if row["id"] not in incoming_ids
+                        )
+                else:
+                    incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
+                    current = json.loads(target.read_text(encoding="utf-8"))
+                    incoming_ids = {row["id"] for row in incoming}
+                    current[collection] = [
+                        row for row in current[collection] if row["id"] not in incoming_ids
+                    ]
+                    target.write_text(
+                        json.dumps(current, ensure_ascii=False, indent=2) + "\n",
+                        encoding="utf-8",
+                    )
+                removed_ids.update(incoming_ids)
+            return removed_ids
+
         # This fixture exercises the five-artifact C0 promotion path only.
         # C1 scenario batches have a distinct manifest and transactional
         # integrator, so they must remain part of the shipped fixture.
@@ -110,29 +155,7 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
 
         for manifest_path in manifests:
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            for artifact in manifest["artifacts"]:
-                kind = artifact["kind"]
-                draft = self.root / artifact["draft"]
-                target_name, collection, _ = integration.TARGETS[kind]
-                target = data / target_name
-                if collection is None:
-                    with draft.open(encoding="utf-8-sig", newline="") as handle:
-                        incoming = list(csv.DictReader(handle))
-                    with target.open(encoding="utf-8-sig", newline="") as handle:
-                        header = list(csv.DictReader(handle).fieldnames or [])
-                    with target.open(encoding="utf-8-sig", newline="") as handle:
-                        current = list(csv.DictReader(handle))
-                    incoming_ids = {row["id"] for row in incoming}
-                    with target.open("w", encoding="utf-8", newline="") as handle:
-                        writer = csv.DictWriter(handle, fieldnames=header, lineterminator="\n")
-                        writer.writeheader()
-                        writer.writerows(row for row in current if row["id"] not in incoming_ids)
-                else:
-                    incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
-                    current = json.loads(target.read_text(encoding="utf-8"))
-                    incoming_ids = {row["id"] for row in incoming}
-                    current[collection] = [row for row in current[collection] if row["id"] not in incoming_ids]
-                    target.write_text(json.dumps(current, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            remove_artifacts(manifest)
 
             for pack in manifest["vocabPacks"]:
                 vocab_bases.add(integration._base_pack_id(pack["packId"]))
@@ -160,6 +183,55 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
                     writer.writeheader()
                     writer.writerows(rows)
 
+        # Strip every later merged C0 manifest from this historical replay,
+        # while leaving its manifest and approval ledgers in their shipped
+        # state. This automatically covers Batch 05 and future C0 batches.
+        later_manifests: list[dict[str, object]] = []
+        for candidate_path in sorted(
+            (self.root / "tools/content_factory/drafts").glob("batch_*_manifest.json")
+        ):
+            if candidate_path in set(manifests):
+                continue
+            candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+            artifact_kinds = {
+                artifact.get("kind")
+                for artifact in candidate.get("artifacts", [])
+                if isinstance(artifact, dict)
+            }
+            if candidate.get("status") == "merged" and artifact_kinds == set(
+                integration.TARGETS
+            ):
+                later_manifests.append(candidate)
+
+        later_removed_ids: set[str] = set()
+        later_smalltalk_mappings: list[dict[str, object]] = []
+        extension_unit_ids: set[str] = set()
+        extension_concept_ids: set[str] = set()
+        for manifest in later_manifests:
+            later_removed_ids.update(remove_artifacts(manifest))
+            later_bases = {
+                integration._base_pack_id(pack["packId"])
+                for pack in manifest.get("vocabPacks", [])
+            }
+            vocab_bases.update(later_bases)
+            grammar_ids.update(
+                item["id"] for item in manifest.get("grammarIntents", [])
+            )
+            cloze_keys.update(
+                f"{item['level'].lower()}:{item['topic'].lower()}"
+                for item in manifest.get("clozeTopicMappings", [])
+            )
+            later_smalltalk_mappings.extend(
+                manifest.get("smalltalkCategoryMappings", [])
+            )
+            extension = manifest.get("curriculumExtensions", {})
+            extension_unit_ids.update(
+                row["id"] for row in extension.get("courseUnits", [])
+            )
+            extension_concept_ids.update(
+                row["id"] for row in extension.get("concepts", [])
+            )
+
         curriculum_path = data / "curriculum_manifest.json"
         curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))
         for base in vocab_bases:
@@ -168,6 +240,32 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
             curriculum["grammarRuleMap"].pop(ident, None)
         for key in cloze_keys:
             curriculum["clozeTopicUnitMap"].pop(key, None)
+
+        curriculum["courseUnits"] = [
+            row for row in curriculum["courseUnits"] if row["id"] not in extension_unit_ids
+        ]
+        curriculum["concepts"] = [
+            row for row in curriculum["concepts"] if row["id"] not in extension_concept_ids
+        ]
+        remaining_smalltalk = json.loads(
+            (data / "smalltalk.json").read_text(encoding="utf-8")
+        )["phrases"]
+        remaining_smalltalk_keys = {
+            f"{row['level'].lower()}:{row['category'].lower()}"
+            for row in remaining_smalltalk
+        }
+        for mapping in later_smalltalk_mappings:
+            key = f"{mapping['level'].lower()}:{mapping['category'].lower()}"
+            if key not in remaining_smalltalk_keys:
+                curriculum["smalltalkCategoryUnitMap"].pop(key, None)
+        for ident in later_removed_ids:
+            curriculum["smalltalkCheckpointPhraseMap"].pop(ident, None)
+        curriculum["contentLinks"] = [
+            row
+            for row in curriculum["contentLinks"]
+            if row.get("contentId") not in later_removed_ids
+            and row.get("courseUnitId") not in extension_unit_ids
+        ]
         curriculum_path.write_text(json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
         service = self.root / "lib/services/vocab_pack_service.dart"

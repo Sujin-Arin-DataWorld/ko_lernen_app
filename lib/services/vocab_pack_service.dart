@@ -242,6 +242,18 @@ class VocabPackService {
     'b2_decisions_perspectives': ('Entscheidungen & Perspektiven', 'Decisions & Perspectives'),
     'b2_reading_response': ('Lesen & Reaktionen', 'Reading & Responses'),
     'b2_language_society': ('Sprache & Gesellschaft', 'Language & Society'),
+    'b2_collaborative_feedback': ('Zusammenarbeit & Feedback', 'Collaboration & Feedback'),
+    'b2_digital_judgment': ('Digitale Urteilsfähigkeit', 'Digital Judgment'),
+    'c1_accessible_participation': ('Barrierefreiheit & Teilhabe', 'Accessibility & Participation'),
+    'c1_evidence_reasoning': ('Forschung & Evidenz', 'Research & Evidence'),
+    'c2_institutional_mediation': ('Institutionen & Vermittlung', 'Institutions & Mediation'),
+    'c2_narrative_perspective': ('Erinnerung & Erzählperspektive', 'Memory & Narrative Perspective'),
+    'b2_shared_space_coordination': ('Gemeinsame Räume & Rücksicht', 'Shared Spaces & Consideration'),
+    'b2_personal_boundaries': ('Rhythmus & Grenzen', 'Rhythm & Boundaries'),
+    'c1_risk_communication': ('Risiko & öffentliche Information', 'Risk & Public Information'),
+    'c1_sustainable_tradeoffs': ('Nachhaltige Entscheidungen vor Ort', 'Sustainable Local Choices'),
+    'c2_language_framing': ('Sprache, Deutung & Macht', 'Language, Framing & Power'),
+    'c2_technology_ethics': ('Technikethik & Verantwortung', 'Technology Ethics & Accountability'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -356,5 +368,17 @@ class VocabPackService {
     'b2_decisions_perspectives': 23,
     'b2_reading_response': 24,
     'b2_language_society': 25,
+    'b2_collaborative_feedback': 26,
+    'b2_digital_judgment': 27,
+    'c1_accessible_participation': 1,
+    'c1_evidence_reasoning': 2,
+    'c2_institutional_mediation': 1,
+    'c2_narrative_perspective': 2,
+    'b2_shared_space_coordination': 28,
+    'b2_personal_boundaries': 29,
+    'c1_risk_communication': 3,
+    'c1_sustainable_tradeoffs': 4,
+    'c2_language_framing': 3,
+    'c2_technology_ethics': 4,
   };
 }

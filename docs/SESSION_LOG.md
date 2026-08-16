@@ -1,5 +1,213 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
+
+**원인과 수정.** GitHub Actions run `31913714832`는 C1/C2의 구문형 어휘가 모두
+공백을 포함하는데 초성 덱이 완성형 한글만 허용해 C2 화면을 만들지 못했다. 후속
+`43655dd6`이 ASCII 공백을 허용해 구문형 어휘를 실제로 플레이할 수 있게 했지만,
+run `31914341718`에서 320dp·130% 글자 배율의 난이도 토글 `Row`가 오른쪽으로 18px
+넘치는 다음 실제 회귀가 드러났다. 두 난이도 칩을 중앙 정렬 `Wrap`으로 바꾸고 기존
+간격을 `spacing`/`runSpacing`으로 보존했다. 구현 커밋은 `020d5a8`이다.
+
+추가 경로 점검에서는 전용 scenario가 없는 C1/C2 미션이 모든 비-scenario 활동을 한
+`build` 단계로 묶어, 첫 cloze를 마치면 선언된 grammar/smalltalk checkpoint까지 완료된
+것처럼 숨기는 진도 차단을 확인했다. 유닛에 정확히 선언된 비-scenario checkpoint를
+별도의 마지막 단계와 번역된 CTA로 노출했다. 구현 커밋은 `bc7d18b`이다.
+
+**검증.** 320dp 화면, 기존 A1 미션 순서, C1/C2의 listen → build → exact checkpoint
+노출·진도 판정, ARB 번역 계약을 묶은 Flutter test **37건이 모두 통과**했다. 변경 대상
+5개 파일의 `flutter analyze --no-pub`는 **No issues found**, `git diff --check`도
+통과했다. AAB 생성·배포는 수행하지 않았다. PR의 기존 web release build는 최종 원격
+CI에서 전체 test와 보안 3종 뒤 확인하며, 그 실행이 모두 성공한 경우에만 `main`에
+병합한다.
+
+### 2026-08-16 (Codex Work Mode) - PR #27 최종 리뷰 차단 3건 보완
+
+**원인과 수정.** 기존 최종 HEAD의 GitHub Actions CI #417은 보안 3종, Flutter 분석,
+전체 테스트, 웹 릴리스 빌드까지 통과했다. 병합 직전 자동 리뷰에서 C1/C2의
+grammar/smalltalk checkpoint가 완료 판정되지 않는 P1, 좁은 화면에서 A1-C2 레벨 칩이
+넘치는 P2, Batch 05 승격 뒤 Batch 01-03 역사 fixture가 현재 catalog를 기준으로
+재검증되어 깨지는 P2를 추가로 확인했다. CourseMasteryService는 선언된 checkpoint
+종류를 파싱해 scenario는 기존 aggregate score, grammar/smalltalk는 같은 유닛과 정확한
+assess edge의 최신 검증 evidence로 판정한다. 초성 레벨 선택은 중앙 정렬 Wrap으로
+바꾸고 320dp, 130% 글자 배율 회귀 테스트를 추가했다. 콘텐츠 팩토리 fixture는 Batch 05
+504개, 새 pack order, curriculum extension과 content link를 역사 재실행 catalog에서만
+제외하며 승인된 live data와 manifest는 바꾸지 않는다.
+
+**검증.** 최종 원격 draft/review 정본을 기준으로
+`python3 -m unittest discover -s tools/content_factory -p 'test_*.py'` 53건,
+`python3 tools/content_factory/validate_content.py`, Python compile,
+trailing-whitespace 검사를 통과했다. 새 C1/C2 진도와 compact layout Flutter 회귀는
+로컬 sparse 환경에 Flutter SDK가 없어 실행하지 않았으며, 이 변경 HEAD의 GitHub Actions
+전체 analyze/test/web build가 성공하기 전에는 병합하지 않는다.
+
+### 2026-08-16 (Codex Work Mode) — Batch 05 최종 CI 전면 통과
+
+**결과.** PR head `d3435e47`의 GitHub Actions run #416
+(`31911797427`)이 success로 완료됐다. Book analysis, Pronunciation, Gye/Firestore
+보안 3종과 Flutter Analyze & Build가 모두 통과했다.
+
+**검증 범위.** 캐릭터 영상 매트 검사, `flutter analyze`, 전체 Flutter test,
+Today 골든 3폭과 `flutter build web --release`가 성공했다. run #414에서 남았던
+Today 골든 3건은 0건이 되었고 실패 diff artifact도 생성되지 않았다. 수동 골든 생성
+job은 의도대로 skipped라 중복 비용이 들지 않았다.
+
+**정본 동기화.** AGENTS의 TTS 서비스 설명에 남아 있던 자격 증명 대기 문구를 실제
+완료 결과 expected 6,321, remote 6,376, missing 0, stale 55로 맞췄다. 이 커밋은
+Markdown 문서만 변경하므로 최적화된 CI `paths-ignore` 대상이며, 검증된 앱·데이터·
+골든 blob은 `d3435e47`와 동일하다. PR #27을 ready로 전환하고 이 exact
+문서 후속 head를 `main`에 merge한다.
+
+### 2026-08-16 (Codex Work Mode) — Mac 정본 0fcc2253 정렬과 Today 골든 안정화
+
+**정본 확인.** Jin이 맥에서 push한 임시 브랜치
+`codex/mac-head-088cc53`의 실제 Git 객체는 `0fcc2253`이며,
+현재 원격 `main`과 identical임을 확인했다. Batch 05 PR은 콘텐츠·TTS·CI 최적화
+변경을 보존한 채 이 커밋을 두 번째 부모로 병합했다.
+
+**CI 진단과 수정.** run #414는 보안 3종과 analyze를 통과했고 전체 Flutter test는
+3,405 passed, 3 failed, 2 skipped였다. 실패는 Today compact·medium·expanded 골든
+3장뿐이며 모두 1.29%, 13,253px 차이였다. artifact의 master/test/isolated diff를
+직접 비교해 공통 정적 호랑이 `tiger_sitting2.png` 렌더만 달라졌고 나머지 픽셀,
+레이아웃, 텍스트와 에셋은 동일함을 확인했다. 실제 Linux testImage 3장을 canonical
+기준선으로 승격했으며 제품 UI 코드는 변경하지 않았다.
+
+**검증/커밋.** 세 PNG byte 길이와 base64 완전성을 검사해 blob으로 만들고, 잘못된
+기준점을 설명하던 임시 세션 기록은 제거했다. 정렬·기준선 merge 커밋은
+`6a1682a5`이다. 최종 GitHub Actions가 analyze, 전체 test와 web
+release build까지 통과하기 전에는 main에 병합하지 않는다.
+
+### 2026-08-15 (Codex Work Mode) — GitHub Pro 실제 CI 검증과 회귀 수정
+
+**검출.** GitHub Pro 전환 뒤 final-head run #408이 실제 runner에서 실행됐다. Book
+analysis, Gye, pronunciation 보안 job과 Flutter analyze는 통과했다. 전체 Flutter
+테스트는 3,403건 통과, 5건 실패였다. 실패는 오래된 scenario 전용 checkpoint 가정 1건,
+실제 끝말잇기 2,640개와 2,634개 감사 수치 불일치 1건, Today 골든 3건이었다. 실패
+artifact 12개를 master/test/masked diff로 직접 비교했으며 오버플로나 레이아웃 붕괴는
+없었다. 영상 가능 여부에 따른 마스코트 프레임과 늦게 로드된 SRS 삽화가 차이의 원인이었다.
+
+**수정.** checkpoint 검증을 선언된 content kind를 해석하는 범용 계약으로 바꿔 C1/C2의
+smalltalk·grammar assessment도 정확한 단일 edge로 검증한다. 감사 매니페스트와 공개
+DE/EN/KO 끝말잇기 수치를 실제 2,640개로 복원했다. Today 골든은 test seam으로 정적
+마스코트를 강제하고 SRS·마스코트 이미지를 선로딩하며, 검수한 Linux run #408 test image
+세 장을 새 기준선으로 승격했다. 테스트 범위나 필수 job은 줄이지 않았다.
+
+**검증/커밋.** 변경 텍스트의 단일 치환, JSON parse와 kkeunmari=2,640, checkpoint kind
+해석, 정적 hero seam, 세 PNG 크기와 blob 생성을 구조적으로 확인했다. 구현 commit은
+`d2610774` (`fix: resolve final CI regressions`)이다. 이 기록까지 한 번의
+branch ref 이동으로 게시해 중간 commit의 불필요한 CI 실행을 만들지 않았다. Git
+object ref 게시가 pull_request run을 만들지 않아, 이 기록의 contents update로 최종 필수
+검증을 한 번만 요청한다. GitHub Actions가 실제로 모두 통과하기 전에는 main에 병합하지
+않는다.
+
+### 2026-08-15 (Codex Work Mode) — GitHub Actions 사용량·비용 최적화
+
+**원인 실측.** 8월 1일부터 15일까지 단일 CI workflow가 210회 실행됐다. 구성은
+push 147회, pull_request 39회, workflow_dispatch 24회였고, 최근 정상 1회는 네 필수
+job 합산 약 16 billable minutes였다. GitHub Billing 화면의 8월 gross usage 합계는
+$14.74지만 billed amount는 $0였다. 활성 Actions artifact는 63개, 262.68MiB로 무료
+500MiB 한도에는 아직 못 미치지만 기존 90일 보관을 유지하면 빠르게 누적될 상태였다.
+Flutter, pip, npm cache는 이미 적용돼 있어 캐시 부재를 원인으로 보지 않았다.
+
+**변경.** 같은 브랜치의 자동·수동 CI 중 오래된 실행을 취소하는 concurrency를
+추가했다. 골든 생성은 별도 그룹으로 유지한다. Markdown과 docs 전용 push/PR은 Flutter
+CI를 만들지 않는다. 수동 실행은 기본
+task=ci와 실제 기준선 교체용 task=regenerate-goldens로 분리해 전체 CI와 골든 테스트가
+한 번에 중복 실행되지 않게 했다. 기존 네 필수 job 이름과 analyze, 전체 test, web release
+build, 세 보안 테스트는 유지했다. 정상 범위를 넘는 실행은 job별 8분에서 25분 timeout으로
+차단하고, runner에 이미 있는 FFmpeg는 재설치하지 않는다. 실패 diff는 3일, 수동 골든은
+7일만 보관하며 workflow token은 contents read로 제한했다. AGENTS.md의 PR 게이트도 같은
+task와 비용 안전장치로 동기화했다.
+
+**검증/커밋.** YAML 파싱, event/input/job 구조, concurrency, 경로 필터, timeout,
+artifact retention, FFmpeg 재사용 조건을 로컬 구조 검사로 확인했다. 구현 commit은
+`40dd32a1` (`ci: reduce Actions usage`), 자동·수동 실행 교차 중복 제거 보강 commit은
+`c4517493` (`ci: deduplicate manual and automatic runs`)이다. GitHub run #406에서
+workflow 파싱, 네 필수 job 생성, 수동 골든 job skip까지 확인했으나 네 필수 job은 step
+실행 전에 계정 billing/spending-limit 경고로 중단됐다. 월 $5 hard cap 반영 뒤 실제
+runner 통과를 확인하며, 그 전 main 병합 금지 조건은 유지한다.
+
+### 2026-08-15 (Codex Work Mode) — Batch 05 TTS 504개 합성·Storage 완전성 검증
+
+**결과.** Jin의 인증된 Windows PowerShell과 gcloud 세션에서 Batch 05 신규 발화
+504개를 Google Cloud Text-to-Speech의 `ko-KR-Chirp3-HD-Zephyr`로 합성하고 기존 v3
+SHA-1 immutable 경로에 업로드했다. 첫 실행은 Chirp3-HD 요청 한도 429 이후에도 성공한
+203개를 보존·업로드했고, 1분 이상 기다린 뒤 `--missing-from-storage --workers 1`로
+남은 301개만 재개해 모두 업로드했다. 최종 검증은 `expected 6321, remote 6376,
+missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐시이며 삭제하지
+않았다.
+
+**정본 동기화.** `build_batch_05_tts_manifest.py`와 생성 manifest의 상태를
+`storage_verified`로 바꾸고, 실행 주체·명령·expected/remote/missing/stale 증거와 stale
+보존 정책을 구조화했다. 콘텐츠 팩토리 README에는 429 발생 시 성공분을 버리지 않고
+저속 missing-only 실행으로 재개하는 절차와 `missing 0`만을 전체 완료 기준으로 삼는
+규칙을 추가했다. 이제 TTS는 릴리스 차단 항목이 아니며, main 병합 전 남은 외부 게이트는
+실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
+`847eee9a` (`chore: verify batch 05 TTS storage`)다.
+
+### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
+
+**참고자료와 저작권 안전선.** 제공된 세종학당 PDF 17권, 총 1,817쪽을 텍스트 추출과
+대표 페이지 렌더로 전수 확인했다. 참고 범위는 CEFR별 주제 폭, 과업 유형, 문법 기능,
+어휘장 분포 같은 추상적 교육 설계에 한정했다. 원문 문장·대화·문제·선택지·등장인물·
+단원 순서·고유 분류명은 가져오지 않았고, 출처형 지시문과 문구 표식도 자동 검사했다.
+파일별 해시·쪽수·허용/배제 규칙은 `REFERENCE_ABSTRACTION_AUDIT_2026-08-15.md`, 새
+트랙의 독립 기획은 `ADVANCED_CONTENT_TRACK_2026-08-15.md`에 고정했다.
+
+**독립 창작 콘텐츠.** Batch 03 핵심 레코드 126개의 정확히 4배인 **504개**를 새로
+집필했다. 레벨별 B2/C1/C2 각 168개이며, 전체 구성은 단어 144, 문법 24, 실생활
+대화·듣기 48, Cloze 144, Satzbau 144다. 협업·디지털 판단·경계 설정, 접근성·근거
+평가·위험 소통·지속 가능한 지역 선택, 제도 조정·서사 관점·언어와 권력·기술 윤리를
+다루되 실제 한국어 화자의 편안한 높임말과 반말, 완곡한 이견, 후속 질문, 안전한 대체
+응답을 섞었다. KO/DE/EN, 원본 권리 메타데이터, 승인 review 원장과 merged manifest를
+동시에 만들고 live asset에 원자적으로 승격했다. 결과 inventory는 vocab 1,188/117팩,
+grammar 176, smalltalk 285, Cloze 514, Satzbau 419다.
+
+**앱·커리큘럼 연동.** 기존 A1–B2 한정 레벨 계약을 선택·저장·동기화·추천·Today·복습·
+단어팩·퀴즈·프로필·경로 화면에서 A1–C2로 확장했다. C1/C2 개념 4개와 유닛 4개를
+추가했고 각 유닛은 vocab/grammar/smalltalk/cloze/satz 링크와 정확히 하나의 실제
+checkpoint를 가진다. checkpoint가 scenario만 허용하던 숨은 가정을 제거해 콘텐츠 종류별
+ID를 일반적으로 해석하고, 해당 유닛·개념으로 되돌아오는 assess edge를 검증한다.
+시나리오와 음절 퍼즐처럼 아직 C1/C2 전용 데이터가 없는 모드는 빈 화면 대신 검증된
+하위 레벨로 안전하게 폴백하며, 존재하지 않는 고급 시나리오를 가장하지 않는다.
+추가 계약 감사에서 Python validator는 C1/C2 pronunciation ID를 허용하지만 Flutter
+`PronunciationPhrase` 정규식은 B2까지만 받는 불일치를 찾아 A1–C2로 맞추고, C2 parse와
+누적 필터 회귀 테스트를 추가했다. 작성 가이드·콘텐츠 팩토리 README·콘텐츠 아키텍처도
+Batch 05 live/다음 Batch 06/A1–C2 규칙으로 동기화했다.
+
+**TTS 상태.** 신규 발화 504개 전부에 기존 v3 SHA-1 캐시 계약의 immutable Storage
+경로를 만든 manifest를 추가했다. 계획 corpus는 총 6,321개(female 6,146/male 175,
+한국어 61,681자)다. 실제 합성·업로드도 승인 범위에서 실행을 시도했으나 이 실행 환경에
+`GOOGLE_TTS_API_KEY`/`GOOGLE_TTS_API_KEY_2`와 `gcloud` 인증이 없어 preflight에서
+중단됐다. 비용 발생, 음원 생성, Storage 쓰기는 시작되지 않았다. 생성기는 이 조건을
+합성 전에 명확히 실패하도록 보강했으며, 신규 504개는 자격 증명 대기 상태다. 따라서
+음원이 검증되기 전에는 main 라이브 병합을 완료로 간주하지 않는다.
+
+**검증/커밋.** 콘텐츠 전체 validator, 승인 승격 validator, 504개 TTS manifest와
+6,321개 전체 corpus 교차검증, content factory Python **37건**, Python compile,
+JSON/ARB parity 1,830키, 새 단어·예문·문법 예문 유일성, 출처형 문구 부재,
+trailing-whitespace 검사를 통과했다. 추가로 앱 노출 한국어 360개를 PDF 추출문 18,905개
+구간과 정규화 exact/near-match로 대조해 모두 0건임을 확인했다. 로컬 환경에는
+Flutter/Dart SDK가 없어 PR #27에서 GitHub CI를 실행했으나, 네 job 모두 step 0개 상태에서
+GitHub 계정의 결제 실패 또는 Actions 지출 한도 오류로 차단됐다. 코드 실패 결과로
+해석하거나 workflow를 약화해 우회하지 않는다. Flutter analyze/test/web build와 신규
+TTS 504개 Storage 검증이 끝나기 전에는 main에 병합하지 않는다. 본문 commit은
+`daee6951` (`feat: add original B2-C2 content batch 05`), 해시 기록 commit은 `b498f3b6`다.
+후속 A1–C2 계약 보완 commit은 `519782e7` (`fix: align advanced content contracts`)이며,
+이 해시 기록은 바로 다음 문서 commit에 포함한다.
+
+**공개 표면 동기화와 프리뷰 재검수.** 실제 Cloudflare 프리뷰를 브라우저로 열어 보니
+앱 데이터는 A1–C2로 확장됐지만 공개 랜딩·앱 홈 설명·별도 웹 기능 페이지·README·스토어
+등록 문구에는 A1–B2/526단어/61팩/문법 88개라는 과거 수치가 남아 있었다. 현재 live
+inventory인 단어 1,188개·117팩, 문법 176개, A1–C2와 끝말잇기 2,634개를 DE/EN/KO
+표면에 동기화하고 초성 퀴즈의 레벨 안내도 C2까지 맞췄다. 기능 commit은 `be172750`
+(`fix: synchronize A1-C2 product surfaces`)이다. Cloudflare commit preview
+`a71e1599-hangulsori.sujin-arin-park.workers.dev`는 배포 성공 후 한국어 DOM에서 새 범위와
+수치를 모두 표시했고, 과거 표식은 0건, 앱 문서에서 발생한 console error/warn은 0건이었다.
+GitHub Actions run #401은 코드 step을 한 번도 시작하지 못하고 네 job 모두 기존과 같은
+계정 결제/지출 한도 오류로 차단됐으므로, Flutter CI 및 TTS Storage 검증 전 main 병합
+금지 조건은 그대로 유지한다.
+
 ### 2026-08-15 (Codex, Mac) — 완료 문서·에이전트 컨텍스트 정리
 
 **무엇/왜.** 현재 작업 정본이 아닌 과거 설계·실행 계획·아카이브 문서 63개를

@@ -1,6 +1,6 @@
 # ko_lernen_app
 
-Persönlicher Koreanisch-Trainer · A1→B2
+Persönlicher Koreanisch-Trainer · A1→C2
 
 ## Getting Started
 

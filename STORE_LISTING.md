@@ -43,18 +43,18 @@ Hangul Sori (한글소리, "Klang des Hangul") macht Koreanisch zugänglich — 
 ✨ WAS DICH ERWARTET
 
 📝 Hangul lernen — interaktiv & visuell
-• Animierte Strichreihenfolge für alle 19 Konsonanten & 15 Vokale
+• Animierte Strichreihenfolge für alle 19 Konsonanten & 21 Vokale
 • Übungs-Canvas: mit dem Finger nachzeichnen
 • Vergleichsmodus: ähnliche Zeichen (ㅂ vs ㅃ vs ㅍ) Seite an Seite
 
-📚 Vokabeln nach Niveau (A1 – B2)
-• Hunderte sorgfältig ausgewählte Wörter mit Beispielsätzen
+📚 Vokabeln nach Niveau (A1 – C2)
+• 1.188 sorgfältig ausgewählte Wörter mit natürlichen Beispielsätzen
 • Flip-Karten mit deutscher Übersetzung & koreanischer Aussprache (TTS)
 • "Gewusst / Nicht gewusst" — dein Fortschritt wird gespeichert
 • Spaced Repetition System (SM-2 Algorithmus)
 
 📖 Grammatik verstehen
-• Die wichtigsten Muster von A1 bis B2 erklärt
+• 176 Muster von A1 bis C2 verständlich erklärt
 • Echte Beispielsätze, keine Lehrbuch-Floskeln
 • Karteikarten-Format zum schnellen Wiederholen
 
@@ -102,7 +102,7 @@ Made in Germany · 안녕하세요!
 - K-Pop Koreanisch, K-Drama lernen, BTS Koreanisch
 - Koreanische Grammatik, Vokabeln Koreanisch
 - Sprache lernen Korea, Korea reisen
-- Anfänger Koreanisch A1 A2 B1 B2
+- Koreanisch lernen A1 A2 B1 B2 C1 C2
 
 ---
 
@@ -123,18 +123,18 @@ Hangul Sori (한글소리 = "Sound of Hangul") opens Korean to learners worldwid
 ✨ WHAT'S INSIDE
 
 📝 Learn Hangul — interactive & visual
-• Animated stroke order for all 19 consonants & 15 vowels
+• Animated stroke order for all 19 consonants & 21 vowels
 • Practice canvas: trace with your finger
 • Side-by-side comparison of similar shapes (ㅂ vs ㅃ vs ㅍ)
 
-📚 Vocabulary by CEFR level (A1 – B2)
-• Hundreds of carefully selected words with example sentences
+📚 Vocabulary by CEFR level (A1 – C2)
+• 1,188 carefully selected words with natural example sentences
 • Flip cards with German & English translation + Korean TTS
 • "Got it / Didn't get it" — your progress is saved
 • Built-in Spaced Repetition (SM-2 algorithm)
 
 📖 Grammar that makes sense
-• Core patterns from A1 to B2 explained simply
+• 176 patterns from A1 to C2 explained simply
 • Real example sentences, not textbook clichés
 • Flashcard format for fast review
 
@@ -200,18 +200,18 @@ Made in Germany · 안녕하세요!
 ✨ 핵심 기능
 
 📝 한글 — 시각적 + 인터랙티브
-• 자음 19개 + 모음 15개 — 모든 글자의 획순 애니메이션
+• 자음 19개 + 모음 21개 — 모든 글자의 획순 애니메이션
 • 손가락 따라쓰기 캔버스
 • 헷갈리는 글자 비교 (ㅂ vs ㅃ vs ㅍ)
 
-📚 레벨별 단어장 (A1 ~ B2)
-• 엄선된 단어와 예문
+📚 레벨별 단어장 (A1 ~ C2)
+• 1,188개의 엄선된 단어와 자연스러운 예문
 • 독일어 / 영어 번역 + 한국어 TTS
 • 학습 진도 자동 저장
 • 간격 반복 알고리즘 (SM-2)
 
 📖 문법
-• A1부터 B2까지 핵심 패턴
+• A1부터 C2까지 이어지는 문법 176개
 • 실제로 쓰는 예문 위주
 
 🎮 게임으로 배우기
@@ -283,4 +283,4 @@ adb pull /sdcard/sc_01.png ~/Desktop/hangulsori_screenshots/
 
 ---
 
-*마지막 갱신: 2026-05-20 (Sori → 한글소리 / Hangul Sori 리브랜딩)*
+*마지막 갱신: 2026-08-15 (A1–C2 콘텐츠 범위 및 현재 inventory 반영)*
