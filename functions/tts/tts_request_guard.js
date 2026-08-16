@@ -1,3 +1,4 @@
+const crypto = require("node:crypto");
 const { normalizeVoice } = require("./tts_contract");
 
 const CALLABLE_OPTIONS = Object.freeze({
@@ -35,41 +36,117 @@ function validateTtsRequest(request) {
     throw new TtsRequestError("invalid-argument", "Text is too long.");
   }
 
-  return { text, voice: normalizeVoice(data.voice) };
+  const rawInstallationId = data.installationId;
+  let installationId;
+  if (rawInstallationId === undefined || rawInstallationId === null) {
+    // 이미 설치된 구버전 앱도 끊지 않는다. 구버전은 설치 ID가 없으므로
+    // 계정별 legacy subject에 묶여 더 엄격한 30회 한도를 적용받는다.
+    installationId = `legacy:${request.auth.uid}`;
+  } else if (
+    typeof rawInstallationId !== "string" ||
+    !UUID_V4_PATTERN.test(rawInstallationId)
+  ) {
+    throw new TtsRequestError(
+      "invalid-argument",
+      "A valid installation ID is required.",
+    );
+  } else {
+    installationId = rawInstallationId.toLowerCase();
+  }
+
+  return { text, voice: normalizeVoice(data.voice), installationId };
 }
 
-/** uid 당 하루 합성 호출 상한. 인증·App Check 를 통과한 정상 클라이언트가
- * 폭주하거나 토큰이 유출됐을 때의 과금 상한선이다. 캐시 히트도 세는 이유는
- * 비용이 아니라 남용 자체를 막기 위해서다. */
-const DAILY_LIMIT_TTS = 200;
+const UUID_V4_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+const DAILY_LIMIT_INSTALLATION = 30;
+const DAILY_LIMIT_ACCOUNT = 50;
+const DAILY_LIMIT_GLOBAL = 300;
+
+const DEFAULT_DAILY_LIMITS = Object.freeze({
+  installation: DAILY_LIMIT_INSTALLATION,
+  account: DAILY_LIMIT_ACCOUNT,
+  global: DAILY_LIMIT_GLOBAL,
+});
+
+function subjectHash(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
 
 /**
- * `usage/{kind}_{yyyy-mm-dd}_{uid}` 를 트랜잭션으로 1 증가시키고 한도 내인지
- * 반환한다. 초과면 증가시키지 않는다.
- *
- * session/2026-08-12-hardening 3cb1244 에서 이식. 그 브랜치는 raw HTTP +
- * Bearer 구조였지만 origin/main 은 onCall + App Check 로 진화했으므로 인증
- * 부분은 버리고 **쿼터만** 가져왔다(인증은 validateTtsRequest 담당).
- * db 를 주입받아 admin 초기화 순서에 의존하지 않는다.
+ * 새 Cloud TTS 합성 한 건을 설치·계정·프로젝트 전체 세 범위에 원자적으로
+ * 기록한다. 어느 하나라도 한도에 닿았으면 세 카운터 모두 증가시키지 않는다.
+ * 원본 설치 ID와 uid는 문서 ID나 필드에 저장하지 않고 SHA-256만 사용한다.
  */
-async function underDailyQuota(db, uid, kind, limit = DAILY_LIMIT_TTS) {
-  const day = new Date().toISOString().slice(0, 10);
-  const ref = db.collection("usage").doc(`${kind}_${day}_${uid}`);
+async function underDailyTtsQuotas(
+  db,
+  { uid, installationId, now = new Date(), limits = DEFAULT_DAILY_LIMITS },
+) {
+  const day = now.toISOString().slice(0, 10);
+  const specs = [
+    {
+      scope: "installation",
+      limit: limits.installation,
+      ref: db
+        .collection("usage")
+        .doc(`tts_installation_${day}_${subjectHash(installationId)}`),
+    },
+    {
+      scope: "account",
+      limit: limits.account,
+      ref: db.collection("usage").doc(`tts_account_${day}_${subjectHash(uid)}`),
+    },
+    {
+      scope: "global",
+      limit: limits.global,
+      ref: db.collection("usage").doc(`tts_global_${day}`),
+    },
+  ];
+
   return db.runTransaction(async (tx) => {
-    const snapshot = await tx.get(ref);
-    const n = ((snapshot.data() || {}).n || 0) + 1;
-    if (n > limit) {
-      return false;
+    const snapshots = await Promise.all(specs.map(({ ref }) => tx.get(ref)));
+    const counts = snapshots.map((snapshot) => {
+      const raw = (snapshot.data() || {}).n;
+      if (raw === undefined) {
+        return 0;
+      }
+      return Number.isSafeInteger(raw) && raw >= 0 ? raw : null;
+    });
+
+    for (let index = 0; index < specs.length; index += 1) {
+      const current = counts[index];
+      const spec = specs[index];
+      if (current === null || current >= spec.limit) {
+        return { allowed: false, exceededScope: spec.scope };
+      }
     }
-    tx.set(ref, { n, uid, kind, day }, { merge: true });
-    return true;
+
+    for (let index = 0; index < specs.length; index += 1) {
+      const spec = specs[index];
+      tx.set(
+        spec.ref,
+        {
+          n: counts[index] + 1,
+          kind: "tts",
+          scope: spec.scope,
+          day,
+          limit: spec.limit,
+        },
+        { merge: true },
+      );
+    }
+    return { allowed: true, exceededScope: null };
   });
 }
 
 module.exports = {
   CALLABLE_OPTIONS,
+  DEFAULT_DAILY_LIMITS,
+  DAILY_LIMIT_ACCOUNT,
+  DAILY_LIMIT_GLOBAL,
+  DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
   validateTtsRequest,
-  underDailyQuota,
-  DAILY_LIMIT_TTS,
+  underDailyTtsQuotas,
 };

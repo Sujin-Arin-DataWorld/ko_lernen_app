@@ -18,6 +18,34 @@
 이번 로컬 검증에 포함되지 않았다. 구현 커밋은 `3ff92bab`이며 최신 로컬 `main`에
 병합한다. 원격 푸시는 별도 요청이 없어 수행하지 않는다.
 
+### 2026-08-16 (Codex) — Cloud TTS 일일 비용 상한 30·50·300
+
+**무엇과 왜.** 베타 기간의 예측 불가능한 Google Cloud TTS 비용을 막기 위해 실제
+신규 합성에 설치당 30회, Firebase Auth 계정당 50회, 프로젝트 전체 300회의 UTC
+일일 상한을 적용했다. 이미 Storage에 캐시된 음성은 Google 합성 비용이 들지 않으므로
+차감하지 않는다. 세 카운터는 하나의 Firestore 트랜잭션에서 함께 확인·증가해 한 범위가
+초과되면 나머지도 증가하지 않는다. 원본 설치 UUID와 uid는 Firestore에 저장하지 않고
+SHA-256 값만 사용한다.
+
+**호환성과 방어.** 앱은 하드웨어·광고 ID 대신 처음 실행 시 만든 임의 UUID를 보안
+저장소에 유지해 callable에 전달한다. 보안 저장소가 실패해도 프로세스 동안 동일한 값을
+쓰며 계정·전체 상한은 계속 적용된다. 설치 ID를 보내지 않는 기존 앱은 계정별 legacy
+subject로 묶어 30회 상한을 적용해 중단 없이 보호한다. 정본 `synthesize_tts`와 기존
+`synthesize_tts_v2` 별칭이 같은 handler·카운터를 사용해 이름 차이로 우회할 수 없고,
+Auth·limited-use App Check 강제는 그대로 유지한다.
+
+**검증.** 구현 커밋 `59982d55`. Node 회귀 12/12, Flutter TTS 회귀 38/38,
+`flutter analyze --no-pub --fatal-infos`, `git diff --check` 통과. 안전한 transitive
+잠금 갱신으로 기존 high 취약점 1건을 제거했으며 `npm audit --omit=dev
+--audit-level=high`도 통과했다. 강제 major downgrade가 필요한 간접 의존성 moderate
+8건은 범위 밖으로 남겼다. AAB는 다른 작업의 최종 main 반영을 기다려 한 번만 새로
+만들기로 했으므로 이 변경에서는 생성하지 않는다.
+
+**배포.** 깨끗한 기록 커밋 `108e2579`에서 Firebase dry-run을 통과한 뒤
+`ko-lernen-app/europe-west3`의 `synthesize_tts`와 `synthesize_tts_v2` 두 함수만
+업데이트했다. 둘 다 Node.js 22·`ACTIVE`이며 비인증 직접 요청은 HTTP 401로 거부된다.
+실제 기기 App Check 토큰을 쓰는 합성·한도 소진은 새 AAB 실기기 게이트에서 확인한다.
+
 ### 2026-08-16 (Codex) — 살아 있는 한옥 V1 확장형 선행 계약 구현
 
 **근거와 경계.** PR #27의 B2·C1·C2 신규 콘텐츠 504개와 기존 TTS는 정상적인

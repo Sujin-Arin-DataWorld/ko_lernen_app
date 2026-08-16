@@ -31,6 +31,7 @@ void main() {
 
     expect(source, contains('FirebaseFunctions.instanceFor'));
     expect(source, contains('limitedUseAppCheckToken: true'));
+    expect(source, contains('installationId: installationId'));
     expect(source, isNot(contains('http.post(')));
   });
 }
