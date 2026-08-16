@@ -18,7 +18,7 @@
 `integrate_scenario_batch.py` preview 28 records. `validate_content.py` 통과.
 `--apply` 없음.
 
-**커밋해시.** 이 기록과 같은 커밋.
+**커밋해시.** `208e8d47` (로그 해시 표기는 직후 커밋).
 
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
