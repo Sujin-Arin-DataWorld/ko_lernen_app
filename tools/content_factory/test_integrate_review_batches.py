@@ -313,7 +313,10 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         self.assertEqual(1044, counts["vocab"])
         self.assertEqual(152, counts["grammar"])
         self.assertEqual(237, counts["smalltalk"])
-        self.assertEqual(before, self._snapshot())
+        after = self._snapshot()
+        self.assertEqual(before.keys(), after.keys())
+        for path, expected in before.items():
+            self.assertEqual(expected, after[path], path)
 
     def test_apply_promotes_every_row_and_keeps_the_graph_valid(self) -> None:
         counts, records = integration.integrate(
@@ -351,13 +354,16 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
             },
             audit["graph"]["courseUnitsByLevel"],
         )
-        for ledger in (self.root / "tools/content_factory/review").glob("*.csv"):
-            with ledger.open(encoding="utf-8-sig", newline="") as handle:
-                rows = list(csv.DictReader(handle))
-            self.assertTrue(rows)
-            self.assertEqual({"approved"}, {row["상태"] for row in rows})
-        for manifest in (self.root / "tools/content_factory/drafts").glob("batch_*_manifest.json"):
-            self.assertEqual("merged", json.loads(manifest.read_text(encoding="utf-8"))["status"])
+        for manifest_name in ("batch_01_manifest.json", "batch_02_manifest.json", "batch_03_manifest.json"):
+            manifest_path = self.root / "tools/content_factory/drafts" / manifest_name
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            self.assertEqual("merged", manifest["status"])
+            for artifact in manifest["artifacts"]:
+                ledger = self.root / str(artifact["review"])
+                with ledger.open(encoding="utf-8-sig", newline="") as handle:
+                    rows = list(csv.DictReader(handle))
+                self.assertTrue(rows)
+                self.assertEqual({"approved"}, {row["상태"] for row in rows})
         service = (self.root / "lib/services/vocab_pack_service.dart").read_text(encoding="utf-8")
         self.assertIn("'b1_housing_contract': ('Wohnen & Vertrag', 'Housing & Contracts')", service)
         self.assertIn("'b2_language_society': 25", service)
@@ -376,7 +382,10 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
                     approve_all=True,
                     restore_b2_recovery=False,
                 )
-        self.assertEqual(before, self._snapshot())
+        after = self._snapshot()
+        self.assertEqual(before.keys(), after.keys())
+        for path, expected in before.items():
+            self.assertEqual(expected, after[path], path)
 
 
 if __name__ == "__main__":

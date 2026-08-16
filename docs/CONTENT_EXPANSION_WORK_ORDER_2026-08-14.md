@@ -1,5 +1,35 @@
 # 콘텐츠 확장 작업지시서 — B1/B2 대형 (2026-08-14 Jin 승인)
 
+> **2026-08-16 실행 정정:** 이 문서의 2026-08-14 수치와 B1/B2 한정 계획은 역사적
+> 근거로만 보존한다. 현재 live baseline은 Batch 01-05이고 C1/C2 course, vocab,
+> grammar, smalltalk, Cloze, Satzbau가 이미 존재한다. 다음 번호는 Batch 06이다.
+> 현재 콘텐츠 작성 정본은 `CONTENT_AUTHORING_GUIDE.md`, source 격리 정본은
+> `CONTENT_REFERENCE_INTAKE_GUIDE.md`, 권리 정본은 `CONTENT_SOURCE_POLICY.md`다.
+> 37개 PDF와 실제 loader를 반영한 다음 생산 수량은
+> `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`가 정본이며, 아래의 2026-08-14
+> 대형 목표 수치는 그대로 재실행하지 않는다.
+
+## 2026-08-16 실행 규칙 추가
+
+1. 외부 PDF, OCR, 표는 앱 문장 생성 입력이 아니라 추출 누락과 범용 coverage 확인을 위한 격리 감사 자료다.
+2. 현재 37개 파일은 `reference_intake/source_inventory.csv`에서 SHA-256, 쪽수, 중복, text/mixed/image, OCR 필요 여부, 권리 상태로 관리한다.
+3. 이미지형 핸드북과 mixed 교재는 일반 텍스트 추출만으로 완료 처리하지 않는다. Library page read와 실제 렌더를 함께 확인하고 `page_audit.csv`에 수치와 판정만 남긴다.
+4. source 표현을 제거한 일반 교육 신호는 `reference_observations.csv`에 격리하며 콘텐츠 작성자가 직접 사용하지 않는다.
+5. source ID, 파일명, 쪽수, OCR 열을 제거한 `content_briefs.csv`가 독립 작성의 유일한 시작점이다.
+6. `seed_bundle_plan.csv`에서 live course unit, concept, vocab, grammar ID와 새 scenario, quest, game ID를 고정한다.
+7. 기존 자산과의 동기화는 문자열 유사성이 아니라 참조 존재, 같은 level, canonical KO 파생, review 행 순서, overlay validator 통과로 판정한다.
+8. 새 batch는 schema-complete draft와 공통 8열 review 원장을 함께 만들며 모든 상태를 `draft`로 시작한다.
+9. scenario 중심 cross-game preview는 `integrate_scenario_batch.py --manifest ...`로 수행한다. Jin 승인 전 `--apply`, TTS, Firebase, 신규 asset append는 금지다.
+10. 모든 변경은 최신 `main`에서 분리한 콘텐츠 브랜치에 두고 `SESSION_LOG.md` 최상단에 기준 SHA, 파일, 수량, 검증, 승인 대기를 기록한다.
+
+현재 Batch 06 pilot 범위는 B1부터 C2까지 시나리오 각 1개, dialog 각 8줄, quest 각
+5개와 standalone Smalltalk 각 2개, Cloze 각 4개, Satzbau 각 6개, pronunciation 각
+4개다. quest 유형은 `hoerverstehen`, `uebersetzen`, `luecken`, `satzBauen`, `diktat`이며
+총 68개 standalone record와 scenario 내부 quest 20개다. C1/C2 시나리오와 B1-C2 발음
+0개 공백을 먼저 해소하되 B1/B2도 같은 계약을 통과하는 회귀 표본을 포함한다. 모두
+review-only이며 승인 전 live 수량으로 계산하지 않는다.
+
+
 > 실행 세션은 이 문서 + `docs/HANDOFF_UI_OVERHAUL_2026-08-14_V2.md` §3(방법론)을 정본으로 삼는다.
 
 > **C0 구현 정정 (2026-08-14):** 실제 승인 병합은 축약된 리뷰 CSV가 아니라

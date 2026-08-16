@@ -16,6 +16,11 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
 
+PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
+[`docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`](../../docs/CONTENT_REFERENCE_INTAKE_GUIDE.md)와
+[`reference_intake/README.md`](reference_intake/README.md)를 따른다. source 원문은 draft로
+넘기지 않으며, `validate_reference_intake.py`가 격리 CSV와 live ID 연결을 검사한다.
+
 > **2026-08-15 live baseline.** Batch 01–04와 B2/C1/C2 Batch 05는 Jin 승인 뒤
 > `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 06이며 새
 > manifest/draft/review로 시작한다. 새 vocab·grammar·smalltalk·Cloze·Satz에는
@@ -30,6 +35,14 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 ```bash
 # 현재 자산의 빠른 실패 게이트
 python3 tools/content_factory/validate_content.py
+
+# source 격리, clean-room brief, live curriculum/vocab/grammar 참조 검사
+python3 tools/content_factory/validate_reference_intake.py
+
+# raw count가 아니라 실제 direct/course/cumulative loader 노출량을 계산한다.
+python3 tools/content_factory/audit_game_loader_coverage.py
+python3 tools/content_factory/audit_game_loader_coverage.py \
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
 # review-only batch의 schema, review projection, companion mapping, 이전 미병합
 # batch 예약, 그리고 disposable app-data overlay를 모두 검사한다. 어떤 source도 쓰지 않는다.
@@ -57,10 +70,17 @@ python3 tools/content_factory/integrate_review_batches.py \
 python3 tools/content_factory/integrate_review_batches.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply --approve-all
 
-# scenario-only batch는 scenario data·curriculum·backdrop을 함께 다룬다.
+# scenario 중심 cross-game bundle은 모든 game data·curriculum·backdrop을 함께 다룬다.
 python3 tools/content_factory/integrate_scenario_batch.py \
-  --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
 ```
+
+PDF 텍스트층·중복 fingerprint는 `audit_pdf_inventory.py`, image/mixed 자료의 임시
+앞·중간·뒤 렌더 표본은 `render_pdf_audit_samples.py`로 확인한다. 두 도구 모두 원문이나
+페이지 이미지를 저장소 산출물로 만들지 않는다. 2026-08-16의 37개 PDF와 Batch 06 이후
+정확한 작업량은
+[`CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`](../../docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md)를
+따른다.
 
 `ok`와 `approved`만 병합 가능하다. 빈 값·`draft`·`fix: ...`·`no`·`rejected`는
 절대 병합하지 않는다. `--apply`는 target과 `content_audit_manifest.json`을 함께

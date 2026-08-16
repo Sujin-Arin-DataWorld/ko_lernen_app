@@ -1,0 +1,87 @@
+audit_id,source_id,page_start,page_end,method,text_line_count,page_image_count,table_detected,layout_detected,extraction_confidence,visual_review_required,audit_status,notes
+audit_ref0001_0001,ref0001,1,12,combined,,,yes,yes,low,yes,needs_followup,Rendered pages confirm image-oriented learning tables
+audit_ref0002_0001,ref0002,1,12,library_page_read,10,10,yes,yes,low,yes,needs_followup,Ten page images with only ten extracted text lines
+audit_ref0002_0002,ref0002,1,12,local_render,,,yes,yes,high,no,sampled,Local render confirms visible table and layout content
+audit_ref0003_0001,ref0003,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Eight page images with only eight extracted text lines
+audit_ref0003_0002,ref0003,9,12,pdf_text,0,,unknown,unknown,none,yes,needs_followup,Text-only pass found no readable body
+audit_ref0003_0003,ref0003,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms content missing from text-only pass
+audit_ref0004_0001,ref0004,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Eight page images with only eight extracted text lines
+audit_ref0004_0002,ref0004,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms image-oriented conversation tables
+audit_ref0005_0001,ref0005,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0006_0001,ref0006,5,12,library_page_read,11,7,yes,yes,medium,yes,needs_followup,Mixed sample includes image-oriented page regions
+audit_ref0006_0002,ref0006,9,12,pdf_text,1,,unknown,unknown,low,yes,needs_followup,Text-only pass returned title-level content only
+audit_ref0006_0003,ref0006,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms mixed text and table regions
+audit_ref0007_0001,ref0007,1,12,combined,,,unknown,yes,high,no,sampled,Canonical copy has a readable text layer and render
+audit_ref0009_0001,ref0009,5,12,library_page_read,8,8,yes,yes,low,yes,needs_followup,Mixed sample behaves as page images in this range
+audit_ref0009_0002,ref0009,9,12,pdf_text,0,,unknown,unknown,none,yes,needs_followup,Text-only pass found no readable body
+audit_ref0009_0003,ref0009,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms content missing from text-only pass
+audit_ref0010_0001,ref0010,5,12,library_page_read,11,7,yes,yes,medium,yes,needs_followup,Mixed sample includes image-oriented page regions
+audit_ref0010_0002,ref0010,9,12,pdf_text,1,,unknown,unknown,low,yes,needs_followup,Text-only pass returned title-level content only
+audit_ref0010_0003,ref0010,5,12,local_render,,,yes,yes,high,no,sampled,Local render confirms mixed text and table regions
+audit_ref0011_0001,ref0011,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0012_0001,ref0012,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0013_0001,ref0013,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0014_0001,ref0014,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0015_0001,ref0015,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0016_0001,ref0016,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0017_0001,ref0017,1,12,combined,,,unknown,yes,high,no,sampled,Text layer and rendered sample are both readable
+audit_ref0018_0001,ref0018,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only page layout
+audit_ref0018_0002,ref0018,120,120,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0018_0003,ref0018,235,235,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0019_0001,ref0019,5,5,combined,,1,unknown,yes,high,no,sampled,Front text and render agree
+audit_ref0019_0002,ref0019,51,51,combined,,1,yes,yes,high,no,sampled,Middle text and render agree
+audit_ref0019_0003,ref0019,97,97,combined,,1,yes,yes,high,no,sampled,Back text and render agree
+audit_ref0020_0001,ref0020,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only page layout
+audit_ref0020_0002,ref0020,127,127,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0020_0003,ref0020,249,249,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening appendix layout
+audit_ref0021_0001,ref0021,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only page layout
+audit_ref0021_0002,ref0021,120,120,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0021_0003,ref0021,235,235,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0022_0001,ref0022,5,5,combined,,1,unknown,yes,high,no,sampled,Front text and render agree
+audit_ref0022_0002,ref0022,27,27,combined,,1,yes,yes,high,no,sampled,Middle text and render agree
+audit_ref0022_0003,ref0022,48,48,combined,,1,yes,yes,high,no,sampled,Back text and render agree
+audit_ref0023_0001,ref0023,5,5,combined,,1,unknown,yes,high,no,blocked,Duplicate front text and render match canonical source
+audit_ref0023_0002,ref0023,27,27,combined,,1,yes,yes,high,no,blocked,Duplicate middle text and render match canonical source
+audit_ref0023_0003,ref0023,48,48,combined,,1,yes,yes,high,no,blocked,Duplicate back text and render match canonical source
+audit_ref0024_0001,ref0024,5,5,combined,,1,unknown,yes,high,no,sampled,Front text and render agree
+audit_ref0024_0002,ref0024,27,27,combined,,1,yes,yes,high,no,sampled,Middle text and render agree
+audit_ref0024_0003,ref0024,48,48,combined,,1,yes,yes,high,no,sampled,Back text and render agree
+audit_ref0025_0001,ref0025,5,5,combined,,1,unknown,yes,high,no,sampled,Front text and render agree
+audit_ref0025_0002,ref0025,27,27,combined,,1,yes,yes,high,no,sampled,Middle text and render agree
+audit_ref0025_0003,ref0025,48,48,combined,,1,yes,yes,high,no,sampled,Back text and render agree
+audit_ref0026_0001,ref0026,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only introduction layout
+audit_ref0026_0002,ref0026,131,131,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms pronunciation activity layout
+audit_ref0026_0003,ref0026,256,256,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer activity layout
+audit_ref0027_0001,ref0027,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only page layout
+audit_ref0027_0002,ref0027,140,140,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0027_0003,ref0027,275,275,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening answer layout
+audit_ref0028_0001,ref0028,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only workbook layout
+audit_ref0028_0002,ref0028,120,120,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0028_0003,ref0028,235,235,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening appendix layout
+audit_ref0029_0001,ref0029,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only textbook layout
+audit_ref0029_0002,ref0029,120,120,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0029_0003,ref0029,235,235,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0030_0001,ref0030,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only workbook layout
+audit_ref0030_0002,ref0030,127,127,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0030_0003,ref0030,249,249,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening appendix layout
+audit_ref0031_0001,ref0031,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only textbook layout
+audit_ref0031_0002,ref0031,120,120,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0031_0003,ref0031,235,235,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0032_0001,ref0032,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only workbook layout
+audit_ref0032_0002,ref0032,128,128,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms listening activity layout
+audit_ref0032_0003,ref0032,251,251,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening appendix layout
+audit_ref0033_0001,ref0033,5,5,local_render,,1,yes,yes,high,no,sampled,Front sample confirms image-only exercise structure
+audit_ref0033_0002,ref0033,29,29,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms grammar exercise layout
+audit_ref0033_0003,ref0033,53,53,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0034_0001,ref0034,5,5,local_render,,1,yes,yes,high,no,sampled,Front sample confirms image-only exercise structure
+audit_ref0034_0002,ref0034,29,29,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms grammar exercise layout
+audit_ref0034_0003,ref0034,53,53,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0035_0001,ref0035,5,5,local_render,,1,yes,yes,high,no,sampled,Front sample confirms image-only exercise structure
+audit_ref0035_0002,ref0035,29,29,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms vocabulary exercise layout
+audit_ref0035_0003,ref0035,53,53,local_render,,1,yes,yes,high,no,sampled,Back sample confirms memo layout
+audit_ref0036_0001,ref0036,5,5,local_render,,1,yes,yes,high,no,sampled,Front sample confirms image-only exercise structure
+audit_ref0036_0002,ref0036,29,29,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms grammar exercise layout
+audit_ref0036_0003,ref0036,53,53,local_render,,1,yes,yes,high,no,sampled,Back sample confirms answer layout
+audit_ref0037_0001,ref0037,5,5,local_render,,1,unknown,yes,high,no,sampled,Front sample confirms image-only page layout
+audit_ref0037_0002,ref0037,140,140,local_render,,1,yes,yes,high,no,sampled,Middle sample confirms structured activity layout
+audit_ref0037_0003,ref0037,275,275,local_render,,1,yes,yes,high,no,sampled,Back sample confirms listening answer layout

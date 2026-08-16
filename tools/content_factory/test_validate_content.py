@@ -86,6 +86,34 @@ class ContentValidatorTest(unittest.TestCase):
         self.assertTrue(any("id must be a string" in m for m in messages))
         self.assertTrue(any("level must be an A1-C2 string" in m for m in messages))
 
+    def test_game_meta_must_match_actual_items_for_all_levels(self) -> None:
+        cloze = copy.deepcopy(self._asset_json("cloze.json"))
+        cloze["meta"]["total"] -= 1
+        cloze["meta"]["perLevel"].pop("c2")
+
+        validator = self._with_json_override(**{"cloze.json": cloze})
+        validator.validate_cloze()
+
+        messages = self._messages(validator)
+        self.assertTrue(any("meta.total must equal" in message for message in messages))
+        self.assertTrue(any("meta.perLevel must contain exact" in message for message in messages))
+
+    def test_audit_graph_counts_must_match_curriculum(self) -> None:
+        audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
+        audit["graph"]["courseUnits"] -= 1
+        audit["graph"]["courseUnitsByLevel"]["c2"] = 0
+        audit["graph"]["formFamilies"] -= 1
+
+        validator = self._with_json_override(
+            **{"content_audit_manifest.json": audit},
+        )
+        validator.validate_audit_manifest({}, {}, [])
+
+        messages = self._messages(validator)
+        self.assertTrue(any("graph courseUnits is" in message for message in messages))
+        self.assertTrue(any("graph courseUnitsByLevel is" in message for message in messages))
+        self.assertTrue(any("graph formFamilies is" in message for message in messages))
+
     def test_scenario_vocab_object_and_id_type_are_required(self) -> None:
         scenarios = copy.deepcopy(self._asset_json("scenarios.json"))
         scenarios["scenarios"][0]["id"] = 1

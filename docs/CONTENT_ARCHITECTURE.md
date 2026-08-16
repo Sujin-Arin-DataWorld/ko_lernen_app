@@ -1,6 +1,6 @@
 # 콘텐츠 아키텍처 계약
 
-> **상태:** Batch 05 A1–C2 정본 · 2026-08-15
+> **상태:** Batch 05 A1-C2 live 정본 + Batch 06 review-only 계약, 2026-08-16
 >
 > 이 문서는 콘텐츠를 많이 추가하기 전에 지켜야 할 레벨 선택·코스 연결·검수
 > 경계를 고정한다. C0는 서로 다른 학습 경험을 하나의 전역 레벨 정책으로
@@ -80,6 +80,12 @@ final display = level.display; // A1, A2, B1, B2, C1, C2
 
 ## 5. 후속 콘텐츠 병합의 그래프 계약
 
+외부 PDF, OCR, 표 판독은 이 그래프의 직접 source가 아니다. 격리된
+`reference_intake/`에서 source inventory와 page audit을 끝낸 뒤 source 열이 제거된
+`content_briefs.csv`와 `seed_bundle_plan.csv`만 그래프 작성 구역으로 넘어온다.
+`seed_bundle_plan.csv`의 live vocab, grammar, unit, concept 참조와 새 scenario, quest ID는
+`validate_reference_intake.py`가 실제 자산 및 active draft와 대조한다.
+
 C1/C2 데이터는 `contentLinks`만 늘려서 코스에 연결하지 않는다.
 `CurriculumCatalog`은 다음 서로 다른 선언을 합쳐 링크를 만든다.
 
@@ -110,6 +116,10 @@ scenario와 실벤은 만들지 않았다. Today와 Listening은 가장 가까�
 실벤은 가장 가까운 제공 레벨을 선택한다. 존재하지 않는 C1/C2 데이터를 테스트 fixture로
 가짜 생성해 exact 콘텐츠처럼 보이게 하지 않는다. 전용 데이터가 실제 승인·병합되면
 exact 선택 회귀 테스트를 추가하고 폴백을 그대로 유지할지 다시 결정한다.
+
+Batch 06의 첫 C1/C2 scenario와 B1-C2 교차 게임 묶음은 현재 review-only draft다.
+preview에서 전체 그래프를 통과해도 live 데이터로 계산하지 않는다. Jin 승인과 전용
+cross-game transaction이 끝난 뒤에만 위 데이터 부재 센서와 exact 선택 회귀를 갱신한다.
 
 ## 6. CourseUnit 아래의 검증 가능한 수행 단위
 

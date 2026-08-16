@@ -427,6 +427,7 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain an items array")
             return
+        self._validate_game_meta(name, root, items)
         self._validate_game_items(name, items, kind="cloze")
 
     def validate_satz(self, vocab_levels: dict[str, str]) -> None:
@@ -436,6 +437,7 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain an items array")
             return
+        self._validate_game_meta(name, root, items)
         seen: set[str] = set()
         for index, item in enumerate(items):
             label = f"item {index}"
@@ -472,6 +474,25 @@ class ContentValidator:
             vocab_level = vocab_levels.get(item.get("vocabKo", ""))
             if vocab_level != level:
                 self.issue(name, f"{ident} vocabKo must match exactly one same-level vocab row")
+
+    def _validate_game_meta(
+        self,
+        source: str,
+        root: dict[str, Any],
+        items: list[Any],
+    ) -> None:
+        meta = root.get("meta")
+        if not isinstance(meta, dict):
+            self.issue(source, "root must contain a meta object")
+            return
+        if meta.get("total") != len(items):
+            self.issue(source, "meta.total must equal the items array length")
+        expected = {level: 0 for level in ("a1", "a2", "b1", "b2", "c1", "c2")}
+        for item in items:
+            if isinstance(item, dict) and item.get("level") in expected:
+                expected[str(item["level"])] += 1
+        if meta.get("perLevel") != expected:
+            self.issue(source, "meta.perLevel must contain exact A1-C2 item counts")
 
     def validate_smalltalk(self) -> None:
         name = "smalltalk.json"
@@ -1339,8 +1360,14 @@ class ContentValidator:
         course_units = (
             curriculum.get("courseUnits") if isinstance(curriculum, dict) else None
         )
+        form_families = (
+            curriculum.get("formFamilies") if isinstance(curriculum, dict) else None
+        )
         if not isinstance(course_units, list):
             self.issue(name, "curriculum_manifest.json courseUnits must be an array")
+            return
+        if not isinstance(form_families, list):
+            self.issue(name, "curriculum_manifest.json formFamilies must be an array")
             return
         if graph.get("courseUnits") != len(course_units):
             self.issue(
@@ -1362,6 +1389,12 @@ class ContentValidator:
                 name,
                 "graph courseUnitsByLevel is "
                 f"{declared_by_level!r}, actual is {expected_by_level!r}",
+            )
+        if graph.get("formFamilies") != len(form_families):
+            self.issue(
+                name,
+                "graph formFamilies is "
+                f"{graph.get('formFamilies')!r}, actual is {len(form_families)}",
             )
 
     def inventory_counts(

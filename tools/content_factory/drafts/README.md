@@ -1,7 +1,7 @@
-# B1/B2 content batch drafts
+# A1-C2 content batch drafts
 
-This directory preserves the schema-complete source for B1/B2 batches. C0 Batch
-01–03 and C1 scenario Batch 04 were promoted to app assets on 2026-08-15; their drafts and ledgers are
+This directory preserves the schema-complete source for A1-C2 batches. C0 Batch
+01-03, scenario Batch 04, and B2/C1/C2 Batch 05 were promoted to app assets on 2026-08-15; their drafts and ledgers are
 the immutable review history, not a second app-data source. No file here may
 be copied into `assets/data/` by hand.
 
@@ -12,7 +12,8 @@ existing record in place, but create a later batch for any additional record.
 
 Batch 01 and Batch 02 each total 96 records. A later batch declares its own
 complete count in its manifest; it may cover one level only when that is the
-review scope. The next new batch number is **05**.
+review scope. Batch 06 is the current review-only pilot, so the next new batch
+number is **07**.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -29,8 +30,10 @@ small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
 | --- | --- | --- | --- |
 | 01 | housing, tenancy, moving, practical contracts | formal agreements, obligations, precise requests | B1 #19, B2 #21 |
 | 02 | workplace coordination and schedule changes | formal complaints, remedies, escalation | B1 #20, B2 #22; reserves Batch 01 |
-| 03 | — | decisions and perspectives; reading responses; language in society | B2 #23–25; reserves Batch 01/02 |
+| 03 | none | decisions and perspectives; reading responses; language in society | B2 #23-25; reserves Batch 01/02 |
 | 04 | eight real-life scenarios | eight real-life scenarios | scenario-only; curriculum assess links + existing backdrops |
+| 05 | none | B2/C1/C2 depth expansion | live multi-asset batch |
+| 06 | scenario 1 + smalltalk 2 + cloze 4 + satz 6 + pronunciation 4 | same B2 scope plus first C1/C2 bundles | review-only cross-game pilot; 68 records + 20 embedded quests |
 
 Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
@@ -42,22 +45,28 @@ Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
 Each `batch_XX_manifest.json` is the machine-readable handoff. It names every
 draft/review pair and declares the curriculum, pack, motif, category, and
-topic companions required for an approved merge. Batch 01–04 mappings are
-already live; a future review-only Batch 05 keeps its mappings in the manifest
+topic companions required for an approved merge. Batch 01-05 mappings are
+already live; review-only Batch 06 keeps its mappings in the manifest
 until the single approved multi-file transaction promotes them.
 
 Batch 01's draft-only validator is preserved as historical regression coverage.
-Validate a new Batch 05+ with the generic manifest-driven overlay.
+Batch 06 is a scenario-centred cross-game bundle, so validate its reference graph, deterministic
+review projection, and disposable full-content overlay together.
 
 ```bash
-python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json
+python3 tools/content_factory/validate_reference_intake.py
+python3 tools/content_factory/sync_review_ledgers.py
+python3 tools/content_factory/audit_game_loader_coverage.py
+python3 tools/content_factory/audit_game_loader_coverage.py \
+  --manifest tools/content_factory/drafts/batch_06_manifest.json
+python3 tools/content_factory/integrate_scenario_batch.py \
+  --manifest tools/content_factory/drafts/batch_06_manifest.json
 ```
 
 ## Review and merge boundary
 
-All linked sheets in `../review/` use the exact common header. Batch 01–04
-rows are `approved` because they are live. A new Batch 05 starts entirely as
+All linked sheets in `../review/` use the exact common header. Batch 01-05
+rows are `approved` because they are live. A new Batch 06 starts entirely as
 `draft`; Jin changes only its review status to `ok` or `approved` after
 checking the full schema-complete record in this directory. Before review,
 render the complete packet rather than treating the compact CSV as a second
@@ -65,8 +74,8 @@ content source.
 
 ```bash
 python3 tools/content_factory/render_review_packet.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json \
-  --output tools/content_factory/review/batch_05_review_packet.md
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json \
+  --output tools/content_factory/review/batch_XX_review_packet.md
 ```
 
 Before any approved promotion, a content integrator must make the companion

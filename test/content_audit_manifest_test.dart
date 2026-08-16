@@ -76,8 +76,9 @@ void main() {
       };
 
       expect(actual, expected);
-      expect(raw['graph'], containsPair('checkpointThreshold', .7));
-      expect(raw['graph'], containsPair('courseUnits', courseUnits.length));
+      final graph = raw['graph'] as Map<String, dynamic>;
+      expect(graph, containsPair('checkpointThreshold', .7));
+      expect(graph, containsPair('courseUnits', courseUnits.length));
       final courseUnitsByLevel = <String, int>{
         for (final level in LearnerLevel.values) level.code: 0,
       };
@@ -87,9 +88,10 @@ void main() {
           courseUnitsByLevel[level.code] = courseUnitsByLevel[level.code]! + 1;
         }
       }
+      expect(graph, containsPair('courseUnitsByLevel', courseUnitsByLevel));
       expect(
-        raw['graph'],
-        containsPair('courseUnitsByLevel', courseUnitsByLevel),
+        graph['formFamilies'],
+        (curriculum['formFamilies'] as List<dynamic>).length,
       );
     },
   );

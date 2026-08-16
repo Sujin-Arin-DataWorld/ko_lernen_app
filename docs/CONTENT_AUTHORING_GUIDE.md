@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** Batch 01–05 live 정본 + A1–C2 확장 계약 · 2026-08-15
+> **상태:** Batch 01-05 live 정본 + Batch 06 review-only 확장 계약, 2026-08-16
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
@@ -11,10 +11,11 @@
 
 ## 0. 시작 전: 무엇을 어디에 쓰는가
 
-새 콘텐츠를 쓸 때는 다음 세 층을 절대 섞지 않는다.
+새 콘텐츠를 쓸 때는 다음 네 층을 절대 섞지 않는다.
 
 | 층 | 위치 | 역할 | 직접 편집 가능 여부 |
 | --- | --- | --- | --- |
+| **참고 자료 격리** | `tools/content_factory/reference_intake/` | source inventory, page audit, 중립 관찰, clean-room brief | 정해진 열만 편집. 원문 저장 금지 |
 | **초안 원문** | `tools/content_factory/drafts/` | 실제 병합될 모든 필드를 갖춘 schema-complete 콘텐츠 | 예. 작성자가 편집하는 곳 |
 | **승인 원장** | `tools/content_factory/review/` | Jin이 ID별 승인 상태를 남기는 CSV | 원칙적으로 `상태`와 `jin_memo`만 편집 |
 | **앱 본문** | `assets/data/` | Flutter 앱이 실제로 읽는 정본 | 승인 전 직접 편집 금지 |
@@ -25,11 +26,14 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 
 새 세션에게 일을 맡길 때는 먼저 아래 순서를 지시한다.
 
-1. `AGENTS.md`와 이 문서를 전부 읽는다.
-2. 현재 앱 자산을 `python3 tools/content_factory/validate_content.py`로 읽기 전용 검사한다.
-3. `assets/data/`가 아니라 새/기존 `drafts/` 파일만 수정한다.
-4. 독일어와 영어를 함께 작성하고, 같은 의미인지 검수한다.
-5. review 원장을 draft와 동기화하고, Jin 승인 전에는 `--apply`, 실제 TTS, 커밋을 하지 않는다.
+1. `AGENTS.md`, 이 문서, `CONTENT_SOURCE_POLICY.md`를 전부 읽는다.
+2. PDF 또는 OCR 감사가 있으면 `CONTENT_REFERENCE_INTAKE_GUIDE.md`도 전부 읽는다.
+3. 현재 앱 자산과 reference intake를 읽기 전용 검사한다.
+4. `assets/data/`가 아니라 새/기존 `drafts/` 파일만 수정한다.
+5. 독일어와 영어를 함께 작성하고, 같은 의미인지 검수한다.
+6. review 원장을 draft와 동기화한다. Jin 승인 전에는 `--apply`, 실제 TTS, Firebase 쓰기,
+   앱 자산 승격을 하지 않는다. draft·review·검증 도구의 브랜치 커밋은 사용자가 명시적으로
+   요청한 범위에서만 허용한다.
 
 ### 0.1 외부 교재·저작물 격리
 
@@ -52,6 +56,10 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 - 기존 live asset에 출처가 불명확한 후보가 발견되면, 이름만 지워 계속 쓰지 않는다.
   별도 rights review에서 유지·재작성·제외를 결정하며, 새 콘텐츠가 그 후보를 재사용하지
   않는다.
+- 외부 PDF의 추출 가능 여부와 image형 표 누락은 격리 감사에서 확인할 수 있다. 파일과
+  페이지 메타데이터는 `reference_intake/` 앞단에만 남기고, 작성자는 source 관련 열이 없는
+  `content_briefs.csv`와 live 앱 데이터만 본다. 상세 절차와 5개 CSV 계약은
+  `CONTENT_REFERENCE_INTAKE_GUIDE.md`가 정본이다.
 
 ## 1. 가장 중요한 규칙 12개
 
@@ -64,8 +72,9 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
    교체를 하지 않는다. 문구를 고칠 때도 참조와 review 원장을 같이 갱신한다.
 4. **앱 본문을 손으로 append하지 않는다.** 기존 한 asset의 유지보수는
    `apply_review.py`, 새 vocab/grammar/game batch의 여러 asset·curriculum·pack map 병합은
-   `integrate_review_batches.py`, scenario batch의 data·curriculum·backdrop 병합은
-   `integrate_scenario_batch.py`를 통해서만 한다. 모든 통합기는 validator 실패 시 원복한다.
+   `integrate_review_batches.py`, scenario를 중심으로 여러 게임을 묶는 bundle의
+   data·curriculum·backdrop 병합은 `integrate_scenario_batch.py`를 통해서만 한다.
+   모든 통합기는 validator 실패 시 원복한다.
 5. **CSV 헤더·열 순서는 API다.** 열을 추가·삭제·번역·재배열하지 않는다. 쉼표, 큰따옴표,
    줄바꿈이 있는 값은 RFC CSV quoting으로 저장한다.
 6. **레벨 표기 대소문자는 파일마다 다르다.** “보기 좋게 통일”하면 validator가 깨진다.
@@ -225,7 +234,8 @@ Batch 06+ 작성자가 재사용할 잠금 규칙을 설명한다.
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. 현재 다음 번호는 **Batch 06**이다. Batch 05부터는
+파일을 별도로 만든다. Batch 06 review-only pilot이 존재하므로 현재 다음 작성 번호는
+**Batch 07**이다. Batch 05부터는
 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
@@ -515,7 +525,8 @@ C0의 preview/apply로 우회하지 않는다. 관계 맥락과 맞지 않는 �
 
 시나리오는 해당 레벨의 실제 vocab·grammar·course mapping이 존재할 때만 만든다.
 Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. C1/C2 전용
-시나리오는 아직 없으므로 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
+시나리오는 live에는 아직 없다. Batch 06에 첫 C1/C2 scenario가 review-only로 준비돼
+있지만 승인 통합 전에는 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
 필드를 갖는 완전 object다.
 
 ```json
@@ -661,7 +672,9 @@ Firebase Storage upload는 Jin의 별도 명시 허가 전까지 금지다.
 }
 ```
 
-- root `levels`에는 `A1`, `A2`, `B1`, `B2` 네 key가 모두 필요하다.
+- 현재 live root `levels`에는 `A1`, `A2`, `B1`, `B2` 네 key가 있고 화면 picker도 이
+  네 레벨로 제한돼 있다. C1/C2를 추가할 때는 JSON만 늘리지 말고 validator의 required
+  level 계약, screen picker, loader/test와 콘텐츠를 같은 변경에서 A1–C2로 확장한다.
 - puzzle ID는 `skz_<lowercase level>_###`, 전역 유일이다.
 - `rows`/`cols`는 양의 integer다.
 - word `dir`은 `h` 또는 `v`; `row`/`col`은 integer; `answer`, `german`, `exampleKo`,
@@ -750,9 +763,9 @@ functions/analyze_korean_text/grammar_patterns.json
 새 콘텐츠를 실제로 앱 본문에 넣을 때, 아래 대응 mapping이 필요하다. target-local
 `apply_review.py`는 target asset과 audit manifest만 쓴다. 여러 asset과
 `curriculum_manifest.json`·Dart pack map을 함께 쓰는 승인 병합은
-`integrate_review_batches.py`가 원자적으로 다룬다. scenario data·curriculum link·Dart
-backdrop map의 승인 병합은 `integrate_scenario_batch.py`가 다룬다. Batch 01–03과 05는
-전자, Batch 04는 후자 경로로 승격됐다.
+`integrate_review_batches.py`가 원자적으로 다룬다. scenario 중심 cross-game bundle의
+data·curriculum link·Dart backdrop map 승인 병합은 `integrate_scenario_batch.py`가
+다룬다. Batch 01–03과 05는 전자, Batch 04는 후자 경로로 승격됐다.
 approval만으로 mapping을 미리 손편집하거나 `apply_review.py --apply`만 실행하는 것은
 금지다. 새 batch에서는 아래 동반 변경을 integration manifest와 함께 검토·검증한다.
 
@@ -786,6 +799,17 @@ draft를 만들 때 수치를 올리지 않는다. `apply_review.py --apply`가 
 ```bash
 # 현재 live asset의 빠른 실패 검사
 python3 tools/content_factory/validate_content.py
+
+# reference inventory와 clean-room brief의 경계 및 live ID 동기화 검사
+python3 tools/content_factory/validate_reference_intake.py
+
+# 실제 direct/course/cumulative loader 노출량. review-only manifest는 메모리 overlay만 한다.
+python3 tools/content_factory/audit_game_loader_coverage.py
+python3 tools/content_factory/audit_game_loader_coverage.py \
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json
+
+# draft에서 공통 8열 review 원장을 결정적으로 재생성/동기화
+python3 tools/content_factory/sync_review_ledgers.py --apply
 
 # 새 Batch 06+의 manifest-driven overlay 검사
 python3 tools/content_factory/validate_review_batch.py \
@@ -844,11 +868,11 @@ python3 tools/content_factory/integrate_review_batches.py \
   --apply
 ```
 
-scenario-only batch는 아래 전용 경로를 쓴다.
+scenario 중심 cross-game bundle은 아래 전용 경로를 쓴다.
 
 ```bash
 python3 tools/content_factory/integrate_scenario_batch.py \
-  --manifest tools/content_factory/drafts/batch_05_manifest.json --apply
+  --manifest tools/content_factory/drafts/batch_XX_manifest.json --apply
 ```
 
 `--apply`는 모든 data asset·curriculum mapping·pack UI map·audit manifest → 전체
@@ -896,6 +920,7 @@ vocab pack + 동반 mapping
 
 - [ ] review header, ID 순서, row count, level, projection copy가 draft와 맞다.
 - [ ] 새 Batch 06+의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
+- [ ] raw count뿐 아니라 loader audit의 exact/cumulative/course unit 수량과 round 부족량을 확인했다.
 - [ ] `validate_review_batch.py`와 `plan_pack_assignments.py`가 통과했다.
 - [ ] `validate_content.py`가 통과했다.
 - [ ] Jin의 명시 지시 전에는 `apply_review.py`, `integrate_review_batches.py`, 또는 `integrate_scenario_batch.py`의 `--apply`를 실행하지 않았다.
