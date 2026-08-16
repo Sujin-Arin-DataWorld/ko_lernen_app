@@ -7,7 +7,8 @@
 다른 탐색·선행 조건용 묶음이며, 영구 한옥 보상 단위로 고정하지 않는다. 새 계약은
 `CourseUnit` 아래에 검증 가능한 `CanDoSegment`를 두고, 코스 숙달 증거만 한옥
 보상으로 투영한다. 작업은 `ee8282b9`에서 분리한
-`codex/cando-segment-contract-20260816` 독립 worktree에서 수행한다.
+`codex/cando-segment-contract-20260816` 독립 worktree에서 수행한 뒤 최신
+`origin/main e3c39f59` 위로 재배치했다.
 
 **이번 PR의 첫 안전 수정.** PR #27 이후 실제 단원은 40개인데
 `content_audit_manifest.json`의 그래프 수량이 36으로 남아 있던 정합성 결함을
@@ -49,13 +50,17 @@ Windows 줄바꿈까지 byte-exact로 원복한다. 한옥 자산 provenance는 
 권리·모델 입력 allowlist·크레딧 ledger를 fail-closed 테스트로 고정했다. 사용자 첨부
 화면과 비바샘 자료는 reference-only이며 번들·모델 입력에서 금지한다.
 
-**현재 검증.** 항목별 source-seed·CourseUnit provenance, 70% 하한, canonical 86개
-product fixture, draft-only 미완성 core, 임의 policy 우회 API 부재, extension 후방 추가,
-construct successor 계보를 포함한 segment catalog 집중 test **34/34**, 주변 Flutter
-회귀 **244/244**, 콘텐츠 Python 회귀 **28/28**, 전체
-`flutter analyze --no-pub --fatal-infos`가 통과했다. 전체 Flutter
-회귀·최신 main 통합·원격 exact-head CI는 이 기록 아래에서 계속 수행하며, 실제 한옥
-권한이나 사용자 기본 경로는 아직 전환하지 않았다.
+**구현 커밋과 최종 로컬 검증.** 구현 커밋은 최신 main 재배치 뒤 `1b0d5c33`이다.
+항목별 source-seed·CourseUnit provenance, 70% 하한, canonical 86개 product fixture,
+draft-only 미완성 core, 임의 policy 우회 API 부재, extension 후방 추가, construct
+successor 계보를 포함한 segment catalog 집중 test **34/34**, 콘텐츠 Python 회귀
+**28/28**, 전체 Flutter test **3,624 통과 / 14 수동·환경 검사 skip / 실패 0**가
+통과했다. `flutter analyze --no-pub --fatal-infos`는 **No issues found**였고
+`flutter build web --release --no-pub`도 성공했다. 기존 `flutter_tts 4.2.5`의 Wasm
+dry-run JS interop 경고 3건은 남지만 현재 JS web release를 차단하지 않는다. 독립
+Standards·Spec 재검토의 P0/P1 blocker는 각각 **0건**이며 `git diff --check`도
+통과했다. 원격 exact-head CI는 push 뒤 확인하며, 실제 한옥 권한이나 사용자 기본
+경로는 아직 전환하지 않았다.
 
 ### 2026-08-16 (Codex) — 모바일 웹 DE/EN 전환 복원
 
