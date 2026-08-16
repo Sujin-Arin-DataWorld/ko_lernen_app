@@ -41,7 +41,7 @@ class TranslationCacheInfrastructureContractTest(unittest.TestCase):
     def test_legacy_and_quota_collections_are_server_only(self):
         rules = (REPO_ROOT / "firestore.rules").read_text(encoding="utf-8")
         for path in (
-            r"match\s+/cache/translations/\{hash\}",
+            r"match\s+/cache/\{document=\*\*\}",
             r"match\s+/usage/\{document=\*\*\}",
             r"match\s+/service_quotas/\{document=\*\*\}",
             r"match\s+/service_quota_ledgers/\{document=\*\*\}",

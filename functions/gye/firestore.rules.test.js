@@ -2077,7 +2077,7 @@ test("translation cache is never available through a client SDK", async () => {
 
 test("legacy translation cache and quota ledgers stay server-only", async () => {
   await environment.withSecurityRulesDisabled(async (context) => {
-    await setDoc(doc(context.firestore(), "cache", "translations", "digest"), {
+    await setDoc(doc(context.firestore(), "cache", "translations"), {
       t: "legacy",
     });
     await setDoc(doc(context.firestore(), "usage", "tts_global_2026-08-16"), {
@@ -2089,7 +2089,7 @@ test("legacy translation cache and quota ledgers stay server-only", async () => 
   });
 
   const signedDb = client("learner");
-  await assertFails(getDoc(doc(signedDb, "cache", "translations", "digest")));
+  await assertFails(getDoc(doc(signedDb, "cache", "translations")));
   await assertFails(getDoc(doc(signedDb, "usage", "tts_global_2026-08-16")));
   await assertFails(getDoc(doc(signedDb, "service_quota_ledgers", "digest")));
   await assertFails(setDoc(doc(signedDb, "usage", "tts_global_2026-08-16"), {

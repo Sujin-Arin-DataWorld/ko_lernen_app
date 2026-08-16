@@ -601,7 +601,7 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    match /cache/translations/{hash} {
+    match /cache/{document=**} {
       allow read, write: if false;
     }
 

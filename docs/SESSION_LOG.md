@@ -18,7 +18,9 @@ DeepL 연속 실패는 프로세스 내 서킷으로 잠시 건너뛴다. TTS와
 **검증.** 책 분석 Python `test_*.py` **80/80**, TTS Node 가드·계약 **15/15**,
 발음 Node 가드 **6/6**, `node --check` 5파일, `firestore.indexes.json` parse,
 `git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
-하지 않았다. 구현 커밋 `824a05b`.
+하지 않았다. 구현 커밋 `824a05b`. CI Gye 규칙 테스트가
+`cache/translations/digest` 3-segment 문서 경로를 거부해서, 레거시 캐시는
+`match /cache/{document=**}`로 막고 짝수 경로로 재검증한다.
 
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
