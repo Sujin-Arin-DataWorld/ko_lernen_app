@@ -3,9 +3,14 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 import { handleTesterApplication, type TesterApplicationEnv } from "./tester-application";
 
+declare const __HANGUL_SORI_RELEASE_ID__: string;
+
+interface AssetFetcher {
+  fetch(request: Request): Promise<Response>;
+}
+
 interface Env extends TesterApplicationEnv {
-  ASSETS: Fetcher;
-  DB: D1Database;
+  ASSETS: AssetFetcher;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -46,11 +51,16 @@ function contentSecurityPolicy(nonce: string) {
 
 async function withSecurityHeaders(response: Response, url: URL) {
   const headers = new Headers(response.headers);
+  const isHtml = headers.get("content-type")?.toLowerCase().startsWith("text/html") ?? false;
+  headers.set("x-hangul-sori-release", __HANGUL_SORI_RELEASE_ID__);
   headers.set("x-content-type-options", "nosniff");
   headers.set("x-frame-options", "DENY");
   headers.set("referrer-policy", "no-referrer");
   headers.set("permissions-policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()");
   headers.set("cross-origin-opener-policy", "same-origin");
+  if (isHtml) {
+    headers.set("cache-control", "no-store, max-age=0, must-revalidate");
+  }
 
   const isLocal = url.hostname === "localhost" || url.hostname === "127.0.0.1";
   let body: BodyInit | null = response.body;
@@ -60,7 +70,7 @@ async function withSecurityHeaders(response: Response, url: URL) {
     if (url.protocol === "https:") {
       headers.set("strict-transport-security", "max-age=63072000; includeSubDomains");
     }
-    if (headers.get("content-type")?.toLowerCase().startsWith("text/html")) {
+    if (isHtml) {
       const html = await response.text();
       body = html.replace(/<script(?=\s|>)/g, `<script nonce="${nonce}"`);
       headers.delete("content-length");
@@ -100,7 +110,16 @@ const worker = {
       }, allowedWidths), url);
     }
 
-    return withSecurityHeaders(await handler.fetch(request, env, ctx), url);
+    const appResponse = await handler.fetch(request, env, ctx);
+    if (appResponse.status === 404) {
+      const headers = new Headers(appResponse.headers);
+      headers.set("content-type", "text/plain; charset=UTF-8");
+      headers.delete("content-length");
+      headers.delete("content-encoding");
+      return withSecurityHeaders(new Response("Not Found", { status: 404, headers }), url);
+    }
+
+    return withSecurityHeaders(appResponse, url);
   },
 };
 

@@ -22,6 +22,50 @@ skipped였다. 변경 9개 파일의 `flutter analyze --no-pub`는 **No issues f
 `git diff --check`도 통과했다. 원격 CI, `main` 병합, 병합 HEAD의 signed AAB 생성은
 이 기록 다음 단계에서 수행한다.
 
+### 2026-08-16 (Codex) — Sites 완전 탈출·GitHub→Cloudflare Worker 자동배포 전환 완료
+
+**정본과 구조.** 웹사이트 정본을 부모 GitHub 저장소의 `hangul-sori-site-local/`로
+통합하고 Sites 전용 `.openai`, plugin/auth/Bash 스크립트, 중첩 Git, stale ZIP,
+`docs/CNAME`, root 기본 Worker와 dead D1/Drizzle를 제거했다. 바깥 구형 Sites 저장소와
+snapshot/ZIP은 recoverable `_site_migration_backup_20260816`으로 격리했으며 Sites remote,
+global credential provider와 민감한 ignored Wrangler deploy log도 제거했다. 구현·안전장치
+커밋은 `389492d5`, `45ec104f`, `9b5f43dd`, 플랫폼 독립 asset 검증 보완은
+`1e29638b`이다. 이 기록 직전 code-bearing `origin/main`, build source와 운영 release는
+이 마지막 코드 커밋으로 일치했다.
+
+**소유 배포와 외부 cutover.** redesign Workers Builds를 GitHub `main`, root
+`/hangul-sori-site-local`, build `npm run deploy:check`, deploy
+`npm run deploy:production`, watch `hangul-sori-site-local/*`로 고정했다. 구 `hangulsori`
+Worker 자체는 rollback 참고용으로 보존하되 build configuration과 main/non-main trigger는
+모두 제거했다. Cloudflare build가 `1e29638b`를 받아 성공했고 Worker version
+`42dc9850-1ff6-4f05-b942-744c7118dfd2`를 100% production으로 전환했다. Sites version 14의
+pending apex와 active `www` custom-domain claim을 순서대로 제거했으며, 제거 후 Sites domain
+목록은 0개다. Cloudflare Worker의 apex/www Custom Domain은 둘 다
+`hangul-sori-redesign` production에 그대로 남아 있다. Sites 프로젝트 자체는 삭제 도구가
+없어 domain 없는 archive 상태로 남지만 운영 경로·배포 정본·자격 증명 의존성은 없다.
+
+**검증.** clean `1e29638b`에서 `npm run deploy:check`는 lint error 0(기존 `<img>`
+warning 3), TypeScript, fresh Vinext build, artifact/두 domain/4 binding 검증,
+**17/17 tests**, Wrangler strict dry-run, `npm audit --audit-level=high` 0 vulnerabilities를
+통과했다. Cloudflare build도 같은 17/17과 21 owned assets를 통과했다. Sites domain 제거
+후 외부 verifier가 apex/www 각각에서 exact release SHA, 11 routes, plain-text 404,
+tester API GET 차단과 Email/Rate Limit binding, security headers, 21 byte-exact assets,
+TestFlight CTA와 실제 Apple 초대 페이지까지 확인했다. favicon 불일치는 production cache가
+아니라 Windows CRLF checkout 오탐이었고, Git blob과 양 도메인은 처음부터 같은 LF 712B였다;
+`*.svg text eol=lf`와 Git-blob 기준 verifier로 재발을 막았다. 실제 tester 신청 POST/메일
+canary는 별도 명시 승인이 없어 보내지 않았다.
+
+**후속 전환 안정화·credential 회전.** 배포 전환 중 이전 HTML이 이미 교체된 hashed
+chunk를 잠깐 참조한 샘플을 계기로, 구현 커밋 `08af45b8`에서 HTML을
+`no-store, max-age=0, must-revalidate`로 고정하고 live verifier가 11 route HTML의 실제
+`/_next/static` 참조를 양 도메인에서 200·non-empty·올바른 JS/CSS MIME·immutable로
+검사하게 했다. 검증 실패는 기존 자동 rollback 경로로 들어간다. modern Workers Assets에
+효과가 없는 legacy `--old-asset-ttl`이나 모든 정적 요청을 과금 Worker 경로로 돌리는
+`run_worker_first`는 사용하지 않았다. 과거 로그에 노출됐던 Wrangler refresh grant는
+`wrangler logout`으로 서버 revoke하고 로컬 credential 파일이 없음을 확인했다. 이후
+`npm run cloudflare:login`은 encrypted credential의 키를 OS keychain에 저장하며,
+keychain 접근이 실패하면 plaintext fallback 없이 중단되도록 환경 계약을 강제한다.
+
 ### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
 
 **원인과 수정.** GitHub Actions run `31913714832`는 C1/C2의 구문형 어휘가 모두
