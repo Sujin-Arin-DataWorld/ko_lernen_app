@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — 한국 파트너 가족·명절 트랙 Batch 07/08 초안
+
+**무엇을.** 연인이 한국 가족을 만나는 전용 카테고리 `partner_family`를 추가하고,
+설날·추석·시댁·처가·호칭·반찬 싸주기·명절 노동까지 36팩 432개 단어 카드와
+1:1 Cloze·Satzbau, 72개 smalltalk, 6개 문법, 28개 시나리오를 review-only 초안으로
+썼다. 학습 행은 `assets/data/`에 승격하지 않았다. 카테고리 정의만
+`smalltalk.json`에 넣었다.
+
+**왜.** 기존 `dating`/`family`만으로는 한국 파트너 가족·명절 경우가 부족하고,
+교과서 복사가 아니라 오리지널 KO/DE/EN이 필요했다. 전체 live 4배 확장은 이
+검수 묶음 뒤에 이어서 팩토리 배치로 늘린다.
+
+**검증.** `python3 tools/content_factory/build_batch_07_partner_family.py` 후
+`validate_review_batch.py --manifest tools/content_factory/drafts/batch_07_manifest.json`
+통과(1374 records, 36 pack plans). `build_batch_08_partner_family_scenarios.py` 후
+`integrate_scenario_batch.py` preview 28 records. `validate_content.py` 통과.
+`--apply` 없음.
+
+**커밋해시.** 이 기록과 같은 커밋.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과
