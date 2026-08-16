@@ -285,7 +285,41 @@ missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐�
 규칙을 추가했다. 이제 TTS는 릴리스 차단 항목이 아니며, main 병합 전 남은 외부 게이트는
 실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
 `847eee9a` (`chore: verify batch 05 TTS storage`)다.
+### 2026-08-16 (Codex) — 근거 기반 태고·조이 질문과 Android 선택형 문장 교정
 
+**학습 흐름.** 책 분석 결과의 expression/word/grammar/sentence 각 카드에 독립적인
+태고·조이 질문 버튼을 연결했다. 의미·형태·검증된 예문·유사 문법·퀴즈는 현재 페이지의
+canonical `sourceUnitId`와 언어 provenance가 일치할 때만 답하고, 오염·근거 없음·관계없는
+문법 비교는 명시적으로 차단한다. 두 캐릭터는 동일한 immutable fact payload를 사용하며,
+조이의 추가 예문도 같은 페이지에서 검증된 문장 한 개로 제한했다. 역할극 완료 뒤에는
+선택형 "내 말로 써보기" 카드를 추가했으며 원문을 바꾸거나 점수·진행·SRS에 반영하지 않고,
+검증된 변경을 `원문 토큰 → 교정 토큰`으로 모두 표시한다. 온디바이스 API가 변경 이유를
+제공하지 않는다는 경계를 명시하고, 장면에 직접 선언된 문법은 교정 이유가 아닌
+태고·조이의 별도 "장면 참고 문법"으로만 설명한다.
+
+**선택형 ML Kit Proofreading.** Smart Reply·Prompt·Rewriting은 포함하지 않았다.
+Android API 24/25 기본 앱은 유지하고, API 26 이상 지원 기기에만 install-time dynamic
+feature로 `genai-proofreading:1.0.0-beta1`을 제공한다. 기능 상태 확인과 명시적 다운로드
+뒤에만 실행하며 240자·한글·지원 문자·원문 echo·최종 응답·의미 보존을 검증한다. 조사와
+어미 교정은 허용하되 어휘·부정·숫자 변경은 fail-closed한다. 원문과 제안은 나란히 보여
+주고 자동 적용하지 않으며, 미지원·다운로드·timeout·오염 응답은 기존 장면 근거 흐름으로
+돌아간다.
+
+**로컬 검증.** 최종 관련 Flutter 회귀 **88/88**, 전체
+`flutter analyze --no-pub --fatal-infos`는 115.7초에 error 0을 통과했다. 표준
+`flutter build appbundle --release`도 성공했고 minified release AAB
+`build/app/outputs/bundle/release/app-release.aab`(233,253,075 bytes,
+SHA-256 `286BC4DCDE74830532BCC1D37B5B9AB8293E9E34AD89C29FE65BCFFB3DFD8EE5`)에서 base minSdk 24,
+feature API 26 조건, `fusing=false`, 분리 dex/manifest, 보존된 feature title, feature-only
+ML Kit 의존성을 확인했다. 실제 지원 Android 기기 모델 다운로드·추론과 Play conditional
+delivery, iOS fallback 실기기는 아직 검증하지 않았다.
+
+**결제 경계.** 책 OCR과 Proofreading은 온디바이스라 Cloud API key나 호출당 Google
+서버 비용이 없다. 현재 Cloud Function/Firestore/동적 TTS는 계속 `ko-lernen-app`에 연결된
+Cloud Billing Account, DeepL 번역은 별도 키로 과금된다. `GOOGLE_TTS_API_KEY_2`는 로컬
+사전 TTS 합성 요청에만 적용된다. 결제 계정·API·Secret은 변경하지 않았다. 구현은
+`feat(study): add grounded companions and proofreading` 커밋으로 보관하며 푸시·병합·배포는
+수행하지 않는다.
 ### 2026-08-16 (Codex) — 책 한 컷 2차 구조 복구 구현
 
 **기준점과 범위.** 1차 안전 복구와 실물 8종 레이아웃 감사 기록은 먼저

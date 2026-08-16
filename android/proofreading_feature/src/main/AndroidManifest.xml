@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Both current GenAI AARs declare API 26. The base remains API 24 and
+         this narrowly-scoped override is safe because the split is never
+         delivered below API 26. Do not widen this list. -->
+    <uses-sdk
+        tools:overrideLibrary="com.google.mlkit.genai.proofreading,com.google.mlkit.genai.common" />
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_proofreading_feature">
+        <dist:delivery>
+            <dist:install-time>
+                <dist:conditions>
+                    <dist:min-sdk dist:value="26" />
+                </dist:conditions>
+            </dist:install-time>
+        </dist:delivery>
+        <dist:fusing dist:include="false" />
+    </dist:module>
+</manifest>

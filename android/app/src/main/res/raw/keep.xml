@@ -18,4 +18,4 @@
   shrinker keeps them anyway); they are listed as harmless over-keep insurance.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@drawable/ic_stat_hangul_sori,@drawable/launch_background,@drawable/background,@drawable/splash,@drawable/android12splash,@drawable/ic_launcher_foreground,@mipmap/launcher_icon,@mipmap/ic_launcher" />
+    tools:keep="@drawable/ic_stat_hangul_sori,@drawable/launch_background,@drawable/background,@drawable/splash,@drawable/android12splash,@drawable/ic_launcher_foreground,@mipmap/launcher_icon,@mipmap/ic_launcher,@string/title_proofreading_feature" />

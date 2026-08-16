@@ -2845,6 +2845,120 @@ abstract class AppL10n {
   /// **'Sätze'**
   String get bookResultSectionSentences;
 
+  /// No description provided for @bookStudyAskTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Frag {name} zu diesem Eintrag'**
+  String bookStudyAskTitle(String name);
+
+  /// No description provided for @bookStudyAskGenericTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fragen zu diesem Eintrag'**
+  String get bookStudyAskGenericTitle;
+
+  /// No description provided for @bookStudyAskButton.
+  ///
+  /// In de, this message translates to:
+  /// **'Begleiter fragen'**
+  String get bookStudyAskButton;
+
+  /// No description provided for @bookStudyAskWhyForm.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum sieht diese Form so aus?'**
+  String get bookStudyAskWhyForm;
+
+  /// No description provided for @bookStudyAskExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeig ein Beispiel von dieser Seite'**
+  String get bookStudyAskExample;
+
+  /// No description provided for @bookStudyAskCompare.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit ähnlicher Grammatik vergleichen'**
+  String get bookStudyAskCompare;
+
+  /// No description provided for @bookStudyAskQuiz.
+  ///
+  /// In de, this message translates to:
+  /// **'Stell mir eine kurze Aufgabe'**
+  String get bookStudyAskQuiz;
+
+  /// No description provided for @bookStudyAskMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Was bedeutet das?'**
+  String get bookStudyAskMeaning;
+
+  /// No description provided for @bookStudyAskGrammarInSentence.
+  ///
+  /// In de, this message translates to:
+  /// **'Welche Grammatik wird hier verwendet?'**
+  String get bookStudyAskGrammarInSentence;
+
+  /// No description provided for @bookStudyNoEvidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Dafür habe ich in der Analyse dieser Seite keinen Beleg gefunden.'**
+  String get bookStudyNoEvidence;
+
+  /// No description provided for @bookStudyAdditionalExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiteres belegtes Beispiel'**
+  String get bookStudyAdditionalExample;
+
+  /// No description provided for @bookStudyQuizPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworte nur mit den Belegen auf dieser Seite.'**
+  String get bookStudyQuizPrompt;
+
+  /// No description provided for @bookStudyShowAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort zeigen'**
+  String get bookStudyShowAnswer;
+
+  /// No description provided for @bookStudyTaegoAnswerLead.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfen wir es Schritt für Schritt.'**
+  String get bookStudyTaegoAnswerLead;
+
+  /// No description provided for @bookStudyJoyAnswerLead.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier ist die Kurzfassung!'**
+  String get bookStudyJoyAnswerLead;
+
+  /// No description provided for @bookStudyTaegoIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich zeige dir genau die belegte Stelle.'**
+  String get bookStudyTaegoIntro;
+
+  /// No description provided for @bookStudyJoyIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Schauen wir uns die belegte Stelle gemeinsam an!'**
+  String get bookStudyJoyIntro;
+
+  /// No description provided for @bookStudyGenericIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Antwort stammt nur aus dem geprüften Analyseergebnis.'**
+  String get bookStudyGenericIntro;
+
+  /// No description provided for @bookStudyEvidenceLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Beleg aus dieser Seite'**
+  String get bookStudyEvidenceLabel;
+
   /// No description provided for @bookResultSave.
   ///
   /// In de, this message translates to:
@@ -8416,7 +8530,7 @@ abstract class AppL10n {
   /// No description provided for @scenarioRoleplayHint.
   ///
   /// In de, this message translates to:
-  /// **'Jetzt bist du dran. Formuliere deine eigene Antwort.'**
+  /// **'Jetzt bist du dran. Baue die Antwort aus den Kacheln.'**
   String get scenarioRoleplayHint;
 
   /// No description provided for @scenarioRoleplayTurn.
@@ -8436,6 +8550,132 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Du hast das Gespräch selbst geführt.'**
   String get scenarioRoleplayDoneBody;
+
+  /// No description provided for @scenarioWriteAfterRoleplayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworte mit deinen eigenen Worten'**
+  String get scenarioWriteAfterRoleplayTitle;
+
+  /// No description provided for @scenarioWriteAfterRoleplayBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibe eine kurze koreanische Antwort für diese Situation. Die freiwillige Prüfung beeinflusst deine Punktzahl nicht.'**
+  String get scenarioWriteAfterRoleplayBody;
+
+  /// No description provided for @scenarioWriteAfterRoleplayInputLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein koreanischer Satz'**
+  String get scenarioWriteAfterRoleplayInputLabel;
+
+  /// No description provided for @scenarioWriteAfterRoleplayInputHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibe eine kurze Antwort auf Koreanisch'**
+  String get scenarioWriteAfterRoleplayInputHint;
+
+  /// No description provided for @scenarioWriteAfterRoleplayCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz prüfen'**
+  String get scenarioWriteAfterRoleplayCheck;
+
+  /// No description provided for @scenarioWriteAfterRoleplayChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geprüft…'**
+  String get scenarioWriteAfterRoleplayChecking;
+
+  /// No description provided for @scenarioWriteAfterRoleplayDownload.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfung auf das Gerät laden'**
+  String get scenarioWriteAfterRoleplayDownload;
+
+  /// No description provided for @scenarioWriteAfterRoleplayDownloading.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfung wird geladen…'**
+  String get scenarioWriteAfterRoleplayDownloading;
+
+  /// No description provided for @scenarioWriteAfterRoleplayOriginalLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Original'**
+  String get scenarioWriteAfterRoleplayOriginalLabel;
+
+  /// No description provided for @scenarioWriteAfterRoleplaySuggestionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschlag'**
+  String get scenarioWriteAfterRoleplaySuggestionLabel;
+
+  /// No description provided for @scenarioWriteAfterRoleplayChangesLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Geprüfte Änderungen'**
+  String get scenarioWriteAfterRoleplayChangesLabel;
+
+  /// No description provided for @scenarioWriteAfterRoleplayChangeReasonUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Prüfung auf dem Gerät liefert keinen verifizierten Grund für jede einzelne Änderung.'**
+  String get scenarioWriteAfterRoleplayChangeReasonUnavailable;
+
+  /// No description provided for @scenarioWriteAfterRoleplaySceneGrammarReference.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatikhilfe aus dieser Szene'**
+  String get scenarioWriteAfterRoleplaySceneGrammarReference;
+
+  /// No description provided for @scenarioWriteAfterRoleplayWhyLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik dieser Szene'**
+  String get scenarioWriteAfterRoleplayWhyLabel;
+
+  /// No description provided for @scenarioWriteAfterRoleplayNoChanges.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Änderung vorgeschlagen.'**
+  String get scenarioWriteAfterRoleplayNoChanges;
+
+  /// No description provided for @scenarioWriteAfterRoleplayFallbackTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dieser Szene üben'**
+  String get scenarioWriteAfterRoleplayFallbackTitle;
+
+  /// No description provided for @scenarioWriteAfterRoleplayFallbackBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die automatische Prüfung ist hier nicht verfügbar. Du kannst deinen Satz trotzdem mit der belegten Szenensprache und Grammatik vergleichen.'**
+  String get scenarioWriteAfterRoleplayFallbackBody;
+
+  /// No description provided for @scenarioWriteAfterRoleplayDownloadRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Lade die Prüfung auf das Gerät, bevor du deinen Satz prüfst.'**
+  String get scenarioWriteAfterRoleplayDownloadRequired;
+
+  /// No description provided for @scenarioWriteAfterRoleplayReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Prüfung ist bereit. Tippe noch einmal auf Satz prüfen.'**
+  String get scenarioWriteAfterRoleplayReady;
+
+  /// No description provided for @scenarioWriteAfterRoleplayAskCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach der Grammatik dieser Szene fragen'**
+  String get scenarioWriteAfterRoleplayAskCompanion;
+
+  /// No description provided for @scenarioWriteAfterRoleplayCompanionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Erklärung aus dieser Szene'**
+  String get scenarioWriteAfterRoleplayCompanionTitle;
 
   /// No description provided for @testerFeedbackCardTitle.
   ///

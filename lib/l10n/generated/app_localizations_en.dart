@@ -1573,6 +1573,69 @@ class AppL10nEn extends AppL10n {
   String get bookResultSectionSentences => 'Sentences';
 
   @override
+  String bookStudyAskTitle(String name) {
+    return 'Ask $name about this item';
+  }
+
+  @override
+  String get bookStudyAskGenericTitle => 'Questions about this item';
+
+  @override
+  String get bookStudyAskButton => 'Ask your companion';
+
+  @override
+  String get bookStudyAskWhyForm => 'Why does this form look like this?';
+
+  @override
+  String get bookStudyAskExample => 'Show an example from this page';
+
+  @override
+  String get bookStudyAskCompare => 'Compare it with similar grammar';
+
+  @override
+  String get bookStudyAskQuiz => 'Give me a quick question';
+
+  @override
+  String get bookStudyAskMeaning => 'What does this mean?';
+
+  @override
+  String get bookStudyAskGrammarInSentence => 'Which grammar is used here?';
+
+  @override
+  String get bookStudyNoEvidence =>
+      'I couldn\'t find evidence for that in this page analysis.';
+
+  @override
+  String get bookStudyAdditionalExample => 'Another verified example';
+
+  @override
+  String get bookStudyQuizPrompt =>
+      'Answer using only the evidence on this page.';
+
+  @override
+  String get bookStudyShowAnswer => 'Show answer';
+
+  @override
+  String get bookStudyTaegoAnswerLead => 'Let\'s verify it step by step.';
+
+  @override
+  String get bookStudyJoyAnswerLead => 'Here\'s the short version!';
+
+  @override
+  String get bookStudyTaegoIntro =>
+      'I\'ll point to the exact evidence in your result.';
+
+  @override
+  String get bookStudyJoyIntro => 'Let\'s look at the exact evidence together!';
+
+  @override
+  String get bookStudyGenericIntro =>
+      'This answer uses only the validated analysis result.';
+
+  @override
+  String get bookStudyEvidenceLabel => 'Evidence from this page';
+
+  @override
   String get bookResultSave => 'Save to my bookshelf';
 
   @override
@@ -4838,7 +4901,8 @@ class AppL10nEn extends AppL10n {
   String get scenarioRoleplayTitle => 'Role-play';
 
   @override
-  String get scenarioRoleplayHint => 'Your turn. Write your own reply.';
+  String get scenarioRoleplayHint =>
+      'Your turn. Build the reply from the tiles.';
 
   @override
   String get scenarioRoleplayTurn => 'Your reply';
@@ -4849,6 +4913,79 @@ class AppL10nEn extends AppL10n {
   @override
   String get scenarioRoleplayDoneBody =>
       'You carried the conversation yourself.';
+
+  @override
+  String get scenarioWriteAfterRoleplayTitle => 'Try it in your own words';
+
+  @override
+  String get scenarioWriteAfterRoleplayBody =>
+      'Write one short Korean reply for this situation. This optional check does not affect your score.';
+
+  @override
+  String get scenarioWriteAfterRoleplayInputLabel => 'Your Korean sentence';
+
+  @override
+  String get scenarioWriteAfterRoleplayInputHint =>
+      'Write a short reply in Korean';
+
+  @override
+  String get scenarioWriteAfterRoleplayCheck => 'Check sentence';
+
+  @override
+  String get scenarioWriteAfterRoleplayChecking => 'Checking…';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownload => 'Download on-device checker';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownloading => 'Downloading checker…';
+
+  @override
+  String get scenarioWriteAfterRoleplayOriginalLabel => 'Your original';
+
+  @override
+  String get scenarioWriteAfterRoleplaySuggestionLabel => 'Suggestion';
+
+  @override
+  String get scenarioWriteAfterRoleplayChangesLabel => 'Checked changes';
+
+  @override
+  String get scenarioWriteAfterRoleplayChangeReasonUnavailable =>
+      'The on-device checker does not provide a verified reason for each change.';
+
+  @override
+  String get scenarioWriteAfterRoleplaySceneGrammarReference =>
+      'Reference grammar from this scene';
+
+  @override
+  String get scenarioWriteAfterRoleplayWhyLabel => 'Scene grammar';
+
+  @override
+  String get scenarioWriteAfterRoleplayNoChanges => 'No changes suggested.';
+
+  @override
+  String get scenarioWriteAfterRoleplayFallbackTitle =>
+      'Practice with this scene';
+
+  @override
+  String get scenarioWriteAfterRoleplayFallbackBody =>
+      'Automatic proofreading isn\'t available here. You can still compare your sentence with the verified scene language and grammar.';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownloadRequired =>
+      'Download the on-device checker before checking your sentence.';
+
+  @override
+  String get scenarioWriteAfterRoleplayReady =>
+      'Checker ready. Tap Check sentence again.';
+
+  @override
+  String get scenarioWriteAfterRoleplayAskCompanion =>
+      'Ask about this scene\'s grammar';
+
+  @override
+  String get scenarioWriteAfterRoleplayCompanionTitle =>
+      'Explanation from this scene';
 
   @override
   String get testerFeedbackCardTitle => 'Tiger Pulse';

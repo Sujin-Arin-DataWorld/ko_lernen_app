@@ -10,12 +10,14 @@ import '../services/book_analysis_service.dart';
 import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
+import '../services/grounded_book_study_service.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/grounded_book_study_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
@@ -522,7 +524,11 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   if (r.words.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionWords),
                     ...r.words.map(
-                      (w) => _WordCard(word: w, allowActions: r.isSaveable),
+                      (w) => _WordCard(
+                        word: w,
+                        result: r,
+                        allowActions: r.isSaveable,
+                      ),
                     ),
                     const SizedBox(height: Spacing.lg),
                   ],
@@ -531,6 +537,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     ...r.expressions.map(
                       (expression) => _ExpressionCard(
                         expression: expression,
+                        result: r,
                         allowTts: r.isSaveable,
                       ),
                     ),
@@ -539,7 +546,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   // 문법 패턴
                   if (r.grammar.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionGrammar),
-                    ...r.grammar.map((g) => _GrammarCard(hit: g)),
+                    ...r.grammar.map((g) => _GrammarCard(hit: g, result: r)),
                     const SizedBox(height: Spacing.lg),
                   ],
                   // 문장
@@ -550,6 +557,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
                         .map(
                           (s) => _SentenceCard(
                             sentence: s,
+                            result: r,
                             allowTts: r.isSaveable,
                           ),
                         ),
@@ -716,9 +724,14 @@ class _SectionLabel extends StatelessWidget {
 }
 
 class _ExpressionCard extends StatelessWidget {
-  const _ExpressionCard({required this.expression, required this.allowTts});
+  const _ExpressionCard({
+    required this.expression,
+    required this.result,
+    required this.allowTts,
+  });
 
   final ExtractedExpression expression;
+  final BookAnalysisResult result;
   final bool allowTts;
 
   @override
@@ -747,6 +760,10 @@ class _ExpressionCard extends StatelessWidget {
                 ],
               ),
             ),
+            GroundedBookAskButton(
+              result: result,
+              target: GroundedBookTarget.forExpression(expression),
+            ),
             if (allowTts)
               IconButton(
                 icon: const Icon(Icons.volume_up_rounded),
@@ -764,8 +781,13 @@ class _ExpressionCard extends StatelessWidget {
 
 class _WordCard extends StatelessWidget {
   final ExtractedWord word;
+  final BookAnalysisResult result;
   final bool allowActions;
-  const _WordCard({required this.word, required this.allowActions});
+  const _WordCard({
+    required this.word,
+    required this.result,
+    required this.allowActions,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -783,6 +805,10 @@ class _WordCard extends StatelessWidget {
                   child: Text(word.korean, style: SoriTextTheme.of(context).h2),
                 ),
                 if (allowActions) ...[
+                  GroundedBookAskButton(
+                    result: result,
+                    target: GroundedBookTarget.forWord(word),
+                  ),
                   AddToWordbookButton(
                     korean: word.korean,
                     translationDe: word.translationDe,
@@ -867,7 +893,8 @@ class _WordCard extends StatelessWidget {
 
 class _GrammarCard extends StatelessWidget {
   final GrammarHit hit;
-  const _GrammarCard({required this.hit});
+  final BookAnalysisResult result;
+  const _GrammarCard({required this.hit, required this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -886,6 +913,10 @@ class _GrammarCard extends StatelessWidget {
                     hit.nameDe,
                     style: SoriTextTheme.of(context).cardTitle,
                   ),
+                ),
+                GroundedBookAskButton(
+                  result: result,
+                  target: GroundedBookTarget.forGrammar(hit),
                 ),
                 SoriChip(label: hit.level, accent: SoriColors.warning),
               ],
@@ -912,8 +943,13 @@ class _GrammarCard extends StatelessWidget {
 
 class _SentenceCard extends StatelessWidget {
   final TranslatedSentence sentence;
+  final BookAnalysisResult result;
   final bool allowTts;
-  const _SentenceCard({required this.sentence, required this.allowTts});
+  const _SentenceCard({
+    required this.sentence,
+    required this.result,
+    required this.allowTts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -940,6 +976,10 @@ class _SentenceCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+              ),
+              GroundedBookAskButton(
+                result: result,
+                target: GroundedBookTarget.forSentence(sentence),
               ),
               if (allowTts)
                 IconButton(

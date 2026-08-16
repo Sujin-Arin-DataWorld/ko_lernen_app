@@ -20,6 +20,7 @@ import '../services/premium_service.dart';
 import '../services/analytics_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
+import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
@@ -41,6 +42,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
@@ -1871,6 +1873,13 @@ class _RollenspielStageState extends State<_RollenspielStage> {
           children: [
             SoriEntrance(
               child: _RollenspielDoneCard(kind: _kind, clip: _clip),
+            ),
+            const SizedBox(height: Spacing.lg),
+            ScenarioWriteAfterRoleplayCard(
+              evidence: ScenarioWritingEvidence.fromScenario(
+                scenario: widget.scenario,
+                language: widget.lang,
+              ),
             ),
           ],
         ),

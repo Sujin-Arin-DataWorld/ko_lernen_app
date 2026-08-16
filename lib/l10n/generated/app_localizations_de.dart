@@ -1580,6 +1580,70 @@ class AppL10nDe extends AppL10n {
   String get bookResultSectionSentences => 'Sätze';
 
   @override
+  String bookStudyAskTitle(String name) {
+    return 'Frag $name zu diesem Eintrag';
+  }
+
+  @override
+  String get bookStudyAskGenericTitle => 'Fragen zu diesem Eintrag';
+
+  @override
+  String get bookStudyAskButton => 'Begleiter fragen';
+
+  @override
+  String get bookStudyAskWhyForm => 'Warum sieht diese Form so aus?';
+
+  @override
+  String get bookStudyAskExample => 'Zeig ein Beispiel von dieser Seite';
+
+  @override
+  String get bookStudyAskCompare => 'Mit ähnlicher Grammatik vergleichen';
+
+  @override
+  String get bookStudyAskQuiz => 'Stell mir eine kurze Aufgabe';
+
+  @override
+  String get bookStudyAskMeaning => 'Was bedeutet das?';
+
+  @override
+  String get bookStudyAskGrammarInSentence =>
+      'Welche Grammatik wird hier verwendet?';
+
+  @override
+  String get bookStudyNoEvidence =>
+      'Dafür habe ich in der Analyse dieser Seite keinen Beleg gefunden.';
+
+  @override
+  String get bookStudyAdditionalExample => 'Weiteres belegtes Beispiel';
+
+  @override
+  String get bookStudyQuizPrompt =>
+      'Antworte nur mit den Belegen auf dieser Seite.';
+
+  @override
+  String get bookStudyShowAnswer => 'Antwort zeigen';
+
+  @override
+  String get bookStudyTaegoAnswerLead => 'Prüfen wir es Schritt für Schritt.';
+
+  @override
+  String get bookStudyJoyAnswerLead => 'Hier ist die Kurzfassung!';
+
+  @override
+  String get bookStudyTaegoIntro => 'Ich zeige dir genau die belegte Stelle.';
+
+  @override
+  String get bookStudyJoyIntro =>
+      'Schauen wir uns die belegte Stelle gemeinsam an!';
+
+  @override
+  String get bookStudyGenericIntro =>
+      'Die Antwort stammt nur aus dem geprüften Analyseergebnis.';
+
+  @override
+  String get bookStudyEvidenceLabel => 'Beleg aus dieser Seite';
+
+  @override
   String get bookResultSave => 'In meinem Bücherregal speichern';
 
   @override
@@ -4860,7 +4924,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioRoleplayHint =>
-      'Jetzt bist du dran. Formuliere deine eigene Antwort.';
+      'Jetzt bist du dran. Baue die Antwort aus den Kacheln.';
 
   @override
   String get scenarioRoleplayTurn => 'Deine Antwort';
@@ -4870,6 +4934,81 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioRoleplayDoneBody => 'Du hast das Gespräch selbst geführt.';
+
+  @override
+  String get scenarioWriteAfterRoleplayTitle =>
+      'Antworte mit deinen eigenen Worten';
+
+  @override
+  String get scenarioWriteAfterRoleplayBody =>
+      'Schreibe eine kurze koreanische Antwort für diese Situation. Die freiwillige Prüfung beeinflusst deine Punktzahl nicht.';
+
+  @override
+  String get scenarioWriteAfterRoleplayInputLabel => 'Dein koreanischer Satz';
+
+  @override
+  String get scenarioWriteAfterRoleplayInputHint =>
+      'Schreibe eine kurze Antwort auf Koreanisch';
+
+  @override
+  String get scenarioWriteAfterRoleplayCheck => 'Satz prüfen';
+
+  @override
+  String get scenarioWriteAfterRoleplayChecking => 'Wird geprüft…';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownload =>
+      'Prüfung auf das Gerät laden';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownloading => 'Prüfung wird geladen…';
+
+  @override
+  String get scenarioWriteAfterRoleplayOriginalLabel => 'Dein Original';
+
+  @override
+  String get scenarioWriteAfterRoleplaySuggestionLabel => 'Vorschlag';
+
+  @override
+  String get scenarioWriteAfterRoleplayChangesLabel => 'Geprüfte Änderungen';
+
+  @override
+  String get scenarioWriteAfterRoleplayChangeReasonUnavailable =>
+      'Die Prüfung auf dem Gerät liefert keinen verifizierten Grund für jede einzelne Änderung.';
+
+  @override
+  String get scenarioWriteAfterRoleplaySceneGrammarReference =>
+      'Grammatikhilfe aus dieser Szene';
+
+  @override
+  String get scenarioWriteAfterRoleplayWhyLabel => 'Grammatik dieser Szene';
+
+  @override
+  String get scenarioWriteAfterRoleplayNoChanges =>
+      'Keine Änderung vorgeschlagen.';
+
+  @override
+  String get scenarioWriteAfterRoleplayFallbackTitle => 'Mit dieser Szene üben';
+
+  @override
+  String get scenarioWriteAfterRoleplayFallbackBody =>
+      'Die automatische Prüfung ist hier nicht verfügbar. Du kannst deinen Satz trotzdem mit der belegten Szenensprache und Grammatik vergleichen.';
+
+  @override
+  String get scenarioWriteAfterRoleplayDownloadRequired =>
+      'Lade die Prüfung auf das Gerät, bevor du deinen Satz prüfst.';
+
+  @override
+  String get scenarioWriteAfterRoleplayReady =>
+      'Die Prüfung ist bereit. Tippe noch einmal auf Satz prüfen.';
+
+  @override
+  String get scenarioWriteAfterRoleplayAskCompanion =>
+      'Nach der Grammatik dieser Szene fragen';
+
+  @override
+  String get scenarioWriteAfterRoleplayCompanionTitle =>
+      'Erklärung aus dieser Szene';
 
   @override
   String get testerFeedbackCardTitle => 'Tiger-Check';
