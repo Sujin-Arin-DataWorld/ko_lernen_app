@@ -52,9 +52,11 @@ CourseUnit (40, 탐색·선행 조건)
   track에 발행한다.
 - recognition, Cloze, Satz, 발음 따라 읽기, XP, 단어팩, browse, bypass, Gye는
   영구 능력이나 개인 한옥 보상 권한이 아니다.
-- `CourseMastery.completedUnitIds - bypassedPrerequisiteUnitIds`는 한옥의 학습
-  자격을 제공하고, exact productive evidence는 “실제로 말하고 쓸 수 있음” 도장을
-  별도로 제공한다. 기존 완료자는 집은 재구성되지만 도장은 비어 시작한다.
+- `CourseMastery.completedUnitIds - bypassedPrerequisiteUnitIds`는 완료 단원의
+  재평가 자격만 제공한다. 집과 “실제로 말하고 쓸 수 있음” 도장은 exact productive
+  evidence로 검증된 `CanDoSegment`에서만 함께 파생한다. 따라서 기존 CourseUnit
+  완료자도 신뢰 가능한 생산 증거가 없으면 새 한옥은 빈 터에서 시작하며, 재평가를
+  통과할 때 해당 영구 보상만 정확히 한 번 얻는다.
 
 ## 3. Batch 06과 이후 콘텐츠 레인
 
@@ -115,14 +117,20 @@ Jin의 per-ID 콘텐츠 승인을 뜻하지 않는다. 승인 원장이 통합�
 |---|---|---|
 | PR0 | room-v3/e66 선통합 | 완료(PR #29) |
 | PR1 | segment·track·권리·카메라 불변 계약 | 완료(PR #30) |
-| PR2 | 86 catalog, 118 draft 평가, CourseMastery V3, 4단계 project evidence, 승인 전 asset 격리·fail-closed 재평가 route | 실행 중; 최초 제품 진입점은 PR6 |
+| PR2 | 86 catalog, 118 draft 평가, CourseMastery V3, 4단계 project evidence, 승인 전 asset 격리·fail-closed 재평가 route | 완료(PR #31, merge `90613738`) |
 | PR2b | 진짜 unscripted oral authority와 consent/privacy/backend tests | PR2 뒤 |
 | Content lane A | Batch 06 review-only 도구 통합 | 완료(`23342c57` 포함 main) |
 | Content lane B | Batch 06 사람 검수와 선택적 cluster 승격 | PR2 뒤 병렬·한옥 비차단 |
-| PR3 | CourseMastery-only HanokState, 86 grant catalog, cutover, room-v3 dormant 복원 | PR2 뒤 |
+| PR3 | productive CourseMastery-only HanokState, 86 grant catalog, cutover, room-v3 dormant 복원 | 실행 중; 사용자 기본 경로 비노출 |
 | PR4 | A1 0–16 누적 자산·renderer·reveal·thumbnail QA | PR3 뒤 |
 | PR5 | A2–C2 디자인·장소·프로젝트·7/14일 돌봄 | PR3·PR4 뒤 |
 | PR6 | Today·학습 경로·미션·영수증·개인 한옥·승인된 재평가 최초 진입점 연결 | PR5 및 콘텐츠 승인 뒤 |
+
+PR3의 86개 grant 정의는 승인 전 설계 검증용 draft다. 따라서
+`tools/content_factory/drafts/hanok_grants.json`에서만 생성·검증하며 Flutter
+`assets/data`와 production `rootBundle` loader에는 포함하지 않는다. 사람 검수와
+assessment 승인이 끝난 row만 append-only release ledger에 추가하고, 그 승인 변경과
+runtime catalog 노출을 같은 원자적 PR에서 수행한다.
 | PR7 | 원자적 cutover와 legacy 한옥 삭제, Gye 경계 분리 | PR6 뒤 |
 | PR8 | 전체 성능·접근성·오프라인·동기화·기기 QA | 마지막 |
 

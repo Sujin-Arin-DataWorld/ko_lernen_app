@@ -1,0 +1,1193 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "hanok_v1_core_2026_v1",
+  "grants": [
+    {
+      "id": "hanok_a1_01_site_setout",
+      "canDoSegmentId": "segment_a1_01_greetings_hangul",
+      "level": "a1",
+      "era": "build",
+      "order": 1,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_01_site_setout"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a1_01_site_setout"
+    },
+    {
+      "id": "hanok_a1_02_plan_layout",
+      "canDoSegmentId": "segment_a1_02_self_intro_identity",
+      "level": "a1",
+      "era": "build",
+      "order": 2,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_02_plan_layout"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_01_site_setout"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_02_plan_layout"
+    },
+    {
+      "id": "hanok_a1_03_foundation_gidan",
+      "canDoSegmentId": "segment_a1_03_topic_subject_particles",
+      "level": "a1",
+      "era": "build",
+      "order": 3,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_03_foundation_gidan"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_02_plan_layout"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_03_foundation_gidan"
+    },
+    {
+      "id": "hanok_a1_04_cornerstones_choseok",
+      "canDoSegmentId": "segment_a1_04_order_request_object",
+      "level": "a1",
+      "era": "build",
+      "order": 4,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_04_cornerstones_choseok"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_03_foundation_gidan"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_04_cornerstones_choseok"
+    },
+    {
+      "id": "hanok_a1_05_timber_preparation",
+      "canDoSegmentId": "segment_a1_05_numbers_time",
+      "level": "a1",
+      "era": "build",
+      "order": 5,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_05_timber_preparation"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_04_cornerstones_choseok"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_05_timber_preparation"
+    },
+    {
+      "id": "hanok_a1_06_columns",
+      "canDoSegmentId": "segment_a1_06_transport_directions",
+      "level": "a1",
+      "era": "build",
+      "order": 6,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_06_columns"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_05_timber_preparation"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_06_columns"
+    },
+    {
+      "id": "hanok_a1_07_beams_changbang",
+      "canDoSegmentId": "segment_a1_07_contact_address",
+      "level": "a1",
+      "era": "build",
+      "order": 7,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_07_beams_changbang"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_06_columns"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_07_beams_changbang"
+    },
+    {
+      "id": "hanok_a1_08_purlins_sangnyang",
+      "canDoSegmentId": "segment_a1_08_clarify_repair",
+      "level": "a1",
+      "era": "build",
+      "order": 8,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_08_purlins_sangnyang"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_07_beams_changbang"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_08_purlins_sangnyang"
+    },
+    {
+      "id": "hanok_a1_09_rafters_roof_frame",
+      "canDoSegmentId": "segment_a1_09_home_daily_life",
+      "level": "a1",
+      "era": "build",
+      "order": 9,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_09_rafters_roof_frame"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_08_purlins_sangnyang"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_09_rafters_roof_frame"
+    },
+    {
+      "id": "hanok_a1_10_roof_base",
+      "canDoSegmentId": "segment_a1_10_health_safety",
+      "level": "a1",
+      "era": "build",
+      "order": 10,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_10_roof_base"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_09_rafters_roof_frame"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_10_roof_base"
+    },
+    {
+      "id": "hanok_a1_11_choga_roof",
+      "canDoSegmentId": "segment_a1_11_titles_relationships",
+      "level": "a1",
+      "era": "build",
+      "order": 11,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_11_choga_roof"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_10_roof_base"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_11_choga_roof"
+    },
+    {
+      "id": "hanok_a1_12_wall_frame_sujang",
+      "canDoSegmentId": "segment_a1_12_daily_negation",
+      "level": "a1",
+      "era": "build",
+      "order": 12,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_12_wall_frame_sujang"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_11_choga_roof"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_12_wall_frame_sujang"
+    },
+    {
+      "id": "hanok_a1_13_earth_walls",
+      "canDoSegmentId": "segment_a1_13_register_switching",
+      "level": "a1",
+      "era": "build",
+      "order": 13,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_13_earth_walls"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_12_wall_frame_sujang"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_13_earth_walls"
+    },
+    {
+      "id": "hanok_a1_14_ondol_maru",
+      "canDoSegmentId": "segment_a1_14_payment_delivery",
+      "level": "a1",
+      "era": "build",
+      "order": 14,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_14_ondol_maru"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_13_earth_walls"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_14_ondol_maru"
+    },
+    {
+      "id": "hanok_a1_15_changho_finish",
+      "canDoSegmentId": "segment_a1_15_first_class_work",
+      "level": "a1",
+      "era": "build",
+      "order": 15,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_15_changho_finish"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_14_ondol_maru"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_15_changho_finish"
+    },
+    {
+      "id": "hanok_a1_16_landscape_move_in",
+      "canDoSegmentId": "segment_a1_16_survival_capstone",
+      "level": "a1",
+      "era": "build",
+      "order": 16,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_a1_state_16_landscape_move_in"
+      ],
+      "prerequisiteGrantIds": [
+        "hanok_a1_15_changho_finish"
+      ],
+      "userDescriptionKey": "hanokGrant_a1_16_landscape_move_in"
+    },
+    {
+      "id": "hanok_a2_haeyo_register_transition",
+      "canDoSegmentId": "segment_a2_haeyo_register_transition",
+      "level": "a2",
+      "era": "live",
+      "order": 1,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_haeyo_register_transition_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_haeyo_register_transition",
+      "designSlot": "roofMaterial",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_plans_with_friend",
+      "canDoSegmentId": "segment_a2_plans_with_friend",
+      "level": "a2",
+      "era": "live",
+      "order": 2,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_plans_with_friend_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_plans_with_friend",
+      "designSlot": "roofForm",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_friend_birthday",
+      "canDoSegmentId": "segment_a2_friend_birthday",
+      "level": "a2",
+      "era": "live",
+      "order": 3,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_friend_birthday_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_friend_birthday",
+      "designSlot": "changho",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_running_late",
+      "canDoSegmentId": "segment_a2_running_late",
+      "level": "a2",
+      "era": "live",
+      "order": 4,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_running_late_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_running_late",
+      "designSlot": "door",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_pharmacy_headache",
+      "canDoSegmentId": "segment_a2_pharmacy_headache",
+      "level": "a2",
+      "era": "live",
+      "order": 5,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_a2_pharmacy_headache_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_pharmacy_headache"
+    },
+    {
+      "id": "hanok_a2_gym_signup",
+      "canDoSegmentId": "segment_a2_gym_signup",
+      "level": "a2",
+      "era": "live",
+      "order": 6,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_a2_gym_signup_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_gym_signup"
+    },
+    {
+      "id": "hanok_a2_feeling_sick",
+      "canDoSegmentId": "segment_a2_feeling_sick",
+      "level": "a2",
+      "era": "live",
+      "order": 7,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_feeling_sick_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_feeling_sick",
+      "designSlot": "regionClimate",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_cafe_starbucks_basic",
+      "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+      "level": "a2",
+      "era": "live",
+      "order": 8,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_cafe_starbucks_basic_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_cafe_starbucks_basic",
+      "designSlot": "wallFinish",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_myeongdong_shopping",
+      "canDoSegmentId": "segment_a2_myeongdong_shopping",
+      "level": "a2",
+      "era": "live",
+      "order": 9,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_myeongdong_shopping_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_myeongdong_shopping",
+      "designSlot": "changho",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_cafe_study",
+      "canDoSegmentId": "segment_a2_cafe_study",
+      "level": "a2",
+      "era": "live",
+      "order": 10,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_a2_cafe_study_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_cafe_study"
+    },
+    {
+      "id": "hanok_a2_subway_transfer",
+      "canDoSegmentId": "segment_a2_subway_transfer",
+      "level": "a2",
+      "era": "live",
+      "order": 11,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_subway_transfer_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_subway_transfer",
+      "designSlot": "regionClimate",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_taxi_street",
+      "canDoSegmentId": "segment_a2_taxi_street",
+      "level": "a2",
+      "era": "live",
+      "order": 12,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_taxi_street_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_taxi_street",
+      "designSlot": "signboard",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_subway_directions",
+      "canDoSegmentId": "segment_a2_subway_directions",
+      "level": "a2",
+      "era": "live",
+      "order": 13,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_subway_directions_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_subway_directions",
+      "designSlot": "courtyard",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_lost_phone",
+      "canDoSegmentId": "segment_a2_lost_phone",
+      "level": "a2",
+      "era": "live",
+      "order": 14,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_a2_lost_phone_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_lost_phone"
+    },
+    {
+      "id": "hanok_a2_ktx_ticket",
+      "canDoSegmentId": "segment_a2_ktx_ticket",
+      "level": "a2",
+      "era": "live",
+      "order": 15,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_ktx_ticket_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_ktx_ticket",
+      "designSlot": "roofForm",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_a2_rent_bank_transfer",
+      "canDoSegmentId": "segment_a2_rent_bank_transfer",
+      "level": "a2",
+      "era": "live",
+      "order": 16,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_a2_rent_bank_transfer_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_a2_rent_bank_transfer",
+      "designSlot": "signboard",
+      "optionProvenance": "commonResidential"
+    },
+    {
+      "id": "hanok_b1_plans_with_reasons",
+      "canDoSegmentId": "segment_b1_plans_with_reasons",
+      "level": "b1",
+      "era": "connect",
+      "order": 1,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_plans_with_reasons_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_plans_with_reasons"
+    },
+    {
+      "id": "hanok_b1_travel_experience",
+      "canDoSegmentId": "segment_b1_travel_experience",
+      "level": "b1",
+      "era": "connect",
+      "order": 2,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_travel_experience_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_travel_experience"
+    },
+    {
+      "id": "hanok_b1_relay_social_speech",
+      "canDoSegmentId": "segment_b1_relay_social_speech",
+      "level": "b1",
+      "era": "connect",
+      "order": 3,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_relay_social_speech_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_relay_social_speech"
+    },
+    {
+      "id": "hanok_b1_relay_media_claim",
+      "canDoSegmentId": "segment_b1_relay_media_claim",
+      "level": "b1",
+      "era": "connect",
+      "order": 4,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_relay_media_claim_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_relay_media_claim"
+    },
+    {
+      "id": "hanok_b1_bank_soft_request",
+      "canDoSegmentId": "segment_b1_bank_soft_request",
+      "level": "b1",
+      "era": "connect",
+      "order": 5,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_bank_soft_request_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_bank_soft_request"
+    },
+    {
+      "id": "hanok_b1_team_role_coordination",
+      "canDoSegmentId": "segment_b1_team_role_coordination",
+      "level": "b1",
+      "era": "connect",
+      "order": 6,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_team_role_coordination_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_team_role_coordination"
+    },
+    {
+      "id": "hanok_b1_attendance_and_coverage",
+      "canDoSegmentId": "segment_b1_attendance_and_coverage",
+      "level": "b1",
+      "era": "connect",
+      "order": 7,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_attendance_and_coverage_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_attendance_and_coverage"
+    },
+    {
+      "id": "hanok_b1_schedule_softening",
+      "canDoSegmentId": "segment_b1_schedule_softening",
+      "level": "b1",
+      "era": "connect",
+      "order": 8,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_schedule_softening_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_schedule_softening"
+    },
+    {
+      "id": "hanok_b1_encouragement",
+      "canDoSegmentId": "segment_b1_encouragement",
+      "level": "b1",
+      "era": "connect",
+      "order": 9,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_encouragement_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_encouragement"
+    },
+    {
+      "id": "hanok_b1_intimate_feelings",
+      "canDoSegmentId": "segment_b1_intimate_feelings",
+      "level": "b1",
+      "era": "connect",
+      "order": 10,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_intimate_feelings_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_intimate_feelings"
+    },
+    {
+      "id": "hanok_b1_social_invitation",
+      "canDoSegmentId": "segment_b1_social_invitation",
+      "level": "b1",
+      "era": "connect",
+      "order": 11,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_social_invitation_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_social_invitation"
+    },
+    {
+      "id": "hanok_b1_delivery_resolution",
+      "canDoSegmentId": "segment_b1_delivery_resolution",
+      "level": "b1",
+      "era": "connect",
+      "order": 12,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_delivery_resolution_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_delivery_resolution"
+    },
+    {
+      "id": "hanok_b1_property_damage_report",
+      "canDoSegmentId": "segment_b1_property_damage_report",
+      "level": "b1",
+      "era": "connect",
+      "order": 13,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_property_damage_report_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_property_damage_report"
+    },
+    {
+      "id": "hanok_b1_housing_contract",
+      "canDoSegmentId": "segment_b1_housing_contract",
+      "level": "b1",
+      "era": "connect",
+      "order": 14,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_housing_contract_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_housing_contract"
+    },
+    {
+      "id": "hanok_b1_safety_health_concern",
+      "canDoSegmentId": "segment_b1_safety_health_concern",
+      "level": "b1",
+      "era": "connect",
+      "order": 15,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_safety_health_concern_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_safety_health_concern"
+    },
+    {
+      "id": "hanok_b1_relationship_conflict_repair",
+      "canDoSegmentId": "segment_b1_relationship_conflict_repair",
+      "level": "b1",
+      "era": "connect",
+      "order": 16,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_b1_relationship_conflict_repair_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_relationship_conflict_repair"
+    },
+    {
+      "id": "hanok_b1_move_in_handover",
+      "canDoSegmentId": "segment_b1_move_in_handover",
+      "level": "b1",
+      "era": "connect",
+      "order": 17,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b1_move_in_handover_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_move_in_handover"
+    },
+    {
+      "id": "hanok_b1_life_course_narrative",
+      "canDoSegmentId": "segment_b1_life_course_narrative",
+      "level": "b1",
+      "era": "connect",
+      "order": 18,
+      "kind": "venue",
+      "revealAssetIds": [
+        "hanok_reveal_b1_life_course_narrative_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b1_life_course_narrative",
+      "venueSurface": "sarangbang"
+    },
+    {
+      "id": "hanok_b2_formal_meeting_opening",
+      "canDoSegmentId": "segment_b2_formal_meeting_opening",
+      "level": "b2",
+      "era": "share",
+      "order": 1,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_formal_meeting_opening_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_formal_meeting_opening"
+    },
+    {
+      "id": "hanok_b2_honorific_register_transform",
+      "canDoSegmentId": "segment_b2_honorific_register_transform",
+      "level": "b2",
+      "era": "share",
+      "order": 2,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_honorific_register_transform_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_honorific_register_transform"
+    },
+    {
+      "id": "hanok_b2_decision_criteria",
+      "canDoSegmentId": "segment_b2_decision_criteria",
+      "level": "b2",
+      "era": "share",
+      "order": 3,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_decision_criteria_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_decision_criteria"
+    },
+    {
+      "id": "hanok_b2_public_wording_revision",
+      "canDoSegmentId": "segment_b2_public_wording_revision",
+      "level": "b2",
+      "era": "share",
+      "order": 4,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_public_wording_revision_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_public_wording_revision",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_collaborative_feedback",
+      "canDoSegmentId": "segment_b2_collaborative_feedback",
+      "level": "b2",
+      "era": "share",
+      "order": 5,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_collaborative_feedback_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_collaborative_feedback"
+    },
+    {
+      "id": "hanok_b2_digital_source_judgment",
+      "canDoSegmentId": "segment_b2_digital_source_judgment",
+      "level": "b2",
+      "era": "share",
+      "order": 6,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_b2_digital_source_judgment_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_digital_source_judgment"
+    },
+    {
+      "id": "hanok_b2_societal_evidence_argument",
+      "canDoSegmentId": "segment_b2_societal_evidence_argument",
+      "level": "b2",
+      "era": "share",
+      "order": 7,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_b2_societal_evidence_argument_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_societal_evidence_argument"
+    },
+    {
+      "id": "hanok_b2_language_social_change",
+      "canDoSegmentId": "segment_b2_language_social_change",
+      "level": "b2",
+      "era": "share",
+      "order": 8,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_language_social_change_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_language_social_change",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_medical_precision",
+      "canDoSegmentId": "segment_b2_medical_precision",
+      "level": "b2",
+      "era": "share",
+      "order": 9,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_medical_precision_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_medical_precision"
+    },
+    {
+      "id": "hanok_b2_contract_scope",
+      "canDoSegmentId": "segment_b2_contract_scope",
+      "level": "b2",
+      "era": "share",
+      "order": 10,
+      "kind": "venue",
+      "revealAssetIds": [
+        "hanok_reveal_b2_contract_scope_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_contract_scope",
+      "venueSurface": "anbang"
+    },
+    {
+      "id": "hanok_b2_terms_deferral",
+      "canDoSegmentId": "segment_b2_terms_deferral",
+      "level": "b2",
+      "era": "share",
+      "order": 11,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_terms_deferral_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_terms_deferral"
+    },
+    {
+      "id": "hanok_b2_environmental_tradeoff",
+      "canDoSegmentId": "segment_b2_environmental_tradeoff",
+      "level": "b2",
+      "era": "share",
+      "order": 12,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_environmental_tradeoff_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_environmental_tradeoff",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_formal_complaint",
+      "canDoSegmentId": "segment_b2_formal_complaint",
+      "level": "b2",
+      "era": "share",
+      "order": 13,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_formal_complaint_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_formal_complaint"
+    },
+    {
+      "id": "hanok_b2_remedy_and_appeal",
+      "canDoSegmentId": "segment_b2_remedy_and_appeal",
+      "level": "b2",
+      "era": "share",
+      "order": 14,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_remedy_and_appeal_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_remedy_and_appeal"
+    },
+    {
+      "id": "hanok_b2_shared_space_coordination",
+      "canDoSegmentId": "segment_b2_shared_space_coordination",
+      "level": "b2",
+      "era": "share",
+      "order": 15,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_shared_space_coordination_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_shared_space_coordination",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_personal_boundaries",
+      "canDoSegmentId": "segment_b2_personal_boundaries",
+      "level": "b2",
+      "era": "share",
+      "order": 16,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_personal_boundaries_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_personal_boundaries",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_household_safety_rule",
+      "canDoSegmentId": "segment_b2_household_safety_rule",
+      "level": "b2",
+      "era": "share",
+      "order": 17,
+      "kind": "constructionPiece",
+      "revealAssetIds": [
+        "hanok_reveal_b2_household_safety_rule_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_household_safety_rule"
+    },
+    {
+      "id": "hanok_b2_interview_experience",
+      "canDoSegmentId": "segment_b2_interview_experience",
+      "level": "b2",
+      "era": "share",
+      "order": 18,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_b2_interview_experience_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_interview_experience"
+    },
+    {
+      "id": "hanok_b2_literary_cultural_response",
+      "canDoSegmentId": "segment_b2_literary_cultural_response",
+      "level": "b2",
+      "era": "share",
+      "order": 19,
+      "kind": "designOption",
+      "revealAssetIds": [
+        "hanok_reveal_b2_literary_cultural_response_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_literary_cultural_response",
+      "designSlot": "courtyard",
+      "optionProvenance": "contextPlausible"
+    },
+    {
+      "id": "hanok_b2_formal_soft_reformulation",
+      "canDoSegmentId": "segment_b2_formal_soft_reformulation",
+      "level": "b2",
+      "era": "share",
+      "order": 20,
+      "kind": "venue",
+      "revealAssetIds": [
+        "hanok_reveal_b2_formal_soft_reformulation_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_b2_formal_soft_reformulation",
+      "venueSurface": "daecheongmaru"
+    },
+    {
+      "id": "hanok_c1_evidence_validity",
+      "canDoSegmentId": "segment_c1_evidence_validity",
+      "level": "c1",
+      "era": "care",
+      "order": 1,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c1_evidence_validity_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_evidence_validity"
+    },
+    {
+      "id": "hanok_c1_evidence_limits_conclusion",
+      "canDoSegmentId": "segment_c1_evidence_limits_conclusion",
+      "level": "c1",
+      "era": "care",
+      "order": 2,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c1_evidence_limits_conclusion_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_evidence_limits_conclusion"
+    },
+    {
+      "id": "hanok_c1_risk_uncertainty",
+      "canDoSegmentId": "segment_c1_risk_uncertainty",
+      "level": "c1",
+      "era": "care",
+      "order": 3,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_c1_risk_uncertainty_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_risk_uncertainty"
+    },
+    {
+      "id": "hanok_c1_risk_update_correction",
+      "canDoSegmentId": "segment_c1_risk_update_correction",
+      "level": "c1",
+      "era": "care",
+      "order": 4,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_c1_risk_update_correction_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_risk_update_correction"
+    },
+    {
+      "id": "hanok_c1_accessibility_barrier_diagnosis",
+      "canDoSegmentId": "segment_c1_accessibility_barrier_diagnosis",
+      "level": "c1",
+      "era": "care",
+      "order": 5,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_c1_accessibility_barrier_diagnosis_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_accessibility_barrier_diagnosis"
+    },
+    {
+      "id": "hanok_c1_participatory_access_remedy",
+      "canDoSegmentId": "segment_c1_participatory_access_remedy",
+      "level": "c1",
+      "era": "care",
+      "order": 6,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c1_participatory_access_remedy_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_participatory_access_remedy"
+    },
+    {
+      "id": "hanok_c1_sustainable_lifecycle",
+      "canDoSegmentId": "segment_c1_sustainable_lifecycle",
+      "level": "c1",
+      "era": "care",
+      "order": 7,
+      "kind": "ambience",
+      "revealAssetIds": [
+        "hanok_reveal_c1_sustainable_lifecycle_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_sustainable_lifecycle"
+    },
+    {
+      "id": "hanok_c1_local_tradeoff_adaptation",
+      "canDoSegmentId": "segment_c1_local_tradeoff_adaptation",
+      "level": "c1",
+      "era": "care",
+      "order": 8,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c1_local_tradeoff_adaptation_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c1_local_tradeoff_adaptation"
+    },
+    {
+      "id": "hanok_c2_procedural_legitimacy",
+      "canDoSegmentId": "segment_c2_procedural_legitimacy",
+      "level": "c2",
+      "era": "transmit",
+      "order": 1,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_procedural_legitimacy_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_procedural_legitimacy"
+    },
+    {
+      "id": "hanok_c2_institutional_deliberation",
+      "canDoSegmentId": "segment_c2_institutional_deliberation",
+      "level": "c2",
+      "era": "transmit",
+      "order": 2,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_institutional_deliberation_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_institutional_deliberation"
+    },
+    {
+      "id": "hanok_c2_narrative_perspective",
+      "canDoSegmentId": "segment_c2_narrative_perspective",
+      "level": "c2",
+      "era": "transmit",
+      "order": 3,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_narrative_perspective_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_narrative_perspective"
+    },
+    {
+      "id": "hanok_c2_interpretation_justification",
+      "canDoSegmentId": "segment_c2_interpretation_justification",
+      "level": "c2",
+      "era": "transmit",
+      "order": 4,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_interpretation_justification_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_interpretation_justification"
+    },
+    {
+      "id": "hanok_c2_framing_responsibility",
+      "canDoSegmentId": "segment_c2_framing_responsibility",
+      "level": "c2",
+      "era": "transmit",
+      "order": 5,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_framing_responsibility_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_framing_responsibility"
+    },
+    {
+      "id": "hanok_c2_discourse_boundary_power",
+      "canDoSegmentId": "segment_c2_discourse_boundary_power",
+      "level": "c2",
+      "era": "transmit",
+      "order": 6,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_discourse_boundary_power_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_discourse_boundary_power"
+    },
+    {
+      "id": "hanok_c2_technology_traceability_appeal",
+      "canDoSegmentId": "segment_c2_technology_traceability_appeal",
+      "level": "c2",
+      "era": "transmit",
+      "order": 7,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_technology_traceability_appeal_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_technology_traceability_appeal"
+    },
+    {
+      "id": "hanok_c2_technology_responsibility_rights",
+      "canDoSegmentId": "segment_c2_technology_responsibility_rights",
+      "level": "c2",
+      "era": "transmit",
+      "order": 8,
+      "kind": "credential",
+      "revealAssetIds": [
+        "hanok_reveal_c2_technology_responsibility_rights_v1"
+      ],
+      "prerequisiteGrantIds": [],
+      "userDescriptionKey": "hanokGrant_c2_technology_responsibility_rights"
+    }
+  ]
+}

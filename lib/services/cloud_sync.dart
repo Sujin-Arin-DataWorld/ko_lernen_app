@@ -12,6 +12,7 @@ import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
 import 'course_progress_service.dart';
 import 'firestore_progress_service.dart';
+import 'hanok_state_service.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 
@@ -42,6 +43,7 @@ class CloudSync {
     'custom_packs_json',
     'bookshelf_json',
     'course_mastery_json',
+    'hanok_state_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
@@ -58,6 +60,7 @@ class CloudSync {
   /// catalog-validated canonical v2 state (and completed any safe migration).
   static Future<Map<String, dynamic>> buildBackupPayload({
     CourseMasteryLocalCapture? courseMasteryCapture,
+    HanokStateLocalCapture? hanokStateCapture,
   }) async {
     final payload = <String, dynamic>{
       'vok': {
@@ -120,6 +123,12 @@ class CloudSync {
     if (courseCapture?.snapshot case final courseMastery?) {
       payload['course_mastery_json'] = jsonEncode(courseMastery.toJson());
     }
+    final hanokCapture =
+        hanokStateCapture ??
+        await const HanokStateService().captureForCloudReconciliation();
+    if (hanokCapture.state case final state?) {
+      payload['hanok_state_json'] = jsonEncode(state.toJson());
+    }
     return payload;
   }
 
@@ -177,6 +186,7 @@ class CloudSync {
     Map<String, dynamic> data, {
     void Function()? beforeWrite,
     String Function()? courseGenerationReader,
+    String Function()? hanokGenerationReader,
     Future<void> Function(
       String raw, {
       required String? expectedGeneration,
@@ -184,12 +194,21 @@ class CloudSync {
       void Function()? beforeWrite,
     })?
     courseSnapshotMerger,
+    Future<void> Function(
+      String raw, {
+      required String? expectedGeneration,
+      void Function()? beforeRead,
+      void Function()? beforeWrite,
+    })?
+    hanokStateMerger,
   }) {
     return _applyRestorePayload(
       data,
       beforeWrite: beforeWrite,
       courseGenerationReader: courseGenerationReader,
       courseSnapshotMerger: courseSnapshotMerger,
+      hanokGenerationReader: hanokGenerationReader,
+      hanokStateMerger: hanokStateMerger,
     );
   }
 
@@ -235,6 +254,7 @@ class CloudSync {
     Future<void> Function(String restoredJson)?
     onValidatedLegacyBookshelfRestored,
     String Function()? courseGenerationReader,
+    String Function()? hanokGenerationReader,
     Future<void> Function(
       String raw, {
       required String? expectedGeneration,
@@ -242,6 +262,13 @@ class CloudSync {
       void Function()? beforeWrite,
     })?
     courseSnapshotMerger,
+    Future<void> Function(
+      String raw, {
+      required String? expectedGeneration,
+      void Function()? beforeRead,
+      void Function()? beforeWrite,
+    })?
+    hanokStateMerger,
   }) async {
     final vok = _map(data['vok']);
     final vocabularyWasUninitialized =
@@ -498,6 +525,31 @@ class CloudSync {
         await CourseProgressService.shared.mergeCloudSnapshotJson(
           rawCourseMastery,
           expectedGeneration: generation.isEmpty ? null : generation,
+          beforeRead: beforeWrite,
+          beforeWrite: beforeWrite,
+        );
+      }
+    }
+    if (data.containsKey('hanok_state_json')) {
+      final rawHanokState = data['hanok_state_json'];
+      if (rawHanokState is! String || rawHanokState.trim().isEmpty) {
+        throw const FormatException('Hanok cloud data must be nonempty JSON.');
+      }
+      beforeWrite?.call();
+      final generation =
+          (hanokGenerationReader ?? () => Storage.hanokStateRawJson)();
+      final merger = hanokStateMerger;
+      if (merger != null) {
+        await merger(
+          rawHanokState,
+          expectedGeneration: generation,
+          beforeRead: beforeWrite,
+          beforeWrite: beforeWrite,
+        );
+      } else {
+        await const HanokStateService().mergeCloudSnapshotJson(
+          rawHanokState,
+          expectedGeneration: generation,
           beforeRead: beforeWrite,
           beforeWrite: beforeWrite,
         );

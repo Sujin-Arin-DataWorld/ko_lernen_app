@@ -1239,7 +1239,20 @@ def build() -> dict[str, Any]:
             f"reviewed productive spec mismatch; missing={missing}, extra={extra}"
         )
     clusters = {cluster["id"]: cluster for cluster in source["contentClusters"]}
-    definitions = [basic_definition(segment) for segment in segments if segment["level"] not in {"c1", "c2"}]
+    definitions = []
+    previous_a1_assessment_id: str | None = None
+    for segment in segments:
+        if segment["level"] in {"c1", "c2"}:
+            continue
+        definition = basic_definition(segment)
+        if segment["level"] == "a1":
+            definition["prerequisiteAssessmentItemIds"] = (
+                []
+                if previous_a1_assessment_id is None
+                else [previous_a1_assessment_id]
+            )
+            previous_a1_assessment_id = definition["assessmentItemId"]
+        definitions.append(definition)
     project_segments: dict[str, list[dict[str, Any]]] = {}
     for segment in segments:
         if segment["level"] not in {"c1", "c2"}:

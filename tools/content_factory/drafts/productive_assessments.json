@@ -98,7 +98,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_01_greetings_hangul_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "저는 수진입니다. 저는 수진이에요. 나 수진이야."
@@ -157,7 +159,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_02_self_intro_identity_connected_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "수진은 학생이고 제가 선생님이에요."
@@ -232,7 +236,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_03_topic_subject_particles_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "커피를 데워 주세요."
@@ -306,7 +312,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_04_order_request_object_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "지금 세 시예요."
@@ -354,7 +362,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_05_numbers_time_dictation_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "서울역으로 가 주세요."
@@ -427,7 +437,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_06_transport_directions_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "전화번호를 다시 확인해 주세요."
@@ -475,7 +487,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_07_contact_address_dictation_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "죄송하지만 다시 천천히 말해 주세요."
@@ -548,7 +562,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_08_clarify_repair_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "저는 집에서 아침마다 밥을 먹어요."
@@ -621,7 +637,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_09_home_daily_life_connected_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "배가 많이 아파서 도움이 필요해요."
@@ -696,7 +714,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_10_health_safety_connected_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "선생님, 안녕하세요."
@@ -769,7 +789,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_11_titles_relationships_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "오늘은 운동을 안 해요."
@@ -843,7 +865,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_12_daily_negation_guided_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "처음 뵙겠습니다. 만나서 반가워요."
@@ -916,7 +940,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_13_register_switching_connected_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "이 주문은 자동 결제예요."
@@ -964,7 +990,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_14_payment_delivery_dictation_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "처음 뵙겠습니다. 저는 수진입니다. 성함이 어떻게 되세요?"
@@ -1046,7 +1074,9 @@
         "de": "Drücke alle geforderten Bedeutungen aus und verwende die passende Anrede und Satzendung.",
         "en": "Express every required meaning and use the appropriate register and sentence ending."
       },
-      "prerequisiteAssessmentItemIds": [],
+      "prerequisiteAssessmentItemIds": [
+        "assess_a1_15_first_class_work_connected_production_v1"
+      ],
       "grammarReferenceIds": [],
       "authoredContextExamples": [
         "안녕하세요. 서울역으로 가려면 어디로 가야 해요? 잘 못 들었어요. 다시 말해 주세요."
