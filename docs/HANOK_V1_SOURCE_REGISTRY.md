@@ -79,8 +79,10 @@ Gye 자산, legacy 개인 한옥 자산은 기본 거부한다.
 
 모든 생성 호출은 provider, model, UTC 호출 시각, 사용 credit, prompt SHA-256,
 입력 경로와 SHA-256, 출력 경로와 SHA-256, 승인·탈락 결정을 기계 판독 ledger에
-남긴다. 현재 PR1에서는 생성·업로드를 수행하지 않았으므로 `records`는 빈 배열이다.
-실제 생성 전 이 빈 배열과 allowlist를 확인하는 것이 fail-closed 시작 조건이다.
+남긴다. PR4의 A1-06 파일럿은 허용된 프로젝트 자산 두 장만 입력으로 사용해
+Nano Banana Pro 2K 세 안을 생성했으며, 총 12 credit을 사용했다. 세 출력 모두
+socket 바깥 대지를 다시 그려 `rejected`로 기록했고 런타임에는 포함하지 않는다.
+추가 생성 전 allowlist와 누적 ledger를 확인하는 것이 fail-closed 시작 조건이다.
 ledger는 정적 이미지 200 credit, 선택 영상 10.4 credit, 합계 210.4 credit 상한을
 각각 검사한다. 미래 기록도 입력 SHA와 allowlist, canonical UTC, media kind,
 호출별 credit, 출력 SHA와 승인 결정을 모두 만족해야 한다.

@@ -1,6 +1,6 @@
 # 한옥 V1 A1-06 기둥 세우기 — BBANANA pilot 3안
 
-상태: 호출 전 고정 · 2026-08-17
+상태: 3안 실행·전부 QA 탈락 · 2026-08-17
 
 ## 실행 계약
 
@@ -127,3 +127,21 @@ frame.
   composition
 - automated dimension/color/matte/OCR/socket tests and human visual review pass
 - rejected variants remain QA evidence only and are never bundled
+
+## 실행 결과
+
+세 호출은 성공했지만 모두 런타임 채택 기준을 통과하지 못했다. 모델이 house
+socket만 편집하지 않고 대지·식생·담장·길을 전면 재합성했고, 출력도 2400×1792로
+canonical 4:3 canvas와 일치하지 않았다. 1536×1152로 deterministic fit한 뒤 socket
+바깥에서 channel delta가 5를 넘는 픽셀 비율은 A 80.4720%, B 78.1374%, C
+77.7702%였다. 따라서 나머지 15개 상태 생성은 중단한다.
+
+| 안 | BBANANA task | 출력 SHA-256 | 판단 |
+|---|---|---|---|
+| A | `e6c4d7f964b0f730774279a66837a2bb` | `96c0c9af4b7dae8f12d2dc76649f20bf7c97790a8edd429eeef0e1bb5184b5cf` | rejected |
+| B | `c3c05e4a5bef4c20b270fbdcd6ad8379` | `20a2b405ca390f0d79603972618266d7538e43296eb7db93f3e5b56c71828109` | rejected |
+| C | `eef4511c225a4419aa2d2692c0aa544b` | `59805a3a126721c2fcffd20348acb5f1ecbe4ac4aa7803f2d9feec20878a4768` | rejected |
+
+다음 시도는 전체 대지를 edit target으로 보내지 않는다. 투명 854×309 socket 전용
+construction layer를 생성·검수한 뒤 프로젝트의 원본 base에 결정론적으로 합성하는
+파이프라인을 먼저 설계한다. 생성형 모델이 base 바깥 픽셀을 보존한다고 가정하지 않는다.

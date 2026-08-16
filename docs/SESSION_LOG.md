@@ -16,10 +16,16 @@ reference 역할, exact socket/anchor, 금지 입력·구조·UI 요소와 수�
 `docs/assets/prompts/HANOK_V1_A1_06_COLUMNS_PILOT_2026-08-17.md`에 고정했다.
 사용자 화면·Vivasam·PDF·legacy/Gye asset은 모델에 보내지 않았다.
 
+**파일럿 결과.** 허용된 base와 Sarangchae만 업로드해 Nano Banana Pro 2K 세 안을
+생성했고 12 credits를 사용했다. 세 안 모두 기둥은 표현했지만 socket 바깥 픽셀의
+77.8–80.5%를 재합성했으므로 전부 거절했다. 런타임 자산이나 나머지 15단계 생성으로
+확대하지 않았고 task·prompt/output SHA·비용·판단은 provenance ledger에 기록했다.
+다음 시도는 투명 socket 전용 레이어를 생성한 뒤 원본 base와 결정론적으로 합성한다.
+
 **검증.** `python -m unittest tool.test_check_personal_hanok_assets` **3/3**,
 personal Hanok bundle + V1 provenance Flutter 회귀 **10/10**, 실제 checker의 8개
-runtime layer/QA metadata·pixel 합성, `git diff --check`를 통과했다. 이미지 생성 호출,
-크레딧 차감, push, PR은 이 기록 시점에 아직 없다.
+runtime layer/QA metadata·pixel 합성, `git diff --check`를 통과했다. push와 PR은 이
+기록 시점에 아직 없다.
 
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 

@@ -207,7 +207,104 @@
         "decision"
       ]
     },
-    "records": []
+    "records": [
+      {
+        "id": "hanok_a1_06_columns_pilot_a_20260817",
+        "provider": "BBANANA",
+        "model": "Nano Banana Pro",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T22:42:55.587890Z",
+        "costCredits": 4.0,
+        "taskId": "e6c4d7f964b0f730774279a66837a2bb",
+        "promptSha256": "97645ba1d6e88eea15cc0e310e127c1a6d75533ec7838cd0ac89e0fae2ff933e",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
+            "sha256": "5d197bc17feb6ed1797cbbaa1ab96b273a1fabee2e3d12a69728e64c53fd6690"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1786920475822.png",
+            "sha256": "96c0c9af4b7dae8f12d2dc76649f20bf7c97790a8edd429eeef0e1bb5184b5cf",
+            "decision": "rejected",
+            "width": 2400,
+            "height": 1792,
+            "colorMode": "RGBA",
+            "bytes": 8724045,
+            "decisionReason": "socket_outside_changed_gt5_0.804720"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_06_columns_pilot_b_20260817",
+        "provider": "BBANANA",
+        "model": "Nano Banana Pro",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T22:43:02.491866Z",
+        "costCredits": 4.0,
+        "taskId": "c3c05e4a5bef4c20b270fbdcd6ad8379",
+        "promptSha256": "a0fc5f8855f6a456793c3d8c9106795bc079c18f5041bd874277d721424f9c49",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
+            "sha256": "5d197bc17feb6ed1797cbbaa1ab96b273a1fabee2e3d12a69728e64c53fd6690"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1786920377633.jpg",
+            "sha256": "20a2b405ca390f0d79603972618266d7538e43296eb7db93f3e5b56c71828109",
+            "decision": "rejected",
+            "width": 2400,
+            "height": 1792,
+            "colorMode": "RGB",
+            "bytes": 3308388,
+            "decisionReason": "socket_outside_changed_gt5_0.781374"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_06_columns_pilot_c_20260817",
+        "provider": "BBANANA",
+        "model": "Nano Banana Pro",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T22:43:09.682875Z",
+        "costCredits": 4.0,
+        "taskId": "eef4511c225a4419aa2d2692c0aa544b",
+        "promptSha256": "c104c3e8fee320a9fd6e9b4dee1c22d4c96e21b2f6232f1cf8ca670d00840651",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
+            "sha256": "5d197bc17feb6ed1797cbbaa1ab96b273a1fabee2e3d12a69728e64c53fd6690"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1786920397380.jpg",
+            "sha256": "59805a3a126721c2fcffd20348acb5f1ecbe4ac4aa7803f2d9feec20878a4768",
+            "decision": "rejected",
+            "width": 2400,
+            "height": 1792,
+            "colorMode": "RGB",
+            "bytes": 3193894,
+            "decisionReason": "socket_outside_changed_gt5_0.777702"
+          }
+        ]
+      }
+    ]
   },
   "qaComposite": {
     "path": "assets_unused/pending_review/reference_full_estate.png",

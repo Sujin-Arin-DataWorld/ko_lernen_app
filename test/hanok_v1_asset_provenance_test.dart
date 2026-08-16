@@ -312,7 +312,7 @@ void main() {
   });
 
   group('Generation ledger and progression separation', () {
-    test('declares a machine-readable zero-call generation ledger', () {
+    test('declares a machine-readable generation ledger', () {
       final ledger = _object(manifest['generationLedger'], 'generationLedger');
       expect(
         _integer(ledger['schemaVersion'], 'generationLedger.schemaVersion'),
@@ -356,7 +356,27 @@ void main() {
         'sha256',
         'decision',
       ]);
-      expect(_list(ledger['records'], 'generationLedger.records'), isEmpty);
+      final records = _objects(ledger['records'], 'generationLedger.records');
+      expect(records, hasLength(3));
+      expect(
+        records
+            .expand(
+              (record) => _objects(
+                record['outputAssets'],
+                'generationRecord.outputAssets',
+              ),
+            )
+            .map((output) => output['decision']),
+        everyElement('rejected'),
+      );
+      expect(
+        records.fold<double>(
+          0,
+          (sum, record) =>
+              sum + _number(record['costCredits'], 'record.costCredits'),
+        ),
+        12.0,
+      );
     });
 
     test(
