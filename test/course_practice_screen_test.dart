@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
@@ -63,6 +64,64 @@ void main() {
       expect(
         find.byKey(const Key('grammar-choice-cta'), skipOffstage: false),
         findsNothing,
+      );
+      expect(tester.takeException(), isNull);
+      await _disposeCourseScreen(tester);
+    },
+  );
+
+  testWidgets(
+    'B2 counterfactual checkpoint card opens its scored choices on tap',
+    (tester) async {
+      const targetId = 'grammar_b2_counterfactual_past';
+      final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
+      final link = catalog.contentLinks.singleWhere(
+        (item) =>
+            item.contentKind == CurriculumContentKind.grammar &&
+            item.contentId == targetId &&
+            item.courseUnitId == 'b2_04_complaint_resolution' &&
+            item.role == ContentLinkRole.assess,
+      );
+      final context = CoursePracticeContext.fromLink(link);
+      final scopedIds = courseContentIdsForContext(
+        catalog: catalog,
+        courseContext: context,
+        kind: CurriculumContentKind.grammar,
+      )!;
+      final scopedGrammar = (await DataLoader.loadGrammar())
+          .where((grammar) => scopedIds.contains(grammar.id))
+          .toList(growable: false);
+      final targetIndex = scopedGrammar.indexWhere(
+        (grammar) => grammar.id == targetId,
+      );
+      expect(targetIndex, isNonNegative);
+      await Storage.setGrammarLastIdx(targetIndex);
+
+      await tester.pumpWidget(_wrap(GrammarScreen(courseContext: context)));
+      await _settleCourseScreen(tester);
+
+      final card = tester.widget<FlipCard>(find.byType(FlipCard));
+      expect(card.onTap, isNotNull);
+      expect(find.text('V-았/었더라면'), findsNothing);
+
+      await tester.tap(find.byType(FlipCard));
+      await tester.pumpAndSettle();
+
+      expect(find.text('V-았/었더라면'), findsOneWidget);
+      expect(find.text('Which pattern fits this example?'), findsWidgets);
+      final correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
+      expect(tester.widget<SoriButton>(correctChoice).onTap, isNotNull);
+      await tester.drag(
+        find.byType(SingleChildScrollView).last,
+        const Offset(0, -240),
+      );
+      await tester.pump();
+      await tester.tap(correctChoice);
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(
+        find.text('Correct. This mission has recorded evidence.'),
+        findsOneWidget,
       );
       expect(tester.takeException(), isNull);
       await _disposeCourseScreen(tester);
