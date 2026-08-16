@@ -14,6 +14,7 @@ import 'audio_policy.dart';
 import 'hangul_util.dart';
 import 'analytics_service.dart';
 import 'storage_service.dart';
+import 'tts_installation_id.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
@@ -74,8 +75,7 @@ class TtsPlaybackRates {
   }) {
     final safeBase = baseRate.isFinite ? baseRate : defaultSpeechRate;
     final safeUser = userMultiplier.isFinite ? userMultiplier : 1.0;
-    final safeMultiplier =
-        (multiplier.isFinite ? multiplier : 1.0) * safeUser;
+    final safeMultiplier = (multiplier.isFinite ? multiplier : 1.0) * safeUser;
     return TtsPlaybackRates(
       speechRate: (safeBase * safeMultiplier).clamp(0.1, 1.0).toDouble(),
       fileRate: ((safeBase / defaultSpeechRate) * safeMultiplier)
@@ -339,6 +339,8 @@ class TtsService {
   static bool _ttsInit = false;
   static Directory? _cacheDir;
   static String? lastError;
+  static final TtsInstallationIdProvider _installationIdProvider =
+      TtsInstallationIdProvider();
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveFile: _resolveFile,
     platform: const _ServicePlaybackPlatform(),
@@ -490,6 +492,7 @@ class TtsService {
 
     // 3. Authenticated Firebase callable (dynamic synthesis).
     try {
+      final installationId = await _installationIdProvider.getOrCreate();
       final result = await _functions
           .httpsCallable(
             _functionName,
@@ -498,7 +501,13 @@ class TtsService {
               limitedUseAppCheckToken: true,
             ),
           )
-          .call<Map<String, dynamic>>({'text': text, 'voice': key.voice});
+          .call<Map<String, dynamic>>(
+            buildTtsCallableData(
+              text: text,
+              voice: key.voice,
+              installationId: installationId,
+            ),
+          );
       final b64 = result.data['audioBase64'] as String?;
       if (b64 != null && b64.isNotEmpty) {
         final bytes = base64Decode(b64);

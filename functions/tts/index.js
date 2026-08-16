@@ -26,8 +26,7 @@ const {
   CALLABLE_OPTIONS,
   TtsRequestError,
   validateTtsRequest,
-  underDailyQuota,
-  DAILY_LIMIT_TTS,
+  underDailyTtsQuotas,
 } = require("./tts_request_guard");
 
 admin.initializeApp();
@@ -47,19 +46,9 @@ const VOICES = {
 };
 const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
 
-exports.synthesize_tts = onCall(CALLABLE_OPTIONS, async (request) => {
+async function synthesizeTts(request) {
     try {
-      const { text, voice } = validateTtsRequest(request);
-
-      // uid 당 하루 상한. 인증·App Check 를 통과한 뒤에도 남는 과금 위험을
-      // 여기서 막는다 — 토큰이 유출되거나 클라가 폭주해도 계정당 상한이 걸린다.
-      const uid = request.auth.uid;
-      if (!(await underDailyQuota(admin.firestore(), uid, "tts", DAILY_LIMIT_TTS))) {
-        throw new HttpsError(
-          "resource-exhausted",
-          "Daily synthesis limit reached.",
-        );
-      }
+      const { text, voice, installationId } = validateTtsRequest(request);
 
       const key = cacheKey(voice, text);
       const voiceKey = key.voice;
@@ -72,6 +61,23 @@ exports.synthesize_tts = onCall(CALLABLE_OPTIONS, async (request) => {
         const [buf] = await fileRef.download();
         audioBuffer = buf;
       } else {
+        // 이미 만들어진 Storage 음성은 Google TTS 비용이 들지 않으므로 세지
+        // 않는다. 실제 새 합성 직전에만 설치 30·계정 50·전체 300 한도를
+        // 하나의 Firestore 트랜잭션으로 차감한다.
+        const quota = await underDailyTtsQuotas(admin.firestore(), {
+          uid: request.auth.uid,
+          installationId,
+        });
+        if (!quota.allowed) {
+          console.warn("Daily TTS synthesis limit reached", {
+            scope: quota.exceededScope,
+          });
+          throw new HttpsError(
+            "resource-exhausted",
+            "Daily synthesis limit reached.",
+          );
+        }
+
         const [response] = await ttsClient.synthesizeSpeech({
           input: { text },
           voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
@@ -96,4 +102,9 @@ exports.synthesize_tts = onCall(CALLABLE_OPTIONS, async (request) => {
       console.error("synthesize_tts error", e);
       throw new HttpsError("internal", "TTS synthesis failed.");
     }
-  });
+}
+
+// 새 앱의 정본 이름과 이미 배포된 구버전 별칭에 같은 제한을 적용해 어느
+// 엔드포인트로도 일일 한도를 우회할 수 없게 한다.
+exports.synthesize_tts = onCall(CALLABLE_OPTIONS, synthesizeTts);
+exports.synthesize_tts_v2 = onCall(CALLABLE_OPTIONS, synthesizeTts);
