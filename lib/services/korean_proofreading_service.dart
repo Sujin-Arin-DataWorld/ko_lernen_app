@@ -632,11 +632,13 @@ bool _isRelevantCorrection(String source, String candidate) {
       return false;
     }
   } else if (sourceWords.length >= 2) {
-    final preserved = _countPreservedContentWords(sourceWords, candidateWords);
-    final sourceCoverage = preserved / sourceWords.length;
-    final candidateCoverage = preserved / candidateWords.length;
-    if (sourceCoverage < 0.85 || candidateCoverage < 0.85) {
-      return false;
+    for (var index = 0; index < sourceWords.length; index++) {
+      if (!_isMorphologicallyPreservedWord(
+        sourceWords[index],
+        candidateWords[index],
+      )) {
+        return false;
+      }
     }
   }
   if (longest <= 4) {
@@ -662,93 +664,70 @@ List<String> _semanticContentWords(String value) => _contentWords(
 bool _isOptionalGrammarWord(String word) =>
     const <String>{'거예요', '거에요', '것이에요', '것입니다'}.contains(word);
 
-int _countPreservedContentWords(
-  List<String> sourceWords,
-  List<String> candidateWords,
-) {
-  final sourceMatched = List<bool>.filled(sourceWords.length, false);
-  final candidateMatched = List<bool>.filled(candidateWords.length, false);
-  var preserved = 0;
-
-  // Reserve exact matches first so a fuzzy match cannot consume their slot.
-  for (var sourceIndex = 0; sourceIndex < sourceWords.length; sourceIndex++) {
-    for (
-      var candidateIndex = 0;
-      candidateIndex < candidateWords.length;
-      candidateIndex++
-    ) {
-      if (!candidateMatched[candidateIndex] &&
-          sourceWords[sourceIndex] == candidateWords[candidateIndex]) {
-        sourceMatched[sourceIndex] = true;
-        candidateMatched[candidateIndex] = true;
-        preserved++;
-        break;
-      }
-    }
-  }
-
-  for (var sourceIndex = 0; sourceIndex < sourceWords.length; sourceIndex++) {
-    if (sourceMatched[sourceIndex]) {
-      continue;
-    }
-    for (
-      var candidateIndex = 0;
-      candidateIndex < candidateWords.length;
-      candidateIndex++
-    ) {
-      if (!candidateMatched[candidateIndex] &&
-          _isMorphologicallyPreservedWord(
-            sourceWords[sourceIndex],
-            candidateWords[candidateIndex],
-          )) {
-        candidateMatched[candidateIndex] = true;
-        preserved++;
-        break;
-      }
-    }
-  }
-  return preserved;
-}
-
 bool _isMorphologicallyPreservedWord(String source, String candidate) {
   final sourceKey = _koreanMorphologyKey(source);
   final candidateKey = _koreanMorphologyKey(candidate);
   if (sourceKey == candidateKey) {
     return true;
   }
+  if (_knownKoreanOrthographyCorrections[sourceKey] == candidateKey) {
+    return true;
+  }
+  return _isPostBatchimTenseSpellingCorrection(sourceKey, candidateKey);
+}
 
-  final sourceRunes = sourceKey.runes.toList(growable: false);
-  final candidateRunes = candidateKey.runes.toList(growable: false);
-  if (sourceRunes.length < 2 || candidateRunes.length < 2) {
+bool _isPostBatchimTenseSpellingCorrection(String source, String candidate) {
+  final sourceRunes = source.runes.toList(growable: false);
+  final candidateRunes = candidate.runes.toList(growable: false);
+  if (sourceRunes.length != candidateRunes.length) {
     return false;
   }
-  final sourcePhonemes = _hangulPhonemeRunes(sourceKey);
-  final candidatePhonemes = _hangulPhonemeRunes(candidateKey);
-  final longest = sourcePhonemes.length > candidatePhonemes.length
-      ? sourcePhonemes.length
-      : candidatePhonemes.length;
-  final distance = _editDistance(sourcePhonemes, candidatePhonemes);
-  return 1 - (distance / longest) >= 0.75;
-}
-
-List<int> _hangulPhonemeRunes(String value) {
-  final result = <int>[];
-  for (final rune in value.runes) {
-    if (rune < 0xAC00 || rune > 0xD7A3) {
-      result.add(rune);
+  var changedIndex = -1;
+  for (var index = 0; index < sourceRunes.length; index++) {
+    if (sourceRunes[index] == candidateRunes[index]) {
       continue;
     }
-    final offset = rune - 0xAC00;
-    result
-      ..add(0x1100 + offset ~/ 588)
-      ..add(0x1161 + (offset % 588) ~/ 28);
-    final finalConsonant = offset % 28;
-    if (finalConsonant != 0) {
-      result.add(0x11A7 + finalConsonant);
+    if (changedIndex != -1) {
+      return false;
     }
+    changedIndex = index;
   }
-  return result;
+  if (changedIndex <= 0) {
+    return false;
+  }
+
+  final previousOffset = sourceRunes[changedIndex - 1] - 0xAC00;
+  final sourceOffset = sourceRunes[changedIndex] - 0xAC00;
+  final candidateOffset = candidateRunes[changedIndex] - 0xAC00;
+  if (previousOffset < 0 ||
+      previousOffset > 0xD7A3 - 0xAC00 ||
+      previousOffset % 28 == 0 ||
+      sourceOffset < 0 ||
+      sourceOffset > 0xD7A3 - 0xAC00 ||
+      candidateOffset < 0 ||
+      candidateOffset > 0xD7A3 - 0xAC00) {
+    return false;
+  }
+
+  final sourceInitial = sourceOffset ~/ 588;
+  final candidateInitial = candidateOffset ~/ 588;
+  final sourceRemainder = sourceOffset % 588;
+  final candidateRemainder = candidateOffset % 588;
+  return sourceRemainder == candidateRemainder &&
+      _plainInitialForTense[sourceInitial] == candidateInitial;
 }
+
+const Map<String, String> _knownKoreanOrthographyCorrections = <String, String>{
+  '되요': '돼요',
+};
+
+const Map<int, int> _plainInitialForTense = <int, int>{
+  1: 0,
+  4: 3,
+  8: 7,
+  10: 9,
+  13: 12,
+};
 
 String _koreanMorphologyKey(String word) {
   var key = _stripKoreanParticles(word);

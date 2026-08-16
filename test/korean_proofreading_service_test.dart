@@ -356,7 +356,16 @@ void main() {
     test(
       'rejects numeric polarity and lexical drift in short responses',
       () async {
-        final responses = <String>['2개', '잘돼', '불 주세요.', '불', '두 개', '학원'];
+        final responses = <String>[
+          '2개',
+          '잘돼',
+          '불 주세요.',
+          '불',
+          '두 개',
+          '학원',
+          '바람',
+          '거기',
+        ];
         messenger.setMockMethodCallHandler(channel, (call) async {
           final arguments = (call.arguments as Map).cast<String, Object>();
           return <String, Object>{
@@ -377,6 +386,8 @@ void main() {
         final oneSyllableDrift = await service.proofread('물');
         final koreanNumberDrift = await service.proofread('한 개');
         final shortWordDrift = await service.proofread('학교');
+        final similarWordDrift = await service.proofread('사람');
+        final similarVowelDrift = await service.proofread('고기');
 
         expect(numericDrift.error, KoreanProofreadingError.irrelevantResponse);
         expect(polarityDrift.error, KoreanProofreadingError.irrelevantResponse);
@@ -391,6 +402,14 @@ void main() {
         );
         expect(
           shortWordDrift.error,
+          KoreanProofreadingError.irrelevantResponse,
+        );
+        expect(
+          similarWordDrift.error,
+          KoreanProofreadingError.irrelevantResponse,
+        );
+        expect(
+          similarVowelDrift.error,
           KoreanProofreadingError.irrelevantResponse,
         );
       },
@@ -433,6 +452,28 @@ void main() {
       );
 
       final result = await service.proofread('저는 오늘 학교에 갑니다.');
+
+      expect(result.error, KoreanProofreadingError.irrelevantResponse);
+    });
+
+    test('rejects one changed word in a longer sentence', () async {
+      const original = '저는 오늘 친구와 학교에서 한국어를 열심히 공부해요.';
+      const changed = '저는 오늘 친구와 도서관에서 한국어를 열심히 공부해요.';
+      messenger.setMockMethodCallHandler(
+        channel,
+        (call) async => <String, Object>{
+          'status': 'completed',
+          'sourceText': original,
+          'suggestions': <String>[changed],
+          'isFinal': true,
+        },
+      );
+      final service = KoreanProofreadingService(
+        channel: channel,
+        isAndroidOverride: true,
+      );
+
+      final result = await service.proofread(original);
 
       expect(result.error, KoreanProofreadingError.irrelevantResponse);
     });
