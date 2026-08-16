@@ -1,5 +1,95 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 공항 초보자 도움 경로 + Play·홈페이지 자동 배포
+
+**공항 정답 정합성.** `quest_airport_arrival_02`가 음성·대화의
+`한국 처음이세요?`와 달리 `한국 처음 ___ .` / `이에요`를 정답으로 가르치던 데이터
+오류를 수정했다. Cloze는 이제 `한국 처음___?` + `이세요`로 정확히 같은 문장을
+완성한다. 58개 시나리오·241개 문항 전체 renderer 계약과 공항 문장 합성값을 회귀로
+고정했다.
+
+**완전 초보자 경로와 화면 균형.** `courseContext`가 없는
+`onboardingFirstScene`에서만 7개 문제 엔진 모두 `Weiß ich noch nicht` /
+`I don’t know yet` 보조 액션을 표시한다. 이 액션은 정답을 공개하고
+`QuestResult(passed:false, firstTry:false)`를 한 번만 발행하므로 막힘은 없애되 점수와
+코스 숙달 증거를 만들지 않는다. 생산 공항 5문제를 실제 순서대로 전부 탭해 5/5까지
+진행, 통과 0, 최종 저장 1회, 최초 성공 문구 없음까지 확인했다. 짧은 Cloze는 남는
+viewport 중앙에 문제·선택지 묶음을 배치하고, 긴 내용·2배 글자에서는 기존 스크롤과
+고정 CTA를 유지한다.
+
+**GitHub Actions 자동화.** 기존 `CI`의 Flutter analyze·전체 test·web release build가
+성공한 뒤에만 `main`의 앱 변경을 full-history checkout하고, 기존 closed-testing
+플래그와 upload key로 obfuscated signed AAB를 만든다. AAB·SHA-256·Dart symbols를
+14일 artifact로 보존한 다음 `com.sujinarin.ko_lernen_app`의 Google Play `internal`
+트랙에 `completed`로 업로드한다. Production 승격은 포함하지 않았다. 일시 실패는
+수동 `release-internal` task로 같은 quality gate 뒤 재실행할 수 있고,
+`PLAY_INTERNAL_RELEASE_ENABLED=true`일 때만 배포된다. 최초 설정은
+`docs/GITHUB_ACTIONS_PLAY_INTERNAL_SETUP.md`에 기록했다.
+
+**홈페이지와 문화어 자동 배포.** `hangul-sori-site-local/**`뿐 아니라 앱과 웹이 함께
+쓰는 `docs/data/cultural_glossary.json`만 바뀌어도 Flutter·홈페이지 gate가 모두 열리게
+분류했다. 홈페이지 gate 성공 뒤 protected `cloudflare-production` environment에서 exact
+commit을 다시 받아 기존 `npm run deploy`의 build·strict dry-run·rollback·두 도메인 live
+SHA 검증 계약으로 Cloudflare production을 갱신한다. 기존 Workers Builds와 이중 배포하지
+않도록 전환 절차를 `docs/GITHUB_ACTIONS_CLOUDFLARE_SETUP.md`에 기록했으며,
+`WEBSITE_PRODUCTION_RELEASE_ENABLED=true`일 때만 실행한다.
+
+**검증과 운영 경계.** 관련 Flutter 회귀 **125/125**, 전체 serial Flutter 회귀
+**3,668 passed / 14 Windows golden skipped / 0 failed**, CI Python 계약 **15/15**,
+workflow YAML parse, `flutter gen-l10n`, `flutter analyze --no-pub --fatal-infos`
+`No issues found`, 홈페이지 `npm run deploy:check`의 build·20 tests·strict Worker
+dry-run·security audit(0 vulnerabilities)를 통과했다. ESLint는 오류 0, 기존 `<img>` 경고
+3건이다.
+
+**실제 연동과 출시 준비.** Google Cloud `ko-lernen-app`에 Android Publisher API를
+활성화하고 전용 `hangul-sori-play-publisher` service account를 생성했다. Play 개발자
+계정에는 `com.sujinarin.ko_lernen_app` 한 앱의 비금융 정보 보기·테스트 트랙 출시·앱
+품질 보기만 부여했으며 계정 전체 권한은 0개임을 API로 재조회했다. GitHub에는
+`google-play-internal`·`cloudflare-production` Environment를 만들고 `main`만 허용했다.
+Play Environment에는 기존 upload keystore의 분리된 서명값 4개와 service-account JSON을
+등록했고 로컬 임시 JSON key는 즉시 삭제했다. 첫 구현 커밋은 `86df5643`이다. 이 저장소는
+Git commit count를 `versionCode`로 쓰므로 별도 `pubspec.yaml` 수동 증가 없이 이번 exact
+release commit이 새 code를 갖는다. Cloudflare는 기존 `Workers Builds:
+hangul-sori-redesign` check가 실제 `main` 배포를 소유하고 있어 이번 push에서는 새
+GitHub Actions Cloudflare release variable을 켜지 않아 이중 배포를 막는다. signed AAB
+생성·Play Internal 업로드·두 홈페이지 도메인의 exact live SHA는 push 뒤 원격 실행을
+직접 추적한다. 실제 Android 설치 검증은 별도다.
+
+### 2026-08-16 (Codex) — 문화어 미니 이야기 V1
+
+**기준과 데이터.** 작업은 사용자 지정 `39dff9df`에서 시작했다. 작업 중 원격과 로컬
+`main`이 비중첩 AAB 릴리스 커밋 `17857f4d`로 전진했지만 문화어 변경은 기존 로컬 diff로
+유지했다. `docs/data/cultural_glossary.json`을 단일 원본으로 두고 한옥·계·사랑방·마당·
+종가·단청·보자기·장독대·문방사우·매화·사군자·갓·책가도·소반·자개문갑 15개의
+DE/EN/KO `무엇인가`·`왜 중요했는가`, 로마자, 공식 HTTPS 출처, 명시적 장식 slug를
+고정했다. 장독대·문방사우·보자기·매화/사군자는 UNESCO와 국립민속박물관의 맥락을
+따르고, 계는 역사적 계에서 영감을 받은 현대 학습 모임임을 분명히 했다.
+
+**앱.** 실패 시 `null`로 닫히는 캐시 저장소와 공통 48dp `?`/Sori 하단 시트를 추가하고,
+한옥·Gye·사랑방·보자기·퀘스트·보상·장식함에 연결했다. 같은 화면의 동일 용어는 첫
+항목에만 붙으며 사군자 4폭도 장식함 도움말 하나만 노출한다. 읽기 전용 사랑방과 마당의
+연결 장식은 직접 누를 수 있지만, 꾸미기 화면의 기존 선택·드래그·회전·저장 경로는
+그대로다. 감상 안내는 `cultural_object_hint_seen_v1`에 이 기기에서만 한 번 저장한다.
+Gye 상세 시트는 문화 도입부 뒤에 기존 이용 방법·자발성·개인정보 설명을 모두 보존한다.
+
+**홈페이지.** 첫 등장 Hanok/Gye에만 명시적 `data-cultural-term`을 두고, 560px 이하에서는
+하단 시트, 데스크톱에서는 중앙 대화상자를 연다. 열린 상태에서 DE→EN→KO를 바꿔도
+설명이 즉시 갱신되며, Escape/닫기 뒤 포커스가 원래 `?`로 돌아간다. 빌드 전 동기화
+스크립트가 정본 JSON을 byte-for-byte `public/data/`에 복제한다. 데이터 실패·JS 비활성화
+상태에서는 원래 문장만 남고 도움말은 숨는다.
+
+**검증과 경계.** `flutter gen-l10n`, 문화어 변경 20개 파일 정적 분석, 카탈로그·접근성·
+DE/EN 전환·390×844 200%·누락 폴백·장식 직접 탭·1회 안내와 보자기/Gye/한옥/사랑방
+편집 회귀 **62/62**가 통과했고, 프로젝트 전체 `flutter analyze`도 **No issues found**였다.
+전체 `flutter test`는 중간에 문화어가 추가한 `w800` 가드를 찾아 `w700`로 수정했고,
+병행 퀘스트 WIP의 전역 버튼 가드 정리까지 반영된 최종 실행에서 **3,668 passed,
+14 skipped, 0 failed**였다. 홈페이지는 TypeScript, Vinext build·배포 아티팩트 검증,
+20 tests, ESLint
+0 errors(기존 `<img>` 경고 3건)를 통과했다. Chrome 실제 검수에서 1440px 중앙형,
+390×844 하단형, DE/EN/KO 실시간 전환, 키보드 닫기/포커스 복귀와 JSON HTTP 200을
+확인했다. 문화어 구현은 공항 도움 경로·release automation과 함께 `86df5643`에
+커밋했다. 원격 배포 증거는 이 로그 최상단의 통합 release 기록을 따른다.
+
 ### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
 
 **원인과 수정.** 코스에서 문법 체크포인트로 열린 카드는 하단 `Kurz prüfen`만
