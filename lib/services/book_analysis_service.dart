@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/book_page.dart';
 import 'book_analysis_text.dart';
+import 'book_ocr_document.dart';
 
 /// Phase 5 (stately-rising-jongga) — Cloud Function 클라이언트 + 로컬 fallback.
 ///
@@ -44,6 +45,7 @@ class BookAnalysisService {
     String? targetLang = 'de',
     http.Client? client,
     BookAnalysisCredentialsProvider? credentialsProvider,
+    BookOcrDocument? document,
   }) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
@@ -66,6 +68,7 @@ class BookAnalysisService {
       return _localStub(
         prepared.text,
         language,
+        document: document,
         warnings: prepared.warnings,
         warning: 'remote_credentials_unavailable',
       );
@@ -77,6 +80,7 @@ class BookAnalysisService {
         language: language,
         credentials: credentials,
         client: client,
+        document: document,
       );
       if (response.statusCode == 200) {
         Object? decoded;
@@ -104,6 +108,7 @@ class BookAnalysisService {
         return _localStub(
           prepared.text,
           language,
+          document: document,
           warnings: prepared.warnings,
           warning: 'server_rate_limited',
         );
@@ -112,6 +117,7 @@ class BookAnalysisService {
         return _localStub(
           prepared.text,
           language,
+          document: document,
           warnings: prepared.warnings,
           warning: 'remote_credentials_unavailable',
         );
@@ -133,6 +139,7 @@ class BookAnalysisService {
     return _localStub(
       prepared.text,
       language,
+      document: document,
       warnings: prepared.warnings,
       warning: 'remote_analysis_failed',
     );
@@ -168,6 +175,7 @@ class BookAnalysisService {
     required String language,
     required BookAnalysisCredentials credentials,
     http.Client? client,
+    BookOcrDocument? document,
   }) async {
     final ownsClient = client == null;
     final effectiveClient = client ?? http.Client();
@@ -179,7 +187,15 @@ class BookAnalysisService {
           'Authorization': 'Bearer ${credentials.idToken}',
           'X-Firebase-AppCheck': credentials.appCheckToken,
         })
-        ..body = jsonEncode({'text': text, 'lang': language});
+        ..body = jsonEncode(<String, dynamic>{
+          'text': text,
+          'lang': language,
+          'analysisLanguage': language,
+          if (document != null) ...<String, dynamic>{
+            'schemaVersion': BookOcrDocument.schemaVersion,
+            'units': document.toAnalysisRequestUnits(),
+          },
+        });
       final streamed = await effectiveClient.send(request).timeout(_timeout);
       return http.Response.fromStream(streamed);
     } finally {
@@ -253,7 +269,13 @@ class BookAnalysisService {
     final warnings = <String>{...clientWarnings};
     var invalidResponse = false;
 
-    const requiredListFields = {'words', 'grammar', 'sentences', 'warnings'};
+    const requiredListFields = {
+      'words',
+      'expressions',
+      'grammar',
+      'sentences',
+      'warnings',
+    };
     if (requiredListFields.any((field) => body[field] is! List) ||
         body['analysisLanguage'] is! String ||
         !const {'de', 'en'}.contains(body['analysisLanguage'])) {
@@ -288,6 +310,16 @@ class BookAnalysisService {
         invalidResponse = true;
       }
       return text;
+    }
+
+    String cleanSourceUnitId(Object? value) {
+      final sourceUnitId = clean(value, 80);
+      if (sourceUnitId.isNotEmpty &&
+          !RegExp(r'^unit:\d{1,4}$').hasMatch(sourceUnitId)) {
+        invalidResponse = true;
+        return '';
+      }
+      return sourceUnitId;
     }
 
     List<dynamic> list(Object? value, int maxItems) {
@@ -325,11 +357,14 @@ class BookAnalysisService {
       }
       final translation = clean(item['translation'], 240);
       if (!RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(translation)) {
-        if (!translationUnavailable) invalidResponse = true;
+        if (!translationUnavailable) {
+          invalidResponse = true;
+        }
         continue;
       }
       final explicitEnglish = clean(item['translationEn'], 240);
       final example = clean(item['example'], 500);
+      final sourceUnitId = cleanSourceUnitId(item['sourceUnitId']);
       words.add(
         ExtractedWord(
           korean: korean,
@@ -346,7 +381,40 @@ class BookAnalysisService {
               : '',
           exampleDe: clean(item['exampleTranslation'], 500),
           definitionKo: clean(item['definitionKo'], 500),
+          sourceUnitId: sourceUnitId,
           savedToPackId: null,
+        ),
+      );
+    }
+
+    final expressions = <ExtractedExpression>[];
+    for (final entry in list(body['expressions'], 30)) {
+      if (entry is! Map) {
+        invalidResponse = true;
+        continue;
+      }
+      final item = entry.cast<Object?, Object?>();
+      final korean = clean(item['korean'], 160);
+      final translation = clean(item['translation'], 240);
+      final sourceUnitId = clean(item['sourceUnitId'], 80);
+      if (!BookAnalysisTextPreprocessor.containsHangulSyllable(korean) ||
+          !RegExp(r'^unit:\d{1,4}$').hasMatch(sourceUnitId)) {
+        invalidResponse = true;
+        continue;
+      }
+      if (!RegExp(r'[A-Za-z\u00C0-\u024F]').hasMatch(translation)) {
+        if (!translationUnavailable) {
+          invalidResponse = true;
+        }
+        continue;
+      }
+      expressions.add(
+        ExtractedExpression(
+          korean: korean,
+          translationDe: translation,
+          translationEn: language == 'en' ? translation : '',
+          translationLanguage: language,
+          sourceUnitId: sourceUnitId,
         ),
       );
     }
@@ -387,6 +455,7 @@ class BookAnalysisService {
               ? level
               : '',
           explanationDe: explanation,
+          sourceUnitId: cleanSourceUnitId(item['sourceUnitId']),
         ),
       );
     }
@@ -414,12 +483,18 @@ class BookAnalysisService {
           korean: korean,
           translationDe: translation,
           translationLanguage: language,
+          sourceUnitId: cleanSourceUnitId(item['sourceUnitId']),
         ),
       );
     }
 
-    if (invalidResponse) warnings.add('invalid_response_filtered');
-    if (words.isEmpty && grammar.isEmpty && sentences.isEmpty) {
+    if (invalidResponse) {
+      warnings.add('invalid_response_filtered');
+    }
+    if (words.isEmpty &&
+        expressions.isEmpty &&
+        grammar.isEmpty &&
+        sentences.isEmpty) {
       warnings.add('empty_analysis_result');
     }
 
@@ -427,6 +502,7 @@ class BookAnalysisService {
       words: words,
       grammar: grammar,
       sentences: sentences,
+      expressions: expressions,
       warnings: warnings.toList(growable: false),
       analysisLanguage: language,
     );
@@ -457,42 +533,57 @@ class BookAnalysisService {
   static Future<BookAnalysisResult> _localStub(
     String text,
     String targetLang, {
+    BookOcrDocument? document,
     Iterable<String> warnings = const [],
     String? warning,
   }) async {
     final patterns = await _loadGrammarPatterns();
     final grammar = <GrammarHit>[];
     final usedPatternIds = <String>{};
-    for (final p in patterns) {
-      final id = p['id'] as String? ?? '';
-      if (usedPatternIds.contains(id)) continue;
-      if (p['detector'] != null && p['detector'] != 'regex') continue;
-      final regex = p['regex'] as String? ?? '';
-      if (regex.isEmpty) continue;
-      try {
-        final re = RegExp(regex);
-        final m = re.firstMatch(text);
-        if (m != null) {
-          usedPatternIds.add(id);
-          final isEnglish = targetLang == 'en';
-          grammar.add(
-            GrammarHit(
-              patternId: id,
-              nameDe: isEnglish
-                  ? p['name_en'] as String? ?? 'Korean grammar ($id)'
-                  : p['name_de'] as String? ?? id,
-              matchedText: m.group(0) ?? '',
-              level: p['level'] as String? ?? 'A2',
-              explanationDe: isEnglish
-                  ? p['explanation_en'] as String? ??
-                        'This Korean grammar pattern was detected in the '
-                            'selected text.'
-                  : p['explanation_de'] as String? ?? '',
-            ),
-          );
+    final analysisSources = document == null
+        ? <({String text, String sourceUnitId})>[(text: text, sourceUnitId: '')]
+        : document.analysisUnits
+              .map((unit) => (text: unit.korean, sourceUnitId: unit.id))
+              .toList(growable: false);
+    for (final source in analysisSources) {
+      for (final p in patterns) {
+        final id = p['id'] as String? ?? '';
+        if (usedPatternIds.contains(id)) {
+          continue;
         }
-      } catch (_) {
-        // bad regex — skip
+        if (p['detector'] != null && p['detector'] != 'regex') {
+          continue;
+        }
+        final regex = p['regex'] as String? ?? '';
+        if (regex.isEmpty) {
+          continue;
+        }
+        try {
+          final re = RegExp(regex);
+          final m = re.firstMatch(source.text);
+          if (m != null) {
+            usedPatternIds.add(id);
+            final isEnglish = targetLang == 'en';
+            grammar.add(
+              GrammarHit(
+                patternId: id,
+                nameDe: isEnglish
+                    ? p['name_en'] as String? ?? 'Korean grammar ($id)'
+                    : p['name_de'] as String? ?? id,
+                matchedText: m.group(0) ?? '',
+                level: p['level'] as String? ?? 'A2',
+                explanationDe: isEnglish
+                    ? p['explanation_en'] as String? ??
+                          'This Korean grammar pattern was detected in the '
+                              'selected text.'
+                    : p['explanation_de'] as String? ?? '',
+                sourceUnitId: source.sourceUnitId,
+              ),
+            );
+          }
+        } catch (_) {
+          // bad regex — skip
+        }
       }
     }
 
@@ -504,32 +595,47 @@ class BookAnalysisService {
     // 강의와 오프라인 교육으로 제공하고 및 이민을 준비하는" 같은 조각이
     // 나열됐다(Jin). 문장부호로 끝나지 않는 줄은 다음 줄과 먼저 이어 붙이고,
     // 그다음에 문장부호로만 나눈다.
-    final buffer = StringBuffer();
-    for (final line in text.split(RegExp(r'\r?\n'))) {
-      final trimmed = line.trim();
-      if (trimmed.isEmpty) {
-        continue;
+    List<TranslatedSentence> sentencesFor(
+      String sourceText,
+      String sourceUnitId,
+    ) {
+      final buffer = StringBuffer();
+      for (final line in sourceText.split(RegExp(r'\r?\n'))) {
+        final trimmed = line.trim();
+        if (trimmed.isEmpty) {
+          continue;
+        }
+        if (buffer.isNotEmpty) {
+          final previous = buffer.toString();
+          buffer.write(RegExp(r'[.!?。！？]$').hasMatch(previous) ? '\n' : ' ');
+        }
+        buffer.write(trimmed);
       }
-      if (buffer.isNotEmpty) {
-        // 앞 줄이 문장부호로 끝났으면 진짜 줄바꿈, 아니면 이어지는 줄.
-        final previous = buffer.toString();
-        buffer.write(RegExp(r'[.!?。！？]$').hasMatch(previous) ? '\n' : ' ');
-      }
-      buffer.write(trimmed);
+      return buffer
+          .toString()
+          .split(RegExp(r'(?<=[.!?。！？])\s+'))
+          .where((sentence) => sentence.trim().isNotEmpty)
+          .map(
+            (sentence) => TranslatedSentence(
+              korean: sentence.trim(),
+              translationDe: '',
+              translationLanguage: targetLang,
+              sourceUnitId: sourceUnitId,
+            ),
+          )
+          .toList(growable: false);
     }
 
-    final rawSentences = buffer
-        .toString()
-        .split(RegExp(r'(?<=[.!?。！？])\s+'))
-        .where((s) => s.trim().isNotEmpty)
-        .map(
-          (s) => TranslatedSentence(
-            korean: s.trim(),
-            translationDe: '', // 번역 미실행
-            translationLanguage: targetLang,
-          ),
-        )
-        .toList();
+    final rawSentences = <TranslatedSentence>[];
+    if (document != null) {
+      for (final unit in document.analysisUnits) {
+        if (unit.role == BookOcrUnitRole.sentence) {
+          rawSentences.addAll(sentencesFor(unit.korean, unit.id));
+        }
+      }
+    } else {
+      rawSentences.addAll(sentencesFor(text, ''));
+    }
 
     return BookAnalysisResult(
       words: const [],

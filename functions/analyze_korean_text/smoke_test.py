@@ -170,7 +170,12 @@ def main(argv=None):
         all(
             key in body
             for key in (
-                "words", "grammar", "sentences", "warnings", "analysisLanguage"
+                "words",
+                "expressions",
+                "grammar",
+                "sentences",
+                "warnings",
+                "analysisLanguage",
             )
         ),
     )

@@ -59,6 +59,7 @@ class ExtractedWord {
   final String definitionKo; // 우리말샘 국어사전 뜻풀이 (옵션, 없으면 '')
   final String imagePath; // 첨부 사진 로컬 경로 (옵션, 없으면 ''). 앱 문서 폴더.
   final String? savedToPackId; // 저장한 custom pack id (null = 미저장)
+  final String sourceUnitId;
 
   const ExtractedWord({
     required this.korean,
@@ -72,6 +73,7 @@ class ExtractedWord {
     this.translationLanguage = 'de',
     this.definitionKo = '',
     this.imagePath = '',
+    this.sourceUnitId = '',
   });
 
   /// 사용자가 손으로 입력하는 단어 ("나만의 단어장"). 옵션 필드는 기본 빈 값.
@@ -112,6 +114,7 @@ class ExtractedWord {
     'definitionKo': definitionKo,
     'imagePath': _managedRefFor(imagePath, ManagedMediaKind.word) ?? '',
     'savedToPackId': savedToPackId,
+    if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
   };
 
   Map<String, dynamic> toPortableJson() => {
@@ -125,6 +128,7 @@ class ExtractedWord {
     'exampleDe': exampleDe,
     'definitionKo': definitionKo,
     'savedToPackId': savedToPackId,
+    if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
   };
 
   Map<String, dynamic> toJson() => toLocalJson();
@@ -141,6 +145,7 @@ class ExtractedWord {
     definitionKo: _safeWordDefinition(j['definitionKo']),
     imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
+    sourceUnitId: _safeSupportedText(j['sourceUnitId']),
   );
 
   factory ExtractedWord.fromPortableJson(Map<String, dynamic> j) =>
@@ -156,6 +161,7 @@ class ExtractedWord {
         definitionKo: _safeWordDefinition(j['definitionKo']),
         imagePath: '',
         savedToPackId: j['savedToPackId'] as String?,
+        sourceUnitId: _safeSupportedText(j['sourceUnitId']),
       );
 
   factory ExtractedWord.fromJson(Map<String, dynamic> j) =>
@@ -173,6 +179,7 @@ class ExtractedWord {
         exampleDe: exampleDe,
         definitionKo: definitionKo,
         imagePath: imagePath,
+        sourceUnitId: sourceUnitId,
         savedToPackId: clearSaved
             ? null
             : (savedToPackId ?? this.savedToPackId),
@@ -200,8 +207,43 @@ class ExtractedWord {
     exampleDe: exampleDe,
     definitionKo: _safeWordDefinition(definitionKo ?? this.definitionKo),
     imagePath: clearImage ? '' : (imagePath ?? this.imagePath),
+    sourceUnitId: sourceUnitId,
     savedToPackId: savedToPackId,
   );
+}
+
+/// A multi-word learning expression extracted from a source OCR unit.
+class ExtractedExpression {
+  const ExtractedExpression({
+    required this.korean,
+    required this.translationDe,
+    required this.translationEn,
+    required this.translationLanguage,
+    required this.sourceUnitId,
+  });
+
+  final String korean;
+  final String translationDe;
+  final String translationEn;
+  final String translationLanguage;
+  final String sourceUnitId;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+    'korean': korean,
+    'translationDe': translationDe,
+    'translationEn': translationEn,
+    'translationLanguage': translationLanguage,
+    'sourceUnitId': sourceUnitId,
+  };
+
+  factory ExtractedExpression.fromJson(Map<String, dynamic> json) =>
+      ExtractedExpression(
+        korean: _safeWordExample(json['korean']),
+        translationDe: _safeWordMeaning(json['translationDe']),
+        translationEn: _safeWordMeaning(json['translationEn']),
+        translationLanguage: _bookLanguage(json['translationLanguage']),
+        sourceUnitId: _safeSupportedText(json['sourceUnitId']),
+      );
 }
 
 /// 문법 패턴 hit — `grammar_patterns.json` 의 한 entry 가 텍스트에 매치된 것.
@@ -220,6 +262,7 @@ class GrammarHit {
 
   /// 짧은 사용법 설명.
   final String explanationDe;
+  final String sourceUnitId;
 
   const GrammarHit({
     required this.patternId,
@@ -227,6 +270,7 @@ class GrammarHit {
     required this.matchedText,
     required this.level,
     required this.explanationDe,
+    this.sourceUnitId = '',
   });
 
   Map<String, dynamic> toJson() => {
@@ -235,6 +279,7 @@ class GrammarHit {
     'matchedText': matchedText,
     'level': level,
     'explanationDe': explanationDe,
+    'sourceUnitId': sourceUnitId,
   };
 
   factory GrammarHit.fromJson(Map<String, dynamic> j) => GrammarHit(
@@ -243,6 +288,7 @@ class GrammarHit {
     matchedText: _safeKoreanText(j['matchedText']),
     level: _safeSupportedText(j['level']),
     explanationDe: _safeSupportedText(j['explanationDe']),
+    sourceUnitId: _safeSupportedText(j['sourceUnitId']),
   );
 }
 
@@ -251,17 +297,20 @@ class TranslatedSentence {
   final String korean;
   final String translationDe;
   final String translationLanguage;
+  final String sourceUnitId;
 
   const TranslatedSentence({
     required this.korean,
     required this.translationDe,
     this.translationLanguage = 'de',
+    this.sourceUnitId = '',
   });
 
   Map<String, dynamic> toJson() => {
     'korean': korean,
     'translationDe': translationDe,
     'translationLanguage': translationLanguage,
+    'sourceUnitId': sourceUnitId,
   };
 
   factory TranslatedSentence.fromJson(Map<String, dynamic> j) =>
@@ -269,6 +318,7 @@ class TranslatedSentence {
         korean: _safeKoreanText(j['korean']),
         translationDe: _safeSupportedText(j['translationDe']),
         translationLanguage: _bookLanguage(j['translationLanguage']),
+        sourceUnitId: _safeSupportedText(j['sourceUnitId']),
       );
 }
 
@@ -296,6 +346,9 @@ class BookPage {
   /// 분석된 문장 (max ~10).
   final List<TranslatedSentence> sentences;
 
+  /// Multi-word learning expressions preserved separately from word lemmas.
+  final List<ExtractedExpression> expressions;
+
   /// 캡쳐 시각 (ISO UTC).
   final String capturedAtIso;
 
@@ -311,6 +364,7 @@ class BookPage {
     required this.words,
     required this.grammar,
     required this.sentences,
+    this.expressions = const <ExtractedExpression>[],
     required this.capturedAtIso,
     required this.customPackId,
     this.analysisLanguage = 'de',
@@ -323,6 +377,7 @@ class BookPage {
     'words': words.map((w) => w.toPortableJson()).toList(),
     'grammar': grammar.map((g) => g.toJson()).toList(),
     'sentences': sentences.map((s) => s.toJson()).toList(),
+    'expressions': expressions.map((e) => e.toJson()).toList(),
     'capturedAt': capturedAtIso,
     'customPackId': customPackId,
     'analysisLanguage': analysisLanguage,
@@ -339,6 +394,7 @@ class BookPage {
     'words': words.map((w) => w.toLocalJson()).toList(),
     'grammar': grammar.map((g) => g.toJson()).toList(),
     'sentences': sentences.map((s) => s.toJson()).toList(),
+    'expressions': expressions.map((e) => e.toJson()).toList(),
     'capturedAt': capturedAtIso,
     'customPackId': customPackId,
     'analysisLanguage': analysisLanguage,
@@ -375,6 +431,14 @@ class BookPage {
         )
         .where(_isSafeLegacySentence)
         .toList(),
+    expressions: ((j['expressions'] as List?) ?? const [])
+        .map(
+          (entry) => ExtractedExpression.fromJson(
+            (entry as Map).cast<String, dynamic>(),
+          ),
+        )
+        .where(_isSafeLegacyExpression)
+        .toList(),
     capturedAtIso: j['capturedAt'] as String? ?? '',
     customPackId: j['customPackId'] as String?,
     analysisLanguage: _bookLanguage(j['analysisLanguage']),
@@ -409,6 +473,14 @@ class BookPage {
             )
             .where(_isSafeLegacySentence)
             .toList(),
+        expressions: ((j['expressions'] as List?) ?? const [])
+            .map(
+              (entry) => ExtractedExpression.fromJson(
+                (entry as Map).cast<String, dynamic>(),
+              ),
+            )
+            .where(_isSafeLegacyExpression)
+            .toList(),
         capturedAtIso: j['capturedAt'] as String? ?? '',
         customPackId: j['customPackId'] as String?,
         analysisLanguage: _bookLanguage(j['analysisLanguage']),
@@ -422,6 +494,7 @@ class BookPage {
     words: words,
     grammar: grammar,
     sentences: sentences,
+    expressions: expressions,
     capturedAtIso: capturedAtIso,
     customPackId: customPackId,
     analysisLanguage: analysisLanguage,
@@ -446,6 +519,13 @@ bool _isSafeLegacyGrammar(GrammarHit grammar) =>
 bool _isSafeLegacySentence(TranslatedSentence sentence) =>
     BookAnalysisTextPreprocessor.containsHangulSyllable(sentence.korean);
 
+bool _isSafeLegacyExpression(ExtractedExpression expression) =>
+    BookAnalysisTextPreprocessor.containsHangulSyllable(expression.korean) &&
+    (expression.translationLanguage == 'en'
+        ? (expression.translationEn.isNotEmpty ||
+              expression.translationDe.isNotEmpty)
+        : expression.translationDe.isNotEmpty);
+
 /// 분석 결과 (Cloud Function 응답에서 직접 변환).
 class BookAnalysisResult {
   static const Set<String> blockingWarnings = {
@@ -459,6 +539,7 @@ class BookAnalysisResult {
   final List<ExtractedWord> words;
   final List<GrammarHit> grammar;
   final List<TranslatedSentence> sentences;
+  final List<ExtractedExpression> expressions;
   final List<String> warnings; // 예: "DeepL rate limit, 18 단어 번역 안 됨"
   final String analysisLanguage;
 
@@ -466,12 +547,16 @@ class BookAnalysisResult {
     required this.words,
     required this.grammar,
     required this.sentences,
+    this.expressions = const <ExtractedExpression>[],
     required this.warnings,
     this.analysisLanguage = 'de',
   });
 
   bool get hasMeaningfulResult =>
-      words.isNotEmpty || grammar.isNotEmpty || sentences.isNotEmpty;
+      words.isNotEmpty ||
+      grammar.isNotEmpty ||
+      sentences.isNotEmpty ||
+      expressions.isNotEmpty;
 
   /// Only results whose server contract and content passed every safety gate
   /// may reach TTS, the bookshelf, or a custom pack.
@@ -482,6 +567,7 @@ class BookAnalysisResult {
     words: [],
     grammar: [],
     sentences: [],
+    expressions: [],
     warnings: ['analysis_unavailable'],
     analysisLanguage: 'de',
   );

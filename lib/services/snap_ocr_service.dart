@@ -2,9 +2,12 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'dart:ui' show Rect;
 
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:image/image.dart' as img;
 
 import 'book_analysis_text.dart';
+import 'book_ocr_document.dart';
 
 /// On-device OCR for bilingual Korean textbooks.
 ///
@@ -19,49 +22,67 @@ class SnapOcrService {
   static const int minimumRotationLineCount = 3;
 
   static Future<OcrResult> recognizeKorean(File imageFile) async {
-    final input = InputImage.fromFile(imageFile);
     final recognizer = TextRecognizer(script: TextRecognitionScript.korean);
+    final temporaryFiles = <File>[];
 
     try {
-      final recognized = await recognizer.processImage(input);
-      final candidates = <OcrTextBlock>[];
-      for (final block in recognized.blocks) {
-        if (block.lines.isEmpty) {
-          candidates.add(
-            OcrTextBlock(
-              text: block.text,
-              bounds: block.boundingBox,
-              script:
-                  BookAnalysisTextPreprocessor.containsHangulSyllable(
-                    block.text,
-                  )
-                  ? OcrScript.korean
-                  : OcrScript.latin,
-              recognizedLanguages: block.recognizedLanguages,
-            ),
-          );
-          continue;
-        }
-        for (final line in block.lines) {
-          candidates.add(
-            OcrTextBlock(
-              text: line.text,
-              bounds: line.boundingBox,
-              script:
-                  BookAnalysisTextPreprocessor.containsHangulSyllable(line.text)
-                  ? OcrScript.korean
-                  : OcrScript.latin,
-              confidence: line.confidence,
-              angle: line.angle,
-              recognizedLanguages: line.recognizedLanguages,
-            ),
-          );
+      final initialBlocks = await _recognizeFile(imageFile, recognizer);
+      final initial = OcrOrientationCandidate(
+        quarterTurn: 0,
+        blocks: initialBlocks,
+      );
+      final orientationCandidates = <OcrOrientationCandidate>[initial];
+      final retryTurns = _orientationRetryTurns(initial);
+      if (retryTurns.isNotEmpty) {
+        final bytes = await imageFile.readAsBytes();
+        final decoded = img.decodeImage(bytes);
+        if (decoded != null) {
+          final baked = img.bakeOrientation(decoded);
+          for (final turn in retryTurns) {
+            final candidateFile = await _writeRotatedCandidate(
+              imageFile,
+              baked,
+              turn,
+            );
+            temporaryFiles.add(candidateFile);
+            final blocks = await _recognizeFile(candidateFile, recognizer);
+            orientationCandidates.add(
+              OcrOrientationCandidate(quarterTurn: turn, blocks: blocks),
+            );
+          }
         }
       }
 
-      final quality = evaluateOcrQuality(candidates);
-      final blocks = arrangeBlocksForReading(candidates);
-      final text = blocks.map((block) => block.text).join('\n').trim();
+      final selected = selectBestOrientation(orientationCandidates);
+      if (selected.quarterTurn != 0) {
+        final selectedFile = temporaryFiles.firstWhere(
+          (file) => file.path.contains('_q${selected.quarterTurn}.'),
+        );
+        await imageFile.writeAsBytes(
+          await selectedFile.readAsBytes(),
+          flush: true,
+        );
+      }
+
+      var quality = evaluateOcrQuality(selected.blocks);
+      if (selected.quarterTurn != 0) {
+        quality = quality.withWarning('ocr_orientation_corrected');
+      }
+      final blocks = arrangeBlocksForReading(selected.blocks);
+      final document = BookOcrDocumentBuilder.build(
+        blocks.map(
+          (block) => BookOcrLine(
+            text: block.text,
+            bounds: block.bounds,
+            sourceLineId: 'block:${block.blockIndex}:line:${block.lineIndex}',
+            blockIndex: block.blockIndex,
+            lineIndex: block.lineIndex,
+            confidence: block.confidence,
+            recognizedLanguages: block.recognizedLanguages,
+          ),
+        ),
+      );
+      final text = document.analysisText;
       if (text.isEmpty ||
           !BookAnalysisTextPreprocessor.containsHangulSyllable(text)) {
         return OcrResult.failure(reason: OcrFailure.noKoreanFound);
@@ -75,8 +96,11 @@ class SnapOcrService {
         latinBlockCount: blocks
             .where((block) => block.script == OcrScript.latin)
             .length,
-        discardedBlockCount: candidates.length - blocks.length,
+        discardedBlockCount: selected.blocks.length - blocks.length,
         quality: quality,
+        document: document,
+        chosenQuarterTurn: selected.quarterTurn,
+        orientationRetryCount: orientationCandidates.length - 1,
       );
     } catch (error) {
       return OcrResult.failure(
@@ -84,8 +108,215 @@ class SnapOcrService {
         message: '$error',
       );
     } finally {
+      for (final file in temporaryFiles) {
+        try {
+          if (await file.exists()) {
+            await file.delete();
+          }
+        } on Object {
+          // The OS temp cleaner may remove an OCR candidate later.
+        }
+      }
       await recognizer.close();
     }
+  }
+
+  static Future<List<OcrTextBlock>> _recognizeFile(
+    File imageFile,
+    TextRecognizer recognizer,
+  ) async {
+    final recognized = await recognizer.processImage(
+      InputImage.fromFile(imageFile),
+    );
+    final candidates = <OcrTextBlock>[];
+    for (
+      var blockIndex = 0;
+      blockIndex < recognized.blocks.length;
+      blockIndex++
+    ) {
+      final block = recognized.blocks[blockIndex];
+      if (block.lines.isEmpty) {
+        candidates.add(
+          OcrTextBlock(
+            text: block.text,
+            bounds: block.boundingBox,
+            script:
+                BookAnalysisTextPreprocessor.containsHangulSyllable(block.text)
+                ? OcrScript.korean
+                : OcrScript.latin,
+            recognizedLanguages: block.recognizedLanguages,
+            blockIndex: blockIndex,
+            lineIndex: 0,
+          ),
+        );
+        continue;
+      }
+      for (var lineIndex = 0; lineIndex < block.lines.length; lineIndex++) {
+        final line = block.lines[lineIndex];
+        candidates.add(
+          OcrTextBlock(
+            text: line.text,
+            bounds: line.boundingBox,
+            script:
+                BookAnalysisTextPreprocessor.containsHangulSyllable(line.text)
+                ? OcrScript.korean
+                : OcrScript.latin,
+            confidence: line.confidence,
+            angle: line.angle,
+            recognizedLanguages: line.recognizedLanguages,
+            blockIndex: blockIndex,
+            lineIndex: lineIndex,
+          ),
+        );
+      }
+    }
+    return candidates;
+  }
+
+  static Future<File> _writeRotatedCandidate(
+    File source,
+    img.Image baked,
+    int quarterTurn,
+  ) async {
+    final rotated = img.copyRotate(baked, angle: quarterTurn.toDouble());
+    final extension = source.path.toLowerCase().endsWith('.png')
+        ? 'png'
+        : 'jpg';
+    final path =
+        '${Directory.systemTemp.path}${Platform.pathSeparator}'
+        'hangul_sori_ocr_${DateTime.now().microsecondsSinceEpoch}'
+        '_q$quarterTurn.$extension';
+    final encoded = extension == 'png'
+        ? img.encodePng(rotated)
+        : img.encodeJpg(rotated, quality: 100);
+    final file = File(path);
+    await file.writeAsBytes(encoded, flush: true);
+    return file;
+  }
+
+  static List<int> _orientationRetryTurns(OcrOrientationCandidate initial) {
+    final blocks = initial.blocks;
+    final quality = evaluateOcrQuality(blocks);
+    final signedAngle = _signedMedianAngle(blocks);
+    final hangulCount = blocks.fold<int>(
+      0,
+      (sum, block) => sum + _hangulSyllableCount(block.text),
+    );
+
+    if (hangulCount == 0 ||
+        (quality.lowConfidenceRatio == null && quality.koreanLineCount == 0) ||
+        (quality.lowConfidenceRatio != null &&
+            quality.lowConfidenceRatio! >= severeLowConfidenceRatio)) {
+      return const <int>[90, 180, 270];
+    }
+    if (signedAngle == null) {
+      // With fewer than three angle-bearing lines, orientation evidence is
+      // too weak to distinguish an upright short card from 90/270 degrees.
+      return const <int>[90, 180, 270];
+    }
+    final absolute = signedAngle.abs();
+    if (absolute >= 135) {
+      return const <int>[180];
+    }
+    if (absolute >= 45) {
+      return const <int>[90, 180, 270];
+    }
+    // ML Kit can occasionally read an upside-down line with angle=0. Always
+    // compare one 180-degree candidate so that this case is not silently
+    // accepted. Sideways candidates remain conditional to limit latency.
+    return const <int>[180];
+  }
+
+  @visibleForTesting
+  static List<int> orientationRetryTurnsForTesting(
+    OcrOrientationCandidate initial,
+  ) => _orientationRetryTurns(initial);
+
+  /// Chooses the orientation with the strongest Korean, confidence and
+  /// upright-line evidence. A stable tie keeps the unrotated image.
+  static OcrOrientationCandidate selectBestOrientation(
+    Iterable<OcrOrientationCandidate> source,
+  ) {
+    final candidates = source.toList(growable: false);
+    if (candidates.isEmpty) {
+      throw ArgumentError.value(source, 'source', 'must not be empty');
+    }
+    return candidates.reduce((best, candidate) {
+      final bestScore = _orientationScore(best);
+      final candidateScore = _orientationScore(candidate);
+      if (candidateScore > bestScore + 0.000001) {
+        return candidate;
+      }
+      if ((candidateScore - bestScore).abs() <= 0.000001 &&
+          candidate.quarterTurn == 0) {
+        return candidate;
+      }
+      return best;
+    });
+  }
+
+  static double _orientationScore(OcrOrientationCandidate candidate) {
+    final blocks = candidate.blocks;
+    if (blocks.isEmpty) {
+      return double.negativeInfinity;
+    }
+    final hangulCount = blocks.fold<int>(
+      0,
+      (sum, block) => sum + _hangulSyllableCount(block.text),
+    );
+    final koreanLines = blocks
+        .where(
+          (block) =>
+              BookAnalysisTextPreprocessor.containsHangulSyllable(block.text),
+        )
+        .length;
+    final confidences = blocks
+        .map((block) => block.confidence)
+        .whereType<double>()
+        .where((value) => value.isFinite)
+        .toList(growable: false);
+    final averageConfidence = confidences.isEmpty
+        ? 0.5
+        : confidences.reduce((left, right) => left + right) /
+              confidences.length;
+    final angles = blocks
+        .map((block) => block.angle)
+        .whereType<double>()
+        .where((value) => value.isFinite)
+        .toList(growable: false);
+    final uprightRatio = angles.isEmpty
+        ? 0.5
+        : angles
+                  .where(
+                    (angle) =>
+                        _normalizeSignedAngle(angle).abs() <=
+                        severeRotationDegrees,
+                  )
+                  .length /
+              angles.length;
+    final quality = evaluateOcrQuality(blocks);
+    return hangulCount * 10 +
+        koreanLines * 5 +
+        averageConfidence * 50 +
+        uprightRatio * 100 -
+        quality.unsupportedScriptRatio * 100 -
+        (quality.medianRotationDegrees ?? 0) * 2;
+  }
+
+  static int _hangulSyllableCount(String value) =>
+      RegExp(r'[\uAC00-\uD7A3]').allMatches(value).length;
+
+  static double? _signedMedianAngle(Iterable<OcrTextBlock> source) {
+    final angles = source
+        .map((block) => block.angle)
+        .whereType<double>()
+        .where((value) => value.isFinite)
+        .map(_normalizeSignedAngle)
+        .toList(growable: false);
+    if (angles.length < minimumRotationLineCount) {
+      return null;
+    }
+    return _median(angles);
   }
 
   /// Evaluates raw OCR lines before unsupported scripts are removed.
@@ -107,7 +338,7 @@ class SnapOcrService {
       }
       final angle = block.angle;
       if (angle != null && angle.isFinite) {
-        angles.add(_distanceFromUpright(angle));
+        angles.add(_normalizeSignedAngle(angle).abs());
       }
     }
 
@@ -201,6 +432,8 @@ class SnapOcrService {
             confidence: candidate.confidence,
             angle: candidate.angle,
             recognizedLanguages: candidate.recognizedLanguages,
+            blockIndex: candidate.blockIndex,
+            lineIndex: candidate.lineIndex,
           ),
         );
       }
@@ -319,9 +552,12 @@ class SnapOcrService {
     return vertical != 0 ? vertical : a.bounds.left.compareTo(b.bounds.left);
   }
 
-  static double _distanceFromUpright(double value) {
-    final normalized = ((value % 180) + 180) % 180;
-    return normalized > 90 ? 180 - normalized : normalized;
+  static double _normalizeSignedAngle(double value) {
+    var normalized = ((value % 360) + 360) % 360;
+    if (normalized > 180) {
+      normalized -= 360;
+    }
+    return normalized;
   }
 
   static double _median(List<double> values) {
@@ -346,6 +582,16 @@ class SnapOcrService {
 
 enum OcrScript { korean, latin }
 
+class OcrOrientationCandidate {
+  const OcrOrientationCandidate({
+    required this.quarterTurn,
+    required this.blocks,
+  });
+
+  final int quarterTurn;
+  final List<OcrTextBlock> blocks;
+}
+
 class OcrTextBlock {
   const OcrTextBlock({
     required this.text,
@@ -354,6 +600,8 @@ class OcrTextBlock {
     this.confidence,
     this.angle,
     this.recognizedLanguages = const [],
+    this.blockIndex = -1,
+    this.lineIndex = -1,
   });
 
   final String text;
@@ -362,6 +610,8 @@ class OcrTextBlock {
   final double? confidence;
   final double? angle;
   final List<String> recognizedLanguages;
+  final int blockIndex;
+  final int lineIndex;
 }
 
 class OcrQualityAssessment {
@@ -398,6 +648,16 @@ class OcrQualityAssessment {
 
   bool get isSevere => severeWarnings.isNotEmpty;
 
+  OcrQualityAssessment withWarning(String warning) => OcrQualityAssessment(
+    unsupportedScriptRatio: unsupportedScriptRatio,
+    lowConfidenceRatio: lowConfidenceRatio,
+    medianRotationDegrees: medianRotationDegrees,
+    koreanLineCount: koreanLineCount,
+    confidenceLineCount: confidenceLineCount,
+    warnings: <String>{...warnings, warning}.toList(growable: false),
+    severeWarnings: severeWarnings,
+  );
+
   Map<String, dynamic> toMap() => <String, dynamic>{
     'unsupportedScriptRatio': unsupportedScriptRatio,
     'lowConfidenceRatio': lowConfidenceRatio,
@@ -422,6 +682,9 @@ class OcrResult {
     required this.quality,
     required this.failure,
     required this.message,
+    required this.document,
+    required this.chosenQuarterTurn,
+    required this.orientationRetryCount,
   });
 
   factory OcrResult.success({
@@ -431,6 +694,9 @@ class OcrResult {
     int latinBlockCount = 0,
     int discardedBlockCount = 0,
     OcrQualityAssessment quality = OcrQualityAssessment.empty,
+    BookOcrDocument? document,
+    int chosenQuarterTurn = 0,
+    int orientationRetryCount = 0,
   }) => OcrResult._(
     text: text,
     blockCount: blockCount,
@@ -440,6 +706,9 @@ class OcrResult {
     quality: quality,
     failure: null,
     message: null,
+    document: document,
+    chosenQuarterTurn: chosenQuarterTurn,
+    orientationRetryCount: orientationRetryCount,
   );
 
   factory OcrResult.failure({required OcrFailure reason, String? message}) =>
@@ -452,6 +721,9 @@ class OcrResult {
         quality: OcrQualityAssessment.empty,
         failure: reason,
         message: message,
+        document: null,
+        chosenQuarterTurn: 0,
+        orientationRetryCount: 0,
       );
 
   final String? text;
@@ -462,6 +734,9 @@ class OcrResult {
   final OcrQualityAssessment quality;
   final OcrFailure? failure;
   final String? message;
+  final BookOcrDocument? document;
+  final int chosenQuarterTurn;
+  final int orientationRetryCount;
 
   List<String> get qualityWarnings => quality.warnings;
   List<String> get severeQualityWarnings => quality.severeWarnings;

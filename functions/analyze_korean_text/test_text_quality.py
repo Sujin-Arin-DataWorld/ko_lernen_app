@@ -112,11 +112,19 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
         body = response.get_json()
         self.assertEqual(
             set(body),
-            {"words", "grammar", "sentences", "warnings", "analysisLanguage"},
+            {
+                "words",
+                "expressions",
+                "grammar",
+                "sentences",
+                "warnings",
+                "analysisLanguage",
+            },
         )
         self.assertIn("no_korean_text", body["warnings"])
         self.assertEqual(body["analysisLanguage"], "de")
         self.assertEqual(body["words"], [])
+        self.assertEqual(body["expressions"], [])
         self.assertEqual(body["grammar"], [])
         self.assertEqual(body["sentences"], [])
         quota_gate.assert_not_called()
@@ -156,7 +164,14 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
         body = response.get_json()
         self.assertEqual(
             set(body),
-            {"words", "grammar", "sentences", "warnings", "analysisLanguage"},
+            {
+                "words",
+                "expressions",
+                "grammar",
+                "sentences",
+                "warnings",
+                "analysisLanguage",
+            },
         )
         grammar.assert_called_once_with("저는 학생이에요.", "de", tokens=[])
         words.assert_called_once_with(
@@ -202,6 +217,145 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
             [{"korean": "저는 학생이에요.", "translation": ""}],
         )
         self.assertEqual(body["analysisLanguage"], "de")
+
+    def test_structured_units_keep_sentences_and_expressions_separate(self):
+        endpoint = self.endpoint
+        source = "오늘은 학교에 가요.\n마음이 와닿다\n학생"
+        analysis_source = "오늘은 학교에 가요.。\n마음이 와닿다。\n학생"
+        translations = {
+            "오늘은 학교에 가요.": "Heute gehe ich zur Schule.",
+            "마음이 와닿다": "jemanden innerlich berühren",
+        }
+        units = [
+            {
+                "id": "unit:0",
+                "kind": "sentence",
+                "korean": "오늘은 학교에 가요.",
+                "sourceLineIds": ["block:0:line:0"],
+                "bbox": {"left": 0, "top": 0, "right": 200, "bottom": 20},
+                "confidence": 0.9,
+            },
+            {
+                "id": "unit:1",
+                "kind": "expression",
+                "korean": "마음이 와닿다",
+                "sourceLineIds": ["block:1:line:0"],
+                "bbox": {"left": 0, "top": 30, "right": 200, "bottom": 50},
+            },
+            {
+                "id": "unit:2",
+                "kind": "headword",
+                "korean": "학생",
+                "sourceLineIds": ["block:2:line:0"],
+                "bbox": {"left": 0, "top": 60, "right": 100, "bottom": 80},
+            },
+        ]
+        with self.app.test_request_context(
+            "/",
+            method="POST",
+            json={
+                "text": source,
+                "lang": "de",
+                "analysisLanguage": "de",
+                "schemaVersion": 2,
+                "units": units,
+            },
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=SimpleNamespace(uid="verified-user"),
+            ), mock.patch.object(
+                endpoint, "_quota_gate", return_value=mock.Mock()
+            ), mock.patch.object(
+                endpoint, "detect_grammar", return_value=[]
+            ), mock.patch.object(
+                endpoint,
+                "extract_words",
+                return_value=[
+                    {
+                        "korean": "학생",
+                        "stem": "학생",
+                        "pos": "Nomen",
+                    }
+                ],
+            ), mock.patch.object(
+                endpoint, "translate_batch", return_value=translations
+            ) as translate, mock.patch.object(
+                endpoint,
+                "translate_words_with_context",
+                return_value={"학생": "Schüler"},
+            ), mock.patch.object(endpoint, "_get_kiwi") as kiwi:
+                kiwi.return_value.tokenize.return_value = []
+                response = endpoint.analyze_korean_text(self.request)
+
+        self.assertEqual(response.status_code, 200)
+        body = response.get_json()
+        self.assertEqual(
+            body["sentences"],
+            [
+                {
+                    "korean": "오늘은 학교에 가요.",
+                    "translation": "Heute gehe ich zur Schule.",
+                    "sourceUnitId": "unit:0",
+                }
+            ],
+        )
+        self.assertEqual(
+            body["expressions"],
+            [
+                {
+                    "korean": "마음이 와닿다",
+                    "translation": "jemanden innerlich berühren",
+                    "sourceUnitId": "unit:1",
+                }
+            ],
+        )
+        self.assertEqual(body["words"][0]["sourceUnitId"], "unit:2")
+        translate.assert_called_once_with(
+            ["오늘은 학교에 가요.", "마음이 와닿다"], "DE"
+        )
+        kiwi.return_value.tokenize.assert_called_once_with(
+            analysis_source, normalize_coda=True
+        )
+
+    def test_structured_units_reject_printed_foreign_hints(self):
+        endpoint = self.endpoint
+        with self.app.test_request_context(
+            "/",
+            method="POST",
+            json={
+                "text": "학생",
+                "lang": "de",
+                "analysisLanguage": "de",
+                "schemaVersion": 2,
+                "units": [
+                    {
+                        "id": "unit:0",
+                        "kind": "headword",
+                        "korean": "학생",
+                        "sourceLineIds": ["block:0:line:0"],
+                        "bbox": {
+                            "left": 0,
+                            "top": 0,
+                            "right": 100,
+                            "bottom": 20,
+                        },
+                        "foreignHints": [{"text": "student"}],
+                    }
+                ],
+            },
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=SimpleNamespace(uid="verified-user"),
+            ), mock.patch.object(endpoint, "_quota_gate") as quota:
+                response = endpoint.analyze_korean_text(self.request)
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.get_json()["warnings"], ["invalid_units"])
+        quota.assert_not_called()
 
     def test_operational_log_never_contains_the_ocr_text_or_user_id(self):
         endpoint = self.endpoint

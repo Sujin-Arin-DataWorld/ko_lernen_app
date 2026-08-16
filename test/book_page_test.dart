@@ -21,6 +21,7 @@ BookPage _samplePage({String id = 'p_test_1'}) => BookPage(
       translationEn: 'studying',
       exampleKorean: '한국어 공부를 하고 있어요.',
       exampleDe: 'Ich lerne gerade Koreanisch.',
+      sourceUnitId: 'unit:0',
       savedToPackId: null,
     ),
   ],
@@ -31,12 +32,23 @@ BookPage _samplePage({String id = 'p_test_1'}) => BookPage(
       matchedText: '하고 있어요',
       level: 'A2',
       explanationDe: 'Beschreibt eine gerade ablaufende Handlung.',
+      sourceUnitId: 'unit:0',
     ),
   ],
   sentences: const [
     TranslatedSentence(
       korean: '한국어 공부를 하고 있어요.',
       translationDe: 'Ich lerne gerade Koreanisch.',
+      sourceUnitId: 'unit:0',
+    ),
+  ],
+  expressions: const <ExtractedExpression>[
+    ExtractedExpression(
+      korean: '마음에 와닿다',
+      translationDe: 'innerlich berühren',
+      translationEn: '',
+      translationLanguage: 'de',
+      sourceUnitId: 'unit:3',
     ),
   ],
   capturedAtIso: '2026-05-31T12:00:00Z',
@@ -63,9 +75,14 @@ void main() {
       expect(p2.note, p.note);
       expect(p2.words.length, p.words.length);
       expect(p2.words[0].korean, '공부');
+      expect(p2.words[0].sourceUnitId, 'unit:0');
       expect(p2.grammar.length, 1);
       expect(p2.grammar[0].patternId, 'g_progressive');
+      expect(p2.grammar[0].sourceUnitId, 'unit:0');
       expect(p2.sentences[0].korean, p.sentences[0].korean);
+      expect(p2.sentences[0].sourceUnitId, 'unit:0');
+      expect(p2.expressions.single.korean, '마음에 와닿다');
+      expect(p2.expressions.single.sourceUnitId, 'unit:3');
       expect(p2.capturedAtIso, p.capturedAtIso);
     });
 

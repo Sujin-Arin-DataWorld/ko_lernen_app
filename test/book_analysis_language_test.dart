@@ -27,7 +27,7 @@ class _RecordingClient extends http.BaseClient {
     return http.StreamedResponse(
       Stream.value(
         utf8.encode(
-          '{"words":[],"grammar":[],"sentences":[],"warnings":["offline_stub"]}',
+          '{"words":[],"expressions":[],"grammar":[],"sentences":[],"warnings":["offline_stub"],"analysisLanguage":"en"}',
         ),
       ),
       200,
@@ -100,6 +100,7 @@ void main() {
     expect(await client.requestBody.future, {
       'text': '공부하고 있어요.',
       'lang': 'en',
+      'analysisLanguage': 'en',
     });
   });
 

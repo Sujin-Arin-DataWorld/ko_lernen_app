@@ -18,7 +18,18 @@ void main() {
     script: script,
     confidence: confidence,
     angle: angle,
+    blockIndex: top.toInt(),
+    lineIndex: left.toInt(),
   );
+
+  List<OcrTextBlock> orientationBlocks({
+    required double angle,
+    double confidence = 0.9,
+  }) => <OcrTextBlock>[
+    block('한국어 첫째 줄', 20, 10, confidence: confidence, angle: angle),
+    block('한국어 둘째 줄', 20, 40, confidence: confidence, angle: angle),
+    block('한국어 셋째 줄', 20, 70, confidence: confidence, angle: angle),
+  ];
 
   test('reads a bilingual two-column page down each column', () {
     final ordered = SnapOcrService.arrangeBlocksForReading([
@@ -159,5 +170,85 @@ void main() {
 
     expect(quality.medianRotationDegrees, 14);
     expect(quality.severeWarnings, contains('ocr_rotation_severe'));
+  });
+
+  test('180 degree text is not treated as upright', () {
+    final quality = SnapOcrService.evaluateOcrQuality(
+      orientationBlocks(angle: 180),
+    );
+
+    expect(quality.medianRotationDegrees, 180);
+    expect(quality.severeWarnings, contains('ocr_rotation_severe'));
+  });
+
+  test('orientation retry policy always checks upside-down text', () {
+    expect(
+      SnapOcrService.orientationRetryTurnsForTesting(
+        OcrOrientationCandidate(
+          quarterTurn: 0,
+          blocks: orientationBlocks(angle: 0),
+        ),
+      ),
+      <int>[180],
+    );
+    expect(
+      SnapOcrService.orientationRetryTurnsForTesting(
+        OcrOrientationCandidate(
+          quarterTurn: 0,
+          blocks: orientationBlocks(angle: 90),
+        ),
+      ),
+      <int>[90, 180, 270],
+    );
+  });
+
+  test('short pages compare every orientation when angle evidence is weak', () {
+    final shortPage = OcrOrientationCandidate(
+      quarterTurn: 0,
+      blocks: <OcrTextBlock>[
+        block('한국어 한 줄', 20, 10, confidence: 0.95, angle: 0),
+        block('한국어 두 줄', 20, 40, confidence: 0.95, angle: 0),
+      ],
+    );
+
+    expect(SnapOcrService.orientationRetryTurnsForTesting(shortPage), <int>[
+      90,
+      180,
+      270,
+    ]);
+  });
+
+  test('selects all four page orientations from synthetic candidates', () {
+    for (final expected in <int>[0, 90, 180, 270, 0, 90, 180, 270]) {
+      final selected = SnapOcrService.selectBestOrientation(
+        <OcrOrientationCandidate>[
+          for (final turn in <int>[0, 90, 180, 270])
+            OcrOrientationCandidate(
+              quarterTurn: turn,
+              blocks: orientationBlocks(
+                angle: turn == expected ? 0 : (turn - expected).toDouble(),
+                confidence: turn == expected ? 0.95 : 0.55,
+              ),
+            ),
+        ],
+      );
+
+      expect(selected.quarterTurn, expected);
+    }
+  });
+
+  test('reading order preserves source block and line identifiers', () {
+    final source = <OcrTextBlock>[
+      block('오른쪽 둘', 260, 80),
+      block('왼쪽 하나', 20, 10),
+      block('오른쪽 하나', 260, 12),
+      block('왼쪽 둘', 20, 78),
+    ];
+    final ordered = SnapOcrService.arrangeBlocksForReading(source);
+
+    expect(
+      ordered.map((item) => (item.blockIndex, item.lineIndex)),
+      <(int, int)>[(10, 20), (78, 20), (12, 260), (80, 260)],
+    );
   });
 }

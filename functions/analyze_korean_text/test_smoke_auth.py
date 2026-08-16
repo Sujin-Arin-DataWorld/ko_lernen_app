@@ -84,6 +84,7 @@ class SmokeAuthenticationContractTest(unittest.TestCase):
                     "example": "오늘은 학교에 가요.",
                 }
             ],
+            "expressions": [],
             "grammar": [],
             "sentences": [
                 {"korean": "저는 Berlin에 살아요.", "translation": "I live in Berlin."},

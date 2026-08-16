@@ -273,6 +273,16 @@ class RealKiwiGrammarRegressionTest(unittest.TestCase):
             any(item["id"].startswith("g_attribute_") for item in grammar)
         )
 
+    def test_structured_unit_separator_blocks_cross_card_morphology(self):
+        text = "좋은。\n책이에요."
+        tokens = self.kiwi.tokenize(text, normalize_coda=True)
+
+        grammar = detect_grammar(text, "de", tokens=tokens)
+
+        self.assertFalse(
+            any(item["id"].startswith("g_attribute_") for item in grammar)
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

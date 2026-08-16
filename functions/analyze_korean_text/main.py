@@ -13,11 +13,14 @@ Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
 **Request**:
     POST <function-url>
     Content-Type: application/json
-    Body: { "text": "...", "lang": "de" }
+    Body: { "text": "...", "lang": "de", "schemaVersion": 2,
+            "units": [{"id": "unit:0", "kind": "sentence",
+                       "korean": "..."}] }
 
 **Response** (success):
     {
-      "words": [...], "grammar": [...], "sentences": [...],
+      "words": [...], "expressions": [...], "grammar": [...],
+      "sentences": [...],
       "warnings": [...], "analysisLanguage": "de"
     }
 
@@ -101,6 +104,7 @@ def _analysis_response(
     language: str,
     *,
     words: list[dict[str, Any]] | None = None,
+    expressions: list[dict[str, Any]] | None = None,
     grammar: list[dict[str, Any]] | None = None,
     sentences: list[dict[str, Any]] | None = None,
     warnings: Sequence[str] = (),
@@ -111,6 +115,7 @@ def _analysis_response(
         json.dumps(
             {
                 "words": words or [],
+                "expressions": expressions or [],
                 "grammar": grammar or [],
                 "sentences": sentences or [],
                 "warnings": list(dict.fromkeys(warnings)),
@@ -157,6 +162,84 @@ def _log_analysis_result(
 def split_sentences(text: str) -> list[str]:
     """Split reflowed Korean source without treating OCR wraps as sentences."""
     return split_korean_sentences(text)
+
+
+_STRUCTURED_UNIT_KINDS = {"sentence", "expression", "headword"}
+_STRUCTURED_UNIT_SEPARATOR = "。\n"
+_STRUCTURED_UNIT_KEYS = {
+    "id",
+    "kind",
+    "korean",
+    "sourceLineIds",
+    "bbox",
+    "confidence",
+}
+
+
+def _structured_analysis_units(body: dict[str, Any]) -> list[dict[str, str]] | None:
+    """Validate the v2 OCR scene payload without accepting printed glosses."""
+
+    if "schemaVersion" not in body and "units" not in body:
+        return None
+    if body.get("schemaVersion") != 2 or not isinstance(body.get("units"), list):
+        raise ValueError("invalid_structured_schema")
+    raw_units = body["units"]
+    if len(raw_units) > 120:
+        raise ValueError("too_many_units")
+
+    units: list[dict[str, str]] = []
+    seen_ids: set[str] = set()
+    for raw_unit in raw_units:
+        if not isinstance(raw_unit, dict) or not set(raw_unit).issubset(
+            _STRUCTURED_UNIT_KEYS
+        ):
+            raise ValueError("invalid_unit")
+        unit_id = raw_unit.get("id")
+        kind = raw_unit.get("kind")
+        korean = raw_unit.get("korean")
+        if (
+            not isinstance(unit_id, str)
+            or not re.fullmatch(r"unit:\d{1,4}", unit_id)
+            or unit_id in seen_ids
+            or kind not in _STRUCTURED_UNIT_KINDS
+            or not isinstance(korean, str)
+            or len(korean) > 600
+        ):
+            raise ValueError("invalid_unit")
+        source_line_ids = raw_unit.get("sourceLineIds")
+        if not isinstance(source_line_ids, list) or any(
+            not isinstance(item, str) or len(item) > 80 for item in source_line_ids
+        ):
+            raise ValueError("invalid_unit_source")
+        bbox = raw_unit.get("bbox")
+        if not isinstance(bbox, dict) or set(bbox) != {
+            "left",
+            "top",
+            "right",
+            "bottom",
+        }:
+            raise ValueError("invalid_unit_bbox")
+        if any(
+            isinstance(value, bool)
+            or not isinstance(value, (int, float))
+            or abs(float(value)) > 1_000_000
+            for value in bbox.values()
+        ):
+            raise ValueError("invalid_unit_bbox")
+        confidence = raw_unit.get("confidence")
+        if confidence is not None and (
+            isinstance(confidence, bool)
+            or not isinstance(confidence, (int, float))
+            or not 0 <= float(confidence) <= 1
+        ):
+            raise ValueError("invalid_unit_confidence")
+
+        prepared = prepare_korean_analysis_text(korean)
+        if not prepared.text:
+            raise ValueError("invalid_unit_text")
+        seen_ids.add(unit_id)
+        units.append({"id": unit_id, "kind": str(kind), "korean": prepared.text})
+    return units
 
 
 def _sentence_spans(
@@ -517,13 +600,27 @@ def analyze_korean_text(request: Request) -> Response:
     body = request.get_json(silent=True)
     if not isinstance(body, dict):
         body = {}
+    lang = normalize_language(body.get("lang"))
+    requested_analysis_language = body.get("analysisLanguage")
+    if requested_analysis_language is not None and requested_analysis_language != lang:
+        return _warning_response("wrong_analysis_language", 400)
+    try:
+        structured_units = _structured_analysis_units(body)
+    except ValueError:
+        return _warning_response("invalid_units", 400)
+
     raw_text = body.get("text")
     if raw_text is None:
         raw_text = ""
     if not isinstance(raw_text, str):
         return _warning_response("invalid_text", 400)
-    text = raw_text.strip()
-    lang = normalize_language(body.get("lang"))
+    text = (
+        _STRUCTURED_UNIT_SEPARATOR.join(
+            unit["korean"] for unit in structured_units
+        )
+        if structured_units is not None
+        else raw_text.strip()
+    )
     if not text:
         return _analysis_response(
             lang,
@@ -562,7 +659,20 @@ def analyze_korean_text(request: Request) -> Response:
     except QuotaStoreUnavailable:
         return _warning_response("service_unavailable", 503)
 
-    sentences = split_sentences(text)
+    sentence_sources: list[tuple[str, str]] = []
+    expression_sources: list[tuple[str, str]] = []
+    if structured_units is None:
+        sentence_sources = [(sentence, "") for sentence in split_sentences(text)]
+    else:
+        for unit in structured_units:
+            if unit["kind"] == "sentence":
+                sentence_sources.extend(
+                    (sentence, unit["id"])
+                    for sentence in split_sentences(unit["korean"])
+                )
+            elif unit["kind"] == "expression":
+                expression_sources.append((unit["korean"], unit["id"]))
+    sentences = [sentence for sentence, _ in sentence_sources]
     try:
         tokens = list(_get_kiwi().tokenize(text, normalize_coda=True))
     except Exception:  # pragma: no cover - runtime dependency failure
@@ -570,16 +680,33 @@ def analyze_korean_text(request: Request) -> Response:
         quality_warnings.append("morphology_unavailable")
         _LOGGER.warning("book_analysis_morphology_unavailable")
     grammar = detect_grammar(text, lang, tokens=tokens)
+    if structured_units is not None:
+        for hit in grammar:
+            matched = str(hit.get("matched", ""))
+            hit["sourceUnitId"] = next(
+                (
+                    unit["id"]
+                    for unit in structured_units
+                    if matched and matched in unit["korean"]
+                ),
+                "",
+            )
     words = extract_words(text, language=lang, tokens=tokens)
 
     # 문장은 batch 번역(문장 자체가 문맥), 단어는 그 단어가 든 예문을 DeepL
     # context 로 실어 번역 → 다의어 해소("걸리다"=시간이면 dauern / 경찰이면
     # erwischt werden). 단어 단독 번역의 문맥 부재 오역을 막는다.
     target = "DE" if lang == "de" else "EN-US"
-    sentence_translations = translate_batch(sentences, target)
+    translation_inputs = list(
+        dict.fromkeys(
+            sentences + [expression for expression, _ in expression_sources]
+        )
+    )
+    sentence_translations = translate_batch(translation_inputs, target)
     word_translations = translate_words_with_context(words, sentences, target)
-    if any(not sentence_translations.get(sentence) for sentence in sentences) or any(
-        not word_translations.get(word["korean"]) for word in words
+    if (
+        any(not sentence_translations.get(source) for source in translation_inputs)
+        or any(not word_translations.get(word["korean"]) for word in words)
     ):
         quality_warnings.append("translation_unavailable")
 
@@ -605,6 +732,7 @@ def analyze_korean_text(request: Request) -> Response:
 
     enriched_words = []
     sentence_lookup = {s: sentence_translations.get(s, "") for s in sentences}
+    sentence_source_lookup = dict(sentence_sources)
     for w in words:
         kor = w["korean"]
         translation = word_translations.get(kor, "")
@@ -613,6 +741,16 @@ def analyze_korean_text(request: Request) -> Response:
         example = form_to_sentence.get(stem) or next(
             (s for s in sentences if stem in s or kor in s), ""
         )
+        source_unit_id = sentence_source_lookup.get(example, "")
+        if not source_unit_id and structured_units is not None:
+            source_unit_id = next(
+                (
+                    unit["id"]
+                    for unit in structured_units
+                    if stem in unit["korean"] or kor in unit["korean"]
+                ),
+                "",
+            )
         enriched_words.append({
             "korean": kor,
             "romanization": "",  # could add hangul-romanization fallback later
@@ -621,11 +759,24 @@ def analyze_korean_text(request: Request) -> Response:
             "definitionKo": w.get("definitionKo", ""),
             "example": example,
             "exampleTranslation": sentence_lookup.get(example, ""),
+            **({"sourceUnitId": source_unit_id} if source_unit_id else {}),
         })
 
     sentence_results = [
-        {"korean": sentence, "translation": sentence_lookup[sentence]}
-        for sentence in sentences
+        {
+            "korean": sentence,
+            "translation": sentence_lookup[sentence],
+            **({"sourceUnitId": source_unit_id} if source_unit_id else {}),
+        }
+        for sentence, source_unit_id in sentence_sources
+    ]
+    expression_results = [
+        {
+            "korean": expression,
+            "translation": sentence_translations.get(expression, ""),
+            "sourceUnitId": source_unit_id,
+        }
+        for expression, source_unit_id in expression_sources
     ]
     _log_analysis_result(
         "complete",
@@ -639,6 +790,7 @@ def analyze_korean_text(request: Request) -> Response:
     return _analysis_response(
         lang,
         words=enriched_words,
+        expressions=expression_results,
         grammar=grammar,
         sentences=sentence_results,
         warnings=quality_warnings,

@@ -1564,6 +1564,9 @@ class AppL10nEn extends AppL10n {
   String get bookResultSectionWords => 'Words';
 
   @override
+  String get bookResultSectionExpressions => 'Expressions';
+
+  @override
   String get bookResultSectionGrammar => 'Grammar';
 
   @override

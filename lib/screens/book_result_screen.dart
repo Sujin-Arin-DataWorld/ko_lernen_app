@@ -9,6 +9,7 @@ import '../services/analytics_service.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
+import '../services/book_ocr_document.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
@@ -209,10 +210,16 @@ class _BookResultScreenState extends State<BookResultScreen> {
     });
     try {
       // Quota erst nach erfolgreichem Aufruf erhöhen — Fehler zählen nicht.
-      final res = await (widget.analyzer ?? BookAnalysisService.analyze)(
-        text: _text,
-        targetLang: targetLang,
-      );
+      final customAnalyzer = widget.analyzer;
+      final res = customAnalyzer != null
+          ? await customAnalyzer(text: _text, targetLang: targetLang)
+          : await BookAnalysisService.analyze(
+              text: _text,
+              targetLang: targetLang,
+              document: widget.args['ocrDocument'] is BookOcrDocument
+                  ? widget.args['ocrDocument'] as BookOcrDocument
+                  : null,
+            );
       if (!res.warnings.contains('offline_stub') &&
           !res.warnings.contains('no_korean_text')) {
         await Storage.incBookSnapCountToday();
@@ -267,6 +274,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
         words: res.words,
         grammar: res.grammar,
         sentences: res.sentences,
+        expressions: res.expressions,
         capturedAtIso: capturedAtIso,
         customPackId: null,
         analysisLanguage: res.analysisLanguage,
@@ -496,6 +504,16 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     ),
                     const SizedBox(height: Spacing.lg),
                   ],
+                  if (r.expressions.isNotEmpty) ...[
+                    _SectionLabel(label: t.bookResultSectionExpressions),
+                    ...r.expressions.map(
+                      (expression) => _ExpressionCard(
+                        expression: expression,
+                        allowTts: r.isSaveable,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.lg),
+                  ],
                   // 문법 패턴
                   if (r.grammar.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionGrammar),
@@ -630,6 +648,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
       words: res.words,
       grammar: res.grammar,
       sentences: res.sentences,
+      expressions: res.expressions,
       capturedAtIso: DateTime.now().toUtc().toIso8601String(),
       customPackId: null,
       analysisLanguage: res.analysisLanguage,
@@ -667,6 +686,53 @@ class _SectionLabel extends StatelessWidget {
         style: SoriTextTheme.of(
           context,
         ).bodySmall.copyWith(fontWeight: FontWeight.w800, letterSpacing: 0.4),
+      ),
+    );
+  }
+}
+
+class _ExpressionCard extends StatelessWidget {
+  const _ExpressionCard({required this.expression, required this.allowTts});
+
+  final ExtractedExpression expression;
+  final bool allowTts;
+
+  @override
+  Widget build(BuildContext context) {
+    final meaning =
+        expression.translationLanguage == 'en' &&
+            expression.translationEn.isNotEmpty
+        ? expression.translationEn
+        : expression.translationDe;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.success,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(expression.korean, style: SoriTextTheme.of(context).h3),
+                  if (meaning.isNotEmpty) ...<Widget>[
+                    const SizedBox(height: Spacing.xs),
+                    Text(meaning, style: SoriTextTheme.of(context).bodySmall),
+                  ],
+                ],
+              ),
+            ),
+            if (allowTts)
+              IconButton(
+                icon: const Icon(Icons.volume_up_rounded),
+                onPressed: () {
+                  // ignore: discarded_futures
+                  TtsService.speak(expression.korean);
+                },
+              ),
+          ],
+        ),
       ),
     );
   }

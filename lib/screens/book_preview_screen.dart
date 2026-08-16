@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
+import '../services/book_ocr_document.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -132,6 +133,11 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
           'imageQuality': widget.args['imageQuality'],
           'textQualityWarnings': prepared.warnings,
           'qualityOverrideByTextEdit': _hasSevereCaptureWarning,
+          'ocrDocument':
+              _ctrl.text == _initialText &&
+                  widget.args['ocrDocument'] is BookOcrDocument
+              ? widget.args['ocrDocument']
+              : null,
         },
       );
     } on Object {

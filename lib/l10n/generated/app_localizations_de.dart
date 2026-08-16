@@ -1571,6 +1571,9 @@ class AppL10nDe extends AppL10n {
   String get bookResultSectionWords => 'Wörter';
 
   @override
+  String get bookResultSectionExpressions => 'Ausdrücke';
+
+  @override
   String get bookResultSectionGrammar => 'Grammatik';
 
   @override

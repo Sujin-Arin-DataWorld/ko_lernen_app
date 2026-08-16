@@ -271,6 +271,36 @@ missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐�
 실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
 `847eee9a` (`chore: verify batch 05 TTS storage`)다.
 
+### 2026-08-16 (Codex) — 책 한 컷 2차 구조 복구 구현
+
+**기준점과 범위.** 1차 안전 복구와 실물 8종 레이아웃 감사 기록은 먼저
+`1650ccc9 feat(book): harden mixed-text capture and analysis`로 커밋해 보관했다.
+이 커밋은 푸시·병합·배포하지 않았다. 그 위의 이번 변경은 이 단계 커밋으로 분리해 보관하며,
+다른 세션의 `hangul-sori-site-local` 작업을 수정하거나 포함하지 않았다. 사용자가 제공한
+교재 원본 8장은 계속 저장소 밖 private challenge set으로만 유지하고, 저장소에는 구조만
+재현한 독립 창작 JSON fixture를 추가했다.
+
+**2차 구조 복구.** ML Kit Korean 인식 결과를 즉시 평탄 문자열로 버리지 않고
+`BookOcrDocument > Region > Line > Unit` 구조와 block/line ID, bbox, confidence를
+보존한다. 조건부로 실제 픽셀을 90/180/270도 회전해 재인식하고 합성 후보 점수로 방향을
+선택하며, 선택한 이미지를 preview와 같은 좌표계에 둔다. 각 Korean-bearing 구간을
+sentence/expression/headword/grammarMeta/speaker/instruction 역할로 분리한다. 인쇄된 DE/EN
+gloss는 일시적 구조 힌트일 뿐 서버 요청·분석·TTS·저장에는 보내지 않고, `Berlin에`,
+`AI를`, `K-pop 음악`처럼 한국어 절에 속한 Latin은 보존한다. 서버 v2 structured units는
+sentence와 expression을 분리하고 모든 결과에 source unit provenance를 붙이며, 외국어
+hint를 포함한 요청과 필수 `expressions`/언어 계약 위반은 fail-closed한다.
+
+**로컬 검증과 남은 게이트.** 전체 `flutter analyze --no-pub --fatal-infos`는 error 0,
+책 구조 및 분석 Flutter 회귀는 **116/116**, Python 3.12 requirements 환경의
+전체 함수 discovery는 **70/70, skip 0**을 통과했다. 합성 방향 후보는
+0/90/180/270 8/8을 선택하고 창작 8-shape fixture의 Korean
+segment precision >=98%, recall >=95% 계약을 통과한다. 변경 목록에 PNG/JPEG/PDF 원본은
+0건이며 `git diff --check`도 통과했다. 그러나 실제 Android/iOS에서 private 8장 F1,
+reading-order, 플랫폼 차이, 동일 파일 3회 안정성, crash 0은 아직 측정하지 않았다.
+운영 함수도 구버전이며 이번 schema를 배포하지 않았으므로 운영 복구 완료를 주장하지
+않는다. 새 클라이언트와 서버는 `expressions` 필수 schema 때문에 반드시 함께 배포해야
+하고, Secret/TTL/cache 정리와 함수 배포는 별도 운영 승인 뒤에만 수행한다.
+
 ### 2026-08-16 (Codex) — 책 한 컷 실물 8종 레이아웃 2차 감사
 
 **샘플과 개인정보 경계.** 사용자가 제공한 한국어-only 캡처, KO+DE/EN 교재 사진

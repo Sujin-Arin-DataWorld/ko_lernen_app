@@ -741,6 +741,7 @@
   "bookResultTranslationUnavailable": "Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.",
   "bookResultNoKoreanNotice": "Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.",
   "bookResultSectionWords": "Wörter",
+  "bookResultSectionExpressions": "Ausdrücke",
   "bookResultSectionGrammar": "Grammatik",
   "bookResultSectionSentences": "Sätze",
   "bookResultSave": "In meinem Bücherregal speichern",

@@ -41,7 +41,12 @@ Map<String, dynamic> buildBookPreviewArguments({
     'qualityWarnings': warnings,
     'severeQualityWarnings': severeWarnings,
     'discardedBlockCount': ocr.discardedBlockCount,
-    'ocrQuality': ocr.quality.toMap(),
+    'ocrQuality': <String, dynamic>{
+      ...ocr.quality.toMap(),
+      'chosenQuarterTurn': ocr.chosenQuarterTurn,
+      'orientationRetryCount': ocr.orientationRetryCount,
+    },
+    'ocrDocument': ocr.document,
     'imageQuality': imageQuality.toMap(),
     'imageLease': imageLease,
   };
@@ -233,17 +238,16 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       }
       final ocrLease = croppedLease;
       final ocrFile = store.pendingFile(ocrLease);
-      final imageQualityFuture = BookCaptureImageQualityAnalyzer.analyzeFile(
+      final imageQuality = await BookCaptureImageQualityAnalyzer.analyzeFile(
         ocrFile,
       );
       final ocr = await SnapOcrService.recognizeKorean(ocrFile).timeout(
-        const Duration(seconds: 45),
+        const Duration(seconds: 75),
         onTimeout: () => OcrResult.failure(
           reason: OcrFailure.engineError,
           message: 'timeout',
         ),
       );
-      final imageQuality = await imageQualityFuture;
       if (!mounted) {
         await _releaseRecoveredLease(ocrLease);
         croppedLease = null;
@@ -463,17 +467,16 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
       // OCR — erster Aufruf lädt das ML-Kit-Korean-Modell herunter (kann
       // dauern). Endlos-Spinner vermeiden: 45s Timeout → Fehlerkarte.
-      final imageQualityFuture = BookCaptureImageQualityAnalyzer.analyzeFile(
+      final imageQuality = await BookCaptureImageQualityAnalyzer.analyzeFile(
         file,
       );
       final ocr = await SnapOcrService.recognizeKorean(file).timeout(
-        const Duration(seconds: 45),
+        const Duration(seconds: 75),
         onTimeout: () => OcrResult.failure(
           reason: OcrFailure.engineError,
           message: 'timeout',
         ),
       );
-      final imageQuality = await imageQualityFuture;
       if (!ocr.isSuccess) {
         await _releaseRecoveredLease(pending);
         pending = null;

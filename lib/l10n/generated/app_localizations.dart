@@ -2827,6 +2827,12 @@ abstract class AppL10n {
   /// **'Wörter'**
   String get bookResultSectionWords;
 
+  /// No description provided for @bookResultSectionExpressions.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdrücke'**
+  String get bookResultSectionExpressions;
+
   /// No description provided for @bookResultSectionGrammar.
   ///
   /// In de, this message translates to:

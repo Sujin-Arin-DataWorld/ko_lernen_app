@@ -741,6 +741,7 @@
   "bookResultTranslationUnavailable": "The translation service did not return every meaning. Check the result before saving or try again.",
   "bookResultNoKoreanNotice": "No reliable Korean text remained. Check the text or retake the page.",
   "bookResultSectionWords": "Words",
+  "bookResultSectionExpressions": "Expressions",
   "bookResultSectionGrammar": "Grammar",
   "bookResultSectionSentences": "Sentences",
   "bookResultSave": "Save to my bookshelf",
