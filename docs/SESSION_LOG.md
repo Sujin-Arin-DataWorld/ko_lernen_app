@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 짧은 Proofreading 응답·선택형 전달 보강
+
+**원인과 수정.** 짧은 교정 후보가 숫자·부정 보존 검사보다 먼저 성공 처리되어
+`1개 → 2개`, `안돼 → 잘돼`를 허용할 수 있었고, 두 단어 문장은 핵심어 보존 검사를
+건너뛰어 `물 주세요 → 불 주세요`도 통과할 수 있었다. 숫자·부정 검사를 모든 길이에
+먼저 적용하고 두 단어부터 핵심어 보존을 확인하되, `학쌩 → 학생` 같은 두 글자 이상
+철자 교정과 조사·활용 교정은 유지했다. Android gateway의 `if/else` 중괄호를 저장소
+규칙에 맞추고, client 종료 실패에도 executor가 항상 닫히도록 했다. 기본 앱 minSdk를
+24로 명시해 API 24/25 지원을 고정하고, API 26+ Proofreading 전달·비융합 계약 및
+feature-only ML Kit 의존성을 정적 테스트로 고정했다. Play 기능 제목은 영어 기본값과
+독일어 번역을 제공한다. 구현 커밋은 `143dbbb1`이다.
+
+**검증.** 새 기능 관련 Flutter test **53/53**, 짧은 응답·Android 전달 집중 test
+**18/18**, `flutter analyze --no-pub --fatal-infos` **No issues found**,
+`:app:compileDebugKotlin`과 `:proofreading_feature:compileDebugKotlin`을 포함한 Gradle
+debug 컴파일 **BUILD SUCCESSFUL**, `git diff --check`가 통과했다. 실기기 모델
+다운로드·추론과 Play 조건부 전달은 아직 외부 게이트이며 원격 CI·배포는 수행하지 않았다.
+
 ### 2026-08-16 (Codex) — 준비된 브랜치 통합 중 Book 계약 정합화
 
 **수정.** Book 강화 커밋의 13개 단일 행 `if`를 저장소 중괄호 규칙에 맞췄다.
