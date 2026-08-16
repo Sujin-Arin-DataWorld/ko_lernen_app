@@ -102,16 +102,19 @@ void main() {
       await tester.pump(const Duration(seconds: 2));
       await _tapText(tester, 'Weiter');
       await tester.pump(const Duration(seconds: 2));
-      expect(find.text('Mini-Spiele 1/1'), findsOneWidget);
+      expect(find.text('Lücke füllen'), findsOneWidget);
 
       // Two wrong attempts complete the real Lückentext quest as failed.
-      _chooseQuestOption(tester, _wrongOption);
+      final wrongAnswer = find.byKey(const ValueKey('answer-1'));
+      await tester.ensureVisible(wrongAnswer);
+      await tester.tap(wrongAnswer);
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 701));
-      _chooseQuestOption(tester, _wrongOption);
+      await _tapText(tester, 'Überprüfen');
+      await tester.pump(const Duration(milliseconds: 220));
+      await _tapText(tester, 'Überprüfen');
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 1501));
-      await _tapText(tester, 'Weiter');
+      await tester.pump(const Duration(milliseconds: 220));
+      await _tapText(tester, 'Ergebnis ansehen');
 
       await _pumpUntil(
         tester,
@@ -140,14 +143,6 @@ Future<void> _tapText(WidgetTester tester, String text) async {
   await tester.pump();
   await tester.tap(finder.last);
   await tester.pump();
-}
-
-void _chooseQuestOption(WidgetTester tester, String label) {
-  final option = find
-      .ancestor(of: find.text(label), matching: find.byType(InkWell))
-      .first;
-  expect(option, findsOneWidget);
-  tester.widget<InkWell>(option).onTap!();
 }
 
 Future<void> _pumpUntil(WidgetTester tester, bool Function() condition) async {

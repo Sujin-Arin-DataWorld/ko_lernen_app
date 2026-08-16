@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('quest mascot overlays are allowed to extend above their content', () {
+  test('remaining quest mascot overlays can extend above their content', () {
     const questFiles = <String>[
       'lib/screens/quest_engines/batchim_drop_quest.dart',
       'lib/screens/quest_engines/diktat_quest.dart',
@@ -28,6 +28,11 @@ void main() {
 
     for (final path in questFiles) {
       final source = File(path).readAsStringSync();
+      // The focused scenario redesign intentionally removed per-question
+      // mascots from most engines. Only enforce overhang geometry where a
+      // MascotPartner is still rendered (for example the standalone sentence
+      // game); absence is now the expected scenario behavior.
+      if (!source.contains('MascotPartner(')) continue;
       expect(
         mascotStack.hasMatch(source),
         isTrue,

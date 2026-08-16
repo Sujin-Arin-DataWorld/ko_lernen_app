@@ -1,5 +1,45 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 전체 시나리오 문제 UI·첫 실행 완료 흐름 통합
+
+**원인과 수정.** 첫 실행 공항 장면이 `1/5`라고 표시하면서 첫 정답 직후 성공 화면으로
+이동해 나머지 네 문제를 건너뛰었고, 7개 문제 엔진은 자동 판정·엔진별 CTA·시나리오
+하단 CTA가 섞여 있었다. `ScenarioPlayerMode.onboardingFirstScene`과 저장 후 단 한 번
+전달되는 `ScenarioCompletionSummary`를 도입해 온보딩도 실제 마지막 문제까지 진행하고,
+저장 실패 시 현재 결과 화면에서 재시도하도록 했다. 문제별 코인 축하는 제거하고 일반
+시나리오의 최종 저장 뒤에만 큰 축하를 남겼다.
+
+**UI·상호작용.** 기존 장면 포스터를 문제 상단 64-112dp 반응형 크롭으로 노출하고,
+상단은 시나리오 제목·`n von N`·완료/현재/남음 분절 진행만 표시한다. 공유
+`SoriAnswerTile`, `SoriWordTile`, `SoriAnswerTray`, `ScenarioQuestAction`으로 선택·확인·
+첫 오답 재시도·두 번째 오답 정답 공개·계속 흐름과 아이콘/텍스트 상태를 통일했다.
+시나리오 문제에서는 엔진만 CTA를 소유한다. 받아쓰기는 코스 문맥 없는 첫 실행에서만
+한국어 키보드 대신 단어 블록을 쓸 수 있고, 기존 점수·XP·SRS·코스 증거·라우트·에셋
+경로는 유지했다. Gallery fixture에는 `questIndex`를 추가했다.
+
+**Rollenspiel·살아 있는 상호작용.** 실제 `Vorstellung beim Geschäftsmeeting` 캡처에서
+확인한 떠 있는 조이, 22px 과대 문장, 선택지까지 이어지는 긴 페이지, 죽은 이중 `Weiter`,
+즉시 배속 조절 부재를 함께 수정했다. 역할극도 장면 포스터를 56-96dp로 직접 노출하고
+희미한 전체 배경 이미지는 제거했다. 상대 발화는 얇은 맥락 스트립으로 보존하며, 문장
+카드 전체를 탭 재생 영역으로 바꾸고 배속 칩은 `Rollenspiel` 옆에 고정했다. 문장 카드·
+답안 트레이·단어/선택 타일·진행 표시는 160-200ms 상태 전환과 눌림/탄성 복귀를 공유하고
+reduced motion에서는 즉시 전환한다. 활성 역할극에서는 마스코트를 제거하고 CTA를
+고정한 내부 스크롤로 긴 B2 문장도 첫 뷰포트에서 단어 영역과 확인 버튼에 접근한다.
+사용자 후속 요청에 따라 이 비즈니스 장면의 노출 이름만 `민수/Minsu`에서 자연스러운
+전체 이름 `김은수/Kim Eun-su`로 바꿨으며 내부 speaker/sidekick ID와 교육 정답은 유지했다.
+
+**검증.** `flutter analyze --fatal-infos`는 **No issues found**였고, 관련 기존·신규
+회귀 **100/100**이 통과했다. 전체 직렬 Flutter test는 **3,596 통과 / 14 환경·수동
+검사 skip / 실패 0**으로 완료했다. 이 범위에는 308/390/480/800dp, light/dark,
+1.0/1.3/2.0배 글자, reduced motion, 키보드 inset이 포함된다. 신규 데이터 검사는
+58개 시나리오·241개 문제, 7개 지원 유형, 선택지·정답 인덱스와 온보딩 5/7/6문항을
+확인한다. `flutter build web --release`와 `flutter build apk --debug`가 성공해
+`build/web`과 `build/app/outputs/flutter-apk/app-debug.apk`를 생성했다. 웹 빌드에는
+기존 `flutter_tts 4.2.5`의 Wasm dry-run 경고, Android 빌드에는 플러그인 KGP/Java 8
+향후 마이그레이션 경고가 있었지만 현재 산출물은 정상 생성됐다. 실제 Android TTS·
+키보드·inset은 연결 기기에서 아직 확인하지 않았고 로컬 빌드를 기기 성공으로 간주하지
+않는다. 커밋·푸시는 요청받지 않아 수행하지 않았으며 현재 변경은 **미커밋**이다.
+
 ### 2026-08-16 (Codex) — 모바일 웹 DE/EN 전환 복원
 
 **원인과 수정.** 홈페이지 헤더의 DE/EN 전환은 정상 렌더링되고 있었지만 560px 이하

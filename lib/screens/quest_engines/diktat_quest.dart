@@ -29,8 +29,18 @@ import 'quest_models.dart';
 class DiktatQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onContinue;
+  final bool isLast;
+  final bool allowWordBankFallback;
 
-  const DiktatQuest({super.key, required this.data, required this.onComplete});
+  const DiktatQuest({
+    super.key,
+    required this.data,
+    required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
+    this.allowWordBankFallback = false,
+  });
 
   @override
   State<DiktatQuest> createState() => _DiktatQuestState();
@@ -132,6 +142,91 @@ class DiktatQuest extends StatefulWidget {
   }
 }
 
+class _WordBankInput extends StatelessWidget {
+  const _WordBankInput({
+    required this.selectedTokens,
+    required this.availableTokens,
+    required this.enabled,
+    required this.borderColor,
+    required this.onAdd,
+    required this.onRemove,
+  });
+
+  final List<String> selectedTokens;
+  final List<String> availableTokens;
+  final bool enabled;
+  final Color borderColor;
+  final ValueChanged<String> onAdd;
+  final ValueChanged<int> onRemove;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    final remaining = [...availableTokens];
+    for (final selected in selectedTokens) {
+      remaining.remove(selected);
+    }
+
+    Widget tile(String label, VoidCallback? onTap) => Material(
+      color: surfaces.surface,
+      borderRadius: BorderRadius.circular(SoriRadius.sm),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
+        onTap: onTap,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 44),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spacing.md,
+            vertical: Spacing.sm,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(SoriRadius.sm),
+            border: Border.all(color: surfaces.surfaceAlt),
+          ),
+          child: Text(
+            label,
+            style: SoriTextTheme.of(
+              context,
+            ).body.copyWith(fontWeight: FontWeight.w700),
+          ),
+        ),
+      ),
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          constraints: const BoxConstraints(minHeight: 64),
+          padding: const EdgeInsets.all(Spacing.sm),
+          decoration: BoxDecoration(
+            color: surfaces.surface,
+            borderRadius: BorderRadius.circular(SoriRadius.md),
+            border: Border.all(color: borderColor, width: 1.8),
+          ),
+          child: Wrap(
+            spacing: Spacing.xs,
+            runSpacing: Spacing.xs,
+            children: [
+              for (final entry in selectedTokens.asMap().entries)
+                tile(entry.value, enabled ? () => onRemove(entry.key) : null),
+            ],
+          ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Wrap(
+          spacing: Spacing.xs,
+          runSpacing: Spacing.xs,
+          children: [
+            for (final token in remaining)
+              tile(token, enabled ? () => onAdd(token) : null),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 /// Art des Diktat-Fehlers — steuert das gezielte Feedback.
 enum DiktatError { spacing, spelling, wrong }
 
@@ -143,6 +238,8 @@ class _DiktatQuestState extends State<DiktatQuest> {
   bool _completed = false;
   bool _celebrated = false;
   bool _showMeaning = false;
+  bool _wordBankMode = false;
+  final List<String> _selectedTokens = [];
   _Feedback _feedback = _Feedback.none;
 
   String get _targetKo => (widget.data['targetKo'] as String?) ?? '';
@@ -151,6 +248,35 @@ class _DiktatQuestState extends State<DiktatQuest> {
       : _targetKo;
   String get _promptDe => (widget.data['promptDe'] as String?) ?? '';
   String get _promptEn => (widget.data['promptEn'] as String?) ?? '';
+  List<String> get _targetTokens => _targetKo
+      .trim()
+      .split(RegExp(r'\s+'))
+      .where((token) => token.isNotEmpty)
+      .toList();
+
+  void _syncWordBankText() {
+    _ctrl.text = _selectedTokens.join(' ');
+    _ctrl.selection = TextSelection.collapsed(offset: _ctrl.text.length);
+  }
+
+  void _addToken(String token) {
+    if (_completed) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _selectedTokens.add(token);
+      _feedback = _Feedback.none;
+      _syncWordBankText();
+    });
+  }
+
+  void _removeToken(int index) {
+    if (_completed) return;
+    setState(() {
+      _selectedTokens.removeAt(index);
+      _feedback = _Feedback.none;
+      _syncWordBankText();
+    });
+  }
 
   @override
   void initState() {
@@ -199,10 +325,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
         _celebrated = true;
         _feedback = _Feedback.correct;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
-      }
+      widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
       return;
     }
 
@@ -218,10 +341,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
         _completed = true;
         _feedback = _Feedback.wrong;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1600));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: false, firstTry: false));
-      }
+      widget.onComplete(const QuestResult(passed: false, firstTry: false));
     } else {
       setState(() {
         _feedback = switch (diag) {
@@ -238,6 +358,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
+    final canCheck = _ctrl.text.trim().isNotEmpty;
 
     Color fieldBorder = s.surfaceAlt;
     if (_feedback == _Feedback.correct) {
@@ -252,18 +373,21 @@ class _DiktatQuestState extends State<DiktatQuest> {
     return QuestLayout(
       showTtsSpeed: true,
       action: Opacity(
-        opacity: _completed ? 0.5 : 1.0,
+        opacity: _completed || canCheck ? 1 : 0.5,
         child: Material(
+          key: ValueKey(_completed ? 'quest-continue' : 'quest-submit'),
           color: SoriColors.primary,
           borderRadius: BorderRadius.circular(SoriRadius.lg),
           child: InkWell(
             borderRadius: BorderRadius.circular(SoriRadius.lg),
-            onTap: _completed ? null : _check,
+            onTap: _completed ? widget.onContinue : (canCheck ? _check : null),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Center(
                 child: Text(
-                  t.questCheckAnswer,
+                  _completed
+                      ? (widget.isLast ? t.questViewResult : t.questNext)
+                      : t.questCheckAnswer,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -332,41 +456,52 @@ class _DiktatQuestState extends State<DiktatQuest> {
               const SizedBox(height: Spacing.xl),
 
               // Eingabefeld (Koreanisch).
-              TextField(
-                controller: _ctrl,
-                enabled: !_completed,
-                autocorrect: false,
-                enableSuggestions: false,
-                textInputAction: TextInputAction.done,
-                onSubmitted: (_) => _check(),
-                style: TextStyle(
-                  color: s.text,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+              if (_wordBankMode)
+                _WordBankInput(
+                  selectedTokens: _selectedTokens,
+                  availableTokens: _targetTokens,
+                  enabled: !_completed,
+                  borderColor: fieldBorder,
+                  onAdd: _addToken,
+                  onRemove: _removeToken,
+                )
+              else
+                TextField(
+                  controller: _ctrl,
+                  enabled: !_completed,
+                  autocorrect: false,
+                  enableSuggestions: false,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _check(),
+                  onChanged: (_) => setState(() {}),
+                  style: TextStyle(
+                    color: s.text,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: '…',
+                    hintStyle: TextStyle(color: s.textDim),
+                    filled: true,
+                    fillColor: s.surface,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(SoriRadius.md),
+                      borderSide: BorderSide(color: fieldBorder, width: 1.8),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(SoriRadius.md),
+                      borderSide: BorderSide(color: fieldBorder, width: 2.2),
+                    ),
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(SoriRadius.md),
+                      borderSide: BorderSide(color: fieldBorder, width: 1.8),
+                    ),
+                  ),
                 ),
-                decoration: InputDecoration(
-                  hintText: '…',
-                  hintStyle: TextStyle(color: s.textDim),
-                  filled: true,
-                  fillColor: s.surface,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 14,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
-                    borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
-                    borderSide: BorderSide(color: fieldBorder, width: 2.2),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
-                    borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                  ),
-                ),
-              ),
               const SizedBox(height: Spacing.sm),
 
               // Feedback-Zeile.
@@ -407,6 +542,36 @@ class _DiktatQuestState extends State<DiktatQuest> {
                   ),
                 ),
               ),
+              if (widget.allowWordBankFallback) ...[
+                const SizedBox(height: Spacing.xs),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    key: const ValueKey('dictation-input-mode'),
+                    onPressed: _completed
+                        ? null
+                        : () {
+                            setState(() {
+                              _wordBankMode = !_wordBankMode;
+                              _selectedTokens.clear();
+                              _ctrl.clear();
+                              _feedback = _Feedback.none;
+                            });
+                          },
+                    icon: Icon(
+                      _wordBankMode
+                          ? Icons.keyboard_alt_outlined
+                          : Icons.dashboard_customize_outlined,
+                      size: 18,
+                    ),
+                    label: Text(
+                      _wordBankMode
+                          ? t.diktatUseKeyboard
+                          : t.diktatUseWordBlocks,
+                    ),
+                  ),
+                ),
+              ],
             ],
           ),
           Positioned(

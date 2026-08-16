@@ -81,6 +81,9 @@ class _SoriPressableState extends State<SoriPressable>
   void _down() {
     if (widget.onTap == null && widget.onLongPress == null) return;
     widget.onPressedChanged?.call(true);
+    if (MediaQuery.disableAnimationsOf(context)) {
+      return;
+    }
     _ctrl.animateTo(
       widget.pressScale,
       duration: SoriMotion.fast,
@@ -90,6 +93,10 @@ class _SoriPressableState extends State<SoriPressable>
 
   void _release() {
     widget.onPressedChanged?.call(false);
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _ctrl.value = 1;
+      return;
+    }
     _ctrl.animateTo(
       1.0,
       duration: SoriMotion.medium,

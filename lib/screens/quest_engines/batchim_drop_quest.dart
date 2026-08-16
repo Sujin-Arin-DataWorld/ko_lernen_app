@@ -7,6 +7,7 @@ import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
 
@@ -29,11 +30,15 @@ import 'quest_models.dart';
 class BatchimDropQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onContinue;
+  final bool isLast;
 
   const BatchimDropQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
   });
 
   @override
@@ -48,6 +53,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   bool _wrongFlash = false;
   bool _showExplanation = false;
   bool _passed = false;
+  bool _reported = false;
 
   // ── data helpers ──────────────────────────────────────────────
 
@@ -143,6 +149,22 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   Future<void> _onChipTap(int idx) async {
     if (_completed) return;
 
+    HapticFeedback.selectionClick();
+    setState(() => _selected = idx);
+  }
+
+  void _report(bool passed) {
+    if (_reported) return;
+    _reported = true;
+    widget.onComplete(
+      QuestResult(passed: passed, firstTry: passed && _tries == 1),
+    );
+  }
+
+  Future<void> _checkSelection() async {
+    final idx = _selected;
+    if (_completed || idx == null) return;
+
     _tries++;
     final isCorrect = idx == _correctIndex;
 
@@ -154,8 +176,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         _passed = true;
         _celebrated = true;
       });
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await Future<void>.delayed(const Duration(milliseconds: 200));
       if (mounted) setState(() => _showExplanation = true);
+      _report(true);
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
@@ -173,19 +196,14 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           _completed = true;
           _passed = false;
         });
-        await Future<void>.delayed(const Duration(milliseconds: 600));
+        await Future<void>.delayed(const Duration(milliseconds: 200));
         if (mounted) setState(() => _showExplanation = true);
+        _report(false);
       } else {
         // 1회 틀림: chip 선택 상태 해제해서 다시 선택 가능하게
         setState(() => _selected = null);
       }
     }
-  }
-
-  void _onNextTap() {
-    widget.onComplete(
-      QuestResult(passed: _passed, firstTry: _tries == 1 && _passed),
-    );
   }
 
   // ── 음절 표시 위젯 ─────────────────────────────────────────────
@@ -304,111 +322,27 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         final isSelected = _selected == idx;
         final isCorrectChip = idx == _correctIndex;
 
-        Color borderColor = SoriColors.warning;
-        Color bgColor = s.surface;
-        Color textColor = s.text;
+        final state = _completed
+            ? isCorrectChip
+                  ? SoriWordTileState.correct
+                  : isSelected && !_passed
+                  ? SoriWordTileState.wrong
+                  : SoriWordTileState.disabled
+            : isSelected
+            ? SoriWordTileState.selected
+            : SoriWordTileState.idle;
 
-        if (_completed) {
-          if (isCorrectChip) {
-            borderColor = SoriColors.success;
-            bgColor = SoriColors.success.withAlpha(30);
-            textColor = SoriColors.success;
-          } else if (isSelected && !_passed) {
-            borderColor = SoriColors.danger;
-            bgColor = SoriColors.danger.withAlpha(20);
-            textColor = SoriColors.danger;
-          } else {
-            borderColor = s.surfaceAlt;
-            textColor = s.textDim;
-          }
-        }
-
-        return GestureDetector(
+        return SoriWordTile(
+          key: ValueKey('answer-$idx'),
+          label: jamo,
+          state: state,
           onTap: _completed ? null : () => _onChipTap(idx),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 150),
-            width: 60,
-            height: 52,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: borderColor,
-                width: isSelected ? 2.5 : 1.5,
-              ),
-              color: bgColor,
-            ),
-            child: Center(
-              child: Text(
-                jamo,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ),
-          ),
         );
       }).toList(),
     );
   }
 
   // ── explanation card ──────────────────────────────────────────
-
-  Widget _buildExplanation(String langCode, AppL10n t, SoriSurfaces s) {
-    return AnimatedOpacity(
-      opacity: _showExplanation ? 1.0 : 0.0,
-      duration: const Duration(milliseconds: 300),
-      child: _showExplanation
-          ? Container(
-              margin: const EdgeInsets.only(top: 20),
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: (_passed ? SoriColors.success : SoriColors.danger)
-                    .withAlpha(26),
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: (_passed ? SoriColors.success : SoriColors.danger)
-                      .withAlpha(100),
-                  width: 1.5,
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    _passed ? t.questCorrect : t.questWrong,
-                    style: TextStyle(
-                      color: _passed ? SoriColors.success : SoriColors.danger,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    _explanation(langCode),
-                    style: TextStyle(
-                      color: s.textMuted,
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  FilledButton(
-                    style: FilledButton.styleFrom(
-                      backgroundColor: _passed
-                          ? SoriColors.success
-                          : SoriColors.danger,
-                    ),
-                    onPressed: _onNextTap,
-                    child: Text(t.questNext),
-                  ),
-                ],
-              ),
-            )
-          : const SizedBox.shrink(),
-    );
-  }
 
   // ── build ─────────────────────────────────────────────────────
 
@@ -420,7 +354,15 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
     return QuestLayout(
       showTtsSpeed: true,
-      action: _buildExplanation(langCode, t, s),
+      action: ScenarioQuestAction(
+        canSubmit: _selected != null,
+        onSubmit: _checkSelection,
+        resolved: _completed ? _passed : null,
+        onContinue: widget.onContinue,
+        isLast: widget.isLast,
+        hint: _showExplanation ? _explanation(langCode) : null,
+        pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+      ),
       content: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -472,16 +414,11 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
               const SizedBox(height: 28),
 
               // 음절 표시
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                decoration: BoxDecoration(
-                  color: s.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: s.surfaceAlt, width: 1.5),
-                ),
+              SoriAnswerTray(
+                minHeight: 104,
+                accent: _completed
+                    ? (_passed ? SoriColors.success : SoriColors.danger)
+                    : SoriColors.primary,
                 child: _buildSyllableRow(s),
               ),
               const SizedBox(height: 28),

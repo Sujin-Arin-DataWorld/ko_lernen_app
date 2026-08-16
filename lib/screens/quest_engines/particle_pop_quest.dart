@@ -7,6 +7,7 @@ import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
 
@@ -16,11 +17,15 @@ import 'quest_models.dart';
 class ParticlePopQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onContinue;
+  final bool isLast;
 
   const ParticlePopQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
   });
 
   @override
@@ -35,6 +40,8 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   bool _celebrated = false;
   bool _wrongFlash = false;
   bool _showExplanation = false;
+  bool _reported = false;
+  bool _passed = false;
   late AnimationController _scaleCtrl;
   late Animation<double> _scaleAnim;
 
@@ -66,11 +73,11 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     super.initState();
     _scaleCtrl = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 160),
     );
     _scaleAnim = Tween<double>(
       begin: 1.0,
-      end: 1.2,
+      end: 1.04,
     ).animate(CurvedAnimation(parent: _scaleCtrl, curve: Curves.easeOut));
   }
 
@@ -83,6 +90,22 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   Future<void> _onAccept(int idx) async {
     if (_completed) return;
 
+    HapticFeedback.selectionClick();
+    setState(() => _droppedIndex = idx);
+  }
+
+  void _report(bool passed) {
+    if (_reported) return;
+    _reported = true;
+    widget.onComplete(
+      QuestResult(passed: passed, firstTry: passed && _tries == 0),
+    );
+  }
+
+  Future<void> _checkSelection() async {
+    final idx = _droppedIndex;
+    if (_completed || idx == null) return;
+
     final isCorrect = idx == _correctIndex;
 
     if (isCorrect) {
@@ -90,13 +113,16 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       setState(() {
         _droppedIndex = idx;
         _completed = true;
+        _passed = true;
         _celebrated = true;
       });
-      // Pulse-Animation
-      await _scaleCtrl.forward();
-      await _scaleCtrl.reverse();
-      await Future<void>.delayed(const Duration(milliseconds: 500));
+      if (!MediaQuery.disableAnimationsOf(context)) {
+        await _scaleCtrl.forward();
+        await _scaleCtrl.reverse();
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 200));
       if (mounted) setState(() => _showExplanation = true);
+      _report(true);
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
@@ -111,20 +137,15 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
         setState(() {
           _droppedIndex = _correctIndex;
           _completed = true;
+          _passed = false;
         });
-        await Future<void>.delayed(const Duration(milliseconds: 500));
+        await Future<void>.delayed(const Duration(milliseconds: 200));
         if (mounted) setState(() => _showExplanation = true);
+        _report(false);
+      } else if (mounted) {
+        setState(() => _droppedIndex = null);
       }
     }
-  }
-
-  void _onNextTap() {
-    widget.onComplete(
-      QuestResult(
-        passed: _tries < 2 && _droppedIndex == _correctIndex,
-        firstTry: _tries == 0,
-      ),
-    );
   }
 
   Widget _buildSlot(String langCode, SoriSurfaces s) {
@@ -223,112 +244,10 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     );
   }
 
-  Widget _buildParticleChip(int idx, String particle, SoriSurfaces s) {
-    final isDropped = _droppedIndex == idx;
-
-    return Draggable<int>(
-      data: idx,
-      feedback: Material(
-        color: Colors.transparent,
-        child: _particleContainer(particle, s, dragging: true),
-      ),
-      childWhenDragging: Opacity(
-        opacity: 0.3,
-        child: _particleContainer(particle, s),
-      ),
-      child: isDropped && _completed
-          ? Opacity(opacity: 0.3, child: _particleContainer(particle, s))
-          : _particleContainer(particle, s),
-    );
-  }
-
-  Widget _particleContainer(
-    String particle,
-    SoriSurfaces s, {
-    bool dragging = false,
-  }) {
-    return Container(
-      width: 56,
-      height: 44,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: dragging
-            ? SoriColors.primary.withAlpha(230)
-            : SoriColors.primary.withAlpha(40),
-        border: Border.all(
-          color: dragging
-              ? SoriColors.primary
-              : SoriColors.primary.withAlpha(120),
-          width: 1.5,
-        ),
-        boxShadow: dragging
-            ? [
-                BoxShadow(
-                  color: SoriColors.primary.withAlpha(80),
-                  blurRadius: 12,
-                  spreadRadius: 2,
-                ),
-              ]
-            : null,
-      ),
-      child: Center(
-        child: Text(
-          particle,
-          style: TextStyle(
-            color: dragging ? Colors.white : s.text,
-            fontSize: 17,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildExplanation(String langCode, AppL10n t, SoriSurfaces s) {
-    final passed = _droppedIndex == _correctIndex;
-    return AnimatedOpacity(
-      opacity: _showExplanation ? 1.0 : 0.0,
-      duration: const Duration(milliseconds: 300),
-      child: Container(
-        margin: const EdgeInsets.only(top: 16),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(
-            26,
-          ),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(
-              80,
-            ),
-            width: 1.5,
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              passed ? t.questCorrect : t.questWrong,
-              style: TextStyle(
-                color: passed ? SoriColors.success : SoriColors.danger,
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              _explanation(langCode),
-              style: TextStyle(color: s.textMuted, fontSize: 14, height: 1.5),
-            ),
-            const SizedBox(height: 14),
-            FilledButton(
-              onPressed: _showExplanation ? _onNextTap : null,
-              child: Text(t.questNext),
-            ),
-          ],
-        ),
-      ),
-    );
+  SoriAnswerState _answerState(int index) {
+    if (_completed && index == _correctIndex) return SoriAnswerState.correct;
+    if (_droppedIndex == index) return SoriAnswerState.selected;
+    return SoriAnswerState.idle;
   }
 
   @override
@@ -339,7 +258,15 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
     return QuestLayout(
       showTtsSpeed: true,
-      action: _buildExplanation(langCode, t, s),
+      action: ScenarioQuestAction(
+        canSubmit: _droppedIndex != null,
+        onSubmit: _checkSelection,
+        resolved: _completed ? _passed : null,
+        onContinue: widget.onContinue,
+        isLast: widget.isLast,
+        hint: _showExplanation ? _explanation(langCode) : null,
+        pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+      ),
       content: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -380,14 +307,17 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               const SizedBox(height: 24),
 
               // Partikel-Chips
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                alignment: WrapAlignment.center,
-                children: _options.asMap().entries.map((entry) {
-                  return _buildParticleChip(entry.key, entry.value, s);
-                }).toList(),
-              ),
+              for (final entry in _options.asMap().entries) ...[
+                SoriAnswerTile(
+                  key: ValueKey('answer-${entry.key}'),
+                  label: entry.value,
+                  index: entry.key,
+                  state: _answerState(entry.key),
+                  onTap: _completed ? null : () => _onAccept(entry.key),
+                  compact: true,
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
             ],
           ),
           Positioned(

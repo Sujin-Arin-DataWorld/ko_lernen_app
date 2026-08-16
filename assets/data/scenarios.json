@@ -3328,8 +3328,8 @@
       },
       "intro": {
         "ko": "",
-        "de": "Du begegnest einem koreanischen Kunden zum ersten Mal. Minsu leitet das Projekt beim Partnerunternehmen. Visitenkarten liegen auf dem Tisch. Wie führst du das Gespräch?",
-        "en": "You're meeting a Korean client for the first time. Minsu is the project lead at the partner company. Business cards are on the table. How do you steer the conversation?"
+        "de": "Du begegnest einem koreanischen Kunden zum ersten Mal. Kim Eun-su leitet das Projekt beim Partnerunternehmen. Visitenkarten liegen auf dem Tisch. Wie führst du das Gespräch?",
+        "en": "You're meeting a Korean client for the first time. Kim Eun-su is the project lead at the partner company. Business cards are on the table. How do you steer the conversation?"
       },
       "vocab": [
         {
@@ -3447,9 +3447,9 @@
       "dialog": [
         {
           "speaker": "minsu",
-          "ko": "어서 오세요. 먼 길 오셨네요. 저는 민수라고 합니다. 프로젝트 총괄 담당입니다.",
-          "de": "Herzlich willkommen. Vielen Dank, dass Sie den weiten Weg auf sich genommen haben. Ich bin Minsu. Ich bin der Gesamtverantwortliche für das Projekt.",
-          "en": "Welcome. Glad you could make it. I'm Minsu. I'm the overall project lead on our side."
+          "ko": "어서 오세요. 먼 길 오셨네요. 저는 김은수라고 합니다. 프로젝트 총괄 담당입니다.",
+          "de": "Herzlich willkommen. Vielen Dank, dass Sie den weiten Weg auf sich genommen haben. Mein Name ist Kim Eun-su. Ich bin für das Gesamtprojekt verantwortlich.",
+          "en": "Welcome. Glad you could make it. My name is Kim Eun-su. I'm the overall project lead on our side."
         },
         {
           "speaker": "user",

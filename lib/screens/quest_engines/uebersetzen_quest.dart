@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
-import '../../widgets/sori/mascot_pop.dart';
+import 'quest_flow.dart';
+import 'quest_layout.dart';
 import 'quest_models.dart';
 
-/// Übersetzungs-Quest: DE/EN-Prompt → 4 koreanische Optionen.
-///
-/// **v5**: Light/Dark-fähig via [SoriSurfaces] (vorher dark-only `AppColors`).
+/// Translation quest with an explicit select, submit, feedback, continue flow.
 class UebersetzenQuest extends StatefulWidget {
-  final Map<String, dynamic> data;
-  final void Function(QuestResult) onComplete;
-
   const UebersetzenQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
   });
+
+  final Map<String, dynamic> data;
+  final void Function(QuestResult) onComplete;
+  final VoidCallback? onContinue;
+  final bool isLast;
 
   @override
   State<UebersetzenQuest> createState() => _UebersetzenQuestState();
@@ -27,8 +30,9 @@ class UebersetzenQuest extends StatefulWidget {
 class _UebersetzenQuestState extends State<UebersetzenQuest> {
   int _selected = -1;
   int _tries = 0;
-  bool _completed = false;
-  bool _celebrated = false;
+  int? _lastWrong;
+  bool? _resolved;
+  bool _reported = false;
 
   List<Map<String, dynamic>> get _options {
     final raw = widget.data['options'] as List? ?? const [];
@@ -48,164 +52,94 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
         '';
   }
 
-  Future<void> _onOptionTap(int idx) async {
-    if (_completed || _selected == idx) return;
+  void _select(int index) {
+    if (_resolved != null) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _selected = index;
+      _lastWrong = null;
+    });
+  }
 
-    final isCorrect = idx == _correctIndex;
-    setState(() => _selected = idx);
+  void _report(bool passed) {
+    if (_reported) return;
+    _reported = true;
+    widget.onComplete(
+      QuestResult(passed: passed, firstTry: passed && _tries == 0),
+    );
+  }
 
-    if (isCorrect) {
+  void _check() {
+    if (_selected < 0 || _resolved != null) return;
+    if (_selected == _correctIndex) {
       HapticFeedback.lightImpact();
+      setState(() => _resolved = true);
+      _report(true);
+      return;
+    }
+
+    HapticFeedback.mediumImpact();
+    SoundService.wrong();
+    _tries++;
+    if (_tries >= 2) {
       setState(() {
-        _completed = true;
-        _celebrated = true;
+        _lastWrong = _selected;
+        _selected = _correctIndex;
+        _resolved = false;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
-      }
+      _report(false);
     } else {
-      HapticFeedback.mediumImpact();
-      SoundService.wrong();
-      _tries++;
-      if (_tries >= 2) {
-        setState(() {
-          _selected = _correctIndex;
-          _completed = true;
-        });
-        await Future<void>.delayed(const Duration(milliseconds: 1500));
-        if (mounted) {
-          widget.onComplete(QuestResult(passed: false, firstTry: false));
-        }
-      } else {
-        await Future<void>.delayed(const Duration(milliseconds: 700));
-        if (mounted) setState(() => _selected = -1);
-      }
+      setState(() => _lastWrong = _selected);
     }
   }
 
-  Color _borderColor(int idx, SoriSurfaces s) {
-    if (_selected != idx) return s.surfaceAlt;
-    if (idx == _correctIndex) return SoriColors.success;
-    return SoriColors.danger;
-  }
-
-  Color _bgColor(int idx, SoriSurfaces s) {
-    if (_selected != idx) return s.surface;
-    if (idx == _correctIndex) return SoriColors.success.withAlpha(38);
-    return SoriColors.danger.withAlpha(38);
+  SoriAnswerState _stateFor(int index) {
+    if (_resolved != null && index == _correctIndex) {
+      return SoriAnswerState.correct;
+    }
+    if (_lastWrong == index) return SoriAnswerState.wrong;
+    if (_selected == index) return SoriAnswerState.selected;
+    return SoriAnswerState.idle;
   }
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
-    final s = SoriSurfaces.of(context);
+    final surfaces = SoriSurfaces.of(context);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Prompt-Karte
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-              decoration: BoxDecoration(
-                color: SoriColors.primary.withAlpha(20),
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: SoriColors.primary.withAlpha(80),
-                  width: 1.5,
-                ),
-              ),
-              child: Text(
-                _prompt(langCode),
-                style: TextStyle(
-                  color: s.text,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                  height: 1.4,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: 28),
-
-            // Optionen
-            ..._options.asMap().entries.map((entry) {
-              final idx = entry.key;
-              final opt = entry.value;
-              final label = (opt['ko'] as String?) ?? '';
-
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  decoration: BoxDecoration(
-                    color: _bgColor(idx, s),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: _borderColor(idx, s), width: 1.5),
-                  ),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(14),
-                    onTap: () => _onOptionTap(idx),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 14,
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 28,
-                            height: 28,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: _borderColor(idx, s).withAlpha(51),
-                            ),
-                            child: Center(
-                              child: Text(
-                                String.fromCharCode(65 + idx),
-                                style: TextStyle(
-                                  color: _selected == idx
-                                      ? _borderColor(idx, s)
-                                      : s.textMuted,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              label,
-                              style: TextStyle(
-                                color: s.text,
-                                fontSize: 19,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }),
-          ],
-        ),
-        Positioned(
-          top: -12,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 56,
-            kind: MascotKind.magpie,
+    return QuestLayout(
+      action: ScenarioQuestAction(
+        canSubmit: _selected >= 0,
+        onSubmit: _check,
+        resolved: _resolved,
+        onContinue: widget.onContinue,
+        isLast: widget.isLast,
+        pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+      ),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            _prompt(langCode),
+            style: SoriTextTheme.of(
+              context,
+            ).h2.copyWith(color: surfaces.text, height: 1.35),
+            textAlign: TextAlign.center,
           ),
-        ),
-      ],
+          const SizedBox(height: Spacing.lg),
+          for (final entry in _options.asMap().entries) ...[
+            SoriAnswerTile(
+              key: ValueKey('answer-${entry.key}'),
+              label: (entry.value['ko'] as String?) ?? '',
+              index: entry.key,
+              state: _stateFor(entry.key),
+              onTap: _resolved == null ? () => _select(entry.key) : null,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+        ],
+      ),
     );
   }
 }

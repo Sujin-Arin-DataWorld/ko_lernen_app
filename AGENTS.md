@@ -265,6 +265,12 @@ flutter run -d <android-id>   # 안드로이드
 > 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
 > 바로 행동할 수 있는 **현재 게이트**만 적는다.
 
+- [x] **전체 시나리오 문제 프레임 통합**: 58개 시나리오·241개 문제의 7개 엔진을
+  장면 포스터·문항 분절 진행·명시적 확인·2회 시도·단일 계속 CTA로 통일했다. 첫 실행은
+  실제 마지막 문항 저장 성공 뒤에만 최종 성공 화면을 연다. 역할극도 장면 크롭·탭 재생
+  문장 카드·제목 옆 배속·고정 CTA로 통합했고, 공유 카드/타일은 220ms 이하 눌림·상태
+  모션과 reduced-motion 계약을 따른다. 자세한 검증은 세션 로그 최상단이다.
+
 - [x] **웹사이트 로컬 Sites/ZIP 탈출**: 정본은 부모 저장소가 추적하는
   `hangul-sori-site-local/` 하나다. Sites 패키징·Bash·중첩 Git·ZIP·기본 root Worker와
   Pages CNAME을 격리했고, Node 24.18.0 fresh build·17 tests·strict dry-run·전체 audit를

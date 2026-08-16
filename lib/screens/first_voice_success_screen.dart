@@ -22,6 +22,8 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
     super.key,
     required this.canDo,
     this.phrase,
+    this.completedTasks,
+    this.totalTasks,
     this.finishOverride,
     this.chooseCompanionOverride,
   });
@@ -30,6 +32,8 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
   /// opened this one-time screen. It is copy only: no success is recorded here.
   final String canDo;
   final String? phrase;
+  final int? completedTasks;
+  final int? totalTasks;
 
   /// Storage-free actions for tests and the UX gallery.
   final FirstVoiceFinishCallback? finishOverride;
@@ -124,6 +128,17 @@ class FirstVoiceSuccessScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: text.bodySmall,
                       ),
+                      if (completedTasks != null && totalTasks != null) ...[
+                        const SizedBox(height: Spacing.sm),
+                        Text(
+                          t.firstVoiceSceneSummary(
+                            completedTasks!,
+                            totalTasks!,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: text.label.copyWith(color: SoriColors.primary),
+                        ),
+                      ],
                       const SizedBox(height: Spacing.lg),
                       SoriCard(
                         variant: SoriCardVariant.base,
