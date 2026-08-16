@@ -55,6 +55,23 @@ class HanokA1StateCompositorTest(unittest.TestCase):
                 self.assertEqual(output.mode, "RGB")
                 self.assertEqual(output.size, (1536, 1152))
 
+    def test_normalizes_a_large_transparent_generation_into_the_socket(self) -> None:
+        raw = Image.new("RGBA", (2172, 724), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(raw)
+        draw.rectangle((0, 590, 2151, 685), fill=(146, 111, 74, 235))
+        for left in (170, 510, 850, 1190, 1530, 1870):
+            draw.rectangle((left, 23, left + 64, 684), fill=(112, 72, 39, 255))
+
+        normalized = compositor.normalize_layer(raw, self.contract)
+
+        self.assertEqual(normalized.mode, "RGBA")
+        self.assertEqual(normalized.size, (854, 309))
+        alpha_bounds = normalized.getchannel("A").getbbox()
+        self.assertIsNotNone(alpha_bounds)
+        assert alpha_bounds is not None
+        self.assertEqual(alpha_bounds[3], 309)
+        compositor.validate_layer(normalized, self.contract)
+
     def test_rejects_wrong_size_mode_matte_chroma_and_missing_anchor(self) -> None:
         cases = {
             "wrong_size": Image.new("RGBA", (853, 309), (0, 0, 0, 0)),

@@ -222,6 +222,120 @@ def validate_layer(
     }
 
 
+def normalize_layer(
+    image: Image.Image,
+    contract: HanokA1AssetContract,
+) -> Image.Image:
+    """Fits a true-alpha generated asset into the canonical socket canvas."""
+    if image.mode != contract.layer_mode:
+        raise AssetContractError(
+            f"Generated layer mode {image.mode} must be {contract.layer_mode}"
+        )
+    if image.width < 16 or image.height < 16 or image.width > 8192 or image.height > 8192:
+        raise AssetContractError("Generated layer dimensions are outside 16-8192 pixels")
+    alpha = image.getchannel("A")
+    corners = (
+        alpha.getpixel((0, 0)),
+        alpha.getpixel((image.width - 1, 0)),
+        alpha.getpixel((0, image.height - 1)),
+        alpha.getpixel((image.width - 1, image.height - 1)),
+    )
+    if any(value != 0 for value in corners):
+        raise AssetContractError(
+            f"Generated layer corners must be transparent, got {corners}"
+        )
+    visible_alpha = alpha.point(
+        lambda value: 255 if value > ALPHA_THRESHOLD else 0,
+        mode="L",
+    )
+    alpha_bounds = visible_alpha.getbbox()
+    if alpha_bounds is None:
+        raise AssetContractError("Generated layer is fully transparent")
+    chroma_pixels = sum(
+        1
+        for red, green, blue, pixel_alpha in image.getdata()
+        if (red, green, blue) == (0, 255, 0) and pixel_alpha > ALPHA_THRESHOLD
+    )
+    if chroma_pixels:
+        raise AssetContractError(
+            f"Generated layer contains {chroma_pixels} visible #00ff00 pixels"
+        )
+
+    cropped = image.crop(alpha_bounds)
+    target_width, target_height = contract.socket[2:]
+    maximum_width = target_width - 16
+    scale = min(maximum_width / cropped.width, target_height / cropped.height)
+    resized_size = (
+        max(1, round(cropped.width * scale)),
+        max(1, round(cropped.height * scale)),
+    )
+    resized = (
+        cropped.convert("RGBa")
+        .resize(resized_size, Image.Resampling.LANCZOS)
+        .convert("RGBA")
+    )
+    normalized = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
+    normalized.alpha_composite(
+        resized,
+        (
+            (target_width - resized.width) // 2,
+            target_height - resized.height,
+        ),
+    )
+    validate_layer(normalized, contract)
+    return normalized
+
+
+def write_normalized_layer(
+    *,
+    source_path: Path,
+    output_path: Path,
+) -> dict[str, Any]:
+    contract = load_contract()
+    if not source_path.is_file():
+        raise AssetContractError(f"Generated layer does not exist: {source_path}")
+    if source_path.resolve() == output_path.resolve():
+        raise AssetContractError("Normalized output must not overwrite its source")
+    if output_path.suffix.lower() != f".{contract.layer_format.lower()}":
+        raise AssetContractError(
+            f"Normalized layer must use the .{contract.layer_format.lower()} extension"
+        )
+    with Image.open(source_path) as source:
+        if source.format != contract.layer_format:
+            raise AssetContractError(
+                f"Generated layer must decode as {contract.layer_format}"
+            )
+        raw = source.copy()
+    normalized = normalize_layer(raw, contract)
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path: Path | None = None
+    try:
+        with NamedTemporaryFile(
+            dir=output_path.parent,
+            prefix=f".{output_path.stem}.",
+            suffix=f".{contract.layer_format.lower()}",
+            delete=False,
+        ) as temporary:
+            temporary_path = Path(temporary.name)
+        normalized.save(temporary_path, format=contract.layer_format)
+        temporary_path.replace(output_path)
+        temporary_path = None
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+    with Image.open(output_path) as saved:
+        metrics = validate_layer(saved.copy(), contract)
+    return {
+        "sourcePath": str(source_path.resolve()),
+        "sourceSha256": sha256_file(source_path),
+        "outputPath": str(output_path.resolve()),
+        "outputSha256": sha256_file(output_path),
+        "outputBytes": output_path.stat().st_size,
+        "layer": metrics,
+    }
+
+
 def write_state(
     *,
     layer_path: Path,
@@ -419,9 +533,24 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("layer", type=Path, help="854x309 transparent RGBA PNG")
     parser.add_argument("output", type=Path, help="1536x1152 RGB WebP output")
+    parser.add_argument(
+        "--normalized-layer",
+        type=Path,
+        help="normalize a larger true-alpha PNG here before composition",
+    )
     arguments = parser.parse_args()
     try:
-        report = write_state(layer_path=arguments.layer, output_path=arguments.output)
+        layer_path = arguments.layer
+        normalization_report = None
+        if arguments.normalized_layer is not None:
+            normalization_report = write_normalized_layer(
+                source_path=arguments.layer,
+                output_path=arguments.normalized_layer,
+            )
+            layer_path = arguments.normalized_layer
+        report = write_state(layer_path=layer_path, output_path=arguments.output)
+        if normalization_report is not None:
+            report["normalization"] = normalization_report
     except (AssetContractError, OSError) as error:
         print(f"[fail] {error}", file=sys.stderr)
         return 1

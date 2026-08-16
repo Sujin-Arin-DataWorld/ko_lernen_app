@@ -325,8 +325,112 @@
             "decisionReason": "socket_outside_changed_gt5_0.777702"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_06_columns_transparent_bbanana_input_error_20260817",
+        "provider": "BBANANA",
+        "model": "Nano Banana Pro",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:18:48.407844Z",
+        "costCredits": 0.0,
+        "costDisposition": "charged_then_fully_refunded",
+        "taskId": "30t7edpv5xrmw0d01kf857sf78",
+        "status": "failed",
+        "promptSha256": "f17626ccd68333e75b55b305e460a793b4f12bbf17980d0676e878c08fc7cd5f",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [],
+        "failureReason": "reference_url_input_validation_400_no_generation"
+      },
+      {
+        "id": "hanok_a1_06_columns_transparent_imagegen_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:20:25Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-b6be1b33-42fa-4b1c-a419-510d60bd478e",
+        "status": "completed",
+        "promptSha256": "a513d095686107364beb6b4e5f3de3ac21c7ae0585a2e58f22316b0517aff1a2",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/06_columns_imagegen_20260817.png",
+            "sha256": "e4c4c6874bde2c35b96aa4d5964cd914e9e30d1f74c6fe77f2bebf6b653b37a9",
+            "decision": "approved",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 962603,
+            "decisionReason": "true_alpha_and_columns_stage_semantics_passed"
+          }
+        ]
       }
     ]
+  },
+  "a1TransparentPilot": {
+    "schemaVersion": 1,
+    "stageId": "06_columns",
+    "generationRecordId": "hanok_a1_06_columns_transparent_imagegen_20260817",
+    "status": "approved_reference_pilot",
+    "runtime": false,
+    "rawLayer": {
+      "path": "assets_unused/pending_review/a1_layers/raw/06_columns_imagegen_20260817.png",
+      "sha256": "e4c4c6874bde2c35b96aa4d5964cd914e9e30d1f74c6fe77f2bebf6b653b37a9",
+      "width": 2172,
+      "height": 724,
+      "colorMode": "RGBA",
+      "bytes": 962603
+    },
+    "normalizedLayer": {
+      "path": "assets_unused/pending_review/a1_layers/06_columns_layer.png",
+      "sha256": "37a4f3554ac7d0c4ad1c4728c73c833670af804396f05fadce01813bb57adc21",
+      "width": 854,
+      "height": 309,
+      "colorMode": "RGBA",
+      "bytes": 211415,
+      "alphaCoverage": 0.3200851883010088,
+      "anchorPixels": 905,
+      "chromaPixels": 0
+    },
+    "composite": {
+      "path": "assets_unused/pending_review/a1_states/06_columns.webp",
+      "sha256": "8b35aa939ba010ab47f9af246f2f4703af8cf7e3b0776e7003e2660b2c92bc3d",
+      "width": 1536,
+      "height": 1152,
+      "colorMode": "RGB",
+      "bytes": 276120,
+      "sourceOutsideSocketChangedPixels": 0,
+      "sourceInsideSocketChangedPixels": 88188,
+      "decodedOutsideSocketMeanError": 3.3919443990579086,
+      "encoder": {
+        "library": "Pillow",
+        "version": "11.3.0",
+        "quality": 82,
+        "method": 6
+      }
+    },
+    "visualReview": {
+      "decision": "approved",
+      "checks": [
+        "gidan_and_cornerstones_visible",
+        "measured_timber_visible",
+        "upright_columns_are_dominant_change",
+        "no_beams_purlins_rafters_roof_walls_or_changho",
+        "no_text_ui_people_animals_or_watermark",
+        "camera_and_estate_preserved_by_deterministic_composition"
+      ]
+    }
   },
   "qaComposite": {
     "path": "assets_unused/pending_review/reference_full_estate.png",

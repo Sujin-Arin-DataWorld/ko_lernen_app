@@ -15,9 +15,16 @@ socket 밖 평균 오차를 제한하고 350,000-byte hard limit·RGB·WebP를 �
 같은 정본을 읽는다.
 
 **검증.** 잘못된 크기·mode·불투명 matte·chroma·anchor 누락·변조 base와 정상
-합성/atomic WebP 출력을 포함한 Python 회귀 및 기존 map checker를 **7/7** 통과했고,
-provenance Flutter 회귀 **8/8**, JSON parse, Python compile, `git diff --check`를
+합성/atomic WebP 출력을 포함한 Python 회귀 및 기존 map checker를 **8/8** 통과했고,
+provenance Flutter 회귀 **9/9**, JSON parse, Python compile, `git diff --check`를
 통과했다. 생성 호출이나 runtime 자산 추가는 이 슬라이스에서 수행하지 않았다.
+
+**파일럿 승인.** 이후 true-alpha 한 장을 생성해 raw/normalized/QA composite를
+`assets_unused/pending_review/`에 보존했다. A1-06에 필요한 기단·초석·준비 목재·
+세운 기둥만 보이고 후속 공정은 없어 시각 검수를 통과했다. normalized layer는
+854×309 RGBA, alpha 32.01%, anchor 905 pixels, chroma 0이고 합성 WebP는 276,120
+bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.392다. 생성·오류·환불·SHA는
+ledger에 기록했으며 runtime과 pubspec에는 아직 승격하지 않았다.
 
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1 renderer 계약
 

@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
 
 const _manifestPath = 'docs/assets/HANOK_V1_ASSET_PROVENANCE.json';
 
@@ -412,7 +413,7 @@ void main() {
         'decision',
       ]);
       final records = _objects(ledger['records'], 'generationLedger.records');
-      expect(records, hasLength(3));
+      expect(records, hasLength(5));
       expect(
         records
             .expand(
@@ -422,7 +423,7 @@ void main() {
               ),
             )
             .map((output) => output['decision']),
-        everyElement('rejected'),
+        ['rejected', 'rejected', 'rejected', 'approved'],
       );
       expect(
         records.fold<double>(
@@ -433,6 +434,84 @@ void main() {
         12.0,
       );
     });
+
+    test(
+      'approved transparent pilot artifacts are hash-locked and QA-only',
+      () {
+        final pilot = _object(
+          manifest['a1TransparentPilot'],
+          'a1TransparentPilot',
+        );
+        expect(_string(pilot['stageId'], 'pilot.stageId'), '06_columns');
+        expect(
+          _string(pilot['status'], 'pilot.status'),
+          'approved_reference_pilot',
+        );
+        expect(_boolean(pilot['runtime'], 'pilot.runtime'), isFalse);
+
+        final artifacts = <(String, int, int, int, int)>[
+          ('rawLayer', 2172, 724, 4, 962603),
+          ('normalizedLayer', 854, 309, 4, 211415),
+          // package:image exposes decoded WebP as RGBA even though Pillow's
+          // encoded source contract is RGB; the Python compositor checks mode.
+          ('composite', 1536, 1152, 4, 276120),
+        ];
+        for (final artifactContract in artifacts) {
+          final artifact = _object(
+            pilot[artifactContract.$1],
+            'pilot.${artifactContract.$1}',
+          );
+          final path = _string(
+            artifact['path'],
+            'pilot.${artifactContract.$1}.path',
+          );
+          final file = File(path);
+          expect(file.existsSync(), isTrue, reason: path);
+          final bytes = file.readAsBytesSync();
+          expect(bytes.length, artifactContract.$5, reason: path);
+          expect(
+            sha256.convert(bytes).toString(),
+            _sha256(artifact['sha256'], '$path.sha256'),
+          );
+          final decoded = img.decodeImage(bytes);
+          expect(decoded, isNotNull, reason: path);
+          expect(
+            (decoded!.width, decoded.height, decoded.numChannels),
+            (artifactContract.$2, artifactContract.$3, artifactContract.$4),
+            reason: path,
+          );
+        }
+
+        final normalized = _object(pilot['normalizedLayer'], 'normalizedLayer');
+        expect(
+          _integer(normalized['anchorPixels'], 'anchorPixels'),
+          greaterThan(0),
+        );
+        expect(_integer(normalized['chromaPixels'], 'chromaPixels'), 0);
+        final composite = _object(pilot['composite'], 'composite');
+        expect(
+          _integer(
+            composite['sourceOutsideSocketChangedPixels'],
+            'sourceOutsideSocketChangedPixels',
+          ),
+          0,
+        );
+        expect(
+          _number(
+            composite['decodedOutsideSocketMeanError'],
+            'decodedOutsideSocketMeanError',
+          ),
+          lessThanOrEqualTo(5.0),
+        );
+        expect(
+          _strings(
+            _object(pilot['visualReview'], 'visualReview')['checks'],
+            'visualReview.checks',
+          ),
+          contains('no_beams_purlins_rafters_roof_walls_or_changho'),
+        );
+      },
+    );
 
     test(
       'future generation records fail closed on rights, hashes, and budget',
@@ -482,7 +561,16 @@ void main() {
             reason: '$id.occurredAtUtc must be canonical UTC',
           );
           final credits = _number(record['costCredits'], '$id.costCredits');
-          expect(credits, greaterThan(0));
+          expect(credits, greaterThanOrEqualTo(0));
+          if (credits == 0) {
+            expect(
+              _string(record['costDisposition'], '$id.costDisposition'),
+              anyOf(
+                'charged_then_fully_refunded',
+                'outside_bbanana_credit_budget',
+              ),
+            );
+          }
           _sha256(record['promptSha256'], '$id.promptSha256');
 
           for (final input in _objects(
@@ -510,6 +598,11 @@ void main() {
               _string(output['decision'], '$id.outputAssets.decision'),
               anyOf('approved', 'rejected'),
             );
+          }
+
+          if (_list(record['outputAssets'], '$id.outputAssets').isEmpty) {
+            expect(_string(record['status'], '$id.status'), 'failed');
+            _string(record['failureReason'], '$id.failureReason');
           }
 
           if (mediaKind == 'static') {
