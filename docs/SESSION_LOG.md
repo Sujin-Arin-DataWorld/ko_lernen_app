@@ -18,7 +18,7 @@
 `integrate_scenario_batch.py` preview 28 records. `validate_content.py` 통과.
 `--apply` 없음.
 
-**커밋해시.** 이 기록과 같은 커밋.
+**커밋해시.** `208e8d47` (로그 해시 표기는 직후 커밋).
 
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
