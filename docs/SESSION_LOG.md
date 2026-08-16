@@ -22,6 +22,33 @@ skipped였다. 변경 9개 파일의 `flutter analyze --no-pub`는 **No issues f
 `git diff --check`도 통과했다. 원격 CI, `main` 병합, 병합 HEAD의 signed AAB 생성은
 이 기록 다음 단계에서 수행한다.
 
+### 2026-08-16 (Codex) — GitHub Actions 분 단위 계측·변경 영역별 CI 최적화
+
+**실측과 원인.** private 저장소의 2026-08-01~16 CI 227회(push 152, PR 51,
+수동 24)를 run/job API로 전수 집계했다. GitHub-hosted Ubuntu job별 실행 시간을 분 단위로
+올림한 근사치는 **2,098분**이고, Analyze & Build가 1,709분으로 대부분을 차지했다.
+수동 실행은 316분이며 같은 head SHA에 PR 자동 run도 있던 중복 수동 실행 14회가 181분이었다.
+정확한 계정 잔여량 API는 현재 `gh` 토큰에 `user` scope가 없어 읽지 못했으므로 GitHub Billing
+화면의 약 1,000분 잔여 표시를 정본으로 둔다. `main` branch protection과 ruleset은 현재
+없었고, 이번 작업은 외부 GitHub 설정을 변경하지 않았다.
+
+**적용.** `.github/scripts/ci_scope.py`가 push/PR/수동 `task=ci`의 merge-base 변경 경로를
+분류하고, Flutter·Website·Book·Gye·Pronunciation 중 필요한 잡만 연다. 비교 실패·알 수 없는
+CI 설정 변경은 전체 게이트를 여는 fail-open 정책이다. 일반 Markdown/세션 로그는 run을 만들지
+않되, `docs/store/**`, privacy/support HTML, 시각 기준 스크린샷, 공용 Firestore/Firebase 계약은
+실제 소비 잡을 계속 실행한다. 수동 입력에 `full`과 영역별 재검증을 추가했고, 골든은
+`regenerate-goldens`에서만 생성한다. 같은 브랜치의 자동/수동 검증은 하나의 concurrency 그룹을
+공유한다. 기존 Website release gate와 원격 `main`의 timeout·짧은 artifact retention·
+FFmpeg 존재 확인·골든 분리 최적화를 보존했다. `AGENTS.md`도 같은 SHA의 자동 run이 있으면
+수동 run을 만들지 않고, 없을 때만 한 번 dispatch하며 실패 잡만 재실행하도록 갱신했다.
+
+**검증과 경계.** selector 단위 테스트 **9/9**, Node 24.18 website deployment contract
+**3/3**, SHA256 검증한 actionlint v1.7.12, YAML parse, `git diff --check`가 통과했다. 현재
+뒤처진 작업 브랜치에서 실제 `task=ci` 비교도 app/book/gye만 선택하고 website/pronunciation을
+제외했다. CI 파일 자체 변경은 의도대로 첫 원격 run에서 전체 게이트를 연다. 이 변경은 이
+커밋으로 기록하며 push·원격 workflow 실행은 하지 않았으므로 실제 GitHub 선택 결과와 원격 분
+소비 감소는 아직 미검증이다.
+
 ### 2026-08-16 (Codex) — Sites 완전 탈출·GitHub→Cloudflare Worker 자동배포 전환 완료
 
 **정본과 구조.** 웹사이트 정본을 부모 GitHub 저장소의 `hangul-sori-site-local/`로
