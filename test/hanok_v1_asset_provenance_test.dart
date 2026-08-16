@@ -91,6 +91,61 @@ void main() {
           'RGB',
         );
         expect(_integer(states['hardMaxBytes'], 'hardMaxBytes'), 350000);
+        final composition = _object(
+          states['composition'],
+          'a1ConstructionStates.composition',
+        );
+        expect(
+          _string(composition['tool'], 'composition.tool'),
+          'tool/compose_hanok_a1_state.py',
+        );
+        expect(
+          _string(composition['baseRole'], 'composition.baseRole'),
+          'site_base',
+        );
+        final layer = _object(composition['layer'], 'composition.layer');
+        expect(_string(layer['format'], 'composition.layer.format'), 'PNG');
+        expect(
+          _string(layer['colorMode'], 'composition.layer.colorMode'),
+          'RGBA',
+        );
+        expect(
+          (
+            _integer(layer['width'], 'composition.layer.width'),
+            _integer(layer['height'], 'composition.layer.height'),
+          ),
+          (854, 309),
+        );
+        final localAnchor = _object(
+          layer['anchorLocal'],
+          'composition.layer.anchorLocal',
+        );
+        expect(
+          (
+            _integer(localAnchor['x'], 'composition.layer.anchorLocal.x'),
+            _integer(localAnchor['y'], 'composition.layer.anchorLocal.y'),
+          ),
+          (427, 309),
+        );
+        expect(
+          _integer(
+            composition['sourceOutsideSocketChangedPixels'],
+            'composition.sourceOutsideSocketChangedPixels',
+          ),
+          0,
+        );
+        final encoder = _object(composition['encoder'], 'composition.encoder');
+        expect(_string(encoder['library'], 'encoder.library'), 'Pillow');
+        expect(_string(encoder['format'], 'encoder.format'), 'WebP');
+        expect(_integer(encoder['quality'], 'encoder.quality'), 82);
+        expect(_integer(encoder['method'], 'encoder.method'), 6);
+        expect(
+          _number(
+            composition['decodedOutsideSocketMaxMeanError'],
+            'composition.decodedOutsideSocketMaxMeanError',
+          ),
+          5.0,
+        );
         expect(
           _integer(limits['decodedMemoryMaxBytes'], 'decodedMemoryMaxBytes'),
           33554432,

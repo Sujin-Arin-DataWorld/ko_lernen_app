@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 투명 socket 합성 계약
+
+**생성 경계.** whole-estate 이미지 편집 파일럿은 socket 밖을 다시 그려 전부 거절됐으므로,
+후속 생성은 `854×309` RGBA 투명 레이어만 받는다. 도구가 SHA로 고정된 정본 base의
+`x=160, y=614`에만 합성하며 local anchor `(427,309)`, 투명 모서리, 실제 alpha,
+chroma-key 부재를 fail-closed 검증한다. 생성 모델 출력이 대지·카메라·UI를 직접
+결정할 수 없도록 최종 `1536×1152` RGB WebP는 로컬 결정론적 합성으로만 만든다.
+
+**인코딩 경계.** lossy WebP는 동일한 바깥 픽셀도 전역 양자화로 바꾸므로 source
+composite에서 socket 밖 pixel-exact를 먼저 증명한다. 최종 decode는 정본 base와의
+socket 밖 평균 오차를 제한하고 350,000-byte hard limit·RGB·WebP를 다시 검증한다.
+인코더 quality/method와 레이어 규격은 provenance JSON에 두어 도구와 Flutter 회귀가
+같은 정본을 읽는다.
+
+**검증.** 잘못된 크기·mode·불투명 matte·chroma·anchor 누락·변조 base와 정상
+합성/atomic WebP 출력을 포함한 Python 회귀 및 기존 map checker를 **7/7** 통과했고,
+provenance Flutter 회귀 **8/8**, JSON parse, Python compile, `git diff --check`를
+통과했다. 생성 호출이나 runtime 자산 추가는 이 슬라이스에서 수행하지 않았다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1 renderer 계약
 
 **단일 projection.** 기존 `PersonalHanokProjection`·`LevelRatios`·단어팩·XP·Gye와

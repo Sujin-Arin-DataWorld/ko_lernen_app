@@ -60,6 +60,14 @@ A1 `01_site_setout`부터 `16_landscape_move_in`까지의 기대 산출물은 �
 텍스트, UI, 캐릭터 라벨, 워터마크를 굽지 않는다. 아직 만들어지지 않은 파일을
 PR1에서 존재한다고 기록하지 않고, 기대 파일명과 형식만 provenance 정본에 둔다.
 
+생성 모델은 전체 대지를 완성본으로 납품하지 않는다. 승인 후보는 먼저 정확히
+854×309인 RGBA PNG 투명 레이어여야 하고, `tool/compose_hanok_a1_state.py`가
+SHA로 고정된 빈 대지에만 합성한다. 레이어는 local anchor `(427,309)`에 닿아야 하며
+투명 모서리·실제 alpha·chroma 부재를 통과해야 한다. source 합성 단계에서 socket
+밖 픽셀은 0개 변경이어야 한다. 최종 lossy WebP는 provenance에 고정한 Pillow
+quality 82/method 6으로 만들고 RGB·1536×1152·350,000 bytes와 socket 밖 decode
+평균 오차 상한 5.0을 재검증한다.
+
 ## 생성 모델 입력 allowlist
 
 외부 생성 서비스에는 현재 SHA-256과 파일 metadata가 정본과 일치하는 아래

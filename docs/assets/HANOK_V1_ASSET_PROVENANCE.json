@@ -50,6 +50,28 @@
       "format": "WebP",
       "colorMode": "RGB",
       "hardMaxBytes": 350000,
+      "composition": {
+        "tool": "tool/compose_hanok_a1_state.py",
+        "baseRole": "site_base",
+        "layer": {
+          "format": "PNG",
+          "colorMode": "RGBA",
+          "width": 854,
+          "height": 309,
+          "anchorLocal": {
+            "x": 427,
+            "y": 309
+          }
+        },
+        "sourceOutsideSocketChangedPixels": 0,
+        "encoder": {
+          "library": "Pillow",
+          "format": "WebP",
+          "quality": 82,
+          "method": 6
+        },
+        "decodedOutsideSocketMaxMeanError": 5.0
+      },
       "forbiddenBakedElements": [
         "ui",
         "text",
