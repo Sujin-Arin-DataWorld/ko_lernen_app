@@ -215,6 +215,25 @@ jobs:
           channel: stable
           cache: true
 
+      # Private-repository ubuntu runners have less memory than the developer
+      # workstation. Override the repository's local 8G/4G Gradle profile only
+      # inside this disposable runner so Flutter, Gradle, Kotlin and native
+      # compilation cannot overcommit RAM and be terminated with exit 143.
+      - name: Fit Gradle to GitHub runner memory
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.gradle"
+          {
+            printf '%s\n' 'org.gradle.jvmargs=-Xmx4G -XX:MaxMetaspaceSize=1G -XX:ReservedCodeCacheSize=256m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8'
+            printf '%s\n' 'org.gradle.workers.max=2'
+            printf '%s\n' 'org.gradle.parallel=false'
+            printf '%s\n' 'org.gradle.daemon=false'
+            printf '%s\n' 'org.gradle.vfs.watch=false'
+            printf '%s\n' 'kotlin.compiler.execution.strategy=in-process'
+          } > "$HOME/.gradle/gradle.properties"
+          free -h
+
       - name: Restore Android upload signing
         shell: bash
         env:
@@ -250,6 +269,18 @@ jobs:
           --dart-define=ENABLE_TESTER_FEEDBACK=true
           --dart-define=BETA_UNLOCK_ALL=true
           --dart-define=GIT_COMMIT=${{ github.sha }}
+
+      - name: Preserve Android failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build-failure-${{ github.run_number }}-${{ github.sha }}
+          path: |
+            android/**/*.hprof
+            android/build/reports/**
+            build/**/logs/**
+          if-no-files-found: ignore
+          retention-days: 3
 
       - name: Record bundle identity
         id: release-meta

@@ -38,6 +38,18 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("group: google-play-internal", release)
         self.assertIn("cancel-in-progress: false", release)
 
+    def test_release_fits_private_runner_memory_and_preserves_diagnostics(self):
+        release = self.workflow.split("  release-internal:", 1)[1]
+        self.assertIn("Fit Gradle to GitHub runner memory", release)
+        self.assertIn("org.gradle.jvmargs=-Xmx4G", release)
+        self.assertIn("-XX:MaxMetaspaceSize=1G", release)
+        self.assertIn("org.gradle.workers.max=2", release)
+        self.assertIn("org.gradle.parallel=false", release)
+        self.assertIn("org.gradle.daemon=false", release)
+        self.assertIn("org.gradle.vfs.watch=false", release)
+        self.assertIn("kotlin.compiler.execution.strategy=in-process", release)
+        self.assertIn("Preserve Android failure diagnostics", release)
+
 
 if __name__ == "__main__":
     unittest.main()

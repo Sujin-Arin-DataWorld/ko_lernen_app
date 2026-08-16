@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
+
+**원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과
+quality gate를 통과한 뒤 `bundleRelease`에서 `exit code 143`으로 종료됐다. 이 실행에는
+후속 workflow 취소가 적용되지 않았고 timeout도 45분 중 18분만 사용했다. 비공개 저장소의
+표준 Ubuntu runner에서 프로젝트 기본 Gradle 프로필 `-Xmx8G / MaxMetaspaceSize=4G`와
+Flutter·Kotlin·native 빌드가 함께 실행되며 메모리를 과다 할당한 것이 반복 종료의 원인이다.
+Node·`<img>`·setup-java deprecation annotation, Android 서명, Play API는 실패 지점이 아니다.
+
+**수정.** 개발자 PC의 `android/gradle.properties`는 보존하고 release runner의
+`$HOME/.gradle/gradle.properties`만 `Xmx4G / metaspace 1G / code cache 256M`으로 제한했다.
+Gradle worker는 2개로 제한하고 병렬 처리·장기 daemon·VFS watching을 끄며 Kotlin 컴파일은
+in-process로 실행한다. 따라서 RAM 사용과 `Already watching path` 경고 원인을 함께 줄인다.
+빌드 실패 시 heap dump·Gradle report·build log만 3일 artifact로 보존해 다음 종료 원인을
+확인할 수 있게 했고, workflow 계약 테스트가 이 CI 전용 프로필을 고정한다. 앱 데이터나
+사용자 파일은 삭제하지 않았다. 실제 AAB 생성·artifact 보존·Play 업로드는 push 후 원격
+release job에서 별도로 확인한다.
+
 ### 2026-08-16 (Codex) — 살아 있는 한옥 V1 PR2 최종 로컬 게이트
 
 **최신 기준과 콘텐츠 경계.** 생산형 재평가 코어 5개 커밋을 최신
