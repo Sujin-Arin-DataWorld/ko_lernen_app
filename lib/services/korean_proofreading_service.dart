@@ -614,20 +614,20 @@ bool _isRelevantCorrection(String source, String candidate) {
   }
   final distance = _editDistance(sourceRunes, candidateRunes);
   final similarity = 1 - (distance / longest);
+  if (!_hasSameNumericMarkers(source, candidate) ||
+      _hasNegativePolarity(source) != _hasNegativePolarity(candidate)) {
+    return false;
+  }
   if (longest <= 4) {
     return distance <= 1;
   }
   if (similarity < 0.68) {
     return false;
   }
-  if (!_hasSameNumericMarkers(source, candidate) ||
-      _hasNegativePolarity(source) != _hasNegativePolarity(candidate)) {
-    return false;
-  }
 
   final sourceWords = _semanticContentWords(source);
   final candidateWords = _semanticContentWords(candidate);
-  if (sourceWords.length >= 3 && candidateWords.length >= 3) {
+  if (sourceWords.length >= 2 && candidateWords.length >= 2) {
     final preserved = _countPreservedContentWords(sourceWords, candidateWords);
     final sourceCoverage = preserved / sourceWords.length;
     final candidateCoverage = preserved / candidateWords.length;
@@ -707,7 +707,7 @@ bool _isMorphologicallyPreservedWord(String source, String candidate) {
 
   final sourceRunes = sourceKey.runes.toList(growable: false);
   final candidateRunes = candidateKey.runes.toList(growable: false);
-  if (sourceRunes.length < 3 || candidateRunes.length < 3) {
+  if (sourceRunes.length < 2 || candidateRunes.length < 2) {
     return false;
   }
   return _editDistance(sourceRunes, candidateRunes) <= 1;

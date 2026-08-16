@@ -154,8 +154,11 @@ class KoreanProofreadingGatewayImpl(context: Context) : KoreanProofreadingGatewa
         if (!closed.compareAndSet(false, true)) {
             return
         }
-        client.close()
-        executor.shutdownNow()
+        try {
+            client.close()
+        } finally {
+            executor.shutdownNow()
+        }
     }
 
     private fun statusPayload(status: Int): Map<String, Any?> {
@@ -168,7 +171,12 @@ class KoreanProofreadingGatewayImpl(context: Context) : KoreanProofreadingGatewa
             }
         return mapOf(
             "status" to state,
-            "error" to if (state == "unavailable") "unavailable" else "none",
+            "error" to
+                if (state == "unavailable") {
+                    "unavailable"
+                } else {
+                    "none"
+                },
             "downloadedBytes" to downloadedBytes,
             "totalBytes" to totalBytes,
         )
@@ -194,7 +202,12 @@ class KoreanProofreadingGatewayImpl(context: Context) : KoreanProofreadingGatewa
                 GenAiException.ErrorCode.RESPONSE_PROCESSING_ERROR,
                 GenAiException.ErrorCode.RESPONSE_GENERATION_ERROR,
                 -> "responseRejected"
-                else -> if (downloadFailure) "downloadFailed" else "unknown"
+                else ->
+                    if (downloadFailure) {
+                        "downloadFailed"
+                    } else {
+                        "unknown"
+                    }
             }
         val status =
             when (error) {

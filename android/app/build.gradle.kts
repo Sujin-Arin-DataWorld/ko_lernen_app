@@ -85,7 +85,9 @@ android {
 
     defaultConfig {
         applicationId = "com.sujinarin.ko_lernen_app"
-        minSdk = flutter.minSdkVersion
+        // API 24/25 users must keep receiving the base app. Proofreading is
+        // isolated behind the API 26+ dynamic-feature delivery condition.
+        minSdk = 24
         targetSdk = flutter.targetSdkVersion
         versionCode = autoVersionCode
         versionName = flutter.versionName

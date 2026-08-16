@@ -353,6 +353,34 @@ void main() {
       expect(negated.error, KoreanProofreadingError.irrelevantResponse);
     });
 
+    test(
+      'rejects numeric polarity and lexical drift in short responses',
+      () async {
+        final responses = <String>['2개', '잘돼', '불 주세요.'];
+        messenger.setMockMethodCallHandler(channel, (call) async {
+          final arguments = (call.arguments as Map).cast<String, Object>();
+          return <String, Object>{
+            'status': 'completed',
+            'sourceText': arguments['text']!,
+            'suggestions': <String>[responses.removeAt(0)],
+            'isFinal': true,
+          };
+        });
+        final service = KoreanProofreadingService(
+          channel: channel,
+          isAndroidOverride: true,
+        );
+
+        final numericDrift = await service.proofread('1개');
+        final polarityDrift = await service.proofread('안돼');
+        final lexicalDrift = await service.proofread('물 주세요.');
+
+        expect(numericDrift.error, KoreanProofreadingError.irrelevantResponse);
+        expect(polarityDrift.error, KoreanProofreadingError.irrelevantResponse);
+        expect(lexicalDrift.error, KoreanProofreadingError.irrelevantResponse);
+      },
+    );
+
     test('rejects a semantically different multi-token rewrite', () async {
       messenger.setMockMethodCallHandler(
         channel,
