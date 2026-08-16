@@ -1986,6 +1986,24 @@ overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
 test/data_integrity_test.dart test/scenario_quest_catalog_integrity_test.dart
 test/can_do_segment_asset_test.dart` **14/14**.
 
+### 2026-08-16 (Codex, Mac) — v2.0.6 App Store build 24 심사 교체 완료
+
+**무엇/왜.** 현재 심사 대기 중인 `2.0.6 (23)`을 대체할 새 심사용 IPA의 충돌 없는
+빌드 번호로 `pubspec.yaml` 버전을 `2.0.6+24`로 올렸다. 기존 `2.0.5+22`는 이전 App
+Store Connect 업로드 번호라 재사용할 수 없고, 23은 심사 대기 상태라 덮어쓰지 않는다.
+
+**검증/커밋.** `FREE_LAUNCH=1`으로 Firebase iOS·iOS/iPad 스토어 계약과 Korean OCR Pod
+게이트를 통과했고, 자동 서명 archive가 `Hangul Sori 2.0.6 (24)`·iOS 15.5·bundle ID
+`com.sujinarin.koLernenApp`을 확인했다. IPA(`185MB`) SHA-256은
+`464768078d62387eded034e7d5cbd95dcc60095395b6261c01acf7b4c10b87d4`이며, App Store
+Connect `validate-app` 오류 0과 `upload-app` 성공(Delivery UUID
+`84789cc3-cb45-4b2c-9332-a0aafa6a1127`)을 확인했다. 영구 사본은
+`~/Developer/release_artifacts/hangul-sori-2.0.6-24-cebc4204/`에 보관했다. TestFlight에서
+23의 베타 심사만 철회했고(빌드는 무효화하지 않음), 24를 외부 `Habdichlieb` 그룹에 연결해
+자동 테스터 알림을 켠 뒤 다시 제출했다. 최종 화면은 24=`심사 대기 중`, 23=`제출 준비 완료`로
+확인했다. 이는 TestFlight 베타 심사이며 App Store 정식 심사는 아직 생성하지 않았다. Jin의 별도
+commit/push 지시가 없어 이 버전 변경과 로그는 미커밋으로 둔다.
+
 ### 2026-08-16 (Cursor) — 첫 공항 5문항 `모르겠어요` DE/EN·무점수 재확인
 
 **무엇을.** 첫 설치 기본 장면 `airport_arrival` 5문항(듣기·빈칸·번역·문장조립·받아쓰기)에
