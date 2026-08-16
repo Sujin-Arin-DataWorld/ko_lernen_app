@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "scope": "hanok_v1_assets_only",
+  "contentProgressAuthority": "none",
+  "camera": {
+    "id": "personal_map_north_up_oblique_v2",
+    "orientation": "north_up",
+    "lightDirection": "top_left",
+    "canvas": {
+      "width": 1536,
+      "height": 1152
+    },
+    "socket": {
+      "id": "primary_house_v1",
+      "x": 160,
+      "y": 614,
+      "width": 854,
+      "height": 309,
+      "anchorCanvas": {
+        "x": 587,
+        "y": 923
+      },
+      "zGroup": 22
+    }
+  },
+  "runtimeLimits": {
+    "a1ConstructionStates": {
+      "root": "assets/illustrations/personal_hanok_v2/a1/states/",
+      "deliveryMilestone": "PR4",
+      "expectedFiles": [
+        "01_site_setout.webp",
+        "02_plan_layout.webp",
+        "03_foundation_gidan.webp",
+        "04_cornerstones_choseok.webp",
+        "05_timber_preparation.webp",
+        "06_columns.webp",
+        "07_beams_changbang.webp",
+        "08_purlins_sangnyang.webp",
+        "09_rafters_roof_frame.webp",
+        "10_roof_base.webp",
+        "11_choga_roof.webp",
+        "12_wall_frame_sujang.webp",
+        "13_earth_walls.webp",
+        "14_ondol_maru.webp",
+        "15_changho_finish.webp",
+        "16_landscape_move_in.webp"
+      ],
+      "width": 1536,
+      "height": 1152,
+      "format": "WebP",
+      "colorMode": "RGB",
+      "hardMaxBytes": 350000,
+      "forbiddenBakedElements": [
+        "ui",
+        "text",
+        "watermark"
+      ]
+    },
+    "decodedMemoryMaxBytes": 33554432
+  },
+  "allowedModelInputs": [
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
+      "role": "site_base",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "5d197bc17feb6ed1797cbbaa1ab96b273a1fabee2e3d12a69728e64c53fd6690",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGB",
+        "bytes": 2893591
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+      "role": "completed_house_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 403225
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets_unused/pending_review/reference_full_estate.png",
+      "role": "qa_composite",
+      "usage": "optional_qa_context_only",
+      "runtime": false,
+      "sha256": "43f96d141576ff842c6ed6d310b3e34f48aa07b5c9073dc5c708b57f903d46f0",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGB",
+        "bytes": 3248680
+      },
+      "rightsAttestation": {
+        "basis": "deterministic_composite_of_authorized_project_assets",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    }
+  ],
+  "restrictedSources": [
+    {
+      "id": "user_attached_screenshots",
+      "classification": "reference_only_user_supplied",
+      "pathPatterns": [
+        "codex-clipboard-*",
+        "Screenshot 2026-08-16*.png",
+        "AppData/Local/Temp/**"
+      ],
+      "runtimePolicy": "not_shipped",
+      "modelInputPolicy": "forbidden",
+      "derivativePolicy": "copy_trace_recolor_forbidden"
+    },
+    {
+      "id": "vivasam",
+      "classification": "reference_only_user_supplied",
+      "pathPatterns": [
+        "https://v.vivasam.com/fountain_html/old_visangtext/Experience/themeTour_01/themeTour_5.html",
+        "Vivasam/**"
+      ],
+      "runtimePolicy": "not_shipped",
+      "modelInputPolicy": "forbidden",
+      "derivativePolicy": "copy_trace_recolor_forbidden"
+    },
+    {
+      "id": "legacy_personal_hanok",
+      "classification": "project_owned_legacy_personal_hanok",
+      "pathPatterns": [
+        "assets/illustrations/hanok_stages/**"
+      ],
+      "runtimePolicy": "currently_shipped_but_superseded_until_pr7",
+      "modelInputPolicy": "forbidden",
+      "derivativePolicy": "hanok_v1_reuse_forbidden"
+    },
+    {
+      "id": "gye_art",
+      "classification": "project_owned_gye_domain_asset",
+      "pathPatterns": [
+        "assets/illustrations/gye/**",
+        "assets/video/gye/**"
+      ],
+      "runtimePolicy": "gye_runtime_only",
+      "modelInputPolicy": "forbidden",
+      "derivativePolicy": "personal_hanok_reuse_forbidden"
+    }
+  ],
+  "personalHanokRuntimePolicy": {
+    "allowedRoots": [
+      "assets/illustrations/personal_hanok_v2/"
+    ],
+    "forbiddenFragments": [
+      "codex-clipboard-",
+      "appdata/local/temp/",
+      "vivasam",
+      "assets/illustrations/hanok_stages/",
+      "assets/illustrations/gye/",
+      "assets/video/gye/",
+      "reference_full_estate.png"
+    ]
+  },
+  "generationLedger": {
+    "schemaVersion": 1,
+    "hashAlgorithm": "sha256",
+    "budgetCredits": {
+      "staticMax": 200.0,
+      "videoMax": 10.4,
+      "totalMax": 210.4
+    },
+    "recordSchema": {
+      "requiredFields": [
+        "id",
+        "provider",
+        "model",
+        "mediaKind",
+        "occurredAtUtc",
+        "costCredits",
+        "promptSha256",
+        "inputAssets",
+        "outputAssets"
+      ],
+      "inputAssetFields": [
+        "path",
+        "sha256"
+      ],
+      "outputAssetFields": [
+        "path",
+        "sha256",
+        "decision"
+      ]
+    },
+    "records": []
+  },
+  "qaComposite": {
+    "path": "assets_unused/pending_review/reference_full_estate.png",
+    "sha256": "43f96d141576ff842c6ed6d310b3e34f48aa07b5c9073dc5c708b57f903d46f0",
+    "source": "deterministic_runtime_layer_composite",
+    "runtime": false,
+    "modelInputUsage": "optional_qa_context_only"
+  }
+}

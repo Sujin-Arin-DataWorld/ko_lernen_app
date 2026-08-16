@@ -748,13 +748,7 @@ List<String> _validateDefinitions(
           .toList(growable: false);
       if (exact.length != 1) {
         issues.add(
-          [
-            'ambiguous',
-            kind.code,
-            'checkpoint',
-            unit.id,
-            checkpoint,
-          ].join(' '),
+          ['ambiguous', kind.code, 'checkpoint', unit.id, checkpoint].join(' '),
         );
       }
     }
@@ -883,7 +877,8 @@ List<String> _validateContent({
     }
     final unit = unitsById[entry.value.courseUnitId];
     if (unit != null &&
-        phrase.level.trim().toLowerCase() != unit.level.trim().toLowerCase()) {
+        LearnerLevel.fromCode(phrase.level) !=
+            LearnerLevel.fromCode(unit.level)) {
       issues.add(
         ['unrelated', 'smalltalk', 'checkpoint', 'level', entry.key].join(' '),
       );
@@ -1062,15 +1057,7 @@ String _packBase(String packId) {
   return parts.join('_');
 }
 
-bool _validLevel(String value) =>
-    const {
-      'a1',
-      'a2',
-      'b1',
-      'b2',
-      'c1',
-      'c2',
-    }.contains(value.trim().toLowerCase());
+bool _validLevel(String value) => LearnerLevel.fromCode(value) != null;
 
 List<String> _sortedDistinct(Iterable<String> values) =>
     values.toSet().toList()..sort();

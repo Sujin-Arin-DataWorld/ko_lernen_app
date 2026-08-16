@@ -1331,6 +1331,39 @@ class ContentValidator:
             if declared.get(kind) != actual:
                 self.issue(name, f"{kind} count is {declared.get(kind)!r}, actual is {actual}")
 
+        graph = root.get("graph")
+        if not isinstance(graph, dict):
+            self.issue(name, "graph must be an object")
+            return
+        curriculum = self.load_json("curriculum_manifest.json")
+        course_units = (
+            curriculum.get("courseUnits") if isinstance(curriculum, dict) else None
+        )
+        if not isinstance(course_units, list):
+            self.issue(name, "curriculum_manifest.json courseUnits must be an array")
+            return
+        if graph.get("courseUnits") != len(course_units):
+            self.issue(
+                name,
+                "graph courseUnits is "
+                f"{graph.get('courseUnits')!r}, actual is {len(course_units)}",
+            )
+        actual_by_level = Counter(
+            str(unit.get("level", "")).strip().lower()
+            for unit in course_units
+            if isinstance(unit, dict)
+        )
+        expected_by_level = {
+            level: actual_by_level.get(level, 0) for level in sorted(LOWER_LEVELS)
+        }
+        declared_by_level = graph.get("courseUnitsByLevel")
+        if declared_by_level != expected_by_level:
+            self.issue(
+                name,
+                "graph courseUnitsByLevel is "
+                f"{declared_by_level!r}, actual is {expected_by_level!r}",
+            )
+
     def inventory_counts(
         self,
         vocab_levels: dict[str, str] | None = None,

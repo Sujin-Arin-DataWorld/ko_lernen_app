@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'account/account_transition_journal.dart';
+import '../models/learner_level.dart';
 import '../models/personal_room.dart';
 import 'media_mutation_lock.dart';
 
@@ -1842,13 +1843,11 @@ class Storage {
   // ───────── Szenarien (Phase 5) ─────────
   /// CEFR code from 'a1' through 'c2'. Null means not selected yet.
   /// (Onboarding-Trigger).
-  static String? get userLevelCode {
-    final v = _s('kl_user_level');
-    return v.isEmpty ? null : v;
-  }
+  static String? get userLevelCode =>
+      LearnerLevel.fromCode(_s('kl_user_level'))?.code;
 
   static Future<void> setUserLevelCode(String code) =>
-      _ss('kl_user_level', code);
+      _ss('kl_user_level', _requiredLearnerLevelCode(code));
 
   // ───────── Kursplatzierung und Kursgraph (v1) ─────────
   // These keys intentionally do not reuse `kl_user_level`: that legacy key
@@ -1871,22 +1870,33 @@ class Storage {
     return value.isEmpty ? null : value;
   }
 
+  static String? _optionalLearnerLevelCode(String key) =>
+      LearnerLevel.fromCode(_optionalString(key))?.code;
+
+  static String _requiredLearnerLevelCode(String code) {
+    final level = LearnerLevel.fromCode(code);
+    if (level == null) {
+      throw ArgumentError.value(code, 'code', 'unsupported learner level');
+    }
+    return level.code;
+  }
+
   /// Placement comes from the diagnostic or direct start-level selection.
   /// Fallback keeps users of the pre-course app on their existing level until
   /// a new placement has been saved.
   static String? get placementLevelCode =>
-      _optionalString(placementLevelPreferenceKey) ?? userLevelCode;
+      _optionalLearnerLevelCode(placementLevelPreferenceKey) ?? userLevelCode;
 
   /// Explicit sequential-course placement only. Cloud reconciliation must use
   /// this instead of [placementLevelCode], whose legacy user-level fallback is
   /// library/account state rather than proof that a course has been started.
   static String? get dedicatedCoursePlacementLevelCode =>
-      _optionalString(placementLevelPreferenceKey);
+      _optionalLearnerLevelCode(placementLevelPreferenceKey);
 
   /// The library filter never changes the actual course placement or legacy
   /// user level. It is deliberately independent from sequential progress.
   static String? get browseLevelCode =>
-      _optionalString(browseLevelPreferenceKey);
+      _optionalLearnerLevelCode(browseLevelPreferenceKey);
 
   /// The one active sequential course mission, independent from a library
   /// level filter and from vocabulary-pack progress.
@@ -1906,10 +1916,7 @@ class Storage {
   static String get courseMasteryRawJson => courseMasterySnapshotRawJson;
 
   static Future<void> setPlacementLevelCode(String code) async {
-    final normalized = code.trim().toLowerCase();
-    if (normalized.isEmpty) {
-      throw ArgumentError.value(code, 'code', 'must not be empty');
-    }
+    final normalized = _requiredLearnerLevelCode(code);
     await _ss(placementLevelPreferenceKey, normalized);
     // Compatibility mirror only. Browse-level writes must not do this.
     await setUserLevelCode(normalized);
@@ -1918,18 +1925,12 @@ class Storage {
   /// Reconciliation-only course mirror write. The root account/library level
   /// has its own merge semantics and must not be overwritten by course restore.
   static Future<void> setDedicatedCoursePlacementLevelCode(String code) async {
-    final normalized = code.trim().toLowerCase();
-    if (normalized.isEmpty) {
-      throw ArgumentError.value(code, 'code', 'must not be empty');
-    }
+    final normalized = _requiredLearnerLevelCode(code);
     await _ss(placementLevelPreferenceKey, normalized);
   }
 
   static Future<void> setBrowseLevelCode(String code) async {
-    final normalized = code.trim().toLowerCase();
-    if (normalized.isEmpty) {
-      throw ArgumentError.value(code, 'code', 'must not be empty');
-    }
+    final normalized = _requiredLearnerLevelCode(code);
     await _ss(browseLevelPreferenceKey, normalized);
   }
 
@@ -1990,14 +1991,9 @@ class Storage {
         'must not be empty',
       );
     }
-    final placement = placementLevelCode?.trim().toLowerCase();
-    if (placement != null && placement.isEmpty) {
-      throw ArgumentError.value(
-        placementLevelCode,
-        'placementLevelCode',
-        'must not be empty',
-      );
-    }
+    final placement = placementLevelCode == null
+        ? null
+        : _requiredLearnerLevelCode(placementLevelCode);
     final unit = currentCourseUnitId?.trim();
     if (unit != null && unit.isEmpty) {
       throw ArgumentError.value(
@@ -2006,14 +2002,9 @@ class Storage {
         'must not be empty',
       );
     }
-    final browse = browseLevelCode?.trim().toLowerCase();
-    if (browse != null && browse.isEmpty) {
-      throw ArgumentError.value(
-        browseLevelCode,
-        'browseLevelCode',
-        'must not be empty',
-      );
-    }
+    final browse = browseLevelCode == null
+        ? null
+        : _requiredLearnerLevelCode(browseLevelCode);
 
     final store = _stringStore(preferences);
     final targets = <String, String?>{

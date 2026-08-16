@@ -110,3 +110,61 @@ scenario와 실벤은 만들지 않았다. Today와 Listening은 가장 가까�
 실벤은 가장 가까운 제공 레벨을 선택한다. 존재하지 않는 C1/C2 데이터를 테스트 fixture로
 가짜 생성해 exact 콘텐츠처럼 보이게 하지 않는다. 전용 데이터가 실제 승인·병합되면
 exact 선택 회귀 테스트를 추가하고 폴백을 그대로 유지할지 다시 결정한다.
+
+## 6. CourseUnit 아래의 검증 가능한 수행 단위
+
+`CourseUnit`은 경로·선행 조건을 위한 큰 주제 묶음이다. 콘텐츠 수나 난이도가 같은
+영구 숙달 단위가 아니며, 그 ID를 한옥 보상이나 생산 능력 도장에 직접 쓰지 않는다.
+영구 검증의 최소 단위는 `CanDoSegment`이고 세 책임은 다음처럼 고정한다.
+
+| 계층 | 책임 | 영구 보상 판정 가능 여부 |
+| --- | --- | --- |
+| `CourseUnit` | 경로, 주제, 선행 조건, 현재 위치 | 불가 |
+| 연습 콘텐츠와 `ContentLink` | 학습·복습 routing | 불가 |
+| checkpoint | 교체 가능한 평가 수단 | 단독 불가 |
+| `CanDoSegment` | 한 가지 can-do, 생산 rubric, 증거 revision | 가능 |
+| Hanok grant | 검증된 segment의 시각적 투영 | 판정 권한 없음 |
+
+published segment는 안정적인 ID, 정확한 parent unit과 CEFR, 필수 개념, 양수
+`proofRevision`, `allOf` 생산 evidence 정책, immutable release track과 edition을
+가져야 한다. `SegmentAssessmentAuthority`는 assessment ID만 확인하지 않고
+mission content-link, level, CourseUnit, concept 집합, evidence mode, rubric version,
+70% 이상의 minimum score, exact assess edge와 course eligibility를 모두 대조한다.
+현재 평가가
+바뀌어도 과거 ID는 `ownedAssessmentItemIds`에서 제거하거나 다른 segment에
+재할당하지 않는다.
+연습 routing은 segment 안의 고정 목록이 아니라 revisioned `ContentClusterDefinition`이
+소유한다. 독립 창작 씨앗은 level이 고정된 typed `ContentSeedAuthority`로, 각 파생
+참조의 실제 CEFR·`sourceSeedId`·`courseUnitId`는 typed
+`ContentReferenceAuthority`로 검증하고, cluster seed 집합과 segment parent에 정확히
+귀속되지 않은 파생 항목은 차단한다.
+같은 can-do에 어휘·문법·대화·시나리오가 추가되면 cluster revision만
+올리고 segment ID, edition, 보상과 분모는 바꾸지 않는다. 같은 construct의 평가를
+개선할 때는 `proofRevision`을 올리되 이미 얻은 집을 취소하지 않고 최신 검증 상태를
+별도로 보여 준다.
+
+독립적인 새 can-do와 전용 생산 평가가 함께 생긴 경우에만 새 segment를 발행한다.
+그 segment는 기존 published release track이나 edition에 삽입하지 않고 같은 CEFR의
+새 extension `ReleaseTrackDefinition`과 edition에 속하며, 새 non-draft track의 순서는
+기존 non-draft track의 최댓값보다 커야 한다. 첫 core release
+`core_2026_v1`은 A1·A2·B1·B2·C1·C2 여섯
+고정 edition의 합계 86개이며, 후속 UI는 `코어 86/86`과 `B2 확장 0/4`처럼
+edition별 진행을 분리한다. 계속 커지는 catalog 전체 백분율은 사용자 완료율이나
+한옥 권한으로 사용하지 않는다. retired segment도 삭제하지 않고 successor 계보와
+과거 증거를 보존하며, 여러 번 교체된 경우 successor 체인 전체가 옛 slot의 대체
+증거가 될 수 있다. 단, successor는 immutable `constructLineageId`가 같고 역방향
+predecessor가 하나뿐인 선형 계보여야 한다. 제품 loader는 published
+`core_2026_v1`을 레벨별 `16/16/18/20/8/8`, 총 86개로 fail-closed 검증하며 임의
+core policy를 주입하는 우회 loader를 노출하지 않는다.
+
+상황 씨앗 기반 제작에서는 `sourceSeedId`를 typed `ContentSeedAuthority`에 먼저
+등록하고 segment나 reward ID로 쓰지 않는다.
+같은 씨앗에서 파생된 시나리오·듣기·Satz·발음·Cloze·Smalltalk는 revisioned content
+cluster로 묶고, 새 능력인지 여부는 별도 can-do와 생산 평가가 존재하는지로 판정한다.
+C1/C2 각각 8개 목표도 CourseUnit 수가 아니라 core segment 수다. 게임별 레코드
+충원량과 빈 화면 제거율은 콘텐츠 공급 KPI이며 published 진행 분모가 아니다.
+
+기존 `completedUnitIds`는 새 segment의 생산 증거가 아니다. 재평가는 코스 포인터를
+되감지 않고 segment 증거만 추가한다. browse, 단어팩, XP, placement bypass, Gye,
+기존 한옥 단계는 segment를 검증할 수 없다. 전체 결정과 거부한 대안은
+[`ADR-003`](ADR-003-can-do-segment-authority.md)에 기록한다.

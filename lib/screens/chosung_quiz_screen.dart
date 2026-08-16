@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
+import '../models/learner_level.dart';
 import '../services/data_loader.dart';
 import '../services/analytics_service.dart';
 import '../services/learner_level_selection.dart';
@@ -329,7 +330,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   String? _recommendation(AppL10n t) {
     if (_roundDurationsMs.isEmpty) return null;
     final accuracy = _roundCorrect / _roundSize;
-    final levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    final levels = LearnerLevel.values.map((level) => level.display).toList();
     final idx = levels.indexOf(_level);
     if (accuracy >= 0.9 && idx < levels.length - 1) {
       return t.chosungRoundLevelUp(levels[idx + 1]);
@@ -450,14 +451,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                             alignment: WrapAlignment.center,
                             spacing: Spacing.sm,
                             runSpacing: Spacing.xs,
-                            children: [
-                              'A1',
-                              'A2',
-                              'B1',
-                              'B2',
-                              'C1',
-                              'C2',
-                            ].map((lvl) {
+                            children: LearnerLevel.values.map((level) {
+                              final lvl = level.display;
                               final selected = _level == lvl;
                               return SoriChip(
                                 key: ValueKey('chosung-level-$lvl'),

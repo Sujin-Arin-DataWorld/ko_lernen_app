@@ -8,6 +8,7 @@ import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
 import '../models/feedback_completion.dart';
+import '../models/learner_level.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
@@ -160,7 +161,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                 .pick(languageCode);
       // 80+ 패턴을 한 번에 보여주지 않도록, 첫 진입 시 사용자 레벨로 스코프.
       // (CSV 레벨 표기와 일치할 때만 — 아니면 'Alle' 유지, 안전.)
-      final userLvl = (Storage.userLevelCode ?? '').toUpperCase();
+      final userLvl = LearnerLevel.fromCode(Storage.userLevelCode)?.display;
       final available = courseContentIds == null
           ? g
           : g
@@ -168,7 +169,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                 .toList(growable: false);
       final useLevel = _isCoursePractice
           ? 'Alle'
-          : (available.any((x) => x.level == userLvl) ? userLvl : 'Alle');
+          : (userLvl != null && available.any((x) => x.level == userLvl)
+                ? userLvl
+                : 'Alle');
       setState(() {
         _all = g;
         _courseContentIds = courseContentIds;

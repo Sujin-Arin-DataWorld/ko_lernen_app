@@ -160,6 +160,39 @@ class ContentValidatorTest(unittest.TestCase):
             ),
         )
 
+    def test_stale_course_unit_audit_count_fails_closed(self) -> None:
+        audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
+        audit["graph"]["courseUnits"] = 36
+
+        validator = self._with_json_override(
+            **{"content_audit_manifest.json": audit},
+        )
+        validator.validate()
+
+        self.assertTrue(
+            any(
+                "graph courseUnits is 36, actual is 40" in message
+                for message in self._messages(validator)
+            ),
+        )
+
+    def test_stale_per_level_course_unit_audit_fails_closed(self) -> None:
+        audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
+        audit["graph"]["courseUnitsByLevel"]["c2"] = 1
+
+        validator = self._with_json_override(
+            **{"content_audit_manifest.json": audit},
+        )
+        validator.validate()
+
+        self.assertTrue(
+            any(
+                "graph courseUnitsByLevel" in message
+                and "'c2': 2" in message
+                for message in self._messages(validator)
+            ),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

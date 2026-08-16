@@ -6,6 +6,7 @@ import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
+import '../models/learner_level.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
@@ -33,9 +34,7 @@ import '../widgets/sori/tokens.dart';
 /// (null·빈값·알 수 없는 값)에는 A1으로 폴백해 경로가 절대 비지 않게 한다.
 /// 반환은 팩/표시용 대문자 코드('A1'..'C2').
 String pathVisibleLevel(String? userLevelCode) {
-  final code = (userLevelCode ?? '').trim().toLowerCase();
-  const known = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'};
-  return (known.contains(code) ? code : 'a1').toUpperCase();
+  return (LearnerLevel.fromCode(userLevelCode) ?? LearnerLevel.a1).display;
 }
 
 String pathLegacyBrowseVisibleLevel({
@@ -137,7 +136,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   CourseMasterySnapshot? _courseSnapshot;
   bool _showLegacyPractice = false;
 
-  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  static final List<String> _levels = List.unmodifiable(
+    LearnerLevel.values.map((level) => level.display),
+  );
 
   // ── 코치마크 타겟 ──
   final GlobalKey _nowNodeKey = GlobalKey();
@@ -362,7 +363,10 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                         courseUnits: _courseUnits,
                         snapshot: _courseSnapshot!,
                         lang: Localizations.localeOf(context).languageCode,
-                        filterLevel: _courseLevel.toLowerCase(),
+                        filterLevel:
+                            (LearnerLevel.fromCode(_courseLevel) ??
+                                    LearnerLevel.a1)
+                                .code,
                         onTapUnit: (unit) async {
                           await Navigator.pushNamed(
                             context,
@@ -494,8 +498,7 @@ class _CourseMissionPath extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final grouped = <String, List<CourseUnit>>{
-      for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'])
-        level: <CourseUnit>[],
+      for (final level in LearnerLevel.values) level.code: <CourseUnit>[],
     };
     for (final unit in courseUnits) {
       if (unit.level != filterLevel) {
@@ -542,7 +545,9 @@ class _CourseMissionPath extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          t.pathStoryEyebrow(filterLevel.toUpperCase()),
+          t.pathStoryEyebrow(
+            (LearnerLevel.fromCode(filterLevel) ?? LearnerLevel.a1).display,
+          ),
           style: SoriTextTheme.of(context).label,
         ),
         const SizedBox(height: Spacing.xs),

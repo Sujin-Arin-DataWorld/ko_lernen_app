@@ -1,4 +1,5 @@
 import '../models/pack_progress.dart';
+import '../models/learner_level.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 
@@ -22,11 +23,12 @@ enum LessonKind {
 /// 비용: [PackProgressService.loadLevelView] 는 캐시된 팩 리스트 + 로컬
 /// SharedPreferences 진행도만 읽으므로 사실상 무료.
 class LessonRecommenderService {
-  static const List<String> _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  static final List<String> _levels = List.unmodifiable(
+    LearnerLevel.values.map((level) => level.display),
+  );
 
   static String? _selectedLevel() {
-    final selected = Storage.userLevelCode?.trim().toUpperCase();
-    return _levels.contains(selected) ? selected : null;
+    return LearnerLevel.fromCode(Storage.userLevelCode)?.display;
   }
 
   /// 지금 추천할 팩. 모든 팩을 클리어했으면 `null` (호출자가 복습 등으로 대체).

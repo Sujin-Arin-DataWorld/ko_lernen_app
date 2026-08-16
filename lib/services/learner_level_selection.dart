@@ -1,4 +1,4 @@
-import '../models/scenario.dart';
+import '../models/learner_level.dart';
 
 /// Converts the legacy stored level code into the canonical CEFR value used by
 /// JSON bundles and level-picker UI.

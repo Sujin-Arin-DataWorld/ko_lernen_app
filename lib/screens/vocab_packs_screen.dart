@@ -5,6 +5,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../models/learner_level.dart';
 import '../services/course_mission_navigation.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
@@ -85,9 +86,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   String _normalizeLevel(String? code) {
-    final c = (code ?? '').toUpperCase();
-    if (const {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}.contains(c)) return c;
-    return 'A1';
+    return (LearnerLevel.fromCode(code) ?? LearnerLevel.a1).display;
   }
 
   Future<void> _load() async {
@@ -166,7 +165,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     if (_courseUnitId != null) return;
     if (level == _level) return;
     HapticFeedback.selectionClick();
-    await Storage.setBrowseLevelCode(level.toLowerCase());
+    await Storage.setBrowseLevelCode(
+      (LearnerLevel.fromCode(level) ?? LearnerLevel.a1).code,
+    );
     if (!mounted) return;
     setState(() => _level = level);
     await _load();
@@ -229,7 +230,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   /// 인자 없이 `/vocab` 재진입(unrestricted). 뒤로가기 하면 미션 스코프로 복귀.
   Future<void> _browseAllPacks() async {
     HapticFeedback.selectionClick();
-    await Storage.setBrowseLevelCode(_level.toLowerCase());
+    await Storage.setBrowseLevelCode(
+      (LearnerLevel.fromCode(_level) ?? LearnerLevel.a1).code,
+    );
     if (!mounted) return;
     await Navigator.of(context).pushNamed('/vocab');
   }
@@ -268,13 +271,12 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
               icon: const Icon(Icons.swap_horiz),
               tooltip: t.vocabPacksLevelMenu,
               onSelected: _switchLevel,
-              itemBuilder: (_) => const [
-                PopupMenuItem(value: 'A1', child: Text('A1')),
-                PopupMenuItem(value: 'A2', child: Text('A2')),
-                PopupMenuItem(value: 'B1', child: Text('B1')),
-                PopupMenuItem(value: 'B2', child: Text('B2')),
-                PopupMenuItem(value: 'C1', child: Text('C1')),
-                PopupMenuItem(value: 'C2', child: Text('C2')),
+              itemBuilder: (_) => [
+                for (final level in LearnerLevel.values)
+                  PopupMenuItem(
+                    value: level.display,
+                    child: Text(level.display),
+                  ),
               ],
             ),
         ],

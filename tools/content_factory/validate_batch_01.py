@@ -419,10 +419,14 @@ def _parse_manifest(
     if enforce_batch_01_contract:
         for kind, spec in ARTIFACT_SPECS.items():
             artifact = by_kind[kind]
-            if artifact.get("draft") != str(spec.draft):
-                _fail(f"{manifest_path}: {kind}.draft must be {spec.draft}")
-            if artifact.get("review") != str(spec.review):
-                _fail(f"{manifest_path}: {kind}.review must be {spec.review}")
+            expected_draft = spec.draft.as_posix()
+            expected_review = spec.review.as_posix()
+            actual_draft = Path(str(artifact.get("draft"))).as_posix()
+            actual_review = Path(str(artifact.get("review"))).as_posix()
+            if actual_draft != expected_draft:
+                _fail(f"{manifest_path}: {kind}.draft must be {expected_draft}")
+            if actual_review != expected_review:
+                _fail(f"{manifest_path}: {kind}.review must be {expected_review}")
             if artifact.get("count") != spec.count:
                 _fail(f"{manifest_path}: {kind}.count must be {spec.count}")
             if artifact.get("levels") != spec.levels:

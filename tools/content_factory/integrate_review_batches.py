@@ -654,6 +654,22 @@ def _write_stage(
         for source in sources:
             if isinstance(source, dict) and source.get("kind") in counts:
                 source["count"] = counts[source["kind"]]
+        graph = audit.get("graph")
+        course_units = curriculum.get("courseUnits")
+        if not isinstance(graph, dict) or not isinstance(course_units, list):
+            raise IntegrationError(
+                "content audit graph and curriculum courseUnits must be present"
+            )
+        graph["courseUnits"] = len(course_units)
+        graph["courseUnitsByLevel"] = {
+            level: sum(
+                1
+                for unit in course_units
+                if isinstance(unit, dict)
+                and str(unit.get("level", "")).strip().lower() == level
+            )
+            for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+        }
         (staged_data / "content_audit_manifest.json").write_text(_json_text(audit), encoding="utf-8")
 
         issues = ContentValidator(stage).validate()
@@ -730,6 +746,18 @@ def _atomic_write(path: Path, text: str) -> None:
             temporary.unlink()
 
 
+def _atomic_restore(path: Path, data: bytes) -> None:
+    """Restore the exact pre-transaction bytes, including original newlines."""
+
+    temporary = path.with_name(f".{path.name}.content-integration.tmp")
+    try:
+        temporary.write_bytes(data)
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
 def _verify_written_tree(root: Path, outputs: dict[Path, str]) -> None:
     issues = ContentValidator(root).validate()
     if issues:
@@ -768,16 +796,16 @@ def integrate(
                 outputs[review] = _promoted_ledger_text(review)
             outputs[batch.manifest_path] = _promoted_manifest_text(batch.manifest_path)
 
-    originals = {path: path.read_text(encoding="utf-8") for path in outputs}
+    originals = {path: path.read_bytes() for path in outputs}
     try:
         for path, text in outputs.items():
             _atomic_write(path, text)
         _verify_written_tree(root, outputs)
     except Exception as error:
         rollback_errors: list[str] = []
-        for path, text in originals.items():
+        for path, data in originals.items():
             try:
-                _atomic_write(path, text)
+                _atomic_restore(path, data)
             except OSError as rollback_error:
                 rollback_errors.append(f"{path}: {rollback_error}")
         suffix = f"; rollback failed: {'; '.join(rollback_errors)}" if rollback_errors else ""

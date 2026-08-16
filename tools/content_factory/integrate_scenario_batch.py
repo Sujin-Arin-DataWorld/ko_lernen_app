@@ -164,6 +164,18 @@ def _atomic_write(path: Path, text: str) -> None:
             temporary.unlink()
 
 
+def _atomic_restore(path: Path, data: bytes) -> None:
+    """Restore exact pre-transaction bytes, including Windows newlines."""
+
+    temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
+    try:
+        temporary.write_bytes(data)
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
     manifest_path, manifest, records, backdrops = _validate_batch(root, manifest_path)
@@ -229,6 +241,22 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         for source in audit.get("sources", []):
             if isinstance(source, dict) and source.get("kind") in counts:
                 source["count"] = counts[source["kind"]]
+        graph = audit.get("graph")
+        course_units = curriculum.get("courseUnits")
+        if not isinstance(graph, dict) or not isinstance(course_units, list):
+            raise ScenarioIntegrationError(
+                "content audit graph and curriculum courseUnits must be present"
+            )
+        graph["courseUnits"] = len(course_units)
+        graph["courseUnitsByLevel"] = {
+            level: sum(
+                1
+                for unit in course_units
+                if isinstance(unit, dict)
+                and str(unit.get("level", "")).strip().lower() == level
+            )
+            for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+        }
         (data / "content_audit_manifest.json").write_text(_json_text(audit), encoding="utf-8")
         issues = ContentValidator(stage).validate()
         if issues:
@@ -250,7 +278,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         provenance["mergedAt"] = "2026-08-15"
         merged_manifest["provenance"] = provenance
         outputs[manifest_path] = _json_text(merged_manifest)
-        originals = {path: path.read_text(encoding="utf-8") for path in outputs}
+        originals = {path: path.read_bytes() for path in outputs}
         try:
             for path, content in outputs.items():
                 _atomic_write(path, content)
@@ -259,9 +287,20 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 detail = "\n".join(f"{issue.source}: {issue.message}" for issue in final_issues)
                 raise ScenarioIntegrationError(f"post-write content validation failed:\n{detail}")
         except Exception as error:
-            for path, content in originals.items():
-                _atomic_write(path, content)
-            raise ScenarioIntegrationError(f"scenario integration rolled back: {error}") from error
+            rollback_errors: list[str] = []
+            for path, data in originals.items():
+                try:
+                    _atomic_restore(path, data)
+                except OSError as rollback_error:
+                    rollback_errors.append(f"{path}: {rollback_error}")
+            suffix = (
+                f"; rollback failed: {'; '.join(rollback_errors)}"
+                if rollback_errors
+                else ""
+            )
+            raise ScenarioIntegrationError(
+                f"scenario integration rolled back: {error}{suffix}"
+            ) from error
     return counts, len(records)
 
 
