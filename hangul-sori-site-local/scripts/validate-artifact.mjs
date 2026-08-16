@@ -1,11 +1,15 @@
 import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
 import { createHash } from "node:crypto";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { promisify } from "node:util";
 import { readBuildReleaseIdentity } from "./release-id.mjs";
 
+const execFileAsync = promisify(execFile);
 const projectRoot = resolve(import.meta.dirname, "..");
+const repositoryRoot = resolve(projectRoot, "..");
 const workerPath = resolve(projectRoot, "dist/server/index.js");
 const wranglerPath = resolve(projectRoot, "dist/server/wrangler.json");
 const releaseManifestPath = resolve(projectRoot, "dist/release.json");
@@ -26,8 +30,26 @@ async function listFiles(directory, prefix = "") {
   return files.sort();
 }
 
-async function sha256(path) {
-  return createHash("sha256").update(await readFile(path)).digest("hex");
+function sha256(bytes) {
+  return createHash("sha256").update(bytes).digest("hex");
+}
+
+async function readCanonicalPublicAsset(relativePath, releaseIdentity) {
+  if (releaseIdentity.dirty) {
+    return readFile(resolve(publicPath, relativePath));
+  }
+  const gitPath = `hangul-sori-site-local/public/${relativePath}`;
+  const { stdout } = await execFileAsync(
+    "git",
+    ["cat-file", "blob", `${releaseIdentity.gitCommit}:${gitPath}`],
+    {
+      cwd: repositoryRoot,
+      encoding: "buffer",
+      maxBuffer: 64 * 1024 * 1024,
+      windowsHide: true,
+    },
+  );
+  return stdout;
 }
 
 await Promise.all([access(workerPath), access(wranglerPath)]);
@@ -87,12 +109,11 @@ assert.equal(
 const publicFiles = await listFiles(publicPath);
 assert.ok(publicFiles.length > 0, "public/ must contain the owned website assets");
 for (const relativePath of publicFiles) {
-  const source = resolve(publicPath, relativePath);
   const deployed = resolve(clientPath, relativePath);
   await access(deployed);
   assert.equal(
-    await sha256(deployed),
-    await sha256(source),
+    sha256(await readFile(deployed)),
+    sha256(await readCanonicalPublicAsset(relativePath, releaseIdentity)),
     `${relativePath} must be copied byte-for-byte into the deploy artifact`,
   );
 }

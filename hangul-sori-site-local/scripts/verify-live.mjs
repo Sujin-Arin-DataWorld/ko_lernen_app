@@ -1,10 +1,14 @@
 import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
+import { promisify } from "node:util";
 
+const execFileAsync = promisify(execFile);
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/sbvJNQSt";
 const projectRoot = resolve(import.meta.dirname, "..");
+const repositoryRoot = resolve(projectRoot, "..");
 const publicPath = resolve(projectRoot, "public");
 const DEFAULT_ORIGINS = [
   "https://hangul-sori.com",
@@ -81,6 +85,24 @@ async function listFiles(directory, prefix = "") {
 
 function sha256(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
+}
+
+async function readExpectedPublicAsset(relativePath) {
+  if (!expectedRelease) {
+    return readFile(resolve(publicPath, relativePath));
+  }
+  const gitPath = `hangul-sori-site-local/public/${relativePath}`;
+  const { stdout } = await execFileAsync(
+    "git",
+    ["cat-file", "blob", `${expectedRelease}:${gitPath}`],
+    {
+      cwd: repositoryRoot,
+      encoding: "buffer",
+      maxBuffer: 64 * 1024 * 1024,
+      windowsHide: true,
+    },
+  );
+  return stdout;
 }
 
 async function request(url, options = {}) {
@@ -213,7 +235,7 @@ for (const origin of origins) {
 const publicFiles = await listFiles(publicPath);
 assert.ok(publicFiles.length > 0, "public/ must contain owned assets");
 for (const relativePath of publicFiles) {
-  const expectedHash = sha256(await readFile(resolve(publicPath, relativePath)));
+  const expectedHash = sha256(await readExpectedPublicAsset(relativePath));
   for (const origin of origins) {
     const assetUrl = `${origin}/${relativePath}`;
     const response = await request(assetUrl, { headers: { accept: "*/*" } });
