@@ -34,6 +34,8 @@ test("renders finished site metadata", async () => {
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   assert.equal(response.headers.get("x-frame-options"), "DENY");
   assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+  assert.match(response.headers.get("cache-control") ?? "", /no-store/i);
+  assert.match(response.headers.get("cache-control") ?? "", /must-revalidate/i);
   assert.equal(response.headers.get("x-hangul-sori-release"), releaseManifest.releaseId);
   const html = await response.text();
   assert.match(html, /Learn Korean and build your own hanok\./i);
@@ -96,6 +98,7 @@ test("adds production-only CSP and HSTS headers", async () => {
   assert.doesNotMatch(csp, /script-src[^;]*'unsafe-inline'/);
   assert.match(response.headers.get("strict-transport-security") ?? "", /max-age=63072000/);
   assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
+  assert.match(response.headers.get("cache-control") ?? "", /no-store/i);
   const html = await response.text();
   assert.doesNotMatch(html, /<script(?![^>]*\snonce=)/i);
 });

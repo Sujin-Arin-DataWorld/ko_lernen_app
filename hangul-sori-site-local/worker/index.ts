@@ -51,12 +51,16 @@ function contentSecurityPolicy(nonce: string) {
 
 async function withSecurityHeaders(response: Response, url: URL) {
   const headers = new Headers(response.headers);
+  const isHtml = headers.get("content-type")?.toLowerCase().startsWith("text/html") ?? false;
   headers.set("x-hangul-sori-release", __HANGUL_SORI_RELEASE_ID__);
   headers.set("x-content-type-options", "nosniff");
   headers.set("x-frame-options", "DENY");
   headers.set("referrer-policy", "no-referrer");
   headers.set("permissions-policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()");
   headers.set("cross-origin-opener-policy", "same-origin");
+  if (isHtml) {
+    headers.set("cache-control", "no-store, max-age=0, must-revalidate");
+  }
 
   const isLocal = url.hostname === "localhost" || url.hostname === "127.0.0.1";
   let body: BodyInit | null = response.body;
@@ -66,7 +70,7 @@ async function withSecurityHeaders(response: Response, url: URL) {
     if (url.protocol === "https:") {
       headers.set("strict-transport-security", "max-age=63072000; includeSubDomains");
     }
-    if (headers.get("content-type")?.toLowerCase().startsWith("text/html")) {
+    if (isHtml) {
       const html = await response.text();
       body = html.replace(/<script(?=\s|>)/g, `<script nonce="${nonce}"`);
       headers.delete("content-length");

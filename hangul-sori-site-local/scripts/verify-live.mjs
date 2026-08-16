@@ -68,6 +68,7 @@ if (allowLegacyRelease && expectedRelease) {
 }
 const origins = requestedOrigins.length > 0 ? requestedOrigins : DEFAULT_ORIGINS;
 let observedRelease;
+const referencedBuildAssets = new Set();
 
 async function listFiles(directory, prefix = "") {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -85,6 +86,35 @@ async function listFiles(directory, prefix = "") {
 
 function sha256(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
+}
+
+function collectReferencedBuildAssets(html, documentUrl, origin) {
+  for (const match of html.matchAll(/(?:src|href)=["']([^"']+)["']/gi)) {
+    try {
+      const assetUrl = new URL(match[1], documentUrl);
+      if (assetUrl.origin === origin && assetUrl.pathname.startsWith("/_next/static/")) {
+        referencedBuildAssets.add(`${assetUrl.pathname}${assetUrl.search}`);
+      }
+    } catch {
+      // Ignore malformed third-party markup; owned build URLs must still parse below.
+    }
+  }
+}
+
+function assertBuildAssetHeaders(response, assetUrl) {
+  const contentType = response.headers.get("content-type") ?? "";
+  if (new URL(assetUrl).pathname.endsWith(".js")) {
+    assert.match(contentType, /javascript/i, `${assetUrl} must use a JavaScript MIME type`);
+  } else if (new URL(assetUrl).pathname.endsWith(".css")) {
+    assert.match(contentType, /^text\/css\b/i, `${assetUrl} must use the CSS MIME type`);
+  } else {
+    assert.ok(contentType, `${assetUrl} must declare a content type`);
+  }
+  assert.match(
+    response.headers.get("cache-control") ?? "",
+    /\bimmutable\b/i,
+    `${assetUrl} must retain immutable content-hash caching`,
+  );
 }
 
 async function readExpectedPublicAsset(relativePath) {
@@ -187,8 +217,14 @@ for (const origin of origins) {
     );
     assertSecurityHeaders(response, url);
     assertReleaseHeader(response, url);
+    assert.match(
+      response.headers.get("cache-control") ?? "",
+      /\bno-store\b/i,
+      `${url} must not cache release-specific HTML`,
+    );
 
     const html = await response.text();
+    collectReferencedBuildAssets(html, url, origin);
     assert.ok(html.includes(marker), `${url} must contain ${JSON.stringify(marker)}`);
     if (path === "/") {
       assert.match(
@@ -232,6 +268,20 @@ for (const origin of origins) {
   assertReleaseHeader(missingResponse, missingUrl);
 }
 
+assert.ok(referencedBuildAssets.size > 0, "rendered HTML must reference owned build assets");
+for (const relativeUrl of [...referencedBuildAssets].sort()) {
+  for (const origin of origins) {
+    const assetUrl = `${origin}${relativeUrl}`;
+    const response = await request(assetUrl, { headers: { accept: "*/*" } });
+    assert.equal(response.status, 200, `${assetUrl} referenced by live HTML must be available`);
+    assertBuildAssetHeaders(response, assetUrl);
+    assert.ok(
+      (await response.arrayBuffer()).byteLength > 0,
+      `${assetUrl} referenced by live HTML must not be empty`,
+    );
+  }
+}
+
 const publicFiles = await listFiles(publicPath);
 assert.ok(publicFiles.length > 0, "public/ must contain owned assets");
 for (const relativePath of publicFiles) {
@@ -265,5 +315,5 @@ if (external) {
 }
 
 console.log(
-  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} byte-exact assets, and the TestFlight CTA on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
+  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} byte-exact assets, and the TestFlight CTA on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
 );

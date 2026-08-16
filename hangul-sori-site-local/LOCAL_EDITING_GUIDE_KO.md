@@ -41,7 +41,7 @@ npm run deploy:check
 
 이 한 명령이 lint, TypeScript, 예전 `dist/` 제거, 새 빌드, 공개 경로,
 개인정보 동의, 보안 헤더, 테스터 신청, TestFlight 링크, Worker 바인딩,
-Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 16개 자동 테스트를 모두
+Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 17개 자동 테스트를 모두
 검사합니다. Sites 실행 파일, 필수 원본, 배포 식별자가 빠진 상태도 실패합니다.
 
 ## 4. 직접 배포
@@ -51,6 +51,9 @@ Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 16개 �
 ```bash
 npm run cloudflare:login
 ```
+
+OAuth credential은 평문 설정 파일이 아니라 운영체제 키체인(macOS Keychain 또는
+Windows Credential Manager)에 저장됩니다.
 
 직접 배포할 때는 변경을 먼저 Git에 커밋하고 `main`을 `origin/main`에 push해야 합니다.
 그다음 아래 한 명령이면 빌드·테스트·dry-run·운영 배포·실제 도메인 확인이 순서대로
