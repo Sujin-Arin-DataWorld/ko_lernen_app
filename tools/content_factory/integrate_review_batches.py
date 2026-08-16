@@ -871,11 +871,11 @@ def main(argv: list[str] | None = None) -> int:
             restore_b2_recovery=args.restore_b2_recovery,
         )
     except IntegrationError as error:
-        print(f"✗ {error}", file=sys.stderr)
+        print(f"ERROR: {error}", file=sys.stderr)
         return 1
     action = "applied" if args.apply else "preview"
     recovery = " + repository-owned B2 recovery" if args.restore_b2_recovery else ""
-    print(f"✓ {action}: {record_count} reviewed records{recovery}; inventory {counts}")
+    print(f"OK: {action}: {record_count} reviewed records{recovery}; inventory {counts}")
     return 0
 
 

@@ -87,6 +87,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   @override
   void initState() {
     super.initState();
+    if (!_isCoursePractice) {
+      _level = Storage.userLevelCode ?? 'a1';
+    }
     _load();
     scheduleCoach();
   }
@@ -135,7 +138,13 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                 ?.title
                 .pick(languageCode);
       final cats = _categoriesFor(courseContentIds);
-      final catIds = cats.map((c) => c.id).toSet();
+      final levelCats = _categoriesWithPhrasesAtLevel(
+        cats,
+        level: _level,
+        contentIds: courseContentIds,
+      );
+      final initialCats = levelCats.isEmpty ? cats : levelCats;
+      final catIds = initialCats.map((c) => c.id).toSet();
       // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
       final preferred = PersonalizedLessonService.smalltalkCategoriesFor(
         Storage.interests,
@@ -147,7 +156,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         _missionTitle = missionTitle;
         _cat = preferred.isNotEmpty
             ? preferred
-            : (cats.isNotEmpty ? cats.first.id : '');
+            : (initialCats.isNotEmpty ? initialCats.first.id : '');
         _loading = false;
       });
     } catch (_) {
@@ -171,6 +180,43 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     return SmalltalkLoader.categories
         .where((category) => visibleCategoryIds.contains(category.id))
         .toList(growable: false);
+  }
+
+  List<SmalltalkCategory> _categoriesWithPhrasesAtLevel(
+    List<SmalltalkCategory> categories, {
+    required String? level,
+    required Set<String>? contentIds,
+  }) {
+    if (level == null) {
+      return categories;
+    }
+    final ids = SmalltalkLoader.phrases
+        .where(
+          (phrase) =>
+              phrase.level == level &&
+              (contentIds == null || contentIds.contains(phrase.id)),
+        )
+        .map((phrase) => phrase.category)
+        .toSet();
+    return categories
+        .where((category) => ids.contains(category.id))
+        .toList(growable: false);
+  }
+
+  void _setLevel(String? level) {
+    final categories = _visibleCategories;
+    final available = _categoriesWithPhrasesAtLevel(
+      categories,
+      level: level,
+      contentIds: _courseContentIds,
+    );
+    setState(() {
+      _level = level;
+      if (available.isNotEmpty &&
+          !available.any((category) => category.id == _cat)) {
+        _cat = available.first.id;
+      }
+    });
   }
 
   void _retryLoad() {
@@ -370,7 +416,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     accent: lvl == null ? SoriColors.primary : _levelColor(lvl),
     selected: _level == lvl,
     variant: SoriChipVariant.soft,
-    onTap: () => setState(() => _level = lvl),
+    onTap: () => _setLevel(lvl),
   );
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).

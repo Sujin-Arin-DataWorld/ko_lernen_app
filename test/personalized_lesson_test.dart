@@ -6,24 +6,24 @@ import 'package:ko_lernen_app/services/personalized_lesson_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 Vocab _v(String ko, String level, String topic) => Vocab(
-      korean: ko,
-      romanization: '',
-      german: 'x',
-      level: level,
-      posDe: '',
-      exampleKorean: '',
-      exampleGerman: '',
-      topic: topic,
-    );
+  korean: ko,
+  romanization: '',
+  german: 'x',
+  level: level,
+  posDe: '',
+  exampleKorean: '',
+  exampleGerman: '',
+  topic: topic,
+);
 
 SmalltalkPhrase _sp(String cat, String level) => SmalltalkPhrase(
-      category: cat,
-      level: level,
-      kind: 'question',
-      ko: 'q',
-      de: 'q',
-      en: 'q',
-    );
+  category: cat,
+  level: level,
+  kind: 'question',
+  ko: 'q',
+  de: 'q',
+  en: 'q',
+);
 
 void main() {
   setUp(() async {
@@ -56,6 +56,21 @@ void main() {
     expect(deck.length, PersonalizedLessonService.maxVocab);
   });
 
+  test('C1 Tageskurs prefers exact C1 vocabulary over fresh A1 starters', () {
+    final all = [
+      _v('안녕하세요', 'A1', 'Alltag'),
+      _v('환원하다', 'C1', 'Alltag'),
+      _v('담론', 'C1', 'Gesellschaft'),
+    ];
+    final deck = PersonalizedLessonService.buildVocabDeck(
+      all,
+      levelCode: 'C1',
+      interests: const {},
+    );
+
+    expect(deck.map((word) => word.korean), ['환원하다', '담론']);
+  });
+
   test('Interessen heben passende Themen in den Deck', () {
     final all = <Vocab>[
       for (var i = 0; i < 50; i++) _v('a$i', 'A1', 'Alltag'),
@@ -70,8 +85,10 @@ void main() {
   });
 
   test('smalltalkCategoriesFor: travel → enthält travel; leer → leer', () {
-    expect(PersonalizedLessonService.smalltalkCategoriesFor({'travel'}),
-        contains('travel'));
+    expect(
+      PersonalizedLessonService.smalltalkCategoriesFor({'travel'}),
+      contains('travel'),
+    );
     expect(PersonalizedLessonService.smalltalkCategoriesFor(const {}), isEmpty);
   });
 
@@ -89,5 +106,22 @@ void main() {
     );
     expect(got.first.category, 'travel'); // Interesse zuerst
     expect(got.every((p) => p.level != 'b2'), isTrue); // Level-Filter (≤ a1)
+  });
+
+  test('pickSmalltalk prefers exact C1 phrases when C1 content exists', () {
+    final all = [
+      _sp('travel', 'a1'),
+      _sp('weather', 'b2'),
+      _sp('travel', 'c1'),
+    ];
+
+    final got = PersonalizedLessonService.pickSmalltalk(
+      all,
+      levelCode: 'c1',
+      interests: {'travel'},
+      count: 3,
+    );
+
+    expect(got.map((phrase) => phrase.level), ['c1']);
   });
 }

@@ -59,19 +59,37 @@ void main() {
     });
   });
 
-  test('allReviewable serves the real CSV in non-decreasing level order', () async {
-    final all = await ReviewDeckService.allReviewable();
-    expect(all, isNotEmpty);
-    // 신규 커스텀 팩/책장이 없는 fresh 상태 → 전부 CSV 단어.
-    var last = 0;
-    for (final v in all) {
-      final rank = PersonalizedLessonService.levelRank(v.level);
-      expect(
-        rank >= last,
-        isTrue,
-        reason: '${v.korean} (${v.level}) appears after a higher level',
-      );
-      last = rank;
-    }
+  group('todaySelectionForLevel', () {
+    test('fresh C1 learner receives C1 new cards instead of A1 starters', () {
+      final selection = ReviewDeckService.todaySelectionForLevel([
+        _v('안녕하세요', 'A1'),
+        _v('환원하다', 'C1'),
+        _v('담론', 'C1'),
+        _v('가정컨대', 'C2'),
+      ], levelCode: 'c1');
+
+      expect(selection.words.map((word) => word.korean), ['환원하다', '담론']);
+      expect(selection.newCount, 2);
+      expect(selection.reviewCount, 0);
+    });
   });
+
+  test(
+    'allReviewable serves the real CSV in non-decreasing level order',
+    () async {
+      final all = await ReviewDeckService.allReviewable();
+      expect(all, isNotEmpty);
+      // 신규 커스텀 팩/책장이 없는 fresh 상태 → 전부 CSV 단어.
+      var last = 0;
+      for (final v in all) {
+        final rank = PersonalizedLessonService.levelRank(v.level);
+        expect(
+          rank >= last,
+          isTrue,
+          reason: '${v.korean} (${v.level}) appears after a higher level',
+        );
+        last = rank;
+      }
+    },
+  );
 }

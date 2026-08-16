@@ -139,10 +139,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     try {
       // A1: CSV + 나만의 단어장 + 책 한 컷 단어를 모두 포함 (한국어 기준 dedup).
       final vocab = await ReviewDeckService.allReviewable();
-      // todayGoalIds liefert neue + fällige Karten (gedeckelt). Reihenfolge wie
-      // Pool → kuratiert. Filtern erhält diese Reihenfolge.
-      final goal = Storage.todayGoalIds(vocab.map((v) => v.korean)).toSet();
-      deck = vocab.where((v) => goal.contains(v.korean)).toList();
+      deck = ReviewDeckService.todaySelectionForLevel(
+        vocab,
+        levelCode: Storage.userLevelCode,
+      ).words;
     } catch (_) {
       // Laden fehlgeschlagen → Empty-State (kein Crash).
     }

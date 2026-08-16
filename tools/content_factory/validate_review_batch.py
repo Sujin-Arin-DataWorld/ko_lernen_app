@@ -35,10 +35,10 @@ def main(argv: list[str] | None = None) -> int:
         result = validate_review_batch(manifest_path=Path(args.manifest))
     except BatchValidationError as error:
         for message in error.messages:
-            print(f"✗ {message}")
+            print(f"ERROR: {message}")
         return 1
     print(
-        "✓ review-batch pre-review overlay passed: "
+        "OK: review-batch pre-review overlay passed: "
         f"{result.record_count} records; pack plans {', '.join(result.planned_pack_ids)}; "
         "no repository source files were written.",
     )

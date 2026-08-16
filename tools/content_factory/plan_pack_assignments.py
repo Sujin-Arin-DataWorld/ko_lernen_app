@@ -827,9 +827,9 @@ def main(argv: list[str] | None = None) -> int:
             reserved_metadata_paths=[Path(path) for path in args.reserved_metadata],
         )
     except PackAssignmentError as error:
-        print(f"✗ {error}", file=sys.stderr)
+        print(f"ERROR: {error}", file=sys.stderr)
         return 1
-    print("✓ vocabulary pack assignment preflight passed; no files were changed")
+    print("OK: vocabulary pack assignment preflight passed; no files were changed")
     for plan in plans:
         print(
             f"- {plan.pack_id_base}: {', '.join(plan.pack_ids)} · {plan.level.upper()} "

@@ -1731,6 +1731,31 @@ class Storage {
     return out;
   }
 
+  /// Daily goal with separate pools for new and already-reviewed cards.
+  ///
+  /// [newCandidateIds] is normally the learner's exact CEFR level (plus
+  /// learner-owned custom words), while [allIds] remains the full reviewable
+  /// deck. This prevents a fresh C1/C2 learner from receiving the first A1
+  /// CSV rows as "today's new words" without discarding genuinely due
+  /// lower-level SRS reviews.
+  static List<String> todayGoalIdsForNewPool({
+    required Iterable<String> allIds,
+    required Iterable<String> newCandidateIds,
+    int newMax = 10,
+    int reviewMax = 15,
+  }) {
+    final fresh = todayNewIds(newCandidateIds, max: newMax);
+    final review = todayReviewIds(allIds, max: reviewMax);
+    final seen = <String>{};
+    final out = <String>[];
+    for (final id in [...fresh, ...review]) {
+      if (seen.add(id)) {
+        out.add(id);
+      }
+    }
+    return out;
+  }
+
   /// SRS-Status einer einzelnen Karte (z.B. für Debug/Anzeige).
   static SrsCard? srsCard(String id) => _loadSrs()[id];
 

@@ -41,7 +41,7 @@
       "level": "b1",
       "targetKo": "계약서를 확인해 보니 작은 부품은 세입자가 직접 부담해야 해요.",
       "promptDe": "Im Vertrag steht, dass der Mieter kleine Ersatzteile selbst bezahlen muss.",
-      "promptEn": "The contract says that the tenant has to pay for small replacement parts directly.",
+      "promptEn": "The contract says that the tenant has to cover the cost of small replacement parts.",
       "distractors": [
         "집주인이 항상",
         "계약과 상관없이"
@@ -384,7 +384,7 @@
       "level": "c2",
       "targetKo": "편향이 누적되지 않도록 결정 과정을 추적하고 정기적으로 검증해야 합니다.",
       "promptDe": "Der Entscheidungsprozess muss nachverfolgt und regelmäßig überprüft werden, damit sich Verzerrungen nicht verstärken.",
-      "promptEn": "The decision-making process must be traced and reviewed regularly so that bias does not accumulate.",
+      "promptEn": "The decision-making process must be tracked and verified regularly so that bias does not accumulate.",
       "distractors": [
         "기록을 즉시 삭제하고",
         "결과만 빠르게 내면"

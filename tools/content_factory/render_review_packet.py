@@ -27,6 +27,7 @@ from validate_batch_01 import (
     _resolve_under_root,
     validate_review_batch,
 )
+from integrate_scenario_batch import _validate_bundle
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,17 +57,38 @@ def _record_block(record: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def render_packet(*, manifest_path: Path) -> str:
-    root = ROOT.resolve()
+def render_packet(*, manifest_path: Path, root: Path = ROOT) -> str:
+    root = root.resolve()
     if not manifest_path.is_absolute():
         manifest_path = root / manifest_path
     manifest_path = manifest_path.resolve()
-    validate_review_batch(root=root, manifest_path=manifest_path)
-    manifest, entries, specs = _parse_manifest(
-        root,
-        manifest_path,
-        enforce_batch_01_contract=False,
-    )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    artifacts = manifest.get("artifacts") if isinstance(manifest, dict) else None
+    if not isinstance(artifacts, list) or any(not isinstance(item, dict) for item in artifacts):
+        raise ValueError(f"{manifest_path}: artifacts must be an array of objects")
+    artifact_kinds = {str(item.get("kind") or "") for item in artifacts}
+
+    payloads: list[tuple[str, list[dict[str, Any]], Path]] = []
+    if "scenario" in artifact_kinds:
+        _, manifest, records_by_kind, _ = _validate_bundle(
+            root,
+            manifest_path,
+            require_approved=False,
+        )
+        entries = {str(item["kind"]): item for item in artifacts}
+        for kind, records in records_by_kind.items():
+            review_path = _resolve_under_root(root, entries[kind]["review"], f"{kind} review")
+            payloads.append((kind, records, review_path))
+    else:
+        validate_review_batch(root=root, manifest_path=manifest_path)
+        manifest, entries, specs = _parse_manifest(
+            root,
+            manifest_path,
+            enforce_batch_01_contract=False,
+        )
+        for kind, spec in specs.items():
+            payload = _load_artifact(root, spec, entries[kind])
+            payloads.append((kind, payload.records, payload.review_path))
 
     provenance = manifest.get("provenance") or {}
     lines = [
@@ -80,11 +102,10 @@ def render_packet(*, manifest_path: Path) -> str:
         f"- Scope: {provenance.get('scope', 'not declared')}",
         "",
     ]
-    for kind in sorted(specs):
-        payload = _load_artifact(root, specs[kind], entries[kind])
-        review_rows = _read_review_rows(payload.review_path)
-        lines.extend([f"## {kind.title()} ({len(payload.records)})", ""])
-        for index, (record, review) in enumerate(zip(payload.records, review_rows), start=1):
+    for kind, records, review_path in sorted(payloads, key=lambda item: item[0]):
+        review_rows = _read_review_rows(review_path)
+        lines.extend([f"## {kind.title()} ({len(records)})", ""])
+        for index, (record, review) in enumerate(zip(records, review_rows), start=1):
             ident = record["id"]
             level = str(record["level"]).upper()
             lines.extend(
@@ -122,11 +143,11 @@ def main(argv: list[str] | None = None) -> int:
             output = _resolve_under_root(ROOT, args.output, "output")
             output.parent.mkdir(parents=True, exist_ok=True)
             output.write_text(packet + "\n", encoding="utf-8")
-            print(f"✓ wrote read-only review packet: {output.relative_to(ROOT)}")
+            print(f"OK: wrote read-only review packet: {output.relative_to(ROOT)}")
         else:
             print(packet)
     except (ValueError, OSError, json.JSONDecodeError) as error:
-        print(f"✗ {error}")
+        print(f"ERROR: {error}")
         return 1
     return 0
 

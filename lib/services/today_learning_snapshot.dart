@@ -373,7 +373,11 @@ class TodayLearningSnapshotLoader {
     // closest available lower level instead of dropping a C1/C2 learner into
     // the first A1 scenario in the asset.
     if (current == null) {
-      for (var rank = userLevel.rank - 1; rank >= LearnerLevel.a1.rank; rank--) {
+      for (
+        var rank = userLevel.rank - 1;
+        rank >= LearnerLevel.a1.rank;
+        rank--
+      ) {
         final fallbackLevel = LearnerLevel.values[rank];
         for (final scenario in scenarios.where(
           (item) => item.level == fallbackLevel,
@@ -401,8 +405,12 @@ class TodayLearningSnapshotLoader {
   static Future<TodayReviewSourceValue> _loadReviewInput() async {
     final all = await ReviewDeckService.allReviewable();
     final koreans = all.map((entry) => entry.korean);
+    final today = ReviewDeckService.todaySelectionForLevel(
+      all,
+      levelCode: Storage.userLevelCode,
+    );
     return (
-      dueCount: Storage.todayGoalIds(koreans).length,
+      dueCount: today.words.length,
       hardCount: Storage.hardIds(koreans).length,
     );
   }

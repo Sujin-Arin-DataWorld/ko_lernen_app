@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MANIFEST = Path("tools/content_factory/drafts/batch_04_manifest.json")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 APPROVED = frozenset(("approved", "ok"))
-MANIFEST_STATUSES = frozenset(("review_only", "approved", "merged"))
+MANIFEST_STATUSES = frozenset(("review_only_draft", "approved", "merged"))
 SCENE_KEYS = frozenset(("airport", "cafe", "convenience", "directions", "home", "hotel", "market", "office", "pharmacy", "restaurant", "station", "taxi"))
 ARTIFACTS = {
     "scenario": ("scenarios.json", "scenarios", (("title", "ko"), ("title", "de"), ("title", "en"))),

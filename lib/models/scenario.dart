@@ -403,6 +403,11 @@ extension ScenarioBackdrop on Scenario {
     'b2_decision_criteria_workshop': 'office',
     'b2_reading_circle_response': 'cafe',
     'b2_public_wording_feedback': 'cafe',
+    // Reviewed scenario Batch 06. Existing backdrop pipeline only.
+    'b1_repair_visit_followup': 'home',
+    'b2_device_failure_escalation': 'office',
+    'c1_survey_limits_briefing': 'office',
+    'c2_automated_decision_appeal': 'office',
     // cafe — 카페 · 캐주얼한 만남 (2026-08-04: 10→7, 업무 3건은 office 로)
     'cafe_starbucks_basic': 'cafe',
     'introduce_yourself': 'cafe',

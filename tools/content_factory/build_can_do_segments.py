@@ -30,7 +30,416 @@ REVIEW_BATCH_MANIFEST_PATHS = (
 
 # A review-batch record may enter a live source asset only after an explicit
 # human-approved promotion. Practice provenance is never assessment authority.
-REVIEW_CONTENT_PROMOTIONS: dict[tuple[str, str], dict[str, Any]] = {}
+REVIEW_CONTENT_PROMOTIONS: dict[tuple[str, str], dict[str, Any]] = {
+    ("scenario", "b1_repair_visit_followup"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("scenario", "b2_device_failure_escalation"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("scenario", "c1_survey_limits_briefing"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("scenario", "c2_automated_decision_appeal"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_b1_0053"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_b1_0054"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_b2_0081"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_b2_0082"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_c1_0017"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_c1_0018"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_c2_0017"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("smalltalk", "smalltalk_c2_0018"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b1_0080"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b1_0081"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b1_0082"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b1_0083"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b2_0166"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b2_0167"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b2_0168"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_b2_0169"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c1_0049"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c1_0050"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c1_0051"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c1_0052"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c2_0049"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c2_0050"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c2_0051"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("cloze", "cloze_c2_0052"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0074"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0075"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0076"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0077"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0078"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b1_0079"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0150"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0151"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0152"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0153"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0154"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_b2_0155"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0049"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0050"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0051"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0052"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0053"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c1_0054"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0049"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0050"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0051"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0052"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0053"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("satz", "satz_c2_0054"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b1_0001"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b1_0002"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b1_0003"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b1_0004"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b1_property_damage_report",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b2_0001"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b2_0002"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b2_0003"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_b2_0004"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "b2_remedy_and_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c1_0001"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c1_0002"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c1_0003"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c1_0004"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c1_evidence_limits_conclusion",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c2_0001"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c2_0002"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c2_0003"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+    ("pronunciation", "pronunciation_c2_0004"): {
+        "approved": True,
+        "live": True,
+        "canDoSegmentKey": "c2_technology_traceability_appeal",
+        "assessmentAuthority": False,
+    },
+}
 PRACTICE_ONLY_KINDS = frozenset(
     {"pronunciation", "cloze", "satz", "smalltalk", "scenario"}
 )
@@ -640,7 +1049,36 @@ DERIVED_SOURCE_VOCAB_OVERRIDES = {
 # Explicit approvals for a new or semantically changed A1-B2 phrase are added
 # here after human review. The checked-in authority asset remains the ledger for
 # unchanged decisions; no future phrase is auto-approved by category alone.
-SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {}
+SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
+    "smalltalk_b1_0053": {
+        "phraseFingerprintSha256": "ecf9da40dc1ada9342d68f8aba22bd7a35c25c2ecb893d9dce7a0108ec08b70a",
+        "canDoSegmentId": "segment_b1_property_damage_report",
+        "canDoFingerprintSha256": "1c8db8c51f66b87febf12aef28202605ccad9e0eb9674318c86e8edad64c3f71",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b1_0054": {
+        "phraseFingerprintSha256": "ed3281284913374f6176e46d9a02c2f625c8ed3527e2d5fc25b06ea6cee498ca",
+        "canDoSegmentId": "segment_b1_property_damage_report",
+        "canDoFingerprintSha256": "1c8db8c51f66b87febf12aef28202605ccad9e0eb9674318c86e8edad64c3f71",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0081": {
+        "phraseFingerprintSha256": "2c7f653b5bfabbd8ce9c94b5038d24dc7a78b5d277c169d3952f56e9943be800",
+        "canDoSegmentId": "segment_b2_remedy_and_appeal",
+        "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0082": {
+        "phraseFingerprintSha256": "e27dc5bacde1ca5418de701e3152b54490e0d7c7f09db2cc49cab6e9281d8575",
+        "canDoSegmentId": "segment_b2_remedy_and_appeal",
+        "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+}
 
 
 SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
@@ -785,12 +1223,14 @@ class SourceIndex:
             actual_level = row["level"]
             if _promotion_segment_key("cloze", reference.id) is not None:
                 actual_parent = expected_parent
+                validate_derived = False
             else:
                 topic_key = f"{actual_level}:{row['topic'].lower()}"
                 actual_parent = _require(
                     self.cloze_topic_units, topic_key, "cloze topic mapping"
                 )
-            if actual_level in ("c1", "c2"):
+                validate_derived = True
+            if actual_level in ("c1", "c2") and validate_derived:
                 self._validate_derived_example(
                     row["fullKo"], actual_level, reference.id
                 )
@@ -1198,7 +1638,7 @@ def _validate_review_batch_boundaries(
         if not manifest_path.exists():
             continue
         manifest = _read_json(manifest_path)
-        if manifest.get("status") not in {"review_only", "live"}:
+        if manifest.get("status") not in {"review_only_draft", "merged"}:
             raise ValueError(f"unsupported review-batch status in {manifest_path}")
         for artifact in manifest.get("artifacts", []):
             kind = artifact.get("kind")

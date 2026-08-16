@@ -27,6 +27,7 @@ from integrate_scenario_batch import (
     _validate_batch,
     _validate_bundle,
 )
+from render_review_packet import render_packet
 
 
 class ScenarioBatchTransactionTest(unittest.TestCase):
@@ -186,7 +187,7 @@ class ScenarioBatchValidationTest(unittest.TestCase):
         manifest = {
             "version": 1,
             "batch": "06",
-            "status": "review_only",
+            "status": "review_only_draft",
             "artifacts": [
                 {
                     "kind": "scenario",
@@ -232,6 +233,17 @@ class ScenarioBatchValidationTest(unittest.TestCase):
             self.assertEqual(parsed["batch"], "06")
             self.assertEqual([record["level"] for record in records], ["c1", "c2"])
             self.assertEqual(set(backdrops), {"c1_review_example", "c2_appeal_example"})
+
+    def test_complete_review_packet_supports_scenario_bundles(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest = self.make_batch(root)
+
+            packet = render_packet(manifest_path=manifest, root=root)
+
+            self.assertIn("# Batch 06 — Complete Review Packet", packet)
+            self.assertIn("## Scenario (2)", packet)
+            self.assertIn("`c1_review_example` · C1", packet)
 
     def test_apply_rejects_unapproved_batch(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

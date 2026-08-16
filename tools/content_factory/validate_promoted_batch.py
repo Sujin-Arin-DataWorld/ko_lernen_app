@@ -190,9 +190,9 @@ def main() -> int:
     try:
         count, inventory = validate(_resolve(args.manifest))
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
-        print(f"✗ {error}")
+        print(f"ERROR: {error}")
         return 1
-    print(f"✓ promoted batch verified: {count} records; inventory {inventory}")
+    print(f"OK: promoted batch verified: {count} records; inventory {inventory}")
     return 0
 
 

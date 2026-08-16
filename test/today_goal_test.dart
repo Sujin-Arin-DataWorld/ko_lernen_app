@@ -60,12 +60,15 @@ void main() {
       expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
     });
 
-    test('wrong review → due again today (interval reset to 1, aber heute schon erledigt sodass nextReview=morgen)', () async {
-      // SM-2 (storage_service.dart): falsch → intervalDays=1, nextReviewIso=today+1d
-      // → also nicht heute fällig.
-      await Storage.srsReview('a', gotIt: false);
-      expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
-    });
+    test(
+      'wrong review → due again today (interval reset to 1, aber heute schon erledigt sodass nextReview=morgen)',
+      () async {
+        // SM-2 (storage_service.dart): falsch → intervalDays=1, nextReviewIso=today+1d
+        // → also nicht heute fällig.
+        await Storage.srsReview('a', gotIt: false);
+        expect(Storage.todayReviewIds(['a'], max: 10), isEmpty);
+      },
+    );
 
     test('caps to max', () async {
       // Simuliere mehrere Karten mit nextReviewIso in der Vergangenheit.
@@ -106,6 +109,37 @@ void main() {
       final ids = ['a', 'b'];
       expect(Storage.todayGoalIds(ids, newMax: 0, reviewMax: 0), isEmpty);
     });
+  });
+
+  group('todayGoalIdsForNewPool', () {
+    test('fresh C1 goal takes new cards only from the C1 candidate pool', () {
+      final allIds = ['안녕하세요', '환원하다', '담론'];
+
+      expect(
+        Storage.todayGoalIdsForNewPool(
+          allIds: allIds,
+          newCandidateIds: ['환원하다', '담론'],
+        ),
+        ['환원하다', '담론'],
+      );
+    });
+
+    test(
+      'keeps an overdue lower-level card as review, not as a new card',
+      () async {
+        await Storage.setSrsRawJson(
+          '{"안녕하세요":{"e":2.5,"i":1,"n":"2020-01-01","r":1}}',
+        );
+
+        expect(
+          Storage.todayGoalIdsForNewPool(
+            allIds: ['안녕하세요', '환원하다'],
+            newCandidateIds: ['환원하다'],
+          ),
+          ['환원하다', '안녕하세요'],
+        );
+      },
+    );
   });
 
   group('dueIds backward compat (Phase 1 SRS-UX-Patch did not break it)', () {

@@ -1616,10 +1616,10 @@ def main(argv: list[str] | None = None) -> int:
         result = validate_batch_01(manifest_path=Path(args.manifest))
     except BatchValidationError as error:
         for message in error.messages:
-            print(f"✗ {message}")
+            print(f"ERROR: {message}")
         return 1
     print(
-        "✓ Batch 01 pre-review overlay passed: "
+        "OK: Batch 01 pre-review overlay passed: "
         f"{result.record_count} records; pack plans {', '.join(result.planned_pack_ids)}; "
         "no repository source files were written.",
     )

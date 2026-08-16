@@ -1734,6 +1734,22 @@
       "level": "b1"
     },
     {
+      "id": "seed_cloze_cloze_b1_0080_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0081_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0082_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0083_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_grammar_grammar_b1_about_v1",
       "level": "b1"
     },
@@ -1898,6 +1914,30 @@
       "level": "b1"
     },
     {
+      "id": "seed_satz_satz_b1_0074_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_satz_satz_b1_0075_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_satz_satz_b1_0076_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_satz_satz_b1_0077_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_satz_satz_b1_0078_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_satz_satz_b1_0079_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_attendance_followup_v1",
       "level": "b1"
     },
@@ -1919,6 +1959,10 @@
     },
     {
       "id": "seed_scenario_b1_move_in_handover_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_repair_visit_followup_v1",
       "level": "b1"
     },
     {
@@ -2167,6 +2211,14 @@
     },
     {
       "id": "seed_smalltalk_smalltalk_b1_0052_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0053_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0054_v1",
       "level": "b1"
     },
     {
@@ -2502,6 +2554,22 @@
       "level": "b2"
     },
     {
+      "id": "seed_cloze_cloze_b2_0166_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0167_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0168_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0169_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_grammar_grammar_b2_according_to_v1",
       "level": "b2"
     },
@@ -2686,6 +2754,30 @@
       "level": "b2"
     },
     {
+      "id": "seed_satz_satz_b2_0150_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_satz_satz_b2_0151_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_satz_satz_b2_0152_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_satz_satz_b2_0153_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_satz_satz_b2_0154_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_satz_satz_b2_0155_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_contract_clause_inquiry_v1",
       "level": "b2"
     },
@@ -2695,6 +2787,10 @@
     },
     {
       "id": "seed_scenario_b2_decision_criteria_workshop_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_device_failure_escalation_v1",
       "level": "b2"
     },
     {
@@ -3054,6 +3150,14 @@
       "level": "b2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_b2_0081_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0082_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_vocab_pack_b2_abstract_concepts_1_v1",
       "level": "b2"
     },
@@ -3194,6 +3298,22 @@
       "level": "c1"
     },
     {
+      "id": "seed_cloze_cloze_c1_0049_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0050_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0051_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0052_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_project_c1_accessibility_v1",
       "level": "c1"
     },
@@ -3207,6 +3327,42 @@
     },
     {
       "id": "seed_project_c1_sustainability_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0049_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0050_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0051_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0052_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0053_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0054_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_survey_limits_briefing_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0017_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0018_v1",
       "level": "c1"
     },
     {
@@ -3226,6 +3382,22 @@
       "level": "c2"
     },
     {
+      "id": "seed_cloze_cloze_c2_0049_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0050_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0051_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0052_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_project_c2_framing_v1",
       "level": "c2"
     },
@@ -3239,6 +3411,42 @@
     },
     {
       "id": "seed_project_c2_technology_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0049_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0050_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0051_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0052_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0053_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0054_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_automated_decision_appeal_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0017_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0018_v1",
       "level": "c2"
     }
   ],
@@ -6275,6 +6483,34 @@
       "courseUnitId": "b1_01_experience_reasons"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_b1_0080",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0080_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0081",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0081_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0082",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0082_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0083",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0083_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_b1_about",
       "level": "b1",
@@ -6562,6 +6798,48 @@
       "courseUnitId": "b1_04_relationships"
     },
     {
+      "kind": "satz",
+      "id": "satz_b1_0074",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0074_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b1_0075",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0075_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b1_0076",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0076_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b1_0077",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0077_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b1_0078",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0078_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b1_0079",
+      "level": "b1",
+      "sourceSeedId": "seed_satz_satz_b1_0079_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
       "kind": "scenario",
       "id": "b1_attendance_followup",
       "level": "b1",
@@ -6602,6 +6880,13 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_move_in_handover_v1",
       "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_repair_visit_followup",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_repair_visit_followup_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "kind": "scenario",
@@ -7036,6 +7321,20 @@
       "level": "b1",
       "sourceSeedId": "seed_smalltalk_smalltalk_b1_0052_v1",
       "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0053",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0053_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0054",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0054_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "kind": "vocabPack",
@@ -7619,6 +7918,34 @@
       "courseUnitId": "b2_02_professional_opinion"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_b2_0166",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0166_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0167",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0167_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0168",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0168_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0169",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0169_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_b2_according_to",
       "level": "b2",
@@ -7941,6 +8268,48 @@
       "courseUnitId": "b2_06_advanced_capstone"
     },
     {
+      "kind": "satz",
+      "id": "satz_b2_0150",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0150_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b2_0151",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0151_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b2_0152",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0152_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b2_0153",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0153_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b2_0154",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0154_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_b2_0155",
+      "level": "b2",
+      "sourceSeedId": "seed_satz_satz_b2_0155_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
       "kind": "scenario",
       "id": "b2_contract_clause_inquiry",
       "level": "b2",
@@ -7960,6 +8329,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_decision_criteria_workshop_v1",
       "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_device_failure_escalation",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_device_failure_escalation_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
     },
     {
       "kind": "scenario",
@@ -8585,6 +8961,20 @@
       "courseUnitId": "b2_04_complaint_resolution"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0081",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0081_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0082",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0082_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
       "kind": "vocabPack",
       "id": "b2_abstract_concepts_1",
       "level": "b2",
@@ -9138,6 +9528,34 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c1_0049",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0049_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0050",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0050_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0051",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0051_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0052",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0052_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_c1_even_at_cost",
       "level": "c1",
@@ -9558,6 +9976,55 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "satz",
+      "id": "satz_c1_0049",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0049_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0050",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0050_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0051",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0051_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0052",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0052_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0053",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0053_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0054",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0054_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_survey_limits_briefing",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_survey_limits_briefing_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "smalltalk",
       "id": "smalltalk_c1_0001",
       "level": "c1",
@@ -9668,6 +10135,20 @@
       "level": "c1",
       "sourceSeedId": "seed_batch05_c1_sustainable_tradeoffs_1_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0017",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0017_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0018",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0018_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "kind": "vocabPack",
@@ -10031,6 +10512,34 @@
       "id": "cloze_c2_0048",
       "level": "c2",
       "sourceSeedId": "seed_batch05_c2_technology_ethics_1_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0049",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0049_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0050",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0050_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0051",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0051_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0052",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0052_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -10454,6 +10963,55 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "satz",
+      "id": "satz_c2_0049",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0049_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0050",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0050_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0051",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0051_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0052",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0052_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0053",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0053_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0054",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0054_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_automated_decision_appeal",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_automated_decision_appeal_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
       "kind": "smalltalk",
       "id": "smalltalk_c2_0001",
       "level": "c2",
@@ -10566,6 +11124,20 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0017",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0017_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0018",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0018_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
       "kind": "vocabPack",
       "id": "c2_institutional_mediation_1",
       "level": "c2",
@@ -10598,10 +11170,10 @@
     "directReferenceCounts": {
       "vocabPack": 117,
       "grammar": 176,
-      "smalltalk": 285,
-      "scenario": 58,
-      "cloze": 310,
-      "satz": 96,
+      "smalltalk": 293,
+      "scenario": 62,
+      "cloze": 326,
+      "satz": 120,
       "project": 8
     },
     "inheritedReferenceCounts": {
@@ -16433,7 +17005,15 @@
     ],
     "explicitNonDerivedClozeCount": 213,
     "directOverrideChildIds": [
-      "cloze_a1_0076"
+      "cloze_a1_0076",
+      "cloze_b1_0080",
+      "cloze_b1_0081",
+      "cloze_b1_0082",
+      "cloze_b1_0083",
+      "cloze_b2_0166",
+      "cloze_b2_0167",
+      "cloze_b2_0168",
+      "cloze_b2_0169"
     ],
     "smalltalkRoutingAudit": {
       "exactRouteOverrideIds": [
@@ -16496,6 +17076,8 @@
         "smalltalk_b1_0050",
         "smalltalk_b1_0051",
         "smalltalk_b1_0052",
+        "smalltalk_b1_0053",
+        "smalltalk_b1_0054",
         "smalltalk_b2_0001",
         "smalltalk_b2_0002",
         "smalltalk_b2_0003",
@@ -16567,7 +17149,9 @@
         "smalltalk_b2_0077",
         "smalltalk_b2_0078",
         "smalltalk_b2_0079",
-        "smalltalk_b2_0080"
+        "smalltalk_b2_0080",
+        "smalltalk_b2_0081",
+        "smalltalk_b2_0082"
       ],
       "categoryFallbackIds": [
         "smalltalk_a2_0016",
@@ -19011,6 +19595,26 @@
           "reviewRevision": 2
         },
         {
+          "phraseId": "smalltalk_b1_0053",
+          "phraseFingerprintSha256": "ecf9da40dc1ada9342d68f8aba22bd7a35c25c2ecb893d9dce7a0108ec08b70a",
+          "routingSource": "exactOverride",
+          "canDoSegmentId": "segment_b1_property_damage_report",
+          "canDoFingerprintSha256": "1c8db8c51f66b87febf12aef28202605ccad9e0eb9674318c86e8edad64c3f71",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0054",
+          "phraseFingerprintSha256": "ed3281284913374f6176e46d9a02c2f625c8ed3527e2d5fc25b06ea6cee498ca",
+          "routingSource": "exactOverride",
+          "canDoSegmentId": "segment_b1_property_damage_report",
+          "canDoFingerprintSha256": "1c8db8c51f66b87febf12aef28202605ccad9e0eb9674318c86e8edad64c3f71",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
           "phraseId": "smalltalk_b2_0001",
           "phraseFingerprintSha256": "dcc9303919f49a39a078495f64f94317dd23c487dee8a5aa5e3c76dd9e760513",
           "routingSource": "exactOverride",
@@ -19809,6 +20413,26 @@
           "semanticStatus": "exactMapped",
           "reasonCode": "explicitSemanticRoute",
           "reviewRevision": 2
+        },
+        {
+          "phraseId": "smalltalk_b2_0081",
+          "phraseFingerprintSha256": "2c7f653b5bfabbd8ce9c94b5038d24dc7a78b5d277c169d3952f56e9943be800",
+          "routingSource": "exactOverride",
+          "canDoSegmentId": "segment_b2_remedy_and_appeal",
+          "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0082",
+          "phraseFingerprintSha256": "e27dc5bacde1ca5418de701e3152b54490e0d7c7f09db2cc49cab6e9281d8575",
+          "routingSource": "exactOverride",
+          "canDoSegmentId": "segment_b2_remedy_and_appeal",
+          "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
         }
       ],
       "unresolvedAmbiguousIds": []

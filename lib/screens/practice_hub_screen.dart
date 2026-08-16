@@ -75,7 +75,10 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
         return;
       }
       setState(
-        () => _dueCount = Storage.todayGoalIds(all.map((v) => v.korean)).length,
+        () => _dueCount = ReviewDeckService.todaySelectionForLevel(
+          all,
+          levelCode: Storage.userLevelCode,
+        ).words.length,
       );
     } catch (_) {
       // best-effort — 소스 실패 시 이어하기 섹션만 조용히 숨는다.

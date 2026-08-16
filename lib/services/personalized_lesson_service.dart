@@ -70,14 +70,34 @@ class PersonalizedLessonService {
     required String levelCode,
     required Set<String> interests,
   }) {
-    final rank = levelRank(levelCode);
-    final pool = allVocab
+    final level = LearnerLevel.fromCode(levelCode) ?? LearnerLevel.a1;
+    final rank = level.rank;
+    final eligible = allVocab
         .where((v) => levelRank(v.level) <= rank)
         .toList(growable: false);
-    if (pool.isEmpty) return const [];
+    if (eligible.isEmpty) return const [];
+
+    final exact = eligible
+        .where((word) => LearnerLevel.fromCode(word.level) == level)
+        .toList(growable: false);
+    // Old fixtures and imported decks may not have an exact-level row. Keep
+    // the historical cumulative fallback only for that genuinely empty case.
+    final newCandidates = exact.isEmpty ? eligible : exact;
+    final todayIds = Storage.todayGoalIdsForNewPool(
+      allIds: eligible.map((word) => word.korean),
+      newCandidateIds: newCandidates.map((word) => word.korean),
+    ).toSet();
+    final pool = exact.isEmpty
+        ? eligible
+        : eligible
+              .where(
+                (word) =>
+                    LearnerLevel.fromCode(word.level) == level ||
+                    todayIds.contains(word.korean),
+              )
+              .toList(growable: false);
 
     final topics = _topicsFor(interests);
-    final dueIds = Storage.todayGoalIds(pool.map((v) => v.korean)).toSet();
 
     // Stabiler Sort: kleinerer Score zuerst. Index als Tie-Breaker erhält die
     // (kuratierte) CSV-Reihenfolge → deterministisch ohne Zufall.
@@ -85,8 +105,8 @@ class PersonalizedLessonService {
       for (var i = 0; i < pool.length; i++) MapEntry(i, pool[i]),
     ];
     indexed.sort((a, b) {
-      final sa = _score(a.value, dueIds, topics);
-      final sb = _score(b.value, dueIds, topics);
+      final sa = _score(a.value, todayIds, topics);
+      final sb = _score(b.value, todayIds, topics);
       if (sa != sb) return sa.compareTo(sb);
       return a.key.compareTo(b.key);
     });
@@ -130,11 +150,15 @@ class PersonalizedLessonService {
     required Set<String> interests,
     int count = 1,
   }) {
-    final rank = levelRank(levelCode);
-    final pool = <SmalltalkPhrase>[
+    final level = LearnerLevel.fromCode(levelCode) ?? LearnerLevel.a1;
+    final eligible = <SmalltalkPhrase>[
       for (final p in all)
-        if (levelRank(p.level) <= rank) p,
+        if (levelRank(p.level) <= level.rank) p,
     ];
+    final exact = eligible
+        .where((phrase) => LearnerLevel.fromCode(phrase.level) == level)
+        .toList(growable: false);
+    final pool = exact.isEmpty ? eligible : exact;
     if (pool.isEmpty) return const [];
     final cats = smalltalkCategoriesFor(interests).toSet();
     final indexed = [

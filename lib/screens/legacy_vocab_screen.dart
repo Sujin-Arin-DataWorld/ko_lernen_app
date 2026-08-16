@@ -133,14 +133,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       final v = ReviewDeckService.sortByLevelStable(raw);
       // Phase 1 SRS-UX-Patch: nicht ALLE due (= Schock), sondern Tagesziel
       // (10 neu + 15 Wdh., respektiert CSV/pack_order).
-      final newIds = Storage.todayNewIds(v.map((e) => e.korean));
-      final reviewIds = Storage.todayReviewIds(v.map((e) => e.korean));
-      final goal = {...newIds, ...reviewIds};
+      final today = ReviewDeckService.todaySelectionForLevel(
+        v,
+        levelCode: Storage.userLevelCode,
+      );
+      final goal = today.words.map((word) => word.korean).toSet();
       setState(() {
         _all = v;
         _dueIds = goal;
-        _todayNewCount = newIds.length;
-        _todayReviewCount = reviewIds.length;
+        _todayNewCount = today.newCount;
+        _todayReviewCount = today.reviewCount;
         _favorites = Storage.vokFavorites.toSet();
         // Erstanwendung: Tagesziel ist nicht leer → 'due' Modus (jetzt
         // gemeint als "heute lernen"). Sonst 'all'.

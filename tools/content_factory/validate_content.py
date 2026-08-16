@@ -1607,9 +1607,9 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"ok": not issues, "issues": [issue.to_json() for issue in issues]}, ensure_ascii=False, indent=2))
     elif issues:
         for issue in issues:
-            print(f"✗ {issue.source}: {issue.message}", file=sys.stderr)
+            print(f"ERROR: {issue.source}: {issue.message}", file=sys.stderr)
     else:
-        print("✓ Content validation passed.")
+        print("OK: Content validation passed.")
     return 0 if not issues else 1
 
 

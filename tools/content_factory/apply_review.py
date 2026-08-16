@@ -527,7 +527,7 @@ def main(argv: list[str] | None = None) -> int:
             pack_metadata=Path(args.pack_metadata) if args.pack_metadata else None,
         )
     except ReviewError as error:
-        print(f"✗ {error}", file=sys.stderr)
+        print(f"ERROR: {error}", file=sys.stderr)
         return 1
     if args.apply:
         if count == 0:

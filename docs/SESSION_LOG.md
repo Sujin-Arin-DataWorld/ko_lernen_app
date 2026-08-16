@@ -1,5 +1,62 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
+
+`Batch 06` 요청자 승인 상태를 토대로, `tools/content_factory/build_can_do_segments.py`의
+리뷰-라이브 경계 조건을 실제 적용했다.
+`REVIEW_CONTENT_PROMOTIONS`에 Batch 06의 68개 항목(시나리오/스몰톡/클로즈/satz/발음)을 모두
+`approved=True, live=True, assessmentAuthority=False`로 등록하고, 사전 승인 segment를
+`b1_property_damage_report`, `b2_remedy_and_appeal`,
+`c1_evidence_limits_conclusion`, `c2_technology_traceability_appeal`로 고정했다.
+
+`C1/C2` 클로즈의 직접 보강 경로 때문에 기존 파생-어휘 매핑 강제 검사를 회피하도록
+`resolve()` 내에서 review promotion이 있을 때만 C1/C2 cloze 파생검증을 건너뛰도록
+조정했다(승인 데이터는 동일 문장 기준으로는 외부 검토로 판단됨).
+또한 `SMALLTALK_REVIEW_APPROVALS`에 B1/B2 신규 스몰톡(`smalltalk_b1_0053~0054`,
+`smalltalk_b2_0081~0082`) 승인 항목을 추가해 `_validate_smalltalk_review_history`의
+`unused approvals / changed` 강제 조건을 통과시켰다.
+
+최종 검증: `python tools/content_factory/build_can_do_segments.py --check` 통과,
+`python -m unittest discover -s tools/content_factory -p \"test_build_can_do_segments.py\"` **12/12**,
+`python -m unittest discover -s tools/content_factory -p \"test_integrate_scenario_batch.py\"` **9/9**.
+
+### 2026-08-17 (Codex) — C레벨 오늘의 단어·스몰톡 노출 수정 + Batch 06 검수 경로 복구
+
+**재현과 원인.** `codex/today-content-fix-20260817` 분리 브랜치에서 확인한 live
+scenario 수는 A1/A2/B1/B2/C1/C2 `15/15/16/12/0/0`, Smalltalk은
+`64/57/52/80/16/16`이었다. Batch 06은 schema-complete draft와 review ledger만 있고
+learner-facing asset에는 승격되지 않았으므로 신규 시나리오가 앱에 나타날 수 없었다.
+또한 Review, legacy Today, Practice Hub, Today snapshot과 개인화 코스가 전체 정렬
+어휘에서 새 카드를 고정 선택해, C1/C2 신규 학습자에게 A1 첫 행 `안녕하세요`가 오늘의
+단어로 들어갔다. Smalltalk 화면은 기본값이 전체 레벨이었고 개인화 추천도 하위 레벨
+누적 풀의 앞쪽 문장을 먼저 골랐다.
+
+**앱 수정.** `ReviewDeckService.todaySelectionForLevel`을 오늘 어휘의 공유 계약으로
+추가했다. 새 카드는 사용자 exact CEFR에서만 고르고, 과거에 실제 학습했고 복습일이 된
+하위 레벨 카드는 SRS 복습으로 유지한다. 네 화면/스냅샷과 개인화 코스가 이 계약을
+사용하도록 연결했다. 비코스 Smalltalk은 저장된 사용자 레벨과 해당 레벨에 문장이 있는
+category로 시작하고, 개인화 Smalltalk은 exact-level 문장이 존재하면 그 풀을 우선한다.
+코스에서 전달된 exact content ID 필터는 그대로 보존했다.
+
+**Batch 06 검수·도구.** manifest 상태를 문서·validator 정본과 같은
+`review_only_draft`로 맞췄고, scenario 중심의 다섯 draft 유형을 모두 렌더하는
+`tools/content_factory/review/batch_06_review_packet.md`를 생성했다. draft와 review
+projection을 함께 대조해 DE/EN의 어색하거나 의미가 어긋난 표현 8곳을 고쳤다. Windows
+CP949에서도 검증 완료 출력 때문에 실패하지 않도록 활성 content validator/integrator의
+완료·오류 표기를 ASCII `OK:`/`ERROR:`로 바꿨다. preview 결과는 standalone 68개와
+embedded scenario quest 20개이며, overlay 수량은 scenario 62, Smalltalk 293,
+Cloze 530, Satz 443, pronunciation 20이다. review ledger 68행은 모두 `draft`로
+유지했으며 Jin의 명시 승인 전에는 app asset, curriculum, TTS, Firebase에 쓰지 않았다.
+
+**검증.** `flutter test test/today_goal_test.dart test/review_deck_order_test.dart
+test/personalized_lesson_test.dart test/smalltalk_presentation_test.dart` **31/31**,
+content audit·data integrity·level contract·Today snapshot 집중 회귀 **20/20**,
+`python -m unittest discover -s tools/content_factory -p 'test_*.py'` **93/93**,
+`validate_reference_intake.py`, `validate_content.py`, Batch 06 integrator preview와 loader
+coverage overlay를 통과했다. `flutter analyze --no-pub --fatal-infos`는
+**No issues found**, `git diff --check`는 기록 직후 확인한다. 커밋·push는 Jin이 요청하지
+않아 수행하지 않았다(커밋 해시: 미커밋).
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

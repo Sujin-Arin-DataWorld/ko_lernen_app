@@ -16,31 +16,31 @@
     },
     {
       "kind": "scenario",
-      "count": 58,
+      "count": 62,
       "source": "scenarios.json",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 241,
+      "count": 261,
       "source": "scenarios.json",
       "requiresExplicitId": false
     },
     {
       "kind": "smalltalk",
-      "count": 285,
+      "count": 293,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },
     {
       "kind": "cloze",
-      "count": 514,
+      "count": 530,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 419,
+      "count": 443,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },
@@ -64,7 +64,7 @@
     },
     {
       "kind": "pronunciation",
-      "count": 4,
+      "count": 20,
       "source": "pronunciation_phrases.json",
       "requiresExplicitId": true
     }

@@ -13045,6 +13045,865 @@
           }
         }
       ]
+    },
+    {
+      "id": "b1_repair_visit_followup",
+      "sourceSeedId": "seed_b1_repair_followup",
+      "level": "b1",
+      "emoji": "🔧",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_service_staff",
+      "intent": "confirm_repair_visit",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 170,
+      "title": {
+        "ko": "수리 방문 일정 다시 확인하기",
+        "de": "Einen Reparaturtermin erneut bestätigen",
+        "en": "Confirming a repair visit"
+      },
+      "intro": {
+        "ko": "세탁기 수리를 신청했지만 방문 시간이 아직 정해지지 않았습니다. 처리 상황을 확인하고 가능한 시간을 확정하세요.",
+        "de": "Du hast eine Waschmaschinenreparatur beantragt, aber noch keinen Besuchstermin erhalten. Frage nach dem Stand und bestätige eine passende Zeit.",
+        "en": "You requested a washing machine repair, but no visit time has been set. Check the status and confirm a suitable time."
+      },
+      "vocab": [
+        {
+          "korean": "문제"
+        },
+        {
+          "korean": "해결"
+        },
+        {
+          "korean": "정보"
+        },
+        {
+          "korean": "연락"
+        },
+        {
+          "korean": "설명하다"
+        },
+        {
+          "korean": "일정"
+        },
+        {
+          "korean": "수리비"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_soft_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시면 좋겠다",
+          "de": "V-아/어 주시면 좋겠다: eine Bitte vorsichtig formulieren",
+          "en": "V-아/어 주시면 좋겠다: making a gentle request"
+        },
+        "explanation": {
+          "ko": "원하는 행동을 강하게 요구하지 않고 상대가 해 주면 좋겠다는 방식으로 정중하게 부탁할 때 쓴다.",
+          "de": "Mit dieser Form bittest du höflich um eine Handlung, ohne wie bei einer direkten Forderung zu klingen.",
+          "en": "Use this form to ask politely for an action without sounding like you are making a direct demand."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 지난주에 세탁기 수리를 신청했는데 아직 방문 일정이 정해지지 않았어요.",
+          "de": "Guten Tag. Ich habe letzte Woche eine Waschmaschinenreparatur beantragt, aber der Besuchstermin steht noch nicht fest.",
+          "en": "Hello. I requested a washing machine repair last week, but the visit has not been scheduled yet."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "접수 번호를 알려 주시면 처리 상황을 확인해 볼게요.",
+          "de": "Wenn Sie mir die Vorgangsnummer nennen, prüfe ich den Bearbeitungsstand.",
+          "en": "If you give me the case number, I will check the status."
+        },
+        {
+          "speaker": "user",
+          "ko": "248번이에요. 어제도 연락했지만 정확한 시간을 듣지 못했어요.",
+          "de": "Es ist Nummer 248. Ich habe gestern auch angerufen, aber keine genaue Uhrzeit bekommen.",
+          "en": "It is number 248. I called yesterday too, but I did not get an exact time."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "확인해 보니 기사님 배정이 하루 늦어졌습니다.",
+          "de": "Ich sehe, dass sich die Zuweisung des Technikers um einen Tag verzögert hat.",
+          "en": "I can see that assigning a technician was delayed by one day."
+        },
+        {
+          "speaker": "user",
+          "ko": "내일 오전에는 집에 있을 수 있지만 오후에는 출근해야 해요.",
+          "de": "Morgen Vormittag kann ich zu Hause sein, aber am Nachmittag muss ich zur Arbeit.",
+          "en": "I can be at home tomorrow morning, but I have to go to work in the afternoon."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오전 방문이 가능한지 기사님께 바로 물어보겠습니다.",
+          "de": "Ich frage den Techniker sofort, ob ein Besuch am Vormittag möglich ist.",
+          "en": "I will ask the technician right away whether a morning visit is possible."
+        },
+        {
+          "speaker": "user",
+          "ko": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+          "de": "Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
+          "en": "If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네. 한 시간 안에 문자로 확정 일정을 보내 드리겠습니다.",
+          "de": "Ja. Ich sende Ihnen innerhalb einer Stunde den bestätigten Termin per Nachricht.",
+          "en": "Yes. I will text you the confirmed schedule within an hour."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_repair_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "audioKo": "확인해 보니 기사님 배정이 하루 늦어졌습니다.",
+            "options": [
+              {
+                "de": "Die Zuweisung des Technikers hat sich um einen Tag verzögert.",
+                "en": "Assigning a technician was delayed by one day."
+              },
+              {
+                "de": "Der Techniker kommt heute eine Stunde früher.",
+                "en": "The technician will come one hour earlier today."
+              },
+              {
+                "de": "Die Reparatur wurde bereits abgeschlossen.",
+                "en": "The repair has already been completed."
+              },
+              {
+                "de": "Die Vorgangsnummer wurde geändert.",
+                "en": "The case number was changed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_repair_translation",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "promptDe": "Ich habe gestern auch angerufen, aber keine genaue Uhrzeit bekommen.",
+            "promptEn": "I called yesterday too, but I did not get an exact time.",
+            "options": [
+              {
+                "ko": "어제도 연락했지만 정확한 시간을 듣지 못했어요."
+              },
+              {
+                "ko": "어제 연락해서 방문 시간을 바꿨어요."
+              },
+              {
+                "ko": "정확한 시간보다 수리비가 더 궁금해요."
+              },
+              {
+                "ko": "기사님이 어제 이미 다녀가셨어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_repair_cloze",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "sentence": "가능하면 오늘 안에 방문 시간과 예상 ___를 알려 주시면 좋겠어요.",
+            "options": [
+              "수리비",
+              "입장료",
+              "거스름돈",
+              "생활비"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_repair_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "targetKo": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+            "promptDe": "Bilde den Satz: Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
+            "promptEn": "Build the sentence: If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today.",
+            "distractors": [
+              "어제",
+              "문제를"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_repair_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "targetKo": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+            "promptDe": "Schreibe die höfliche Bitte um Besuchszeit und voraussichtliche Reparaturkosten.",
+            "promptEn": "Write the polite request for the visit time and estimated repair cost."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2_device_failure_escalation",
+      "sourceSeedId": "seed_b2_device_escalation",
+      "level": "b2",
+      "emoji": "💻",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "employee_and_it_support_manager",
+      "intent": "request_documented_remedy",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 185,
+      "title": {
+        "ko": "반복되는 기기 오류 시정 요청하기",
+        "de": "Einen wiederholten Gerätefehler eskalieren",
+        "en": "Escalating a recurring device failure"
+      },
+      "intro": {
+        "ko": "회의실 태블릿에서 같은 오류가 반복됩니다. 기록을 근거로 원인과 후속 조치를 서면으로 요청하세요.",
+        "de": "Auf dem Tablet im Besprechungsraum tritt derselbe Fehler wiederholt auf. Bitte anhand der Aufzeichnungen schriftlich um Ursache und Folgemaßnahmen.",
+        "en": "The same error keeps occurring on the meeting-room tablet. Use the records to request the cause and follow-up action in writing."
+      },
+      "vocab": [
+        {
+          "korean": "오류"
+        },
+        {
+          "korean": "결함"
+        },
+        {
+          "korean": "접수하다"
+        },
+        {
+          "korean": "처리하다"
+        },
+        {
+          "korean": "서면 답변"
+        },
+        {
+          "korean": "조치"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_written_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시기 바랍니다",
+          "de": "V-아/어 주시기 바랍니다: formelle schriftliche Bitte",
+          "en": "V-아/어 주시기 바랍니다: a formal written request"
+        },
+        "explanation": {
+          "ko": "공식 안내나 업무 메일에서 상대에게 필요한 행동을 정중하지만 분명하게 요청할 때 쓴다.",
+          "de": "Diese Form verwendet man in offiziellen Hinweisen oder geschäftlichen E-Mails für eine höfliche, aber klare Aufforderung.",
+          "en": "Use this form in official notices or business emails for a polite but clear request."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "지난달부터 회의실 태블릿에서 같은 오류가 네 번 발생했습니다.",
+          "de": "Seit letztem Monat ist auf dem Tablet im Besprechungsraum viermal derselbe Fehler aufgetreten.",
+          "en": "The same error has occurred four times on the meeting-room tablet since last month."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "접수 기록을 보니 재부팅 후에는 잠시 정상 작동했군요.",
+          "de": "Laut den Vorgangsaufzeichnungen funktionierte es nach einem Neustart jeweils kurzzeitig normal.",
+          "en": "The case records show that it worked normally for a short time after each restart."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞습니다. 하지만 화상 회의 도중에 다시 멈춰 업무에 지장이 생겼습니다.",
+          "de": "Das stimmt. Während einer Videokonferenz ist es jedoch erneut ausgefallen und hat unsere Arbeit beeinträchtigt.",
+          "en": "That is correct. However, it stopped again during a video meeting and disrupted our work."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "장비 결함인지 네트워크 문제인지 추가 점검이 필요합니다.",
+          "de": "Wir müssen weiter prüfen, ob ein Gerätedefekt oder ein Netzwerkproblem vorliegt.",
+          "en": "We need further checks to determine whether this is a device defect or a network problem."
+        },
+        {
+          "speaker": "user",
+          "ko": "원인과 임시 조치를 구분해서 기록해 주실 수 있을까요?",
+          "de": "Könnten Sie die Ursache und die vorläufige Maßnahme getrennt dokumentieren?",
+          "en": "Could you document the cause and the temporary measure separately?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "오늘 점검하고 내일까지 서면 답변을 보내겠습니다.",
+          "de": "Wir prüfen das heute und senden Ihnen bis morgen eine schriftliche Antwort.",
+          "en": "We will inspect it today and send you a written response by tomorrow."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "요청 내용을 메일에 어떻게 정리하시겠어요?",
+          "de": "Wie möchten Sie die Bitte in Ihrer E-Mail formulieren?",
+          "en": "How would you phrase the request in your email?"
+        },
+        {
+          "speaker": "user",
+          "ko": "점검 결과와 후속 조치를 내일까지 서면으로 알려 주시기 바랍니다.",
+          "de": "Bitte teilen Sie uns die Prüfergebnisse und Folgemaßnahmen bis morgen schriftlich mit.",
+          "en": "Please provide the inspection results and follow-up action in writing by tomorrow."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_device_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "audioKo": "장비 결함인지 네트워크 문제인지 추가 점검이 필요합니다.",
+            "options": [
+              {
+                "de": "Es muss noch geprüft werden, ob das Gerät oder das Netzwerk die Ursache ist.",
+                "en": "Further checks are needed to see whether the device or the network is the cause."
+              },
+              {
+                "de": "Das Gerät wird ohne weitere Prüfung ersetzt.",
+                "en": "The device will be replaced without further checks."
+              },
+              {
+                "de": "Der Vorgang wurde wegen fehlender Unterlagen geschlossen.",
+                "en": "The case was closed because documents were missing."
+              },
+              {
+                "de": "Die Videokonferenz wurde auf morgen verschoben.",
+                "en": "The video meeting was moved to tomorrow."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_device_translation",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "promptDe": "Könnten Sie die Ursache und die vorläufige Maßnahme getrennt dokumentieren?",
+            "promptEn": "Could you document the cause and the temporary measure separately?",
+            "options": [
+              {
+                "ko": "원인과 임시 조치를 구분해서 기록해 주실 수 있을까요?"
+              },
+              {
+                "ko": "원인이 분명하니 점검을 취소해 주시겠어요?"
+              },
+              {
+                "ko": "임시 조치 없이 장비를 바로 폐기해 주세요."
+              },
+              {
+                "ko": "서면 답변보다 전화가 더 편하실까요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_device_cloze",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "sentence": "점검 결과와 후속 조치를 내일까지 서면으로 ___ 주시기 바랍니다.",
+            "options": [
+              "알려",
+              "숨겨",
+              "미뤄",
+              "지워"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_device_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "targetKo": "점검 결과와 후속 조치를 내일까지 서면으로 알려 주시기 바랍니다.",
+            "promptDe": "Bilde die formelle schriftliche Bitte um Prüfergebnisse und Folgemaßnahmen.",
+            "promptEn": "Build the formal written request for inspection results and follow-up action.",
+            "distractors": [
+              "잠시",
+              "구두로"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_device_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "targetKo": "점검 결과와 후속 조치를 내일까지 서면으로 알려 주시기 바랍니다.",
+            "promptDe": "Schreibe die formelle Bitte aus der E-Mail.",
+            "promptEn": "Write the formal request from the email."
+          }
+        }
+      ]
+    },
+    {
+      "id": "c1_survey_limits_briefing",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "level": "c1",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "qualify_survey_findings",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 205,
+      "title": {
+        "ko": "설문 결과의 한계 설명하기",
+        "de": "Grenzen einer Umfrage erläutern",
+        "en": "Explaining the limitations of a survey"
+      },
+      "intro": {
+        "ko": "주민 설문에서 한 방향의 결과가 나왔지만 표본에 한계가 있습니다. 확인된 경향과 불확실성을 구분해 다음 조사를 제안하세요.",
+        "de": "Eine Bürgerumfrage zeigt eine klare Tendenz, doch die Stichprobe hat Grenzen. Trenne Befund und Unsicherheit und schlage den nächsten Prüfschritt vor.",
+        "en": "A resident survey shows a clear trend, but the sample has limitations. Separate the finding from the uncertainty and propose the next review step."
+      },
+      "vocab": [
+        {
+          "korean": "표본이 치우치다"
+        },
+        {
+          "korean": "전제를 밝히다"
+        },
+        {
+          "korean": "한계를 인정하다"
+        },
+        {
+          "korean": "결론을 유보하다"
+        },
+        {
+          "korean": "자료를 대조하다"
+        },
+        {
+          "korean": "불확실성을 명시하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum offenlassen",
+          "en": "V-(으)ㄹ 여지가 있다: leaving room for reconsideration"
+        },
+        "explanation": {
+          "ko": "현재 판단을 단정하지 않고 추가 근거나 조건에 따라 다른 결론이 가능함을 조심스럽게 나타낸다.",
+          "de": "Die Form vermeidet ein endgültiges Urteil und zeigt vorsichtig, dass weitere Evidenz oder Bedingungen eine andere Schlussfolgerung ermöglichen.",
+          "en": "This form avoids a final judgment and cautiously shows that further evidence or conditions could support a different conclusion."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "주민 설문 결과가 나왔습니다. 바로 확대 사업안을 발표해도 될까요?",
+          "de": "Die Ergebnisse der Bürgerumfrage liegen vor. Können wir den Ausbauplan sofort ankündigen?",
+          "en": "The resident survey results are ready. Can we announce the expansion plan right away?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직은 조심해야 합니다. 응답자의 연령대가 한쪽으로 치우쳤습니다.",
+          "de": "Wir sollten noch vorsichtig sein. Die Altersverteilung der Befragten ist einseitig.",
+          "en": "We should still be cautious. The respondents' age distribution is skewed."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇다면 조사 결과를 어떻게 설명하는 게 좋을까요?",
+          "de": "Wie sollten wir die Umfrageergebnisse dann erklären?",
+          "en": "How should we explain the survey results, then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "확인된 경향과 조사 한계를 나누고 다른 자료와도 대조해야 합니다.",
+          "de": "Wir sollten die bestätigte Tendenz von den Grenzen der Erhebung trennen und andere Daten zum Vergleich heranziehen.",
+          "en": "We should separate the confirmed trend from the survey limitations and compare it with other data."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "찬성 비율이 높다는 점은 언급해도 되겠죠?",
+          "de": "Wir können aber erwähnen, dass der Zustimmungsanteil hoch ist, oder?",
+          "en": "We can still mention that the approval rate is high, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 다만 상관관계를 원인으로 단정하지 말고 불확실성을 명시해야 합니다.",
+          "de": "Ja. Wir dürfen eine Korrelation aber nicht als Ursache darstellen und müssen die Unsicherheit ausdrücklich nennen.",
+          "en": "Yes. However, we must not present correlation as causation, and we need to state the uncertainty explicitly."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "결론을 완전히 미뤄야 한다는 뜻인가요?",
+          "de": "Bedeutet das, dass wir die Schlussfolgerung vollständig aufschieben müssen?",
+          "en": "Does that mean we have to postpone the conclusion entirely?"
+        },
+        {
+          "speaker": "user",
+          "ko": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+          "de": "Mit den aktuellen Daten lässt sich der Ausbau noch nicht bestätigen, aber nach einer weiteren Erhebung besteht Spielraum für eine erneute Prüfung.",
+          "en": "The current data is not enough to confirm the expansion, but further research would leave room to reconsider it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_survey_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "상관관계를 원인으로 단정하지 말고 불확실성을 명시해야 합니다.",
+            "options": [
+              {
+                "de": "Eine Korrelation darf nicht als Ursache ausgegeben werden, und die Unsicherheit muss genannt werden.",
+                "en": "Correlation must not be presented as causation, and the uncertainty must be stated."
+              },
+              {
+                "de": "Die hohe Zustimmung beweist die Ursache des Ergebnisses.",
+                "en": "The high approval rate proves the cause of the result."
+              },
+              {
+                "de": "Weitere Daten würden die Erklärung nur unnötig erschweren.",
+                "en": "More data would only make the explanation unnecessarily difficult."
+              },
+              {
+                "de": "Die Umfrage sollte ohne Hinweis auf ihre Grenzen veröffentlicht werden.",
+                "en": "The survey should be published without mentioning its limitations."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_translation",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Die Altersverteilung der Befragten ist einseitig.",
+            "promptEn": "The respondents' age distribution is skewed.",
+            "options": [
+              {
+                "ko": "응답자의 연령대가 한쪽으로 치우쳤습니다."
+              },
+              {
+                "ko": "응답자의 수가 예상보다 크게 늘었습니다."
+              },
+              {
+                "ko": "연령대별 결과가 정확히 같았습니다."
+              },
+              {
+                "ko": "응답자의 의견을 모두 제외했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_cloze",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 ___ 여지가 있습니다.",
+            "options": [
+              "검토할",
+              "단정할",
+              "부풀릴",
+              "숨길"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+            "promptDe": "Bilde den Satz, der das aktuelle Urteil begrenzt und eine spätere Prüfung offenlässt.",
+            "promptEn": "Build the sentence that limits the current conclusion and leaves room for later review.",
+            "distractors": [
+              "무조건",
+              "이미"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_survey_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+            "promptDe": "Schreibe die vorsichtige Schlussfolgerung aus dem Briefing.",
+            "promptEn": "Write the cautious conclusion from the briefing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2_automated_decision_appeal",
+      "sourceSeedId": "seed_c2_automated_appeal",
+      "level": "c2",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "citizen_advocate_and_system_owner",
+      "intent": "design_accountable_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 220,
+      "title": {
+        "ko": "자동화된 결정에 이의 제기하기",
+        "de": "Einspruch gegen eine automatisierte Entscheidung",
+        "en": "Appealing an automated decision"
+      },
+      "intro": {
+        "ko": "자동 심사에서 탈락한 사람이 판단 근거를 확인할 수 없습니다. 시스템의 효율을 인정하면서도 추적, 설명, 이의 제기 절차를 설계하세요.",
+        "de": "Eine abgelehnte Person kann die Grundlage einer automatisierten Prüfung nicht nachvollziehen. Erkenne die Effizienz an und entwirf dennoch Verfahren für Nachvollziehbarkeit, Erklärung und Einspruch.",
+        "en": "A person rejected by an automated review cannot see the basis for the decision. Acknowledge the efficiency while designing traceability, explanation, and appeal procedures."
+      },
+      "vocab": [
+        {
+          "korean": "결정 과정을 추적하다"
+        },
+        {
+          "korean": "설명 가능성을 확보하다"
+        },
+        {
+          "korean": "이의 제기 절차를 마련하다"
+        },
+        {
+          "korean": "데이터의 출처를 소명하다"
+        },
+        {
+          "korean": "예외 사례를 처리하다"
+        },
+        {
+          "korean": "철회할 권리를 보장하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_even_assuming"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는다고 치더라도",
+          "de": "A/V-(으)ㄴ/는다고 치더라도: eine Annahme argumentativ zugestehen",
+          "en": "A/V-(으)ㄴ/는다고 치더라도: granting an assumption for argument"
+        },
+        "explanation": {
+          "ko": "상대의 전제를 잠시 인정해도 뒤의 원칙이나 결론은 달라지지 않음을 정밀하게 말할 때 쓴다.",
+          "de": "Mit dieser Form gestehst du eine Annahme vorläufig zu und zeigst, dass das folgende Prinzip oder Ergebnis dennoch bestehen bleibt.",
+          "en": "Use this form to grant an assumption temporarily while showing that the following principle or conclusion still holds."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "자동 심사에서 탈락한 신청자들이 판단 근거를 확인할 수 없습니다.",
+          "de": "Antragstellende, die bei der automatisierten Prüfung abgelehnt wurden, können die Entscheidungsgrundlage nicht einsehen.",
+          "en": "Applicants rejected by the automated review cannot see the basis for the decision."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "평균 정확도는 높지만 개별 결정 과정을 모두 공개하기는 어렵습니다.",
+          "de": "Die durchschnittliche Genauigkeit ist hoch, aber es ist schwierig, jeden einzelnen Entscheidungsprozess vollständig offenzulegen.",
+          "en": "Average accuracy is high, but it is difficult to disclose every individual decision process in full."
+        },
+        {
+          "speaker": "user",
+          "ko": "적어도 어떤 데이터와 기준이 사용됐는지는 소명할 수 있어야 합니다.",
+          "de": "Zumindest muss nachvollziehbar dargelegt werden können, welche Daten und Kriterien verwendet wurden.",
+          "en": "At a minimum, it must be possible to account for which data and criteria were used."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "영업상 비밀을 지키면서 설명 가능성을 확보할 방법을 찾겠습니다.",
+          "de": "Wir suchen nach einem Weg, Erklärbarkeit zu gewährleisten und zugleich Geschäftsgeheimnisse zu schützen.",
+          "en": "We will find a way to ensure explainability while protecting trade secrets."
+        },
+        {
+          "speaker": "user",
+          "ko": "오류가 누적되거나 예외 사례가 빠지면 누가 책임을 집니까?",
+          "de": "Wer trägt die Verantwortung, wenn sich Fehler summieren oder Ausnahmefälle übergangen werden?",
+          "en": "Who is responsible if errors accumulate or exceptional cases are missed?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "인간 검토자가 재심하고 시스템 기록을 남기는 절차를 제안하겠습니다.",
+          "de": "Wir schlagen ein Verfahren vor, bei dem eine Person den Fall erneut prüft und das System einen Prüfpfad speichert.",
+          "en": "We will propose a process in which a human reviewer reexamines the case and the system preserves an audit trail."
+        },
+        {
+          "speaker": "user",
+          "ko": "이의 제기 결과가 늦어질 때도 자동 결정을 그대로 유지하나요?",
+          "de": "Bleibt die automatisierte Entscheidung auch dann unverändert, wenn sich das Einspruchsergebnis verzögert?",
+          "en": "Does the automated decision remain in force when the appeal result is delayed?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "처리 속도가 빠르다고 치더라도 이의 제기 절차와 인간의 재검토는 반드시 보장해야 합니다.",
+          "de": "Selbst wenn wir eine hohe Bearbeitungsgeschwindigkeit annehmen, müssen ein Einspruchsverfahren und eine menschliche Überprüfung gewährleistet sein.",
+          "en": "Even assuming fast processing, an appeal process and human review must be guaranteed."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_appeal_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "audioKo": "영업상 비밀을 지키면서 설명 가능성을 확보할 방법을 찾겠습니다.",
+            "options": [
+              {
+                "de": "Es soll ein Weg gefunden werden, Erklärbarkeit und den Schutz von Geschäftsgeheimnissen zu verbinden.",
+                "en": "A way will be sought to combine explainability with the protection of trade secrets."
+              },
+              {
+                "de": "Geschäftsgeheimnisse machen jede Form von Erklärung unnötig.",
+                "en": "Trade secrets make any form of explanation unnecessary."
+              },
+              {
+                "de": "Alle automatisierten Entscheidungen sollen sofort veröffentlicht werden.",
+                "en": "All automated decisions should be published immediately."
+              },
+              {
+                "de": "Nur die Bearbeitungsgeschwindigkeit soll geprüft werden.",
+                "en": "Only processing speed should be reviewed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_appeal_translation",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "promptDe": "Zumindest muss nachvollziehbar dargelegt werden können, welche Daten und Kriterien verwendet wurden.",
+            "promptEn": "At a minimum, it must be possible to account for which data and criteria were used.",
+            "options": [
+              {
+                "ko": "적어도 어떤 데이터와 기준이 사용됐는지는 소명할 수 있어야 합니다."
+              },
+              {
+                "ko": "모든 데이터와 기준을 영구히 숨길 수 있어야 합니다."
+              },
+              {
+                "ko": "평균 정확도만 높으면 데이터 출처는 중요하지 않습니다."
+              },
+              {
+                "ko": "예외 사례는 자동으로 삭제하는 편이 효율적입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_appeal_cloze",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "sentence": "처리 속도가 빠르다고 ___ 이의 제기 절차와 인간의 재검토는 반드시 보장해야 합니다.",
+            "options": [
+              "치더라도",
+              "하기는커녕",
+              "싶어도",
+              "만해서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_appeal_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "처리 속도가 빠르다고 치더라도 이의 제기 절차와 인간의 재검토는 반드시 보장해야 합니다.",
+            "promptDe": "Bilde den Satz, der Effizienz zugesteht, aber Einspruch und menschliche Prüfung verlangt.",
+            "promptEn": "Build the sentence that grants efficiency but still requires appeal and human review.",
+            "distractors": [
+              "아마",
+              "생략"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_appeal_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "처리 속도가 빠르다고 치더라도 이의 제기 절차와 인간의 재검토는 반드시 보장해야 합니다.",
+            "promptDe": "Schreibe die Konzession mit der unverzichtbaren Schutzmaßnahme.",
+            "promptEn": "Write the concession together with the required safeguard."
+          }
+        }
+      ]
     }
   ]
 }

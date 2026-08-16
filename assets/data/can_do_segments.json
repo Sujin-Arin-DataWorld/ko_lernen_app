@@ -3120,10 +3120,23 @@
     {
       "id": "cluster_b1_property_damage_report_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b1_leak_report_v1",
-        "seed_smalltalk_smalltalk_b1_0043_v1"
+        "seed_smalltalk_smalltalk_b1_0043_v1",
+        "seed_scenario_b1_repair_visit_followup_v1",
+        "seed_smalltalk_smalltalk_b1_0053_v1",
+        "seed_smalltalk_smalltalk_b1_0054_v1",
+        "seed_cloze_cloze_b1_0080_v1",
+        "seed_cloze_cloze_b1_0081_v1",
+        "seed_cloze_cloze_b1_0082_v1",
+        "seed_cloze_cloze_b1_0083_v1",
+        "seed_satz_satz_b1_0074_v1",
+        "seed_satz_satz_b1_0075_v1",
+        "seed_satz_satz_b1_0076_v1",
+        "seed_satz_satz_b1_0077_v1",
+        "seed_satz_satz_b1_0078_v1",
+        "seed_satz_satz_b1_0079_v1"
       ],
       "contentReferences": [
         {
@@ -3133,6 +3146,58 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0043"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_repair_visit_followup"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0053"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0054"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b1_0080"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b1_0081"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b1_0082"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b1_0083"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0074"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0075"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0076"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0077"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0078"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b1_0079"
         }
       ]
     },
@@ -4106,7 +4171,7 @@
     {
       "id": "cluster_b2_remedy_and_appeal_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b2_remedy_plan_request_v1",
         "seed_vocab_pack_b2_formal_complaint_1_v1",
@@ -4116,7 +4181,20 @@
         "seed_smalltalk_smalltalk_b2_0049_v1",
         "seed_smalltalk_smalltalk_b2_0050_v1",
         "seed_smalltalk_smalltalk_b2_0051_v1",
-        "seed_smalltalk_smalltalk_b2_0052_v1"
+        "seed_smalltalk_smalltalk_b2_0052_v1",
+        "seed_scenario_b2_device_failure_escalation_v1",
+        "seed_smalltalk_smalltalk_b2_0081_v1",
+        "seed_smalltalk_smalltalk_b2_0082_v1",
+        "seed_cloze_cloze_b2_0166_v1",
+        "seed_cloze_cloze_b2_0167_v1",
+        "seed_cloze_cloze_b2_0168_v1",
+        "seed_cloze_cloze_b2_0169_v1",
+        "seed_satz_satz_b2_0150_v1",
+        "seed_satz_satz_b2_0151_v1",
+        "seed_satz_satz_b2_0152_v1",
+        "seed_satz_satz_b2_0153_v1",
+        "seed_satz_satz_b2_0154_v1",
+        "seed_satz_satz_b2_0155_v1"
       ],
       "contentReferences": [
         {
@@ -4154,6 +4232,58 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0052"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_device_failure_escalation"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0081"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0082"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0166"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0167"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0168"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0169"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0150"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0151"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0152"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0153"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0154"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_b2_0155"
         }
       ]
     },
@@ -4679,10 +4809,23 @@
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
-        "seed_project_c1_evidence_v1"
+        "seed_project_c1_evidence_v1",
+        "seed_scenario_c1_survey_limits_briefing_v1",
+        "seed_smalltalk_smalltalk_c1_0017_v1",
+        "seed_smalltalk_smalltalk_c1_0018_v1",
+        "seed_cloze_cloze_c1_0049_v1",
+        "seed_cloze_cloze_c1_0050_v1",
+        "seed_cloze_cloze_c1_0051_v1",
+        "seed_cloze_cloze_c1_0052_v1",
+        "seed_satz_satz_c1_0049_v1",
+        "seed_satz_satz_c1_0050_v1",
+        "seed_satz_satz_c1_0051_v1",
+        "seed_satz_satz_c1_0052_v1",
+        "seed_satz_satz_c1_0053_v1",
+        "seed_satz_satz_c1_0054_v1"
       ],
       "contentReferences": [
         {
@@ -4748,6 +4891,58 @@
         {
           "kind": "project",
           "id": "project_c1_evidence_v1"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_survey_limits_briefing"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0017"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0018"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0049"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0050"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0051"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0052"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0049"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0050"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0051"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0052"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0053"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0054"
         }
       ]
     },
@@ -5702,10 +5897,23 @@
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
-        "seed_project_c2_technology_v1"
+        "seed_project_c2_technology_v1",
+        "seed_scenario_c2_automated_decision_appeal_v1",
+        "seed_smalltalk_smalltalk_c2_0017_v1",
+        "seed_smalltalk_smalltalk_c2_0018_v1",
+        "seed_cloze_cloze_c2_0049_v1",
+        "seed_cloze_cloze_c2_0050_v1",
+        "seed_cloze_cloze_c2_0051_v1",
+        "seed_cloze_cloze_c2_0052_v1",
+        "seed_satz_satz_c2_0049_v1",
+        "seed_satz_satz_c2_0050_v1",
+        "seed_satz_satz_c2_0051_v1",
+        "seed_satz_satz_c2_0052_v1",
+        "seed_satz_satz_c2_0053_v1",
+        "seed_satz_satz_c2_0054_v1"
       ],
       "contentReferences": [
         {
@@ -5779,6 +5987,58 @@
         {
           "kind": "project",
           "id": "project_c2_technology_v1"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_automated_decision_appeal"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0017"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0018"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0049"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0050"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0051"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0052"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0049"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0050"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0051"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0052"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0053"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0054"
         }
       ]
     },

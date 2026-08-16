@@ -32,6 +32,218 @@
       "de": "Wo ist die U-Bahn-Station?",
       "en": "Where is the subway station?",
       "focus": "연음"
+    },
+    {
+      "id": "pronunciation_b1_0001",
+      "level": "b1",
+      "ko": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+      "de": "Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
+      "en": "If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today.",
+      "focus": "긴 요청의 의미 단위 끊기",
+      "sourceSeedId": "seed_b1_repair_followup",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "canonicalScenarioId": "b1_repair_visit_followup"
+    },
+    {
+      "id": "pronunciation_b1_0002",
+      "level": "b1",
+      "ko": "누수가 다시 생기면 사진을 찍어 바로 연락하겠습니다.",
+      "de": "Wenn das Wasserleck erneut auftritt, mache ich ein Foto und melde mich sofort.",
+      "en": "If the leak happens again, I will take a photo and contact you immediately.",
+      "focus": "받침 뒤 연음",
+      "sourceSeedId": "seed_b1_repair_followup",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "id": "pronunciation_b1_0003",
+      "level": "b1",
+      "ko": "난방 점검 일정을 내일 오전으로 잡았습니다.",
+      "de": "Ich habe die Heizungsprüfung für morgen Vormittag vereinbart.",
+      "en": "I scheduled the heating inspection for tomorrow morning.",
+      "focus": "비음화와 받침 연결",
+      "sourceSeedId": "seed_b1_repair_followup",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "id": "pronunciation_b1_0004",
+      "level": "b1",
+      "ko": "수리비도 함께 알려 주시면 좋겠어요.",
+      "de": "Es wäre hilfreich, wenn Sie mir auch die Reparaturkosten nennen könnten.",
+      "en": "I would appreciate it if you could also tell me the repair cost.",
+      "focus": "정중한 요청 억양",
+      "sourceSeedId": "seed_b1_repair_followup",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "id": "pronunciation_b2_0001",
+      "level": "b2",
+      "ko": "점검 결과와 후속 조치를 내일까지 서면으로 알려 주시기 바랍니다.",
+      "de": "Bitte teilen Sie uns die Prüfergebnisse und Folgemaßnahmen bis morgen schriftlich mit.",
+      "en": "Please provide the inspection results and follow-up action in writing by tomorrow.",
+      "focus": "공식 요청문의 의미 단위",
+      "sourceSeedId": "seed_b2_device_escalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "canonicalScenarioId": "b2_device_failure_escalation"
+    },
+    {
+      "id": "pronunciation_b2_0002",
+      "level": "b2",
+      "ko": "같은 결함이 네 번이나 재발했습니다.",
+      "de": "Derselbe Mangel ist bereits viermal aufgetreten.",
+      "en": "The same defect has recurred four times.",
+      "focus": "받침과 조사 연결",
+      "sourceSeedId": "seed_b2_device_escalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    {
+      "id": "pronunciation_b2_0003",
+      "level": "b2",
+      "ko": "접수 기록과 실제 처리 시간을 구분해 주세요.",
+      "de": "Bitte unterscheiden Sie zwischen Erfassung und tatsächlicher Bearbeitungszeit.",
+      "en": "Please distinguish the intake record from the actual processing time.",
+      "focus": "격음화와 문장 끝 억양",
+      "sourceSeedId": "seed_b2_device_escalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    {
+      "id": "pronunciation_b2_0004",
+      "level": "b2",
+      "ko": "위험이 확인되면 즉시 사용을 정지해야 합니다.",
+      "de": "Wenn eine Gefahr festgestellt wird, muss die Nutzung sofort eingestellt werden.",
+      "en": "If a risk is confirmed, the equipment must be taken out of use immediately.",
+      "focus": "조건절 뒤 짧은 쉼",
+      "sourceSeedId": "seed_b2_device_escalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    {
+      "id": "pronunciation_c1_0001",
+      "level": "c1",
+      "ko": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+      "de": "Mit den aktuellen Daten lässt sich der Ausbau noch nicht bestätigen, aber nach einer weiteren Erhebung besteht Spielraum für eine erneute Prüfung.",
+      "en": "The current data is not enough to confirm the expansion, but further research would leave room to reconsider it.",
+      "focus": "대조와 조건의 논리적 끊기",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "canonicalScenarioId": "c1_survey_limits_briefing"
+    },
+    {
+      "id": "pronunciation_c1_0002",
+      "level": "c1",
+      "ko": "표본이 치우쳐서 전체 집단으로 일반화하기 어렵습니다.",
+      "de": "Die Stichprobe ist verzerrt, daher lässt sich das Ergebnis nur schwer auf die Gesamtgruppe verallgemeinern.",
+      "en": "The sample is skewed, so the result is difficult to generalize to the whole group.",
+      "focus": "연음과 평서문 마무리",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "pronunciation_c1_0003",
+      "level": "c1",
+      "ko": "상관관계를 원인으로 단정하지 말아야 합니다.",
+      "de": "Eine Korrelation darf nicht vorschnell als Ursache festgelegt werden.",
+      "en": "A correlation must not be treated as the cause.",
+      "focus": "긴 명사구의 받침 연결",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "pronunciation_c1_0004",
+      "level": "c1",
+      "ko": "불확실성을 명시하되 확인된 경향은 따로 설명하겠습니다.",
+      "de": "Ich werde die Unsicherheit nennen und die bestätigte Tendenz gesondert erläutern.",
+      "en": "I will state the uncertainty and explain the confirmed trend separately.",
+      "focus": "양보 연결어미 뒤 호흡",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "pronunciation_c2_0001",
+      "level": "c2",
+      "ko": "처리 속도가 빠르다고 치더라도 이의 제기 절차와 인간의 재검토는 반드시 보장해야 합니다.",
+      "de": "Selbst wenn wir eine hohe Bearbeitungsgeschwindigkeit annehmen, müssen ein Einspruchsverfahren und eine menschliche Überprüfung gewährleistet sein.",
+      "en": "Even assuming fast processing, an appeal process and human review must be guaranteed.",
+      "focus": "양보절과 핵심 주장 분리",
+      "sourceSeedId": "seed_c2_automated_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "canonicalScenarioId": "c2_automated_decision_appeal"
+    },
+    {
+      "id": "pronunciation_c2_0002",
+      "level": "c2",
+      "ko": "데이터의 출처를 소명할 수 있어야 합니다.",
+      "de": "Die Herkunft der Daten muss nachvollziehbar dargelegt werden können.",
+      "en": "It must be possible to account for the source of the data.",
+      "focus": "격식 있는 문장 억양",
+      "sourceSeedId": "seed_c2_automated_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "id": "pronunciation_c2_0003",
+      "level": "c2",
+      "ko": "예외 사례는 인간 검토자가 다시 판단해야 합니다.",
+      "de": "Ausnahmefälle müssen von einer menschlichen Prüfstelle erneut beurteilt werden.",
+      "en": "Exceptional cases must be reconsidered by a human reviewer.",
+      "focus": "복합 명사와 조사 연결",
+      "sourceSeedId": "seed_c2_automated_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "id": "pronunciation_c2_0004",
+      "level": "c2",
+      "ko": "결정 과정을 추적하고 정기적으로 검증해야 합니다.",
+      "de": "Der Entscheidungsprozess muss nachverfolgt und regelmäßig überprüft werden.",
+      "en": "The decision-making process must be tracked and verified regularly.",
+      "focus": "연결어미와 문장 강세",
+      "sourceSeedId": "seed_c2_automated_appeal",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
     }
   ]
 }

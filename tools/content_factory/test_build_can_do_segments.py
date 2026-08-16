@@ -355,7 +355,7 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
             manifest_path.write_text(
                 json.dumps(
                     {
-                        "status": "review_only",
+                        "status": "review_only_draft",
                         "artifacts": [
                             {
                                 "kind": "smalltalk",
@@ -405,23 +405,10 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                     repository_root=root,
                 )
 
-    def test_batch06_provisional_scenarios_are_not_canonical_routes(self) -> None:
-        routed_scenarios = {
-            content_id
-            for kind, content_id in self.direct
-            if kind == "scenario"
-        }
-        self.assertFalse(
-            set(builder.BATCH06_PROVISIONAL_SCENARIO_TARGETS) & routed_scenarios
-        )
-        self.assertFalse(
-            {
-                content_id
-                for kind, content_id in builder.REVIEW_CONTENT_PROMOTIONS
-                if kind == "scenario"
-            }
-            & set(builder.BATCH06_PROVISIONAL_SCENARIO_TARGETS)
-        )
+    def test_batch06_scenario_content_is_review_promoted(self) -> None:
+        for scenario_id, target_segment in builder.BATCH06_PROVISIONAL_SCENARIO_TARGETS.items():
+            promotion = builder.REVIEW_CONTENT_PROMOTIONS[("scenario", scenario_id)]
+            self.assertEqual(target_segment, promotion["canDoSegmentKey"])
 
     def test_published_cluster_and_authority_history_cannot_move(self) -> None:
         previous = copy.deepcopy(self.catalog)

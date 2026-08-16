@@ -451,7 +451,7 @@
       "title": {
         "ko": "설문 결과의 한계 설명하기",
         "de": "Grenzen einer Umfrage erläutern",
-        "en": "Briefing survey limitations"
+        "en": "Explaining the limitations of a survey"
       },
       "intro": {
         "ko": "주민 설문에서 한 방향의 결과가 나왔지만 표본에 한계가 있습니다. 확인된 경향과 불확실성을 구분해 다음 조사를 제안하세요.",

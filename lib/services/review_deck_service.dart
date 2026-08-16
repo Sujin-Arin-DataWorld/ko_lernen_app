@@ -1,9 +1,23 @@
 import '../models/book_page.dart';
+import '../models/learner_level.dart';
 import '../models/vocab.dart';
 import 'bookshelf_service.dart';
 import 'custom_pack_service.dart';
 import 'data_loader.dart';
 import 'personalized_lesson_service.dart';
+import 'storage_service.dart';
+
+class TodayReviewSelection {
+  const TodayReviewSelection({
+    required this.words,
+    required this.newCount,
+    required this.reviewCount,
+  });
+
+  final List<Vocab> words;
+  final int newCount;
+  final int reviewCount;
+}
 
 /// A1 (암기 엔진) — 복습 가능한 **모든** 단어의 단일 소스.
 ///
@@ -69,6 +83,49 @@ class ReviewDeckService {
     }
 
     return out;
+  }
+
+  /// Builds the shared daily SRS selection for the learner's current level.
+  ///
+  /// New bundled cards must match the exact CEFR level. Custom/book words are
+  /// learner-owned and remain eligible regardless of CEFR tagging. Previously
+  /// reviewed cards keep their SRS schedule across levels.
+  static TodayReviewSelection todaySelectionForLevel(
+    List<Vocab> all, {
+    required String? levelCode,
+    int newMax = 10,
+    int reviewMax = 15,
+  }) {
+    final level = LearnerLevel.fromCode(levelCode) ?? LearnerLevel.a1;
+    final allIds = all.map((word) => word.korean).toList(growable: false);
+    final newCandidateIds = all
+        .where(
+          (word) =>
+              word.level == customLevelTag ||
+              LearnerLevel.fromCode(word.level) == level,
+        )
+        .map((word) => word.korean)
+        .toList(growable: false);
+    final newIds = Storage.todayNewIds(newCandidateIds, max: newMax);
+    final reviewIds = Storage.todayReviewIds(allIds, max: reviewMax);
+    final goalIds = Storage.todayGoalIdsForNewPool(
+      allIds: allIds,
+      newCandidateIds: newCandidateIds,
+      newMax: newMax,
+      reviewMax: reviewMax,
+    );
+    final byId = <String, Vocab>{};
+    for (final word in all) {
+      byId.putIfAbsent(word.korean, () => word);
+    }
+    return TodayReviewSelection(
+      words: List.unmodifiable([
+        for (final id in goalIds)
+          if (byId[id] case final word?) word,
+      ]),
+      newCount: newIds.length,
+      reviewCount: reviewIds.length,
+    );
   }
 
   /// 레벨 오름차순(A1부터 C2) **안정** 정렬. 같은 레벨 안에서는 입력

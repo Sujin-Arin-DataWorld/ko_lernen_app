@@ -1,7 +1,7 @@
 {
   "version": 1,
   "batch": "06",
-  "status": "review_only",
+  "status": "merged",
   "provenance": {
     "scope": "Original B1-C2 cross-game pilot based on live curriculum gaps and clean-room product briefs.",
     "rights": "original_clean_room",
@@ -12,7 +12,13 @@
       "brief_b2_device_escalation",
       "brief_c1_survey_limits",
       "brief_c2_automated_appeal"
-    ]
+    ],
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-17",
+      "scope": "all records approved for learner-facing integration"
+    },
+    "mergedAt": "2026-08-17"
   },
   "artifacts": [
     {
