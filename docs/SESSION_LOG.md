@@ -10,9 +10,12 @@
 차단한다. `학쌩 → 학생`, `되요 → 돼요`, 조사·활용 교정은 유지한다. 구현과 회귀
 테스트 커밋은 `2315e07d`이다.
 
-**검증.** Proofreading 서비스와 역할극 쓰기 집중 Flutter test **26/26**,
-`dart format`, `git diff --check`가 통과했다. 통합 전체 Flutter test와 분석 및 원격
-자동 CI 한 번은 이 기록 다음 단계에서 최종 재검증한다.
+**최종 검증.** 통합 fixed point `0de786ce`에서 Proofreading 서비스와 역할극 쓰기
+집중 Flutter test **26/26**, 독립 Spec 재검증 범위 **35/35**, 전체 Flutter test
+**3,961 통과 / 14 수동·환경 검사 skip / 실패 0**가 통과했다.
+`flutter analyze --no-pub --fatal-infos`는 **No issues found**였고, 독립 Spec·Standards
+재검토의 병합 차단 사항은 각각 **0건**이다. `dart format`, `git diff --check`도
+통과했다. 원격 자동 CI 한 번과 `main` 병합, 최종 main signed AAB는 다음 단계다.
 
 ### 2026-08-16 (Codex) — 완료 브랜치 통합·Proofreading 의미 보존 마감
 
