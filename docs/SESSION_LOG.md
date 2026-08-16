@@ -21,14 +21,10 @@ Apple 취소는 `null`(취소)로 되돌린다. iOS URL scheme을 커밋된 iOS 
 (네트워크/provider 실패는 기존처럼 재시도). UI는 취소·차단·ID 토큰 실패를 더 이상
 한 덩어리로 뭉개지 않는다.
 
-**검증.** Flutter 계정 연동/삭제 집중 묶음 **82/82** (`google_oauth_client` 8,
-`account_link_exception_mapping` 6, `account_link_failure_visibility` 21,
-`account_hardening` 26, `cloud_backup_deletion_service_admission` 14,
-`account_ui_durable_admission` 8 — 첫 실행 60 + 둘째 실행 22, 중복 없음).
-변경 Dart `dart analyze --fatal-infos` **No issues found**. Functions Apple
-해지 3건(`completes` / `unconfigured secrets` / `retryable failure`) **3/3**.
-production Functions 재배포와 실기기 Google SHA/Apple `.p8`는 이 커밋의 범위
-밖이다.
+**검증.** Flutter 계정 연동/삭제 집중 묶음 **82/82**(연동 설정·예외 매핑·
+가시성·hardening·admission). 변경 Dart `dart analyze --fatal-infos`
+**No issues found**. Functions Apple 해지 3건 **3/3**. production Functions
+재배포와 실기기 Google SHA/Apple `.p8`는 이 커밋의 범위 밖이다.
 
 **커밋.** 이 항목과 같은 커밋.
 
