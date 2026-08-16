@@ -435,13 +435,15 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 
 @media (max-width: 560px) {
   .nav-shell { width: calc(100% - 28px); min-height: 70px; gap: 12px; }
+  .nav-actions { gap: 8px; }
   .brand-mark { gap: 8px; }
   .brand-mark picture, .brand-logo { width: 38px; height: 38px; }
   .brand-logo { border-radius: 12px; }
   .brand-mark b { font-size: 14px; }
   .brand-mark small { font-size: 8px; }
-  .locale-switch { display: none; }
-  .button-compact { min-height: 42px; padding: 0 13px; font-size: 13px; }
+  .locale-switch { padding: 2px; }
+  .locale-switch a { min-width: 28px; padding: 5px 6px; font-size: 9px; }
+  .button-compact { min-height: 42px; padding: 0 10px; font-size: 12px; }
   .hero-shell { width: calc(100% - 30px); min-height: auto; padding: 54px 0 72px; gap: 46px; }
   .hero-copy h1 { font-size: clamp(43px, 12vw, 52px); line-height: 1.02; }
   .hero-intro { font-size: 16px; line-height: 1.6; }
@@ -517,6 +519,10 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
   .privacy-consent-copy h2 { font-size: 23px; }
   .privacy-consent-actions { grid-template-columns: 1fr; }
   .privacy-choice { min-height: 52px; }
+}
+
+@media (max-width: 360px) {
+  .nav-actions .button-compact { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

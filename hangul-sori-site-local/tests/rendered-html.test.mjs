@@ -80,6 +80,20 @@ test("provides an accurate first-party consent panel with equal choices", async 
   assert.doesNotMatch(source, /ads personalisation|social media partners/i);
 });
 
+test("keeps the DE and EN language switch available on mobile", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const [siteSource, css] = await Promise.all([
+    readFile(new URL("../app/site.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(siteSource, /className="locale-switch"[^>]+aria-label="Language"/i);
+  assert.match(siteSource, /href="\/de">DE<\/Link>/i);
+  assert.match(siteSource, /href="\/en">EN<\/Link>/i);
+  assert.doesNotMatch(css, /\.locale-switch\s*\{\s*display:\s*none/i);
+  assert.match(css, /@media\s*\(max-width:\s*360px\)[\s\S]*?\.nav-actions \.button-compact\s*\{\s*display:\s*none/i);
+});
+
 test("adds production-only CSP and HSTS headers", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("security-headers", `${process.pid}-${Date.now()}`);

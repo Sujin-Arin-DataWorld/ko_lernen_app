@@ -276,6 +276,9 @@ flutter run -d <android-id>   # 안드로이드
   Sites custom-domain claim은 0개다. 과거 Wrangler OAuth grant와 로컬 credential 파일도
   폐기했으며, 수동 배포가 필요할 때만 `npm run cloudflare:login`으로 OS keychain 기반
   credential을 새로 만든다.
+- [x] **웹사이트 모바일 DE/EN 전환**: 560px 이하에서도 헤더 언어 전환을 유지하고,
+  360px 이하에서만 중복 헤더 CTA를 숨겨 공간을 확보한다. 390px DE/EN 실제 전환과
+  360px·1440px 무오버플로 회귀를 고정했다.
 
 - [x] **사랑방 자유 배치·에셋 전면 활용**: 고정 슬롯을 v3 연속 좌표 편집기로 교체하고
   보유 장식 11종·스티커 30종·도장 14종을 개인 방 인벤토리에 연결했다. 퀘스트 전용

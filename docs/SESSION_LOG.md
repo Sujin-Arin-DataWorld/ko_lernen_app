@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 모바일 웹 DE/EN 전환 복원
+
+**원인과 수정.** 홈페이지 헤더의 DE/EN 전환은 정상 렌더링되고 있었지만 560px 이하
+미디어 쿼리가 `.locale-switch`를 `display: none`으로 강제해 휴대폰에서 영어 화면을
+벗어날 수 없었다. 모바일에서도 전환기를 작게 유지하고 헤더 간격과 CTA 크기를 조정했다.
+공간이 특히 좁은 360px 이하에서는 본문 시작 CTA가 그대로 있으므로 헤더 CTA만 숨겨
+언어 선택을 우선했다. 같은 회귀를 막도록 DE/EN 링크와 모바일 비숨김 계약 테스트를
+추가했다. Jin의 명시적 요청에 따라 이 변경을 `main`에 커밋·푸시한다.
+
+**검증.** `npm run deploy:check`가 lint 0 errors(기존 `<img>` 성능 warning 3),
+typecheck, fresh Vinext build와 artifact 검증, **18/18 tests**, Wrangler strict dry-run,
+`npm audit --audit-level=high` 0건으로 통과했다. 격리 브라우저에서 390px EN의 DE/EN과
+헤더 CTA 표시, DE 클릭 후 `/de`·독일어 H1·DE active 전환, 360px의 언어 전환 유지와
+헤더 CTA 숨김, 1440px의 기존 desktop nav·전환·CTA 유지를 확인했다. 세 viewport 모두
+가로 overflow가 없었고 콘솔 error/warning도 없었다.
+
 ### 2026-08-16 (Codex) — Proofreading 의미 변경 최종 차단
 
 **원인과 수정.** 이전 안전 필터는 한글 음소가 75% 이상 비슷하면 같은 단어로
