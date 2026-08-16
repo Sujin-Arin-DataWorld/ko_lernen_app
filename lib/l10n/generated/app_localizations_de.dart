@@ -7126,6 +7126,7 @@ class AppL10nDe extends AppL10n {
       'scenarios': 'Alltagsszenen',
       'smalltalk': 'Small Talk',
       'book_capture': 'Buch fotografieren',
+      'vocab_notebook': 'Vokabelheft',
       'bookshelf': 'Bücherregal',
       'word_search': 'Wortsuche',
       'daily_game': 'Tageschallenge',
@@ -7158,6 +7159,7 @@ class AppL10nDe extends AppL10n {
       'scenarios': 'Café, Verkehr und Gespräche üben.',
       'smalltalk': 'Kurze Gespräche flüssig verbinden.',
       'book_capture': 'Wörter aus deinem Material übernehmen.',
+      'vocab_notebook': 'Dein Heft fotografieren und genau diese Wörter üben.',
       'bookshelf': 'Eigene Seiten und Wortlisten verwalten.',
       'word_search': 'Ein Wort und seine Lernwege finden.',
       'daily_game': 'Ein kurzer Mix für heute.',
@@ -7291,4 +7293,74 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get culturalObjectHintDismiss => 'Hinweis schließen';
+
+  @override
+  String get vocabNotebookTitle => 'Vokabelheft';
+
+  @override
+  String get vocabNotebookDesc =>
+      'Dein Heft fotografieren und genau diese Wörter üben.';
+
+  @override
+  String get vocabNotebookPreviewCta => 'Diese Wörter übernehmen';
+
+  @override
+  String vocabNotebookResultHint(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count Wörter aus deinem Heft. Genau diese Wörter übst du danach.',
+      one: '1 Wort aus deinem Heft. Genau diese Wörter übst du danach.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookDefaultName => 'Mein Vokabelheft';
+
+  @override
+  String get vocabNotebookEmptyTitle => 'Keine Wortpaare gefunden';
+
+  @override
+  String get vocabNotebookEmptyBody =>
+      'Schreib Koreanisch und die Bedeutung in eine Zeile, zum Beispiel: 학교 - Schule. Dann übernimm genau diese Wörter.';
+
+  @override
+  String get vocabNotebookPracticeCta => 'Genau diese Wörter üben';
+
+  @override
+  String vocabNotebookPracticeHint(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count Wörter aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
+      one:
+          '1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookAddPhoto => 'Weitere Seite fotografieren';
+
+  @override
+  String get vocabNotebookDropWord => 'Wort weglassen';
+
+  @override
+  String get vocabNotebookKeepWord => 'Wort behalten';
+
+  @override
+  String get vocabNotebookNuanceCta => 'Hanja, Synonyme, Nuancen';
+
+  @override
+  String get vocabNotebookNuanceTitle => 'Ähnlich, aber nicht gleich';
+
+  @override
+  String get vocabNotebookNuanceEmptyTitle => 'Noch kein Vergleich';
+
+  @override
+  String get vocabNotebookNuanceEmptyBody =>
+      'Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.';
 }

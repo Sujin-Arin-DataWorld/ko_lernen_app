@@ -176,6 +176,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                             .where(
                               (feature) => !const {
                                 '/book',
+                                '/vocab_notebook',
                                 '/listening',
                                 '/wordbook/search',
                               }.contains(feature.route),
@@ -206,6 +207,15 @@ class _DiscoverPriorityRoutes extends StatelessWidget {
           subtitle: t.discoverPriorityBookBody,
           accent: SoriColors.primary,
           onTap: () => Navigator.pushNamed(context, '/book'),
+        ),
+        const SizedBox(height: Spacing.sm),
+        _DiscoverPriorityRoute(
+          key: const ValueKey('discover-priority-notebook'),
+          icon: Icons.photo_album_outlined,
+          title: t.vocabNotebookTitle,
+          subtitle: t.vocabNotebookDesc,
+          accent: SoriColors.accent,
+          onTap: () => Navigator.pushNamed(context, '/vocab_notebook'),
         ),
         const SizedBox(height: Spacing.sm),
         _DiscoverPriorityRoute(

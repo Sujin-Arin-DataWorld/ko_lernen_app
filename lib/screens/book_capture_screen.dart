@@ -26,6 +26,8 @@ Map<String, dynamic> buildBookPreviewArguments({
   required OcrResult ocr,
   required BookCaptureImageQuality imageQuality,
   required String imageLease,
+  String? captureMode,
+  String? existingPackId,
 }) {
   final warnings = <String>{
     ...imageQuality.warnings,
@@ -49,6 +51,9 @@ Map<String, dynamic> buildBookPreviewArguments({
     'ocrDocument': ocr.document,
     'imageQuality': imageQuality.toMap(),
     'imageLease': imageLease,
+    if (captureMode != null && captureMode.isNotEmpty) 'captureMode': captureMode,
+    if (existingPackId != null && existingPackId.isNotEmpty)
+      'existingPackId': existingPackId,
   };
 }
 
@@ -90,7 +95,14 @@ class RecoveredBookOcrLeaseOwner {
 }
 
 class BookCaptureScreen extends StatefulWidget {
-  const BookCaptureScreen({super.key});
+  const BookCaptureScreen({
+    super.key,
+    this.captureMode,
+    this.existingPackId,
+  });
+
+  final String? captureMode;
+  final String? existingPackId;
 
   @override
   State<BookCaptureScreen> createState() => _BookCaptureScreenState();
@@ -283,6 +295,8 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
           ocr: ocr,
           imageQuality: imageQuality,
           imageLease: ocrLease.encoded,
+          captureMode: widget.captureMode,
+          existingPackId: widget.existingPackId,
         ),
       );
       croppedLease = null;
@@ -505,6 +519,8 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
           ocr: ocr,
           imageQuality: imageQuality,
           imageLease: pending.encoded,
+          captureMode: widget.captureMode,
+          existingPackId: widget.existingPackId,
         ),
       );
       final handedOff = pending;

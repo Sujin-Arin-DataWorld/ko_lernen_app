@@ -110,6 +110,10 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/book` | BookCaptureScreen (★ 책 한 컷: 사진→OCR) |
 | `/book/preview` (args) | BookPreviewScreen (OCR 텍스트 수정) |
 | `/book/result` (args) | BookResultScreen (단어·문법·문장 분석 결과) |
+| `/vocab_notebook` | BookCaptureScreen(captureMode: notebook) — 단어장 사진 |
+| `/vocab_notebook/result` (args) | VocabNotebookResultScreen (OCR에서 그 단어 쌍만 검토) |
+| `/vocab_notebook/practice` (args: packId) | VocabNotebookPracticeScreen (카드·짝맞추기·받아쓰기·퀴즈·한자/유의어) |
+| `/vocab_notebook/nuance` (args: packId) | VocabNuanceScreen (유의어·격식·한자 뿌리 비교 놀이) |
 | `/bookshelf` | BookshelfScreen (내 책장 + 커스텀팩) |
 | `/bookshelf/page` (args: pageId) | BookshelfPageScreen |
 | `/custom_pack/play` (args: packId) | CustomPackPlayScreen (플립카드 학습) |
@@ -350,7 +354,10 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
-  초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
+ 초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
+- [x] **단어장 사진 → 그 단어만 놀이 연습**: 교재 분석과 분리된 Vokabelheft
+ 경로가 사진의 한국어–뜻 쌍을 그대로 팩으로 만들고, 카드·짝맞추기·받아쓰기·퀴즈와
+ 한자/유의어/격식 비교 놀이로 이어진다. CSV/TSV 가져오기는 8,000행까지 받는다.
 
 ## 세션 로그 → docs/SESSION_LOG.md
 

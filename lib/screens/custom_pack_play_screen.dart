@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../data/hanja_lexicon.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
@@ -620,6 +621,20 @@ class _Back extends StatelessWidget {
                           height: 1.15,
                         ),
                       ),
+                      if ((HanjaLexicon.lookup(word.korean as String)?.hanja ??
+                              '')
+                          .isNotEmpty) ...[
+                        SizedBox(height: soriFillSize(h, 0.012, 4, 10)),
+                        Text(
+                          HanjaLexicon.lookup(word.korean as String)!.hanja,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: soriFillSize(h, 0.05, 13, 24),
+                            fontWeight: FontWeight.w700,
+                            color: SoriColors.goldOnLight,
+                          ),
+                        ),
+                      ],
                       if ((word.posDe as String).isNotEmpty) ...[
                         SizedBox(height: soriFillSize(h, 0.014, 4, 12)),
                         Text(

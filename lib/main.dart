@@ -53,6 +53,9 @@ import 'screens/smalltalk_screen.dart';
 import 'screens/book_capture_screen.dart';
 import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
+import 'screens/vocab_notebook_practice_screen.dart';
+import 'screens/vocab_notebook_result_screen.dart';
+import 'screens/vocab_nuance_screen.dart';
 import 'screens/bookshelf_page_screen.dart';
 import 'screens/bookshelf_screen.dart';
 import 'screens/custom_pack_play_screen.dart';
@@ -771,8 +774,45 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             // Phase 5 (stately-rising-jongga) — "책 한 컷"
             case '/book':
+              final bookArgs =
+                  (settings.arguments as Map?)?.cast<String, dynamic>() ??
+                  const <String, dynamic>{};
               return SoriTransitions.fadeScale(
-                (_) => const BookCaptureScreen(),
+                (_) => BookCaptureScreen(
+                  captureMode: bookArgs['captureMode'] as String?,
+                  existingPackId: bookArgs['existingPackId'] as String?,
+                ),
+                settings: settings,
+              );
+            case '/vocab_notebook':
+              final notebookArgs =
+                  (settings.arguments as Map?)?.cast<String, dynamic>() ??
+                  const <String, dynamic>{};
+              return SoriTransitions.fadeScale(
+                (_) => BookCaptureScreen(
+                  captureMode: 'notebook',
+                  existingPackId: notebookArgs['existingPackId'] as String?,
+                ),
+                settings: settings,
+              );
+            case '/vocab_notebook/result':
+              final notebookResultArgs =
+                  (settings.arguments as Map?)?.cast<String, dynamic>() ??
+                  const <String, dynamic>{};
+              return SoriTransitions.fadeScale(
+                (_) => VocabNotebookResultScreen(args: notebookResultArgs),
+                settings: settings,
+              );
+            case '/vocab_notebook/practice':
+              final practiceId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                (_) => VocabNotebookPracticeScreen(packId: practiceId),
+                settings: settings,
+              );
+            case '/vocab_notebook/nuance':
+              final nuanceId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                (_) => VocabNuanceScreen(packId: nuanceId),
                 settings: settings,
               );
             case '/book/preview':

@@ -242,6 +242,21 @@ class CustomPackService {
     return pack;
   }
 
+  /// Vocabulary-notebook photo or bulk import — words the learner already has.
+  static Future<CustomPack> createFromWords({
+    required String name,
+    required List<ExtractedWord> words,
+  }) async {
+    final pack = CustomPack.manual(
+      id: generateId(),
+      name: name,
+      words: words,
+    );
+    await save(pack);
+    unawaited(Analytics.customPackCreated('notebook'));
+    return pack;
+  }
+
   /// Feste ID des "Schnellspeicher"-Packs — überall im Lern-Flow per
   /// [quickAdd] befüllt. Feste ID = kein Storage-Key nötig (find-or-create).
   static const String quickPackId = 'cp_quick_v1';

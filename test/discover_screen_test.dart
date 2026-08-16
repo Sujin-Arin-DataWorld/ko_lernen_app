@@ -7,7 +7,7 @@ import 'package:ko_lernen_app/screens/discover_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
-  testWidgets('04B shows four purpose filters and three priority routes', (
+  testWidgets('04B shows four purpose filters and four priority routes', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(308, 900);
@@ -38,6 +38,7 @@ void main() {
     }
     for (final priority in const [
       'Buch scannen',
+      'Vokabelheft',
       'Aussprache hören',
       'Wörterbuch & Meine Wörter',
     ]) {
@@ -45,6 +46,7 @@ void main() {
     }
     for (final body in const [
       'Text aus deinem Lehrbuch verstehen',
+      'Dein Heft fotografieren und genau diese Wörter üben.',
       'Laute langsam vergleichen',
       'Gespeicherte Wörter wiederfinden',
     ]) {
@@ -56,6 +58,7 @@ void main() {
 
     for (final entry in const [
       (key: 'book', route: '/book'),
+      (key: 'notebook', route: '/vocab_notebook'),
       (key: 'pronunciation', route: '/listening'),
       (key: 'words', route: '/wordbook/search'),
     ]) {
@@ -97,8 +100,8 @@ void main() {
       final t = AppL10n.of(tester.element(find.byType(DiscoverScreen)));
       final entries = discoverCatalog(t);
 
-      expect(entries, hasLength(24));
-      expect(entries.map((entry) => entry.id).toSet(), hasLength(24));
+      expect(entries, hasLength(25));
+      expect(entries.map((entry) => entry.id).toSet(), hasLength(25));
       for (final entry in entries) {
         expect(entry.purpose, isNotNull, reason: entry.id);
         expect(entry.route, startsWith('/'), reason: entry.id);
@@ -114,6 +117,7 @@ void main() {
         entries.map((entry) => entry.route),
         containsAll(const [
           '/book',
+          '/vocab_notebook',
           '/hangul',
           '/grammar',
           '/scenarios',

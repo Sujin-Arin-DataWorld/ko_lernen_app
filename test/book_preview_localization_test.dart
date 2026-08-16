@@ -254,6 +254,35 @@ void main() {
       'laplacianVariance': 4.0,
     });
   });
+
+  testWidgets('notebook-like preview keeps the written pairs and skips analysis', (
+    tester,
+  ) async {
+    RouteSettings? pushed;
+    await tester.pumpWidget(
+      _previewApp(
+        locale: const Locale('de'),
+        args: const <String, dynamic>{
+          'text': '학교 - Schule\n학생 = Schüler\n시작 Anfang\n개시 Eröffnung',
+          'blockCount': 4,
+          'captureMode': 'notebook',
+        },
+        imageResolver: (_) async => null,
+        onRoute: (settings) => pushed = settings,
+      ),
+    );
+    await tester.pump();
+
+    await tester.tap(
+      find.widgetWithText(SoriButton, 'Diese Wörter übernehmen'),
+    );
+    await tester.pump();
+
+    expect(pushed?.name, '/vocab_notebook/result');
+    final arguments = pushed?.arguments as Map<String, dynamic>;
+    expect(arguments['text'], contains('Schule'));
+    expect(arguments['text'], contains('Schüler'));
+  });
 }
 
 Widget _previewApp({

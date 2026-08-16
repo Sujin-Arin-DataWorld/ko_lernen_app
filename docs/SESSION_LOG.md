@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — Vokabelheft: 사진의 그 단어만 놀이 연습 + 한자/유의어
+
+**무엇을.** 학습자 피드백을 그대로 구현했다. 교재 분석(`/book/result`)과 분리된
+`/vocab_notebook` 경로가 단어장 사진의 한국어–뜻 쌍을 클라우드 분석 없이 추출하고,
+그 단어만 카드·짝맞추기·받아쓰기·퀴즈와 한자/유의어/격식 비교 놀이로 연습한다.
+교재 문장 페이지는 기존 책 한 컷을 유지한다. CSV/TSV/세미콜론 가져오기는
+8,000행까지 받아 손으로 옮기던 대량 단어장을 대체할 수 있다.
+
+**왜.** “앱이 새 단어만 주고, 내 교과서·단어장 단어를 놀이로 못 한다. 유의어·격식·
+뉘앙스는 한자가 도와줬다”는 요청을 기존 30단어 클라우드 분석으로는 충족하지 못한다.
+이 경로는 학습자가 적어 둔 뜻을 보존하고, 한자 뿌리로 비슷한 단어를 가른다.
+
+**검증.** `flutter gen-l10n`. `flutter analyze --no-pub --fatal-infos` on the changed
+Dart files: No issues found. Focused tests 37/37 plus catalog/custom-pack 11/11:
+`vocab_notebook_parser_test`, `hanja_lexicon_test`, `vocab_nuance_service_test`,
+`vocab_notebook_result_screen_test`, `vocab_nuance_screen_test`,
+`custom_pack_import_language_test`, `book_preview_localization_test`,
+`discover_screen_test`, `sori_activity_catalog_test`, `custom_pack_test`.
+
+**커밋해시.** (이 기록과 같은 커밋)
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과
