@@ -2180,6 +2180,11 @@ class AppL10nDe extends AppL10n {
       'ein Satz, den du jetzt hören und erwidern kannst.';
 
   @override
+  String firstVoiceSceneSummary(int completed, int total) {
+    return '$completed von $total Aufgaben abgeschlossen';
+  }
+
+  @override
   String get firstVoiceCanDo => 'Ich kann jemanden freundlich begrüßen.';
 
   @override
@@ -2478,6 +2483,11 @@ class AppL10nDe extends AppL10n {
   String get scenarioQuestsTitle => 'Mini-Spiele';
 
   @override
+  String scenarioQuestProgress(int current, int total) {
+    return '$current von $total';
+  }
+
+  @override
   String get scenarioCulturalNote => 'Kulturnotiz';
 
   @override
@@ -2623,7 +2633,53 @@ class AppL10nDe extends AppL10n {
   String get questRetry => 'Nochmal';
 
   @override
-  String get particlePopHint => 'Zieh die richtige Partikel in den Slot.';
+  String get questAnswerSelected => 'Ausgewählt';
+
+  @override
+  String get questAnswerRevealed => 'Die richtige Antwort wird angezeigt.';
+
+  @override
+  String get questTryAgainHint => 'Fast. Versuch es noch einmal.';
+
+  @override
+  String get questViewResult => 'Ergebnis ansehen';
+
+  @override
+  String get questListeningQuestion => 'Was bedeutet dieser Satz?';
+
+  @override
+  String get questTypeListening => 'Hören';
+
+  @override
+  String get questTypeTranslation => 'Übersetzen';
+
+  @override
+  String get questTypeCloze => 'Lücke füllen';
+
+  @override
+  String get questTypeParticle => 'Partikel wählen';
+
+  @override
+  String get questTypeBatchim => 'Batchim ergänzen';
+
+  @override
+  String get questTypeSentence => 'Satz bauen';
+
+  @override
+  String get questTypeDictation => 'Diktat';
+
+  @override
+  String get questTypeWriting => 'Schreiben';
+
+  @override
+  String get diktatUseWordBlocks =>
+      'Keine koreanische Tastatur? Wortblöcke verwenden';
+
+  @override
+  String get diktatUseKeyboard => 'Mit der Tastatur schreiben';
+
+  @override
+  String get particlePopHint => 'Wähle die richtige Partikel für den Satz.';
 
   @override
   String get particlePopExplanation =>

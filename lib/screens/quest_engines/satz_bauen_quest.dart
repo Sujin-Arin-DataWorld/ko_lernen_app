@@ -8,8 +8,11 @@ import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/tts_speed_control.dart';
+import 'quest_flow.dart';
 import 'quest_models.dart';
 
 /// Art des Fehlers beim Zusammensetzen — steuert das gezielte Feedback.
@@ -33,11 +36,21 @@ enum SatzError { none, order, particle, tooMany, tooFew, word }
 class SatzBauenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
+  final VoidCallback? onContinue;
+  final bool isLast;
+  final bool showMascot;
+  final bool compact;
+  final bool showSpeedControl;
 
   const SatzBauenQuest({
     super.key,
     required this.data,
     required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
+    this.showMascot = true,
+    this.compact = false,
+    this.showSpeedControl = true,
   });
 
   @override
@@ -299,7 +312,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   }
 
   Future<void> _playTts() async {
-    HapticFeedback.selectionClick();
     await TtsService.speak(_audioKo);
   }
 
@@ -349,10 +361,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         _wrong = false;
         _mismatchIdx = -1;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
-      }
+      widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
       return;
     }
 
@@ -385,10 +394,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         _wrong = true;
         _mismatchIdx = -1;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1600));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: false, firstTry: false));
-      }
+      widget.onComplete(const QuestResult(passed: false, firstTry: false));
     } else {
       setState(() {
         _wrong = true;
@@ -406,293 +412,258 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
     final revealedOk = _completed && !_wrong;
 
-    // 2026-08-06: 마스코트를 다시 Stack(Clip.none) 오버레이로 뺐다.
-    // 3ee6ec1 이 마스코트를 flow 로 옮기면서 MascotPartner(92px) + Spacing.lg(16)
-    // = 108px 가 세로 예산에 얹혔고, 이 퀘스트는 스크롤 없는 Expanded 안에 살아서
-    // 800x600 기준 411px 자리에 533.5px 가 들어가 122.5px 오버플로가 났다. 그
-    // 결과 단어 타일이 hit-test 밖으로 밀려 탭이 배경으로 새고, Prüfen 버튼은
-    // 뷰포트 밖(y=676)으로 나갔다. 오버레이는 세로 예산을 0 으로 되돌린다.
-    // 스피커 버튼은 아래에서 leading 슬롯으로 옮겨 3ee6ec1 이 고쳤던 겹침이
-    // 재발하지 않게 했다(마스코트는 카드 우상단을 쓴다).
-    // 2026-08-12: 가운데 정렬을 폐기 — Prüfen 이 화면 중간에 떠서 "배치가
-    // 엉성하다"(Jin 실기기). 정보(카드·타일)는 위, 버튼은 Spacer 로 하단
-    // 고정(엄지 존). Spacer 는 min 0 이라 낮은 뷰포트(800×600)에서도
-    // 3ee6ec1 오버플로 회귀가 없다.
-    // Tablet-width scaling can make the fixed prompt/answer/button chrome a
-    // few pixels taller than a short landscape viewport, especially during
-    // the 300 ms completed-state handoff. Keep the established layout above
-    // this threshold and make only the genuinely short case scrollable.
-    // `pinBottom` = 들어온 세로 제약이 **유한**한가.
-    //
-    // 유한하면(전용 퀘스트 화면처럼 스크롤 없는 Expanded 안) 남는 세로를
-    // `Spacer` 가 흡수해 Prüfen 이 엄지 존에 붙는다. 무한하면(시나리오
-    // 역할극·퀘스트는 `_StageScroll` 의 SingleChildScrollView 안이다)
-    // flex 자식이 "RenderFlex children have non-zero flex but incoming
-    // height constraints are unbounded" 로 레이아웃을 죽여 **스테이지가
-    // 통째로 빈 화면이 된다** — 2026-08-12 Jin 실기기 "Flughafen 시나리오가
-    // 중간에 화면이 안 나온다"의 원인. 그 경우엔 하단 고정을 포기하고
-    // 자연 높이로 흐르게 둔다(부모가 이미 스크롤을 담당한다).
-    Widget content({required bool pinBottom}) => Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Prompt (Bedeutung) + optionaler TTS-Button. The magpie is
-            // anchored to this card without consuming vertical layout space.
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  width: double.infinity,
-                  // 24/64/24: 질문카드를 키워 화면을 채운다(2026-08-12 Jin 3차).
-                  padding: const EdgeInsets.fromLTRB(24, 26, 64, 26),
-                  decoration: BoxDecoration(
-                    color: s.surface,
-                    borderRadius: BorderRadius.circular(SoriRadius.lg),
-                    border: Border.all(color: s.surfaceAlt, width: 1.5),
-                  ),
-                  child: Row(
-                    children: [
-                      // 스피커는 leading 슬롯 — trailing 에 두면 우상단 마스코트
-                      // 오버레이와 겹친다(3ee6ec1 이 고쳤던 그 문제).
-                      if (_audioKo.isNotEmpty) ...[
-                        InkWell(
-                          borderRadius: BorderRadius.circular(SoriRadius.pill),
-                          onTap: _playTts,
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: SoriColors.info.withAlpha(26),
-                              border: Border.all(
-                                color: SoriColors.info,
-                                width: 1.5,
-                              ),
-                            ),
-                            child: const Icon(
-                              Icons.volume_up_rounded,
-                              color: SoriColors.info,
-                              size: 24,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 14),
-                      ],
-                      Expanded(
-                        child: Text(
-                          _prompt(langCode),
-                          style: TextStyle(
-                            color: s.text,
-                            fontSize: 22,
-                            height: 1.45,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                // 96px + top -78: 새가 카드 윗모서리에 앉되(발끝 ~18px 걸침)
-                // 존재감 있게. 72px 는 "너무 조그맣다"(2026-08-12 Jin 실기기).
-                // 카드 위쪽은 빈 배경이라 돌출(78px)이 다른 콘텐츠를 가리지
-                // 않고, 오버레이(Clip.none)라 세로 예산도 그대로 0.
-                // 마스코트는 여기가 아니라 바깥 Stack 에 있다 — f1320ff 가
-                // SoriMinHeightScroll 을 도입하면서, 짧은 뷰포트에서 스크롤뷰가
-                // 카드 위 돌출(top:-78)을 잘라먹던 문제를 그렇게 해소했다.
-                // 버스트 6배 확대는 그 바깥 인스턴스로 이식했다.
-              ],
-            ),
-            const SizedBox(height: Spacing.lg),
-            Text(
-              t.questSatzBauenInstruction,
-              style: TextStyle(color: s.textMuted, fontSize: 14),
-            ),
-            const SizedBox(height: Spacing.md),
+    // 유한 높이에서는 문제 내용만 내부 스크롤하고 CTA는 엄지 영역에 고정한다.
+    // 무한 높이 부모에서는 flex를 쓰지 않고 자연 높이로 흘려 기존 임베드 호출도
+    // 안전하게 유지한다. 역할극은 마스코트를 끄고 compact 모드를 사용한다.
+    final promptStyle = SoriTextTheme.of(context).body.copyWith(
+      fontSize: widget.compact ? 16 : 18,
+      fontWeight: FontWeight.w600,
+      height: 1.35,
+    );
+    final sectionGap = widget.compact ? Spacing.sm : Spacing.md;
 
-            // Antwort-Bereich (gebaute Reihenfolge).
-            Container(
-              constraints: const BoxConstraints(minHeight: 96),
+    final exerciseBody = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Prompt and audio tools form one compact, readable block. The
+        // speed chip is intentionally inline: learners should never have
+        // to leave the exercise for Settings just to slow the sentence.
+        Semantics(
+          button: _audioKo.isNotEmpty,
+          label: _audioKo.isNotEmpty ? t.vocabPackBossReplayAudio : null,
+          child: SoriPressable(
+            onTap: _audioKo.isEmpty ? null : _playTts,
+            child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(widget.compact ? 14 : 18),
               decoration: BoxDecoration(
                 color: s.surface,
                 borderRadius: BorderRadius.circular(SoriRadius.lg),
-                border: Border(
-                  bottom: BorderSide(
-                    color: revealedOk
-                        ? SoriColors.success
-                        : (_wrong ? SoriColors.danger : SoriColors.primary),
-                    width: 2.5,
-                  ),
+                border: Border.all(
+                  color: _audioKo.isEmpty
+                      ? s.border
+                      : SoriColors.primary.withValues(alpha: 0.55),
+                  width: _audioKo.isEmpty ? 1 : 1.5,
                 ),
+                boxShadow: _audioKo.isEmpty
+                    ? null
+                    : [
+                        BoxShadow(
+                          color: SoriColors.primary.withValues(alpha: 0.08),
+                          blurRadius: 10,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
               ),
-              child: _answer.isEmpty
-                  ? Center(
-                      child: Text(
-                        '…',
-                        style: TextStyle(color: s.textDim, fontSize: 22),
-                      ),
-                    )
-                  : Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(_prompt(langCode), style: promptStyle),
+                  if (_audioKo.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.sm),
+                    Row(
                       children: [
-                        for (var i = 0; i < _answer.length; i++)
-                          _buildTile(
-                            _answer[i],
-                            s,
-                            inAnswer: true,
-                            highlightWrong: _wrong && i == _mismatchIdx,
-                            highlightOk: revealedOk,
+                        const Icon(
+                          Icons.volume_up_rounded,
+                          color: SoriColors.primary,
+                          size: 19,
+                        ),
+                        const SizedBox(width: Spacing.xs),
+                        Expanded(
+                          child: Text(
+                            t.vocabPackBossReplayAudio,
+                            style: SoriTextTheme.of(context).caption.copyWith(
+                              color: SoriColors.primary,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
+                        ),
+                        const Icon(
+                          Icons.touch_app_rounded,
+                          color: SoriColors.primary,
+                          size: 18,
+                        ),
                       ],
                     ),
-            ),
-            // Diagnose-Feedback (warum falsch).
-            SizedBox(
-              height: 24,
-              child: (_wrong && !_completed && _diag != SatzError.none)
-                  ? Text(
-                      _diagText(t),
-                      style: const TextStyle(
-                        color: SoriColors.danger,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
-            const SizedBox(height: Spacing.lg),
-
-            // Wort-Bank.
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              alignment: WrapAlignment.center,
-              children: [
-                for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
-              ],
-            ),
-            // 남는 세로 공간은 전부 여기로 흡수 — 버튼이 항상 하단에 붙는다.
-            // ⚠️ 세로가 무한일 때는 넣으면 안 된다(위 `pinBottom` 주석 참고).
-            if (pinBottom) const Spacer(),
-            const SizedBox(height: Spacing.md),
-
-            // Prüfen-Button.
-            Opacity(
-              opacity: (_answer.isEmpty || _completed) ? 0.5 : 1.0,
-              child: Material(
-                color: SoriColors.primary,
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(SoriRadius.lg),
-                  onTap: (_answer.isEmpty || _completed) ? null : _check,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    child: Center(
-                      child: Text(
-                        t.questCheckAnswer,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                  ],
+                ],
               ),
             ),
+          ),
+        ),
+        if (_audioKo.isNotEmpty && widget.showSpeedControl) ...[
+          const SizedBox(height: Spacing.xs),
+          const Align(
+            alignment: Alignment.centerRight,
+            child: TtsSpeedControl(),
+          ),
+        ],
+        SizedBox(height: sectionGap),
+        Text(
+          t.questSatzBauenInstruction,
+          style: TextStyle(color: s.textMuted, fontSize: 14),
+        ),
+        SizedBox(height: sectionGap),
+
+        // Antwort-Bereich (gebaute Reihenfolge).
+        SoriAnswerTray(
+          minHeight: widget.compact ? 72 : 96,
+          accent: revealedOk
+              ? SoriColors.success
+              : (_wrong ? SoriColors.danger : SoriColors.primary),
+          child: _answer.isEmpty
+              ? Center(
+                  child: Text(
+                    '…',
+                    style: TextStyle(color: s.textDim, fontSize: 22),
+                  ),
+                )
+              : Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: [
+                    for (var i = 0; i < _answer.length; i++)
+                      _buildTile(
+                        _answer[i],
+                        s,
+                        inAnswer: true,
+                        highlightWrong: _wrong && i == _mismatchIdx,
+                        highlightOk: revealedOk,
+                      ),
+                  ],
+                ),
+        ),
+        // Diagnose-Feedback (warum falsch).
+        SizedBox(
+          height: widget.compact ? 20 : 24,
+          child: (_wrong && !_completed && _diag != SatzError.none)
+              ? Text(
+                  _diagText(t),
+                  style: const TextStyle(
+                    color: SoriColors.danger,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ),
+        SizedBox(height: sectionGap),
+
+        // Wort-Bank.
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          alignment: WrapAlignment.center,
+          children: [
+            for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
           ],
         ),
       ],
     );
+    final action = AnimatedOpacity(
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 160),
+      opacity: (_answer.isEmpty && !_completed) ? 0.5 : 1.0,
+      child: Material(
+        key: ValueKey(_completed ? 'quest-continue' : 'quest-submit'),
+        color: SoriColors.primary,
+        borderRadius: BorderRadius.circular(SoriRadius.lg),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(SoriRadius.lg),
+          onTap: _completed
+              ? widget.onContinue
+              : (_answer.isEmpty ? null : _check),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Center(
+              child: Text(
+                _completed
+                    ? (widget.isLast ? t.questViewResult : t.questNext)
+                    : t.questCheckAnswer,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    // Keep the primary action anchored while the content above it scrolls only
+    // when it genuinely exceeds the available height. On normal phones the
+    // compact roleplay body fits without scrolling; long B2 turns and 200%
+    // text no longer push the button off-screen or overflow the viewport.
+    Widget content({required bool pinBottom}) => Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (pinBottom)
+          Expanded(child: SingleChildScrollView(child: exerciseBody))
+        else
+          exerciseBody,
+        SizedBox(height: sectionGap),
+        action,
+      ],
+    );
+
     return Stack(
       clipBehavior: Clip.none,
       fit: StackFit.passthrough,
       children: [
         LayoutBuilder(
-          builder: (_, c) => SoriMinHeightScroll(
-            minHeight: 464,
-            child: content(pinBottom: c.maxHeight.isFinite),
-          ),
+          builder: (_, c) => content(pinBottom: c.maxHeight.isFinite),
         ),
         // Keep the deliberate overhang outside the short-height scroll view;
         // otherwise SingleChildScrollView clips the mascot above the card.
-        Positioned(
-          top: -78,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 96,
-            kind: MascotKind.magpie,
-            // 기존 viewport-fit 결과를 화면 정중앙에서 정확히 6배 확대.
-            burstScale: 6,
-            burstOrigin: Alignment.center,
+        if (widget.showMascot)
+          Positioned(
+            top: -78,
+            right: 12,
+            child: MascotPartner(
+              celebrating: _celebrated,
+              size: 96,
+              kind: MascotKind.magpie,
+              // 기존 viewport-fit 결과를 화면 정중앙에서 정확히 6배 확대.
+              burstScale: 6,
+              burstOrigin: Alignment.center,
+            ),
           ),
-        ),
       ],
     );
   }
 
   Widget _buildTile(
     _Tile tile,
-    SoriSurfaces s, {
+    SoriSurfaces _, {
     required bool inAnswer,
     bool highlightWrong = false,
     bool highlightOk = false,
   }) {
-    Color border = s.surfaceAlt;
-    Color bg = inAnswer ? SoriColors.primary.withAlpha(20) : s.surface;
-    if (highlightWrong) {
-      border = SoriColors.danger;
-      bg = SoriColors.danger.withAlpha(38);
-    } else if (highlightOk) {
-      border = SoriColors.success;
-      bg = SoriColors.success.withAlpha(38);
-    } else if (inAnswer) {
-      border = SoriColors.primary;
-    }
-
     // 태블릿에서 단어 타일이 폰과 똑같이 18pt/18×13 고정이라 "게임창이 너무
     // 작다"가 됐다. 학습 화면 전용 확대 램프를 그대로 쓴다(폰 ≤600dp = 1.0).
     final scale = soriStudyScale(MediaQuery.sizeOf(context).width);
 
-    return Material(
-      color: bg,
-      borderRadius: BorderRadius.circular(SoriRadius.sm),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.sm),
-        onTap: () {
-          if (inAnswer) {
-            _removeTile(tile);
-          } else {
-            _placeTile(tile);
-          }
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(SoriRadius.sm),
-            border: Border.all(color: border, width: 1.5),
-          ),
-          // 타일 확대(18/13→22/16, 폰트 18→20): "조립판 타일도 크게 화면
-          // 가득" (2026-08-12 Jin 3차). 히트영역도 44dp 이상으로 커진다.
-          padding: EdgeInsets.symmetric(
-            horizontal: 22 * scale,
-            vertical: 16 * scale,
-          ),
-          child: Text(
-            tile.text,
-            style: TextStyle(
-              color: s.text,
-              fontSize: 20 * scale,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ),
+    return SoriWordTile(
+      label: tile.text,
+      scale: scale,
+      compact: widget.compact,
+      state: highlightWrong
+          ? SoriWordTileState.wrong
+          : highlightOk
+          ? SoriWordTileState.correct
+          : inAnswer
+          ? SoriWordTileState.selected
+          : SoriWordTileState.idle,
+      onTap: () {
+        if (inAnswer) {
+          _removeTile(tile);
+        } else {
+          _placeTile(tile);
+        }
+      },
     );
   }
 }

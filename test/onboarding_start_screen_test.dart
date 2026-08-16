@@ -65,7 +65,7 @@ void main() {
       final player = tester.widget<ScenarioPlayerScreen>(
         find.byType(ScenarioPlayerScreen),
       );
-      expect(player.startAtFirstTask, isTrue);
+      expect(player.mode, ScenarioPlayerMode.onboardingFirstScene);
       expect(player.courseContext, isNull);
       expect(find.byType(BottomSheet), findsNothing);
     },
@@ -107,7 +107,7 @@ void main() {
     }
   });
 
-  testWidgets('first-success screen uses the completed quest copy', (
+  testWidgets('success screen opens only from the completed scene summary', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -128,12 +128,16 @@ void main() {
     final player = tester.widget<ScenarioPlayerScreen>(
       find.byType(ScenarioPlayerScreen),
     );
-    final callback = player.onFirstCorrect;
+    final callback = player.onCompleted;
     expect(callback, isNotNull);
-    callback!(
-      const ScenarioFirstSuccess(
-        phrase: '저는 민수예요.',
-        kind: ScenarioFirstSuccessKind.completion,
+    await callback!(
+      const ScenarioCompletionSummary(
+        firstSuccess: ScenarioFirstSuccess(
+          phrase: '저는 민수예요.',
+          kind: ScenarioFirstSuccessKind.completion,
+        ),
+        passed: 7,
+        total: 7,
       ),
     );
     await tester.pump();
@@ -146,6 +150,8 @@ void main() {
     );
     expect(success.phrase, '저는 민수예요.');
     expect(success.canDo, 'Build your sentence');
+    expect(success.completedTasks, 7);
+    expect(success.totalTasks, 7);
     expect(find.text('안녕하세요.'), findsNothing);
   });
 }

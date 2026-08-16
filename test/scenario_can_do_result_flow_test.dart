@@ -139,7 +139,7 @@ void main() {
     tester,
   ) async {
     var saveCalls = 0;
-    var firstCorrectCalls = 0;
+    var completionCalls = 0;
     ScenarioFirstSuccess? firstSuccess;
     await tester.pumpWidget(
       MaterialApp(
@@ -149,9 +149,9 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: ScenarioPlayerScreen(
           scenarioId: _scenario.id,
-          onFirstCorrect: (success) {
-            firstCorrectCalls++;
-            firstSuccess = success;
+          onCompleted: (summary) {
+            completionCalls++;
+            firstSuccess = summary.firstSuccess;
           },
           scenarioLoader: (_) async => _scenario,
           resultPersister: (_, _, _) async {
@@ -174,17 +174,20 @@ void main() {
     await _advanceUntilText(tester, 'Correct response');
     await _tapText(tester, 'Correct response');
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 1201));
-    expect(firstCorrectCalls, 1);
-    expect(firstSuccess?.phrase, '안녕');
-    expect(firstSuccess?.kind, ScenarioFirstSuccessKind.listening);
-    await _tapText(tester, 'Weiter');
+    expect(completionCalls, 0);
+    await _tapText(tester, 'Überprüfen');
+    await tester.pump();
+    expect(completionCalls, 0);
+    await _tapText(tester, 'Ergebnis ansehen');
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
 
     await tester.pump(const Duration(milliseconds: 500));
 
     expect(saveCalls, 1);
+    expect(completionCalls, 1);
+    expect(firstSuccess?.phrase, '안녕');
+    expect(firstSuccess?.kind, ScenarioFirstSuccessKind.listening);
     expect(find.byType(CanDoResultCard), findsOneWidget);
     expect(find.byIcon(Icons.star_rounded), findsNothing);
     expect(find.byIcon(Icons.star_outline_rounded), findsNothing);

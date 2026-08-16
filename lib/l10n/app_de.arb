@@ -990,6 +990,13 @@
   "firstVoiceTitle": "Du hast dein erstes Koreanisch verstanden.",
   "firstVoiceBody": "Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.",
   "firstVoicePhraseBody": "ein Satz, den du jetzt hören und erwidern kannst.",
+  "firstVoiceSceneSummary": "{completed} von {total} Aufgaben abgeschlossen",
+  "@firstVoiceSceneSummary": {
+    "placeholders": {
+      "completed": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "firstVoiceCanDo": "Ich kann jemanden freundlich begrüßen.",
   "firstVoiceCanDoBody": "Dein A1-Weg beginnt mit dieser Szene.",
   "firstVoiceCompanionTitle": "Möchtest du eine Lernbegleitung?",
@@ -1100,6 +1107,13 @@
   "scenarioDialogTitle": "Dialog",
   "scenarioGrammarTitle": "Grammatik",
   "scenarioQuestsTitle": "Mini-Spiele",
+  "scenarioQuestProgress": "{current} von {total}",
+  "@scenarioQuestProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "scenarioCulturalNote": "Kulturnotiz",
   "scenarioStartBtn": "Los geht's!",
   "scenarioNextBtn": "Weiter",
@@ -1191,7 +1205,22 @@
   "questWrong": "Nicht ganz",
   "questNext": "Weiter",
   "questRetry": "Nochmal",
-  "particlePopHint": "Zieh die richtige Partikel in den Slot.",
+  "questAnswerSelected": "Ausgewählt",
+  "questAnswerRevealed": "Die richtige Antwort wird angezeigt.",
+  "questTryAgainHint": "Fast. Versuch es noch einmal.",
+  "questViewResult": "Ergebnis ansehen",
+  "questListeningQuestion": "Was bedeutet dieser Satz?",
+  "questTypeListening": "Hören",
+  "questTypeTranslation": "Übersetzen",
+  "questTypeCloze": "Lücke füllen",
+  "questTypeParticle": "Partikel wählen",
+  "questTypeBatchim": "Batchim ergänzen",
+  "questTypeSentence": "Satz bauen",
+  "questTypeDictation": "Diktat",
+  "questTypeWriting": "Schreiben",
+  "diktatUseWordBlocks": "Keine koreanische Tastatur? Wortblöcke verwenden",
+  "diktatUseKeyboard": "Mit der Tastatur schreiben",
+  "particlePopHint": "Wähle die richtige Partikel für den Satz.",
   "particlePopExplanation": "Nach Konsonant: 은/이/을 · Nach Vokal: 는/가/를",
   "settingsUserLevel": "Mein Level",
   "settingsUserLevelChange": "Level ändern",

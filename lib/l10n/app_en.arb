@@ -983,6 +983,13 @@
   "firstVoiceTitle": "You understood your first Korean.",
   "firstVoiceBody": "You understood a first Korean expression and can use it in your scene.",
   "firstVoicePhraseBody": "a sentence you can now hear and answer.",
+  "firstVoiceSceneSummary": "{completed} of {total} tasks completed",
+  "@firstVoiceSceneSummary": {
+    "placeholders": {
+      "completed": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "firstVoiceCanDo": "I can greet someone kindly.",
   "firstVoiceCanDoBody": "Your A1 path begins with this scene.",
   "firstVoiceCompanionTitle": "Would you like a learning companion?",
@@ -1093,6 +1100,13 @@
   "scenarioDialogTitle": "Dialogue",
   "scenarioGrammarTitle": "Grammar",
   "scenarioQuestsTitle": "Mini-quests",
+  "scenarioQuestProgress": "{current} of {total}",
+  "@scenarioQuestProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "scenarioCulturalNote": "Culture note",
   "scenarioStartBtn": "Let's go",
   "scenarioNextBtn": "Next",
@@ -1184,7 +1198,22 @@
   "questWrong": "Not quite",
   "questNext": "Next",
   "questRetry": "Try again",
-  "particlePopHint": "Drag the correct particle into the slot.",
+  "questAnswerSelected": "Selected",
+  "questAnswerRevealed": "The correct answer is shown.",
+  "questTryAgainHint": "Almost. Try once more.",
+  "questViewResult": "View result",
+  "questListeningQuestion": "What does this sentence mean?",
+  "questTypeListening": "Listen",
+  "questTypeTranslation": "Translate",
+  "questTypeCloze": "Fill the gap",
+  "questTypeParticle": "Choose a particle",
+  "questTypeBatchim": "Add batchim",
+  "questTypeSentence": "Build a sentence",
+  "questTypeDictation": "Dictation",
+  "questTypeWriting": "Write",
+  "diktatUseWordBlocks": "No Korean keyboard? Use word blocks",
+  "diktatUseKeyboard": "Type with the keyboard",
+  "particlePopHint": "Choose the correct particle for the sentence.",
   "particlePopExplanation": "After consonant: 은/이/을 · After vowel: 는/가/를",
   "settingsUserLevel": "My level",
   "settingsUserLevelChange": "Change level",

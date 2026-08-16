@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
-import '../../widgets/sori/mascot_pop.dart';
+import 'quest_flow.dart';
+import 'quest_layout.dart';
 import 'quest_models.dart';
 
-/// Lückentext-Quest: Satz mit ___ → 4 Chips tippen, Lücke füllen.
-///
-/// **v5**: Light/Dark-fähig via [SoriSurfaces] (vorher dark-only `AppColors`).
+/// Cloze quest with explicit confirmation and a two-attempt resolution.
 class LueckenQuest extends StatefulWidget {
+  const LueckenQuest({
+    super.key,
+    required this.data,
+    required this.onComplete,
+    this.onContinue,
+    this.isLast = false,
+  });
+
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
-
-  const LueckenQuest({super.key, required this.data, required this.onComplete});
+  final VoidCallback? onContinue;
+  final bool isLast;
 
   @override
   State<LueckenQuest> createState() => _LueckenQuestState();
@@ -23,204 +30,128 @@ class LueckenQuest extends StatefulWidget {
 class _LueckenQuestState extends State<LueckenQuest> {
   int _selected = -1;
   int _tries = 0;
-  bool _completed = false;
-  bool _celebrated = false;
-  String? _filledWord;
+  int? _lastWrong;
+  bool? _resolved;
+  bool _reported = false;
 
   String get _sentence => (widget.data['sentence'] as String?) ?? '';
-
-  List<String> get _options {
-    final raw = widget.data['options'] as List? ?? const [];
-    return raw.cast<String>();
-  }
-
+  List<String> get _options =>
+      (widget.data['options'] as List? ?? const []).cast<String>();
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
 
-  Future<void> _onChipTap(int idx) async {
-    if (_completed) return;
-
-    final isCorrect = idx == _correctIndex;
+  void _select(int index) {
+    if (_resolved != null) return;
+    HapticFeedback.selectionClick();
     setState(() {
-      _selected = idx;
-      _filledWord = _options[idx];
+      _selected = index;
+      _lastWrong = null;
     });
+  }
 
-    if (isCorrect) {
+  void _report(bool passed) {
+    if (_reported) return;
+    _reported = true;
+    widget.onComplete(
+      QuestResult(passed: passed, firstTry: passed && _tries == 0),
+    );
+  }
+
+  void _check() {
+    if (_selected < 0 || _resolved != null) return;
+    if (_selected == _correctIndex) {
       HapticFeedback.lightImpact();
+      setState(() => _resolved = true);
+      _report(true);
+      return;
+    }
+    HapticFeedback.mediumImpact();
+    SoundService.wrong();
+    _tries++;
+    if (_tries >= 2) {
       setState(() {
-        _completed = true;
-        _celebrated = true;
+        _lastWrong = _selected;
+        _selected = _correctIndex;
+        _resolved = false;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) {
-        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
-      }
+      _report(false);
     } else {
-      HapticFeedback.mediumImpact();
-      SoundService.wrong();
-      _tries++;
-      if (_tries >= 2) {
-        setState(() {
-          _selected = _correctIndex;
-          _filledWord = _options[_correctIndex];
-          _completed = true;
-        });
-        await Future<void>.delayed(const Duration(milliseconds: 1500));
-        if (mounted) {
-          widget.onComplete(QuestResult(passed: false, firstTry: false));
-        }
-      } else {
-        await Future<void>.delayed(const Duration(milliseconds: 700));
-        if (mounted) {
-          setState(() {
-            _selected = -1;
-            _filledWord = null;
-          });
-        }
-      }
+      setState(() => _lastWrong = _selected);
     }
   }
 
-  Color _chipBorderColor(int idx, SoriSurfaces s) {
-    if (_selected != idx) return s.surfaceAlt;
-    if (idx == _correctIndex) return SoriColors.success;
-    return SoriColors.danger;
+  SoriAnswerState _stateFor(int index) {
+    if (_resolved != null && index == _correctIndex) {
+      return SoriAnswerState.correct;
+    }
+    if (_lastWrong == index) return SoriAnswerState.wrong;
+    if (_selected == index) return SoriAnswerState.selected;
+    return SoriAnswerState.idle;
   }
 
-  Color _chipBgColor(int idx, SoriSurfaces s) {
-    if (_selected != idx) return s.surface;
-    if (idx == _correctIndex) return SoriColors.success.withAlpha(38);
-    return SoriColors.danger.withAlpha(38);
-  }
-
-  Widget _buildSentence(SoriSurfaces s) {
+  Widget _sentenceView(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
     final parts = _sentence.split('___');
     if (parts.length < 2) {
-      return Text(
-        _sentence,
-        style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
-        textAlign: TextAlign.center,
-      );
+      return Text(_sentence, style: SoriTextTheme.of(context).h2);
     }
-
-    final slotColor = _completed
-        ? (_selected == _correctIndex ? SoriColors.success : SoriColors.danger)
-        : SoriColors.info;
-
-    return Wrap(
-      alignment: WrapAlignment.center,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      runSpacing: 4,
-      children: [
-        Text(
-          parts[0],
-          style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
-        ),
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          constraints: const BoxConstraints(minWidth: 64),
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: slotColor, width: 2),
-            color: _filledWord != null
-                ? slotColor.withAlpha(26)
-                : Colors.transparent,
-          ),
-          child: Text(
-            _filledWord ?? '     ',
+    final answer = _selected >= 0 && _selected < _options.length
+        ? _options[_selected]
+        : '____';
+    return Text.rich(
+      TextSpan(
+        style: SoriTextTheme.of(
+          context,
+        ).h2.copyWith(color: surfaces.text, height: 1.45),
+        children: [
+          TextSpan(text: parts.first),
+          TextSpan(
+            text: answer,
             style: TextStyle(
-              color: _filledWord != null ? slotColor : s.textDim,
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              height: 1.5,
+              color: _selected < 0 ? surfaces.textMuted : SoriColors.primary,
+              decoration: TextDecoration.underline,
+              decorationColor: SoriColors.primary,
+              fontWeight: FontWeight.w800,
             ),
-            textAlign: TextAlign.center,
           ),
-        ),
-        Text(
-          parts[1],
-          style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
-        ),
-      ],
+          TextSpan(text: parts.sublist(1).join('___')),
+        ],
+      ),
+      textAlign: TextAlign.center,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Satz mit Lücke
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: s.surfaceAlt, width: 1.5),
-              ),
-              child: _buildSentence(s),
-            ),
-            const SizedBox(height: 32),
-
-            // Optionen als Chips
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              alignment: WrapAlignment.center,
-              children: _options.asMap().entries.map((entry) {
-                final idx = entry.key;
-                final label = entry.value;
-
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  decoration: BoxDecoration(
-                    color: _chipBgColor(idx, s),
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(
-                      color: _chipBorderColor(idx, s),
-                      width: 1.5,
-                    ),
-                  ),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(24),
-                    onTap: () => _onChipTap(idx),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 10,
-                      ),
-                      child: Text(
-                        label,
-                        style: TextStyle(
-                          color: s.text,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              }).toList(),
-            ),
-          ],
-        ),
-        Positioned(
-          top: -12,
-          right: 12,
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 56,
-            kind: MascotKind.magpie,
+    final t = AppL10n.of(context);
+    return QuestLayout(
+      action: ScenarioQuestAction(
+        canSubmit: _selected >= 0,
+        onSubmit: _check,
+        resolved: _resolved,
+        onContinue: widget.onContinue,
+        isLast: widget.isLast,
+        pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+      ),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+            child: _sentenceView(context),
           ),
-        ),
-      ],
+          const SizedBox(height: Spacing.lg),
+          for (final entry in _options.asMap().entries) ...[
+            SoriAnswerTile(
+              key: ValueKey('answer-${entry.key}'),
+              label: entry.value,
+              index: entry.key,
+              state: _stateFor(entry.key),
+              onTap: _resolved == null ? () => _select(entry.key) : null,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+        ],
+      ),
     );
   }
 }

@@ -160,7 +160,10 @@ void main() {
     await tester.pumpWidget(_wrap(const SatzArcadeScreen(items: [_satz])));
     await tester.pump();
 
-    await tester.tap(find.text('가요'));
+    final answerTile = find.text('가요');
+    await tester.ensureVisible(answerTile);
+    await tester.pump();
+    await tester.tap(answerTile);
     await tester.pump();
     await tester.ensureVisible(find.text('Überprüfen'));
     await tester.pump();

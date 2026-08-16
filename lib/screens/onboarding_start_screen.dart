@@ -131,7 +131,7 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
         SoriTransitions.fadeScale<void>(
           (_) => ScenarioPlayerScreen(
             scenarioId: scene.scenarioId,
-            startAtFirstTask: true,
+            mode: ScenarioPlayerMode.onboardingFirstScene,
             onExit: () {
               if (!navigator.mounted) {
                 return;
@@ -141,19 +141,22 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
                 (route) => false,
               );
             },
-            onFirstCorrect: (success) {
+            onCompleted: (summary) {
               if (!navigator.mounted) {
                 return;
               }
               final t = AppL10n.of(navigator.context);
+              final success = summary.firstSuccess;
               unawaited(
-                navigator.push<void>(
+                navigator.pushReplacement<void, void>(
                   SoriTransitions.fadeScale<void>(
                     (_) => FirstVoiceSuccessScreen(
-                      canDo: success.kind == ScenarioFirstSuccessKind.listening
+                      canDo: success?.kind == ScenarioFirstSuccessKind.listening
                           ? t.moduleListenDesc
                           : t.courseMissionBriefBuildTitle,
-                      phrase: success.phrase,
+                      phrase: success?.phrase,
+                      completedTasks: summary.passed,
+                      totalTasks: summary.total,
                     ),
                   ),
                 ),

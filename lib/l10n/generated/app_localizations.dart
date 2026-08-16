@@ -3919,6 +3919,12 @@ abstract class AppL10n {
   /// **'ein Satz, den du jetzt hören und erwidern kannst.'**
   String get firstVoicePhraseBody;
 
+  /// No description provided for @firstVoiceSceneSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'{completed} von {total} Aufgaben abgeschlossen'**
+  String firstVoiceSceneSummary(int completed, int total);
+
   /// No description provided for @firstVoiceCanDo.
   ///
   /// In de, this message translates to:
@@ -4459,6 +4465,12 @@ abstract class AppL10n {
   /// **'Mini-Spiele'**
   String get scenarioQuestsTitle;
 
+  /// No description provided for @scenarioQuestProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{current} von {total}'**
+  String scenarioQuestProgress(int current, int total);
+
   /// No description provided for @scenarioCulturalNote.
   ///
   /// In de, this message translates to:
@@ -4693,10 +4705,100 @@ abstract class AppL10n {
   /// **'Nochmal'**
   String get questRetry;
 
+  /// No description provided for @questAnswerSelected.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausgewählt'**
+  String get questAnswerSelected;
+
+  /// No description provided for @questAnswerRevealed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die richtige Antwort wird angezeigt.'**
+  String get questAnswerRevealed;
+
+  /// No description provided for @questTryAgainHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast. Versuch es noch einmal.'**
+  String get questTryAgainHint;
+
+  /// No description provided for @questViewResult.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get questViewResult;
+
+  /// No description provided for @questListeningQuestion.
+  ///
+  /// In de, this message translates to:
+  /// **'Was bedeutet dieser Satz?'**
+  String get questListeningQuestion;
+
+  /// No description provided for @questTypeListening.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören'**
+  String get questTypeListening;
+
+  /// No description provided for @questTypeTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzen'**
+  String get questTypeTranslation;
+
+  /// No description provided for @questTypeCloze.
+  ///
+  /// In de, this message translates to:
+  /// **'Lücke füllen'**
+  String get questTypeCloze;
+
+  /// No description provided for @questTypeParticle.
+  ///
+  /// In de, this message translates to:
+  /// **'Partikel wählen'**
+  String get questTypeParticle;
+
+  /// No description provided for @questTypeBatchim.
+  ///
+  /// In de, this message translates to:
+  /// **'Batchim ergänzen'**
+  String get questTypeBatchim;
+
+  /// No description provided for @questTypeSentence.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz bauen'**
+  String get questTypeSentence;
+
+  /// No description provided for @questTypeDictation.
+  ///
+  /// In de, this message translates to:
+  /// **'Diktat'**
+  String get questTypeDictation;
+
+  /// No description provided for @questTypeWriting.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get questTypeWriting;
+
+  /// No description provided for @diktatUseWordBlocks.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine koreanische Tastatur? Wortblöcke verwenden'**
+  String get diktatUseWordBlocks;
+
+  /// No description provided for @diktatUseKeyboard.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit der Tastatur schreiben'**
+  String get diktatUseKeyboard;
+
   /// No description provided for @particlePopHint.
   ///
   /// In de, this message translates to:
-  /// **'Zieh die richtige Partikel in den Slot.'**
+  /// **'Wähle die richtige Partikel für den Satz.'**
   String get particlePopHint;
 
   /// No description provided for @particlePopExplanation.

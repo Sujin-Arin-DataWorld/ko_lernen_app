@@ -2169,6 +2169,11 @@ class AppL10nEn extends AppL10n {
   String get firstVoicePhraseBody => 'a sentence you can now hear and answer.';
 
   @override
+  String firstVoiceSceneSummary(int completed, int total) {
+    return '$completed of $total tasks completed';
+  }
+
+  @override
   String get firstVoiceCanDo => 'I can greet someone kindly.';
 
   @override
@@ -2468,6 +2473,11 @@ class AppL10nEn extends AppL10n {
   String get scenarioQuestsTitle => 'Mini-quests';
 
   @override
+  String scenarioQuestProgress(int current, int total) {
+    return '$current of $total';
+  }
+
+  @override
   String get scenarioCulturalNote => 'Culture note';
 
   @override
@@ -2612,7 +2622,52 @@ class AppL10nEn extends AppL10n {
   String get questRetry => 'Try again';
 
   @override
-  String get particlePopHint => 'Drag the correct particle into the slot.';
+  String get questAnswerSelected => 'Selected';
+
+  @override
+  String get questAnswerRevealed => 'The correct answer is shown.';
+
+  @override
+  String get questTryAgainHint => 'Almost. Try once more.';
+
+  @override
+  String get questViewResult => 'View result';
+
+  @override
+  String get questListeningQuestion => 'What does this sentence mean?';
+
+  @override
+  String get questTypeListening => 'Listen';
+
+  @override
+  String get questTypeTranslation => 'Translate';
+
+  @override
+  String get questTypeCloze => 'Fill the gap';
+
+  @override
+  String get questTypeParticle => 'Choose a particle';
+
+  @override
+  String get questTypeBatchim => 'Add batchim';
+
+  @override
+  String get questTypeSentence => 'Build a sentence';
+
+  @override
+  String get questTypeDictation => 'Dictation';
+
+  @override
+  String get questTypeWriting => 'Write';
+
+  @override
+  String get diktatUseWordBlocks => 'No Korean keyboard? Use word blocks';
+
+  @override
+  String get diktatUseKeyboard => 'Type with the keyboard';
+
+  @override
+  String get particlePopHint => 'Choose the correct particle for the sentence.';
 
   @override
   String get particlePopExplanation =>

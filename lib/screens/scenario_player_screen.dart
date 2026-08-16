@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -141,6 +142,71 @@ class ScenarioFirstSuccess {
 typedef ScenarioFirstCorrectCallback =
     void Function(ScenarioFirstSuccess success);
 
+enum ScenarioPlayerMode { standard, onboardingFirstScene }
+
+class ScenarioCompletionSummary {
+  const ScenarioCompletionSummary({
+    required this.firstSuccess,
+    required this.passed,
+    required this.total,
+  });
+
+  final ScenarioFirstSuccess? firstSuccess;
+  final int passed;
+  final int total;
+}
+
+class _QuestSegmentProgress extends StatelessWidget {
+  const _QuestSegmentProgress({
+    required this.current,
+    required this.total,
+    required this.semanticsLabel,
+  });
+
+  final int current;
+  final int total;
+  final String semanticsLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return Semantics(
+      label: semanticsLabel,
+      child: ExcludeSemantics(
+        child: Row(
+          children: [
+            for (var index = 0; index < total; index++) ...[
+              Expanded(
+                child: AnimatedContainer(
+                  duration: MediaQuery.disableAnimationsOf(context)
+                      ? Duration.zero
+                      : const Duration(milliseconds: 200),
+                  height: index == current ? 8 : 6,
+                  decoration: BoxDecoration(
+                    color: index < current
+                        ? SoriColors.primary
+                        : index == current
+                        ? SoriColors.primary.withAlpha(82)
+                        : surfaces.surfaceAlt,
+                    borderRadius: BorderRadius.circular(SoriRadius.sm),
+                    border: index == current
+                        ? Border.all(color: SoriColors.primary, width: 1.5)
+                        : null,
+                  ),
+                ),
+              ),
+              if (index < total - 1) const SizedBox(width: Spacing.xs),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+typedef ScenarioCompletionCallback =
+    FutureOr<void> Function(ScenarioCompletionSummary summary);
+
 /// Describes only the Korean expression that the completed quest actually
 /// checked. Invalid or incomplete legacy quest data fails closed.
 ScenarioFirstSuccess? scenarioFirstSuccessForQuest(QuestSpec quest) {
@@ -235,6 +301,7 @@ class ScenarioPlayerPreviewFixture {
   const ScenarioPlayerPreviewFixture.action({
     required this.scenario,
     this.stage = ScenarioStage.dialog,
+    this.questIndex = 0,
     this.missionStep,
     this.missionTitle,
     this.onReturn,
@@ -248,10 +315,12 @@ class ScenarioPlayerPreviewFixture {
     this.missionTitle,
     this.onReturn,
     this.onRepeat,
-  }) : stage = ScenarioStage.result;
+  }) : stage = ScenarioStage.result,
+       questIndex = 0;
 
   final Scenario scenario;
   final ScenarioStage stage;
+  final int questIndex;
   final ScenarioCanDoResult? result;
   final CourseMissionStep? missionStep;
   final String? missionTitle;
@@ -264,9 +333,9 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
   final ScenarioResultPersister? resultPersister;
-  final ScenarioFirstCorrectCallback? onFirstCorrect;
+  final ScenarioCompletionCallback? onCompleted;
   final VoidCallback? onExit;
-  final bool startAtFirstTask;
+  final ScenarioPlayerMode mode;
   final ScenarioPlayerPreviewFixture? previewFixture;
 
   const ScenarioPlayerScreen({
@@ -275,9 +344,9 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.courseContext,
     this.scenarioLoader,
     this.resultPersister,
-    this.onFirstCorrect,
+    this.onCompleted,
     this.onExit,
-    this.startAtFirstTask = false,
+    this.mode = ScenarioPlayerMode.standard,
   }) : previewFixture = null;
 
   ScenarioPlayerScreen.preview({
@@ -288,8 +357,8 @@ class ScenarioPlayerScreen extends StatefulWidget {
        courseContext = null,
        scenarioLoader = null,
        resultPersister = null,
-       onFirstCorrect = null,
-       startAtFirstTask = false,
+       onCompleted = null,
+       mode = ScenarioPlayerMode.standard,
        previewFixture = fixture;
 
   @override
@@ -313,6 +382,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   final Set<int> _failedQuestIndices = <int>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
+  ScenarioFirstSuccess? _firstSuccess;
+  bool _completionDelivered = false;
   bool _resultSaving = false;
   bool _resultPersisted = false;
   bool _exitRequested = false;
@@ -370,9 +441,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       );
       final requestedIndex = preview.stage == ScenarioStage.result
           ? _plan.length - 1
+          : preview.stage == ScenarioStage.quest
+          ? _plan.indexOf(ScenarioStage.quest) +
+                preview.questIndex
+                    .clamp(0, math.max(0, scenario.quests.length - 1))
+                    .toInt()
           : _plan.indexOf(preview.stage);
       _stage = requestedIndex < 0 ? 0 : requestedIndex;
-      _questReady = preview.stage != ScenarioStage.quest;
+      _questReady =
+          preview.stage != ScenarioStage.quest &&
+          preview.stage != ScenarioStage.rollenspiel;
       _resultPersisted = preview.stage == ScenarioStage.result;
       _canDoResult = preview.result;
       _pageCtrl = PageController(initialPage: _stage);
@@ -446,7 +524,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
     final initialStage = scenarioInitialStageIndex(
       plan,
-      startAtFirstTask: widget.startAtFirstTask,
+      startAtFirstTask: widget.mode == ScenarioPlayerMode.onboardingFirstScene,
     );
     setState(() {
       _scenario = s;
@@ -503,6 +581,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _stage >= 0 &&
       _stage < _plan.length &&
       _plan[_stage] == ScenarioStage.quest;
+
+  bool get _isRoleplayStage =>
+      _scenario != null &&
+      _stage >= 0 &&
+      _stage < _plan.length &&
+      _plan[_stage] == ScenarioStage.rollenspiel;
 
   double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
@@ -583,30 +667,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (result.passed) _passedCount++;
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
-    if (result.passed) {
-      _onCorrectAnswer(
-        firstSuccess: completedQuest == null
-            ? null
-            : scenarioFirstSuccessForQuest(completedQuest),
-      );
+    if (result.passed &&
+        completedQuest != null &&
+        _firstCorrectGate.accept(correct: true)) {
+      _firstSuccess = scenarioFirstSuccessForQuest(completedQuest);
     }
     setState(() => _questReady = true);
   }
 
   void _onCorrectAnswer({ScenarioFirstSuccess? firstSuccess}) {
-    _celebrateCorrect();
     if (firstSuccess != null && _firstCorrectGate.accept(correct: true)) {
-      widget.onFirstCorrect?.call(firstSuccess);
+      _firstSuccess = firstSuccess;
     }
-  }
-
-  /// 정답 순간 — 화면 중앙에 엽전·복주머니 코인 burst. post-frame + 화면 State의
-  /// 안정적 context로 호출한다(이벤트 콜백에서 동기 호출 시 InheritedWidget 의존성
-  /// 오염 → _dependents.isEmpty. _next()의 검증된 안전 패턴과 동일).
-  void _celebrateCorrect() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) SoriCelebration.coins(context);
-    });
   }
 
   // ─── Stern-Berechnung ──────────────────────────────────────────────────────
@@ -733,6 +805,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         _resultPersisted = true;
         _canDoResult = canDoResult;
       });
+      if (widget.mode == ScenarioPlayerMode.standard) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) SoriCelebration.burst(context);
+        });
+      }
+      final onCompleted = widget.onCompleted;
+      if (!_completionDelivered && onCompleted != null) {
+        _completionDelivered = true;
+        await onCompleted(
+          ScenarioCompletionSummary(
+            firstSuccess: _firstSuccess,
+            passed: _passedCount,
+            total: done?.quests.length ?? 0,
+          ),
+        );
+      }
     } catch (_) {
       if (!mounted) return;
       setState(() => _resultSaving = false);
@@ -1095,53 +1183,77 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     switch (spec.type) {
       case QuestType.hoerverstehen:
         questWidget = HoerverstehenQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           audioEnabled: widget.previewFixture == null,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.uebersetzen:
         questWidget = UebersetzenQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.luecken:
         questWidget = LueckenQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.particlePop:
         questWidget = ParticlePopQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.batchimDrop:
         questWidget = BatchimDropQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.satzBauen:
         questWidget = SatzBauenQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
         );
       case QuestType.diktat:
         questWidget = DiktatQuest(
+          key: ValueKey('quest-$_currentQuestIndex'),
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
           },
+          onContinue: _next,
+          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowWordBankFallback:
+              widget.mode == ScenarioPlayerMode.onboardingFirstScene &&
+              widget.courseContext == null,
         );
       default:
         questWidget = Center(
@@ -1172,24 +1284,67 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       MediaQuery.sizeOf(context).width,
       base: const EdgeInsets.symmetric(
         horizontal: Spacing.lg,
-        vertical: Spacing.xl,
+        vertical: Spacing.sm,
       ),
     );
+    final media = MediaQuery.of(context);
+    final textScale = media.textScaler.scale(1);
+    final posterHeight = media.size.height < 650 || textScale >= 1.6
+        ? 64.0
+        : media.size.height < 760 || textScale >= 1.3
+        ? 88.0
+        : 112.0;
     return Padding(
       padding: pad,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _StageTitle(
-            '${t.scenarioQuestsTitle} ${_currentQuestIndex + 1}/${_scenario!.quests.length}',
-            SoriColors.primary,
+          if (_backdropPoster case final poster?) ...[
+            Semantics(
+              image: true,
+              label: _scenario!.title.pick(
+                Localizations.localeOf(context).languageCode,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(SoriRadius.lg),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: posterHeight,
+                  child: Image.asset(
+                    poster,
+                    fit: BoxFit.cover,
+                    alignment: Alignment.center,
+                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          Text(
+            _questTypeLabel(spec.type, t),
+            style: SoriTextTheme.of(context).label.copyWith(
+              color: SoriColors.primary,
+              fontWeight: FontWeight.w700,
+            ),
           ),
-          const SizedBox(height: Spacing.xl),
+          const SizedBox(height: Spacing.xs),
           Expanded(child: questWidget),
         ],
       ),
     );
   }
+
+  String _questTypeLabel(QuestType type, AppL10n t) => switch (type) {
+    QuestType.hoerverstehen => t.questTypeListening,
+    QuestType.uebersetzen => t.questTypeTranslation,
+    QuestType.luecken => t.questTypeCloze,
+    QuestType.particlePop => t.questTypeParticle,
+    QuestType.batchimDrop => t.questTypeBatchim,
+    QuestType.satzBauen => t.questTypeSentence,
+    QuestType.diktat => t.questTypeDictation,
+    QuestType.schreiben => t.questTypeWriting,
+  };
 
   Widget _buildResult(AppL10n t, String lang) {
     final scenario = _scenario!;
@@ -1433,7 +1588,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     // (`_questReady = !nextNeedsCompletion`), 그런 퀘스트는 자기 완료 수단을
     // 반드시 갖는다. 완료되면 `_questReady` 가 true 가 되어 Weiter 가 다시
     // 나타나므로 사용자가 갇히지 않는다.
-    if (_isQuestStage && !_questReady) {
+    if (_isQuestStage || (_isRoleplayStage && !_questReady)) {
       return const SizedBox.shrink();
     }
 
@@ -1476,27 +1631,63 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           icon: const Icon(Icons.close_rounded),
           onPressed: _requestExit,
         ),
-        title: Text(
-          _scenario!.title.pick(lang),
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          overflow: TextOverflow.ellipsis,
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                _scenario!.title.pick(lang),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            if (_isQuestStage) ...[
+              const SizedBox(width: Spacing.sm),
+              Text(
+                t.scenarioQuestProgress(
+                  _currentQuestIndex + 1,
+                  _scenario!.quests.length,
+                ),
+                style: SoriTextTheme.of(context).caption.copyWith(
+                  color: SoriColors.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ],
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(6),
+          preferredSize: Size.fromHeight(_isQuestStage ? 18 : 6),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-            child: SoriProgressBar(
-              value: _progress,
-              thickness: 6,
-              animated: true,
+            padding: const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              0,
+              Spacing.lg,
+              Spacing.xs,
             ),
+            child: _isQuestStage
+                ? _QuestSegmentProgress(
+                    current: _currentQuestIndex,
+                    total: _scenario!.quests.length,
+                    semanticsLabel: t.scenarioQuestProgress(
+                      _currentQuestIndex + 1,
+                      _scenario!.quests.length,
+                    ),
+                  )
+                : SoriProgressBar(
+                    value: _progress,
+                    thickness: 6,
+                    animated: true,
+                  ),
           ),
         ),
       ),
       body: SoriScreenBackground(
         child: Stack(
           children: [
-            if (_backdropPoster != null)
+            if (_backdropPoster != null && !_isQuestStage && !_isRoleplayStage)
               Positioned.fill(
                 child: IgnorePointer(
                   child: Opacity(
@@ -1781,11 +1972,11 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   late final List<String> _pool; // Distraktor-Quelle (echte Dialog-Wörter)
   int _idx = 0;
   bool _done = false;
+  QuestResult? _pendingResult;
 
   /// 온보딩에서 사용자가 고른 캐릭터. 축하 클립을 여기에 맞춘다.
   late final MascotKind? _kind;
   late final String? _clip;
-  bool _burstFired = false;
 
   @override
   void initState() {
@@ -1841,20 +2032,21 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   }
 
   void _onTurnComplete(QuestResult result) {
+    setState(() => _pendingResult = result);
+  }
+
+  void _continueTurn() {
+    final result = _pendingResult;
+    if (result == null) return;
     if (result.passed) widget.onCorrect?.call();
     if (_idx + 1 >= _turns.length) {
       setState(() => _done = true);
       widget.onDone();
-      // 직접 해낸 경우에만 축하 — 턴이 없는 시나리오는 조용히 넘어간다.
-      if (!_burstFired) {
-        _burstFired = true;
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          // reduce-motion·Overlay 부재 시 no-op (celebration.dart:20-22).
-          if (mounted) SoriCelebration.burst(context);
-        });
-      }
     } else {
-      setState(() => _idx++);
+      setState(() {
+        _idx++;
+        _pendingResult = null;
+      });
     }
   }
 
@@ -1889,61 +2081,173 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     final turn = _turns[_idx];
     final ctx = turn.context;
 
-    // ── 진행 중: 기존 위 정렬 유지 (회귀 0) ────────────────────────────────
-    return _StageScroll(
+    final media = MediaQuery.of(context);
+    final textScale = media.textScaler.scale(1);
+    final posterHeight = media.size.height < 650 || textScale >= 1.6
+        ? 56.0
+        : media.size.height < 760 || textScale >= 1.3
+        ? 72.0
+        : 96.0;
+    final poster = SceneAssetResolver.posterAsset(widget.scenario);
+    final progressLabel =
+        '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}';
+    final topMaxHeight = textScale >= 1.6
+        ? 190.0
+        : math.min(244.0, media.size.height * 0.34);
+    final padding = soriClampPadding(
+      media.size.width,
+      base: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.sm,
+        Spacing.lg,
+        Spacing.sm,
+      ),
+    );
+
+    // The scene/context block has a hard maximum height, so the interactive
+    // sentence builder and its CTA always retain a visible portion of the
+    // viewport. Only large-text/short-screen edge cases scroll this compact
+    // top block; normal phones see the whole turn without page-length travel.
+    return Padding(
+      padding: padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _StageTitle(t.scenarioRoleplayTitle, SoriColors.tiger),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            t.scenarioRoleplayHint,
-            style: SoriTextTheme.of(
-              context,
-            ).bodySmall.copyWith(color: s.textMuted),
-          ),
-          const SizedBox(height: Spacing.lg),
-          Text(
-            '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}',
-            style: SoriTextTheme.of(
-              context,
-            ).caption.copyWith(color: s.textMuted),
-          ),
-          const SizedBox(height: Spacing.sm),
-          if (ctx != null) ...[
-            SoriCard(
-              variant: SoriCardVariant.compact,
-              accent: SoriColors.success,
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: topMaxHeight),
+            child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    ctx.ko,
-                    style: TextStyle(
-                      color: s.text,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      height: 1.4,
+                  if (poster != null) ...[
+                    Semantics(
+                      image: true,
+                      label: widget.scenario.title.pick(widget.lang),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(SoriRadius.lg),
+                        child: SizedBox(
+                          height: posterHeight,
+                          child: Image.asset(
+                            poster,
+                            fit: BoxFit.cover,
+                            alignment: Alignment.center,
+                            errorBuilder: (_, __, ___) =>
+                                const SizedBox.shrink(),
+                          ),
+                        ),
+                      ),
                     ),
+                    const SizedBox(height: Spacing.sm),
+                  ],
+                  Wrap(
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      Text(
+                        t.scenarioRoleplayTitle,
+                        style: SoriTextTheme.of(context).label.copyWith(
+                          color: SoriColors.primary,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const TtsSpeedControl(),
+                    ],
                   ),
-                  if (ctx.pick(widget.lang).isNotEmpty) ...[
-                    const SizedBox(height: Spacing.xs),
+                  const SizedBox(height: Spacing.xs),
+                  if (textScale >= 1.6) ...[
                     Text(
-                      ctx.pick(widget.lang),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).bodySmall.copyWith(color: s.textDim),
+                      progressLabel,
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        color: s.textMuted,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    _QuestSegmentProgress(
+                      current: _idx,
+                      total: _turns.length,
+                      semanticsLabel: progressLabel,
+                    ),
+                  ] else
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _QuestSegmentProgress(
+                            current: _idx,
+                            total: _turns.length,
+                            semanticsLabel: progressLabel,
+                          ),
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        Text(
+                          progressLabel,
+                          style: SoriTextTheme.of(context).caption.copyWith(
+                            color: s.textMuted,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.scenarioRoleplayHint,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(color: s.textMuted),
+                  ),
+                  if (ctx != null) ...[
+                    const SizedBox(height: Spacing.sm),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                      decoration: BoxDecoration(
+                        color: s.surface.withValues(alpha: 0.92),
+                        borderRadius: BorderRadius.circular(SoriRadius.md),
+                        border: const Border(
+                          left: BorderSide(color: SoriColors.primary, width: 3),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            ctx.ko,
+                            style: SoriTextTheme.of(context).body.copyWith(
+                              color: s.text,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              height: 1.3,
+                            ),
+                          ),
+                          if (ctx.pick(widget.lang).isNotEmpty) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              ctx.pick(widget.lang),
+                              style: SoriTextTheme.of(
+                                context,
+                              ).caption.copyWith(color: s.textDim),
+                            ),
+                          ],
+                        ],
+                      ),
                     ),
                   ],
+                  const SizedBox(height: Spacing.sm),
                 ],
               ),
             ),
-            const SizedBox(height: Spacing.md),
-          ],
-          SatzBauenQuest(
-            key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
-            data: _dataFor(turn.user),
-            onComplete: _onTurnComplete,
+          ),
+          Expanded(
+            child: SatzBauenQuest(
+              key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
+              data: _dataFor(turn.user),
+              onComplete: _onTurnComplete,
+              onContinue: _continueTurn,
+              isLast: _idx + 1 >= _turns.length,
+              showMascot: false,
+              compact: true,
+              showSpeedControl: false,
+            ),
           ),
         ],
       ),

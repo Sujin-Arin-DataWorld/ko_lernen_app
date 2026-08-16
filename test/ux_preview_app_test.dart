@@ -211,16 +211,14 @@ void main() {
       expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
       expect(find.text('감사합니다.'), findsOneWidget);
 
-      final check = find.text('Meine Antwort prüfen');
+      final check = find.text('Überprüfen');
       expect(check, findsOneWidget);
       expect(find.text('Weiter'), findsNothing);
       await tester.tap(find.text('안 맵게 해 주세요.'));
       await tester.pump();
       expect(
         tester
-            .widget<SoriButton>(
-              find.widgetWithText(SoriButton, 'Meine Antwort prüfen'),
-            )
+            .widget<SoriButton>(find.widgetWithText(SoriButton, 'Überprüfen'))
             .onTap,
         isNotNull,
       );
@@ -229,7 +227,7 @@ void main() {
       await tester.tap(check);
       await tester.pump(const Duration(milliseconds: 1250));
 
-      expect(find.text('Weiter'), findsOneWidget);
+      expect(find.text('Ergebnis ansehen'), findsOneWidget);
       expect(await _preferencesSnapshot(), before);
       expect(Storage.userLevelCode, isNull);
     },
