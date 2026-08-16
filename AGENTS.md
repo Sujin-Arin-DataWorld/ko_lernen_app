@@ -277,6 +277,9 @@ flutter run -d <android-id>   # 안드로이드
   폐기했으며, 수동 배포가 필요할 때만 `npm run cloudflare:login`으로 OS keychain 기반
   credential을 새로 만든다.
 
+- [x] **사랑방 자유 배치·에셋 전면 활용**: 고정 슬롯을 v3 연속 좌표 편집기로 교체하고
+  보유 장식 11종·스티커 30종·도장 14종을 개인 방 인벤토리에 연결했다. 퀘스트 전용
+  장식 13종은 기존 마당 경로를 유지하며, 상세 검증은 `docs/SESSION_LOG.md` 최상단이다.
 - [x] **UI/UX 개편 2**: 정본은 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`이고 구현은
   `main`의 `f718106c`에 통합됐다. 새 화면/흐름의 설계 기준은 이 문서 하나를 사용한다.
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
@@ -293,6 +296,14 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.
+- [x] **책 한 컷 로컬 하드닝**: ML Kit Korean 단일 인식, 공용 NFC/혼합-text 계약,
+  사진 선명도·명암·회전 gate와 3단 정렬, 엄격한 응답 schema/언어 검증, 빈·오염 결과의
+  저장·팩·TTS 차단, DE/EN 출처, Kiwi 관형형, source-free 30일 cache, exact source
+  allowlist와 배포 verifier를 구현했다. Flutter/Python/Firestore 회귀와 preflight는 통과했다.
+- [ ] **책 한 컷 운영 게이트 (Jin 승인 필요)**: 2026-08-15 live Gen2는 필수 모듈이 빠진
+  구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
+  Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
+  촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
 - [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
   AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
@@ -320,25 +331,29 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
 
 **따라서 PR 작업의 완료 조건은 다음 6단계다:**
 
-1. 브랜치 push 완료 확인
-2. PR 생성 또는 갱신
-3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch`의 기본
-   `task=ci`로 명시 실행** (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는
-   예외 이벤트다)
-4. run 이 **실제로 생성됐는지 확인** (run id 를 확보한다)
-5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security ·
-   Gye functions/rules security · Pronunciation function security
-6. **run 이 존재하고 결과를 확인하기 전까지 "PR 준비됨" 이라고 보고하지 않는다**
+1. 로컬 관련 검증을 끝내고, 연속 수정은 모아 브랜치를 한 번 push한다.
+2. PR 생성 또는 갱신 뒤 현재 head SHA를 확인한다.
+3. 그 SHA의 자동 CI run이 이미 생성됐는지 먼저 확인한다. 있으면 **수동 run을 추가하지 않는다**.
+4. 자동 run이 없을 때만 `.github/workflows/ci.yml`을 PR head 브랜치에서 기본
+   `task=ci`로 한 번 `workflow_dispatch`한다.
+5. run ID와 `Select required checks` 결과를 확인하고, 변경 범위에 맞는 Analyze/Test/Build,
+   Website, Book, Gye, Pronunciation 잡의 결과를 확인한다.
+6. **현재 head SHA의 필요한 run이 존재하고 결과를 확인하기 전까지 "PR 준비됨"이라고
+   보고하지 않는다.**
 
-자동 트리거를 기다리며 시간을 보내지 말 것. 안 붙으면 3번을 바로 실행한다.
-사람이 UI 에서 직접 만든 PR 은 원래대로 `pull_request` 트리거가 동작하므로 두 경로가 공존한다.
+**비용 안전장치.** 기본 `task=ci`는 `main`과 PR head의 차이를 읽어 필요한 영역만 연다.
+앱 변경은 Flutter, `functions/analyze_korean_text/**`는 Book,
+`functions/gye/**`는 Gye, `functions/pronunciation/**`는 Pronunciation,
+`hangul-sori-site-local/**`는 Website만 실행한다. 공용 Rules·Firebase 설정·CI 자체 변경은
+관련 게이트를 보수적으로 함께 연다. 일반 Markdown/세션 로그만 바뀐 push/PR은 run 자체를
+만들지 않는다.
 
-**비용 안전장치.** 같은 PR/브랜치의 이전 실행은 `concurrency`가 취소하고, Markdown과
-`docs/**`만 바뀐 push/PR은 Flutter CI를 만들지 않는다. 일반 수동 검증은 기본
-`task=ci`만 사용한다. 골든 기준선을 실제로 교체할 때만 `task=regenerate-goldens`를
-선택하며, 이 모드는 일반 CI 네 job을 중복 실행하지 않는다. 실패 diff는 3일, 재생성
-골든은 7일만 보관한다. 문서 전용 PR에 CI가 없는 것은 의도된 상태지만, 코드·데이터·에셋·
-설정 변경이 하나라도 있으면 위 6단계 게이트를 그대로 적용한다.
+- 의존 범위를 확신할 수 없는 교차 계층 변경이나 명시적 최종 전체 점검만 `task=full`.
+- 골든 기준선을 실제로 교체할 때만 `task=regenerate-goldens`; 일반 CI와 중복 실행되지 않는다.
+- 같은 SHA의 자동 run과 수동 run을 둘 다 만들지 않는다. 새 코드 변경 없이 재시도할 때는
+  전체 재실행 대신 실패한 잡만 재실행한다.
+- 같은 브랜치의 오래된 run은 `concurrency`가 취소한다. 실패 diff는 3일, 재생성 골든은
+  7일만 보관한다.
 
 ---
 

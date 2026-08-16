@@ -510,11 +510,19 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                 opacity: _stampIn.value.clamp(0.0, 1.0),
                 child: Transform.scale(
                   scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
-                  child: DancheongStamp(
-                    motif: widget.motif,
-                    size: 120,
-                    animate: false,
-                    stamped: true,
+                  child: Semantics(
+                    image: true,
+                    label: dancheongMotifName(
+                      AppL10n.of(context),
+                      widget.motif,
+                    ),
+                    excludeSemantics: true,
+                    child: DancheongStamp(
+                      motif: widget.motif,
+                      size: 120,
+                      animate: false,
+                      stamped: true,
+                    ),
                   ),
                 ),
               ),

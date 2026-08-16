@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/book_capture_image_quality.dart';
 import '../services/book_image_service.dart';
 import '../services/crop_recovery_service.dart';
 import '../services/picker_recovery_service.dart';
@@ -18,6 +19,38 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+
+const int bookCaptureJpegQuality = 100;
+
+Map<String, dynamic> buildBookPreviewArguments({
+  required OcrResult ocr,
+  required BookCaptureImageQuality imageQuality,
+  required String imageLease,
+}) {
+  final warnings = <String>{
+    ...imageQuality.warnings,
+    ...ocr.qualityWarnings,
+  }.toList(growable: false);
+  final severeWarnings = <String>{
+    ...imageQuality.severeWarnings,
+    ...ocr.severeQualityWarnings,
+  }.toList(growable: false);
+  return <String, dynamic>{
+    'text': ocr.text,
+    'blockCount': ocr.blockCount,
+    'qualityWarnings': warnings,
+    'severeQualityWarnings': severeWarnings,
+    'discardedBlockCount': ocr.discardedBlockCount,
+    'ocrQuality': <String, dynamic>{
+      ...ocr.quality.toMap(),
+      'chosenQuarterTurn': ocr.chosenQuarterTurn,
+      'orientationRetryCount': ocr.orientationRetryCount,
+    },
+    'ocrDocument': ocr.document,
+    'imageQuality': imageQuality.toMap(),
+    'imageLease': imageLease,
+  };
+}
 
 /// Phase 5 (stately-rising-jongga) — Capture-Screen.
 ///
@@ -174,6 +207,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
           workflowId: cropWorkflowId,
           crop: () => cropper.cropImage(
             sourcePath: recoveredSource.path,
+            compressQuality: bookCaptureJpegQuality,
             uiSettings: [
               AndroidUiSettings(
                 toolbarTitle: cropTitle,
@@ -203,16 +237,17 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         }
       }
       final ocrLease = croppedLease;
-      final ocr =
-          await SnapOcrService.recognizeKorean(
-            store.pendingFile(ocrLease),
-          ).timeout(
-            const Duration(seconds: 45),
-            onTimeout: () => OcrResult.failure(
-              reason: OcrFailure.engineError,
-              message: 'timeout',
-            ),
-          );
+      final ocrFile = store.pendingFile(ocrLease);
+      final imageQuality = await BookCaptureImageQualityAnalyzer.analyzeFile(
+        ocrFile,
+      );
+      final ocr = await SnapOcrService.recognizeKorean(ocrFile).timeout(
+        const Duration(seconds: 75),
+        onTimeout: () => OcrResult.failure(
+          reason: OcrFailure.engineError,
+          message: 'timeout',
+        ),
+      );
       if (!mounted) {
         await _releaseRecoveredLease(ocrLease);
         croppedLease = null;
@@ -244,11 +279,11 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       setState(() => _busy = false);
       final navigation = Navigator.of(context).pushNamed(
         '/book/preview',
-        arguments: <String, dynamic>{
-          'text': ocr.text,
-          'blockCount': ocr.blockCount,
-          'imageLease': ocrLease.encoded,
-        },
+        arguments: buildBookPreviewArguments(
+          ocr: ocr,
+          imageQuality: imageQuality,
+          imageLease: ocrLease.encoded,
+        ),
       );
       croppedLease = null;
       await _clearRecoveredAfterHandoff(ocrLease);
@@ -353,7 +388,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
           source: source,
           maxWidth: 2400,
           maxHeight: 2400,
-          imageQuality: 85,
+          imageQuality: bookCaptureJpegQuality,
         );
         if (picked == null) {
           pickerAccepted = true;
@@ -388,6 +423,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         workflowId: cropWorkflowId,
         crop: () => cropper.cropImage(
           sourcePath: pickedFile.path,
+          compressQuality: bookCaptureJpegQuality,
           uiSettings: [
             AndroidUiSettings(
               toolbarTitle: l10n.bookCropTitle,
@@ -431,8 +467,11 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
       // OCR — erster Aufruf lädt das ML-Kit-Korean-Modell herunter (kann
       // dauern). Endlos-Spinner vermeiden: 45s Timeout → Fehlerkarte.
+      final imageQuality = await BookCaptureImageQualityAnalyzer.analyzeFile(
+        file,
+      );
       final ocr = await SnapOcrService.recognizeKorean(file).timeout(
-        const Duration(seconds: 45),
+        const Duration(seconds: 75),
         onTimeout: () => OcrResult.failure(
           reason: OcrFailure.engineError,
           message: 'timeout',
@@ -462,11 +501,11 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
       final navigation = Navigator.of(context).pushNamed(
         '/book/preview',
-        arguments: <String, dynamic>{
-          'text': ocr.text,
-          'blockCount': ocr.blockCount,
-          'imageLease': pending.encoded,
-        },
+        arguments: buildBookPreviewArguments(
+          ocr: ocr,
+          imageQuality: imageQuality,
+          imageLease: pending.encoded,
+        ),
       );
       final handedOff = pending;
       pending = null;

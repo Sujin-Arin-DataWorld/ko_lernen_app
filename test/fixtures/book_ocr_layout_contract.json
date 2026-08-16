@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "description": "Original synthetic textbook geometry; no source-book text or images.",
+  "pages": [
+    {
+      "id": "clean_korean_list",
+      "quarterTurn": 0,
+      "expectedReadingOrder": ["표현을 익혀 봅시다.", "마음이 따뜻하다"],
+      "lines": [
+        {"text": "마음이 따뜻하다", "bounds": [40, 100, 420, 132], "blockIndex": 1, "lineIndex": 0, "expected": ["마음이 따뜻하다"]},
+        {"text": "표현을 익혀 봅시다.", "bounds": [40, 40, 420, 72], "blockIndex": 0, "lineIndex": 0, "expected": []}
+      ]
+    },
+    {
+      "id": "sideways_dialogue_and_tip",
+      "quarterTurn": 90,
+      "expectedReadingOrder": ["민서: 차 한 잔 주세요.", "Tipps fuer den Dialog"],
+      "lines": [
+        {"text": "Tipps fuer den Dialog", "bounds": [300, 40, 560, 72], "blockIndex": 1, "lineIndex": 0, "expected": []},
+        {"text": "민서: 차 한 잔 주세요.", "bounds": [30, 40, 270, 72], "blockIndex": 0, "lineIndex": 0, "expected": ["차 한 잔 주세요."]}
+      ]
+    },
+    {
+      "id": "sideways_clock_exercise",
+      "quarterTurn": 90,
+      "expectedReadingOrder": ["지금 몇 시예요?", "Das Fragewort wird in Fragen verwendet"],
+      "lines": [
+        {"text": "Das Fragewort wird in Fragen verwendet", "bounds": [40, 100, 520, 132], "blockIndex": 1, "lineIndex": 0, "expected": []},
+        {"text": "지금 몇 시예요?", "bounds": [40, 40, 300, 72], "blockIndex": 0, "lineIndex": 0, "expected": ["지금 몇 시예요?"]}
+      ]
+    },
+    {
+      "id": "inline_german_grammar_island",
+      "quarterTurn": 90,
+      "expectedReadingOrder": ["Fragen mit -지 않아요? ist es nicht so?", "오늘은 춥지 않아요."],
+      "lines": [
+        {"text": "오늘은 춥지 않아요.", "bounds": [40, 110, 360, 142], "blockIndex": 1, "lineIndex": 0, "expected": ["오늘은 춥지 않아요."]},
+        {"text": "Fragen mit -지 않아요? ist es nicht so?", "bounds": [40, 40, 560, 72], "blockIndex": 0, "lineIndex": 0, "expected": []}
+      ]
+    },
+    {
+      "id": "grammar_table",
+      "quarterTurn": 90,
+      "expectedReadingOrder": ["Die Struktur -아/어 보다 wird benutzt", "한국 음식을 먹어 봤어요."],
+      "lines": [
+        {"text": "한국 음식을 먹어 봤어요.", "bounds": [320, 40, 590, 72], "blockIndex": 1, "lineIndex": 0, "expected": ["한국 음식을 먹어 봤어요."]},
+        {"text": "Die Struktur -아/어 보다 wird benutzt", "bounds": [30, 40, 290, 72], "blockIndex": 0, "lineIndex": 0, "expected": []}
+      ]
+    },
+    {
+      "id": "speech_bubble_and_vocab",
+      "quarterTurn": 0,
+      "expectedReadingOrder": ["우리 집에서 같이 만들어요.", "내일 morgen"],
+      "lines": [
+        {"text": "내일 morgen", "bounds": [340, 50, 520, 82], "blockIndex": 1, "lineIndex": 0, "expected": ["내일"]},
+        {"text": "우리 집에서 같이 만들어요.", "bounds": [30, 50, 310, 82], "blockIndex": 0, "lineIndex": 0, "expected": ["우리 집에서 같이 만들어요."]}
+      ]
+    },
+    {
+      "id": "cropped_neighbor_page",
+      "quarterTurn": 270,
+      "expectedReadingOrder": ["Wenn der Kontext eindeutig ist", "저녁 8시부터 회의가 있어요."],
+      "lines": [
+        {"text": "저녁 8시부터 회의가 있어요.", "bounds": [190, 90, 540, 122], "blockIndex": 1, "lineIndex": 0, "expected": ["저녁 8시부터 회의가 있어요."]},
+        {"text": "Wenn der Kontext eindeutig ist", "bounds": [10, 10, 240, 42], "blockIndex": 0, "lineIndex": 0, "expected": []}
+      ]
+    },
+    {
+      "id": "english_card_grid",
+      "quarterTurn": 0,
+      "expectedReadingOrder": ["대청소를 해요 do a big clean", "저는 Berlin에 살아요.", "K-pop 음악을 들어요.", "모임을 해요 have a gathering"],
+      "lines": [
+        {"text": "K-pop 음악을 들어요.", "bounds": [330, 40, 590, 72], "blockIndex": 2, "lineIndex": 0, "expected": ["K-pop 음악을 들어요."]},
+        {"text": "저는 Berlin에 살아요.", "bounds": [30, 100, 290, 132], "blockIndex": 1, "lineIndex": 0, "expected": ["저는 Berlin에 살아요."]},
+        {"text": "모임을 해요 have a gathering", "bounds": [330, 100, 590, 132], "blockIndex": 3, "lineIndex": 0, "expected": ["모임을 해요"]},
+        {"text": "대청소를 해요 do a big clean", "bounds": [30, 40, 290, 72], "blockIndex": 0, "lineIndex": 0, "expected": ["대청소를 해요"]}
+      ]
+    }
+  ]
+}

@@ -56,7 +56,10 @@ void main() {
         client: client,
       );
 
-      await controller.logEvent('pack_completed', parameters: {'pack_id': 'a1'});
+      await controller.logEvent(
+        'pack_completed',
+        parameters: {'pack_id': 'a1'},
+      );
       await controller.logScreenView('/vocab');
 
       expect(client.events, hasLength(1));
@@ -123,5 +126,32 @@ void main() {
       expect(client.props.single.key, 'learner_level');
       expect(client.props.single.value, 'A2');
     });
+  });
+
+  test('book capture telemetry contains only bounded quality metadata', () {
+    final parameters = Analytics.bookCaptureAnalysisParameters(
+      targetLang: 'en',
+      words: 3,
+      grammar: 1,
+      sentences: 2,
+      offline: false,
+      resultStatus: 'blocked_content',
+      warningBucket: 'content',
+      ocrQuality: 'warning',
+    );
+
+    expect(parameters, {
+      'target_lang': 'en',
+      'words': 3,
+      'grammar': 1,
+      'sentences': 2,
+      'offline': 0,
+      'result_status': 'blocked_content',
+      'warning_bucket': 'content',
+      'ocr_quality': 'warning',
+    });
+    expect(parameters.keys, isNot(contains('text')));
+    expect(parameters.keys, isNot(contains('image_path')));
+    expect(parameters.keys, isNot(contains('uid')));
   });
 }

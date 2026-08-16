@@ -1,6 +1,6 @@
 # Store privacy disclosure worksheet
 
-Last repository review: **2026-07-30**
+Last repository review: **2026-08-15**
 
 This is a release-owner worksheet for Google Play Data Safety and Apple App
 Privacy. It is not a console export and is not a substitute for reviewing the
@@ -55,10 +55,13 @@ and production consoles.
   on-device. Portable Firestore/shared payloads strip book thumbnails and word
   image references. User-requested analysis transmits OCR-extracted/corrected
   text, not image bytes.
-- The analysis backend can send text to DeepL and can retain source segments
-  and translations in a Firestore `translation_cache`. Dynamic/user-entered TTS
-  text can be sent to the configured function and Google Cloud Text-to-Speech;
-  generated audio can be cached in Firebase Storage.
+- The analysis backend can send corrected Korean text to DeepL. The release
+  candidate's server-only Firestore `translation_cache` uses a one-way document
+  id and stores the translation, target language, schema version, and a 30-day
+  `expiresAt`; it does not store the OCR source segment in a field. This is not
+  a claim that the new function, TTL policy, or cleanup is live. Dynamic/user-
+  entered TTS text can be sent to the configured function and Google Cloud
+  Text-to-Speech; generated audio can be cached in Firebase Storage.
 - Android explicitly removes `AD_ID`, AdServices Ad ID, `READ_MEDIA_IMAGES`,
   and `READ_EXTERNAL_STORAGE`. There is no active ad SDK. The app does not
   request location, contacts, or microphone permission.
@@ -81,7 +84,7 @@ provider exception or a configured integration must be checked.
 | App activity — Learning progress, game/SRS/streak data | Yes only after Google/Apple durable link | Optional cloud-backup feature; required within backup/sync | No | App functionality; account sync/restore | Provisional No; Firebase service-provider/configuration review required |
 | App activity / User-generated content — Gye group data | Yes only when Gye is used | Optional 16+ self-attested feature; required within Gye | No | Community app functionality; fraud/abuse prevention; moderation; notifications | Includes UID, nickname, membership/role, contributions, fixed feed events, reactions/stickers/cheers, reports/optional report notes, blocks, moderation/cleanup markers, and notification-outbox data |
 | User-generated content / Other info — Shared-pack payload | Yes only when the user shares | Optional sharing feature; required within sharing | No | App functionality | Portable payload strips local image references; creator Firebase UID can be retained |
-| User-generated content / Other info — OCR-extracted or user-entered Korean text | Yes only for requested analysis/translation/TTS | Optional feature; required within requested operation | Not always: translation source/translation and generated audio can be cached | App functionality | Processed by Google Cloud/Firebase, DeepL for translation, and Google Cloud TTS as applicable. Verify processor/service-provider treatment |
+| User-generated content / Other info — OCR-extracted or user-entered Korean text | Yes only for requested analysis/translation/TTS | Optional feature; required within requested operation | Not always: translated output can be cached for up to 30 days and generated audio can be cached; the release-candidate translation cache does not store an OCR source field | App functionality | Processed by Google Cloud/Firebase, DeepL for translation, and Google Cloud TTS as applicable. Verify deployment, TTL ACTIVE, legacy source cleanup, and processor/service-provider treatment |
 | App activity — App interactions / usage data | Yes only after Analytics opt-in | Optional | No under provider/project retention | Analytics | Default off; verify current Firebase Analytics SDK disclosure and console settings |
 | App info and performance — Crash logs / diagnostics | Yes only after Crashlytics opt-in | Optional | No after transmission | App functionality; diagnostics | Turning off deletes only unsent local reports best-effort; verify current Crashlytics disclosure/retention |
 | Device or other IDs — Firebase installation/SDK identifiers | Potentially yes through initialized Firebase services; Analytics-specific collection remains opt-in | Core Remote Config/auth startup and optional SDK features | Verify per SDK | App functionality; analytics where opted in | **Console blocker:** compare the signed build’s Firebase SDK disclosures and live settings |
@@ -186,6 +189,10 @@ systems:
   the public Privacy Policy/Impressum. The repository does not establish the
   owner’s current legal address or residence; do not infer it.
 - [ ] Verify Firestore database location and backup/TTL settings.
+- [ ] Verify the deployed `translation_cache.expiresAt` TTL state is ACTIVE,
+  the value-free cleanup dry-run reports no legacy/source-bearing documents,
+  and new cache documents contain no `src` field. Repository configuration is
+  not evidence that the old live cache has been cleaned.
 - [ ] Verify Firebase Authentication, Remote Config, Analytics, Crashlytics,
   Cloud Messaging, and Storage processing locations and retention settings.
 - [ ] Verify that the deployed analysis, Gye, and TTS endpoints match the

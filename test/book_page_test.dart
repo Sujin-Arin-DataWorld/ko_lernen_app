@@ -21,6 +21,7 @@ BookPage _samplePage({String id = 'p_test_1'}) => BookPage(
       translationEn: 'studying',
       exampleKorean: '한국어 공부를 하고 있어요.',
       exampleDe: 'Ich lerne gerade Koreanisch.',
+      sourceUnitId: 'unit:0',
       savedToPackId: null,
     ),
   ],
@@ -31,12 +32,23 @@ BookPage _samplePage({String id = 'p_test_1'}) => BookPage(
       matchedText: '하고 있어요',
       level: 'A2',
       explanationDe: 'Beschreibt eine gerade ablaufende Handlung.',
+      sourceUnitId: 'unit:0',
     ),
   ],
   sentences: const [
     TranslatedSentence(
       korean: '한국어 공부를 하고 있어요.',
       translationDe: 'Ich lerne gerade Koreanisch.',
+      sourceUnitId: 'unit:0',
+    ),
+  ],
+  expressions: const <ExtractedExpression>[
+    ExtractedExpression(
+      korean: '마음에 와닿다',
+      translationDe: 'innerlich berühren',
+      translationEn: '',
+      translationLanguage: 'de',
+      sourceUnitId: 'unit:3',
     ),
   ],
   capturedAtIso: '2026-05-31T12:00:00Z',
@@ -63,9 +75,14 @@ void main() {
       expect(p2.note, p.note);
       expect(p2.words.length, p.words.length);
       expect(p2.words[0].korean, '공부');
+      expect(p2.words[0].sourceUnitId, 'unit:0');
       expect(p2.grammar.length, 1);
       expect(p2.grammar[0].patternId, 'g_progressive');
+      expect(p2.grammar[0].sourceUnitId, 'unit:0');
       expect(p2.sentences[0].korean, p.sentences[0].korean);
+      expect(p2.sentences[0].sourceUnitId, 'unit:0');
+      expect(p2.expressions.single.korean, '마음에 와닿다');
+      expect(p2.expressions.single.sourceUnitId, 'unit:3');
       expect(p2.capturedAtIso, p.capturedAtIso);
     });
 
@@ -75,6 +92,45 @@ void main() {
       expect(json['extractedText'], isNotNull);
     });
 
+    test('English analysis provenance survives local and cloud JSON', () {
+      final source = BookPage(
+        id: 'p_en',
+        localThumbnailPath: null,
+        extractedText: '저는 학생이에요.',
+        note: '',
+        words: const [
+          ExtractedWord(
+            korean: '학생',
+            romanization: 'haksaeng',
+            posDe: 'noun',
+            translationDe: 'student',
+            translationEn: 'student',
+            translationLanguage: 'en',
+            exampleKorean: '저는 학생이에요.',
+            exampleDe: 'I am a student.',
+            savedToPackId: null,
+          ),
+        ],
+        grammar: const [],
+        sentences: const [
+          TranslatedSentence(
+            korean: '저는 학생이에요.',
+            translationDe: 'I am a student.',
+            translationLanguage: 'en',
+          ),
+        ],
+        capturedAtIso: '2026-08-15T12:00:00Z',
+        customPackId: null,
+        analysisLanguage: 'en',
+      );
+
+      final restored = BookPage.fromJson(source.id, source.toLocalJson());
+      expect(restored.analysisLanguage, 'en');
+      expect(restored.words.single.translationLanguage, 'en');
+      expect(restored.sentences.single.translationLanguage, 'en');
+      expect(source.toFirestoreJson()['analysisLanguage'], 'en');
+    });
+
     test('fromJson with missing fields uses safe defaults', () {
       final p = BookPage.fromJson('x', const <String, dynamic>{});
       expect(p.id, 'x');
@@ -82,6 +138,211 @@ void main() {
       expect(p.words, isEmpty);
       expect(p.grammar, isEmpty);
       expect(p.sentences, isEmpty);
+    });
+
+    test(
+      'legacy local and Firestore data cannot restore unsafe learning text',
+      () {
+        final page = BookPage.fromJson('legacy', {
+          'localThumbnailPath': 'book:legacy.jpg',
+          'extractedText': 'Berlin에 K-pop 음악\u202E العربية\nNur Deutsch',
+          'note': 'Lektion 7',
+          'words': [
+            {
+              'korean': '학\u200B생 العربية',
+              'romanization': 'haksaeng\u202E العربية',
+              'posDe': 'Nomen\u007F\u0085 العربية',
+              'translationDe': 'Schüler العربية',
+              'translationEn': 'student العربية',
+              'translationLanguage': 'en',
+              'exampleKorean': '저는 학생이에요.\u2066 العربية',
+              'exampleDe': 'Ich bin Schüler. العربية',
+              'definitionKo': '배우는 사람 العربية',
+              'imagePath': 'word:legacy.jpg',
+            },
+            {'korean': 'العربية', 'translationDe': 'Arabisch'},
+            {'korean': '책', 'translationDe': 'العربية'},
+          ],
+          'grammar': [
+            {
+              'patternId': 'g_topic\u202E',
+              'nameDe': 'Thema العربية',
+              'matchedText': '저는\u200F العربية',
+              'level': 'A1\u0000',
+              'explanationDe': 'Markiert das Thema. العربية',
+            },
+            {'matchedText': 'العربية'},
+          ],
+          'sentences': [
+            {
+              'korean': '저는 학생이에요.\u202D العربية',
+              'translationDe': 'I am a student. العربية',
+              'translationLanguage': 'en',
+            },
+            {'korean': 'العربية', 'translationDe': 'Arabic'},
+          ],
+          'capturedAt': '2026-08-15T12:00:00Z',
+          'analysisLanguage': 'en',
+        });
+
+        expect(page.localThumbnailPath, 'book:legacy.jpg');
+        expect(page.extractedText, 'Berlin에 K-pop 음악');
+        expect(page.note, 'Lektion 7');
+        expect(page.analysisLanguage, 'en');
+
+        expect(page.words, hasLength(1));
+        final word = page.words.single;
+        expect(word.korean, '학생');
+        expect(word.translationDe, 'Schüler');
+        expect(word.translationEn, 'student');
+        expect(word.translationLanguage, 'en');
+        expect(word.imagePath, 'word:legacy.jpg');
+        expect(word.exampleKorean, '저는 학생이에요.');
+
+        expect(page.grammar, hasLength(1));
+        expect(page.grammar.single.matchedText, '저는');
+        expect(page.sentences, hasLength(1));
+        expect(page.sentences.single.korean, '저는 학생이에요.');
+        expect(page.sentences.single.translationLanguage, 'en');
+
+        final restoredLearningText = [
+          page.extractedText,
+          ...page.words.expand(
+            (entry) => [
+              entry.korean,
+              entry.romanization,
+              entry.posDe,
+              entry.translationDe,
+              entry.translationEn,
+              entry.exampleKorean,
+              entry.exampleDe,
+              entry.definitionKo,
+            ],
+          ),
+          ...page.grammar.expand(
+            (entry) => [
+              entry.patternId,
+              entry.nameDe,
+              entry.matchedText,
+              entry.level,
+              entry.explanationDe,
+            ],
+          ),
+          ...page.sentences.expand(
+            (entry) => [entry.korean, entry.translationDe],
+          ),
+        ].join('\n');
+        expect(_containsUnsupportedLegacyText(restoredLearningText), isFalse);
+      },
+    );
+
+    test('portable legacy restore applies the same fail-closed filters', () {
+      final page = BookPage.fromPortableJson('portable', {
+        'localThumbnailPath': 'book:must-not-restore.jpg',
+        'extractedText': '먹을 음식\u061C العربية',
+        'words': [
+          {
+            'korean': '음식\u202E العربية',
+            'translationDe': 'food العربية',
+            'translationEn': 'food العربية',
+            'translationLanguage': 'en',
+            'imagePath': 'word:must-not-restore.jpg',
+          },
+          {'korean': '단어', 'translationDe': '\u202E العربية'},
+        ],
+        'grammar': [
+          {'matchedText': '먹을\u200B العربية'},
+          {'matchedText': '\u202E العربية'},
+        ],
+        'sentences': [
+          {
+            'korean': '먹을 음식이에요. العربية',
+            'translationDe': 'It is food. العربية',
+            'translationLanguage': 'en',
+          },
+        ],
+        'analysisLanguage': 'en',
+      });
+
+      expect(page.localThumbnailPath, isNull);
+      expect(page.extractedText, '먹을 음식');
+      expect(page.words, hasLength(1));
+      expect(page.words.single.korean, '음식');
+      expect(page.words.single.translationEn, 'food');
+      expect(page.words.single.translationLanguage, 'en');
+      expect(page.words.single.imagePath, isEmpty);
+      expect(page.grammar, hasLength(1));
+      expect(page.grammar.single.matchedText, '먹을');
+      expect(page.sentences.single.korean, '먹을 음식이에요.');
+      expect(
+        _containsUnsupportedLegacyText(
+          [
+            page.extractedText,
+            page.words.single.korean,
+            page.words.single.translationDe,
+            page.words.single.translationEn,
+            page.grammar.single.matchedText,
+            page.sentences.single.korean,
+            page.sentences.single.translationDe,
+          ].join('\n'),
+        ),
+        isFalse,
+      );
+    });
+  });
+
+  group('Book analysis safety contract', () {
+    const meaningfulSentence = TranslatedSentence(
+      korean: '저는 학생이에요.',
+      translationDe: '',
+    );
+
+    test('translation outage keeps Korean content saveable', () {
+      const result = BookAnalysisResult(
+        words: [],
+        grammar: [],
+        sentences: [meaningfulSentence],
+        warnings: ['translation_unavailable'],
+      );
+
+      expect(result.hasMeaningfulResult, isTrue);
+      expect(result.isSaveable, isTrue);
+    });
+
+    test('empty or contaminated results cannot be saved', () {
+      const empty = BookAnalysisResult(
+        words: [],
+        grammar: [],
+        sentences: [],
+        warnings: [],
+      );
+      const contaminated = BookAnalysisResult(
+        words: [],
+        grammar: [],
+        sentences: [meaningfulSentence],
+        warnings: ['invalid_response_filtered'],
+      );
+
+      expect(empty.hasMeaningfulResult, isFalse);
+      expect(empty.isSaveable, isFalse);
+      expect(contaminated.hasMeaningfulResult, isTrue);
+      expect(contaminated.isSaveable, isFalse);
+    });
+
+    test('editable English meanings preserve both language slots', () {
+      final source = ExtractedWord.manual(
+        korean: '학생',
+        translationDe: 'Schüler',
+      );
+      final edited = source.copyWithEditable(
+        translationDe: 'student',
+        translationEn: 'student',
+        translationLanguage: 'en',
+      );
+
+      expect(edited.translationDe, 'student');
+      expect(edited.translationEn, 'student');
+      expect(edited.translationLanguage, 'en');
     });
   });
 
@@ -156,3 +417,7 @@ void main() {
     });
   });
 }
+
+bool _containsUnsupportedLegacyText(String value) => RegExp(
+  r'[\u0600-\u06FF\u200B-\u200F\u202A-\u202E\u2060-\u206F\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]',
+).hasMatch(value);

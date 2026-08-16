@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/sticker_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/gye.dart';
+import 'sticker_image.dart';
 import 'tokens.dart';
 
 /// 계 피드 — 최근 이벤트(도장 획득·승급·스티커·응원) + **반응(reaction)**.
@@ -164,19 +165,7 @@ class GyeFeed extends StatelessWidget {
         size: 20,
       );
     }
-    return SizedBox(
-      width: 40,
-      height: 40,
-      child: Image.asset(
-        def.asset,
-        fit: BoxFit.contain,
-        errorBuilder: (_, __, ___) => const Icon(
-          Icons.emoji_emotions_outlined,
-          color: SoriColors.highlight,
-          size: 20,
-        ),
-      ),
-    );
+    return StickerImage(spec: def, size: 40);
   }
 
   /// 반응 스티커 썸네일(작게) — 대상 이벤트 하단 묶음용.
@@ -190,18 +179,6 @@ class GyeFeed extends StatelessWidget {
         size: 22,
       );
     }
-    return SizedBox(
-      width: 28,
-      height: 28,
-      child: Image.asset(
-        def.asset,
-        fit: BoxFit.contain,
-        errorBuilder: (_, __, ___) => const Icon(
-          Icons.emoji_emotions_outlined,
-          color: SoriColors.highlight,
-          size: 18,
-        ),
-      ),
-    );
+    return StickerImage(spec: def, size: 28);
   }
 }

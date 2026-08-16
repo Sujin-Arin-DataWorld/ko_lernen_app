@@ -1,0 +1,37 @@
+import '../data/sticker_catalog.dart';
+import 'generated/app_localizations.dart';
+
+/// Localized, user-facing name for a sticker wire identity.
+String stickerName(AppL10n t, StickerSpec sticker) => switch (sticker.code) {
+  1 => t.stickerNameTigerCheer,
+  2 => t.stickerNameTigerClap,
+  3 => t.stickerNameTigerSurprised,
+  4 => t.stickerNameTigerSad,
+  5 => t.stickerNameTigerLove,
+  6 => t.stickerNameMagpieDance,
+  7 => t.stickerNameMagpieWave,
+  8 => t.stickerNameMagpieSleep,
+  9 => t.stickerNameMagpieSing,
+  10 => t.stickerNameMagpieEncourage,
+  11 => t.stickerNameDancheongFlower,
+  12 => t.stickerNameDancheongStar,
+  13 => t.stickerNameDancheongCloud,
+  14 => t.stickerNameDancheongLantern,
+  15 => t.stickerNameDancheongHanji,
+  16 => t.stickerNameHangulKk,
+  17 => t.stickerNameHangulHh,
+  18 => t.stickerNameHangulFighting,
+  19 => t.stickerNameHangulBest,
+  20 => t.stickerNameHangulGood,
+  21 => t.stickerNameFoodTteok,
+  22 => t.stickerNameFoodTea,
+  23 => t.stickerNameFoodKimbap,
+  24 => t.stickerNameFoodHotteok,
+  25 => t.stickerNameFoodSikhye,
+  26 => t.stickerNameStampWellDone,
+  27 => t.stickerNameStampFighting,
+  28 => t.stickerNameStampLove,
+  29 => t.stickerNameStampCheer,
+  30 => t.stickerNameStampHappy,
+  _ => t.personalRoomStickerFallback,
+};

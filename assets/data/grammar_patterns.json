@@ -154,7 +154,8 @@
   },
   {
     "id": "g_attribute_present",
-    "regex": "[는은] ",
+    "regex": "(?!)",
+    "detector": "morphology",
     "name_de": "Attribut Gegenwart (-는/-은)",
     "name_en": "Present attributive form (-는/-(으)ㄴ)",
     "level": "A2",
@@ -163,7 +164,8 @@
   },
   {
     "id": "g_attribute_past",
-    "regex": "은 ",
+    "regex": "(?!)",
+    "detector": "morphology",
     "name_de": "Attribut Vergangenheit (-(으)ㄴ)",
     "name_en": "Past attributive form (-(으)ㄴ)",
     "level": "A2",
@@ -172,7 +174,8 @@
   },
   {
     "id": "g_attribute_future",
-    "regex": "을 ",
+    "regex": "(?!)",
+    "detector": "morphology",
     "name_de": "Attribut Zukunft (-(으)ㄹ)",
     "name_en": "Future attributive form (-(으)ㄹ)",
     "level": "A2",
@@ -190,7 +193,7 @@
   },
   {
     "id": "g_conditional",
-    "regex": "으면|다면|라면|면 ",
+    "regex": "으면|라면|(?<!다)면 ",
     "name_de": "Bedingung (-(으)면)",
     "name_en": "Condition (-(으)면)",
     "level": "A2",
@@ -200,6 +203,7 @@
   {
     "id": "g_conditional_seasonal",
     "regex": "다면",
+    "supersedes": ["g_conditional"],
     "name_de": "Hypothetisch (-다면)",
     "name_en": "Hypothetical condition (-다면)",
     "level": "B1",

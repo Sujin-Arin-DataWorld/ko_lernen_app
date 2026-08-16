@@ -1,5 +1,83 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — Proofreading 의미 변경 최종 차단
+
+**원인과 수정.** 이전 안전 필터는 한글 음소가 75% 이상 비슷하면 같은 단어로
+간주해 `사람 → 바람`, `고기 → 거기`처럼 철자는 가깝지만 뜻이 다른 짧은 단어를
+허용할 수 있었다. 일반 음소 유사도 허용을 제거하고, 조사·어미·불규칙 활용이 같은
+단어와 방향이 명확한 철자 교정만 통과하도록 좁혔다. 여러 단어 문장도 85% 비율 대신
+같은 위치의 모든 핵심 단어가 보존되어야 하므로 긴 문장의 한 단어 교체와 단어 재배열을
+차단한다. `학쌩 → 학생`, `되요 → 돼요`, 조사·활용 교정은 유지한다. 구현과 회귀
+테스트 커밋은 `2315e07d`이다.
+
+**최종 검증.** 통합 fixed point `0de786ce`에서 Proofreading 서비스와 역할극 쓰기
+집중 Flutter test **26/26**, 독립 Spec 재검증 범위 **35/35**, 전체 Flutter test
+**3,961 통과 / 14 수동·환경 검사 skip / 실패 0**가 통과했다.
+`flutter analyze --no-pub --fatal-infos`는 **No issues found**였고, 독립 Spec·Standards
+재검토의 병합 차단 사항은 각각 **0건**이다. `dart format`, `git diff --check`도
+통과했다. 원격 자동 CI 한 번과 `main` 병합, 최종 main signed AAB는 다음 단계다.
+
+### 2026-08-16 (Codex) — 완료 브랜치 통합·Proofreading 의미 보존 마감
+
+**정확한 통합 범위.** 현재 `main` 기준점 `6ef544a6`에는 사이트 보안 마감
+`f7336771`과 카드 PR #28이 이미 포함돼 있었다. 준비된 커밋은 CI
+`e3a60c53 → e9ceb6f9`, 사랑방 `613af000 → 8da39a09`, Book 1차
+`1650ccc9 → f4b6cf0c`, Book 2차 `7ba6f008 → 2a762dff`, 태고·조이·선택형
+Proofreading `343f4655 → bddb200f` 순으로 최신 기준에 cherry-pick했다. 문서 충돌은
+기존 최신 기록과 각 기능 기록을 모두 보존했다. 다른 공유 작업공간의 미커밋 웹·CI
+파일은 포함하거나 수정하지 않았다.
+
+**통합 보완.** Book 중괄호·유효 한글 테스트 정합화는 `a29b608c`, 짧은 응답의
+아라비아 숫자·부정·두 단어 핵심어 변경 차단과 API 24/25 고정·독일어 feature 제목은
+`143dbbb1`이다. 후속 독립 Spec 리뷰에서 찾은 한 글자 핵심어, 한글 수사,
+공백·문장부호 간격 누락, 9번째 이후 문장 질문 누락을 `f1fdc495`에서 보완했다.
+한글 음소 유사도로 `학쌩 → 학생`, `되요 → 돼요` 같은 철자 교정은 유지하되
+`물 → 불`, `학교 → 학원`, `한 개 → 두 개` 같은 의미 변경은 차단한다. 공백은
+`␠`로 표시하며 서버가 이유를 주지 않는다는 경계 문구도 유지한다. 분석기가 허용하는
+최대 20개 문장을 모두 렌더하고 각 문장에 질문 버튼을 제공한다. 좁은 역할극 비교
+배치는 공용 `SoriBreakpoints.narrowPhone`을 사용한다.
+
+**현재 검증.** 통합 전 전체 Flutter test **3,522 통과 / 14 skip / 실패 0**,
+Book Python **70/70**, 통합 집중 Flutter **237/237**, 새 기능 관련 **53/53**,
+후속 의미·공백·20문장·반응형 집중 **37/37**, CI 분류기 **9/9**가 통과했다.
+`flutter analyze --no-pub --fatal-infos`는 **No issues found**, Android base와
+Proofreading feature Kotlin debug 컴파일은 **BUILD SUCCESSFUL**, Book 배포 7파일
+allowlist·App ID·upload manifest와 `git diff --check`도 통과했다. 최종 전체 Flutter
+재검사와 원격 자동 CI 한 번, `main` 병합, 최종 main signed AAB는 다음 단계다.
+
+### 2026-08-16 (Codex) — 짧은 Proofreading 응답·선택형 전달 보강
+
+**원인과 수정.** 짧은 교정 후보가 숫자·부정 보존 검사보다 먼저 성공 처리되어
+`1개 → 2개`, `안돼 → 잘돼`를 허용할 수 있었고, 두 단어 문장은 핵심어 보존 검사를
+건너뛰어 `물 주세요 → 불 주세요`도 통과할 수 있었다. 숫자·부정 검사를 모든 길이에
+먼저 적용하고 두 단어부터 핵심어 보존을 확인하되, `학쌩 → 학생` 같은 두 글자 이상
+철자 교정과 조사·활용 교정은 유지했다. Android gateway의 `if/else` 중괄호를 저장소
+규칙에 맞추고, client 종료 실패에도 executor가 항상 닫히도록 했다. 기본 앱 minSdk를
+24로 명시해 API 24/25 지원을 고정하고, API 26+ Proofreading 전달·비융합 계약 및
+feature-only ML Kit 의존성을 정적 테스트로 고정했다. Play 기능 제목은 영어 기본값과
+독일어 번역을 제공한다. 구현 커밋은 `143dbbb1`이다.
+
+**검증.** 새 기능 관련 Flutter test **53/53**, 짧은 응답·Android 전달 집중 test
+**18/18**, `flutter analyze --no-pub --fatal-infos` **No issues found**,
+`:app:compileDebugKotlin`과 `:proofreading_feature:compileDebugKotlin`을 포함한 Gradle
+debug 컴파일 **BUILD SUCCESSFUL**, `git diff --check`가 통과했다. 실기기 모델
+다운로드·추론과 Play 조건부 전달은 아직 외부 게이트이며 원격 CI·배포는 수행하지 않았다.
+
+### 2026-08-16 (Codex) — 준비된 브랜치 통합 중 Book 계약 정합화
+
+**수정.** Book 강화 커밋의 13개 단일 행 `if`를 저장소 중괄호 규칙에 맞췄다.
+또한 한국어 입력 전처리가 한글 없는 값을 의도대로 거부한 뒤 기존 미디어 수명주기
+테스트의 `first`/`second` 같은 영문 임시값이 모두 빈 값으로 정리되던 문제를 확인했다.
+삭제·잠금·이미지 정리 제품 코드는 바꾸지 않고, 해당 테스트의 단어 식별값만 서로 다른
+유효 한글로 교체해 원래의 동시 삭제·낡은 인덱스 방지 계약을 복원했다. 구현 커밋은
+`a29b608c`이다.
+
+**검증.** 통합 범위 집중 Flutter test **237/237**, 미디어·Book 전처리·Book 페이지
+회귀 **46/46**, 전체 Flutter test **3,522 통과 / 14 수동·환경 검사 skip / 실패 0**,
+Book Python unittest **70/70**, CI 분류기 **9/9**, `flutter analyze --no-pub`
+**No issues found**, Book 배포 소스 7파일 allowlist·모바일 App ID·업로드 manifest 검사,
+`git diff --check`가 모두 통과했다. 원격 CI·병합·배포는 수행하지 않았다.
+
 ### 2026-08-16 (Codex) — 카드 판정 배치와 첫 공개 상태 유지
 
 **원인과 수정.** Review, Legacy Vocab, Custom Pack의 좌우 판정 허용 여부가 카드의
@@ -21,6 +99,33 @@
 skipped였다. 변경 9개 파일의 `flutter analyze --no-pub`는 **No issues found**,
 `git diff --check`도 통과했다. 원격 CI, `main` 병합, 병합 HEAD의 signed AAB 생성은
 이 기록 다음 단계에서 수행한다.
+
+### 2026-08-16 (Codex) — GitHub Actions 분 단위 계측·변경 영역별 CI 최적화
+
+**실측과 원인.** private 저장소의 2026-08-01~16 CI 227회(push 152, PR 51,
+수동 24)를 run/job API로 전수 집계했다. GitHub-hosted Ubuntu job별 실행 시간을 분 단위로
+올림한 근사치는 **2,098분**이고, Analyze & Build가 1,709분으로 대부분을 차지했다.
+수동 실행은 316분이며 같은 head SHA에 PR 자동 run도 있던 중복 수동 실행 14회가 181분이었다.
+정확한 계정 잔여량 API는 현재 `gh` 토큰에 `user` scope가 없어 읽지 못했으므로 GitHub Billing
+화면의 약 1,000분 잔여 표시를 정본으로 둔다. `main` branch protection과 ruleset은 현재
+없었고, 이번 작업은 외부 GitHub 설정을 변경하지 않았다.
+
+**적용.** `.github/scripts/ci_scope.py`가 push/PR/수동 `task=ci`의 merge-base 변경 경로를
+분류하고, Flutter·Website·Book·Gye·Pronunciation 중 필요한 잡만 연다. 비교 실패·알 수 없는
+CI 설정 변경은 전체 게이트를 여는 fail-open 정책이다. 일반 Markdown/세션 로그는 run을 만들지
+않되, `docs/store/**`, privacy/support HTML, 시각 기준 스크린샷, 공용 Firestore/Firebase 계약은
+실제 소비 잡을 계속 실행한다. 수동 입력에 `full`과 영역별 재검증을 추가했고, 골든은
+`regenerate-goldens`에서만 생성한다. 같은 브랜치의 자동/수동 검증은 하나의 concurrency 그룹을
+공유한다. 기존 Website release gate와 원격 `main`의 timeout·짧은 artifact retention·
+FFmpeg 존재 확인·골든 분리 최적화를 보존했다. `AGENTS.md`도 같은 SHA의 자동 run이 있으면
+수동 run을 만들지 않고, 없을 때만 한 번 dispatch하며 실패 잡만 재실행하도록 갱신했다.
+
+**검증과 경계.** selector 단위 테스트 **9/9**, Node 24.18 website deployment contract
+**3/3**, SHA256 검증한 actionlint v1.7.12, YAML parse, `git diff --check`가 통과했다. 현재
+뒤처진 작업 브랜치에서 실제 `task=ci` 비교도 app/book/gye만 선택하고 website/pronunciation을
+제외했다. CI 파일 자체 변경은 의도대로 첫 원격 run에서 전체 게이트를 연다. 이 변경은 이
+커밋으로 기록하며 push·원격 workflow 실행은 하지 않았으므로 실제 GitHub 선택 결과와 원격 분
+소비 감소는 아직 미검증이다.
 
 ### 2026-08-16 (Codex) — Sites 완전 탈출·GitHub→Cloudflare Worker 자동배포 전환 완료
 
@@ -65,6 +170,39 @@ chunk를 잠깐 참조한 샘플을 계기로, 구현 커밋 `08af45b8`에서 HT
 `wrangler logout`으로 서버 revoke하고 로컬 credential 파일이 없음을 확인했다. 이후
 `npm run cloudflare:login`은 encrypted credential의 키를 OS keychain에 저장하며,
 keychain 접근이 실패하면 plaintext fallback 없이 중단되도록 환경 계약을 강제한다.
+
+### 2026-08-16 (Codex) — 사랑방 자유 배치와 스티커·도장 전면 활용
+
+**결과.** 사랑방을 포함한 production 개인 방에서 고정 슬롯과 빈 위치 마커를
+제거하고, 아이템을 직접 선택해 드래그·핀치 확대/축소·회전·앞뒤 순서 변경·제거할
+수 있는 연속 좌표 편집기로 교체했다. 보유 보상 가구 11종, 기존 스티커 30종, 획득한
+단청 도장 14종을 같은 인벤토리에서 실제 배치할 수 있게 했고, 계의 스티커 선택기는
+30종 전체를 반응형·현지화·접근성 라벨과 함께 노출한다. 도장첩의 획득 도장에는 자유
+배치 화면으로 가는 CTA를 연결하되 도장 수집 투영은 그대로 유지했다.
+
+**저장/호환.** `kl_room_layouts_v3`을 세 개인 방의 단일 저장 권위로 두고, 유효한
+v3이 없을 때만 정제한 v2 슬롯 데이터를 메모리에서 이관한다. 첫 실제 편집 전에는
+쓰지 않고, 기존 v2/legacy 키는 롤백 스냅샷으로 보존하며 미래 버전은 읽기 전용이다.
+가구·도장은 전 방에서 한 번만 배치되고 스티커는 고유 인스턴스로 복수 배치된다.
+엄격한 저장 실패 전파와 revision 보호로 오래된 비동기 저장 응답/실패가 더 최신
+드래그 초안이나 알림 상태를 덮지 못한다. 기존 보상, 퀘스트, 방 잠금 진도는 바꾸지
+않았고 사랑방의 기존 `enforceUnlock: false` 계약도 유지했다.
+
+**에셋.** BBANANA의 Recraft Remove Background로 배경이 박혀 있던 장식 PNG 5종
+(`chuseok_moon`, `hangeulday_plaque`, `kite`, `seollal_flag`, `sagunja_guk`)을 실제
+RGBA 투명 에셋으로 교정했다. 사용량은 0.3 크레딧 × 5 = 1.5 크레딧이다. 이번 요구와
+관련된 장식 24종(방 보상 11 + 퀘스트 13), 스티커 30종, 도장 14종의 코드 도달성과
+투명도를 검사했다.
+
+**검증.** 최신 변경 기준 `flutter analyze`는 **No issues found**였고, 전체
+`flutter test --reporter compact`는 **3,443 passed / 14 skipped / 0 failed**였다.
+집중 회귀와 v2→v3 이관, 미래 버전 읽기 전용, 화면 리더 탭 동작, 실제 화면의 짧은 세로
+드래그·두 손가락, 손가락 수 전환·취소·트랙패드·동시 아이템 제스처, 200% 글자, 48dp
+가장자리, 저장 순서 경쟁, 스티커/도장 현지화, 장식 투명도 계약도 통과했다. Windows
+로컬 정적 검증이며 실기기/AAB/배포 검증은 하지 않았다. 작업은 격리 브랜치
+`codex/sarangbang-free-placement-20260816`에서 수행했고 구현·테스트·본 로그를 같은
+커밋에 포함했다. 자기 해시는 커밋 전에 알 수 없어 `본 커밋`으로 기록하며, 푸시·병합은
+하지 않았다. `AGENTS.md`의 현재 진행 작업 체크리스트도 완료 상태로 갱신했다.
 
 ### 2026-08-16 (Codex) — PR #27 C1/C2 초성·320dp 최종 CI 보완
 
@@ -210,6 +348,160 @@ missing 0, stale 55`다. stale 55개는 현 corpus 밖의 과거 immutable 캐�
 규칙을 추가했다. 이제 TTS는 릴리스 차단 항목이 아니며, main 병합 전 남은 외부 게이트는
 실제로 시작·완료된 Flutter GitHub Actions 검증이다. 정본 동기화 commit은
 `847eee9a` (`chore: verify batch 05 TTS storage`)다.
+### 2026-08-16 (Codex) — 근거 기반 태고·조이 질문과 Android 선택형 문장 교정
+
+**학습 흐름.** 책 분석 결과의 expression/word/grammar/sentence 각 카드에 독립적인
+태고·조이 질문 버튼을 연결했다. 의미·형태·검증된 예문·유사 문법·퀴즈는 현재 페이지의
+canonical `sourceUnitId`와 언어 provenance가 일치할 때만 답하고, 오염·근거 없음·관계없는
+문법 비교는 명시적으로 차단한다. 두 캐릭터는 동일한 immutable fact payload를 사용하며,
+조이의 추가 예문도 같은 페이지에서 검증된 문장 한 개로 제한했다. 역할극 완료 뒤에는
+선택형 "내 말로 써보기" 카드를 추가했으며 원문을 바꾸거나 점수·진행·SRS에 반영하지 않고,
+검증된 변경을 `원문 토큰 → 교정 토큰`으로 모두 표시한다. 온디바이스 API가 변경 이유를
+제공하지 않는다는 경계를 명시하고, 장면에 직접 선언된 문법은 교정 이유가 아닌
+태고·조이의 별도 "장면 참고 문법"으로만 설명한다.
+
+**선택형 ML Kit Proofreading.** Smart Reply·Prompt·Rewriting은 포함하지 않았다.
+Android API 24/25 기본 앱은 유지하고, API 26 이상 지원 기기에만 install-time dynamic
+feature로 `genai-proofreading:1.0.0-beta1`을 제공한다. 기능 상태 확인과 명시적 다운로드
+뒤에만 실행하며 240자·한글·지원 문자·원문 echo·최종 응답·의미 보존을 검증한다. 조사와
+어미 교정은 허용하되 어휘·부정·숫자 변경은 fail-closed한다. 원문과 제안은 나란히 보여
+주고 자동 적용하지 않으며, 미지원·다운로드·timeout·오염 응답은 기존 장면 근거 흐름으로
+돌아간다.
+
+**로컬 검증.** 최종 관련 Flutter 회귀 **88/88**, 전체
+`flutter analyze --no-pub --fatal-infos`는 115.7초에 error 0을 통과했다. 표준
+`flutter build appbundle --release`도 성공했고 minified release AAB
+`build/app/outputs/bundle/release/app-release.aab`(233,253,075 bytes,
+SHA-256 `286BC4DCDE74830532BCC1D37B5B9AB8293E9E34AD89C29FE65BCFFB3DFD8EE5`)에서 base minSdk 24,
+feature API 26 조건, `fusing=false`, 분리 dex/manifest, 보존된 feature title, feature-only
+ML Kit 의존성을 확인했다. 실제 지원 Android 기기 모델 다운로드·추론과 Play conditional
+delivery, iOS fallback 실기기는 아직 검증하지 않았다.
+
+**결제 경계.** 책 OCR과 Proofreading은 온디바이스라 Cloud API key나 호출당 Google
+서버 비용이 없다. 현재 Cloud Function/Firestore/동적 TTS는 계속 `ko-lernen-app`에 연결된
+Cloud Billing Account, DeepL 번역은 별도 키로 과금된다. `GOOGLE_TTS_API_KEY_2`는 로컬
+사전 TTS 합성 요청에만 적용된다. 결제 계정·API·Secret은 변경하지 않았다. 구현은
+`feat(study): add grounded companions and proofreading` 커밋으로 보관하며 푸시·병합·배포는
+수행하지 않는다.
+### 2026-08-16 (Codex) — 책 한 컷 2차 구조 복구 구현
+
+**기준점과 범위.** 1차 안전 복구와 실물 8종 레이아웃 감사 기록은 먼저
+`1650ccc9 feat(book): harden mixed-text capture and analysis`로 커밋해 보관했다.
+이 커밋은 푸시·병합·배포하지 않았다. 그 위의 이번 변경은 이 단계 커밋으로 분리해 보관하며,
+다른 세션의 `hangul-sori-site-local` 작업을 수정하거나 포함하지 않았다. 사용자가 제공한
+교재 원본 8장은 계속 저장소 밖 private challenge set으로만 유지하고, 저장소에는 구조만
+재현한 독립 창작 JSON fixture를 추가했다.
+
+**2차 구조 복구.** ML Kit Korean 인식 결과를 즉시 평탄 문자열로 버리지 않고
+`BookOcrDocument > Region > Line > Unit` 구조와 block/line ID, bbox, confidence를
+보존한다. 조건부로 실제 픽셀을 90/180/270도 회전해 재인식하고 합성 후보 점수로 방향을
+선택하며, 선택한 이미지를 preview와 같은 좌표계에 둔다. 각 Korean-bearing 구간을
+sentence/expression/headword/grammarMeta/speaker/instruction 역할로 분리한다. 인쇄된 DE/EN
+gloss는 일시적 구조 힌트일 뿐 서버 요청·분석·TTS·저장에는 보내지 않고, `Berlin에`,
+`AI를`, `K-pop 음악`처럼 한국어 절에 속한 Latin은 보존한다. 서버 v2 structured units는
+sentence와 expression을 분리하고 모든 결과에 source unit provenance를 붙이며, 외국어
+hint를 포함한 요청과 필수 `expressions`/언어 계약 위반은 fail-closed한다.
+
+**로컬 검증과 남은 게이트.** 전체 `flutter analyze --no-pub --fatal-infos`는 error 0,
+책 구조 및 분석 Flutter 회귀는 **116/116**, Python 3.12 requirements 환경의
+전체 함수 discovery는 **70/70, skip 0**을 통과했다. 합성 방향 후보는
+0/90/180/270 8/8을 선택하고 창작 8-shape fixture의 Korean
+segment precision >=98%, recall >=95% 계약을 통과한다. 변경 목록에 PNG/JPEG/PDF 원본은
+0건이며 `git diff --check`도 통과했다. 그러나 실제 Android/iOS에서 private 8장 F1,
+reading-order, 플랫폼 차이, 동일 파일 3회 안정성, crash 0은 아직 측정하지 않았다.
+운영 함수도 구버전이며 이번 schema를 배포하지 않았으므로 운영 복구 완료를 주장하지
+않는다. 새 클라이언트와 서버는 `expressions` 필수 schema 때문에 반드시 함께 배포해야
+하고, Secret/TTL/cache 정리와 함수 배포는 별도 운영 승인 뒤에만 수행한다.
+
+### 2026-08-16 (Codex) — 책 한 컷 실물 8종 레이아웃 2차 감사
+
+**샘플과 개인정보 경계.** 사용자가 제공한 한국어-only 캡처, KO+DE/EN 교재 사진
+8장을 저장소 밖에서 읽기 전용으로 확인했다. 원본을 복사·편집·커밋하거나 외부 OCR에
+전송하지 않았다. #3/#4/#5/#7 JPEG는 EXIF Orientation=1인데 실제 글자 픽셀이 90°
+돌아가 있고 #2 PNG도 옆으로 누워 있어 EXIF 보정만으로는 처리할 수 없다.
+
+**1차 복구로 닫힌 범위.** Korean 단일 ML Kit, NFC/Arabic·bidi·control 정제,
+1~3단 및 넓은 band separator 정렬, 이미지 선명도·명암 gate, 엄격한 DE/EN 응답·저장
+계약, 안전한 custom-pack 입력 상한, 실제 Kiwi 관형형 회귀, cache/App-ID/source 배포
+검증은 로컬 변경과 자동 테스트로 보강했다. 다만 OCR line의 bbox/block 관계를 최종
+문자열로 평탄화하는 현재 계약은 그대로이므로 실물 혼합 교재 완료를 주장하지 않는다.
+
+**실물에서 확인된 남은 P0.** 전역 blur/contrast는 8장을 대부분 정상으로 보므로
+quarter-turn, 작은 글씨, 국소 반사, 프레임 잘림, 옆 페이지 침입을 별도 측정해야 한다.
+`대청소를 해요 do a big clean`, `내일 morgen`, 독일어 설명 안의 `-지 않다`처럼
+구분자 없는 혼합 줄은 문자 regex만으로 역할을 판별할 수 없다. 다음 구현은
+`Document > Region > Line > Span` 좌표 그래프, 조건부 0/90/180/270 선택, band별
+recursive layout, `sentence/expression/headword/grammarMeta/gloss/speaker/noise` 역할 분류,
+source-unit provenance가 있는 서버 v2 계약 순서로 진행한다. Google Cloud 문서 OCR은
+한국어 의미 분리를 대신하지 않으므로 사용자 승인 자료에서 정량 A/B 우위가 확인될 때만
+선택적 fallback 후보로 검토한다.
+
+**완료 기준.** 실제 원본은 gitignored private challenge set으로만 사용하고 저장소에는
+같은 구조의 독립 창작 synthetic fixture를 둔다. Android/iOS 양쪽에서 방향 선택,
+한국어 문자 precision/recall, inline DE/EN leakage 0, column/card merge 0, 문법 카드
+precision, TTS·저장 오염 0을 측정하기 전에는 기능 복구 완료나 운영 완료로 선언하지
+않는다. 사용자 지시에 따라 1차 로컬 안전 복구와 이 2차 감사 기록은 다음 구현 전 기준
+커밋으로 보관한다. 기준점 재검증에서 책 분석 관련 Flutter 회귀 **84/84**, custom-pack
+집중 회귀 **6/6**, Python 3.12 analyze preflight 전체, `flutter analyze --no-pub
+--fatal-infos`를 통과했다. 제공된 원본 사진·Secret은 커밋 대상에 없으며 푸시·배포·
+TTL 설정·cache 삭제는 수행하지 않았다. scene graph·자동 quarter-turn·역할 분류와
+태고/조이 질의 기능은 이 기준점 이후의 별도 구현이다.
+
+### 2026-08-15 (Codex) — 책 한 컷 혼합 교재 로컬 복구·운영 안전 게이트
+
+**원인과 운영 경계.** 같은 사진을 Korean/Latin ML Kit 인식기에 각각 보내 서로 다른
+오인식을 합치던 계약, 실제 Unicode/Hangul 검증 부재, OCR 개행을 문장 경계로 보던 서버,
+DE/EN/Arabic 조각을 한국어 문장·TTS·저장 후보로 신뢰하던 클라이언트가 주원인이었다.
+live Gen2 source는 현재 저장소와 다르고 필수 보안·문법·정제 모듈이 없으며, 이 세션에서
+함수·Rules·TTL·Secret을 배포하지 않았으므로 **운영 복구 완료를 주장하지 않는다**.
+
+**OCR·촬영·교정.** ML Kit Korean 단일 인식기와 최대 3단 열 정렬을 사용한다. Dart와
+Python이 같은 golden JSON을 읽어 NFC, zero-width/bidi/control 제거, 예상 밖 script run
+공백 치환, 명확한 gloss만 제거하는 계약을 공유한다. `Berlin에`, `K-pop 음악`,
+`서울에서 K-pop`은 보존하고 Arabic, bidi/zero-width, C0/C1 control은
+분석·TTS·저장 경계에서 제거한다. 구버전 local/Firestore/portable 책도 역직렬화 때
+같은 정제를 적용하고, 안전한 한국어/선택 언어 뜻이 남지 않는 항목은 팩·TTS 전에
+제외한다. 512px
+축소본의 Laplacian/명암, 지원하지 않는 문자 비율, 저신뢰 Korean line 비율, 3줄 이상
+중앙 회전각을 측정하며 iOS처럼 confidence가 전부 null이면 별도 경고한다. severe 사진은
+재촬영이 기본이고, 공백 변경이 아닌 안전한 한글 직접 교정이 있어야 분석 버튼이 열린다.
+picker/crop JPEG 품질을 100으로 맞추고 preview에 실제 로컬 사진을 표시한다.
+
+**분석·문법·저장 계약.** 서버는 `analysisLanguage`, `words`, `grammar`, `sentences`,
+`warnings`를 항상 반환하고 클라이언트는 필수 schema와 요청 언어 일치를 강제한다. 빈 결과,
+필수 key 누락, 전부 필터됨, 일부 응답 오염은 `isSaveable=false`로 저장·팩 생성·TTS를
+차단한다. 번역 장애 때 한국어 문장·문법은 보존하되 뜻 없는 단어는 단어장에 넣지 않는다.
+Kiwi tokenize 결과 하나를 단어·예문·문법에 공유하고 `VV/VA + ETM + 후행 명사`로
+`좋은 책`/`먹은 음식`/`먹을 음식`을 각각 현재/과거/미래 한 카드로 판별하며
+`저는 학생이에요`는 검출하지 않는다. offline 정규식은 fail-closed하고
+`offline_grammar_reduced`를 노출한다. 자동채움·수동 입력·CSV와 기존 게임 호환 슬롯은
+DE/EN `translationLanguage` provenance를 보존한다. 분석 analytics에는 원문·경로·UID가
+아닌 제한된 count/category만 남긴다.
+
+**개인정보·안전 배포.** 번역 cache v3는 `src`를 쓰지 않고 30일 `expiresAt`을 저장하며
+legacy/만료 문서는 miss 처리한다. Firestore 클라이언트 접근 금지와 TTL 설정, 값 없는
+dry-run 정리 도구를 추가했다. source-local `.gcloudignore`와 preflight는 실제 gcloud
+upload 목록을 런타임 7파일 exact allowlist로 검사하고 `.env*`·test·smoke·pyc를 배제한다.
+DeepL은 source `.env`가 아닌 Secret Manager와 전용 서비스 계정으로 주입하고 Android/iOS
+App ID만 비밀 없는 env YAML에 둔다. 배포 후 storage source ZIP의 manifest/SHA를 로컬과
+비교하는 verifier와 Auth/App Check를 각각 독립 실패시키는 signed smoke를 추가했다.
+
+**로컬 검증.** `flutter analyze --no-pub --fatal-infos`는 0 issue. 통합 선별 회귀
+**89/89**과 추가 media/l10n 회귀 **85/85**, Python 3.12 requirements 환경의 전체
+unittest discovery **62/62, skip 0**, signed-smoke mock **17/17**, Firestore emulator
+**47/47, skip 0**을 통과했다. 실제 Kiwi 0.19에서도 관형형 양성·조사 음성을 확인했다.
+`bash functions/preflight.sh analyze`는 Python 3.12.10, dependency import, 전체 discovery,
+양 플랫폼 App ID, 실제 gcloud 7-file manifest, server-only cache/TTL 계약을 모두 통과했고
+`py_compile`, JSON parity, `git diff --check`도 통과했다.
+
+**운영 read-only 증거와 남은 승인 게이트.** cache dry-run은 `scanned=379`,
+`source_bearing=379`, `missing_expires_at=379`, `version_mismatch=379`, `matched=379`,
+`deleted=0`이었다. live TTL 정책은 없고, live source verifier는 예상대로 추가 파일 3개와
+필수 파일 4개 누락으로 실패했다. 따라서 다음 순서는 별도 운영 승인 후 Secret/전용 계정,
+Rules+TTL, Python Gen2 배포, source SHA 일치, Android `de`/iOS `en` signed smoke, 실제
+단일·2단·3단/회전·흐림·저대비 교재 촬영, 마지막으로 별도 삭제 승인 후 cache cleanup이다.
+커밋·푸시·배포·Secret 생성·TTL 설정·cache 삭제는 수행하지 않았고, 별도 세션의 PR #27
+브랜치·커밋·병합에도 관여하지 않았다.
 
 ### 2026-08-15 (Codex Work Mode) — B2·C1·C2 독립 창작 Batch 05와 전 레벨 앱 계약 확장
 

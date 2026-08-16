@@ -17,6 +17,7 @@ Future<void> addToWordbook(
   required String korean,
   required String translationDe,
   String translationEn = '',
+  String translationLanguage = 'de',
   String romanization = '',
   String posDe = '',
   String exampleKorean = '',
@@ -35,6 +36,7 @@ Future<void> addToWordbook(
       korean: korean.trim(),
       translationDe: translationDe.trim(),
       translationEn: translationEn.trim(),
+      translationLanguage: translationLanguage,
       romanization: romanization.trim(),
       posDe: posDe.trim(),
       exampleKorean: exampleKorean.trim(),
@@ -77,6 +79,7 @@ class AddToWordbookButton extends StatefulWidget {
   final String korean;
   final String translationDe;
   final String translationEn;
+  final String translationLanguage;
   final String romanization;
   final String posDe;
   final String exampleKorean;
@@ -89,6 +92,7 @@ class AddToWordbookButton extends StatefulWidget {
     required this.korean,
     required this.translationDe,
     this.translationEn = '',
+    this.translationLanguage = 'de',
     this.romanization = '',
     this.posDe = '',
     this.exampleKorean = '',
@@ -171,6 +175,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
     korean: widget.korean,
     translationDe: widget.translationDe,
     translationEn: widget.translationEn,
+    translationLanguage: widget.translationLanguage,
     romanization: widget.romanization,
     posDe: widget.posDe,
     exampleKorean: widget.exampleKorean,

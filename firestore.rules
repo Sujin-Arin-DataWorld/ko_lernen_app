@@ -606,6 +606,13 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Book-analysis translations are written and read only through Admin SDK.
+    // Document ids are one-way hashes and clients must not enumerate cached
+    // translations or bypass the authenticated analysis endpoint.
+    match /translation_cache/{document=**} {
+      allow read, write: if false;
+    }
+
     match /gye/{gyeId} {
       // A Gye code is a bearer-style join secret. Authenticated users may
       // resolve a code they already know, but may not enumerate all groups.

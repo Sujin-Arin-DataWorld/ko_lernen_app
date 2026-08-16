@@ -1,0 +1,11 @@
+# Exact allowlist for the analyze_korean_text Gen2 source archive.
+# Keep this list in sync with verify_deployed_source.py. Everything else,
+# including local secrets, tests, smoke tools, and bytecode, is excluded.
+*
+!main.py
+!requirements.txt
+!dictionary_validation.py
+!grammar_analysis.py
+!grammar_patterns.json
+!security.py
+!text_quality.py

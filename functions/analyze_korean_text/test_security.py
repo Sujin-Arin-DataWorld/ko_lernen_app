@@ -11,6 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 
 from security import (  # noqa: E402
     AuthenticationFailed,
+    DEFAULT_ALLOWED_APP_IDS,
     QuotaExceeded,
     QuotaState,
     consume_quota_state,
@@ -20,6 +21,7 @@ from security import (  # noqa: E402
 
 
 ANDROID_APP_ID = "1:573567222361:android:38d26a50001ee64c356748"
+IOS_APP_ID = "1:573567222361:ios:0f8c0734410bb6cc356748"
 
 
 class _Request:
@@ -28,6 +30,9 @@ class _Request:
 
 
 class CallerVerificationTest(unittest.TestCase):
+    def test_default_app_check_allowlist_covers_both_mobile_apps(self):
+        self.assertEqual(DEFAULT_ALLOWED_APP_IDS, {ANDROID_APP_ID, IOS_APP_ID})
+
     def test_returns_only_the_uid_from_the_verified_auth_token(self):
         request = _Request(
             {

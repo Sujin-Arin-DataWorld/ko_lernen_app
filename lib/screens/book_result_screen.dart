@@ -7,13 +7,17 @@ import '../models/book_page.dart';
 import '../models/feedback_completion.dart';
 import '../services/analytics_service.dart';
 import '../services/book_analysis_service.dart';
+import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
+import '../services/book_ocr_document.dart';
+import '../services/grounded_book_study_service.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/grounded_book_study_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
@@ -104,7 +108,88 @@ class _BookResultScreenState extends State<BookResultScreen> {
   bool get _saved => _saveIntent.isSaved;
   bool get _saving => _saveIntent.isSaving;
   String get _text => widget.args['text'] as String? ?? '';
+  String get _safeText => BookAnalysisTextPreprocessor.prepare(_text).text;
   String? get _imageLease => widget.args['imageLease'] as String?;
+  List<String> get _captureQualityWarnings => <String>{
+    ...?((widget.args['qualityWarnings'] as List?)?.whereType<String>()),
+    ...?((widget.args['textQualityWarnings'] as List?)?.whereType<String>()),
+  }.toList(growable: false);
+  bool get _qualityOverrideByTextEdit =>
+      widget.args['qualityOverrideByTextEdit'] == true;
+  String get _ocrQuality {
+    if (_qualityOverrideByTextEdit) {
+      return 'severe_override';
+    }
+    final ocr = widget.args['ocrQuality'];
+    if (ocr is Map && ocr['confidenceUnavailable'] == true) {
+      return 'unmeasured';
+    }
+    return _captureQualityWarnings.isEmpty ? 'clean' : 'warning';
+  }
+
+  String _resultStatusFor(BookAnalysisResult result) {
+    if (result.warnings.contains('invalid_response_schema')) {
+      return 'blocked_schema';
+    }
+    if (result.warnings.contains('wrong_analysis_language')) {
+      return 'blocked_language';
+    }
+    if (result.warnings.contains('invalid_response_filtered')) {
+      return 'blocked_content';
+    }
+    if (result.warnings.contains('no_korean_text')) {
+      return 'blocked_no_korean';
+    }
+    if (!result.hasMeaningfulResult) {
+      return 'blocked_empty';
+    }
+    if (result.warnings.contains('translation_unavailable')) {
+      return 'partial_translation';
+    }
+    if (result.warnings.contains('offline_stub')) {
+      return 'offline';
+    }
+    if (_qualityOverrideByTextEdit) {
+      return 'success_capture_override';
+    }
+    return 'success';
+  }
+
+  String _warningBucketFor(BookAnalysisResult result) {
+    if (result.warnings.contains('invalid_response_schema')) {
+      return 'schema';
+    }
+    if (result.warnings.contains('wrong_analysis_language')) {
+      return 'language';
+    }
+    if (result.warnings.contains('invalid_response_filtered')) {
+      return 'content';
+    }
+    if (result.warnings.contains('no_korean_text')) {
+      return 'no_korean';
+    }
+    if (result.warnings.contains('translation_unavailable')) {
+      return 'translation';
+    }
+    if (result.warnings.any(
+      const {
+        'image_blur_warning',
+        'image_low_contrast_warning',
+        'ocr_confidence_unavailable',
+        'ocr_low_confidence',
+        'unexpected_script_filtered',
+      }.contains,
+    )) {
+      return 'capture_quality';
+    }
+    if (result.warnings.contains('offline_stub')) {
+      return 'remote';
+    }
+    if (_captureQualityWarnings.isNotEmpty) {
+      return 'capture_quality';
+    }
+    return 'none';
+  }
 
   @override
   void initState() {
@@ -147,18 +232,30 @@ class _BookResultScreenState extends State<BookResultScreen> {
     });
     try {
       // Quota erst nach erfolgreichem Aufruf erhöhen — Fehler zählen nicht.
-      final res = await (widget.analyzer ?? BookAnalysisService.analyze)(
-        text: _text,
-        targetLang: targetLang,
-      );
-      if (!res.warnings.contains('offline_stub')) {
+      final customAnalyzer = widget.analyzer;
+      final res = customAnalyzer != null
+          ? await customAnalyzer(text: _text, targetLang: targetLang)
+          : await BookAnalysisService.analyze(
+              text: _text,
+              targetLang: targetLang,
+              document: widget.args['ocrDocument'] is BookOcrDocument
+                  ? widget.args['ocrDocument'] as BookOcrDocument
+                  : null,
+            );
+      if (!res.warnings.contains('offline_stub') &&
+          !res.warnings.contains('no_korean_text')) {
         await Storage.incBookSnapCountToday();
       }
       unawaited(
         Analytics.bookCaptureAnalyzed(
           targetLang: targetLang,
           words: res.words.length,
+          grammar: res.grammar.length,
+          sentences: res.sentences.length,
           offline: res.warnings.contains('offline_stub'),
+          resultStatus: _resultStatusFor(res),
+          warningBucket: _warningBucketFor(res),
+          ocrQuality: _ocrQuality,
         ),
       );
       if (!mounted || generation != _analysisGeneration) {
@@ -189,18 +286,22 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _save() async {
     final res = _result;
-    if (res == null || !_saveIntent.canStart) return;
+    if (res == null || !res.isSaveable || !_saveIntent.canStart) {
+      return;
+    }
     final operation = _saveIntent.run((pageId, capturedAtIso) async {
       final page = BookPage(
         id: pageId,
         localThumbnailPath: null,
-        extractedText: _text,
+        extractedText: _safeText,
         note: '',
         words: res.words,
         grammar: res.grammar,
         sentences: res.sentences,
+        expressions: res.expressions,
         capturedAtIso: capturedAtIso,
         customPackId: null,
+        analysisLanguage: res.analysisLanguage,
       );
       final lease = PendingMediaLease.tryParse(_imageLease);
       if (lease == null) {
@@ -286,6 +387,21 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final credentialsUnavailable = r.warnings.contains(
       'remote_credentials_unavailable',
     );
+    final noKoreanText = r.warnings.contains('no_korean_text');
+    final translationUnavailable = r.warnings.contains(
+      'translation_unavailable',
+    );
+    final qualityFiltered =
+        r.warnings.any(
+          const {
+            'unexpected_script_filtered',
+            'invalid_response_filtered',
+            'text_truncated',
+            'translation_unavailable',
+          }.contains,
+        ) ||
+        _captureQualityWarnings.isNotEmpty;
+    final blockedResult = !r.isSaveable;
 
     return _guard(
       Scaffold(
@@ -294,7 +410,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
             t.bookResultTitle,
             style: const TextStyle(fontWeight: FontWeight.w800),
           ),
-          actions: const [TtsSpeedAction()],
+          actions: r.isSaveable ? const [TtsSpeedAction()] : const [],
         ),
         body: SafeArea(
           child: LayoutBuilder(
@@ -372,24 +488,77 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     ),
                     const SizedBox(height: Spacing.md),
                   ],
+                  if (noKoreanText || qualityFiltered || blockedResult) ...[
+                    SoriCard(
+                      variant: SoriCardVariant.compact,
+                      accent: SoriColors.warning,
+                      tinted: true,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            Icons.fact_check_outlined,
+                            color: SoriColors.warning,
+                            size: 18,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Expanded(
+                            child: Text(
+                              noKoreanText
+                                  ? t.bookResultNoKoreanNotice
+                                  : translationUnavailable
+                                  ? t.bookResultTranslationUnavailable
+                                  : t.bookResultQualityNotice,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: s.textMuted,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                  ],
                   // 단어 카드
                   if (r.words.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionWords),
-                    ...r.words.map((w) => _WordCard(word: w)),
+                    ...r.words.map(
+                      (w) => _WordCard(
+                        word: w,
+                        result: r,
+                        allowActions: r.isSaveable,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.lg),
+                  ],
+                  if (r.expressions.isNotEmpty) ...[
+                    _SectionLabel(label: t.bookResultSectionExpressions),
+                    ...r.expressions.map(
+                      (expression) => _ExpressionCard(
+                        expression: expression,
+                        result: r,
+                        allowTts: r.isSaveable,
+                      ),
+                    ),
                     const SizedBox(height: Spacing.lg),
                   ],
                   // 문법 패턴
                   if (r.grammar.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionGrammar),
-                    ...r.grammar.map((g) => _GrammarCard(hit: g)),
+                    ...r.grammar.map((g) => _GrammarCard(hit: g, result: r)),
                     const SizedBox(height: Spacing.lg),
                   ],
                   // 문장
                   if (r.sentences.isNotEmpty) ...[
                     _SectionLabel(label: t.bookResultSectionSentences),
-                    ...r.sentences
-                        .take(8)
-                        .map((s) => _SentenceCard(sentence: s)),
+                    ...r.sentences.map(
+                      (s) => _SentenceCard(
+                        sentence: s,
+                        result: r,
+                        allowTts: r.isSaveable,
+                      ),
+                    ),
                     const SizedBox(height: Spacing.lg),
                   ],
                   if (feedbackCompletion != null &&
@@ -403,7 +572,30 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     const SizedBox(height: Spacing.md),
                   ],
                   const SizedBox(height: Spacing.md),
-                  if (!_saved)
+                  if (blockedResult) ...[
+                    if (!noKoreanText) ...[
+                      SoriButton(
+                        label: t.btnRetry,
+                        icon: Icons.refresh_rounded,
+                        variant: SoriButtonVariant.filled,
+                        accent: SoriColors.primary,
+                        fullWidth: true,
+                        onTap: () => _analyze(_analysisLanguage ?? 'de'),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                    ],
+                    SoriButton(
+                      label: t.bookPreviewRetake,
+                      icon: Icons.replay_outlined,
+                      variant: SoriButtonVariant.outlined,
+                      accent: SoriColors.info,
+                      fullWidth: true,
+                      onTap: () => Navigator.of(context).popUntil(
+                        (route) =>
+                            route.settings.name == '/book' || route.isFirst,
+                      ),
+                    ),
+                  ] else if (!_saved)
                     SoriButton(
                       label: t.bookResultSave,
                       icon: Icons.bookmark_add_outlined,
@@ -448,7 +640,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _createCustomPack(AppL10n t) async {
     final res = _result;
-    if (res == null || res.words.isEmpty) return;
+    if (res == null || !res.isSaveable || res.words.isEmpty) {
+      return;
+    }
     final controller = TextEditingController(
       text: 'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
     );
@@ -479,13 +673,15 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final tempPage = BookPage(
       id: 'temp_${DateTime.now().millisecondsSinceEpoch}',
       localThumbnailPath: null,
-      extractedText: _text,
+      extractedText: _safeText,
       note: '',
       words: res.words,
       grammar: res.grammar,
       sentences: res.sentences,
+      expressions: res.expressions,
       capturedAtIso: DateTime.now().toUtc().toIso8601String(),
       customPackId: null,
+      analysisLanguage: res.analysisLanguage,
     );
     final pack = await CustomPackService.createFromPage(
       page: tempPage,
@@ -525,9 +721,71 @@ class _SectionLabel extends StatelessWidget {
   }
 }
 
+class _ExpressionCard extends StatelessWidget {
+  const _ExpressionCard({
+    required this.expression,
+    required this.result,
+    required this.allowTts,
+  });
+
+  final ExtractedExpression expression;
+  final BookAnalysisResult result;
+  final bool allowTts;
+
+  @override
+  Widget build(BuildContext context) {
+    final meaning =
+        expression.translationLanguage == 'en' &&
+            expression.translationEn.isNotEmpty
+        ? expression.translationEn
+        : expression.translationDe;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.success,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(expression.korean, style: SoriTextTheme.of(context).h3),
+                  if (meaning.isNotEmpty) ...<Widget>[
+                    const SizedBox(height: Spacing.xs),
+                    Text(meaning, style: SoriTextTheme.of(context).bodySmall),
+                  ],
+                ],
+              ),
+            ),
+            GroundedBookAskButton(
+              result: result,
+              target: GroundedBookTarget.forExpression(expression),
+            ),
+            if (allowTts)
+              IconButton(
+                icon: const Icon(Icons.volume_up_rounded),
+                onPressed: () {
+                  // ignore: discarded_futures
+                  TtsService.speak(expression.korean);
+                },
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _WordCard extends StatelessWidget {
   final ExtractedWord word;
-  const _WordCard({required this.word});
+  final BookAnalysisResult result;
+  final bool allowActions;
+  const _WordCard({
+    required this.word,
+    required this.result,
+    required this.allowActions,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -544,24 +802,31 @@ class _WordCard extends StatelessWidget {
                 Expanded(
                   child: Text(word.korean, style: SoriTextTheme.of(context).h2),
                 ),
-                AddToWordbookButton(
-                  korean: word.korean,
-                  translationDe: word.translationDe,
-                  translationEn: word.translationEn,
-                  romanization: word.romanization,
-                  posDe: word.posDe,
-                  exampleKorean: word.exampleKorean,
-                  exampleDe: word.exampleDe,
-                  compact: true,
-                ),
-                IconButton(
-                  visualDensity: VisualDensity.compact,
-                  icon: const Icon(Icons.volume_up_rounded, size: 22),
-                  onPressed: () {
-                    // ignore: discarded_futures
-                    TtsService.speak(word.korean);
-                  },
-                ),
+                if (allowActions) ...[
+                  GroundedBookAskButton(
+                    result: result,
+                    target: GroundedBookTarget.forWord(word),
+                  ),
+                  AddToWordbookButton(
+                    korean: word.korean,
+                    translationDe: word.translationDe,
+                    translationEn: word.translationEn,
+                    translationLanguage: word.translationLanguage,
+                    romanization: word.romanization,
+                    posDe: word.posDe,
+                    exampleKorean: word.exampleKorean,
+                    exampleDe: word.exampleDe,
+                    compact: true,
+                  ),
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    icon: const Icon(Icons.volume_up_rounded, size: 22),
+                    onPressed: () {
+                      // ignore: discarded_futures
+                      TtsService.speak(word.korean);
+                    },
+                  ),
+                ],
               ],
             ),
             if (word.romanization.isNotEmpty)
@@ -626,7 +891,8 @@ class _WordCard extends StatelessWidget {
 
 class _GrammarCard extends StatelessWidget {
   final GrammarHit hit;
-  const _GrammarCard({required this.hit});
+  final BookAnalysisResult result;
+  const _GrammarCard({required this.hit, required this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -645,6 +911,10 @@ class _GrammarCard extends StatelessWidget {
                     hit.nameDe,
                     style: SoriTextTheme.of(context).cardTitle,
                   ),
+                ),
+                GroundedBookAskButton(
+                  result: result,
+                  target: GroundedBookTarget.forGrammar(hit),
                 ),
                 SoriChip(label: hit.level, accent: SoriColors.warning),
               ],
@@ -671,7 +941,13 @@ class _GrammarCard extends StatelessWidget {
 
 class _SentenceCard extends StatelessWidget {
   final TranslatedSentence sentence;
-  const _SentenceCard({required this.sentence});
+  final BookAnalysisResult result;
+  final bool allowTts;
+  const _SentenceCard({
+    required this.sentence,
+    required this.result,
+    required this.allowTts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -699,14 +975,19 @@ class _SentenceCard extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(
-                visualDensity: VisualDensity.compact,
-                icon: const Icon(Icons.volume_up_rounded, size: 18),
-                onPressed: () {
-                  // ignore: discarded_futures
-                  TtsService.speak(sentence.korean);
-                },
+              GroundedBookAskButton(
+                result: result,
+                target: GroundedBookTarget.forSentence(sentence),
               ),
+              if (allowTts)
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  icon: const Icon(Icons.volume_up_rounded, size: 18),
+                  onPressed: () {
+                    // ignore: discarded_futures
+                    TtsService.speak(sentence.korean);
+                  },
+                ),
             ],
           ),
           if (sentence.translationDe.isNotEmpty)

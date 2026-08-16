@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_write_after_roleplay_card.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -55,6 +56,7 @@ void main() {
 
     expect(tester.takeException(), isNull);
     expect(find.byType(SatzBauenQuest), findsOneWidget);
+    expect(find.byType(ScenarioWriteAfterRoleplayCard), findsNothing);
     expect(find.text('Ja, hier bitte.'), findsOneWidget);
     expect(
       tester.getSize(find.byType(SatzBauenQuest)).height,

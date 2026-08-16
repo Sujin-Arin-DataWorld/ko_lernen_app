@@ -1,43 +1,105 @@
 name: CI
 
-# "살아있는 한옥" 회귀 방지. 코드 변경은 analyze/test/build와 보안 경계를 검증하되,
-# 문서 전용 변경과 이미 대체된 실행은 유료 runner 시간을 쓰지 않는다.
+# 변경된 제품 영역만 검증한다. 문서 전용 변경은 runner를 만들지 않고, 앱·각
+# Firebase 함수·웹사이트는 서로 독립적으로 선택한다. CI 설정이나 공용 Rules가
+# 바뀌면 분류기가 관련 게이트를 보수적으로 모두 연다.
 
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
+    paths:
+      - '**'
+      - '!**/*.md'
+      - '!docs/**'
+      # 아래 경로는 문서처럼 보여도 테스트/배포 계약의 입력이다.
+      - '.github/**'
+      - 'functions/**'
+      - 'hangul-sori-site-local/**'
+      - 'docs/store/**'
+      - 'docs/privacy.html'
+      - 'docs/support.html'
+      - 'docs/screenshots/**'
+      - 'docs/SESSION_CHANGES_2026-07-31.md'
+      - 'docs/CNAME'
   pull_request:
     branches: [main]
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
+    paths:
+      - '**'
+      - '!**/*.md'
+      - '!docs/**'
+      - '.github/**'
+      - 'functions/**'
+      - 'hangul-sori-site-local/**'
+      - 'docs/store/**'
+      - 'docs/privacy.html'
+      - 'docs/support.html'
+      - 'docs/screenshots/**'
+      - 'docs/SESSION_CHANGES_2026-07-31.md'
+      - 'docs/CNAME'
   workflow_dispatch:
     inputs:
       task:
-        description: 실행할 작업
+        description: 실행 범위(ci=변경 자동 감지, full=전체)
         required: false
         default: ci
         type: choice
         options:
           - ci
+          - full
+          - flutter
+          - website
+          - book
+          - gye
+          - pronunciation
           - regenerate-goldens
 
 permissions:
   contents: read
 
-# 같은 브랜치의 자동/수동 CI에 새 실행이 생기면 오래된 실행을 취소한다. 수동 CI와
-# 골든 생성은 서로 취소하지 않도록 task를 그룹 키에 포함한다.
+# 자동 PR과 같은 브랜치의 수동 task=ci도 같은 그룹이다. 새 커밋/실행이 생기면
+# 이미 낡은 검증은 취소하되 골든 생성은 일반 CI와 별도 그룹으로 둔다.
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.task || 'ci' }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  group: ${{ github.workflow }}-${{ inputs.task == 'regenerate-goldens' && 'goldens' || 'ci' }}-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Select required checks
+    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      app: ${{ steps.scope.outputs.app }}
+      website: ${{ steps.scope.outputs.website }}
+      book: ${{ steps.scope.outputs.book }}
+      gye: ${{ steps.scope.outputs.gye }}
+      pronunciation: ${{ steps.scope.outputs.pronunciation }}
+    steps:
+      - name: Checkout with comparison history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify scope classifier
+        run: python3 -m unittest discover -s .github/scripts -p "test_ci_scope.py"
+
+      - name: Classify changed paths
+        id: scope
+        env:
+          CI_EVENT_NAME: ${{ github.event_name }}
+          CI_BEFORE_SHA: ${{ github.event.before }}
+          CI_SHA: ${{ github.sha }}
+          CI_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_REF_NAME: ${{ github.ref_name }}
+          CI_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          CI_MANUAL_TASK: ${{ inputs.task || 'ci' }}
+        run: python3 .github/scripts/ci_scope.py
+
   website:
     name: Website source and Worker release gate
-    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    needs: changes
+    if: needs.changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -62,7 +124,8 @@ jobs:
 
   build:
     name: Analyze & Build
-    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -112,7 +175,8 @@ jobs:
 
   book-analysis-security:
     name: Book analysis security
-    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    needs: changes
+    if: needs.changes.outputs.book == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -135,7 +199,8 @@ jobs:
 
   gye-functions-security:
     name: Gye functions and rules security
-    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    needs: changes
+    if: needs.changes.outputs.gye == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -169,7 +234,8 @@ jobs:
 
   pronunciation-functions-security:
     name: Pronunciation function security
-    if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
+    needs: changes
+    if: needs.changes.outputs.pronunciation == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:

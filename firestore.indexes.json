@@ -144,6 +144,12 @@
       "indexes": []
     },
     {
+      "collectionGroup": "translation_cache",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "users",
       "fieldPath": "gyeIds",
       "indexes": [

@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_build_narrative.dart';
 import '../models/personal_room.dart';
+import '../models/room_layout.dart';
 import '../services/decoration_reward_service.dart';
 import '../services/hanok_build_narrative_service.dart';
 import '../services/pack_access.dart';
 import '../services/quest_tracker.dart';
-import '../services/room_placement_service.dart';
+import '../services/room_layout_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
@@ -28,15 +29,26 @@ import '../widgets/sori/tokens.dart';
 /// the room and how to arrange it. Home owns today's primary recommendation;
 /// this screen only offers a quiet, optional route back to that same scene.
 class SarangbangRoomState {
+  final RoomLayouts layouts;
+
+  /// Compatibility-only fixture input for previews created before v3.
   final RoomPlacements placements;
   final Set<String> ownedDecor;
   final int openableBoxes;
 
   const SarangbangRoomState({
+    this.layouts = const {},
     this.placements = const {},
     this.ownedDecor = const {},
     this.openableBoxes = 0,
   });
+}
+
+RoomLayouts _layoutsForRoomState(SarangbangRoomState room) {
+  if (room.layouts.isNotEmpty || room.placements.isEmpty) {
+    return room.layouts;
+  }
+  return RoomLayoutService.migrateLegacy(room.placements);
 }
 
 class SarangbangStudyPreviewData {
@@ -94,8 +106,7 @@ class SarangbangStudyScreen extends StatefulWidget {
 class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   TodayLearningSnapshot? _snapshot;
   HanokLearningReceipt _receipt = const HanokLearningReceipt.empty();
-  RoomPlacements _placements = const {};
-  Set<String> _ownedDecor = const {};
+  RoomLayouts _layouts = const {};
   int _openableBoxes = 0; // 지금 열 수 있는 보자기 — 사랑방 발견 배너 게이트
   bool _loading = true;
   bool _loadFailed = false;
@@ -110,8 +121,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     }
     _snapshot = preview.todaySnapshot;
     _receipt = preview.receipt;
-    _placements = preview.room.placements;
-    _ownedDecor = preview.room.ownedDecor;
+    _layouts = _layoutsForRoomState(preview.room);
     _openableBoxes = preview.room.openableBoxes;
     _loading = false;
   }
@@ -119,7 +129,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   SarangbangRoomState _readRoomSnapshot() {
     try {
       return SarangbangRoomState(
-        placements: RoomPlacementService.sanitizeAll(Storage.roomPlacements),
+        layouts: RoomLayoutService.load().layouts,
         ownedDecor: Storage.ownedDecor.toSet(),
         openableBoxes: DecorationRewardService.openableBoxCount(),
       );
@@ -140,8 +150,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       return;
     }
     setState(() {
-      _placements = room.placements;
-      _ownedDecor = room.ownedDecor;
+      _layouts = _layoutsForRoomState(room);
       _openableBoxes = room.openableBoxes;
     });
   }
@@ -152,8 +161,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       setState(() {
         _snapshot = preview.todaySnapshot;
         _receipt = preview.receipt;
-        _placements = preview.room.placements;
-        _ownedDecor = preview.room.ownedDecor;
+        _layouts = _layoutsForRoomState(preview.room);
         _openableBoxes = preview.room.openableBoxes;
         _loading = false;
         _loadFailed = false;
@@ -180,8 +188,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       setState(() {
         _snapshot = snapshot;
         _receipt = receipt;
-        _placements = room.placements;
-        _ownedDecor = room.ownedDecor;
+        _layouts = _layoutsForRoomState(room);
         _openableBoxes = room.openableBoxes;
         _loading = false;
       });
@@ -257,8 +264,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       return;
     }
     setState(() {
-      _placements = room.placements;
-      _ownedDecor = room.ownedDecor;
+      _layouts = _layoutsForRoomState(room);
       _openableBoxes = room.openableBoxes;
     });
   }
@@ -329,8 +335,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                               child: _SarangbangArrivalCard(receipt: _receipt),
                             );
                             final room = _SarangbangStudyScene(
-                              placements: _placements,
-                              owned: _ownedDecor,
+                              layouts: _layouts,
                               expression: _receipt.latestSafeExpressionKo,
                             );
                             final furnishing = _SarangbangFurnishCard(
@@ -434,13 +439,11 @@ class _SarangbangArrivalCard extends StatelessWidget {
 }
 
 class _SarangbangStudyScene extends StatelessWidget {
-  final RoomPlacements placements;
-  final Set<String> owned;
+  final RoomLayouts layouts;
   final String? expression;
 
   const _SarangbangStudyScene({
-    required this.placements,
-    required this.owned,
+    required this.layouts,
     required this.expression,
   });
 
@@ -451,51 +454,46 @@ class _SarangbangStudyScene extends StatelessWidget {
       key: const ValueKey('sarangbang-study-room'),
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AspectRatio(
-          aspectRatio: 1.06,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              PersonalRoomScene(
-                surface: PersonalRoomSurface.sarangbang,
-                placements: placements,
-                owned: owned,
-                interactive: false,
-              ),
-              if (expression case final value?)
-                if (value.trim().isNotEmpty)
-                  Positioned(
-                    left: Spacing.md,
-                    right: Spacing.md,
-                    bottom: Spacing.md,
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        key: const ValueKey('sarangbang-earned-expression'),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: Spacing.sm,
-                          vertical: Spacing.xs,
+        Stack(
+          children: [
+            PersonalRoomScene(
+              surface: PersonalRoomSurface.sarangbang,
+              layouts: layouts,
+              interactive: false,
+            ),
+            if (expression case final value?)
+              if (value.trim().isNotEmpty)
+                Positioned(
+                  left: Spacing.md,
+                  right: Spacing.md,
+                  bottom: Spacing.md,
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      key: const ValueKey('sarangbang-earned-expression'),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.sm,
+                        vertical: Spacing.xs,
+                      ),
+                      decoration: BoxDecoration(
+                        color: SoriSurfaces.of(
+                          context,
+                        ).surface.withValues(alpha: .94),
+                        borderRadius: SoriRadius.brSm,
+                        border: Border.all(
+                          color: SoriColors.gold.withValues(alpha: .55),
                         ),
-                        decoration: BoxDecoration(
-                          color: SoriSurfaces.of(
-                            context,
-                          ).surface.withValues(alpha: .94),
-                          borderRadius: SoriRadius.brSm,
-                          border: Border.all(
-                            color: SoriColors.gold.withValues(alpha: .55),
-                          ),
-                        ),
-                        child: Text(
-                          value.trim(),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: text.label,
-                        ),
+                      ),
+                      child: Text(
+                        value.trim(),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: text.label,
                       ),
                     ),
                   ),
-            ],
-          ),
+                ),
+          ],
         ),
       ],
     );

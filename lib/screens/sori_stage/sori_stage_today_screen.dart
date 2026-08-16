@@ -1010,6 +1010,7 @@ class _QuestProgressRow extends StatelessWidget {
             SoriRewardThumb(
               slug: definition.decorationSlug,
               earned: progress.completed,
+              semantic: '',
             ),
             const SizedBox(width: Spacing.md),
             Expanded(

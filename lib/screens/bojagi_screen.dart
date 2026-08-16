@@ -221,7 +221,6 @@ class _PickView extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final german = Localizations.localeOf(context).languageCode != 'en';
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(
@@ -262,7 +261,6 @@ class _PickView extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: Spacing.md),
                 child: _CandidateCard(
                   slug: candidates[i],
-                  german: german,
                   onTap: () => onPick(candidates[i]),
                 ),
               ),
@@ -276,17 +274,13 @@ class _PickView extends StatelessWidget {
 /// 후보 한 장. 카드 톤은 `SoriCard` 규약(면 + 얇은 테두리 + md 라운드)을 따른다.
 class _CandidateCard extends StatelessWidget {
   final String slug;
-  final bool german;
   final VoidCallback onTap;
 
-  const _CandidateCard({
-    required this.slug,
-    required this.german,
-    required this.onTap,
-  });
+  const _CandidateCard({required this.slug, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final text = SoriTextTheme.of(context);
     return Semantics(
@@ -315,7 +309,7 @@ class _CandidateCard extends StatelessWidget {
               const SizedBox(width: Spacing.lg),
               Expanded(
                 child: Text(
-                  decorName(slug, german: german),
+                  decorName(t, slug),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: text.cardTitle,
@@ -350,7 +344,6 @@ class _ClaimedView extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final german = Localizations.localeOf(context).languageCode != 'en';
 
     return SoriEntrance(
       child: Padding(
@@ -379,7 +372,7 @@ class _ClaimedView extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.sm),
             Text(
-              decorName(slug, german: german),
+              decorName(t, slug),
               textAlign: TextAlign.center,
               style: text.bodySmall,
             ),

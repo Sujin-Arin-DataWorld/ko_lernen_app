@@ -1,0 +1,107 @@
+{
+  "version": "book-analysis-text-v2",
+  "cases": [
+    {
+      "name": "mixed_lesson_and_arabic",
+      "input": "Lesson 1: 저는 학생이에요.\nIch bin Schüler.\nمرحبا",
+      "output": "저는 학생이에요.",
+      "warnings": ["non_korean_segments_ignored", "unexpected_script_filtered"]
+    },
+    {
+      "name": "nfd_is_normalized_to_nfc",
+      "input": "가요.",
+      "output": "가요.",
+      "warnings": []
+    },
+    {
+      "name": "leading_bracket_label_is_removed",
+      "input": "(Lesson 1) 안녕하세요.",
+      "output": "안녕하세요.",
+      "warnings": ["non_korean_segments_ignored"]
+    },
+    {
+      "name": "standalone_jamo_is_not_analysis_text",
+      "input": "ㄱㄴ",
+      "output": "",
+      "warnings": ["non_korean_segments_ignored", "no_korean_text"]
+    },
+    {
+      "name": "bidi_controls_are_deleted_without_spaces",
+      "input": "안녕\u202eabc\u202c하세요.",
+      "output": "안녕abc하세요.",
+      "warnings": ["unexpected_script_filtered"]
+    },
+    {
+      "name": "zero_width_format_is_deleted_without_spaces",
+      "input": "안녕\u200b하세요.",
+      "output": "안녕하세요.",
+      "warnings": ["unexpected_script_filtered"]
+    },
+    {
+      "name": "c1_control_is_deleted_without_spaces",
+      "input": "안녕\u0085하세요.",
+      "output": "안녕하세요.",
+      "warnings": ["unexpected_script_filtered"]
+    },
+    {
+      "name": "unsupported_run_becomes_one_space",
+      "input": "안녕مرحبا하세요.",
+      "output": "안녕 하세요.",
+      "warnings": ["unexpected_script_filtered"]
+    },
+    {
+      "name": "emoji_run_becomes_one_space",
+      "input": "안녕😀하세요.",
+      "output": "안녕 하세요.",
+      "warnings": ["unexpected_script_filtered"]
+    },
+    {
+      "name": "embedded_city_is_preserved",
+      "input": "저는 Berlin에 살아요.",
+      "output": "저는 Berlin에 살아요.",
+      "warnings": []
+    },
+    {
+      "name": "leading_kpop_is_preserved",
+      "input": "K-pop 음악을 들어요.",
+      "output": "K-pop 음악을 들어요.",
+      "warnings": []
+    },
+    {
+      "name": "trailing_kpop_is_preserved",
+      "input": "서울에서 K-pop",
+      "output": "서울에서 K-pop",
+      "warnings": []
+    },
+    {
+      "name": "explicit_dash_gloss_is_removed",
+      "input": "학생 - student",
+      "output": "학생",
+      "warnings": ["non_korean_segments_ignored"]
+    },
+    {
+      "name": "bracketed_gloss_is_removed",
+      "input": "학생 (student)",
+      "output": "학생",
+      "warnings": ["non_korean_segments_ignored"]
+    },
+    {
+      "name": "ambiguous_space_gloss_is_preserved",
+      "input": "학생 student",
+      "output": "학생 student",
+      "warnings": []
+    },
+    {
+      "name": "standalone_translation_sentence_is_removed",
+      "input": "안녕하세요. Hello. 저는 Berlin에 살아요.",
+      "output": "안녕하세요.\n저는 Berlin에 살아요.",
+      "warnings": ["non_korean_segments_ignored"]
+    },
+    {
+      "name": "no_korean_is_rejected",
+      "input": "Only English.\nمرحبا",
+      "output": "",
+      "warnings": ["non_korean_segments_ignored", "unexpected_script_filtered", "no_korean_text"]
+    }
+  ]
+}

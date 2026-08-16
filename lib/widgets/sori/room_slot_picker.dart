@@ -23,7 +23,6 @@ class SlotPickerSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final german = Localizations.localeOf(context).languageCode != 'en';
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -37,7 +36,7 @@ class SlotPickerSheet extends StatelessWidget {
         for (final slug in candidates)
           _PickRow(
             slug: slug,
-            label: decorName(slug, german: german),
+            label: decorName(t, slug),
             selected: slug == current,
             onTap: () => Navigator.of(context).pop(slug),
           ),
