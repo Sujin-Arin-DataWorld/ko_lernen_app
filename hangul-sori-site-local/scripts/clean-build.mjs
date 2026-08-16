@@ -7,9 +7,15 @@ import {
 } from "./release-id.mjs";
 
 const projectRoot = resolve(import.meta.dirname, "..");
+const resilientRemoveOptions = {
+  recursive: true,
+  force: true,
+  maxRetries: 20,
+  retryDelay: 250,
+};
 
-await rm(resolve(projectRoot, "dist"), { recursive: true, force: true });
-await rm(buildIdentityPath, { force: true });
+await rm(resolve(projectRoot, "dist"), resilientRemoveOptions);
+await rm(buildIdentityPath, resilientRemoveOptions);
 const identity = await writeBuildReleaseIdentity(
   await resolveBuildReleaseIdentity(),
 );

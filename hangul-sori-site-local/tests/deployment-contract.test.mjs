@@ -25,6 +25,10 @@ const productionDeploySource = await readFile(
   new URL("../scripts/deploy-production.mjs", import.meta.url),
   "utf8",
 );
+const cleanBuildSource = await readFile(
+  new URL("../scripts/clean-build.mjs", import.meta.url),
+  "utf8",
+);
 const githubCi = await readFile(
   new URL("../../.github/workflows/ci.yml", import.meta.url),
   "utf8",
@@ -106,6 +110,8 @@ test("keeps all quality gates and deployment in one command", () => {
   assert.match(productionDeploySource, /WRANGLER_OUTPUT_FILE_PATH/);
   assert.match(productionDeploySource, /rollbackAfterFailure/);
   assert.match(productionDeploySource, /origin\/main/);
+  assert.match(cleanBuildSource, /maxRetries:\s*20/);
+  assert.match(cleanBuildSource, /retryDelay:\s*250/);
   assert.match(githubCi, /Website source and Worker release gate/);
   assert.match(githubCi, /node-version-file:\s*hangul-sori-site-local\/\.node-version/);
   assert.match(githubCi, /npm run deploy:check/);
