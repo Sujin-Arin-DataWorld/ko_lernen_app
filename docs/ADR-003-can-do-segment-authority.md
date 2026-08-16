@@ -55,7 +55,8 @@ published segment는 다음을 모두 선언해야 한다.
 - `allOf` 정책으로 결합한 하나 이상의 필수 생산 assessment
 - assessment마다 정확한 assess edge, CourseUnit, concept, evidence mode,
   rubric version, 70% 이상의 `minimumScore`
-- 과거 평가 ID도 반납하지 않는 append-only `ownedAssessmentItemIds`
+- 해당 segment에 발행된 평가 정체성을 고정하는 immutable
+  `ownedAssessmentItemIds`
 - 단 하나의 `ReleaseTrackDefinition`과 immutable `TrackEdition`
 
 인정 가능한 생산 모드는 `guidedProduction`, `dictation`,
@@ -79,11 +80,15 @@ canonical core는 draft에서만 허용하며, 임의 core policy를 주입하�
 우회 API를 두지 않는다. 단위 테스트도 같은 86개 정본 계약을 사용한다.
 
 오류가 있는 segment는 기록에서 삭제하지 않고 `retired`와
-`successorSegmentId`로 계보를 남긴다. 연습 콘텐츠를 보강하는 것은 허용하지만,
-평가 construct가 바뀌면 `proofRevision`을 올리고 새 증거를 요구한다. 이미 획득한
-옛 segment 증거는 계속 유효하며, 새 학습자는 newer extension의 successor로 옛
-edition slot을 채울 수 있다. successor가 다시 교체돼도 체인 전체를 따라 최종
-published successor까지 인정한다.
+`successorSegmentId`로 계보를 남긴다. 연습 콘텐츠 보강은 cluster revision으로
+허용하지만, 한 번 non-draft가 된 같은 segment ID의 `proofRevision`, evidence
+policy, assessment requirements, `ownedAssessmentItemIds`는 함께 고정한다. 평가를
+개선할 때는 기존 segment를 retired로 두고, 더 큰 `proofRevision`과 새 평가 정체성을
+가진 동일 construct의 successor를 더 새로운 **replacement track**에 발행한다.
+이미 획득한 옛 segment 증거는 계속 유효하며, 새 학습자는 replacement successor로
+옛 edition slot을 채울 수 있다. successor가 다시 교체돼도 체인 전체를 따라 최종
+published successor까지 인정한다. replacement edition은 새 can-do나 영구 보상
+분모를 추가하지 않는다.
 `constructLineageId`가 같은 segment만 successor가 될 수 있고, 한 successor는 단 하나의
 predecessor만 가진다. 같은 construct의 non-draft 기록은 하나의 연결된 선형 chain을
 이뤄야 하므로 무관한 새 능력 하나가 여러 과거 보상 slot을 대신할 수 없다.
@@ -96,7 +101,7 @@ predecessor만 가진다. 같은 construct의 non-draft 기록은 하나의 연�
 | 추가 유형 | 계약 변경 | 과거 진행률·한옥 |
 | --- | --- | --- |
 | 같은 can-do의 어휘·문법·대화·게임·시나리오 보강 | 같은 `ContentClusterDefinition.id`의 `revision`과 콘텐츠 참조만 올린다. segment와 edition은 그대로다. | 변하지 않는다. 새 자료는 연습·복습 추천에만 들어간다. |
-| 같은 can-do의 평가·rubric 개선 | segment ID는 유지하고 `proofRevision`과 정확한 assessment/rubric version을 올린다. | 이미 획득한 집과 edition 완료는 취소하지 않는다. UI는 최신 증거 여부를 별도 표시하고 재평가를 제공한다. |
+| 같은 can-do의 평가·rubric 개선 | 기존 segment를 retired로 보존하고, 같은 `constructLineageId`의 새 segment를 더 새로운 replacement track에 발행한다. successor는 더 큰 `proofRevision`과 새 assessment identity를 가진다. | 기존 slot·집·edition 완료는 유지한다. replacement 자체는 새 can-do·영구 보상 분모에 들어가지 않으며 UI는 최신 증거 여부와 재평가만 별도 표시한다. |
 | 독립적인 새 can-do와 전용 생산 평가 추가 | 새 segment를 새 **additive per-level edition**에 발행한다. | 기존 edition의 분모와 100%는 고정된다. 새 보상은 별도 확장 여정으로 뒤에 붙는다. |
 
 오탈자·번역·TTS 교정은 능력이나 cluster membership이 바뀌지 않으므로 segment나
@@ -130,7 +135,16 @@ Satz, 발음, Cloze, Smalltalk를 파생하되 다음처럼 권한을 분리한�
 - seed 수, 게임별 파생 레코드 수, 모든 게임의 빈 화면 제거율은 콘텐츠 공급 KPI다.
   core 86 또는 extension의 사용자 진행 분모가 아니다.
 - 신규 seed를 발행할 때 먼저 기존 can-do 보강, 같은 평가 개정, 독립 can-do 중
-  하나로 분류한 뒤 각각 cluster revision, proof revision, 새 extension track을 쓴다.
+  하나로 분류한 뒤 각각 cluster revision, replacement successor, 새 extension
+  track을 쓴다.
+
+Batch 06 review-only 커밋 `23342c57`의 standalone 68개와 scenario quest 20개는
+현재 canonical 86, `ContentClusterDefinition`, assessment authority에 포함하지
+않는다. live human review로 승인·승격된 뒤에도 같은 can-do의 practice라면 해당
+cluster revision에만 append한다. pronunciation, Cloze, Satz, Smalltalk, scenario는
+practice modality이며 자동으로 영구 assessment authority가 되지 않는다. B1 complaint
+repair, B2 complaint escalation, C1 evidence limits, C2 technology appeal이라는
+provisional scenario intent도 final review 전에는 routing authority가 아니다.
 
 ### 4. 구 진도로 새 segment를 자동 검증하지 않는다
 
@@ -182,5 +196,6 @@ segment에 숨기므로 전체판이 아니라 명시적 MVP에서만 쓸 수 �
 CourseMastery V3는 segment별 생산 증거와 검증 ID를 정본으로 저장·동기화한다.
 한옥 상태는 검증된 segment에서 결정론적으로 파생하고, 보이는 reveal·loadout·돌봄만
 별도 저장한다. `core_2026_v1`을 이루는 여섯 edition의 합계 86개 분모는 바꾸지
-않으며, 한옥 grant ID는 해당
+않는다. 독립 can-do extension만 별도 신규 분모가 되고 proof replacement는 기존
+slot의 대체 증거일 뿐 새 한옥 grant를 만들지 않는다. 한옥 grant ID는 해당
 segment의 평가와 콘텐츠가 승인되기 전에는 만들지 않는다.

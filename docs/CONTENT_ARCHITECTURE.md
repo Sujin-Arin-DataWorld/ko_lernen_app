@@ -120,6 +120,12 @@ exact 선택 회귀 테스트를 추가하고 폴백을 그대로 유지할지 �
 Batch 06의 첫 C1/C2 scenario와 B1-C2 교차 게임 묶음은 현재 review-only draft다.
 preview에서 전체 그래프를 통과해도 live 데이터로 계산하지 않는다. Jin 승인과 전용
 cross-game transaction이 끝난 뒤에만 위 데이터 부재 센서와 exact 선택 회귀를 갱신한다.
+커밋 `23342c57`의 standalone 68개와 scenario quest 20개는
+canonical 86, content cluster, assessment authority의 입력이 아니다. live human
+review로 승인·승격된 practice만 같은 can-do의 cluster revision에 append할 수 있다.
+pronunciation·Cloze·Satz·Smalltalk·scenario는 그 자체로 영구 assessment authority가
+되지 않는다. B1 complaint repair, B2 complaint escalation, C1 evidence limits,
+C2 technology appeal intent도 final review 전에는 routing authority로 쓰지 않는다.
 
 ## 6. CourseUnit 아래의 검증 가능한 수행 단위
 
@@ -140,9 +146,10 @@ published segment는 안정적인 ID, 정확한 parent unit과 CEFR, 필수 개�
 가져야 한다. `SegmentAssessmentAuthority`는 assessment ID만 확인하지 않고
 mission content-link, level, CourseUnit, concept 집합, evidence mode, rubric version,
 70% 이상의 minimum score, exact assess edge와 course eligibility를 모두 대조한다.
-현재 평가가
-바뀌어도 과거 ID는 `ownedAssessmentItemIds`에서 제거하거나 다른 segment에
-재할당하지 않는다.
+한 번 non-draft가 된 같은 segment ID에서는 `proofRevision`, evidence policy,
+assessment requirements, `ownedAssessmentItemIds`가 모두 immutable이다. 평가를
+개선할 때는 기존 ID 안의 목록을 바꾸지 않고 old segment를 retired로 보존한 뒤,
+같은 construct의 새 successor가 새 assessment identity를 소유한다.
 연습 routing은 segment 안의 고정 목록이 아니라 revisioned `ContentClusterDefinition`이
 소유한다. 독립 창작 씨앗은 level이 고정된 typed `ContentSeedAuthority`로, 각 파생
 참조의 실제 CEFR·`sourceSeedId`·`courseUnitId`는 typed
@@ -150,8 +157,9 @@ mission content-link, level, CourseUnit, concept 집합, evidence mode, rubric v
 귀속되지 않은 파생 항목은 차단한다.
 같은 can-do에 어휘·문법·대화·시나리오가 추가되면 cluster revision만
 올리고 segment ID, edition, 보상과 분모는 바꾸지 않는다. 같은 construct의 평가를
-개선할 때는 `proofRevision`을 올리되 이미 얻은 집을 취소하지 않고 최신 검증 상태를
-별도로 보여 준다.
+개선할 때는 기존 segment를 retired로 두고 더 큰 `proofRevision`의 successor를
+새 replacement track에 발행한다. replacement는 기존 edition slot의 대체 증거이므로
+새 can-do·영구 보상 분모에 포함하지 않고 최신 검증 상태만 별도로 보여 준다.
 
 독립적인 새 can-do와 전용 생산 평가가 함께 생긴 경우에만 새 segment를 발행한다.
 그 segment는 기존 published release track이나 edition에 삽입하지 않고 같은 CEFR의
@@ -163,7 +171,9 @@ edition별 진행을 분리한다. 계속 커지는 catalog 전체 백분율은 
 한옥 권한으로 사용하지 않는다. retired segment도 삭제하지 않고 successor 계보와
 과거 증거를 보존하며, 여러 번 교체된 경우 successor 체인 전체가 옛 slot의 대체
 증거가 될 수 있다. 단, successor는 immutable `constructLineageId`가 같고 역방향
-predecessor가 하나뿐인 선형 계보여야 한다. 제품 loader는 published
+predecessor가 하나뿐인 선형 계보여야 하며 더 새로운 non-draft replacement
+track에만 존재한다. 같은 construct를 core slot과 extension에 중복 발행하거나,
+replacement를 독립 can-do처럼 발행하는 것은 금지한다. 제품 loader는 published
 `core_2026_v1`을 레벨별 `16/16/18/20/8/8`, 총 86개로 fail-closed 검증하며 임의
 core policy를 주입하는 우회 loader를 노출하지 않는다.
 

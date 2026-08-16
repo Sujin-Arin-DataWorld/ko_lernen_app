@@ -3,6 +3,40 @@ import '../models/curriculum.dart';
 import '../models/vocab_pack.dart';
 import 'vocab_pack_service.dart';
 
+const String courseReassessmentRoute = '/course/reassessment';
+
+/// Typed request for a completed-unit productive reassessment. The route never
+/// carries a boolean eligibility flag; the productive service revalidates all
+/// IDs against the immutable assessment and segment catalogs before writing.
+class CourseReassessmentRouteArguments {
+  CourseReassessmentRouteArguments({
+    required String courseUnitId,
+    required String canDoSegmentId,
+    required String assessmentItemId,
+  }) : courseUnitId = _requiredReassessmentId(courseUnitId, 'courseUnitId'),
+       canDoSegmentId = _requiredReassessmentId(
+         canDoSegmentId,
+         'canDoSegmentId',
+       ),
+       assessmentItemId = _requiredReassessmentId(
+         assessmentItemId,
+         'assessmentItemId',
+       );
+
+  final String courseUnitId;
+  final String canDoSegmentId;
+  final String assessmentItemId;
+}
+
+CourseReassessmentRouteArguments? reassessmentArgumentsFromRoute(
+  Object? arguments,
+) {
+  if (arguments is! CourseReassessmentRouteArguments) {
+    return null;
+  }
+  return arguments;
+}
+
 /// A route opened from a mission's practice list. The original libraries stay
 /// available, while course-aware games receive the mission ID and can filter
 /// their question pool to its graph links.
@@ -179,4 +213,14 @@ Future<CourseMissionDestination?> directDestinationForCourseLink(
       courseContext: CoursePracticeContext.fromLink(link),
     ),
   );
+}
+
+String _requiredReassessmentId(String value, String field) {
+  final normalized = value.trim();
+  if (normalized.isEmpty || normalized.contains(RegExp(r'\s'))) {
+    throw FormatException(
+      'Course reassessment $field must be a nonempty stable ID.',
+    );
+  }
+  return normalized;
 }

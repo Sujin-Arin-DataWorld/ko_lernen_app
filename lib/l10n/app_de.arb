@@ -2599,6 +2599,86 @@
     }
   },
   "courseMissionPreviewNotice": "Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.",
+  "courseReassessmentTitle": "Fähigkeit nachweisen",
+  "courseReassessmentEyebrow": "PRODUKTIVER NACHWEIS",
+  "courseReassessmentLoading": "Deine Aufgabe wird vorbereitet.",
+  "courseReassessmentLoadError": "Dieser Nachweis konnte nicht sicher geladen werden.",
+  "courseReassessmentError": "Der Nachweis konnte nicht gespeichert werden. Bitte versuche es erneut.",
+  "courseReassessmentStep": "Nachweis {current} von {total}",
+  "@courseReassessmentStep": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "courseReassessmentRole": "Deine Rolle",
+  "courseReassessmentPrivacy": "Freie Texte und Notizen werden weder an Firebase noch an Analytics gesendet. Ein verifizierter Sprechnachweis bleibt deaktiviert, bis die gesonderte Einwilligung und der datensparsame Dienst bereit sind.",
+  "courseReassessmentAnswer": "Deine koreanische Antwort",
+  "courseReassessmentAnswerHint": "Schreibe die Aussage in deinen eigenen Worten.",
+  "courseReassessmentLength": "{minimum}–{maximum} koreanische Zeichen",
+  "@courseReassessmentLength": {
+    "placeholders": {
+      "minimum": {"type": "int"},
+      "maximum": {"type": "int"}
+    }
+  },
+  "courseReassessmentEvidencePoint": "Belegpunkt {index}",
+  "@courseReassessmentEvidencePoint": {
+    "placeholders": {
+      "index": {"type": "int"}
+    }
+  },
+  "courseReassessmentEvidencePointHint": "Formuliere diesen Punkt auf Koreanisch und übernimm ihn in deine Gesamtantwort.",
+  "courseReassessmentSourceForPoint": "Quelle für diesen Punkt",
+  "courseReassessmentSources": "Materialien vergleichen",
+  "courseReassessmentSource": "Quelle {index}",
+  "@courseReassessmentSource": {
+    "placeholders": {
+      "index": {"type": "int"}
+    }
+  },
+  "courseReassessmentConnectSources": "Beziehungen zwischen den Quellen markieren",
+  "courseReassessmentRelationship": "Rolle dieser Quelle",
+  "courseReassessmentSubmit": "Antwort prüfen",
+  "courseReassessmentSubmitEvidence": "Quellenverknüpfung prüfen",
+  "courseReassessmentChecking": "Wird geprüft …",
+  "courseReassessmentOralUnavailableTitle": "Verifizierter Sprechnachweis ist noch nicht verfügbar",
+  "courseReassessmentOralUnavailableBody": "Die aktuelle zehnsekündige Nachsprechübung trainiert nur die Aussprache und darf dieses Fähigkeitssiegel nicht vergeben. Eine eigene 45- bis 120-sekündige freie Sprechprüfung wird erst nach Prüfung von Einwilligung, Datenschutz und Bewertung freigeschaltet.",
+  "courseReassessmentPrerequisiteTitle": "Ein früherer Nachweis fehlt noch",
+  "courseReassessmentPrerequisiteBody": "Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.",
+  "courseReassessmentOpenPrerequisite": "Fehlenden Nachweis öffnen",
+  "courseReassessmentPassedTitle": "Nachweis bestanden",
+  "courseReassessmentPassedBody": "{score} % – nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.",
+  "@courseReassessmentPassedBody": {
+    "placeholders": {
+      "score": {"type": "int"}
+    }
+  },
+  "courseReassessmentTryAgainTitle": "Noch nicht sicher genug",
+  "courseReassessmentTryAgainBody": "{score} % – deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.",
+  "@courseReassessmentTryAgainBody": {
+    "placeholders": {
+      "score": {"type": "int"}
+    }
+  },
+  "courseReassessmentContinue": "Nächsten Nachweis öffnen",
+  "courseReassessmentRetry": "Antwort überarbeiten",
+  "courseReassessmentFinish": "Fertig",
+  "courseReassessmentCompleteTitle": "Sprechen und Schreiben bestätigt",
+  "courseReassessmentCompleteBody": "Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.",
+  "courseReassessmentModeGuidedProduction": "Geführte eigene Antwort",
+  "courseReassessmentModeDictation": "Diktat",
+  "courseReassessmentModeConnectedProduction": "Zusammenhängend schreiben",
+  "courseReassessmentModeOpenWriting": "Offen schreiben",
+  "courseReassessmentModeOral": "Mündlich vortragen",
+  "courseReassessmentModeConnectedEvidence": "Quellen verknüpfen",
+  "courseReassessmentRoleSupport": "stützt die Aussage",
+  "courseReassessmentRoleContrast": "zeigt einen Gegensatz",
+  "courseReassessmentRoleLimitation": "begrenzt die Aussage",
+  "courseReassessmentRoleComplement": "ergänzt die Aussage",
+  "courseReassessmentRoleContext": "liefert Kontext",
+  "courseReassessmentRoleStakeholder": "zeigt eine betroffene Perspektive",
+  "courseReassessmentRoleCounterexample": "liefert ein Gegenbeispiel",
   "courseSectionToday": "Was heute zählt",
   "courseSectionFamilies": "Ausdrucksfamilien",
   "courseSectionSurfaces": "Karten aus dem echten Alltag",

@@ -101,10 +101,19 @@ extension TrackEditionStatusX on TrackEditionStatus {
   }
 }
 
-enum ReleaseTrackKind { core, extension }
+enum ReleaseTrackKind { core, extension, replacement }
 
 extension ReleaseTrackKindX on ReleaseTrackKind {
   String get code => name;
+
+  /// Whether this track adds learner-visible can-do and permanent-reward slots.
+  ///
+  /// Replacement tracks carry newer proof for an existing immutable slot, so
+  /// counting their editions would make one ability appear twice.
+  bool get contributesToLearnerDenominator =>
+      this == ReleaseTrackKind.core || this == ReleaseTrackKind.extension;
+
+  bool get isAdditivePublication => this != ReleaseTrackKind.core;
 
   static ReleaseTrackKind? tryFromCode(String? value) {
     for (final kind in ReleaseTrackKind.values) {
@@ -176,7 +185,7 @@ class ContentSeedAuthority {
 ///
 /// Adding practice for the same ability increments [revision] without changing
 /// segment or edition identity. A genuinely new can-do receives a new segment
-/// in a new additive edition, so previously published denominators stay fixed.
+/// in an extension edition, so previously published denominators stay fixed.
 class ContentClusterDefinition {
   final String id;
   final LearnerLevel level;
@@ -369,7 +378,8 @@ final CoreReleasePolicy hanokV1CoreReleasePolicy = CoreReleasePolicy(
 /// A release-level immutable progress denominator spanning per-level editions.
 ///
 /// The initial core track owns six editions. Later abilities are published in
-/// a separate extension track so the original core total never grows.
+/// extension tracks. Replacement tracks hold newer proof for an existing slot
+/// and never contribute an additional learner or permanent-reward denominator.
 class ReleaseTrackDefinition {
   final String id;
   final ReleaseTrackKind kind;
@@ -404,7 +414,8 @@ class ReleaseTrackDefinition {
 /// An immutable denominator for one level of a release track.
 ///
 /// Published editions never absorb later segment IDs. New can-do abilities use
-/// a new additive edition, while old editions retain their original denominator.
+/// an extension edition. A replacement edition may hold a successor proof, but
+/// does not create another learner-visible denominator slot.
 class TrackEdition {
   final String id;
   final String releaseTrackId;

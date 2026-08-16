@@ -1,5 +1,6 @@
 import 'content_id.dart';
 import 'curriculum.dart';
+import 'productive_mastery.dart';
 
 /// A scored scenario checkpoint. It is separate from answer evidence because
 /// one scenario result may summarize many individual questions.
@@ -95,7 +96,7 @@ class ScenarioCheckpointEvidence {
 /// Durable local snapshot for the sequential course only. Vocabulary SRS,
 /// pack progress, and browse filters intentionally live in their own stores.
 class CourseMasterySnapshot {
-  static const int currentVersion = 2;
+  static const int currentVersion = 3;
 
   final int version;
   final String? placementLevel;
@@ -104,6 +105,8 @@ class CourseMasterySnapshot {
   final List<String> bypassedPrerequisiteUnitIds;
   final List<MasteryEvidence> evidence;
   final List<ScenarioCheckpointEvidence> scenarioCheckpoints;
+  final List<ProductiveMasteryEvidence> productiveEvidence;
+  final List<ProductiveProjectStepEvidence> productiveProjectStepEvidence;
 
   const CourseMasterySnapshot({
     this.version = currentVersion,
@@ -113,6 +116,8 @@ class CourseMasterySnapshot {
     this.bypassedPrerequisiteUnitIds = const [],
     this.evidence = const [],
     this.scenarioCheckpoints = const [],
+    this.productiveEvidence = const [],
+    this.productiveProjectStepEvidence = const [],
   });
 
   const CourseMasterySnapshot.empty()
@@ -122,27 +127,50 @@ class CourseMasterySnapshot {
       completedUnitIds = const [],
       bypassedPrerequisiteUnitIds = const [],
       evidence = const [],
-      scenarioCheckpoints = const [];
+      scenarioCheckpoints = const [],
+      productiveEvidence = const [],
+      productiveProjectStepEvidence = const [];
 
   factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) =>
       CourseMasterySnapshot.decodeAndMigrate(json);
 
-  /// Accepts the retained v1 local shape and returns the canonical v2 shape.
+  /// Accepts retained v1/v2 local shapes and returns canonical v3. Productive
+  /// proof is never inferred from historical unit completion during migration.
   /// Future schemas are deliberately rejected so a newer installation's state
   /// can never be silently overwritten by this version of the app.
   factory CourseMasterySnapshot.decodeAndMigrate(Map<String, dynamic> json) {
     final sourceVersion = CourseMasterySnapshot.sourceVersionFor(json);
-    if (sourceVersion == currentVersion) {
+    if (sourceVersion == 2) {
       _validateCanonicalV2Shape(json);
+    } else if (sourceVersion == currentVersion) {
+      _validateCanonicalV3Shape(json);
     }
     final rawEvidence = json['evidence'];
     final rawCheckpoints = json['scenarioCheckpoints'];
+    // V1/V2 never owned productive authority. Ignore even a forged field
+    // rather than backfilling a seal during migration.
+    final rawProductiveEvidence = sourceVersion < 3
+        ? null
+        : json['productiveEvidence'];
+    final rawProjectStepEvidence = sourceVersion < 3
+        ? null
+        : json['productiveProjectStepEvidence'];
     if (rawEvidence != null && rawEvidence is! List) {
       throw const FormatException('Course mastery evidence must be a list.');
     }
     if (rawCheckpoints != null && rawCheckpoints is! List) {
       throw const FormatException(
         'Course mastery scenarioCheckpoints must be a list.',
+      );
+    }
+    if (rawProductiveEvidence != null && rawProductiveEvidence is! List) {
+      throw const FormatException(
+        'Course mastery productiveEvidence must be a list.',
+      );
+    }
+    if (rawProjectStepEvidence != null && rawProjectStepEvidence is! List) {
+      throw const FormatException(
+        'Course mastery productiveProjectStepEvidence must be a list.',
       );
     }
     return CourseMasterySnapshot(
@@ -163,6 +191,21 @@ class CourseMasterySnapshot {
             ),
           )
           .toList(growable: false),
+      productiveEvidence: (rawProductiveEvidence as List? ?? const [])
+          .map(
+            (item) => ProductiveMasteryEvidence.fromJson(
+              _map(item, 'productive evidence'),
+            ),
+          )
+          .toList(growable: false),
+      productiveProjectStepEvidence:
+          (rawProjectStepEvidence as List? ?? const [])
+              .map(
+                (item) => ProductiveProjectStepEvidence.fromJson(
+                  _map(item, 'productive project step evidence'),
+                ),
+              )
+              .toList(growable: false),
     );
   }
 
@@ -195,6 +238,8 @@ class CourseMasterySnapshot {
     List<String>? bypassedPrerequisiteUnitIds,
     List<MasteryEvidence>? evidence,
     List<ScenarioCheckpointEvidence>? scenarioCheckpoints,
+    List<ProductiveMasteryEvidence>? productiveEvidence,
+    List<ProductiveProjectStepEvidence>? productiveProjectStepEvidence,
   }) => CourseMasterySnapshot(
     version: version,
     placementLevel: clearPlacementLevel
@@ -208,6 +253,9 @@ class CourseMasterySnapshot {
         bypassedPrerequisiteUnitIds ?? this.bypassedPrerequisiteUnitIds,
     evidence: evidence ?? this.evidence,
     scenarioCheckpoints: scenarioCheckpoints ?? this.scenarioCheckpoints,
+    productiveEvidence: productiveEvidence ?? this.productiveEvidence,
+    productiveProjectStepEvidence:
+        productiveProjectStepEvidence ?? this.productiveProjectStepEvidence,
   );
 
   Map<String, dynamic> toJson() => {
@@ -220,6 +268,12 @@ class CourseMasterySnapshot {
     'scenarioCheckpoints': scenarioCheckpoints
         .map((item) => item.toJson())
         .toList(),
+    'productiveEvidence': productiveEvidence
+        .map((item) => item.toJson())
+        .toList(),
+    'productiveProjectStepEvidence': productiveProjectStepEvidence
+        .map((item) => item.toJson())
+        .toList(),
   };
 }
 
@@ -228,6 +282,8 @@ enum CourseMasteryMergeConflictKind {
   version,
   evidence,
   checkpoint,
+  productiveEvidence,
+  productiveProjectStepEvidence,
   progression,
 }
 
@@ -319,6 +375,53 @@ void _validateCanonicalV2Shape(Map<String, dynamic> json) {
   );
 }
 
+void _validateCanonicalV3Shape(Map<String, dynamic> json) {
+  _validateCanonicalV2Shape(json);
+  if (!json.containsKey('productiveEvidence') ||
+      json['productiveEvidence'] is! List) {
+    throw const FormatException(
+      'Canonical v3 course mastery requires productiveEvidence.',
+    );
+  }
+  _validateCanonicalEntries(
+    json['productiveEvidence'],
+    label: 'productive evidence',
+    requiredStringFields: const [
+      'id',
+      'assessmentItemId',
+      'canDoSegmentId',
+      'courseUnitId',
+      'missionContentLinkId',
+      'conceptId',
+      'evidenceMode',
+      'definitionFingerprint',
+      'evaluatorVersion',
+      'resultFingerprint',
+    ],
+    optionalStringFields: const [],
+  );
+  if (!json.containsKey('productiveProjectStepEvidence') ||
+      json['productiveProjectStepEvidence'] is! List) {
+    throw const FormatException(
+      'Canonical v3 course mastery requires productiveProjectStepEvidence.',
+    );
+  }
+  _validateCanonicalEntries(
+    json['productiveProjectStepEvidence'],
+    label: 'productive project step evidence',
+    requiredStringFields: const [
+      'id',
+      'projectId',
+      'stepId',
+      'courseUnitId',
+      'authorityFingerprint',
+      'evaluatorVersion',
+      'resultFingerprint',
+    ],
+    optionalStringFields: const [],
+  );
+}
+
 void _validateCanonicalEntries(
   Object? raw, {
   required String label,
@@ -351,7 +454,7 @@ void _requireNonemptyString(
   final value = json[field];
   if (value is! String || value.trim().isEmpty) {
     throw FormatException(
-      'Canonical v2 course mastery $label $field must be a nonempty string.',
+      'Canonical course mastery $label $field must be a nonempty string.',
     );
   }
 }

@@ -7931,6 +7931,35 @@
         "de": "Wahlmöglichkeiten verhindern, dass Sicherheit zur unbegrenzten Überwachung wird.",
         "en": "Choice would keep a safety goal from expanding into unlimited surveillance."
       }
+    },
+    {
+      "id": "smalltalk_c2_0017",
+      "category": "screen",
+      "level": "c2",
+      "kind": "question",
+      "ko": "같은 결말을 두 사람이 다르게 해석할 때 어느 쪽이 더 설득력 있는지 어떻게 판단할까요?",
+      "de": "Wenn zwei Personen dasselbe Ende unterschiedlich deuten, wie entscheiden wir, welche Lesart überzeugender ist?",
+      "en": "When two people interpret the same ending differently, how can we decide which reading is more convincing?",
+      "reply": {
+        "ko": "본문의 단서와 반례를 각각 연결해 설명한 해석이 더 설득력 있다고 보겠어요.",
+        "de": "Überzeugender finde ich die Deutung, die sowohl Textsignale als auch Gegenbelege nachvollziehbar miteinander verknüpft.",
+        "en": "I would find the reading more convincing if it clearly connects both textual clues and counterevidence."
+      },
+      "relationshipContext": "classmate",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "어떤 본문 단서가 두 해석을 가장 잘 구분해 주나요?",
+          "de": "Welcher Hinweis im Text unterscheidet die beiden Deutungen am klarsten?",
+          "en": "Which textual clue most clearly distinguishes the two readings?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "단서와 반례를 함께 보면 취향이 아니라 근거로 비교할 수 있겠네요.",
+        "de": "Wenn wir Hinweise und Gegenbelege zusammen betrachten, können wir die Deutungen anhand von Evidenz statt nur nach Geschmack vergleichen.",
+        "en": "Looking at clues and counterevidence together would let us compare the readings by evidence rather than preference."
+      }
     }
   ]
 }

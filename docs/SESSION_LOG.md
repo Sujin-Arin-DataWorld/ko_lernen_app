@@ -119,7 +119,53 @@ DE/EN 전환·390×844 200%·누락 폴백·장식 직접 탭·1회 안내와 �
 390×844 하단형, DE/EN/KO 실시간 전환, 키보드 닫기/포커스 복귀와 JSON HTTP 200을
 확인했다. 문화어 구현은 공항 도움 경로·release automation과 함께 `86df5643`에
 커밋했다. 원격 배포 증거는 이 로그 최상단의 통합 release 기록을 따른다.
+### 2026-08-16 (Codex) — CourseMastery V3 생산형 평가·재평가 코어
 
+**범위와 권한 경계.** 새 `CanDoSegment` 계약을 실제 학습 증거로 연결하기 위해
+생산형 평가 정의·결정론적 채점·영구 증거·재평가 인프라를 별도 PR2 worktree에서
+구현한다. 기존 `QuestType.schreiben`은 한글 따라쓰기 의미와 미구현 UI가 섞여 있어
+재해석하지 않으며, 새 typed productive engine을 사용한다. 실패·browse·자기신고는
+영구 증거를 만들 수 없고, 원문 답안·녹음·ASR 텍스트는 snapshot, Firestore,
+analytics에 저장하지 않는다.
+
+**저장·진행 계약.** CourseMastery snapshot은 v1/v2를 v3로 안전하게 올리고
+`ProductiveMasteryEvidence` 성공 기록과 C1/C2 홀수 단계의
+`ProductiveProjectStepEvidence`만 보존한다. 단원 완료와 생산 도장은 서로 독립이며,
+검증된 segment 집합은 저장하지 않고 immutable catalog의 `allOf` 조건으로 매번
+투영한다. 재평가는 현재 코스 포인터나 완료 단원을 되감거나 전진시키지 않는다.
+동일 assessment·segment·concept·rubric slot은 강한 점수, 최신 UTC 순으로
+결정론적으로 합치되, 이미 후속 도장의 근거가 된 exact proof chain은 먼저 보존한다.
+일반 history cap으로 영구 증거를 제거하지 않는다. 각 기록은 raw 답안 없이 정본
+definition fingerprint, evaluator version, result fingerprint를 보존하고 동기화 후에도
+같은 정본·chain인지 검증한다. 이는 손상·stale schema를 잡는 catalog integrity
+계약이지 learner-owned JSON에 대한 원격 인증이나 부정행위 방지 보안 주장은 아니다.
+
+**평가 계약.** 쓰기는 NFC·공백·문장부호를 정규화한 뒤 의미 슬롯과 형태 규칙을
+결정론적으로 채점한다. connected-evidence는 둘 이상의 출처와 support, contrast,
+limitation, provenance 슬롯을 모두 확인한다. 기존 10초 Azure 발음 평가는
+read-aloud 연습으로만 남기고 생산 도장을 만들지 못하게 했다. canonical oral은 별도
+unscripted authority의 exact attempt ID, 45–120초 길이, accuracy·fluency·overall
+pronunciation과 로컬 인식문에서 결정론적으로 확인한 네 의미 슬롯·자료 언급·세 담화
+표지를 모두 통과해야 한다. authored semantic anchor와 허용 변형으로 자연스러운
+paraphrase를 인정하되 lexical LCS 90% 이상인 동일·근접 읽기(구두점·띄어쓰기·짧은
+어미 변경 포함)는 통과할 수 없다.
+PR2에는 이 fail-closed 인터페이스만 포함하며 실제 연속
+인식 백엔드는 후속 PR2b 전까지 제공됐다고 주장하지 않는다. 음성과 인식문은 저장하지
+않는다. C1/C2 8개 프로젝트는 정확한 신규 자료와 출처를 확인한 결정론적 홀수 단계
+영수증을 도장과 분리해, `검토 1 → CARE 2 → 검토 3 → TRANSMIT 4` 전체 prefix를
+강제한다. A1 자기소개는 이름을 하드코딩하지 않고 학습자가 고른 동일 인물이 세 높임
+register에서 유지되는지를 typed criterion으로 검사한다.
+
+**정본과 로컬 검증.** canonical 86개 segment를 118개 실행 평가(A1–B2 70개,
+C1/C2 48개), 8개 프로젝트·32개 독자 작성 자료·16개 고급 bundle에 exact join했다.
+KO/DE/EN prompt와 출처 metadata가 모두 존재한다. A1–B2 70개는 제목 조각 fallback
+없이 각각 감수한 실제 과제·통과 예시·필수 의미 슬롯을 가지며, canonical ID 누락이나
+추가 시 생성기가 실패한다. 생성기 `--check`가 byte-exact 재현을 확인하고 70개 승인
+예시를 실제 채점 엔진으로 전수 실행한다. 생산 평가·저장·projection 집중 회귀와 기존
+CourseMastery·cloud/account reconciliation·재평가 UI·카탈로그 계약을 합친 집중 회귀
+**228/228**이 통과했다. `flutter analyze --no-pub --fatal-infos`는 전체 worktree에서
+**No issues found**였고, 생산 평가 생성기 `--check`와 `git diff --check`도 통과했다.
+전체 Flutter suite와 exact-head CI는 PR 통합 단계에서 별도로 실행한다.
 ### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
 
 **원인과 수정.** 코스에서 문법 체크포인트로 열린 카드는 하단 `Kurz prüfen`만

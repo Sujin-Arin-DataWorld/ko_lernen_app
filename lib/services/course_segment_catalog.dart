@@ -83,7 +83,10 @@ class CourseSegmentCatalog {
   ContentClusterDefinition? findContentCluster(String id) =>
       contentClustersById[id];
 
-  /// Stable denominator for a release track: the sum of its immutable slots.
+  /// Stable learner/permanent-reward denominator for a release track.
+  ///
+  /// A replacement track contains proof successors for existing slots and
+  /// therefore contributes zero new can-do or permanent-reward slots.
   int denominatorForReleaseTrack(String releaseTrackId) {
     final track = releaseTracksById[releaseTrackId];
     if (track == null) {
@@ -92,6 +95,9 @@ class CourseSegmentCatalog {
         'releaseTrackId',
         'unknown release track',
       );
+    }
+    if (!track.kind.contributesToLearnerDenominator) {
+      return 0;
     }
     return track.editionIds.fold<int>(
       0,
@@ -110,6 +116,12 @@ class CourseSegmentCatalog {
     final edition = editionsById[editionId];
     if (edition == null || !edition.segmentIds.contains(segmentId)) {
       throw ArgumentError('segment "$segmentId" is not a slot in "$editionId"');
+    }
+    final track = releaseTracksById[edition.releaseTrackId]!;
+    if (!track.kind.contributesToLearnerDenominator) {
+      throw ArgumentError(
+        'replacement edition "$editionId" does not own learner slots',
+      );
     }
     final segment = segmentsById[segmentId]!;
     final satisfyingIds = <String>[segmentId];
@@ -1044,8 +1056,11 @@ class _CourseSegmentCatalogDecoder {
         if (successor.constructLineageId != segment.constructLineageId) {
           _fail(path, 'successor must preserve the same construct lineage');
         }
+        if (successor.proofRevision <= segment.proofRevision) {
+          _fail(path, 'successor must advance proofRevision');
+        }
         if (successor.trackEditionId == segment.trackEditionId) {
-          _fail(path, 'successor must use a different additive edition');
+          _fail(path, 'successor must use a different replacement edition');
         }
       }
     }
@@ -1323,11 +1338,11 @@ class _CourseSegmentCatalogDecoder {
       final successorTrack = releaseTracksById[successor.releaseTrackId]!;
       if (successorEdition.status == TrackEditionStatus.draft ||
           successorTrack.status == ReleaseTrackStatus.draft ||
-          successorTrack.kind != ReleaseTrackKind.extension ||
+          successorTrack.kind != ReleaseTrackKind.replacement ||
           successorTrack.order <= sourceTrack.order) {
         _fail(
           'segment "${segment.id}"',
-          'successor must be in a newer non-draft additive track',
+          'successor must be in a newer non-draft replacement track',
         );
       }
 
@@ -1351,6 +1366,30 @@ class _CourseSegmentCatalogDecoder {
     }
 
     for (final entry in segmentsByLineageId.entries) {
+      for (final segment in entry.value) {
+        if (segment.lifecycle == CanDoSegmentLifecycle.draft) {
+          continue;
+        }
+        final track = releaseTracksById[segment.releaseTrackId]!;
+        if (track.kind == ReleaseTrackKind.replacement &&
+            !predecessorBySuccessorId.containsKey(segment.id)) {
+          _fail(
+            'segment "${segment.id}"',
+            'non-draft replacement segment must succeed an existing construct',
+          );
+        }
+        if (track.kind == ReleaseTrackKind.extension &&
+            entry.value.any(
+              (other) =>
+                  other.id != segment.id &&
+                  other.lifecycle != CanDoSegmentLifecycle.draft,
+            )) {
+          _fail(
+            'segment "${segment.id}"',
+            'extension track cannot duplicate an existing construct lineage',
+          );
+        }
+      }
       if (entry.value.length == 1) {
         continue;
       }
@@ -1409,14 +1448,14 @@ class _CourseSegmentEvolutionValidator {
     };
     for (final track in current.releaseTracks) {
       final previousTrack = previous.releaseTracksById[track.id];
-      final becameNonDraftExtension =
-          track.kind == ReleaseTrackKind.extension &&
+      final becameNonDraftAdditive =
+          track.kind.isAdditivePublication &&
           track.status != ReleaseTrackStatus.draft &&
           (previousTrack == null ||
               previousTrack.status == ReleaseTrackStatus.draft);
-      if (becameNonDraftExtension && track.order <= previousMaxNonDraftOrder) {
+      if (becameNonDraftAdditive && track.order <= previousMaxNonDraftOrder) {
         _evolutionFail(
-          'new non-draft extension track "${track.id}" order ${track.order} '
+          'new non-draft additive track "${track.id}" order ${track.order} '
           'must be strictly after previous non-draft maximum order '
           '$previousMaxNonDraftOrder',
         );
@@ -1438,12 +1477,17 @@ class _CourseSegmentEvolutionValidator {
         continue;
       }
       final track = current.releaseTracksById[segment.releaseTrackId]!;
+      if (track.kind == ReleaseTrackKind.core) {
+        _evolutionFail(
+          'new segment "${segment.id}" cannot enter the locked core track',
+        );
+      }
       final previousTrack = previous.releaseTracksById[track.id];
       if (previousTrack != null &&
           previousTrack.status != ReleaseTrackStatus.draft) {
         _evolutionFail(
           'new segment "${segment.id}" must use a new or previously draft '
-          'extension release track',
+          'extension or replacement release track',
         );
       }
     }
@@ -1532,48 +1576,20 @@ class _CourseSegmentEvolutionValidator {
           'segment "${oldSegment.id}" changed immutable Korean can-do',
         );
       }
-      final nextOwned = nextSegment.ownedAssessmentItemIds.toSet();
-      final removedOwned = oldSegment.ownedAssessmentItemIds
-          .where((id) => !nextOwned.contains(id))
-          .toList(growable: false);
-      if (removedOwned.isNotEmpty) {
+      if (nextSegment.proofRevision != oldSegment.proofRevision ||
+          nextSegment.evidencePolicy != oldSegment.evidencePolicy ||
+          !_sameAssessmentRequirements(
+            nextSegment.assessmentRequirements,
+            oldSegment.assessmentRequirements,
+          ) ||
+          !_sameStrings(
+            nextSegment.ownedAssessmentItemIds,
+            oldSegment.ownedAssessmentItemIds,
+          )) {
         _evolutionFail(
-          'segment "${oldSegment.id}" cannot remove owned assessment IDs: '
-          '$removedOwned',
-        );
-      }
-      if (nextSegment.proofRevision < oldSegment.proofRevision) {
-        _evolutionFail(
-          'segment "${oldSegment.id}" proofRevision cannot decrease',
-        );
-      }
-      final assessmentChanged = !_sameAssessmentRequirements(
-        oldSegment.assessmentRequirements,
-        nextSegment.assessmentRequirements,
-      );
-      final oldRequirementsById = {
-        for (final requirement in oldSegment.assessmentRequirements)
-          requirement.assessmentItemId: requirement,
-      };
-      for (final requirement in nextSegment.assessmentRequirements) {
-        final oldRequirement =
-            oldRequirementsById[requirement.assessmentItemId];
-        if (oldRequirement == null) {
-          continue;
-        }
-        if (requirement.rubricVersion < oldRequirement.rubricVersion ||
-            requirement.minimumScore < oldRequirement.minimumScore) {
-          _evolutionFail(
-            'segment "${oldSegment.id}" cannot weaken rubric or minimumScore '
-            'for assessment "${requirement.assessmentItemId}"',
-          );
-        }
-      }
-      if (assessmentChanged &&
-          nextSegment.proofRevision <= oldSegment.proofRevision) {
-        _evolutionFail(
-          'segment "${oldSegment.id}" assessment changes require a '
-          'proofRevision increase',
+          'segment "${oldSegment.id}" changed immutable proof identity; '
+          'retire it and publish a same-construct successor in a replacement '
+          'track',
         );
       }
       if (!_allowedSegmentTransition(

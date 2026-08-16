@@ -2514,6 +2514,86 @@
     }
   },
   "courseMissionPreviewNotice": "You can preview this mission. Scores and progress count only when it is active.",
+  "courseReassessmentTitle": "Prove your ability",
+  "courseReassessmentEyebrow": "PRODUCTIVE EVIDENCE",
+  "courseReassessmentLoading": "Preparing your task.",
+  "courseReassessmentLoadError": "This assessment could not be loaded safely.",
+  "courseReassessmentError": "The evidence could not be saved. Please try again.",
+  "courseReassessmentStep": "Evidence {current} of {total}",
+  "@courseReassessmentStep": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "courseReassessmentRole": "Your role",
+  "courseReassessmentPrivacy": "Free writing and notes are not sent to Firebase or analytics. Verified speaking is unavailable until its separate consent and privacy-preserving service are ready.",
+  "courseReassessmentAnswer": "Your Korean answer",
+  "courseReassessmentAnswerHint": "Express the meaning in your own words.",
+  "courseReassessmentLength": "{minimum}–{maximum} Korean characters",
+  "@courseReassessmentLength": {
+    "placeholders": {
+      "minimum": {"type": "int"},
+      "maximum": {"type": "int"}
+    }
+  },
+  "courseReassessmentEvidencePoint": "Evidence point {index}",
+  "@courseReassessmentEvidencePoint": {
+    "placeholders": {
+      "index": {"type": "int"}
+    }
+  },
+  "courseReassessmentEvidencePointHint": "Write this point in Korean and include it in your complete answer.",
+  "courseReassessmentSourceForPoint": "Source for this point",
+  "courseReassessmentSources": "Compare the materials",
+  "courseReassessmentSource": "Source {index}",
+  "@courseReassessmentSource": {
+    "placeholders": {
+      "index": {"type": "int"}
+    }
+  },
+  "courseReassessmentConnectSources": "Mark the relationships between sources",
+  "courseReassessmentRelationship": "Role of this source",
+  "courseReassessmentSubmit": "Check my answer",
+  "courseReassessmentSubmitEvidence": "Check source connections",
+  "courseReassessmentChecking": "Checking …",
+  "courseReassessmentOralUnavailableTitle": "Verified speaking is not available yet",
+  "courseReassessmentOralUnavailableBody": "The current 10-second read-aloud exercise only practices pronunciation, so it cannot issue this ability seal. A separate 45–120 second unscripted assessment will be enabled only after its consent, privacy, and scoring service passes review.",
+  "courseReassessmentPrerequisiteTitle": "An earlier piece of evidence is still missing",
+  "courseReassessmentPrerequisiteBody": "Complete the linked evidence first. Your position in the course will not be rewound.",
+  "courseReassessmentOpenPrerequisite": "Open missing evidence",
+  "courseReassessmentPassedTitle": "Evidence passed",
+  "courseReassessmentPassedBody": "{score}% – only the result and its exact task provenance were saved.",
+  "@courseReassessmentPassedBody": {
+    "placeholders": {
+      "score": {"type": "int"}
+    }
+  },
+  "courseReassessmentTryAgainTitle": "Not secure enough yet",
+  "courseReassessmentTryAgainBody": "{score}% – your answer was not saved. You can revise it now.",
+  "@courseReassessmentTryAgainBody": {
+    "placeholders": {
+      "score": {"type": "int"}
+    }
+  },
+  "courseReassessmentContinue": "Open the next evidence task",
+  "courseReassessmentRetry": "Revise my answer",
+  "courseReassessmentFinish": "Done",
+  "courseReassessmentCompleteTitle": "Speaking and writing verified",
+  "courseReassessmentCompleteBody": "All required productive evidence for this ability has been checked. Your course position stayed unchanged.",
+  "courseReassessmentModeGuidedProduction": "Guided original response",
+  "courseReassessmentModeDictation": "Dictation",
+  "courseReassessmentModeConnectedProduction": "Connected writing",
+  "courseReassessmentModeOpenWriting": "Open writing",
+  "courseReassessmentModeOral": "Oral delivery",
+  "courseReassessmentModeConnectedEvidence": "Connect sources",
+  "courseReassessmentRoleSupport": "supports the claim",
+  "courseReassessmentRoleContrast": "shows a contrast",
+  "courseReassessmentRoleLimitation": "limits the claim",
+  "courseReassessmentRoleComplement": "adds complementary evidence",
+  "courseReassessmentRoleContext": "provides context",
+  "courseReassessmentRoleStakeholder": "shows a stakeholder perspective",
+  "courseReassessmentRoleCounterexample": "provides a counterexample",
   "courseSectionToday": "What counts today",
   "courseSectionFamilies": "Expression families",
   "courseSectionSurfaces": "Real-life cards",

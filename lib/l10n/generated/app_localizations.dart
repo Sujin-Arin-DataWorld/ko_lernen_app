@@ -9673,6 +9673,294 @@ abstract class AppL10n {
   /// **'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.'**
   String get courseMissionPreviewNotice;
 
+  /// No description provided for @courseReassessmentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fähigkeit nachweisen'**
+  String get courseReassessmentTitle;
+
+  /// No description provided for @courseReassessmentEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'PRODUKTIVER NACHWEIS'**
+  String get courseReassessmentEyebrow;
+
+  /// No description provided for @courseReassessmentLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufgabe wird vorbereitet.'**
+  String get courseReassessmentLoading;
+
+  /// No description provided for @courseReassessmentLoadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Nachweis konnte nicht sicher geladen werden.'**
+  String get courseReassessmentLoadError;
+
+  /// No description provided for @courseReassessmentError.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Nachweis konnte nicht gespeichert werden. Bitte versuche es erneut.'**
+  String get courseReassessmentError;
+
+  /// No description provided for @courseReassessmentStep.
+  ///
+  /// In de, this message translates to:
+  /// **'Nachweis {current} von {total}'**
+  String courseReassessmentStep(int current, int total);
+
+  /// No description provided for @courseReassessmentRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Rolle'**
+  String get courseReassessmentRole;
+
+  /// No description provided for @courseReassessmentPrivacy.
+  ///
+  /// In de, this message translates to:
+  /// **'Freie Texte und Notizen werden weder an Firebase noch an Analytics gesendet. Ein verifizierter Sprechnachweis bleibt deaktiviert, bis die gesonderte Einwilligung und der datensparsame Dienst bereit sind.'**
+  String get courseReassessmentPrivacy;
+
+  /// No description provided for @courseReassessmentAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine koreanische Antwort'**
+  String get courseReassessmentAnswer;
+
+  /// No description provided for @courseReassessmentAnswerHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibe die Aussage in deinen eigenen Worten.'**
+  String get courseReassessmentAnswerHint;
+
+  /// No description provided for @courseReassessmentLength.
+  ///
+  /// In de, this message translates to:
+  /// **'{minimum}–{maximum} koreanische Zeichen'**
+  String courseReassessmentLength(int minimum, int maximum);
+
+  /// No description provided for @courseReassessmentEvidencePoint.
+  ///
+  /// In de, this message translates to:
+  /// **'Belegpunkt {index}'**
+  String courseReassessmentEvidencePoint(int index);
+
+  /// No description provided for @courseReassessmentEvidencePointHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Formuliere diesen Punkt auf Koreanisch und übernimm ihn in deine Gesamtantwort.'**
+  String get courseReassessmentEvidencePointHint;
+
+  /// No description provided for @courseReassessmentSourceForPoint.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle für diesen Punkt'**
+  String get courseReassessmentSourceForPoint;
+
+  /// No description provided for @courseReassessmentSources.
+  ///
+  /// In de, this message translates to:
+  /// **'Materialien vergleichen'**
+  String get courseReassessmentSources;
+
+  /// No description provided for @courseReassessmentSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle {index}'**
+  String courseReassessmentSource(int index);
+
+  /// No description provided for @courseReassessmentConnectSources.
+  ///
+  /// In de, this message translates to:
+  /// **'Beziehungen zwischen den Quellen markieren'**
+  String get courseReassessmentConnectSources;
+
+  /// No description provided for @courseReassessmentRelationship.
+  ///
+  /// In de, this message translates to:
+  /// **'Rolle dieser Quelle'**
+  String get courseReassessmentRelationship;
+
+  /// No description provided for @courseReassessmentSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort prüfen'**
+  String get courseReassessmentSubmit;
+
+  /// No description provided for @courseReassessmentSubmitEvidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellenverknüpfung prüfen'**
+  String get courseReassessmentSubmitEvidence;
+
+  /// No description provided for @courseReassessmentChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geprüft …'**
+  String get courseReassessmentChecking;
+
+  /// No description provided for @courseReassessmentOralUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Verifizierter Sprechnachweis ist noch nicht verfügbar'**
+  String get courseReassessmentOralUnavailableTitle;
+
+  /// No description provided for @courseReassessmentOralUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die aktuelle zehnsekündige Nachsprechübung trainiert nur die Aussprache und darf dieses Fähigkeitssiegel nicht vergeben. Eine eigene 45- bis 120-sekündige freie Sprechprüfung wird erst nach Prüfung von Einwilligung, Datenschutz und Bewertung freigeschaltet.'**
+  String get courseReassessmentOralUnavailableBody;
+
+  /// No description provided for @courseReassessmentPrerequisiteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein früherer Nachweis fehlt noch'**
+  String get courseReassessmentPrerequisiteTitle;
+
+  /// No description provided for @courseReassessmentPrerequisiteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.'**
+  String get courseReassessmentPrerequisiteBody;
+
+  /// No description provided for @courseReassessmentOpenPrerequisite.
+  ///
+  /// In de, this message translates to:
+  /// **'Fehlenden Nachweis öffnen'**
+  String get courseReassessmentOpenPrerequisite;
+
+  /// No description provided for @courseReassessmentPassedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nachweis bestanden'**
+  String get courseReassessmentPassedTitle;
+
+  /// No description provided for @courseReassessmentPassedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{score} % – nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.'**
+  String courseReassessmentPassedBody(int score);
+
+  /// No description provided for @courseReassessmentTryAgainTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht sicher genug'**
+  String get courseReassessmentTryAgainTitle;
+
+  /// No description provided for @courseReassessmentTryAgainBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{score} % – deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.'**
+  String courseReassessmentTryAgainBody(int score);
+
+  /// No description provided for @courseReassessmentContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächsten Nachweis öffnen'**
+  String get courseReassessmentContinue;
+
+  /// No description provided for @courseReassessmentRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort überarbeiten'**
+  String get courseReassessmentRetry;
+
+  /// No description provided for @courseReassessmentFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig'**
+  String get courseReassessmentFinish;
+
+  /// No description provided for @courseReassessmentCompleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechen und Schreiben bestätigt'**
+  String get courseReassessmentCompleteTitle;
+
+  /// No description provided for @courseReassessmentCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.'**
+  String get courseReassessmentCompleteBody;
+
+  /// No description provided for @courseReassessmentModeGuidedProduction.
+  ///
+  /// In de, this message translates to:
+  /// **'Geführte eigene Antwort'**
+  String get courseReassessmentModeGuidedProduction;
+
+  /// No description provided for @courseReassessmentModeDictation.
+  ///
+  /// In de, this message translates to:
+  /// **'Diktat'**
+  String get courseReassessmentModeDictation;
+
+  /// No description provided for @courseReassessmentModeConnectedProduction.
+  ///
+  /// In de, this message translates to:
+  /// **'Zusammenhängend schreiben'**
+  String get courseReassessmentModeConnectedProduction;
+
+  /// No description provided for @courseReassessmentModeOpenWriting.
+  ///
+  /// In de, this message translates to:
+  /// **'Offen schreiben'**
+  String get courseReassessmentModeOpenWriting;
+
+  /// No description provided for @courseReassessmentModeOral.
+  ///
+  /// In de, this message translates to:
+  /// **'Mündlich vortragen'**
+  String get courseReassessmentModeOral;
+
+  /// No description provided for @courseReassessmentModeConnectedEvidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen verknüpfen'**
+  String get courseReassessmentModeConnectedEvidence;
+
+  /// No description provided for @courseReassessmentRoleSupport.
+  ///
+  /// In de, this message translates to:
+  /// **'stützt die Aussage'**
+  String get courseReassessmentRoleSupport;
+
+  /// No description provided for @courseReassessmentRoleContrast.
+  ///
+  /// In de, this message translates to:
+  /// **'zeigt einen Gegensatz'**
+  String get courseReassessmentRoleContrast;
+
+  /// No description provided for @courseReassessmentRoleLimitation.
+  ///
+  /// In de, this message translates to:
+  /// **'begrenzt die Aussage'**
+  String get courseReassessmentRoleLimitation;
+
+  /// No description provided for @courseReassessmentRoleComplement.
+  ///
+  /// In de, this message translates to:
+  /// **'ergänzt die Aussage'**
+  String get courseReassessmentRoleComplement;
+
+  /// No description provided for @courseReassessmentRoleContext.
+  ///
+  /// In de, this message translates to:
+  /// **'liefert Kontext'**
+  String get courseReassessmentRoleContext;
+
+  /// No description provided for @courseReassessmentRoleStakeholder.
+  ///
+  /// In de, this message translates to:
+  /// **'zeigt eine betroffene Perspektive'**
+  String get courseReassessmentRoleStakeholder;
+
+  /// No description provided for @courseReassessmentRoleCounterexample.
+  ///
+  /// In de, this message translates to:
+  /// **'liefert ein Gegenbeispiel'**
+  String get courseReassessmentRoleCounterexample;
+
   /// No description provided for @courseSectionToday.
   ///
   /// In de, this message translates to:
