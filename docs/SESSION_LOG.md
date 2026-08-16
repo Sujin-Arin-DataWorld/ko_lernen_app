@@ -1,5 +1,18 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 후속 홈페이지 push가 Play AAB 배포를 취소하던 문제 수정
+
+**원인.** 첫 자동 Play Internal 실행 `31967839728`은 서명 복원과 Flutter quality gate를
+통과해 signed AAB를 빌드하던 중, 홈페이지 전용 후속 push `fc85a997`이 같은 workflow·main
+concurrency 그룹을 선점했다. 전역 `cancel-in-progress: true`가 기존 Android release까지
+종료해 Gradle이 `exit code 143`을 반환했고, 후속 실행은 website scope라 Play job을
+건너뛰었다. Node.js 20 deprecation annotation이나 Play secret 실패는 원인이 아니었다.
+
+**수정.** PR의 오래된 검증만 계속 취소하고 `main` push는 완료까지 유지한다. Play Internal
+job에는 별도 `google-play-internal` concurrency를 두고 `cancel-in-progress: false`로
+직렬화하여, 후속 website·docs push 또는 다른 앱 release가 진행 중 업로드를 지우지 않게
+했다. Python workflow 계약 테스트가 이 취소 방지 정책을 고정한다.
+
 ### 2026-08-16 (Codex) — 문화어 홈페이지 production 반영 복구
 
 **원인과 수정.** `cebc4204` 배포는 Worker upload까지 성공했지만, live verifier가

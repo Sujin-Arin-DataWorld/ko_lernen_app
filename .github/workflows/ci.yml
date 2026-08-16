@@ -60,11 +60,12 @@ on:
 permissions:
   contents: read
 
-# 자동 PR과 같은 브랜치의 수동 task=ci도 같은 그룹이다. 새 커밋/실행이 생기면
-# 이미 낡은 검증은 취소하되 골든 생성은 일반 CI와 별도 그룹으로 둔다.
+# 자동 PR과 같은 브랜치의 수동 task=ci도 같은 그룹이다. PR의 낡은 검증은
+# 취소하지만 main push는 Play release까지 끝내야 하므로 후속 웹/문서 push가
+# 실행 전체를 중단하지 않는다. 골든 생성은 일반 CI와 별도 그룹으로 둔다.
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.task == 'regenerate-goldens' && 'goldens' || 'ci' }}-${{ github.event.pull_request.head.ref || github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   changes:
@@ -189,6 +190,9 @@ jobs:
        (github.event_name == 'workflow_dispatch' && inputs.task == 'release-internal'))
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    concurrency:
+      group: google-play-internal
+      cancel-in-progress: false
     environment:
       name: google-play-internal
     steps:

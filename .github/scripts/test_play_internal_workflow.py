@@ -27,6 +27,17 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("tracks: internal", release)
         self.assertNotIn("tracks: production", release)
 
+    def test_main_release_survives_unrelated_follow_up_pushes(self):
+        workflow_concurrency = self.workflow.split("jobs:", 1)[0]
+        self.assertIn(
+            "cancel-in-progress: ${{ github.event_name == 'pull_request' }}",
+            workflow_concurrency,
+        )
+
+        release = self.workflow.split("  release-internal:", 1)[1]
+        self.assertIn("group: google-play-internal", release)
+        self.assertIn("cancel-in-progress: false", release)
+
 
 if __name__ == "__main__":
     unittest.main()
