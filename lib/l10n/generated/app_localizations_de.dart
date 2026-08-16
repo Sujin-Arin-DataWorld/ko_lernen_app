@@ -1613,10 +1613,20 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get dojangDecorHintBody =>
-      'Diese Stempel sind Andenken an geschaffte Wortpakete. Um deine Hanok-Stuben einzurichten, schließe Quests ab und öffne die Bündel, die du dabei bekommst.';
+      'Deine gesammelten Dancheong-Stempel sind jetzt auch Gestaltungselemente. Platziere sie frei in deiner Sarangbang; im Stempelbuch bleiben sie weiterhin sichtbar.';
 
   @override
-  String get dojangDecorHintCta => 'Zu den Quests';
+  String get dojangDecorHintCta => 'Sarangbang gestalten';
+
+  @override
+  String dojangStampEarned(String stamp) {
+    return '$stamp, gesammelt';
+  }
+
+  @override
+  String dojangStampLocked(String stamp) {
+    return '$stamp, noch nicht gesammelt';
+  }
 
   @override
   String get hanokCinematicIntro => 'Dein Hanok wächst.';
@@ -2150,15 +2160,13 @@ class AppL10nDe extends AppL10n {
   String get onboardingLevelC1 => 'Kompetent';
 
   @override
-  String get onboardingLevelC1Desc =>
-      'Evidenz, Institutionen, präzise Nuancen';
+  String get onboardingLevelC1Desc => 'Evidenz, Institutionen, präzise Nuancen';
 
   @override
   String get onboardingLevelC2 => 'Expertenniveau';
 
   @override
-  String get onboardingLevelC2Desc =>
-      'Feine Analyse und rhetorische Kontrolle';
+  String get onboardingLevelC2Desc => 'Feine Analyse und rhetorische Kontrolle';
 
   @override
   String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
@@ -4747,7 +4755,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten';
+      'Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten';
 
   @override
   String get coachGyeStep1Title => 'Wochenziel';
@@ -6027,6 +6035,304 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get personalRoomDaecheongStudy => 'Lernweg fortsetzen';
+
+  @override
+  String get personalRoomEditorHint =>
+      'Ziehe ein Stück frei durch den Raum. Mit zwei Fingern kannst du es drehen und vergrößern. Die Werkzeugleiste funktioniert auch ohne Gesten.';
+
+  @override
+  String get personalRoomInventoryTitle => 'Meine Gestaltungskiste';
+
+  @override
+  String get personalRoomInventoryDecorations => 'Einrichtung';
+
+  @override
+  String get personalRoomInventoryStickers => 'Sticker';
+
+  @override
+  String get personalRoomInventoryStamps => 'Stempel';
+
+  @override
+  String get personalRoomNoDecorations =>
+      'Noch keine Einrichtung. Öffne ein Bojagi-Bündel, um ein Stück zu erhalten.';
+
+  @override
+  String get personalRoomNoStamps =>
+      'Noch keine Dancheong-Stempel. Schließe ein Wortpaket ab, um einen zu erhalten.';
+
+  @override
+  String personalRoomSelectedItem(String item) {
+    return 'Ausgewählt: $item';
+  }
+
+  @override
+  String get personalRoomMoveLeft => 'Nach links';
+
+  @override
+  String get personalRoomMoveRight => 'Nach rechts';
+
+  @override
+  String get personalRoomMoveUp => 'Nach oben';
+
+  @override
+  String get personalRoomMoveDown => 'Nach unten';
+
+  @override
+  String get personalRoomMakeSmaller => 'Verkleinern';
+
+  @override
+  String get personalRoomMakeLarger => 'Vergrößern';
+
+  @override
+  String get personalRoomRotateLeft => 'Nach links drehen';
+
+  @override
+  String get personalRoomRotateRight => 'Nach rechts drehen';
+
+  @override
+  String get personalRoomSendBackward => 'Eine Ebene nach hinten';
+
+  @override
+  String get personalRoomBringForward => 'Eine Ebene nach vorn';
+
+  @override
+  String get personalRoomRemoveItem => 'In die Kiste zurücklegen';
+
+  @override
+  String personalRoomAddItem(String item) {
+    return '$item in den Raum stellen';
+  }
+
+  @override
+  String get personalRoomItemInUse => 'Bereits in einem Zimmer';
+
+  @override
+  String get personalRoomStickerLimit =>
+      'Hier kann kein weiteres Exemplar platziert werden. Lege zuerst etwas zurück.';
+
+  @override
+  String get personalRoomSaveFailed =>
+      'Die Anordnung konnte nicht gespeichert werden. Versuch es noch einmal.';
+
+  @override
+  String get personalRoomFutureLayout =>
+      'Diese Anordnung stammt aus einer neueren App-Version und bleibt schreibgeschützt.';
+
+  @override
+  String get personalRoomSelectItemHint => 'Zum Anordnen auswählen';
+
+  @override
+  String get personalRoomStickerFallback => 'Sticker';
+
+  @override
+  String get personalRoomStampFallback => 'Dancheong-Stempel';
+
+  @override
+  String get decorNameMunbangsau => 'Schreibzeug (문방사우)';
+
+  @override
+  String get decorNameSeoan => 'Schreibpult (서안)';
+
+  @override
+  String get decorNameChaekgado => 'Bücherwand-Wandschirm (책가도)';
+
+  @override
+  String get decorNameGatBuchae => 'Hut und Fächer (갓·부채)';
+
+  @override
+  String get decorNameJagaeMungap => 'Perlmutt-Truhe (자개 문갑)';
+
+  @override
+  String get decorNameSoban => 'Tabletttisch (소반)';
+
+  @override
+  String get decorNameSagunjaMaehwa => 'Pflaumenblüten-Bild (매화)';
+
+  @override
+  String get decorNameSagunjaNan => 'Orchideen-Bild (난초)';
+
+  @override
+  String get decorNameSagunjaGuk => 'Chrysanthemen-Bild (국화)';
+
+  @override
+  String get decorNameSagunjaJuk => 'Bambus-Bild (대나무)';
+
+  @override
+  String get decorNamePyeonaek => 'Namenstafel (편액)';
+
+  @override
+  String get decorNameJangdokdae => 'Jangdokdae (Krugterrasse)';
+
+  @override
+  String get decorNameMaehwa => 'Pflaumenbaum (매화)';
+
+  @override
+  String get decorNameSonamu => 'Alte Kiefer (노송)';
+
+  @override
+  String get decorNamePond => 'Teich & Karpfen (연못)';
+
+  @override
+  String get decorNameSeokdeung => 'Steinlaterne (장명등)';
+
+  @override
+  String get decorNamePunggyeong => 'Windspiel (풍경)';
+
+  @override
+  String get decorNameDoldam => 'Steinmauer (돌담)';
+
+  @override
+  String get decorNameKkachiNest => 'Elsternnest (까치 둥지)';
+
+  @override
+  String get decorNameDokkaebiFire => 'Irrlicht (도깨비불)';
+
+  @override
+  String get decorNameSeollalFlag => 'Seollal-Yutspiel (윷놀이)';
+
+  @override
+  String get decorNameChuseokMoon => 'Chuseok-Vollmond (보름달)';
+
+  @override
+  String get decorNameHangeuldayPlaque => 'Hangul-Tag Sejong-Tafel (세종 편액)';
+
+  @override
+  String get decorNameKite => 'Kinder-Tag Drachen (연)';
+
+  @override
+  String get decorNameFallback => 'Dekoration';
+
+  @override
+  String get stickerNameTigerCheer => 'Jubelnder Tiger';
+
+  @override
+  String get stickerNameTigerClap => 'Klatschender Tiger';
+
+  @override
+  String get stickerNameTigerSurprised => 'Überraschter Tiger';
+
+  @override
+  String get stickerNameTigerSad => 'Trauriger Tiger';
+
+  @override
+  String get stickerNameTigerLove => 'Verliebter Tiger';
+
+  @override
+  String get stickerNameMagpieDance => 'Tanzende Elster';
+
+  @override
+  String get stickerNameMagpieWave => 'Winkende Elster';
+
+  @override
+  String get stickerNameMagpieSleep => 'Schlafende Elster';
+
+  @override
+  String get stickerNameMagpieSing => 'Singende Elster';
+
+  @override
+  String get stickerNameMagpieEncourage => 'Aufmunternde Elster';
+
+  @override
+  String get stickerNameDancheongFlower => 'Dancheong-Blüte';
+
+  @override
+  String get stickerNameDancheongStar => 'Dancheong-Stern';
+
+  @override
+  String get stickerNameDancheongCloud => 'Dancheong-Wolke';
+
+  @override
+  String get stickerNameDancheongLantern => 'Dancheong-Laterne';
+
+  @override
+  String get stickerNameDancheongHanji => 'Hanji-Papier';
+
+  @override
+  String get stickerNameHangulKk => 'ㅋㅋ · Lautes Lachen';
+
+  @override
+  String get stickerNameHangulHh => 'ㅎㅎ · Leises Kichern';
+
+  @override
+  String get stickerNameHangulFighting => '화이팅! · Du schaffst das';
+
+  @override
+  String get stickerNameHangulBest => '최고! · Einfach spitze';
+
+  @override
+  String get stickerNameHangulGood => '굿 · Gut gemacht';
+
+  @override
+  String get stickerNameFoodTteok => 'Tteok-Reiskuchen';
+
+  @override
+  String get stickerNameFoodTea => 'Koreanischer Tee';
+
+  @override
+  String get stickerNameFoodKimbap => 'Gimbap';
+
+  @override
+  String get stickerNameFoodHotteok => 'Hotteok';
+
+  @override
+  String get stickerNameFoodSikhye => 'Sikhye-Reisgetränk';
+
+  @override
+  String get stickerNameStampWellDone => 'Stempel · Sehr gut gemacht';
+
+  @override
+  String get stickerNameStampFighting => 'Stempel · Du schaffst das';
+
+  @override
+  String get stickerNameStampLove => 'Stempel · Mit Liebe';
+
+  @override
+  String get stickerNameStampCheer => 'Stempel · Applaus';
+
+  @override
+  String get stickerNameStampHappy => 'Stempel · Glücklich';
+
+  @override
+  String get stampMotifLotus => 'Lotus-Dancheong';
+
+  @override
+  String get stampMotifChrysanthemum => 'Chrysanthemen-Dancheong';
+
+  @override
+  String get stampMotifPlum => 'Pflaumenblüten-Dancheong';
+
+  @override
+  String get stampMotifBamboo => 'Bambus-Dancheong';
+
+  @override
+  String get stampMotifCloud => 'Wolken-Dancheong';
+
+  @override
+  String get stampMotifOctagon => 'Achteck-Dancheong';
+
+  @override
+  String get stampMotifMountain => 'Berg-Dancheong';
+
+  @override
+  String get stampMotifManja => 'Manja-Dancheong';
+
+  @override
+  String get stampMotifVine => 'Ranken-Dancheong';
+
+  @override
+  String get stampMotifChilbo => 'Chilbo-Dancheong';
+
+  @override
+  String get stampMotifGwigap => 'Gwigap-Dancheong';
+
+  @override
+  String get stampMotifWave => 'Wellen-Dancheong';
+
+  @override
+  String get stampMotifTaegeuk => 'Taegeuk-Dancheong';
+
+  @override
+  String get stampMotifPeony => 'Pfingstrosen-Dancheong';
 
   @override
   String get gyeDedicationTitle => 'Gemeinsame Ausstellung';

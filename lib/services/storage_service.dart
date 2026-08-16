@@ -1068,6 +1068,30 @@ class Storage {
 
   static const String _roomPlacementKey = 'kl_room_placement';
   static const String _roomPlacementsV2Key = 'kl_room_placements_v2';
+  static const String _roomLayoutsV3Key = 'kl_room_layouts_v3';
+
+  /// Raw v3 free-layout document. A null value means no v3 authority exists;
+  /// an empty/corrupt string remains distinguishable so callers can recover
+  /// from v2 without silently treating damaged data as a deliberate empty
+  /// room. Parsing and validation belong to [RoomLayoutService].
+  static String? get roomLayoutsV3Raw => _prefs?.getString(_roomLayoutsV3Key);
+
+  /// Persists the complete, validated free-layout document in one write.
+  ///
+  /// The v2 and legacy keys are intentionally left untouched as a rollback
+  /// snapshot. New code must never mirror v3 coordinates into the slot schema.
+  static Future<void> setRoomLayoutsV3Raw(String json) async {
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw StateError(
+        'Storage must be initialized before saving room layouts.',
+      );
+    }
+    final stored = await preferences.setString(_roomLayoutsV3Key, json);
+    if (!stored) {
+      throw StateError('Room layout persistence was rejected.');
+    }
+  }
 
   /// 구버전 사랑방 배치만 읽는다. v2가 없거나 손상됐을 때의 안전한 복구
   /// 재료이므로 삭제하지 않는다.

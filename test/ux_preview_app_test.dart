@@ -31,6 +31,7 @@ import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
 
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/sticker_image.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -422,10 +423,8 @@ void main() {
     expect(
       find.byWidgetPredicate(
         (widget) =>
-            widget is Image &&
-            widget.image is AssetImage &&
-            (widget.image as AssetImage).assetName ==
-                'assets/stickers/tiger_clap.png',
+            widget is StickerImage &&
+            widget.spec.asset == 'assets/stickers/tiger_clap.png',
       ),
       findsOneWidget,
     );

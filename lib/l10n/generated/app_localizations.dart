@@ -2902,14 +2902,26 @@ abstract class AppL10n {
   /// No description provided for @dojangDecorHintBody.
   ///
   /// In de, this message translates to:
-  /// **'Diese Stempel sind Andenken an geschaffte Wortpakete. Um deine Hanok-Stuben einzurichten, schließe Quests ab und öffne die Bündel, die du dabei bekommst.'**
+  /// **'Deine gesammelten Dancheong-Stempel sind jetzt auch Gestaltungselemente. Platziere sie frei in deiner Sarangbang; im Stempelbuch bleiben sie weiterhin sichtbar.'**
   String get dojangDecorHintBody;
 
   /// No description provided for @dojangDecorHintCta.
   ///
   /// In de, this message translates to:
-  /// **'Zu den Quests'**
+  /// **'Sarangbang gestalten'**
   String get dojangDecorHintCta;
+
+  /// No description provided for @dojangStampEarned.
+  ///
+  /// In de, this message translates to:
+  /// **'{stamp}, gesammelt'**
+  String dojangStampEarned(String stamp);
+
+  /// No description provided for @dojangStampLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'{stamp}, noch nicht gesammelt'**
+  String dojangStampLocked(String stamp);
 
   /// No description provided for @hanokCinematicIntro.
   ///
@@ -3878,15 +3890,27 @@ abstract class AppL10n {
   String get onboardingLevelB2Desc;
 
   /// No description provided for @onboardingLevelC1.
+  ///
+  /// In de, this message translates to:
+  /// **'Kompetent'**
   String get onboardingLevelC1;
 
   /// No description provided for @onboardingLevelC1Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Evidenz, Institutionen, präzise Nuancen'**
   String get onboardingLevelC1Desc;
 
   /// No description provided for @onboardingLevelC2.
+  ///
+  /// In de, this message translates to:
+  /// **'Expertenniveau'**
   String get onboardingLevelC2;
 
   /// No description provided for @onboardingLevelC2Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Feine Analyse und rhetorische Kontrolle'**
   String get onboardingLevelC2Desc;
 
   /// No description provided for @onboardingExampleA1Trans.
@@ -3914,9 +3938,15 @@ abstract class AppL10n {
   String get onboardingExampleB2Trans;
 
   /// No description provided for @onboardingExampleC1Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich werde bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.'**
   String get onboardingExampleC1Trans;
 
   /// No description provided for @onboardingExampleC2Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Wer Schweigen als Zustimmung wertet, kann schon durch den Rahmen einer Frage Beteiligung einschränken.'**
   String get onboardingExampleC2Trans;
 
   /// No description provided for @onboardingSkip.
@@ -4034,15 +4064,27 @@ abstract class AppL10n {
   String get onboardingLevelB2Learn;
 
   /// No description provided for @onboardingLevelC1Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du diskutierst komplexe Themen und stufst Schlussfolgerungen genau ab.'**
   String get onboardingLevelC1Can;
 
   /// No description provided for @onboardingLevelC1Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Evidenz, Unsicherheit, inklusive Systeme und öffentliche Erklärungen.'**
   String get onboardingLevelC1Learn;
 
   /// No description provided for @onboardingLevelC2Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du analysierst Prämissen, Deutungsrahmen und institutionelle Sprache.'**
   String get onboardingLevelC2Can;
 
   /// No description provided for @onboardingLevelC2Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Diskurs, Interpretation, Technikethik und verantwortliche Entscheidungen.'**
   String get onboardingLevelC2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
@@ -8194,7 +8236,7 @@ abstract class AppL10n {
   /// No description provided for @coachDojangBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten'**
+  /// **'Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten'**
   String get coachDojangBody;
 
   /// No description provided for @coachGyeStep1Title.
@@ -10386,6 +10428,582 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Lernweg fortsetzen'**
   String get personalRoomDaecheongStudy;
+
+  /// No description provided for @personalRoomEditorHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziehe ein Stück frei durch den Raum. Mit zwei Fingern kannst du es drehen und vergrößern. Die Werkzeugleiste funktioniert auch ohne Gesten.'**
+  String get personalRoomEditorHint;
+
+  /// No description provided for @personalRoomInventoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Gestaltungskiste'**
+  String get personalRoomInventoryTitle;
+
+  /// No description provided for @personalRoomInventoryDecorations.
+  ///
+  /// In de, this message translates to:
+  /// **'Einrichtung'**
+  String get personalRoomInventoryDecorations;
+
+  /// No description provided for @personalRoomInventoryStickers.
+  ///
+  /// In de, this message translates to:
+  /// **'Sticker'**
+  String get personalRoomInventoryStickers;
+
+  /// No description provided for @personalRoomInventoryStamps.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel'**
+  String get personalRoomInventoryStamps;
+
+  /// No description provided for @personalRoomNoDecorations.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Einrichtung. Öffne ein Bojagi-Bündel, um ein Stück zu erhalten.'**
+  String get personalRoomNoDecorations;
+
+  /// No description provided for @personalRoomNoStamps.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Dancheong-Stempel. Schließe ein Wortpaket ab, um einen zu erhalten.'**
+  String get personalRoomNoStamps;
+
+  /// No description provided for @personalRoomSelectedItem.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausgewählt: {item}'**
+  String personalRoomSelectedItem(String item);
+
+  /// No description provided for @personalRoomMoveLeft.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach links'**
+  String get personalRoomMoveLeft;
+
+  /// No description provided for @personalRoomMoveRight.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach rechts'**
+  String get personalRoomMoveRight;
+
+  /// No description provided for @personalRoomMoveUp.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach oben'**
+  String get personalRoomMoveUp;
+
+  /// No description provided for @personalRoomMoveDown.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach unten'**
+  String get personalRoomMoveDown;
+
+  /// No description provided for @personalRoomMakeSmaller.
+  ///
+  /// In de, this message translates to:
+  /// **'Verkleinern'**
+  String get personalRoomMakeSmaller;
+
+  /// No description provided for @personalRoomMakeLarger.
+  ///
+  /// In de, this message translates to:
+  /// **'Vergrößern'**
+  String get personalRoomMakeLarger;
+
+  /// No description provided for @personalRoomRotateLeft.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach links drehen'**
+  String get personalRoomRotateLeft;
+
+  /// No description provided for @personalRoomRotateRight.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach rechts drehen'**
+  String get personalRoomRotateRight;
+
+  /// No description provided for @personalRoomSendBackward.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Ebene nach hinten'**
+  String get personalRoomSendBackward;
+
+  /// No description provided for @personalRoomBringForward.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Ebene nach vorn'**
+  String get personalRoomBringForward;
+
+  /// No description provided for @personalRoomRemoveItem.
+  ///
+  /// In de, this message translates to:
+  /// **'In die Kiste zurücklegen'**
+  String get personalRoomRemoveItem;
+
+  /// No description provided for @personalRoomAddItem.
+  ///
+  /// In de, this message translates to:
+  /// **'{item} in den Raum stellen'**
+  String personalRoomAddItem(String item);
+
+  /// No description provided for @personalRoomItemInUse.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereits in einem Zimmer'**
+  String get personalRoomItemInUse;
+
+  /// No description provided for @personalRoomStickerLimit.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier kann kein weiteres Exemplar platziert werden. Lege zuerst etwas zurück.'**
+  String get personalRoomStickerLimit;
+
+  /// No description provided for @personalRoomSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Anordnung konnte nicht gespeichert werden. Versuch es noch einmal.'**
+  String get personalRoomSaveFailed;
+
+  /// No description provided for @personalRoomFutureLayout.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Anordnung stammt aus einer neueren App-Version und bleibt schreibgeschützt.'**
+  String get personalRoomFutureLayout;
+
+  /// No description provided for @personalRoomSelectItemHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Anordnen auswählen'**
+  String get personalRoomSelectItemHint;
+
+  /// No description provided for @personalRoomStickerFallback.
+  ///
+  /// In de, this message translates to:
+  /// **'Sticker'**
+  String get personalRoomStickerFallback;
+
+  /// No description provided for @personalRoomStampFallback.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Stempel'**
+  String get personalRoomStampFallback;
+
+  /// No description provided for @decorNameMunbangsau.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibzeug (문방사우)'**
+  String get decorNameMunbangsau;
+
+  /// No description provided for @decorNameSeoan.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibpult (서안)'**
+  String get decorNameSeoan;
+
+  /// No description provided for @decorNameChaekgado.
+  ///
+  /// In de, this message translates to:
+  /// **'Bücherwand-Wandschirm (책가도)'**
+  String get decorNameChaekgado;
+
+  /// No description provided for @decorNameGatBuchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Hut und Fächer (갓·부채)'**
+  String get decorNameGatBuchae;
+
+  /// No description provided for @decorNameJagaeMungap.
+  ///
+  /// In de, this message translates to:
+  /// **'Perlmutt-Truhe (자개 문갑)'**
+  String get decorNameJagaeMungap;
+
+  /// No description provided for @decorNameSoban.
+  ///
+  /// In de, this message translates to:
+  /// **'Tabletttisch (소반)'**
+  String get decorNameSoban;
+
+  /// No description provided for @decorNameSagunjaMaehwa.
+  ///
+  /// In de, this message translates to:
+  /// **'Pflaumenblüten-Bild (매화)'**
+  String get decorNameSagunjaMaehwa;
+
+  /// No description provided for @decorNameSagunjaNan.
+  ///
+  /// In de, this message translates to:
+  /// **'Orchideen-Bild (난초)'**
+  String get decorNameSagunjaNan;
+
+  /// No description provided for @decorNameSagunjaGuk.
+  ///
+  /// In de, this message translates to:
+  /// **'Chrysanthemen-Bild (국화)'**
+  String get decorNameSagunjaGuk;
+
+  /// No description provided for @decorNameSagunjaJuk.
+  ///
+  /// In de, this message translates to:
+  /// **'Bambus-Bild (대나무)'**
+  String get decorNameSagunjaJuk;
+
+  /// No description provided for @decorNamePyeonaek.
+  ///
+  /// In de, this message translates to:
+  /// **'Namenstafel (편액)'**
+  String get decorNamePyeonaek;
+
+  /// No description provided for @decorNameJangdokdae.
+  ///
+  /// In de, this message translates to:
+  /// **'Jangdokdae (Krugterrasse)'**
+  String get decorNameJangdokdae;
+
+  /// No description provided for @decorNameMaehwa.
+  ///
+  /// In de, this message translates to:
+  /// **'Pflaumenbaum (매화)'**
+  String get decorNameMaehwa;
+
+  /// No description provided for @decorNameSonamu.
+  ///
+  /// In de, this message translates to:
+  /// **'Alte Kiefer (노송)'**
+  String get decorNameSonamu;
+
+  /// No description provided for @decorNamePond.
+  ///
+  /// In de, this message translates to:
+  /// **'Teich & Karpfen (연못)'**
+  String get decorNamePond;
+
+  /// No description provided for @decorNameSeokdeung.
+  ///
+  /// In de, this message translates to:
+  /// **'Steinlaterne (장명등)'**
+  String get decorNameSeokdeung;
+
+  /// No description provided for @decorNamePunggyeong.
+  ///
+  /// In de, this message translates to:
+  /// **'Windspiel (풍경)'**
+  String get decorNamePunggyeong;
+
+  /// No description provided for @decorNameDoldam.
+  ///
+  /// In de, this message translates to:
+  /// **'Steinmauer (돌담)'**
+  String get decorNameDoldam;
+
+  /// No description provided for @decorNameKkachiNest.
+  ///
+  /// In de, this message translates to:
+  /// **'Elsternnest (까치 둥지)'**
+  String get decorNameKkachiNest;
+
+  /// No description provided for @decorNameDokkaebiFire.
+  ///
+  /// In de, this message translates to:
+  /// **'Irrlicht (도깨비불)'**
+  String get decorNameDokkaebiFire;
+
+  /// No description provided for @decorNameSeollalFlag.
+  ///
+  /// In de, this message translates to:
+  /// **'Seollal-Yutspiel (윷놀이)'**
+  String get decorNameSeollalFlag;
+
+  /// No description provided for @decorNameChuseokMoon.
+  ///
+  /// In de, this message translates to:
+  /// **'Chuseok-Vollmond (보름달)'**
+  String get decorNameChuseokMoon;
+
+  /// No description provided for @decorNameHangeuldayPlaque.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Tag Sejong-Tafel (세종 편액)'**
+  String get decorNameHangeuldayPlaque;
+
+  /// No description provided for @decorNameKite.
+  ///
+  /// In de, this message translates to:
+  /// **'Kinder-Tag Drachen (연)'**
+  String get decorNameKite;
+
+  /// No description provided for @decorNameFallback.
+  ///
+  /// In de, this message translates to:
+  /// **'Dekoration'**
+  String get decorNameFallback;
+
+  /// No description provided for @stickerNameTigerCheer.
+  ///
+  /// In de, this message translates to:
+  /// **'Jubelnder Tiger'**
+  String get stickerNameTigerCheer;
+
+  /// No description provided for @stickerNameTigerClap.
+  ///
+  /// In de, this message translates to:
+  /// **'Klatschender Tiger'**
+  String get stickerNameTigerClap;
+
+  /// No description provided for @stickerNameTigerSurprised.
+  ///
+  /// In de, this message translates to:
+  /// **'Überraschter Tiger'**
+  String get stickerNameTigerSurprised;
+
+  /// No description provided for @stickerNameTigerSad.
+  ///
+  /// In de, this message translates to:
+  /// **'Trauriger Tiger'**
+  String get stickerNameTigerSad;
+
+  /// No description provided for @stickerNameTigerLove.
+  ///
+  /// In de, this message translates to:
+  /// **'Verliebter Tiger'**
+  String get stickerNameTigerLove;
+
+  /// No description provided for @stickerNameMagpieDance.
+  ///
+  /// In de, this message translates to:
+  /// **'Tanzende Elster'**
+  String get stickerNameMagpieDance;
+
+  /// No description provided for @stickerNameMagpieWave.
+  ///
+  /// In de, this message translates to:
+  /// **'Winkende Elster'**
+  String get stickerNameMagpieWave;
+
+  /// No description provided for @stickerNameMagpieSleep.
+  ///
+  /// In de, this message translates to:
+  /// **'Schlafende Elster'**
+  String get stickerNameMagpieSleep;
+
+  /// No description provided for @stickerNameMagpieSing.
+  ///
+  /// In de, this message translates to:
+  /// **'Singende Elster'**
+  String get stickerNameMagpieSing;
+
+  /// No description provided for @stickerNameMagpieEncourage.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufmunternde Elster'**
+  String get stickerNameMagpieEncourage;
+
+  /// No description provided for @stickerNameDancheongFlower.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Blüte'**
+  String get stickerNameDancheongFlower;
+
+  /// No description provided for @stickerNameDancheongStar.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Stern'**
+  String get stickerNameDancheongStar;
+
+  /// No description provided for @stickerNameDancheongCloud.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Wolke'**
+  String get stickerNameDancheongCloud;
+
+  /// No description provided for @stickerNameDancheongLantern.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Laterne'**
+  String get stickerNameDancheongLantern;
+
+  /// No description provided for @stickerNameDancheongHanji.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanji-Papier'**
+  String get stickerNameDancheongHanji;
+
+  /// No description provided for @stickerNameHangulKk.
+  ///
+  /// In de, this message translates to:
+  /// **'ㅋㅋ · Lautes Lachen'**
+  String get stickerNameHangulKk;
+
+  /// No description provided for @stickerNameHangulHh.
+  ///
+  /// In de, this message translates to:
+  /// **'ㅎㅎ · Leises Kichern'**
+  String get stickerNameHangulHh;
+
+  /// No description provided for @stickerNameHangulFighting.
+  ///
+  /// In de, this message translates to:
+  /// **'화이팅! · Du schaffst das'**
+  String get stickerNameHangulFighting;
+
+  /// No description provided for @stickerNameHangulBest.
+  ///
+  /// In de, this message translates to:
+  /// **'최고! · Einfach spitze'**
+  String get stickerNameHangulBest;
+
+  /// No description provided for @stickerNameHangulGood.
+  ///
+  /// In de, this message translates to:
+  /// **'굿 · Gut gemacht'**
+  String get stickerNameHangulGood;
+
+  /// No description provided for @stickerNameFoodTteok.
+  ///
+  /// In de, this message translates to:
+  /// **'Tteok-Reiskuchen'**
+  String get stickerNameFoodTteok;
+
+  /// No description provided for @stickerNameFoodTea.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanischer Tee'**
+  String get stickerNameFoodTea;
+
+  /// No description provided for @stickerNameFoodKimbap.
+  ///
+  /// In de, this message translates to:
+  /// **'Gimbap'**
+  String get stickerNameFoodKimbap;
+
+  /// No description provided for @stickerNameFoodHotteok.
+  ///
+  /// In de, this message translates to:
+  /// **'Hotteok'**
+  String get stickerNameFoodHotteok;
+
+  /// No description provided for @stickerNameFoodSikhye.
+  ///
+  /// In de, this message translates to:
+  /// **'Sikhye-Reisgetränk'**
+  String get stickerNameFoodSikhye;
+
+  /// No description provided for @stickerNameStampWellDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel · Sehr gut gemacht'**
+  String get stickerNameStampWellDone;
+
+  /// No description provided for @stickerNameStampFighting.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel · Du schaffst das'**
+  String get stickerNameStampFighting;
+
+  /// No description provided for @stickerNameStampLove.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel · Mit Liebe'**
+  String get stickerNameStampLove;
+
+  /// No description provided for @stickerNameStampCheer.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel · Applaus'**
+  String get stickerNameStampCheer;
+
+  /// No description provided for @stickerNameStampHappy.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel · Glücklich'**
+  String get stickerNameStampHappy;
+
+  /// No description provided for @stampMotifLotus.
+  ///
+  /// In de, this message translates to:
+  /// **'Lotus-Dancheong'**
+  String get stampMotifLotus;
+
+  /// No description provided for @stampMotifChrysanthemum.
+  ///
+  /// In de, this message translates to:
+  /// **'Chrysanthemen-Dancheong'**
+  String get stampMotifChrysanthemum;
+
+  /// No description provided for @stampMotifPlum.
+  ///
+  /// In de, this message translates to:
+  /// **'Pflaumenblüten-Dancheong'**
+  String get stampMotifPlum;
+
+  /// No description provided for @stampMotifBamboo.
+  ///
+  /// In de, this message translates to:
+  /// **'Bambus-Dancheong'**
+  String get stampMotifBamboo;
+
+  /// No description provided for @stampMotifCloud.
+  ///
+  /// In de, this message translates to:
+  /// **'Wolken-Dancheong'**
+  String get stampMotifCloud;
+
+  /// No description provided for @stampMotifOctagon.
+  ///
+  /// In de, this message translates to:
+  /// **'Achteck-Dancheong'**
+  String get stampMotifOctagon;
+
+  /// No description provided for @stampMotifMountain.
+  ///
+  /// In de, this message translates to:
+  /// **'Berg-Dancheong'**
+  String get stampMotifMountain;
+
+  /// No description provided for @stampMotifManja.
+  ///
+  /// In de, this message translates to:
+  /// **'Manja-Dancheong'**
+  String get stampMotifManja;
+
+  /// No description provided for @stampMotifVine.
+  ///
+  /// In de, this message translates to:
+  /// **'Ranken-Dancheong'**
+  String get stampMotifVine;
+
+  /// No description provided for @stampMotifChilbo.
+  ///
+  /// In de, this message translates to:
+  /// **'Chilbo-Dancheong'**
+  String get stampMotifChilbo;
+
+  /// No description provided for @stampMotifGwigap.
+  ///
+  /// In de, this message translates to:
+  /// **'Gwigap-Dancheong'**
+  String get stampMotifGwigap;
+
+  /// No description provided for @stampMotifWave.
+  ///
+  /// In de, this message translates to:
+  /// **'Wellen-Dancheong'**
+  String get stampMotifWave;
+
+  /// No description provided for @stampMotifTaegeuk.
+  ///
+  /// In de, this message translates to:
+  /// **'Taegeuk-Dancheong'**
+  String get stampMotifTaegeuk;
+
+  /// No description provided for @stampMotifPeony.
+  ///
+  /// In de, this message translates to:
+  /// **'Pfingstrosen-Dancheong'**
+  String get stampMotifPeony;
 
   /// No description provided for @gyeDedicationTitle.
   ///

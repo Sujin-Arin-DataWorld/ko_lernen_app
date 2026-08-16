@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -128,4 +129,37 @@ void main() {
       expect(find.text(t.vocabPackResultHardWordsCta), findsNothing);
     },
   );
+
+  testWidgets('cleared result names the earned stamp for assistive tech', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    final t = await AppL10n.delegate.load(const Locale('en'));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: const VocabPackResultScreen(
+          packId: 'a1_greetings_1',
+          bossAccuracy: 1,
+          bossCorrect: 2,
+          bossTotal: 2,
+          quizCorrect: 3,
+          quizTotal: 3,
+          justCleared: true,
+          nextUnlockedPackId: null,
+        ),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 1100));
+
+    expect(
+      find.bySemanticsLabel(dancheongMotifName(t, DancheongMotif.lotus)),
+      findsOneWidget,
+    );
+    semantics.dispose();
+  });
 }

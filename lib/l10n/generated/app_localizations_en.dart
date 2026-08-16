@@ -1606,10 +1606,20 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get dojangDecorHintBody =>
-      'These stamps are keepsakes for the word packs you clear. To furnish your Hanok rooms, finish quests and open the bundles you earn.';
+      'Your collected Dancheong stamps are now decorating pieces too. Place them freely in your Sarangbang; they remain visible in the stamp book.';
 
   @override
-  String get dojangDecorHintCta => 'Go to Quests';
+  String get dojangDecorHintCta => 'Decorate the Sarangbang';
+
+  @override
+  String dojangStampEarned(String stamp) {
+    return '$stamp, collected';
+  }
+
+  @override
+  String dojangStampLocked(String stamp) {
+    return '$stamp, not collected yet';
+  }
 
   @override
   String get hanokCinematicIntro => 'Your hanok is growing.';
@@ -2140,15 +2150,13 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelC1 => 'Proficient';
 
   @override
-  String get onboardingLevelC1Desc =>
-      'Evidence, institutions, precise nuance';
+  String get onboardingLevelC1Desc => 'Evidence, institutions, precise nuance';
 
   @override
   String get onboardingLevelC2 => 'Expert';
 
   @override
-  String get onboardingLevelC2Desc =>
-      'Nuanced analysis and rhetorical control';
+  String get onboardingLevelC2Desc => 'Nuanced analysis and rhetorical control';
 
   @override
   String get onboardingExampleA1Trans => 'Hello / Hi.';
@@ -4728,7 +4736,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Complete vocabulary packs to unlock all 8 Dancheong stamp designs';
+      'Complete vocabulary packs to unlock all 14 Dancheong stamp designs';
 
   @override
   String get coachGyeStep1Title => 'Weekly goal';
@@ -5995,6 +6003,304 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get personalRoomDaecheongStudy => 'Continue the learning path';
+
+  @override
+  String get personalRoomEditorHint =>
+      'Drag a piece anywhere in the room. Use two fingers to rotate and resize it. The toolbar also works without gestures.';
+
+  @override
+  String get personalRoomInventoryTitle => 'My decorating chest';
+
+  @override
+  String get personalRoomInventoryDecorations => 'Furnishings';
+
+  @override
+  String get personalRoomInventoryStickers => 'Stickers';
+
+  @override
+  String get personalRoomInventoryStamps => 'Stamps';
+
+  @override
+  String get personalRoomNoDecorations =>
+      'No furnishings yet. Open a Bojagi bundle to receive one.';
+
+  @override
+  String get personalRoomNoStamps =>
+      'No Dancheong stamps yet. Complete a word pack to earn one.';
+
+  @override
+  String personalRoomSelectedItem(String item) {
+    return 'Selected: $item';
+  }
+
+  @override
+  String get personalRoomMoveLeft => 'Move left';
+
+  @override
+  String get personalRoomMoveRight => 'Move right';
+
+  @override
+  String get personalRoomMoveUp => 'Move up';
+
+  @override
+  String get personalRoomMoveDown => 'Move down';
+
+  @override
+  String get personalRoomMakeSmaller => 'Make smaller';
+
+  @override
+  String get personalRoomMakeLarger => 'Make larger';
+
+  @override
+  String get personalRoomRotateLeft => 'Rotate left';
+
+  @override
+  String get personalRoomRotateRight => 'Rotate right';
+
+  @override
+  String get personalRoomSendBackward => 'Send one layer backward';
+
+  @override
+  String get personalRoomBringForward => 'Bring one layer forward';
+
+  @override
+  String get personalRoomRemoveItem => 'Return to the chest';
+
+  @override
+  String personalRoomAddItem(String item) {
+    return 'Place $item in the room';
+  }
+
+  @override
+  String get personalRoomItemInUse => 'Already used in a room';
+
+  @override
+  String get personalRoomStickerLimit =>
+      'Another copy cannot be placed here. Put something away first.';
+
+  @override
+  String get personalRoomSaveFailed =>
+      'The arrangement could not be saved. Try again.';
+
+  @override
+  String get personalRoomFutureLayout =>
+      'This arrangement comes from a newer app version and remains read-only.';
+
+  @override
+  String get personalRoomSelectItemHint => 'Select to arrange';
+
+  @override
+  String get personalRoomStickerFallback => 'Sticker';
+
+  @override
+  String get personalRoomStampFallback => 'Dancheong stamp';
+
+  @override
+  String get decorNameMunbangsau => 'Scholar\'s writing set (문방사우)';
+
+  @override
+  String get decorNameSeoan => 'Writing desk (서안)';
+
+  @override
+  String get decorNameChaekgado => 'Bookshelf screen (책가도)';
+
+  @override
+  String get decorNameGatBuchae => 'Hat and fan (갓·부채)';
+
+  @override
+  String get decorNameJagaeMungap => 'Mother-of-pearl chest (자개 문갑)';
+
+  @override
+  String get decorNameSoban => 'Tray table (소반)';
+
+  @override
+  String get decorNameSagunjaMaehwa => 'Plum blossom scroll (매화)';
+
+  @override
+  String get decorNameSagunjaNan => 'Orchid scroll (난초)';
+
+  @override
+  String get decorNameSagunjaGuk => 'Chrysanthemum scroll (국화)';
+
+  @override
+  String get decorNameSagunjaJuk => 'Bamboo scroll (대나무)';
+
+  @override
+  String get decorNamePyeonaek => 'Name plaque (편액)';
+
+  @override
+  String get decorNameJangdokdae => 'Jangdokdae (jar terrace)';
+
+  @override
+  String get decorNameMaehwa => 'Plum tree (매화)';
+
+  @override
+  String get decorNameSonamu => 'Old pine (노송)';
+
+  @override
+  String get decorNamePond => 'Pond & carp (연못)';
+
+  @override
+  String get decorNameSeokdeung => 'Stone lantern (장명등)';
+
+  @override
+  String get decorNamePunggyeong => 'Wind chime (풍경)';
+
+  @override
+  String get decorNameDoldam => 'Stone wall (돌담)';
+
+  @override
+  String get decorNameKkachiNest => 'Magpie nest (까치 둥지)';
+
+  @override
+  String get decorNameDokkaebiFire => 'Goblin fire (도깨비불)';
+
+  @override
+  String get decorNameSeollalFlag => 'Lunar New Year Yutnori (윷놀이)';
+
+  @override
+  String get decorNameChuseokMoon => 'Chuseok full moon (보름달)';
+
+  @override
+  String get decorNameHangeuldayPlaque => 'Hangul Day Sejong plaque (세종 편액)';
+
+  @override
+  String get decorNameKite => 'Children\'s Day kite (연)';
+
+  @override
+  String get decorNameFallback => 'Decoration';
+
+  @override
+  String get stickerNameTigerCheer => 'Cheering tiger';
+
+  @override
+  String get stickerNameTigerClap => 'Clapping tiger';
+
+  @override
+  String get stickerNameTigerSurprised => 'Surprised tiger';
+
+  @override
+  String get stickerNameTigerSad => 'Sad tiger';
+
+  @override
+  String get stickerNameTigerLove => 'Loving tiger';
+
+  @override
+  String get stickerNameMagpieDance => 'Dancing magpie';
+
+  @override
+  String get stickerNameMagpieWave => 'Waving magpie';
+
+  @override
+  String get stickerNameMagpieSleep => 'Sleeping magpie';
+
+  @override
+  String get stickerNameMagpieSing => 'Singing magpie';
+
+  @override
+  String get stickerNameMagpieEncourage => 'Encouraging magpie';
+
+  @override
+  String get stickerNameDancheongFlower => 'Dancheong flower';
+
+  @override
+  String get stickerNameDancheongStar => 'Dancheong star';
+
+  @override
+  String get stickerNameDancheongCloud => 'Dancheong cloud';
+
+  @override
+  String get stickerNameDancheongLantern => 'Dancheong lantern';
+
+  @override
+  String get stickerNameDancheongHanji => 'Hanji paper';
+
+  @override
+  String get stickerNameHangulKk => 'ㅋㅋ · Laughing';
+
+  @override
+  String get stickerNameHangulHh => 'ㅎㅎ · Chuckling';
+
+  @override
+  String get stickerNameHangulFighting => '화이팅! · You can do it';
+
+  @override
+  String get stickerNameHangulBest => '최고! · The best';
+
+  @override
+  String get stickerNameHangulGood => '굿 · Good job';
+
+  @override
+  String get stickerNameFoodTteok => 'Tteok rice cakes';
+
+  @override
+  String get stickerNameFoodTea => 'Korean tea';
+
+  @override
+  String get stickerNameFoodKimbap => 'Gimbap';
+
+  @override
+  String get stickerNameFoodHotteok => 'Hotteok';
+
+  @override
+  String get stickerNameFoodSikhye => 'Sikhye rice drink';
+
+  @override
+  String get stickerNameStampWellDone => 'Stamp · Well done';
+
+  @override
+  String get stickerNameStampFighting => 'Stamp · You can do it';
+
+  @override
+  String get stickerNameStampLove => 'Stamp · With love';
+
+  @override
+  String get stickerNameStampCheer => 'Stamp · Cheers';
+
+  @override
+  String get stickerNameStampHappy => 'Stamp · Happy';
+
+  @override
+  String get stampMotifLotus => 'Lotus dancheong';
+
+  @override
+  String get stampMotifChrysanthemum => 'Chrysanthemum dancheong';
+
+  @override
+  String get stampMotifPlum => 'Plum dancheong';
+
+  @override
+  String get stampMotifBamboo => 'Bamboo dancheong';
+
+  @override
+  String get stampMotifCloud => 'Cloud dancheong';
+
+  @override
+  String get stampMotifOctagon => 'Octagon dancheong';
+
+  @override
+  String get stampMotifMountain => 'Mountain dancheong';
+
+  @override
+  String get stampMotifManja => 'Manja dancheong';
+
+  @override
+  String get stampMotifVine => 'Vine dancheong';
+
+  @override
+  String get stampMotifChilbo => 'Chilbo dancheong';
+
+  @override
+  String get stampMotifGwigap => 'Gwigap dancheong';
+
+  @override
+  String get stampMotifWave => 'Wave dancheong';
+
+  @override
+  String get stampMotifTaegeuk => 'Taegeuk dancheong';
+
+  @override
+  String get stampMotifPeony => 'Peony dancheong';
 
   @override
   String get gyeDedicationTitle => 'Shared exhibition';

@@ -127,10 +127,9 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
 
   Future<bool> _confirm(String? decorationSlug) async {
     final t = AppL10n.of(context);
-    final german = Localizations.localeOf(context).languageCode != 'en';
     final body = decorationSlug == null
         ? t.gyeDedicationWithdrawConfirmBody
-        : t.gyeDedicationConfirmBody(decorName(decorationSlug, german: german));
+        : t.gyeDedicationConfirmBody(decorName(t, decorationSlug));
     return (await showDialog<bool>(
           context: context,
           builder: (dialogContext) => AlertDialog(

@@ -756,8 +756,24 @@
   "questsOpenGiftCta": "Open the bundle",
   "homeBojagiTitle": "A gift is waiting",
   "homeBojagiBody": "{count, plural, one{One bundle is waiting. Open it and furnish your room.} other{{count} bundles are waiting. Open them and furnish your room.}}",
-  "dojangDecorHintBody": "These stamps are keepsakes for the word packs you clear. To furnish your Hanok rooms, finish quests and open the bundles you earn.",
-  "dojangDecorHintCta": "Go to Quests",
+  "dojangDecorHintBody": "Your collected Dancheong stamps are now decorating pieces too. Place them freely in your Sarangbang; they remain visible in the stamp book.",
+  "dojangDecorHintCta": "Decorate the Sarangbang",
+  "dojangStampEarned": "{stamp}, collected",
+  "@dojangStampEarned": {
+    "placeholders": {
+      "stamp": {
+        "type": "String"
+      }
+    }
+  },
+  "dojangStampLocked": "{stamp}, not collected yet",
+  "@dojangStampLocked": {
+    "placeholders": {
+      "stamp": {
+        "type": "String"
+      }
+    }
+  },
   "hanokCinematicIntro": "Your hanok is growing.",
   "hanokStageEmpty": "Preparing the plot",
   "hanokStageFoundation": "Laying foundation stones",
@@ -2179,7 +2195,7 @@
   "coachHardWordsTitle": "Stubborn words",
   "coachHardWordsBody": "Words you keep forgetting appear here, ready for focused practice.",
   "coachDojangTitle": "Collect Dancheong stamps",
-  "coachDojangBody": "Complete vocabulary packs to unlock all 8 Dancheong stamp designs",
+  "coachDojangBody": "Complete vocabulary packs to unlock all 14 Dancheong stamp designs",
   "@_coach_c4": {
     "description": "Stage C-4 social/other 5-screen coach keys (2026-06-09)"
   },
@@ -2746,6 +2762,116 @@
   "personalRoomReturnToMap": "Back to the Hanok map",
   "personalRoomAnbangStudy": "Explore my collection",
   "personalRoomDaecheongStudy": "Continue the learning path",
+  "personalRoomEditorHint": "Drag a piece anywhere in the room. Use two fingers to rotate and resize it. The toolbar also works without gestures.",
+  "personalRoomInventoryTitle": "My decorating chest",
+  "personalRoomInventoryDecorations": "Furnishings",
+  "personalRoomInventoryStickers": "Stickers",
+  "personalRoomInventoryStamps": "Stamps",
+  "personalRoomNoDecorations": "No furnishings yet. Open a Bojagi bundle to receive one.",
+  "personalRoomNoStamps": "No Dancheong stamps yet. Complete a word pack to earn one.",
+  "personalRoomSelectedItem": "Selected: {item}",
+  "@personalRoomSelectedItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "personalRoomMoveLeft": "Move left",
+  "personalRoomMoveRight": "Move right",
+  "personalRoomMoveUp": "Move up",
+  "personalRoomMoveDown": "Move down",
+  "personalRoomMakeSmaller": "Make smaller",
+  "personalRoomMakeLarger": "Make larger",
+  "personalRoomRotateLeft": "Rotate left",
+  "personalRoomRotateRight": "Rotate right",
+  "personalRoomSendBackward": "Send one layer backward",
+  "personalRoomBringForward": "Bring one layer forward",
+  "personalRoomRemoveItem": "Return to the chest",
+  "personalRoomAddItem": "Place {item} in the room",
+  "@personalRoomAddItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "personalRoomItemInUse": "Already used in a room",
+  "personalRoomStickerLimit": "Another copy cannot be placed here. Put something away first.",
+  "personalRoomSaveFailed": "The arrangement could not be saved. Try again.",
+  "personalRoomFutureLayout": "This arrangement comes from a newer app version and remains read-only.",
+  "personalRoomSelectItemHint": "Select to arrange",
+  "personalRoomStickerFallback": "Sticker",
+  "personalRoomStampFallback": "Dancheong stamp",
+  "decorNameMunbangsau": "Scholar's writing set (문방사우)",
+  "decorNameSeoan": "Writing desk (서안)",
+  "decorNameChaekgado": "Bookshelf screen (책가도)",
+  "decorNameGatBuchae": "Hat and fan (갓·부채)",
+  "decorNameJagaeMungap": "Mother-of-pearl chest (자개 문갑)",
+  "decorNameSoban": "Tray table (소반)",
+  "decorNameSagunjaMaehwa": "Plum blossom scroll (매화)",
+  "decorNameSagunjaNan": "Orchid scroll (난초)",
+  "decorNameSagunjaGuk": "Chrysanthemum scroll (국화)",
+  "decorNameSagunjaJuk": "Bamboo scroll (대나무)",
+  "decorNamePyeonaek": "Name plaque (편액)",
+  "decorNameJangdokdae": "Jangdokdae (jar terrace)",
+  "decorNameMaehwa": "Plum tree (매화)",
+  "decorNameSonamu": "Old pine (노송)",
+  "decorNamePond": "Pond & carp (연못)",
+  "decorNameSeokdeung": "Stone lantern (장명등)",
+  "decorNamePunggyeong": "Wind chime (풍경)",
+  "decorNameDoldam": "Stone wall (돌담)",
+  "decorNameKkachiNest": "Magpie nest (까치 둥지)",
+  "decorNameDokkaebiFire": "Goblin fire (도깨비불)",
+  "decorNameSeollalFlag": "Lunar New Year Yutnori (윷놀이)",
+  "decorNameChuseokMoon": "Chuseok full moon (보름달)",
+  "decorNameHangeuldayPlaque": "Hangul Day Sejong plaque (세종 편액)",
+  "decorNameKite": "Children's Day kite (연)",
+  "decorNameFallback": "Decoration",
+  "stickerNameTigerCheer": "Cheering tiger",
+  "stickerNameTigerClap": "Clapping tiger",
+  "stickerNameTigerSurprised": "Surprised tiger",
+  "stickerNameTigerSad": "Sad tiger",
+  "stickerNameTigerLove": "Loving tiger",
+  "stickerNameMagpieDance": "Dancing magpie",
+  "stickerNameMagpieWave": "Waving magpie",
+  "stickerNameMagpieSleep": "Sleeping magpie",
+  "stickerNameMagpieSing": "Singing magpie",
+  "stickerNameMagpieEncourage": "Encouraging magpie",
+  "stickerNameDancheongFlower": "Dancheong flower",
+  "stickerNameDancheongStar": "Dancheong star",
+  "stickerNameDancheongCloud": "Dancheong cloud",
+  "stickerNameDancheongLantern": "Dancheong lantern",
+  "stickerNameDancheongHanji": "Hanji paper",
+  "stickerNameHangulKk": "ㅋㅋ · Laughing",
+  "stickerNameHangulHh": "ㅎㅎ · Chuckling",
+  "stickerNameHangulFighting": "화이팅! · You can do it",
+  "stickerNameHangulBest": "최고! · The best",
+  "stickerNameHangulGood": "굿 · Good job",
+  "stickerNameFoodTteok": "Tteok rice cakes",
+  "stickerNameFoodTea": "Korean tea",
+  "stickerNameFoodKimbap": "Gimbap",
+  "stickerNameFoodHotteok": "Hotteok",
+  "stickerNameFoodSikhye": "Sikhye rice drink",
+  "stickerNameStampWellDone": "Stamp · Well done",
+  "stickerNameStampFighting": "Stamp · You can do it",
+  "stickerNameStampLove": "Stamp · With love",
+  "stickerNameStampCheer": "Stamp · Cheers",
+  "stickerNameStampHappy": "Stamp · Happy",
+  "stampMotifLotus": "Lotus dancheong",
+  "stampMotifChrysanthemum": "Chrysanthemum dancheong",
+  "stampMotifPlum": "Plum dancheong",
+  "stampMotifBamboo": "Bamboo dancheong",
+  "stampMotifCloud": "Cloud dancheong",
+  "stampMotifOctagon": "Octagon dancheong",
+  "stampMotifMountain": "Mountain dancheong",
+  "stampMotifManja": "Manja dancheong",
+  "stampMotifVine": "Vine dancheong",
+  "stampMotifChilbo": "Chilbo dancheong",
+  "stampMotifGwigap": "Gwigap dancheong",
+  "stampMotifWave": "Wave dancheong",
+  "stampMotifTaegeuk": "Taegeuk dancheong",
+  "stampMotifPeony": "Peony dancheong",
   "@_gye_dedication": {
     "description": "P4b shared Gye exhibition. This is a cosmetic display only; personal ownership remains unchanged."
   },

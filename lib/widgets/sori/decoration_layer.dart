@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/quest_catalog.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/quest.dart';
 import '../../services/storage_service.dart';
 import 'placed_decoration.dart';
@@ -27,7 +28,9 @@ class DecorationLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ids = completedQuestIds ?? Storage.questCompletions.keys;
-    if (ids.isEmpty) return const SizedBox.shrink();
+    if (ids.isEmpty) {
+      return const SizedBox.shrink();
+    }
 
     return LayoutBuilder(
       builder: (ctx, constraints) {
@@ -61,6 +64,7 @@ class _PositionedDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final w = canvasWidth * def.layout.widthFrac;
     final left = canvasWidth * def.layout.leftFrac;
     final bottom = canvasHeight * def.layout.bottomFrac;
@@ -70,7 +74,11 @@ class _PositionedDecoration extends StatelessWidget {
       bottom: bottom,
       width: w,
       child: IgnorePointer(
-        child: SoriDecorationImage(slug: def.decorationSlug, size: w),
+        child: SoriDecorationImage(
+          slug: def.decorationSlug,
+          size: w,
+          semantic: decorName(t, def.decorationSlug),
+        ),
       ),
     );
   }

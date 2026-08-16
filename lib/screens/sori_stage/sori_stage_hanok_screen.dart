@@ -169,6 +169,7 @@ class _ShortcutTiles extends StatelessWidget {
               slug: 'decoration_maehwa',
               earned: true,
               size: 40,
+              semantic: '',
             ),
             onTap: () => onOpen('/quests'),
           ),

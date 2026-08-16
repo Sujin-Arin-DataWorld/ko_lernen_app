@@ -7,6 +7,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/personal_room.dart';
 import 'tokens.dart';
 
@@ -80,60 +81,34 @@ const Map<String, double> kDecorScale = {
 /// [slug] 의 상대 크기 — 미등록은 1.0.
 double decorScale(String slug) => kDecorScale[slug] ?? 1.0;
 
-/// 장식의 표시 이름. `kQuestCatalog` 의 `name: (de:, en:)` 과 같은 방식이다 —
-/// 콘텐츠 문구는 ARB 가 아니라 인라인 레코드로 두는 것이 이 레포의 관례고,
-/// 그래야 장식을 추가할 때 `flutter gen-l10n` 을 돌릴 필요가 없다.
-///
-/// 한국어 원어를 괄호로 병기하는 것도 퀘스트 이름과 같은 규칙 —
-/// 학습자가 사물의 한국어 이름을 자연스럽게 접하게 한다.
-const Map<String, ({String de, String en})> kDecorName = {
-  'decoration_munbangsau': (
-    de: 'Schreibzeug (문방사우)',
-    en: "Scholar's writing set (문방사우)",
-  ),
-  'decoration_seoan': (de: 'Schreibpult (서안)', en: 'Writing desk (서안)'),
-  'decoration_chaekgado': (
-    de: 'Bücherwand-Wandschirm (책가도)',
-    en: 'Bookshelf screen (책가도)',
-  ),
-  'decoration_gat_buchae': (
-    de: 'Hut und Fächer (갓·부채)',
-    en: 'Hat and fan (갓·부채)',
-  ),
-  'decoration_jagae_mungap': (
-    de: 'Perlmutt-Truhe (자개 문갑)',
-    en: 'Mother-of-pearl chest (자개 문갑)',
-  ),
-  'decoration_soban': (de: 'Tabletttisch (소반)', en: 'Tray table (소반)'),
-  'decoration_sagunja_maehwa': (
-    de: 'Pflaumenblüten-Bild (매화)',
-    en: 'Plum blossom scroll (매화)',
-  ),
-  'decoration_sagunja_nan': (
-    de: 'Orchideen-Bild (난초)',
-    en: 'Orchid scroll (난초)',
-  ),
-  'decoration_sagunja_guk': (
-    de: 'Chrysanthemen-Bild (국화)',
-    en: 'Chrysanthemum scroll (국화)',
-  ),
-  'decoration_sagunja_juk': (
-    de: 'Bambus-Bild (대나무)',
-    en: 'Bamboo scroll (대나무)',
-  ),
-  'decoration_pyeonaek': (de: 'Namenstafel (편액)', en: 'Name plaque (편액)'),
-  'decoration_dokkaebi_fire': (de: 'Irrlicht (도깨비불)', en: 'Goblin fire (도깨비불)'),
+/// Localized, user-facing name for every shipped decoration wire identity.
+String decorName(AppL10n t, String slug) => switch (slug) {
+  'decoration_munbangsau' => t.decorNameMunbangsau,
+  'decoration_seoan' => t.decorNameSeoan,
+  'decoration_chaekgado' => t.decorNameChaekgado,
+  'decoration_gat_buchae' => t.decorNameGatBuchae,
+  'decoration_jagae_mungap' => t.decorNameJagaeMungap,
+  'decoration_soban' => t.decorNameSoban,
+  'decoration_sagunja_maehwa' => t.decorNameSagunjaMaehwa,
+  'decoration_sagunja_nan' => t.decorNameSagunjaNan,
+  'decoration_sagunja_guk' => t.decorNameSagunjaGuk,
+  'decoration_sagunja_juk' => t.decorNameSagunjaJuk,
+  'decoration_pyeonaek' => t.decorNamePyeonaek,
+  'decoration_jangdokdae' => t.decorNameJangdokdae,
+  'decoration_maehwa' => t.decorNameMaehwa,
+  'decoration_sonamu' => t.decorNameSonamu,
+  'decoration_pond' => t.decorNamePond,
+  'decoration_seokdeung' => t.decorNameSeokdeung,
+  'decoration_punggyeong' => t.decorNamePunggyeong,
+  'decoration_doldam' => t.decorNameDoldam,
+  'decoration_kkachi_nest' => t.decorNameKkachiNest,
+  'decoration_dokkaebi_fire' => t.decorNameDokkaebiFire,
+  'decoration_seollal_flag' => t.decorNameSeollalFlag,
+  'decoration_chuseok_moon' => t.decorNameChuseokMoon,
+  'decoration_hangeulday_plaque' => t.decorNameHangeuldayPlaque,
+  'decoration_kite' => t.decorNameKite,
+  _ => t.decorNameFallback,
 };
-
-/// [slug] 의 표시 이름. 미등록이면 슬러그에서 만든 대체 이름.
-String decorName(String slug, {required bool german}) {
-  final n = kDecorName[slug];
-  if (n != null) return german ? n.de : n.en;
-  final base = slug.startsWith('decoration_')
-      ? slug.substring('decoration_'.length)
-      : slug;
-  return base.replaceAll('_', ' ');
-}
 
 /// 슬롯 안에서 아이템이 어디에 붙는가.
 enum DecorAnchor {
@@ -367,25 +342,46 @@ List<SlotDef> slotsForPersonalRoom(PersonalRoomSurface surface) =>
 class SoriDecorationImage extends StatelessWidget {
   final String slug;
   final double size;
+  final String? semantic;
 
   const SoriDecorationImage({
     super.key,
     required this.slug,
     required this.size,
+    this.semantic,
   });
 
   @override
   Widget build(BuildContext context) {
+    final cacheWidth = (size * MediaQuery.devicePixelRatioOf(context))
+        .ceil()
+        .clamp(1, 1254);
     // 자산이 없는 슬러그는 로드 시도 없이 placeholder (웹 404 방지).
-    if (!kAvailableDecorations.contains(slug)) {
-      return DecorationFallback(slug: slug, size: size);
+    final visual = kAvailableDecorations.contains(slug)
+        ? Image.asset(
+            'assets/illustrations/decorations/$slug.png',
+            width: size,
+            fit: BoxFit.contain,
+            cacheWidth: cacheWidth,
+            filterQuality: FilterQuality.medium,
+            gaplessPlayback: true,
+            excludeFromSemantics: true,
+            errorBuilder: (_, __, ___) =>
+                DecorationFallback(slug: slug, size: size),
+          )
+        : DecorationFallback(slug: slug, size: size);
+    final label = semantic;
+    if (label == null) {
+      return visual;
     }
-    return Image.asset(
-      'assets/illustrations/decorations/$slug.png',
-      width: size,
-      fit: BoxFit.contain,
-      gaplessPlayback: true,
-      errorBuilder: (_, __, ___) => DecorationFallback(slug: slug, size: size),
+    if (label.isEmpty) {
+      return ExcludeSemantics(child: visual);
+    }
+    return Semantics(
+      image: true,
+      label: label,
+      excludeSemantics: true,
+      child: visual,
     );
   }
 }

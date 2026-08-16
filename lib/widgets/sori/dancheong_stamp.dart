@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
+
 // NOTE: tokens.dart absichtlich nicht importiert — die Stempel-Farben sind
 // als const Color() hier inline gehalten, damit der Stempel ohne Theme-Lookup
 // in jedem Kontext (CustomPainter, Hero-Animation, off-screen render) ohne
@@ -49,6 +51,23 @@ enum DancheongMotif {
   taegeuk, // 사고·추상 (b2 thinking)
   peony, // 돈 (a2 money)
 }
+
+String dancheongMotifName(AppL10n t, DancheongMotif motif) => switch (motif) {
+  DancheongMotif.lotus => t.stampMotifLotus,
+  DancheongMotif.chrysanthemum => t.stampMotifChrysanthemum,
+  DancheongMotif.plum => t.stampMotifPlum,
+  DancheongMotif.bamboo => t.stampMotifBamboo,
+  DancheongMotif.cloud => t.stampMotifCloud,
+  DancheongMotif.octagon => t.stampMotifOctagon,
+  DancheongMotif.mountain => t.stampMotifMountain,
+  DancheongMotif.manja => t.stampMotifManja,
+  DancheongMotif.vine => t.stampMotifVine,
+  DancheongMotif.chilbo => t.stampMotifChilbo,
+  DancheongMotif.gwigap => t.stampMotifGwigap,
+  DancheongMotif.wave => t.stampMotifWave,
+  DancheongMotif.taegeuk => t.stampMotifTaegeuk,
+  DancheongMotif.peony => t.stampMotifPeony,
+};
 
 /// Pack-ID → Motif Mapping. Konsistent über alle Phasen.
 DancheongMotif motifForPackId(String packId) {
@@ -184,6 +203,7 @@ class _DancheongStampState extends State<DancheongStamp>
   late final AnimationController _ctrl;
   late final Animation<double> _scale;
   late final Animation<double> _opacity;
+  bool _motionConfigured = false;
 
   @override
   void initState() {
@@ -211,10 +231,22 @@ class _DancheongStampState extends State<DancheongStamp>
     ]).animate(_ctrl);
     _opacity = CurvedAnimation(parent: _ctrl, curve: const Interval(0, 0.5));
 
-    if (widget.animate) {
-      _ctrl.forward();
-    } else {
+    if (!widget.animate) {
       _ctrl.value = 1.0;
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_motionConfigured || !widget.animate) {
+      return;
+    }
+    _motionConfigured = true;
+    if (MediaQuery.maybeOf(context)?.disableAnimations ?? false) {
+      _ctrl.value = 1.0;
+    } else {
+      _ctrl.forward();
     }
   }
 
@@ -263,7 +295,9 @@ class _DancheongStampState extends State<DancheongStamp>
       stamp = Opacity(opacity: 0.92, child: stamp);
     }
 
-    if (!widget.animate) return stamp;
+    if (!widget.animate) {
+      return stamp;
+    }
     return AnimatedBuilder(
       animation: _ctrl,
       child: stamp,

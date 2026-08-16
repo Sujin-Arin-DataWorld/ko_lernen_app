@@ -14,7 +14,7 @@ import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
-/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (8 motif).
+/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (14 motif).
 ///
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
@@ -100,8 +100,8 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                         ),
                       ),
                       const SizedBox(height: Spacing.lg),
-                      // 스탬프는 트로피 — 꾸미기는 퀘스트 보상(보자기)에서 온다.
-                      // 이 구분을 몰라 "스탬프로 한옥을 못 꾸민다"는 혼란을 없앤다.
+                      // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
+                      // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
                       SoriCard(
                         variant: SoriCardVariant.base,
                         accent: SoriColors.info,
@@ -120,8 +120,9 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                             SoriButton.outlined(
                               label: t.dojangDecorHintCta,
                               fullWidth: true,
-                              onTap: () =>
-                                  Navigator.of(context).pushNamed('/quests'),
+                              onTap: () => Navigator.of(
+                                context,
+                              ).pushNamed('/sarangbang/furnish'),
                             ),
                           ],
                         ),
@@ -165,22 +166,29 @@ class _StampCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (earned) {
-      return Center(
-        child: DancheongStamp(motif: motif, size: 96, stamped: true),
-      );
-    }
-    return Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Opacity(opacity: 0.20, child: DancheongStamp(motif: motif, size: 96)),
-          Icon(
-            Icons.lock_outline_rounded,
-            size: 26,
-            color: SoriSurfaces.of(context).textDim,
-          ),
-        ],
+    final t = AppL10n.of(context);
+    final name = dancheongMotifName(t, motif);
+    return Semantics(
+      image: true,
+      label: earned ? t.dojangStampEarned(name) : t.dojangStampLocked(name),
+      excludeSemantics: true,
+      child: Center(
+        child: earned
+            ? DancheongStamp(motif: motif, size: 96, stamped: true)
+            : Stack(
+                alignment: Alignment.center,
+                children: [
+                  Opacity(
+                    opacity: 0.20,
+                    child: DancheongStamp(motif: motif, size: 96),
+                  ),
+                  Icon(
+                    Icons.lock_outline_rounded,
+                    size: 26,
+                    color: SoriSurfaces.of(context).textDim,
+                  ),
+                ],
+              ),
       ),
     );
   }

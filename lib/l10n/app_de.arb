@@ -763,8 +763,24 @@
       }
     }
   },
-  "dojangDecorHintBody": "Diese Stempel sind Andenken an geschaffte Wortpakete. Um deine Hanok-Stuben einzurichten, schließe Quests ab und öffne die Bündel, die du dabei bekommst.",
-  "dojangDecorHintCta": "Zu den Quests",
+  "dojangDecorHintBody": "Deine gesammelten Dancheong-Stempel sind jetzt auch Gestaltungselemente. Platziere sie frei in deiner Sarangbang; im Stempelbuch bleiben sie weiterhin sichtbar.",
+  "dojangDecorHintCta": "Sarangbang gestalten",
+  "dojangStampEarned": "{stamp}, gesammelt",
+  "@dojangStampEarned": {
+    "placeholders": {
+      "stamp": {
+        "type": "String"
+      }
+    }
+  },
+  "dojangStampLocked": "{stamp}, noch nicht gesammelt",
+  "@dojangStampLocked": {
+    "placeholders": {
+      "stamp": {
+        "type": "String"
+      }
+    }
+  },
   "hanokCinematicIntro": "Dein Hanok wächst.",
   "hanokStageEmpty": "Bauplatz vorbereiten",
   "hanokStageFoundation": "Sockel legen",
@@ -2247,7 +2263,7 @@
   "coachHardWordsTitle": "Hartnäckige Wörter",
   "coachHardWordsBody": "Hier findest du Wörter, die dir noch schwerfallen. Du kannst sie gezielt wiederholen.",
   "coachDojangTitle": "Dancheong-Stempel sammeln",
-  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten",
+  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten",
   "@_coach_c4": {
     "description": "Stage C-4 사회/기타 5화면 코치마크 키 (2026-06-09)"
   },
@@ -2831,6 +2847,116 @@
   "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
   "personalRoomAnbangStudy": "Meine Sammlung entdecken",
   "personalRoomDaecheongStudy": "Lernweg fortsetzen",
+  "personalRoomEditorHint": "Ziehe ein Stück frei durch den Raum. Mit zwei Fingern kannst du es drehen und vergrößern. Die Werkzeugleiste funktioniert auch ohne Gesten.",
+  "personalRoomInventoryTitle": "Meine Gestaltungskiste",
+  "personalRoomInventoryDecorations": "Einrichtung",
+  "personalRoomInventoryStickers": "Sticker",
+  "personalRoomInventoryStamps": "Stempel",
+  "personalRoomNoDecorations": "Noch keine Einrichtung. Öffne ein Bojagi-Bündel, um ein Stück zu erhalten.",
+  "personalRoomNoStamps": "Noch keine Dancheong-Stempel. Schließe ein Wortpaket ab, um einen zu erhalten.",
+  "personalRoomSelectedItem": "Ausgewählt: {item}",
+  "@personalRoomSelectedItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "personalRoomMoveLeft": "Nach links",
+  "personalRoomMoveRight": "Nach rechts",
+  "personalRoomMoveUp": "Nach oben",
+  "personalRoomMoveDown": "Nach unten",
+  "personalRoomMakeSmaller": "Verkleinern",
+  "personalRoomMakeLarger": "Vergrößern",
+  "personalRoomRotateLeft": "Nach links drehen",
+  "personalRoomRotateRight": "Nach rechts drehen",
+  "personalRoomSendBackward": "Eine Ebene nach hinten",
+  "personalRoomBringForward": "Eine Ebene nach vorn",
+  "personalRoomRemoveItem": "In die Kiste zurücklegen",
+  "personalRoomAddItem": "{item} in den Raum stellen",
+  "@personalRoomAddItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "personalRoomItemInUse": "Bereits in einem Zimmer",
+  "personalRoomStickerLimit": "Hier kann kein weiteres Exemplar platziert werden. Lege zuerst etwas zurück.",
+  "personalRoomSaveFailed": "Die Anordnung konnte nicht gespeichert werden. Versuch es noch einmal.",
+  "personalRoomFutureLayout": "Diese Anordnung stammt aus einer neueren App-Version und bleibt schreibgeschützt.",
+  "personalRoomSelectItemHint": "Zum Anordnen auswählen",
+  "personalRoomStickerFallback": "Sticker",
+  "personalRoomStampFallback": "Dancheong-Stempel",
+  "decorNameMunbangsau": "Schreibzeug (문방사우)",
+  "decorNameSeoan": "Schreibpult (서안)",
+  "decorNameChaekgado": "Bücherwand-Wandschirm (책가도)",
+  "decorNameGatBuchae": "Hut und Fächer (갓·부채)",
+  "decorNameJagaeMungap": "Perlmutt-Truhe (자개 문갑)",
+  "decorNameSoban": "Tabletttisch (소반)",
+  "decorNameSagunjaMaehwa": "Pflaumenblüten-Bild (매화)",
+  "decorNameSagunjaNan": "Orchideen-Bild (난초)",
+  "decorNameSagunjaGuk": "Chrysanthemen-Bild (국화)",
+  "decorNameSagunjaJuk": "Bambus-Bild (대나무)",
+  "decorNamePyeonaek": "Namenstafel (편액)",
+  "decorNameJangdokdae": "Jangdokdae (Krugterrasse)",
+  "decorNameMaehwa": "Pflaumenbaum (매화)",
+  "decorNameSonamu": "Alte Kiefer (노송)",
+  "decorNamePond": "Teich & Karpfen (연못)",
+  "decorNameSeokdeung": "Steinlaterne (장명등)",
+  "decorNamePunggyeong": "Windspiel (풍경)",
+  "decorNameDoldam": "Steinmauer (돌담)",
+  "decorNameKkachiNest": "Elsternnest (까치 둥지)",
+  "decorNameDokkaebiFire": "Irrlicht (도깨비불)",
+  "decorNameSeollalFlag": "Seollal-Yutspiel (윷놀이)",
+  "decorNameChuseokMoon": "Chuseok-Vollmond (보름달)",
+  "decorNameHangeuldayPlaque": "Hangul-Tag Sejong-Tafel (세종 편액)",
+  "decorNameKite": "Kinder-Tag Drachen (연)",
+  "decorNameFallback": "Dekoration",
+  "stickerNameTigerCheer": "Jubelnder Tiger",
+  "stickerNameTigerClap": "Klatschender Tiger",
+  "stickerNameTigerSurprised": "Überraschter Tiger",
+  "stickerNameTigerSad": "Trauriger Tiger",
+  "stickerNameTigerLove": "Verliebter Tiger",
+  "stickerNameMagpieDance": "Tanzende Elster",
+  "stickerNameMagpieWave": "Winkende Elster",
+  "stickerNameMagpieSleep": "Schlafende Elster",
+  "stickerNameMagpieSing": "Singende Elster",
+  "stickerNameMagpieEncourage": "Aufmunternde Elster",
+  "stickerNameDancheongFlower": "Dancheong-Blüte",
+  "stickerNameDancheongStar": "Dancheong-Stern",
+  "stickerNameDancheongCloud": "Dancheong-Wolke",
+  "stickerNameDancheongLantern": "Dancheong-Laterne",
+  "stickerNameDancheongHanji": "Hanji-Papier",
+  "stickerNameHangulKk": "ㅋㅋ · Lautes Lachen",
+  "stickerNameHangulHh": "ㅎㅎ · Leises Kichern",
+  "stickerNameHangulFighting": "화이팅! · Du schaffst das",
+  "stickerNameHangulBest": "최고! · Einfach spitze",
+  "stickerNameHangulGood": "굿 · Gut gemacht",
+  "stickerNameFoodTteok": "Tteok-Reiskuchen",
+  "stickerNameFoodTea": "Koreanischer Tee",
+  "stickerNameFoodKimbap": "Gimbap",
+  "stickerNameFoodHotteok": "Hotteok",
+  "stickerNameFoodSikhye": "Sikhye-Reisgetränk",
+  "stickerNameStampWellDone": "Stempel · Sehr gut gemacht",
+  "stickerNameStampFighting": "Stempel · Du schaffst das",
+  "stickerNameStampLove": "Stempel · Mit Liebe",
+  "stickerNameStampCheer": "Stempel · Applaus",
+  "stickerNameStampHappy": "Stempel · Glücklich",
+  "stampMotifLotus": "Lotus-Dancheong",
+  "stampMotifChrysanthemum": "Chrysanthemen-Dancheong",
+  "stampMotifPlum": "Pflaumenblüten-Dancheong",
+  "stampMotifBamboo": "Bambus-Dancheong",
+  "stampMotifCloud": "Wolken-Dancheong",
+  "stampMotifOctagon": "Achteck-Dancheong",
+  "stampMotifMountain": "Berg-Dancheong",
+  "stampMotifManja": "Manja-Dancheong",
+  "stampMotifVine": "Ranken-Dancheong",
+  "stampMotifChilbo": "Chilbo-Dancheong",
+  "stampMotifGwigap": "Gwigap-Dancheong",
+  "stampMotifWave": "Wellen-Dancheong",
+  "stampMotifTaegeuk": "Taegeuk-Dancheong",
+  "stampMotifPeony": "Pfingstrosen-Dancheong",
   "@_gye_dedication": {
     "description": "P4b gemeinsame Gye-Ausstellung. Nur eine kosmetische Anzeige; privates Eigentum bleibt unverändert."
   },

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'placed_decoration.dart' show kAvailableDecorations;
+import '../../l10n/generated/app_localizations.dart';
+import 'placed_decoration.dart'
+    show SoriDecorationImage, decorName, kAvailableDecorations;
 import 'tokens.dart';
 
 /// **SoriRewardThumb** — 퀘스트/보상이 언락하는 마당 장식의 썸네일
@@ -14,15 +16,19 @@ class SoriRewardThumb extends StatelessWidget {
     required this.slug,
     required this.earned,
     this.size = 34,
+    this.semantic,
   });
 
   final String slug;
   final bool earned;
   final double size;
+  final String? semantic;
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final label = semantic ?? decorName(t, slug);
     final giftIcon = Icon(
       Icons.card_giftcard_rounded,
       size: size * (22 / 34),
@@ -34,12 +40,15 @@ class SoriRewardThumb extends StatelessWidget {
         width: size,
         height: size,
         child: kAvailableDecorations.contains(slug)
-            ? Image.asset(
-                'assets/illustrations/decorations/$slug.png',
-                fit: BoxFit.contain,
-                errorBuilder: (_, _, _) => giftIcon,
-              )
-            : giftIcon,
+            ? SoriDecorationImage(slug: slug, size: size, semantic: label)
+            : label.isEmpty
+            ? ExcludeSemantics(child: giftIcon)
+            : Semantics(
+                image: true,
+                label: label,
+                excludeSemantics: true,
+                child: giftIcon,
+              ),
       ),
     );
   }
