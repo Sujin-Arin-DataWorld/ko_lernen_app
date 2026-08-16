@@ -12,7 +12,8 @@ existing record in place, but create a later batch for any additional record.
 
 Batch 01 and Batch 02 each total 96 records. A later batch declares its own
 complete count in its manifest; it may cover one level only when that is the
-review scope. The next new batch number is **06**.
+review scope. Batch 06 is the current review-only pilot, so the next new batch
+number is **07**.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -32,7 +33,7 @@ small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
 | 03 | none | decisions and perspectives; reading responses; language in society | B2 #23-25; reserves Batch 01/02 |
 | 04 | eight real-life scenarios | eight real-life scenarios | scenario-only; curriculum assess links + existing backdrops |
 | 05 | none | B2/C1/C2 depth expansion | live multi-asset batch |
-| 06 | one cross-game regression scenario | one B2 scenario plus first C1/C2 scenarios | review-only scenario pilot |
+| 06 | scenario 1 + smalltalk 2 + cloze 4 + satz 6 + pronunciation 4 | same B2 scope plus first C1/C2 bundles | review-only cross-game pilot; 68 records + 20 embedded quests |
 
 Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
@@ -49,11 +50,17 @@ already live; review-only Batch 06 keeps its mappings in the manifest
 until the single approved multi-file transaction promotes them.
 
 Batch 01's draft-only validator is preserved as historical regression coverage.
-Validate a new non-scenario Batch 06+ with the generic manifest-driven overlay.
+Batch 06 is a scenario-centred cross-game bundle, so validate its reference graph, deterministic
+review projection, and disposable full-content overlay together.
 
 ```bash
-python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_XX_manifest.json
+python3 tools/content_factory/validate_reference_intake.py
+python3 tools/content_factory/sync_review_ledgers.py
+python3 tools/content_factory/audit_game_loader_coverage.py
+python3 tools/content_factory/audit_game_loader_coverage.py \
+  --manifest tools/content_factory/drafts/batch_06_manifest.json
+python3 tools/content_factory/integrate_scenario_batch.py \
+  --manifest tools/content_factory/drafts/batch_06_manifest.json
 ```
 
 ## Review and merge boundary

@@ -1,5 +1,16 @@
 # 참고 자료 재검토 및 게임 콘텐츠 공백 감사
 
+> **2026-08-16 실행 상태:** 이 감사의 첫 파이프라인 표본은 Batch 06 review-only
+> cross-game bundle로 구현됐다. B1/B2/C1/C2 각각 scenario 1·embedded quest 5·
+> Smalltalk 2·Cloze 4·Satzbau 6·pronunciation 4이며, 합계 standalone 68개와 quest
+> 20개다. 아직 live asset으로 승격하지 않았고 이후 목표량은 추가 PDF inventory와
+> 실제 loader 노출량을 다시 계산한 뒤 확정한다.
+>
+> **재계산 완료:** 추가 20개를 포함한 전체 37개 PDF와 Batch 06 preview의 loader별
+> 수량은 `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`가 최신 정본이다.
+> 아래의 “레벨마다 같은 씨앗 8개” 계산은 최초 가설의 이력이며 다음 배치 작업량으로
+> 사용하지 않는다.
+
 - 작성일: 2026-08-16
 - 작업 브랜치: `agent/reference-gap-audit-20260816`
 - 참고 자료: 사용자 제공 PDF 17개, 총 1,817쪽
@@ -102,7 +113,9 @@ Library 페이지 판독과 로컬 PDF 렌더를 함께 대조했다. 대표 구
 
 `SatzArcadeScreen`은 일반 게임 진입에서는 전체 데이터에서 레벨을 고르지만, 코스 단원에서 들어오면 `CurriculumCatalog.linksForCourseUnit()` 결과만 남긴다. 위 8개 단원에서는 이 결과가 비어서 빈 화면이 나온다.
 
-추가로 `satz_sentences.json`의 `meta.total`은 아직 191, `perLevel`도 A1부터 B2까지만 기록되어 있다. 실제 배열은 419개이고 C1과 C2도 있으므로 메타데이터가 오래된 상태다. 로더는 현재 배열을 직접 읽기 때문에 게임 전체를 비우는 원인은 아니지만, 감사 도구와 운영 판단을 틀리게 만들 수 있어 수정이 필요하다.
+추가로 `satz_sentences.json`의 `meta.total`이 191이고 `perLevel`도 A1부터 B2까지만
+기록된 오래된 상태를 발견했다. 이 브랜치에서 실제 배열 419개와 A1–C2 분포로 수정했고,
+`validate_content.py`가 이후 Cloze/Satzbau `meta.total`과 `perLevel`을 실제 배열에 대조한다.
 
 ## 시나리오와 듣기 공백
 
@@ -201,6 +214,9 @@ Library 페이지 판독과 로컬 PDF 렌더를 함께 대조했다. 대표 구
 
 ### 게임별 1차 충원 기준
 
+> 이 표는 loader 재계산 전의 최초 목표다. 실제 실행 수량은
+> `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md` §6을 사용한다.
+
 | 기능 | B1 현재 | B2 현재 | C1 현재 | C2 현재 | 1차 기준 |
 | --- | ---: | ---: | ---: | ---: | --- |
 | 시나리오 | 16 | 12 | 0 | 0 | 레벨마다 새 씨앗 8개를 추가하고 C1, C2는 2차에 각각 8개를 더 추가 |
@@ -216,6 +232,9 @@ Library 페이지 판독과 로컬 PDF 렌더를 함께 대조했다. 대표 구
 문장 만들기는 B1-C2 전체가 비어 있는 것이 아니다. 문제는 `b1_06_life_capstone`처럼 코스 단위 연결이 0인 경우와 C1, C2의 단원 수가 각각 2개뿐이라 주제가 과도하게 뭉친 데 있다. 먼저 무연결 단원을 고치고, C1과 C2 코스를 각각 최소 8개 주제 단원으로 분리한 다음 새 문장을 정확한 단원에 연결해야 한다.
 
 ### 첫 생산 배치의 산출량
+
+> 아래 32-seed 대칭 묶음은 더 이상 실행안이 아니다. Batch 06 preview 뒤에는
+> course round, category matrix, exact/cumulative loader별 부족분만 만드는 방식으로 바뀌었다.
 
 B1, B2, C1, C2에 새 상황 씨앗을 각각 8개씩 만들면 1차 배치에서 다음이 생긴다.
 

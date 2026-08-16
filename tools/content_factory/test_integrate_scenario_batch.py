@@ -12,8 +12,10 @@ import unittest
 from integrate_scenario_batch import (
     REVIEW_HEADER,
     ScenarioIntegrationError,
+    _refresh_meta,
     _update_backdrop_map,
     _validate_batch,
+    _validate_bundle,
 )
 
 
@@ -127,6 +129,75 @@ class ScenarioBatchValidationTest(unittest.TestCase):
         updated = _update_backdrop_map(source, {"c2_appeal_example": "office"}, "06")
         self.assertIn("Reviewed scenario Batch 06", updated)
         self.assertIn("'c2_appeal_example': 'office'", updated)
+
+    def test_companion_game_artifact_is_validated_and_counted(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest_path = root / self.make_batch(root)
+            draft_path = root / "tools" / "content_factory" / "drafts" / "pronunciation.json"
+            review_path = root / "tools" / "content_factory" / "review" / "pronunciation.csv"
+            record = {
+                "id": "pronunciation_c1_9999",
+                "level": "c1",
+                "ko": "근거를 다시 검토하겠습니다.",
+                "de": "Ich werde die Evidenz erneut prüfen.",
+                "en": "I will review the evidence again.",
+                "focus": "문장 끝 억양",
+            }
+            draft_path.write_text(
+                json.dumps({"version": 1, "phrases": [record]}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with review_path.open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=REVIEW_HEADER)
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "id": record["id"],
+                        "level": "C1",
+                        "ko": record["ko"],
+                        "de": record["de"],
+                        "en": record["en"],
+                        "field_notes": "rights: original",
+                        "상태": "draft",
+                        "jin_memo": "",
+                    }
+                )
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["artifacts"].append(
+                {
+                    "kind": "pronunciation",
+                    "draft": "tools/content_factory/drafts/pronunciation.json",
+                    "review": "tools/content_factory/review/pronunciation.csv",
+                    "collection": "phrases",
+                    "count": 1,
+                    "levels": {"c1": 1},
+                }
+            )
+            manifest["recordCount"] = 3
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            _, _, records, _ = _validate_bundle(
+                root,
+                manifest_path.relative_to(root),
+                require_approved=False,
+            )
+            self.assertEqual(set(records), {"scenario", "pronunciation"})
+
+    def test_meta_refresh_uses_all_six_levels(self) -> None:
+        root = {
+            "meta": {"total": 1, "perLevel": {"a1": 1}},
+            "items": [
+                {"level": "a1"},
+                {"level": "c1"},
+                {"level": "c2"},
+            ],
+        }
+        _refresh_meta(root, "items")
+        self.assertEqual(root["meta"]["total"], 3)
+        self.assertEqual(
+            root["meta"]["perLevel"],
+            {"a1": 1, "a2": 0, "b1": 0, "b2": 0, "c1": 1, "c2": 1},
+        )
 
 
 if __name__ == "__main__":

@@ -29,6 +29,13 @@ REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_
 APPROVED = frozenset(("approved", "ok"))
 MANIFEST_STATUSES = frozenset(("review_only", "approved", "merged"))
 SCENE_KEYS = frozenset(("airport", "cafe", "convenience", "directions", "home", "hotel", "market", "office", "pharmacy", "restaurant", "station", "taxi"))
+ARTIFACTS = {
+    "scenario": ("scenarios.json", "scenarios", (("title", "ko"), ("title", "de"), ("title", "en"))),
+    "smalltalk": ("smalltalk.json", "phrases", (("ko",), ("de",), ("en",))),
+    "cloze": ("cloze.json", "items", (("fullKo",), ("de",), ("en",))),
+    "satz": ("satz_sentences.json", "items", (("targetKo",), ("promptDe",), ("promptEn",))),
+    "pronunciation": ("pronunciation_phrases.json", "phrases", (("ko",), ("de",), ("en",))),
+}
 
 
 class ScenarioIntegrationError(ValueError):
@@ -79,12 +86,28 @@ def _review_status_is_known(raw: str) -> bool:
     return status in APPROVED | {"draft", "no", "rejected"} or status.startswith("fix:")
 
 
-def _validate_batch(
+def _project(record: dict[str, Any], path: tuple[str, ...], label: str) -> str:
+    value: Any = record
+    for key in path:
+        if not isinstance(value, dict):
+            raise ScenarioIntegrationError(f"{label}: cannot project {'.'.join(path)}")
+        value = value.get(key)
+    if not isinstance(value, str) or not value.strip():
+        raise ScenarioIntegrationError(f"{label}: {'.'.join(path)} must be a nonempty string")
+    return value.strip()
+
+
+def _validate_bundle(
     root: Path,
     relative_manifest: Path,
     *,
     require_approved: bool,
-) -> tuple[Path, dict[str, Any], list[dict[str, Any]], dict[str, str]]:
+) -> tuple[
+    Path,
+    dict[str, Any],
+    dict[str, list[dict[str, Any]]],
+    dict[str, str],
+]:
     manifest_path = _under_root(root, str(relative_manifest))
     manifest = _read_json(manifest_path)
     batch = manifest.get("batch")
@@ -96,81 +119,103 @@ def _validate_batch(
     if require_approved and manifest_status not in {"approved", "merged"}:
         raise ScenarioIntegrationError(f"{manifest_path}: status must be approved before promotion")
     artifacts = manifest.get("artifacts")
-    if not isinstance(artifacts, list) or len(artifacts) != 1 or not isinstance(artifacts[0], dict):
-        raise ScenarioIntegrationError(f"{manifest_path}: needs exactly one scenario artifact")
-    artifact = artifacts[0]
-    if artifact.get("kind") != "scenario":
-        raise ScenarioIntegrationError(f"{manifest_path}: artifact kind must be scenario")
-    draft_path = _under_root(root, artifact.get("draft"))
-    review_path = _under_root(root, artifact.get("review"))
-    draft = _read_json(draft_path)
-    records = draft.get("scenarios")
-    if not isinstance(records, list) or not records or any(not isinstance(item, dict) for item in records):
-        raise ScenarioIntegrationError(f"{draft_path}: scenarios must be a nonempty array of objects")
-    if artifact.get("count") != len(records) or manifest.get("recordCount") != len(records):
-        raise ScenarioIntegrationError(f"{manifest_path}: scenario record count disagrees with its draft")
-    levels: dict[str, int] = {}
-    ids: list[str] = []
-    for record in records:
-        ident = record.get("id")
-        level = record.get("level")
-        if not isinstance(ident, str) or not ident or not isinstance(level, str) or level not in LOWER_LEVELS:
-            raise ScenarioIntegrationError(f"{draft_path}: every record needs an id and A1-C2 lowercase level")
-        ids.append(ident)
-        levels[level] = levels.get(level, 0) + 1
-    if len(ids) != len(set(ids)):
-        raise ScenarioIntegrationError(f"{draft_path}: duplicate scenario ID")
-    if artifact.get("levels") != levels:
-        raise ScenarioIntegrationError(f"{manifest_path}: scenario level counts disagree with draft")
-    if "questCount" in manifest:
-        quests = [
-            quest
-            for record in records
-            for quest in (record.get("quests") if isinstance(record.get("quests"), list) else [])
-        ]
-        if manifest.get("questCount") != len(quests):
-            raise ScenarioIntegrationError(f"{manifest_path}: quest count disagrees with draft")
-        quest_ids: list[str] = []
-        for quest in quests:
-            if not isinstance(quest, dict) or not isinstance(quest.get("id"), str) or not quest["id"].strip():
-                raise ScenarioIntegrationError(f"{draft_path}: counted quests need stable nonempty IDs")
-            quest_ids.append(quest["id"])
-        if len(quest_ids) != len(set(quest_ids)):
-            raise ScenarioIntegrationError(f"{draft_path}: duplicate scenario quest ID")
+    if not isinstance(artifacts, list) or not artifacts or any(not isinstance(item, dict) for item in artifacts):
+        raise ScenarioIntegrationError(f"{manifest_path}: artifacts must be a nonempty array of objects")
+    entries = {str(item.get("kind") or ""): item for item in artifacts}
+    if len(entries) != len(artifacts) or "scenario" not in entries or not set(entries).issubset(ARTIFACTS):
+        raise ScenarioIntegrationError(f"{manifest_path}: needs one scenario artifact and only supported companion games")
 
-    review_rows = _read_review(review_path)
-    if len(review_rows) != len(records):
-        raise ScenarioIntegrationError(f"{review_path}: row count must match draft")
-    if [row.get("id") for row in review_rows] != ids:
-        raise ScenarioIntegrationError(f"{review_path}: IDs must exactly match draft order")
-    for record, row in zip(records, review_rows):
-        title = record.get("title")
-        if not isinstance(title, dict):
-            raise ScenarioIntegrationError(f"{draft_path}: {record['id']} title must be localized")
-        if row.get("level") != record["level"].upper():
-            raise ScenarioIntegrationError(f"{review_path}: {record['id']} level disagrees with draft")
-        for key in ("ko", "de", "en"):
-            if row.get(key) != title.get(key):
-                raise ScenarioIntegrationError(f"{review_path}: {record['id']} {key} disagrees with title projection")
-        review_status = (row.get("상태") or "").strip().casefold()
-        if not _review_status_is_known(review_status):
-            raise ScenarioIntegrationError(f"{review_path}: {record['id']} has an unknown review status")
-        approval_required = require_approved or manifest_status in {"approved", "merged"}
-        if approval_required and review_status not in APPROVED:
-            raise ScenarioIntegrationError(f"{review_path}: {record['id']} is not approved")
+    records_by_kind: dict[str, list[dict[str, Any]]] = {}
+    total = 0
+    for kind, artifact in entries.items():
+        _, collection, projections = ARTIFACTS[kind]
+        if artifact.get("collection") not in (None, collection):
+            raise ScenarioIntegrationError(f"{manifest_path}: {kind} collection disagrees with its schema")
+        draft_path = _under_root(root, artifact.get("draft"))
+        review_path = _under_root(root, artifact.get("review"))
+        draft = _read_json(draft_path)
+        records = draft.get(collection)
+        if not isinstance(records, list) or not records or any(not isinstance(item, dict) for item in records):
+            raise ScenarioIntegrationError(f"{draft_path}: {collection} must be a nonempty array of objects")
+        if artifact.get("count") != len(records):
+            raise ScenarioIntegrationError(f"{manifest_path}: {kind} record count disagrees with its draft")
+        ids: list[str] = []
+        levels: dict[str, int] = {}
+        for record in records:
+            ident = record.get("id")
+            level = record.get("level")
+            if not isinstance(ident, str) or not ident or not isinstance(level, str) or level not in LOWER_LEVELS:
+                raise ScenarioIntegrationError(f"{draft_path}: every record needs an id and A1-C2 lowercase level")
+            ids.append(ident)
+            levels[level] = levels.get(level, 0) + 1
+        if len(ids) != len(set(ids)):
+            raise ScenarioIntegrationError(f"{draft_path}: duplicate {kind} ID")
+        if artifact.get("levels") != levels:
+            raise ScenarioIntegrationError(f"{manifest_path}: {kind} level counts disagree with draft")
+        review_rows = _read_review(review_path)
+        if len(review_rows) != len(records) or [row.get("id") for row in review_rows] != ids:
+            raise ScenarioIntegrationError(f"{review_path}: IDs and order must exactly match draft")
+        for record, row in zip(records, review_rows):
+            ident = str(record["id"])
+            if row.get("level") != str(record["level"]).upper():
+                raise ScenarioIntegrationError(f"{review_path}: {ident} level disagrees with draft")
+            for review_key, projection in zip(("ko", "de", "en"), projections):
+                if row.get(review_key) != _project(record, projection, f"{draft_path}:{ident}"):
+                    raise ScenarioIntegrationError(f"{review_path}: {ident} {review_key} disagrees with draft projection")
+            review_status = (row.get("상태") or "").strip().casefold()
+            if not _review_status_is_known(review_status):
+                raise ScenarioIntegrationError(f"{review_path}: {ident} has an unknown review status")
+            approval_required = require_approved or manifest_status in {"approved", "merged"}
+            if approval_required and review_status not in APPROVED:
+                raise ScenarioIntegrationError(f"{review_path}: {ident} is not approved")
+        records_by_kind[kind] = records
+        total += len(records)
+    if manifest.get("recordCount") != total:
+        raise ScenarioIntegrationError(f"{manifest_path}: recordCount disagrees with all artifact drafts")
+
+    scenarios = records_by_kind["scenario"]
+    scenario_ids = [str(record["id"]) for record in scenarios]
+    quests = [
+        quest
+        for record in scenarios
+        for quest in (record.get("quests") if isinstance(record.get("quests"), list) else [])
+    ]
+    if manifest.get("questCount") != len(quests):
+        raise ScenarioIntegrationError(f"{manifest_path}: quest count disagrees with draft")
+    quest_ids: list[str] = []
+    for quest in quests:
+        if not isinstance(quest, dict) or not isinstance(quest.get("id"), str) or not quest["id"].strip():
+            raise ScenarioIntegrationError(f"{manifest_path}: counted quests need stable nonempty IDs")
+        quest_ids.append(quest["id"])
+    if len(quest_ids) != len(set(quest_ids)):
+        raise ScenarioIntegrationError(f"{manifest_path}: duplicate scenario quest ID")
 
     links = manifest.get("contentLinks")
-    if not isinstance(links, list) or len(links) != len(records):
+    if not isinstance(links, list) or len(links) != len(scenarios):
         raise ScenarioIntegrationError(f"{manifest_path}: needs one curriculum content link per scenario")
     link_ids = [item.get("contentId") for item in links if isinstance(item, dict)]
-    if link_ids != ids:
+    if link_ids != scenario_ids:
         raise ScenarioIntegrationError(f"{manifest_path}: curriculum links must match scenario draft order")
     backdrops = manifest.get("backdrops")
-    if not isinstance(backdrops, dict) or set(backdrops) != set(ids):
+    if not isinstance(backdrops, dict) or set(backdrops) != set(scenario_ids):
         raise ScenarioIntegrationError(f"{manifest_path}: backdrop map must cover every scenario exactly once")
     if any(value not in SCENE_KEYS for value in backdrops.values()):
         raise ScenarioIntegrationError(f"{manifest_path}: backdrop uses an unknown existing scene category")
-    return manifest_path, manifest, records, {key: str(value) for key, value in backdrops.items()}
+    return manifest_path, manifest, records_by_kind, {key: str(value) for key, value in backdrops.items()}
+
+
+def _validate_batch(
+    root: Path,
+    relative_manifest: Path,
+    *,
+    require_approved: bool,
+) -> tuple[Path, dict[str, Any], list[dict[str, Any]], dict[str, str]]:
+    manifest_path, manifest, records_by_kind, backdrops = _validate_bundle(
+        root,
+        relative_manifest,
+        require_approved=require_approved,
+    )
+    return manifest_path, manifest, records_by_kind["scenario"], backdrops
 
 
 def _update_backdrop_map(source: str, backdrops: dict[str, str], batch: str) -> str:
@@ -200,9 +245,25 @@ def _atomic_write(path: Path, text: str) -> None:
             temporary.unlink()
 
 
+def _refresh_meta(root: dict[str, Any], collection: str) -> None:
+    meta = root.get("meta")
+    items = root.get(collection)
+    if not isinstance(meta, dict) or not isinstance(items, list):
+        return
+    per_level = {level: 0 for level in LOWER_LEVELS}
+    for item in items:
+        if isinstance(item, dict) and item.get("level") in per_level:
+            per_level[str(item["level"])] += 1
+    meta["total"] = len(items)
+    meta["perLevel"] = {
+        level: per_level[level]
+        for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+    }
+
+
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
-    manifest_path, manifest, records, backdrops = _validate_batch(
+    manifest_path, manifest, records_by_kind, backdrops = _validate_bundle(
         root,
         manifest_path,
         require_approved=apply,
@@ -215,19 +276,31 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         mirror_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(mirror_source, mirror_target)
         data = stage / "assets" / "data"
-        scenarios_root = _read_json(data / "scenarios.json")
-        scenarios = scenarios_root.get("scenarios")
-        if not isinstance(scenarios, list) or any(not isinstance(item, dict) for item in scenarios):
-            raise ScenarioIntegrationError("live scenarios.json must contain an array of objects")
-        live_ids = {str(item.get("id") or "") for item in scenarios}
-        batch_ids = {str(item["id"]) for item in records}
-        overlap = live_ids & batch_ids
-        if overlap:
-            if overlap != batch_ids or manifest.get("status") != "merged":
-                raise ScenarioIntegrationError("scenario draft duplicates a live scenario ID")
-            live_by_id = {str(item["id"]): item for item in scenarios}
-            if any(live_by_id[str(item["id"])] != item for item in records):
-                raise ScenarioIntegrationError("merged scenario payload no longer matches its approved draft")
+        already_merged = False
+        for kind, records in records_by_kind.items():
+            target_name, collection, _ = ARTIFACTS[kind]
+            target_path = data / target_name
+            target_root = _read_json(target_path)
+            live_records = target_root.get(collection)
+            if not isinstance(live_records, list) or any(not isinstance(item, dict) for item in live_records):
+                raise ScenarioIntegrationError(f"live {target_name} must contain an array of objects")
+            live_by_id = {str(item.get("id") or ""): item for item in live_records}
+            batch_ids = {str(item["id"]) for item in records}
+            overlap = set(live_by_id) & batch_ids
+            if overlap:
+                if overlap != batch_ids or manifest.get("status") != "merged":
+                    raise ScenarioIntegrationError(f"{kind} draft duplicates a live ID")
+                if any(live_by_id[str(item["id"])] != item for item in records):
+                    raise ScenarioIntegrationError(f"merged {kind} payload no longer matches its approved draft")
+                already_merged = True
+                continue
+            if manifest.get("status") == "merged":
+                raise ScenarioIntegrationError(f"merged manifest is missing live {kind} records")
+            target_root[collection] = [*live_records, *records]
+            _refresh_meta(target_root, collection)
+            target_path.write_text(_json_text(target_root), encoding="utf-8")
+
+        if already_merged:
             curriculum_live = _read_json(data / "curriculum_manifest.json").get("contentLinks")
             known_links = {
                 (item.get("contentKind"), item.get("contentId"), item.get("courseUnitId"), item.get("role"))
@@ -247,9 +320,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             if issues:
                 detail = "\n".join(f"{issue.source}: {issue.message}" for issue in issues)
                 raise ScenarioIntegrationError(f"merged scenario batch no longer validates:\n{detail}")
-            return ContentValidator(root).inventory_counts(), len(records)
-        scenarios_root["scenarios"] = [*scenarios, *records]
-        (data / "scenarios.json").write_text(_json_text(scenarios_root), encoding="utf-8")
+            return ContentValidator(root).inventory_counts(), int(manifest["recordCount"])
 
         curriculum = _read_json(data / "curriculum_manifest.json")
         links = curriculum.get("contentLinks")
@@ -277,7 +348,6 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
 
         backdrop_file = root / "lib" / "models" / "scenario.dart"
         outputs = {
-            root / "assets" / "data" / "scenarios.json": (data / "scenarios.json").read_text(encoding="utf-8"),
             root / "assets" / "data" / "curriculum_manifest.json": (data / "curriculum_manifest.json").read_text(encoding="utf-8"),
             root / "assets" / "data" / "content_audit_manifest.json": (data / "content_audit_manifest.json").read_text(encoding="utf-8"),
             backdrop_file: _update_backdrop_map(
@@ -286,8 +356,13 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 str(manifest["batch"]),
             ),
         }
+        for kind in records_by_kind:
+            target_name, _, _ = ARTIFACTS[kind]
+            outputs[root / "assets" / "data" / target_name] = (data / target_name).read_text(
+                encoding="utf-8"
+            )
         if not apply:
-            return counts, len(records)
+            return counts, int(manifest["recordCount"])
         merged_manifest = dict(manifest)
         merged_manifest["status"] = "merged"
         provenance = dict(merged_manifest.get("provenance") or {})
@@ -306,7 +381,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             for path, content in originals.items():
                 _atomic_write(path, content)
             raise ScenarioIntegrationError(f"scenario integration rolled back: {error}") from error
-    return counts, len(records)
+    return counts, int(manifest["recordCount"])
 
 
 def main() -> int:
@@ -317,9 +392,9 @@ def main() -> int:
     try:
         counts, amount = integrate(manifest_path=Path(args.manifest), apply=args.apply)
     except ScenarioIntegrationError as error:
-        print(f"✗ {error}")
+        print(f"ERROR: {error}")
         return 1
-    print(f"✓ {'applied' if args.apply else 'preview'}: {amount} scenarios; inventory {counts}")
+    print(f"OK: {'applied' if args.apply else 'preview'} {amount} records; inventory {counts}")
     return 0
 
 

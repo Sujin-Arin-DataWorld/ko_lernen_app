@@ -1,5 +1,53 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — PDF 37개·Batch 06 교차 게임·로더 기준 생산 계획
+
+**기준과 격리.** 최신 웹사이트 수정이 포함된 `main`
+`e3c39f594cc975659c48671409d7403c7a0639f7`에서 clean worktree
+`content-games-batch06-20260816`, 브랜치 `codex/content-games-batch06-20260816`을 사용했다.
+원래 dirty checkout과 웹사이트 WIP는 수정하지 않았고 push도 하지 않았다. Batch 06은
+review-only이며 live 신규 콘텐츠 승격, TTS, Firebase 쓰기, 배포를 실행하지 않았다.
+
+**PDF와 작업 규칙.** 기존 17개와 사용자 추가 20개를 `source_inventory.csv`에 다시
+대조해 실제 파일 37개·5,148쪽, 실질 고유 내용 35개·4,950쪽으로 고정했다. 새 20개는
+3,331쪽이지만 5B 익힘책 53쪽이 기존 `ref0005`와 normalized-text fingerprint까지 같은
+사본이라 신규 고유 큐는 19개·3,278쪽이다. 신규 20개 모두 앞·중간·뒤 60개 표본을 실제
+렌더로 확인했고 image 15개·3,017쪽, 고유 text 4개·261쪽을 남은 full audit로 계산했다.
+`audit_pdf_inventory.py`와 `render_pdf_audit_samples.py`는 원문과 렌더를 저장소에 남기지
+않는다. 세부 수량·파일군·체크리스트는
+`CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`에 기록했다.
+
+**Batch 06 실제 초안.** B1/B2/C1/C2 각각 scenario 1, embedded quest 5,
+Smalltalk 2, Cloze 4, Satzbau 6, pronunciation 4를 schema-complete draft로 작성했다.
+합계 standalone 68개와 scenario quest 20개이며, 5개 review 원장 68행은 모두 `draft`다.
+`sourceSeedId`, live `courseUnitId`/concept/vocab/grammar ID, 씨앗별 canonical dialog와
+standalone 파생을 고정했다. scenario·Smalltalk·Cloze·Satzbau 52개는 실제 curriculum
+경로로, pronunciation 16개는 exact 보유·학습자 레벨 이하 누적 노출로 확인했다. 사람
+언어 검수는 아직 0/68이므로 출시 가능 상태로 표시하지 않는다.
+
+**로더 공백 재계산.** `audit_game_loader_coverage.py`를 추가해 direct exact-level,
+듣기 lower fallback, 발음·끝말잇기 cumulative, Smalltalk category, course unit과 round
+부족량을 live/preview로 비교한다. Batch 06 preview 뒤 P0/P1 작업량은 C1/C2 scenario
+각 +7(quest 70, dialog 84–112), 고급 Smalltalk +38/+37, B1/B2 Cloze +18/+11,
+Satzbau +10/+4, B1–C2 pronunciation 각 +8이다. 중복 없는 standalone 합계 164개와
+embedded quest 70개를 Batch 07/08로 나눴다. Silben C1/C2는 data +40과 화면 picker
+변경이 함께 필요하고, 끝말잇기는 cumulative라 즉시 빈 화면이 아니며, media phrase는
+loader 호출 지점이 없어 code-first, grammar pattern은 책 분석 보조로 분리했다.
+
+**동기화·회귀 수리.** Cloze `meta`를 514/A1–C2, Satzbau `meta`를 419/A1–C2로
+맞추고 validator가 실제 배열과 대조하게 했다. `content_audit_manifest.json`의 course
+unit 수를 실제 40개와 A1/A2/B1/B2/C1/C2 `16/8/6/6/2/2`로 고쳤고, 모든 content
+integrator가 curriculum extension 뒤 graph count를 함께 갱신하도록 했다. Windows manifest
+path 비교, preview meta 갱신, rollback byte 보존, 5-kind scenario integrator와 결정적 review
+원장 sync도 회귀 테스트로 고정했다.
+
+**검증.** `validate_content.py --json`은 `ok: true`, reference intake validator와 review
+sync preview가 통과했다. Batch 06 disposable preview는 scenario 62, quest 261,
+Smalltalk 293, Cloze 530, Satzbau 443, pronunciation 20을 계산했다. Content Factory
+Python **76/76**, Flutter content audit·ID·course graph·pronunciation·scenario·Cloze·
+Satzbau·Smalltalk 표적 테스트 **50/50**이 통과했다. 이 항목을 포함한 범위 한정 커밋만
+만들며 push와 review 승인 이후 작업은 Jin 지시를 기다린다.
+
 ### 2026-08-16 (Codex) - PDF 판독 격리 DB와 Batch 06 게임 pilot
 
 **기준과 브랜치.** 웹사이트 수정 커밋인 최신 `main`

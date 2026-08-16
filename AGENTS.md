@@ -293,10 +293,22 @@ flutter run -d <android-id>   # 안드로이드
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
   `docs/CONTENT_AUTHORING_GUIDE.md`, `docs/CONTENT_ARCHITECTURE.md`,
   `docs/CONTENT_SOURCE_POLICY.md`, `docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`다.
+- [x] **살아 있는 한옥 V1 PR1 선행 계약**: 40개 `CourseUnit`을 영구 보상 수로
+  고정하지 않고 `core_2026_v1`의 검증 가능한 `CanDoSegment`를
+  A1/A2/B1/B2/C1/C2 `16/16/18/20/8/8`, 총 86개로 분리했다. 같은 능력의 새 콘텐츠는
+  cluster revision, 독립 can-do는 후방 extension track으로 추가해 과거 분모·한옥을
+  낮추지 않는다. 정본은 `docs/ADR-003-can-do-segment-authority.md`다.
+- [ ] **살아 있는 한옥 V1 PR2**: 86개 실제 segment ID·content cluster·고유 생산 평가를
+  작성하고 기존 생산형 문항을 감수한다. 재사용 가능한 상한 40개를 제외해 최소 46개를
+  신규·재작성하며, CourseUnit 완료와 생산 도장을 분리한 재평가 경로를 구현한다.
 - [ ] **다음 콘텐츠**: Batch 06은 B1/B2 회귀 표본과 첫 C1/C2 시나리오를 묶은
-  review-only pilot이다. PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가
-  제거된 brief만 독립 집필에 쓴다. review 승인, reference/content validator, preview를
-  모두 통과하기 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.
+  review-only 교차 게임 pilot이다. schema-complete 초안은 레벨별 scenario 1·Smalltalk 2·
+  Cloze 4·Satzbau 6·pronunciation 4와 scenario quest 5, 합계 standalone 68·quest 20을
+  예약한다. PDF, OCR, 표 판독은
+  `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만 독립 집필에 쓴다. review
+  승인, reference/content validator, preview를 모두 통과하기 전에는 앱 데이터, TTS,
+  Firebase에 쓰지 않는다. 다음 번호는 Batch 07이며 loader 재계산 작업량은
+  `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.

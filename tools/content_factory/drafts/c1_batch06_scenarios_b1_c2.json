@@ -3,6 +3,7 @@
   "scenarios": [
     {
       "id": "b1_repair_visit_followup",
+      "sourceSeedId": "seed_b1_repair_followup",
       "level": "b1",
       "emoji": "🔧",
       "register": "polite",
@@ -44,6 +45,9 @@
         },
         {
           "korean": "일정"
+        },
+        {
+          "korean": "수리비"
         }
       ],
       "grammarIds": [
@@ -100,9 +104,9 @@
         },
         {
           "speaker": "user",
-          "ko": "가능하면 오늘 안에 방문 시간을 알려 주시면 좋겠어요.",
-          "de": "Wenn möglich, wäre es hilfreich, wenn Sie mir die Besuchszeit noch heute mitteilen könnten.",
-          "en": "If possible, I would appreciate it if you could tell me the visit time today."
+          "ko": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+          "de": "Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
+          "en": "If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today."
         },
         {
           "speaker": "jieun",
@@ -174,12 +178,12 @@
             "concept_b1_complaint_resolution"
           ],
           "data": {
-            "sentence": "가능하면 오늘 안에 방문 시간을 ___ 주시면 좋겠어요.",
+            "sentence": "가능하면 오늘 안에 방문 시간과 예상 ___를 알려 주시면 좋겠어요.",
             "options": [
-              "알려",
-              "미뤄",
-              "고쳐",
-              "닫아"
+              "수리비",
+              "입장료",
+              "거스름돈",
+              "생활비"
             ],
             "correctIndex": 0
           }
@@ -191,9 +195,9 @@
             "concept_b1_complaint_resolution"
           ],
           "data": {
-            "targetKo": "가능하면 오늘 안에 방문 시간을 알려 주시면 좋겠어요.",
-            "promptDe": "Bilde den Satz: Wenn möglich, wäre es hilfreich, wenn Sie mir die Besuchszeit noch heute mitteilen könnten.",
-            "promptEn": "Build the sentence: If possible, I would appreciate it if you could tell me the visit time today.",
+            "targetKo": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+            "promptDe": "Bilde den Satz: Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
+            "promptEn": "Build the sentence: If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today.",
             "distractors": [
               "어제",
               "문제를"
@@ -207,15 +211,16 @@
             "concept_b1_complaint_resolution"
           ],
           "data": {
-            "targetKo": "가능하면 오늘 안에 방문 시간을 알려 주시면 좋겠어요.",
-            "promptDe": "Schreibe die höfliche Bitte um die Besuchszeit.",
-            "promptEn": "Write the polite request for the visit time."
+            "targetKo": "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",
+            "promptDe": "Schreibe die höfliche Bitte um Besuchszeit und voraussichtliche Reparaturkosten.",
+            "promptEn": "Write the polite request for the visit time and estimated repair cost."
           }
         }
       ]
     },
     {
       "id": "b2_device_failure_escalation",
+      "sourceSeedId": "seed_b2_device_escalation",
       "level": "b2",
       "emoji": "💻",
       "register": "business",
@@ -429,6 +434,7 @@
     },
     {
       "id": "c1_survey_limits_briefing",
+      "sourceSeedId": "seed_c1_survey_limits",
       "level": "c1",
       "emoji": "📊",
       "register": "business",
@@ -642,6 +648,7 @@
     },
     {
       "id": "c2_automated_decision_appeal",
+      "sourceSeedId": "seed_c2_automated_appeal",
       "level": "c2",
       "emoji": "⚖️",
       "register": "business",

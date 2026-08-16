@@ -101,6 +101,15 @@ SEED_HEADER = [
     "cloze_ids",
     "satz_ids",
     "pronunciation_ids",
+    "canonical_scenario_id",
+    "canonical_dialog_turn",
+    "scenario_count",
+    "scenario_quest_count",
+    "smalltalk_count",
+    "cloze_count",
+    "satz_count",
+    "pronunciation_count",
+    "course_exposure",
     "derivation_contract",
     "review_status",
 ]
@@ -165,10 +174,18 @@ class ReferenceIntakeValidator:
                 self.issue(source, f"row {number} duplicates {key} {value!r}")
             seen.add(value)
 
-    def load_live(self) -> tuple[dict[str, dict[str, str]], dict[str, dict[str, str]], dict[str, set[str]]]:
+    def load_live(
+        self,
+    ) -> tuple[
+        dict[str, dict[str, str]],
+        dict[str, dict[str, str]],
+        dict[str, set[str]],
+        dict[str, object],
+    ]:
         vocab: dict[str, dict[str, str]] = {}
         grammar: dict[str, dict[str, str]] = {}
         units: dict[str, set[str]] = {}
+        routing: dict[str, object] = {}
         try:
             with (self.root / "assets" / "data" / "korean_vocab.csv").open(
                 encoding="utf-8-sig", newline=""
@@ -190,22 +207,49 @@ class ReferenceIntakeValidator:
                     units[unit["id"]] = {
                         str(value) for value in unit.get("requiredConceptIds", [])
                     }
+            for field in (
+                "vocabPackUnitMap",
+                "smalltalkCategoryUnitMap",
+                "clozeTopicUnitMap",
+            ):
+                value = manifest.get(field)
+                if not isinstance(value, dict):
+                    self.issue("assets/data", f"curriculum manifest {field} must be an object")
+                    value = {}
+                routing[field] = value
         except (OSError, csv.Error, json.JSONDecodeError) as error:
             self.issue("assets/data", f"cannot read live references: {error}")
-        return vocab, grammar, units
+        return vocab, grammar, units, routing
 
-    def load_available_scenarios(self) -> dict[str, dict[str, object]]:
-        scenarios: dict[str, dict[str, object]] = {}
-        source = "scenario sources"
+    def load_available_content(self) -> dict[str, dict[str, dict[str, object]]]:
+        specs = {
+            "scenario": ("scenarios.json", "scenarios"),
+            "smalltalk": ("smalltalk.json", "phrases"),
+            "cloze": ("cloze.json", "items"),
+            "satz": ("satz_sentences.json", "items"),
+            "pronunciation": ("pronunciation_phrases.json", "phrases"),
+        }
+        available: dict[str, dict[str, dict[str, object]]] = {
+            kind: {} for kind in specs
+        }
+        source = "content sources"
+
+        def add(kind: str, record: object, label: str) -> None:
+            if not isinstance(record, dict) or not isinstance(record.get("id"), str):
+                self.issue(source, f"{label}: malformed {kind} record")
+                return
+            ident = record["id"]
+            if ident in available[kind]:
+                self.issue(source, f"{label}: duplicate available {kind} {ident!r}")
+            available[kind][ident] = record
+
         try:
-            live = json.loads(
-                (self.root / "assets" / "data" / "scenarios.json").read_text(
-                    encoding="utf-8"
+            for kind, (name, collection) in specs.items():
+                live = json.loads(
+                    (self.root / "assets" / "data" / name).read_text(encoding="utf-8")
                 )
-            )
-            for record in live.get("scenarios", []):
-                if isinstance(record, dict) and isinstance(record.get("id"), str):
-                    scenarios[record["id"]] = record
+                for record in live.get(collection, []):
+                    add(kind, record, name)
             for manifest_path in sorted(
                 (self.root / "tools" / "content_factory" / "drafts").glob(
                     "batch_*_manifest.json"
@@ -215,30 +259,28 @@ class ReferenceIntakeValidator:
                 if manifest.get("status") == "merged":
                     continue
                 for artifact in manifest.get("artifacts", []):
-                    if not isinstance(artifact, dict) or artifact.get("kind") != "scenario":
+                    if not isinstance(artifact, dict):
+                        continue
+                    kind = artifact.get("kind")
+                    if kind not in specs:
                         continue
                     relative = artifact.get("draft")
                     if not isinstance(relative, str):
-                        self.issue(source, f"{manifest_path.name}: scenario draft path is missing")
+                        self.issue(source, f"{manifest_path.name}: {kind} draft path is missing")
                         continue
                     draft_path = (self.root / relative).resolve()
                     try:
                         draft_path.relative_to(self.root)
                     except ValueError:
-                        self.issue(source, f"{manifest_path.name}: scenario draft escapes repository")
+                        self.issue(source, f"{manifest_path.name}: {kind} draft escapes repository")
                         continue
                     draft = json.loads(draft_path.read_text(encoding="utf-8"))
-                    for record in draft.get("scenarios", []):
-                        if not isinstance(record, dict) or not isinstance(record.get("id"), str):
-                            self.issue(source, f"{draft_path.name}: malformed scenario record")
-                            continue
-                        ident = record["id"]
-                        if ident in scenarios:
-                            self.issue(source, f"{draft_path.name}: duplicate available scenario {ident!r}")
-                        scenarios[ident] = record
+                    collection = specs[str(kind)][1]
+                    for record in draft.get(collection, []):
+                        add(str(kind), record, draft_path.name)
         except (OSError, json.JSONDecodeError) as error:
-            self.issue(source, f"cannot read scenario sources: {error}")
-        return scenarios
+            self.issue(source, f"cannot read content sources: {error}")
+        return available
 
     def validate_sources(self, rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
         source = "source_inventory.csv"
@@ -451,7 +493,8 @@ class ReferenceIntakeValidator:
         vocab: dict[str, dict[str, str]],
         grammar: dict[str, dict[str, str]],
         units: dict[str, set[str]],
-        scenarios: dict[str, dict[str, object]],
+        routing: dict[str, object],
+        content: dict[str, dict[str, dict[str, object]]],
     ) -> None:
         source = "seed_bundle_plan.csv"
         self.unique(source, rows, "seed_id")
@@ -474,6 +517,25 @@ class ReferenceIntakeValidator:
             "satz_ids": r"satz_(?:a1|a2|b1|b2|c1|c2)_\d{4}",
             "pronunciation_ids": r"pronunciation_(?:a1|a2|b1|b2|c1|c2)_\d{4}",
         }
+        kinds = {
+            "scenario_ids": "scenario",
+            "smalltalk_ids": "smalltalk",
+            "cloze_ids": "cloze",
+            "satz_ids": "satz",
+            "pronunciation_ids": "pronunciation",
+        }
+        count_fields = {
+            "scenario_ids": "scenario_count",
+            "scenario_quest_ids": "scenario_quest_count",
+            "smalltalk_ids": "smalltalk_count",
+            "cloze_ids": "cloze_count",
+            "satz_ids": "satz_count",
+            "pronunciation_ids": "pronunciation_count",
+        }
+
+        def base_pack_id(value: str) -> str:
+            return re.sub(r"_\d+$", "", value)
+
         for number, row in enumerate(rows, start=2):
             label = row.get("seed_id") or f"row {number}"
             level = row.get("level", "")
@@ -510,7 +572,12 @@ class ReferenceIntakeValidator:
                 if live is None or live.get("level") != level:
                     self.issue(source, f"{label}: grammar {ident!r} is missing or wrong-level")
             for field, pattern in patterns.items():
-                for ident in self.split_ids(row.get(field, "")):
+                planned = self.split_ids(row.get(field, ""))
+                count_field = count_fields[field]
+                count = row.get(count_field, "")
+                if not self.is_positive_int(count) or int(count) != len(planned):
+                    self.issue(source, f"{label}: {count_field} must equal its reserved ID count")
+                for ident in planned:
                     if not re.fullmatch(pattern, ident):
                         self.issue(source, f"{label}: invalid {field} value {ident!r}")
                     if ident in reserved[field]:
@@ -520,21 +587,84 @@ class ReferenceIntakeValidator:
                         field.removesuffix("_ids").replace("pronunciation", "pronunciation") + "_" + level.lower()
                     ):
                         self.issue(source, f"{label}: {ident!r} has the wrong level")
+
+            planned_by_kind = {
+                kind: self.split_ids(row.get(field, "")) for field, kind in kinds.items()
+            }
+            for kind, planned in planned_by_kind.items():
+                planned_set = set(planned)
+                authored = {
+                    ident
+                    for ident, record in content[kind].items()
+                    if record.get("sourceSeedId") == label
+                }
+                if authored != planned_set:
+                    self.issue(
+                        source,
+                        f"{label}: reserved {kind} IDs do not exactly match sourceSeedId records",
+                    )
+                for ident in planned:
+                    record = content[kind].get(ident)
+                    if record is None:
+                        self.issue(source, f"{label}: {kind} {ident!r} is not live or in an active draft")
+                        continue
+                    if record.get("sourceSeedId") != label:
+                        self.issue(source, f"{label}: {kind} {ident!r} has the wrong sourceSeedId")
+                    if record.get("level") != level.lower():
+                        self.issue(source, f"{label}: {kind} {ident!r} has the wrong level")
+                    if record.get("courseUnitId") != unit_id:
+                        self.issue(source, f"{label}: {kind} {ident!r} has the wrong course unit")
+                    if {str(value) for value in record.get("conceptIds", [])} != concepts:
+                        self.issue(source, f"{label}: {kind} {ident!r} conceptIds disagree")
+
+            smalltalk_map = routing.get("smalltalkCategoryUnitMap")
+            cloze_map = routing.get("clozeTopicUnitMap")
+            pack_map = routing.get("vocabPackUnitMap")
+            for ident in planned_by_kind["smalltalk"]:
+                record = content["smalltalk"].get(ident, {})
+                key = f"{level.lower()}:{str(record.get('category') or '').lower()}"
+                rule = smalltalk_map.get(key) if isinstance(smalltalk_map, dict) else None
+                if not isinstance(rule, dict) or rule.get("courseUnitId") != unit_id:
+                    self.issue(source, f"{label}: smalltalk {ident!r} is not routed to its course unit")
+                elif {str(value) for value in rule.get("conceptIds", [])} != concepts:
+                    self.issue(source, f"{label}: smalltalk {ident!r} route concepts disagree")
+            for ident in planned_by_kind["cloze"]:
+                record = content["cloze"].get(ident, {})
+                key = f"{level.lower()}:{str(record.get('topic') or '').lower()}"
+                mapped = cloze_map.get(key) if isinstance(cloze_map, dict) else None
+                if mapped != unit_id:
+                    self.issue(source, f"{label}: cloze {ident!r} is not routed to its course unit")
+            for ident in planned_by_kind["satz"]:
+                record = content["satz"].get(ident, {})
+                source_vocab = [
+                    item
+                    for item in vocab.values()
+                    if item.get("level") == level and item.get("korean") == record.get("vocabKo")
+                ]
+                if len(source_vocab) != 1:
+                    self.issue(source, f"{label}: satz {ident!r} needs one exact same-level vocab source")
+                    continue
+                pack = base_pack_id(source_vocab[0].get("pack_id", ""))
+                mapped = pack_map.get(pack) if isinstance(pack_map, dict) else None
+                if mapped != unit_id:
+                    self.issue(source, f"{label}: satz {ident!r} source vocab is routed to another unit")
+
             planned_scenarios = self.split_ids(row.get("scenario_ids", ""))
             planned_quests = set(self.split_ids(row.get("scenario_quest_ids", "")))
             actual_quests: set[str] = set()
             actual_types: set[str] = set()
+            canonical_id = row.get("canonical_scenario_id", "")
+            if canonical_id not in planned_scenarios:
+                self.issue(source, f"{label}: canonical_scenario_id must be one of scenario_ids")
+            turn_raw = row.get("canonical_dialog_turn", "")
+            if not self.is_positive_int(turn_raw):
+                self.issue(source, f"{label}: canonical_dialog_turn must be positive")
+            canonical_ko = ""
             for ident in planned_scenarios:
-                scenario = scenarios.get(ident)
+                scenario = content["scenario"].get(ident)
                 if scenario is None:
                     self.issue(source, f"{label}: scenario {ident!r} is not live or in an active draft")
                     continue
-                if scenario.get("level") != level.lower():
-                    self.issue(source, f"{label}: scenario {ident!r} has the wrong level")
-                if scenario.get("courseUnitId") != unit_id:
-                    self.issue(source, f"{label}: scenario {ident!r} has the wrong course unit")
-                if set(str(value) for value in scenario.get("conceptIds", [])) != concepts:
-                    self.issue(source, f"{label}: scenario {ident!r} conceptIds disagree")
                 if set(str(value) for value in scenario.get("grammarIds", [])) != set(grammar_ids):
                     self.issue(source, f"{label}: scenario {ident!r} grammarIds disagree")
                 expected_vocab = {vocab[ident]["korean"] for ident in vocab_ids if ident in vocab}
@@ -545,6 +675,15 @@ class ReferenceIntakeValidator:
                 }
                 if actual_vocab != expected_vocab:
                     self.issue(source, f"{label}: scenario {ident!r} vocab does not match vocab_ids")
+                if ident == canonical_id and self.is_positive_int(turn_raw):
+                    dialog = scenario.get("dialog")
+                    turn = int(turn_raw)
+                    if not isinstance(dialog, list) or turn > len(dialog):
+                        self.issue(source, f"{label}: canonical dialog turn is outside the scenario")
+                    elif not isinstance(dialog[turn - 1], dict) or not isinstance(dialog[turn - 1].get("ko"), str):
+                        self.issue(source, f"{label}: canonical dialog turn needs Korean text")
+                    else:
+                        canonical_ko = str(dialog[turn - 1]["ko"])
                 target_by_type: dict[str, list[str]] = {}
                 for quest in scenario.get("quests", []):
                     if not isinstance(quest, dict):
@@ -584,14 +723,38 @@ class ReferenceIntakeValidator:
                     for values in target_by_type.values()
                     for target in values
                 }
-                if {"luecken", "satzBauen", "diktat"}.issubset(target_by_type) and len(canonical_targets) != 1:
-                    self.issue(source, f"{label}: cloze, Satzbau, and dictation do not share one canonical KO")
+                if {"luecken", "satzBauen", "diktat"}.issubset(target_by_type):
+                    if canonical_targets != {canonical_ko}:
+                        self.issue(
+                            source,
+                            f"{label}: scenario cloze, Satzbau, and dictation must equal the canonical dialog KO",
+                        )
             if actual_quests != planned_quests:
                 self.issue(source, f"{label}: scenario_quest_ids do not match the scenario draft")
             if brief is not None:
                 expected_types = set(self.split_ids(brief.get("game_targets", "")))
                 if actual_types != expected_types:
                     self.issue(source, f"{label}: scenario quest types disagree with game_targets")
+            for kind, field in (
+                ("cloze", "fullKo"),
+                ("satz", "targetKo"),
+                ("pronunciation", "ko"),
+            ):
+                records = [
+                    content[kind].get(ident, {}) for ident in planned_by_kind[kind]
+                ]
+                canonical_records = [
+                    record for record in records if record.get(field) == canonical_ko
+                ]
+                if len(canonical_records) != 1:
+                    self.issue(source, f"{label}: {kind} needs exactly one canonical KO derivative")
+                elif canonical_records[0].get("canonicalScenarioId") != canonical_id:
+                    self.issue(source, f"{label}: canonical {kind} derivative has the wrong scenario marker")
+            if row.get("course_exposure") != (
+                "scenario_smalltalk_cloze_satz_graph_and_exact_library;"
+                "pronunciation_cumulative"
+            ):
+                self.issue(source, f"{label}: invalid course_exposure")
             if not row.get("derivation_contract", ""):
                 self.issue(source, f"{label}: derivation_contract cannot be empty")
             if row.get("review_status") not in {"draft", "approved"}:
@@ -603,13 +766,13 @@ class ReferenceIntakeValidator:
         observation_rows = self.read_csv("reference_observations.csv", OBSERVATION_HEADER)
         brief_rows = self.read_csv("content_briefs.csv", BRIEF_HEADER)
         seed_rows = self.read_csv("seed_bundle_plan.csv", SEED_HEADER)
-        vocab, grammar, units = self.load_live()
-        scenarios = self.load_available_scenarios()
+        vocab, grammar, units, routing = self.load_live()
+        content = self.load_available_content()
         sources = self.validate_sources(source_rows)
         audits = self.validate_pages(page_rows, sources)
         self.validate_observations(observation_rows, sources, audits)
         briefs = self.validate_briefs(brief_rows, grammar, units)
-        self.validate_seeds(seed_rows, briefs, vocab, grammar, units, scenarios)
+        self.validate_seeds(seed_rows, briefs, vocab, grammar, units, routing, content)
         return self.issues
 
 
@@ -622,9 +785,9 @@ def main() -> int:
         print(json.dumps({"ok": not issues, "issues": [asdict(issue) for issue in issues]}, ensure_ascii=False, indent=2))
     elif issues:
         for issue in issues:
-            print(f"✗ {issue.source}: {issue.message}")
+            print(f"ERROR: {issue.source}: {issue.message}")
     else:
-        print("✓ reference intake passed: quarantine, clean-room briefs, and live ID links are consistent")
+        print("OK: reference intake quarantine, clean-room briefs, and game bundle links are consistent")
     return 1 if issues else 0
 
 

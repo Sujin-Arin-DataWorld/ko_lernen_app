@@ -419,9 +419,9 @@ def _parse_manifest(
     if enforce_batch_01_contract:
         for kind, spec in ARTIFACT_SPECS.items():
             artifact = by_kind[kind]
-            if artifact.get("draft") != str(spec.draft):
+            if artifact.get("draft") != spec.draft.as_posix():
                 _fail(f"{manifest_path}: {kind}.draft must be {spec.draft}")
-            if artifact.get("review") != str(spec.review):
+            if artifact.get("review") != spec.review.as_posix():
                 _fail(f"{manifest_path}: {kind}.review must be {spec.review}")
             if artifact.get("count") != spec.count:
                 _fail(f"{manifest_path}: {kind}.count must be {spec.count}")
@@ -1186,6 +1186,22 @@ def _add_new_mapping(target: dict[str, Any], key: str, value: Any, label: str) -
     target[key] = value
 
 
+def _refresh_game_meta(target_root: dict[str, Any], collection: str) -> None:
+    """Keep derived cloze/satz inventory metadata in sync in disposable overlays."""
+
+    if collection != "items" or not isinstance(target_root.get("meta"), dict):
+        return
+    items = target_root.get(collection)
+    if not isinstance(items, list):
+        return
+    per_level = {level: 0 for level in ("a1", "a2", "b1", "b2", "c1", "c2")}
+    for item in items:
+        if isinstance(item, dict) and item.get("level") in per_level:
+            per_level[str(item["level"])] += 1
+    target_root["meta"]["total"] = len(items)
+    target_root["meta"]["perLevel"] = per_level
+
+
 def _write_overlay(
     root: Path,
     overlay_root: Path,
@@ -1220,6 +1236,7 @@ def _write_overlay(
             *target_root[spec.collection or ""],
             *[_copy_json(record) for record in payload.records],
         ]
+        _refresh_game_meta(target_root, spec.collection or "")
         _write_json(target, target_root)
 
     curriculum_path = overlay_data / "curriculum_manifest.json"
@@ -1279,6 +1296,20 @@ def _write_overlay(
         kind = source.get("kind")
         if kind in counts:
             source["count"] = counts[kind]
+    graph = audit.get("graph")
+    units = curriculum.get("courseUnits")
+    families = curriculum.get("formFamilies")
+    if not isinstance(graph, dict) or not isinstance(units, list) or not isinstance(families, list):
+        _fail(f"{audit_path}: graph and curriculum graph arrays must exist")
+    graph["courseUnits"] = len(units)
+    for level in ("a1", "a2", "b1", "b2", "c1", "c2"):
+        graph[f"{level}CourseUnits"] = sum(
+            1
+            for unit in units
+            if isinstance(unit, dict)
+            and str(unit.get("level") or "").strip().lower() == level
+        )
+    graph["formFamilies"] = len(families)
     _write_json(audit_path, audit)
     return counts
 

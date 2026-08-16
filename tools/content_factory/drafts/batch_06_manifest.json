@@ -3,7 +3,7 @@
   "batch": "06",
   "status": "review_only",
   "provenance": {
-    "scope": "Original B1-C2 cross-game scenario pilot based on live curriculum gaps and clean-room product briefs.",
+    "scope": "Original B1-C2 cross-game pilot based on live curriculum gaps and clean-room product briefs.",
     "rights": "original_clean_room",
     "requiresJinReview": true,
     "startingMainSha": "e3c39f594cc975659c48671409d7403c7a0639f7",
@@ -19,6 +19,7 @@
       "kind": "scenario",
       "draft": "tools/content_factory/drafts/c1_batch06_scenarios_b1_c2.json",
       "review": "tools/content_factory/review/c1_batch06_scenarios.csv",
+      "collection": "scenarios",
       "count": 4,
       "levels": {
         "b1": 1,
@@ -26,9 +27,61 @@
         "c1": 1,
         "c2": 1
       }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch06_smalltalk_b1_c2.json",
+      "review": "tools/content_factory/review/c2_batch06_smalltalk.csv",
+      "collection": "phrases",
+      "count": 8,
+      "levels": {
+        "b1": 2,
+        "b2": 2,
+        "c1": 2,
+        "c2": 2
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch06_cloze_b1_c2.json",
+      "review": "tools/content_factory/review/c2_batch06_cloze.csv",
+      "collection": "items",
+      "count": 16,
+      "levels": {
+        "b1": 4,
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch06_satz_b1_c2.json",
+      "review": "tools/content_factory/review/c2_batch06_satz.csv",
+      "collection": "items",
+      "count": 24,
+      "levels": {
+        "b1": 6,
+        "b2": 6,
+        "c1": 6,
+        "c2": 6
+      }
+    },
+    {
+      "kind": "pronunciation",
+      "draft": "tools/content_factory/drafts/c4_batch06_pronunciation_b1_c2.json",
+      "review": "tools/content_factory/review/c4_batch06_pronunciation.csv",
+      "collection": "phrases",
+      "count": 16,
+      "levels": {
+        "b1": 4,
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
     }
   ],
-  "recordCount": 4,
+  "recordCount": 68,
   "questCount": 20,
   "contentLinks": [
     {
@@ -68,6 +121,13 @@
       "role": "assess"
     }
   ],
+  "courseExposure": {
+    "scenario": "explicit_content_link",
+    "smalltalk": "existing_level_category_map",
+    "cloze": "existing_level_topic_map",
+    "satz": "existing_vocab_pack_map",
+    "pronunciation": "standalone_cumulative_through_learner_level"
+  },
   "backdrops": {
     "b1_repair_visit_followup": "home",
     "b2_device_failure_escalation": "office",
@@ -75,6 +135,6 @@
     "c2_automated_decision_appeal": "office"
   },
   "mergeOrder": [
-    "scenario + contentLinks + scenario backdrop + audit manifest"
+    "scenario + standalone game assets + contentLinks + scenario backdrop + audit manifest"
   ]
 }

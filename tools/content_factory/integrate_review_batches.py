@@ -117,6 +117,41 @@ TARGETS = {
 }
 
 
+def _refresh_game_meta(root: dict[str, Any], collection: str | None) -> None:
+    """Refresh derived cloze/satz totals after staging appended records."""
+
+    if collection != "items" or not isinstance(root.get("meta"), dict):
+        return
+    items = root.get(collection)
+    if not isinstance(items, list):
+        return
+    per_level = {level: 0 for level in ("a1", "a2", "b1", "b2", "c1", "c2")}
+    for item in items:
+        if isinstance(item, dict) and item.get("level") in per_level:
+            per_level[str(item["level"])] += 1
+    root["meta"]["total"] = len(items)
+    root["meta"]["perLevel"] = per_level
+
+
+def _refresh_audit_graph(audit: dict[str, Any], curriculum: dict[str, Any]) -> None:
+    """Keep derived graph counts synchronized with curriculum extensions."""
+
+    graph = audit.get("graph")
+    units = curriculum.get("courseUnits")
+    families = curriculum.get("formFamilies")
+    if not isinstance(graph, dict) or not isinstance(units, list) or not isinstance(families, list):
+        raise IntegrationError("audit graph and curriculum graph arrays must exist")
+    graph["courseUnits"] = len(units)
+    for level in ("a1", "a2", "b1", "b2", "c1", "c2"):
+        graph[f"{level}CourseUnits"] = sum(
+            1
+            for unit in units
+            if isinstance(unit, dict)
+            and str(unit.get("level") or "").strip().lower() == level
+        )
+    graph["formFamilies"] = len(families)
+
+
 class IntegrationError(ValueError):
     """A safe, actionable content-integration error."""
 
@@ -588,6 +623,7 @@ def _write_stage(
                 incoming = [record for batch in batches for record in batch.artifacts[kind][2]]
                 _assert_new_records(records, incoming, kind=kind)
                 current_root[collection or ""] = [*records, *incoming]
+                _refresh_game_meta(current_root, collection)
                 target.write_text(_json_text(current_root), encoding="utf-8")
 
         curriculum = _read_json(staged_data / "curriculum_manifest.json")
@@ -654,6 +690,7 @@ def _write_stage(
         for source in sources:
             if isinstance(source, dict) and source.get("kind") in counts:
                 source["count"] = counts[source["kind"]]
+        _refresh_audit_graph(audit, curriculum)
         (staged_data / "content_audit_manifest.json").write_text(_json_text(audit), encoding="utf-8")
 
         issues = ContentValidator(stage).validate()
@@ -723,7 +760,17 @@ def _promoted_manifest_text(path: Path) -> str:
 def _atomic_write(path: Path, text: str) -> None:
     temporary = path.with_name(f".{path.name}.content-integration.tmp")
     try:
-        temporary.write_text(text, encoding="utf-8")
+        temporary.write_text(text, encoding="utf-8", newline="")
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
+def _atomic_write_bytes(path: Path, data: bytes) -> None:
+    temporary = path.with_name(f".{path.name}.content-integration.tmp")
+    try:
+        temporary.write_bytes(data)
         os.replace(temporary, path)
     finally:
         if temporary.exists():
@@ -768,16 +815,16 @@ def integrate(
                 outputs[review] = _promoted_ledger_text(review)
             outputs[batch.manifest_path] = _promoted_manifest_text(batch.manifest_path)
 
-    originals = {path: path.read_text(encoding="utf-8") for path in outputs}
+    originals = {path: path.read_bytes() for path in outputs}
     try:
         for path, text in outputs.items():
             _atomic_write(path, text)
         _verify_written_tree(root, outputs)
     except Exception as error:
         rollback_errors: list[str] = []
-        for path, text in originals.items():
+        for path, data in originals.items():
             try:
-                _atomic_write(path, text)
+                _atomic_write_bytes(path, data)
             except OSError as rollback_error:
                 rollback_errors.append(f"{path}: {rollback_error}")
         suffix = f"; rollback failed: {'; '.join(rollback_errors)}" if rollback_errors else ""

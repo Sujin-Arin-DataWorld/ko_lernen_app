@@ -70,8 +70,13 @@
     }
   ],
   "graph": {
-    "courseUnits": 36,
+    "courseUnits": 40,
     "a1CourseUnits": 16,
+    "a2CourseUnits": 8,
+    "b1CourseUnits": 6,
+    "b2CourseUnits": 6,
+    "c1CourseUnits": 2,
+    "c2CourseUnits": 2,
     "formFamilies": 4,
     "checkpointThreshold": 0.7,
     "orphanContent": "blocked by automated validation",

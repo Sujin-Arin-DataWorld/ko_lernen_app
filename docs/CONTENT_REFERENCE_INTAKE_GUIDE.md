@@ -192,7 +192,7 @@ file, page, OCR 관련 열은 금지한다.
 | `learner_outcome` | 관찰 가능한 can-do 문장 |
 | `register` | scenario canonical register |
 | `relationship_context` | snake_case 관계 |
-| `interaction_mode` | scenario, smalltalk, cloze, satz, pronunciation 등 comma-separated 값 |
+| `interaction_mode` | scenario, smalltalk, cloze, satz, pronunciation 등을 `|`로 구분한 값 |
 | `grammar_targets` | live grammar ID, `|`로 구분 |
 | `game_targets` | 만들 게임 유형, `|`로 구분 |
 | `course_unit_id` | 같은 level의 live unit ID |
@@ -215,6 +215,9 @@ draft와 기존 자산이 어긋나는 것을 막는다.
 | `vocab_ids`, `grammar_ids` | live 또는 같은 승인 transaction의 ID |
 | `scenario_ids`, `scenario_quest_ids` | 새 안정 ID, `|`로 구분 |
 | `smalltalk_ids`, `cloze_ids`, `satz_ids`, `pronunciation_ids` | 만들지 않으면 빈 값, 만들면 예약 ID |
+| `canonical_scenario_id`, `canonical_dialog_turn` | 모든 파생 게임이 공유할 scenario와 1-based 대화 turn |
+| `scenario_count`, `scenario_quest_count`, `smalltalk_count`, `cloze_count`, `satz_count`, `pronunciation_count` | 예약 ID 개수와 정확히 일치하는 정수 |
+| `course_exposure` | 각 게임 loader가 어떤 curriculum map 또는 exact-level route로 노출하는지 기록 |
 | `derivation_contract` | 어떤 canonical KO 문장에서 어떤 게임이 파생되는지 간단히 기록 |
 | `review_status` | 처음에는 `draft`, Jin 승인 뒤 `approved` |
 
@@ -242,16 +245,20 @@ draft와 기존 자산이 어긋나는 것을 막는다.
 1. scenario dialog 또는 live vocab `example_korean` 중 하나를 canonical KO로 정한다.
 2. Cloze는 그 문장에서 답 하나만 `＿＿＿` 또는 해당 schema의 blank token으로 바꾼다.
 3. Satzbau `targetKo`는 canonical KO와 정확히 같게 둔다.
-4. 받아쓰기 `targetKo`와 듣기 `audioKo`도 필요한 경우 같은 문장을 재사용한다.
-5. DE/EN는 canonical KO의 같은 의미를 유지한다.
-6. canonical KO가 바뀌면 모든 파생 field와 review projection을 같은 변경에서 갱신한다.
+4. scenario의 받아쓰기 `targetKo`와 듣기 `audioKo`도 같은 문장을 재사용한다.
+5. standalone pronunciation `ko`, Cloze `fullKo`, Satzbau `targetKo`에는 씨앗당 정확히
+   하나의 canonical 파생 레코드를 두고 `canonicalScenarioId`로 연결한다.
+6. DE/EN는 canonical KO의 같은 의미를 유지한다.
+7. canonical KO가 바뀌면 모든 파생 field와 review projection을 같은 변경에서 갱신한다.
 
 ### 6.3 병합 전 필수 검사
 
 ```bash
 python3 tools/content_factory/validate_reference_intake.py
 python3 tools/content_factory/validate_content.py --json
-python3 tools/content_factory/validate_review_batch.py \
+python3 tools/content_factory/sync_review_ledgers.py
+python3 tools/content_factory/audit_game_loader_coverage.py
+python3 tools/content_factory/audit_game_loader_coverage.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
 python3 tools/content_factory/integrate_scenario_batch.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
@@ -263,17 +270,22 @@ python3 tools/content_factory/integrate_scenario_batch.py \
 
 ## 7. 게임 데이터 우선순위
 
-현재 live baseline의 레벨별 공백은 count로 먼저 판단한다. 2026-08-16 기준 시나리오는
-B1 16, B2 12, C1 0, C2 0이고 발음 데이터는 B1부터 C2까지 0이다. C1/C2 Cloze와 Satzbau는
-각각 48개가 있으므로 단순히 없다고 가정하지 않는다.
+현재 live baseline의 레벨별 공백은 raw count와 실제 loader 노출을 함께 판단한다.
+`audit_game_loader_coverage.py`가 direct library, listening fallback, pronunciation 누적 노출,
+course unit 연결과 round 부족량을 같은 계산에서 보고한다. 2026-08-16의 확정 계산과 다음
+작업량은 `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`가 정본이다.
 
-첫 확장 순서는 다음과 같다.
+Batch 06 review-only pilot은 레벨마다 scenario 1개·scenario quest 5개·Smalltalk 2개·
+Cloze 4개·Satzbau 6개·pronunciation 4개다. 합계는 standalone record 68개와 scenario 안의
+quest 20개이며, 승인 전 live 수량에는 포함하지 않는다. 이 pilot은 full-bundle 회귀 표본으로
+유지한다. 다음 배치는 같은 수를 모든 seed에 반복하지 않고 다음 loader 공백만 채운다.
 
-1. C1/C2 시나리오와 듣기 quest를 먼저 만든다.
-2. B1/B2도 같은 bundle 규칙의 회귀 표본을 하나씩 만든다.
-3. 각 scenario에 듣기, 번역, 빈칸, 문장 조립, 받아쓰기를 넣어 실제 플레이 루프를 완성한다.
-4. 다음 batch에서 B1부터 C2 pronunciation을 추가한다.
-5. 독립형 smalltalk, Cloze, Satzbau는 사용성 지표와 course 노출 공백을 확인한 뒤 보강한다.
+1. C1/C2 scenario exact-level 보유를 각 8개까지 올리고, 아직 scenario 0인 unit을 먼저 채운다.
+2. C1/C2 Smalltalk는 22 category마다 최소 2개가 되도록 부족한 38개와 37개를 작성한다.
+3. B1/B2 Cloze는 unit당 round 10의 부족분 29개만, Satzbau는 round 8의 부족분 14개만 만든다.
+4. pronunciation은 exact-level 보유 12개 기준의 부족분 8개씩, 총 32개를 만든다.
+5. 한 seed에서 필요 없는 standalone kind는 ID 열을 비우며, 만드는 kind에만 canonical
+   derivative를 둔다.
 
 ## 8. 금지 패턴
 

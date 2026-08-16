@@ -427,6 +427,7 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain an items array")
             return
+        self._validate_game_meta(name, root, items)
         self._validate_game_items(name, items, kind="cloze")
 
     def validate_satz(self, vocab_levels: dict[str, str]) -> None:
@@ -436,6 +437,7 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain an items array")
             return
+        self._validate_game_meta(name, root, items)
         seen: set[str] = set()
         for index, item in enumerate(items):
             label = f"item {index}"
@@ -472,6 +474,25 @@ class ContentValidator:
             vocab_level = vocab_levels.get(item.get("vocabKo", ""))
             if vocab_level != level:
                 self.issue(name, f"{ident} vocabKo must match exactly one same-level vocab row")
+
+    def _validate_game_meta(
+        self,
+        source: str,
+        root: dict[str, Any],
+        items: list[Any],
+    ) -> None:
+        meta = root.get("meta")
+        if not isinstance(meta, dict):
+            self.issue(source, "root must contain a meta object")
+            return
+        if meta.get("total") != len(items):
+            self.issue(source, "meta.total must equal the items array length")
+        expected = {level: 0 for level in ("a1", "a2", "b1", "b2", "c1", "c2")}
+        for item in items:
+            if isinstance(item, dict) and item.get("level") in expected:
+                expected[str(item["level"])] += 1
+        if meta.get("perLevel") != expected:
+            self.issue(source, "meta.perLevel must contain exact A1-C2 item counts")
 
     def validate_smalltalk(self) -> None:
         name = "smalltalk.json"
@@ -1330,6 +1351,37 @@ class ContentValidator:
         for kind, actual in counts.items():
             if declared.get(kind) != actual:
                 self.issue(name, f"{kind} count is {declared.get(kind)!r}, actual is {actual}")
+
+        graph = root.get("graph")
+        if not isinstance(graph, dict):
+            self.issue(name, "graph must be an object")
+            return
+        curriculum = self.load_json("curriculum_manifest.json")
+        course_units = curriculum.get("courseUnits") if isinstance(curriculum, dict) else None
+        form_families = curriculum.get("formFamilies") if isinstance(curriculum, dict) else None
+        if not isinstance(course_units, list):
+            self.issue(name, "cannot verify graph.courseUnits against curriculum courseUnits")
+            return
+        expected_graph = {
+            "courseUnits": len(course_units),
+            **{
+                f"{level}CourseUnits": sum(
+                    1
+                    for unit in course_units
+                    if isinstance(unit, dict)
+                    and str(unit.get("level") or "").strip().lower() == level
+                )
+                for level in LOWER_LEVELS
+            },
+        }
+        if isinstance(form_families, list):
+            expected_graph["formFamilies"] = len(form_families)
+        for field, actual in expected_graph.items():
+            if graph.get(field) != actual:
+                self.issue(
+                    name,
+                    f"graph.{field} is {graph.get(field)!r}, actual is {actual}",
+                )
 
     def inventory_counts(
         self,

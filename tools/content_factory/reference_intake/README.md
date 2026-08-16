@@ -10,7 +10,10 @@
 3. 일반화된 교육 신호만 `reference_observations.csv`에 기록한다.
 4. source 추적 정보를 완전히 제거한 제품 brief를 `content_briefs.csv`에 만든다.
 5. 기존 live ID와 새 draft ID의 연결을 `seed_bundle_plan.csv`에 고정한다.
-6. `python3 tools/content_factory/validate_reference_intake.py`를 실행한다.
+6. `audit_pdf_inventory.py`로 텍스트층과 fingerprint를, `render_pdf_audit_samples.py`로
+   앞·중간·뒤 렌더 표본을 만들되 결과 이미지와 원문은 임시 폴더에만 둔다.
+7. `python3 tools/content_factory/validate_reference_intake.py`를 실행한다.
+8. `audit_game_loader_coverage.py`로 live와 review-only preview의 실제 노출량을 비교한다.
 
 상세 열 계약과 PDF 판독 규칙은
 `docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`를 따른다. `content_briefs.csv`와

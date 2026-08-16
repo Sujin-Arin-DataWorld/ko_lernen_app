@@ -69,7 +69,28 @@ void main() {
       };
 
       expect(actual, expected);
-      expect(raw['graph'], containsPair('checkpointThreshold', .7));
+      final curriculum =
+          jsonDecode(
+                File(
+                  'assets/data/curriculum_manifest.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final units = (curriculum['courseUnits'] as List<dynamic>)
+          .cast<Map<String, dynamic>>();
+      final graph = raw['graph'] as Map<String, dynamic>;
+      expect(graph, containsPair('checkpointThreshold', .7));
+      expect(graph['courseUnits'], units.length);
+      for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
+        expect(
+          graph['${level}CourseUnits'],
+          units.where((unit) => unit['level'] == level).length,
+        );
+      }
+      expect(
+        graph['formFamilies'],
+        (curriculum['formFamilies'] as List<dynamic>).length,
+      );
     },
   );
 }
