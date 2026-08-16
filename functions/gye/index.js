@@ -435,7 +435,7 @@ exports.on_pack_cleared = onDocumentWritten(
         });
       }
     } catch (error) {
-      console.error(`[on_pack_cleared] Error for uid=${uid}:`, error);
+      console.error("[on_pack_cleared] Error:", error);
       throw error;
     }
   },

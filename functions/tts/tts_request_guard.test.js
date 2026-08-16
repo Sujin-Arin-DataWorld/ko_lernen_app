@@ -3,10 +3,13 @@ const test = require("node:test");
 
 const {
   CALLABLE_OPTIONS,
+  CircuitBreaker,
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
+  quotaExpiresAt,
+  refundDailyTtsQuotas,
   underDailyTtsQuotas,
   validateTtsRequest,
 } = require("./tts_request_guard");
@@ -141,6 +144,60 @@ test("all accounts share the 300 synthesis project cap", async () => {
     installationId: "f70daeb0-6664-42b6-8125-b94fd3357063",
   });
   assert.deepEqual(blocked, { allowed: false, exceededScope: "global" });
+});
+
+test("usage ledgers expire two UTC days after the counted day", async () => {
+  const db = new FakeFirestore();
+  const now = new Date("2026-08-16T10:00:00.000Z");
+  await consume(db, {
+    uid: "account-a",
+    installationId: INSTALLATION_A,
+    now,
+  });
+
+  const stored = [...db.documents.values()];
+  assert.equal(stored.length, 3);
+  for (const document of stored) {
+    assert.deepEqual(document.expiresAt, quotaExpiresAt("2026-08-16"));
+  }
+  assert.deepEqual(
+    quotaExpiresAt("2026-08-16"),
+    new Date("2026-08-18T00:00:00.000Z"),
+  );
+});
+
+test("refunds a reserved synthesis when the provider fails", async () => {
+  const db = new FakeFirestore();
+  const options = {
+    uid: "account-a",
+    installationId: INSTALLATION_A,
+    now: new Date("2026-08-16T10:00:00.000Z"),
+    limits: { installation: 2, account: 2, global: 2 },
+  };
+  assert.equal((await consume(db, options)).allowed, true);
+  await refundDailyTtsQuotas(db, options);
+  assert.equal((await consume(db, options)).allowed, true);
+  assert.equal((await consume(db, options)).allowed, true);
+  assert.deepEqual(await consume(db, options), {
+    allowed: false,
+    exceededScope: "installation",
+  });
+});
+
+test("provider circuit opens after consecutive failures", () => {
+  let now = 1_000;
+  const breaker = new CircuitBreaker({
+    failureThreshold: 2,
+    cooldownMs: 30_000,
+    now: () => now,
+  });
+  breaker.recordFailure();
+  breaker.recordFailure();
+  assert.equal(breaker.allow(), false);
+  now = 31_000;
+  assert.equal(breaker.allow(), true);
+  breaker.recordSuccess();
+  assert.equal(breaker.allow(), true);
 });
 
 test("UTC day rollover starts fresh counters", async () => {

@@ -11,11 +11,14 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 
 from security import (  # noqa: E402
     AuthenticationFailed,
+    CircuitBreaker,
     DEFAULT_ALLOWED_APP_IDS,
     QuotaExceeded,
     QuotaState,
     consume_quota_state,
     quota_document_id,
+    quota_expires_at,
+    release_quota_state,
     verify_caller,
 )
 
@@ -141,6 +144,66 @@ class QuotaPolicyTest(unittest.TestCase):
         self.assertEqual(updated.day, "2026-08-01")
         self.assertEqual(updated.daily_count, 1)
         self.assertEqual(updated.burst_count, 1)
+
+    def test_release_undoes_the_same_day_consume(self):
+        now = dt.datetime(2026, 7, 31, 10, 0, tzinfo=dt.timezone.utc)
+        consumed = consume_quota_state(
+            QuotaState(
+                day="2026-07-31",
+                daily_count=4,
+                burst_window_started_at=now.timestamp(),
+                burst_count=2,
+            ),
+            now,
+        )
+
+        released = release_quota_state(consumed, now)
+
+        self.assertEqual(released.daily_count, 4)
+        self.assertEqual(released.burst_count, 2)
+
+    def test_release_does_not_cross_a_utc_day_boundary(self):
+        now = dt.datetime(2026, 8, 1, 0, 1, tzinfo=dt.timezone.utc)
+        released = release_quota_state(
+            QuotaState(
+                day="2026-07-31",
+                daily_count=20,
+                burst_window_started_at=now.timestamp() - 120,
+                burst_count=3,
+            ),
+            now,
+        )
+
+        self.assertEqual(released.day, "2026-07-31")
+        self.assertEqual(released.daily_count, 20)
+
+    def test_quota_ledger_expires_two_utc_days_later(self):
+        now = dt.datetime(2026, 7, 31, 10, 0, tzinfo=dt.timezone.utc)
+        self.assertEqual(
+            quota_expires_at(now),
+            dt.datetime(2026, 8, 2, tzinfo=dt.timezone.utc),
+        )
+
+
+class CircuitBreakerTest(unittest.TestCase):
+    def test_opens_after_threshold_and_allows_a_probe_after_cooldown(self):
+        clock = {"now": 1_000.0}
+        breaker = CircuitBreaker(
+            failure_threshold=3,
+            cooldown_seconds=30,
+            clock=lambda: clock["now"],
+        )
+
+        for _ in range(3):
+            breaker.record_failure()
+
+        self.assertFalse(breaker.allow())
+        clock["now"] = 1_029.0
+        self.assertFalse(breaker.allow())
+        clock["now"] = 1_030.0
+        self.assertTrue(breaker.allow())
+        breaker.record_success()
+        self.assertTrue(breaker.allow())
 
 
 if __name__ == "__main__":

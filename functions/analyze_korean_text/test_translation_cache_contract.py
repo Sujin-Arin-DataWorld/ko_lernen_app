@@ -37,3 +37,34 @@ class TranslationCacheInfrastructureContractTest(unittest.TestCase):
             "ttl": True,
             "indexes": [],
         }])
+
+    def test_legacy_and_quota_collections_are_server_only(self):
+        rules = (REPO_ROOT / "firestore.rules").read_text(encoding="utf-8")
+        for path in (
+            r"match\s+/cache/translations/\{hash\}",
+            r"match\s+/usage/\{document=\*\*\}",
+            r"match\s+/service_quotas/\{document=\*\*\}",
+            r"match\s+/service_quota_ledgers/\{document=\*\*\}",
+        ):
+            self.assertRegex(
+                rules,
+                re.compile(
+                    path + r"\s*\{\s*allow\s+read,\s*write:\s*if\s+false;\s*\}",
+                    re.DOTALL,
+                ),
+            )
+
+    def test_usage_and_quota_ledgers_have_ttl_overrides(self):
+        indexes = json.loads(
+            (REPO_ROOT / "firestore.indexes.json").read_text(encoding="utf-8")
+        )
+        ttl_groups = {
+            (
+                override.get("collectionGroup"),
+                override.get("fieldPath"),
+                override.get("ttl"),
+            )
+            for override in indexes.get("fieldOverrides", [])
+        }
+        self.assertIn(("usage", "expiresAt", True), ttl_groups)
+        self.assertIn(("service_quota_ledgers", "expiresAt", True), ttl_groups)

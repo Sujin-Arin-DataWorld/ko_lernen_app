@@ -12,6 +12,7 @@ const {
   pcm16ToWav,
   parseAzureAssessment,
   nextQuotaState,
+  previousQuotaState,
 } = require("../pronunciation_request_guard");
 
 function request(overrides = {}) {
@@ -129,5 +130,31 @@ test("allows 5 per minute and 50 per day with exact boundary resets", () => {
     minuteCount: 1,
     dayBucket: "2026-08-13",
     dayCount: 1,
+  });
+});
+
+test("previousQuotaState refunds the same minute and day buckets", () => {
+  const now = new Date("2026-08-13T10:22:30.000Z");
+  assert.deepEqual(previousQuotaState({
+    minuteBucket: "2026-08-13T10:22",
+    minuteCount: 3,
+    dayBucket: "2026-08-13",
+    dayCount: 9,
+  }, now), {
+    minuteBucket: "2026-08-13T10:22",
+    minuteCount: 2,
+    dayBucket: "2026-08-13",
+    dayCount: 8,
+  });
+  assert.deepEqual(previousQuotaState({
+    minuteBucket: "2026-08-13T10:21",
+    minuteCount: 5,
+    dayBucket: "2026-08-13",
+    dayCount: 9,
+  }, now), {
+    minuteBucket: "2026-08-13T10:21",
+    minuteCount: 5,
+    dayBucket: "2026-08-13",
+    dayCount: 8,
   });
 });

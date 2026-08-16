@@ -188,6 +188,27 @@ class TranslationCachePrivacyTest(unittest.TestCase):
         self.assertEqual(result[source], "cached")
         deepl.assert_not_called()
 
+    def test_open_deepl_circuit_skips_provider_and_keeps_cache_hits(self):
+        endpoint = self.endpoint
+        source = "저는 학생이에요."
+        breaker = endpoint.CircuitBreaker(
+            failure_threshold=1,
+            cooldown_seconds=30,
+            clock=lambda: 1_000.0,
+        )
+        breaker.record_failure()
+        translator = mock.Mock()
+
+        with mock.patch.object(
+            endpoint, "_get_firestore", return_value=_Firestore()
+        ), mock.patch.object(
+            endpoint, "_deepl_breaker", return_value=breaker
+        ), mock.patch.object(endpoint, "_get_deepl", return_value=translator):
+            result = endpoint.translate_batch([source], "DE")
+
+        self.assertEqual(result[source], "")
+        translator.translate_text.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

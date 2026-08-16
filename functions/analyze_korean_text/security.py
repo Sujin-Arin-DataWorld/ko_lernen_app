@@ -22,11 +22,13 @@ DEFAULT_ALLOWED_APP_IDS = frozenset(
     }
 )
 QUOTA_COLLECTION = "service_quotas"
+QUOTA_LEDGER_COLLECTION = "service_quota_ledgers"
 QUOTA_SCOPE = "book_analysis_v1"
 DAILY_LIMIT = 20
 BURST_LIMIT = 3
 BURST_WINDOW_SECONDS = 60
 KKEUNMARI_QUOTA_SCOPE = "kkeunmari_dictionary_v1"
+QUOTA_LEDGER_TTL_DAYS = 2
 
 
 @dataclass(frozen=True)
@@ -60,6 +62,47 @@ class QuotaExceeded(Exception):
     def __init__(self, retry_after_seconds: int):
         super().__init__("quota exceeded")
         self.retry_after_seconds = max(1, retry_after_seconds)
+
+
+class CircuitBreaker:
+    """In-process fail-fast guard for DeepL, Azure, and Cloud TTS."""
+
+    def __init__(
+        self,
+        *,
+        failure_threshold: int = 5,
+        cooldown_seconds: float = 30.0,
+        clock: Callable[[], float] | None = None,
+    ):
+        self.failure_threshold = failure_threshold
+        self.cooldown_seconds = cooldown_seconds
+        self._clock = clock or (
+            lambda: dt.datetime.now(dt.timezone.utc).timestamp()
+        )
+        self._failures = 0
+        self._opened_at: float | None = None
+
+    def allow(self) -> bool:
+        if self._opened_at is None:
+            return True
+        return self._clock() - self._opened_at >= self.cooldown_seconds
+
+    def record_success(self) -> None:
+        self._failures = 0
+        self._opened_at = None
+
+    def record_failure(self) -> None:
+        now = self._clock()
+        if (
+            self._opened_at is not None
+            and now - self._opened_at >= self.cooldown_seconds
+        ):
+            self._failures = self.failure_threshold
+            self._opened_at = now
+            return
+        self._failures += 1
+        if self._failures >= self.failure_threshold:
+            self._opened_at = now
 
 
 @dataclass(frozen=True)
@@ -177,6 +220,16 @@ def _retry_after_next_day(now: dt.datetime) -> int:
     return max(1, math.ceil((next_day - now).total_seconds()))
 
 
+def quota_expires_at(now: dt.datetime) -> dt.datetime:
+    """Keep daily ledgers just long enough for UTC rollover, then TTL them."""
+    utc_now = now.astimezone(dt.timezone.utc)
+    return dt.datetime.combine(
+        utc_now.date() + dt.timedelta(days=QUOTA_LEDGER_TTL_DAYS),
+        dt.time.min,
+        tzinfo=dt.timezone.utc,
+    )
+
+
 def consume_quota_state(
     state: QuotaState,
     now: dt.datetime,
@@ -205,6 +258,29 @@ def consume_quota_state(
         daily_count=daily_count + 1,
         burst_window_started_at=burst_started_at,
         burst_count=burst_count + 1,
+    )
+
+
+def release_quota_state(
+    state: QuotaState,
+    now: dt.datetime,
+    *,
+    policy: QuotaPolicy = BOOK_ANALYSIS_QUOTA_POLICY,
+) -> QuotaState:
+    """Undo one successful consume from the same UTC day and burst window."""
+    utc_now = now.astimezone(dt.timezone.utc)
+    day = utc_now.date().isoformat()
+    if state.day != day:
+        return state
+    elapsed = utc_now.timestamp() - state.burst_window_started_at
+    burst_count = (
+        state.burst_count if 0 <= elapsed < policy.burst_window_seconds else 0
+    )
+    return QuotaState(
+        day=day,
+        daily_count=max(0, state.daily_count - 1),
+        burst_window_started_at=state.burst_window_started_at,
+        burst_count=max(0, burst_count - 1) if burst_count else 0,
     )
 
 
@@ -242,18 +318,29 @@ class FirestoreQuotaGate:
         self._firestore_client = firestore.Client()
         return self._firestore_client
 
+    def _ledger_reference(self, uid: str) -> Any:
+        return self._client().collection(QUOTA_LEDGER_COLLECTION).document(
+            quota_document_id(uid, scope=self._scope)
+        )
+
+    def _payload(self, updated: QuotaState, now: dt.datetime) -> dict[str, Any]:
+        return {
+            "day": updated.day,
+            "dailyCount": updated.daily_count,
+            "burstWindowStartedAt": updated.burst_window_started_at,
+            "burstCount": updated.burst_count,
+            "updatedAtUnix": int(now.timestamp()),
+            "expiresAt": quota_expires_at(now),
+            "scope": self._scope,
+        }
+
     def consume(self, uid: str) -> QuotaState:
         """Atomically consumes one quota unit or raises without allowing work."""
         try:
             from google.cloud import firestore  # type: ignore
 
             client = self._client()
-            reference = (
-                client.collection(QUOTA_COLLECTION)
-                .document(self._scope)
-                .collection("users")
-                .document(quota_document_id(uid, scope=self._scope))
-            )
+            reference = self._ledger_reference(uid)
             transaction = client.transaction()
             now = self._now().astimezone(dt.timezone.utc)
 
@@ -264,20 +351,35 @@ class FirestoreQuotaGate:
                     snapshot.to_dict() if snapshot.exists else None
                 )
                 updated = consume_quota_state(current, now, policy=self._policy)
-                transaction.set(
-                    reference,
-                    {
-                        "day": updated.day,
-                        "dailyCount": updated.daily_count,
-                        "burstWindowStartedAt": updated.burst_window_started_at,
-                        "burstCount": updated.burst_count,
-                        "updatedAtUnix": int(now.timestamp()),
-                    },
-                )
+                transaction.set(reference, self._payload(updated, now))
                 return updated
 
             return consume_in_transaction(transaction)
         except QuotaExceeded:
             raise
+        except Exception as error:
+            raise QuotaStoreUnavailable() from error
+
+    def release(self, uid: str) -> QuotaState | None:
+        """Refund one unit after a paid provider or engine failure."""
+        try:
+            from google.cloud import firestore  # type: ignore
+
+            client = self._client()
+            reference = self._ledger_reference(uid)
+            transaction = client.transaction()
+            now = self._now().astimezone(dt.timezone.utc)
+
+            @firestore.transactional
+            def release_in_transaction(transaction: Any) -> QuotaState | None:
+                snapshot = reference.get(transaction=transaction)
+                if not snapshot.exists:
+                    return None
+                current = _quota_state_from_document(snapshot.to_dict())
+                updated = release_quota_state(current, now, policy=self._policy)
+                transaction.set(reference, self._payload(updated, now))
+                return updated
+
+            return release_in_transaction(transaction)
         except Exception as error:
             raise QuotaStoreUnavailable() from error

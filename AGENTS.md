@@ -343,6 +343,11 @@ flutter run -d <android-id>   # 안드로이드
   사진 선명도·명암·회전 gate와 3단 정렬, 엄격한 응답 schema/언어 검증, 빈·오염 결과의
   저장·팩·TTS 차단, DE/EN 출처, Kiwi 관형형, source-free 30일 cache, exact source
   allowlist와 배포 verifier를 구현했다. Flutter/Python/Firestore 회귀와 preflight는 통과했다.
+- [x] **백엔드 신뢰성 1단계 (로컬)**: 책 분석·TTS·발음이 제공자 실패 시 할당량을
+  환급하고, DeepL/Azure/Cloud TTS에 프로세스 내 서킷 브레이커를 둔다. TTS `usage`와
+  `service_quota_ledgers`는 `expiresAt` TTL을 쓰고, 레거시 `cache/translations`와
+  할당량 컬렉션은 클라 접근을 차단한다. 끝말잇기 사전 HTTP는 2KB 상한을 강제한다.
+  live 배포·TTL ACTIVE 확인은 아래 운영 게이트에 남긴다.
 - [ ] **책 한 컷 운영 게이트 (Jin 승인 필요)**: 2026-08-15 live Gen2는 필수 모듈이 빠진
   구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
   Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재

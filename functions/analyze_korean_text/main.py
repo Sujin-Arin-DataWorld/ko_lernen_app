@@ -49,6 +49,7 @@ from security import (
     KKEUNMARI_DICTIONARY_QUOTA_POLICY,
     KKEUNMARI_QUOTA_SCOPE,
     AuthenticationFailed,
+    CircuitBreaker,
     FirestoreQuotaGate,
     QuotaExceeded,
     QuotaStoreUnavailable,
@@ -63,7 +64,10 @@ _FS_CLIENT = None
 _FS_TRIED = False
 _QUOTA_GATE: FirestoreQuotaGate | None = None
 _DICTIONARY_QUOTA_GATE: FirestoreQuotaGate | None = None
+_DEEPL_BREAKER = CircuitBreaker()
+_DEEPL_UNAVAILABLE = object()
 _MAX_REQUEST_BYTES = 20_000
+_DICTIONARY_MAX_REQUEST_BYTES = 2_000
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -97,6 +101,7 @@ def _warning_response(
     )
     if retry_after_seconds is not None:
         response.headers["Retry-After"] = str(retry_after_seconds)
+    response.headers["Cache-Control"] = "no-store"
     return response
 
 
@@ -111,7 +116,7 @@ def _analysis_response(
 ) -> Response:
     """Return the complete success schema, including empty quality results."""
 
-    return Response(
+    response = Response(
         json.dumps(
             {
                 "words": words or [],
@@ -126,6 +131,8 @@ def _analysis_response(
         status=200,
         mimetype="application/json",
     )
+    response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 def _log_analysis_result(
@@ -311,14 +318,21 @@ def extract_words(
 
 def _get_deepl():
     global _DEEPL
+    if _DEEPL is _DEEPL_UNAVAILABLE:
+        return None
     if _DEEPL is None:
         import deepl  # type: ignore
 
         api_key = os.environ.get("DEEPL_API_KEY", "")
         if not api_key:
+            _DEEPL = _DEEPL_UNAVAILABLE
             return None
         _DEEPL = deepl.Translator(api_key)
     return _DEEPL
+
+
+def _deepl_breaker() -> CircuitBreaker:
+    return _DEEPL_BREAKER
 
 
 # ── DeepL-Übersetzungs-Cache (Firestore) ──────────────────────────────────
@@ -426,8 +440,11 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
 
     # 2) Nur Misses an DeepL.
     if pending:
-        translator = _get_deepl()
+        breaker = _deepl_breaker()
+        translator = _get_deepl() if breaker.allow() else None
         if translator is None:
+            if not breaker.allow():
+                _LOGGER.warning("deepl_circuit_open")
             for it in pending:
                 out.setdefault(it, "")
         else:
@@ -435,7 +452,9 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
                 results = translator.translate_text(
                     pending, target_lang=target_code, source_lang="KO")
                 fresh = {src: r.text for src, r in zip(pending, results)}
+                breaker.record_success()
             except Exception:  # pragma: no cover — best-effort
+                breaker.record_failure()
                 _LOGGER.warning("deepl_sentence_translation_failed")
                 fresh = {it: "" for it in pending}
             out.update(fresh)
@@ -528,8 +547,11 @@ def translate_words_with_context(
     if not pending:
         return result
 
-    translator = _get_deepl()
+    breaker = _deepl_breaker()
+    translator = _get_deepl() if breaker.allow() else None
     if translator is None:
+        if not breaker.allow():
+            _LOGGER.warning("deepl_circuit_open")
         for kor in pending:
             result.setdefault(kor, "")
         return result
@@ -540,6 +562,7 @@ def translate_words_with_context(
         by_context.setdefault(ex, []).append(kor)
 
     fresh: dict[str, str] = {}
+    provider_failed = False
     for ex, kors in by_context.items():
         try:
             results = translator.translate_text(
@@ -551,9 +574,14 @@ def translate_words_with_context(
             for kor, r in zip(kors, results):
                 fresh[kor] = r.text
         except Exception:  # pragma: no cover — best-effort
+            provider_failed = True
             _LOGGER.warning("deepl_word_translation_failed")
             for kor in kors:
                 fresh[kor] = ""
+    if provider_failed:
+        breaker.record_failure()
+    else:
+        breaker.record_success()
     result.update(fresh)
 
     # 3) 새 번역 캐시 저장 (단어+예문 키, 비어있지 않은 것만).
@@ -627,11 +655,7 @@ def analyze_korean_text(request: Request) -> Response:
             warnings=("empty_text",),
         )
     if len(text) > 5000:
-        return Response(
-            json.dumps({"warnings": ["text_too_long"]}),
-            status=400,
-            mimetype="application/json",
-        )
+        return _warning_response("text_too_long", 400)
 
     prepared = prepare_korean_analysis_text(text)
     quality_warnings = list(prepared.warnings)
@@ -659,6 +683,33 @@ def analyze_korean_text(request: Request) -> Response:
     except QuotaStoreUnavailable:
         return _warning_response("service_unavailable", 503)
 
+    try:
+        return _complete_book_analysis(
+            lang=lang,
+            text=text,
+            structured_units=structured_units,
+            quality_warnings=quality_warnings,
+        )
+    except Exception:
+        _LOGGER.exception("book_analysis_unhandled")
+        _release_quota_best_effort(caller.uid)
+        return _warning_response("service_unavailable", 503)
+
+
+def _release_quota_best_effort(uid: str) -> None:
+    try:
+        _quota_gate().release(uid)
+    except Exception:
+        _LOGGER.warning("book_analysis_quota_release_failed")
+
+
+def _complete_book_analysis(
+    *,
+    lang: str,
+    text: str,
+    structured_units: list[dict[str, str]] | None,
+    quality_warnings: list[str],
+) -> Response:
     sentence_sources: list[tuple[str, str]] = []
     expression_sources: list[tuple[str, str]] = []
     if structured_units is None:
@@ -806,6 +857,11 @@ def validate_kkeunmari_word(request: Request) -> Response:
     """
     if request.method != "POST":
         return Response("POST only", status=405)
+    if (
+        request.content_length is not None
+        and request.content_length > _DICTIONARY_MAX_REQUEST_BYTES
+    ):
+        return _warning_response("request_too_large", 413)
     try:
         caller = verify_caller(request)
     except AuthenticationFailed:
