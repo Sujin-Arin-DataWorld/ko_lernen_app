@@ -27,6 +27,8 @@ class FreeRoomLayer extends StatefulWidget {
   final ValueChanged<String>? onSelect;
   final RoomItemTransformCallback? onTransform;
   final RoomItemTransformCallback? onTransformEnd;
+  final ValueChanged<String>? onInspectDecoration;
+  final Set<String> inspectableDecorationSlugs;
 
   const FreeRoomLayer({
     super.key,
@@ -36,6 +38,8 @@ class FreeRoomLayer extends StatefulWidget {
     this.onSelect,
     this.onTransform,
     this.onTransformEnd,
+    this.onInspectDecoration,
+    this.inspectableDecorationSlugs = const {},
   }) : assert(!interactive || onSelect != null);
 
   @override
@@ -225,6 +229,27 @@ class _FreeRoomLayerState extends State<FreeRoomLayer> {
                     },
                   ),
             },
+            child: child,
+          ),
+        ),
+      );
+    } else if (item.kind == RoomAssetKind.decoration &&
+        widget.onInspectDecoration != null &&
+        widget.inspectableDecorationSlugs.contains(item.assetId)) {
+      final helpLabel = AppL10n.of(context).culturalHelpSemantics(label);
+      child = Semantics(
+        key: ValueKey('inspect-room-item-${item.instanceId}'),
+        button: true,
+        label: helpLabel,
+        onTap: () => widget.onInspectDecoration!(item.assetId),
+        excludeSemantics: true,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: () => widget.onInspectDecoration!(item.assetId),
+            customBorder: const RoundedRectangleBorder(
+              borderRadius: SoriRadius.brSm,
+            ),
             child: child,
           ),
         ),

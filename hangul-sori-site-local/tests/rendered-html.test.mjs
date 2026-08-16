@@ -38,7 +38,8 @@ test("renders finished site metadata", async () => {
   assert.match(response.headers.get("cache-control") ?? "", /must-revalidate/i);
   assert.equal(response.headers.get("x-hangul-sori-release"), releaseManifest.releaseId);
   const html = await response.text();
-  assert.match(html, /Learn Korean and build your own hanok\./i);
+  const visibleText = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+  assert.match(visibleText, /Learn Korean and build your own hanok\./i);
   assert.match(html, /한글을, 소리로 배우다/);
   assert.match(html, /name=["']theme-color["'][^>]*content=["']#1f7a6b["']/i);
   assert.doesNotMatch(html, /codex-preview/i);
@@ -302,7 +303,8 @@ test("renders every public route with the expected launch content", async () => 
     );
     assert.equal(response.status, 200, `${path} should render`);
     const html = await response.text();
-    assert.match(html, new RegExp(expected, "i"), `${path} should contain its primary content`);
+    const visibleText = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+    assert.match(visibleText, new RegExp(expected, "i"), `${path} should contain its primary content`);
     if (path === "/impressum") {
       assert.match(html, /Kurfürstenstraße 14/i);
       assert.match(html, /60486 Frankfurt am Main/i);

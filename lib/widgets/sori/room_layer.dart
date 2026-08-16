@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/personal_room.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/room_placement_service.dart';
 import 'placed_decoration.dart';
 import 'tokens.dart';
@@ -37,6 +38,8 @@ class RoomLayer extends StatelessWidget {
   /// Furnishing screens show available empty slots. Read-only scenes keep the
   /// placed decor but hide those affordances because they cannot be acted on.
   final bool showEmptyMarkers;
+  final ValueChanged<String>? onInspectDecoration;
+  final Set<String> inspectableDecorationSlugs;
 
   const RoomLayer({
     super.key,
@@ -47,6 +50,8 @@ class RoomLayer extends StatelessWidget {
     this.owned = const {},
     this.onTapSlot,
     this.showEmptyMarkers = true,
+    this.onInspectDecoration,
+    this.inspectableDecorationSlugs = const {},
   });
 
   RoomPlacement get _placement =>
@@ -97,6 +102,12 @@ class RoomLayer extends StatelessWidget {
                   canvasWidth: w,
                   canvasHeight: h,
                   onTap: onTapSlot == null ? null : () => onTapSlot!(slot),
+                  onInspect:
+                      slug != null &&
+                          onInspectDecoration != null &&
+                          inspectableDecorationSlugs.contains(slug)
+                      ? () => onInspectDecoration!(slug)
+                      : null,
                 );
               }(),
           ],
@@ -113,6 +124,7 @@ class _SlotView extends StatelessWidget {
   final double canvasWidth;
   final double canvasHeight;
   final VoidCallback? onTap;
+  final VoidCallback? onInspect;
 
   const _SlotView({
     required this.slot,
@@ -121,6 +133,7 @@ class _SlotView extends StatelessWidget {
     required this.canvasWidth,
     required this.canvasHeight,
     required this.onTap,
+    required this.onInspect,
   });
 
   @override
@@ -155,18 +168,24 @@ class _SlotView extends StatelessWidget {
         bottom: bottom,
         width: boxW,
         height: boxH,
-        child: onTap == null
-            ? centeredContent
-            : GestureDetector(
+        child: onTap != null
+            ? GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: onTap,
+                child: centeredContent,
+              )
+            : onInspect == null
+            ? centeredContent
+            : _RoomDecorationTapTarget(
+                label: decorName(AppL10n.of(context), slug!),
+                onTap: onInspect!,
                 child: centeredContent,
               ),
       );
     }
 
     // 바닥 앵커 — 마당(`DecorationLayer`)과 같은 규약: 폭만 고정, 높이는 비율대로.
-    if (onTap == null) {
+    if (onTap == null && onInspect == null) {
       return Positioned(
         left: left,
         bottom: bottom,
@@ -185,13 +204,48 @@ class _SlotView extends StatelessWidget {
       bottom: bottom,
       width: boxW,
       height: tapHeight,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: Align(
-          alignment: Alignment.bottomLeft,
-          child: SizedBox(width: itemW, child: content),
-        ),
+      child: onTap != null
+          ? GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onTap,
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: SizedBox(width: itemW, child: content),
+              ),
+            )
+          : _RoomDecorationTapTarget(
+              label: decorName(AppL10n.of(context), slug!),
+              onTap: onInspect!,
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: SizedBox(width: itemW, child: content),
+              ),
+            ),
+    );
+  }
+}
+
+class _RoomDecorationTapTarget extends StatelessWidget {
+  const _RoomDecorationTapTarget({
+    required this.label,
+    required this.onTap,
+    required this.child,
+  });
+
+  final String label;
+  final VoidCallback onTap;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: AppL10n.of(context).culturalHelpSemantics(label),
+      onTap: onTap,
+      excludeSemantics: true,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(onTap: onTap, child: child),
       ),
     );
   }

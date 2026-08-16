@@ -95,20 +95,19 @@ Custom Domain만 다시 연결하고 운영 주소를 검증합니다. 앱 빌�
 경고를 표시하는 것은 현재 고정 버전에서 정상입니다. 명령 자체가 실패하면 코드를
 고친 뒤 전체 재배포 명령인 `npm run deploy`를 사용합니다.
 
-## 5. Git push 자동배포
+## 5. GitHub Actions 자동배포
 
-Cloudflare Workers Builds에서 GitHub 저장소를 한 번 연결합니다.
+저장소의 `CI` workflow가 홈페이지 또는 공통 문화어 JSON 변경을 감지해 먼저 전체 웹
+gate를 실행하고, 성공한 exact `main` commit만 Cloudflare production에 배포합니다.
+최초 1회 설정은 `../docs/GITHUB_ACTIONS_CLOUDFLARE_SETUP.md`를 따릅니다.
 
-- Worker: `hangul-sori-redesign`
-- Production branch: `main`
-- Root directory: `/hangul-sori-site-local`
-- Build command: `npm run deploy:check`
-- Deploy command: `npm run deploy:production`
-- Builds for non-production branches: 끔
-- Watch path: `hangul-sori-site-local/*`
+- GitHub Environment: `cloudflare-production` (`main`만 허용)
+- Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- Repository variable: `WEBSITE_PRODUCTION_RELEASE_ENABLED=true`
+- 자동 입력: `hangul-sori-site-local/**`, `docs/data/cultural_glossary.json`
 
-연결 후에는 사이트 파일 수정 → `npm run deploy:check` → 커밋 → `main` push만 하면
-됩니다. 첫 Workers Build가 실제로 성공해 정확한 커밋 SHA가 두 도메인에 나타난 것을
-확인하기 전에는 토큰 권한과 자동배포 완료를 가정하지 않습니다. 기존 Sites 프로젝트와
-저장소 루트의 레거시 `hangulsori` Worker 자동빌드는 끕니다. 자세한 복구·롤백 절차는
-`WORKER_RELEASE.md`에 있습니다.
+설정 후에는 사이트 파일 수정 → `npm run deploy:check` → 커밋 → `main` push만 하면
+됩니다. 첫 GitHub Actions release가 실제로 성공해 정확한 커밋 SHA가 두 도메인에 나타난
+것을 확인하기 전에는 토큰 권한과 자동배포 완료를 가정하지 않습니다. Cloudflare Workers
+Builds production 배포와 기존 Sites·레거시 `hangulsori` Worker 자동빌드는 함께 켜 두지
+않습니다. 자세한 복구·롤백 절차는 `WORKER_RELEASE.md`에 있습니다.

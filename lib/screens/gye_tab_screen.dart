@@ -7,6 +7,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/screen_background.dart';
@@ -337,6 +338,10 @@ class _IntroEmpty extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const CulturalTermContent(termId: 'gye'),
+            const SizedBox(height: Spacing.lg),
+            Divider(color: s.border),
+            const SizedBox(height: Spacing.lg),
             Text(t.gyeEmptyHeadline, style: tt.h3),
             const SizedBox(height: Spacing.md),
             point(Icons.groups_2_outlined, t.gyeExplainWhat),
@@ -410,10 +415,13 @@ class _DetailsInfoButton extends StatelessWidget {
         tooltip: t.gyeExplainMore,
         padding: EdgeInsets.zero,
         onPressed: onTap,
-        icon: Icon(
-          Icons.info_outline_rounded,
-          size: 20,
-          color: SoriSurfaces.of(context).textMuted,
+        icon: Text(
+          '?',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: SoriSurfaces.of(context).textMuted,
+          ),
         ),
       ),
     );

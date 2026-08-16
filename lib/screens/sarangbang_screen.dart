@@ -18,6 +18,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/personal_room_scene.dart';
@@ -280,7 +281,13 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     return Scaffold(
       backgroundColor: s.bg,
       appBar: AppBar(
-        title: Text(t.sarangbangStudyTitle),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(child: Text(t.sarangbangStudyTitle)),
+            const CulturalHelpButton(termId: 'sarangbang'),
+          ],
+        ),
         actions: [
           IconButton(
             tooltip: t.hanokWorldTitle,
@@ -454,46 +461,73 @@ class _SarangbangStudyScene extends StatelessWidget {
       key: const ValueKey('sarangbang-study-room'),
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Stack(
-          children: [
-            PersonalRoomScene(
-              surface: PersonalRoomSurface.sarangbang,
-              layouts: layouts,
-              interactive: false,
-            ),
-            if (expression case final value?)
-              if (value.trim().isNotEmpty)
-                Positioned(
-                  left: Spacing.md,
-                  right: Spacing.md,
-                  bottom: Spacing.md,
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      key: const ValueKey('sarangbang-earned-expression'),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Spacing.sm,
-                        vertical: Spacing.xs,
-                      ),
-                      decoration: BoxDecoration(
-                        color: SoriSurfaces.of(
-                          context,
-                        ).surface.withValues(alpha: .94),
-                        borderRadius: SoriRadius.brSm,
-                        border: Border.all(
-                          color: SoriColors.gold.withValues(alpha: .55),
-                        ),
-                      ),
-                      child: Text(
-                        value.trim(),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: text.label,
-                      ),
+        CulturalGlossaryBuilder(
+          builder: (context, glossary) {
+            final inspectableSlugs = glossary?.decorationSlugs ?? const {};
+            final roomItems =
+                layouts[PersonalRoomSurface.sarangbang] ?? const [];
+            final hasInspectableObject = roomItems.any(
+              (item) =>
+                  item.kind == RoomAssetKind.decoration &&
+                  inspectableSlugs.contains(item.assetId),
+            );
+            return Stack(
+              children: [
+                PersonalRoomScene(
+                  surface: PersonalRoomSurface.sarangbang,
+                  layouts: layouts,
+                  interactive: false,
+                  inspectableDecorationSlugs: inspectableSlugs,
+                  onInspectDecoration: (slug) {
+                    unawaited(markCulturalObjectHintSeen());
+                    unawaited(showCulturalDecorationSheet(context, slug));
+                  },
+                ),
+                if (hasInspectableObject)
+                  const PositionedDirectional(
+                    start: Spacing.md,
+                    end: Spacing.md,
+                    top: Spacing.md,
+                    child: Align(
+                      alignment: AlignmentDirectional.topCenter,
+                      child: CulturalObjectHint(enabled: true),
                     ),
                   ),
-                ),
-          ],
+                if (expression case final value?)
+                  if (value.trim().isNotEmpty)
+                    Positioned(
+                      left: Spacing.md,
+                      right: Spacing.md,
+                      bottom: Spacing.md,
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Container(
+                          key: const ValueKey('sarangbang-earned-expression'),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: Spacing.sm,
+                            vertical: Spacing.xs,
+                          ),
+                          decoration: BoxDecoration(
+                            color: SoriSurfaces.of(
+                              context,
+                            ).surface.withValues(alpha: .94),
+                            borderRadius: SoriRadius.brSm,
+                            border: Border.all(
+                              color: SoriColors.gold.withValues(alpha: .55),
+                            ),
+                          ),
+                          child: Text(
+                            value.trim(),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: text.label,
+                          ),
+                        ),
+                      ),
+                    ),
+              ],
+            );
+          },
         ),
       ],
     );

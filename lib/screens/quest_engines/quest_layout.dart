@@ -48,12 +48,17 @@ class QuestLayout extends StatelessWidget {
   /// Sprache abgespielt wird). Engines ohne Audio lassen ihn weg.
   final bool showTtsSpeed;
 
+  /// Alignment used only when the content is shorter than the available
+  /// viewport. Long content still scrolls from the top as usual.
+  final Alignment contentAlignment;
+
   const QuestLayout({
     super.key,
     required this.content,
     this.action,
     this.gap = Spacing.md,
     this.showTtsSpeed = false,
+    this.contentAlignment = Alignment.topCenter,
   });
 
   @override
@@ -91,9 +96,22 @@ class QuestLayout extends StatelessWidget {
           children: [
             if (speedBar != null) speedBar,
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.only(top: _overhang),
-                child: content,
+              child: LayoutBuilder(
+                builder: (context, viewport) => SingleChildScrollView(
+                  padding: const EdgeInsets.only(top: _overhang),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: (viewport.maxHeight - _overhang).clamp(
+                        0,
+                        double.infinity,
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Align(alignment: contentAlignment, child: content),
+                    ),
+                  ),
+                ),
               ),
             ),
             if (pinnedAction != null) ...[

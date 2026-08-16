@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Apple, ArrowRight, Brain, Check, Coffee, Gamepad2, Headphones, Languages, MapPin, Mic2, Play, Repeat2, Sparkles, UsersRound, Volume2 } from "lucide-react";
 import { TesterAccessForm } from "./tester-access-form";
 import { CookieSettingsButton } from "./cookie-settings-button";
+import { CulturalLocaleSync, CulturalTerm } from "./cultural-glossary";
 
 export type Locale = "de" | "en" | "ko";
 
@@ -219,7 +220,7 @@ export function Header({ locale }: { locale: Locale }) {
   return <header className="site-header"><div className="nav-shell">
     <Link className="brand-link" href={localeHref(locale)}><Brand /></Link>
     <nav className="desktop-nav" aria-label="Primary navigation"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><Link href="#learners">{c.nav[2]}</Link></nav>
-    <div className="nav-actions"><div className="locale-switch" aria-label="Language"><Link className={locale === "de" ? "active" : ""} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} href="/en">EN</Link></div><a className="login-link" href="#tester-access">{c.login}</a><ButtonLink href="#tester-access" compact>{c.start}</ButtonLink></div>
+    <div className="nav-actions"><div className="locale-switch" aria-label="Language"><Link className={locale === "de" ? "active" : ""} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} href="/en">EN</Link><Link className={locale === "ko" ? "active" : ""} href="/ko">KO</Link></div><a className="login-link" href="#tester-access">{c.login}</a><ButtonLink href="#tester-access" compact>{c.start}</ButtonLink></div>
   </div></header>;
 }
 
@@ -307,6 +308,31 @@ function FeatureShowcase({ locale, features }: { locale: Locale; features: reado
   </div>;
 }
 
+const culturalHeroCopy = {
+  en: {
+    headlineBefore: "Learn Korean and build your own ", hanok: "hanok", headlineAfter: ".",
+    introBefore: "Tiger and Magpie guide you through Hangul, pronunciation, everyday Korean and games. Each completed lesson adds to your hanok. In ", gye: "Gye", introAfter: ", learners can share progress and encourage each other.",
+  },
+  de: {
+    headlineBefore: "Lerne Koreanisch und baue deinen eigenen ", hanok: "Hanok", headlineAfter: ".",
+    introBefore: "Tiger und Elster begleiten dich durch Hangul, Aussprache, Alltagssprache und Spiele. Jede abgeschlossene Lektion erweitert deinen Hanok. In ", gye: "Gye", introAfter: " können Lernende Fortschritte teilen und sich gegenseitig ermutigen.",
+  },
+  ko: {
+    headlineBefore: "한국어를 배우며 나만의 ", hanok: "한옥", headlineAfter: "을 지어요.",
+    introBefore: "호랑이와 까치가 한글, 발음, 생활 한국어, 게임 학습을 안내합니다. 수업을 마칠 때마다 한옥에 새로운 부분이 생깁니다. ", gye: "계", introAfter: "에서는 학습자들이 진도를 나누고 서로 응원할 수 있습니다.",
+  },
+} as const;
+
+function CulturalHeroHeadline({ locale }: { locale: Locale }) {
+  const copy = culturalHeroCopy[locale];
+  return <>{copy.headlineBefore}<CulturalTerm termId="hanok" locale={locale}>{copy.hanok}</CulturalTerm>{copy.headlineAfter}</>;
+}
+
+function CulturalHeroIntro({ locale }: { locale: Locale }) {
+  const copy = culturalHeroCopy[locale];
+  return <>{copy.introBefore}<CulturalTerm termId="gye" locale={locale}>{copy.gye}</CulturalTerm>{copy.introAfter}</>;
+}
+
 export function Footer({ locale }: { locale: Locale }) {
   const c = content[locale];
   return <footer className="site-footer"><div className="footer-top"><Brand/><p>{c.footerLine}</p><div className="footer-links"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><a href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer"><InstagramIcon size={15}/>Instagram</a><Link href="/support">Support</Link><Link href="/privacy">Privacy</Link><Link href="/impressum">Impressum</Link><CookieSettingsButton locale={locale}/></div></div><div className="footer-bottom"><span>© 2026 Hangul Sori</span><span>Frankfurt am Main, Germany</span></div></footer>;
@@ -316,8 +342,9 @@ export function Landing({ locale }: { locale: Locale }) {
   const c = content[locale];
   const trustIcons = [<Languages key="languages" size={25}/>, <Headphones key="sounds" size={25}/>, <MapPin key="situations" size={25}/>, <UsersRound key="gye" size={25}/>];
   return <main lang={locale}>
+    <CulturalLocaleSync locale={locale}/>
     <Header locale={locale}/>
-    <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1>{c.headline}</h1><p className="hero-intro">{c.intro}</p><div className="hero-actions"><ButtonLink href="#tester-access">{c.start}</ButtonLink><ButtonLink href="#how" variant="secondary">{c.secondary}</ButtonLink></div><StoreButtons locale={locale}/><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
+    <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1><CulturalHeroHeadline locale={locale}/></h1><p className="hero-intro"><CulturalHeroIntro locale={locale}/></p><div className="hero-actions"><ButtonLink href="#tester-access">{c.start}</ButtonLink><ButtonLink href="#how" variant="secondary">{c.secondary}</ButtonLink></div><StoreButtons locale={locale}/><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
 
     <section className="section how-section" id="how"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.stepsEyebrow}</p><h2>{c.stepsTitle}</h2></div><p>{c.stepsIntro}</p></div><LessonStage locale={locale} steps={c.steps}/></div></section>
 

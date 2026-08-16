@@ -4,6 +4,7 @@ import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
 import { CookiebotConsentScripts } from "./cookiebot";
 import { PrivacyConsentPanel } from "./privacy-consent-panel";
+import { CulturalGlossaryProvider } from "./cultural-glossary";
 
 export const metadata: Metadata = {
   title: {
@@ -39,5 +40,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
   return <html lang="de"><head>
     <CookiebotConsentScripts />
-  </head><body>{children}<PrivacyConsentPanel /><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(applicationJsonLd)}}/></body></html>;
+  </head><body><CulturalGlossaryProvider>{children}</CulturalGlossaryProvider><PrivacyConsentPanel /><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(applicationJsonLd)}}/></body></html>;
 }

@@ -646,7 +646,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       // legacy quests still feed the scenario checkpoint at completion, which
       // avoids pretending that a single particle mistake affected every form
       // used elsewhere in the dialogue.
-      if (widget.previewFixture == null &&
+      if (widget.mode == ScenarioPlayerMode.standard &&
+          widget.previewFixture == null &&
           quest.hasExplicitId &&
           quest.conceptIds.isNotEmpty) {
         for (final conceptId in quest.conceptIds) {
@@ -1179,6 +1180,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _buildQuest(QuestSpec spec, AppL10n t) {
     Widget questWidget;
+    final allowDontKnow =
+        widget.mode == ScenarioPlayerMode.onboardingFirstScene &&
+        widget.courseContext == null;
 
     switch (spec.type) {
       case QuestType.hoerverstehen:
@@ -1191,6 +1195,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.uebersetzen:
         questWidget = UebersetzenQuest(
@@ -1201,6 +1206,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.luecken:
         questWidget = LueckenQuest(
@@ -1211,6 +1217,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.particlePop:
         questWidget = ParticlePopQuest(
@@ -1221,6 +1228,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.batchimDrop:
         questWidget = BatchimDropQuest(
@@ -1231,6 +1239,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.satzBauen:
         questWidget = SatzBauenQuest(
@@ -1241,6 +1250,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          allowDontKnow: allowDontKnow,
         );
       case QuestType.diktat:
         questWidget = DiktatQuest(
@@ -1251,9 +1261,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           },
           onContinue: _next,
           isLast: _currentQuestIndex == _scenario!.quests.length - 1,
-          allowWordBankFallback:
-              widget.mode == ScenarioPlayerMode.onboardingFirstScene &&
-              widget.courseContext == null,
+          allowWordBankFallback: allowDontKnow,
+          allowDontKnow: allowDontKnow,
         );
       default:
         questWidget = Center(

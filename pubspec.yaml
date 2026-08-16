@@ -128,6 +128,7 @@ flutter:
 
   assets:
     - assets/data/
+    - docs/data/cultural_glossary.json
     - assets/icons/
     - assets/illustrations/hanok/
     # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.

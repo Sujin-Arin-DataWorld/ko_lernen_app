@@ -2645,6 +2645,9 @@ class AppL10nDe extends AppL10n {
   String get questViewResult => 'Ergebnis ansehen';
 
   @override
+  String get questDontKnowYet => 'Weiß ich noch nicht';
+
+  @override
   String get questListeningQuestion => 'Was bedeutet dieser Satz?';
 
   @override
@@ -7062,4 +7065,24 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageActivityLocked => 'Gesperrt';
+
+  @override
+  String culturalHelpSemantics(String term) {
+    return 'Mehr über $term erfahren';
+  }
+
+  @override
+  String get culturalMeaningLabel => 'Was ist das?';
+
+  @override
+  String get culturalStoryLabel => 'Warum war das wichtig?';
+
+  @override
+  String get culturalClose => 'Kulturgeschichte schließen';
+
+  @override
+  String get culturalObjectHint => 'Neugierig? Tippe auf einen Gegenstand.';
+
+  @override
+  String get culturalObjectHintDismiss => 'Hinweis schließen';
 }

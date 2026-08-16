@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../data/quest_catalog.dart';
@@ -22,8 +24,15 @@ export 'placed_decoration.dart'
 class DecorationLayer extends StatelessWidget {
   /// 표시할 퀘스트 IDs. null 이면 `Storage.questCompletions` 키 자동 사용.
   final Iterable<String>? completedQuestIds;
+  final ValueChanged<String>? onInspectDecoration;
+  final Set<String> inspectableDecorationSlugs;
 
-  const DecorationLayer({super.key, this.completedQuestIds});
+  const DecorationLayer({
+    super.key,
+    this.completedQuestIds,
+    this.onInspectDecoration,
+    this.inspectableDecorationSlugs = const {},
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +53,14 @@ class DecorationLayer extends StatelessWidget {
                   def: kQuestById[id]!,
                   canvasWidth: w,
                   canvasHeight: h,
+                  onInspect:
+                      onInspectDecoration != null &&
+                          inspectableDecorationSlugs.contains(
+                            kQuestById[id]!.decorationSlug,
+                          )
+                      ? () =>
+                            onInspectDecoration!(kQuestById[id]!.decorationSlug)
+                      : null,
                 ),
           ],
         );
@@ -56,10 +73,12 @@ class _PositionedDecoration extends StatelessWidget {
   final QuestDefinition def;
   final double canvasWidth;
   final double canvasHeight;
+  final VoidCallback? onInspect;
   const _PositionedDecoration({
     required this.def,
     required this.canvasWidth,
     required this.canvasHeight,
+    required this.onInspect,
   });
 
   @override
@@ -69,17 +88,33 @@ class _PositionedDecoration extends StatelessWidget {
     final left = canvasWidth * def.layout.leftFrac;
     final bottom = canvasHeight * def.layout.bottomFrac;
 
+    final targetWidth = math.max(48.0, w);
+    final decoration = Align(
+      alignment: Alignment.bottomLeft,
+      child: SoriDecorationImage(
+        slug: def.decorationSlug,
+        size: w,
+        semantic: onInspect == null ? decorName(t, def.decorationSlug) : '',
+      ),
+    );
+
     return Positioned(
       left: left,
       bottom: bottom,
-      width: w,
-      child: IgnorePointer(
-        child: SoriDecorationImage(
-          slug: def.decorationSlug,
-          size: w,
-          semantic: decorName(t, def.decorationSlug),
-        ),
-      ),
+      width: onInspect == null ? w : targetWidth,
+      height: onInspect == null ? null : math.max(48.0, w),
+      child: onInspect == null
+          ? IgnorePointer(child: decoration)
+          : Semantics(
+              button: true,
+              label: t.culturalHelpSemantics(decorName(t, def.decorationSlug)),
+              onTap: onInspect,
+              excludeSemantics: true,
+              child: Material(
+                type: MaterialType.transparency,
+                child: InkWell(onTap: onInspect, child: decoration),
+              ),
+            ),
     );
   }
 }

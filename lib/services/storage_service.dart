@@ -1302,6 +1302,14 @@ class Storage {
   static Future<void> setTutWordbookSeen() async =>
       _prefs?.setBool('kl_tut_wordbook', true);
 
+  /// 문화어 장식 감상 안내는 이 기기에서 한 번만 보인다.
+  /// SharedPreferences 미초기화 환경에서는 표시하지 않는 안전 기본값을 쓴다.
+  static bool get culturalObjectHintSeen => _prefs == null
+      ? true
+      : (_prefs!.getBool('cultural_object_hint_seen_v1') ?? false);
+  static Future<void> setCulturalObjectHintSeen() async =>
+      _prefs?.setBool('cultural_object_hint_seen_v1', true);
+
   /// 콘텐츠 화면별 사용법 코치마크 — 범용 플래그(`kl_tut_<id>`).
   /// 화면 id 레지스트리: 오타·resetTutorials 누락 방지(ScreenCoachMixin assert).
   static const List<String> kScreenCoachIds = [
@@ -1366,6 +1374,7 @@ class Storage {
       _sb('kl_intro_preview_seen', false),
       _sb('kl_tut_home_tour', false),
       _sb('kl_tut_wordbook', false),
+      _sb('cultural_object_hint_seen_v1', false),
       for (final id in kScreenCoachIds) _sb('kl_tut_$id', false),
     ]);
     _tutorialResetRevision++;

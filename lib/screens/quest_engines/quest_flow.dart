@@ -279,6 +279,7 @@ class ScenarioQuestAction extends StatelessWidget {
     this.isLast = false,
     this.hint,
     this.pendingHint,
+    this.onDontKnow,
   });
 
   final bool canSubmit;
@@ -288,6 +289,7 @@ class ScenarioQuestAction extends StatelessWidget {
   final bool isLast;
   final String? hint;
   final String? pendingHint;
+  final VoidCallback? onDontKnow;
 
   @override
   Widget build(BuildContext context) {
@@ -327,6 +329,15 @@ class ScenarioQuestAction extends StatelessWidget {
             fullWidth: true,
             onTap: canSubmit ? onSubmit : null,
           ),
+          if (onDontKnow != null) ...[
+            const SizedBox(height: Spacing.xs),
+            SoriButton.ghost(
+              key: const ValueKey('quest-dont-know'),
+              label: t.questDontKnowYet,
+              fullWidth: true,
+              onTap: onDontKnow,
+            ),
+          ],
         ],
       );
     }

@@ -31,6 +31,7 @@ Future<T?> showSoriSheet<T>({
   /// 가질 때. 이때도 maxHeight 클램프는 유지된다.
   bool scrollable = true,
   double maxHeightFactor = 0.88,
+  double maxTextScaleFactor = 1.3,
   bool isDismissible = true,
   bool enableDrag = true,
 }) {
@@ -45,6 +46,7 @@ Future<T?> showSoriSheet<T>({
       showHandle: showHandle,
       scrollable: scrollable,
       maxHeightFactor: maxHeightFactor,
+      maxTextScaleFactor: maxTextScaleFactor,
       child: Builder(builder: builder),
     ),
   );
@@ -56,6 +58,7 @@ class SoriSheetShell extends StatelessWidget {
   final bool showHandle;
   final bool scrollable;
   final double maxHeightFactor;
+  final double maxTextScaleFactor;
 
   const SoriSheetShell({
     super.key,
@@ -63,6 +66,7 @@ class SoriSheetShell extends StatelessWidget {
     this.showHandle = true,
     this.scrollable = true,
     this.maxHeightFactor = 0.88,
+    this.maxTextScaleFactor = 1.3,
   });
 
   @override
@@ -77,7 +81,7 @@ class SoriSheetShell extends StatelessWidget {
     }
 
     return MediaQuery.withClampedTextScaling(
-      maxScaleFactor: 1.3,
+      maxScaleFactor: maxTextScaleFactor,
       child: Container(
         constraints: BoxConstraints(maxHeight: maxHeight),
         decoration: BoxDecoration(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/decoration_reward_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/placed_decoration.dart';
@@ -105,7 +106,15 @@ class _BojagiScreenState extends State<BojagiScreen> {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(t.bojagiTitle, style: text.h3)),
+      appBar: AppBar(
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(child: Text(t.bojagiTitle, style: text.h3)),
+            const CulturalHelpButton(termId: 'bojagi'),
+          ],
+        ),
+      ),
       body: SoriScreenBackground(
         child: SafeArea(child: Center(child: _body(t))),
       ),
@@ -254,17 +263,31 @@ class _PickView extends StatelessWidget {
             style: text.bodySmall,
           ),
           const SizedBox(height: Spacing.xl),
-          for (var i = 0; i < candidates.length; i++)
-            SoriEntrance(
-              delay: Duration(milliseconds: 90 * i),
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: Spacing.md),
-                child: _CandidateCard(
-                  slug: candidates[i],
-                  onTap: () => onPick(candidates[i]),
-                ),
-              ),
-            ),
+          CulturalGlossaryBuilder(
+            builder: (context, glossary) {
+              final shownTermIds = <String>{};
+              final cards = <Widget>[];
+              for (var i = 0; i < candidates.length; i++) {
+                final slug = candidates[i];
+                final termId = glossary?.termIdForDecoration(slug);
+                cards.add(
+                  SoriEntrance(
+                    delay: Duration(milliseconds: 90 * i),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.md),
+                      child: _CandidateCard(
+                        slug: slug,
+                        showCulturalHelp:
+                            termId != null && shownTermIds.add(termId),
+                        onTap: () => onPick(slug),
+                      ),
+                    ),
+                  ),
+                );
+              }
+              return Column(children: cards);
+            },
+          ),
         ],
       ),
     );
@@ -275,8 +298,13 @@ class _PickView extends StatelessWidget {
 class _CandidateCard extends StatelessWidget {
   final String slug;
   final VoidCallback onTap;
+  final bool showCulturalHelp;
 
-  const _CandidateCard({required this.slug, required this.onTap});
+  const _CandidateCard({
+    required this.slug,
+    required this.onTap,
+    required this.showCulturalHelp,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -315,6 +343,8 @@ class _CandidateCard extends StatelessWidget {
                   style: text.cardTitle,
                 ),
               ),
+              if (showCulturalHelp)
+                CulturalDecorationHelpButton(decorationSlug: slug),
               Icon(Icons.chevron_right_rounded, color: s.textDim),
             ],
           ),
@@ -371,10 +401,18 @@ class _ClaimedView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.sm),
-            Text(
-              decorName(t, slug),
-              textAlign: TextAlign.center,
-              style: text.bodySmall,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    decorName(t, slug),
+                    textAlign: TextAlign.center,
+                    style: text.bodySmall,
+                  ),
+                ),
+                CulturalDecorationHelpButton(decorationSlug: slug),
+              ],
             ),
             const SizedBox(height: Spacing.xl),
             SoriButton(

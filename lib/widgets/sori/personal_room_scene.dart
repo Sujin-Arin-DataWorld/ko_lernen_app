@@ -25,6 +25,8 @@ class PersonalRoomScene extends StatelessWidget {
   final ValueChanged<String>? onSelectItem;
   final RoomItemTransformCallback? onTransformItem;
   final RoomItemTransformCallback? onTransformEnd;
+  final ValueChanged<String>? onInspectDecoration;
+  final Set<String> inspectableDecorationSlugs;
 
   const PersonalRoomScene({
     super.key,
@@ -38,6 +40,8 @@ class PersonalRoomScene extends StatelessWidget {
     this.onSelectItem,
     this.onTransformItem,
     this.onTransformEnd,
+    this.onInspectDecoration,
+    this.inspectableDecorationSlugs = const {},
   }) : assert(
          !interactive ||
              (layouts != null ? onSelectItem != null : onTapSlot != null),
@@ -67,6 +71,10 @@ class PersonalRoomScene extends StatelessWidget {
                 onSelect: interactive ? onSelectItem : null,
                 onTransform: interactive ? onTransformItem : null,
                 onTransformEnd: interactive ? onTransformEnd : null,
+                onInspectDecoration: interactive ? null : onInspectDecoration,
+                inspectableDecorationSlugs: interactive
+                    ? const {}
+                    : inspectableDecorationSlugs,
               )
             else
               RoomLayer(
@@ -76,6 +84,10 @@ class PersonalRoomScene extends StatelessWidget {
                 owned: owned,
                 showEmptyMarkers: interactive,
                 onTapSlot: interactive ? onTapSlot : null,
+                onInspectDecoration: interactive ? null : onInspectDecoration,
+                inspectableDecorationSlugs: interactive
+                    ? const {}
+                    : inspectableDecorationSlugs,
               ),
           ],
         ),

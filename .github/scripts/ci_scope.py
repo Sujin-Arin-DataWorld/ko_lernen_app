@@ -23,6 +23,8 @@ TASK_SCOPE = {
     "book": ("book",),
     "gye": ("gye",),
     "pronunciation": ("pronunciation",),
+    "release-internal": ("app",),
+    "release-website": ("website",),
 }
 
 APP_DOC_PREFIXES = (
@@ -38,6 +40,9 @@ WEBSITE_ROOT_FILES = {
     "docs/CNAME",
     "wrangler.jsonc",
     "wrangler.legacy-docs.jsonc",
+}
+SHARED_CULTURAL_GLOSSARY_FILES = {
+    "docs/data/cultural_glossary.json",
 }
 AGENT_ONLY_PREFIXES = (
     ".agents/",
@@ -84,6 +89,11 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             return _all_scopes()
 
         if path.startswith("hangul-sori-site-local/") or path in WEBSITE_ROOT_FILES:
+            result["website"] = True
+            continue
+
+        if path in SHARED_CULTURAL_GLOSSARY_FILES:
+            result["app"] = True
             result["website"] = True
             continue
 

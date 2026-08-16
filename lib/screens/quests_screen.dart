@@ -14,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/empty_state.dart';
@@ -200,64 +201,98 @@ class _QuestsScreenState extends State<QuestsScreen>
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: SoriScreenBackground(
-        particles: true,
-        child: SafeArea(
-          child: RefreshIndicator(
-            onRefresh: _load,
-            color: SoriColors.primary,
-            child: ListView(
-              padding: soriClampPadding(
-                MediaQuery.sizeOf(context).width,
-                base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
-              ),
-              children: [
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/achievements.png',
-                  fallbackIcon: Icons.workspace_premium_outlined,
+      body: CulturalGlossaryBuilder(
+        builder: (context, glossary) {
+          final shownTermIds = <String>{};
+          bool showCulturalHelp(QuestProgress quest) {
+            final slug = kQuestById[quest.questId]?.decorationSlug;
+            final termId = slug == null
+                ? null
+                : glossary?.termIdForDecoration(slug);
+            return termId != null && shownTermIds.add(termId);
+          }
+
+          return SoriScreenBackground(
+            particles: true,
+            child: SafeArea(
+              child: RefreshIndicator(
+                onRefresh: _load,
+                color: SoriColors.primary,
+                child: ListView(
+                  padding: soriClampPadding(
+                    MediaQuery.sizeOf(context).width,
+                    base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+                  ),
+                  children: [
+                    const HanokHeader(
+                      asset: 'assets/illustrations/hanok/achievements.png',
+                      fallbackIcon: Icons.workspace_premium_outlined,
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
+                    if (_quests.isNotEmpty) ...[
+                      KeyedSubtree(
+                        key: _summaryKey,
+                        child: _QuestSummary(quests: _quests),
+                      ),
+                      const SizedBox(height: Spacing.md),
+                    ],
+                    if (inProgress.isEmpty &&
+                        available.isEmpty &&
+                        completed.isEmpty &&
+                        seasonalLocked.isEmpty)
+                      SoriEmptyState(
+                        asset:
+                            'assets/illustrations/mascot/magpie_encourage.png',
+                        icon: Icons.local_florist_outlined,
+                        title: t.questsEmptyTitle,
+                        body: t.questsEmptyBody,
+                      ),
+                    if (inProgress.isNotEmpty) ...[
+                      SoriSectionHeader(t.questsSectionInProgress),
+                      ...inProgress.map(
+                        (q) => _QuestTile(
+                          q: q,
+                          showCulturalHelp: showCulturalHelp(q),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+                    ],
+                    if (available.isNotEmpty) ...[
+                      SoriSectionHeader(t.questsSectionAvailable),
+                      ...available.map(
+                        (q) => _QuestTile(
+                          q: q,
+                          showCulturalHelp: showCulturalHelp(q),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+                    ],
+                    if (completed.isNotEmpty) ...[
+                      SoriSectionHeader(t.questsSectionCompleted),
+                      ...completed.map(
+                        (q) => _QuestTile(
+                          q: q,
+                          showCulturalHelp: showCulturalHelp(q),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+                    ],
+                    if (seasonalLocked.isNotEmpty) ...[
+                      SoriSectionHeader(t.questsSectionSeasonalLocked),
+                      ...seasonalLocked.map(
+                        (q) => _QuestTile(
+                          q: q,
+                          showCulturalHelp: showCulturalHelp(q),
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
-                const SizedBox(height: Spacing.md),
-                // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
-                if (_quests.isNotEmpty) ...[
-                  KeyedSubtree(
-                    key: _summaryKey,
-                    child: _QuestSummary(quests: _quests),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                ],
-                if (inProgress.isEmpty &&
-                    available.isEmpty &&
-                    completed.isEmpty &&
-                    seasonalLocked.isEmpty)
-                  SoriEmptyState(
-                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                    icon: Icons.local_florist_outlined,
-                    title: t.questsEmptyTitle,
-                    body: t.questsEmptyBody,
-                  ),
-                if (inProgress.isNotEmpty) ...[
-                  SoriSectionHeader(t.questsSectionInProgress),
-                  ...inProgress.map((q) => _QuestTile(q: q)),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                if (available.isNotEmpty) ...[
-                  SoriSectionHeader(t.questsSectionAvailable),
-                  ...available.map((q) => _QuestTile(q: q)),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                if (completed.isNotEmpty) ...[
-                  SoriSectionHeader(t.questsSectionCompleted),
-                  ...completed.map((q) => _QuestTile(q: q)),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                if (seasonalLocked.isNotEmpty) ...[
-                  SoriSectionHeader(t.questsSectionSeasonalLocked),
-                  ...seasonalLocked.map((q) => _QuestTile(q: q)),
-                ],
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
@@ -265,7 +300,8 @@ class _QuestsScreenState extends State<QuestsScreen>
 
 class _QuestTile extends StatelessWidget {
   final QuestProgress q;
-  const _QuestTile({required this.q});
+  final bool showCulturalHelp;
+  const _QuestTile({required this.q, required this.showCulturalHelp});
 
   @override
   Widget build(BuildContext context) {
@@ -346,6 +382,10 @@ class _QuestTile extends StatelessWidget {
                       color: SoriColors.warning,
                     ),
                   ),
+                ),
+              if (showCulturalHelp)
+                CulturalDecorationHelpButton(
+                  decorationSlug: def.decorationSlug,
                 ),
               const SizedBox(width: Spacing.sm),
               // 보상 미리보기 — 이 퀘스트로 언락되는 마당 장식.

@@ -41,6 +41,7 @@ class SatzBauenQuest extends StatefulWidget {
   final bool showMascot;
   final bool compact;
   final bool showSpeedControl;
+  final bool allowDontKnow;
 
   const SatzBauenQuest({
     super.key,
@@ -51,6 +52,7 @@ class SatzBauenQuest extends StatefulWidget {
     this.showMascot = true,
     this.compact = false,
     this.showSpeedControl = true,
+    this.allowDontKnow = false,
   });
 
   @override
@@ -404,6 +406,26 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     }
   }
 
+  void _revealAnswer() {
+    if (_completed) return;
+    HapticFeedback.selectionClick();
+    final target = SatzBauenQuest.tokenize(_targetKo);
+    setState(() {
+      _answer
+        ..clear()
+        ..addAll([
+          for (var i = 0; i < target.length; i++) _Tile(-1 - i, target[i]),
+          if (_punct != null) _Tile(-1000, _punct!),
+        ]);
+      _bank.clear();
+      _completed = true;
+      _wrong = true;
+      _mismatchIdx = -1;
+      _diag = SatzError.none;
+    });
+    widget.onComplete(const QuestResult(passed: false, firstTry: false));
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -560,37 +582,14 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         ),
       ],
     );
-    final action = AnimatedOpacity(
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : const Duration(milliseconds: 160),
-      opacity: (_answer.isEmpty && !_completed) ? 0.5 : 1.0,
-      child: Material(
-        key: ValueKey(_completed ? 'quest-continue' : 'quest-submit'),
-        color: SoriColors.primary,
-        borderRadius: BorderRadius.circular(SoriRadius.lg),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(SoriRadius.lg),
-          onTap: _completed
-              ? widget.onContinue
-              : (_answer.isEmpty ? null : _check),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Center(
-              child: Text(
-                _completed
-                    ? (widget.isLast ? t.questViewResult : t.questNext)
-                    : t.questCheckAnswer,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
+    final action = ScenarioQuestAction(
+      canSubmit: _answer.isNotEmpty,
+      onSubmit: _check,
+      resolved: _completed ? !_wrong : null,
+      onContinue: widget.onContinue,
+      isLast: widget.isLast,
+      pendingHint: _tries == 1 ? _diagText(t) : null,
+      onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
     );
 
     // Keep the primary action anchored while the content above it scrolls only

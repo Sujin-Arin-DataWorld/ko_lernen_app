@@ -54,8 +54,9 @@ version automatically. Both `hangul-sori.com` and `www.hangul-sori.com` are
 declared as Custom Domains in `wrangler.jsonc`.
 
 The normal no-CLI release path is to commit the website changes and push
-`main`; Cloudflare Workers Builds runs the same gate and protected deployment
-command. Direct local deployment remains available for recovery.
+`main`; the repository GitHub Actions workflow runs the same gate and protected
+deployment command. It also treats `docs/data/cultural_glossary.json` as a
+website release input. Direct local deployment remains available for recovery.
 
 To include a live request to Apple's TestFlight page in the verification:
 

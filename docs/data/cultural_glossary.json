@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "termId": "hanok",
+      "ko": "한옥",
+      "romanization": "Hanok",
+      "localizations": {
+        "de": {
+          "meaning": "Hanok ist ein Sammelname für traditionelle koreanische Häuser, die je nach Region, Zeit und Bewohnern sehr verschieden aussehen.",
+          "story": "Ihre Räume, Höfe und Materialien zeigen, wie Menschen Klima, Familie und Alltag miteinander verbanden. Es gab also nie nur die eine Hanok-Form."
+        },
+        "en": {
+          "meaning": "Hanok is a broad name for traditional Korean houses, whose forms varied by region, period, and the people who lived in them.",
+          "story": "Their rooms, yards, and materials show how people connected climate, family, and daily life. There was never just one hanok design."
+        },
+        "ko": {
+          "meaning": "한옥은 지역과 시대, 사는 사람에 따라 모습이 달랐던 한국의 전통 집을 넓게 이르는 말이에요.",
+          "story": "방과 마당, 재료에는 기후와 가족, 일상을 함께 풀어낸 지혜가 담겨 있어 한옥의 모습은 하나로 정해져 있지 않았어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        }
+      ]
+    },
+    {
+      "termId": "gye",
+      "ko": "계",
+      "romanization": "Gye",
+      "localizations": {
+        "de": {
+          "meaning": "Ein Gye war eine freiwillige Gemeinschaft, in der Menschen Geld, Arbeit oder Wissen für ein gemeinsames Ziel bündelten.",
+          "story": "Das Gye in Hangul Sori ist davon inspiriert, aber eine moderne Lerngruppe: Hier geht es um gegenseitige Motivation, nicht um historische Pflichten."
+        },
+        "en": {
+          "meaning": "A gye was a voluntary community in which people pooled money, work, or knowledge for a shared purpose.",
+          "story": "Hangul Sori’s Gye is inspired by that tradition but is a modern study group: it is about mutual encouragement, not historical obligations."
+        },
+        "ko": {
+          "meaning": "계는 사람들이 공동의 목적을 위해 돈이나 노동, 지식 등을 자발적으로 모으던 공동체였어요.",
+          "story": "한글소리의 Gye는 여기에서 영감을 받은 현대적인 학습 모임으로, 옛 의무가 아니라 서로의 공부를 응원하는 공간이에요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국민족문화대백과사전 계",
+          "url": "https://encykorea.aks.ac.kr/Article/E0027420"
+        }
+      ]
+    },
+    {
+      "termId": "sarangbang",
+      "ko": "사랑방",
+      "romanization": "Sarangbang",
+      "localizations": {
+        "de": {
+          "meaning": "Sarangbang nennt man das Arbeits-, Studien- und Empfangszimmer im Männerbereich mancher größerer Häuser der Joseon-Zeit.",
+          "story": "Hier wurden Gäste empfangen, gelesen und geschrieben; Schreibtisch, Bücher und Schreibzeug zeigten zugleich Bildung und persönlichen Geschmack."
+        },
+        "en": {
+          "meaning": "A sarangbang was a work, study, and reception room in the men’s quarters of some larger homes in the Joseon period.",
+          "story": "Guests were welcomed, books read, and letters written here; desks, books, and writing tools also expressed learning and personal taste."
+        },
+        "ko": {
+          "meaning": "사랑방은 조선시대 일부 큰 집의 남성 공간에 마련된 공부방이자 일터, 손님맞이 방이었어요.",
+          "story": "책을 읽고 글을 쓰며 손님을 맞았고, 책상과 책, 문방구에는 학문과 주인의 취향도 드러났어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        },
+        {
+          "title": "Korea.net Sarangbang",
+          "url": "https://www.korea.net/Events/Overseas/view?articleId=16227"
+        }
+      ]
+    },
+    {
+      "termId": "madang",
+      "ko": "마당",
+      "romanization": "Madang",
+      "localizations": {
+        "de": {
+          "meaning": "Madang ist der offene Hof oder Platz zwischen und vor den Gebäuden eines koreanischen Hauses.",
+          "story": "Je nach Haus wurde dort gearbeitet, getrocknet, gespielt oder ein Fest vorbereitet; der Hof verband Räume und Alltag miteinander."
+        },
+        "en": {
+          "meaning": "A madang is the open yard or courtyard between and in front of the buildings of a Korean home.",
+          "story": "Depending on the home, people worked, dried food, played, or prepared celebrations there; the yard connected rooms with everyday life."
+        },
+        "ko": {
+          "meaning": "마당은 한국의 집에서 건물 앞이나 건물 사이에 열린 뜰과 같은 공간이에요.",
+          "story": "집에 따라 일을 하고 음식을 말리고 놀거나 잔치를 준비했으며, 여러 방과 일상을 이어 주는 자리였어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        }
+      ]
+    },
+    {
+      "termId": "jongga",
+      "ko": "종가",
+      "romanization": "Jongga",
+      "localizations": {
+        "de": {
+          "meaning": "Jongga bezeichnet das Stammhaus einer väterlichen Familienlinie, das traditionell in der Hauptlinie weitergegeben wurde.",
+          "story": "Es bewahrte Genealogie und Familienriten und verband Verwandte; diese besondere Rolle darf nicht mit dem Alltag jedes Haushalts gleichgesetzt werden."
+        },
+        "en": {
+          "meaning": "Jongga is the head house of a patrilineal family line, traditionally continued through its senior branch.",
+          "story": "It kept genealogy and family rites and connected relatives; this special role should not be treated as the daily life of every household."
+        },
+        "ko": {
+          "meaning": "종가는 한 문중의 맏이 계통으로 이어져 온 큰집을 가리켜요.",
+          "story": "가계와 제례를 잇고 친족을 모으는 중심 역할을 했지만, 이런 특별한 생활을 모든 집의 모습으로 볼 수는 없어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국민족문화대백과사전 종가",
+          "url": "https://encykorea.aks.ac.kr/Article/E0052888"
+        }
+      ]
+    },
+    {
+      "termId": "dancheong",
+      "ko": "단청",
+      "romanization": "Dancheong",
+      "localizations": {
+        "de": {
+          "meaning": "Dancheong sind farbige Muster, die auf Holzbauten gemalt werden, um Flächen zu schmücken und das Holz zu schützen.",
+          "story": "Besonders Paläste und Tempel tragen aufwendige Dancheong; ein schlichtes Wohn-Hanok war deshalb nicht automatisch bunt bemalt."
+        },
+        "en": {
+          "meaning": "Dancheong refers to colored patterns painted on wooden buildings to decorate surfaces and help protect the timber.",
+          "story": "Elaborate dancheong is especially associated with palaces and temples, so an ordinary residential hanok was not automatically brightly painted."
+        },
+        "ko": {
+          "meaning": "단청은 목조건물의 표면을 꾸미고 나무를 보호하려고 여러 빛깔과 무늬를 그리는 장식이에요.",
+          "story": "화려한 단청은 특히 궁궐과 사찰에서 두드러졌으며, 보통의 살림집 한옥이 모두 알록달록했던 것은 아니에요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가한옥센터 한옥의 공간",
+          "url": "https://www.hanokdb.kr/theology/sub_03"
+        }
+      ]
+    },
+    {
+      "termId": "bojagi",
+      "ko": "보자기",
+      "romanization": "Bojagi",
+      "localizations": {
+        "de": {
+          "meaning": "Bojagi ist ein Tuch, mit dem Dinge eingewickelt, getragen, aufbewahrt oder abgedeckt werden.",
+          "story": "Ein Jogakbo setzte selbst kleinste Stoffreste neu zusammen: Aus sparsamem Alltagshandwerk entstanden immer wieder überraschende Farbflächen."
+        },
+        "en": {
+          "meaning": "Bojagi is a cloth used to wrap, carry, store, or cover things.",
+          "story": "A jogakbo joined even tiny fabric scraps for a new use: practical thrift repeatedly produced striking fields of color."
+        },
+        "ko": {
+          "meaning": "보자기는 물건을 싸서 옮기거나 보관하고 덮는 데 쓰는 천이에요.",
+          "story": "조각보는 작은 자투리 천도 다시 이어 썼고, 알뜰한 생활의 손길이 뜻밖의 아름다운 색면을 만들어 냈어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국립민속박물관 조각보",
+          "url": "https://webzine.nfm.go.kr/2016/01/27/%EC%B5%9C%EB%AF%B8%EC%98%A5-%ED%81%90%EB%A0%88%EC%9D%B4%ED%84%B0%EA%B0%80-%EC%B6%94%EC%B2%9C%ED%95%98%EB%8A%94/"
+        }
+      ]
+    },
+    {
+      "termId": "jangdokdae",
+      "ko": "장독대",
+      "romanization": "Jangdokdae",
+      "localizations": {
+        "de": {
+          "meaning": "Jangdokdae ist der Platz am Haus, an dem Tongefäße mit Sojasauce, Sojabohnenpaste und anderen fermentierten Vorräten standen.",
+          "story": "Der Geschmack unterschied sich von Haus zu Haus; Wissen und Handgriffe wurden oft von Müttern und Schwiegermüttern weitergegeben und Teil der Familientradition."
+        },
+        "en": {
+          "meaning": "A jangdokdae is the area by a home where earthenware jars held soy sauce, soybean paste, and other fermented foods.",
+          "story": "Flavors differed from household to household; knowledge and skills were often passed on by mothers and mothers-in-law as part of family tradition."
+        },
+        "ko": {
+          "meaning": "장독대는 간장과 된장 같은 장과 발효 음식을 담은 옹기들을 집 곁에 두던 자리예요.",
+          "story": "장은 집집마다 맛이 달랐고, 어머니와 시어머니 등 여성 가족 구성원을 중심으로 손맛과 집안의 전통이 이어지곤 했어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_jangdokdae"
+      ],
+      "sources": [
+        {
+          "title": "UNESCO 장 담그기 문화",
+          "url": "https://ich.unesco.org/en/RL/knowledge-beliefs-and-practices-related-to-jang-making-in-the-republic-of-korea-01975"
+        }
+      ]
+    },
+    {
+      "termId": "munbangsau",
+      "ko": "문방사우",
+      "romanization": "Munbangsau",
+      "localizations": {
+        "de": {
+          "meaning": "Munbangsau sind Pinsel, Tusche, Papier und Reibstein: die „vier Freunde des Studierzimmers“.",
+          "story": "Für Gelehrte waren sie tägliche Arbeitsgeräte und zugleich geliebte Sammlerstücke, an denen sich Können und persönlicher Geschmack zeigten."
+        },
+        "en": {
+          "meaning": "Munbangsau means brush, ink, paper, and inkstone: the “four friends of the scholar’s room.”",
+          "story": "For scholars they were daily working tools and treasured objects, expressing both practiced skill and personal taste."
+        },
+        "ko": {
+          "meaning": "문방사우는 붓·먹·종이·벼루를 가리키는 말로, ‘선비의 네 친구’라고 불렀어요.",
+          "story": "선비에게는 매일 쓰는 사랑방 도구이면서 솜씨와 취향을 드러내는 아끼는 물건이기도 했어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_munbangsau"
+      ],
+      "sources": [
+        {
+          "title": "국립민속박물관 문방구",
+          "url": "https://webzine.nfm.go.kr/2022/03/02/%EC%A1%B0%EC%84%A0%EC%8B%9C%EB%8C%80-%EC%84%A0%EB%B9%84%EB%93%A4%EC%9D%B4-%EB%B3%B4%EB%B0%B0%EB%A1%AD%EA%B2%8C-%EC%97%AC%EA%B2%BC%EB%8D%98-%EB%AC%B8%EB%B0%A9%EA%B5%AC/"
+        }
+      ]
+    },
+    {
+      "termId": "maehwa",
+      "ko": "매화",
+      "romanization": "Maehwa",
+      "localizations": {
+        "de": {
+          "meaning": "Maehwa ist die Pflaumenblüte, die oft schon in der Kälte am Ende des Winters erscheint.",
+          "story": "In der Gelehrtenkultur stand ihr frühes Blühen für Standhaftigkeit und Lauterkeit; deshalb begegnet sie häufig in Bildern und Schreibgeräten."
+        },
+        "en": {
+          "meaning": "Maehwa is the plum blossom, which often appears in the cold near winter’s end.",
+          "story": "In scholar culture, its early bloom represented resilience and integrity, so it often appeared in paintings and writing objects."
+        },
+        "ko": {
+          "meaning": "매화는 겨울이 채 끝나기 전 추위 속에서도 피어나는 매실나무의 꽃이에요.",
+          "story": "선비 문화에서는 일찍 피는 모습이 절개와 지조를 떠올리게 해 그림과 문방구의 무늬로 자주 만날 수 있어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_maehwa"
+      ],
+      "sources": [
+        {
+          "title": "국립민속박물관 문방구와 사군자",
+          "url": "https://webzine.nfm.go.kr/2022/03/02/%EC%A1%B0%EC%84%A0%EC%8B%9C%EB%8C%80-%EC%84%A0%EB%B9%84%EB%93%A4%EC%9D%B4-%EB%B3%B4%EB%B0%B0%EB%A1%AD%EA%B2%8C-%EC%97%AC%EA%B2%BC%EB%8D%98-%EB%AC%B8%EB%B0%A9%EA%B5%AC/"
+        }
+      ]
+    },
+    {
+      "termId": "sagunja",
+      "ko": "사군자",
+      "romanization": "Sagunja",
+      "localizations": {
+        "de": {
+          "meaning": "Sagunja, die „vier Edlen“, sind Pflaumenblüte, Orchidee, Chrysantheme und Bambus.",
+          "story": "Ihre Eigenschaften wurden mit Lauterkeit und Haltung verbunden; beim Malen übten Gelehrte deshalb nicht nur Technik, sondern auch ihr Idealbild."
+        },
+        "en": {
+          "meaning": "Sagunja, the “four gentlemen,” are the plum blossom, orchid, chrysanthemum, and bamboo.",
+          "story": "Their qualities were linked to integrity and principle, so painting them practiced not only technique but also a scholar’s ideals."
+        },
+        "ko": {
+          "meaning": "사군자는 매화·난초·국화·대나무, 네 식물을 함께 이르는 말이에요.",
+          "story": "각 식물의 성질을 절개와 지조에 빗대어, 선비들은 그림 솜씨뿐 아니라 자신이 바라는 마음가짐도 함께 표현했어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_sagunja_maehwa",
+        "decoration_sagunja_nan",
+        "decoration_sagunja_guk",
+        "decoration_sagunja_juk"
+      ],
+      "sources": [
+        {
+          "title": "국립민속박물관 문방구와 사군자",
+          "url": "https://webzine.nfm.go.kr/2022/03/02/%EC%A1%B0%EC%84%A0%EC%8B%9C%EB%8C%80-%EC%84%A0%EB%B9%84%EB%93%A4%EC%9D%B4-%EB%B3%B4%EB%B0%B0%EB%A1%AD%EA%B2%8C-%EC%97%AC%EA%B2%BC%EB%8D%98-%EB%AC%B8%EB%B0%A9%EA%B5%AC/"
+        }
+      ]
+    },
+    {
+      "termId": "gat",
+      "ko": "갓",
+      "romanization": "Gat",
+      "localizations": {
+        "de": {
+          "meaning": "Gat ist ein Sammelname für traditionelle koreanische Kopfbedeckungen; bekannt ist besonders der schwarze Hut mit breiter Krempe.",
+          "story": "In der Joseon-Zeit gehörte er zur Kleidung erwachsener Männer und konnte Anlass, Rang und gesellschaftliche Regeln sichtbar machen."
+        },
+        "en": {
+          "meaning": "Gat is a broad name for traditional Korean headwear; the black hat with a wide brim is the best-known form.",
+          "story": "In the Joseon period it formed part of adult men’s dress and could make occasion, rank, and social rules visible."
+        },
+        "ko": {
+          "meaning": "갓은 한국의 전통 관모를 넓게 이르는 말이며, 그중 검고 챙이 넓은 흑립이 잘 알려져 있어요.",
+          "story": "조선시대 성인 남성의 차림에 쓰였고, 때와 신분에 따른 사회의 복식 규범을 눈에 보이게 하기도 했어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_gat_buchae"
+      ],
+      "sources": [
+        {
+          "title": "국가유산포털 전 고종 갓",
+          "url": "https://heritage.go.kr/heri/cul/culSelectDetail.do?ccbaAsno=0000450000000&ccbaCpno=1481100450000&ccbaCtcd=11&ccbaKdcd=18&pageNo=1_1_1_0"
+        }
+      ]
+    },
+    {
+      "termId": "chaekgado",
+      "ko": "책가도",
+      "romanization": "Chaekgado",
+      "localizations": {
+        "de": {
+          "meaning": "Chaekgado ist ein Bild von Bücherregalen, in denen Bücher zusammen mit Schreibzeug, Gefäßen, Blumen und Kostbarkeiten stehen.",
+          "story": "Es brachte die Freude an Büchern und den Wunsch nach Bildung sichtbar ins Zimmer; später wurden Motive und Publikum vielfältiger."
+        },
+        "en": {
+          "meaning": "Chaekgado is a painting of bookshelves filled with books, writing tools, vessels, flowers, and treasured objects.",
+          "story": "It brought delight in books and aspirations for learning into the room; over time, its motifs and audience became more varied."
+        },
+        "ko": {
+          "meaning": "책가도는 책장 속 책과 문방구, 그릇, 꽃, 귀한 물건들을 함께 그린 그림이에요.",
+          "story": "책을 아끼는 마음과 배움에 대한 바람을 방 안에 펼쳐 보였고, 시간이 흐르며 소재와 즐기는 사람도 다양해졌어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_chaekgado"
+      ],
+      "sources": [
+        {
+          "title": "국립중앙박물관 조선시대 책가도",
+          "url": "https://www.museum.go.kr/MUSEUM/contents/M0501000000.do?pageSize=10&relicRecommendCategory=&relicRecommendId=562147&sc=&schM=view&sv="
+        }
+      ]
+    },
+    {
+      "termId": "soban",
+      "ko": "소반",
+      "romanization": "Soban",
+      "localizations": {
+        "de": {
+          "meaning": "Soban ist ein kleiner tragbarer Tisch, auf dem Speisen ins Zimmer gebracht und serviert wurden.",
+          "story": "Da Küche und Esszimmer oft getrennt waren, war er besonders praktisch; regionale Formen und Handwerk machten jeden Typ unverwechselbar."
+        },
+        "en": {
+          "meaning": "A soban is a small portable table used to carry food into a room and serve it there.",
+          "story": "It was practical when kitchens and dining rooms were apart; regional forms and craftsmanship gave each type a distinct character."
+        },
+        "ko": {
+          "meaning": "소반은 음식을 방으로 나르고 그 위에 차려 먹는 데 쓰던 작고 옮기기 쉬운 상이에요.",
+          "story": "부엌과 식사하는 방이 떨어진 집에서 특히 실용적이었고, 지역마다 다른 모양과 장인의 솜씨도 담겼어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_soban"
+      ],
+      "sources": [
+        {
+          "title": "국립민속박물관 소반",
+          "url": "https://webzine.nfm.go.kr/2021/10/04/%EC%86%8C%EB%B0%98/"
+        }
+      ]
+    },
+    {
+      "termId": "jagae_mungap",
+      "ko": "자개문갑",
+      "romanization": "Jagae mungap",
+      "localizations": {
+        "de": {
+          "meaning": "Ein Jagae-mungap ist ein niedriger Schrank, dessen lackierte Oberfläche mit dünn geschliffenen Muschelschalen verziert ist.",
+          "story": "Je nach Zeit und Besitzer verbanden solche Möbel Aufbewahrung mit schimmernden Mustern; aufwendige Stücke waren besondere, nicht alltägliche Besitztümer."
+        },
+        "en": {
+          "meaning": "A jagae mungap is a low cabinet with a lacquered surface decorated using thinly polished pieces of shell.",
+          "story": "Depending on period and owner, such furniture joined storage with shimmering patterns; elaborate pieces were special rather than everyday possessions."
+        },
+        "ko": {
+          "meaning": "자개문갑은 낮은 수납가구의 옻칠한 표면을 얇게 간 조개껍데기 조각으로 꾸민 물건이에요.",
+          "story": "시대와 주인에 따라 수납과 반짝이는 무늬를 함께 즐겼으며, 공들인 자개 가구는 누구에게나 흔한 살림은 아니었어요."
+        }
+      },
+      "decorationSlugs": [
+        "decoration_jagae_mungap"
+      ],
+      "sources": [
+        {
+          "title": "국립중앙박물관 나전칠기",
+          "url": "https://www.museum.go.kr/MUSEUM/contents/M0201050400.do?relicId=27184&schM=view&showHallId=758"
+        }
+      ]
+    }
+  ]
+}

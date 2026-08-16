@@ -446,12 +446,12 @@
           ],
           "type": "luecken",
           "data": {
-            "sentence": "한국 처음 ___ .",
+            "sentence": "한국 처음___?",
             "options": [
+              "이세요",
               "이에요",
               "예요",
-              "이요",
-              "에요"
+              "이요"
             ],
             "correctIndex": 0
           }

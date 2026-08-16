@@ -16,12 +16,14 @@ class LueckenQuest extends StatefulWidget {
     required this.onComplete,
     this.onContinue,
     this.isLast = false,
+    this.allowDontKnow = false,
   });
 
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
   final VoidCallback? onContinue;
   final bool isLast;
+  final bool allowDontKnow;
 
   @override
   State<LueckenQuest> createState() => _LueckenQuestState();
@@ -79,6 +81,17 @@ class _LueckenQuestState extends State<LueckenQuest> {
     }
   }
 
+  void _revealAnswer() {
+    if (_resolved != null) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _selected = _correctIndex;
+      _lastWrong = null;
+      _resolved = false;
+    });
+    _report(false);
+  }
+
   SoriAnswerState _stateFor(int index) {
     if (_resolved != null && index == _correctIndex) {
       return SoriAnswerState.correct;
@@ -124,6 +137,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return QuestLayout(
+      contentAlignment: Alignment.center,
       action: ScenarioQuestAction(
         canSubmit: _selected >= 0,
         onSubmit: _check,
@@ -131,6 +145,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
         onContinue: widget.onContinue,
         isLast: widget.isLast,
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+        onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

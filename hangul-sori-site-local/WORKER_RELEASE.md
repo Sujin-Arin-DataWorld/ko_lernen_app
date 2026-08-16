@@ -18,9 +18,22 @@ npm run deploy              # checks, deploy, and live production verification
 `npm run deploy:preview` uploads a version without changing production traffic.
 Preview URLs must be enabled for the Worker before its alias can be opened.
 
-## Cloudflare Workers Builds
+## GitHub Actions production deployment
 
-Connect the GitHub repository once with these settings:
+The repository `CI` workflow is the preferred production owner. A push to
+`main` that changes this directory or `docs/data/cultural_glossary.json` first
+passes the website release gate, then deploys from the exact commit through the
+protected `cloudflare-production` environment. The one-time setup is documented
+in `../docs/GITHUB_ACTIONS_CLOUDFLARE_SETUP.md`.
+
+Do not leave a Cloudflare Workers Builds production deployment enabled after
+`WEBSITE_PRODUCTION_RELEASE_ENABLED=true`. Two production owners can race the
+same commit and make rollback evidence ambiguous.
+
+## Cloudflare Workers Builds fallback
+
+If GitHub Actions cannot be used, Workers Builds remains a supported alternative.
+Connect the GitHub repository with these settings:
 
 - Worker: `hangul-sori-redesign`
 - Production branch: `main`
@@ -28,7 +41,7 @@ Connect the GitHub repository once with these settings:
 - Build command: `npm run deploy:check`
 - Deploy command: `npm run deploy:production`
 - Builds for non-production branches: disabled
-- Watch path: `hangul-sori-site-local/*`
+- Include watch paths: `hangul-sori-site-local/*, docs/data/cultural_glossary.json`
 
 Workers Builds installs locked dependencies before the build command and reads
 Node 24.18.0 from `.node-version`. Prefer **Create new token** during setup, and
@@ -47,7 +60,8 @@ GitHub Pages source claim `hangul-sori.com` again.
 
 ## Verification and rollback
 
-`npm run deploy` and the Workers Builds production deploy command bake the Git
+`npm run deploy`, the GitHub Actions release job, and the Workers Builds fallback
+bake the Git
 commit SHA into the Worker, deploy with Wrangler strict mode, and require that
 exact SHA on both domains. They verify 11 public routes, exact plain-text 404s,
 security headers, all owned public assets, binding presence, and the TestFlight

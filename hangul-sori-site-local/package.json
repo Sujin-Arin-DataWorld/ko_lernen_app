@@ -11,13 +11,16 @@
     "workerd@1.20260811.1": true
   },
   "scripts": {
+    "sync:glossary": "node scripts/sync-cultural-glossary.mjs",
+    "predev": "npm run sync:glossary",
     "dev": "vite",
-    "prebuild": "node scripts/clean-build.mjs",
+    "prebuild": "npm run sync:glossary && node scripts/clean-build.mjs",
     "build": "vinext build && node scripts/validate-artifact.mjs",
     "start": "vinext start",
     "typecheck": "tsc --noEmit --incremental false",
     "test:deployment": "node --test tests/deployment-contract.test.mjs",
-    "test:unit": "node --test tests/rendered-html.test.mjs tests/deployment-contract.test.mjs tests/release-safety.test.mjs",
+    "pretest:unit": "npm run sync:glossary",
+    "test:unit": "node --test tests/rendered-html.test.mjs tests/deployment-contract.test.mjs tests/release-safety.test.mjs tests/cultural-glossary.test.mjs",
     "test": "npm run build && npm run test:unit",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .wrangler",
     "validate:artifact": "node scripts/validate-artifact.mjs",

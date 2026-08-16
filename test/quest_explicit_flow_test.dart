@@ -16,11 +16,12 @@ typedef _QuestBuilder =
     Widget Function(
       void Function(QuestResult) onComplete,
       VoidCallback onContinue,
+      bool allowDontKnow,
     );
 
 void main() {
   final cases = <String, _QuestBuilder>{
-    'listening': (complete, next) => HoerverstehenQuest(
+    'listening': (complete, next, allowDontKnow) => HoerverstehenQuest(
       audioEnabled: false,
       data: const {
         'audioKo': '안녕',
@@ -32,8 +33,9 @@ void main() {
       },
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'translation': (complete, next) => UebersetzenQuest(
+    'translation': (complete, next, allowDontKnow) => UebersetzenQuest(
       data: const {
         'promptDe': 'Hallo',
         'promptEn': 'Hello',
@@ -45,8 +47,9 @@ void main() {
       },
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'cloze': (complete, next) => LueckenQuest(
+    'cloze': (complete, next, allowDontKnow) => LueckenQuest(
       data: const {
         'sentence': '안___',
         'correctIndex': 0,
@@ -54,8 +57,9 @@ void main() {
       },
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'particle': (complete, next) => ParticlePopQuest(
+    'particle': (complete, next, allowDontKnow) => ParticlePopQuest(
       data: const {
         'prefix': '저',
         'suffix': ' 학생이에요.',
@@ -66,8 +70,9 @@ void main() {
       },
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'batchim': (complete, next) => BatchimDropQuest(
+    'batchim': (complete, next, allowDontKnow) => BatchimDropQuest(
       data: const {
         'audioKo': '안녕',
         'targetWord': '안녕',
@@ -79,13 +84,15 @@ void main() {
       },
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'sentence': (complete, next) => SatzBauenQuest(
+    'sentence': (complete, next, allowDontKnow) => SatzBauenQuest(
       data: const {'targetKo': '안녕', 'promptDe': 'Hallo', 'promptEn': 'Hello'},
       onComplete: complete,
       onContinue: next,
+      allowDontKnow: allowDontKnow,
     ),
-    'dictation': (complete, next) => DiktatQuest(
+    'dictation': (complete, next, allowDontKnow) => DiktatQuest(
       data: const {
         'targetKo': '안녕',
         'audioKo': '안녕',
@@ -95,6 +102,7 @@ void main() {
       onComplete: complete,
       onContinue: next,
       allowWordBankFallback: true,
+      allowDontKnow: allowDontKnow,
     ),
   };
 
@@ -105,9 +113,10 @@ void main() {
       var resultCalls = 0;
       var continueCalls = 0;
       await tester.pumpWidget(
-        _host(entry.value((_) => resultCalls++, () => continueCalls++)),
+        _host(entry.value((_) => resultCalls++, () => continueCalls++, false)),
       );
       await tester.pump();
+      expect(find.byKey(const ValueKey('quest-dont-know')), findsNothing);
 
       if (entry.key == 'sentence') {
         await tester.tap(find.text('안녕').last);
@@ -132,6 +141,40 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('quest-continue')));
       await tester.pump();
       expect(resultCalls, 1, reason: entry.key);
+      expect(continueCalls, 1, reason: entry.key);
+    });
+  }
+
+  for (final entry in cases.entries) {
+    testWidgets('${entry.key} can reveal an onboarding answer without credit', (
+      tester,
+    ) async {
+      final results = <QuestResult>[];
+      var continueCalls = 0;
+      await tester.pumpWidget(
+        _host(entry.value(results.add, () => continueCalls++, true)),
+      );
+      await tester.pump();
+
+      await tester.tap(find.byKey(const ValueKey('quest-dont-know')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 250));
+
+      expect(results, hasLength(1), reason: entry.key);
+      expect(results.single.passed, isFalse, reason: entry.key);
+      expect(results.single.firstTry, isFalse, reason: entry.key);
+      if (entry.key == 'particle') {
+        expect(find.text('Use 는 after a vowel.'), findsOneWidget);
+      } else if (entry.key == 'batchim') {
+        expect(find.text('녕 ends with ㅇ.'), findsOneWidget);
+      } else {
+        expect(find.text('The correct answer is shown.'), findsOneWidget);
+      }
+      expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey('quest-continue')));
+      await tester.pump();
+      expect(results, hasLength(1), reason: entry.key);
       expect(continueCalls, 1, reason: entry.key);
     });
   }
@@ -170,6 +213,42 @@ void main() {
     expect(result?.firstTry, isFalse);
     expect(find.text('The correct answer is shown.'), findsOneWidget);
     expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
+  });
+
+  testWidgets('short cloze centers its answer group above the pinned action', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _host(
+        LueckenQuest(
+          data: const {
+            'sentence': '한국 처음___?',
+            'correctIndex': 0,
+            'options': ['이세요', '이에요', '예요', '이요'],
+          },
+          onComplete: (_) {},
+          onContinue: () {},
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final firstTop = tester
+        .getTopLeft(find.byKey(const ValueKey('answer-0')))
+        .dy;
+    final lastBottom = tester
+        .getBottomLeft(find.byKey(const ValueKey('answer-3')))
+        .dy;
+    final actionTop = tester
+        .getTopLeft(find.byKey(const ValueKey('quest-submit')))
+        .dy;
+    expect(firstTop, greaterThan(120));
+    expect(lastBottom, lessThan(actionTop));
   });
 }
 

@@ -158,6 +158,10 @@ commit과 1:1이어야 하며, 루트 worktree에서 만든 다른 AAB로 바꿔
 
 ## 3. Play Internal testing 먼저
 
+일상적인 AAB 생성·업로드는
+[`docs/GITHUB_ACTIONS_PLAY_INTERNAL_SETUP.md`](../GITHUB_ACTIONS_PLAY_INTERNAL_SETUP.md)의
+GitHub Actions 경로를 사용한다. 아래 실기기 검증은 자동 업로드 뒤에도 생략하지 않는다.
+
 Closed Testing에 올리기 전 Internal testing에서 아래를 release build로 확인한다.
 
 - [ ] 올바른 versionCode와 SHA의 AAB가 업로드되었다.

@@ -18,6 +18,7 @@ class HoerverstehenQuest extends StatefulWidget {
     this.audioEnabled = true,
     this.onContinue,
     this.isLast = false,
+    this.allowDontKnow = false,
   });
 
   final Map<String, dynamic> data;
@@ -25,6 +26,7 @@ class HoerverstehenQuest extends StatefulWidget {
   final bool audioEnabled;
   final VoidCallback? onContinue;
   final bool isLast;
+  final bool allowDontKnow;
 
   @override
   State<HoerverstehenQuest> createState() => _HoerverstehenQuestState();
@@ -111,6 +113,17 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     }
   }
 
+  void _revealAnswer() {
+    if (_resolved != null) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _selected = _correctIndex;
+      _lastWrong = null;
+      _resolved = false;
+    });
+    _report(false);
+  }
+
   SoriAnswerState _stateFor(int index) {
     if (_resolved != null && index == _correctIndex) {
       return SoriAnswerState.correct;
@@ -137,6 +150,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
         onContinue: widget.onContinue,
         isLast: widget.isLast,
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+        onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

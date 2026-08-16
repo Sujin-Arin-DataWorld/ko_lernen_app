@@ -1202,6 +1202,7 @@
   "questAnswerRevealed": "The correct answer is shown.",
   "questTryAgainHint": "Almost. Try once more.",
   "questViewResult": "View result",
+  "questDontKnowYet": "I don’t know yet",
   "questListeningQuestion": "What does this sentence mean?",
   "questTypeListening": "Listen",
   "questTypeTranslation": "Translate",
@@ -3082,5 +3083,12 @@
   "soriStageActivityStart": "Start",
   "soriStageActivityDetails": "Details for {activity}",
   "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
-  "soriStageActivityLocked": "Locked"
+  "soriStageActivityLocked": "Locked",
+  "culturalHelpSemantics": "Learn more about {term}",
+  "@culturalHelpSemantics": {"placeholders": {"term": {"type": "String"}}},
+  "culturalMeaningLabel": "What is it?",
+  "culturalStoryLabel": "Why did it matter?",
+  "culturalClose": "Close cultural story",
+  "culturalObjectHint": "Curious? Tap an object to learn more.",
+  "culturalObjectHintDismiss": "Dismiss hint"
 }

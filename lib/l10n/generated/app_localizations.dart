@@ -4729,6 +4729,12 @@ abstract class AppL10n {
   /// **'Ergebnis ansehen'**
   String get questViewResult;
 
+  /// No description provided for @questDontKnowYet.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiß ich noch nicht'**
+  String get questDontKnowYet;
+
   /// No description provided for @questListeningQuestion.
   ///
   /// In de, this message translates to:
@@ -12060,6 +12066,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Gesperrt'**
   String get soriStageActivityLocked;
+
+  /// No description provided for @culturalHelpSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr über {term} erfahren'**
+  String culturalHelpSemantics(String term);
+
+  /// No description provided for @culturalMeaningLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist das?'**
+  String get culturalMeaningLabel;
+
+  /// No description provided for @culturalStoryLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum war das wichtig?'**
+  String get culturalStoryLabel;
+
+  /// No description provided for @culturalClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturgeschichte schließen'**
+  String get culturalClose;
+
+  /// No description provided for @culturalObjectHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Neugierig? Tippe auf einen Gegenstand.'**
+  String get culturalObjectHint;
+
+  /// No description provided for @culturalObjectHintDismiss.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis schließen'**
+  String get culturalObjectHintDismiss;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

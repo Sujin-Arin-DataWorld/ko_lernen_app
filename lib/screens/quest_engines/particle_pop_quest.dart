@@ -19,6 +19,7 @@ class ParticlePopQuest extends StatefulWidget {
   final void Function(QuestResult) onComplete;
   final VoidCallback? onContinue;
   final bool isLast;
+  final bool allowDontKnow;
 
   const ParticlePopQuest({
     super.key,
@@ -26,6 +27,7 @@ class ParticlePopQuest extends StatefulWidget {
     required this.onComplete,
     this.onContinue,
     this.isLast = false,
+    this.allowDontKnow = false,
   });
 
   @override
@@ -148,6 +150,19 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     }
   }
 
+  void _revealAnswer() {
+    if (_completed) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _droppedIndex = _correctIndex;
+      _completed = true;
+      _passed = false;
+      _showExplanation = true;
+      _wrongFlash = false;
+    });
+    _report(false);
+  }
+
   Widget _buildSlot(String langCode, SoriSurfaces s) {
     final hasValue = _droppedIndex != null;
     final isCorrect = hasValue && _droppedIndex == _correctIndex;
@@ -266,6 +281,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
         isLast: widget.isLast,
         hint: _showExplanation ? _explanation(langCode) : null,
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+        onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
       content: Stack(
         clipBehavior: Clip.none,

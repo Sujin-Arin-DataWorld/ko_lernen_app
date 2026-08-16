@@ -7,6 +7,7 @@ import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_pop.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
 
@@ -32,6 +33,7 @@ class DiktatQuest extends StatefulWidget {
   final VoidCallback? onContinue;
   final bool isLast;
   final bool allowWordBankFallback;
+  final bool allowDontKnow;
 
   const DiktatQuest({
     super.key,
@@ -40,6 +42,7 @@ class DiktatQuest extends StatefulWidget {
     this.onContinue,
     this.isLast = false,
     this.allowWordBankFallback = false,
+    this.allowDontKnow = false,
   });
 
   @override
@@ -353,6 +356,21 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
   }
 
+  void _revealAnswer() {
+    if (_completed) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _ctrl.text = _targetKo;
+      _ctrl.selection = TextSelection.collapsed(offset: _ctrl.text.length);
+      _selectedTokens
+        ..clear()
+        ..addAll(_targetTokens);
+      _completed = true;
+      _feedback = _Feedback.wrong;
+    });
+    widget.onComplete(const QuestResult(passed: false, firstTry: false));
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -372,32 +390,20 @@ class _DiktatQuestState extends State<DiktatQuest> {
 
     return QuestLayout(
       showTtsSpeed: true,
-      action: Opacity(
-        opacity: _completed || canCheck ? 1 : 0.5,
-        child: Material(
-          key: ValueKey(_completed ? 'quest-continue' : 'quest-submit'),
-          color: SoriColors.primary,
-          borderRadius: BorderRadius.circular(SoriRadius.lg),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(SoriRadius.lg),
-            onTap: _completed ? widget.onContinue : (canCheck ? _check : null),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Center(
-                child: Text(
-                  _completed
-                      ? (widget.isLast ? t.questViewResult : t.questNext)
-                      : t.questCheckAnswer,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+      action: ScenarioQuestAction(
+        canSubmit: canCheck,
+        onSubmit: _check,
+        resolved: _completed ? _feedback == _Feedback.correct : null,
+        onContinue: widget.onContinue,
+        isLast: widget.isLast,
+        pendingHint: _tries == 1
+            ? (_feedback == _Feedback.spacing
+                  ? t.diktatSpacingHint
+                  : _feedback == _Feedback.spelling
+                  ? t.diktatSpellingHint
+                  : t.questTryAgainHint)
+            : null,
+        onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
       content: Stack(
         clipBehavior: Clip.none,

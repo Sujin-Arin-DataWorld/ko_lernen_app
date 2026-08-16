@@ -1209,6 +1209,7 @@
   "questAnswerRevealed": "Die richtige Antwort wird angezeigt.",
   "questTryAgainHint": "Fast. Versuch es noch einmal.",
   "questViewResult": "Ergebnis ansehen",
+  "questDontKnowYet": "Weiß ich noch nicht",
   "questListeningQuestion": "Was bedeutet dieser Satz?",
   "questTypeListening": "Hören",
   "questTypeTranslation": "Übersetzen",
@@ -3185,5 +3186,12 @@
   "soriStagePreviewProgress": "{current} von {target}",
   "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
   "soriStageActivityStart": "Starten",
-  "soriStageActivityLocked": "Gesperrt"
+  "soriStageActivityLocked": "Gesperrt",
+  "culturalHelpSemantics": "Mehr über {term} erfahren",
+  "@culturalHelpSemantics": {"placeholders": {"term": {"type": "String"}}},
+  "culturalMeaningLabel": "Was ist das?",
+  "culturalStoryLabel": "Warum war das wichtig?",
+  "culturalClose": "Kulturgeschichte schließen",
+  "culturalObjectHint": "Neugierig? Tippe auf einen Gegenstand.",
+  "culturalObjectHintDismiss": "Hinweis schließen"
 }

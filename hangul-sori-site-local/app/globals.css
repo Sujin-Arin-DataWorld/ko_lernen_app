@@ -326,6 +326,28 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 
 .analytics-settings { position: fixed; left: 12px; bottom: 12px; z-index: 80; min-height: 34px; padding: 0 11px; border: 1px solid var(--border); border-radius: 999px; color: #46514c; background: rgba(255,253,248,.9); box-shadow: var(--shadow-medium); cursor: pointer; font-size: 10px; font-weight: 600; backdrop-filter: blur(10px); }
 
+.cultural-term { display: inline; white-space: nowrap; }
+.cultural-help-trigger { width: 44px; height: 44px; display: inline-grid; place-items: center; margin: -10px -4px -10px 2px; padding: 0; border: 0; border-radius: 50%; color: currentColor; background: transparent; font: inherit; font-size: 14px; font-weight: 800; line-height: 1; vertical-align: .12em; cursor: pointer; opacity: .66; }
+.cultural-help-trigger:hover { color: var(--primary-dark); background: var(--primary-soft); opacity: 1; }
+.cultural-help-trigger:focus-visible { outline: 3px solid var(--gold); outline-offset: 1px; opacity: 1; }
+.cultural-dialog { position: fixed; inset: 0; width: min(620px, calc(100% - 40px)); max-width: none; max-height: calc(100dvh - 48px); margin: auto; padding: 0; overflow: visible; border: 0; color: var(--ink); background: transparent; }
+.cultural-dialog::backdrop { background: rgba(7,19,16,.68); backdrop-filter: blur(5px); }
+.cultural-dialog-card { position: relative; max-height: calc(100dvh - 48px); overflow: auto; padding: 36px; border: 1px solid var(--border-strong); border-radius: 26px; background: var(--paper); box-shadow: 0 30px 80px rgba(0,0,0,.32); }
+.cultural-dialog-card header { padding-right: 52px; }
+.cultural-dialog-card h2 { margin: 0; font-family: var(--font-title); font-size: clamp(34px, 6vw, 48px); font-weight: 400; line-height: 1.08; }
+.cultural-dialog-card header p { margin: 5px 0 0; color: var(--muted); font-size: 16px; font-weight: 650; }
+.cultural-dialog-close { position: absolute; right: 16px; top: 16px; width: 48px; height: 48px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; color: var(--muted); background: transparent; font-size: 30px; line-height: 1; cursor: pointer; }
+.cultural-dialog-close:hover { color: var(--ink); background: var(--paper-deep); }
+.cultural-dialog-close:focus-visible, .cultural-dialog-languages a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.cultural-dialog-copy { display: grid; gap: 22px; margin-top: 30px; }
+.cultural-dialog-copy section { padding-top: 18px; border-top: 1px solid var(--border); }
+.cultural-dialog-copy h3 { margin: 0 0 8px; color: var(--primary-dark); font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+.cultural-dialog-copy section:nth-child(2) h3 { color: var(--accent); }
+.cultural-dialog-copy p { margin: 0; color: #39443f; font-size: 17px; line-height: 1.68; }
+.cultural-dialog-languages { display: flex; gap: 6px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+.cultural-dialog-languages a { min-width: 48px; min-height: 44px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: 12px; font-weight: 750; }
+.cultural-dialog-languages a[aria-current="page"] { border-color: var(--primary); color: white; background: var(--primary); }
+
 .tester-dialog { display: none; position: fixed; inset: 0; z-index: 1100; align-items: center; justify-content: center; padding: 24px; }
 .tester-dialog:target { display: flex; }
 .tester-backdrop { position: absolute; inset: 0; background: rgba(7,19,16,.68); backdrop-filter: blur(5px); }
@@ -519,6 +541,11 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
   .privacy-consent-copy h2 { font-size: 23px; }
   .privacy-consent-actions { grid-template-columns: 1fr; }
   .privacy-choice { min-height: 52px; }
+  .cultural-dialog { inset: auto 0 0; width: 100%; max-height: 88dvh; margin: 0; }
+  .cultural-dialog-card { max-height: 88dvh; padding: 28px 20px calc(24px + env(safe-area-inset-bottom)); border-radius: 24px 24px 0 0; }
+  .cultural-dialog-card h2 { font-size: 36px; }
+  .cultural-dialog-copy { margin-top: 24px; }
+  .cultural-dialog-copy p { font-size: 16px; }
 }
 
 @media (max-width: 360px) {

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
+import '../data/quest_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
@@ -17,6 +20,7 @@ import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
@@ -795,7 +799,43 @@ class _HanokHeader extends StatelessWidget {
                 // 완료한 특별 퀘스트의 장식을 한옥 위에 합성 — "내 학습이
                 // 마당을 꾸민다" 원설계 부활(2026-07-30, Jin 승인). 완료 0개면
                 // SizedBox.shrink. 좌표는 마당 시안값 — 실기기 육안 튜닝 대상.
-                const DecorationLayer(),
+                CulturalGlossaryBuilder(
+                  builder: (context, glossary) {
+                    final inspectableSlugs =
+                        glossary?.decorationSlugs ?? const {};
+                    final completedSlugs = Storage.questCompletions.keys
+                        .map((id) => kQuestById[id]?.decorationSlug)
+                        .whereType<String>()
+                        .toSet();
+                    final hasInspectableObject = completedSlugs.any(
+                      inspectableSlugs.contains,
+                    );
+                    return Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        DecorationLayer(
+                          inspectableDecorationSlugs: inspectableSlugs,
+                          onInspectDecoration: (slug) {
+                            unawaited(markCulturalObjectHintSeen());
+                            unawaited(
+                              showCulturalDecorationSheet(context, slug),
+                            );
+                          },
+                        ),
+                        if (hasInspectableObject)
+                          const PositionedDirectional(
+                            start: Spacing.sm,
+                            end: Spacing.sm,
+                            top: Spacing.sm,
+                            child: Align(
+                              alignment: AlignmentDirectional.topCenter,
+                              child: CulturalObjectHint(enabled: true),
+                            ),
+                          ),
+                      ],
+                    );
+                  },
+                ),
               ],
             ),
           ),

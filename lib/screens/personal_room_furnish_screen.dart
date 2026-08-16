@@ -16,6 +16,7 @@ import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/free_room_layer.dart';
@@ -296,7 +297,16 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     final projection = _projection;
     return Scaffold(
       appBar: AppBar(
-        title: Text(_roomTitle(t, widget.surface), style: text.h3),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: Text(_roomTitle(t, widget.surface), style: text.h3),
+            ),
+            if (widget.surface == PersonalRoomSurface.sarangbang)
+              const CulturalHelpButton(termId: 'sarangbang'),
+          ],
+        ),
         actions: [
           if (widget.surface == PersonalRoomSurface.sarangbang)
             IconButton(
@@ -641,29 +651,46 @@ class _RoomInventory extends StatelessWidget {
             )
           else
             LayoutBuilder(
-              builder: (context, constraints) => GridView.builder(
-                key: ValueKey('room-inventory-${kind.name}'),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: entries.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: soriGridColumns(
-                    constraints.maxWidth,
-                    target: 112,
-                    min: 2,
-                    max: 5,
-                  ),
-                  mainAxisExtent: 126,
-                  mainAxisSpacing: Spacing.sm,
-                  crossAxisSpacing: Spacing.sm,
-                ),
-                itemBuilder: (context, index) {
-                  final entry = entries[index];
-                  return _RoomInventoryTile(
-                    entry: entry,
-                    onTap: onAdd == null
-                        ? null
-                        : () => onAdd!(entry.kind, entry.assetId),
+              builder: (context, constraints) => CulturalGlossaryBuilder(
+                builder: (context, glossary) {
+                  final helpSlugs = <String>{};
+                  final seenTerms = <String>{};
+                  if (kind == RoomAssetKind.decoration) {
+                    for (final entry in entries) {
+                      final termId = glossary?.termIdForDecoration(
+                        entry.assetId,
+                      );
+                      if (termId != null && seenTerms.add(termId)) {
+                        helpSlugs.add(entry.assetId);
+                      }
+                    }
+                  }
+                  return GridView.builder(
+                    key: ValueKey('room-inventory-${kind.name}'),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: entries.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: soriGridColumns(
+                        constraints.maxWidth,
+                        target: 112,
+                        min: 2,
+                        max: 5,
+                      ),
+                      mainAxisExtent: 126,
+                      mainAxisSpacing: Spacing.sm,
+                      crossAxisSpacing: Spacing.sm,
+                    ),
+                    itemBuilder: (context, index) {
+                      final entry = entries[index];
+                      return _RoomInventoryTile(
+                        entry: entry,
+                        showCulturalHelp: helpSlugs.contains(entry.assetId),
+                        onTap: onAdd == null
+                            ? null
+                            : () => onAdd!(entry.kind, entry.assetId),
+                      );
+                    },
                   );
                 },
               ),
@@ -766,59 +793,83 @@ class _RoomInventoryEntry {
 class _RoomInventoryTile extends StatelessWidget {
   final _RoomInventoryEntry entry;
   final VoidCallback? onTap;
+  final bool showCulturalHelp;
 
-  const _RoomInventoryTile({required this.entry, required this.onTap});
+  const _RoomInventoryTile({
+    required this.entry,
+    required this.onTap,
+    required this.showCulturalHelp,
+  });
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return Semantics(
-      key: ValueKey('room-inventory-item-${entry.kind.name}-${entry.assetId}'),
-      button: true,
-      enabled: onTap != null,
-      label: t.personalRoomAddItem(entry.label),
-      value: entry.inUse ? t.personalRoomItemInUse : null,
-      onTap: onTap,
-      excludeSemantics: true,
-      child: Material(
-        color: s.surfaceAlt.withValues(alpha: .5),
-        borderRadius: SoriRadius.brSm,
-        child: InkWell(
-          borderRadius: SoriRadius.brSm,
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.sm),
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    Expanded(child: Center(child: _preview())),
-                    const SizedBox(height: Spacing.xs),
-                    Text(
-                      entry.label,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).caption,
-                    ),
-                  ],
-                ),
-                if (entry.inUse)
-                  const Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Icon(
-                      Icons.check_circle_rounded,
-                      size: 20,
-                      color: SoriColors.primary,
-                    ),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Semantics(
+            key: ValueKey(
+              'room-inventory-item-${entry.kind.name}-${entry.assetId}',
+            ),
+            button: true,
+            enabled: onTap != null,
+            label: t.personalRoomAddItem(entry.label),
+            value: entry.inUse ? t.personalRoomItemInUse : null,
+            onTap: onTap,
+            excludeSemantics: true,
+            child: Material(
+              color: s.surfaceAlt.withValues(alpha: .5),
+              borderRadius: SoriRadius.brSm,
+              child: InkWell(
+                borderRadius: SoriRadius.brSm,
+                onTap: onTap,
+                child: Padding(
+                  padding: const EdgeInsets.all(Spacing.sm),
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          Expanded(child: Center(child: _preview())),
+                          const SizedBox(height: Spacing.xs),
+                          Padding(
+                            padding: EdgeInsetsDirectional.only(
+                              end: showCulturalHelp ? 40 : 0,
+                            ),
+                            child: Text(
+                              entry.label,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                              style: SoriTextTheme.of(context).caption,
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (entry.inUse)
+                        const PositionedDirectional(
+                          end: 0,
+                          top: 0,
+                          child: Icon(
+                            Icons.check_circle_rounded,
+                            size: 20,
+                            color: SoriColors.primary,
+                          ),
+                        ),
+                    ],
                   ),
-              ],
+                ),
+              ),
             ),
           ),
         ),
-      ),
+        if (showCulturalHelp)
+          PositionedDirectional(
+            end: 0,
+            bottom: 0,
+            child: CulturalDecorationHelpButton(decorationSlug: entry.assetId),
+          ),
+      ],
     );
   }
 

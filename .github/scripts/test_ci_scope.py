@@ -59,6 +59,13 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["docs/CNAME"], "website")
         self.assert_enabled(["wrangler.legacy-docs.jsonc"], "website")
 
+    def test_cultural_glossary_selects_both_shipped_consumers(self):
+        self.assert_enabled(
+            ["docs/data/cultural_glossary.json"],
+            "app",
+            "website",
+        )
+
     def test_ci_definition_change_fails_open_to_all_scopes(self):
         self.assert_enabled([".github/workflows/ci.yml"], *SCOPES)
 
@@ -68,6 +75,14 @@ class CiScopeTest(unittest.TestCase):
         self.assertEqual(
             scopes_for_task("flutter"),
             {scope: scope == "app" for scope in SCOPES},
+        )
+        self.assertEqual(
+            scopes_for_task("release-internal"),
+            {scope: scope == "app" for scope in SCOPES},
+        )
+        self.assertEqual(
+            scopes_for_task("release-website"),
+            {scope: scope == "website" for scope in SCOPES},
         )
 
 

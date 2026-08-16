@@ -15,6 +15,7 @@ import 'daily_char_sheet.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/hanok_build_narrative_line.dart';
 import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/personal_hanok_unlock_reveal.dart';
@@ -372,7 +373,17 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     final activeReveal = _activeReveal;
     return Scaffold(
       backgroundColor: s.bg,
-      appBar: widget.embedded ? null : AppBar(title: Text(t.hanokWorldTitle)),
+      appBar: widget.embedded
+          ? null
+          : AppBar(
+              title: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(child: Text(t.hanokWorldTitle)),
+                  const CulturalHelpButton(termId: 'hanok'),
+                ],
+              ),
+            ),
       body: Stack(
         children: [
           SoriScreenBackground(

@@ -84,5 +84,18 @@ void main() {
     expect(countsById['airport_arrival'], 5);
     expect(countsById['introduce_yourself'], 7);
     expect(countsById['first_class_meeting'], 6);
+
+    final airport = decoded.cast<Map<String, dynamic>>().firstWhere(
+      (scenario) => scenario['id'] == 'airport_arrival',
+    );
+    final airportCloze = (airport['quests'] as List)
+        .cast<Map<String, dynamic>>()
+        .firstWhere((quest) => quest['id'] == 'quest_airport_arrival_02');
+    final clozeData = airportCloze['data'] as Map<String, dynamic>;
+    final sentence = clozeData['sentence'] as String;
+    final options = (clozeData['options'] as List).cast<String>();
+    final correctIndex = (clozeData['correctIndex'] as num).toInt();
+    expect(options[correctIndex], '이세요');
+    expect(sentence.replaceFirst('___', options[correctIndex]), '한국 처음이세요?');
   });
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
@@ -9,24 +10,35 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/models/room_layout.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
+import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/room_layout_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/free_room_layer.dart';
+import 'package:ko_lernen_app/widgets/sori/cultural_help.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
+import 'package:ko_lernen_app/widgets/sori/free_room_layer.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_room_scene.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 import 'package:ko_lernen_app/widgets/sori/room_layer.dart';
 import 'package:ko_lernen_app/widgets/sori/sticker_image.dart';
 
 void main() {
+  late CulturalGlossary culturalCatalog;
+
+  setUpAll(() async {
+    culturalCatalog = CulturalGlossary.fromJsonString(
+      await File(CulturalGlossaryRepository.assetPath).readAsString(),
+    );
+  });
+
   setUp(() async {
     RoomLayoutService.resetForTesting();
     Storage.resetForTesting();
@@ -374,6 +386,10 @@ void main() {
   testWidgets('shows all owned furnishings and all earned stamps', (
     tester,
   ) async {
+    CulturalGlossaryRepository.setLoaderForTesting(
+      () async => culturalCatalog,
+    );
+    addTearDown(CulturalGlossaryRepository.resetForTesting);
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
@@ -401,6 +417,11 @@ void main() {
     );
 
     expect(find.byType(SoriDecorationImage), findsNWidgets(11));
+    expect(
+      find.byType(CulturalDecorationHelpButton),
+      findsNWidgets(6),
+      reason: '사군자 4폭은 같은 화면에서 문화어 도움말 하나만 보여야 한다',
+    );
     await tester.tap(find.byKey(const ValueKey('room-inventory-tab-stamp')));
     await tester.pumpAndSettle();
     expect(find.byType(DancheongStamp), findsNWidgets(14));

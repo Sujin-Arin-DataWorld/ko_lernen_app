@@ -5,6 +5,7 @@ import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
@@ -90,10 +91,22 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                 base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
                 builder: (context, padding) => Padding(
                   padding: padding,
-                  child: SoriStageRootHeader(
-                    eyebrow: t.soriStageNavHanok,
-                    title: t.soriStageHanokTitle,
-                    body: t.soriStageHanokBody,
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 44),
+                        child: SoriStageRootHeader(
+                          eyebrow: t.soriStageNavHanok,
+                          title: t.soriStageHanokTitle,
+                          body: t.soriStageHanokBody,
+                        ),
+                      ),
+                      const PositionedDirectional(
+                        end: 0,
+                        top: 0,
+                        child: CulturalHelpButton(termId: 'hanok'),
+                      ),
+                    ],
                   ),
                 ),
               ),

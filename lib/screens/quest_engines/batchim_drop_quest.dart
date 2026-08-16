@@ -32,6 +32,7 @@ class BatchimDropQuest extends StatefulWidget {
   final void Function(QuestResult) onComplete;
   final VoidCallback? onContinue;
   final bool isLast;
+  final bool allowDontKnow;
 
   const BatchimDropQuest({
     super.key,
@@ -39,6 +40,7 @@ class BatchimDropQuest extends StatefulWidget {
     required this.onComplete,
     this.onContinue,
     this.isLast = false,
+    this.allowDontKnow = false,
   });
 
   @override
@@ -206,6 +208,19 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     }
   }
 
+  void _revealAnswer() {
+    if (_completed) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _selected = _correctIndex;
+      _completed = true;
+      _passed = false;
+      _showExplanation = true;
+      _wrongFlash = false;
+    });
+    _report(false);
+  }
+
   // ── 음절 표시 위젯 ─────────────────────────────────────────────
 
   Widget _buildSyllableRow(SoriSurfaces s) {
@@ -362,6 +377,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         isLast: widget.isLast,
         hint: _showExplanation ? _explanation(langCode) : null,
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
+        onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
       content: Stack(
         clipBehavior: Clip.none,
