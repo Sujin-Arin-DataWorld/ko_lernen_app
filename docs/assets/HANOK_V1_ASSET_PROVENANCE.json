@@ -375,6 +375,66 @@
             "decisionReason": "true_alpha_and_columns_stage_semantics_passed"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_05_timber_preparation_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:37:39Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-cacd4ecc-faa8-4530-85b3-c3abe299e878",
+        "status": "completed",
+        "promptSha256": "b77d16cba8de05e63dffa4ac38a46d2172a30d97184d6b81ff20bc36ffab825c",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/06_columns_imagegen_20260817.png",
+            "sha256": "e4c4c6874bde2c35b96aa4d5964cd914e9e30d1f74c6fe77f2bebf6b653b37a9"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/05_timber_preparation_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "a79e34e512d34acf767c583b21dcfaadcfacb691b7f86f016775c0bbdd13d488",
+            "decision": "rejected",
+            "width": 2149,
+            "height": 732,
+            "colorMode": "RGB",
+            "bytes": 1221588,
+            "decisionReason": "baked_checkerboard_rgb_not_true_alpha"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_05_timber_preparation_alpha_fixed_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:38:50Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-faf34bc5-ec7a-45a7-b878-6d4bfa62a23b",
+        "status": "completed",
+        "promptSha256": "c9f49f42cdee9af53328d8acb020f60cd9b9ee5e43a908dd47d455842a7c4188",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/05_timber_preparation_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "a79e34e512d34acf767c583b21dcfaadcfacb691b7f86f016775c0bbdd13d488"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/05_timber_preparation_imagegen_20260817.png",
+            "sha256": "8e7ed71d53e94cae3ee709f37833ae2f2f1e988bdb64bc6eedda37cb4bf94607",
+            "decision": "approved",
+            "width": 2160,
+            "height": 728,
+            "colorMode": "RGBA",
+            "bytes": 801696,
+            "decisionReason": "true_alpha_and_timber_preparation_stage_semantics_passed"
+          }
+        ]
       }
     ]
   },
@@ -431,6 +491,64 @@
         "camera_and_estate_preserved_by_deterministic_composition"
       ]
     }
+  },
+  "a1ApprovedQaStates": {
+    "schemaVersion": 1,
+    "runtime": false,
+    "states": [
+      {
+        "stageId": "05_timber_preparation",
+        "generationRecordId": "hanok_a1_05_timber_preparation_alpha_fixed_20260817",
+        "status": "approved_qa",
+        "rawLayer": {
+          "path": "assets_unused/pending_review/a1_layers/raw/05_timber_preparation_imagegen_20260817.png",
+          "sha256": "8e7ed71d53e94cae3ee709f37833ae2f2f1e988bdb64bc6eedda37cb4bf94607",
+          "width": 2160,
+          "height": 728,
+          "colorMode": "RGBA",
+          "bytes": 801696
+        },
+        "normalizedLayer": {
+          "path": "assets_unused/pending_review/a1_layers/05_timber_preparation_layer.png",
+          "sha256": "aa9bca77204f7e9ef9eebcbf84482c1e713939548a0e8b789383d57cefb22e36",
+          "width": 854,
+          "height": 309,
+          "colorMode": "RGBA",
+          "bytes": 178584,
+          "alphaCoverage": 0.2754181729989465,
+          "anchorPixels": 909,
+          "chromaPixels": 0
+        },
+        "composite": {
+          "path": "assets_unused/pending_review/a1_states/05_timber_preparation.webp",
+          "sha256": "308e4d3f1aa25b729acf61f4bcd7013bd41159dbca4eb7d96220c45f289bb75d",
+          "width": 1536,
+          "height": 1152,
+          "colorMode": "RGB",
+          "bytes": 276882,
+          "sourceOutsideSocketChangedPixels": 0,
+          "sourceInsideSocketChangedPixels": 74296,
+          "decodedOutsideSocketMeanError": 3.3901172035340394,
+          "encoder": {
+            "library": "Pillow",
+            "version": "11.3.0",
+            "quality": 82,
+            "method": 6
+          }
+        },
+        "visualReview": {
+          "decision": "approved",
+          "checks": [
+            "gidan_and_cornerstones_preserved",
+            "measured_timber_stacks_visible",
+            "no_upright_columns_or_later_structure",
+            "no_beams_purlins_rafters_roof_walls_or_changho",
+            "no_text_ui_people_animals_or_watermark",
+            "camera_and_estate_preserved_by_deterministic_composition"
+          ]
+        }
+      }
+    ]
   },
   "qaComposite": {
     "path": "assets_unused/pending_review/reference_full_estate.png",

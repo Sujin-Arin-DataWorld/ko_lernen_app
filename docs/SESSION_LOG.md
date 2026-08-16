@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-05 치목 자산
+
+**누적 공정.** 승인된 A1-06 true-alpha raw에서 세운 기둥만 제거해 바로 이전
+`05_timber_preparation`을 제작했다. 기단·계단·일곱 초석·운반대·치목한 목재의
+perspective와 배치를 유지하고 기둥과 이후 공정은 넣지 않았다. 최초 조상은 프로젝트
+소유 `sarangchae.png`이며 사용자 화면·Vivasam·PDF·legacy/Gye 자산은 입력하지 않았다.
+
+**실패 폐쇄와 lineage.** 첫 출력은 형태는 맞았지만 회색 체크무늬를 실제 픽셀로 구운
+RGB여서 compositor가 즉시 거절했다. 이 exact rejected SHA를 입력으로 배경만 실제 alpha로
+바꾸는 한 번의 수정 결과를 새 generation record로 남겼다. ledger test는 이제 프로젝트
+allowlist 또는 더 앞선 ledger output의 exact SHA만 파생 입력으로 허용하며, 경로 재정의와
+순서가 뒤집힌 lineage를 차단한다. rejected 출력은 QA rejected 폴더에만 남는다.
+
+**승인 결과.** raw는 2160×728 RGBA, normalized layer는 854×309 RGBA·178,584 bytes,
+alpha 27.54%·anchor 909·chroma 0이다. QA composite는 1536×1152 RGB WebP·276,882
+bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3902다. 육안으로 기단·초석·
+준비 목재만 보이고 세운 기둥과 이후 구조가 없어 승인했다. 아직 runtime/pubspec에는
+승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **8/8**, provenance+bundle Flutter 회귀
+**12/12**, JSON parse와 Dart format을 통과했다. prompt/output SHA, 두 호출의 승인·거절,
+정규화·합성 metric은 provenance와 별도 prompt 기록에 고정했다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 투명 socket 합성 계약
 
 **생성 경계.** whole-estate 이미지 편집 파일럿은 socket 밖을 다시 그려 전부 거절됐으므로,

@@ -413,7 +413,7 @@ void main() {
         'decision',
       ]);
       final records = _objects(ledger['records'], 'generationLedger.records');
-      expect(records, hasLength(5));
+      expect(records, hasLength(7));
       expect(
         records
             .expand(
@@ -423,7 +423,14 @@ void main() {
               ),
             )
             .map((output) => output['decision']),
-        ['rejected', 'rejected', 'rejected', 'approved'],
+        [
+          'rejected',
+          'rejected',
+          'rejected',
+          'approved',
+          'rejected',
+          'approved',
+        ],
       );
       expect(
         records.fold<double>(
@@ -513,6 +520,73 @@ void main() {
       },
     );
 
+    test('approved cumulative QA states are hash-locked and QA-only', () {
+      final approved = _object(
+        manifest['a1ApprovedQaStates'],
+        'a1ApprovedQaStates',
+      );
+      expect(_integer(approved['schemaVersion'], 'schemaVersion'), 1);
+      expect(_boolean(approved['runtime'], 'runtime'), isFalse);
+      final states = _objects(approved['states'], 'states');
+      expect(states, hasLength(1));
+      final state = states.single;
+      expect(_string(state['stageId'], 'stageId'), '05_timber_preparation');
+      expect(_string(state['status'], 'status'), 'approved_qa');
+
+      final artifacts = <(String, int, int, int, int)>[
+        ('rawLayer', 2160, 728, 4, 801696),
+        ('normalizedLayer', 854, 309, 4, 178584),
+        // package:image exposes decoded WebP as RGBA even though Pillow's
+        // encoded source contract is RGB; the Python compositor checks mode.
+        ('composite', 1536, 1152, 4, 276882),
+      ];
+      for (final contract in artifacts) {
+        final artifact = _object(state[contract.$1], contract.$1);
+        final path = _string(artifact['path'], '${contract.$1}.path');
+        final file = File(path);
+        expect(file.existsSync(), isTrue, reason: path);
+        final bytes = file.readAsBytesSync();
+        expect(bytes.length, contract.$5, reason: path);
+        expect(
+          sha256.convert(bytes).toString(),
+          _sha256(artifact['sha256'], '$path.sha256'),
+        );
+        final decoded = img.decodeImage(bytes);
+        expect(decoded, isNotNull, reason: path);
+        expect(
+          (decoded!.width, decoded.height, decoded.numChannels),
+          (contract.$2, contract.$3, contract.$4),
+          reason: path,
+        );
+      }
+
+      final normalized = _object(state['normalizedLayer'], 'normalizedLayer');
+      expect(_integer(normalized['anchorPixels'], 'anchorPixels'), 909);
+      expect(_integer(normalized['chromaPixels'], 'chromaPixels'), 0);
+      final composite = _object(state['composite'], 'composite');
+      expect(
+        _integer(
+          composite['sourceOutsideSocketChangedPixels'],
+          'sourceOutsideSocketChangedPixels',
+        ),
+        0,
+      );
+      expect(
+        _number(
+          composite['decodedOutsideSocketMeanError'],
+          'decodedOutsideSocketMeanError',
+        ),
+        lessThanOrEqualTo(5.0),
+      );
+      expect(
+        _strings(
+          _object(state['visualReview'], 'visualReview')['checks'],
+          'visualReview.checks',
+        ),
+        contains('no_upright_columns_or_later_structure'),
+      );
+    });
+
     test(
       'future generation records fail closed on rights, hashes, and budget',
       () {
@@ -536,6 +610,7 @@ void main() {
         };
         final records = _objects(ledger['records'], 'generationLedger.records');
         final ids = <String>{};
+        final priorGeneratedOutputs = <String, String>{};
         var staticCredits = 0.0;
         var videoCredits = 0.0;
 
@@ -578,10 +653,12 @@ void main() {
             '$id.inputAssets',
           )) {
             final path = _string(input['path'], '$id.inputAssets.path');
+            final digest = _sha256(input['sha256'], '$id.inputAssets.sha256');
             expect(
-              allowedInputs[path],
-              _sha256(input['sha256'], '$id.inputAssets.sha256'),
-              reason: '$id used a non-allowlisted or changed model input',
+              allowedInputs[path] ?? priorGeneratedOutputs[path],
+              digest,
+              reason:
+                  '$id used an input without an exact allowlist or prior-ledger lineage',
             );
           }
           for (final output in _objects(
@@ -593,7 +670,13 @@ void main() {
               path.contains('..') || RegExp(r'^[A-Za-z]:').hasMatch(path),
               isFalse,
             );
-            _sha256(output['sha256'], '$id.outputAssets.sha256');
+            final digest = _sha256(output['sha256'], '$id.outputAssets.sha256');
+            expect(
+              priorGeneratedOutputs.containsKey(path),
+              isFalse,
+              reason: '$id redefined generated output path $path',
+            );
+            priorGeneratedOutputs[path] = digest;
             expect(
               _string(output['decision'], '$id.outputAssets.decision'),
               anyOf('approved', 'rejected'),
