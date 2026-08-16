@@ -51,6 +51,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   CustomPack? _pack;
   int _idx = 0;
   bool _flipped = false;
+  // 앞면으로 다시 돌아와도 이 카드의 답을 이미 본 사실은 유지한다.
+  // 판정/스킵으로 다음 카드가 서빙될 때만 초기화한다.
+  bool _cardRevealed = false;
   // FlipCard re-key용 서빙 카운터 — 카드 전환 시 뒷면(뜻) 선노출 방지
   // (계약: flip_card.dart doc-comment).
   int _serve = 0;
@@ -136,6 +139,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     if (pack == null) return;
     setState(() {
       _flipped = false;
+      _cardRevealed = false;
       _idx++;
       _serve++;
       if (_idx >= pack.words.length) {
@@ -147,6 +151,16 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
           ),
         );
       }
+    });
+  }
+
+  void _toggleFlip() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      if (!_flipped) {
+        _cardRevealed = true;
+      }
+      _flipped = !_flipped;
     });
   }
 
@@ -248,7 +262,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                       SoriSwipeCard(
                         // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
                         // 카드에 SRS가 기록되는 데이터 버그 방지.
-                        enabled: _flipped,
+                        enabled: _cardRevealed,
                         onSwipeRight: _gotIt,
                         onSwipeLeft: _dontKnow,
                         onSwipeDown: _defer,
@@ -292,10 +306,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                                   child: FlipCard(
                                     key: ValueKey('cp-$_serve'),
                                     flipped: _flipped,
-                                    onTap: () {
-                                      HapticFeedback.selectionClick();
-                                      setState(() => _flipped = !_flipped);
-                                    },
+                                    onTap: _toggleFlip,
                                     front: _Front(
                                       word: w,
                                       deckKoreans: [
@@ -330,7 +341,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                   onDontKnow: _dontKnow,
                   onKnow: _gotIt,
                   onSkip: _defer,
-                  judgmentsEnabled: _flipped,
+                  judgmentsEnabled: _cardRevealed,
                   onBlockedJudgmentTap: () => _flipHintTrigger.value++,
                   showSave: false,
                   dontKnowLabel: t.btnNichtGewusst,
@@ -434,6 +445,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     _idx = 0;
                     _learned = 0;
                     _flipped = false;
+                    _cardRevealed = false;
                     _feedbackCompletion.reset();
                   }),
                 ),

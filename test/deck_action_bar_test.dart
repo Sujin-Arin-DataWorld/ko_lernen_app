@@ -224,4 +224,51 @@ void main() {
     expect(find.byIcon(Icons.check_rounded), findsOneWidget);
     semantics.dispose();
   });
+
+  testWidgets('judgments anchor the edges and vertical actions stay between', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      host(onDontKnow: () {}, onKnow: () {}, onSkip: () {}, onSave: () {}),
+    );
+
+    final bar = tester.getRect(find.byKey(const ValueKey('deck-action-bar')));
+    final dontKnow = tester.getRect(find.byKey(deckActionKey('dontknow')));
+    final skip = tester.getRect(find.byKey(deckActionKey('skip')));
+    final save = tester.getRect(find.byKey(deckActionKey('save')));
+    final know = tester.getRect(find.byKey(deckActionKey('know')));
+
+    expect(dontKnow.left, closeTo(bar.left, 0.01));
+    expect(know.right, closeTo(bar.right, 0.01));
+    expect(dontKnow.center.dx, lessThan(skip.center.dx));
+    expect(skip.center.dx, lessThan(save.center.dx));
+    expect(save.center.dx, lessThan(know.center.dx));
+    expect((skip.center.dx + save.center.dx) / 2, closeTo(bar.center.dx, 0.01));
+    expect(tester.takeException(), isNull);
+
+    await tester.pumpWidget(
+      host(onDontKnow: () {}, onKnow: () {}, onSkip: () {}, showSave: false),
+    );
+    final compactBar = tester.getRect(
+      find.byKey(const ValueKey('deck-action-bar')),
+    );
+    expect(
+      tester.getRect(find.byKey(deckActionKey('dontknow'))).left,
+      closeTo(compactBar.left, 0.01),
+    );
+    expect(
+      tester.getRect(find.byKey(deckActionKey('know'))).right,
+      closeTo(compactBar.right, 0.01),
+    );
+    expect(
+      tester.getRect(find.byKey(deckActionKey('skip'))).center.dx,
+      closeTo(compactBar.center.dx, 0.01),
+    );
+    expect(tester.takeException(), isNull);
+  });
 }

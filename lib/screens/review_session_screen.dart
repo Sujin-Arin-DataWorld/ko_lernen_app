@@ -74,6 +74,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   List<Vocab> _deck = [];
   int _idx = 0;
   bool _flipped = false;
+  // 이 카드에서 답을 한 번이라도 본 뒤에는 앞면으로 다시 돌아와도 좌/우
+  // 판정을 유지한다. 새 카드가 서빙될 때만 false로 초기화한다.
+  bool _cardRevealed = false;
   int _reviewed = 0;
   bool _done = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -126,6 +129,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       setState(() {
         // §P2: ↓ 스킵이 덱 순서를 바꾸므로 호출부 리스트를 변형하지 않게 복사.
         _deck = List.of(widget.deck!);
+        _flipped = false;
+        _cardRevealed = false;
         _loading = false;
       });
       return;
@@ -144,6 +149,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (!mounted) return;
     setState(() {
       _deck = deck;
+      _flipped = false;
+      _cardRevealed = false;
       _loading = false;
     });
   }
@@ -194,6 +201,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       final card = _deck.removeAt(_idx);
       _deck.add(card);
       _flipped = false;
+      _cardRevealed = false;
+    });
+  }
+
+  void _toggleFlip() {
+    setState(() {
+      if (!_flipped) {
+        _cardRevealed = true;
+      }
+      _flipped = !_flipped;
     });
   }
 
@@ -232,6 +249,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       setState(() {
         _idx++;
         _flipped = false;
+        _cardRevealed = false;
       });
     }
   }
@@ -499,7 +517,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       SoriSwipeCard(
                         // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
                         // 카드에 SRS가 기록되는 데이터 버그 방지.
-                        enabled: _flipped,
+                        enabled: _cardRevealed,
                         onSwipeRight: () => _answer(true),
                         onSwipeLeft: () => _answer(false),
                         onSwipeUp: _saveCurrent,
@@ -545,7 +563,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                               ),
                         child: SoriPressable(
                           key: _cardKey,
-                          onTap: () => setState(() => _flipped = !_flipped),
+                          onTap: _toggleFlip,
                           haptic: SoriHaptic.selection,
                           child: SizedBox(
                             // P1 공통 센서 finder —
@@ -597,7 +615,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             onSkip: _deferCurrent,
             onSave: _saveCurrent,
             skipEnabled: _idx < _deck.length - 1,
-            judgmentsEnabled: _flipped,
+            judgmentsEnabled: _cardRevealed,
             onBlockedJudgmentTap: () => _flipHintTrigger.value++,
             dontKnowLabel: t.btnNichtGewusst,
             knowLabel: t.btnGewusst,

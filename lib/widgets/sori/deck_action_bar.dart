@@ -15,7 +15,9 @@ ValueKey<String> deckActionKey(String name) => ValueKey('deck-action-$name');
 /// (Sori Deck 2.0 §P2-3, 2026-08-14).
 ///
 /// 대형 텍스트 CTA("Gewusst/Weiß ich nicht")를 대체하는 4버튼 원형 바 —
-/// Jin 확정(§1-2): 모름 아이콘은 X 가 아니라 **`?`**.
+/// Jin 확정(§1-2): 모름 아이콘은 X 가 아니라 **`?`**. 좌우 판정의 방향을
+/// 한눈에 읽을 수 있도록 `?`는 가용 폭의 왼쪽 끝, `✓`는 오른쪽 끝에 고정하고
+/// ↓/↑ 보조 동작은 그 사이에 둔다.
 ///
 /// ```
 /// [? 모름] 64dp · lightSurfaceRaised + accent 1.5px 테두리 · 판정 게이트
@@ -82,7 +84,7 @@ class SoriDeckActionBar extends StatelessWidget {
     final isLight = s.brightness == Brightness.light;
     return Row(
       key: const ValueKey('deck-action-bar'),
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _DeckActionButton(
           key: deckActionKey('dontknow'),
@@ -97,7 +99,6 @@ class SoriDeckActionBar extends StatelessWidget {
           onTap: judgmentsEnabled ? onDontKnow : onBlockedJudgmentTap,
           dimmed: !judgmentsEnabled,
         ),
-        const SizedBox(width: Spacing.lg),
         _DeckActionButton(
           key: deckActionKey('skip'),
           label: skipLabel,
@@ -110,8 +111,7 @@ class SoriDeckActionBar extends StatelessWidget {
           onTap: skipEnabled ? onSkip : null,
           dimmed: !skipEnabled,
         ),
-        if (showSave) ...[
-          const SizedBox(width: Spacing.lg),
+        if (showSave)
           _DeckActionButton(
             key: deckActionKey('save'),
             label: saveLabel,
@@ -124,8 +124,6 @@ class SoriDeckActionBar extends StatelessWidget {
             iconColor: isLight ? SoriColors.goldOnLight : SoriColors.gold,
             onTap: onSave,
           ),
-        ],
-        const SizedBox(width: Spacing.lg),
         _DeckActionButton(
           key: deckActionKey('know'),
           label: knowLabel,

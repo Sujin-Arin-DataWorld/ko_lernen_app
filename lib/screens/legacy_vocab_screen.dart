@@ -47,6 +47,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   List<Vocab> _filtered = [];
   int _idx = 0;
   bool _flipped = false;
+  // 답을 한 번 공개한 카드는 다시 앞면으로 돌려도 좌/우 판정을 허용한다.
+  // 필터·이동·판정으로 다른 카드가 서빙될 때만 초기화한다.
+  bool _cardRevealed = false;
   // FlipCard re-key용 서빙 카운터 — 카드 전환 시 뒷면(뜻) 선노출 방지
   // (계약: flip_card.dart doc-comment).
   int _serve = 0;
@@ -146,6 +149,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         _loadFailed = v.isEmpty && DataLoader.lastError != null;
         _filtered = _filterList();
         if (_idx >= _filtered.length) _idx = 0;
+        _flipped = false;
+        _cardRevealed = false;
+        _serve++;
       });
     });
   }
@@ -172,6 +178,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       if (_mode == 'favorites') {
         _filtered = _filterList();
         if (_idx >= _filtered.length && _filtered.isNotEmpty) _idx = 0;
+        _flipped = false;
+        _cardRevealed = false;
+        _serve++;
       }
     });
     // ignore: discarded_futures
@@ -183,6 +192,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _filtered = _filterList();
       _idx = 0;
       _flipped = false;
+      _cardRevealed = false;
       _serve++;
     });
   }
@@ -196,6 +206,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _filtered = _filterList();
       _idx = 0;
       _flipped = false;
+      _cardRevealed = false;
       _serve++;
     });
   }
@@ -218,6 +229,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _next() {
     setState(() {
       _flipped = false;
+      _cardRevealed = false;
       _serve++;
       _idx = (_idx + 1) % _filtered.length;
     });
@@ -230,6 +242,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     if (_filtered.isEmpty) return;
     setState(() {
       _flipped = false;
+      _cardRevealed = false;
       _serve++;
       _idx = (_idx - 1 + _filtered.length) % _filtered.length;
     });
@@ -239,6 +252,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _random() {
     setState(() {
       _flipped = false;
+      _cardRevealed = false;
       _serve++;
       _idx = math.Random().nextInt(_filtered.length);
     });
@@ -295,6 +309,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           _filtered = _filterList();
           if (_idx >= _filtered.length) _idx = 0;
           _flipped = false;
+          _cardRevealed = false;
           _serve++;
         }
         _dueFeedback.completeIfEligible(
@@ -339,7 +354,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
   void _onFlip() {
     HapticFeedback.selectionClick();
-    setState(() => _flipped = !_flipped);
+    setState(() {
+      if (!_flipped) {
+        _cardRevealed = true;
+      }
+      _flipped = !_flipped;
+    });
   }
 
   List<String> get _levels {
@@ -508,7 +528,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                             // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
                             // 카드에 SRS 오답이 기록되는 데이터 버그 방지.
                             // 버튼 바의 판정 2개도 같은 게이트 — 동일 계약.
-                            enabled: _flipped,
+                            enabled: _cardRevealed,
                             onSwipeRight: _gewusst,
                             onSwipeLeft: _nichtGewusst,
                             onSwipeUp: _favoriteAdd,
@@ -633,7 +653,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                   onKnow: _gewusst,
                   onSkip: _skip,
                   onSave: _favoriteAdd,
-                  judgmentsEnabled: _flipped,
+                  judgmentsEnabled: _cardRevealed,
                   onBlockedJudgmentTap: () => _flipHintTrigger.value++,
                   dontKnowLabel: t.btnNichtGewusst,
                   knowLabel: t.btnGewusst,

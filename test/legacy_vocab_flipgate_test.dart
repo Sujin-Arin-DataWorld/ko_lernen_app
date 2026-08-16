@@ -8,12 +8,13 @@ import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 
 /// §C-3c P0-2: 화면 레벨 플립게이트 테스트 — "앞면(flipped=false) 드래그 시
 /// SRS/wrongCount 미기록 + 카드 인덱스 불변"을 검증.
 ///
 /// 위젯 테스트(swipe_card_test.dart)는 `enabled:false`에서 콜백이 무시되는지
-/// 확인하지만, 화면의 `enabled: _flipped` 배선 한 줄이 지워져도 빨개지지 않는다.
+/// 확인하며, 화면의 카드별 공개 이력 게이트가 지워져도 빨개진다.
 /// 이 테스트는 **그 배선 자체를 고정한다** — 수리를 지우면 빨개진다.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -151,5 +152,34 @@ void main() {
 
     // 여전히 같은 카드
     expect(find.text('사과'), findsOneWidget);
+  });
+
+  testWidgets('한 번 답을 본 카드는 앞면으로 돌아와도 좌우 판정 가능', (tester) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(buildScreen());
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pumpAndSettle();
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pumpAndSettle();
+    expect(find.text('사과'), findsOneWidget);
+
+    await tester.drag(find.text('사과'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+
+    expect(find.text('바나나'), findsOneWidget);
+    expect(Storage.srsCard('사과')?.reviewCount, 1);
+
+    final secondBefore = Storage.srsCard('바나나')?.reviewCount;
+    await tester.drag(find.text('바나나'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+    expect(Storage.srsCard('바나나')?.reviewCount, secondBefore);
+    expect(find.text('바나나'), findsOneWidget);
   });
 }
