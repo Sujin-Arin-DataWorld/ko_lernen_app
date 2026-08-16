@@ -19,7 +19,7 @@ Dart files: No issues found. Focused tests 37/37 plus catalog/custom-pack 11/11:
 `custom_pack_import_language_test`, `book_preview_localization_test`,
 `discover_screen_test`, `sori_activity_catalog_test`, `custom_pack_test`.
 
-**커밋해시.** (이 기록과 같은 커밋)
+**커밋해시.** `8cc3f23`
 
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
