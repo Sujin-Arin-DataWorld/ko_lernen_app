@@ -23,6 +23,11 @@ Auth·limited-use App Check 강제는 그대로 유지한다.
 8건은 범위 밖으로 남겼다. AAB는 다른 작업의 최종 main 반영을 기다려 한 번만 새로
 만들기로 했으므로 이 변경에서는 생성하지 않는다.
 
+**배포.** 깨끗한 기록 커밋 `108e2579`에서 Firebase dry-run을 통과한 뒤
+`ko-lernen-app/europe-west3`의 `synthesize_tts`와 `synthesize_tts_v2` 두 함수만
+업데이트했다. 둘 다 Node.js 22·`ACTIVE`이며 비인증 직접 요청은 HTTP 401로 거부된다.
+실제 기기 App Check 토큰을 쓰는 합성·한도 소진은 새 AAB 실기기 게이트에서 확인한다.
+
 ### 2026-08-16 (Codex) — 살아 있는 한옥 V1 확장형 선행 계약 구현
 
 **근거와 경계.** PR #27의 B2·C1·C2 신규 콘텐츠 504개와 기존 TTS는 정상적인
