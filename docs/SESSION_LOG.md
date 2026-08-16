@@ -17,9 +17,11 @@
 따옴표를 넣었다.
 
 **검증.** vocab 1188행 15열·grammar 176행 16열, 변경 JSON parse, 대상 교과서
-문구 0건. 이어서 `data_integrity`·smalltalk·cloze·satz 회귀를 돌린다.
+문구 0건. `flutter test` data_integrity·smalltalk·cloze·satz·content_audit·
+content_id **31/31**. `flutter analyze --fatal-infos lib/models/smalltalk.dart`
+No issues found.
 
-**커밋.** 이 항목과 같은 커밋.
+**커밋.** `3d66496` (`fix(l10n): drop textbook DE/EN set phrases`).
 
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
