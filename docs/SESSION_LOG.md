@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 자산 경계·생성 preflight
+
+**격리와 QA 경계.** PR3 exact head `64b7e24a`에서 독립 worktree/branch
+`codex/hanok-v1-a1-assets-20260817`을 만들었다. 개인 한옥 checker가 3.25MB 완성
+합성물을 Flutter runtime leaf인 `personal_hanok_v2/map/`에서 찾던 모순을 고쳐,
+정본 `assets_unused/pending_review/reference_full_estate.png`만 읽고 갱신한다. 같은
+파일이 runtime root에 나타나면 checker와 bundle 회귀가 실패하며, 현재 8개 runtime
+layer 합성과 QA 정답이 pixel-exact임을 유지한다.
+
+**생성 준비.** 권리 원장의 SHA와 실제 `site_base_light`·`sarangchae`·QA composite를
+확인하고 BBANANA 연결/모델/잔액을 읽기 전용 재검증했다. 잔액은 934.8 credits,
+Nano Banana Pro 4:3 2K는 4 credits/call이다. A1-06 columns 3안의 edit target,
+reference 역할, exact socket/anchor, 금지 입력·구조·UI 요소와 수락 조건을 호출 전에
+`docs/assets/prompts/HANOK_V1_A1_06_COLUMNS_PILOT_2026-08-17.md`에 고정했다.
+사용자 화면·Vivasam·PDF·legacy/Gye asset은 모델에 보내지 않았다.
+
+**검증.** `python -m unittest tool.test_check_personal_hanok_assets` **3/3**,
+personal Hanok bundle + V1 provenance Flutter 회귀 **10/10**, 실제 checker의 8개
+runtime layer/QA metadata·pixel 합성, `git diff --check`를 통과했다. 이미지 생성 호출,
+크레딧 차감, push, PR은 이 기록 시점에 아직 없다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 
 **권한과 완전 교체.** `HanokState v1`은 reveal 확인, 외관 loadout과 slot별 clock,

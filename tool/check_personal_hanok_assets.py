@@ -9,11 +9,11 @@ from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSET_ROOT = ROOT / "assets" / "illustrations" / "personal_hanok_v2" / "map"
+QA_ROOT = ROOT / "assets_unused" / "pending_review"
 CANVAS = (1536, 1152)
 
 SPECS = {
     "site_base_light.png": {"opaque": True},
-    "reference_full_estate.png": {"opaque": True},
     "structures/sotdaeulmun.png": {"opaque": False},
     "structures/haengrangchae.png": {"opaque": False},
     "structures/sarangchae.png": {"opaque": False},
@@ -36,7 +36,9 @@ RUNTIME_LAYER_ORDER = (
     "structures/daecheongmaru.png",
     "structures/sadang.png",
 )
-REFERENCE = "reference_full_estate.png"
+REFERENCE_NAME = "reference_full_estate.png"
+REFERENCE_PATH = QA_ROOT / REFERENCE_NAME
+FORBIDDEN_RUNTIME_REFERENCE_PATH = ASSET_ROOT / REFERENCE_NAME
 
 
 def _chroma_key_count(image: Image.Image) -> int:
@@ -104,28 +106,27 @@ def _compose_runtime_estate() -> Image.Image:
 
 
 def _check_reference() -> list[str]:
-    reference_path = ASSET_ROOT / REFERENCE
-    with Image.open(reference_path) as source:
+    with Image.open(REFERENCE_PATH) as source:
         reference = source.convert("RGB")
     composed = _compose_runtime_estate().convert("RGB")
     difference = ImageChops.difference(reference, composed)
     if difference.getbbox() is not None:
         return [
             "[fail] "
-            f"{reference_path.relative_to(ROOT)} does not exactly match "
+            f"{REFERENCE_PATH.relative_to(ROOT)} does not exactly match "
             "the complete runtime layer composition"
         ]
     return [
         "[pass] "
-        f"{reference_path.relative_to(ROOT)} matches runtime composition"
+        f"{REFERENCE_PATH.relative_to(ROOT)} matches runtime composition"
     ]
 
 
 def _write_reference() -> None:
     """Intentionally refreshes the QA reference from the approved layers."""
-    output = ASSET_ROOT / REFERENCE
-    _compose_runtime_estate().convert("RGB").save(output)
-    print(f"[write] {output.relative_to(ROOT)} from runtime composition")
+    QA_ROOT.mkdir(parents=True, exist_ok=True)
+    _compose_runtime_estate().convert("RGB").save(REFERENCE_PATH)
+    print(f"[write] {REFERENCE_PATH.relative_to(ROOT)} from runtime composition")
 
 
 def main() -> int:
@@ -133,6 +134,13 @@ def main() -> int:
         _write_reference()
         return 0
     problems = 0
+    if FORBIDDEN_RUNTIME_REFERENCE_PATH.exists():
+        print(
+            "[fail] "
+            f"{FORBIDDEN_RUNTIME_REFERENCE_PATH.relative_to(ROOT)} must stay "
+            "outside the Flutter runtime asset root"
+        )
+        problems += 1
     for relative, spec in SPECS.items():
         path = ASSET_ROOT / relative
         if not path.is_file():
@@ -143,8 +151,17 @@ def main() -> int:
             print(line)
             if line.startswith("[fail]"):
                 problems += 1
-    required = (*RUNTIME_LAYER_ORDER, REFERENCE)
-    if problems == 0 and all((ASSET_ROOT / relative).is_file() for relative in required):
+    if not REFERENCE_PATH.is_file():
+        print(f"[missing] {REFERENCE_PATH.relative_to(ROOT)}")
+        problems += 1
+    else:
+        for line in _check(REFERENCE_PATH, True):
+            print(line)
+            if line.startswith("[fail]"):
+                problems += 1
+    if problems == 0 and all(
+        (ASSET_ROOT / relative).is_file() for relative in RUNTIME_LAYER_ORDER
+    ):
         for line in _check_reference():
             print(line)
             if line.startswith("[fail]"):
