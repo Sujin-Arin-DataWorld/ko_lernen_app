@@ -3226,6 +3226,10 @@
       "level": "c2"
     },
     {
+      "id": "seed_hanok_v1_c2_interpretation_practice_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_project_c2_framing_v1",
       "level": "c2"
     },
@@ -10567,9 +10571,9 @@
     },
     {
       "kind": "smalltalk",
-      "id": "smalltalk_c2_0017",
+      "id": "smalltalk_c2_0019",
       "level": "c2",
-      "sourceSeedId": "seed_batch05_c2_narrative_perspective_1_v1",
+      "sourceSeedId": "seed_hanok_v1_c2_interpretation_practice_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
@@ -17295,7 +17299,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0002",
@@ -17305,7 +17309,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0003",
@@ -17315,7 +17319,7 @@
           "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0004",
@@ -17325,7 +17329,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0005",
@@ -17335,7 +17339,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0006",
@@ -17345,7 +17349,7 @@
           "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0007",
@@ -17365,7 +17369,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0009",
@@ -17375,7 +17379,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0010",
@@ -17385,7 +17389,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0011",
@@ -17395,7 +17399,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0012",
@@ -17405,7 +17409,7 @@
           "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0013",
@@ -17415,7 +17419,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0014",
@@ -17425,7 +17429,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0015",
@@ -17435,7 +17439,7 @@
           "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0016",
@@ -17445,7 +17449,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0017",
@@ -17455,7 +17459,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0018",
@@ -17465,7 +17469,7 @@
           "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0019",
@@ -17485,7 +17489,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0021",
@@ -17495,7 +17499,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0022",
@@ -17505,7 +17509,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0023",
@@ -17515,7 +17519,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0024",
@@ -17525,7 +17529,7 @@
           "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0025",
@@ -17545,7 +17549,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0027",
@@ -17555,7 +17559,7 @@
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0028",
@@ -17565,7 +17569,7 @@
           "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0029",
@@ -17575,7 +17579,7 @@
           "canDoFingerprintSha256": "f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0030",
@@ -17585,7 +17589,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0031",
@@ -17595,7 +17599,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0032",
@@ -17605,7 +17609,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0033",
@@ -17615,7 +17619,7 @@
           "canDoFingerprintSha256": "a17bddb9e8a4db0f1bace3acaa0eccdfc24277b241bf3a3b655b97f9b9d6c7fb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0034",
@@ -17625,7 +17629,7 @@
           "canDoFingerprintSha256": "b9eb2aed876c0a101ff3f00311bc4d21b1cbe39f798c023bdfd66a2d1d3a23a2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0035",
@@ -17635,7 +17639,7 @@
           "canDoFingerprintSha256": "b9eb2aed876c0a101ff3f00311bc4d21b1cbe39f798c023bdfd66a2d1d3a23a2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0036",
@@ -17645,7 +17649,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0037",
@@ -17655,7 +17659,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0038",
@@ -17665,7 +17669,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0039",
@@ -17675,7 +17679,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0040",
@@ -17685,7 +17689,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0041",
@@ -17695,7 +17699,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0042",
@@ -17705,7 +17709,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0043",
@@ -17715,7 +17719,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0044",
@@ -17725,7 +17729,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0045",
@@ -17735,7 +17739,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0046",
@@ -17745,7 +17749,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0047",
@@ -17755,7 +17759,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0048",
@@ -17765,7 +17769,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0049",
@@ -17775,7 +17779,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0050",
@@ -17825,7 +17829,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0055",
@@ -17835,7 +17839,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0056",
@@ -17845,7 +17849,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0057",
@@ -17855,7 +17859,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0058",
@@ -17865,7 +17869,7 @@
           "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0059",
@@ -17895,7 +17899,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0062",
@@ -17905,7 +17909,7 @@
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0063",
@@ -17915,7 +17919,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a1_0064",
@@ -17925,7 +17929,7 @@
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0001",
@@ -17975,7 +17979,7 @@
           "canDoFingerprintSha256": "234bc7fd236eb78c08b80ff7bddfdc9e7f9506aec46cecc9a867c13704f59dcb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0006",
@@ -18025,7 +18029,7 @@
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0011",
@@ -18085,7 +18089,7 @@
           "canDoFingerprintSha256": "1086d4172ba0101d221efd5972ca826c99dffd333f744a9d8e1811e1263dbf6a",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0017",
@@ -18165,7 +18169,7 @@
           "canDoFingerprintSha256": "9cdbbb15c11ba3c7e755a2d8073b0ecd702f0a1fdcf9e72d29ec0b32a6b4a421",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0025",
@@ -18215,7 +18219,7 @@
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0030",
@@ -18225,7 +18229,7 @@
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0031",
@@ -18235,7 +18239,7 @@
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0032",
@@ -18245,7 +18249,7 @@
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0033",
@@ -18255,7 +18259,7 @@
           "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0034",
@@ -18265,7 +18269,7 @@
           "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0035",
@@ -18275,7 +18279,7 @@
           "canDoFingerprintSha256": "4cd4e4c3952171d62a068fb225a7ba8075af0517bce8925898145528517649a4",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0036",
@@ -18285,7 +18289,7 @@
           "canDoFingerprintSha256": "4cd4e4c3952171d62a068fb225a7ba8075af0517bce8925898145528517649a4",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0037",
@@ -18295,7 +18299,7 @@
           "canDoFingerprintSha256": "1f879b1a994797b63c5b7ee997b9cdee6404b425151ab841ea755f6f2b2e5c29",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0038",
@@ -18315,7 +18319,7 @@
           "canDoFingerprintSha256": "1f879b1a994797b63c5b7ee997b9cdee6404b425151ab841ea755f6f2b2e5c29",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0040",
@@ -18355,7 +18359,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0044",
@@ -18365,7 +18369,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0045",
@@ -18375,7 +18379,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0046",
@@ -18385,7 +18389,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0047",
@@ -18395,7 +18399,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0048",
@@ -18405,7 +18409,7 @@
           "canDoFingerprintSha256": "4ce4b873a96f9fc7ae047639393f63d0848bf02f5a5beed0fd3a63ff02383a84",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0049",
@@ -18425,7 +18429,7 @@
           "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0051",
@@ -18445,7 +18449,7 @@
           "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0053",
@@ -18455,7 +18459,7 @@
           "canDoFingerprintSha256": "01bf7e9ccc20bfa16204c44e4dc6cf8a6a1f6022bec3484a68bd9e42fcf56ad2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0054",
@@ -18465,7 +18469,7 @@
           "canDoFingerprintSha256": "01bf7e9ccc20bfa16204c44e4dc6cf8a6a1f6022bec3484a68bd9e42fcf56ad2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0055",
@@ -18475,7 +18479,7 @@
           "canDoFingerprintSha256": "01bf7e9ccc20bfa16204c44e4dc6cf8a6a1f6022bec3484a68bd9e42fcf56ad2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0056",
@@ -18485,7 +18489,7 @@
           "canDoFingerprintSha256": "1086d4172ba0101d221efd5972ca826c99dffd333f744a9d8e1811e1263dbf6a",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_a2_0057",
@@ -18495,7 +18499,7 @@
           "canDoFingerprintSha256": "1086d4172ba0101d221efd5972ca826c99dffd333f744a9d8e1811e1263dbf6a",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0001",
@@ -18505,7 +18509,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0002",
@@ -18515,7 +18519,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0003",
@@ -18525,7 +18529,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0004",
@@ -18545,7 +18549,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0006",
@@ -18555,7 +18559,7 @@
           "canDoFingerprintSha256": "513cdec2b725f43de77b233f455a919478cb0120569a8fe8a28b764508247d36",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0007",
@@ -18565,7 +18569,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0008",
@@ -18575,7 +18579,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0009",
@@ -18595,7 +18599,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0011",
@@ -18605,7 +18609,7 @@
           "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0012",
@@ -18615,7 +18619,7 @@
           "canDoFingerprintSha256": "967a310050e0eb792ca92a6b962153b8cb1aecd9d0452e189f47aaf807f2ccc9",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0013",
@@ -18625,7 +18629,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0014",
@@ -18635,7 +18639,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0015",
@@ -18645,7 +18649,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0016",
@@ -18665,7 +18669,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0018",
@@ -18675,7 +18679,7 @@
           "canDoFingerprintSha256": "513cdec2b725f43de77b233f455a919478cb0120569a8fe8a28b764508247d36",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0019",
@@ -18685,7 +18689,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0020",
@@ -18695,7 +18699,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0021",
@@ -18715,7 +18719,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0023",
@@ -18725,7 +18729,7 @@
           "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0024",
@@ -18735,7 +18739,7 @@
           "canDoFingerprintSha256": "967a310050e0eb792ca92a6b962153b8cb1aecd9d0452e189f47aaf807f2ccc9",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0025",
@@ -18745,7 +18749,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0026",
@@ -18755,7 +18759,7 @@
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0027",
@@ -18765,7 +18769,7 @@
           "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0028",
@@ -18775,7 +18779,7 @@
           "canDoFingerprintSha256": "6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0029",
@@ -18785,7 +18789,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0030",
@@ -18795,7 +18799,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0031",
@@ -18805,7 +18809,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0032",
@@ -18815,7 +18819,7 @@
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0033",
@@ -18845,7 +18849,7 @@
           "canDoFingerprintSha256": "967a310050e0eb792ca92a6b962153b8cb1aecd9d0452e189f47aaf807f2ccc9",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0036",
@@ -18855,7 +18859,7 @@
           "canDoFingerprintSha256": "967a310050e0eb792ca92a6b962153b8cb1aecd9d0452e189f47aaf807f2ccc9",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0037",
@@ -18885,7 +18889,7 @@
           "canDoFingerprintSha256": "96e434d4bfc33742a3db37a575ddbd3e62497a32b9efb7a2ee3b25c0eecab810",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0040",
@@ -18935,7 +18939,7 @@
           "canDoFingerprintSha256": "967a310050e0eb792ca92a6b962153b8cb1aecd9d0452e189f47aaf807f2ccc9",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b1_0045",
@@ -19305,7 +19309,7 @@
           "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0030",
@@ -19315,7 +19319,7 @@
           "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0031",
@@ -19325,7 +19329,7 @@
           "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0032",
@@ -19335,7 +19339,7 @@
           "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0033",
@@ -19365,7 +19369,7 @@
           "canDoFingerprintSha256": "95f519e6276db156435f50ea4b39516fcf8f758708523e36a977b1154b8f5115",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0036",
@@ -19375,7 +19379,7 @@
           "canDoFingerprintSha256": "95f519e6276db156435f50ea4b39516fcf8f758708523e36a977b1154b8f5115",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0037",
@@ -19425,7 +19429,7 @@
           "canDoFingerprintSha256": "b417e1d6ef394b21a40debf5ba9964ffd31fc3a2698733a8a6fe9258c5721fda",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0042",
@@ -19435,7 +19439,7 @@
           "canDoFingerprintSha256": "b417e1d6ef394b21a40debf5ba9964ffd31fc3a2698733a8a6fe9258c5721fda",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 2
+          "reviewRevision": 1
         },
         {
           "phraseId": "smalltalk_b2_0043",

@@ -247,9 +247,24 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         curriculum["concepts"] = [
             row for row in curriculum["concepts"] if row["id"] not in extension_concept_ids
         ]
-        remaining_smalltalk = json.loads(
-            (data / "smalltalk.json").read_text(encoding="utf-8")
-        )["phrases"]
+        smalltalk_path = data / "smalltalk.json"
+        smalltalk_document = json.loads(smalltalk_path.read_text(encoding="utf-8"))
+        remaining_smalltalk = []
+        for row in smalltalk_document["phrases"]:
+            key = f"{row['level'].lower()}:{row['category'].lower()}"
+            mapping = curriculum["smalltalkCategoryUnitMap"].get(key)
+            if (
+                isinstance(mapping, dict)
+                and mapping.get("courseUnitId") in extension_unit_ids
+            ):
+                later_removed_ids.add(row["id"])
+                continue
+            remaining_smalltalk.append(row)
+        smalltalk_document["phrases"] = remaining_smalltalk
+        smalltalk_path.write_text(
+            json.dumps(smalltalk_document, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
         remaining_smalltalk_keys = {
             f"{row['level'].lower()}:{row['category'].lower()}"
             for row in remaining_smalltalk
@@ -277,6 +292,9 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
             )
             for level in ("a1", "a2", "b1", "b2", "c1", "c2")
         }
+        for source in audit["sources"]:
+            if source["kind"] == "smalltalk":
+                source["count"] = len(remaining_smalltalk)
         audit_path.write_text(
             json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",

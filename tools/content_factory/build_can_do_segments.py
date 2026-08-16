@@ -370,7 +370,7 @@ C_ROWS: tuple[tuple[str, str, str, str, str, tuple[int, ...], tuple[str, ...], t
     ("c2_procedural_legitimacy", "c2_01_interpretation_institutions", "c2_institutional_mediation_1", "c2_institution", "c2", (3, 4, 5, 9, 10, 12), ("smalltalk_c2_0002", "smalltalk_c2_0007"), ("grammar_c2_regardless_of", "grammar_c2_even_if_concession")),
     ("c2_institutional_deliberation", "c2_01_interpretation_institutions", "c2_institutional_mediation_1", "c2_institution", "c2", (1, 2, 6, 7, 8, 11), ("smalltalk_c2_0001", "smalltalk_c2_0003", "smalltalk_c2_0008"), ()),
     ("c2_narrative_perspective", "c2_01_interpretation_institutions", "c2_narrative_perspective_1", "c2_narrative", "c2", (13, 14, 15, 18, 21, 23), ("smalltalk_c2_0004", "smalltalk_c2_0005"), ("grammar_c2_expected_assumption",)),
-    ("c2_interpretation_justification", "c2_01_interpretation_institutions", "c2_narrative_perspective_1", "c2_narrative", "c2", (16, 17, 19, 20, 22, 24), ("smalltalk_c2_0006", "smalltalk_c2_0017"), ("grammar_c2_fortunate_counterfactual",)),
+    ("c2_interpretation_justification", "c2_01_interpretation_institutions", "c2_narrative_perspective_1", "c2_narrative", "c2", (16, 17, 19, 20, 22, 24), ("smalltalk_c2_0006", "smalltalk_c2_0019"), ("grammar_c2_fortunate_counterfactual",)),
     ("c2_framing_responsibility", "c2_01_interpretation_institutions", "c2_language_framing_1", "c2_framing", "c2", (25, 26, 27, 29, 32, 36), ("smalltalk_c2_0009", "smalltalk_c2_0010"), ()),
     ("c2_discourse_boundary_power", "c2_01_interpretation_institutions", "c2_language_framing_1", "c2_framing", "c2", (28, 30, 31, 33, 34, 35), ("smalltalk_c2_0011", "smalltalk_c2_0012"), ()),
     ("c2_technology_traceability_appeal", "c2_02_technology_public_ethics", "c2_technology_ethics_1", "c2_technology", "c2", (37, 38, 39, 41, 43, 46), ("smalltalk_c2_0013", "smalltalk_c2_0014"), ("grammar_c2_even_assuming", "grammar_c2_nothing_more_than")),
@@ -1667,7 +1667,13 @@ def _build_c_specs() -> Iterable[SegmentSpec]:
         refs = [_ref("vocabPack", pack, batch_seed)]
         refs.extend(_ref("cloze", f"cloze_{level}_{number:04d}", batch_seed) for number in numbers)
         refs.extend(_ref("satz", f"satz_{level}_{number:04d}", batch_seed) for number in numbers)
-        refs.extend(_ref("smalltalk", content_id, batch_seed) for content_id in smalltalk_ids)
+        for content_id in smalltalk_ids:
+            source_seed = (
+                "seed_hanok_v1_c2_interpretation_practice_v1"
+                if content_id == "smalltalk_c2_0019"
+                else batch_seed
+            )
+            refs.append(_ref("smalltalk", content_id, source_seed))
         refs.extend(_ref("grammar", content_id, batch_seed) for content_id in grammar_ids)
         refs.append(_ref("project", f"project_{theme}_v1", project_seed))
         title, can_do = C_TEXT[key]

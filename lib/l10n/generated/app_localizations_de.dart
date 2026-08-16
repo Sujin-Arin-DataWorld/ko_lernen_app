@@ -5609,7 +5609,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String courseReassessmentLength(int minimum, int maximum) {
-    return '$minimum–$maximum koreanische Zeichen';
+    return '$minimum bis $maximum koreanische Zeichen';
   }
 
   @override
@@ -5672,7 +5672,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String courseReassessmentPassedBody(int score) {
-    return '$score % – nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.';
+    return '$score %. Nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.';
   }
 
   @override
@@ -5680,7 +5680,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String courseReassessmentTryAgainBody(int score) {
-    return '$score % – deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.';
+    return '$score %. Deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.';
   }
 
   @override

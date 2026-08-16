@@ -5578,7 +5578,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String courseReassessmentLength(int minimum, int maximum) {
-    return '$minimum–$maximum Korean characters';
+    return '$minimum to $maximum Korean characters';
   }
 
   @override
@@ -5623,7 +5623,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseReassessmentOralUnavailableBody =>
-      'The current 10-second read-aloud exercise only practices pronunciation, so it cannot issue this ability seal. A separate 45–120 second unscripted assessment will be enabled only after its consent, privacy, and scoring service passes review.';
+      'The current 10-second read-aloud exercise only practices pronunciation, so it cannot issue this ability seal. A separate unscripted assessment lasting 45 to 120 seconds will be enabled only after its consent, privacy, and scoring service passes review.';
 
   @override
   String get courseReassessmentPrerequisiteTitle =>
@@ -5641,7 +5641,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String courseReassessmentPassedBody(int score) {
-    return '$score% – only the result and its exact task provenance were saved.';
+    return '$score%. Only the result and its exact task provenance were saved.';
   }
 
   @override
@@ -5649,7 +5649,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String courseReassessmentTryAgainBody(int score) {
-    return '$score% – your answer was not saved. You can revise it now.';
+    return '$score%. Your answer was not saved. You can revise it now.';
   }
 
   @override

@@ -9736,7 +9736,7 @@ abstract class AppL10n {
   /// No description provided for @courseReassessmentLength.
   ///
   /// In de, this message translates to:
-  /// **'{minimum}–{maximum} koreanische Zeichen'**
+  /// **'{minimum} bis {maximum} koreanische Zeichen'**
   String courseReassessmentLength(int minimum, int maximum);
 
   /// No description provided for @courseReassessmentEvidencePoint.
@@ -9838,7 +9838,7 @@ abstract class AppL10n {
   /// No description provided for @courseReassessmentPassedBody.
   ///
   /// In de, this message translates to:
-  /// **'{score} % – nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.'**
+  /// **'{score} %. Nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.'**
   String courseReassessmentPassedBody(int score);
 
   /// No description provided for @courseReassessmentTryAgainTitle.
@@ -9850,7 +9850,7 @@ abstract class AppL10n {
   /// No description provided for @courseReassessmentTryAgainBody.
   ///
   /// In de, this message translates to:
-  /// **'{score} % – deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.'**
+  /// **'{score} %. Deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.'**
   String courseReassessmentTryAgainBody(int score);
 
   /// No description provided for @courseReassessmentContinue.

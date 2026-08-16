@@ -12,6 +12,7 @@ import '../services/course_segment_catalog.dart';
 import '../services/productive_assessment_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
@@ -461,18 +462,18 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     final t = AppL10n.of(context);
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.courseReassessmentTitle)),
+        appBar: SoriAppBar(title: t.courseReassessmentTitle),
         body: AppLoading(message: t.courseReassessmentLoading),
       );
     }
     if (_loadError != null || _segment == null || _definition == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.courseReassessmentTitle)),
+        appBar: SoriAppBar(title: t.courseReassessmentTitle),
         body: AppError(message: t.courseReassessmentLoadError, onRetry: _load),
       );
     }
     return Scaffold(
-      appBar: AppBar(title: Text(t.courseReassessmentTitle)),
+      appBar: SoriAppBar(title: t.courseReassessmentTitle),
       body: SoriScreenBackground(
         child: SoriContentClamp(
           maxWidth: 820,
@@ -525,7 +526,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           segment.title.pick(locale),
           style: Theme.of(
             context,
-          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: Spacing.sm),
         Text(segment.canDo.pick(locale), style: const TextStyle(height: 1.45)),
@@ -592,7 +593,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             _modeLabel(t, definition.evidenceMode),
-            style: const TextStyle(fontWeight: FontWeight.w800),
+            style: const TextStyle(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.md),
           Text(
@@ -659,7 +660,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           label: _submitting
               ? t.courseReassessmentChecking
               : t.courseReassessmentSubmit,
-          icon: Icons.edit_note_rounded,
           fullWidth: true,
           accent: SoriActivityColors.speaking,
           onTap: _submitting ? null : _submitText,
@@ -677,7 +677,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentEvidencePoint(index),
-            style: const TextStyle(fontWeight: FontWeight.w800),
+            style: const TextStyle(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.sm),
           TextField(
@@ -733,7 +733,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           t.courseReassessmentSources,
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: Spacing.sm),
         for (var index = 0; index < sources.length; index++) ...[
@@ -744,7 +744,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               children: [
                 Text(
                   t.courseReassessmentSource(index + 1),
-                  style: const TextStyle(fontWeight: FontWeight.w800),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
@@ -781,7 +781,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           t.courseReassessmentConnectSources,
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: Spacing.sm),
         for (var index = 0; index < sources.length; index++) ...[
@@ -794,7 +794,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               children: [
                 Text(
                   t.courseReassessmentSource(index + 1),
-                  style: const TextStyle(fontWeight: FontWeight.w800),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
@@ -837,7 +837,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           label: _submitting
               ? t.courseReassessmentChecking
               : t.courseReassessmentSubmitEvidence,
-          icon: Icons.account_tree_outlined,
           fullWidth: true,
           accent: SoriActivityColors.speaking,
           onTap: _submitting ? null : _submitConnectedEvidence,
@@ -856,7 +855,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentOralUnavailableTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
+            style: const TextStyle(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.sm),
           Text(
@@ -880,7 +879,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentPrerequisiteTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
+            style: const TextStyle(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.sm),
           Text(
@@ -890,7 +889,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           const SizedBox(height: Spacing.md),
           SoriButton.outlined(
             label: t.courseReassessmentOpenPrerequisite,
-            icon: Icons.arrow_back_rounded,
             fullWidth: true,
             onTap: () => _openMissingPrerequisite(prerequisite),
           ),
@@ -927,7 +925,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               textAlign: TextAlign.center,
               style: Theme.of(
                 context,
-              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: Spacing.sm),
             Text(
@@ -955,7 +953,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               SoriButton.outlined(
                 key: const ValueKey('course-reassessment-retry'),
                 label: t.courseReassessmentRetry,
-                icon: Icons.refresh_rounded,
                 fullWidth: true,
                 onTap: _retry,
               ),
@@ -984,7 +981,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             textAlign: TextAlign.center,
             style: Theme.of(
               context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: Spacing.sm),
           Text(
@@ -995,7 +992,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           const SizedBox(height: Spacing.lg),
           SoriButton.filled(
             label: t.courseReassessmentFinish,
-            icon: Icons.check_rounded,
             fullWidth: true,
             accent: SoriActivityColors.completion,
             onTap: () => Navigator.of(context).pop(true),

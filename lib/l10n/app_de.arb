@@ -2615,7 +2615,7 @@
   "courseReassessmentPrivacy": "Freie Texte und Notizen werden weder an Firebase noch an Analytics gesendet. Ein verifizierter Sprechnachweis bleibt deaktiviert, bis die gesonderte Einwilligung und der datensparsame Dienst bereit sind.",
   "courseReassessmentAnswer": "Deine koreanische Antwort",
   "courseReassessmentAnswerHint": "Schreibe die Aussage in deinen eigenen Worten.",
-  "courseReassessmentLength": "{minimum}–{maximum} koreanische Zeichen",
+  "courseReassessmentLength": "{minimum} bis {maximum} koreanische Zeichen",
   "@courseReassessmentLength": {
     "placeholders": {
       "minimum": {"type": "int"},
@@ -2648,14 +2648,14 @@
   "courseReassessmentPrerequisiteBody": "Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.",
   "courseReassessmentOpenPrerequisite": "Fehlenden Nachweis öffnen",
   "courseReassessmentPassedTitle": "Nachweis bestanden",
-  "courseReassessmentPassedBody": "{score} % – nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.",
+  "courseReassessmentPassedBody": "{score} %. Nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.",
   "@courseReassessmentPassedBody": {
     "placeholders": {
       "score": {"type": "int"}
     }
   },
   "courseReassessmentTryAgainTitle": "Noch nicht sicher genug",
-  "courseReassessmentTryAgainBody": "{score} % – deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.",
+  "courseReassessmentTryAgainBody": "{score} %. Deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.",
   "@courseReassessmentTryAgainBody": {
     "placeholders": {
       "score": {"type": "int"}
