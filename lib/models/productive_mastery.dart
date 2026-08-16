@@ -95,6 +95,158 @@ final class ProductiveOralScore {
   };
 }
 
+/// One non-raw semantic slot to source relationship retained for deterministic
+/// catalog revalidation after sync. Neither side contains learner-authored
+/// text; both are immutable first-party IDs.
+final class ProductiveSlotSourceBinding {
+  factory ProductiveSlotSourceBinding({
+    required String semanticSlotId,
+    required String sourceSnippetId,
+  }) => ProductiveSlotSourceBinding._(
+    semanticSlotId: _requiredId(semanticSlotId, 'semanticSlotId'),
+    sourceSnippetId: _requiredId(sourceSnippetId, 'sourceSnippetId'),
+  );
+
+  const ProductiveSlotSourceBinding._({
+    required this.semanticSlotId,
+    required this.sourceSnippetId,
+  });
+
+  factory ProductiveSlotSourceBinding.fromJson(Map<String, dynamic> json) =>
+      ProductiveSlotSourceBinding(
+        semanticSlotId: json['semanticSlotId']?.toString() ?? '',
+        sourceSnippetId: json['sourceSnippetId']?.toString() ?? '',
+      );
+
+  final String semanticSlotId;
+  final String sourceSnippetId;
+
+  String get key => '$semanticSlotId|$sourceSnippetId';
+
+  Map<String, dynamic> toJson() => {
+    'semanticSlotId': semanticSlotId,
+    'sourceSnippetId': sourceSnippetId,
+  };
+}
+
+/// One non-raw source-to-role relationship retained for connected-evidence
+/// revalidation. [roleCode] is checked against the authored rubric at the
+/// projection boundary.
+final class ProductiveSourceRoleBinding {
+  factory ProductiveSourceRoleBinding({
+    required String sourceSnippetId,
+    required String roleCode,
+  }) => ProductiveSourceRoleBinding._(
+    sourceSnippetId: _requiredId(sourceSnippetId, 'sourceSnippetId'),
+    roleCode: _requiredId(roleCode, 'roleCode'),
+  );
+
+  const ProductiveSourceRoleBinding._({
+    required this.sourceSnippetId,
+    required this.roleCode,
+  });
+
+  factory ProductiveSourceRoleBinding.fromJson(Map<String, dynamic> json) =>
+      ProductiveSourceRoleBinding(
+        sourceSnippetId: json['sourceSnippetId']?.toString() ?? '',
+        roleCode: json['roleCode']?.toString() ?? '',
+      );
+
+  final String sourceSnippetId;
+  final String roleCode;
+
+  String get key => '$sourceSnippetId|$roleCode';
+
+  Map<String, dynamic> toJson() => {
+    'sourceSnippetId': sourceSnippetId,
+    'roleCode': roleCode,
+  };
+}
+
+/// Durable, non-raw coverage summary produced by the deterministic evaluator.
+///
+/// This stores only authored IDs and relationships. Learner answers, notes,
+/// recordings, and transcripts remain ephemeral and cannot be serialized here.
+final class ProductiveEvidenceCoverage {
+  factory ProductiveEvidenceCoverage({
+    Iterable<String> matchedCriterionIds = const [],
+    Iterable<String> semanticSlotIds = const [],
+    Iterable<String> sourceSnippetIds = const [],
+    Iterable<ProductiveSlotSourceBinding> slotSourceBindings = const [],
+    Iterable<ProductiveSourceRoleBinding> sourceRoleBindings = const [],
+  }) {
+    final criteria = [..._uniqueIds(matchedCriterionIds, 'matchedCriterionIds')]
+      ..sort();
+    final slots = [..._uniqueIds(semanticSlotIds, 'semanticSlotIds')]..sort();
+    final sources = [..._uniqueIds(sourceSnippetIds, 'sourceSnippetIds')]
+      ..sort();
+    final slotBindings = _uniqueBindings(
+      slotSourceBindings,
+      (binding) => binding.key,
+      'slotSourceBindings',
+    )..sort((left, right) => left.key.compareTo(right.key));
+    final roleBindings = _uniqueBindings(
+      sourceRoleBindings,
+      (binding) => binding.key,
+      'sourceRoleBindings',
+    )..sort((left, right) => left.key.compareTo(right.key));
+    return ProductiveEvidenceCoverage._(
+      matchedCriterionIds: List.unmodifiable(criteria),
+      semanticSlotIds: List.unmodifiable(slots),
+      sourceSnippetIds: List.unmodifiable(sources),
+      slotSourceBindings: List.unmodifiable(slotBindings),
+      sourceRoleBindings: List.unmodifiable(roleBindings),
+    );
+  }
+
+  const ProductiveEvidenceCoverage._({
+    required this.matchedCriterionIds,
+    required this.semanticSlotIds,
+    required this.sourceSnippetIds,
+    required this.slotSourceBindings,
+    required this.sourceRoleBindings,
+  });
+
+  factory ProductiveEvidenceCoverage.fromJson(Map<String, dynamic> json) =>
+      ProductiveEvidenceCoverage(
+        matchedCriterionIds: _idValues(
+          json['matchedCriterionIds'],
+          'matchedCriterionIds',
+        ),
+        semanticSlotIds: _idValues(json['semanticSlotIds'], 'semanticSlotIds'),
+        sourceSnippetIds: _idValues(
+          json['sourceSnippetIds'],
+          'sourceSnippetIds',
+        ),
+        slotSourceBindings: _objectValues(
+          json['slotSourceBindings'],
+          'slotSourceBindings',
+        ).map(ProductiveSlotSourceBinding.fromJson),
+        sourceRoleBindings: _objectValues(
+          json['sourceRoleBindings'],
+          'sourceRoleBindings',
+        ).map(ProductiveSourceRoleBinding.fromJson),
+      );
+
+  final List<String> matchedCriterionIds;
+  final List<String> semanticSlotIds;
+  final List<String> sourceSnippetIds;
+  final List<ProductiveSlotSourceBinding> slotSourceBindings;
+  final List<ProductiveSourceRoleBinding> sourceRoleBindings;
+
+  Map<String, dynamic> toJson() => {
+    'matchedCriterionIds': matchedCriterionIds,
+    'semanticSlotIds': semanticSlotIds,
+    'sourceSnippetIds': sourceSnippetIds,
+    'slotSourceBindings': [
+      for (final binding in slotSourceBindings) binding.toJson(),
+    ],
+    'sourceRoleBindings': [
+      for (final binding in sourceRoleBindings) binding.toJson(),
+    ],
+  };
+}
+
 /// Immutable proof that one exact productive assessment succeeded for one
 /// concept. Multi-concept assessment results produce one record per concept.
 ///
@@ -118,6 +270,7 @@ final class ProductiveMasteryEvidence {
     String evaluatorVersion = productiveEvaluatorVersion,
     String? resultFingerprint,
     List<String> prerequisiteEvidenceIds = const [],
+    required ProductiveEvidenceCoverage coverage,
     ProductiveOralScore? oralScore,
     String? assessmentAttemptId,
   }) {
@@ -185,6 +338,7 @@ final class ProductiveMasteryEvidence {
       occurredAt: normalizedOccurredAt,
       courseEligible: courseEligible,
       prerequisiteEvidenceIds: normalizedPrerequisites,
+      coverage: coverage,
       oralScore: oralScore,
       assessmentAttemptId: normalizedAttemptId,
     );
@@ -211,6 +365,7 @@ final class ProductiveMasteryEvidence {
       normalizedEvaluatorVersion,
       normalizedResultFingerprint,
       normalizedPrerequisites.join(','),
+      stableContentId('productive_coverage', [coverage.toJson()]),
       if (oralScore != null) ...[
         normalizedAttemptId,
         oralScore.pronunciation,
@@ -240,6 +395,7 @@ final class ProductiveMasteryEvidence {
       evaluatorVersion: normalizedEvaluatorVersion,
       resultFingerprint: normalizedResultFingerprint,
       prerequisiteEvidenceIds: normalizedPrerequisites,
+      coverage: coverage,
       oralScore: oralScore,
       assessmentAttemptId: normalizedAttemptId,
     );
@@ -261,6 +417,7 @@ final class ProductiveMasteryEvidence {
     required this.evaluatorVersion,
     required this.resultFingerprint,
     required this.prerequisiteEvidenceIds,
+    required this.coverage,
     required this.oralScore,
     required this.assessmentAttemptId,
   });
@@ -297,6 +454,12 @@ final class ProductiveMasteryEvidence {
     if (rawOralScore != null && rawOralScore is! Map) {
       throw const FormatException('Productive oralScore must be an object.');
     }
+    final rawCoverage = json['coverage'];
+    if (rawCoverage is! Map) {
+      throw const FormatException(
+        'Productive mastery coverage must be an object.',
+      );
+    }
     return ProductiveMasteryEvidence(
       id: json['id']?.toString(),
       assessmentItemId: json['assessmentItemId']?.toString() ?? '',
@@ -315,6 +478,9 @@ final class ProductiveMasteryEvidence {
       prerequisiteEvidenceIds: (rawPrerequisites as List? ?? const [])
           .map((value) => value.toString())
           .toList(growable: false),
+      coverage: ProductiveEvidenceCoverage.fromJson(
+        rawCoverage.map((key, value) => MapEntry(key.toString(), value)),
+      ),
       oralScore: rawOralScore == null
           ? null
           : ProductiveOralScore.fromJson(
@@ -339,6 +505,7 @@ final class ProductiveMasteryEvidence {
   final String evaluatorVersion;
   final String resultFingerprint;
   final List<String> prerequisiteEvidenceIds;
+  final ProductiveEvidenceCoverage coverage;
   final ProductiveOralScore? oralScore;
   final String? assessmentAttemptId;
 
@@ -363,6 +530,7 @@ final class ProductiveMasteryEvidence {
     'evaluatorVersion': evaluatorVersion,
     'resultFingerprint': resultFingerprint,
     'prerequisiteEvidenceIds': prerequisiteEvidenceIds,
+    'coverage': coverage.toJson(),
     if (oralScore != null) 'oralScore': oralScore!.toJson(),
     if (assessmentAttemptId != null) 'assessmentAttemptId': assessmentAttemptId,
   };
@@ -528,6 +696,7 @@ String productiveResultFingerprint({
   required DateTime occurredAt,
   required bool courseEligible,
   required Iterable<String> prerequisiteEvidenceIds,
+  required ProductiveEvidenceCoverage coverage,
   ProductiveOralScore? oralScore,
   String? assessmentAttemptId,
 }) {
@@ -555,6 +724,7 @@ String productiveResultFingerprint({
     occurredAt.toUtc().toIso8601String(),
     courseEligible,
     prerequisites.join(','),
+    stableContentId('productive_coverage', [coverage.toJson()]),
     if (oralScore != null) ...[
       assessmentAttemptId,
       oralScore.pronunciation,
@@ -567,6 +737,36 @@ String productiveResultFingerprint({
       markerGroups!.join(','),
     ],
   ]);
+}
+
+List<T> _uniqueBindings<T>(
+  Iterable<T> values,
+  String Function(T value) keyOf,
+  String field,
+) {
+  final result = <T>[];
+  final seen = <String>{};
+  for (final value in values) {
+    if (!seen.add(keyOf(value))) {
+      throw FormatException('Productive $field must not contain duplicates.');
+    }
+    result.add(value);
+  }
+  return result;
+}
+
+List<Map<String, dynamic>> _objectValues(Object? raw, String field) {
+  if (raw is! List) {
+    throw FormatException('Productive $field must be a list.');
+  }
+  return raw
+      .map((value) {
+        if (value is! Map) {
+          throw FormatException('Productive $field entries must be objects.');
+        }
+        return value.map((key, value) => MapEntry(key.toString(), value));
+      })
+      .toList(growable: false);
 }
 
 double _numericScore(Object? value, String field) {

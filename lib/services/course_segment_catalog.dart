@@ -16,6 +16,7 @@ class CourseSegmentCatalog {
   final List<TrackEdition> editions;
   final List<ReleaseTrackDefinition> releaseTracks;
   final List<CanDoSegment> publishedSegments;
+  final List<CanDoSegment> assessmentAuthoritySegments;
   final Map<String, CanDoSegment> segmentsById;
   final Map<String, TrackEdition> editionsById;
   final Map<String, ReleaseTrackDefinition> releaseTracksById;
@@ -41,6 +42,18 @@ class CourseSegmentCatalog {
                      edition.status == TrackEditionStatus.published,
                ),
          ),
+       ),
+       assessmentAuthoritySegments = List.unmodifiable(
+         segments.where((segment) {
+           if (segment.lifecycle == CanDoSegmentLifecycle.draft) {
+             return false;
+           }
+           return editions.any(
+             (edition) =>
+                 edition.id == segment.trackEditionId &&
+                 edition.status != TrackEditionStatus.draft,
+           );
+         }),
        ),
        segmentsById = Map.unmodifiable({
          for (final segment in segments) segment.id: segment,

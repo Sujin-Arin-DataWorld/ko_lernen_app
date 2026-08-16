@@ -191,4 +191,18 @@ class CourseProgressService {
       segmentCatalog: segmentCatalog,
     ),
   );
+
+  /// Project source-review receipts use the same serialized CourseMastery
+  /// writer as productive seals but never advance the course pointer.
+  Future<ProductiveProjectStepUpdate> recordProductiveProjectStep({
+    required ProductiveProjectStepReviewResult result,
+    required ProductiveAssessmentCatalog assessmentCatalog,
+    required CourseSegmentCatalog segmentCatalog,
+  }) => _serialized(
+    (service) => service.recordProductiveProjectStep(
+      result: result,
+      assessmentCatalog: assessmentCatalog,
+      segmentCatalog: segmentCatalog,
+    ),
+  );
 }

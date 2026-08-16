@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_segment_catalog.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/productive_assessment_service.dart';
+
+import 'support/productive_assessment_fixture.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
@@ -142,6 +144,50 @@ void main() {
   );
 
   test(
+    'trusted projection rejects fingerprint-valid but incomplete coverage',
+    () async {
+      final fixture = await _fixture();
+      final definition = fixture.productive.definitions.firstWhere(
+        (candidate) =>
+            candidate.textRubric != null &&
+            !candidate.textRubric!.requiresStructuredSubmission,
+      );
+      final result = const ProductiveTextAssessmentEngine().evaluate(
+        definition: definition,
+        input: definition.authoredContextExamples.single,
+        occurredAt: DateTime.utc(2026, 8, 16, 12),
+      );
+      expect(result.passed, isTrue);
+      final incompleteCoverage = ProductiveEvidenceCoverage(
+        matchedCriterionIds: result.coverage.matchedCriterionIds.skip(1),
+        semanticSlotIds: result.coverage.semanticSlotIds,
+      );
+      final forged = ProductiveMasteryEvidence(
+        assessmentItemId: definition.assessmentItemId,
+        canDoSegmentId: definition.canDoSegmentId,
+        courseUnitId: definition.courseUnitId,
+        missionContentLinkId: definition.missionContentLinkId,
+        conceptId: definition.conceptIds.first,
+        evidenceMode: definition.evidenceMode,
+        rubricVersion: definition.rubricVersion,
+        score: result.score,
+        occurredAt: result.occurredAt,
+        courseEligible: true,
+        definitionFingerprint: definition.authorityFingerprint,
+        coverage: incompleteCoverage,
+      );
+
+      expect(
+        trustedProductiveMasteryEvidence(
+          evidence: [forged],
+          assessmentCatalog: fixture.productive,
+        ),
+        isEmpty,
+      );
+    },
+  );
+
+  test(
     'a stronger retry cannot prune proof anchoring a later oral seal',
     () async {
       final fixture = await _fixture();
@@ -159,17 +205,19 @@ void main() {
               .singleWhere((id) => id.contains('_oral_production_'))]!;
       final conceptId = writing.conceptIds.single;
       final firstWriting = _evidenceFor(
+        fixture.productive,
         writing,
         conceptId: conceptId,
         prerequisiteEvidenceIds: const [],
-        score: .7,
+        includeOptionalTextCriteria: false,
         occurredAt: DateTime.utc(2026, 8, 16, 9),
       );
       final oralSeal = _evidenceFor(
+        fixture.productive,
         oral,
         conceptId: conceptId,
         prerequisiteEvidenceIds: [firstWriting.id],
-        score: .8,
+        oralDimensionScore: .8,
         occurredAt: DateTime.utc(2026, 8, 16, 10),
         oralScore: _oralScoreFor(oral, .8),
       );
@@ -459,6 +507,7 @@ void main() {
         for (final conceptId in definition.conceptIds) {
           forged.add(
             _evidenceFor(
+              fixture.productive,
               definition,
               conceptId: conceptId,
               prerequisiteEvidenceIds: const [],
@@ -500,6 +549,7 @@ void main() {
           for (final conceptId
               in fixture.productive.definitionsById[assessmentId]!.conceptIds)
             _evidenceFor(
+              fixture.productive,
               fixture.productive.definitionsById[assessmentId]!,
               conceptId: conceptId,
               prerequisiteEvidenceIds: const [],
@@ -603,42 +653,34 @@ void main() {
     'productive merge is commutative and selects stronger logical proof',
     () async {
       final fixture = await _fixture();
-      final definition = fixture
-          .productive
-          .definitionsById['assess_a1_01_greetings_hangul_guided_production_v1']!;
+      final project = fixture.productive.projects.first;
+      final stepTwo = project.steps.singleWhere((step) => step.order == 2);
+      final assessmentBundle = fixture.productive.bundles.singleWhere(
+        (candidate) =>
+            candidate.projectId == project.id && candidate.stepId == stepTwo.id,
+      );
+      final definition =
+          fixture.productive.definitionsById[assessmentBundle.assessmentItemIds
+              .singleWhere((id) => id.contains('_open_writing_'))]!;
       final conceptId = definition.conceptIds.first;
-      final low = ProductiveMasteryEvidence(
-        assessmentItemId: definition.assessmentItemId,
-        canDoSegmentId: definition.canDoSegmentId,
-        courseUnitId: definition.courseUnitId,
-        missionContentLinkId: definition.missionContentLinkId,
+      final low = _evidenceFor(
+        fixture.productive,
+        definition,
         conceptId: conceptId,
-        evidenceMode: definition.evidenceMode,
-        rubricVersion: 1,
-        score: .75,
+        prerequisiteEvidenceIds: const [],
+        includeOptionalTextCriteria: false,
         occurredAt: DateTime.utc(2026, 8, 16, 12),
-        courseEligible: true,
-        definitionFingerprint: definition.authorityFingerprint,
       );
-      final high = ProductiveMasteryEvidence(
-        assessmentItemId: definition.assessmentItemId,
-        canDoSegmentId: definition.canDoSegmentId,
-        courseUnitId: definition.courseUnitId,
-        missionContentLinkId: definition.missionContentLinkId,
+      final high = _evidenceFor(
+        fixture.productive,
+        definition,
         conceptId: conceptId,
-        evidenceMode: definition.evidenceMode,
-        rubricVersion: 1,
-        score: 1,
+        prerequisiteEvidenceIds: const [],
         occurredAt: DateTime.utc(2026, 8, 16, 11),
-        courseEligible: true,
-        definitionFingerprint: definition.authorityFingerprint,
       );
+      expect(high.score, greaterThan(low.score));
       CourseMasterySnapshot snapshot(ProductiveMasteryEvidence evidence) =>
-          CourseMasterySnapshot(
-            placementLevel: 'a1',
-            currentCourseUnitId: definition.courseUnitId,
-            productiveEvidence: [evidence],
-          );
+          CourseMasterySnapshot(productiveEvidence: [evidence]);
 
       final forward = fixture.service.mergeForReconciliation(
         local: snapshot(low),
@@ -694,8 +736,18 @@ void main() {
     'same productive evidence ID with changed body is a typed conflict',
     () async {
       final fixture = await _fixture();
-      final definition = fixture.productive.definitions.first;
-      ProductiveMasteryEvidence evidence(double score) =>
+      final definition = fixture.productive.definitions.firstWhere(
+        (candidate) =>
+            candidate.textRubric != null &&
+            !candidate.textRubric!.requiresStructuredSubmission,
+      );
+      final base = _evidenceFor(
+        fixture.productive,
+        definition,
+        conceptId: definition.conceptIds.first,
+        prerequisiteEvidenceIds: const [],
+      );
+      ProductiveMasteryEvidence evidence(DateTime occurredAt) =>
           ProductiveMasteryEvidence(
             id: 'same-productive-proof-id',
             assessmentItemId: definition.assessmentItemId,
@@ -705,14 +757,19 @@ void main() {
             conceptId: definition.conceptIds.first,
             evidenceMode: definition.evidenceMode,
             rubricVersion: definition.rubricVersion,
-            score: score,
-            occurredAt: DateTime.utc(2026, 8, 16, 12),
+            score: base.score,
+            occurredAt: occurredAt,
             courseEligible: true,
             definitionFingerprint: definition.authorityFingerprint,
+            coverage: base.coverage,
           );
       final result = fixture.service.mergeForReconciliation(
-        local: CourseMasterySnapshot(productiveEvidence: [evidence(.8)]),
-        remote: CourseMasterySnapshot(productiveEvidence: [evidence(.9)]),
+        local: CourseMasterySnapshot(
+          productiveEvidence: [evidence(DateTime.utc(2026, 8, 16, 12))],
+        ),
+        remote: CourseMasterySnapshot(
+          productiveEvidence: [evidence(DateTime.utc(2026, 8, 16, 13))],
+        ),
       );
 
       expect(result.isValid, isFalse);
@@ -751,15 +808,36 @@ ProductiveProjectStepEvidence _receiptFor(
 ProductiveAssessmentResult _structuredWritingResult(
   ProductiveAssessmentCatalog catalog,
   ProductiveAssessmentDefinition definition,
-  ProductiveProjectStep step,
-) {
-  final sources = step.snippetIds;
+  ProductiveProjectStep step, {
+  DateTime? occurredAt,
+  bool includeOptionalTextCriteria = true,
+}) {
+  final rubric = definition.textRubric!;
+  final sources = <String>{...rubric.requiredSourceSnippetIds};
+  for (final group in rubric.oneOfSourceGroups) {
+    sources.add(group.first);
+  }
+  for (final sourceId in step.snippetIds) {
+    if (sources.length >= rubric.minimumDistinctSourceSpanIds) {
+      break;
+    }
+    sources.add(sourceId);
+  }
+  final selectedSources = sources.toList(growable: false);
+  if (selectedSources.isEmpty || selectedSources.length > 4) {
+    throw StateError('Structured test fixture needs one to four sources.');
+  }
   final slotValues = <String, String>{
-    'claim': '우선 첫 번째 자료의 핵심 주장은 참여 경험을 구체적으로 보여 준다는 판단입니다.',
-    'evidence': '구체적으로 첫 번째 자료와 두 번째 자료는 환경과 절차가 함께 영향을 준다고 설명합니다.',
+    'claim': includeOptionalTextCriteria
+        ? '우선 첫 번째 자료의 핵심 주장은 참여 경험을 구체적으로 보여 준다는 판단입니다.'
+        : '우선 첫 번째 자료의 핵심 주장은 참여 경험을 실제로 보여 준다는 판단입니다.',
+    'evidence': includeOptionalTextCriteria
+        ? '구체적으로 첫 번째 자료와 두 번째 자료는 환경과 절차가 함께 영향을 준다고 설명합니다.'
+        : '첫 번째 자료와 두 번째 자료는 환경과 절차가 함께 영향을 준다고 설명합니다.',
     'limitation': '그러나 이 자료만으로 모든 이용자의 경험을 같은 방식으로 일반화할 수는 없습니다.',
     'conclusion': '따라서 추가 자료를 확인하고 책임 주체와 개선 시점을 다시 검토해야 합니다.',
   };
+  final slotIds = rubric.requiredStructuredSlotIds;
   return const ProductiveTextAssessmentEngine().evaluateStructured(
     catalog: catalog,
     definition: definition,
@@ -767,14 +845,86 @@ ProductiveAssessmentResult _structuredWritingResult(
       text: slotValues.values.join(' '),
       slotValues: slotValues,
       linkedSourceSpanIds: {
-        'claim': [sources[0]],
-        'evidence': [sources[1]],
-        'limitation': [sources[0]],
-        'conclusion': [sources[1]],
+        for (var index = 0; index < slotIds.length; index++)
+          slotIds[index]: [selectedSources[index % selectedSources.length]],
       },
     ),
-    occurredAt: DateTime.utc(2026, 8, 16, 14),
+    occurredAt: occurredAt ?? DateTime.utc(2026, 8, 16, 14),
   );
+}
+
+ProductiveAssessmentResult _connectedEvidenceResult(
+  ProductiveAssessmentCatalog catalog,
+  ProductiveAssessmentDefinition definition,
+  DateTime occurredAt,
+) {
+  final rubric = definition.connectedEvidenceRubric!;
+  final bundle = catalog.bundleForSegment(definition.canDoSegmentId)!;
+  final step = catalog.projectStepFor(bundle.projectId, bundle.stepId)!;
+  final rolesBySource = <String, Set<ProductiveEvidenceRole>>{};
+
+  void addRole(String sourceId, ProductiveEvidenceRole role) {
+    final snippet = catalog.snippetsById[sourceId];
+    if (snippet == null || !snippet.supportedRoles.contains(role)) {
+      return;
+    }
+    rolesBySource.putIfAbsent(sourceId, () => {}).add(role);
+  }
+
+  for (final relationship in rubric.relationshipRequirements) {
+    final sourceId = relationship.oneOfSourceSnippetIds.firstWhere(
+      (candidate) =>
+          step.snippetIds.contains(candidate) &&
+          catalog.snippetsById[candidate]!.supportedRoles.contains(
+            relationship.role,
+          ),
+    );
+    addRole(sourceId, relationship.role);
+  }
+  for (final role in rubric.requiredRoles) {
+    if (rolesBySource.values.any((roles) => roles.contains(role))) {
+      continue;
+    }
+    final sourceId = step.snippetIds.firstWhere(
+      (candidate) =>
+          catalog.snippetsById[candidate]!.supportedRoles.contains(role),
+    );
+    addRole(sourceId, role);
+  }
+  for (final sourceId in rubric.requiredSourceSnippetIds) {
+    if (rolesBySource.containsKey(sourceId)) {
+      continue;
+    }
+    addRole(sourceId, catalog.snippetsById[sourceId]!.supportedRoles.first);
+  }
+  for (final group in rubric.oneOfSourceGroups) {
+    if (group.any(rolesBySource.containsKey)) {
+      continue;
+    }
+    final sourceId = group.firstWhere(step.snippetIds.contains);
+    addRole(sourceId, catalog.snippetsById[sourceId]!.supportedRoles.first);
+  }
+  for (final sourceId in step.snippetIds) {
+    if (rolesBySource.length >= rubric.minimumSourceNodes) {
+      break;
+    }
+    addRole(sourceId, catalog.snippetsById[sourceId]!.supportedRoles.first);
+  }
+  final result = const ProductiveConnectedEvidenceEngine().evaluate(
+    catalog: catalog,
+    definition: definition,
+    nodes: [
+      for (final entry in rolesBySource.entries)
+        ProductiveEvidenceNode(sourceSnippetId: entry.key, roles: entry.value),
+    ],
+    occurredAt: occurredAt,
+  );
+  if (!result.passed) {
+    throw StateError(
+      'Canonical connected-evidence fixture did not satisfy its rubric.',
+    );
+  }
+  return result;
 }
 
 List<ProductiveMasteryEvidence> _proofsForBundle(
@@ -805,6 +955,7 @@ List<ProductiveMasteryEvidence> _proofsForBundle(
     final records = [
       for (final conceptId in definition.conceptIds)
         _evidenceFor(
+          catalog,
           definition,
           conceptId: conceptId,
           prerequisiteEvidenceIds: prerequisiteIds,
@@ -817,33 +968,111 @@ List<ProductiveMasteryEvidence> _proofsForBundle(
 }
 
 ProductiveMasteryEvidence _evidenceFor(
+  ProductiveAssessmentCatalog catalog,
   ProductiveAssessmentDefinition definition, {
   required String conceptId,
   required List<String> prerequisiteEvidenceIds,
-  double score = 1,
   DateTime? occurredAt,
+  double oralDimensionScore = 1,
+  bool includeOptionalTextCriteria = true,
   ProductiveOralScore? oralScore,
-}) => ProductiveMasteryEvidence(
-  assessmentItemId: definition.assessmentItemId,
-  canDoSegmentId: definition.canDoSegmentId,
-  courseUnitId: definition.courseUnitId,
-  missionContentLinkId: definition.missionContentLinkId,
-  conceptId: conceptId,
-  evidenceMode: definition.evidenceMode,
-  rubricVersion: definition.rubricVersion,
-  score: score,
-  occurredAt: occurredAt ?? DateTime.utc(2026, 8, 16, 12),
-  courseEligible: true,
-  definitionFingerprint: definition.authorityFingerprint,
-  prerequisiteEvidenceIds: prerequisiteEvidenceIds,
-  oralScore: definition.evidenceMode == SegmentEvidenceMode.oralProduction
-      ? oralScore ?? _oralScoreFor(definition, score)
-      : null,
-  assessmentAttemptId:
-      definition.evidenceMode == SegmentEvidenceMode.oralProduction
-      ? 'productive_oral_attempt_projection_12345678'
-      : null,
-);
+}) {
+  final timestamp = occurredAt ?? DateTime.utc(2026, 8, 16, 12);
+  final isOral = definition.evidenceMode == SegmentEvidenceMode.oralProduction;
+  final resolvedOralScore = isOral
+      ? oralScore ?? _oralScoreFor(definition, oralDimensionScore)
+      : null;
+  final result = isOral
+      ? null
+      : _resultForDefinition(
+          catalog,
+          definition,
+          timestamp,
+          includeOptionalTextCriteria: includeOptionalTextCriteria,
+        );
+  final resolvedScore = resolvedOralScore == null
+      ? result!.score
+      : (resolvedOralScore.pronunciation +
+                resolvedOralScore.accuracy +
+                resolvedOralScore.fluency) /
+            3;
+  return ProductiveMasteryEvidence(
+    assessmentItemId: definition.assessmentItemId,
+    canDoSegmentId: definition.canDoSegmentId,
+    courseUnitId: definition.courseUnitId,
+    missionContentLinkId: definition.missionContentLinkId,
+    conceptId: conceptId,
+    evidenceMode: definition.evidenceMode,
+    rubricVersion: definition.rubricVersion,
+    score: resolvedScore,
+    occurredAt: timestamp,
+    courseEligible: true,
+    definitionFingerprint: definition.authorityFingerprint,
+    prerequisiteEvidenceIds: prerequisiteEvidenceIds,
+    coverage:
+        result?.coverage ?? _oralCoverageFor(definition, resolvedOralScore!),
+    oralScore: resolvedOralScore,
+    assessmentAttemptId: isOral
+        ? 'productive_oral_attempt_projection_12345678'
+        : null,
+  );
+}
+
+ProductiveAssessmentResult _resultForDefinition(
+  ProductiveAssessmentCatalog catalog,
+  ProductiveAssessmentDefinition definition,
+  DateTime occurredAt, {
+  bool includeOptionalTextCriteria = true,
+}) {
+  if (definition.textRubric case final rubric?) {
+    if (!rubric.requiresStructuredSubmission) {
+      final example = definition.authoredContextExamples.single;
+      return const ProductiveTextAssessmentEngine().evaluate(
+        definition: definition,
+        input: example,
+        occurredAt: occurredAt,
+      );
+    }
+    final bundle = catalog.bundleForSegment(definition.canDoSegmentId)!;
+    final step = catalog.projectStepFor(bundle.projectId, bundle.stepId)!;
+    return _structuredWritingResult(
+      catalog,
+      definition,
+      step,
+      occurredAt: occurredAt,
+      includeOptionalTextCriteria: includeOptionalTextCriteria,
+    );
+  }
+  if (definition.connectedEvidenceRubric != null) {
+    return _connectedEvidenceResult(catalog, definition, occurredAt);
+  }
+  throw StateError('Oral definitions require a trusted oral summary.');
+}
+
+ProductiveEvidenceCoverage _oralCoverageFor(
+  ProductiveAssessmentDefinition definition,
+  ProductiveOralScore score,
+) {
+  final rubric = definition.oralRubric!;
+  return ProductiveEvidenceCoverage(
+    matchedCriterionIds: [
+      'duration',
+      'transcript_length',
+      'not_near_verbatim_read_aloud',
+      'pronunciation',
+      'accuracy',
+      'fluency',
+      'semantic_slots',
+      'required_sources',
+      for (var index = 0; index < rubric.oneOfSourceGroups.length; index++)
+        'oral_source_group:$index',
+      for (var index = 0; index < rubric.discourseMarkerGroups.length; index++)
+        'oral_discourse:$index',
+    ],
+    semanticSlotIds: score.semanticSlotIds,
+    sourceSnippetIds: score.sourceSnippetIds,
+  );
+}
 
 ProductiveOralScore _oralScoreFor(
   ProductiveAssessmentDefinition definition,
@@ -873,6 +1102,7 @@ Future<_ServiceFixture> _fixture() async {
   final curriculum = await CurriculumCatalog.load();
   final bundle = await CanonicalCourseSegmentLoader.load(
     curriculumCatalog: curriculum,
+    productiveAssessmentCatalog: loadDraftProductiveAssessmentCatalog(),
   );
   final service = CourseMasteryService(curriculum);
   await service.initializeForPlacement('a1');

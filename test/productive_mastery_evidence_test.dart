@@ -20,6 +20,9 @@ void main() {
       occurredAt: occurredAt,
       courseEligible: true,
       definitionFingerprint: 'definition_test_greeting_v1',
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: const ['greeting'],
+      ),
     );
 
     final json = evidence.toJson();
@@ -41,10 +44,22 @@ void main() {
     expect(json['evaluatorVersion'], productiveEvaluatorVersion);
     expect(json['definitionFingerprint'], 'definition_test_greeting_v1');
     expect(json['resultFingerprint'], isNotEmpty);
+    expect((json['coverage']! as Map<String, dynamic>)['matchedCriterionIds'], [
+      'greeting',
+    ]);
 
     final mutated = Map<String, dynamic>.from(json)..['score'] = .9;
     expect(
       () => ProductiveMasteryEvidence.fromJson(mutated),
+      throwsFormatException,
+    );
+    final mutatedCoverage = Map<String, dynamic>.from(json)
+      ..['coverage'] = {
+        ...(json['coverage']! as Map<String, dynamic>),
+        'matchedCriterionIds': const <String>[],
+      };
+    expect(
+      () => ProductiveMasteryEvidence.fromJson(mutatedCoverage),
       throwsFormatException,
     );
   });
@@ -63,6 +78,7 @@ void main() {
         occurredAt: occurredAt,
         courseEligible: true,
         definitionFingerprint: 'definition_test_oral_v1',
+        coverage: ProductiveEvidenceCoverage(),
       ),
       throwsFormatException,
     );
@@ -79,6 +95,28 @@ void main() {
       occurredAt: occurredAt,
       courseEligible: true,
       definitionFingerprint: 'definition_test_oral_v1',
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: const [
+          'duration',
+          'transcript_length',
+          'not_near_verbatim_read_aloud',
+          'pronunciation',
+          'accuracy',
+          'fluency',
+          'semantic_slots',
+          'required_sources',
+          'oral_discourse:0',
+          'oral_discourse:1',
+          'oral_discourse:2',
+        ],
+        semanticSlotIds: const [
+          'claim',
+          'evidence',
+          'limitation',
+          'conclusion',
+        ],
+        sourceSnippetIds: const ['snippet_01', 'snippet_02'],
+      ),
       oralScore: ProductiveOralScore(
         pronunciation: .8,
         accuracy: .81,
@@ -119,6 +157,9 @@ void main() {
       occurredAt: occurredAt,
       courseEligible: true,
       definitionFingerprint: 'definition_test_greeting_v1',
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: const ['greeting'],
+      ),
     );
     final migrated = CourseMasterySnapshot.decodeAndMigrate({
       'version': 2,

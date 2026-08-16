@@ -2526,6 +2526,13 @@
       "total": {"type": "int"}
     }
   },
+  "courseReassessmentProjectStep": "Project step {current} of {total}",
+  "@courseReassessmentProjectStep": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "courseReassessmentRole": "Your role",
   "courseReassessmentPrivacy": "Free writing and notes are not sent to Firebase or analytics. Verified speaking is unavailable until its separate consent and privacy-preserving service are ready.",
   "courseReassessmentAnswer": "Your Korean answer",
@@ -2552,6 +2559,14 @@
       "index": {"type": "int"}
     }
   },
+  "courseReassessmentProjectReviewTitle": "Review the sources before you respond",
+  "courseReassessmentProjectReviewBody": "Read every newly introduced source and open its provenance. This receipt records only the source IDs, not your notes.",
+  "courseReassessmentProjectMarkReviewed": "I read and compared this source",
+  "courseReassessmentProjectShowProvenance": "Show provenance",
+  "courseReassessmentProjectHideProvenance": "Hide provenance",
+  "courseReassessmentProjectCompleteReview": "Complete source review",
+  "courseReassessmentProjectReviewing": "Checking sources …",
+  "courseReassessmentProjectReviewIncomplete": "Read every source and open each provenance note before continuing.",
   "courseReassessmentConnectSources": "Mark the relationships between sources",
   "courseReassessmentRelationship": "Role of this source",
   "courseReassessmentSubmit": "Check my answer",

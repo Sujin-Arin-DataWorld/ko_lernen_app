@@ -9,13 +9,17 @@ import 'package:ko_lernen_app/services/canonical_course_segment_loader.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/productive_assessment_service.dart';
 
+import 'support/productive_assessment_fixture.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
     'canonical loader binds 86 segments to executable assessments',
     () async {
-      final result = await CanonicalCourseSegmentLoader.load();
+      final result = await CanonicalCourseSegmentLoader.load(
+        productiveAssessmentCatalog: loadDraftProductiveAssessmentCatalog(),
+      );
 
       expect(result.segments.denominatorForReleaseTrack('core_2026_v1'), 86);
       expect(result.segments.publishedSegments, hasLength(86));
@@ -137,7 +141,7 @@ Future<_LoaderFixture> _fixture() async {
     segments: _json('assets/data/can_do_segments.json'),
     authorities: _json('assets/data/can_do_content_authorities.json'),
     curriculum: await CurriculumCatalog.load(),
-    productive: await ProductiveAssessmentCatalog.load(),
+    productive: loadDraftProductiveAssessmentCatalog(),
   );
 }
 

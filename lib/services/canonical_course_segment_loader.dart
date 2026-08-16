@@ -64,11 +64,14 @@ final class CanonicalCourseSegmentLoader {
     CurriculumCatalog? curriculumCatalog,
     ProductiveAssessmentCatalog? productiveAssessmentCatalog,
   }) async {
+    if (productiveAssessmentCatalog == null) {
+      throw StateError(
+        'Approved productive assessment content must be injected before '
+        'loading the canonical segment bundle.',
+      );
+    }
     final assets = bundle ?? rootBundle;
     final curriculum = curriculumCatalog ?? await CurriculumCatalog.load();
-    final productive =
-        productiveAssessmentCatalog ??
-        await ProductiveAssessmentCatalog.load(bundle: assets);
     final rawSegments = await assets.loadString(segmentAssetPath);
     final rawAuthorities = await assets.loadString(contentAuthorityAssetPath);
     final rawVocab = await assets.loadString(vocabAssetPath);
@@ -79,7 +82,7 @@ final class CanonicalCourseSegmentLoader {
         contentAuthorityAssetPath,
       ),
       curriculumCatalog: curriculum,
-      productiveAssessmentCatalog: productive,
+      productiveAssessmentCatalog: productiveAssessmentCatalog,
       sourceVocabFingerprintsById: _vocabFingerprints(rawVocab),
     );
   }
@@ -739,16 +742,21 @@ final class _SmalltalkPhraseDecision {
       json['semanticStatus'],
       '$path.semanticStatus',
     );
-    if (!const {'approved', 'bestAvailable'}.contains(semanticStatus)) {
+    if (!const {
+      'approved',
+      'bestAvailable',
+      'exactMapped',
+    }.contains(semanticStatus)) {
       throw FormatException(
-        '$path.semanticStatus: published decisions must be approved or '
-        'bestAvailable',
+        '$path.semanticStatus: unsupported semantic review status',
       );
     }
     final reasonCode = _string(json['reasonCode'], '$path.reasonCode');
-    final expectedReason = semanticStatus == 'approved'
-        ? 'topicAndFunctionMatch'
-        : 'closestPublishedCoreSegment';
+    final expectedReason = switch (semanticStatus) {
+      'approved' => 'topicAndFunctionMatch',
+      'bestAvailable' => 'closestPublishedCoreSegment',
+      _ => 'explicitSemanticRoute',
+    };
     if (reasonCode != expectedReason) {
       throw FormatException('$path.reasonCode: does not match semantic status');
     }

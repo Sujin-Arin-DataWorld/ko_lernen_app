@@ -5563,6 +5563,11 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String courseReassessmentProjectStep(int current, int total) {
+    return 'Project step $current of $total';
+  }
+
+  @override
   String get courseReassessmentRole => 'Your role';
 
   @override
@@ -5600,6 +5605,35 @@ class AppL10nEn extends AppL10n {
   String courseReassessmentSource(int index) {
     return 'Source $index';
   }
+
+  @override
+  String get courseReassessmentProjectReviewTitle =>
+      'Review the sources before you respond';
+
+  @override
+  String get courseReassessmentProjectReviewBody =>
+      'Read every newly introduced source and open its provenance. This receipt records only the source IDs, not your notes.';
+
+  @override
+  String get courseReassessmentProjectMarkReviewed =>
+      'I read and compared this source';
+
+  @override
+  String get courseReassessmentProjectShowProvenance => 'Show provenance';
+
+  @override
+  String get courseReassessmentProjectHideProvenance => 'Hide provenance';
+
+  @override
+  String get courseReassessmentProjectCompleteReview =>
+      'Complete source review';
+
+  @override
+  String get courseReassessmentProjectReviewing => 'Checking sources …';
+
+  @override
+  String get courseReassessmentProjectReviewIncomplete =>
+      'Read every source and open each provenance note before continuing.';
 
   @override
   String get courseReassessmentConnectSources =>

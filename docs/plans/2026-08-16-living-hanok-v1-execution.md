@@ -86,9 +86,14 @@ A1 실제 건축이나 HanokState 구현을 막지 않는다.
 
 ## 4. 생산 평가와 개인정보
 
-core 86개는 실행 가능한 평가 118개에 exact join한다. A1–B2는 독자 감수한
-70개 과제를 사용하고, C1/C2는 16개 segment마다 open writing, oral production,
-connected evidence 세 축을 모두 요구한다.
+core 86개는 실행 가능한 평가 118개에 exact join한다. A1–B2의 독자 작성 과제
+70개와 C1/C2의 source·prompt는 결정론적 계약과 테스트 fixture로 먼저 고정하되,
+Jin의 per-ID 콘텐츠 승인을 뜻하지 않는다. 승인 원장이 통합되기 전 learner copy는
+`tools/content_factory/drafts/productive_assessments.json`에만 두며 Flutter의
+`assets/data/`에 넣지 않는다. production 재평가 route는 catalog loader를 호출하기
+전에 fail closed하여 prompt와 source를 표시하지 않는다. 승인 뒤 C1/C2
+16개 segment마다 open writing, oral production, connected evidence 세 축을 모두
+요구한다.
 
 - 원문 답안, 녹음, 인식문, source note는 CourseMastery·Firestore·analytics에
   저장하지 않는다.
@@ -110,14 +115,14 @@ connected evidence 세 축을 모두 요구한다.
 |---|---|---|
 | PR0 | room-v3/e66 선통합 | 완료(PR #29) |
 | PR1 | segment·track·권리·카메라 불변 계약 | 완료(PR #30) |
-| PR2 | 86 catalog, 118 평가, CourseMastery V3, 4단계 project evidence, 재평가 route | 실행 중 |
+| PR2 | 86 catalog, 118 draft 평가, CourseMastery V3, 4단계 project evidence, 승인 전 asset 격리·fail-closed 재평가 route | 실행 중; 최초 제품 진입점은 PR6 |
 | PR2b | 진짜 unscripted oral authority와 consent/privacy/backend tests | PR2 뒤 |
 | Content lane A | Batch 06 review-only 도구 통합 | 완료(`23342c57` 포함 main) |
 | Content lane B | Batch 06 사람 검수와 선택적 cluster 승격 | PR2 뒤 병렬·한옥 비차단 |
 | PR3 | CourseMastery-only HanokState, 86 grant catalog, cutover, room-v3 dormant 복원 | PR2 뒤 |
 | PR4 | A1 0–16 누적 자산·renderer·reveal·thumbnail QA | PR3 뒤 |
 | PR5 | A2–C2 디자인·장소·프로젝트·7/14일 돌봄 | PR3·PR4 뒤 |
-| PR6 | Today·학습 경로·미션·영수증·개인 한옥 연결 | PR5 뒤 |
+| PR6 | Today·학습 경로·미션·영수증·개인 한옥·승인된 재평가 최초 진입점 연결 | PR5 및 콘텐츠 승인 뒤 |
 | PR7 | 원자적 cutover와 legacy 한옥 삭제, Gye 경계 분리 | PR6 뒤 |
 | PR8 | 전체 성능·접근성·오프라인·동기화·기기 QA | 마지막 |
 

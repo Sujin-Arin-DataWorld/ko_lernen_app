@@ -5594,6 +5594,11 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String courseReassessmentProjectStep(int current, int total) {
+    return 'Projektschritt $current von $total';
+  }
+
+  @override
   String get courseReassessmentRole => 'Deine Rolle';
 
   @override
@@ -5631,6 +5636,35 @@ class AppL10nDe extends AppL10n {
   String courseReassessmentSource(int index) {
     return 'Quelle $index';
   }
+
+  @override
+  String get courseReassessmentProjectReviewTitle =>
+      'Quellen vor der Antwort prüfen';
+
+  @override
+  String get courseReassessmentProjectReviewBody =>
+      'Lies jede neu eingeführte Quelle und öffne ihren Herkunftshinweis. Gespeichert werden nur die Quellen-IDs, nicht deine Notizen.';
+
+  @override
+  String get courseReassessmentProjectMarkReviewed =>
+      'Ich habe diese Quelle gelesen und verglichen';
+
+  @override
+  String get courseReassessmentProjectShowProvenance => 'Herkunft anzeigen';
+
+  @override
+  String get courseReassessmentProjectHideProvenance => 'Herkunft ausblenden';
+
+  @override
+  String get courseReassessmentProjectCompleteReview =>
+      'Quellenprüfung abschließen';
+
+  @override
+  String get courseReassessmentProjectReviewing => 'Quellen werden geprüft …';
+
+  @override
+  String get courseReassessmentProjectReviewIncomplete =>
+      'Lies jede Quelle und öffne jeden Herkunftshinweis, bevor du fortfährst.';
 
   @override
   String get courseReassessmentConnectSources =>

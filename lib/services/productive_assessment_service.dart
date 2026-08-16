@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:flutter/services.dart';
+import 'dart:typed_data';
 
 import '../models/can_do_segment.dart';
 import '../models/content_id.dart';
@@ -969,7 +968,11 @@ final class ProductiveAssessmentBundle {
 /// [bind] proves the two immutable catalogs cover each other exactly.
 final class ProductiveAssessmentCatalog {
   static const int supportedSchemaVersion = 1;
-  static const String assetPath = 'assets/data/productive_assessments.json';
+
+  /// Learner-facing assessment copy remains closed until Jin's per-ID review
+  /// ledger is integrated. The draft fixture lives outside Flutter assets;
+  /// service and persistence tests inject it explicitly.
+  static const bool runtimeContentApproved = false;
 
   ProductiveAssessmentCatalog.fromDefinitions(
     Iterable<ProductiveAssessmentDefinition> definitions, {
@@ -1020,19 +1023,6 @@ final class ProductiveAssessmentCatalog {
     );
   }
 
-  static Future<ProductiveAssessmentCatalog> load({AssetBundle? bundle}) async {
-    final raw = await (bundle ?? rootBundle).loadString(assetPath);
-    final decoded = jsonDecode(raw);
-    if (decoded is! Map) {
-      throw const FormatException(
-        'Productive assessment asset must be an object.',
-      );
-    }
-    return ProductiveAssessmentCatalog.fromJson(
-      decoded.map((key, value) => MapEntry(key.toString(), value)),
-    );
-  }
-
   final int schemaVersion;
   final List<ProductiveAssessmentDefinition> definitions;
   final List<ProductiveProjectDefinition> projects;
@@ -1057,11 +1047,45 @@ final class ProductiveAssessmentCatalog {
     return null;
   }
 
+  ProductiveAssessmentBundle? nextBundleInProject(String canDoSegmentId) {
+    final current = bundleForSegment(canDoSegmentId);
+    if (current == null) {
+      return null;
+    }
+    final currentStep = projectStepFor(current.projectId, current.stepId);
+    if (currentStep == null) {
+      throw const FormatException('Productive bundle has an unknown step.');
+    }
+    ProductiveAssessmentBundle? next;
+    int? nextOrder;
+    for (final candidate in bundles) {
+      if (candidate.projectId != current.projectId) {
+        continue;
+      }
+      final candidateStep = projectStepFor(
+        candidate.projectId,
+        candidate.stepId,
+      );
+      if (candidateStep == null || candidateStep.order <= currentStep.order) {
+        continue;
+      }
+      if (nextOrder == null || candidateStep.order < nextOrder) {
+        next = candidate;
+        nextOrder = candidateStep.order;
+      }
+    }
+    return next;
+  }
+
   ProductiveProjectStep? projectStepFor(String projectId, String stepId) {
     final project = projectsById[projectId];
-    if (project == null) return null;
+    if (project == null) {
+      return null;
+    }
     for (final step in project.steps) {
-      if (step.id == stepId) return step;
+      if (step.id == stepId) {
+        return step;
+      }
     }
     return null;
   }
@@ -1151,15 +1175,17 @@ final class ProductiveAssessmentCatalog {
     ]);
   }
 
-  /// Fails closed if any published segment requirement lacks an executable
-  /// definition or if an executable definition claims different provenance.
+  /// Fails closed if any immutable published/retired segment requirement lacks
+  /// an executable definition or claims different provenance. Retired
+  /// definitions remain append-only so previously earned evidence survives a
+  /// same-construct replacement.
   void bind(CourseSegmentCatalog segmentCatalog) {
     final expected = <String, (CanDoSegment, SegmentAssessmentRequirement)>{};
-    for (final segment in segmentCatalog.publishedSegments) {
+    for (final segment in segmentCatalog.assessmentAuthoritySegments) {
       for (final requirement in segment.assessmentRequirements) {
         if (expected.containsKey(requirement.assessmentItemId)) {
           throw FormatException(
-            'Published assessment ${requirement.assessmentItemId} is shared.',
+            'Immutable assessment ${requirement.assessmentItemId} is shared.',
           );
         }
         expected[requirement.assessmentItemId] = (segment, requirement);
@@ -1169,7 +1195,7 @@ final class ProductiveAssessmentCatalog {
         !expected.keys.toSet().containsAll(definitionsById.keys) ||
         !definitionsById.keys.toSet().containsAll(expected.keys)) {
       throw const FormatException(
-        'Published segment requirements and productive definitions must have exact coverage.',
+        'Immutable segment requirements and productive definitions must have exact coverage.',
       );
     }
     for (final entry in expected.entries) {
@@ -1211,6 +1237,10 @@ final class ProductiveAssessmentCatalog {
     _requireUnique(
       bundles.map((bundle) => bundle.canDoSegmentId),
       'productive bundle segment',
+    );
+    _requireUnique(
+      bundles.map((bundle) => '${bundle.projectId}:${bundle.stepId}'),
+      'productive bundle project step',
     );
     for (final definition in definitions) {
       if (definition.prerequisiteAssessmentItemIds.contains(
@@ -1385,7 +1415,7 @@ final class ProductiveAssessmentCatalog {
   }
 
   void _validateAdvancedBundles(CourseSegmentCatalog segmentCatalog) {
-    final advancedSegments = segmentCatalog.publishedSegments
+    final advancedSegments = segmentCatalog.assessmentAuthoritySegments
         .where(
           (segment) =>
               segment.level == LearnerLevel.c1 ||
@@ -1397,14 +1427,14 @@ final class ProductiveAssessmentCatalog {
           projects.isNotEmpty ||
           sourceSnippets.isNotEmpty) {
         throw const FormatException(
-          'Advanced productive project data has no published C segment.',
+          'Advanced productive project data has no immutable C authority.',
         );
       }
       return;
     }
     if (bundles.length != advancedSegments.length) {
       throw const FormatException(
-        'Every published C1/C2 segment requires one visible project bundle.',
+        'Every published or retired C1/C2 authority requires one project bundle.',
       );
     }
     for (final segment in advancedSegments) {
@@ -1595,6 +1625,7 @@ final class ProductiveAssessmentResult {
     required this.passed,
     required this.occurredAt,
     required this.criteria,
+    required this.coverage,
     required this.supportingEvidenceIds,
     required this.oralScore,
     required this.assessmentAttemptId,
@@ -1609,6 +1640,7 @@ final class ProductiveAssessmentResult {
   final bool passed;
   final DateTime occurredAt;
   final List<ProductiveCriterionOutcome> criteria;
+  final ProductiveEvidenceCoverage coverage;
   final List<String> supportingEvidenceIds;
   final ProductiveOralScore? oralScore;
   final String? assessmentAttemptId;
@@ -1754,6 +1786,8 @@ final class ProductiveTextAssessmentEngine {
     final allowedSourceIds = step.snippetIds.toSet();
     final structuredOutcomes = <ProductiveCriterionOutcome>[];
     final distinctSources = <String>{};
+    final coveredSlots = <String>{};
+    final slotSourceBindings = <ProductiveSlotSourceBinding>[];
     final normalizedText = _normalizeWriting(submission.text);
     for (final slotId in rubric.requiredStructuredSlotIds) {
       final normalizedSlot = _normalizeWriting(
@@ -1764,17 +1798,27 @@ final class ProductiveTextAssessmentEngine {
           linked.isNotEmpty &&
           linked.every(allowedSourceIds.contains) &&
           linked.length == linked.toSet().length;
-      distinctSources.addAll(linked.where(allowedSourceIds.contains));
+      final matched =
+          normalizedSlot.isNotEmpty &&
+          BookAnalysisTextPreprocessor.containsHangulSyllable(normalizedSlot) &&
+          normalizedText.contains(normalizedSlot) &&
+          validLinks;
+      if (matched) {
+        coveredSlots.add(slotId);
+        for (final sourceId in linked) {
+          distinctSources.add(sourceId);
+          slotSourceBindings.add(
+            ProductiveSlotSourceBinding(
+              semanticSlotId: slotId,
+              sourceSnippetId: sourceId,
+            ),
+          );
+        }
+      }
       structuredOutcomes.add(
         ProductiveCriterionOutcome(
           id: 'slot:$slotId',
-          matched:
-              normalizedSlot.isNotEmpty &&
-              BookAnalysisTextPreprocessor.containsHangulSyllable(
-                normalizedSlot,
-              ) &&
-              normalizedText.contains(normalizedSlot) &&
-              validLinks,
+          matched: matched,
           weight: 1,
         ),
       );
@@ -1826,6 +1870,9 @@ final class ProductiveTextAssessmentEngine {
       input: submission.text,
       occurredAt: occurredAt,
       additionalRequiredOutcomes: structuredOutcomes,
+      semanticSlotIds: coveredSlots,
+      sourceSnippetIds: distinctSources,
+      slotSourceBindings: slotSourceBindings,
     );
   }
 
@@ -1834,6 +1881,9 @@ final class ProductiveTextAssessmentEngine {
     required String input,
     required DateTime occurredAt,
     List<ProductiveCriterionOutcome> additionalRequiredOutcomes = const [],
+    Iterable<String> semanticSlotIds = const [],
+    Iterable<String> sourceSnippetIds = const [],
+    Iterable<ProductiveSlotSourceBinding> slotSourceBindings = const [],
   }) {
     final rubric = definition.textRubric!;
     final normalized = _normalizeWriting(input);
@@ -1875,6 +1925,16 @@ final class ProductiveTextAssessmentEngine {
     }
     final score = totalWeight == 0 ? 0.0 : matchedWeight / totalWeight;
     final passed = requiredPassed && score >= definition.minimumScore;
+    final matchedSemanticCriteria = <String>{
+      for (final criterion in rubric.criteria)
+        if ((criterion.kind == ProductiveCriterionKind.meaningSlot ||
+                criterion.kind ==
+                    ProductiveCriterionKind.sameIdentityAcrossRegisters) &&
+            outcomes.any(
+              (outcome) => outcome.id == criterion.id && outcome.matched,
+            ))
+          criterion.id,
+    };
     return ProductiveAssessmentResult._(
       assessmentItemId: definition.assessmentItemId,
       canDoSegmentId: definition.canDoSegmentId,
@@ -1883,6 +1943,14 @@ final class ProductiveTextAssessmentEngine {
       passed: passed,
       occurredAt: _validTimestamp(occurredAt),
       criteria: List.unmodifiable(outcomes),
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: outcomes
+            .where((outcome) => outcome.matched)
+            .map((outcome) => outcome.id),
+        semanticSlotIds: {...semanticSlotIds, ...matchedSemanticCriteria},
+        sourceSnippetIds: sourceSnippetIds,
+        slotSourceBindings: slotSourceBindings,
+      ),
       supportingEvidenceIds: const [],
       oralScore: null,
       assessmentAttemptId: null,
@@ -2022,6 +2090,20 @@ final class ProductiveConnectedEvidenceEngine {
       passed: passed,
       occurredAt: _validTimestamp(occurredAt),
       criteria: List.unmodifiable(outcomes),
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: outcomes
+            .where((outcome) => outcome.matched)
+            .map((outcome) => outcome.id),
+        sourceSnippetIds: uniqueNodes.keys,
+        sourceRoleBindings: [
+          for (final node in uniqueNodes.values)
+            for (final role in node.roles)
+              ProductiveSourceRoleBinding(
+                sourceSnippetId: node.sourceSnippetId,
+                roleCode: role.code,
+              ),
+        ],
+      ),
       supportingEvidenceIds: const [],
       oralScore: null,
       assessmentAttemptId: null,
@@ -2258,6 +2340,13 @@ final class ProductiveOralAssessmentEngine {
       passed: passed,
       occurredAt: timestamp,
       criteria: List.unmodifiable(outcomes),
+      coverage: ProductiveEvidenceCoverage(
+        matchedCriterionIds: outcomes
+            .where((outcome) => outcome.matched)
+            .map((outcome) => outcome.id),
+        semanticSlotIds: coveredSlots,
+        sourceSnippetIds: sourceCoverage,
+      ),
       supportingEvidenceIds: passed ? [referenceWritingEvidence.id] : const [],
       oralScore: oralScore,
       assessmentAttemptId: passed ? attemptId : null,
@@ -2277,6 +2366,7 @@ final class ProductiveOralAssessmentEngine {
       passed: false,
       occurredAt: _validTimestamp(occurredAt),
       criteria: const [],
+      coverage: ProductiveEvidenceCoverage(),
       supportingEvidenceIds: const [],
       oralScore: null,
       assessmentAttemptId: null,
@@ -2303,7 +2393,7 @@ Set<String> verifiedCanDoSegmentIds({
     evidence: projectStepEvidence,
     assessmentCatalog: assessmentCatalog,
   );
-  for (final segment in segmentCatalog.publishedSegments) {
+  for (final segment in segmentCatalog.assessmentAuthoritySegments) {
     if (segment.evidencePolicy != SegmentEvidencePolicy.allOf) {
       continue;
     }
@@ -2475,6 +2565,7 @@ final class _ProductiveEvidenceTrustIndex {
         definition.authorityFingerprint == record.definitionFingerprint &&
         record.evaluatorVersion == productiveEvaluatorVersion &&
         record.score >= definition.minimumScore &&
+        _coverageMatches(definition, record) &&
         _oralResultMatches(definition, record);
     if (trusted) {
       for (final prerequisiteId in definition.prerequisiteAssessmentItemIds) {
@@ -2541,6 +2632,229 @@ final class _ProductiveEvidenceTrustIndex {
             'oral_discourse:$index',
         }) &&
         (expectedScore - record.score).abs() < 0.000000001;
+  }
+
+  bool _coverageMatches(
+    ProductiveAssessmentDefinition definition,
+    ProductiveMasteryEvidence record,
+  ) {
+    final coverage = record.coverage;
+    switch (definition.evidenceMode) {
+      case SegmentEvidenceMode.guidedProduction:
+      case SegmentEvidenceMode.dictation:
+      case SegmentEvidenceMode.connectedProduction:
+      case SegmentEvidenceMode.openWriting:
+        return _textCoverageMatches(definition, record);
+      case SegmentEvidenceMode.connectedEvidence:
+        return _connectedCoverageMatches(definition, record);
+      case SegmentEvidenceMode.oralProduction:
+        final oral = record.oralScore;
+        if (oral == null ||
+            !_sameSet(coverage.semanticSlotIds, oral.semanticSlotIds) ||
+            !_sameSet(coverage.sourceSnippetIds, oral.sourceSnippetIds) ||
+            coverage.slotSourceBindings.isNotEmpty ||
+            coverage.sourceRoleBindings.isNotEmpty) {
+          return false;
+        }
+        final rubric = definition.oralRubric!;
+        final expectedCriteria = <String>{
+          'duration',
+          'transcript_length',
+          'not_near_verbatim_read_aloud',
+          'pronunciation',
+          'accuracy',
+          'fluency',
+          'semantic_slots',
+          'required_sources',
+          for (var index = 0; index < rubric.oneOfSourceGroups.length; index++)
+            'oral_source_group:$index',
+          for (
+            var index = 0;
+            index < rubric.discourseMarkerGroups.length;
+            index++
+          )
+            'oral_discourse:$index',
+        };
+        return _sameSet(coverage.matchedCriterionIds, expectedCriteria);
+    }
+  }
+
+  bool _textCoverageMatches(
+    ProductiveAssessmentDefinition definition,
+    ProductiveMasteryEvidence record,
+  ) {
+    final rubric = definition.textRubric;
+    if (rubric == null ||
+        record.oralScore != null ||
+        record.assessmentAttemptId != null ||
+        record.coverage.sourceRoleBindings.isNotEmpty) {
+      return false;
+    }
+    final coverage = record.coverage;
+    final matched = coverage.matchedCriterionIds.toSet();
+    final syntheticIds = <String>{
+      if (rubric.requiresStructuredSubmission) ...{
+        for (final slotId in rubric.requiredStructuredSlotIds) 'slot:$slotId',
+        'distinct_sources',
+        for (final sourceId in rubric.requiredSourceSnippetIds)
+          'required_source:$sourceId',
+        for (var index = 0; index < rubric.oneOfSourceGroups.length; index++)
+          'source_group:$index',
+        for (
+          var index = 0;
+          index < rubric.discourseMarkerGroups.length;
+          index++
+        )
+          'discourse:$index',
+      },
+    };
+    final criterionById = {
+      for (final criterion in rubric.criteria) criterion.id: criterion,
+    };
+    final knownIds = {...criterionById.keys, ...syntheticIds};
+    if (!knownIds.containsAll(matched) ||
+        rubric.criteria.any(
+          (criterion) =>
+              criterion.requiredForPass && !matched.contains(criterion.id),
+        ) ||
+        !matched.containsAll(syntheticIds)) {
+      return false;
+    }
+    final totalWeight =
+        syntheticIds.length +
+        rubric.criteria.fold<double>(
+          0,
+          (total, criterion) => total + criterion.weight,
+        );
+    final matchedWeight =
+        syntheticIds.where(matched.contains).length +
+        rubric.criteria
+            .where((criterion) => matched.contains(criterion.id))
+            .fold<double>(0, (total, criterion) => total + criterion.weight);
+    final expectedScore = totalWeight == 0 ? 0.0 : matchedWeight / totalWeight;
+    if ((expectedScore - record.score).abs() >= 0.000000001) {
+      return false;
+    }
+    final semanticCriteria = rubric.criteria
+        .where(
+          (criterion) =>
+              matched.contains(criterion.id) &&
+              (criterion.kind == ProductiveCriterionKind.meaningSlot ||
+                  criterion.kind ==
+                      ProductiveCriterionKind.sameIdentityAcrossRegisters),
+        )
+        .map((criterion) => criterion.id)
+        .toSet();
+    if (!rubric.requiresStructuredSubmission) {
+      return _sameSet(coverage.semanticSlotIds, semanticCriteria) &&
+          coverage.sourceSnippetIds.isEmpty &&
+          coverage.slotSourceBindings.isEmpty;
+    }
+    final expectedSlots = {
+      ...rubric.requiredStructuredSlotIds,
+      ...semanticCriteria,
+    };
+    if (!_sameSet(coverage.semanticSlotIds, expectedSlots)) {
+      return false;
+    }
+    final step = _projectStepForDefinition(definition);
+    if (step == null) {
+      return false;
+    }
+    final allowedSources = step.snippetIds.toSet();
+    final boundSources = <String>{};
+    final boundSlots = <String>{};
+    for (final binding in coverage.slotSourceBindings) {
+      if (!rubric.requiredStructuredSlotIds.contains(binding.semanticSlotId) ||
+          !allowedSources.contains(binding.sourceSnippetId)) {
+        return false;
+      }
+      boundSlots.add(binding.semanticSlotId);
+      boundSources.add(binding.sourceSnippetId);
+    }
+    return boundSlots.containsAll(rubric.requiredStructuredSlotIds) &&
+        _sameSet(coverage.sourceSnippetIds, boundSources) &&
+        boundSources.length >= rubric.minimumDistinctSourceSpanIds &&
+        boundSources.containsAll(rubric.requiredSourceSnippetIds) &&
+        rubric.oneOfSourceGroups.every(
+          (group) => group.any(boundSources.contains),
+        );
+  }
+
+  bool _connectedCoverageMatches(
+    ProductiveAssessmentDefinition definition,
+    ProductiveMasteryEvidence record,
+  ) {
+    final rubric = definition.connectedEvidenceRubric;
+    final step = _projectStepForDefinition(definition);
+    final coverage = record.coverage;
+    if (rubric == null ||
+        step == null ||
+        record.oralScore != null ||
+        record.assessmentAttemptId != null ||
+        coverage.semanticSlotIds.isNotEmpty ||
+        coverage.slotSourceBindings.isNotEmpty) {
+      return false;
+    }
+    final allowedSources = step.snippetIds.toSet();
+    final rolesBySource = <String, Set<ProductiveEvidenceRole>>{};
+    for (final binding in coverage.sourceRoleBindings) {
+      final role = ProductiveEvidenceRoleX.tryFromCode(binding.roleCode);
+      final snippet = assessmentCatalog.snippetsById[binding.sourceSnippetId];
+      if (role == null ||
+          !allowedSources.contains(binding.sourceSnippetId) ||
+          snippet == null ||
+          !snippet.supportedRoles.contains(role)) {
+        return false;
+      }
+      rolesBySource.putIfAbsent(binding.sourceSnippetId, () => {}).add(role);
+    }
+    if (!_sameSet(coverage.sourceSnippetIds, rolesBySource.keys) ||
+        rolesBySource.length < rubric.minimumSourceNodes) {
+      return false;
+    }
+    final allRoles = rolesBySource.values.expand((roles) => roles).toSet();
+    if (!allRoles.containsAll(rubric.requiredRoles) ||
+        !rolesBySource.keys.toSet().containsAll(
+          rubric.requiredSourceSnippetIds,
+        ) ||
+        !rubric.oneOfSourceGroups.every(
+          (group) => group.any(rolesBySource.containsKey),
+        ) ||
+        !rubric.relationshipRequirements.every(
+          (relationship) => relationship.oneOfSourceSnippetIds.any(
+            (sourceId) =>
+                rolesBySource[sourceId]?.contains(relationship.role) == true,
+          ),
+        )) {
+      return false;
+    }
+    final expectedCriteria = <String>{
+      'source_nodes',
+      for (final role in rubric.requiredRoles) role.code,
+      for (final sourceId in rubric.requiredSourceSnippetIds)
+        'required_source:$sourceId',
+      for (var index = 0; index < rubric.oneOfSourceGroups.length; index++)
+        'source_group:$index',
+      for (final relationship in rubric.relationshipRequirements)
+        'relationship:${relationship.id}',
+      'relationship_mapping',
+      'provenance',
+    };
+    return _sameSet(coverage.matchedCriterionIds, expectedCriteria) &&
+        (record.score - 1).abs() < 0.000000001;
+  }
+
+  ProductiveProjectStep? _projectStepForDefinition(
+    ProductiveAssessmentDefinition definition,
+  ) {
+    final bundle = assessmentCatalog.bundleForSegment(
+      definition.canDoSegmentId,
+    );
+    if (bundle == null) {
+      return null;
+    }
+    return assessmentCatalog.projectStepFor(bundle.projectId, bundle.stepId);
   }
 }
 

@@ -16,7 +16,9 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 SEGMENTS_PATH = ROOT / "assets" / "data" / "can_do_segments.json"
-OUTPUT_PATH = ROOT / "assets" / "data" / "productive_assessments.json"
+OUTPUT_PATH = (
+    ROOT / "tools" / "content_factory" / "drafts" / "productive_assessments.json"
+)
 
 MODE_SNAKE = {
     "guidedProduction": "guided_production",
@@ -27,10 +29,11 @@ MODE_SNAKE = {
     "connectedEvidence": "connected_evidence",
 }
 
-# Every A1-B2 permanent authority has a human-reviewed task, successful
-# first-party example, and required meaning slots. There is intentionally no
-# title-keyword fallback: a newly published segment must add a reviewed rubric
-# here or generation fails closed.
+# Every A1-B2 permanent authority has a first-party authored task,
+# deterministic passing fixture, and required meaning slots. There is
+# intentionally no title-keyword fallback: a newly published segment must add
+# an explicit rubric here or generation fails closed. Per-ID human approval is
+# tracked separately and is not implied by this executable contract.
 BASIC_SPECS: dict[str, dict[str, Any]] = {
     "segment_a1_01_greetings_hangul": {
         "task": (
@@ -1329,7 +1332,9 @@ def main() -> None:
     rendered = json.dumps(build(), ensure_ascii=False, indent=2) + "\n"
     if args.check:
         if not OUTPUT_PATH.exists() or OUTPUT_PATH.read_text(encoding="utf-8") != rendered:
-            raise SystemExit("productive_assessments.json is stale; regenerate it")
+            raise SystemExit(
+                "draft productive_assessments.json is stale; regenerate it"
+            )
         return
     OUTPUT_PATH.write_text(rendered, encoding="utf-8", newline="\n")
 

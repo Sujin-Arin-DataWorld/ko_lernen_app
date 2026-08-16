@@ -111,7 +111,7 @@ void main() {
     },
   );
 
-  test('all A1-B2 smalltalk routes have reviewed phrase decisions', () {
+  test('all A1-B2 smalltalk routes have explicit semantic decisions', () {
     final authority = _json('assets/data/can_do_content_authorities.json');
     final coverage = authority['coverage']! as Map<String, dynamic>;
     final audit = coverage['smalltalkRoutingAudit']! as Map<String, dynamic>;
@@ -127,8 +127,11 @@ void main() {
     expect(audit['unresolvedAmbiguousIds'], isEmpty);
     expect(
       decisions.every(
-        (row) =>
-            const {'approved', 'bestAvailable'}.contains(row['semanticStatus']),
+        (row) => const {
+          'approved',
+          'bestAvailable',
+          'exactMapped',
+        }.contains(row['semanticStatus']),
       ),
       isTrue,
     );
@@ -142,6 +145,7 @@ void main() {
       decisionById['smalltalk_b2_0069']!['canDoSegmentId'],
       'segment_b2_personal_boundaries',
     );
+    expect(decisionById['smalltalk_b2_0069']!['semanticStatus'], 'exactMapped');
     expect(
       decisionById['smalltalk_b2_0043']!['semanticStatus'],
       'bestAvailable',

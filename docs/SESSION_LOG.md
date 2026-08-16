@@ -159,9 +159,10 @@ register에서 유지되는지를 typed criterion으로 검사한다.
 **정본과 로컬 검증.** canonical 86개 segment를 118개 실행 평가(A1–B2 70개,
 C1/C2 48개), 8개 프로젝트·32개 독자 작성 자료·16개 고급 bundle에 exact join했다.
 KO/DE/EN prompt와 출처 metadata가 모두 존재한다. A1–B2 70개는 제목 조각 fallback
-없이 각각 감수한 실제 과제·통과 예시·필수 의미 슬롯을 가지며, canonical ID 누락이나
-추가 시 생성기가 실패한다. 생성기 `--check`가 byte-exact 재현을 확인하고 70개 승인
-예시를 실제 채점 엔진으로 전수 실행한다. 생산 평가·저장·projection 집중 회귀와 기존
+없이 각각 독자 작성한 실제 과제·통과 fixture·필수 의미 슬롯을 가지며, canonical ID
+누락이나 추가 시 생성기가 실패한다. 여기서 결정론적 fixture는 Jin의 per-ID 콘텐츠
+승인을 뜻하지 않는다. 생성기 `--check`가 byte-exact 재현을 확인하고 70개 fixture를
+실제 채점 엔진으로 전수 실행한다. 생산 평가·저장·projection 집중 회귀와 기존
 CourseMastery·cloud/account reconciliation·재평가 UI·카탈로그 계약을 합친 집중 회귀
 **228/228**이 통과했다. `flutter analyze --no-pub --fatal-infos`는 전체 worktree에서
 **No issues found**였고, 생산 평가 생성기 `--check`와 `git diff --check`도 통과했다.
@@ -170,10 +171,10 @@ CourseMastery·cloud/account reconciliation·재평가 UI·카탈로그 계약�
 `555055af`에 고정했다.
 
 **사용자 기준 SHA 통합과 Batch 06 공존.** 사용자 지정 `main 39dff9df` 위로
-재배치한 뒤, review-only Batch 06가 예약한 `smalltalk_c2_0017`과 PR2의 신규 live
-문항 ID가 충돌하는 것을 생성기가 차단했다. Batch 06 초안은 그대로 보존하고 신규
-해석 문항을 `smalltalk_c2_0019`로 옮겼으며, Batch 05 출처를 잘못 주장하지 않도록
-first-party `seed_hanok_v1_c2_interpretation_practice_v1`에 귀속했다. 과거 Batch 01
+재배치한 뒤, review-only Batch 06가 예약한 `smalltalk_c2_0017`과 PR2의 신규 문항
+ID가 충돌하는 것을 생성기가 차단했다. Batch 06 초안은 그대로 보존했다. 별도 Jin
+승인 원장이 없는 해석 문항은 `smalltalk_c2_0019`로 live 승격하지 않고, 승인된 기존
+`smalltalk_c2_0006`만 연습 참조로 유지한다. 과거 Batch 01
 재생 fixture는 제거된 C1/C2 확장 단원에 속한 후대 smalltalk와 audit count도 함께
 되감도록 일반화했다. core 86개, cluster 86개, release track 분모와 생산 평가 요구는
 변경하지 않았다. 통합 수정 커밋은 `495b6556`이다.
@@ -190,6 +191,18 @@ Wasm dry-run에는 외부 `flutter_tts 4.2.5` JS interop 경고 3건이 남지�
 release 컴파일은 성공했다. 검증 도중 `origin/main`은 tree가 동일한 빈 release
 커밋 `17857f4d`로 한 칸 이동했으므로 PR 직전 최신 원격 위 재배치와 exact-head CI를
 별도로 수행한다.
+
+**콘텐츠 승인과 런타임 차단.** 위 과제·예시·C1/C2 source는 평가 엔진과 개인정보
+계약을 검증하기 위한 first-party authored 정본이지만, Jin의 per-ID learner-copy
+승인을 받았다고 주장하지 않는다. learner-facing JSON은
+`tools/content_factory/drafts/productive_assessments.json`에만 두고 Flutter가 묶는
+`assets/data/`에서는 제거했다. `ProductiveAssessmentCatalog.runtimeContentApproved`는
+승인 원장이 통합되기 전 `false`로 고정되며 production route는 catalog·snapshot
+loader를 호출하기 전에 fail closed한다. widget test만 draft fixture를 명시적으로
+주입해 UI 계약을 검증한다. 이 격리·평가·projection 집중 회귀 **84/84**, 관련 9개
+파일 분석은 **No issues found**였다. 기존 smalltalk의 exact ID route도 사람 승인으로 둔갑시키지 않고
+`exactMapped`, category·unit fallback은 `bestAvailable`로 기록한다. PR6가 승인된
+최초 제품 진입점을 연결하며, PR2는 route·평가·저장 인프라까지만 소유한다.
 
 ### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
 

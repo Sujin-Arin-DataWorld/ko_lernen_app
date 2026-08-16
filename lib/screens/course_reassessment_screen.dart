@@ -28,6 +28,13 @@ typedef ReassessmentEvidenceRecorder =
       required CourseSegmentCatalog segmentCatalog,
     });
 
+typedef ReassessmentProjectStepRecorder =
+    Future<ProductiveProjectStepUpdate> Function({
+      required ProductiveProjectStepReviewResult result,
+      required ProductiveAssessmentCatalog assessmentCatalog,
+      required CourseSegmentCatalog segmentCatalog,
+    });
+
 /// Executes one exact productive assessment without rewinding the course.
 ///
 /// Free writing and source notes remain in this widget's memory. Only the
@@ -41,7 +48,9 @@ class CourseReassessmentScreen extends StatefulWidget {
     this.bundleLoader,
     this.snapshotLoader,
     this.evidenceRecorder,
+    this.projectStepRecorder,
     this.clock,
+    this.allowUnreviewedContentForTesting = false,
   });
 
   const CourseReassessmentScreen.invalid({super.key})
@@ -49,13 +58,17 @@ class CourseReassessmentScreen extends StatefulWidget {
       bundleLoader = null,
       snapshotLoader = null,
       evidenceRecorder = null,
-      clock = null;
+      projectStepRecorder = null,
+      clock = null,
+      allowUnreviewedContentForTesting = false;
 
   final CourseReassessmentRouteArguments? arguments;
   final Future<CanonicalCourseSegmentBundle> Function()? bundleLoader;
   final ReassessmentSnapshotLoader? snapshotLoader;
   final ReassessmentEvidenceRecorder? evidenceRecorder;
+  final ReassessmentProjectStepRecorder? projectStepRecorder;
   final DateTime Function()? clock;
+  final bool allowUnreviewedContentForTesting;
 
   @override
   State<CourseReassessmentScreen> createState() =>
@@ -67,6 +80,9 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
   final Map<String, TextEditingController> _slotControllers = {};
   final Map<String, String?> _slotSourceIds = {};
   final Map<String, Set<ProductiveEvidenceRole>> _evidenceRoles = {};
+  final Set<String> _reviewedSourceIds = {};
+  final Set<String> _openedProvenanceSourceIds = {};
+  final Set<String> _expandedProvenanceSourceIds = {};
   CanonicalCourseSegmentBundle? _bundle;
   CourseMasterySnapshot? _snapshot;
   CanDoSegment? _segment;
@@ -76,6 +92,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
   bool _loading = true;
   bool _submitting = false;
   bool _segmentVerified = false;
+  bool _projectReviewComplete = false;
   ProductiveAssessmentResult? _latestResult;
   String? _notice;
 
@@ -112,6 +129,48 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
       }
     }
     return null;
+  }
+
+  ProductiveProjectDefinition? get _project {
+    final bundle = _bundle;
+    final assessmentBundle = _assessmentBundle;
+    if (bundle == null || assessmentBundle == null) {
+      return null;
+    }
+    return bundle.productiveAssessments.projectsById[assessmentBundle
+        .projectId];
+  }
+
+  ProductiveProjectStep? get _requiredReviewStep {
+    final project = _project;
+    final assessedStep = _projectStep;
+    if (project == null || assessedStep == null) {
+      return null;
+    }
+    for (final step in project.steps) {
+      if (step.order == assessedStep.order - 1) {
+        return step;
+      }
+    }
+    return null;
+  }
+
+  List<ProductiveSourceSnippet> get _reviewSourceSnippets {
+    final bundle = _bundle;
+    final project = _project;
+    final step = _requiredReviewStep;
+    if (bundle == null || project == null || step == null) {
+      return const [];
+    }
+    final ids = bundle.productiveAssessments.introducedSourceIdsForStep(
+      project.id,
+      step.id,
+    );
+    return List.unmodifiable([
+      for (final id in ids)
+        if (bundle.productiveAssessments.snippetsById[id] case final snippet?)
+          snippet,
+    ]);
   }
 
   List<ProductiveSourceSnippet> get _sourceSnippets {
@@ -154,6 +213,10 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
       final arguments = widget.arguments;
       if (arguments == null) {
         throw const FormatException('Missing reassessment route arguments.');
+      }
+      if (!ProductiveAssessmentCatalog.runtimeContentApproved &&
+          !widget.allowUnreviewedContentForTesting) {
+        throw StateError('Productive assessment content review is pending.');
       }
       final loadBundle =
           widget.bundleLoader ?? CanonicalCourseSegmentLoader.load;
@@ -205,6 +268,29 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         segmentCatalog: bundle.segments,
         assessmentCatalog: bundle.productiveAssessments,
       ).contains(segment.id);
+      final assessmentBundle = bundle.productiveAssessments.bundleForSegment(
+        segment.id,
+      );
+      var projectReviewComplete = true;
+      if (assessmentBundle != null) {
+        final project = bundle
+            .productiveAssessments
+            .projectsById[assessmentBundle.projectId]!;
+        final assessedStep = project.steps.singleWhere(
+          (step) => step.id == assessmentBundle.stepId,
+        );
+        final reviewStep = project.steps.singleWhere(
+          (step) => step.order == assessedStep.order - 1,
+        );
+        final trustedSteps = trustedProductiveProjectStepEvidence(
+          evidence: snapshot.productiveProjectStepEvidence,
+          assessmentCatalog: bundle.productiveAssessments,
+        );
+        projectReviewComplete = trustedSteps.any(
+          (entry) =>
+              entry.projectId == project.id && entry.stepId == reviewStep.id,
+        );
+      }
       if (!mounted) {
         return;
       }
@@ -215,6 +301,10 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         _definitions = List.unmodifiable(definitions);
         _definitionIndex = initialIndex;
         _segmentVerified = verified;
+        _projectReviewComplete = projectReviewComplete;
+        _reviewedSourceIds.clear();
+        _openedProvenanceSourceIds.clear();
+        _expandedProvenanceSourceIds.clear();
         _loading = false;
       });
       _resetInputsForDefinition();
@@ -297,7 +387,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
   Future<void> _openMissingPrerequisite(
     ProductiveAssessmentDefinition prerequisite,
   ) async {
-    await Navigator.of(context).pushReplacementNamed(
+    await Navigator.of(context).pushNamed(
       courseReassessmentRoute,
       arguments: CourseReassessmentRouteArguments(
         courseUnitId: prerequisite.courseUnitId,
@@ -305,6 +395,76 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         assessmentItemId: prerequisite.assessmentItemId,
       ),
     );
+    if (mounted) {
+      await _load();
+    }
+  }
+
+  Future<void> _submitProjectReview() async {
+    final bundle = _bundle;
+    final project = _project;
+    final reviewStep = _requiredReviewStep;
+    if (bundle == null ||
+        project == null ||
+        reviewStep == null ||
+        _submitting) {
+      return;
+    }
+    setState(() {
+      _submitting = true;
+      _notice = null;
+    });
+    try {
+      final result = const ProductiveProjectStepReviewEngine().evaluate(
+        catalog: bundle.productiveAssessments,
+        projectId: project.id,
+        stepId: reviewStep.id,
+        reviewedSourceSnippetIds: _reviewedSourceIds,
+        openedProvenanceSnippetIds: _openedProvenanceSourceIds,
+      );
+      if (!result.passed) {
+        if (mounted) {
+          setState(
+            () => _notice = AppL10n.of(
+              context,
+            ).courseReassessmentProjectReviewIncomplete,
+          );
+        }
+        return;
+      }
+      final record =
+          widget.projectStepRecorder ??
+          ({
+            required ProductiveProjectStepReviewResult result,
+            required ProductiveAssessmentCatalog assessmentCatalog,
+            required CourseSegmentCatalog segmentCatalog,
+          }) => CourseProgressService.shared.recordProductiveProjectStep(
+            result: result,
+            assessmentCatalog: assessmentCatalog,
+            segmentCatalog: segmentCatalog,
+          );
+      final update = await record(
+        result: result,
+        assessmentCatalog: bundle.productiveAssessments,
+        segmentCatalog: bundle.segments,
+      );
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _snapshot = update.snapshot;
+        _projectReviewComplete = true;
+      });
+      _resetInputsForDefinition();
+    } catch (_) {
+      if (mounted) {
+        setState(() => _notice = AppL10n.of(context).courseReassessmentError);
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _submitting = false);
+      }
+    }
   }
 
   Future<void> _submitText() async {
@@ -439,7 +599,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
 
   void _continue() {
     if (_segmentVerified) {
-      Navigator.of(context).pop(true);
+      _finishSegment();
       return;
     }
     if (_definitionIndex + 1 >= _definitions.length) {
@@ -448,6 +608,35 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     }
     setState(() => _definitionIndex += 1);
     _resetInputsForDefinition();
+  }
+
+  void _finishSegment() {
+    final catalog = _bundle?.productiveAssessments;
+    final segment = _segment;
+    if (catalog == null || segment == null) {
+      Navigator.of(context).pop(true);
+      return;
+    }
+    final nextBundle = catalog.nextBundleInProject(segment.id);
+    if (nextBundle == null) {
+      Navigator.of(context).pop(true);
+      return;
+    }
+    final nextDefinition = catalog.definitionFor(
+      nextBundle.assessmentItemIds.first,
+    );
+    if (nextDefinition == null) {
+      setState(() => _notice = AppL10n.of(context).courseReassessmentError);
+      return;
+    }
+    Navigator.of(context).pushReplacementNamed(
+      courseReassessmentRoute,
+      arguments: CourseReassessmentRouteArguments(
+        courseUnitId: nextDefinition.courseUnitId,
+        canDoSegmentId: nextDefinition.canDoSegmentId,
+        assessmentItemId: nextDefinition.assessmentItemId,
+      ),
+    );
   }
 
   void _retry() {
@@ -510,6 +699,15 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
   Widget _buildHeader(AppL10n t) {
     final locale = Localizations.localeOf(context).languageCode;
     final segment = _segment!;
+    final projectStage = !_projectReviewComplete
+        ? _requiredReviewStep?.order
+        : _projectStep?.order;
+    final progressLabel = projectStage == null
+        ? t.courseReassessmentStep(_definitionIndex + 1, _definitions.length)
+        : t.courseReassessmentProjectStep(projectStage, 4);
+    final progressValue = projectStage == null
+        ? (_definitionIndex + 1) / _definitions.length
+        : projectStage / 4;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -532,7 +730,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         Text(segment.canDo.pick(locale), style: const TextStyle(height: 1.45)),
         const SizedBox(height: Spacing.md),
         Text(
-          t.courseReassessmentStep(_definitionIndex + 1, _definitions.length),
+          progressLabel,
           style: TextStyle(
             color: SoriSurfaces.of(context).textDim,
             fontWeight: FontWeight.w600,
@@ -540,7 +738,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         ),
         const SizedBox(height: Spacing.xs),
         LinearProgressIndicator(
-          value: (_definitionIndex + 1) / _definitions.length,
+          value: progressValue,
           color: SoriActivityColors.speaking,
         ),
       ],
@@ -552,6 +750,9 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     final missing = _missingPrerequisite(definition);
     if (missing != null) {
       return _buildPrerequisite(t, missing);
+    }
+    if (!_projectReviewComplete && _requiredReviewStep != null) {
+      return _buildProjectReview(t);
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -577,6 +778,125 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             fontSize: 13,
             height: 1.4,
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProjectReview(AppL10n t) {
+    final locale = Localizations.localeOf(context).languageCode;
+    final sources = _reviewSourceSnippets;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SoriCard(
+          variant: SoriCardVariant.hero,
+          accent: SoriActivityColors.review,
+          tinted: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.courseReassessmentProjectReviewTitle,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.courseReassessmentProjectReviewBody,
+                style: const TextStyle(height: 1.45),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+        for (var index = 0; index < sources.length; index++) ...[
+          SoriCard(
+            key: ValueKey('course-reassessment-review-${sources[index].id}'),
+            variant: SoriCardVariant.base,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  t.courseReassessmentSource(index + 1),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: Spacing.xs),
+                Text(
+                  sources[index].text.pick(locale),
+                  style: const TextStyle(height: 1.45),
+                ),
+                const SizedBox(height: Spacing.sm),
+                Material(
+                  type: MaterialType.transparency,
+                  child: CheckboxListTile(
+                    key: ValueKey(
+                      'course-reassessment-reviewed-${sources[index].id}',
+                    ),
+                    contentPadding: EdgeInsets.zero,
+                    controlAffinity: ListTileControlAffinity.leading,
+                    title: Text(t.courseReassessmentProjectMarkReviewed),
+                    value: _reviewedSourceIds.contains(sources[index].id),
+                    onChanged: _submitting
+                        ? null
+                        : (selected) {
+                            setState(() {
+                              if (selected == true) {
+                                _reviewedSourceIds.add(sources[index].id);
+                              } else {
+                                _reviewedSourceIds.remove(sources[index].id);
+                              }
+                            });
+                          },
+                  ),
+                ),
+                TextButton(
+                  key: ValueKey(
+                    'course-reassessment-provenance-${sources[index].id}',
+                  ),
+                  onPressed: _submitting
+                      ? null
+                      : () {
+                          setState(() {
+                            _openedProvenanceSourceIds.add(sources[index].id);
+                            if (!_expandedProvenanceSourceIds.add(
+                              sources[index].id,
+                            )) {
+                              _expandedProvenanceSourceIds.remove(
+                                sources[index].id,
+                              );
+                            }
+                          });
+                        },
+                  child: Text(
+                    _expandedProvenanceSourceIds.contains(sources[index].id)
+                        ? t.courseReassessmentProjectHideProvenance
+                        : t.courseReassessmentProjectShowProvenance,
+                  ),
+                ),
+                if (_expandedProvenanceSourceIds.contains(sources[index].id))
+                  Text(
+                    sources[index].provenance.pick(locale),
+                    style: TextStyle(
+                      color: SoriSurfaces.of(context).textDim,
+                      height: 1.4,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          if (index + 1 < sources.length) const SizedBox(height: Spacing.md),
+        ],
+        const SizedBox(height: Spacing.lg),
+        SoriButton.filled(
+          key: const ValueKey('course-reassessment-submit-project-review'),
+          label: _submitting
+              ? t.courseReassessmentProjectReviewing
+              : t.courseReassessmentProjectCompleteReview,
+          fullWidth: true,
+          accent: SoriActivityColors.review,
+          onTap: _submitting ? null : _submitProjectReview,
         ),
       ],
     );
@@ -994,7 +1314,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             label: t.courseReassessmentFinish,
             fullWidth: true,
             accent: SoriActivityColors.completion,
-            onTap: () => Navigator.of(context).pop(true),
+            onTap: _finishSegment,
           ),
         ],
       ),

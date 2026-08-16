@@ -5480,8 +5480,7 @@
       "revision": 1,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
-        "seed_project_c2_narrative_v1",
-        "seed_hanok_v1_c2_interpretation_practice_v1"
+        "seed_project_c2_narrative_v1"
       ],
       "contentReferences": [
         {
@@ -5539,10 +5538,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0006"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0019"
         },
         {
           "kind": "grammar",

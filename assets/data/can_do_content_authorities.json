@@ -3226,10 +3226,6 @@
       "level": "c2"
     },
     {
-      "id": "seed_hanok_v1_c2_interpretation_practice_v1",
-      "level": "c2"
-    },
-    {
       "id": "seed_project_c2_framing_v1",
       "level": "c2"
     },
@@ -10570,13 +10566,6 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
-      "kind": "smalltalk",
-      "id": "smalltalk_c2_0019",
-      "level": "c2",
-      "sourceSeedId": "seed_hanok_v1_c2_interpretation_practice_v1",
-      "courseUnitId": "c2_01_interpretation_institutions"
-    },
-    {
       "kind": "vocabPack",
       "id": "c2_institutional_mediation_1",
       "level": "c2",
@@ -10609,7 +10598,7 @@
     "directReferenceCounts": {
       "vocabPack": 117,
       "grammar": 176,
-      "smalltalk": 286,
+      "smalltalk": 285,
       "scenario": 58,
       "cloze": 310,
       "satz": 96,
@@ -17357,9 +17346,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_09_home_daily_life",
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0008",
@@ -17477,9 +17466,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_09_home_daily_life",
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0020",
@@ -17537,9 +17526,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_09_home_daily_life",
           "canDoFingerprintSha256": "ea3cd7f59d2631b00022752ce5e520ab8fa5942f4a29b444b872bd54ed3de543",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0026",
@@ -17787,9 +17776,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_07_contact_address",
           "canDoFingerprintSha256": "b9eb2aed876c0a101ff3f00311bc4d21b1cbe39f798c023bdfd66a2d1d3a23a2",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0051",
@@ -17797,9 +17786,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_07_contact_address",
           "canDoFingerprintSha256": "b9eb2aed876c0a101ff3f00311bc4d21b1cbe39f798c023bdfd66a2d1d3a23a2",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0052",
@@ -17807,9 +17796,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_07_contact_address",
           "canDoFingerprintSha256": "b9eb2aed876c0a101ff3f00311bc4d21b1cbe39f798c023bdfd66a2d1d3a23a2",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0053",
@@ -17817,9 +17806,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_08_clarify_repair",
           "canDoFingerprintSha256": "38318877da8d0d693407adc333a18c5883ed9d57cd7875b4c6e48fc7942c6e99",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0054",
@@ -17877,9 +17866,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_04_order_request_object",
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0060",
@@ -17887,9 +17876,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a1_04_order_request_object",
           "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a1_0061",
@@ -17947,9 +17936,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "9cdbbb15c11ba3c7e755a2d8073b0ecd702f0a1fdcf9e72d29ec0b32a6b4a421",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0003",
@@ -17957,9 +17946,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0004",
@@ -17967,9 +17956,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0005",
@@ -18047,9 +18036,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_gym_signup",
           "canDoFingerprintSha256": "f4e19432e24cb832d2a433d9244ffc3cc17164775596343d0ab74c9f613365d8",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0013",
@@ -18067,9 +18056,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "9cdbbb15c11ba3c7e755a2d8073b0ecd702f0a1fdcf9e72d29ec0b32a6b4a421",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0015",
@@ -18077,9 +18066,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0016",
@@ -18097,9 +18086,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0018",
@@ -18147,9 +18136,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0023",
@@ -18307,9 +18296,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_subway_transfer",
           "canDoFingerprintSha256": "5e9e0cb7d2c638081225bc23909bc2e14a8fafaed55b8803e8cb7981605909c1",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0039",
@@ -18327,9 +18316,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_taxi_street",
           "canDoFingerprintSha256": "1009e73e2bcba14e7e19cbd85faecee47f75d0e87aab878c9e9055b165a548e8",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0041",
@@ -18337,9 +18326,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_taxi_street",
           "canDoFingerprintSha256": "1009e73e2bcba14e7e19cbd85faecee47f75d0e87aab878c9e9055b165a548e8",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0042",
@@ -18347,9 +18336,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_ktx_ticket",
           "canDoFingerprintSha256": "18f015e07957129e47fa983573fe5fe38369193ba8149a3b03b552856b26c863",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0043",
@@ -18417,9 +18406,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_haeyo_register_transition",
           "canDoFingerprintSha256": "234bc7fd236eb78c08b80ff7bddfdc9e7f9506aec46cecc9a867c13704f59dcb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0050",
@@ -18437,9 +18426,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_haeyo_register_transition",
           "canDoFingerprintSha256": "234bc7fd236eb78c08b80ff7bddfdc9e7f9506aec46cecc9a867c13704f59dcb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_a2_0052",
@@ -18537,9 +18526,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_social_invitation",
           "canDoFingerprintSha256": "837295b71a292d00b8b05e70e1a97463f2a72ed03e0345b7cb52739a496fd819",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0005",
@@ -18587,9 +18576,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_travel_experience",
           "canDoFingerprintSha256": "5f046df367c966828b2d6c611cd26e8e9388faf2300c8b971f2d24e1ae1fe5e9",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0010",
@@ -18657,9 +18646,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_social_invitation",
           "canDoFingerprintSha256": "837295b71a292d00b8b05e70e1a97463f2a72ed03e0345b7cb52739a496fd819",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0017",
@@ -18707,9 +18696,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_travel_experience",
           "canDoFingerprintSha256": "5f046df367c966828b2d6c611cd26e8e9388faf2300c8b971f2d24e1ae1fe5e9",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0022",
@@ -18827,9 +18816,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_move_in_handover",
           "canDoFingerprintSha256": "95d5d57f78362f47cfb767ed1d554c6c20d9db87ccae9d05c40e416f8e368b4f",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0034",
@@ -18837,9 +18826,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_housing_contract",
           "canDoFingerprintSha256": "3f9685f9ed76bbc606367cce9d9de88441e02a6ed102b4e9c6aba74b23a871e3",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0035",
@@ -18867,9 +18856,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_travel_experience",
           "canDoFingerprintSha256": "5f046df367c966828b2d6c611cd26e8e9388faf2300c8b971f2d24e1ae1fe5e9",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0038",
@@ -18877,9 +18866,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_travel_experience",
           "canDoFingerprintSha256": "5f046df367c966828b2d6c611cd26e8e9388faf2300c8b971f2d24e1ae1fe5e9",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0039",
@@ -18897,9 +18886,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_plans_with_reasons",
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0041",
@@ -18907,9 +18896,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_schedule_softening",
           "canDoFingerprintSha256": "fce311277aa111c7d1a2ae31b927089aa8c920c9db58fe73ca91fc9341803138",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0042",
@@ -18917,9 +18906,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_relay_social_speech",
           "canDoFingerprintSha256": "e8fba10c007146f386e28c39d5c9ff12a259b243b7922154e5fbfe15f3e72a36",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0043",
@@ -18927,9 +18916,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_property_damage_report",
           "canDoFingerprintSha256": "1c8db8c51f66b87febf12aef28202605ccad9e0eb9674318c86e8edad64c3f71",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0044",
@@ -18947,9 +18936,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_team_role_coordination",
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0046",
@@ -18957,9 +18946,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_team_role_coordination",
           "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0047",
@@ -18967,9 +18956,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_schedule_softening",
           "canDoFingerprintSha256": "fce311277aa111c7d1a2ae31b927089aa8c920c9db58fe73ca91fc9341803138",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0048",
@@ -18977,9 +18966,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_schedule_softening",
           "canDoFingerprintSha256": "fce311277aa111c7d1a2ae31b927089aa8c920c9db58fe73ca91fc9341803138",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0049",
@@ -18987,9 +18976,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_attendance_and_coverage",
           "canDoFingerprintSha256": "fff5630945824842a0281f338150aadef59dbe82e822b2bcba3c136f93d8c5fb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0050",
@@ -18997,9 +18986,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_attendance_and_coverage",
           "canDoFingerprintSha256": "fff5630945824842a0281f338150aadef59dbe82e822b2bcba3c136f93d8c5fb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0051",
@@ -19007,9 +18996,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_attendance_and_coverage",
           "canDoFingerprintSha256": "fff5630945824842a0281f338150aadef59dbe82e822b2bcba3c136f93d8c5fb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0052",
@@ -19017,9 +19006,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_attendance_and_coverage",
           "canDoFingerprintSha256": "fff5630945824842a0281f338150aadef59dbe82e822b2bcba3c136f93d8c5fb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0001",
@@ -19347,9 +19336,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_shared_space_coordination",
           "canDoFingerprintSha256": "ed74c74110f3aef5eeeec53138d7b8bec745ce6f68c9ef78cb5b95c08075e5bb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0034",
@@ -19357,9 +19346,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_contract_scope",
           "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0035",
@@ -19387,9 +19376,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0038",
@@ -19397,9 +19386,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0039",
@@ -19407,9 +19396,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_contract_scope",
           "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0040",
@@ -19417,9 +19406,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_contract_scope",
           "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0041",
@@ -19467,9 +19456,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_formal_complaint",
           "canDoFingerprintSha256": "8e933d68f21b21e45fe7fdbbc4f087256305fa2c13c6dab62b6ee36cdac2cb7b",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0046",
@@ -19477,9 +19466,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_formal_complaint",
           "canDoFingerprintSha256": "8e933d68f21b21e45fe7fdbbc4f087256305fa2c13c6dab62b6ee36cdac2cb7b",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0047",
@@ -19487,9 +19476,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0048",
@@ -19497,9 +19486,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0049",
@@ -19507,9 +19496,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0050",
@@ -19517,9 +19506,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0051",
@@ -19527,9 +19516,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0052",
@@ -19537,9 +19526,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_remedy_and_appeal",
           "canDoFingerprintSha256": "1da75e8a44e4c0de82a4a149e1b9d1892d5ea966c4768c234dc52e37bf39b20e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0053",
@@ -19547,9 +19536,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0054",
@@ -19557,9 +19546,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0055",
@@ -19567,9 +19556,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0056",
@@ -19577,9 +19566,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0057",
@@ -19587,9 +19576,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "ebbd22d740049157c73ff900dedce541d4b7564298b3d4df505ec483cd3afcbf",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0058",
@@ -19597,9 +19586,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "ebbd22d740049157c73ff900dedce541d4b7564298b3d4df505ec483cd3afcbf",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0059",
@@ -19607,9 +19596,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "ebbd22d740049157c73ff900dedce541d4b7564298b3d4df505ec483cd3afcbf",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0060",
@@ -19617,9 +19606,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "ebbd22d740049157c73ff900dedce541d4b7564298b3d4df505ec483cd3afcbf",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0061",
@@ -19627,9 +19616,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_language_social_change",
           "canDoFingerprintSha256": "f0927883b841a2bdf8e844a7fb548b0f35a46f257af5b6b7d46ee0f80dc600f4",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0062",
@@ -19637,9 +19626,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_language_social_change",
           "canDoFingerprintSha256": "f0927883b841a2bdf8e844a7fb548b0f35a46f257af5b6b7d46ee0f80dc600f4",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0063",
@@ -19647,9 +19636,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_language_social_change",
           "canDoFingerprintSha256": "f0927883b841a2bdf8e844a7fb548b0f35a46f257af5b6b7d46ee0f80dc600f4",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0064",
@@ -19657,9 +19646,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_language_social_change",
           "canDoFingerprintSha256": "f0927883b841a2bdf8e844a7fb548b0f35a46f257af5b6b7d46ee0f80dc600f4",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0065",
@@ -19667,9 +19656,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0066",
@@ -19677,9 +19666,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0067",
@@ -19687,9 +19676,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0068",
@@ -19697,9 +19686,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_digital_source_judgment",
           "canDoFingerprintSha256": "a36ba627e151e8fc8bb24371d8325a98434ddb0b7cddc18b40a1d28d8e03d483",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0069",
@@ -19707,9 +19696,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_personal_boundaries",
           "canDoFingerprintSha256": "13faab7590c785aaec24161f8cf7aef48a6156f0c13f663d5b74a29db74b3cd7",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0070",
@@ -19717,9 +19706,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_digital_source_judgment",
           "canDoFingerprintSha256": "a36ba627e151e8fc8bb24371d8325a98434ddb0b7cddc18b40a1d28d8e03d483",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0071",
@@ -19727,9 +19716,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0072",
@@ -19737,9 +19726,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0073",
@@ -19747,9 +19736,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_shared_space_coordination",
           "canDoFingerprintSha256": "ed74c74110f3aef5eeeec53138d7b8bec745ce6f68c9ef78cb5b95c08075e5bb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0074",
@@ -19757,9 +19746,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_shared_space_coordination",
           "canDoFingerprintSha256": "ed74c74110f3aef5eeeec53138d7b8bec745ce6f68c9ef78cb5b95c08075e5bb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0075",
@@ -19767,9 +19756,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_shared_space_coordination",
           "canDoFingerprintSha256": "ed74c74110f3aef5eeeec53138d7b8bec745ce6f68c9ef78cb5b95c08075e5bb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0076",
@@ -19777,9 +19766,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_shared_space_coordination",
           "canDoFingerprintSha256": "ed74c74110f3aef5eeeec53138d7b8bec745ce6f68c9ef78cb5b95c08075e5bb",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0077",
@@ -19787,9 +19776,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_personal_boundaries",
           "canDoFingerprintSha256": "13faab7590c785aaec24161f8cf7aef48a6156f0c13f663d5b74a29db74b3cd7",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0078",
@@ -19797,9 +19786,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_personal_boundaries",
           "canDoFingerprintSha256": "13faab7590c785aaec24161f8cf7aef48a6156f0c13f663d5b74a29db74b3cd7",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0079",
@@ -19807,9 +19796,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_personal_boundaries",
           "canDoFingerprintSha256": "13faab7590c785aaec24161f8cf7aef48a6156f0c13f663d5b74a29db74b3cd7",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b2_0080",
@@ -19817,9 +19806,9 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_personal_boundaries",
           "canDoFingerprintSha256": "13faab7590c785aaec24161f8cf7aef48a6156f0c13f663d5b74a29db74b3cd7",
-          "semanticStatus": "approved",
-          "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 1
+          "semanticStatus": "exactMapped",
+          "reasonCode": "explicitSemanticRoute",
+          "reviewRevision": 2
         }
       ],
       "unresolvedAmbiguousIds": []

@@ -9709,6 +9709,12 @@ abstract class AppL10n {
   /// **'Nachweis {current} von {total}'**
   String courseReassessmentStep(int current, int total);
 
+  /// No description provided for @courseReassessmentProjectStep.
+  ///
+  /// In de, this message translates to:
+  /// **'Projektschritt {current} von {total}'**
+  String courseReassessmentProjectStep(int current, int total);
+
   /// No description provided for @courseReassessmentRole.
   ///
   /// In de, this message translates to:
@@ -9768,6 +9774,54 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Quelle {index}'**
   String courseReassessmentSource(int index);
+
+  /// No description provided for @courseReassessmentProjectReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen vor der Antwort prüfen'**
+  String get courseReassessmentProjectReviewTitle;
+
+  /// No description provided for @courseReassessmentProjectReviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lies jede neu eingeführte Quelle und öffne ihren Herkunftshinweis. Gespeichert werden nur die Quellen-IDs, nicht deine Notizen.'**
+  String get courseReassessmentProjectReviewBody;
+
+  /// No description provided for @courseReassessmentProjectMarkReviewed.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe diese Quelle gelesen und verglichen'**
+  String get courseReassessmentProjectMarkReviewed;
+
+  /// No description provided for @courseReassessmentProjectShowProvenance.
+  ///
+  /// In de, this message translates to:
+  /// **'Herkunft anzeigen'**
+  String get courseReassessmentProjectShowProvenance;
+
+  /// No description provided for @courseReassessmentProjectHideProvenance.
+  ///
+  /// In de, this message translates to:
+  /// **'Herkunft ausblenden'**
+  String get courseReassessmentProjectHideProvenance;
+
+  /// No description provided for @courseReassessmentProjectCompleteReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellenprüfung abschließen'**
+  String get courseReassessmentProjectCompleteReview;
+
+  /// No description provided for @courseReassessmentProjectReviewing.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen werden geprüft …'**
+  String get courseReassessmentProjectReviewing;
+
+  /// No description provided for @courseReassessmentProjectReviewIncomplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Lies jede Quelle und öffne jeden Herkunftshinweis, bevor du fortfährst.'**
+  String get courseReassessmentProjectReviewIncomplete;
 
   /// No description provided for @courseReassessmentConnectSources.
   ///

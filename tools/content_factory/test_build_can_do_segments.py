@@ -243,7 +243,10 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                 ),
                 decision["canDoFingerprintSha256"],
             )
-            self.assertIn(decision["semanticStatus"], ("approved", "bestAvailable"))
+            self.assertIn(
+                decision["semanticStatus"],
+                ("approved", "bestAvailable", "exactMapped"),
+            )
             self.assertEqual(
                 {decision["canDoSegmentId"]},
                 self.segment_by_reference[("smalltalk", phrase_id)],
@@ -270,6 +273,13 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
         }
         for phrase_id, segment_id in expected_exact_routes.items():
             self.assertEqual(segment_id, decisions[phrase_id]["canDoSegmentId"])
+            if phrase_id not in builder.BEST_AVAILABLE_SMALLTALK_IDS:
+                self.assertEqual(
+                    "exactMapped", decisions[phrase_id]["semanticStatus"]
+                )
+                self.assertEqual(
+                    "explicitSemanticRoute", decisions[phrase_id]["reasonCode"]
+                )
 
     def test_c_projects_are_eight_shared_theme_sources(self) -> None:
         c_segments = [

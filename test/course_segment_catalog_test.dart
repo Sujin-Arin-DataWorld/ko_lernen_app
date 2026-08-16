@@ -720,6 +720,12 @@ void main() {
 
       expect(current.denominatorForReleaseTrack('core_2026_v1'), 86);
       expect(current.denominatorForReleaseTrack('a1_replacement_2026_v2'), 0);
+      expect(current.publishedSegments, hasLength(86));
+      expect(current.assessmentAuthoritySegments, hasLength(87));
+      expect(
+        current.assessmentAuthoritySegments.map((segment) => segment.id),
+        containsAll(['segment_a1_first', 'segment_a1_first_proof_v2']),
+      );
       expect(
         current.findReleaseTrack('a1_replacement_2026_v2')?.kind,
         ReleaseTrackKind.replacement,

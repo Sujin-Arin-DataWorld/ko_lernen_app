@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/models/productive_mastery.dart';
 import 'package:ko_lernen_app/services/productive_assessment_service.dart';
 import 'package:ko_lernen_app/services/pronunciation_assessment_client.dart';
 
+import 'support/productive_assessment_fixture.dart';
+
 const _text = CurriculumText(ko: '과제', de: 'Aufgabe', en: 'Task');
 
 void main() {
@@ -16,9 +18,9 @@ void main() {
   final occurredAt = DateTime.utc(2026, 8, 16, 12);
 
   test(
-    'productive asset parses all executable definitions and projects',
+    'draft fixture parses all executable definitions and projects',
     () async {
-      final catalog = await ProductiveAssessmentCatalog.load();
+      final catalog = loadDraftProductiveAssessmentCatalog();
 
       expect(catalog.definitions, hasLength(118));
       expect(catalog.projects, hasLength(8));
@@ -27,8 +29,40 @@ void main() {
     },
   );
 
-  test('every A1-B2 authored answer passes its reviewed rubric', () async {
-    final catalog = await ProductiveAssessmentCatalog.load();
+  test('each advanced CARE bundle routes to its TRANSMIT bundle', () async {
+    final catalog = loadDraftProductiveAssessmentCatalog();
+
+    for (final project in catalog.projects) {
+      final projectBundles =
+          catalog.bundles
+              .where((bundle) => bundle.projectId == project.id)
+              .toList(growable: false)
+            ..sort(
+              (left, right) => catalog
+                  .projectStepFor(left.projectId, left.stepId)!
+                  .order
+                  .compareTo(
+                    catalog
+                        .projectStepFor(right.projectId, right.stepId)!
+                        .order,
+                  ),
+            );
+      expect(projectBundles, hasLength(2), reason: project.id);
+      expect(
+        catalog.nextBundleInProject(projectBundles.first.canDoSegmentId),
+        same(projectBundles.last),
+        reason: project.id,
+      );
+      expect(
+        catalog.nextBundleInProject(projectBundles.last.canDoSegmentId),
+        isNull,
+        reason: project.id,
+      );
+    }
+  });
+
+  test('every A1-B2 authored fixture passes its deterministic rubric', () async {
+    final catalog = loadDraftProductiveAssessmentCatalog();
     const engine = ProductiveTextAssessmentEngine();
     final basicDefinitions = catalog.definitions.where(
       (definition) => const {
@@ -112,7 +146,7 @@ void main() {
   test(
     'self introduction requires one learner-chosen identity in all registers',
     () async {
-      final catalog = await ProductiveAssessmentCatalog.load();
+      final catalog = loadDraftProductiveAssessmentCatalog();
       final definition = catalog
           .definitionsById['assess_a1_02_self_intro_identity_connected_production_v1']!;
       const engine = ProductiveTextAssessmentEngine();
@@ -166,6 +200,20 @@ void main() {
       occurredAt: occurredAt,
     );
     expect(passed.passed, isTrue);
+    expect(
+      passed.coverage.semanticSlotIds,
+      containsAll(const ['claim', 'support', 'limitation', 'conclusion']),
+    );
+    expect(
+      passed.coverage.sourceSnippetIds,
+      unorderedEquals(const ['snippet_test_01', 'snippet_test_02']),
+    );
+    expect(
+      passed.coverage.slotSourceBindings.map(
+        (binding) => binding.semanticSlotId,
+      ),
+      containsAll(const ['claim', 'support', 'limitation', 'conclusion']),
+    );
 
     final detachedSlot = engine.evaluateStructured(
       catalog: fixture.catalog,
@@ -224,6 +272,13 @@ void main() {
       occurredAt: occurredAt,
     );
     expect(passed.passed, isTrue);
+    expect(
+      passed.coverage.sourceRoleBindings.map((binding) => binding.key),
+      unorderedEquals(const [
+        'snippet_test_01|support',
+        'snippet_test_02|limitation',
+      ]),
+    );
 
     final swapped = engine.evaluate(
       catalog: fixture.catalog,
@@ -305,6 +360,7 @@ void main() {
         occurredAt: occurredAt,
         courseEligible: true,
         definitionFingerprint: writing.authorityFingerprint,
+        coverage: writingResult.coverage,
       );
       final gateway = _RecordingPronunciationGateway();
       const engine = ProductiveOralAssessmentEngine();
@@ -373,6 +429,7 @@ void main() {
         occurredAt: anchorRichWritingResult.occurredAt,
         courseEligible: true,
         definitionFingerprint: writing.authorityFingerprint,
+        coverage: anchorRichWritingResult.coverage,
       );
       final nearVerbatimTranscripts = [
         anchorRichWritingText,
@@ -444,6 +501,7 @@ void main() {
         courseEligible: true,
         definitionFingerprint: oral.authorityFingerprint,
         prerequisiteEvidenceIds: [writingEvidence.id],
+        coverage: passed.coverage,
         oralScore: passed.oralScore,
         assessmentAttemptId: passed.assessmentAttemptId,
       );

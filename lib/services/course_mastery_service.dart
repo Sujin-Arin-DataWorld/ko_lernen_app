@@ -898,6 +898,7 @@ class CourseMasteryService {
           definitionFingerprint: definition.authorityFingerprint,
           evaluatorVersion: result.evaluatorVersion,
           prerequisiteEvidenceIds: prerequisiteIds,
+          coverage: result.coverage,
           oralScore: result.oralScore,
           assessmentAttemptId: result.assessmentAttemptId,
         ),
@@ -2197,7 +2198,9 @@ class CourseMasteryService {
     ProductiveProjectStepEvidence right,
   ) {
     final project = left.projectId.compareTo(right.projectId);
-    if (project != 0) return project;
+    if (project != 0) {
+      return project;
+    }
     final order = left.stepOrder.compareTo(right.stepOrder);
     return order != 0 ? order : left.id.compareTo(right.id);
   }

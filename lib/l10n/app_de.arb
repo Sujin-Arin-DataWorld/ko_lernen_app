@@ -2611,6 +2611,13 @@
       "total": {"type": "int"}
     }
   },
+  "courseReassessmentProjectStep": "Projektschritt {current} von {total}",
+  "@courseReassessmentProjectStep": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "courseReassessmentRole": "Deine Rolle",
   "courseReassessmentPrivacy": "Freie Texte und Notizen werden weder an Firebase noch an Analytics gesendet. Ein verifizierter Sprechnachweis bleibt deaktiviert, bis die gesonderte Einwilligung und der datensparsame Dienst bereit sind.",
   "courseReassessmentAnswer": "Deine koreanische Antwort",
@@ -2637,6 +2644,14 @@
       "index": {"type": "int"}
     }
   },
+  "courseReassessmentProjectReviewTitle": "Quellen vor der Antwort prüfen",
+  "courseReassessmentProjectReviewBody": "Lies jede neu eingeführte Quelle und öffne ihren Herkunftshinweis. Gespeichert werden nur die Quellen-IDs, nicht deine Notizen.",
+  "courseReassessmentProjectMarkReviewed": "Ich habe diese Quelle gelesen und verglichen",
+  "courseReassessmentProjectShowProvenance": "Herkunft anzeigen",
+  "courseReassessmentProjectHideProvenance": "Herkunft ausblenden",
+  "courseReassessmentProjectCompleteReview": "Quellenprüfung abschließen",
+  "courseReassessmentProjectReviewing": "Quellen werden geprüft …",
+  "courseReassessmentProjectReviewIncomplete": "Lies jede Quelle und öffne jeden Herkunftshinweis, bevor du fortfährst.",
   "courseReassessmentConnectSources": "Beziehungen zwischen den Quellen markieren",
   "courseReassessmentRelationship": "Rolle dieser Quelle",
   "courseReassessmentSubmit": "Antwort prüfen",
