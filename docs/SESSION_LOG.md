@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1 renderer 계약
+
+**단일 projection.** 기존 `PersonalHanokProjection`·`LevelRatios`·단어팩·XP·Gye와
+분리된 A1 0–16 construction catalog/renderer를 추가한다. 입력 권한은 오직 PR3의
+`HanokExperienceProjection.a1ConstructionStep`이며, 17개 상태와 grant ID를 불변
+1:1 표로 고정한다. 실제 production route 전환은 PR6/PR7까지 하지 않는다.
+
+**메모리와 접근성.** renderer는 current 기준 previous/current/next 최대 세 자산만
+precache하고 더 오래된 provider를 evict한다. full-size RGBA worst case도 32MiB 아래로
+유지하며 표시 폭에 맞는 decode hint를 사용한다. 4:3 viewport, visible missing-asset
+fallback, 의미론 label, `disableAnimations` 시 0ms 전환을 테스트한다.
+
+**검증.** 신규 catalog/widget 테스트와 PR3 experience projector/state 회귀를 묶어
+**30/30** 통과했고, viewport/DPR 변경 시 decode hint 재생성도 고정했다.
+`flutter analyze --no-pub --fatal-infos`와 `git diff --check`도 통과했다. A1 01–16
+자산 leaf는 승인 자산이 생기기 전까지 `pubspec.yaml`에 등록하지 않았고 이 renderer도
+production route에는 연결하지 않았다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 자산 경계·생성 preflight
 
 **격리와 QA 경계.** PR3 exact head `64b7e24a`에서 독립 worktree/branch
