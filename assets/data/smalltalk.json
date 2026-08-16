@@ -129,6 +129,15 @@
       }
     },
     {
+      "id": "partner_family",
+      "emoji": "🏡",
+      "label": {
+        "ko": "한국 가족·명절",
+        "de": "Koreanische Familie & Feste",
+        "en": "Korean family & holidays"
+      }
+    },
+    {
       "id": "interview",
       "emoji": "🧑‍💼",
       "label": {

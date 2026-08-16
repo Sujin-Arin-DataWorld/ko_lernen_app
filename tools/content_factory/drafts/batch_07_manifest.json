@@ -1,0 +1,1939 @@
+{
+  "version": 1,
+  "batch": "07",
+  "status": "review_only_draft",
+  "provenance": {
+    "scope": "Original Korean-partner, in-law, Seollal, and Chuseok track. Hand-authored word cards, cloze, Satzbau, smalltalk, and grammar. No textbook wording or unit sequence is reproduced.",
+    "rights": "original",
+    "createdAt": "2026-08-16",
+    "requiresJinReview": true,
+    "expansionBasis": {
+      "familyPacks": 36,
+      "familyVocab": 432,
+      "purpose": "dedicated dating/Korean-family category plus 4x volume drafts"
+    }
+  },
+  "predecessorManifests": [],
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv",
+      "review": "tools/content_factory/review/c3_batch07_vocab_partner_family.csv",
+      "count": 432,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 24,
+        "c2": 24
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch07_grammar_partner_family.csv",
+      "review": "tools/content_factory/review/c4_batch07_grammar_partner_family.csv",
+      "count": 6,
+      "levels": {
+        "a1": 1,
+        "a2": 1,
+        "b1": 1,
+        "b2": 1,
+        "c1": 1,
+        "c2": 1
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch07_smalltalk_partner_family.json",
+      "review": "tools/content_factory/review/c2_batch07_smalltalk_partner_family.csv",
+      "count": 72,
+      "levels": {
+        "a1": 16,
+        "a2": 16,
+        "b1": 16,
+        "b2": 16,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch07_cloze_partner_family.json",
+      "review": "tools/content_factory/review/c2_batch07_cloze_partner_family.csv",
+      "count": 432,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 24,
+        "c2": 24
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch07_satz_partner_family.json",
+      "review": "tools/content_factory/review/c2_batch07_satz_partner_family.csv",
+      "count": 432,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 24,
+        "c2": 24
+      }
+    }
+  ],
+  "recordCount": 1374,
+  "vocabPacks": [
+    {
+      "packId": "a1_partner_meet_names_1",
+      "level": "a1",
+      "orderInLevel": 26,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "첫 인사와 호칭",
+        "de": "Erste Begrüßung und Anrede",
+        "en": "First greeting and address terms"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "a1_partner_first_gift_1",
+      "level": "a1",
+      "orderInLevel": 27,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "첫 방문 선물",
+        "de": "Das erste Besuchgeschenk",
+        "en": "The first visit gift"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "peony",
+      "motifEnum": "DancheongMotif.peony"
+    },
+    {
+      "packId": "a1_partner_house_entry_1",
+      "level": "a1",
+      "orderInLevel": 28,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "집 들어가기",
+        "de": "Ins Haus kommen",
+        "en": "Coming into the house"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "a1_partner_table_basic_1",
+      "level": "a1",
+      "orderInLevel": 29,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "첫 밥상",
+        "de": "Der erste Familientisch",
+        "en": "The first family table"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "a1_partner_seollal_basic_1",
+      "level": "a1",
+      "orderInLevel": 30,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "설날 첫걸음",
+        "de": "Erste Schritte an Seollal",
+        "en": "First steps at Seollal"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "a1_partner_chuseok_basic_1",
+      "level": "a1",
+      "orderInLevel": 31,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "추석 첫걸음",
+        "de": "Erste Schritte an Chuseok",
+        "en": "First steps at Chuseok"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "a1_partner_siblings_hello_1",
+      "level": "a1",
+      "orderInLevel": 32,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "형제자매 첫 만남",
+        "de": "Geschwister zum ersten Mal",
+        "en": "Meeting the siblings"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "a1_partner_photo_thanks_1",
+      "level": "a1",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "사진과 감사",
+        "de": "Fotos und Dank",
+        "en": "Photos and thanks"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "a2_partner_dinner_talk_1",
+      "level": "a2",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "저녁 자리 이야기",
+        "de": "Gespraech am Abendessen",
+        "en": "Talk at the family dinner"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "a2_partner_seollal_day_1",
+      "level": "a2",
+      "orderInLevel": 34,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "설날 하루",
+        "de": "Ein Seollal-Tag",
+        "en": "A full Seollal day"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "a2_partner_chuseok_day_1",
+      "level": "a2",
+      "orderInLevel": 35,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "추석 하루",
+        "de": "Ein Chuseok-Tag",
+        "en": "A full Chuseok day"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "a2_partner_sibling_tease_1",
+      "level": "a2",
+      "orderInLevel": 36,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "형제 장난과 편들기",
+        "de": "Geschwisterscherze",
+        "en": "Sibling teasing and backup"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "a2_partner_overnight_1",
+      "level": "a2",
+      "orderInLevel": 37,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "하룻밤 묵기",
+        "de": "Ueber Nacht bleiben",
+        "en": "Staying overnight"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "a2_partner_leftover_bags_1",
+      "level": "a2",
+      "orderInLevel": 38,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "싸 주시는 반찬",
+        "de": "Eingepackte Reste",
+        "en": "Leftovers packed to go"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "a2_partner_hometown_trip_1",
+      "level": "a2",
+      "orderInLevel": 39,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "고향집 가는 길",
+        "de": "Fahrt ins Elternhaus",
+        "en": "Trip to the hometown house"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    },
+    {
+      "packId": "a2_partner_banmal_switch_1",
+      "level": "a2",
+      "orderInLevel": 40,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "반말과 존댓말 사이",
+        "de": "Zwischen Banmal und Hoeflichkeit",
+        "en": "Between casual and honorific speech"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "b1_partner_awkward_questions_1",
+      "level": "b1",
+      "orderInLevel": 21,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "어색한 질문 넘기기",
+        "de": "Unangenehme Fragen parieren",
+        "en": "Deflecting awkward questions"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "b1_partner_job_visa_1",
+      "level": "b1",
+      "orderInLevel": 22,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "일과 체류 설명",
+        "de": "Arbeit und Aufenthalt erklaeren",
+        "en": "Explaining work and stay"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "b1_partner_translating_1",
+      "level": "b1",
+      "orderInLevel": 23,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "통역하는 연인",
+        "de": "Das uebersetzende Paar",
+        "en": "The partner who interprets"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "b1_partner_drink_table_1",
+      "level": "b1",
+      "orderInLevel": 24,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "술상 예절",
+        "de": "Manieren am Trinktisch",
+        "en": "Manners at the drinking table"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "b1_partner_sleep_room_1",
+      "level": "b1",
+      "orderInLevel": 25,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "잠자리와 방 경계",
+        "de": "Schlafplatz und Zimmgrenze",
+        "en": "Sleeping place and room boundaries"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "b1_partner_after_visit_1",
+      "level": "b1",
+      "orderInLevel": 26,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "다녀온 뒤 정리",
+        "de": "Nach dem Besuch ordnen",
+        "en": "Debrief after the visit"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "vine",
+      "motifEnum": "DancheongMotif.vine"
+    },
+    {
+      "packId": "b1_partner_group_chat_1",
+      "level": "b1",
+      "orderInLevel": 27,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "가족 단톡 예절",
+        "de": "Manieren im Familienchat",
+        "en": "Family group-chat manners"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "b1_partner_holiday_plan_1",
+      "level": "b1",
+      "orderInLevel": 28,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "명절 일정 조율",
+        "de": "Feiertagsplaene abstimmen",
+        "en": "Coordinating holiday plans"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "b2_partner_inlaws_1",
+      "level": "b2",
+      "orderInLevel": 30,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "시댁과 처가 사이",
+        "de": "Zwischen Schwiegerfamilien",
+        "en": "Between the two in-law houses"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "b2_partner_marriage_talk_1",
+      "level": "b2",
+      "orderInLevel": 31,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "결혼 이야기 다루기",
+        "de": "Heiratsgespraeche fuehren",
+        "en": "Handling marriage talk"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "peony",
+      "motifEnum": "DancheongMotif.peony"
+    },
+    {
+      "packId": "b2_partner_honorific_trap_1",
+      "level": "b2",
+      "orderInLevel": 32,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "호칭 함정 피하기",
+        "de": "Anredefallen meiden",
+        "en": "Avoiding address-term traps"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "b2_partner_ancestral_rite_1",
+      "level": "b2",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "차례와 제사 자리",
+        "de": "Am Ritualtisch",
+        "en": "At the ancestral rite"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "b2_partner_family_money_1",
+      "level": "b2",
+      "orderInLevel": 34,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "가족 돈 이야기",
+        "de": "Geld in der Familie",
+        "en": "Money talk in the family"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "peony",
+      "motifEnum": "DancheongMotif.peony"
+    },
+    {
+      "packId": "b2_partner_holiday_duty_1",
+      "level": "b2",
+      "orderInLevel": 35,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "명절 노동과 공평",
+        "de": "Feiertagsarbeit und Fairness",
+        "en": "Holiday labor and fairness"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "b2_partner_boundary_1",
+      "level": "b2",
+      "orderInLevel": 36,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "선 긋기와 관계 유지",
+        "de": "Grenzen setzen und Beziehung halten",
+        "en": "Setting boundaries while keeping the bond"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    },
+    {
+      "packId": "b2_partner_public_intro_1",
+      "level": "b2",
+      "orderInLevel": 37,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "밖에서 가족 소개",
+        "de": "Die Familie in der Oeffentlichkeit vorstellen",
+        "en": "Introducing family in public"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "c1_partner_family_framing_1",
+      "level": "c1",
+      "orderInLevel": 5,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "가족 말의 프레임",
+        "de": "Rahmen der Familiensprache",
+        "en": "How family language frames us"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "c1_partner_holiday_labor_1",
+      "level": "c1",
+      "orderInLevel": 6,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "명절 노동의 분배",
+        "de": "Verteilung der Festarbeit",
+        "en": "How holiday labor is distributed"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "c2_partner_inlaw_power_1",
+      "level": "c2",
+      "orderInLevel": 5,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "시댁 권력과 말",
+        "de": "Macht und Sprache der Schwiegerfamilie",
+        "en": "Power and language among in-laws"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "manja",
+      "motifEnum": "DancheongMotif.manja"
+    },
+    {
+      "packId": "c2_partner_name_memory_1",
+      "level": "c2",
+      "orderInLevel": 6,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "이름과 기억의 정치",
+        "de": "Politik von Name und Erinnerung",
+        "en": "The politics of names and memory"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "peony",
+      "motifEnum": "DancheongMotif.peony"
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_a1_honorific_kke",
+      "level": "a1",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    {
+      "id": "grammar_a2_humble_give",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "id": "grammar_b1_honorific_subject_kkeyseo",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "id": "grammar_b2_rather_than_direct",
+      "level": "b2",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "id": "grammar_c1_family_framing",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "id": "grammar_c2_regardless_of_kin",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "a1",
+      "category": "partner_family",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    {
+      "level": "a2",
+      "category": "partner_family",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "category": "partner_family",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "partner_family",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "partner_family",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "partner_family",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "a1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_meet_names_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_first_gift_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_house_entry_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_table_basic_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_seollal_basic_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_chuseok_basic_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_siblings_hello_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_partner_photo_thanks_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_dinner_talk_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_seollal_day_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_chuseok_day_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_sibling_tease_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_overnight_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_leftover_bags_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_hometown_trip_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_partner_banmal_switch_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_awkward_questions_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_job_visa_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_translating_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_drink_table_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_sleep_room_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_after_visit_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_group_chat_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_partner_holiday_plan_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_inlaws_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_marriage_talk_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_honorific_trap_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_ancestral_rite_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_family_money_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_holiday_duty_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_boundary_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_partner_public_intro_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_partner_family_framing_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_partner_holiday_labor_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_partner_inlaw_power_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_partner_name_memory_1",
+      "count": 12
+    }
+  ],
+  "sentenceDerivationSets": [
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        212,
+        223
+      ],
+      "clozeIdRange": [
+        100,
+        111
+      ],
+      "satzIdRange": [
+        64,
+        75
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        224,
+        235
+      ],
+      "clozeIdRange": [
+        112,
+        123
+      ],
+      "satzIdRange": [
+        76,
+        87
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        236,
+        247
+      ],
+      "clozeIdRange": [
+        124,
+        135
+      ],
+      "satzIdRange": [
+        88,
+        99
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        248,
+        259
+      ],
+      "clozeIdRange": [
+        136,
+        147
+      ],
+      "satzIdRange": [
+        100,
+        111
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        260,
+        271
+      ],
+      "clozeIdRange": [
+        148,
+        159
+      ],
+      "satzIdRange": [
+        112,
+        123
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        272,
+        283
+      ],
+      "clozeIdRange": [
+        160,
+        171
+      ],
+      "satzIdRange": [
+        124,
+        135
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        284,
+        295
+      ],
+      "clozeIdRange": [
+        172,
+        183
+      ],
+      "satzIdRange": [
+        136,
+        147
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        296,
+        307
+      ],
+      "clozeIdRange": [
+        184,
+        195
+      ],
+      "satzIdRange": [
+        148,
+        159
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        269,
+        280
+      ],
+      "clozeIdRange": [
+        76,
+        87
+      ],
+      "satzIdRange": [
+        39,
+        50
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        281,
+        292
+      ],
+      "clozeIdRange": [
+        88,
+        99
+      ],
+      "satzIdRange": [
+        51,
+        62
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        293,
+        304
+      ],
+      "clozeIdRange": [
+        100,
+        111
+      ],
+      "satzIdRange": [
+        63,
+        74
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        305,
+        316
+      ],
+      "clozeIdRange": [
+        112,
+        123
+      ],
+      "satzIdRange": [
+        75,
+        86
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        317,
+        328
+      ],
+      "clozeIdRange": [
+        124,
+        135
+      ],
+      "satzIdRange": [
+        87,
+        98
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        329,
+        340
+      ],
+      "clozeIdRange": [
+        136,
+        147
+      ],
+      "satzIdRange": [
+        99,
+        110
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        341,
+        352
+      ],
+      "clozeIdRange": [
+        148,
+        159
+      ],
+      "satzIdRange": [
+        111,
+        122
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        353,
+        364
+      ],
+      "clozeIdRange": [
+        160,
+        171
+      ],
+      "satzIdRange": [
+        123,
+        134
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        272,
+        283
+      ],
+      "clozeIdRange": [
+        84,
+        95
+      ],
+      "satzIdRange": [
+        80,
+        91
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        284,
+        295
+      ],
+      "clozeIdRange": [
+        96,
+        107
+      ],
+      "satzIdRange": [
+        92,
+        103
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        296,
+        307
+      ],
+      "clozeIdRange": [
+        108,
+        119
+      ],
+      "satzIdRange": [
+        104,
+        115
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        308,
+        319
+      ],
+      "clozeIdRange": [
+        120,
+        131
+      ],
+      "satzIdRange": [
+        116,
+        127
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        320,
+        331
+      ],
+      "clozeIdRange": [
+        132,
+        143
+      ],
+      "satzIdRange": [
+        128,
+        139
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        332,
+        343
+      ],
+      "clozeIdRange": [
+        144,
+        155
+      ],
+      "satzIdRange": [
+        140,
+        151
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        344,
+        355
+      ],
+      "clozeIdRange": [
+        156,
+        167
+      ],
+      "satzIdRange": [
+        152,
+        163
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        356,
+        367
+      ],
+      "clozeIdRange": [
+        168,
+        179
+      ],
+      "satzIdRange": [
+        164,
+        175
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        431,
+        442
+      ],
+      "clozeIdRange": [
+        170,
+        181
+      ],
+      "satzIdRange": [
+        156,
+        167
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        443,
+        454
+      ],
+      "clozeIdRange": [
+        182,
+        193
+      ],
+      "satzIdRange": [
+        168,
+        179
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        455,
+        466
+      ],
+      "clozeIdRange": [
+        194,
+        205
+      ],
+      "satzIdRange": [
+        180,
+        191
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        467,
+        478
+      ],
+      "clozeIdRange": [
+        206,
+        217
+      ],
+      "satzIdRange": [
+        192,
+        203
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        479,
+        490
+      ],
+      "clozeIdRange": [
+        218,
+        229
+      ],
+      "satzIdRange": [
+        204,
+        215
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        491,
+        502
+      ],
+      "clozeIdRange": [
+        230,
+        241
+      ],
+      "satzIdRange": [
+        216,
+        227
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        503,
+        514
+      ],
+      "clozeIdRange": [
+        242,
+        253
+      ],
+      "satzIdRange": [
+        228,
+        239
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        515,
+        526
+      ],
+      "clozeIdRange": [
+        254,
+        265
+      ],
+      "satzIdRange": [
+        240,
+        251
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        49,
+        60
+      ],
+      "clozeIdRange": [
+        53,
+        64
+      ],
+      "satzIdRange": [
+        55,
+        66
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        61,
+        72
+      ],
+      "clozeIdRange": [
+        65,
+        76
+      ],
+      "satzIdRange": [
+        67,
+        78
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        49,
+        60
+      ],
+      "clozeIdRange": [
+        53,
+        64
+      ],
+      "satzIdRange": [
+        55,
+        66
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        61,
+        72
+      ],
+      "clozeIdRange": [
+        65,
+        76
+      ],
+      "satzIdRange": [
+        67,
+        78
+      ]
+    }
+  ],
+  "requiresCompleteSentenceDerivations": true
+}

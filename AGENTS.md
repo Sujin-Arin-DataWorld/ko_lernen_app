@@ -333,6 +333,11 @@ flutter run -d <android-id>   # 안드로이드
   생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
   production route를 fail closed했다. 최신 main 재배치·전체 로컬 게이트는 통과했으며,
   GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다.
+- [ ] **한국 파트너 가족·명절 트랙 (승격 진행)**: Batch 07 five-kind
+  (36팩·432 vocab·1:1 cloze/satz·72 smalltalk·6 grammar)와 Batch 08 시나리오
+  28개를 `integrate_review_batches.py` / `integrate_scenario_batch.py`로 live
+  승격한다. GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다. 전체 live
+  4배 확장은 이 트랙 뒤에 이어서 배치한다.
 - [ ] **다음 콘텐츠 (Jin 승인 대기)**: Batch 06은 B1/B2 회귀 표본과 첫 C1/C2
   시나리오를 묶은 review-only 교차 게임 pilot이다. schema-complete 초안은 레벨별
   scenario 1·Smalltalk 2·Cloze 4·Satzbau 6·pronunciation 4와 scenario quest 5,
@@ -342,7 +347,7 @@ flutter run -d <android-id>   # 안드로이드
   `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만 독립 집필에 쓴다. review
   승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. Jin이 패킷을 확인하고 Batch 06을
   명시 승인한 뒤 ledger 승인 → 원자적 asset/curriculum 승격 → promoted validator → TTS
-  순서로 진행한다. 다음 번호는 Batch 07이며 loader 재계산 작업량은
+  순서로 진행한다. 다음 번호는 Batch 09이며 loader 재계산 작업량은
   `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
