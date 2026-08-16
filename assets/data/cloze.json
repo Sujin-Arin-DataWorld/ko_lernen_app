@@ -80,7 +80,7 @@
       "answer": "학생",
       "fullKo": "저는 학생이에요.",
       "de": "Ich bin Student.",
-      "en": "I am a student.",
+      "en": "I'm a student.",
       "distractors": [
         "빵",
         "토요일",
@@ -2449,8 +2449,8 @@
       "sentenceKo": "요즘 ＿＿＿",
       "answer": "잘 지내요?",
       "fullKo": "요즘 잘 지내요?",
-      "de": "Wie geht es dir in letzter Zeit?",
-      "en": "How have you been lately?",
+      "de": "Wie läuft's bei dir so?",
+      "en": "How've you been?",
       "distractors": [
         "고마워요",
         "미안해요",
@@ -2464,8 +2464,8 @@
       "sentenceKo": "앞으로 ＿＿＿.",
       "answer": "잘 부탁드려요",
       "fullKo": "앞으로 잘 부탁드려요.",
-      "de": "Ich bitte um gute Zusammenarbeit in Zukunft.",
-      "en": "I look forward to working with you.",
+      "de": "Freut mich auf die Zusammenarbeit.",
+      "en": "Hope we work well together.",
       "distractors": [
         "안녕하세요",
         "안녕히 계세요",

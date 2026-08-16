@@ -1013,8 +1013,8 @@
       "id": "satz_a1_0040",
       "level": "a1",
       "targetKo": "요즘 잘 지내요?",
-      "promptDe": "Wie geht es dir in letzter Zeit?",
-      "promptEn": "How have you been lately?",
+      "promptDe": "Wie läuft's bei dir so?",
+      "promptEn": "How've you been?",
       "distractors": [
         "전화해요",
         "출발해요"
@@ -1025,8 +1025,8 @@
       "id": "satz_a1_0041",
       "level": "a1",
       "targetKo": "앞으로 잘 부탁드려요.",
-      "promptDe": "Ich bitte um gute Zusammenarbeit in Zukunft.",
-      "promptEn": "I look forward to working with you.",
+      "promptDe": "Freut mich auf die Zusammenarbeit.",
+      "promptEn": "Hope we work well together.",
       "distractors": [
         "한국어로",
         "이름은"

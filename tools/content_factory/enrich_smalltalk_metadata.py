@@ -45,8 +45,8 @@ DEFAULT_TURNS = {
         "alternative": turn(
             "question",
             "요즘 어떻게 지내세요?",
-            "Wie geht es dir in letzter Zeit?",
-            "How have you been lately?",
+            "Wie läuft's bei dir so?",
+            "How've you been?",
         ),
         "follow_up": turn("reaction", "그렇군요.", "Ach so.", "I see."),
     },
@@ -72,8 +72,8 @@ DEFAULT_TURNS = {
         "alternative": turn(
             "question",
             "요즘 어떻게 지내?",
-            "Wie geht's dir in letzter Zeit?",
-            "How have you been lately?",
+            "Wie läuft's bei dir so?",
+            "How've you been?",
         ),
         "follow_up": turn("reaction", "아, 그렇구나.", "Ach so.", "Oh, I see."),
     },
@@ -81,8 +81,8 @@ DEFAULT_TURNS = {
         "alternative": turn(
             "question",
             "요즘 잘 지내?",
-            "Geht es dir gut in letzter Zeit?",
-            "Have you been doing well lately?",
+            "Läuft's bei dir?",
+            "You doing alright?",
         ),
         "follow_up": turn("reaction", "아, 그렇구나.", "Ach so.", "Oh, I see."),
     },

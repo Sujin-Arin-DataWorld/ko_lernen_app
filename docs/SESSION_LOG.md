@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — DE/EN 교과서 관용구 humanizer 패스
+
+**왜.** Jin 요청: `오랜만이야`를 `long time no see` / `lange nicht gesehen`처럼
+교과서 세트 문구로 옮기지 말 것. 같은 종류의 인사·작별·안부·첫만남 관용구가
+학습자용 DE/EN에 남아 있었다.
+
+**무엇을.** `blader/humanizer` 기준으로 한국어 원문·ID·레벨은 그대로 두고,
+학습자가 보는 DE/EN만 고쳤다. 예: `Hey, it's been a while!` / `Hey, lange her!`,
+`How've you been?` / `Wie läuft's bei dir so?`, `Hope we work well together.` /
+`Freut mich auf die Zusammenarbeit.`, `Tschüss` 계열 작별. smalltalk 안부
+템플릿 200건 이상과 같은 문장을 쓰는 cloze·satz·시나리오 첫만남 대사를
+맞춰 두었고, `smalltalk.dart` 폴백과 `enrich_smalltalk_metadata.py`가 옛 문구를
+다시 넣지 않게 했다. `Darf ich`·서비스 영어·문법 설명처럼 실제로 쓰는 말은
+건드리지 않았다. `안녕히 가세요` 예문에 쉼표가 들어가 CSV 열이 깨지지 않게
+따옴표를 넣었다.
+
+**검증.** vocab 1188행 15열·grammar 176행 16열, 변경 JSON parse, 대상 교과서
+문구 0건. 이어서 `data_integrity`·smalltalk·cloze·satz 회귀를 돌린다.
+
+**커밋.** 이 항목과 같은 커밋.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

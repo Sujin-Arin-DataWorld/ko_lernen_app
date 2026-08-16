@@ -215,8 +215,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -239,8 +239,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -268,8 +268,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -292,8 +292,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -316,8 +316,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -340,8 +340,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -364,8 +364,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -393,8 +393,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -417,8 +417,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -446,8 +446,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -504,8 +504,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -533,8 +533,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -557,8 +557,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -575,7 +575,7 @@
       "kind": "question",
       "ko": "점심 같이 먹을래요?",
       "de": "Wollen wir zusammen Mittag essen?",
-      "en": "Would you like to have lunch together?",
+      "en": "Want to grab lunch?",
       "reply": {
         "ko": "좋아요. 같이 먹어요.",
         "de": "Gerne. Essen wir zusammen.",
@@ -615,8 +615,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -639,8 +639,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -668,8 +668,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -692,8 +692,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -716,8 +716,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -740,8 +740,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -764,8 +764,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -793,8 +793,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -822,8 +822,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -851,8 +851,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -875,8 +875,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -904,8 +904,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -933,8 +933,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -957,8 +957,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -986,8 +986,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1015,8 +1015,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1044,8 +1044,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1073,8 +1073,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1097,8 +1097,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1126,8 +1126,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1155,8 +1155,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1179,8 +1179,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1319,8 +1319,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -1348,8 +1348,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -1377,8 +1377,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -1401,8 +1401,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -1430,8 +1430,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1459,8 +1459,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1488,8 +1488,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1512,8 +1512,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1536,8 +1536,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1565,8 +1565,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1589,8 +1589,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1613,8 +1613,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1637,8 +1637,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1666,8 +1666,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1690,8 +1690,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1714,8 +1714,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1732,14 +1732,14 @@
       "kind": "reaction",
       "ko": "주말 잘 보내세요!",
       "de": "Schönes Wochenende.",
-      "en": "Have a nice weekend.",
+      "en": "Enjoy the weekend!",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1791,8 +1791,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1815,8 +1815,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1839,8 +1839,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1868,8 +1868,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1897,8 +1897,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1921,8 +1921,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1950,8 +1950,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1974,8 +1974,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -1998,8 +1998,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2022,8 +2022,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2046,8 +2046,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2075,8 +2075,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2104,8 +2104,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2128,8 +2128,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2152,8 +2152,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2181,8 +2181,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2210,8 +2210,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2234,8 +2234,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2258,8 +2258,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2287,8 +2287,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2311,8 +2311,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2335,8 +2335,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2359,8 +2359,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2388,8 +2388,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2417,8 +2417,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2441,8 +2441,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2566,8 +2566,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -2595,8 +2595,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -2624,8 +2624,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -2648,8 +2648,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 잘 지내?",
-          "de": "Geht es dir gut in letzter Zeit?",
-          "en": "Have you been doing well lately?"
+          "de": "Läuft's bei dir?",
+          "en": "You doing alright?"
         }
       ],
       "followUp": {
@@ -2672,8 +2672,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2701,8 +2701,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2725,8 +2725,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2749,8 +2749,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2773,8 +2773,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2797,8 +2797,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2826,8 +2826,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2855,8 +2855,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2884,8 +2884,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2913,8 +2913,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2937,8 +2937,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2961,8 +2961,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -2990,8 +2990,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3019,8 +3019,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3048,8 +3048,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3077,8 +3077,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3106,8 +3106,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3135,8 +3135,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3159,8 +3159,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3183,8 +3183,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내?",
-          "de": "Wie geht's dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3207,8 +3207,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3231,8 +3231,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3260,8 +3260,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3289,8 +3289,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3318,8 +3318,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3347,8 +3347,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3371,8 +3371,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3395,8 +3395,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3419,8 +3419,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3448,8 +3448,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3477,8 +3477,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3506,8 +3506,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3535,8 +3535,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3564,8 +3564,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3588,8 +3588,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3612,8 +3612,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3636,8 +3636,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3665,8 +3665,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3694,8 +3694,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3723,8 +3723,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3752,8 +3752,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3781,8 +3781,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3805,8 +3805,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
@@ -3829,8 +3829,8 @@
         {
           "turnKind": "question",
           "ko": "요즘 어떻게 지내세요?",
-          "de": "Wie geht es dir in letzter Zeit?",
-          "en": "How have you been lately?"
+          "de": "Wie läuft's bei dir so?",
+          "en": "How've you been?"
         }
       ],
       "followUp": {
