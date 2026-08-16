@@ -166,6 +166,9 @@ CourseMastery·cloud/account reconciliation·재평가 UI·카탈로그 계약�
 **228/228**이 통과했다. `flutter analyze --no-pub --fatal-infos`는 전체 worktree에서
 **No issues found**였고, 생산 평가 생성기 `--check`와 `git diff --check`도 통과했다.
 전체 Flutter suite와 exact-head CI는 PR 통합 단계에서 별도로 실행한다.
+사용자 지정 기준 SHA로 재배치하기 전 검증 상태는 체크포인트 커밋
+`555055af`에 고정했다.
+
 ### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
 
 **원인과 수정.** 코스에서 문법 체크포인트로 열린 카드는 하단 `Kurz prüfen`만
