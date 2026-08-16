@@ -300,6 +300,10 @@ void main() {
                 AccountReconciliationConflictKind.courseMasteryVersion,
             CourseMasteryMergeConflictKind.evidence:
                 AccountReconciliationConflictKind.courseMasteryEvidence,
+            CourseMasteryMergeConflictKind.productiveEvidence:
+                AccountReconciliationConflictKind.courseMasteryEvidence,
+            CourseMasteryMergeConflictKind.productiveProjectStepEvidence:
+                AccountReconciliationConflictKind.courseMasteryEvidence,
             CourseMasteryMergeConflictKind.checkpoint:
                 AccountReconciliationConflictKind.courseMasteryCheckpoint,
             CourseMasteryMergeConflictKind.progression:
@@ -439,20 +443,22 @@ void main() {
           'profile': {'xp': 4},
         });
         expect(result.value!.fields, isNot(contains('course_mastery_json')));
-        expect(result.value!.courseMastery!.version, 2);
+        expect(result.value!.courseMastery!.version, 3);
         expect(result.value!.courseMastery!.currentCourseUnitId, 'unit-root');
         expect(
           jsonDecode(
             result.value!.toCloudDocument()['course_mastery_json'] as String,
           ),
           {
-            'version': 2,
+            'version': 3,
             'placementLevel': 'a1',
             'currentCourseUnitId': 'unit-root',
             'completedUnitIds': <Object?>[],
             'bypassedPrerequisiteUnitIds': <Object?>[],
             'evidence': <Object?>[],
             'scenarioCheckpoints': <Object?>[],
+            'productiveEvidence': <Object?>[],
+            'productiveProjectStepEvidence': <Object?>[],
           },
         );
       },
@@ -468,7 +474,7 @@ void main() {
       final cases = <String, Object?>{
         'non-string': 42,
         'non-object': '[]',
-        'future-version': jsonEncode({'version': 3}),
+        'future-version': jsonEncode({'version': 4}),
         'malformed-json': '{not-json',
         'malformed-v2': jsonEncode(malformedV2),
       };
@@ -1255,10 +1261,7 @@ void main() {
         restored.packProgress['pack-a']?.toJson(),
         snapshot.packProgress['pack-a']?.toJson(),
       );
-      expect(
-        Storage.ownedDecor,
-        ['decoration_soban', 'decoration_munbangsau'],
-      );
+      expect(Storage.ownedDecor, ['decoration_soban', 'decoration_munbangsau']);
       expect(jsonDecode(Storage.srsRawJson), snapshot.srsCards);
     },
   );
@@ -1300,13 +1303,13 @@ void main() {
         courseProgress: _courseProgressForLocalCapture(),
       );
 
-      expect(local.courseMastery?.version, 2);
+      expect(local.courseMastery?.version, 3);
       expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
       expect(
         local.localCourseMasteryGeneration,
         Storage.courseMasterySnapshotRawJson,
       );
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.browseLevelCode, 'b2');
       expect(Storage.userLevelCode, 'a2');
@@ -1327,7 +1330,7 @@ void main() {
         courseProgress: _courseProgressForLocalCapture(),
       );
 
-      expect(local.courseMastery?.version, 2);
+      expect(local.courseMastery?.version, 3);
       expect(local.courseMastery?.placementLevel, 'a1');
       expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
       expect(

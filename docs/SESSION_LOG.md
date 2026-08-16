@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Codex) — 살아 있는 한옥 V1 PR2 최종 로컬 게이트
+
+**최신 기준과 콘텐츠 경계.** 생산형 재평가 코어 5개 커밋을 최신
+`origin/main d9427e69` 위로 재배치해 구현 HEAD `3218ec0a`를 만들었다. 86개 immutable
+core segment와 118개 평가 요구는 유지하되, Jin의 ID별 승인이 없는 learner-facing
+과제·예시·C1/C2 자료는 `tools/content_factory/drafts/productive_assessments.json`에만
+격리했다. Flutter가 묶는 `assets/data/`에는 해당 JSON이 없으며 production 재평가
+화면은 catalog·snapshot loader를 호출하기 전에 fail closed한다. 테스트만 draft
+catalog를 명시적으로 주입한다.
+
+**검증.** 최신 기준에서 콘텐츠 생성기 Python **12/12**와 두 생성기 `--check`,
+격리·평가·projection 집중 회귀 **84/84**, 전체 serial Flutter suite(`exit 0`,
+Windows golden 12건 skip), 전체 `flutter analyze --no-pub --fatal-infos`
+**No issues found**, `flutter build web --release --no-pub`, `git diff --check`를 통과했다.
+웹 빌드는 `build/web`을 생성했고, 외부 `flutter_tts 4.2.5`의 기존 Wasm dry-run 경고
+3건만 남았다. 독립 Standards·Spec 최종 리뷰는 모두 P0/P1 0이다. push·PR·exact-head
+CI·main 병합은 이 기록 다음 게이트이며 아직 완료로 주장하지 않는다.
+
 ### 2026-08-16 (Codex) — 후속 홈페이지 push가 Play AAB 배포를 취소하던 문제 수정
 
 **원인.** 첫 자동 Play Internal 실행 `31967839728`은 서명 복원과 Flutter quality gate를
@@ -119,6 +137,90 @@ DE/EN 전환·390×844 200%·누락 폴백·장식 직접 탭·1회 안내와 �
 390×844 하단형, DE/EN/KO 실시간 전환, 키보드 닫기/포커스 복귀와 JSON HTTP 200을
 확인했다. 문화어 구현은 공항 도움 경로·release automation과 함께 `86df5643`에
 커밋했다. 원격 배포 증거는 이 로그 최상단의 통합 release 기록을 따른다.
+### 2026-08-16 (Codex) — CourseMastery V3 생산형 평가·재평가 코어
+
+**범위와 권한 경계.** 새 `CanDoSegment` 계약을 실제 학습 증거로 연결하기 위해
+생산형 평가 정의·결정론적 채점·영구 증거·재평가 인프라를 별도 PR2 worktree에서
+구현한다. 기존 `QuestType.schreiben`은 한글 따라쓰기 의미와 미구현 UI가 섞여 있어
+재해석하지 않으며, 새 typed productive engine을 사용한다. 실패·browse·자기신고는
+영구 증거를 만들 수 없고, 원문 답안·녹음·ASR 텍스트는 snapshot, Firestore,
+analytics에 저장하지 않는다.
+
+**저장·진행 계약.** CourseMastery snapshot은 v1/v2를 v3로 안전하게 올리고
+`ProductiveMasteryEvidence` 성공 기록과 C1/C2 홀수 단계의
+`ProductiveProjectStepEvidence`만 보존한다. 단원 완료와 생산 도장은 서로 독립이며,
+검증된 segment 집합은 저장하지 않고 immutable catalog의 `allOf` 조건으로 매번
+투영한다. 재평가는 현재 코스 포인터나 완료 단원을 되감거나 전진시키지 않는다.
+동일 assessment·segment·concept·rubric slot은 강한 점수, 최신 UTC 순으로
+결정론적으로 합치되, 이미 후속 도장의 근거가 된 exact proof chain은 먼저 보존한다.
+일반 history cap으로 영구 증거를 제거하지 않는다. 각 기록은 raw 답안 없이 정본
+definition fingerprint, evaluator version, result fingerprint를 보존하고 동기화 후에도
+같은 정본·chain인지 검증한다. 이는 손상·stale schema를 잡는 catalog integrity
+계약이지 learner-owned JSON에 대한 원격 인증이나 부정행위 방지 보안 주장은 아니다.
+
+**평가 계약.** 쓰기는 NFC·공백·문장부호를 정규화한 뒤 의미 슬롯과 형태 규칙을
+결정론적으로 채점한다. connected-evidence는 둘 이상의 출처와 support, contrast,
+limitation, provenance 슬롯을 모두 확인한다. 기존 10초 Azure 발음 평가는
+read-aloud 연습으로만 남기고 생산 도장을 만들지 못하게 했다. canonical oral은 별도
+unscripted authority의 exact attempt ID, 45–120초 길이, accuracy·fluency·overall
+pronunciation과 로컬 인식문에서 결정론적으로 확인한 네 의미 슬롯·자료 언급·세 담화
+표지를 모두 통과해야 한다. authored semantic anchor와 허용 변형으로 자연스러운
+paraphrase를 인정하되 lexical LCS 90% 이상인 동일·근접 읽기(구두점·띄어쓰기·짧은
+어미 변경 포함)는 통과할 수 없다.
+PR2에는 이 fail-closed 인터페이스만 포함하며 실제 연속
+인식 백엔드는 후속 PR2b 전까지 제공됐다고 주장하지 않는다. 음성과 인식문은 저장하지
+않는다. C1/C2 8개 프로젝트는 정확한 신규 자료와 출처를 확인한 결정론적 홀수 단계
+영수증을 도장과 분리해, `검토 1 → CARE 2 → 검토 3 → TRANSMIT 4` 전체 prefix를
+강제한다. A1 자기소개는 이름을 하드코딩하지 않고 학습자가 고른 동일 인물이 세 높임
+register에서 유지되는지를 typed criterion으로 검사한다.
+
+**정본과 로컬 검증.** canonical 86개 segment를 118개 실행 평가(A1–B2 70개,
+C1/C2 48개), 8개 프로젝트·32개 독자 작성 자료·16개 고급 bundle에 exact join했다.
+KO/DE/EN prompt와 출처 metadata가 모두 존재한다. A1–B2 70개는 제목 조각 fallback
+없이 각각 독자 작성한 실제 과제·통과 fixture·필수 의미 슬롯을 가지며, canonical ID
+누락이나 추가 시 생성기가 실패한다. 여기서 결정론적 fixture는 Jin의 per-ID 콘텐츠
+승인을 뜻하지 않는다. 생성기 `--check`가 byte-exact 재현을 확인하고 70개 fixture를
+실제 채점 엔진으로 전수 실행한다. 생산 평가·저장·projection 집중 회귀와 기존
+CourseMastery·cloud/account reconciliation·재평가 UI·카탈로그 계약을 합친 집중 회귀
+**228/228**이 통과했다. `flutter analyze --no-pub --fatal-infos`는 전체 worktree에서
+**No issues found**였고, 생산 평가 생성기 `--check`와 `git diff --check`도 통과했다.
+전체 Flutter suite와 exact-head CI는 PR 통합 단계에서 별도로 실행한다.
+사용자 지정 기준 SHA로 재배치하기 전 검증 상태는 체크포인트 커밋
+`555055af`에 고정했다.
+
+**사용자 기준 SHA 통합과 Batch 06 공존.** 사용자 지정 `main 39dff9df` 위로
+재배치한 뒤, review-only Batch 06가 예약한 `smalltalk_c2_0017`과 PR2의 신규 문항
+ID가 충돌하는 것을 생성기가 차단했다. Batch 06 초안은 그대로 보존했다. 별도 Jin
+승인 원장이 없는 해석 문항은 `smalltalk_c2_0019`로 live 승격하지 않고, 승인된 기존
+`smalltalk_c2_0006`만 연습 참조로 유지한다. 과거 Batch 01
+재생 fixture는 제거된 C1/C2 확장 단원에 속한 후대 smalltalk와 audit count도 함께
+되감도록 일반화했다. core 86개, cluster 86개, release track 분모와 생산 평가 요구는
+변경하지 않았다. 통합 수정 커밋은 `495b6556`이다.
+
+**전체 회귀와 배포 가능성 검증.** 최초 전체 suite는 **4,099/4,103** 통과했고,
+새 재평가 화면이 기존 UI 래칫을 늘린 네 실패를 정확히 드러냈다. exact
+`39dff9df` detached worktree에서 같은 ARB·typography guard **15/15** 통과를 확인한
+뒤, em/en dash 문구를 자연스럽게 고치고 원시 AppBar를 `SoriAppBar`로 교체했으며,
+새 w800과 장식용 버튼 아이콘을 제거했다. 관련 가드·화면 회귀 **20/20**, 최종 전체
+Flutter suite **4,103/4,103**, 콘텐츠 Python 회귀 **40/40**, 두 정본 생성기
+`--check`, `flutter analyze --no-pub --fatal-infos`, `git diff --check`가 모두
+통과했다. `flutter build web --release --no-pub`도 `build/web`을 생성했다. 빌드의
+Wasm dry-run에는 외부 `flutter_tts 4.2.5` JS interop 경고 3건이 남지만 현재 JS web
+release 컴파일은 성공했다. 검증 도중 `origin/main`은 tree가 동일한 빈 release
+커밋 `17857f4d`로 한 칸 이동했으므로 PR 직전 최신 원격 위 재배치와 exact-head CI를
+별도로 수행한다.
+
+**콘텐츠 승인과 런타임 차단.** 위 과제·예시·C1/C2 source는 평가 엔진과 개인정보
+계약을 검증하기 위한 first-party authored 정본이지만, Jin의 per-ID learner-copy
+승인을 받았다고 주장하지 않는다. learner-facing JSON은
+`tools/content_factory/drafts/productive_assessments.json`에만 두고 Flutter가 묶는
+`assets/data/`에서는 제거했다. `ProductiveAssessmentCatalog.runtimeContentApproved`는
+승인 원장이 통합되기 전 `false`로 고정되며 production route는 catalog·snapshot
+loader를 호출하기 전에 fail closed한다. widget test만 draft fixture를 명시적으로
+주입해 UI 계약을 검증한다. 이 격리·평가·projection 집중 회귀 **84/84**, 관련 9개
+파일 분석은 **No issues found**였다. 기존 smalltalk의 exact ID route도 사람 승인으로 둔갑시키지 않고
+`exactMapped`, category·unit fallback은 `bestAvailable`로 기록한다. PR6가 승인된
+최초 제품 진입점을 연결하며, PR2는 route·평가·저장 인프라까지만 소유한다.
 
 ### 2026-08-16 (Codex) — B2 문법 체크포인트 카드 탭 복원
 

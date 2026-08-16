@@ -396,7 +396,7 @@ void main() {
       });
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        2,
+        3,
       );
       expect(payload, isNot(contains('browse_level')));
     },
@@ -433,7 +433,7 @@ void main() {
   });
 
   test(
-    'backup migrates retained v1 course state before emitting canonical v2',
+    'backup migrates retained v1 course state before emitting canonical v3',
     () async {
       final legacy = jsonEncode({
         ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
@@ -447,15 +447,39 @@ void main() {
 
       final payload = await CloudSync.buildBackupPayload();
 
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.browseLevelCode, 'b2');
       expect(Storage.userLevelCode, 'a2');
       expect(payload['course_mastery_json'], isA<String>());
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        2,
+        3,
       );
+    },
+  );
+
+  test(
+    'backup upgrades a canonical-key v2 snapshot without proof backfill',
+    () async {
+      final oldV2 = jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>
+        ..['version'] = 2
+        ..remove('productiveEvidence');
+      await _initializeStorage({
+        Storage.courseMasterySnapshotPreferenceKey: jsonEncode(oldV2),
+      });
+
+      final payload = await CloudSync.buildBackupPayload();
+      final durable =
+          jsonDecode(Storage.courseMasterySnapshotRawJson)
+              as Map<String, dynamic>;
+      final captured =
+          jsonDecode(payload['course_mastery_json'] as String)
+              as Map<String, dynamic>;
+
+      expect(durable['version'], 3);
+      expect(durable['productiveEvidence'], isEmpty);
+      expect(captured, durable);
     },
   );
 
@@ -474,7 +498,7 @@ void main() {
       final canonical =
           jsonDecode(Storage.courseMasterySnapshotRawJson)
               as Map<String, dynamic>;
-      expect(canonical['version'], 2);
+      expect(canonical['version'], 3);
       expect(canonical['placementLevel'], 'a1');
       expect(canonical['currentCourseUnitId'], 'a1_01_greetings_hangul');
       expect(Storage.browseLevelCode, 'b2');
@@ -716,7 +740,7 @@ void main() {
       final local = _courseSnapshotJson(evidenceId: 'local-evidence');
       final future = jsonEncode({
         ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
-        'version': 3,
+        'version': 4,
       });
       final unknownUnit = _courseSnapshotJson(
         currentCourseUnitId: 'unknown-course-unit',
@@ -1179,11 +1203,7 @@ void main() {
       'progress': {
         'earned_stamps': ['cloud-stamp'],
         'quest_completions': {'cloud-quest': '2026-07-02T00:00:00.000Z'},
-        'owned_decor': [
-          'decoration_soban',
-          'decoration_munbangsau',
-          7,
-        ],
+        'owned_decor': ['decoration_soban', 'decoration_munbangsau', 7],
       },
       'srs_json': '',
       'custom_packs_json': null,
@@ -1193,10 +1213,7 @@ void main() {
     expect(Storage.vokSeenIds, ['local-v', 'cloud-v']);
     expect(Storage.grammarSeen, ['local-g', 'cloud-g']);
     expect(Storage.earnedStamps, ['local-stamp', 'cloud-stamp']);
-    expect(
-      Storage.ownedDecor,
-      ['decoration_soban', 'decoration_munbangsau'],
-    );
+    expect(Storage.ownedDecor, ['decoration_soban', 'decoration_munbangsau']);
     expect(
       Storage.questCompletions.keys,
       containsAll(['local-quest', 'cloud-quest']),

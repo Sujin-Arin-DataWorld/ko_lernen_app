@@ -5572,6 +5572,212 @@ class AppL10nDe extends AppL10n {
       'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.';
 
   @override
+  String get courseReassessmentTitle => 'Fähigkeit nachweisen';
+
+  @override
+  String get courseReassessmentEyebrow => 'PRODUKTIVER NACHWEIS';
+
+  @override
+  String get courseReassessmentLoading => 'Deine Aufgabe wird vorbereitet.';
+
+  @override
+  String get courseReassessmentLoadError =>
+      'Dieser Nachweis konnte nicht sicher geladen werden.';
+
+  @override
+  String get courseReassessmentError =>
+      'Der Nachweis konnte nicht gespeichert werden. Bitte versuche es erneut.';
+
+  @override
+  String courseReassessmentStep(int current, int total) {
+    return 'Nachweis $current von $total';
+  }
+
+  @override
+  String courseReassessmentProjectStep(int current, int total) {
+    return 'Projektschritt $current von $total';
+  }
+
+  @override
+  String get courseReassessmentRole => 'Deine Rolle';
+
+  @override
+  String get courseReassessmentPrivacy =>
+      'Freie Texte und Notizen werden weder an Firebase noch an Analytics gesendet. Ein verifizierter Sprechnachweis bleibt deaktiviert, bis die gesonderte Einwilligung und der datensparsame Dienst bereit sind.';
+
+  @override
+  String get courseReassessmentAnswer => 'Deine koreanische Antwort';
+
+  @override
+  String get courseReassessmentAnswerHint =>
+      'Schreibe die Aussage in deinen eigenen Worten.';
+
+  @override
+  String courseReassessmentLength(int minimum, int maximum) {
+    return '$minimum bis $maximum koreanische Zeichen';
+  }
+
+  @override
+  String courseReassessmentEvidencePoint(int index) {
+    return 'Belegpunkt $index';
+  }
+
+  @override
+  String get courseReassessmentEvidencePointHint =>
+      'Formuliere diesen Punkt auf Koreanisch und übernimm ihn in deine Gesamtantwort.';
+
+  @override
+  String get courseReassessmentSourceForPoint => 'Quelle für diesen Punkt';
+
+  @override
+  String get courseReassessmentSources => 'Materialien vergleichen';
+
+  @override
+  String courseReassessmentSource(int index) {
+    return 'Quelle $index';
+  }
+
+  @override
+  String get courseReassessmentProjectReviewTitle =>
+      'Quellen vor der Antwort prüfen';
+
+  @override
+  String get courseReassessmentProjectReviewBody =>
+      'Lies jede neu eingeführte Quelle und öffne ihren Herkunftshinweis. Gespeichert werden nur die Quellen-IDs, nicht deine Notizen.';
+
+  @override
+  String get courseReassessmentProjectMarkReviewed =>
+      'Ich habe diese Quelle gelesen und verglichen';
+
+  @override
+  String get courseReassessmentProjectShowProvenance => 'Herkunft anzeigen';
+
+  @override
+  String get courseReassessmentProjectHideProvenance => 'Herkunft ausblenden';
+
+  @override
+  String get courseReassessmentProjectCompleteReview =>
+      'Quellenprüfung abschließen';
+
+  @override
+  String get courseReassessmentProjectReviewing => 'Quellen werden geprüft …';
+
+  @override
+  String get courseReassessmentProjectReviewIncomplete =>
+      'Lies jede Quelle und öffne jeden Herkunftshinweis, bevor du fortfährst.';
+
+  @override
+  String get courseReassessmentConnectSources =>
+      'Beziehungen zwischen den Quellen markieren';
+
+  @override
+  String get courseReassessmentRelationship => 'Rolle dieser Quelle';
+
+  @override
+  String get courseReassessmentSubmit => 'Antwort prüfen';
+
+  @override
+  String get courseReassessmentSubmitEvidence => 'Quellenverknüpfung prüfen';
+
+  @override
+  String get courseReassessmentChecking => 'Wird geprüft …';
+
+  @override
+  String get courseReassessmentOralUnavailableTitle =>
+      'Verifizierter Sprechnachweis ist noch nicht verfügbar';
+
+  @override
+  String get courseReassessmentOralUnavailableBody =>
+      'Die aktuelle zehnsekündige Nachsprechübung trainiert nur die Aussprache und darf dieses Fähigkeitssiegel nicht vergeben. Eine eigene 45- bis 120-sekündige freie Sprechprüfung wird erst nach Prüfung von Einwilligung, Datenschutz und Bewertung freigeschaltet.';
+
+  @override
+  String get courseReassessmentPrerequisiteTitle =>
+      'Ein früherer Nachweis fehlt noch';
+
+  @override
+  String get courseReassessmentPrerequisiteBody =>
+      'Schließe zuerst den verknüpften Nachweis ab. Dein Kurszeiger wird dabei nicht zurückgesetzt.';
+
+  @override
+  String get courseReassessmentOpenPrerequisite => 'Fehlenden Nachweis öffnen';
+
+  @override
+  String get courseReassessmentPassedTitle => 'Nachweis bestanden';
+
+  @override
+  String courseReassessmentPassedBody(int score) {
+    return '$score %. Nur das Ergebnis und seine genaue Aufgabenherkunft wurden gespeichert.';
+  }
+
+  @override
+  String get courseReassessmentTryAgainTitle => 'Noch nicht sicher genug';
+
+  @override
+  String courseReassessmentTryAgainBody(int score) {
+    return '$score %. Deine Antwort wurde nicht gespeichert. Du kannst sie direkt überarbeiten.';
+  }
+
+  @override
+  String get courseReassessmentContinue => 'Nächsten Nachweis öffnen';
+
+  @override
+  String get courseReassessmentRetry => 'Antwort überarbeiten';
+
+  @override
+  String get courseReassessmentFinish => 'Fertig';
+
+  @override
+  String get courseReassessmentCompleteTitle =>
+      'Sprechen und Schreiben bestätigt';
+
+  @override
+  String get courseReassessmentCompleteBody =>
+      'Alle erforderlichen produktiven Nachweise für diese Fähigkeit sind geprüft. Deine Kursposition ist unverändert geblieben.';
+
+  @override
+  String get courseReassessmentModeGuidedProduction =>
+      'Geführte eigene Antwort';
+
+  @override
+  String get courseReassessmentModeDictation => 'Diktat';
+
+  @override
+  String get courseReassessmentModeConnectedProduction =>
+      'Zusammenhängend schreiben';
+
+  @override
+  String get courseReassessmentModeOpenWriting => 'Offen schreiben';
+
+  @override
+  String get courseReassessmentModeOral => 'Mündlich vortragen';
+
+  @override
+  String get courseReassessmentModeConnectedEvidence => 'Quellen verknüpfen';
+
+  @override
+  String get courseReassessmentRoleSupport => 'stützt die Aussage';
+
+  @override
+  String get courseReassessmentRoleContrast => 'zeigt einen Gegensatz';
+
+  @override
+  String get courseReassessmentRoleLimitation => 'begrenzt die Aussage';
+
+  @override
+  String get courseReassessmentRoleComplement => 'ergänzt die Aussage';
+
+  @override
+  String get courseReassessmentRoleContext => 'liefert Kontext';
+
+  @override
+  String get courseReassessmentRoleStakeholder =>
+      'zeigt eine betroffene Perspektive';
+
+  @override
+  String get courseReassessmentRoleCounterexample =>
+      'liefert ein Gegenbeispiel';
+
+  @override
   String get courseSectionToday => 'Was heute zählt';
 
   @override

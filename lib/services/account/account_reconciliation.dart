@@ -372,6 +372,10 @@ class AccountReconciliationMerger {
       AccountReconciliationConflictKind.courseMasteryVersion,
     CourseMasteryMergeConflictKind.evidence =>
       AccountReconciliationConflictKind.courseMasteryEvidence,
+    CourseMasteryMergeConflictKind.productiveEvidence =>
+      AccountReconciliationConflictKind.courseMasteryEvidence,
+    CourseMasteryMergeConflictKind.productiveProjectStepEvidence =>
+      AccountReconciliationConflictKind.courseMasteryEvidence,
     CourseMasteryMergeConflictKind.checkpoint =>
       AccountReconciliationConflictKind.courseMasteryCheckpoint,
     CourseMasteryMergeConflictKind.progression =>

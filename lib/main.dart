@@ -97,6 +97,7 @@ import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
 import 'screens/onboarding_start_screen.dart';
 import 'screens/course_mission_screen.dart';
+import 'screens/course_reassessment_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
@@ -917,6 +918,16 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final missionCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
                 (_) => CourseMissionScreen(courseUnitId: missionCourseUnitId),
+                settings: settings,
+              );
+            case courseReassessmentRoute:
+              final arguments = reassessmentArgumentsFromRoute(
+                settings.arguments,
+              );
+              return SoriTransitions.fadeScale(
+                (_) => arguments == null
+                    ? const CourseReassessmentScreen.invalid()
+                    : CourseReassessmentScreen(arguments: arguments),
                 settings: settings,
               );
             case '/scenario':

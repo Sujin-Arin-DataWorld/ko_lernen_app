@@ -167,7 +167,7 @@ void main() {
     },
   );
 
-  test('refresh migrates a v1 snapshot into the canonical v2 key', () async {
+  test('refresh migrates a v1 snapshot into the canonical v3 key', () async {
     const legacy =
         '{"version":1,"placementLevel":"a1",'
         '"currentCourseUnitId":"a1_01_greetings_hangul"}';
@@ -177,13 +177,14 @@ void main() {
 
     final snapshot = await CourseMasteryService(_catalog()).refresh();
 
-    expect(snapshot.version, 2);
-    expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+    expect(snapshot.version, 3);
+    expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
+    expect(snapshot.productiveEvidence, isEmpty);
     expect(Storage.legacyCourseMasteryRawJson, legacy);
   });
 
   test(
-    'refresh creates a canonical v2 snapshot from legacy scalar mirrors',
+    'refresh creates a canonical v3 snapshot from legacy scalar mirrors',
     () async {
       await _seedCoursePreferences({
         Storage.placementLevelPreferenceKey: 'a1',
@@ -192,17 +193,18 @@ void main() {
 
       final snapshot = await CourseMasteryService(_catalog()).refresh();
 
-      expect(snapshot.version, 2);
+      expect(snapshot.version, 3);
       expect(snapshot.placementLevel, 'a1');
       expect(snapshot.currentCourseUnitId, 'a1_01_greetings_hangul');
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
+      expect(snapshot.productiveEvidence, isEmpty);
     },
   );
 
   test(
-    'refresh rejects a future v2 snapshot without overwriting stored data',
+    'refresh rejects a future v4 snapshot without overwriting stored data',
     () async {
-      const canonical = '{"version":3}';
+      const canonical = '{"version":4}';
       const legacy =
           '{"version":1,"placementLevel":"a1",'
           '"currentCourseUnitId":"a1_01_greetings_hangul"}';
@@ -227,7 +229,7 @@ void main() {
       const legacy =
           '{"version":1,"placementLevel":"a1",'
           '"currentCourseUnitId":"a1_01_greetings_hangul"}';
-      for (final canonical in const ['{"version":1.5}', '{"version":2.5}']) {
+      for (final canonical in const ['{"version":1.5}', '{"version":3.5}']) {
         await _seedCoursePreferences({
           Storage.courseMasterySnapshotPreferenceKey: canonical,
           Storage.legacyCourseMasteryPreferenceKey: legacy,
@@ -357,7 +359,7 @@ void main() {
         expectedGeneration: null,
       );
 
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
       expect(Storage.courseUnitId, isNull);
     },
   );

@@ -497,7 +497,7 @@ void main() {
       );
     });
 
-    test('requires current assessments in append-only ownership', () {
+    test('requires current assessments in declared ownership', () {
       final manifest = _manifest();
       _segment(manifest, 'segment_a1_first')['ownedAssessmentItemIds'] =
           <String>[];
@@ -649,182 +649,157 @@ void main() {
       );
     });
 
-    test(
-      'keeps historical assessment IDs reserved after proof replacement',
-      () {
-        final previous = _load(_manifest());
-        final revisedManifest = _manifest();
-        final segment = _segment(revisedManifest, 'segment_a1_first');
-        segment['proofRevision'] = 2;
-        segment['ownedAssessmentItemIds'] = [
-          'assess_a1_first',
-          'assess_a1_revised',
-        ];
-        segment['assessmentRequirements'] = [
-          _requirementJson(
-            assessmentId: 'assess_a1_revised',
-            linkId: 'link_a1_revised',
-            mode: 'guidedProduction',
-          ),
-        ];
-        final revisedAuthorities = [
-          ..._assessmentAuthorities,
-          _assessmentAuthority(
-            id: 'assess_a1_revised',
-            linkId: 'link_a1_revised',
-            level: LearnerLevel.a1,
-            unitId: 'unit_a1',
-            conceptIds: const ['concept_a1_first'],
-            mode: SegmentEvidenceMode.guidedProduction,
-          ),
-        ];
-        final revised = _load(
-          revisedManifest,
-          assessmentAuthorities: revisedAuthorities,
-        );
-        revised.validateEvolutionFrom(previous);
+    test('freezes proof identity on every non-draft segment ID', () {
+      final previous = _load(_manifest());
 
-        final removedHistory = _deepCopy(revisedManifest);
-        _segment(removedHistory, 'segment_a1_first')['ownedAssessmentItemIds'] =
-            ['assess_a1_revised'];
-        expect(
-          () => _load(
-            removedHistory,
-            assessmentAuthorities: revisedAuthorities,
-          ).validateEvolutionFrom(revised),
-          _throwsFormatContaining('cannot remove owned assessment IDs'),
-        );
+      final proofBump = _manifest();
+      _segment(proofBump, 'segment_a1_first')['proofRevision'] = 2;
+      expect(
+        () => _load(proofBump).validateEvolutionFrom(previous),
+        _throwsFormatContaining('changed immutable proof identity'),
+      );
 
-        final reassigned = _withA1Extension(revisedManifest);
-        final extension = _segment(reassigned, 'segment_a1_extension');
-        extension['assessmentRequirements'] = [
-          _requirementJson(
-            assessmentId: 'assess_a1_first',
-            linkId: 'link_a1_first',
-            mode: 'guidedProduction',
-          ),
-        ];
-        extension['ownedAssessmentItemIds'] = ['assess_a1_first'];
-        expect(
-          () => _load(reassigned, assessmentAuthorities: revisedAuthorities),
-          _throwsFormatContaining('is already owned by'),
-        );
-      },
-    );
+      final changedRequirement = _manifest();
+      _requirement(changedRequirement, 'segment_a1_first')['minimumScore'] = .8;
+      final higherAuthorities = [..._assessmentAuthorities];
+      higherAuthorities[0] = _copyAuthority(
+        higherAuthorities[0],
+        minimumScore: .8,
+      );
+      expect(
+        () => _load(
+          changedRequirement,
+          assessmentAuthorities: higherAuthorities,
+        ).validateEvolutionFrom(previous),
+        _throwsFormatContaining('changed immutable proof identity'),
+      );
 
-    test(
-      'assessment change requires proof bump and cannot weaken a shared gate',
-      () {
-        final noBumpManifest = _manifest();
-        _requirement(noBumpManifest, 'segment_a1_first')['minimumScore'] = .8;
-        final higherAuthority = [..._assessmentAuthorities];
-        higherAuthority[0] = _copyAuthority(
-          higherAuthority[0],
-          minimumScore: .8,
-        );
-        expect(
-          () => _load(
-            noBumpManifest,
-            assessmentAuthorities: higherAuthority,
-          ).validateEvolutionFrom(_load(_manifest())),
-          _throwsFormatContaining('assessment changes require a proofRevision'),
-        );
+      final changedOwnership = _manifest();
+      (_segment(changedOwnership, 'segment_a1_first')['ownedAssessmentItemIds']
+              as List<Object?>)
+          .add('assess_a1_reserved');
+      expect(
+        () => _load(changedOwnership).validateEvolutionFrom(previous),
+        _throwsFormatContaining('changed immutable proof identity'),
+      );
+    });
 
-        final weakenedManifest = _manifest();
-        final weakenedSegment = _segment(weakenedManifest, 'segment_a1_first');
-        weakenedSegment['proofRevision'] = 2;
-        _requirement(weakenedManifest, 'segment_a1_first')
-          ..['rubricVersion'] = 1
-          ..['minimumScore'] = .7;
-        final weakenedAuthorities = [..._assessmentAuthorities];
-        weakenedAuthorities[0] = _copyAuthority(
-          weakenedAuthorities[0],
-          rubricVersion: 1,
-          minimumScore: .7,
-        );
-        expect(
-          () => _load(
-            weakenedManifest,
-            assessmentAuthorities: weakenedAuthorities,
-          ).validateEvolutionFrom(_load(_manifest())),
-          _throwsFormatContaining('cannot weaken rubric or minimumScore'),
-        );
-      },
-    );
+    test('keeps historical assessment IDs reserved after replacement', () {
+      final replacementManifest = _withA1Replacement(_manifest());
+      final reassigned = _withA1Extension(replacementManifest, trackOrder: 3);
+      final extension = _segment(reassigned, 'segment_a1_extension');
+      extension['assessmentRequirements'] = [
+        _requirementJson(
+          assessmentId: 'assess_a1_first',
+          linkId: 'link_a1_first',
+          mode: 'guidedProduction',
+        ),
+      ];
+      extension['ownedAssessmentItemIds'] = ['assess_a1_first'];
+
+      expect(
+        () => _load(
+          reassigned,
+          assessmentAuthorities: _withA1ReplacementAuthority(),
+        ),
+        _throwsFormatContaining('is already owned by'),
+      );
+    });
   });
 
   group('retirement and successor slot satisfaction', () {
-    test('preserves old evidence and accepts a newer extension successor', () {
+    test('preserves old evidence and accepts a replacement successor', () {
       final previous = _load(_manifest());
-      final manifest = _withA1Extension(
-        _manifest(),
-        constructLineageId: 'segment_a1_first',
+      final manifest = _withA1Replacement(_manifest());
+      final current = _load(
+        manifest,
+        assessmentAuthorities: _withA1ReplacementAuthority(),
       );
-      final retired = _segment(manifest, 'segment_a1_first');
-      retired['lifecycle'] = 'retired';
-      retired['successorSegmentId'] = 'segment_a1_extension';
-      final authorities = [
-        ..._assessmentAuthorities,
-        _assessmentAuthority(
-          id: 'assess_a1_extension',
-          linkId: 'link_a1_extension',
-          level: LearnerLevel.a1,
-          unitId: 'unit_a1',
-          conceptIds: const ['concept_a1_first'],
-          mode: SegmentEvidenceMode.connectedProduction,
-        ),
-      ];
-      final current = _load(manifest, assessmentAuthorities: authorities);
 
       current.validateEvolutionFrom(previous);
 
       expect(current.denominatorForReleaseTrack('core_2026_v1'), 86);
+      expect(current.denominatorForReleaseTrack('a1_replacement_2026_v2'), 0);
+      expect(current.publishedSegments, hasLength(86));
+      expect(current.assessmentAuthoritySegments, hasLength(87));
+      expect(
+        current.assessmentAuthoritySegments.map((segment) => segment.id),
+        containsAll(['segment_a1_first', 'segment_a1_first_proof_v2']),
+      );
+      expect(
+        current.findReleaseTrack('a1_replacement_2026_v2')?.kind,
+        ReleaseTrackKind.replacement,
+      );
       expect(
         current.satisfyingSegmentIdsForEditionSlot(
           editionId: 'edition_core_a1_v1',
           segmentId: 'segment_a1_first',
         ),
-        ['segment_a1_first', 'segment_a1_extension'],
+        ['segment_a1_first', 'segment_a1_first_proof_v2'],
+      );
+      expect(
+        () => current.satisfyingSegmentIdsForEditionSlot(
+          editionId: 'edition_a1_replacement_v2',
+          segmentId: 'segment_a1_first_proof_v2',
+        ),
+        throwsArgumentError,
       );
     });
 
     test('rejects a successor from a different construct lineage', () {
-      final manifest = _withA1Extension(_manifest());
+      final manifest = _withA1Replacement(
+        _manifest(),
+        constructLineageId: 'different_construct',
+      );
       final retired = _segment(manifest, 'segment_a1_first');
-      retired
-        ..['lifecycle'] = 'retired'
-        ..['successorSegmentId'] = 'segment_a1_extension';
 
       expect(
-        () =>
-            _load(manifest, assessmentAuthorities: _withA1ExtensionAuthority()),
+        () => _load(
+          manifest,
+          assessmentAuthorities: _withA1ReplacementAuthority(),
+        ),
         _throwsFormatContaining('preserve the same construct lineage'),
       );
+      expect(retired['lifecycle'], 'retired');
     });
 
     test('one successor cannot replace two immutable edition slots', () {
-      final manifest = _withA1Extension(
-        _manifest(),
-        constructLineageId: 'segment_a1_first',
-      );
+      final manifest = _withA1Replacement(_manifest());
       final first = _segment(manifest, 'segment_a1_first');
-      first
-        ..['lifecycle'] = 'retired'
-        ..['successorSegmentId'] = 'segment_a1_extension';
       final second = _segment(manifest, 'segment_a1_second');
       second
         ..['constructLineageId'] = 'segment_a1_first'
         ..['lifecycle'] = 'retired'
-        ..['successorSegmentId'] = 'segment_a1_extension';
+        ..['successorSegmentId'] = 'segment_a1_first_proof_v2';
 
       expect(
-        () =>
-            _load(manifest, assessmentAuthorities: _withA1ExtensionAuthority()),
+        () => _load(
+          manifest,
+          assessmentAuthorities: _withA1ReplacementAuthority(),
+        ),
         _throwsFormatContaining('cannot succeed both'),
       );
+      expect(first['successorSegmentId'], 'segment_a1_first_proof_v2');
     });
 
     test('published records sharing a construct must form one chain', () {
+      final manifest = _withA1Replacement(
+        _manifest(),
+        connectPredecessor: false,
+      );
+
+      expect(
+        () => _load(
+          manifest,
+          assessmentAuthorities: _withA1ReplacementAuthority(),
+        ),
+        _throwsFormatContaining(
+          'replacement segment must succeed an existing construct',
+        ),
+      );
+    });
+
+    test('extension cannot duplicate a core construct', () {
       final manifest = _withA1Extension(
         _manifest(),
         constructLineageId: 'segment_a1_first',
@@ -833,7 +808,9 @@ void main() {
       expect(
         () =>
             _load(manifest, assessmentAuthorities: _withA1ExtensionAuthority()),
-        _throwsFormatContaining('must form one linear successor chain'),
+        _throwsFormatContaining(
+          'extension track cannot duplicate an existing construct lineage',
+        ),
       );
     });
 
@@ -852,58 +829,30 @@ void main() {
       },
     );
 
-    test(
-      'follows the full successor chain across later extension revisions',
-      () {
-        final previous = _load(_manifest());
-        final manifest = _withSecondA1Extension(
-          _withA1Extension(_manifest(), constructLineageId: 'segment_a1_first'),
-          constructLineageId: 'segment_a1_first',
-        );
-        final coreSegment = _segment(manifest, 'segment_a1_first');
-        coreSegment
-          ..['lifecycle'] = 'retired'
-          ..['successorSegmentId'] = 'segment_a1_extension';
-        final firstExtension = _segment(manifest, 'segment_a1_extension');
-        firstExtension
-          ..['lifecycle'] = 'retired'
-          ..['successorSegmentId'] = 'segment_a1_extension_second';
-        final authorities = [
-          ..._assessmentAuthorities,
-          _assessmentAuthority(
-            id: 'assess_a1_extension',
-            linkId: 'link_a1_extension',
-            level: LearnerLevel.a1,
-            unitId: 'unit_a1',
-            conceptIds: const ['concept_a1_first'],
-            mode: SegmentEvidenceMode.connectedProduction,
-          ),
-          _assessmentAuthority(
-            id: 'assess_a1_extension_second',
-            linkId: 'link_a1_extension_second',
-            level: LearnerLevel.a1,
-            unitId: 'unit_a1',
-            conceptIds: const ['concept_a1_first'],
-            mode: SegmentEvidenceMode.connectedProduction,
-          ),
-        ];
-        final current = _load(manifest, assessmentAuthorities: authorities);
+    test('follows the full successor chain across later replacements', () {
+      final previous = _load(_manifest());
+      final manifest = _withSecondA1Replacement(
+        _withA1Replacement(_manifest()),
+      );
+      final current = _load(
+        manifest,
+        assessmentAuthorities: _withSecondA1ReplacementAuthority(),
+      );
 
-        current.validateEvolutionFrom(previous);
+      current.validateEvolutionFrom(previous);
 
-        expect(
-          current.satisfyingSegmentIdsForEditionSlot(
-            editionId: 'edition_core_a1_v1',
-            segmentId: 'segment_a1_first',
-          ),
-          [
-            'segment_a1_first',
-            'segment_a1_extension',
-            'segment_a1_extension_second',
-          ],
-        );
-      },
-    );
+      expect(
+        current.satisfyingSegmentIdsForEditionSlot(
+          editionId: 'edition_core_a1_v1',
+          segmentId: 'segment_a1_first',
+        ),
+        [
+          'segment_a1_first',
+          'segment_a1_first_proof_v2',
+          'segment_a1_first_proof_v3',
+        ],
+      );
+    });
 
     test('active retired slot requires a successor', () {
       final manifest = _manifest();
@@ -915,29 +864,45 @@ void main() {
       );
     });
 
-    test('successor must be published in a newer additive track', () {
+    test('successor must be published in a newer replacement track', () {
       final sameEdition = _manifest();
       final retired = _segment(sameEdition, 'segment_a1_first');
       retired['lifecycle'] = 'retired';
       retired['successorSegmentId'] = 'segment_a1_second';
-      _segment(sameEdition, 'segment_a1_second')['constructLineageId'] =
-          'segment_a1_first';
+      _segment(sameEdition, 'segment_a1_second')
+        ..['constructLineageId'] = 'segment_a1_first'
+        ..['proofRevision'] = 2;
       expect(
         () => _load(sameEdition),
-        _throwsFormatContaining('different additive edition'),
+        _throwsFormatContaining('different replacement edition'),
       );
 
-      final draftExtension = _withA1Extension(
+      final extension = _withA1Extension(
         _manifest(),
-        extensionPublished: false,
         constructLineageId: 'segment_a1_first',
       );
-      final draftRetired = _segment(draftExtension, 'segment_a1_first');
-      draftRetired['lifecycle'] = 'retired';
-      draftRetired['successorSegmentId'] = 'segment_a1_extension';
+      _segment(extension, 'segment_a1_first')
+        ..['lifecycle'] = 'retired'
+        ..['successorSegmentId'] = 'segment_a1_extension';
+      _segment(extension, 'segment_a1_extension')['proofRevision'] = 2;
       expect(
         () => _load(
-          draftExtension,
+          extension,
+          assessmentAuthorities: _withA1ExtensionAuthority(),
+        ),
+        _throwsFormatContaining('newer non-draft replacement track'),
+      );
+
+      final draftReplacement = _withA1Replacement(
+        _manifest(),
+        replacementPublished: false,
+      );
+      final draftRetired = _segment(draftReplacement, 'segment_a1_first');
+      draftRetired['lifecycle'] = 'retired';
+      draftRetired['successorSegmentId'] = 'segment_a1_first_proof_v2';
+      expect(
+        () => _load(
+          draftReplacement,
           assessmentAuthorities: _assessmentAuthorities,
         ),
         _throwsFormatContaining('successor must be published'),
@@ -1003,6 +968,32 @@ List<SegmentAssessmentAuthority> _withA1ExtensionAuthority() => [
     unitId: 'unit_a1',
     conceptIds: const ['concept_a1_first'],
     mode: SegmentEvidenceMode.connectedProduction,
+  ),
+];
+
+List<SegmentAssessmentAuthority> _withA1ReplacementAuthority() => [
+  ..._assessmentAuthorities,
+  _assessmentAuthority(
+    id: 'assess_a1_first_proof_v2',
+    linkId: 'link_a1_first_proof_v2',
+    level: LearnerLevel.a1,
+    unitId: 'unit_a1',
+    conceptIds: const ['concept_a1_first'],
+    mode: SegmentEvidenceMode.connectedProduction,
+    rubricVersion: 3,
+  ),
+];
+
+List<SegmentAssessmentAuthority> _withSecondA1ReplacementAuthority() => [
+  ..._withA1ReplacementAuthority(),
+  _assessmentAuthority(
+    id: 'assess_a1_first_proof_v3',
+    linkId: 'link_a1_first_proof_v3',
+    level: LearnerLevel.a1,
+    unitId: 'unit_a1',
+    conceptIds: const ['concept_a1_first'],
+    mode: SegmentEvidenceMode.openWriting,
+    rubricVersion: 4,
   ),
 ];
 
@@ -1214,6 +1205,133 @@ Map<String, dynamic> _withSecondA1Extension(
     if (extensionPublished) 'publishedAt': '2026-08-18T00:00:00.000Z',
     'status': extensionPublished ? 'published' : 'draft',
   });
+  return manifest;
+}
+
+Map<String, dynamic> _withA1Replacement(
+  Map<String, dynamic> manifest, {
+  int trackOrder = 2,
+  bool replacementPublished = true,
+  bool connectPredecessor = true,
+  String constructLineageId = 'segment_a1_first',
+}) {
+  const trackId = 'a1_replacement_2026_v2';
+  const editionId = 'edition_a1_replacement_v2';
+  const segmentId = 'segment_a1_first_proof_v2';
+  (manifest['contentClusters'] as List<Object?>).add(
+    _contentClusterJson(
+      id: 'cluster_a1_first_proof_v2',
+      level: 'a1',
+      referenceKind: 'scenario',
+      referenceId: 'scenario_a1_first',
+    ),
+  );
+  final segment = _segmentJson(
+    id: segmentId,
+    unitId: 'unit_a1',
+    level: 'a1',
+    order: 3,
+    conceptId: 'concept_a1_first',
+    clusterId: 'cluster_a1_first_proof_v2',
+    editionId: editionId,
+    trackId: trackId,
+    title: '첫 능력 증명 교체',
+    evidenceMode: 'connectedProduction',
+    constructLineageId: constructLineageId,
+  );
+  segment['proofRevision'] = 2;
+  final requirement =
+      (segment['assessmentRequirements'] as List<Object?>).single
+          as Map<String, dynamic>;
+  requirement['rubricVersion'] = 3;
+  if (!replacementPublished) {
+    segment
+      ..['lifecycle'] = 'draft'
+      ..['requiredConceptIds'] = <String>[]
+      ..['proofRevision'] = 0
+      ..['assessmentRequirements'] = <Object?>[]
+      ..['ownedAssessmentItemIds'] = <String>[];
+  }
+  (manifest['segments'] as List<Object?>).add(segment);
+  (manifest['trackEditions'] as List<Object?>).add({
+    'id': editionId,
+    'releaseTrackId': trackId,
+    'level': 'a1',
+    'segmentIds': [segmentId],
+    if (replacementPublished) 'publishedAt': '2026-08-17T00:00:00.000Z',
+    'status': replacementPublished ? 'published' : 'draft',
+  });
+  (manifest['releaseTracks'] as List<Object?>).add({
+    'id': trackId,
+    'kind': 'replacement',
+    'order': trackOrder,
+    'title': _text('A1 증명 교체'),
+    'editionIds': [editionId],
+    if (replacementPublished) 'publishedAt': '2026-08-17T00:00:00.000Z',
+    'status': replacementPublished ? 'published' : 'draft',
+  });
+  if (connectPredecessor && replacementPublished) {
+    _segment(manifest, 'segment_a1_first')
+      ..['lifecycle'] = 'retired'
+      ..['successorSegmentId'] = segmentId;
+  }
+  return manifest;
+}
+
+Map<String, dynamic> _withSecondA1Replacement(
+  Map<String, dynamic> manifest, {
+  int trackOrder = 3,
+}) {
+  const trackId = 'a1_replacement_2026_v3';
+  const editionId = 'edition_a1_replacement_v3';
+  const segmentId = 'segment_a1_first_proof_v3';
+  (manifest['contentClusters'] as List<Object?>).add(
+    _contentClusterJson(
+      id: 'cluster_a1_first_proof_v3',
+      level: 'a1',
+      referenceKind: 'scenario',
+      referenceId: 'scenario_a1_first',
+    ),
+  );
+  final segment = _segmentJson(
+    id: segmentId,
+    unitId: 'unit_a1',
+    level: 'a1',
+    order: 4,
+    conceptId: 'concept_a1_first',
+    clusterId: 'cluster_a1_first_proof_v3',
+    editionId: editionId,
+    trackId: trackId,
+    title: '첫 능력 증명 두 번째 교체',
+    evidenceMode: 'openWriting',
+    constructLineageId: 'segment_a1_first',
+  );
+  segment['proofRevision'] = 3;
+  final requirement =
+      (segment['assessmentRequirements'] as List<Object?>).single
+          as Map<String, dynamic>;
+  requirement['rubricVersion'] = 4;
+  (manifest['segments'] as List<Object?>).add(segment);
+  (manifest['trackEditions'] as List<Object?>).add({
+    'id': editionId,
+    'releaseTrackId': trackId,
+    'level': 'a1',
+    'segmentIds': [segmentId],
+    'publishedAt': '2026-08-18T00:00:00.000Z',
+    'status': 'published',
+  });
+  (manifest['releaseTracks'] as List<Object?>).add({
+    'id': trackId,
+    'kind': 'replacement',
+    'order': trackOrder,
+    'title': _text('A1 두 번째 증명 교체'),
+    'editionIds': [editionId],
+    'publishedAt': '2026-08-18T00:00:00.000Z',
+    'status': 'published',
+  });
+  _segment(manifest, 'segment_a1_first_proof_v2')
+    ..['lifecycle'] = 'retired'
+    ..['successorSegmentId'] = segmentId;
   return manifest;
 }
 

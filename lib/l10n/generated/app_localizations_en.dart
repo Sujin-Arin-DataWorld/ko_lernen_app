@@ -5541,6 +5541,210 @@ class AppL10nEn extends AppL10n {
       'You can preview this mission. Scores and progress count only when it is active.';
 
   @override
+  String get courseReassessmentTitle => 'Prove your ability';
+
+  @override
+  String get courseReassessmentEyebrow => 'PRODUCTIVE EVIDENCE';
+
+  @override
+  String get courseReassessmentLoading => 'Preparing your task.';
+
+  @override
+  String get courseReassessmentLoadError =>
+      'This assessment could not be loaded safely.';
+
+  @override
+  String get courseReassessmentError =>
+      'The evidence could not be saved. Please try again.';
+
+  @override
+  String courseReassessmentStep(int current, int total) {
+    return 'Evidence $current of $total';
+  }
+
+  @override
+  String courseReassessmentProjectStep(int current, int total) {
+    return 'Project step $current of $total';
+  }
+
+  @override
+  String get courseReassessmentRole => 'Your role';
+
+  @override
+  String get courseReassessmentPrivacy =>
+      'Free writing and notes are not sent to Firebase or analytics. Verified speaking is unavailable until its separate consent and privacy-preserving service are ready.';
+
+  @override
+  String get courseReassessmentAnswer => 'Your Korean answer';
+
+  @override
+  String get courseReassessmentAnswerHint =>
+      'Express the meaning in your own words.';
+
+  @override
+  String courseReassessmentLength(int minimum, int maximum) {
+    return '$minimum to $maximum Korean characters';
+  }
+
+  @override
+  String courseReassessmentEvidencePoint(int index) {
+    return 'Evidence point $index';
+  }
+
+  @override
+  String get courseReassessmentEvidencePointHint =>
+      'Write this point in Korean and include it in your complete answer.';
+
+  @override
+  String get courseReassessmentSourceForPoint => 'Source for this point';
+
+  @override
+  String get courseReassessmentSources => 'Compare the materials';
+
+  @override
+  String courseReassessmentSource(int index) {
+    return 'Source $index';
+  }
+
+  @override
+  String get courseReassessmentProjectReviewTitle =>
+      'Review the sources before you respond';
+
+  @override
+  String get courseReassessmentProjectReviewBody =>
+      'Read every newly introduced source and open its provenance. This receipt records only the source IDs, not your notes.';
+
+  @override
+  String get courseReassessmentProjectMarkReviewed =>
+      'I read and compared this source';
+
+  @override
+  String get courseReassessmentProjectShowProvenance => 'Show provenance';
+
+  @override
+  String get courseReassessmentProjectHideProvenance => 'Hide provenance';
+
+  @override
+  String get courseReassessmentProjectCompleteReview =>
+      'Complete source review';
+
+  @override
+  String get courseReassessmentProjectReviewing => 'Checking sources …';
+
+  @override
+  String get courseReassessmentProjectReviewIncomplete =>
+      'Read every source and open each provenance note before continuing.';
+
+  @override
+  String get courseReassessmentConnectSources =>
+      'Mark the relationships between sources';
+
+  @override
+  String get courseReassessmentRelationship => 'Role of this source';
+
+  @override
+  String get courseReassessmentSubmit => 'Check my answer';
+
+  @override
+  String get courseReassessmentSubmitEvidence => 'Check source connections';
+
+  @override
+  String get courseReassessmentChecking => 'Checking …';
+
+  @override
+  String get courseReassessmentOralUnavailableTitle =>
+      'Verified speaking is not available yet';
+
+  @override
+  String get courseReassessmentOralUnavailableBody =>
+      'The current 10-second read-aloud exercise only practices pronunciation, so it cannot issue this ability seal. A separate unscripted assessment lasting 45 to 120 seconds will be enabled only after its consent, privacy, and scoring service passes review.';
+
+  @override
+  String get courseReassessmentPrerequisiteTitle =>
+      'An earlier piece of evidence is still missing';
+
+  @override
+  String get courseReassessmentPrerequisiteBody =>
+      'Complete the linked evidence first. Your position in the course will not be rewound.';
+
+  @override
+  String get courseReassessmentOpenPrerequisite => 'Open missing evidence';
+
+  @override
+  String get courseReassessmentPassedTitle => 'Evidence passed';
+
+  @override
+  String courseReassessmentPassedBody(int score) {
+    return '$score%. Only the result and its exact task provenance were saved.';
+  }
+
+  @override
+  String get courseReassessmentTryAgainTitle => 'Not secure enough yet';
+
+  @override
+  String courseReassessmentTryAgainBody(int score) {
+    return '$score%. Your answer was not saved. You can revise it now.';
+  }
+
+  @override
+  String get courseReassessmentContinue => 'Open the next evidence task';
+
+  @override
+  String get courseReassessmentRetry => 'Revise my answer';
+
+  @override
+  String get courseReassessmentFinish => 'Done';
+
+  @override
+  String get courseReassessmentCompleteTitle => 'Speaking and writing verified';
+
+  @override
+  String get courseReassessmentCompleteBody =>
+      'All required productive evidence for this ability has been checked. Your course position stayed unchanged.';
+
+  @override
+  String get courseReassessmentModeGuidedProduction =>
+      'Guided original response';
+
+  @override
+  String get courseReassessmentModeDictation => 'Dictation';
+
+  @override
+  String get courseReassessmentModeConnectedProduction => 'Connected writing';
+
+  @override
+  String get courseReassessmentModeOpenWriting => 'Open writing';
+
+  @override
+  String get courseReassessmentModeOral => 'Oral delivery';
+
+  @override
+  String get courseReassessmentModeConnectedEvidence => 'Connect sources';
+
+  @override
+  String get courseReassessmentRoleSupport => 'supports the claim';
+
+  @override
+  String get courseReassessmentRoleContrast => 'shows a contrast';
+
+  @override
+  String get courseReassessmentRoleLimitation => 'limits the claim';
+
+  @override
+  String get courseReassessmentRoleComplement => 'adds complementary evidence';
+
+  @override
+  String get courseReassessmentRoleContext => 'provides context';
+
+  @override
+  String get courseReassessmentRoleStakeholder =>
+      'shows a stakeholder perspective';
+
+  @override
+  String get courseReassessmentRoleCounterexample =>
+      'provides a counterexample';
+
+  @override
   String get courseSectionToday => 'What counts today';
 
   @override

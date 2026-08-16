@@ -1,11 +1,15 @@
 import 'dart:convert';
 
+import '../models/can_do_segment.dart';
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/learner_level.dart';
+import '../models/productive_mastery.dart';
 import 'account/reconciliation_errors.dart';
 import 'curriculum_catalog.dart';
+import 'course_segment_catalog.dart';
+import 'productive_assessment_service.dart';
 import 'storage_service.dart';
 
 /// A corrective activity for an answer that needs more than vocabulary SRS.
@@ -36,6 +40,34 @@ class CourseUpdate {
   final CourseMasterySnapshot? previousSnapshot;
   final CourseUnit? newlyUnlockedUnit;
   final RemediationRecommendation? remediation;
+}
+
+/// A productive proof write is deliberately separate from [CourseUpdate]. It
+/// cannot unlock, complete, rewind, or select a course unit.
+class ProductiveCourseUpdate {
+  const ProductiveCourseUpdate({
+    required this.snapshot,
+    required this.acceptedEvidence,
+  });
+
+  final CourseMasterySnapshot snapshot;
+
+  /// The winning records actually present in [snapshot] after deterministic
+  /// logical-slot merge. A successful retry may lose to stronger prior proof,
+  /// so callers must use these IDs for a dependent oral submission.
+  final List<ProductiveMasteryEvidence> acceptedEvidence;
+}
+
+/// An odd project source-review receipt write is separate from both course
+/// progression and productive language seals.
+class ProductiveProjectStepUpdate {
+  const ProductiveProjectStepUpdate({
+    required this.snapshot,
+    required this.acceptedEvidence,
+  });
+
+  final CourseMasterySnapshot snapshot;
+  final ProductiveProjectStepEvidence acceptedEvidence;
 }
 
 /// Local, schema-checked progression graph for grammar, particles, speech
@@ -111,6 +143,20 @@ class CourseMasteryService {
       bodyOf: (entry) => jsonEncode(entry.toJson()),
       conflicts: conflicts,
     );
+    final productiveEvidence = _mergeProductiveEvidence(
+      local?.productiveEvidence ?? const [],
+      remote?.productiveEvidence ?? const [],
+      conflicts: conflicts,
+    );
+    final productiveProjectStepEvidence =
+        _mergeIdentityHistory<ProductiveProjectStepEvidence>(
+          local?.productiveProjectStepEvidence ?? const [],
+          remote?.productiveProjectStepEvidence ?? const [],
+          kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+          idOf: (entry) => entry.id,
+          bodyOf: (entry) => jsonEncode(entry.toJson()),
+          conflicts: conflicts,
+        );
 
     final completed = <String>{
       ...?local?.completedUnitIds,
@@ -153,6 +199,8 @@ class CourseMasteryService {
 
     evidence.sort(_compareEvidence);
     checkpoints.sort(_compareCheckpoints);
+    productiveEvidence.sort(_compareProductiveEvidence);
+    productiveProjectStepEvidence.sort(_compareProductiveProjectStepEvidence);
     var merged = CourseMasterySnapshot(
       placementLevel: placement,
       currentCourseUnitId: current?.id,
@@ -160,6 +208,8 @@ class CourseMasteryService {
       bypassedPrerequisiteUnitIds: bypassedIds,
       evidence: evidence,
       scenarioCheckpoints: checkpoints,
+      productiveEvidence: productiveEvidence,
+      productiveProjectStepEvidence: productiveProjectStepEvidence,
     );
     merged = merged.copyWith(
       evidence: _boundedEvidenceFor(merged.evidence, current),
@@ -300,7 +350,7 @@ class CourseMasteryService {
   }
 
   /// Produces the only course state eligible to leave this device. Existing
-  /// canonical v2 bytes are catalog-validated without mutation. When v2 is
+  /// canonical bytes are catalog-validated without mutation. When they are
   /// absent, a retained v1 record or dedicated course mirrors are migrated
   /// through canonical-first persistence before the caller can serialize
   /// them. Browse and legacy account-level state are never inputs here.
@@ -309,14 +359,21 @@ class CourseMasteryService {
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     if (canonicalRaw.isNotEmpty) {
       final snapshotJson = _decodeStoredSnapshotJson(canonicalRaw);
-      if (CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
-          CourseMasterySnapshot.currentVersion) {
+      final sourceVersion = CourseMasterySnapshot.sourceVersionFor(
+        snapshotJson,
+      );
+      if (sourceVersion < 2) {
         throw const FormatException(
-          'Canonical course mastery storage must use schema version 2.',
+          'Canonical course mastery storage cannot contain a v1 snapshot.',
         );
       }
       final snapshot = CourseMasterySnapshot.decodeAndMigrate(snapshotJson);
       _validateSnapshot(snapshot);
+      if (sourceVersion != CourseMasterySnapshot.currentVersion) {
+        await _persistSnapshot(snapshot, mirrorLegacyUserLevel: false);
+        _snapshot = snapshot;
+        _loaded = true;
+      }
       return snapshot;
     }
 
@@ -609,6 +666,270 @@ class CourseMasteryService {
       ]),
     );
     return _commitUpdate(previousSnapshot: previousSnapshot);
+  }
+
+  /// Records a deterministic receipt for source-review step 1 or 3 without
+  /// changing course progression or minting a language-production seal.
+  Future<ProductiveProjectStepUpdate> recordProductiveProjectStep({
+    required ProductiveProjectStepReviewResult result,
+    required ProductiveAssessmentCatalog assessmentCatalog,
+    required CourseSegmentCatalog segmentCatalog,
+  }) async {
+    await _ensureLoaded();
+    assessmentCatalog.bind(segmentCatalog);
+    final step = assessmentCatalog.projectStepFor(
+      result.projectId,
+      result.stepId,
+    );
+    if (!result.passed ||
+        step == null ||
+        step.order != result.stepOrder ||
+        (step.order != 1 && step.order != 3) ||
+        result.courseUnitId !=
+            assessmentCatalog.courseUnitIdForProjectStep(
+              result.projectId,
+              result.stepId,
+            ) ||
+        result.authorityFingerprint !=
+            assessmentCatalog.projectStepAuthorityFingerprint(
+              result.projectId,
+              result.stepId,
+            ) ||
+        result.evaluatorVersion != productiveEvaluatorVersion ||
+        !_sameStringSet(
+          result.reviewedSourceSnippetIds,
+          assessmentCatalog.introducedSourceIdsForStep(
+            result.projectId,
+            result.stepId,
+          ),
+        )) {
+      throw const FormatException(
+        'Project source-review result does not match its catalog authority.',
+      );
+    }
+    final unitIsEligible =
+        currentUnit?.id == result.courseUnitId ||
+        _snapshot.completedUnitIds.contains(result.courseUnitId);
+    if (!unitIsEligible ||
+        _snapshot.bypassedPrerequisiteUnitIds.contains(result.courseUnitId)) {
+      throw StateError(
+        'Project source review requires its active or completed course unit.',
+      );
+    }
+    if (step.order == 3) {
+      final project = assessmentCatalog.projectsById[result.projectId]!;
+      final assessedStep = project.steps.singleWhere(
+        (candidate) => candidate.order == 2,
+      );
+      final earlierBundle = assessmentCatalog.bundles.singleWhere(
+        (bundle) =>
+            bundle.projectId == result.projectId &&
+            bundle.stepId == assessedStep.id,
+      );
+      final verified = verifiedCanDoSegmentIds(
+        evidence: _snapshot.productiveEvidence,
+        projectStepEvidence: _snapshot.productiveProjectStepEvidence,
+        segmentCatalog: segmentCatalog,
+        assessmentCatalog: assessmentCatalog,
+      );
+      if (!verified.contains(earlierBundle.canDoSegmentId)) {
+        throw StateError(
+          'Project step 3 requires the complete step-2 productive seal.',
+        );
+      }
+    }
+
+    final accepted = ProductiveProjectStepEvidence(
+      projectId: result.projectId,
+      stepId: result.stepId,
+      stepOrder: result.stepOrder,
+      courseUnitId: result.courseUnitId,
+      authorityFingerprint: result.authorityFingerprint,
+      evaluatorVersion: result.evaluatorVersion,
+      reviewedSourceSnippetIds: result.reviewedSourceSnippetIds,
+    );
+    final beforeCurrent = _snapshot.currentCourseUnitId;
+    final beforeCompleted = List<String>.of(_snapshot.completedUnitIds);
+    final merged = <String, ProductiveProjectStepEvidence>{
+      for (final entry in _snapshot.productiveProjectStepEvidence)
+        entry.id: entry,
+      accepted.id: accepted,
+    }.values.toList()..sort(_compareProductiveProjectStepEvidence);
+    _snapshot = _snapshot.copyWith(productiveProjectStepEvidence: merged);
+    _validateSnapshot(_snapshot);
+    await _persist();
+    if (_snapshot.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+      throw StateError('Project source review mutated course progression.');
+    }
+    return ProductiveProjectStepUpdate(
+      snapshot: _snapshot,
+      acceptedEvidence: accepted,
+    );
+  }
+
+  /// Records only a successful, executable productive assessment. The exact
+  /// definition and immutable segment catalog are rechecked at this boundary;
+  /// a UI flag or fabricated result cannot become permanent proof.
+  ///
+  /// Failed results are intentionally not written. Successful reassessment of
+  /// a completed unit adds proof while preserving the current course pointer
+  /// and completed-unit set byte-for-byte.
+  Future<ProductiveCourseUpdate> recordProductiveAssessment({
+    required ProductiveAssessmentResult result,
+    required ProductiveAssessmentCatalog assessmentCatalog,
+    required CourseSegmentCatalog segmentCatalog,
+  }) async {
+    await _ensureLoaded();
+    assessmentCatalog.bind(segmentCatalog);
+    final definition = assessmentCatalog.definitionFor(result.assessmentItemId);
+    if (definition == null ||
+        definition.canDoSegmentId != result.canDoSegmentId ||
+        definition.authorityFingerprint != result.definitionFingerprint ||
+        result.evaluatorVersion != productiveEvaluatorVersion) {
+      throw const FormatException(
+        'Productive result does not match its executable definition.',
+      );
+    }
+    final segment = segmentCatalog.findSegment(definition.canDoSegmentId);
+    if (segment == null ||
+        segment.parentCourseUnitId != definition.courseUnitId) {
+      throw const FormatException(
+        'Productive result does not match an immutable segment.',
+      );
+    }
+    if (!result.passed) {
+      return ProductiveCourseUpdate(
+        snapshot: _snapshot,
+        acceptedEvidence: const [],
+      );
+    }
+    if (!result.score.isFinite ||
+        result.score < definition.minimumScore ||
+        result.score > 1) {
+      throw const FormatException(
+        'Passing productive result has an invalid score.',
+      );
+    }
+    final unitIsEligible =
+        currentUnit?.id == definition.courseUnitId ||
+        _snapshot.completedUnitIds.contains(definition.courseUnitId);
+    if (!unitIsEligible ||
+        _snapshot.bypassedPrerequisiteUnitIds.contains(
+          definition.courseUnitId,
+        )) {
+      throw StateError(
+        'Productive assessment requires its active or completed course unit.',
+      );
+    }
+
+    final bundle = assessmentCatalog.bundleForSegment(
+      definition.canDoSegmentId,
+    );
+    if (bundle != null) {
+      final project = assessmentCatalog.projectsById[bundle.projectId]!;
+      final assessedStep = project.steps.singleWhere(
+        (step) => step.id == bundle.stepId,
+      );
+      final requiredReview = project.steps.singleWhere(
+        (step) => step.order == assessedStep.order - 1,
+      );
+      final trustedSteps = trustedProductiveProjectStepEvidence(
+        evidence: _snapshot.productiveProjectStepEvidence,
+        assessmentCatalog: assessmentCatalog,
+      );
+      if (!trustedSteps.any(
+        (entry) =>
+            entry.projectId == project.id && entry.stepId == requiredReview.id,
+      )) {
+        throw StateError(
+          'Productive assessment requires its preceding source-review step.',
+        );
+      }
+    }
+
+    final trustedEvidence = trustedProductiveMasteryEvidence(
+      evidence: _snapshot.productiveEvidence,
+      assessmentCatalog: assessmentCatalog,
+    );
+    final prerequisiteEvidence = <ProductiveMasteryEvidence>[];
+    for (final prerequisiteId in definition.prerequisiteAssessmentItemIds) {
+      final prerequisite = assessmentCatalog.definitionFor(prerequisiteId)!;
+      final verified = _verifiedProductiveEvidenceFor(
+        prerequisite,
+        trustedEvidence,
+      );
+      if (verified.length != prerequisite.conceptIds.length) {
+        throw StateError(
+          'Productive prerequisite $prerequisiteId is not verified.',
+        );
+      }
+      prerequisiteEvidence.addAll(verified);
+    }
+    for (final evidenceId in result.supportingEvidenceIds) {
+      final matching = trustedEvidence
+          .where((entry) => entry.id == evidenceId)
+          .toList(growable: false);
+      if (matching.length != 1 ||
+          !definition.prerequisiteAssessmentItemIds.contains(
+            matching.single.assessmentItemId,
+          )) {
+        throw const FormatException(
+          'Productive result references untrusted supporting evidence.',
+        );
+      }
+      prerequisiteEvidence.add(matching.single);
+    }
+    final prerequisiteIds =
+        prerequisiteEvidence.map((entry) => entry.id).toSet().toList()..sort();
+    final accepted = <ProductiveMasteryEvidence>[
+      for (final conceptId in definition.conceptIds)
+        ProductiveMasteryEvidence(
+          assessmentItemId: definition.assessmentItemId,
+          canDoSegmentId: definition.canDoSegmentId,
+          courseUnitId: definition.courseUnitId,
+          missionContentLinkId: definition.missionContentLinkId,
+          conceptId: conceptId,
+          evidenceMode: definition.evidenceMode,
+          rubricVersion: definition.rubricVersion,
+          score: result.score,
+          occurredAt: result.occurredAt,
+          courseEligible: true,
+          definitionFingerprint: definition.authorityFingerprint,
+          evaluatorVersion: result.evaluatorVersion,
+          prerequisiteEvidenceIds: prerequisiteIds,
+          coverage: result.coverage,
+          oralScore: result.oralScore,
+          assessmentAttemptId: result.assessmentAttemptId,
+        ),
+    ];
+    final beforeCurrent = _snapshot.currentCourseUnitId;
+    final beforeCompleted = List<String>.of(_snapshot.completedUnitIds);
+    final merged = _collapseProductiveSlots([
+      ..._snapshot.productiveEvidence,
+      ...accepted,
+    ])..sort(_compareProductiveEvidence);
+    final selected = <ProductiveMasteryEvidence>[
+      for (final conceptId in definition.conceptIds)
+        merged.singleWhere(
+          (entry) =>
+              entry.assessmentItemId == definition.assessmentItemId &&
+              entry.canDoSegmentId == definition.canDoSegmentId &&
+              entry.conceptId == conceptId &&
+              entry.rubricVersion == definition.rubricVersion,
+        ),
+    ];
+    _snapshot = _snapshot.copyWith(productiveEvidence: merged);
+    _validateSnapshot(_snapshot);
+    await _persist();
+    if (_snapshot.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+      throw StateError('Productive evidence mutated course progression.');
+    }
+    return ProductiveCourseUpdate(
+      snapshot: _snapshot,
+      acceptedEvidence: List.unmodifiable(selected),
+    );
   }
 
   /// Current learner-facing concept state, derived only after the catalog and
@@ -1149,6 +1470,31 @@ class CourseMasteryService {
     for (final checkpoint in snapshot.scenarioCheckpoints) {
       _validateCheckpoint(checkpoint);
     }
+    final productiveIds = <String>{};
+    for (final evidence in snapshot.productiveEvidence) {
+      if (!productiveIds.add(evidence.id)) {
+        throw const FormatException(
+          'Duplicate productive evidence IDs are not allowed.',
+        );
+      }
+      _validateProductiveEvidence(evidence);
+    }
+    for (final evidence in snapshot.productiveEvidence) {
+      if (!productiveIds.containsAll(evidence.prerequisiteEvidenceIds)) {
+        throw FormatException(
+          'Productive evidence ${evidence.id} has a missing prerequisite.',
+        );
+      }
+    }
+    final projectStepIds = <String>{};
+    for (final evidence in snapshot.productiveProjectStepEvidence) {
+      if (!projectStepIds.add(evidence.id)) {
+        throw const FormatException(
+          'Duplicate productive project step evidence is not allowed.',
+        );
+      }
+      _validateProductiveProjectStepEvidence(evidence);
+    }
   }
 
   void _validateProgressionCoherence(CourseMasterySnapshot snapshot) {
@@ -1332,6 +1678,41 @@ class CourseMasteryService {
           'Eligible checkpoint must reference its mission assessment link.',
         );
       }
+    }
+  }
+
+  void _validateProductiveEvidence(ProductiveMasteryEvidence evidence) {
+    _requireKnownConcept(evidence.conceptId);
+    _requireKnownUnit(evidence.courseUnitId);
+    _validTimestamp(evidence.occurredAt);
+    _validScore(evidence.score);
+    if (!evidence.courseEligible ||
+        evidence.assessmentItemId.trim().isEmpty ||
+        evidence.canDoSegmentId.trim().isEmpty ||
+        evidence.missionContentLinkId.trim().isEmpty ||
+        evidence.rubricVersion <= 0) {
+      throw const FormatException('Invalid productive mastery evidence.');
+    }
+    if (evidence.evidenceMode == SegmentEvidenceMode.oralProduction &&
+        evidence.oralScore == null) {
+      throw const FormatException(
+        'Oral productive evidence requires trusted score dimensions.',
+      );
+    }
+  }
+
+  void _validateProductiveProjectStepEvidence(
+    ProductiveProjectStepEvidence evidence,
+  ) {
+    _requireKnownUnit(evidence.courseUnitId);
+    if ((evidence.stepOrder != 1 && evidence.stepOrder != 3) ||
+        evidence.projectId.trim().isEmpty ||
+        evidence.stepId.trim().isEmpty ||
+        evidence.authorityFingerprint.trim().isEmpty ||
+        evidence.evaluatorVersion != productiveEvaluatorVersion ||
+        evidence.resultFingerprint.trim().isEmpty ||
+        evidence.reviewedSourceSnippetIds.isEmpty) {
+      throw const FormatException('Invalid productive project step evidence.');
     }
   }
 
@@ -1521,6 +1902,51 @@ class CourseMasteryService {
         );
       }
     }
+    final productiveIds = snapshot.productiveEvidence
+        .map((entry) => entry.id)
+        .toSet();
+    if (productiveIds.length != snapshot.productiveEvidence.length) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.productiveEvidence,
+          id: 'duplicateProductiveEvidence',
+        ),
+      );
+    }
+    for (final entry in snapshot.productiveEvidence) {
+      try {
+        if (entry.id.trim().isEmpty) {
+          throw const FormatException(
+            'Productive evidence ID must not be empty.',
+          );
+        }
+        _validateProductiveEvidence(entry);
+        if (!productiveIds.containsAll(entry.prerequisiteEvidenceIds)) {
+          throw const FormatException(
+            'Productive evidence prerequisite is missing.',
+          );
+        }
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.productiveEvidence,
+            id: entry.id,
+          ),
+        );
+      }
+    }
+    for (final entry in snapshot.productiveProjectStepEvidence) {
+      try {
+        _validateProductiveProjectStepEvidence(entry);
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+            id: entry.id,
+          ),
+        );
+      }
+    }
   }
 
   bool _collectUnitListConflicts(
@@ -1567,6 +1993,159 @@ class CourseMasteryService {
     return merged.values.toList();
   }
 
+  List<ProductiveMasteryEvidence> _mergeProductiveEvidence(
+    List<ProductiveMasteryEvidence> local,
+    List<ProductiveMasteryEvidence> remote, {
+    required List<CourseMasteryMergeConflict> conflicts,
+  }) {
+    final identities = _mergeIdentityHistory<ProductiveMasteryEvidence>(
+      local,
+      remote,
+      kind: CourseMasteryMergeConflictKind.productiveEvidence,
+      idOf: (entry) => entry.id,
+      bodyOf: (entry) => jsonEncode(entry.toJson()),
+      conflicts: conflicts,
+    );
+    return _collapseProductiveSlots(identities);
+  }
+
+  List<ProductiveMasteryEvidence> _collapseProductiveSlots(
+    Iterable<ProductiveMasteryEvidence> source,
+  ) {
+    final candidatesById = <String, ProductiveMasteryEvidence>{
+      for (final candidate in source) candidate.id: candidate,
+    };
+    final candidatesBySlot = <String, List<ProductiveMasteryEvidence>>{};
+    for (final candidate in candidatesById.values) {
+      candidatesBySlot
+          .putIfAbsent(candidate.logicalSlotId, () => [])
+          .add(candidate);
+    }
+    final depthMemo = <String, int>{};
+    int dependencyDepth(
+      ProductiveMasteryEvidence candidate,
+      Set<String> visiting,
+    ) {
+      final cached = depthMemo[candidate.id];
+      if (cached != null) {
+        return cached;
+      }
+      if (!visiting.add(candidate.id)) {
+        return 0;
+      }
+      var depth = 0;
+      for (final prerequisiteId in candidate.prerequisiteEvidenceIds) {
+        final prerequisite = candidatesById[prerequisiteId];
+        if (prerequisite != null) {
+          final prerequisiteDepth = dependencyDepth(prerequisite, visiting) + 1;
+          if (prerequisiteDepth > depth) {
+            depth = prerequisiteDepth;
+          }
+        }
+      }
+      visiting.remove(candidate.id);
+      depthMemo[candidate.id] = depth;
+      return depth;
+    }
+
+    final slotDepths = <String, int>{
+      for (final entry in candidatesBySlot.entries)
+        entry.key: entry.value
+            .map((candidate) => dependencyDepth(candidate, <String>{}))
+            .fold(0, (highest, depth) => depth > highest ? depth : highest),
+    };
+    final orderedSlots = candidatesBySlot.keys.toList()
+      ..sort((left, right) {
+        final depth = slotDepths[right]!.compareTo(slotDepths[left]!);
+        return depth != 0 ? depth : left.compareTo(right);
+      });
+    final requiredCandidateIdsBySlot = <String, Set<String>>{};
+    final selected = <String, ProductiveMasteryEvidence>{};
+    for (final slotId in orderedSlots) {
+      final candidates = candidatesBySlot[slotId]!;
+      final requiredIds =
+          requiredCandidateIdsBySlot[slotId] ?? const <String>{};
+      final anchored = candidates
+          .where((candidate) => requiredIds.contains(candidate.id))
+          .toList(growable: false);
+      final available = anchored.isEmpty ? candidates : anchored;
+      var winner = available.first;
+      for (final candidate in available.skip(1)) {
+        if (_preferProductive(candidate, winner)) {
+          winner = candidate;
+        }
+      }
+      selected[slotId] = winner;
+      for (final prerequisiteId in winner.prerequisiteEvidenceIds) {
+        final prerequisite = candidatesById[prerequisiteId];
+        if (prerequisite != null) {
+          requiredCandidateIdsBySlot
+              .putIfAbsent(prerequisite.logicalSlotId, () => <String>{})
+              .add(prerequisite.id);
+        }
+      }
+    }
+    return selected.values.toList();
+  }
+
+  bool _preferProductive(
+    ProductiveMasteryEvidence candidate,
+    ProductiveMasteryEvidence current,
+  ) {
+    final score = candidate.score.compareTo(current.score);
+    if (score != 0) {
+      return score > 0;
+    }
+    final time = candidate.occurredAt.compareTo(current.occurredAt);
+    if (time != 0) {
+      return time > 0;
+    }
+    return candidate.id.compareTo(current.id) > 0;
+  }
+
+  List<ProductiveMasteryEvidence> _verifiedProductiveEvidenceFor(
+    ProductiveAssessmentDefinition definition,
+    Iterable<ProductiveMasteryEvidence> trustedEvidence,
+  ) {
+    final selected = <String, ProductiveMasteryEvidence>{};
+    for (final entry in trustedEvidence) {
+      if (entry.assessmentItemId != definition.assessmentItemId ||
+          entry.canDoSegmentId != definition.canDoSegmentId ||
+          entry.courseUnitId != definition.courseUnitId ||
+          entry.missionContentLinkId != definition.missionContentLinkId ||
+          entry.evidenceMode != definition.evidenceMode ||
+          entry.rubricVersion != definition.rubricVersion ||
+          entry.score < definition.minimumScore ||
+          !entry.courseEligible ||
+          !definition.conceptIds.contains(entry.conceptId)) {
+        continue;
+      }
+      final current = selected[entry.conceptId];
+      if (current == null || _preferProductive(entry, current)) {
+        selected[entry.conceptId] = entry;
+      }
+    }
+    return selected.values.toList(growable: false);
+  }
+
+  bool _sameOrderedStrings(List<String> first, List<String> second) {
+    if (first.length != second.length) {
+      return false;
+    }
+    for (var index = 0; index < first.length; index++) {
+      if (first[index] != second[index]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool _sameStringSet(Iterable<String> first, Iterable<String> second) {
+    final left = first.toSet();
+    final right = second.toSet();
+    return left.length == right.length && left.containsAll(right);
+  }
+
   List<CourseMasteryMergeConflict> _sortedConflicts(
     Iterable<CourseMasteryMergeConflict> conflicts,
   ) {
@@ -1600,5 +2179,29 @@ class CourseMasteryService {
   ) {
     final time = left.occurredAt.compareTo(right.occurredAt);
     return time != 0 ? time : left.id.compareTo(right.id);
+  }
+
+  int _compareProductiveEvidence(
+    ProductiveMasteryEvidence left,
+    ProductiveMasteryEvidence right,
+  ) {
+    final slot = left.logicalSlotId.compareTo(right.logicalSlotId);
+    if (slot != 0) {
+      return slot;
+    }
+    final time = left.occurredAt.compareTo(right.occurredAt);
+    return time != 0 ? time : left.id.compareTo(right.id);
+  }
+
+  int _compareProductiveProjectStepEvidence(
+    ProductiveProjectStepEvidence left,
+    ProductiveProjectStepEvidence right,
+  ) {
+    final project = left.projectId.compareTo(right.projectId);
+    if (project != 0) {
+      return project;
+    }
+    final order = left.stepOrder.compareTo(right.stepOrder);
+    return order != 0 ? order : left.id.compareTo(right.id);
   }
 }

@@ -240,8 +240,11 @@ C2 문법 8개의 현재 예문은 기술·자동화 책임에 치우쳐 있다.
 
 1. 기존 can-do를 더 연습하는 어휘·문법·Smalltalk·Cloze·Satz·시나리오는 같은
    `ContentClusterDefinition`의 revision을 올린다. 기존 segment와 보상은 그대로다.
-2. 동일한 can-do의 평가가 개선되면 `proofRevision`과 assessment/rubric version을
-   올린다. 기존 집은 유지하고 최신 검증 여부만 별도 상태로 제공한다.
+2. 동일한 can-do의 평가가 개선되면 기존 segment의 proof identity를 수정하지 않는다.
+   기존 segment를 retired로 보존하고 같은 construct의 새 successor를 더 새로운
+   replacement track에 발행한다. successor만 더 큰 `proofRevision`과 새
+   assessment/rubric identity를 가지며, replacement는 신규 can-do·영구 보상 분모에
+   포함되지 않는다. 기존 집은 유지하고 최신 검증 여부만 별도 상태로 제공한다.
 3. 독립 can-do와 고유 생산 평가가 추가될 때만 새 segment를 만들고 해당 레벨의 새
    additive edition에 넣는다. 예: `코어 B2 20/20`, `B2 확장 1 0/4`.
 4. 현재 catalog 커버리지는 운영 지표로 따로 계산할 수 있지만, 과거 edition 100%나
@@ -250,6 +253,14 @@ C2 문법 8개의 현재 예문은 기술·자동화 책임에 치우쳐 있다.
 따라서 앞으로 한 레벨에 레코드 500개가 추가되어도 그것만으로 500개 보상이 생기지
 않으며, 반대로 검증 가능한 새로운 생활 수행 능력이 생기면 기존 집을 훼손하지 않고
 새 건축·생활·돌봄 여정으로 계속 확장할 수 있다.
+
+Batch 06 review-only 커밋 `23342c57`의 standalone 68개와 scenario quest 20개는
+이 감사의 canonical 86, content cluster, assessment authority 집계에서 제외한다.
+live human review로 승인·승격된 뒤에도 같은 can-do의 practice라면 cluster revision에만
+append한다. pronunciation·Cloze·Satz·Smalltalk·scenario는 자동 영구 assessment가
+아니다. B1 complaint repair, B2 complaint escalation, C1 evidence limits,
+C2 technology appeal은 final review 전 provisional intent일 뿐 routing authority가
+아니다.
 
 ## `a990d8a3` 콘텐츠 충원 감사와의 관계
 
@@ -265,10 +276,13 @@ Smalltalk를 함께 파생하는 공급 계획을 기록한다. 이 방향은 �
 - 기존 엔진으로 만든 선택·배열·빈칸 근사 활동은 연습만 담당하고 생산 숙달을
   판정하지 않는다.
 - 씨앗이 기존 can-do를 보강하면 cluster revision, 같은 평가를 개선하면
-  proof revision, 독립 can-do와 고유 평가를 만들면 새 extension track으로 분류한다.
+  replacement successor, 독립 can-do와 고유 평가를 만들면 새 extension track으로
+  분류한다.
 - published core는 제품 기본 loader에서 `core_2026_v1`의 여섯 레벨 edition과
   `16/16/18/20/8/8=86`을 정확히 검증하며, successor는 동일
-  `constructLineageId`의 단일 predecessor 선형 계보만 허용한다.
+  `constructLineageId`의 단일 predecessor 선형 계보만 허용한다. successor는 더
+  새로운 replacement track에만 발행하며 그 track은 신규 can-do·한옥 보상 분모에서
+  제외한다.
 - 제품과 테스트가 같은 canonical core policy를 사용하며 public test seam은 두지 않는다.
   새 non-draft extension track은 기존 non-draft 최댓값보다 뒤에만 추가한다.
 

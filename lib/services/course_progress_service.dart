@@ -4,7 +4,9 @@ import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import 'course_mastery_service.dart';
+import 'course_segment_catalog.dart';
 import 'curriculum_catalog.dart';
+import 'productive_assessment_service.dart';
 import 'storage_service.dart';
 
 /// A validated local course snapshot together with the canonical generation
@@ -173,6 +175,34 @@ class CourseProgressService {
       score,
       courseContext: courseContext,
       occurredAt: occurredAt,
+    ),
+  );
+
+  /// Productive proof uses a separate serialized write path and cannot invoke
+  /// sequential course advancement during reassessment.
+  Future<ProductiveCourseUpdate> recordProductiveAssessment({
+    required ProductiveAssessmentResult result,
+    required ProductiveAssessmentCatalog assessmentCatalog,
+    required CourseSegmentCatalog segmentCatalog,
+  }) => _serialized(
+    (service) => service.recordProductiveAssessment(
+      result: result,
+      assessmentCatalog: assessmentCatalog,
+      segmentCatalog: segmentCatalog,
+    ),
+  );
+
+  /// Project source-review receipts use the same serialized CourseMastery
+  /// writer as productive seals but never advance the course pointer.
+  Future<ProductiveProjectStepUpdate> recordProductiveProjectStep({
+    required ProductiveProjectStepReviewResult result,
+    required ProductiveAssessmentCatalog assessmentCatalog,
+    required CourseSegmentCatalog segmentCatalog,
+  }) => _serialized(
+    (service) => service.recordProductiveProjectStep(
+      result: result,
+      assessmentCatalog: assessmentCatalog,
+      segmentCatalog: segmentCatalog,
     ),
   );
 }
