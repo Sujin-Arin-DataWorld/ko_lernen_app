@@ -6,6 +6,7 @@ import {
   validateReleaseIdentity,
 } from "../scripts/release-id.mjs";
 import {
+  createDeployArguments,
   parseActiveDeployment,
   parseDeployOutput,
   shouldRollback,
@@ -89,6 +90,18 @@ test("uses Wrangler structured output and never guesses a deployed version", () 
   ].join("\n"));
   assert.equal(parsed.deploy.version_id, newVersion);
   assert.throws(() => parseDeployOutput("not-json\n"), /invalid NDJSON/);
+});
+
+test("allows the legacy metadata replacement only for the first owned release", () => {
+  const normalArguments = createDeployArguments(releaseSha);
+  const bootstrapArguments = createDeployArguments(releaseSha, { bootstrap: true });
+  assert.equal(normalArguments.includes("--strict"), true);
+  assert.equal(bootstrapArguments.includes("--strict"), false);
+  assert.deepEqual(
+    bootstrapArguments.slice(-4),
+    ["--tag", `release-${releaseSha.slice(0, 12)}`, "--message", `Release ${releaseSha}`],
+  );
+  assert.throws(() => createDeployArguments("abc123"), /full Git release SHA/);
 });
 
 test("rolls back only while the just-deployed version still owns production", () => {

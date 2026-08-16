@@ -77,6 +77,22 @@ export function shouldRollback(currentDeployment, deployedVersionId) {
   }
 }
 
+export function createDeployArguments(releaseSha, { bootstrap = false } = {}) {
+  if (!GIT_SHA_PATTERN.test(String(releaseSha ?? ""))) {
+    throw new Error("A production deploy requires a full Git release SHA.");
+  }
+  return [
+    "deploy",
+    "--config",
+    artifactConfig,
+    ...(bootstrap ? [] : ["--strict"]),
+    "--tag",
+    `release-${releaseSha.slice(0, 12)}`,
+    "--message",
+    `Release ${releaseSha}`,
+  ];
+}
+
 async function git(args) {
   const { stdout } = await execFileAsync("git", args, {
     cwd: projectRoot,
@@ -276,21 +292,18 @@ export async function deployProduction() {
 
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "hangul-sori-deploy-"));
   const outputPath = resolve(temporaryDirectory, "wrangler.ndjson");
+  const bootstrap = direction === "bootstrap";
+  if (bootstrap) {
+    console.warn(
+      "The first owned release will replace legacy Dashboard metadata with the checked-in Worker configuration.",
+    );
+  }
   let deployError = null;
   let deployEvent = null;
   try {
     try {
       await runWrangler(
-        [
-          "deploy",
-          "--config",
-          artifactConfig,
-          "--strict",
-          "--tag",
-          `release-${releaseSha.slice(0, 12)}`,
-          "--message",
-          `Release ${releaseSha}`,
-        ],
+        createDeployArguments(releaseSha, { bootstrap }),
         { env: { WRANGLER_OUTPUT_FILE_PATH: outputPath } },
       );
     } catch (error) {
