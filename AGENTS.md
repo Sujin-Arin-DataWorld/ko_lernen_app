@@ -372,10 +372,15 @@ flutter run -d <android-id>   # 안드로이드
   live 자산에 들어갔다. 현재 카탈로그는 vocab 1620, cloze 962, satz 875,
   smalltalk 365, scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk
   semantic decision 321이다.
-- [ ] **레벨 콘텐츠 4× 초안 (Batch 07/08, review-only)**: 단어 48팩/576개, 문법 24,
-  스몰토크 12, Cloze/Satz 각 576(Batch 07)과 시나리오 174 + 미사용 live Satz 641
-  (Batch 08)을 draft에만 두었다. `--apply`/TTS/Firebase는 Jin 승인 전 금지.
-- [ ] **다음 콘텐츠**: 4× 초안 트랙은 별도 manifest로 보존한다. loader 재계산
+- [ ] **레벨 콘텐츠 4× 잔량 초안 (Batch 09/10, review-only)**: partner-family
+  승격 뒤 충돌하던 Batch 07/08 4× ID를 폐기하고, live max+1부터 다시 붙였다.
+  Batch 09는 단어 48팩/576·문법 24·스몰토크 12·Cloze/Satz 각 576,
+  Batch 10은 시나리오 174 + 미사용 live Satz 640이다. 적용 매니페스트는
+  `batch_09_4x_manifest.json` / `batch_10_4x_manifest.json`이다.
+  옛 `batch_07_4x` / `batch_08_4x`는 `superseded`. `--apply`/TTS/Firebase는
+  Jin 승인 전 금지. 원래 4× 목표(vocab 4752 / scenario 232 / satz 1676)까지는
+  이 슬라이스 이후에도 vocab 잔량이 남는다.
+- [ ] **다음 콘텐츠**: 4× 잔량 초안은 Batch 09/10 manifest로 보존한다. loader 재계산
   작업량은 `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
   PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만
   독립 집필에 쓴다. review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.

@@ -1,23 +1,21 @@
 {
   "version": 1,
-  "batch": "07",
-  "status": "superseded",
+  "batch": "09",
+  "status": "review_only_draft",
   "provenance": {
-    "scope": "Original A1-C2 Korea-appropriate expansion of vocabulary packs, cloze, Satzbau, grammar, and smalltalk. No textbook sentence, prompt, or unit sequence is reproduced.",
+    "scope": "Renumbered A1-C2 4x remainder after live partner-family Batch 07/08. Original Korea-appropriate expansion of vocabulary packs, cloze, Satzbau, grammar, and smalltalk. No textbook sentence, prompt, or unit sequence is reproduced.",
     "rights": "original_clean_room",
     "requiresJinReview": true,
-    "startingMainSha": "82afdcde8ffdbc978499f4dd1cc20bf2944e20ed",
-    "createdAt": "2026-08-16",
-    "supersededBy": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-    "supersededReason": "Numeric IDs and pack orderInLevel collided with live partner-family Batch 07/08.",
-    "supersededAt": "2026-08-17"
+    "startingMainSha": "e17dce3a",
+    "createdAt": "2026-08-17",
+    "replaces": "tools/content_factory/drafts/batch_07_4x_manifest.json"
   },
   "predecessorManifests": [],
   "artifacts": [
     {
       "kind": "vocab",
-      "draft": "tools/content_factory/drafts/c3_batch07_vocab_a1_c2.csv",
-      "review": "tools/content_factory/review/c3_batch07_vocab_a1_c2.csv",
+      "draft": "tools/content_factory/drafts/c3_batch09_vocab_a1_c2.csv",
+      "review": "tools/content_factory/review/c3_batch09_vocab_a1_c2.csv",
       "count": 576,
       "levels": {
         "a1": 96,
@@ -30,8 +28,8 @@
     },
     {
       "kind": "grammar",
-      "draft": "tools/content_factory/drafts/c4_batch07_grammar_a1_c2.csv",
-      "review": "tools/content_factory/review/c4_batch07_grammar_a1_c2.csv",
+      "draft": "tools/content_factory/drafts/c4_batch09_grammar_a1_c2.csv",
+      "review": "tools/content_factory/review/c4_batch09_grammar_a1_c2.csv",
       "count": 24,
       "levels": {
         "a1": 4,
@@ -44,8 +42,8 @@
     },
     {
       "kind": "smalltalk",
-      "draft": "tools/content_factory/drafts/c2_batch07_smalltalk_a1_c2.json",
-      "review": "tools/content_factory/review/c2_batch07_smalltalk_a1_c2.csv",
+      "draft": "tools/content_factory/drafts/c2_batch09_smalltalk_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch09_smalltalk_a1_c2.csv",
       "count": 12,
       "levels": {
         "a1": 2,
@@ -58,8 +56,8 @@
     },
     {
       "kind": "cloze",
-      "draft": "tools/content_factory/drafts/c2_batch07_cloze_a1_c2.json",
-      "review": "tools/content_factory/review/c2_batch07_cloze_a1_c2.csv",
+      "draft": "tools/content_factory/drafts/c2_batch09_cloze_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch09_cloze_a1_c2.csv",
       "count": 576,
       "levels": {
         "a1": 96,
@@ -72,8 +70,8 @@
     },
     {
       "kind": "satz",
-      "draft": "tools/content_factory/drafts/c2_batch07_satz_a1_c2.json",
-      "review": "tools/content_factory/review/c2_batch07_satz_a1_c2.csv",
+      "draft": "tools/content_factory/drafts/c2_batch09_satz_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch09_satz_a1_c2.csv",
       "count": 576,
       "levels": {
         "a1": 96,
@@ -90,7 +88,7 @@
     {
       "packId": "a1_post_office_1",
       "level": "a1",
-      "orderInLevel": 26,
+      "orderInLevel": 34,
       "orderRange": [
         1,
         12
@@ -117,7 +115,7 @@
     {
       "packId": "a1_pharmacy_ask_1",
       "level": "a1",
-      "orderInLevel": 27,
+      "orderInLevel": 35,
       "orderRange": [
         1,
         12
@@ -144,7 +142,7 @@
     {
       "packId": "a1_weekend_promise_1",
       "level": "a1",
-      "orderInLevel": 28,
+      "orderInLevel": 36,
       "orderRange": [
         1,
         12
@@ -171,7 +169,7 @@
     {
       "packId": "a1_neighbors_hall_1",
       "level": "a1",
-      "orderInLevel": 29,
+      "orderInLevel": 37,
       "orderRange": [
         1,
         12
@@ -198,7 +196,7 @@
     {
       "packId": "a1_school_supplies_1",
       "level": "a1",
-      "orderInLevel": 30,
+      "orderInLevel": 38,
       "orderRange": [
         1,
         12
@@ -225,7 +223,7 @@
     {
       "packId": "a1_subway_card_1",
       "level": "a1",
-      "orderInLevel": 31,
+      "orderInLevel": 39,
       "orderRange": [
         1,
         12
@@ -252,7 +250,7 @@
     {
       "packId": "a1_weather_layer_1",
       "level": "a1",
-      "orderInLevel": 32,
+      "orderInLevel": 40,
       "orderRange": [
         1,
         12
@@ -279,7 +277,7 @@
     {
       "packId": "a1_sorry_thanks_1",
       "level": "a1",
-      "orderInLevel": 33,
+      "orderInLevel": 41,
       "orderRange": [
         1,
         12
@@ -306,7 +304,7 @@
     {
       "packId": "a2_phone_plan_1",
       "level": "a2",
-      "orderInLevel": 33,
+      "orderInLevel": 41,
       "orderRange": [
         1,
         12
@@ -333,7 +331,7 @@
     {
       "packId": "a2_bank_counter_1",
       "level": "a2",
-      "orderInLevel": 34,
+      "orderInLevel": 42,
       "orderRange": [
         1,
         12
@@ -360,7 +358,7 @@
     {
       "packId": "a2_gym_class_1",
       "level": "a2",
-      "orderInLevel": 35,
+      "orderInLevel": 43,
       "orderRange": [
         1,
         12
@@ -387,7 +385,7 @@
     {
       "packId": "a2_salon_visit_1",
       "level": "a2",
-      "orderInLevel": 36,
+      "orderInLevel": 44,
       "orderRange": [
         1,
         12
@@ -414,7 +412,7 @@
     {
       "packId": "a2_apt_rules_1",
       "level": "a2",
-      "orderInLevel": 37,
+      "orderInLevel": 45,
       "orderRange": [
         1,
         12
@@ -441,7 +439,7 @@
     {
       "packId": "a2_part_time_1",
       "level": "a2",
-      "orderInLevel": 38,
+      "orderInLevel": 46,
       "orderRange": [
         1,
         12
@@ -468,7 +466,7 @@
     {
       "packId": "a2_lost_found_1",
       "level": "a2",
-      "orderInLevel": 39,
+      "orderInLevel": 47,
       "orderRange": [
         1,
         12
@@ -495,7 +493,7 @@
     {
       "packId": "a2_festival_booth_1",
       "level": "a2",
-      "orderInLevel": 40,
+      "orderInLevel": 48,
       "orderRange": [
         1,
         12
@@ -522,7 +520,7 @@
     {
       "packId": "b1_workplace_mail_1",
       "level": "b1",
-      "orderInLevel": 21,
+      "orderInLevel": 29,
       "orderRange": [
         1,
         12
@@ -549,7 +547,7 @@
     {
       "packId": "b1_roommate_talk_1",
       "level": "b1",
-      "orderInLevel": 22,
+      "orderInLevel": 30,
       "orderRange": [
         1,
         12
@@ -576,7 +574,7 @@
     {
       "packId": "b1_insurance_claim_1",
       "level": "b1",
-      "orderInLevel": 23,
+      "orderInLevel": 31,
       "orderRange": [
         1,
         12
@@ -603,7 +601,7 @@
     {
       "packId": "b1_public_office_1",
       "level": "b1",
-      "orderInLevel": 24,
+      "orderInLevel": 32,
       "orderRange": [
         1,
         12
@@ -630,7 +628,7 @@
     {
       "packId": "b1_volunteer_shift_1",
       "level": "b1",
-      "orderInLevel": 25,
+      "orderInLevel": 33,
       "orderRange": [
         1,
         12
@@ -657,7 +655,7 @@
     {
       "packId": "b1_parent_school_1",
       "level": "b1",
-      "orderInLevel": 26,
+      "orderInLevel": 34,
       "orderRange": [
         1,
         12
@@ -684,7 +682,7 @@
     {
       "packId": "b1_repair_words_1",
       "level": "b1",
-      "orderInLevel": 27,
+      "orderInLevel": 35,
       "orderRange": [
         1,
         12
@@ -711,7 +709,7 @@
     {
       "packId": "b1_travel_change_1",
       "level": "b1",
-      "orderInLevel": 28,
+      "orderInLevel": 36,
       "orderRange": [
         1,
         12
@@ -738,7 +736,7 @@
     {
       "packId": "b2_performance_review_1",
       "level": "b2",
-      "orderInLevel": 30,
+      "orderInLevel": 38,
       "orderRange": [
         1,
         12
@@ -765,7 +763,7 @@
     {
       "packId": "b2_housing_dispute_1",
       "level": "b2",
-      "orderInLevel": 31,
+      "orderInLevel": 39,
       "orderRange": [
         1,
         12
@@ -792,7 +790,7 @@
     {
       "packId": "b2_media_literacy_1",
       "level": "b2",
-      "orderInLevel": 32,
+      "orderInLevel": 40,
       "orderRange": [
         1,
         12
@@ -819,7 +817,7 @@
     {
       "packId": "b2_civic_meeting_1",
       "level": "b2",
-      "orderInLevel": 33,
+      "orderInLevel": 41,
       "orderRange": [
         1,
         12
@@ -846,7 +844,7 @@
     {
       "packId": "b2_team_negotiation_1",
       "level": "b2",
-      "orderInLevel": 34,
+      "orderInLevel": 42,
       "orderRange": [
         1,
         12
@@ -873,7 +871,7 @@
     {
       "packId": "b2_policy_brief_1",
       "level": "b2",
-      "orderInLevel": 35,
+      "orderInLevel": 43,
       "orderRange": [
         1,
         12
@@ -900,7 +898,7 @@
     {
       "packId": "b2_customer_escalation_1",
       "level": "b2",
-      "orderInLevel": 36,
+      "orderInLevel": 44,
       "orderRange": [
         1,
         12
@@ -927,7 +925,7 @@
     {
       "packId": "b2_research_summary_1",
       "level": "b2",
-      "orderInLevel": 37,
+      "orderInLevel": 45,
       "orderRange": [
         1,
         12
@@ -954,7 +952,7 @@
     {
       "packId": "c1_evidence_caveat_1",
       "level": "c1",
-      "orderInLevel": 5,
+      "orderInLevel": 7,
       "orderRange": [
         1,
         12
@@ -981,7 +979,7 @@
     {
       "packId": "c1_public_briefing_1",
       "level": "c1",
-      "orderInLevel": 6,
+      "orderInLevel": 8,
       "orderRange": [
         1,
         12
@@ -1008,7 +1006,7 @@
     {
       "packId": "c1_survey_design_1",
       "level": "c1",
-      "orderInLevel": 7,
+      "orderInLevel": 9,
       "orderRange": [
         1,
         12
@@ -1035,7 +1033,7 @@
     {
       "packId": "c1_risk_wording_1",
       "level": "c1",
-      "orderInLevel": 8,
+      "orderInLevel": 10,
       "orderRange": [
         1,
         12
@@ -1062,7 +1060,7 @@
     {
       "packId": "c1_access_cost_1",
       "level": "c1",
-      "orderInLevel": 9,
+      "orderInLevel": 11,
       "orderRange": [
         1,
         12
@@ -1089,7 +1087,7 @@
     {
       "packId": "c1_participation_design_1",
       "level": "c1",
-      "orderInLevel": 10,
+      "orderInLevel": 12,
       "orderRange": [
         1,
         12
@@ -1116,7 +1114,7 @@
     {
       "packId": "c1_local_tradeoff_1",
       "level": "c1",
-      "orderInLevel": 11,
+      "orderInLevel": 13,
       "orderRange": [
         1,
         12
@@ -1143,7 +1141,7 @@
     {
       "packId": "c1_maintenance_burden_1",
       "level": "c1",
-      "orderInLevel": 12,
+      "orderInLevel": 14,
       "orderRange": [
         1,
         12
@@ -1170,7 +1168,7 @@
     {
       "packId": "c2_framing_analysis_1",
       "level": "c2",
-      "orderInLevel": 5,
+      "orderInLevel": 7,
       "orderRange": [
         1,
         12
@@ -1197,7 +1195,7 @@
     {
       "packId": "c2_institutional_voice_1",
       "level": "c2",
-      "orderInLevel": 6,
+      "orderInLevel": 8,
       "orderRange": [
         1,
         12
@@ -1224,7 +1222,7 @@
     {
       "packId": "c2_memory_narrative_1",
       "level": "c2",
-      "orderInLevel": 7,
+      "orderInLevel": 9,
       "orderRange": [
         1,
         12
@@ -1251,7 +1249,7 @@
     {
       "packId": "c2_authority_language_1",
       "level": "c2",
-      "orderInLevel": 8,
+      "orderInLevel": 10,
       "orderRange": [
         1,
         12
@@ -1278,7 +1276,7 @@
     {
       "packId": "c2_appeal_path_1",
       "level": "c2",
-      "orderInLevel": 9,
+      "orderInLevel": 11,
       "orderRange": [
         1,
         12
@@ -1305,7 +1303,7 @@
     {
       "packId": "c2_audit_trail_1",
       "level": "c2",
-      "orderInLevel": 10,
+      "orderInLevel": 12,
       "orderRange": [
         1,
         12
@@ -1332,7 +1330,7 @@
     {
       "packId": "c2_withdrawal_right_1",
       "level": "c2",
-      "orderInLevel": 11,
+      "orderInLevel": 13,
       "orderRange": [
         1,
         12
@@ -1359,7 +1357,7 @@
     {
       "packId": "c2_automated_harm_1",
       "level": "c2",
-      "orderInLevel": 12,
+      "orderInLevel": 14,
       "orderRange": [
         1,
         12
@@ -2309,511 +2307,481 @@
     {
       "level": "a1",
       "vocabIdRange": [
-        212,
-        223
+        308,
+        319
       ],
       "clozeIdRange": [
-        100,
-        111
+        196,
+        207
       ],
       "satzIdRange": [
-        64,
-        75
-      ]
-    },
-    {
-      "level": "a1",
-      "vocabIdRange": [
-        224,
-        235
-      ],
-      "clozeIdRange": [
-        112,
-        123
-      ],
-      "satzIdRange": [
-        76,
-        87
-      ]
-    },
-    {
-      "level": "a1",
-      "vocabIdRange": [
-        236,
-        247
-      ],
-      "clozeIdRange": [
-        124,
-        135
-      ],
-      "satzIdRange": [
-        88,
-        99
-      ]
-    },
-    {
-      "level": "a1",
-      "vocabIdRange": [
-        248,
-        259
-      ],
-      "clozeIdRange": [
-        136,
-        147
-      ],
-      "satzIdRange": [
-        100,
-        111
-      ]
-    },
-    {
-      "level": "a1",
-      "vocabIdRange": [
-        260,
-        271
-      ],
-      "clozeIdRange": [
-        148,
-        159
-      ],
-      "satzIdRange": [
-        112,
-        123
-      ]
-    },
-    {
-      "level": "a1",
-      "vocabIdRange": [
-        272,
-        283
-      ],
-      "clozeIdRange": [
         160,
         171
-      ],
-      "satzIdRange": [
-        124,
-        135
       ]
     },
     {
       "level": "a1",
       "vocabIdRange": [
-        284,
-        295
+        320,
+        331
+      ],
+      "clozeIdRange": [
+        208,
+        219
+      ],
+      "satzIdRange": [
+        172,
+        183
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        332,
+        343
+      ],
+      "clozeIdRange": [
+        220,
+        231
+      ],
+      "satzIdRange": [
+        184,
+        195
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        344,
+        355
+      ],
+      "clozeIdRange": [
+        232,
+        243
+      ],
+      "satzIdRange": [
+        196,
+        207
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        356,
+        367
+      ],
+      "clozeIdRange": [
+        244,
+        255
+      ],
+      "satzIdRange": [
+        208,
+        219
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        368,
+        379
+      ],
+      "clozeIdRange": [
+        256,
+        267
+      ],
+      "satzIdRange": [
+        220,
+        231
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        380,
+        391
+      ],
+      "clozeIdRange": [
+        268,
+        279
+      ],
+      "satzIdRange": [
+        232,
+        243
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        392,
+        403
+      ],
+      "clozeIdRange": [
+        280,
+        291
+      ],
+      "satzIdRange": [
+        244,
+        255
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        365,
+        376
       ],
       "clozeIdRange": [
         172,
         183
       ],
       "satzIdRange": [
-        136,
-        147
+        135,
+        146
       ]
     },
     {
-      "level": "a1",
+      "level": "a2",
       "vocabIdRange": [
-        296,
-        307
+        377,
+        388
       ],
       "clozeIdRange": [
         184,
         195
       ],
       "satzIdRange": [
-        148,
-        159
+        147,
+        158
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        269,
-        280
+        389,
+        400
       ],
       "clozeIdRange": [
-        76,
-        87
+        196,
+        207
       ],
       "satzIdRange": [
-        39,
-        50
+        159,
+        170
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        281,
-        292
+        401,
+        412
       ],
       "clozeIdRange": [
-        88,
-        99
+        208,
+        219
       ],
       "satzIdRange": [
-        51,
-        62
+        171,
+        182
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        293,
-        304
+        413,
+        424
       ],
       "clozeIdRange": [
-        100,
-        111
+        220,
+        231
       ],
       "satzIdRange": [
-        63,
-        74
+        183,
+        194
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        305,
-        316
+        425,
+        436
       ],
       "clozeIdRange": [
-        112,
-        123
+        232,
+        243
       ],
       "satzIdRange": [
-        75,
-        86
+        195,
+        206
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        317,
-        328
+        437,
+        448
       ],
       "clozeIdRange": [
-        124,
-        135
+        244,
+        255
       ],
       "satzIdRange": [
-        87,
-        98
+        207,
+        218
       ]
     },
     {
       "level": "a2",
       "vocabIdRange": [
-        329,
-        340
+        449,
+        460
       ],
       "clozeIdRange": [
-        136,
-        147
+        256,
+        267
       ],
       "satzIdRange": [
-        99,
-        110
-      ]
-    },
-    {
-      "level": "a2",
-      "vocabIdRange": [
-        341,
-        352
-      ],
-      "clozeIdRange": [
-        148,
-        159
-      ],
-      "satzIdRange": [
-        111,
-        122
-      ]
-    },
-    {
-      "level": "a2",
-      "vocabIdRange": [
-        353,
-        364
-      ],
-      "clozeIdRange": [
-        160,
-        171
-      ],
-      "satzIdRange": [
-        123,
-        134
+        219,
+        230
       ]
     },
     {
       "level": "b1",
       "vocabIdRange": [
-        272,
-        283
+        368,
+        379
       ],
       "clozeIdRange": [
-        84,
-        95
-      ],
-      "satzIdRange": [
-        80,
-        91
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        284,
-        295
-      ],
-      "clozeIdRange": [
-        96,
-        107
-      ],
-      "satzIdRange": [
-        92,
-        103
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        296,
-        307
-      ],
-      "clozeIdRange": [
-        108,
-        119
-      ],
-      "satzIdRange": [
-        104,
-        115
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        308,
-        319
-      ],
-      "clozeIdRange": [
-        120,
-        131
-      ],
-      "satzIdRange": [
-        116,
-        127
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        320,
-        331
-      ],
-      "clozeIdRange": [
-        132,
-        143
-      ],
-      "satzIdRange": [
-        128,
-        139
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        332,
-        343
-      ],
-      "clozeIdRange": [
-        144,
-        155
-      ],
-      "satzIdRange": [
-        140,
-        151
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        344,
-        355
-      ],
-      "clozeIdRange": [
-        156,
-        167
-      ],
-      "satzIdRange": [
-        152,
-        163
-      ]
-    },
-    {
-      "level": "b1",
-      "vocabIdRange": [
-        356,
-        367
-      ],
-      "clozeIdRange": [
-        168,
-        179
-      ],
-      "satzIdRange": [
-        164,
-        175
-      ]
-    },
-    {
-      "level": "b2",
-      "vocabIdRange": [
-        431,
-        442
-      ],
-      "clozeIdRange": [
-        170,
-        181
-      ],
-      "satzIdRange": [
-        156,
-        167
-      ]
-    },
-    {
-      "level": "b2",
-      "vocabIdRange": [
-        443,
-        454
-      ],
-      "clozeIdRange": [
-        182,
-        193
-      ],
-      "satzIdRange": [
-        168,
-        179
-      ]
-    },
-    {
-      "level": "b2",
-      "vocabIdRange": [
-        455,
-        466
-      ],
-      "clozeIdRange": [
-        194,
-        205
-      ],
-      "satzIdRange": [
         180,
         191
+      ],
+      "satzIdRange": [
+        176,
+        187
       ]
     },
     {
-      "level": "b2",
+      "level": "b1",
       "vocabIdRange": [
-        467,
-        478
+        380,
+        391
       ],
       "clozeIdRange": [
-        206,
-        217
-      ],
-      "satzIdRange": [
         192,
         203
+      ],
+      "satzIdRange": [
+        188,
+        199
       ]
     },
     {
-      "level": "b2",
+      "level": "b1",
       "vocabIdRange": [
-        479,
-        490
+        392,
+        403
       ],
       "clozeIdRange": [
-        218,
-        229
-      ],
-      "satzIdRange": [
         204,
         215
+      ],
+      "satzIdRange": [
+        200,
+        211
       ]
     },
     {
-      "level": "b2",
+      "level": "b1",
       "vocabIdRange": [
-        491,
-        502
+        404,
+        415
       ],
       "clozeIdRange": [
-        230,
-        241
-      ],
-      "satzIdRange": [
         216,
         227
+      ],
+      "satzIdRange": [
+        212,
+        223
       ]
     },
     {
-      "level": "b2",
+      "level": "b1",
       "vocabIdRange": [
-        503,
-        514
+        416,
+        427
       ],
       "clozeIdRange": [
-        242,
-        253
-      ],
-      "satzIdRange": [
         228,
         239
+      ],
+      "satzIdRange": [
+        224,
+        235
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        428,
+        439
+      ],
+      "clozeIdRange": [
+        240,
+        251
+      ],
+      "satzIdRange": [
+        236,
+        247
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        440,
+        451
+      ],
+      "clozeIdRange": [
+        252,
+        263
+      ],
+      "satzIdRange": [
+        248,
+        259
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        452,
+        463
+      ],
+      "clozeIdRange": [
+        264,
+        275
+      ],
+      "satzIdRange": [
+        260,
+        271
       ]
     },
     {
       "level": "b2",
       "vocabIdRange": [
-        515,
-        526
+        527,
+        538
       ],
       "clozeIdRange": [
-        254,
-        265
+        266,
+        277
       ],
       "satzIdRange": [
-        240,
-        251
+        252,
+        263
       ]
     },
     {
-      "level": "c1",
+      "level": "b2",
       "vocabIdRange": [
-        49,
-        60
+        539,
+        550
       ],
       "clozeIdRange": [
-        53,
-        64
+        278,
+        289
       ],
       "satzIdRange": [
-        55,
-        66
+        264,
+        275
       ]
     },
     {
-      "level": "c1",
+      "level": "b2",
       "vocabIdRange": [
-        61,
-        72
+        551,
+        562
       ],
       "clozeIdRange": [
-        65,
-        76
+        290,
+        301
       ],
       "satzIdRange": [
-        67,
-        78
+        276,
+        287
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        563,
+        574
+      ],
+      "clozeIdRange": [
+        302,
+        313
+      ],
+      "satzIdRange": [
+        288,
+        299
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        575,
+        586
+      ],
+      "clozeIdRange": [
+        314,
+        325
+      ],
+      "satzIdRange": [
+        300,
+        311
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        587,
+        598
+      ],
+      "clozeIdRange": [
+        326,
+        337
+      ],
+      "satzIdRange": [
+        312,
+        323
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        599,
+        610
+      ],
+      "clozeIdRange": [
+        338,
+        349
+      ],
+      "satzIdRange": [
+        324,
+        335
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        611,
+        622
+      ],
+      "clozeIdRange": [
+        350,
+        361
+      ],
+      "satzIdRange": [
+        336,
+        347
       ]
     },
     {
@@ -2907,33 +2875,33 @@
       ]
     },
     {
-      "level": "c2",
+      "level": "c1",
       "vocabIdRange": [
-        49,
-        60
+        145,
+        156
       ],
       "clozeIdRange": [
-        53,
-        64
+        149,
+        160
       ],
       "satzIdRange": [
-        55,
-        66
+        151,
+        162
       ]
     },
     {
-      "level": "c2",
+      "level": "c1",
       "vocabIdRange": [
-        61,
-        72
+        157,
+        168
       ],
       "clozeIdRange": [
-        65,
-        76
+        161,
+        172
       ],
       "satzIdRange": [
-        67,
-        78
+        163,
+        174
       ]
     },
     {
@@ -3024,6 +2992,36 @@
       "satzIdRange": [
         139,
         150
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        145,
+        156
+      ],
+      "clozeIdRange": [
+        149,
+        160
+      ],
+      "satzIdRange": [
+        151,
+        162
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        157,
+        168
+      ],
+      "clozeIdRange": [
+        161,
+        172
+      ],
+      "satzIdRange": [
+        163,
+        174
       ]
     }
   ],
@@ -3037,6 +3035,7 @@
   "nonMergeGuards": [
     "Every record is independently authored and carries rights: original in its review ledger.",
     "No textbook sentence, prompt, answer option, unit order, or scanned text may enter app assets.",
-    "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction."
+    "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction.",
+    "Do not apply superseded batch_07_4x_manifest.json; its numeric IDs collide with live partner-family."
   ]
 }
