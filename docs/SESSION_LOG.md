@@ -1,5 +1,12 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 단어망 타이포·에셋 가드 후속
+
+`25a67c5`가 단어망 V1을 `e07f067`까지만 병합한 뒤, CI가 잡은 원시 AppBar/
+TextStyle/w800·아이콘 버튼·없는 `tiger_idle.png` 참조를 공용 토큰과
+`empty/studyroom_waiting.png`로 고쳤다. 로컬 typography guard·asset integrity·
+word-web 테스트 통과.
+
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
 **원인.** 라이브 데이터 무결성(`validate_content.py`, loader unrouted, grammar/
@@ -76,7 +83,7 @@ catalog·practice hub·l10n parity/guard **전부 통과**. `dart format` 변경
 CI Analyze&Build가 잡은 회귀는 공용 `SoriAppBar`/`SoriTextTheme`로 맞추고,
 없는 `tiger_idle.png` 빈 상태는 `empty/studyroom_waiting.png`로 바꿨다.
 로컬에서 typography guard·asset integrity·word-web 테스트를 다시 통과했다.
-커밋 `e07f067`. 후속 수정은 같은 브랜치.
+커밋 `e07f067`. 가드 후속은 `cursor/word-web-guard-fix-89f9`.
 
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
