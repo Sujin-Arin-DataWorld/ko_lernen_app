@@ -22,7 +22,7 @@
     },
     {
       "kind": "scenarioQuest",
-      "count": 345,
+      "count": 359,
       "source": "scenarios.json",
       "requiresExplicitId": false
     },

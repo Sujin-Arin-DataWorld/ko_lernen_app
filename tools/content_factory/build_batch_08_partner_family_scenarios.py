@@ -427,6 +427,157 @@ def variant_seeds() -> list[dict[str, Any]]:
     return extras
 
 
+A1_REPAIR_QUESTS: dict[str, dict[str, Any]] = {
+    "a1_partner_first_door": {
+        "particle": {
+            "conceptIds": ["concept_topic_particle"],
+            "prefix": "신발",
+            "suffix": " 이쪽에 두세요.",
+            "options": ["은", "는", "이", "가", "을", "를"],
+            "correctIndex": 0,
+            "explanationDe": "신발 endet auf ㄹ → Themenpartikel 은.",
+            "explanationEn": "신발 ends in ㄹ → topic particle 은.",
+        },
+        "satz": {
+            "targetKo": "이 과일 받아 주세요.",
+            "promptDe": "Bitte nehmen Sie dieses Obst.",
+            "promptEn": "Please take this fruit.",
+        },
+    },
+    "a1_partner_seollal_bow": {
+        "particle": {
+            "conceptIds": ["concept_object_particle"],
+            "prefix": "허리",
+            "suffix": " 더 숙이세요.",
+            "options": ["를", "을", "이", "가", "은", "는"],
+            "correctIndex": 0,
+            "explanationDe": "허리 endet auf einem Vokal → Objektpartikel 를.",
+            "explanationEn": "허리 ends in a vowel → object particle 를.",
+        },
+        "satz": {
+            "targetKo": "제가 받아도 돼요?",
+            "promptDe": "Darf ich es annehmen?",
+            "promptEn": "May I accept it?",
+        },
+    },
+    "a1_partner_songpyeon_too_big": {
+        "particle": {
+            "conceptIds": ["concept_subject_particle"],
+            "prefix": "손",
+            "suffix": " 분홍해졌어요.",
+            "options": ["이", "가", "은", "는", "을", "를"],
+            "correctIndex": 0,
+            "explanationDe": "손 endet auf ㄴ → Subjektpartikel 이.",
+            "explanationEn": "손 ends in ㄴ → subject particle 이.",
+        },
+        "satz": {
+            "targetKo": "도와주셔서 감사합니다.",
+            "promptDe": "Danke fuer die Hilfe.",
+            "promptEn": "Thank you for the help.",
+        },
+    },
+    "a1_partner_more_side_dishes": {
+        "particle": {
+            "conceptIds": ["concept_object_particle"],
+            "prefix": "과일",
+            "suffix": " 조금만 드세요.",
+            "options": ["을", "를", "이", "가", "은", "는"],
+            "correctIndex": 0,
+            "explanationDe": "과일 endet auf ㄹ → Objektpartikel 을.",
+            "explanationEn": "과일 ends in ㄹ → object particle 을.",
+        },
+        "satz": {
+            "targetKo": "배불러요. 정말 맛있어요.",
+            "promptDe": "Ich bin satt. Es schmeckt wirklich.",
+            "promptEn": "I am full. It really tastes good.",
+        },
+    },
+    "a1_partner_gift_too_big": {
+        "particle": {
+            "conceptIds": ["concept_subject_particle"],
+            "prefix": "작은 정성",
+            "suffix": "면 충분해요.",
+            "options": ["이", "가", "은", "는", "을", "를"],
+            "correctIndex": 0,
+            "explanationDe": "정성 endet auf ㅇ → 이면, nicht 가면.",
+            "explanationEn": "정성 ends in ㅇ → use 이면, not 가면.",
+        },
+        "satz": {
+            "targetKo": "오늘 배려해 주셔서 감사합니다.",
+            "promptDe": "Danke fuer die Ruecksicht heute.",
+            "promptEn": "Thank you for the consideration today.",
+        },
+    },
+    "a1_partner_wrong_seat": {
+        "particle": {
+            "conceptIds": ["concept_subject_particle"],
+            "prefix": "아랫목",
+            "suffix": " 더 편해요.",
+            "options": ["이", "가", "은", "는", "을", "를"],
+            "correctIndex": 0,
+            "explanationDe": "아랫목 endet auf ㄱ → Subjektpartikel 이.",
+            "explanationEn": "아랫목 ends in ㄱ → subject particle 이.",
+        },
+        "satz": {
+            "targetKo": "아랫목이 더 편해요.",
+            "promptDe": "Der untere Sitzplatz ist bequemer.",
+            "promptEn": "The lower seat is more comfortable.",
+        },
+    },
+    "a1_partner_new_year_money": {
+        "particle": {
+            "conceptIds": ["concept_a1_titles_relationships"],
+            "prefix": "두 손",
+            "suffix": " 받으세요.",
+            "options": ["으로", "로", "을", "를", "이", "가"],
+            "correctIndex": 0,
+            "explanationDe": "손 endet auf ㄴ → 으로, nicht 로.",
+            "explanationEn": "손 ends in ㄴ → use 으로, not 로.",
+        },
+        "satz": {
+            "targetKo": "두 손으로 받으세요.",
+            "promptDe": "Nehmen Sie es mit beiden Haenden.",
+            "promptEn": "Take it with both hands.",
+        },
+    },
+}
+
+
+def _a1_repair_quests(seed_id: str, concepts: list[str]) -> list[dict[str, Any]]:
+    spec = A1_REPAIR_QUESTS.get(seed_id)
+    if spec is None:
+        return []
+    particle = spec["particle"]
+    satz = spec["satz"]
+    return [
+        {
+            "id": f"quest_{seed_id}_particle",
+            "type": "particlePop",
+            "conceptIds": particle["conceptIds"],
+            "data": {
+                "prefix": particle["prefix"],
+                "suffix": particle["suffix"],
+                "options": particle["options"],
+                "correctIndex": particle["correctIndex"],
+                "explanationDe": particle["explanationDe"],
+                "explanationEn": particle["explanationEn"],
+            },
+        },
+        {
+            "id": f"quest_{seed_id}_satz",
+            "type": "satzBauen",
+            "conceptIds": concepts,
+            "data": {
+                "targetKo": satz["targetKo"],
+                "promptDe": satz["promptDe"],
+                "promptEn": satz["promptEn"],
+                "distractors": ["그냥", "나중에", "사진"],
+                "audioKo": satz["targetKo"],
+            },
+        },
+    ]
+
+
 def build_scenario(seed: dict[str, Any]) -> dict[str, Any]:
     level = seed["level"]
     unit, concepts, grammar_id = UNITS[level]
@@ -508,6 +659,7 @@ def build_scenario(seed: dict[str, Any]) -> dict[str, Any]:
                     "correctIndex": 0,
                 },
             },
+            *_a1_repair_quests(seed["id"], concepts),
         ],
     }
 

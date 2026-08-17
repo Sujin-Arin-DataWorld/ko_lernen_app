@@ -6,6 +6,7 @@ import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/vocab_nuance_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -108,7 +109,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     final pack = CustomPackService.getById(widget.packId);
     if (pack == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabNotebookNuanceTitle)),
+        appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -121,7 +122,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     }
     if (_questions.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabNotebookNuanceTitle)),
+        appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -134,7 +135,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     }
     if (_index >= _questions.length) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabNotebookNuanceTitle)),
+        appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
         body: SafeArea(
           child: SoriCenterClamp(
             child: Padding(
@@ -156,7 +157,6 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
                   const SizedBox(height: Spacing.lg),
                   SoriButton.filled(
                     label: t.customPackResultAgain,
-                    icon: Icons.replay_outlined,
                     fullWidth: true,
                     onTap: () => setState(() {
                       _index = 0;
@@ -174,12 +174,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
 
     final question = _questions[_index];
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.vocabNotebookNuanceTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
+      appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
@@ -226,7 +221,6 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
                   const SizedBox(height: Spacing.md),
                   SoriButton.filled(
                     label: t.btnNext,
-                    icon: Icons.arrow_forward_rounded,
                     fullWidth: true,
                     onTap: _continue,
                   ),

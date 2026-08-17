@@ -373,8 +373,11 @@ flutter run -d <android-id>   # 안드로이드
   `approved`이고 manifest 상태는 `merged`다.
 - [x] **한국 파트너 가족·명절 트랙 live 승격**: Batch 07/08 partner-family가
   live 자산에 들어갔다. 현재 카탈로그는 vocab 1620, cloze 962, satz 875,
-  smalltalk 365, scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk
+  smalltalk 365, scenario 90, quest 359, pronunciation 20, A1–B2 smalltalk
   semantic decision 321이다.
+- [x] **A1 partner 수리·생산 퀘스트 + typography 래칫**: 7개 A1 partner
+  시나리오에 particlePop+satzBauen을 넣어 카탈로그 345→359. 단어장/커스텀팩
+  라벨 CTA의 raw AppBar·w800·장식 아이콘을 걷어 래칫을 166/98/71로 내렸다.
 - [ ] **레벨 콘텐츠 4× 잔량 초안 (Batch 09/10, review-only)**: partner-family
   승격 뒤 충돌하던 Batch 07/08 4× ID를 폐기하고, live max+1부터 다시 붙였다.
   Batch 09는 단어 48팩/576·문법 24·스몰토크 12·Cloze/Satz 각 576,
