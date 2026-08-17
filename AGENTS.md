@@ -383,11 +383,12 @@ flutter run -d <android-id>   # 안드로이드
   시나리오에 particlePop+satzBauen을 넣어 카탈로그 345→359. 단어장/커스텀팩
   라벨 CTA의 raw AppBar·w800·장식 아이콘을 걷어 래칫을 166/98/71로 내렸다.
 - [x] **레벨 콘텐츠 4× 잔량 live 승격 (Batch 09/10)**: `batch_09_4x` /
-  `batch_10_4x`를 앱 데이터에 올렸다. 현재 카탈로그는 vocab 2196, cloze 1538,
-  satz 2091, smalltalk 377, grammar 206, scenario 264, quest 971,
-  pronunciation 20, A1–B2 smalltalk semantic decision 329다. TTS/Firebase는
-  아직 없다. 원래 4× 단어 목표(4752)까지는 잔량이 남는다. 다음 작성 번호는
-  Batch 11이다.
+  `batch_10_4x`를 앱 데이터에 올렸다. Batch 10 시나리오 174개는 영어 슬러그와
+  `해결해야 합니다` 템플릿을 빼고 장면별 한국어로 다시 썼다. 현재 카탈로그는
+  vocab 2196, cloze 1538, satz 2091, smalltalk 377, grammar 206, scenario 264,
+  quest 971, pronunciation 20, A1–B2 smalltalk semantic decision 329다.
+  TTS/Firebase는 아직 없다. 원래 4× 단어 목표(4752)까지는 잔량이 남는다. 다음
+  작성 번호는 Batch 11이다.
 - [ ] **다음 콘텐츠**: 다음 미사용 번호는 Batch 11이다. loader 재계산
   작업량은 `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
   PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만
