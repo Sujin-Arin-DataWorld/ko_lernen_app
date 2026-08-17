@@ -1,5 +1,147 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
+
+**무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.
+
+- `Hören` 을 카드 밖 진행바 줄 → **카드 안 하단 중앙**(`_ListenButton`)으로 옮겼다.
+  `_Front` 와 `_Back` 양쪽에 넣어 뒤집어 설명을 보는 중에도 예문을 다시 들을 수
+  있다. 탭 대상은 48dp(권고 44 보다 크게) — 카드 전체 탭이 뒤집기라 오조작이
+  비싸다. `Semantics(button:true)` 로 라벨을 준다.
+- 마지막 카드에서 `Verstanden` → **`Abschließen`**(체크 아이콘). 새 문자열을
+  만들지 않고 기존 `scenarioCompleteBtn`(de 'Abschließen' / en 'Complete')을
+  재사용했다. 진행바는 그 시점에 이미 100% 다.
+- 진행바 줄의 스피커는 제거하고(카드 안으로 갔으므로) 실행취소와 같은 폭을
+  비워 카운터를 가운데 유지했다.
+
+**안 한 것과 이유.** ① `flutter_card_swiper` 는 넣지 않았다 — 저장소의
+`SoriSwipeCard`(Sori Deck 2.0)를 단어장·복습·레거시가 이미 쓰고 flipgate·
+지배축 잠금·배지 opacity 램프·underlay 계약이 문서화돼 있다. 문법만 다른 제스처
+엔진을 쓰면 "단어장과 같은 조작감"이라는 목적 자체가 깨진다. 목업이 요구한
+드래그 중 X/✓ 투명도 램프는 이 컴포넌트에 이미 있다. ② 배지 위치는 목업의
+**하단** 모서리가 아니라 현행 **상단** 모서리를 유지했다 — 정렬이
+`swipe_card.dart` 에 고정돼 있어 바꾸면 단어장·복습·레거시 3개 화면이 같이
+바뀐다. ③ 앱바 타이틀은 `Grammatik`(`screenGrammarTitle`) 유지 — 목업의
+'한글소리'는 앱 이름이고 다른 학습 화면도 화면명을 쓴다. ④ 일러스트를 카드
+**안**으로 넣는 건 보류했다 — 스와이프 때 배너가 같이 날아가고 `_Front`·
+`_Back`·`_CourseCheckpointFront` 3면을 모두 고쳐야 한다. 레벨 칩은 필터
+컨트롤이라 카드와 함께 날아가면 안 된다.
+
+**검증.** `flutter analyze` 이슈 1건(기존 info `word_relation_service.dart:292`).
+`typography_guard`·`course_practice`·`circular_feedback`·`responsive_short_height`
+315/315.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — Grammatik 을 Sori Deck 2.0 + Hören 구조로 이식
+
+**무엇.** 문법 학습 화면의 하단 컨트롤 7개를 **판정 2버튼**으로 줄이고, 덱을
+단어장·복습과 같은 `SoriSwipeCard` 4방향 제스처로 바꿨다.
+
+- 난이도 가로줄(Alle/Leicht/Schwer) **삭제 → 필터 시트로 이동**(Level·Typ 아래).
+- `Zufällig` **삭제**, `_random()` 제거(`dart:math` 의존도 사라짐).
+- 하단 = `Schwierig`(flex 2, outlined) + `Verstanden`(flex 3, filled). 둘 다
+  스와이프와 **같은 `_judge()`** 를 부른다 — 제스처를 모르거나 정밀 터치가
+  필요한 사용자에게 버튼이 완전한 대체 수단이어야 한다(WCAG).
+- 스와이프: 우=Verstanden · 좌=Schwierig · 아래=평가 없이 넘기기. 위(저장)는
+  문법 패턴이 단어장 저장 대상이 아니라 껐다. `enabled` 는 기존 flipgate
+  계약대로 **뒤집은 뒤에만 판정 허용**.
+- `Zurück` → 진행바 줄 우측의 작은 실행취소 아이콘(첫 카드에서 비활성).
+  같은 줄 좌측에 `Hören` 스피커 아이콘. 둘 다 44×44.
+- 진행바를 카드 **위 → 아래**, 위치 캡션은 가운데(Hören 과 같은 배치).
+- `Grammatikübung abschließen` 버튼 → **앱바 아이콘**으로 이동(키
+  `grammar-finish-session` 유지). 마지막 카드의 판정은 자동으로 세션을 끝내지만,
+  182장짜리 둘러보기 덱은 마지막에 도달할 일이 없어 자동 종료만으로는 테스터
+  피드백 수집 경로가 사라진다 — 그래서 명시적 종료를 남겼다.
+- 코스 체크포인트 카드는 예외: 앞면이 패턴을 가리므로 판정을 막고(`allowJudging`)
+  하단은 채점 CTA 하나로 둔다. 기존 SRS 오염 방지 계약을 그대로 이어받았다.
+
+**왜.** C1/C2 처럼 예문이 길어질수록 하단 고정 크롬이 세로를 먼저 가져가
+카드를 눌렀다. 더 근본적으로 Grammatik 만 `SoriSwipeCard`(Sori Deck 2.0)를
+쓰지 않고 옛 `GestureDetector` 좌우 스와이프에 남아 있어, 단어장에서 익힌
+"우=알아 / 좌=몰라" 멘탈 모델과 어긋났다. 판정과 전진을 합치면 하단이 2버튼으로
+줄고 조작이 앱 전체와 일치한다.
+
+**설계 근거 하나.** Leicht/Schwer 를 지우면 `Storage.grammarHard` 를 **학습에
+읽는 곳이 0**이 된다(남은 참조는 4지선다 퀴즈의 쓰기와 GDPR 내보내기뿐).
+판정을 요구하면서 아무것도 바꾸지 않는 계약이 되므로, 필터를 없애는 대신
+**필터 시트로 옮겨** 스와이프로 모은 "Schwierig" 를 다시 모아볼 수 있게 했다.
+
+**남은 것.** ① 시트 안 'Leicht'/'Schwer' 는 이 화면이 원래 갖고 있던 하드코딩
+문자열을 그대로 옮긴 것이라 ARB 로 빼야 한다(코드에 TODO). ② 본문 레이아웃은
+아직 `SoriMinHeightScroll`+flex 다 — Hören 식 순수 스크롤 전환과 완료 카드
+(`_CompleteCard`)는 하지 않았다. ③ Hören 의 'Szenario wählen'(90개 가로 칩)은
+Jin 이 책가도 서재 UI 로 다른 세션에서 진행한다. `scenarios.json` 에는
+`category`/`theme` 필드가 없어 테마 분류가 선행돼야 한다.
+
+**검증.** `flutter analyze` 이슈 1건(기존 info `word_relation_service.dart:292`).
+`course_practice_screen_test` 7/7(1장 덱 회귀 2건을 새 계약으로 갱신 — 죽은
+Next/Back/Random 대신 판정 버튼 활성 + 첫 카드 실행취소 비활성을 고정).
+`circular_feedback_widget_test` 11/11(종료 버튼이 `SoriButton`→`IconButton` 이
+되어 단언만 `.onTap`→`.onPressed`; "의미 있는 학습 뒤에만 활성" 계약 유지).
+`typography_guard` 7/7 — 아이콘 래칫 71 을 올리지 않으려고 체크포인트 CTA 의
+장식 아이콘을 뗐다(저장소 규칙: 미디어 컨트롤 외 사유로 래칫 상향 금지).
+`responsive_short_height` 문법 8해상도 오버플로 0.
+
+**커밋해시.** 아직 커밋하지 않음. worktree `claude/card-font-tap-audit-20260817`.
+
+### 2026-08-17 (Claude, Windows) — 문법 1장 덱의 죽은 이동 버튼 수정
+
+**무엇.** 문법 덱이 한 장일 때 Weiter·Zurück·Zufällig 가 눌리는 것처럼
+보이면서 아무 일도 하지 않던 것을 고쳤다. 세 이동 메서드에
+`_canNavigateDeck`(= `_filtered.length > 1`) 가드를 넣고 Zurück·Zufällig 를
+비활성화했다. 둘러보기에서는 주 CTA 를 이 화면의 빈 상태와 같은 규칙으로
+`filterOpenBtn`(필터 열기)으로 바꾸고, 코스 연습에서는 빈 상태와 마찬가지로
+필터 CTA 를 주지 않으므로 비활성으로 둔다. 회귀 2건을
+`test/course_practice_screen_test.dart` 에 추가했다.
+
+**왜.** 이동이 전부 `% _filtered.length` 로 감싸여 있어 길이가 1이면 언제나
+같은 인덱스가 나왔다. Verstanden/Schwierig 도 마지막에 `_next()` 를 불러 같은
+증상이었고, Hören 만 동작한 건 TTS 가 인덱스와 무관해서다. 드문 상태가 아니다
+— `grammar.csv` 의 `type_de` 181개 값 중 **180개가 카드 한 장**이라 유형 필터를
+고르면 거의 항상 1/1 이 된다. Jin 이 본 `B2 · Kontrafaktische Vergangenheit`
+도 전 레벨 통틀어 1장이다.
+
+**체크포인트는 결함이 아니었다.** `canRecordCheckpoint` 가 false 였던 건
+**둘러보기라서**다(코스 컨텍스트가 없으면 정의상 false). 코스 연습의 B2
+체크포인트는 기존 위젯 테스트가 시트를 열고 정답 저장까지 통과하므로
+AGENTS.md 의 "B2 문법 체크포인트 입력 복원 완료" 는 유효하다. 문법 카드를
+하나만 연결한 코스 단원 6개(a1_02·a1_07·a1_08·a1_10·a2_06·a2_08)는 보기를
+만들 수 없어 study-only 로 남는데, 이는 `course_checkpoint_questions_test.dart`
+가 명시적으로 고정한 의도된 계약이고, 그 6개 단원의 완료 게이트는 문법이 아니라
+전부 시나리오(`checkpointContentIds`)라 미션이 막히지 않는다.
+
+**남는 설계 질문 (Jin).** 유형 필터는 181개 값 중 180개가 1장이라 사실상 "한
+장만 보여주는" 패싯이다. 필터로 유지할지 레벨+대분류로 묶을지는 콘텐츠 설계
+결정이라 손대지 않았다.
+
+**검증.** `flutter test test/course_practice_screen_test.dart` 7/7(신규 2건
+포함, 수정 전 신규 테스트가 실패하는 것을 먼저 확인). 타이포·문법 화면 의존
+6파일 339/339. `flutter analyze` 이슈 1건 — 기존 info
+`word_relation_service.dart:292` 로 이번 변경과 무관.
+
+**커밋해시.** 아직 커밋하지 않음 (AGENTS.md — Jin 명시 요청 시에만).
+worktree `claude/card-font-tap-audit-20260817`.
+
+### 2026-08-17 (Claude, Windows) — 학습 카드 면 굵기를 Bold(700) 로 통일
+
+**무엇.** 학습 카드 앞/뒷면 글씨를 Bold(700) 로 내렸다. `responsive.dart` 의
+`soriUniformFitSize` 실측 기본 굵기 w800→w700(실측·렌더 불일치 방지),
+`review_session_screen`(앞면 한글 w900·실측 w900·뒷면 뜻 w800),
+`vocab_pack_screen` 3곳, `custom_pack_play_screen` 2곳,
+`legacy_vocab_screen` 4곳. 앱바 제목 등 카드가 아닌 곳은 건드리지 않았다.
+타이포 래칫도 실측값으로 내렸다(w900 35→31, w800 166→155).
+
+**왜.** Pretendard Std 는 400~800만 번들돼 있어 `w900` 이 조용히 800 으로
+떨어진다 — w800 과 w900 의 렌더 결과가 같았고 대형 한글에서 획이 뭉쳤다.
+웹사이트와의 격차도 같은 뿌리다: 웹은 한국어 제목에 Gowun Dodum 400 을 쓰는데
+앱의 대응물 `GowunBatang` 은 한글 글리프가 없어(pubspec 주석) 한글 제목이
+전부 Pretendard 로 폴백해 ExtraBold 로 보인다.
+
+**검증.** `flutter analyze` 통과, 타이포 래칫 포함 339 테스트 통과.
+
+**커밋해시.** 아직 커밋하지 않음. 위 항목과 같은 worktree.
+
 ### 2026-08-17 (Cursor) — Batch 10 시드 humanizer 2차 (검수 대체)
 
 **무엇.** Jin이 174편을 직접 읽지 않겠다고 해서, 접수 프레임에 이은 2차로
@@ -209,6 +351,7 @@ TTS·키보드 inset은 Jin 게이트.
 바로 위 2026-08-17 후속 항목.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
 
 ### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
 

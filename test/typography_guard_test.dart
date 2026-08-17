@@ -34,7 +34,8 @@ void main() {
     // 기준선 2026-07-31: 46곳 / 28파일. 목표 0.
     // 2026-08-03 R1-e: 온보딩 레벨 배지 w900 1곳 제거 → 45 로 래칫 하향.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 40→35 (_StatTile w900 제거 포함).
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 35, 'FontWeight.w900');
+    // 2026-08-17 카드 면 굵기 정리: 학습 카드 앞/뒷면을 Bold(700) 로 → 35→31.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 31, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -46,7 +47,9 @@ void main() {
     // 카드·행 제목 2곳은 h3(w700) 로 강등했다.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 180→168 (stats·profile 카드 제목 강등).
     // 2026-08-17: 단어장 앱바 제목 w800 3곳 → SoriAppBar.h2, 168→166.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 166, 'FontWeight.w800');
+    // 2026-08-17 카드 면 굵기 정리: 복습·단어팩·커스텀팩·레거시 카드와
+    // `soriUniformFitSize` 실측 기본값을 Bold(700) 로 → 166→155.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 155, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
