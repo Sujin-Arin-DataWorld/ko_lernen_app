@@ -50,6 +50,16 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("kotlin.compiler.execution.strategy=in-process", release)
         self.assertIn("Preserve Android failure diagnostics", release)
 
+    def test_release_stays_under_the_runner_disk_ceiling(self):
+        # 2026-08-17 run 32001006286: upload succeeded, then setup-java's
+        # post-step Gradle cache save failed with "No space left on device".
+        release = self.workflow.split("  release-internal:", 1)[1].split(
+            "  release-website:", 1
+        )[0]
+        self.assertIn("Free runner disk for the release build", release)
+        self.assertIn("/opt/hostedtoolcache}/CodeQL", release)
+        self.assertNotIn("cache: gradle", release)
+
 
 if __name__ == "__main__":
     unittest.main()

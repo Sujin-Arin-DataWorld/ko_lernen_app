@@ -34,13 +34,23 @@ Codex ledger 19건(13.5 credit)과 `a1TransparentPilot`/`a1ApprovedQaStates`는
 **검증.** `python -m unittest discover -s tool` 62/62, `test_build_hanok_grants` 9/9,
 `check_personal_hanok_assets.py` exit 0(A1 runtime absent·not promoted), 대상
 `flutter test --no-pub`(bundle·provenance·A1 catalog·A1 map) 27/27,
-`flutter analyze --no-pub --fatal-infos`, `git diff --check` 통과. push는 `main`
-1회로 CI 1런만 만든다. 남은 것: 스태시 3개(`parked pre-audit 40-unit hanok`,
-`recovery/pre-main-consolidation-20260816`, `account-recovery-public-tuple-draft`)와
-untracked `docs/HANOK_V1_HANDOFF_2026-08-17*.md`는 건드리지 않았다.
+`flutter analyze --no-pub --fatal-infos` No issues, `git diff --check` 통과. 남은 것:
+스태시 3개(`parked pre-audit 40-unit hanok`, `recovery/pre-main-consolidation-20260816`,
+`account-recovery-public-tuple-draft`)와 untracked `docs/HANOK_V1_HANDOFF_2026-08-17*.md`
+는 건드리지 않았다.
+
+**CI 릴리스 잡 디스크 상한.** 검증 중 `5920c9cf` main 런(32001006286)이 failure로
+끝났는데, Analyze & Build와 Play 업로드(step 12)는 모두 성공이고 `Post Set up Java 17`
+의 Gradle 캐시 저장이 `No space left on device`로 죽은 것이었다. 성공한 릴리스가
+빨갛게 남지 않도록 `release-internal`에 dotnet·boost·ghc·CodeQL·docker 이미지를 지우는
+"Free runner disk for the release build" 스텝을 넣고 `setup-java`의 `cache: gradle`을
+뺐다(exact key hit이면 저장을 건너뛰므로, 저장을 시도했다는 것 자체가 restore 이득이
+없던 상태). `test_play_internal_workflow.py`가 이 계약을 잠근다. `.github/` 변경이라
+이번 push의 CI는 전 게이트가 열린 1런이며, Flutter+Play 런을 따로 두 번 돌리지 않는다.
+`.github/scripts` 18/18 통과.
 
 **커밋해시.** 병합 `9958a458`·`80dcb48f`·`0d3d9725`·`20d6a191`·`47975311`, 문서
-`20c6ec88`, 이 해시 기록은 그 다음 커밋.
+`20c6ec88`·`a705f43e`, CI 수정은 이 로그와 같은 커밋.
 
 ### 2026-08-17 (Cursor) — main 무손실 정리: 단어망 예문 em dash + 가드
 
