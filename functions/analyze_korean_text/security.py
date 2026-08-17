@@ -11,8 +11,10 @@ import datetime as dt
 import hashlib
 import math
 import os
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FuturesTimeout
 from dataclasses import dataclass
-from typing import Any, Callable, Mapping
+from typing import Any, Callable, Mapping, Sequence
 
 
 DEFAULT_ALLOWED_APP_IDS = frozenset(
@@ -23,12 +25,18 @@ DEFAULT_ALLOWED_APP_IDS = frozenset(
 )
 QUOTA_COLLECTION = "service_quotas"
 QUOTA_LEDGER_COLLECTION = "service_quota_ledgers"
+IDEMPOTENCY_COLLECTION = "service_idempotency"
 QUOTA_SCOPE = "book_analysis_v1"
 DAILY_LIMIT = 20
 BURST_LIMIT = 3
 BURST_WINDOW_SECONDS = 60
 KKEUNMARI_QUOTA_SCOPE = "kkeunmari_dictionary_v1"
 QUOTA_LEDGER_TTL_DAYS = 2
+IDEMPOTENCY_TTL_MINUTES = 15
+DEEPL_HTTP_TIMEOUT_SECONDS = 6.0
+DEEPL_HTTP_MAX_RETRIES = 0
+DEEPL_CALL_DEADLINE_SECONDS = 8.0
+_DEADLINE_EXECUTOR: ThreadPoolExecutor | None = None
 
 
 @dataclass(frozen=True)
@@ -383,3 +391,142 @@ class FirestoreQuotaGate:
             return release_in_transaction(transaction)
         except Exception as error:
             raise QuotaStoreUnavailable() from error
+
+
+def analysis_request_id(
+    uid: str,
+    lang: str,
+    text: str,
+    units: Sequence[Mapping[str, str]] | None,
+) -> str:
+    """Hash a retryable book-analysis request without using the raw uid as an id."""
+
+    unit_blob = ""
+    if units:
+        unit_blob = "\n".join(
+            f"{unit.get('id', '')}\t{unit.get('kind', '')}\t{unit.get('korean', '')}"
+            for unit in units
+        )
+    return hashlib.sha256(
+        f"book_analysis_v1\0{uid}\0{lang}\0{text}\0{unit_blob}".encode("utf-8")
+    ).hexdigest()
+
+
+def idempotency_expires_at(now: dt.datetime) -> dt.datetime:
+    return now.astimezone(dt.timezone.utc) + dt.timedelta(
+        minutes=IDEMPOTENCY_TTL_MINUTES
+    )
+
+
+def idempotency_payload(kind: str, now: dt.datetime) -> dict[str, Any]:
+    """Server-only receipt: kind and TTL, never source text or scores."""
+
+    return {
+        "kind": kind,
+        "expiresAt": idempotency_expires_at(now),
+    }
+
+
+def _as_utc_datetime(value: Any) -> dt.datetime | None:
+    if isinstance(value, dt.datetime):
+        if value.tzinfo is None:
+            return value.replace(tzinfo=dt.timezone.utc)
+        return value.astimezone(dt.timezone.utc)
+    timestamp = getattr(value, "timestamp", None)
+    if callable(timestamp):
+        try:
+            return dt.datetime.fromtimestamp(timestamp(), tz=dt.timezone.utc)
+        except (TypeError, ValueError, OSError):
+            return None
+    return None
+
+
+def is_current_idempotency(
+    data: Mapping[str, Any] | None,
+    now: dt.datetime,
+    *,
+    kind: str,
+) -> bool:
+    if not data or data.get("kind") != kind:
+        return False
+    expires_at = _as_utc_datetime(data.get("expiresAt"))
+    if expires_at is None:
+        return False
+    return expires_at > now.astimezone(dt.timezone.utc)
+
+
+def run_with_deadline(
+    func: Callable[..., Any],
+    *args: Any,
+    timeout_seconds: float,
+    **kwargs: Any,
+) -> Any:
+    """Fail a hung provider call so quota refund can still run."""
+
+    global _DEADLINE_EXECUTOR
+    if _DEADLINE_EXECUTOR is None:
+        _DEADLINE_EXECUTOR = ThreadPoolExecutor(
+            max_workers=2,
+            thread_name_prefix="provider-deadline",
+        )
+    future = _DEADLINE_EXECUTOR.submit(func, *args, **kwargs)
+    try:
+        return future.result(timeout=timeout_seconds)
+    except FuturesTimeout as error:
+        raise TimeoutError("provider_deadline_exceeded") from error
+
+
+def configure_deepl_http_deadlines() -> None:
+    """Stop DeepL's 10s×5 retry loop from outliving the client timeout."""
+
+    import deepl.http_client as http_client  # type: ignore
+
+    http_client.min_connection_timeout = DEEPL_HTTP_TIMEOUT_SECONDS
+    http_client.max_network_retries = DEEPL_HTTP_MAX_RETRIES
+
+
+class FirestoreIdempotencyGate:
+    """Short-lived server-only receipts so identical retries skip a second charge."""
+
+    def __init__(
+        self,
+        *,
+        firestore_client: Any | None = None,
+        now: Callable[[], dt.datetime] | None = None,
+    ):
+        self._firestore_client = firestore_client
+        self._now = now or (lambda: dt.datetime.now(dt.timezone.utc))
+
+    def _client(self) -> Any:
+        if self._firestore_client is not None:
+            return self._firestore_client
+        from google.cloud import firestore  # type: ignore
+
+        self._firestore_client = firestore.Client()
+        return self._firestore_client
+
+    def _reference(self, document_id: str) -> Any:
+        return self._client().collection(IDEMPOTENCY_COLLECTION).document(
+            document_id
+        )
+
+    def seen(self, document_id: str, *, kind: str) -> bool:
+        try:
+            snapshot = self._reference(document_id).get()
+            if not snapshot.exists:
+                return False
+            return is_current_idempotency(
+                snapshot.to_dict(),
+                self._now(),
+                kind=kind,
+            )
+        except Exception:
+            return False
+
+    def remember(self, document_id: str, kind: str) -> None:
+        try:
+            self._reference(document_id).set(
+                idempotency_payload(kind, self._now())
+            )
+        except Exception:
+            return

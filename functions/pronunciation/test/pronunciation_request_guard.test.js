@@ -6,11 +6,15 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const {
+  IDEMPOTENCY_TTL_MS,
   MAX_PCM_BYTES,
   PronunciationRequestError,
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,
+  pronunciationReplayDocument,
+  pronunciationReplayFromDocument,
+  pronunciationReplayId,
   nextQuotaState,
   previousQuotaState,
 } = require("../pronunciation_request_guard");
@@ -33,6 +37,8 @@ test("pins Azure processing to Germany West Central", () => {
   assert.match(source, /const AZURE_SPEECH_REGION = "germanywestcentral";/);
   assert.doesNotMatch(source, /defineString\([^)]*REGION/i);
   assert.doesNotMatch(source, /process\.env\.[A-Z_]*REGION/);
+  assert.match(source, /loadPronunciationReplay/);
+  assert.match(source, /savePronunciationReplay/);
 });
 
 test("validates auth, App Check, size, text, and assessment id", () => {
@@ -131,6 +137,45 @@ test("allows 5 per minute and 50 per day with exact boundary resets", () => {
     dayBucket: "2026-08-13",
     dayCount: 1,
   });
+});
+
+test("replay receipts hash the caller and omit audio and reference text", () => {
+  const now = new Date("2026-08-16T10:00:00.000Z");
+  const assessmentId = "p-123456-abcdef12";
+  const replayId = pronunciationReplayId("user-1", assessmentId);
+  assert.equal(replayId.length, 64);
+  assert.equal(replayId.includes("user-1"), false);
+  assert.notEqual(replayId, pronunciationReplayId("user-2", assessmentId));
+
+  const scores = {
+    assessmentId,
+    pronunciationScore: 82.5,
+    accuracyScore: 84,
+    fluencyScore: 79,
+    completenessScore: 100,
+  };
+  const document = pronunciationReplayDocument(scores, now);
+  assert.deepEqual(Object.keys(document).sort(), [
+    "accuracyScore",
+    "assessmentId",
+    "completenessScore",
+    "expiresAt",
+    "fluencyScore",
+    "kind",
+    "pronunciationScore",
+  ]);
+  assert.deepEqual(
+    pronunciationReplayFromDocument(document, assessmentId, now),
+    scores,
+  );
+  assert.equal(
+    pronunciationReplayFromDocument(
+      document,
+      assessmentId,
+      new Date(now.getTime() + IDEMPOTENCY_TTL_MS + 1),
+    ),
+    null,
+  );
 });
 
 test("previousQuotaState refunds the same minute and day buckets", () => {

@@ -1,10 +1,14 @@
 "use strict";
 
+const crypto = require("node:crypto");
+
 const MAX_PCM_BYTES = 320000;
 const MAX_REFERENCE_CODEPOINTS = 200;
 const ASSESSMENT_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
 const MINUTE_LIMIT = 5;
 const DAY_LIMIT = 50;
+const IDEMPOTENCY_TTL_MS = 15 * 60 * 1000;
+const IDEMPOTENCY_COLLECTION = "service_idempotency";
 
 class PronunciationRequestError extends Error {
   constructor(code, message) {
@@ -184,11 +188,84 @@ class CircuitBreaker {
 
 const pronunciationProviderBreaker = new CircuitBreaker();
 
+function pronunciationReplayId(uid, assessmentId) {
+  return crypto
+    .createHash("sha256")
+    .update(`pronunciation_v1\0${uid}\0${assessmentId}`)
+    .digest("hex");
+}
+
+function idempotencyExpiresAt(now = new Date()) {
+  return new Date(now.getTime() + IDEMPOTENCY_TTL_MS);
+}
+
+function expiryMillis(value) {
+  if (!value) {
+    return 0;
+  }
+  if (typeof value.toMillis === "function") {
+    return value.toMillis();
+  }
+  if (value instanceof Date) {
+    return value.getTime();
+  }
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+  return 0;
+}
+
+function pronunciationReplayDocument(scores, now = new Date()) {
+  return {
+    kind: "pronunciation_v1",
+    assessmentId: scores.assessmentId,
+    pronunciationScore: scores.pronunciationScore,
+    accuracyScore: scores.accuracyScore,
+    fluencyScore: scores.fluencyScore,
+    completenessScore: scores.completenessScore,
+    expiresAt: idempotencyExpiresAt(now),
+  };
+}
+
+function pronunciationReplayFromDocument(data, assessmentId, now = new Date()) {
+  if (!data || data.kind !== "pronunciation_v1" || data.assessmentId !== assessmentId) {
+    return null;
+  }
+  if (expiryMillis(data.expiresAt) <= now.getTime()) {
+    return null;
+  }
+  const pronunciationScore = score(data.pronunciationScore);
+  const accuracyScore = score(data.accuracyScore);
+  const fluencyScore = score(data.fluencyScore);
+  const completenessScore = score(data.completenessScore);
+  if (
+    pronunciationScore === null ||
+    accuracyScore === null ||
+    fluencyScore === null ||
+    completenessScore === null
+  ) {
+    return null;
+  }
+  return {
+    assessmentId,
+    pronunciationScore,
+    accuracyScore,
+    fluencyScore,
+    completenessScore,
+  };
+}
+
 module.exports = {
   CircuitBreaker,
+  IDEMPOTENCY_COLLECTION,
+  IDEMPOTENCY_TTL_MS,
   MAX_PCM_BYTES,
   PronunciationRequestError,
+  idempotencyExpiresAt,
   pronunciationProviderBreaker,
+  pronunciationReplayDocument,
+  pronunciationReplayFromDocument,
+  pronunciationReplayId,
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,

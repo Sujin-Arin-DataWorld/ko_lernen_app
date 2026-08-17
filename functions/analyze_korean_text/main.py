@@ -46,13 +46,18 @@ from flask import Request, Response
 from dictionary_validation import validate_exact_noun
 from grammar_analysis import detect_grammar, localize_pos_tag, normalize_language
 from security import (
+    DEEPL_CALL_DEADLINE_SECONDS,
     KKEUNMARI_DICTIONARY_QUOTA_POLICY,
     KKEUNMARI_QUOTA_SCOPE,
     AuthenticationFailed,
     CircuitBreaker,
+    FirestoreIdempotencyGate,
     FirestoreQuotaGate,
     QuotaExceeded,
     QuotaStoreUnavailable,
+    analysis_request_id,
+    configure_deepl_http_deadlines,
+    run_with_deadline,
     verify_caller,
 )
 from text_quality import prepare_korean_analysis_text, split_korean_sentences
@@ -64,6 +69,7 @@ _FS_CLIENT = None
 _FS_TRIED = False
 _QUOTA_GATE: FirestoreQuotaGate | None = None
 _DICTIONARY_QUOTA_GATE: FirestoreQuotaGate | None = None
+_IDEMPOTENCY_GATE: FirestoreIdempotencyGate | None = None
 _DEEPL_BREAKER = CircuitBreaker()
 _DEEPL_UNAVAILABLE = object()
 _MAX_REQUEST_BYTES = 20_000
@@ -86,6 +92,13 @@ def _dictionary_quota_gate() -> FirestoreQuotaGate:
             policy=KKEUNMARI_DICTIONARY_QUOTA_POLICY,
         )
     return _DICTIONARY_QUOTA_GATE
+
+
+def _idempotency_gate() -> FirestoreIdempotencyGate:
+    global _IDEMPOTENCY_GATE
+    if _IDEMPOTENCY_GATE is None:
+        _IDEMPOTENCY_GATE = FirestoreIdempotencyGate()
+    return _IDEMPOTENCY_GATE
 
 
 def _warning_response(
@@ -327,6 +340,7 @@ def _get_deepl():
         if not api_key:
             _DEEPL = _DEEPL_UNAVAILABLE
             return None
+        configure_deepl_http_deadlines()
         _DEEPL = deepl.Translator(api_key)
     return _DEEPL
 
@@ -449,8 +463,13 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
                 out.setdefault(it, "")
         else:
             try:
-                results = translator.translate_text(
-                    pending, target_lang=target_code, source_lang="KO")
+                results = run_with_deadline(
+                    translator.translate_text,
+                    pending,
+                    timeout_seconds=DEEPL_CALL_DEADLINE_SECONDS,
+                    target_lang=target_code,
+                    source_lang="KO",
+                )
                 fresh = {src: r.text for src, r in zip(pending, results)}
                 breaker.record_success()
             except Exception:  # pragma: no cover — best-effort
@@ -565,8 +584,10 @@ def translate_words_with_context(
     provider_failed = False
     for ex, kors in by_context.items():
         try:
-            results = translator.translate_text(
+            results = run_with_deadline(
+                translator.translate_text,
                 kors,
+                timeout_seconds=DEEPL_CALL_DEADLINE_SECONDS,
                 target_lang=target_code,
                 source_lang="KO",
                 context=(ex or None),
@@ -672,27 +693,37 @@ def analyze_korean_text(request: Request) -> Response:
         )
     text = prepared.text
 
-    try:
-        _quota_gate().consume(caller.uid)
-    except QuotaExceeded as error:
-        return _warning_response(
-            "rate_limited",
-            429,
-            retry_after_seconds=error.retry_after_seconds,
-        )
-    except QuotaStoreUnavailable:
-        return _warning_response("service_unavailable", 503)
+    request_id = analysis_request_id(
+        caller.uid, lang, text, structured_units
+    )
+    replay = _idempotency_gate().seen(request_id, kind="book_analysis_v1")
+    consumed = False
+    if not replay:
+        try:
+            _quota_gate().consume(caller.uid)
+            consumed = True
+        except QuotaExceeded as error:
+            return _warning_response(
+                "rate_limited",
+                429,
+                retry_after_seconds=error.retry_after_seconds,
+            )
+        except QuotaStoreUnavailable:
+            return _warning_response("service_unavailable", 503)
 
     try:
-        return _complete_book_analysis(
+        response = _complete_book_analysis(
             lang=lang,
             text=text,
             structured_units=structured_units,
             quality_warnings=quality_warnings,
         )
+        _idempotency_gate().remember(request_id, "book_analysis_v1")
+        return response
     except Exception:
         _LOGGER.exception("book_analysis_unhandled")
-        _release_quota_best_effort(caller.uid)
+        if consumed:
+            _release_quota_best_effort(caller.uid)
         return _warning_response("service_unavailable", 503)
 
 
@@ -872,11 +903,13 @@ def validate_kkeunmari_word(request: Request) -> Response:
         body = {}
     word = str(body.get("word") or "").strip()
     if not re.fullmatch(r"[\uac00-\ud7a3]{1,20}", word):
-        return Response(
+        response = Response(
             json.dumps({"valid": False, "warnings": ["invalid_word_shape"]}),
             status=200,
             mimetype="application/json",
         )
+        response.headers["Cache-Control"] = "no-store"
+        return response
 
     try:
         _dictionary_quota_gate().consume(caller.uid)
@@ -891,9 +924,19 @@ def validate_kkeunmari_word(request: Request) -> Response:
 
     valid = validate_exact_noun(word)
     if valid is None:
+        _release_dictionary_quota_best_effort(caller.uid)
         return _warning_response("dictionary_unavailable", 503)
-    return Response(
+    response = Response(
         json.dumps({"valid": valid}, ensure_ascii=False),
         status=200,
         mimetype="application/json",
     )
+    response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+def _release_dictionary_quota_best_effort(uid: str) -> None:
+    try:
+        _dictionary_quota_gate().release(uid)
+    except Exception:
+        _LOGGER.warning("dictionary_quota_release_failed")

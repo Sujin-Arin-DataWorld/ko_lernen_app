@@ -391,6 +391,11 @@ flutter run -d <android-id>   # 안드로이드
   `service_quota_ledgers`는 `expiresAt` TTL을 쓰고, 레거시 `cache/translations`와
   할당량 컬렉션은 클라 접근을 차단한다. 끝말잇기 사전 HTTP는 2KB 상한을 강제한다.
   live 배포·TTL ACTIVE 확인은 아래 운영 게이트에 남긴다.
+- [x] **백엔드 신뢰성 2단계 (로컬)**: 끝말잇기 사전 503은 할당량을 환급하고, 빈
+  TTS 버퍼는 Storage에 남기지 않으며, DeepL/Cloud TTS는 클라 12초보다 짧은
+  deadline으로 실패한다. 같은 책 분석 지문과 같은 `assessmentId` 재시도는
+  `service_idempotency` 영수증으로 한도를 다시 깎지 않는다. 클라 접근은 차단하고
+  `expiresAt` TTL 15분이다. live 배포는 운영 게이트에 남긴다.
 - [ ] **책 한 컷 운영 게이트 (Jin 승인 필요)**: 2026-08-15 live Gen2는 필수 모듈이 빠진
   구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
   Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재

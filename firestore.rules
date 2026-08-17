@@ -617,6 +617,10 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    match /service_idempotency/{document=**} {
+      allow read, write: if false;
+    }
+
     // Book-analysis translations are written and read only through Admin SDK.
     // Document ids are one-way hashes and clients must not enumerate cached
     // translations or bypass the authenticated analysis endpoint.

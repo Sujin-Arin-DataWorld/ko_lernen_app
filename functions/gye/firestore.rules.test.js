@@ -2086,13 +2086,20 @@ test("legacy translation cache and quota ledgers stay server-only", async () => 
     await setDoc(doc(context.firestore(), "service_quota_ledgers", "digest"), {
       dailyCount: 1,
     });
+    await setDoc(doc(context.firestore(), "service_idempotency", "digest"), {
+      kind: "book_analysis_v1",
+    });
   });
 
   const signedDb = client("learner");
   await assertFails(getDoc(doc(signedDb, "cache", "translations")));
   await assertFails(getDoc(doc(signedDb, "usage", "tts_global_2026-08-16")));
   await assertFails(getDoc(doc(signedDb, "service_quota_ledgers", "digest")));
+  await assertFails(getDoc(doc(signedDb, "service_idempotency", "digest")));
   await assertFails(setDoc(doc(signedDb, "usage", "tts_global_2026-08-16"), {
     n: 99,
+  }));
+  await assertFails(setDoc(doc(signedDb, "service_idempotency", "digest"), {
+    kind: "tampered",
   }));
 });
