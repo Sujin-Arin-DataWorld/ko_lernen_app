@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
@@ -53,6 +54,96 @@ void main() {
       contains('static const Duration _netTimeout = Duration(seconds: 12)'),
     );
     expect(source, contains('TtsCacheKey.isUsableAudio(localBytes)'));
+    expect(source, contains('TtsSynthesisBlocked'));
+    expect(source, contains('already in progress'));
+    expect(source, contains('resource-exhausted'));
+    expect(source, contains('TTS audio is not available.'));
     expect(source, isNot(contains('http.post(')));
+  });
+
+  test('takeCallableAudio blocks quota and does not retry a completed miss', () async {
+    TtsService.lastError = null;
+    var quotaCalls = 0;
+    await expectLater(
+      TtsService.takeCallableAudio(
+        invoke: () async {
+          quotaCalls += 1;
+          throw const TtsCallableProbe(
+            code: 'resource-exhausted',
+            message: TtsCallableFailure.quotaMessage,
+          );
+        },
+      ),
+      throwsA(isA<TtsSynthesisBlocked>()),
+    );
+    expect(quotaCalls, 1);
+    expect(TtsService.lastError, TtsCallableFailure.quotaMessage);
+
+    TtsService.lastError = null;
+    var missCalls = 0;
+    await expectLater(
+      TtsService.takeCallableAudio(
+        invoke: () async {
+          missCalls += 1;
+          throw const TtsCallableProbe(
+            code: 'unavailable',
+            message: TtsCallableFailure.audioUnavailableMessage,
+          );
+        },
+      ),
+      throwsA(isA<TtsSynthesisBlocked>()),
+    );
+    expect(missCalls, 1);
+    expect(TtsService.lastError, TtsCallableFailure.audioUnavailableMessage);
+  });
+
+  test('takeCallableAudio retries inflight then returns usable audio', () async {
+    var calls = 0;
+    final mp3 = Uint8List.fromList(List<int>.filled(32, 0)..[0] = 0xFF..[1] = 0xFB);
+    final bytes = await TtsService.takeCallableAudio(
+      invoke: () async {
+        calls += 1;
+        if (calls < 2) {
+          throw const TtsCallableProbe(
+            code: 'unavailable',
+            message: TtsCallableFailure.alreadyInProgressMessage,
+          );
+        }
+        return mp3;
+      },
+    );
+    expect(calls, 2);
+    expect(bytes, mp3);
+  });
+
+  test('callable failures retry only inflight and block empty completed audio', () {
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: TtsCallableFailure.alreadyInProgressMessage,
+      ),
+      TtsCallableKind.retryInflight,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: TtsCallableFailure.audioUnavailableMessage,
+      ),
+      TtsCallableKind.blockUnavailable,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'resource-exhausted',
+        message: TtsCallableFailure.quotaMessage,
+      ),
+      TtsCallableKind.blockQuota,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: 'TTS synthesis is temporarily unavailable.',
+      ),
+      TtsCallableKind.fallback,
+    );
   });
 }

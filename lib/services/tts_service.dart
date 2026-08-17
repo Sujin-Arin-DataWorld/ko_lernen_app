@@ -19,6 +19,63 @@ import 'tts_installation_id.dart';
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
 
+/// Cloud TTS refused this request. The playback engine must not fall through
+/// to OS speech — quota and in-flight waits are not "use the robot voice".
+class TtsSynthesisBlocked implements Exception {
+  const TtsSynthesisBlocked(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
+/// How the client should treat one Cloud Function TTS error.
+enum TtsCallableKind { retryInflight, blockQuota, blockUnavailable, fallback }
+
+class TtsCallableProbe implements Exception {
+  const TtsCallableProbe({required this.code, this.message});
+
+  final String code;
+  final String? message;
+}
+
+class TtsCallableFailure {
+  static const alreadyInProgressMessage = 'TTS synthesis is already in progress.';
+  static const audioUnavailableMessage = 'TTS audio is not available.';
+  static const quotaMessage = 'Daily synthesis limit reached.';
+
+  static TtsCallableKind fromError(Object error) {
+    if (error is FirebaseFunctionsException) {
+      return classify(code: error.code, message: error.message);
+    }
+    if (error is TtsCallableProbe) {
+      return classify(code: error.code, message: error.message);
+    }
+    return TtsCallableKind.fallback;
+  }
+
+  static TtsCallableKind classify({required String code, String? message}) {
+    if (_codeMatches(code, 'resource-exhausted')) {
+      return TtsCallableKind.blockQuota;
+    }
+    if (_codeMatches(code, 'unavailable')) {
+      final text = message ?? '';
+      if (text.contains('already in progress')) {
+        return TtsCallableKind.retryInflight;
+      }
+      if (text.contains('not available')) {
+        return TtsCallableKind.blockUnavailable;
+      }
+    }
+    return TtsCallableKind.fallback;
+  }
+
+  static bool _codeMatches(String raw, String code) {
+    return raw == code || raw == 'functions/$code' || raw.endsWith('/$code');
+  }
+}
+
 /// Immutable, revisioned address for one synthesized TTS request.
 ///
 /// The same `{voice}|{text}` SHA-1 input is deliberately shared with the
@@ -190,7 +247,13 @@ class TtsPlaybackEngine {
           () => resolveFile(trimmed, normalizedVoice),
         ).then<_TtsResolution>(
           (file) => _TtsResolution(file: file),
-          onError: (_, __) => const _TtsResolution(file: null),
+          onError: (Object error, _) {
+            if (error is TtsSynthesisBlocked) {
+              errorReporter?.call(error.message);
+              return const _TtsResolution.blocked();
+            }
+            return const _TtsResolution(file: null);
+          },
         );
     final resolved = await Future.any<_TtsResolution>([
       resolution,
@@ -219,6 +282,9 @@ class TtsPlaybackEngine {
             return null;
           }
           if (_disposed || generation != _generation) return null;
+        }
+        if (resolved.blockSpeechFallback) {
+          return null;
         }
         return platform.startSpeech(trimmed, rates.speechRate);
       });
@@ -290,11 +356,21 @@ class TtsPlaybackEngine {
 }
 
 class _TtsResolution {
-  const _TtsResolution({required this.file}) : wasCancelled = false;
-  const _TtsResolution.cancelled() : file = null, wasCancelled = true;
+  const _TtsResolution({required this.file})
+    : wasCancelled = false,
+      blockSpeechFallback = false;
+  const _TtsResolution.cancelled()
+    : file = null,
+      wasCancelled = true,
+      blockSpeechFallback = false;
+  const _TtsResolution.blocked()
+    : file = null,
+      wasCancelled = false,
+      blockSpeechFallback = true;
 
   final File? file;
   final bool wasCancelled;
+  final bool blockSpeechFallback;
 }
 
 class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
@@ -512,31 +588,73 @@ class TtsService {
     // 3. Authenticated Firebase callable (dynamic synthesis).
     try {
       final installationId = await _installationIdProvider.getOrCreate();
-      final result = await _functions
-          .httpsCallable(
-            _functionName,
-            options: HttpsCallableOptions(
-              timeout: _netTimeout,
-              limitedUseAppCheckToken: true,
-            ),
-          )
-          .call<Map<String, dynamic>>(
-            buildTtsCallableData(
-              text: text,
-              voice: key.voice,
-              installationId: installationId,
-            ),
-          );
-      final b64 = result.data['audioBase64'] as String?;
-      if (b64 != null && b64.isNotEmpty) {
-        final bytes = base64Decode(b64);
-        if (TtsCacheKey.isUsableAudio(bytes)) {
-          await file.writeAsBytes(bytes, flush: true);
-          return file;
-        }
+      final bytes = await takeCallableAudio(
+        invoke: () async {
+          final result = await _functions
+              .httpsCallable(
+                _functionName,
+                options: HttpsCallableOptions(
+                  timeout: _netTimeout,
+                  limitedUseAppCheckToken: true,
+                ),
+              )
+              .call<Map<String, dynamic>>(
+                buildTtsCallableData(
+                  text: text,
+                  voice: key.voice,
+                  installationId: installationId,
+                ),
+              );
+          final b64 = result.data['audioBase64'] as String?;
+          if (b64 == null || b64.isEmpty) {
+            return null;
+          }
+          final decoded = base64Decode(b64);
+          if (!TtsCacheKey.isUsableAudio(decoded)) {
+            return null;
+          }
+          return decoded;
+        },
+      );
+      if (bytes != null) {
+        await file.writeAsBytes(bytes, flush: true);
+        return file;
       }
+    } on TtsSynthesisBlocked {
+      rethrow;
     } catch (_) {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.
+    }
+    return null;
+  }
+
+  /// Retry / fail-closed policy for one Cloud TTS callable sequence.
+  @visibleForTesting
+  static Future<Uint8List?> takeCallableAudio({
+    required Future<Uint8List?> Function() invoke,
+    int maxAttempts = 3,
+  }) async {
+    for (var attempt = 0; attempt < maxAttempts; attempt++) {
+      try {
+        return await invoke();
+      } catch (error) {
+        final kind = TtsCallableFailure.fromError(error);
+        if (kind == TtsCallableKind.retryInflight &&
+            attempt < maxAttempts - 1) {
+          continue;
+        }
+        if (kind == TtsCallableKind.blockQuota) {
+          lastError = TtsCallableFailure.quotaMessage;
+          throw const TtsSynthesisBlocked(TtsCallableFailure.quotaMessage);
+        }
+        if (kind == TtsCallableKind.blockUnavailable) {
+          lastError = TtsCallableFailure.audioUnavailableMessage;
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.audioUnavailableMessage,
+          );
+        }
+        return null;
+      }
     }
     return null;
   }

@@ -1,14 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_study_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/word_relation_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 
@@ -102,9 +108,71 @@ void main() {
 
   setUp(() async {
     Storage.resetForTesting();
+    WordRelationService.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
     await Storage.setTutSeen('wordWeb');
+  });
+
+  tearDown(WordRelationService.resetForTesting);
+
+  testWidgets('default load unions course-only vocab without seenLoader', (
+    tester,
+  ) async {
+    const vocabId = 'vocab_course_web';
+    WordRelationService.catalogLoaderForTesting = () async =>
+        throw StateError('skip catalog');
+    WordRelationService.vocabLoaderForTesting = () async => [
+      const Vocab(
+        id: vocabId,
+        korean: '크다',
+        romanization: 'keuda',
+        german: 'groß',
+        level: 'A1',
+        posDe: 'Adj',
+        exampleKorean: '크다',
+        exampleGerman: 'groß',
+        topic: 'test',
+      ),
+    ];
+    await Storage.setCourseMasterySnapshotRawJson(
+      jsonEncode(
+        CourseMasterySnapshot(
+          evidence: [
+            MasteryEvidence(
+              conceptId: 'concept-a',
+              contentKind: CurriculumContentKind.vocab,
+              contentId: vocabId,
+              isCorrect: true,
+              occurredAt: DateTime.utc(2026, 8, 1),
+              score: 1,
+            ),
+          ],
+        ).toJson(),
+      ),
+    );
+
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: WordWebScreen(
+          clusterLoader: () async => _deck,
+          levelLoader: () => LearnerLevel.a1,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.byKey(const ValueKey('big')), findsOneWidget);
+    expect(find.text('크다'), findsOneWidget);
+    expect(find.text('작다'), findsNothing);
   });
 
   testWidgets('empty learned state can open level browse', (tester) async {

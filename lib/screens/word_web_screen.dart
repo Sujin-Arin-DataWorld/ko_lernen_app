@@ -48,6 +48,7 @@ class _WordWebScreenState extends State<WordWebScreen>
   bool _loadFailed = false;
   WordWebScope _scope = WordWebScope.learned;
   List<WordRelationCluster> _all = const [];
+  Set<String> _seenKorean = const {};
   final GlobalKey _listKey = GlobalKey();
 
   List<WordRelationCluster> get _visible => _loading ? const [] : _filter();
@@ -74,6 +75,8 @@ class _WordWebScreenState extends State<WordWebScreen>
   @override
   void initState() {
     super.initState();
+    _seenKorean =
+        widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
     _load();
     scheduleCoach();
   }
@@ -98,19 +101,28 @@ class _WordWebScreenState extends State<WordWebScreen>
       failed = true;
       all = const [];
     }
+    var seen =
+        widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
+    if (widget.seenLoader == null) {
+      try {
+        seen = await WordRelationService.learnedKoreanWithCourse();
+      } catch (_) {
+        // Keep the sync pack/SRS set when the course snapshot cannot load.
+      }
+    }
     if (!mounted) {
       return;
     }
     setState(() {
       _all = all;
+      _seenKorean = seen;
       _loadFailed = failed;
       _loading = false;
     });
     scheduleCoach();
   }
 
-  Set<String> get _seen =>
-      widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
+  Set<String> get _seen => widget.seenLoader?.call() ?? _seenKorean;
 
   LearnerLevel get _level =>
       widget.levelLoader?.call() ??

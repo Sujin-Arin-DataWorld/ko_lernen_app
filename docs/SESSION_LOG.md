@@ -1,5 +1,69 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
+
+**무엇.** `cursor/tts-wait-quota-kurs-e988`을 `18428284` 위로 리베이스했다.
+`docs/SESSION_LOG.md`만 충돌했고 Windows 한옥 항목은 유지했다. Jin 요청으로
+PR #59(클라 + `functions/tts` 소스)만 `main`에 머지한다. `firebase deploy`는
+하지 않는다. `#58`은 그대로 머지하지 않는다.
+
+**왜.** 라이브 CF를 지금 올리면 스토어 앱이 새 클라 분류 없이 돌아간다.
+completed-miss는 옛 클라에서 OS TTS로 떨어지며 앱이 깨지지는 않지만,
+배포는 다음 내부 빌드와 같이 하는 편이 맞다. 소스는 main에 두고 함수는
+나중에 올린다.
+
+**검증.** Node `functions/tts/tts_request_guard.test.js`, Flutter
+`tts_cache_key_test`·`tts_request_rate_test`·`word_relation_service_test`·
+`word_web_screen_test`. 원격 CI는 billing 차단이라 돌리지 않음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — TTS/Kurs 리뷰 4건 닫음
+
+**무엇.** (1) pending wait와 completed-miss 메시지를 분리하고 클라는 inflight만
+재시도. (2) 단어망 기본 `_load()`(seenLoader 없음)가 코스 스냅샷을 Gelernt에
+넣는 위젯 테스트. (3) `takeCallableAudio`가 quota/completed-miss/inflight 재시도를
+실제 호출 횟수로 고정. (4) 코스 vocab은 contentId별 **최신** 시도만 보고,
+단원 임계가 있으면 점수 없는/미달 정답은 빼며 나중에 틀린 시도는 제외.
+
+**왜.** Jin이 리뷰 4개를 이 분리 브랜치에서 끝까지 고치라고 했다.
+
+**검증.** Node TTS guard, Flutter TTS·단어망 서비스·단어망 화면.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — TTS 완료·빈 오디오는 inflight 재시도가 아님
+
+**무엇.** `ttsSynthesisPlan`이 pending wait와 completed-miss wait를 나눈다.
+서버는 패자에게만 "already in progress"를 주고, 영수증은 끝났는데 객체가 없으면
+"TTS audio is not available."를 준다. 클라는 inflight만 재시도하고, 빈 완료·
+쿼터는 `TtsSynthesisBlocked`로 OS TTS에 떨어지지 않는다.
+
+**왜.** 같은 unavailable 문자열이 빈 캐시를 3번 재시도한 뒤 로봇 음성으로
+새게 했다.
+
+**검증.** Node TTS guard, Flutter `tts_cache_key_test`·`tts_request_rate_test`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — TTS 대기/쿼터 + 단어망 Kurs만 분리
+
+**무엇.** 한옥 compose/맵/AGENTS는 Windows 세션과 겹쳐서 이 브랜치에서 뺐다.
+TTS 패자는 쿼터 없이 합성하지 않고, `completed`+무오디오도 wait이며 inflight
+poll은 14×500ms다. 클라는 `already in progress`만 재시도하고
+`resource-exhausted`는 OS TTS로 떨어지지 않는다. 단어망 `learnedKorean()`은
+sync 유지, `learnedKoreanWithCourse()`가 정답 vocab evidence와 완료 단원
+vocab 링크를 합친다. 단어망은 코스/한옥을 쓰지 않는다.
+
+**왜.** Jin이 한옥 파일을 빼고 안전하게 작업하라고 했다. 이전 혼합 PR #58은
+머지하지 않는다.
+
+**검증.** Node `functions/tts/tts_request_guard.test.js`, Flutter
+`tts_request_rate_test`·`tts_cache_key_test`·`word_relation_service_test`·
+`word_web_screen_test`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — Codex 병렬 코드/ledger 처분 확정 + main 계약 구멍 5건 닫음 + 결정 메커니즘 투어
 
 **왜.** Cursor와 Codex가 PR4 A1 자산 파이프라인을 각각 구현했고, 병합 `9958a458`은 코드 7경로를

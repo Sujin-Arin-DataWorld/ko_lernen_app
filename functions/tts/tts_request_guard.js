@@ -235,10 +235,13 @@ function ttsSynthesisPlan(claim, hasAudio) {
   if (claim && claim.consume) {
     return { action: "synthesize" };
   }
+  // Synthesize only belongs to a claim that reserved quota.
+  // Pending losers may retry after the winner writes audio.
+  // A completed receipt with no object must not look like inflight.
   if (claim && claim.state === "pending") {
-    return { action: "wait" };
+    return { action: "wait", reason: "pending" };
   }
-  return { action: "synthesize" };
+  return { action: "wait", reason: "completed_miss" };
 }
 
 function ttsLogErrorCode(error) {
