@@ -38,6 +38,7 @@ import os
 import re
 import shutil
 import subprocess
+import time
 import urllib.error
 import urllib.request
 
@@ -363,6 +364,13 @@ def collect():
     return list(texts.keys())
 
 
+# 분당 쿼터에 걸린 요청을 그냥 버리면 한 번 돌 때 300~500개만 채워지고, 남은
+# 문장은 앱에서 OS 폴백(기계음)으로 재생된다. 쿼터는 분 단위로 회복하므로
+# 기다렸다 다시 부르면 같은 실행 안에서 끝난다. 마지막 간격이 60초라 최악의
+# 경우 한 요청이 약 3분 대기한다.
+QUOTA_BACKOFF_SECONDS = (5, 10, 20, 40, 60, 60)
+
+
 def _synth_raw(tok, voice_name, text, rate):
     body = json.dumps(
         {
@@ -376,16 +384,19 @@ def _synth_raw(tok, voice_name, text, rate):
     if not API_KEY:
         headers["Authorization"] = "Bearer " + tok
         headers["x-goog-user-project"] = PROJECT
-    req = urllib.request.Request(url, data=body, headers=headers)
-    try:
-        resp = json.load(urllib.request.urlopen(req))
-    except urllib.error.HTTPError as e:  # 403(API 미활성)·400 등 본문 노출.
-        detail = e.read().decode("utf-8", "ignore")[:400]
-        # A single quota-limited request must not terminate an in-flight
-        # batch before the successfully synthesized cache can be uploaded.
-        # The caller reports this item and a later missing-only run retries it.
-        raise RuntimeError(f"TTS API 오류 {e.code}: {detail}") from e
-    return base64.b64decode(resp["audioContent"])
+    for wait in QUOTA_BACKOFF_SECONDS + (None,):
+        req = urllib.request.Request(url, data=body, headers=headers)
+        try:
+            resp = json.load(urllib.request.urlopen(req))
+        except urllib.error.HTTPError as e:  # 403(API 미활성)·400 등 본문 노출.
+            detail = e.read().decode("utf-8", "ignore")[:400]
+            # 429(쿼터)·503(일시 과부하)만 기다렸다 다시 부른다. 400·403은
+            # 기다려도 같은 답이라 즉시 올린다.
+            if e.code in (429, 503) and wait is not None:
+                time.sleep(wait)
+                continue
+            raise RuntimeError(f"TTS API 오류 {e.code}: {detail}") from e
+        return base64.b64decode(resp["audioContent"])
 
 
 def mp3_duration(data):
