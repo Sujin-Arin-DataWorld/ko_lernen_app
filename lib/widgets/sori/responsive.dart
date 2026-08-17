@@ -96,7 +96,11 @@ double soriUniformFitSize(
   required double maxWidth,
   required double cap,
   required double min,
-  FontWeight fontWeight = FontWeight.w800,
+  // 카드 제시어의 정본 굵기 (2026-08-17 Jin). 번들된 Pretendard 는 400~800
+  // 뿐이라 w800·w900 이 **둘 다** ExtraBold 로 떨어졌고, 대형 한글에서 ㅇ·ㅃ
+  // 속공간이 메워져 덩어리로 보였다. 실측 기본값은 렌더 굵기와 반드시 같아야
+  // 한다 — 어긋나면 폭 예산이 틀려 FittedBox 가 안전망 밖에서 개입한다.
+  FontWeight fontWeight = FontWeight.w700,
   double letterSpacing = 0,
   double lineHeight = 1.0,
 }) {

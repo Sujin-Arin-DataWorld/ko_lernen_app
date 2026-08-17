@@ -540,7 +540,7 @@ class _Front extends StatelessWidget {
                           min: 30,
                           letterSpacing: -0.5,
                         ),
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
                       ),
                     ),
@@ -626,7 +626,7 @@ class _Back extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: soriFillSize(h, 0.085, 22, 38),
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                           height: 1.15,
                         ),
                       ),

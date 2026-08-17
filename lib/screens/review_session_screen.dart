@@ -657,7 +657,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             maxWidth: cc.maxWidth,
             cap: _sz(ch, 0.155, 38, 72),
             min: 30,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             lineHeight: 1.05,
           );
           return SingleChildScrollView(
@@ -708,7 +708,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         style: TextStyle(
           fontFamily: 'Pretendard',
           fontSize: headlineSize,
-          fontWeight: FontWeight.w900,
+          fontWeight: FontWeight.w700,
           height: 1.05,
         ),
       ),
@@ -765,7 +765,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             fontFamily: 'Pretendard',
             // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
             fontSize: _sz(h, 0.125, 28, 54),
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
             height: 1.1,
           ),
         ),
