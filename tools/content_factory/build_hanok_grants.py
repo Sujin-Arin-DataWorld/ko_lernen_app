@@ -41,7 +41,7 @@ A1_REWARDS = (
     "purlins_sangnyang",
     "rafters_roof_frame",
     "roof_base",
-    "choga_roof",
+    "giwa_roof",
     "wall_frame_sujang",
     "earth_walls",
     "ondol_maru",

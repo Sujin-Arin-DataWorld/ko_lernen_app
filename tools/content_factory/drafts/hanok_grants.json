@@ -151,19 +151,19 @@
       "userDescriptionKey": "hanokGrant_a1_10_roof_base"
     },
     {
-      "id": "hanok_a1_11_choga_roof",
+      "id": "hanok_a1_11_giwa_roof",
       "canDoSegmentId": "segment_a1_11_titles_relationships",
       "level": "a1",
       "era": "build",
       "order": 11,
       "kind": "constructionPiece",
       "revealAssetIds": [
-        "hanok_a1_state_11_choga_roof"
+        "hanok_a1_state_11_giwa_roof"
       ],
       "prerequisiteGrantIds": [
         "hanok_a1_10_roof_base"
       ],
-      "userDescriptionKey": "hanokGrant_a1_11_choga_roof"
+      "userDescriptionKey": "hanokGrant_a1_11_giwa_roof"
     },
     {
       "id": "hanok_a1_12_wall_frame_sujang",
@@ -176,7 +176,7 @@
         "hanok_a1_state_12_wall_frame_sujang"
       ],
       "prerequisiteGrantIds": [
-        "hanok_a1_11_choga_roof"
+        "hanok_a1_11_giwa_roof"
       ],
       "userDescriptionKey": "hanokGrant_a1_12_wall_frame_sujang"
     },

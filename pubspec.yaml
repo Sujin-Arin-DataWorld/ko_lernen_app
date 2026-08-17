@@ -141,6 +141,9 @@ flutter:
     - assets/illustrations/personal_hanok_v2/map/structures/
     - assets/illustrations/personal_hanok_v2/map/landscape/
     - assets/illustrations/personal_hanok_v2/interiors/
+    # A1 16 construction states, promoted 2026-08-17 as one approved set.
+    # tool/promote_hanok_a1_states.py refuses a partial set, so this stays all-or-nothing.
+    - assets/illustrations/personal_hanok_v2/a1/states/
     - assets/illustrations/hanok_stages/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/

@@ -11,11 +11,13 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from hanok_v1_asset_contract import (
+    ROOT,
     a1_approved_state_digests,
     a1_expected_files,
     chroma_key_count,
     is_chroma_key_rgb,
     load_provenance,
+    sha256_file,
 )
 
 
@@ -43,11 +45,19 @@ class HanokV1AssetContractTest(unittest.TestCase):
         ghost = Image.new("RGBA", (8, 8), (0, 255, 0, 8))
         self.assertEqual(chroma_key_count(ghost), 0)
 
-    def test_empty_repo_ledger_has_no_approved_a1_digests(self) -> None:
+    def test_repo_ledger_approves_the_full_a1_state_set(self) -> None:
         payload = load_provenance()
-        self.assertEqual(payload["generationLedger"]["records"], [])
-        self.assertEqual(a1_approved_state_digests(payload), {})
-        self.assertEqual(len(a1_expected_files(payload)), 16)
+        expected = a1_expected_files(payload)
+        self.assertEqual(len(expected), 16)
+        approved = a1_approved_state_digests(payload)
+        self.assertEqual(set(approved), set(expected))
+        # Every approved digest must still be the file that was approved.
+        for name, digest in approved.items():
+            staged = ROOT / "assets_unused" / "pending_review" / "a1_states" / name
+            self.assertTrue(staged.is_file(), f"{name} is not staged")
+            self.assertEqual(
+                sha256_file(staged), digest, f"{name} changed after approval"
+            )
 
     def test_approved_state_digests_key_by_basename(self) -> None:
         payload = json.loads(json.dumps(load_provenance()))

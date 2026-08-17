@@ -451,6 +451,31 @@ def compose_state(
             max_edge_drift_px=float(contract["continuity"]["maxEdgeDriftPx"]),
         )
 
+    report = _composite_and_encode(
+        layer,
+        site_base=site_base,
+        output_path=output_path,
+        normalized_layer_path=normalized_layer_path,
+        geometry=geometry,
+        contract=contract,
+    )
+    if continuity is not None:
+        report["continuity"] = continuity
+    if stack is not None:
+        report["stack"] = stack
+    return report
+
+
+def _composite_and_encode(
+    layer: Image.Image,
+    *,
+    site_base: Path,
+    output_path: Path,
+    normalized_layer_path: Path | None,
+    geometry: dict[str, Any],
+    contract: dict[str, Any],
+) -> dict[str, Any]:
+    """Shared tail: composite the socket layer on the base and write a verified WebP."""
     with Image.open(site_base) as source:
         base = source.convert("RGBA")
     _require(
@@ -527,7 +552,7 @@ def compose_state(
     finally:
         if staged.exists():
             staged.unlink()
-    report = {
+    return {
         "normalizedSize": list(layer.size),
         "visibleLayerPixels": sum(alpha > ALPHA_THRESHOLD for *_, alpha in layer.getdata()),
         "chromaPixels": _chroma_count(layer),
@@ -537,17 +562,161 @@ def compose_state(
         "outputBytes": size_bytes,
         "outputSha256": output_sha256,
     }
+
+
+def _encoder_versions() -> dict[str, str]:
+    from PIL import __version__ as pillow_version
+    from PIL import features
+
+    return {
+        "pillow": str(pillow_version),
+        "libwebp": str(features.version("webp") or "unknown"),
+    }
+
+
+def compose_kit_state(
+    manifest_path: Path,
+    output_path: Path,
+    *,
+    previous_manifest_path: Path | None = None,
+    previous_layer_path: Path | None = None,
+    normalized_layer_path: Path | None = None,
+    provenance: dict[str, Any] | None = None,
+    allow_unapproved_parts: bool = False,
+) -> dict[str, Any]:
+    """Kit mode: render a stage manifest deterministically and gate it.
+
+    Replaces the raw-layer rules (resize/anchor/lineage-by-raw-SHA) with the kit
+    rules in `hanok_a1_kit.py`; keeps the socket-outside, visibility, WebP size
+    and re-decode gates of `compose_state`.
+    """
+    import numpy as np
+
+    from derive_hanok_a1_kit import DeriveError, finished_alpha_mask
+    from hanok_a1_kit import (
+        KitError,
+        assert_containment,
+        assert_kit_anchor,
+        assert_structural_continuity,
+        load_manifest,
+        load_parts_registry,
+        rederive_parts,
+        render_manifest,
+        verify_derived_digests,
+    )
+
+    payload = provenance or load_provenance()
+    _require(
+        (previous_manifest_path is None) == (previous_layer_path is None),
+        "--previous-manifest and --previous-layer must be given together",
+    )
+    _require(
+        output_path.suffix.lower() == ".webp",
+        f"composed output must be .webp, got {output_path.suffix or '(none)'}",
+    )
+    geometry = camera_geometry(payload)
+    contract = layer_contract(payload)
+    kit_contract = payload.get("a1KitContract")
+    _require(
+        isinstance(kit_contract, dict),
+        "provenance a1KitContract is required for kit mode",
+    )
+    base_record = site_base_input(payload)
+    site_base = ROOT / base_record["path"]
+    _require(
+        sha256_file(site_base) == str(base_record["sha256"]),
+        "site base SHA-256 no longer matches the provenance allowlist",
+    )
+    try:
+        manifest = load_manifest(manifest_path)
+        registry = load_parts_registry()
+        socket, kit_geometry, parts = rederive_parts(payload)
+        digests = verify_derived_digests(parts, registry)
+        render = dict(
+            parts=parts,
+            geometry=kit_geometry,
+            registry=registry,
+            provenance=payload,
+            allow_unapproved_parts=allow_unapproved_parts,
+        )
+        layer = render_manifest(manifest, **render)
+        _require(
+            layer.size == (geometry["socket_width"], geometry["socket_height"]),
+            "kit layer is not the socket size",
+        )
+        _require(_chroma_count(layer) == 0, "kit layer contains #00ff00 chroma-key pixels")
+        anchor = assert_kit_anchor(layer, kit_geometry, int(manifest["stage"]))
+        finished = np.array(finished_alpha_mask(socket)) > 0
+        violations = assert_containment(
+            layer,
+            finished,
+            kit_geometry,
+            dilate_px=int(kit_contract["containmentDilatePx"]),
+        )
+        continuity = None
+        if previous_manifest_path is not None:
+            previous_manifest = load_manifest(previous_manifest_path)
+            previous_layer = _load_rgba(previous_layer_path)
+            _require(previous_layer.size == layer.size, "previous layer is not the socket size")
+            expected_previous = render_manifest(previous_manifest, **render)
+            _require(
+                expected_previous.tobytes() == previous_layer.tobytes(),
+                "--previous-layer does not match a fresh render of --previous-manifest",
+            )
+            previous_transient = render_manifest(
+                previous_manifest, only_transient=True, **render
+            )
+            continuity = assert_structural_continuity(
+                previous_layer,
+                previous_transient,
+                layer,
+                max_edge_drift_px=float(contract["continuity"]["maxEdgeDriftPx"]),
+            )
+    except (KitError, DeriveError) as error:
+        raise CompositionError(str(error)) from error
+
+    report = _composite_and_encode(
+        layer,
+        site_base=site_base,
+        output_path=output_path,
+        normalized_layer_path=normalized_layer_path,
+        geometry=geometry,
+        contract=contract,
+    )
+    report["mode"] = "kit"
+    report["stage"] = int(manifest["stage"])
+    report["manifest"] = str(manifest_path)
+    report["kitAnchor"] = anchor
+    report["containmentViolations"] = violations
+    report["derivedPartsChecked"] = len(digests)
+    report["lineage"] = "unapproved-qa" if allow_unapproved_parts else "approved"
+    report["encoder"] = _encoder_versions()
     if continuity is not None:
         report["continuity"] = continuity
-    if stack is not None:
-        report["stack"] = stack
     return report
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("raw_png")
-    parser.add_argument("output_webp")
+    parser.add_argument("raw_png", nargs="?")
+    parser.add_argument("output_webp", nargs="?")
+    parser.add_argument(
+        "--kit-manifest",
+        help=(
+            "kit mode: render docs/assets/hanok_a1_kit/stage_NN.json from derived "
+            "and approved parts instead of a raw layer; use with --previous-manifest "
+            "and --previous-layer for continuity"
+        ),
+    )
+    parser.add_argument("--previous-manifest")
+    parser.add_argument(
+        "--allow-unapproved-parts",
+        action="store_true",
+        help=(
+            "kit mode QA only: render generated parts that are not yet approved "
+            "ledger outputs; such a state must never be promoted"
+        ),
+    )
     parser.add_argument("--normalized-layer")
     parser.add_argument("--previous-layer")
     parser.add_argument(
@@ -586,6 +755,30 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--stack-margin-px", type=int, default=8)
     args = parser.parse_args(argv)
+    if args.kit_manifest:
+        _require(
+            args.raw_png is not None and args.output_webp is None,
+            "kit mode usage: --kit-manifest stage.json OUTPUT.webp "
+            "[--previous-manifest prev.json --previous-layer prev.png]",
+        )
+        report = compose_kit_state(
+            Path(args.kit_manifest),
+            Path(args.raw_png),
+            previous_manifest_path=(
+                Path(args.previous_manifest) if args.previous_manifest else None
+            ),
+            previous_layer_path=Path(args.previous_layer) if args.previous_layer else None,
+            normalized_layer_path=(
+                Path(args.normalized_layer) if args.normalized_layer else None
+            ),
+            allow_unapproved_parts=args.allow_unapproved_parts,
+        )
+        print(json.dumps(report, indent=2, sort_keys=True))
+        return 0
+    _require(
+        args.raw_png is not None and args.output_webp is not None,
+        "usage: raw_png output_webp [...] or --kit-manifest stage.json OUTPUT.webp",
+    )
     report = compose_state(
         Path(args.raw_png),
         Path(args.output_webp),

@@ -1,5 +1,73 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — A1 16단계 전부 완성 → Jin 승인 → 런타임 승격 + D1 rename
+
+**왜.** Jin: "커밋해주고, 일단 컴팩했으니까 너가 이 세션에서 이미지 전부 마무리하자."
+직전 커밋 `abd18416`(키트 파이프라인 + 9단계)에 이어 남은 7장(01·02·05·12·13·14·16)을 끝냈다.
+
+**생성(4 credit, 잔액 876.7).** 초벽 텍스처 1장(BBANANA `bce56a89247c1aa410dfd7d7602e8795`,
+Nano Banana Pro 2K 4:3, 프롬프트 원문은 플레이북 §3.5). 나머지 6장은 **크레딧 0** — 이미 만든
+소품 시트(`5baedfcabb9a487981741880369c800e`)를 자르고 완성본 픽셀로 도색해 조립했다.
+
+**신규 도구.**
+- `tool/cut_prop_sheet.py`: 소품 시트를 chroma→alpha(소프트 에지 + 그린 디스필) 후 연결요소
+  15개로 라벨링해 시트 읽기 순서대로 자르고, **소켓 최종 크기까지 여기서 리사이즈**한다
+  (컴포지터는 리사이즈하지 않음). 그룹으로만 그려진 말뚝은 손측정 sub-cut `prop_stake` 1개 추가 → 16장.
+- `tool/make_kit_parts.py`: 모델을 부르지 않는 7개 부품을 조립한다. 01 말뚝 4개 + 발자국 실선,
+  02 기둥 위치 먹줄 격자(측정 발자국에서 계산) + 도행판, 05 목재 더미·모탕, 12 수장 부재
+  (상인방 157–161 / 중방 196–200 / 머름 222–228 / 벽선·문선 4px)를 **완성본의 하방 밴드·기둥
+  스트립을 늘려 도색**, 13 초벽 텍스처 타일링(EARTH_TONE 0.84/0.76/0.66 · scale 10을 부품에 구움),
+  14 아궁이·굴뚝, 16 신발·등롱·발·화분. 모든 산출물은 저장 직전 `dilate(완성 alpha,1) ∪ propsZone`
+  으로 클립하고, 12·13은 추가로 **완성 벽 패널의 alpha==255 픽셀**로 클립한다.
+
+**계약 확장.** manifest 레이어에 `prop: true`(영구 소품 = `sarangchae_props` 대상) 추가 +
+`render_manifest(include_props=False)`. 전 단계 레이어가 전부 transient일 때(01→02) 연속성
+게이트가 "구조 픽셀 0"으로 통과하도록 명시(빈 레이어는 여전히 거절). provenance `a1KitContract`에
+`frameClipDilatePx: 0`·`programParts`·`propLayerFlag`·`cumulativeFrameLayers`·
+`postProcessingBakedIntoParts` 기록.
+
+**전체 체인을 처음으로 01→16 순서대로 돌려 잡은 실측 결함 2건.**
+1. 09가 08의 구조 픽셀 **387개**를 잃었다 — 모델이 단계마다 프레임을 조금씩 다시 그리기 때문.
+   → 생성 골조 레이어를 누적(08 = beams+purlins, 09 = +rafters, 10 = +roofbase)으로 바꿔 해결.
+2. 11(완성 기와)이 10의 픽셀 **26개**를 덮지 못했다 — 정렬 클립이 완성 실루엣 +1px이어서 처마
+   끝이 삐져나왔다. → `align_model_frame.py --clip-dilate-px` 신설, 기본 0으로 재정렬.
+
+**결과.** 16장 전부 통과: kit anchor OK(01·02 bottom 293, 03~16 307) · containment 위반 0 ·
+구조 recall 1.0 · edge drift 0 · 최대 285,696 B(상한 350,000). **15·16은 props를 제외하면
+`base ⊕ sarangchae.png`와 픽셀 동일**(완성 실루엣 밖 추가 픽셀 0). 대조 시트
+`assets_unused/pending_review/a1_kit/qa/contact_sheet_a1_16.png`.
+
+**테스트.** `tool/test_make_kit_parts.py` 신설(6개: chroma 디스필, 시트 읽기 순서, 수장 필드가
+칸을 넘지 않음, ground_x 보간, 흙벽이 부재를 덮지 않음, 7개 부품 모두 허용 영역 안).
+`test_hanok_a1_kit.py`는 15·16 props 제외 픽셀 동일 + 16개 manifest 전수 로드 + 전부-transient
+연속성 + 12·13 벽 내부 클립 검사를 추가해 8→11개.
+
+**승인·승격 (같은 날, Jin "16장 다 승인").**
+- `generationLedger.records` 9건: BBANANA 6건 24 credit(4:3 시도 1건은 `decision=rejected`),
+  로컬 3건 0 credit(정렬 / 소품·벽 조립 / 16장 합성). 승인 출력 32개(`kind=part` 16 ·
+  `kind=state` 16). **입력 체인 규칙을 그대로 만족**시키려 모델이 반환한 raw 이미지도 출력으로
+  기록해, 다음 단계가 그것을 입력으로 쓸 자격을 갖게 했다(allowlist ∪ 앞선 승인 출력만 입력 가능).
+  프롬프트 원문은 `docs/assets/prompts/a1_kit_prompts.json`에 정본으로 두고 `promptSha256`은 그
+  문자열의 해시 — 해시와 텍스트가 함께 검증된다. `priorDiscardedCredits: 20.6`으로 이 원장 이전에
+  폐기 계보에 쓴 지출을 분리 기록(합계 44.6 / 상한 200).
+- 16장을 계약 파일명으로 `assets_unused/pending_review/a1_states/`에 스테이징(폐기 계보 6장 교체)
+  → `promote --apply` → `assets/illustrations/personal_hanok_v2/a1/states/` 16장 → pubspec 등록 →
+  `check_personal_hanok_assets.py --require-a1-states` 16/16 PASS.
+- 자산이 실제로 존재하게 되자 드러난 테스트 3건을 계약에 맞게 갱신: ① 위젯 폴백 테스트는
+  "in-range 단계는 이제 디코드되고 폴백 아이콘은 범위 밖에서만" 으로, ② pubspec 테스트는
+  "a1/states/ 는 16장 전부 승인·승격된 경우에만 등록 가능(그 외 a1/ 하위 등록 금지)" 으로,
+  ③ 원장 fail-closed 테스트는 provider=local의 0 credit을 허용하도록(유료 호출은 여전히 >0).
+
+**D1 rename (같은 날, Jin "지금 처리하고 푸쉬해줘").** `11_choga_roof` → `11_giwa_roof`를
+접점 전부에서 동시에 바꿨다: 카탈로그(`id`/`fileName`/`assetPath`/`grantId`/`revealAssetId`),
+`build_hanok_grants.py` 단계 이름, `drafts/hanok_grants.json`(id·revealAssetIds·
+userDescriptionKey·후속 grant의 prerequisite), provenance `expectedFiles`와 원장 승인 출력 경로,
+런타임·스테이징 WebP 파일명(`git mv`), 테스트 3개. `04_cornerstones_choseok`은 다른 낱말이므로
+건드리지 않았다. grant 초안은 아직 draft이고 릴리스 원장 `publishedGrants`는 비어 있어 rewrite
+금지 규칙에 걸리지 않는다.
+
+**남은 일.** `props_14_ondol`·`props_16_movein`의 `sarangchae_props` 분리 승격은 PR5b.
+grant 재생성(D2/D3/D5/D7)·l10n·glossary는 PR5a 그대로.
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
 
 **무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.
@@ -375,9 +443,62 @@ prerequisite 체인 / B2 대청·사당·후원·마당 구조물+택일 옵션 
 포함, furnishing kind 신설, allowlist 확장 전 생성 금지 등). 리뷰 2축(실현성/계약)의 블로커 2·major 다수를 반영.
 §4.7 확장 규칙: 콘텐츠 추가 → 매핑 무영향, 새 can-do → 소품 1장짜리 grant 1행 authoring.
 
-**구현(이 세션, PR4b-1).** 아래 항목이 이어서 기록된다.
+**구현(PR4b-1, 워크트리 `C:/Users/vjinn/.codex/worktrees/ko_lernen_app-hanok-a1-kit`, 브랜치
+`claude/hanok-a1-kit-20260817` — Jin 지시로 메인 트리·main 브랜치는 건드리지 않음).**
+- 신규 `tool/derive_hanok_a1_kit.py`: allowlist `sarangchae.png`(SHA 검사) 소켓 crop을 픽셀 분류해
+  `docs/assets/hanok_a1_kit/a1_kit_geometry.json`(기둥 8구간·칸·밴드·초석 폴리곤·처마선 854열·기단
+  폴리곤·원근 k=0.0023,d=16·propsZone·groundRow 293/307·partOrder)을 쓰고, 소켓의 **alpha>0 픽셀 전부를
+  30개 부품으로 분할**(roof·band_rafter_ends·band_changbang·pillar_1~8·panel_1~7·band_habang·wall_shadow·
+  choseok_1~8·platform). platform은 벽·하방·그림자·초석에 가려진 윗면(y228~263)을 같은 열의 y252~263 띠
+  미러 타일로 결정론 보정. 기둥 4·5(문선과 융합)는 자동 제안(색 연속 runs + 소실점 대칭 미러)에
+  `a1_kit_overrides.json`(Jin 확인 대상, 초기값 = 리뷰 실측 8구간)이 ±12px 안에서 확정. `--check`로 재현성 검사.
+  파생 PNG는 `assets_unused/pending_review/a1_kit/derived/`(런타임 아님), `parts.json`에 rgbaSha256.
+- 신규 `tool/hanok_a1_kit.py` + `tool/compose_hanok_a1_state.py --kit-manifest`: manifest(z·rear·transient·
+  generated:<id>@at) 렌더, kit anchor(x=427 포함·bottom≥groundRow), 포함(⊆ dilate(완성 alpha,1)∪propsZone),
+  구조 연속성(이전 manifest transient 제외 recall==1.0·drift≤2, 이전 레이어는 재렌더와 바이트 동일),
+  계보(파생=compose 때 재도출 SHA 대조, 생성=ledger approved 출력만), 기존 chroma·소켓밖0·350KB·재디코드
+  게이트 유지, 보고서에 Pillow/libwebp 버전. WebP 인코딩 꼬리를 `_composite_and_encode`로 공용화(raw 모드 동작 불변).
+- `docs/assets/HANOK_V1_ASSET_PROVENANCE.json`: `socketLayer.kitGroundRows`, `a1KitContract`, ledger
+  `outputAssetOptionalFields:[kind]`·`outputAssetKinds`, `budgetCredits.estateStaticMax` 추가(기존 값 불변).
+- manifest `stage_03/04/06/11/15.json` 작성 → **파생 부품만으로 5장 합성(0 credit)**, 03→04→06→11→15 연속성 체인
+  recall 1.0·drift 0·포함 위반 0·263~281KB. **stage 15 소켓 레이어 = 완성 사랑채와 픽셀 동일, 전체 캔버스 =
+  base⊕sarangchae.png와 0픽셀 차이.** QA 산출물 `assets_unused/pending_review/a1_kit/qa/`(webp·layer png·
+  `contact_sheet_03_04_06_11_15.png`). 04·06·11의 뒷줄 초석·기둥·창방은 원근 벡터 복제(바깥 칸에서 살짝 보임).
+- 테스트: `tool/test_derive_hanok_a1_kit.py` 6, `tool/test_hanok_a1_kit.py` 8, 기존 compose/contract/promote 37
+  전부 PASS; `flutter test test/hanok_v1_asset_provenance_test.dart test/hanok_v1_source_guard_test.dart` PASS.
+- 문서: `HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`에 키트 모드 절 추가.
+- 남은 것(PR4b-2): 생성 부품 ≈22개(보·옆보·도리·대공·상량문·서까래·추녀·산자흙·칸틀·심벽·굴뚝·아궁이·
+  장판·우물마루·말뚝·도행판·목재·입택 소품)를 BBANANA로 부품당 생성→Jin 승인→ledger part→나머지 11장 manifest;
+  D1 rename(11_choga→11_giwa)은 PR5a에서 카탈로그·provenance expectedFiles·테스트와 함께.
 
-**커밋 안 함.** Jin 요청 시에만. BBANANA 미사용(잔액 900.7).
+**구현 2차 (같은 워크트리, 생성 시작).** Jin: "이런식으로 좀 디테일하게 들어가야되지않아?? / 필요하면 전부 만들어".
+- 신규 `tool/align_model_frame.py`: 생성 이미지를 키트 기하에 맞춰 정렬한다. 크로마키 제거 → 모델의 기단 윗row·
+  기둥 x·기둥머리row(샤프트 위로 걸어 올라가 median) 측정 → affine(x'=ax+b, y'=cy+d) 산출 → warp → 기둥머리 위만
+  남기고 **완성 실루엣(+1px)으로 클립**. `--ridge-row`로 프레임 밴드(머리~용마루)를 우리 지붕 볼륨(157~45)에 맞춰
+  늘리고, `--fit-from`으로 앞 단계 이미지에서 잰 변환을 뒷 단계(서까래·개판)에 재사용한다(출력 크기가 달라도 비율 보정).
+  이것이 "갑자기 작아짐"의 구조적 해결책이다 — 모델이 캔버스를 어떻게 잡아도 우리 기하로 되돌린다.
+- `compose --allow-unapproved-parts`(QA 전용, 보고서에 `lineage:"unapproved-qa"`) 추가 — 승인 전 파일럿을 게이트로
+  볼 수 있게. 승격에는 절대 쓰지 않는다.
+- BBANANA Nano Banana Pro 2K 5회, **20 credit**(900.7 → 880.7):
+  ① 4:3 완성본 편집 = 골조는 좋았지만 모델이 캔버스를 다시 잡아 **전체 축소** → 폐기(참고용).
+  ② 소품 시트 15종(목재 다발 2·톱대·말뚝+실·도행판·섬돌+신발·등롱·발·화분·돌굴뚝·아궁이·기와 무더기·주두·대공·가새) → **채택**(K05·K06·K12·K13 커버).
+  ③ 21:9 + "폭 854 / 기둥 87 / 용마루 240" 수치 명시 → 낮고 긴 골조 = **채택**(07·08).
+  ④ ③에서 서까래 47줄+평고대+추녀 = **채택**(09). ⑤ ④에서 개판·산자·보토 = **채택**(10).
+- 정렬·합성 결과: **07·08·09·10 네 단계가 게이트 통과**(포함 위반 0, 소켓 밖 0, 263~282KB). 대조 시트
+  `assets_unused/pending_review/a1_kit/qa/contact_sheet_a1_kit.png`에 9단계(03·04·06·07·08·09·10·11·15).
+  기둥 8개·기단·계단·지붕·창호는 전부 완성본 픽셀이라 크기·위치가 단계 간 완전히 고정된다.
+- Jin 확인: 완성 사랑채는 **앞기둥 8개·칸 7개**(주석 실측 이미지로 확인) → 정본 유지, 7+7 안은 폐기.
+- 남은 A1: 01·02(말뚝·먹줄, transient) · 05(목재 더미) · 12·13(수장틀·심벽) · 14(굴뚝·아궁이·마루) · 16(입택 소품).
+  01·02·05·14·16은 위 소품 시트에서 오브젝트를 잘라 배치하면 추가 크레딧 0, 12·13은 1~2장 생성 필요.
+  그 뒤 Jin 장별 승인 → ledger `kind=part`/`kind=state` 기록 → `promote --apply` → pubspec.
+
+**재현 지침(컴팩·세션 교체 대비).** 성공한 프롬프트 원문·모델 설정(Nano Banana Pro 2K, 건물은 21:9,
+수치 블록 854/87/240)·BBANANA task ID·정렬 커맨드(`--ridge-row 45`, 후속 단계는 `--fit-from`)·남은 7장
+계획을 `docs/assets/prompts/HANOK_V1_A1_KIT_GENERATION_PLAYBOOK.md`에 전부 기록했다. 계약 문서에도 키트
+모드 절이 있고, 전역 메모리 `hanok-a1-kit-generation-playbook`이 이 문서를 가리킨다. 새 세션은 그 문서만
+읽고 12·13 생성 + 소품 배치로 이어가면 된다.
+
+**커밋 안 함.** Jin 요청 시에만. BBANANA 20 credit 사용(잔액 880.7).
 
 ### 2026-08-17 (Claude, Windows) — A1 자기소개 캐스트·음성 수리 + TTS 결손 1,190개 합성·배포
 

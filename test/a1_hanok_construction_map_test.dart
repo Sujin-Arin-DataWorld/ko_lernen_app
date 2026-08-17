@@ -114,9 +114,12 @@ void main() {
     expect(key.currentState!.decodeCacheWidth, kA1HanokCanvasWidth);
   });
 
-  testWidgets('uses a fail-visible fallback for missing and out-of-range states', (
+  testWidgets('renders a promoted state and falls back only out of range', (
     tester,
   ) async {
+    // The 16 approved states ship since 2026-08-17, so an in-range stage must
+    // decode; the fail-visible fallback is reserved for a stage the catalog has
+    // no file for at all.
     await tester.pumpWidget(
       _host(
         A1HanokConstructionMap(projection: _projection(8)),
@@ -125,7 +128,7 @@ void main() {
     );
     await tester.pump();
     expect(find.byType(Image, skipOffstage: false), findsNWidgets(3));
-    expect(find.byIcon(Icons.landscape_outlined), findsOneWidget);
+    expect(find.byIcon(Icons.landscape_outlined), findsNothing);
 
     await tester.pumpWidget(
       _host(

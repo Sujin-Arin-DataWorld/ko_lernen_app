@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "derived": {
+    "roof": {
+      "rgbaSha256": "43e412aa253970ace02fe45fcc50fe5626ff920cb56eac9c63988d12f40fbef9",
+      "file": "assets_unused/pending_review/a1_kit/derived/roof.png"
+    },
+    "band_rafter_ends": {
+      "rgbaSha256": "3e0f250222f0e812a0ceafc6d6ab8c463af2454c31505c77e3b7fb83657d8321",
+      "file": "assets_unused/pending_review/a1_kit/derived/band_rafter_ends.png"
+    },
+    "band_changbang": {
+      "rgbaSha256": "3e0b2b47d1de7bb0b560eadd7f1283a52633242e5c8a95ca767be8b5925e5899",
+      "file": "assets_unused/pending_review/a1_kit/derived/band_changbang.png"
+    },
+    "pillar_1": {
+      "rgbaSha256": "d950d8458624a0c9d3b290c766214fda0b917cfc631373f696c978f4cf8af1d9",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_1.png"
+    },
+    "pillar_2": {
+      "rgbaSha256": "b6073c7bad2132183c24bfc751368dbdfe32c136e19b27bc902fa1c50bcc5851",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_2.png"
+    },
+    "pillar_3": {
+      "rgbaSha256": "bc70511821029b44d98cb8fb683e04762910201469c4cd04a097b077dc44882c",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_3.png"
+    },
+    "pillar_4": {
+      "rgbaSha256": "64602b11965d75a079d416a4c907a4929cc3bb3a2bee73fcee1b41ba732b7127",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_4.png"
+    },
+    "pillar_5": {
+      "rgbaSha256": "19a9b585f9a85f42b45e1e79ce274ba9745cdb6fc4ee43f99a4d08f1f5f958da",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_5.png"
+    },
+    "pillar_6": {
+      "rgbaSha256": "0ec19411dfcffd45a5d14a72744dbf2eb4af8722833c163fbfa69a14ddd3e001",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_6.png"
+    },
+    "pillar_7": {
+      "rgbaSha256": "027c0f7225caf9dd4cccc8ce02c29935e8553266fbd4fffe48fc24552cf77db8",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_7.png"
+    },
+    "pillar_8": {
+      "rgbaSha256": "ad3cad65bbf8dfe75ade1b30c3ae33f3d9dd056b607b05847d5b401b62c23400",
+      "file": "assets_unused/pending_review/a1_kit/derived/pillar_8.png"
+    },
+    "panel_1": {
+      "rgbaSha256": "91bd5f66bbc3d44ebdb80aaaf6930ddebad69b0f65b58bea9eb5756f0e470ac8",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_1.png"
+    },
+    "panel_2": {
+      "rgbaSha256": "d675b39cecd08fa67cfd31707b6714c99e5c9be35e8e6740c8ee45e138647192",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_2.png"
+    },
+    "panel_3": {
+      "rgbaSha256": "ac311f227a8efa524e55ff45e488e639e429bf189eb803d95065ecf85ccbe018",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_3.png"
+    },
+    "panel_4": {
+      "rgbaSha256": "9be26fa120ef7bb85e246a69653730c45df9c6bb4c1e08ca8d48ad130ae95601",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_4.png"
+    },
+    "panel_5": {
+      "rgbaSha256": "42f15a36ceb28afc492182d3367a1e2471e9af2f794e8ee41bdd0d2421a65225",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_5.png"
+    },
+    "panel_6": {
+      "rgbaSha256": "d8aae3f7d6484e52c2d05ebe918a40f1cf58cda01bde6fc50f9540ed4c51397e",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_6.png"
+    },
+    "panel_7": {
+      "rgbaSha256": "5ceab5c6f997e2aacc4a77761b26c3f5e46a923b1a9384a7259557411a8da61c",
+      "file": "assets_unused/pending_review/a1_kit/derived/panel_7.png"
+    },
+    "band_habang": {
+      "rgbaSha256": "3a7000d17f34671ec2f3370661cb89d7870d57565df74c458b7ea01c78f8a43d",
+      "file": "assets_unused/pending_review/a1_kit/derived/band_habang.png"
+    },
+    "choseok_1": {
+      "rgbaSha256": "afc472a3060f3873c2c3082eb7a352b1b3d5c3943cc875fe86ad80491d515d2d",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_1.png"
+    },
+    "choseok_2": {
+      "rgbaSha256": "746d4c2bfad580d8e1c753fb1f224b7fc2501fb581fa0a50303e2d8d5ed76a67",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_2.png"
+    },
+    "choseok_3": {
+      "rgbaSha256": "96b4f6b3edb07bc7f099e299197a8fd5b0d78bc734535f29c638b564cd61b905",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_3.png"
+    },
+    "choseok_4": {
+      "rgbaSha256": "789ae63de857b169f10159065f1637aada043a6c54f024cd5b8019be956d65db",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_4.png"
+    },
+    "choseok_5": {
+      "rgbaSha256": "e7676ec1f070dbedcdd678d4939999897fea85561b729b7ad2d54a160e2fd46a",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_5.png"
+    },
+    "choseok_6": {
+      "rgbaSha256": "2386f709662abecaa961d1c42a116ab1bbe5bafcbf4120755fb980f84a366168",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_6.png"
+    },
+    "choseok_7": {
+      "rgbaSha256": "8a6076b9d136d723e1cb535235e92b34df214963b7afa10cd79ff1770719d9ec",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_7.png"
+    },
+    "choseok_8": {
+      "rgbaSha256": "be4f477d0ae3e73f4e895a50b1cb590c9e0f0d351f53c577d9773eea4a042a8a",
+      "file": "assets_unused/pending_review/a1_kit/derived/choseok_8.png"
+    },
+    "wall_shadow": {
+      "rgbaSha256": "3b7f4468256041a0eef375b8599f5068e2a69bc1ba3f48fee320911f3011692c",
+      "file": "assets_unused/pending_review/a1_kit/derived/wall_shadow.png"
+    },
+    "platform": {
+      "rgbaSha256": "53992a879a8d0e82ba08f233892032648939b2b1695bd9e17703b6945c187ed7",
+      "file": "assets_unused/pending_review/a1_kit/derived/platform.png"
+    }
+  },
+  "generated": {
+    "frame_beams": {
+      "file": "assets_unused/pending_review/a1_kit/generated/07_frame_beams.png",
+      "sha256": "4ab47b3d76c8c0c6eb22076d6e2ecbdb309b9747cebc70696381f63db4a9ef14",
+      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py (clip-dilate 0)",
+      "decision": "pending_jin_review"
+    },
+    "frame_purlins": {
+      "file": "assets_unused/pending_review/a1_kit/generated/08_frame_purlins.png",
+      "sha256": "8968ce9f8b59edade6e213257a57b1fece23dc4f6314f3448194057b2dcc8c7b",
+      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py (clip-dilate 0)",
+      "decision": "pending_jin_review"
+    },
+    "frame_rafters": {
+      "file": "assets_unused/pending_review/a1_kit/generated/09_frame_rafters.png",
+      "sha256": "8b28886111831013fb04679f2360fe00e36716a29febbe0ea9e5f0eb6f495c19",
+      "source": "bbanana nano-banana-pro task gvi_1786972511933_46an1e -> tool/align_model_frame.py (clip-dilate 0)",
+      "decision": "pending_jin_review"
+    },
+    "frame_roofbase": {
+      "file": "assets_unused/pending_review/a1_kit/generated/10_frame_roofbase.png",
+      "sha256": "4408f118d1de3ffb5bb6cc496b680532dcadf95f406b7f5e3e046d90c9ee6a32",
+      "source": "bbanana nano-banana-pro task 35cc41266087587f901b7a0e141aab82 -> tool/align_model_frame.py (clip-dilate 0)",
+      "decision": "pending_jin_review"
+    },
+    "parts_12_sujang": {
+      "file": "assets_unused/pending_review/a1_kit/generated/parts_12_sujang.png",
+      "sha256": "45287b89df3d848cb4ca7fd7d2f65d1a1e9ebd3d5696122e68e5e6e06a950033",
+      "source": "derived from sarangchae.png strips -> tool/make_kit_parts.py sujang (0 credit)",
+      "decision": "pending_jin_review"
+    },
+    "parts_13_earthwall": {
+      "file": "assets_unused/pending_review/a1_kit/generated/parts_13_earthwall.png",
+      "sha256": "89a9e2c74d1d4a116a195a606462c4b0b80c67a2770e7bf68edde1dfc36929e5",
+      "source": "bbanana nano-banana-pro task bce56a89247c1aa410dfd7d7602e8795 (초벽 texture) -> tool/make_kit_parts.py earthwall",
+      "decision": "pending_jin_review"
+    },
+    "props_01_setout": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_01_setout.png",
+      "sha256": "c1f3e73bc88418b1081cc64d0924ad06048d3c6ce1561a16a1c3dc9e1edce09e",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py setout",
+      "decision": "pending_jin_review"
+    },
+    "props_02_layout": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_02_layout.png",
+      "sha256": "cc0a3089567dc4804b48631fcdc40cbfcd0fd00858c7007f315b85c20750fca4",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py layout",
+      "decision": "pending_jin_review"
+    },
+    "props_05_timber": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_05_timber.png",
+      "sha256": "fa9ee8fed64cb6d2add905b7d908c92e108d1019985ebe89c0ebf4ce0168b77b",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py timber",
+      "decision": "pending_jin_review"
+    },
+    "props_14_ondol": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_14_ondol.png",
+      "sha256": "e1ec699d1ca8aa5c7d1920b296f3239d3c1c849399208e7c658ca8fda057c1b0",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py ondol",
+      "decision": "pending_jin_review"
+    },
+    "props_16_movein": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_16_movein.png",
+      "sha256": "c685820f3ffb04fbcb3b2237487028c17a4bce3a387850f5ae13496c831c043a",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py movein",
+      "decision": "pending_jin_review"
+    }
+  }
+}
