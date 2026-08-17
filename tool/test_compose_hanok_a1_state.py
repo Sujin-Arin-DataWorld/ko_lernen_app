@@ -12,11 +12,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from compose_hanok_a1_state import (
     CompositionError,
+    _changed_pixels,
     assert_continuity,
     compose_state,
     normalize_layer,
 )
-from hanok_v1_asset_contract import load_provenance, sha256_file
+from hanok_v1_asset_contract import ROOT, load_provenance, sha256_file
 
 
 def _layer(width: int, height: int, box: tuple[int, int, int, int], color=(160, 96, 48, 255)) -> Image.Image:
@@ -52,6 +53,15 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 socket_height=309,
                 local_anchor=(427, 309),
             )
+        near = Image.new("RGBA", (854, 309), (0, 0, 0, 0))
+        near.paste(Image.new("RGBA", (40, 40), (0, 255, 1, 255)), (20, 20))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                near,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
 
     def test_continuity_keeps_growing_footprint_and_rejects_shrink(self) -> None:
         previous = _layer(854, 309, (80, 180, 760, 300))
@@ -81,7 +91,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
             raw = Path(temp_dir) / "raw.png"
             out = Path(temp_dir) / "state.webp"
             normalized = Path(temp_dir) / "layer.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             report = compose_state(
                 raw,
                 out,
@@ -97,11 +107,137 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 self.assertEqual(layer.size, (854, 309))
                 self.assertEqual(layer.mode, "RGBA")
 
+    def test_lineage_outside_repo_raises_composition_error(self) -> None:
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "outside_repo.png"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            with self.assertRaises(CompositionError):
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    provenance=provenance,
+                    require_lineage=True,
+                )
+
+    def test_lineage_rejects_allowlisted_digest_on_a_fake_path(self) -> None:
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "copied.png"
+            raw.write_bytes(
+                (
+                    ROOT
+                    / "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png"
+                ).read_bytes()
+            )
+            with self.assertRaises(CompositionError):
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    provenance=provenance,
+                    require_lineage=True,
+                    input_ledger_path="not/in/allowlist.png",
+                )
+
+    def test_site_base_is_resolved_by_role_not_array_order(self) -> None:
+        provenance = json.loads(json.dumps(load_provenance()))
+        provenance["allowedModelInputs"] = (
+            provenance["allowedModelInputs"][1:] + provenance["allowedModelInputs"][:1]
+        )
+        self.assertEqual(provenance["allowedModelInputs"][0]["role"], "completed_house_source")
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "raw.png"
+            out = Path(temp_dir) / "state.webp"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            compose_state(raw, out, provenance=provenance)
+            composed = Image.open(out).convert("RGB").getpixel((10, 10))
+            site = Image.open(
+                ROOT / "assets/illustrations/personal_hanok_v2/map/site_base_light.png"
+            ).convert("RGB").getpixel((10, 10))
+            house = Image.open(
+                ROOT / "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png"
+            ).convert("RGB").getpixel((10, 10))
+            site_error = sum(abs(a - b) for a, b in zip(composed, site, strict=True))
+            house_error = sum(abs(a - b) for a, b in zip(composed, house, strict=True))
+            self.assertLess(site_error, 20)
+            self.assertGreater(house_error, 200)
+
+    def test_same_size_layer_must_still_cover_the_local_anchor(self) -> None:
+        misplaced = _layer(854, 309, (10, 10, 50, 50))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                misplaced,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
+        # Exclusive getbbox right edge: x=0..426 has bbox[2]=427, which used
+        # to pass `<=` without covering the anchor pixel.
+        stops_short = _layer(854, 309, (0, 170, 427, 300))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                stops_short,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
+        stops_short_y = _layer(854, 309, (0, 170, 428, 300))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                stops_short_y,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
+        covers = _layer(854, 309, (0, 170, 428, 309))
+        normalized = normalize_layer(
+            covers,
+            socket_width=854,
+            socket_height=309,
+            local_anchor=(427, 309),
+        )
+        self.assertEqual(normalized.size, (854, 309))
+
+    def test_changed_pixels_counts_single_channel_rgb_deltas(self) -> None:
+        mask = Image.new("L", (8, 8), 255)
+        left = Image.new("RGB", (8, 8), (80, 80, 80))
+        right = left.copy()
+        right.putpixel((0, 0), (80, 80, 81))
+        self.assertEqual(_changed_pixels(left, right, mask), 1)
+        right = left.copy()
+        right.putpixel((0, 0), (81, 80, 80))
+        self.assertEqual(_changed_pixels(left, right, mask), 1)
+
+    def test_lineage_rejects_approved_output_digest_on_an_unbound_path(self) -> None:
+        provenance = json.loads(json.dumps(load_provenance()))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "copied_approved.png"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            digest = sha256_file(raw)
+            provenance.setdefault("generationLedger", {})["records"] = [
+                {
+                    "outputAssets": [
+                        {
+                            "path": "assets_unused/pending_review/a1_layers/01_site_setout_layer.png",
+                            "sha256": digest,
+                            "decision": "approved",
+                        }
+                    ]
+                }
+            ]
+            with self.assertRaises(CompositionError):
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    provenance=provenance,
+                    require_lineage=True,
+                )
+
     def test_lineage_rejects_unknown_raw_sha(self) -> None:
         provenance = load_provenance()
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "unknown.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             with self.assertRaises(CompositionError):
                 compose_state(
                     raw,

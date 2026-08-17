@@ -16,6 +16,7 @@ from hanok_v1_asset_contract import (
     a1_expected_files,
     a1_hard_max_bytes,
     camera_geometry,
+    chroma_key_count,
     load_provenance,
     qa_composite_path,
 )
@@ -51,11 +52,12 @@ RUNTIME_LAYER_ORDER = (
 
 
 def _chroma_key_count(image: Image.Image) -> int:
-    return sum(
-        1
-        for red, green, blue, alpha in image.convert("RGBA").getdata()
-        if (red, green, blue) == (0, 255, 0) and alpha > 8
-    )
+    count = chroma_key_count(image)
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "check_personal_hanok_assets.py:_chroma_key_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return count
 
 
 def _coverage(image: Image.Image) -> float:
@@ -93,7 +95,13 @@ def _check(path: Path, opaque: bool) -> list[str]:
         coverage = _coverage(image)
         if not 0.002 <= coverage <= 0.90:
             errors.append(f"alpha coverage={coverage:.2%}, expected 0.2%-90%")
-    chroma = _chroma_key_count(image)
+    # Shipping map layers keep exact #00ff00. A1 states use the shared
+    # near-green helper so lossy WebP drift cannot pass.
+    chroma = sum(
+        1
+        for red, green, blue, alpha in image.convert("RGBA").getdata()
+        if (red, green, blue) == (0, 255, 0) and alpha > 8
+    )
     if chroma:
         errors.append(f"contains {chroma} opaque #00ff00 chroma-key pixels")
     detail = f"{image.width}x{image.height} alpha={_coverage(image):.2%} key={chroma}"
@@ -156,15 +164,31 @@ def _write_reference() -> None:
     print(f"[write] {output.relative_to(ROOT)} from runtime composition")
 
 
+def _a1_runtime_leftovers(expected: list[str]) -> list[str]:
+    if not A1_RUNTIME_STATES_ROOT.is_dir():
+        return []
+    expected_names = set(expected)
+    return sorted(
+        child.name
+        for child in A1_RUNTIME_STATES_ROOT.iterdir()
+        if child.is_file() and child.name not in expected_names
+    )
+
+
 def _check_a1_runtime_states(*, required: bool) -> list[str]:
     provenance = load_provenance()
     expected = a1_expected_files(provenance)
     hard_max = a1_hard_max_bytes(provenance)
     geometry = camera_geometry(provenance)
     present = [name for name in expected if (A1_RUNTIME_STATES_ROOT / name).is_file()]
-    if not present and not required:
-        return ["[pass] A1 runtime states are absent and were not promoted"]
+    leftovers = _a1_runtime_leftovers(expected)
     lines: list[str] = []
+    if leftovers:
+        lines.append(
+            "[fail] runtime A1 directory has leftover files: " + ", ".join(leftovers)
+        )
+    if not present and not required:
+        return lines or ["[pass] A1 runtime states are absent and were not promoted"]
     missing = [name for name in expected if name not in present]
     if missing:
         lines.append(
@@ -179,10 +203,8 @@ def _check_a1_runtime_states(*, required: bool) -> list[str]:
         errors: list[str] = []
         if source_format(path) != "WEBP":
             errors.append(f"format={source_format(path)}, expected=WEBP")
-        if image.mode not in {"RGB", "RGBA"}:
+        if image.mode != "RGB":
             errors.append(f"mode={image.mode}, expected RGB")
-        if image.mode == "RGBA" and any(alpha != 255 for alpha in _corners(image)):
-            errors.append("A1 runtime states must be opaque RGB")
         if image.size != (
             geometry["canvas_width"],
             geometry["canvas_height"],

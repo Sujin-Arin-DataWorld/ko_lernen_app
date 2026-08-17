@@ -7,6 +7,7 @@ import argparse
 import shutil
 import sys
 from pathlib import Path
+from typing import Any
 
 from PIL import Image
 
@@ -15,15 +16,27 @@ from hanok_v1_asset_contract import (
     A1_QA_STATES_ROOT,
     A1_RUNTIME_STATES_ROOT,
     ROOT,
+    a1_approved_state_digests,
     a1_expected_files,
     a1_hard_max_bytes,
     camera_geometry,
+    chroma_key_count,
     load_provenance,
+    sha256_file,
 )
 
 
 class PromotionError(ValueError):
     """Fail-closed A1 runtime promotion."""
+
+
+def _chroma_count(image: Image.Image) -> int:
+    count = chroma_key_count(image)
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "promote_hanok_a1_states.py:_chroma_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return count
 
 
 def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None:
@@ -36,17 +49,45 @@ def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None
         raise PromotionError(f"{path} must be WebP, got {fmt}")
     if image.size != (geometry["canvas_width"], geometry["canvas_height"]):
         raise PromotionError(f"{path} has the wrong canvas")
-    if image.mode not in {"RGB", "RGBA"}:
-        raise PromotionError(f"{path} must be RGB")
+    if image.mode != "RGB":
+        raise PromotionError(f"{path} must be opaque RGB, got {image.mode}")
+    if _chroma_count(image):
+        raise PromotionError(f"{path} contains #00ff00 chroma-key pixels")
     if path.stat().st_size > hard_max:
         raise PromotionError(f"{path} exceeds the hard byte cap")
+
+
+def _require_approved_ledger(paths: list[Path], provenance: dict[str, Any]) -> None:
+    expected = a1_expected_files(provenance)
+    digests = a1_approved_state_digests(provenance)
+    if not digests:
+        raise PromotionError(
+            "generationLedger has no approved A1 state outputs; refuse promotion"
+        )
+    missing = [name for name in expected if name not in digests]
+    if missing:
+        raise PromotionError(
+            "generationLedger is missing approved outputs for "
+            + ", ".join(missing)
+        )
+    mismatched = [
+        path.name
+        for path in paths
+        if digests.get(path.name) != sha256_file(path)
+    ]
+    if mismatched:
+        raise PromotionError(
+            "QA A1 state SHA-256 does not match approved ledger output for "
+            + ", ".join(mismatched)
+        )
 
 
 def collect_approved_states(
     qa_root: Path | None = None,
     provenance_path: Path | None = None,
+    provenance: dict[str, Any] | None = None,
 ) -> list[Path]:
-    payload = load_provenance(provenance_path)
+    payload = provenance or load_provenance(provenance_path)
     expected = a1_expected_files(payload)
     geometry = camera_geometry(payload)
     hard_max = a1_hard_max_bytes(payload)
@@ -73,10 +114,31 @@ def promote_states(
     qa_root: Path | None = None,
     runtime_root: Path | None = None,
     dry_run: bool = True,
+    provenance: dict[str, Any] | None = None,
+    provenance_path: Path | None = None,
 ) -> list[str]:
-    approved = collect_approved_states(qa_root=qa_root)
+    payload = provenance or load_provenance(provenance_path)
+    approved = collect_approved_states(qa_root=qa_root, provenance=payload)
+    _require_approved_ledger(approved, payload)
     destination = runtime_root or A1_RUNTIME_STATES_ROOT
     copied = []
+    # #region agent log
+    import json as _json, time as _time
+    _records = payload.get("generationLedger", {}).get("records", [])
+    _digests = a1_approved_state_digests(payload)
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "B", "location": "promote_hanok_a1_states.py:promote_states", "message": "promote SHA-lock", "data": {"dryRun": dry_run, "fileCount": len(approved), "ledgerRecordCount": len(_records), "approvedOutputShaCount": len(_digests), "shaLocked": True, "wouldCopy": not dry_run}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    expected_names = {path.name for path in approved}
+    if destination.is_dir():
+        leftovers = [
+            child.name
+            for child in destination.iterdir()
+            if child.is_file() and child.name not in expected_names
+        ]
+        if leftovers:
+            raise PromotionError(
+                "runtime A1 directory has leftover files: " + ", ".join(sorted(leftovers))
+            )
     if dry_run:
         return [path.name for path in approved]
     destination.mkdir(parents=True, exist_ok=True)

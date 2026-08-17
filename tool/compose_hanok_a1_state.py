@@ -16,14 +16,15 @@ from hanok_v1_asset_contract import (
     ROOT,
     allowed_input_digests,
     camera_geometry,
+    chroma_key_count,
     layer_contract,
     load_provenance,
     sha256_file,
+    site_base_input,
 )
 
 
 ALPHA_THRESHOLD = 8
-CHROMA = (0, 255, 0)
 
 
 class CompositionError(ValueError):
@@ -48,11 +49,12 @@ def _alpha_bbox(image: Image.Image) -> tuple[int, int, int, int] | None:
 
 
 def _chroma_count(image: Image.Image) -> int:
-    return sum(
-        1
-        for red, green, blue, alpha in image.getdata()
-        if (red, green, blue) == CHROMA and alpha > ALPHA_THRESHOLD
-    )
+    count = chroma_key_count(image)
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "compose_hanok_a1_state.py:_chroma_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return count
 
 
 def _corners_opaque(image: Image.Image) -> bool:
@@ -119,6 +121,28 @@ def resize_premultiplied(image: Image.Image, size: tuple[int, int]) -> Image.Ima
     return result
 
 
+def _covers_local_anchor(
+    bbox: tuple[int, int, int, int],
+    local_anchor: tuple[int, int],
+    *,
+    socket_height: int,
+) -> bool:
+    left, top, right, bottom = bbox
+    anchor_x, anchor_y = local_anchor
+    # PIL getbbox right/lower are exclusive, so equality on the right edge
+    # is one pixel outside the painted footprint.
+    covers_x = left <= anchor_x < right
+    if anchor_y >= socket_height:
+        accepted = covers_x and bottom == socket_height
+    else:
+        accepted = covers_x and top <= anchor_y < bottom
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "D", "location": "compose_hanok_a1_state.py:_covers_local_anchor", "message": "anchor cover decision", "data": {"bbox": [left, top, right, bottom], "anchor": [anchor_x, anchor_y], "socketHeight": socket_height, "coversX": covers_x, "requiresExclusiveBottom": anchor_y >= socket_height, "accepted": accepted}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return accepted
+
+
 def normalize_layer(
     raw: Image.Image,
     *,
@@ -133,6 +157,14 @@ def normalize_layer(
     if raw.size == (socket_width, socket_height):
         bbox = _alpha_bbox(raw)
         _require(bbox is not None, "socket layer is fully transparent")
+        _require(
+            _covers_local_anchor(
+                bbox,
+                local_anchor,
+                socket_height=socket_height,
+            ),
+            "normalized layer does not cover the local anchor",
+        )
         return raw
 
     bbox = _alpha_bbox(raw)
@@ -151,7 +183,11 @@ def normalize_layer(
     placed = _alpha_bbox(canvas)
     _require(placed is not None, "normalized layer lost its visible footprint")
     _require(
-        placed[0] <= local_anchor[0] <= placed[2],
+        _covers_local_anchor(
+            placed,
+            local_anchor,
+            socket_height=socket_height,
+        ),
         "normalized layer does not cover the local anchor",
     )
     return canvas
@@ -229,13 +265,10 @@ def _outside_mask(size: tuple[int, int], socket: dict[str, int]) -> Image.Image:
 
 def _changed_pixels(left: Image.Image, right: Image.Image, mask: Image.Image) -> int:
     difference = ImageChops.difference(left.convert("RGB"), right.convert("RGB"))
-    extrema = ImageChops.multiply(difference.convert("L"), mask).getextrema()
-    if extrema is None or extrema[1] == 0:
-        return 0
     return sum(
         1
-        for pixel, keep in zip(difference.convert("L").getdata(), mask.getdata(), strict=True)
-        if keep and pixel > 0
+        for rgb, keep in zip(difference.getdata(), mask.getdata(), strict=True)
+        if keep and rgb != (0, 0, 0)
     )
 
 
@@ -275,20 +308,29 @@ def compose_state(
     payload = provenance or load_provenance()
     geometry = camera_geometry(payload)
     contract = layer_contract(payload)
-    site_base = Path(base_path or ROOT / payload["allowedModelInputs"][0]["path"])
-    expected_base_sha = payload["allowedModelInputs"][0]["sha256"]
+    base_record = site_base_input(payload)
+    site_base = Path(base_path or ROOT / base_record["path"])
+    expected_base_sha = str(base_record["sha256"])
     if base_path is None:
         _require(
             sha256_file(site_base) == expected_base_sha,
             "site base SHA-256 no longer matches the provenance allowlist",
         )
     if require_lineage:
+        digest = sha256_file(raw_path)
         allowed = allowed_input_digests(payload)
-        ledger_path = input_ledger_path or str(raw_path.relative_to(ROOT))
+        if input_ledger_path:
+            path_ok = allowed.get(input_ledger_path) == digest
+        else:
+            try:
+                ledger_path = str(raw_path.resolve().relative_to(ROOT))
+            except ValueError:
+                path_ok = False
+            else:
+                path_ok = allowed.get(ledger_path) == digest
         _require(
-            allowed.get(ledger_path) == sha256_file(raw_path)
-            or sha256_file(raw_path) in allowed.values(),
-            "raw layer SHA is not an allowlisted or previously approved output",
+            path_ok,
+            "raw layer SHA is not bound to an allowlisted or approved ledger path",
         )
 
     raw = _load_rgba(raw_path)

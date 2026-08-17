@@ -23,7 +23,23 @@ class A1HanokConstructionMap extends StatefulWidget {
 }
 
 class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
+  final Map<String, ResizeImage> _providers = <String, ResizeImage>{};
+  final Set<int> _seenCacheWidths = <int>{};
   int? _cacheWidth;
+
+  // #region agent log
+  @visibleForTesting
+  final List<String> debugEvictedPaths = <String>[];
+
+  @visibleForTesting
+  final List<int> debugEvictedCacheWidths = <int>[];
+
+  @visibleForTesting
+  int get debugTrackedProviderCount => _providers.length;
+
+  @visibleForTesting
+  Set<int> get debugSeenCacheWidths => Set<int>.from(_seenCacheWidths);
+  // #endregion
 
   @visibleForTesting
   List<String> get residentAssetPaths {
@@ -38,7 +54,135 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   }
 
   @visibleForTesting
+  List<ResizeImage> get residentProviders => [
+    for (final path in residentAssetPaths)
+      if (_providers[path] != null) _providers[path]!,
+  ];
+
+  @visibleForTesting
   int? get decodeCacheWidth => _cacheWidth;
+
+  @override
+  void dispose() {
+    final step = widget.projection.a1ConstructionStep;
+    final cacheWidth = _cacheWidth;
+    if (cacheWidth != null) {
+      _evictCatalogTargets(step: step, cacheWidth: cacheWidth);
+    }
+    // #region agent log
+    if (cacheWidth != null) {
+      debugEvictedCacheWidths.add(cacheWidth);
+    }
+    debugPrint(
+      'A1_CACHE_HOLE dispose tracked=${_providers.length} '
+      'catalog=${kA1HanokConstructionStates.length} '
+      'evicted=${List<String>.from(debugEvictedPaths)} '
+      'cacheWidth=$cacheWidth',
+    );
+    // #endregion
+    for (final provider in _providers.values) {
+      provider.evict();
+    }
+    _providers.clear();
+    super.dispose();
+  }
+
+  void _evictCatalogTargets({
+    required int step,
+    required int cacheWidth,
+  }) {
+    if (step < kA1HanokMinStep || step > kA1HanokMaxStep) {
+      return;
+    }
+    _seenCacheWidths.add(cacheWidth);
+    final targets = a1HanokEvictionTargets(
+      currentStep: step,
+      seenCacheWidths: Set<int>.from(_seenCacheWidths),
+      currentCacheWidth: cacheWidth,
+    );
+    // #region agent log
+    debugEvictedPaths
+      ..clear()
+      ..addAll(_evictionAssetPaths(targets));
+    // #endregion
+    for (final provider in targets) {
+      provider.evict();
+    }
+  }
+
+  List<String> _evictionAssetPaths(List<ImageProvider> targets) {
+    final paths = <String>[];
+    for (final provider in targets) {
+      if (provider is AssetImage) {
+        paths.add(provider.assetName);
+      } else if (provider is ResizeImage) {
+        final inner = provider.imageProvider;
+        if (inner is AssetImage) {
+          paths.add(inner.assetName);
+        }
+      }
+    }
+    return paths;
+  }
+
+  ResizeImage _resize(String path, int cacheWidth) {
+    final existing = _providers[path];
+    if (existing != null && _cacheWidth == cacheWidth) {
+      return existing;
+    }
+    return ResizeImage(AssetImage(path), width: cacheWidth);
+  }
+
+  Map<String, ResizeImage> _providersFor(List<String> paths, int cacheWidth) {
+    return {for (final path in paths) path: _resize(path, cacheWidth)};
+  }
+
+  void _scheduleProviderSync({
+    required List<String> paths,
+    required int cacheWidth,
+    required Map<String, ResizeImage> next,
+  }) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      final stale = _providers.keys.where((path) => !paths.contains(path)).toList();
+      final sizeChanged = _cacheWidth != cacheWidth;
+      if (stale.isEmpty && !sizeChanged && _providers.length == next.length) {
+        return;
+      }
+      if (_cacheWidth != null) {
+        _seenCacheWidths.add(_cacheWidth!);
+      }
+      _seenCacheWidths.add(cacheWidth);
+      _evictCatalogTargets(
+        step: widget.projection.a1ConstructionStep,
+        cacheWidth: cacheWidth,
+      );
+      for (final path in stale) {
+        _providers.remove(path)?.evict();
+      }
+      if (sizeChanged) {
+        // #region agent log
+        if (_cacheWidth != null) {
+          debugEvictedCacheWidths.add(_cacheWidth!);
+        }
+        debugPrint(
+          'A1_CACHE_HOLE sync stale=$stale sizeChanged=$sizeChanged '
+          'tracked=${_providers.length} catalog=${kA1HanokConstructionStates.length} '
+          'oldCacheWidth=$_cacheWidth newCacheWidth=$cacheWidth '
+          'catalogEvicted=${debugEvictedPaths.length}',
+        );
+        // #endregion
+        for (final provider in _providers.values) {
+          provider.evict();
+        }
+        _providers.clear();
+      }
+      _providers.addAll(next);
+      _cacheWidth = cacheWidth;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +201,17 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth;
-          final dpr = MediaQuery.devicePixelRatioOf(context);
           final cacheWidth = a1HanokDecodeCacheWidth(
             displayWidth: width,
-            devicePixelRatio: dpr,
+            devicePixelRatio: MediaQuery.devicePixelRatioOf(context),
           );
-          _cacheWidth = cacheWidth;
+          final paths = residentAssetPaths;
+          final providers = _providersFor(paths, cacheWidth);
+          _scheduleProviderSync(
+            paths: paths,
+            cacheWidth: cacheWidth,
+            next: providers,
+          );
 
           return Semantics(
             label: widget.semanticsLabel ?? state.id,
@@ -70,26 +219,41 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
             child: ClipRRect(
               borderRadius: SoriRadius.brLg,
               child: RepaintBoundary(
-                child: AnimatedSwitcher(
-                  duration: SoriMotion.respect(context, SoriMotion.medium),
-                  switchInCurve: SoriMotion.gentle,
-                  switchOutCurve: SoriMotion.gentle,
-                  transitionBuilder: (child, animation) {
-                    if (reduceMotion) {
-                      return child;
-                    }
-                    return FadeTransition(opacity: animation, child: child);
-                  },
-                  child: Image.asset(
-                    key: ValueKey('a1-hanok-state-${state.id}'),
-                    state.assetPath,
-                    fit: BoxFit.cover,
-                    width: width.isFinite ? width : null,
-                    cacheWidth: cacheWidth,
-                    gaplessPlayback: false,
-                    errorBuilder: (context, _, __) =>
-                        const _A1FailVisibleFallback(),
-                  ),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    for (final path in paths)
+                      if (path != state.assetPath)
+                        Offstage(
+                          child: Image(
+                            image: providers[path]!,
+                            fit: BoxFit.cover,
+                            gaplessPlayback: false,
+                            errorBuilder: (context, _, __) =>
+                                const SizedBox.shrink(),
+                          ),
+                        ),
+                    AnimatedSwitcher(
+                      duration: SoriMotion.respect(context, SoriMotion.medium),
+                      switchInCurve: SoriMotion.gentle,
+                      switchOutCurve: SoriMotion.gentle,
+                      transitionBuilder: (child, animation) {
+                        if (reduceMotion) {
+                          return child;
+                        }
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      child: Image(
+                        key: ValueKey('a1-hanok-state-${state.id}'),
+                        image: providers[state.assetPath]!,
+                        fit: BoxFit.cover,
+                        width: width.isFinite ? width : null,
+                        gaplessPlayback: false,
+                        errorBuilder: (context, _, __) =>
+                            const _A1FailVisibleFallback(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

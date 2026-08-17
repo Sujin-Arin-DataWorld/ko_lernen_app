@@ -401,6 +401,67 @@ content audit·data integrity·level contract·Today snapshot 집중 회귀 **20
 coverage overlay를 통과했다. `flutter analyze --no-pub --fatal-infos`는
 **No issues found**, `git diff --check`는 기록 직후 확인한다. 본 커밋은 브랜치에 완료되었고 `push`는 미요청 상태다.
 
+### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 수정
+
+**무엇을.** 재현된 A1 파이프라인 구멍 4개를 최소 수정했다. 에셋 생성·runtime
+등록·production route 연결은 하지 않았다. repo provenance
+`generationLedger.records`는 빈 배열로 유지한다.
+
+- chroma: `is_chroma_key_rgb` / `chroma_key_count`를
+  `tool/hanok_v1_asset_contract.py`에 두고 compose·promote·checker가 공유한다.
+  `max(|r-0|,|g-255|,|b-0|) <= 8` 이면 chroma. RGBA는 alpha > 8만 센다.
+- 승격 SHA-lock: `a1_approved_state_digests`로 basename+sha256을 묶고,
+  dry-run/apply 모두 16개 approved ledger output이 없으면 `PromotionError`.
+- ImageCache: `a1HanokEvictionTargets`가 비거주 catalog 경로(본 폭+raw
+  AssetImage)와 거주의 stale width를 돌려주고, map이 step/width/dispose에서
+  그 키만 evict한다. `ImageCache.clear()`는 쓰지 않는다.
+- local anchor Y: skip 제거. `anchor_y >= socket_height`이면
+  `bbox.bottom == socket_height`와 exclusive X를 요구한다. y=170–300은 거절.
+
+**검증.** Python compose/promote/contract 21/21, Flutter catalog/map/observe
+12/12, `check_personal_hanok_assets.py` exit 0, `flutter analyze --no-pub
+--fatal-infos` No issues, `git diff --check` 통과. 수정 후 재현: 손실 q82
+`#00ff00` chroma count 65536, 단청 `#1F7A6B` 0, 빈 ledger promote
+`PromotionError`, y=170–300 `CompositionError`. 커밋해시는 이 기록과 같은 커밋.
+
+### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 런타임 재현 (수정 없음)
+
+**무엇을.** Living Hanok V1 PR4 A1 파이프라인의 남은 fail-closed 구멍 4개를
+수정하지 않고 계측·재현만 했다. 임시 WebP/PNG는 `/tmp`에만 만들었고 repo
+에셋은 생성하지 않았다.
+
+**런타임 숫자.**
+- 손실 q82 `#00ff00` 256×256 WebP 디코드: `(0,255,1)` 65,200px + `(2,255,1)`
+  336px, exact `(0,255,0)` = 0. compose/promote/checker chroma count 모두 0.
+  lossless는 compose count 65,536.
+- `promote_states(dry_run=False)`: ledger `records=0`, approved output SHA=0,
+  16개 RGB WebP 복사 성공.
+- ImageCache: step 8에서 tracked=3 / catalog=17, 비거주 14경로 미추적.
+  8→16 점프는 거주 3개만 evict, 12경로는 한 번도 evict 안 함. dispose는
+  거주 2개만 evict. cacheWidth 600→780 전환은 거주 키만 교체.
+- local anchor `(427,309)` on 854×309: y=170–300 exclusive 페인트는
+  `skippedY=true`, `coversY=false`인데 `normalize_layer` accept.
+
+**검증.** `python3 /tmp/repro_hanok_pr4_holes.py` +
+`flutter test --no-pub test/a1_hanok_imagecache_hole_observe_test.dart`.
+수정은 다음 반복. 계측 커밋 `0a2232bf`.
+
+### 2026-08-17 (Cursor) — PR4 파이프라인 리뷰 버그 수정
+
+**무엇을.** 코드 리뷰와 런타임 재현으로 확인한 fail-closed 구멍을 고쳤다.
+lineage는 repo 밖 raw에서 `ValueError` 대신 `CompositionError`를 내고,
+allowlist digest를 가짜 경로로 재사용하지 못한다. 승인 ledger SHA도
+경로에 묶이지 않으면 거절한다. 대지 합성은 `role=site_base`만 쓰며,
+socket 밖 변경은 RGB 채널로 센다. 같은 크기 레이어는 exclusive
+`getbbox`로 local anchor 픽셀을 덮어야 한다. renderer는 이전/현재/다음
+`ResizeImage`를 유지하고 그 키로 evict한다. 승격·체커는 RGB·chroma·잔여
+파일을 거절한다.
+
+**검증.** Python compose/promote/checker와 Flutter catalog/map/provenance
+집중 회귀. 재현: outside-repo lineage=`CompositionError`, 회전된
+allowlist에서도 (10,10)이 site base에 가깝고, `blue+1`/`red+1` changed
+pixels=1, bbox right=427은 anchor x=427을 덮지 않는다.
+
 ### 2026-08-17 (Cursor) — 살아 있는 한옥 V1 PR4 코드 파이프라인
 
 **무엇을.** PR3 `64b7e24a` 위에 A1 0–16 불변 catalog, projection-only 4:3
@@ -418,8 +479,8 @@ footprint 연속성 gate, 승인 ledger lineage, 16개 원자 승격과 sourceSh
 **검증.** Python pipeline 13/13, `check_personal_hanok_assets.py` exit 0,
 Flutter 집중 회귀 42/42, `flutter analyze --no-pub --fatal-infos` No issues,
 `git diff --check` 통과. A1 runtime/pubspec는 비어 있고 QA composite는
-`assets_unused/pending_review`만 읽는다. PR3는 Play Internal 자동 업로드
-결정 없이 병합하지 않는다.
+`assets_unused/pending_review`만 읽는다. 구현 커밋 `0398bc5`. PR3는 Play
+Internal 자동 업로드 결정 없이 병합하지 않는다.
 
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 
