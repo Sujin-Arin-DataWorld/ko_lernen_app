@@ -20,9 +20,11 @@ smalltalk phrase 지문 40+6건을 재고정했다.
 `test/learner_copy_scan_test.dart`가 교재 이름·직역 구·대화 `I am`/`I will`을
 막는다. kkeunmari `철수`/`지은`과 문법 계사 `I am a student`는 제외.
 
-**검증.** 스캔·loader·asset·data_integrity·course_graph 포커스 테스트 실행.
+**검증.** `learner_copy_scan` 3, `data_integrity` 5, can-do loader/asset 10,
+`course_graph`·placement·scenario flow·onboarding·productive assessment
+합쳐 포커스 **55/55**. vocab 1620×15, grammar 182×16.
 
-**커밋.** 이 항목과 같은 커밋.
+**커밋.** `6a2c3811` + 이 로그/문법 포커스 수정 커밋.
 
 ### 2026-08-17 (Cursor) — 학습자 텍스트 민수 → 현우
 
