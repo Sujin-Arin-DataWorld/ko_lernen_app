@@ -12735,7 +12735,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioHint.
   ///
   /// In de, this message translates to:
-  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.'**
+  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.'**
   String get vocabNotebookStudioHint;
 
   /// No description provided for @vocabNotebookStudioSelectAll.

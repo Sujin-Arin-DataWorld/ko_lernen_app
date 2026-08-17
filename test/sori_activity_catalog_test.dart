@@ -25,7 +25,7 @@ void main() {
       'bookshelf',
       'word_search',
     });
-    expect(learn, hasLength(15));
+    expect(learn, hasLength(16));
   });
 
   test('Games catalog maps every built-in and custom game exactly once', () {
@@ -48,7 +48,7 @@ void main() {
   });
 
   test('every entry has one stable id and complete action/reward metadata', () {
-    expect(soriActivityCatalog.map((entry) => entry.id).toSet(), hasLength(25));
+    expect(soriActivityCatalog.map((entry) => entry.id).toSet(), hasLength(26));
     for (final entry in soriActivityCatalog) {
       expect(entry.route, startsWith('/'), reason: entry.id);
       expect(entry.minutes, greaterThan(0), reason: entry.id);

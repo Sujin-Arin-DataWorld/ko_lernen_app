@@ -6,6 +6,7 @@ import '../models/custom_pack.dart';
 import '../services/custom_pack_corpus_resolver.dart';
 import '../services/custom_pack_service.dart';
 import '../services/vocab_nuance_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -105,7 +106,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     final pack = _pack;
     if (pack == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabNotebookStudioTitle)),
+        appBar: SoriAppBar(title: t.vocabNotebookStudioTitle),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -129,12 +130,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     final surfaces = SoriSurfaces.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.vocabNotebookStudioTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
+      appBar: SoriAppBar(title: t.vocabNotebookStudioTitle),
       body: SafeArea(
         child: SoriCenterClamp(
           child: ListView(
@@ -228,7 +224,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.sm),
               SoriButton.filled(
                 label: t.wbStudyCards,
-                icon: Icons.style_outlined,
                 fullWidth: true,
                 onTap: selected.isEmpty
                     ? null
@@ -242,7 +237,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
                 label: t.wbMatching,
-                icon: Icons.grid_view_rounded,
                 fullWidth: true,
                 onTap: selected.length < 2
                     ? null
@@ -256,7 +250,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
                 label: t.wbTyping,
-                icon: Icons.keyboard_alt_outlined,
                 fullWidth: true,
                 accent: SoriColors.accent,
                 onTap: selected.isEmpty
@@ -271,7 +264,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
                 label: t.wbQuiz,
-                icon: Icons.quiz_outlined,
                 fullWidth: true,
                 accent: SoriColors.accent,
                 onTap: selected.length < 4
@@ -286,7 +278,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
                 label: t.vocabNotebookNuanceCta,
-                icon: Icons.compare_arrows_rounded,
                 fullWidth: true,
                 accent: SoriColors.goldOnLight,
                 onTap: nuanceCount == 0
@@ -319,7 +310,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               else ...<Widget>[
                 SoriButton.outlined(
                   label: t.vocabNotebookStudioCloze(match.cloze.length),
-                  icon: Icons.space_bar_rounded,
                   fullWidth: true,
                   onTap: match.cloze.isEmpty
                       ? null
@@ -328,7 +318,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
                   label: t.vocabNotebookStudioSatz(match.satz.length),
-                  icon: Icons.reorder_rounded,
                   fullWidth: true,
                   onTap: match.satz.isEmpty
                       ? null
@@ -337,7 +326,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
                   label: t.vocabNotebookStudioSpeed(match.vocab.length),
-                  icon: Icons.bolt_outlined,
                   fullWidth: true,
                   onTap: match.vocab.length < 2
                       ? null
@@ -346,7 +334,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
                   label: t.vocabNotebookStudioChosung(match.chosung.length),
-                  icon: Icons.spellcheck_rounded,
                   fullWidth: true,
                   onTap: match.chosung.isEmpty
                       ? null

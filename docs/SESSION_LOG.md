@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Vokabelheft 스튜디오 CI 가드 맞춤
+
+**무엇을.** 스튜디오 화면을 `SoriAppBar`로 바꾸고 제목 w800·장식 아이콘을
+뺐다. DE/EN 안내 문장의 em dash를 쉼표로 바꿨다. Learn 카탈로그 테스트
+길이를 이미 나열된 16개 ID·전체 26개에 맞췄다.
+
+**왜.** 첫 스튜디오 커밋이 main에 들어간 뒤 CI Test가 타이포 래칫·em dash·
+카탈로그 길이로 실패했다. 없는 문장을 만들거나 래칫을 올리지는 않았다.
+
+**검증.** `flutter gen-l10n`. Focused: arb l10n 8/8, catalog, discover length,
+resolver 6, studio widget. 타이포 상한 168/99/75와 A1 시나리오 계약은
+이 화면 이전 main 부채라 올리지 않았다.
+
+**커밋해시.** (이 커밋)
+
 ### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
 
 **무엇을.** 3차 리뷰에서 TTS만 배포하면 학습자에게 빈 캐시/환급/8초

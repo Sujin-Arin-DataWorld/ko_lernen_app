@@ -7448,7 +7448,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Pick the words from your notebook. You then play only those — plus sentences we already have for them.';
+      'Pick the words from your notebook. You then play only those, plus sentences we already have for them.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Take all';

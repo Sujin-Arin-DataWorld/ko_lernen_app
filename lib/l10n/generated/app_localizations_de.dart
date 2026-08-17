@@ -7484,7 +7484,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.';
+      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Alle nehmen';
