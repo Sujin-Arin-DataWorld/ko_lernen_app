@@ -3376,7 +3376,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebLoadErrorBody =>
-      'The word-web file could not be read. This is not an empty study history — try again.';
+      'The word-web file could not be read. This is not an empty study history. Try again.';
 
   @override
   String get wordWebBrowseLevelCta => 'Browse words at my level';
@@ -3454,7 +3454,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebCoachBody =>
-      'Tap a word from your study history. The web shows neighbors, opposites, and an expression — separate from Hanja and nuance in the notebook.';
+      'Tap a word from your study history. The web shows neighbors, opposites, and an expression, separate from Hanja and nuance in the notebook.';
 
   @override
   String get wbMatching => 'Match pairs';
@@ -7455,7 +7455,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Pick the words from your notebook. You then play only those — plus sentences we already have for them.';
+      'Pick the words from your notebook. You then play only those, plus sentences we already have for them.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Take all';

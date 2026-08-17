@@ -3390,7 +3390,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebLoadErrorBody =>
-      'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand — versuch es noch einmal.';
+      'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.';
 
   @override
   String get wordWebBrowseLevelCta => 'Wörter auf meinem Niveau ansehen';
@@ -3467,7 +3467,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebCoachBody =>
-      'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung — unabhängig von Hanja und Nuance im Vokabelheft.';
+      'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung, unabhängig von Hanja und Nuance im Vokabelheft.';
 
   @override
   String get wbMatching => 'Paare finden';
@@ -7491,7 +7491,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.';
+      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Alle nehmen';

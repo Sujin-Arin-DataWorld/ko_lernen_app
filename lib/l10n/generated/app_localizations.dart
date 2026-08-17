@@ -5950,7 +5950,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebLoadErrorBody.
   ///
   /// In de, this message translates to:
-  /// **'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand — versuch es noch einmal.'**
+  /// **'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.'**
   String get wordWebLoadErrorBody;
 
   /// No description provided for @wordWebBrowseLevelCta.
@@ -6087,7 +6087,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebCoachBody.
   ///
   /// In de, this message translates to:
-  /// **'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung — unabhängig von Hanja und Nuance im Vokabelheft.'**
+  /// **'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung, unabhängig von Hanja und Nuance im Vokabelheft.'**
   String get wordWebCoachBody;
 
   /// No description provided for @wbMatching.
@@ -12747,7 +12747,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioHint.
   ///
   /// In de, this message translates to:
-  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.'**
+  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.'**
   String get vocabNotebookStudioHint;
 
   /// No description provided for @vocabNotebookStudioSelectAll.
