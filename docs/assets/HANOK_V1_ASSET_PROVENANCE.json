@@ -76,7 +76,12 @@
         "x": 427,
         "y": 309
       },
-      "requireExclusiveBottom": true
+      "requireExclusiveBottom": true,
+      "kitGroundRows": {
+        "stagesUpTo02": 293,
+        "stagesFrom03": 307,
+        "note": "kit mode anchor: alpha bbox bottom (exclusive) must reach this row; requireExclusiveBottom applies to raw-layer mode only"
+      }
     },
     "output": {
       "format": "WebP",
@@ -99,6 +104,22 @@
       "atomic": true,
       "pubspecUntilComplete": false,
       "requireApprovedLedgerSha256": true
+    }
+  },
+  "a1KitContract": {
+    "geometry": "docs/assets/hanok_a1_kit/a1_kit_geometry.json",
+    "overrides": "docs/assets/hanok_a1_kit/a1_kit_overrides.json",
+    "parts": "docs/assets/hanok_a1_kit/parts.json",
+    "manifests": "docs/assets/hanok_a1_kit/stage_NN.json",
+    "derivedRoot": "assets_unused/pending_review/a1_kit/derived/",
+    "generatedRoot": "assets_unused/pending_review/a1_kit/generated/",
+    "containmentDilatePx": 1,
+    "structuralRecallMin": 1.0,
+    "resizeAllowed": false,
+    "globalPostProcessing": "none",
+    "lineage": {
+      "derived": "re-derived from allowedModelInputs[role=completed_house_source] at compose time; rgbaSha256 must equal parts.json",
+      "generated": "file sha256 must be an approved generationLedger outputAsset (kind=part) and equal parts.json"
     }
   },
   "allowedModelInputs": [
@@ -226,7 +247,8 @@
     "budgetCredits": {
       "staticMax": 200.0,
       "videoMax": 10.4,
-      "totalMax": 210.4
+      "totalMax": 210.4,
+      "estateStaticMax": 200.0
     },
     "recordSchema": {
       "requiredFields": [
@@ -248,6 +270,14 @@
         "path",
         "sha256",
         "decision"
+      ],
+      "outputAssetOptionalFields": [
+        "kind"
+      ],
+      "outputAssetKinds": [
+        "part",
+        "state",
+        "estateLayer"
       ]
     },
     "records": []

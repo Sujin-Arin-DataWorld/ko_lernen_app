@@ -36,6 +36,38 @@ python tool/compose_hanok_a1_state.py \
 - 이전 레이어 footprint recall < 0.97 또는 edge drift > 2px
 - 최종 WebP > 350,000 bytes
 
+## 부품 키트 모드 (2026-08-17, `--kit-manifest`)
+
+단계 그림을 모델에게 통째로 그리게 하지 않는다. allowlist 완성 사랑채
+`sarangchae.png`가 유일한 기하 정본이며, `tool/derive_hanok_a1_kit.py`가 이를
+측정해 `docs/assets/hanok_a1_kit/a1_kit_geometry.json`(기둥 8구간·밴드·초석 폴리곤·
+처마선·기단 폴리곤·원근 k,d·propsZone·groundRow)과 30개 파생 부품(지붕·서까래끝·창방
+밴드·기둥 8·칸 패널 7·하방·그림자·초석 8·기단)으로 **소켓의 모든 alpha 픽셀을 분할**한다.
+파생 부품을 partOrder대로 다시 쌓으면 완성본과 픽셀 동일하다(테스트로 고정). 기둥 구간은
+도구가 제안하고 `a1_kit_overrides.json`(Jin 확인값)이 확정한다.
+
+```bash
+python tool/derive_hanok_a1_kit.py            # geometry·parts.json·derived PNG 갱신
+python tool/derive_hanok_a1_kit.py --check    # 커밋본과 재도출 비교(쓰기 없음)
+python tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_NN.json \
+  assets_unused/pending_review/a1_kit/qa/NN.webp --normalized-layer .../NN_layer.png \
+  [--previous-manifest stage_MM.json --previous-layer .../MM_layer.png]
+```
+
+kit 게이트(raw 모드 규칙을 대체): 레이어는 정확히 854×309(리사이즈 없음) ·
+**anchor** = alpha bbox가 x=427을 포함하고 bottom ≥ groundRow(01·02=293, ≥03=307) ·
+**포함** = 모든 픽셀 ⊆ dilate(완성 alpha,1) ∪ propsZone · **연속성** = 이전 manifest의
+transient 부품을 뺀 구조 픽셀 recall == 1.0, drift ≤ 2 (이전 레이어는 이전 manifest의
+재렌더와 바이트 동일해야 함) · **계보** = 파생 부품은 compose 때 재도출해 `parts.json`의
+rgbaSha256과 대조, 생성 부품(`generated:<id>`)은 ledger approved(kind=part) 출력 SHA만.
+chroma·소켓 밖 0·350KB·재디코드 게이트는 그대로. 보고서에 Pillow/libwebp 버전을 남긴다
+(결정론 = 같은 manifest + 같은 인코더 빌드). 전역 그레인·그림자 후처리는 없다.
+
+뒷줄 기둥·초석·창방은 `rear: true`로 원근 벡터 (−k·d·(x−427), −d), d=16, 명도 0.86 복제.
+2026-08-17 기준 03·04·06·11·15가 파생 부품만으로(0 credit) 게이트를 통과했고 15는
+`base ⊕ sarangchae.png`와 픽셀 동일하다. 07~10·12~14·소품은 생성 부품이 승인된 뒤 manifest에
+추가한다.
+
 ## 승격
 
 16개 QA WebP가 모두 통과하기 전에는 runtime/pubspec에 넣지 않는다.
