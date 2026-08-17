@@ -167,6 +167,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     _tries++;
     final isCorrect = idx == _correctIndex;
 
+    final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
       HapticFeedback.heavyImpact();
       setState(() {
@@ -174,7 +175,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         _completed = true;
         _passed = true;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 200));
+      if (!instant) {
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+      }
       if (mounted) setState(() => _showExplanation = true);
       _report(true);
     } else {
@@ -182,23 +185,26 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
       SoundService.wrong();
       setState(() {
         _selected = idx;
-        _wrongFlash = true;
+        _wrongFlash = !instant;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 200));
-      if (mounted) setState(() => _wrongFlash = false);
+      if (!instant) {
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (mounted) setState(() => _wrongFlash = false);
+      }
 
       if (_tries >= 2) {
-        // 2회 틀림 → 정답 자동 표시
         setState(() {
           _selected = _correctIndex;
           _completed = true;
           _passed = false;
+          _wrongFlash = false;
         });
-        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (!instant) {
+          await Future<void>.delayed(const Duration(milliseconds: 200));
+        }
         if (mounted) setState(() => _showExplanation = true);
         _report(false);
       } else {
-        // 1회 틀림: chip 선택 상태 해제해서 다시 선택 가능하게
         setState(() => _selected = null);
       }
     }

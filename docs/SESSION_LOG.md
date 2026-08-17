@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티 테스트 후속
+
+**무엇.** 첫 패리티 커밋 뒤 위젯 테스트 3곳을 맞췄다. `SoriWordTile`은
+자식 `Text`를 `ExcludeSemantics`로 가려 라벨이 `"안녕, Selected"`만 남게
+했다. `batchim`은 `disableAnimations`일 때 200ms 플래시를 건너뛴다.
+TTS row는 Tempo 라벨을 위줄에 두고 0.8× 포함 6칩을 480dp 한 줄에 둔다.
+
+**왜.** Semantics 병합·받침 지연·듣기 600dp Wrap이 회귀를 깨뜨렸다.
+
+**검증.** `quest_explicit_flow_test`·`sori_quest_frame_test`·
+`dedicated_feedback_route_test`·`tts_speed_control_test` 로컬 통과.
+CI는 billing 차단이라 로컬 결과를 CI 성공으로 쓰지 않음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 시나리오 문제 UI 계약 마감 + 목업 프레임
 
 **무엇.** Codex `ca8e82d9` 재설계는 이미 main/기기에 있다. 이 작업은 남은

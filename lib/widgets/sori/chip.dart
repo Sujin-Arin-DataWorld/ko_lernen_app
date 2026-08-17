@@ -22,6 +22,10 @@ class SoriChip extends StatelessWidget {
   final VoidCallback? onTap;
   final double fontSize;
 
+  /// Overrides the default 12/10 horizontal padding so dense rows (six TTS
+  /// speed presets) can stay on one line inside a 480dp content column.
+  final double? horizontalPadding;
+
   /// Optional minimum hit-target height for an interactive chip.
   ///
   /// These targets keep their intrinsic width so they can remain inline in a
@@ -37,6 +41,7 @@ class SoriChip extends StatelessWidget {
     this.variant = SoriChipVariant.soft,
     this.onTap,
     this.fontSize = 12,
+    this.horizontalPadding,
     this.minInteractiveHeight,
   });
 
@@ -67,7 +72,7 @@ class SoriChip extends StatelessWidget {
     final chip = AnimatedContainer(
       duration: SoriMotion.fast,
       padding: EdgeInsets.symmetric(
-        horizontal: icon == null ? 12 : 10,
+        horizontal: horizontalPadding ?? (icon == null ? 12 : 10),
         vertical: 8,
       ),
       decoration: BoxDecoration(

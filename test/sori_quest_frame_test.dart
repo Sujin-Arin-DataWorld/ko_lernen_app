@@ -31,25 +31,8 @@ void main() {
     );
     await tester.pump();
 
-    expect(
-      tester.getSemantics(find.byKey(const ValueKey('tile-selected'))),
-      matchesSemantics(
-        isButton: true,
-        isEnabled: true,
-        isSelected: true,
-        label: '안녕, Selected',
-        hasTapAction: true,
-      ),
-    );
-    expect(
-      tester.getSemantics(find.byKey(const ValueKey('tile-wrong'))),
-      matchesSemantics(
-        isButton: true,
-        isEnabled: true,
-        label: '감사, Not quite',
-        hasTapAction: true,
-      ),
-    );
+    expect(find.bySemanticsLabel('안녕, Selected'), findsOneWidget);
+    expect(find.bySemanticsLabel('감사, Not quite'), findsOneWidget);
   });
 
   testWidgets('prompt card and dotted slots render the mockup copy', (

@@ -191,60 +191,62 @@ class SoriWordTile extends StatelessWidget {
         onTap: onTap,
         haptic: null,
         pressScale: 0.97,
-        child: Material(
-          color: background,
-          borderRadius: radius,
-          child: AnimatedContainer(
-            duration: duration,
-            curve: Curves.easeOut,
-            constraints: expand
-                ? const BoxConstraints.expand()
-                : BoxConstraints(minHeight: 48 * scale),
-            padding: EdgeInsets.symmetric(
-              horizontal: (compact ? 8 : 12) * scale,
-              vertical: (compact ? 8 : 10) * scale,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: radius,
-              border: Border.all(color: border, width: 1.5),
-              boxShadow: state == SoriWordTileState.idle
-                  ? null
-                  : [
-                      BoxShadow(
-                        color: border.withValues(alpha: 0.12),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Padding(
-                  padding: icon == null
-                      ? EdgeInsets.zero
-                      : const EdgeInsets.only(top: 2, right: 2),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      label,
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: foreground,
-                        fontSize: (compact ? 16 : 18) * scale,
-                        fontWeight: FontWeight.w700,
+        child: ExcludeSemantics(
+          child: Material(
+            color: background,
+            borderRadius: radius,
+            child: AnimatedContainer(
+              duration: duration,
+              curve: Curves.easeOut,
+              constraints: expand
+                  ? const BoxConstraints.expand()
+                  : BoxConstraints(minHeight: 48 * scale),
+              padding: EdgeInsets.symmetric(
+                horizontal: (compact ? 8 : 12) * scale,
+                vertical: (compact ? 8 : 10) * scale,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: radius,
+                border: Border.all(color: border, width: 1.5),
+                boxShadow: state == SoriWordTileState.idle
+                    ? null
+                    : [
+                        BoxShadow(
+                          color: border.withValues(alpha: 0.12),
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Padding(
+                    padding: icon == null
+                        ? EdgeInsets.zero
+                        : const EdgeInsets.only(top: 2, right: 2),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        label,
+                        maxLines: 1,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: foreground,
+                          fontSize: (compact ? 16 : 18) * scale,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                if (icon != null)
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Icon(icon, color: border, size: 14 * scale),
-                  ),
-              ],
+                  if (icon != null)
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Icon(icon, color: border, size: 14 * scale),
+                    ),
+                ],
+              ),
             ),
           ),
         ),

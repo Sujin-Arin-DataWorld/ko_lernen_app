@@ -69,31 +69,40 @@ class TtsSpeedControl extends StatelessWidget {
   Widget _buildRow(BuildContext context, double speed) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return Wrap(
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: Spacing.xs,
-      runSpacing: Spacing.xs,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(Icons.speed_rounded, size: 16, color: s.textMuted),
-        Padding(
-          padding: const EdgeInsets.only(right: Spacing.xs),
-          child: Text(
-            t.ttsSpeedLabel,
-            style: TextStyle(fontSize: 12, color: s.textMuted),
-          ),
+        Row(
+          children: [
+            Icon(Icons.speed_rounded, size: 16, color: s.textMuted),
+            const SizedBox(width: Spacing.xs),
+            Text(
+              t.ttsSpeedLabel,
+              style: TextStyle(fontSize: 12, color: s.textMuted),
+            ),
+          ],
         ),
-        for (final preset in TtsService.speedPresets)
-          SoriChip(
-            label: t.ttsSpeedChip(_fmt(preset)),
-            accent: SoriColors.info,
-            selected: (speed - preset).abs() < 0.01,
-            minInteractiveHeight: 44,
-            onTap: () {
-              // ignore: discarded_futures
-              TtsService.setSpeed(preset);
-              onChanged?.call(preset);
-            },
-          ),
+        const SizedBox(height: Spacing.xs),
+        Wrap(
+          spacing: Spacing.xs,
+          runSpacing: Spacing.xs,
+          children: [
+            for (final preset in TtsService.speedPresets)
+              SoriChip(
+                label: t.ttsSpeedChip(_fmt(preset)),
+                accent: SoriColors.info,
+                selected: (speed - preset).abs() < 0.01,
+                fontSize: 11,
+                horizontalPadding: 7,
+                minInteractiveHeight: 44,
+                onTap: () {
+                  // ignore: discarded_futures
+                  TtsService.setSpeed(preset);
+                  onChanged?.call(preset);
+                },
+              ),
+          ],
+        ),
       ],
     );
   }

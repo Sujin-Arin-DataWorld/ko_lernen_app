@@ -230,7 +230,7 @@ void main() {
         await _chooseWrong(tester, entry.key);
         await tester.tap(find.byKey(const ValueKey('quest-submit')));
         await tester.pump();
-        await tester.pump(const Duration(milliseconds: 250));
+        await tester.pump(const Duration(milliseconds: 450));
       }
 
       expect(results, hasLength(1), reason: entry.key);
