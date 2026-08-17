@@ -1,13 +1,58 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude) — Batch 12 슬라이스 2·3·4 초안: C1/C2 유닛 8개 완성, 콘텐츠 312개
+
+**무엇.** 슬라이스 1에 이어 남은 세 슬라이스를 썼다. 슬라이스 2는
+`c1_04_play_time_policy`(gaming)·`c2_04_sanction_accountability`(gaming),
+슬라이스 3은 `c1_05_fan_labor_sustainability`(kpop)·`c2_05_relationship_narratives`(dating),
+슬라이스 4는 `c1_06_intimacy_safety_design`(dating)·`c2_06_fandom_discourse_power`(kpop)이다.
+이로써 설계가 정한 새 유닛 8개가 다 찼고 C1/C2가 각 6개 유닛으로 여섯 카테고리와 1:1이 된다.
+원문은 `tools/content_factory/data/batch_12_slice{2,3,4}_records.py`에 슬라이스 1과 같은
+모양으로 두었다. 합계는 단어 96(C1 48·C2 48) + 문법 8 + Cloze 96 + Satz 96 + 스몰토크 16 =
+**312 레코드**, 새 단어팩 8개다.
+
+**왜 빌더를 합쳤나.** `validate_batch_01.py:378-385`가 manifest artifact를
+cloze·grammar·satz·smalltalk·vocab **5종 정확히**로 고정하고 kind 중복을 거부한다. 슬라이스마다
+빌더를 두면 manifest가 4개로 갈라져 "배치 1개 = 병합 트랜잭션 1개"와 어긋난다. 그래서
+`build_batch_12_slice1.py`를 `build_batch_12.py` 하나로 일반화하고 슬라이스 1의 산출물
+(`*_slice1.*`)을 kind당 1개인 `c*_batch12_*_c1_c2.*`로 대체했다. 슬라이스는 집필 리듬이지
+납품 단위가 아니다. **레코드 데이터(문장)는 한 글자도 손대지 않았고** 슬라이스 1의 ID·번호도
+그대로다.
+
+**검증.** 빌더 자체 검사 전부 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용·distractor 3개 서로 다름, Satz 3어절 이상·distractor 2개가 target 토큰과
+비중복, 문법 quiz focus가 DE/EN 예문에 각 1회, 문법 distractor ID 3개가 모두 live에 실재,
+live 2,196개 표제어·live 문법 ID와 중복 0, 슬라이스 간 유닛·개념·팩·문법·스몰토크 ID와
+체크포인트 중복 0, 레벨별 스몰토크 카테고리 중복 0(C1 screen·hobby·kpop·dating /
+C2 daily·hobby·dating·kpop). 생성 결과도 확인했다: vocab 96행, C1 48·C2 48, 고유 표제어 96,
+팩 8개.
+
+**남은 지적 하나.** `validate_review_batch.py`는
+`unknown courseUnitId 'c1_05_fan_labor_sustainability'` 하나만 남긴다. live
+`curriculum_manifest.json`의 C1/C2 유닛은 `c1_01`·`c1_02`·`c2_01`·`c2_02` 4개뿐이라 새 유닛
+8개가 전부 미등록이고, `_fail`이 즉시 예외를 던져 팩 ID 알파벳순 첫 번째(`c1_fan_labor_1`)에서
+멈춘 것이다. 슬라이스 1과 같은 관문이지 콘텐츠 문제가 아니다.
+
+**막힌 곳(변동 없음).** ① PR #62(Batch 11) 머지 — 8개 유닛의 `checkpointContentIds`가
+Batch 11 시나리오 8편(`c1_gaming_playtime_policy`·`c2_gaming_auto_sanction`·`c1_kpop_fan_labor`·
+`c2_dating_romance_frames`·`c1_dating_app_safety`·`c2_kpop_fandom_language` 등)을 가리킨다.
+② 유닛 8·개념 8을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·생산 평가 24·extension 릴리스 트랙(order 2·3)은 콘텐츠 승인 뒤 별도 단계다.
+`--apply`·TTS·Firebase 쓰기 없음, `assets/data/`·`lib/` 무수정, `core_2026_v1`의 86개
+segment·edition·보상 무수정.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음).
+
 ### 2026-08-17 (Claude) — Batch 12 슬라이스 1 초안: C1/C2 새 유닛 2개와 콘텐츠 78개
 
 **무엇.** C1/C2의 course unit이 각 2개뿐이어서 Batch 11의 여섯 카테고리가 3+3으로
 몰렸다. 유닛을 6개씩으로 펴는 Batch 12를 슬라이스로 시작했다. 슬라이스 1은
 `c1_03_media_evidence_literacy`(youtube)와 `c2_03_automation_redress`(daily)이고,
 `tools/content_factory/data/batch_12_slice1_records.py`에 유닛·개념·단어 24·문법 2·
-스몰토크 4를 두고 `build_batch_12_slice1.py`가 Cloze 24·Satz 24를 단어 예문에서 1:1로
+스몰토크 4를 두고 빌더가 Cloze 24·Satz 24를 단어 예문에서 1:1로
 파생시켜 초안 5종과 review 원장 5종, `drafts/batch_12_manifest.json`을 만든다. 총 78 레코드다.
+(이 빌더 `build_batch_12_slice1.py`는 같은 날 슬라이스 2·3·4를 쓰면서 `build_batch_12.py`로
+합쳐졌다 — 위 항목 참조. 레코드 모듈과 ID는 그대로다.)
 설계 정본은 `docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md`.
 
 **왜.** B안(유닛 + CanDoSegment + 생산 평가를 extension 릴리스 트랙으로)을 Jin이 골랐다.
