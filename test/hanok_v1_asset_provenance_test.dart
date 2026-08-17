@@ -356,7 +356,117 @@ void main() {
         'sha256',
         'decision',
       ]);
-        expect(_list(ledger['records'], 'generationLedger.records'), isEmpty);
+    });
+
+    test('every ledger record obeys the declared schema and the credit cap', () async {
+      final ledger = _object(manifest['generationLedger'], 'generationLedger');
+      final schema = _object(ledger['recordSchema'], 'recordSchema');
+      final required = _strings(schema['requiredFields'], 'requiredFields');
+      final inputFields = _strings(schema['inputAssetFields'], 'inputAssetFields');
+      final outputFields = _strings(schema['outputAssetFields'], 'outputAssetFields');
+      final kinds = _strings(schema['outputAssetKinds'], 'outputAssetKinds').toSet();
+      final records = _objects(ledger['records'], 'generationLedger.records');
+      expect(
+        records,
+        isNotEmpty,
+        reason: 'A1 states are promoted, so the ledger cannot be empty',
+      );
+
+      var credits = 0.0;
+      final approvedStates = <String, String>{};
+      for (final record in records) {
+        final id = _string(record['id'], 'record.id');
+        for (final field in required) {
+          expect(
+            record.containsKey(field),
+            isTrue,
+            reason: 'record $id is missing required field $field',
+          );
+        }
+        credits += _number(record['costCredits'], '$id.costCredits');
+        _sha256(record['promptSha256'], '$id.promptSha256');
+        for (final input in _objects(record['inputAssets'], '$id.inputAssets')) {
+          for (final field in inputFields) {
+            expect(
+              input.containsKey(field),
+              isTrue,
+              reason: '$id input needs $field',
+            );
+          }
+          _sha256(input['sha256'], '$id.inputAssets.sha256');
+        }
+        for (final output in _objects(record['outputAssets'], '$id.outputAssets')) {
+          for (final field in outputFields) {
+            expect(
+              output.containsKey(field),
+              isTrue,
+              reason: '$id output needs $field',
+            );
+          }
+          final path = _string(output['path'], '$id.outputAssets.path');
+          final digest = _sha256(output['sha256'], '$id.outputAssets.sha256');
+          final decision = _string(output['decision'], '$path.decision');
+          expect(decision, anyOf('approved', 'rejected'));
+          if (output.containsKey('kind')) {
+            expect(kinds, contains(_string(output['kind'], '$path.kind')));
+          }
+          if (decision != 'approved') continue;
+          // An approved output must still be the file it was approved as.
+          final file = File(path);
+          expect(await file.exists(), isTrue, reason: '$path is missing');
+          expect(
+            sha256.convert(await file.readAsBytes()).toString(),
+            digest,
+            reason: '$path changed after approval',
+          );
+          if (output['kind'] == 'state') {
+            approvedStates[path.split('/').last] = digest;
+          }
+        }
+      }
+
+      final prior = _object(
+        ledger['priorDiscardedCredits'],
+        'priorDiscardedCredits',
+      );
+      credits += _number(prior['credits'], 'priorDiscardedCredits.credits');
+      final budgets = _object(ledger['budgetCredits'], 'budgetCredits');
+      expect(
+        credits,
+        lessThanOrEqualTo(
+          _number(budgets['staticMax'], 'budgetCredits.staticMax'),
+        ),
+        reason: 'image generation spend must stay inside the declared cap',
+      );
+
+      // The promoted runtime set is exactly the approved state set, no more.
+      final states = _object(
+        _object(
+          manifest['runtimeLimits'],
+          'runtimeLimits',
+        )['a1ConstructionStates'],
+        'a1ConstructionStates',
+      );
+      final expectedFiles = _strings(states['expectedFiles'], 'expectedFiles');
+      expect(approvedStates.keys.toSet(), expectedFiles.toSet());
+      final root = _string(states['root'], 'a1ConstructionStates.root');
+      final runtimeRoot = Directory(root);
+      if (runtimeRoot.existsSync()) {
+        final promoted = runtimeRoot
+            .listSync()
+            .whereType<File>()
+            .map((file) => file.uri.pathSegments.last)
+            .toSet();
+        expect(promoted, expectedFiles.toSet());
+        for (final name in expectedFiles) {
+          final bytes = await File('$root$name').readAsBytes();
+          expect(
+            sha256.convert(bytes).toString(),
+            approvedStates[name],
+            reason: '$name in the runtime directory is not the approved file',
+          );
+        }
+      }
     });
 
     test('locks the transparent socket compositor and atomic promotion', () {
@@ -427,14 +537,43 @@ void main() {
       );
     });
 
-    test('does not register unapproved A1 states or the QA composite in pubspec', () {
+    test('registers A1 states in pubspec only as the complete approved set', () {
       final pubspec = File('pubspec.yaml').readAsStringSync();
-      expect(pubspec.contains('personal_hanok_v2/a1/'), isFalse);
       expect(pubspec.contains('reference_full_estate.png'), isFalse);
       expect(pubspec.contains('assets_unused/'), isFalse);
+      // Only the states directory may ever be declared, never a1/ as a whole.
+      final declared = pubspec.contains(
+        'assets/illustrations/personal_hanok_v2/a1/states/',
+      );
+      final otherA1 = RegExp(
+        r'personal_hanok_v2/a1/(?!states/)',
+      ).hasMatch(pubspec);
+      expect(otherA1, isFalse);
+      final directory = Directory(
+        'assets/illustrations/personal_hanok_v2/a1/states',
+      );
       expect(
-        Directory('assets/illustrations/personal_hanok_v2/a1/states').existsSync(),
-        isFalse,
+        declared,
+        directory.existsSync(),
+        reason: 'pubspec and the runtime directory must agree',
+      );
+      if (!declared) return;
+      final states = _object(
+        _object(
+          manifest['runtimeLimits'],
+          'runtimeLimits',
+        )['a1ConstructionStates'],
+        'a1ConstructionStates',
+      );
+      final files = directory
+          .listSync()
+          .whereType<File>()
+          .map((file) => file.uri.pathSegments.last)
+          .toSet();
+      expect(
+        files,
+        _strings(states['expectedFiles'], 'expectedFiles').toSet(),
+        reason: 'promotion is atomic: ship all 16 approved states or none',
       );
     });
 
@@ -487,7 +626,13 @@ void main() {
             reason: '$id.occurredAtUtc must be canonical UTC',
           );
           final credits = _number(record['costCredits'], '$id.costCredits');
-          expect(credits, greaterThan(0));
+          // A paid provider call must cost something; a deterministic local step
+          // (alignment, prop cutting, composition) legitimately costs nothing.
+          if (_string(record['provider'], '$id.provider') == 'local') {
+            expect(credits, 0);
+          } else {
+            expect(credits, greaterThan(0));
+          }
           _sha256(record['promptSha256'], '$id.promptSha256');
 
           for (final input in _objects(

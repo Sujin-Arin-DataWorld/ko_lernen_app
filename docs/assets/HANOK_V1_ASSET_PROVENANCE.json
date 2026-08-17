@@ -293,7 +293,450 @@
         "estateLayer"
       ]
     },
-    "records": []
+    "records": [
+      {
+        "id": "a1-frame-4x3-rejected-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "260fb03750d14f34a4c5674d293cc78d",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T12:51:44Z",
+        "costCredits": 4.0,
+        "promptSha256": "3e6f9d6b1ffce614203a55e94819623412a0cd523127b8c4eed1aabf8588136c",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/07_frame_bbanana_260fb037.jpg",
+            "sha256": "c9fc5289bb358a164a49b1cac5bea815db0baca610d1d16dd8420b2fd83c573f",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-prop-sheet-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "5baedfcabb9a487981741880369c800e",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T12:54:47Z",
+        "costCredits": 4.0,
+        "promptSha256": "89da623b725a54ca68d30559c32e5821f3eeb1acbf59c20791b3e578309fbf1d",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/props_sheet_5baedfca.jpg",
+            "sha256": "73e539a955bf419675b5178b6b55650a0aa8240ae5dc53502c59201408795353",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-frame-timber-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "p9hh9hpgk9rmy0d01zb80bs7v0",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T13:08:53Z",
+        "costCredits": 4.0,
+        "promptSha256": "d07f94ac29452d82a9af1dc7d06c2e73651ef66e38ec3e11fa250989939f9d17",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/07_frame_v2_p9hh9hpg.png",
+            "sha256": "c1aaef0bb8e053d278c28d2d47b53c1025eca095fe7a3ff8aa38ff1fd9933a53",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-frame-rafters-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "gvi_1786972511933_46an1e",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T13:15:12Z",
+        "costCredits": 4.0,
+        "promptSha256": "1cb11f698739ff7fd310750f3ee1e747f0ab69b9a5d951b06994103f5d99f441",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/07_frame_v2_p9hh9hpg.png",
+            "sha256": "c1aaef0bb8e053d278c28d2d47b53c1025eca095fe7a3ff8aa38ff1fd9933a53"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/09_rafters_gvi46an1e.png",
+            "sha256": "d8878ab17c5b28f1234c05ecbb37dbe73c5cd2a2eb14b1e3cd79b65f2113680b",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-frame-roofbase-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "35cc41266087587f901b7a0e141aab82",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T13:16:48Z",
+        "costCredits": 4.0,
+        "promptSha256": "f702b29873fd1921f780971b13375b28430871628975aba7f5eb86f376612d2c",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/09_rafters_gvi46an1e.png",
+            "sha256": "d8878ab17c5b28f1234c05ecbb37dbe73c5cd2a2eb14b1e3cd79b65f2113680b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/10_roofbase_35cc4126.png",
+            "sha256": "afc9f530cafd15874cbaf4725649b29162261a5b0cebdc4f8ec8bb2352769fb6",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-earthwall-texture-2026-08-17",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "bce56a89247c1aa410dfd7d7602e8795",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T13:54:41Z",
+        "costCredits": 4.0,
+        "promptSha256": "bd44e8fc6b4ec2ba0fe9910c4cc84c625e64919327327f79f4ae3cefbbb2f970",
+        "promptSource": "docs/assets/prompts/a1_kit_prompts.json",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/13_earthwall_texture_bce56a89.png",
+            "sha256": "e49e54f0c9ee72ead65cdbf3998b09b4919a422b53b3a039c70d6dbdf7949c59",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-frame-align-2026-08-17",
+        "provider": "local",
+        "model": "python tool/align_model_frame.py --ridge-row 45 [--top-row 112 | --fit-from]",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T14:57:40Z",
+        "costCredits": 0.0,
+        "promptSha256": "9e7e266ac0b7bfe98142ffd9506aa7b2cb66f648ab817ccbb197061df73b4996",
+        "promptSource": "command line, not a model prompt",
+        "note": "affine fit onto the kit geometry, then clipped inside the completed-house silhouette",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/07_frame_v2_p9hh9hpg.png",
+            "sha256": "c1aaef0bb8e053d278c28d2d47b53c1025eca095fe7a3ff8aa38ff1fd9933a53"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/09_rafters_gvi46an1e.png",
+            "sha256": "d8878ab17c5b28f1234c05ecbb37dbe73c5cd2a2eb14b1e3cd79b65f2113680b"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/10_roofbase_35cc4126.png",
+            "sha256": "afc9f530cafd15874cbaf4725649b29162261a5b0cebdc4f8ec8bb2352769fb6"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/07_frame_beams.png",
+            "sha256": "4ab47b3d76c8c0c6eb22076d6e2ecbdb309b9747cebc70696381f63db4a9ef14",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/08_frame_purlins.png",
+            "sha256": "8968ce9f8b59edade6e213257a57b1fece23dc4f6314f3448194057b2dcc8c7b",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/09_frame_rafters.png",
+            "sha256": "8b28886111831013fb04679f2360fe00e36716a29febbe0ea9e5f0eb6f495c19",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/10_frame_roofbase.png",
+            "sha256": "4408f118d1de3ffb5bb6cc496b680532dcadf95f406b7f5e3e046d90c9ee6a32",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-props-and-walls-2026-08-17",
+        "provider": "local",
+        "model": "python tool/cut_prop_sheet.py && python tool/make_kit_parts.py all",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T14:57:40Z",
+        "costCredits": 0.0,
+        "promptSha256": "7967dc8f44ce93c2a5f480da33eb28fc6ca44bafd3938556f708c70db249a488",
+        "promptSource": "command line, not a model prompt",
+        "note": "sprites cut to final size and placed at measured coordinates; sujang painted with strips of the completed-house source; no model call",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/props_sheet_5baedfca.jpg",
+            "sha256": "73e539a955bf419675b5178b6b55650a0aa8240ae5dc53502c59201408795353"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/raw/13_earthwall_texture_bce56a89.png",
+            "sha256": "e49e54f0c9ee72ead65cdbf3998b09b4919a422b53b3a039c70d6dbdf7949c59"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_01_setout.png",
+            "sha256": "c1f3e73bc88418b1081cc64d0924ad06048d3c6ce1561a16a1c3dc9e1edce09e",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_02_layout.png",
+            "sha256": "cc0a3089567dc4804b48631fcdc40cbfcd0fd00858c7007f315b85c20750fca4",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_05_timber.png",
+            "sha256": "fa9ee8fed64cb6d2add905b7d908c92e108d1019985ebe89c0ebf4ce0168b77b",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_14_ondol.png",
+            "sha256": "e1ec699d1ca8aa5c7d1920b296f3239d3c1c849399208e7c658ca8fda057c1b0",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_16_movein.png",
+            "sha256": "c685820f3ffb04fbcb3b2237487028c17a4bce3a387850f5ae13496c831c043a",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/parts_12_sujang.png",
+            "sha256": "45287b89df3d848cb4ca7fd7d2f65d1a1e9ebd3d5696122e68e5e6e06a950033",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/parts_13_earthwall.png",
+            "sha256": "89a9e2c74d1d4a116a195a606462c4b0b80c67a2770e7bf68edde1dfc36929e5",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a1-states-compose-2026-08-17",
+        "provider": "local",
+        "model": "python tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_NN.json",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T14:57:40Z",
+        "costCredits": 0.0,
+        "promptSha256": "146b9e29a0c82fa7743bd162fd1afd5d434ab213f6167cb4bb47f35d57445600",
+        "promptSource": "command line, not a model prompt",
+        "note": "deterministic composition of the 16 stage manifests; derived-part lineage in docs/assets/hanok_a1_kit/parts.json",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
+            "sha256": "5d197bc17feb6ed1797cbbaa1ab96b273a1fabee2e3d12a69728e64c53fd6690"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/07_frame_beams.png",
+            "sha256": "4ab47b3d76c8c0c6eb22076d6e2ecbdb309b9747cebc70696381f63db4a9ef14"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/08_frame_purlins.png",
+            "sha256": "8968ce9f8b59edade6e213257a57b1fece23dc4f6314f3448194057b2dcc8c7b"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/09_frame_rafters.png",
+            "sha256": "8b28886111831013fb04679f2360fe00e36716a29febbe0ea9e5f0eb6f495c19"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/10_frame_roofbase.png",
+            "sha256": "4408f118d1de3ffb5bb6cc496b680532dcadf95f406b7f5e3e046d90c9ee6a32"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_01_setout.png",
+            "sha256": "c1f3e73bc88418b1081cc64d0924ad06048d3c6ce1561a16a1c3dc9e1edce09e"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_02_layout.png",
+            "sha256": "cc0a3089567dc4804b48631fcdc40cbfcd0fd00858c7007f315b85c20750fca4"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_05_timber.png",
+            "sha256": "fa9ee8fed64cb6d2add905b7d908c92e108d1019985ebe89c0ebf4ce0168b77b"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_14_ondol.png",
+            "sha256": "e1ec699d1ca8aa5c7d1920b296f3239d3c1c849399208e7c658ca8fda057c1b0"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/props_16_movein.png",
+            "sha256": "c685820f3ffb04fbcb3b2237487028c17a4bce3a387850f5ae13496c831c043a"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/parts_12_sujang.png",
+            "sha256": "45287b89df3d848cb4ca7fd7d2f65d1a1e9ebd3d5696122e68e5e6e06a950033"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/parts_13_earthwall.png",
+            "sha256": "89a9e2c74d1d4a116a195a606462c4b0b80c67a2770e7bf68edde1dfc36929e5"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_states/01_site_setout.webp",
+            "sha256": "339a2ee30c7835178ceaf476915c3d7a1ecb7d7dbdf831158979987c2eb110d2",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/02_plan_layout.webp",
+            "sha256": "e222a5114c24d9766bd41b8a6c911f462e6bc87f77b700c61139619721cfc699",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/03_foundation_gidan.webp",
+            "sha256": "3c83d6ca993d69bae68957af2e1b7f3210bcab34d1e4d66a76954ee26d8a7938",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/04_cornerstones_choseok.webp",
+            "sha256": "ad8e5511091f8d0b904f7be8298f67dd66769d74ccb8ff512d65ee5cd07c6405",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/05_timber_preparation.webp",
+            "sha256": "29bbed9ce9a17160d35e60abe1f50cc495e423144ee699afd241f0f7fe23991a",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/06_columns.webp",
+            "sha256": "7fe24612f8036694ec159b0fea343dcc856f95a43b041f8943b9065f55e66f75",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/07_beams_changbang.webp",
+            "sha256": "2f74901c155322512841834c907ae7e014a6262d789622c4d6e8bb913c846fc8",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/08_purlins_sangnyang.webp",
+            "sha256": "6461b498cca8dc36f693ff7c3a19f78b75d3c190655cb229a252d0dfdf4b34ad",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/09_rafters_roof_frame.webp",
+            "sha256": "078f995d3dc37ba969ed1f58a9191e9c552169a1d1a2e69793aadc7c7429645f",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/10_roof_base.webp",
+            "sha256": "aed5780107dbacf51a005f271b066fb9a77573b73ce87977b4c0473645a809dd",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/11_choga_roof.webp",
+            "sha256": "13f075b19c64150faf0fb69394c27fce9b7a1e7fa7ca4cab0c55270dade78dc2",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/12_wall_frame_sujang.webp",
+            "sha256": "f674630806ceeaca4fad3bb643d9aa1ebd522a3156b397f513e9383f8cd6d414",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/13_earth_walls.webp",
+            "sha256": "4d9743c84286bcd792c0c880021d710b424582068f6d46f60225916c42f533cb",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/14_ondol_maru.webp",
+            "sha256": "424effedfb60a547e845a315e5b68a134073c4ae1c3be7b46186c75f4df22b32",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/15_changho_finish.webp",
+            "sha256": "58e75fd6720ee48c13e2318175f3c49d756e6b0b3fadfc74a1aa33faeca2305e",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/16_landscape_move_in.webp",
+            "sha256": "2e460f1e32437de11f848ef6c69b42d149ad74316c8cb8f32aee9cc98f1901ac",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      }
+    ],
+    "priorDiscardedCredits": {
+      "credits": 20.6,
+      "note": "spent before this ledger existed on the discarded 05-10 lineage; no output of it is approved, promoted or used as a model input",
+      "reference": "docs/SESSION_LOG.md"
+    }
   },
   "qaComposite": {
     "path": "assets_unused/pending_review/reference_full_estate.png",

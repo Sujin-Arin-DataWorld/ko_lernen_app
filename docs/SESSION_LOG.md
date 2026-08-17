@@ -42,8 +42,25 @@ Nano Banana Pro 2K 4:3, 프롬프트 원문은 플레이북 §3.5). 나머지 6�
 `test_hanok_a1_kit.py`는 15·16 props 제외 픽셀 동일 + 16개 manifest 전수 로드 + 전부-transient
 연속성 + 12·13 벽 내부 클립 검사를 추가해 8→11개.
 
-**남은 일.** Jin 장별 승인 → `generationLedger`에 `kind=part`(11) `kind=state`(16) 기록 →
-`promote_hanok_a1_states.py --apply` → pubspec 등록. D1 rename은 PR5a.
+**승인·승격 (같은 날, Jin "16장 다 승인").**
+- `generationLedger.records` 9건: BBANANA 6건 24 credit(4:3 시도 1건은 `decision=rejected`),
+  로컬 3건 0 credit(정렬 / 소품·벽 조립 / 16장 합성). 승인 출력 32개(`kind=part` 16 ·
+  `kind=state` 16). **입력 체인 규칙을 그대로 만족**시키려 모델이 반환한 raw 이미지도 출력으로
+  기록해, 다음 단계가 그것을 입력으로 쓸 자격을 갖게 했다(allowlist ∪ 앞선 승인 출력만 입력 가능).
+  프롬프트 원문은 `docs/assets/prompts/a1_kit_prompts.json`에 정본으로 두고 `promptSha256`은 그
+  문자열의 해시 — 해시와 텍스트가 함께 검증된다. `priorDiscardedCredits: 20.6`으로 이 원장 이전에
+  폐기 계보에 쓴 지출을 분리 기록(합계 44.6 / 상한 200).
+- 16장을 계약 파일명으로 `assets_unused/pending_review/a1_states/`에 스테이징(폐기 계보 6장 교체)
+  → `promote --apply` → `assets/illustrations/personal_hanok_v2/a1/states/` 16장 → pubspec 등록 →
+  `check_personal_hanok_assets.py --require-a1-states` 16/16 PASS.
+- 자산이 실제로 존재하게 되자 드러난 테스트 3건을 계약에 맞게 갱신: ① 위젯 폴백 테스트는
+  "in-range 단계는 이제 디코드되고 폴백 아이콘은 범위 밖에서만" 으로, ② pubspec 테스트는
+  "a1/states/ 는 16장 전부 승인·승격된 경우에만 등록 가능(그 외 a1/ 하위 등록 금지)" 으로,
+  ③ 원장 fail-closed 테스트는 provider=local의 0 credit을 허용하도록(유료 호출은 여전히 >0).
+
+**남은 일.** D1 rename(`11_choga_roof.webp` → `11_giwa_roof.webp`, 그림은 이미 기와)은 카탈로그·
+테스트·grant 초안 7개 접점과 함께 PR5a. `props_14_ondol`·`props_16_movein`의 `sarangchae_props`
+분리 승격은 PR5b.
 
 ### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
 

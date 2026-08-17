@@ -85,6 +85,14 @@ chroma·소켓 밖 0·350KB·재디코드 게이트는 그대로. 보고서에 P
 
 ## 승격
 
+**2026-08-17 완료.** Jin이 16장을 승인해 `generationLedger.records` 9건(BBANANA 6 = 24 credit,
+로컬 3 = 0 credit)과 승인 출력 32개(`kind=part` 16 · `kind=state` 16)를 기록하고
+`promote_hanok_a1_states.py --apply`로 `assets/illustrations/personal_hanok_v2/a1/states/`에
+16장을 복사, pubspec에 그 디렉터리를 등록했다. 원장 입력 체인은 계약대로 **allowlist 또는 앞선
+승인 출력만** 참조한다(모델이 반환한 raw 이미지도 출력으로 기록해 다음 단계의 입력 자격을 갖춘다).
+프롬프트 원문 정본은 `docs/assets/prompts/a1_kit_prompts.json`이고 `promptSha256`은 그 문자열의
+해시다. 11번 런타임 파일명은 아직 `11_choga_roof.webp`(그림은 기와) — D1 rename은 PR5a.
+
 16개 QA WebP가 모두 통과하기 전에는 runtime/pubspec에 넣지 않는다.
 dry-run과 `--apply` 모두 `generationLedger`에 파일 basename+sha256이
 `decision=approved`로 16개 있어야 한다. 빈 ledger는 거절한다.

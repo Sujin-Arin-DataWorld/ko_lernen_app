@@ -292,7 +292,19 @@ edge drift 0 · 최대 285,696 B(상한 350,000). 대조 시트 `qa/contact_shee
 
 총 생성 24 credit(골조 16 + 소품 시트 4 + 초벽 4), 잔액 876.7.
 
-**남은 일:** Jin 장별 승인 → provenance `generationLedger`에 `kind=part`(부품 11개)·
-`kind=state`(합성 16장) 기록 → `promote_hanok_a1_states.py --apply` → pubspec 등록.
-D1 rename(`11_choga_roof` → `11_giwa_roof`)은 PR5a에서 카탈로그·테스트와 함께.
+## 6. 승인·승격 (2026-08-17 완료)
+
+Jin이 16장 전부 승인 → 다음이 끝났다:
+- `generationLedger.records` 8건: BBANANA 6건(24 credit, 그중 4:3 시도 1건은 `decision=rejected`)
+  + 로컬 2건(0 credit, 수장 부품·16장 합성). 승인 출력 27개(`kind=part` 11 · `kind=state` 16).
+  프롬프트 원문은 `docs/assets/prompts/a1_kit_prompts.json`에 정본으로 두고 `promptSha256`은
+  그 문자열의 해시다(해시와 텍스트가 함께 검증된다). `priorDiscardedCredits: 20.6`은 이 원장
+  이전에 폐기된 05~10 계보 지출을 따로 기록한 것 — 합계 44.6 / 상한 200.
+- `assets_unused/pending_review/a1_states/`에 계약 파일명으로 16장 스테이징(폐기 계보 6장 교체)
+  → `promote_hanok_a1_states.py --apply` → `assets/illustrations/personal_hanok_v2/a1/states/`
+- `pubspec.yaml`에 `personal_hanok_v2/a1/states/` 등록,
+  `check_personal_hanok_assets.py --require-a1-states` 16/16 PASS.
+
+**주의 — 11번 파일명.** 런타임 파일명은 계약이 요구하는 `11_choga_roof.webp`이지만 그림은
+기와다(D1 결정). 이름 변경은 카탈로그·테스트·grant 초안 7개 접점과 함께 PR5a에서 한다.
 `props_14_ondol`·`props_16_movein`은 PR5b에서 `sarangchae_props`로도 분리 승격한다.
