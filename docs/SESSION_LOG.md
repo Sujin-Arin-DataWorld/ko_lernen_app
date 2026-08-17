@@ -12,9 +12,11 @@ together` / `Dann lassen Sie uns gut zusammenarbeiten`처럼 한국어를 단어
 it.`, 작별은 `kommen Sie gut nach Hause`, 호칭 허락은 `Darf ich`로 되돌렸다.
 `satz_a1_0041` vocab 지문 1건을 갱신했다.
 
-**검증.** 집중 Flutter 테스트는 이 커밋 직후 실행.
+**검증.** `canonical_course_segment_loader` · `can_do_segment_asset` ·
+`productive_catalog_contract` · `productive_mastery_service` ·
+`data_integrity` **29/29**. vocab 1188×15.
 
-**커밋.** 이 항목과 같은 커밋.
+**커밋.** `8409391` + 이 로그 커밋.
 
 ### 2026-08-16 (Cursor) — 직장 안부 `lately` 잔여 문구 제거
 
