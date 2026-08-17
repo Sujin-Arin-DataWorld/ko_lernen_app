@@ -682,6 +682,65 @@
             "decisionReason": "true_alpha_purlins_jongdori_only_and_continuity_passed"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_09_rafters_roof_frame_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:41:02Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-87ba101c-75a6-4c27-8fb8-85dcc2c09011",
+        "status": "completed",
+        "promptSha256": "5f143c844067dc092371ac604d30ed18c46ce01ece4ae529d5941a2eec334704",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/08_purlins_sangnyang_recraft_20260817.png",
+            "sha256": "e7937f32ebc940de46c03f06240d2902c10abf6eadaa3b4303e5a60636d8f188"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/09_rafters_roof_frame_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "b0bd94cdbab621c95a6ae5a96e782c644cfd8376bcc2b3400ddebe3eff9a8810",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1705744,
+            "decisionReason": "rafter_and_chunyeo_semantics_passed_but_checkerboard_was_baked_rgb"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_09_rafters_roof_frame_recraft_approved_20260817",
+        "provider": "BBANANA",
+        "model": "Recraft Remove Background",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:43:14.045444Z",
+        "costCredits": 0.3,
+        "taskId": "6bca4ceed4988b469f76cfe1a8034fad",
+        "status": "completed",
+        "promptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/09_rafters_roof_frame_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "b0bd94cdbab621c95a6ae5a96e782c644cfd8376bcc2b3400ddebe3eff9a8810"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/09_rafters_roof_frame_recraft_20260817.png",
+            "sha256": "89661c1d1c2d29896cccd5e449f3e4f93d1e177a048e682a5f9278d693cbddec",
+            "decision": "approved",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 1948122,
+            "decisionReason": "true_alpha_open_rafters_and_chunyeo_only_with_continuity_passed"
+          }
+        ]
       }
     ]
   },
@@ -931,6 +990,76 @@
             "no_midheight_sujang_rails_rafters_roof_or_walls",
             "no_text_ui_people_animals_or_watermark",
             "foundation_continuity_iou_0_997108_and_edge_drift_0",
+            "camera_and_estate_preserved_by_deterministic_composition"
+          ]
+        }
+      },
+      {
+        "stageId": "09_rafters_roof_frame",
+        "generationRecordId": "hanok_a1_09_rafters_roof_frame_recraft_approved_20260817",
+        "status": "approved_qa",
+        "rawLayer": {
+          "path": "assets_unused/pending_review/a1_layers/raw/09_rafters_roof_frame_recraft_20260817.png",
+          "sha256": "89661c1d1c2d29896cccd5e449f3e4f93d1e177a048e682a5f9278d693cbddec",
+          "width": 2172,
+          "height": 724,
+          "colorMode": "RGBA",
+          "bytes": 1948122
+        },
+        "normalizedLayer": {
+          "path": "assets_unused/pending_review/a1_layers/09_rafters_roof_frame_layer.png",
+          "sha256": "302e56c988e4ffeff73d5fc6d3ea75907f00758e3844f84781c2080aa017b16e",
+          "width": 854,
+          "height": 309,
+          "colorMode": "RGBA",
+          "bytes": 334169,
+          "alphaCoverage": 0.4817269578530123,
+          "anchorPixels": 1011,
+          "chromaPixels": 0,
+          "cumulativeContinuity": {
+            "foundationBandHeight": 80,
+            "alphaIoU": 0.9723770086737216,
+            "maximumEdgeDriftPixels": 12,
+            "previousFootprint": [
+              8,
+              0,
+              846,
+              80
+            ],
+            "currentFootprint": [
+              20,
+              0,
+              843,
+              80
+            ]
+          }
+        },
+        "composite": {
+          "path": "assets_unused/pending_review/a1_states/09_rafters_roof_frame.webp",
+          "sha256": "c804e3666971c05d4300e5f7c4484006e353a6d075b3d6965b7ddd8b23c90bb8",
+          "width": 1536,
+          "height": 1152,
+          "colorMode": "RGB",
+          "bytes": 294896,
+          "sourceOutsideSocketChangedPixels": 0,
+          "sourceInsideSocketChangedPixels": 132743,
+          "decodedOutsideSocketMeanError": 3.3211533582272947,
+          "encoder": {
+            "library": "Pillow",
+            "version": "11.3.0",
+            "quality": 82,
+            "method": 6
+          }
+        },
+        "visualReview": {
+          "decision": "approved",
+          "checks": [
+            "exactly_seven_primary_columns_preserved",
+            "existing_beams_changbang_purlins_and_jongdori_preserved",
+            "open_common_rafters_and_corner_chunyeo_are_the_only_new_structure",
+            "no_roof_base_waterproofing_thatch_tiles_walls_or_sujang",
+            "no_text_ui_people_animals_or_watermark",
+            "foundation_continuity_iou_0_972377_and_edge_drift_12",
             "camera_and_estate_preserved_by_deterministic_composition"
           ]
         }
