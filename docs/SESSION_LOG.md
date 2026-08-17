@@ -22,9 +22,10 @@
 
 **검증.** `python3 tool/build_word_relations.py` → 66클러스터, source gloss
 전부, 비슷한 말 0공백. `flutter analyze --no-pub --fatal-infos` 대상 파일
-No issues found. `flutter test --no-pub test/word_relation_service_test.dart
-test/word_web_screen_test.dart test/l10n_parity_test.dart
-test/sori_activity_catalog_test.dart` 통과.
+No issues found. `flutter test --no-pub` word-relation·word-web·l10n parity·
+catalog·discover·arb guard 통과. 학습자 카피의 em dash를 마침표/쉼표로 바꿨다.
+`typography_guard`·A1 `a1_partner_first_door` 실패는 이 브랜치가 만진 파일이
+아니라 기존 래칫/시나리오 게이트다.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
