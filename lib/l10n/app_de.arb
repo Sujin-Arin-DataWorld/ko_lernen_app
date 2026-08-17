@@ -1644,6 +1644,64 @@
       }
     }
   },
+  "wordWebTitle": "Wortnetz",
+  "wordWebHubDesc": "Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst",
+  "wordWebSubtitle": "{count, plural, one{1 Wort mit Nachbarn} other{{count} Wörter mit Nachbarn}}",
+  "@wordWebSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wordWebEmptyTitle": "Noch kein Netz",
+  "wordWebEmptyBody": "Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.",
+  "wordWebBrowseLevelCta": "Wörter auf meinem Niveau ansehen",
+  "wordWebOpenVocabCta": "Wortpakete öffnen",
+  "wordWebQuizCta": "Diese Wörter üben",
+  "wordWebLearnedFilter": "Gelernt",
+  "wordWebLevelFilter": "Mein Niveau",
+  "wordWebSynonymSection": "Ähnliche Wörter",
+  "wordWebAntonymSection": "Gegenteile",
+  "wordWebRelatedSection": "Verwandte Wörter",
+  "wordWebExpressionSection": "Wendungen",
+  "wordWebQuizTitle": "Wortnetz-Übung",
+  "wordWebQuizHintSynonym": "Welches Wort liegt nah dabei?",
+  "wordWebQuizHintAntonym": "Was ist das Gegenteil?",
+  "wordWebQuizHintRelated": "Was gehört dazu?",
+  "wordWebQuizHintExpression": "Welche Wendung passt zur Bedeutung?",
+  "wordWebQuizDoneTitle": "Runde geschafft!",
+  "wordWebQuizScore": "{correct}/{total} richtig",
+  "@wordWebQuizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "wordWebClusterCount": "{synonyms} ähnlich · {antonyms} Gegenteil · {related} verwandt · {expressions} Wendung",
+  "@wordWebClusterCount": {
+    "placeholders": {
+      "synonyms": {
+        "type": "int"
+      },
+      "antonyms": {
+        "type": "int"
+      },
+      "related": {
+        "type": "int"
+      },
+      "expressions": {
+        "type": "int"
+      }
+    }
+  },
+  "wordWebExampleLabel": "Im Satz",
+  "wordWebCoachTitle": "Dein Wortnetz",
+  "wordWebCoachBody": "Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.",
   "wbMatching": "Paare finden",
   "wbMatchingHint": "Tippe auf ein koreanisches Wort, dann auf seine Bedeutung.",
   "wbMatchingNeedMore": "Mindestens 2 Wörter mit Bedeutung nötig.",
@@ -3266,9 +3324,9 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
-  "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
-  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
   "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Passende Quest} rewardHanok{Verifizierter Hanok-Baufortschritt} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}",
   "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},

@@ -206,6 +206,21 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     reward: _contract('hard_words', _finishSession, [_quest]),
   ),
   _entry(
+    id: 'word_web',
+    tab: SoriStageTab.learn,
+    de: 'Wortnetz',
+    en: 'Word web',
+    descriptionDe:
+        'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.',
+    descriptionEn:
+        'Study synonyms, opposites, and expressions for words you already know.',
+    route: '/word_web',
+    minutes: 6,
+    color: SoriActivityColorRole.review,
+    icon: 'search',
+    reward: _contract('word_web', _finishSession, [_noDirectReward]),
+  ),
+  _entry(
     id: 'grammar',
     tab: SoriStageTab.learn,
     de: 'Grammatik',

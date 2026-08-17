@@ -231,6 +231,23 @@ List<DiscoverCatalogEntry> discoverCatalog(AppL10n t) =>
         route: '/hard_words',
       ),
       DiscoverCatalogEntry(
+        id: 'word_web',
+        purpose: DiscoverPurpose.words,
+        icon: Icons.hub_outlined,
+        title: t.wordWebTitle,
+        subtitle: t.wordWebHubDesc,
+        searchTerms: const [
+          'synonym',
+          'antonym',
+          'related',
+          'expression',
+          'word web',
+          'wortnetz',
+        ],
+        accent: SoriColors.accent,
+        route: '/word_web',
+      ),
+      DiscoverCatalogEntry(
         id: 'path',
         purpose: DiscoverPurpose.forMe,
         icon: Icons.route_outlined,

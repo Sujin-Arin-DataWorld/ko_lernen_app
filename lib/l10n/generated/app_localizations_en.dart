@@ -3347,6 +3347,102 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get wordWebTitle => 'Word web';
+
+  @override
+  String get wordWebHubDesc =>
+      'Synonyms, opposites, and expressions for words you already know';
+
+  @override
+  String wordWebSubtitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words with neighbors',
+      one: '1 word with neighbors',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wordWebEmptyTitle => 'No web yet';
+
+  @override
+  String get wordWebEmptyBody =>
+      'Learn a vocabulary pack first. Then similar words, opposites, and expressions for those exact words show up here.';
+
+  @override
+  String get wordWebBrowseLevelCta => 'Browse words at my level';
+
+  @override
+  String get wordWebOpenVocabCta => 'Open vocabulary packs';
+
+  @override
+  String get wordWebQuizCta => 'Practice these words';
+
+  @override
+  String get wordWebLearnedFilter => 'Learned';
+
+  @override
+  String get wordWebLevelFilter => 'My level';
+
+  @override
+  String get wordWebSynonymSection => 'Similar words';
+
+  @override
+  String get wordWebAntonymSection => 'Opposites';
+
+  @override
+  String get wordWebRelatedSection => 'Related words';
+
+  @override
+  String get wordWebExpressionSection => 'Expressions';
+
+  @override
+  String get wordWebQuizTitle => 'Word-web practice';
+
+  @override
+  String get wordWebQuizHintSynonym => 'Which word sits close to it?';
+
+  @override
+  String get wordWebQuizHintAntonym => 'What is the opposite?';
+
+  @override
+  String get wordWebQuizHintRelated => 'What belongs with it?';
+
+  @override
+  String get wordWebQuizHintExpression =>
+      'Which expression matches the meaning?';
+
+  @override
+  String get wordWebQuizDoneTitle => 'Round complete!';
+
+  @override
+  String wordWebQuizScore(int correct, int total) {
+    return '$correct/$total correct';
+  }
+
+  @override
+  String wordWebClusterCount(
+    int synonyms,
+    int antonyms,
+    int related,
+    int expressions,
+  ) {
+    return '$synonyms similar · $antonyms opposite · $related related · $expressions expression';
+  }
+
+  @override
+  String get wordWebExampleLabel => 'In a sentence';
+
+  @override
+  String get wordWebCoachTitle => 'Your word web';
+
+  @override
+  String get wordWebCoachBody =>
+      'Tap a word you already learned. You will see similar words, opposites, related words, and an expression that uses it.';
+
+  @override
   String get wbMatching => 'Match pairs';
 
   @override
@@ -7082,6 +7178,7 @@ class AppL10nEn extends AppL10n {
       'vocab_packs': 'Vocabulary packs',
       'srs': 'SRS review',
       'hard_words': 'Hard words',
+      'word_web': 'Word web',
       'grammar': 'Grammar',
       'listening': 'Listening',
       'scenarios': 'Real-life scenarios',
@@ -7114,6 +7211,8 @@ class AppL10nEn extends AppL10n {
       'vocab_packs': 'Learn words by everyday topic.',
       'srs': 'Strengthen due words at the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
+      'word_web':
+          'Study synonyms, opposites, and expressions for words you already know.',
       'grammar': 'Understand patterns and use them right away.',
       'listening': 'Recognize short natural phrases.',
       'scenarios': 'Practice cafés, transport, and conversations.',

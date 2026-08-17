@@ -1331,6 +1331,7 @@ class Storage {
     'cpMatching',
     'cpTyping',
     'hardWords',
+    'wordWeb',
     'dojang',
     'gye',
     'gye_tab',
