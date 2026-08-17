@@ -9,16 +9,24 @@
 **무엇.** 먼저 `cursor/workflow-run-triage-c5be`로 계약을 맞춘 뒤, 나머지
 cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유 코드를 모두
 남겼다. Batch 07/08 초안은 partner-family와 4× 트랙을 별도 manifest로
-보존했고, partner-family만 live로 올렸다.
+보존했고, partner-family만 live로 올렸다. 푸시 직전에 새로 생긴
+`cursor/word-web-relations-89f9` 후속과 `cursor/word-web-guard-fix-89f9`도
+같은 방식으로 넣었다.
 
 **현재 live 카탈로그.** vocab 1620, cloze 962, satz 875, smalltalk 365,
 scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk decision 321.
 
 **검증.** 깨졌던 4개 카탈로그 테스트는 계약 수정 후 **14/14**. 병합 후 같은
-파일을 새 inventory로 다시 돌렸다. `word_web`/`vocab_nuance`가 없는
-`tiger_idle.png`를 참조해 `data_integrity_test`가 깨진 것은 실제 자산
-`tiger_sitting2.png`로 고쳤다. 로컬 `main` `b5813937`을 `origin/main`에
-푸시해 깃과 맞춘다.
+파일을 새 inventory로 다시 돌렸다. `word_web` 빈 상태는 공용
+`empty/studyroom_waiting.png`로, `vocab_nuance`는 실제 자산
+`tiger_sitting2.png`로 맞췄다.
+
+### 2026-08-17 (Cursor) — 단어망 타이포·에셋 가드 후속
+
+`25a67c5`가 단어망 V1을 `e07f067`까지만 병합한 뒤, CI가 잡은 원시 AppBar/
+TextStyle/w800·아이콘 버튼·없는 `tiger_idle.png` 참조를 공용 토큰과
+`empty/studyroom_waiting.png`로 고쳤다. 로컬 typography guard·asset integrity·
+word-web 테스트 통과.
 
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
@@ -97,6 +105,7 @@ CI Analyze&Build가 잡은 회귀는 공용 `SoriAppBar`/`SoriTextTheme`로 맞�
 없는 `tiger_idle.png` 빈 상태는 `empty/studyroom_waiting.png`로 바꿨다.
 로컬에서 typography guard·asset integrity·word-web 테스트를 다시 통과했다.
 커밋 `e07f067`. 후속 수정은 같은 브랜치.
+가드 후속은 `cursor/word-web-guard-fix-89f9`.
 
 ### 2026-08-17 (Cursor) — Batch 07/08 파트너 가족 트랙 live 승격
 
