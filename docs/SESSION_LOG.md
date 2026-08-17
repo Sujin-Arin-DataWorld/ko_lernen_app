@@ -9,9 +9,11 @@
 **무엇.** 먼저 `cursor/workflow-run-triage-c5be`로 계약을 맞춘 뒤, 나머지
 cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유 코드를 모두
 남겼다. Batch 07/08 초안은 partner-family와 4× 트랙을 별도 manifest로
-보존했고, partner-family만 live로 올렸다. 푸시 직전에 새로 생긴
-`cursor/word-web-relations-89f9` 후속과 `cursor/word-web-guard-fix-89f9`도
-같은 방식으로 넣었다.
+보존했고, partner-family만 live로 올렸다. 푸시 직후 다시 생긴
+`cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
+`cursor/content-integrity-audit-2d55` 수량 커밋도 같은 방식으로 넣었다.
+후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
+작아서 테스트 계약은 현재 inventory를 유지했다.
 
 **현재 live 카탈로그.** vocab 1620, cloze 962, satz 875, smalltalk 365,
 scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk decision 321.
@@ -47,7 +49,9 @@ review-only 도구에 넣으면 promoted 명령을 가리킨다. 이미 승격�
 **검증.** `validate_content.py --json` ok, `validate_promoted_batch.py --manifest
 tools/content_factory/drafts/batch_06_manifest.json` 68 records, loader live/
 overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
-'test_*.py'` **98/98**. 커밋 해시는 이 기록 직후 커밋에 둔다.
+'test_*.py'` **98/98**. Flutter 수량 계약도 Batch 06 라이브 값(시나리오 62·퀘스트
+261·smalltalk 293·cloze 530·satz 443·발음 20·A1–B2 smalltalk 결정 257)으로
+맞췄다. 커밋 `d9d3482`와 후속 커밋.
 
 ### 2026-08-17 (Cursor) — Batch 06 승격 후 고정 카탈로그 계약을 실데이터에 맞춤
 
