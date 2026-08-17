@@ -17,7 +17,7 @@
 changed Dart files: No issues found. Focused tests: corpus resolver 6/6,
 studio widget, parser, shared game injection — all passed.
 
-**커밋해시.** (이 커밋)
+**커밋해시.** `e03adfff`
 
 ### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
 
