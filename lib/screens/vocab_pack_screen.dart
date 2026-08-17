@@ -1093,7 +1093,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: soriFillSize(h, 0.08, 36, 72),
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
                       ),
                     ),
@@ -1243,7 +1243,7 @@ class _FlipFront extends StatelessWidget {
               maxLines: 1,
               style: TextStyle(
                 fontSize: headlineSize,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w700,
                 letterSpacing: -0.5,
                 height: 1.05,
               ),
@@ -1338,7 +1338,7 @@ class _FlipBack extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: soriFillSize(h, 0.085, 24, 38),
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   height: 1.15,
                 ),
               ),

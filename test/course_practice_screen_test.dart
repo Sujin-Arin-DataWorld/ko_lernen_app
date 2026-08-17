@@ -128,6 +128,105 @@ void main() {
     },
   );
 
+  testWidgets('a one-card grammar deck never offers dead navigation', (
+    tester,
+  ) async {
+    // `a1_02_self_intro_identity` links exactly one grammar card, so its deck
+    // is 1 / 1. Wrapping navigation with `% _filtered.length` then returns the
+    // same index, which made Weiter/Zurück/Zufällig look active while doing
+    // nothing. The browse path reaches the same state far more often: 180 of
+    // 181 level+type filter combinations in `grammar.csv` leave one card.
+    final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
+    final link = catalog.contentLinks.singleWhere(
+      (item) =>
+          item.contentKind == CurriculumContentKind.grammar &&
+          item.courseUnitId == 'a1_02_self_intro_identity' &&
+          item.role == ContentLinkRole.assess,
+    );
+    final context = CoursePracticeContext.fromLink(link);
+    final scopedIds = courseContentIdsForContext(
+      catalog: catalog,
+      courseContext: context,
+      kind: CurriculumContentKind.grammar,
+    )!;
+    expect(scopedIds, hasLength(1));
+
+    await tester.pumpWidget(_wrap(GrammarScreen(courseContext: context)));
+    await _settleCourseScreen(tester);
+
+    expect(find.text('1 / 1'), findsOneWidget);
+    // 판정은 한 장짜리 덱에서도 살아 있다 — 마지막 카드의 판정이 곧 세션
+    // 종료이므로 막다른 길이 생기지 않는다.
+    for (final key in const <Key>[
+      Key('grammar-judge-hard'),
+      Key('grammar-judge-easy'),
+    ]) {
+      final button = find.byKey(key);
+      expect(button, findsOneWidget, reason: '$key');
+      expect(tester.widget<SoriButton>(button).onTap, isNotNull, reason: '$key');
+    }
+    // 되돌릴 카드가 없으므로 실행취소는 꺼져 있어야 한다.
+    expect(
+      tester
+          .widget<IconButton>(find.byKey(const Key('grammar-undo')))
+          .onPressed,
+      isNull,
+      reason: 'undo must not look tappable on the first card',
+    );
+    expect(tester.takeException(), isNull);
+    await _disposeCourseScreen(tester);
+  });
+
+  testWidgets('a type filter that leaves one card keeps every control alive', (
+    tester,
+  ) async {
+    // This is the path Jin actually hit. The Typ facet is one-card-per-value
+    // for 180 of its 181 values, so narrowing by type is the ordinary way to
+    // land on a 1 / 1 deck — the browse deck must then hand back the filter
+    // rather than a Weiter button that cannot move.
+    final grammar = (await tester.runAsync(DataLoader.loadGrammar))!;
+    expect(grammar, isNotEmpty);
+    // Mirrors `_types` in the screen, so the menu order matches.
+    final types = grammar.map((item) => item.typeDe).toSet().toList()..sort();
+    final soleType = types.firstWhere(
+      (type) => grammar.where((item) => item.typeDe == type).length == 1,
+    );
+
+    await tester.pumpWidget(_wrap(const GrammarScreen()));
+    await _settleCourseScreen(tester);
+
+    await tester.tap(find.byIcon(Icons.tune));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(DropdownButton<String>).last);
+    await tester.pumpAndSettle();
+    final typeItem = find.text(soleType).last;
+    await tester.ensureVisible(typeItem);
+    await tester.pumpAndSettle();
+    await tester.tap(typeItem);
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(SoriButton, 'Apply'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('1 / 1'), findsOneWidget);
+    // 옛 Weiter/Zurück/Zufällig 는 사라졌고, 남은 컨트롤은 전부 실제로 동작한다.
+    expect(find.widgetWithText(SoriButton, 'Next'), findsNothing);
+    expect(find.widgetWithText(SoriButton, 'Random'), findsNothing);
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const Key('grammar-judge-easy')))
+          .onTap,
+      isNotNull,
+    );
+    expect(
+      tester
+          .widget<IconButton>(find.byKey(const Key('grammar-undo')))
+          .onPressed,
+      isNull,
+    );
+    expect(tester.takeException(), isNull);
+    await _disposeCourseScreen(tester);
+  });
+
   testWidgets('grammar library opens separate four-choice practice', (
     tester,
   ) async {
