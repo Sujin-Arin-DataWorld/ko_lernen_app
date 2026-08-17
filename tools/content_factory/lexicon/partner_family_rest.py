@@ -38,7 +38,7 @@ REST_PACKS = [
         ("한복 대여", "Hanbok-Verleih", "hanbok rental", "Nomen", "한복 대여 가게가 명절 전날 문을 일찍 닫았어요.", "Der Hanbok-Verleih schloss am Vortag früh.", "The hanbok rental closed early the day before."),
         ("세배 순서", "Reihenfolge der Verbeugung", "bowing order", "Nomen", "세배 순서는 나이 많은 분부터예요.", "Die Reihenfolge beginnt bei den Ältesten.", "The bowing order starts with the oldest people."),
         ("복주머니", "Glücksbeutel", "lucky pouch", "Nomen", "아이 복주머니에 세뱃돈을 넣어 주셨어요.", "In den Glücksbeutel des Kindes steckten sie das Geld.", "They put the New Year money into the child's lucky pouch."),
-        ("설날 인사말", "Seollal-Grussformel", "Seollal greeting line", "Nomen", "설날 인사말을 종이에 적어 주머니에 넣었어요.", "Die Grussformel schrieb ich auf Papier und steckte sie ein.", "I wrote the Seollal greeting on paper and put it in my pocket."),
+        ("설날 인사말", "Seollal-Grußformel", "Seollal greeting line", "Nomen", "설날 인사말을 종이에 적어 주머니에 넣었어요.", "Die Grußformel schrieb ich auf Papier und steckte sie ein.", "I wrote the Seollal greeting on paper and put it in my pocket."),
         ("세배 영상", "Video der Verbeugung", "bowing video", "Nomen", "세배 영상은 가족 앨범에만 두래요.", "Das Video sollte nur ins Familienalbum.", "They said keep the bowing video in the family album only."),
         ("명절 음식", "Festtagsessen", "holiday food", "Nomen", "명절 음식은 전 냄새가 먼저 나요.", "Beim Festtagsessen riecht man zuerst die Pfannengerichte.", "With holiday food you smell the pancakes first."),
         ("전 부치다", "jeon braten", "to fry Korean pancakes", "Ausdruck", "전 부치는 기름이 팔에 튀었어요.", "Beim Braten spritzte Öl auf den Arm.", "Oil from frying jeon splashed on my arm."),
