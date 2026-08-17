@@ -86,7 +86,7 @@
     {
       "id": "cluster_a1_04_order_request_object_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_bunshik_tteokbokki_v1",
         "seed_vocab_pack_a1_food_1_v1",
@@ -109,7 +109,8 @@
         "seed_smalltalk_smalltalk_a1_0064_v1",
         "seed_cloze_cloze_a1_0041_v1",
         "seed_cloze_cloze_a1_0043_v1",
-        "seed_cloze_cloze_a1_0044_v1"
+        "seed_cloze_cloze_a1_0044_v1",
+        "seed_smalltalk_smalltalk_a1_0082_v1"
       ],
       "contentReferences": [
         {
@@ -199,6 +200,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0044"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0082"
         }
       ]
     },
@@ -274,7 +279,7 @@
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -293,7 +298,8 @@
         "seed_smalltalk_smalltalk_a1_0042_v1",
         "seed_smalltalk_smalltalk_a1_0043_v1",
         "seed_smalltalk_smalltalk_a1_0061_v1",
-        "seed_smalltalk_smalltalk_a1_0062_v1"
+        "seed_smalltalk_smalltalk_a1_0062_v1",
+        "seed_vocab_pack_a1_subway_card_1_v1"
       ],
       "contentReferences": [
         {
@@ -367,13 +373,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0062"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_subway_card_1"
         }
       ]
     },
     {
       "id": "cluster_a1_07_contact_address_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_phone_messenger_reply_v1",
         "seed_grammar_grammar_a1_possessive_particle_v1",
@@ -382,7 +392,8 @@
         "seed_smalltalk_smalltalk_a1_0035_v1",
         "seed_smalltalk_smalltalk_a1_0050_v1",
         "seed_smalltalk_smalltalk_a1_0051_v1",
-        "seed_smalltalk_smalltalk_a1_0052_v1"
+        "seed_smalltalk_smalltalk_a1_0052_v1",
+        "seed_vocab_pack_a1_post_office_1_v1"
       ],
       "contentReferences": [
         {
@@ -416,17 +427,25 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0052"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_post_office_1"
         }
       ]
     },
     {
       "id": "cluster_a1_08_clarify_repair_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_clarify_repeat_v1",
         "seed_grammar_grammar_a1_which_question_v1",
-        "seed_smalltalk_smalltalk_a1_0053_v1"
+        "seed_smalltalk_smalltalk_a1_0053_v1",
+        "seed_grammar_grammar_a1_come_purpose_v1",
+        "seed_grammar_grammar_a1_duration_span_v1",
+        "seed_grammar_grammar_a1_in_front_v1",
+        "seed_grammar_grammar_a1_spoken_dative_v1"
       ],
       "contentReferences": [
         {
@@ -440,13 +459,29 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0053"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_come_purpose"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_duration_span"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_in_front"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_spoken_dative"
         }
       ]
     },
     {
       "id": "cluster_a1_09_home_daily_life_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_home_morning_routine_v1",
         "seed_vocab_pack_a1_colors_v1",
@@ -473,7 +508,9 @@
         "seed_cloze_cloze_a1_0031_v1",
         "seed_cloze_cloze_a1_0032_v1",
         "seed_cloze_cloze_a1_0033_v1",
-        "seed_cloze_cloze_a1_0034_v1"
+        "seed_cloze_cloze_a1_0034_v1",
+        "seed_vocab_pack_a1_weather_layer_1_v1",
+        "seed_vocab_pack_a1_weekend_promise_1_v1"
       ],
       "contentReferences": [
         {
@@ -579,13 +616,21 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0034"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_weather_layer_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_weekend_promise_1"
         }
       ]
     },
     {
       "id": "cluster_a1_10_health_safety_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_clinic_safety_v1",
         "seed_vocab_pack_a1_body_v1",
@@ -597,7 +642,8 @@
         "seed_smalltalk_smalltalk_a1_0055_v1",
         "seed_smalltalk_smalltalk_a1_0056_v1",
         "seed_smalltalk_smalltalk_a1_0057_v1",
-        "seed_smalltalk_smalltalk_a1_0058_v1"
+        "seed_smalltalk_smalltalk_a1_0058_v1",
+        "seed_vocab_pack_a1_pharmacy_ask_1_v1"
       ],
       "contentReferences": [
         {
@@ -643,13 +689,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0058"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_pharmacy_ask_1"
         }
       ]
     },
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_titles_relationship_distance_v1",
         "seed_vocab_pack_a1_family_1_v1",
@@ -699,7 +749,8 @@
         "seed_smalltalk_smalltalk_a1_0077_v1",
         "seed_smalltalk_smalltalk_a1_0078_v1",
         "seed_smalltalk_smalltalk_a1_0079_v1",
-        "seed_smalltalk_smalltalk_a1_0080_v1"
+        "seed_smalltalk_smalltalk_a1_0080_v1",
+        "seed_vocab_pack_a1_neighbors_hall_1_v1"
       ],
       "contentReferences": [
         {
@@ -897,13 +948,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0080"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_neighbors_hall_1"
         }
       ]
     },
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -926,7 +981,8 @@
         "seed_cloze_cloze_a1_0057_v1",
         "seed_cloze_cloze_a1_0059_v1",
         "seed_cloze_cloze_a1_0078_v1",
-        "seed_cloze_cloze_a1_0097_v1"
+        "seed_cloze_cloze_a1_0097_v1",
+        "seed_smalltalk_smalltalk_a1_0081_v1"
       ],
       "contentReferences": [
         {
@@ -1016,16 +1072,21 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0097"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0081"
         }
       ]
     },
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
-        "seed_cloze_cloze_a1_0077_v1"
+        "seed_cloze_cloze_a1_0077_v1",
+        "seed_vocab_pack_a1_sorry_thanks_1_v1"
       ],
       "contentReferences": [
         {
@@ -1035,6 +1096,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0077"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_sorry_thanks_1"
         }
       ]
     },
@@ -1060,7 +1125,7 @@
     {
       "id": "cluster_a1_15_first_class_work_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_first_class_meeting_v1",
         "seed_smalltalk_smalltalk_a1_0011_v1",
@@ -1068,7 +1133,8 @@
         "seed_smalltalk_smalltalk_a1_0030_v1",
         "seed_smalltalk_smalltalk_a1_0031_v1",
         "seed_smalltalk_smalltalk_a1_0032_v1",
-        "seed_smalltalk_smalltalk_a1_0033_v1"
+        "seed_smalltalk_smalltalk_a1_0033_v1",
+        "seed_vocab_pack_a1_school_supplies_1_v1"
       ],
       "contentReferences": [
         {
@@ -1098,17 +1164,66 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0033"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_school_supplies_1"
         }
       ]
     },
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
-        "seed_vocab_pack_a1_misc_2_v1"
+        "seed_vocab_pack_a1_misc_2_v1",
+        "seed_scenario_a1_airport_cart_v1",
+        "seed_scenario_a1_ask_again_v1",
+        "seed_scenario_a1_bus_late_v1",
+        "seed_scenario_a1_cafe_wifi_v1",
+        "seed_scenario_a1_cancel_walk_v1",
+        "seed_scenario_a1_card_topup_v1",
+        "seed_scenario_a1_class_pencil_v1",
+        "seed_scenario_a1_direction_left_v1",
+        "seed_scenario_a1_door_bell_v1",
+        "seed_scenario_a1_dust_mask_v1",
+        "seed_scenario_a1_excuse_pass_v1",
+        "seed_scenario_a1_floor_number_v1",
+        "seed_scenario_a1_gate_code_v1",
+        "seed_scenario_a1_hall_shoes_v1",
+        "seed_scenario_a1_home_light_v1",
+        "seed_scenario_a1_hotel_key_v1",
+        "seed_scenario_a1_last_train_v1",
+        "seed_scenario_a1_late_text_v1",
+        "seed_scenario_a1_locker_key_v1",
+        "seed_scenario_a1_market_bag_v1",
+        "seed_scenario_a1_mask_pack_v1",
+        "seed_scenario_a1_meet_station_v1",
+        "seed_scenario_a1_neighbor_box_v1",
+        "seed_scenario_a1_office_print_v1",
+        "seed_scenario_a1_parcel_weight_v1",
+        "seed_scenario_a1_pharmacy_hours_v1",
+        "seed_scenario_a1_pharmacy_ointment_v1",
+        "seed_scenario_a1_platform_line_v1",
+        "seed_scenario_a1_post_queue_v1",
+        "seed_scenario_a1_rain_jacket_v1",
+        "seed_scenario_a1_rice_shop_v1",
+        "seed_scenario_a1_slow_speech_v1",
+        "seed_scenario_a1_sorry_late_v1",
+        "seed_scenario_a1_stamp_ask_v1",
+        "seed_scenario_a1_station_rest_v1",
+        "seed_scenario_a1_submit_name_v1",
+        "seed_scenario_a1_subway_exit_v1",
+        "seed_scenario_a1_taxi_address_v1",
+        "seed_scenario_a1_tea_order_v1",
+        "seed_scenario_a1_thanks_seat_v1",
+        "seed_scenario_a1_trash_sort_v1",
+        "seed_scenario_a1_water_shop_v1",
+        "seed_scenario_a1_weather_layer_v1",
+        "seed_scenario_a1_weekend_rain_v1",
+        "seed_scenario_a1_whiteboard_word_v1"
       ],
       "contentReferences": [
         {
@@ -1122,6 +1237,186 @@
         {
           "kind": "vocabPack",
           "id": "a1_misc_2"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_airport_cart"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_ask_again"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_bus_late"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_cafe_wifi"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_cancel_walk"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_card_topup"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_class_pencil"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_direction_left"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_door_bell"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_dust_mask"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_excuse_pass"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_floor_number"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_gate_code"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_hall_shoes"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_home_light"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_hotel_key"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_last_train"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_late_text"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_locker_key"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_market_bag"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_mask_pack"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_meet_station"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_neighbor_box"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_office_print"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_parcel_weight"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_pharmacy_hours"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_pharmacy_ointment"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_platform_line"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_post_queue"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_rain_jacket"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_rice_shop"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_slow_speech"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_sorry_late"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_stamp_ask"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_station_rest"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_submit_name"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_subway_exit"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_taxi_address"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_tea_order"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_thanks_seat"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_trash_sort"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_water_shop"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_weather_layer"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_weekend_rain"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_whiteboard_word"
         }
       ]
     },
@@ -1292,7 +1587,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -1320,7 +1615,11 @@
         "seed_smalltalk_smalltalk_a2_0025_v1",
         "seed_smalltalk_smalltalk_a2_0026_v1",
         "seed_smalltalk_smalltalk_a2_0027_v1",
-        "seed_smalltalk_smalltalk_a2_0028_v1"
+        "seed_smalltalk_smalltalk_a2_0028_v1",
+        "seed_grammar_grammar_a2_among_set_v1",
+        "seed_grammar_grammar_a2_busy_cause_v1",
+        "seed_grammar_grammar_a2_noun_cause_v1",
+        "seed_grammar_grammar_a2_spoken_result_v1"
       ],
       "contentReferences": [
         {
@@ -1430,6 +1729,22 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0028"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_among_set"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_busy_cause"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_noun_cause"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_spoken_result"
         }
       ]
     },
@@ -1450,7 +1765,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -1514,7 +1829,9 @@
         "seed_smalltalk_smalltalk_a2_0070_v1",
         "seed_smalltalk_smalltalk_a2_0071_v1",
         "seed_smalltalk_smalltalk_a2_0072_v1",
-        "seed_smalltalk_smalltalk_a2_0073_v1"
+        "seed_smalltalk_smalltalk_a2_0073_v1",
+        "seed_vocab_pack_a2_festival_booth_1_v1",
+        "seed_smalltalk_smalltalk_a2_0074_v1"
       ],
       "contentReferences": [
         {
@@ -1768,6 +2085,14 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0073"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_festival_booth_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0074"
         }
       ]
     },
@@ -1827,7 +2152,7 @@
     {
       "id": "cluster_a2_feeling_sick_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_feeling_sick_v1",
         "seed_vocab_pack_a2_feelings_1_v1",
@@ -1838,7 +2163,9 @@
         "seed_smalltalk_smalltalk_a2_0002_v1",
         "seed_smalltalk_smalltalk_a2_0014_v1",
         "seed_smalltalk_smalltalk_a2_0024_v1",
-        "seed_cloze_cloze_a2_0009_v1"
+        "seed_cloze_cloze_a2_0009_v1",
+        "seed_vocab_pack_a2_gym_class_1_v1",
+        "seed_smalltalk_smalltalk_a2_0075_v1"
       ],
       "contentReferences": [
         {
@@ -1880,13 +2207,21 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0009"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_gym_class_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0075"
         }
       ]
     },
     {
       "id": "cluster_a2_cafe_starbucks_basic_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_cafe_starbucks_basic_v1",
         "seed_vocab_pack_a2_food_1_v1",
@@ -1910,7 +2245,9 @@
         "seed_cloze_cloze_a2_0045_v1",
         "seed_cloze_cloze_a2_0047_v1",
         "seed_cloze_cloze_a2_0048_v1",
-        "seed_cloze_cloze_a2_0049_v1"
+        "seed_cloze_cloze_a2_0049_v1",
+        "seed_vocab_pack_a2_phone_plan_1_v1",
+        "seed_vocab_pack_a2_salon_visit_1_v1"
       ],
       "contentReferences": [
         {
@@ -2004,6 +2341,14 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0049"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_phone_plan_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_salon_visit_1"
         }
       ]
     },
@@ -2074,7 +2419,7 @@
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_cafe_study_v1",
         "seed_vocab_pack_a2_education_v1",
@@ -2098,7 +2443,8 @@
         "seed_cloze_cloze_a2_0029_v1",
         "seed_cloze_cloze_a2_0054_v1",
         "seed_cloze_cloze_a2_0055_v1",
-        "seed_cloze_cloze_a2_0056_v1"
+        "seed_cloze_cloze_a2_0056_v1",
+        "seed_vocab_pack_a2_part_time_1_v1"
       ],
       "contentReferences": [
         {
@@ -2192,6 +2538,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0056"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_part_time_1"
         }
       ]
     },
@@ -2241,7 +2591,7 @@
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_subway_directions_v1",
         "seed_vocab_pack_a2_transport_v1",
@@ -2259,7 +2609,53 @@
         "seed_cloze_cloze_a2_0050_v1",
         "seed_cloze_cloze_a2_0051_v1",
         "seed_cloze_cloze_a2_0052_v1",
-        "seed_cloze_cloze_a2_0053_v1"
+        "seed_cloze_cloze_a2_0053_v1",
+        "seed_vocab_pack_a2_lost_found_1_v1",
+        "seed_scenario_a2_airport_sim_v1",
+        "seed_scenario_a2_apt_sticker_v1",
+        "seed_scenario_a2_auto_debit_v1",
+        "seed_scenario_a2_bank_number_v1",
+        "seed_scenario_a2_bill_high_v1",
+        "seed_scenario_a2_booth_line_v1",
+        "seed_scenario_a2_cafe_plug_v1",
+        "seed_scenario_a2_card_balance_v1",
+        "seed_scenario_a2_contract_read_v1",
+        "seed_scenario_a2_convenience_copy_v1",
+        "seed_scenario_a2_data_roam_v1",
+        "seed_scenario_a2_direction_bus_v1",
+        "seed_scenario_a2_dye_dark_v1",
+        "seed_scenario_a2_festival_stamp_v1",
+        "seed_scenario_a2_food_bag_v1",
+        "seed_scenario_a2_found_umbrella_v1",
+        "seed_scenario_a2_front_desk_v1",
+        "seed_scenario_a2_guest_pass_v1",
+        "seed_scenario_a2_gym_lock_v1",
+        "seed_scenario_a2_hair_time_v1",
+        "seed_scenario_a2_handover_note_v1",
+        "seed_scenario_a2_hotel_late_v1",
+        "seed_scenario_a2_hours_six_v1",
+        "seed_scenario_a2_id_pickup_v1",
+        "seed_scenario_a2_label_phone_v1",
+        "seed_scenario_a2_lost_wallet_v1",
+        "seed_scenario_a2_manager_leave_v1",
+        "seed_scenario_a2_market_change_v1",
+        "seed_scenario_a2_night_pay_v1",
+        "seed_scenario_a2_office_badge_v1",
+        "seed_scenario_a2_phone_plan_v1",
+        "seed_scenario_a2_quiet_ten_v1",
+        "seed_scenario_a2_rain_cancel_v1",
+        "seed_scenario_a2_recycle_box_v1",
+        "seed_scenario_a2_restaurant_split_v1",
+        "seed_scenario_a2_salon_cut_v1",
+        "seed_scenario_a2_seat_hold_v1",
+        "seed_scenario_a2_shift_table_v1",
+        "seed_scenario_a2_station_lost_v1",
+        "seed_scenario_a2_stretch_start_v1",
+        "seed_scenario_a2_taxi_wait_v1",
+        "seed_scenario_a2_tea_taste_v1",
+        "seed_scenario_a2_transfer_limit_v1",
+        "seed_scenario_a2_volunteer_vest_v1",
+        "seed_scenario_a2_water_set_v1"
       ],
       "contentReferences": [
         {
@@ -2329,6 +2725,190 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0053"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_lost_found_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_airport_sim"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_apt_sticker"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_auto_debit"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_bank_number"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_bill_high"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_booth_line"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_cafe_plug"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_card_balance"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_contract_read"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_convenience_copy"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_data_roam"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_direction_bus"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_dye_dark"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_festival_stamp"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_food_bag"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_found_umbrella"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_front_desk"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_guest_pass"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_gym_lock"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_hair_time"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_handover_note"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_hotel_late"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_hours_six"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_id_pickup"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_label_phone"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_lost_wallet"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_manager_leave"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_market_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_night_pay"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_office_badge"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_phone_plan"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_quiet_ten"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_rain_cancel"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_recycle_box"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_restaurant_split"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_salon_cut"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_seat_hold"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_shift_table"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_station_lost"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_stretch_start"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_taxi_wait"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_tea_taste"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_transfer_limit"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_volunteer_vest"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_water_set"
         }
       ]
     },
@@ -2383,7 +2963,7 @@
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_rent_bank_transfer_v1",
         "seed_vocab_pack_a2_home_1_v1",
@@ -2405,7 +2985,9 @@
         "seed_cloze_cloze_a2_0072_v1",
         "seed_cloze_cloze_a2_0073_v1",
         "seed_cloze_cloze_a2_0074_v1",
-        "seed_cloze_cloze_a2_0075_v1"
+        "seed_cloze_cloze_a2_0075_v1",
+        "seed_vocab_pack_a2_apt_rules_1_v1",
+        "seed_vocab_pack_a2_bank_counter_1_v1"
       ],
       "contentReferences": [
         {
@@ -2491,13 +3073,21 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0075"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_apt_rules_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_bank_counter_1"
         }
       ]
     },
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_postpone_plans_v1",
         "seed_vocab_pack_b1_city_places_1_v1",
@@ -2562,7 +3152,9 @@
         "seed_cloze_cloze_b1_0046_v1",
         "seed_cloze_cloze_b1_0048_v1",
         "seed_cloze_cloze_b1_0050_v1",
-        "seed_cloze_cloze_b1_0055_v1"
+        "seed_cloze_cloze_b1_0055_v1",
+        "seed_vocab_pack_b1_travel_change_1_v1",
+        "seed_smalltalk_smalltalk_b1_0072_v1"
       ],
       "contentReferences": [
         {
@@ -2820,6 +3412,14 @@
         {
           "kind": "cloze",
           "id": "cloze_b1_0055"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_travel_change_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0072"
         }
       ]
     },
@@ -3042,7 +3642,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b1_team_meeting_coordination_v1",
         "seed_vocab_pack_b1_work_v1",
@@ -3071,7 +3671,13 @@
         "seed_cloze_cloze_b1_0039_v1",
         "seed_cloze_cloze_b1_0040_v1",
         "seed_cloze_cloze_b1_0041_v1",
-        "seed_cloze_cloze_b1_0054_v1"
+        "seed_cloze_cloze_b1_0054_v1",
+        "seed_vocab_pack_b1_workplace_mail_1_v1",
+        "seed_grammar_grammar_b1_as_kept_doing_v1",
+        "seed_grammar_grammar_b1_concede_but_v1",
+        "seed_grammar_grammar_b1_self_should_v1",
+        "seed_grammar_grammar_b1_while_already_v1",
+        "seed_smalltalk_smalltalk_b1_0071_v1"
       ],
       "contentReferences": [
         {
@@ -3185,6 +3791,30 @@
         {
           "kind": "cloze",
           "id": "cloze_b1_0054"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_workplace_mail_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_as_kept_doing"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_concede_but"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_self_should"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_while_already"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0071"
         }
       ]
     },
@@ -3273,7 +3903,7 @@
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_love_confession_v1",
         "seed_vocab_pack_b1_character_feelings_1_v1",
@@ -3318,7 +3948,9 @@
         "seed_smalltalk_smalltalk_b1_0067_v1",
         "seed_smalltalk_smalltalk_b1_0068_v1",
         "seed_smalltalk_smalltalk_b1_0069_v1",
-        "seed_smalltalk_smalltalk_b1_0070_v1"
+        "seed_smalltalk_smalltalk_b1_0070_v1",
+        "seed_vocab_pack_b1_parent_school_1_v1",
+        "seed_vocab_pack_b1_roommate_talk_1_v1"
       ],
       "contentReferences": [
         {
@@ -3496,6 +4128,14 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0070"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_parent_school_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_roommate_talk_1"
         }
       ]
     },
@@ -3526,7 +4166,7 @@
     {
       "id": "cluster_b1_delivery_resolution_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_food_delivery_v1",
         "seed_vocab_pack_b1_health_education_v1",
@@ -3538,7 +4178,42 @@
         "seed_cloze_cloze_b1_0004_v1",
         "seed_cloze_cloze_b1_0012_v1",
         "seed_cloze_cloze_b1_0042_v1",
-        "seed_cloze_cloze_b1_0043_v1"
+        "seed_cloze_cloze_b1_0043_v1",
+        "seed_vocab_pack_b1_insurance_claim_1_v1",
+        "seed_vocab_pack_b1_public_office_1_v1",
+        "seed_vocab_pack_b1_repair_words_1_v1",
+        "seed_scenario_b1_bill_split_v1",
+        "seed_scenario_b1_cafe_invoice_v1",
+        "seed_scenario_b1_case_status_v1",
+        "seed_scenario_b1_civil_ticket_v1",
+        "seed_scenario_b1_claim_same_day_v1",
+        "seed_scenario_b1_connecting_v1",
+        "seed_scenario_b1_deductible_v1",
+        "seed_scenario_b1_extra_paper_v1",
+        "seed_scenario_b1_followup_mail_v1",
+        "seed_scenario_b1_guest_notice_v1",
+        "seed_scenario_b1_hotel_shift_v1",
+        "seed_scenario_b1_intranet_form_v1",
+        "seed_scenario_b1_laundry_turn_v1",
+        "seed_scenario_b1_mail_cc_v1",
+        "seed_scenario_b1_market_claim_v1",
+        "seed_scenario_b1_missing_file_v1",
+        "seed_scenario_b1_parent_slot_v1",
+        "seed_scenario_b1_pickup_delay_v1",
+        "seed_scenario_b1_proxy_form_v1",
+        "seed_scenario_b1_quiet_exam_v1",
+        "seed_scenario_b1_quote_change_v1",
+        "seed_scenario_b1_refund_rule_v1",
+        "seed_scenario_b1_repair_photo_v1",
+        "seed_scenario_b1_return_visit_v1",
+        "seed_scenario_b1_safety_vest_v1",
+        "seed_scenario_b1_scan_note_v1",
+        "seed_scenario_b1_school_letter_v1",
+        "seed_scenario_b1_taxi_receipt_v1",
+        "seed_scenario_b1_typhoon_change_v1",
+        "seed_scenario_b1_volunteer_gap_v1",
+        "seed_scenario_b1_waitlist_v1",
+        "seed_scenario_b1_warranty_week_v1"
       ],
       "contentReferences": [
         {
@@ -3584,6 +4259,146 @@
         {
           "kind": "cloze",
           "id": "cloze_b1_0043"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_insurance_claim_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_public_office_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_repair_words_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_bill_split"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_cafe_invoice"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_case_status"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_civil_ticket"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_claim_same_day"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_connecting"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_deductible"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_extra_paper"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_followup_mail"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_guest_notice"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_hotel_shift"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_intranet_form"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_laundry_turn"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_mail_cc"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_market_claim"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_missing_file"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_parent_slot"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_pickup_delay"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_proxy_form"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_quiet_exam"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_quote_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_refund_rule"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_repair_photo"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_return_visit"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_safety_vest"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_scan_note"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_school_letter"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_taxi_receipt"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_typhoon_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_volunteer_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_waitlist"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_warranty_week"
         }
       ]
     },
@@ -3775,7 +4590,7 @@
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -3785,7 +4600,8 @@
         "seed_grammar_grammar_b1_irregular_reu_v1",
         "seed_grammar_grammar_b1_irregular_siot_v1",
         "seed_grammar_grammar_b1_prepared_state_v1",
-        "seed_grammar_grammar_b1_self_prompt_v1"
+        "seed_grammar_grammar_b1_self_prompt_v1",
+        "seed_vocab_pack_b1_volunteer_shift_1_v1"
       ],
       "contentReferences": [
         {
@@ -3823,13 +4639,17 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_self_prompt"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_volunteer_shift_1"
         }
       ]
     },
     {
       "id": "cluster_b2_formal_meeting_opening_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_business_meeting_intro_v1",
         "seed_vocab_pack_b2_communication_v1",
@@ -3837,7 +4657,8 @@
         "seed_grammar_grammar_b2_formal_intention_v1",
         "seed_grammar_grammar_b2_formal_reference_v1",
         "seed_smalltalk_smalltalk_b2_0041_v1",
-        "seed_smalltalk_smalltalk_b2_0042_v1"
+        "seed_smalltalk_smalltalk_b2_0042_v1",
+        "seed_smalltalk_smalltalk_b2_0100_v1"
       ],
       "contentReferences": [
         {
@@ -3867,6 +4688,10 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0042"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0100"
         }
       ]
     },
@@ -3887,7 +4712,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b2_decision_criteria_workshop_v1",
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
@@ -3970,7 +4795,14 @@
         "seed_cloze_cloze_b2_0054_v1",
         "seed_cloze_cloze_b2_0055_v1",
         "seed_cloze_cloze_b2_0056_v1",
-        "seed_cloze_cloze_b2_0057_v1"
+        "seed_cloze_cloze_b2_0057_v1",
+        "seed_vocab_pack_b2_civic_meeting_1_v1",
+        "seed_vocab_pack_b2_media_literacy_1_v1",
+        "seed_vocab_pack_b2_research_summary_1_v1",
+        "seed_grammar_grammar_b2_as_you_see_v1",
+        "seed_grammar_grammar_b2_granted_limit_v1",
+        "seed_grammar_grammar_b2_including_start_v1",
+        "seed_grammar_grammar_b2_whether_or_not_v1"
       ],
       "contentReferences": [
         {
@@ -4300,6 +5132,34 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0057"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_civic_meeting_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_media_literacy_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_research_summary_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_as_you_see"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_granted_limit"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_including_start"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_whether_or_not"
         }
       ]
     },
@@ -4480,7 +5340,7 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b2_signature_scope_confirmation_v1",
         "seed_vocab_pack_b2_formal_agreement_1_v1",
@@ -4494,7 +5354,8 @@
         "seed_smalltalk_smalltalk_b2_0034_v1",
         "seed_smalltalk_smalltalk_b2_0039_v1",
         "seed_smalltalk_smalltalk_b2_0040_v1",
-        "seed_cloze_cloze_b2_0035_v1"
+        "seed_cloze_cloze_b2_0035_v1",
+        "seed_vocab_pack_b2_team_negotiation_1_v1"
       ],
       "contentReferences": [
         {
@@ -4548,6 +5409,10 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0035"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_team_negotiation_1"
         }
       ]
     },
@@ -4587,7 +5452,7 @@
     {
       "id": "cluster_b2_formal_complaint_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_complaint_delivery_v1",
         "seed_vocab_pack_b2_household_practical_1_v1",
@@ -4597,7 +5462,45 @@
         "seed_grammar_grammar_b2_formal_regarding_v1",
         "seed_grammar_grammar_b2_formal_written_request_v1",
         "seed_smalltalk_smalltalk_b2_0045_v1",
-        "seed_smalltalk_smalltalk_b2_0046_v1"
+        "seed_smalltalk_smalltalk_b2_0046_v1",
+        "seed_vocab_pack_b2_customer_escalation_1_v1",
+        "seed_vocab_pack_b2_housing_dispute_1_v1",
+        "seed_scenario_b2_agenda_swap_v1",
+        "seed_scenario_b2_airport_reseat_v1",
+        "seed_scenario_b2_assumption_v1",
+        "seed_scenario_b2_cafe_brief_v1",
+        "seed_scenario_b2_case_id_v1",
+        "seed_scenario_b2_certified_mail_v1",
+        "seed_scenario_b2_chart_axes_v1",
+        "seed_scenario_b2_convenience_scan_v1",
+        "seed_scenario_b2_counter_offer_v1",
+        "seed_scenario_b2_cross_check_v1",
+        "seed_scenario_b2_direction_risk_v1",
+        "seed_scenario_b2_evidence_date_v1",
+        "seed_scenario_b2_hold_share_v1",
+        "seed_scenario_b2_hotel_clause_v1",
+        "seed_scenario_b2_limit_line_v1",
+        "seed_scenario_b2_market_source_v1",
+        "seed_scenario_b2_metric_clear_v1",
+        "seed_scenario_b2_minutes_draft_v1",
+        "seed_scenario_b2_must_have_v1",
+        "seed_scenario_b2_next_level_v1",
+        "seed_scenario_b2_on_site_v1",
+        "seed_scenario_b2_one_pager_v1",
+        "seed_scenario_b2_pharmacy_claim_v1",
+        "seed_scenario_b2_public_question_v1",
+        "seed_scenario_b2_quorum_wait_v1",
+        "seed_scenario_b2_read_receipt_v1",
+        "seed_scenario_b2_restaurant_note_v1",
+        "seed_scenario_b2_restore_scope_v1",
+        "seed_scenario_b2_review_three_v1",
+        "seed_scenario_b2_selective_edit_v1",
+        "seed_scenario_b2_self_fail_v1",
+        "seed_scenario_b2_source_check_v1",
+        "seed_scenario_b2_station_hold_v1",
+        "seed_scenario_b2_taxi_escalate_v1",
+        "seed_scenario_b2_time_box_v1",
+        "seed_scenario_b2_vacate_short_v1"
       ],
       "contentReferences": [
         {
@@ -4635,6 +5538,158 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0046"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_customer_escalation_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_housing_dispute_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_agenda_swap"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_airport_reseat"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_assumption"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_cafe_brief"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_case_id"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_certified_mail"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_chart_axes"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_convenience_scan"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_counter_offer"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_cross_check"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_direction_risk"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_evidence_date"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hold_share"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hotel_clause"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_limit_line"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_market_source"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_metric_clear"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_minutes_draft"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_must_have"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_next_level"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_on_site"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_one_pager"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_pharmacy_claim"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_public_question"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_quorum_wait"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_read_receipt"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_restaurant_note"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_restore_scope"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_review_three"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_selective_edit"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_self_fail"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_source_check"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_station_hold"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_taxi_escalate"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_time_box"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_vacate_short"
         }
       ]
     },
@@ -4952,7 +6007,7 @@
     {
       "id": "cluster_b2_interview_experience_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_job_interview_v1",
         "seed_vocab_pack_b2_relationships_people_1_v1",
@@ -4969,7 +6024,9 @@
         "seed_cloze_cloze_b2_0031_v1",
         "seed_cloze_cloze_b2_0032_v1",
         "seed_cloze_cloze_b2_0033_v1",
-        "seed_cloze_cloze_b2_0034_v1"
+        "seed_cloze_cloze_b2_0034_v1",
+        "seed_vocab_pack_b2_performance_review_1_v1",
+        "seed_smalltalk_smalltalk_b2_0099_v1"
       ],
       "contentReferences": [
         {
@@ -5035,6 +6092,14 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0034"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_performance_review_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0099"
         }
       ]
     },
@@ -5120,7 +6185,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -5166,7 +6231,8 @@
         "seed_smalltalk_smalltalk_b2_0095_v1",
         "seed_smalltalk_smalltalk_b2_0096_v1",
         "seed_smalltalk_smalltalk_b2_0097_v1",
-        "seed_smalltalk_smalltalk_b2_0098_v1"
+        "seed_smalltalk_smalltalk_b2_0098_v1",
+        "seed_vocab_pack_b2_policy_brief_1_v1"
       ],
       "contentReferences": [
         {
@@ -5348,6 +6414,10 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0098"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_policy_brief_1"
         }
       ]
     },
@@ -5429,7 +6499,7 @@
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -5445,7 +6515,120 @@
         "seed_satz_satz_c1_0051_v1",
         "seed_satz_satz_c1_0052_v1",
         "seed_satz_satz_c1_0053_v1",
-        "seed_satz_satz_c1_0054_v1"
+        "seed_satz_satz_c1_0054_v1",
+        "seed_vocab_pack_c1_evidence_caveat_1_v1",
+        "seed_vocab_pack_c1_public_briefing_1_v1",
+        "seed_vocab_pack_c1_risk_wording_1_v1",
+        "seed_vocab_pack_c1_survey_design_1_v1",
+        "seed_grammar_grammar_c1_even_if_doing_v1",
+        "seed_grammar_grammar_c1_given_situation_v1",
+        "seed_grammar_grammar_c1_leaning_on_v1",
+        "seed_grammar_grammar_c1_regardless_noun_v1",
+        "seed_scenario_c1_access_time_v1",
+        "seed_scenario_c1_briefing_number_v1",
+        "seed_scenario_c1_leading_item_v1",
+        "seed_scenario_c1_question_window_v1",
+        "seed_scenario_c1_relative_risk_v1",
+        "seed_scenario_c1_sample_bias_v1",
+        "seed_scenario_c1_speaking_slot_v1",
+        "seed_scenario_c1_uncertainty_v1",
+        "seed_smalltalk_smalltalk_c1_0023_v1",
+        "seed_cloze_cloze_c1_0077_v1",
+        "seed_cloze_cloze_c1_0078_v1",
+        "seed_cloze_cloze_c1_0079_v1",
+        "seed_cloze_cloze_c1_0080_v1",
+        "seed_cloze_cloze_c1_0081_v1",
+        "seed_cloze_cloze_c1_0082_v1",
+        "seed_cloze_cloze_c1_0083_v1",
+        "seed_cloze_cloze_c1_0084_v1",
+        "seed_cloze_cloze_c1_0085_v1",
+        "seed_cloze_cloze_c1_0086_v1",
+        "seed_cloze_cloze_c1_0087_v1",
+        "seed_cloze_cloze_c1_0088_v1",
+        "seed_cloze_cloze_c1_0089_v1",
+        "seed_cloze_cloze_c1_0090_v1",
+        "seed_cloze_cloze_c1_0091_v1",
+        "seed_cloze_cloze_c1_0092_v1",
+        "seed_cloze_cloze_c1_0093_v1",
+        "seed_cloze_cloze_c1_0094_v1",
+        "seed_cloze_cloze_c1_0095_v1",
+        "seed_cloze_cloze_c1_0096_v1",
+        "seed_cloze_cloze_c1_0097_v1",
+        "seed_cloze_cloze_c1_0098_v1",
+        "seed_cloze_cloze_c1_0099_v1",
+        "seed_cloze_cloze_c1_0100_v1",
+        "seed_cloze_cloze_c1_0101_v1",
+        "seed_cloze_cloze_c1_0102_v1",
+        "seed_cloze_cloze_c1_0103_v1",
+        "seed_cloze_cloze_c1_0104_v1",
+        "seed_cloze_cloze_c1_0105_v1",
+        "seed_cloze_cloze_c1_0106_v1",
+        "seed_cloze_cloze_c1_0107_v1",
+        "seed_cloze_cloze_c1_0108_v1",
+        "seed_cloze_cloze_c1_0109_v1",
+        "seed_cloze_cloze_c1_0110_v1",
+        "seed_cloze_cloze_c1_0111_v1",
+        "seed_cloze_cloze_c1_0112_v1",
+        "seed_cloze_cloze_c1_0113_v1",
+        "seed_cloze_cloze_c1_0114_v1",
+        "seed_cloze_cloze_c1_0115_v1",
+        "seed_cloze_cloze_c1_0116_v1",
+        "seed_cloze_cloze_c1_0117_v1",
+        "seed_cloze_cloze_c1_0118_v1",
+        "seed_cloze_cloze_c1_0119_v1",
+        "seed_cloze_cloze_c1_0120_v1",
+        "seed_cloze_cloze_c1_0121_v1",
+        "seed_cloze_cloze_c1_0122_v1",
+        "seed_cloze_cloze_c1_0123_v1",
+        "seed_cloze_cloze_c1_0124_v1",
+        "seed_satz_satz_c1_0079_v1",
+        "seed_satz_satz_c1_0080_v1",
+        "seed_satz_satz_c1_0081_v1",
+        "seed_satz_satz_c1_0082_v1",
+        "seed_satz_satz_c1_0083_v1",
+        "seed_satz_satz_c1_0084_v1",
+        "seed_satz_satz_c1_0085_v1",
+        "seed_satz_satz_c1_0086_v1",
+        "seed_satz_satz_c1_0087_v1",
+        "seed_satz_satz_c1_0088_v1",
+        "seed_satz_satz_c1_0089_v1",
+        "seed_satz_satz_c1_0090_v1",
+        "seed_satz_satz_c1_0091_v1",
+        "seed_satz_satz_c1_0092_v1",
+        "seed_satz_satz_c1_0093_v1",
+        "seed_satz_satz_c1_0094_v1",
+        "seed_satz_satz_c1_0095_v1",
+        "seed_satz_satz_c1_0096_v1",
+        "seed_satz_satz_c1_0097_v1",
+        "seed_satz_satz_c1_0098_v1",
+        "seed_satz_satz_c1_0099_v1",
+        "seed_satz_satz_c1_0100_v1",
+        "seed_satz_satz_c1_0101_v1",
+        "seed_satz_satz_c1_0102_v1",
+        "seed_satz_satz_c1_0103_v1",
+        "seed_satz_satz_c1_0104_v1",
+        "seed_satz_satz_c1_0105_v1",
+        "seed_satz_satz_c1_0106_v1",
+        "seed_satz_satz_c1_0107_v1",
+        "seed_satz_satz_c1_0108_v1",
+        "seed_satz_satz_c1_0109_v1",
+        "seed_satz_satz_c1_0110_v1",
+        "seed_satz_satz_c1_0111_v1",
+        "seed_satz_satz_c1_0112_v1",
+        "seed_satz_satz_c1_0113_v1",
+        "seed_satz_satz_c1_0114_v1",
+        "seed_satz_satz_c1_0115_v1",
+        "seed_satz_satz_c1_0116_v1",
+        "seed_satz_satz_c1_0117_v1",
+        "seed_satz_satz_c1_0118_v1",
+        "seed_satz_satz_c1_0119_v1",
+        "seed_satz_satz_c1_0120_v1",
+        "seed_satz_satz_c1_0121_v1",
+        "seed_satz_satz_c1_0122_v1",
+        "seed_satz_satz_c1_0123_v1",
+        "seed_satz_satz_c1_0124_v1",
+        "seed_satz_satz_c1_0125_v1",
+        "seed_satz_satz_c1_0126_v1"
       ],
       "contentReferences": [
         {
@@ -5563,16 +6746,469 @@
         {
           "kind": "satz",
           "id": "satz_c1_0054"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_evidence_caveat_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_public_briefing_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_risk_wording_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_survey_design_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_even_if_doing"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_given_situation"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_leaning_on"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_regardless_noun"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_access_time"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_briefing_number"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_leading_item"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_question_window"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_relative_risk"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_sample_bias"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_speaking_slot"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_uncertainty"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0023"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0077"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0078"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0079"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0080"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0081"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0082"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0083"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0084"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0085"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0086"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0087"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0088"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0089"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0090"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0091"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0092"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0093"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0094"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0095"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0096"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0097"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0098"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0099"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0100"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0101"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0102"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0103"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0104"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0105"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0106"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0107"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0108"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0109"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0110"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0111"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0112"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0113"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0114"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0115"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0116"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0117"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0118"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0119"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0120"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0121"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0122"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0123"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0124"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0079"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0080"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0081"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0082"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0083"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0084"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0085"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0086"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0087"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0088"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0089"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0090"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0091"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0092"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0093"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0094"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0095"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0096"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0097"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0098"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0099"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0100"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0101"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0102"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0103"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0104"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0105"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0106"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0107"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0108"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0109"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0110"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0111"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0112"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0113"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0114"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0115"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0116"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0117"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0118"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0119"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0120"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0121"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0122"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0123"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0124"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0125"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0126"
         }
       ]
     },
     {
       "id": "cluster_c1_risk_uncertainty_v1",
       "level": "c1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
-        "seed_project_c1_risk_v1"
+        "seed_project_c1_risk_v1",
+        "seed_smalltalk_smalltalk_c1_0024_v1"
       ],
       "contentReferences": [
         {
@@ -5646,6 +7282,10 @@
         {
           "kind": "project",
           "id": "project_c1_risk_v1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0024"
         }
       ]
     },
@@ -5810,7 +7450,7 @@
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
@@ -5870,7 +7510,57 @@
         "seed_satz_satz_c1_0075_v1",
         "seed_satz_satz_c1_0076_v1",
         "seed_satz_satz_c1_0077_v1",
-        "seed_satz_satz_c1_0078_v1"
+        "seed_satz_satz_c1_0078_v1",
+        "seed_vocab_pack_c1_access_cost_1_v1",
+        "seed_vocab_pack_c1_participation_design_1_v1",
+        "seed_cloze_cloze_c1_0125_v1",
+        "seed_cloze_cloze_c1_0126_v1",
+        "seed_cloze_cloze_c1_0127_v1",
+        "seed_cloze_cloze_c1_0128_v1",
+        "seed_cloze_cloze_c1_0129_v1",
+        "seed_cloze_cloze_c1_0130_v1",
+        "seed_cloze_cloze_c1_0131_v1",
+        "seed_cloze_cloze_c1_0132_v1",
+        "seed_cloze_cloze_c1_0133_v1",
+        "seed_cloze_cloze_c1_0134_v1",
+        "seed_cloze_cloze_c1_0135_v1",
+        "seed_cloze_cloze_c1_0136_v1",
+        "seed_cloze_cloze_c1_0137_v1",
+        "seed_cloze_cloze_c1_0138_v1",
+        "seed_cloze_cloze_c1_0139_v1",
+        "seed_cloze_cloze_c1_0140_v1",
+        "seed_cloze_cloze_c1_0141_v1",
+        "seed_cloze_cloze_c1_0142_v1",
+        "seed_cloze_cloze_c1_0143_v1",
+        "seed_cloze_cloze_c1_0144_v1",
+        "seed_cloze_cloze_c1_0145_v1",
+        "seed_cloze_cloze_c1_0146_v1",
+        "seed_cloze_cloze_c1_0147_v1",
+        "seed_cloze_cloze_c1_0148_v1",
+        "seed_cloze_cloze_c1_0149_v1",
+        "seed_cloze_cloze_c1_0150_v1",
+        "seed_cloze_cloze_c1_0151_v1",
+        "seed_cloze_cloze_c1_0152_v1",
+        "seed_cloze_cloze_c1_0153_v1",
+        "seed_cloze_cloze_c1_0154_v1",
+        "seed_cloze_cloze_c1_0155_v1",
+        "seed_cloze_cloze_c1_0156_v1",
+        "seed_cloze_cloze_c1_0157_v1",
+        "seed_cloze_cloze_c1_0158_v1",
+        "seed_cloze_cloze_c1_0159_v1",
+        "seed_cloze_cloze_c1_0160_v1",
+        "seed_cloze_cloze_c1_0161_v1",
+        "seed_cloze_cloze_c1_0162_v1",
+        "seed_cloze_cloze_c1_0163_v1",
+        "seed_cloze_cloze_c1_0164_v1",
+        "seed_cloze_cloze_c1_0165_v1",
+        "seed_cloze_cloze_c1_0166_v1",
+        "seed_cloze_cloze_c1_0167_v1",
+        "seed_cloze_cloze_c1_0168_v1",
+        "seed_cloze_cloze_c1_0169_v1",
+        "seed_cloze_cloze_c1_0170_v1",
+        "seed_cloze_cloze_c1_0171_v1",
+        "seed_cloze_cloze_c1_0172_v1"
       ],
       "contentReferences": [
         {
@@ -6164,6 +7854,206 @@
         {
           "kind": "satz",
           "id": "satz_c1_0078"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_access_cost_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_participation_design_1"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0125"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0126"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0127"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0128"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0129"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0130"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0131"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0132"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0133"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0134"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0135"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0136"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0137"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0138"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0139"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0140"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0141"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0142"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0143"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0144"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0145"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0146"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0147"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0148"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0149"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0150"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0151"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0152"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0153"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0154"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0155"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0156"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0157"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0158"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0159"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0160"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0161"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0162"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0163"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0164"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0165"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0166"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0167"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0168"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0169"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0170"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0171"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0172"
         }
       ]
     },
@@ -6253,10 +8143,60 @@
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
-        "seed_project_c1_sustainability_v1"
+        "seed_project_c1_sustainability_v1",
+        "seed_vocab_pack_c1_local_tradeoff_1_v1",
+        "seed_vocab_pack_c1_maintenance_burden_1_v1",
+        "seed_satz_satz_c1_0127_v1",
+        "seed_satz_satz_c1_0128_v1",
+        "seed_satz_satz_c1_0129_v1",
+        "seed_satz_satz_c1_0130_v1",
+        "seed_satz_satz_c1_0131_v1",
+        "seed_satz_satz_c1_0132_v1",
+        "seed_satz_satz_c1_0133_v1",
+        "seed_satz_satz_c1_0134_v1",
+        "seed_satz_satz_c1_0135_v1",
+        "seed_satz_satz_c1_0136_v1",
+        "seed_satz_satz_c1_0137_v1",
+        "seed_satz_satz_c1_0138_v1",
+        "seed_satz_satz_c1_0139_v1",
+        "seed_satz_satz_c1_0140_v1",
+        "seed_satz_satz_c1_0141_v1",
+        "seed_satz_satz_c1_0142_v1",
+        "seed_satz_satz_c1_0143_v1",
+        "seed_satz_satz_c1_0144_v1",
+        "seed_satz_satz_c1_0145_v1",
+        "seed_satz_satz_c1_0146_v1",
+        "seed_satz_satz_c1_0147_v1",
+        "seed_satz_satz_c1_0148_v1",
+        "seed_satz_satz_c1_0149_v1",
+        "seed_satz_satz_c1_0150_v1",
+        "seed_satz_satz_c1_0151_v1",
+        "seed_satz_satz_c1_0152_v1",
+        "seed_satz_satz_c1_0153_v1",
+        "seed_satz_satz_c1_0154_v1",
+        "seed_satz_satz_c1_0155_v1",
+        "seed_satz_satz_c1_0156_v1",
+        "seed_satz_satz_c1_0157_v1",
+        "seed_satz_satz_c1_0158_v1",
+        "seed_satz_satz_c1_0159_v1",
+        "seed_satz_satz_c1_0160_v1",
+        "seed_satz_satz_c1_0161_v1",
+        "seed_satz_satz_c1_0162_v1",
+        "seed_satz_satz_c1_0163_v1",
+        "seed_satz_satz_c1_0164_v1",
+        "seed_satz_satz_c1_0165_v1",
+        "seed_satz_satz_c1_0166_v1",
+        "seed_satz_satz_c1_0167_v1",
+        "seed_satz_satz_c1_0168_v1",
+        "seed_satz_satz_c1_0169_v1",
+        "seed_satz_satz_c1_0170_v1",
+        "seed_satz_satz_c1_0171_v1",
+        "seed_satz_satz_c1_0172_v1",
+        "seed_satz_satz_c1_0173_v1",
+        "seed_satz_satz_c1_0174_v1"
       ],
       "contentReferences": [
         {
@@ -6330,6 +8270,206 @@
         {
           "kind": "project",
           "id": "project_c1_sustainability_v1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_local_tradeoff_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_maintenance_burden_1"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0127"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0128"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0129"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0130"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0131"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0132"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0133"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0134"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0135"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0136"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0137"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0138"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0139"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0140"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0141"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0142"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0143"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0144"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0145"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0146"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0147"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0148"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0149"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0150"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0151"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0152"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0153"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0154"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0155"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0156"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0157"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0158"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0159"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0160"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0161"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0162"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0163"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0164"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0165"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0166"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0167"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0168"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0169"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0170"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0171"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0172"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0173"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0174"
         }
       ]
     },
@@ -6419,7 +8559,7 @@
     {
       "id": "cluster_c2_institutional_deliberation_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_institutional_mediation_1_v1",
         "seed_project_c2_institution_v1",
@@ -6479,7 +8619,110 @@
         "seed_satz_satz_c2_0075_v1",
         "seed_satz_satz_c2_0076_v1",
         "seed_satz_satz_c2_0077_v1",
-        "seed_satz_satz_c2_0078_v1"
+        "seed_satz_satz_c2_0078_v1",
+        "seed_vocab_pack_c2_authority_language_1_v1",
+        "seed_vocab_pack_c2_memory_narrative_1_v1",
+        "seed_grammar_grammar_c2_as_already_set_v1",
+        "seed_grammar_grammar_c2_defined_as_v1",
+        "seed_grammar_grammar_c2_on_the_premise_v1",
+        "seed_grammar_grammar_c2_wishing_to_v1",
+        "seed_smalltalk_smalltalk_c2_0023_v1",
+        "seed_cloze_cloze_c2_0077_v1",
+        "seed_cloze_cloze_c2_0078_v1",
+        "seed_cloze_cloze_c2_0079_v1",
+        "seed_cloze_cloze_c2_0080_v1",
+        "seed_cloze_cloze_c2_0081_v1",
+        "seed_cloze_cloze_c2_0082_v1",
+        "seed_cloze_cloze_c2_0083_v1",
+        "seed_cloze_cloze_c2_0084_v1",
+        "seed_cloze_cloze_c2_0085_v1",
+        "seed_cloze_cloze_c2_0086_v1",
+        "seed_cloze_cloze_c2_0087_v1",
+        "seed_cloze_cloze_c2_0088_v1",
+        "seed_cloze_cloze_c2_0089_v1",
+        "seed_cloze_cloze_c2_0090_v1",
+        "seed_cloze_cloze_c2_0091_v1",
+        "seed_cloze_cloze_c2_0092_v1",
+        "seed_cloze_cloze_c2_0093_v1",
+        "seed_cloze_cloze_c2_0094_v1",
+        "seed_cloze_cloze_c2_0095_v1",
+        "seed_cloze_cloze_c2_0096_v1",
+        "seed_cloze_cloze_c2_0097_v1",
+        "seed_cloze_cloze_c2_0098_v1",
+        "seed_cloze_cloze_c2_0099_v1",
+        "seed_cloze_cloze_c2_0100_v1",
+        "seed_cloze_cloze_c2_0101_v1",
+        "seed_cloze_cloze_c2_0102_v1",
+        "seed_cloze_cloze_c2_0103_v1",
+        "seed_cloze_cloze_c2_0104_v1",
+        "seed_cloze_cloze_c2_0105_v1",
+        "seed_cloze_cloze_c2_0106_v1",
+        "seed_cloze_cloze_c2_0107_v1",
+        "seed_cloze_cloze_c2_0108_v1",
+        "seed_cloze_cloze_c2_0109_v1",
+        "seed_cloze_cloze_c2_0110_v1",
+        "seed_cloze_cloze_c2_0111_v1",
+        "seed_cloze_cloze_c2_0112_v1",
+        "seed_cloze_cloze_c2_0113_v1",
+        "seed_cloze_cloze_c2_0114_v1",
+        "seed_cloze_cloze_c2_0115_v1",
+        "seed_cloze_cloze_c2_0116_v1",
+        "seed_cloze_cloze_c2_0117_v1",
+        "seed_cloze_cloze_c2_0118_v1",
+        "seed_cloze_cloze_c2_0119_v1",
+        "seed_cloze_cloze_c2_0120_v1",
+        "seed_cloze_cloze_c2_0121_v1",
+        "seed_cloze_cloze_c2_0122_v1",
+        "seed_cloze_cloze_c2_0123_v1",
+        "seed_cloze_cloze_c2_0124_v1",
+        "seed_satz_satz_c2_0079_v1",
+        "seed_satz_satz_c2_0080_v1",
+        "seed_satz_satz_c2_0081_v1",
+        "seed_satz_satz_c2_0082_v1",
+        "seed_satz_satz_c2_0083_v1",
+        "seed_satz_satz_c2_0084_v1",
+        "seed_satz_satz_c2_0085_v1",
+        "seed_satz_satz_c2_0086_v1",
+        "seed_satz_satz_c2_0087_v1",
+        "seed_satz_satz_c2_0088_v1",
+        "seed_satz_satz_c2_0089_v1",
+        "seed_satz_satz_c2_0090_v1",
+        "seed_satz_satz_c2_0091_v1",
+        "seed_satz_satz_c2_0092_v1",
+        "seed_satz_satz_c2_0093_v1",
+        "seed_satz_satz_c2_0094_v1",
+        "seed_satz_satz_c2_0095_v1",
+        "seed_satz_satz_c2_0096_v1",
+        "seed_satz_satz_c2_0097_v1",
+        "seed_satz_satz_c2_0098_v1",
+        "seed_satz_satz_c2_0099_v1",
+        "seed_satz_satz_c2_0100_v1",
+        "seed_satz_satz_c2_0101_v1",
+        "seed_satz_satz_c2_0102_v1",
+        "seed_satz_satz_c2_0103_v1",
+        "seed_satz_satz_c2_0104_v1",
+        "seed_satz_satz_c2_0105_v1",
+        "seed_satz_satz_c2_0106_v1",
+        "seed_satz_satz_c2_0107_v1",
+        "seed_satz_satz_c2_0108_v1",
+        "seed_satz_satz_c2_0109_v1",
+        "seed_satz_satz_c2_0110_v1",
+        "seed_satz_satz_c2_0111_v1",
+        "seed_satz_satz_c2_0112_v1",
+        "seed_satz_satz_c2_0113_v1",
+        "seed_satz_satz_c2_0114_v1",
+        "seed_satz_satz_c2_0115_v1",
+        "seed_satz_satz_c2_0116_v1",
+        "seed_satz_satz_c2_0117_v1",
+        "seed_satz_satz_c2_0118_v1",
+        "seed_satz_satz_c2_0119_v1",
+        "seed_satz_satz_c2_0120_v1",
+        "seed_satz_satz_c2_0121_v1",
+        "seed_satz_satz_c2_0122_v1",
+        "seed_satz_satz_c2_0123_v1",
+        "seed_satz_satz_c2_0124_v1",
+        "seed_satz_satz_c2_0125_v1",
+        "seed_satz_satz_c2_0126_v1"
       ],
       "contentReferences": [
         {
@@ -6777,6 +9020,418 @@
         {
           "kind": "satz",
           "id": "satz_c2_0078"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_authority_language_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_memory_narrative_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_as_already_set"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_defined_as"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_on_the_premise"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_wishing_to"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0023"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0077"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0078"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0079"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0080"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0081"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0082"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0083"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0084"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0085"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0086"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0087"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0088"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0089"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0090"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0091"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0092"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0093"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0094"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0095"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0096"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0097"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0098"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0099"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0100"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0101"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0102"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0103"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0104"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0105"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0106"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0107"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0108"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0109"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0110"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0111"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0112"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0113"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0114"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0115"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0116"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0117"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0118"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0119"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0120"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0121"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0122"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0123"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0124"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0079"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0080"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0081"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0082"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0083"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0084"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0085"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0086"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0087"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0088"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0089"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0090"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0091"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0092"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0093"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0094"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0095"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0096"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0097"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0098"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0099"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0100"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0101"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0102"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0103"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0104"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0105"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0106"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0107"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0108"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0109"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0110"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0111"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0112"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0113"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0114"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0115"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0116"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0117"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0118"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0119"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0120"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0121"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0122"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0123"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0124"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0125"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0126"
         }
       ]
     },
@@ -6937,10 +9592,12 @@
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
-        "seed_project_c2_framing_v1"
+        "seed_project_c2_framing_v1",
+        "seed_vocab_pack_c2_framing_analysis_1_v1",
+        "seed_vocab_pack_c2_institutional_voice_1_v1"
       ],
       "contentReferences": [
         {
@@ -7006,6 +9663,14 @@
         {
           "kind": "project",
           "id": "project_c2_framing_v1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_framing_analysis_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_institutional_voice_1"
         }
       ]
     },
@@ -7087,7 +9752,7 @@
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -7103,7 +9768,116 @@
         "seed_satz_satz_c2_0051_v1",
         "seed_satz_satz_c2_0052_v1",
         "seed_satz_satz_c2_0053_v1",
-        "seed_satz_satz_c2_0054_v1"
+        "seed_satz_satz_c2_0054_v1",
+        "seed_vocab_pack_c2_appeal_path_1_v1",
+        "seed_vocab_pack_c2_audit_trail_1_v1",
+        "seed_vocab_pack_c2_automated_harm_1_v1",
+        "seed_vocab_pack_c2_withdrawal_right_1_v1",
+        "seed_scenario_c2_appeal_bot_v1",
+        "seed_scenario_c2_archive_gap_v1",
+        "seed_scenario_c2_discourse_premise_v1",
+        "seed_scenario_c2_mandate_edge_v1",
+        "seed_scenario_c2_passive_hide_v1",
+        "seed_scenario_c2_trace_log_v1",
+        "seed_scenario_c2_uneven_impact_v1",
+        "seed_scenario_c2_withdraw_deep_v1",
+        "seed_smalltalk_smalltalk_c2_0024_v1",
+        "seed_cloze_cloze_c2_0125_v1",
+        "seed_cloze_cloze_c2_0126_v1",
+        "seed_cloze_cloze_c2_0127_v1",
+        "seed_cloze_cloze_c2_0128_v1",
+        "seed_cloze_cloze_c2_0129_v1",
+        "seed_cloze_cloze_c2_0130_v1",
+        "seed_cloze_cloze_c2_0131_v1",
+        "seed_cloze_cloze_c2_0132_v1",
+        "seed_cloze_cloze_c2_0133_v1",
+        "seed_cloze_cloze_c2_0134_v1",
+        "seed_cloze_cloze_c2_0135_v1",
+        "seed_cloze_cloze_c2_0136_v1",
+        "seed_cloze_cloze_c2_0137_v1",
+        "seed_cloze_cloze_c2_0138_v1",
+        "seed_cloze_cloze_c2_0139_v1",
+        "seed_cloze_cloze_c2_0140_v1",
+        "seed_cloze_cloze_c2_0141_v1",
+        "seed_cloze_cloze_c2_0142_v1",
+        "seed_cloze_cloze_c2_0143_v1",
+        "seed_cloze_cloze_c2_0144_v1",
+        "seed_cloze_cloze_c2_0145_v1",
+        "seed_cloze_cloze_c2_0146_v1",
+        "seed_cloze_cloze_c2_0147_v1",
+        "seed_cloze_cloze_c2_0148_v1",
+        "seed_cloze_cloze_c2_0149_v1",
+        "seed_cloze_cloze_c2_0150_v1",
+        "seed_cloze_cloze_c2_0151_v1",
+        "seed_cloze_cloze_c2_0152_v1",
+        "seed_cloze_cloze_c2_0153_v1",
+        "seed_cloze_cloze_c2_0154_v1",
+        "seed_cloze_cloze_c2_0155_v1",
+        "seed_cloze_cloze_c2_0156_v1",
+        "seed_cloze_cloze_c2_0157_v1",
+        "seed_cloze_cloze_c2_0158_v1",
+        "seed_cloze_cloze_c2_0159_v1",
+        "seed_cloze_cloze_c2_0160_v1",
+        "seed_cloze_cloze_c2_0161_v1",
+        "seed_cloze_cloze_c2_0162_v1",
+        "seed_cloze_cloze_c2_0163_v1",
+        "seed_cloze_cloze_c2_0164_v1",
+        "seed_cloze_cloze_c2_0165_v1",
+        "seed_cloze_cloze_c2_0166_v1",
+        "seed_cloze_cloze_c2_0167_v1",
+        "seed_cloze_cloze_c2_0168_v1",
+        "seed_cloze_cloze_c2_0169_v1",
+        "seed_cloze_cloze_c2_0170_v1",
+        "seed_cloze_cloze_c2_0171_v1",
+        "seed_cloze_cloze_c2_0172_v1",
+        "seed_satz_satz_c2_0127_v1",
+        "seed_satz_satz_c2_0128_v1",
+        "seed_satz_satz_c2_0129_v1",
+        "seed_satz_satz_c2_0130_v1",
+        "seed_satz_satz_c2_0131_v1",
+        "seed_satz_satz_c2_0132_v1",
+        "seed_satz_satz_c2_0133_v1",
+        "seed_satz_satz_c2_0134_v1",
+        "seed_satz_satz_c2_0135_v1",
+        "seed_satz_satz_c2_0136_v1",
+        "seed_satz_satz_c2_0137_v1",
+        "seed_satz_satz_c2_0138_v1",
+        "seed_satz_satz_c2_0139_v1",
+        "seed_satz_satz_c2_0140_v1",
+        "seed_satz_satz_c2_0141_v1",
+        "seed_satz_satz_c2_0142_v1",
+        "seed_satz_satz_c2_0143_v1",
+        "seed_satz_satz_c2_0144_v1",
+        "seed_satz_satz_c2_0145_v1",
+        "seed_satz_satz_c2_0146_v1",
+        "seed_satz_satz_c2_0147_v1",
+        "seed_satz_satz_c2_0148_v1",
+        "seed_satz_satz_c2_0149_v1",
+        "seed_satz_satz_c2_0150_v1",
+        "seed_satz_satz_c2_0151_v1",
+        "seed_satz_satz_c2_0152_v1",
+        "seed_satz_satz_c2_0153_v1",
+        "seed_satz_satz_c2_0154_v1",
+        "seed_satz_satz_c2_0155_v1",
+        "seed_satz_satz_c2_0156_v1",
+        "seed_satz_satz_c2_0157_v1",
+        "seed_satz_satz_c2_0158_v1",
+        "seed_satz_satz_c2_0159_v1",
+        "seed_satz_satz_c2_0160_v1",
+        "seed_satz_satz_c2_0161_v1",
+        "seed_satz_satz_c2_0162_v1",
+        "seed_satz_satz_c2_0163_v1",
+        "seed_satz_satz_c2_0164_v1",
+        "seed_satz_satz_c2_0165_v1",
+        "seed_satz_satz_c2_0166_v1",
+        "seed_satz_satz_c2_0167_v1",
+        "seed_satz_satz_c2_0168_v1",
+        "seed_satz_satz_c2_0169_v1",
+        "seed_satz_satz_c2_0170_v1",
+        "seed_satz_satz_c2_0171_v1",
+        "seed_satz_satz_c2_0172_v1",
+        "seed_satz_satz_c2_0173_v1",
+        "seed_satz_satz_c2_0174_v1"
       ],
       "contentReferences": [
         {
@@ -7229,6 +10003,442 @@
         {
           "kind": "satz",
           "id": "satz_c2_0054"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_appeal_path_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_audit_trail_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_automated_harm_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_withdrawal_right_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_appeal_bot"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_archive_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_discourse_premise"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_mandate_edge"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_passive_hide"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_trace_log"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_uneven_impact"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_withdraw_deep"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0024"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0125"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0126"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0127"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0128"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0129"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0130"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0131"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0132"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0133"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0134"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0135"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0136"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0137"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0138"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0139"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0140"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0141"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0142"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0143"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0144"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0145"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0146"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0147"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0148"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0149"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0150"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0151"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0152"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0153"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0154"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0155"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0156"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0157"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0158"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0159"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0160"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0161"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0162"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0163"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0164"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0165"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0166"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0167"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0168"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0169"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0170"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0171"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0172"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0127"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0128"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0129"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0130"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0131"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0132"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0133"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0134"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0135"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0136"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0137"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0138"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0139"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0140"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0141"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0142"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0143"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0144"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0145"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0146"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0147"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0148"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0149"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0150"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0151"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0152"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0153"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0154"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0155"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0156"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0157"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0158"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0159"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0160"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0161"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0162"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0163"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0164"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0165"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0166"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0167"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0168"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0169"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0170"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0171"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0172"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0173"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0174"
         }
       ]
     },

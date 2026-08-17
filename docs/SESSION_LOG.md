@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 09/10 4× 잔량을 live에 승격
+
+**무엇.** origin/main에서 별도 브랜치 `cursor/apply-4x-batch-09-10-3cd5`를
+따고, PR #41이 남긴 review-only 4× 잔량(`batch_09_4x` 다섯 종류 1764,
+`batch_10_4x` 시나리오 174 + 미사용 live Satz 640)을 앱 자산에 올렸다.
+파트너-가족 Batch 07/08과 숫자 ID가 겹치지 않게 재번호된 초안만 승격했다.
+`can_do_content_authorities.json`에 신규 ID 라우트를 붙였고, 86칸 코어
+분모는 그대로 뒀다. TTS/Firebase는 하지 않았다.
+
+**왜.** PR #41은 main에 병합됐지만 `assets/data/`는 원래 설계대로 비어
+있었다. live 증가(58/419/1188 → 90/875/1620)는 다른 트랙인 파트너-가족
+07/08 때문이다. Jin이 이 승격을 별도 브랜치에서 진행하라고 했다.
+
+**검증.** 승격 후 live는 vocab 2196, cloze 1538, satz 2091, smalltalk 377,
+grammar 206, scenario 264, quest 971, packs 201. A1 4× 시나리오 45개에는
+live 래칫용 particlePop+satzBauen을 넣었다. 카운트 테스트·can-do
+커버리지·promoted-batch validator·loader coverage를 이 브랜치에서 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
 
 **무엇.** `cursor/tts-wait-quota-kurs-e988`을 `18428284` 위로 리베이스했다.

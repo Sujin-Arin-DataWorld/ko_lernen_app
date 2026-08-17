@@ -515,6 +515,117 @@ for _number in range(53, 77):
 for _number in range(55, 79):
     PARTNER_FAMILY_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = _C1_FAMILY
     PARTNER_FAMILY_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = _C2_FAMILY
+
+# Batch 09/10 4x remainder attaches extra practice to published core
+# segments without changing the 86-slot denominator.
+FOUR_X_SEGMENT_ROUTES: dict[tuple[str, str], str] = {}
+_C1_EVIDENCE = "c1_evidence_limits_conclusion"
+_C1_ACCESS = "c1_participatory_access_remedy"
+_C1_TRADEOFF = "c1_local_tradeoff_adaptation"
+_C1_RISK = "c1_risk_uncertainty"
+_C2_INSTITUTION = "c2_institutional_deliberation"
+_C2_FRAMING = "c2_framing_responsibility"
+_C2_TECH = "c2_technology_traceability_appeal"
+_AB_FOUR_X = {
+    "a1": "a1_16_survival_capstone",
+    "a2": "a2_subway_directions",
+    "b1": "b1_delivery_resolution",
+    "b2": "b2_formal_complaint",
+}
+for _ident in (
+    "c1_evidence_caveat_1",
+    "c1_public_briefing_1",
+    "c1_survey_design_1",
+    "c1_risk_wording_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C1_EVIDENCE
+for _ident in (
+    "c1_access_cost_1",
+    "c1_participation_design_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C1_ACCESS
+for _ident in (
+    "c1_local_tradeoff_1",
+    "c1_maintenance_burden_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C1_TRADEOFF
+for _ident in (
+    "c2_framing_analysis_1",
+    "c2_institutional_voice_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C2_FRAMING
+for _ident in (
+    "c2_memory_narrative_1",
+    "c2_authority_language_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C2_INSTITUTION
+for _ident in (
+    "c2_appeal_path_1",
+    "c2_audit_trail_1",
+    "c2_withdrawal_right_1",
+    "c2_automated_harm_1",
+):
+    FOUR_X_SEGMENT_ROUTES[("vocabPack", _ident)] = _C2_TECH
+for _ident in (
+    "grammar_c1_regardless_noun",
+    "grammar_c1_given_situation",
+    "grammar_c1_leaning_on",
+    "grammar_c1_even_if_doing",
+):
+    FOUR_X_SEGMENT_ROUTES[("grammar", _ident)] = _C1_EVIDENCE
+for _ident in (
+    "grammar_c2_defined_as",
+    "grammar_c2_as_already_set",
+    "grammar_c2_on_the_premise",
+    "grammar_c2_wishing_to",
+):
+    FOUR_X_SEGMENT_ROUTES[("grammar", _ident)] = _C2_INSTITUTION
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_a1_0081")] = "a1_12_daily_negation"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_a1_0082")] = "a1_04_order_request_object"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_a2_0074")] = "a2_running_late"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_a2_0075")] = "a2_feeling_sick"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_b1_0071")] = "b1_team_role_coordination"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_b1_0072")] = "b1_plans_with_reasons"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_b2_0099")] = "b2_interview_experience"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_b2_0100")] = "b2_formal_meeting_opening"
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_c1_0023")] = _C1_EVIDENCE
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_c1_0024")] = _C1_RISK
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_c2_0023")] = _C2_INSTITUTION
+FOUR_X_SEGMENT_ROUTES[("smalltalk", "smalltalk_c2_0024")] = _C2_TECH
+for _number in range(77, 125):
+    FOUR_X_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = _C1_EVIDENCE
+    FOUR_X_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = _C2_INSTITUTION
+for _number in range(125, 173):
+    FOUR_X_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = _C1_ACCESS
+    FOUR_X_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = _C2_TECH
+for _number in range(79, 127):
+    FOUR_X_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = _C1_EVIDENCE
+    FOUR_X_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = _C2_INSTITUTION
+for _number in range(127, 175):
+    FOUR_X_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = _C1_TRADEOFF
+    FOUR_X_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = _C2_TECH
+for _ident in (
+    "c1_uncertainty",
+    "c1_sample_bias",
+    "c1_briefing_number",
+    "c1_question_window",
+    "c1_leading_item",
+    "c1_relative_risk",
+    "c1_access_time",
+    "c1_speaking_slot",
+):
+    FOUR_X_SEGMENT_ROUTES[("scenario", _ident)] = _C1_EVIDENCE
+for _ident in (
+    "c2_discourse_premise",
+    "c2_passive_hide",
+    "c2_mandate_edge",
+    "c2_archive_gap",
+    "c2_appeal_bot",
+    "c2_trace_log",
+    "c2_withdraw_deep",
+    "c2_uneven_impact",
+):
+    FOUR_X_SEGMENT_ROUTES[("scenario", _ident)] = _C2_TECH
 PRACTICE_ONLY_KINDS = frozenset(
     {"pronunciation", "cloze", "satz", "smalltalk", "scenario"}
 )
@@ -1154,452 +1265,508 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 1,
     },
     'smalltalk_a1_0065': {
-        "phraseFingerprintSha256": 'bb827a145827a8f830b46a228bf2680c9cdea186ddeedf719cba9593bffa6185',
+        "phraseFingerprintSha256": '8635bbff4d17d5b0daf6700ec76a6a16d2ce64f70d6945c46cfe564014209f13',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0066': {
-        "phraseFingerprintSha256": '6867a9087cb541a0b627b7afbe8f678639ed43a418f136cb72a8fe2b2ab4ad81',
+        "phraseFingerprintSha256": '72b4110857220083056bd42c7c6fc171db3cd16ecdeefbe592336b9cc80c6f67',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0067': {
-        "phraseFingerprintSha256": 'a20836fb8d4414a6a7bf112fdfc9ed911c68d0347b6b53db1692b69a1db79c19',
+        "phraseFingerprintSha256": '1df5d37f01311eb9044013686fe3d66fe7e49013f33b746d3858e82386e76143',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0068': {
-        "phraseFingerprintSha256": '93c3aceb9c706f1978d181d64312878028ed2e5017089f122bf0282c69d54cbf',
+        "phraseFingerprintSha256": '4dc30c7b199f680cf3604e329ea28e2390d413953858cbad7e4c633210448d8b',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0069': {
-        "phraseFingerprintSha256": 'dd0b34bb3b018ef0fda18cc306a81832f0acae027585b9fa8a8f617c9b379248',
+        "phraseFingerprintSha256": 'fd5bf8213d86d894df797224a0d02eafcb536c5da1bd283f589ffb5a54cbfe6e',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0070': {
-        "phraseFingerprintSha256": '199c8a83e1009088ba6e235e2fd106100c9219acea78b5dac14994cc567b4956',
+        "phraseFingerprintSha256": 'e1a5a0a290ae8b8122ecbcea0fd7b9c3cddec2472be863b24395353fa72b6fa5',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0071': {
-        "phraseFingerprintSha256": 'e12599b104b4efc3319e4c35a55723580413f19eed2ed4a2399c878b2c443d2a',
+        "phraseFingerprintSha256": '9d82c319df10e7863c7953c45a89ee38c0d014eedeca12395027f347d0e12639',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0072': {
-        "phraseFingerprintSha256": '812fcd7949d29f35f273b0f9f7ac43c7df32dca38e589b4d332e505ae4d5827a',
+        "phraseFingerprintSha256": '4f076ea8431cd6a43546544849549a7f78156e654f017d0e6d46f138f838f56a',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0073': {
-        "phraseFingerprintSha256": 'e2fc7175741060b5a84c192178b59c425d0391c19e73716cbf459ebf00f04b15',
+        "phraseFingerprintSha256": 'b0fef5f7ab9be820a93b51794235c9e22b3b1fa9150b46bb2f2f1510bf57ff89',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0074': {
-        "phraseFingerprintSha256": 'd5ad6ce59bf4936d4e0a9707da963be4018d62a90348548799a4e6d03e1d2ec3',
+        "phraseFingerprintSha256": '417b305288fbd4c58366a679026fa0fcce4925355bc1be2a28ac81c7bbea6dd8',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0075': {
-        "phraseFingerprintSha256": '3351c48026acd1d8333f45792f09f51d1c633130f24782e44e6fd0e31b000ae2',
+        "phraseFingerprintSha256": 'a5b2f42bd349db91cd9cc0c4f91b86f87ca63ff49a90aa928e30e958089d31bb',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0076': {
-        "phraseFingerprintSha256": '9feb4298f4316ea75981ec994fab27c5d3278fa379c3b376be29674fba89e708',
+        "phraseFingerprintSha256": '8d545dccbc37de0baaa52c7a39fb20bf40827b7ac502b1a6d47d4f7b5aa091f9',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0077': {
-        "phraseFingerprintSha256": 'cb6b8aac3ba671196cf595f76f882d5d9e553897f5d6e63e1a724d7b897a1002',
+        "phraseFingerprintSha256": '72a685ee5cce28b0075d8c0baa7383919b2b71d9adc63d2eea7f84454af3bb05',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0078': {
-        "phraseFingerprintSha256": '02764df4577b7d92e4a0f63e693a85fffdfbf178f54f41b9c44d67fdd4c318de',
+        "phraseFingerprintSha256": '22089011bd9eb7193cf46a52dd2bcafbb939b9752900bd274afb491ca4068fe5',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0079': {
-        "phraseFingerprintSha256": '33413b99bf7bdebab71d2d24a05259c9d4dabf4887fcea23130ef6d3e9696af4',
+        "phraseFingerprintSha256": '8aa52781044de24831549c099fe2305312a0a02bdfed920f3af5134c6a66c807',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0080': {
-        "phraseFingerprintSha256": 'fe7c64e96036cc70a2ffca648fd8d688c021e6c7214c25161195be7c974c8d91',
+        "phraseFingerprintSha256": 'cc0ff93027a9d3975769bc4a4fc43acc58d56e5f816332558ffbe0b8aecc9bbe',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0058': {
-        "phraseFingerprintSha256": 'ab22ac708794170cd511d34e0268b50fe6b25a0b1812f494473161c5bd9bfd8e',
+        "phraseFingerprintSha256": '81ad44fd6918e5ae9909a73ff3d8e83894b12be039f7a679e3fd95d21fe090d2',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0059': {
-        "phraseFingerprintSha256": '26f55c779ece981c299ab327cc8b9b0bd4e0dc0003a6309324c5455b29e7e318',
+        "phraseFingerprintSha256": '8d57964e09f8084eb574c39c5bfa3c478c007eaf6dc0e96474201d58dfb70449',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0060': {
-        "phraseFingerprintSha256": '303f80e4f33be6f6af0b65fb3dc19af2ae99140d8828e60eb292691d9adf2bd7',
+        "phraseFingerprintSha256": '627efaaa944910358831f79a14cbc1bd5b1424e439dca2855b168b40cd7ae1f0',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0061': {
-        "phraseFingerprintSha256": '6c7f6bf605697b921171a81838f18def94f384e10318f56bf8a94f2fa48a4812',
+        "phraseFingerprintSha256": '27b7d7697cf6ed2a8ffcb9a8d7fa5a22d42d0d149a59452c88c0903358a906f2',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0062': {
-        "phraseFingerprintSha256": 'de354f12512243bf1b5ab2f60334aa7dffe0480e465d9a28b284e8ba00fecaf1',
+        "phraseFingerprintSha256": '696f168f255f0ffbe4a08ed069b88cd07929b9c2da17216f278bedc070656623',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0063': {
-        "phraseFingerprintSha256": '1a0de8f3c662958fa4dac9b1803153b1e4fd789c7f0df789053579c232e547ab',
+        "phraseFingerprintSha256": '8509e333c5a008ef3299eb749f40617d5e51f3e9261eb7153ab03b0443d58b49',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0064': {
-        "phraseFingerprintSha256": '8a6ef8016403bf45d1fbf6731642d760b333e7cc96038afd5cc99f21fc6f5e26',
+        "phraseFingerprintSha256": 'b3c5e38232c9da3257f5ddc68750b80ff2ebb178b266bcb3012b89f6f2d4833f',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0065': {
-        "phraseFingerprintSha256": '3c49b92de9d9740e294cd7c4de98732f84e0100f0d570a2aa6bc6556dd40fd43',
+        "phraseFingerprintSha256": 'f58c3c65ad0aeab3f30f76f92a53a0fe825f2f96f4b6b593f49405848e28107d',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0066': {
-        "phraseFingerprintSha256": 'ba42abb5b15e70d21c9cf2fa5434aea4f2213215f9e770740c051e6ca7f9371a',
+        "phraseFingerprintSha256": '31186bc592cace95201ccdba5393603ed69b07c190ea972932980e7b62931ca3',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0067': {
-        "phraseFingerprintSha256": 'dfd429f6016f5d99428ef0839ef7d37acd848ffb437b43dc21f92db1d2467dc2',
+        "phraseFingerprintSha256": '5e5cec81b5100c8d2e71687fca6999383f5836c127d22d716649fd55b28320d9',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0068': {
-        "phraseFingerprintSha256": 'd1ecde260add779b929509185e09bc7b93a9bb5947fffeecc8309719b6b5cdf8',
+        "phraseFingerprintSha256": '9828e37b7d72d3c5ad2791608e501188b7e8750c60b3aa90d26e4c493b932dff',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0069': {
-        "phraseFingerprintSha256": '8f78d720b4605254db898348e6fb6c2b99833929289934376d6ce13aefb7ebc5',
+        "phraseFingerprintSha256": '18f71f56c3deb6b5a02bd0df75a2c37e746ba02273db9bad94e0ca4444e0be7b',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0070': {
-        "phraseFingerprintSha256": 'c97c84ab55da89034bed8e16aa4b3d31f5de6c4d2645aa20ba08a175bafb34bb',
+        "phraseFingerprintSha256": 'e376a6cd08a5f21159cdf73ad8443a9f58b7ef96e44f5161a84559e753f59276',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0071': {
-        "phraseFingerprintSha256": 'f7d4f7b9a9dddac7767f3008859224e73fe44c64c11bff3cc2ee02147659735d',
+        "phraseFingerprintSha256": '497188319c563662676e6a2f3e1d8941f45d585106c2565ca481c02da0b54707',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0072': {
-        "phraseFingerprintSha256": 'd5fb02e7ad539092eae943a0b4eea79ca106542e3adb80edf3304f04803641fb',
+        "phraseFingerprintSha256": 'a4b9df19a15590a0cae812c48dc1d601d547d5f7ad76dcd7fdcf1229383a4000',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a2_0073': {
-        "phraseFingerprintSha256": '9952ab08118c15a80b6398cc66b9ba49ec7252e07cfbddacea82e9fad292266a',
+        "phraseFingerprintSha256": '3c26cd5be6167dc9ecbf102159d107c611d5cba9f2698bd83e12ed8d01c9ae1e',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0055': {
-        "phraseFingerprintSha256": '20a754e5127a26fa0917c7ef7de8bc803a1ffffff698d758ec9f5e0453dc00fd',
+        "phraseFingerprintSha256": '3bc259dbacfd7e1f1b3f48e2a03e7f753ee2413ff9e7f838a626ea59efad7c05',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0056': {
-        "phraseFingerprintSha256": '7e617e17d65b7d145241f861ae2205e70cbe351284afc8bcc4b5c0313ede7795',
+        "phraseFingerprintSha256": '40bfd3260ef68b9aa73a127faa52738410d29c865fe5686e9d8766761a3cb418',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0057': {
-        "phraseFingerprintSha256": 'a3cc132597398bcfcaa86b118e9f430456a1b4c87bbaaabe433dac8fbc674884',
+        "phraseFingerprintSha256": 'bb75b0662afafd66a0a3cb11a0b3990d2e0b405283658f2a1e3973ac244443a6',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0058': {
-        "phraseFingerprintSha256": '0cfa81fbb2bb1acaef814d0469a6a99f78517aad087d5a9cbcb23c98cd163196',
+        "phraseFingerprintSha256": 'b07f4b87478c1fc988956ab2c3237914af89ccdc79f32ac0477ee9755dd56881',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0059': {
-        "phraseFingerprintSha256": 'd65bcd0b868085478fe4c9deadaba1bf621ce8740c43dbc58821fa8913af12d7',
+        "phraseFingerprintSha256": 'eef9cad5102be8651bb752f82ff9e404bd1d540568dc65dc4ca21fe019675a08',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0060': {
-        "phraseFingerprintSha256": '724bded8782b4fc06905e3d9a38ebe25475acd8da75ea2bad900e84b55df4d0b',
+        "phraseFingerprintSha256": '3993b742426792b2309ef8477e0626f133afa503f568cae99d1355e073fcfbde',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0061': {
-        "phraseFingerprintSha256": 'c0d30e6b71aa432704091ca56bbb0f9af65f61fde391816beaf6cd325659a35f',
+        "phraseFingerprintSha256": 'da7fb006d441e56e546f686dcfdbbdf267a99e8ab40820a84629774c250162a0',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0062': {
-        "phraseFingerprintSha256": '640715f29e872516bdd7bd0983492c422787c142ec14436214011aa6950801f3',
+        "phraseFingerprintSha256": '3d6fed0cac418d8639194d72ec282ea6daf1531623f6d9c9aff669eff3f5271f',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0063': {
-        "phraseFingerprintSha256": '528711059f7f005a7081d78e1af25d894249b86966055b56bf520b770618af02',
+        "phraseFingerprintSha256": '5cd3a5110b390af890f34d660d92f8c786c00d25c9d8cc525ab13d867a916056',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0064': {
-        "phraseFingerprintSha256": 'ebd1d2ecafae5194e3e7358fbbe9bac6d9057198ed82185834721cc45dd7d275',
+        "phraseFingerprintSha256": '8155a3f28972be0890bce586e91b1ade78ce53a28fa8227a9e8237dea3af35d7',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0065': {
-        "phraseFingerprintSha256": 'c22d2a7999ee0dc30793d7bbddf1a6fe097ab4d63ea51bcc6cfd9fb99717fadf',
+        "phraseFingerprintSha256": 'a5e123e620927fe4be66f3138358ef463581c300bf3e4b4120a7bd781d8037d5',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0066': {
-        "phraseFingerprintSha256": '860762bb1db71b32c174e657120f1fe4b77121118b0cf74a5822ca9deac50520',
+        "phraseFingerprintSha256": '87ce9e09943ac6c361b2fddd35c0a9ffb2e7d2875e07f7a95a0e2ab7dfc795f2',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0067': {
-        "phraseFingerprintSha256": '29aef308e419e15dce4eabf65a2408b4cb5260943803333e61e51e2862b96883',
+        "phraseFingerprintSha256": '3c587d3ae9dbb771fd7eb2aa20ad6305ab699f082b5aba74289de9cd9fe651c6',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0068': {
-        "phraseFingerprintSha256": '83dbd58b998fdfb1253a27eb538b1eeccf2ae4a5ade547d2d6f461045a78eb40',
+        "phraseFingerprintSha256": 'b0164655385bf4c588035a18eb2352bf21c3315ced7555ebde92c9c975cd4314',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0069': {
-        "phraseFingerprintSha256": '895015301f54141f9b54bad3be8dde32c9a00c6005ef1873cd6e97abf703eea7',
+        "phraseFingerprintSha256": '6f95ca2694bd154db422e527850136898d292ea10e486ce66e154e137ed64f07',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b1_0070': {
-        "phraseFingerprintSha256": '18bca2ca4aba1dcc878fadee0da1c6670d3e6bec6059a42b96772c8b631f53a6',
+        "phraseFingerprintSha256": '2cceec561004450068c9ba3cfee46a22dc839944a0e8003d6493043aa7b829d6',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0083': {
-        "phraseFingerprintSha256": '0f08e4c148b9c58d05f458840bc1950b61d1929f54c9f1c0c719776afb8a261e',
+        "phraseFingerprintSha256": 'b87373ee5156f16fd017771917caca59d7960ea0576604dad8ccb9738a387505',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0084': {
-        "phraseFingerprintSha256": '7f6cfe5f9e8d9f854bceeb2687bb1b33dc2e4c96a1f94d781d694addad4424ea',
+        "phraseFingerprintSha256": '7d8c6e42670cced4e01688b9b0411e0fffecd3313d26b0f3a7de4b4885abe7e2',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0085': {
-        "phraseFingerprintSha256": 'ddf806f7e2deb1788bf8989939eac4f376b2bda65a7d835088b353803622307c',
+        "phraseFingerprintSha256": '867b013e392e2585a520c2d5b2039a0dfbe77f16171d1f003bd963d91fc863e1',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0086': {
-        "phraseFingerprintSha256": 'df1b133f049358e80fc1ad9b53505ce417a53e82fef7d20f54883e730c31feb3',
+        "phraseFingerprintSha256": '9b73d891487afc936b7b900edc81b1e80884c5d8fac0ef1ceffe7f6c8ef1effb',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0087': {
-        "phraseFingerprintSha256": 'c3c2744dfcb46d1ce1db46fc3ecbad8257eb93d10dfef7921f0319bfcf334c03',
+        "phraseFingerprintSha256": '5711f00d68afdb6dbc11f1873485a97ae96443651093278f5ef64e2f7d43f24a',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0088': {
-        "phraseFingerprintSha256": '3a87914e819fdc49d884b3b615e6d2d486fb3259839de5998cfe9c3dd852370d',
+        "phraseFingerprintSha256": '6b298db5eb2414b99ebf69e262d49373ad4b7c4748389da924853d4c3f764424',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0089': {
-        "phraseFingerprintSha256": 'e32b79f89ebcc7588f65cd957dbb54f60732caffe72201e20a4bfa7fc4d39b01',
+        "phraseFingerprintSha256": 'c0edebc3df86effb67f81908416368d4978b6830c8743ab721e7d898987e5217',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0090': {
-        "phraseFingerprintSha256": 'a4e1cfe74535c3910d4720142cf2048ca05a19b01637edf1d82f76b98ae2cb8c',
+        "phraseFingerprintSha256": '102311454e8a904d97b85046c2451e3a2b0092fedd6fbbe85dd6a40d54a049f7',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0091': {
-        "phraseFingerprintSha256": 'e97c2e5f17537839c6083dba11e876001769932c767b9ebc11ac861eba2a7242',
+        "phraseFingerprintSha256": '5a0a7598c9b7de5c73229247c2ab39dc2d00b2d54a4e8922ebc10622db4012e2',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0092': {
-        "phraseFingerprintSha256": '5e17fb62a579b06d665ba5f5eb5c49e2e74ac6c21b417031f1b3a7df03b3f767',
+        "phraseFingerprintSha256": '762f4583fc4fa2d6678b192d3223b2703f857b14f590090787646c2043cf172d',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0093': {
-        "phraseFingerprintSha256": 'f681a10290c7be553dca688c0e533dd0e80930291b0cb36958c7cdabe595c46c',
+        "phraseFingerprintSha256": '562b33bda4f1de6fee21c8141a636bd50773154dcbb3b5d63c0372d5fb341e55',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0094': {
-        "phraseFingerprintSha256": '41d693ca091589187d0e864fa99f4c9c86c0dc410b03e105a57295dfe059c3ad',
+        "phraseFingerprintSha256": 'c7c7de383bbf2382c6368e5041e8edcf753359fafbe14ea581bd4ca459431db6',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0095': {
-        "phraseFingerprintSha256": '13bc58b56aaca93813e4cdde0fab2793a9d60aa2cba5f5b452508b56ca9b1e8f',
+        "phraseFingerprintSha256": 'f6a4bf8b3af23932092f8e84da1250d4c80f91b80ef3f43d228dd990470e1872',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0096': {
-        "phraseFingerprintSha256": 'fa643dd4a0451c637cb9d6d18cca2164a8f126f7a18089b9a3692134e624d7ff',
+        "phraseFingerprintSha256": 'e8d71dee9fc977cb22ef0c470721fdf71c1142c9172f1b38534dcb9753ee41fe',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0097': {
-        "phraseFingerprintSha256": 'c2a9927ee440df2b77782937dc0df50e4b68c5030a0b47891eddf2a18632d03b',
+        "phraseFingerprintSha256": '9b9ff8d7298b555c918bde91ed2018fa637615c585564eb296ca66ee94085119',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_b2_0098': {
-        "phraseFingerprintSha256": '0e017e76cda3997c2dc9f95a7738323c496e352e3c40ef164d018f93d3493a53',
+        "phraseFingerprintSha256": '54fe297aabb882f6488c153d59084962a30f7fb9591d4909b967f98b3f3f4996',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
         "reviewRevision": 2,
+    },
+    "smalltalk_a1_0081": {
+        "phraseFingerprintSha256": "2ecc74ecdef9b3a4b8bddbb053fa827aa86711eec05d884041a024bdeb9a8e0a",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a1_0082": {
+        "phraseFingerprintSha256": "c544d93960617e4d7311e28e556ab77aa8f62f144d89680cb9d78f109edf58d3",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0074": {
+        "phraseFingerprintSha256": "f021f82bf5eb34a069ea09d7808deaaacbd13a469f74722ca566f7e38b49c3c9",
+        "canDoSegmentId": "segment_a2_running_late",
+        "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0075": {
+        "phraseFingerprintSha256": "73c27bd3105e8da5f9a3a0828aecd6095d7df6f93288432fa4b4df46a4da1219",
+        "canDoSegmentId": "segment_a2_feeling_sick",
+        "canDoFingerprintSha256": "9cdbbb15c11ba3c7e755a2d8073b0ecd702f0a1fdcf9e72d29ec0b32a6b4a421",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b1_0071": {
+        "phraseFingerprintSha256": "b18f90a5c2afc29f1a804289128efbc4da4bebcdbc0c9be7fb8148edf8e67096",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b1_0072": {
+        "phraseFingerprintSha256": "38f407574f4afc1426c4818777fc3c28abdc5b70a158ab67ecdf2ee230b7aaba",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0099": {
+        "phraseFingerprintSha256": "3ff8f68da244ee4060af12e8b80dc4d68c28002c9d04955c303e1718c86b1581",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0100": {
+        "phraseFingerprintSha256": "45816876650acbe091f6863bbb5ab03efd804c7c62dde968ce339bf0e367232b",
+        "canDoSegmentId": "segment_b2_formal_meeting_opening",
+        "canDoFingerprintSha256": "b417e1d6ef394b21a40debf5ba9964ffd31fc3a2698733a8a6fe9258c5721fda",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
     },
 }
 
@@ -2224,7 +2391,10 @@ def _promotion_segment_key(kind: str, content_id: str) -> str | None:
         if not isinstance(target, str) or not target:
             raise ValueError(f"promotion for {(kind, content_id)!r} has no can-do target")
         return target
-    return PARTNER_FAMILY_SEGMENT_ROUTES.get((kind, content_id))
+    partner = PARTNER_FAMILY_SEGMENT_ROUTES.get((kind, content_id))
+    if partner is not None:
+        return partner
+    return FOUR_X_SEGMENT_ROUTES.get((kind, content_id))
 
 
 def _build_specs(source: SourceIndex) -> tuple[list[SegmentSpec], dict[str, Any]]:
@@ -2339,7 +2509,9 @@ def _expand_ab_practice(
         target = (
             next(iter(anchor))
             if anchor
-            else promoted_target or EXTRA_SCENARIO_ROUTES.get(scenario_id)
+            else promoted_target
+            or EXTRA_SCENARIO_ROUTES.get(scenario_id)
+            or UNIT_DEFAULT_ROUTE.get(str(row.get("courseUnitId") or ""))
         )
         if target is None:
             raise ValueError(f"scenario {scenario_id!r} needs an explicit semantic segment route")

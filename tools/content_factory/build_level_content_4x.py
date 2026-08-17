@@ -895,8 +895,58 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
                     "correctIndex": 0,
                 },
             },
+            *a1_production_quests(ident, level, title_ko, title_de, title_en, concepts),
         ],
     }
+
+
+def a1_production_quests(
+    ident: str,
+    level: str,
+    title_ko: str,
+    title_de: str,
+    title_en: str,
+    concepts: list[str],
+) -> list[dict[str, Any]]:
+    """A1 live ratchet: every A1 scenario needs a correction + output quest."""
+    if level != "a1":
+        return []
+    particle_line = f"오전 처리가 가능합니다. {title_ko}에 필요한 자료를 한 가지만 더 보여 주세요."
+    marker = f"{title_ko}에"
+    if marker not in particle_line:
+        raise SystemExit(f"{ident}: cannot split A1 particle line")
+    split_at = particle_line.index(marker) + len(title_ko)
+    prefix = particle_line[:split_at]
+    suffix = particle_line[split_at + 1 :]
+    satz = f"미루지 않고 진행하겠습니다. 한 시간 안에 {title_ko} 확정을 보내 드리겠습니다."
+    distractors = [word for word in ("우유", "지우개", "창문") if word not in satz]
+    return [
+        {
+            "id": f"quest_{ident}_particle",
+            "type": "particlePop",
+            "conceptIds": concepts,
+            "data": {
+                "prefix": prefix,
+                "suffix": suffix,
+                "options": ["에", "을", "이", "는", "도", "와"],
+                "correctIndex": 0,
+                "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+                "explanationEn": "에 marks relation: documents needed for this matter.",
+            },
+        },
+        {
+            "id": f"quest_{ident}_satz",
+            "type": "satzBauen",
+            "conceptIds": concepts,
+            "data": {
+                "targetKo": satz,
+                "promptDe": f"Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu {title_de}.",
+                "promptEn": f"We will not postpone. I will send the {title_en} confirmation within an hour.",
+                "distractors": distractors,
+                "audioKo": satz,
+            },
+        },
+    ]
 
 
 def unused_satz(

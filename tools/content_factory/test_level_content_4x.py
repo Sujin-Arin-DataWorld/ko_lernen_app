@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regressions for the review-only Batch 09/10 4x content drafts.
+"""Regressions for the promoted Batch 09/10 4x content remainder.
 
 Run with:
     python3 -m unittest tools/content_factory/test_level_content_4x.py
@@ -21,7 +21,7 @@ if str(SCRIPT_DIR) not in sys.path:
 import build_level_content_4x as builder
 from integrate_scenario_batch import integrate
 from rr_romanize import romanize_korean
-from validate_batch_01 import validate_review_batch
+from validate_promoted_batch import validate as validate_promoted_batch
 
 
 BATCH_06_CLOZE = SCRIPT_DIR / "drafts" / "c2_batch06_cloze_b1_c2.json"
@@ -53,7 +53,13 @@ class PackSourceTest(unittest.TestCase):
     def test_authored_packs_are_unique_korea_level_sets(self) -> None:
         packs = builder.load_packs()
         self.assertEqual(len(packs), 48)
-        live_korean = builder.load_live()[1]
+        vocab, live_korean, _by_level_words, _used_satz, _live_scenarios = builder.load_live()
+        authored_pack_ids = {pack["packId"] for pack in packs}
+        other_live_korean = {
+            row["korean"]
+            for row in vocab
+            if (row.get("pack_id") or "") not in authored_pack_ids
+        }
         headwords: list[str] = []
         by_level: dict[str, int] = {}
         for pack in packs:
@@ -63,7 +69,8 @@ class PackSourceTest(unittest.TestCase):
             for row in words:
                 korean, _german, _english, _pos_de, _pos_en, example_ko, _de, _en = row
                 self.assertIn(korean, example_ko, pack["packId"])
-                self.assertNotIn(korean, live_korean, pack["packId"])
+                self.assertNotIn(korean, other_live_korean, pack["packId"])
+                self.assertIn(korean, live_korean, pack["packId"])
                 headwords.append(korean)
         self.assertEqual(len(headwords), 576)
         self.assertEqual(len(set(headwords)), 576)
@@ -83,7 +90,7 @@ class PackSourceTest(unittest.TestCase):
 class Batch09ReviewDraftTest(unittest.TestCase):
     def test_manifest_counts_and_overlay_pass(self) -> None:
         manifest = json.loads(BATCH_09_MANIFEST.read_text(encoding="utf-8"))
-        self.assertEqual(manifest["status"], "review_only_draft")
+        self.assertEqual(manifest["status"], "merged")
         self.assertEqual(manifest["batch"], "09")
         self.assertEqual(manifest["recordCount"], 1764)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
@@ -93,10 +100,12 @@ class Batch09ReviewDraftTest(unittest.TestCase):
             orders[pack["level"]].append(pack["orderInLevel"])
         builder.refresh_live_id_starts()
         for level, values in orders.items():
-            self.assertEqual(values, list(range(builder.PACK_ORDER_START[level], builder.PACK_ORDER_START[level] + 8)))
-        result = validate_review_batch(manifest_path=BATCH_09_MANIFEST)
-        self.assertEqual(result.record_count, 1764)
-        self.assertEqual(len(result.planned_pack_ids), 48)
+            self.assertEqual(values, list(range(values[0], values[0] + 8)))
+            self.assertEqual(builder.PACK_ORDER_START[level], values[-1] + 1)
+        promoted_count, inventory = validate_promoted_batch(BATCH_09_MANIFEST)
+        self.assertEqual(promoted_count, 1764)
+        self.assertEqual(inventory["vocab"], 2196)
+        self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:
         manifest = json.loads(BATCH_09_MANIFEST.read_text(encoding="utf-8"))
@@ -108,8 +117,9 @@ class Batch09ReviewDraftTest(unittest.TestCase):
                 rows = list(csv.DictReader(handle))
             self.assertEqual(len(rows), artifact["count"], artifact["kind"])
             for row in rows:
-                self.assertEqual(row["상태"], "draft")
+                self.assertEqual(row["상태"], "approved")
                 self.assertIn("rights: original", row["field_notes"])
+                self.assertTrue(str(row.get("jin_memo") or "").strip())
 
     def test_ids_do_not_collide_with_live_or_batch_06(self) -> None:
         cloze_09 = _json_ids(SCRIPT_DIR / "drafts" / "c2_batch09_cloze_a1_c2.json", "items")
@@ -120,8 +130,13 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         )
         live_cloze = _live_ids(SCRIPT_DIR.parents[1] / "assets" / "data" / "cloze.json", "items")
         live_satz = _live_ids(LIVE_SATZ, "items")
-        self.assertFalse(cloze_09 & live_cloze)
-        self.assertFalse(satz_09 & live_satz)
+        live_smalltalk = _live_ids(
+            SCRIPT_DIR.parents[1] / "assets" / "data" / "smalltalk.json",
+            "phrases",
+        )
+        self.assertTrue(cloze_09 <= live_cloze)
+        self.assertTrue(satz_09 <= live_satz)
+        self.assertTrue(smalltalk_09 <= live_smalltalk)
         self.assertFalse(cloze_09 & _json_ids(BATCH_06_CLOZE, "items"))
         self.assertFalse(satz_09 & _json_ids(BATCH_06_SATZ, "items"))
         self.assertFalse(smalltalk_09 & _json_ids(BATCH_06_SMALLTALK, "phrases"))
@@ -130,7 +145,7 @@ class Batch09ReviewDraftTest(unittest.TestCase):
 class Batch10ScenarioDraftTest(unittest.TestCase):
     def test_preview_adds_authored_scenarios_without_live_id_overlap(self) -> None:
         manifest = json.loads(BATCH_10_MANIFEST.read_text(encoding="utf-8"))
-        self.assertEqual(manifest["status"], "review_only_draft")
+        self.assertEqual(manifest["status"], "merged")
         self.assertEqual(manifest["batch"], "10")
         scenarios = json.loads(
             (SCRIPT_DIR / "drafts" / "c1_batch10_scenarios_a1_c2.json").read_text(
@@ -152,12 +167,12 @@ class Batch10ScenarioDraftTest(unittest.TestCase):
         reserved = set(builder.RESERVED_SCENARIOS) | _json_ids(BATCH_06_SCENARIOS, "scenarios")
         draft_ids = {row["id"] for row in scenarios}
         self.assertFalse(draft_ids & reserved)
-        self.assertFalse(draft_ids & live_scenario_ids)
+        self.assertTrue(draft_ids <= live_scenario_ids)
 
         counts, amount = integrate(manifest_path=BATCH_10_MANIFEST, apply=False)
         self.assertEqual(amount, 174 + len(unused))
-        self.assertEqual(counts["scenario"], len(live_scenario_ids) + 174)
-        self.assertEqual(counts["satz"], len(_live_ids(LIVE_SATZ, "items")) + len(unused))
+        self.assertEqual(counts["scenario"], len(live_scenario_ids))
+        self.assertEqual(counts["satz"], len(_live_ids(LIVE_SATZ, "items")))
 
     def test_unused_live_satz_avoids_batch_09_and_live_ids(self) -> None:
         satz_10 = _json_ids(SCRIPT_DIR / "drafts" / "c2_batch10_satz_unused_live.json", "items")
@@ -165,7 +180,7 @@ class Batch10ScenarioDraftTest(unittest.TestCase):
         live_satz = _live_ids(LIVE_SATZ, "items")
         self.assertTrue(satz_10)
         self.assertFalse(satz_10 & satz_09)
-        self.assertFalse(satz_10 & live_satz)
+        self.assertTrue(satz_10 <= live_satz)
         self.assertFalse(satz_10 & _json_ids(BATCH_06_SATZ, "items"))
 
 

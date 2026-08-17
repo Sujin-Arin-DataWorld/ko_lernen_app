@@ -183,6 +183,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_post_queue_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 우체국 줄",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_post_queue_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우체국 줄 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu In der Postschlange.",
+            "promptEn": "We will not postpone. I will send the In the post-office line confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우체국 줄 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -367,6 +407,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_stamp_ask_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 우표 개수",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_stamp_ask_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우표 개수 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Briefmarkenzahl.",
+            "promptEn": "We will not postpone. I will send the Stamp count confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우표 개수 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -553,6 +633,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_parcel_weight_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 소포 무게",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_parcel_weight_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 소포 무게 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Paketgewicht.",
+            "promptEn": "We will not postpone. I will send the Parcel weight confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 소포 무게 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -737,6 +857,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_pharmacy_ointment_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 연고 위치",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_pharmacy_ointment_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 연고 위치 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Salbenregal.",
+            "promptEn": "We will not postpone. I will send the Ointment shelf confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 연고 위치 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -923,6 +1083,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_mask_pack_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 마스크 한 통",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_mask_pack_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 마스크 한 통 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Maskenpackung.",
+            "promptEn": "We will not postpone. I will send the A pack of masks confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 마스크 한 통 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -1107,6 +1307,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_weekend_rain_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 주말 비",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_weekend_rain_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 주말 비 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Wochenendregen.",
+            "promptEn": "We will not postpone. I will send the Weekend rain confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 주말 비 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -1293,6 +1533,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_late_text_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 늦는 문자",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_late_text_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 늦는 문자 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Verspätungsnachricht.",
+            "promptEn": "We will not postpone. I will send the Running-late text confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 늦는 문자 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -1477,6 +1757,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_neighbor_box_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 이웃 택배",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_neighbor_box_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 이웃 택배 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Nachbarpaket.",
+            "promptEn": "We will not postpone. I will send the Neighbor parcel confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 이웃 택배 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -1663,6 +1983,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_hall_shoes_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 복도 신발",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_hall_shoes_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 복도 신발 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Schuhe im Flur.",
+            "promptEn": "We will not postpone. I will send the Hallway shoes confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 복도 신발 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -1847,6 +2207,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_class_pencil_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 필통 빌리기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_class_pencil_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 필통 빌리기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Mäppchen leihen.",
+            "promptEn": "We will not postpone. I will send the Borrowing a pencil case confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 필통 빌리기 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -2033,6 +2433,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_submit_name_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 숙제 이름",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_submit_name_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 숙제 이름 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Name auf der Aufgabe.",
+            "promptEn": "We will not postpone. I will send the Name on homework confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 숙제 이름 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -2217,6 +2657,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_subway_exit_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 사 번 출구",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_subway_exit_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 사 번 출구 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Ausgang vier.",
+            "promptEn": "We will not postpone. I will send the Exit four confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 사 번 출구 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -2403,6 +2883,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_last_train_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 막차 시간",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_last_train_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 막차 시간 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Letzter Zug.",
+            "promptEn": "We will not postpone. I will send the Last train confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 막차 시간 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -2587,6 +3107,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_card_topup_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 카드 충전",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_card_topup_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 카드 충전 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Karte laden.",
+            "promptEn": "We will not postpone. I will send the Card top-up confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 카드 충전 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -2773,6 +3333,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_weather_layer_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 겉옷 챙기기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_weather_layer_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 겉옷 챙기기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Überzieher mitnehmen.",
+            "promptEn": "We will not postpone. I will send the Bring a layer confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 겉옷 챙기기 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -2957,6 +3557,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dust_mask_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 미세먼지 마스크",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_dust_mask_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 미세먼지 마스크 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Feinstaubmaske.",
+            "promptEn": "We will not postpone. I will send the Fine-dust mask confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 미세먼지 마스크 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -3143,6 +3783,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_sorry_late_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 늦은 사과",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_sorry_late_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 늦은 사과 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Entschuldigung für Verspätung.",
+            "promptEn": "We will not postpone. I will send the Sorry for being late confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 늦은 사과 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -3327,6 +4007,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_thanks_seat_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 자리 양보",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_thanks_seat_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 자리 양보 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Platz überlassen.",
+            "promptEn": "We will not postpone. I will send the Giving up a seat confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 자리 양보 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -3513,6 +4233,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_slow_speech_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 천천히 말하기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_slow_speech_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 천천히 말하기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Langsames Sprechen.",
+            "promptEn": "We will not postpone. I will send the Speak slowly confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 천천히 말하기 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -3697,6 +4457,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_door_bell_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 초인종",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_door_bell_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 초인종 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Klingel.",
+            "promptEn": "We will not postpone. I will send the Doorbell confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 초인종 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -3883,6 +4683,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_trash_sort_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 분리배출",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_trash_sort_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 분리배출 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Trennen.",
+            "promptEn": "We will not postpone. I will send the Sorted trash confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 분리배출 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -4067,6 +4907,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gate_code_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 공동현관 비번",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_gate_code_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 공동현관 비번 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Hauseingangscode.",
+            "promptEn": "We will not postpone. I will send the Entrance code confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 공동현관 비번 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -4253,6 +5133,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_whiteboard_word_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 화이트보드 단어",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_whiteboard_word_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 화이트보드 단어 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Wort am Whiteboard.",
+            "promptEn": "We will not postpone. I will send the Whiteboard word confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 화이트보드 단어 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -4437,6 +5357,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_platform_line_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 노란 선",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_platform_line_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 노란 선 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Gelbe Linie.",
+            "promptEn": "We will not postpone. I will send the Yellow line confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 노란 선 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -4623,6 +5583,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_rain_jacket_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 우비",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_rain_jacket_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우비 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Regenjacke.",
+            "promptEn": "We will not postpone. I will send the Rain jacket confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 우비 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -4807,6 +5807,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_excuse_pass_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 실례하고 지나기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_excuse_pass_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 실례하고 지나기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Entschuldigung, vorbei.",
+            "promptEn": "We will not postpone. I will send the Excuse me, passing confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 실례하고 지나기 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -4993,6 +6033,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_ask_again_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 다시 말하기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_ask_again_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 다시 말하기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Noch einmal sagen.",
+            "promptEn": "We will not postpone. I will send the Say it again confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 다시 말하기 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -5177,6 +6257,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_meet_station_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 역 앞 약속",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_meet_station_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 역 앞 약속 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Treffen vor dem Bahnhof.",
+            "promptEn": "We will not postpone. I will send the Meet in front of the station confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 역 앞 약속 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -5363,6 +6483,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_cancel_walk_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 산책 취소",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_cancel_walk_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 산책 취소 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Spaziergang absagen.",
+            "promptEn": "We will not postpone. I will send the Cancel the walk confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 산책 취소 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -5547,6 +6707,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_floor_number_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 층수 확인",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_floor_number_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 층수 확인 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Stockwerk prüfen.",
+            "promptEn": "We will not postpone. I will send the Check the floor confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 층수 확인 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -5733,6 +6933,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_locker_key_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 락커 열쇠",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_locker_key_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 락커 열쇠 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Spindschlüssel.",
+            "promptEn": "We will not postpone. I will send the Locker key confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 락커 열쇠 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -5917,6 +7157,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_bus_late_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 버스 지연",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_bus_late_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 버스 지연 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Busverspätung.",
+            "promptEn": "We will not postpone. I will send the Bus delay confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 버스 지연 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -6103,6 +7383,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_water_shop_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 물 사기",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_water_shop_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 물 사기 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Wasser kaufen.",
+            "promptEn": "We will not postpone. I will send the Buy water confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 물 사기 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -6287,6 +7607,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_tea_order_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 차 주문",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_tea_order_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 차 주문 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Tee bestellen.",
+            "promptEn": "We will not postpone. I will send the Order tea confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 차 주문 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -6473,6 +7833,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_taxi_address_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 택시 주소",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_taxi_address_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 택시 주소 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Taxi-Adresse.",
+            "promptEn": "We will not postpone. I will send the Taxi address confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 택시 주소 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -6657,6 +8057,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_hotel_key_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 호텔 열쇠",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_hotel_key_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 호텔 열쇠 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Hotelschlüssel.",
+            "promptEn": "We will not postpone. I will send the Hotel key confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 호텔 열쇠 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -6843,6 +8283,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_market_bag_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 장바구니",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_market_bag_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 장바구니 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Markttasche.",
+            "promptEn": "We will not postpone. I will send the Market bag confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 장바구니 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -7027,6 +8507,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_airport_cart_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 공항 카트",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_airport_cart_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 공항 카트 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Flughafenwagen.",
+            "promptEn": "We will not postpone. I will send the Airport cart confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 공항 카트 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -7213,6 +8733,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_rice_shop_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 김밥 가게",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_rice_shop_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 김밥 가게 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Kimbap-Laden.",
+            "promptEn": "We will not postpone. I will send the Kimbap shop confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 김밥 가게 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -7397,6 +8957,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_direction_left_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 왼쪽 골목",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_direction_left_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 왼쪽 골목 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Linke Gasse.",
+            "promptEn": "We will not postpone. I will send the Left alley confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 왼쪽 골목 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -7583,6 +9183,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_office_print_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 사무실 인쇄",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_office_print_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 사무실 인쇄 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Bürodruck.",
+            "promptEn": "We will not postpone. I will send the Office print confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 사무실 인쇄 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -7767,6 +9407,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_cafe_wifi_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 카페 와이파이",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_cafe_wifi_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 카페 와이파이 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Cafe-WLAN.",
+            "promptEn": "We will not postpone. I will send the Cafe wifi confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 카페 와이파이 확정을 보내 드리겠습니다."
           }
         }
       ]
@@ -7953,6 +9633,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_station_rest_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 역 화장실",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_station_rest_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 역 화장실 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Bahnhofstoilette.",
+            "promptEn": "We will not postpone. I will send the Station restroom confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 역 화장실 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -8138,6 +9858,46 @@
             ],
             "correctIndex": 0
           }
+        },
+        {
+          "id": "quest_a1_home_light_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 현관 불",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_home_light_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 현관 불 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Licht im Flur.",
+            "promptEn": "We will not postpone. I will send the Hall light confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 현관 불 확정을 보내 드리겠습니다."
+          }
         }
       ]
     },
@@ -8322,6 +10082,46 @@
               "침묵"
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_pharmacy_hours_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "prefix": "오전 처리가 가능합니다. 약국 문 닫는 시간",
+            "suffix": " 필요한 자료를 한 가지만 더 보여 주세요.",
+            "options": [
+              "에",
+              "을",
+              "이",
+              "는",
+              "도",
+              "와"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "에 markiert die Zugehörigkeit: Unterlagen, die für diesen Vorgang nötig sind.",
+            "explanationEn": "에 marks relation: documents needed for this matter."
+          }
+        },
+        {
+          "id": "quest_a1_pharmacy_hours_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_survival"
+          ],
+          "data": {
+            "targetKo": "미루지 않고 진행하겠습니다. 한 시간 안에 약국 문 닫는 시간 확정을 보내 드리겠습니다.",
+            "promptDe": "Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu Apothekenschluss.",
+            "promptEn": "We will not postpone. I will send the Pharmacy closing confirmation within an hour.",
+            "distractors": [
+              "우유",
+              "지우개",
+              "창문"
+            ],
+            "audioKo": "미루지 않고 진행하겠습니다. 한 시간 안에 약국 문 닫는 시간 확정을 보내 드리겠습니다."
           }
         }
       ]

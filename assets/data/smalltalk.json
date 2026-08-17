@@ -10280,6 +10280,354 @@
         "de": "So werden Fehler weniger.",
         "en": "That way there are fewer slips."
       }
+    },
+    {
+      "id": "smalltalk_a1_0081",
+      "category": "daily",
+      "level": "a1",
+      "kind": "question",
+      "ko": "오늘 저녁에 쓰레기 버리는 거 잊지 않으셨죠?",
+      "de": "Sie haben das Abend-Müllrausbringen nicht vergessen, oder?",
+      "en": "You did not forget to take out the evening trash, right?",
+      "reply": {
+        "ko": "아, 맞다. 지금 내려가서 넣을게요.",
+        "de": "Stimmt. Ich gehe jetzt runter und werfe ihn ein.",
+        "en": "Right. I will go down now and put it in."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0082",
+      "category": "food",
+      "level": "a1",
+      "kind": "question",
+      "ko": "이 김밥 너무 매워요, 아니면 저만 그래요?",
+      "de": "Ist dieses Kimbap zu scharf, oder geht es nur mir so?",
+      "en": "Is this kimbap too spicy, or is it just me?",
+      "reply": {
+        "ko": "조금 매운데 물 마시면 괜찮아요.",
+        "de": "Es ist etwas scharf, aber mit Wasser geht es.",
+        "en": "It is a bit spicy, but water helps."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0074",
+      "category": "weekend",
+      "level": "a2",
+      "kind": "question",
+      "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+      "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
+      "en": "I am going to the market Saturday morning. Want to come?",
+      "reply": {
+        "ko": "좋아요. 열 시에 입구에서 만나요.",
+        "de": "Gern. Treffen wir uns um zehn am Eingang.",
+        "en": "Good. Let's meet at ten at the entrance."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0075",
+      "category": "health",
+      "level": "a2",
+      "kind": "question",
+      "ko": "목이 좀 잠겼는데 오늘은 짧게만 이야기할까요?",
+      "de": "Meine Stimme ist heiser. Sollen wir heute nur kurz sprechen?",
+      "en": "My voice is hoarse. Shall we keep it short today?",
+      "reply": {
+        "ko": "그럼 문자가 나을 것 같아요.",
+        "de": "Dann ist eine Nachricht besser.",
+        "en": "Then a text is better."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0071",
+      "category": "work_study",
+      "level": "b1",
+      "kind": "question",
+      "ko": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
+      "de": "Wenn wir den Entwurf heute noch sehen wollen, wo sollen wir zuerst ändern?",
+      "en": "If we want to see this draft today, where should we change first?",
+      "reply": {
+        "ko": "숫자 표만 먼저 맞추고 문장은 내일 봐요.",
+        "de": "Stimmen wir zuerst die Zahlentabelle ab und lesen die Sätze morgen.",
+        "en": "Let's fix the number table first and read the sentences tomorrow."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0072",
+      "category": "moving",
+      "level": "b1",
+      "kind": "question",
+      "ko": "이삿날 엘리베이터를 두 시간만 예약하면 될까요?",
+      "de": "Reicht es, den Aufzug am Umzugstag für zwei Stunden zu reservieren?",
+      "en": "Is reserving the elevator for two hours on moving day enough?",
+      "reply": {
+        "ko": "큰 가구가 있으면 세 시간이 더 안전해요.",
+        "de": "Bei großen Möbeln sind drei Stunden sicherer.",
+        "en": "With large furniture, three hours is safer."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0099",
+      "category": "interview",
+      "level": "b2",
+      "kind": "question",
+      "ko": "이 경험을 성과로 말할지, 과정으로 말할지 고민이에요.",
+      "de": "Ich überlege, ob ich diese Erfahrung als Ergebnis oder als Prozess nenne.",
+      "en": "I am deciding whether to present this experience as a result or as a process.",
+      "reply": {
+        "ko": "결과는 한 줄, 과정은 한 사례로 나누면 분명해져요.",
+        "de": "Ein Satz Ergebnis und ein Fall Prozess machen es klar.",
+        "en": "One line of result and one case of process makes it clear."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0100",
+      "category": "phone",
+      "level": "b2",
+      "kind": "question",
+      "ko": "지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?",
+      "de": "Passt das Gespräch jetzt, oder soll ich nachmittags noch einmal anrufen?",
+      "en": "Is now a good time to talk, or should I call again this afternoon?",
+      "reply": {
+        "ko": "지금은 이동 중이라 세 시에 부탁드립니다.",
+        "de": "Ich bin unterwegs, bitte um fünfzehn Uhr.",
+        "en": "I am on the move, please call at three."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0023",
+      "category": "work_study",
+      "level": "c1",
+      "kind": "question",
+      "ko": "이 표를 공개할 때 한계를 어디에 적는 게 덜 오해될까요?",
+      "de": "Wohin sollen wir die Grenzen setzen, damit die Tabelle weniger missverstanden wird?",
+      "en": "Where should we put the limits so this table is less misunderstood?",
+      "reply": {
+        "ko": "첫 문단에 한 줄, 각주에 표본을 같이 두면 좋겠어요.",
+        "de": "Eine Zeile im ersten Absatz und die Stichprobe in der Fußnote.",
+        "en": "One line in the first paragraph and the sample in a footnote."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0024",
+      "category": "health",
+      "level": "c1",
+      "kind": "question",
+      "ko": "이 안내문이 위험을 과장하지 않는지 같이 읽어 볼까요?",
+      "de": "Wollen wir den Hinweis gemeinsam lesen, ob er das Risiko überzeichnet?",
+      "en": "Shall we read this notice together to see if it overstates the risk?",
+      "reply": {
+        "ko": "절대 건수를 옆에 두면 톤이 가라앉을 거예요.",
+        "de": "Mit der Absolutenzahl daneben wird der Ton ruhiger.",
+        "en": "Putting the absolute count beside it will calm the tone."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0023",
+      "category": "work_study",
+      "level": "c2",
+      "kind": "question",
+      "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
+      "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
+      "en": "Does this sentence hide authority behind procedure?",
+      "reply": {
+        "ko": "행위자를 주어로 올리고 이유를 한 줄 붙입시다.",
+        "de": "Setzen wir die handelnde Stelle als Subjekt und hängen einen Grund an.",
+        "en": "Let's make the actor the subject and add one line of reason."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0024",
+      "category": "daily",
+      "level": "c2",
+      "kind": "question",
+      "ko": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
+      "de": "Der Widerruf steckt tief in den Einstellungen, deshalb will ich den Weg notieren.",
+      "en": "The withdrawal seems buried in settings, so I want to write down the path.",
+      "reply": {
+        "ko": "스크린샷과 날짜를 같이 남기면 나중에 증명하기 쉬워요.",
+        "de": "Mit Screenshot und Datum ist der Nachweis später leichter.",
+        "en": "A screenshot and a date make later proof easier."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금은 짧게만 확인할까요?",
+          "de": "Wollen wir es jetzt nur kurz klären?",
+          "en": "Shall we just check this briefly for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 다음에 이어서 이야기해요.",
+        "de": "Dann sprechen wir später weiter.",
+        "en": "Then we can continue later."
+      }
     }
   ]
 }
