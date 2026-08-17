@@ -33,7 +33,9 @@ void main() {
     expect(key.currentState!.residentProviders, hasLength(2));
     expect(key.currentState!.residentProviders, everyElement(isA<ResizeImage>()));
     expect(
-      key.currentState!.residentProviders.map((provider) => provider.width),
+      key.currentState!.residentProviders.map(
+        (provider) => (provider as ResizeImage).width,
+      ),
       everyElement(key.currentState!.decodeCacheWidth),
     );
   });
@@ -59,7 +61,9 @@ void main() {
     expect(key.currentState!.residentProviders, hasLength(3));
     expect(key.currentState!.residentProviders, everyElement(isA<ResizeImage>()));
     expect(
-      key.currentState!.residentProviders.map((provider) => provider.width),
+      key.currentState!.residentProviders.map(
+        (provider) => (provider as ResizeImage).width,
+      ),
       everyElement(600),
     );
 
@@ -93,7 +97,9 @@ void main() {
     await tester.pump();
     expect(key.currentState!.decodeCacheWidth, 780);
     expect(
-      key.currentState!.residentProviders.map((provider) => provider.width),
+      key.currentState!.residentProviders.map(
+        (provider) => (provider as ResizeImage).width,
+      ),
       everyElement(780),
     );
 
@@ -135,6 +141,32 @@ void main() {
     await tester.pump();
     expect(find.byIcon(Icons.landscape_outlined), findsOneWidget);
     expect(find.byType(Image), findsNothing);
+  });
+
+  testWidgets('uses an injected provider and shows a missing-asset label', (
+    tester,
+  ) async {
+    final key = GlobalKey<A1HanokConstructionMapState>();
+    await tester.pumpWidget(
+      _host(
+        A1HanokConstructionMap(
+          key: key,
+          projection: _projection(0),
+          missingAssetLabel: 'missing-plate',
+          imageProviderBuilder: (path, width) => _FailingImageProvider(path),
+        ),
+        width: 390,
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+    expect(key.currentState!.residentProviders, hasLength(2));
+    expect(
+      key.currentState!.residentProviders,
+      everyElement(isA<_FailingImageProvider>()),
+    );
+    expect(find.text('missing-plate'), findsOneWidget);
+    expect(find.byIcon(Icons.landscape_outlined), findsNothing);
   });
 
   testWidgets('skips cross-fade when reduce-motion is requested', (
@@ -192,6 +224,34 @@ HanokExperienceProjection _projection(int step) => HanokExperienceProjection(
   trackProgress: const [],
   roomLayouts: HanokRoomLayoutProjection(active: const {}, dormant: const {}),
 );
+
+class _FailingImageProvider extends ImageProvider<_FailingImageProvider> {
+  const _FailingImageProvider(this.path);
+
+  final String path;
+
+  @override
+  Future<_FailingImageProvider> obtainKey(ImageConfiguration configuration) {
+    return Future<_FailingImageProvider>.value(this);
+  }
+
+  @override
+  ImageStreamCompleter loadImage(
+    _FailingImageProvider key,
+    ImageDecoderCallback decode,
+  ) {
+    return OneFrameImageStreamCompleter(
+      Future<ImageInfo>.error(StateError('missing $path')),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _FailingImageProvider && other.path == path;
+
+  @override
+  int get hashCode => path.hashCode;
+}
 
 Widget _host(
   Widget child, {

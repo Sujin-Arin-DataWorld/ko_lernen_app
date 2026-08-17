@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -78,42 +79,61 @@ def resize_premultiplied(image: Image.Image, size: tuple[int, int]) -> Image.Ima
     source = image.convert("RGBA")
     if source.size == size:
         return source
-    premul = []
-    for red, green, blue, alpha in source.getdata():
-        if alpha == 0:
-            premul.append((0, 0, 0, 0))
-        elif alpha == 255:
-            premul.append((red, green, blue, alpha))
-        else:
-            premul.append(
-                (
-                    (red * alpha + 127) // 255,
-                    (green * alpha + 127) // 255,
-                    (blue * alpha + 127) // 255,
-                    alpha,
-                )
-            )
-    prepared = Image.new("RGBA", source.size)
-    prepared.putdata(premul)
-    resized = prepared.resize(size, Image.Resampling.LANCZOS)
-    restored = []
-    for red, green, blue, alpha in resized.getdata():
-        if alpha == 0:
-            restored.append((0, 0, 0, 0))
-        elif alpha == 255:
-            restored.append((red, green, blue, alpha))
-        else:
-            restored.append(
-                (
-                    min(255, (red * 255) // alpha),
-                    min(255, (green * 255) // alpha),
-                    min(255, (blue * 255) // alpha),
-                    alpha,
-                )
-            )
-    result = Image.new("RGBA", size)
-    result.putdata(restored)
-    return result
+    return source.convert("RGBa").resize(size, Image.Resampling.LANCZOS).convert("RGBA")
+
+
+def save_composed_webp(
+    rgb: Image.Image,
+    output_path: Path,
+    *,
+    quality: int,
+    method: int,
+    hard_max_bytes: int,
+    outside: Image.Image,
+    decoded_outside_mean_error_max: float,
+) -> tuple[int, float]:
+    """Write WebP to a sibling temp file, redecode it, then replace the dest.
+
+    A failed size or decode check unlinks the temp file and leaves any
+    existing dest bytes unchanged.
+    """
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            dir=output_path.parent,
+            prefix=f".{output_path.stem}.",
+            suffix=".webp",
+            delete=False,
+        ) as handle:
+            tmp_path = Path(handle.name)
+        rgb.save(
+            tmp_path,
+            "WEBP",
+            quality=quality,
+            method=method,
+        )
+        size_bytes = tmp_path.stat().st_size
+        _require(
+            size_bytes <= hard_max_bytes,
+            f"composed WebP is {size_bytes} bytes, over the hard cap",
+        )
+        with Image.open(tmp_path) as encoded:
+            decoded = encoded.convert("RGB")
+        decoded_error = _mean_channel_error(rgb, decoded, outside)
+        _require(
+            decoded_error <= decoded_outside_mean_error_max,
+            f"decoded outside mean error {decoded_error:.4f} exceeds the contract",
+        )
+        tmp_path.replace(output_path)
+        return size_bytes, decoded_error
+    except Exception:
+        if tmp_path is not None:
+            try:
+                tmp_path.unlink(missing_ok=True)
+            except OSError:
+                pass
+        raise
 
 
 def _covers_local_anchor(
@@ -420,25 +440,17 @@ def compose_state(
         normalized_layer_path.parent.mkdir(parents=True, exist_ok=True)
         layer.save(normalized_layer_path, "PNG")
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
     rgb = composed.convert("RGB")
-    rgb.save(
+    size_bytes, decoded_error = save_composed_webp(
+        rgb,
         output_path,
-        "WEBP",
         quality=int(contract["output"]["quality"]),
         method=int(contract["output"]["method"]),
-    )
-    size_bytes = output_path.stat().st_size
-    _require(
-        size_bytes <= int(contract["output"]["hardMaxBytes"]),
-        f"composed WebP is {size_bytes} bytes, over the hard cap",
-    )
-    with Image.open(output_path) as encoded:
-        decoded = encoded.convert("RGB")
-    decoded_error = _mean_channel_error(rgb, decoded, outside)
-    _require(
-        decoded_error <= float(contract["qa"]["decodedOutsideMeanErrorMax"]),
-        f"decoded outside mean error {decoded_error:.4f} exceeds the contract",
+        hard_max_bytes=int(contract["output"]["hardMaxBytes"]),
+        outside=outside,
+        decoded_outside_mean_error_max=float(
+            contract["qa"]["decodedOutsideMeanErrorMax"]
+        ),
     )
     report = {
         "normalizedSize": list(layer.size),

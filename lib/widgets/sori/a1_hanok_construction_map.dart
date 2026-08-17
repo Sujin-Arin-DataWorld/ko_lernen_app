@@ -13,17 +13,21 @@ class A1HanokConstructionMap extends StatefulWidget {
     super.key,
     required this.projection,
     this.semanticsLabel,
+    this.imageProviderBuilder,
+    this.missingAssetLabel,
   });
 
   final HanokExperienceProjection projection;
   final String? semanticsLabel;
+  final ImageProvider Function(String path, int cacheWidth)? imageProviderBuilder;
+  final String? missingAssetLabel;
 
   @override
   State<A1HanokConstructionMap> createState() => A1HanokConstructionMapState();
 }
 
 class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
-  final Map<String, ResizeImage> _providers = <String, ResizeImage>{};
+  final Map<String, ImageProvider> _providers = <String, ImageProvider>{};
   final Set<int> _seenCacheWidths = <int>{};
   int? _cacheWidth;
 
@@ -40,7 +44,7 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   }
 
   @visibleForTesting
-  List<ResizeImage> get residentProviders => [
+  List<ImageProvider> get residentProviders => [
     for (final path in residentAssetPaths)
       if (_providers[path] != null) _providers[path]!,
   ];
@@ -89,22 +93,26 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
     return ResizeImage(image, width: width);
   }
 
-  ResizeImage _resize(String path, int cacheWidth) {
+  ImageProvider _resize(String path, int cacheWidth) {
     final existing = _providers[path];
     if (existing != null && _cacheWidth == cacheWidth) {
       return existing;
     }
+    final builder = widget.imageProviderBuilder;
+    if (builder != null) {
+      return builder(path, cacheWidth);
+    }
     return ResizeImage(AssetImage(path), width: cacheWidth);
   }
 
-  Map<String, ResizeImage> _providersFor(List<String> paths, int cacheWidth) {
+  Map<String, ImageProvider> _providersFor(List<String> paths, int cacheWidth) {
     return {for (final path in paths) path: _resize(path, cacheWidth)};
   }
 
   void _scheduleProviderSync({
     required List<String> paths,
     required int cacheWidth,
-    required Map<String, ResizeImage> next,
+    required Map<String, ImageProvider> next,
   }) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) {
@@ -141,9 +149,9 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   Widget build(BuildContext context) {
     final step = widget.projection.a1ConstructionStep;
     if (step < kA1HanokMinStep || step > kA1HanokMaxStep) {
-      return const AspectRatio(
+      return AspectRatio(
         aspectRatio: 4 / 3,
-        child: _A1FailVisibleFallback(),
+        child: _A1FailVisibleFallback(label: widget.missingAssetLabel),
       );
     }
 
@@ -202,8 +210,9 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
                         fit: BoxFit.cover,
                         width: width.isFinite ? width : null,
                         gaplessPlayback: false,
-                        errorBuilder: (context, _, __) =>
-                            const _A1FailVisibleFallback(),
+                        errorBuilder: (context, _, __) => _A1FailVisibleFallback(
+                          label: widget.missingAssetLabel,
+                        ),
                       ),
                     ),
                   ],
@@ -218,20 +227,33 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
 }
 
 class _A1FailVisibleFallback extends StatelessWidget {
-  const _A1FailVisibleFallback();
+  const _A1FailVisibleFallback({this.label});
+
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
+    final text = label?.trim();
+    final Widget child;
+    if (text == null || text.isEmpty) {
+      child = Icon(
+        Icons.landscape_outlined,
+        color: surfaces.textMuted,
+        size: 48,
+      );
+    } else {
+      child = Text(
+        text,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          color: surfaces.textMuted,
+        ),
+      );
+    }
     return ColoredBox(
       color: surfaces.surfaceAlt,
-      child: Center(
-        child: Icon(
-          Icons.landscape_outlined,
-          color: surfaces.textMuted,
-          size: 48,
-        ),
-      ),
+      child: Center(child: child),
     );
   }
 }

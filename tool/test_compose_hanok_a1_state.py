@@ -16,6 +16,8 @@ from compose_hanok_a1_state import (
     assert_continuity,
     compose_state,
     normalize_layer,
+    resize_premultiplied,
+    save_composed_webp,
     stack_layers,
 )
 from hanok_v1_asset_contract import ROOT, load_provenance, sha256_file
@@ -293,6 +295,36 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                     provenance=provenance,
                     require_lineage=True,
                 )
+
+    def test_resize_premultiplied_returns_rgba_at_the_requested_size(self) -> None:
+        source = Image.new("RGBA", (40, 20), (0, 0, 0, 0))
+        source.paste(Image.new("RGBA", (10, 10), (200, 80, 40, 128)), (5, 5))
+        resized = resize_premultiplied(source, (80, 40))
+        self.assertEqual(resized.size, (80, 40))
+        self.assertEqual(resized.mode, "RGBA")
+        self.assertGreater(resized.getpixel((20, 20))[3], 0)
+        same = resize_premultiplied(source, source.size)
+        self.assertEqual(same.size, source.size)
+        self.assertEqual(same.mode, "RGBA")
+
+    def test_atomic_webp_leaves_dest_untouched_when_validation_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            dest = Path(temp_dir) / "state.webp"
+            dest.write_bytes(b"KEEPME")
+            rgb = Image.new("RGB", (64, 64), (10, 20, 30))
+            outside = Image.new("L", (64, 64), 255)
+            with self.assertRaises(CompositionError):
+                save_composed_webp(
+                    rgb,
+                    dest,
+                    quality=80,
+                    method=4,
+                    hard_max_bytes=1,
+                    outside=outside,
+                    decoded_outside_mean_error_max=5.0,
+                )
+            self.assertEqual(dest.read_bytes(), b"KEEPME")
+            self.assertEqual(list(Path(temp_dir).glob(".state.*")), [])
 
     def test_lineage_rejects_unknown_raw_sha(self) -> None:
         provenance = load_provenance()
