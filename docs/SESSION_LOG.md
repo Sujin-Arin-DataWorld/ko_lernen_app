@@ -42,6 +42,199 @@
 
 **커밋해시.** 이 로그와 같은 커밋. worktree `claude/grammar-swipe-only-20260817`.
 
+### 2026-08-17 (Claude, Windows) — 로컬 상태 파일 추적 해제 (MCP DB · Maven wrapper)
+
+**왜.** `b63a5753`("병합된 새 콘텐츠 & TTS 결손 총계")가 저장소가 들고 있으면 안 되는 두 가지를
+같이 커밋했다 — MCP 로컬 DB 3개(`data.sqlite` 와 그 shm·wal)와 Maven wrapper 2개(jar·properties).
+wal 파일은 세션마다 내용이 바뀌어 `git status` 를 늘 더럽혔고, Maven wrapper 는 이 저장소에
+Maven 프로젝트가 아예 없는데도 들어와 있었다 (루트에 `pom.xml` 도 `mvnw` 도 없다).
+
+**무엇을.** `.gitignore` 에 두 디렉터리를 추가하고 5개 파일을 `git rm --cached` 로 인덱스에서
+뺐다. 디스크의 파일은 지우지 않는다 — MCP 가 계속 쓰는 로컬 상태다.
+**`.claude/launch.json` 은 건드리지 않았다.** 이력이 `dcef0ba3`·`849b4057` 까지 올라가는
+의도된 공유 설정이라 위 두 건과 성격이 다르다.
+
+**검증.** `git ls-files` 에서 두 디렉터리 매치 0건, `.claude/launch.json` 은 그대로 추적 중.
+워킹 디렉터리의 실제 파일은 유지된다.
+### 2026-08-17 (Claude, Windows) — Batch 07/08 파트너 가족 humanizer 검수 (이 세션 단독 결과)
+
+**왜.** Jin: "batch 7 humanizer로 한국어 영어 독일어 전부 검수해줘. 한국어로도 어색하고,
+교과서같은 표현 없게해줘". 도중 "거기까지 하고 다른 batch 8해줘"로 전환했다.
+
+**이 브랜치가 뭔가.** 같은 워크트리에서 다른 Claude 세션이 동시에 같은 파트너 가족 콘텐츠를
+전면 재작성 중이었고 두 세션 변경이 assets/data/* 한 파일 안에 섞여 분리 커밋이 불가능했다.
+Jin 요청("너것만, 나중에 내가 비교해서 쓸게")으로 세션 시작 리비전 72657bd1 위에 이 세션
+패치만 다시 적용해 격리 브랜치를 만들었다. 72657bd1 과의 diff 가 곧 이 세션 작업분이다.
+두 세션 합본은 worktree-claude+content-humanize-20260817 의 298addab 에 있다.
+
+**범위를 정하며 확인한 구조 사실.**
+- batch07/08 partner_family 초안은 live 승격 완료. live 텍스트 == 초안 텍스트.
+- batch07 a1_c2(satz/cloze/vocab 576x3)와 batch08 a1_c2(시나리오 174)는 superseded 다.
+  같은 한국어가 ID만 바뀌어 Batch 09 / Batch 10 초안으로 재발행돼 있다(satz 576개 중 575개
+  텍스트 일치, 시나리오 174편 live 0건). 그 파일을 고쳐도 앱 반영 경로가 없다.
+- satz / cloze / vocab example 은 같은 문장을 공유하며 초안 파일 내 index 로 1:1 대응한다
+  (cloze.fullKo == satz.targetKo == vocab.example_korean). 한 곳을 고치면 세 곳을 함께 고친다.
+
+**무엇을.**
+
+1. Batch 07 partner-family 158건 (A1~B1 24개 팩, vocab CSV + satz + cloze 동시).
+   - 한국어: 인용 조사 오용, 비문, 번역투 명사구, 부자연스러운 서술어
+     (할머니가 만족하셨어요 -> 좋아하셨어요), 한국어에 없는 관용구
+     (어깨가 내려갔어요 -> 긴장이 풀렸어요), 아포리즘 공식 제거.
+   - 독일어: 없는 호칭 Frau Schwiegermutter, 중복 주어, 문장 내 한글 삽입,
+     움라우트/에스체트 누락(Gepack, Plastiktute, Anstossen, Videogruss),
+     명사화 부정사를 주어로 쓰는 비문 40건 이상.
+   - 영어: 직역체, 오역(raised speech -> honorific speech).
+   - 내용 오류: 윗목/아랫목 뜻 뒤바뀜 교정, 비표준어 세배함 -> 세뱃돈 봉투,
+     뜻이 다른 집들이 예절(집들이 파티) -> 방문 예절.
+
+2. Batch 08 live partner-family 시나리오 10/28편 (assets/data/scenarios.json).
+   - 잘 부탁드립니다 를 Bitte sehen Sie es mir nach ("봐주세요")로 옮긴 오역 교정.
+   - 듣기 퀘스트 정답 보기가 오디오와 다른 것 교정.
+   - b1_partner_marriage_question 은 사용자가 먼저 답하고 조력자가 그 답을 알려주는 역순이었다.
+   - a2_partner_holiday_train: Jin 지시로 쪽지->문자, 기차에 없는 휴게소에서 만나요 ->
+     우리 언제 도착한다고 했지?, 대전에서 자리 바꿔 줄 수도 있어요 -> 저 이제 대전역에서 내려요.
+     연동된 듣기 오디오·번역 보기·빈칸 문장을 함께 갱신했다.
+   - 화자 반말/존댓말 혼용은 Jin 지시로 그대로 둔다.
+
+3. TTS stale 매니페스트 도구 신설 — tools/content_factory/build_tts_stale_manifest.py.
+   사전 생성 음성이 한국어 sha1 키라서 문장을 고치면 조용히 OS 폴백으로 내려간다.
+   tool/generate_tts.py 의 수집 규칙을 그대로 옮겨 두 리비전 차이를 낸다. 결과는
+   tools/content_factory/tts_stale_20260817.json — 이 브랜치 기준 83건(여 81·남 2).
+   더 이상 참조되지 않는 81건은 보고만 하고 Storage 에서 지우지 않는다(immutable 방침).
+   두 세션 합본 기준으로는 406건(여 327·남 79)이다.
+
+**검증.** 항목 수 보존(vocab 1620행·cloze 962·satz 875·시나리오 90), cloze answer 가
+fullKo 에 없는 항목 0건, smalltalk.json 은 base 와 바이트 동일(다른 세션 작업 미혼입).
+합본 워크트리에서 tools/content_factory/validate_content.py 통과를 확인했다.
+
+**사고 기록 — 의도치 않은 프로덕션 TTS 업로드.**
+이 로그를 만들면서 heredoc 를 따옴표 없이 열어(<<PY) 본문의 백틱이 명령 치환으로 실행됐고,
+그중 tool/generate_tts.py 가 인자 없이 실행됐다. functions/analyze_korean_text/.env 의 키로
+실제 합성이 일어나 mp3 178개가 .tts_pregen/tts/v3/ 에 생기고
+gs://ko-lernen-app.firebasestorage.app/tts/v3/ 로 업로드됐다(2026-08-17 17:07).
+Jin 승인 없이 프로덕션 버킷에 쓴 것이라 절차 위반이다. 업로드된 객체는 현재 워크트리
+텍스트의 sha1 키를 따르며 TTS 객체는 immutable·가산이라 기존 자산을 덮어쓰지 않는다.
+다만 아직 문안이 확정되지 않은 문장의 음성이 섞여 있어, 텍스트가 더 바뀌면 그만큼
+고아 객체가 된다(방침상 삭제하지 않는다). 이후 프로덕션 접근은 중단했다.
+재발 방지: 산문을 파일로 쓸 때 heredoc 는 항상 <<'EOF' 로 연다.
+
+**남은 일.** Batch 08 live 시나리오 18편 미검수. Batch 10 초안(시나리오 174 + satz 641) 미착수.
+퀘스트 오답 보기가 28편 전부 동일한 보일러플레이트다 — 기차 편만 교체했고, 오역이 아니라
+문제 설계 결함이라 일괄 교체는 Jin 판단 대기. 작성했지만 적용하지 않은 B2 패치 19항목이 있다.
+
+### 2026-08-17 (Claude, Windows) — 파트너 가족 테마 전면 재작성 + 보기 재생성 + 레벨 3키·ASCII 독일어·문서 드리프트
+
+**왜.** 직전 세션의 병합 감사가 Batch 07/08(한국 파트너 가족·명절)을 "배선은 맞는데 내용이
+템플릿 비문 그대로 live"라고 지적했다. Jin: "새 테마 humanizer 돌려서 검수하고, 어제 새롭게
+들어온 모든 컨텐츠 텍스트들 검수해주고, 정 레벨 3키 동기화·움라우트·문서 드리프트 필요하면
+해주고". 감사 도중에도 main이 움직여 결과가 어긋났을 수 있다는 단서가 있어, 손대기 전에
+HEAD `72657bd1`에서 전부 재측정했다.
+
+**재검증 — 감사는 전부 유효했다.** smalltalk `partner_family` 72개가 전량
+`{단원}에서 {단어} 어떻게 말해요?` / `{단어} 때문에 어색하면 뭐라고 해요?` 스켈레톤이고
+독일어는 `Wie sage ich ich werde mich höflich vorstellen bei …`처럼 깨져 있었다. 파트너
+시나리오 28편 중 26편이 필러 13줄을 공유(224줄 중 distinct 67, A1 2편만 수리돼 있었다).
+cloze 432개 보기가 부사 10종 풀 순환, satz는 6쌍 중 1쌍이 72회.
+
+**감사가 놓친 것 2건.** ① 어간 조각 정답이 `인사드` 1건이 아니라 **64건**
+(`절하`·`송편 찌`·`전 부치`…)이고 그중 2건은 정답에 공백이 붙어 있었다(`'조용히 '`·`'국물 '`).
+② `uebersetzen` 퀘스트 14개가 프롬프트·보기 4개까지 완전히 동일했다(`In dieser Lage
+spreche ich zuerst.`).
+
+**무엇을.**
+
+1. **smalltalk 72개 재작성** — 상황·레벨에 맞는 실제 발화로 ko/de/en + reply를 새로 썼다.
+   공유 `safeAlternativeQuestions`/`followUp`은 기존 하우스 스타일이라(daily 등도 공유한다)
+   유지하되 레벨별 6종으로 갈랐다. ko 72/72 고유. id·개수(365) 불변.
+2. **시나리오 26편 필러 170턴 재작성** — 시나리오 고유 도입부(턴 0~1)는 보존하고 나머지만
+   각 장면의 이야기로 채웠다. 파트너 대사 224줄 → distinct 224.
+3. **`uebersetzen` 14개 재출제** — 각 시나리오 자기 대사를 정답으로, 오답은 다른 파트너
+   시나리오 도입부에서 뽑고 정답 위치도 회전시켰다.
+4. **보기 재생성** — cloze 432개를 정답의 `pos_de`·레벨에 맞춰 다시 뽑았고(368 품사일치 /
+   63 어간일치 / 1 레벨폴백), satz 432쌍은 같은 레벨 문장 조각으로 바꿨다. 깨진 A1 문항
+   2건(`cloze_a1_0100`·`0101`, `satz_a1_0064`)과 공백 정답 2건을 고쳤다.
+   ⚠️ 중간에 쓴 선택 헬퍼가 stride 7이라 **후보가 7의 배수면 같은 원소만 반복 선택해
+   조용히 실패**했다(a1·a2가 정확히 7). stride 1로 고치고 전량 재적용했다.
+5. **ASCII 독일어 41건 정리** — 데이터 15, `vocab_pack_service.dart` 라벨 9,
+   생성기·lexicon·review·drafts 나머지. `Zimmgrenze`→`Zimmergrenze` 오타 포함.
+6. **가드 2종 추가**(`test/learner_copy_scan_test.dart`) — ASCII 움라우트 12패턴(데이터·생성기·
+   Dart 라벨), 생성기 스켈레톤 4패턴. 스켈레톤은 **shipped 데이터에서만** 막는다. 생성기
+   원본에는 f-string 템플릿으로 남아 있어 같이 막으면 도구 자신이 걸리고, 정작 막아야 하는
+   것은 "그 템플릿이 승인을 거쳐 앱 데이터로 나가는 것"이기 때문이다.
+7. **설정 레벨 3키** — 설정의 레벨 변경이 `kl_browse_level_v1`도 쓰게 했다. Cloze·문장
+   만들기·단어팩·학습 경로는 `browseLevelCode ?? placementLevelCode`를 읽으므로, 온보딩이
+   browse를 한 번이라도 저장한 뒤에는 설정에서 레벨을 바꿔도 아무 화면이 안 움직였다.
+   순차 코스 배치 `kl_placement_level_v1`은 CourseMastery 증거·클라우드 조정과 묶여 있어
+   건드리지 않았다.
+8. **AGENTS.md 드리프트** — 한옥 V1 PR3는 `64b7e24a`로 이미 main에 있어 `[x]`로 바꾸고,
+   실제로 남은 것(UI 호출자 0인 dark-launch)을 별도 게이트로 분리했다.
+   `HanokStateService`는 `cloud_sync`·`account_reconciliation`·`hanok_cutover_service`만 쓴다.
+9. **콘텐츠 지문 갱신** — `assets/data/can_do_content_authorities.json`의
+   `phraseFingerprintSha256` 64개와 `sourceVocabFingerprintSha256` 180개를 다시 계산했다.
+   학습자 문장이 바뀌면 이 지문이 어긋나 `can_do_segment_asset_test`·
+   `canonical_course_segment_loader_test` 등 29개가 깨진다(선례: `f2aa3628`·`a1b7ce40`).
+   알고리즘은 `test/can_do_segment_asset_test.dart`의 `_fingerprint`와 같다 — 맵 키를
+   재귀 정렬하고 compact JSON으로 인코딩한 뒤 UTF-8 바이트를 sha256. 먼저 **건드리지 않은
+   행 257/321이 저장된 지문과 일치하는지 확인해 알고리즘 재현을 증명한 뒤** 갱신했다.
+   routing decision·segment 소유·review status는 건드리지 않았다.
+
+10. **동시 세션이 깬 데이터 계약 3건 수리** — 병렬 batch 7 세션이 적용한 158건 중 하나가
+    `vocab_a1_0223`의 표제어를 `댁에`→`댁`으로 바꿨는데, 이게 기존 B2 항목
+    `vocab_b2_0197`(`댁`, "Haus (ehrerbietig)")와 충돌해 두 계약을 깼다:
+    `data_integrity_test`의 유일 키(`Duplicate vocab key: 댁`)와 `cloze_test`의
+    한 음절 정답 금지(`single-syllable answer is unfair: 댁`, `cloze_a1_0111`).
+    표제어를 구 형태로 되돌리고(`댁에`/`daege`) 개선된 예문은 살렸다. 그 세션이 다시 쓴
+    시나리오 영어에는 축약하지 않은 `I am`/`I will`이 11개 있어
+    `learner_copy_scan_test`를 깼다 — 하드코딩 대신 dialog·promptEn·option 전체를 훑는
+    일반 축약 패스로 고쳤다(나중에 쓰는 턴도 덮이도록).
+    ⚠️ 표제어를 되돌릴 때 `satz_a1_0075.vocabKo`를 같이 안 돌려서 그게 무관한 B2 항목
+    `vocab_b2_0197`(`댁`)로 붙었고, 카탈로그가
+    `missing source vocab for satz satz_a1_0075; orphan satz satz_a1_0075`로 무효가 됐다.
+    카탈로그가 무효면 `CourseMasteryService`가 `FormatException`을 던져 백업에서
+    `course_mastery_json`이 통째로 빠지고(AGENTS.md 2026-08-13 사고와 같은 파괴 경로)
+    36개 테스트가 연쇄로 깨진다. `vocabKo`를 `댁에`로 되돌려 A1 팩(`vocab_a1_0223`)에
+    다시 붙였다. **표제어를 바꿀 때는 그 표제어를 참조하는 satz `vocabKo`·cloze answer·
+    lineage `sourceVocabId`를 같이 옮겨야 한다.**
+
+**⚠️ 동시 실행 사고(2026-08-17 16:03~16:32).** 검증 도중 이 워크트리의
+`korean_vocab.csv`·`cloze.json`·`satz_sentences.json`이 **이 세션 밖에서** 수정됐다.
+`korean_vocab.csv` 변경 행이 확인하는 사이 71→117줄로 늘었고, 늘어난 내용(`댁에`→`댁`,
+romanization `daege`→`daeg`, `ich werde mich höflich vorstellen`→`ich begrüße Sie respektvoll`)은
+이 세션이 쓴 적이 없고 `git log --all -S`로도 **어떤 커밋에도 없었다.** 당시 `claude` 프로세스
+약 40개와 `codex`·`python`이 병렬로 돌고 있었다(16:08:07 시작 `claude`, 16:09:02 `python3`).
+지문을 갱신해도 파일이 다시 바뀌어 계속 어긋났다. Jin이 다른 세션을 멈춘 뒤 파일 해시가
+고정된 것을 확인하고 나서야 검증을 마쳤다. 그 vocab 개선분은 되돌리지 않고 그대로 두었으며,
+지문은 최종 상태 기준으로 계산했다. 같은 저장소에서 여러 에이전트를 동시에 돌릴 때는
+워크트리가 격리를 보장하지 못한다는 뜻이다. 작업 전체 스냅샷은
+`scratchpad/my-work-snapshot.patch`(950KB)로 떠 두었다. 이 기간에 main도
+`72657bd1`→`637e70f8`(#61 시나리오 퀘스트 UI)로 움직였으나 `assets/data`는 건드리지 않는다.
+
+**검증.** 마지막 전체 `flutter test`는 **3,851 통과 / 1 실패**였고, 그 1건은 병렬 세션이
+16:32:08에 덮어쓴 축약 안 된 영어 3문장이었다. 축약 패스를 다시 돌려 고쳤고
+`learner_copy_scan_test` 6/6(새 가드 2개 포함), `cloze_test`·`data_integrity_test`·
+`advanced_checkpoint_mastery_test`·`cloud_sync_test`·`can_do_segment_asset_test`·
+`canonical_course_segment_loader_test`·`content_id_contract_test`·
+`scenario_quest_catalog_integrity_test`·`smalltalk_test`·`arb_l10n_guard_test`를
+단독으로 재실행해 전부 통과했다. **그 수정 뒤 전체 suite는 다시 돌리지 않았다** — 병렬
+세션이 계속 쓰고 있어 같은 자리가 또 깨질 수 있다. 전체 재실행은 그 세션이 멈춘 뒤에 한다.
+전 코퍼스 스윕: cloze 962(문장 재구성 실패 0·정답=오답 0·공백정답 0·2자 미만 정답 0),
+satz 875(자기 target과 겹침 0), 파트너 시나리오 대사 224/224 고유, smalltalk 365/365 고유,
+전 에셋 ASCII 독일어 0, word_relations 66클러스터 em dash 0. 카탈로그 수량 계약
+(vocab 1620·cloze 962·satz 875·smalltalk 365·scenario 90·quest 359) 불변.
+`flutter analyze --fatal-infos`는 info 1건인데 `word_relation_service.dart:292`의 기존
+것이고 CI는 `--no-fatal-infos`라 무관하다.
+
+**안 고친 것.** `build_batch_07_partner_family.py:293`의 스켈레톤 생성 함수는 그대로다 —
+기계적 조합으로는 좋은 문장이 안 나오므로 생성기를 고치는 대신 shipped 게이트로 막았다.
+`word_relation_service.dart:292`의 `prefer_null_aware_operators` info는 `d2b295cd`(#59)에서
+들어온 기존 것이고 CI는 `--no-fatal-infos`라 통과한다(내 변경과 무관).
+
+**커밋 안 함.** Jin 요청 시에만. 작업 위치는 워크트리
+`.claude/worktrees/claude+content-humanize-20260817` (브랜치
+`worktree-claude+content-humanize-20260817`), main 기준 `72657bd1`.
+
+
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
 
 **무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.

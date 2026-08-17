@@ -13923,12 +13923,12 @@
       "xpReward": 160,
       "title": {
         "ko": "첫 현관 인사",
-        "de": "Erster Gruss an der Tür",
+        "de": "Erster Gruß an der Tür",
         "en": "First greeting at the door"
       },
       "intro": {
         "ko": "현우 집에 처음 갑니다. 신발을 벗고 짧게 인사하세요.",
-        "de": "Du kommst zum ersten Mal zu Hyunwoo. Zieh die Schuhe aus und begrüße kurz.",
+        "de": "Du kommst zum ersten Mal zu Hyunwoo nach Hause. Zieh die Schuhe aus und begrüße sie kurz.",
         "en": "You visit Hyunwoo's home for the first time. Take off your shoes and greet briefly."
       },
       "vocab": [
@@ -13976,8 +13976,8 @@
         {
           "speaker": "jieun",
           "ko": "들어오세요. 신발은 이쪽에 두세요.",
-          "de": "Kommen Sie herein. Die Schuhe kommen hierhin.",
-          "en": "Come in. Put the shoes here."
+          "de": "Kommen Sie herein. Die Schuhe können Sie hierhin stellen.",
+          "en": "Come in. You can put your shoes over here."
         },
         {
           "speaker": "user",
@@ -13988,8 +13988,8 @@
         {
           "speaker": "jieun",
           "ko": "고마워요. 먼저 앉으세요.",
-          "de": "Danke. Setzen Sie sich zuerst.",
-          "en": "Thank you. Please sit first."
+          "de": "Danke. Setzen Sie sich erst mal.",
+          "en": "Thank you. Have a seat first."
         },
         {
           "speaker": "user",
@@ -14000,14 +14000,14 @@
         {
           "speaker": "jieun",
           "ko": "이쪽이 편해요. 물 드세요.",
-          "de": "Hier ist es bequem. Trinken Sie etwas.",
-          "en": "This side is comfortable. Please have water."
+          "de": "Hier sitzt es sich bequem. Trinken Sie einen Schluck.",
+          "en": "This spot is comfortable. Have some water."
         },
         {
           "speaker": "user",
           "ko": "잘 부탁드립니다.",
-          "de": "Bitte sehen Sie es mir nach.",
-          "en": "Please look after me."
+          "de": "Ich hoffe, wir kommen gut miteinander aus.",
+          "en": "I hope we get along well."
         },
         {
           "speaker": "jieun",
@@ -14027,8 +14027,8 @@
             "audioKo": "들어오세요. 신발은 이쪽에 두세요.",
             "options": [
               {
-                "de": "Die Schuhe sollen hier abgestellt werden.",
-                "en": "The shoes should go here."
+                "de": "Die Schuhe soll man hier abstellen.",
+                "en": "The shoes should go over here."
               },
               {
                 "de": "Die Schuhe bleiben an.",
@@ -14196,26 +14196,26 @@
         {
           "speaker": "user",
           "ko": "새해 복 많이 받으세요.",
-          "de": "Ein gesegnetes neues Jahr.",
+          "de": "Frohes neues Jahr.",
           "en": "Happy new year."
         },
         {
           "speaker": "jieun",
           "ko": "허리를 더 숙이세요. 그다음 일어나요.",
-          "de": "Beugen Sie die Hüfte tiefer. Dann stehen Sie auf.",
+          "de": "Beugen Sie sich noch tiefer. Dann stehen Sie auf.",
           "en": "Bend lower. Then stand up."
         },
         {
           "speaker": "user",
           "ko": "제가 한 박자 늦었어요.",
-          "de": "Ich war einen Schlag zu spät.",
-          "en": "I was one beat late."
+          "de": "Ich war einen Takt zu spät.",
+          "en": "I was a beat late."
         },
         {
           "speaker": "jieun",
           "ko": "괜찮아요. 떡국 드세요.",
-          "de": "Schon gut. Essen Sie die Suppe.",
-          "en": "It is fine. Please eat the soup."
+          "de": "Kein Problem. Essen Sie die Suppe.",
+          "en": "It is fine. Have some soup."
         },
         {
           "speaker": "user",
@@ -14232,14 +14232,14 @@
         {
           "speaker": "user",
           "ko": "제가 받아도 돼요?",
-          "de": "Darf ich es annehmen?",
+          "de": "Darf ich das annehmen?",
           "en": "May I accept it?"
         },
         {
           "speaker": "jieun",
           "ko": "오늘은 받으세요. 다음에 나눠 줘요.",
-          "de": "Heute nehmen Sie es. Später teilen Sie.",
-          "en": "Accept it today. Share later."
+          "de": "Heute nehmen Sie es an. Weitergeben können Sie es später.",
+          "en": "Accept it today. You can pass it on later."
         }
       ],
       "quests": [
@@ -14253,8 +14253,8 @@
             "audioKo": "허리를 더 숙이세요. 그다음 일어나요.",
             "options": [
               {
-                "de": "Die Hüfte soll tiefer gebeugt werden.",
-                "en": "The waist should bend lower."
+                "de": "Man soll sich tiefer verbeugen.",
+                "en": "You should bow lower."
               },
               {
                 "de": "Die Schuhe bleiben an.",
@@ -14279,7 +14279,7 @@
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "Ein gesegnetes neues Jahr.",
+            "promptDe": "Frohes neues Jahr.",
             "promptEn": "Happy new year.",
             "options": [
               {
@@ -14345,7 +14345,7 @@
           ],
           "data": {
             "targetKo": "제가 받아도 돼요?",
-            "promptDe": "Darf ich es annehmen?",
+            "promptDe": "Darf ich das annehmen?",
             "promptEn": "May I accept it?",
             "distractors": [
               "그냥",
@@ -14433,39 +14433,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "제 건 만두처럼 됐어요.",
+          "de": "Meines sieht aus wie eine Teigtasche.",
+          "en": "Mine came out like a dumpling."
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "그것도 맛은 똑같아요.",
+          "de": "Schmecken tut es genauso.",
+          "en": "It tastes the same either way."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "반죽을 조금 떼어 낼게요.",
+          "de": "Ich nehme etwas Teig weg.",
+          "en": "I'll take a bit of dough off."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "손에 물을 조금 묻히면 안 붙어요.",
+          "de": "Mit etwas Wasser an den Händen klebt es nicht.",
+          "en": "Wet your hands a little and it won't stick."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "이제 모양이 나와요.",
+          "de": "Jetzt sieht es besser aus.",
+          "en": "Now it's taking shape."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "다음엔 더 빨리 만들 거예요.",
+          "de": "Nächstes Mal geht es schneller.",
+          "en": "Next time you'll be faster."
         }
       ],
       "quests": [
@@ -14571,7 +14571,7 @@
           ],
           "data": {
             "targetKo": "도와주셔서 감사합니다.",
-            "promptDe": "Danke fuer die Hilfe.",
+            "promptDe": "Danke für die Hilfe.",
             "promptEn": "Thank you for the help.",
             "distractors": [
               "그냥",
@@ -14659,39 +14659,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "조금만 주세요.",
+          "de": "Nur ein bisschen, bitte.",
+          "en": "Just a little, please."
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "이건 새로 만든 거예요.",
+          "de": "Das ist frisch gemacht.",
+          "en": "This one is freshly made."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "그럼 한 입만 먹을게요.",
+          "de": "Dann nehme ich einen Bissen.",
+          "en": "Then I'll have one bite."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "남기고 가도 괜찮아요.",
+          "de": "Sie dürfen auch etwas übrig lassen.",
+          "en": "It's okay to leave some."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "정말 잘 먹었습니다.",
+          "de": "Es hat wirklich geschmeckt.",
+          "en": "That was a really good meal."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "다음엔 덜 차릴게요.",
+          "de": "Nächstes Mal decke ich kleiner.",
+          "en": "I'll put out less next time."
         }
       ],
       "quests": [
@@ -14885,39 +14885,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "이거 다 저희 주시는 거예요?",
+          "de": "Ist das alles für uns?",
+          "en": "Is all of this for us?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "둘이 먹으면 이틀이면 없어요.",
+          "de": "Zu zweit ist das in zwei Tagen weg.",
+          "en": "For two people that's gone in two days."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "냉장고에 자리가 있을지 모르겠어요.",
+          "de": "Ich weiß nicht, ob der Kühlschrank reicht.",
+          "en": "I'm not sure the fridge has room."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "김치는 밖에 둬도 돼요.",
+          "de": "Kimchi kann draußen stehen.",
+          "en": "Kimchi can stay outside."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "통은 다음에 돌려드릴게요.",
+          "de": "Die Dosen bringe ich nächstes Mal zurück.",
+          "en": "I'll bring the containers back next time."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "천천히 가져와요.",
+          "de": "Lassen Sie sich Zeit damit.",
+          "en": "No hurry with those."
         }
       ],
       "quests": [
@@ -15071,39 +15071,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "지금 몇 호차예요?",
+          "de": "In welchem Wagen sitzt du?",
+          "en": "Which car are you in?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "4호차요. 저는 창가예요.",
+          "de": "Wagen vier, am Fenster.",
+          "en": "Car four, by the window."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "저는 8호차라서 좀 멀어요.",
+          "de": "Ich bin in Wagen acht, das ist weit.",
+          "en": "I'm in car eight, so it's a bit far."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "대전에서 자리 바꿔 줄 수도 있어요.",
+          "de": "In Daejeon können wir vielleicht tauschen.",
+          "en": "We might be able to swap in Daejeon."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그때 짐도 같이 옮길게요.",
+          "de": "Dann nehme ich auch das Gepäck mit.",
+          "en": "I'll move the bags then too."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "도착 십 분 전에 연락해요.",
+          "de": "Melde dich zehn Minuten vorher.",
+          "en": "Text me ten minutes before we arrive."
         }
       ],
       "quests": [
@@ -15257,39 +15257,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "아까 어머님 앞에서도 반말했어요.",
+          "de": "Vorhin habe ich auch vor deiner Mutter geduzt.",
+          "en": "Earlier I used casual speech in front of your mother too."
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "어머니는 못 들으셨을 거예요.",
+          "de": "Meine Mutter hat das sicher nicht gehört.",
+          "en": "My mother probably didn't hear it."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "그래도 다시 말씀드리는 게 나을까요?",
+          "de": "Soll ich es trotzdem ansprechen?",
+          "en": "Should I bring it up anyway?"
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "그냥 다음부터 조심하면 돼요.",
+          "de": "Pass einfach ab jetzt auf.",
+          "en": "Just be careful from now on."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "존댓말이 아직 입에 안 붙어요.",
+          "de": "Die höfliche Form geht mir noch nicht leicht über die Lippen.",
+          "en": "Honorifics still don't come out naturally."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "집에서 저랑 연습해요.",
+          "de": "Üben wir zu Hause zusammen.",
+          "en": "Let's practice at home together."
         }
       ],
       "quests": [
@@ -15443,39 +15443,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "할머니께서 계속 물어보시면 어떡하죠?",
+          "de": "Und wenn die Großmutter weiterfragt?",
+          "en": "What if your grandmother keeps asking?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "웃으면서 같은 대답을 반복하면 돼요.",
+          "de": "Lächeln und dieselbe Antwort wiederholen.",
+          "en": "Smile and repeat the same answer."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "날짜를 말하지 않아도 실례가 아닐까요?",
+          "de": "Ist es nicht unhöflich, kein Datum zu nennen?",
+          "en": "Isn't it rude not to give a date?"
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "없는 날짜를 만드는 게 더 곤란해져요.",
+          "de": "Ein erfundenes Datum macht mehr Ärger.",
+          "en": "Making up a date causes more trouble."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그럼 저희 속도대로 간다고 말씀드릴게요.",
+          "de": "Dann sage ich, wir gehen unser Tempo.",
+          "en": "Then I'll say we're going at our own pace."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "그 말이면 충분해요.",
+          "de": "Das genügt völlig.",
+          "en": "That's enough."
         }
       ],
       "quests": [
@@ -15629,39 +15629,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "한 잔은 받고 나머지는 사양해도 될까요?",
+          "de": "Darf ich ein Glas annehmen und den Rest ablehnen?",
+          "en": "Can I accept one glass and decline the rest?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "첫 잔만 받으면 예의는 지킨 거예요.",
+          "de": "Mit dem ersten Glas ist die Form gewahrt.",
+          "en": "Taking the first glass keeps the form."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "잔이 비면 계속 채워 주시던데요.",
+          "de": "Sobald das Glas leer ist, wird nachgeschenkt.",
+          "en": "They keep refilling it as soon as it's empty."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "조금 남겨 두면 안 따라요.",
+          "de": "Wenn etwas drin bleibt, wird nicht nachgeschenkt.",
+          "en": "Leave a little in it and they won't pour."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그 방법 좋네요. 물로 바꿔 마실게요.",
+          "de": "Guter Trick. Ich wechsle auf Wasser.",
+          "en": "That's a good trick. I'll switch to water."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "삼촌도 이해하실 거예요.",
+          "de": "Der Onkel versteht das schon.",
+          "en": "My uncle will understand."
         }
       ],
       "quests": [
@@ -15815,39 +15815,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "문을 닫으면 이상하게 보실까요?",
+          "de": "Wirkt es komisch, wenn ich die Tür schließe?",
+          "en": "Would it look odd if I closed the door?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "밤에는 닫아도 아무도 신경 안 써요.",
+          "de": "Nachts stört das niemanden.",
+          "en": "At night nobody minds."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "그럼 밤에만 닫고 아침에 열어 둘게요.",
+          "de": "Dann schließe ich nur nachts und öffne morgens.",
+          "en": "Then I'll close it at night and open it in the morning."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "그 정도면 다들 편해요.",
+          "de": "So ist es für alle angenehm.",
+          "en": "That works for everyone."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "미리 말씀드리는 게 나을까요?",
+          "de": "Soll ich es vorher sagen?",
+          "en": "Should I mention it in advance?"
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "제가 먼저 얘기해 둘게요.",
+          "de": "Ich sage vorher Bescheid.",
+          "en": "I'll mention it first."
         }
       ],
       "quests": [
@@ -16001,39 +16001,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "두 집이 같은 날이면 어떻게 하죠?",
+          "de": "Und wenn beide Häuser am selben Tag feiern?",
+          "en": "What if both homes fall on the same day?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "그럴 땐 오전과 오후로 나눠요.",
+          "de": "Dann teilen wir in Vormittag und Nachmittag.",
+          "en": "Then we split it into morning and afternoon."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "이동만 세 시간이라 하루가 다 가요.",
+          "de": "Allein die Fahrt dauert drei Stunden, der Tag ist weg.",
+          "en": "The drive alone is three hours, so the day is gone."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "그러면 한 집은 다음 주에 가도 돼요.",
+          "de": "Dann fahren wir zu einem Haus nächste Woche.",
+          "en": "Then we can visit one home the following week."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "양쪽에 미리 말씀드리면 서운해하지 않으실 거예요.",
+          "de": "Wenn wir es beiden vorher sagen, ist niemand gekränkt.",
+          "en": "If we tell both sides in advance, nobody will be hurt."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "오늘 저녁에 같이 전화해요.",
+          "de": "Rufen wir heute Abend zusammen an.",
+          "en": "Let's call them together tonight."
         }
       ],
       "quests": [
@@ -16187,39 +16187,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "제 이름은 언제 말하는 게 자연스러워요?",
+          "de": "Wann nenne ich am besten meinen Namen?",
+          "en": "When's the natural moment to give my name?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "관계를 말한 바로 다음이요.",
+          "de": "Direkt nach der Beziehung.",
+          "en": "Right after the relationship."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "집에서 부르는 별명은 안 쓰는 게 낫겠죠?",
+          "de": "Den Kosenamen von zu Hause lasse ich besser weg, oder?",
+          "en": "Better to skip the nickname we use at home, right?"
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "밖에서는 안 쓰는 게 좋아요.",
+          "de": "Draußen lieber nicht.",
+          "en": "Outside it's better not to."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그럼 이름으로 소개할게요.",
+          "de": "Dann stelle ich mich mit meinem Namen vor.",
+          "en": "Then I'll introduce myself by name."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "그게 서로 편해요.",
+          "de": "Das ist für beide leichter.",
+          "en": "That's easier for both."
         }
       ],
       "quests": [
@@ -16373,39 +16373,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "표를 만들면 계산적으로 보이지 않을까요?",
+          "de": "Wirkt eine Tabelle nicht berechnend?",
+          "en": "Won't a chart come across as calculating?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "말로만 하면 결국 같은 사람이 해요.",
+          "de": "Ohne etwas Schriftliches macht es am Ende dieselbe Person.",
+          "en": "Without something written down, the same person ends up doing it."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "장 보기나 일정 잡기도 일로 넣어야 할까요?",
+          "de": "Zählen Einkaufen und Terminplanung auch als Arbeit?",
+          "en": "Should shopping and scheduling count as work too?"
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "그게 제일 안 보이는 일이에요.",
+          "de": "Genau das ist die unsichtbarste Arbeit.",
+          "en": "That's exactly the least visible work."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그럼 준비부터 정리까지 다 적어 볼게요.",
+          "de": "Dann schreibe ich alles auf, von der Vorbereitung bis zum Aufräumen.",
+          "en": "Then I'll write it all down, from prep to cleanup."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "올해 한 번 해 보고 고쳐요.",
+          "de": "Machen wir es dieses Jahr einmal so und passen es an.",
+          "en": "Let's try it once this year and adjust."
         }
       ],
       "quests": [
@@ -16559,39 +16559,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "그 별명은 언제부터 굳어진 거예요?",
+          "de": "Seit wann hat sich der Spitzname festgesetzt?",
+          "en": "When did that nickname stick?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "첫 명절 사진 이후로요.",
+          "de": "Seit dem Foto vom ersten Fest.",
+          "en": "Ever since the photo from the first holiday."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "저는 그 자리에 있었는데 이름은 남지 않았어요.",
+          "de": "Ich war dabei, aber mein Name ist nicht geblieben.",
+          "en": "I was there, but my name didn't stay."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "사진 밑에 이름을 같이 적어요.",
+          "de": "Schreiben wir die Namen unter das Foto.",
+          "en": "Let's write the names under the photo."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "앨범을 같이 정리하면서 이야기도 나누고 싶어요.",
+          "de": "Beim Ordnen des Albums möchte ich auch darüber sprechen.",
+          "en": "While we sort the album I'd like to talk about it too."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "그럼 이번 설에 시작해요.",
+          "de": "Dann fangen wir dieses Seollal damit an.",
+          "en": "Then let's start this Seollal."
         }
       ],
       "quests": [
@@ -16733,9 +16733,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "선물이 너무 큰가요?",
+          "de": "Ist das Geschenk zu groß?",
+          "en": "Is the gift too big?"
         },
         {
           "speaker": "jieun",
@@ -16745,39 +16745,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "다음엔 작은 걸로 가져올게요.",
+          "de": "Nächstes Mal bringe ich etwas Kleineres.",
+          "en": "Next time I'll bring something smaller."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "과일 한 상자면 딱 좋아요.",
+          "de": "Eine Kiste Obst ist genau richtig.",
+          "en": "A box of fruit is just right."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "지금 이건 어떻게 할까요?",
+          "de": "Und was machen wir jetzt damit?",
+          "en": "What should we do with this one now?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "그냥 두세요. 다 같이 나눠요.",
+          "de": "Lassen Sie es einfach da. Wir teilen es.",
+          "en": "Just leave it. We'll share it."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "부담 드리려던 건 아니었어요.",
+          "de": "Ich wollte niemandem Umstände machen.",
+          "en": "I didn't mean to make anyone uncomfortable."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "마음은 잘 받았어요.",
+          "de": "Die Geste ist angekommen.",
+          "en": "The thought came through."
         }
       ],
       "quests": [
@@ -16817,20 +16817,20 @@
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Ist das Geschenk zu groß?",
+            "promptEn": "Is the gift too big?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "선물이 너무 큰가요?"
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "노동을 보이게 하고 교대로 쉬면 좋겠어요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "아무도 반대하지 않은 게 동의는 아니에요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "별명 대신 이름을 쓰고 서사를 공유했으면 합니다."
               }
             ],
             "correctIndex": 0
@@ -16883,7 +16883,7 @@
           ],
           "data": {
             "targetKo": "오늘 배려해 주셔서 감사합니다.",
-            "promptDe": "Danke fuer die Ruecksicht heute.",
+            "promptDe": "Danke für die Rücksicht heute.",
             "promptEn": "Thank you for the consideration today.",
             "distractors": [
               "그냥",
@@ -16959,9 +16959,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "저 여기 앉아도 돼요?",
+          "de": "Darf ich mich hierhin setzen?",
+          "en": "May I sit here?"
         },
         {
           "speaker": "jieun",
@@ -16971,39 +16971,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "자리에 순서가 있어요?",
+          "de": "Gibt es eine Sitzordnung?",
+          "en": "Is there an order to the seats?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "안쪽은 어른들 자리예요.",
+          "de": "Innen sitzen die Älteren.",
+          "en": "The inner side is for the elders."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "몰랐어요. 이쪽으로 옮길게요.",
+          "de": "Das wusste ich nicht. Ich setze mich um.",
+          "en": "I didn't know. I'll move over here."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "문 쪽이 드나들기도 편해요.",
+          "de": "An der Tür kommt man auch leichter raus.",
+          "en": "By the door it's easier to get in and out."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "다음부터는 기다렸다 앉을게요.",
+          "de": "Nächstes Mal warte ich, bis alle sitzen.",
+          "en": "Next time I'll wait before sitting."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그러면 실수할 일이 없어요.",
+          "de": "Dann kann nichts schiefgehen.",
+          "en": "Then nothing can go wrong."
         }
       ],
       "quests": [
@@ -17043,23 +17043,23 @@
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Darf ich mich hierhin setzen?",
+            "promptEn": "May I sit here?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "설거지를 매번 같은 사람이 해요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "저 여기 앉아도 돼요?"
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "이 사진 올리기 전에 여쭤볼게요."
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -17185,9 +17185,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "저도 세뱃돈을 받아요?",
+          "de": "Bekomme ich auch Neujahrsgeld?",
+          "en": "Do I get New Year money too?"
         },
         {
           "speaker": "jieun",
@@ -17197,39 +17197,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "어른인데 받아도 괜찮을까요?",
+          "de": "Ist das in Ordnung, obwohl ich erwachsen bin?",
+          "en": "Is it okay even though I'm an adult?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "결혼 전까지는 받아요.",
+          "de": "Bis zur Hochzeit bekommt man es.",
+          "en": "You receive it until you're married."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "그럼 감사합니다. 잘 쓰겠습니다.",
+          "de": "Dann danke. Ich gebe es gut aus.",
+          "en": "Thank you, then. I'll put it to good use."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "봉투는 나중에 열어 보세요.",
+          "de": "Machen Sie den Umschlag später auf.",
+          "en": "Open the envelope later."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "여기서 바로 열면 실례군요.",
+          "de": "Hier gleich aufzumachen wäre unhöflich.",
+          "en": "Opening it right here would be rude."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "네, 그건 나중에요.",
+          "de": "Ja, das später.",
+          "en": "Right, save that for later."
         }
       ],
       "quests": [
@@ -17269,20 +17269,20 @@
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Bekomme ich auch Neujahrsgeld?",
+            "promptEn": "Do I get New Year money too?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "저도 세뱃돈을 받아요?"
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "별명 대신 이름을 쓰고 서사를 공유했으면 합니다."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "선물이 너무 큰가요?"
               }
             ],
             "correctIndex": 0
@@ -17365,12 +17365,12 @@
       "xpReward": 160,
       "title": {
         "ko": "아침 인사 큰 소리",
-        "de": "Der laute Morgengruss",
+        "de": "Der laute Morgengruß",
         "en": "The loud morning greeting"
       },
       "intro": {
         "ko": "하룻밤을 잔 뒤 아침 인사를 해야 합니다. 큰 소리로 먼저 말하세요.",
-        "de": "Nach der Nacht musst du den Morgengruss sagen. Sprich zuerst laut.",
+        "de": "Nach der Nacht musst du den Morgengruß sagen. Sprich zuerst laut.",
         "en": "After staying overnight you must give the morning greeting. Speak first and clearly."
       },
       "vocab": [
@@ -17411,9 +17411,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "안녕히 주무셨어요? 저 먼저 일어났어요.",
+          "de": "Guten Morgen. Ich bin schon wach.",
+          "en": "Good morning. I'm up already."
         },
         {
           "speaker": "jieun",
@@ -17423,39 +17423,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "아침에는 제가 먼저 인사하는 게 맞죠?",
+          "de": "Morgens grüße ich zuerst, richtig?",
+          "en": "In the morning I greet first, right?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "네, 방에서 나오면 바로요.",
+          "de": "Ja, gleich beim Rauskommen.",
+          "en": "Yes, right as you come out of the room."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "목소리가 작으면 못 들으실까요?",
+          "de": "Hört man mich, wenn ich leise spreche?",
+          "en": "Will they hear me if I'm quiet?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "조금 크게 하면 다 좋아하세요.",
+          "de": "Etwas lauter, dann freuen sich alle.",
+          "en": "A bit louder and everyone's pleased."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "그럼 부엌 쪽으로 가서 인사드릴게요.",
+          "de": "Dann grüße ich in Richtung Küche.",
+          "en": "Then I'll go greet toward the kitchen."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그렇게 하면 하루가 편해져요.",
+          "de": "So wird der Tag leichter.",
+          "en": "That makes the whole day easier."
         }
       ],
       "quests": [
@@ -17495,23 +17495,23 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Guten Morgen. Ich bin schon wach.",
+            "promptEn": "Good morning. I'm up already.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "가방이 무거워도 감사해요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "두 손으로 받을게요. 물은 있어도 될까요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "안녕히 주무셨어요? 저 먼저 일어났어요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "봉지를 무릎에 올려 둬도 될까요?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -17597,9 +17597,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "단톡방에 뭐라고 쓰면 좋을까요?",
+          "de": "Was schreibe ich am besten in den Chat?",
+          "en": "What should I write in the group chat?"
         },
         {
           "speaker": "jieun",
@@ -17609,39 +17609,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "안녕하세요, 레나입니다. 잘 부탁드립니다.",
+          "de": "Hallo, ich bin Lena. Freut mich.",
+          "en": "Hello, I'm Lena. Nice to meet you all."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "그 정도면 딱 좋아요.",
+          "de": "Genau richtig.",
+          "en": "That's just right."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "답장이 많이 오면 다 답해야 해요?",
+          "de": "Muss ich auf jede Antwort reagieren?",
+          "en": "Do I have to reply to every response?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "하트 하나면 충분해요.",
+          "de": "Ein Herz reicht.",
+          "en": "One heart is enough."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "밤에 온 메시지는 아침에 답할게요.",
+          "de": "Auf Nachrichten von nachts antworte ich morgens.",
+          "en": "I'll answer late messages in the morning."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "다들 그렇게 해요.",
+          "de": "Das machen alle so.",
+          "en": "Everyone does it that way."
         }
       ],
       "quests": [
@@ -17681,23 +17681,23 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Was schreibe ich am besten in den Chat?",
+            "promptEn": "What should I write in the group chat?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "저도 세뱃돈을 받아요?"
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "새해 복 많이 받으세요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "손이 분홍해졌어요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "단톡방에 뭐라고 쓰면 좋을까요?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 3
           }
         },
         {
@@ -17783,9 +17783,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "한복 가게가 벌써 닫았어요.",
+          "de": "Der Hanbok-Verleih hat schon zu.",
+          "en": "The hanbok shop is already closed."
         },
         {
           "speaker": "jieun",
@@ -17795,39 +17795,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "명절인데 평상복이어도 괜찮을까요?",
+          "de": "Ist Alltagskleidung am Feiertag okay?",
+          "en": "Is everyday clothing okay for the holiday?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "요즘은 반 이상이 그냥 입어요.",
+          "de": "Heute macht das über die Hälfte so.",
+          "en": "These days more than half just do that."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "그럼 어두운 색으로 입을게요.",
+          "de": "Dann ziehe ich etwas Dunkles an.",
+          "en": "Then I'll wear something dark."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "색보다 깔끔한 게 중요해요.",
+          "de": "Sauber ist wichtiger als die Farbe.",
+          "en": "Neat matters more than the color."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "사진 찍을 때 좀 아쉽긴 하네요.",
+          "de": "Fürs Foto ist es ein bisschen schade.",
+          "en": "It's a little bit of a shame for the photos."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "내년에 미리 빌려요.",
+          "de": "Nächstes Jahr leihen wir früher.",
+          "en": "Next year we'll rent earlier."
         }
       ],
       "quests": [
@@ -17867,20 +17867,20 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Der Hanbok-Verleih hat schon zu.",
+            "promptEn": "The hanbok shop is already closed.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "한복 가게가 벌써 닫았어요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "저도 세뱃돈을 받아요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "새해 복 많이 받으세요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "손이 분홍해졌어요."
               }
             ],
             "correctIndex": 0
@@ -17969,9 +17969,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "월급 얘기가 나오면 뭐라고 하죠?",
+          "de": "Was sage ich, wenn das Gehalt zur Sprache kommt?",
+          "en": "What do I say when salary comes up?"
         },
         {
           "speaker": "jieun",
@@ -17981,39 +17981,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "범위도 말하기 싫으면요?",
+          "de": "Und wenn ich nicht mal einen Rahmen nennen will?",
+          "en": "And if I don't even want to give a range?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "아직 배우는 중이라고 하면 돼요.",
+          "de": "Sagen Sie, Sie lernen noch.",
+          "en": "Just say you're still learning."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "그렇게 말해도 또 물어보시면요?",
+          "de": "Und wenn trotzdem weitergefragt wird?",
+          "en": "And if they ask again anyway?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "같은 대답을 웃으면서 반복해요.",
+          "de": "Dieselbe Antwort, freundlich wiederholt.",
+          "en": "Repeat the same answer with a smile."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "그럼 화제를 음식으로 돌려 볼게요.",
+          "de": "Dann lenke ich auf das Essen um.",
+          "en": "Then I'll steer it toward the food."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그게 제일 잘 통해요.",
+          "de": "Das funktioniert am besten.",
+          "en": "That works best."
         }
       ],
       "quests": [
@@ -18053,23 +18053,23 @@
             "concept_b1_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Was sage ich, wenn das Gehalt zur Sprache kommt?",
+            "promptEn": "What do I say when salary comes up?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "선물이 너무 큰가요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "배불러요. 정말 맛있어요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "월급 얘기가 나오면 뭐라고 하죠?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 3
           }
         },
         {
@@ -18155,9 +18155,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "지금 질문은 제가 통역하지 않을게요.",
+          "de": "Diese Frage übersetze ich jetzt nicht.",
+          "en": "I'm not going to interpret that question."
         },
         {
           "speaker": "jieun",
@@ -18167,39 +18167,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "빼고 넘어가도 괜찮을까요?",
+          "de": "Ist es in Ordnung, sie auszulassen?",
+          "en": "Is it alright to skip it?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "지금은 넘어가는 게 나아요.",
+          "de": "Jetzt ist Auslassen besser.",
+          "en": "Right now skipping is better."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "나중에 따로 말씀드리는 게 좋겠어요.",
+          "de": "Später unter vier Augen ist besser.",
+          "en": "Better to bring it up separately later."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "저녁 끝나고 얘기해요.",
+          "de": "Sprechen wir nach dem Essen.",
+          "en": "Let's talk after dinner."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "지금은 반찬 이야기부터 할게요.",
+          "de": "Jetzt rede ich erst mal über die Beilagen.",
+          "en": "For now I'll start with the side dishes."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "분위기가 훨씬 부드러워졌어요.",
+          "de": "Die Stimmung ist gleich lockerer.",
+          "en": "The mood got a lot lighter."
         }
       ],
       "quests": [
@@ -18239,20 +18239,20 @@
             "concept_b1_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Diese Frage übersetze ich jetzt nicht.",
+            "promptEn": "I'm not going to interpret that question.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "지금 질문은 제가 통역하지 않을게요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "설거지를 매번 같은 사람이 해요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "이 사진 올리기 전에 여쭤볼게요."
               }
             ],
             "correctIndex": 0
@@ -18341,9 +18341,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "봉지를 무릎에 올려 둬도 될까요?",
+          "de": "Darf ich die Tüte auf den Schoß nehmen?",
+          "en": "Can I hold the bag on my lap?"
         },
         {
           "speaker": "jieun",
@@ -18353,39 +18353,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "김치 국물이 새면 큰일이에요.",
+          "de": "Wenn der Kimchi-Saft ausläuft, ist es schlimm.",
+          "en": "If the kimchi juice leaks it's a disaster."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "봉지를 세워서 잡으세요.",
+          "de": "Halten Sie die Tüte aufrecht.",
+          "en": "Hold the bag upright."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "방지턱에서 한 번 흔들렸어요.",
+          "de": "An der Bodenschwelle hat es einmal geschwankt.",
+          "en": "It tipped once at the speed bump."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "그래서 천천히 가 달라고 했어요.",
+          "de": "Deshalb habe ich um langsames Fahren gebeten.",
+          "en": "That's why I asked to go slowly."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "집에 가면 바로 냉장고에 넣을게요.",
+          "de": "Zu Hause kommt es sofort in den Kühlschrank.",
+          "en": "I'll put it straight in the fridge at home."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그럼 내일까지 괜찮아요.",
+          "de": "Dann hält es bis morgen.",
+          "en": "Then it'll keep until tomorrow."
         }
       ],
       "quests": [
@@ -18425,23 +18425,23 @@
             "concept_b1_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Darf ich die Tüte auf den Schoß nehmen?",
+            "promptEn": "Can I hold the bag on my lap?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "이 사진 올리기 전에 여쭤볼게요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "봉지를 무릎에 올려 둬도 될까요?"
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "이쪽은 현우 어머니세요."
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -18527,9 +18527,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "그 농담은 저희한테 좀 불편해요.",
+          "de": "Der Witz ist uns etwas unangenehm.",
+          "en": "That joke is a little uncomfortable for us."
         },
         {
           "speaker": "jieun",
@@ -18539,39 +18539,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "웃어넘기면 계속 나올 것 같아서요.",
+          "de": "Wenn wir nur lachen, kommt er immer wieder.",
+          "en": "If we just laugh it off, it'll keep coming back."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "한 번 분명히 말하는 게 나아요.",
+          "de": "Einmal klar etwas sagen ist besser.",
+          "en": "Better to say it clearly once."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "예식은 가족끼리 작게 하려고 해요.",
+          "de": "Die Feier soll klein und im Familienkreis sein.",
+          "en": "We're planning a small ceremony with family only."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "규모만 말하고 돈 얘기는 안 해요.",
+          "de": "Nur die Größe nennen, nicht das Geld.",
+          "en": "Mention the size, not the money."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "그럼 그 이야기는 여기서 접을게요.",
+          "de": "Dann lasse ich das Thema hier.",
+          "en": "Then I'll leave the topic here."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "잘 정리했어요.",
+          "de": "Gut gelöst.",
+          "en": "Nicely handled."
         }
       ],
       "quests": [
@@ -18611,20 +18611,20 @@
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Der Witz ist uns etwas unangenehm.",
+            "promptEn": "That joke is a little uncomfortable for us.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "그 농담은 저희한테 좀 불편해요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "지금 질문은 제가 통역하지 않을게요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "아직 천천히 알아가는 중이에요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "문은 조금 열어 둘게요. 잠은 따로 잘게요."
               }
             ],
             "correctIndex": 0
@@ -18713,9 +18713,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "설거지를 매번 같은 사람이 해요.",
+          "de": "Den Abwasch macht immer dieselbe Person.",
+          "en": "The same person does the dishes every time."
         },
         {
           "speaker": "jieun",
@@ -18725,39 +18725,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "한 번 하고 끝나면 또 그대로예요.",
+          "de": "Wenn du es einmal machst, bleibt danach alles beim Alten.",
+          "en": "If you just do it once, it goes back to how it was."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "그럼 순서를 정해 둘까요?",
+          "de": "Sollen wir eine Reihenfolge festlegen?",
+          "en": "Should we set an order, then?"
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "명절마다 두 명씩 짝을 지으면 어때요?",
+          "de": "Wie wäre es mit zwei Personen pro Fest?",
+          "en": "How about pairs of two each holiday?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "그러면 아무도 빠지지 않아요.",
+          "de": "So kommt niemand davon.",
+          "en": "That way nobody gets skipped."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "냉장고에 붙여 두면 잊지 않을 거예요.",
+          "de": "An den Kühlschrank geklebt vergisst es keiner.",
+          "en": "Stuck on the fridge, nobody will forget."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "오늘 저녁에 같이 적어요.",
+          "de": "Schreiben wir es heute Abend zusammen auf.",
+          "en": "Let's write it up tonight."
         }
       ],
       "quests": [
@@ -18797,23 +18797,23 @@
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Den Abwasch macht immer dieselbe Person.",
+            "promptEn": "The same person does the dishes every time.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "안녕히 주무셨어요? 저 먼저 일어났어요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "설거지를 매번 같은 사람이 해요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "두 손으로 받을게요. 물은 있어도 될까요?"
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "봉지를 무릎에 올려 둬도 될까요?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 1
           }
         },
         {
@@ -18899,9 +18899,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "이 사진 올리기 전에 여쭤볼게요.",
+          "de": "Ich frage kurz, bevor ich das Foto poste.",
+          "en": "Let me ask before I post this photo."
         },
         {
           "speaker": "jieun",
@@ -18911,39 +18911,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "어머님도 올라가도 괜찮으세요?",
+          "de": "Sind Sie einverstanden, dass Sie zu sehen sind?",
+          "en": "Are you okay with being in it?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "어머니는 얼굴 나오는 걸 안 좋아하세요.",
+          "de": "Meine Mutter mag es nicht, erkennbar zu sein.",
+          "en": "My mother doesn't like being recognizable."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "그럼 이 사진은 저희끼리만 볼게요.",
+          "de": "Dann behalten wir das Foto für uns.",
+          "en": "Then we'll keep this one to ourselves."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "뒷모습 사진은 올려도 돼요.",
+          "de": "Das Foto von hinten geht.",
+          "en": "The one from behind is fine to post."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "다음엔 찍기 전에 먼저 여쭤볼게요.",
+          "de": "Nächstes Mal frage ich vor dem Foto.",
+          "en": "Next time I'll ask before taking it."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그게 제일 확실해요.",
+          "de": "Das ist am sichersten.",
+          "en": "That's the surest way."
         }
       ],
       "quests": [
@@ -18983,23 +18983,23 @@
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Ich frage kurz, bevor ich das Foto poste.",
+            "promptEn": "Let me ask before I post this photo.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "지금 질문은 제가 통역하지 않을게요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "아직 천천히 알아가는 중이에요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "이 사진 올리기 전에 여쭤볼게요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "문은 조금 열어 둘게요. 잠은 따로 잘게요."
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -19085,9 +19085,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "저는 여기서 계속 손님으로 남는 것 같아요.",
+          "de": "Ich habe das Gefühl, hier dauerhaft Gast zu bleiben.",
+          "en": "I feel like I stay a guest here permanently."
         },
         {
           "speaker": "jieun",
@@ -19097,39 +19097,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "대접은 받는데 결정에는 안 들어가요.",
+          "de": "Ich werde bewirtet, aber bei Entscheidungen bin ich außen vor.",
+          "en": "I'm treated well but left out of decisions."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "그 둘이 같이 가지는 않더라고요.",
+          "de": "Das eine bringt das andere nicht mit.",
+          "en": "One doesn't automatically bring the other."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "작은 일부터 같이 정하면 달라질까요?",
+          "de": "Ändert es sich, wenn ich bei kleinen Dingen mitentscheide?",
+          "en": "Would it change if I helped decide small things?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "장보기 목록부터 같이 짜 봐요.",
+          "de": "Fangen wir mit der Einkaufsliste an.",
+          "en": "Let's start with the shopping list."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "그럼 다음 명절 메뉴부터 같이 정할게요.",
+          "de": "Dann plane ich das nächste Festmenü mit.",
+          "en": "Then I'll help plan the next holiday menu."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그 자리부터가 시작이에요.",
+          "de": "Da fängt es an.",
+          "en": "That's where it starts."
         }
       ],
       "quests": [
@@ -19169,23 +19169,23 @@
             "concept_c1_inclusive_systems"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Ich habe das Gefühl, hier dauerhaft Gast zu bleiben.",
+            "promptEn": "I feel like I stay a guest here permanently.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "지금 질문은 제가 통역하지 않을게요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "아직 천천히 알아가는 중이에요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "저는 여기서 계속 손님으로 남는 것 같아요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "문은 조금 열어 둘게요. 잠은 따로 잘게요."
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -19271,9 +19271,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "아무도 반대하지 않은 게 동의는 아니에요.",
+          "de": "Dass niemand widersprochen hat, ist keine Zustimmung.",
+          "en": "Nobody objecting isn't the same as agreement."
         },
         {
           "speaker": "jieun",
@@ -19283,39 +19283,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "지난번에도 그렇게 넘어갔는데 기억이 서로 달라요.",
+          "de": "Letztes Mal lief es genauso, und jetzt erinnert es jeder anders.",
+          "en": "It went the same way last time, and now everyone remembers it differently."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "적어 두지 않으면 늘 그래요.",
+          "de": "Ohne Aufschreiben ist das immer so.",
+          "en": "Without writing it down it's always like that."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "회의처럼 만들자는 건 아니에요.",
+          "de": "Ich will daraus keine Sitzung machen.",
+          "en": "I'm not trying to turn this into a meeting."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "단톡에 세 줄만 남기면 돼요.",
+          "de": "Drei Zeilen im Chat reichen.",
+          "en": "Three lines in the group chat are enough."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "누가 무엇을 언제 하는지만 적을게요.",
+          "de": "Ich schreibe nur auf, wer was wann macht.",
+          "en": "I'll just note who does what and when."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그 정도면 다음에 다투지 않아요.",
+          "de": "Damit gibt es beim nächsten Mal keinen Streit.",
+          "en": "With that there'll be no argument next time."
         }
       ],
       "quests": [
@@ -19355,20 +19355,20 @@
             "concept_c2_discourse_institutions"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Dass niemand widersprochen hat, ist keine Zustimmung.",
+            "promptEn": "Nobody objecting isn't the same as agreement.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "아무도 반대하지 않은 게 동의는 아니에요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "설거지를 매번 같은 사람이 해요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "이 사진 올리기 전에 여쭤볼게요."
               }
             ],
             "correctIndex": 0
