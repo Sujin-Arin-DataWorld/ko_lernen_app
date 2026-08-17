@@ -356,7 +356,55 @@ void main() {
         'sha256',
         'decision',
       ]);
-      expect(_list(ledger['records'], 'generationLedger.records'), isEmpty);
+        expect(_list(ledger['records'], 'generationLedger.records'), isEmpty);
+    });
+
+    test('locks the transparent socket compositor and atomic promotion', () {
+      final contract = _object(
+        manifest['a1TransparentLayerContract'],
+        'a1TransparentLayerContract',
+      );
+      final socket = _object(contract['socketLayer'], 'socketLayer');
+      expect(_integer(socket['width'], 'socketLayer.width'), 854);
+      expect(_integer(socket['height'], 'socketLayer.height'), 309);
+      final anchor = _object(socket['localAnchor'], 'socketLayer.localAnchor');
+      expect((_integer(anchor['x'], 'localAnchor.x'), _integer(anchor['y'], 'localAnchor.y')), (427, 309));
+      final output = _object(contract['output'], 'output');
+      expect(_string(output['format'], 'output.format'), 'WebP');
+      expect(_integer(output['quality'], 'output.quality'), 82);
+      expect(_integer(output['method'], 'output.method'), 6);
+      expect(_integer(output['hardMaxBytes'], 'output.hardMaxBytes'), 350000);
+      final qa = _object(contract['qa'], 'qa');
+      expect(_integer(qa['sourceOutsideChangedPixels'], 'sourceOutsideChangedPixels'), 0);
+      expect(_number(qa['decodedOutsideMeanErrorMax'], 'decodedOutsideMeanErrorMax'), 5.0);
+      final continuity = _object(contract['continuity'], 'continuity');
+      expect(_number(continuity['minPreviousRecall'], 'minPreviousRecall'), 0.97);
+      expect(_integer(continuity['maxEdgeDriftPx'], 'maxEdgeDriftPx'), 2);
+      final promotion = _object(contract['promotion'], 'promotion');
+      expect(
+        _string(promotion['qaRoot'], 'promotion.qaRoot'),
+        'assets_unused/pending_review/a1_states/',
+      );
+      expect(
+        _string(promotion['runtimeRoot'], 'promotion.runtimeRoot'),
+        'assets/illustrations/personal_hanok_v2/a1/states/',
+      );
+      expect(_boolean(promotion['atomic'], 'promotion.atomic'), isTrue);
+      expect(
+        _boolean(promotion['pubspecUntilComplete'], 'pubspecUntilComplete'),
+        isFalse,
+      );
+    });
+
+    test('does not register unapproved A1 states or the QA composite in pubspec', () {
+      final pubspec = File('pubspec.yaml').readAsStringSync();
+      expect(pubspec.contains('personal_hanok_v2/a1/'), isFalse);
+      expect(pubspec.contains('reference_full_estate.png'), isFalse);
+      expect(pubspec.contains('assets_unused/'), isFalse);
+      expect(
+        Directory('assets/illustrations/personal_hanok_v2/a1/states').existsSync(),
+        isFalse,
+      );
     });
 
     test(
@@ -380,6 +428,7 @@ void main() {
               'allowedModelInputs.sha256',
             ),
         };
+        final knownInputs = Map<String, String>.from(allowedInputs);
         final records = _objects(ledger['records'], 'generationLedger.records');
         final ids = <String>{};
         var staticCredits = 0.0;
@@ -416,9 +465,9 @@ void main() {
           )) {
             final path = _string(input['path'], '$id.inputAssets.path');
             expect(
-              allowedInputs[path],
+              knownInputs[path],
               _sha256(input['sha256'], '$id.inputAssets.sha256'),
-              reason: '$id used a non-allowlisted or changed model input',
+              reason: '$id used a non-allowlisted or unapproved derived input',
             );
           }
           for (final output in _objects(
@@ -430,11 +479,15 @@ void main() {
               path.contains('..') || RegExp(r'^[A-Za-z]:').hasMatch(path),
               isFalse,
             );
-            _sha256(output['sha256'], '$id.outputAssets.sha256');
-            expect(
-              _string(output['decision'], '$id.outputAssets.decision'),
-              anyOf('approved', 'rejected'),
+            final digest = _sha256(output['sha256'], '$id.outputAssets.sha256');
+            final decision = _string(
+              output['decision'],
+              '$id.outputAssets.decision',
             );
+            expect(decision, anyOf('approved', 'rejected'));
+            if (decision == 'approved') {
+              knownInputs[path] = digest;
+            }
           }
 
           if (mediaKind == 'static') {
@@ -458,6 +511,71 @@ void main() {
         );
       },
     );
+
+    test('lets an approved ledger output seed the next transparent layer', () {
+      final allowed = {
+        'assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png':
+            'f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1',
+      };
+      final known = Map<String, String>.from(allowed);
+      const derived =
+          'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+      for (final record in [
+        {
+          'inputAssets': [
+            {
+              'path':
+                  'assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png',
+              'sha256': allowed.values.single,
+            },
+          ],
+          'outputAssets': [
+            {
+              'path':
+                  'assets_unused/pending_review/a1_layers/06_columns_layer.png',
+              'sha256': derived,
+              'decision': 'approved',
+            },
+          ],
+        },
+        {
+          'inputAssets': [
+            {
+              'path':
+                  'assets_unused/pending_review/a1_layers/06_columns_layer.png',
+              'sha256': derived,
+            },
+          ],
+          'outputAssets': [
+            {
+              'path':
+                  'assets_unused/pending_review/a1_layers/05_timber_preparation_layer.png',
+              'sha256':
+                  'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+              'decision': 'approved',
+            },
+          ],
+        },
+      ]) {
+        for (final input in _objects(record['inputAssets'], 'lineage.input')) {
+          final path = _string(input['path'], 'lineage.input.path');
+          expect(known[path], _sha256(input['sha256'], 'lineage.input.sha256'));
+        }
+        for (final output in _objects(record['outputAssets'], 'lineage.output')) {
+          if (_string(output['decision'], 'lineage.decision') == 'approved') {
+            known[_string(output['path'], 'lineage.output.path')] = _sha256(
+              output['sha256'],
+              'lineage.output.sha256',
+            );
+          }
+        }
+      }
+      expect(known.containsKey(allowed.keys.single), isTrue);
+      expect(
+        known['assets_unused/pending_review/a1_layers/06_columns_layer.png'],
+        derived,
+      );
+    });
 
     test(
       'does not derive asset contracts from curriculum or content counts',
