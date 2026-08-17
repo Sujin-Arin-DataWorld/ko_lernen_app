@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
+
+**원인.** 라이브 데이터 무결성(`validate_content.py`, loader unrouted, grammar/
+`courseUnitId`/satz `vocabKo`/curriculum map)은 이미 통과했다. 빨간 게이트는
+시나리오 ID 충돌이 아니라 도구 계약이었다. `validate_review_batch.py`는
+`review_only_draft`만 받고, `validate_promoted_batch.py`는 vocab+grammar+smalltalk+
+cloze+satz 다섯 종류만 강제해서 scenario+pronunciation Batch 06(`merged`, 68행
+승인)을 거절했다. 같은 승격 뒤 loader overlay는 이미 라이브에 있는 ID를 다시
+붙여 중복으로 실패했다.
+
+**수정.** promoted validator가 scenario/발음 포함 임의 지원 kind를 검사하고,
+manifest `contentLinks`가 라이브 curriculum과 같은지 대조한다. merged manifest를
+review-only 도구에 넣으면 promoted 명령을 가리킨다. 이미 승격된 draft ID는
+내용이 같으면 overlay에서 건너뛴다. review packet 상태와 현재 작업 메모를
+`merged`에 맞췄다.
+
+**검증.** `validate_content.py --json` ok, `validate_promoted_batch.py --manifest
+tools/content_factory/drafts/batch_06_manifest.json` 68 records, loader live/
+overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
+'test_*.py'` **98/98**. 커밋 해시는 이 기록 직후 커밋에 둔다.
+
 ### 2026-08-17 (Cursor) — Batch 06 승격 후 고정 카탈로그 계약을 실데이터에 맞춤
 
 **왜.** `fa86b7af`가 Batch 06을 production asset에 올린 뒤, 후속 docs SHA

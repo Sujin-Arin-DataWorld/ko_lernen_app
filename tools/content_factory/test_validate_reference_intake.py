@@ -79,7 +79,7 @@ class ReferenceIntakeValidatorTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             self.copy_fixture(root)
-            path = root / "tools/content_factory/drafts/c2_batch06_satz_b1_c2.json"
+            path = root / "assets/data/satz_sentences.json"
             path.write_text(
                 path.read_text(encoding="utf-8").replace(
                     "가능하면 오늘 안에 방문 시간과 예상 수리비를 알려 주시면 좋겠어요.",

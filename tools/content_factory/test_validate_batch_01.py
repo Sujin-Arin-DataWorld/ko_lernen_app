@@ -62,6 +62,13 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         data = self.root / "assets" / "data"
         vocab_bases: set[str] = set()
 
+        live_targets = {
+            kind: (target_name, collection)
+            for kind, (target_name, collection, _) in integration.TARGETS.items()
+        }
+        live_targets["scenario"] = ("scenarios.json", "scenarios")
+        live_targets["pronunciation"] = ("pronunciation_phrases.json", "phrases")
+
         def remove_artifacts(manifest: dict[str, object]) -> set[str]:
             """Remove one promoted manifest's authored rows from the fixture."""
 
@@ -71,7 +78,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             for artifact in artifacts:
                 self.assertIsInstance(artifact, dict)
                 kind = artifact["kind"]
-                target_name, collection, _ = integration.TARGETS[kind]
+                target_name, collection = live_targets[kind]
                 target = data / target_name
                 draft = self.root / artifact["draft"]
                 if collection is None:
@@ -177,14 +184,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             if candidate_path in replay_paths:
                 continue
             candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
-            artifact_kinds = {
-                artifact.get("kind")
-                for artifact in candidate.get("artifacts", [])
-                if isinstance(artifact, dict)
-            }
-            if candidate.get("status") == "merged" and artifact_kinds == set(
-                integration.TARGETS
-            ):
+            if candidate.get("status") == "merged":
                 later_manifests.append(candidate)
 
         later_removed_ids: set[str] = set()

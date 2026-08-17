@@ -355,6 +355,12 @@ def _parse_manifest(
         _fail(f"{manifest_path}: batch must be a zero-padded numeric string")
     if enforce_batch_01_contract and batch != "01":
         _fail(f"{manifest_path}: batch must be the string '01'")
+    if manifest.get("status") == "merged":
+        _fail(
+            f"{manifest_path}: status is merged; use "
+            "tools/content_factory/validate_promoted_batch.py "
+            f"--manifest {manifest_path}"
+        )
     if manifest.get("status") != "review_only_draft":
         _fail(f"{manifest_path}: status must be review_only_draft before Jin review")
     provenance = manifest.get("provenance")

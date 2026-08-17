@@ -4,7 +4,8 @@
 Unlike the immutable ``validate_batch_01.py`` entry point, this command uses
 the batch manifest's own draft/review paths, counts, and optional pending-pack
 reservations.  It currently supports the shared five-asset authoring set:
-vocab, grammar, smalltalk, cloze, and Satzbau.
+vocab, grammar, smalltalk, cloze, and Satzbau.  A ``merged`` manifest must use
+``validate_promoted_batch.py`` instead.
 
 Usage:
     python3 tools/content_factory/validate_review_batch.py \

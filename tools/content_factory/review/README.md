@@ -10,9 +10,10 @@ Batch 06+는 모든 행을 `draft`로 시작한다. 여러 asset·curriculum·pa
 `integrate_review_batches.py --manifest ...`로, scenario 중심 cross-game bundle은
 `integrate_scenario_batch.py --manifest ...`로 원자적으로 승격한다.
 
-Batch 06 review 원장 5개는 `sync_review_ledgers.py`가 draft에서 결정적으로 투영한다.
-기본 실행은 차이만 검사하고, `--apply`는 원장 본문을 동기화하되 승인 상태를 자동으로
-만들지 않는다. 모든 68행은 Jin 검수 전 정확히 `draft`여야 한다.
+Batch 06 review 원장 5개는 2026-08-17에 Jin 승인 뒤 `approved`로 닫혔고, manifest
+상태는 `merged`다. 이후 검사는 `validate_review_batch.py`가 아니라
+`validate_promoted_batch.py --manifest tools/content_factory/drafts/batch_06_manifest.json`
+이다. 새 Batch 07+는 다시 모든 행을 `draft`로 시작한다.
 
 ## 공통 헤더와 상태
 

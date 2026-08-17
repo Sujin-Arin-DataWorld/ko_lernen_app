@@ -333,12 +333,18 @@ flutter run -d <android-id>   # 안드로이드
   생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
   production route를 fail closed했다. 최신 main 재배치·전체 로컬 게이트는 통과했으며,
   GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다.
-- [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06을
-  production asset에 올렸고, 고정 카탈로그 계약은 scenario 62·quest 261,
+- [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
+  68개 standalone + embedded quest 20개를 production asset과
+  `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부
+  `approved`이고 manifest 상태는 `merged`다. 이후 검사는
+  `validate_promoted_batch.py`다. 고정 카탈로그 계약은 scenario 62·quest 261,
   Smalltalk 293, Cloze 530, Satz 443, pronunciation 20, A1–B2 smalltalk
-  semantic decision 257, 시나리오 레벨 A1–C2로 맞춘다. 다음 번호는 Batch 07이며
-  loader 재계산 작업량은
-  `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
+  semantic decision 257, 시나리오 레벨 A1–C2다. TTS/Firebase 누락분은 별도 게이트다.
+- [ ] **다음 콘텐츠**: Batch 07은 loader 재계산 작업량
+  `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다. PDF, OCR,
+  표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만 독립 집필에
+  쓴다. review 승인, reference/content validator, preview를 모두 통과하기 전에는
+  앱 데이터, TTS, Firebase에 쓰지 않는다.
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.

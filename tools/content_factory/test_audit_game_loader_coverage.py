@@ -17,15 +17,15 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         report = LoaderCoverageAudit(ROOT).build()
 
         self.assertEqual(report["state"], "live")
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 0)
-        self.assertEqual(report["inventory"]["pronunciation"]["total"], 4)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 1)
+        self.assertEqual(report["inventory"]["pronunciation"]["total"], 20)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
-            4,
+            20,
         )
         self.assertEqual(
             report["libraryLoader"]["listeningInitial"]["c2"]["effectiveSourceLevel"],
-            "b2",
+            "c2",
         )
         self.assertEqual(
             report["libraryLoader"]["smalltalkCategoryCoverage"]["c1"][
@@ -42,10 +42,12 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         self.assertGreater(other["vocabDerived"]["exactPerLevel"]["c2"], 0)
         self.assertTrue(all(not ids for ids in report["unroutedIds"].values()))
 
-    def test_batch_06_preview_routes_every_graph_compatible_record(self) -> None:
+    def test_batch_06_overlay_is_idempotent_after_live_promotion(self) -> None:
+        live = LoaderCoverageAudit(ROOT).build()
         report = LoaderCoverageAudit(ROOT, BATCH_06).build()
 
         self.assertEqual(report["state"], "preview")
+        self.assertEqual(report["inventory"], live["inventory"])
         self.assertEqual(report["inventory"]["scenario"]["total"], 62)
         self.assertEqual(report["inventory"]["smalltalk"]["total"], 293)
         self.assertEqual(report["inventory"]["cloze"]["total"], 530)

@@ -2,7 +2,7 @@
 
 > Generated read-only from the schema-complete draft and its approval ledger. Edit only the ledger's `상태` and `jin_memo`; fix content in the draft, then regenerate.
 
-- Status: `review_only_draft`
+- Status: `merged`
 - Records: **68**
 - Scope: Original B1-C2 cross-game pilot based on live curriculum gaps and clean-room product briefs.
 
