@@ -1,5 +1,34 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 작성 (계획서만, 코드 0)
+
+**무엇.** `docs/superpowers/plans/2026-08-17-hoeren-shelf-foundation.md` 를 썼다.
+스펙의 §5(데이터 계약)·§10 1–3번·§11(검증)을 8개 태스크로 분해한 실행 계획이다.
+계획서 외 변경은 0이다.
+
+**왜.** 스펙은 승인됐지만 "무엇을 어느 파일에서" 가 없었다. 계획 1은 파일럿 47개가
+갈 자리(`shelf`)와 배경(`backdrop`)을 먼저 만들어야 계획 3이 재작업이 되지 않는다.
+
+**실제 코드를 읽고 드러난 스펙과의 차이 3가지** (계획서 상단에 별도 절로 남김).
+① **샤딩 폭발 반경이 스펙에 없다** — `assets/data/scenarios.json` 경로를 직접 쓰는
+파일이 **38개**(lib 3 · Dart 테스트 11 · 파이썬 도구 12 · 파이썬 테스트 10 ·
+일회성 2)다. 그래서 파이썬 `scenario_store.py` / Dart `test/support/scenario_json.dart`
+단일 지점을 먼저 세우고 "샤드 생성 → 전환 → 원본 삭제" 3커밋으로 나눈다.
+② **샤딩만으로 메모리가 1/6이 되지 않는다** — `CurriculumCatalog.load()`
+(`curriculum_catalog.dart:69`)가 `ScenarioLoader.load()` 로 전 코퍼스를 당기고 그
+catalog 호출부가 19개다. 스펙 §5.3의 "로드량 1/6" 은 Hören 경로 한정으로 정정돼야
+한다. catalog 경량화는 별건으로 뺐다. ③ **`/listening` 은 이번에 안 건드린다** —
+지금 전 레벨을 `selectInitialListeningScenario` 에 넘기므로 레벨 샤드만 주면 선택
+동작이 조용히 바뀐다. 로더 API 만 만들고 전환은 계획 2다.
+
+**검증(집행 전 사전 실측).** 부록 A 264개를 live 코퍼스에 대고 돌려
+`DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0` 을 재현했다. `_categoryById` 도
+264 전수 커버(고아 0 · 유령 0)이고 backdrop 분포는 office 84 · home 67 · cafe 23 ·
+station 22 · market 20 · convenience 11 · restaurant 8 · taxi 7 · hotel 6 ·
+directions 6 · pharmacy 5 · airport 5 다. 레벨 분포 67/66/55/54/11/11.
+
+**커밋.** `773f7b10` (계획서), 이 로그 항목은 직후 커밋. 코드·데이터 변경 0.
+
 ### 2026-08-17 (Claude, Windows) — Hören 책가도 레벨별 12칸 서재 설계 (스펙만, 코드 0)
 
 **무엇.** `docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md` 를 새로 썼다.
