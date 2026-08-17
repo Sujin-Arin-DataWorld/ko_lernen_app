@@ -115,10 +115,16 @@ class CircuitBreaker {
 
 const ttsProviderBreaker = new CircuitBreaker();
 const SYNTH_DEADLINE_MS = 8_000;
-const MIN_AUDIO_BYTES = 1;
+const MIN_AUDIO_BYTES = 32;
 
 function isUsableAudioBuffer(value) {
-  return Buffer.isBuffer(value) && value.length >= MIN_AUDIO_BYTES;
+  if (!Buffer.isBuffer(value) || value.length < MIN_AUDIO_BYTES) {
+    return false;
+  }
+  if (value.subarray(0, 3).toString("ascii") === "ID3") {
+    return true;
+  }
+  return value[0] === 0xff && (value[1] & 0xe0) === 0xe0;
 }
 
 function withDeadline(promise, timeoutMs, message = "TTS synthesis timed out.") {

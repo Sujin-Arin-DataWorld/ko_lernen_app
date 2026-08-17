@@ -7,6 +7,8 @@ const {defineSecret} = require("firebase-functions/params");
 const {
   IDEMPOTENCY_COLLECTION,
   PronunciationRequestError,
+  isPendingPronunciationReplay,
+  pendingPronunciationDocument,
   pronunciationProviderBreaker,
   pronunciationReplayDocument,
   pronunciationReplayFromDocument,
@@ -59,15 +61,23 @@ async function releaseQuota(db, uid, now = new Date()) {
   });
 }
 
-async function loadPronunciationReplay(db, uid, assessmentId) {
-  const snapshot = await db
+async function claimPronunciationReplay(db, uid, assessmentId) {
+  const ref = db
     .collection(IDEMPOTENCY_COLLECTION)
-    .doc(pronunciationReplayId(uid, assessmentId))
-    .get();
-  if (!snapshot.exists) {
-    return null;
-  }
-  return pronunciationReplayFromDocument(snapshot.data(), assessmentId);
+    .doc(pronunciationReplayId(uid, assessmentId));
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const data = snapshot.exists ? snapshot.data() : null;
+    const replay = pronunciationReplayFromDocument(data, assessmentId);
+    if (replay) {
+      return {replay, consume: false};
+    }
+    if (isPendingPronunciationReplay(data, assessmentId)) {
+      return {replay: null, consume: false};
+    }
+    transaction.set(ref, pendingPronunciationDocument(assessmentId));
+    return {replay: null, consume: true};
+  });
 }
 
 async function savePronunciationReplay(db, uid, scores) {
@@ -75,6 +85,21 @@ async function savePronunciationReplay(db, uid, scores) {
     .collection(IDEMPOTENCY_COLLECTION)
     .doc(pronunciationReplayId(uid, scores.assessmentId))
     .set(pronunciationReplayDocument(scores));
+}
+
+async function abandonPronunciationReplay(db, uid, assessmentId) {
+  const ref = db
+    .collection(IDEMPOTENCY_COLLECTION)
+    .doc(pronunciationReplayId(uid, assessmentId));
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    if (!snapshot.exists) {
+      return;
+    }
+    if (isPendingPronunciationReplay(snapshot.data(), assessmentId)) {
+      transaction.delete(ref);
+    }
+  });
 }
 
 async function callAzure({audio, referenceText, signal}) {
@@ -118,19 +143,35 @@ exports.assessPronunciation = onCall({
 }, async (request) => {
   try {
     const input = validatePronunciationRequest(request);
-    const replay = await loadPronunciationReplay(
+    const claim = await claimPronunciationReplay(
       getFirestore(),
       input.uid,
       input.assessmentId,
     );
-    if (replay) {
-      return replay;
+    if (claim.replay) {
+      return claim.replay;
     }
     if (!pronunciationProviderBreaker.allow()) {
+      if (claim.consume) {
+        await abandonPronunciationReplay(
+          getFirestore(),
+          input.uid,
+          input.assessmentId,
+        );
+      }
       throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
     }
-    if (!(await consumeQuota(getFirestore(), input.uid))) {
-      throw new HttpsError("resource-exhausted", "Pronunciation limit reached.");
+    let consumed = false;
+    if (claim.consume) {
+      if (!(await consumeQuota(getFirestore(), input.uid))) {
+        await abandonPronunciationReplay(
+          getFirestore(),
+          input.uid,
+          input.assessmentId,
+        );
+        throw new HttpsError("resource-exhausted", "Pronunciation limit reached.");
+      }
+      consumed = true;
     }
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
@@ -146,10 +187,21 @@ exports.assessPronunciation = onCall({
       return parsed;
     } catch (error) {
       pronunciationProviderBreaker.recordFailure();
+      if (consumed) {
+        try {
+          await releaseQuota(getFirestore(), input.uid);
+        } catch {
+          // Keep the original provider failure; never leak refund internals.
+        }
+      }
       try {
-        await releaseQuota(getFirestore(), input.uid);
+        await abandonPronunciationReplay(
+          getFirestore(),
+          input.uid,
+          input.assessmentId,
+        );
       } catch {
-        // Keep the original provider failure; never leak refund internals.
+        // A leftover pending receipt expires; do not hide the provider error.
       }
       throw error;
     } finally {
