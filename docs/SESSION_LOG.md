@@ -12,7 +12,7 @@
 **검증.** `flutter gen-l10n`. analyze clean. resolver 8, studio widget, arb 8,
 pronunciation studio 6.
 
-**커밋해시.** (이 커밋)
+**커밋해시.** `9f9287a7`
 
 ### 2026-08-17 (Cursor) — Vokabelheft 스튜디오 CI 가드 맞춤
 
