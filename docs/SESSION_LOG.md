@@ -32,8 +32,8 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 보존했고, partner-family만 live로 올렸다. 푸시 뒤에 다시 생긴
 `cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
 `cursor/content-integrity-audit-2d55` C1/C2 존재 계약,
-`cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`도 같은
-방식으로 넣었다.
+`cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`,
+`cursor/backend-reliability-upgrade-feaa` 2단계도 같은 방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 
@@ -328,6 +328,26 @@ Apple 취소는 `null`(취소)로 되돌린다. iOS URL scheme을 커밋된 iOS 
 재배포와 실기기 Google SHA/Apple `.p8`는 이 커밋의 범위 밖이다.
 
 **커밋.** 이 항목과 같은 커밋.
+
+### 2026-08-17 (Cursor) — 백엔드 신뢰성 2단계: 멱등 재시도·제공자 deadline
+
+**무엇을.** 2차 코드 리뷰에서 남은 유료 경로 결함을 고쳤다. 끝말잇기 사전
+`validate_kkeunmari_word`는 `validate_exact_noun`이 `None`이면 503 전에 할당량을
+환급한다. TTS는 0바이트 Storage 객체를 캐시 히트로 쓰지 않고 삭제한 뒤 재합성하며,
+빈 `audioContent`는 저장하지 않고 한도를 되돌린다. DeepL은 기본 10초×5회 재시도를
+끄고 호출당 8초 deadline을 두며, Cloud TTS 합성도 8초로 끊는다. 같은 학습자의 같은
+책 분석 지문과 같은 발음 `assessmentId`는 서버 전용 `service_idempotency`에 15분
+영수증만 남겨 재시도가 한도를 다시 깎지 않게 한다. 분석 영수증에는 원문·응답을
+넣지 않고, 발음 영수증에는 점수만 넣는다.
+
+**왜.** 클라 12초 타임아웃 뒤 재시도가 이중 과금되고, 빈 TTS가 영구 캐시되며,
+사전/번역 장애가 한도만 소모하는 상태를 막기 위해서다. live Gen2 배포와 legacy
+cache 삭제는 계속 Jin 운영 게이트다.
+
+**검증.** 책 분석 Python `test_*.py` **87/87**, TTS Node 가드 **16/16**, 발음
+Node 가드 **7/7**, `node --check` 4파일, `firestore.indexes.json` parse,
+`git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
+하지 않았다. 구현 커밋 `2c5e5bb`.
 
 ### 2026-08-16 (Cursor) — 백엔드 신뢰성 1단계: 공정 할당량·서킷·TTL
 

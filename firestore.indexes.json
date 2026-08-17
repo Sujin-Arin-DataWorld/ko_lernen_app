@@ -162,6 +162,12 @@
       "indexes": []
     },
     {
+      "collectionGroup": "service_idempotency",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "users",
       "fieldPath": "gyeIds",
       "indexes": [

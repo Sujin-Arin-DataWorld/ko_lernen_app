@@ -57,6 +57,8 @@ class EndpointSecurityTest(unittest.TestCase):
                 "verify_caller",
                 return_value=Caller(uid="verified-user", app_id="approved-app"),
             ), mock.patch.object(endpoint, "_quota_gate", return_value=gate), mock.patch.object(
+                endpoint, "_idempotency_gate", return_value=_MemoryIdempotency()
+            ), mock.patch.object(
                 endpoint, "detect_grammar"
             ) as analyze:
                 response = endpoint.analyze_korean_text(request)
@@ -77,6 +79,8 @@ class EndpointSecurityTest(unittest.TestCase):
                 "verify_caller",
                 return_value=Caller(uid="verified-user", app_id="approved-app"),
             ), mock.patch.object(endpoint, "_quota_gate", return_value=gate), mock.patch.object(
+                endpoint, "_idempotency_gate", return_value=_MemoryIdempotency()
+            ), mock.patch.object(
                 endpoint, "detect_grammar"
             ) as analyze:
                 response = endpoint.analyze_korean_text(request)
@@ -151,6 +155,8 @@ class EndpointSecurityTest(unittest.TestCase):
             ), mock.patch.object(
                 endpoint, "_quota_gate", return_value=gate
             ), mock.patch.object(
+                endpoint, "_idempotency_gate", return_value=_MemoryIdempotency()
+            ), mock.patch.object(
                 endpoint,
                 "detect_grammar",
                 side_effect=RuntimeError("secret kiwi dump"),
@@ -167,6 +173,56 @@ class EndpointSecurityTest(unittest.TestCase):
         self.assertEqual(gate.consumed, ["verified-user"])
         self.assertEqual(gate.released, ["verified-user"])
 
+    def test_dictionary_unavailable_releases_quota(self):
+        gate = _RecordingGate()
+        with self.app.test_request_context(
+            "/", method="POST", json={"word": "제사"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(
+                endpoint, "_dictionary_quota_gate", return_value=gate
+            ), mock.patch.object(
+                endpoint, "validate_exact_noun", return_value=None
+            ):
+                response = endpoint.validate_kkeunmari_word(request)
+
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.get_json(), {"warnings": ["dictionary_unavailable"]})
+        self.assertEqual(gate.consumed, ["verified-user"])
+        self.assertEqual(gate.released, ["verified-user"])
+
+    def test_identical_analysis_retry_skips_a_second_quota_consume(self):
+        gate = _RecordingGate()
+        receipts = _MemoryIdempotency()
+        payload = {"text": "학생이에요.", "lang": "de"}
+
+        def complete(**_kwargs):
+            return endpoint._analysis_response("de")
+
+        for _ in range(2):
+            with self.app.test_request_context("/", method="POST", json=payload):
+                with mock.patch.object(
+                    endpoint,
+                    "verify_caller",
+                    return_value=Caller(
+                        uid="verified-user", app_id="approved-app"
+                    ),
+                ), mock.patch.object(
+                    endpoint, "_quota_gate", return_value=gate
+                ), mock.patch.object(
+                    endpoint, "_idempotency_gate", return_value=receipts
+                ), mock.patch.object(
+                    endpoint, "_complete_book_analysis", side_effect=complete
+                ):
+                    response = endpoint.analyze_korean_text(request)
+            self.assertEqual(response.status_code, 200)
+
+        self.assertEqual(gate.consumed, ["verified-user"])
+        self.assertEqual(len(receipts.remembered), 2)
+
 
 class _RecordingGate:
     def __init__(self):
@@ -178,6 +234,19 @@ class _RecordingGate:
 
     def release(self, uid: str) -> None:
         self.released.append(uid)
+
+
+class _MemoryIdempotency:
+    def __init__(self):
+        self.keys: set[str] = set()
+        self.remembered: list[tuple[str, str]] = []
+
+    def seen(self, document_id: str, *, kind: str) -> bool:
+        return document_id in self.keys
+
+    def remember(self, document_id: str, kind: str) -> None:
+        self.keys.add(document_id)
+        self.remembered.append((document_id, kind))
 
 
 if __name__ == "__main__":

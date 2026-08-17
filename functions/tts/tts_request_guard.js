@@ -114,6 +114,24 @@ class CircuitBreaker {
 }
 
 const ttsProviderBreaker = new CircuitBreaker();
+const SYNTH_DEADLINE_MS = 8_000;
+const MIN_AUDIO_BYTES = 1;
+
+function isUsableAudioBuffer(value) {
+  return Buffer.isBuffer(value) && value.length >= MIN_AUDIO_BYTES;
+}
+
+function withDeadline(promise, timeoutMs, message = "TTS synthesis timed out.") {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error(message));
+    }, timeoutMs);
+  });
+  return Promise.race([promise, timeout]).finally(() => {
+    clearTimeout(timer);
+  });
+}
 
 function quotaExpiresAt(day) {
   const [year, month, date] = day.split("-").map(Number);
@@ -245,10 +263,14 @@ module.exports = {
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
+  MIN_AUDIO_BYTES,
+  SYNTH_DEADLINE_MS,
   TtsRequestError,
+  isUsableAudioBuffer,
   quotaExpiresAt,
   refundDailyTtsQuotas,
   ttsProviderBreaker,
   validateTtsRequest,
   underDailyTtsQuotas,
+  withDeadline,
 };

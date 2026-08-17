@@ -24,11 +24,14 @@ const textToSpeech = require("@google-cloud/text-to-speech");
 const { cacheKey } = require("./tts_contract");
 const {
   CALLABLE_OPTIONS,
+  SYNTH_DEADLINE_MS,
   TtsRequestError,
+  isUsableAudioBuffer,
   refundDailyTtsQuotas,
   ttsProviderBreaker,
   validateTtsRequest,
   underDailyTtsQuotas,
+  withDeadline,
 } = require("./tts_request_guard");
 
 admin.initializeApp();
@@ -57,12 +60,22 @@ async function synthesizeTts(request) {
 
       const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
 
-      let audioBuffer;
+      let audioBuffer = null;
       const [exists] = await fileRef.exists();
       if (exists) {
         const [buf] = await fileRef.download();
-        audioBuffer = buf;
-      } else {
+        if (isUsableAudioBuffer(buf)) {
+          audioBuffer = buf;
+        } else {
+          try {
+            await fileRef.delete();
+          } catch {
+            // Empty or corrupt objects must not be replayed as a cache hit.
+          }
+        }
+      }
+
+      if (!isUsableAudioBuffer(audioBuffer)) {
         if (!ttsProviderBreaker.allow()) {
           throw new HttpsError(
             "unavailable",
@@ -87,12 +100,21 @@ async function synthesizeTts(request) {
         }
 
         try {
-          const [response] = await ttsClient.synthesizeSpeech({
-            input: { text },
-            voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
-            audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
-          });
-          audioBuffer = Buffer.from(response.audioContent);
+          const [response] = await withDeadline(
+            ttsClient.synthesizeSpeech(
+              {
+                input: { text },
+                voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
+                audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
+              },
+              { timeout: SYNTH_DEADLINE_MS },
+            ),
+            SYNTH_DEADLINE_MS,
+          );
+          audioBuffer = Buffer.from(response.audioContent || []);
+          if (!isUsableAudioBuffer(audioBuffer)) {
+            throw new Error("empty TTS audio");
+          }
           await fileRef.save(audioBuffer, {
             contentType: "audio/mpeg",
             resumable: false,

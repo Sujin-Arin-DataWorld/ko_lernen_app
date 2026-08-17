@@ -45,6 +45,7 @@ class TranslationCacheInfrastructureContractTest(unittest.TestCase):
             r"match\s+/usage/\{document=\*\*\}",
             r"match\s+/service_quotas/\{document=\*\*\}",
             r"match\s+/service_quota_ledgers/\{document=\*\*\}",
+            r"match\s+/service_idempotency/\{document=\*\*\}",
         ):
             self.assertRegex(
                 rules,
@@ -68,3 +69,4 @@ class TranslationCacheInfrastructureContractTest(unittest.TestCase):
         }
         self.assertIn(("usage", "expiresAt", True), ttl_groups)
         self.assertIn(("service_quota_ledgers", "expiresAt", True), ttl_groups)
+        self.assertIn(("service_idempotency", "expiresAt", True), ttl_groups)

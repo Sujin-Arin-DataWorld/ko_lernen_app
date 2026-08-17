@@ -5,8 +5,12 @@ const {getFirestore, FieldValue} = require("firebase-admin/firestore");
 const {HttpsError, onCall} = require("firebase-functions/v2/https");
 const {defineSecret} = require("firebase-functions/params");
 const {
+  IDEMPOTENCY_COLLECTION,
   PronunciationRequestError,
   pronunciationProviderBreaker,
+  pronunciationReplayDocument,
+  pronunciationReplayFromDocument,
+  pronunciationReplayId,
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,
@@ -55,6 +59,24 @@ async function releaseQuota(db, uid, now = new Date()) {
   });
 }
 
+async function loadPronunciationReplay(db, uid, assessmentId) {
+  const snapshot = await db
+    .collection(IDEMPOTENCY_COLLECTION)
+    .doc(pronunciationReplayId(uid, assessmentId))
+    .get();
+  if (!snapshot.exists) {
+    return null;
+  }
+  return pronunciationReplayFromDocument(snapshot.data(), assessmentId);
+}
+
+async function savePronunciationReplay(db, uid, scores) {
+  await db
+    .collection(IDEMPOTENCY_COLLECTION)
+    .doc(pronunciationReplayId(uid, scores.assessmentId))
+    .set(pronunciationReplayDocument(scores));
+}
+
 async function callAzure({audio, referenceText, signal}) {
   const url = new URL(
     `https://${AZURE_SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`,
@@ -96,6 +118,14 @@ exports.assessPronunciation = onCall({
 }, async (request) => {
   try {
     const input = validatePronunciationRequest(request);
+    const replay = await loadPronunciationReplay(
+      getFirestore(),
+      input.uid,
+      input.assessmentId,
+    );
+    if (replay) {
+      return replay;
+    }
     if (!pronunciationProviderBreaker.allow()) {
       throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
     }
@@ -108,6 +138,11 @@ exports.assessPronunciation = onCall({
       const providerResult = await callAzure({...input, signal: controller.signal});
       const parsed = parseAzureAssessment(providerResult, input.assessmentId);
       pronunciationProviderBreaker.recordSuccess();
+      try {
+        await savePronunciationReplay(getFirestore(), input.uid, parsed);
+      } catch {
+        // Keep the scored result even if the short-lived receipt cannot be stored.
+      }
       return parsed;
     } catch (error) {
       pronunciationProviderBreaker.recordFailure();
