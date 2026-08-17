@@ -1603,6 +1603,8 @@
   "wordWebQuizHintRelated": "What belongs with it?",
   "wordWebQuizHintExpression": "Which expression matches the meaning?",
   "wordWebQuizDoneTitle": "Round complete!",
+  "wordWebQuizEmptyTitle": "No round yet",
+  "wordWebQuizEmptyBody": "There are not enough comparison words for this set yet. Study the cards first, or learn a few more words.",
   "wordWebQuizScore": "{correct}/{total} correct",
   "@wordWebQuizScore": {
     "placeholders": {
@@ -3275,5 +3277,38 @@
   "vocabNotebookNuanceEmptyTitle": "No comparison yet",
   "vocabNotebookNuanceEmptyBody": "Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level.",
   "vocabNotebookSaveFailed": "The words could not be saved. Try again.",
-  "vocabNotebookNoHanja": "no Hanja"
+  "vocabNotebookNoHanja": "no Hanja",
+  "vocabNotebookStudioCta": "Build a game from these words",
+  "vocabNotebookStudioTitle": "My word game",
+  "vocabNotebookStudioHint": "Pick the words from your notebook. You then play only those — plus sentences we already have for them.",
+  "vocabNotebookStudioSelectAll": "Take all",
+  "vocabNotebookStudioSelectNone": "None",
+  "vocabNotebookStudioOwnGames": "With your meanings",
+  "vocabNotebookStudioCorpusGames": "With our sentences",
+  "vocabNotebookStudioCorpusHint": "Only sentences we already have. No new vocabulary is added.",
+  "vocabNotebookStudioCloze": "{count, plural, one{Cloze · 1 sentence} other{Cloze · {count} sentences}}",
+  "@vocabNotebookStudioCloze": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioSatz": "{count, plural, one{Build a sentence · 1 sentence} other{Build a sentence · {count} sentences}}",
+  "@vocabNotebookStudioSatz": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioSpeed": "{count, plural, one{Speed Match · 1 word} other{Speed Match · {count} words}}",
+  "@vocabNotebookStudioSpeed": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioChosung": "{count, plural, one{Chosung · 1 word} other{Chosung · {count} words}}",
+  "@vocabNotebookStudioChosung": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioNoCorpus": "We do not have a ready sentence for these words yet. Use your own meanings above."
 }

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../data/hanja_lexicon.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
@@ -41,7 +42,12 @@ import '../widgets/sori/tts_speed_control.dart';
 /// 빠르게 훑는 용도.
 class CustomPackPlayScreen extends StatefulWidget {
   final String packId;
-  const CustomPackPlayScreen({super.key, required this.packId});
+  final List<ExtractedWord>? words;
+  const CustomPackPlayScreen({
+    super.key,
+    required this.packId,
+    this.words,
+  });
 
   @override
   State<CustomPackPlayScreen> createState() => _CustomPackPlayScreenState();
@@ -86,7 +92,10 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   @override
   void initState() {
     super.initState();
-    _pack = CustomPackService.getById(widget.packId);
+    final pack = CustomPackService.getById(widget.packId);
+    _pack = pack == null || widget.words == null
+        ? pack
+        : pack.copyWith(words: widget.words);
     scheduleCoach();
   }
 

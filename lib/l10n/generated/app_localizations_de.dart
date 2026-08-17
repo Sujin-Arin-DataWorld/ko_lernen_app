@@ -3431,6 +3431,13 @@ class AppL10nDe extends AppL10n {
   String get wordWebQuizDoneTitle => 'Runde geschafft!';
 
   @override
+  String get wordWebQuizEmptyTitle => 'Noch keine Runde';
+
+  @override
+  String get wordWebQuizEmptyBody =>
+      'Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.';
+
+  @override
   String wordWebQuizScore(int correct, int total) {
     return '$correct/$total richtig';
   }
@@ -7468,4 +7475,78 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabNotebookNoHanja => 'kein Hanja';
+
+  @override
+  String get vocabNotebookStudioCta => 'Spiel aus diesen Wörtern bauen';
+
+  @override
+  String get vocabNotebookStudioTitle => 'Mein Wortspiel';
+
+  @override
+  String get vocabNotebookStudioHint =>
+      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.';
+
+  @override
+  String get vocabNotebookStudioSelectAll => 'Alle nehmen';
+
+  @override
+  String get vocabNotebookStudioSelectNone => 'Keine';
+
+  @override
+  String get vocabNotebookStudioOwnGames => 'Mit deinen Bedeutungen';
+
+  @override
+  String get vocabNotebookStudioCorpusGames => 'Mit unseren Sätzen';
+
+  @override
+  String get vocabNotebookStudioCorpusHint =>
+      'Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.';
+
+  @override
+  String vocabNotebookStudioCloze(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Lückensatz · $count Sätze',
+      one: 'Lückensatz · 1 Satz',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioSatz(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Satz bauen · $count Sätze',
+      one: 'Satz bauen · 1 Satz',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioSpeed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Speed Match · $count Wörter',
+      one: 'Speed Match · 1 Wort',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioChosung(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Chosung · $count Wörter',
+      one: 'Chosung · 1 Wort',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookStudioNoCorpus =>
+      'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.';
 }

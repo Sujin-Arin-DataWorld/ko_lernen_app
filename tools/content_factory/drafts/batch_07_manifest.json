@@ -1,15 +1,15 @@
 {
   "version": 1,
   "batch": "07",
-  "status": "review_only_draft",
+  "status": "index",
   "provenance": {
-    "scope": "Combined Batch 07 index. Partner-family is merged into live assets; A1-C2 4x expansion stays review-only so neither track is dropped.",
+    "scope": "Combined Batch 07 index. Partner-family is merged into live assets; the 4x remainder moved to Batch 09.",
     "rights": "original",
-    "createdAt": "2026-08-16",
+    "createdAt": "2026-08-17",
     "requiresJinReview": true,
     "tracks": [
       "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "tools/content_factory/drafts/batch_07_4x_manifest.json"
+      "tools/content_factory/drafts/batch_09_4x_manifest.json"
     ]
   },
   "predecessorManifests": [],
@@ -22,8 +22,8 @@
     },
     {
       "kind": "index",
-      "draft": "tools/content_factory/drafts/batch_07_4x_manifest.json",
-      "review": "tools/content_factory/drafts/batch_07_4x_manifest.json",
+      "draft": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "review": "tools/content_factory/drafts/batch_09_4x_manifest.json",
       "count": 1764
     }
   ],

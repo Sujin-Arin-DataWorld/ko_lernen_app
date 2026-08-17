@@ -48,25 +48,70 @@ pending을 지워 다음 재시도만 다시 과금한다. 같은 `assessmentId`
 **검증.** 책 분석 Python `test_*.py` **91/91**, TTS+발음 Node **23/23**.
 live 배포는 하지 않았다. 구현 커밋 `7ceb4ccf`.
 
-### 2026-08-17 (Cursor) — 백엔드 신뢰성 2단계: 멱등 재시도·제공자 deadline
+### 2026-08-17 (Cursor) — 학습자 텍스트 민수 → 현우
 
-**무엇을.** 2차 코드 리뷰에서 남은 유료 경로 결함을 고쳤다. 끝말잇기 사전
-`validate_kkeunmari_word`는 `validate_exact_noun`이 `None`이면 503 전에 할당량을
-환급한다. TTS는 0바이트 Storage 객체를 캐시 히트로 쓰지 않고 삭제한 뒤 재합성하며,
-빈 `audioContent`는 저장하지 않고 한도를 되돌린다. DeepL은 기본 10초×5회 재시도를
-끄고 호출당 8초 deadline을 두며, Cloud TTS 합성도 8초로 끊는다. 같은 학습자의 같은
-책 분석 지문과 같은 발음 `assessmentId`는 서버 전용 `service_idempotency`에 15분
-영수증만 남겨 재시도가 한도를 다시 깎지 않게 한다. 분석 영수증에는 원문·응답을
-넣지 않고, 발음 영수증에는 점수만 넣는다.
+**왜.** Jin 요청: 교과서 기본 남자 이름 `민수`/`Minsu`를 학습자가 보는
+텍스트에서 빼 달라는 것.
 
-**왜.** 클라 12초 타임아웃 뒤 재시도가 이중 과금되고, 빈 TTS가 영구 캐시되며,
-사전/번역 장애가 한도만 소모하는 상태를 막기 위해서다. live Gen2 배포와 legacy
-cache 삭제는 계속 Jin 운영 게이트다.
+**무엇을.** 앱 데이터·배치 진단·관련 테스트의 보이는 이름을 `현우`/`Hyunwoo`로
+바꿨다. 조사는 `민수`와 같이 모음 끝이라 `가/는/를/에게`가 그대로 맞는다.
+시나리오 speaker 코드 `minsu`와 마스코트 레거시 주석은 내부 ID라 유지했다.
+vocab 상속 지문 124건·smalltalk phrase 지문 66건을 재고정했다.
 
-**검증.** 책 분석 Python `test_*.py` **87/87**, TTS Node 가드 **16/16**, 발음
-Node 가드 **7/7**, `node --check` 4파일, `firestore.indexes.json` parse,
-`git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
-하지 않았다. 구현 커밋 `58529dda`.
+**검증.** loader·asset·data_integrity·placement·scenario flow·onboarding·
+productive assessment **34/34**. vocab 1620×15.
+
+**커밋.** `1a8ae36d` + 이 로그 커밋.
+
+### 2026-08-17 (Cursor) — 단어망 검수: 학습 1단어 퀴즈 0/0 수정
+
+**무엇을.** 검수에서 학습 범위가 얇은 클러스터 하나일 때 `buildQuiz`가
+보기를 못 만들어 퀴즈가 축하+0/0으로 끝나는 경로를 확인했다. 질문은 학습
+단어에 두고 보기만 전체 시드(`distractorClusters`)에서 가져오게 했다. 빈
+퀴즈는 새 DE/EN 빈 상태로 막고, 단어팩에서 돌아오면 학습 목록을 다시 그린다.
+
+**검증.** `flutter test --no-pub test/word_relation_service_test.dart
+test/word_web_screen_test.dart test/l10n_parity_test.dart` 통과.
+`flutter analyze --no-pub --fatal-infos` 대상 파일 No issues found.
+
+### 2026-08-17 (Cursor) — 4× 잔량을 Batch 09/10 review-only로 재번호
+
+**왜.** partner-family Batch 07/08이 live로 올라간 뒤, 기존 4× 초안
+(`batch_07_4x` / `batch_08_4x`)의 vocab/cloze/satz/smalltalk ID와
+`orderInLevel`이 현재 카탈로그와 충돌했다. PR 오픈+CI와 초안 PR #38 정리는
+이미 `main`에 들어가 있어서, 남은 후속은 이 잔량 초안을 다시 붙이는 일이었다.
+
+**무엇.** `build_level_content_4x.py`가 live max+1 ID와
+`vocab_pack_service.dart` 팩 순서 다음 칸을 읽어 Batch 09(다섯 종류 1764)와
+Batch 10(시나리오 174 + 미사용 live Satz 640)을 쓴다. C2 헤드워드
+`말의 자리`는 가족 트랙과 겹쳐 `발화의 자리`로 바꿨다. 옛 4× manifest는
+`superseded`. 앱 `assets/data`는 건드리지 않았다.
+
+**검증.** `validate_review_batch.py --manifest .../batch_09_4x_manifest.json`
+1764 overlay 통과. `integrate_scenario_batch.py` preview 814,
+inventory scenario 264 / satz 1515. `validate_content.py` ok.
+`python3 -m unittest tools.content_factory.test_level_content_4x` **9/9**.
+
+**커밋해시.** `75639ecf`.
+
+### 2026-08-17 (Cursor) — Vokabelheft 단어로 기존 게임 직접 만들기
+
+**무엇을.** 공책에서 뽑은 단어를 학습자가 고른 뒤, 이미 있는 게임으로
+연습 세트를 만들 수 있게 했다. `/vocab_notebook/studio`에서 카드·짝맞추기·
+받아쓰기·퀴즈·한자 비교는 고른 뜻만 쓰고, Cloze·문장 만들기·초성·스피드매치는
+`cloze.json` / `satz_sentences.json` / `korean_vocab.csv`에 그 표제어가 있을
+때만 연다. 없는 문장은 만들지 않는다. `하다` 표제어는 어간에 맞춰 기존
+문항을 찾는다. 초성 수는 한글 음절(+공백)만 센다.
+
+**왜.** “추출된 단어를 우리 학습 콘텐츠로 유저가 선택해서 스스로 게임을
+만들고 익히고 싶다”는 요청. 앱 단어로 덮어쓰지 않으면서 검증된 문장 게임을
+그 단어에만 연결해야 한다.
+
+**검증.** `flutter gen-l10n`. `flutter analyze --no-pub --fatal-infos` on the
+changed Dart files: No issues found. Focused tests: corpus resolver 6/6,
+studio widget, parser, shared game injection — all passed.
+
+**커밋해시.** `e03adfff`
 
 ### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
 
@@ -80,7 +125,12 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 보존했고, partner-family만 live로 올렸다. 푸시 뒤에 다시 생긴
 `cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
 `cursor/content-integrity-audit-2d55` C1/C2 존재 계약,
-`cursor/vocab-notebook-harden-3ab5`도 같은 방식으로 넣었다.
+`cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`,
+`cursor/backend-reliability-upgrade-feaa` 2단계,
+`cursor/vocab-notebook-studio-3ab5`,
+`cursor/backend-idempotency-deadlines-feaa` TTS 선점,
+`cursor/rename-minsu-hyunwoo-7caf`,
+`cursor/word-web-quiz-harden-89f9`도 같은 방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 
@@ -375,6 +425,26 @@ Apple 취소는 `null`(취소)로 되돌린다. iOS URL scheme을 커밋된 iOS 
 재배포와 실기기 Google SHA/Apple `.p8`는 이 커밋의 범위 밖이다.
 
 **커밋.** 이 항목과 같은 커밋.
+
+### 2026-08-17 (Cursor) — 백엔드 신뢰성 2단계: 멱등 재시도·제공자 deadline
+
+**무엇을.** 2차 코드 리뷰에서 남은 유료 경로 결함을 고쳤다. 끝말잇기 사전
+`validate_kkeunmari_word`는 `validate_exact_noun`이 `None`이면 503 전에 할당량을
+환급한다. TTS는 0바이트 Storage 객체를 캐시 히트로 쓰지 않고 삭제한 뒤 재합성하며,
+빈 `audioContent`는 저장하지 않고 한도를 되돌린다. DeepL은 기본 10초×5회 재시도를
+끄고 호출당 8초 deadline을 두며, Cloud TTS 합성도 8초로 끊는다. 같은 학습자의 같은
+책 분석 지문과 같은 발음 `assessmentId`는 서버 전용 `service_idempotency`에 15분
+영수증만 남겨 재시도가 한도를 다시 깎지 않게 한다. 분석 영수증에는 원문·응답을
+넣지 않고, 발음 영수증에는 점수만 넣는다.
+
+**왜.** 클라 12초 타임아웃 뒤 재시도가 이중 과금되고, 빈 TTS가 영구 캐시되며,
+사전/번역 장애가 한도만 소모하는 상태를 막기 위해서다. live Gen2 배포와 legacy
+cache 삭제는 계속 Jin 운영 게이트다.
+
+**검증.** 책 분석 Python `test_*.py` **87/87**, TTS Node 가드 **16/16**, 발음
+Node 가드 **7/7**, `node --check` 4파일, `firestore.indexes.json` parse,
+`git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
+하지 않았다. 구현 커밋 `2c5e5bb`.
 
 ### 2026-08-16 (Cursor) — 백엔드 신뢰성 1단계: 공정 할당량·서킷·TTL
 

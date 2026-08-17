@@ -31,7 +31,12 @@ import '../widgets/sori/tts_speed_control.dart';
 /// 뜻(translationDe)이 있는 단어만 출제. 최소 4개 필요.
 class CustomPackQuizScreen extends StatefulWidget {
   final String packId;
-  const CustomPackQuizScreen({super.key, required this.packId});
+  final List<ExtractedWord>? words;
+  const CustomPackQuizScreen({
+    super.key,
+    required this.packId,
+    this.words,
+  });
 
   @override
   State<CustomPackQuizScreen> createState() => _CustomPackQuizScreenState();
@@ -75,7 +80,10 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   @override
   void initState() {
     super.initState();
-    final pack = CustomPackService.getById(widget.packId);
+    final loaded = CustomPackService.getById(widget.packId);
+    final pack = loaded == null || widget.words == null
+        ? loaded
+        : loaded.copyWith(words: widget.words);
     _pack = pack;
     if (pack != null) {
       _pool = pack.words

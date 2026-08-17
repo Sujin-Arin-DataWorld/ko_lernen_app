@@ -1671,6 +1671,8 @@
   "wordWebQuizHintRelated": "Was gehört dazu?",
   "wordWebQuizHintExpression": "Welche Wendung passt zur Bedeutung?",
   "wordWebQuizDoneTitle": "Runde geschafft!",
+  "wordWebQuizEmptyTitle": "Noch keine Runde",
+  "wordWebQuizEmptyBody": "Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.",
   "wordWebQuizScore": "{correct}/{total} richtig",
   "@wordWebQuizScore": {
     "placeholders": {
@@ -3378,5 +3380,38 @@
   "vocabNotebookNuanceEmptyTitle": "Noch kein Vergleich",
   "vocabNotebookNuanceEmptyBody": "Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.",
   "vocabNotebookSaveFailed": "Die Wörter konnten nicht gespeichert werden. Versuch es noch einmal.",
-  "vocabNotebookNoHanja": "kein Hanja"
+  "vocabNotebookNoHanja": "kein Hanja",
+  "vocabNotebookStudioCta": "Spiel aus diesen Wörtern bauen",
+  "vocabNotebookStudioTitle": "Mein Wortspiel",
+  "vocabNotebookStudioHint": "Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.",
+  "vocabNotebookStudioSelectAll": "Alle nehmen",
+  "vocabNotebookStudioSelectNone": "Keine",
+  "vocabNotebookStudioOwnGames": "Mit deinen Bedeutungen",
+  "vocabNotebookStudioCorpusGames": "Mit unseren Sätzen",
+  "vocabNotebookStudioCorpusHint": "Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.",
+  "vocabNotebookStudioCloze": "{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}",
+  "@vocabNotebookStudioCloze": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioSatz": "{count, plural, one{Satz bauen · 1 Satz} other{Satz bauen · {count} Sätze}}",
+  "@vocabNotebookStudioSatz": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioSpeed": "{count, plural, one{Speed Match · 1 Wort} other{Speed Match · {count} Wörter}}",
+  "@vocabNotebookStudioSpeed": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioChosung": "{count, plural, one{Chosung · 1 Wort} other{Chosung · {count} Wörter}}",
+  "@vocabNotebookStudioChosung": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioNoCorpus": "Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen."
 }

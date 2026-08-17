@@ -47,8 +47,9 @@ class _WordWebScreenState extends State<WordWebScreen>
   bool _loading = true;
   WordWebScope _scope = WordWebScope.learned;
   List<WordRelationCluster> _all = const [];
-  List<WordRelationCluster> _visible = const [];
   final GlobalKey _listKey = GlobalKey();
+
+  List<WordRelationCluster> get _visible => _loading ? const [] : _filter();
 
   @override
   String get coachId => 'wordWeb';
@@ -94,7 +95,6 @@ class _WordWebScreenState extends State<WordWebScreen>
     setState(() {
       _all = all;
       _loading = false;
-      _visible = _filter();
     });
   }
 
@@ -120,7 +120,6 @@ class _WordWebScreenState extends State<WordWebScreen>
     }
     setState(() {
       _scope = scope;
-      _visible = _filter();
     });
   }
 
@@ -178,8 +177,10 @@ class _WordWebScreenState extends State<WordWebScreen>
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute<void>(
-                            builder: (_) =>
-                                WordWebQuizScreen(clusters: _visible),
+                            builder: (_) => WordWebQuizScreen(
+                              clusters: _visible,
+                              distractorClusters: _all,
+                            ),
                           ),
                         );
                       },
@@ -250,7 +251,12 @@ class _WordWebScreenState extends State<WordWebScreen>
         title: t.wordWebEmptyTitle,
         body: t.wordWebEmptyBody,
         ctaLabel: t.wordWebOpenVocabCta,
-        onCta: () => Navigator.of(context).pushNamed('/vocab'),
+        onCta: () async {
+          await Navigator.of(context).pushNamed('/vocab');
+          if (mounted) {
+            setState(() {});
+          }
+        },
         secondaryLabel: t.wordWebBrowseLevelCta,
         onSecondary: () => _setScope(WordWebScope.level),
       ),

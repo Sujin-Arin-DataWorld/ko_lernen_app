@@ -27,7 +27,12 @@ import '../widgets/sori/tts_speed_control.dart';
 /// 가벼운 인출 강화 게임. 한 라운드 최대 6쌍.
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
-  const CustomPackMatchingScreen({super.key, required this.packId});
+  final List<ExtractedWord>? words;
+  const CustomPackMatchingScreen({
+    super.key,
+    required this.packId,
+    this.words,
+  });
 
   @override
   State<CustomPackMatchingScreen> createState() =>
@@ -78,7 +83,10 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   void initState() {
     super.initState();
     Analytics.gameStarted(gameType: 'matching');
-    final pack = CustomPackService.getById(widget.packId);
+    final loaded = CustomPackService.getById(widget.packId);
+    final pack = loaded == null || widget.words == null
+        ? loaded
+        : loaded.copyWith(words: widget.words);
     _pack = pack;
     if (pack != null) {
       _pool = pack.words

@@ -1,22 +1,21 @@
 {
   "version": 1,
-  "batch": "08",
-  "status": "superseded",
+  "batch": "10",
+  "status": "review_only_draft",
   "provenance": {
-    "scope": "Original A1-C2 scenario expansion to 4x live scenario count, plus Satzbau from unused live vocabulary examples. No textbook dialog is reproduced.",
+    "scope": "Renumbered A1-C2 4x scenario remainder after live partner-family Batch 07/08. Original scenario expansion plus Satzbau from unused live vocabulary examples. No textbook dialog is reproduced.",
     "rights": "original_clean_room",
     "requiresJinReview": true,
-    "startingMainSha": "82afdcde8ffdbc978499f4dd1cc20bf2944e20ed",
-    "createdAt": "2026-08-16",
-    "supersededBy": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-    "supersededReason": "Unused-satz IDs would collide with remumbered Batch 09 satz; scenarios stay review-only under Batch 10.",
-    "supersededAt": "2026-08-17"
+    "startingMainSha": "e17dce3a",
+    "createdAt": "2026-08-17",
+    "replaces": "tools/content_factory/drafts/batch_08_4x_manifest.json"
   },
+  "predecessorManifests": [],
   "artifacts": [
     {
       "kind": "scenario",
-      "draft": "tools/content_factory/drafts/c1_batch08_scenarios_a1_c2.json",
-      "review": "tools/content_factory/review/c1_batch08_scenarios.csv",
+      "draft": "tools/content_factory/drafts/c1_batch10_scenarios_a1_c2.json",
+      "review": "tools/content_factory/review/c1_batch10_scenarios.csv",
       "collection": "scenarios",
       "count": 174,
       "levels": {
@@ -30,19 +29,19 @@
     },
     {
       "kind": "satz",
-      "draft": "tools/content_factory/drafts/c2_batch08_satz_unused_live.json",
-      "review": "tools/content_factory/review/c2_batch08_satz.csv",
+      "draft": "tools/content_factory/drafts/c2_batch10_satz_unused_live.json",
+      "review": "tools/content_factory/review/c2_batch10_satz.csv",
       "collection": "items",
-      "count": 641,
+      "count": 640,
       "levels": {
         "a1": 47,
         "a2": 224,
         "b1": 197,
-        "b2": 173
+        "b2": 172
       }
     }
   ],
-  "recordCount": 815,
+  "recordCount": 814,
   "questCount": 522,
   "contentLinks": [
     {
@@ -1794,5 +1793,9 @@
   },
   "mergeOrder": [
     "scenario + unused-live satz + contentLinks + scenario backdrop + audit manifest"
+  ],
+  "nonMergeGuards": [
+    "Do not apply superseded batch_08_4x_manifest.json; unused-satz IDs collide with Batch 09.",
+    "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction."
   ]
 }

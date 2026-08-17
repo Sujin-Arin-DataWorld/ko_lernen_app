@@ -78,7 +78,10 @@ const List<String> _vowelPadKeys = [
 enum _State { waiting, correct, wrong }
 
 class ChosungQuizScreen extends StatefulWidget {
-  const ChosungQuizScreen({super.key});
+  const ChosungQuizScreen({super.key, this.deck});
+
+  /// Optional notebook / pack subset. Production library play leaves this null.
+  final List<Vocab>? deck;
 
   @override
   State<ChosungQuizScreen> createState() => _ChosungQuizScreenState();
@@ -159,12 +162,12 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   Future<void> _load() async {
     _feedbackCompletion.reset();
-    final all = await DataLoader.loadVocab();
+    final source = widget.deck ?? await DataLoader.loadVocab();
     final filtered =
-        all
+        source
             .where(
               (v) =>
-                  v.level == _level &&
+                  (widget.deck != null || v.level == _level) &&
                   // C1/C2 vocabulary is intentionally phrase-based. Spaces
                   // are rendered as literal hint separators and remain
                   // typeable with the system keyboard used above A2.

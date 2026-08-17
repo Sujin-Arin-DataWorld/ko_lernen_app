@@ -113,6 +113,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/vocab_notebook` | BookCaptureScreen(captureMode: notebook) — 단어장 사진 |
 | `/vocab_notebook/result` (args) | VocabNotebookResultScreen (OCR에서 그 단어 쌍만 검토) |
 | `/vocab_notebook/practice` (args: packId) | VocabNotebookPracticeScreen (카드·짝맞추기·받아쓰기·퀴즈·한자/유의어) |
+| `/vocab_notebook/studio` (args: packId) | VocabNotebookStudioScreen (고른 단어로 기존 게임 만들기) |
 | `/vocab_notebook/nuance` (args: packId) | VocabNuanceScreen (유의어·격식·한자 뿌리 비교 놀이) |
 | `/bookshelf` | BookshelfScreen (내 책장 + 커스텀팩) |
 | `/bookshelf/page` (args: pageId) | BookshelfPageScreen |
@@ -372,10 +373,15 @@ flutter run -d <android-id>   # 안드로이드
   live 자산에 들어갔다. 현재 카탈로그는 vocab 1620, cloze 962, satz 875,
   smalltalk 365, scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk
   semantic decision 321이다.
-- [ ] **레벨 콘텐츠 4× 초안 (Batch 07/08, review-only)**: 단어 48팩/576개, 문법 24,
-  스몰토크 12, Cloze/Satz 각 576(Batch 07)과 시나리오 174 + 미사용 live Satz 641
-  (Batch 08)을 draft에만 두었다. `--apply`/TTS/Firebase는 Jin 승인 전 금지.
-- [ ] **다음 콘텐츠**: 4× 초안 트랙은 별도 manifest로 보존한다. loader 재계산
+- [ ] **레벨 콘텐츠 4× 잔량 초안 (Batch 09/10, review-only)**: partner-family
+  승격 뒤 충돌하던 Batch 07/08 4× ID를 폐기하고, live max+1부터 다시 붙였다.
+  Batch 09는 단어 48팩/576·문법 24·스몰토크 12·Cloze/Satz 각 576,
+  Batch 10은 시나리오 174 + 미사용 live Satz 640이다. 적용 매니페스트는
+  `batch_09_4x_manifest.json` / `batch_10_4x_manifest.json`이다.
+  옛 `batch_07_4x` / `batch_08_4x`는 `superseded`. `--apply`/TTS/Firebase는
+  Jin 승인 전 금지. 원래 4× 목표(vocab 4752 / scenario 232 / satz 1676)까지는
+  이 슬라이스 이후에도 vocab 잔량이 남는다.
+- [ ] **다음 콘텐츠**: 4× 잔량 초안은 Batch 09/10 manifest로 보존한다. loader 재계산
   작업량은 `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
   PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만
   독립 집필에 쓴다. review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.
@@ -418,7 +424,9 @@ flutter run -d <android-id>   # 안드로이드
  경로가 사진의 한국어–뜻 쌍을 그대로 팩으로 만들고, 카드·짝맞추기·받아쓰기·퀴즈와
  한자/유의어/격식 비교 놀이로 이어진다. CSV/TSV 가져오기는 8,000행까지 받는다.
  코드 리뷰 후 두 칸 OCR 짝짓기, 괄호 뜻, 추가 사진 시 저장, 교재 할당량 우회,
- 중복 단어 제거를 고쳤다. 실기기 촬영 검수는 Jin 게이트로 남는다.
+ 중복 단어 제거를 고쳤다. 학습자는 그 단어 중 골라 카드·퀴즈와 기존 Cloze·
+ 문장 만들기·초성·스피드매치 콘텐츠로 스스로 게임을 만든다. 없는 문장은
+ 만들지 않는다. 실기기 촬영 검수는 Jin 게이트로 남는다.
 
 ## 세션 로그 → docs/SESSION_LOG.md
 
