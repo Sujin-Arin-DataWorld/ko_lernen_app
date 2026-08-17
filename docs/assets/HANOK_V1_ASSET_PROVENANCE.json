@@ -741,6 +741,65 @@
             "decisionReason": "true_alpha_open_rafters_and_chunyeo_only_with_continuity_passed"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_10_roof_base_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:56:07Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-9b97a6d4-d5b7-4cea-b2e2-8703cbfd6880",
+        "status": "completed",
+        "promptSha256": "06070925d626b7b39ab95ed96b47e98393b48298fa0f9c93d1445ff4fbcc1712",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/09_rafters_roof_frame_recraft_20260817.png",
+            "sha256": "89661c1d1c2d29896cccd5e449f3e4f93d1e177a048e682a5f9278d693cbddec"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/10_roof_base_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "e948b861ffbc22bed902c8f18e12e7b44f2b59349d158a4a9733a0ca00f047ed",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1790898,
+            "decisionReason": "roof_sheathing_semantics_passed_but_checkerboard_was_baked_rgb"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_10_roof_base_recraft_approved_20260817",
+        "provider": "BBANANA",
+        "model": "Recraft Remove Background",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:56:53.366371Z",
+        "costCredits": 0.3,
+        "taskId": "cc7aed7530b5ceab8a695ae4aa8bb320",
+        "status": "completed",
+        "promptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/10_roof_base_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "e948b861ffbc22bed902c8f18e12e7b44f2b59349d158a4a9733a0ca00f047ed"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/10_roof_base_recraft_20260817.png",
+            "sha256": "25c0dfd28424dd90e34c783bf15f7352173e134663cda01b3ded58d724cafe79",
+            "decision": "approved",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 2009588,
+            "decisionReason": "true_alpha_gaepan_roof_base_only_with_continuity_passed"
+          }
+        ]
       }
     ]
   },
@@ -1060,6 +1119,76 @@
             "no_roof_base_waterproofing_thatch_tiles_walls_or_sujang",
             "no_text_ui_people_animals_or_watermark",
             "foundation_continuity_iou_0_972377_and_edge_drift_12",
+            "camera_and_estate_preserved_by_deterministic_composition"
+          ]
+        }
+      },
+      {
+        "stageId": "10_roof_base",
+        "generationRecordId": "hanok_a1_10_roof_base_recraft_approved_20260817",
+        "status": "approved_qa",
+        "rawLayer": {
+          "path": "assets_unused/pending_review/a1_layers/raw/10_roof_base_recraft_20260817.png",
+          "sha256": "25c0dfd28424dd90e34c783bf15f7352173e134663cda01b3ded58d724cafe79",
+          "width": 2172,
+          "height": 724,
+          "colorMode": "RGBA",
+          "bytes": 2009588
+        },
+        "normalizedLayer": {
+          "path": "assets_unused/pending_review/a1_layers/10_roof_base_layer.png",
+          "sha256": "1ac3706b14c6da0b5491417096093b88b497aeea557a092b2c2fe5fa3bfcc40e",
+          "width": 854,
+          "height": 309,
+          "colorMode": "RGBA",
+          "bytes": 330893,
+          "alphaCoverage": 0.5148283728579766,
+          "anchorPixels": 1011,
+          "chromaPixels": 0,
+          "cumulativeContinuity": {
+            "foundationBandHeight": 80,
+            "alphaIoU": 0.9882462912634804,
+            "maximumEdgeDriftPixels": 2,
+            "previousFootprint": [
+              20,
+              0,
+              843,
+              80
+            ],
+            "currentFootprint": [
+              22,
+              0,
+              841,
+              80
+            ]
+          }
+        },
+        "composite": {
+          "path": "assets_unused/pending_review/a1_states/10_roof_base.webp",
+          "sha256": "99157f9bf60a40a5534914cbb3007e47925b71f484f6d0753d01012f466ec20d",
+          "width": 1536,
+          "height": 1152,
+          "colorMode": "RGB",
+          "bytes": 289664,
+          "sourceOutsideSocketChangedPixels": 0,
+          "sourceInsideSocketChangedPixels": 139262,
+          "decodedOutsideSocketMeanError": 3.3375795205322047,
+          "encoder": {
+            "library": "Pillow",
+            "version": "11.3.0",
+            "quality": 82,
+            "method": 6
+          }
+        },
+        "visualReview": {
+          "decision": "approved",
+          "checks": [
+            "exactly_seven_primary_columns_preserved",
+            "existing_frame_and_projecting_rafter_ends_preserved",
+            "thin_wooden_gaepan_and_narrow_underlayer_are_the_only_new_roof_base",
+            "no_soil_thatch_tiles_ridge_walls_sujang_or_changho",
+            "no_text_ui_people_animals_or_watermark",
+            "foundation_continuity_iou_0_988246_and_edge_drift_2",
             "camera_and_estate_preserved_by_deterministic_composition"
           ]
         }

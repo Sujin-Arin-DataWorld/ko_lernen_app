@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-10 개판·지붕 바탕
+
+**누적 공정과 실패 폐쇄.** 승인된 A1-09 raw만 입력해 기존 기단·계단·목재·초석·
+정확히 7개 주기둥과 전체 보·창방·도리·종도리·서까래·추녀 골조를 유지하고 얇은
+목재 개판/지붕 바탕과 좁은 밑층만 추가했다. ImageGen 결과는 공정 의미를 통과했지만
+checkerboard를 실제 RGB로 구워 거절했다. 그 exact rejected SHA만 Recraft에 입력해
+0.3 BBANANA credit으로 true alpha를 복구했다. 사용자 첨부 화면·Vivasam·PDF·legacy·
+Gye 자산은 모델 입력에 사용하지 않았다.
+
+**최종 승인.** raw는 2172×724 RGBA·2,009,588 bytes, normalized layer는
+854×309 RGBA·330,893 bytes, alpha 51.48%·anchor 1,011·chroma 0이다. A1-09 대비
+foundation alpha IoU는 0.988246, edge drift는 2px다. QA composite는 1536×1152
+RGB WebP·289,664 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3376이다.
+육안으로 서까래 끝이 계속 보이고 새 얇은 지붕 바탕만 존재함을 확인했다. 흙·초가·
+기와·용마루·벽·수장·창호는 없다. 정적 BBANANA ledger 합계는 13.5 credits,
+마지막 확인 잔액은 921.3 credits다. 아직 runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**16/16**, JSON parse·Python compile·Dart format을 통과했다. 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**와
+`git diff --check`도 통과했다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-09 서까래·추녀
 
 **누적 공정과 실패 폐쇄.** 승인된 A1-08 raw만 입력해 기존 기단·계단·목재·초석·
