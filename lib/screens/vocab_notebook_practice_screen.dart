@@ -124,7 +124,6 @@ class _VocabNotebookPracticeScreenState
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(
                 label: t.vocabNotebookStudioCta,
-                icon: Icons.tune_rounded,
                 fullWidth: true,
                 accent: SoriColors.goldOnLight,
                 onTap: pack.words.isEmpty

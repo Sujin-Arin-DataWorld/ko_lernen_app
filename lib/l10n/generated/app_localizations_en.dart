@@ -7448,7 +7448,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Pick the words from your notebook. You then play only those — plus sentences we already have for them.';
+      'Pick the words from your notebook. You then play only those, plus sentences, dialogues and word webs we already have for them.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Take all';
@@ -7464,7 +7464,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioCorpusHint =>
-      'Only sentences we already have. No new vocabulary is added.';
+      'Only sentences, dialogues and word webs we already have. No new vocabulary is added.';
 
   @override
   String vocabNotebookStudioCloze(int count) {
@@ -7513,4 +7513,52 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabNotebookStudioNoCorpus =>
       'We do not have a ready sentence for these words yet. Use your own meanings above.';
+
+  @override
+  String get vocabNotebookStudioLoadFailed =>
+      'Some of our sentences could not load. Check the connection and try again.';
+
+  @override
+  String vocabNotebookStudioSmalltalk(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Small talk · $count lines',
+      one: 'Small talk · 1 line',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioPronunciation(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Pronunciation · $count sentences',
+      one: 'Pronunciation · 1 sentence',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioScenarios(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Scenario · $count scenes',
+      one: 'Scenario · 1 scene',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioWordWeb(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Word web · $count words',
+      one: 'Word web · 1 word',
+    );
+    return '$_temp0';
+  }
 }

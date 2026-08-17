@@ -440,7 +440,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                       const SizedBox(height: Spacing.sm),
                       SoriButton(
                         label: t.vocabNotebookStudioCta,
-                        icon: Icons.tune_rounded,
                         variant: SoriButtonVariant.filled,
                         accent: SoriColors.goldOnLight,
                         fullWidth: true,

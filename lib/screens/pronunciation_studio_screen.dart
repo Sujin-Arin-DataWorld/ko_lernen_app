@@ -29,6 +29,7 @@ class PronunciationStudioScreen extends StatefulWidget {
     this.gateway,
     this.recorder,
     this.phraseLoader,
+    this.phrases,
   });
 
   final PronunciationAssessmentGateway? gateway;
@@ -36,6 +37,9 @@ class PronunciationStudioScreen extends StatefulWidget {
 
   /// Test seam; production reads the versioned pronunciation asset.
   final Future<List<PronunciationPhrase>> Function()? phraseLoader;
+
+  /// Notebook studio subset. Skips the cumulative level filter.
+  final List<PronunciationPhrase>? phrases;
 
   @override
   State<PronunciationStudioScreen> createState() =>
@@ -87,18 +91,24 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   }
 
   Future<void> _loadPhrases() async {
-    final usesBundledAsset = widget.phraseLoader == null;
+    final usesBundledAsset =
+        widget.phraseLoader == null && widget.phrases == null;
     setState(() {
       _loading = true;
       _loadFailed = false;
     });
     try {
-      final source = widget.phraseLoader ?? PronunciationPhraseLoader.load;
+      final injected = widget.phrases;
+      final source = injected != null
+          ? () async => injected
+          : (widget.phraseLoader ?? PronunciationPhraseLoader.load);
       final allPhrases = await source();
-      final visiblePhrases = PronunciationPhraseLoader.forLearnerLevel(
-        allPhrases,
-        learnerLevelForStoredCode(Storage.userLevelCode),
-      );
+      final visiblePhrases = injected != null
+          ? allPhrases
+          : PronunciationPhraseLoader.forLearnerLevel(
+              allPhrases,
+              learnerLevelForStoredCode(Storage.userLevelCode),
+            );
       final failed =
           usesBundledAsset && PronunciationPhraseLoader.lastError != null;
       if (!mounted) {

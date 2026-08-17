@@ -32,9 +32,12 @@ import '../widgets/sori/wordbook_add.dart';
 /// Liest `assets/data/smalltalk.json` (via [SmalltalkLoader]). Tippen auf eine
 /// Karte spricht den koreanischen Satz (TTS).
 class SmalltalkScreen extends StatefulWidget {
-  const SmalltalkScreen({super.key, this.courseContext});
+  const SmalltalkScreen({super.key, this.courseContext, this.phrases});
 
   final CoursePracticeContext? courseContext;
+
+  /// Notebook studio subset. Production library play leaves this null.
+  final List<SmalltalkPhrase>? phrases;
 
   @override
   State<SmalltalkScreen> createState() => _SmalltalkScreenState();
@@ -53,6 +56,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   bool _loadFailed = false;
 
   bool get _isCoursePractice => widget.courseContext != null;
+
+  bool get _isInjected => widget.phrases != null;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _categoryKey = GlobalKey();
@@ -87,7 +92,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   @override
   void initState() {
     super.initState();
-    if (!_isCoursePractice) {
+    if (_isInjected) {
+      _level = null;
+    } else if (!_isCoursePractice) {
       _level = Storage.userLevelCode ?? 'a1';
     }
     _load();
@@ -101,6 +108,27 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     });
     try {
       await SmalltalkLoader.load();
+      final injected = widget.phrases;
+      if (injected != null) {
+        if (!mounted) {
+          return;
+        }
+        final cats = _categoriesFor(
+          injected.map((phrase) => phrase.id).toSet(),
+        );
+        setState(() {
+          _courseContentIds = {
+            for (final phrase in injected) phrase.id,
+          };
+          _courseAssessmentLinks = const <String, ContentLink>{};
+          _missionStep = null;
+          _missionTitle = null;
+          _level = null;
+          _cat = cats.isNotEmpty ? cats.first.id : '';
+          _loading = false;
+        });
+        return;
+      }
       // The legacy loader contains its own asset errors to keep direct browse
       // mode resilient. A mission screen needs a retryable failure instead of
       // silently presenting an empty practice list with raw loader copy.
@@ -349,27 +377,28 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             ),
           ),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-          child: Row(
-            children: [
-              _levelChip(t.filterAll, null),
-              const SizedBox(width: 6),
-              _levelChip('A1', 'a1'),
-              const SizedBox(width: 6),
-              _levelChip('A2', 'a2'),
-              const SizedBox(width: 6),
-              _levelChip('B1', 'b1'),
-              const SizedBox(width: 6),
-              _levelChip('B2', 'b2'),
-              const SizedBox(width: 6),
-              _levelChip('C1', 'c1'),
-              const SizedBox(width: 6),
-              _levelChip('C2', 'c2'),
-            ],
+        if (!_isInjected)
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+            child: Row(
+              children: [
+                _levelChip(t.filterAll, null),
+                const SizedBox(width: 6),
+                _levelChip('A1', 'a1'),
+                const SizedBox(width: 6),
+                _levelChip('A2', 'a2'),
+                const SizedBox(width: 6),
+                _levelChip('B1', 'b1'),
+                const SizedBox(width: 6),
+                _levelChip('B2', 'b2'),
+                const SizedBox(width: 6),
+                _levelChip('C1', 'c1'),
+                const SizedBox(width: 6),
+                _levelChip('C2', 'c2'),
+              ],
+            ),
           ),
-        ),
         const SizedBox(height: Spacing.sm),
         Expanded(
           child: phrases.isEmpty

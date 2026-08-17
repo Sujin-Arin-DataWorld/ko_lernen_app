@@ -3383,12 +3383,12 @@
   "vocabNotebookNoHanja": "kein Hanja",
   "vocabNotebookStudioCta": "Spiel aus diesen Wörtern bauen",
   "vocabNotebookStudioTitle": "Mein Wortspiel",
-  "vocabNotebookStudioHint": "Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.",
+  "vocabNotebookStudioHint": "Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Wortnetzen, die wir dafür schon haben.",
   "vocabNotebookStudioSelectAll": "Alle nehmen",
   "vocabNotebookStudioSelectNone": "Keine",
   "vocabNotebookStudioOwnGames": "Mit deinen Bedeutungen",
   "vocabNotebookStudioCorpusGames": "Mit unseren Sätzen",
-  "vocabNotebookStudioCorpusHint": "Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.",
+  "vocabNotebookStudioCorpusHint": "Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.",
   "vocabNotebookStudioCloze": "{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {
@@ -3413,5 +3413,30 @@
       "count": {"type": "int"}
     }
   },
-  "vocabNotebookStudioNoCorpus": "Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen."
+  "vocabNotebookStudioNoCorpus": "Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.",
+  "vocabNotebookStudioLoadFailed": "Einige unserer Sätze konnten nicht geladen werden. Verbindung prüfen und noch einmal versuchen.",
+  "vocabNotebookStudioSmalltalk": "{count, plural, one{Smalltalk · 1 Satz} other{Smalltalk · {count} Sätze}}",
+  "@vocabNotebookStudioSmalltalk": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioPronunciation": "{count, plural, one{Aussprache · 1 Satz} other{Aussprache · {count} Sätze}}",
+  "@vocabNotebookStudioPronunciation": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioScenarios": "{count, plural, one{Szenario · 1 Szene} other{Szenario · {count} Szenen}}",
+  "@vocabNotebookStudioScenarios": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioWordWeb": "{count, plural, one{Wortnetz · 1 Wort} other{Wortnetz · {count} Wörter}}",
+  "@vocabNotebookStudioWordWeb": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
 }
