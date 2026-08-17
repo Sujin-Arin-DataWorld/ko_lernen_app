@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — TTS 완료·빈 오디오는 inflight 재시도가 아님
+
+**무엇.** `ttsSynthesisPlan`이 pending wait와 completed-miss wait를 나눈다.
+서버는 패자에게만 "already in progress"를 주고, 영수증은 끝났는데 객체가 없으면
+"TTS audio is not available."를 준다. 클라는 inflight만 재시도하고, 빈 완료·
+쿼터는 `TtsSynthesisBlocked`로 OS TTS에 떨어지지 않는다.
+
+**왜.** 같은 unavailable 문자열이 빈 캐시를 3번 재시도한 뒤 로봇 음성으로
+새게 했다.
+
+**검증.** Node TTS guard, Flutter `tts_cache_key_test`·`tts_request_rate_test`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — TTS 대기/쿼터 + 단어망 Kurs만 분리
 
 **무엇.** 한옥 compose/맵/AGENTS는 Windows 세션과 겹쳐서 이 브랜치에서 뺐다.

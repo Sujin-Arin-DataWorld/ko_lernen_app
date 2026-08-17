@@ -30,6 +30,35 @@ class TtsSynthesisBlocked implements Exception {
   String toString() => message;
 }
 
+/// How the client should treat one Cloud Function TTS error.
+enum TtsCallableKind { retryInflight, blockQuota, blockUnavailable, fallback }
+
+class TtsCallableFailure {
+  static const alreadyInProgressMessage = 'TTS synthesis is already in progress.';
+  static const audioUnavailableMessage = 'TTS audio is not available.';
+  static const quotaMessage = 'Daily synthesis limit reached.';
+
+  static TtsCallableKind classify({required String code, String? message}) {
+    if (_codeMatches(code, 'resource-exhausted')) {
+      return TtsCallableKind.blockQuota;
+    }
+    if (_codeMatches(code, 'unavailable')) {
+      final text = message ?? '';
+      if (text.contains('already in progress')) {
+        return TtsCallableKind.retryInflight;
+      }
+      if (text.contains('not available')) {
+        return TtsCallableKind.blockUnavailable;
+      }
+    }
+    return TtsCallableKind.fallback;
+  }
+
+  static bool _codeMatches(String raw, String code) {
+    return raw == code || raw == 'functions/$code' || raw.endsWith('/$code');
+  }
+}
+
 /// Immutable, revisioned address for one synthesized TTS request.
 ///
 /// The same `{voice}|{text}` SHA-1 input is deliberately shared with the
@@ -570,12 +599,23 @@ class TtsService {
           }
           return null;
         } on FirebaseFunctionsException catch (error) {
-          if (_isTtsAlreadyInProgress(error) && attempt < maxAttempts - 1) {
+          final kind = TtsCallableFailure.classify(
+            code: error.code,
+            message: error.message,
+          );
+          if (kind == TtsCallableKind.retryInflight &&
+              attempt < maxAttempts - 1) {
             continue;
           }
-          if (_isTtsResourceExhausted(error)) {
-            lastError = 'Daily synthesis limit reached.';
-            throw const TtsSynthesisBlocked('Daily synthesis limit reached.');
+          if (kind == TtsCallableKind.blockQuota) {
+            lastError = TtsCallableFailure.quotaMessage;
+            throw const TtsSynthesisBlocked(TtsCallableFailure.quotaMessage);
+          }
+          if (kind == TtsCallableKind.blockUnavailable) {
+            lastError = TtsCallableFailure.audioUnavailableMessage;
+            throw const TtsSynthesisBlocked(
+              TtsCallableFailure.audioUnavailableMessage,
+            );
           }
           break;
         }
@@ -586,23 +626,6 @@ class TtsService {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.
     }
     return null;
-  }
-
-  static bool _isFunctionsCode(FirebaseFunctionsException error, String code) {
-    final raw = error.code;
-    return raw == code || raw == 'functions/$code' || raw.endsWith('/$code');
-  }
-
-  static bool _isTtsAlreadyInProgress(FirebaseFunctionsException error) {
-    if (!_isFunctionsCode(error, 'unavailable')) {
-      return false;
-    }
-    final message = error.message ?? '';
-    return message.contains('already in progress');
-  }
-
-  static bool _isTtsResourceExhausted(FirebaseFunctionsException error) {
-    return _isFunctionsCode(error, 'resource-exhausted');
   }
 
   static Future<TtsPlaybackSession?> _startFile(

@@ -56,6 +56,38 @@ void main() {
     expect(source, contains('TtsSynthesisBlocked'));
     expect(source, contains('already in progress'));
     expect(source, contains('resource-exhausted'));
+    expect(source, contains('TTS audio is not available.'));
     expect(source, isNot(contains('http.post(')));
+  });
+
+  test('callable failures retry only inflight and block empty completed audio', () {
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: TtsCallableFailure.alreadyInProgressMessage,
+      ),
+      TtsCallableKind.retryInflight,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: TtsCallableFailure.audioUnavailableMessage,
+      ),
+      TtsCallableKind.blockUnavailable,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'resource-exhausted',
+        message: TtsCallableFailure.quotaMessage,
+      ),
+      TtsCallableKind.blockQuota,
+    );
+    expect(
+      TtsCallableFailure.classify(
+        code: 'unavailable',
+        message: 'TTS synthesis is temporarily unavailable.',
+      ),
+      TtsCallableKind.fallback,
+    );
   });
 }

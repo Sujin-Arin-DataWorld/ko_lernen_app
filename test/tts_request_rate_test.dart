@@ -174,6 +174,31 @@ void main() {
     },
   );
 
+  test('missing completed audio does not fall back to OS speech', () async {
+    final platform = _FakePlatform();
+    final errors = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveFile: (text, voice) async =>
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.audioUnavailableMessage,
+          ),
+      platform: platform,
+      errorReporter: errors.add,
+    );
+
+    expect(
+      await engine.speak(
+        text: 'missing audio',
+        voice: 'female',
+        baseRate: 0.42,
+      ),
+      isFalse,
+    );
+    expect(platform.speechSessions, isEmpty);
+    expect(platform.fileSessions, isEmpty);
+    expect(errors, contains(TtsCallableFailure.audioUnavailableMessage));
+  });
+
   test('quota blocks do not fall back to OS speech', () async {
     final platform = _FakePlatform();
     final errors = <String>[];

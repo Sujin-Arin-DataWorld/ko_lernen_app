@@ -179,9 +179,15 @@ async function synthesizeTts(request) {
         plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       }
       if (plan.action === "wait") {
+        if (plan.reason === "pending") {
+          throw new HttpsError(
+            "unavailable",
+            "TTS synthesis is already in progress.",
+          );
+        }
         throw new HttpsError(
           "unavailable",
-          "TTS synthesis is already in progress.",
+          "TTS audio is not available.",
         );
       }
 
