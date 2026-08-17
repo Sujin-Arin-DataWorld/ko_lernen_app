@@ -3431,6 +3431,13 @@ class AppL10nDe extends AppL10n {
   String get wordWebQuizDoneTitle => 'Runde geschafft!';
 
   @override
+  String get wordWebQuizEmptyTitle => 'Noch keine Runde';
+
+  @override
+  String get wordWebQuizEmptyBody =>
+      'Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.';
+
+  @override
   String wordWebQuizScore(int correct, int total) {
     return '$correct/$total richtig';
   }

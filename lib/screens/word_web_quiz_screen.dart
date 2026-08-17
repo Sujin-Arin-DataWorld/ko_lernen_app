@@ -11,6 +11,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
@@ -24,10 +25,12 @@ class WordWebQuizScreen extends StatefulWidget {
   const WordWebQuizScreen({
     super.key,
     required this.clusters,
+    this.distractorClusters,
     this.quizBuilder,
   });
 
   final List<WordRelationCluster> clusters;
+  final List<WordRelationCluster>? distractorClusters;
   final List<WordRelationQuizItem> Function(List<WordRelationCluster> clusters)?
   quizBuilder;
 
@@ -48,10 +51,10 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
     super.initState();
     _items =
         widget.quizBuilder?.call(widget.clusters) ??
-        WordRelationService.buildQuiz(clusters: widget.clusters);
-    if (_items.isEmpty) {
-      _done = true;
-    }
+        WordRelationService.buildQuiz(
+          clusters: widget.clusters,
+          distractorClusters: widget.distractorClusters,
+        );
   }
 
   WordRelationQuizItem? get _current =>
@@ -122,7 +125,9 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
           child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.all(Spacing.lg),
-              child: _done || _items.isEmpty
+              child: _items.isEmpty
+                  ? _buildEmpty(t)
+                  : _done
                   ? _buildDone(t)
                   : _buildQuestion(t, lang),
             ),
@@ -186,6 +191,19 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildEmpty(AppL10n t) {
+    return Center(
+      child: SoriEmptyState(
+        asset: 'assets/illustrations/empty/studyroom_waiting.png',
+        icon: Icons.hub_outlined,
+        title: t.wordWebQuizEmptyTitle,
+        body: t.wordWebQuizEmptyBody,
+        ctaLabel: t.btnClose,
+        onCta: () => Navigator.of(context).maybePop(),
+      ),
     );
   }
 

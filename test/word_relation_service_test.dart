@@ -97,6 +97,42 @@ void main() {
       );
     },
   );
+
+  test(
+    'thin learned singleton uses the full seed only for distractors',
+    () async {
+      final all = await WordRelationService.load();
+      final thin = all.firstWhere((cluster) => cluster.sourceKo == '감사합니다');
+      final blocked = {
+        thin.sourceKo,
+        ...thin.synonyms.map((item) => item.ko),
+        ...thin.antonyms.map((item) => item.ko),
+        ...thin.related.map((item) => item.ko),
+        ...thin.expressions.map((item) => item.ko),
+      };
+
+      expect(WordRelationService.buildQuiz(clusters: [thin]), isEmpty);
+
+      final items = WordRelationService.buildQuiz(
+        clusters: [thin],
+        distractorClusters: all,
+        random: Random(2),
+      );
+      expect(items, isNotEmpty);
+      for (final item in items) {
+        expect(item.sourceKo, thin.sourceKo);
+        expect(item.options, hasLength(4));
+        expect(item.options.toSet(), hasLength(4));
+        expect(item.options, contains(item.answerKo));
+        expect(item.options, isNot(contains(item.sourceKo)));
+        expect(
+          item.options.where((option) => option != item.answerKo),
+          isNot(contains(thin.sourceKo)),
+        );
+      }
+      expect(blocked, contains(thin.sourceKo));
+    },
+  );
 }
 
 const _fixture = '''

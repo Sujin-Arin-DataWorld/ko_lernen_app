@@ -152,6 +152,48 @@ void main() {
     expect(find.byType(WordWebQuizScreen), findsOneWidget);
   });
 
+  testWidgets('returning from vocab refreshes the learned list', (
+    tester,
+  ) async {
+    final seen = <String>{};
+    await _pumpHub(tester, seen: seen);
+    final t = await AppL10n.delegate.load(const Locale('de'));
+    expect(find.text(t.wordWebEmptyTitle), findsOneWidget);
+
+    await tester.tap(find.text(t.wordWebOpenVocabCta));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('vocab-route'), findsOneWidget);
+
+    seen.add('크다');
+    tester.state<NavigatorState>(find.byType(Navigator)).pop();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.text('크다'), findsOneWidget);
+    expect(find.text(t.wordWebEmptyTitle), findsNothing);
+  });
+
+  testWidgets('empty quiz builder shows a fail-closed empty state', (
+    tester,
+  ) async {
+    final t = await AppL10n.delegate.load(const Locale('de'));
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: WordWebQuizScreen(clusters: _deck, quizBuilder: (_) => const []),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.text(t.wordWebQuizEmptyTitle), findsOneWidget);
+    expect(find.text(t.wordWebQuizDoneTitle), findsNothing);
+    expect(find.text(t.wordWebQuizScore(0, 0)), findsNothing);
+  });
+
   testWidgets('quiz reveals the correct neighbor after a tap', (tester) async {
     final t = await AppL10n.delegate.load(const Locale('de'));
     final item = WordRelationQuizItem(

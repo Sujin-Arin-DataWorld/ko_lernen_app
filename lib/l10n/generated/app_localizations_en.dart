@@ -3418,6 +3418,13 @@ class AppL10nEn extends AppL10n {
   String get wordWebQuizDoneTitle => 'Round complete!';
 
   @override
+  String get wordWebQuizEmptyTitle => 'No round yet';
+
+  @override
+  String get wordWebQuizEmptyBody =>
+      'There are not enough comparison words for this set yet. Study the cards first, or learn a few more words.';
+
+  @override
   String wordWebQuizScore(int correct, int total) {
     return '$correct/$total correct';
   }
