@@ -837,7 +837,7 @@ def build_scenario(
         raise SystemExit(f"scenario id reserved: {ident}")
     unit, concepts = SCENARIO_UNITS[level]
     grammar_id, g_ko, g_de, g_en = SCENARIO_GRAMMAR[level]
-    script = render_scene(SEEDS[ident], ident=ident, title=(title_ko, title_de, title_en))
+    script = render_scene(SEEDS[ident], ident=ident)
     scene_vocab = script["vocab"] or vocab[:6]
     ask = script["dialog"][2]
     wait = script["dialog"][6]

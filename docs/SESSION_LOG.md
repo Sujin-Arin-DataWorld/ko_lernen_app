@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Batch 10 수락·후속 질문을 장면별로 직접 씀
+
+**무엇.** 프레임 다섯 줄 중 파생·일반 문장으로 남아 있던 두 줄을 손으로 쓴
+문장으로 바꿨다. 새 `data/batch_10_scene_beats.py`에 174편의 수락(`take`)과
+후속 질문(`probe`)이 장면별로 들어 있다. 후속 질문은 지은의 `wait` 답과 물린다.
+`계산대로 오시면 됩니다`에는 `어디서 계산해요?`가 붙고 `얼마나 걸려요?`는 붙지
+않는다. `_accept_ask`·`_do_ask`의 문자열 수술과 `_polite(kind)`는 지웠다. 말투는
+프레임 종류가 아니라 시드가 이미 쓴 `ask`·`need`에서 읽으므로 이웃 택배·복도
+신발처럼 존댓말인 home 장면에 반말 프레임이 섞이지 않는다. 지은의 확인 줄은
+수락이 부탁(`주세요`)인지 본인 행동인지에 따라 `check_do`/`check_ok`로 갈린다.
+`b1_bill_split`의 지은 마지막 줄만 반말이라 존댓말로 맞췄다. 셸 테스트의
+`echoed <= 2`는 프레임 줄에 제목이 하나라도 있으면 실패하는 단정으로 조였다.
+
+**왜.** Jin이 `네, 우체국 줄 진행해 주세요.`를 보고 싹 고치라고 했다. PR #60의
+humanizer 1·2차가 제목 삽입은 걷어냈지만 후속 질문·마무리가 프레임별 3종 일반
+문장으로 남아 `연고는 바로 옆에 있습니다`에 `오래 걸려요?`가 붙었고, 파생 문장의
+독일어·영어는 `Ja, bitte.`·`Okay, I'll do that.`으로 뭉개졌다. 손으로 쓰면 셸
+유일성도 그대로 유지된다.
+
+**왜 새 PR인가.** 이 작업을 `cursor/apply-4x-batch-09-10-3cd5`(=PR #60) 위에서
+시작했는데 작업 중 #60이 main으로 스쿼시 머지됐다(`3fe6916e`, 14:10 UTC). 같은
+커밋을 그 브랜치에도 올려 뒀지만(`76e6e329`) 닫힌 PR이라 main에 닿지 않는다.
+그래서 main에서 다시 잘라 올린다.
+
+**검증.** `rewrite-batch-10` 후 `test_level_content_4x` 11/11, ContentValidator 0,
+Flutter `a1_real_life_scenario(s)`·`content_id_contract`
+·`canonical_course_segment_loader`·`scenario_quest_catalog_integrity` 15/15 통과.
+금지어(`진행해`·`처리하겠습니다`·`Understood`·`I will `·`Alles klar`·`im Voraus`)
+0, 셸 174개 유일, 대사 전체 174개 유일, 프레임 줄의 제목 반복 0. `안녕하세요`로
+시작하는 장면 86 → 34, 첫 줄 종류 18개. 화자 안에서 말투가 섞이는 장면 1 → 0.
+부계정 `72657bd` main full run은 웹·aab 빌드 직전까지 전부 통과했다고 Jin이
+확인했다. TTS는 문장이 크게 바뀌었으니 승인 뒤에 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — Grammatik 판정을 스와이프 전용으로, 하단 CTA 제거
 
 **무엇.** Jin 확정대로 하단 판정 버튼 2개를 없애고 네 방향에 의미를 실었다.
