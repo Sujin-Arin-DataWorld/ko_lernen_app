@@ -177,16 +177,6 @@ def a1_approved_state_digests(
     return approved
 
 
-def approved_output_digests(provenance: dict[str, Any] | None = None) -> set[str]:
-    payload = provenance or load_provenance()
-    return {
-        output["sha256"]
-        for record in payload.get("generationLedger", {}).get("records", [])
-        for output in record.get("outputAssets", [])
-        if output.get("decision") == "approved" and isinstance(output.get("sha256"), str)
-    }
-
-
 def runtime_path_is_forbidden(path: str) -> bool:
     lowered = path.replace("\\", "/").lower()
     return any(fragment in lowered for fragment in FORBIDDEN_RUNTIME_FRAGMENTS)

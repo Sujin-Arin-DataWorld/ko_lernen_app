@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -25,6 +26,18 @@ from hanok_v1_asset_contract import (
 
 
 ALPHA_THRESHOLD = 8
+
+# A composed state must actually build something inside the socket. A layer that
+# changes almost nothing is a silent no-op that would otherwise pass every other
+# gate and get promoted as a real construction step.
+MIN_VISIBLE_SOURCE_PIXELS = 512
+
+# `--stack-on-previous` keeps every previous pixel and takes the candidate only
+# above the previous top edge. That is only meaningful for the stages that build
+# upward. 12-16 fill the structure inward (walls, floors, windows), where "above
+# the previous top" would discard the entire layer.
+STACK_MIN_STAGE = 5
+STACK_MAX_STAGE = 11
 
 
 class CompositionError(ValueError):
@@ -298,6 +311,17 @@ def _outside_mask(size: tuple[int, int], socket: dict[str, int]) -> Image.Image:
     return mask
 
 
+def _inside_mask(size: tuple[int, int], socket: dict[str, int]) -> Image.Image:
+    mask = Image.new("L", size, 0)
+    hole = Image.new(
+        "L",
+        (socket["socket_width"], socket["socket_height"]),
+        255,
+    )
+    mask.paste(hole, (socket["socket_x"], socket["socket_y"]))
+    return mask
+
+
 def _changed_pixels(left: Image.Image, right: Image.Image, mask: Image.Image) -> int:
     difference = ImageChops.difference(left.convert("RGB"), right.convert("RGB"))
     return sum(
@@ -336,27 +360,53 @@ def compose_state(
     normalized_layer_path: Path | None = None,
     previous_layer_path: Path | None = None,
     provenance: dict[str, Any] | None = None,
-    base_path: Path | None = None,
-    require_lineage: bool = False,
+    require_lineage: bool = True,
     input_ledger_path: str | None = None,
     stack_on_previous: bool = False,
     stack_margin_px: int = 8,
+    stage: int | None = None,
 ) -> dict[str, Any]:
     payload = provenance or load_provenance()
     _require(
         not stack_on_previous or previous_layer_path is not None,
         "--stack-on-previous needs --previous-layer",
     )
+    _require(
+        not stack_on_previous or stage is not None,
+        "--stack-on-previous needs --stage so the stage range can be checked",
+    )
+    if stack_on_previous:
+        _require(
+            STACK_MIN_STAGE <= int(stage) <= STACK_MAX_STAGE,
+            f"--stack-on-previous is only defined for stages "
+            f"{STACK_MIN_STAGE:02d}-{STACK_MAX_STAGE:02d}; stage {int(stage):02d} fills the "
+            "structure inward and needs its own rule",
+        )
+    _require(
+        raw_path.resolve() != output_path.resolve(),
+        "composed output must not overwrite its own raw input",
+    )
+    _require(
+        output_path.suffix.lower() == ".webp",
+        f"composed output must be .webp, got {output_path.suffix or '(none)'}",
+    )
+    if normalized_layer_path is not None:
+        _require(
+            normalized_layer_path.suffix.lower() == ".png",
+            f"normalized layer must be .png, got {normalized_layer_path.suffix or '(none)'}",
+        )
+        _require(
+            normalized_layer_path.resolve() != raw_path.resolve(),
+            "normalized layer must not overwrite its source raw layer",
+        )
     geometry = camera_geometry(payload)
     contract = layer_contract(payload)
     base_record = site_base_input(payload)
-    site_base = Path(base_path or ROOT / base_record["path"])
-    expected_base_sha = str(base_record["sha256"])
-    if base_path is None:
-        _require(
-            sha256_file(site_base) == expected_base_sha,
-            "site base SHA-256 no longer matches the provenance allowlist",
-        )
+    site_base = ROOT / base_record["path"]
+    _require(
+        sha256_file(site_base) == str(base_record["sha256"]),
+        "site base SHA-256 no longer matches the provenance allowlist",
+    )
     if require_lineage:
         digest = sha256_file(raw_path)
         allowed = allowed_input_digests(payload)
@@ -416,38 +466,76 @@ def compose_state(
         f"composition changed {source_outside_changed} pixels outside the socket",
     )
 
+    inside_changed = _changed_pixels(base, composed, _inside_mask(base.size, geometry))
+    _require(
+        inside_changed >= MIN_VISIBLE_SOURCE_PIXELS,
+        f"layer changes only {inside_changed} pixels inside the socket "
+        f"(minimum {MIN_VISIBLE_SOURCE_PIXELS}); it is not a visible construction step",
+    )
+
     if normalized_layer_path is not None:
         normalized_layer_path.parent.mkdir(parents=True, exist_ok=True)
         layer.save(normalized_layer_path, "PNG")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     rgb = composed.convert("RGB")
-    rgb.save(
-        output_path,
-        "WEBP",
-        quality=int(contract["output"]["quality"]),
-        method=int(contract["output"]["method"]),
+    # Write to a sibling temp file and only rename after every check passes, so a
+    # rejected WebP never survives at the QA path where promotion looks for it.
+    handle = tempfile.NamedTemporaryFile(
+        prefix=f".{output_path.stem}.",
+        suffix=".webp",
+        dir=output_path.parent,
+        delete=False,
     )
-    size_bytes = output_path.stat().st_size
-    _require(
-        size_bytes <= int(contract["output"]["hardMaxBytes"]),
-        f"composed WebP is {size_bytes} bytes, over the hard cap",
-    )
-    with Image.open(output_path) as encoded:
-        decoded = encoded.convert("RGB")
-    decoded_error = _mean_channel_error(rgb, decoded, outside)
-    _require(
-        decoded_error <= float(contract["qa"]["decodedOutsideMeanErrorMax"]),
-        f"decoded outside mean error {decoded_error:.4f} exceeds the contract",
-    )
+    handle.close()
+    staged = Path(handle.name)
+    try:
+        rgb.save(
+            staged,
+            "WEBP",
+            quality=int(contract["output"]["quality"]),
+            method=int(contract["output"]["method"]),
+        )
+        size_bytes = staged.stat().st_size
+        _require(
+            size_bytes <= int(contract["output"]["hardMaxBytes"]),
+            f"composed WebP is {size_bytes} bytes, over the hard cap",
+        )
+        with Image.open(staged) as encoded:
+            encoded_format = encoded.format
+            encoded_size = encoded.size
+            decoded = encoded.convert("RGB")
+        _require(
+            encoded_format == "WEBP",
+            f"composed output re-decoded as {encoded_format}, not WEBP",
+        )
+        _require(
+            encoded_size == (geometry["canvas_width"], geometry["canvas_height"]),
+            f"composed output re-decoded at {encoded_size}, not the contract canvas",
+        )
+        _require(
+            decoded.mode == "RGB",
+            f"composed output re-decoded as {decoded.mode}, not RGB",
+        )
+        decoded_error = _mean_channel_error(rgb, decoded, outside)
+        _require(
+            decoded_error <= float(contract["qa"]["decodedOutsideMeanErrorMax"]),
+            f"decoded outside mean error {decoded_error:.4f} exceeds the contract",
+        )
+        output_sha256 = sha256_file(staged)
+        staged.replace(output_path)
+    finally:
+        if staged.exists():
+            staged.unlink()
     report = {
         "normalizedSize": list(layer.size),
-        "anchorPixels": sum(alpha > ALPHA_THRESHOLD for *_, alpha in layer.getdata()),
+        "visibleLayerPixels": sum(alpha > ALPHA_THRESHOLD for *_, alpha in layer.getdata()),
         "chromaPixels": _chroma_count(layer),
         "sourceOutsideChangedPixels": source_outside_changed,
+        "socketChangedPixels": inside_changed,
         "decodedOutsideMeanError": decoded_error,
         "outputBytes": size_bytes,
-        "outputSha256": sha256_file(output_path),
+        "outputSha256": output_sha256,
     }
     if continuity is not None:
         report["continuity"] = continuity
@@ -462,15 +550,38 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("output_webp")
     parser.add_argument("--normalized-layer")
     parser.add_argument("--previous-layer")
-    parser.add_argument("--require-lineage", action="store_true")
+    parser.add_argument(
+        "--require-lineage",
+        action="store_true",
+        help="accepted for backward compatibility; lineage is now checked by default",
+    )
+    parser.add_argument(
+        "--no-require-lineage",
+        action="store_true",
+        help=(
+            "skip the check that the raw layer SHA is bound to an allowlisted or "
+            "approved ledger path; for out-of-contract pilots only, never for a "
+            "layer you intend to promote"
+        ),
+    )
     parser.add_argument("--input-ledger-path")
+    parser.add_argument(
+        "--stage",
+        type=int,
+        help=(
+            f"A1 construction stage number (1-16); required with "
+            f"--stack-on-previous, which is only defined for "
+            f"{STACK_MIN_STAGE:02d}-{STACK_MAX_STAGE:02d}"
+        ),
+    )
     parser.add_argument(
         "--stack-on-previous",
         action="store_true",
         help=(
             "keep every pixel of --previous-layer and take the candidate only "
             "above the previous top edge (+ --stack-margin-px); continuity "
-            "becomes true by construction"
+            "becomes true by construction, so the recall gate stops being "
+            "evidence and the visual QA carries the weight"
         ),
     )
     parser.add_argument("--stack-margin-px", type=int, default=8)
@@ -480,10 +591,11 @@ def main(argv: list[str] | None = None) -> int:
         Path(args.output_webp),
         normalized_layer_path=Path(args.normalized_layer) if args.normalized_layer else None,
         previous_layer_path=Path(args.previous_layer) if args.previous_layer else None,
-        require_lineage=args.require_lineage,
+        require_lineage=not args.no_require_lineage,
         input_ledger_path=args.input_ledger_path,
         stack_on_previous=args.stack_on_previous,
         stack_margin_px=args.stack_margin_px,
+        stage=args.stage,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

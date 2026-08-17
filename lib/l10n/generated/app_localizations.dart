@@ -3079,6 +3079,18 @@ abstract class AppL10n {
   /// **'Dein Hanok wächst.'**
   String get hanokCinematicIntro;
 
+  /// No description provided for @hanokA1MapLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok im Bau'**
+  String get hanokA1MapLabel;
+
+  /// No description provided for @hanokA1MapUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Illustration nicht verfügbar'**
+  String get hanokA1MapUnavailable;
+
   /// No description provided for @hanokStageEmpty.
   ///
   /// In de, this message translates to:

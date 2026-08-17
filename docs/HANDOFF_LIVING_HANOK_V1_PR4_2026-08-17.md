@@ -17,7 +17,11 @@
 2. `docs/assets/prompts/HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`를 따른다.
 3. raw는 `assets_unused/pending_review/a1_layers/raw/`에 둔다.
 4. `tool/compose_hanok_a1_state.py`로 정규화·합성하고 `--previous-layer`로
-   바로 이전 승인 레이어를 넣는다.
+   바로 이전 승인 레이어를 넣는다. **계보 검사는 기본으로 켜져 있다** — raw의 SHA가
+   allowlist나 승인된 ledger 출력에 묶여 있어야 통과한다. 계약 밖 파일럿에서만
+   `--no-require-lineage`로 끄고, 그렇게 만든 산출물은 승격 대상이 아니다.
+   위로 쌓는 05–11에서 `--stack-on-previous`를 쓸 때는 `--stage <번호>`가 필수다
+   (12–16은 거부된다).
 5. 거절본은 `a1_layers/rejected/`에만 남긴다. runtime/pubspec에 복사하지 않는다.
 6. 16개가 모두 QA를 통과한 뒤에만 `python tool/promote_hanok_a1_states.py --apply`.
 

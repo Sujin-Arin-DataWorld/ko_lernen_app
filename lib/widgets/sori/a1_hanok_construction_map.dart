@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/a1_hanok_construction_catalog.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/hanok_growth.dart';
 import 'tokens.dart';
 
@@ -167,7 +168,9 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
           );
 
           return Semantics(
-            label: widget.semanticsLabel ?? state.id,
+            // Never fall back to state.id — TalkBack would read the raw asset
+            // key ("08_purlins_sangnyang") aloud.
+            label: widget.semanticsLabel ?? AppL10n.of(context).hanokA1MapLabel,
             image: true,
             child: ClipRRect(
               borderRadius: SoriRadius.brLg,
@@ -223,13 +226,17 @@ class _A1FailVisibleFallback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
-    return ColoredBox(
-      color: surfaces.surfaceAlt,
-      child: Center(
-        child: Icon(
-          Icons.landscape_outlined,
-          color: surfaces.textMuted,
-          size: 48,
+    return Semantics(
+      label: AppL10n.of(context).hanokA1MapUnavailable,
+      image: true,
+      child: ColoredBox(
+        color: surfaces.surfaceAlt,
+        child: Center(
+          child: Icon(
+            Icons.landscape_outlined,
+            color: surfaces.textMuted,
+            size: 48,
+          ),
         ),
       ),
     );

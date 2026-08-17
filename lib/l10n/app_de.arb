@@ -810,6 +810,8 @@
     }
   },
   "hanokCinematicIntro": "Dein Hanok wächst.",
+  "hanokA1MapLabel": "Dein Hanok im Bau",
+  "hanokA1MapUnavailable": "Hanok-Illustration nicht verfügbar",
   "hanokStageEmpty": "Bauplatz vorbereiten",
   "hanokStageFoundation": "Sockel legen",
   "hanokStagePillars": "Säulen aufstellen",

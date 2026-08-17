@@ -21,7 +21,9 @@ from hanok_v1_asset_contract import (
     a1_hard_max_bytes,
     camera_geometry,
     chroma_key_count,
+    layer_contract,
     load_provenance,
+    runtime_path_is_forbidden,
     sha256_file,
 )
 
@@ -117,8 +119,25 @@ def promote_states(
 ) -> list[str]:
     payload = provenance or load_provenance(provenance_path)
     approved = collect_approved_states(qa_root=qa_root, provenance=payload)
+    # The contract declares this gate; honour the declaration instead of only
+    # hardcoding it, so a provenance that quietly turns it off cannot promote.
+    promotion = layer_contract(payload).get("promotion", {})
+    if promotion.get("requireApprovedLedgerSha256") is not True:
+        raise PromotionError(
+            "a1TransparentLayerContract.promotion.requireApprovedLedgerSha256 must be "
+            "true to promote; refusing while the ledger gate is disabled"
+        )
     _require_approved_ledger(approved, payload)
     destination = runtime_root or A1_RUNTIME_STATES_ROOT
+    # The forbidden-fragment list describes repo-relative runtime roots (Gye art,
+    # legacy hanok_stages, QA composites). It is meaningless for a destination
+    # outside the repo, so only apply it to in-repo paths.
+    if ROOT in destination.parents:
+        relative_destination = destination.relative_to(ROOT).as_posix()
+        if runtime_path_is_forbidden(relative_destination):
+            raise PromotionError(
+                f"refusing to promote into a forbidden runtime path: {relative_destination}"
+            )
     copied = []
     expected_names = {path.name for path in approved}
     if destination.is_dir():
@@ -152,6 +171,15 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     mode = "promoted" if args.apply else "ready"
     print(f"[pass] {mode} {len(names)} A1 states")
+    if args.apply:
+        # Registering the runtime root in pubspec ships these images to users, so
+        # it stays a human decision. Say so out loud instead of leaving the
+        # promoted files silently unbundled.
+        print(
+            "[next] pubspec.yaml is NOT touched by this tool. To ship the promoted "
+            f"set, a human must add '{A1_RUNTIME_STATES_ROOT.relative_to(ROOT).as_posix()}/' "
+            "to flutter.assets."
+        )
     return 0
 
 

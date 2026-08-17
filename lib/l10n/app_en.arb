@@ -803,6 +803,8 @@
     }
   },
   "hanokCinematicIntro": "Your hanok is growing.",
+  "hanokA1MapLabel": "Your hanok under construction",
+  "hanokA1MapUnavailable": "Hanok illustration unavailable",
   "hanokStageEmpty": "Preparing the plot",
   "hanokStageFoundation": "Laying foundation stones",
   "hanokStagePillars": "Raising pillars",

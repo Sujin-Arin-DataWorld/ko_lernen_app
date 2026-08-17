@@ -21,6 +21,12 @@ python tool/compose_hanok_a1_state.py \
   --previous-layer assets_unused/pending_review/a1_layers/<previous>_layer.png
 ```
 
+계보 검사(raw SHA가 allowlist나 승인된 ledger 출력에 묶여 있는지)는 **기본으로 켜져 있다**.
+계약 밖 파일럿에서만 `--no-require-lineage`를 붙이고, 그 산출물은 승격하지 않는다.
+위로 쌓는 공정 05–11에서 `--stack-on-previous`를 쓸 때는 `--stage <번호>`를 함께 준다.
+안쪽을 채우는 12–16은 거부된다. stack 모드에서는 recall이 구성상 1.0이 되므로 연속성
+수치는 증거가 아니고, 육안 QA가 판단 근거다.
+
 자동 거절 조건:
 
 - RGB/불투명 매트/체크무늬/크로마. 손실 WebP 근사 `#00ff00`

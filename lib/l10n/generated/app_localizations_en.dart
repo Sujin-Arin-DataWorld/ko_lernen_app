@@ -1711,6 +1711,12 @@ class AppL10nEn extends AppL10n {
   String get hanokCinematicIntro => 'Your hanok is growing.';
 
   @override
+  String get hanokA1MapLabel => 'Your hanok under construction';
+
+  @override
+  String get hanokA1MapUnavailable => 'Hanok illustration unavailable';
+
+  @override
   String get hanokStageEmpty => 'Preparing the plot';
 
   @override

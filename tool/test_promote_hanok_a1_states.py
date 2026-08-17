@@ -11,7 +11,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from derive_hanok_a1_thumbnails import ThumbnailError, derive_thumbnail
-from hanok_v1_asset_contract import a1_expected_files, load_provenance, sha256_file
+from hanok_v1_asset_contract import ROOT, a1_expected_files, load_provenance, sha256_file
 from promote_hanok_a1_states import (
     PromotionError,
     _validate_state,
@@ -70,6 +70,42 @@ class PromoteAndThumbnailTest(unittest.TestCase):
             with self.assertRaises(PromotionError):
                 promote_states(qa_root=qa, runtime_root=runtime, dry_run=False)
             self.assertFalse(runtime.exists())
+
+    def test_promotion_refuses_when_the_contract_disables_the_ledger_gate(self) -> None:
+        """The contract declares requireApprovedLedgerSha256; nothing used to read it."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            qa = Path(temp_dir) / "qa"
+            runtime = Path(temp_dir) / "runtime"
+            _write_qa_states(qa)
+            provenance = json.loads(json.dumps(_ledger_for(qa)))
+            provenance["a1TransparentLayerContract"]["promotion"][
+                "requireApprovedLedgerSha256"
+            ] = False
+            with self.assertRaises(PromotionError) as caught:
+                promote_states(
+                    qa_root=qa,
+                    runtime_root=runtime,
+                    dry_run=False,
+                    provenance=provenance,
+                )
+            self.assertIn("requireApprovedLedgerSha256", str(caught.exception))
+            self.assertFalse(runtime.exists())
+
+    def test_promotion_refuses_a_forbidden_in_repo_runtime_root(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            qa = Path(temp_dir) / "qa"
+            _write_qa_states(qa)
+            provenance = _ledger_for(qa)
+            forbidden = ROOT / "assets" / "illustrations" / "gye" / "a1"
+            with self.assertRaises(PromotionError) as caught:
+                promote_states(
+                    qa_root=qa,
+                    runtime_root=forbidden,
+                    dry_run=True,
+                    provenance=provenance,
+                )
+            self.assertIn("forbidden runtime path", str(caught.exception))
+            self.assertFalse(forbidden.exists())
 
     def test_promotion_copies_only_a_complete_valid_set(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

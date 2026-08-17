@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/a1_hanok_construction_catalog.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_growth.dart';
 import 'package:ko_lernen_app/widgets/sori/a1_hanok_construction_map.dart';
 
@@ -210,6 +211,8 @@ Widget _host(
       highContrast: highContrast,
     ),
     child: MaterialApp(
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      supportedLocales: AppL10n.supportedLocales,
       home: Scaffold(
         body: Center(
           child: SizedBox(width: width, child: child),

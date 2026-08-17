@@ -33,8 +33,9 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "raw.png"
             Image.new("RGB", (854, 309), (20, 20, 20)).save(raw)
-            with self.assertRaises(CompositionError):
-                compose_state(raw, Path(temp_dir) / "out.webp")
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(raw, Path(temp_dir) / "out.webp", require_lineage=False)
+            self.assertIn("RGBA", str(caught.exception))
 
     def test_rejects_opaque_matte_and_chroma(self) -> None:
         opaque = Image.new("RGBA", (854, 309), (255, 255, 255, 255))
@@ -127,16 +128,31 @@ class ComposeHanokA1StateTest(unittest.TestCase):
             drifted = _layer(854, 309, (140, 150, 700, 309), color=(200, 120, 60, 255))
             drifted.save(raw)
             with self.assertRaises(CompositionError):
-                compose_state(raw, out, provenance=provenance, stack_on_previous=True)
+                compose_state(
+                    raw,
+                    out,
+                    provenance=provenance,
+                    require_lineage=False,
+                    stack_on_previous=True,
+                    stage=6,
+                )
             with self.assertRaises(CompositionError):
-                compose_state(raw, out, provenance=provenance, previous_layer_path=previous_path)
+                compose_state(
+                    raw,
+                    out,
+                    provenance=provenance,
+                    require_lineage=False,
+                    previous_layer_path=previous_path,
+                )
             report = compose_state(
                 raw,
                 out,
                 normalized_layer_path=normalized,
                 previous_layer_path=previous_path,
                 provenance=provenance,
+                require_lineage=False,
                 stack_on_previous=True,
+                stage=6,
             )
             self.assertEqual(report["continuity"]["previous_recall"], 1.0)
             self.assertEqual(report["stack"]["mode"], "stack")
@@ -158,6 +174,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 out,
                 normalized_layer_path=normalized,
                 provenance=provenance,
+                require_lineage=False,
             )
             self.assertEqual(report["sourceOutsideChangedPixels"], 0)
             self.assertEqual(report["chromaPixels"], 0)
@@ -210,7 +227,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
             raw = Path(temp_dir) / "raw.png"
             out = Path(temp_dir) / "state.webp"
             _layer(854, 309, (90, 170, 750, 309)).save(raw)
-            compose_state(raw, out, provenance=provenance)
+            compose_state(raw, out, provenance=provenance, require_lineage=False)
             composed = Image.open(out).convert("RGB").getpixel((10, 10))
             site = Image.open(
                 ROOT / "assets/illustrations/personal_hanok_v2/map/site_base_light.png"
@@ -307,6 +324,111 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                     require_lineage=True,
                     input_ledger_path="not/in/allowlist.png",
                 )
+
+    def test_lineage_is_checked_by_default(self) -> None:
+        """Regression: the lineage gate used to be opt-in, so the documented
+        workflow (compose without --require-lineage) silently skipped it."""
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "unbound.png"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(raw, Path(temp_dir) / "out.webp", provenance=provenance)
+            self.assertIn("ledger path", str(caught.exception))
+
+    def test_stack_mode_is_refused_outside_the_upward_stages(self) -> None:
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "raw.png"
+            previous = Path(temp_dir) / "previous.png"
+            out = Path(temp_dir) / "out.webp"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            _layer(854, 309, (90, 200, 750, 309)).save(previous)
+            for stage in (4, 12, 16):
+                with self.assertRaises(CompositionError) as caught:
+                    compose_state(
+                        raw,
+                        out,
+                        provenance=provenance,
+                        require_lineage=False,
+                        previous_layer_path=previous,
+                        stack_on_previous=True,
+                        stage=stage,
+                    )
+                self.assertIn("only defined for stages", str(caught.exception))
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(
+                    raw,
+                    out,
+                    provenance=provenance,
+                    require_lineage=False,
+                    previous_layer_path=previous,
+                    stack_on_previous=True,
+                )
+            self.assertIn("needs --stage", str(caught.exception))
+
+    def test_rejects_output_that_would_overwrite_its_own_input(self) -> None:
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "raw.png"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(raw, raw, provenance=provenance, require_lineage=False)
+            self.assertIn("overwrite", str(caught.exception))
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.png",
+                    provenance=provenance,
+                    require_lineage=False,
+                )
+            self.assertIn("must be .webp", str(caught.exception))
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    normalized_layer_path=raw,
+                    provenance=provenance,
+                    require_lineage=False,
+                )
+            self.assertIn("not overwrite its source raw layer", str(caught.exception))
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    normalized_layer_path=Path(temp_dir) / "layer.webp",
+                    provenance=provenance,
+                    require_lineage=False,
+                )
+            self.assertIn("must be .png", str(caught.exception))
+
+    def test_rejects_a_layer_that_builds_nothing_visible(self) -> None:
+        provenance = load_provenance()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "raw.png"
+            # one tiny speck: passes the anchor rule but is not a construction step
+            _layer(854, 309, (425, 305, 429, 309)).save(raw)
+            with self.assertRaises(CompositionError) as caught:
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    provenance=provenance,
+                    require_lineage=False,
+                )
+            self.assertIn("visible construction step", str(caught.exception))
+
+    def test_a_rejected_composite_leaves_no_file_at_the_qa_path(self) -> None:
+        """The QA path is where promotion looks; a failed compose must not seed it."""
+        provenance = json.loads(json.dumps(load_provenance()))
+        provenance["a1TransparentLayerContract"]["output"]["hardMaxBytes"] = 1
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "raw.png"
+            out = Path(temp_dir) / "state.webp"
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
+            with self.assertRaises(CompositionError):
+                compose_state(raw, out, provenance=provenance, require_lineage=False)
+            self.assertFalse(out.exists())
+            self.assertEqual(list(Path(temp_dir).glob("*.webp")), [])
 
 
 if __name__ == "__main__":
