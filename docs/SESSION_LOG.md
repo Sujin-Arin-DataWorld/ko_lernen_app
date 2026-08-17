@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 선택 타일 대비 계측 제거
+
+**무엇.** `SoriWordTile.debugSink`와 테스트의 `/opt/cursor/logs/debug.log`
+쓰기를 제거했다. 선택 타일 채움(`primarySoft`)은 그대로다. 시맨틱스·
+프롬프트/슬롯 두 위젯 테스트는 유지하고, 라이트 테마에서 선택 타일
+대비가 4.5:1을 넘는지만 기존 시맨틱스 테스트에 한 줄로 고정했다.
+
+**왜.** 런타임 로그에서 라이트 대비는 13.87:1로 읽혔다. 출시 앱은
+`themeMode: ThemeMode.light`이고 `darkTheme`도 `AppTheme.lightFor`라
+다크 대비는 사용자 경로가 아니다. 채움을 바꾸지 말라는 요청을 따랐다.
+
+**검증.** `flutter test test/sori_quest_frame_test.dart`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 시나리오 UI 패리티 테스트 후속
 
 **무엇.** 첫 패리티 커밋 뒤 위젯 테스트 3곳을 맞췄다. `SoriWordTile`은
@@ -47,9 +62,8 @@ TTS·키보드 inset은 Jin 게이트.
 **왜.** 목업 문구(`Deine Antwort bauen`, `Antwort prüfen`, 0.8×)와 대형 포스터는
 원래 코드 렌더가 아니라 계획 밖 시안이었다. Jin이 A+B 모두 닫으라고 했다.
 
-**검증.** 로컬 `flutter analyze --fatal-infos`는 변경 범위에서 통과. 관련
-위젯 테스트·전체 직렬·web/apk는 이 커밋 뒤 실행. CI는 billing 차단이라
-로컬 결과를 CI 성공으로 쓰지 않음.
+**검증.** 후속 커밋에서 전체 직렬 테스트·web 빌드까지 닫음. 상세는
+바로 위 2026-08-17 후속 항목.
 
 **커밋해시.** 이 로그와 같은 커밋.
 

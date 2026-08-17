@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/quest_engines/quest_flow.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   testWidgets('word tiles expose selected and wrong state in semantics', (
@@ -33,6 +34,22 @@ void main() {
 
     expect(find.bySemanticsLabel('안녕, Selected'), findsOneWidget);
     expect(find.bySemanticsLabel('감사, Not quite'), findsOneWidget);
+
+    final selectedMaterial = tester.widget<Material>(
+      find.descendant(
+        of: find.byKey(const ValueKey('tile-selected')),
+        matching: find.byType(Material),
+      ),
+    );
+    final selectedText = tester.widget<Text>(find.text('안녕'));
+    expect(selectedMaterial.color, SoriColors.primarySoft);
+    expect(
+      SoriColors.contrastRatio(
+        selectedText.style?.color ?? SoriColors.lightText,
+        selectedMaterial.color ?? SoriColors.primarySoft,
+      ),
+      greaterThan(4.5),
+    );
   });
 
   testWidgets('prompt card and dotted slots render the mockup copy', (
