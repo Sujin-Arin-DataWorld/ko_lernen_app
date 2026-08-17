@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — 로컬 상태 파일 추적 해제 (MCP DB · Maven wrapper)
+
+**왜.** `b63a5753`("병합된 새 콘텐츠 & TTS 결손 총계")가 저장소가 들고 있으면 안 되는 두 가지를
+같이 커밋했다 — MCP 로컬 DB 3개(`data.sqlite` 와 그 shm·wal)와 Maven wrapper 2개(jar·properties).
+wal 파일은 세션마다 내용이 바뀌어 `git status` 를 늘 더럽혔고, Maven wrapper 는 이 저장소에
+Maven 프로젝트가 아예 없는데도 들어와 있었다 (루트에 `pom.xml` 도 `mvnw` 도 없다).
+
+**무엇을.** `.gitignore` 에 두 디렉터리를 추가하고 5개 파일을 `git rm --cached` 로 인덱스에서
+뺐다. 디스크의 파일은 지우지 않는다 — MCP 가 계속 쓰는 로컬 상태다.
+**`.claude/launch.json` 은 건드리지 않았다.** 이력이 `dcef0ba3`·`849b4057` 까지 올라가는
+의도된 공유 설정이라 위 두 건과 성격이 다르다.
+
+**검증.** `git ls-files` 에서 두 디렉터리 매치 0건, `.claude/launch.json` 은 그대로 추적 중.
+워킹 디렉터리의 실제 파일은 유지된다.
 ### 2026-08-17 (Claude, Windows) — Batch 07/08 파트너 가족 humanizer 검수 (이 세션 단독 결과)
 
 **왜.** Jin: "batch 7 humanizer로 한국어 영어 독일어 전부 검수해줘. 한국어로도 어색하고,
