@@ -66,6 +66,21 @@ userDescriptionKey·후속 grant의 prerequisite), provenance `expectedFiles`와
 건드리지 않았다. grant 초안은 아직 draft이고 릴리스 원장 `publishedGrants`는 비어 있어 rewrite
 금지 규칙에 걸리지 않는다.
 
+**메인 병합 (Jin "메인에 병합해줘").** main이 5커밋 앞서 있어 fast-forward가 불가했고, 메인
+워킹트리에 다른 세션의 커밋 안 된 변경이 있어 **워크트리 안에서** `origin/main`에 임시 브랜치를
+만들어 병합했다(first-parent = main, 저장소 관례). 충돌은 `docs/SESSION_LOG.md` 뿐이라 양쪽
+항목을 모두 보존했다. CI 분이 없으므로 병합 커밋에 `[skip ci]`를 붙였다(직전 병합 커밋과 동일).
+
+병합 트리 재검증에서 **검사기의 잠재 버그 1건**이 드러났다: `check_personal_hanok_assets.
+_check_a1_runtime_states`가 리포트 줄을 만들 때 `path.relative_to(ROOT)`를 무조건 호출해,
+`A1_RUNTIME_STATES_ROOT`를 임시 디렉터리로 patch하는 테스트에서 `ValueError`가 났다. 원장이
+비어 있던 동안은 조기 반환에 가려져 있었고, 승인 SHA가 생기면서 처음 실행 경로에 들어왔다.
+표시용 경로만 저장소 밖일 때 절대경로로 두도록 고쳤다(판정 로직 불변).
+
+재검증 결과: `flutter test` **3886 통과**, python tool 테스트 **94 통과**,
+`check_personal_hanok_assets --require-a1-states` PASS, `promote` dry-run `ready 16`,
+`flutter build web --release` 성공(번들 16장 승인 SHA와 바이트 동일, AssetManifest 등재 확인).
+
 **남은 일.** `props_14_ondol`·`props_16_movein`의 `sarangchae_props` 분리 승격은 PR5b.
 grant 재생성(D2/D3/D5/D7)·l10n·glossary는 PR5a 그대로.
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
