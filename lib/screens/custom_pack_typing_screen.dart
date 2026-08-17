@@ -27,7 +27,12 @@ import '../widgets/sori/tts_speed_control.dart';
 /// 정답/오답은 메인 SRS 에 반영. 인식보다 강한 기억 효과.
 class CustomPackTypingScreen extends StatefulWidget {
   final String packId;
-  const CustomPackTypingScreen({super.key, required this.packId});
+  final List<ExtractedWord>? words;
+  const CustomPackTypingScreen({
+    super.key,
+    required this.packId,
+    this.words,
+  });
 
   @override
   State<CustomPackTypingScreen> createState() => _CustomPackTypingScreenState();
@@ -71,7 +76,10 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   void initState() {
     super.initState();
     Analytics.gameStarted(gameType: 'typing');
-    final pack = CustomPackService.getById(widget.packId);
+    final loaded = CustomPackService.getById(widget.packId);
+    final pack = loaded == null || widget.words == null
+        ? loaded
+        : loaded.copyWith(words: widget.words);
     _pack = pack;
     if (pack != null) {
       _pool = pack.words

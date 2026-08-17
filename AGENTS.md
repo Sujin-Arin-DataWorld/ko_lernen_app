@@ -113,6 +113,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/vocab_notebook` | BookCaptureScreen(captureMode: notebook) — 단어장 사진 |
 | `/vocab_notebook/result` (args) | VocabNotebookResultScreen (OCR에서 그 단어 쌍만 검토) |
 | `/vocab_notebook/practice` (args: packId) | VocabNotebookPracticeScreen (카드·짝맞추기·받아쓰기·퀴즈·한자/유의어) |
+| `/vocab_notebook/studio` (args: packId) | VocabNotebookStudioScreen (고른 단어로 기존 게임 만들기) |
 | `/vocab_notebook/nuance` (args: packId) | VocabNuanceScreen (유의어·격식·한자 뿌리 비교 놀이) |
 | `/bookshelf` | BookshelfScreen (내 책장 + 커스텀팩) |
 | `/bookshelf/page` (args: pageId) | BookshelfPageScreen |
@@ -403,7 +404,9 @@ flutter run -d <android-id>   # 안드로이드
  경로가 사진의 한국어–뜻 쌍을 그대로 팩으로 만들고, 카드·짝맞추기·받아쓰기·퀴즈와
  한자/유의어/격식 비교 놀이로 이어진다. CSV/TSV 가져오기는 8,000행까지 받는다.
  코드 리뷰 후 두 칸 OCR 짝짓기, 괄호 뜻, 추가 사진 시 저장, 교재 할당량 우회,
- 중복 단어 제거를 고쳤다. 실기기 촬영 검수는 Jin 게이트로 남는다.
+ 중복 단어 제거를 고쳤다. 학습자는 그 단어 중 골라 카드·퀴즈와 기존 Cloze·
+ 문장 만들기·초성·스피드매치 콘텐츠로 스스로 게임을 만든다. 없는 문장은
+ 만들지 않는다. 실기기 촬영 검수는 Jin 게이트로 남는다.
 
 ## 세션 로그 → docs/SESSION_LOG.md
 

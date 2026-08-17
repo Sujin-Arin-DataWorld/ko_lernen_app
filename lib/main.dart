@@ -55,6 +55,7 @@ import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
 import 'screens/vocab_notebook_practice_screen.dart';
 import 'screens/vocab_notebook_result_screen.dart';
+import 'screens/vocab_notebook_studio_screen.dart';
 import 'screens/vocab_nuance_screen.dart';
 import 'screens/bookshelf_page_screen.dart';
 import 'screens/bookshelf_screen.dart';
@@ -814,6 +815,12 @@ class _KoLernenAppState extends State<KoLernenApp> {
               final nuanceId = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
                 (_) => VocabNuanceScreen(packId: nuanceId),
+                settings: settings,
+              );
+            case '/vocab_notebook/studio':
+              final studioId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                (_) => VocabNotebookStudioScreen(packId: studioId),
                 settings: settings,
               );
             case '/book/preview':

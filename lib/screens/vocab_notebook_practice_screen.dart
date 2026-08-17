@@ -122,6 +122,16 @@ class _VocabNotebookPracticeScreenState
                     : () => _open('/vocab_notebook/nuance'),
               ),
               const SizedBox(height: Spacing.lg),
+              SoriButton.filled(
+                label: t.vocabNotebookStudioCta,
+                icon: Icons.tune_rounded,
+                fullWidth: true,
+                accent: SoriColors.goldOnLight,
+                onTap: pack.words.isEmpty
+                    ? null
+                    : () => _open('/vocab_notebook/studio'),
+              ),
+              const SizedBox(height: Spacing.lg),
               SoriButton.ghost(
                 label: t.vocabNotebookAddPhoto,
                 icon: Icons.add_a_photo_outlined,

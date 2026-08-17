@@ -439,6 +439,20 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                       ),
                       const SizedBox(height: Spacing.sm),
                       SoriButton(
+                        label: t.vocabNotebookStudioCta,
+                        icon: Icons.tune_rounded,
+                        variant: SoriButtonVariant.filled,
+                        accent: SoriColors.goldOnLight,
+                        fullWidth: true,
+                        onTap: words.isEmpty
+                            ? null
+                            : () => Navigator.of(context).pushNamed(
+                                '/vocab_notebook/studio',
+                                arguments: pack.id,
+                              ),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      SoriButton(
                         label: t.vocabNotebookAddPhoto,
                         icon: Icons.add_a_photo_outlined,
                         variant: SoriButtonVariant.ghost,
