@@ -45,6 +45,9 @@ class HanokA1AssetContract:
     encoder_quality: int
     encoder_method: int
     max_decoded_outside_mean_error: float
+    continuity_band_height: int
+    minimum_continuity_alpha_iou: float
+    maximum_footprint_edge_drift: int
     base_path: Path
     base_sha256: str
 
@@ -76,6 +79,10 @@ def load_contract() -> HanokA1AssetContract:
             "composition.layer.anchorLocal",
         )
         encoder = _object(composition.get("encoder"), "composition.encoder")
+        continuity = _object(
+            composition.get("cumulativeContinuity"),
+            "composition.cumulativeContinuity",
+        )
         allowed_inputs = payload.get("allowedModelInputs")
         if not isinstance(allowed_inputs, list):
             raise AssetContractError("allowedModelInputs must be a list")
@@ -124,6 +131,18 @@ def load_contract() -> HanokA1AssetContract:
                 composition.get("decodedOutsideSocketMaxMeanError"),
                 "composition.decodedOutsideSocketMaxMeanError",
             ),
+            continuity_band_height=_integer(
+                continuity.get("foundationBandHeight"),
+                "cumulativeContinuity.foundationBandHeight",
+            ),
+            minimum_continuity_alpha_iou=_number(
+                continuity.get("minimumAlphaIoU"),
+                "cumulativeContinuity.minimumAlphaIoU",
+            ),
+            maximum_footprint_edge_drift=_integer(
+                continuity.get("maximumFootprintEdgeDriftPixels"),
+                "cumulativeContinuity.maximumFootprintEdgeDriftPixels",
+            ),
             base_path=ROOT / _string(base_entry.get("path"), "site_base.path"),
             base_sha256=_sha256(base_entry.get("sha256"), "site_base.sha256"),
         )
@@ -153,6 +172,12 @@ def load_contract() -> HanokA1AssetContract:
         raise AssetContractError("Source composition must preserve every outside pixel")
     if contract.encoder_library != "Pillow" or contract.encoder_format != "WebP":
         raise AssetContractError("Unsupported A1 state encoder contract")
+    if not 1 <= contract.continuity_band_height <= contract.socket[3]:
+        raise AssetContractError("Continuity foundation band is outside the socket")
+    if not 0 < contract.minimum_continuity_alpha_iou <= 1:
+        raise AssetContractError("Continuity alpha IoU must be in (0, 1]")
+    if contract.maximum_footprint_edge_drift < 0:
+        raise AssetContractError("Continuity footprint drift cannot be negative")
     return contract
 
 
@@ -219,6 +244,71 @@ def validate_layer(
         "alphaCoverage": alpha_coverage,
         "anchorPixels": anchor_pixels,
         "chromaPixels": chroma_pixels,
+    }
+
+
+def validate_cumulative_continuity(
+    previous: Image.Image,
+    current: Image.Image,
+    contract: HanokA1AssetContract,
+) -> dict[str, float | int | list[int]]:
+    """Rejects a stage that moves or rescales the established foundation."""
+    validate_layer(previous, contract)
+    validate_layer(current, contract)
+    band_height = contract.continuity_band_height
+    top = previous.height - band_height
+    bounds = (0, top, previous.width, previous.height)
+
+    def visible_band(image: Image.Image) -> Image.Image:
+        return image.getchannel("A").crop(bounds).point(
+            lambda value: 255 if value > ALPHA_THRESHOLD else 0,
+            mode="L",
+        )
+
+    previous_band = visible_band(previous)
+    current_band = visible_band(current)
+    previous_pixels = list(previous_band.getdata())
+    current_pixels = list(current_band.getdata())
+    intersection = sum(
+        before > 0 and after > 0
+        for before, after in zip(previous_pixels, current_pixels, strict=True)
+    )
+    union = sum(
+        before > 0 or after > 0
+        for before, after in zip(previous_pixels, current_pixels, strict=True)
+    )
+    if union == 0:
+        raise AssetContractError("Continuity foundation band is empty")
+    alpha_iou = intersection / union
+    if alpha_iou < contract.minimum_continuity_alpha_iou:
+        raise AssetContractError(
+            "Cumulative foundation alpha IoU is "
+            f"{alpha_iou:.4f}; minimum is "
+            f"{contract.minimum_continuity_alpha_iou:.4f}"
+        )
+
+    previous_bounds = previous_band.getbbox()
+    current_bounds = current_band.getbbox()
+    if previous_bounds is None or current_bounds is None:
+        raise AssetContractError("Continuity foundation footprint is empty")
+    left_drift = abs(previous_bounds[0] - current_bounds[0])
+    right_drift = abs(previous_bounds[2] - current_bounds[2])
+    maximum_drift = max(left_drift, right_drift)
+    if maximum_drift > contract.maximum_footprint_edge_drift:
+        raise AssetContractError(
+            "Cumulative foundation footprint drift is "
+            f"{maximum_drift}px; maximum is "
+            f"{contract.maximum_footprint_edge_drift}px"
+        )
+
+    return {
+        "foundationBandHeight": band_height,
+        "alphaIoU": alpha_iou,
+        "intersectionPixels": intersection,
+        "unionPixels": union,
+        "previousFootprint": list(previous_bounds),
+        "currentFootprint": list(current_bounds),
+        "maximumEdgeDriftPixels": maximum_drift,
     }
 
 
@@ -290,6 +380,7 @@ def write_normalized_layer(
     *,
     source_path: Path,
     output_path: Path,
+    previous_layer_path: Path | None = None,
 ) -> dict[str, Any]:
     contract = load_contract()
     if not source_path.is_file():
@@ -307,6 +398,24 @@ def write_normalized_layer(
             )
         raw = source.copy()
     normalized = normalize_layer(raw, contract)
+    continuity_report = None
+    if previous_layer_path is not None:
+        if not previous_layer_path.is_file():
+            raise AssetContractError(
+                f"Previous approved layer does not exist: {previous_layer_path}"
+            )
+        with Image.open(previous_layer_path) as previous_source:
+            if previous_source.format != contract.layer_format:
+                raise AssetContractError(
+                    "Previous approved layer must decode as "
+                    f"{contract.layer_format}"
+                )
+            previous = previous_source.copy()
+        continuity_report = validate_cumulative_continuity(
+            previous,
+            normalized,
+            contract,
+        )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path: Path | None = None
@@ -326,7 +435,7 @@ def write_normalized_layer(
             temporary_path.unlink(missing_ok=True)
     with Image.open(output_path) as saved:
         metrics = validate_layer(saved.copy(), contract)
-    return {
+    report = {
         "sourcePath": str(source_path.resolve()),
         "sourceSha256": sha256_file(source_path),
         "outputPath": str(output_path.resolve()),
@@ -334,6 +443,9 @@ def write_normalized_layer(
         "outputBytes": output_path.stat().st_size,
         "layer": metrics,
     }
+    if continuity_report is not None:
+        report["cumulativeContinuity"] = continuity_report
+    return report
 
 
 def write_state(
@@ -538,6 +650,11 @@ def main() -> int:
         type=Path,
         help="normalize a larger true-alpha PNG here before composition",
     )
+    parser.add_argument(
+        "--previous-layer",
+        type=Path,
+        help="fail unless the normalized foundation footprint matches this approved layer",
+    )
     arguments = parser.parse_args()
     try:
         layer_path = arguments.layer
@@ -546,8 +663,22 @@ def main() -> int:
             normalization_report = write_normalized_layer(
                 source_path=arguments.layer,
                 output_path=arguments.normalized_layer,
+                previous_layer_path=arguments.previous_layer,
             )
             layer_path = arguments.normalized_layer
+        elif arguments.previous_layer is not None:
+            contract = load_contract()
+            with Image.open(arguments.previous_layer) as previous_source:
+                previous = previous_source.copy()
+            with Image.open(layer_path) as current_source:
+                current = current_source.copy()
+            normalization_report = {
+                "cumulativeContinuity": validate_cumulative_continuity(
+                    previous,
+                    current,
+                    contract,
+                )
+            }
         report = write_state(layer_path=layer_path, output_path=arguments.output)
         if normalization_report is not None:
             report["normalization"] = normalization_report

@@ -64,6 +64,12 @@
           }
         },
         "sourceOutsideSocketChangedPixels": 0,
+        "cumulativeContinuity": {
+          "requiredFromStageId": "04_cornerstones_choseok",
+          "foundationBandHeight": 80,
+          "minimumAlphaIoU": 0.94,
+          "maximumFootprintEdgeDriftPixels": 12
+        },
         "encoder": {
           "library": "Pillow",
           "format": "WebP",
@@ -435,6 +441,188 @@
             "decisionReason": "true_alpha_and_timber_preparation_stage_semantics_passed"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_checkerboard_geometry_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:49:56Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-dd61711c-8e20-41d6-ac7a-1eb489918480",
+        "status": "completed",
+        "promptSha256": "a3d3f33500f2c11144346885cd5de025c3fc8883f589a693cab1a08885b6d26a",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/06_columns_imagegen_20260817.png",
+            "sha256": "e4c4c6874bde2c35b96aa4d5964cd914e9e30d1f74c6fe77f2bebf6b653b37a9"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_baked_checkerboard_geometry_drift_imagegen_20260817.png",
+            "sha256": "17f61d8502f57fee6dd4ba7d8b319d819de93ac8eda1635f4cc4e8d783c3c63e",
+            "decision": "rejected",
+            "width": 1802,
+            "height": 873,
+            "colorMode": "RGB",
+            "bytes": 1503129,
+            "decisionReason": "baked_checkerboard_and_geometry_aspect_drift"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_wide_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:57:21Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-e3b3a60c-af45-4891-9638-b4b2f4c82718",
+        "status": "completed",
+        "promptSha256": "4fd2831b225fd53142cf6b76b413febb28aa2ce6b968e2f64776609fe6697409",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/06_columns_imagegen_20260817.png",
+            "sha256": "e4c4c6874bde2c35b96aa4d5964cd914e9e30d1f74c6fe77f2bebf6b653b37a9"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_baked_checkerboard_geometry_drift_imagegen_20260817.png",
+            "sha256": "17f61d8502f57fee6dd4ba7d8b319d819de93ac8eda1635f4cc4e8d783c3c63e"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_baked_checkerboard_wide_imagegen_20260817.png",
+            "sha256": "4877d172013db57fa5ec239be03c4818fea8cc8390163d29659f800434e01c51",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1537791,
+            "decisionReason": "baked_checkerboard_with_premature_midrails_and_secondary_posts"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_alpha_edit_still_rgb_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-16T23:58:22Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-d4925923-526f-4dbf-afca-4dbc4f340105",
+        "status": "completed",
+        "promptSha256": "be823143a1d47a72e5db1ca3d6240aa9a9a3167dc4425a29d1ef7745ec1a400f",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_baked_checkerboard_wide_imagegen_20260817.png",
+            "sha256": "4877d172013db57fa5ec239be03c4818fea8cc8390163d29659f800434e01c51"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_alpha_edit_still_rgb_imagegen_20260817.png",
+            "sha256": "c6c957b56d8601504c73f553eda7a80bdf27f7b2bdf809562f0b766ac0bd311c",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1618252,
+            "decisionReason": "alpha_only_edit_still_returned_baked_checkerboard_rgb"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_midrails_recraft_rejected_20260817",
+        "provider": "BBANANA",
+        "model": "Recraft Remove Background",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:00:37.826628Z",
+        "costCredits": 0.3,
+        "taskId": "14b2fe52f6b88d171714ec32adc0e864",
+        "status": "completed",
+        "promptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_baked_checkerboard_wide_imagegen_20260817.png",
+            "sha256": "4877d172013db57fa5ec239be03c4818fea8cc8390163d29659f800434e01c51"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_midrails_recraft_20260817.png",
+            "sha256": "85a53d16e13bf5869e45a52574f8fdba266e0a414fb4e42bfbb3a5460394238b",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 1724987,
+            "decisionReason": "true_alpha_and_geometry_passed_but_midrails_and_secondary_posts_violate_stage"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_semantic_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:02:54Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-b9eeee42-168e-48aa-b774-a80d7ccb1c7d",
+        "status": "completed",
+        "promptSha256": "bbf129bbd29ad244d21fb6402df89d8913d645bd646c9b97384daa78db9a43d2",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_midrails_recraft_20260817.png",
+            "sha256": "85a53d16e13bf5869e45a52574f8fdba266e0a414fb4e42bfbb3a5460394238b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_semantic_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "62e869ee9f497d223949349bc3e5c7915fa2429a92af0ed4a5e02e80a3ae8833",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1388410,
+            "decisionReason": "seven_columns_and_upper_beams_semantics_passed_but_checkerboard_was_baked_rgb"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_07_beams_changbang_semantic_recraft_approved_20260817",
+        "provider": "BBANANA",
+        "model": "Recraft Remove Background",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:03:20.647515Z",
+        "costCredits": 0.3,
+        "taskId": "d9e21709256e9cdebf3041c70394b608",
+        "status": "completed",
+        "promptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/07_beams_changbang_semantic_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "62e869ee9f497d223949349bc3e5c7915fa2429a92af0ed4a5e02e80a3ae8833"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/07_beams_changbang_semantic_recraft_20260817.png",
+            "sha256": "7d5bafe5720a2f6de555c2540eff326ee7352237495d997b6818aba09f32d0c0",
+            "decision": "approved",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 1558117,
+            "decisionReason": "true_alpha_exact_seven_columns_upper_beams_only_and_continuity_passed"
+          }
+        ]
       }
     ]
   },
@@ -544,6 +732,76 @@
             "no_upright_columns_or_later_structure",
             "no_beams_purlins_rafters_roof_walls_or_changho",
             "no_text_ui_people_animals_or_watermark",
+            "camera_and_estate_preserved_by_deterministic_composition"
+          ]
+        }
+      },
+      {
+        "stageId": "07_beams_changbang",
+        "generationRecordId": "hanok_a1_07_beams_changbang_semantic_recraft_approved_20260817",
+        "status": "approved_qa",
+        "rawLayer": {
+          "path": "assets_unused/pending_review/a1_layers/raw/07_beams_changbang_semantic_recraft_20260817.png",
+          "sha256": "7d5bafe5720a2f6de555c2540eff326ee7352237495d997b6818aba09f32d0c0",
+          "width": 2172,
+          "height": 724,
+          "colorMode": "RGBA",
+          "bytes": 1558117
+        },
+        "normalizedLayer": {
+          "path": "assets_unused/pending_review/a1_layers/07_beams_changbang_layer.png",
+          "sha256": "17f5b7010422b092582ce09f81985ccae410f95f2e2c578d6e9973c2b23e219e",
+          "width": 854,
+          "height": 309,
+          "colorMode": "RGBA",
+          "bytes": 228583,
+          "alphaCoverage": 0.35833655442122736,
+          "anchorPixels": 991,
+          "chromaPixels": 0,
+          "cumulativeContinuity": {
+            "foundationBandHeight": 80,
+            "alphaIoU": 0.9698208324817766,
+            "maximumEdgeDriftPixels": 0,
+            "previousFootprint": [
+              8,
+              0,
+              846,
+              80
+            ],
+            "currentFootprint": [
+              8,
+              0,
+              846,
+              80
+            ]
+          }
+        },
+        "composite": {
+          "path": "assets_unused/pending_review/a1_states/07_beams_changbang.webp",
+          "sha256": "aa4b270c558e54957b1a91ea7c4c2cb08d70e5193155b541c272f1ca1666d88e",
+          "width": 1536,
+          "height": 1152,
+          "colorMode": "RGB",
+          "bytes": 278848,
+          "sourceOutsideSocketChangedPixels": 0,
+          "sourceInsideSocketChangedPixels": 98315,
+          "decodedOutsideSocketMeanError": 3.3919762803320435,
+          "encoder": {
+            "library": "Pillow",
+            "version": "11.3.0",
+            "quality": 82,
+            "method": 6
+          }
+        },
+        "visualReview": {
+          "decision": "approved",
+          "checks": [
+            "exactly_seven_primary_columns_preserved",
+            "upper_beams_and_changbang_are_the_only_new_structure",
+            "no_midheight_sujang_rails_or_secondary_posts",
+            "no_purlins_rafters_roof_walls_or_changho",
+            "no_text_ui_people_animals_or_watermark",
+            "foundation_continuity_iou_0_969821_and_edge_drift_0",
             "camera_and_estate_preserved_by_deterministic_composition"
           ]
         }

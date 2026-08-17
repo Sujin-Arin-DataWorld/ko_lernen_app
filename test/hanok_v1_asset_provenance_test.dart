@@ -135,6 +135,26 @@ void main() {
           ),
           0,
         );
+        final continuity = _object(
+          composition['cumulativeContinuity'],
+          'composition.cumulativeContinuity',
+        );
+        expect(
+          _string(continuity['requiredFromStageId'], 'requiredFromStageId'),
+          '04_cornerstones_choseok',
+        );
+        expect(
+          _integer(continuity['foundationBandHeight'], 'foundationBandHeight'),
+          80,
+        );
+        expect(_number(continuity['minimumAlphaIoU'], 'minimumAlphaIoU'), 0.94);
+        expect(
+          _integer(
+            continuity['maximumFootprintEdgeDriftPixels'],
+            'maximumFootprintEdgeDriftPixels',
+          ),
+          12,
+        );
         final encoder = _object(composition['encoder'], 'composition.encoder');
         expect(_string(encoder['library'], 'encoder.library'), 'Pillow');
         expect(_string(encoder['format'], 'encoder.format'), 'WebP');
@@ -413,7 +433,7 @@ void main() {
         'decision',
       ]);
       final records = _objects(ledger['records'], 'generationLedger.records');
-      expect(records, hasLength(7));
+      expect(records, hasLength(13));
       expect(
         records
             .expand(
@@ -430,6 +450,12 @@ void main() {
           'approved',
           'rejected',
           'approved',
+          'rejected',
+          'rejected',
+          'rejected',
+          'rejected',
+          'rejected',
+          'approved',
         ],
       );
       expect(
@@ -438,7 +464,7 @@ void main() {
           (sum, record) =>
               sum + _number(record['costCredits'], 'record.costCredits'),
         ),
-        12.0,
+        closeTo(12.6, 1e-9),
       );
     });
 
@@ -528,8 +554,10 @@ void main() {
       expect(_integer(approved['schemaVersion'], 'schemaVersion'), 1);
       expect(_boolean(approved['runtime'], 'runtime'), isFalse);
       final states = _objects(approved['states'], 'states');
-      expect(states, hasLength(1));
-      final state = states.single;
+      expect(states, hasLength(2));
+      final state = states.firstWhere(
+        (item) => item['stageId'] == '05_timber_preparation',
+      );
       expect(_string(state['stageId'], 'stageId'), '05_timber_preparation');
       expect(_string(state['status'], 'status'), 'approved_qa');
 
@@ -585,6 +613,91 @@ void main() {
         ),
         contains('no_upright_columns_or_later_structure'),
       );
+    });
+
+    test('approved beams and changbang QA state is exact and continuous', () {
+      final approved = _object(
+        manifest['a1ApprovedQaStates'],
+        'a1ApprovedQaStates',
+      );
+      final states = _objects(approved['states'], 'states');
+      final state = states.firstWhere(
+        (item) => item['stageId'] == '07_beams_changbang',
+      );
+      expect(_string(state['status'], 'status'), 'approved_qa');
+      expect(
+        _string(state['generationRecordId'], 'generationRecordId'),
+        'hanok_a1_07_beams_changbang_semantic_recraft_approved_20260817',
+      );
+
+      final artifacts = <(String, int, int, int, int)>[
+        ('rawLayer', 2172, 724, 4, 1558117),
+        ('normalizedLayer', 854, 309, 4, 228583),
+        // package:image exposes decoded WebP as RGBA even though Pillow's
+        // encoded source contract is RGB; the Python compositor checks mode.
+        ('composite', 1536, 1152, 4, 278848),
+      ];
+      for (final contract in artifacts) {
+        final artifact = _object(state[contract.$1], contract.$1);
+        final path = _string(artifact['path'], '${contract.$1}.path');
+        final file = File(path);
+        expect(file.existsSync(), isTrue, reason: path);
+        final bytes = file.readAsBytesSync();
+        expect(bytes.length, contract.$5, reason: path);
+        expect(
+          sha256.convert(bytes).toString(),
+          _sha256(artifact['sha256'], '$path.sha256'),
+        );
+        final decoded = img.decodeImage(bytes);
+        expect(decoded, isNotNull, reason: path);
+        expect(
+          (decoded!.width, decoded.height, decoded.numChannels),
+          (contract.$2, contract.$3, contract.$4),
+          reason: path,
+        );
+      }
+
+      final normalized = _object(state['normalizedLayer'], 'normalizedLayer');
+      expect(_integer(normalized['anchorPixels'], 'anchorPixels'), 991);
+      expect(_integer(normalized['chromaPixels'], 'chromaPixels'), 0);
+      final continuity = _object(
+        normalized['cumulativeContinuity'],
+        'cumulativeContinuity',
+      );
+      expect(
+        _integer(continuity['foundationBandHeight'], 'foundationBandHeight'),
+        80,
+      );
+      expect(_number(continuity['alphaIoU'], 'alphaIoU'), greaterThan(0.94));
+      expect(
+        _integer(
+          continuity['maximumEdgeDriftPixels'],
+          'maximumEdgeDriftPixels',
+        ),
+        0,
+      );
+
+      final composite = _object(state['composite'], 'composite');
+      expect(
+        _integer(
+          composite['sourceOutsideSocketChangedPixels'],
+          'sourceOutsideSocketChangedPixels',
+        ),
+        0,
+      );
+      expect(
+        _number(
+          composite['decodedOutsideSocketMeanError'],
+          'decodedOutsideSocketMeanError',
+        ),
+        lessThanOrEqualTo(5.0),
+      );
+      final checks = _strings(
+        _object(state['visualReview'], 'visualReview')['checks'],
+        'visualReview.checks',
+      );
+      expect(checks, contains('exactly_seven_primary_columns_preserved'));
+      expect(checks, contains('no_midheight_sujang_rails_or_secondary_posts'));
     });
 
     test(

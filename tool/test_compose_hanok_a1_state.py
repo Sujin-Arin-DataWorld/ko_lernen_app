@@ -26,6 +26,9 @@ class HanokA1StateCompositorTest(unittest.TestCase):
         self.assertEqual(self.contract.encoder_quality, 82)
         self.assertEqual(self.contract.encoder_method, 6)
         self.assertEqual(self.contract.max_decoded_outside_mean_error, 5.0)
+        self.assertEqual(self.contract.continuity_band_height, 80)
+        self.assertEqual(self.contract.minimum_continuity_alpha_iou, 0.94)
+        self.assertEqual(self.contract.maximum_footprint_edge_drift, 12)
         self.assertTrue(self.contract.base_path.is_file())
         self.assertEqual(
             compositor.sha256_file(self.contract.base_path),
@@ -84,6 +87,51 @@ class HanokA1StateCompositorTest(unittest.TestCase):
             with self.subTest(name=name):
                 with self.assertRaises(compositor.AssetContractError):
                     compositor.validate_layer(image, self.contract)
+
+    def test_approved_timber_and_columns_layers_preserve_the_foundation(self) -> None:
+        with Image.open(
+            compositor.ROOT
+            / "assets_unused"
+            / "pending_review"
+            / "a1_layers"
+            / "05_timber_preparation_layer.png"
+        ) as previous_source:
+            previous = previous_source.copy()
+        with Image.open(
+            compositor.ROOT
+            / "assets_unused"
+            / "pending_review"
+            / "a1_layers"
+            / "06_columns_layer.png"
+        ) as current_source:
+            current = current_source.copy()
+
+        report = compositor.validate_cumulative_continuity(
+            previous,
+            current,
+            self.contract,
+        )
+
+        self.assertGreater(report["alphaIoU"], 0.98)
+        self.assertEqual(report["maximumEdgeDriftPixels"], 0)
+        self.assertEqual(report["previousFootprint"], [8, 0, 846, 80])
+        self.assertEqual(report["currentFootprint"], [8, 0, 846, 80])
+
+    def test_rejects_a_stage_that_rescales_the_existing_foundation(self) -> None:
+        previous = self._valid_layer()
+        reduced = previous.resize((700, 253), Image.Resampling.LANCZOS)
+        current = Image.new("RGBA", previous.size, (0, 0, 0, 0))
+        current.alpha_composite(reduced, ((854 - 700) // 2, 309 - 253))
+
+        with self.assertRaisesRegex(
+            compositor.AssetContractError,
+            "foundation",
+        ):
+            compositor.validate_cumulative_continuity(
+                previous,
+                current,
+                self.contract,
+            )
 
     def test_rejects_a_modified_or_unregistered_base(self) -> None:
         with TemporaryDirectory() as temporary_directory:

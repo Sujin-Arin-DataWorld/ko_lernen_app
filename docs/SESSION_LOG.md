@@ -1,5 +1,30 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-07 보·창방
+
+**실패 폐쇄.** 첫 후보는 보·창방 의미는 보였지만 체크무늬를 구운 RGB였고 입력보다
+좁고 높은 종횡비로 기단·기둥을 재배치해 거절했다. wide geometry를 복구한 후보와
+alpha-only 수정도 checkerboard RGB여서 거절했다. Recraft로 true alpha를 얻은 중간
+후보는 자동 geometry를 통과했지만 A1-12에 해당하는 중간 벽선과 보조 기둥이 있어
+의미상 거절했다. 모든 출력·prompt·비용·판정은 순방향 SHA lineage로 ledger에 남겼다.
+
+**연속성 계약.** compositor의 `--previous-layer` gate가 직전 승인 normalized layer와
+후보의 아래 80px foundation alpha mask를 비교한다. IoU 0.94 이상, 좌우 footprint edge
+drift 12px 이하만 허용한다. 실제 A1-05→06은 IoU 0.9846, A1-06→07은 0.9698이고 두
+전환 모두 edge drift 0이다. alpha·socket 형식을 지켜도 기단 위치와 scale을 움직이면
+normalized output 작성 전에 fail-closed한다.
+
+**최종 승인.** 의미 수정 뒤 checkerboard만 제거한 최종 raw는 2172×724 RGBA,
+1,558,117 bytes이며 기둥 정확히 7개와 상부 보·창방만 보인다. normalized layer는
+854×309 RGBA·228,583 bytes, alpha 35.83%·anchor 991·chroma 0이다. 합성 WebP는
+1536×1152 RGB·278,848 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.392다.
+두 Recraft 호출 비용은 합계 0.6 BBANANA credit이며 전체 정적 ledger는 12.6 credit이다.
+아직 runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**13/13**, JSON parse·Python compile·Dart format, 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**, `git diff --check`를 통과했다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-05 치목 자산
 
 **누적 공정.** 승인된 A1-06 true-alpha raw에서 세운 기둥만 제거해 바로 이전

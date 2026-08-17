@@ -69,6 +69,13 @@ SHA로 고정된 빈 대지에만 합성한다. 정규화 레이어는 local anc
 quality 82/method 6으로 만들고 RGB·1536×1152·350,000 bytes와 socket 밖 decode
 평균 오차 상한 5.0을 재검증한다.
 
+기단이 처음 완성된 03 다음인 누적 상태 04–16은 직전 승인 normalized layer를
+`--previous-layer`로 반드시 넘긴다. 01–03은 집터·평면·새 기단 자체가 단계 변화이므로
+이 foundation mask 비교를 적용하지 않고 각 단계의 authored socket/semantic QA를 쓴다.
+도구는 socket 아래 80px의 foundation alpha mask를 비교해 IoU 0.94 이상, 좌우
+footprint edge drift 12px 이하를 요구한다. 이 gate를 통과하지 못하면 모델이 기단의
+폭·위치·scale을 바꾼 것이므로 alpha가 정상이어도 다음 공정으로 승인하지 않는다.
+
 ## 생성 모델 입력 allowlist
 
 외부 생성 서비스에는 현재 SHA-256과 파일 metadata가 정본과 일치하는 아래
@@ -98,6 +105,9 @@ record가 SHA-고정한 출력이어야 하고, 최초 조상은 위 프로젝�
 남긴다. PR4의 A1-06 파일럿은 허용된 프로젝트 자산 두 장만 입력으로 사용해
 Nano Banana Pro 2K 세 안을 생성했으며, 총 12 credit을 사용했다. 세 출력 모두
 socket 바깥 대지를 다시 그려 `rejected`로 기록했고 런타임에는 포함하지 않는다.
+이후 투명 socket 파이프라인에서 A1-05·06·07 QA 상태를 승인했다. A1-07의 두
+Recraft 배경 제거에는 각각 0.3 credit, 합계 0.6 credit을 사용했고 중간 벽선이 있는
+첫 결과는 의미상 거절했다. 현재 BBANANA 정적 ledger 합계는 12.6 credit이다.
 추가 생성 전 allowlist와 누적 ledger를 확인하는 것이 fail-closed 시작 조건이다.
 ledger는 정적 이미지 200 credit, 선택 영상 10.4 credit, 합계 210.4 credit 상한을
 각각 검사한다. 미래 기록도 입력 SHA와 최초 allowlist 또는 이전 ledger 출력까지의
