@@ -21,7 +21,7 @@ changed Dart files: No issues found. Focused tests 39/39:
 `custom_pack_import_language_test`, `book_preview_localization_test`,
 `hanja_lexicon_test`.
 
-**커밋해시.** (이 커밋)
+**커밋해시.** `ccc1dc5`
 
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
