@@ -1,0 +1,61 @@
+{
+  "id": "tiger-elster-01",
+  "series": "HANGUL SORI",
+  "pillar": "1 - 브랜드 캐릭터와 세계관",
+  "lang": "de",
+  "duration": 12,
+  "fps": 30,
+  "size": [1080, 1920],
+  "cover_at": 1.4,
+
+  "_clean_master": "글자 0. 모든 카피는 ae_text[] -> After Effects 텍스트 레이어로 올린다.",
+  "_composition": "⚠ welcome-hero 를 세로 풀블리드 cover 로 쓰면서 anchor x 를 0.34 로 주면 호랑이 어깨 위 까치가 잘려나간다(실측). 이 영상의 주제가 '호랑이와 까치'라 치명적이다. 그래서 anchor x 는 0.5 로 두고, 대신 클립을 하단 박스에 넣어 상단 640px 을 타이포 여백으로 비운다.",
+
+  "_timeline": "background.sequence 를 쓰지 않는다. 4개 씬의 길이가 서로 달라 시퀀스로는 3·4번 씬에 배경이 비는 사고가 났다. 크림 바탕 위에 레이어를 시간순으로 쌓고 알파 페이드로 전환한다. 뒤 레이어가 위에 그려지므로 순서가 곧 z-order 다.",
+
+  "layers": [
+    { "type": "clip", "path": "assets/video/loops/welcome-hero.mp4",
+      "box": [0, 640, 1080, 1280], "fit": "cover", "anchor": [0.5, 0.0], "loop": true,
+      "start": 0, "end": 3.4, "fadeOut": 0.4 },
+
+    { "type": "clip", "path": "assets/video/loops/hanok_jongga.mp4",
+      "box": [0, 0, 1080, 1920], "fit": "cover", "anchor": [0.45, 0.5], "loop": true,
+      "start": 3.1, "end": 6.2, "fadeIn": 0.4, "fadeOut": 0.4 },
+
+    { "type": "image", "path": "assets/illustrations/hanok_stages/stage_gate_light.png",
+      "box": [0, 0, 1080, 1920], "fit": "cover", "anchor": [0.5, 0.20],
+      "start": 5.9, "end": 8.9, "fadeIn": 0.4, "fadeOut": 0.4 },
+
+    { "type": "clip", "path": "assets/video/character/magpie_perched.mp4",
+      "box": [110, 1120, 400, 400], "matte": "white", "loop": true,
+      "start": 6.3, "end": 8.6, "fadeIn": 0.35, "fadeOut": 0.3 },
+
+    { "type": "clip", "path": "assets/video/loops/welcome-hero.mp4",
+      "box": [0, 640, 1080, 1280], "fit": "cover", "anchor": [0.5, 0.0], "loop": true,
+      "start": 8.6, "end": 12, "fadeIn": 0.45 }
+  ],
+
+  "ae_text": [
+    { "id": "series-tag", "role": "tag",      "start": 0.3, "end": 2.0,  "x": 96,  "y": 180, "content": "HANGUL SORI" },
+    { "id": "headline-1", "role": "headline", "start": 0.5, "end": 3.0,  "x": 96,  "y": 300, "content": "Warum Tiger\n& Elster?" },
+    { "id": "sub-1",      "role": "sub",      "start": 1.4, "end": 3.0,  "x": 96,  "y": 480, "content": "Zwei alte Bekannte aus Korea." },
+
+    { "id": "headline-2", "role": "headline", "start": 3.4, "end": 5.7,  "x": 96,  "y": 300, "content": "Der Tiger beschützt\ndas Haus." },
+
+    { "id": "headline-3", "role": "headline", "start": 6.2, "end": 8.6,  "x": 540, "y": 300, "content": "Die Elster bringt\ngute Nachrichten." },
+
+    { "id": "headline-4", "role": "headline", "start": 9.1, "end": 11.5, "x": 96,  "y": 300, "content": "Und du? Team Tiger\noder Team Elster?" },
+    { "id": "cta",        "role": "cta",      "start": 10.2, "end": 12,  "x": 96,  "y": 1470, "content": "Wer ist dein Favorit?" }
+  ],
+
+  "post": {
+    "caption_de": "Tiger und Elster stehen seit Jahrhunderten zusammen auf koreanischen Bildern.\n\nIn der Minhwa-Volksmalerei bewacht der Tiger das Haus und hält Unglück fern, die Elster bringt gute Nachrichten. Meist sieht der Tiger dabei eher tollpatschig aus als furchteinflößend — das war Absicht, die Bilder haben sich über die Mächtigen lustig gemacht.\n\nDeshalb sind die beiden bei uns keine Maskottchen-Deko, sondern die Hausherren.",
+    "cta": "Team Tiger oder Team Elster? 👇",
+    "hashtags": ["#koreanischekultur", "#minhwa", "#koreanischlernen", "#koreanisch", "#südkorea", "#volkskunst", "#한국문화"]
+  },
+
+  "manual_todo": [
+    "AE: tiger-elster-01-ae.jsx 실행",
+    "호랑이·까치 유래 문구는 민화 통설 요약이다. 발행 전 사실 확인 권장"
+  ]
+}

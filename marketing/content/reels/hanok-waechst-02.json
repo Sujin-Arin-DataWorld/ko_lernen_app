@@ -1,0 +1,64 @@
+{
+  "id": "hanok-waechst-02",
+  "series": "SORI HANOK",
+  "pillar": "4 - 게임화·학습 진척 (시리즈 핵심)",
+  "lang": "de",
+  "duration": 15,
+  "fps": 30,
+  "size": [1080, 1920],
+  "cover_at": 13.6,
+
+  "_clean_master": "글자 0. 모든 카피는 ae_text[] -> After Effects 텍스트 레이어로 올린다.",
+  "_asset_note": "stage_beams_light.png 는 제외한다. 그 한 장만 앱 화면 목업이라 'Stage 3 / Beams + Rafters / A1 Progress 75% / 16 / 21 packs cleared / Next Stage' UI와 영어 대사 카드, 브랜드와 다른 초록 한복 호랑이가 박혀 있다. 나머지 11장은 깨끗한 씬이다.",
+  "_composition": "cover anchor y 0.25 로 하늘을 더 남겨 좌상단 타이포 여백을 만든다. 마지막 호랑이는 우하단 540px, 잘리지 않고 하단 300px 침범하지 않는다.",
+
+  "background": {
+    "crossfade": 0.45,
+    "sequence": [
+      { "path": "assets/illustrations/hanok_stages/stage_empty_light.png",         "duration": 1.2, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_foundation_light.png",    "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_pillars_light.png",       "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_thatch_light.png",        "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_tile_partial_light.png",  "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_tile_complete_light.png", "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_windows_light.png",       "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_sidebuilding_light.png",  "duration": 1.3, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_dancheong_light.png",     "duration": 1.4, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_gate_light.png",          "duration": 1.4, "fit": "cover", "anchor": [0.5, 0.25] },
+      { "path": "assets/illustrations/hanok_stages/stage_jongga_light.png",        "duration": 1.9, "fit": "cover", "anchor": [0.5, 0.30] }
+    ]
+  },
+
+  "layers": [
+    { "type": "clip", "path": "assets/video/character/tiger_celebrate_hifive.mp4",
+      "box": [520, 1000, 540, 560], "matte": "white", "loop": true,
+      "start": 12.6, "end": 15, "fadeIn": 0.35 }
+  ],
+
+  "ae_text": [
+    { "id": "series-tag",  "role": "tag",      "start": 0.3,  "end": 2.2,  "x": 96, "y": 180, "content": "DEIN HANOK, SCHRITT FÜR SCHRITT" },
+    { "id": "headline",    "role": "headline", "start": 0.6,  "end": 3.6,  "x": 96, "y": 300, "content": "Ich lerne Koreanisch.\nMein Hanok wächst mit." },
+
+    { "id": "ch-01", "role": "chapter", "start": 1.3,  "end": 2.5,  "x": 96, "y": 520, "content": "01 Fundament" },
+    { "id": "ch-02", "role": "chapter", "start": 2.6,  "end": 5.1,  "x": 96, "y": 520, "content": "02 Säulen & Balken" },
+    { "id": "ch-03", "role": "chapter", "start": 5.2,  "end": 7.7,  "x": 96, "y": 520, "content": "03 Dach" },
+
+    { "id": "mid-line",  "role": "headline", "start": 7.9,  "end": 10.1, "x": 96, "y": 300, "content": "Du lernst.\nDein Hanok wächst." },
+    { "id": "ch-04",     "role": "chapter",  "start": 10.4, "end": 11.7, "x": 96, "y": 520, "content": "04 Dancheong" },
+
+    { "id": "final",   "role": "headline", "start": 12.8, "end": 14.9, "x": 96, "y": 300, "content": "Lerne Koreanisch.\nBau dein Hanok." },
+    { "id": "cta",     "role": "cta",      "start": 13.4, "end": 15,   "x": 96, "y": 1470, "content": "Kostenlos ausprobieren" },
+    { "id": "cta-sub", "role": "sub",      "start": 13.7, "end": 15,   "x": 96, "y": 1560, "content": "Link in Bio" }
+  ],
+
+  "post": {
+    "caption_de": "Andere Apps geben dir Punkte. Bei uns baust du ein Haus.\n\nJede abgeschlossene Lektion baut an deinem Hanok weiter: erst das Fundament, dann die Säulen, das Dach, die Fenster, am Ende die bemalten Dancheong-Balken und das große Tor. Nach ein paar Wochen steht da ein Jongga, den du dir selbst erarbeitet hast.\n\nKein Streak-Druck. Wenn du zwei Tage aussetzt, bleibt das Haus stehen und wartet auf dich.",
+    "cta": "Wie weit würdest du in vier Wochen kommen? 👇",
+    "hashtags": ["#koreanischlernen", "#koreanisch", "#sprachenlernen", "#hangul", "#hanok", "#koreanischekultur", "#한국어공부"]
+  },
+
+  "manual_todo": [
+    "AE: out/hanok-waechst-02/hanok-waechst-02-ae.jsx 를 실행해 텍스트 레이어를 올린다",
+    "Inter SemiBold / Inter Medium 을 시스템에 설치해야 AE 가 대체 폰트로 바꾸지 않는다"
+  ]
+}

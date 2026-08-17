@@ -1,0 +1,21 @@
+{
+  "name": "hangul-sori-marketing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hangul Sori Instagram Reels 파이프라인: 릴스 JSON -> ffmpeg 렌더 -> 승인 큐 -> Instagram Graph API 발행",
+  "scripts": {
+    "render": "node build/render.mjs",
+    "render:all": "node build/render.mjs --all",
+    "sheet": "node build/render.mjs --all --sheet",
+    "ae": "node build/ae-text.mjs --all",
+    "queue": "node publish/instagram.mjs list",
+    "queue:add": "node publish/instagram.mjs add",
+    "queue:approve": "node publish/instagram.mjs approve",
+    "publish": "node publish/instagram.mjs",
+    "publish:live": "node publish/instagram.mjs --live"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

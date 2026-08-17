@@ -1,0 +1,50 @@
+{
+  "id": "willkommen-01",
+  "series": "HANGUL SORI",
+  "pillar": "3 - 감성·한국 안으로 들어가는 경험",
+  "lang": "de",
+  "duration": 12,
+  "fps": 30,
+  "size": [1080, 1920],
+  "cover_at": 1.6,
+
+  "_clean_master": "글자 0. 모든 카피는 ae_text[] -> After Effects 텍스트 레이어로 올린다.",
+  "_composition": "문 → 마당 → 히어로 3연속. hanok_jongga 는 anchor x 0.42 로 호랑이를 오른쪽 아래에 두고 좌상단 하늘을 비운다. welcome-hero 는 anchor x 0.34.",
+
+  "background": {
+    "crossfade": 0.5,
+    "sequence": [
+      { "path": "assets/video/intro_gate_to_madang.mp4", "duration": 4.8, "fit": "cover", "anchor": [0.5,  0.40] },
+      { "path": "assets/video/loops/hanok_jongga.mp4",   "duration": 7.2, "fit": "cover", "anchor": [0.42, 0.50] }
+    ]
+  },
+
+  "layers": [
+    { "type": "clip", "path": "assets/video/loops/welcome-hero.mp4",
+      "box": [0, 640, 1080, 1280], "fit": "cover", "anchor": [0.5, 0.0], "loop": true,
+      "start": 8.6, "end": 12, "fadeIn": 0.45 }
+  ],
+
+  "ae_text": [
+    { "id": "series-tag", "role": "tag",      "start": 0.3, "end": 1.9,  "x": 96, "y": 180, "content": "HANGUL SORI" },
+    { "id": "headline-1", "role": "headline", "start": 0.5, "end": 3.5,  "x": 96, "y": 300, "content": "Mach die Tür auf." },
+    { "id": "sub-1",      "role": "sub",      "start": 1.3, "end": 3.5,  "x": 96, "y": 420, "content": "Koreanisch beginnt nicht im Vokabelheft." },
+
+    { "id": "headline-2", "role": "headline", "start": 5.3, "end": 8.4,  "x": 96, "y": 300, "content": "Koreanisch lernen,\nwo Korea wohnt." },
+
+    { "id": "headline-3", "role": "headline", "start": 9.2, "end": 11.5, "x": 96, "y": 300, "content": "Hangul Sori" },
+    { "id": "sub-3",      "role": "sub",      "start": 9.6, "end": 11.5, "x": 96, "y": 400, "content": "Koreanisch entdecken." },
+    { "id": "cta",        "role": "cta",      "start": 10.0, "end": 12,  "x": 96, "y": 1470, "content": "Jetzt ausprobieren" }
+  ],
+
+  "post": {
+    "caption_de": "Ein Tor geht auf, dahinter liegt ein Hof.\n\nHangul Sori ist keine Karteikarten-App mit koreanischem Anstrich. Der ganze Ort ist koreanisch: du lernst in einem Hanok, das du dir Lektion für Lektion selbst aufbaust, mit Tiger und Elster als Begleitern und einer Bildsprache aus der Minhwa-Malerei.\n\nDeutsch und Englisch als Erklärsprache, Koreanisch als Ziel. A1 bis C2.",
+    "cta": "Komm rein — Link in Bio.",
+    "hashtags": ["#koreanischlernen", "#koreanisch", "#hanok", "#sprachenlernen", "#südkorea", "#koreanischekultur", "#한국어"]
+  },
+
+  "manual_todo": [
+    "AE: willkommen-01-ae.jsx 실행",
+    "1280×720 소스를 세로 풀블리드로 2.67배 업스케일했다. 폰에서 뭉개져 보이면 세로 재생성 검토"
+  ]
+}

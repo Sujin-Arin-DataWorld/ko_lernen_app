@@ -55,6 +55,45 @@ a1_hanok_construction_map.dart`·`lib/l10n/**`·`test/a1_hanok_construction_map_
 W3 = `.tours/architect-hanok-a1-ledger-gate.tour`. 이 로그는 첫 커밋에 포함. 워킹트리의 `marketing/`·
 `.claude/data/`·`.mvn/`·릴스 로그 항목은 다른 세션 것이라 건드리지 않았다.
 
+### 2026-08-17 (Claude, Windows) — 릴스 v3: clean visual master + AE 텍스트 분리
+
+**왜.** Jin이 v2 4편을 프레임 단위로 검수하고 "문제는 그림이 아니라 거의 전적으로 텍스트 처리"
+라고 지적했다. 흰 글자 + 검은 굵은 외곽선을 화면 중앙에 크게 넣으니 릴스 밈 자막처럼 보였고,
+호랑이 얼굴·까치·한옥 지붕 같은 핵심 비주얼을 계속 덮었다. **원칙 확정: 자막을 영상에 굽지
+않는다. 영상은 글자 0의 clean visual master 로 만들고 모든 카피는 After Effects 의 별도 텍스트
+레이어로 올린다.** 그래야 문구 수정이나 DE/EN/KO 버전에 영상 재생성이 필요 없다.
+
+**에셋 오염 확인.** Jin이 4번 영상에서 본 `Stage 3` / `Beams + Rafters` / `A1 Progress 75%` /
+`16 / 21 packs cleared` / `Next Stage` 는 내가 넣은 자막이 아니라
+**`assets/illustrations/hanok_stages/stage_beams_light.png` 그림 안에 박힌 앱 화면 목업**이었다.
+영어 대사 카드와 브랜드와 다른 초록 한복 호랑이까지 들어 있다. 12장 중 그 한 장만 오염됐고
+나머지 11장은 깨끗하다. 해당 파일을 시퀀스에서 제외했고 README 0번 규칙으로 못 박았다.
+
+**파이프라인.** `render.mjs` 에 clean master 모드(텍스트 큐가 없으면 ASS 자체를 적용하지 않고
+`<id>-master-1080x1920.mp4` 로 출력)와 cover 크롭의 `anchor` 를 넣었다. `build/ae-text.mjs` 를
+신설해 릴스 JSON 의 `ae_text[]` 에서 **After Effects ExtendScript(`<id>-ae.jsx`)와 텍스트
+스펙(`<id>-text-spec.md`)** 을 생성한다. jsx 는 컴프에 텍스트 레이어를 위치·타이밍·이징까지
+만들어 넣는다. 타이포는 Inter SemiBold/Medium, 왼쪽 정렬, 먹색, 외곽선·그림자 금지,
+애니메이션은 opacity 0→100 + Y +16px→0 (0.25~0.35초)만. 문자열은 `\uXXXX` 로 이스케이프해
+ExtendScript 가 시스템 코드페이지로 읽어도 `Tür`·`wächst` 가 깨지지 않게 했다.
+
+**릴스 4편 재작업 (전부 글자 0).** `hanok-waechst-02` 15초(11장 클린 스테이지 크로스페이드 +
+호랑이 우하단 540px), `tiger-elster-01` 12초, `wortpakete-01` 15초, `willkommen-01` 12초.
+시리즈 역할을 캐릭터·콘텐츠·감성·게임화 4축으로 나눴다.
+
+**중간에 잡은 결함 2건.** ① `welcome-hero` 를 `anchor: [0.34, 0.5]` 로 오른쪽에 밀었더니
+**호랑이 어깨 위 까치가 통째로 잘렸다**. 주제가 "호랑이와 까치"인 영상이라 치명적이라
+하단 박스(`box: [0,640,1080,1280]`, `anchor: [0.5,0]`) 방식으로 바꿔 두 캐릭터를 살리고 상단을
+비웠다. ② `tiger-elster-01` 의 `background.sequence` 합이 5.9초뿐이라 3·4번 씬 배경이 통째로
+비었다. 시퀀스를 버리고 레이어 시간순 스택으로 재구성했다. 둘 다 README 규칙으로 남겼다.
+
+**검증.** 렌더 4/4, 각 편 3~4시점 프레임 육안 검수로 글자 0·UI 오염 0·좌상단 여백 확보·
+캐릭터 미절단 확인. AE 산출물은 움라우트 이스케이프를 실제 파일에서 확인했다.
+
+**커밋 안 함.** Jin 요청 시에만.
+
+---
+
 ### 2026-08-17 (Claude, Windows) — A1 07 뒷줄 재생성 시도 4·5 + 기계 합성 07m (누적 20.6 credit)
 
 **호출.** ④ Nano Banana Pro 2K 4:3, 베이스=allowlist 완성 사랑채 `mcp-f523e93f…`,
@@ -120,6 +159,46 @@ SHA만 새로 approved로 기록 — 뒷기둥 결함으로 05~10 계보 자체�
 효력이 없다).
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — 릴스 v2 풀블리드 재작업 4편 + 렌더러 확장
+
+**왜.** Jin이 v1 3편을 반려했다. 지적 5건을 실제 에셋으로 검증한 결과 전부 사실이었고 원인은
+콘텐츠가 아니라 레이아웃·에셋 선택 판단이었다. ① `hanok_stages/*.png`는 841×1870 세로
+풀스크린용인데 780×560 가로 카드로 넣어 화면의 24%만 썼다. ② 960×960 캐릭터 클립을
+190~540px로 배치했다. ③ `magpie_bob.mp4`는 6.5초에 까치가 프레임 밖으로 날아가는데 파일명만
+보고 골랐다. ④ 물결 배경은 496×864를 2.2배 업스케일한 것이었고 저장소엔 이미 완성된 브랜드
+아트가 여럿 있었다.
+
+**렌더러 확장.** `background.sequence[]`(알파 페이드 크로스페이드 — `xfade` 체인보다 짧고
+안전하다), `background.fill`/`kenburns`, `scrim`(2×64 그라데이션을 확대해 상·하단에 깔아
+화려한 아트 위 가독성 확보), 레이어 `opacity`/`fadeIn`/`fadeOut`, `fit:"cover"`, 그리고
+**`--sheet` 대조 시트 모드**를 넣었다. `--sheet`는 릴스가 참조하는 모든 미디어의 시작·중간·끝
+프레임을 한 장으로 뽑는다. 까치 사고의 직접적 재발 방지책이며 렌더 전 필수 통과 단계다.
+`ass.mjs`는 풀블리드 대응으로 Hook 62→76·Body 46→52·Display 176→200, Shadow 추가,
+`Title`(96) 신설.
+
+**릴스 4편 (v1 3편은 폐기, 큐 초기화).**
+`hanok-waechst-02` 15초 — 한옥 12단계 풀블리드 크로스페이드 + 호랑이 700px 페이오프.
+`wortpakete-01` 15초 — 팩 아트 14종 폭 1080 리듬컷 + 도장 6종 격자 + 까치 600px.
+`willkommen-01` 12초 — 솟을대문·종가·welcome-hero 풀블리드 3연속, 텍스트 최소.
+`tiger-elster-01` 12초 — welcome-hero·hanok_jongga 풀블리드 3연속. 지붕 위 까치가 문구를 그대로 보여준다.
+
+**중간에 폐기한 것.** `fill:"blur"`(흐린 확대본으로 화면 채우기)는 `tiger-elster-01`에서 실제
+렌더해보니 큰 얼룩처럼 보여 폐기하고 중앙 구도 소스 cover 방식으로 바꿨다. 코드 경로는 남겨뒀지만
+README에 쓰지 말라고 명시했다.
+
+**검증.** `--sheet` 4/4 통과(클립이 프레임을 벗어나지 않음을 육안 확인), 렌더 4/4 성공,
+각 편 3시점 프레임 육안 검수(풀블리드·캐릭터 크기·텍스트 가독성·안전영역), `ffprobe` 4편 전부
+1080×1920 / 30fps / yuv420p / aac / 길이 정확. 큐 등록 4건이 승인 전 dry-run에서 아무것도
+내보내지 않음을 확인했다.
+
+**함정 1건 추가 기록.** Windows PowerShell 5.1의 `Set-Content -Encoding utf8`은 BOM을 붙여
+`JSON.parse`를 깨뜨린다(`wortpakete-01.json` 렌더 실패로 실측). JSON은 Edit 도구나
+`UTF8Encoding($false)`로만 쓴다. README에 규칙으로 남겼다.
+
+**커밋 안 함.** Jin 요청 시에만. `marketing/out/`은 gitignore.
+
+---
 
 ### 2026-08-17 (Claude, Windows) — A1 뒷기둥 결함 확인 + BBANANA 07′ 파일럿 2회 (계약 밖, 8.3 credit)
 
@@ -213,6 +292,45 @@ scoped면 그 목록만 `flutter test`, PR에서는 `flutter build web`을 생�
 Actions는 billing 차단이라 원격 검증은 Jin이 한도를 푼 뒤 첫 PR에서 확인한다.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — Instagram 릴스 파이프라인 `marketing/` 신설 + 릴스 3편 제작
+
+**왜.** Jin이 인스타 릴스 콘텐츠 제작과 클로드 기반 마케팅 자동화를 요청했다. 결정 사항은
+계정 언어 **독일어 우선**, 출연 형태는 마스코트·화면녹화·보이스오버·얼굴 **혼합**, 작업 순서는
+자동화 → 릴스 3편 완제품 → 30편 뱅크 → 수동 체크리스트다.
+
+**기존 자산 확인.** 저장소에 이미 릴스 1편(`docs/social/bbanana/sori-check-01-*`)과 계정 핸들
+`@hangulsori_learnkorean`, 소셜 팔레트(cream `#fff9ee`·teal `#0d5b5d`·red `#bd4f35`),
+Pretendard/Gowun Dodum 관례가 있었다. 새로 발명하지 않고 그 관례를 계승했다. 다만 그 기존 릴스는
+두 가지 결함이 있어 그대로 재사용하지 않는다 — ① 브랜드 폰트가 시스템에 없어 libass가 Arial로
+폴백했고 ② 캐릭터 클립의 흰 배경이 제거되지 않아 흰 사각형이 박혔다.
+
+**무엇.** `marketing/`을 신설했다. `brand/tokens.json`(소셜 정본 토큰), `build/lib/ass.mjs`
+(ASS 스타일표, 전 스타일 Alignment=8 + MarginV=상단 y로 배치 결정화), `build/render.mjs`
+(릴스 JSON → 1080×1920 mp4 + 커버 + 캡션), `publish/instagram.mjs`(승인 큐 + Graph API 발행),
+`content/reels/*.json` 3편, `content/reel-bank-30.md`(30편 기획), `README.md`(운영 매뉴얼 +
+Jin 수동 체크리스트 5단계).
+
+**렌더 함정 2건 실측.** ① **`blend=all_mode=multiply` 금지** — 체인 끝이 `format=yuv420p`면
+ffmpeg 8이 blend를 YUV 평면에서 실행해 U/V(128 오프셋)까지 곱하고 화면 전체가 형광 초록이 된다.
+양쪽 입력에 `format=rgba`를 못 박아도 재현됐다. 흰 배경 클립은 `matte:"white"`(colorkey +
+overlay)로 교체했고, 부수적으로 "multiply 레이어는 전체 구간이어야 한다"는 제약도 사라졌다.
+② **폰트는 작업폴더로 복사 후 `ass=...:fontsdir=fonts`** 로 넘겨야 한다. Gowun Dodum은
+node_modules에 woff2만 있어 libass가 못 읽으므로 현재 display는 Noto Sans KR 대체다.
+색공간 태그(`-colorspace/-color_primaries/-color_trc`)는 초록 원인이 아니었으나 불필요해 제거했다.
+
+**검증.** `node build/render.mjs --all` 3/3 성공. 커버 프레임을 육안 검수해 크림 배경·Pretendard
+타이포·마스코트 누끼·안전영역 준수를 확인했다. 발행 스크립트는 draft 상태에서 dry-run이 아무것도
+내보내지 않고, approve 후에만 dry-run 대상에 오르는 것을 실행으로 확인했다. `--live` 없이는
+절대 발행되지 않는다.
+
+**커밋 안 함.** Jin 요청 시에만 커밋한다. `marketing/out/`은 `.gitignore` 처리했다.
+
+**남은 게이트(Jin).** 인스타 비즈니스 계정 전환(크리에이터는 API 발행 불가), Meta 앱 심사
+(`instagram_business_basic` + `instagram_business_content_publish`, 2~4주), R2 공개 호스팅,
+앱 실기기 화면녹화, 독일어 원어민 검수, 핸들 밑줄 표기 확인. 상세는 `marketing/README.md`.
+
+---
 
 ### 2026-08-17 (Claude, Windows) — 잔여 브랜치 전수 감사 + Codex A1 파일럿 무손실 병합
 
