@@ -1,0 +1,9 @@
+id,level,ko,de,en,field_notes,상태,jin_memo
+grammar_c1_limited_to,C1,N에 국한하면,Geltungsbereich einschränken,Limiting the scope,rights: original; focus_de=auf die Stichprobe; focus_en=Limited to this sample,draft,
+grammar_c2_no_more_than_doing,C2,V-는 데 그치다,Beschränkung auf einen Minimalschritt,Doing no more than,rights: original; focus_de=beschränkte sich darauf; focus_en=did no more than,draft,
+grammar_c1_not_necessarily,C1,V-ㄴ/는다고 해서 N인 것은 아니다,Fehlschluss zurückweisen,Rejecting a false inference,"rights: original; focus_de=heißt nicht, dass; focus_en=does not mean",draft,
+grammar_c2_merely_on_grounds,C2,V-았/었다는 이유만으로,Unzureichender Grund,Insufficient grounds,rights: original; focus_de=Allein mit der Begründung; focus_en=merely on the grounds that,draft,
+grammar_c1_insufficient_for,C1,V-기에는 N이 모자라다,Unzureichende Mittel,Insufficient means,rights: original; focus_de=reicht die jetzige Besetzung nicht; focus_en=is not enough to,draft,
+grammar_c2_as_if_framing,C2,V-ㄴ 양,Vorgetäuschte Haltung,Feigned stance,rights: original; focus_de=als hätte sie; focus_en=as if they alone had known,draft,
+grammar_c1_but_not,C1,"V-되, N은 V-지 않는다",Zugeständnis mit Grenze,Concession with a limit,"rights: original; focus_de=anonym angenommen; focus_en=taken anonymously, but",draft,
+grammar_c2_no_matter_how,C2,아무리 V-ㄴ다 한들,Zugeständnis ohne Folge,Concession without consequence,rights: original; focus_de=Wie viele Fans es auch sein mögen; focus_en=No matter how many fans there are,draft,

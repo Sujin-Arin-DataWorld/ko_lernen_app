@@ -363,12 +363,17 @@ flutter run -d <android-id>   # 안드로이드
   생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
   production route를 fail closed했다. PR #31 exact-head CI를 통과하고 main merge
   `90613738`에 반영됐다.
-- [ ] **살아 있는 한옥 V1 PR3 병합 게이트**: 검증된 productive `CanDoSegment`만
-  86개 영구 보상을 여는 `HanokState v1`·grant catalog·projection·idempotent cutover·
-  cloud/account merge를 구현한다. CourseUnit 완료는 재평가 자격만 열고 집을 올리지 않으며,
-  room-v3·장식·Gye 데이터는 보존한다. 미승인 grant plan은 `tools/content_factory/drafts/`
-  에만 두고 Flutter asset/production loader로 ship하지 않는다. PR3 병합 전에는 사용자
-  기본 경로에 노출하지 않는다.
+- [x] **살아 있는 한옥 V1 PR3 (병합 완료 · dark-launch)**: 검증된 productive
+  `CanDoSegment`만 86개 영구 보상을 여는 `HanokState v1`·grant catalog·projection·
+  idempotent cutover·cloud/account merge를 `64b7e24a`로 main에 넣었다. CourseUnit 완료는
+  재평가 자격만 열고 집을 올리지 않으며, room-v3·장식·Gye 데이터는 보존한다. 미승인
+  grant plan은 `tools/content_factory/drafts/`에만 두고 Flutter asset/production loader로
+  ship하지 않는다.
+- [ ] **살아 있는 한옥 V1 사용자 노출 게이트 (Jin)**: PR3 코드는 들어왔지만 **UI 호출자가
+  0이다.** `HanokStateService`/`HanokExperienceProjector`는 `cloud_sync`·
+  `account_reconciliation`·`hanok_cutover_service`만 사용하고, 사용자는 여전히 레거시
+  한옥을 본다. 투영을 실제 화면에 연결할지는 이 게이트에서 정한다. 연결 전까지 레거시
+  한옥이 정본이다.
 - [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·4:3 디코드 창
   renderer·투명 socket compositor·연속성/lineage gate·원자적 승격/썸네일 도구는
   코드로 고정됐다. 승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Jin이

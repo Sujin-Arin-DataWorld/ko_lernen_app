@@ -214,7 +214,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
         generic_hits = 0
         for ident, seed in SEEDS.items():
             title = catalog[ident]
-            scene = render_scene(seed, ident=ident, title=title)
+            scene = render_scene(seed, ident=ident)
             dialog = scene["dialog"]
             shell = tuple(dialog[index]["ko"] for index in (0, 3, 4, 5, 7))
             full = tuple(line["ko"] for line in dialog)
@@ -222,9 +222,15 @@ class Batch10KoreanQualityTest(unittest.TestCase):
             dialogs[full] = ident
             if shell == GENERIC_SERVICE_SHELL:
                 generic_hits += 1
-            echoed = sum(1 for line in shell if title[0] and title[0] in line)
-            self.assertLessEqual(echoed, 2, f"{ident} repeats title {title[0]!r} in shell {shell}")
-            lines = frame_lines(ident, seed, *title)
+            # Generated frame lines never paste the scene title. The authored
+            # take/probe lines (3, 5) may of course name what the scene is about.
+            for index in (0, 4, 7):
+                self.assertNotIn(
+                    title[0],
+                    dialog[index]["ko"],
+                    f"{ident} pastes its scene title into dialog line {index}",
+                )
+            lines = frame_lines(ident, seed)
             self.assertEqual(lines["open"][0], dialog[0]["ko"], ident)
             for slot, triple in lines.items():
                 for leftover in HUMANIZER_SHELL_KO:

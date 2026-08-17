@@ -153,3 +153,10 @@ assets_unused/video_originals/
 /re 2/
 re 2/
 re 2/
+
+# 로컬 상태 — 저장소가 추적하면 안 되는 것들.
+# b63a5753 이 MCP 로컬 DB 와 Maven wrapper 를 실수로 커밋했다.
+# 이 저장소에는 Maven 프로젝트가 없다 (루트에 pom.xml 도 mvnw 도 없음).
+.claude/data/
+.claude/worktrees/
+.mvn/

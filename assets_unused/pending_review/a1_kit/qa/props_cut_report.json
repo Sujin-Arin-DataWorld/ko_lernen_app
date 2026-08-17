@@ -1,0 +1,293 @@
+{
+  "sheet": "assets_unused/pending_review/a1_kit/raw/props_sheet_5baedfca.jpg",
+  "sprites": [
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_timber_squared.png",
+      "name": "prop_timber_squared",
+      "nativeSize": [
+        412,
+        332
+      ],
+      "sheetBBox": [
+        108,
+        183,
+        520,
+        515
+      ],
+      "size": [
+        60,
+        48
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_timber_logs.png",
+      "name": "prop_timber_logs",
+      "nativeSize": [
+        411,
+        344
+      ],
+      "sheetBBox": [
+        591,
+        174,
+        1002,
+        518
+      ],
+      "size": [
+        58,
+        49
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_sawhorse.png",
+      "name": "prop_sawhorse",
+      "nativeSize": [
+        324,
+        350
+      ],
+      "sheetBBox": [
+        1087,
+        173,
+        1411,
+        523
+      ],
+      "size": [
+        52,
+        56
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_survey_stakes.png",
+      "name": "prop_survey_stakes",
+      "nativeSize": [
+        355,
+        321
+      ],
+      "sheetBBox": [
+        1505,
+        188,
+        1860,
+        509
+      ],
+      "size": [
+        150,
+        136
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_drawing_board.png",
+      "name": "prop_drawing_board",
+      "nativeSize": [
+        362,
+        354
+      ],
+      "sheetBBox": [
+        1931,
+        171,
+        2293,
+        525
+      ],
+      "size": [
+        60,
+        59
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_stepping_stone_shoes.png",
+      "name": "prop_stepping_stone_shoes",
+      "nativeSize": [
+        333,
+        209
+      ],
+      "sheetBBox": [
+        148,
+        817,
+        481,
+        1026
+      ],
+      "size": [
+        46,
+        29
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_lantern.png",
+      "name": "prop_lantern",
+      "nativeSize": [
+        159,
+        313
+      ],
+      "sheetBBox": [
+        717,
+        753,
+        876,
+        1066
+      ],
+      "size": [
+        16,
+        31
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_bamboo_blind.png",
+      "name": "prop_bamboo_blind",
+      "nativeSize": [
+        276,
+        344
+      ],
+      "sheetBBox": [
+        1110,
+        749,
+        1386,
+        1093
+      ],
+      "size": [
+        40,
+        50
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_flower_pots.png",
+      "name": "prop_flower_pots",
+      "nativeSize": [
+        283,
+        323
+      ],
+      "sheetBBox": [
+        1542,
+        761,
+        1825,
+        1084
+      ],
+      "size": [
+        30,
+        34
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_chimney.png",
+      "name": "prop_chimney",
+      "nativeSize": [
+        242,
+        385
+      ],
+      "sheetBBox": [
+        1990,
+        725,
+        2232,
+        1110
+      ],
+      "size": [
+        24,
+        38
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_firebox.png",
+      "name": "prop_firebox",
+      "nativeSize": [
+        291,
+        272
+      ],
+      "sheetBBox": [
+        170,
+        1328,
+        461,
+        1600
+      ],
+      "size": [
+        29,
+        27
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_tile_pile.png",
+      "name": "prop_tile_pile",
+      "nativeSize": [
+        268,
+        225
+      ],
+      "sheetBBox": [
+        663,
+        1350,
+        931,
+        1575
+      ],
+      "size": [
+        34,
+        29
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_capital_block.png",
+      "name": "prop_capital_block",
+      "nativeSize": [
+        218,
+        259
+      ],
+      "sheetBBox": [
+        1140,
+        1334,
+        1358,
+        1593
+      ],
+      "size": [
+        22,
+        26
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_king_post.png",
+      "name": "prop_king_post",
+      "nativeSize": [
+        126,
+        297
+      ],
+      "sheetBBox": [
+        1619,
+        1315,
+        1745,
+        1612
+      ],
+      "size": [
+        18,
+        42
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_brace.png",
+      "name": "prop_brace",
+      "nativeSize": [
+        281,
+        331
+      ],
+      "sheetBBox": [
+        1970,
+        1299,
+        2251,
+        1630
+      ],
+      "size": [
+        40,
+        47
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/a1_kit/generated/props/prop_stake.png",
+      "name": "prop_stake",
+      "nativeSize": [
+        75,
+        210
+      ],
+      "sheetBBox": [
+        1690,
+        300,
+        1765,
+        510
+      ],
+      "size": [
+        10,
+        28
+      ]
+    }
+  ]
+}

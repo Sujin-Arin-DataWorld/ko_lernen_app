@@ -3633,39 +3633,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "이거 다 저희 주시는 거예요?",
+          "de": "Ist das alles für uns?",
+          "en": "Is all of this for us?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "둘이 먹으면 이틀이면 없어요.",
+          "de": "Zu zweit ist das in zwei Tagen weg.",
+          "en": "For two people that's gone in two days."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "냉장고에 자리가 있을지 모르겠어요.",
+          "de": "Ich weiß nicht, ob der Kühlschrank reicht.",
+          "en": "I'm not sure the fridge has room."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "김치는 밖에 둬도 돼요.",
+          "de": "Kimchi kann draußen stehen.",
+          "en": "Kimchi can stay outside."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "통은 다음에 돌려드릴게요.",
+          "de": "Die Dosen bringe ich nächstes Mal zurück.",
+          "en": "I'll bring the containers back next time."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "천천히 가져와요.",
+          "de": "Lassen Sie sich Zeit damit.",
+          "en": "No hurry with those."
         }
       ],
       "quests": [
@@ -3821,39 +3821,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "지금 몇 호차예요?",
+          "de": "In welchem Wagen sitzt du?",
+          "en": "Which car are you in?"
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "4호차요. 저는 창가예요.",
+          "de": "Wagen vier, am Fenster.",
+          "en": "Car four, by the window."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "저는 8호차라서 좀 멀어요.",
+          "de": "Ich bin in Wagen acht, das ist weit.",
+          "en": "I'm in car eight, so it's a bit far."
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "대전에서 자리 바꿔 줄 수도 있어요.",
+          "de": "In Daejeon können wir vielleicht tauschen.",
+          "en": "We might be able to swap in Daejeon."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "그때 짐도 같이 옮길게요.",
+          "de": "Dann nehme ich auch das Gepäck mit.",
+          "en": "I'll move the bags then too."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "도착 십 분 전에 연락해요.",
+          "de": "Melde dich zehn Minuten vorher.",
+          "en": "Text me ten minutes before we arrive."
         }
       ],
       "quests": [
@@ -4009,39 +4009,39 @@
         },
         {
           "speaker": "user",
-          "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal prüfen?",
-          "en": "May I check that again?"
+          "ko": "아까 어머님 앞에서도 반말했어요.",
+          "de": "Vorhin habe ich auch vor deiner Mutter geduzt.",
+          "en": "Earlier I used casual speech in front of your mother too."
         },
         {
           "speaker": "jieun",
-          "ko": "네. 천천히 해도 돼요.",
-          "de": "Ja. Langsam ist in Ordnung.",
-          "en": "Yes. Slow is fine."
+          "ko": "어머니는 못 들으셨을 거예요.",
+          "de": "Meine Mutter hat das sicher nicht gehört.",
+          "en": "My mother probably didn't hear it."
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번만 물어볼게요.",
-          "de": "Ich frage Hyunwoo nur einmal.",
-          "en": "I'll ask Hyunwoo just once."
+          "ko": "그래도 다시 말씀드리는 게 나을까요?",
+          "de": "Soll ich es trotzdem ansprechen?",
+          "en": "Should I bring it up anyway?"
         },
         {
           "speaker": "jieun",
-          "ko": "그다음에 이어서 해요.",
-          "de": "Danach macht ihr weiter.",
-          "en": "Then you continue."
+          "ko": "그냥 다음부터 조심하면 돼요.",
+          "de": "Pass einfach ab jetzt auf.",
+          "en": "Just be careful from now on."
         },
         {
           "speaker": "user",
-          "ko": "도와주셔서 감사합니다.",
-          "de": "Danke für die Hilfe.",
-          "en": "Thank you for the help."
+          "ko": "존댓말이 아직 입에 안 붙어요.",
+          "de": "Die höfliche Form geht mir noch nicht leicht über die Lippen.",
+          "en": "Honorifics still don't come out naturally."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 와요.",
-          "de": "Kommen Sie wieder.",
-          "en": "Please come again."
+          "ko": "집에서 저랑 연습해요.",
+          "de": "Üben wir zu Hause zusammen.",
+          "en": "Let's practice at home together."
         }
       ],
       "quests": [
@@ -4139,12 +4139,12 @@
       "xpReward": 160,
       "title": {
         "ko": "아침 인사 큰 소리",
-        "de": "Der laute Morgengruss",
+        "de": "Der laute Morgengruß",
         "en": "The loud morning greeting"
       },
       "intro": {
         "ko": "하룻밤을 잔 뒤 아침 인사를 해야 합니다. 큰 소리로 먼저 말하세요.",
-        "de": "Nach der Nacht musst du den Morgengruss sagen. Sprich zuerst laut.",
+        "de": "Nach der Nacht musst du den Morgengruß sagen. Sprich zuerst laut.",
         "en": "After staying overnight you must give the morning greeting. Speak first and clearly."
       },
       "vocab": [
@@ -4185,9 +4185,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "안녕히 주무셨어요? 저 먼저 일어났어요.",
+          "de": "Guten Morgen. Ich bin schon wach.",
+          "en": "Good morning. I'm up already."
         },
         {
           "speaker": "jieun",
@@ -4197,39 +4197,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "아침에는 제가 먼저 인사하는 게 맞죠?",
+          "de": "Morgens grüße ich zuerst, richtig?",
+          "en": "In the morning I greet first, right?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "네, 방에서 나오면 바로요.",
+          "de": "Ja, gleich beim Rauskommen.",
+          "en": "Yes, right as you come out of the room."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "목소리가 작으면 못 들으실까요?",
+          "de": "Hört man mich, wenn ich leise spreche?",
+          "en": "Will they hear me if I'm quiet?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "조금 크게 하면 다 좋아하세요.",
+          "de": "Etwas lauter, dann freuen sich alle.",
+          "en": "A bit louder and everyone's pleased."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "그럼 부엌 쪽으로 가서 인사드릴게요.",
+          "de": "Dann grüße ich in Richtung Küche.",
+          "en": "Then I'll go greet toward the kitchen."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "그렇게 하면 하루가 편해져요.",
+          "de": "So wird der Tag leichter.",
+          "en": "That makes the whole day easier."
         }
       ],
       "quests": [
@@ -4269,23 +4269,23 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Guten Morgen. Ich bin schon wach.",
+            "promptEn": "Good morning. I'm up already.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "가방이 무거워도 감사해요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "두 손으로 받을게요. 물은 있어도 될까요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "안녕히 주무셨어요? 저 먼저 일어났어요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "봉지를 무릎에 올려 둬도 될까요?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 2
           }
         },
         {
@@ -4373,9 +4373,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "단톡방에 뭐라고 쓰면 좋을까요?",
+          "de": "Was schreibe ich am besten in den Chat?",
+          "en": "What should I write in the group chat?"
         },
         {
           "speaker": "jieun",
@@ -4385,39 +4385,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "안녕하세요, 레나입니다. 잘 부탁드립니다.",
+          "de": "Hallo, ich bin Lena. Freut mich.",
+          "en": "Hello, I'm Lena. Nice to meet you all."
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "그 정도면 딱 좋아요.",
+          "de": "Genau richtig.",
+          "en": "That's just right."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "답장이 많이 오면 다 답해야 해요?",
+          "de": "Muss ich auf jede Antwort reagieren?",
+          "en": "Do I have to reply to every response?"
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "하트 하나면 충분해요.",
+          "de": "Ein Herz reicht.",
+          "en": "One heart is enough."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "밤에 온 메시지는 아침에 답할게요.",
+          "de": "Auf Nachrichten von nachts antworte ich morgens.",
+          "en": "I'll answer late messages in the morning."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "다들 그렇게 해요.",
+          "de": "Das machen alle so.",
+          "en": "Everyone does it that way."
         }
       ],
       "quests": [
@@ -4457,23 +4457,23 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Was schreibe ich am besten in den Chat?",
+            "promptEn": "What should I write in the group chat?",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "저도 세뱃돈을 받아요?"
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "새해 복 많이 받으세요."
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "손이 분홍해졌어요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "단톡방에 뭐라고 쓰면 좋을까요?"
               }
             ],
-            "correctIndex": 0
+            "correctIndex": 3
           }
         },
         {
@@ -4561,9 +4561,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이 상황에서 제가 먼저 말해 볼게요.",
-          "de": "In dieser Lage spreche ich zuerst.",
-          "en": "In this situation I'll speak first."
+          "ko": "한복 가게가 벌써 닫았어요.",
+          "de": "Der Hanbok-Verleih hat schon zu.",
+          "en": "The hanbok shop is already closed."
         },
         {
           "speaker": "jieun",
@@ -4573,39 +4573,39 @@
         },
         {
           "speaker": "user",
-          "ko": "현우에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
-          "en": "I'll check with Hyunwoo once and then continue."
+          "ko": "명절인데 평상복이어도 괜찮을까요?",
+          "de": "Ist Alltagskleidung am Feiertag okay?",
+          "en": "Is everyday clothing okay for the holiday?"
         },
         {
           "speaker": "jieun",
-          "ko": "천천히 해도 괜찮아요.",
-          "de": "Langsam ist in Ordnung.",
-          "en": "Slow is fine."
+          "ko": "요즘은 반 이상이 그냥 입어요.",
+          "de": "Heute macht das über die Hälfte so.",
+          "en": "These days more than half just do that."
         },
         {
           "speaker": "user",
-          "ko": "경계를 지키면서 감사는 남기고 싶어요.",
-          "de": "Ich will die Grenze halten und trotzdem danken.",
-          "en": "I want to keep the boundary and still give thanks."
+          "ko": "그럼 어두운 색으로 입을게요.",
+          "de": "Dann ziehe ich etwas Dunkles an.",
+          "en": "Then I'll wear something dark."
         },
         {
           "speaker": "jieun",
-          "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Nächste leichter.",
-          "en": "Then the next time gets easier."
+          "ko": "색보다 깔끔한 게 중요해요.",
+          "de": "Sauber ist wichtiger als die Farbe.",
+          "en": "Neat matters more than the color."
         },
         {
           "speaker": "user",
-          "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke für die Rücksicht heute.",
-          "en": "Thank you for the consideration today."
+          "ko": "사진 찍을 때 좀 아쉽긴 하네요.",
+          "de": "Fürs Foto ist es ein bisschen schade.",
+          "en": "It's a little bit of a shame for the photos."
         },
         {
           "speaker": "jieun",
-          "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das nächste Mal weiter.",
-          "en": "Let us talk again next time."
+          "ko": "내년에 미리 빌려요.",
+          "de": "Nächstes Jahr leihen wir früher.",
+          "en": "Next year we'll rent earlier."
         }
       ],
       "quests": [
@@ -4645,20 +4645,20 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "In dieser Lage spreche ich zuerst.",
-            "promptEn": "In this situation I'll speak first.",
+            "promptDe": "Der Hanbok-Verleih hat schon zu.",
+            "promptEn": "The hanbok shop is already closed.",
             "options": [
               {
-                "ko": "이 상황에서 제가 먼저 말해 볼게요."
+                "ko": "한복 가게가 벌써 닫았어요."
               },
               {
-                "ko": "지금 바로 갈게요."
+                "ko": "저도 세뱃돈을 받아요?"
               },
               {
-                "ko": "사진을 올려도 돼요?"
+                "ko": "새해 복 많이 받으세요."
               },
               {
-                "ko": "문을 닫아 주세요."
+                "ko": "손이 분홍해졌어요."
               }
             ],
             "correctIndex": 0
@@ -4748,9 +4748,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -4766,21 +4766,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 보죠.",
-          "de": "Ja, gerne.",
-          "en": "Yes, let's."
+          "ko": "네, 같이 봐요.",
+          "de": "Ja, schauen wir gemeinsam.",
+          "en": "Yes, let's look at it together."
         },
         {
           "speaker": "jieun",
-          "ko": "이 표를 같이 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 하세요.",
+          "de": "Ja, machen Sie das.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "언제부터 바뀌어요?",
+          "de": "Ab wann gilt es?",
+          "en": "From when does it change?"
         },
         {
           "speaker": "jieun",
@@ -4790,9 +4790,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -4935,9 +4935,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -4953,21 +4953,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 열흘로 넣어 주세요.",
+          "de": "Ja, bitte zehn Tage eintragen.",
+          "en": "Yes, please put in ten days."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 바로 해 드리겠습니다.",
+          "de": "Ja, ich mache das gleich.",
+          "en": "Yes, I'll do that right away."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "신청이 지금 되나요?",
+          "de": "Geht der Antrag jetzt durch?",
+          "en": "Does the request go through now?"
         },
         {
           "speaker": "jieun",
@@ -4977,9 +4977,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -5122,9 +5122,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -5140,21 +5140,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 여기서 뽑을게요.",
+          "de": "Gut, ich ziehe hier eine Nummer.",
+          "en": "Okay, I'll take a number here."
         },
         {
           "speaker": "jieun",
-          "ko": "네, 그렇게 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 하세요.",
+          "de": "Ja, machen Sie das.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "앞에 몇 명 있어요?",
+          "de": "Wie viele sind vor mir?",
+          "en": "How many people are ahead of me?"
         },
         {
           "speaker": "jieun",
@@ -5164,9 +5164,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -5309,9 +5309,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -5327,21 +5327,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 신분증 여기 있어요.",
+          "de": "Ja, hier ist mein Ausweis.",
+          "en": "Yes, here is my ID."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하시면 됩니다.",
+          "de": "Gut. So können Sie es machen.",
+          "en": "Sure. That is the way to do it."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "언제부터 올라가요?",
+          "de": "Ab wann gilt das höhere Limit?",
+          "en": "From when is the limit raised?"
         },
         {
           "speaker": "jieun",
@@ -5351,9 +5351,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -5496,9 +5496,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -5514,21 +5514,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 자물쇠도 빌릴게요.",
+          "de": "Ja, ich leihe auch ein Schloss.",
+          "en": "Yes, I'll borrow a lock too."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "락커는 어디로 가면 돼요?",
+          "de": "Wo finde ich den Schrank?",
+          "en": "Where do I go for the locker?"
         },
         {
           "speaker": "jieun",
@@ -5538,9 +5538,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -5683,9 +5683,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐 괜찮아?",
-          "de": "Kurze Sache.",
-          "en": "Quick thing."
+          "ko": "왜, 무슨 일이야?",
+          "de": "Was ist denn?",
+          "en": "What is up?"
         },
         {
           "speaker": "user",
@@ -5701,21 +5701,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "응, 어깨부터 하자.",
+          "de": "Ja, fangen wir mit den Schultern an.",
+          "en": "Yes, let's start with the shoulders."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "응, 알았어.",
+          "de": "Ja, verstanden.",
+          "en": "Yeah, got it."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "몇 분 하면 돼?",
+          "de": "Wie viele Minuten reichen?",
+          "en": "How many minutes is enough?"
         },
         {
           "speaker": "jieun",
@@ -5725,9 +5725,9 @@
         },
         {
           "speaker": "user",
-          "ko": "오케이, 고마워.",
-          "de": "Okay, danke.",
-          "en": "Okay, thanks."
+          "ko": "응, 고마워.",
+          "de": "Ja, danke.",
+          "en": "Yeah, thanks."
         }
       ],
       "quests": [
@@ -5870,9 +5870,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 다음 분. 이쪽으로 오세요.",
+          "de": "Der Nächste bitte. Kommen Sie hierher.",
+          "en": "Next, please. Come this way."
         },
         {
           "speaker": "user",
@@ -5888,21 +5888,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 사진 보여 드릴게요.",
+          "de": "Ja, ich zeige Ihnen das Foto.",
+          "en": "Yes, I'll show you the photo."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 하세요.",
+          "de": "Ja, machen Sie das.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "얼마나 걸려요?",
+          "de": "Wie lange dauert es?",
+          "en": "How long will it take?"
         },
         {
           "speaker": "jieun",
@@ -5912,9 +5912,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "네, 그렇게 할게요. 감사합니다.",
+          "de": "Ja, mache ich. Danke.",
+          "en": "Yes, I'll do that. Thanks."
         }
       ],
       "quests": [
@@ -6057,9 +6057,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -6075,21 +6075,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 그 갈색으로 해 주세요.",
+          "de": "Ja, nehmen Sie dieses Braun.",
+          "en": "Yes, please use that brown."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 잠시만 기다려 주세요.",
+          "de": "Gut. Einen Moment bitte.",
+          "en": "Sure. One moment, please."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "색이 언제 나와요?",
+          "de": "Wann sieht man die Farbe?",
+          "en": "When will the color show?"
         },
         {
           "speaker": "jieun",
@@ -6099,9 +6099,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -6244,9 +6244,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -6262,21 +6262,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 번호 알려 드릴게요.",
+          "de": "Ja, ich sage Ihnen das Kennzeichen.",
+          "en": "Yes, I'll give you the plate number."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "스티커는 언제 받아요?",
+          "de": "Wann bekomme ich den Aufkleber?",
+          "en": "When do I get the sticker?"
         },
         {
           "speaker": "jieun",
@@ -6286,9 +6286,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -6431,9 +6431,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "지금 괜찮아?",
-          "de": "Hast du kurz Zeit?",
-          "en": "Got a sec?"
+          "ko": "아, 안녕하세요. 어떤 일이세요?",
+          "de": "Ah, hallo. Was gibt es?",
+          "en": "Oh, hello. What can I do?"
         },
         {
           "speaker": "user",
@@ -6449,21 +6449,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 오전에 가 볼게요.",
+          "de": "Gut, ich gehe am Morgen hin.",
+          "en": "Okay, I'll go in the morning."
         },
         {
           "speaker": "jieun",
-          "ko": "응, 그렇게 할게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하세요.",
+          "de": "Gut. Machen Sie das.",
+          "en": "Sure. Go ahead."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "가면 바로 받을 수 있어요?",
+          "de": "Bekomme ich sie dort gleich?",
+          "en": "Can I get them right away there?"
         },
         {
           "speaker": "jieun",
@@ -6473,9 +6473,9 @@
         },
         {
           "speaker": "user",
-          "ko": "고마워.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -6618,9 +6618,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "이거부터 할까요?",
-          "de": "Wollen wir hiermit anfangen?",
-          "en": "Start with this?"
+          "ko": "지금 시간 괜찮아요. 어떤 건이에요?",
+          "de": "Ich habe Zeit. Um welchen Fall geht es?",
+          "en": "I have time. Which case is it?"
         },
         {
           "speaker": "user",
@@ -6636,21 +6636,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 보죠.",
-          "de": "Ja, gerne.",
-          "en": "Yes, let's."
+          "ko": "네, 같이 보고 싶어요.",
+          "de": "Ja, ich schaue gern mit.",
+          "en": "Yes, I would like to look together."
         },
         {
           "speaker": "jieun",
-          "ko": "이 칸을 같이 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하죠.",
+          "de": "Gut. Machen wir so.",
+          "en": "Sure. Let us do that."
         },
         {
           "speaker": "user",
-          "ko": "지금 될까요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "표는 언제 확정돼요?",
+          "de": "Wann steht der Plan fest?",
+          "en": "When is the schedule fixed?"
         },
         {
           "speaker": "jieun",
@@ -6660,9 +6660,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -6805,9 +6805,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐, 이 부분요.",
-          "de": "Kurz zu dem Punkt.",
-          "en": "This part first."
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
         },
         {
           "speaker": "user",
@@ -6823,21 +6823,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 보죠.",
-          "de": "Ja, gerne.",
-          "en": "Yes, let's."
+          "ko": "네, 다시 적어 볼게요.",
+          "de": "Gut, ich schreibe sie neu auf.",
+          "en": "Okay, I'll write them down again."
         },
         {
           "speaker": "jieun",
-          "ko": "근무 시간을 다시 적어 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠어요. 그럼 그 방향으로 가죠.",
+          "de": "Gut. Dann in diese Richtung.",
+          "en": "Okay. We will go that way then."
         },
         {
           "speaker": "user",
-          "ko": "결과는 언제쯤일까요?",
-          "de": "Wann wissen wir mehr?",
-          "en": "When do we know more?"
+          "ko": "언제 다시 확인돼요?",
+          "de": "Wann wird es erneut geprüft?",
+          "en": "When will it be checked again?"
         },
         {
           "speaker": "jieun",
@@ -6847,9 +6847,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요.",
-          "de": "Okay.",
-          "en": "Okay."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -6992,9 +6992,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -7010,21 +7010,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 세 장 들어 있었어요.",
+          "de": "Ja, drei Karten waren darin.",
+          "en": "Yes, three cards were in it."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "보관함을 확인해 주실 수 있어요?",
+          "de": "Können Sie im Fundfach nachsehen?",
+          "en": "Could you check the storage box?"
         },
         {
           "speaker": "jieun",
@@ -7034,9 +7034,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -7179,9 +7179,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -7197,21 +7197,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 파란색이라고 적어 주세요.",
+          "de": "Ja, schreiben Sie blau dazu.",
+          "en": "Yes, please write down blue."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 잠시만 기다려 주세요.",
+          "de": "Gut. Einen Moment bitte.",
+          "en": "Sure. One moment, please."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "맡기면 바로 보관돼요?",
+          "de": "Wird es gleich aufbewahrt?",
+          "en": "Will it be stored right away?"
         },
         {
           "speaker": "jieun",
@@ -7221,9 +7221,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -7366,9 +7366,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -7384,21 +7384,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 이 칸이에요.",
+          "de": "Ja, dieses Feld ist es.",
+          "en": "Yes, this box is the one."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "지금 찍어 주실 수 있어요?",
+          "de": "Können Sie ihn jetzt stempeln?",
+          "en": "Could you stamp it now?"
         },
         {
           "speaker": "jieun",
@@ -7408,9 +7408,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -7553,9 +7553,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 어떤 것부터 볼까요?",
+          "de": "Hallo. Was schauen wir zuerst an?",
+          "en": "Hello. What should we look at first?"
         },
         {
           "speaker": "user",
@@ -7571,21 +7571,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 번호 받을게요.",
+          "de": "Ja, ich nehme eine Nummer.",
+          "en": "Yes, I'll take a number."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하시면 됩니다.",
+          "de": "Gut. So können Sie es machen.",
+          "en": "Sure. That is the way to do it."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "제 차례가 언제 와요?",
+          "de": "Wann bin ich dran?",
+          "en": "When will it be my turn?"
         },
         {
           "speaker": "jieun",
@@ -7595,9 +7595,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -7740,9 +7740,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐.",
-          "de": "Kurz.",
-          "en": "One sec."
+          "ko": "왜, 무슨 일이야?",
+          "de": "Was ist denn?",
+          "en": "What is up?"
         },
         {
           "speaker": "user",
@@ -7758,21 +7758,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "응, 같이 보자.",
+          "de": "Ja, schauen wir zusammen.",
+          "en": "Yes, let's look together."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "그래, 알았어.",
+          "de": "Gut, verstanden.",
+          "en": "Alright, got it."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "언제 다시 계산해 볼까?",
+          "de": "Wann rechnen wir noch mal nach?",
+          "en": "When shall we do the math again?"
         },
         {
           "speaker": "jieun",
@@ -7782,9 +7782,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어.",
-          "de": "Okay.",
-          "en": "Okay."
+          "ko": "응, 고마워.",
+          "de": "Ja, danke.",
+          "en": "Yeah, thanks."
         }
       ],
       "quests": [
@@ -7927,9 +7927,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -7945,21 +7945,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 이십오 일로 해 주세요.",
+          "de": "Ja, bitte auf den 25. setzen.",
+          "en": "Yes, please set it to the 25th."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 바로 해 드리겠습니다.",
+          "de": "Ja, ich mache das gleich.",
+          "en": "Yes, I'll do that right away."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "언제부터 적용돼요?",
+          "de": "Ab wann gilt das?",
+          "en": "From when does it apply?"
         },
         {
           "speaker": "jieun",
@@ -7969,9 +7969,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -8114,9 +8114,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -8132,21 +8132,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 그 시간으로 해 주세요.",
+          "de": "Ja, diese Zeit passt.",
+          "en": "Yes, that time works."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 해 드리겠습니다.",
+          "de": "Ja, das mache ich so.",
+          "en": "Yes, I'll do it that way."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "지금 바로 옮겨져요?",
+          "de": "Wird es sofort umgebucht?",
+          "en": "Is it moved right away?"
         },
         {
           "speaker": "jieun",
@@ -8156,9 +8156,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -8301,9 +8301,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐 괜찮아?",
-          "de": "Kurze Sache.",
-          "en": "Quick thing."
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -8319,21 +8319,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 매트를 깔아 주시면 좋겠어요.",
+          "de": "Ja, eine Matte wäre gut.",
+          "en": "Yes, a mat would help."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 지금 해 두겠습니다.",
+          "de": "Ja, ich mache es jetzt.",
+          "en": "Yes, I'll get it done now."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "언제부터 가능해요?",
+          "de": "Ab wann geht das?",
+          "en": "From when is that possible?"
         },
         {
           "speaker": "jieun",
@@ -8343,9 +8343,9 @@
         },
         {
           "speaker": "user",
-          "ko": "오케이, 고마워.",
-          "de": "Okay, danke.",
-          "en": "Okay, thanks."
+          "ko": "네, 그렇게 할게요. 감사합니다.",
+          "de": "Ja, mache ich. Danke.",
+          "en": "Yes, I'll do that. Thanks."
         }
       ],
       "quests": [
@@ -8488,9 +8488,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "이거부터 할까요?",
-          "de": "Wollen wir hiermit anfangen?",
-          "en": "Start with this?"
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
         },
         {
           "speaker": "user",
@@ -8506,21 +8506,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 책상 위에 두면 좋겠어요.",
+          "de": "Ja, auf dem Tisch wäre gut.",
+          "en": "Yes, on the desk would be good."
         },
         {
           "speaker": "jieun",
-          "ko": "이 메모를 책상 위에 둘게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 반영하겠습니다.",
+          "de": "Gut. Ich übernehme es so.",
+          "en": "Sure. I'll apply it that way."
         },
         {
           "speaker": "user",
-          "ko": "지금 될까요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "아침에 바로 보일까요?",
+          "de": "Sieht man sie morgens gleich?",
+          "en": "Will it be visible first thing?"
         },
         {
           "speaker": "jieun",
@@ -8530,9 +8530,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 그렇게 할게요. 감사합니다.",
+          "de": "Ja, mache ich. Danke.",
+          "en": "Yes, I'll do that. Thanks."
         }
       ],
       "quests": [
@@ -8675,9 +8675,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -8693,21 +8693,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 번호 여기 있어요.",
+          "de": "Ja, hier ist die Nummer.",
+          "en": "Yes, here is the number."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 하세요.",
+          "de": "Ja, machen Sie das.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "오래 기다려요?",
+          "de": "Muss ich lange warten?",
+          "en": "Do I have to wait long?"
         },
         {
           "speaker": "jieun",
@@ -8717,9 +8717,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -8862,9 +8862,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -8880,21 +8880,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 노란 조끼 입을게요.",
+          "de": "Gut, ich nehme die gelbe Weste.",
+          "en": "Okay, I'll wear the yellow vest."
         },
         {
           "speaker": "jieun",
-          "ko": "네, 그렇게 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "어디에서 가져가면 돼요?",
+          "de": "Wo hole ich sie ab?",
+          "en": "Where do I pick it up?"
         },
         {
           "speaker": "jieun",
@@ -8904,9 +8904,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -9049,9 +9049,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -9067,21 +9067,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 따뜻한 걸로 주세요.",
+          "de": "Ja, das warme bitte.",
+          "en": "Yes, the warm one, please."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 해 드리겠습니다.",
+          "de": "Ja, das mache ich so.",
+          "en": "Yes, I'll do it that way."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "지금 맛봐도 돼요?",
+          "de": "Darf ich jetzt probieren?",
+          "en": "May I taste it now?"
         },
         {
           "speaker": "jieun",
@@ -9091,9 +9091,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -9236,9 +9236,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "이 건, 어디까지 할까요?",
-          "de": "Bis wohin klären wir das?",
-          "en": "How far do we take this?"
+          "ko": "듣고 있어요. 말씀하세요.",
+          "de": "Ich höre. Sagen Sie.",
+          "en": "I'm listening. Go ahead."
         },
         {
           "speaker": "user",
@@ -9254,21 +9254,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 보죠.",
-          "de": "Ja, gerne.",
-          "en": "Yes, let's."
+          "ko": "네, 크게 봐 주세요.",
+          "de": "Ja, bitte größer zeigen.",
+          "en": "Yes, please show it bigger."
         },
         {
           "speaker": "jieun",
-          "ko": "이 칸을 크게 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
+          "de": "Ja, ich passe es entsprechend an.",
+          "en": "Yes, I'll line it up like that."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸릴까요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "읽는 데 얼마나 걸려요?",
+          "de": "Wie lange dauert das Lesen?",
+          "en": "How long does reading it take?"
         },
         {
           "speaker": "jieun",
@@ -9278,9 +9278,9 @@
         },
         {
           "speaker": "user",
-          "ko": "고맙습니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -9423,9 +9423,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐.",
-          "de": "Kurz.",
-          "en": "One sec."
+          "ko": "안녕하세요. 무슨 일이세요?",
+          "de": "Hallo. Worum geht es?",
+          "en": "Hello. What is it about?"
         },
         {
           "speaker": "user",
@@ -9441,21 +9441,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 잠시만 거기 둘게요.",
+          "de": "Gut, ich stelle sie kurz dorthin.",
+          "en": "Okay, I'll leave it there briefly."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 맞습니다.",
+          "de": "Ja, genau.",
+          "en": "Yes, that is right."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "언제 비워요?",
+          "de": "Wann wird geleert?",
+          "en": "When will it be cleared?"
         },
         {
           "speaker": "jieun",
@@ -9465,9 +9465,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어.",
-          "de": "Okay.",
-          "en": "Okay."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -9610,9 +9610,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 어떤 것부터 볼까요?",
+          "de": "Hallo. Was schauen wir zuerst an?",
+          "en": "Hello. What should we look at first?"
         },
         {
           "speaker": "user",
@@ -9628,21 +9628,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 카드 올릴게요.",
+          "de": "Ja, ich lege die Karte auf.",
+          "en": "Yes, I'll put the card on."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하시면 됩니다.",
+          "de": "Gut. So können Sie es machen.",
+          "en": "Sure. That is the way to do it."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "잔액이 언제 보여요?",
+          "de": "Wann sehe ich den Restbetrag?",
+          "en": "When will the balance show?"
         },
         {
           "speaker": "jieun",
@@ -9652,9 +9652,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -9797,9 +9797,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "지금 괜찮아?",
-          "de": "Hast du kurz Zeit?",
-          "en": "Got a sec?"
+          "ko": "응, 말해.",
+          "de": "Ja, sag.",
+          "en": "Yeah, go ahead."
         },
         {
           "speaker": "user",
@@ -9815,21 +9815,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "그래, 다른 날로 옮기자.",
+          "de": "Gut, verschieben wir es.",
+          "en": "Okay, let's move it to another day."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "그래, 그럼 그렇게 하자.",
+          "de": "Gut, dann machen wir das so.",
+          "en": "Alright, we will do it that way."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "언제 다시 정할까?",
+          "de": "Wann entscheiden wir neu?",
+          "en": "When shall we decide again?"
         },
         {
           "speaker": "jieun",
@@ -9839,9 +9839,9 @@
         },
         {
           "speaker": "user",
-          "ko": "고마워.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알았어. 고마워.",
+          "de": "Okay. Danke.",
+          "en": "Okay. Thanks."
         }
       ],
       "quests": [
@@ -9984,9 +9984,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -10002,21 +10002,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 이름 적어 주세요.",
+          "de": "Ja, schreiben Sie den Namen ein.",
+          "en": "Yes, please write the name in."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 해 드리겠습니다.",
+          "de": "Ja, das mache ich so.",
+          "en": "Yes, I'll do it that way."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "카드는 언제 나와요?",
+          "de": "Wann ist die Karte fertig?",
+          "en": "When will the card be ready?"
         },
         {
           "speaker": "jieun",
@@ -10026,9 +10026,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -10171,9 +10171,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "이 건, 어디까지 할까요?",
-          "de": "Bis wohin klären wir das?",
-          "en": "How far do we take this?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -10189,21 +10189,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 대체 근무자도 적을게요.",
+          "de": "Ja, ich schreibe die Vertretung dazu.",
+          "en": "Yes, I'll note the cover too."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠어요. 그럼 그 방향으로 가죠.",
+          "de": "Gut. Dann in diese Richtung.",
+          "en": "Okay. We will go that way then."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸릴까요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "언제쯤 답을 받을 수 있어요?",
+          "de": "Wann etwa bekomme ich Antwort?",
+          "en": "About when will I get an answer?"
         },
         {
           "speaker": "jieun",
@@ -10213,9 +10213,9 @@
         },
         {
           "speaker": "user",
-          "ko": "고맙습니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -10358,9 +10358,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -10376,21 +10376,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 끝 네 자리 알려 드릴게요.",
+          "de": "Ja, ich sage die letzten vier Ziffern.",
+          "en": "Yes, I'll give the last four digits."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "확인이 오래 걸려요?",
+          "de": "Dauert der Abgleich lange?",
+          "en": "Does the check take long?"
         },
         {
           "speaker": "jieun",
@@ -10400,9 +10400,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -10545,9 +10545,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -10563,21 +10563,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 여섯 시 전에 올게요.",
+          "de": "Gut, ich komme vor sechs.",
+          "en": "Okay, I'll come before six."
         },
         {
           "speaker": "jieun",
-          "ko": "네, 그렇게 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 그렇게 하세요.",
+          "de": "Ja, machen Sie das.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "더 일찍 닫는 날도 있어요?",
+          "de": "Schließen Sie manchmal früher?",
+          "en": "Do you sometimes close earlier?"
         },
         {
           "speaker": "jieun",
@@ -10587,9 +10587,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -10732,9 +10732,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "그거 말인데.",
-          "de": "Kurz dazu.",
-          "en": "About this."
+          "ko": "응, 무슨 일이야?",
+          "de": "Ja, was gibt es?",
+          "en": "Yeah, what is it?"
         },
         {
           "speaker": "user",
@@ -10750,21 +10750,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "응, 가방 올려 둘게.",
+          "de": "Ja, ich lege die Tasche drauf.",
+          "en": "Yes, I'll leave the bag on it."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "응, 알았어.",
+          "de": "Ja, verstanden.",
+          "en": "Yeah, got it."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "얼마나 걸려?",
+          "de": "Wie lange brauchst du?",
+          "en": "How long will you be?"
         },
         {
           "speaker": "jieun",
@@ -10774,9 +10774,9 @@
         },
         {
           "speaker": "user",
-          "ko": "오케이, 고마워.",
-          "de": "Okay, danke.",
-          "en": "Okay, thanks."
+          "ko": "알았어. 고마워.",
+          "de": "Okay. Danke.",
+          "en": "Okay. Thanks."
         }
       ],
       "quests": [
@@ -10919,9 +10919,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "잠깐 괜찮아?",
-          "de": "Kurze Sache.",
-          "en": "Quick thing."
+          "ko": "왜, 무슨 일이야?",
+          "de": "Was ist denn?",
+          "en": "What is up?"
         },
         {
           "speaker": "user",
@@ -10937,21 +10937,21 @@
         },
         {
           "speaker": "user",
-          "ko": "응, 그렇게 해 줘.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "응, 그쪽에 두자.",
+          "de": "Ja, stellen wir sie dorthin.",
+          "en": "Yes, let's put it there."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "응, 알았어.",
+          "de": "Ja, verstanden.",
+          "en": "Yeah, got it."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "얼마나 쉴까?",
+          "de": "Wie lange pausieren wir?",
+          "en": "How long should we rest?"
         },
         {
           "speaker": "jieun",
@@ -10961,9 +10961,9 @@
         },
         {
           "speaker": "user",
-          "ko": "오케이, 고마워.",
-          "de": "Okay, danke.",
-          "en": "Okay, thanks."
+          "ko": "응, 고마워.",
+          "de": "Ja, danke.",
+          "en": "Yeah, thanks."
         }
       ],
       "quests": [
@@ -11106,9 +11106,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 어떤 것부터 볼까요?",
+          "de": "Hallo. Was schauen wir zuerst an?",
+          "en": "Hello. What should we look at first?"
         },
         {
           "speaker": "user",
@@ -11124,21 +11124,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 안내문 볼게요.",
+          "de": "Gut, ich lese den Hinweis.",
+          "en": "Okay, I'll read the notice."
         },
         {
           "speaker": "jieun",
-          "ko": "네, 그렇게 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하시면 됩니다.",
+          "de": "Gut. So können Sie es machen.",
+          "en": "Sure. That is the way to do it."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "몇 시부터 열어요?",
+          "de": "Ab wann ist geöffnet?",
+          "en": "From what time is it open?"
         },
         {
           "speaker": "jieun",
@@ -11148,9 +11148,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -11293,9 +11293,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -11311,21 +11311,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 정문 쪽으로 나갈게요.",
+          "de": "Ja, ich komme zum Haupteingang.",
+          "en": "Yes, I'll come out at the main entrance."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "몇 분까지 기다려 주실 수 있어요?",
+          "de": "Wie lange können Sie warten?",
+          "en": "How long can you wait?"
         },
         {
           "speaker": "jieun",
@@ -11335,9 +11335,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -11480,9 +11480,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -11498,21 +11498,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 여권 여기 있어요.",
+          "de": "Ja, hier ist mein Pass.",
+          "en": "Yes, here is my passport."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "언제부터 쓸 수 있어요?",
+          "de": "Ab wann kann ich sie nutzen?",
+          "en": "From when can I use it?"
         },
         {
           "speaker": "jieun",
@@ -11522,9 +11522,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -11667,9 +11667,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 어떤 것부터 볼까요?",
+          "de": "Hallo. Was schauen wir zuerst an?",
+          "en": "Hello. What should we look at first?"
         },
         {
           "speaker": "user",
@@ -11685,21 +11685,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 보죠.",
-          "de": "Ja, gerne.",
-          "en": "Yes, let's."
+          "ko": "네, 같이 봐요.",
+          "de": "Ja, schauen wir zusammen.",
+          "en": "Yes, let's look together."
         },
         {
           "speaker": "jieun",
-          "ko": "이 영수증을 같이 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "모자란 돈은 어떻게 돼요?",
+          "de": "Was passiert mit dem fehlenden Geld?",
+          "en": "What happens with the missing money?"
         },
         {
           "speaker": "jieun",
@@ -11709,9 +11709,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
         }
       ],
       "quests": [
@@ -11854,9 +11854,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 다음 분. 이쪽으로 오세요.",
+          "de": "Der Nächste bitte. Kommen Sie hierher.",
+          "en": "Next, please. Come this way."
         },
         {
           "speaker": "user",
@@ -11872,21 +11872,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "그 접시는 제 몫으로 넣어 주세요.",
+          "de": "Diesen Teller bitte auf meine Rechnung.",
+          "en": "Please put that dish on my bill."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 바로 해 드리겠습니다.",
+          "de": "Ja, ich mache das gleich.",
+          "en": "Yes, I'll do that right away."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "계산서를 따로 받을 수 있어요?",
+          "de": "Können wir getrennte Rechnungen bekommen?",
+          "en": "Can we get separate bills?"
         },
         {
           "speaker": "jieun",
@@ -11896,9 +11896,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "네, 그렇게 할게요. 감사합니다.",
+          "de": "Ja, mache ich. Danke.",
+          "en": "Yes, I'll do that. Thanks."
         }
       ],
       "quests": [
@@ -12041,9 +12041,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte?",
-          "en": "Yes?"
+          "ko": "안녕하세요. 무엇부터 도와드릴까요?",
+          "de": "Hallo. Wo fangen wir an?",
+          "en": "Hello. Where should we start?"
         },
         {
           "speaker": "user",
@@ -12059,21 +12059,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 건너편으로 갈게요.",
+          "de": "Gut, ich gehe auf die andere Seite.",
+          "en": "Okay, I'll go to the other side."
         },
         {
           "speaker": "jieun",
-          "ko": "네, 그렇게 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "얼마나 걸려요?",
-          "de": "Wie lange dauert das?",
-          "en": "How long does that take?"
+          "ko": "횡단보도가 어디에 있어요?",
+          "de": "Wo ist der Zebrastreifen?",
+          "en": "Where is the crosswalk?"
         },
         {
           "speaker": "jieun",
@@ -12083,9 +12083,9 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 고마워요.",
-          "de": "Ja, danke.",
-          "en": "Yeah, thanks."
+          "ko": "네, 감사합니다.",
+          "de": "Ja, vielen Dank.",
+          "en": "Okay, thank you."
         }
       ],
       "quests": [
@@ -12228,9 +12228,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
         },
         {
           "speaker": "user",
@@ -12246,21 +12246,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 흑백으로 해 주세요.",
+          "de": "Ja, schwarz-weiß bitte.",
+          "en": "Yes, black and white, please."
         },
         {
           "speaker": "jieun",
-          "ko": "흑백으로 할게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 잠시만 기다려 주세요.",
+          "de": "Gut. Einen Moment bitte.",
+          "en": "Sure. One moment, please."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "얼마나 걸려요?",
+          "de": "Wie lange dauert es?",
+          "en": "How long will it take?"
         },
         {
           "speaker": "jieun",
@@ -12270,9 +12270,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
         }
       ],
       "quests": [
@@ -12415,9 +12415,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 어떤 일로 오셨어요?",
+          "de": "Guten Tag. Was können wir für Sie tun?",
+          "en": "Welcome. What brings you in?"
         },
         {
           "speaker": "user",
@@ -12433,21 +12433,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 창가로 앉을게요.",
+          "de": "Gut, ich setze mich ans Fenster.",
+          "en": "Okay, I'll sit by the window."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "지금 앉을 수 있어요?",
+          "de": "Kann ich mich jetzt hinsetzen?",
+          "en": "Can I sit down now?"
         },
         {
           "speaker": "jieun",
@@ -12457,9 +12457,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
         }
       ],
       "quests": [
@@ -12602,9 +12602,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -12620,21 +12620,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 야간 벨을 누를게요.",
+          "de": "Gut, ich klingle an der Nachtglocke.",
+          "en": "Okay, I'll ring the night bell."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 확인해 보겠습니다.",
+          "de": "Ja, ich sehe nach.",
+          "en": "Yes, let me check."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "그때 눌러도 괜찮아요?",
+          "de": "Ist das um diese Zeit in Ordnung?",
+          "en": "Is it okay to ring at that hour?"
         },
         {
           "speaker": "jieun",
@@ -12644,9 +12644,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [
@@ -12789,9 +12789,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요. 뭐 찾으세요?",
-          "de": "Hallo. Was suchen Sie?",
-          "en": "Hi. What do you need?"
+          "ko": "네, 다음 분. 이쪽으로 오세요.",
+          "de": "Der Nächste bitte. Kommen Sie hierher.",
+          "en": "Next, please. Come this way."
         },
         {
           "speaker": "user",
@@ -12807,21 +12807,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 여기 올려 볼게요.",
+          "de": "Gut, ich halte sie hier auf.",
+          "en": "Okay, I'll hold it here."
         },
         {
           "speaker": "jieun",
-          "ko": "지금 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "네, 좋습니다.",
+          "de": "Ja, in Ordnung.",
+          "en": "Yes, that works."
         },
         {
           "speaker": "user",
-          "ko": "지금 돼요?",
-          "de": "Geht das jetzt?",
-          "en": "Can we do it now?"
+          "ko": "새로 만들면 얼마나 걸려요?",
+          "de": "Wie lange dauert eine neue?",
+          "en": "How long does a new one take?"
         },
         {
           "speaker": "jieun",
@@ -12831,9 +12831,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 고마워요.",
-          "de": "Danke schön.",
-          "en": "Thanks a lot."
+          "ko": "네, 그렇게 할게요. 감사합니다.",
+          "de": "Ja, mache ich. Danke.",
+          "en": "Yes, I'll do that. Thanks."
         }
       ],
       "quests": [
@@ -12976,9 +12976,9 @@
       "dialog": [
         {
           "speaker": "jieun",
-          "ko": "안녕하세요.",
-          "de": "Hallo.",
-          "en": "Hi."
+          "ko": "어서 오세요. 편하게 말씀해 주세요.",
+          "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+          "en": "Welcome. Just tell me what you need."
         },
         {
           "speaker": "user",
@@ -12994,21 +12994,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네, 그렇게 해 주세요.",
-          "de": "Ja, bitte.",
-          "en": "Yes, please."
+          "ko": "네, 번호 보여 드릴게요.",
+          "de": "Ja, ich zeige die Nummer.",
+          "en": "Yes, I'll show the number."
         },
         {
           "speaker": "jieun",
-          "ko": "바로 볼게요.",
-          "de": "Okay, mache ich.",
-          "en": "Okay, I'll do that."
+          "ko": "알겠습니다. 그렇게 하시면 됩니다.",
+          "de": "Gut. So können Sie es machen.",
+          "en": "Sure. That is the way to do it."
         },
         {
           "speaker": "user",
-          "ko": "오래 걸려요?",
-          "de": "Dauert das lange?",
-          "en": "Does that take long?"
+          "ko": "지금 받을 수 있어요?",
+          "de": "Kann ich sie jetzt bekommen?",
+          "en": "Can I get it now?"
         },
         {
           "speaker": "jieun",
@@ -13018,9 +13018,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사합니다.",
-          "de": "Danke.",
-          "en": "Thanks."
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
         }
       ],
       "quests": [

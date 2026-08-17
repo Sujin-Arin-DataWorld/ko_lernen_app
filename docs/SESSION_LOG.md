@@ -116,6 +116,564 @@ Hören 시나리오 선택을 레벨별 책가도 서재로 바꾸는 설계다.
 ② UI(서재 층 → 서랍 n/50 → 플레이어 + 진행도 키 분할), ③ 콘텐츠(Batch 12 = `a1_eat` 47개).
 의존은 ① → ②, ① → ③ 이고 ②와 ③은 병렬 가능하다. 한 계획에 묶으면 샤딩과 로더 전환 사이에
 앱이 깨지는 구간이 생겨 분리했다.
+### 2026-08-17 (Claude, Windows) — dev 서버 포트 고정 해제 (`.claude/launch.json`)
+
+**무엇.** `flutter-web` 구성의 `runtimeArgs`에서 `--web-port=8765`를 빼고 `autoPort: true`를
+넣었다. `port: 8765`는 남는다 — 고정 강제에서 선호 포트로 성격이 바뀐다. 8765가 비어 있으면
+전과 똑같이 8765를 잡고, 점유돼 있으면 빈 포트를 자동으로 잡는다.
+
+**왜.** Jin이 "이거 하나 남은거 왜 커밋안되고 있지?"라고 물었다. 메인 트리 working tree에
+이 변경이 커밋되지 않은 채 떠 있었다. 막힌 게 아니었다 — `git check-ignore` 미해당,
+`git ls-files -v`가 `H`(`skip-worktree`·`assume-unchanged` 아님), `.git/hooks`에 실제 훅 없음
+(`pre-commit.sample`뿐), `core.hooksPath` 미설정. 최근 작업이 전부 별도 worktree에서
+커밋됐고 이 변경만 메인 트리에서 직접 수정돼 어느 브랜치의 커밋 범위에도 들어간 적이 없다.
+변경 내용 자체는 worktree 10개가 병렬로 도는 환경에서 다른 세션이 8765를 이미 물고 있어
+dev 서버가 안 뜨는 문제를 푼다.
+
+**범위.** 앱 코드·테스트·빌드 산출물과 접점이 없다. 저장소 안에서 이 파일을 읽는 코드는 0건이고
+(worktree 전수 grep) 참조는 문서 4곳의 산문뿐이다. 실제 소비자는 저장소 밖의 하네스 실행
+도구다. 아래 "로컬 상태 파일 추적 해제" 항목에서 이 파일은 MCP 로컬 DB 같은 비추적 대상과
+달리 **의도된 공유 설정**으로 판단해 추적을 유지했고, 그 판단을 그대로 따른다.
+핸드오프 문서 두 곳(`HANDOFF_UI_OVERHAUL_2026-08-14.md:68`,
+`HANDOFF_UI_OVERHAUL_2_2026-08-14.md:427`)의 "8765"는 이제 고정값이 아니라 선호값이지만,
+당시 상태를 적은 과거 기록이라 고치지 않았다.
+
+**검증.** 위 4가지 git 상태 확인. 편집 후 JSON 파싱 통과. 테스트는 돌리지 않았다 —
+Dart 코드 경로와 접점이 없어 통과·실패가 이 변경에 대해 아무것도 말해주지 않는다.
+
+**커밋해시.** 이 로그와 같은 커밋. worktree `claude/launch-autoport-20260817`.
+
+### 2026-08-17 (Claude, Windows) — Batch 10 수락·후속 질문을 장면별로 직접 씀
+
+**무엇.** 프레임 다섯 줄 중 파생·일반 문장으로 남아 있던 두 줄을 손으로 쓴
+문장으로 바꿨다. 새 `data/batch_10_scene_beats.py`에 174편의 수락(`take`)과
+후속 질문(`probe`)이 장면별로 들어 있다. 후속 질문은 지은의 `wait` 답과 물린다.
+`계산대로 오시면 됩니다`에는 `어디서 계산해요?`가 붙고 `얼마나 걸려요?`는 붙지
+않는다. `_accept_ask`·`_do_ask`의 문자열 수술과 `_polite(kind)`는 지웠다. 말투는
+프레임 종류가 아니라 시드가 이미 쓴 `ask`·`need`에서 읽으므로 이웃 택배·복도
+신발처럼 존댓말인 home 장면에 반말 프레임이 섞이지 않는다. 지은의 확인 줄은
+수락이 부탁(`주세요`)인지 본인 행동인지에 따라 `check_do`/`check_ok`로 갈린다.
+`b1_bill_split`의 지은 마지막 줄만 반말이라 존댓말로 맞췄다. 셸 테스트의
+`echoed <= 2`는 프레임 줄에 제목이 하나라도 있으면 실패하는 단정으로 조였다.
+
+**왜.** Jin이 `네, 우체국 줄 진행해 주세요.`를 보고 싹 고치라고 했다. PR #60의
+humanizer 1·2차가 제목 삽입은 걷어냈지만 후속 질문·마무리가 프레임별 3종 일반
+문장으로 남아 `연고는 바로 옆에 있습니다`에 `오래 걸려요?`가 붙었고, 파생 문장의
+독일어·영어는 `Ja, bitte.`·`Okay, I'll do that.`으로 뭉개졌다. 손으로 쓰면 셸
+유일성도 그대로 유지된다.
+
+**왜 새 PR인가.** 이 작업을 `cursor/apply-4x-batch-09-10-3cd5`(=PR #60) 위에서
+시작했는데 작업 중 #60이 main으로 스쿼시 머지됐다(`3fe6916e`, 14:10 UTC). 같은
+커밋을 그 브랜치에도 올려 뒀지만(`76e6e329`) 닫힌 PR이라 main에 닿지 않는다.
+그래서 main에서 다시 잘라 올린다.
+
+**검증.** `rewrite-batch-10` 후 `test_level_content_4x` 11/11, ContentValidator 0,
+Flutter `a1_real_life_scenario(s)`·`content_id_contract`
+·`canonical_course_segment_loader`·`scenario_quest_catalog_integrity` 15/15 통과.
+금지어(`진행해`·`처리하겠습니다`·`Understood`·`I will `·`Alles klar`·`im Voraus`)
+0, 셸 174개 유일, 대사 전체 174개 유일, 프레임 줄의 제목 반복 0. `안녕하세요`로
+시작하는 장면 86 → 34, 첫 줄 종류 18개. 화자 안에서 말투가 섞이는 장면 1 → 0.
+1차 푸시에서 원격 CI의 `learner_copy_scan_test`가 영어 `I am`/`I will` 13건을
+잡았다. 내가 로컬에서 돌린 5개 파일에 그 스캐너가 없었다. 축약형으로 고치고,
+콘텐츠를 읽는 테스트를 `grep`으로 전수(14개 파일 115건) 찾아 다시 돌렸다.
+부계정 `72657bd` main full run은 웹·aab 빌드 직전까지 전부 통과했다고 Jin이
+확인했다. TTS는 문장이 크게 바뀌었으니 승인 뒤에 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+### 2026-08-17 (Claude, Windows) — 살아 있는 한옥 V1 인수인계 + 계획 문서화 (A2 생성은 중단)
+
+**왜.** A1 16단계가 끝나 main에 올라간 뒤 A2(사랑방 가구 12종)를 착수했으나, 첫 산출물 2장이
+기존 사랑방 세트와 어긋나 Jin이 중단시켰다("퀄리티 너무 떨어진다 그만해"). Jin 지시로 다음 세션이
+이어받을 수 있게 **인수인계 + 계획을 한 문서로** 정리했다: `docs/HANDOFF_LIVING_HANOK_V1_2026-08-17.md`.
+
+**문서에 담은 것.** ① 블록별 현재 상태(A1 완료 / A2~C2 미착수) ② 6시대=6공간층 매핑과 86 grant
+배치 ③ "같은 기초 위에 스타일 변화 없이 쌓기" 파이프라인과 도구 9개, A1이 실제로 통과한 게이트
+수치 ④ 남은 이미지 ≈45장·≈200크레딧 목록 ⑤ B1·B2 전 필수인 allowlist 확장 ⑥ 생성 절차 규칙
+⑦ A2 착수 시 코드 변경 지점 4곳과 소유 게이트 ⑧ PR 분할 ⑨ 검증 커맨드 ⑩ 파일 지도.
+
+**이번에 실측으로 확정한 두 가지 (문서에 반영).**
+- **요금**: Nano Banana Pro 2K는 표시가 4cr이지만 **참조 이미지 3장을 붙인 호출에서 24cr**이
+  빠졌다(876.7→852.7). 참조 1장은 정확히 4cr. ⇒ 참조는 0~1장, 매 호출 `remainingCredit` 확인.
+- **절차**: 검증 없이 연속 생성하면 크레딧만 태운다(이번에 28cr). 대표 1장 승인 후 나머지를 돌린다.
+
+**근본 원인.** 기존 사랑방 실내 6종을 만든 프롬프트가 저장소에 없었다(P1 문서에 결과 링크만).
+BBANANA task 기록에서 3건을 복구 가능함을 확인했고(`gvi_…` 파일명은 그 자체가 task ID) 그 방법을
+문서에 남겼다. A1은 이미 `a1_kit_prompts.json` 으로 원문을 정본화해 같은 사고를 막아 두었다.
+
+**상태.** A2 자산 0장, 저장소 변경 없음(실패 산출물은 다운로드하지 않았다). 크레딧 848.7.
+
+### 2026-08-17 (Claude) — Batch 12 슬라이스 2·3·4 초안: C1/C2 유닛 8개 완성, 콘텐츠 312개
+
+**무엇.** 슬라이스 1에 이어 남은 세 슬라이스를 썼다. 슬라이스 2는
+`c1_04_play_time_policy`(gaming)·`c2_04_sanction_accountability`(gaming),
+슬라이스 3은 `c1_05_fan_labor_sustainability`(kpop)·`c2_05_relationship_narratives`(dating),
+슬라이스 4는 `c1_06_intimacy_safety_design`(dating)·`c2_06_fandom_discourse_power`(kpop)이다.
+이로써 설계가 정한 새 유닛 8개가 다 찼고 C1/C2가 각 6개 유닛으로 여섯 카테고리와 1:1이 된다.
+원문은 `tools/content_factory/data/batch_12_slice{2,3,4}_records.py`에 슬라이스 1과 같은
+모양으로 두었다. 합계는 단어 96(C1 48·C2 48) + 문법 8 + Cloze 96 + Satz 96 + 스몰토크 16 =
+**312 레코드**, 새 단어팩 8개다.
+
+**왜 빌더를 합쳤나.** `validate_batch_01.py:378-385`가 manifest artifact를
+cloze·grammar·satz·smalltalk·vocab **5종 정확히**로 고정하고 kind 중복을 거부한다. 슬라이스마다
+빌더를 두면 manifest가 4개로 갈라져 "배치 1개 = 병합 트랜잭션 1개"와 어긋난다. 그래서
+`build_batch_12_slice1.py`를 `build_batch_12.py` 하나로 일반화하고 슬라이스 1의 산출물
+(`*_slice1.*`)을 kind당 1개인 `c*_batch12_*_c1_c2.*`로 대체했다. 슬라이스는 집필 리듬이지
+납품 단위가 아니다. **레코드 데이터(문장)는 한 글자도 손대지 않았고** 슬라이스 1의 ID·번호도
+그대로다.
+
+**검증.** 빌더 자체 검사 전부 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용·distractor 3개 서로 다름, Satz 3어절 이상·distractor 2개가 target 토큰과
+비중복, 문법 quiz focus가 DE/EN 예문에 각 1회, 문법 distractor ID 3개가 모두 live에 실재,
+live 2,196개 표제어·live 문법 ID와 중복 0, 슬라이스 간 유닛·개념·팩·문법·스몰토크 ID와
+체크포인트 중복 0, 레벨별 스몰토크 카테고리 중복 0(C1 screen·hobby·kpop·dating /
+C2 daily·hobby·dating·kpop). 생성 결과도 확인했다: vocab 96행, C1 48·C2 48, 고유 표제어 96,
+팩 8개.
+
+**남은 지적 하나.** `validate_review_batch.py`는
+`unknown courseUnitId 'c1_05_fan_labor_sustainability'` 하나만 남긴다. live
+`curriculum_manifest.json`의 C1/C2 유닛은 `c1_01`·`c1_02`·`c2_01`·`c2_02` 4개뿐이라 새 유닛
+8개가 전부 미등록이고, `_fail`이 즉시 예외를 던져 팩 ID 알파벳순 첫 번째(`c1_fan_labor_1`)에서
+멈춘 것이다. 슬라이스 1과 같은 관문이지 콘텐츠 문제가 아니다.
+
+**막힌 곳(변동 없음).** ① PR #62(Batch 11) 머지 — 8개 유닛의 `checkpointContentIds`가
+Batch 11 시나리오 8편(`c1_gaming_playtime_policy`·`c2_gaming_auto_sanction`·`c1_kpop_fan_labor`·
+`c2_dating_romance_frames`·`c1_dating_app_safety`·`c2_kpop_fandom_language` 등)을 가리킨다.
+② 유닛 8·개념 8을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·생산 평가 24·extension 릴리스 트랙(order 2·3)은 콘텐츠 승인 뒤 별도 단계다.
+`--apply`·TTS·Firebase 쓰기 없음, `assets/data/`·`lib/` 무수정, `core_2026_v1`의 86개
+segment·edition·보상 무수정.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음).
+
+### 2026-08-17 (Claude) — Batch 12 슬라이스 1 초안: C1/C2 새 유닛 2개와 콘텐츠 78개
+
+**무엇.** C1/C2의 course unit이 각 2개뿐이어서 Batch 11의 여섯 카테고리가 3+3으로
+몰렸다. 유닛을 6개씩으로 펴는 Batch 12를 슬라이스로 시작했다. 슬라이스 1은
+`c1_03_media_evidence_literacy`(youtube)와 `c2_03_automation_redress`(daily)이고,
+`tools/content_factory/data/batch_12_slice1_records.py`에 유닛·개념·단어 24·문법 2·
+스몰토크 4를 두고 빌더가 Cloze 24·Satz 24를 단어 예문에서 1:1로
+파생시켜 초안 5종과 review 원장 5종, `drafts/batch_12_manifest.json`을 만든다. 총 78 레코드다.
+(이 빌더 `build_batch_12_slice1.py`는 같은 날 슬라이스 2·3·4를 쓰면서 `build_batch_12.py`로
+합쳐졌다 — 위 항목 참조. 레코드 모듈과 ID는 그대로다.)
+설계 정본은 `docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md`.
+
+**왜.** B안(유닛 + CanDoSegment + 생산 평가를 extension 릴리스 트랙으로)을 Jin이 골랐다.
+코어 `core_2026_v1`의 86개 분모와 한옥 보상은 건드리지 않고, 새 can-do는 order 2·3의
+extension 트랙으로 발행한다.
+
+**코드에서 확인한 계약.** `validate_content.py`는 모든 course unit에 비어 있지 않은
+`checkpointContentIds`를 요구하므로 빈 유닛을 만들 수 없다. 그래서 새 유닛의 체크포인트를
+Batch 11의 같은 담론 시나리오(`c1_youtube_health_claims`, `c2_daily_automation_redress`)로
+잡았다. 오버레이 검증기는 artifact를 cloze·grammar·satz·smalltalk·vocab 5종으로 고정하므로
+문법 2개(`grammar_c1_limited_to` = N에 국한하면, `grammar_c2_no_more_than_doing` =
+V-는 데 그치다)를 함께 넣었다. C1/C2 평가는 segment마다 openWriting·oralProduction·
+connectedEvidence 3종과 mission 링크 3개를 소유하고, contentCluster는
+vocabPack·cloze·satz·smalltalk·project를 참조한다.
+
+**검증.** 빌더 자체 검사 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용과 distractor 3개, Satz 3어절 이상·distractor 2개·target 토큰 비중복,
+문법 quiz focus가 DE/EN 예문에 각각 1회, live 2,196개 표제어와 중복 0.
+`validate_review_batch.py`는 남은 지적이 하나다: `unknown courseUnitId
+'c1_03_media_evidence_literacy'`. 유닛이 live 커리큘럼에 없으니 정상이다.
+
+**막힌 곳.** ① PR #62(Batch 11) 머지 — 체크포인트 시나리오가 live가 되어야 한다.
+② 2개 유닛·개념을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·평가·extension 트랙은 콘텐츠가 승인된 뒤 별도 단계다. `--apply`·TTS·Firebase
+쓰기는 하지 않았고 `assets/data/`·`lib/`도 건드리지 않았다.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
+
+### 2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초안 (레벨 6 × 카테고리 6)
+
+**무엇.** 일상·친구수다·데이트·유튜브·게임·덕질 여섯 카테고리를 A1–C2 각
+레벨에 하나씩, 총 36편을 새로 썼다. 장면 원문은
+`tools/content_factory/data/batch_11_scene_scripts.py`, 스키마 조립은
+`build_batch_11_scenarios.py`, 계약 회귀는
+`test_build_batch_11_scenarios.py`다. 산출물은
+`drafts/c1_batch11_scenarios_a1_c2.json`, `drafts/batch_11_manifest.json`,
+`review/c1_batch11_scenarios.csv`, `review/batch_11_review_packet.md`이며
+상태는 전부 `review_only_draft` / `draft`다. 편당 대화 8턴 삼언어,
+퀘스트 5종(hoerverstehen·uebersetzen·luecken·satzBauen·diktat), 단어 6개,
+문법블록·intro·title 삼언어다. 신조어(최애·쇼츠·구독·판·굿즈·포토카드·
+패치·튕기다)는 `vocab.note`로 뜻을 달았고, 아이돌 이름 하린은 가상 인물이다.
+
+**왜.** live 264편은 파트너·시댁 28편과 생활 서비스에 몰려 있고 취미·관계
+소재는 `plans_with_friend`·`friend_birthday` 둘뿐이었다. 젠지~3040이 실제로
+말하는 유튜브·게임·덕질·데이트 진행이 공백이었다. C1/C2는 유닛이 2개뿐이라
+소재를 그 유닛의 담론(근거의 한계, 제도·기술 책임)으로 올려 3+3으로 붙였다.
+
+**계획 대비 바꾼 것.** `a1_gaming_one_more_round`는 `-(으)세요`와 반말이
+충돌해 casual → polite(`classmates`)로, `a2_youtube_send_the_link`는 친구
+반말을 살리려고 `V-네요`/`V-아 보세요` 대신 `V-(으)니까`/`V-거나`로 갔다.
+두 건 다 `field_notes`에 남겼다.
+
+**검증.** 계약 테스트 15개 통과(레벨별 6칸·ID 패턴·live 264편 및 quest ID
+충돌 0·대화 8턴 삼언어·퀘스트 5종·문법 ID 존재와 레벨 일치·유닛/개념 실존·
+enum·셸 문구·intent 36개 고유·review projection 바이트 일치).
+`integrate_scenario_batch.py` preview 36 records(scenario 264→300,
+scenarioQuest 1151), `validate_content.py` OK. 대화 288줄에 시나리오 간
+중복 0. humanizer 기준으로 em/en dash 7건을 걷어 0으로 만들었고
+곱슬따옴표도 0이다. `nicht nur … sondern` 2건은 한국어 원문의 실제 대조라
+유지했다.
+
+**하지 않은 것.** `--apply`, `assets/data/`·`lib/` 수정, TTS 합성, Firebase
+쓰기. git status는 신규 파일만이고 추적 파일 변경은 이 로그뿐이다. 승인 뒤
+`integrate_scenario_batch.py --apply`가 `scenarios.json`·
+`curriculum_manifest.json`·`ScenarioBackdrop._categoryById`를 원자적으로
+갱신한다. 설계는
+`docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md`,
+계획은 `docs/superpowers/plans/2026-08-17-scenario-batch11-level-category.md`.
+
+**브랜치.** `claude/scenario-batch11-20260817` (워크트리). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
+### 2026-08-17 (Claude, Windows) — 듣기 화면 아트 방향 확정 + 카드 72장 명세
+
+**무엇.** 듣기 화면에 들어갈 일러스트 방향을 정하고 `docs/LISTENING_CARD_ART_SPEC.md` 로 남겼다.
+6레벨 × 12칸 = 72장, 기존 `packs/`·`activities/` 카드와 같은 규격. 실행 계획은 그 파일 하단
+"인수인계" 절에 있다.
+
+**검증으로 뒤집힌 것 3가지.**
+
+- **책가도 선반 UI 기각.** 선반 프레임·목재 타일·소품 12종까지 파일럿을 뽑았으나 Jin 이
+  카드 그리드(Spiele 탭 구조)로 방향을 정했다. 선반 계열 자산 계획은 전부 폐기.
+- **`scripts/apply_riso_v2.py` 기각.** "표면이 거칠어 보이게" 를 후처리로 얻으려 했는데
+  샘플 3장을 뽑아 보니 육안 차이가 거의 없고, 3장 모두 70KB 릴리스 한도를 넘겼다
+  (bamboo 92 · listening 90 · paywall_hero 170KB). 가산 노이즈는 질감이 아니다 —
+  거칠기는 **생성 단계 프롬프트**에서 얻는다. 번들 39장은 손대지 않았고 스크립트도 그대로 둔다.
+- **바이블 §1.3 명목 hex 가 실제 번들과 다르다.** 기존 38장을 실측하니 배경은 크림
+  `#FAF6EC` 이 아니라 아이보리 `#F4E8D0`(37/38장), 청 삼각은 `#3D9A7F` 가 아니라
+  `#5F9A93`(색거리 39). 명목값대로 뽑았으면 신규 72장만 희고 청록이 튀었다.
+  모서리 규약 자체는 실측으로 확인됨 — 우상단 적 36/38 · 우하단 청 35/38 · 좌변 적 35/38.
+
+**찾은 제약.** `SoriIllustratedCard` 가 이미지를 **16:10 `BoxFit.cover`** 로 표시한다
+(`lib/widgets/sori/illustrated_card.dart:44`). 소스가 4:3 이라 **상하 각 8.3%가 잘린다** —
+기존 `packs/plum` 은 화병 바닥이 잘리기 직전이고 파일럿은 실제로 잘렸다. 사물은 세로
+12~88% 안에 둬야 한다.
+
+**상태.** 아트는 아직 0장(파일럿 2장은 교정 전 명세라 폐기). 코드 쪽 72칸 taxonomy·서랍·
+플레이어·테스트 18케이스는 worktree `claude/chaekgado-listening` 에 미커밋으로 있다.
+
+### 2026-08-17 (Claude, Windows) — Grammatik 판정을 스와이프 전용으로, 하단 CTA 제거
+
+**무엇.** Jin 확정대로 하단 판정 버튼 2개를 없애고 네 방향에 의미를 실었다.
+
+- 우=이해함(`markGrammarEasy`) · 좌=어렵다(`markGrammarHard` **+ 단어장 자동
+  저장**) · 위=단어장 저장 · 아래=평가 없이 넘기기.
+- 하단 CTA 삭제. 코스 체크포인트만 채점 CTA 를 남긴다 — "카드 전체 탭과 하단
+  CTA 가 같은 채점 시트를 연다"는 기존 계약이 있다.
+- 일러스트는 **카드 밖 유지**(A안). 카드 안으로 넣으면 배너가 매 스와이프마다
+  날아가고, 레벨 칩은 필터 컨트롤이라 카드와 함께 날아가면 조작 대상이 흔들린다.
+- 저장 매핑: 패턴=표제어, 뜻풀이=번역, 예문은 예문 슬롯(`addToWordbook`).
+
+**발견성 — CTA 없이.** ① 공용 `maybeShowSoriDeckCoach` 를 연결했다(단어장·
+복습·커스텀팩과 같은 4방향 스포트라이트, `tutSeen('soriDeck')` 로 사용자당 1회,
+화면 코치 `'grammar'` 뒤에). ② 첫 진입 1회 카드를 ±10dp 로 살짝 흔드는
+`_SwipeNudge` 를 넣었다 — 진폭이 커밋 임계(카드 폭 35%)보다 한참 작아 실수
+판정이 나지 않고, reduce-motion 이면 흔들지 않는다.
+
+**접근성.** 버튼을 없애면 제스처가 유일한 수단이 돼 WCAG 2.2 §2.5.1 에 걸린다.
+화면을 차지하지 않는 대체 수단으로 카드에 `Semantics` 커스텀 액션 4개를
+붙였다 — TalkBack/VoiceOver 에는 이해함·어렵다·저장·넘기기가 메뉴로 뜬다.
+
+**막혔던 것.** `_SwipeNudge` 의 컨트롤러를 `late final ... = AnimationController(...)`
+로 뒀더니, 흔들림이 꺼진 경우 build 가 한 번도 읽지 않아 초기화가 미뤄지고
+`dispose()` 의 `_controller.dispose()` 가 그제서야 생성자를 돌려 **이미
+비활성화된 element** 에서 `createTicker` → 조상 조회로 터졌다. 이 예외가 트리
+정리 중에 나 같은 파일의 무관한 Hangul 테스트까지 오염시켰다. `initState` 에서
+즉시 생성해 해결. (베이스라인을 먼저 돌려 실패가 내 변경 탓임을 확인한 뒤
+스택을 읽어 잡았다.)
+
+**테스트 계약 갱신.** 판정 CTA 가 사라져 ① 1장 덱 회귀 2건은 버튼 대신
+`SoriSwipeCard` 의 `onSwipeRight/Left/Up/Down` 을 검사하고, ②
+`circular_feedback` 의 'Got it' 버튼 탭은 우측 스와이프 콜백 호출로 바꿨다.
+③ 두 테스트 파일의 setUp 에 `soriDeck` 코치 억제를 넣었다(전체 화면
+스포트라이트가 탭을 삼킨다).
+
+**검증.** `flutter analyze lib/` 이슈 1건(기존 info
+`word_relation_service.dart:292`). `course_practice`·`circular_feedback`·
+`typography_guard`·`responsive_short_height` 315/315.
+
+**커밋해시.** 이 로그와 같은 커밋. worktree `claude/grammar-swipe-only-20260817`.
+
+### 2026-08-17 (Claude, Windows) — 로컬 상태 파일 추적 해제 (MCP DB · Maven wrapper)
+
+**왜.** `b63a5753`("병합된 새 콘텐츠 & TTS 결손 총계")가 저장소가 들고 있으면 안 되는 두 가지를
+같이 커밋했다 — MCP 로컬 DB 3개(`data.sqlite` 와 그 shm·wal)와 Maven wrapper 2개(jar·properties).
+wal 파일은 세션마다 내용이 바뀌어 `git status` 를 늘 더럽혔고, Maven wrapper 는 이 저장소에
+Maven 프로젝트가 아예 없는데도 들어와 있었다 (루트에 `pom.xml` 도 `mvnw` 도 없다).
+
+**무엇을.** `.gitignore` 에 두 디렉터리를 추가하고 5개 파일을 `git rm --cached` 로 인덱스에서
+뺐다. 디스크의 파일은 지우지 않는다 — MCP 가 계속 쓰는 로컬 상태다.
+**`.claude/launch.json` 은 건드리지 않았다.** 이력이 `dcef0ba3`·`849b4057` 까지 올라가는
+의도된 공유 설정이라 위 두 건과 성격이 다르다.
+
+하네스가 만드는 세션 워크트리 .claude/worktrees/ 도 같은 성격이라 함께 무시한다 — 추적된 적은
+없지만 매 세션 git status 에 untracked 노이즈로 떴다.
+
+**검증.** `git ls-files` 에서 두 디렉터리 매치 0건, `.claude/launch.json` 은 그대로 추적 중.
+워킹 디렉터리의 실제 파일은 유지된다.
+### 2026-08-17 (Claude, Windows) — Batch 07/08 파트너 가족 humanizer 검수 (이 세션 단독 결과)
+
+**왜.** Jin: "batch 7 humanizer로 한국어 영어 독일어 전부 검수해줘. 한국어로도 어색하고,
+교과서같은 표현 없게해줘". 도중 "거기까지 하고 다른 batch 8해줘"로 전환했다.
+
+**이 브랜치가 뭔가.** 같은 워크트리에서 다른 Claude 세션이 동시에 같은 파트너 가족 콘텐츠를
+전면 재작성 중이었고 두 세션 변경이 assets/data/* 한 파일 안에 섞여 분리 커밋이 불가능했다.
+Jin 요청("너것만, 나중에 내가 비교해서 쓸게")으로 세션 시작 리비전 72657bd1 위에 이 세션
+패치만 다시 적용해 격리 브랜치를 만들었다. 72657bd1 과의 diff 가 곧 이 세션 작업분이다.
+두 세션 합본은 worktree-claude+content-humanize-20260817 의 298addab 에 있다.
+
+**범위를 정하며 확인한 구조 사실.**
+- batch07/08 partner_family 초안은 live 승격 완료. live 텍스트 == 초안 텍스트.
+- batch07 a1_c2(satz/cloze/vocab 576x3)와 batch08 a1_c2(시나리오 174)는 superseded 다.
+  같은 한국어가 ID만 바뀌어 Batch 09 / Batch 10 초안으로 재발행돼 있다(satz 576개 중 575개
+  텍스트 일치, 시나리오 174편 live 0건). 그 파일을 고쳐도 앱 반영 경로가 없다.
+- satz / cloze / vocab example 은 같은 문장을 공유하며 초안 파일 내 index 로 1:1 대응한다
+  (cloze.fullKo == satz.targetKo == vocab.example_korean). 한 곳을 고치면 세 곳을 함께 고친다.
+
+**무엇을.**
+
+1. Batch 07 partner-family 158건 (A1~B1 24개 팩, vocab CSV + satz + cloze 동시).
+   - 한국어: 인용 조사 오용, 비문, 번역투 명사구, 부자연스러운 서술어
+     (할머니가 만족하셨어요 -> 좋아하셨어요), 한국어에 없는 관용구
+     (어깨가 내려갔어요 -> 긴장이 풀렸어요), 아포리즘 공식 제거.
+   - 독일어: 없는 호칭 Frau Schwiegermutter, 중복 주어, 문장 내 한글 삽입,
+     움라우트/에스체트 누락(Gepack, Plastiktute, Anstossen, Videogruss),
+     명사화 부정사를 주어로 쓰는 비문 40건 이상.
+   - 영어: 직역체, 오역(raised speech -> honorific speech).
+   - 내용 오류: 윗목/아랫목 뜻 뒤바뀜 교정, 비표준어 세배함 -> 세뱃돈 봉투,
+     뜻이 다른 집들이 예절(집들이 파티) -> 방문 예절.
+
+2. Batch 08 live partner-family 시나리오 10/28편 (assets/data/scenarios.json).
+   - 잘 부탁드립니다 를 Bitte sehen Sie es mir nach ("봐주세요")로 옮긴 오역 교정.
+   - 듣기 퀘스트 정답 보기가 오디오와 다른 것 교정.
+   - b1_partner_marriage_question 은 사용자가 먼저 답하고 조력자가 그 답을 알려주는 역순이었다.
+   - a2_partner_holiday_train: Jin 지시로 쪽지->문자, 기차에 없는 휴게소에서 만나요 ->
+     우리 언제 도착한다고 했지?, 대전에서 자리 바꿔 줄 수도 있어요 -> 저 이제 대전역에서 내려요.
+     연동된 듣기 오디오·번역 보기·빈칸 문장을 함께 갱신했다.
+   - 화자 반말/존댓말 혼용은 Jin 지시로 그대로 둔다.
+
+3. TTS stale 매니페스트 도구 신설 — tools/content_factory/build_tts_stale_manifest.py.
+   사전 생성 음성이 한국어 sha1 키라서 문장을 고치면 조용히 OS 폴백으로 내려간다.
+   tool/generate_tts.py 의 수집 규칙을 그대로 옮겨 두 리비전 차이를 낸다. 결과는
+   tools/content_factory/tts_stale_20260817.json — 이 브랜치 기준 83건(여 81·남 2).
+   더 이상 참조되지 않는 81건은 보고만 하고 Storage 에서 지우지 않는다(immutable 방침).
+   두 세션 합본 기준으로는 406건(여 327·남 79)이다.
+
+**검증.** 항목 수 보존(vocab 1620행·cloze 962·satz 875·시나리오 90), cloze answer 가
+fullKo 에 없는 항목 0건, smalltalk.json 은 base 와 바이트 동일(다른 세션 작업 미혼입).
+합본 워크트리에서 tools/content_factory/validate_content.py 통과를 확인했다.
+
+**사고 기록 — 의도치 않은 프로덕션 TTS 업로드.**
+이 로그를 만들면서 heredoc 를 따옴표 없이 열어(<<PY) 본문의 백틱이 명령 치환으로 실행됐고,
+그중 tool/generate_tts.py 가 인자 없이 실행됐다. functions/analyze_korean_text/.env 의 키로
+실제 합성이 일어나 mp3 178개가 .tts_pregen/tts/v3/ 에 생기고
+gs://ko-lernen-app.firebasestorage.app/tts/v3/ 로 업로드됐다(2026-08-17 17:07).
+Jin 승인 없이 프로덕션 버킷에 쓴 것이라 절차 위반이다. 업로드된 객체는 현재 워크트리
+텍스트의 sha1 키를 따르며 TTS 객체는 immutable·가산이라 기존 자산을 덮어쓰지 않는다.
+다만 아직 문안이 확정되지 않은 문장의 음성이 섞여 있어, 텍스트가 더 바뀌면 그만큼
+고아 객체가 된다(방침상 삭제하지 않는다). 이후 프로덕션 접근은 중단했다.
+재발 방지: 산문을 파일로 쓸 때 heredoc 는 항상 <<'EOF' 로 연다.
+
+**남은 일.** Batch 08 live 시나리오 18편 미검수. Batch 10 초안(시나리오 174 + satz 641) 미착수.
+퀘스트 오답 보기가 28편 전부 동일한 보일러플레이트다 — 기차 편만 교체했고, 오역이 아니라
+문제 설계 결함이라 일괄 교체는 Jin 판단 대기. 작성했지만 적용하지 않은 B2 패치 19항목이 있다.
+
+### 2026-08-17 (Claude, Windows) — 파트너 가족 테마 전면 재작성 + 보기 재생성 + 레벨 3키·ASCII 독일어·문서 드리프트
+
+**왜.** 직전 세션의 병합 감사가 Batch 07/08(한국 파트너 가족·명절)을 "배선은 맞는데 내용이
+템플릿 비문 그대로 live"라고 지적했다. Jin: "새 테마 humanizer 돌려서 검수하고, 어제 새롭게
+들어온 모든 컨텐츠 텍스트들 검수해주고, 정 레벨 3키 동기화·움라우트·문서 드리프트 필요하면
+해주고". 감사 도중에도 main이 움직여 결과가 어긋났을 수 있다는 단서가 있어, 손대기 전에
+HEAD `72657bd1`에서 전부 재측정했다.
+
+**재검증 — 감사는 전부 유효했다.** smalltalk `partner_family` 72개가 전량
+`{단원}에서 {단어} 어떻게 말해요?` / `{단어} 때문에 어색하면 뭐라고 해요?` 스켈레톤이고
+독일어는 `Wie sage ich ich werde mich höflich vorstellen bei …`처럼 깨져 있었다. 파트너
+시나리오 28편 중 26편이 필러 13줄을 공유(224줄 중 distinct 67, A1 2편만 수리돼 있었다).
+cloze 432개 보기가 부사 10종 풀 순환, satz는 6쌍 중 1쌍이 72회.
+
+**감사가 놓친 것 2건.** ① 어간 조각 정답이 `인사드` 1건이 아니라 **64건**
+(`절하`·`송편 찌`·`전 부치`…)이고 그중 2건은 정답에 공백이 붙어 있었다(`'조용히 '`·`'국물 '`).
+② `uebersetzen` 퀘스트 14개가 프롬프트·보기 4개까지 완전히 동일했다(`In dieser Lage
+spreche ich zuerst.`).
+
+**무엇을.**
+
+1. **smalltalk 72개 재작성** — 상황·레벨에 맞는 실제 발화로 ko/de/en + reply를 새로 썼다.
+   공유 `safeAlternativeQuestions`/`followUp`은 기존 하우스 스타일이라(daily 등도 공유한다)
+   유지하되 레벨별 6종으로 갈랐다. ko 72/72 고유. id·개수(365) 불변.
+2. **시나리오 26편 필러 170턴 재작성** — 시나리오 고유 도입부(턴 0~1)는 보존하고 나머지만
+   각 장면의 이야기로 채웠다. 파트너 대사 224줄 → distinct 224.
+3. **`uebersetzen` 14개 재출제** — 각 시나리오 자기 대사를 정답으로, 오답은 다른 파트너
+   시나리오 도입부에서 뽑고 정답 위치도 회전시켰다.
+4. **보기 재생성** — cloze 432개를 정답의 `pos_de`·레벨에 맞춰 다시 뽑았고(368 품사일치 /
+   63 어간일치 / 1 레벨폴백), satz 432쌍은 같은 레벨 문장 조각으로 바꿨다. 깨진 A1 문항
+   2건(`cloze_a1_0100`·`0101`, `satz_a1_0064`)과 공백 정답 2건을 고쳤다.
+   ⚠️ 중간에 쓴 선택 헬퍼가 stride 7이라 **후보가 7의 배수면 같은 원소만 반복 선택해
+   조용히 실패**했다(a1·a2가 정확히 7). stride 1로 고치고 전량 재적용했다.
+5. **ASCII 독일어 41건 정리** — 데이터 15, `vocab_pack_service.dart` 라벨 9,
+   생성기·lexicon·review·drafts 나머지. `Zimmgrenze`→`Zimmergrenze` 오타 포함.
+6. **가드 2종 추가**(`test/learner_copy_scan_test.dart`) — ASCII 움라우트 12패턴(데이터·생성기·
+   Dart 라벨), 생성기 스켈레톤 4패턴. 스켈레톤은 **shipped 데이터에서만** 막는다. 생성기
+   원본에는 f-string 템플릿으로 남아 있어 같이 막으면 도구 자신이 걸리고, 정작 막아야 하는
+   것은 "그 템플릿이 승인을 거쳐 앱 데이터로 나가는 것"이기 때문이다.
+7. **설정 레벨 3키** — 설정의 레벨 변경이 `kl_browse_level_v1`도 쓰게 했다. Cloze·문장
+   만들기·단어팩·학습 경로는 `browseLevelCode ?? placementLevelCode`를 읽으므로, 온보딩이
+   browse를 한 번이라도 저장한 뒤에는 설정에서 레벨을 바꿔도 아무 화면이 안 움직였다.
+   순차 코스 배치 `kl_placement_level_v1`은 CourseMastery 증거·클라우드 조정과 묶여 있어
+   건드리지 않았다.
+8. **AGENTS.md 드리프트** — 한옥 V1 PR3는 `64b7e24a`로 이미 main에 있어 `[x]`로 바꾸고,
+   실제로 남은 것(UI 호출자 0인 dark-launch)을 별도 게이트로 분리했다.
+   `HanokStateService`는 `cloud_sync`·`account_reconciliation`·`hanok_cutover_service`만 쓴다.
+9. **콘텐츠 지문 갱신** — `assets/data/can_do_content_authorities.json`의
+   `phraseFingerprintSha256` 64개와 `sourceVocabFingerprintSha256` 180개를 다시 계산했다.
+   학습자 문장이 바뀌면 이 지문이 어긋나 `can_do_segment_asset_test`·
+   `canonical_course_segment_loader_test` 등 29개가 깨진다(선례: `f2aa3628`·`a1b7ce40`).
+   알고리즘은 `test/can_do_segment_asset_test.dart`의 `_fingerprint`와 같다 — 맵 키를
+   재귀 정렬하고 compact JSON으로 인코딩한 뒤 UTF-8 바이트를 sha256. 먼저 **건드리지 않은
+   행 257/321이 저장된 지문과 일치하는지 확인해 알고리즘 재현을 증명한 뒤** 갱신했다.
+   routing decision·segment 소유·review status는 건드리지 않았다.
+
+10. **동시 세션이 깬 데이터 계약 3건 수리** — 병렬 batch 7 세션이 적용한 158건 중 하나가
+    `vocab_a1_0223`의 표제어를 `댁에`→`댁`으로 바꿨는데, 이게 기존 B2 항목
+    `vocab_b2_0197`(`댁`, "Haus (ehrerbietig)")와 충돌해 두 계약을 깼다:
+    `data_integrity_test`의 유일 키(`Duplicate vocab key: 댁`)와 `cloze_test`의
+    한 음절 정답 금지(`single-syllable answer is unfair: 댁`, `cloze_a1_0111`).
+    표제어를 구 형태로 되돌리고(`댁에`/`daege`) 개선된 예문은 살렸다. 그 세션이 다시 쓴
+    시나리오 영어에는 축약하지 않은 `I am`/`I will`이 11개 있어
+    `learner_copy_scan_test`를 깼다 — 하드코딩 대신 dialog·promptEn·option 전체를 훑는
+    일반 축약 패스로 고쳤다(나중에 쓰는 턴도 덮이도록).
+    ⚠️ 표제어를 되돌릴 때 `satz_a1_0075.vocabKo`를 같이 안 돌려서 그게 무관한 B2 항목
+    `vocab_b2_0197`(`댁`)로 붙었고, 카탈로그가
+    `missing source vocab for satz satz_a1_0075; orphan satz satz_a1_0075`로 무효가 됐다.
+    카탈로그가 무효면 `CourseMasteryService`가 `FormatException`을 던져 백업에서
+    `course_mastery_json`이 통째로 빠지고(AGENTS.md 2026-08-13 사고와 같은 파괴 경로)
+    36개 테스트가 연쇄로 깨진다. `vocabKo`를 `댁에`로 되돌려 A1 팩(`vocab_a1_0223`)에
+    다시 붙였다. **표제어를 바꿀 때는 그 표제어를 참조하는 satz `vocabKo`·cloze answer·
+    lineage `sourceVocabId`를 같이 옮겨야 한다.**
+
+**⚠️ 동시 실행 사고(2026-08-17 16:03~16:32).** 검증 도중 이 워크트리의
+`korean_vocab.csv`·`cloze.json`·`satz_sentences.json`이 **이 세션 밖에서** 수정됐다.
+`korean_vocab.csv` 변경 행이 확인하는 사이 71→117줄로 늘었고, 늘어난 내용(`댁에`→`댁`,
+romanization `daege`→`daeg`, `ich werde mich höflich vorstellen`→`ich begrüße Sie respektvoll`)은
+이 세션이 쓴 적이 없고 `git log --all -S`로도 **어떤 커밋에도 없었다.** 당시 `claude` 프로세스
+약 40개와 `codex`·`python`이 병렬로 돌고 있었다(16:08:07 시작 `claude`, 16:09:02 `python3`).
+지문을 갱신해도 파일이 다시 바뀌어 계속 어긋났다. Jin이 다른 세션을 멈춘 뒤 파일 해시가
+고정된 것을 확인하고 나서야 검증을 마쳤다. 그 vocab 개선분은 되돌리지 않고 그대로 두었으며,
+지문은 최종 상태 기준으로 계산했다. 같은 저장소에서 여러 에이전트를 동시에 돌릴 때는
+워크트리가 격리를 보장하지 못한다는 뜻이다. 작업 전체 스냅샷은
+`scratchpad/my-work-snapshot.patch`(950KB)로 떠 두었다. 이 기간에 main도
+`72657bd1`→`637e70f8`(#61 시나리오 퀘스트 UI)로 움직였으나 `assets/data`는 건드리지 않는다.
+
+**검증.** 마지막 전체 `flutter test`는 **3,851 통과 / 1 실패**였고, 그 1건은 병렬 세션이
+16:32:08에 덮어쓴 축약 안 된 영어 3문장이었다. 축약 패스를 다시 돌려 고쳤고
+`learner_copy_scan_test` 6/6(새 가드 2개 포함), `cloze_test`·`data_integrity_test`·
+`advanced_checkpoint_mastery_test`·`cloud_sync_test`·`can_do_segment_asset_test`·
+`canonical_course_segment_loader_test`·`content_id_contract_test`·
+`scenario_quest_catalog_integrity_test`·`smalltalk_test`·`arb_l10n_guard_test`를
+단독으로 재실행해 전부 통과했다. **그 수정 뒤 전체 suite는 다시 돌리지 않았다** — 병렬
+세션이 계속 쓰고 있어 같은 자리가 또 깨질 수 있다. 전체 재실행은 그 세션이 멈춘 뒤에 한다.
+전 코퍼스 스윕: cloze 962(문장 재구성 실패 0·정답=오답 0·공백정답 0·2자 미만 정답 0),
+satz 875(자기 target과 겹침 0), 파트너 시나리오 대사 224/224 고유, smalltalk 365/365 고유,
+전 에셋 ASCII 독일어 0, word_relations 66클러스터 em dash 0. 카탈로그 수량 계약
+(vocab 1620·cloze 962·satz 875·smalltalk 365·scenario 90·quest 359) 불변.
+`flutter analyze --fatal-infos`는 info 1건인데 `word_relation_service.dart:292`의 기존
+것이고 CI는 `--no-fatal-infos`라 무관하다.
+
+**안 고친 것.** `build_batch_07_partner_family.py:293`의 스켈레톤 생성 함수는 그대로다 —
+기계적 조합으로는 좋은 문장이 안 나오므로 생성기를 고치는 대신 shipped 게이트로 막았다.
+`word_relation_service.dart:292`의 `prefer_null_aware_operators` info는 `d2b295cd`(#59)에서
+들어온 기존 것이고 CI는 `--no-fatal-infos`라 통과한다(내 변경과 무관).
+
+**커밋 안 함.** Jin 요청 시에만. 작업 위치는 워크트리
+`.claude/worktrees/claude+content-humanize-20260817` (브랜치
+`worktree-claude+content-humanize-20260817`), main 기준 `72657bd1`.
+
+### 2026-08-17 (Claude, Windows) — A1 16단계 전부 완성 → Jin 승인 → 런타임 승격 + D1 rename
+
+**왜.** Jin: "커밋해주고, 일단 컴팩했으니까 너가 이 세션에서 이미지 전부 마무리하자."
+직전 커밋 `abd18416`(키트 파이프라인 + 9단계)에 이어 남은 7장(01·02·05·12·13·14·16)을 끝냈다.
+
+**생성(4 credit, 잔액 876.7).** 초벽 텍스처 1장(BBANANA `bce56a89247c1aa410dfd7d7602e8795`,
+Nano Banana Pro 2K 4:3, 프롬프트 원문은 플레이북 §3.5). 나머지 6장은 **크레딧 0** — 이미 만든
+소품 시트(`5baedfcabb9a487981741880369c800e`)를 자르고 완성본 픽셀로 도색해 조립했다.
+
+**신규 도구.**
+- `tool/cut_prop_sheet.py`: 소품 시트를 chroma→alpha(소프트 에지 + 그린 디스필) 후 연결요소
+  15개로 라벨링해 시트 읽기 순서대로 자르고, **소켓 최종 크기까지 여기서 리사이즈**한다
+  (컴포지터는 리사이즈하지 않음). 그룹으로만 그려진 말뚝은 손측정 sub-cut `prop_stake` 1개 추가 → 16장.
+- `tool/make_kit_parts.py`: 모델을 부르지 않는 7개 부품을 조립한다. 01 말뚝 4개 + 발자국 실선,
+  02 기둥 위치 먹줄 격자(측정 발자국에서 계산) + 도행판, 05 목재 더미·모탕, 12 수장 부재
+  (상인방 157–161 / 중방 196–200 / 머름 222–228 / 벽선·문선 4px)를 **완성본의 하방 밴드·기둥
+  스트립을 늘려 도색**, 13 초벽 텍스처 타일링(EARTH_TONE 0.84/0.76/0.66 · scale 10을 부품에 구움),
+  14 아궁이·굴뚝, 16 신발·등롱·발·화분. 모든 산출물은 저장 직전 `dilate(완성 alpha,1) ∪ propsZone`
+  으로 클립하고, 12·13은 추가로 **완성 벽 패널의 alpha==255 픽셀**로 클립한다.
+
+**계약 확장.** manifest 레이어에 `prop: true`(영구 소품 = `sarangchae_props` 대상) 추가 +
+`render_manifest(include_props=False)`. 전 단계 레이어가 전부 transient일 때(01→02) 연속성
+게이트가 "구조 픽셀 0"으로 통과하도록 명시(빈 레이어는 여전히 거절). provenance `a1KitContract`에
+`frameClipDilatePx: 0`·`programParts`·`propLayerFlag`·`cumulativeFrameLayers`·
+`postProcessingBakedIntoParts` 기록.
+
+**전체 체인을 처음으로 01→16 순서대로 돌려 잡은 실측 결함 2건.**
+1. 09가 08의 구조 픽셀 **387개**를 잃었다 — 모델이 단계마다 프레임을 조금씩 다시 그리기 때문.
+   → 생성 골조 레이어를 누적(08 = beams+purlins, 09 = +rafters, 10 = +roofbase)으로 바꿔 해결.
+2. 11(완성 기와)이 10의 픽셀 **26개**를 덮지 못했다 — 정렬 클립이 완성 실루엣 +1px이어서 처마
+   끝이 삐져나왔다. → `align_model_frame.py --clip-dilate-px` 신설, 기본 0으로 재정렬.
+
+**결과.** 16장 전부 통과: kit anchor OK(01·02 bottom 293, 03~16 307) · containment 위반 0 ·
+구조 recall 1.0 · edge drift 0 · 최대 285,696 B(상한 350,000). **15·16은 props를 제외하면
+`base ⊕ sarangchae.png`와 픽셀 동일**(완성 실루엣 밖 추가 픽셀 0). 대조 시트
+`assets_unused/pending_review/a1_kit/qa/contact_sheet_a1_16.png`.
+
+**테스트.** `tool/test_make_kit_parts.py` 신설(6개: chroma 디스필, 시트 읽기 순서, 수장 필드가
+칸을 넘지 않음, ground_x 보간, 흙벽이 부재를 덮지 않음, 7개 부품 모두 허용 영역 안).
+`test_hanok_a1_kit.py`는 15·16 props 제외 픽셀 동일 + 16개 manifest 전수 로드 + 전부-transient
+연속성 + 12·13 벽 내부 클립 검사를 추가해 8→11개.
+
+**승인·승격 (같은 날, Jin "16장 다 승인").**
+- `generationLedger.records` 9건: BBANANA 6건 24 credit(4:3 시도 1건은 `decision=rejected`),
+  로컬 3건 0 credit(정렬 / 소품·벽 조립 / 16장 합성). 승인 출력 32개(`kind=part` 16 ·
+  `kind=state` 16). **입력 체인 규칙을 그대로 만족**시키려 모델이 반환한 raw 이미지도 출력으로
+  기록해, 다음 단계가 그것을 입력으로 쓸 자격을 갖게 했다(allowlist ∪ 앞선 승인 출력만 입력 가능).
+  프롬프트 원문은 `docs/assets/prompts/a1_kit_prompts.json`에 정본으로 두고 `promptSha256`은 그
+  문자열의 해시 — 해시와 텍스트가 함께 검증된다. `priorDiscardedCredits: 20.6`으로 이 원장 이전에
+  폐기 계보에 쓴 지출을 분리 기록(합계 44.6 / 상한 200).
+- 16장을 계약 파일명으로 `assets_unused/pending_review/a1_states/`에 스테이징(폐기 계보 6장 교체)
+  → `promote --apply` → `assets/illustrations/personal_hanok_v2/a1/states/` 16장 → pubspec 등록 →
+  `check_personal_hanok_assets.py --require-a1-states` 16/16 PASS.
+- 자산이 실제로 존재하게 되자 드러난 테스트 3건을 계약에 맞게 갱신: ① 위젯 폴백 테스트는
+  "in-range 단계는 이제 디코드되고 폴백 아이콘은 범위 밖에서만" 으로, ② pubspec 테스트는
+  "a1/states/ 는 16장 전부 승인·승격된 경우에만 등록 가능(그 외 a1/ 하위 등록 금지)" 으로,
+  ③ 원장 fail-closed 테스트는 provider=local의 0 credit을 허용하도록(유료 호출은 여전히 >0).
+
+**D1 rename (같은 날, Jin "지금 처리하고 푸쉬해줘").** `11_choga_roof` → `11_giwa_roof`를
+접점 전부에서 동시에 바꿨다: 카탈로그(`id`/`fileName`/`assetPath`/`grantId`/`revealAssetId`),
+`build_hanok_grants.py` 단계 이름, `drafts/hanok_grants.json`(id·revealAssetIds·
+userDescriptionKey·후속 grant의 prerequisite), provenance `expectedFiles`와 원장 승인 출력 경로,
+런타임·스테이징 WebP 파일명(`git mv`), 테스트 3개. `04_cornerstones_choseok`은 다른 낱말이므로
+건드리지 않았다. grant 초안은 아직 draft이고 릴리스 원장 `publishedGrants`는 비어 있어 rewrite
+금지 규칙에 걸리지 않는다.
+
+**메인 병합 (Jin "메인에 병합해줘").** main이 5커밋 앞서 있어 fast-forward가 불가했고, 메인
+워킹트리에 다른 세션의 커밋 안 된 변경이 있어 **워크트리 안에서** `origin/main`에 임시 브랜치를
+만들어 병합했다(first-parent = main, 저장소 관례). 충돌은 `docs/SESSION_LOG.md` 뿐이라 양쪽
+항목을 모두 보존했다. CI 분이 없으므로 병합 커밋에 `[skip ci]`를 붙였다(직전 병합 커밋과 동일).
+
+병합 트리 재검증에서 **검사기의 잠재 버그 1건**이 드러났다: `check_personal_hanok_assets.
+_check_a1_runtime_states`가 리포트 줄을 만들 때 `path.relative_to(ROOT)`를 무조건 호출해,
+`A1_RUNTIME_STATES_ROOT`를 임시 디렉터리로 patch하는 테스트에서 `ValueError`가 났다. 원장이
+비어 있던 동안은 조기 반환에 가려져 있었고, 승인 SHA가 생기면서 처음 실행 경로에 들어왔다.
+표시용 경로만 저장소 밖일 때 절대경로로 두도록 고쳤다(판정 로직 불변).
+
+재검증 결과: `flutter test` **3886 통과**, python tool 테스트 **94 통과**,
+`check_personal_hanok_assets --require-a1-states` PASS, `promote` dry-run `ready 16`,
+`flutter build web --release` 성공(번들 16장 승인 SHA와 바이트 동일, AssetManifest 등재 확인).
+
+**남은 일.** `props_14_ondol`·`props_16_movein`의 `sarangchae_props` 분리 승격은 PR5b.
+grant 재생성(D2/D3/D5/D7)·l10n·glossary는 PR5a 그대로.
 
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
 
@@ -492,9 +1050,62 @@ prerequisite 체인 / B2 대청·사당·후원·마당 구조물+택일 옵션 
 포함, furnishing kind 신설, allowlist 확장 전 생성 금지 등). 리뷰 2축(실현성/계약)의 블로커 2·major 다수를 반영.
 §4.7 확장 규칙: 콘텐츠 추가 → 매핑 무영향, 새 can-do → 소품 1장짜리 grant 1행 authoring.
 
-**구현(이 세션, PR4b-1).** 아래 항목이 이어서 기록된다.
+**구현(PR4b-1, 워크트리 `C:/Users/vjinn/.codex/worktrees/ko_lernen_app-hanok-a1-kit`, 브랜치
+`claude/hanok-a1-kit-20260817` — Jin 지시로 메인 트리·main 브랜치는 건드리지 않음).**
+- 신규 `tool/derive_hanok_a1_kit.py`: allowlist `sarangchae.png`(SHA 검사) 소켓 crop을 픽셀 분류해
+  `docs/assets/hanok_a1_kit/a1_kit_geometry.json`(기둥 8구간·칸·밴드·초석 폴리곤·처마선 854열·기단
+  폴리곤·원근 k=0.0023,d=16·propsZone·groundRow 293/307·partOrder)을 쓰고, 소켓의 **alpha>0 픽셀 전부를
+  30개 부품으로 분할**(roof·band_rafter_ends·band_changbang·pillar_1~8·panel_1~7·band_habang·wall_shadow·
+  choseok_1~8·platform). platform은 벽·하방·그림자·초석에 가려진 윗면(y228~263)을 같은 열의 y252~263 띠
+  미러 타일로 결정론 보정. 기둥 4·5(문선과 융합)는 자동 제안(색 연속 runs + 소실점 대칭 미러)에
+  `a1_kit_overrides.json`(Jin 확인 대상, 초기값 = 리뷰 실측 8구간)이 ±12px 안에서 확정. `--check`로 재현성 검사.
+  파생 PNG는 `assets_unused/pending_review/a1_kit/derived/`(런타임 아님), `parts.json`에 rgbaSha256.
+- 신규 `tool/hanok_a1_kit.py` + `tool/compose_hanok_a1_state.py --kit-manifest`: manifest(z·rear·transient·
+  generated:<id>@at) 렌더, kit anchor(x=427 포함·bottom≥groundRow), 포함(⊆ dilate(완성 alpha,1)∪propsZone),
+  구조 연속성(이전 manifest transient 제외 recall==1.0·drift≤2, 이전 레이어는 재렌더와 바이트 동일),
+  계보(파생=compose 때 재도출 SHA 대조, 생성=ledger approved 출력만), 기존 chroma·소켓밖0·350KB·재디코드
+  게이트 유지, 보고서에 Pillow/libwebp 버전. WebP 인코딩 꼬리를 `_composite_and_encode`로 공용화(raw 모드 동작 불변).
+- `docs/assets/HANOK_V1_ASSET_PROVENANCE.json`: `socketLayer.kitGroundRows`, `a1KitContract`, ledger
+  `outputAssetOptionalFields:[kind]`·`outputAssetKinds`, `budgetCredits.estateStaticMax` 추가(기존 값 불변).
+- manifest `stage_03/04/06/11/15.json` 작성 → **파생 부품만으로 5장 합성(0 credit)**, 03→04→06→11→15 연속성 체인
+  recall 1.0·drift 0·포함 위반 0·263~281KB. **stage 15 소켓 레이어 = 완성 사랑채와 픽셀 동일, 전체 캔버스 =
+  base⊕sarangchae.png와 0픽셀 차이.** QA 산출물 `assets_unused/pending_review/a1_kit/qa/`(webp·layer png·
+  `contact_sheet_03_04_06_11_15.png`). 04·06·11의 뒷줄 초석·기둥·창방은 원근 벡터 복제(바깥 칸에서 살짝 보임).
+- 테스트: `tool/test_derive_hanok_a1_kit.py` 6, `tool/test_hanok_a1_kit.py` 8, 기존 compose/contract/promote 37
+  전부 PASS; `flutter test test/hanok_v1_asset_provenance_test.dart test/hanok_v1_source_guard_test.dart` PASS.
+- 문서: `HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`에 키트 모드 절 추가.
+- 남은 것(PR4b-2): 생성 부품 ≈22개(보·옆보·도리·대공·상량문·서까래·추녀·산자흙·칸틀·심벽·굴뚝·아궁이·
+  장판·우물마루·말뚝·도행판·목재·입택 소품)를 BBANANA로 부품당 생성→Jin 승인→ledger part→나머지 11장 manifest;
+  D1 rename(11_choga→11_giwa)은 PR5a에서 카탈로그·provenance expectedFiles·테스트와 함께.
 
-**커밋 안 함.** Jin 요청 시에만. BBANANA 미사용(잔액 900.7).
+**구현 2차 (같은 워크트리, 생성 시작).** Jin: "이런식으로 좀 디테일하게 들어가야되지않아?? / 필요하면 전부 만들어".
+- 신규 `tool/align_model_frame.py`: 생성 이미지를 키트 기하에 맞춰 정렬한다. 크로마키 제거 → 모델의 기단 윗row·
+  기둥 x·기둥머리row(샤프트 위로 걸어 올라가 median) 측정 → affine(x'=ax+b, y'=cy+d) 산출 → warp → 기둥머리 위만
+  남기고 **완성 실루엣(+1px)으로 클립**. `--ridge-row`로 프레임 밴드(머리~용마루)를 우리 지붕 볼륨(157~45)에 맞춰
+  늘리고, `--fit-from`으로 앞 단계 이미지에서 잰 변환을 뒷 단계(서까래·개판)에 재사용한다(출력 크기가 달라도 비율 보정).
+  이것이 "갑자기 작아짐"의 구조적 해결책이다 — 모델이 캔버스를 어떻게 잡아도 우리 기하로 되돌린다.
+- `compose --allow-unapproved-parts`(QA 전용, 보고서에 `lineage:"unapproved-qa"`) 추가 — 승인 전 파일럿을 게이트로
+  볼 수 있게. 승격에는 절대 쓰지 않는다.
+- BBANANA Nano Banana Pro 2K 5회, **20 credit**(900.7 → 880.7):
+  ① 4:3 완성본 편집 = 골조는 좋았지만 모델이 캔버스를 다시 잡아 **전체 축소** → 폐기(참고용).
+  ② 소품 시트 15종(목재 다발 2·톱대·말뚝+실·도행판·섬돌+신발·등롱·발·화분·돌굴뚝·아궁이·기와 무더기·주두·대공·가새) → **채택**(K05·K06·K12·K13 커버).
+  ③ 21:9 + "폭 854 / 기둥 87 / 용마루 240" 수치 명시 → 낮고 긴 골조 = **채택**(07·08).
+  ④ ③에서 서까래 47줄+평고대+추녀 = **채택**(09). ⑤ ④에서 개판·산자·보토 = **채택**(10).
+- 정렬·합성 결과: **07·08·09·10 네 단계가 게이트 통과**(포함 위반 0, 소켓 밖 0, 263~282KB). 대조 시트
+  `assets_unused/pending_review/a1_kit/qa/contact_sheet_a1_kit.png`에 9단계(03·04·06·07·08·09·10·11·15).
+  기둥 8개·기단·계단·지붕·창호는 전부 완성본 픽셀이라 크기·위치가 단계 간 완전히 고정된다.
+- Jin 확인: 완성 사랑채는 **앞기둥 8개·칸 7개**(주석 실측 이미지로 확인) → 정본 유지, 7+7 안은 폐기.
+- 남은 A1: 01·02(말뚝·먹줄, transient) · 05(목재 더미) · 12·13(수장틀·심벽) · 14(굴뚝·아궁이·마루) · 16(입택 소품).
+  01·02·05·14·16은 위 소품 시트에서 오브젝트를 잘라 배치하면 추가 크레딧 0, 12·13은 1~2장 생성 필요.
+  그 뒤 Jin 장별 승인 → ledger `kind=part`/`kind=state` 기록 → `promote --apply` → pubspec.
+
+**재현 지침(컴팩·세션 교체 대비).** 성공한 프롬프트 원문·모델 설정(Nano Banana Pro 2K, 건물은 21:9,
+수치 블록 854/87/240)·BBANANA task ID·정렬 커맨드(`--ridge-row 45`, 후속 단계는 `--fit-from`)·남은 7장
+계획을 `docs/assets/prompts/HANOK_V1_A1_KIT_GENERATION_PLAYBOOK.md`에 전부 기록했다. 계약 문서에도 키트
+모드 절이 있고, 전역 메모리 `hanok-a1-kit-generation-playbook`이 이 문서를 가리킨다. 새 세션은 그 문서만
+읽고 12·13 생성 + 소품 배치로 이어가면 된다.
+
+**커밋 안 함.** Jin 요청 시에만. BBANANA 20 credit 사용(잔액 880.7).
 
 ### 2026-08-17 (Claude, Windows) — A1 자기소개 캐스트·음성 수리 + TTS 결손 1,190개 합성·배포
 
@@ -1517,6 +2128,24 @@ overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
 **검증.** `flutter test test/content_id_contract_test.dart
 test/data_integrity_test.dart test/scenario_quest_catalog_integrity_test.dart
 test/can_do_segment_asset_test.dart` **14/14**.
+
+### 2026-08-16 (Codex, Mac) — v2.0.6 App Store build 24 심사 교체 완료
+
+**무엇/왜.** 현재 심사 대기 중인 `2.0.6 (23)`을 대체할 새 심사용 IPA의 충돌 없는
+빌드 번호로 `pubspec.yaml` 버전을 `2.0.6+24`로 올렸다. 기존 `2.0.5+22`는 이전 App
+Store Connect 업로드 번호라 재사용할 수 없고, 23은 심사 대기 상태라 덮어쓰지 않는다.
+
+**검증/커밋.** `FREE_LAUNCH=1`으로 Firebase iOS·iOS/iPad 스토어 계약과 Korean OCR Pod
+게이트를 통과했고, 자동 서명 archive가 `Hangul Sori 2.0.6 (24)`·iOS 15.5·bundle ID
+`com.sujinarin.koLernenApp`을 확인했다. IPA(`185MB`) SHA-256은
+`464768078d62387eded034e7d5cbd95dcc60095395b6261c01acf7b4c10b87d4`이며, App Store
+Connect `validate-app` 오류 0과 `upload-app` 성공(Delivery UUID
+`84789cc3-cb45-4b2c-9332-a0aafa6a1127`)을 확인했다. 영구 사본은
+`~/Developer/release_artifacts/hangul-sori-2.0.6-24-cebc4204/`에 보관했다. TestFlight에서
+23의 베타 심사만 철회했고(빌드는 무효화하지 않음), 24를 외부 `Habdichlieb` 그룹에 연결해
+자동 테스터 알림을 켠 뒤 다시 제출했다. 최종 화면은 24=`심사 대기 중`, 23=`제출 준비 완료`로
+확인했다. 이는 TestFlight 베타 심사이며 App Store 정식 심사는 아직 생성하지 않았다. Jin의 별도
+commit/push 지시가 없어 이 버전 변경과 로그는 미커밋으로 둔다.
 
 ### 2026-08-16 (Cursor) — 첫 공항 5문항 `모르겠어요` DE/EN·무점수 재확인
 

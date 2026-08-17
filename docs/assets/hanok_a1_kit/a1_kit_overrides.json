@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "note": "Human-confirmed measurements on the allowlisted sarangchae.png socket crop (854x309). The derive tool proposes automatically and must agree within tolerance; these values ship. Re-confirm if the source SHA changes.",
+  "confirmedBy": "pending Jin visual confirmation (initial values: 2026-08-17 numpy measurement, wood continuity >=0.9 over rows 160-242)",
+  "pillarXRanges": [
+    [
+      53,
+      68
+    ],
+    [
+      161,
+      181
+    ],
+    [
+      273,
+      291
+    ],
+    [
+      356,
+      374
+    ],
+    [
+      478,
+      498
+    ],
+    [
+      562,
+      580
+    ],
+    [
+      672,
+      691
+    ],
+    [
+      784,
+      799
+    ]
+  ]
+}

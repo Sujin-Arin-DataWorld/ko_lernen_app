@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "stage": 2,
+  "id": "02_plan_layout",
+  "note": "Props cut from the one generated sheet (BBANANA 5baedfcabb9a487981741880369c800e) + ink lines drawn from the measured footprint: one line per column position plus three cross lines. Transient.",
+  "layers": [
+    {
+      "part": "generated:props_02_layout",
+      "z": 900,
+      "at": [
+        0,
+        0
+      ],
+      "transient": true
+    }
+  ]
+}

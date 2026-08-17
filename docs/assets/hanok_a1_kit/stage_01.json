@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "stage": 1,
+  "id": "01_site_setout",
+  "note": "Props cut from the one generated sheet (BBANANA 5baedfcabb9a487981741880369c800e): four stakes on the platform footprint with the string stretched between them. Transient \u2014 the platform replaces it at 03.",
+  "layers": [
+    {
+      "part": "generated:props_01_setout",
+      "z": 900,
+      "at": [
+        0,
+        0
+      ],
+      "transient": true
+    }
+  ]
+}

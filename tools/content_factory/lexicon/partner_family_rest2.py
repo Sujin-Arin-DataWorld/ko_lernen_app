@@ -9,7 +9,7 @@ REST2_PACKS = [
         ("손님방", "Gästezimmer", "guest room", "Nomen", "손님방에 이불이 세 겹이라 더웠어요.", "Im Gästezimmer lagen drei Decken, es war zu warm.", "The guest room had three blankets, so it was too warm."),
         ("이불", "Bettdecke", "blanket", "Nomen", "이불을 개다가 현우 엄마가 들어오셨어요.", "Als ich die Decke faltete, kam Hyunwoos Mutter herein.", "While folding the blanket, Hyunwoo's mom came in."),
         ("세면 도구", "Waschzeug", "toiletries", "Nomen", "세면 도구를 깜빡해서 새 칫솔을 받았어요.", "Ich hatte das Waschzeug vergessen und bekam eine neue Bürste.", "I forgot my toiletries and was given a new toothbrush."),
-        ("아침 인사", "Morgengruss", "morning greeting", "Nomen", "아침 인사는 일어나자마자 큰 소리로 했어요.", "Den Morgengruss sagte ich laut gleich nach dem Aufstehen.", "I said the morning greeting loudly as soon as I got up."),
+        ("아침 인사", "Morgengruß", "morning greeting", "Nomen", "아침 인사는 일어나자마자 큰 소리로 했어요.", "Den Morgengruß sagte ich laut gleich nach dem Aufstehen.", "I said the morning greeting loudly as soon as I got up."),
         ("일찍 일어나다", "früh aufstehen", "to get up early", "Ausdruck", "일찍 일어나려고 알람을 네 개 맞췄어요.", "Um früh aufzustehen, stellte ich vier Wecker.", "I set four alarms to get up early."),
         ("화장실 줄", "Schlange vor der Toilette", "bathroom queue", "Nomen", "화장실 줄이 생겨서 물부터 마셨어요.", "Es gab eine Schlange, also trank ich zuerst Wasser.", "There was a bathroom queue, so I drank water first."),
         ("잠옷", "Schlafanzug", "pajamas", "Nomen", "잠옷 대신 편한 티를 입어도 되냐고 물었어요.", "Ich fragte, ob statt Schlafanzug ein T-Shirt reicht.", "I asked whether a T-shirt was fine instead of pajamas."),
