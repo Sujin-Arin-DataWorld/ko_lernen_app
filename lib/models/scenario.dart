@@ -283,6 +283,15 @@ class Scenario {
   final SpeechStyle? speechStyle;
   final String relationshipContext;
   final String intent;
+
+  /// 책가도 서재의 칸 — `{level}_{slug}` (예 `a1_eat`).  빈 문자열은 아직
+  /// 배정되지 않은 시나리오다 (스펙 §5.1).
+  final String shelf;
+
+  /// 장면 배경 카테고리 — 12 열거값 중 하나.  `shelf` 와 **독립**이다:
+  /// shelf 는 무엇을 배우나, backdrop 은 어디서 벌어지나다 (스펙 §5.1).
+  final String backdrop;
+
   final List<String> conceptIds;
   final List<String> surfaceFormIds;
   final List<String> grammarIds;
@@ -309,6 +318,8 @@ class Scenario {
     this.speechStyle,
     this.relationshipContext = '',
     this.intent = '',
+    this.shelf = '',
+    this.backdrop = '',
     this.conceptIds = const [],
     this.surfaceFormIds = const [],
     this.grammarBlock,
@@ -336,6 +347,8 @@ class Scenario {
     speechStyle: SpeechStyleX.tryFromCode(j['speechStyle']?.toString()),
     relationshipContext: (j['relationshipContext'] as String?) ?? '',
     intent: (j['intent'] as String?) ?? '',
+    shelf: ((j['shelf'] as String?) ?? '').trim(),
+    backdrop: ((j['backdrop'] as String?) ?? '').trim(),
     conceptIds: ((j['conceptIds'] as List?) ?? const []).cast<String>(),
     surfaceFormIds: ((j['surfaceFormIds'] as List?) ?? const []).cast<String>(),
     grammarIds: ((j['grammarIds'] as List?) ?? const []).cast<String>(),

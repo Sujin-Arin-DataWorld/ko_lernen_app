@@ -42,4 +42,34 @@ void main() {
       }
     });
   });
+
+  group('Scenario 모델의 shelf/backdrop 파싱', () {
+    Map<String, dynamic> minimal(Map<String, dynamic> extra) => {
+      'id': 'x_probe',
+      'level': 'a1',
+      ...extra,
+    };
+
+    test('필드가 없으면 빈 문자열이다', () {
+      final scenario = Scenario.fromJson(minimal(const {}));
+      expect(scenario.shelf, '');
+      expect(scenario.backdrop, '');
+    });
+
+    test('필드가 있으면 그대로 읽는다', () {
+      final scenario = Scenario.fromJson(
+        minimal(const {'shelf': 'a1_eat', 'backdrop': 'cafe'}),
+      );
+      expect(scenario.shelf, 'a1_eat');
+      expect(scenario.backdrop, 'cafe');
+    });
+
+    test('공백은 다듬는다', () {
+      final scenario = Scenario.fromJson(
+        minimal(const {'shelf': '  a1_eat  ', 'backdrop': ' cafe '}),
+      );
+      expect(scenario.shelf, 'a1_eat');
+      expect(scenario.backdrop, 'cafe');
+    });
+  });
 }
