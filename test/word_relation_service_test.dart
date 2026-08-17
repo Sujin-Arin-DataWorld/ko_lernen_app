@@ -3,7 +3,10 @@ import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -63,6 +66,76 @@ void main() {
       containsAll(<String>{'크다', '감사합니다'}),
     );
     expect(WordRelationService.learnedKorean(), isNot(contains('')));
+  });
+
+  test('learnedKoreanWithCourse unions correct course vocab ids', () async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
+
+    expect(WordRelationService.learnedKorean(), isEmpty);
+
+    const korean = '테스트단어';
+    const vocabId = 'vocab_course_only';
+    final seen = await WordRelationService.learnedKoreanWithCourse(
+      snapshot: CourseMasterySnapshot(
+        completedUnitIds: const ['unit-a'],
+        evidence: [
+          MasteryEvidence(
+            conceptId: 'concept-a',
+            contentKind: CurriculumContentKind.vocab,
+            contentId: vocabId,
+            isCorrect: true,
+            occurredAt: DateTime.utc(2026, 8, 1),
+          ),
+          MasteryEvidence(
+            conceptId: 'concept-b',
+            contentKind: CurriculumContentKind.vocab,
+            contentId: 'ignored-wrong',
+            isCorrect: false,
+            occurredAt: DateTime.utc(2026, 8, 1),
+          ),
+        ],
+      ),
+      catalogLoader: () async => throw StateError('catalog down'),
+      vocabLoader: () async => [
+        Vocab(
+          id: vocabId,
+          korean: korean,
+          romanization: 'teseuteu',
+          german: 'Testwort',
+          level: 'A1',
+          posDe: 'Nomen',
+          exampleKorean: korean,
+          exampleGerman: 'Test',
+          topic: 'test',
+        ),
+      ],
+    );
+
+    expect(seen, contains(korean));
+    expect(WordRelationService.learnedKorean(), isEmpty);
+  });
+
+  test('courseVocabContentIds includes completed-unit vocab links', () {
+    final ids = WordRelationService.courseVocabContentIds(
+      snapshot: const CourseMasterySnapshot(completedUnitIds: ['unit-a']),
+      linksForCompletedUnit: (unitId) {
+        if (unitId != 'unit-a') {
+          return const <ContentLink>[];
+        }
+        return [
+          ContentLink(
+            contentKind: CurriculumContentKind.vocab,
+            contentId: 'vocab_from_unit',
+            courseUnitId: unitId,
+            conceptIds: const ['c'],
+            role: ContentLinkRole.practice,
+          ),
+        ];
+      },
+    );
+    expect(ids, contains('vocab_from_unit'));
   });
 
   test('learned scope keeps only seen source words', () {

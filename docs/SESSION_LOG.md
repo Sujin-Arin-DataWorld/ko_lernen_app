@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — TTS 대기/쿼터 + 단어망 Kurs만 분리
+
+**무엇.** 한옥 compose/맵/AGENTS는 Windows 세션과 겹쳐서 이 브랜치에서 뺐다.
+TTS 패자는 쿼터 없이 합성하지 않고, `completed`+무오디오도 wait이며 inflight
+poll은 14×500ms다. 클라는 `already in progress`만 재시도하고
+`resource-exhausted`는 OS TTS로 떨어지지 않는다. 단어망 `learnedKorean()`은
+sync 유지, `learnedKoreanWithCourse()`가 정답 vocab evidence와 완료 단원
+vocab 링크를 합친다. 단어망은 코스/한옥을 쓰지 않는다.
+
+**왜.** Jin이 한옥 파일을 빼고 안전하게 작업하라고 했다. 이전 혼합 PR #58은
+머지하지 않는다.
+
+**검증.** Node `functions/tts/tts_request_guard.test.js`, Flutter
+`tts_request_rate_test`·`tts_cache_key_test`·`word_relation_service_test`·
+`word_web_screen_test`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — Codex 병렬 코드/ledger 처분 확정 + main 계약 구멍 5건 닫음 + 결정 메커니즘 투어
 
 **왜.** Cursor와 Codex가 PR4 A1 자산 파이프라인을 각각 구현했고, 병합 `9958a458`은 코드 7경로를
