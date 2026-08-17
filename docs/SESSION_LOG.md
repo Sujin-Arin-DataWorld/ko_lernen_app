@@ -15,7 +15,10 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk decision 321.
 
 **검증.** 깨졌던 4개 카탈로그 테스트는 계약 수정 후 **14/14**. 병합 후 같은
-파일을 새 inventory로 다시 돌린다.
+파일을 새 inventory로 다시 돌렸다. `word_web`/`vocab_nuance`가 없는
+`tiger_idle.png`를 참조해 `data_integrity_test`가 깨진 것은 실제 자산
+`tiger_sitting2.png`로 고쳤다. 로컬 `main` `b5813937`을 `origin/main`에
+푸시해 깃과 맞춘다.
 
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
