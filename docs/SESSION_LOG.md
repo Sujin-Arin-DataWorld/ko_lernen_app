@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — DE/EN humanizer 직역 재검토
+
+**왜.** 교과서 세트 문구를 뺀 뒤 `잘 부탁드려요`가 `Hope we work well
+together` / `Dann lassen Sie uns gut zusammenarbeiten`처럼 한국어를 단어별로
+옮긴 문장이 됐다. `될까요`도 `Kann ich`로 깔렸다.
+
+**무엇을.** 첫만남에서는 `Freut mich.` / `Nice to meet you.`만 두고, 단독
+`잘 부탁드려요`는 관용 대응 `Ich freue mich auf die Zusammenarbeit.` /
+`Looking forward to working together.`로 맞췄다. `별말씀을요`는 `Don't mention
+it.`, 작별은 `kommen Sie gut nach Hause`, 호칭 허락은 `Darf ich`로 되돌렸다.
+`satz_a1_0041` vocab 지문 1건을 갱신했다.
+
+**검증.** 집중 Flutter 테스트는 이 커밋 직후 실행.
+
+**커밋.** 이 항목과 같은 커밋.
+
 ### 2026-08-16 (Cursor) — 직장 안부 `lately` 잔여 문구 제거
 
 **왜.** `요즘 일은 어때요?` 보조 질문이 아직 `How is work going lately?`로

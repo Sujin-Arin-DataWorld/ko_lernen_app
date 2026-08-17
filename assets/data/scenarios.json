@@ -652,8 +652,8 @@
         {
           "speaker": "minsu",
           "ko": "만나서 반갑습니다. 잘 부탁드립니다.",
-          "de": "Freut mich. Dann lassen Sie uns gut zusammenarbeiten.",
-          "en": "Nice to meet you. Hope we work well together."
+          "de": "Freut mich.",
+          "en": "Nice to meet you."
         },
         {
           "speaker": "user",
@@ -715,8 +715,8 @@
             "audioKo": "잘 부탁드립니다.",
             "options": [
               {
-                "de": "Freut mich auf die Zusammenarbeit.",
-                "en": "Hope we work well together."
+                "de": "Ich freue mich auf die Zusammenarbeit.",
+                "en": "Looking forward to working together."
               },
               {
                 "de": "Vielen Dank für alles.",
@@ -3409,7 +3409,7 @@
           "note": {
             "ko": "",
             "de": "Abschlussformel bei Vorstellungen: sinngemäß 'Ich freue mich auf die Zusammenarbeit.' Nicht wörtlich übersetzbar. Als feste Formel einprägen.",
-            "en": "People often just say 'Hope we work well together.' There is no exact English match. Treat it as a set phrase."
+            "en": "People often just say 'Nice to meet you' or 'Looking forward to it.' There is no exact English match. Treat it as a set phrase."
           }
         },
         {
@@ -10100,7 +10100,7 @@
       "grammarBlock": {
         "title": {
           "ko": "민수 씨라고 불러도 될까요?",
-          "de": "Kann ich Sie Minsu-ssi nennen?",
+          "de": "Darf ich Sie Minsu-ssi nennen?",
           "en": "May I call you Minsu-ssi?"
         },
         "explanation": {
@@ -10125,7 +10125,7 @@
         {
           "speaker": "user",
           "ko": "처음 뵙겠습니다. 민수 씨라고 불러도 될까요?",
-          "de": "Freut mich. Kann ich Sie Minsu-ssi nennen?",
+          "de": "Freut mich. Darf ich Sie Minsu-ssi nennen?",
           "en": "Nice to meet you. May I call you Minsu-ssi?"
         },
         {
