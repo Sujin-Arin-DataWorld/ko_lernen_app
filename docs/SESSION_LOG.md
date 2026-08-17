@@ -17,9 +17,11 @@
 - local anchor Y: skip 제거. `anchor_y >= socket_height`이면
   `bbox.bottom == socket_height`와 exclusive X를 요구한다. y=170–300은 거절.
 
-**검증.** Python compose/promote/contract와 Flutter catalog/map 집중 회귀.
-수정 후 재현: 손실 q82 `#00ff00` chroma count > 0, 빈 ledger promote 거절,
-catalog-wide evict, y=170–300 `CompositionError`.
+**검증.** Python compose/promote/contract 21/21, Flutter catalog/map/observe
+12/12, `check_personal_hanok_assets.py` exit 0, `flutter analyze --no-pub
+--fatal-infos` No issues, `git diff --check` 통과. 수정 후 재현: 손실 q82
+`#00ff00` chroma count 65536, 단청 `#1F7A6B` 0, 빈 ledger promote
+`PromotionError`, y=170–300 `CompositionError`. 커밋해시는 이 기록과 같은 커밋.
 
 ### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 런타임 재현 (수정 없음)
 
