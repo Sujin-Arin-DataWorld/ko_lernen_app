@@ -106,8 +106,10 @@ ledger에 남겼다. 그 브랜치의 렌더러·합성기·checker·테스트·
 위 PR4 계약과 별개 구현이라 병합 시 `main` 버전을 유지했고, ledger 19건과
 `a1TransparentPilot`·`a1ApprovedQaStates` 절은 `aaf6d969:docs/assets/HANOK_V1_ASSET_PROVENANCE.json`
 에서 그대로 복구할 수 있다. 이 JSON의 `records`는 그래서 아직 빈 배열이다.
-그 19건 중 4건은 credit 0, 9건은 rejected 출력을 입력으로 쓴 수정 호출이라 현재
-"credit > 0·approved lineage만" 규칙을 통과하지 못한다. 규칙을 완화해 그대로 옮길지,
+그 19건 중 11건은 credit 0(ImageGen 등 BBANANA 밖 호출), 9건은 rejected 출력을
+입력으로 쓴 수정 호출, 3건은 출력이 외부 Supabase URL이라 트리에서 SHA 검증 불가,
+1건은 출력이 비어 있어 "credit > 0·approved lineage·트리 검증"을 모두 만족하는 기록은
+0건이다(2026-08-17 재집계; 앞선 "4건"은 오기). 규칙을 완화해 그대로 옮길지,
 approved 체인만 다시 기록할지는 Jin이 정한다. pending_review의 6개 상태는 승격이
 아니며, 승격 전에 `tool/compose_hanok_a1_state.py`로 raw를 다시 합성해 recall 0.97·
 drift 2px 게이트를 통과한 SHA만 ledger에 `approved`로 적는다.

@@ -1,5 +1,18 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — 정정: Codex ledger 19건 재집계
+
+**무엇.** 다른 세션의 Spec 리뷰가 "credit 0은 4건"이 틀렸다고 지적했다. 재집계하면
+credit 0 **11건**(ImageGen 등 BBANANA 밖 호출), rejected 출력을 입력으로 쓴 수정 9건, 출력이
+외부 Supabase URL이라 트리 SHA 검증 불가 3건, 출력이 빈 1건이며, "credit>0·approved
+lineage·트리 검증"을 모두 만족하는 기록은 0건이다. 지출 합계 13.5 credit(예산 200 안).
+`docs/HANOK_V1_SOURCE_REGISTRY.md` 생성 기록 절을 이 숫자로 고쳤다. 앞선 감사 항목의 "4건"은
+오기다. 이관 방식은 그대로 Jin 결정으로 남는다(권고: 이관하지 않고, 재합성한 QA WebP의
+SHA만 새로 approved로 기록 — 뒷기둥 결함으로 05~10 계보 자체가 교체될 예정이라 옛 승인은
+효력이 없다).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — A1 뒷기둥 결함 확인 + BBANANA 07′ 파일럿 2회 (계약 밖, 8.3 credit)
 
 **왜.** Jin이 stack 결과(10 개판)에서 "지붕은 있는데 받치는 기둥이 앞 두 개만 보인다"고
