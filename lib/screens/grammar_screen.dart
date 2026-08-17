@@ -569,6 +569,9 @@ class _GrammarScreenState extends State<GrammarScreen>
     // (못 본 패턴에 쉬움/어려움을 매기면 스케줄이 망가진다). 그 외에는 앞면이
     // 패턴을 그대로 보여주므로 일반 덱과 같은 판정 계약을 쓴다.
     final allowJudging = !canRecordCheckpoint;
+    // 마지막 카드의 판정은 곧 세션 종료다 — Hören 이 마지막 스텝에서 CTA 를
+    // 완료로 바꾸는 것과 같은 신호를 준다. 진행바는 이 시점에 이미 100% 다.
+    final isLastCard = _filtered.isNotEmpty && _idx >= _filtered.length - 1;
     final s = SoriSurfaces.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -764,18 +767,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                     const SizedBox(height: Spacing.xs),
                     Row(
                       children: [
-                        SizedBox(
-                          width: 44,
-                          height: 44,
-                          child: IconButton(
-                            key: const Key('grammar-listen'),
-                            tooltip: t.btnHoeren,
-                            icon: const Icon(Icons.volume_up),
-                            iconSize: 20,
-                            color: s.textMuted,
-                            onPressed: () => TtsService.speak(g.exampleKorean),
-                          ),
-                        ),
+                        // 듣기는 카드 안(읽어 주는 문장 옆)으로 옮겼다. 균형을
+                        // 위해 실행취소와 같은 폭만 비워 카운터를 가운데 둔다.
+                        const SizedBox(width: 44),
                         Expanded(
                           child: Center(
                             child: Text(
@@ -838,8 +832,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   flex: 3,
                                   child: SoriButton.filled(
                                     key: const Key('grammar-judge-easy'),
-                                    label: t.grammarEasy,
-                                    icon: Icons.thumb_up_alt_outlined,
+                                    label: isLastCard
+                                        ? t.scenarioCompleteBtn
+                                        : t.grammarEasy,
+                                    icon: isLastCard
+                                        ? Icons.check_rounded
+                                        : Icons.thumb_up_alt_outlined,
                                     accent: SoriColors.primary,
                                     fullWidth: true,
                                     onTap: () => _judge(understood: true),
@@ -1162,7 +1160,63 @@ class _Front extends StatelessWidget {
               color: s.textDim,
             ),
           ),
+          _ListenButton(korean: g.exampleKorean),
         ],
+      ),
+    );
+  }
+}
+
+/// 카드 안 하단 중앙의 듣기 버튼.
+///
+/// 읽어 주는 문장 바로 옆에 두는 게 맞다 — 예전에는 카드 밖 액션 바에 있어서
+/// 무엇을 읽는지가 위치로 드러나지 않았다. 탭 대상은 48dp 로, 최소 44×44
+/// 권고보다 크게 잡았다(카드 전체 탭=뒤집기와 겹치므로 오조작이 비싸다).
+class _ListenButton extends StatelessWidget {
+  const _ListenButton({required this.korean});
+
+  final String korean;
+
+  @override
+  Widget build(BuildContext context) {
+    if (korean.isEmpty) return const SizedBox.shrink();
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return Semantics(
+      button: true,
+      label: t.btnHoeren,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () => TtsService.speak(korean),
+          borderRadius: BorderRadius.circular(SoriRadius.md),
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.md,
+              vertical: 10,
+            ),
+            decoration: BoxDecoration(
+              color: SoriColors.warning.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.volume_up, size: 18, color: s.text),
+                const SizedBox(width: Spacing.xs + 2),
+                Text(
+                  t.btnHoeren,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: s.text,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -1269,6 +1323,8 @@ class _Back extends StatelessWidget {
                 ),
               ],
             ),
+          // 뒤집어 설명을 보는 중에도 예문을 다시 들을 수 있어야 한다.
+          _ListenButton(korean: g.exampleKorean),
         ],
       ),
     );

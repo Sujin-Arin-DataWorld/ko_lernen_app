@@ -1,5 +1,38 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
+
+**무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.
+
+- `Hören` 을 카드 밖 진행바 줄 → **카드 안 하단 중앙**(`_ListenButton`)으로 옮겼다.
+  `_Front` 와 `_Back` 양쪽에 넣어 뒤집어 설명을 보는 중에도 예문을 다시 들을 수
+  있다. 탭 대상은 48dp(권고 44 보다 크게) — 카드 전체 탭이 뒤집기라 오조작이
+  비싸다. `Semantics(button:true)` 로 라벨을 준다.
+- 마지막 카드에서 `Verstanden` → **`Abschließen`**(체크 아이콘). 새 문자열을
+  만들지 않고 기존 `scenarioCompleteBtn`(de 'Abschließen' / en 'Complete')을
+  재사용했다. 진행바는 그 시점에 이미 100% 다.
+- 진행바 줄의 스피커는 제거하고(카드 안으로 갔으므로) 실행취소와 같은 폭을
+  비워 카운터를 가운데 유지했다.
+
+**안 한 것과 이유.** ① `flutter_card_swiper` 는 넣지 않았다 — 저장소의
+`SoriSwipeCard`(Sori Deck 2.0)를 단어장·복습·레거시가 이미 쓰고 flipgate·
+지배축 잠금·배지 opacity 램프·underlay 계약이 문서화돼 있다. 문법만 다른 제스처
+엔진을 쓰면 "단어장과 같은 조작감"이라는 목적 자체가 깨진다. 목업이 요구한
+드래그 중 X/✓ 투명도 램프는 이 컴포넌트에 이미 있다. ② 배지 위치는 목업의
+**하단** 모서리가 아니라 현행 **상단** 모서리를 유지했다 — 정렬이
+`swipe_card.dart` 에 고정돼 있어 바꾸면 단어장·복습·레거시 3개 화면이 같이
+바뀐다. ③ 앱바 타이틀은 `Grammatik`(`screenGrammarTitle`) 유지 — 목업의
+'한글소리'는 앱 이름이고 다른 학습 화면도 화면명을 쓴다. ④ 일러스트를 카드
+**안**으로 넣는 건 보류했다 — 스와이프 때 배너가 같이 날아가고 `_Front`·
+`_Back`·`_CourseCheckpointFront` 3면을 모두 고쳐야 한다. 레벨 칩은 필터
+컨트롤이라 카드와 함께 날아가면 안 된다.
+
+**검증.** `flutter analyze` 이슈 1건(기존 info `word_relation_service.dart:292`).
+`typography_guard`·`course_practice`·`circular_feedback`·`responsive_short_height`
+315/315.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — Grammatik 을 Sori Deck 2.0 + Hören 구조로 이식
 
 **무엇.** 문법 학습 화면의 하단 컨트롤 7개를 **판정 2버튼**으로 줄이고, 덱을
