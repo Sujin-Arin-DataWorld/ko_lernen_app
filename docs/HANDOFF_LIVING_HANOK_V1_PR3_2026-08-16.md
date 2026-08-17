@@ -189,7 +189,7 @@ A1 stable ID 16개는 다음과 같다.
 8. `hanok_a1_08_purlins_sangnyang`
 9. `hanok_a1_09_rafters_roof_frame`
 10. `hanok_a1_10_roof_base`
-11. `hanok_a1_11_choga_roof`
+11. `hanok_a1_11_choga_roof` (2026-08-17 D1 rename → `hanok_a1_11_giwa_roof`)
 12. `hanok_a1_12_wall_frame_sujang`
 13. `hanok_a1_13_earth_walls`
 14. `hanok_a1_14_ondol_maru`

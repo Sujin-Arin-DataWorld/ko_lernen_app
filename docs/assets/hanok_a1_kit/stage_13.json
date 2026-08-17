@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "stage": 13,
+  "id": "13_earth_walls",
+  "note": "One generated \ucd08\ubcbd texture (BBANANA bce56a89247c1aa410dfd7d7602e8795) tiled into the wall fields, leaving the door openings and every frame member exposed.",
+  "layers": [
+    {
+      "part": "platform",
+      "z": 0
+    },
+    {
+      "part": "choseok_1",
+      "z": 100,
+      "rear": true
+    },
+    {
+      "part": "choseok_2",
+      "z": 101,
+      "rear": true
+    },
+    {
+      "part": "choseok_3",
+      "z": 102,
+      "rear": true
+    },
+    {
+      "part": "choseok_4",
+      "z": 103,
+      "rear": true
+    },
+    {
+      "part": "choseok_5",
+      "z": 104,
+      "rear": true
+    },
+    {
+      "part": "choseok_6",
+      "z": 105,
+      "rear": true
+    },
+    {
+      "part": "choseok_7",
+      "z": 106,
+      "rear": true
+    },
+    {
+      "part": "choseok_8",
+      "z": 107,
+      "rear": true
+    },
+    {
+      "part": "pillar_1",
+      "z": 150,
+      "rear": true
+    },
+    {
+      "part": "pillar_2",
+      "z": 151,
+      "rear": true
+    },
+    {
+      "part": "pillar_3",
+      "z": 152,
+      "rear": true
+    },
+    {
+      "part": "pillar_4",
+      "z": 153,
+      "rear": true
+    },
+    {
+      "part": "pillar_5",
+      "z": 154,
+      "rear": true
+    },
+    {
+      "part": "pillar_6",
+      "z": 155,
+      "rear": true
+    },
+    {
+      "part": "pillar_7",
+      "z": 156,
+      "rear": true
+    },
+    {
+      "part": "pillar_8",
+      "z": 157,
+      "rear": true
+    },
+    {
+      "part": "choseok_1",
+      "z": 200
+    },
+    {
+      "part": "choseok_2",
+      "z": 201
+    },
+    {
+      "part": "choseok_3",
+      "z": 202
+    },
+    {
+      "part": "choseok_4",
+      "z": 203
+    },
+    {
+      "part": "choseok_5",
+      "z": 204
+    },
+    {
+      "part": "choseok_6",
+      "z": 205
+    },
+    {
+      "part": "choseok_7",
+      "z": 206
+    },
+    {
+      "part": "choseok_8",
+      "z": 207
+    },
+    {
+      "part": "pillar_1",
+      "z": 300
+    },
+    {
+      "part": "pillar_2",
+      "z": 301
+    },
+    {
+      "part": "pillar_3",
+      "z": 302
+    },
+    {
+      "part": "pillar_4",
+      "z": 303
+    },
+    {
+      "part": "pillar_5",
+      "z": 304
+    },
+    {
+      "part": "pillar_6",
+      "z": 305
+    },
+    {
+      "part": "pillar_7",
+      "z": 306
+    },
+    {
+      "part": "pillar_8",
+      "z": 307
+    },
+    {
+      "part": "band_changbang",
+      "z": 400,
+      "rear": true
+    },
+    {
+      "part": "band_changbang",
+      "z": 401
+    },
+    {
+      "part": "band_rafter_ends",
+      "z": 410
+    },
+    {
+      "part": "roof",
+      "z": 420
+    },
+    {
+      "part": "band_habang",
+      "z": 500
+    },
+    {
+      "part": "wall_shadow",
+      "z": 510
+    },
+    {
+      "part": "generated:parts_12_sujang",
+      "z": 550,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:parts_13_earthwall",
+      "z": 560,
+      "at": [
+        0,
+        0
+      ]
+    }
+  ]
+}
