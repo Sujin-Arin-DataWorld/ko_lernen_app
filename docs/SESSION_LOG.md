@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-08 도리·종도리
+
+**공정 의미와 실패 폐쇄.** 승인된 A1-07 raw만 입력해 기존 기단·계단·일곱 초석·
+정확히 7개 주기둥·보·창방을 유지하고, 도리·종도리와 필요한 짧은 상부 지지만
+추가했다. 첫 ImageGen 출력은 공정 의미와 geometry는 통과했지만 회색 checkerboard를
+실제 RGB 픽셀로 구워 거절했다. 그 exact rejected SHA만 Recraft에 입력해 0.3
+BBANANA credit으로 true alpha를 복구했으며, 사용자 첨부 화면·Vivasam·PDF·legacy·
+Gye 자산은 모델 입력에 사용하지 않았다.
+
+**최종 승인.** raw는 2172×724 RGBA·1,704,489 bytes, normalized layer는
+854×309 RGBA·264,817 bytes, alpha 41.87%·anchor 1,005·chroma 0이다. A1-07 대비
+foundation alpha IoU는 0.997108, edge drift는 0px다. QA composite는 1536×1152
+RGB WebP·280,338 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3900이다.
+육안으로 기존 7개 기둥·보·창방과 새 도리·중앙 종도리만 확인했고, 중간 벽선·
+서까래·지붕·벽·문자·UI는 없다. 정적 BBANANA ledger 합계는 12.9 credit이며 아직
+runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**14/14**, JSON parse·Python compile·Dart format을 통과했다. 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**와
+`git diff --check`도 통과했다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-07 보·창방
 
 **실패 폐쇄.** 첫 후보는 보·창방 의미는 보였지만 체크무늬를 구운 RGB였고 입력보다

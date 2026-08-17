@@ -105,9 +105,11 @@ record가 SHA-고정한 출력이어야 하고, 최초 조상은 위 프로젝�
 남긴다. PR4의 A1-06 파일럿은 허용된 프로젝트 자산 두 장만 입력으로 사용해
 Nano Banana Pro 2K 세 안을 생성했으며, 총 12 credit을 사용했다. 세 출력 모두
 socket 바깥 대지를 다시 그려 `rejected`로 기록했고 런타임에는 포함하지 않는다.
-이후 투명 socket 파이프라인에서 A1-05·06·07 QA 상태를 승인했다. A1-07의 두
+이후 투명 socket 파이프라인에서 A1-05·06·07·08 QA 상태를 승인했다. A1-07의 두
 Recraft 배경 제거에는 각각 0.3 credit, 합계 0.6 credit을 사용했고 중간 벽선이 있는
-첫 결과는 의미상 거절했다. 현재 BBANANA 정적 ledger 합계는 12.6 credit이다.
+첫 결과는 의미상 거절했다. A1-08은 공정 의미를 통과한 ImageGen 출력의 구운
+checkerboard만 Recraft 0.3 credit으로 제거했다. 현재 BBANANA 정적 ledger 합계는
+12.9 credit이다.
 추가 생성 전 allowlist와 누적 ledger를 확인하는 것이 fail-closed 시작 조건이다.
 ledger는 정적 이미지 200 credit, 선택 영상 10.4 credit, 합계 210.4 credit 상한을
 각각 검사한다. 미래 기록도 입력 SHA와 최초 allowlist 또는 이전 ledger 출력까지의

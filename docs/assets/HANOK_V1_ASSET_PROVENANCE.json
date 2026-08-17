@@ -623,6 +623,65 @@
             "decisionReason": "true_alpha_exact_seven_columns_upper_beams_only_and_continuity_passed"
           }
         ]
+      },
+      {
+        "id": "hanok_a1_08_purlins_sangnyang_checkerboard_rejected_20260817",
+        "provider": "OpenAI",
+        "model": "ImageGen",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:23:51Z",
+        "costCredits": 0.0,
+        "costDisposition": "outside_bbanana_credit_budget",
+        "generationId": "exec-2a797766-fe18-4947-aa7a-44a979a07431",
+        "status": "completed",
+        "promptSha256": "d4053d394fddc80f1d1b22f61e80deeb96dff73153e29b50a584dd5bb3f3811a",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/07_beams_changbang_semantic_recraft_20260817.png",
+            "sha256": "7d5bafe5720a2f6de555c2540eff326ee7352237495d997b6818aba09f32d0c0"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/08_purlins_sangnyang_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "4f1d8dc0d096c5a4287f205b651665a3ac8a874d29a8648589218833dbce11a3",
+            "decision": "rejected",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGB",
+            "bytes": 1515250,
+            "decisionReason": "purlin_semantics_passed_but_checkerboard_was_baked_rgb"
+          }
+        ]
+      },
+      {
+        "id": "hanok_a1_08_purlins_sangnyang_recraft_approved_20260817",
+        "provider": "BBANANA",
+        "model": "Recraft Remove Background",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T00:24:41.217404Z",
+        "costCredits": 0.3,
+        "taskId": "8df1f4be8afe1cb7f02e013ca8379e11",
+        "status": "completed",
+        "promptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/rejected/08_purlins_sangnyang_baked_checkerboard_imagegen_20260817.png",
+            "sha256": "4f1d8dc0d096c5a4287f205b651665a3ac8a874d29a8648589218833dbce11a3"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_layers/raw/08_purlins_sangnyang_recraft_20260817.png",
+            "sha256": "e7937f32ebc940de46c03f06240d2902c10abf6eadaa3b4303e5a60636d8f188",
+            "decision": "approved",
+            "width": 2172,
+            "height": 724,
+            "colorMode": "RGBA",
+            "bytes": 1704489,
+            "decisionReason": "true_alpha_purlins_jongdori_only_and_continuity_passed"
+          }
+        ]
       }
     ]
   },
@@ -802,6 +861,76 @@
             "no_purlins_rafters_roof_walls_or_changho",
             "no_text_ui_people_animals_or_watermark",
             "foundation_continuity_iou_0_969821_and_edge_drift_0",
+            "camera_and_estate_preserved_by_deterministic_composition"
+          ]
+        }
+      },
+      {
+        "stageId": "08_purlins_sangnyang",
+        "generationRecordId": "hanok_a1_08_purlins_sangnyang_recraft_approved_20260817",
+        "status": "approved_qa",
+        "rawLayer": {
+          "path": "assets_unused/pending_review/a1_layers/raw/08_purlins_sangnyang_recraft_20260817.png",
+          "sha256": "e7937f32ebc940de46c03f06240d2902c10abf6eadaa3b4303e5a60636d8f188",
+          "width": 2172,
+          "height": 724,
+          "colorMode": "RGBA",
+          "bytes": 1704489
+        },
+        "normalizedLayer": {
+          "path": "assets_unused/pending_review/a1_layers/08_purlins_sangnyang_layer.png",
+          "sha256": "55cacd7ce2e8dc0ec43fb087a2a07fae76de31096437b60ae423af8be8fed8f5",
+          "width": 854,
+          "height": 309,
+          "colorMode": "RGBA",
+          "bytes": 264817,
+          "alphaCoverage": 0.4187338471915903,
+          "anchorPixels": 1005,
+          "chromaPixels": 0,
+          "cumulativeContinuity": {
+            "foundationBandHeight": 80,
+            "alphaIoU": 0.9971081451060917,
+            "maximumEdgeDriftPixels": 0,
+            "previousFootprint": [
+              8,
+              0,
+              846,
+              80
+            ],
+            "currentFootprint": [
+              8,
+              0,
+              846,
+              80
+            ]
+          }
+        },
+        "composite": {
+          "path": "assets_unused/pending_review/a1_states/08_purlins_sangnyang.webp",
+          "sha256": "7155f41aaee633eaba177f934ed49c468383bea165753fadbea703f466dc54e9",
+          "width": 1536,
+          "height": 1152,
+          "colorMode": "RGB",
+          "bytes": 280338,
+          "sourceOutsideSocketChangedPixels": 0,
+          "sourceInsideSocketChangedPixels": 116586,
+          "decodedOutsideSocketMeanError": 3.390020895518423,
+          "encoder": {
+            "library": "Pillow",
+            "version": "11.3.0",
+            "quality": 82,
+            "method": 6
+          }
+        },
+        "visualReview": {
+          "decision": "approved",
+          "checks": [
+            "exactly_seven_primary_columns_preserved",
+            "existing_beams_and_changbang_preserved",
+            "purlins_and_central_jongdori_are_the_only_new_roof_structure",
+            "no_midheight_sujang_rails_rafters_roof_or_walls",
+            "no_text_ui_people_animals_or_watermark",
+            "foundation_continuity_iou_0_997108_and_edge_drift_0",
             "camera_and_estate_preserved_by_deterministic_composition"
           ]
         }
