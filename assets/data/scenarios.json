@@ -633,9 +633,9 @@
         },
         {
           "speaker": "user",
-          "ko": "안녕하세요. 저는 현우예요.",
-          "de": "Hallo. Ich bin Hyunwoo.",
-          "en": "Hello. I'm Hyunwoo."
+          "ko": "안녕하세요. 저는 레나예요.",
+          "de": "Hallo. Ich bin Lena.",
+          "en": "Hello. I'm Lena."
         },
         {
           "speaker": "minsu",
@@ -671,7 +671,7 @@
           "type": "particlePop",
           "data": {
             "prefix": "저",
-            "suffix": " 현우예요.",
+            "suffix": " 레나예요.",
             "options": [
               "은",
               "는",
@@ -798,7 +798,7 @@
           ],
           "type": "batchimDrop",
           "data": {
-            "audioKo": "안녕하세요",
+            "audioKo": "안녕",
             "targetWord": "안녕",
             "targetSyllableIndex": 1,
             "options": [
@@ -2456,9 +2456,9 @@
         },
         {
           "speaker": "user",
-          "ko": "예약했는데요, 이름이 현우예요.",
-          "de": "Ich habe reserviert. Mein Name ist Hyunwoo.",
-          "en": "I have a reservation. My name is Hyunwoo."
+          "ko": "예약했는데요, 이름이 레나예요.",
+          "de": "Ich habe reserviert. Mein Name ist Lena.",
+          "en": "I have a reservation. My name is Lena."
         },
         {
           "speaker": "jieun",

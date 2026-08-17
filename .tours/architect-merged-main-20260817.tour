@@ -1,0 +1,113 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Architect Tour — 2026-08-16/17 병합된 main: 브랜치 그룹 → 현재 동작 경로",
+  "description": "PR #27(3a586963) 이후 main에 들어온 약 50개 병합(Cursor 브랜치 ~22개, Codex 브랜치·PR #28~#31·#43·#50~#56)이 지금 main에서 어떻게 한 덩어리로 동작하는지 따라간다. 축은 (1) 학습자 레벨 → 콘텐츠 트리거, (2) 새 테마 '한국 파트너 가족·명절'이 어디에 꽂혔고 무엇이 문제인지, (3) 단어망·Vokabelheft 스튜디오, (4) TTS fail-closed 백엔드, (5) 살아 있는 한옥 V1의 dark-launch 경계, (6) PR 범위 CI. 각 스텝의 '주의'가 이번 감사에서 확인된 결함이다. 기존 투어 `pr-reviewer-main-lossless-merge-20260817`(무엇이 들어왔나)·`architect-hanok-a1-ledger-gate`(왜 A1 승격이 안 열리나)와 범위를 나눈다.",
+  "steps": [
+    {
+      "file": "docs/SESSION_LOG.md",
+      "pattern": "main 검증 복구 후 cursor 브랜치 전부 무손실 병합",
+      "title": "1. 병합 파도의 정본 기록",
+      "description": "**상황** 2026-08-17 00:23–01:47 Cursor 에이전트가 열린 cursor 브랜치 ~20개를 `--no-ff`로 하나씩 main에 넣었고(이 항목), 이어 PR #50–#56, 그리고 08:51 Codex 세션이 잔여 4개(고유 줄 0 → `-s ours`, 로그만 → 일반 병합)와 로컬 A1 파일럿을 정리했다.\n\n**메커니즘** 같은 브랜치가 여러 번 병합된 것은(예: `backend-idempotency-deadlines` 4회) 브랜치가 계속 자라며 그때마다 다시 넣었기 때문이고, 트리 diff 0인 no-op 병합은 커밋 메시지에 명시돼 있다.\n\n**함의** 코드 손실은 없다(충돌 마커 0, ARB 2,125/2,125 대칭, `flutter analyze --fatal-infos` 0, 전체 `flutter test` 3,839 통과 — 이번 감사 로컬 재실행).\n\n**주의** 이 감사가 도는 동안에도 main은 움직였다(12:16 `5fd243d5` A1 계약 5구멍, 10:36 PR #59 `cursor/tts-wait-quota-kurs-e988` 병합, 13:04 `b63a5753`+`fe2c589c`). 원격에 아직 안 들어온 cursor 브랜치 2개: `cursor/hanok-codex-ports-tts-kurs-e988`(현재 main과 10파일 충돌, TTS/단어망 부분은 #59가 상위 호환, 한옥 부분은 `5fd243d5`의 l10n 수정을 되돌림)과 `cursor/apply-4x-batch-09-10-3cd5`(Batch 09/10을 live로 승격 — 시나리오 174편 첫 대사에 영문 슬러그, 병합 금지). 마지막 스텝 참조."
+    },
+    {
+      "file": "lib/models/learner_level.dart",
+      "line": 20,
+      "title": "2. 레벨의 단일 파서",
+      "description": "**상황** 앱의 모든 CEFR 비교는 이 enum 하나로 모인다. `fromCode`가 `'A1'`도 `'a1'`도 같은 값으로 정규화한다.\n\n**메커니즘** 콘텐츠 쪽 레벨 필드는 두 표기가 섞여 있다: `korean_vocab.csv`는 대문자 `A1`, cloze/satz/smalltalk/scenario JSON은 소문자 `a1`. Cloze/Satz 로더는 `toLowerCase()`를 강제하지만 `SmalltalkPhrase.level`(lib/models/smalltalk.dart:203)은 그대로 읽는다.\n\n**함의** 새 콘텐츠를 넣을 때 레벨 문자열이 이 6개 코드 밖이면 `fromCode`가 null → 대부분의 화면에서 A1로 조용히 강등되거나 제외된다.\n\n**주의** 지금 데이터는 전부 정상 코드다(Python 재계산: 6레벨 모두 채워짐). 계약 차이는 잠재적이다."
+    },
+    {
+      "file": "lib/services/storage_service.dart",
+      "line": 1884,
+      "title": "3. 레벨 저장 3키 — 여기서 어긋난다",
+      "description": "**상황** 학습자 레벨은 한 키가 아니라 셋이다: `kl_user_level`(여기), `kl_placement_level_v1`(코스 배치, 없으면 user로 폴백), `kl_browse_level_v1`(Cloze/Satz/단어팩 둘러보기 시작 레벨).\n\n**메커니즘** 온보딩은 `course_mastery_service.dart:263-267` `_persistSnapshot(mirrorLegacyUserLevel: true, browseLevelCode: level)`로 셋을 동시에 쓴다.\n\n**함의** 대부분의 화면(smalltalk·시나리오·단어망·발음·끝말잇기·오늘의 단어)은 `userLevelCode`를 읽는다.\n\n**주의** 설정 화면의 레벨 변경(`settings_screen.dart:1424`)은 `setUserLevelCode`만 호출한다. 그래서 설정에서 B1→A2로 내려도 Cloze/Satz/단어팩의 기본 시작 레벨과 데일리 챌린지 상한은 온보딩 값에 남는다(이번 감사 medium)."
+    },
+    {
+      "file": "lib/services/review_deck_service.dart",
+      "line": 93,
+      "title": "4. exact-level 계약의 공유 helper",
+      "description": "**상황** `fa86b7af`(Batch 06 승격 + C레벨 오늘의 단어 수정)가 만든 helper. Review·legacy Today·Practice Hub·Today snapshot·개인화 코스가 전부 이걸 쓴다.\n\n**메커니즘** 신규 카드 후보(`newCandidateIds`)는 `LearnerLevel.fromCode(word.level) == level`인 CSV 단어 + 학습자 소유 단어(★)만. 복습(`todayReviewIds`)은 레벨을 보지 않아 하위 레벨에서 배운 카드의 SRS 일정이 유지된다.\n\n**함의** C1 학습자에게 A1 첫 단어가 '오늘의 단어'로 뜨던 문제가 이 한 곳에서 닫혔다. 새 레벨 콘텐츠(Batch 06·07/08의 C1/C2 72단어)는 exact 매칭으로 바로 후보가 된다.\n\n**주의** 여기서 쓰는 레벨은 `Storage.userLevelCode`다(3스텝). browse/placement와 다르면 '오늘'과 'Cloze 시작 레벨'이 다른 레벨을 가리킬 수 있다."
+    },
+    {
+      "file": "lib/services/personalized_lesson_service.dart",
+      "line": 85,
+      "title": "5. exact → 누적 폴백은 '진짜 비었을 때만'",
+      "description": "**상황** 개인화 덱과 smalltalk 추천의 폴백 규칙.\n\n**메커니즘** `exact.isEmpty ? eligible : exact` — exact 레벨 행이 하나도 없을 때만 A1..현재 누적 풀로 물러난다. `pickSmalltalk`(:147-161)도 같은 모양이다.\n\n**함의** 카탈로그가 6레벨 모두 채워진 지금은 폴백이 사실상 안 열린다. 반대로 말하면, 어떤 엔진이 특정 레벨을 비우면 그 엔진만 조용히 누적으로 바뀌므로 레벨별 최소 1건 계약(cloze_test·satz_test·data_integrity_test)이 그 방어선이다.\n\n**주의** 129행 `interestSmalltalk['feelings_people']`에 새 카테고리 `partner_family`가 매핑돼 있다 — 새 테마가 관심사 추천 경로에도 꽂혔다는 뜻이다(다음 스텝들)."
+    },
+    {
+      "file": "lib/services/vocab_pack_service.dart",
+      "line": 257,
+      "title": "6. 새 테마 ① 단어팩 36개 (A1 8·A2 8·B1 8·B2 8·C1 2·C2 2)",
+      "description": "**상황** `cursor/promote-partner-family-7469`(`83b38658`)가 넣은 '한국 파트너 가족·명절' 팩 라벨. 432단어, 팩당 12단어·보스 3. 라벨은 ARB가 아니라 빌드 타임 상수 `packDisplayMap`(:114 주석 참조).\n\n**메커니즘** `packsForLevel`(:43)이 CSV `pack_id`의 base로 이 맵을 찾고, `packOrderInLevel`(:299~)이 레벨 안 순서를 준다. A1 partner 8팩은 26–33번이라 A1 팩 24개를 순서대로 깬 뒤에 도달한다. 시나리오(즉시 노출)·smalltalk(즉시)와 도달 시점이 다르다.\n\n**함의** 팩·Cloze 432·Satz 432·smalltalk 72·문법 6·시나리오 28이 한 커밋으로 live가 됐고, 카탈로그 총량(vocab 1620·cloze 962·satz 875·smalltalk 365·scenario 90·quest 359)은 이번 감사의 Python 재계산과 정확히 일치한다.\n\n**주의** 이 블록 9개 라벨이 움라우트 대신 ASCII 전사(`Gespraech`·`Ueber`·`Hoeflichkeit`·`erklaeren`·`Feiertagsplaene`·`Oeffentlichkeit`…)이고 :277 `Zimmgrenze`는 오타다. 같은 파일의 다른 라벨은 전부 정상 움라우트. 독일어가 주 UI인 앱에서 사용자에게 바로 보인다."
+    },
+    {
+      "file": "assets/data/curriculum_manifest.json",
+      "pattern": "\"contentLinks\": [",
+      "title": "7. 새 테마 ② 코스 그래프에 꽂힌 자리",
+      "description": "**상황** 승격 커밋이 콘텐츠 파일만이 아니라 코스 그래프도 같이 바꿨다: `contentLinks` 60개 중 28개가 partner 시나리오, `vocabPackUnitMap` 127 base 전부(36 partner 포함)가 CourseUnit에 매핑, `smalltalkCategoryUnitMap`에 `a1:partner_family`…`c2:partner_family` 6키.\n\n**메커니즘** `curriculum_catalog.dart`가 로드하며 unit 존재·context·grammar·concept·vocab을 검증한다. 이번 감사의 Python 대조: dangling 링크 0, 90개 시나리오 전부 `level`·`courseUnitId` 보유이며 unit 레벨과 일치.\n\n**함의** 새 테마는 '별도 트랙'이 아니라 A1~C2 각 레벨의 기존 코스 유닛 안에 섞여 들어갔다. 즉 A1 학습자의 코스 미션에도 partner 시나리오가 뜬다.\n\n**주의** Dart 검증은 `scenario.level == unit.level`을 비교하지 않는다(현재 0건이라 무해). 시나리오 JSON에 level이 빠지면 `scenario.dart:323`이 A1로 조용히 기본 처리한다."
+    },
+    {
+      "file": "lib/screens/smalltalk_screen.dart",
+      "line": 98,
+      "title": "8. 새 테마 ③ smalltalk — 노출 규칙과 품질 결함",
+      "description": "**상황** 비코스 Smalltalk는 `Storage.userLevelCode`로 시작하고(이 줄), 169–174행에서 '그 레벨에 실제 문장이 있는 category'만 초기 후보로 삼되 없을 때만 전체 category로 물러난다. `partner_family`(라벨 'Koreanische Familie & Feste')는 A1~B2 16개·C1/C2 4개라 모든 레벨에서 즉시 보인다.\n\n**메커니즘** 필터는 `SmalltalkLoader.filter(category, level)`의 `phrase.level == level` 문자열 비교다.\n\n**함의** 노출 배선은 정상이다. 문제는 내용이다.\n\n**주의(high)** partner_family 72문구 전부가 템플릿 생성 비문이다. 예: `smalltalk_a1_0065` KO \"첫 인사와 호칭에서 인사드리겠습니다 어떻게 말해요?\" / DE \"Wie sage ich ich werde mich höflich vorstellen bei Erste Begrüßung und Anrede?\", `smalltalk_c1_0020` \"자리를 재협상하다 때문에 어색하면 뭐라고 해요?\". 36개는 `<팩라벨>에서 <표제어> 어떻게 말해요?`, 36개는 `<표제어> 때문에 어색하면 뭐라고 해요?` 패턴이고 reply/followUp도 같은 문장의 반복이다(이번 감사 Python 36/36 + 육안). 학습자에게 그대로 노출된다."
+    },
+    {
+      "file": "tools/content_factory/build_batch_07_partner_family.py",
+      "line": 293,
+      "title": "9. 비문의 출처 — 슬롯 채우기 생성기",
+      "description": "**상황** 위 문장을 만든 f-string. `label['ko']`(팩 라벨) + `first['korean']`(첫 표제어)를 고정 틀에 끼운다. Cloze/Satz distractor도 :220–257의 12개 부사 풀·6쌍을 순환해서 432개가 6종 보기 집합만 갖고, 명사 정답에 부사 보기가 붙어 즉시 식별된다(`cloze_a1_0101` 정답 `인사드`는 어간 조각).\n\n**메커니즘** 승격은 `integrate_review_batches.py --apply --approve-all`이었고, :742–743이 모든 리뷰 행을 `상태=approved`, `jin_memo='Jin explicit app-integration approval (2026-08-15).'`로 덮어쓴다(실제 승격일 08-17, 하드코딩). 기계 검증(`validate_review_batch.py` 1374 records, ID·스키마·수량)은 전부 통과했다 — 문장을 읽는 게이트가 없다.\n\n**함의** \"review 승인 전에는 앱 데이터에 쓰지 않는다\"(AGENTS.md)는 규칙이 `--approve-all` 한 플래그로 우회됐다.\n\n**주의** 4× 잔량(Batch 09/10)은 review-only로 남아 있어 같은 위험이 대기 중이다: `c1_batch10_scenarios_a1_c2.json` 174편 전부 첫 대사에 영문 슬러그(`… post queue 상황을 …`)가 새어 있다."
+    },
+    {
+      "file": "tools/content_factory/build_batch_08_partner_family_scenarios.py",
+      "line": 416,
+      "title": "10. 새 테마 ④ 시나리오 28편 — 필러 대사 공유",
+      "description": "**상황** partner 시나리오의 `extras` 대사 블록. 이번 감사 계산: 28편 224줄 중 distinct 67줄, 이 블록의 7문장(\"이 상황에서 제가 먼저 말해 볼게요.\"·\"오늘 배려해 주셔서 감사합니다.\"…)이 각각 14편에 등장. 26/28편이 편별 고유 대사 1~2줄뿐이고 C2 `c2_partner_document_the_place`는 NPC 1줄 빼고 전부 필러다. 비교: 나머지 62편은 386줄 중 378 distinct.\n\n**메커니즘** 시나리오는 `scenarios_list_screen.dart:96-100`의 누적 잠금(`level.rank > _userLevel.rank`면 잠김)이라 A1 학습자에게 A1 partner 7편이 즉시 열리고, 코스 미션(`contentLinks`)에서도 열린다. 퀘스트(`uebersetzen`·`particlePop`·`satzBauen`)는 이 필러에서 파생된다.\n\n**함의** 레벨 표시는 C2인데 문장은 A1 필러라 '레벨별 데이터'로서의 의미가 없다. 단어 스테이지도 `vocab: [{'korean': '기록'}, …]`처럼 note가 없어 한국어만 보이고 DE/EN 뜻이 안 뜬다(168/168).\n\n**주의** 새 한국어 문자열 ~1,170개(대사·퀘스트·cloze·satz·smalltalk)는 TTS 사전생성 corpus(6,321)에 없어 동적 CF 또는 OS 음성으로 폴백한다."
+    },
+    {
+      "file": "lib/screens/scenario_player_screen.dart",
+      "line": 1183,
+      "title": "11. 시나리오 프레임 통합과 첫 실행 '모르겠어요'",
+      "description": "**상황** `e2b647e7`(58 시나리오·241 문제·7 엔진 통합)과 `cursor/verify-onboarding-dont-know-3531`의 접점. `allowDontKnow`는 첫 실행 모드이면서 `courseContext == null`일 때만 켜진다.\n\n**메커니즘** 7개 엔진이 공유 위젯 `quest_engines/quest_flow.dart`의 같은 문제 프레임(장면 포스터·`n von N`·선택→확인→2회 시도→정답 공개→단일 계속 CTA)을 쓰고, '모르겠어요'는 정답을 공개하되 `QuestResult(passed:false)`만 내서 XP·별·코스 증거를 만들지 않는다. 첫 성공 화면은 마지막 문항 저장 성공 뒤에만 열린다.\n\n**함의** Batch 07/08 partner 시나리오도 이 프레임 위에서 돈다 — 프레임은 정상, 내용이 문제(10스텝).\n\n**주의** 온보딩 '모르겠어요' 경로도 :746 `recordScenarioFailedQuestSrs`와 :742-744 `earnBadge('cafe_starter')`는 모드와 무관하게 실행된다(low). 200ms/150ms 잔여 애니메이션 2곳은 reduce-motion을 안 본다(2026-05 코드)."
+    },
+    {
+      "file": "test/content_id_contract_test.dart",
+      "line": 15,
+      "title": "12. 통과한 게이트가 무엇을 '안' 보는가",
+      "description": "**상황** 카탈로그 수량·ID 계약. `cursor/content-integrity-audit-2d55`와 `workflow-run-triage-c5be`가 Batch 06·07/08 승격 때마다 이 숫자를 실데이터에 맞췄다(1621행=헤더+1620, smalltalk 365, cloze 962, satz 875…).\n\n**메커니즘** 행 수·ID 형식·중복·레벨별 ≥1(cloze_test·satz_test·data_integrity_test)·코스 그래프 무결성(course_graph_test)·can-do 86(can_do_segment_asset_test)을 잠근다. 전부 통과했고 이번 감사의 Python 재계산과도 일치한다.\n\n**함의** 이 층은 '데이터가 깨지지 않았다'를 보장하고, '문장이 말이 된다'는 보장하지 않는다. 8~10스텝의 결함이 통과한 이유다.\n\n**주의** partner-family·Batch 06의 레벨별 존재를 직접 잠그는 테스트는 없다(총량과 6레벨>0만). `learner_copy_scan_test`는 이름·교과서 관용구·`I am`·움라우트 단어 4개만 핀한다 — 그래서 `Danke fuer die Hilfe.`(scenarios.json partner satzBauen promptDe 2건)와 grammar.csv 3행의 ASCII 움라우트가 남았다."
+    },
+    {
+      "file": "lib/services/word_relation_service.dart",
+      "line": 79,
+      "title": "13. 단어망(Word web) — 레벨을 보는 곳과 안 보는 곳",
+      "description": "**상황** `cursor/word-web-*` 4개 브랜치의 코어. `assets/data/word_relations.json` 66클러스터(A1 42·A2 8·B1 8·B2 8), 모든 `sourceVocabId`가 CSV에 존재(교차검증 0건 불일치).\n\n**메커니즘** `filterForLearner`: scope=learned는 레벨을 전혀 보지 않고 sourceKo가 `vokSeenIds ∪ SRS 키`에 있으면 B2 클러스터라도 A1 학습자에게 보인다(설계: '정확히 그 단어'). scope=level('Mein Niveau')은 누적(rank ≤ 사용자 레벨). 학습 0단어면 빈 상태 → 두 번째 CTA로 level scope. 퀴즈는 학습 클러스터의 첫 이웃을 정답, 보기는 전체 시드에서 같은 kind 우선, 0문항이면 fail-closed 빈 상태(0/0 축하 수정).\n\n**함의** 코스 증거·한옥·XP에 쓰지 않는 자유 연습이라 레벨 게이트가 느슨해도 안전하다.\n\n**주의** 생성기 `tool/build_word_relations.py:2258`에는 `56fef261`이 JSON에서 지운 em dash 문장이 그대로 남아 있어 재실행하면 dash 가드가 다시 실패한다(medium). Vokabelheft 스튜디오가 주입하는 부분집합 로더(`word_web_screen.dart` clusterLoader)에서는 distractor 풀이 부분집합이라 1클러스터·반대말 0인 경우 0/0 수정이 안 먹는다."
+    },
+    {
+      "file": "lib/screens/vocab_notebook_studio_screen.dart",
+      "line": 429,
+      "title": "14. Vokabelheft 스튜디오 — 레벨 잠금을 의도적으로 끈다",
+      "description": "**상황** `cursor/vocab-notebook-{hanja,harden,studio}` 3브랜치(#51). 사진의 한국어–뜻 쌍을 그대로 커스텀 팩으로 저장하고, 그 단어로 기존 게임을 연다.\n\n**메커니즘** '우리 문장' 칸은 `custom_pack_corpus_resolver.dart:352`~가 배포 카탈로그(cloze/satz/smalltalk/pronunciation/scenarios/word_web)에서 그 표제어를 이미 쓰는 항목만 찾는다 — 새 문장을 만들지 않는다. 주입 시 각 화면이 레벨 필터를 끈다: 이 줄 `ignoreLevelLock: true`, `cloze_game_screen.dart:130` `_level=null`, `satz_arcade_screen.dart:109`, `speed_match_screen.dart:124`, `smalltalk_screen.dart:96/126`, `pronunciation_studio_screen.dart:106-111`.\n\n**함의** A1 학습자도 자기 공책 표제어가 든 C2 문장을 그대로 본다. SESSION_LOG 504-515의 결정과 일치하는 설계다.\n\n**주의** `custom_pack_import_service.dart:7` 상한 8,000단어는 계정 조정 512KB·클라우드 문서 1MiB 한도와 충돌할 수 있다(이번 감사 high → 적대 검증 결과는 최종 보고 참조). `addWords`는 기존 팩의 동일 한국어 행을 조용히 지운다(:322-324)."
+    },
+    {
+      "file": "functions/tts/tts_request_guard.js",
+      "line": 238,
+      "title": "15. TTS fail-closed 선점 — 로컬 코드와 live의 간극",
+      "description": "**상황** `backend-reliability-upgrade`(1단계)·`backend-idempotency-deadlines`(2단계)·PR #50 TTS fail-closed·`codex/tts-quota`의 합. 합성은 quota를 예약한 claim에만 속한다(이 주석). pending 영수증을 본 요청은 대기하거나 fail-closed(`index.js:132` claim 실패 → `unavailable`).\n\n**메커니즘** 클라 `tts_service.dart:419` `_netTimeout 12s` ≥ 함수 timeout 12s > 합성 deadline 7s. 서버·클라 모두 `isUsableAudio`(MPEG/ID3 32바이트 floor, :565·:580·:613)가 아니면 캐시 히트로 보지 않는다. 실패 시 `refundDailyTtsQuotas`(index.js:198).\n\n**함의** 재탭·동시 요청이 일일 한도를 두 번 깎지 않는다 — 로컬 코드에서는.\n\n**주의** live 함수는 여전히 `108e2579`(30s timeout, 환급/선점/MPEG 없음, `codex/tts-quota` 상한만 배포). AGENTS.md 420-423의 배포 게이트가 그대로다. 감사 중 발견된 남은 구멍(completed 영수증+Storage 없음 → 무과금 합성, 한도 차감 뒤 try 밖 예외, 패자 1s 대기 후 OS 음성 폴백)은 이 세션 중 병합된 PR #59(`6b95be91`, `INFLIGHT_POLL 14×500ms`·inflight/miss 구분·`TtsSynthesisBlocked`)가 닫았다 — 단, 이것도 CF 배포는 안 됐다(`15272a83` 'without CF deploy')."
+    },
+    {
+      "file": "lib/models/can_do_segment.dart",
+      "line": 366,
+      "title": "16. 살아 있는 한옥 V1 — dark-launch 경계",
+      "description": "**상황** PR #30(PR1: 86 `CanDoSegment`, 16/16/18/20/8/8), PR #31(PR2: 118 typed 생산 평가·CourseMastery v3), PR3(`64b7e24a`, Cursor PR4 브랜치의 base로 main에 유입), PR4 파이프라인(#52), Codex A1 파일럿(`9958a458`), 그리고 `5fd243d5`(계약 구멍 5건).\n\n**메커니즘** `hanok_experience_projector.dart:54-67`은 검증된 productive segment의 grant만 열고 A1 constructionPiece 연속 획득 수를 `a1ConstructionStep`으로 만든다. 그러나 lib 호출자는 `cloud_sync`·`account_reconciliation`뿐, UI 0. `A1HanokConstructionMap` 사용처 0. `course_reassessment_screen.dart:217` `runtimeContentApproved=false`라 재평가 화면은 로드 전에 던진다. 런타임 루트 `assets/illustrations/personal_hanok_v2/a1/states/`는 디스크에도 pubspec에도 없다.\n\n**함의** 오늘 사용자가 보는 개인 한옥은 레거시 경로(`hanok_structure_projection_service.dart`)다. V1은 데이터·코드·게이트만 있고 production 연결이 없다 — 의도된 상태.\n\n**주의** AGENTS.md:358은 PR3를 '[ ] 미병합 게이트'로 적고 있지만 `git merge-base --is-ancestor 64b7e24a HEAD`는 참이다(문서 드리프트, medium). 1.45MB 계약 JSON은 읽는 곳 없이 모든 빌드에 번들된다. `productive_catalog_contract_test`는 부하 중 30s timeout에 걸렸다(단독 재실행 통과)."
+    },
+    {
+      "file": ".github/scripts/select_flutter_tests.py",
+      "line": 45,
+      "title": "17. PR 범위 CI — 어떤 가드가 항상 돌고 어떤 게 빠지나",
+      "description": "**상황** `6dd2cd5b`(Actions 3,000분 소진 뒤 도입). PR은 변경 파일의 Dart import 폐포로 고른 테스트 + 상시 가드 4개(`typography_guard`·`l10n_parity`·`arb_l10n_guard`·`sori_activity_catalog`)만, draft는 스킵, `flutter build web` 생략. main push는 전체.\n\n**메커니즘** :25-42 `FULL_SUITE_PREFIXES/FILES`(assets/·lib/l10n/·pubspec·analysis_options·goldens·플랫폼 폴더)가 바뀌면 전체 suite. :169 선택기 예외는 fail-open(전체).\n\n**함의** PR 초록은 부분 검증이고 merge 뒤 main run이 최종 그물이다 — 그런데 GitHub Actions는 2026-08-17부터 billing 차단이라 main run도 안 돈다. 이번 감사의 로컬 전체 게이트(analyze 0·test 3,839)가 그 대체다.\n\n**주의** `Directory('lib')`를 훑는 소스 스캔 가드 8개(no_emoji_glyph·audio_policy·window_class·orientation·asset_orphan·data_integrity·hanok_v1_source_guard·privacy_feedback_disclosure)는 import 간선이 없어 Dart-only PR에서 안 돈다. 테스트가 `File()`로 읽는 문화어 JSON·firestore.rules·docs/store도 선택기 사각지대다(medium)."
+    },
+    {
+      "title": "18. 다음 할 일 (우선순위)",
+      "description": "이 투어를 마친 아키텍트가 바로 결정할 수 있는 것:\n\n1. **새 테마 콘텐츠 처분(high)** — partner_family smalltalk 72·시나리오 26편 필러·Cloze/Satz 보기 순환은 사용자에게 이미 보인다. 선택지: (a) `partner_family` category와 partner 시나리오를 노출에서 잠시 빼고 사람이 다시 쓴다, (b) 생성기를 고쳐 재생성 → 이번엔 `--approve-all` 없이 문장 단위 승인. 어느 쪽이든 Batch 09/10 174편의 슬러그 누출은 승격 전에 막는다.\n2. **미병합 브랜치 2개** — `cursor/apply-4x-batch-09-10-3cd5`(`56a0fbd7`)는 Batch 09/10을 live 자산에 넣어 시나리오 90→264, 그중 새 174편 전부 첫 대사가 `… post queue 상황을 짧게 말해 주세요.`처럼 영문 슬러그를 포함하고 `우체국 줄가` 같은 조사 오류가 있다 — 사람이 읽기 전 **병합 금지**. `cursor/hanok-codex-ports-tts-kurs-e988`는 현재 main과 10파일 충돌(TTS/단어망은 #59가 상위 호환, 한옥은 `label: widget.semanticsLabel ?? state.id` TalkBack raw ID 회귀)이라 닫는 쪽이 맞다.\n3. **설정 레벨 3키 동기화(medium)** — `settings_screen.dart:1424`가 placement/browse도 쓰게.\n4. **독일어 표기** — `vocab_pack_service.dart` partner 라벨 9개 움라우트·`Zimmgrenze`, scenarios.json `Danke fuer …` 2건, grammar.csv 3행.\n5. **문서·저장소 위생** — AGENTS.md PR3 상태·라우트 표 24개 누락·팩 수 117→153·corpus 6,321→7,491. `b63a5753`이 `.claude/data/healthcare/documents/data.sqlite{,-shm,-wal}`(MCP 로컬 DB)와 `.mvn/wrapper/maven-wrapper.properties`(Flutter 저장소에 이질적)를 커밋했다 — `.gitignore`에 넣고 `git rm --cached` 대상.\n6. **운영 게이트(Jin)** — TTS/Rules 배포, GitHub Billing 해제 뒤 main run 재실행.\n\n검증 명령: `flutter analyze --no-pub --fatal-infos`, `flutter test --no-pub`, `python -m unittest discover -s tool -t tool`(71), `python -m unittest discover -s .github/scripts -p 'test_*.py'`(32)."
+    }
+  ]
+}

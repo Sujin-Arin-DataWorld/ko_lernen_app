@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티를 최신 main에 병합
+
+**무엇.** `origin/main`을 `cursor/scenario-ui-parity-132b`에 병합했다.
+SESSION_LOG는 양쪽 항목을 유지했다. `batchim`은 문항별 까치를 넣지 않고
+main의 공개 정답 강조색(`_resolvedAccent` = warning)만 받았다.
+
+**왜.** PR이 main보다 뒤처져 mergeable_state=dirty였다.
+
+**검증.** 충돌 3파일 해소 후 관련 위젯 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 선택 타일 대비 계측 제거
 
 **무엇.** `SoriWordTile.debugSink`와 테스트의 `/opt/cursor/logs/debug.log`
@@ -66,6 +78,152 @@ TTS·키보드 inset은 Jin 게이트.
 바로 위 2026-08-17 후속 항목.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
+
+**왜.** Jin: "한옥 짓기 콘텐츠를 대충 만들 생각 없다 — 비바샘·서울한옥포털·hanokdb 세 사이트를 이잡듯이 뒤져서
+한옥 외관과 사랑방 내부 꾸미기를 레벨별 학습경로에 잇는 계획, 만들 이미지 목록, 제작법, 같은 기초 위에 스타일
+변화 없이 쌓아 올리는 방법을 다시 검토하라."
+
+**조사.** hanokdb `sub_04`(6탭 전문: 12공정·목구조 조립·지붕·온돌·마루·창호·천장), `sub_02`·`sub_03`·용어사전
+PDF(한자·영문), 서울포털 tab1·2, 비바샘 themeTour_5 4탭 전문을 확보(sub_04_01~05·sub_02_01 등은 404, 탭에 포함).
+현재 A1 16단계 ID가 hanokdb 12공정과 정확히 정합함을 확인. 코드베이스는 86 segment·86 grant 초안·A1 파이프라인·
+room-v3·에셋을 실측(리뷰 에이전트 포함). `sarangchae.png` 소켓 기하 실측: 앞기둥 8구간
+[53–68][161–181][273–291][356–374][478–498][562–580][672–691][784–799](칸 폭 110.5/111/83/123/83/110.5/110),
+기와 ≤y132·창방 y145~156·벽 y157~228·하방 y229~238·기단 윗면 y252~263·면 y264~292·계단 y293~306,
+카메라는 중앙 원근(기단 옆모서리 36행에 ±34px 수렴, d=16). base+sarangchae WebP q82 = 280,610B.
+
+**설계(승인됨).** `docs/superpowers/specs/2026-08-17-living-hanok-v1-mapping-kit-pipeline-design.md`.
+핵심: ① 6시대=6공간층(A1 사랑채 외관 16 / A2 사랑방 가구 12+살림 흔적 4 / B1 대문·행랑·안채 3~4단계
+prerequisite 체인 / B2 대청·사당·후원·마당 구조물+택일 옵션 4 / C1 계절 designOption·증표 / C2 벽감 서가 문집);
+② 생성 모델은 부품만, 승인 완성 사랑채에서 기하 역분해 + Python 컴포지터 결정론 합성(kit anchor·구조 recall 1.0·
+포함·계보 규칙 신설); ③ 결정 D1~D7 기본값(A1-11 기와 rename, 사랑방 처음부터 열림 + projector openedVenues 기본
+포함, furnishing kind 신설, allowlist 확장 전 생성 금지 등). 리뷰 2축(실현성/계약)의 블로커 2·major 다수를 반영.
+§4.7 확장 규칙: 콘텐츠 추가 → 매핑 무영향, 새 can-do → 소품 1장짜리 grant 1행 authoring.
+
+**구현(이 세션, PR4b-1).** 아래 항목이 이어서 기록된다.
+
+**커밋 안 함.** Jin 요청 시에만. BBANANA 미사용(잔액 900.7).
+
+### 2026-08-17 (Claude, Windows) — A1 자기소개 캐스트·음성 수리 + TTS 결손 1,190개 합성·배포
+
+**왜.** Jin이 실기기에서 A1 «Sich vorstellen»(`introduce_yourself`, 7문항)을 돌며 세 가지를
+지적했다 — 1번 `저는 현우예요.`가 기계음, 6번은 화면이 `안녕`인데 음성은 `안녕하세요`이고
+아주 늦게 나옴, 1·6·7번의 빨간 표시가 "틀렸다는거야 뭐야". 원인이 셋 다 달랐고, 그중 하나는
+8/14~8/17 병합분 전반의 구조적 결손이었다.
+
+**무엇을.**
+
+1. **캐스트 오류** — 인트로는 "새 동료 현우를 만난다"인데 학습자(`speaker: "user"`) 대사가
+   `저는 현우예요`였다. `[이름]` 자리를 `현우예요`로 굳힌 뒤(`fix_quest_audio_text.py:54`)
+   NPC가 민수→현우(`1a8ae36d`)로 개명되며 동명이인이 됐다. Jin 확정 규칙 **남자=현우(NPC) /
+   여자=레나(학습자)** 로 3곳을 고쳤다: `introduce_yourself` dialog[1]·quest_01 suffix,
+   `hotel_checkin` dialog[1]. NPC가 말하는 `저는 현우예요` 2곳(`phone_messenger_reply`,
+   `titles_relationship_distance`)은 정상이라 유지했다. `레나`도 모음 끝이라 1번의 문법
+   포인트(`저`+`는`, `예요`)와 해설은 그대로다.
+2. **음성/표시 불일치** — `quest_introduce_yourself_04`의 `audioKo`를 `안녕하세요`→`안녕`으로
+   고쳤다. `batchimDrop`은 앱 전체에 이 1개뿐이고 359개 퀘스트 전수 검사에서도 이것만 걸렸다.
+3. **정답 공개 색 분리** — `quest_flow.dart:345`가 `resolved ? success : danger` 2분기라,
+   2회 오답·"모르겠어요"로 **정답이 자동 공개**될 때 공개된 정답 글자·트레이·해설이 전부 오답
+   빨강으로 칠해졌다. `danger`→`warning`(단청 황 #D4A22E)으로 바꿔 7개 엔진에 일괄 적용하고,
+   `batchim_drop_quest.dart`에 `_resolvedAccent` getter를 두어 음절·슬롯·트레이도 맞췄다.
+   오답 순간의 200ms 빨간 플래시와 `SoundService.wrong()`, 채점 결과(`passed`·XP·SRS)는 유지.
+4. **TTS 결손 배포** — TTS 주소가 `sha1("{voice}|{text}")`라 `1a8ae36d`(개명 1,244줄)·
+   `6a2c3811`(카피 재작성 4,075줄)·`83b38658`(partner-family 라이브 승격 +43,776줄)이 기존
+   mp3를 전부 고아로 만들었는데, TTS는 Batch 05(`847eee9a`) 이후 재생성된 적이 없었다.
+   원격 실측 결과 expected 7,491 / remote 6,376 / **missing 1,190** — 앱이 말해야 할 문장의
+   약 16%가 유료 CF 동적합성이거나 OS 기계음이었다. 텍스트를 먼저 고친 뒤 합성했다.
+5. **재발 방지 가드 3건** — `learner_copy_scan_test`: user 화자가 NPC 이름으로 자칭 금지
+   (3인칭 `현우 씨가…`는 허용). `scenario_quest_catalog_integrity_test`: `batchimDrop`은
+   `audioKo == targetWord`. `quest_explicit_flow_test`: 정답 공개 해설은 `SoriColors.warning`.
+
+**검증.** `flutter test` 관련 스위트 **148개** + `quest_explicit_flow` **16개** 통과.
+`flutter analyze --no-pub --fatal-infos` 변경 6파일 No issues found.
+`tools/content_factory/validate_content.py` OK. 새 가드 3건은 **수정 전 데이터(`git show HEAD:`)
+로 돌려 정확히 4건(자칭 3 + 음성 불일치 1)을 잡는 것**까지 확인해 비공허성을 증명했다.
+TTS는 429 한도 때문에 3라운드로 나눠 합성했다(168 → 977 → 45 = **1,190개**, `--workers 4`
+1회 뒤 `--workers 1` 2회). `polish_tts.py`가 신규 1,224개만 다듬었고(평균 0.296s 절단, 기존
+5,809개는 무변경 = 멱등) 재업로드했다. 최종 `--verify-storage`는
+**expected 7,491, remote 7,566, missing 0, stale 75**. stale 75(구 민수 음성 등)는 immutable
+정책상 삭제하지 않았다. rsync에 `--delete` 플래그가 없어 추가·덮어쓰기만 했다.
+
+**남은 게이트.** ① 실기기 확인 전 **앱 캐시를 비워야 한다** — 파일명이 콘텐츠 해시라 기기에
+받아둔 옛 mp3가 자동 무효화되지 않는다. release 빌드라 `run-as`는 못 쓰고 설정 → 앱 →
+Hangul Sori → 저장공간 → 캐시 삭제로 한다. ② 6번의 "늦게 나온다"는 `안녕하세요`가 원격에
+정상 존재하고 로컬과 바이트가 같아 파일 문제가 아니다. `resolveFile`은 `_serialize` 밖에서
+돌고 새 `speak()`가 이전 것을 취소하므로 1번의 12초 CF 대기가 6번을 막는 구조도 아니다.
+프리페치·워밍업이 어디에도 없어(`prefetch|precache|warmUp` 0건) 첫 재생이 Storage 다운로드를
+끝까지 기다린다 — 캐시를 비운 뒤 재측정해 남으면 시나리오 진입 시 프리페치를 넣는다.
+③ `--verify-storage`를 릴리스 체크리스트 차단 항목으로 승격해야 한다. 콘텐츠만 병합되고
+음성이 빠지는 이번 사고를 잡는 유일한 자동 검사인데 CI에 없다. ④ 앱 데이터·UI 변경의
+사용자 반영은 Actions billing 차단 해제 뒤 AAB 릴리스가 필요하다(TTS 업로드는 CI와 무관하게
+이미 완료).
+
+**커밋해시.** 코드·데이터·가드 `9e531ea6`, 문서 `caa67444`. TTS mp3 1,190개는 저장소가
+아니라 `gs://ko-lernen-app.firebasestorage.app/tts/v3` 에 올라가 있다(`.tts_pregen/` 은 gitignore).
+
+### 2026-08-17 (Claude, Windows) — 병합 파도 전수 감사(3a586963→fe2c589c) + 아키텍트 투어: 새 테마 콘텐츠 품질 결함 발견
+
+**왜.** Jin이 "여러 브랜치를 main에 병합한 것에 문제가 없는지, 새 레벨별 데이터·새 테마가 잘
+트리거되는지, 각 브랜치가 무슨 작업이었고 지금 어떻게 동작하는지" 전부 파악하고 `/ecc:code-tour`를
+요청했다. PR #27(`3a586963`) 이후 병합 ~50개(Cursor ~22 브랜치·Codex 브랜치·PR #28~#31·#43·
+#50~#59)를 7그룹(콘텐츠 배치/새 테마·DE/EN 카피·단어망·Vokabelheft·백엔드 TTS/계정·한옥 V1·
+UI/릴리스/CI)으로 나눠 분석하고, 레벨 트리거 추적·병합 위생 점검을 교차로 돌린 뒤 high/medium
+리스크 8건을 각 2명의 반박 검증에 붙였다(16/16 "반박 실패"). 감사 중 main이 계속 움직였다:
+`5fd243d5`(A1 계약 5구멍)·PR #59(`6b95be91`)·`b63a5753`/`fe2c589c`.
+
+**병합 자체는 깨끗하다.** 충돌 마커 0, Cursor/Codex 병렬 구현 중복 0(한옥 A1 catalog·compositor·
+provenance JSON·단어망 로더·레벨 helper 각 1개), ARB DE/EN 2,125/2,125 대칭·중복 0·placeholder
+불일치 0·신규 292키 generated 동기, 새 하드코딩 UI 문자열 0, pubspec↔assets 고아 0, `git diff
+--check` 코드 0. 로컬 전체 게이트(원격 CI는 billing 차단): `flutter analyze --no-pub
+--fatal-infos` No issues, `flutter test --no-pub` **3,839 통과 / 14 skip / 1 실패**
+(`productive_catalog_contract_test` 30s timeout — 병렬 감사 부하 중; 단독 재실행 1초 통과),
+`tool/` unittest 71/71, `.github/scripts` 32/32, `build_hanok_grants.py --check` OK.
+
+**레벨 트리거는 정상.** 정본 파서 `LearnerLevel.fromCode`; 저장 3키(`kl_user_level`·placement·
+browse); exact 계약 helper `ReviewDeckService.todaySelectionForLevel`(review_deck_service.dart:93),
+`PersonalizedLessonService.buildVocabDeck/pickSmalltalk`(exact가 비면만 누적 폴백); exact 시작:
+단어팩·Cloze/Satz·Smalltalk·문법·오늘 단어, 누적: 시나리오·발음·단어망·끝말잇기·데일리. Python
+재계산 = AGENTS 수치(vocab 1620·cloze 962·satz 875·smalltalk 365·scenario 90·quest 359·pron 20·
+word-web 66·can-do 86), curriculum_manifest dangling 0, 90 시나리오 전부 level=unit level. 새 테마
+(partner_family)는 6레벨 모두에 실제 행이 있고 vocabPackUnitMap 36·contentLinks 28·
+smalltalkCategoryUnitMap 6키로 코스 그래프에 연결돼 A1~C2 어디서든 도달한다.
+
+**결함(검증 완료).** ① **high — 새 테마 smalltalk 72문구 전부 템플릿 비문**(KO/DE/EN):
+`smalltalk_a1_0065` "첫 인사와 호칭에서 인사드리겠습니다 어떻게 말해요?" / "Wie sage ich ich werde
+mich höflich vorstellen bei Erste Begrüßung und Anrede?"; 36개 `<팩라벨>에서 <표제어> 어떻게
+말해요?` + 36개 `<표제어> 때문에 어색하면 뭐라고 해요?`, reply/followUp 동일 반복. 출처
+`build_batch_07_partner_family.py:293`, 승격 `integrate_review_batches.py --apply --approve-all`
+(:742-743이 상태=approved·`jin_memo` 날짜 2026-08-15 하드코딩). ② **high — 파트너 시나리오 28편 중
+26편 필러 대사 공유**(224줄 중 distinct 67, 7문장이 각 14편; 나머지 62편은 386줄 중 378 distinct);
+퀘스트가 필러에서 파생; C2 `c2_partner_document_the_place`는 NPC 1줄 빼고 전부 필러. ③ medium —
+파트너 Cloze/Satz distractor 고정 풀 순환(cloze 10종·satz 6쌍), 명사 정답에 부사 보기, 어간 조각
+정답(`인사드`). ④ medium — 파트너 시나리오 단어 스테이지 168/168 note 없음(한국어만 표시).
+⑤ medium — 새 한국어 ~1,170개 TTS 사전생성 corpus 밖(6,321→collect 7,491). ⑥ medium — Vokabelheft
+8,000단어 상한 vs 계정 조정 512KB·클라우드 1MiB(`custom_pack_import_service.dart:7` vs
+`custom_pack_service.dart:31`). ⑦ medium — 설정 레벨 변경이 `kl_user_level`만 갱신
+(`settings_screen.dart:1424`), browse/placement 미갱신. ⑧ medium — AGENTS.md:358 PR3 '미병합'이나
+`64b7e24a`는 HEAD 조상. ⑨ low~medium — 파트너 팩 DE 라벨 9개 ASCII 움라우트(`Gespraech`·`Ueber`·
+`Hoeflichkeit`…)+`Zimmgrenze` 오타(`vocab_pack_service.dart:265-288`), scenarios.json `Danke fuer`
+2건, grammar.csv 3행; `tool/build_word_relations.py:2258` em dash 잔존(재생성 시 가드 실패); CI
+선택기 사각지대(소스 스캔 가드 8개·비-Dart 입력); `b63a5753`이 `.claude/data/**/*.sqlite`와
+`.mvn/`을 커밋. 미검증(상한 밖) medium 15건은 투어 18스텝과 워크플로 결과에 남겼다.
+
+**미병합 브랜치 경고.** `origin/cursor/apply-4x-batch-09-10-3cd5`(`56a0fbd7`)는 Batch 09/10을 live
+자산에 넣어 시나리오 90→264인데 새 174편 전부 첫 대사에 영문 슬러그(`… post queue 상황을 짧게 말해
+주세요.`)·`우체국 줄가` 조사 오류 — **사람이 읽기 전 병합 금지**. `origin/cursor/hanok-codex-ports-
+tts-kurs-e988`는 현재 main과 10파일 충돌(TTS/단어망은 #59가 상위 호환, 한옥은 `5fd243d5`의 TalkBack
+l10n 수정을 되돌림) — 닫는 쪽 권고.
+
+**투어.** `.tours/architect-merged-main-20260817.tour`(ref 없음=디스크, 18스텝): 병합 기록 → 레벨
+파서·3키·exact helper·폴백 → 새 테마 팩/코스 그래프/smalltalk 노출·비문 → 생성기·`--approve-all`
+→ 시나리오 필러 → 문제 프레임/모르겠어요 → 카탈로그 계약이 안 보는 것 → 단어망 → 스튜디오 →
+TTS fail-closed와 live 간극 → 한옥 V1 dark-launch → PR 범위 CI → 다음 할 일. 앵커 17개 파일·줄·
+pattern을 스크립트로 검증(HEAD 이동 뒤 재검증). 기존 투어 2개와 범위 분리.
+
+**커밋 안 함.** Jin 요청 시에만. 이 세션이 만진 파일은 `.tours/architect-merged-main-20260817.tour`
+와 이 로그뿐. 워킹트리의 `assets/data/scenarios.json`·`quest_engines/*`·테스트 6개 수정은 다른
+세션 것이라 건드리지 않았다.
 
 ### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
 

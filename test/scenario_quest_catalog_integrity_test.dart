@@ -73,6 +73,18 @@ void main() {
             reason: '${scenario.id}: $type',
           );
         }
+
+        // batchimDrop 은 화면의 targetWord 를 그대로 읽어야 한다. 둘이 어긋나면
+        // 학습자가 듣는 낱말과 받침을 채우는 낱말이 달라진다 — 2026-08-17
+        // quest_introduce_yourself_04 가 `안녕` 을 보여주고 `안녕하세요` 를
+        // 재생하던 회귀.
+        if (type == 'batchimDrop') {
+          expect(
+            data['audioKo'],
+            data['targetWord'],
+            reason: '${scenario.id}: batchimDrop audioKo != targetWord',
+          );
+        }
       }
     }
 

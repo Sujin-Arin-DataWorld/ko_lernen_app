@@ -565,7 +565,13 @@ class ScenarioQuestAction extends StatelessWidget {
       );
     }
 
-    final accent = result ? SoriColors.success : SoriColors.danger;
+    // `resolved == false` 는 "틀린 채로 끝났다"가 아니라 **정답이 공개됐다**는
+    // 뜻이다 — 2회 오답이나 "모르겠어요" 뒤 엔진이 정답을 채워 넣고 해설을 연다.
+    // 이 배너를 오답 빨강으로 칠하면 학습자가 방금 공개된 정답을 틀린 답으로
+    // 읽는다(2026-08-17 Jin: "틀렸다는거야 뭐야"). 오답 순간의 피드백은 각 엔진의
+    // 200ms 빨간 플래시와 `SoundService.wrong()` 이 이미 전달하므로, 여기서는
+    // 중립적인 황색을 쓴다. 채점 결과(`passed`, XP·SRS)는 그대로다.
+    final accent = result ? SoriColors.success : SoriColors.warning;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
