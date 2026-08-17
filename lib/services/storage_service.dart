@@ -1894,6 +1894,8 @@ class Storage {
   static const String legacyCourseMasteryPreferenceKey = 'kl_course_mastery_v1';
   static const String courseMasterySnapshotPreferenceKey =
       'kl_course_mastery_v2';
+  static const String hanokStatePreferenceKey = 'kl_hanok_state_v1';
+  static const String hanokCutoverPreferenceKey = 'kl_hanok_cutover_v2';
 
   /// Backward-compatible spelling for callers that already write the
   /// canonical snapshot. The v1 key is migration input only.
@@ -1949,6 +1951,49 @@ class Storage {
   /// Compatibility alias for callers that previously read the single snapshot
   /// value. It now returns only the canonical v2 state.
   static String get courseMasteryRawJson => courseMasterySnapshotRawJson;
+
+  /// Presentation-only Living Hanok V1 state.
+  ///
+  /// Earned grants are intentionally not stored here. They are projected from
+  /// canonical productive CourseMastery evidence by the Hanok domain service.
+  static String get hanokStateRawJson => _s(hanokStatePreferenceKey);
+
+  static String get hanokCutoverRawValue => _s(hanokCutoverPreferenceKey);
+
+  static Future<void> setHanokStateRawJsonStrict(
+    String json, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    hanokStatePreferenceKey,
+    json,
+    preferences: preferences,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  static Future<void> setHanokCutoverRawValueStrict(
+    String value, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    hanokCutoverPreferenceKey,
+    value,
+    preferences: preferences,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  /// Removes only presentation ledgers superseded by Living Hanok V1.
+  /// Room-v3 layouts, owned decorations, Gye, CourseMastery, SRS, and stamps
+  /// deliberately remain untouched.
+  static Future<void> clearLegacyHanokPresentationState() async {
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(hanokStatePreferenceKey);
+    }
+    final store = _SharedPreferenceRemovalStore(preferences);
+    await _removeValueStrict(store, 'kl_hanok_stages_seen_v1');
+    await _removeValueStrict(store, _personalHanokMilestonesSeenKey);
+  }
 
   static Future<void> setPlacementLevelCode(String code) async {
     final normalized = _requiredLearnerLevelCode(code);

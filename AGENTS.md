@@ -334,11 +334,23 @@ flutter run -d <android-id>   # 안드로이드
   A1/A2/B1/B2/C1/C2 `16/16/18/20/8/8`, 총 86개로 분리했다. 같은 능력의 새 콘텐츠는
   cluster revision, 독립 can-do는 후방 extension track으로 추가해 과거 분모·한옥을
   낮추지 않는다. 정본은 `docs/ADR-003-can-do-segment-authority.md`다.
-- [ ] **살아 있는 한옥 V1 PR2 병합 게이트**: 86개 실제 segment·cluster와 118개 typed
+- [x] **살아 있는 한옥 V1 PR2 병합 게이트**: 86개 실제 segment·cluster와 118개 typed
   생산 평가 요구, CourseMastery V3 증거, C1/C2 4단계 project receipt, CourseUnit 완료와
   생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
-  production route를 fail closed했다. 최신 main 재배치·전체 로컬 게이트는 통과했으며,
-  GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다.
+  production route를 fail closed했다. PR #31 exact-head CI를 통과하고 main merge
+  `90613738`에 반영됐다.
+- [ ] **살아 있는 한옥 V1 PR3 병합 게이트**: 검증된 productive `CanDoSegment`만
+  86개 영구 보상을 여는 `HanokState v1`·grant catalog·projection·idempotent cutover·
+  cloud/account merge를 구현한다. CourseUnit 완료는 재평가 자격만 열고 집을 올리지 않으며,
+  room-v3·장식·Gye 데이터는 보존한다. 미승인 grant plan은 `tools/content_factory/drafts/`
+  에만 두고 Flutter asset/production loader로 ship하지 않는다. PR3 병합 전에는 사용자
+  기본 경로에 노출하지 않는다.
+- [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·4:3 디코드 창
+  renderer·투명 socket compositor·연속성/lineage gate·원자적 승격/썸네일 도구는
+  코드로 고정됐다. 승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Jin이
+  남은 투명 레이어를 만들면 QA 합성 → 연속성 검사 → 16개 원자 승격 순서로만
+  런타임에 넣는다. production route 연결과 PR3 Play 업로드 결정은 이 항목에
+  포함되지 않는다.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부

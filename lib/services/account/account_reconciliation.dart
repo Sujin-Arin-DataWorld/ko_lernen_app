@@ -6,12 +6,14 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../models/course_mastery.dart';
+import '../../models/hanok_growth.dart';
 import '../../models/pack_progress.dart';
 import '../cloud_sync.dart';
 import '../cloud_sync_service.dart';
 import '../course_progress_service.dart';
 import '../custom_pack_service.dart';
 import '../firestore_progress_service.dart';
+import '../hanok_state_service.dart';
 import '../pack_progress_service.dart';
 import '../storage_service.dart';
 import 'account_failure_diagnostics.dart';
@@ -31,12 +33,14 @@ class AccountReconciliationSnapshot {
     required this.customPacks,
     required this.packProgress,
     this.courseMastery,
+    this.hanokState,
     this.packRevisions = const {},
     this.packMembershipRevision,
     this.localSrsGeneration,
     this.localCustomPackGeneration,
     this.localPackProgressGeneration,
     this.localCourseMasteryGeneration,
+    this.localHanokGeneration,
   }) : fields = _withoutReservedCourseFields(fields);
 
   static final empty = AccountReconciliationSnapshot(
@@ -45,12 +49,14 @@ class AccountReconciliationSnapshot {
     customPacks: {},
     packProgress: {},
     courseMastery: null,
+    hanokState: null,
     packRevisions: {},
     packMembershipRevision: null,
     localSrsGeneration: null,
     localCustomPackGeneration: null,
     localPackProgressGeneration: null,
     localCourseMasteryGeneration: null,
+    localHanokGeneration: null,
   );
 
   final Map<String, Object?> fields;
@@ -58,12 +64,14 @@ class AccountReconciliationSnapshot {
   final Map<String, Map<String, Object?>> customPacks;
   final Map<String, PackProgress> packProgress;
   final CourseMasterySnapshot? courseMastery;
+  final HanokState? hanokState;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
   final String? localSrsGeneration;
   final String? localCustomPackGeneration;
   final String? localPackProgressGeneration;
   final String? localCourseMasteryGeneration;
+  final String? localHanokGeneration;
 
   static CloudReadResult<AccountReconciliationSnapshot> decodeCloudDocument(
     Map<String, dynamic> document, {
@@ -73,6 +81,10 @@ class AccountReconciliationSnapshot {
   }) {
     final courseResult = _decodeCourseMastery(document['course_mastery_json']);
     if (!courseResult.isPresent) {
+      return const CloudReadResult.invalid();
+    }
+    final hanokResult = _decodeHanokState(document['hanok_state_json']);
+    if (!hanokResult.isPresent) {
       return const CloudReadResult.invalid();
     }
     final srsResult = _decodeSrs(document['srs_json']);
@@ -85,6 +97,7 @@ class AccountReconciliationSnapshot {
             customPacks: const {},
             packProgress: packProgress,
             courseMastery: courseResult.value,
+            hanokState: hanokResult.value,
             packRevisions: packRevisions,
             packMembershipRevision: packMembershipRevision,
           ),
@@ -109,6 +122,7 @@ class AccountReconciliationSnapshot {
         customPacks: customResult.value ?? const {},
         packProgress: packProgress,
         courseMastery: courseResult.value,
+        hanokState: hanokResult.value,
         packRevisions: packRevisions,
         packMembershipRevision: packMembershipRevision,
       ),
@@ -121,7 +135,23 @@ class AccountReconciliationSnapshot {
     'custom_packs_json': jsonEncode(customPacks),
     if (courseMastery != null)
       'course_mastery_json': jsonEncode(courseMastery!.toJson()),
+    if (hanokState != null)
+      'hanok_state_json': jsonEncode(hanokState!.toJson()),
   };
+
+  static CloudReadResult<HanokState?> _decodeHanokState(Object? value) {
+    if (value == null || value == '') {
+      return const CloudReadResult.present(null);
+    }
+    if (value is! String) {
+      return const CloudReadResult.invalid();
+    }
+    try {
+      return CloudReadResult.present(const HanokStateService().decode(value));
+    } catch (_) {
+      return const CloudReadResult.invalid();
+    }
+  }
 
   static CloudReadResult<CourseMasterySnapshot?> _decodeCourseMastery(
     Object? value,
@@ -196,6 +226,7 @@ class AccountReconciliationSnapshot {
       ..remove('srs_json')
       ..remove('custom_packs_json')
       ..remove('course_mastery_json')
+      ..remove('hanok_state_json')
       ..remove('sync_revision')
       ..remove('reconciliation_operation_id')
       ..remove('reconciliation_payload_hash')
@@ -208,7 +239,8 @@ class AccountReconciliationSnapshot {
       srsCards.isEmpty &&
       customPacks.isEmpty &&
       packProgress.isEmpty &&
-      courseMastery == null;
+      courseMastery == null &&
+      hanokState == null;
 
   @override
   bool operator ==(Object other) =>
@@ -217,7 +249,8 @@ class AccountReconciliationSnapshot {
       _deepEquals(srsCards, other.srsCards) &&
       _deepEquals(customPacks, other.customPacks) &&
       _packMapsEqual(packProgress, other.packProgress) &&
-      _deepEquals(courseMastery?.toJson(), other.courseMastery?.toJson());
+      _deepEquals(courseMastery?.toJson(), other.courseMastery?.toJson()) &&
+      _deepEquals(hanokState?.toJson(), other.hanokState?.toJson());
 
   @override
   int get hashCode => Object.hash(
@@ -228,6 +261,7 @@ class AccountReconciliationSnapshot {
       for (final entry in packProgress.entries) entry.key: entry.value.toJson(),
     }),
     _stableHash(courseMastery?.toJson()),
+    _stableHash(hanokState?.toJson()),
   );
 }
 
@@ -335,6 +369,14 @@ class AccountReconciliationMerger {
         }
       }
     }
+    final hanokState = switch ((local.hanokState, remote.hanokState)) {
+      (final HanokState left, final HanokState right) => HanokState.merge(
+        left,
+        right,
+      ),
+      (final HanokState value, null) || (null, final HanokState value) => value,
+      (null, null) => null,
+    };
     conflicts.sort((left, right) {
       final kind = left.kind.index.compareTo(right.kind.index);
       return kind != 0 ? kind : left.id.compareTo(right.id);
@@ -352,12 +394,14 @@ class AccountReconciliationMerger {
         customPacks: customPacks,
         packProgress: packResult.merged!,
         courseMastery: courseMastery,
+        hanokState: hanokState,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
         localSrsGeneration: local.localSrsGeneration,
         localCustomPackGeneration: local.localCustomPackGeneration,
         localPackProgressGeneration: local.localPackProgressGeneration,
         localCourseMasteryGeneration: local.localCourseMasteryGeneration,
+        localHanokGeneration: local.localHanokGeneration,
       ),
       conflicts: const [],
     );
@@ -607,8 +651,11 @@ class LocalAccountReconciliationStore {
             snapshot: null,
             canonicalGeneration: '',
           );
+    final hanokCapture = await const HanokStateService()
+        .captureForCloudReconciliation();
     final payload = await CloudSync.buildBackupPayload(
       courseMasteryCapture: courseCapture,
+      hanokStateCapture: hanokCapture,
     );
     final result = AccountReconciliationSnapshot.decodeCloudDocument(
       payload,
@@ -624,12 +671,14 @@ class LocalAccountReconciliationStore {
       customPacks: customPacks.value!,
       packProgress: snapshot.packProgress,
       courseMastery: snapshot.courseMastery,
+      hanokState: snapshot.hanokState,
       packRevisions: snapshot.packRevisions,
       packMembershipRevision: snapshot.packMembershipRevision,
       localSrsGeneration: srsGeneration,
       localCustomPackGeneration: customPackGeneration,
       localPackProgressGeneration: packProgressGeneration,
       localCourseMasteryGeneration: courseCapture.canonicalGeneration,
+      localHanokGeneration: hanokCapture.generation,
     );
   }
 
@@ -651,6 +700,7 @@ class LocalAccountReconciliationStore {
       ..remove('srs_json')
       ..remove('custom_packs_json')
       ..remove('course_mastery_json');
+    ordinaryFields.remove('hanok_state_json');
     await CloudSync.applyReconciledRestorePayload(
       ordinaryFields,
       uid: session.uid,
@@ -668,6 +718,18 @@ class LocalAccountReconciliationStore {
             expectedGeneration: snapshot.localCourseMasteryGeneration,
             assertCurrentWrite: () => _assertCurrent(session, sessions),
           );
+    }
+    if (snapshot.hanokState case final hanokState?) {
+      _assertCurrent(session, sessions);
+      try {
+        await const HanokStateService().save(
+          hanokState,
+          expectedGeneration: snapshot.localHanokGeneration,
+          beforeWrite: () => _assertCurrent(session, sessions),
+        );
+      } on HanokStateGenerationConflict {
+        throw const LocalReconciliationGenerationConflict();
+      }
     }
     _assertCurrent(session, sessions);
     _assertPackProgressGeneration(snapshot);
@@ -689,6 +751,7 @@ class LocalAccountReconciliationStore {
     }
     _assertPackProgressGeneration(snapshot);
     _assertCourseMasteryGeneration(snapshot);
+    _assertHanokGeneration(snapshot);
   }
 
   static void _assertSrsGeneration(AccountReconciliationSnapshot snapshot) {
@@ -718,6 +781,13 @@ class LocalAccountReconciliationStore {
     }
   }
 
+  static void _assertHanokGeneration(AccountReconciliationSnapshot snapshot) {
+    if (snapshot.localHanokGeneration != null &&
+        Storage.hanokStateRawJson != snapshot.localHanokGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+  }
+
   static void _assertCurrent(
     CloudWriteSession session,
     CloudWriteSessionController sessions,
@@ -736,7 +806,9 @@ class LocalAccountReconciliationStore {
 Map<String, Object?> _withoutReservedCourseFields(
   Map<String, Object?> fields,
 ) => Map.unmodifiable(
-  Map<String, Object?>.from(fields)..remove('course_mastery_json'),
+  Map<String, Object?>.from(fields)
+    ..remove('course_mastery_json')
+    ..remove('hanok_state_json'),
 );
 
 class LocalReconciliationSessionConflict implements Exception {

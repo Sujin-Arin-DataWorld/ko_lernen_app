@@ -88,6 +88,15 @@ jobs:
       - name: Verify CI and release contracts
         run: python3 -m unittest discover -s .github/scripts -p "test_*.py"
 
+      - name: Verify append-only Living Hanok grant history
+        env:
+          CI_EVENT_NAME: ${{ github.event_name }}
+          CI_BEFORE_SHA: ${{ github.event.before }}
+          CI_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: >-
+          python3 tools/content_factory/build_hanok_grants.py
+          --check --verify-git-history
+
       - name: Classify changed paths
         id: scope
         env:

@@ -131,6 +131,52 @@ content audit·data integrity·level contract·Today snapshot 집중 회귀 **20
 coverage overlay를 통과했다. `flutter analyze --no-pub --fatal-infos`는
 **No issues found**, `git diff --check`는 기록 직후 확인한다. 본 커밋은 브랜치에 완료되었고 `push`는 미요청 상태다.
 
+### 2026-08-17 (Cursor) — 살아 있는 한옥 V1 PR4 코드 파이프라인
+
+**무엇을.** PR3 `64b7e24a` 위에 A1 0–16 불변 catalog, projection-only 4:3
+renderer, QA composite runtime 격리, 투명 socket compositor, 이전 단계
+footprint 연속성 gate, 승인 ledger lineage, 16개 원자 승격과 sourceSha256
+썸네일 게이트를 구현했다. 이미지 생성·runtime 승격·production route 연결은
+하지 않았다. Jin이 레이어를 만들면
+`docs/assets/prompts/HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`와
+`tool/compose_hanok_a1_state.py`만 쓰면 된다.
+
+**왜.** 이전 로컬 PR4 세션은 투명 레이어 방식을 확정했지만 브랜치를 push하지
+않았고, 전체 대지 편집과 체크무늬 RGB 출력은 거절됐다. 이번 작업은 그 계약을
+이 저장소에 코드로 고정해 에셋 제작과 구현을 분리한다.
+
+**검증.** Python pipeline 13/13, `check_personal_hanok_assets.py` exit 0,
+Flutter 집중 회귀 42/42, `flutter analyze --no-pub --fatal-infos` No issues,
+`git diff --check` 통과. A1 runtime/pubspec는 비어 있고 QA composite는
+`assets_unused/pending_review`만 읽는다. PR3는 Play Internal 자동 업로드
+결정 없이 병합하지 않는다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
+
+**권한과 완전 교체.** `HanokState v1`은 reveal 확인, 외관 loadout과 slot별 clock,
+돌봄 표시만 저장하며 earned grant를 저장하지 않는다. 새 projector는 신뢰 가능한
+productive CanDoSegment 증거만 86개 보상 slot에 투영하고 CourseUnit 완료는 재평가
+자격만 연다. legacy stage·단어팩 ratio·XP·Gye·browse·bypass는 개인 한옥을 올리지
+않는다. cutover는 CourseMastery에서 매번 재계산하고 marker를 마지막에 기록하며,
+room-v3 배치·장식·Gye·CourseMastery·SRS는 보존한다. PR3는 production route에 아직
+연결하지 않았다.
+
+**동기화와 승인 경계.** 같은 clock 충돌은 payload까지 포함한 total order로 수렴하고,
+process-wide write queue·generation fence·256KB write/merge 상한으로 동시 유실과 읽을
+수 없는 저장을 막는다. 돌봄 알림 ID는 activity cycle별로 재무장된다. A1 2–16 평가는
+직전 평가·보상을 prerequisite로 요구해 한 성공당 한 공정만 연다. 미승인 86 grant
+plan은 `tools/content_factory/drafts/`에만 있고 Flutter asset/production loader에는
+없다. Git base의 release ledger를 CI에서 직접 읽어 기존 published row의 삭제·변조를
+막으며, 독립 A1 extension은 명시 authored non-construction row로만 추가할 수 있다.
+
+**로컬 검증.** base `82afdcde`에서 grant generator **9/9**, CI 계약 **17/17**,
+두 generator `--check`, 최종 Hanok 집중 회귀 **35/35**, 전체 Flutter
+**3,749 PASS / 14 intentional skip / 실패 0**, Gye cloud deletion **18/18**,
+`flutter analyze --no-pub --fatal-infos` **No issues found**, web release build와
+`git diff --check`를 통과했다. 외부 `flutter_tts 4.2.5`의 기존 Wasm dry-run 경고
+3건만 남았다. 독립 Spec·Standards 최종 재감사는 모두 P0/P1 0이다.
+commit/push/PR/exact-head CI/main 병합은 이 기록 뒤 최종 게이트다.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

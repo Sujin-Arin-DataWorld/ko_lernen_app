@@ -1,19 +1,31 @@
 #!/usr/bin/env python3
 """Fail-closed image contract for the canonical personal Hanok map family."""
 
+from __future__ import annotations
+
 from pathlib import Path
 import sys
 
 from PIL import Image, ImageChops
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from hanok_v1_asset_contract import (
+    A1_RUNTIME_STATES_ROOT,
+    ROOT,
+    RUNTIME_MAP_ROOT,
+    a1_expected_files,
+    a1_hard_max_bytes,
+    camera_geometry,
+    load_provenance,
+    qa_composite_path,
+)
 
-ROOT = Path(__file__).resolve().parent.parent
-ASSET_ROOT = ROOT / "assets" / "illustrations" / "personal_hanok_v2" / "map"
+
+ASSET_ROOT = RUNTIME_MAP_ROOT
 CANVAS = (1536, 1152)
 
 SPECS = {
     "site_base_light.png": {"opaque": True},
-    "reference_full_estate.png": {"opaque": True},
     "structures/sotdaeulmun.png": {"opaque": False},
     "structures/haengrangchae.png": {"opaque": False},
     "structures/sarangchae.png": {"opaque": False},
@@ -36,7 +48,6 @@ RUNTIME_LAYER_ORDER = (
     "structures/daecheongmaru.png",
     "structures/sadang.png",
 )
-REFERENCE = "reference_full_estate.png"
 
 
 def _chroma_key_count(image: Image.Image) -> int:
@@ -104,7 +115,19 @@ def _compose_runtime_estate() -> Image.Image:
 
 
 def _check_reference() -> list[str]:
-    reference_path = ASSET_ROOT / REFERENCE
+    reference_path = qa_composite_path()
+    runtime_alias = ASSET_ROOT / "reference_full_estate.png"
+    if runtime_alias.is_file():
+        alias = (
+            runtime_alias.relative_to(ROOT)
+            if ROOT in runtime_alias.parents
+            else runtime_alias
+        )
+        return [
+            "[fail] "
+            f"{alias} is a QA composite inside the "
+            "runtime map folder and would ship in the Flutter bundle"
+        ]
     with Image.open(reference_path) as source:
         reference = source.convert("RGB")
     composed = _compose_runtime_estate().convert("RGB")
@@ -122,16 +145,77 @@ def _check_reference() -> list[str]:
 
 
 def _write_reference() -> None:
-    """Intentionally refreshes the QA reference from the approved layers."""
-    output = ASSET_ROOT / REFERENCE
+    """Intentionally refreshes the QA-only reference from the approved layers."""
+    output = qa_composite_path()
+    if output.parent != (ROOT / "assets_unused" / "pending_review"):
+        raise SystemExit("refusing to write the QA composite outside pending_review")
+    if ASSET_ROOT in output.parents or output.parent == ASSET_ROOT:
+        raise SystemExit("refusing to write the QA composite into the runtime map")
+    output.parent.mkdir(parents=True, exist_ok=True)
     _compose_runtime_estate().convert("RGB").save(output)
     print(f"[write] {output.relative_to(ROOT)} from runtime composition")
 
 
-def main() -> int:
-    if "--write-reference" in sys.argv[1:]:
+def _check_a1_runtime_states(*, required: bool) -> list[str]:
+    provenance = load_provenance()
+    expected = a1_expected_files(provenance)
+    hard_max = a1_hard_max_bytes(provenance)
+    geometry = camera_geometry(provenance)
+    present = [name for name in expected if (A1_RUNTIME_STATES_ROOT / name).is_file()]
+    if not present and not required:
+        return ["[pass] A1 runtime states are absent and were not promoted"]
+    lines: list[str] = []
+    missing = [name for name in expected if name not in present]
+    if missing:
+        lines.append(
+            "[fail] A1 runtime states must be promoted atomically; missing "
+            + ", ".join(missing)
+        )
+        return lines
+    for name in expected:
+        path = A1_RUNTIME_STATES_ROOT / name
+        with Image.open(path) as source:
+            image = source.copy()
+        errors: list[str] = []
+        if source_format(path) != "WEBP":
+            errors.append(f"format={source_format(path)}, expected=WEBP")
+        if image.mode not in {"RGB", "RGBA"}:
+            errors.append(f"mode={image.mode}, expected RGB")
+        if image.mode == "RGBA" and any(alpha != 255 for alpha in _corners(image)):
+            errors.append("A1 runtime states must be opaque RGB")
+        if image.size != (
+            geometry["canvas_width"],
+            geometry["canvas_height"],
+        ):
+            errors.append(
+                f"size={image.width}x{image.height}, expected="
+                f"{geometry['canvas_width']}x{geometry['canvas_height']}"
+            )
+        size_bytes = path.stat().st_size
+        if size_bytes > hard_max:
+            errors.append(f"bytes={size_bytes}, hardMax={hard_max}")
+        chroma = _chroma_key_count(image)
+        if chroma:
+            errors.append(f"contains {chroma} opaque #00ff00 chroma-key pixels")
+        relative = path.relative_to(ROOT)
+        if errors:
+            lines.append(f"[fail] {relative}: {'; '.join(errors)}")
+        else:
+            lines.append(f"[pass] {relative} {image.width}x{image.height} bytes={size_bytes}")
+    return lines
+
+
+def source_format(path: Path) -> str:
+    with Image.open(path) as source:
+        return (source.format or "").upper()
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = list(sys.argv[1:] if argv is None else argv)
+    if "--write-reference" in args:
         _write_reference()
         return 0
+    require_a1 = "--require-a1-states" in args
     problems = 0
     for relative, spec in SPECS.items():
         path = ASSET_ROOT / relative
@@ -143,12 +227,15 @@ def main() -> int:
             print(line)
             if line.startswith("[fail]"):
                 problems += 1
-    required = (*RUNTIME_LAYER_ORDER, REFERENCE)
-    if problems == 0 and all((ASSET_ROOT / relative).is_file() for relative in required):
+    if problems == 0 and all((ASSET_ROOT / relative).is_file() for relative in RUNTIME_LAYER_ORDER):
         for line in _check_reference():
             print(line)
             if line.startswith("[fail]"):
                 problems += 1
+    for line in _check_a1_runtime_states(required=require_a1):
+        print(line)
+        if line.startswith("[fail]"):
+            problems += 1
     return 1 if problems else 0
 
 
