@@ -28,6 +28,32 @@ A-8·A-9 로 남겼다.
 작업이 PR #63 으로 먼저 올라와 머지됐다(`2d375a53`). 내용이 사실상 같아 그쪽을
 살리고 이 브랜치는 포스터만 남겼다. #63 에 없던 테스트 가드 2개(shell 유일성 ·
 직접 쓴 3·5번 줄 문구 검사)는 따로 얹는다.
+### 2026-08-17 (Claude, Windows) — dev 서버 포트 고정 해제 (`.claude/launch.json`)
+
+**무엇.** `flutter-web` 구성의 `runtimeArgs`에서 `--web-port=8765`를 빼고 `autoPort: true`를
+넣었다. `port: 8765`는 남는다 — 고정 강제에서 선호 포트로 성격이 바뀐다. 8765가 비어 있으면
+전과 똑같이 8765를 잡고, 점유돼 있으면 빈 포트를 자동으로 잡는다.
+
+**왜.** Jin이 "이거 하나 남은거 왜 커밋안되고 있지?"라고 물었다. 메인 트리 working tree에
+이 변경이 커밋되지 않은 채 떠 있었다. 막힌 게 아니었다 — `git check-ignore` 미해당,
+`git ls-files -v`가 `H`(`skip-worktree`·`assume-unchanged` 아님), `.git/hooks`에 실제 훅 없음
+(`pre-commit.sample`뿐), `core.hooksPath` 미설정. 최근 작업이 전부 별도 worktree에서
+커밋됐고 이 변경만 메인 트리에서 직접 수정돼 어느 브랜치의 커밋 범위에도 들어간 적이 없다.
+변경 내용 자체는 worktree 10개가 병렬로 도는 환경에서 다른 세션이 8765를 이미 물고 있어
+dev 서버가 안 뜨는 문제를 푼다.
+
+**범위.** 앱 코드·테스트·빌드 산출물과 접점이 없다. 저장소 안에서 이 파일을 읽는 코드는 0건이고
+(worktree 전수 grep) 참조는 문서 4곳의 산문뿐이다. 실제 소비자는 저장소 밖의 하네스 실행
+도구다. 아래 "로컬 상태 파일 추적 해제" 항목에서 이 파일은 MCP 로컬 DB 같은 비추적 대상과
+달리 **의도된 공유 설정**으로 판단해 추적을 유지했고, 그 판단을 그대로 따른다.
+핸드오프 문서 두 곳(`HANDOFF_UI_OVERHAUL_2026-08-14.md:68`,
+`HANDOFF_UI_OVERHAUL_2_2026-08-14.md:427`)의 "8765"는 이제 고정값이 아니라 선호값이지만,
+당시 상태를 적은 과거 기록이라 고치지 않았다.
+
+**검증.** 위 4가지 git 상태 확인. 편집 후 JSON 파싱 통과. 테스트는 돌리지 않았다 —
+Dart 코드 경로와 접점이 없어 통과·실패가 이 변경에 대해 아무것도 말해주지 않는다.
+
+**커밋해시.** 이 로그와 같은 커밋. worktree `claude/launch-autoport-20260817`.
 
 ### 2026-08-17 (Claude, Windows) — Batch 10 수락·후속 질문을 장면별로 직접 씀
 
@@ -2014,6 +2040,24 @@ overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
 **검증.** `flutter test test/content_id_contract_test.dart
 test/data_integrity_test.dart test/scenario_quest_catalog_integrity_test.dart
 test/can_do_segment_asset_test.dart` **14/14**.
+
+### 2026-08-16 (Codex, Mac) — v2.0.6 App Store build 24 심사 교체 완료
+
+**무엇/왜.** 현재 심사 대기 중인 `2.0.6 (23)`을 대체할 새 심사용 IPA의 충돌 없는
+빌드 번호로 `pubspec.yaml` 버전을 `2.0.6+24`로 올렸다. 기존 `2.0.5+22`는 이전 App
+Store Connect 업로드 번호라 재사용할 수 없고, 23은 심사 대기 상태라 덮어쓰지 않는다.
+
+**검증/커밋.** `FREE_LAUNCH=1`으로 Firebase iOS·iOS/iPad 스토어 계약과 Korean OCR Pod
+게이트를 통과했고, 자동 서명 archive가 `Hangul Sori 2.0.6 (24)`·iOS 15.5·bundle ID
+`com.sujinarin.koLernenApp`을 확인했다. IPA(`185MB`) SHA-256은
+`464768078d62387eded034e7d5cbd95dcc60095395b6261c01acf7b4c10b87d4`이며, App Store
+Connect `validate-app` 오류 0과 `upload-app` 성공(Delivery UUID
+`84789cc3-cb45-4b2c-9332-a0aafa6a1127`)을 확인했다. 영구 사본은
+`~/Developer/release_artifacts/hangul-sori-2.0.6-24-cebc4204/`에 보관했다. TestFlight에서
+23의 베타 심사만 철회했고(빌드는 무효화하지 않음), 24를 외부 `Habdichlieb` 그룹에 연결해
+자동 테스터 알림을 켠 뒤 다시 제출했다. 최종 화면은 24=`심사 대기 중`, 23=`제출 준비 완료`로
+확인했다. 이는 TestFlight 베타 심사이며 App Store 정식 심사는 아직 생성하지 않았다. Jin의 별도
+commit/push 지시가 없어 이 버전 변경과 로그는 미커밋으로 둔다.
 
 ### 2026-08-16 (Cursor) — 첫 공항 5문항 `모르겠어요` DE/EN·무점수 재확인
 

@@ -204,6 +204,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
 
         catalog = {row[0]: (row[3], row[4], row[5]) for row in builder.scenario_catalog()}
         dialogs: dict[tuple[str, ...], str] = {}
+        shells: dict[tuple[str, ...], str] = {}
         generic_hits = 0
         for ident, seed in SEEDS.items():
             title = catalog[ident]
@@ -213,6 +214,11 @@ class Batch10KoreanQualityTest(unittest.TestCase):
             full = tuple(line["ko"] for line in dialog)
             self.assertNotIn(full, dialogs, f"{ident} reuses dialog of {dialogs.get(full)}")
             dialogs[full] = ident
+            # Whole-dialog uniqueness passes as soon as one authored line differs,
+            # so it cannot see two scenes sharing all five shell lines. Check the
+            # shell on its own — that is the part a generator flattens first.
+            self.assertNotIn(shell, shells, f"{ident} reuses shell of {shells.get(shell)}")
+            shells[shell] = ident
             if shell == GENERIC_SERVICE_SHELL:
                 generic_hits += 1
             # Generated frame lines never paste the scene title. The authored
@@ -232,6 +238,17 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                     self.assertNotIn(leftover, triple[1], f"{ident} {slot} {triple[1]}")
                 for leftover in HUMANIZER_SHELL_EN:
                     self.assertNotIn(leftover, triple[2], f"{ident} {slot} {triple[2]}")
+            # The authored take (3) and probe (5) lines answer to the same copy
+            # standard as the generated frame lines — they are spoken too, and
+            # nothing else checks them.
+            for index in (3, 5):
+                spoken = dialog[index]
+                for leftover in HUMANIZER_SHELL_KO:
+                    self.assertNotIn(leftover, spoken["ko"], f"{ident} line {index}")
+                for leftover in HUMANIZER_SHELL_DE:
+                    self.assertNotIn(leftover, spoken["de"], f"{ident} line {index}")
+                for leftover in HUMANIZER_SHELL_EN:
+                    self.assertNotIn(leftover, spoken["en"], f"{ident} line {index}")
             for field in ("need", "ask", "wait"):
                 spoken_en = seed[field][2]
                 self.assertNotIn("Shall I", spoken_en, f"{ident} {field}")
@@ -240,6 +257,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                 self.assertNotIn("in advance", spoken_en, f"{ident} {field}")
                 self.assertNotIn("Bitte prüfen", seed[field][1], f"{ident} {field}")
         self.assertEqual(len(dialogs), 174)
+        self.assertEqual(len(shells), 174)
         self.assertEqual(generic_hits, 0)
 
 
