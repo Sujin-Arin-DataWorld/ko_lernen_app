@@ -92,6 +92,47 @@ class UxPreviewRegistry {
         onRepeat: _ignore,
       ),
     ),
+    '02E' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _airportArrivalScenario,
+        stage: ScenarioStage.quest,
+        questIndex: 0,
+      ),
+    ),
+    '02F' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _airportArrivalScenario,
+        stage: ScenarioStage.quest,
+        questIndex: 1,
+      ),
+    ),
+    '02G' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _airportArrivalScenario,
+        stage: ScenarioStage.quest,
+        questIndex: 2,
+      ),
+    ),
+    '02H' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _airportArrivalScenario,
+        stage: ScenarioStage.quest,
+        questIndex: 3,
+      ),
+    ),
+    '02I' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _airportArrivalScenario,
+        stage: ScenarioStage.quest,
+        questIndex: 4,
+      ),
+    ),
+    '02J' => ScenarioPlayerScreen.preview(
+      fixture: ScenarioPlayerPreviewFixture.action(
+        scenario: _businessMeetingIntroScenario,
+        stage: ScenarioStage.rollenspiel,
+      ),
+    ),
     '03A' => _earlyHanok(),
     '03B' => _hanokMap(),
     '03C' => _sarangbang(),
@@ -480,6 +521,135 @@ const _lessSpicyScenario = Scenario(
       },
     ),
   ],
+);
+
+const _airportArrivalScenario = Scenario(
+  id: 'airport_arrival',
+  level: LearnerLevel.a1,
+  emoji: '✈️',
+  register: Register.polite,
+  title: LocalizedText(
+    ko: '공항에서 입국심사',
+    de: 'Einreise am Flughafen',
+    en: 'Airport immigration',
+  ),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [],
+  quests: [
+    QuestSpec(
+      type: QuestType.hoerverstehen,
+      data: {
+        'audioKo': '한국 처음이세요?',
+        'options': [
+          {'de': 'Erstes Mal in Korea?', 'en': 'First time in Korea?'},
+          {'de': 'Wie lange bleiben Sie?', 'en': 'How long are you staying?'},
+          {'de': 'Wo kommen Sie her?', 'en': 'Where are you from?'},
+          {
+            'de': 'Sind Sie geschäftlich hier?',
+            'en': 'Are you here on business?',
+          },
+        ],
+        'correctIndex': 0,
+      },
+    ),
+    QuestSpec(
+      type: QuestType.luecken,
+      data: {
+        'sentence': '한국 처음___?',
+        'options': ['이세요', '이에요', '예요', '이요'],
+        'correctIndex': 0,
+      },
+    ),
+    QuestSpec(
+      type: QuestType.uebersetzen,
+      data: {
+        'promptDe': 'Eine Woche.',
+        'promptEn': 'A week.',
+        'options': [
+          {'ko': '일주일이요.'},
+          {'ko': '처음이에요.'},
+          {'ko': '관광이에요.'},
+          {'ko': '여권이요.'},
+        ],
+        'correctIndex': 0,
+      },
+    ),
+    QuestSpec(
+      type: QuestType.satzBauen,
+      data: {
+        'targetKo': '안녕하세요. 처음 뵙겠습니다.',
+        'promptDe': 'Begrüße eine unbekannte Person sicher.',
+        'promptEn': 'Greet a new person safely.',
+        'distractors': ['여권 보여 주세요', '일주일이요', '관광이에요'],
+        'audioKo': '안녕하세요. 처음 뵙겠습니다.',
+      },
+    ),
+    QuestSpec(
+      type: QuestType.diktat,
+      data: {
+        'targetKo': '여권 보여주세요.',
+        'audioKo': '여권 보여주세요.',
+        'promptDe': 'Bitte Ihren Pass.',
+        'promptEn': 'Passport, please.',
+      },
+    ),
+  ],
+);
+
+const _businessMeetingIntroScenario = Scenario(
+  id: 'business_meeting_intro',
+  level: LearnerLevel.b2,
+  emoji: '💼',
+  register: Register.business,
+  title: LocalizedText(
+    ko: '비즈니스 미팅 — 첫 인사',
+    de: 'Vorstellung beim Geschäftsmeeting',
+    en: 'Business meeting: first introduction',
+  ),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [
+    DialogLine(
+      speaker: 'minsu',
+      ko: '어서 오세요. 먼 길 오셨네요. 저는 김은수라고 합니다. 프로젝트 총괄 담당입니다.',
+      de: 'Herzlich willkommen. Mein Name ist Kim Eun-su.',
+      en: 'Welcome. My name is Kim Eun-su.',
+    ),
+    DialogLine(
+      speaker: 'user',
+      ko: '처음 뵙겠습니다. 명함 드려도 될까요?',
+      de: 'Freut mich sehr, Sie kennenzulernen. Darf ich Ihnen meine Visitenkarte überreichen?',
+      en: 'Very pleased to meet you. May I give you my business card?',
+    ),
+    DialogLine(
+      speaker: 'minsu',
+      ko: '감사합니다. 저도 드릴게요. 어떤 분야를 담당하고 계세요?',
+      de: 'Danke: hier ist auch meine.',
+      en: "Thank you: here's mine as well.",
+    ),
+    DialogLine(
+      speaker: 'user',
+      ko: '저는 해외 마케팅을 담당하고 있습니다.',
+      de: 'Ich bin für internationales Marketing zuständig.',
+      en: 'I handle international marketing.',
+    ),
+    DialogLine(
+      speaker: 'minsu',
+      ko: '좋습니다. 이번 프로젝트 제안서 검토해 보셨나요?',
+      de: 'Haben Sie die Projektunterlagen bereits durchgesehen?',
+      en: 'Have you had a chance to look through the project proposal?',
+    ),
+    DialogLine(
+      speaker: 'user',
+      ko: '네, 읽어봤습니다.',
+      de: 'Ja, ich habe sie gelesen.',
+      en: "Yes, I've read them.",
+    ),
+  ],
+  quests: [],
 );
 
 final _lessSpicyAssessLink = ContentLink(

@@ -5065,7 +5065,16 @@ class AppL10nDe extends AppL10n {
       'Tippe die Wörter in der richtigen Reihenfolge an';
 
   @override
-  String get questCheckAnswer => 'Überprüfen';
+  String get questCheckAnswer => 'Antwort prüfen';
+
+  @override
+  String get questReplayAudio => 'Erneut anhören';
+
+  @override
+  String get questBuildAnswerLabel => 'Deine Antwort bauen';
+
+  @override
+  String get questEmptyAnswerSlot => 'Leerer Antwortplatz';
 
   @override
   String get diktatInstruction => 'Hör zu und tippe, was du hörst';

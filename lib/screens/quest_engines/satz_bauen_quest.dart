@@ -6,9 +6,6 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
-import '../../widgets/sori/mascot.dart';
-import '../../widgets/sori/mascot_pop.dart';
-import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/tts_speed_control.dart';
@@ -49,7 +46,7 @@ class SatzBauenQuest extends StatefulWidget {
     required this.onComplete,
     this.onContinue,
     this.isLast = false,
-    this.showMascot = true,
+    this.showMascot = false,
     this.compact = false,
     this.showSpeedControl = true,
     this.allowDontKnow = false,
@@ -235,7 +232,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   int _tries = 0;
   String? _punct;
   bool _completed = false;
-  bool _celebrated = false;
   bool _wrong = false; // letzte Prüfung war falsch → Hinweis anzeigen
   int _mismatchIdx = -1;
   SatzError _diag = SatzError.none;
@@ -359,7 +355,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
-        _celebrated = true;
         _wrong = false;
         _mismatchIdx = -1;
       });
@@ -436,82 +431,19 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
     // 유한 높이에서는 문제 내용만 내부 스크롤하고 CTA는 엄지 영역에 고정한다.
     // 무한 높이 부모에서는 flex를 쓰지 않고 자연 높이로 흘려 기존 임베드 호출도
-    // 안전하게 유지한다. 역할극은 마스코트를 끄고 compact 모드를 사용한다.
-    final promptStyle = SoriTextTheme.of(context).body.copyWith(
-      fontSize: widget.compact ? 16 : 18,
-      fontWeight: FontWeight.w600,
-      height: 1.35,
-    );
+    // 안전하게 유지한다.
     final sectionGap = widget.compact ? Spacing.sm : Spacing.md;
+    final slotCount =
+        SatzBauenQuest.tokenize(_targetKo).length + (_punct != null ? 1 : 0);
 
     final exerciseBody = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Prompt and audio tools form one compact, readable block. The
-        // speed chip is intentionally inline: learners should never have
-        // to leave the exercise for Settings just to slow the sentence.
-        Semantics(
-          button: _audioKo.isNotEmpty,
-          label: _audioKo.isNotEmpty ? t.vocabPackBossReplayAudio : null,
-          child: SoriPressable(
-            onTap: _audioKo.isEmpty ? null : _playTts,
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(widget.compact ? 14 : 18),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
-                border: Border.all(
-                  color: _audioKo.isEmpty
-                      ? s.border
-                      : SoriColors.primary.withValues(alpha: 0.55),
-                  width: _audioKo.isEmpty ? 1 : 1.5,
-                ),
-                boxShadow: _audioKo.isEmpty
-                    ? null
-                    : [
-                        BoxShadow(
-                          color: SoriColors.primary.withValues(alpha: 0.08),
-                          blurRadius: 10,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(_prompt(langCode), style: promptStyle),
-                  if (_audioKo.isNotEmpty) ...[
-                    const SizedBox(height: Spacing.sm),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.volume_up_rounded,
-                          color: SoriColors.primary,
-                          size: 19,
-                        ),
-                        const SizedBox(width: Spacing.xs),
-                        Expanded(
-                          child: Text(
-                            t.vocabPackBossReplayAudio,
-                            style: SoriTextTheme.of(context).caption.copyWith(
-                              color: SoriColors.primary,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        const Icon(
-                          Icons.touch_app_rounded,
-                          color: SoriColors.primary,
-                          size: 18,
-                        ),
-                      ],
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
+        SoriPromptCard(
+          key: const ValueKey('quest-prompt-card'),
+          sentence: _prompt(langCode),
+          onReplay: _audioKo.isEmpty ? null : _playTts,
+          compact: widget.compact,
         ),
         if (_audioKo.isNotEmpty && widget.showSpeedControl) ...[
           const SizedBox(height: Spacing.xs),
@@ -522,40 +454,34 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         ],
         SizedBox(height: sectionGap),
         Text(
+          t.questBuildAnswerLabel,
+          style: SoriTextTheme.of(
+            context,
+          ).label.copyWith(color: s.text, fontWeight: FontWeight.w700),
+        ),
+        SizedBox(height: Spacing.xs),
+        Text(
           t.questSatzBauenInstruction,
           style: TextStyle(color: s.textMuted, fontSize: 14),
         ),
         SizedBox(height: sectionGap),
-
-        // Antwort-Bereich (gebaute Reihenfolge).
         SoriAnswerTray(
           minHeight: widget.compact ? 72 : 96,
           accent: revealedOk
               ? SoriColors.success
               : (_wrong ? SoriColors.danger : SoriColors.primary),
-          child: _answer.isEmpty
-              ? Center(
-                  child: Text(
-                    '…',
-                    style: TextStyle(color: s.textDim, fontSize: 22),
-                  ),
-                )
-              : Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    for (var i = 0; i < _answer.length; i++)
-                      _buildTile(
-                        _answer[i],
-                        s,
-                        inAnswer: true,
-                        highlightWrong: _wrong && i == _mismatchIdx,
-                        highlightOk: revealedOk,
-                      ),
-                  ],
-                ),
+          slotCount: slotCount,
+          tiles: [
+            for (var i = 0; i < _answer.length; i++)
+              _buildTile(
+                _answer[i],
+                s,
+                inAnswer: true,
+                highlightWrong: _wrong && i == _mismatchIdx,
+                highlightOk: revealedOk,
+              ),
+          ],
         ),
-        // Diagnose-Feedback (warum falsch).
         SizedBox(
           height: widget.compact ? 20 : 24,
           child: (_wrong && !_completed && _diag != SatzError.none)
@@ -570,15 +496,27 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
               : const SizedBox.shrink(),
         ),
         SizedBox(height: sectionGap),
-
-        // Wort-Bank.
-        Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          alignment: WrapAlignment.center,
-          children: [
-            for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
-          ],
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final columns = constraints.maxWidth < SoriBreakpoints.narrowPhone
+                ? 3
+                : 4;
+            if (_bank.isEmpty) {
+              return const SizedBox.shrink();
+            }
+            return GridView.count(
+              crossAxisCount: columns,
+              childAspectRatio: 1.9,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              children: [
+                for (final tile in _bank)
+                  _buildTile(tile, s, inAnswer: false, expand: true),
+              ],
+            );
+          },
         ),
       ],
     );
@@ -608,29 +546,8 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       ],
     );
 
-    return Stack(
-      clipBehavior: Clip.none,
-      fit: StackFit.passthrough,
-      children: [
-        LayoutBuilder(
-          builder: (_, c) => content(pinBottom: c.maxHeight.isFinite),
-        ),
-        // Keep the deliberate overhang outside the short-height scroll view;
-        // otherwise SingleChildScrollView clips the mascot above the card.
-        if (widget.showMascot)
-          Positioned(
-            top: -78,
-            right: 12,
-            child: MascotPartner(
-              celebrating: _celebrated,
-              size: 96,
-              kind: MascotKind.magpie,
-              // 기존 viewport-fit 결과를 화면 정중앙에서 정확히 6배 확대.
-              burstScale: 6,
-              burstOrigin: Alignment.center,
-            ),
-          ),
-      ],
+    return LayoutBuilder(
+      builder: (_, c) => content(pinBottom: c.maxHeight.isFinite),
     );
   }
 
@@ -640,15 +557,15 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     required bool inAnswer,
     bool highlightWrong = false,
     bool highlightOk = false,
+    bool expand = false,
   }) {
-    // 태블릿에서 단어 타일이 폰과 똑같이 18pt/18×13 고정이라 "게임창이 너무
-    // 작다"가 됐다. 학습 화면 전용 확대 램프를 그대로 쓴다(폰 ≤600dp = 1.0).
     final scale = soriStudyScale(MediaQuery.sizeOf(context).width);
 
     return SoriWordTile(
       label: tile.text,
       scale: scale,
       compact: widget.compact,
+      expand: expand,
       state: highlightWrong
           ? SoriWordTileState.wrong
           : highlightOk

@@ -95,6 +95,99 @@ live 래칫용 particlePop+satzBauen을 넣었다. 카운트 테스트·can-do
 
 **커밋해시.** 이 로그와 같은 커밋.
 
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티 PR을 ready로 올림
+
+**무엇.** `#61`을 draft에서 ready로 바꿨다. 직전 push의 CI는 draft라
+Analyze & Build를 건너뛰었다. `pull_request` 기본 타입에
+`ready_for_review`가 없고, 세션 로그만으로는 path filter가 run을
+안 만든다. 빈 슬롯 Semantics를 ARB `questEmptyAnswerSlot`로 옮겨
+앱 변경 synchronize를 연다.
+
+**왜.** Jin이 CI 출처를 물었고, selector 초록을 Flutter CI로 쓰면 안 된다.
+
+**검증.** 이 push 뒤 Analyze & Build가 head SHA에서 도는지 확인.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티를 최신 main에 병합
+
+**무엇.** `origin/main`을 `cursor/scenario-ui-parity-132b`에 병합했다.
+SESSION_LOG는 양쪽 항목을 유지했다. `batchim`은 문항별 까치를 넣지 않고
+main의 공개 정답 강조색(`_resolvedAccent` = warning)만 받았다.
+
+**왜.** PR이 main보다 뒤처져 mergeable_state=dirty였다.
+
+**검증.** 충돌 3파일 해소 후 관련 위젯 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 선택 타일 대비 계측 제거
+
+**무엇.** `SoriWordTile.debugSink`와 테스트의 `/opt/cursor/logs/debug.log`
+쓰기를 제거했다. 선택 타일 채움(`primarySoft`)은 그대로다. 시맨틱스·
+프롬프트/슬롯 두 위젯 테스트는 유지하고, 라이트 테마에서 선택 타일
+대비가 4.5:1을 넘는지만 기존 시맨틱스 테스트에 한 줄로 고정했다.
+
+**왜.** 런타임 로그에서 라이트 대비는 13.87:1로 읽혔다. 출시 앱은
+`themeMode: ThemeMode.light`이고 `darkTheme`도 `AppTheme.lightFor`라
+다크 대비는 사용자 경로가 아니다. 채움을 바꾸지 말라는 요청을 따랐다.
+
+**검증.** `flutter test test/sori_quest_frame_test.dart`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티 테스트 후속
+
+**무엇.** 첫 패리티 커밋 뒤 위젯 테스트 3곳을 맞췄다. `SoriWordTile`은
+자식 `Text`를 `ExcludeSemantics`로 가려 라벨이 `"안녕, Selected"`만 남게
+했다. `batchim`은 `disableAnimations`일 때 200ms 플래시를 건너뛴다.
+TTS row는 Tempo 라벨을 위줄에 두고 0.8× 포함 6칩을 480dp 한 줄에 둔다.
+문장조립 그리드 폭 분기는 `SoriBreakpoints.narrowPhone`을 쓴다.
+
+**왜.** Semantics 병합·받침 지연·듣기 600dp Wrap이 회귀를 깨뜨렸다.
+
+**검증.** 로컬 전체 `flutter test` 3894 passed / 2 skipped.
+변경 경로 `flutter analyze --fatal-infos` 무결. 저장소 전체 analyze는
+main의 `word_relation_service.dart` info 1건으로 `--fatal-infos` 실패
+(이 PR 밖). `flutter build web --release` 성공. `flutter build apk
+--debug`는 이 환경에 Android SDK가 없어 못 돌림. `git diff --check`
+깨끗. CI는 billing 차단이라 로컬 결과를 CI 성공으로 쓰지 않음. 실기기
+TTS·키보드 inset은 Jin 게이트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 시나리오 문제 UI 계약 마감 + 목업 프레임
+
+**무엇.** Codex `ca8e82d9` 재설계는 이미 main/기기에 있다. 이 작업은 남은
+계약 갭(G1–G7)과 Jin이 승인한 1번 목업 시각 패리티(B1–B8)를 닫는다.
+한국어 문장·정답·점수·XP·SRS·코스 증거·라우트·`scenarios.json`·Firebase
+스키마는 그대로다.
+
+- G1/B8: 4개 엔진의 문항별 `MascotPartner`와 롤플레이 중간 축하 클립 제거.
+  최종 결과의 `SoriCelebration.burst`만 남김.
+- G2: `SoriWordTile`에 selected/correct/wrong 아이콘+Semantics. `particle_pop`에
+  wrong 상태와 `disableAnimations` 분기.
+- G3/B2: 포스터 `scenarioPosterHeight` — 짧은 화면/큰 글자 72·96, 그 외
+  `height*0.24`를 120–240으로 clamp. 하단만 라운드.
+- G4/B1: 퀘스트·롤플레이 헤더를 제목 중앙 + `n von N` + 분절바로 통일.
+  본문의 `Deine Antwort n/N` 분절바 제거.
+- G5: UX Gallery `02E`–`02I`(공항 1–5) + `02J`(비즈니스 롤플레이 1/3).
+- G6/B7: `questCheckAnswer` = "Antwort prüfen" / "Check answer".
+- B3: `SoriPromptCard` + `questReplayAudio`. 롤플레이는 사용자 DE 프롬프트.
+- B4: 🎭 `Rollenspiel` 행 + TTS 프리셋 **0.8**.
+- B5: `questBuildAnswerLabel` + 점선 슬롯 트레이.
+- B6: 3/4열 단어 그리드, 녹청 1.5dp 아웃라인.
+- G7: 7엔진 선택 전 비활성·첫 오답 힌트·두 번째 공개, 반응형 7엔진+롤플레이,
+  애니메이션 on, 온보딩 중간 종료 미저장.
+
+**왜.** 목업 문구(`Deine Antwort bauen`, `Antwort prüfen`, 0.8×)와 대형 포스터는
+원래 코드 렌더가 아니라 계획 밖 시안이었다. Jin이 A+B 모두 닫으라고 했다.
+
+**검증.** 후속 커밋에서 전체 직렬 테스트·web 빌드까지 닫음. 상세는
+바로 위 2026-08-17 후속 항목.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
 
 **왜.** Jin: "한옥 짓기 콘텐츠를 대충 만들 생각 없다 — 비바샘·서울한옥포털·hanokdb 세 사이트를 이잡듯이 뒤져서

@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
-import '../../widgets/sori/mascot_pop.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
@@ -51,7 +49,6 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   int? _selected;
   int _tries = 0;
   bool _completed = false;
-  bool _celebrated = false;
   bool _wrongFlash = false;
   bool _showExplanation = false;
   bool _passed = false;
@@ -178,15 +175,17 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     _tries++;
     final isCorrect = idx == _correctIndex;
 
+    final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
       HapticFeedback.heavyImpact();
       setState(() {
         _selected = idx;
         _completed = true;
         _passed = true;
-        _celebrated = true;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 200));
+      if (!instant) {
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+      }
       if (mounted) setState(() => _showExplanation = true);
       _report(true);
     } else {
@@ -194,23 +193,26 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
       SoundService.wrong();
       setState(() {
         _selected = idx;
-        _wrongFlash = true;
+        _wrongFlash = !instant;
       });
-      await Future<void>.delayed(const Duration(milliseconds: 200));
-      if (mounted) setState(() => _wrongFlash = false);
+      if (!instant) {
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (mounted) setState(() => _wrongFlash = false);
+      }
 
       if (_tries >= 2) {
-        // 2회 틀림 → 정답 자동 표시
         setState(() {
           _selected = _correctIndex;
           _completed = true;
           _passed = false;
+          _wrongFlash = false;
         });
-        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (!instant) {
+          await Future<void>.delayed(const Duration(milliseconds: 200));
+        }
         if (mounted) setState(() => _showExplanation = true);
         _report(false);
       } else {
-        // 1회 틀림: chip 선택 상태 해제해서 다시 선택 가능하게
         setState(() => _selected = null);
       }
     }
@@ -385,77 +387,63 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
         onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
-      content: Stack(
-        clipBehavior: Clip.none,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // TTS 재생 버튼
-              Center(
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        HapticFeedback.lightImpact();
-                        TtsService.speak(_audioKo);
-                      },
-                      child: Container(
-                        width: 84,
-                        height: 84,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: SoriColors.info,
-                          boxShadow: [
-                            BoxShadow(
-                              color: SoriColors.info.withAlpha(80),
-                              blurRadius: 16,
-                              spreadRadius: 2,
-                            ),
-                          ],
+          // TTS 재생 버튼
+          Center(
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                    TtsService.speak(_audioKo);
+                  },
+                  child: Container(
+                    width: 84,
+                    height: 84,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SoriColors.info,
+                      boxShadow: [
+                        BoxShadow(
+                          color: SoriColors.info.withAlpha(80),
+                          blurRadius: 16,
+                          spreadRadius: 2,
                         ),
-                        child: const Icon(
-                          Icons.volume_up_rounded,
-                          color: Colors.white,
-                          size: 36,
-                        ),
-                      ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      _targetWord,
-                      style: TextStyle(
-                        color: s.textMuted,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    child: const Icon(
+                      Icons.volume_up_rounded,
+                      color: Colors.white,
+                      size: 36,
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 28),
-
-              // 음절 표시
-              SoriAnswerTray(
-                minHeight: 104,
-                accent: _completed ? _resolvedAccent : SoriColors.primary,
-                child: _buildSyllableRow(s),
-              ),
-              const SizedBox(height: 28),
-
-              // 받침 chip 4개
-              _buildChips(s),
-            ],
-          ),
-          Positioned(
-            top: -12,
-            right: 12,
-            child: MascotPartner(
-              celebrating: _celebrated,
-              size: 56,
-              kind: MascotKind.magpie,
+                const SizedBox(height: 8),
+                Text(
+                  _targetWord,
+                  style: TextStyle(
+                    color: s.textMuted,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
           ),
+          const SizedBox(height: 28),
+
+          // 음절 표시
+          SoriAnswerTray(
+            minHeight: 104,
+            accent: _completed ? _resolvedAccent : SoriColors.primary,
+            child: _buildSyllableRow(s),
+          ),
+          const SizedBox(height: 28),
+
+          // 받침 chip 4개
+          _buildChips(s),
         ],
       ),
     );

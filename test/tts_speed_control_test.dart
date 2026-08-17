@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 
 Widget _wrap(Widget child) => MaterialApp(
@@ -39,6 +40,7 @@ void main() {
     );
     expect(find.text('0.5×'), findsOneWidget);
     expect(find.text('0.75×'), findsOneWidget);
+    expect(find.text('0.8×'), findsOneWidget);
     expect(find.text('1×'), findsOneWidget);
     expect(find.text('1.25×'), findsOneWidget);
     expect(find.text('1.5×'), findsOneWidget);
@@ -98,5 +100,33 @@ void main() {
     await tester.tap(find.text('1.25×'));
     await tester.pump();
     expect(changed, 1.25);
+  });
+
+  testWidgets('row mode keeps six presets on one line in a 480dp column', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(480, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        const Padding(
+          padding: EdgeInsets.all(12),
+          child: TtsSpeedControl(mode: TtsSpeedControlMode.row),
+        ),
+      ),
+    );
+
+    Finder chip(String label) => find.byWidgetPredicate(
+      (widget) => widget is SoriChip && widget.label == label,
+    );
+    const labels = ['0.5×', '0.75×', '0.8×', '1×', '1.25×', '1.5×'];
+    final top = tester.getTopLeft(chip(labels.first)).dy;
+    for (final label in labels) {
+      expect(chip(label), findsOneWidget);
+      expect(tester.getTopLeft(chip(label)).dy, closeTo(top, 0.1));
+    }
   });
 }

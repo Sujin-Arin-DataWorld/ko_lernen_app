@@ -60,7 +60,7 @@ void main() {
       registry.panelIds,
       uxPreviewPanels.map((panel) => panel.id).toList(),
     );
-    expect(registry.panelIds.toSet(), hasLength(24));
+    expect(registry.panelIds.toSet(), hasLength(30));
 
     final expectedTypes = <String, Type>{
       '01A': ConsentScreen,
@@ -71,6 +71,12 @@ void main() {
       '02B': CourseMissionScreen,
       '02C': ScenarioPlayerScreen,
       '02D': ScenarioPlayerScreen,
+      '02E': ScenarioPlayerScreen,
+      '02F': ScenarioPlayerScreen,
+      '02G': ScenarioPlayerScreen,
+      '02H': ScenarioPlayerScreen,
+      '02I': ScenarioPlayerScreen,
+      '02J': ScenarioPlayerScreen,
       '03A': HanokWorldScreen,
       '03B': HanokWorldScreen,
       '03C': SarangbangStudyScreen,
@@ -211,14 +217,16 @@ void main() {
       expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
       expect(find.text('감사합니다.'), findsOneWidget);
 
-      final check = find.text('Überprüfen');
+      final check = find.text('Antwort prüfen');
       expect(check, findsOneWidget);
       expect(find.text('Weiter'), findsNothing);
       await tester.tap(find.text('안 맵게 해 주세요.'));
       await tester.pump();
       expect(
         tester
-            .widget<SoriButton>(find.widgetWithText(SoriButton, 'Überprüfen'))
+            .widget<SoriButton>(
+              find.widgetWithText(SoriButton, 'Antwort prüfen'),
+            )
             .onTap,
         isNotNull,
       );
@@ -232,6 +240,27 @@ void main() {
       expect(Storage.userLevelCode, isNull);
     },
   );
+
+  testWidgets('02J paints the roleplay mockup frame', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const UxPreviewApp(initialPanelId: '02J'));
+    await tester.pump();
+
+    expect(find.text('Vorstellung beim Geschäftsmeeting'), findsWidgets);
+    expect(find.text('1 von 3'), findsOneWidget);
+    expect(find.text('Rollenspiel'), findsOneWidget);
+    expect(find.text('Deine Antwort bauen'), findsOneWidget);
+    expect(find.text('Antwort prüfen'), findsOneWidget);
+    expect(find.text('Erneut anhören'), findsOneWidget);
+    expect(
+      find.textContaining('Darf ich Ihnen meine Visitenkarte überreichen?'),
+      findsOneWidget,
+    );
+  });
 
   testWidgets(
     'representative actions stay inside the no-write preview boundary',

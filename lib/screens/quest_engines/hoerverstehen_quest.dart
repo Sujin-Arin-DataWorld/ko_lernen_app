@@ -155,9 +155,10 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            question.isEmpty ? t.questListeningQuestion : question,
-            style: SoriTextTheme.of(context).h2,
+          SoriPromptCard(
+            key: const ValueKey('quest-audio'),
+            sentence: question.isEmpty ? t.questListeningQuestion : question,
+            onReplay: widget.audioEnabled ? _playTts : null,
           ),
           if (instruction.isNotEmpty) ...[
             const SizedBox(height: Spacing.xs),
@@ -168,32 +169,6 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               ).bodySmall.copyWith(color: surfaces.textMuted),
             ),
           ],
-          const SizedBox(height: Spacing.lg),
-          Center(
-            child: Semantics(
-              button: true,
-              label: t.vocabPackBossReplayAudio,
-              child: InkResponse(
-                key: const ValueKey('quest-audio'),
-                radius: 52,
-                onTap: _playTts,
-                child: Container(
-                  width: 88,
-                  height: 88,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: SoriColors.primary.withAlpha(24),
-                    border: Border.all(color: SoriColors.primary, width: 2),
-                  ),
-                  child: const Icon(
-                    Icons.volume_up_rounded,
-                    color: SoriColors.primary,
-                    size: 42,
-                  ),
-                ),
-              ),
-            ),
-          ),
           const SizedBox(height: Spacing.lg),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(

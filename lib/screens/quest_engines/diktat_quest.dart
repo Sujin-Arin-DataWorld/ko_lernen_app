@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
-import '../../widgets/sori/mascot.dart';
-import '../../widgets/sori/mascot_pop.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -239,7 +237,6 @@ class _DiktatQuestState extends State<DiktatQuest> {
   final TextEditingController _ctrl = TextEditingController();
   int _tries = 0;
   bool _completed = false;
-  bool _celebrated = false;
   bool _showMeaning = false;
   bool _wordBankMode = false;
   final List<String> _selectedTokens = [];
@@ -325,7 +322,6 @@ class _DiktatQuestState extends State<DiktatQuest> {
       HapticFeedback.lightImpact();
       setState(() {
         _completed = true;
-        _celebrated = true;
         _feedback = _Feedback.correct;
       });
       widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
@@ -405,190 +401,174 @@ class _DiktatQuestState extends State<DiktatQuest> {
             : null,
         onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
-      content: Stack(
-        clipBehavior: Clip.none,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          Text(
+            t.diktatInstruction,
+            style: TextStyle(color: s.textMuted, fontSize: 13),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: Spacing.md),
+
+          // Audio: normal + langsam.
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                t.diktatInstruction,
-                style: TextStyle(color: s.textMuted, fontSize: 13),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: Spacing.md),
-
-              // Audio: normal + langsam.
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: _playTts,
-                    child: Container(
-                      width: 84,
-                      height: 84,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: SoriColors.info.withAlpha(26),
-                        border: Border.all(color: SoriColors.info, width: 2),
-                      ),
-                      child: const Icon(
-                        Icons.volume_up_rounded,
-                        color: SoriColors.info,
-                        size: 40,
-                      ),
-                    ),
+              GestureDetector(
+                onTap: _playTts,
+                child: Container(
+                  width: 84,
+                  height: 84,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: SoriColors.info.withAlpha(26),
+                    border: Border.all(color: SoriColors.info, width: 2),
                   ),
-                  const SizedBox(width: Spacing.lg),
-                  GestureDetector(
-                    onTap: _playSlow,
-                    child: Container(
-                      width: 56,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: s.surface,
-                        border: Border.all(color: s.surfaceAlt, width: 1.5),
-                      ),
-                      child: Icon(
-                        Icons.slow_motion_video_rounded,
-                        color: s.textMuted,
-                        size: 26,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.xl),
-
-              // Eingabefeld (Koreanisch).
-              if (_wordBankMode)
-                _WordBankInput(
-                  selectedTokens: _selectedTokens,
-                  availableTokens: _targetTokens,
-                  enabled: !_completed,
-                  borderColor: fieldBorder,
-                  onAdd: _addToken,
-                  onRemove: _removeToken,
-                )
-              else
-                TextField(
-                  controller: _ctrl,
-                  enabled: !_completed,
-                  autocorrect: false,
-                  enableSuggestions: false,
-                  textInputAction: TextInputAction.done,
-                  onSubmitted: (_) => _check(),
-                  onChanged: (_) => setState(() {}),
-                  style: TextStyle(
-                    color: s.text,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  decoration: InputDecoration(
-                    hintText: '…',
-                    hintStyle: TextStyle(color: s.textDim),
-                    filled: true,
-                    fillColor: s.surface,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 14,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      borderSide: BorderSide(color: fieldBorder, width: 2.2),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                    ),
-                  ),
-                ),
-              const SizedBox(height: Spacing.sm),
-
-              // Feedback-Zeile.
-              SizedBox(
-                height: 22,
-                child:
-                    (_feedback == _Feedback.spacing ||
-                        _feedback == _Feedback.spelling)
-                    ? Text(
-                        _feedback == _Feedback.spacing
-                            ? t.diktatSpacingHint
-                            : t.diktatSpellingHint,
-                        style: const TextStyle(
-                          color: SoriColors.warning,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-              ),
-              const SizedBox(height: Spacing.sm),
-
-              // Bedeutung-Toggle (Hilfe).
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () => setState(() => _showMeaning = !_showMeaning),
-                  icon: Icon(
-                    _showMeaning
-                        ? Icons.lightbulb_rounded
-                        : Icons.lightbulb_outline_rounded,
-                    size: 18,
-                    color: SoriColors.gold,
-                  ),
-                  label: Text(
-                    _showMeaning ? _meaning(langCode) : t.diktatShowMeaning,
-                    style: TextStyle(color: s.textMuted, fontSize: 13),
+                  child: const Icon(
+                    Icons.volume_up_rounded,
+                    color: SoriColors.info,
+                    size: 40,
                   ),
                 ),
               ),
-              if (widget.allowWordBankFallback) ...[
-                const SizedBox(height: Spacing.xs),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton.icon(
-                    key: const ValueKey('dictation-input-mode'),
-                    onPressed: _completed
-                        ? null
-                        : () {
-                            setState(() {
-                              _wordBankMode = !_wordBankMode;
-                              _selectedTokens.clear();
-                              _ctrl.clear();
-                              _feedback = _Feedback.none;
-                            });
-                          },
-                    icon: Icon(
-                      _wordBankMode
-                          ? Icons.keyboard_alt_outlined
-                          : Icons.dashboard_customize_outlined,
-                      size: 18,
-                    ),
-                    label: Text(
-                      _wordBankMode
-                          ? t.diktatUseKeyboard
-                          : t.diktatUseWordBlocks,
-                    ),
+              const SizedBox(width: Spacing.lg),
+              GestureDetector(
+                onTap: _playSlow,
+                child: Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: s.surface,
+                    border: Border.all(color: s.surfaceAlt, width: 1.5),
+                  ),
+                  child: Icon(
+                    Icons.slow_motion_video_rounded,
+                    color: s.textMuted,
+                    size: 26,
                   ),
                 ),
-              ],
+              ),
             ],
           ),
-          Positioned(
-            top: -12,
-            right: 12,
-            child: MascotPartner(
-              celebrating: _celebrated,
-              size: 56,
-              kind: MascotKind.magpie,
+          const SizedBox(height: Spacing.xl),
+
+          // Eingabefeld (Koreanisch).
+          if (_wordBankMode)
+            _WordBankInput(
+              selectedTokens: _selectedTokens,
+              availableTokens: _targetTokens,
+              enabled: !_completed,
+              borderColor: fieldBorder,
+              onAdd: _addToken,
+              onRemove: _removeToken,
+            )
+          else
+            TextField(
+              controller: _ctrl,
+              enabled: !_completed,
+              autocorrect: false,
+              enableSuggestions: false,
+              textInputAction: TextInputAction.done,
+              onSubmitted: (_) => _check(),
+              onChanged: (_) => setState(() {}),
+              style: TextStyle(
+                color: s.text,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+              decoration: InputDecoration(
+                hintText: '…',
+                hintStyle: TextStyle(color: s.textDim),
+                filled: true,
+                fillColor: s.surface,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  borderSide: BorderSide(color: fieldBorder, width: 1.8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  borderSide: BorderSide(color: fieldBorder, width: 2.2),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  borderSide: BorderSide(color: fieldBorder, width: 1.8),
+                ),
+              ),
+            ),
+          const SizedBox(height: Spacing.sm),
+
+          // Feedback-Zeile.
+          SizedBox(
+            height: 22,
+            child:
+                (_feedback == _Feedback.spacing ||
+                    _feedback == _Feedback.spelling)
+                ? Text(
+                    _feedback == _Feedback.spacing
+                        ? t.diktatSpacingHint
+                        : t.diktatSpellingHint,
+                    style: const TextStyle(
+                      color: SoriColors.warning,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+          const SizedBox(height: Spacing.sm),
+
+          // Bedeutung-Toggle (Hilfe).
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => setState(() => _showMeaning = !_showMeaning),
+              icon: Icon(
+                _showMeaning
+                    ? Icons.lightbulb_rounded
+                    : Icons.lightbulb_outline_rounded,
+                size: 18,
+                color: SoriColors.gold,
+              ),
+              label: Text(
+                _showMeaning ? _meaning(langCode) : t.diktatShowMeaning,
+                style: TextStyle(color: s.textMuted, fontSize: 13),
+              ),
             ),
           ),
+          if (widget.allowWordBankFallback) ...[
+            const SizedBox(height: Spacing.xs),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                key: const ValueKey('dictation-input-mode'),
+                onPressed: _completed
+                    ? null
+                    : () {
+                        setState(() {
+                          _wordBankMode = !_wordBankMode;
+                          _selectedTokens.clear();
+                          _ctrl.clear();
+                          _feedback = _Feedback.none;
+                        });
+                      },
+                icon: Icon(
+                  _wordBankMode
+                      ? Icons.keyboard_alt_outlined
+                      : Icons.dashboard_customize_outlined,
+                  size: 18,
+                ),
+                label: Text(
+                  _wordBankMode ? t.diktatUseKeyboard : t.diktatUseWordBlocks,
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );

@@ -8769,8 +8769,26 @@ abstract class AppL10n {
   /// No description provided for @questCheckAnswer.
   ///
   /// In de, this message translates to:
-  /// **'Überprüfen'**
+  /// **'Antwort prüfen'**
   String get questCheckAnswer;
+
+  /// No description provided for @questReplayAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut anhören'**
+  String get questReplayAudio;
+
+  /// No description provided for @questBuildAnswerLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antwort bauen'**
+  String get questBuildAnswerLabel;
+
+  /// No description provided for @questEmptyAnswerSlot.
+  ///
+  /// In de, this message translates to:
+  /// **'Leerer Antwortplatz'**
+  String get questEmptyAnswerSlot;
 
   /// No description provided for @diktatInstruction.
   ///
