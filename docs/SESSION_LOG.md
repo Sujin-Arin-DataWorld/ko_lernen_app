@@ -21,7 +21,8 @@ tools/content_factory/drafts/batch_06_manifest.json` 68 records, loader live/
 overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
 'test_*.py'` **98/98**. Flutter 수량 계약도 Batch 06 라이브 값(시나리오 62·퀘스트
 261·smalltalk 293·cloze 530·satz 443·발음 20·A1–B2 smalltalk 결정 257)으로
-맞췄다. 커밋 `d9d3482`와 후속 커밋.
+맞췄다. 시나리오 레벨 계약은 C1/C2를 허용만 하지 않고 각 레벨에 최소 1개가
+있도록 요구한다. 커밋 `d9d3482`와 후속 커밋.
 
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
