@@ -1,5 +1,29 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 10 백드롭·문장·고유 프레임 정정
+
+**무엇.** `origin/main` `72657bd`를 이 브랜치에 머지한 뒤 Batch 10만 고쳤다.
+우체국·우표·소포는 `pharmacy`/`station`이 아니라 `convenience`, 휴대폰
+요금제·로밍은 `convenience`, 진단서 스캔은 `office`로 옮겼다. 제목
+`공동현관 비번`은 `비밀번호`, 소포 intro는 `잰 다음`으로 이었다. 86개
+동일 접수 프레임 다섯 줄을 장면 제목별 고유 인사·수락·확인·대기·마무리로
+바꿨다. `CONTENT_ARCHITECTURE`·intake 가이드의 “Batch 06 review-only /
+다음 번호 06” 표기를 live·11로 맞췄다. main CI(`72657bd`)는 건드리지
+않았다.
+
+**왜.** Jin이 가이드 정정 다음으로 남은 백드롭·문장·복제 프레임을
+철저히 고치라고 했고, 부계정으로 main 전체 CI를 돌리는 중이라고 했다.
+
+**검증.** `rewrite-batch-10` 후 `test_level_content_4x` 11/11,
+ContentValidator 0, promoted-batch 10 = 814,
+Flutter `a1_real_life_scenarios_test`·`scenario_quest_catalog_integrity_test`
+·`content_id_contract_test` 통과. main의 레나/`안녕` 수리는 유지.
+Latin/`해결해야`/받침+`를`/구어체 `비번` 0, 서비스 공통 셸 0, 셸 174개
+고유. 원격 CI는 이 PR head만 보고, `72657bd`에는 workflow를 추가하지
+않는다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 작성 가이드의 낡은 번호·슬러그 금지 정정
 
 **무엇.** `docs/CONTENT_AUTHORING_GUIDE.md`만 고쳤다. 12개 핵심 규칙은 유지하고,

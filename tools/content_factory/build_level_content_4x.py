@@ -602,9 +602,9 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
     """Return (id, level, backdrop, title_ko, title_de, title_en, place_detail)."""
 
     a1 = [
-        ("post_queue", "우체국 줄", "In der Postschlange", "In the post-office line", "pharmacy"),
-        ("stamp_ask", "우표 개수", "Briefmarkenzahl", "Stamp count", "pharmacy"),
-        ("parcel_weight", "소포 무게", "Paketgewicht", "Parcel weight", "station"),
+        ("post_queue", "우체국 줄", "In der Postschlange", "In the post-office line", "convenience"),
+        ("stamp_ask", "우표 개수", "Briefmarkenzahl", "Stamp count", "convenience"),
+        ("parcel_weight", "소포 무게", "Paketgewicht", "Parcel weight", "convenience"),
         ("pharmacy_ointment", "연고 위치", "Salbenregal", "Ointment shelf", "pharmacy"),
         ("mask_pack", "마스크 한 통", "Maskenpackung", "A pack of masks", "pharmacy"),
         ("weekend_rain", "주말 비", "Wochenendregen", "Weekend rain", "home"),
@@ -623,7 +623,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("slow_speech", "천천히 말하기", "Langsames Sprechen", "Speak slowly", "cafe"),
         ("door_bell", "초인종", "Klingel", "Doorbell", "home"),
         ("trash_sort", "분리배출", "Trennen", "Sorted trash", "home"),
-        ("gate_code", "공동현관 비번", "Hauseingangscode", "Entrance code", "home"),
+        ("gate_code", "공동현관 비밀번호", "Hauseingangscode", "Entrance code", "home"),
         ("whiteboard_word", "화이트보드 단어", "Wort am Whiteboard", "Whiteboard word", "office"),
         ("platform_line", "노란 선", "Gelbe Linie", "Yellow line", "station"),
         ("rain_jacket", "우비", "Regenjacke", "Rain jacket", "convenience"),
@@ -649,8 +649,8 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("pharmacy_hours", "약국 문 닫는 시간", "Apothekenschluss", "Pharmacy closing", "pharmacy"),
     ]
     a2 = [
-        ("phone_plan", "요금제 바꾸기", "Tarif wechseln", "Change a plan", "office"),
-        ("data_roam", "로밍 신청", "Roaming beantragen", "Apply for roaming", "office"),
+        ("phone_plan", "요금제 바꾸기", "Tarif wechseln", "Change a plan", "convenience"),
+        ("data_roam", "로밍 신청", "Roaming beantragen", "Apply for roaming", "convenience"),
         ("bank_number", "대기번호", "Wartenummer", "Queue number", "office"),
         ("transfer_limit", "이체 한도", "Überweisungslimit", "Transfer limit", "office"),
         ("gym_lock", "락커 맡기기", "Spind abgeben", "Leave a locker", "office"),
@@ -712,7 +712,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("refund_rule", "환불 규정", "Erstattungsregel", "Refund rule", "station"),
         ("followup_mail", "후속 메일", "Folgmail", "Follow-up mail", "office"),
         ("guest_notice", "손님 사전 알림", "Gästeankündigung", "Guest notice", "home"),
-        ("scan_note", "진단서 스캔", "Attest scannen", "Scan a note", "pharmacy"),
+        ("scan_note", "진단서 스캔", "Attest scannen", "Scan a note", "office"),
         ("proxy_form", "대리 신청", "Vertretungsantrag", "Proxy application", "office"),
         ("safety_vest", "봉사 조끼", "Ehrenamtsweste", "Volunteer vest", "market"),
         ("school_letter", "가정 통신", "Elternbrief", "School letter", "home"),
@@ -837,7 +837,7 @@ def build_scenario(
         raise SystemExit(f"scenario id reserved: {ident}")
     unit, concepts = SCENARIO_UNITS[level]
     grammar_id, g_ko, g_de, g_en = SCENARIO_GRAMMAR[level]
-    script = render_scene(SEEDS[ident])
+    script = render_scene(SEEDS[ident], ident=ident, title=(title_ko, title_de, title_en))
     scene_vocab = script["vocab"] or vocab[:6]
     ask = script["dialog"][2]
     wait = script["dialog"][6]
@@ -1009,6 +1009,7 @@ def rewrite_batch_10_live_copy() -> None:
     manifest_path = DRAFTS / "batch_10_4x_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["questCount"] = quest_count
+    manifest["backdrops"] = {ident: backdrop for ident, _level, backdrop, *_rest in catalog}
     _write_json(manifest_path, manifest)
 
 

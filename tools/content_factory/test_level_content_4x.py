@@ -147,10 +147,15 @@ class Batch09ReviewDraftTest(unittest.TestCase):
 class Batch10KoreanQualityTest(unittest.TestCase):
     def test_batch_10_korean_has_no_latin_slug_or_object_particle_errors(self) -> None:
         from batch_10_scene_scripts import (
+            GENERIC_SERVICE_SHELL,
             LATIN_IN_KO,
+            SLANG_PASSWORD,
             TEMPLATE_LEFTOVERS,
             batchim_plus_reul,
             collect_korean_fields,
+            frame_lines,
+            render_scene,
+            SEEDS,
         )
 
         scenarios = json.loads(
@@ -178,6 +183,34 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                 )
                 for leftover in TEMPLATE_LEFTOVERS:
                     self.assertNotIn(leftover, text, ident)
+                self.assertIsNone(
+                    SLANG_PASSWORD.search(text),
+                    f"{ident} uses slang 비번: {text}",
+                )
+
+    def test_batch_10_shell_lines_are_unique_per_scene(self) -> None:
+        from batch_10_scene_scripts import (
+            GENERIC_SERVICE_SHELL,
+            SEEDS,
+            frame_lines,
+            render_scene,
+        )
+
+        catalog = {row[0]: (row[3], row[4], row[5]) for row in builder.scenario_catalog()}
+        shells: dict[tuple[str, ...], str] = {}
+        generic_hits = 0
+        for ident, seed in SEEDS.items():
+            scene = render_scene(seed, ident=ident, title=catalog[ident])
+            dialog = scene["dialog"]
+            shell = tuple(dialog[index]["ko"] for index in (0, 3, 4, 5, 7))
+            self.assertNotIn(shell, shells, f"{ident} reuses shell of {shells.get(shell)}")
+            shells[shell] = ident
+            if shell == GENERIC_SERVICE_SHELL:
+                generic_hits += 1
+            lines = frame_lines(ident, seed, *catalog[ident])
+            self.assertEqual(lines["open"][0], dialog[0]["ko"], ident)
+        self.assertEqual(len(shells), 174)
+        self.assertEqual(generic_hits, 0)
 
 
 class Batch10ScenarioDraftTest(unittest.TestCase):

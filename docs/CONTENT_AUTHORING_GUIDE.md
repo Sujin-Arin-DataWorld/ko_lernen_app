@@ -534,6 +534,8 @@ Batch 04의 B1/B2 16개, Batch 06의 첫 C1/C2, 파트너-가족 08, 4× 잔량 
 live다. 새 scenario는 아래 필드를 갖는 완전 object다. 제목이나 영어 slug를
 `X를 해결해야 합니다` / `Y 상황을 짧게 말해 주세요` 같은 공통 템플릿에 끼워
 대화를 만들지 않는다. 각 장면은 그 장소에서 실제로 하는 일로 소개하고 말한다.
+제목의 구어체 `비번`은 `비밀번호`로 쓰고, 받침 뒤에는 `을`을 쓴다. `재 주세요`처럼
+본용언과 보조 용언 사이 띄어쓰기는 유지한다.
 
 ```json
 {
@@ -594,8 +596,12 @@ live다. 새 scenario는 아래 필드를 갖는 완전 object다. 제목이나 
 `assets/illustrations/scenes/<id>.png`가 없으면** `lib/models/scenario.dart`의
 `ScenarioBackdrop._categoryById`에 반드시 등록해 기존 backdrop key(airport, cafe,
 convenience, directions, home, hotel, market, office, pharmacy, restaurant, station, taxi) 중
-하나를 가리켜야 한다. 이 mapping이 빠지면 poster가 null이 되어 마스코트 fallback으로
+하나를 가리켜야 한다. 없는 장소(우체국·미용실·은행)는 가장 가까운 기존 key를 고른다.
+우체국·휴대폰 가게는 `convenience`, 진단서 스캔 같은 창구 서류는 `office`이지
+`pharmacy`가 아니다. 이 mapping이 빠지면 poster가 null이 되어 마스코트 fallback으로
 떨어진다. 새 scene key/asset 자체를 만드는 일은 UI/asset track으로 분리한다.
+같은 접수 프레임 다섯 줄을 86개 장면에 복제하지 않는다. 직원/상대의 인사·수락·확인·
+대기·마무리는 그 장면 제목과 일에 맞게 따로 쓴다.
 
 ### 10.2 Quest별 `data` 규칙
 

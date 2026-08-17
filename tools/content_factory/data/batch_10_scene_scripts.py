@@ -12,6 +12,14 @@ TEMPLATE_LEFTOVERS = (
     "접수를 확인했습니다",
     "오전 처리가 가능합니다",
 )
+SLANG_PASSWORD = re.compile(r"비번(?!호)")
+GENERIC_SERVICE_SHELL = (
+    "안녕하세요. 무엇을 도와드릴까요?",
+    "네, 그렇게 해 주세요.",
+    "알겠습니다. 지금 바로 확인하겠습니다.",
+    "감사합니다. 얼마나 걸려요?",
+    "알겠습니다. 감사합니다.",
+)
 
 
 def hangul_has_batchim(ch: str) -> bool:
@@ -53,47 +61,185 @@ def _line(speaker: str, ko: str, de: str, en: str) -> dict[str, str]:
     return {"speaker": speaker, "ko": ko, "de": de, "en": en}
 
 
-FRAMES: dict[str, dict[str, tuple[str, str, str]]] = {
-    "service": {
-        "open": ("안녕하세요. 무엇을 도와드릴까요?", "Hallo. Wobei kann ich helfen?", "Hello. How can I help you?"),
-        "yes": ("네, 그렇게 해 주세요.", "Ja, bitte machen Sie das so.", "Yes, please do that."),
-        "check": ("알겠습니다. 지금 바로 확인하겠습니다.", "Alles klar. Ich prüfe das gleich.", "Understood. I will check that right now."),
-        "how_long": ("감사합니다. 얼마나 걸려요?", "Danke. Wie lange dauert das?", "Thanks. How long will it take?"),
-        "close": ("알겠습니다. 감사합니다.", "Alles klar. Danke.", "Got it. Thank you."),
-    },
-    "home": {
-        "open": ("지금 잠깐 괜찮아?", "Hast du kurz Zeit?", "Do you have a moment?"),
-        "yes": ("응, 그렇게 하자.", "Ja, machen wir das so.", "Yes, let's do that."),
-        "check": ("알겠어. 지금 바로 볼게.", "Okay. Ich schaue gleich nach.", "Okay. I will check right now."),
-        "how_long": ("고마워. 오래 걸려?", "Danke. Dauert das lange?", "Thanks. Will it take long?"),
-        "close": ("알겠어. 고마워.", "Alles klar. Danke.", "Got it. Thanks."),
-    },
-    "peer": {
-        "open": ("지금 괜찮아? 하나만 물어볼게.", "Hast du kurz Zeit? Eine Frage.", "Got a second? One question."),
-        "yes": ("응, 그렇게 해 줘.", "Ja, mach das bitte so.", "Yes, please do that."),
-        "check": ("알겠어. 지금 바로 확인할게.", "Okay. Ich prüfe das gleich.", "Okay. I will check it now."),
-        "how_long": ("고마워. 얼마나 걸려?", "Danke. Wie lange dauert das?", "Thanks. How long will it take?"),
-        "close": ("알겠어. 고마워.", "Alles klar. Danke.", "Got it. Thanks."),
-    },
-    "class": {
-        "open": ("질문 있으세요?", "Haben Sie eine Frage?", "Do you have a question?"),
-        "yes": ("네, 그렇게 해 주세요.", "Ja, bitte machen Sie das so.", "Yes, please do that."),
-        "check": ("알겠습니다. 지금 바로 볼게요.", "Alles klar. Ich schaue gleich.", "Understood. I will look now."),
-        "how_long": ("감사합니다. 오래 걸려요?", "Danke. Dauert das lange?", "Thanks. Will it take long?"),
-        "close": ("알겠습니다. 감사합니다.", "Alles klar. Danke.", "Got it. Thank you."),
-    },
-    "coworker": {
-        "open": ("이 건, 어디까지 맞춰 둘까요?", "Bis wohin sollen wir das klären?", "How far should we settle this?"),
-        "yes": ("그 방향으로 가면 좋겠어요.", "In diese Richtung wäre gut.", "That direction would be good."),
-        "check": ("알겠습니다. 지금 바로 확인하겠습니다.", "Alles klar. Ich prüfe das gleich.", "Understood. I will check that right now."),
-        "how_long": ("결과는 언제 알 수 있을까요?", "Wann erfahren wir das Ergebnis?", "When will we know the result?"),
-        "close": ("알겠습니다. 고맙습니다.", "Alles klar. Danke.", "Understood. Thank you."),
-    },
-}
+def last_hangul(text: str) -> str:
+    for char in reversed(text):
+        if 0xAC00 <= ord(char) <= 0xD7A3:
+            return char
+    raise SystemExit(f"no hangul in {text!r}")
 
 
-def render_scene(seed: dict[str, Any]) -> dict[str, Any]:
-    frame = FRAMES[seed["frame"]]
+def eun_neun(text: str) -> str:
+    return "은" if hangul_has_batchim(last_hangul(text)) else "는"
+
+
+def _pattern_index(ident: str, count: int) -> int:
+    return sum(ord(char) for char in ident) % count
+
+
+def frame_lines(
+    ident: str,
+    seed: dict[str, Any],
+    title_ko: str,
+    title_de: str,
+    title_en: str,
+) -> dict[str, tuple[str, str, str]]:
+    """Build unique open/yes/check/how_long/close lines from the scene title."""
+    topic = title_ko.strip()
+    topic_de = title_de.strip()
+    topic_en = title_en.strip()
+    if not topic or not topic_de or not topic_en:
+        raise SystemExit(f"missing title for frame lines: {ident}")
+    topic_topic = f"{topic}{eun_neun(topic)}"
+    kind = seed["frame"]
+    variant = _pattern_index(ident, 3)
+    if kind == "service":
+        opens = (
+            (f"안녕하세요. {topic} 때문에 오셨나요?", f"Hallo. Sind Sie wegen {topic_de} da?", f"Hello. Are you here about {topic_en}?"),
+            (f"안녕하세요. {topic} 확인해 드릴까요?", f"Hallo. Soll ich {topic_de} prüfen?", f"Hello. Shall I check {topic_en}?"),
+            (f"안녕하세요. {topic} 도와드릴까요?", f"Hallo. Kann ich bei {topic_de} helfen?", f"Hello. Can I help with {topic_en}?"),
+        )
+        yeses = (
+            (f"네, {topic} 그렇게 해 주세요.", f"Ja, bitte so bei {topic_de}.", f"Yes, please do that for {topic_en}."),
+            (f"네, {topic} 진행해 주세요.", f"Ja, bitte {topic_de} so machen.", f"Yes, please go ahead with {topic_en}."),
+            (f"네, {topic} 그걸로 부탁합니다.", f"Ja, bitte genau so bei {topic_de}.", f"Yes, please handle {topic_en} that way."),
+        )
+        checks = (
+            (f"알겠습니다. {topic}부터 확인하겠습니다.", f"Alles klar. Ich prüfe zuerst {topic_de}.", f"Understood. I will check {topic_en} first."),
+            (f"네, 지금 {topic} 살펴보겠습니다.", f"Ja, ich schaue jetzt {topic_de} an.", f"Yes, I will look at {topic_en} now."),
+            (f"알겠습니다. 바로 {topic} 처리하겠습니다.", f"Alles klar. Ich erledige {topic_de} gleich.", f"Understood. I will handle {topic_en} right away."),
+        )
+        waits = (
+            (f"{topic_topic} 얼마나 걸려요?", f"Wie lange dauert {topic_de}?", f"How long will {topic_en} take?"),
+            (f"감사합니다. {topic} 오래 걸려요?", f"Danke. Dauert {topic_de} lange?", f"Thanks. Will {topic_en} take long?"),
+            (f"{topic} 결과는 언제 나와요?", f"Wann steht {topic_de} fest?", f"When will we know about {topic_en}?"),
+        )
+        closes = (
+            (f"알겠습니다. {topic} 감사합니다.", f"Alles klar. Danke für {topic_de}.", f"Got it. Thanks for {topic_en}."),
+            (f"네, {topic} 잘 부탁드립니다.", f"Ja, danke im Voraus für {topic_de}.", f"Yes, thank you in advance for {topic_en}."),
+            (f"알겠습니다. {topic} 도와주셔서 감사합니다.", f"Alles klar. Danke für die Hilfe bei {topic_de}.", f"Got it. Thanks for helping with {topic_en}."),
+        )
+    elif kind == "home":
+        opens = (
+            (f"지금 괜찮아? {topic} 이야기하자.", f"Hast du kurz Zeit? Es geht um {topic_de}.", f"Got a moment? It is about {topic_en}."),
+            (f"{topic} 때문에 말 좀 할 수 있어?", f"Kann ich dich wegen {topic_de} kurz sprechen?", f"Can I talk to you about {topic_en}?"),
+            (f"잠깐, {topic}만 확인할게.", f"Kurz, ich prüfe nur {topic_de}.", f"One second, I will just check {topic_en}."),
+        )
+        yeses = (
+            (f"응, {topic} 그렇게 하자.", f"Ja, machen wir {topic_de} so.", f"Yes, let's do {topic_en} that way."),
+            (f"그래, {topic} 그걸로 하자.", f"Ja, nehmen wir das so für {topic_de}.", f"Yes, let's go with that for {topic_en}."),
+            (f"응, {topic} 부탁해.", f"Ja, übernimm bitte {topic_de}.", f"Yes, please take care of {topic_en}."),
+        )
+        checks = (
+            (f"알겠어. {topic} 지금 볼게.", f"Okay. Ich schaue jetzt {topic_de} an.", f"Okay. I will look at {topic_en} now."),
+            (f"응, {topic}부터 확인할게.", f"Ja, ich prüfe zuerst {topic_de}.", f"Yes, I will check {topic_en} first."),
+            (f"알겠어. {topic} 바로 처리할게.", f"Okay. Ich erledige {topic_de} gleich.", f"Okay. I will handle {topic_en} right away."),
+        )
+        waits = (
+            (f"고마워. {topic} 오래 걸려?", f"Danke. Dauert {topic_de} lange?", f"Thanks. Will {topic_en} take long?"),
+            (f"{topic_topic} 얼마나 걸려?", f"Wie lange dauert {topic_de}?", f"How long will {topic_en} take?"),
+            (f"{topic} 결과는 언제 알아?", f"Wann wissen wir es bei {topic_de}?", f"When will we know about {topic_en}?"),
+        )
+        closes = (
+            (f"알겠어. {topic} 고마워.", f"Alles klar. Danke für {topic_de}.", f"Got it. Thanks for {topic_en}."),
+            (f"응, {topic} 잘 부탁해.", f"Ja, danke im Voraus für {topic_de}.", f"Yes, thanks in advance for {topic_en}."),
+            (f"알겠어. {topic} 도와줘서 고마워.", f"Okay. Danke für die Hilfe bei {topic_de}.", f"Got it. Thanks for helping with {topic_en}."),
+        )
+    elif kind == "peer":
+        opens = (
+            (f"지금 괜찮아? {topic} 하나만 물어볼게.", f"Hast du kurz Zeit? Eine Frage zu {topic_de}.", f"Got a second? One question about {topic_en}."),
+            (f"{topic} 때문에 잠깐 괜찮아?", f"Hast du kurz Zeit wegen {topic_de}?", f"Got a moment about {topic_en}?"),
+            (f"야, {topic}만 확인하자.", f"Hey, lass uns nur {topic_de} klären.", f"Hey, let's just check {topic_en}."),
+        )
+        yeses = (
+            (f"응, {topic} 그렇게 해 줘.", f"Ja, mach {topic_de} bitte so.", f"Yes, please do {topic_en} that way."),
+            (f"그래, {topic} 그걸로 해 줘.", f"Ja, nimm das so für {topic_de}.", f"Yes, please go with that for {topic_en}."),
+            (f"응, {topic} 부탁할게.", f"Ja, übernimm bitte {topic_de}.", f"Yes, please take care of {topic_en}."),
+        )
+        checks = (
+            (f"알겠어. {topic} 지금 확인할게.", f"Okay. Ich prüfe jetzt {topic_de}.", f"Okay. I will check {topic_en} now."),
+            (f"응, {topic}부터 볼게.", f"Ja, ich schaue zuerst {topic_de} an.", f"Yes, I will look at {topic_en} first."),
+            (f"알겠어. {topic} 바로 처리할게.", f"Okay. Ich erledige {topic_de} gleich.", f"Okay. I will handle {topic_en} right away."),
+        )
+        waits = (
+            (f"고마워. {topic} 얼마나 걸려?", f"Danke. Wie lange dauert {topic_de}?", f"Thanks. How long will {topic_en} take?"),
+            (f"{topic_topic} 오래 걸려?", f"Dauert {topic_de} lange?", f"Will {topic_en} take long?"),
+            (f"{topic} 결과는 언제 나와?", f"Wann steht {topic_de} fest?", f"When will we know about {topic_en}?"),
+        )
+        closes = (
+            (f"알겠어. {topic} 고마워.", f"Alles klar. Danke für {topic_de}.", f"Got it. Thanks for {topic_en}."),
+            (f"응, {topic} 잘 부탁해.", f"Ja, danke im Voraus für {topic_de}.", f"Yes, thanks in advance for {topic_en}."),
+            (f"알겠어. {topic} 도와줘서 고마워.", f"Okay. Danke für die Hilfe bei {topic_de}.", f"Got it. Thanks for helping with {topic_en}."),
+        )
+    elif kind == "class":
+        opens = (
+            (f"질문 있으세요? {topic} 볼게요.", f"Haben Sie eine Frage zu {topic_de}?", f"Do you have a question about {topic_en}?"),
+            (f"{topic} 관련해서 질문 있으세요?", f"Gibt es eine Frage zu {topic_de}?", f"Any question about {topic_en}?"),
+            (f"자, {topic} 같이 확인합시다.", f"Schauen wir uns {topic_de} gemeinsam an.", f"Let's check {topic_en} together."),
+        )
+        yeses = (
+            (f"네, {topic} 그렇게 해 주세요.", f"Ja, bitte so bei {topic_de}.", f"Yes, please do that for {topic_en}."),
+            (f"네, {topic} 진행해 주세요.", f"Ja, bitte {topic_de} so machen.", f"Yes, please go ahead with {topic_en}."),
+            (f"네, {topic} 그걸로 부탁합니다.", f"Ja, bitte genau so bei {topic_de}.", f"Yes, please handle {topic_en} that way."),
+        )
+        checks = (
+            (f"알겠습니다. {topic} 지금 볼게요.", f"Alles klar. Ich schaue jetzt {topic_de} an.", f"Understood. I will look at {topic_en} now."),
+            (f"네, {topic}부터 확인하겠습니다.", f"Ja, ich prüfe zuerst {topic_de}.", f"Yes, I will check {topic_en} first."),
+            (f"알겠습니다. {topic} 바로 설명하겠습니다.", f"Alles klar. Ich erkläre {topic_de} gleich.", f"Understood. I will explain {topic_en} now."),
+        )
+        waits = (
+            (f"감사합니다. {topic} 오래 걸려요?", f"Danke. Dauert {topic_de} lange?", f"Thanks. Will {topic_en} take long?"),
+            (f"{topic_topic} 얼마나 걸려요?", f"Wie lange dauert {topic_de}?", f"How long will {topic_en} take?"),
+            (f"{topic} 결과는 언제 나와요?", f"Wann steht {topic_de} fest?", f"When will we know about {topic_en}?"),
+        )
+        closes = (
+            (f"알겠습니다. {topic} 감사합니다.", f"Alles klar. Danke für {topic_de}.", f"Got it. Thank you for {topic_en}."),
+            (f"네, {topic} 잘 부탁드립니다.", f"Ja, danke im Voraus für {topic_de}.", f"Yes, thank you in advance for {topic_en}."),
+            (f"알겠습니다. {topic} 도와주셔서 감사합니다.", f"Alles klar. Danke für die Hilfe bei {topic_de}.", f"Got it. Thanks for helping with {topic_en}."),
+        )
+    elif kind == "coworker":
+        opens = (
+            (f"이 건, {topic}까지 맞춰 둘까요?", f"Sollen wir {topic_de} bis hier klären?", f"Shall we settle {topic_en} this far?"),
+            (f"{topic}부터 정리할까요?", f"Sollen wir zuerst {topic_de} sortieren?", f"Shall we sort {topic_en} first?"),
+            (f"{topic} 어디까지 맞춰 두면 될까요?", f"Bis wohin sollen wir {topic_de} klären?", f"How far should we settle {topic_en}?"),
+        )
+        yeses = (
+            (f"그 방향으로 {topic} 가면 좋겠어요.", f"In diese Richtung wäre {topic_de} gut.", f"That direction would be good for {topic_en}."),
+            (f"네, {topic} 그렇게 맞춥시다.", f"Ja, stimmen wir {topic_de} so ab.", f"Yes, let's align {topic_en} that way."),
+            (f"그걸로 {topic} 진행하면 좋겠습니다.", f"So können wir {topic_de} weiterführen.", f"That would be a good way to continue {topic_en}."),
+        )
+        checks = (
+            (f"알겠습니다. {topic} 지금 바로 확인하겠습니다.", f"Alles klar. Ich prüfe {topic_de} gleich.", f"Understood. I will check {topic_en} right now."),
+            (f"네, {topic}부터 살펴보겠습니다.", f"Ja, ich schaue zuerst {topic_de} an.", f"Yes, I will look at {topic_en} first."),
+            (f"알겠습니다. {topic} 바로 정리하겠습니다.", f"Alles klar. Ich sortiere {topic_de} gleich.", f"Understood. I will sort {topic_en} right away."),
+        )
+        waits = (
+            (f"{topic} 결과는 언제 알 수 있을까요?", f"Wann erfahren wir das Ergebnis zu {topic_de}?", f"When will we know the result for {topic_en}?"),
+            (f"{topic_topic} 얼마나 걸릴까요?", f"Wie lange dauert {topic_de}?", f"How long will {topic_en} take?"),
+            (f"{topic} 확정은 언제쯤일까요?", f"Wann steht {topic_de} fest?", f"When will {topic_en} be confirmed?"),
+        )
+        closes = (
+            (f"알겠습니다. {topic} 고맙습니다.", f"Alles klar. Danke für {topic_de}.", f"Understood. Thank you for {topic_en}."),
+            (f"네, {topic} 잘 부탁드립니다.", f"Ja, danke im Voraus für {topic_de}.", f"Yes, thank you in advance for {topic_en}."),
+            (f"알겠습니다. {topic} 도와주셔서 고맙습니다.", f"Alles klar. Danke für die Hilfe bei {topic_de}.", f"Understood. Thanks for helping with {topic_en}."),
+        )
+    else:
+        raise SystemExit(f"unknown frame {kind} for {ident}")
+    return {
+        "open": opens[variant],
+        "yes": yeses[variant],
+        "check": checks[variant],
+        "how_long": waits[variant],
+        "close": closes[variant],
+    }
+
+
+def render_scene(
+    seed: dict[str, Any],
+    *,
+    ident: str,
+    title: tuple[str, str, str],
+) -> dict[str, Any]:
+    frame = frame_lines(ident, seed, title[0], title[1], title[2])
     sit = seed["sit"]
     need = seed["need"]
     ask = seed["ask"]
@@ -178,7 +324,7 @@ _add(
     "a1_parcel_weight",
     frame="service",
     rel="customer_and_service_staff",
-    sit=("소포 무게를 재고 요금을 확인합니다.", "Man wiegt das Paket und prüft den Preis.", "You weigh a parcel and check the fee."),
+    sit=("소포 무게를 잰 다음 요금을 확인합니다.", "Man wiegt das Paket und prüft danach den Preis.", "You weigh a parcel and then check the fee."),
     need=("이 소포 무게 좀 재 주세요.", "Bitte wiegen Sie dieses Paket.", "Please weigh this parcel."),
     ask=("상자를 저울에 올려 주시겠어요?", "Legen Sie den Karton auf die Waage?", "Would you put the box on the scale?"),
     wait=("요금은 바로 나옵니다.", "Der Preis erscheint gleich.", "The fee will show up shortly."),

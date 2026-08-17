@@ -275,10 +275,11 @@ python3 tools/content_factory/integrate_scenario_batch.py \
 course unit 연결과 round 부족량을 같은 계산에서 보고한다. 2026-08-16의 확정 계산과 다음
 작업량은 `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`가 정본이다.
 
-Batch 06 review-only pilot은 레벨마다 scenario 1개·scenario quest 5개·Smalltalk 2개·
-Cloze 4개·Satzbau 6개·pronunciation 4개다. 합계는 standalone record 68개와 scenario 안의
-quest 20개이며, 승인 전 live 수량에는 포함하지 않는다. 이 pilot은 full-bundle 회귀 표본으로
-유지한다. 다음 배치는 같은 수를 모든 seed에 반복하지 않고 다음 loader 공백만 채운다.
+Batch 06–10은 live다. 다음 미사용 번호는 11이다. Batch 06 pilot의 원래 수는 레벨마다
+scenario 1개·scenario quest 5개·Smalltalk 2개·Cloze 4개·Satzbau 6개·pronunciation 4개였다.
+합계는 standalone record 68개와 scenario 안의 quest 20개다. 이 수는 full-bundle 회귀
+표본으로만 읽고, 다음 배치에 같은 수를 모든 seed에 반복하지 않는다. 다음 배치는 loader
+공백만 채운다.
 
 1. C1/C2 scenario exact-level 보유를 각 8개까지 올리고, 아직 scenario 0인 unit을 먼저 채운다.
 2. C1/C2 Smalltalk는 22 category마다 최소 2개가 되도록 부족한 38개와 37개를 작성한다.
