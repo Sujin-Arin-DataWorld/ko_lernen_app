@@ -13,12 +13,14 @@ from hanok_v1_asset_contract import (
     A1_RUNTIME_STATES_ROOT,
     ROOT,
     RUNTIME_MAP_ROOT,
+    a1_approved_state_digests,
     a1_expected_files,
     a1_hard_max_bytes,
     camera_geometry,
     chroma_key_count,
     load_provenance,
     qa_composite_path,
+    sha256_file,
 )
 
 
@@ -191,6 +193,23 @@ def _check_a1_runtime_states(*, required: bool) -> list[str]:
             + ", ".join(missing)
         )
         return lines
+    try:
+        digests = a1_approved_state_digests(provenance)
+    except ValueError as error:
+        lines.append(f"[fail] {error}")
+        return lines
+    if not digests:
+        lines.append(
+            "[fail] A1 runtime states exist but generationLedger has no approved SHAs"
+        )
+        return lines
+    missing_sha = [name for name in expected if name not in digests]
+    if missing_sha:
+        lines.append(
+            "[fail] generationLedger is missing approved outputs for "
+            + ", ".join(missing_sha)
+        )
+        return lines
     for name in expected:
         path = A1_RUNTIME_STATES_ROOT / name
         with Image.open(path) as source:
@@ -214,6 +233,9 @@ def _check_a1_runtime_states(*, required: bool) -> list[str]:
         chroma = _chroma_key_count(image)
         if chroma:
             errors.append(f"contains {chroma} opaque #00ff00 chroma-key pixels")
+        actual_sha = sha256_file(path)
+        if actual_sha != digests[name]:
+            errors.append("sha256 does not match the approved generationLedger output")
         relative = path.relative_to(ROOT)
         if errors:
             lines.append(f"[fail] {relative}: {'; '.join(errors)}")

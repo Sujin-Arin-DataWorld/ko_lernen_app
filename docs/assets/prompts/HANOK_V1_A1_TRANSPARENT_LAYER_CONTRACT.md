@@ -23,17 +23,21 @@ python tool/compose_hanok_a1_state.py \
 
 자동 거절 조건:
 
-- RGB/불투명 매트/체크무늬/크로마
+- RGB/불투명 매트/체크무늬/크로마. 손실 WebP 근사 `#00ff00`
+  (`max(|r|,|g-255|,|b|) <= 8`)도 거절한다. 단청 `#1F7A6B`는 통과.
 - socket 밖 source 픽셀 변경
+- local anchor: exclusive X와 바닥 `bbox.bottom == 309`
 - 이전 레이어 footprint recall < 0.97 또는 edge drift > 2px
 - 최종 WebP > 350,000 bytes
 
 ## 승격
 
 16개 QA WebP가 모두 통과하기 전에는 runtime/pubspec에 넣지 않는다.
+dry-run과 `--apply` 모두 `generationLedger`에 파일 basename+sha256이
+`decision=approved`로 16개 있어야 한다. 빈 ledger는 거절한다.
 
 ```bash
 python tool/promote_hanok_a1_states.py
 ```
 
-`--apply`는 16개가 모두 있을 때만 복사한다.
+`--apply`는 16개가 모두 있고 ledger SHA가 일치할 때만 복사한다.

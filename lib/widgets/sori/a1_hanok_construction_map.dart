@@ -75,9 +75,18 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
       seenCacheWidths: Set<int>.from(_seenCacheWidths),
       currentCacheWidth: cacheWidth,
     );
-    for (final provider in targets) {
-      provider.evict();
+    for (final spec in targets) {
+      _providerForSpec(spec).evict();
     }
+  }
+
+  ImageProvider _providerForSpec(A1HanokEvictionSpec spec) {
+    final image = AssetImage(spec.path);
+    final width = spec.cacheWidth;
+    if (width == null) {
+      return image;
+    }
+    return ResizeImage(image, width: width);
   }
 
   ResizeImage _resize(String path, int cacheWidth) {

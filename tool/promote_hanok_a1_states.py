@@ -54,7 +54,10 @@ def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None
 
 def _require_approved_ledger(paths: list[Path], provenance: dict[str, Any]) -> None:
     expected = a1_expected_files(provenance)
-    digests = a1_approved_state_digests(provenance)
+    try:
+        digests = a1_approved_state_digests(provenance)
+    except ValueError as error:
+        raise PromotionError(str(error)) from error
     if not digests:
         raise PromotionError(
             "generationLedger has no approved A1 state outputs; refuse promotion"

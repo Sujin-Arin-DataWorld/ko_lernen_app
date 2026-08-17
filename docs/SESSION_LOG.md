@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — PR4 잔여 4구멍 완전 폐쇄
+
+**무엇을.** 손실 WebP 근사 chroma, 빈 ledger SHA-lock, catalog-wide
+ImageCache eviction, exclusive-bottom local anchor를 제품 계약으로 고정했다.
+catalog eviction은 Flutter `ImageProvider` 없이 path+width spec만 돌리고,
+체커는 16개가 있으면 ledger SHA를 요구한다. 충돌 SHA와
+`requireApprovedLedgerSha256` provenance 키를 추가했다. 계측은 제거된 상태다.
+
+**검증.** Python 29/29, checker exit 0, Flutter catalog/map/provenance/projector/state
+통과, analyzer No issues. 재현: 손실 q82 chroma 65536·단청 0, 빈 ledger
+`PromotionError`, y=170–300 `CompositionError`.
+
 ### 2026-08-17 (Cursor) — PR4 fail-closed 계측 제거
 
 **무엇을.** compose/promote/checker와 A1 map의 NDJSON·`A1_CACHE_HOLE`
