@@ -8,6 +8,7 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_relation_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -126,14 +127,10 @@ class _WordWebScreenState extends State<WordWebScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.wordWebTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.wordWebTitle,
         actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
@@ -157,7 +154,7 @@ class _WordWebScreenState extends State<WordWebScreen>
                               separatorBuilder: (_, __) =>
                                   const SizedBox(height: Spacing.xs),
                               itemBuilder: (_, i) =>
-                                  _clusterCard(t, s, _visible[i]),
+                                  _clusterCard(t, _visible[i]),
                             ),
                     ),
                   ],
@@ -175,7 +172,6 @@ class _WordWebScreenState extends State<WordWebScreen>
                     SoriButton(
                       key: const ValueKey('word-web-quiz'),
                       label: t.wordWebQuizCta,
-                      icon: Icons.quiz_outlined,
                       variant: SoriButtonVariant.filled,
                       accent: SoriColors.accent,
                       fullWidth: true,
@@ -249,7 +245,7 @@ class _WordWebScreenState extends State<WordWebScreen>
   Widget _empty(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/mascot/tiger_idle.png',
+        asset: 'assets/illustrations/empty/studyroom_waiting.png',
         icon: Icons.hub_outlined,
         title: t.wordWebEmptyTitle,
         body: t.wordWebEmptyBody,
@@ -261,7 +257,7 @@ class _WordWebScreenState extends State<WordWebScreen>
     );
   }
 
-  Widget _clusterCard(AppL10n t, SoriSurfaces s, WordRelationCluster cluster) {
+  Widget _clusterCard(AppL10n t, WordRelationCluster cluster) {
     return SoriCard(
       key: ValueKey(cluster.id),
       accent: SoriColors.accent,
@@ -282,13 +278,7 @@ class _WordWebScreenState extends State<WordWebScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  cluster.sourceKo,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16,
-                  ),
-                ),
+                Text(cluster.sourceKo, style: SoriTextTheme.of(context).h3),
                 Text(
                   t.wordWebClusterCount(
                     cluster.synonyms.length,
@@ -298,7 +288,7 @@ class _WordWebScreenState extends State<WordWebScreen>
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
+                  style: SoriTextTheme.of(context).cardSubtitle,
                 ),
               ],
             ),
@@ -322,6 +312,7 @@ class _WordWebScreenState extends State<WordWebScreen>
     required bool selected,
     required VoidCallback onTap,
   }) {
+    final tt = SoriTextTheme.of(context);
     final color = selected
         ? SoriColors.accent
         : SoriSurfaces.of(context).textMuted;
@@ -330,8 +321,7 @@ class _WordWebScreenState extends State<WordWebScreen>
       onTap: onTap,
       child: Text(
         label,
-        style: TextStyle(
-          fontWeight: selected ? FontWeight.w800 : FontWeight.w500,
+        style: (selected ? tt.label : tt.bodySmall).copyWith(
           color: color,
           decoration: selected ? TextDecoration.underline : TextDecoration.none,
           decorationColor: color,
