@@ -19,7 +19,11 @@ import csv
 import json
 from pathlib import Path
 import re
+import sys
 from typing import Any, Iterable
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import scenario_store
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -97,7 +101,9 @@ class LoaderCoverageAudit:
 
     def _collections(self) -> dict[str, list[dict[str, Any]]]:
         result = {
-            "scenario": list(_read_json(self._asset("scenarios.json"))["scenarios"]),
+            "scenario": list(
+                scenario_store.load_scenarios(self.root / "assets" / "data")
+            ),
             "smalltalk": list(_read_json(self._asset("smalltalk.json"))["phrases"]),
             "cloze": list(_read_json(self._asset("cloze.json"))["items"]),
             "satz": list(_read_json(self._asset("satz_sentences.json"))["items"]),

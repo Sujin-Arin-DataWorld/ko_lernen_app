@@ -25,6 +25,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import validate_batch_01 as batch
 import integrate_review_batches as integration
+import scenario_store
 
 
 class Batch01PreReviewValidationTest(unittest.TestCase):
@@ -66,7 +67,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             kind: (target_name, collection)
             for kind, (target_name, collection, _) in integration.TARGETS.items()
         }
-        live_targets["scenario"] = ("scenarios.json", "scenarios")
+        live_targets["scenario"] = (None, "scenarios")
         live_targets["pronunciation"] = ("pronunciation_phrases.json", "phrases")
 
         def remove_artifacts(manifest: dict[str, object]) -> set[str]:
@@ -79,7 +80,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
                 self.assertIsInstance(artifact, dict)
                 kind = artifact["kind"]
                 target_name, collection = live_targets[kind]
-                target = data / target_name
+                target = data / target_name if target_name else None
                 draft = self.root / artifact["draft"]
                 if collection is None:
                     header, incoming = batch._read_csv(draft)
@@ -92,16 +93,23 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
                         [row for row in current if row["id"] not in incoming_ids],
                     )
                 else:
-                    payload = json.loads(target.read_text(encoding="utf-8"))
+                    payload = (
+                        scenario_store.load_root(data)
+                        if target is None
+                        else json.loads(target.read_text(encoding="utf-8"))
+                    )
                     incoming = json.loads(draft.read_text(encoding="utf-8"))[collection]
                     incoming_ids = {row["id"] for row in incoming}
                     payload[collection] = [
                         row for row in payload[collection] if row["id"] not in incoming_ids
                     ]
-                    target.write_text(
-                        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-                        encoding="utf-8",
-                    )
+                    if target is None:
+                        scenario_store.write_shards(payload["scenarios"], data)
+                    else:
+                        target.write_text(
+                            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                            encoding="utf-8",
+                        )
                 removed_ids.update(incoming_ids)
             return removed_ids
 
@@ -119,13 +127,10 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             )
         )
         scenario_ids = {row["id"] for row in scenario_draft["scenarios"]}
-        scenarios_path = data / "scenarios.json"
-        scenarios = json.loads(scenarios_path.read_text(encoding="utf-8"))
-        scenarios["scenarios"] = [
-            row for row in scenarios["scenarios"] if row["id"] not in scenario_ids
-        ]
-        scenarios_path.write_text(
-            json.dumps(scenarios, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        scenarios = scenario_store.load_root(data)
+        scenario_store.write_shards(
+            [row for row in scenarios["scenarios"] if row["id"] not in scenario_ids],
+            data,
         )
         curriculum_path = data / "curriculum_manifest.json"
         curriculum = json.loads(curriculum_path.read_text(encoding="utf-8"))

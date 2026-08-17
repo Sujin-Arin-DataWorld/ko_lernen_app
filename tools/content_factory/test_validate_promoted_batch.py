@@ -22,6 +22,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import validate_batch_01 as review_batch
 import validate_promoted_batch as promoted
+import scenario_store
 
 
 BATCH_06 = Path("tools/content_factory/drafts/batch_06_manifest.json")
@@ -67,17 +68,14 @@ class PromotedBatchValidationTest(unittest.TestCase):
 
     def test_rejects_missing_live_record(self) -> None:
         root = self._copy_tree()
-        scenarios_path = root / "assets" / "data" / "scenarios.json"
-        payload = json.loads(scenarios_path.read_text(encoding="utf-8"))
+        data_dir = root / "assets" / "data"
+        payload = scenario_store.load_root(data_dir)
         payload["scenarios"] = [
             row
             for row in payload["scenarios"]
             if row.get("id") != "b1_repair_visit_followup"
         ]
-        scenarios_path.write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
+        scenario_store.write_shards(payload["scenarios"], data_dir)
 
         with self.assertRaisesRegex(
             promoted.PromotedBatchError,

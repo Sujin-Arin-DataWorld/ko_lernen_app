@@ -17,6 +17,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+import scenario_store  # noqa: E402  (sys.path 준비 뒤에 와야 한다)
+
 MODULE_PATH = Path(__file__).with_name("build_can_do_segments.py")
 SPEC = importlib.util.spec_from_file_location("build_can_do_segments", MODULE_PATH)
 if SPEC is None or SPEC.loader is None:
@@ -98,7 +102,7 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
         vocab_pack_ids = {row["pack_id"] for row in _csv("korean_vocab.csv")}
         grammar_ids = {row["id"] for row in _csv("grammar.csv")}
         smalltalk_ids = {row["id"] for row in _json("smalltalk.json")["phrases"]}
-        scenario_ids = {row["id"] for row in _json("scenarios.json")["scenarios"]}
+        scenario_ids = {row["id"] for row in scenario_store.load_scenarios()}
         expected = {
             "vocabPack": vocab_pack_ids,
             "grammar": grammar_ids,

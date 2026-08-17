@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 
+import 'support/scenario_json.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -11,8 +13,7 @@ void main() {
     'new A1 Korean-life scenarios have linkable metadata and identified quests',
     () async {
       final scenariosJson =
-          jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-              as Map<String, dynamic>;
+          allScenarioRoot();
       final manifestJson =
           jsonDecode(
                 File('assets/data/curriculum_manifest.json').readAsStringSync(),

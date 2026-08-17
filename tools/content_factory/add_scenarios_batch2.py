@@ -5,6 +5,8 @@
 한/독/영. 스키마 검증 + 중복 건너뜀 + vocab>=6 확인 후 scenarios.json 병합.
 실행:  python3 tools/content_factory/add_scenarios_batch2.py --write
 """
+# 2026-08-17 이후 무효: 코퍼스는 assets/data/scenarios_{level}.json 6 샤드다.
+# 이 스크립트는 이미 실행이 끝난 기록물이라 갱신하지 않는다 (재실행 시 파일 없음으로 죽는다).
 import json
 import os
 import sys

@@ -1,13 +1,19 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+
+import 'support/scenario_json.dart';
 
 const _shippedLearnerFiles = <String>[
   'assets/data/korean_vocab.csv',
   'assets/data/grammar.csv',
   'assets/data/smalltalk.json',
-  'assets/data/scenarios.json',
+  'assets/data/scenarios_a1.json',
+  'assets/data/scenarios_a2.json',
+  'assets/data/scenarios_b1.json',
+  'assets/data/scenarios_b2.json',
+  'assets/data/scenarios_c1.json',
+  'assets/data/scenarios_c2.json',
   'assets/data/cloze.json',
   'assets/data/satz_sentences.json',
   'assets/data/pronunciation_phrases.json',
@@ -144,8 +150,7 @@ void main() {
 
   test('scenario dialogue does not use uncontracted I am / I will', () {
     final root =
-        jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-            as Map<String, dynamic>;
+        allScenarioRoot();
     final hits = <String>[];
     for (final scenario in (root['scenarios'] as List).cast<Map<String, dynamic>>()) {
       final id = scenario['id'] as String? ?? 'unknown';
@@ -179,8 +184,7 @@ void main() {
   // 3인칭 언급(`현우 씨가 늦는대요`)은 정상이므로 자기소개 형태만 막는다.
   test('learner lines never introduce themselves with the NPC name', () {
     final root =
-        jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-            as Map<String, dynamic>;
+        allScenarioRoot();
     final selfIntro = RegExp(r'(저는|나는|제 이름은|이름이)\s*현우');
     final hits = <String>[];
     for (final scenario

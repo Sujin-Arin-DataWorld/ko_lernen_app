@@ -9,6 +9,7 @@ import tempfile
 import unittest
 
 from validate_reference_intake import ROOT, ReferenceIntakeValidator
+import scenario_store
 
 
 class ReferenceIntakeValidatorTest(unittest.TestCase):
@@ -17,7 +18,12 @@ class ReferenceIntakeValidatorTest(unittest.TestCase):
             "assets/data/korean_vocab.csv",
             "assets/data/grammar.csv",
             "assets/data/curriculum_manifest.json",
-            "assets/data/scenarios.json",
+            "assets/data/scenarios_a1.json",
+            "assets/data/scenarios_a2.json",
+            "assets/data/scenarios_b1.json",
+            "assets/data/scenarios_b2.json",
+            "assets/data/scenarios_c1.json",
+            "assets/data/scenarios_c2.json",
             "assets/data/smalltalk.json",
             "assets/data/cloze.json",
             "assets/data/satz_sentences.json",

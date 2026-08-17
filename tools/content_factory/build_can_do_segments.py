@@ -12,9 +12,13 @@ import csv
 import hashlib
 import json
 import re
+import sys
 from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Iterable
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import scenario_store
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1820,7 +1824,7 @@ class SourceIndex:
             key: value["courseUnitId"]
             for key, value in self.curriculum["grammarRuleMap"].items()
         }
-        scenario_root = _read_json(DATA / "scenarios.json")
+        scenario_root = scenario_store.load_root(DATA)
         self.scenarios = {row["id"]: row for row in scenario_root["scenarios"]}
         smalltalk_root = _read_json(DATA / "smalltalk.json")
         self.smalltalk = {row["id"]: row for row in smalltalk_root["phrases"]}

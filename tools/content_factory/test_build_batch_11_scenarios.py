@@ -13,6 +13,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import scenario_store
+
 import build_batch_11_scenarios as builder
 from data.batch_11_scene_scripts import SCENES
 
@@ -48,7 +50,8 @@ class SceneContractTest(unittest.TestCase):
             )
 
     def test_no_collision_with_live_scenarios(self):
-        live = json.loads((ROOT / "assets/data/scenarios.json").read_text(encoding="utf-8"))
+        # 코퍼스는 레벨 샤드 6 개다 (2026-08-17). 병합 뷰는 store 만 만든다.
+        live = scenario_store.load_root(ROOT / "assets" / "data")
         live_ids = {item["id"] for item in live["scenarios"]}
         live_quests = {
             q["id"]

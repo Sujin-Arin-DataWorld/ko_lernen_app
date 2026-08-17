@@ -20,6 +20,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import scenario_store
 from validate_content import ContentValidator
 
 
@@ -115,11 +116,14 @@ class ContentValidatorTest(unittest.TestCase):
         self.assertTrue(any("graph formFamilies is" in message for message in messages))
 
     def test_scenario_vocab_object_and_id_type_are_required(self) -> None:
-        scenarios = copy.deepcopy(self._asset_json("scenarios.json"))
+        # 코퍼스는 레벨 샤드 6 개라 파일명 하나로는 갈아끼울 수 없다.
+        # 병합 뷰를 돌려주는 메서드가 유일한 주입 지점이다.
+        scenarios = copy.deepcopy(scenario_store.load_root())
         scenarios["scenarios"][0]["id"] = 1
         scenarios["scenarios"][0]["vocab"] = ["not-an-object"] * 6
 
-        validator = self._with_json_override(**{"scenarios.json": scenarios})
+        validator = ContentValidator()
+        validator.load_scenario_root = lambda: scenarios  # type: ignore[method-assign]
         self.assertTrue(validator.validate())
 
         messages = self._messages(validator)

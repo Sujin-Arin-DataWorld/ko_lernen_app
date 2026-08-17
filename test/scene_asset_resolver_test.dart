@@ -1,67 +1,44 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/scene_asset_resolver.dart';
 
-/// Minimal Scenario carrying only the id (all other fields default). The
-/// resolver + backdropKey only read `id`.
-Scenario scn(String id) => Scenario.fromJson(<String, dynamic>{'id': id});
+import 'support/scenario_json.dart';
+
+/// Minimal Scenario carrying the id and its backdrop. Since 2026-08-17 the
+/// category comes from the record's `backdrop` field, not from an id→category
+/// map, so a fixture must state it the same way the shard data does.
+Scenario scn(String id, {String backdrop = ''}) =>
+    Scenario.fromJson(<String, dynamic>{'id': id, 'backdrop': backdrop});
 
 void main() {
   tearDown(SceneAssetResolver.debugReset);
 
-  group('ScenarioBackdrop.backdropKey (category fallback, exact-id map)', () {
-    test('mart_grocery maps to market (was the substring-match bug)', () {
-      expect(scn('mart_grocery').backdropKey, 'market');
+  group('ScenarioBackdrop.backdropKey (JSON 필드가 정본)', () {
+    test('backdrop 필드가 그대로 카테고리 키다', () {
+      expect(scn('mart_grocery', backdrop: 'market').backdropKey, 'market');
+      expect(scn('airport_arrival', backdrop: 'airport').backdropKey, 'airport');
     });
 
-    test('airport_arrival maps to airport (2026-08-04 분리)', () {
-      expect(scn('airport_arrival').backdropKey, 'airport');
-    });
-
-    test('pharmacy_headache maps to pharmacy (2026-08-07 신설)', () {
-      // scenes/pharmacy.png 는 번들에 들어가면서도 카테고리가 없어 한 번도
-      // 렌더된 적 없는 고아였다. 되돌리면 약국 장면이 다시 시장 배경을 쓴다.
-      expect(scn('pharmacy_headache').backdropKey, 'pharmacy');
-    });
-
-    test('clinic 계열은 전용 배경이 없어 market 을 유지한다 (의도적)', () {
-      // pharmacy 신설에 딸려 옮기고 싶어지는 자리다. scenes/clinic.png 가
-      // 생기기 전에 옮기면 이 시나리오들이 배경을 통째로 잃는다.
-      expect(scn('doctor_consultation').backdropKey, 'market');
-      expect(scn('clinic_safety').backdropKey, 'market');
-    });
-
-    test('every previously-uncovered scenario now has a category', () {
-      // These 13 returned null under the old substring map (→ mascot-only).
-      const previouslyNull = <String>[
-        'business_meeting_intro',
-        'complaint_delivery',
-        'doctor_consultation',
-        'ktx_ticket',
-        'food_delivery',
-        'mart_grocery',
-        'gym_signup',
-        'bank_account',
-        'job_interview',
-        'love_confession',
-        'feeling_sick',
-        'lost_phone',
-        'friend_birthday',
-      ];
-      for (final id in previouslyNull) {
-        expect(
-          scn(id).backdropKey,
-          isNotNull,
-          reason: '$id must resolve to a category backdrop',
-        );
-      }
-    });
-
-    test('unregistered id returns null (safety)', () {
+    test('backdrop 이 비면 null (UI 는 마스코트로 떨어진다)', () {
       expect(scn('totally_unknown_xyz').backdropKey, isNull);
+    });
+
+    test('live 데이터의 실제 배정이 유지된다', () {
+      // 예전에는 이 값들이 Dart const map 에 있었다. 지금은 샤드 레코드에 있고,
+      // 전수 무회귀는 test/scenario_shelf_contract_test.dart 가 기준선으로 지킨다.
+      final byId = <String, String>{
+        for (final raw in allScenarioJson())
+          raw['id'] as String: raw['backdrop'] as String,
+      };
+      expect(byId['mart_grocery'], 'market');
+      expect(byId['airport_arrival'], 'airport');
+      // scenes/pharmacy.png 는 한때 카테고리가 없어 렌더된 적 없는 고아였다.
+      expect(byId['pharmacy_headache'], 'pharmacy');
+      // clinic 전용 배경이 생기기 전에는 market 을 유지해야 배경을 잃지 않는다.
+      expect(byId['doctor_consultation'], 'market');
+      expect(byId['clinic_safety'], 'market');
     });
   });
 
@@ -76,7 +53,7 @@ void main() {
     });
 
     test('no manifest loaded → category poster + loop', () {
-      final s = scn('airport_arrival');
+      final s = scn('airport_arrival', backdrop: 'airport');
       expect(
         SceneAssetResolver.posterAsset(s),
         'assets/illustrations/scenes/airport.png',
@@ -94,7 +71,7 @@ void main() {
         'assets/illustrations/scenes/airport_arrival.png',
         'assets/video/loops/scene_airport_arrival.mp4',
       });
-      final s = scn('airport_arrival');
+      final s = scn('airport_arrival', backdrop: 'airport');
       expect(
         SceneAssetResolver.posterAsset(s),
         'assets/illustrations/scenes/airport_arrival.png',
@@ -114,7 +91,7 @@ void main() {
           'assets/illustrations/scenes/airport_arrival.png',
           // deliberately no scene_airport_arrival.mp4
         });
-        final s = scn('airport_arrival');
+        final s = scn('airport_arrival', backdrop: 'airport');
         expect(
           SceneAssetResolver.posterAsset(s),
           'assets/illustrations/scenes/airport_arrival.png',
@@ -131,7 +108,7 @@ void main() {
         'assets/illustrations/scenes/market.png',
         'assets/video/loops/scene_market.mp4',
       });
-      final s = scn('mart_grocery');
+      final s = scn('mart_grocery', backdrop: 'market');
       expect(
         SceneAssetResolver.posterAsset(s),
         'assets/illustrations/scenes/market.png',
@@ -149,48 +126,25 @@ void main() {
     });
   });
 
-  group('배경 배선 무결성 가드 (2026-08-04)', () {
-    /// `_categoryById` 의 (시나리오 id → 카테고리 키) 쌍을 소스에서 뽑는다.
-    /// 맵이 private 이라 리플렉션 대신 소스를 읽는다 — 다른 guard 테스트와 동일 패턴.
-    List<MapEntry<String, String>> mapEntries() {
-      // Windows 체크아웃은 CRLF 라 '\n  };\n' 로 끝을 못 찾는다. 줄바꿈만
-      // 정규화하고 나머지 검색은 그대로 둔다 (2026-08-04 실패 원인).
-      final src = File(
-        'lib/models/scenario.dart',
-      ).readAsStringSync().replaceAll('\r\n', '\n');
-      final start = src.indexOf('static const _categoryById');
-      expect(start, greaterThanOrEqualTo(0), reason: '_categoryById 를 찾지 못했습니다');
-      final end = src.indexOf('\n  };\n', start);
-      expect(end, greaterThan(start));
-      return RegExp(r"'([a-z0-9_]+)': '([a-z]+)'")
-          .allMatches(src.substring(start, end))
-          .map((m) => MapEntry(m.group(1)!, m.group(2)!))
-          .toList();
-    }
+  group('배경 배선 무결성 가드 (2026-08-17: 소스 맵 → JSON 필드)', () {
+    // 2026-08-17 이전에는 `_categoryById` const map 을 소스에서 정규식으로 뽑아
+    // 고아·유령을 셌다. 배경이 시나리오 레코드 자체에 붙은 지금은 그 두 상태가
+    // 구조적으로 불가능하므로, 남는 계약은 "값이 있고 그 PNG 가 번들에 있다" 뿐이다.
 
-    test('scenarios.json 의 모든 시나리오가 카테고리에 등록돼 있다', () {
-      final data =
-          jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-              as Map<String, dynamic>;
-      final ids = (data['scenarios'] as List)
-          .map((e) => (e as Map<String, dynamic>)['id'] as String)
-          .toSet();
-      final mapped = mapEntries().map((e) => e.key).toSet();
-
-      expect(
-        ids.difference(mapped),
-        isEmpty,
-        reason: '미등록 → backdropKey 가 null 이라 배경 없이 마스코트로 떨어집니다',
-      );
-      expect(
-        mapped.difference(ids),
-        isEmpty,
-        reason: 'scenarios.json 에 없는 id 가 맵에 남아 있습니다 (오타 또는 삭제 잔재)',
-      );
+    test('모든 시나리오에 backdrop 이 있다', () {
+      for (final raw in allScenarioJson()) {
+        expect(
+          (raw['backdrop'] as String?) ?? '',
+          isNotEmpty,
+          reason: '${raw['id']} 에 backdrop 이 없어 배경 없이 마스코트로 떨어집니다',
+        );
+      }
     });
 
-    test('모든 카테고리 키에 실제 포스터 PNG 가 있다', () {
-      final categories = mapEntries().map((e) => e.value).toSet();
+    test('쓰이는 모든 카테고리에 실제 포스터 PNG 가 있다', () {
+      final categories = allScenarioJson()
+          .map((raw) => raw['backdrop'] as String)
+          .toSet();
       expect(categories, isNotEmpty);
       for (final key in categories) {
         expect(

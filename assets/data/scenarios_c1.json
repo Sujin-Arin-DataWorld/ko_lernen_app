@@ -1,0 +1,2094 @@
+{
+  "version": 1,
+  "_comment": "Szenarien für Phase 5, nach CEFR-Level geshardet. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen. Schreiben nur über tools/content_factory/scenario_store.py.",
+  "scenarios": [
+    {
+      "id": "c1_survey_limits_briefing",
+      "sourceSeedId": "seed_c1_survey_limits",
+      "level": "c1",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "qualify_survey_findings",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 205,
+      "title": {
+        "ko": "설문 결과의 한계 설명하기",
+        "de": "Grenzen einer Umfrage erläutern",
+        "en": "Explaining the limitations of a survey"
+      },
+      "intro": {
+        "ko": "주민 설문에서 한 방향의 결과가 나왔지만 표본에 한계가 있습니다. 확인된 경향과 불확실성을 구분해 다음 조사를 제안하세요.",
+        "de": "Eine Bürgerumfrage zeigt eine klare Tendenz, doch die Stichprobe hat Grenzen. Trenne Befund und Unsicherheit und schlage den nächsten Prüfschritt vor.",
+        "en": "A resident survey shows a clear trend, but the sample has limitations. Separate the finding from the uncertainty and propose the next review step."
+      },
+      "vocab": [
+        {
+          "korean": "표본이 치우치다"
+        },
+        {
+          "korean": "전제를 밝히다"
+        },
+        {
+          "korean": "한계를 인정하다"
+        },
+        {
+          "korean": "결론을 유보하다"
+        },
+        {
+          "korean": "자료를 대조하다"
+        },
+        {
+          "korean": "불확실성을 명시하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum offenlassen",
+          "en": "V-(으)ㄹ 여지가 있다: leaving room for reconsideration"
+        },
+        "explanation": {
+          "ko": "현재 판단을 단정하지 않고 추가 근거나 조건에 따라 다른 결론이 가능함을 조심스럽게 나타낸다.",
+          "de": "Die Form vermeidet ein endgültiges Urteil und zeigt vorsichtig, dass weitere Evidenz oder Bedingungen eine andere Schlussfolgerung ermöglichen.",
+          "en": "This form avoids a final judgment and cautiously shows that further evidence or conditions could support a different conclusion."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "주민 설문 결과가 나왔습니다. 바로 확대 사업안을 발표해도 될까요?",
+          "de": "Die Ergebnisse der Bürgerumfrage liegen vor. Können wir den Ausbauplan sofort ankündigen?",
+          "en": "The resident survey results are ready. Can we announce the expansion plan right away?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직은 조심해야 합니다. 응답자의 연령대가 한쪽으로 치우쳤습니다.",
+          "de": "Wir sollten noch vorsichtig sein. Die Altersverteilung der Befragten ist einseitig.",
+          "en": "We should still be cautious. The respondents' age distribution is skewed."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇다면 조사 결과를 어떻게 설명하는 게 좋을까요?",
+          "de": "Wie sollten wir die Umfrageergebnisse dann erklären?",
+          "en": "How should we explain the survey results, then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "확인된 경향과 조사 한계를 나누고 다른 자료와도 대조해야 합니다.",
+          "de": "Wir sollten die bestätigte Tendenz von den Grenzen der Erhebung trennen und andere Daten zum Vergleich heranziehen.",
+          "en": "We should separate the confirmed trend from the survey limitations and compare it with other data."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "찬성 비율이 높다는 점은 언급해도 되겠죠?",
+          "de": "Wir können aber erwähnen, dass der Zustimmungsanteil hoch ist, oder?",
+          "en": "We can still mention that the approval rate is high, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 다만 상관관계를 원인으로 단정하지 말고 불확실성을 명시해야 합니다.",
+          "de": "Ja. Wir dürfen eine Korrelation aber nicht als Ursache darstellen und müssen die Unsicherheit ausdrücklich nennen.",
+          "en": "Yes. However, we must not present correlation as causation, and we need to state the uncertainty explicitly."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "결론을 완전히 미뤄야 한다는 뜻인가요?",
+          "de": "Bedeutet das, dass wir die Schlussfolgerung vollständig aufschieben müssen?",
+          "en": "Does that mean we have to postpone the conclusion entirely?"
+        },
+        {
+          "speaker": "user",
+          "ko": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+          "de": "Mit den aktuellen Daten lässt sich der Ausbau noch nicht bestätigen, aber nach einer weiteren Erhebung besteht Spielraum für eine erneute Prüfung.",
+          "en": "The current data is not enough to confirm the expansion, but further research would leave room to reconsider it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_survey_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "상관관계를 원인으로 단정하지 말고 불확실성을 명시해야 합니다.",
+            "options": [
+              {
+                "de": "Eine Korrelation darf nicht als Ursache ausgegeben werden, und die Unsicherheit muss genannt werden.",
+                "en": "Correlation must not be presented as causation, and the uncertainty must be stated."
+              },
+              {
+                "de": "Die hohe Zustimmung beweist die Ursache des Ergebnisses.",
+                "en": "The high approval rate proves the cause of the result."
+              },
+              {
+                "de": "Weitere Daten würden die Erklärung nur unnötig erschweren.",
+                "en": "More data would only make the explanation unnecessarily difficult."
+              },
+              {
+                "de": "Die Umfrage sollte ohne Hinweis auf ihre Grenzen veröffentlicht werden.",
+                "en": "The survey should be published without mentioning its limitations."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_translation",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Die Altersverteilung der Befragten ist einseitig.",
+            "promptEn": "The respondents' age distribution is skewed.",
+            "options": [
+              {
+                "ko": "응답자의 연령대가 한쪽으로 치우쳤습니다."
+              },
+              {
+                "ko": "응답자의 수가 예상보다 크게 늘었습니다."
+              },
+              {
+                "ko": "연령대별 결과가 정확히 같았습니다."
+              },
+              {
+                "ko": "응답자의 의견을 모두 제외했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_cloze",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 ___ 여지가 있습니다.",
+            "options": [
+              "검토할",
+              "단정할",
+              "부풀릴",
+              "숨길"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_survey_satz",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+            "promptDe": "Bilde den Satz, der das aktuelle Urteil begrenzt und eine spätere Prüfung offenlässt.",
+            "promptEn": "Build the sentence that limits the current conclusion and leaves room for later review.",
+            "distractors": [
+              "무조건",
+              "이미"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_survey_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "현재 자료만으로 확대를 확정하기는 어렵지만 추가 조사를 거치면 다시 검토할 여지가 있습니다.",
+            "promptDe": "Schreibe die vorsichtige Schlussfolgerung aus dem Briefing.",
+            "promptEn": "Write the cautious conclusion from the briefing."
+          }
+        }
+      ],
+      "shelf": "c1_uncertainty",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_partner_invisible_labor",
+      "sourceSeedId": "seed_c1_partner_invisible_labor",
+      "level": "c1",
+      "emoji": "🏡",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "family",
+      "intent": "partner_family_visit",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 180,
+      "title": {
+        "ko": "보이지 않는 일",
+        "de": "Unsichtbare Arbeit",
+        "en": "Invisible work"
+      },
+      "intro": {
+        "ko": "명절 노동이 한쪽에 몰립니다. 교대표를 제안하세요.",
+        "de": "Die Festarbeit lastet auf einer Seite. Schlage einen Wechselplan vor.",
+        "en": "Holiday labor sits on one side. Propose a rotation chart."
+      },
+      "vocab": [
+        {
+          "korean": "일"
+        },
+        {
+          "korean": "나누다"
+        },
+        {
+          "korean": "휴식"
+        },
+        {
+          "korean": "제안"
+        },
+        {
+          "korean": "함께"
+        },
+        {
+          "korean": "다음"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "N을/를 고려하여: unter Berücksichtigung",
+          "en": "N을/를 고려하여: taking into account"
+        },
+        "explanation": {
+          "ko": "여러 조건과 부담을 함께 보고 제안을 조절할 때 쓴다.",
+          "de": "Mehrere Bedingungen und Lasten gemeinsam in den Vorschlag nehmen.",
+          "en": "Adjust a proposal while holding several conditions and burdens together."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "노동을 보이게 하고 교대로 쉬면 좋겠어요.",
+          "de": "Wenn die Arbeit sichtbar wird und Pausen wechseln, wäre es besser.",
+          "en": "If the work is visible and rest rotates, it would be better."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "표로 나누면 감정도 편해져요.",
+          "de": "Geteilt als Tabelle wird es leichter.",
+          "en": "Split as a chart it gets easier."
+        },
+        {
+          "speaker": "user",
+          "ko": "표를 만들면 계산적으로 보이지 않을까요?",
+          "de": "Wirkt eine Tabelle nicht berechnend?",
+          "en": "Won't a chart come across as calculating?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "말로만 하면 결국 같은 사람이 해요.",
+          "de": "Ohne etwas Schriftliches macht es am Ende dieselbe Person.",
+          "en": "Without something written down, the same person ends up doing it."
+        },
+        {
+          "speaker": "user",
+          "ko": "장 보기나 일정 잡기도 일로 넣어야 할까요?",
+          "de": "Zählen Einkaufen und Terminplanung auch als Arbeit?",
+          "en": "Should shopping and scheduling count as work too?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그게 제일 안 보이는 일이에요.",
+          "de": "Genau das ist die unsichtbarste Arbeit.",
+          "en": "That's exactly the least visible work."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 준비부터 정리까지 다 적어 볼게요.",
+          "de": "Dann schreibe ich alles auf, von der Vorbereitung bis zum Aufräumen.",
+          "en": "Then I'll write it all down, from prep to cleanup."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "올해 한 번 해 보고 고쳐요.",
+          "de": "Machen wir es dieses Jahr einmal so und passen es an.",
+          "en": "Let's try it once this year and adjust."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_partner_invisible_labor_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "표로 나누면 감정도 편해져요.",
+            "options": [
+              {
+                "de": "Eine Tabelle entlastet auch die Gefühle.",
+                "en": "A chart eases feelings too."
+              },
+              {
+                "de": "Die Schuhe bleiben an.",
+                "en": "Keep the shoes on."
+              },
+              {
+                "de": "Das Essen ist schon vorbei.",
+                "en": "The meal is already over."
+              },
+              {
+                "de": "Ihr sollt sofort gehen.",
+                "en": "You should leave at once."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_partner_invisible_labor_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Wenn die Arbeit sichtbar wird und Pausen wechseln, wäre es besser.",
+            "promptEn": "If the work is visible and rest rotates, it would be better.",
+            "options": [
+              {
+                "ko": "노동을 보이게 하고 교대로 쉬면 좋겠어요."
+              },
+              {
+                "ko": "지금 바로 갈게요."
+              },
+              {
+                "ko": "사진을 올려도 돼요?"
+              },
+              {
+                "ko": "문을 닫아 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_partner_invisible_labor_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "___ 나누면 감정도 편해져요.",
+            "options": [
+              "표로",
+              "그냥",
+              "나중에",
+              "사진"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_labor",
+      "backdrop": "home"
+    },
+    {
+      "id": "c1_partner_guest_or_family",
+      "sourceSeedId": "seed_c1_partner_guest_or_family",
+      "level": "c1",
+      "emoji": "🏡",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "family",
+      "intent": "partner_family_visit",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 180,
+      "title": {
+        "ko": "손님으로 두기",
+        "de": "Als Gast belassen",
+        "en": "Left as a guest"
+      },
+      "intro": {
+        "ko": "환영처럼 들려도 손님으로 남습니다. 소속을 재협상하세요.",
+        "de": "Es klingt wie Willkommen, du bleibst Gast. Verhandle die Zugehörigkeit.",
+        "en": "It sounds like welcome, but you remain a guest. Renegotiate belonging."
+      },
+      "vocab": [
+        {
+          "korean": "우리"
+        },
+        {
+          "korean": "같이"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "말"
+        },
+        {
+          "korean": "다음"
+        },
+        {
+          "korean": "제안"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "N을/를 고려하여: unter Berücksichtigung",
+          "en": "N을/를 고려하여: taking into account"
+        },
+        "explanation": {
+          "ko": "여러 조건과 부담을 함께 보고 제안을 조절할 때 쓴다.",
+          "de": "Mehrere Bedingungen und Lasten gemeinsam in den Vorschlag nehmen.",
+          "en": "Adjust a proposal while holding several conditions and burdens together."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저는 여기서 계속 손님으로 남는 것 같아요.",
+          "de": "Ich habe das Gefühl, hier dauerhaft Gast zu bleiben.",
+          "en": "I feel like I stay a guest here permanently."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "같이 온 사람이라고 불러 주세요.",
+          "de": "Nennt mich die mitgekommene Person.",
+          "en": "Please call me the person who came along."
+        },
+        {
+          "speaker": "user",
+          "ko": "대접은 받는데 결정에는 안 들어가요.",
+          "de": "Ich werde bewirtet, aber bei Entscheidungen bin ich außen vor.",
+          "en": "I'm treated well but left out of decisions."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 둘이 같이 가지는 않더라고요.",
+          "de": "Das eine bringt das andere nicht mit.",
+          "en": "One doesn't automatically bring the other."
+        },
+        {
+          "speaker": "user",
+          "ko": "작은 일부터 같이 정하면 달라질까요?",
+          "de": "Ändert es sich, wenn ich bei kleinen Dingen mitentscheide?",
+          "en": "Would it change if I helped decide small things?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "장보기 목록부터 같이 짜 봐요.",
+          "de": "Fangen wir mit der Einkaufsliste an.",
+          "en": "Let's start with the shopping list."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 다음 명절 메뉴부터 같이 정할게요.",
+          "de": "Dann plane ich das nächste Festmenü mit.",
+          "en": "Then I'll help plan the next holiday menu."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 자리부터가 시작이에요.",
+          "de": "Da fängt es an.",
+          "en": "That's where it starts."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_partner_guest_or_family_hearing",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "같이 온 사람이라고 불러 주세요.",
+            "options": [
+              {
+                "de": "Nennt mich die mitgekommene Person.",
+                "en": "Please call me the person who came along."
+              },
+              {
+                "de": "Die Schuhe bleiben an.",
+                "en": "Keep the shoes on."
+              },
+              {
+                "de": "Das Essen ist schon vorbei.",
+                "en": "The meal is already over."
+              },
+              {
+                "de": "Ihr sollt sofort gehen.",
+                "en": "You should leave at once."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_partner_guest_or_family_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Ich habe das Gefühl, hier dauerhaft Gast zu bleiben.",
+            "promptEn": "I feel like I stay a guest here permanently.",
+            "options": [
+              {
+                "ko": "지금 질문은 제가 통역하지 않을게요."
+              },
+              {
+                "ko": "아직 천천히 알아가는 중이에요."
+              },
+              {
+                "ko": "저는 여기서 계속 손님으로 남는 것 같아요."
+              },
+              {
+                "ko": "문은 조금 열어 둘게요. 잠은 따로 잘게요."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_partner_guest_or_family_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "___ 온 사람이라고 불러 주세요.",
+            "options": [
+              "같이",
+              "그냥",
+              "나중에",
+              "사진"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_labor",
+      "backdrop": "home"
+    },
+    {
+      "id": "c1_uncertainty",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_uncertainty",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "불확실성 구간",
+        "de": "Unsicherheitsspanne",
+        "en": "Uncertainty range"
+      },
+      "intro": {
+        "ko": "회의에서 예상 숫자를 한 값이 아니라 구간으로 말합니다.",
+        "de": "In der Lage nennt man die Zahl als Spanne, nicht als einen Wert.",
+        "en": "In the meeting you give the expected number as a range, not one value."
+      },
+      "vocab": [
+        {
+          "korean": "구간"
+        },
+        {
+          "korean": "예상"
+        },
+        {
+          "korean": "숫자"
+        },
+        {
+          "korean": "단정"
+        },
+        {
+          "korean": "슬라이드"
+        },
+        {
+          "korean": "맞추다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "지금 시간 괜찮아요. 어떤 건이에요?",
+          "de": "Ich habe Zeit. Um welchen Fall geht es?",
+          "en": "I have time. Which case is it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "삼십에서 사십으로 말해 주세요. 서른다섯이라고 단정하지 말고요.",
+          "de": "Bitte dreißig bis vierzig sagen, nicht fünfunddreißig festlegen.",
+          "en": "Please say thirty to forty, not lock in thirty-five."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 구간을 첫 슬라이드에 넣을까요?",
+          "de": "Soll diese Spanne auf die erste Folie?",
+          "en": "Shall this range go on the first slide?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 첫 슬라이드에 넣어 주세요.",
+          "de": "Ja, auf die erste Folie bitte.",
+          "en": "Yes, put it on the first slide."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그렇게 하겠습니다.",
+          "de": "Ja, mache ich.",
+          "en": "Yes, I'll do that."
+        },
+        {
+          "speaker": "user",
+          "ko": "숫자는 언제 다시 맞춰요?",
+          "de": "Wann werden die Zahlen erneut abgeglichen?",
+          "en": "When will the numbers be reconciled?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "숫자는 오전에 다시 맞춰 두겠습니다.",
+          "de": "Die Zahl gleiche ich vormittags noch einmal ab.",
+          "en": "I'll match the number again in the morning."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_uncertainty_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 구간을 첫 슬라이드에 넣을까요?",
+            "options": [
+              {
+                "de": "Soll diese Spanne auf die erste Folie?",
+                "en": "Shall this range go on the first slide?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_uncertainty_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Bitte dreißig bis vierzig sagen, nicht fünfunddreißig festlegen.",
+            "promptEn": "Please say thirty to forty, not lock in thirty-five.",
+            "options": [
+              {
+                "ko": "삼십에서 사십으로 말해 주세요. 서른다섯이라고 단정하지 말고요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_uncertainty_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___는 오전에 다시 맞춰 두겠습니다.",
+            "options": [
+              "숫자",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_uncertainty",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_sample_bias",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_sample_bias",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "표본 편향",
+        "de": "Stichprobenverzerrung",
+        "en": "Sample bias"
+      },
+      "intro": {
+        "ko": "설문이 젊은 사람만 모아서 전체가 아니라고 밝힙니다.",
+        "de": "Die Umfrage hat vor allem Jüngere, deshalb ist sie nicht die Gesamtheit.",
+        "en": "The survey mostly reached younger people, so it is not the whole group."
+      },
+      "vocab": [
+        {
+          "korean": "표본"
+        },
+        {
+          "korean": "설문"
+        },
+        {
+          "korean": "이십 대"
+        },
+        {
+          "korean": "전체"
+        },
+        {
+          "korean": "표"
+        },
+        {
+          "korean": "한계"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
+        },
+        {
+          "speaker": "user",
+          "ko": "이 결과는 이십 대 응답이 많아서 전체를 대표하지 않아요.",
+          "de": "Dieses Ergebnis hat zu viele Antworten aus den Zwanzigern. Es steht nicht für alle.",
+          "en": "This result has too many answers from people in their twenties. It does not stand for everyone."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 한계를 표 아래에 쓸까요?",
+          "de": "Soll diese Grenze unter die Tabelle?",
+          "en": "Shall this limit go under the table?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 표 아래에 써 주세요.",
+          "de": "Ja, unter die Tabelle schreiben.",
+          "en": "Yes, write it under the table."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
+          "de": "Ja, ich passe es entsprechend an.",
+          "en": "Yes, I'll line it up like that."
+        },
+        {
+          "speaker": "user",
+          "ko": "언제 들어가요?",
+          "de": "Wann kommt es hinein?",
+          "en": "When will it be added?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "문장은 오늘 저녁에 넣겠습니다.",
+          "de": "Den Satz setze ich heute Abend ein.",
+          "en": "I'll put the sentence in this evening."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_sample_bias_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 한계를 표 아래에 쓸까요?",
+            "options": [
+              {
+                "de": "Soll diese Grenze unter die Tabelle?",
+                "en": "Shall this limit go under the table?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_sample_bias_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Dieses Ergebnis hat zu viele Antworten aus den Zwanzigern. Es steht nicht für alle.",
+            "promptEn": "This result has too many answers from people in their twenties. It does not stand for everyone.",
+            "options": [
+              {
+                "ko": "이 결과는 이십 대 응답이 많아서 전체를 대표하지 않아요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_sample_bias_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "문장은 오늘 저녁에 ___.",
+            "options": [
+              "넣겠습니다",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_uncertainty",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_briefing_number",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_briefing_number",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "브리핑 숫자",
+        "de": "Lagezahl",
+        "en": "Briefing number"
+      },
+      "intro": {
+        "ko": "브리핑에 넣을 숫자를 하나 고르고 나머지는 빼습니다.",
+        "de": "Für die Lage wählt man eine Zahl und lässt die anderen weg.",
+        "en": "You pick one number for the briefing and drop the rest."
+      },
+      "vocab": [
+        {
+          "korean": "브리핑"
+        },
+        {
+          "korean": "숫자"
+        },
+        {
+          "korean": "대기 시간"
+        },
+        {
+          "korean": "방문자"
+        },
+        {
+          "korean": "슬라이드"
+        },
+        {
+          "korean": "빼다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
+        },
+        {
+          "speaker": "user",
+          "ko": "오늘은 대기 시간만 말하고 방문자 수는 빼 주세요.",
+          "de": "Heute nur die Wartezeit, nicht die Besucherzahl.",
+          "en": "Today say only wait time, not visitor count."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 숫자만 크게 넣을까요?",
+          "de": "Soll nur diese Zahl groß stehen?",
+          "en": "Shall only this number sit large?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그 숫자만 크게 해 주세요.",
+          "de": "Ja, nur diese Zahl groß.",
+          "en": "Yes, make just that number large."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그렇게 하겠습니다.",
+          "de": "Ja, mache ich.",
+          "en": "Yes, I'll do that."
+        },
+        {
+          "speaker": "user",
+          "ko": "슬라이드는 언제 고쳐요?",
+          "de": "Wann wird die Folie geändert?",
+          "en": "When will the slide be updated?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "슬라이드는 오전에 고치겠습니다.",
+          "de": "Die Folie ändere ich vormittags.",
+          "en": "I'll fix the slide in the morning."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_briefing_number_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 숫자만 크게 넣을까요?",
+            "options": [
+              {
+                "de": "Soll nur diese Zahl groß stehen?",
+                "en": "Shall only this number sit large?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_briefing_number_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Heute nur die Wartezeit, nicht die Besucherzahl.",
+            "promptEn": "Today say only wait time, not visitor count.",
+            "options": [
+              {
+                "ko": "오늘은 대기 시간만 말하고 방문자 수는 빼 주세요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_briefing_number_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___는 오전에 고치겠습니다.",
+            "options": [
+              "슬라이드",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_briefing",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_question_window",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_question_window",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "질의 시간",
+        "de": "Nachfragfenster",
+        "en": "Question window"
+      },
+      "intro": {
+        "ko": "설명 뒤에 질의 시간을 언제 열지 정합니다.",
+        "de": "Man legt fest, wann nach der Erklärung Fragen möglich sind.",
+        "en": "You set when questions open after the explanation."
+      },
+      "vocab": [
+        {
+          "korean": "질의"
+        },
+        {
+          "korean": "시간"
+        },
+        {
+          "korean": "설명"
+        },
+        {
+          "korean": "십 분"
+        },
+        {
+          "korean": "순서"
+        },
+        {
+          "korean": "안내"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
+        },
+        {
+          "speaker": "user",
+          "ko": "설명 십 분이 끝난 뒤에만 질문을 받고 싶어요.",
+          "de": "Fragen erst nach zehn Minuten Erklärung.",
+          "en": "I want questions only after ten minutes of explanation."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 순서를 안내에 적을까요?",
+          "de": "Soll ich diese Reihenfolge in den Hinweis?",
+          "en": "Should I write this order in the notice?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 안내에 적어 주세요.",
+          "de": "Ja, in den Hinweis schreiben.",
+          "en": "Yes, write it in the notice."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 그렇게 반영하겠습니다.",
+          "de": "Gut. Ich übernehme es so.",
+          "en": "Sure. I'll apply it that way."
+        },
+        {
+          "speaker": "user",
+          "ko": "안내는 언제 올라가요?",
+          "de": "Wann geht der Hinweis hoch?",
+          "en": "When will the notice go up?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "안내는 오늘 저녁에 올리겠습니다.",
+          "de": "Den Hinweis stelle ich heute Abend ein.",
+          "en": "I'll post the notice this evening."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_question_window_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 순서를 안내에 적을까요?",
+            "options": [
+              {
+                "de": "Soll ich diese Reihenfolge in den Hinweis?",
+                "en": "Should I write this order in the notice?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_question_window_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Fragen erst nach zehn Minuten Erklärung.",
+            "promptEn": "I want questions only after ten minutes of explanation.",
+            "options": [
+              {
+                "ko": "설명 십 분이 끝난 뒤에만 질문을 받고 싶어요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_question_window_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___는 오늘 저녁에 올리겠습니다.",
+            "options": [
+              "안내",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_briefing",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_leading_item",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_leading_item",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "문항 유도",
+        "de": "Suggestivfrage",
+        "en": "Leading item"
+      },
+      "intro": {
+        "ko": "설문 문항이 답을 밀어 넣는지 고칩니다.",
+        "de": "Man ändert eine Frage, die die Antwort schon lenkt.",
+        "en": "You fix a survey item that pushes the answer."
+      },
+      "vocab": [
+        {
+          "korean": "문항"
+        },
+        {
+          "korean": "유도"
+        },
+        {
+          "korean": "중립"
+        },
+        {
+          "korean": "설문"
+        },
+        {
+          "korean": "답"
+        },
+        {
+          "korean": "바꾸다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
+        },
+        {
+          "speaker": "user",
+          "ko": "‘당연히 찬성하시죠’는 답을 유도해요. 중립으로 바꿔 주세요.",
+          "de": "„Sie sind doch dafür“ lenkt. Bitte neutral machen.",
+          "en": "“You agree, of course” pushes the answer. Please make it neutral."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 문장으로 바꿀까요?",
+          "de": "Soll ich auf diesen Satz wechseln?",
+          "en": "Should I change it to this sentence?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그 문장으로 바꿔 주세요.",
+          "de": "Ja, ersetzen Sie es mit diesem Satz.",
+          "en": "Yes, replace it with that sentence."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그렇게 하겠습니다.",
+          "de": "Ja, mache ich.",
+          "en": "Yes, I'll do that."
+        },
+        {
+          "speaker": "user",
+          "ko": "언제 다시 돌려요?",
+          "de": "Wann geht es erneut heraus?",
+          "en": "When will it go out again?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "문항은 내일 아침에 다시 돌리겠습니다.",
+          "de": "Die Frage schicke ich morgen früh neu herum.",
+          "en": "I'll circulate the item again tomorrow morning."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 그럼 그렇게 부탁드려요.",
+          "de": "Danke. Dann bitte so.",
+          "en": "Thank you. Then please do it that way."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_leading_item_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 문장으로 바꿀까요?",
+            "options": [
+              {
+                "de": "Soll ich auf diesen Satz wechseln?",
+                "en": "Should I change it to this sentence?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_leading_item_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "„Sie sind doch dafür“ lenkt. Bitte neutral machen.",
+            "promptEn": "“You agree, of course” pushes the answer. Please make it neutral.",
+            "options": [
+              {
+                "ko": "‘당연히 찬성하시죠’는 답을 유도해요. 중립으로 바꿔 주세요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_leading_item_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___은 내일 아침에 다시 돌리겠습니다.",
+            "options": [
+              "문항",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_briefing",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_relative_risk",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_relative_risk",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "상대 위험",
+        "de": "Relatives Risiko",
+        "en": "Relative risk"
+      },
+      "intro": {
+        "ko": "상대 위험만 말하지 않고 실제 숫자도 같이 적습니다.",
+        "de": "Man nennt nicht nur das relative Risiko, sondern auch die echte Zahl.",
+        "en": "You do not give relative risk alone; you add the actual number."
+      },
+      "vocab": [
+        {
+          "korean": "상대 위험"
+        },
+        {
+          "korean": "두 배"
+        },
+        {
+          "korean": "열 명"
+        },
+        {
+          "korean": "스무 명"
+        },
+        {
+          "korean": "표"
+        },
+        {
+          "korean": "숫자"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "지금 시간 괜찮아요. 어떤 건이에요?",
+          "de": "Ich habe Zeit. Um welchen Fall geht es?",
+          "en": "I have time. Which case is it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "두 배로 늘었다는 말 옆에 열 명에서 스무 명이라고 써 주세요.",
+          "de": "Neben „doppelt so viel“ bitte zehn auf zwanzig schreiben.",
+          "en": "Next to “it doubled,” please write ten people to twenty."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 두 숫자를 같은 줄에 둘까요?",
+          "de": "Soll ich diese zwei Zahlen in dieselbe Zeile?",
+          "en": "Should I put these two numbers on the same line?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 같은 줄에 넣어 주세요.",
+          "de": "Ja, in dieselbe Zeile setzen.",
+          "en": "Yes, put them on the same line."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
+          "de": "Ja, ich passe es entsprechend an.",
+          "en": "Yes, I'll line it up like that."
+        },
+        {
+          "speaker": "user",
+          "ko": "표는 언제 고쳐요?",
+          "de": "Wann wird die Tabelle geändert?",
+          "en": "When will the table be updated?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "표는 오전에 고치겠습니다.",
+          "de": "Die Tabelle ändere ich vormittags.",
+          "en": "I'll fix the table in the morning."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 수고하세요.",
+          "de": "Vielen Dank. Alles Gute.",
+          "en": "Thank you. Have a good one."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_relative_risk_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 두 숫자를 같은 줄에 둘까요?",
+            "options": [
+              {
+                "de": "Soll ich diese zwei Zahlen in dieselbe Zeile?",
+                "en": "Should I put these two numbers on the same line?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_relative_risk_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Neben „doppelt so viel“ bitte zehn auf zwanzig schreiben.",
+            "promptEn": "Next to “it doubled,” please write ten people to twenty.",
+            "options": [
+              {
+                "ko": "두 배로 늘었다는 말 옆에 열 명에서 스무 명이라고 써 주세요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_relative_risk_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___는 오전에 고치겠습니다.",
+            "options": [
+              "표",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_uncertainty",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_access_time",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_access_time",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "접근 비용",
+        "de": "Zugangskosten",
+        "en": "Access cost"
+      },
+      "intro": {
+        "ko": "자료에 닿는 데 시간이 더 걸린다고 미리 말합니다.",
+        "de": "Man sagt vorher, dass der Zugang zur Unterlage länger dauert.",
+        "en": "You say in advance that reaching the material takes more time."
+      },
+      "vocab": [
+        {
+          "korean": "접근"
+        },
+        {
+          "korean": "권한"
+        },
+        {
+          "korean": "폴더"
+        },
+        {
+          "korean": "하루"
+        },
+        {
+          "korean": "지연"
+        },
+        {
+          "korean": "일정"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 편하게 말씀하세요.",
+          "de": "Sagen Sie es ruhig.",
+          "en": "Go ahead, tell me."
+        },
+        {
+          "speaker": "user",
+          "ko": "이 폴더는 권한이 없어서 하루가 더 걸려요.",
+          "de": "Dieser Ordner braucht eine Freigabe, deshalb einen Tag mehr.",
+          "en": "This folder needs permission, so it takes one more day."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 지연을 일정에 넣을까요?",
+          "de": "Soll ich diese Verzögerung in den Plan?",
+          "en": "Should I put this delay on the schedule?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 일정에 넣어 주세요.",
+          "de": "Ja, in den Zeitplan aufnehmen.",
+          "en": "Yes, add it to the schedule."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
+          "de": "Ja, ich passe es entsprechend an.",
+          "en": "Yes, I'll line it up like that."
+        },
+        {
+          "speaker": "user",
+          "ko": "권한은 언제 요청해요?",
+          "de": "Wann wird der Zugang beantragt?",
+          "en": "When will access be requested?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "권한은 내일 오전에 요청하겠습니다.",
+          "de": "Die Freigabe beantrage ich morgen Vormittag.",
+          "en": "I'll request access tomorrow morning."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 감사합니다.",
+          "de": "Gut. Danke schön.",
+          "en": "Sure. Thank you."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_access_time_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 지연을 일정에 넣을까요?",
+            "options": [
+              {
+                "de": "Soll ich diese Verzögerung in den Plan?",
+                "en": "Should I put this delay on the schedule?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_access_time_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Dieser Ordner braucht eine Freigabe, deshalb einen Tag mehr.",
+            "promptEn": "This folder needs permission, so it takes one more day.",
+            "options": [
+              {
+                "ko": "이 폴더는 권한이 없어서 하루가 더 걸려요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_access_time_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___은 내일 오전에 요청하겠습니다.",
+            "options": [
+              "권한",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_access",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_speaking_slot",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "confirm_speaking_slot",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "발언 할당",
+        "de": "Redequote",
+        "en": "Speaking allotment"
+      },
+      "intro": {
+        "ko": "발언 시간을 사람마다 나눠 한 사람이 독점하지 않게 합니다.",
+        "de": "Man teilt die Redezeit, damit nicht eine Person alles nimmt.",
+        "en": "You split speaking time so one person does not take it all."
+      },
+      "vocab": [
+        {
+          "korean": "발언"
+        },
+        {
+          "korean": "삼 분"
+        },
+        {
+          "korean": "순서"
+        },
+        {
+          "korean": "칠판"
+        },
+        {
+          "korean": "한 사람"
+        },
+        {
+          "korean": "나누다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 고려하여",
+          "de": "unter Berücksichtigung",
+          "en": "taking into account"
+        },
+        "explanation": {
+          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
+          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use taking into account to ask politely or name a condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte sagen Sie.",
+          "en": "Yes, go ahead."
+        },
+        {
+          "speaker": "user",
+          "ko": "한 사람은 삼 분으로 맞춰 주세요. 같은 사람이 두 번 말하지 말고요.",
+          "de": "Bitte drei Minuten pro Person. Dieselbe Person nicht zweimal.",
+          "en": "Please three minutes per person. The same person should not speak twice."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 순서를 칠판에 적을까요?",
+          "de": "Soll ich diese Reihenfolge an die Tafel?",
+          "en": "Should I write this order on the board?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 칠판에 적어 주세요.",
+          "de": "Ja, an die Tafel schreiben.",
+          "en": "Yes, write it on the board."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 그렇게 반영하겠습니다.",
+          "de": "Gut. Ich übernehme es so.",
+          "en": "Sure. I'll apply it that way."
+        },
+        {
+          "speaker": "user",
+          "ko": "언제 붙여요?",
+          "de": "Wann wird sie aufgehängt?",
+          "en": "When will it be put up?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "순서는 시작 전에 바로 붙이겠습니다.",
+          "de": "Die Reihenfolge hänge ich gleich vor Beginn an.",
+          "en": "I'll put the order up right before we start."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 알겠어요. 고맙습니다.",
+          "de": "Ja, verstanden. Danke.",
+          "en": "Okay, got it. Thanks."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_speaking_slot_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "이 순서를 칠판에 적을까요?",
+            "options": [
+              {
+                "de": "Soll ich diese Reihenfolge an die Tafel?",
+                "en": "Should I write this order on the board?"
+              },
+              {
+                "de": "Alles ist bereits abgeschlossen.",
+                "en": "Everything is already finished."
+              },
+              {
+                "de": "Der Termin wurde auf nächste Woche verschoben.",
+                "en": "The appointment was moved to next week."
+              },
+              {
+                "de": "Es wird keine Nummer vergeben.",
+                "en": "No number will be issued."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_speaking_slot_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Bitte drei Minuten pro Person. Dieselbe Person nicht zweimal.",
+            "promptEn": "Please three minutes per person. The same person should not speak twice.",
+            "options": [
+              {
+                "ko": "한 사람은 삼 분으로 맞춰 주세요. 같은 사람이 두 번 말하지 말고요."
+              },
+              {
+                "ko": "내일로 미뤄도 괜찮아요."
+              },
+              {
+                "ko": "이 일은 이미 끝났습니다."
+              },
+              {
+                "ko": "번호를 바꾸어 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_speaking_slot_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "___는 시작 전에 바로 붙이겠습니다.",
+            "options": [
+              "순서",
+              "창문",
+              "우유",
+              "지우개"
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "shelf": "c1_briefing",
+      "backdrop": "office"
+    }
+  ]
+}

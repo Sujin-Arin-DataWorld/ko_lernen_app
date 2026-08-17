@@ -1,5 +1,121 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 집행: shelf/backdrop + 6샤드 + 레벨 로더
+
+**무엇.** 계획 1의 8개 태스크를 전부 집행했다. live 264개에 `shelf`/`backdrop` 두
+필드를 소급 부여하고, `assets/data/scenarios.json` 을 레벨 샤드 6개로 쪼갰으며,
+`ScenarioLoader` 에 레벨 단위 로드(`loadLevel`, 상주 2 LRU)를 넣었다. 문장·ID·레벨은
+한 글자도 바꾸지 않았다.
+
+**왜.** 파일럿 47개(계획 3)가 갈 자리(`shelf`)와 배경(`backdrop`)이 먼저 있어야
+재작업이 안 된다. 샤딩은 3,600개 시점의 22.3 MB 단일 에셋을 피하기 위한 것이다.
+
+**어떻게 나눴나.** "샤드 생성 → 읽는 쪽 전환 → 원본 삭제" 3커밋으로 갈라 어느
+커밋에서도 저장소가 초록색이다. `scenarios.json` 경로를 직접 쓰던 파일이 **38개**라
+파이썬은 `tools/content_factory/scenario_store.py`, Dart 테스트는
+`test/support/scenario_json.dart` 를 단일 지점으로 먼저 세웠다.
+
+**계획에 없던 것 3가지(실측으로 드러남).**
+① `integrate_scenario_batch` 가 아직 Dart `_categoryById` 에 배경을 써넣고 있었다 —
+스펙 §5.2가 없애려던 바로 그 동작이다. 배경을 레코드의 `backdrop` 필드로 넣도록
+바꾸고 `_update_backdrop_map` 과 그 테스트를 지웠다. **신규 시나리오의 Dart 수정은
+이제 실제로 0회다.**
+② 동결된 draft 에는 두 필드가 없고 live 에는 생겨 draft↔live 동등성 비교가 전부
+깨졌다. 마이그레이션이 넣은 `shelf`/`backdrop` 만 비교에서 제외했다(문장·ID 는 그대로
+비교) — 스펙 §5.4의 "메타데이터 전용 변경"과 일치한다.
+③ `asset_orphan_guard_test` 는 폴더 단위 면제만 있어 샤드 6개를 고아로 잡았다.
+가드의 ③번 설계를 파일 단위(`dynamicAssets`)로 확장하고, 근거 문자열이 `lib/` 에
+살아 있는지도 함께 강제한다.
+
+**검증.** 마이그레이션 4지표 `DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0`,
+backdrop 커버리지 264/264. 샤드 개수 a1 67 · a2 66 · b1 55 · b2 54 · c1 11 · c2 11
+= 264이고, 원본 대비 id 집합 동일 · 본문은 두 필드를 뺀 상태에서 완전히 동일.
+`validate_content.py` OK(`shelf`/`backdrop` 열거 규칙 + 샤드-레벨 일치 검사 포함).
+`flutter analyze` 는 기존 `word_relation_service` info 1건 외 무결. `flutter test`
+3,891개 통과. 파이썬 content_factory 133개는 **실패 집합이 기준선과 완전히 동일** —
+회귀 0이다.
+
+⚠️ **content_factory 파이썬 스위트는 이 작업 이전부터 19건이 빨갛다**(failures 2 /
+errors 17). CI 에 없어서(워크플로가 부르는 content_factory 스크립트는
+`build_hanok_grants.py` 하나뿐) 드러나지 않았다. 이번 작업은 그 집합을 늘리지도
+줄이지도 않았다. 별건으로 다뤄야 한다.
+
+**아직 안 한 것.** `/listening` 은 그대로다 — 지금 전 레벨을
+`selectInitialListeningScenario` 에 넘기므로 레벨 샤드만 주면 선택 동작이 조용히
+바뀐다. 전환은 서재 UI 가 들어오는 계획 2다. `CurriculumCatalog.load()` 가 여전히
+전 코퍼스를 당기므로(호출부 19개) **샤딩만으로 메모리가 1/6이 되지는 않는다** —
+스펙 §5.3의 "로드량 1/6" 은 Hören 경로 한정으로 정정되어야 하고, catalog 경량화는
+별건이다.
+
+**커밋.** `57fa26b3`(배정표) · `972758d3`(backdrop 기준선) · `9c708f7f`(store 단일화) ·
+`b520b9cf`(모델 필드) · `6afc6ae4`(마이그레이션+샤드) · `a22b4424`(샤드 전환+원본 삭제) ·
+`e4a01699`(loadLevel+LRU) · `656fc76a`(analyze 정리). 계획서는 `773f7b10`.
+
+### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 작성 (계획서만, 코드 0)
+
+**무엇.** `docs/superpowers/plans/2026-08-17-hoeren-shelf-foundation.md` 를 썼다.
+스펙의 §5(데이터 계약)·§10 1–3번·§11(검증)을 8개 태스크로 분해한 실행 계획이다.
+계획서 외 변경은 0이다.
+
+**왜.** 스펙은 승인됐지만 "무엇을 어느 파일에서" 가 없었다. 계획 1은 파일럿 47개가
+갈 자리(`shelf`)와 배경(`backdrop`)을 먼저 만들어야 계획 3이 재작업이 되지 않는다.
+
+**실제 코드를 읽고 드러난 스펙과의 차이 3가지** (계획서 상단에 별도 절로 남김).
+① **샤딩 폭발 반경이 스펙에 없다** — `assets/data/scenarios.json` 경로를 직접 쓰는
+파일이 **38개**(lib 3 · Dart 테스트 11 · 파이썬 도구 12 · 파이썬 테스트 10 ·
+일회성 2)다. 그래서 파이썬 `scenario_store.py` / Dart `test/support/scenario_json.dart`
+단일 지점을 먼저 세우고 "샤드 생성 → 전환 → 원본 삭제" 3커밋으로 나눈다.
+② **샤딩만으로 메모리가 1/6이 되지 않는다** — `CurriculumCatalog.load()`
+(`curriculum_catalog.dart:69`)가 `ScenarioLoader.load()` 로 전 코퍼스를 당기고 그
+catalog 호출부가 19개다. 스펙 §5.3의 "로드량 1/6" 은 Hören 경로 한정으로 정정돼야
+한다. catalog 경량화는 별건으로 뺐다. ③ **`/listening` 은 이번에 안 건드린다** —
+지금 전 레벨을 `selectInitialListeningScenario` 에 넘기므로 레벨 샤드만 주면 선택
+동작이 조용히 바뀐다. 로더 API 만 만들고 전환은 계획 2다.
+
+**검증(집행 전 사전 실측).** 부록 A 264개를 live 코퍼스에 대고 돌려
+`DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0` 을 재현했다. `_categoryById` 도
+264 전수 커버(고아 0 · 유령 0)이고 backdrop 분포는 office 84 · home 67 · cafe 23 ·
+station 22 · market 20 · convenience 11 · restaurant 8 · taxi 7 · hotel 6 ·
+directions 6 · pharmacy 5 · airport 5 다. 레벨 분포 67/66/55/54/11/11.
+
+**커밋.** `773f7b10` (계획서), 이 로그 항목은 직후 커밋. 코드·데이터 변경 0.
+
+### 2026-08-17 (Claude, Windows) — Hören 책가도 레벨별 12칸 서재 설계 (스펙만, 코드 0)
+
+**무엇.** `docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md` 를 새로 썼다.
+Hören 시나리오 선택을 레벨별 책가도 서재로 바꾸는 설계다. 코드·데이터 변경은 0이다.
+브랜치 `claude/hoeren-shelf-20260817`, 기준 `3d73d1ac`.
+
+**왜.** 원 계획서(칸 10개 고정 축)가 stale이었다. 실측하니 live 시나리오가 90개가 아니라
+**264개**(intent 237종)여서 Hören 칩 줄이 262번 스와이프 상태였고, 고정 축을 6레벨에
+공유하면 `Formell×A1`·`Café×C2` 처럼 **채울 수 없는 칸**이 생긴다. 레벨별로 칸을 세우면
+그 문제와 서랍 크기·에셋 로딩이 함께 풀린다.
+
+**확정(Jin, 2026-08-17).** 레벨당 **12칸**(기능 9 + 관심 3) · 칸당 50 → 72칸 **3,600개**
+(재고 300, 신규 3,300). 레벨 전환은 **서재 층**(지난 레벨 서재와 도장 보존). 배치 단위는
+**한 칸 = 한 배치**. 파일럿은 `a1_eat` 47개. TTS는 **Jin이 직접 합성**(설계 범위 밖).
+
+**실측 근거.** ① `scenarios.json` 1.60 MB / 264개 = 6.2 KB/시나리오 → 3,600개면 **22.3 MB
+단일 에셋**이고 `scenario_loader.dart:15` 가 `loadString` 1회로 전량 상주시킨다. UI 필터링은
+로딩을 줄이지 못하므로 **레벨 샤딩**이 유일한 해결. `pubspec.yaml:130` 은 디렉터리 등록이라
+샤드 추가에 수정이 필요 없다. ② `scenario.dart:388` `_categoryById` 는 죽은 표가 아니라
+**264개 전수 커버**(고아 0·유령 0)였다. ③ backdrop 을 칸에서 파생시키면 **102/264 배경이
+바뀐다** — 두 축은 독립이므로 `_categoryById` 를 삭제가 아니라 JSON `backdrop` 필드로
+**이관**한다(회귀 0, 신규 3,300개의 Dart 수정 0회).
+
+**검증.** 기능 54칸 id 배정 264개 전수에서 `DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0`.
+이 4지표를 마이그레이션 fail-closed 조건으로 옮긴다. 전체 배정은 스펙 부록 A.
+
+**다른 세션과의 관계.** `.claude/worktrees/scenario-batch11-20260817`(locked)에 Jin 승인이
+난 Batch 11(취미축 6카테고리 36개, draft 18/36)이 미커밋으로 있었다. 폐기하지 않고 **관심
+3칸**(`friends`/`dating`/`fandom`)의 첫 씨앗으로 편입한다. 다만 그 draft 18개에 `shelf`
+필드가 0개이고 카테고리가 ID 슬러그에만 있어, 완주 시 `shelf` 필드를 포함해야 한다.
+
+**커밋.** `f6a7714d` (스펙 + 이 로그 항목, Jin 명시 요청으로 커밋). 코드·데이터 변경 0.
+후속 구현 계획은 3분할로 확정했다 — ① 기반(스키마·validator·마이그레이션·6샤드·로더 전환),
+② UI(서재 층 → 서랍 n/50 → 플레이어 + 진행도 키 분할), ③ 콘텐츠(Batch 12 = `a1_eat` 47개).
+의존은 ① → ②, ① → ③ 이고 ②와 ③은 병렬 가능하다. 한 계획에 묶으면 샤딩과 로더 전환 사이에
+앱이 깨지는 구간이 생겨 분리했다.
 ### 2026-08-17 (Claude, Windows) — 미용실·은행 포스터를 만들어 대체 배경을 끝냄
 
 **문제.** `ScenarioBackdrop._categoryById` 에 미용실·은행 카테고리가 없어서 머리
