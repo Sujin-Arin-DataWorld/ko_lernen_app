@@ -163,6 +163,31 @@ def collect():
         with open(os.path.join(ROOT, rel), encoding="utf-8") as f:
             return json.load(f)
 
+    def _load_scenarios():
+        """레벨별 샤드를 합쳐 시나리오 전량을 준다.
+
+        `a22b4424` 가 `assets/data/scenarios.json` 을 `scenarios_{a1..c2}.json`
+        으로 쪼갰다. 파일 이름을 훑어 모으므로 레벨이 늘어도 따라간다.
+        정본 로더는 tools/content_factory/scenario_store.py 이고 규칙은 같다.
+        """
+        base = os.path.join(ROOT, "assets", "data")
+        names = sorted(
+            name
+            for name in os.listdir(base)
+            if name.startswith("scenarios_") and name.endswith(".json")
+        )
+        rows = []
+        for name in names:
+            data = _load_json(os.path.join("assets", "data", name))
+            rows.extend(
+                data if isinstance(data, list) else data.get("scenarios", [])
+            )
+        if not rows:
+            raise SystemExit(
+                "시나리오 샤드를 찾지 못했습니다: assets/data/scenarios_*.json"
+            )
+        return rows
+
     # 1. 단어장: 단어 + 예문 (korean, example_korean) — 여성.
     with open(
         os.path.join(ROOT, "assets/data/korean_vocab.csv"), encoding="utf-8"
@@ -174,13 +199,7 @@ def collect():
     # 2. 시나리오 대화 — 화자별 음성.
     #    user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
     #    scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
-    scenario_data = _load_json("assets/data/scenarios.json")
-    scenarios = (
-        scenario_data
-        if isinstance(scenario_data, list)
-        else scenario_data.get("scenarios", [])
-    )
-    for sc in scenarios:
+    for sc in _load_scenarios():
         for line in sc.get("dialog", []):
             t = (line.get("ko") or "").strip()
             if t:
@@ -255,9 +274,7 @@ def collect():
     #    - diktat: data.audioKo 가 비면 targetKo (diktat_quest.dart:147)
     #    - particlePop: prefix + options[correctIndex] + suffix
     #      (particle_pop_quest.dart:59 _fullSentence)
-    for scenario in _load_json("assets/data/scenarios.json").get(
-        "scenarios", []
-    ):
+    for scenario in _load_scenarios():
         for quest in scenario.get("quests", []):
             data = quest.get("data") or {}
             qtype = quest.get("type")

@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — TTS 수집기를 6샤드 코퍼스에 맞춤
+
+**무엇.** `tool/generate_tts.py`가 아직 `assets/data/scenarios.json`을 읽고 있었다.
+`a22b4424`가 그 파일을 `scenarios_{a1..c2}.json`으로 쪼갠 뒤로 TTS 실행이
+`FileNotFoundError`로 죽는다. 수집기 안에 `_load_scenarios()`를 두고 두 호출부
+(대화 줄, 퀘스트 오디오)를 거기로 모았다. 파일 이름을 훑어 모으므로 레벨이
+늘어도 따라간다. `tool/test_generate_tts.py`의 화자 매핑 표본도 샤드에서 읽는다.
+
+**왜.** Jin이 Batch 10 음성을 채우려고 `--missing-from-storage`를 돌리다 이걸로
+막혔다. 샤드 전환은 Dart와 `tools/content_factory` 쪽은 고쳤지만 `tool/` 아래는
+빠졌다. CI가 `tool/` 테스트를 돌리지 않아 머지 때 안 잡혔다.
+
+**검증.** `tool/test_generate_tts.py` 4/4 통과. `--dry-run`이 9997발화
+(여 9304·남 693, 118,905자)로 샤드 전환 이전 수와 같다. 합성·업로드는 하지 않았다.
+
+**남은 것.** `tool/native_polish/regen_review.py`·`scenarios_smalltalk.py`도 옛
+경로를 참조한다. 일회성 스크립트라 이번에 건드리지 않았다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — Hören 카드 그리드 전환 인수인계 (문서만, 코드 0)
 
 **무엇.** `docs/HANDOFF_HOEREN_GRID_2026-08-17.md` 를 썼다. 계획 1(데이터 기반, PR #68 로
