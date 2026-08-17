@@ -6,12 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 
 void main() {
-  test('all 58 scenarios and 241 quests satisfy the renderer contract', () {
+  test('all 62 scenarios and 261 quests satisfy the renderer contract', () {
     final root =
         jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
             as Map<String, dynamic>;
     final decoded = root['scenarios'] as List<dynamic>;
-    expect(decoded, hasLength(58));
+    expect(decoded, hasLength(62));
 
     const supported = {
       'hoerverstehen',
@@ -76,7 +76,7 @@ void main() {
       }
     }
 
-    expect(questCount, 241);
+    expect(questCount, 261);
     final countsById = {
       for (final raw in decoded.cast<Map<String, dynamic>>())
         raw['id'] as String: (raw['quests'] as List).length,

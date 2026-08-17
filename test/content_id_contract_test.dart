@@ -18,26 +18,26 @@ void main() {
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(285));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 285);
+    expect(phrases, hasLength(293));
+    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 293);
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();
-    expect(clozeItems, hasLength(514));
-    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 514);
+    expect(clozeItems, hasLength(530));
+    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 530);
 
     final satz = _jsonObject('assets/data/satz_sentences.json');
     final satzItems = (satz['items'] as List).cast<Map<String, dynamic>>();
-    expect(satzItems, hasLength(419));
-    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 419);
+    expect(satzItems, hasLength(443));
+    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 443);
 
     final pronunciation = _jsonObject('assets/data/pronunciation_phrases.json');
     final pronunciationPhrases = (pronunciation['phrases'] as List)
         .cast<Map<String, dynamic>>();
-    expect(pronunciationPhrases, hasLength(4));
+    expect(pronunciationPhrases, hasLength(20));
     _expectRawIds(
       pronunciationPhrases.map((item) => item['id']?.toString() ?? ''),
-      4,
+      20,
     );
   });
 
