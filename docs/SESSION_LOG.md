@@ -18,8 +18,8 @@ Satz는 07+08 적용 시 419+576+641=1,636으로 약 3.9×다. 단어 4×(+3,564
 통과. `plan_pack_assignments.py` 통과. `integrate_scenario_batch.py` preview
 815 records, inventory scenario 232 / satz 1,060. Batch 06과 ID 충돌 없음.
 `python3 -m unittest tools/content_factory/test_level_content_4x.py`로 팩 유일성·
-문법 focus·ledger `rights: original`·시나리오 레벨 분할을 고정한다. 커밋 해시는
-이 기록과 같은 커밋에 남긴다.
+문법 focus·ledger `rights: original`·시나리오 레벨 분할을 고정한다. 커밋 해시
+`395efc21`.
 
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
