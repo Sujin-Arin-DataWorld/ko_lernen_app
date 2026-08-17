@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 열린 PR 50–56을 main에 무손실 병합
+
+**왜.** Jin이 열린 리퀘스트를 코드 손실 없이 main에 100% 넣으라고 했다.
+
+**무엇.** #50 TTS, #52 한옥 PR4+잔여 lock, #53 민수/안나 차단, #54 단어망,
+#55 조이 한지 매트, #56 A1 partner 수리·생산 퀘스트와 typography 래칫 하향을
+`--no-ff`로 넣었다. #56이 넣은 `quest_a1_partner_more_side_dishes_satz`의
+`promptEn`만 `I'm full`로 고쳤다(퀘스트·한국어·독일어는 유지). 스튜디오
+병렬 팁 `5c3e0af7`은 #51에 이미 있어 합치지 않았다.
+
+**검증.** 이전 CI 실패 5개(A1 real-life 2 + typography 3)와 learner-copy
+`I am` 가드 포함 31개 통과. 카탈로그 vocab 1620 · cloze 962 · satz 875 ·
+smalltalk 365 · scenario 90 · quest 359.
+
 ### 2026-08-17 (Cursor) — A1 partner 수리·생산 퀘스트와 typography 래칫
 
 **왜.** Analyze & Build / Test가 3839 passed / 5 failed였다. 원인은

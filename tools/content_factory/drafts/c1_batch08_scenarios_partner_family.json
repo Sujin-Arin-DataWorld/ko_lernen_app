@@ -745,7 +745,7 @@
           "speaker": "user",
           "ko": "배불러요. 정말 맛있어요.",
           "de": "Ich bin satt. Es schmeckt wirklich.",
-          "en": "I am full. It really tastes good."
+          "en": "I'm full. It really tastes good."
         },
         {
           "speaker": "jieun",
@@ -828,7 +828,7 @@
           ],
           "data": {
             "promptDe": "Ich bin satt. Es schmeckt wirklich.",
-            "promptEn": "I am full. It really tastes good.",
+            "promptEn": "I'm full. It really tastes good.",
             "options": [
               {
                 "ko": "배불러요. 정말 맛있어요."
@@ -894,7 +894,7 @@
           "data": {
             "targetKo": "배불러요. 정말 맛있어요.",
             "promptDe": "Ich bin satt. Es schmeckt wirklich.",
-            "promptEn": "I am full. It really tastes good.",
+            "promptEn": "I'm full. It really tastes good.",
             "distractors": [
               "그냥",
               "나중에",

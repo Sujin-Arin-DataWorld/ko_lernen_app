@@ -14798,7 +14798,7 @@
           "data": {
             "targetKo": "배불러요. 정말 맛있어요.",
             "promptDe": "Ich bin satt. Es schmeckt wirklich.",
-            "promptEn": "I am full. It really tastes good.",
+            "promptEn": "I'm full. It really tastes good.",
             "distractors": [
               "그냥",
               "나중에",
