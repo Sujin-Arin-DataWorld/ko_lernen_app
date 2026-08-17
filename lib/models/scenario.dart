@@ -371,8 +371,9 @@ class Scenario {
 ///
 /// ⚠️ 카테고리를 새로 추가할 땐 `assets/illustrations/scenes/{key}.png`가
 /// **번들에 실제로 있어야** 한다. 없으면 그 카테고리의 시나리오가 전부 깨진다.
-/// 현재 실재(12): airport · cafe · convenience · directions · home · hotel ·
-/// market · office · pharmacy · restaurant · station · taxi. 전부 단청 회화체 포스터.
+/// 현재 실재(14): airport · bank · cafe · convenience · directions · home ·
+/// hotel · market · office · pharmacy · restaurant · salon · station · taxi.
+/// 전부 단청 회화체 포스터.
 ///
 /// 2026-08-04: 포스터 11종이 모두 실재하게 되어 하중을 재분배했다 —
 /// directions 8→2(station 3·taxi 2·airport 1 분리), cafe 10→7(office 3 분리),
@@ -384,6 +385,14 @@ class Scenario {
 /// 대신 `loops/scene_pharmacy.mp4` 는 없어 이 카테고리는 정지 포스터만 나온다 —
 /// 틀린 배경이 움직이는 것보다 맞는 배경이 정지한 편이 낫다는 판단.
 /// clinic 계열(`doctor_consultation`·`clinic_safety`)은 배경이 없어 market 유지.
+///
+/// 2026-08-17: 미용실·은행 포스터가 없어 머리 손질 3편(`a2_salon_cut`·`a2_dye_dark`·
+/// `a2_hair_time`)이 `cafe` 를, 창구 3편(`a2_bank_number`·`bank_account`·
+/// `rent_bank_transfer`)이 `office` 를 쓰고 있었다. 카페 배경에서 커트 길이를 말하고
+/// 회의실 배경에서 대기번호를 뽑는 그림이라 장소 정체성이 깨진다. `salon`·`bank`
+/// 포스터를 만들어 옮겼다 — cafe 23→20, office 84→81. 프롬프트는
+/// `docs/assets/prompts/SCENE_POSTERS_SALON_BANK_2026-08-17.md`.
+/// 두 카테고리도 `loops/scene_{key}.mp4` 는 없어 정지 포스터만 나온다.
 extension ScenarioBackdrop on Scenario {
   static const _categoryById = <String, String>{
     // Reviewed C1 Batch 04 scenarios. Existing backdrop pipeline only.
@@ -485,12 +494,12 @@ extension ScenarioBackdrop on Scenario {
     'a1_pharmacy_hours': 'pharmacy',
     'a2_phone_plan': 'convenience',
     'a2_data_roam': 'convenience',
-    'a2_bank_number': 'office',
+    'a2_bank_number': 'bank',
     'a2_transfer_limit': 'office',
     'a2_gym_lock': 'office',
     'a2_stretch_start': 'home',
-    'a2_salon_cut': 'cafe',
-    'a2_dye_dark': 'cafe',
+    'a2_salon_cut': 'salon',
+    'a2_dye_dark': 'salon',
     'a2_apt_sticker': 'home',
     'a2_food_bag': 'home',
     'a2_shift_table': 'office',
@@ -501,7 +510,7 @@ extension ScenarioBackdrop on Scenario {
     'a2_booth_line': 'market',
     'a2_bill_high': 'home',
     'a2_auto_debit': 'office',
-    'a2_hair_time': 'cafe',
+    'a2_hair_time': 'salon',
     'a2_quiet_ten': 'home',
     'a2_handover_note': 'office',
     'a2_id_pickup': 'station',
@@ -622,9 +631,9 @@ extension ScenarioBackdrop on Scenario {
     'titles_relationship_distance': 'cafe', // 처음 만난 사람 호칭
     // office — 업무 · 격식 있는 실내 (2026-08-04 신설)
     'business_meeting_intro': 'office',
-    'bank_account': 'office',
+    'bank_account': 'bank',
     'job_interview': 'office',
-    'rent_bank_transfer': 'office',
+    'rent_bank_transfer': 'bank',
     // home — 통화 / 메신저 / 사적인 대화 (2026-08-03 신설)
     'warm_encouragement': 'home',
     'couple_argument': 'home',

@@ -1,5 +1,34 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — 미용실·은행 포스터를 만들어 대체 배경을 끝냄
+
+**문제.** `ScenarioBackdrop._categoryById` 에 미용실·은행 카테고리가 없어서 머리
+손질 3편(`a2_salon_cut`·`a2_dye_dark`·`a2_hair_time`)이 `cafe` 를, 창구 3편
+(`a2_bank_number`·`bank_account`·`rent_bank_transfer`)이 `office` 를 쓰고 있었다.
+카페 배경에서 커트 길이를 말하고 회의실 배경에서 대기번호를 뽑는 그림이다.
+
+**만든 것.** 2026-08-03 에 이 12장을 뽑을 때 실제로 쓴 스타일 레퍼런스가 계정
+스토리지에 그대로 남아 있었다(`scene_style_ref_cafe`·`scene_style_ref_home`·
+`dancheong_style_ref`). 그걸 붙이고 `ASSET_PROMPTS_2026-08-03.md` 의 A-0 공통
+스타일 블록을 그대로 이어 Nano Banana Pro 3:4 2K 로 뽑았다. 받은 2400px 원본을
+정확히 1086×1448 팔레트 PNG 로 리샘플해 저장했다(703·707KB — airport 726·
+hotel 689 와 같은 계열). 인물·문자 0, 거울과 번호 표시판은 빈 판.
+cafe 23→20, office 84→81. 루프는 만들지 않아 정지 포스터만 나온다.
+프롬프트는 `docs/assets/prompts/SCENE_POSTERS_SALON_BANK_2026-08-17.md` 에
+A-8·A-9 로 남겼다.
+
+**테스트를 새로 넣지 않은 이유.** `scene_asset_resolver_test` 에 이미
+"모든 카테고리 키에 실제 포스터 PNG 가 있다" 가드가 있다(2026-08-04). 키만
+추가하고 PNG 를 빠뜨리면 그 가드가 잡는다 — 같은 걸 한 번 더 쓸 이유가 없다.
+
+**검증.** `scene_asset_resolver_test` 14/14, `dart analyze lib/models/scenario.dart`
+무결.
+
+**곁가지.** Batch 10 대사 수정도 이 세션에서 main 위로 이식해 뒀었는데, 같은
+작업이 PR #63 으로 먼저 올라와 머지됐다(`2d375a53`). 내용이 사실상 같아 그쪽을
+살리고 이 브랜치는 포스터만 남겼다. #63 에 없던 테스트 가드 2개(shell 유일성 ·
+직접 쓴 3·5번 줄 문구 검사)는 따로 얹는다.
+
 ### 2026-08-17 (Claude, Windows) — Batch 10 수락·후속 질문을 장면별로 직접 씀
 
 **무엇.** 프레임 다섯 줄 중 파생·일반 문장으로 남아 있던 두 줄을 손으로 쓴
