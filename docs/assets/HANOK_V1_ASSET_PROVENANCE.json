@@ -62,7 +62,12 @@
     "input": {
       "colorMode": "RGBA",
       "trueAlpha": true,
-      "forbiddenMattes": ["white", "checkerboard", "chroma_00ff00"]
+      "forbiddenMattes": ["white", "checkerboard", "chroma_00ff00"],
+      "chromaKey": {
+        "rgb": [0, 255, 0],
+        "maxChannelDelta": 8,
+        "alphaMin": 8
+      }
     },
     "socketLayer": {
       "width": 854,
@@ -70,7 +75,8 @@
       "localAnchor": {
         "x": 427,
         "y": 309
-      }
+      },
+      "requireExclusiveBottom": true
     },
     "output": {
       "format": "WebP",
@@ -91,7 +97,8 @@
       "qaRoot": "assets_unused/pending_review/a1_states/",
       "runtimeRoot": "assets/illustrations/personal_hanok_v2/a1/states/",
       "atomic": true,
-      "pubspecUntilComplete": false
+      "pubspecUntilComplete": false,
+      "requireApprovedLedgerSha256": true
     }
   },
   "allowedModelInputs": [

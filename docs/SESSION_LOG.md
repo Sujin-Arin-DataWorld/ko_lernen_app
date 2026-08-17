@@ -5,13 +5,27 @@
 **왜.** Jin이 열린 리퀘스트를 코드 손실 없이 main에 넣으라고 했다.
 로컬 `main`은 `a78bdadb`(#51 스튜디오)까지 맞춘 뒤 병합했다.
 
-**무엇.** `--no-ff`로 PR #50 TTS fail-closed, #52 한옥 PR4 구멍,
-#53 민수/안나 재생성 차단, #54 단어망 검수 후속과 em-dash 수정,
-#55 조이 홈 한지 매트를 넣었다.
-스튜디오 힌트(대화·단어망)는 유지했다. live 카탈로그 수량은 vocab 1620 ·
-cloze 962 · satz 875 · smalltalk 365 · scenario 90을 유지했다.
+**무엇.** `--no-ff`로 PR #50 TTS fail-closed, #52 한옥 PR4 구멍과
+잔여 chroma/ledger/eviction/anchor lock(`cce4e20a`), #53 민수/안나
+재생성 차단, #54 단어망 검수 후속과 em-dash 수정, #55 조이 홈 한지
+매트를 넣었다. 스튜디오 힌트(대화·단어망)는 유지했다. live 카탈로그
+수량은 vocab 1620 · cloze 962 · satz 875 · smalltalk 365 · scenario 90을
+유지했다. 스튜디오 병렬 팁 `5c3e0af7`은 #51에 이미 들어 있어 합치지
+않았다(이후 한옥/단어망/TTS를 지운다).
 
 **검증.** 병합 직후 이전 CI 실패 묶음과 각 PR 집중 테스트를 다시 돌린다.
+
+### 2026-08-17 (Cursor) — PR4 잔여 4구멍 완전 폐쇄
+
+**무엇을.** 손실 WebP 근사 chroma, 빈 ledger SHA-lock, catalog-wide
+ImageCache eviction, exclusive-bottom local anchor를 제품 계약으로 고정했다.
+catalog eviction은 Flutter `ImageProvider` 없이 path+width spec만 돌리고,
+체커는 16개가 있으면 ledger SHA를 요구한다. 충돌 SHA와
+`requireApprovedLedgerSha256` provenance 키를 추가했다. 계측은 제거된 상태다.
+
+**검증.** Python 29/29, checker exit 0, Flutter catalog/map/provenance/projector/state
+통과, analyzer No issues. 재현: 손실 q82 chroma 65536·단청 0, 빈 ledger
+`PromotionError`, y=170–300 `CompositionError`. 커밋 `2735dbeb`.
 
 ### 2026-08-17 (Cursor) — PR4 fail-closed 계측 제거
 

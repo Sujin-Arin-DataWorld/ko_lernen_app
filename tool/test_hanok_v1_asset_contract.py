@@ -73,6 +73,28 @@ class HanokV1AssetContractTest(unittest.TestCase):
             {expected[0]: "a" * 64},
         )
 
+    def test_conflicting_approved_a1_digests_fail_closed(self) -> None:
+        payload = json.loads(json.dumps(load_provenance()))
+        name = a1_expected_files(payload)[0]
+        payload["generationLedger"]["records"] = [
+            {
+                "outputAssets": [
+                    {
+                        "path": f"assets_unused/pending_review/a1_states/{name}",
+                        "sha256": "a" * 64,
+                        "decision": "approved",
+                    },
+                    {
+                        "path": f"assets_unused/pending_review/a1_states/{name}",
+                        "sha256": "b" * 64,
+                        "decision": "approved",
+                    },
+                ]
+            }
+        ]
+        with self.assertRaises(ValueError):
+            a1_approved_state_digests(payload)
+
 
 if __name__ == "__main__":
     unittest.main()

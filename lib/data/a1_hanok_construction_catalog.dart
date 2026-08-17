@@ -4,8 +4,6 @@
 /// CourseMastery, or import pack/XP/Gye/legacy stage authority.
 library;
 
-import 'package:flutter/painting.dart';
-
 const int kA1HanokMinStep = 0;
 const int kA1HanokMaxStep = 16;
 const int kA1HanokCanvasWidth = 1536;
@@ -222,12 +220,20 @@ int a1HanokWorstCaseResidentBytes() =>
     kA1HanokCanvasHeight *
     4;
 
+/// One ImageCache key to evict. [cacheWidth] null means the raw asset key.
+final class A1HanokEvictionSpec {
+  const A1HanokEvictionSpec({required this.path, this.cacheWidth});
+
+  final String path;
+  final int? cacheWidth;
+}
+
 /// Catalog-wide ImageCache eviction set. Never clears the global cache.
 ///
-/// Non-resident catalog paths are evicted at every seen [ResizeImage] width
-/// and as the raw [AssetImage]. Resident paths are evicted only at stale
-/// widths other than [currentCacheWidth].
-List<ImageProvider> a1HanokEvictionTargets({
+/// Non-resident catalog paths are evicted at every seen decode width and as
+/// the raw asset. Resident paths are evicted only at stale widths other than
+/// [currentCacheWidth].
+List<A1HanokEvictionSpec> a1HanokEvictionTargets({
   required int currentStep,
   required Set<int> seenCacheWidths,
   required int currentCacheWidth,
@@ -236,21 +242,21 @@ List<ImageProvider> a1HanokEvictionTargets({
     for (final step in a1HanokResidentSteps(currentStep))
       a1HanokConstructionState(step).assetPath,
   };
-  final targets = <ImageProvider>[];
+  final targets = <A1HanokEvictionSpec>[];
   for (final state in kA1HanokConstructionStates) {
     final path = state.assetPath;
     if (!residents.contains(path)) {
-      targets.add(AssetImage(path));
+      targets.add(A1HanokEvictionSpec(path: path));
       for (final width in seenCacheWidths) {
-        targets.add(ResizeImage(AssetImage(path), width: width));
+        targets.add(A1HanokEvictionSpec(path: path, cacheWidth: width));
       }
     } else {
       for (final width in seenCacheWidths) {
         if (width != currentCacheWidth) {
-          targets.add(ResizeImage(AssetImage(path), width: width));
+          targets.add(A1HanokEvictionSpec(path: path, cacheWidth: width));
         }
       }
     }
   }
-  return targets;
+  return List<A1HanokEvictionSpec>.unmodifiable(targets);
 }

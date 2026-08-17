@@ -367,8 +367,15 @@ void main() {
       final socket = _object(contract['socketLayer'], 'socketLayer');
       expect(_integer(socket['width'], 'socketLayer.width'), 854);
       expect(_integer(socket['height'], 'socketLayer.height'), 309);
+      expect(_boolean(socket['requireExclusiveBottom'], 'requireExclusiveBottom'), isTrue);
       final anchor = _object(socket['localAnchor'], 'socketLayer.localAnchor');
       expect((_integer(anchor['x'], 'localAnchor.x'), _integer(anchor['y'], 'localAnchor.y')), (427, 309));
+      final chroma = _object(
+        _object(contract['input'], 'input')['chromaKey'],
+        'input.chromaKey',
+      );
+      expect(_integer(chroma['maxChannelDelta'], 'chromaKey.maxChannelDelta'), 8);
+      expect(_integer(chroma['alphaMin'], 'chromaKey.alphaMin'), 8);
       final output = _object(contract['output'], 'output');
       expect(_string(output['format'], 'output.format'), 'WebP');
       expect(_integer(output['quality'], 'output.quality'), 82);
@@ -393,6 +400,13 @@ void main() {
       expect(
         _boolean(promotion['pubspecUntilComplete'], 'pubspecUntilComplete'),
         isFalse,
+      );
+      expect(
+        _boolean(
+          promotion['requireApprovedLedgerSha256'],
+          'requireApprovedLedgerSha256',
+        ),
+        isTrue,
       );
     });
 

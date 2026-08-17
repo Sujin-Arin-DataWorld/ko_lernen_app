@@ -57,6 +57,24 @@ class PersonalHanokAssetCheckerTest(unittest.TestCase):
                 lines = checker._check_a1_runtime_states(required=False)
         self.assertTrue(any("leftover" in line for line in lines))
 
+    def test_complete_runtime_a1_states_without_ledger_fail(self) -> None:
+        from hanok_v1_asset_contract import a1_expected_files
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            for name in a1_expected_files():
+                Image.new("RGB", (1536, 1152), (12, 24, 36)).save(
+                    root / name,
+                    "WEBP",
+                    quality=80,
+                )
+            with patch(
+                "check_personal_hanok_assets.A1_RUNTIME_STATES_ROOT",
+                root,
+            ):
+                lines = checker._check_a1_runtime_states(required=False)
+        self.assertTrue(any("generationLedger" in line for line in lines))
+
     def test_partial_runtime_a1_states_fail_closed(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

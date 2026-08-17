@@ -168,8 +168,12 @@ def a1_approved_state_digests(
             if not isinstance(path, str) or not isinstance(digest, str):
                 continue
             name = Path(path).name
-            if name in expected:
-                approved[name] = digest
+            if name not in expected:
+                continue
+            previous = approved.get(name)
+            if previous is not None and previous != digest:
+                raise ValueError(f"conflicting approved A1 SHA-256 for {name}")
+            approved[name] = digest
     return approved
 
 

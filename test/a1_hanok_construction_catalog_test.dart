@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/a1_hanok_construction_catalog.dart';
 
@@ -100,28 +99,27 @@ void main() {
     expect(nonResidents, hasLength(14));
     expect(targets, hasLength(14 * 3 + 3));
 
-    final raw = targets.whereType<AssetImage>().map((p) => p.assetName).toSet();
+    final raw = targets
+        .where((spec) => spec.cacheWidth == null)
+        .map((spec) => spec.path)
+        .toSet();
     expect(raw, unorderedEquals(nonResidents));
     expect(raw.intersection(residents), isEmpty);
 
     for (final path in nonResidents) {
       expect(
-        targets.whereType<ResizeImage>().where((provider) {
-          final inner = provider.imageProvider;
-          return inner is AssetImage &&
-              inner.assetName == path &&
-              (provider.width == 600 || provider.width == 780);
-        }),
+        targets.where(
+          (spec) =>
+              spec.path == path &&
+              (spec.cacheWidth == 600 || spec.cacheWidth == 780),
+        ),
         hasLength(2),
       );
     }
     for (final path in residents) {
-      final stale = targets.whereType<ResizeImage>().where((provider) {
-        final inner = provider.imageProvider;
-        return inner is AssetImage && inner.assetName == path;
-      }).toList();
+      final stale = targets.where((spec) => spec.path == path).toList();
       expect(stale, hasLength(1));
-      expect(stale.single.width, 600);
+      expect(stale.single.cacheWidth, 600);
     }
   });
 
@@ -138,5 +136,9 @@ void main() {
       final source = File(path).readAsStringSync();
       expect(forbiddenImport.hasMatch(source), isFalse, reason: path);
     }
+    expect(
+      File('lib/data/a1_hanok_construction_catalog.dart').readAsStringSync(),
+      isNot(contains("import 'package:flutter/")),
+    );
   });
 }
