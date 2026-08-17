@@ -1,7 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/book_page.dart';
+import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
+import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/custom_pack_corpus_resolver.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
@@ -143,5 +147,109 @@ void main() {
 
     expect(match.vocab.map((item) => item.korean), <String>['학교', 'TV']);
     expect(match.chosung.map((item) => item.korean), <String>['학교']);
+  });
+
+  test('finds existing smalltalk and pronunciation sentences by stem', () {
+    const smalltalk = <SmalltalkPhrase>[
+      SmalltalkPhrase(
+        id: 'st1',
+        category: 'school',
+        level: 'a1',
+        kind: 'opener',
+        ko: '오늘 학교에 가요.',
+        de: 'Ich gehe heute zur Schule.',
+        en: 'I go to school today.',
+      ),
+      SmalltalkPhrase(
+        id: 'st2',
+        category: 'food',
+        level: 'a1',
+        kind: 'opener',
+        ko: '배고파요.',
+        de: 'Ich habe Hunger.',
+        en: 'I am hungry.',
+      ),
+    ];
+    const pronunciation = <PronunciationPhrase>[
+      PronunciationPhrase(
+        id: 'pronunciation_a1_0001',
+        level: LearnerLevel.a1,
+        ko: '지금 공부해요.',
+        de: 'Ich lerne jetzt.',
+        en: 'I am studying now.',
+        focus: '받침',
+      ),
+    ];
+
+    final match = CustomPackCorpusResolver.resolve(
+      koreanHeadwords: <String>['학교', '공부하다'],
+      cloze: cloze,
+      satz: satz,
+      vocab: vocab,
+      smalltalk: smalltalk,
+      pronunciation: pronunciation,
+    );
+
+    expect(match.smalltalk.single.id, 'st1');
+    expect(match.pronunciation.single.ko, '지금 공부해요.');
+    expect(
+      CustomPackCorpusResolver.occursIn('안녕하세요', <String>['이']),
+      isFalse,
+    );
+  });
+
+  test('keeps scenarios and word-web clusters that already name the word', () {
+    const scenario = Scenario(
+      id: 'sc-school',
+      level: LearnerLevel.a1,
+      emoji: '🏫',
+      register: Register.polite,
+      title: LocalizedText(ko: '학교', de: 'Schule', en: 'School'),
+      intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
+      vocab: <VocabRef>[VocabRef(korean: '학교')],
+      grammarIds: <String>[],
+      dialog: <DialogLine>[
+        DialogLine(speaker: 'a', ko: '안녕', de: 'Hallo', en: 'Hi'),
+      ],
+      quests: <QuestSpec>[],
+    );
+    const other = Scenario(
+      id: 'sc-food',
+      level: LearnerLevel.a1,
+      emoji: '🍜',
+      register: Register.polite,
+      title: LocalizedText(ko: '밥', de: 'Essen', en: 'Food'),
+      intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
+      vocab: <VocabRef>[VocabRef(korean: '밥')],
+      grammarIds: <String>[],
+      dialog: <DialogLine>[
+        DialogLine(speaker: 'a', ko: '밥 먹어요', de: 'Essen', en: 'Eat'),
+      ],
+      quests: <QuestSpec>[],
+    );
+    const wordWeb = <WordRelationCluster>[
+      WordRelationCluster(
+        id: 'ww-school',
+        sourceKo: '학교',
+        sourceVocabId: '학교',
+        level: 'a1',
+        synonyms: <WordNeighbor>[
+          WordNeighbor(ko: '학원', de: 'Akademie', en: 'academy'),
+        ],
+      ),
+    ];
+
+    final match = CustomPackCorpusResolver.resolve(
+      koreanHeadwords: <String>['학교'],
+      cloze: cloze,
+      satz: satz,
+      vocab: vocab,
+      scenarios: <Scenario>[scenario, other],
+      wordWeb: wordWeb,
+    );
+
+    expect(match.scenarios.single.id, 'sc-school');
+    expect(match.wordWeb.single.sourceKo, '학교');
+    expect(match.hasCuratedItems, isTrue);
   });
 }

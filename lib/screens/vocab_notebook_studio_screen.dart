@@ -18,9 +18,13 @@ import 'custom_pack_matching_screen.dart';
 import 'custom_pack_play_screen.dart';
 import 'custom_pack_quiz_screen.dart';
 import 'custom_pack_typing_screen.dart';
+import 'pronunciation_studio_screen.dart';
 import 'satz_arcade_screen.dart';
+import 'scenarios_list_screen.dart';
+import 'smalltalk_screen.dart';
 import 'speed_match_screen.dart';
 import 'vocab_nuance_screen.dart';
+import 'word_web_screen.dart';
 
 /// Lets the learner pick notebook words and start existing games that
 /// already teach those words. No new sentences are authored here.
@@ -339,9 +343,60 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                       ? null
                       : () => _openPage(ChosungQuizScreen(deck: match.chosung)),
                 ),
-                if (match.cloze.isEmpty &&
-                    match.satz.isEmpty &&
-                    selected.isNotEmpty) ...<Widget>[
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
+                  label: t.vocabNotebookStudioSmalltalk(match.smalltalk.length),
+                  fullWidth: true,
+                  onTap: match.smalltalk.isEmpty
+                      ? null
+                      : () => _openPage(
+                          SmalltalkScreen(phrases: match.smalltalk),
+                        ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
+                  label: t.vocabNotebookStudioPronunciation(
+                    match.pronunciation.length,
+                  ),
+                  fullWidth: true,
+                  onTap: match.pronunciation.isEmpty
+                      ? null
+                      : () => _openPage(
+                          PronunciationStudioScreen(
+                            phrases: match.pronunciation,
+                          ),
+                        ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
+                  label: t.vocabNotebookStudioScenarios(match.scenarios.length),
+                  fullWidth: true,
+                  onTap: match.scenarios.isEmpty
+                      ? null
+                      : () => _openPage(
+                          ScenariosListScreen(
+                            loadScenarios: () async => match.scenarios,
+                            ignoreLevelLock: true,
+                          ),
+                        ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
+                  label: t.vocabNotebookStudioWordWeb(match.wordWeb.length),
+                  fullWidth: true,
+                  onTap: match.wordWeb.isEmpty
+                      ? null
+                      : () => _openPage(
+                          WordWebScreen(
+                            clusterLoader: () async => match.wordWeb,
+                            seenLoader: () => {
+                              for (final cluster in match.wordWeb)
+                                cluster.sourceKo,
+                            },
+                          ),
+                        ),
+                ),
+                if (!match.hasCuratedItems && selected.isNotEmpty) ...<Widget>[
                   const SizedBox(height: Spacing.md),
                   Text(
                     t.vocabNotebookStudioNoCorpus,

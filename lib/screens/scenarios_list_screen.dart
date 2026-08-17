@@ -30,7 +30,14 @@ class ScenariosListScreen extends StatefulWidget {
   /// keeps the bundled [ScenarioLoader] by leaving this null.
   final Future<List<Scenario>> Function()? loadScenarios;
 
-  const ScenariosListScreen({super.key, this.loadScenarios});
+  /// Notebook studio keeps matching scenes playable regardless of CEFR lock.
+  final bool ignoreLevelLock;
+
+  const ScenariosListScreen({
+    super.key,
+    this.loadScenarios,
+    this.ignoreLevelLock = false,
+  });
 
   @override
   State<ScenariosListScreen> createState() => _ScenariosListScreenState();
@@ -89,7 +96,8 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
   LearnerLevel get _userLevel =>
       LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
 
-  bool _isLocked(LearnerLevel level) => level.rank > _userLevel.rank;
+  bool _isLocked(LearnerLevel level) =>
+      !widget.ignoreLevelLock && level.rank > _userLevel.rank;
 
   /// Level별 accent 컬러 매핑
   Color _levelColor(LearnerLevel level) {

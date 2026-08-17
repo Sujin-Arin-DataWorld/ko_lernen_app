@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 공책 단어로 스몰토크·발음·시나리오·단어망 연결
+
+**무엇을.** “인덱스가 없어서 연결 못 한다”는 말은 틀렸다. 단어망은
+`sourceKo`, 시나리오는 `vocab[]`가 이미 표제어다. 스몰토크·발음은 새 문장을
+만들지 않고 기존 `ko` 문장에서 2음절 이상 어간만 찾는다. 스튜디오에서 네
+게임을 고른 단어로 연다. 1음절(이/가)은 문장 전체에 걸리지 않게 건너뛴다.
+
+**왜.** 연결 불가가 아니라 첫 구현이 Cloze/Satz 키만 쓴 것이다.
+
+**검증.** `flutter gen-l10n`. analyze clean. resolver 8, studio widget, arb 8,
+pronunciation studio 6.
+
+**커밋해시.** (이 커밋)
+
 ### 2026-08-17 (Cursor) — Vokabelheft 스튜디오 CI 가드 맞춤
 
 **무엇을.** 스튜디오 화면을 `SoriAppBar`로 바꾸고 제목 w800·장식 아이콘을

@@ -3280,12 +3280,12 @@
   "vocabNotebookNoHanja": "no Hanja",
   "vocabNotebookStudioCta": "Build a game from these words",
   "vocabNotebookStudioTitle": "My word game",
-  "vocabNotebookStudioHint": "Pick the words from your notebook. You then play only those, plus sentences we already have for them.",
+  "vocabNotebookStudioHint": "Pick the words from your notebook. You then play only those, plus sentences, dialogues and word webs we already have for them.",
   "vocabNotebookStudioSelectAll": "Take all",
   "vocabNotebookStudioSelectNone": "None",
   "vocabNotebookStudioOwnGames": "With your meanings",
   "vocabNotebookStudioCorpusGames": "With our sentences",
-  "vocabNotebookStudioCorpusHint": "Only sentences we already have. No new vocabulary is added.",
+  "vocabNotebookStudioCorpusHint": "Only sentences, dialogues and word webs we already have. No new vocabulary is added.",
   "vocabNotebookStudioCloze": "{count, plural, one{Cloze · 1 sentence} other{Cloze · {count} sentences}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {
@@ -3310,5 +3310,29 @@
       "count": {"type": "int"}
     }
   },
-  "vocabNotebookStudioNoCorpus": "We do not have a ready sentence for these words yet. Use your own meanings above."
+  "vocabNotebookStudioNoCorpus": "We do not have a ready sentence for these words yet. Use your own meanings above.",
+  "vocabNotebookStudioSmalltalk": "{count, plural, one{Small talk · 1 line} other{Small talk · {count} lines}}",
+  "@vocabNotebookStudioSmalltalk": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioPronunciation": "{count, plural, one{Pronunciation · 1 sentence} other{Pronunciation · {count} sentences}}",
+  "@vocabNotebookStudioPronunciation": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioScenarios": "{count, plural, one{Scenario · 1 scene} other{Scenario · {count} scenes}}",
+  "@vocabNotebookStudioScenarios": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "vocabNotebookStudioWordWeb": "{count, plural, one{Word web · 1 word} other{Word web · {count} words}}",
+  "@vocabNotebookStudioWordWeb": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
 }

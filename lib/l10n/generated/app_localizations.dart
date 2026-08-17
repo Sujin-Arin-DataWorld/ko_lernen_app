@@ -12735,7 +12735,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioHint.
   ///
   /// In de, this message translates to:
-  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.'**
+  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Wortnetzen, die wir dafür schon haben.'**
   String get vocabNotebookStudioHint;
 
   /// No description provided for @vocabNotebookStudioSelectAll.
@@ -12765,7 +12765,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioCorpusHint.
   ///
   /// In de, this message translates to:
-  /// **'Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.'**
+  /// **'Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.'**
   String get vocabNotebookStudioCorpusHint;
 
   /// No description provided for @vocabNotebookStudioCloze.
@@ -12797,6 +12797,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.'**
   String get vocabNotebookStudioNoCorpus;
+
+  /// No description provided for @vocabNotebookStudioSmalltalk.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Smalltalk · 1 Satz} other{Smalltalk · {count} Sätze}}'**
+  String vocabNotebookStudioSmalltalk(int count);
+
+  /// No description provided for @vocabNotebookStudioPronunciation.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Aussprache · 1 Satz} other{Aussprache · {count} Sätze}}'**
+  String vocabNotebookStudioPronunciation(int count);
+
+  /// No description provided for @vocabNotebookStudioScenarios.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Szenario · 1 Szene} other{Szenario · {count} Szenen}}'**
+  String vocabNotebookStudioScenarios(int count);
+
+  /// No description provided for @vocabNotebookStudioWordWeb.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Wortnetz · 1 Wort} other{Wortnetz · {count} Wörter}}'**
+  String vocabNotebookStudioWordWeb(int count);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

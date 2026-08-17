@@ -7484,7 +7484,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, die wir dafür schon haben.';
+      'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Wortnetzen, die wir dafür schon haben.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Alle nehmen';
@@ -7500,7 +7500,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabNotebookStudioCorpusHint =>
-      'Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.';
+      'Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.';
 
   @override
   String vocabNotebookStudioCloze(int count) {
@@ -7549,4 +7549,48 @@ class AppL10nDe extends AppL10n {
   @override
   String get vocabNotebookStudioNoCorpus =>
       'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.';
+
+  @override
+  String vocabNotebookStudioSmalltalk(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Smalltalk · $count Sätze',
+      one: 'Smalltalk · 1 Satz',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioPronunciation(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Aussprache · $count Sätze',
+      one: 'Aussprache · 1 Satz',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioScenarios(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Szenario · $count Szenen',
+      one: 'Szenario · 1 Szene',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioWordWeb(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Wortnetz · $count Wörter',
+      one: 'Wortnetz · 1 Wort',
+    );
+    return '$_temp0';
+  }
 }
