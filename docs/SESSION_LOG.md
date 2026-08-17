@@ -49,8 +49,30 @@ Codex ledger 19건(13.5 credit)과 `a1TransparentPilot`/`a1ApprovedQaStates`는
 이번 push의 CI는 전 게이트가 열린 1런이며, Flutter+Play 런을 따로 두 번 돌리지 않는다.
 `.github/scripts` 18/18 통과.
 
+**원격 CI 차단과 로컬 전량 재현.** push `bfc9b86f`의 자동 run 32004180579는 잡을 하나도
+시작하지 못했다: "The job was not started because recent account payments have failed or
+your spending limit needs to be increased" (GitHub Billing, Jin만 해결 가능; 해결 뒤 새 push
+없이 `gh run rerun 32004180579`). 그래서 CI 잡을 로컬에서 그대로 돌렸다.
+`changes`: `.github/scripts` 18/18, `build_hanok_grants.py --check --verify-git-history` exit 0,
+`ci_scope.py`(push 5920c9cf→HEAD) = app·website·book·gye·pronunciation 전부.
+`build`: matte 18+2 OK, `flutter analyze --fatal-infos` No issues, **전체 `flutter test`
+3,840 통과 / 14 skip / 0 실패**, `flutter build web --release` √. `book`: Python 3.12 venv에서
+91/91(3.13은 kiwipiepy wheel 없음). `pronunciation` 7/7, `gye` `npm test` 339/339,
+`website` `npm run deploy:check` dry-run OK·취약점 0(LF worktree). 로컬에서 못 돌린 것: Gye
+`test:rules`(Firestore emulator용 Java 없음)와 Play 업로드·Cloudflare 배포(시크릿·보호 환경).
+로컬 함정 셋(코드 아님): OneDrive가 `lib/l10n`·`lib/l10n/generated`에 읽기전용 속성을 붙여
+`flutter build web`이 gen-l10n에서 실패 → `attrib -R`; autocrlf 체크아웃은 `favicon.svg`
+byte-for-byte 검사에 걸림 → `core.autocrlf=false` worktree; Codex rejected 파일명이 길어
+깊은 경로에서 MAX_PATH → `core.longpaths=true`.
+
+**두 축 리뷰(Standards/Spec 서브에이전트).** 하드 위반 0. 판단 사항: 병합 로그가 5커밋 뒤
+`20c6ec88`에 붙음(한 push 묶음), `personal_hanok_asset_bundle_test.dart`의 경로 리터럴은
+`kPersonalHanokAssetRoot` 재사용이 나음, Codex 병렬 PR4 코드(catalog·map·compose·check·
+테스트·ledger)를 main 버전으로 정리한 결정은 Jin의 명시 수용이 남았다(복구 `aaf6d969`).
+`.tours/pr-reviewer-main-lossless-merge-20260817.tour`(untracked, CodeTour)에 9스텝 투어를 남겼다.
+
 **커밋해시.** 병합 `9958a458`·`80dcb48f`·`0d3d9725`·`20d6a191`·`47975311`, 문서
-`20c6ec88`·`a705f43e`, CI 수정은 이 로그와 같은 커밋.
+`20c6ec88`·`a705f43e`, CI 수정 `bfc9b86f`, 이 로컬 재현 기록은 그 다음 커밋.
 
 ### 2026-08-17 (Cursor) — main 무손실 정리: 단어망 예문 em dash + 가드
 
