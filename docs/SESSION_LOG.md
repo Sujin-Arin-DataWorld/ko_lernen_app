@@ -18,7 +18,7 @@ Batch 10(시나리오 174 + 미사용 live Satz 640)을 쓴다. C2 헤드워드
 inventory scenario 264 / satz 1515. `validate_content.py` ok.
 `python3 -m unittest tools.content_factory.test_level_content_4x` **9/9**.
 
-**커밋해시.** 이 기록과 같은 커밋.
+**커밋해시.** `75639ecf`.
 
 ### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
 
