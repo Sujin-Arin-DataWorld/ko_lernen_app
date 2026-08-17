@@ -1,0 +1,292 @@
+{
+ "items": [
+  {
+   "id": "satz_c1_0175",
+   "level": "c1",
+   "targetKo": "표본이 서른 명뿐이라 결론을 넓히기 어렵습니다.",
+   "promptDe": "Die Stichprobe umfasst nur dreißig Personen, daher lässt sich der Schluss kaum ausweiten.",
+   "promptEn": "The sample is only thirty people, so the conclusion is hard to widen.",
+   "distractors": [
+    "인과가",
+    "출처를"
+   ],
+   "vocabKo": "표본"
+  },
+  {
+   "id": "satz_c1_0176",
+   "level": "c1",
+   "targetKo": "성급한 일반화는 오해를 만듭니다.",
+   "promptDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+   "promptEn": "A hasty generalisation creates misunderstandings.",
+   "distractors": [
+    "표본이",
+    "편향을"
+   ],
+   "vocabKo": "일반화"
+  },
+  {
+   "id": "satz_c1_0177",
+   "level": "c1",
+   "targetKo": "상관관계만 보고 원인을 단정할 수 없습니다.",
+   "promptDe": "Aus einer Korrelation allein lässt sich die Ursache nicht bestimmen.",
+   "promptEn": "A correlation alone cannot fix the cause.",
+   "distractors": [
+    "출처를",
+    "과장이"
+   ],
+   "vocabKo": "상관관계"
+  },
+  {
+   "id": "satz_c1_0178",
+   "level": "c1",
+   "targetKo": "인과를 말하려면 시간 순서가 분명해야 합니다.",
+   "promptDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+   "promptEn": "Claiming causation needs a clear order in time.",
+   "distractors": [
+    "표본이",
+    "검증을"
+   ],
+   "vocabKo": "인과"
+  },
+  {
+   "id": "satz_c1_0179",
+   "level": "c1",
+   "targetKo": "참가자를 모으는 방식에 편향이 있었습니다.",
+   "promptDe": "Bei der Auswahl der Teilnehmenden gab es eine Verzerrung.",
+   "promptEn": "There was bias in how participants were recruited.",
+   "distractors": [
+    "검증을",
+    "재현성이"
+   ],
+   "vocabKo": "편향"
+  },
+  {
+   "id": "satz_c1_0180",
+   "level": "c1",
+   "targetKo": "출처를 밝히지 않은 수치는 쓰지 않습니다.",
+   "promptDe": "Zahlen ohne Quellenangabe verwenden wir nicht.",
+   "promptEn": "We don't use figures whose source isn't given.",
+   "distractors": [
+    "편향이",
+    "과장을"
+   ],
+   "vocabKo": "출처"
+  },
+  {
+   "id": "satz_c1_0181",
+   "level": "c1",
+   "targetKo": "재현성이 확인되기 전에는 결과가 잠정적입니다.",
+   "promptDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+   "promptEn": "Until reproducibility is confirmed the result stays provisional.",
+   "distractors": [
+    "출처를",
+    "표본이"
+   ],
+   "vocabKo": "재현성"
+  },
+  {
+   "id": "satz_c1_0182",
+   "level": "c1",
+   "targetKo": "그림 하나만 보면 오해석이 나오기 쉽습니다.",
+   "promptDe": "Sieht man nur eine Grafik, kommt es leicht zu Fehldeutungen.",
+   "promptEn": "Looking at a single chart invites misreading.",
+   "distractors": [
+    "인과를",
+    "출처가"
+   ],
+   "vocabKo": "오해석"
+  },
+  {
+   "id": "satz_c1_0183",
+   "level": "c1",
+   "targetKo": "제목의 과장이 본문 내용과 어긋납니다.",
+   "promptDe": "Die Übertreibung im Titel passt nicht zum Text.",
+   "promptEn": "The headline's exaggeration doesn't match the body.",
+   "distractors": [
+    "표본을",
+    "검증이"
+   ],
+   "vocabKo": "과장"
+  },
+  {
+   "id": "satz_c1_0184",
+   "level": "c1",
+   "targetKo": "검증을 거치지 않은 주장은 권하지 않습니다.",
+   "promptDe": "Behauptungen ohne Überprüfung empfehlen wir nicht.",
+   "promptEn": "We don't recommend claims that skipped verification.",
+   "distractors": [
+    "표본이",
+    "편향을"
+   ],
+   "vocabKo": "검증"
+  },
+  {
+   "id": "satz_c1_0185",
+   "level": "c1",
+   "targetKo": "제조사의 반박에도 표본 문제는 남습니다.",
+   "promptDe": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem.",
+   "promptEn": "Even after the maker's rebuttal the sampling problem remains.",
+   "distractors": [
+    "인과를",
+    "재현성이"
+   ],
+   "vocabKo": "반박"
+  },
+  {
+   "id": "satz_c1_0186",
+   "level": "c1",
+   "targetKo": "인용을 할 때는 논문 번호를 함께 적습니다.",
+   "promptDe": "Beim Zitieren notieren wir die Studiennummer mit.",
+   "promptEn": "When citing we note the study number as well.",
+   "distractors": [
+    "편향이",
+    "과장을"
+   ],
+   "vocabKo": "인용"
+  },
+  {
+   "id": "satz_c2_0175",
+   "level": "c2",
+   "targetKo": "검침기 오작동으로 요금이 세 배 청구됐습니다.",
+   "promptDe": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet.",
+   "promptEn": "A meter malfunction billed three times the amount.",
+   "distractors": [
+    "구제를",
+    "처분이"
+   ],
+   "vocabKo": "오작동"
+  },
+  {
+   "id": "satz_c2_0176",
+   "level": "c2",
+   "targetKo": "구제 절차가 접수 확인에 그치면 실효가 없습니다.",
+   "promptDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+   "promptEn": "If the remedy process stops at an acknowledgement, it has no effect.",
+   "distractors": [
+    "오작동이",
+    "통보를"
+   ],
+   "vocabKo": "구제"
+  },
+  {
+   "id": "satz_c2_0177",
+   "level": "c2",
+   "targetKo": "소명 기회를 주지 않은 결정은 다시 봐야 합니다.",
+   "promptDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+   "promptEn": "A decision that allowed no statement of grounds has to be reviewed again.",
+   "distractors": [
+    "구제가",
+    "시정을"
+   ],
+   "vocabKo": "소명"
+  },
+  {
+   "id": "satz_c2_0178",
+   "level": "c2",
+   "targetKo": "납부 유예만으로는 원인이 사라지지 않습니다.",
+   "promptDe": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
+   "promptEn": "A payment deferral alone doesn't remove the cause.",
+   "distractors": [
+    "처분이",
+    "입증을"
+   ],
+   "vocabKo": "유예"
+  },
+  {
+   "id": "satz_c2_0179",
+   "level": "c2",
+   "targetKo": "같은 시스템이 재검토를 맡으면 형식에 불과합니다.",
+   "promptDe": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+   "promptEn": "If the same system handles the re-review, it is only a formality.",
+   "distractors": [
+    "통보를",
+    "유예가"
+   ],
+   "vocabKo": "재검토"
+  },
+  {
+   "id": "satz_c2_0180",
+   "level": "c2",
+   "targetKo": "결과 통보는 3영업일 안에 서면으로 합니다.",
+   "promptDe": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
+   "promptEn": "Notification of the outcome is made in writing within three business days.",
+   "distractors": [
+    "구제를",
+    "시정이"
+   ],
+   "vocabKo": "통보"
+  },
+  {
+   "id": "satz_c2_0181",
+   "level": "c2",
+   "targetKo": "시정 기한을 정하지 않으면 재발을 막지 못합니다.",
+   "promptDe": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern.",
+   "promptEn": "With no deadline for correction, recurrence isn't prevented.",
+   "distractors": [
+    "오작동이",
+    "입증을"
+   ],
+   "vocabKo": "시정"
+  },
+  {
+   "id": "satz_c2_0182",
+   "level": "c2",
+   "targetKo": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
+   "promptDe": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
+   "promptEn": "Putting the burden of proof only on users goes too far.",
+   "distractors": [
+    "구제가",
+    "통보를"
+   ],
+   "vocabKo": "입증"
+  },
+  {
+   "id": "satz_c2_0183",
+   "level": "c2",
+   "targetKo": "형식적인 이의 창구는 신뢰를 깎습니다.",
+   "promptDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+   "promptEn": "A merely formal appeals desk costs trust.",
+   "distractors": [
+    "구제가",
+    "처분을"
+   ],
+   "vocabKo": "형식적"
+  },
+  {
+   "id": "satz_c2_0184",
+   "level": "c2",
+   "targetKo": "자동 처리의 전제를 공개하면 검증이 가능합니다.",
+   "promptDe": "Werden die Prämissen der automatischen Bearbeitung offengelegt, ist eine Prüfung möglich.",
+   "promptEn": "Publishing the premises of automated processing makes review possible.",
+   "distractors": [
+    "통보가",
+    "유예를"
+   ],
+   "vocabKo": "자동 처리"
+  },
+  {
+   "id": "satz_c2_0185",
+   "level": "c2",
+   "targetKo": "불복 사유를 서면으로 남기는 편이 안전합니다.",
+   "promptDe": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
+   "promptEn": "Recording the grounds of appeal in writing is safer.",
+   "distractors": [
+    "처분이",
+    "구제를"
+   ],
+   "vocabKo": "불복"
+  },
+  {
+   "id": "satz_c2_0186",
+   "level": "c2",
+   "targetKo": "처분 근거를 밝히지 않으면 절차가 무너집니다.",
+   "promptDe": "Nennt man die Grundlage der Maßnahme nicht, bricht das Verfahren zusammen.",
+   "promptEn": "If the basis of the measure isn't stated, the process collapses.",
+   "distractors": [
+    "오작동이",
+    "재검토를"
+   ],
+   "vocabKo": "처분"
+  }
+ ]
+}

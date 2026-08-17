@@ -1,5 +1,42 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude) — Batch 12 슬라이스 1 초안: C1/C2 새 유닛 2개와 콘텐츠 78개
+
+**무엇.** C1/C2의 course unit이 각 2개뿐이어서 Batch 11의 여섯 카테고리가 3+3으로
+몰렸다. 유닛을 6개씩으로 펴는 Batch 12를 슬라이스로 시작했다. 슬라이스 1은
+`c1_03_media_evidence_literacy`(youtube)와 `c2_03_automation_redress`(daily)이고,
+`tools/content_factory/data/batch_12_slice1_records.py`에 유닛·개념·단어 24·문법 2·
+스몰토크 4를 두고 `build_batch_12_slice1.py`가 Cloze 24·Satz 24를 단어 예문에서 1:1로
+파생시켜 초안 5종과 review 원장 5종, `drafts/batch_12_manifest.json`을 만든다. 총 78 레코드다.
+설계 정본은 `docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md`.
+
+**왜.** B안(유닛 + CanDoSegment + 생산 평가를 extension 릴리스 트랙으로)을 Jin이 골랐다.
+코어 `core_2026_v1`의 86개 분모와 한옥 보상은 건드리지 않고, 새 can-do는 order 2·3의
+extension 트랙으로 발행한다.
+
+**코드에서 확인한 계약.** `validate_content.py`는 모든 course unit에 비어 있지 않은
+`checkpointContentIds`를 요구하므로 빈 유닛을 만들 수 없다. 그래서 새 유닛의 체크포인트를
+Batch 11의 같은 담론 시나리오(`c1_youtube_health_claims`, `c2_daily_automation_redress`)로
+잡았다. 오버레이 검증기는 artifact를 cloze·grammar·satz·smalltalk·vocab 5종으로 고정하므로
+문법 2개(`grammar_c1_limited_to` = N에 국한하면, `grammar_c2_no_more_than_doing` =
+V-는 데 그치다)를 함께 넣었다. C1/C2 평가는 segment마다 openWriting·oralProduction·
+connectedEvidence 3종과 mission 링크 3개를 소유하고, contentCluster는
+vocabPack·cloze·satz·smalltalk·project를 참조한다.
+
+**검증.** 빌더 자체 검사 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용과 distractor 3개, Satz 3어절 이상·distractor 2개·target 토큰 비중복,
+문법 quiz focus가 DE/EN 예문에 각각 1회, live 2,196개 표제어와 중복 0.
+`validate_review_batch.py`는 남은 지적이 하나다: `unknown courseUnitId
+'c1_03_media_evidence_literacy'`. 유닛이 live 커리큘럼에 없으니 정상이다.
+
+**막힌 곳.** ① PR #62(Batch 11) 머지 — 체크포인트 시나리오가 live가 되어야 한다.
+② 2개 유닛·개념을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·평가·extension 트랙은 콘텐츠가 승인된 뒤 별도 단계다. `--apply`·TTS·Firebase
+쓰기는 하지 않았고 `assets/data/`·`lib/`도 건드리지 않았다.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
+
 ### 2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초안 (레벨 6 × 카테고리 6)
 
 **무엇.** 일상·친구수다·데이트·유튜브·게임·덕질 여섯 카테고리를 A1–C2 각

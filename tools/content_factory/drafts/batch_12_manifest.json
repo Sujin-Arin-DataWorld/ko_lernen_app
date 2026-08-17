@@ -1,0 +1,302 @@
+{
+ "version": 1,
+ "batch": "12",
+ "status": "review_only_draft",
+ "provenance": {
+  "scope": "Original C1 media-evidence and C2 automation-redress vocabulary with derived games.",
+  "rights": "original",
+  "date": "2026-08-17",
+  "requiresJinReview": true,
+  "slice": "1 of 4 (two new course units per slice)",
+  "originalPlan": "docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md",
+  "blockedBy": "PR #62 must merge first: the new units use Batch 11 scenarios as checkpointContentIds."
+ },
+ "predecessorManifests": [],
+ "curriculumAdditions": {
+  "courseUnits": [
+   {
+    "id": "c1_03_media_evidence_literacy",
+    "level": "c1",
+    "order": 3,
+    "title": {
+     "ko": "대중 매체의 근거 읽기",
+     "de": "Evidenz in populären Medien lesen",
+     "en": "Reading evidence in popular media"
+    },
+    "canDo": {
+     "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
+     "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
+     "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
+    },
+    "requiredConceptIds": [
+     "concept_c1_media_evidence"
+    ],
+    "checkpointContentIds": [
+     "c1_youtube_health_claims"
+    ]
+   },
+   {
+    "id": "c2_03_automation_redress",
+    "level": "c2",
+    "order": 3,
+    "title": {
+     "ko": "자동 처리와 구제 절차",
+     "de": "Automatische Bearbeitung und Rechtsweg",
+     "en": "Automated processing and redress"
+    },
+    "canDo": {
+     "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
+     "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
+     "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+    },
+    "requiredConceptIds": [
+     "concept_c2_automation_redress"
+    ],
+    "checkpointContentIds": [
+     "c2_daily_automation_redress"
+    ]
+   }
+  ],
+  "concepts": [
+   {
+    "id": "concept_c1_media_evidence",
+    "level": "c1",
+    "title": {
+     "ko": "근거의 범위 한정",
+     "de": "Reichweite der Evidenz eingrenzen",
+     "en": "Bounding the reach of evidence"
+    }
+   },
+   {
+    "id": "concept_c2_automation_redress",
+    "level": "c2",
+    "title": {
+     "ko": "자동 처리의 구제 조건",
+     "de": "Bedingungen des Rechtswegs bei Automatisierung",
+     "en": "Conditions for redress under automation"
+    }
+   }
+  ]
+ },
+ "artifacts": [
+  {
+   "kind": "vocab",
+   "draft": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2_slice1.csv",
+   "review": "tools/content_factory/review/c3_batch12_vocab_c1_c2_slice1.csv",
+   "count": 24,
+   "levels": {
+    "c1": 12,
+    "c2": 12
+   }
+  },
+  {
+   "kind": "grammar",
+   "draft": "tools/content_factory/drafts/c4_batch12_grammar_c1_c2_slice1.csv",
+   "review": "tools/content_factory/review/c4_batch12_grammar_c1_c2_slice1.csv",
+   "count": 2,
+   "levels": {
+    "c1": 1,
+    "c2": 1
+   }
+  },
+  {
+   "kind": "smalltalk",
+   "draft": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2_slice1.json",
+   "review": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2_slice1.csv",
+   "count": 4,
+   "levels": {
+    "c1": 2,
+    "c2": 2
+   }
+  },
+  {
+   "kind": "cloze",
+   "draft": "tools/content_factory/drafts/c2_batch12_cloze_c1_c2_slice1.json",
+   "review": "tools/content_factory/review/c2_batch12_cloze_c1_c2_slice1.csv",
+   "count": 24,
+   "levels": {
+    "c1": 12,
+    "c2": 12
+   }
+  },
+  {
+   "kind": "satz",
+   "draft": "tools/content_factory/drafts/c2_batch12_satz_c1_c2_slice1.json",
+   "review": "tools/content_factory/review/c2_batch12_satz_c1_c2_slice1.csv",
+   "count": 24,
+   "levels": {
+    "c1": 12,
+    "c2": 12
+   }
+  }
+ ],
+ "recordCount": 78,
+ "grammarIntents": [
+  {
+   "grammarId": "grammar_c1_limited_to",
+   "level": "c1",
+   "courseUnitId": "c1_03_media_evidence_literacy",
+   "conceptIds": [
+    "concept_c1_media_evidence"
+   ]
+  },
+  {
+   "grammarId": "grammar_c2_no_more_than_doing",
+   "level": "c2",
+   "courseUnitId": "c2_03_automation_redress",
+   "conceptIds": [
+    "concept_c2_automation_redress"
+   ]
+  }
+ ],
+ "vocabPacks": [
+  {
+   "packId": "c1_media_evidence_1",
+   "level": "c1",
+   "orderInLevel": 15,
+   "orderRange": [
+    1,
+    12
+   ],
+   "reviewBossOrders": [
+    10,
+    11,
+    12
+   ],
+   "displayLabel": {
+    "ko": "미디어 속 근거",
+    "de": "Evidenz in den Medien",
+    "en": "Evidence in the media"
+   },
+   "curriculum": {
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "conceptIds": [
+     "concept_c1_media_evidence"
+    ]
+   },
+   "motif": "gwigap",
+   "motifEnum": "DancheongMotif.gwigap"
+  },
+  {
+   "packId": "c2_automation_redress_1",
+   "level": "c2",
+   "orderInLevel": 15,
+   "orderRange": [
+    1,
+    12
+   ],
+   "reviewBossOrders": [
+    10,
+    11,
+    12
+   ],
+   "displayLabel": {
+    "ko": "자동 처리와 구제",
+    "de": "Automatisierung und Rechtsweg",
+    "en": "Automation and redress"
+   },
+   "curriculum": {
+    "courseUnitId": "c2_03_automation_redress",
+    "conceptIds": [
+     "concept_c2_automation_redress"
+    ]
+   },
+   "motif": "gwigap",
+   "motifEnum": "DancheongMotif.gwigap"
+  }
+ ],
+ "smalltalkCategoryMappings": [
+  {
+   "level": "c1",
+   "category": "screen",
+   "courseUnitId": "c1_03_media_evidence_literacy",
+   "conceptIds": [
+    "concept_c1_media_evidence"
+   ]
+  },
+  {
+   "level": "c2",
+   "category": "daily",
+   "courseUnitId": "c2_03_automation_redress",
+   "conceptIds": [
+    "concept_c2_automation_redress"
+   ]
+  }
+ ],
+ "clozeTopicMappings": [
+  {
+   "level": "c1",
+   "topic": "Medien & Evidenz",
+   "courseUnitId": "c1_03_media_evidence_literacy",
+   "conceptIds": [
+    "concept_c1_media_evidence"
+   ]
+  },
+  {
+   "level": "c2",
+   "topic": "Automatisierung & Rechtsweg",
+   "courseUnitId": "c2_03_automation_redress",
+   "conceptIds": [
+    "concept_c2_automation_redress"
+   ]
+  }
+ ],
+ "satzDependencies": [
+  {
+   "level": "c1",
+   "vocabPackId": "c1_media_evidence_1",
+   "count": 12
+  },
+  {
+   "level": "c2",
+   "vocabPackId": "c2_automation_redress_1",
+   "count": 12
+  }
+ ],
+ "requiresCompleteSentenceDerivations": true,
+ "sentenceDerivationSets": [
+  {
+   "level": "c1",
+   "vocabIdRange": [
+    169,
+    180
+   ],
+   "clozeIdRange": [
+    173,
+    184
+   ],
+   "satzIdRange": [
+    175,
+    186
+   ]
+  },
+  {
+   "level": "c2",
+   "vocabIdRange": [
+    169,
+    180
+   ],
+   "clozeIdRange": [
+    173,
+    184
+   ],
+   "satzIdRange": [
+    175,
+    186
+   ]
+  }
+ ],
+ "mergeOrder": [
+  "course units and concepts with checkpointContentIds from Batch 11 scenarios",
+  "vocab with vocabPackUnitMap companion mapping",
+  "smalltalk with category companion mapping",
+  "cloze with topic companion mapping",
+  "satz after same-level vocabulary exists"
+ ],
+ "nonMergeGuards": [
+  "Jin approval required before --apply",
+  "PR #62 (Batch 11 scenarios) must merge before the new units validate",
+  "no TTS synthesis or Firebase writes",
+  "core_2026_v1 segments, editions and rewards stay untouched"
+ ]
+}

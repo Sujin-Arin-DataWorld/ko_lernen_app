@@ -1,0 +1,364 @@
+{
+ "items": [
+  {
+   "id": "cloze_c1_0173",
+   "level": "c1",
+   "sentenceKo": "＿＿＿이 서른 명뿐이라 결론을 넓히기 어렵습니다.",
+   "answer": "표본",
+   "fullKo": "표본이 서른 명뿐이라 결론을 넓히기 어렵습니다.",
+   "de": "Die Stichprobe umfasst nur dreißig Personen, daher lässt sich der Schluss kaum ausweiten.",
+   "en": "The sample is only thirty people, so the conclusion is hard to widen.",
+   "distractors": [
+    "출처",
+    "편향",
+    "과장"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0174",
+   "level": "c1",
+   "sentenceKo": "성급한 ＿＿＿는 오해를 만듭니다.",
+   "answer": "일반화",
+   "fullKo": "성급한 일반화는 오해를 만듭니다.",
+   "de": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+   "en": "A hasty generalisation creates misunderstandings.",
+   "distractors": [
+    "검증",
+    "반박",
+    "인용"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0175",
+   "level": "c1",
+   "sentenceKo": "＿＿＿만 보고 원인을 단정할 수 없습니다.",
+   "answer": "상관관계",
+   "fullKo": "상관관계만 보고 원인을 단정할 수 없습니다.",
+   "de": "Aus einer Korrelation allein lässt sich die Ursache nicht bestimmen.",
+   "en": "A correlation alone cannot fix the cause.",
+   "distractors": [
+    "인과",
+    "표본",
+    "편향"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0176",
+   "level": "c1",
+   "sentenceKo": "＿＿＿를 말하려면 시간 순서가 분명해야 합니다.",
+   "answer": "인과",
+   "fullKo": "인과를 말하려면 시간 순서가 분명해야 합니다.",
+   "de": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+   "en": "Claiming causation needs a clear order in time.",
+   "distractors": [
+    "상관관계",
+    "재현성",
+    "출처"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0177",
+   "level": "c1",
+   "sentenceKo": "참가자를 모으는 방식에 ＿＿＿이 있었습니다.",
+   "answer": "편향",
+   "fullKo": "참가자를 모으는 방식에 편향이 있었습니다.",
+   "de": "Bei der Auswahl der Teilnehmenden gab es eine Verzerrung.",
+   "en": "There was bias in how participants were recruited.",
+   "distractors": [
+    "과장",
+    "출처",
+    "인과"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0178",
+   "level": "c1",
+   "sentenceKo": "＿＿＿를 밝히지 않은 수치는 쓰지 않습니다.",
+   "answer": "출처",
+   "fullKo": "출처를 밝히지 않은 수치는 쓰지 않습니다.",
+   "de": "Zahlen ohne Quellenangabe verwenden wir nicht.",
+   "en": "We don't use figures whose source isn't given.",
+   "distractors": [
+    "표본",
+    "인용",
+    "검증"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0179",
+   "level": "c1",
+   "sentenceKo": "＿＿＿이 확인되기 전에는 결과가 잠정적입니다.",
+   "answer": "재현성",
+   "fullKo": "재현성이 확인되기 전에는 결과가 잠정적입니다.",
+   "de": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+   "en": "Until reproducibility is confirmed the result stays provisional.",
+   "distractors": [
+    "인과",
+    "편향",
+    "오해석"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0180",
+   "level": "c1",
+   "sentenceKo": "그림 하나만 보면 ＿＿＿이 나오기 쉽습니다.",
+   "answer": "오해석",
+   "fullKo": "그림 하나만 보면 오해석이 나오기 쉽습니다.",
+   "de": "Sieht man nur eine Grafik, kommt es leicht zu Fehldeutungen.",
+   "en": "Looking at a single chart invites misreading.",
+   "distractors": [
+    "과장",
+    "반박",
+    "검증"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0181",
+   "level": "c1",
+   "sentenceKo": "제목의 ＿＿＿이 본문 내용과 어긋납니다.",
+   "answer": "과장",
+   "fullKo": "제목의 과장이 본문 내용과 어긋납니다.",
+   "de": "Die Übertreibung im Titel passt nicht zum Text.",
+   "en": "The headline's exaggeration doesn't match the body.",
+   "distractors": [
+    "편향",
+    "오해석",
+    "인용"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0182",
+   "level": "c1",
+   "sentenceKo": "＿＿＿을 거치지 않은 주장은 권하지 않습니다.",
+   "answer": "검증",
+   "fullKo": "검증을 거치지 않은 주장은 권하지 않습니다.",
+   "de": "Behauptungen ohne Überprüfung empfehlen wir nicht.",
+   "en": "We don't recommend claims that skipped verification.",
+   "distractors": [
+    "인용",
+    "반박",
+    "일반화"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0183",
+   "level": "c1",
+   "sentenceKo": "제조사의 ＿＿＿에도 표본 문제는 남습니다.",
+   "answer": "반박",
+   "fullKo": "제조사의 반박에도 표본 문제는 남습니다.",
+   "de": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem.",
+   "en": "Even after the maker's rebuttal the sampling problem remains.",
+   "distractors": [
+    "검증",
+    "과장",
+    "출처"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c1_0184",
+   "level": "c1",
+   "sentenceKo": "＿＿＿을 할 때는 논문 번호를 함께 적습니다.",
+   "answer": "인용",
+   "fullKo": "인용을 할 때는 논문 번호를 함께 적습니다.",
+   "de": "Beim Zitieren notieren wir die Studiennummer mit.",
+   "en": "When citing we note the study number as well.",
+   "distractors": [
+    "출처",
+    "표본",
+    "검증"
+   ],
+   "topic": "Medien & Evidenz"
+  },
+  {
+   "id": "cloze_c2_0173",
+   "level": "c2",
+   "sentenceKo": "검침기 ＿＿＿으로 요금이 세 배 청구됐습니다.",
+   "answer": "오작동",
+   "fullKo": "검침기 오작동으로 요금이 세 배 청구됐습니다.",
+   "de": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet.",
+   "en": "A meter malfunction billed three times the amount.",
+   "distractors": [
+    "시정",
+    "통보",
+    "유예"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0174",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 절차가 접수 확인에 그치면 실효가 없습니다.",
+   "answer": "구제",
+   "fullKo": "구제 절차가 접수 확인에 그치면 실효가 없습니다.",
+   "de": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+   "en": "If the remedy process stops at an acknowledgement, it has no effect.",
+   "distractors": [
+    "소명",
+    "시정",
+    "재검토"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0175",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 기회를 주지 않은 결정은 다시 봐야 합니다.",
+   "answer": "소명",
+   "fullKo": "소명 기회를 주지 않은 결정은 다시 봐야 합니다.",
+   "de": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+   "en": "A decision that allowed no statement of grounds has to be reviewed again.",
+   "distractors": [
+    "통보",
+    "입증",
+    "유예"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0176",
+   "level": "c2",
+   "sentenceKo": "납부 ＿＿＿만으로는 원인이 사라지지 않습니다.",
+   "answer": "유예",
+   "fullKo": "납부 유예만으로는 원인이 사라지지 않습니다.",
+   "de": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
+   "en": "A payment deferral alone doesn't remove the cause.",
+   "distractors": [
+    "시정",
+    "구제",
+    "통보"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0177",
+   "level": "c2",
+   "sentenceKo": "같은 시스템이 ＿＿＿를 맡으면 형식에 불과합니다.",
+   "answer": "재검토",
+   "fullKo": "같은 시스템이 재검토를 맡으면 형식에 불과합니다.",
+   "de": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+   "en": "If the same system handles the re-review, it is only a formality.",
+   "distractors": [
+    "구제",
+    "소명",
+    "시정"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0178",
+   "level": "c2",
+   "sentenceKo": "결과 ＿＿＿는 3영업일 안에 서면으로 합니다.",
+   "answer": "통보",
+   "fullKo": "결과 통보는 3영업일 안에 서면으로 합니다.",
+   "de": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
+   "en": "Notification of the outcome is made in writing within three business days.",
+   "distractors": [
+    "소명",
+    "재검토",
+    "처분"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0179",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 기한을 정하지 않으면 재발을 막지 못합니다.",
+   "answer": "시정",
+   "fullKo": "시정 기한을 정하지 않으면 재발을 막지 못합니다.",
+   "de": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern.",
+   "en": "With no deadline for correction, recurrence isn't prevented.",
+   "distractors": [
+    "유예",
+    "통보",
+    "구제"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0180",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 책임을 이용자에게만 두는 것은 지나칩니다.",
+   "answer": "입증",
+   "fullKo": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
+   "de": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
+   "en": "Putting the burden of proof only on users goes too far.",
+   "distractors": [
+    "소명",
+    "처분",
+    "시정"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0181",
+   "level": "c2",
+   "sentenceKo": "＿＿＿인 이의 창구는 신뢰를 깎습니다.",
+   "answer": "형식적",
+   "fullKo": "형식적인 이의 창구는 신뢰를 깎습니다.",
+   "de": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+   "en": "A merely formal appeals desk costs trust.",
+   "distractors": [
+    "임시적",
+    "부수적",
+    "자율적"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0182",
+   "level": "c2",
+   "sentenceKo": "＿＿＿의 전제를 공개하면 검증이 가능합니다.",
+   "answer": "자동 처리",
+   "fullKo": "자동 처리의 전제를 공개하면 검증이 가능합니다.",
+   "de": "Werden die Prämissen der automatischen Bearbeitung offengelegt, ist eine Prüfung möglich.",
+   "en": "Publishing the premises of automated processing makes review possible.",
+   "distractors": [
+    "재검토",
+    "구제",
+    "소명"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0183",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 사유를 서면으로 남기는 편이 안전합니다.",
+   "answer": "불복",
+   "fullKo": "불복 사유를 서면으로 남기는 편이 안전합니다.",
+   "de": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
+   "en": "Recording the grounds of appeal in writing is safer.",
+   "distractors": [
+    "소명",
+    "유예",
+    "시정"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  },
+  {
+   "id": "cloze_c2_0184",
+   "level": "c2",
+   "sentenceKo": "＿＿＿ 근거를 밝히지 않으면 절차가 무너집니다.",
+   "answer": "처분",
+   "fullKo": "처분 근거를 밝히지 않으면 절차가 무너집니다.",
+   "de": "Nennt man die Grundlage der Maßnahme nicht, bricht das Verfahren zusammen.",
+   "en": "If the basis of the measure isn't stated, the process collapses.",
+   "distractors": [
+    "통보",
+    "입증",
+    "불복"
+   ],
+   "topic": "Automatisierung & Rechtsweg"
+  }
+ ]
+}
