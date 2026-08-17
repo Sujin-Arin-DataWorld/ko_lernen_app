@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-"""Build review-only Batch 07 (five assets) and Batch 08 (scenarios + unused satz).
+"""Build review-only Batch 09 (five assets) and Batch 10 (scenarios + unused satz).
 
 Reads authored pack JSON under tools/content_factory/data/packs/ and writes
-drafts, review ledgers, and manifests. Does not touch assets/data or run --apply.
+drafts, review ledgers, and manifests. Numeric IDs and pack orderInLevel start
+after the current live catalog so the drafts do not collide with merged
+partner-family Batch 07/08. Does not touch assets/data or run --apply.
+
+Batch 07/08 4x filenames stay on disk as superseded history only.
 """
 
 from __future__ import annotations
 
 import csv
 import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -23,11 +28,19 @@ DRAFTS = ROOT / "tools" / "content_factory" / "drafts"
 REVIEW = ROOT / "tools" / "content_factory" / "review"
 DATA = ROOT / "assets" / "data"
 
-VOCAB_START = {"a1": 212, "a2": 269, "b1": 272, "b2": 431, "c1": 49, "c2": 49}
-CLOZE_START = {"a1": 100, "a2": 76, "b1": 84, "b2": 170, "c1": 53, "c2": 53}
-SATZ_START = {"a1": 64, "a2": 39, "b1": 80, "b2": 156, "c1": 55, "c2": 55}
-UNUSED_SATZ_START = {"a1": 160, "a2": 135, "b1": 176, "b2": 252, "c1": 151, "c2": 151}
-SMALLTALK_START = {"a1": 65, "a2": 58, "b1": 55, "b2": 83, "c1": 19, "c2": 19}
+# Filled by refresh_live_id_starts() from current assets/data + pack order map.
+VOCAB_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+CLOZE_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+SATZ_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+UNUSED_SATZ_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+SMALLTALK_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+PACK_ORDER_START = {"a1": 0, "a2": 0, "b1": 0, "b2": 0, "c1": 0, "c2": 0}
+
+FIVE_KIND_BATCH = "09"
+SCENARIO_BATCH = "10"
+STARTING_MAIN_SHA = "e17dce3a"
+CREATED_AT = "2026-08-17"
+_ID_SUFFIX = re.compile(r"_(\d+)$")
 
 VOCAB_HEADER = [
     "korean", "romanization", "german", "level", "pos_de", "example_korean",
@@ -144,6 +157,84 @@ def load_live() -> tuple[list[dict[str, str]], set[str], dict[str, list[str]], s
     scenarios = json.loads((DATA / "scenarios.json").read_text(encoding="utf-8"))
     live_scenario_ids = {item["id"] for item in scenarios["scenarios"]}
     return vocab, live_korean, by_level, used_satz, live_scenario_ids
+
+
+def _walk_ids(payload: Any) -> list[str]:
+    found: list[str] = []
+    if isinstance(payload, dict):
+        ident = payload.get("id")
+        if isinstance(ident, str):
+            found.append(ident)
+        for value in payload.values():
+            found.extend(_walk_ids(value))
+    elif isinstance(payload, list):
+        for item in payload:
+            found.extend(_walk_ids(item))
+    return found
+
+
+def _next_numeric_starts(ids: list[str]) -> dict[str, int]:
+    maxes = {level: 0 for level in LEVELS}
+    for ident in ids:
+        match = _ID_SUFFIX.search(ident)
+        if match is None:
+            continue
+        parts = ident.split("_")
+        if len(parts) < 3:
+            continue
+        level = parts[1].lower()
+        if level not in maxes:
+            continue
+        maxes[level] = max(maxes[level], int(match.group(1)))
+    return {level: maxes[level] + 1 for level in LEVELS}
+
+
+def live_pack_order_next() -> dict[str, int]:
+    text = (ROOT / "lib" / "services" / "vocab_pack_service.dart").read_text(encoding="utf-8")
+    maxes = {level: 0 for level in LEVELS}
+    for match in re.finditer(r"'(a1|a2|b1|b2|c1|c2)_[^']+'\s*:\s*(\d+)", text):
+        level = match.group(1)
+        maxes[level] = max(maxes[level], int(match.group(2)))
+    return {level: maxes[level] + 1 for level in LEVELS}
+
+
+def refresh_live_id_starts() -> None:
+    """Set module ID counters to live max + 1 so drafts do not collide."""
+    global VOCAB_START, CLOZE_START, SATZ_START, SMALLTALK_START, PACK_ORDER_START
+    with (DATA / "korean_vocab.csv").open(encoding="utf-8-sig", newline="") as handle:
+        vocab_ids = [row["id"] for row in csv.DictReader(handle)]
+    cloze = json.loads((DATA / "cloze.json").read_text(encoding="utf-8"))
+    satz = json.loads((DATA / "satz_sentences.json").read_text(encoding="utf-8"))
+    smalltalk = json.loads((DATA / "smalltalk.json").read_text(encoding="utf-8"))
+    VOCAB_START = _next_numeric_starts(vocab_ids)
+    CLOZE_START = _next_numeric_starts([item["id"] for item in cloze["items"]])
+    SATZ_START = _next_numeric_starts([item["id"] for item in satz["items"]])
+    SMALLTALK_START = _next_numeric_starts(_walk_ids(smalltalk))
+    PACK_ORDER_START = live_pack_order_next()
+
+
+def apply_next_pack_orders(packs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    counters = dict(PACK_ORDER_START)
+    assigned: list[dict[str, Any]] = []
+    for pack in packs:
+        item = dict(pack)
+        item["orderInLevel"] = counters[pack["level"]]
+        counters[pack["level"]] += 1
+        assigned.append(item)
+    return assigned
+
+
+def unused_starts_after(satz_items: list[dict[str, Any]]) -> dict[str, int]:
+    maxes = {level: SATZ_START[level] - 1 for level in LEVELS}
+    for row in satz_items:
+        match = _ID_SUFFIX.search(row["id"])
+        if match is None:
+            continue
+        level = str(row["level"]).lower()
+        if level not in maxes:
+            continue
+        maxes[level] = max(maxes[level], int(match.group(1)))
+    return {level: maxes[level] + 1 for level in LEVELS}
 
 
 def cloze_distractors(headword: str, pool: list[str]) -> list[str]:
@@ -808,9 +899,13 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
     }
 
 
-def unused_satz(live_vocab: list[dict[str, str]], used: set[str]) -> list[dict[str, Any]]:
+def unused_satz(
+    live_vocab: list[dict[str, str]],
+    used: set[str],
+    starts: dict[str, int] | None = None,
+) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
-    counters = dict(UNUSED_SATZ_START)
+    counters = dict(starts or UNUSED_SATZ_START)
     by_level: dict[str, list[str]] = defaultdict(list)
     for row in live_vocab:
         by_level[row["level"].lower()].append(row["korean"])
@@ -822,7 +917,7 @@ def unused_satz(live_vocab: list[dict[str, str]], used: set[str]) -> list[dict[s
         if len(example.split()) < 3:
             continue
         level = row["level"].lower()
-        if level not in UNUSED_SATZ_START:
+        if level not in counters:
             continue
         ident = f"satz_{level}_{counters[level]:04d}"
         counters[level] += 1
@@ -838,17 +933,18 @@ def unused_satz(live_vocab: list[dict[str, str]], used: set[str]) -> list[dict[s
     return items
 
 
-def write_batch_07(packs: list[dict[str, Any]]) -> None:
-    vocab_rows, cloze_items, satz_items, vocab_meta, derivations = build_vocab_games(packs)
+def write_batch_09(packs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    assigned = apply_next_pack_orders(packs)
+    vocab_rows, cloze_items, satz_items, vocab_meta, derivations = build_vocab_games(assigned)
     grammar = grammar_records()
     smalltalk = smalltalk_records()
-    _write_csv(DRAFTS / "c3_batch07_vocab_a1_c2.csv", VOCAB_HEADER, vocab_rows)
-    _write_json(DRAFTS / "c2_batch07_cloze_a1_c2.json", {"version": 1, "items": cloze_items})
-    _write_json(DRAFTS / "c2_batch07_satz_a1_c2.json", {"version": 1, "items": satz_items})
-    _write_csv(DRAFTS / "c4_batch07_grammar_a1_c2.csv", GRAMMAR_HEADER, grammar)
-    _write_json(DRAFTS / "c2_batch07_smalltalk_a1_c2.json", {
+    _write_csv(DRAFTS / "c3_batch09_vocab_a1_c2.csv", VOCAB_HEADER, vocab_rows)
+    _write_json(DRAFTS / "c2_batch09_cloze_a1_c2.json", {"version": 1, "items": cloze_items})
+    _write_json(DRAFTS / "c2_batch09_satz_a1_c2.json", {"version": 1, "items": satz_items})
+    _write_csv(DRAFTS / "c4_batch09_grammar_a1_c2.csv", GRAMMAR_HEADER, grammar)
+    _write_json(DRAFTS / "c2_batch09_smalltalk_a1_c2.json", {
         "version": 1,
-        "_comment": "Batch 07 independently authored A1-C2 conversation practice. rights: original.",
+        "_comment": "Batch 09 independently authored A1-C2 conversation practice. rights: original.",
         "phrases": smalltalk,
     })
 
@@ -860,27 +956,27 @@ def write_batch_07(packs: list[dict[str, Any]]) -> None:
         return result
 
     reviews = {
-        "c3_batch07_vocab_a1_c2.csv": [
+        "c3_batch09_vocab_a1_c2.csv": [
             _review_row(row["id"], row["level"], row["korean"], row["german"], row["english"],
                         f"rights: original; pack: {row['pack_id']}; canonical sentence derives matching cloze/satz")
             for row in vocab_rows
         ],
-        "c4_batch07_grammar_a1_c2.csv": [
+        "c4_batch09_grammar_a1_c2.csv": [
             _review_row(row["id"], row["level"], row["pattern"], row["type_de"], row["type_en"],
                         "rights: original; independently authored pattern, examples, and quiz focus")
             for row in grammar
         ],
-        "c2_batch07_smalltalk_a1_c2.csv": [
+        "c2_batch09_smalltalk_a1_c2.csv": [
             _review_row(row["id"], row["level"], row["ko"], row["de"], row["en"],
                         f"rights: original; category {row['category']}")
             for row in smalltalk
         ],
-        "c2_batch07_cloze_a1_c2.csv": [
+        "c2_batch09_cloze_a1_c2.csv": [
             _review_row(row["id"], row["level"], row["fullKo"], row["de"], row["en"],
                         "rights: original; derived from same-batch vocab example")
             for row in cloze_items
         ],
-        "c2_batch07_satz_a1_c2.csv": [
+        "c2_batch09_satz_a1_c2.csv": [
             _review_row(row["id"], row["level"], row["targetKo"], row["promptDe"], row["promptEn"],
                         "rights: original; derived from same-batch vocab example")
             for row in satz_items
@@ -891,7 +987,7 @@ def write_batch_07(packs: list[dict[str, Any]]) -> None:
 
     cloze_maps = []
     seen_topics: set[tuple[str, str]] = set()
-    for pack in packs:
+    for pack in assigned:
         key = (pack["level"], pack["topic"].lower())
         if key in seen_topics:
             continue
@@ -928,26 +1024,31 @@ def write_batch_07(packs: list[dict[str, Any]]) -> None:
         })
     satz_deps = [
         {"level": pack["level"], "vocabPackId": pack["packId"], "count": 12}
-        for pack in packs
+        for pack in assigned
     ]
     manifest = {
         "version": 1,
-        "batch": "07",
+        "batch": FIVE_KIND_BATCH,
         "status": "review_only_draft",
         "provenance": {
-            "scope": "Original A1-C2 Korea-appropriate expansion of vocabulary packs, cloze, Satzbau, grammar, and smalltalk. No textbook sentence, prompt, or unit sequence is reproduced.",
+            "scope": (
+                "Renumbered A1-C2 4x remainder after live partner-family Batch 07/08. "
+                "Original Korea-appropriate expansion of vocabulary packs, cloze, Satzbau, "
+                "grammar, and smalltalk. No textbook sentence, prompt, or unit sequence is reproduced."
+            ),
             "rights": "original_clean_room",
             "requiresJinReview": True,
-            "startingMainSha": "82afdcde8ffdbc978499f4dd1cc20bf2944e20ed",
-            "createdAt": "2026-08-16",
+            "startingMainSha": STARTING_MAIN_SHA,
+            "createdAt": CREATED_AT,
+            "replaces": "tools/content_factory/drafts/batch_07_4x_manifest.json",
         },
         "predecessorManifests": [],
         "artifacts": [
-            {"kind": "vocab", "draft": "tools/content_factory/drafts/c3_batch07_vocab_a1_c2.csv", "review": "tools/content_factory/review/c3_batch07_vocab_a1_c2.csv", "count": 576, "levels": count_levels(vocab_rows)},
-            {"kind": "grammar", "draft": "tools/content_factory/drafts/c4_batch07_grammar_a1_c2.csv", "review": "tools/content_factory/review/c4_batch07_grammar_a1_c2.csv", "count": 24, "levels": count_levels(grammar)},
-            {"kind": "smalltalk", "draft": "tools/content_factory/drafts/c2_batch07_smalltalk_a1_c2.json", "review": "tools/content_factory/review/c2_batch07_smalltalk_a1_c2.csv", "count": 12, "levels": count_levels(smalltalk)},
-            {"kind": "cloze", "draft": "tools/content_factory/drafts/c2_batch07_cloze_a1_c2.json", "review": "tools/content_factory/review/c2_batch07_cloze_a1_c2.csv", "count": 576, "levels": count_levels(cloze_items)},
-            {"kind": "satz", "draft": "tools/content_factory/drafts/c2_batch07_satz_a1_c2.json", "review": "tools/content_factory/review/c2_batch07_satz_a1_c2.csv", "count": 576, "levels": count_levels(satz_items)},
+            {"kind": "vocab", "draft": "tools/content_factory/drafts/c3_batch09_vocab_a1_c2.csv", "review": "tools/content_factory/review/c3_batch09_vocab_a1_c2.csv", "count": 576, "levels": count_levels(vocab_rows)},
+            {"kind": "grammar", "draft": "tools/content_factory/drafts/c4_batch09_grammar_a1_c2.csv", "review": "tools/content_factory/review/c4_batch09_grammar_a1_c2.csv", "count": 24, "levels": count_levels(grammar)},
+            {"kind": "smalltalk", "draft": "tools/content_factory/drafts/c2_batch09_smalltalk_a1_c2.json", "review": "tools/content_factory/review/c2_batch09_smalltalk_a1_c2.csv", "count": 12, "levels": count_levels(smalltalk)},
+            {"kind": "cloze", "draft": "tools/content_factory/drafts/c2_batch09_cloze_a1_c2.json", "review": "tools/content_factory/review/c2_batch09_cloze_a1_c2.csv", "count": 576, "levels": count_levels(cloze_items)},
+            {"kind": "satz", "draft": "tools/content_factory/drafts/c2_batch09_satz_a1_c2.json", "review": "tools/content_factory/review/c2_batch09_satz_a1_c2.csv", "count": 576, "levels": count_levels(satz_items)},
         ],
         "recordCount": 1764,
         "vocabPacks": vocab_meta,
@@ -968,12 +1069,20 @@ def write_batch_07(packs: list[dict[str, Any]]) -> None:
             "Every record is independently authored and carries rights: original in its review ledger.",
             "No textbook sentence, prompt, answer option, unit order, or scanned text may enter app assets.",
             "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction.",
+            "Do not apply superseded batch_07_4x_manifest.json; its numeric IDs collide with live partner-family.",
         ],
     }
-    _write_json(DRAFTS / "batch_07_manifest.json", manifest)
+    _write_json(DRAFTS / "batch_09_4x_manifest.json", manifest)
+    return satz_items
 
 
-def write_batch_08(live_vocab: list[dict[str, str]], by_level: dict[str, list[str]], used_satz: set[str], live_scenario_ids: set[str]) -> None:
+def write_batch_10(
+    live_vocab: list[dict[str, str]],
+    by_level: dict[str, list[str]],
+    used_satz: set[str],
+    live_scenario_ids: set[str],
+    unused_starts: dict[str, int],
+) -> None:
     catalog = scenario_catalog()
     scenarios = []
     for ident, level, backdrop, ko, de, en, detail in catalog:
@@ -981,15 +1090,15 @@ def write_batch_08(live_vocab: list[dict[str, str]], by_level: dict[str, list[st
         if len(vocab) < 6:
             raise SystemExit(f"not enough live vocab for {level}")
         scenarios.append(build_scenario(ident, level, backdrop, ko, de, en, detail, vocab, live_scenario_ids))
-    unused = unused_satz(live_vocab, used_satz)
-    _write_json(DRAFTS / "c1_batch08_scenarios_a1_c2.json", {"version": 1, "scenarios": scenarios})
-    _write_json(DRAFTS / "c2_batch08_satz_unused_live.json", {"version": 1, "items": unused})
-    _write_csv(REVIEW / "c1_batch08_scenarios.csv", REVIEW_HEADER, [
+    unused = unused_satz(live_vocab, used_satz, starts=unused_starts)
+    _write_json(DRAFTS / "c1_batch10_scenarios_a1_c2.json", {"version": 1, "scenarios": scenarios})
+    _write_json(DRAFTS / "c2_batch10_satz_unused_live.json", {"version": 1, "items": unused})
+    _write_csv(REVIEW / "c1_batch10_scenarios.csv", REVIEW_HEADER, [
         _review_row(row["id"], row["level"], row["title"]["ko"], row["title"]["de"], row["title"]["en"],
                     "rights: original; independently authored dialog and quests")
         for row in scenarios
     ])
-    _write_csv(REVIEW / "c2_batch08_satz.csv", REVIEW_HEADER, [
+    _write_csv(REVIEW / "c2_batch10_satz.csv", REVIEW_HEADER, [
         _review_row(row["id"], row["level"], row["targetKo"], row["promptDe"], row["promptEn"],
                     f"rights: original; derived from live unused vocab {row['vocabKo']}")
         for row in unused
@@ -1015,28 +1124,34 @@ def write_batch_08(live_vocab: list[dict[str, str]], by_level: dict[str, list[st
         backdrops[row["id"]] = next(item[2] for item in catalog if item[0] == row["id"])
     manifest = {
         "version": 1,
-        "batch": "08",
-        "status": "review_only",
+        "batch": SCENARIO_BATCH,
+        "status": "review_only_draft",
         "provenance": {
-            "scope": "Original A1-C2 scenario expansion to 4x live scenario count, plus Satzbau from unused live vocabulary examples. No textbook dialog is reproduced.",
+            "scope": (
+                "Renumbered A1-C2 4x scenario remainder after live partner-family Batch 07/08. "
+                "Original scenario expansion plus Satzbau from unused live vocabulary examples. "
+                "No textbook dialog is reproduced."
+            ),
             "rights": "original_clean_room",
             "requiresJinReview": True,
-            "startingMainSha": "82afdcde8ffdbc978499f4dd1cc20bf2944e20ed",
-            "createdAt": "2026-08-16",
+            "startingMainSha": STARTING_MAIN_SHA,
+            "createdAt": CREATED_AT,
+            "replaces": "tools/content_factory/drafts/batch_08_4x_manifest.json",
         },
+        "predecessorManifests": [],
         "artifacts": [
             {
                 "kind": "scenario",
-                "draft": "tools/content_factory/drafts/c1_batch08_scenarios_a1_c2.json",
-                "review": "tools/content_factory/review/c1_batch08_scenarios.csv",
+                "draft": "tools/content_factory/drafts/c1_batch10_scenarios_a1_c2.json",
+                "review": "tools/content_factory/review/c1_batch10_scenarios.csv",
                 "collection": "scenarios",
                 "count": len(scenarios),
                 "levels": levels_sc,
             },
             {
                 "kind": "satz",
-                "draft": "tools/content_factory/drafts/c2_batch08_satz_unused_live.json",
-                "review": "tools/content_factory/review/c2_batch08_satz.csv",
+                "draft": "tools/content_factory/drafts/c2_batch10_satz_unused_live.json",
+                "review": "tools/content_factory/review/c2_batch10_satz.csv",
                 "collection": "items",
                 "count": len(unused),
                 "levels": levels_sz,
@@ -1053,20 +1168,119 @@ def write_batch_08(live_vocab: list[dict[str, str]], by_level: dict[str, list[st
         "mergeOrder": [
             "scenario + unused-live satz + contentLinks + scenario backdrop + audit manifest",
         ],
+        "nonMergeGuards": [
+            "Do not apply superseded batch_08_4x_manifest.json; unused-satz IDs collide with Batch 09.",
+            "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction.",
+        ],
     }
-    _write_json(DRAFTS / "batch_08_manifest.json", manifest)
+    _write_json(DRAFTS / "batch_10_4x_manifest.json", manifest)
+
+
+def mark_superseded_4x_manifests() -> None:
+    updates = [
+        (
+            DRAFTS / "batch_07_4x_manifest.json",
+            "tools/content_factory/drafts/batch_09_4x_manifest.json",
+            "Numeric IDs and pack orderInLevel collided with live partner-family Batch 07/08.",
+        ),
+        (
+            DRAFTS / "batch_08_4x_manifest.json",
+            "tools/content_factory/drafts/batch_10_4x_manifest.json",
+            "Unused-satz IDs would collide with remumbered Batch 09 satz; scenarios stay review-only under Batch 10.",
+        ),
+    ]
+    for path, successor, reason in updates:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["status"] = "superseded"
+        provenance = payload.setdefault("provenance", {})
+        provenance["supersededBy"] = successor
+        provenance["supersededReason"] = reason
+        provenance["supersededAt"] = CREATED_AT
+        _write_json(path, payload)
+
+
+def write_track_indexes() -> None:
+    batch_09 = json.loads((DRAFTS / "batch_09_4x_manifest.json").read_text(encoding="utf-8"))
+    batch_10 = json.loads((DRAFTS / "batch_10_4x_manifest.json").read_text(encoding="utf-8"))
+    partner_07 = json.loads((DRAFTS / "batch_07_partner_family_manifest.json").read_text(encoding="utf-8"))
+    partner_08 = json.loads((DRAFTS / "batch_08_partner_family_manifest.json").read_text(encoding="utf-8"))
+    _write_json(DRAFTS / "batch_07_manifest.json", {
+        "version": 1,
+        "batch": "07",
+        "status": "index",
+        "provenance": {
+            "scope": "Combined Batch 07 index. Partner-family is merged into live assets; the 4x remainder moved to Batch 09.",
+            "rights": "original",
+            "createdAt": CREATED_AT,
+            "requiresJinReview": True,
+            "tracks": [
+                "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+                "tools/content_factory/drafts/batch_09_4x_manifest.json",
+            ],
+        },
+        "predecessorManifests": [],
+        "artifacts": [
+            {
+                "kind": "index",
+                "draft": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+                "review": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+                "count": partner_07.get("recordCount", 0),
+            },
+            {
+                "kind": "index",
+                "draft": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+                "review": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+                "count": batch_09.get("recordCount", 0),
+            },
+        ],
+        "recordCount": int(partner_07.get("recordCount", 0)) + int(batch_09.get("recordCount", 0)),
+    })
+    _write_json(DRAFTS / "batch_08_manifest.json", {
+        "version": 1,
+        "batch": "08",
+        "status": "index",
+        "provenance": {
+            "scope": "Combined Batch 08 index. Partner-family scenarios are merged; the 4x remainder moved to Batch 10.",
+            "rights": "original",
+            "createdAt": CREATED_AT,
+            "requiresJinReview": True,
+            "tracks": [
+                "tools/content_factory/drafts/batch_08_partner_family_manifest.json",
+                "tools/content_factory/drafts/batch_10_4x_manifest.json",
+            ],
+        },
+        "artifacts": [
+            {
+                "kind": "index",
+                "draft": "tools/content_factory/drafts/batch_08_partner_family_manifest.json",
+                "review": "tools/content_factory/drafts/batch_08_partner_family_manifest.json",
+                "count": partner_08.get("recordCount", 0),
+            },
+            {
+                "kind": "index",
+                "draft": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+                "review": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+                "count": batch_10.get("recordCount", 0),
+            },
+        ],
+        "recordCount": int(partner_08.get("recordCount", 0)) + int(batch_10.get("recordCount", 0)),
+    })
 
 
 def main() -> int:
+    refresh_live_id_starts()
     packs = load_packs()
     live_vocab, live_korean, by_level, used_satz, live_scenario_ids = load_live()
     for pack in packs:
         for row in pack["words"]:
             if row[0] in live_korean:
                 raise SystemExit(f"live collision {pack['packId']} {row[0]}")
-    write_batch_07(packs)
-    write_batch_08(live_vocab, by_level, used_satz, live_scenario_ids)
-    print("wrote batch 07 and batch 08 review-only drafts")
+    satz_items = write_batch_09(packs)
+    unused_starts = unused_starts_after(satz_items)
+    write_batch_10(live_vocab, by_level, used_satz, live_scenario_ids, unused_starts)
+    mark_superseded_4x_manifests()
+    write_track_indexes()
+    print("wrote batch 09 and batch 10 review-only drafts")
     return 0
 
 

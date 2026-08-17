@@ -48,8 +48,9 @@ Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 Each `batch_XX_manifest.json` is the machine-readable handoff. It names every
 draft/review pair and declares the curriculum, pack, motif, category, and
 topic companions required for an approved merge. Batch 01-05 mappings are
-already live; review-only Batch 06-08 keep their mappings in the manifest
-until the single approved multi-file transaction promotes them.
+already live; review-only Batch 09-10 keep their mappings in the manifest
+until the single approved multi-file transaction promotes them. Partner-family
+Batch 07/08 is already merged. Do not apply superseded `batch_07_4x` / `batch_08_4x`.
 
 Batch 01's draft-only validator is preserved as historical regression coverage.
 Batch 06 is a scenario-centred cross-game bundle, so validate its reference graph, deterministic
@@ -64,12 +65,12 @@ python3 tools/content_factory/audit_game_loader_coverage.py \
 python3 tools/content_factory/integrate_scenario_batch.py \
   --manifest tools/content_factory/drafts/batch_06_manifest.json
 python3 tools/content_factory/validate_review_batch.py \
-  --manifest tools/content_factory/drafts/batch_07_manifest.json
+  --manifest tools/content_factory/drafts/batch_09_4x_manifest.json
 python3 tools/content_factory/plan_pack_assignments.py \
-  --draft tools/content_factory/drafts/c3_batch07_vocab_a1_c2.csv \
-  --metadata tools/content_factory/drafts/batch_07_manifest.json
+  --draft tools/content_factory/drafts/c3_batch09_vocab_a1_c2.csv \
+  --metadata tools/content_factory/drafts/batch_09_4x_manifest.json
 python3 tools/content_factory/integrate_scenario_batch.py \
-  --manifest tools/content_factory/drafts/batch_08_manifest.json
+  --manifest tools/content_factory/drafts/batch_10_4x_manifest.json
 ```
 
 ## Review and merge boundary

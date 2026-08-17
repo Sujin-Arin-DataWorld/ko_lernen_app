@@ -19,6 +19,6 @@
     ["결정 불가역", "Unumkehrbarkeit", "claimed irreversibility", "Ausdruck", "Expression", "결정 불가역을 선언하기 전에 철회 경로를 보여요.", "Vor der Unumkehrbarkeit zeige ich den Rückholweg.", "Before claiming irreversibility I show the withdrawal path."],
     ["규범 포장", "Normverpackung", "norm wrapping", "Ausdruck", "Expression", "규범 포장이 취향을 도덕으로 바꾸면 반박해요.", "Macht die Normverpackung Geschmack zur Moral, widerspreche ich.", "If norm wrapping turns taste into morals, I object."],
     ["침묵 동의", "Schweigezustimmung", "silence as consent", "Ausdruck", "Expression", "침묵 동의를 회의에 적용하지 않고 명시 확인을 받아요.", "Schweigezustimmung wende ich nicht an, ich hole eine klare Bestätigung.", "I do not apply silence as consent; I get an explicit confirm."],
-    ["말의 자리", "Wortort", "where the word sits", "Ausdruck", "Expression", "말의 자리가 훈시이면 질문은 뒤로 밀려요.", "Sitzt der Wortort in der Belehrung, rutscht die Frage nach hinten.", "If where the word sits is a lecture, questions are pushed back."]
+    ["발화의 자리", "Äußerungsort", "seat of the utterance", "Ausdruck", "Expression", "발화의 자리가 훈시이면 질문은 뒤로 밀려요.", "Sitzt der Äußerungsort in der Belehrung, rutscht die Frage nach hinten.", "If the seat of the utterance is a lecture, questions are pushed back."]
   ]
 }

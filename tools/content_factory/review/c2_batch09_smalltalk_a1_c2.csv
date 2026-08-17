@@ -1,0 +1,13 @@
+id,level,ko,de,en,field_notes,상태,jin_memo
+smalltalk_a1_0081,A1,오늘 저녁에 쓰레기 버리는 거 잊지 않으셨죠?,"Sie haben das Abend-Müllrausbringen nicht vergessen, oder?","You did not forget to take out the evening trash, right?",rights: original; category daily,draft,
+smalltalk_a1_0082,A1,"이 김밥 너무 매워요, 아니면 저만 그래요?","Ist dieses Kimbap zu scharf, oder geht es nur mir so?","Is this kimbap too spicy, or is it just me?",rights: original; category food,draft,
+smalltalk_a2_0074,A2,토요일 오전에 시장 갈 건데 같이 하실래요?,Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?,I am going to the market Saturday morning. Want to come?,rights: original; category weekend,draft,
+smalltalk_a2_0075,A2,목이 좀 잠겼는데 오늘은 짧게만 이야기할까요?,Meine Stimme ist heiser. Sollen wir heute nur kurz sprechen?,My voice is hoarse. Shall we keep it short today?,rights: original; category health,draft,
+smalltalk_b1_0071,B1,이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?,"Wenn wir den Entwurf heute noch sehen wollen, wo sollen wir zuerst ändern?","If we want to see this draft today, where should we change first?",rights: original; category work_study,draft,
+smalltalk_b1_0072,B1,이삿날 엘리베이터를 두 시간만 예약하면 될까요?,"Reicht es, den Aufzug am Umzugstag für zwei Stunden zu reservieren?",Is reserving the elevator for two hours on moving day enough?,rights: original; category moving,draft,
+smalltalk_b2_0099,B2,"이 경험을 성과로 말할지, 과정으로 말할지 고민이에요.","Ich überlege, ob ich diese Erfahrung als Ergebnis oder als Prozess nenne.",I am deciding whether to present this experience as a result or as a process.,rights: original; category interview,draft,
+smalltalk_b2_0100,B2,"지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?","Passt das Gespräch jetzt, oder soll ich nachmittags noch einmal anrufen?","Is now a good time to talk, or should I call again this afternoon?",rights: original; category phone,draft,
+smalltalk_c1_0023,C1,이 표를 공개할 때 한계를 어디에 적는 게 덜 오해될까요?,"Wohin sollen wir die Grenzen setzen, damit die Tabelle weniger missverstanden wird?",Where should we put the limits so this table is less misunderstood?,rights: original; category work_study,draft,
+smalltalk_c1_0024,C1,이 안내문이 위험을 과장하지 않는지 같이 읽어 볼까요?,"Wollen wir den Hinweis gemeinsam lesen, ob er das Risiko überzeichnet?",Shall we read this notice together to see if it overstates the risk?,rights: original; category health,draft,
+smalltalk_c2_0023,C2,이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?,Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?,Does this sentence hide authority behind procedure?,rights: original; category work_study,draft,
+smalltalk_c2_0024,C2,이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.,"Der Widerruf steckt tief in den Einstellungen, deshalb will ich den Weg notieren.","The withdrawal seems buried in settings, so I want to write down the path.",rights: original; category daily,draft,

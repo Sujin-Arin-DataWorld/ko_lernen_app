@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 4× 잔량을 Batch 09/10 review-only로 재번호
+
+**왜.** partner-family Batch 07/08이 live로 올라간 뒤, 기존 4× 초안
+(`batch_07_4x` / `batch_08_4x`)의 vocab/cloze/satz/smalltalk ID와
+`orderInLevel`이 현재 카탈로그와 충돌했다. PR 오픈+CI와 초안 PR #38 정리는
+이미 `main`에 들어가 있어서, 남은 후속은 이 잔량 초안을 다시 붙이는 일이었다.
+
+**무엇.** `build_level_content_4x.py`가 live max+1 ID와
+`vocab_pack_service.dart` 팩 순서 다음 칸을 읽어 Batch 09(다섯 종류 1764)와
+Batch 10(시나리오 174 + 미사용 live Satz 640)을 쓴다. C2 헤드워드
+`말의 자리`는 가족 트랙과 겹쳐 `발화의 자리`로 바꿨다. 옛 4× manifest는
+`superseded`. 앱 `assets/data`는 건드리지 않았다.
+
+**검증.** `validate_review_batch.py --manifest .../batch_09_4x_manifest.json`
+1764 overlay 통과. `integrate_scenario_batch.py` preview 814,
+inventory scenario 264 / satz 1515. `validate_content.py` ok.
+`python3 -m unittest tools.content_factory.test_level_content_4x` **9/9**.
+
+**커밋해시.** 이 기록과 같은 커밋.
+
 ### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
 
 **왜.** 로컬 `main`과 `origin/main`은 `3b48e18a`에서 같았지만, Batch 06 live
