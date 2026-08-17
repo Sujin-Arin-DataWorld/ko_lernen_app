@@ -1,0 +1,478 @@
+#!/usr/bin/env python3
+"""Batch 12 슬라이스 1 원문: C1 미디어 근거 읽기 + C2 자동 처리 구제.
+
+두 새 course unit(`c1_03_media_evidence_literacy`, `c2_03_automation_redress`)의
+단어팩과 그 예문에서 1:1로 파생되는 Cloze/Satz, 그리고 스몰토크를 담는다.
+한국어가 원문이고, 외부 교재의 문장·단원·배열은 쓰지 않는다.
+"""
+
+from __future__ import annotations
+
+from typing import Any
+
+# 새 유닛과 개념. 체크포인트는 Batch 11의 같은 담론 시나리오다.
+UNITS: list[dict[str, Any]] = [
+    {
+        "id": "c1_03_media_evidence_literacy",
+        "level": "c1",
+        "order": 3,
+        "title": {
+            "ko": "대중 매체의 근거 읽기",
+            "de": "Evidenz in populären Medien lesen",
+            "en": "Reading evidence in popular media",
+        },
+        "canDo": {
+            "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
+            "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
+            "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports.",
+        },
+        "requiredConceptIds": ["concept_c1_media_evidence"],
+        "checkpointContentIds": ["c1_youtube_health_claims"],
+    },
+    {
+        "id": "c2_03_automation_redress",
+        "level": "c2",
+        "order": 3,
+        "title": {
+            "ko": "자동 처리와 구제 절차",
+            "de": "Automatische Bearbeitung und Rechtsweg",
+            "en": "Automated processing and redress",
+        },
+        "canDo": {
+            "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
+            "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
+            "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality.",
+        },
+        "requiredConceptIds": ["concept_c2_automation_redress"],
+        "checkpointContentIds": ["c2_daily_automation_redress"],
+    },
+]
+
+CONCEPTS: list[dict[str, Any]] = [
+    {
+        "id": "concept_c1_media_evidence",
+        "level": "c1",
+        "title": {
+            "ko": "근거의 범위 한정",
+            "de": "Reichweite der Evidenz eingrenzen",
+            "en": "Bounding the reach of evidence",
+        },
+    },
+    {
+        "id": "concept_c2_automation_redress",
+        "level": "c2",
+        "title": {
+            "ko": "자동 처리의 구제 조건",
+            "de": "Bedingungen des Rechtswegs bei Automatisierung",
+            "en": "Conditions for redress under automation",
+        },
+    },
+]
+
+PACKS: list[dict[str, Any]] = [
+    {
+        "packId": "c1_media_evidence_1",
+        "level": "c1",
+        "orderInLevel": 15,
+        "topic": "Medien & Evidenz",
+        "displayLabel": {
+            "ko": "미디어 속 근거",
+            "de": "Evidenz in den Medien",
+            "en": "Evidence in the media",
+        },
+        "courseUnitId": "c1_03_media_evidence_literacy",
+        "conceptIds": ["concept_c1_media_evidence"],
+        "vocabStart": 169,
+        "clozeStart": 173,
+        "satzStart": 175,
+    },
+    {
+        "packId": "c2_automation_redress_1",
+        "level": "c2",
+        "orderInLevel": 15,
+        "topic": "Automatisierung & Rechtsweg",
+        "displayLabel": {
+            "ko": "자동 처리와 구제",
+            "de": "Automatisierung und Rechtsweg",
+            "en": "Automation and redress",
+        },
+        "courseUnitId": "c2_03_automation_redress",
+        "conceptIds": ["concept_c2_automation_redress"],
+        "vocabStart": 169,
+        "clozeStart": 173,
+        "satzStart": 175,
+    },
+]
+
+VOCAB_C1: list[dict[str, Any]] = [
+    {
+        "korean": "표본", "rom": "pyobon", "de": "Stichprobe", "en": "sample",
+        "ex_ko": "표본이 서른 명뿐이라 결론을 넓히기 어렵습니다.",
+        "ex_de": "Die Stichprobe umfasst nur dreißig Personen, daher lässt sich der Schluss kaum ausweiten.",
+        "ex_en": "The sample is only thirty people, so the conclusion is hard to widen.",
+        "cloze_distractors": ["출처", "편향", "과장"],
+        "satz_distractors": ["인과가", "출처를"],
+        "boss": False,
+    },
+    {
+        "korean": "일반화", "rom": "ilbanhwa", "de": "Verallgemeinerung", "en": "generalisation",
+        "ex_ko": "성급한 일반화는 오해를 만듭니다.",
+        "ex_de": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+        "ex_en": "A hasty generalisation creates misunderstandings.",
+        "cloze_distractors": ["검증", "반박", "인용"],
+        "satz_distractors": ["표본이", "편향을"],
+        "boss": False,
+    },
+    {
+        "korean": "상관관계", "rom": "sanggwangwangye", "de": "Korrelation", "en": "correlation",
+        "ex_ko": "상관관계만 보고 원인을 단정할 수 없습니다.",
+        "ex_de": "Aus einer Korrelation allein lässt sich die Ursache nicht bestimmen.",
+        "ex_en": "A correlation alone cannot fix the cause.",
+        "cloze_distractors": ["인과", "표본", "편향"],
+        "satz_distractors": ["출처를", "과장이"],
+        "boss": False,
+    },
+    {
+        "korean": "인과", "rom": "ingwa", "de": "Kausalität", "en": "causation",
+        "ex_ko": "인과를 말하려면 시간 순서가 분명해야 합니다.",
+        "ex_de": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+        "ex_en": "Claiming causation needs a clear order in time.",
+        "cloze_distractors": ["상관관계", "재현성", "출처"],
+        "satz_distractors": ["표본이", "검증을"],
+        "boss": False,
+    },
+    {
+        "korean": "편향", "rom": "pyeonhyang", "de": "Verzerrung", "en": "bias",
+        "ex_ko": "참가자를 모으는 방식에 편향이 있었습니다.",
+        "ex_de": "Bei der Auswahl der Teilnehmenden gab es eine Verzerrung.",
+        "ex_en": "There was bias in how participants were recruited.",
+        "cloze_distractors": ["과장", "출처", "인과"],
+        "satz_distractors": ["검증을", "재현성이"],
+        "boss": False,
+    },
+    {
+        "korean": "출처", "rom": "chulcheo", "de": "Quelle", "en": "source",
+        "ex_ko": "출처를 밝히지 않은 수치는 쓰지 않습니다.",
+        "ex_de": "Zahlen ohne Quellenangabe verwenden wir nicht.",
+        "ex_en": "We don't use figures whose source isn't given.",
+        "cloze_distractors": ["표본", "인용", "검증"],
+        "satz_distractors": ["편향이", "과장을"],
+        "boss": False,
+    },
+    {
+        "korean": "재현성", "rom": "jaehyeonseong", "de": "Reproduzierbarkeit", "en": "reproducibility",
+        "ex_ko": "재현성이 확인되기 전에는 결과가 잠정적입니다.",
+        "ex_de": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+        "ex_en": "Until reproducibility is confirmed the result stays provisional.",
+        "cloze_distractors": ["인과", "편향", "오해석"],
+        "satz_distractors": ["출처를", "표본이"],
+        "boss": False,
+    },
+    {
+        "korean": "오해석", "rom": "ohaeseok", "de": "Fehldeutung", "en": "misreading",
+        "ex_ko": "그림 하나만 보면 오해석이 나오기 쉽습니다.",
+        "ex_de": "Sieht man nur eine Grafik, kommt es leicht zu Fehldeutungen.",
+        "ex_en": "Looking at a single chart invites misreading.",
+        "cloze_distractors": ["과장", "반박", "검증"],
+        "satz_distractors": ["인과를", "출처가"],
+        "boss": False,
+    },
+    {
+        "korean": "과장", "rom": "gwajang", "de": "Übertreibung", "en": "exaggeration",
+        "ex_ko": "제목의 과장이 본문 내용과 어긋납니다.",
+        "ex_de": "Die Übertreibung im Titel passt nicht zum Text.",
+        "ex_en": "The headline's exaggeration doesn't match the body.",
+        "cloze_distractors": ["편향", "오해석", "인용"],
+        "satz_distractors": ["표본을", "검증이"],
+        "boss": False,
+    },
+    {
+        "korean": "검증", "rom": "geomjeung", "de": "Überprüfung", "en": "verification",
+        "ex_ko": "검증을 거치지 않은 주장은 권하지 않습니다.",
+        "ex_de": "Behauptungen ohne Überprüfung empfehlen wir nicht.",
+        "ex_en": "We don't recommend claims that skipped verification.",
+        "cloze_distractors": ["인용", "반박", "일반화"],
+        "satz_distractors": ["표본이", "편향을"],
+        "boss": True,
+    },
+    {
+        "korean": "반박", "rom": "banbak", "de": "Einwand", "en": "rebuttal",
+        "ex_ko": "제조사의 반박에도 표본 문제는 남습니다.",
+        "ex_de": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem.",
+        "ex_en": "Even after the maker's rebuttal the sampling problem remains.",
+        "cloze_distractors": ["검증", "과장", "출처"],
+        "satz_distractors": ["인과를", "재현성이"],
+        "boss": True,
+    },
+    {
+        "korean": "인용", "rom": "inyong", "de": "Zitat", "en": "citation",
+        "ex_ko": "인용을 할 때는 논문 번호를 함께 적습니다.",
+        "ex_de": "Beim Zitieren notieren wir die Studiennummer mit.",
+        "ex_en": "When citing we note the study number as well.",
+        "cloze_distractors": ["출처", "표본", "검증"],
+        "satz_distractors": ["편향이", "과장을"],
+        "boss": True,
+    },
+]
+
+VOCAB_C2: list[dict[str, Any]] = [
+    {
+        "korean": "오작동", "rom": "ojakdong", "de": "Fehlfunktion", "en": "malfunction",
+        "ex_ko": "검침기 오작동으로 요금이 세 배 청구됐습니다.",
+        "ex_de": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet.",
+        "ex_en": "A meter malfunction billed three times the amount.",
+        "cloze_distractors": ["시정", "통보", "유예"],
+        "satz_distractors": ["구제를", "처분이"],
+        "boss": False,
+    },
+    {
+        "korean": "구제", "rom": "guje", "de": "Abhilfe", "en": "remedy",
+        "ex_ko": "구제 절차가 접수 확인에 그치면 실효가 없습니다.",
+        "ex_de": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+        "ex_en": "If the remedy process stops at an acknowledgement, it has no effect.",
+        "cloze_distractors": ["소명", "시정", "재검토"],
+        "satz_distractors": ["오작동이", "통보를"],
+        "boss": False,
+    },
+    {
+        "korean": "소명", "rom": "somyeong", "de": "Stellungnahme", "en": "statement of grounds",
+        "ex_ko": "소명 기회를 주지 않은 결정은 다시 봐야 합니다.",
+        "ex_de": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+        "ex_en": "A decision that allowed no statement of grounds has to be reviewed again.",
+        "cloze_distractors": ["통보", "입증", "유예"],
+        "satz_distractors": ["구제가", "시정을"],
+        "boss": False,
+    },
+    {
+        "korean": "유예", "rom": "yuye", "de": "Aufschub", "en": "deferral",
+        "ex_ko": "납부 유예만으로는 원인이 사라지지 않습니다.",
+        "ex_de": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
+        "ex_en": "A payment deferral alone doesn't remove the cause.",
+        "cloze_distractors": ["시정", "구제", "통보"],
+        "satz_distractors": ["처분이", "입증을"],
+        "boss": False,
+    },
+    {
+        "korean": "재검토", "rom": "jaegeomto", "de": "Neuprüfung", "en": "re-review",
+        "ex_ko": "같은 시스템이 재검토를 맡으면 형식에 불과합니다.",
+        "ex_de": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+        "ex_en": "If the same system handles the re-review, it is only a formality.",
+        "cloze_distractors": ["구제", "소명", "시정"],
+        "satz_distractors": ["통보를", "유예가"],
+        "boss": False,
+    },
+    {
+        "korean": "통보", "rom": "tongbo", "de": "Mitteilung", "en": "notification",
+        "ex_ko": "결과 통보는 3영업일 안에 서면으로 합니다.",
+        "ex_de": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
+        "ex_en": "Notification of the outcome is made in writing within three business days.",
+        "cloze_distractors": ["소명", "재검토", "처분"],
+        "satz_distractors": ["구제를", "시정이"],
+        "boss": False,
+    },
+    {
+        "korean": "시정", "rom": "sijeong", "de": "Behebung", "en": "correction",
+        "ex_ko": "시정 기한을 정하지 않으면 재발을 막지 못합니다.",
+        "ex_de": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern.",
+        "ex_en": "With no deadline for correction, recurrence isn't prevented.",
+        "cloze_distractors": ["유예", "통보", "구제"],
+        "satz_distractors": ["오작동이", "입증을"],
+        "boss": False,
+    },
+    {
+        "korean": "입증", "rom": "ipjeung", "de": "Nachweis", "en": "proof",
+        "ex_ko": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
+        "ex_de": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
+        "ex_en": "Putting the burden of proof only on users goes too far.",
+        "cloze_distractors": ["소명", "처분", "시정"],
+        "satz_distractors": ["구제가", "통보를"],
+        "boss": False,
+    },
+    {
+        "korean": "형식적", "rom": "hyeongsikjeok", "de": "bloß formal", "en": "merely formal",
+        "ex_ko": "형식적인 이의 창구는 신뢰를 깎습니다.",
+        "ex_de": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+        "ex_en": "A merely formal appeals desk costs trust.",
+        "cloze_distractors": ["임시적", "부수적", "자율적"],
+        "satz_distractors": ["구제가", "처분을"],
+        "boss": False,
+        "pos": "Adjektiv",
+        "pos_en": "Adjective",
+    },
+    {
+        "korean": "자동 처리", "rom": "jadong cheori", "de": "automatische Bearbeitung",
+        "en": "automated processing",
+        "ex_ko": "자동 처리의 전제를 공개하면 검증이 가능합니다.",
+        "ex_de": "Werden die Prämissen der automatischen Bearbeitung offengelegt, ist eine Prüfung möglich.",
+        "ex_en": "Publishing the premises of automated processing makes review possible.",
+        "cloze_distractors": ["재검토", "구제", "소명"],
+        "satz_distractors": ["통보가", "유예를"],
+        "boss": True,
+    },
+    {
+        "korean": "불복", "rom": "bulbok", "de": "Einspruch", "en": "appeal",
+        "ex_ko": "불복 사유를 서면으로 남기는 편이 안전합니다.",
+        "ex_de": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
+        "ex_en": "Recording the grounds of appeal in writing is safer.",
+        "cloze_distractors": ["소명", "유예", "시정"],
+        "satz_distractors": ["처분이", "구제를"],
+        "boss": True,
+    },
+    {
+        "korean": "처분", "rom": "cheobun", "de": "Maßnahme", "en": "administrative measure",
+        "ex_ko": "처분 근거를 밝히지 않으면 절차가 무너집니다.",
+        "ex_de": "Nennt man die Grundlage der Maßnahme nicht, bricht das Verfahren zusammen.",
+        "ex_en": "If the basis of the measure isn't stated, the process collapses.",
+        "cloze_distractors": ["통보", "입증", "불복"],
+        "satz_distractors": ["오작동이", "재검토를"],
+        "boss": True,
+    },
+]
+
+GRAMMAR: list[dict[str, str]] = [
+    {
+        "pattern": "N에 국한하면",
+        "level": "C1",
+        "type_de": "Geltungsbereich einschränken",
+        "explanation_de": "Grenzt eine Aussage auf einen bestimmten Ausschnitt ein und zeigt, dass sie darüber hinaus nicht gilt.",
+        "example_korean": "이 결과를 표본에 국한하면 설명이 가능합니다.",
+        "example_german": "Beschränkt man dieses Ergebnis auf die Stichprobe, ist es erklärbar.",
+        "note": "Danach folgt meist eine vorsichtige Aussage. Ohne die Einschränkung wirkt der Satz überdehnt.",
+        "type_en": "Limiting the scope",
+        "explanation_en": "Restricts a claim to one slice of the data and signals that it does not hold beyond it.",
+        "example_en": "Limited to this sample, the result can be explained.",
+        "note_en": "A cautious statement usually follows. Without the limit the sentence overreaches.",
+        "id": "grammar_c1_limited_to",
+        "quiz_focus_de": "auf die Stichprobe",
+        "quiz_focus_en": "Limited to this sample",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_c1_two_sides|grammar_c1_unless_condition|grammar_c1_rather_than",
+    },
+    {
+        "pattern": "V-는 데 그치다",
+        "level": "C2",
+        "type_de": "Beschränkung auf einen Minimalschritt",
+        "explanation_de": "Sagt, dass ein Vorgehen bei einem ersten Schritt stehen bleibt und die eigentliche Wirkung ausbleibt.",
+        "example_korean": "회사는 사과문을 올리는 데 그쳤습니다.",
+        "example_german": "Das Unternehmen beschränkte sich darauf, eine Entschuldigung zu veröffentlichen.",
+        "note": "Der Satz bewertet den Schritt als zu wenig, für eine neutrale Beschreibung passt er nicht.",
+        "type_en": "Doing no more than",
+        "explanation_en": "States that an action stopped at a first step and fell short of real effect.",
+        "example_en": "The company did no more than post an apology.",
+        "note_en": "It judges the step as insufficient, so it does not fit neutral description.",
+        "id": "grammar_c2_no_more_than_doing",
+        "quiz_focus_de": "beschränkte sich darauf",
+        "quiz_focus_en": "did no more than",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_c2_even_assuming|grammar_c2_regardless_of|grammar_c2_if_indeed",
+    },
+]
+
+SMALLTALK: list[dict[str, Any]] = [
+    {
+        "id": "smalltalk_c1_0025",
+        "category": "screen",
+        "level": "c1",
+        "kind": "question",
+        "ko": "그 영상 주장은 표본이 몇 명이었는지 나와 있었어요?",
+        "de": "Stand in dem Video, wie groß die Stichprobe war?",
+        "en": "Did the video say how large the sample was?",
+        "reply": {
+            "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
+            "de": "Zahlen kamen nicht vor, nur die Schlussfolgerung war groß.",
+            "en": "No numbers came up, just a bold conclusion.",
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+            {
+                "turnKind": "question",
+                "ko": "출처 링크는 설명란에 있었어요?",
+                "de": "War der Quellenlink in der Beschreibung?",
+                "en": "Was the source link in the description?",
+            }
+        ],
+        "followUp": {
+            "turnKind": "reaction",
+            "ko": "그러면 저도 한 번 더 확인해 볼게요.",
+            "de": "Dann schaue ich selbst noch einmal nach.",
+            "en": "Then I'll check it once more myself.",
+        },
+    },
+    {
+        "id": "smalltalk_c1_0026",
+        "category": "screen",
+        "level": "c1",
+        "kind": "reaction",
+        "ko": "제목만 보면 확실해 보이는데 근거는 그만큼은 아니네요.",
+        "de": "Der Titel klingt sicher, die Belege sind es aber nicht.",
+        "en": "The headline sounds certain, the evidence less so.",
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+            {
+                "turnKind": "question",
+                "ko": "이 주제로 다른 자료도 보셨어요?",
+                "de": "Haben Sie zu dem Thema noch andere Quellen gesehen?",
+                "en": "Have you seen other material on this topic?",
+            }
+        ],
+        "followUp": {
+            "turnKind": "reaction",
+            "ko": "같이 비교해 보면 판단이 쉬워지겠어요.",
+            "de": "Ein Vergleich würde die Einschätzung erleichtern.",
+            "en": "Comparing them would make the call easier.",
+        },
+    },
+    {
+        "id": "smalltalk_c2_0025",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+        "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Rechnung Einspruch einlegt?",
+        "en": "If you appeal an automatically calculated bill, does a person review it again?",
+        "reply": {
+            "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
+            "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
+            "en": "I was only told the same system runs it again.",
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+            {
+                "turnKind": "question",
+                "ko": "결과는 며칠 안에 통보되나요?",
+                "de": "In wie vielen Tagen kommt die Mitteilung?",
+                "en": "Within how many days does the notification come?",
+            }
+        ],
+        "followUp": {
+            "turnKind": "reaction",
+            "ko": "그러면 서면으로 남겨 두는 편이 낫겠네요.",
+            "de": "Dann ist es besser, das schriftlich festzuhalten.",
+            "en": "Then it's better to put it in writing.",
+        },
+    },
+    {
+        "id": "smalltalk_c2_0026",
+        "category": "daily",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
+        "de": "Dass es eine Stelle gibt, heißt noch nicht, dass Abhilfe kommt.",
+        "en": "Having a desk to complain to doesn't mean redress follows.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+            {
+                "turnKind": "question",
+                "ko": "이의가 받아들여진 비율은 공개돼 있나요?",
+                "de": "Ist veröffentlicht, wie oft Einsprüche Erfolg haben?",
+                "en": "Is it published how often appeals succeed?",
+            }
+        ],
+        "followUp": {
+            "turnKind": "reaction",
+            "ko": "그 숫자가 없으면 절차만 남는 셈이죠.",
+            "de": "Ohne diese Zahl bleibt nur das Verfahren übrig.",
+            "en": "Without that number only the procedure is left.",
+        },
+    },
+]
