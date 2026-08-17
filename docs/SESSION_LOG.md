@@ -6,6 +6,7 @@
 자식 `Text`를 `ExcludeSemantics`로 가려 라벨이 `"안녕, Selected"`만 남게
 했다. `batchim`은 `disableAnimations`일 때 200ms 플래시를 건너뛴다.
 TTS row는 Tempo 라벨을 위줄에 두고 0.8× 포함 6칩을 480dp 한 줄에 둔다.
+문장조립 그리드 폭 분기는 `SoriBreakpoints.narrowPhone`을 쓴다.
 
 **왜.** Semantics 병합·받침 지연·듣기 600dp Wrap이 회귀를 깨뜨렸다.
 
