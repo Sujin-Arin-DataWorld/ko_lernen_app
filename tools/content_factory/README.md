@@ -268,6 +268,22 @@ DeepL 글로스는 기계번역 → **원어민 스팟체크 권장**.
 > 옛 (a) `fill_kkeunmari_german.py` 는 기존 풀의 TODO 를 vocab/큐레이트로만 채우는
 > 보조 도구(조각은 못 채움). 이제는 (a2)로 **풀 자체를 사전 기반 재생성**하는 게 정석.
 
+## 시나리오는 레벨 샤드다 (2026-08-17)
+
+`assets/data/scenarios.json` 은 없어졌고 `scenarios_{a1..c2}.json` 6 개가 정본이다.
+어떤 도구도 경로를 직접 조립하지 말고 `scenario_store.py` 의 `load_scenarios()` /
+`load_root()` / `write_shards()` / `target_shard()` 를 쓴다. 쓰기 대상은 배치가 아니라
+**레코드의 `level`** 이 정한다.
+
+draft 레코드에는 `shelf`(72칸 중 하나, `{level}_{slug}`)와 `backdrop`(번들에 있는
+12 종 중 하나)이 반드시 들어가야 `validate_content.py` 를 통과한다. 배경을
+`lib/models/scenario.dart` 에 써넣던 경로는 제거됐다 — 신규 시나리오의 Dart 수정은
+0 회다. 칸 정의는 `shelf_assignment.py`, 설계 근거는
+`docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md` 다.
+
+⚠️ 아래 (b) 를 포함한 일회성 과거 스크립트 8 개는 단일 파일 시절 기록물이라
+갱신하지 않았다. 재실행하면 파일 없음으로 죽는다.
+
 ## (b) `add_interest_scenarios.py` — 관심사 시나리오 추가 (검증 포함)
 
 원어민 품질로 직접 작성한 시나리오를 **스키마 검증 후** `scenarios.json` 에 병합.

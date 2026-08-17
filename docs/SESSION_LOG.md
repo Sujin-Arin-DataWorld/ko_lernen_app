@@ -1,5 +1,56 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 집행: shelf/backdrop + 6샤드 + 레벨 로더
+
+**무엇.** 계획 1의 8개 태스크를 전부 집행했다. live 264개에 `shelf`/`backdrop` 두
+필드를 소급 부여하고, `assets/data/scenarios.json` 을 레벨 샤드 6개로 쪼갰으며,
+`ScenarioLoader` 에 레벨 단위 로드(`loadLevel`, 상주 2 LRU)를 넣었다. 문장·ID·레벨은
+한 글자도 바꾸지 않았다.
+
+**왜.** 파일럿 47개(계획 3)가 갈 자리(`shelf`)와 배경(`backdrop`)이 먼저 있어야
+재작업이 안 된다. 샤딩은 3,600개 시점의 22.3 MB 단일 에셋을 피하기 위한 것이다.
+
+**어떻게 나눴나.** "샤드 생성 → 읽는 쪽 전환 → 원본 삭제" 3커밋으로 갈라 어느
+커밋에서도 저장소가 초록색이다. `scenarios.json` 경로를 직접 쓰던 파일이 **38개**라
+파이썬은 `tools/content_factory/scenario_store.py`, Dart 테스트는
+`test/support/scenario_json.dart` 를 단일 지점으로 먼저 세웠다.
+
+**계획에 없던 것 3가지(실측으로 드러남).**
+① `integrate_scenario_batch` 가 아직 Dart `_categoryById` 에 배경을 써넣고 있었다 —
+스펙 §5.2가 없애려던 바로 그 동작이다. 배경을 레코드의 `backdrop` 필드로 넣도록
+바꾸고 `_update_backdrop_map` 과 그 테스트를 지웠다. **신규 시나리오의 Dart 수정은
+이제 실제로 0회다.**
+② 동결된 draft 에는 두 필드가 없고 live 에는 생겨 draft↔live 동등성 비교가 전부
+깨졌다. 마이그레이션이 넣은 `shelf`/`backdrop` 만 비교에서 제외했다(문장·ID 는 그대로
+비교) — 스펙 §5.4의 "메타데이터 전용 변경"과 일치한다.
+③ `asset_orphan_guard_test` 는 폴더 단위 면제만 있어 샤드 6개를 고아로 잡았다.
+가드의 ③번 설계를 파일 단위(`dynamicAssets`)로 확장하고, 근거 문자열이 `lib/` 에
+살아 있는지도 함께 강제한다.
+
+**검증.** 마이그레이션 4지표 `DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0`,
+backdrop 커버리지 264/264. 샤드 개수 a1 67 · a2 66 · b1 55 · b2 54 · c1 11 · c2 11
+= 264이고, 원본 대비 id 집합 동일 · 본문은 두 필드를 뺀 상태에서 완전히 동일.
+`validate_content.py` OK(`shelf`/`backdrop` 열거 규칙 + 샤드-레벨 일치 검사 포함).
+`flutter analyze` 는 기존 `word_relation_service` info 1건 외 무결. `flutter test`
+3,891개 통과. 파이썬 content_factory 133개는 **실패 집합이 기준선과 완전히 동일** —
+회귀 0이다.
+
+⚠️ **content_factory 파이썬 스위트는 이 작업 이전부터 19건이 빨갛다**(failures 2 /
+errors 17). CI 에 없어서(워크플로가 부르는 content_factory 스크립트는
+`build_hanok_grants.py` 하나뿐) 드러나지 않았다. 이번 작업은 그 집합을 늘리지도
+줄이지도 않았다. 별건으로 다뤄야 한다.
+
+**아직 안 한 것.** `/listening` 은 그대로다 — 지금 전 레벨을
+`selectInitialListeningScenario` 에 넘기므로 레벨 샤드만 주면 선택 동작이 조용히
+바뀐다. 전환은 서재 UI 가 들어오는 계획 2다. `CurriculumCatalog.load()` 가 여전히
+전 코퍼스를 당기므로(호출부 19개) **샤딩만으로 메모리가 1/6이 되지는 않는다** —
+스펙 §5.3의 "로드량 1/6" 은 Hören 경로 한정으로 정정되어야 하고, catalog 경량화는
+별건이다.
+
+**커밋.** `57fa26b3`(배정표) · `972758d3`(backdrop 기준선) · `9c708f7f`(store 단일화) ·
+`b520b9cf`(모델 필드) · `6afc6ae4`(마이그레이션+샤드) · `a22b4424`(샤드 전환+원본 삭제) ·
+`e4a01699`(loadLevel+LRU) · `656fc76a`(analyze 정리). 계획서는 `773f7b10`.
+
 ### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 작성 (계획서만, 코드 0)
 
 **무엇.** `docs/superpowers/plans/2026-08-17-hoeren-shelf-foundation.md` 를 썼다.

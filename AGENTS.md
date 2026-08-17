@@ -175,7 +175,13 @@ Firebase 프로젝트: `ko-lernen-app`
 ### 데이터
 - `assets/data/korean_vocab.csv` — 단어장 (level 필드: A1/A2/B1/B2/C1/C2)
 - `assets/data/grammar.csv` — 문법
-- `assets/data/scenarios.json` — 회화 시나리오
+- `assets/data/scenarios_{a1,a2,b1,b2,c1,c2}.json` — 회화 시나리오, **레벨 샤드 6개**
+  (2026-08-17). 단일 `scenarios.json` 은 없다. 읽기/쓰기는 파이썬
+  `tools/content_factory/scenario_store.py`, Dart 테스트는
+  `test/support/scenario_json.dart`, 런타임은 `ScenarioLoader.load()`(전 레벨) /
+  `loadLevel()`(단일 샤드, 상주 2). 칸(`shelf`)·배경(`backdrop`) 필드는 필수이며
+  칸 정의는 `tools/content_factory/shelf_assignment.py` 가 정본이다.
+  배경은 더 이상 Dart 에 없다 — 신규 시나리오의 `lib/` 수정은 0회다.
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 - `assets/data/word_relations.json` — 학습 단어 단어망(비슷한 말·반대말·연관어·표현). 코스/한옥 권한 없음.
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
