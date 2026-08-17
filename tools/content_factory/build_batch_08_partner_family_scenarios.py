@@ -178,7 +178,7 @@ def more_seeds() -> list[dict[str, Any]]:
          ["배", "먹다", "감사", "천천히", "물", "지금"],
          "과일도 조금만 드세요.",
          ("Es kommt auch etwas Obst.", "There is also a little fruit."),
-         "배불러요. 정말 맛있어요.", "Ich bin satt. Es schmeckt wirklich.", "I am full. It really tastes good.",
+         "배불러요. 정말 맛있어요.", "Ich bin satt. Es schmeckt wirklich.", "I'm full. It really tastes good.",
          "과일도 조금만 드세요.", "Essen Sie auch etwas Obst.", "Please have a little fruit too."),
         ("a2", "home", "leftover_bags", "싸 주시는 반찬", "Eingepackte Reste", "Packed leftovers",
          "가려는데 반찬을 싸 주십니다. 가방이 무거워도 감사하세요.",
@@ -489,7 +489,7 @@ A1_REPAIR_QUESTS: dict[str, dict[str, Any]] = {
         "satz": {
             "targetKo": "배불러요. 정말 맛있어요.",
             "promptDe": "Ich bin satt. Es schmeckt wirklich.",
-            "promptEn": "I am full. It really tastes good.",
+            "promptEn": "I'm full. It really tastes good.",
         },
     },
     "a1_partner_gift_too_big": {
