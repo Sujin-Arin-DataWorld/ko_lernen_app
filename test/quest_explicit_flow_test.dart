@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/screens/quest_engines/quest_models.dart';
 import 'package:ko_lernen_app/screens/quest_engines/satz_bauen_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/uebersetzen_quest.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 typedef _QuestBuilder =
     Widget Function(
@@ -163,13 +164,19 @@ void main() {
       expect(results, hasLength(1), reason: entry.key);
       expect(results.single.passed, isFalse, reason: entry.key);
       expect(results.single.firstTry, isFalse, reason: entry.key);
-      if (entry.key == 'particle') {
-        expect(find.text('Use 는 after a vowel.'), findsOneWidget);
-      } else if (entry.key == 'batchim') {
-        expect(find.text('녕 ends with ㅇ.'), findsOneWidget);
-      } else {
-        expect(find.text('The correct answer is shown.'), findsOneWidget);
-      }
+      final revealText = switch (entry.key) {
+        'particle' => 'Use 는 after a vowel.',
+        'batchim' => '녕 ends with ㅇ.',
+        _ => 'The correct answer is shown.',
+      };
+      expect(find.text(revealText), findsOneWidget, reason: entry.key);
+      // 공개된 정답은 오답 빨강으로 칠하지 않는다 — 학습자가 방금 알려준 정답을
+      // 틀린 답으로 읽는다(2026-08-17 Jin: "틀렸다는거야 뭐야").
+      expect(
+        tester.widget<Text>(find.text(revealText)).style?.color,
+        SoriColors.warning,
+        reason: '${entry.key}: 정답 공개 해설이 danger 로 칠해졌다',
+      );
       expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
 
       await tester.tap(find.byKey(const ValueKey('quest-continue')));

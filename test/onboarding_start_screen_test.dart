@@ -133,7 +133,7 @@ void main() {
     await callback!(
       const ScenarioCompletionSummary(
         firstSuccess: ScenarioFirstSuccess(
-          phrase: '저는 현우예요.',
+          phrase: '저는 레나예요.',
           kind: ScenarioFirstSuccessKind.completion,
         ),
         passed: 7,
@@ -148,7 +148,7 @@ void main() {
     final success = tester.widget<FirstVoiceSuccessScreen>(
       find.byType(FirstVoiceSuccessScreen),
     );
-    expect(success.phrase, '저는 현우예요.');
+    expect(success.phrase, '저는 레나예요.');
     expect(success.canDo, 'Build your sentence');
     expect(success.completedTasks, 7);
     expect(success.totalTasks, 7);

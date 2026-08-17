@@ -107,6 +107,55 @@ void main() {
     }
     expect(hits, isEmpty, reason: hits.join('\n'));
   });
+
+  // 캐스트 규칙: 남자 NPC = 현우, 학습자(여자) = 레나. 학습자가 자기를 현우라고
+  // 소개하면 "새 동료 현우를 만난다"는 지문과 동명이인이 된다 — `[이름]` 자리를
+  // 현우로 굳힌 뒤 NPC 가 민수→현우로 개명되며 생긴 2026-08-17 회귀.
+  // 3인칭 언급(`현우 씨가 늦는대요`)은 정상이므로 자기소개 형태만 막는다.
+  test('learner lines never introduce themselves with the NPC name', () {
+    final root =
+        jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
+            as Map<String, dynamic>;
+    final selfIntro = RegExp(r'(저는|나는|제 이름은|이름이)\s*현우');
+    final hits = <String>[];
+    for (final scenario
+        in (root['scenarios'] as List).cast<Map<String, dynamic>>()) {
+      final id = scenario['id'] as String? ?? 'unknown';
+      for (final line
+          in ((scenario['dialog'] as List?) ?? const [])
+              .cast<Map<String, dynamic>>()) {
+        if (line['speaker'] != 'user') {
+          continue;
+        }
+        final ko = line['ko'] as String? ?? '';
+        if (selfIntro.hasMatch(ko)) {
+          hits.add('$id.dialog: $ko');
+        }
+      }
+      // particlePop 은 prefix + 정답 + suffix 를 이어 붙여 학습자가 말한다.
+      for (final quest
+          in ((scenario['quests'] as List?) ?? const [])
+              .cast<Map<String, dynamic>>()) {
+        final data = quest['data'];
+        if (data is! Map<String, dynamic>) {
+          continue;
+        }
+        final options = (data['options'] as List?) ?? const [];
+        final correctIndex = (data['correctIndex'] as num?)?.toInt() ?? 0;
+        final answer =
+            correctIndex >= 0 &&
+                correctIndex < options.length &&
+                options[correctIndex] is String
+            ? options[correctIndex] as String
+            : '';
+        final spoken = '${data['prefix'] ?? ''}$answer${data['suffix'] ?? ''}';
+        if (selfIntro.hasMatch(spoken)) {
+          hits.add('$id.${quest['id']}: $spoken');
+        }
+      }
+    }
+    expect(hits, isEmpty, reason: hits.join('\n'));
+  });
 }
 
 List<String> _scanFile(
