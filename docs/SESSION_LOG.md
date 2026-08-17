@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 10 접수 프레임 humanizer
+
+**무엇.** Jin이 174편을 다 읽을 수 없다고 해서 `blader/humanizer` +
+`daleseo/korean-skills` 기준으로 접수 5줄만 다시 썼다. 제목을 네 줄에
+끼우던 `진행해 주세요` / `Understood` / `Sind Sie wegen` 껍질을 빼고,
+수락은 `네, 보죠`·`네, 그렇게 해 주세요`, 직원의 확인은 실제 ask를
+`볼게요/할게요`로 받는다. DE/EN은 `Ja, bitte` / `Okay, I'll do that`처럼
+짧은 구어. 장면 고유 정보는 기존 need/ask/wait에 둔다. Batch 09 DE/EN은
+이미 마커가 거의 없어 손대지 않았다.
+
+**왜.** 검수 분량을 줄이려면 사람이 읽을 문장이 제목 반복이 아니어야 한다.
+
+**검증.** `test_level_content_4x` 11/11, ContentValidator 0, promoted-batch
+10 = 814, Flutter A1/카탈로그/ID 테스트 통과. 셸 Latin/`해결해야`/받침+`를`/
+humanizer leftover 0, 제목 4회 반복 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — Batch 10 백드롭·문장·고유 프레임 정정
 
 **무엇.** `origin/main` `72657bd`를 이 브랜치에 머지한 뒤 Batch 10만 고쳤다.

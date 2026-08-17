@@ -191,25 +191,39 @@ class Batch10KoreanQualityTest(unittest.TestCase):
     def test_batch_10_shell_lines_are_unique_per_scene(self) -> None:
         from batch_10_scene_scripts import (
             GENERIC_SERVICE_SHELL,
+            HUMANIZER_SHELL_DE,
+            HUMANIZER_SHELL_EN,
+            HUMANIZER_SHELL_KO,
             SEEDS,
             frame_lines,
             render_scene,
         )
 
         catalog = {row[0]: (row[3], row[4], row[5]) for row in builder.scenario_catalog()}
-        shells: dict[tuple[str, ...], str] = {}
+        dialogs: dict[tuple[str, ...], str] = {}
         generic_hits = 0
         for ident, seed in SEEDS.items():
-            scene = render_scene(seed, ident=ident, title=catalog[ident])
+            title = catalog[ident]
+            scene = render_scene(seed, ident=ident, title=title)
             dialog = scene["dialog"]
             shell = tuple(dialog[index]["ko"] for index in (0, 3, 4, 5, 7))
-            self.assertNotIn(shell, shells, f"{ident} reuses shell of {shells.get(shell)}")
-            shells[shell] = ident
+            full = tuple(line["ko"] for line in dialog)
+            self.assertNotIn(full, dialogs, f"{ident} reuses dialog of {dialogs.get(full)}")
+            dialogs[full] = ident
             if shell == GENERIC_SERVICE_SHELL:
                 generic_hits += 1
-            lines = frame_lines(ident, seed, *catalog[ident])
+            echoed = sum(1 for line in shell if title[0] and title[0] in line)
+            self.assertLessEqual(echoed, 2, f"{ident} repeats title {title[0]!r} in shell {shell}")
+            lines = frame_lines(ident, seed, *title)
             self.assertEqual(lines["open"][0], dialog[0]["ko"], ident)
-        self.assertEqual(len(shells), 174)
+            for slot, triple in lines.items():
+                for leftover in HUMANIZER_SHELL_KO:
+                    self.assertNotIn(leftover, triple[0], f"{ident} {slot} {triple[0]}")
+                for leftover in HUMANIZER_SHELL_DE:
+                    self.assertNotIn(leftover, triple[1], f"{ident} {slot} {triple[1]}")
+                for leftover in HUMANIZER_SHELL_EN:
+                    self.assertNotIn(leftover, triple[2], f"{ident} {slot} {triple[2]}")
+        self.assertEqual(len(dialogs), 174)
         self.assertEqual(generic_hits, 0)
 
 

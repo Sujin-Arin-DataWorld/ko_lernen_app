@@ -385,8 +385,8 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **레벨 콘텐츠 4× 잔량 live 승격 (Batch 09/10)**: `batch_09_4x` /
   `batch_10_4x`를 앱 데이터에 올렸다. Batch 10 시나리오 174개는 영어 슬러그와
   `해결해야 합니다` 템플릿을 빼고 장면별 한국어로 다시 썼다. 우체국·휴대폰
-  창구 백드롭과 `비밀번호`/`잰 다음` 문장, 장면마다 다른 인사 프레임까지
-  이어서 고쳤다. 현재 카탈로그는
+  창구 백드롭과 `비밀번호`/`잰 다음` 문장, humanizer로 제목 끼움 접수
+  프레임까지 이어서 고쳤다. 현재 카탈로그는
   vocab 2196, cloze 1538, satz 2091, smalltalk 377, grammar 206, scenario 264,
   quest 971, pronunciation 20, A1–B2 smalltalk semantic decision 329다.
   TTS/Firebase는 아직 없다. 원래 4× 단어 목표(4752)까지는 잔량이 남는다. 다음
