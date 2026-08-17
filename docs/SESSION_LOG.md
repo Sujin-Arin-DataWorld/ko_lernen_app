@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 10 시나리오 한국어 재작성
+
+**무엇.** Batch 10 시나리오 174개의 학습자용 한국어·DE/EN를 장면 시드로
+다시 썼다. 영어 슬러그(`post queue`)와 `X를 해결해야 합니다` 접수 템플릿을
+제거하고, 받침+`를`는 `을`로 맞췄다. ID·제목·backdrop·커리큘럼 링크는
+유지했다. A1 particlePop/satzBauen은 실제 직원 대사에서 뽑는다. Satz
+640개와 Batch 09는 그대로다.
+
+**왜.** Jin이 영어 슬러그·알아들을 수 없는 템플릿·받침+`를`는 규칙이
+맞아도 문장 자체가 틀렸다고 보고, Batch 10부터 고치라고 했다.
+
+**검증.** 시드 174=카탈로그 174, KO Latin/`해결해야`/받침+`를` 0건.
+rewrite 후 draft==live. 이어서 promoted-batch·A1 래칫·카탈로그 카운트
+테스트를 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — Batch 09/10 4× 잔량을 live에 승격
 
 **무엇.** origin/main에서 별도 브랜치 `cursor/apply-4x-batch-09-10-3cd5`를

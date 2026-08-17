@@ -17,6 +17,8 @@ import unittest
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
+if str(SCRIPT_DIR / "data") not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR / "data"))
 
 import build_level_content_4x as builder
 from integrate_scenario_batch import integrate
@@ -140,6 +142,42 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         self.assertFalse(cloze_09 & _json_ids(BATCH_06_CLOZE, "items"))
         self.assertFalse(satz_09 & _json_ids(BATCH_06_SATZ, "items"))
         self.assertFalse(smalltalk_09 & _json_ids(BATCH_06_SMALLTALK, "phrases"))
+
+
+class Batch10KoreanQualityTest(unittest.TestCase):
+    def test_batch_10_korean_has_no_latin_slug_or_object_particle_errors(self) -> None:
+        from batch_10_scene_scripts import (
+            LATIN_IN_KO,
+            TEMPLATE_LEFTOVERS,
+            batchim_plus_reul,
+            collect_korean_fields,
+        )
+
+        scenarios = json.loads(
+            (SCRIPT_DIR / "drafts" / "c1_batch10_scenarios_a1_c2.json").read_text(
+                encoding="utf-8"
+            )
+        )["scenarios"]
+        live = {
+            row["id"]: row
+            for row in json.loads(LIVE_SCENARIOS.read_text(encoding="utf-8"))["scenarios"]
+        }
+        self.assertEqual(len(scenarios), 174)
+        for row in scenarios:
+            ident = row["id"]
+            self.assertEqual(row, live[ident], ident)
+            for text in collect_korean_fields(row):
+                self.assertFalse(
+                    LATIN_IN_KO.search(text),
+                    f"{ident} has Latin in Korean: {text}",
+                )
+                self.assertEqual(
+                    batchim_plus_reul(text),
+                    [],
+                    f"{ident} has batchim+를: {text}",
+                )
+                for leftover in TEMPLATE_LEFTOVERS:
+                    self.assertNotIn(leftover, text, ident)
 
 
 class Batch10ScenarioDraftTest(unittest.TestCase):
