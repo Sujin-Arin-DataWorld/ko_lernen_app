@@ -91,6 +91,20 @@ A1 합성은 전체 대지를 모델로 편집하지 않는다. 모델 출력은
 다음 단계를 승격하지 않는다. 16개 QA WebP가 모두 통과하기 전에는
 `tool/promote_hanok_a1_states.py`가 runtime/pubspec을 열지 않는다.
 
+**Codex A1 파일럿 기록 (2026-08-17, 병합 `9958a458`).** 병렬 로컬 브랜치
+`codex/hanok-v1-a1-assets-20260817`(`aaf6d969`)이 A1-05~10의 raw·정규화 레이어·
+QA WebP를 `assets_unused/pending_review/a1_layers/`·`a1_states/`에 만들었고,
+BBANANA/Nano Banana Pro·ImageGen·Recraft 호출 19건, 정적 13.5 credit을 자체
+ledger에 남겼다. 그 브랜치의 렌더러·합성기·checker·테스트·provenance JSON은
+위 PR4 계약과 별개 구현이라 병합 시 `main` 버전을 유지했고, ledger 19건과
+`a1TransparentPilot`·`a1ApprovedQaStates` 절은 `aaf6d969:docs/assets/HANOK_V1_ASSET_PROVENANCE.json`
+에서 그대로 복구할 수 있다. 이 JSON의 `records`는 그래서 아직 빈 배열이다.
+그 19건 중 4건은 credit 0, 9건은 rejected 출력을 입력으로 쓴 수정 호출이라 현재
+"credit > 0·approved lineage만" 규칙을 통과하지 못한다. 규칙을 완화해 그대로 옮길지,
+approved 체인만 다시 기록할지는 Jin이 정한다. pending_review의 6개 상태는 승격이
+아니며, 승격 전에 `tool/compose_hanok_a1_state.py`로 raw를 다시 합성해 recall 0.97·
+drift 2px 게이트를 통과한 SHA만 ledger에 `approved`로 적는다.
+
 구조·공정·지붕·공포·마루·창호·문·평면·용도 지식 카드는 텍스트 없는 원본
 SVG로 제작한다. 명칭과 설명은 Flutter KO/DE/EN 문자열로 렌더링하고 제3자
 화면을 tracing하지 않는다.

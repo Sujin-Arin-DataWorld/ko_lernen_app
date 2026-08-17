@@ -366,7 +366,11 @@ flutter run -d <android-id>   # 안드로이드
   코드로 고정됐다. 승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Jin이
   남은 투명 레이어를 만들면 QA 합성 → 연속성 검사 → 16개 원자 승격 순서로만
   런타임에 넣는다. production route 연결과 PR3 Play 업로드 결정은 이 항목에
-  포함되지 않는다.
+  포함되지 않는다. Codex 파일럿 A1-05~10 raw·레이어·QA WebP는 `9958a458`로
+  `assets_unused/pending_review/`에 들어왔다(승격 아님). `main` 합성기 기준 05→06·
+  09→10만 연속성 통과, 06→07·07→08·08→09는 recall 0.86/0.97/0.93이라 재작업 대상.
+  BBANANA ledger 19건(13.5 credit) 이관은 `docs/HANOK_V1_SOURCE_REGISTRY.md` 생성
+  기록 절의 Jin 결정 대기.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부

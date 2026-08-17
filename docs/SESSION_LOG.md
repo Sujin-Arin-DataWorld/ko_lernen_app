@@ -1,5 +1,47 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — 잔여 브랜치 전수 감사 + Codex A1 파일럿 무손실 병합
+
+**왜.** Jin이 Cursor의 #50–#57 병합 결과와 남은 브랜치 전부를 검증하고, CI를
+아끼며 코드 손실 없이 `main`에 넣으라고 했다. 열린 PR은 0개였고 원격 `main`은
+`5920c9cf`였다. GitHub Actions의 실패 목록은 오늘 00:46–01:47 사이 main push와 PR
+브랜치 런이며 #56 이후 `19a9a1cf`·`5920c9cf`는 Analyze & Build·Play 업로드 모두 성공이다.
+
+**감사.** 원격 미병합 4개는 `merge-tree`·`git cherry`·파일별 역diff로 확인했다.
+`cursor/vocab-notebook-studio-3ab5`(`5c3e0af7`)와 `codex/hanok-v1-state-20260816`
+(`7a084227`, #43 squash = `a2998e30` tree, #52 `71b557be`로 main에 포함)은 고유 줄이
+0이라 `-s ours`로 병합만 기록했다. `cursor/a1-partner-quest-typography-3466`
+(`f5b086d0`)과 `cursor/word-web-review-followup-89f9`(`b573ed5a`)는 로그 문구만
+달라 그대로 병합했다. 로컬 `recovery/ui-overhaul2-20260814`(8커밋, 미push)는 ARB
+키·추가 파일·핵심 위젯 diff까지 대조해 `f718106c` 이후 main이 상위 집합임을 확인했고
+병합하지 않았다(병합하면 문화어·room-v3 등 회귀). 로컬 `codex/today-content-fix-20260817`
+은 이미 main 조상이다.
+
+**Codex A1 파일럿 병합 (`9958a458`).** 한 번도 push되지 않은 로컬
+`codex/hanok-v1-a1-assets-20260817`(`aaf6d969`, 10커밋)을 `--no-ff`로 넣었다.
+가져온 것: A1-05~10 raw/정규화 레이어/rejected/QA WebP(`assets_unused/pending_review/`,
+runtime·pubspec 아님), 프롬프트 문서 8편, `PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md`
+의 QA 합성물 위치 정정, `personal_hanok_asset_bundle_test.dart`의 번들 제외 회귀,
+Codex 세션 로그 185줄. `main` 버전을 유지한 것: PR4 catalog·renderer·compose·check·
+promote·contract·테스트·provenance JSON·SOURCE_REGISTRY(병렬 구현이라 계약 충돌).
+Codex ledger 19건(13.5 credit)과 `a1TransparentPilot`/`a1ApprovedQaStates`는
+`aaf6d969:docs/assets/HANOK_V1_ASSET_PROVENANCE.json`에서 복구 가능하며, credit 0
+4건·rejected 파생 9건이 main 규칙에 걸려 이관은 Jin 결정으로 남겼다(REGISTRY에 기록).
+참고로 main 합성기로 raw를 다시 합성하면 6장 모두 chroma 0·socket 밖 0·decode 오차
+2.9로 통과하지만 연속성 recall은 05→06 0.986·09→10 0.972만 0.97 이상이고
+06→07 0.855·07→08 0.967·08→09 0.930은 미달이다.
+
+**검증.** `python -m unittest discover -s tool` 62/62, `test_build_hanok_grants` 9/9,
+`check_personal_hanok_assets.py` exit 0(A1 runtime absent·not promoted), 대상
+`flutter test --no-pub`(bundle·provenance·A1 catalog·A1 map) 27/27,
+`flutter analyze --no-pub --fatal-infos`, `git diff --check` 통과. push는 `main`
+1회로 CI 1런만 만든다. 남은 것: 스태시 3개(`parked pre-audit 40-unit hanok`,
+`recovery/pre-main-consolidation-20260816`, `account-recovery-public-tuple-draft`)와
+untracked `docs/HANOK_V1_HANDOFF_2026-08-17*.md`는 건드리지 않았다.
+
+**커밋해시.** 병합 `9958a458`·`80dcb48f`·`0d3d9725`·`20d6a191`·`47975311`, 문서
+커밋은 바로 다음 로그 커밋에 기록.
+
 ### 2026-08-17 (Cursor) — main 무손실 정리: 단어망 예문 em dash + 가드
 
 **왜.** 열린 PR 병합 뒤 코드 리뷰에서 학습자 예문 한 줄이 em dash 가드를
