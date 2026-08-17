@@ -33,10 +33,27 @@ class TtsSynthesisBlocked implements Exception {
 /// How the client should treat one Cloud Function TTS error.
 enum TtsCallableKind { retryInflight, blockQuota, blockUnavailable, fallback }
 
+class TtsCallableProbe implements Exception {
+  const TtsCallableProbe({required this.code, this.message});
+
+  final String code;
+  final String? message;
+}
+
 class TtsCallableFailure {
   static const alreadyInProgressMessage = 'TTS synthesis is already in progress.';
   static const audioUnavailableMessage = 'TTS audio is not available.';
   static const quotaMessage = 'Daily synthesis limit reached.';
+
+  static TtsCallableKind fromError(Object error) {
+    if (error is FirebaseFunctionsException) {
+      return classify(code: error.code, message: error.message);
+    }
+    if (error is TtsCallableProbe) {
+      return classify(code: error.code, message: error.message);
+    }
+    return TtsCallableKind.fallback;
+  }
 
   static TtsCallableKind classify({required String code, String? message}) {
     if (_codeMatches(code, 'resource-exhausted')) {
@@ -571,9 +588,8 @@ class TtsService {
     // 3. Authenticated Firebase callable (dynamic synthesis).
     try {
       final installationId = await _installationIdProvider.getOrCreate();
-      const maxAttempts = 3;
-      for (var attempt = 0; attempt < maxAttempts; attempt++) {
-        try {
+      final bytes = await takeCallableAudio(
+        invoke: () async {
           final result = await _functions
               .httpsCallable(
                 _functionName,
@@ -590,40 +606,55 @@ class TtsService {
                 ),
               );
           final b64 = result.data['audioBase64'] as String?;
-          if (b64 != null && b64.isNotEmpty) {
-            final bytes = base64Decode(b64);
-            if (TtsCacheKey.isUsableAudio(bytes)) {
-              await file.writeAsBytes(bytes, flush: true);
-              return file;
-            }
+          if (b64 == null || b64.isEmpty) {
+            return null;
           }
-          return null;
-        } on FirebaseFunctionsException catch (error) {
-          final kind = TtsCallableFailure.classify(
-            code: error.code,
-            message: error.message,
-          );
-          if (kind == TtsCallableKind.retryInflight &&
-              attempt < maxAttempts - 1) {
-            continue;
+          final decoded = base64Decode(b64);
+          if (!TtsCacheKey.isUsableAudio(decoded)) {
+            return null;
           }
-          if (kind == TtsCallableKind.blockQuota) {
-            lastError = TtsCallableFailure.quotaMessage;
-            throw const TtsSynthesisBlocked(TtsCallableFailure.quotaMessage);
-          }
-          if (kind == TtsCallableKind.blockUnavailable) {
-            lastError = TtsCallableFailure.audioUnavailableMessage;
-            throw const TtsSynthesisBlocked(
-              TtsCallableFailure.audioUnavailableMessage,
-            );
-          }
-          break;
-        }
+          return decoded;
+        },
+      );
+      if (bytes != null) {
+        await file.writeAsBytes(bytes, flush: true);
+        return file;
       }
     } on TtsSynthesisBlocked {
       rethrow;
     } catch (_) {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.
+    }
+    return null;
+  }
+
+  /// Retry / fail-closed policy for one Cloud TTS callable sequence.
+  @visibleForTesting
+  static Future<Uint8List?> takeCallableAudio({
+    required Future<Uint8List?> Function() invoke,
+    int maxAttempts = 3,
+  }) async {
+    for (var attempt = 0; attempt < maxAttempts; attempt++) {
+      try {
+        return await invoke();
+      } catch (error) {
+        final kind = TtsCallableFailure.fromError(error);
+        if (kind == TtsCallableKind.retryInflight &&
+            attempt < maxAttempts - 1) {
+          continue;
+        }
+        if (kind == TtsCallableKind.blockQuota) {
+          lastError = TtsCallableFailure.quotaMessage;
+          throw const TtsSynthesisBlocked(TtsCallableFailure.quotaMessage);
+        }
+        if (kind == TtsCallableKind.blockUnavailable) {
+          lastError = TtsCallableFailure.audioUnavailableMessage;
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.audioUnavailableMessage,
+          );
+        }
+        return null;
+      }
     }
     return null;
   }

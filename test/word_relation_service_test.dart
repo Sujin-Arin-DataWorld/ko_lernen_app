@@ -117,6 +117,64 @@ void main() {
     expect(WordRelationService.learnedKorean(), isEmpty);
   });
 
+  test('courseVocabContentIds keeps only the latest passing vocab attempt', () {
+    final earlier = MasteryEvidence(
+      conceptId: 'concept-a',
+      contentKind: CurriculumContentKind.vocab,
+      contentId: 'vocab_flip',
+      courseUnitId: 'unit-a',
+      isCorrect: true,
+      occurredAt: DateTime.utc(2026, 8, 1),
+      score: 1,
+    );
+    final laterWrong = MasteryEvidence(
+      conceptId: 'concept-a',
+      contentKind: CurriculumContentKind.vocab,
+      contentId: 'vocab_flip',
+      courseUnitId: 'unit-a',
+      isCorrect: false,
+      occurredAt: DateTime.utc(2026, 8, 2),
+      score: 0.2,
+    );
+    final lowScore = MasteryEvidence(
+      conceptId: 'concept-b',
+      contentKind: CurriculumContentKind.vocab,
+      contentId: 'vocab_low',
+      courseUnitId: 'unit-a',
+      isCorrect: true,
+      occurredAt: DateTime.utc(2026, 8, 3),
+      score: 0.4,
+    );
+    final missingScore = MasteryEvidence(
+      conceptId: 'concept-c',
+      contentKind: CurriculumContentKind.vocab,
+      contentId: 'vocab_noscore',
+      courseUnitId: 'unit-a',
+      isCorrect: true,
+      occurredAt: DateTime.utc(2026, 8, 4),
+    );
+
+    expect(
+      WordRelationService.courseVocabContentIds(
+        snapshot: CourseMasterySnapshot(evidence: [earlier]),
+      ),
+      contains('vocab_flip'),
+    );
+    expect(
+      WordRelationService.courseVocabContentIds(
+        snapshot: CourseMasterySnapshot(evidence: [earlier, laterWrong]),
+      ),
+      isNot(contains('vocab_flip')),
+    );
+    expect(
+      WordRelationService.courseVocabContentIds(
+        snapshot: CourseMasterySnapshot(evidence: [lowScore, missingScore]),
+        passThresholdForUnit: (unitId) => unitId == 'unit-a' ? 0.7 : null,
+      ),
+      isEmpty,
+    );
+  });
+
   test('courseVocabContentIds includes completed-unit vocab links', () {
     final ids = WordRelationService.courseVocabContentIds(
       snapshot: const CourseMasterySnapshot(completedUnitIds: ['unit-a']),

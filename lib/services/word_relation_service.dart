@@ -24,6 +24,12 @@ class WordRelationService {
 
   static List<WordRelationCluster>? _clusters;
 
+  @visibleForTesting
+  static Future<CurriculumCatalog> Function()? catalogLoaderForTesting;
+
+  @visibleForTesting
+  static Future<List<Vocab>> Function()? vocabLoaderForTesting;
+
   static Future<List<WordRelationCluster>> load({
     Future<String> Function(String path)? assetLoader,
   }) async {
@@ -274,20 +280,33 @@ class WordRelationService {
       final mastery = snapshot ?? _snapshotFromStorage();
       CurriculumCatalog? catalog;
       try {
-        catalog = await (catalogLoader ?? CurriculumCatalog.load)();
+        catalog = await (catalogLoader ??
+            catalogLoaderForTesting ??
+            CurriculumCatalog.load)();
       } catch (_) {
         catalog = null;
       }
+      final loadedCatalog = catalog;
       final ids = courseVocabContentIds(
         snapshot: mastery,
-        linksForCompletedUnit: catalog == null
+        linksForCompletedUnit: loadedCatalog == null
             ? null
-            : catalog.linksForCourseUnit,
+            : loadedCatalog.linksForCourseUnit,
+        passThresholdForUnit: loadedCatalog == null
+            ? null
+            : (unitId) {
+                if (unitId == null || unitId.isEmpty) {
+                  return null;
+                }
+                return loadedCatalog.courseUnitFor(unitId)?.passThreshold;
+              },
       );
       if (ids.isEmpty) {
         return learned;
       }
-      final rows = await (vocabLoader ?? DataLoader.loadVocab)();
+      final rows = await (vocabLoader ??
+          vocabLoaderForTesting ??
+          DataLoader.loadVocab)();
       final byId = {for (final item in rows) item.id: item};
       return {
         ...learned,
@@ -304,14 +323,26 @@ class WordRelationService {
   static Set<String> courseVocabContentIds({
     required CourseMasterySnapshot snapshot,
     Iterable<ContentLink> Function(String unitId)? linksForCompletedUnit,
+    double? Function(String? courseUnitId)? passThresholdForUnit,
   }) {
     final ids = <String>{};
+    final latestById = <String, MasteryEvidence>{};
     for (final item in snapshot.evidence) {
-      if (item.contentKind == CurriculumContentKind.vocab && item.isCorrect) {
-        final id = item.contentId.trim();
-        if (id.isNotEmpty) {
-          ids.add(id);
-        }
+      if (item.contentKind != CurriculumContentKind.vocab) {
+        continue;
+      }
+      final id = item.contentId.trim();
+      if (id.isEmpty) {
+        continue;
+      }
+      final existing = latestById[id];
+      if (existing == null || item.occurredAt.isAfter(existing.occurredAt)) {
+        latestById[id] = item;
+      }
+    }
+    for (final item in latestById.values) {
+      if (_latestVocabEvidenceCounts(item, passThresholdForUnit)) {
+        ids.add(item.contentId.trim());
       }
     }
     final lookup = linksForCompletedUnit;
@@ -330,6 +361,31 @@ class WordRelationService {
     return ids;
   }
 
+  static bool _latestVocabEvidenceCounts(
+    MasteryEvidence item,
+    double? Function(String? courseUnitId)? passThresholdForUnit,
+  ) {
+    if (!item.isCorrect) {
+      return false;
+    }
+    if (passThresholdForUnit == null) {
+      return true;
+    }
+    final unitId = item.courseUnitId?.trim();
+    if (unitId == null || unitId.isEmpty) {
+      return true;
+    }
+    final threshold = passThresholdForUnit(unitId);
+    if (threshold == null) {
+      return true;
+    }
+    final score = item.score;
+    if (score == null) {
+      return false;
+    }
+    return score >= threshold;
+  }
+
   static CourseMasterySnapshot _snapshotFromStorage() {
     final raw = Storage.courseMasterySnapshotRawJson.trim();
     if (raw.isEmpty) {
@@ -344,7 +400,11 @@ class WordRelationService {
     );
   }
 
-  static void resetForTesting() => _clusters = null;
+  static void resetForTesting() {
+    _clusters = null;
+    catalogLoaderForTesting = null;
+    vocabLoaderForTesting = null;
+  }
 }
 
 class _QuizSeed {

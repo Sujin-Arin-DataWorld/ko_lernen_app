@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — TTS/Kurs 리뷰 4건 닫음
+
+**무엇.** (1) pending wait와 completed-miss 메시지를 분리하고 클라는 inflight만
+재시도. (2) 단어망 기본 `_load()`(seenLoader 없음)가 코스 스냅샷을 Gelernt에
+넣는 위젯 테스트. (3) `takeCallableAudio`가 quota/completed-miss/inflight 재시도를
+실제 호출 횟수로 고정. (4) 코스 vocab은 contentId별 **최신** 시도만 보고,
+단원 임계가 있으면 점수 없는/미달 정답은 빼며 나중에 틀린 시도는 제외.
+
+**왜.** Jin이 리뷰 4개를 이 분리 브랜치에서 끝까지 고치라고 했다.
+
+**검증.** Node TTS guard, Flutter TTS·단어망 서비스·단어망 화면.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — TTS 완료·빈 오디오는 inflight 재시도가 아님
 
 **무엇.** `ttsSynthesisPlan`이 pending wait와 completed-miss wait를 나눈다.
