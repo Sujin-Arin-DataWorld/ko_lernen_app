@@ -21,6 +21,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "data"))
+from batch_10_scene_scripts import SEEDS, render_scene
 from rr_romanize import romanize_korean
 
 PACK_DIR = ROOT / "tools" / "content_factory" / "data" / "packs"
@@ -600,9 +602,9 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
     """Return (id, level, backdrop, title_ko, title_de, title_en, place_detail)."""
 
     a1 = [
-        ("post_queue", "우체국 줄", "In der Postschlange", "In the post-office line", "pharmacy"),
-        ("stamp_ask", "우표 개수", "Briefmarkenzahl", "Stamp count", "pharmacy"),
-        ("parcel_weight", "소포 무게", "Paketgewicht", "Parcel weight", "station"),
+        ("post_queue", "우체국 줄", "In der Postschlange", "In the post-office line", "convenience"),
+        ("stamp_ask", "우표 개수", "Briefmarkenzahl", "Stamp count", "convenience"),
+        ("parcel_weight", "소포 무게", "Paketgewicht", "Parcel weight", "convenience"),
         ("pharmacy_ointment", "연고 위치", "Salbenregal", "Ointment shelf", "pharmacy"),
         ("mask_pack", "마스크 한 통", "Maskenpackung", "A pack of masks", "pharmacy"),
         ("weekend_rain", "주말 비", "Wochenendregen", "Weekend rain", "home"),
@@ -621,7 +623,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("slow_speech", "천천히 말하기", "Langsames Sprechen", "Speak slowly", "cafe"),
         ("door_bell", "초인종", "Klingel", "Doorbell", "home"),
         ("trash_sort", "분리배출", "Trennen", "Sorted trash", "home"),
-        ("gate_code", "공동현관 비번", "Hauseingangscode", "Entrance code", "home"),
+        ("gate_code", "공동현관 비밀번호", "Hauseingangscode", "Entrance code", "home"),
         ("whiteboard_word", "화이트보드 단어", "Wort am Whiteboard", "Whiteboard word", "office"),
         ("platform_line", "노란 선", "Gelbe Linie", "Yellow line", "station"),
         ("rain_jacket", "우비", "Regenjacke", "Rain jacket", "convenience"),
@@ -647,8 +649,8 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("pharmacy_hours", "약국 문 닫는 시간", "Apothekenschluss", "Pharmacy closing", "pharmacy"),
     ]
     a2 = [
-        ("phone_plan", "요금제 바꾸기", "Tarif wechseln", "Change a plan", "office"),
-        ("data_roam", "로밍 신청", "Roaming beantragen", "Apply for roaming", "office"),
+        ("phone_plan", "요금제 바꾸기", "Tarif wechseln", "Change a plan", "convenience"),
+        ("data_roam", "로밍 신청", "Roaming beantragen", "Apply for roaming", "convenience"),
         ("bank_number", "대기번호", "Wartenummer", "Queue number", "office"),
         ("transfer_limit", "이체 한도", "Überweisungslimit", "Transfer limit", "office"),
         ("gym_lock", "락커 맡기기", "Spind abgeben", "Leave a locker", "office"),
@@ -710,7 +712,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("refund_rule", "환불 규정", "Erstattungsregel", "Refund rule", "station"),
         ("followup_mail", "후속 메일", "Folgmail", "Follow-up mail", "office"),
         ("guest_notice", "손님 사전 알림", "Gästeankündigung", "Guest notice", "home"),
-        ("scan_note", "진단서 스캔", "Attest scannen", "Scan a note", "pharmacy"),
+        ("scan_note", "진단서 스캔", "Attest scannen", "Scan a note", "office"),
         ("proxy_form", "대리 신청", "Vertretungsantrag", "Proxy application", "office"),
         ("safety_vest", "봉사 조끼", "Ehrenamtsweste", "Volunteer vest", "market"),
         ("school_letter", "가정 통신", "Elternbrief", "School letter", "home"),
@@ -796,31 +798,58 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
             raise SystemExit(f"{level} scenario catalog {len(rows)} != {expected}")
         for slug, ko, de, en, backdrop in rows:
             ident = f"{level}_{slug}"
-            catalog.append((ident, level, backdrop, ko, de, en, slug.replace("_", " ")))
+            catalog.append((ident, level, backdrop, ko, de, en, ko))
     return catalog
 
 
-def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_de: str, title_en: str, detail: str, vocab: list[str], live_ids: set[str]) -> dict[str, Any]:
-    if ident in live_ids or ident in RESERVED_SCENARIOS:
+def _gap_from_line(line_ko: str, vocab: list[str]) -> tuple[str, str, list[str]]:
+    for word in sorted(vocab, key=len, reverse=True):
+        if word and word in line_ko:
+            sentence = line_ko.replace(word, "___", 1)
+            distractors = [item for item in ("창문", "우유", "지우개", "가방") if item != word][:3]
+            return sentence, word, [word, *distractors]
+    tokens = re.findall(r"[가-힣]{2,}", line_ko)
+    if not tokens:
+        raise SystemExit(f"cannot build gap from {line_ko!r}")
+    word = tokens[-1]
+    sentence = line_ko.replace(word, "___", 1)
+    distractors = [item for item in ("창문", "우유", "지우개", "가방") if item != word][:3]
+    return sentence, word, [word, *distractors]
+
+
+def build_scenario(
+    ident: str,
+    level: str,
+    backdrop: str,
+    title_ko: str,
+    title_de: str,
+    title_en: str,
+    detail: str,
+    vocab: list[str],
+    live_ids: set[str],
+    allow_existing: bool = False,
+) -> dict[str, Any]:
+    if ident not in SEEDS:
+        raise SystemExit(f"missing Batch 10 scene seed: {ident}")
+    if not allow_existing and (ident in live_ids or ident in RESERVED_SCENARIOS):
         raise SystemExit(f"scenario id collision: {ident}")
+    if ident in RESERVED_SCENARIOS:
+        raise SystemExit(f"scenario id reserved: {ident}")
     unit, concepts = SCENARIO_UNITS[level]
     grammar_id, g_ko, g_de, g_en = SCENARIO_GRAMMAR[level]
-    user_1 = f"{title_ko} 때문에 지금 확인하고 싶어요. {detail} 상황을 짧게 말해 주세요."
-    other_1 = f"{title_ko} 접수를 확인했습니다. 지금 가능한 시간을 말씀해 주세요."
-    user_2 = f"오늘은 오전이 되고 오후에는 이동해야 해요. {title_ko} 결과를 오늘 안에 알고 싶어요."
-    other_2 = f"오전 처리가 가능합니다. {title_ko}에 필요한 자료를 한 가지만 더 보여 주세요."
-    user_3 = f"자료는 준비했습니다. {title_ko}가 미뤄지면 다음 단계를 미리 알려 주세요."
-    other_3 = f"미루지 않고 진행하겠습니다. 한 시간 안에 {title_ko} 확정을 보내 드리겠습니다."
-    user_4 = f"그러면 제가 그 시간에 다시 확인하겠습니다. {title_ko} 번호를 적어 두었어요."
-    other_4 = f"네. 번호로 조회하시면 {title_ko} 상태가 보입니다."
-    hearing = other_2
+    script = render_scene(SEEDS[ident], ident=ident, title=(title_ko, title_de, title_en))
+    scene_vocab = script["vocab"] or vocab[:6]
+    ask = script["dialog"][2]
+    wait = script["dialog"][6]
+    need = script["dialog"][1]
+    gap_sentence, _gap_word, gap_options = _gap_from_line(wait["ko"], scene_vocab)
     return {
         "id": ident,
         "level": level,
         "emoji": "📋",
         "register": "polite",
         "speechStyle": "polite",
-        "relationshipContext": "customer_and_service_staff",
+        "relationshipContext": script["relation"],
         "intent": "confirm_" + ident.split("_", 1)[1][:20],
         "courseUnitId": unit,
         "conceptIds": concepts,
@@ -828,12 +857,8 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
         "sidekick": "jieun",
         "xpReward": 160,
         "title": {"ko": title_ko, "de": title_de, "en": title_en},
-        "intro": {
-            "ko": f"{title_ko}를 해결해야 합니다. 상대에게 상황을 확인하고 다음 행동을 정하세요.",
-            "de": f"Du musst {title_de} klären. Frage nach dem Stand und lege den nächsten Schritt fest.",
-            "en": f"You need to resolve {title_en}. Check the status and set the next step.",
-        },
-        "vocab": [{"korean": word} for word in vocab[:6]],
+        "intro": script["intro"],
+        "vocab": [{"korean": word} for word in scene_vocab[:6]],
         "grammarIds": [grammar_id],
         "grammarBlock": {
             "title": {"ko": g_ko, "de": g_de, "en": g_en},
@@ -843,25 +868,16 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
                 "en": f"Use {g_en} to ask politely or name a condition.",
             },
         },
-        "dialog": [
-            {"speaker": "user", "ko": user_1, "de": f"Wegen {title_de} möchte ich das jetzt klären. Bitte sagen Sie den Stand kurz.", "en": f"I want to check {title_en} now. Please tell me the status briefly."},
-            {"speaker": "jieun", "ko": other_1, "de": f"Ich habe {title_de} aufgenommen. Nennen Sie eine mögliche Zeit.", "en": f"I have logged {title_en}. Please name a possible time."},
-            {"speaker": "user", "ko": user_2, "de": f"Heute Vormittag geht, nachmittags muss ich weg. Ich möchte das Ergebnis von {title_de} noch heute.", "en": f"This morning works; I have to move in the afternoon. I want the {title_en} result today."},
-            {"speaker": "jieun", "ko": other_2, "de": f"Eine Vormittagsbearbeitung ist möglich. Zeigen Sie bitte noch ein Dokument zu {title_de}.", "en": f"Morning processing is possible. Please show one more document for {title_en}."},
-            {"speaker": "user", "ko": user_3, "de": f"Die Unterlagen sind bereit. Wenn {title_de} sich verzögert, nennen Sie den nächsten Schritt vorher.", "en": f"The papers are ready. If {title_en} is delayed, tell me the next step in advance."},
-            {"speaker": "jieun", "ko": other_3, "de": f"Wir schieben nicht auf. Innerhalb einer Stunde sende ich die Bestätigung zu {title_de}.", "en": f"We will not postpone. I will send the {title_en} confirmation within an hour."},
-            {"speaker": "user", "ko": user_4, "de": f"Dann prüfe ich zu dieser Zeit erneut. Ich habe die Nummer zu {title_de} notiert.", "en": f"Then I will check again at that time. I wrote down the {title_en} number."},
-            {"speaker": "jieun", "ko": other_4, "de": f"Ja. Mit der Nummer sehen Sie den Stand von {title_de}.", "en": f"Yes. With the number you can see the {title_en} status."},
-        ],
+        "dialog": script["dialog"],
         "quests": [
             {
                 "id": f"quest_{ident}_hear",
                 "type": "hoerverstehen",
                 "conceptIds": concepts,
                 "data": {
-                    "audioKo": hearing,
+                    "audioKo": ask["ko"],
                     "options": [
-                        {"de": f"Eine Vormittagsbearbeitung ist möglich und ein weiteres Dokument wird gebraucht.", "en": f"Morning processing is possible and one more document is needed."},
+                        {"de": ask["de"], "en": ask["en"]},
                         {"de": "Alles ist bereits abgeschlossen.", "en": "Everything is already finished."},
                         {"de": "Der Termin wurde auf nächste Woche verschoben.", "en": "The appointment was moved to next week."},
                         {"de": "Es wird keine Nummer vergeben.", "en": "No number will be issued."},
@@ -874,10 +890,10 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
                 "type": "uebersetzen",
                 "conceptIds": concepts,
                 "data": {
-                    "promptDe": f"Ich möchte {title_de} noch heute klären.",
-                    "promptEn": f"I want to resolve {title_en} today.",
+                    "promptDe": need["de"],
+                    "promptEn": need["en"],
                     "options": [
-                        {"ko": f"{title_ko}를 오늘 안에 확인하고 싶어요."},
+                        {"ko": need["ko"]},
                         {"ko": "내일로 미뤄도 괜찮아요."},
                         {"ko": "이 일은 이미 끝났습니다."},
                         {"ko": "번호를 바꾸어 주세요."},
@@ -890,13 +906,112 @@ def build_scenario(ident: str, level: str, backdrop: str, title_ko: str, title_d
                 "type": "luecken",
                 "conceptIds": concepts,
                 "data": {
-                    "sentence": f"한 시간 안에 {title_ko} ___ 을 보내 드리겠습니다.",
-                    "options": ["확정", "거절", "삭제", "침묵"],
+                    "sentence": gap_sentence,
+                    "options": gap_options,
                     "correctIndex": 0,
                 },
             },
+            *a1_production_quests(ident, level, script, concepts),
         ],
     }
+
+
+def a1_production_quests(
+    ident: str,
+    level: str,
+    script: dict[str, Any],
+    concepts: list[str],
+) -> list[dict[str, Any]]:
+    """A1 live ratchet: every A1 scenario needs a correction + output quest."""
+    if level != "a1":
+        return []
+    ask = script["dialog"][2]
+    wait = script["dialog"][6]
+    particle = script.get("particle")
+    if not particle or particle not in ask["ko"]:
+        raise SystemExit(f"{ident}: A1 ask line must contain particle {particle!r}")
+    split_at = ask["ko"].index(particle)
+    prefix = ask["ko"][:split_at]
+    suffix = ask["ko"][split_at + len(particle):]
+    options = [particle, *[item for item in ("을", "를", "에", "이", "는", "도") if item != particle]]
+    satz = wait["ko"]
+    distractors = [word for word in ("우유", "지우개", "창문") if word not in satz]
+    explanations = {
+        "을": (
+            "을 steht nach einem Objekt mit Endkonsonant.",
+            "을 marks an object whose last syllable has a final consonant.",
+        ),
+        "를": (
+            "를 steht nach einem Objekt ohne Endkonsonant.",
+            "를 marks an object whose last syllable has no final consonant.",
+        ),
+        "에": (
+            "에 markiert Ort, Zeit oder Richtung.",
+            "에 marks place, time, or direction.",
+        ),
+    }
+    expl_de, expl_en = explanations.get(
+        particle,
+        (f"{particle} steht in diesem Satz.", f"{particle} is the particle in this sentence."),
+    )
+    return [
+        {
+            "id": f"quest_{ident}_particle",
+            "type": "particlePop",
+            "conceptIds": concepts,
+            "data": {
+                "prefix": prefix,
+                "suffix": suffix,
+                "options": options,
+                "correctIndex": 0,
+                "explanationDe": expl_de,
+                "explanationEn": expl_en,
+            },
+        },
+        {
+            "id": f"quest_{ident}_satz",
+            "type": "satzBauen",
+            "conceptIds": concepts,
+            "data": {
+                "targetKo": satz,
+                "promptDe": wait["de"],
+                "promptEn": wait["en"],
+                "distractors": distractors,
+                "audioKo": satz,
+            },
+        },
+    ]
+
+
+def rewrite_batch_10_live_copy() -> None:
+    """Replace Batch 10 dialogs in draft + live by ID. Manifest stays merged."""
+    catalog = scenario_catalog()
+    missing = [ident for ident, *_rest in catalog if ident not in SEEDS]
+    extra = sorted(set(SEEDS) - {ident for ident, *_rest in catalog})
+    if missing or extra:
+        raise SystemExit(f"seed mismatch missing={missing} extra={extra}")
+    scenarios = [
+        build_scenario(ident, level, backdrop, ko, de, en, detail, [], set(), allow_existing=True)
+        for ident, level, backdrop, ko, de, en, detail in catalog
+    ]
+    by_id = {row["id"]: row for row in scenarios}
+    draft_path = DRAFTS / "c1_batch10_scenarios_a1_c2.json"
+    draft = json.loads(draft_path.read_text(encoding="utf-8"))
+    draft["scenarios"] = [by_id[row["id"]] for row in draft["scenarios"]]
+    _write_json(draft_path, draft)
+    live_path = DATA / "scenarios.json"
+    live = json.loads(live_path.read_text(encoding="utf-8"))
+    live_index = {row["id"]: index for index, row in enumerate(live["scenarios"])}
+    for row in scenarios:
+        live["scenarios"][live_index[row["id"]]] = row
+    _write_json(live_path, live)
+    quest_count = sum(len(row["quests"]) for row in scenarios)
+    manifest_path = DRAFTS / "batch_10_4x_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["questCount"] = quest_count
+    manifest["backdrops"] = {ident: backdrop for ident, _level, backdrop, *_rest in catalog}
+    _write_json(manifest_path, manifest)
+
 
 
 def unused_satz(
@@ -1268,6 +1383,10 @@ def write_track_indexes() -> None:
 
 
 def main() -> int:
+    if sys.argv[1:] == ["rewrite-batch-10"]:
+        rewrite_batch_10_live_copy()
+        print("rewrote Batch 10 scene copy in draft and live assets")
+        return 0
     refresh_live_id_starts()
     packs = load_packs()
     live_vocab, live_korean, by_level, used_satz, live_scenario_ids = load_live()

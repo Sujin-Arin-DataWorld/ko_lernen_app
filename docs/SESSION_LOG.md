@@ -1,5 +1,122 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 10 시드 humanizer 2차 (검수 대체)
+
+**무엇.** Jin이 174편을 직접 읽지 않겠다고 해서, 접수 프레임에 이은 2차로
+시드 문장까지 `daleseo/korean-skills` + `blader/humanizer`로 훑었다.
+한국어 S1/S2만 고쳤다: `진행하지 않기로` → `넘기지 않습니다`, `말할 수
+있는` → `말할`, `정산을 위해` → `정산용`, `카트 하나 어디에` → `카트는
+어디에`, 같은 계산 대기 3줄 중 2줄을 갈랐다. 대사 DE/EN은 `Shall I` →
+`Should I`, `I will` → `I'll`, `Bitte prüfen, ob` → `Schauen Sie bitte,
+ob`. 상황 문장(`합니다`/`Man …`)은 교재 레지스터라 손대지 않았다.
+`origin/main` `637e70f8`(#61 시나리오 UI)는 직전 커밋에서 머지했다.
+
+**왜.** 검수 파일 목록을 주면 결국 사람이 읽어야 한다. 스킬이 남은
+번역투·직역만 지우고, 학습자가 듣는 문장을 구어로 맞춘다.
+
+**검증.** `rewrite-batch-10` 후 factory/콘텐츠/Flutter 게이트. 시드
+leftover(`진행하지`/`할 수 있는`/`을 위해`)와 셸 `Shall I`/`I will `/
+`I am ` 0. ready PR CI가 잡은 Batch 09 계약 4건도 같이 닫았다:
+1음절 cloze 2개, 2어절 satz 2개, 학습자 EN 축약, inherited route
+1295→2703(86칸 분모는 그대로).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — Batch 10 접수 프레임 humanizer
+
+**무엇.** Jin이 174편을 다 읽을 수 없다고 해서 `blader/humanizer` +
+`daleseo/korean-skills` 기준으로 접수 5줄만 다시 썼다. 제목을 네 줄에
+끼우던 `진행해 주세요` / `Understood` / `Sind Sie wegen` 껍질을 빼고,
+수락은 `네, 보죠`·`네, 그렇게 해 주세요`, 직원의 확인은 실제 ask를
+`볼게요/할게요`로 받는다. DE/EN은 `Ja, bitte` / `Okay, I'll do that`처럼
+짧은 구어. 장면 고유 정보는 기존 need/ask/wait에 둔다. Batch 09 DE/EN은
+이미 마커가 거의 없어 손대지 않았다.
+
+**왜.** 검수 분량을 줄이려면 사람이 읽을 문장이 제목 반복이 아니어야 한다.
+
+**검증.** `test_level_content_4x` 11/11, ContentValidator 0, promoted-batch
+10 = 814, Flutter A1/카탈로그/ID 테스트 통과. 셸 Latin/`해결해야`/받침+`를`/
+humanizer leftover 0, 제목 4회 반복 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — Batch 10 백드롭·문장·고유 프레임 정정
+
+**무엇.** `origin/main` `72657bd`를 이 브랜치에 머지한 뒤 Batch 10만 고쳤다.
+우체국·우표·소포는 `pharmacy`/`station`이 아니라 `convenience`, 휴대폰
+요금제·로밍은 `convenience`, 진단서 스캔은 `office`로 옮겼다. 제목
+`공동현관 비번`은 `비밀번호`, 소포 intro는 `잰 다음`으로 이었다. 86개
+동일 접수 프레임 다섯 줄을 장면 제목별 고유 인사·수락·확인·대기·마무리로
+바꿨다. `CONTENT_ARCHITECTURE`·intake 가이드의 “Batch 06 review-only /
+다음 번호 06” 표기를 live·11로 맞췄다. main CI(`72657bd`)는 건드리지
+않았다.
+
+**왜.** Jin이 가이드 정정 다음으로 남은 백드롭·문장·복제 프레임을
+철저히 고치라고 했고, 부계정으로 main 전체 CI를 돌리는 중이라고 했다.
+
+**검증.** `rewrite-batch-10` 후 `test_level_content_4x` 11/11,
+ContentValidator 0, promoted-batch 10 = 814,
+Flutter `a1_real_life_scenarios_test`·`scenario_quest_catalog_integrity_test`
+·`content_id_contract_test` 통과. main의 레나/`안녕` 수리는 유지.
+Latin/`해결해야`/받침+`를`/구어체 `비번` 0, 서비스 공통 셸 0, 셸 174개
+고유. 원격 CI는 이 PR head만 보고, `72657bd`에는 workflow를 추가하지
+않는다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 작성 가이드의 낡은 번호·슬러그 금지 정정
+
+**무엇.** `docs/CONTENT_AUTHORING_GUIDE.md`만 고쳤다. 12개 핵심 규칙은 유지하고,
+다음 번호를 11로 바로잡았다. 학습자 한국어에 영어 slug를 넣지 말 것, 받침
+을/를, A1 퀘스트는 실제 대사에서 뽑을 것, `--approve-all`은 문장 검수가 아님을
+명시했다. `drafts/README.md`의 Batch 06 review-only 표기도 live로 맞췄다.
+
+**왜.** 가이드가 아직 “다음 배치는 06”·“C1 시나리오는 live에 없다”고 해서
+다음 세션이 같은 템플릿 사고를 반복할 수 있다. 품질 규칙 자체는 다시 쓸
+필요가 없었다.
+
+**검증.** 문서 diff만. 콘텐츠 자산은 이 커밋에서 바꾸지 않는다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — Batch 10 시나리오 한국어 재작성
+
+**무엇.** Batch 10 시나리오 174개의 학습자용 한국어·DE/EN를 장면 시드로
+다시 썼다. 영어 슬러그(`post queue`)와 `X를 해결해야 합니다` 접수 템플릿을
+제거하고, 받침+`를`는 `을`로 맞췄다. ID·제목·backdrop·커리큘럼 링크는
+유지했다. A1 particlePop/satzBauen은 실제 직원 대사에서 뽑는다. Satz
+640개와 Batch 09는 그대로다.
+
+**왜.** Jin이 영어 슬러그·알아들을 수 없는 템플릿·받침+`를`는 규칙이
+맞아도 문장 자체가 틀렸다고 보고, Batch 10부터 고치라고 했다.
+
+**검증.** 시드 174=카탈로그 174, KO Latin/`해결해야`/받침+`를` 0건.
+`test_level_content_4x` 10/10, promoted-batch 10 = 814 records, ContentValidator
+0 issues, Flutter `a1_real_life_scenarios_test`·`scenario_quest_catalog_integrity_test`
+·`content_id_contract_test` 통과. 원격 CI 체크는 이 head에 아직 없다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — Batch 09/10 4× 잔량을 live에 승격
+
+**무엇.** origin/main에서 별도 브랜치 `cursor/apply-4x-batch-09-10-3cd5`를
+따고, PR #41이 남긴 review-only 4× 잔량(`batch_09_4x` 다섯 종류 1764,
+`batch_10_4x` 시나리오 174 + 미사용 live Satz 640)을 앱 자산에 올렸다.
+파트너-가족 Batch 07/08과 숫자 ID가 겹치지 않게 재번호된 초안만 승격했다.
+`can_do_content_authorities.json`에 신규 ID 라우트를 붙였고, 86칸 코어
+분모는 그대로 뒀다. TTS/Firebase는 하지 않았다.
+
+**왜.** PR #41은 main에 병합됐지만 `assets/data/`는 원래 설계대로 비어
+있었다. live 증가(58/419/1188 → 90/875/1620)는 다른 트랙인 파트너-가족
+07/08 때문이다. Jin이 이 승격을 별도 브랜치에서 진행하라고 했다.
+
+**검증.** 승격 후 live는 vocab 2196, cloze 1538, satz 2091, smalltalk 377,
+grammar 206, scenario 264, quest 971, packs 201. A1 4× 시나리오 45개에는
+live 래칫용 particlePop+satzBauen을 넣었다. 카운트 테스트·can-do
+커버리지·promoted-batch validator·loader coverage를 이 브랜치에서 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 시나리오 UI 패리티 PR을 ready로 올림
 
 **무엇.** `#61`을 draft에서 ready로 바꿨다. 직전 push의 CI는 draft라

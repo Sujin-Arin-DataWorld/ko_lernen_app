@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** Batch 01-05 live 정본 + Batch 06 review-only 확장 계약, 2026-08-16
+> **상태:** Batch 01–10 live. 다음 미사용 번호는 **11**. 2026-08-17
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
@@ -69,7 +69,8 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 2. **한국어가 원문이다.** `de`/`en`은 한국어 문장의 뜻·존대·관계·정보량을 보존한다.
    번역에서 질문을 진술문으로, 공적 요청을 친한 말로 바꾸지 않는다.
 3. **ID·레벨·행 순서는 콘텐츠 문구가 아니다.** 검수가 시작된 뒤에는 재번호·재정렬·ID
-   교체를 하지 않는다. 문구를 고칠 때도 참조와 review 원장을 같이 갱신한다.
+   교체를 하지 않는다. 문구를 고칠 때도 참조와 review 원장을 같이 갱신한다. ASCII
+   slug(`post_queue`)는 기계 ID로만 쓰고, 학습자 한국어·DE/EN 문장에 넣지 않는다.
 4. **앱 본문을 손으로 append하지 않는다.** 기존 한 asset의 유지보수는
    `apply_review.py`, 새 vocab/grammar/game batch의 여러 asset·curriculum·pack map 병합은
    `integrate_review_batches.py`, scenario를 중심으로 여러 게임을 묶는 bundle의
@@ -86,12 +87,15 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 9. **커리큘럼 연결 없이 새 콘텐츠를 병합하지 않는다.** vocab pack, grammar, smalltalk,
    cloze, scenario에는 대응 `curriculum_manifest.json` mapping이 필요하다. target-local
    `apply_review.py`로 multi-file 통합을 시도하지 않고, 유형에 맞는 검증 transaction을 사용한다.
-10. **Batch 01–05는 고정 live 계약이다.** 이미 승인된 행을 추가·삭제·재번호하지 않는다.
-    더 많은 양은 다음 독립 단위인 Batch 06을 새로 만든다.
+10. **이미 live인 batch의 ID·행 수는 고정이다.** Batch 01–05는 최초 잠금이고, 06
+    (교차 게임), 파트너-가족 07/08, 4× 잔량 09/10도 live다. 이미 승인된 행을
+    추가·삭제·재번호하지 않는다. 더 많은 양은 다음 미사용 번호인 **Batch 11**을
+    새로 만든다.
 11. **생성 스크립트가 항상 안전한 것은 아니다.** 특히 `scripts/build_vocab_packs.py`는
     절대 실행하지 않는다. §15의 금지 목록을 따른다.
-12. **placeholder를 넣지 않는다.** `TODO`, `TBD`, 빈 번역, 임시 영문, 추측한 번역,
-    Markdown/HTML, 줄바꿈이 든 CSV 셀은 검수 대상이 아니다.
+12. **placeholder를 넣지 않는다.** `TODO`, `TBD`, 빈 번역, 임시 영문, 영어 slug를
+    끼워 넣은 한국어, 추측한 번역, Markdown/HTML, 줄바꿈이 든 CSV 셀은 검수 대상이
+    아니다.
 
 ## 2. 언어·난이도 작성 원칙
 
@@ -99,7 +103,7 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 
 | 필드 | 반드시 지킬 점 |
 | --- | --- |
-| `ko`, `korean`, `example_korean`, `targetKo`, `fullKo` | 실제 한국어 화자가 해당 관계·상황에서 쓸 문장. 표제어는 사전형, 문장 안에서는 자연스러운 활용형을 쓴다. |
+| `ko`, `korean`, `example_korean`, `targetKo`, `fullKo` | 실제 한국어 화자가 해당 관계·상황에서 쓸 문장. 표제어는 사전형, 문장 안에서는 자연스러운 활용형을 쓴다. 라틴 글자 3자 이상(`post queue`, `Check-in`)을 넣지 않는다. 목적격은 받침 있으면 `을`, 없으면 `를`(`저를`은 `저`에 받침이 없어 맞다). |
 | `de`, `german`, `example_german`, `promptDe` | 독일어권 성인 학습자에게 자연스러운 독일어. 존대·법률/서비스 톤·정보량을 보존한다. |
 | `en`, `english`, `example_english`, `promptEn` | 자연스러운 영어. 독일어 문장 구조를 복사하지 않는다. |
 | `focus`, `quiz_focus_*` | 추상적인 설명이 아니라 문장 안에서 실제로 찾을 수 있는 정확한 문자열. |
@@ -172,7 +176,9 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 | scenario | lowercase ASCII letters, digits, underscore only | `formal_contract_inquiry` |
 
 `####`는 자릿수를 보존한다. 다음 번호는 **현재 앱 자산과 아직 병합되지 않은 모든 draft를
-함께 보고** 잡는다. Batch 01의 예약 번호를 다음 배치에서 재사용하면 안 된다.
+함께 보고** 잡는다. Batch 01의 예약 번호를 다음 배치에서 재사용하면 안 된다. scenario
+ID의 영어 slug는 파일 키일 뿐이며, `title.ko`·`intro.ko`·`dialog[].ko`·퀘스트 한국어에
+`slug.replace("_", " ")`를 넣지 않는다.
 
 ### 3.3 CSV 저장 규칙
 
@@ -190,8 +196,8 @@ ID의 level segment와 본문 level은 반드시 일치해야 한다. 예: `cloz
 Batch 01은 아래 다섯 초안과 다섯 review 원장으로 구성된 **고정 96-record 계약**이며,
 2026-08-15에 live asset으로 승격됐다. Batch 02(96 record)와 Batch 03(126 record)도
 같은 방식으로 이미 live다. Batch 04 scenario 16개와 Batch 05 B2/C1/C2 레코드 504개도
-각 전용 transaction으로 live다. 이 section은 그 history를 고치기 위한 규칙과 다음
-Batch 06+ 작성자가 재사용할 잠금 규칙을 설명한다.
+각 전용 transaction으로 live다. 이 section은 그 history를 고치기 위한 규칙과 이후
+batch 작성자가 재사용할 잠금 규칙을 설명한다.
 
 | Draft | 앱 병합 대상 | B1 | B2 | 합계 |
 | --- | --- | ---: | ---: | ---: |
@@ -234,8 +240,8 @@ Batch 06+ 작성자가 재사용할 잠금 규칙을 설명한다.
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. Batch 06 review-only pilot과 Batch 07/08 review-only 4× 초안이
-있으므로 현재 다음 작성 번호는 **Batch 09**다. Batch 05부터는
+파일을 별도로 만든다. Batch 06, 파트너-가족 07/08, 4× 잔량 09/10은 이미 live이므로
+현재 다음 작성 번호는 **Batch 11**이다. Batch 05부터는
 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
@@ -524,10 +530,12 @@ C0의 preview/apply로 우회하지 않는다. 관계 맥락과 맞지 않는 �
 ## 10. Scenario — `scenarios` JSON 전체 명세
 
 시나리오는 해당 레벨의 실제 vocab·grammar·course mapping이 존재할 때만 만든다.
-Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격했다. C1/C2 전용
-시나리오는 live에는 아직 없다. Batch 06에 첫 C1/C2 scenario가 review-only로 준비돼
-있지만 승인 통합 전에는 존재하는 것처럼 연결하지 않는다. 새 scenario는 아래
-필드를 갖는 완전 object다.
+Batch 04의 B1/B2 16개, Batch 06의 첫 C1/C2, 파트너-가족 08, 4× 잔량 10이 이미
+live다. 새 scenario는 아래 필드를 갖는 완전 object다. 제목이나 영어 slug를
+`X를 해결해야 합니다` / `Y 상황을 짧게 말해 주세요` 같은 공통 템플릿에 끼워
+대화를 만들지 않는다. 각 장면은 그 장소에서 실제로 하는 일로 소개하고 말한다.
+제목의 구어체 `비번`은 `비밀번호`로 쓰고, 받침 뒤에는 `을`을 쓴다. `재 주세요`처럼
+본용언과 보조 용언 사이 띄어쓰기는 유지한다.
 
 ```json
 {
@@ -571,7 +579,7 @@ Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격�
 | `relationshipContext`, `intent` | nonempty, 기존 scenario/curriculum 용어와 일관된 snake_case 의미값 |
 | `courseUnitId` | 실제 존재하는 같은 level course unit |
 | `conceptIds` | nonempty, 해당 unit의 `requiredConceptIds`에 속하는 실제 concept ID |
-| `surfaceFormIds` | 실제 curriculum surface form ID만 사용 |
+| `surfaceFormIds` | 실제 curriculum surface form ID만 사용. 없으면 빈 배열. 검수 통과용 가짜 ID를 만들지 않는다 |
 | `sidekick` | 새 항목은 `minsu`/`jieun`, 또는 기존 corpus에서 검증된 speaker/sidekick code를 재사용하거나 생략. 새 code는 avatar fallback을 실제 확인 |
 | `xpReward` | 양의 정수. 비슷한 기존 scenario의 범위를 따름 |
 | `title`, `intro` | `{ko,de,en}`. 새 항목은 세 언어 모두 채움 |
@@ -588,8 +596,12 @@ Batch 04는 이 조건을 만족한 B1/B2 시나리오 16개를 live로 승격�
 `assets/illustrations/scenes/<id>.png`가 없으면** `lib/models/scenario.dart`의
 `ScenarioBackdrop._categoryById`에 반드시 등록해 기존 backdrop key(airport, cafe,
 convenience, directions, home, hotel, market, office, pharmacy, restaurant, station, taxi) 중
-하나를 가리켜야 한다. 이 mapping이 빠지면 poster가 null이 되어 마스코트 fallback으로
+하나를 가리켜야 한다. 없는 장소(우체국·미용실·은행)는 가장 가까운 기존 key를 고른다.
+우체국·휴대폰 가게는 `convenience`, 진단서 스캔 같은 창구 서류는 `office`이지
+`pharmacy`가 아니다. 이 mapping이 빠지면 poster가 null이 되어 마스코트 fallback으로
 떨어진다. 새 scene key/asset 자체를 만드는 일은 UI/asset track으로 분리한다.
+같은 접수 프레임 다섯 줄을 86개 장면에 복제하지 않는다. 직원/상대의 인사·수락·확인·
+대기·마무리는 그 장면 제목과 일에 맞게 따로 쓴다.
 
 ### 10.2 Quest별 `data` 규칙
 
@@ -607,6 +619,10 @@ convenience, directions, home, hotel, market, office, pharmacy, restaurant, stat
 Quest가 concept evidence로 쓰이면 안정적인 `id`와 `conceptIds`를 추가하고 curriculum
 `contentLinks`에서 정확한 source/role을 선언한다. index 기반의 임시 링크를 새로 만들지
 않는다.
+
+A1 live 래칫은 모든 A1 시나리오에 교정 퀘스트(`particlePop` / `batchimDrop` /
+발음·활용 concept)와 산출 퀘스트(`satzBauen` / `diktat`)를 요구한다. 이 문항은
+그 장면의 실제 대사에서 뽑는다. 제목+조사 템플릿으로 45개를 복제하지 않는다.
 
 ## 11. Pronunciation, 실벤, 끝말잇기, OCR 문법 패턴
 
@@ -811,7 +827,7 @@ python3 tools/content_factory/audit_game_loader_coverage.py \
 # draft에서 공통 8열 review 원장을 결정적으로 재생성/동기화
 python3 tools/content_factory/sync_review_ledgers.py --apply
 
-# 새 Batch 06+의 manifest-driven overlay 검사
+# 새 batch의 manifest-driven overlay 검사
 python3 tools/content_factory/validate_review_batch.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
@@ -847,6 +863,11 @@ Jin은 review 원장에서 `상태`를 `ok` 또는 `approved`로 바꾸고, 필�
 `jin_memo`에 남긴다. `fix: …`, `no`, `rejected`, 빈 상태, 알 수 없는 상태는 병합되지
 않는다. 동일 ID가 두 번 있으면 상태가 달라도 실패한다.
 
+기본값은 Jin이 **학습자 문장**을 읽고 행을 뒤집는 것이다. `--approve-all`이나
+기계 메모는 도구 비상구일 뿐 문장 검수가 아니다. “이 잔량을 올려”는 병합
+트랜잭션 허가이지, 2천 행을 읽었다는 뜻이 아니다. 시나리오 review가 제목만
+저장하면 대화를 검수한 것이 아니다. 승인 전에 `intro.ko`와 `dialog[].ko`를 본다.
+
 승인 후에는 먼저 다시 preview하고, 그 결과가 Jin이 승인한 ID와 정확히 맞는지 확인한다.
 새 vocab pack은 한 행이라도 pending이면 preview 자체가 실패하는 것이 정상이다.
 
@@ -859,7 +880,7 @@ mapping과 새 vocab의 Dart pack map을 함께 검증·원자적으로 다루�
 이 조건과 Jin의 명시 지시가 없으면 실제 asset 병합을 실행하지 않는다. 직접 asset을
 선편집해 validator를 통과시키는 것은 금지다.
 
-새 Batch 06+의 모든 review ledger가 승인됐고 Jin의 명시 지시가 있을 때만 유형에 맞는
+새 batch의 review ledger가 승인됐고 Jin의 명시 지시가 있을 때만 유형에 맞는
 multi-file transaction을 실행한다.
 
 ```bash
@@ -919,7 +940,8 @@ vocab pack + 동반 mapping
 ### review / 검증
 
 - [ ] review header, ID 순서, row count, level, projection copy가 draft와 맞다.
-- [ ] 새 Batch 06+의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
+- [ ] 새 batch의 모든 review `상태`는 Jin 검수 전 정확히 `draft`다.
+- [ ] 학습자 한국어에 영어 slug·`해결해야 합니다` 템플릿·받침+`를` 오류가 없다.
 - [ ] raw count뿐 아니라 loader audit의 exact/cumulative/course unit 수량과 round 부족량을 확인했다.
 - [ ] `validate_review_batch.py`와 `plan_pack_assignments.py`가 통과했다.
 - [ ] `validate_content.py`가 통과했다.
@@ -959,7 +981,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - 기존 ID/표제어/pack/category/curriculum을 먼저 읽어 중복과 참조 오류를 피해.
 - 새 vocab pack이면 11~12행, 연속 pack_order, 마지막 2~3 Boss, metadata와 planner를 준비해.
 - review CSV는 공통 header와 draft projection을 정확히 맞추고 모든 상태를 draft로 둬.
-- Batch 01–05에는 행을 추가하지 말고, 추가 수량은 Batch 06의 독립 manifest/draft/review로 분리해.
+- 이미 live인 Batch 01–10에는 행을 추가하지 말고, 추가 수량은 Batch 11의 독립 manifest/draft/review로 분리해.
 - validate_content.py, 필요한 preflight, apply_review preview까지만 실행하고 --apply는 실행하지 마.
 - 마지막에 변경 파일, 미병합 수량, 검증 결과, Jin이 검수할 review 파일을 보고해.
 ```

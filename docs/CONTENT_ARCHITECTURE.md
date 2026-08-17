@@ -1,6 +1,6 @@
 # 콘텐츠 아키텍처 계약
 
-> **상태:** Batch 05 A1-C2 live 정본 + Batch 06 review-only 계약, 2026-08-16
+> **상태:** Batch 01–10 live. 다음 미사용 번호는 **11**. 2026-08-17
 >
 > 이 문서는 콘텐츠를 많이 추가하기 전에 지켜야 할 레벨 선택·코스 연결·검수
 > 경계를 고정한다. C0는 서로 다른 학습 경험을 하나의 전역 레벨 정책으로
@@ -117,12 +117,12 @@ scenario와 실벤은 만들지 않았다. Today와 Listening은 가장 가까�
 가짜 생성해 exact 콘텐츠처럼 보이게 하지 않는다. 전용 데이터가 실제 승인·병합되면
 exact 선택 회귀 테스트를 추가하고 폴백을 그대로 유지할지 다시 결정한다.
 
-Batch 06의 첫 C1/C2 scenario와 B1-C2 교차 게임 묶음은 현재 review-only draft다.
-preview에서 전체 그래프를 통과해도 live 데이터로 계산하지 않는다. Jin 승인과 전용
-cross-game transaction이 끝난 뒤에만 위 데이터 부재 센서와 exact 선택 회귀를 갱신한다.
-커밋 `23342c57`의 standalone 68개와 scenario quest 20개는
-canonical 86, content cluster, assessment authority의 입력이 아니다. live human
-review로 승인·승격된 practice만 같은 can-do의 cluster revision에 append할 수 있다.
+Batch 06의 첫 C1/C2 scenario와 B1-C2 교차 게임, 그리고 Batch 07–10의 후속
+시나리오·연습은 이제 live다. 다음 미사용 번호는 11이다. 새 배치는 preview에서
+전체 그래프를 통과해도 승인 전에는 live 수량에 넣지 않는다. 커밋 `23342c57`의
+standalone 68개와 scenario quest 20개는 원래 review-only pilot이었고, 지금 live에
+있어도 canonical 86, content cluster, assessment authority의 입력이 아니다. live
+human review로 승인·승격된 practice만 같은 can-do의 cluster revision에 append할 수 있다.
 pronunciation·Cloze·Satz·Smalltalk·scenario는 그 자체로 영구 assessment authority가
 되지 않는다. B1 complaint repair, B2 complaint escalation, C1 evidence limits,
 C2 technology appeal intent도 final review 전에는 routing authority로 쓰지 않는다.
