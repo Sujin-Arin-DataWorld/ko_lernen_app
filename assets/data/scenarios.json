@@ -19470,7 +19470,7 @@
           "speaker": "jieun",
           "ko": "무게를 먼저 재 볼까요?",
           "de": "Soll ich zuerst das Gewicht messen?",
-          "en": "Shall I weigh it first?"
+          "en": "Should I weigh it first?"
         },
         {
           "speaker": "user",
@@ -19515,7 +19515,7 @@
             "options": [
               {
                 "de": "Soll ich zuerst das Gewicht messen?",
-                "en": "Shall I weigh it first?"
+                "en": "Should I weigh it first?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -20814,7 +20814,7 @@
           "speaker": "user",
           "ko": "십 분 늦을게. 먼저 먹어.",
           "de": "Ich bin zehn Minuten später. Iss schon mal.",
-          "en": "I will be ten minutes late. Start eating."
+          "en": "I'll be ten minutes late. Start eating."
         },
         {
           "speaker": "jieun",
@@ -20844,7 +20844,7 @@
           "speaker": "jieun",
           "ko": "곧 도착한다고 다시 쓸게.",
           "de": "Ich schreibe gleich, dass ich bald da bin.",
-          "en": "I will write again that I am almost there."
+          "en": "I'll write again that I am almost there."
         },
         {
           "speaker": "user",
@@ -20891,7 +20891,7 @@
           ],
           "data": {
             "promptDe": "Ich bin zehn Minuten später. Iss schon mal.",
-            "promptEn": "I will be ten minutes late. Start eating.",
+            "promptEn": "I'll be ten minutes late. Start eating.",
             "options": [
               {
                 "ko": "십 분 늦을게. 먼저 먹어."
@@ -20957,7 +20957,7 @@
           "data": {
             "targetKo": "곧 도착한다고 다시 쓸게.",
             "promptDe": "Ich schreibe gleich, dass ich bald da bin.",
-            "promptEn": "I will write again that I am almost there.",
+            "promptEn": "I'll write again that I am almost there.",
             "distractors": [
               "우유",
               "지우개",
@@ -21045,7 +21045,7 @@
           "speaker": "jieun",
           "ko": "이름을 문에 적어 둘까요?",
           "de": "Soll ich den Namen an die Tür schreiben?",
-          "en": "Shall I write the name on the door?"
+          "en": "Should I write the name on the door?"
         },
         {
           "speaker": "user",
@@ -21090,7 +21090,7 @@
             "options": [
               {
                 "de": "Soll ich den Namen an die Tür schreiben?",
-                "en": "Shall I write the name on the door?"
+                "en": "Should I write the name on the door?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -21270,7 +21270,7 @@
           "speaker": "jieun",
           "ko": "이 신발을 안으로 옮길까요?",
           "de": "Soll ich diese Schuhe nach drinnen bringen?",
-          "en": "Shall I move these shoes inside?"
+          "en": "Should I move these shoes inside?"
         },
         {
           "speaker": "user",
@@ -21315,7 +21315,7 @@
             "options": [
               {
                 "de": "Soll ich diese Schuhe nach drinnen bringen?",
-                "en": "Shall I move these shoes inside?"
+                "en": "Should I move these shoes inside?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -21495,7 +21495,7 @@
           "speaker": "jieun",
           "ko": "연필을 같이 드릴까요?",
           "de": "Soll ich einen Bleistift dazu geben?",
-          "en": "Shall I give you a pencil too?"
+          "en": "Should I give you a pencil too?"
         },
         {
           "speaker": "user",
@@ -21540,7 +21540,7 @@
             "options": [
               {
                 "de": "Soll ich einen Bleistift dazu geben?",
-                "en": "Shall I give you a pencil too?"
+                "en": "Should I give you a pencil too?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -21744,7 +21744,7 @@
           "speaker": "jieun",
           "ko": "지금 바로 걷겠습니다.",
           "de": "Ich sammle gleich ein.",
-          "en": "I will collect them now."
+          "en": "I'll collect them now."
         },
         {
           "speaker": "user",
@@ -21857,7 +21857,7 @@
           "data": {
             "targetKo": "지금 바로 걷겠습니다.",
             "promptDe": "Ich sammle gleich ein.",
-            "promptEn": "I will collect them now.",
+            "promptEn": "I'll collect them now.",
             "distractors": [
               "우유",
               "지우개",
@@ -22614,7 +22614,7 @@
           "speaker": "user",
           "ko": "오늘 춥대. 겉옷 가져갈게.",
           "de": "Heute soll es kalt sein. Ich nehme eine Jacke mit.",
-          "en": "It is supposed to be cold today. I will take a jacket."
+          "en": "It is supposed to be cold today. I'll take a jacket."
         },
         {
           "speaker": "jieun",
@@ -22691,7 +22691,7 @@
           ],
           "data": {
             "promptDe": "Heute soll es kalt sein. Ich nehme eine Jacke mit.",
-            "promptEn": "It is supposed to be cold today. I will take a jacket.",
+            "promptEn": "It is supposed to be cold today. I'll take a jacket.",
             "options": [
               {
                 "ko": "오늘 춥대. 겉옷 가져갈게."
@@ -22845,7 +22845,7 @@
           "speaker": "jieun",
           "ko": "이 흰색을 드릴까요?",
           "de": "Soll ich diese weiße geben?",
-          "en": "Shall I give you this white one?"
+          "en": "Should I give you this white one?"
         },
         {
           "speaker": "user",
@@ -22869,7 +22869,7 @@
           "speaker": "jieun",
           "ko": "계산대에서 바로 드릴게요.",
           "de": "An der Kasse gebe ich sie gleich.",
-          "en": "I will give it to you at the register now."
+          "en": "I'll give it to you at the register now."
         },
         {
           "speaker": "user",
@@ -22890,7 +22890,7 @@
             "options": [
               {
                 "de": "Soll ich diese weiße geben?",
-                "en": "Shall I give you this white one?"
+                "en": "Should I give you this white one?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -22982,7 +22982,7 @@
           "data": {
             "targetKo": "계산대에서 바로 드릴게요.",
             "promptDe": "An der Kasse gebe ich sie gleich.",
-            "promptEn": "I will give it to you at the register now.",
+            "promptEn": "I'll give it to you at the register now.",
             "distractors": [
               "우유",
               "지우개",
@@ -23070,7 +23070,7 @@
           "speaker": "jieun",
           "ko": "음료를 먼저 시켜 둘까?",
           "de": "Soll ich schon ein Getränk bestellen?",
-          "en": "Shall I order a drink first?"
+          "en": "Should I order a drink first?"
         },
         {
           "speaker": "user",
@@ -23115,7 +23115,7 @@
             "options": [
               {
                 "de": "Soll ich schon ein Getränk bestellen?",
-                "en": "Shall I order a drink first?"
+                "en": "Should I order a drink first?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -23520,7 +23520,7 @@
           "speaker": "jieun",
           "ko": "이 문장을 다시 들을까요?",
           "de": "Soll ich diesen Satz noch einmal sagen?",
-          "en": "Shall I say this sentence again?"
+          "en": "Should I say this sentence again?"
         },
         {
           "speaker": "user",
@@ -23544,7 +23544,7 @@
           "speaker": "jieun",
           "ko": "천천히 다시 말하겠습니다.",
           "de": "Ich sage es gleich langsamer.",
-          "en": "I will say it more slowly now."
+          "en": "I'll say it more slowly now."
         },
         {
           "speaker": "user",
@@ -23565,7 +23565,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Satz noch einmal sagen?",
-                "en": "Shall I say this sentence again?"
+                "en": "Should I say this sentence again?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -23657,7 +23657,7 @@
           "data": {
             "targetKo": "천천히 다시 말하겠습니다.",
             "promptDe": "Ich sage es gleich langsamer.",
-            "promptEn": "I will say it more slowly now.",
+            "promptEn": "I'll say it more slowly now.",
             "distractors": [
               "우유",
               "지우개",
@@ -23769,7 +23769,7 @@
           "speaker": "jieun",
           "ko": "지금 내려갈게. 일 분만 기다려.",
           "de": "Ich komme runter. Warte eine Minute.",
-          "en": "I will come down. Wait one minute."
+          "en": "I'll come down. Wait one minute."
         },
         {
           "speaker": "user",
@@ -23882,7 +23882,7 @@
           "data": {
             "targetKo": "지금 내려갈게. 일 분만 기다려.",
             "promptDe": "Ich komme runter. Warte eine Minute.",
-            "promptEn": "I will come down. Wait one minute.",
+            "promptEn": "I'll come down. Wait one minute.",
             "distractors": [
               "우유",
               "지우개",
@@ -24444,7 +24444,7 @@
           "speaker": "jieun",
           "ko": "발음은 바로 다시 해 드릴게요.",
           "de": "Die Aussprache mache ich gleich noch einmal.",
-          "en": "I will say the pronunciation again now."
+          "en": "I'll say the pronunciation again now."
         },
         {
           "speaker": "user",
@@ -24557,7 +24557,7 @@
           "data": {
             "targetKo": "발음은 바로 다시 해 드릴게요.",
             "promptDe": "Die Aussprache mache ich gleich noch einmal.",
-            "promptEn": "I will say the pronunciation again now.",
+            "promptEn": "I'll say the pronunciation again now.",
             "distractors": [
               "우유",
               "지우개",
@@ -24892,9 +24892,9 @@
         },
         {
           "speaker": "jieun",
-          "ko": "계산은 바로 됩니다.",
-          "de": "Die Kasse ist gleich soweit.",
-          "en": "Checkout will be ready shortly."
+          "ko": "계산대로 오시면 됩니다.",
+          "de": "Bitte zur Kasse kommen.",
+          "en": "Please come to the register."
         },
         {
           "speaker": "user",
@@ -24966,7 +24966,7 @@
             "concept_a1_survival"
           ],
           "data": {
-            "sentence": "___은 바로 됩니다.",
+            "sentence": "___대로 오시면 됩니다.",
             "options": [
               "계산",
               "창문",
@@ -25005,15 +25005,15 @@
             "concept_a1_survival"
           ],
           "data": {
-            "targetKo": "계산은 바로 됩니다.",
-            "promptDe": "Die Kasse ist gleich soweit.",
-            "promptEn": "Checkout will be ready shortly.",
+            "targetKo": "계산대로 오시면 됩니다.",
+            "promptDe": "Bitte zur Kasse kommen.",
+            "promptEn": "Please come to the register.",
             "distractors": [
               "우유",
               "지우개",
               "창문"
             ],
-            "audioKo": "계산은 바로 됩니다."
+            "audioKo": "계산대로 오시면 됩니다."
           }
         }
       ]
@@ -25089,7 +25089,7 @@
           "speaker": "user",
           "ko": "실례합니다. 지나갈게요.",
           "de": "Entschuldigung. Ich gehe vorbei.",
-          "en": "Excuse me. I will pass through."
+          "en": "Excuse me. I'll pass through."
         },
         {
           "speaker": "jieun",
@@ -25166,7 +25166,7 @@
           ],
           "data": {
             "promptDe": "Entschuldigung. Ich gehe vorbei.",
-            "promptEn": "Excuse me. I will pass through.",
+            "promptEn": "Excuse me. I'll pass through.",
             "options": [
               {
                 "ko": "실례합니다. 지나갈게요."
@@ -25344,7 +25344,7 @@
           "speaker": "jieun",
           "ko": "처음부터 다시 말할게요.",
           "de": "Ich sage es gleich von vorn.",
-          "en": "I will say it from the start."
+          "en": "I'll say it from the start."
         },
         {
           "speaker": "user",
@@ -25457,7 +25457,7 @@
           "data": {
             "targetKo": "처음부터 다시 말할게요.",
             "promptDe": "Ich sage es gleich von vorn.",
-            "promptEn": "I will say it from the start.",
+            "promptEn": "I'll say it from the start.",
             "distractors": [
               "우유",
               "지우개",
@@ -25569,7 +25569,7 @@
           "speaker": "jieun",
           "ko": "오 분 안에 나갈게.",
           "de": "Ich komme in fünf Minuten raus.",
-          "en": "I will come out in five minutes."
+          "en": "I'll come out in five minutes."
         },
         {
           "speaker": "user",
@@ -25682,7 +25682,7 @@
           "data": {
             "targetKo": "오 분 안에 나갈게.",
             "promptDe": "Ich komme in fünf Minuten raus.",
-            "promptEn": "I will come out in five minutes.",
+            "promptEn": "I'll come out in five minutes.",
             "distractors": [
               "우유",
               "지우개",
@@ -25770,7 +25770,7 @@
           "speaker": "jieun",
           "ko": "차를 집에 끓일까?",
           "de": "Soll ich zu Hause Tee kochen?",
-          "en": "Shall I make tea at home?"
+          "en": "Should I make tea at home?"
         },
         {
           "speaker": "user",
@@ -25815,7 +25815,7 @@
             "options": [
               {
                 "de": "Soll ich zu Hause Tee kochen?",
-                "en": "Shall I make tea at home?"
+                "en": "Should I make tea at home?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -26692,9 +26692,9 @@
         },
         {
           "speaker": "jieun",
-          "ko": "계산은 바로 됩니다.",
-          "de": "Die Kasse ist gleich soweit.",
-          "en": "Checkout will be ready shortly."
+          "ko": "여기서 바로 계산하시면 됩니다.",
+          "de": "Sie können hier gleich zahlen.",
+          "en": "You can pay here now."
         },
         {
           "speaker": "user",
@@ -26766,7 +26766,7 @@
             "concept_a1_survival"
           ],
           "data": {
-            "sentence": "___은 바로 됩니다.",
+            "sentence": "여기서 바로 ___하시면 됩니다.",
             "options": [
               "계산",
               "창문",
@@ -26805,15 +26805,15 @@
             "concept_a1_survival"
           ],
           "data": {
-            "targetKo": "계산은 바로 됩니다.",
-            "promptDe": "Die Kasse ist gleich soweit.",
-            "promptEn": "Checkout will be ready shortly.",
+            "targetKo": "여기서 바로 계산하시면 됩니다.",
+            "promptDe": "Sie können hier gleich zahlen.",
+            "promptEn": "You can pay here now.",
             "distractors": [
               "우유",
               "지우개",
               "창문"
             ],
-            "audioKo": "계산은 바로 됩니다."
+            "audioKo": "여기서 바로 계산하시면 됩니다."
           }
         }
       ]
@@ -27120,7 +27120,7 @@
           "speaker": "jieun",
           "ko": "이 길을 따라갈까요?",
           "de": "Soll ich dieser Straße folgen?",
-          "en": "Shall I follow this road?"
+          "en": "Should I follow this road?"
         },
         {
           "speaker": "user",
@@ -27165,7 +27165,7 @@
             "options": [
               {
                 "de": "Soll ich dieser Straße folgen?",
-                "en": "Shall I follow this road?"
+                "en": "Should I follow this road?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -27369,7 +27369,7 @@
           "speaker": "jieun",
           "ko": "열쇠는 바로 드리겠습니다.",
           "de": "Den Schlüssel gebe ich gleich.",
-          "en": "I will give you the key now."
+          "en": "I'll give you the key now."
         },
         {
           "speaker": "user",
@@ -27482,7 +27482,7 @@
           "data": {
             "targetKo": "열쇠는 바로 드리겠습니다.",
             "promptDe": "Den Schlüssel gebe ich gleich.",
-            "promptEn": "I will give you the key now.",
+            "promptEn": "I'll give you the key now.",
             "distractors": [
               "우유",
               "지우개",
@@ -27787,7 +27787,7 @@
         },
         {
           "speaker": "user",
-          "ko": "카트 하나 어디에 있어요?",
+          "ko": "카트는 어디에 있어요?",
           "de": "Wo gibt es einen Wagen?",
           "en": "Where can I get a cart?"
         },
@@ -27869,7 +27869,7 @@
             "promptEn": "Where can I get a cart?",
             "options": [
               {
-                "ko": "카트 하나 어디에 있어요?"
+                "ko": "카트는 어디에 있어요?"
               },
               {
                 "ko": "내일로 미뤄도 괜찮아요."
@@ -28020,7 +28020,7 @@
           "speaker": "jieun",
           "ko": "김밥을 반으로 잘라 드릴까요?",
           "de": "Soll ich das Kimbap halbieren?",
-          "en": "Shall I cut the kimbap in half?"
+          "en": "Should I cut the kimbap in half?"
         },
         {
           "speaker": "user",
@@ -28065,7 +28065,7 @@
             "options": [
               {
                 "de": "Soll ich das Kimbap halbieren?",
-                "en": "Shall I cut the kimbap in half?"
+                "en": "Should I cut the kimbap in half?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -28470,7 +28470,7 @@
           "speaker": "jieun",
           "ko": "이 버튼을 눌러 볼까요?",
           "de": "Soll ich diesen Knopf drücken?",
-          "en": "Shall I press this button?"
+          "en": "Should I press this button?"
         },
         {
           "speaker": "user",
@@ -28515,7 +28515,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Knopf drücken?",
-                "en": "Shall I press this button?"
+                "en": "Should I press this button?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -28719,7 +28719,7 @@
           "speaker": "jieun",
           "ko": "번호를 바로 불러 드릴게요.",
           "de": "Ich sage Ihnen die Nummer gleich.",
-          "en": "I will read the number now."
+          "en": "I'll read the number now."
         },
         {
           "speaker": "user",
@@ -28832,7 +28832,7 @@
           "data": {
             "targetKo": "번호를 바로 불러 드릴게요.",
             "promptDe": "Ich sage Ihnen die Nummer gleich.",
-            "promptEn": "I will read the number now.",
+            "promptEn": "I'll read the number now.",
             "distractors": [
               "우유",
               "지우개",
@@ -29145,7 +29145,7 @@
           "speaker": "jieun",
           "ko": "스위치를 왼쪽에서 찾을까?",
           "de": "Soll ich den Schalter links suchen?",
-          "en": "Shall I look for the switch on the left?"
+          "en": "Should I look for the switch on the left?"
         },
         {
           "speaker": "user",
@@ -29190,7 +29190,7 @@
             "options": [
               {
                 "de": "Soll ich den Schalter links suchen?",
-                "en": "Shall I look for the switch on the left?"
+                "en": "Should I look for the switch on the left?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -29780,7 +29780,7 @@
           "speaker": "jieun",
           "ko": "기간을 열흘로 넣을까요?",
           "de": "Soll ich zehn Tage eintragen?",
-          "en": "Shall I set it for ten days?"
+          "en": "Should I set it for ten days?"
         },
         {
           "speaker": "user",
@@ -29825,7 +29825,7 @@
             "options": [
               {
                 "de": "Soll ich zehn Tage eintragen?",
-                "en": "Shall I set it for ten days?"
+                "en": "Should I set it for ten days?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -30329,13 +30329,13 @@
           "speaker": "user",
           "ko": "락커 하나 맡기고 운동할게요.",
           "de": "Ich gebe einen Spind ab und trainiere dann.",
-          "en": "I will leave a locker and then work out."
+          "en": "I'll leave a locker and then work out."
         },
         {
           "speaker": "jieun",
           "ko": "자물쇠를 앞에서 빌릴까요?",
           "de": "Soll ich das Schloss vorn ausleihen?",
-          "en": "Shall I borrow a lock at the front?"
+          "en": "Should I borrow a lock at the front?"
         },
         {
           "speaker": "user",
@@ -30359,7 +30359,7 @@
           "speaker": "jieun",
           "ko": "락커는 바로 안내하겠습니다.",
           "de": "Den Spind zeige ich gleich.",
-          "en": "I will show you the locker now."
+          "en": "I'll show you the locker now."
         },
         {
           "speaker": "user",
@@ -30380,7 +30380,7 @@
             "options": [
               {
                 "de": "Soll ich das Schloss vorn ausleihen?",
-                "en": "Shall I borrow a lock at the front?"
+                "en": "Should I borrow a lock at the front?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -30406,7 +30406,7 @@
           ],
           "data": {
             "promptDe": "Ich gebe einen Spind ab und trainiere dann.",
-            "promptEn": "I will leave a locker and then work out.",
+            "promptEn": "I'll leave a locker and then work out.",
             "options": [
               {
                 "ko": "락커 하나 맡기고 운동할게요."
@@ -30890,7 +30890,7 @@
           "speaker": "jieun",
           "ko": "이 갈색을 쓸까요?",
           "de": "Soll ich dieses Braun nehmen?",
-          "en": "Shall I use this brown?"
+          "en": "Should I use this brown?"
         },
         {
           "speaker": "user",
@@ -30935,7 +30935,7 @@
             "options": [
               {
                 "de": "Soll ich dieses Braun nehmen?",
-                "en": "Shall I use this brown?"
+                "en": "Should I use this brown?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -31630,7 +31630,7 @@
           "speaker": "jieun",
           "ko": "근무 시간을 다시 적어 볼까요?",
           "de": "Soll ich die Arbeitszeit noch einmal notieren?",
-          "en": "Shall I write the hours again?"
+          "en": "Should I write the hours again?"
         },
         {
           "speaker": "user",
@@ -31675,7 +31675,7 @@
             "options": [
               {
                 "de": "Soll ich die Arbeitszeit noch einmal notieren?",
-                "en": "Shall I write the hours again?"
+                "en": "Should I write the hours again?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -31839,7 +31839,7 @@
           "speaker": "jieun",
           "ko": "보관함을 바로 찾아보겠습니다.",
           "de": "Ich schaue gleich im Fundfach nach.",
-          "en": "I will check the hold box now."
+          "en": "I'll check the hold box now."
         },
         {
           "speaker": "user",
@@ -32000,7 +32000,7 @@
           "speaker": "jieun",
           "ko": "색깔을 종이에 적을까요?",
           "de": "Soll ich die Farbe auf Papier schreiben?",
-          "en": "Shall I write the color on paper?"
+          "en": "Should I write the color on paper?"
         },
         {
           "speaker": "user",
@@ -32045,7 +32045,7 @@
             "options": [
               {
                 "de": "Soll ich die Farbe auf Papier schreiben?",
-                "en": "Shall I write the color on paper?"
+                "en": "Should I write the color on paper?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -32209,7 +32209,7 @@
           "speaker": "jieun",
           "ko": "스탬프는 바로 찍어 드립니다.",
           "de": "Den Stempel setze ich gleich.",
-          "en": "I will stamp it now."
+          "en": "I'll stamp it now."
         },
         {
           "speaker": "user",
@@ -32740,7 +32740,7 @@
           "speaker": "jieun",
           "ko": "이십오 일로 바꿀까요?",
           "de": "Soll ich auf den Fünfundzwanzigsten ändern?",
-          "en": "Shall I change it to the twenty-fifth?"
+          "en": "Should I change it to the twenty-fifth?"
         },
         {
           "speaker": "user",
@@ -32785,7 +32785,7 @@
             "options": [
               {
                 "de": "Soll ich auf den Fünfundzwanzigsten ändern?",
-                "en": "Shall I change it to the twenty-fifth?"
+                "en": "Should I change it to the twenty-fifth?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -32949,7 +32949,7 @@
           "speaker": "jieun",
           "ko": "예약은 바로 옮겨 드립니다.",
           "de": "Ich verschiebe den Termin gleich.",
-          "en": "I will move the booking now."
+          "en": "I'll move the booking now."
         },
         {
           "speaker": "user",
@@ -33134,7 +33134,7 @@
           "speaker": "jieun",
           "ko": "오늘 밤부터 조심하겠습니다.",
           "de": "Ab heute Nacht passe ich auf.",
-          "en": "I will be careful from tonight."
+          "en": "I'll be careful from tonight."
         },
         {
           "speaker": "user",
@@ -33295,7 +33295,7 @@
           "speaker": "jieun",
           "ko": "이 메모를 책상 위에 둘까요?",
           "de": "Soll ich diese Notiz auf den Tisch legen?",
-          "en": "Shall I put this note on the desk?"
+          "en": "Should I put this note on the desk?"
         },
         {
           "speaker": "user",
@@ -33319,7 +33319,7 @@
           "speaker": "jieun",
           "ko": "아침에 바로 볼 수 있게 두겠습니다.",
           "de": "Ich lege sie so, dass man sie morgens gleich sieht.",
-          "en": "I will leave it so it is seen in the morning."
+          "en": "I'll leave it so it is seen in the morning."
         },
         {
           "speaker": "user",
@@ -33340,7 +33340,7 @@
             "options": [
               {
                 "de": "Soll ich diese Notiz auf den Tisch legen?",
-                "en": "Shall I put this note on the desk?"
+                "en": "Should I put this note on the desk?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -33504,7 +33504,7 @@
           "speaker": "jieun",
           "ko": "신분증은 바로 드리겠습니다.",
           "de": "Den Ausweis gebe ich gleich.",
-          "en": "I will give you the ID now."
+          "en": "I'll give you the ID now."
         },
         {
           "speaker": "user",
@@ -33850,7 +33850,7 @@
           "speaker": "jieun",
           "ko": "따뜻한 잔을 드릴까요?",
           "de": "Soll ich eine warme Tasse geben?",
-          "en": "Shall I give you a warm cup?"
+          "en": "Should I give you a warm cup?"
         },
         {
           "speaker": "user",
@@ -33895,7 +33895,7 @@
             "options": [
               {
                 "de": "Soll ich eine warme Tasse geben?",
-                "en": "Shall I give you a warm cup?"
+                "en": "Should I give you a warm cup?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -34244,7 +34244,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 비우겠습니다.",
           "de": "Nachmittags räume ich gleich leer.",
-          "en": "I will empty it in the afternoon."
+          "en": "I'll empty it in the afternoon."
         },
         {
           "speaker": "user",
@@ -34775,7 +34775,7 @@
           "speaker": "jieun",
           "ko": "이름을 여기에 적을까요?",
           "de": "Soll ich den Namen hier eintragen?",
-          "en": "Shall I write the name here?"
+          "en": "Should I write the name here?"
         },
         {
           "speaker": "user",
@@ -34820,7 +34820,7 @@
             "options": [
               {
                 "de": "Soll ich den Namen hier eintragen?",
-                "en": "Shall I write the name here?"
+                "en": "Should I write the name here?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -34960,7 +34960,7 @@
           "speaker": "jieun",
           "ko": "대체 근무를 누가 할지 적을까요?",
           "de": "Soll ich eintragen, wer übernimmt?",
-          "en": "Shall I write who will cover?"
+          "en": "Should I write who will cover?"
         },
         {
           "speaker": "user",
@@ -34984,7 +34984,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 답 드리겠습니다.",
           "de": "Nachmittags antworte ich gleich.",
-          "en": "I will answer in the afternoon."
+          "en": "I'll answer in the afternoon."
         },
         {
           "speaker": "user",
@@ -35005,7 +35005,7 @@
             "options": [
               {
                 "de": "Soll ich eintragen, wer übernimmt?",
-                "en": "Shall I write who will cover?"
+                "en": "Should I write who will cover?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -35515,7 +35515,7 @@
           "speaker": "jieun",
           "ko": "가방을 의자에 올려 둘까?",
           "de": "Soll ich die Tasche auf den Stuhl legen?",
-          "en": "Shall I put the bag on the chair?"
+          "en": "Should I put the bag on the chair?"
         },
         {
           "speaker": "user",
@@ -35539,7 +35539,7 @@
           "speaker": "jieun",
           "ko": "오 분이면 돌아올게.",
           "de": "In fünf Minuten bin ich zurück.",
-          "en": "I will be back in five minutes."
+          "en": "I'll be back in five minutes."
         },
         {
           "speaker": "user",
@@ -35560,7 +35560,7 @@
             "options": [
               {
                 "de": "Soll ich die Tasche auf den Stuhl legen?",
-                "en": "Shall I put the bag on the chair?"
+                "en": "Should I put the bag on the chair?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -35700,7 +35700,7 @@
           "speaker": "jieun",
           "ko": "병을 이쪽에 둘까?",
           "de": "Soll ich die Flasche hierhin stellen?",
-          "en": "Shall I put the bottle on this side?"
+          "en": "Should I put the bottle on this side?"
         },
         {
           "speaker": "user",
@@ -35745,7 +35745,7 @@
             "options": [
               {
                 "de": "Soll ich die Flasche hierhin stellen?",
-                "en": "Shall I put the bottle on this side?"
+                "en": "Should I put the bottle on this side?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -36094,7 +36094,7 @@
           "speaker": "jieun",
           "ko": "오 분만 기다리겠습니다.",
           "de": "Ich warte fünf Minuten.",
-          "en": "I will wait five minutes."
+          "en": "I'll wait five minutes."
         },
         {
           "speaker": "user",
@@ -36464,7 +36464,7 @@
           "speaker": "jieun",
           "ko": "차액은 바로 드리겠습니다.",
           "de": "Die Differenz gebe ich gleich.",
-          "en": "I will give you the difference now."
+          "en": "I'll give you the difference now."
         },
         {
           "speaker": "user",
@@ -36649,7 +36649,7 @@
           "speaker": "jieun",
           "ko": "계산서는 바로 나눠 드리겠습니다.",
           "de": "Die Rechnung teile ich gleich auf.",
-          "en": "I will split the bill now."
+          "en": "I'll split the bill now."
         },
         {
           "speaker": "user",
@@ -37359,13 +37359,13 @@
           "speaker": "user",
           "ko": "열한 시에 도착할 것 같아요. 그래도 들어가도 돼요?",
           "de": "Ich komme wohl um dreiundzwanzig Uhr. Kann ich trotzdem rein?",
-          "en": "I will probably arrive at eleven. Can I still go in?"
+          "en": "I'll probably arrive at eleven. Can I still go in?"
         },
         {
           "speaker": "jieun",
           "ko": "문을 야간 벨로 열까요?",
           "de": "Soll ich die Tür über die Nachtklingel öffnen?",
-          "en": "Shall I open the door with the night bell?"
+          "en": "Should I open the door with the night bell?"
         },
         {
           "speaker": "user",
@@ -37389,7 +37389,7 @@
           "speaker": "jieun",
           "ko": "도착하시면 바로 열어 드리겠습니다.",
           "de": "Wenn Sie da sind, öffne ich gleich.",
-          "en": "When you arrive I will open right away."
+          "en": "When you arrive I'll open right away."
         },
         {
           "speaker": "user",
@@ -37410,7 +37410,7 @@
             "options": [
               {
                 "de": "Soll ich die Tür über die Nachtklingel öffnen?",
-                "en": "Shall I open the door with the night bell?"
+                "en": "Should I open the door with the night bell?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -37436,7 +37436,7 @@
           ],
           "data": {
             "promptDe": "Ich komme wohl um dreiundzwanzig Uhr. Kann ich trotzdem rein?",
-            "promptEn": "I will probably arrive at eleven. Can I still go in?",
+            "promptEn": "I'll probably arrive at eleven. Can I still go in?",
             "options": [
               {
                 "ko": "열한 시에 도착할 것 같아요. 그래도 들어가도 돼요?"
@@ -37759,7 +37759,7 @@
           "speaker": "jieun",
           "ko": "가방은 바로 드리겠습니다.",
           "de": "Die Tasche gebe ich gleich.",
-          "en": "I will give you the bag now."
+          "en": "I'll give you the bag now."
         },
         {
           "speaker": "user",
@@ -37944,7 +37944,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 보내겠습니다.",
           "de": "Nachmittags sende ich gleich.",
-          "en": "I will send it in the afternoon."
+          "en": "I'll send it in the afternoon."
         },
         {
           "speaker": "user",
@@ -38105,7 +38105,7 @@
           "speaker": "jieun",
           "ko": "이 파일만 다시 붙일까요?",
           "de": "Soll ich nur diese Datei noch einmal anhängen?",
-          "en": "Shall I attach only this file again?"
+          "en": "Should I attach only this file again?"
         },
         {
           "speaker": "user",
@@ -38129,7 +38129,7 @@
           "speaker": "jieun",
           "ko": "오 분 안에 다시 보내겠습니다.",
           "de": "In fünf Minuten sende ich erneut.",
-          "en": "I will send it again in five minutes."
+          "en": "I'll send it again in five minutes."
         },
         {
           "speaker": "user",
@@ -38150,7 +38150,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese Datei noch einmal anhängen?",
-                "en": "Shall I attach only this file again?"
+                "en": "Should I attach only this file again?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -38314,7 +38314,7 @@
           "speaker": "jieun",
           "ko": "오늘 밤부터 바로 줄이겠습니다.",
           "de": "Ab heute Nacht mache ich es gleich leiser.",
-          "en": "I will keep it down from tonight."
+          "en": "I'll keep it down from tonight."
         },
         {
           "speaker": "user",
@@ -38499,7 +38499,7 @@
           "speaker": "jieun",
           "ko": "내일까지 계산해서 알려 줄게.",
           "de": "Bis morgen rechne ich es aus.",
-          "en": "I will calculate it by tomorrow."
+          "en": "I'll calculate it by tomorrow."
         },
         {
           "speaker": "user",
@@ -38869,7 +38869,7 @@
           "speaker": "jieun",
           "ko": "금액은 오늘 안에 적어 드리겠습니다.",
           "de": "Den Betrag schreibe ich Ihnen heute noch auf.",
-          "en": "I will write the amount today."
+          "en": "I'll write the amount today."
         },
         {
           "speaker": "user",
@@ -39424,7 +39424,7 @@
           "speaker": "jieun",
           "ko": "명단은 오늘 저녁에 올리겠습니다.",
           "de": "Die Liste stelle ich heute Abend ein.",
-          "en": "I will post the list this evening."
+          "en": "I'll post the list this evening."
         },
         {
           "speaker": "user",
@@ -39609,7 +39609,7 @@
           "speaker": "jieun",
           "ko": "시간은 바로 넣어 드리겠습니다.",
           "de": "Ich trage die Zeit gleich ein.",
-          "en": "I will put the time in now."
+          "en": "I'll put the time in now."
         },
         {
           "speaker": "user",
@@ -39764,13 +39764,13 @@
           "speaker": "user",
           "ko": "천장 얼룩을 사진으로 찍어서 보낼게요.",
           "de": "Ich fotografiere den Fleck an der Decke und sende ihn.",
-          "en": "I will photograph the ceiling stain and send it."
+          "en": "I'll photograph the ceiling stain and send it."
         },
         {
           "speaker": "jieun",
           "ko": "날짜가 보이게 찍을까요?",
           "de": "Soll das Datum mit drauf?",
-          "en": "Shall I include the date in the photo?"
+          "en": "Should I include the date in the photo?"
         },
         {
           "speaker": "user",
@@ -39794,7 +39794,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 전달하겠습니다.",
           "de": "Nachmittags leite ich es gleich weiter.",
-          "en": "I will pass it on in the afternoon."
+          "en": "I'll pass it on in the afternoon."
         },
         {
           "speaker": "user",
@@ -39815,7 +39815,7 @@
             "options": [
               {
                 "de": "Soll das Datum mit drauf?",
-                "en": "Shall I include the date in the photo?"
+                "en": "Should I include the date in the photo?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -39841,7 +39841,7 @@
           ],
           "data": {
             "promptDe": "Ich fotografiere den Fleck an der Decke und sende ihn.",
-            "promptEn": "I will photograph the ceiling stain and send it.",
+            "promptEn": "I'll photograph the ceiling stain and send it.",
             "options": [
               {
                 "ko": "천장 얼룩을 사진으로 찍어서 보낼게요."
@@ -39955,7 +39955,7 @@
           "speaker": "jieun",
           "ko": "수요일 오전을 넣을까요?",
           "de": "Soll ich Mittwochvormittag eintragen?",
-          "en": "Shall I put in Wednesday morning?"
+          "en": "Should I put in Wednesday morning?"
         },
         {
           "speaker": "user",
@@ -40000,7 +40000,7 @@
             "options": [
               {
                 "de": "Soll ich Mittwochvormittag eintragen?",
-                "en": "Shall I put in Wednesday morning?"
+                "en": "Should I put in Wednesday morning?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -40349,7 +40349,7 @@
           "speaker": "jieun",
           "ko": "금액은 오늘 안에 계산해 드리겠습니다.",
           "de": "Den Betrag rechne ich Ihnen heute noch aus.",
-          "en": "I will calculate the amount today."
+          "en": "I'll calculate the amount today."
         },
         {
           "speaker": "user",
@@ -40510,7 +40510,7 @@
           "speaker": "jieun",
           "ko": "이 세 줄만 보낼까요?",
           "de": "Soll ich nur diese drei Zeilen senden?",
-          "en": "Shall I send only these three lines?"
+          "en": "Should I send only these three lines?"
         },
         {
           "speaker": "user",
@@ -40534,7 +40534,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 넣겠습니다.",
           "de": "Nachmittags setze ich sie gleich ab.",
-          "en": "I will send it in the afternoon."
+          "en": "I'll send it in the afternoon."
         },
         {
           "speaker": "user",
@@ -40555,7 +40555,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese drei Zeilen senden?",
-                "en": "Shall I send only these three lines?"
+                "en": "Should I send only these three lines?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -40689,13 +40689,13 @@
           "speaker": "user",
           "ko": "토요일에 손님이 두 명 와요. 미리 알려 드려요.",
           "de": "Am Samstag kommen zwei Gäste. Ich sage es vorher.",
-          "en": "Two guests come on Saturday. I am telling you in advance."
+          "en": "Two guests come on Saturday. Just so you know."
         },
         {
           "speaker": "jieun",
           "ko": "주차 자리를 하나 비워 둘까요?",
           "de": "Soll ich einen Parkplatz frei halten?",
-          "en": "Shall I keep one parking space free?"
+          "en": "Should I keep one parking space free?"
         },
         {
           "speaker": "user",
@@ -40719,7 +40719,7 @@
           "speaker": "jieun",
           "ko": "저녁 전에 다시 연락할게요.",
           "de": "Vor dem Abend melde ich mich noch einmal.",
-          "en": "I will contact you again before evening."
+          "en": "I'll contact you again before evening."
         },
         {
           "speaker": "user",
@@ -40740,7 +40740,7 @@
             "options": [
               {
                 "de": "Soll ich einen Parkplatz frei halten?",
-                "en": "Shall I keep one parking space free?"
+                "en": "Should I keep one parking space free?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -40766,7 +40766,7 @@
           ],
           "data": {
             "promptDe": "Am Samstag kommen zwei Gäste. Ich sage es vorher.",
-            "promptEn": "Two guests come on Saturday. I am telling you in advance.",
+            "promptEn": "Two guests come on Saturday. Just so you know.",
             "options": [
               {
                 "ko": "토요일에 손님이 두 명 와요. 미리 알려 드려요."
@@ -40880,7 +40880,7 @@
           "speaker": "jieun",
           "ko": "양쪽을 모두 스캔할까요?",
           "de": "Soll ich beide Seiten scannen?",
-          "en": "Shall I scan both sides?"
+          "en": "Should I scan both sides?"
         },
         {
           "speaker": "user",
@@ -40904,7 +40904,7 @@
           "speaker": "jieun",
           "ko": "파일은 오 분 안에 보내 드리겠습니다.",
           "de": "Die Datei sende ich in fünf Minuten.",
-          "en": "I will send the file in five minutes."
+          "en": "I'll send the file in five minutes."
         },
         {
           "speaker": "user",
@@ -40925,7 +40925,7 @@
             "options": [
               {
                 "de": "Soll ich beide Seiten scannen?",
-                "en": "Shall I scan both sides?"
+                "en": "Should I scan both sides?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -41065,7 +41065,7 @@
           "speaker": "jieun",
           "ko": "위임 칸에 이름을 넣을까요?",
           "de": "Soll ich den Namen ins Vertretungsfeld setzen?",
-          "en": "Shall I put the name in the proxy box?"
+          "en": "Should I put the name in the proxy box?"
         },
         {
           "speaker": "user",
@@ -41110,7 +41110,7 @@
             "options": [
               {
                 "de": "Soll ich den Namen ins Vertretungsfeld setzen?",
-                "en": "Shall I put the name in the proxy box?"
+                "en": "Should I put the name in the proxy box?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -41250,7 +41250,7 @@
           "speaker": "jieun",
           "ko": "노란 큰 옷을 드릴까요?",
           "de": "Soll ich die große Gelbe geben?",
-          "en": "Shall I give you the large yellow one?"
+          "en": "Should I give you the large yellow one?"
         },
         {
           "speaker": "user",
@@ -41295,7 +41295,7 @@
             "options": [
               {
                 "de": "Soll ich die große Gelbe geben?",
-                "en": "Shall I give you the large yellow one?"
+                "en": "Should I give you the large yellow one?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -41620,7 +41620,7 @@
           "speaker": "jieun",
           "ko": "이 금액을 추가할까요?",
           "de": "Soll ich diesen Betrag ergänzen?",
-          "en": "Shall I add this amount?"
+          "en": "Should I add this amount?"
         },
         {
           "speaker": "user",
@@ -41644,7 +41644,7 @@
           "speaker": "jieun",
           "ko": "새 견적은 내일 아침에 보내 드리겠습니다.",
           "de": "Den neuen Voranschlag sende ich morgen früh.",
-          "en": "I will send the new quote tomorrow morning."
+          "en": "I'll send the new quote tomorrow morning."
         },
         {
           "speaker": "user",
@@ -41665,7 +41665,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Betrag ergänzen?",
-                "en": "Shall I add this amount?"
+                "en": "Should I add this amount?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -41805,7 +41805,7 @@
           "speaker": "jieun",
           "ko": "전화 번호를 여기에 적을까요?",
           "de": "Soll ich die Telefonnummer hier eintragen?",
-          "en": "Shall I write the phone number here?"
+          "en": "Should I write the phone number here?"
         },
         {
           "speaker": "user",
@@ -41829,7 +41829,7 @@
           "speaker": "jieun",
           "ko": "빈자리가 나면 바로 연락드리겠습니다.",
           "de": "Wenn ein Platz frei wird, melde ich mich gleich.",
-          "en": "If a seat opens I will contact you right away."
+          "en": "If a seat opens I'll contact you right away."
         },
         {
           "speaker": "user",
@@ -41850,7 +41850,7 @@
             "options": [
               {
                 "de": "Soll ich die Telefonnummer hier eintragen?",
-                "en": "Shall I write the phone number here?"
+                "en": "Should I write the phone number here?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -42199,7 +42199,7 @@
           "speaker": "jieun",
           "ko": "표는 오늘 저녁에 고치겠습니다.",
           "de": "Den Plan ändere ich heute Abend.",
-          "en": "I will fix the table this evening."
+          "en": "I'll fix the table this evening."
         },
         {
           "speaker": "user",
@@ -42384,7 +42384,7 @@
           "speaker": "jieun",
           "ko": "기간은 오늘 안에 확인해 드리겠습니다.",
           "de": "Die Frist prüfe ich Ihnen heute noch.",
-          "en": "I will confirm the period today."
+          "en": "I'll confirm the period today."
         },
         {
           "speaker": "user",
@@ -42538,7 +42538,7 @@
         {
           "speaker": "user",
           "ko": "다음 편 탑승구가 바뀌었는지 봐 주세요.",
-          "de": "Bitte prüfen, ob sich das Gate des Anschlusses geändert hat.",
+          "de": "Schauen Sie bitte, ob sich das Gate des Anschlusses geändert hat.",
           "en": "Please check if the next flight's gate has changed."
         },
         {
@@ -42615,7 +42615,7 @@
             "concept_b1_complaint_resolution"
           ],
           "data": {
-            "promptDe": "Bitte prüfen, ob sich das Gate des Anschlusses geändert hat.",
+            "promptDe": "Schauen Sie bitte, ob sich das Gate des Anschlusses geändert hat.",
             "promptEn": "Please check if the next flight's gate has changed.",
             "options": [
               {
@@ -42730,7 +42730,7 @@
           "speaker": "jieun",
           "ko": "접수일을 한 번 더 확인할까요?",
           "de": "Soll ich das Annahmedatum noch einmal prüfen?",
-          "en": "Shall I check the filing date once more?"
+          "en": "Should I check the filing date once more?"
         },
         {
           "speaker": "user",
@@ -42775,7 +42775,7 @@
             "options": [
               {
                 "de": "Soll ich das Annahmedatum noch einmal prüfen?",
-                "en": "Shall I check the filing date once more?"
+                "en": "Should I check the filing date once more?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -42909,7 +42909,7 @@
           "speaker": "user",
           "ko": "오늘 육 시에 못 가서 육 시 반에 갈게요.",
           "de": "Heute schaffe ich nicht um achtzehn Uhr, sondern um halb sieben.",
-          "en": "I cannot come at six today. I will come at six thirty."
+          "en": "I cannot come at six today. I'll come at six thirty."
         },
         {
           "speaker": "jieun",
@@ -42939,7 +42939,7 @@
           "speaker": "jieun",
           "ko": "도착하면 바로 전화할게요.",
           "de": "Wenn ich da bin, rufe ich gleich an.",
-          "en": "When I arrive I will call right away."
+          "en": "When I arrive I'll call right away."
         },
         {
           "speaker": "user",
@@ -42986,7 +42986,7 @@
           ],
           "data": {
             "promptDe": "Heute schaffe ich nicht um achtzehn Uhr, sondern um halb sieben.",
-            "promptEn": "I cannot come at six today. I will come at six thirty.",
+            "promptEn": "I cannot come at six today. I'll come at six thirty.",
             "options": [
               {
                 "ko": "오늘 육 시에 못 가서 육 시 반에 갈게요."
@@ -43100,7 +43100,7 @@
           "speaker": "jieun",
           "ko": "월요일 같은 방을 드릴까요?",
           "de": "Soll ich montags dasselbe Zimmer geben?",
-          "en": "Shall I give the same room on Monday?"
+          "en": "Should I give the same room on Monday?"
         },
         {
           "speaker": "user",
@@ -43145,7 +43145,7 @@
             "options": [
               {
                 "de": "Soll ich montags dasselbe Zimmer geben?",
-                "en": "Shall I give the same room on Monday?"
+                "en": "Should I give the same room on Monday?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -43229,7 +43229,7 @@
         "en": "Taxi receipt"
       },
       "intro": {
-        "ko": "회사 정산을 위해 택시 영수증을 받습니다.",
+        "ko": "회사 정산용 택시 영수증을 받습니다.",
         "de": "Für die Abrechnung holt man den Taxibeleg.",
         "en": "You get a taxi receipt for company reimbursement."
       },
@@ -43285,7 +43285,7 @@
           "speaker": "jieun",
           "ko": "카드 전표를 같이 드릴까요?",
           "de": "Soll ich den Kartenbeleg dazu geben?",
-          "en": "Shall I include the card slip?"
+          "en": "Should I include the card slip?"
         },
         {
           "speaker": "user",
@@ -43330,7 +43330,7 @@
             "options": [
               {
                 "de": "Soll ich den Kartenbeleg dazu geben?",
-                "en": "Shall I include the card slip?"
+                "en": "Should I include the card slip?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -43494,7 +43494,7 @@
           "speaker": "jieun",
           "ko": "같은 무게로 바로 바꿔 드리겠습니다.",
           "de": "Ich tausche gleich gegen dasselbe Gewicht.",
-          "en": "I will exchange it for the same weight now."
+          "en": "I'll exchange it for the same weight now."
         },
         {
           "speaker": "user",
@@ -43655,7 +43655,7 @@
           "speaker": "jieun",
           "ko": "이 철자를 그대로 넣을까요?",
           "de": "Soll ich diese Schreibweise so übernehmen?",
-          "en": "Shall I put this spelling as is?"
+          "en": "Should I put this spelling as is?"
         },
         {
           "speaker": "user",
@@ -43679,7 +43679,7 @@
           "speaker": "jieun",
           "ko": "영수증은 바로 다시 뽑아 드리겠습니다.",
           "de": "Die Rechnung drucke ich gleich neu.",
-          "en": "I will print the receipt again now."
+          "en": "I'll print the receipt again now."
         },
         {
           "speaker": "user",
@@ -43700,7 +43700,7 @@
             "options": [
               {
                 "de": "Soll ich diese Schreibweise so übernehmen?",
-                "en": "Shall I put this spelling as is?"
+                "en": "Should I put this spelling as is?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -43840,7 +43840,7 @@
           "speaker": "jieun",
           "ko": "이 세 문장만 남길까요?",
           "de": "Soll ich nur diese drei Sätze behalten?",
-          "en": "Shall I keep only these three sentences?"
+          "en": "Should I keep only these three sentences?"
         },
         {
           "speaker": "user",
@@ -43864,7 +43864,7 @@
           "speaker": "jieun",
           "ko": "오후에 바로 올려 두겠습니다.",
           "de": "Nachmittags stelle ich sie gleich ein.",
-          "en": "I will post them in the afternoon."
+          "en": "I'll post them in the afternoon."
         },
         {
           "speaker": "user",
@@ -43885,7 +43885,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese drei Sätze behalten?",
-                "en": "Shall I keep only these three sentences?"
+                "en": "Should I keep only these three sentences?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -44049,7 +44049,7 @@
           "speaker": "jieun",
           "ko": "기록은 오늘 안에 넣겠습니다.",
           "de": "Den Eintrag setze ich heute noch.",
-          "en": "I will put the record in today."
+          "en": "I'll put the record in today."
         },
         {
           "speaker": "user",
@@ -44210,7 +44210,7 @@
           "speaker": "jieun",
           "ko": "이 봉투에 사본을 넣을까요?",
           "de": "Soll ich eine Kopie in diesen Umschlag legen?",
-          "en": "Shall I put a copy in this envelope?"
+          "en": "Should I put a copy in this envelope?"
         },
         {
           "speaker": "user",
@@ -44234,7 +44234,7 @@
           "speaker": "jieun",
           "ko": "접수증은 바로 드리겠습니다.",
           "de": "Die Annahmebestätigung gebe ich gleich.",
-          "en": "I will give you the receipt now."
+          "en": "I'll give you the receipt now."
         },
         {
           "speaker": "user",
@@ -44255,7 +44255,7 @@
             "options": [
               {
                 "de": "Soll ich eine Kopie in diesen Umschlag legen?",
-                "en": "Shall I put a copy in this envelope?"
+                "en": "Should I put a copy in this envelope?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -44419,7 +44419,7 @@
           "speaker": "jieun",
           "ko": "범위는 내일 문장으로 보내 드리겠습니다.",
           "de": "Den Umfang sende ich morgen als Satz.",
-          "en": "I will send the scope as a sentence tomorrow."
+          "en": "I'll send the scope as a sentence tomorrow."
         },
         {
           "speaker": "user",
@@ -44573,7 +44573,7 @@
         {
           "speaker": "user",
           "ko": "이 숫자가 원문 표와 같은지 확인해 주세요.",
-          "de": "Bitte prüfen, ob diese Zahl zur Quelltabelle passt.",
+          "de": "Schauen Sie bitte, ob diese Zahl zur Quelltabelle passt.",
           "en": "Please check whether this number matches the source table."
         },
         {
@@ -44650,7 +44650,7 @@
             "concept_b2_complaint"
           ],
           "data": {
-            "promptDe": "Bitte prüfen, ob diese Zahl zur Quelltabelle passt.",
+            "promptDe": "Schauen Sie bitte, ob diese Zahl zur Quelltabelle passt.",
             "promptEn": "Please check whether this number matches the source table.",
             "options": [
               {
@@ -44789,7 +44789,7 @@
           "speaker": "jieun",
           "ko": "확인이 끝나면 바로 알려 드리겠습니다.",
           "de": "Wenn die Prüfung fertig ist, sage ich gleich Bescheid.",
-          "en": "When the check is done I will tell you right away."
+          "en": "When the check is done I'll tell you right away."
         },
         {
           "speaker": "user",
@@ -44950,7 +44950,7 @@
           "speaker": "jieun",
           "ko": "이 두 칸만 바꿀까요?",
           "de": "Soll ich nur diese zwei Felder tauschen?",
-          "en": "Shall I swap only these two boxes?"
+          "en": "Should I swap only these two boxes?"
         },
         {
           "speaker": "user",
@@ -44974,7 +44974,7 @@
           "speaker": "jieun",
           "ko": "순서는 오전에 다시 올려 두겠습니다.",
           "de": "Die Reihenfolge stelle ich vormittags neu ein.",
-          "en": "I will post the order again in the morning."
+          "en": "I'll post the order again in the morning."
         },
         {
           "speaker": "user",
@@ -44995,7 +44995,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese zwei Felder tauschen?",
-                "en": "Shall I swap only these two boxes?"
+                "en": "Should I swap only these two boxes?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -45159,7 +45159,7 @@
           "speaker": "jieun",
           "ko": "두 명이 오면 바로 시작하겠습니다.",
           "de": "Wenn zwei Personen kommen, starte ich gleich.",
-          "en": "When two more people arrive I will start."
+          "en": "When two more people arrive I'll start."
         },
         {
           "speaker": "user",
@@ -45344,7 +45344,7 @@
           "speaker": "jieun",
           "ko": "문장은 오늘 저녁에 보내 드리겠습니다.",
           "de": "Den Satz sende ich heute Abend.",
-          "en": "I will send the sentence this evening."
+          "en": "I'll send the sentence this evening."
         },
         {
           "speaker": "user",
@@ -45505,7 +45505,7 @@
           "speaker": "jieun",
           "ko": "타이머를 지금 켤까요?",
           "de": "Soll ich den Timer jetzt starten?",
-          "en": "Shall I start the timer now?"
+          "en": "Should I start the timer now?"
         },
         {
           "speaker": "user",
@@ -45529,7 +45529,7 @@
           "speaker": "jieun",
           "ko": "시간이 되면 바로 끊겠습니다.",
           "de": "Wenn die Zeit um ist, breche ich gleich ab.",
-          "en": "When time is up I will stop."
+          "en": "When time is up I'll stop."
         },
         {
           "speaker": "user",
@@ -45550,7 +45550,7 @@
             "options": [
               {
                 "de": "Soll ich den Timer jetzt starten?",
-                "en": "Shall I start the timer now?"
+                "en": "Should I start the timer now?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -45714,7 +45714,7 @@
           "speaker": "jieun",
           "ko": "한 장은 내일 아침에 올리겠습니다.",
           "de": "Die eine Seite stelle ich morgen früh ein.",
-          "en": "I will post the one page tomorrow morning."
+          "en": "I'll post the one page tomorrow morning."
         },
         {
           "speaker": "user",
@@ -45899,7 +45899,7 @@
           "speaker": "jieun",
           "ko": "가정은 오늘 안에 넣어 두겠습니다.",
           "de": "Die Annahme setze ich heute noch ein.",
-          "en": "I will put the assumption in today."
+          "en": "I'll put the assumption in today."
         },
         {
           "speaker": "user",
@@ -46060,7 +46060,7 @@
           "speaker": "jieun",
           "ko": "이 요약만 첨부할까요?",
           "de": "Soll ich nur diese Kurzfassung anhängen?",
-          "en": "Shall I attach only this summary?"
+          "en": "Should I attach only this summary?"
         },
         {
           "speaker": "user",
@@ -46084,7 +46084,7 @@
           "speaker": "jieun",
           "ko": "전달은 오후에 바로 하겠습니다.",
           "de": "Die Weitergabe mache ich nachmittags gleich.",
-          "en": "I will pass it on in the afternoon."
+          "en": "I'll pass it on in the afternoon."
         },
         {
           "speaker": "user",
@@ -46105,7 +46105,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese Kurzfassung anhängen?",
-                "en": "Shall I attach only this summary?"
+                "en": "Should I attach only this summary?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -46189,9 +46189,9 @@
         "en": "Case id"
       },
       "intro": {
-        "ko": "사건 번호 없이 진행하지 않기로 합니다.",
-        "de": "Ohne Fallnummer geht man nicht weiter.",
-        "en": "You do not continue without a case number."
+        "ko": "사건 번호 없이는 다음으로 넘기지 않습니다.",
+        "de": "Ohne Fallnummer geht es nicht weiter.",
+        "en": "Without a case number, this does not go further."
       },
       "vocab": [
         {
@@ -46245,7 +46245,7 @@
           "speaker": "jieun",
           "ko": "임시 번호를 먼저 받을까요?",
           "de": "Soll ich zuerst eine vorläufige Nummer holen?",
-          "en": "Shall I get a temporary number first?"
+          "en": "Should I get a temporary number first?"
         },
         {
           "speaker": "user",
@@ -46290,7 +46290,7 @@
             "options": [
               {
                 "de": "Soll ich zuerst eine vorläufige Nummer holen?",
-                "en": "Shall I get a temporary number first?"
+                "en": "Should I get a temporary number first?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -46374,7 +46374,7 @@
         "en": "Limitation line"
       },
       "intro": {
-        "ko": "이 자료로 말할 수 있는 한계를 한 문장으로 적습니다.",
+        "ko": "이 자료로 말할 한계를 한 문장으로 적습니다.",
         "de": "Man schreibt in einem Satz, was diese Unterlage nicht tragen kann.",
         "en": "You write in one sentence what this material cannot support."
       },
@@ -46454,7 +46454,7 @@
           "speaker": "jieun",
           "ko": "문장은 오늘 저녁에 넣겠습니다.",
           "de": "Den Satz setze ich heute Abend ein.",
-          "en": "I will put the sentence in this evening."
+          "en": "I'll put the sentence in this evening."
         },
         {
           "speaker": "user",
@@ -46615,7 +46615,7 @@
           "speaker": "jieun",
           "ko": "이 눈금만 고칠까요?",
           "de": "Soll ich nur diese Skala ändern?",
-          "en": "Shall I change only this scale?"
+          "en": "Should I change only this scale?"
         },
         {
           "speaker": "user",
@@ -46639,7 +46639,7 @@
           "speaker": "jieun",
           "ko": "도표는 오전에 다시 올리겠습니다.",
           "de": "Das Diagramm stelle ich vormittags neu ein.",
-          "en": "I will post the chart again in the morning."
+          "en": "I'll post the chart again in the morning."
         },
         {
           "speaker": "user",
@@ -46660,7 +46660,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese Skala ändern?",
-                "en": "Shall I change only this scale?"
+                "en": "Should I change only this scale?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -46800,7 +46800,7 @@
           "speaker": "jieun",
           "ko": "이 네 줄만 남길까요?",
           "de": "Soll ich nur diese vier Zeilen behalten?",
-          "en": "Shall I keep only these four lines?"
+          "en": "Should I keep only these four lines?"
         },
         {
           "speaker": "user",
@@ -46824,7 +46824,7 @@
           "speaker": "jieun",
           "ko": "초안은 내일 아침에 돌리겠습니다.",
           "de": "Den Entwurf schicke ich morgen früh herum.",
-          "en": "I will circulate the draft tomorrow morning."
+          "en": "I'll circulate the draft tomorrow morning."
         },
         {
           "speaker": "user",
@@ -46845,7 +46845,7 @@
             "options": [
               {
                 "de": "Soll ich nur diese vier Zeilen behalten?",
-                "en": "Shall I keep only these four lines?"
+                "en": "Should I keep only these four lines?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -46978,7 +46978,7 @@
         {
           "speaker": "user",
           "ko": "이 사진 날짜가 사고 당일이 맞는지 확인해 주세요.",
-          "de": "Bitte prüfen, ob das Fotodatum der Schadentag ist.",
+          "de": "Schauen Sie bitte, ob das Fotodatum der Schadentag ist.",
           "en": "Please check whether the photo date is the day of the incident."
         },
         {
@@ -47009,7 +47009,7 @@
           "speaker": "jieun",
           "ko": "날짜는 한 시간 안에 적어 두겠습니다.",
           "de": "Das Datum schreibe ich in einer Stunde auf.",
-          "en": "I will write the date in an hour."
+          "en": "I'll write the date in an hour."
         },
         {
           "speaker": "user",
@@ -47055,7 +47055,7 @@
             "concept_b2_complaint"
           ],
           "data": {
-            "promptDe": "Bitte prüfen, ob das Fotodatum der Schadentag ist.",
+            "promptDe": "Schauen Sie bitte, ob das Fotodatum der Schadentag ist.",
             "promptEn": "Please check whether the photo date is the day of the incident.",
             "options": [
               {
@@ -47194,7 +47194,7 @@
           "speaker": "jieun",
           "ko": "문장은 오늘 안에 넣겠습니다.",
           "de": "Den Satz setze ich heute noch ein.",
-          "en": "I will put the sentence in today."
+          "en": "I'll put the sentence in today."
         },
         {
           "speaker": "user",
@@ -47355,7 +47355,7 @@
           "speaker": "jieun",
           "ko": "이 질문으로 올릴까요?",
           "de": "Soll ich diese Frage einstellen?",
-          "en": "Shall I post this question?"
+          "en": "Should I post this question?"
         },
         {
           "speaker": "user",
@@ -47400,7 +47400,7 @@
             "options": [
               {
                 "de": "Soll ich diese Frage einstellen?",
-                "en": "Shall I post this question?"
+                "en": "Should I post this question?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -47564,7 +47564,7 @@
           "speaker": "jieun",
           "ko": "제안은 오늘 저녁에 보내겠습니다.",
           "de": "Den Vorschlag sende ich heute Abend.",
-          "en": "I will send the offer this evening."
+          "en": "I'll send the offer this evening."
         },
         {
           "speaker": "user",
@@ -47749,7 +47749,7 @@
           "speaker": "jieun",
           "ko": "정의는 내일 오전에 적어 두겠습니다.",
           "de": "Die Definition schreibe ich morgen früh auf.",
-          "en": "I will write the definition tomorrow morning."
+          "en": "I'll write the definition tomorrow morning."
         },
         {
           "speaker": "user",
@@ -47934,7 +47934,7 @@
           "speaker": "jieun",
           "ko": "방문 시간은 오늘 저녁에 잡겠습니다.",
           "de": "Die Besuchszeit lege ich heute Abend fest.",
-          "en": "I will set the visit time this evening."
+          "en": "I'll set the visit time this evening."
         },
         {
           "speaker": "user",
@@ -48280,7 +48280,7 @@
           "speaker": "jieun",
           "ko": "이 날짜를 기준으로 쓸까요?",
           "de": "Soll ich dieses Datum als Basis nehmen?",
-          "en": "Shall I use this date as the base?"
+          "en": "Should I use this date as the base?"
         },
         {
           "speaker": "user",
@@ -48325,7 +48325,7 @@
             "options": [
               {
                 "de": "Soll ich dieses Datum als Basis nehmen?",
-                "en": "Shall I use this date as the base?"
+                "en": "Should I use this date as the base?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -48465,7 +48465,7 @@
           "speaker": "jieun",
           "ko": "읽음 확인을 켤까요?",
           "de": "Soll ich die Lesebestätigung einschalten?",
-          "en": "Shall I turn on read receipt?"
+          "en": "Should I turn on read receipt?"
         },
         {
           "speaker": "user",
@@ -48489,7 +48489,7 @@
           "speaker": "jieun",
           "ko": "발송은 오후에 바로 하겠습니다.",
           "de": "Den Versand mache ich nachmittags gleich.",
-          "en": "I will send it in the afternoon."
+          "en": "I'll send it in the afternoon."
         },
         {
           "speaker": "user",
@@ -48510,7 +48510,7 @@
             "options": [
               {
                 "de": "Soll ich die Lesebestätigung einschalten?",
-                "en": "Shall I turn on read receipt?"
+                "en": "Should I turn on read receipt?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -48650,7 +48650,7 @@
           "speaker": "jieun",
           "ko": "이 두 번호를 바꿀까요?",
           "de": "Soll ich diese zwei Nummern tauschen?",
-          "en": "Shall I swap these two numbers?"
+          "en": "Should I swap these two numbers?"
         },
         {
           "speaker": "user",
@@ -48695,7 +48695,7 @@
             "options": [
               {
                 "de": "Soll ich diese zwei Nummern tauschen?",
-                "en": "Shall I swap these two numbers?"
+                "en": "Should I swap these two numbers?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -48859,7 +48859,7 @@
           "speaker": "jieun",
           "ko": "설명은 오늘 안에 적어 드리겠습니다.",
           "de": "Die Erklärung schreibe ich Ihnen heute noch auf.",
-          "en": "I will write the explanation today."
+          "en": "I'll write the explanation today."
         },
         {
           "speaker": "user",
@@ -49020,7 +49020,7 @@
           "speaker": "jieun",
           "ko": "주행 경로를 같이 저장할까요?",
           "de": "Soll ich die Fahrtroute mitspeichern?",
-          "en": "Shall I save the route as well?"
+          "en": "Should I save the route as well?"
         },
         {
           "speaker": "user",
@@ -49065,7 +49065,7 @@
             "options": [
               {
                 "de": "Soll ich die Fahrtroute mitspeichern?",
-                "en": "Shall I save the route as well?"
+                "en": "Should I save the route as well?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -49229,7 +49229,7 @@
           "speaker": "jieun",
           "ko": "메모는 오후에 돌려 두겠습니다.",
           "de": "Die Notiz gebe ich nachmittags weiter.",
-          "en": "I will pass the note in the afternoon."
+          "en": "I'll pass the note in the afternoon."
         },
         {
           "speaker": "user",
@@ -49414,7 +49414,7 @@
           "speaker": "jieun",
           "ko": "순서는 자리에서 바로 적어 두겠습니다.",
           "de": "Die Reihenfolge schreibe ich gleich am Platz auf.",
-          "en": "I will write the order at the table now."
+          "en": "I'll write the order at the table now."
         },
         {
           "speaker": "user",
@@ -49575,7 +49575,7 @@
           "speaker": "jieun",
           "ko": "보류 표시를 지금 넣을까요?",
           "de": "Soll ich die Haltemarkierung jetzt setzen?",
-          "en": "Shall I put the hold mark now?"
+          "en": "Should I put the hold mark now?"
         },
         {
           "speaker": "user",
@@ -49599,7 +49599,7 @@
           "speaker": "jieun",
           "ko": "파일이 오면 바로 다시 열겠습니다.",
           "de": "Wenn die Datei da ist, öffne ich gleich wieder.",
-          "en": "When the file arrives I will open it again."
+          "en": "When the file arrives I'll open it again."
         },
         {
           "speaker": "user",
@@ -49620,7 +49620,7 @@
             "options": [
               {
                 "de": "Soll ich die Haltemarkierung jetzt setzen?",
-                "en": "Shall I put the hold mark now?"
+                "en": "Should I put the hold mark now?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -49760,7 +49760,7 @@
           "speaker": "jieun",
           "ko": "이 항목을 다시 출력할까요?",
           "de": "Soll ich diesen Posten neu drucken?",
-          "en": "Shall I print this item again?"
+          "en": "Should I print this item again?"
         },
         {
           "speaker": "user",
@@ -49805,7 +49805,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Posten neu drucken?",
-                "en": "Shall I print this item again?"
+                "en": "Should I print this item again?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -49945,7 +49945,7 @@
           "speaker": "jieun",
           "ko": "이 문장을 주방에 전달할까요?",
           "de": "Soll ich diesen Satz in die Küche geben?",
-          "en": "Shall I pass this sentence to the kitchen?"
+          "en": "Should I pass this sentence to the kitchen?"
         },
         {
           "speaker": "user",
@@ -49969,7 +49969,7 @@
           "speaker": "jieun",
           "ko": "메모는 바로 붙이겠습니다.",
           "de": "Die Notiz hänge ich gleich an.",
-          "en": "I will put the note up now."
+          "en": "I'll put the note up now."
         },
         {
           "speaker": "user",
@@ -49990,7 +49990,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Satz in die Küche geben?",
-                "en": "Shall I pass this sentence to the kitchen?"
+                "en": "Should I pass this sentence to the kitchen?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -50130,7 +50130,7 @@
           "speaker": "jieun",
           "ko": "이 위험을 안내에 넣을까요?",
           "de": "Soll ich dieses Risiko in den Hinweis?",
-          "en": "Shall I put this risk in the notice?"
+          "en": "Should I put this risk in the notice?"
         },
         {
           "speaker": "user",
@@ -50154,7 +50154,7 @@
           "speaker": "jieun",
           "ko": "안내는 오늘 저녁에 고치겠습니다.",
           "de": "Den Hinweis ändere ich heute Abend.",
-          "en": "I will fix the notice this evening."
+          "en": "I'll fix the notice this evening."
         },
         {
           "speaker": "user",
@@ -50175,7 +50175,7 @@
             "options": [
               {
                 "de": "Soll ich dieses Risiko in den Hinweis?",
-                "en": "Shall I put this risk in the notice?"
+                "en": "Should I put this risk in the notice?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -50315,7 +50315,7 @@
           "speaker": "jieun",
           "ko": "주소를 여기에 적을까요?",
           "de": "Soll ich die Adresse hier eintragen?",
-          "en": "Shall I write the address here?"
+          "en": "Should I write the address here?"
         },
         {
           "speaker": "user",
@@ -50360,7 +50360,7 @@
             "options": [
               {
                 "de": "Soll ich die Adresse hier eintragen?",
-                "en": "Shall I write the address here?"
+                "en": "Should I write the address here?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -50524,7 +50524,7 @@
           "speaker": "jieun",
           "ko": "숫자는 오전에 다시 맞춰 두겠습니다.",
           "de": "Die Zahl gleiche ich vormittags noch einmal ab.",
-          "en": "I will match the number again in the morning."
+          "en": "I'll match the number again in the morning."
         },
         {
           "speaker": "user",
@@ -50709,7 +50709,7 @@
           "speaker": "jieun",
           "ko": "문장은 오늘 저녁에 넣겠습니다.",
           "de": "Den Satz setze ich heute Abend ein.",
-          "en": "I will put the sentence in this evening."
+          "en": "I'll put the sentence in this evening."
         },
         {
           "speaker": "user",
@@ -50894,7 +50894,7 @@
           "speaker": "jieun",
           "ko": "슬라이드는 오전에 고치겠습니다.",
           "de": "Die Folie ändere ich vormittags.",
-          "en": "I will fix the slide in the morning."
+          "en": "I'll fix the slide in the morning."
         },
         {
           "speaker": "user",
@@ -51055,7 +51055,7 @@
           "speaker": "jieun",
           "ko": "이 순서를 안내에 적을까요?",
           "de": "Soll ich diese Reihenfolge in den Hinweis?",
-          "en": "Shall I write this order in the notice?"
+          "en": "Should I write this order in the notice?"
         },
         {
           "speaker": "user",
@@ -51079,7 +51079,7 @@
           "speaker": "jieun",
           "ko": "안내는 오늘 저녁에 올리겠습니다.",
           "de": "Den Hinweis stelle ich heute Abend ein.",
-          "en": "I will post the notice this evening."
+          "en": "I'll post the notice this evening."
         },
         {
           "speaker": "user",
@@ -51100,7 +51100,7 @@
             "options": [
               {
                 "de": "Soll ich diese Reihenfolge in den Hinweis?",
-                "en": "Shall I write this order in the notice?"
+                "en": "Should I write this order in the notice?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -51240,7 +51240,7 @@
           "speaker": "jieun",
           "ko": "이 문장으로 바꿀까요?",
           "de": "Soll ich auf diesen Satz wechseln?",
-          "en": "Shall I change it to this sentence?"
+          "en": "Should I change it to this sentence?"
         },
         {
           "speaker": "user",
@@ -51264,7 +51264,7 @@
           "speaker": "jieun",
           "ko": "문항은 내일 아침에 다시 돌리겠습니다.",
           "de": "Die Frage schicke ich morgen früh neu herum.",
-          "en": "I will circulate the item again tomorrow morning."
+          "en": "I'll circulate the item again tomorrow morning."
         },
         {
           "speaker": "user",
@@ -51285,7 +51285,7 @@
             "options": [
               {
                 "de": "Soll ich auf diesen Satz wechseln?",
-                "en": "Shall I change it to this sentence?"
+                "en": "Should I change it to this sentence?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -51425,7 +51425,7 @@
           "speaker": "jieun",
           "ko": "이 두 숫자를 같은 줄에 둘까요?",
           "de": "Soll ich diese zwei Zahlen in dieselbe Zeile?",
-          "en": "Shall I put these two numbers on the same line?"
+          "en": "Should I put these two numbers on the same line?"
         },
         {
           "speaker": "user",
@@ -51449,7 +51449,7 @@
           "speaker": "jieun",
           "ko": "표는 오전에 고치겠습니다.",
           "de": "Die Tabelle ändere ich vormittags.",
-          "en": "I will fix the table in the morning."
+          "en": "I'll fix the table in the morning."
         },
         {
           "speaker": "user",
@@ -51470,7 +51470,7 @@
             "options": [
               {
                 "de": "Soll ich diese zwei Zahlen in dieselbe Zeile?",
-                "en": "Shall I put these two numbers on the same line?"
+                "en": "Should I put these two numbers on the same line?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -51610,7 +51610,7 @@
           "speaker": "jieun",
           "ko": "이 지연을 일정에 넣을까요?",
           "de": "Soll ich diese Verzögerung in den Plan?",
-          "en": "Shall I put this delay on the schedule?"
+          "en": "Should I put this delay on the schedule?"
         },
         {
           "speaker": "user",
@@ -51634,7 +51634,7 @@
           "speaker": "jieun",
           "ko": "권한은 내일 오전에 요청하겠습니다.",
           "de": "Die Freigabe beantrage ich morgen Vormittag.",
-          "en": "I will request access tomorrow morning."
+          "en": "I'll request access tomorrow morning."
         },
         {
           "speaker": "user",
@@ -51655,7 +51655,7 @@
             "options": [
               {
                 "de": "Soll ich diese Verzögerung in den Plan?",
-                "en": "Shall I put this delay on the schedule?"
+                "en": "Should I put this delay on the schedule?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -51795,7 +51795,7 @@
           "speaker": "jieun",
           "ko": "이 순서를 칠판에 적을까요?",
           "de": "Soll ich diese Reihenfolge an die Tafel?",
-          "en": "Shall I write this order on the board?"
+          "en": "Should I write this order on the board?"
         },
         {
           "speaker": "user",
@@ -51819,7 +51819,7 @@
           "speaker": "jieun",
           "ko": "순서는 시작 전에 바로 붙이겠습니다.",
           "de": "Die Reihenfolge hänge ich gleich vor Beginn an.",
-          "en": "I will put the order up right before we start."
+          "en": "I'll put the order up right before we start."
         },
         {
           "speaker": "user",
@@ -51840,7 +51840,7 @@
             "options": [
               {
                 "de": "Soll ich diese Reihenfolge an die Tafel?",
-                "en": "Shall I write this order on the board?"
+                "en": "Should I write this order on the board?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -52004,7 +52004,7 @@
           "speaker": "jieun",
           "ko": "문장은 시작 전에 올려 두겠습니다.",
           "de": "Den Satz stelle ich vor Beginn ein.",
-          "en": "I will post the sentence before we start."
+          "en": "I'll post the sentence before we start."
         },
         {
           "speaker": "user",
@@ -52165,7 +52165,7 @@
           "speaker": "jieun",
           "ko": "이 능동 문장으로 바꿀까요?",
           "de": "Soll ich auf diesen Aktivsatz wechseln?",
-          "en": "Shall I change it to this active sentence?"
+          "en": "Should I change it to this active sentence?"
         },
         {
           "speaker": "user",
@@ -52189,7 +52189,7 @@
           "speaker": "jieun",
           "ko": "기록은 오늘 저녁에 고치겠습니다.",
           "de": "Den Eintrag ändere ich heute Abend.",
-          "en": "I will fix the record this evening."
+          "en": "I'll fix the record this evening."
         },
         {
           "speaker": "user",
@@ -52210,7 +52210,7 @@
             "options": [
               {
                 "de": "Soll ich auf diesen Aktivsatz wechseln?",
-                "en": "Shall I change it to this active sentence?"
+                "en": "Should I change it to this active sentence?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -52374,7 +52374,7 @@
           "speaker": "jieun",
           "ko": "회신은 오후에 보내겠습니다.",
           "de": "Die Antwort sende ich nachmittags.",
-          "en": "I will send the reply in the afternoon."
+          "en": "I'll send the reply in the afternoon."
         },
         {
           "speaker": "user",
@@ -52535,7 +52535,7 @@
           "speaker": "jieun",
           "ko": "이 칸을 비움으로 표시할까요?",
           "de": "Soll ich dieses Feld als leer markieren?",
-          "en": "Shall I mark this box as empty?"
+          "en": "Should I mark this box as empty?"
         },
         {
           "speaker": "user",
@@ -52559,7 +52559,7 @@
           "speaker": "jieun",
           "ko": "표시는 오늘 안에 넣겠습니다.",
           "de": "Die Markierung setze ich heute noch.",
-          "en": "I will put the mark in today."
+          "en": "I'll put the mark in today."
         },
         {
           "speaker": "user",
@@ -52580,7 +52580,7 @@
             "options": [
               {
                 "de": "Soll ich dieses Feld als leer markieren?",
-                "en": "Shall I mark this box as empty?"
+                "en": "Should I mark this box as empty?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -52720,7 +52720,7 @@
           "speaker": "jieun",
           "ko": "이 접수 번호를 넘길까요?",
           "de": "Soll ich diese Annahmenummer weitergeben?",
-          "en": "Shall I pass this filing number?"
+          "en": "Should I pass this filing number?"
         },
         {
           "speaker": "user",
@@ -52765,7 +52765,7 @@
             "options": [
               {
                 "de": "Soll ich diese Annahmenummer weitergeben?",
-                "en": "Shall I pass this filing number?"
+                "en": "Should I pass this filing number?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -52905,7 +52905,7 @@
           "speaker": "jieun",
           "ko": "이 시간대만 먼저 열까요?",
           "de": "Soll ich zuerst nur dieses Zeitfenster öffnen?",
-          "en": "Shall I open only this time window first?"
+          "en": "Should I open only this time window first?"
         },
         {
           "speaker": "user",
@@ -52929,7 +52929,7 @@
           "speaker": "jieun",
           "ko": "로그는 한 시간 안에 받겠습니다.",
           "de": "Das Protokoll habe ich in einer Stunde.",
-          "en": "I will have the log in an hour."
+          "en": "I'll have the log in an hour."
         },
         {
           "speaker": "user",
@@ -52950,7 +52950,7 @@
             "options": [
               {
                 "de": "Soll ich zuerst nur dieses Zeitfenster öffnen?",
-                "en": "Shall I open only this time window first?"
+                "en": "Should I open only this time window first?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -53090,7 +53090,7 @@
           "speaker": "jieun",
           "ko": "이 자리를 첫 줄로 옮길까요?",
           "de": "Soll ich diesen Platz in die erste Zeile legen?",
-          "en": "Shall I move this spot to the first line?"
+          "en": "Should I move this spot to the first line?"
         },
         {
           "speaker": "user",
@@ -53135,7 +53135,7 @@
             "options": [
               {
                 "de": "Soll ich diesen Platz in die erste Zeile legen?",
-                "en": "Shall I move this spot to the first line?"
+                "en": "Should I move this spot to the first line?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",
@@ -53275,7 +53275,7 @@
           "speaker": "jieun",
           "ko": "이 세 집단을 표에 넣을까요?",
           "de": "Soll ich diese drei Gruppen in die Tabelle?",
-          "en": "Shall I put these three groups in the table?"
+          "en": "Should I put these three groups in the table?"
         },
         {
           "speaker": "user",
@@ -53299,7 +53299,7 @@
           "speaker": "jieun",
           "ko": "표는 내일 아침에 올리겠습니다.",
           "de": "Die Tabelle stelle ich morgen früh ein.",
-          "en": "I will post the table tomorrow morning."
+          "en": "I'll post the table tomorrow morning."
         },
         {
           "speaker": "user",
@@ -53320,7 +53320,7 @@
             "options": [
               {
                 "de": "Soll ich diese drei Gruppen in die Tabelle?",
-                "en": "Shall I put these three groups in the table?"
+                "en": "Should I put these three groups in the table?"
               },
               {
                 "de": "Alles ist bereits abgeschlossen.",

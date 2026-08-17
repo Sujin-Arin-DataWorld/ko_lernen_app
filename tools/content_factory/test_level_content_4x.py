@@ -149,6 +149,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
         from batch_10_scene_scripts import (
             GENERIC_SERVICE_SHELL,
             LATIN_IN_KO,
+            SEED_KO_LEFTOVERS,
             SLANG_PASSWORD,
             TEMPLATE_LEFTOVERS,
             batchim_plus_reul,
@@ -187,6 +188,8 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                     SLANG_PASSWORD.search(text),
                     f"{ident} uses slang 비번: {text}",
                 )
+                for leftover in SEED_KO_LEFTOVERS:
+                    self.assertNotIn(leftover, text, f"{ident} leftover {leftover}: {text}")
 
     def test_batch_10_shell_lines_are_unique_per_scene(self) -> None:
         from batch_10_scene_scripts import (
@@ -223,6 +226,12 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                     self.assertNotIn(leftover, triple[1], f"{ident} {slot} {triple[1]}")
                 for leftover in HUMANIZER_SHELL_EN:
                     self.assertNotIn(leftover, triple[2], f"{ident} {slot} {triple[2]}")
+            for field in ("need", "ask", "wait"):
+                spoken_en = seed[field][2]
+                self.assertNotIn("Shall I", spoken_en, f"{ident} {field}")
+                self.assertNotIn("I will ", spoken_en, f"{ident} {field}")
+                self.assertNotIn("in advance", spoken_en, f"{ident} {field}")
+                self.assertNotIn("Bitte prüfen", seed[field][1], f"{ident} {field}")
         self.assertEqual(len(dialogs), 174)
         self.assertEqual(generic_hits, 0)
 

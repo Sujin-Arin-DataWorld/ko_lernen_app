@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 10 시드 humanizer 2차 (검수 대체)
+
+**무엇.** Jin이 174편을 직접 읽지 않겠다고 해서, 접수 프레임에 이은 2차로
+시드 문장까지 `daleseo/korean-skills` + `blader/humanizer`로 훑었다.
+한국어 S1/S2만 고쳤다: `진행하지 않기로` → `넘기지 않습니다`, `말할 수
+있는` → `말할`, `정산을 위해` → `정산용`, `카트 하나 어디에` → `카트는
+어디에`, 같은 계산 대기 3줄 중 2줄을 갈랐다. 대사 DE/EN은 `Shall I` →
+`Should I`, `I will` → `I'll`, `Bitte prüfen, ob` → `Schauen Sie bitte,
+ob`. 상황 문장(`합니다`/`Man …`)은 교재 레지스터라 손대지 않았다.
+`origin/main` `637e70f8`(#61 시나리오 UI)는 직전 커밋에서 머지했다.
+
+**왜.** 검수 파일 목록을 주면 결국 사람이 읽어야 한다. 스킬이 남은
+번역투·직역만 지우고, 학습자가 듣는 문장을 구어로 맞춘다.
+
+**검증.** `rewrite-batch-10` 후 factory/콘텐츠/Flutter 게이트. 시드
+leftover(`진행하지`/`할 수 있는`/`을 위해`)와 셸 `Shall I`/`I will ` 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — Batch 10 접수 프레임 humanizer
 
 **무엇.** Jin이 174편을 다 읽을 수 없다고 해서 `blader/humanizer` +
