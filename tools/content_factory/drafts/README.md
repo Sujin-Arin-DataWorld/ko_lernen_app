@@ -12,9 +12,9 @@ existing record in place, but create a later batch for any additional record.
 
 Batch 01 and Batch 02 each total 96 records. A later batch declares its own
 complete count in its manifest; it may cover one level only when that is the
-review scope. Batch 06 remains the review-only cross-game pilot. Partner-family
-Batch 07/08 and the 4× remainder Batch 09/10 are merged into live
-assets, so the next unused batch number is **11**.
+review scope. Batch 06 is merged live as the cross-game pilot. Partner-family
+Batch 07/08 and the 4× remainder Batch 09/10 are also merged, so the
+next unused batch number is **11**.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -34,7 +34,7 @@ small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
 | 03 | none | decisions and perspectives; reading responses; language in society | B2 #23-25; reserves Batch 01/02 |
 | 04 | eight real-life scenarios | eight real-life scenarios | scenario-only; curriculum assess links + existing backdrops |
 | 05 | none | B2/C1/C2 depth expansion | live multi-asset batch |
-| 06 | scenario 1 + smalltalk 2 + cloze 4 + satz 6 + pronunciation 4 | same B2 scope plus first C1/C2 bundles | review-only cross-game pilot; 68 records + 20 embedded quests |
+| 06 | scenario 1 + smalltalk 2 + cloze 4 + satz 6 + pronunciation 4 | same B2 scope plus first C1/C2 bundles | merged cross-game pilot; 68 records + 20 embedded quests |
 | 07 | partner-family five-asset track | same family/holiday slice | merged into live; superseded 4× draft is `batch_07_4x` |
 | 08 | partner-family scenarios | family/holiday scenarios | merged into live; superseded 4× draft is `batch_08_4x` |
 | 09 | 8 new 12-word packs + 4 grammar + 2 smalltalk + 96 cloze/satz per A1-C2 | same six-level 4× remainder | merged five-asset 1764 records |
