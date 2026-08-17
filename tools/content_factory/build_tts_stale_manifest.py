@@ -13,7 +13,7 @@ content files a text edit can touch:
     cloze.json          items[].fullKo                          female
     satz_sentences.json items[].targetKo                        female
     smalltalk.json      every nested "ko" under phrases         female
-    scenarios.json      dialog[].ko           speaker user -> female, else male
+    scenarios_{level}   dialog[].ko           speaker user -> female, else male
                         quests satzBauen/batchimDrop/hoerverstehen -> data.audioKo
                         quests diktat       -> data.audioKo or data.targetKo
                         quests particlePop  -> prefix + options[correctIndex] + suffix
@@ -42,7 +42,6 @@ CONTENT_FILES = {
     "cloze": "assets/data/cloze.json",
     "satz": "assets/data/satz_sentences.json",
     "smalltalk": "assets/data/smalltalk.json",
-    "scenarios": "assets/data/scenarios.json",
 }
 
 AUDIO_KO_QUESTS = ("satzBauen", "batchimDrop", "hoerverstehen")
@@ -56,6 +55,41 @@ def _show(rev, path):
             f"{result.stderr.decode('utf-8', 'replace')}"
         )
     return result.stdout.decode("utf-8")
+
+
+def _scenarios_at(rev):
+    """Scenario rows at ``rev``, whichever corpus layout that revision uses.
+
+    ``a22b4424`` split ``assets/data/scenarios.json`` into
+    ``scenarios_{a1..c2}.json``.  A stale manifest compares two revisions, so
+    one side of the pair can still predate the split.
+    """
+    listing = subprocess.run(
+        ["git", "ls-tree", "--name-only", f"{rev}:assets/data"],
+        capture_output=True,
+    )
+    if listing.returncode != 0:
+        raise SystemExit(
+            f"git ls-tree {rev}:assets/data failed: "
+            f"{listing.stderr.decode('utf-8', 'replace')}"
+        )
+    names = listing.stdout.decode("utf-8").split()
+    shards = sorted(
+        name
+        for name in names
+        if name.startswith("scenarios_") and name.endswith(".json")
+    )
+    if not shards and "scenarios.json" in names:
+        shards = ["scenarios.json"]
+    if not shards:
+        raise SystemExit(f"{rev} has no scenario corpus under assets/data")
+    rows = []
+    for name in shards:
+        payload = json.loads(_show(rev, f"assets/data/{name}"))
+        rows.extend(
+            payload if isinstance(payload, list) else payload.get("scenarios", [])
+        )
+    return rows
 
 
 def collect(rev):
@@ -89,9 +123,7 @@ def collect(rev):
 
     walk_ko(json.loads(_show(rev, CONTENT_FILES["smalltalk"])).get("phrases", []))
 
-    for scenario in json.loads(_show(rev, CONTENT_FILES["scenarios"])).get(
-        "scenarios", []
-    ):
+    for scenario in _scenarios_at(rev):
         for line in scenario.get("dialog", []):
             text = (line.get("ko") or "").strip()
             if text:
