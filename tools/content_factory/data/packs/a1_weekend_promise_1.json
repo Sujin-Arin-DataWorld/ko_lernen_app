@@ -1,0 +1,24 @@
+{
+  "packId": "a1_weekend_promise_1",
+  "level": "a1",
+  "orderInLevel": 28,
+  "topic": "Wochenendzusage",
+  "unit": "a1_09_home_daily_life",
+  "concept": "concept_a1_home_daily",
+  "motif": "vine",
+  "labels": {"ko": "주말 약속", "de": "Wochenendzusage", "en": "Weekend plans"},
+  "words": [
+    ["늦잠", "Ausschlafen", "sleeping in", "Nomen", "Noun", "일요일에는 늦잠을 자고 싶어요.", "Am Sonntag möchte ich ausschlafen.", "On Sunday I want to sleep in."],
+    ["약속 시간", "Terminzeit", "meeting time", "Ausdruck", "Expression", "약속 시간을 세 시로 바꿀까요?", "Sollen wir die Terminzeit auf drei Uhr ändern?", "Shall we change the meeting time to three?"],
+    ["약속 장소", "Treffpunkt", "meeting place", "Ausdruck", "Expression", "약속 장소는 역 앞이에요.", "Der Treffpunkt ist vor dem Bahnhof.", "The meeting place is in front of the station."],
+    ["취소하다", "absagen", "to cancel", "Verb", "Verb", "비가 오면 산책을 취소하다 결정해요.", "Wenn es regnet, entscheide ich, den Spaziergang abzusagen.", "If it rains, I decide to cancel the walk."],
+    ["미리 연락", "vorher Bescheid sagen", "advance notice", "Ausdruck", "Expression", "늦으면 미리 연락해 주세요.", "Wenn Sie sich verspäten, sagen Sie bitte vorher Bescheid.", "If you will be late, please give advance notice."],
+    ["시간 맞추다", "die Zeit abstimmen", "to match the time", "Ausdruck", "Expression", "내일 오후에 시간 맞추다 문자를 보냈어요.", "Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.", "I texted tomorrow afternoon to match the time."],
+    ["다음에 봐요", "bis zum nächsten Mal", "see you next time", "Ausdruck", "Expression", "오늘은 여기까지 하고 다음에 봐요.", "Für heute reicht es, bis zum nächsten Mal.", "That's enough for today, see you next time."],
+    ["바로 갈게요", "ich komme gleich", "I'll come right away", "Ausdruck", "Expression", "지금 나와서 바로 갈게요.", "Ich gehe jetzt raus und komme gleich.", "I'm heading out now and I'll come right away."],
+    ["주말 계획", "Wochenendplan", "weekend plan", "Ausdruck", "Expression", "주말 계획을 같이 세워 봐요.", "Lassen Sie uns den Wochenendplan gemeinsam machen.", "Let's make the weekend plan together."],
+    ["늦을 것 같다", "wahrscheinlich zu spät", "looks like I'll be late", "Ausdruck", "Expression", "버스가 막혀서 늦을 것 같다 연락했어요.", "Der Bus steckt fest, deshalb habe ich geschrieben, dass ich wahrscheinlich zu spät bin.", "The bus is stuck, so I wrote that it looks like I'll be late."],
+    ["같이 걷다", "zusammen gehen", "to walk together", "Ausdruck", "Expression", "한강에서 같이 걷다 제안했어요.", "Ich habe vorgeschlagen, am Hangang zusammen zu gehen.", "I suggested that we walk together at the Hangang."],
+    ["먼저 가다", "schon vorausgehen", "to go ahead first", "Ausdruck", "Expression", "저는 먼저 가다 자리를 잡을게요.", "Ich gehe schon voraus und sichere uns Plätze.", "I'll go ahead first and hold seats."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "a1_subway_card_1",
+  "level": "a1",
+  "orderInLevel": 31,
+  "topic": "U-Bahnkarte",
+  "unit": "a1_06_transport_directions",
+  "concept": "concept_a1_directions",
+  "motif": "mountain",
+  "labels": {"ko": "지하철 카드", "de": "U-Bahn-Karte", "en": "Subway card"},
+  "words": [
+    ["환승", "Umsteigen", "transfer", "Nomen", "Noun", "다음 역에서 환승하세요.", "Steigen Sie an der nächsten Station um.", "Transfer at the next station."],
+    ["출구", "Ausgang", "exit", "Nomen", "Noun", "사 번 출구로 나가면 은행이 있어요.", "Wenn Sie Ausgang vier nehmen, ist dort eine Bank.", "If you take exit four, there is a bank."],
+    ["승강장", "Bahnsteig", "platform", "Nomen", "Noun", "승강장에서 노란 선 뒤에 서요.", "Auf dem Bahnsteig stehe ich hinter der gelben Linie.", "On the platform I stand behind the yellow line."],
+    ["막차", "letzter Zug", "last train", "Nomen", "Noun", "오늘 막차는 열두 시예요.", "Der letzte Zug ist heute um zwölf Uhr.", "The last train today is at twelve."],
+    ["하차", "Aussteigen", "getting off", "Nomen", "Noun", "시청역에서 하차하면 됩니다.", "Sie können am Rathaus aussteigen.", "You can get off at City Hall station."],
+    ["승차", "Einsteigen", "boarding", "Nomen", "Noun", "문이 열리면 천천히 승차하세요.", "Wenn die Tür aufgeht, steigen Sie bitte langsam ein.", "When the door opens, please board slowly."],
+    ["정기권", "Zeitkarte", "pass", "Nomen", "Noun", "한 달 정기권을 충전했어요.", "Ich habe eine Monatskarte aufgeladen.", "I loaded a one-month pass."],
+    ["개찰구", "Sperre", "ticket gate", "Nomen", "Noun", "개찰구에 카드를 찍고 들어가요.", "Ich halte die Karte an die Sperre und gehe hinein.", "I tap the card at the ticket gate and go in."],
+    ["노선도", "Linienplan", "line map", "Nomen", "Noun", "노선도에서 빨간 선을 찾아요.", "Auf dem Linienplan suche ich die rote Linie.", "I look for the red line on the map."],
+    ["도착 안내", "Ansage", "arrival announcement", "Ausdruck", "Expression", "도착 안내가 나오면 일어나요.", "Wenn die Ansage kommt, stehe ich auf.", "When the arrival announcement comes, I stand up."],
+    ["카드 잔액", "Kartenguthaben", "card balance", "Ausdruck", "Expression", "카드 잔액이 부족해서 충전이 필요해요.", "Das Kartenguthaben reicht nicht, ich muss aufladen.", "The card balance is low, so I need to top up."],
+    ["내리는 문", "Ausstiegstür", "exit door", "Ausdruck", "Expression", "내리는 문은 오른쪽이에요.", "Die Ausstiegstür ist rechts.", "The exit door is on the right."]
+  ]
+}

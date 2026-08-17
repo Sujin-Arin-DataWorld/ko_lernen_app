@@ -1,0 +1,24 @@
+{
+  "packId": "c2_audit_trail_1",
+  "level": "c2",
+  "orderInLevel": 10,
+  "topic": "Prüfspur",
+  "unit": "c2_02_technology_public_ethics",
+  "concept": "concept_c2_accountable_systems",
+  "motif": "wave",
+  "labels": {"ko": "감사 추적", "de": "Prüfspur", "en": "Audit trail"},
+  "words": [
+    ["추적 가능성", "Nachvollziehbarkeit", "traceability", "Ausdruck", "Expression", "추적 가능성이 로그 없이 주장되면 믿지 않아요.", "Wird Nachvollziehbarkeit ohne Protokoll behauptet, glaube ich nicht.", "If traceability is claimed without a log, I do not believe it."],
+    ["변경 이력", "Änderungshistorie", "change history", "Ausdruck", "Expression", "변경 이력에 사람과 시각이 빠지면 추적이 끊겨요.", "Fehlen Person und Uhrzeit in der Änderungshistorie, reißt die Spur.", "If person and time drop from the change history, the trail breaks."],
+    ["접근 기록", "Zugriffsprotokoll", "access log", "Ausdruck", "Expression", "접근 기록을 당사자도 볼 수 있어야 감사가 성립해요.", "Nur wenn Betroffene das Zugriffsprotokoll sehen, trägt die Prüfung.", "An audit holds only if the affected person can also see the access log."],
+    ["보존 기한", "Haltedauer", "retention window", "Ausdruck", "Expression", "보존 기한을 너무 짧게 두면 이의가 증거 없이 끝나요.", "Eine zu kurze Haltedauer beendet den Einspruch ohne Beleg.", "A retention window that is too short ends an appeal without evidence."],
+    ["삭제 권한", "Löschbefugnis", "who may delete", "Ausdruck", "Expression", "삭제 권한을 운영자 한 명에게만 주지 않아요.", "Die Löschbefugnis gebe ich nicht einer Betriebsperson allein.", "I do not give who-may-delete to a single operator."],
+    ["모델 버전", "Modellstand", "model version", "Ausdruck", "Expression", "모델 버전을 결정문에 적어야 재현이 가능해요.", "Ohne Modellstand im Bescheid ist keine Wiederholung möglich.", "Without the model version on the decision, reproduction is impossible."],
+    ["입력 스냅샷", "Eingabestand", "input snapshot", "Ausdruck", "Expression", "입력 스냅샷을 남기지 않으면 나중에 다른 자료로 변명해요.", "Ohne Eingabestand erklärt man später andere Daten.", "Without an input snapshot, later excuses use different data."],
+    ["감사 독립", "Prüfunabhängigkeit", "audit independence", "Ausdruck", "Expression", "감사 독립이 계약으로 막히면 공개 감사가 아니에요.", "Ist Prüfunabhängigkeit vertraglich blockiert, ist es keine öffentliche Prüfung.", "If audit independence is blocked by contract, it is not a public audit."],
+    ["로그 변조", "Protokollbruch", "log tampering", "Ausdruck", "Expression", "로그 변조를 탐지하는 서명을 같이 설계해요.", "Gegen Protokollbruch entwerfe ich eine Mit-Signatur.", "I design a co-signature that detects log tampering."],
+    ["최소 수집", "Minimalerhebung", "minimum collection", "Ausdruck", "Expression", "최소 수집을 어기면 추적이 감시가 돼요.", "Verletzt man die Minimalerhebung, wird die Spur zur Überwachung.", "If you break minimum collection, the trail becomes surveillance."],
+    ["열람 창구", "Einsichtskanal", "inspection channel", "Ausdruck", "Expression", "열람 창구가 우편뿐이면 기한을 맞추기 어려워요.", "Ist der Einsichtskanal nur die Post, ist die Frist schwer haltbar.", "If the inspection channel is mail only, the deadline is hard to meet."],
+    ["책임 매핑", "Zuständigkeitskarte", "accountability map", "Ausdruck", "Expression", "책임 매핑이 없으면 오류가 시스템 탓으로만 가요.", "Ohne Zuständigkeitskarte wird jeder Fehler nur das System.", "Without an accountability map, every error is blamed only on the system."]
+  ]
+}

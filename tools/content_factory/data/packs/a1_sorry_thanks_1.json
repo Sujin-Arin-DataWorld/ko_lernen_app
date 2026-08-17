@@ -1,0 +1,24 @@
+{
+  "packId": "a1_sorry_thanks_1",
+  "level": "a1",
+  "orderInLevel": 33,
+  "topic": "Entschuldigung",
+  "unit": "a1_13_register_switching",
+  "concept": "concept_a1_register_switch",
+  "motif": "plum",
+  "labels": {"ko": "사과와 감사", "de": "Entschuldigung und Dank", "en": "Sorry and thanks"},
+  "words": [
+    ["죄송하다", "leidtun", "to be sorry", "Verb", "Verb", "늦게 와서 죄송하다 말하고 앉았어요.", "Ich sagte, es tue mir leid, dass ich zu spät komme, und setzte mich.", "I said I was sorry for being late and sat down."],
+    ["감사하다", "dankbar sein", "to be grateful", "Verb", "Verb", "도와주셔서 감사하다 인사를 했어요.", "Ich habe mich bedankt, weil Sie geholfen haben.", "I said I was grateful that you helped."],
+    ["실례하다", "stören", "to excuse oneself", "Verb", "Verb", "잠깐 실례하다 하고 지나갔어요.", "Ich sagte Entschuldigung und ging vorbei.", "I said excuse me and passed by."],
+    ["양해", "Verständnis", "understanding", "Nomen", "Noun", "소음에 양해를 구했어요.", "Ich habe um Verständnis für den Lärm gebeten.", "I asked for understanding about the noise."],
+    ["부탁하다", "bitten", "to ask a favor", "Verb", "Verb", "창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.", "Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.", "Before I ask them to close the window, I greet them first."],
+    ["문제없어요", "kein Problem", "no problem", "Ausdruck", "Expression", "실수해도 문제없어요.", "Wenn Sie einen Fehler machen, ist das kein Problem.", "If you make a mistake, no problem."],
+    ["제가 더요", "ich habe zu danken", "I should thank you", "Ausdruck", "Expression", "도와줘서 고맙다는 말에 제가 더요.", "Auf das Danke sage ich, ich habe zu danken.", "When someone thanks me, I say I should thank you."],
+    ["잠깐만요", "einen Moment", "just a moment", "Ausdruck", "Expression", "계산 전에 잠깐만요.", "Vor dem Bezahlen, einen Moment bitte.", "Just a moment before paying."],
+    ["다시 말하다", "noch einmal sagen", "to say again", "Ausdruck", "Expression", "못 들어서 다시 말하다 부탁했어요.", "Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.", "I asked them to say it again because I did not hear it."],
+    ["천천히 말하다", "langsam sprechen", "to speak slowly", "Ausdruck", "Expression", "한국어를 천천히 말하다 들으면 이해가 돼요.", "Wenn Sie Koreanisch langsam sprechen, verstehe ich es.", "If you speak Korean slowly, I understand."],
+    ["정말 감사해요", "vielen Dank", "thank you so much", "Ausdruck", "Expression", "자리를 양보해 주셔서 정말 감사해요.", "Vielen Dank, dass Sie den Platz überlassen haben.", "Thank you so much for giving up the seat."],
+    ["정말 죄송해요", "es tut mir sehr leid", "I am very sorry", "Ausdruck", "Expression", "발을 밟아서 정말 죄송해요.", "Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.", "I am very sorry I stepped on your foot."]
+  ]
+}

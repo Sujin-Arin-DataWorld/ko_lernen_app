@@ -1,0 +1,24 @@
+{
+  "packId": "c1_participation_design_1",
+  "level": "c1",
+  "orderInLevel": 10,
+  "topic": "Beteiligungsdesign",
+  "unit": "c1_02_inclusive_sustainable_systems",
+  "concept": "concept_c1_inclusive_systems",
+  "motif": "lotus",
+  "labels": {"ko": "참여 설계", "de": "Beteiligungsdesign", "en": "Participation design"},
+  "words": [
+    ["참여 장벽", "Teilnahmehürde", "participation barrier", "Ausdruck", "Expression", "참여 장벽을 시간, 언어, 이동으로 나눠 적어요.", "Die Teilnahmehürde teile ich in Zeit, Sprache und Weg.", "I split the participation barrier into time, language, and travel."],
+    ["발언 할당", "Redequote", "speaking allotment", "Ausdruck", "Expression", "발언 할당을 먼저 온 사람 순으로만 주지 않아요.", "Die Redequote vergebe ich nicht nur nach Ankunft.", "I do not give the speaking allotment only by who arrived first."],
+    ["대리 참여", "Stellvertretung", "proxy participation", "Ausdruck", "Expression", "대리 참여를 허용하면 위임 범위를 짧게 적어요.", "Erlaubt man Stellvertretung, steht der Auftrag kurz.", "If proxy participation is allowed, I write a short mandate."],
+    ["피드백 순환", "Rückmeldeschleife", "feedback loop", "Ausdruck", "Expression", "피드백 순환이 없으면 참여가 일회성으로 끝나요.", "Ohne Rückmeldeschleife bleibt Beteiligung einmalig.", "Without a feedback loop, participation stays one-off."],
+    ["의제 설정권", "Agendahoheit", "agenda power", "Ausdruck", "Expression", "의제 설정권을 주최 측만 가지면 결과가 기울어요.", "Liegt die Agendahoheit nur beim Gastgeber, kippt das Ergebnis.", "If only the host has agenda power, the outcome tilts."],
+    ["소수 의견", "Minderheitenlage", "minority view", "Ausdruck", "Expression", "소수 의견을 표 밖에 따로 기록해요.", "Die Minderheitenlage steht getrennt neben der Abstimmung.", "I record the minority view separately from the vote."],
+    ["접근 가능한 장소", "barrierearmer Ort", "accessible venue", "Ausdruck", "Expression", "접근 가능한 장소를 고르지 못하면 온라인 병행을 열어요.", "Fehlt ein barrierearmer Ort, öffne ich einen Onlineweg.", "If I cannot pick an accessible venue, I open an online option."],
+    ["통역 지원", "Dolmetschhilfe", "interpreting support", "Ausdruck", "Expression", "통역 지원을 행사 예산의 기본 항목으로 넣어요.", "Dolmetschhilfe steht als Grundposten im Etat.", "I put interpreting support as a basic budget line."],
+    ["사전 자료", "Vorabunterlage", "advance packet", "Ausdruck", "Expression", "사전 자료를 삼 일 전에 보내야 질문이 깊어져요.", "Vorabunterlagen drei Tage vorher machen Fragen tiefer.", "Sending the advance packet three days earlier deepens questions."],
+    ["참여 피로", "Beteiligungsmüdigkeit", "engagement fatigue", "Ausdruck", "Expression", "참여 피로를 줄이려고 회의를 겹치지 않게 잡아요.", "Gegen Beteiligungsmüdigkeit lege ich Sitzungen nicht übereinander.", "To reduce engagement fatigue I do not stack meetings."],
+    ["결정 환류", "Beschlussrückgabe", "decision return", "Ausdruck", "Expression", "결정 환류가 늦으면 다음 참여율이 떨어져요.", "Kommt die Beschlussrückgabe spät, sinkt die nächste Beteiligung.", "If the decision return is late, the next turnout drops."],
+    ["공동 설계", "Mitgestaltung", "co-design", "Nomen", "Noun", "공동 설계는 취향 투표가 아니라 제약 공유에서 시작해요.", "Mitgestaltung beginnt mit geteilten Grenzen, nicht mit Geschmacksabstimmung.", "Co-design starts from shared constraints, not a taste vote."]
+  ]
+}

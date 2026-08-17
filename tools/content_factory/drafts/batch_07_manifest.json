@@ -1,0 +1,3039 @@
+{
+  "version": 1,
+  "batch": "07",
+  "status": "review_only_draft",
+  "provenance": {
+    "scope": "Original A1-C2 Korea-appropriate expansion of vocabulary packs, cloze, Satzbau, grammar, and smalltalk. No textbook sentence, prompt, or unit sequence is reproduced.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "startingMainSha": "82afdcde8ffdbc978499f4dd1cc20bf2944e20ed",
+    "createdAt": "2026-08-16"
+  },
+  "predecessorManifests": [],
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch07_vocab_a1_c2.csv",
+      "review": "tools/content_factory/review/c3_batch07_vocab_a1_c2.csv",
+      "count": 576,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 96,
+        "c2": 96
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch07_grammar_a1_c2.csv",
+      "review": "tools/content_factory/review/c4_batch07_grammar_a1_c2.csv",
+      "count": 24,
+      "levels": {
+        "a1": 4,
+        "a2": 4,
+        "b1": 4,
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch07_smalltalk_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch07_smalltalk_a1_c2.csv",
+      "count": 12,
+      "levels": {
+        "a1": 2,
+        "a2": 2,
+        "b1": 2,
+        "b2": 2,
+        "c1": 2,
+        "c2": 2
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch07_cloze_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch07_cloze_a1_c2.csv",
+      "count": 576,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 96,
+        "c2": 96
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch07_satz_a1_c2.json",
+      "review": "tools/content_factory/review/c2_batch07_satz_a1_c2.csv",
+      "count": 576,
+      "levels": {
+        "a1": 96,
+        "a2": 96,
+        "b1": 96,
+        "b2": 96,
+        "c1": 96,
+        "c2": 96
+      }
+    }
+  ],
+  "recordCount": 1764,
+  "vocabPacks": [
+    {
+      "packId": "a1_post_office_1",
+      "level": "a1",
+      "orderInLevel": 26,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "우체국에서",
+        "de": "Auf der Post",
+        "en": "At the post office"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_07_contact_address",
+        "conceptIds": [
+          "concept_a1_contact_address"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "a1_pharmacy_ask_1",
+      "level": "a1",
+      "orderInLevel": 27,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "약국에서 묻기",
+        "de": "In der Apotheke fragen",
+        "en": "Asking at the pharmacy"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_10_health_safety",
+        "conceptIds": [
+          "concept_a1_health_safety"
+        ]
+      },
+      "motif": "cloud",
+      "motifEnum": "DancheongMotif.cloud"
+    },
+    {
+      "packId": "a1_weekend_promise_1",
+      "level": "a1",
+      "orderInLevel": 28,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "주말 약속",
+        "de": "Wochenendzusage",
+        "en": "Weekend plans"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_09_home_daily_life",
+        "conceptIds": [
+          "concept_a1_home_daily"
+        ]
+      },
+      "motif": "vine",
+      "motifEnum": "DancheongMotif.vine"
+    },
+    {
+      "packId": "a1_neighbors_hall_1",
+      "level": "a1",
+      "orderInLevel": 29,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "이웃과 복도",
+        "de": "Nachbarn im Flur",
+        "en": "Neighbors in the hall"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_11_titles_relationships",
+        "conceptIds": [
+          "concept_a1_titles_relationships"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "a1_school_supplies_1",
+      "level": "a1",
+      "orderInLevel": 30,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "수업 준비물",
+        "de": "Sachen für den Kurs",
+        "en": "Class supplies"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_15_first_class_work",
+        "conceptIds": [
+          "concept_a1_first_meeting"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "a1_subway_card_1",
+      "level": "a1",
+      "orderInLevel": 31,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "지하철 카드",
+        "de": "U-Bahn-Karte",
+        "en": "Subway card"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_06_transport_directions",
+        "conceptIds": [
+          "concept_a1_directions"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    },
+    {
+      "packId": "a1_weather_layer_1",
+      "level": "a1",
+      "orderInLevel": 32,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "날씨에 맞춰 입기",
+        "de": "Der Witterung anziehen",
+        "en": "Dressing for the weather"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_09_home_daily_life",
+        "conceptIds": [
+          "concept_a1_home_daily"
+        ]
+      },
+      "motif": "cloud",
+      "motifEnum": "DancheongMotif.cloud"
+    },
+    {
+      "packId": "a1_sorry_thanks_1",
+      "level": "a1",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "사과와 감사",
+        "de": "Entschuldigung und Dank",
+        "en": "Sorry and thanks"
+      },
+      "curriculum": {
+        "courseUnitId": "a1_13_register_switching",
+        "conceptIds": [
+          "concept_a1_register_switch"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "a2_phone_plan_1",
+      "level": "a2",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "휴대폰 요금제",
+        "de": "Handytarif",
+        "en": "Phone plan"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_05_delivery_services",
+        "conceptIds": [
+          "concept_a2_services"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "a2_bank_counter_1",
+      "level": "a2",
+      "orderInLevel": 34,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "은행 창구",
+        "de": "Am Bankschalter",
+        "en": "Bank counter"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_08_home_money",
+        "conceptIds": [
+          "concept_a2_home_money"
+        ]
+      },
+      "motif": "peony",
+      "motifEnum": "DancheongMotif.peony"
+    },
+    {
+      "packId": "a2_gym_class_1",
+      "level": "a2",
+      "orderInLevel": 35,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "운동 수업",
+        "de": "Fitnesskurs",
+        "en": "Gym class"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_04_feelings_health",
+        "conceptIds": [
+          "concept_a2_feelings"
+        ]
+      },
+      "motif": "cloud",
+      "motifEnum": "DancheongMotif.cloud"
+    },
+    {
+      "packId": "a2_salon_visit_1",
+      "level": "a2",
+      "orderInLevel": 36,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "미용실 방문",
+        "de": "Friseurbesuch",
+        "en": "Salon visit"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_05_delivery_services",
+        "conceptIds": [
+          "concept_a2_services"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "a2_apt_rules_1",
+      "level": "a2",
+      "orderInLevel": 37,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "아파트 규칙",
+        "de": "Hausordnung",
+        "en": "Apartment rules"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_08_home_money",
+        "conceptIds": [
+          "concept_a2_home_money"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "a2_part_time_1",
+      "level": "a2",
+      "orderInLevel": 38,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "아르바이트",
+        "de": "Nebenjob",
+        "en": "Part-time job"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_06_study_work",
+        "conceptIds": [
+          "concept_a2_work_study"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "a2_lost_found_1",
+      "level": "a2",
+      "orderInLevel": 39,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "분실물 찾기",
+        "de": "Fundsachen",
+        "en": "Lost and found"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_07_travel_repair",
+        "conceptIds": [
+          "concept_a2_travel_repair"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    },
+    {
+      "packId": "a2_festival_booth_1",
+      "level": "a2",
+      "orderInLevel": 40,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "축제 부스",
+        "de": "Feststand",
+        "en": "Festival booth"
+      },
+      "curriculum": {
+        "courseUnitId": "a2_03_chat_relationships",
+        "conceptIds": [
+          "concept_a2_relationships"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "b1_workplace_mail_1",
+      "level": "b1",
+      "orderInLevel": 21,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "직장 메일",
+        "de": "Dienstmail",
+        "en": "Workplace mail"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_03_work_softening",
+        "conceptIds": [
+          "concept_b1_softening"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "b1_roommate_talk_1",
+      "level": "b1",
+      "orderInLevel": 22,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "룸메이트 대화",
+        "de": "WG-Gespräch",
+        "en": "Roommate talk"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "b1_insurance_claim_1",
+      "level": "b1",
+      "orderInLevel": 23,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "보험 청구",
+        "de": "Versicherungsfall",
+        "en": "Insurance claim"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_05_complaint_resolution",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ]
+      },
+      "motif": "cloud",
+      "motifEnum": "DancheongMotif.cloud"
+    },
+    {
+      "packId": "b1_public_office_1",
+      "level": "b1",
+      "orderInLevel": 24,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "관공서 일",
+        "de": "Gang zum Amt",
+        "en": "Public office errand"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_05_complaint_resolution",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "b1_volunteer_shift_1",
+      "level": "b1",
+      "orderInLevel": 25,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "봉사 교대",
+        "de": "Ehrenamtsschicht",
+        "en": "Volunteer shift"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_06_life_capstone",
+        "conceptIds": [
+          "concept_b1_life"
+        ]
+      },
+      "motif": "vine",
+      "motifEnum": "DancheongMotif.vine"
+    },
+    {
+      "packId": "b1_parent_school_1",
+      "level": "b1",
+      "orderInLevel": 26,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "학부모 면담",
+        "de": "Elterngespräch",
+        "en": "Parent-school talk"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_04_relationships",
+        "conceptIds": [
+          "concept_b1_relationships"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "b1_repair_words_1",
+      "level": "b1",
+      "orderInLevel": 27,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "수리 어휘",
+        "de": "Reparaturwortschatz",
+        "en": "Repair words"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_05_complaint_resolution",
+        "conceptIds": [
+          "concept_b1_complaint_resolution"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "b1_travel_change_1",
+      "level": "b1",
+      "orderInLevel": 28,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "여행 일정 변경",
+        "de": "Reiseänderung",
+        "en": "Travel change"
+      },
+      "curriculum": {
+        "courseUnitId": "b1_01_experience_reasons",
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    },
+    {
+      "packId": "b2_performance_review_1",
+      "level": "b2",
+      "orderInLevel": 30,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "평가 면담",
+        "de": "Beurteilungsgespräch",
+        "en": "Performance review"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_05_interview",
+        "conceptIds": [
+          "concept_b2_interview"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "b2_housing_dispute_1",
+      "level": "b2",
+      "orderInLevel": 31,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "주거 분쟁",
+        "de": "Wohnstreit",
+        "en": "Housing dispute"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_04_complaint_resolution",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "b2_media_literacy_1",
+      "level": "b2",
+      "orderInLevel": 32,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "매체 판단",
+        "de": "Medienkompetenz",
+        "en": "Media literacy"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "b2_civic_meeting_1",
+      "level": "b2",
+      "orderInLevel": 33,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "주민 회의",
+        "de": "Bürgerversammlung",
+        "en": "Civic meeting"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "b2_team_negotiation_1",
+      "level": "b2",
+      "orderInLevel": 34,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "팀 조율",
+        "de": "Teamverhandlung",
+        "en": "Team negotiation"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_03_precise_requests",
+        "conceptIds": [
+          "concept_b2_precise_requests"
+        ]
+      },
+      "motif": "bamboo",
+      "motifEnum": "DancheongMotif.bamboo"
+    },
+    {
+      "packId": "b2_policy_brief_1",
+      "level": "b2",
+      "orderInLevel": 35,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "정책 요약",
+        "de": "Kurze Lage",
+        "en": "Policy brief"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "b2_customer_escalation_1",
+      "level": "b2",
+      "orderInLevel": 36,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "고객 에스컬레이션",
+        "de": "Eskalation",
+        "en": "Customer escalation"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_04_complaint_resolution",
+        "conceptIds": [
+          "concept_b2_complaint"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "b2_research_summary_1",
+      "level": "b2",
+      "orderInLevel": 37,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "조사 요약",
+        "de": "Kurzreferat",
+        "en": "Research summary"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "c1_evidence_caveat_1",
+      "level": "c1",
+      "orderInLevel": 5,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "근거의 유보",
+        "de": "Evidenzvorbehalt",
+        "en": "Evidence caveats"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_01_evidence_public_reasoning",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "c1_public_briefing_1",
+      "level": "c1",
+      "orderInLevel": 6,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "공공 브리핑",
+        "de": "Öffentliche Lage",
+        "en": "Public briefing"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_01_evidence_public_reasoning",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ]
+      },
+      "motif": "manja",
+      "motifEnum": "DancheongMotif.manja"
+    },
+    {
+      "packId": "c1_survey_design_1",
+      "level": "c1",
+      "orderInLevel": 7,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "조사 설계",
+        "de": "Erhebungsdesign",
+        "en": "Survey design"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_01_evidence_public_reasoning",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "c1_risk_wording_1",
+      "level": "c1",
+      "orderInLevel": 8,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "위험 표현",
+        "de": "Risikosprache",
+        "en": "Risk wording"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_01_evidence_public_reasoning",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ]
+      },
+      "motif": "cloud",
+      "motifEnum": "DancheongMotif.cloud"
+    },
+    {
+      "packId": "c1_access_cost_1",
+      "level": "c1",
+      "orderInLevel": 9,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "접근과 비용",
+        "de": "Zugang und Kosten",
+        "en": "Access and cost"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c1_participation_design_1",
+      "level": "c1",
+      "orderInLevel": 10,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "참여 설계",
+        "de": "Beteiligungsdesign",
+        "en": "Participation design"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "lotus",
+      "motifEnum": "DancheongMotif.lotus"
+    },
+    {
+      "packId": "c1_local_tradeoff_1",
+      "level": "c1",
+      "orderInLevel": 11,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "지역 상충",
+        "de": "Abwägung vor Ort",
+        "en": "Local trade-offs"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "c1_maintenance_burden_1",
+      "level": "c1",
+      "orderInLevel": 12,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "유지 부담",
+        "de": "Betriebslast",
+        "en": "Maintenance burden"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "vine",
+      "motifEnum": "DancheongMotif.vine"
+    },
+    {
+      "packId": "c2_framing_analysis_1",
+      "level": "c2",
+      "orderInLevel": 5,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "프레이밍 분석",
+        "de": "Framinganalyse",
+        "en": "Framing analysis"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "c2_institutional_voice_1",
+      "level": "c2",
+      "orderInLevel": 6,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "제도의 목소리",
+        "de": "Stimme der Institution",
+        "en": "Institutional voice"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "manja",
+      "motifEnum": "DancheongMotif.manja"
+    },
+    {
+      "packId": "c2_memory_narrative_1",
+      "level": "c2",
+      "orderInLevel": 7,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "기억과 서술",
+        "de": "Erinnerung und Erzählung",
+        "en": "Memory and narrative"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "chrysanthemum",
+      "motifEnum": "DancheongMotif.chrysanthemum"
+    },
+    {
+      "packId": "c2_authority_language_1",
+      "level": "c2",
+      "orderInLevel": 8,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "권위의 언어",
+        "de": "Autoritätssprache",
+        "en": "Language of authority"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "c2_appeal_path_1",
+      "level": "c2",
+      "orderInLevel": 9,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "이의 경로",
+        "de": "Einspruchsweg",
+        "en": "Appeal path"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "motif": "octagon",
+      "motifEnum": "DancheongMotif.octagon"
+    },
+    {
+      "packId": "c2_audit_trail_1",
+      "level": "c2",
+      "orderInLevel": 10,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "감사 추적",
+        "de": "Prüfspur",
+        "en": "Audit trail"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "motif": "wave",
+      "motifEnum": "DancheongMotif.wave"
+    },
+    {
+      "packId": "c2_withdrawal_right_1",
+      "level": "c2",
+      "orderInLevel": 11,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "철회권",
+        "de": "Widerrufsrecht",
+        "en": "Withdrawal right"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "motif": "plum",
+      "motifEnum": "DancheongMotif.plum"
+    },
+    {
+      "packId": "c2_automated_harm_1",
+      "level": "c2",
+      "orderInLevel": 12,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "자동화 피해",
+        "de": "Folgen der Automatik",
+        "en": "Automated harm"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "motif": "mountain",
+      "motifEnum": "DancheongMotif.mountain"
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_a1_spoken_dative",
+      "level": "a1",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ]
+    },
+    {
+      "id": "grammar_a1_duration_span",
+      "level": "a1",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ]
+    },
+    {
+      "id": "grammar_a1_come_purpose",
+      "level": "a1",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ]
+    },
+    {
+      "id": "grammar_a1_in_front",
+      "level": "a1",
+      "courseUnitId": "a1_08_clarify_repair",
+      "conceptIds": [
+        "concept_a1_clarification"
+      ]
+    },
+    {
+      "id": "grammar_a2_noun_cause",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    {
+      "id": "grammar_a2_busy_cause",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    {
+      "id": "grammar_a2_among_set",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    {
+      "id": "grammar_a2_spoken_result",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    {
+      "id": "grammar_b1_concede_but",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b1_as_kept_doing",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b1_while_already",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b1_self_should",
+      "level": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b2_as_you_see",
+      "level": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_b2_including_start",
+      "level": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_b2_whether_or_not",
+      "level": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_b2_granted_limit",
+      "level": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_c1_regardless_noun",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "grammar_c1_given_situation",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "grammar_c1_leaning_on",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "grammar_c1_even_if_doing",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "grammar_c2_defined_as",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_as_already_set",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_on_the_premise",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_wishing_to",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "a1",
+      "category": "daily",
+      "courseUnitId": "a1_12_daily_negation",
+      "conceptIds": [
+        "concept_a1_negation"
+      ]
+    },
+    {
+      "level": "a1",
+      "category": "food",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ]
+    },
+    {
+      "level": "a2",
+      "category": "weekend",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "level": "a2",
+      "category": "health",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ]
+    },
+    {
+      "level": "b1",
+      "category": "work_study",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "level": "b1",
+      "category": "moving",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "interview",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "phone",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "work_study",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "health",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "work_study",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "daily",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "a1",
+      "topic": "Postamt",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Apotheke",
+      "courseUnitId": "a1_10_health_safety",
+      "conceptIds": [
+        "concept_a1_health_safety"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Wochenendzusage",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Nachbarschaft",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Schultasche",
+      "courseUnitId": "a1_15_first_class_work",
+      "conceptIds": [
+        "concept_a1_first_meeting"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "U-Bahnkarte",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Wetterschicht",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ]
+    },
+    {
+      "level": "a1",
+      "topic": "Entschuldigung",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Handytarif",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Bankschalter",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Fitnesskurs",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Friseursalon",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Hausordnung",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Nebenjob",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Fundsachen",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ]
+    },
+    {
+      "level": "a2",
+      "topic": "Feststand",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Dienstmail",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "WG-Gespräch",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Versicherungsfall",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Amtgang",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Ehrenamtsschicht",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Elterngespräch",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Reparaturwortschatz",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    {
+      "level": "b1",
+      "topic": "Reiseänderung",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Beurteilung",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Wohnstreit",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Medienkompetenz",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Bürgerversammlung",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Teamverhandlung",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Kurzlage",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Eskalation",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    {
+      "level": "b2",
+      "topic": "Kurzreferat",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Evidenzvorbehalt",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Öffentliche Lage",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Erhebungsdesign",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Risikosprache",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Zugangskosten",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Beteiligungsdesign",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Ortliche Abwägung",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Betriebslast",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Framinganalyse",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Institutionsstimme",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Erinnerungsnarrativ",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Autoritätssprache",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Einspruchsweg",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Prüfspur",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Widerrufsrecht",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Automatenfolgen",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "a1",
+      "vocabPackId": "a1_post_office_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_pharmacy_ask_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_weekend_promise_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_neighbors_hall_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_school_supplies_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_subway_card_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_weather_layer_1",
+      "count": 12
+    },
+    {
+      "level": "a1",
+      "vocabPackId": "a1_sorry_thanks_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_phone_plan_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_bank_counter_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_gym_class_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_salon_visit_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_apt_rules_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_part_time_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_lost_found_1",
+      "count": 12
+    },
+    {
+      "level": "a2",
+      "vocabPackId": "a2_festival_booth_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_workplace_mail_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_roommate_talk_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_insurance_claim_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_public_office_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_volunteer_shift_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_parent_school_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_repair_words_1",
+      "count": 12
+    },
+    {
+      "level": "b1",
+      "vocabPackId": "b1_travel_change_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_performance_review_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_housing_dispute_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_media_literacy_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_civic_meeting_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_team_negotiation_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_policy_brief_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_customer_escalation_1",
+      "count": 12
+    },
+    {
+      "level": "b2",
+      "vocabPackId": "b2_research_summary_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_evidence_caveat_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_public_briefing_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_survey_design_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_risk_wording_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_access_cost_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_participation_design_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_local_tradeoff_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_maintenance_burden_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_framing_analysis_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_institutional_voice_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_memory_narrative_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_authority_language_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_appeal_path_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_audit_trail_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_withdrawal_right_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_automated_harm_1",
+      "count": 12
+    }
+  ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        212,
+        223
+      ],
+      "clozeIdRange": [
+        100,
+        111
+      ],
+      "satzIdRange": [
+        64,
+        75
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        224,
+        235
+      ],
+      "clozeIdRange": [
+        112,
+        123
+      ],
+      "satzIdRange": [
+        76,
+        87
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        236,
+        247
+      ],
+      "clozeIdRange": [
+        124,
+        135
+      ],
+      "satzIdRange": [
+        88,
+        99
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        248,
+        259
+      ],
+      "clozeIdRange": [
+        136,
+        147
+      ],
+      "satzIdRange": [
+        100,
+        111
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        260,
+        271
+      ],
+      "clozeIdRange": [
+        148,
+        159
+      ],
+      "satzIdRange": [
+        112,
+        123
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        272,
+        283
+      ],
+      "clozeIdRange": [
+        160,
+        171
+      ],
+      "satzIdRange": [
+        124,
+        135
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        284,
+        295
+      ],
+      "clozeIdRange": [
+        172,
+        183
+      ],
+      "satzIdRange": [
+        136,
+        147
+      ]
+    },
+    {
+      "level": "a1",
+      "vocabIdRange": [
+        296,
+        307
+      ],
+      "clozeIdRange": [
+        184,
+        195
+      ],
+      "satzIdRange": [
+        148,
+        159
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        269,
+        280
+      ],
+      "clozeIdRange": [
+        76,
+        87
+      ],
+      "satzIdRange": [
+        39,
+        50
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        281,
+        292
+      ],
+      "clozeIdRange": [
+        88,
+        99
+      ],
+      "satzIdRange": [
+        51,
+        62
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        293,
+        304
+      ],
+      "clozeIdRange": [
+        100,
+        111
+      ],
+      "satzIdRange": [
+        63,
+        74
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        305,
+        316
+      ],
+      "clozeIdRange": [
+        112,
+        123
+      ],
+      "satzIdRange": [
+        75,
+        86
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        317,
+        328
+      ],
+      "clozeIdRange": [
+        124,
+        135
+      ],
+      "satzIdRange": [
+        87,
+        98
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        329,
+        340
+      ],
+      "clozeIdRange": [
+        136,
+        147
+      ],
+      "satzIdRange": [
+        99,
+        110
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        341,
+        352
+      ],
+      "clozeIdRange": [
+        148,
+        159
+      ],
+      "satzIdRange": [
+        111,
+        122
+      ]
+    },
+    {
+      "level": "a2",
+      "vocabIdRange": [
+        353,
+        364
+      ],
+      "clozeIdRange": [
+        160,
+        171
+      ],
+      "satzIdRange": [
+        123,
+        134
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        272,
+        283
+      ],
+      "clozeIdRange": [
+        84,
+        95
+      ],
+      "satzIdRange": [
+        80,
+        91
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        284,
+        295
+      ],
+      "clozeIdRange": [
+        96,
+        107
+      ],
+      "satzIdRange": [
+        92,
+        103
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        296,
+        307
+      ],
+      "clozeIdRange": [
+        108,
+        119
+      ],
+      "satzIdRange": [
+        104,
+        115
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        308,
+        319
+      ],
+      "clozeIdRange": [
+        120,
+        131
+      ],
+      "satzIdRange": [
+        116,
+        127
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        320,
+        331
+      ],
+      "clozeIdRange": [
+        132,
+        143
+      ],
+      "satzIdRange": [
+        128,
+        139
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        332,
+        343
+      ],
+      "clozeIdRange": [
+        144,
+        155
+      ],
+      "satzIdRange": [
+        140,
+        151
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        344,
+        355
+      ],
+      "clozeIdRange": [
+        156,
+        167
+      ],
+      "satzIdRange": [
+        152,
+        163
+      ]
+    },
+    {
+      "level": "b1",
+      "vocabIdRange": [
+        356,
+        367
+      ],
+      "clozeIdRange": [
+        168,
+        179
+      ],
+      "satzIdRange": [
+        164,
+        175
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        431,
+        442
+      ],
+      "clozeIdRange": [
+        170,
+        181
+      ],
+      "satzIdRange": [
+        156,
+        167
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        443,
+        454
+      ],
+      "clozeIdRange": [
+        182,
+        193
+      ],
+      "satzIdRange": [
+        168,
+        179
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        455,
+        466
+      ],
+      "clozeIdRange": [
+        194,
+        205
+      ],
+      "satzIdRange": [
+        180,
+        191
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        467,
+        478
+      ],
+      "clozeIdRange": [
+        206,
+        217
+      ],
+      "satzIdRange": [
+        192,
+        203
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        479,
+        490
+      ],
+      "clozeIdRange": [
+        218,
+        229
+      ],
+      "satzIdRange": [
+        204,
+        215
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        491,
+        502
+      ],
+      "clozeIdRange": [
+        230,
+        241
+      ],
+      "satzIdRange": [
+        216,
+        227
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        503,
+        514
+      ],
+      "clozeIdRange": [
+        242,
+        253
+      ],
+      "satzIdRange": [
+        228,
+        239
+      ]
+    },
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        515,
+        526
+      ],
+      "clozeIdRange": [
+        254,
+        265
+      ],
+      "satzIdRange": [
+        240,
+        251
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        49,
+        60
+      ],
+      "clozeIdRange": [
+        53,
+        64
+      ],
+      "satzIdRange": [
+        55,
+        66
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        61,
+        72
+      ],
+      "clozeIdRange": [
+        65,
+        76
+      ],
+      "satzIdRange": [
+        67,
+        78
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        73,
+        84
+      ],
+      "clozeIdRange": [
+        77,
+        88
+      ],
+      "satzIdRange": [
+        79,
+        90
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        85,
+        96
+      ],
+      "clozeIdRange": [
+        89,
+        100
+      ],
+      "satzIdRange": [
+        91,
+        102
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        97,
+        108
+      ],
+      "clozeIdRange": [
+        101,
+        112
+      ],
+      "satzIdRange": [
+        103,
+        114
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        109,
+        120
+      ],
+      "clozeIdRange": [
+        113,
+        124
+      ],
+      "satzIdRange": [
+        115,
+        126
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        121,
+        132
+      ],
+      "clozeIdRange": [
+        125,
+        136
+      ],
+      "satzIdRange": [
+        127,
+        138
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        133,
+        144
+      ],
+      "clozeIdRange": [
+        137,
+        148
+      ],
+      "satzIdRange": [
+        139,
+        150
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        49,
+        60
+      ],
+      "clozeIdRange": [
+        53,
+        64
+      ],
+      "satzIdRange": [
+        55,
+        66
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        61,
+        72
+      ],
+      "clozeIdRange": [
+        65,
+        76
+      ],
+      "satzIdRange": [
+        67,
+        78
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        73,
+        84
+      ],
+      "clozeIdRange": [
+        77,
+        88
+      ],
+      "satzIdRange": [
+        79,
+        90
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        85,
+        96
+      ],
+      "clozeIdRange": [
+        89,
+        100
+      ],
+      "satzIdRange": [
+        91,
+        102
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        97,
+        108
+      ],
+      "clozeIdRange": [
+        101,
+        112
+      ],
+      "satzIdRange": [
+        103,
+        114
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        109,
+        120
+      ],
+      "clozeIdRange": [
+        113,
+        124
+      ],
+      "satzIdRange": [
+        115,
+        126
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        121,
+        132
+      ],
+      "clozeIdRange": [
+        125,
+        136
+      ],
+      "satzIdRange": [
+        127,
+        138
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        133,
+        144
+      ],
+      "clozeIdRange": [
+        137,
+        148
+      ],
+      "satzIdRange": [
+        139,
+        150
+      ]
+    }
+  ],
+  "mergeOrder": [
+    "vocab with curriculum companion mapping",
+    "grammar with grammarRuleMap companion mapping",
+    "smalltalk with category companion mapping",
+    "cloze with topic companion mapping",
+    "satz after same-level vocabulary exists"
+  ],
+  "nonMergeGuards": [
+    "Every record is independently authored and carries rights: original in its review ledger.",
+    "No textbook sentence, prompt, answer option, unit order, or scanned text may enter app assets.",
+    "Do not run --apply, TTS, or Firebase writes without Jin's explicit apply instruction."
+  ]
+}

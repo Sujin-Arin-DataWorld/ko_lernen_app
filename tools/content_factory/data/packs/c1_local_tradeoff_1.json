@@ -1,0 +1,24 @@
+{
+  "packId": "c1_local_tradeoff_1",
+  "level": "c1",
+  "orderInLevel": 11,
+  "topic": "Ortliche Abwägung",
+  "unit": "c1_02_inclusive_sustainable_systems",
+  "concept": "concept_c1_inclusive_systems",
+  "motif": "wave",
+  "labels": {"ko": "지역 상충", "de": "Abwägung vor Ort", "en": "Local trade-offs"},
+  "words": [
+    ["지역 여건", "Ortslage", "local conditions", "Ausdruck", "Expression", "지역 여건을 전국 평균에 맞추면 계획이 빗겨요.", "Passt man die Ortslage an den Landesdurchschnitt, verfehlt der Plan.", "If you force local conditions to a national average, the plan misses."],
+    ["야간 소음 한도", "Nachtpegel", "night noise cap", "Ausdruck", "Expression", "야간 소음 한도를 낮추면 배달 시간이 줄어들어요.", "Ein niedrigerer Nachtpegel verkürzt die Lieferzeiten.", "Lowering the night noise cap shortens delivery hours."],
+    ["녹지 보전", "Grünschutz", "green-space keep", "Ausdruck", "Expression", "녹지 보전과 주차 확대를 같은 면적에서 고를 수는 없어요.", "Grünschutz und mehr Parkraum gehen nicht auf derselben Fläche.", "You cannot choose green-space keep and more parking on the same land."],
+    ["상권 이전", "Lageverschiebung", "commerce shift", "Ausdruck", "Expression", "상권 이전이 골목을 비우면 저녁 안전이 약해져요.", "Verschiebt sich die Lage und leert die Gasse, sinkt die Abendsicherheit.", "If a commerce shift empties the alley, evening safety weakens."],
+    ["통행 우회", "Verkehrsumlegung", "traffic diversion", "Ausdruck", "Expression", "통행 우회가 학교 앞을 지나면 시간대를 바꿔요.", "Führt die Verkehrsumlegung an der Schule vorbei, ändere ich die Stunden.", "If the traffic diversion passes the school, I change the hours."],
+    ["보상 대상", "Ausgleichskreis", "who is compensated", "Ausdruck", "Expression", "보상 대상을 건물주만으로 두면 세입자가 빠져요.", "Ist der Ausgleichskreis nur die Eigentümerschaft, fehlen die Mietenden.", "If who is compensated is only owners, tenants drop out."],
+    ["계절 제약", "Saisongrenze", "seasonal constraint", "Ausdruck", "Expression", "계절 제약 때문에 공사를 장마 뒤로 미뤄요.", "Wegen der Saisongrenze schiebe ich den Bau hinter den Regen.", "Because of the seasonal constraint I push construction past the rains."],
+    ["공유 편익", "geteilter Nutzen", "shared benefit", "Ausdruck", "Expression", "공유 편익이 눈에 보여야 규제를 받아들이기 쉬워요.", "Wird der geteilte Nutzen sichtbar, ist die Regel leichter tragbar.", "If the shared benefit is visible, the rule is easier to accept."],
+    ["이전 비용", "Verlagerungskosten", "relocation cost", "Ausdruck", "Expression", "이전 비용을 단발 지원으로만 보면 실패해요.", "Sieht man Verlagerungskosten nur als Einmalhilfe, scheitert es.", "If relocation cost is treated as a one-time grant only, it fails."],
+    ["야간 조명", "Nachtlicht", "night lighting", "Ausdruck", "Expression", "야간 조명을 높이면 안전은 오르고 수면은 나빠져요.", "Mehr Nachtlicht hebt die Sicherheit und senkt den Schlaf.", "More night lighting raises safety and worsens sleep."],
+    ["이용 시간대", "Nutzungsfenster", "hours of use", "Ausdruck", "Expression", "이용 시간대를 나누면 한 공간이 두 집단을 받을 수 있어요.", "Geteilte Nutzungsfenster lassen einen Ort zwei Gruppen tragen.", "Split hours of use let one space serve two groups."],
+    ["현장 실험", "Ortsversuch", "on-site trial", "Ausdruck", "Expression", "현장 실험을 한 달만 해도 민원이 구체화돼요.", "Schon ein Monats-Ortsversuch macht Beschwerden konkreter.", "Even a one-month on-site trial makes complaints more specific."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "c2_institutional_voice_1",
+  "level": "c2",
+  "orderInLevel": 6,
+  "topic": "Institutionsstimme",
+  "unit": "c2_01_interpretation_institutions",
+  "concept": "concept_c2_discourse_institutions",
+  "motif": "manja",
+  "labels": {"ko": "제도의 목소리", "de": "Stimme der Institution", "en": "Institutional voice"},
+  "words": [
+    ["제도적 권한", "Amtsmacht", "institutional power", "Ausdruck", "Expression", "제도적 권한을 절차 뒤에 숨기지 않고 문장 앞에 둬요.", "Amtsmacht verstecke ich nicht hinter dem Verfahren, ich nenne sie zuerst.", "I do not hide institutional power behind procedure; I put it first."],
+    ["공식 어조", "Amtsregister", "official register", "Ausdruck", "Expression", "공식 어조가 책임을 흐리면 평서문으로 다시 써요.", "Verwässert das Amtsregister die Verantwortung, schreibe ich im Indikativ neu.", "If the official register blurs responsibility, I rewrite it as a plain statement."],
+    ["위임 범위", "Mandatsgrenze", "mandate edge", "Ausdruck", "Expression", "위임 범위를 넘는 결정을 관행으로 포장하지 않아요.", "Eine Entscheidung jenseits der Mandatsgrenze nenne ich nicht Gewohnheit.", "I do not dress a decision beyond the mandate edge as custom."],
+    ["기록 의무", "Dokumentationspflicht", "duty to record", "Ausdruck", "Expression", "기록 의무가 약하면 나중에 기억을 고를 수 있어요.", "Ist die Dokumentationspflicht schwach, lässt sich Erinnerung später wählen.", "If the duty to record is weak, memory can be selected later."],
+    ["재량 공간", "Ermessensraum", "discretion space", "Ausdruck", "Expression", "재량 공간을 인정하되 기준표를 같이 공개해요.", "Ich erkenne den Ermessensraum an und lege die Tabelle offen.", "I admit discretion space and publish the criteria table with it."],
+    ["항의 창구", "Widerspruchsstelle", "objection desk", "Ausdruck", "Expression", "항의 창구가 같은 부서면 독립이 아니에요.", "Sitzt die Widerspruchsstelle in derselben Abteilung, ist sie nicht unabhängig.", "If the objection desk is the same office, it is not independent."],
+    ["공개 지연", "Offenlegungsverzug", "disclosure delay", "Ausdruck", "Expression", "공개 지연을 검수로만 설명하지 않고 날짜를 대요.", "Offenlegungsverzug erkläre ich nicht nur mit Prüfung, ich nenne das Datum.", "I do not explain disclosure delay as review only; I give a date."],
+    ["관행 인용", "Üblichkeitszitat", "appeal to custom", "Ausdruck", "Expression", "관행 인용은 근거가 아니라 습관의 이름이에요.", "Ein Üblichkeitszitat ist kein Beleg, sondern der Name einer Gewohnheit.", "An appeal to custom is not evidence; it is the name of a habit."],
+    ["책임 분산", "Verantwortungsstreuung", "diffused ownership", "Ausdruck", "Expression", "책임 분산이 심하면 서명란을 한 줄로 줄여요.", "Bei starker Verantwortungsstreuung kürze ich die Unterschriftszeile auf eine.", "If diffused ownership is severe, I cut the signature line to one."],
+    ["내부 지침", "Binnenweisung", "internal directive", "Ausdruck", "Expression", "내부 지침이 대외 문구와 다르면 둘을 같이 보여요.", "Weicht die Binnenweisung vom Außenwort ab, zeige ich beide.", "If the internal directive differs from the public line, I show both."],
+    ["권한 위임장", "Übertragungsakt", "delegation instrument", "Ausdruck", "Expression", "권한 위임장 없이 대행하면 결정을 되돌릴 수 있어요.", "Ohne Übertragungsakt ist die Vertretung später rückholbar.", "Acting without a delegation instrument makes the decision reversible."],
+    ["제도 기억", "Amtsgedächtnis", "institutional memory", "Ausdruck", "Expression", "제도 기억이 사람 한 명에 있으면 퇴사와 함께 사라져요.", "Sitzt das Amtsgedächtnis in einer Person, geht es mit dem Abschied.", "If institutional memory sits in one person, it leaves with them."]
+  ]
+}

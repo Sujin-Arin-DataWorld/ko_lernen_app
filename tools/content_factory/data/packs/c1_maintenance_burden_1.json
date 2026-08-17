@@ -1,0 +1,24 @@
+{
+  "packId": "c1_maintenance_burden_1",
+  "level": "c1",
+  "orderInLevel": 12,
+  "topic": "Betriebslast",
+  "unit": "c1_02_inclusive_sustainable_systems",
+  "concept": "concept_c1_inclusive_systems",
+  "motif": "vine",
+  "labels": {"ko": "유지 부담", "de": "Betriebslast", "en": "Maintenance burden"},
+  "words": [
+    ["운영 인력", "Betriebspersonal", "ops staff", "Ausdruck", "Expression", "운영 인력을 자원봉사에만 기대면 겨울에 끊겨요.", "Stützt sich das Betriebspersonal nur auf Ehrenamt, bricht es im Winter.", "If ops staff rest only on volunteers, service breaks in winter."],
+    ["교체 주기", "Ersatzrhythmus", "replacement cycle", "Ausdruck", "Expression", "교체 주기를 숨기면 나중에 한꺼번에 비용이 와요.", "Ein verborgener Ersatzrhythmus bringt die Kosten später auf einmal.", "Hiding the replacement cycle brings the cost all at once later."],
+    ["예비 부품", "Ersatzvorhalt", "spare stock", "Ausdruck", "Expression", "예비 부품이 없으면 포용 장비가 바로 멈춰요.", "Ohne Ersatzvorhalt steht inklusive Technik sofort still.", "Without spare stock, inclusive equipment stops at once."],
+    ["점검 로그", "Wartungslog", "service log", "Ausdruck", "Expression", "점검 로그를 공개하면 방치 여부를 따질 수 있어요.", "Ein öffentliches Wartungslog lässt Vernachlässigung prüfen.", "A public service log lets people test whether upkeep was neglected."],
+    ["야간 당직", "Nachtdienst", "night duty", "Ausdruck", "Expression", "야간 당직을 한 사람에게만 맡기면 실수가 늘어요.", "Liegt der Nachtdienst bei einer Person, steigen Fehler.", "If night duty sits on one person, mistakes rise."],
+    ["교육 갱신", "Schulungsauffrischung", "refresher training", "Ausdruck", "Expression", "교육 갱신을 빼면 새 절차가 현장에 안 남아요.", "Ohne Schulungsauffrischung bleibt das neue Verfahren nicht vor Ort.", "Without refresher training the new procedure does not stay on site."],
+    ["고장 대기", "Störwartezeit", "outage wait", "Ausdruck", "Expression", "고장 대기가 길면 대체 수단을 같이 설계해요.", "Bei langer Störwartezeit plane ich den Ersatzweg mit.", "If outage wait is long, I design the fallback with it."],
+    ["예산 이월", "Mittelübertragung", "budget carryover", "Ausdruck", "Expression", "예산 이월이 막히면 가을에 성급한 구매가 생겨요.", "Ohne Mittelübertragung kommt im Herbst der Hastkauf.", "If budget carryover is blocked, hasty autumn purchases appear."],
+    ["사용자 신고", "Nutzermeldung", "user report", "Ausdruck", "Expression", "사용자 신고 창구가 어려우면 고장이 늦게 보여요.", "Ist die Nutzermeldung schwer, erscheint die Störung spät.", "If the user-report channel is hard, outages appear late."],
+    ["수명 예측", "Lebensdauerlage", "life estimate", "Ausdruck", "Expression", "수명 예측을 낙관하면 교체 기금이 비어요.", "Eine zu hoffnungsvolle Lebensdauerlage leert den Ersatzfonds.", "An optimistic life estimate empties the replacement fund."],
+    ["외주 의존", "Fremdabhängigkeit", "vendor lock", "Ausdruck", "Expression", "외주 의존이 높으면 작은 수정도 기다려야 해요.", "Bei hoher Fremdabhängigkeit wartet selbst die kleine Änderung.", "If vendor lock is high, even a small change must wait."],
+    ["지속 점검표", "Dauercheckliste", "ongoing checklist", "Ausdruck", "Expression", "지속 점검표를 행사 날에만 쓰면 평일 품질이 떨어져요.", "Nutzt man die Dauercheckliste nur am Eventtag, sinkt die Alltagqualität.", "If the ongoing checklist is used only on event day, weekday quality drops."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "a2_apt_rules_1",
+  "level": "a2",
+  "orderInLevel": 37,
+  "topic": "Hausordnung",
+  "unit": "a2_08_home_money",
+  "concept": "concept_a2_home_money",
+  "motif": "gwigap",
+  "labels": {"ko": "아파트 규칙", "de": "Hausordnung", "en": "Apartment rules"},
+  "words": [
+    ["관리사무소", "Hausverwaltung", "management office", "Nomen", "Noun", "관리사무소에 주차 스티커를 받으러 가요.", "Ich hole den Parkaufkleber in der Hausverwaltung.", "I go to the management office for a parking sticker."],
+    ["입주민", "Bewohner", "resident", "Nomen", "Noun", "입주민만 지하 주차장을 쓸 수 있어요.", "Nur Bewohner dürfen die Tiefgarage nutzen.", "Only residents can use the underground parking."],
+    ["주차스티커", "Parkaufkleber", "parking sticker", "Nomen", "Noun", "주차스티커를 앞 유리에 붙여요.", "Ich klebe den Parkaufkleber an die Windschutzscheibe.", "I put the parking sticker on the windshield."],
+    ["음식물 봉투", "Biotüte", "food-waste bag", "Ausdruck", "Expression", "음식물 봉투는 지정된 통에만 넣어요.", "Die Biotüte kommt nur in die vorgesehene Tonne.", "Food-waste bags go only in the designated bin."],
+    ["야간소음", "Nachtlärm", "night noise", "Nomen", "Noun", "열 시 이후에는 야간소음을 피해요.", "Nach zehn Uhr vermeide ich Nachtlärm.", "After ten I avoid night noise."],
+    ["현관문", "Wohnungstür", "front door", "Nomen", "Noun", "현관문이 세게 닫히지 않게 잡아요.", "Ich halte die Wohnungstür, damit sie nicht laut zufällt.", "I hold the front door so it does not slam."],
+    ["방문증", "Besucherausweis", "visitor pass", "Nomen", "Noun", "손님은 방문증을 받아 입장해요.", "Gäste gehen mit einem Besucherausweis hinein.", "Guests enter with a visitor pass."],
+    ["재활용실", "Wertstoffraum", "recycling room", "Nomen", "Noun", "박스는 재활용실에서 접어서 넣어요.", "Kartons falte ich im Wertstoffraum zusammen.", "I fold boxes in the recycling room."],
+    ["대형폐기", "Sperrmüll", "bulk waste", "Nomen", "Noun", "소파는 대형폐기로 신청해야 해요.", "Das Sofa muss als Sperrmüll angemeldet werden.", "The sofa must be booked as bulk waste."],
+    ["순찰", "Rundgang", "patrol", "Nomen", "Noun", "밤에 경비 순찰이 두 번 돌아요.", "Nachts macht der Wachdienst zwei Rundgänge.", "At night security does two patrols."],
+    ["위반", "Verstoß", "violation", "Nomen", "Noun", "흡연 위반이 반복되면 경고가 와요.", "Bei wiederholtem Verstoß gegen das Rauchverbot kommt eine Warnung.", "Repeated smoking violations bring a warning."],
+    ["입주자 회의", "Bewohnerversammlung", "residents' meeting", "Ausdruck", "Expression", "입주자 회의에서 엘리베이터 수리를 정했어요.", "In der Bewohnerversammlung wurde die Aufzugreparatur beschlossen.", "The residents' meeting decided on the elevator repair."]
+  ]
+}

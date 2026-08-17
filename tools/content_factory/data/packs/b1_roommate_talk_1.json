@@ -1,0 +1,24 @@
+{
+  "packId": "b1_roommate_talk_1",
+  "level": "b1",
+  "orderInLevel": 22,
+  "topic": "WG-Gespräch",
+  "unit": "b1_04_relationships",
+  "concept": "concept_b1_relationships",
+  "motif": "plum",
+  "labels": {"ko": "룸메이트 대화", "de": "WG-Gespräch", "en": "Roommate talk"},
+  "words": [
+    ["공용 선반", "gemeinsames Regal", "shared shelf", "Ausdruck", "Expression", "공용 선반에는 이름 스티커를 붙여요.", "Auf das gemeinsame Regal klebe ich Namensaufkleber.", "I put name stickers on the shared shelf."],
+    ["청소 당번", "Putzdienst", "cleaning turn", "Ausdruck", "Expression", "이번 주 청소 당번은 제가 맡아요.", "Den Putzdienst diese Woche übernehme ich.", "I take the cleaning turn this week."],
+    ["공과금 정산", "Nebenkostenabrechnung", "utility split", "Ausdruck", "Expression", "공과금 정산을 일요일에 같이 해요.", "Die Nebenkostenabrechnung machen wir sonntags gemeinsam.", "We do the utility split together on Sunday."],
+    ["조용한 시간", "Ruhezeit", "quiet hours", "Ausdruck", "Expression", "시험 주에는 조용한 시간을 아홉 시부터 지켜요.", "In der Prüfungswoche halten wir die Ruhezeit ab neun Uhr ein.", "In exam week we keep quiet hours from nine."],
+    ["손님 사전 알림", "Gästeankündigung", "guest notice", "Ausdruck", "Expression", "밤늦게 오면 손님 사전 알림을 보내요.", "Wenn Gäste spät kommen, schicke ich eine Gästeankündigung.", "If guests come late, I send a guest notice."],
+    ["냉장고 칸", "Kühlfach", "fridge shelf", "Ausdruck", "Expression", "제 냉장고 칸에 약만 넣어 두어요.", "In mein Kühlfach lege ich nur Medizin.", "I only put medicine on my fridge shelf."],
+    ["빨래 순서", "Waschreihenfolge", "laundry turn", "Ausdruck", "Expression", "빨래 순서를 표로 붙여 두었어요.", "Die Waschreihenfolge habe ich als Tabelle aufgehängt.", "I posted the laundry turn as a chart."],
+    ["공용 세제", "Gemeinschaftsreiniger", "shared detergent", "Ausdruck", "Expression", "공용 세제가 떨어지면 같이 사요.", "Wenn der Gemeinschaftsreiniger leer ist, kaufen wir ihn zusammen.", "When the shared detergent runs out, we buy it together."],
+    ["문 닫힘", "Türschließen", "door closing", "Nomen", "Noun", "밤에는 문 닫힘을 더 조용히 해요.", "Nachts mache ich das Türschließen leiser.", "At night I close the door more quietly."],
+    ["생활 리듬", "Alltagsrhythmus", "daily rhythm", "Ausdruck", "Expression", "생활 리듬이 달라서 아침 소음을 줄였어요.", "Weil der Alltagsrhythmus anders ist, habe ich den Morgenlärm reduziert.", "Our daily rhythms differ, so I reduced morning noise."],
+    ["공동 구매", "Sammelkauf", "group purchase", "Ausdruck", "Expression", "휴지는 공동 구매로 더 싸게 샀어요.", "Toilettenpapier haben wir im Sammelkauf günstiger gekauft.", "We bought toilet paper cheaper as a group purchase."],
+    ["서운한 점", "Kränkung", "sore point", "Ausdruck", "Expression", "서운한 점은 바로 말하지 않고 저녁에 이야기해요.", "Eine Kränkung spreche ich nicht sofort an, sondern abends.", "I do not raise a sore point immediately, but in the evening."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "a1_neighbors_hall_1",
+  "level": "a1",
+  "orderInLevel": 29,
+  "topic": "Nachbarschaft",
+  "unit": "a1_11_titles_relationships",
+  "concept": "concept_a1_titles_relationships",
+  "motif": "lotus",
+  "labels": {"ko": "이웃과 복도", "de": "Nachbarn im Flur", "en": "Neighbors in the hall"},
+  "words": [
+    ["초인종", "Klingel", "doorbell", "Nomen", "Noun", "초인종을 두 번 눌렀어요.", "Ich habe zweimal an der Klingel gedrückt.", "I pressed the doorbell twice."],
+    ["복도", "Flur", "hallway", "Nomen", "Noun", "복도에 신발을 두지 마세요.", "Bitte stellen Sie keine Schuhe in den Flur.", "Please do not leave shoes in the hallway."],
+    ["이웃집", "Nachbarwohnung", "neighbor's place", "Nomen", "Noun", "이웃집에 택배가 잘못 왔어요.", "Ein Paket wurde falsch an die Nachbarwohnung geliefert.", "A parcel was delivered to the neighbor's place by mistake."],
+    ["층수", "Stockwerk", "floor number", "Nomen", "Noun", "저희 층수는 다섯 층이에요.", "Unser Stockwerk ist der fünfte.", "Our floor number is the fifth."],
+    ["분리배출", "getrennte Entsorgung", "sorted disposal", "Nomen", "Noun", "플라스틱은 분리배출하세요.", "Bitte entsorgen Sie Plastik getrennt.", "Please use sorted disposal for plastic."],
+    ["문패", "Namensschild", "door nameplate", "Nomen", "Noun", "문패에 이름을 새로 붙였어요.", "Ich habe ein neues Namensschild an die Tür geklebt.", "I put a new nameplate on the door."],
+    ["공동현관", "Hauseingang", "shared entrance", "Nomen", "Noun", "공동현관 비밀번호가 바뀌었어요.", "Das Passwort am Hauseingang hat sich geändert.", "The shared entrance password changed."],
+    ["층간소음", "Lärm zwischen den Etagen", "noise between floors", "Nomen", "Noun", "밤에는 층간소음을 조심해요.", "Nachts achte ich auf Lärm zwischen den Etagen.", "At night I am careful about noise between floors."],
+    ["택배함", "Paketkasten", "parcel locker", "Nomen", "Noun", "택배함에 비밀번호를 넣어요.", "Ich gebe das Passwort in den Paketkasten ein.", "I enter the password on the parcel locker."],
+    ["공지문", "Aushang", "notice", "Nomen", "Noun", "엘리베이터에 공지문이 있어요.", "Am Aufzug hängt ein Aushang.", "There is a notice on the elevator."],
+    ["무단주차", "unerlaubtes Parken", "unauthorized parking", "Nomen", "Noun", "입구 앞 무단주차는 안 돼요.", "Unerlaubtes Parken vor der Einfahrt ist nicht erlaubt.", "Unauthorized parking in front of the entrance is not allowed."],
+    ["이웃 인사", "Nachbarsgruß", "neighbor greeting", "Ausdruck", "Expression", "아침에 이웃 인사를 했어요.", "Heute Morgen habe ich den Nachbarsgruß gesagt.", "This morning I gave a neighbor greeting."]
+  ]
+}

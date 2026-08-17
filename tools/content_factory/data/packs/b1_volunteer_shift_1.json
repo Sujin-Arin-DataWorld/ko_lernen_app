@@ -1,0 +1,24 @@
+{
+  "packId": "b1_volunteer_shift_1",
+  "level": "b1",
+  "orderInLevel": 25,
+  "topic": "Ehrenamtsschicht",
+  "unit": "b1_06_life_capstone",
+  "concept": "concept_b1_life",
+  "motif": "vine",
+  "labels": {"ko": "봉사 교대", "de": "Ehrenamtsschicht", "en": "Volunteer shift"},
+  "words": [
+    ["봉사 시간", "Ehrenamtsstunden", "volunteer hours", "Ausdruck", "Expression", "이번 달 봉사 시간을 표에 적어요.", "Die Ehrenamtsstunden diesen Monat trage ich in die Tabelle ein.", "I write this month's volunteer hours in the chart."],
+    ["배정표", "Einsatzplan", "assignment sheet", "Nomen", "Noun", "배정표에서 제 구역을 확인해요.", "Im Einsatzplan prüfe ich meinen Bereich.", "I check my area on the assignment sheet."],
+    ["사전 교육", "Vorschulung", "pre-shift training", "Ausdruck", "Expression", "사전 교육을 들어야 부스를 맡을 수 있어요.", "Ohne Vorschulung darf ich den Stand nicht übernehmen.", "I need pre-shift training before I can run the booth."],
+    ["안전 조끼", "Warnweste", "safety vest", "Ausdruck", "Expression", "도로 안내는 안전 조끼를 입고 해요.", "Die Wegweisung mache ich mit Warnweste.", "I do street guidance wearing a safety vest."],
+    ["인수 메모", "Übergabenotiz", "handover note", "Ausdruck", "Expression", "다음 조를 위해 인수 메모를 남겼어요.", "Für die nächste Gruppe habe ich eine Übergabenotiz hinterlassen.", "I left a handover note for the next team."],
+    ["결원", "Ausfall", "no-show gap", "Nomen", "Noun", "오전에 결원이 나서 제가 한 시간 더 했어요.", "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.", "There was a no-show gap in the morning, so I stayed an hour more."],
+    ["명찰", "Namensschild", "name badge", "Nomen", "Noun", "명찰에 역할 이름을 크게 썼어요.", "Auf dem Namensschild steht die Rolle groß.", "I wrote the role large on the name badge."],
+    ["비상 연락망", "Notfallkette", "emergency chain", "Ausdruck", "Expression", "비상 연락망 첫 번호는 현장 책임자예요.", "Die erste Nummer der Notfallkette ist die Leitung vor Ort.", "The first number in the emergency chain is the on-site lead."],
+    ["물품 점검", "Materialkontrolle", "supply check", "Ausdruck", "Expression", "시작 전에 물품 점검을 둘이서 해요.", "Vor dem Start machen wir die Materialkontrolle zu zweit.", "Before starting we do the supply check in pairs."],
+    ["교대 시간", "Ablösezeit", "relief time", "Ausdruck", "Expression", "교대 시간보다 십 분 일찍 도착해요.", "Ich komme zehn Minuten vor der Ablösezeit.", "I arrive ten minutes before relief time."],
+    ["현장 책임자", "Einsatzleitung", "site lead", "Ausdruck", "Expression", "문제가 생기면 현장 책임자에게 바로 말해요.", "Bei einem Problem sage ich es sofort der Einsatzleitung.", "If a problem happens, I tell the site lead immediately."],
+    ["봉사 확인서", "Nachweis", "service certificate", "Ausdruck", "Expression", "학기말에 봉사 확인서를 받아요.", "Am Semesterende bekomme ich den Nachweis.", "I receive the service certificate at the end of the term."]
+  ]
+}

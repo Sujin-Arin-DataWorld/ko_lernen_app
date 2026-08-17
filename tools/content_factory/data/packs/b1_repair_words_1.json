@@ -1,0 +1,24 @@
+{
+  "packId": "b1_repair_words_1",
+  "level": "b1",
+  "orderInLevel": 27,
+  "topic": "Reparaturwortschatz",
+  "unit": "b1_05_complaint_resolution",
+  "concept": "concept_b1_complaint_resolution",
+  "motif": "wave",
+  "labels": {"ko": "수리 어휘", "de": "Reparaturwortschatz", "en": "Repair words"},
+  "words": [
+    ["고장 부위", "defekte Stelle", "fault location", "Ausdruck", "Expression", "고장 부위를 사진으로 세 장 찍었어요.", "Die defekte Stelle habe ich dreimal fotografiert.", "I took three photos of the fault location."],
+    ["부품 교체", "Teiletausch", "part replacement", "Ausdruck", "Expression", "부품 교체 비용이 예상보다 높아요.", "Der Teiletausch kostet mehr als gedacht.", "Part replacement costs more than expected."],
+    ["출장 수리", "Vor-Ort-Reparatur", "on-site repair", "Ausdruck", "Expression", "출장 수리는 오전 방문만 가능하대요.", "Die Vor-Ort-Reparatur sei nur vormittags möglich.", "They said on-site repair is only possible in the morning."],
+    ["무상 기간", "Garantiezeit", "warranty period", "Ausdruck", "Expression", "무상 기간이 일주일 남아 있어요.", "Die Garantiezeit beträgt noch eine Woche.", "One week remains in the warranty period."],
+    ["점검 결과", "Prüfergebnis", "inspection result", "Ausdruck", "Expression", "점검 결과를 문자로 요약해 달라고 했어요.", "Ich habe um eine kurze Nachricht zum Prüfergebnis gebeten.", "I asked them to summarize the inspection result by text."],
+    ["재방문", "Zweitbesuch", "return visit", "Nomen", "Noun", "부품이 없어서 재방문을 잡았어요.", "Weil das Teil fehlt, habe ich einen Zweitbesuch vereinbart.", "The part is missing, so I booked a return visit."],
+    ["임시 조치", "Notlösung", "temporary fix", "Ausdruck", "Expression", "물이 새서 임시 조치로 밸브를 잠갔어요.", "Weil Wasser austrat, habe ich als Notlösung das Ventil geschlossen.", "Water was leaking, so as a temporary fix I shut the valve."],
+    ["견적 변경", "Kostenvoranschlagsänderung", "quote change", "Ausdruck", "Expression", "견적 변경이 있으면 먼저 전화해 달라고 했어요.", "Bei einer Kostenvoranschlagsänderung sollen sie zuerst anrufen.", "I asked them to call first if there is a quote change."],
+    ["설치 오류", "Montagefehler", "install error", "Ausdruck", "Expression", "설치 오류인지 사용 문제인지 구분해 주세요.", "Bitte trennen Sie Montagefehler und Bedienproblem.", "Please distinguish an install error from a usage problem."],
+    ["A/S 센터", "Kundendienststelle", "service center", "Ausdruck", "Expression", "무거운 기기는 A/S 센터로 직접 가져가요.", "Schwere Geräte bringe ich selbst zur Kundendienststelle.", "I take heavy devices to the service center myself."],
+    ["수리 완료증", "Fertigstellungsbeleg", "repair receipt", "Ausdruck", "Expression", "수리 완료증을 받아야 보증이 이어져요.", "Ohne Fertigstellungsbeleg läuft die Garantie nicht weiter.", "The warranty continues only with the repair receipt."],
+    ["재발 방지", "Rückfallschutz", "preventing recurrence", "Ausdruck", "Expression", "재발 방지를 위해 사용 방법을 다시 배웠어요.", "Zum Rückfallschutz habe ich die Nutzung noch einmal gelernt.", "To prevent recurrence I relearned how to use it."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "c2_memory_narrative_1",
+  "level": "c2",
+  "orderInLevel": 7,
+  "topic": "Erinnerungsnarrativ",
+  "unit": "c2_01_interpretation_institutions",
+  "concept": "concept_c2_discourse_institutions",
+  "motif": "chrysanthemum",
+  "labels": {"ko": "기억과 서술", "de": "Erinnerung und Erzählung", "en": "Memory and narrative"},
+  "words": [
+    ["서술 시점", "Erzählstandort", "narrative standpoint", "Ausdruck", "Expression", "서술 시점을 바꾸면 같은 사건도 다른 도덕이 돼요.", "Ein anderer Erzählstandort macht aus demselben Ereignis eine andere Moral.", "A changed narrative standpoint turns the same event into a different moral."],
+    ["선택적 기억", "Selektivgedächtnis", "selective memory", "Ausdruck", "Expression", "선택적 기억을 기념일로만 고정하면 나머지가 지워져요.", "Fixiert man Selektivgedächtnis nur am Gedenktag, fällt der Rest weg.", "If selective memory is fixed only to a memorial day, the rest is erased."],
+    ["증언 위치", "Zeugenort", "where testimony sits", "Ausdruck", "Expression", "증언 위치를 무대 가장자리에 두면 목소리가 작아져요.", "Liegt der Zeugenort am Bühnenrand, wird die Stimme klein.", "If where testimony sits is the edge of the stage, the voice shrinks."],
+    ["연대기 절단", "Chronikbruch", "cut in the timeline", "Ausdruck", "Expression", "연대기 절단은 원인보다 결말만 남기어요.", "Ein Chronikbruch lässt das Ende und nimmt die Ursache.", "A cut in the timeline keeps the ending and drops the cause."],
+    ["집합 기억", "Kollektivgedächtnis", "shared memory", "Ausdruck", "Expression", "집합 기억을 하나로 모으면 소수 서사가 밀려나요.", "Ein einziges Kollektivgedächtnis drängt Minderheitenerzählungen weg.", "Forcing one shared memory pushes minority stories aside."],
+    ["침묵의 세대", "Schweigegeneration", "silent generation", "Ausdruck", "Expression", "침묵의 세대를 존중하되 자료는 남기라고 해요.", "Ich achte die Schweigegeneration und bitte trotzdem ums Archiv.", "I respect the silent generation and still ask that records remain."],
+    ["기념 문장", "Gedenksatz", "commemoration line", "Ausdruck", "Expression", "기념 문장이 현재 정책을 가리면 다시 써요.", "Verdeckt der Gedenksatz die heutige Politik, formuliere ich neu.", "If the commemoration line hides current policy, I rewrite it."],
+    ["기록 공백", "Archivlücke", "archive gap", "Ausdruck", "Expression", "기록 공백을 없다고 메우지 않고 빈칸으로 표시해요.", "Eine Archivlücke fülle ich nicht, ich markiere die Leerstelle.", "I do not fill an archive gap; I mark the blank."],
+    ["회고 왜곡", "Rückschauverzerrung", "hindsight warp", "Ausdruck", "Expression", "회고 왜곡을 줄이려고 당시 문장을 먼저 읽어요.", "Gegen Rückschauverzerrung lese ich zuerst den Satz von damals.", "To reduce hindsight warp I read the sentence from that time first."],
+    ["복수 서사", "Mehrfacherzählung", "plural narrative", "Ausdruck", "Expression", "복수 서사를 나란히 두면 승자 역사가 약해져요.", "Mehrfacherzählung nebeneinander schwächt die Siegergeschichte.", "Plural narrative side by side weakens winner history."],
+    ["망각 설계", "Vergessensordnung", "designed forgetting", "Ausdruck", "Expression", "망각 설계가 보존 예산 삭감으로 나타나면 이름을 붙여요.", "Wird Vergessensordnung zur Kürzung des Archivs, gebe ich ihr einen Namen.", "If designed forgetting appears as an archive budget cut, I name it."],
+    ["계승 쟁점", "Weitergabestreit", "what gets handed on", "Ausdruck", "Expression", "계승 쟁점을 후손에게만 미루지 않고 지금 기록해요.", "Den Weitergabestreit schiebe ich nicht auf Nachkommen, ich schreibe jetzt.", "I do not leave what gets handed on to descendants; I record it now."]
+  ]
+}

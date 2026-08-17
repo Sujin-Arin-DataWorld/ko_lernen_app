@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — 레벨 콘텐츠 4× review-only 초안 (Batch 07/08)
+
+**무엇을.** 업데이트된 레벨별 어휘·표현을 바탕으로 단어카드·시나리오·문장 만들기
+초안을 늘렸다. `assets/data/`는 손대지 않았다. Batch 07은 48개 12단어 팩(576 표제어)
+과 1:1 Cloze/Satz, 문법 24, 스몰토크 12를 `review_only_draft`로 두었고, Batch 08은
+시나리오 174개와 미사용 live 어휘 예문 Satz 641개를 `review_only` 번들로 두었다.
+생성기는 `tools/content_factory/build_level_content_4x.py`와
+`tools/content_factory/data/packs/`다.
+
+**왜.** live는 단어 1,188 / 시나리오 58 / Satz 419다. 시나리오는 58+174=232로 4×,
+Satz는 07+08 적용 시 419+576+641=1,636으로 약 3.9×다. 단어 4×(+3,564행, 약 297팩)는
+검수 불가능한 한 덩어리라 48팩을 먼저 고정했다. 나머지 단어 확장과
+`--apply`/TTS/Firebase는 Jin 승인 전 금지.
+
+**검증.** `validate_review_batch.py` Batch 07 overlay 1,764 records·48 pack plans
+통과. `plan_pack_assignments.py` 통과. `integrate_scenario_batch.py` preview
+815 records, inventory scenario 232 / satz 1,060. Batch 06과 ID 충돌 없음.
+`python3 -m unittest tools/content_factory/test_level_content_4x.py`로 팩 유일성·
+문법 focus·ledger `rights: original`·시나리오 레벨 분할을 고정한다. 커밋 해시는
+이 기록과 같은 커밋에 남긴다.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

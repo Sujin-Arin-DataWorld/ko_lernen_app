@@ -1,0 +1,24 @@
+{
+  "packId": "c1_risk_wording_1",
+  "level": "c1",
+  "orderInLevel": 8,
+  "topic": "Risikosprache",
+  "unit": "c1_01_evidence_public_reasoning",
+  "concept": "concept_c1_evidence_reasoning",
+  "motif": "cloud",
+  "labels": {"ko": "위험 표현", "de": "Risikosprache", "en": "Risk wording"},
+  "words": [
+    ["상대 위험", "relatives Risiko", "relative risk", "Ausdruck", "Expression", "상대 위험만 말하면 절대 건수가 가려져요.", "Nennt man nur das relative Risiko, verschwindet die absolute Zahl.", "If you state only relative risk, the absolute count is hidden."],
+    ["절대 건수", "Absolutenzahl", "absolute count", "Ausdruck", "Expression", "절대 건수를 옆에 두면 공포가 줄어들어요.", "Steht die Absolutenzahl daneben, sinkt die Angst.", "Putting the absolute count beside it reduces fear."],
+    ["잔여 위험", "Restrisiko", "residual risk", "Ausdruck", "Expression", "잔여 위험을 0으로 약속하지 않아요.", "Ich verspreche kein Restrisiko von null.", "I do not promise residual risk of zero."],
+    ["조기 경보", "Frühwarnung", "early warning", "Nomen", "Noun", "조기 경보는 오탐 비율을 같이 말해야 해요.", "Eine Frühwarnung muss die Falschalarmquote nennen.", "An early warning must also state the false-alarm rate."],
+    ["오탐 비율", "Falschalarmquote", "false-alarm rate", "Ausdruck", "Expression", "오탐 비율이 높으면 경보를 자주 무시하게 돼요.", "Bei hoher Falschalarmquote werden Warnungen ignoriert.", "If the false-alarm rate is high, people start ignoring alerts."],
+    ["노출 시간", "Expositionsdauer", "exposure time", "Ausdruck", "Expression", "노출 시간을 빼면 같은 농도도 다르게 들려요.", "Ohne Expositionsdauer klingt dieselbe Konzentration anders.", "Without exposure time the same concentration sounds different."],
+    ["취약 집단", "vulnerable Gruppe", "vulnerable group", "Ausdruck", "Expression", "취약 집단을 평균에 묻히지 않고 따로 적어요.", "Die vulnerable Gruppe lasse ich nicht im Mittel verschwinden.", "I do not bury the vulnerable group in the average."],
+    ["행동 문턱", "Handlungsschwelle", "action threshold", "Ausdruck", "Expression", "행동 문턱을 숫자로 정해야 현장 판단이 흔들리지 않아요.", "Eine zahlenfeste Handlungsschwelle hält die Entscheidung vor Ort stabil.", "A numeric action threshold keeps on-site judgment from wobbling."],
+    ["소통 톤", "Kommunikationslage", "communication tone", "Ausdruck", "Expression", "소통 톤을 낮추면 사람들이 더 오래 들어요.", "Ein ruhigerer Ton lässt Menschen länger zuhören.", "A calmer communication tone keeps people listening longer."],
+    ["갱신 주기", "Aktualisierungsrhythmus", "update cadence", "Ausdruck", "Expression", "갱신 주기를 밝히면 침묵이 은폐처럼 안 보여요.", "Ein klarer Aktualisierungsrhythmus lässt Stille nicht wie Vertuschung wirken.", "A stated update cadence keeps silence from looking like concealment."],
+    ["비교 기준점", "Vergleichsanker", "comparison anchor", "Ausdruck", "Expression", "비교 기준점을 작년으로 둘지 평년으로 둘지 먼저 정해요.", "Ob der Vergleichsanker das Vorjahr oder das Mittel ist, lege ich zuerst fest.", "I first decide whether the comparison anchor is last year or a normal year."],
+    ["경고 피로", "Warnmüdigkeit", "alert fatigue", "Ausdruck", "Expression", "경고 피로를 줄이려고 등급을 세 단계로만 써요.", "Gegen Warnmüdigkeit nutze ich nur drei Stufen.", "To reduce alert fatigue I use only three grades."]
+  ]
+}

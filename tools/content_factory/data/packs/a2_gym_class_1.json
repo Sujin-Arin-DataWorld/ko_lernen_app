@@ -1,0 +1,24 @@
+{
+  "packId": "a2_gym_class_1",
+  "level": "a2",
+  "orderInLevel": 35,
+  "topic": "Fitnesskurs",
+  "unit": "a2_04_feelings_health",
+  "concept": "concept_a2_feelings",
+  "motif": "cloud",
+  "labels": {"ko": "운동 수업", "de": "Fitnesskurs", "en": "Gym class"},
+  "words": [
+    ["헬스장", "Fitnessstudio", "gym", "Nomen", "Noun", "퇴근 후에 헬스장에 가요.", "Nach der Arbeit gehe ich ins Fitnessstudio.", "After work I go to the gym."],
+    ["운동복", "Sportkleidung", "workout clothes", "Nomen", "Noun", "운동복을 락커에 넣어 두어요.", "Ich lasse die Sportkleidung im Spind.", "I leave the workout clothes in the locker."],
+    ["러닝머신", "Laufband", "treadmill", "Nomen", "Noun", "러닝머신에서 십 분을 걸어요.", "Auf dem Laufband gehe ich zehn Minuten.", "I walk ten minutes on the treadmill."],
+    ["스트레칭", "Dehnung", "stretching", "Nomen", "Noun", "시작 전에 스트레칭을 해요.", "Vor dem Start mache ich Dehnungen.", "I do stretching before starting."],
+    ["횟수", "Wiederholungen", "reps", "Nomen", "Noun", "이 동작은 횟수를 열 번으로 해요.", "Diese Übung mache ich mit zehn Wiederholungen.", "I do this move with ten reps."],
+    ["세트", "Satz", "set", "Nomen", "Noun", "세트 사이에 물을 마셔요.", "Zwischen den Sätzen trinke ich Wasser.", "I drink water between sets."],
+    ["트레이너", "Trainer", "trainer", "Nomen", "Noun", "트레이너가 자세를 고쳐 줘요.", "Der Trainer korrigiert meine Haltung.", "The trainer corrects my posture."],
+    ["락커", "Spind", "locker", "Nomen", "Noun", "락커 열쇠를 프론트에 맡겼어요.", "Ich habe den Spindschlüssel an der Rezeption abgegeben.", "I left the locker key at the front desk."],
+    ["회원권", "Mitgliedschaft", "membership", "Nomen", "Noun", "세 달 회원권을 끊었어요.", "Ich habe eine dreimonatige Mitgliedschaft gekauft.", "I bought a three-month membership."],
+    ["준비운동", "Aufwärmen", "warm-up", "Nomen", "Noun", "준비운동을 빼면 다치기 쉬워요.", "Ohne Aufwärmen verletzt man sich leicht.", "Without a warm-up it is easy to get hurt."],
+    ["근력", "Kraft", "strength", "Nomen", "Noun", "근력 운동은 주 이 번만 해요.", "Krafttraining mache ich nur zweimal pro Woche.", "I do strength training only twice a week."],
+    ["유산소", "Ausdauer", "cardio", "Nomen", "Noun", "유산소 후에 숨이 고르게 돌아와요.", "Nach dem Ausdauertraining wird die Atmung wieder ruhig.", "After cardio my breathing steadies again."]
+  ]
+}

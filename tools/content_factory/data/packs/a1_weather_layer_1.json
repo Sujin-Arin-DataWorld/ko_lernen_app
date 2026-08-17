@@ -1,0 +1,24 @@
+{
+  "packId": "a1_weather_layer_1",
+  "level": "a1",
+  "orderInLevel": 32,
+  "topic": "Wetterschicht",
+  "unit": "a1_09_home_daily_life",
+  "concept": "concept_a1_home_daily",
+  "motif": "cloud",
+  "labels": {"ko": "날씨에 맞춰 입기", "de": "Der Witterung anziehen", "en": "Dressing for the weather"},
+  "words": [
+    ["겉옷", "Überzieher", "outer layer", "Nomen", "Noun", "바람이 불어서 겉옷을 입어요.", "Es ist windig, deshalb ziehe ich einen Überzieher an.", "It is windy, so I put on an outer layer."],
+    ["미세먼지", "Feinstaub", "fine dust", "Nomen", "Noun", "오늘 미세먼지가 많아서 마스크를 써요.", "Heute gibt es viel Feinstaub, deshalb trage ich eine Maske.", "There is a lot of fine dust today, so I wear a mask."],
+    ["일기예보", "Wetterbericht", "weather forecast", "Nomen", "Noun", "일기예보를 보고 옷을 골라요.", "Ich schaue den Wetterbericht und wähle die Kleidung.", "I check the forecast and choose clothes."],
+    ["우비", "Regenjacke", "rain jacket", "Nomen", "Noun", "소나기가 와서 우비를 챙겼어요.", "Ein Schauer kommt, deshalb habe ich die Regenjacke eingepackt.", "A shower is coming, so I packed a rain jacket."],
+    ["얇은 옷", "leichte Kleidung", "light clothes", "Ausdruck", "Expression", "낮에는 얇은 옷이 편해요.", "Tagsüber ist leichte Kleidung angenehm.", "Light clothes are comfortable during the day."],
+    ["두꺼운 옷", "dicke Kleidung", "thick clothes", "Ausdruck", "Expression", "밤에는 두꺼운 옷이 필요해요.", "Nachts brauche ich dicke Kleidung.", "At night I need thick clothes."],
+    ["일교차", "Tag-Nacht-Unterschied", "day-night gap", "Nomen", "Noun", "봄에는 일교차가 커서 겉옷이 필요해요.", "Im Frühling ist der Tag-Nacht-Unterschied groß, deshalb brauche ich einen Überzieher.", "In spring the day-night gap is large, so I need an outer layer."],
+    ["습하다", "schwül", "humid", "Adjektiv", "Adjective", "오늘 공기가 습하다 느껴져서 창문을 열어요.", "Die Luft fühlt sich heute schwül an, deshalb öffne ich das Fenster.", "The air feels humid today, so I open the window."],
+    ["쌀쌀하다", "kühl", "chilly", "Adjektiv", "Adjective", "아침이 쌀쌀하다 해서 목을 가렸어요.", "Weil der Morgen kühl ist, habe ich den Hals bedeckt.", "Because the morning is chilly, I covered my neck."],
+    ["맑음", "heiter", "clear skies", "Nomen", "Noun", "오후 예보가 맑음이에요.", "Die Nachmittagsvorhersage ist heiter.", "The afternoon forecast is clear skies."],
+    ["소나기", "Schauer", "shower", "Nomen", "Noun", "소나기가 금방 지나갈 거예요.", "Der Schauer wird bald vorübergehen.", "The shower will pass soon."],
+    ["겹쳐 입다", "in Lagen tragen", "to layer clothes", "Ausdruck", "Expression", "일교차가 클 때는 옷을 겹쳐 입다 해요.", "Bei großem Temperaturunterschied trage ich Kleidung in Lagen.", "When the temperature gap is large, I layer clothes."]
+  ]
+}

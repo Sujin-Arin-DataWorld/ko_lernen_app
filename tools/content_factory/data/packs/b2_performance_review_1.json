@@ -1,0 +1,24 @@
+{
+  "packId": "b2_performance_review_1",
+  "level": "b2",
+  "orderInLevel": 30,
+  "topic": "Beurteilung",
+  "unit": "b2_05_interview",
+  "concept": "concept_b2_interview",
+  "motif": "bamboo",
+  "labels": {"ko": "평가 면담", "de": "Beurteilungsgespräch", "en": "Performance review"},
+  "words": [
+    ["성과 면담", "Beurteilungsgespräch", "performance talk", "Ausdruck", "Expression", "성과 면담 전에 스스로 한 일을 세 줄로 적어요.", "Vor dem Beurteilungsgespräch schreibe ich drei Zeilen zu meiner Arbeit.", "Before the performance talk I write three lines about what I did."],
+    ["목표 대비", "Soll-Ist", "target versus actual", "Ausdruck", "Expression", "목표 대비 숫자를 과장하지 않아요.", "Beim Soll-Ist übertreibe ich die Zahlen nicht.", "In target versus actual I do not exaggerate the numbers."],
+    ["개선 과제", "Entwicklungsaufgabe", "growth task", "Ausdruck", "Expression", "개선 과제는 한 분기 안에 측정 가능하게 정해요.", "Die Entwicklungsaufgabe formuliere ich in einem Quartal messbar.", "I set the growth task so it can be measured within a quarter."],
+    ["자기 평가", "Selbsteinschätzung", "self-review", "Ausdruck", "Expression", "자기 평가에는 실패한 시도도 짧게 남기어요.", "In der Selbsteinschätzung erwähne ich auch gescheiterte Versuche kurz.", "In the self-review I briefly include failed attempts."],
+    ["역량 기술", "Kompetenzbeschreibung", "skill description", "Ausdruck", "Expression", "역량 기술은 형용사보다 사례로 적어요.", "Die Kompetenzbeschreibung schreibe ich mit Fällen statt mit Adjektiven.", "I write the skill description with cases, not adjectives."],
+    ["피드백 메모", "Rückmeldungsnotiz", "feedback note", "Ausdruck", "Expression", "피드백 메모를 받은 날 바로 정리해요.", "Die Rückmeldungsnotiz ordne ich am selben Tag.", "I organize the feedback note the same day I receive it."],
+    ["승진 기준", "Beförderungskriterium", "promotion criterion", "Ausdruck", "Expression", "승진 기준이 공개되지 않아 질문을 준비했어요.", "Weil das Beförderungskriterium nicht offen liegt, habe ich Fragen vorbereitet.", "The promotion criterion is not public, so I prepared questions."],
+    ["면담 기록", "Gesprächsprotokoll", "review minutes", "Ausdruck", "Expression", "면담 기록을 이틀 안에 공유해 달라고 했어요.", "Ich habe gebeten, das Gesprächsprotokoll innerhalb von zwei Tagen zu teilen.", "I asked them to share the review minutes within two days."],
+    ["강점 서술", "Stärkenformulierung", "strength statement", "Ausdruck", "Expression", "강점 서술은 팀 결과에 연결해서 말해요.", "Die Stärkenformulierung knüpfe ich an das Teamergebnis.", "I tie the strength statement to the team result."],
+    ["보완 계획", "Nachholplan", "remediation plan", "Ausdruck", "Expression", "보완 계획에는 지원이 필요한 조건을 적어요.", "Im Nachholplan steht, welche Unterstützung nötig ist.", "The remediation plan states what support is needed."],
+    ["평가 주기", "Beurteilungszyklus", "review cycle", "Ausdruck", "Expression", "평가 주기가 반기라서 중간 점검을 넣었어요.", "Der Beurteilungszyklus ist halbjährlich, deshalb habe ich eine Zwischenprüfung eingefügt.", "The review cycle is half-yearly, so I added a midpoint check."],
+    ["합의된 다음 단계", "vereinbarter Folgeschritt", "agreed next step", "Ausdruck", "Expression", "합의된 다음 단계를 달력에 바로 넣어요.", "Den vereinbarten Folgeschritt trage ich sofort in den Kalender ein.", "I put the agreed next step on the calendar immediately."]
+  ]
+}

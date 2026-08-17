@@ -1,0 +1,24 @@
+{
+  "packId": "a1_post_office_1",
+  "level": "a1",
+  "orderInLevel": 26,
+  "topic": "Postamt",
+  "unit": "a1_07_contact_address",
+  "concept": "concept_a1_contact_address",
+  "motif": "gwigap",
+  "labels": {"ko": "우체국에서", "de": "Auf der Post", "en": "At the post office"},
+  "words": [
+    ["우표", "Briefmarke", "stamp", "Nomen", "Noun", "우표를 세 장 주세요.", "Bitte geben Sie mir drei Briefmarken.", "Please give me three stamps."],
+    ["소포", "Paket", "parcel", "Nomen", "Noun", "이 소포를 독일로 보내고 싶어요.", "Ich möchte dieses Paket nach Deutschland schicken.", "I want to send this parcel to Germany."],
+    ["등기", "Einschreiben", "registered mail", "Nomen", "Noun", "중요한 서류는 등기로 보내요.", "Wichtige Unterlagen schicke ich per Einschreiben.", "I send important papers by registered mail."],
+    ["우편함", "Briefkasten", "mailbox", "Nomen", "Noun", "편지는 아래 우편함에 넣어 주세요.", "Bitte legen Sie den Brief in den Briefkasten unten.", "Please put the letter in the mailbox downstairs."],
+    ["부치다", "aufgeben", "to mail", "Verb", "Verb", "소포를 부치다 전에 주소를 확인해요.", "Bevor ich das Paket aufgebe, prüfe ich die Adresse.", "Before I mail the parcel, I check the address."],
+    ["무게", "Gewicht", "weight", "Nomen", "Noun", "무게가 이 킬로그램을 넘어요.", "Das Gewicht liegt über zwei Kilogramm.", "The weight is over two kilograms."],
+    ["주소", "Adresse", "address", "Nomen", "Noun", "받는 사람 주소를 여기에 써 주세요.", "Bitte schreiben Sie die Empfängeradresse hierhin.", "Please write the recipient address here."],
+    ["보내는 사람", "Absender", "sender", "Nomen", "Noun", "보내는 사람 이름을 크게 썼어요.", "Ich habe den Absendernamen groß geschrieben.", "I wrote the sender name in large letters."],
+    ["받는 사람", "Empfänger", "recipient", "Nomen", "Noun", "받는 사람 전화번호를 적어 주세요.", "Bitte notieren Sie die Telefonnummer des Empfängers.", "Please write the recipient's phone number."],
+    ["도착 문자", "Zustellnachricht", "delivery text", "Ausdruck", "Expression", "도착 문자가 오면 알려 주세요.", "Sagen Sie mir Bescheid, wenn die Zustellnachricht kommt.", "Tell me when the delivery text arrives."],
+    ["포장지", "Packpapier", "wrapping paper", "Nomen", "Noun", "깨지기 쉬운 컵은 포장지로 감싸요.", "Zerbrechliche Tassen wickle ich in Packpapier.", "I wrap fragile cups in wrapping paper."],
+    ["창구", "Schalter", "counter", "Nomen", "Noun", "세 번 창구에서 기다리세요.", "Bitte warten Sie am Schalter drei.", "Please wait at counter number three."]
+  ]
+}

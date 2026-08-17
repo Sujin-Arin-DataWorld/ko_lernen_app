@@ -1,0 +1,24 @@
+{
+  "packId": "b1_travel_change_1",
+  "level": "b1",
+  "orderInLevel": 28,
+  "topic": "Reiseänderung",
+  "unit": "b1_01_experience_reasons",
+  "concept": "concept_b1_reasons_experience",
+  "motif": "mountain",
+  "labels": {"ko": "여행 일정 변경", "de": "Reiseänderung", "en": "Travel change"},
+  "words": [
+    ["일정 변경", "Terminänderung", "schedule change", "Ausdruck", "Expression", "태풍 때문에 일정 변경을 요청했어요.", "Wegen des Taifuns habe ich eine Terminänderung gebeten.", "I requested a schedule change because of the typhoon."],
+    ["환불 규정", "Erstattungsregel", "refund rule", "Ausdruck", "Expression", "환불 규정을 예약 확인서에서 다시 읽어요.", "Die Erstattungsregel lese ich noch einmal in der Buchungsbestätigung.", "I reread the refund rule on the booking confirmation."],
+    ["수수료 면제", "Gebührenerlass", "fee waiver", "Ausdruck", "Expression", "천재지변이면 수수료 면제가 가능하대요.", "Bei höherer Gewalt sei ein Gebührenerlass möglich.", "They said a fee waiver is possible for a natural disaster."],
+    ["대체 열차", "Ersatzzug", "replacement train", "Nomen", "Noun", "지연되면 대체 열차 좌석을 다시 배정해요.", "Bei Verspätung wird ein Sitz im Ersatzzug neu zugewiesen.", "If delayed, they reassign a seat on the replacement train."],
+    ["숙소 이월", "Übernachtungsverschiebung", "stay shift", "Ausdruck", "Expression", "숙소 이월이 되는지 저녁에 답변 달래요.", "Ob eine Übernachtungsverschiebung möglich ist, sagen sie am Abend.", "They will say this evening whether a stay shift is possible."],
+    ["탑승 마감", "Check-in-Schluss", "boarding cutoff", "Ausdruck", "Expression", "탑승 마감 삼십 분 전에는 카운터에 있어야 해요.", "Dreißig Minuten vor Check-in-Schluss muss ich am Schalter sein.", "I must be at the counter thirty minutes before boarding cutoff."],
+    ["연결편", "Anschluss", "connecting service", "Nomen", "Noun", "연결편이 끊기면 숙박권을 받아요.", "Wenn der Anschluss ausfällt, bekomme ich einen Hotelgutschein.", "If the connecting service is missed, I get a hotel voucher."],
+    ["좌석 재배정", "Neuzuweisung", "reseating", "Ausdruck", "Expression", "좌석 재배정 문자가 출발 한 시간 전에 왔어요.", "Die Nachricht zur Neuzuweisung kam eine Stunde vor Abfahrt.", "The reseating text arrived an hour before departure."],
+    ["여행자 보험", "Reiseversicherung", "travel insurance", "Ausdruck", "Expression", "여행자 보험에 일정 변경이 포함되는지 확인해요.", "Ich prüfe, ob die Reiseversicherung die Terminänderung abdeckt.", "I check whether travel insurance covers the schedule change."],
+    ["출발 지연", "Abfahrtsverzug", "departure delay", "Ausdruck", "Expression", "출발 지연이 한 시간을 넘으면 안내가 나와요.", "Dauert der Abfahrtsverzug länger als eine Stunde, kommt eine Durchsage.", "If the departure delay exceeds one hour, there is an announcement."],
+    ["변경 수수료", "Umbuchungsgebühr", "change fee", "Ausdruck", "Expression", "변경 수수료를 카드로 바로 냈어요.", "Die Umbuchungsgebühr habe ich sofort mit Karte gezahlt.", "I paid the change fee by card immediately."],
+    ["확정 대기", "Warteliste", "waitlist hold", "Ausdruck", "Expression", "확정 대기 상태라 저녁에 다시 확인해요.", "Es steht auf der Warteliste, deshalb prüfe ich am Abend erneut.", "It is on a waitlist hold, so I check again in the evening."]
+  ]
+}
