@@ -10637,7 +10637,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_self_intro",
         "sourceVocabId": "vocab_a1_0013",
-        "sourceVocabFingerprintSha256": "7cf7ecda0eaf603cffa765cb362d8b7d0de0d2f7e493bf43141340e22cdbcf4e",
+        "sourceVocabFingerprintSha256": "47ace95cdf102b6522579f8c4671beb19fde514ba2908ecd65cfa634602ee11b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_02_self_intro_identity",
         "courseUnitId": "a1_02_self_intro_identity"
@@ -11165,7 +11165,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_2",
         "sourceVocabId": "vocab_a1_0168",
-        "sourceVocabFingerprintSha256": "c5b893f5351c1cc0128c2cf3ed2fe379014ad3982607db8f43d5d4c7aaa601f4",
+        "sourceVocabFingerprintSha256": "94484861186d95fa68140086341bc729c3311aca4d226565a0f332711dfa7f61",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -11814,7 +11814,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_2",
         "sourceVocabId": "vocab_a1_0168",
-        "sourceVocabFingerprintSha256": "c5b893f5351c1cc0128c2cf3ed2fe379014ad3982607db8f43d5d4c7aaa601f4",
+        "sourceVocabFingerprintSha256": "94484861186d95fa68140086341bc729c3311aca4d226565a0f332711dfa7f61",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -11825,7 +11825,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_2",
         "sourceVocabId": "vocab_a1_0171",
-        "sourceVocabFingerprintSha256": "023fd6d12ba08f8e1296b9404da866ae5bf8b6891e07fa4ca8fc36b0c6a69a3f",
+        "sourceVocabFingerprintSha256": "899edc5ff592644dfaacee5aa65dda3a8941660aaa8f3bcee1e9bdff64c55f38",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"

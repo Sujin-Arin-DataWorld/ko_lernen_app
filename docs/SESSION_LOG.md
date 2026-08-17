@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — humanizer 뒤 vocab fingerprint 4건 재고정
+
+**왜.** `korean_vocab.csv` DE/EN을 고친 뒤 `can_do_content_authorities.json`의
+상속 cloze/satz 4건이 옛 vocab SHA-256을 들고 있어 CI Test 17건이
+`source vocab fingerprint mismatch`로 실패했다.
+
+**무엇을.** 전체 segment 재생성 없이 해당 4지문만 현재 CSV 행과 맞춰 고쳤다.
+`cloze_a1_0005`←`vocab_a1_0013`, `cloze_a1_0075`/`satz_a1_0040`←`vocab_a1_0168`,
+`satz_a1_0041`←`vocab_a1_0171`. 한국어·ID·세그먼트 소유권은 그대로다.
+
+**검증.** Python SHA-256이 Dart `_jsonFingerprint` 계약과 동일하게 재계산됨.
+집중 Flutter 테스트는 이 커밋 직후 실행.
+
+**커밋.** 이 항목과 같은 커밋.
+
 ### 2026-08-16 (Cursor) — DE/EN 교과서 관용구 humanizer 패스
 
 **왜.** Jin 요청: `오랜만이야`를 `long time no see` / `lange nicht gesehen`처럼
