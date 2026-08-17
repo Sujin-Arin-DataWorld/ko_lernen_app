@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — smalltalk phrase fingerprint 127건 재고정
+
+**왜.** 안부 DE/EN을 고친 `smalltalk.json` 253개 A1–B2 문구 중 127개의
+`phraseFingerprintSha256`이 `can_do_content_authorities.json`과 어긋나
+`can_do_segment_asset_test`가 실패했다. 라우팅·세그먼트 소유권은 그대로다.
+
+**무엇을.** 현재 phrase 객체 SHA-256만 맞춰 썼다. 의미 결정·reviewRevision은
+바꾸지 않았다.
+
+**검증.** `canonical_course_segment_loader` · `productive_catalog_contract` ·
+`can_do_segment_asset` · `productive_mastery_service` · `data_integrity` ·
+`smalltalk` **37/37**.
+
+**커밋.** `f2aa362` (지문) + 이 로그 커밋.
+
 ### 2026-08-16 (Cursor) — humanizer 뒤 vocab fingerprint 4건 재고정
 
 **왜.** `korean_vocab.csv` DE/EN을 고친 뒤 `can_do_content_authorities.json`의
