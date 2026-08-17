@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 백엔드 신뢰성 2단계: 멱등 재시도·제공자 deadline
+
+**무엇을.** 2차 코드 리뷰에서 남은 유료 경로 결함을 고쳤다. 끝말잇기 사전
+`validate_kkeunmari_word`는 `validate_exact_noun`이 `None`이면 503 전에 할당량을
+환급한다. TTS는 0바이트 Storage 객체를 캐시 히트로 쓰지 않고 삭제한 뒤 재합성하며,
+빈 `audioContent`는 저장하지 않고 한도를 되돌린다. DeepL은 기본 10초×5회 재시도를
+끄고 호출당 8초 deadline을 두며, Cloud TTS 합성도 8초로 끊는다. 같은 학습자의 같은
+책 분석 지문과 같은 발음 `assessmentId`는 서버 전용 `service_idempotency`에 15분
+영수증만 남겨 재시도가 한도를 다시 깎지 않게 한다. 분석 영수증에는 원문·응답을
+넣지 않고, 발음 영수증에는 점수만 넣는다.
+
+**왜.** 클라 12초 타임아웃 뒤 재시도가 이중 과금되고, 빈 TTS가 영구 캐시되며,
+사전/번역 장애가 한도만 소모하는 상태를 막기 위해서다. live Gen2 배포와 legacy
+cache 삭제는 계속 Jin 운영 게이트다.
+
+**검증.** 책 분석 Python `test_*.py` **87/87**, TTS Node 가드 **16/16**, 발음
+Node 가드 **7/7**, `node --check` 4파일, `firestore.indexes.json` parse,
+`git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
+하지 않았다.
+
 ### 2026-08-16 (Cursor) — 백엔드 신뢰성 1단계: 공정 할당량·서킷·TTL
 
 **무엇을.** 코드 리뷰에서 유료 제공자 실패 뒤에도 일일 한도가 남는 문제, 끝말잇기

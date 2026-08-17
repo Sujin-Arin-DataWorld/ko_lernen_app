@@ -1,4 +1,6 @@
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const test = require("node:test");
 
 const {
@@ -8,14 +10,24 @@ const {
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
+  isUsableAudioBuffer,
   quotaExpiresAt,
   refundDailyTtsQuotas,
   underDailyTtsQuotas,
   validateTtsRequest,
+  withDeadline,
 } = require("./tts_request_guard");
 
 const INSTALLATION_A = "c292226a-4c87-4e1f-98ef-21c76945cb65";
 const INSTALLATION_B = "eb0fab89-b3e6-46c0-b6cb-03c48653e33d";
+
+test("synthesis treats empty Storage objects as a miss and bounds Cloud TTS", () => {
+  const source = fs.readFileSync(path.join(__dirname, "index.js"), "utf8");
+  assert.match(source, /isUsableAudioBuffer/);
+  assert.match(source, /withDeadline/);
+  assert.match(source, /SYNTH_DEADLINE_MS/);
+  assert.match(source, /empty TTS audio/);
+});
 
 test("expensive TTS callable enforces App Check and consumes replay tokens", () => {
   assert.equal(CALLABLE_OPTIONS.enforceAppCheck, true);
@@ -182,6 +194,19 @@ test("refunds a reserved synthesis when the provider fails", async () => {
     allowed: false,
     exceededScope: "installation",
   });
+});
+
+test("empty or non-buffer audio is never treated as a cache hit", () => {
+  assert.equal(isUsableAudioBuffer(Buffer.alloc(0)), false);
+  assert.equal(isUsableAudioBuffer(null), false);
+  assert.equal(isUsableAudioBuffer(Buffer.from([0xff, 0xfb])), true);
+});
+
+test("withDeadline rejects a hung synthesis before the client gives up", async () => {
+  await assert.rejects(
+    () => withDeadline(new Promise(() => {}), 20, "deadline"),
+    (error) => error instanceof Error && error.message === "deadline",
+  );
 });
 
 test("provider circuit opens after consecutive failures", () => {

@@ -13,12 +13,20 @@ from security import (  # noqa: E402
     AuthenticationFailed,
     CircuitBreaker,
     DEFAULT_ALLOWED_APP_IDS,
+    DEEPL_HTTP_MAX_RETRIES,
+    DEEPL_HTTP_TIMEOUT_SECONDS,
+    FirestoreIdempotencyGate,
     QuotaExceeded,
     QuotaState,
+    analysis_request_id,
+    configure_deepl_http_deadlines,
     consume_quota_state,
+    idempotency_payload,
+    is_current_idempotency,
     quota_document_id,
     quota_expires_at,
     release_quota_state,
+    run_with_deadline,
     verify_caller,
 )
 
@@ -204,6 +212,111 @@ class CircuitBreakerTest(unittest.TestCase):
         self.assertTrue(breaker.allow())
         breaker.record_success()
         self.assertTrue(breaker.allow())
+
+
+class IdempotencyPolicyTest(unittest.TestCase):
+    def test_analysis_request_id_is_stable_and_hides_the_uid(self):
+        uid = "firebase-user-123"
+        first = analysis_request_id(uid, "de", "학생이에요.", None)
+        second = analysis_request_id(uid, "de", "학생이에요.", None)
+
+        self.assertEqual(first, second)
+        self.assertEqual(len(first), 64)
+        self.assertNotIn(uid, first)
+        self.assertNotEqual(
+            first,
+            analysis_request_id("other-user", "de", "학생이에요.", None),
+        )
+        self.assertNotEqual(
+            first,
+            analysis_request_id(uid, "en", "학생이에요.", None),
+        )
+
+    def test_idempotency_payload_never_stores_source_text(self):
+        now = dt.datetime(2026, 8, 16, 10, 0, tzinfo=dt.timezone.utc)
+        payload = idempotency_payload("book_analysis_v1", now)
+
+        self.assertEqual(set(payload), {"kind", "expiresAt"})
+        self.assertEqual(payload["kind"], "book_analysis_v1")
+        self.assertEqual(
+            payload["expiresAt"],
+            dt.datetime(2026, 8, 16, 10, 15, tzinfo=dt.timezone.utc),
+        )
+        self.assertTrue(
+            is_current_idempotency(payload, now, kind="book_analysis_v1")
+        )
+        self.assertFalse(
+            is_current_idempotency(
+                payload,
+                now + dt.timedelta(minutes=15),
+                kind="book_analysis_v1",
+            )
+        )
+
+    def test_remembered_receipt_skips_a_second_charge(self):
+        store: dict[str, dict[str, object]] = {}
+        gate = FirestoreIdempotencyGate(
+            firestore_client=_FakeIdempotencyClient(store)
+        )
+        request_id = analysis_request_id("user-1", "de", "학생이에요.", None)
+
+        self.assertFalse(gate.seen(request_id, kind="book_analysis_v1"))
+        gate.remember(request_id, "book_analysis_v1")
+        self.assertTrue(gate.seen(request_id, kind="book_analysis_v1"))
+        self.assertEqual(set(store[request_id]), {"kind", "expiresAt"})
+
+    def test_run_with_deadline_raises_before_a_hung_provider_returns(self):
+        def hang() -> str:
+            import time
+
+            time.sleep(1)
+            return "too-late"
+
+        with self.assertRaises(TimeoutError):
+            run_with_deadline(hang, timeout_seconds=0.05)
+
+    def test_deepl_http_client_drops_the_default_retry_loop(self):
+        import deepl.http_client as http_client
+
+        configure_deepl_http_deadlines()
+        self.assertEqual(
+            http_client.min_connection_timeout, DEEPL_HTTP_TIMEOUT_SECONDS
+        )
+        self.assertEqual(
+            http_client.max_network_retries, DEEPL_HTTP_MAX_RETRIES
+        )
+
+
+class _FakeIdempotencyClient:
+    def __init__(self, store: dict[str, dict[str, object]]):
+        self.store = store
+
+    def collection(self, _name: str) -> "_FakeIdempotencyClient":
+        return self
+
+    def document(self, document_id: str) -> "_FakeIdempotencyDocument":
+        return _FakeIdempotencyDocument(self.store, document_id)
+
+
+class _FakeIdempotencyDocument:
+    def __init__(self, store: dict[str, dict[str, object]], document_id: str):
+        self.store = store
+        self.document_id = document_id
+
+    def get(self) -> "_FakeIdempotencySnapshot":
+        return _FakeIdempotencySnapshot(self.store.get(self.document_id))
+
+    def set(self, data: dict[str, object]) -> None:
+        self.store[self.document_id] = data
+
+
+class _FakeIdempotencySnapshot:
+    def __init__(self, data: dict[str, object] | None):
+        self._data = data
+        self.exists = data is not None
+
+    def to_dict(self) -> dict[str, object] | None:
+        return self._data
 
 
 if __name__ == "__main__":
