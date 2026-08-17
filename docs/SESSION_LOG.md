@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — 직장 안부 `lately` 잔여 문구 제거
+
+**왜.** `요즘 일은 어때요?` 보조 질문이 아직 `How is work going lately?`로
+남아 교과서 안부 패턴이 7곳과 폴백/생성기에 남아 있었다.
+
+**무엇을.** 학습자 영어만 `How's work been?`으로 맞추고, 해당 smalltalk
+phrase fingerprint 7건을 다시 고정했다. 독일어 `Wie läuft die Arbeit gerade?`는
+이미 구어라 그대로 두었다.
+
+**검증.** `canonical_course_segment_loader` · `can_do_segment_asset` ·
+`productive_mastery_service` · `productive_catalog_contract` **24/24**.
+
+**커밋.** `05b7f1b` + 이 로그 커밋.
+
 ### 2026-08-16 (Cursor) — smalltalk phrase fingerprint 127건 재고정
 
 **왜.** 안부 DE/EN을 고친 `smalltalk.json` 253개 A1–B2 문구 중 127개의
