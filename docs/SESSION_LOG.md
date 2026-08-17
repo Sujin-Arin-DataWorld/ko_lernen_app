@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 런타임 재현 (수정 없음)
+
+**무엇을.** Living Hanok V1 PR4 A1 파이프라인의 남은 fail-closed 구멍 4개를
+수정하지 않고 계측·재현만 했다. 임시 WebP/PNG는 `/tmp`에만 만들었고 repo
+에셋은 생성하지 않았다.
+
+**런타임 숫자.**
+- 손실 q82 `#00ff00` 256×256 WebP 디코드: `(0,255,1)` 65,200px + `(2,255,1)`
+  336px, exact `(0,255,0)` = 0. compose/promote/checker chroma count 모두 0.
+  lossless는 compose count 65,536.
+- `promote_states(dry_run=False)`: ledger `records=0`, approved output SHA=0,
+  16개 RGB WebP 복사 성공.
+- ImageCache: step 8에서 tracked=3 / catalog=17, 비거주 14경로 미추적.
+  8→16 점프는 거주 3개만 evict, 12경로는 한 번도 evict 안 함. dispose는
+  거주 2개만 evict. cacheWidth 600→780 전환은 거주 키만 교체.
+- local anchor `(427,309)` on 854×309: y=170–300 exclusive 페인트는
+  `skippedY=true`, `coversY=false`인데 `normalize_layer` accept.
+
+**검증.** `python3 /tmp/repro_hanok_pr4_holes.py` +
+`flutter test --no-pub test/a1_hanok_imagecache_hole_observe_test.dart`.
+수정은 다음 반복. 커밋해시는 이 기록과 같은 커밋.
+
 ### 2026-08-17 (Cursor) — PR4 파이프라인 리뷰 버그 수정
 
 **무엇을.** 코드 리뷰와 런타임 재현으로 확인한 fail-closed 구멍을 고쳤다.

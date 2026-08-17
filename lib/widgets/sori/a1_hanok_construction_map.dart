@@ -26,6 +26,17 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   final Map<String, ResizeImage> _providers = <String, ResizeImage>{};
   int? _cacheWidth;
 
+  // #region agent log
+  @visibleForTesting
+  final List<String> debugEvictedPaths = <String>[];
+
+  @visibleForTesting
+  final List<int> debugEvictedCacheWidths = <int>[];
+
+  @visibleForTesting
+  int get debugTrackedProviderCount => _providers.length;
+  // #endregion
+
   @visibleForTesting
   List<String> get residentAssetPaths {
     final step = widget.projection.a1ConstructionStep;
@@ -49,6 +60,20 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
 
   @override
   void dispose() {
+    // #region agent log
+    debugEvictedPaths
+      ..clear()
+      ..addAll(_providers.keys);
+    if (_cacheWidth != null) {
+      debugEvictedCacheWidths.add(_cacheWidth!);
+    }
+    debugPrint(
+      'A1_CACHE_HOLE dispose tracked=${_providers.length} '
+      'catalog=${kA1HanokConstructionStates.length} '
+      'evicted=${List<String>.from(_providers.keys)} '
+      'cacheWidth=$_cacheWidth',
+    );
+    // #endregion
     for (final provider in _providers.values) {
       provider.evict();
     }
@@ -83,9 +108,23 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
         return;
       }
       for (final path in stale) {
+        // #region agent log
+        debugEvictedPaths.add(path);
+        // #endregion
         _providers.remove(path)?.evict();
       }
       if (sizeChanged) {
+        // #region agent log
+        debugEvictedPaths.addAll(_providers.keys);
+        if (_cacheWidth != null) {
+          debugEvictedCacheWidths.add(_cacheWidth!);
+        }
+        debugPrint(
+          'A1_CACHE_HOLE sync stale=$stale sizeChanged=$sizeChanged '
+          'tracked=${_providers.length} catalog=${kA1HanokConstructionStates.length} '
+          'oldCacheWidth=$_cacheWidth newCacheWidth=$cacheWidth',
+        );
+        // #endregion
         for (final provider in _providers.values) {
           provider.evict();
         }

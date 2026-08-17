@@ -17,8 +17,10 @@ from hanok_v1_asset_contract import (
     ROOT,
     a1_expected_files,
     a1_hard_max_bytes,
+    approved_output_digests,
     camera_geometry,
     load_provenance,
+    sha256_file,
 )
 
 
@@ -27,11 +29,21 @@ class PromotionError(ValueError):
 
 
 def _chroma_count(image: Image.Image) -> int:
-    return sum(
-        1
-        for red, green, blue in image.convert("RGB").getdata()
-        if (red, green, blue) == (0, 255, 0)
-    )
+    exact = 0
+    near = 0
+    sample = None
+    for red, green, blue in image.convert("RGB").getdata():
+        if (red, green, blue) == (0, 255, 0):
+            exact += 1
+        elif green >= 200 and red <= 40 and blue <= 40:
+            near += 1
+            if sample is None:
+                sample = [red, green, blue]
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "promote_hanok_a1_states.py:_chroma_count", "message": "exact #00ff00 vs near-green", "data": {"exact": exact, "near": near, "sampleRgb": sample, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return exact
 
 
 def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None:
@@ -87,6 +99,15 @@ def promote_states(
     approved = collect_approved_states(qa_root=qa_root)
     destination = runtime_root or A1_RUNTIME_STATES_ROOT
     copied = []
+    # #region agent log
+    import json as _json, time as _time
+    _payload = load_provenance()
+    _records = _payload.get("generationLedger", {}).get("records", [])
+    _approved_shas = approved_output_digests(_payload)
+    _file_shas = [sha256_file(path) for path in approved]
+    _locked = all(digest in _approved_shas for digest in _file_shas) if _file_shas else False
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "B", "location": "promote_hanok_a1_states.py:promote_states", "message": "promote apply vs empty ledger", "data": {"dryRun": dry_run, "fileCount": len(approved), "ledgerRecordCount": len(_records), "approvedOutputShaCount": len(_approved_shas), "shaLocked": _locked, "wouldCopy": not dry_run}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
     expected_names = {path.name for path in approved}
     if destination.is_dir():
         leftovers = [

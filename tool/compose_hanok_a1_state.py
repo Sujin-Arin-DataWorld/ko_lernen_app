@@ -49,11 +49,23 @@ def _alpha_bbox(image: Image.Image) -> tuple[int, int, int, int] | None:
 
 
 def _chroma_count(image: Image.Image) -> int:
-    return sum(
-        1
-        for red, green, blue, alpha in image.getdata()
-        if (red, green, blue) == CHROMA and alpha > ALPHA_THRESHOLD
-    )
+    exact = 0
+    near = 0
+    sample = None
+    for red, green, blue, alpha in image.getdata():
+        if alpha <= ALPHA_THRESHOLD:
+            continue
+        if (red, green, blue) == CHROMA:
+            exact += 1
+        elif green >= 200 and red <= 40 and blue <= 40:
+            near += 1
+            if sample is None:
+                sample = [red, green, blue, alpha]
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "compose_hanok_a1_state.py:_chroma_count", "message": "exact #00ff00 vs near-green", "data": {"exact": exact, "near": near, "sampleRgba": sample, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    return exact
 
 
 def _corners_opaque(image: Image.Image) -> bool:
@@ -131,9 +143,16 @@ def _covers_local_anchor(
     # PIL getbbox right/lower are exclusive, so equality on the right edge
     # is one pixel outside the painted footprint.
     covers_x = left <= anchor_x < right
-    if anchor_y >= socket_height:
+    covers_y = top <= anchor_y < bottom
+    skipped_y = anchor_y >= socket_height
+    accepted = covers_x if skipped_y else covers_x and covers_y
+    # #region agent log
+    import json as _json, time as _time
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "D", "location": "compose_hanok_a1_state.py:_covers_local_anchor", "message": "anchor cover decision", "data": {"bbox": [left, top, right, bottom], "anchor": [anchor_x, anchor_y], "socketHeight": socket_height, "coversX": covers_x, "coversY": covers_y, "skippedY": skipped_y, "accepted": accepted}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    # #endregion
+    if skipped_y:
         return covers_x
-    return covers_x and top <= anchor_y < bottom
+    return covers_x and covers_y
 
 
 def normalize_layer(
