@@ -20,7 +20,7 @@
 
 **검증.** `python3 /tmp/repro_hanok_pr4_holes.py` +
 `flutter test --no-pub test/a1_hanok_imagecache_hole_observe_test.dart`.
-수정은 다음 반복. 커밋해시는 이 기록과 같은 커밋.
+수정은 다음 반복. 계측 커밋 `0a2232bf`.
 
 ### 2026-08-17 (Cursor) — PR4 파이프라인 리뷰 버그 수정
 
