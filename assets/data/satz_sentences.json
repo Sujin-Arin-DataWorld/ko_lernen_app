@@ -11120,7 +11120,7 @@
     {
       "id": "satz_a1_0200",
       "level": "a1",
-      "targetKo": "플라스틱은 분리배출하세요.",
+      "targetKo": "플라스틱은 꼭 분리배출하세요.",
       "promptDe": "Bitte entsorgen Sie Plastik getrennt.",
       "promptEn": "Please use sorted disposal for plastic.",
       "distractors": [
@@ -11708,7 +11708,7 @@
     {
       "id": "satz_a1_0249",
       "level": "a1",
-      "targetKo": "실수해도 문제없어요.",
+      "targetKo": "실수해도 큰 문제없어요.",
       "promptDe": "Wenn Sie einen Fehler machen, ist das kein Problem.",
       "promptEn": "If you make a mistake, no problem.",
       "distractors": [

@@ -230,6 +230,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                 spoken_en = seed[field][2]
                 self.assertNotIn("Shall I", spoken_en, f"{ident} {field}")
                 self.assertNotIn("I will ", spoken_en, f"{ident} {field}")
+                self.assertNotIn("I am ", spoken_en, f"{ident} {field}")
                 self.assertNotIn("in advance", spoken_en, f"{ident} {field}")
                 self.assertNotIn("Bitte prüfen", seed[field][1], f"{ident} {field}")
         self.assertEqual(len(dialogs), 174)

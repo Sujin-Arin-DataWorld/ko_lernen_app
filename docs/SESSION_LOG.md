@@ -15,7 +15,10 @@ ob`. 상황 문장(`합니다`/`Man …`)은 교재 레지스터라 손대지 �
 번역투·직역만 지우고, 학습자가 듣는 문장을 구어로 맞춘다.
 
 **검증.** `rewrite-batch-10` 후 factory/콘텐츠/Flutter 게이트. 시드
-leftover(`진행하지`/`할 수 있는`/`을 위해`)와 셸 `Shall I`/`I will ` 0.
+leftover(`진행하지`/`할 수 있는`/`을 위해`)와 셸 `Shall I`/`I will `/
+`I am ` 0. ready PR CI가 잡은 Batch 09 계약 4건도 같이 닫았다:
+1음절 cloze 2개, 2어절 satz 2개, 학습자 EN 축약, inherited route
+1295→2703(86칸 분모는 그대로).
 
 **커밋해시.** 이 로그와 같은 커밋.
 

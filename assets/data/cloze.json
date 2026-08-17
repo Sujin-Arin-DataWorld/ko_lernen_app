@@ -15295,15 +15295,15 @@
     {
       "id": "cloze_a1_0247",
       "level": "a1",
-      "sentenceKo": "＿＿＿로 선을 반듯하게 그어요.",
-      "answer": "자",
+      "sentenceKo": "자로 선을 ＿＿＿ 그어요.",
+      "answer": "반듯하게",
       "fullKo": "자로 선을 반듯하게 그어요.",
       "de": "Mit dem Lineal ziehe ich eine gerade Linie.",
       "en": "I draw a straight line with a ruler.",
       "distractors": [
-        "필통",
-        "지우개",
-        "가위"
+        "천천히",
+        "대충",
+        "빨리"
       ],
       "topic": "Schultasche"
     },
@@ -16555,15 +16555,15 @@
     {
       "id": "cloze_a2_0211",
       "level": "a2",
-      "sentenceKo": "여름에는 ＿＿＿을 하지 않을게요.",
-      "answer": "펌",
+      "sentenceKo": "＿＿＿ 펌을 하지 않을게요.",
+      "answer": "여름에는",
       "fullKo": "여름에는 펌을 하지 않을게요.",
       "de": "Im Sommer mache ich keine Dauerwelle.",
-      "en": "I will not get a perm in summer.",
+      "en": "I won't get a perm in summer.",
       "distractors": [
-        "미용실",
-        "커트",
-        "염색"
+        "겨울에는",
+        "봄에는",
+        "가을에는"
       ],
       "topic": "Friseursalon"
     },

@@ -20844,7 +20844,7 @@
           "speaker": "jieun",
           "ko": "곧 도착한다고 다시 쓸게.",
           "de": "Ich schreibe gleich, dass ich bald da bin.",
-          "en": "I'll write again that I am almost there."
+          "en": "I'll write again that I'm almost there."
         },
         {
           "speaker": "user",
@@ -20957,7 +20957,7 @@
           "data": {
             "targetKo": "곧 도착한다고 다시 쓸게.",
             "promptDe": "Ich schreibe gleich, dass ich bald da bin.",
-            "promptEn": "I'll write again that I am almost there.",
+            "promptEn": "I'll write again that I'm almost there.",
             "distractors": [
               "우유",
               "지우개",
@@ -23739,7 +23739,7 @@
           "speaker": "user",
           "ko": "나 왔어. 문 좀 열어 줘.",
           "de": "Ich bin da. Mach bitte die Tür auf.",
-          "en": "I am here. Please open the door."
+          "en": "I'm here. Please open the door."
         },
         {
           "speaker": "jieun",
@@ -23816,7 +23816,7 @@
           ],
           "data": {
             "promptDe": "Ich bin da. Mach bitte die Tür auf.",
-            "promptEn": "I am here. Please open the door.",
+            "promptEn": "I'm here. Please open the door.",
             "options": [
               {
                 "ko": "나 왔어. 문 좀 열어 줘."
@@ -25539,7 +25539,7 @@
           "speaker": "user",
           "ko": "나 역 앞이야. 곧 와?",
           "de": "Ich bin vor dem Bahnhof. Kommst du gleich?",
-          "en": "I am in front of the station. Are you coming soon?"
+          "en": "I'm in front of the station. Are you coming soon?"
         },
         {
           "speaker": "jieun",
@@ -25616,7 +25616,7 @@
           ],
           "data": {
             "promptDe": "Ich bin vor dem Bahnhof. Kommst du gleich?",
-            "promptEn": "I am in front of the station. Are you coming soon?",
+            "promptEn": "I'm in front of the station. Are you coming soon?",
             "options": [
               {
                 "ko": "나 역 앞이야. 곧 와?"
@@ -25764,7 +25764,7 @@
           "speaker": "user",
           "ko": "오늘 산책 취소하자. 너무 피곤해.",
           "de": "Sagen wir den Spaziergang heute ab. Ich bin zu müde.",
-          "en": "Let's cancel the walk today. I am too tired."
+          "en": "Let's cancel the walk today. I'm too tired."
         },
         {
           "speaker": "jieun",
@@ -25841,7 +25841,7 @@
           ],
           "data": {
             "promptDe": "Sagen wir den Spaziergang heute ab. Ich bin zu müde.",
-            "promptEn": "Let's cancel the walk today. I am too tired.",
+            "promptEn": "Let's cancel the walk today. I'm too tired.",
             "options": [
               {
                 "ko": "오늘 산책 취소하자. 너무 피곤해."
