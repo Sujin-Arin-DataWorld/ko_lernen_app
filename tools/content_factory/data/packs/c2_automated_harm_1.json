@@ -1,0 +1,24 @@
+{
+  "packId": "c2_automated_harm_1",
+  "level": "c2",
+  "orderInLevel": 12,
+  "topic": "Automatenfolgen",
+  "unit": "c2_02_technology_public_ethics",
+  "concept": "concept_c2_accountable_systems",
+  "motif": "mountain",
+  "labels": {"ko": "자동화 피해", "de": "Folgen der Automatik", "en": "Automated harm"},
+  "words": [
+    ["차등 영향", "ungleiche Wirkung", "uneven impact", "Ausdruck", "Expression", "차등 영향을 평균 정확도 뒤에 숨기지 않아요.", "Die ungleiche Wirkung verstecke ich nicht hinter der mittleren Genauigkeit.", "I do not hide uneven impact behind average accuracy."],
+    ["오류 비용", "Fehlerpreis", "cost of being wrong", "Ausdruck", "Expression", "오류 비용이 한쪽 집단에만 모이면 모델을 멈춰요.", "Sammelt sich der Fehlerpreis in einer Gruppe, halte ich das Modell an.", "If the cost of being wrong piles onto one group, I stop the model."],
+    ["피드백 왜곡", "Rückkopplungskrümmung", "feedback warp", "Ausdruck", "Expression", "피드백 왜곡으로 과거 거절이 미래 거절을 만들어요.", "Durch Rückkopplungskrümmung erzeugt die alte Ablehnung die nächste.", "Feedback warp makes past refusals produce future refusals."],
+    ["대리 변수", "Ersatzmerkmal", "proxy feature", "Ausdruck", "Expression", "대리 변수가 주소를 쓰면 차별이 우회해요.", "Nutzt das Ersatzmerkmal die Adresse, umgeht die Diskriminierung.", "If the proxy feature uses address, discrimination takes a detour."],
+    ["설명 가능 주장", "Erklärbarkeitsbehauptung", "explainability claim", "Ausdruck", "Expression", "설명 가능 주장이 사후 이야기면 통제가 아니에요.", "Ist die Erklärbarkeitsbehauptung eine Geschichte hinterher, ist sie keine Kontrolle.", "If the explainability claim is a story after the fact, it is not control."],
+    ["긴급 차단", "Notsperre", "kill switch", "Ausdruck", "Expression", "긴급 차단 권한이 개발팀에만 있으면 공적 통제가 없어요.", "Liegt die Notsperre nur beim Entwicklerteam, fehlt öffentliche Kontrolle.", "If the kill switch sits only with developers, there is no public control."],
+    ["피해 구제", "Schadensweg", "remedy path", "Ausdruck", "Expression", "피해 구제가 쿠폰이면 권리를 값으로 바꾼 거예요.", "Ist der Schadensweg ein Gutschein, wurde das Recht zum Preis.", "If the remedy path is a coupon, a right was turned into a price."],
+    ["배포 범위", "Ausrollkreis", "rollout scope", "Ausdruck", "Expression", "배포 범위를 취약 지역부터 시작하면 실험이 전가돼요.", "Beginnt der Ausrollkreis in verletzlichen Vierteln, wird das Experiment verschoben.", "If rollout scope starts in vulnerable areas, the experiment is offloaded."],
+    ["감시 전환", "Überwachungskippung", "turn to surveillance", "Ausdruck", "Expression", "감시 전환은 보안 언어로 포장될 때 더 잘 보여요.", "Die Überwachungskippung sieht man klarer, wenn sie Sicherheitssprache trägt.", "The turn to surveillance is clearer when it wears security language."],
+    ["집단 소송점", "Sammelpunkt", "collective claim point", "Ausdruck", "Expression", "집단 소송점이 막히면 개인만 싸우게 돼요.", "Ist der Sammelpunkt blockiert, kämpft nur die Einzelperson.", "If the collective claim point is blocked, only individuals fight."],
+    ["모델 폐기", "Modellrückzug", "model retirement", "Ausdruck", "Expression", "모델 폐기를 버전 업으로 위장하지 않아요.", "Modellrückzug verkleide ich nicht als Versionswechsel.", "I do not disguise model retirement as a version bump."],
+    ["공적 감독", "öffentliche Aufsicht", "public oversight", "Ausdruck", "Expression", "공적 감독 없이 자율 규제만 믿으면 기준이 무너져요.", "Ohne öffentliche Aufsicht und nur Selbstregelung bricht der Maßstab.", "If we trust only self-rule without public oversight, the standard collapses."]
+  ]
+}

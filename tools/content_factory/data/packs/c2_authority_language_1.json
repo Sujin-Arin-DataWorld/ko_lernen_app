@@ -1,0 +1,24 @@
+{
+  "packId": "c2_authority_language_1",
+  "level": "c2",
+  "orderInLevel": 8,
+  "topic": "Autoritätssprache",
+  "unit": "c2_01_interpretation_institutions",
+  "concept": "concept_c2_discourse_institutions",
+  "motif": "taegeuk",
+  "labels": {"ko": "권위의 언어", "de": "Autoritätssprache", "en": "Language of authority"},
+  "words": [
+    ["명령형 공지", "Befehlshinweis", "imperative notice", "Ausdruck", "Expression", "명령형 공지는 이유를 빼면 반발이 커져요.", "Ein Befehlshinweis ohne Grund erhöht den Widerstand.", "An imperative notice without a reason raises pushback."],
+    ["전문 장벽", "Fachmauer", "jargon wall", "Ausdruck", "Expression", "전문 장벽 뒤에 결정을 숨기지 말고 쉬운 문장을 병기해요.", "Hinter der Fachmauer verstecke ich die Entscheidung nicht, ich setze den einfachen Satz daneben.", "I do not hide the decision behind a jargon wall; I add a plain sentence."],
+    ["불가피 수사", "Unvermeidlichkeitsrede", "inevitability talk", "Ausdruck", "Expression", "불가피 수사는 대안의 존재를 먼저 지워요.", "Unvermeidlichkeitsrede löscht zuerst die Alternative.", "Inevitability talk first erases the existence of alternatives."],
+    ["전문가 위임", "Expertenmandat", "expert handover", "Ausdruck", "Expression", "전문가 위임이 정치 판단을 대신하면 책임을 물어요.", "Ersetzt das Expertenmandat das politische Urteil, frage ich nach der Verantwortung.", "If expert handover replaces a political judgment, I ask who is responsible."],
+    ["침묵 압박", "Schweigedruck", "pressure to stay quiet", "Ausdruck", "Expression", "침묵 압박을 '팀워크'로 부르지 않아요.", "Schweigedruck nenne ich nicht Teamgeist.", "I do not call pressure to stay quiet 'teamwork'."],
+    ["권위 인용", "Autoritätsbeleg", "appeal to rank", "Ausdruck", "Expression", "권위 인용만 있고 자료가 없으면 보류해요.", "Gibt es nur den Autoritätsbeleg ohne Material, warte ich.", "If there is only an appeal to rank and no material, I hold."],
+    ["완곡 금지", "Euphemismusstopp", "no softening label", "Ausdruck", "Expression", "완곡 금지로 '정리' 대신 '해고'를 적어요.", "Mit Euphemismusstopp schreibe ich Entlassung statt Ordnung.", "With no softening label I write 'dismissal' instead of 'tidying'."],
+    ["청중 분할", "Publikumsspaltung", "split audience", "Ausdruck", "Expression", "청중 분할로 내부와 외부를 다르게 말하면 기록이 두 개가 돼요.", "Publikumsspaltung erzeugt zwei Protokolle, innen und außen.", "A split audience creates two records, inside and outside."],
+    ["결정 불가역", "Unumkehrbarkeit", "claimed irreversibility", "Ausdruck", "Expression", "결정 불가역을 선언하기 전에 철회 경로를 보여요.", "Vor der Unumkehrbarkeit zeige ich den Rückholweg.", "Before claiming irreversibility I show the withdrawal path."],
+    ["규범 포장", "Normverpackung", "norm wrapping", "Ausdruck", "Expression", "규범 포장이 취향을 도덕으로 바꾸면 반박해요.", "Macht die Normverpackung Geschmack zur Moral, widerspreche ich.", "If norm wrapping turns taste into morals, I object."],
+    ["침묵 동의", "Schweigezustimmung", "silence as consent", "Ausdruck", "Expression", "침묵 동의를 회의에 적용하지 않고 명시 확인을 받아요.", "Schweigezustimmung wende ich nicht an, ich hole eine klare Bestätigung.", "I do not apply silence as consent; I get an explicit confirm."],
+    ["말의 자리", "Wortort", "where the word sits", "Ausdruck", "Expression", "말의 자리가 훈시이면 질문은 뒤로 밀려요.", "Sitzt der Wortort in der Belehrung, rutscht die Frage nach hinten.", "If where the word sits is a lecture, questions are pushed back."]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "b1_public_office_1",
+  "level": "b1",
+  "orderInLevel": 24,
+  "topic": "Amtgang",
+  "unit": "b1_05_complaint_resolution",
+  "concept": "concept_b1_complaint_resolution",
+  "motif": "gwigap",
+  "labels": {"ko": "관공서 일", "de": "Gang zum Amt", "en": "Public office errand"},
+  "words": [
+    ["민원실", "Bürgerbüro", "civil affairs desk", "Nomen", "Noun", "민원실에서 번호표를 뽑고 기다려요.", "Im Bürgerbüro ziehe ich eine Nummer und warte.", "I take a number at the civil affairs desk and wait."],
+    ["구비 서류", "erforderliche Unterlagen", "required papers", "Ausdruck", "Expression", "구비 서류 목록을 홈페이지에서 인쇄했어요.", "Die Liste der erforderlichen Unterlagen habe ich von der Website gedruckt.", "I printed the required-papers list from the website."],
+    ["접수증", "Eingangsbeleg", "intake slip", "Nomen", "Noun", "접수증 번호를 사진으로 남겨 두어요.", "Die Nummer auf dem Eingangsbeleg fotografiere ich.", "I photograph the number on the intake slip."],
+    ["처리 기한", "Bearbeitungsfrist", "processing time", "Ausdruck", "Expression", "처리 기한이 이 주라고 안내받았어요.", "Mir wurde eine Bearbeitungsfrist von zwei Wochen genannt.", "I was told the processing time is two weeks."],
+    ["담당 창구", "zuständiger Schalter", "responsible counter", "Ausdruck", "Expression", "전입 신고는 담당 창구가 따로 있어요.", "Für die Ummeldung gibt es einen zuständigen Schalter.", "Change-of-address has its own responsible counter."],
+    ["보완 요청", "Nachforderung", "request to supplement", "Ausdruck", "Expression", "보완 요청 문자가 와서 사본을 추가했어요.", "Wegen einer Nachforderung habe ich eine Kopie nachgereicht.", "A supplement request text came, so I added a copy."],
+    ["열람", "Einsicht", "inspection", "Nomen", "Noun", "본인만 서류 열람이 가능해요.", "Nur die Person selbst darf Einsicht in die Unterlagen nehmen.", "Only the person themselves can inspect the documents."],
+    ["대리 신청", "Antrag durch Vertretung", "proxy application", "Ausdruck", "Expression", "대리 신청에는 위임장이 필요해요.", "Für einen Antrag durch Vertretung braucht man eine Vollmacht.", "A proxy application needs a letter of authorization."],
+    ["수수료 납부", "Gebührenzahlung", "fee payment", "Ausdruck", "Expression", "수수료 납부는 카드만 된다고 했어요.", "Die Gebührenzahlung sei nur mit Karte möglich.", "They said fee payment is card only."],
+    ["민원 번호", "Vorgangsnummer", "case number", "Ausdruck", "Expression", "민원 번호로 진행 상태를 조회해요.", "Mit der Vorgangsnummer prüfe ich den Stand.", "I check the status with the case number."],
+    ["담당자 연결", "Durchstellung", "transfer to an officer", "Ausdruck", "Expression", "전화로 담당자 연결을 두 번 요청했어요.", "Am Telefon habe ich zweimal um Durchstellung gebeten.", "I asked twice on the phone for a transfer to an officer."],
+    ["처리 완료", "Abschluss der Bearbeitung", "processing complete", "Ausdruck", "Expression", "처리 완료 알림이 오면 서류를 받으러 가요.", "Wenn die Meldung über den Abschluss der Bearbeitung kommt, hole ich die Unterlagen.", "When the processing-complete notice arrives, I pick up the papers."]
+  ]
+}

@@ -12,8 +12,8 @@ existing record in place, but create a later batch for any additional record.
 
 Batch 01 and Batch 02 each total 96 records. A later batch declares its own
 complete count in its manifest; it may cover one level only when that is the
-review scope. Batch 06 is the current review-only pilot, so the next new batch
-number is **07**.
+review scope. Batch 06 remains the review-only cross-game pilot. Batch 07/08
+are the review-only 4× drafts, so the next unused batch number is **09**.
 
 | Kind | B1 | B2 | Total |
 | --- | ---: | ---: | ---: |
@@ -34,6 +34,8 @@ small-talk turns, and 36 each of Cloze and Satzbau, for 126 review records.
 | 04 | eight real-life scenarios | eight real-life scenarios | scenario-only; curriculum assess links + existing backdrops |
 | 05 | none | B2/C1/C2 depth expansion | live multi-asset batch |
 | 06 | scenario 1 + smalltalk 2 + cloze 4 + satz 6 + pronunciation 4 | same B2 scope plus first C1/C2 bundles | review-only cross-game pilot; 68 records + 20 embedded quests |
+| 07 | 8 new 12-word packs + 4 grammar + 2 smalltalk + 96 cloze/satz per A1-C2 | same six-level slice | review-only five-asset 1764 records; do not `--apply` |
+| 08 | 45/45/32/36/8/8 original scenarios + unused-live satz | scenario bundle; satz from live unused examples | review-only 174 scenarios + 641 satz; preview only |
 
 Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 
@@ -46,7 +48,7 @@ Batch 01's source of scope is `docs/CONTENT_PRODUCTION_TRACK_2026-08-14.md`:
 Each `batch_XX_manifest.json` is the machine-readable handoff. It names every
 draft/review pair and declares the curriculum, pack, motif, category, and
 topic companions required for an approved merge. Batch 01-05 mappings are
-already live; review-only Batch 06 keeps its mappings in the manifest
+already live; review-only Batch 06-08 keep their mappings in the manifest
 until the single approved multi-file transaction promotes them.
 
 Batch 01's draft-only validator is preserved as historical regression coverage.
@@ -61,6 +63,13 @@ python3 tools/content_factory/audit_game_loader_coverage.py \
   --manifest tools/content_factory/drafts/batch_06_manifest.json
 python3 tools/content_factory/integrate_scenario_batch.py \
   --manifest tools/content_factory/drafts/batch_06_manifest.json
+python3 tools/content_factory/validate_review_batch.py \
+  --manifest tools/content_factory/drafts/batch_07_manifest.json
+python3 tools/content_factory/plan_pack_assignments.py \
+  --draft tools/content_factory/drafts/c3_batch07_vocab_a1_c2.csv \
+  --metadata tools/content_factory/drafts/batch_07_manifest.json
+python3 tools/content_factory/integrate_scenario_batch.py \
+  --manifest tools/content_factory/drafts/batch_08_manifest.json
 ```
 
 ## Review and merge boundary

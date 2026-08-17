@@ -234,8 +234,8 @@ Batch 06+ 작성자가 재사용할 잠금 규칙을 설명한다.
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. Batch 06 review-only pilot이 존재하므로 현재 다음 작성 번호는
-**Batch 07**이다. Batch 05부터는
+파일을 별도로 만든다. Batch 06 review-only pilot과 Batch 07/08 review-only 4× 초안이
+있으므로 현재 다음 작성 번호는 **Batch 09**다. Batch 05부터는
 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.

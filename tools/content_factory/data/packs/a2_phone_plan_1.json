@@ -1,0 +1,24 @@
+{
+  "packId": "a2_phone_plan_1",
+  "level": "a2",
+  "orderInLevel": 33,
+  "topic": "Handytarif",
+  "unit": "a2_05_delivery_services",
+  "concept": "concept_a2_services",
+  "motif": "chilbo",
+  "labels": {"ko": "휴대폰 요금제", "de": "Handytarif", "en": "Phone plan"},
+  "words": [
+    ["요금제", "Tarif", "rate plan", "Nomen", "Noun", "이 요금제가 데이터량이 더 많아요.", "Dieser Tarif hat mehr Datenvolumen.", "This rate plan has more data."],
+    ["데이터량", "Datenvolumen", "data allowance", "Nomen", "Noun", "이번 달 데이터량이 벌써 끝났어요.", "Das Datenvolumen für diesen Monat ist schon aufgebraucht.", "This month's data allowance is already gone."],
+    ["무제한", "unbegrenzt", "unlimited", "Ausdruck", "Expression", "주말에는 데이터가 무제한이에요.", "Am Wochenende ist das Datenvolumen unbegrenzt.", "On weekends the data is unlimited."],
+    ["약정", "Vertragslaufzeit", "contract term", "Nomen", "Noun", "약정이 올해 십이월에 끝나요.", "Die Vertragslaufzeit endet im Dezember dieses Jahres.", "The contract term ends this December."],
+    ["위약금", "Vertragsstrafe", "early-termination fee", "Nomen", "Noun", "지금 바꾸면 위약금이 나와요.", "Wenn ich jetzt wechsle, fällt eine Vertragsstrafe an.", "If I switch now, there is an early-termination fee."],
+    ["로밍", "Roaming", "roaming", "Nomen", "Noun", "독일 가기 전에 로밍을 신청해요.", "Vor der Reise nach Deutschland beantrage ich Roaming.", "I apply for roaming before going to Germany."],
+    ["부가서비스", "Zusatzdienst", "add-on service", "Nomen", "Noun", "필요 없는 부가서비스를 껐어요.", "Ich habe unnötige Zusatzdienste ausgeschaltet.", "I turned off add-on services I do not need."],
+    ["청구서", "Rechnung", "bill", "Nomen", "Noun", "이번 달 청구서가 평소보다 높아요.", "Die Rechnung diesen Monat ist höher als sonst.", "This month's bill is higher than usual."],
+    ["자동이체", "Lastschrift", "auto debit", "Nomen", "Noun", "요금은 자동이체로 빠져요.", "Die Gebühr wird per Lastschrift abgebucht.", "The fee is taken by auto debit."],
+    ["고객센터", "Kundencenter", "customer center", "Nomen", "Noun", "고객센터에 오전에 전화했어요.", "Ich habe das Kundencenter am Vormittag angerufen.", "I called the customer center in the morning."],
+    ["개통하다", "freischalten", "to activate a line", "Verb", "Verb", "새 번호를 개통하다 전에 신분증이 필요해요.", "Bevor ich eine neue Nummer freischalte, brauche ich den Ausweis.", "Before I activate a new number, I need ID."],
+    ["데이터 충전", "Datenaufladung", "data top-up", "Ausdruck", "Expression", "부족하면 데이터 충전을 추가로 사요.", "Wenn es nicht reicht, kaufe ich eine Datenaufladung dazu.", "If it is not enough, I buy a data top-up."]
+  ]
+}

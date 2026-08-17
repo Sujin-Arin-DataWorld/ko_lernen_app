@@ -1,0 +1,24 @@
+{
+  "packId": "b1_insurance_claim_1",
+  "level": "b1",
+  "orderInLevel": 23,
+  "topic": "Versicherungsfall",
+  "unit": "b1_05_complaint_resolution",
+  "concept": "concept_b1_complaint_resolution",
+  "motif": "cloud",
+  "labels": {"ko": "보험 청구", "de": "Versicherungsfall", "en": "Insurance claim"},
+  "words": [
+    ["사고 접수", "Schadensmeldung", "claim filing", "Ausdruck", "Expression", "사고 접수를 당일 오후에 했어요.", "Die Schadensmeldung habe ich noch am Nachmittag gemacht.", "I filed the claim the same afternoon."],
+    ["보장 범위", "Leistungsrahmen", "coverage scope", "Ausdruck", "Expression", "보장 범위를 약관 삼 쪽에서 확인해요.", "Den Leistungsrahmen prüfe ich auf Seite drei der Bedingungen.", "I check the coverage scope on page three of the terms."],
+    ["자기부담금", "Selbstbeteiligung", "deductible", "Nomen", "Noun", "자기부담금이 오만 원이라 수리를 다시 계산해요.", "Die Selbstbeteiligung beträgt fünfzigtausend Won, deshalb rechne ich die Reparatur neu.", "The deductible is 50,000 won, so I recalculate the repair."],
+    ["진단서", "Attest", "medical note", "Nomen", "Noun", "병원 진단서를 스캔해서 올렸어요.", "Ich habe das Attest gescannt und hochgeladen.", "I scanned the medical note and uploaded it."],
+    ["보험금", "Versicherungssumme", "payout", "Nomen", "Noun", "보험금이 언제 입금되는지 물었어요.", "Ich habe gefragt, wann die Versicherungssumme eingeht.", "I asked when the payout will be deposited."],
+    ["면책", "Ausschluss", "exclusion", "Nomen", "Noun", "기존 질환은 면책이라고 안내받았어요.", "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.", "I was told existing conditions are an exclusion."],
+    ["청구 서류", "Antragsunterlagen", "claim documents", "Ausdruck", "Expression", "청구 서류가 하나 빠져서 보완했어요.", "Eine der Antragsunterlagen fehlte, deshalb habe ich nachgereicht.", "One claim document was missing, so I supplemented it."],
+    ["담당 설계사", "Berater", "agent", "Ausdruck", "Expression", "담당 설계사에게 진행 상황을 물어봤어요.", "Ich habe den Berater nach dem Stand gefragt.", "I asked the agent about the status."],
+    ["보상 심사", "Leistungsprüfung", "payout review", "Ausdruck", "Expression", "보상 심사가 이번 주까지라고 들었어요.", "Die Leistungsprüfung soll bis Ende der Woche fertig sein.", "I heard the payout review is due this week."],
+    ["사고 경위", "Hergang", "incident account", "Ausdruck", "Expression", "사고 경위를 시간 순으로 적었어요.", "Den Hergang habe ich in zeitlicher Reihenfolge geschrieben.", "I wrote the incident account in time order."],
+    ["특약", "Zusatzbaustein", "rider", "Nomen", "Noun", "치과 특약이 있어야 스케일링이 나가요.", "Nur mit dem Zahn-Zusatzbaustein wird die Zahnreinigung erstattet.", "Only with the dental rider is cleaning covered."],
+    ["지급 보류", "Auszahlungsstopp", "held payout", "Ausdruck", "Expression", "사진이 흐려서 지급 보류가 됐어요.", "Weil das Foto unscharf war, gab es einen Auszahlungsstopp.", "The photo was blurry, so the payout was held."]
+  ]
+}

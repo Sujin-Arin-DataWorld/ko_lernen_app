@@ -1,0 +1,24 @@
+{
+  "packId": "c1_survey_design_1",
+  "level": "c1",
+  "orderInLevel": 7,
+  "topic": "Erhebungsdesign",
+  "unit": "c1_01_evidence_public_reasoning",
+  "concept": "concept_c1_evidence_reasoning",
+  "motif": "chilbo",
+  "labels": {"ko": "조사 설계", "de": "Erhebungsdesign", "en": "Survey design"},
+  "words": [
+    ["문항 유도", "Suggestivfrage", "leading item", "Ausdruck", "Expression", "문항 유도를 줄이려고 선택지를 대칭으로 만들어요.", "Gegen Suggestivfragen mache ich die Optionen symmetrisch.", "To reduce a leading item I make the options symmetrical."],
+    ["무응답 처리", "Item-Nonresponse", "missing-answer handling", "Ausdruck", "Expression", "무응답 처리를 밝히지 않으면 비율이 부풀어 보여요.", "Ohne Item-Nonresponse wirkt der Anteil aufgebläht.", "Without missing-answer handling the share looks inflated."],
+    ["가중치 부여", "Gewichtung", "weighting", "Nomen", "Noun", "가중치 부여 전후의 결과를 둘 다 보여요.", "Ich zeige Ergebnisse vor und nach der Gewichtung.", "I show results both before and after weighting."],
+    ["표집틀", "Auswahlrahmen", "sampling frame", "Nomen", "Noun", "표집틀에서 빠진 집단을 각주로 적어요.", "Gruppen außerhalb des Auswahlrahmens nenne ich in der Fußnote.", "I footnote groups missing from the sampling frame."],
+    ["사전 조사", "Pretest", "pretest", "Nomen", "Noun", "사전 조사에서 용어가 다르게 읽힌 문항을 고쳤어요.", "Im Pretest habe ich Items geändert, die anders gelesen wurden.", "In the pretest I fixed items that were read differently."],
+    ["응답 부담", "Antwortlast", "respondent burden", "Ausdruck", "Expression", "응답 부담이 길면 뒷부분 품질이 떨어져요.", "Bei hoher Antwortlast sinkt die Qualität am Ende.", "If respondent burden is long, later quality drops."],
+    ["척도 간격", "Skalenabstand", "scale spacing", "Ausdruck", "Expression", "척도 간격이 고르지 않으면 평균을 쓰지 않아요.", "Bei ungleichmäßigem Skalenabstand nutze ich keinen Mittelwert.", "If scale spacing is uneven, I do not use a mean."],
+    ["개방형 코딩", "Offencodierung", "open-code scheme", "Ausdruck", "Expression", "개방형 코딩 규칙을 두 사람이 독립적으로 적용해요.", "Die Offencodierung wenden zwei Personen unabhängig an.", "Two people apply the open-code scheme independently."],
+    ["수집 시점", "Erhebungszeit", "collection window", "Ausdruck", "Expression", "수집 시점이 선거 직후면 해석을 낮춰요.", "Liegt die Erhebungszeit direkt nach der Wahl, dämpfe ich die Deutung.", "If the collection window is right after an election, I soften the reading."],
+    ["비교 가능성", "Vergleichbarkeit", "comparability", "Nomen", "Noun", "문항이 바뀌면 비교 가능성을 포기한다고 적어요.", "Ändert sich das Item, schreibe ich, dass die Vergleichbarkeit entfällt.", "If the item changes, I write that comparability is dropped."],
+    ["익명화 수준", "Anonymisierungsgrad", "anonymization level", "Ausdruck", "Expression", "익명화 수준을 높이면 지역 분석이 어려워져요.", "Ein höherer Anonymisierungsgrad erschwert die lokale Analyse.", "Raising the anonymization level makes local analysis harder."],
+    ["설계 메모", "Designnotiz", "design memo", "Ausdruck", "Expression", "설계 메모를 공개해야 나중에 재해석이 가능해요.", "Ohne öffentliche Designnotiz ist eine spätere Neuinterpretation schwer.", "A public design memo is needed for later reinterpretation."]
+  ]
+}

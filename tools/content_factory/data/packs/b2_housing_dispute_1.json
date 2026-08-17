@@ -1,0 +1,24 @@
+{
+  "packId": "b2_housing_dispute_1",
+  "level": "b2",
+  "orderInLevel": 31,
+  "topic": "Wohnstreit",
+  "unit": "b2_04_complaint_resolution",
+  "concept": "concept_b2_complaint",
+  "motif": "gwigap",
+  "labels": {"ko": "주거 분쟁", "de": "Wohnstreit", "en": "Housing dispute"},
+  "words": [
+    ["내용증명", "Einschreiben mit Inhalt", "content-certified mail", "Nomen", "Noun", "수리 거절을 내용증명으로 남겼어요.", "Die Ablehnung der Reparatur habe ich per Einschreiben mit Inhalt festgehalten.", "I recorded the repair refusal with content-certified mail."],
+    ["원상복구", "Rückbau", "restoration", "Nomen", "Noun", "원상복구 범위를 계약서 조항과 맞춰 봐요.", "Den Rückbau gleiche ich mit der Vertragsklausel ab.", "I match the restoration scope to the contract clause."],
+    ["하자 보수", "Mängelbeseitigung", "defect repair", "Ausdruck", "Expression", "하자 보수 기한을 이 주로 요청했어요.", "Für die Mängelbeseitigung habe ich zwei Wochen erbeten.", "I asked for two weeks for the defect repair."],
+    ["관리단", "Eigentümergemeinschaft", "owners' group", "Nomen", "Noun", "관리단에 공용부 누수를 공식 안건으로 올렸어요.", "Bei der Eigentümergemeinschaft habe ich das Gemeinschaftsleck als Tagesordnung gesetzt.", "I put the shared leak on the owners' group agenda."],
+    ["조정 신청", "Schlichtungsantrag", "mediation request", "Ausdruck", "Expression", "직접 합의가 안 되어 조정 신청을 넣었어요.", "Weil keine direkte Einigung kam, habe ich einen Schlichtungsantrag gestellt.", "Direct agreement failed, so I filed a mediation request."],
+    ["증거 사진", "Beweisfoto", "evidence photo", "Ausdruck", "Expression", "증거 사진에 날짜가 보이게 찍었어요.", "Auf dem Beweisfoto ist das Datum sichtbar.", "I took the evidence photo so the date is visible."],
+    ["사용 제한", "Nutzungsbeschränkung", "use restriction", "Ausdruck", "Expression", "공사 기간 사용 제한을 미리 공지해 달라고 했어요.", "Ich habe gebeten, die Nutzungsbeschränkung während der Bauzeit vorher bekanntzugeben.", "I asked them to announce the use restriction during construction in advance."],
+    ["비용 분담", "Kostenteilung", "cost share", "Ausdruck", "Expression", "공용부 비용 분담 비율을 규약에서 찾았어요.", "Den Anteil der Kostenteilung habe ich in der Ordnung gefunden.", "I found the shared cost-share ratio in the bylaws."],
+    ["퇴거 통보", "Räumungsankündigung", "vacate notice", "Ausdruck", "Expression", "퇴거 통보 기한이 법 기준보다 짧아서 이의를 넣었어요.", "Die Frist der Räumungsankündigung war kürzer als gesetzlich, deshalb habe ich widersprochen.", "The vacate notice period was shorter than the legal standard, so I objected."],
+    ["전입 날짜", "Melddatum", "move-in date", "Ausdruck", "Expression", "전입 날짜와 열쇠 수령일을 따로 적어요.", "Melddatum und Schlüsselübergabe schreibe ich getrennt auf.", "I write the move-in date and key handover separately."],
+    ["분쟁 조항", "Streitklausel", "dispute clause", "Ausdruck", "Expression", "분쟁 조항에 관할 기관이 명시되어 있어요.", "In der Streitklausel steht die zuständige Stelle.", "The dispute clause names the competent body."],
+    ["합의서 초안", "Vergleichsentwurf", "settlement draft", "Ausdruck", "Expression", "합의서 초안을 받기 전에는 공사에 동의하지 않아요.", "Ohne Vergleichsentwurf stimme ich den Arbeiten nicht zu.", "I do not agree to the work before receiving a settlement draft."]
+  ]
+}

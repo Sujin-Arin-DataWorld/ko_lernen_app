@@ -1,0 +1,24 @@
+{
+  "packId": "a2_festival_booth_1",
+  "level": "a2",
+  "orderInLevel": 40,
+  "topic": "Feststand",
+  "unit": "a2_03_chat_relationships",
+  "concept": "concept_a2_relationships",
+  "motif": "lotus",
+  "labels": {"ko": "축제 부스", "de": "Feststand", "en": "Festival booth"},
+  "words": [
+    ["축제", "Fest", "festival", "Nomen", "Noun", "동네 축제가 이번 주말에 열려요.", "Das Viertelfest findet dieses Wochenende statt.", "The neighborhood festival is this weekend."],
+    ["부스", "Stand", "booth", "Nomen", "Noun", "전통차 부스가 입구 옆에 있어요.", "Der Stand mit TraditionsTee steht neben dem Eingang.", "The traditional-tea booth is next to the entrance."],
+    ["체험하다", "ausprobieren", "to try out", "Verb", "Verb", "한지를 체험하다 전에 줄을 서요.", "Bevor ich Hanji ausprobiere, stelle ich mich an.", "Before I try Hanji, I stand in line."],
+    ["줄서다", "anstehen", "to queue", "Verb", "Verb", "인기 부스는 오전에 줄서다 시작해요.", "Am beliebten Stand beginnt man schon am Vormittag anstehen.", "At the popular booth people start to queue in the morning."],
+    ["안내원", "Betreuer", "guide", "Nomen", "Noun", "안내원이 스탬프 위치를 알려 줘요.", "Der Betreuer zeigt, wo der Stempel ist.", "The guide shows where the stamp is."],
+    ["무료시식", "Kostprobe", "free tasting", "Nomen", "Noun", "무료시식은 한 사람당 한 개예요.", "Die Kostprobe gibt es eine pro Person.", "The free tasting is one per person."],
+    ["홍보물", "Flyer", "flyer", "Nomen", "Noun", "홍보물을 가방에 넣지 말고 다시 봐요.", "Schauen Sie den Flyer noch einmal an, statt ihn nur einzupacken.", "Look at the flyer again instead of just putting it in the bag."],
+    ["스탬프", "Stempel", "stamp", "Nomen", "Noun", "다섯 개 스탬프를 모으면 차를 받아요.", "Mit fünf Stempeln bekommt man einen Tee.", "If you collect five stamps, you get tea."],
+    ["운영시간", "Öffnungszeit", "opening hours", "Nomen", "Noun", "부스 운영시간은 여섯 시까지예요.", "Die Öffnungszeit des Stands geht bis sechs.", "The booth's opening hours go until six."],
+    ["현장접수", "Vor-Ort-Anmeldung", "on-site signup", "Nomen", "Noun", "현장접수는 열 명까지만 받아요.", "Die Vor-Ort-Anmeldung nimmt nur zehn Personen auf.", "On-site signup takes only ten people."],
+    ["자원봉사자", "Ehrenamtliche", "volunteer", "Nomen", "Noun", "자원봉사자가 줄을 나눠 안내해요.", "Ehrenamtliche teilen die Schlange und weisen den Weg.", "Volunteers split the line and give directions."],
+    ["체험권", "Mitmachkarte", "activity ticket", "Nomen", "Noun", "체험권을 보여 주면 재료를 받아요.", "Wenn Sie die Mitmachkarte zeigen, bekommen Sie das Material.", "If you show the activity ticket, you get the materials."]
+  ]
+}

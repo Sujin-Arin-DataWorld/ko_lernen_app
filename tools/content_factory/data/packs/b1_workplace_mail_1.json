@@ -1,0 +1,24 @@
+{
+  "packId": "b1_workplace_mail_1",
+  "level": "b1",
+  "orderInLevel": 21,
+  "topic": "Dienstmail",
+  "unit": "b1_03_work_softening",
+  "concept": "concept_b1_softening",
+  "motif": "bamboo",
+  "labels": {"ko": "직장 메일", "de": "Dienstmail", "en": "Workplace mail"},
+  "words": [
+    ["참조", "in Kopie", "cc", "Nomen", "Noun", "팀장만 참조에 넣고 보내요.", "Ich setze nur die Teamleitung in Kopie.", "I only put the team lead in cc."],
+    ["숨은참조", "Blindkopie", "bcc", "Nomen", "Noun", "외부 주소는 숨은참조로 넣어요.", "Externe Adressen setze ich in Blindkopie.", "I put external addresses in bcc."],
+    ["회신 기한", "Antwortfrist", "reply deadline", "Ausdruck", "Expression", "회신 기한을 금요일 낮으로 적었어요.", "Ich habe die Antwortfrist auf Freitagmittag gesetzt.", "I wrote the reply deadline as Friday noon."],
+    ["첨부 누락", "fehlender Anhang", "missing attachment", "Ausdruck", "Expression", "첨부 누락이 있어서 바로 다시 보냈어요.", "Wegen eines fehlenden Anhangs habe ich die Mail sofort noch einmal geschickt.", "There was a missing attachment, so I sent it again right away."],
+    ["전달하다", "weiterleiten", "to forward", "Verb", "Verb", "이 메일을 전달하다 전에 개인 정보를 지워요.", "Bevor ich die Mail weiterleite, lösche ich persönliche Daten.", "Before I forward this mail, I remove personal data."],
+    ["정정 메일", "Korrekturmail", "correction email", "Ausdruck", "Expression", "숫자 오류를 정정 메일로 알렸어요.", "Den Zahlenfehler habe ich per Korrekturmail mitgeteilt.", "I reported the number error in a correction email."],
+    ["읽음 확인", "Lesebestätigung", "read receipt", "Ausdruck", "Expression", "급한 요청에만 읽음 확인을 켜요.", "Lesebestätigung schalte ich nur bei dringenden Bitten ein.", "I turn on read receipt only for urgent requests."],
+    ["제목을 고치다", "den Betreff ändern", "to fix the subject", "Ausdruck", "Expression", "전달할 때 제목을 고치다 보니 내용이 분명해졌어요.", "Als ich beim Weiterleiten den Betreff geändert habe, wurde der Inhalt klarer.", "When I fixed the subject while forwarding, the content became clearer."],
+    ["후속 메일", "Folgmail", "follow-up mail", "Ausdruck", "Expression", "답장이 없어서 후속 메일을 짧게 보냈어요.", "Weil keine Antwort kam, habe ich eine kurze Folgmail geschickt.", "No reply came, so I sent a short follow-up mail."],
+    ["내부망", "Intranet", "intranet", "Nomen", "Noun", "양식은 내부망에서만 내려받아요.", "Das Formular lade ich nur aus dem Intranet herunter.", "I download the form only from the intranet."],
+    ["공손한 맺음", "höflicher Schluss", "polite closing", "Ausdruck", "Expression", "공손한 맺음으로 시간을 배려한다고 썼어요.", "Im höflichen Schluss habe ich geschrieben, dass ich die Zeit respektiere.", "In the polite closing I wrote that I respect their time."],
+    ["수신 확인", "Empfangsbestätigung", "delivery receipt", "Ausdruck", "Expression", "수신 확인이 떠서 다시 보내지 않았어요.", "Die Empfangsbestätigung erschien, deshalb habe ich nicht noch einmal gesendet.", "The delivery receipt appeared, so I did not send it again."]
+  ]
+}

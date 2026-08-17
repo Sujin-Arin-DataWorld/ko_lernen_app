@@ -1,0 +1,24 @@
+{
+  "packId": "c1_evidence_caveat_1",
+  "level": "c1",
+  "orderInLevel": 5,
+  "topic": "Evidenzvorbehalt",
+  "unit": "c1_01_evidence_public_reasoning",
+  "concept": "concept_c1_evidence_reasoning",
+  "motif": "taegeuk",
+  "labels": {"ko": "근거의 유보", "de": "Evidenzvorbehalt", "en": "Evidence caveats"},
+  "words": [
+    ["불확실성 구간", "Unsicherheitsspanne", "uncertainty range", "Ausdruck", "Expression", "불확실성 구간을 숨기면 결론이 과해 보여요.", "Versteckt man die Unsicherheitsspanne, wirkt die Schlussfolgerung zu stark.", "If you hide the uncertainty range, the conclusion looks too strong."],
+    ["표본 편향", "Stichprobenverzerrung", "sample bias", "Ausdruck", "Expression", "표본 편향을 인정해야 비교가 정직해져요.", "Erst mit der Stichprobenverzerrung wird der Vergleich ehrlich.", "Only after naming sample bias is the comparison honest."],
+    ["과잉 일반화", "Überverallgemeinerung", "overgeneralization", "Ausdruck", "Expression", "과잉 일반화를 피하려고 적용 범위를 좁혀요.", "Um Überverallgemeinerung zu vermeiden, verenge ich den Geltungsbereich.", "To avoid overgeneralization I narrow the scope of application."],
+    ["신뢰 구간", "Konfidenzintervall", "confidence interval", "Ausdruck", "Expression", "신뢰 구간이 넓으면 순위 주장을 내려요.", "Ist das Konfidenzintervall breit, senke ich die Rangbehauptung.", "If the confidence interval is wide, I lower the ranking claim."],
+    ["공개 한계문", "Grenzhinweis", "public limitation note", "Ausdruck", "Expression", "공개 한계문을 첫 문단에 두면 오해가 줄어요.", "Steht der Grenzhinweis im ersten Absatz, sinken Missverständnisse.", "A public limitation note in the first paragraph reduces misunderstanding."],
+    ["설명 강도", "Erklärstärke", "explanatory strength", "Ausdruck", "Expression", "설명 강도를 자료가 감당하는 만큼만 올려요.", "Die Erklärstärke hebe ich nur so weit, wie die Daten tragen.", "I raise explanatory strength only as far as the data can carry."],
+    ["관측 공백", "Beobachtungslücke", "observation gap", "Ausdruck", "Expression", "관측 공백이 있는 달은 추세를 단정하지 않아요.", "In Monaten mit Beobachtungslücke behaupte ich keinen Trend.", "In months with an observation gap I do not assert a trend."],
+    ["측정 오차", "Messabweichung", "measurement error", "Ausdruck", "Expression", "측정 오차를 말하면 작은 차이를 과장하지 않게 돼요.", "Nennt man die Messabweichung, übertreibt man kleine Differenzen weniger.", "Naming measurement error keeps small differences from being overstated."],
+    ["인과 단정", "Kausalbehauptung", "causal leap", "Ausdruck", "Expression", "상관만 있으면 인과 단정을 하지 않아요.", "Bei bloßer Korrelation mache ich keine Kausalbehauptung.", "If there is only correlation, I do not make a causal leap."],
+    ["재현 여부", "Replizierbarkeit", "replicability", "Ausdruck", "Expression", "재현 여부를 확인하기 전에는 정책을 바꾸지 말자고 해요.", "Vor der Prüfung der Replizierbarkeit soll die Politik nicht geändert werden.", "I argue we should not change policy before checking replicability."],
+    ["선택 보고", "selektives Berichten", "selective reporting", "Ausdruck", "Expression", "선택 보고를 줄이려고 실패한 지표도 표에 남겨요.", "Gegen selektives Berichten lasse ich auch gescheiterte Kennzahlen in der Tabelle.", "To reduce selective reporting I keep failed metrics in the table."],
+    ["잠정 결론", "vorläufiges Fazit", "provisional conclusion", "Ausdruck", "Expression", "잠정 결론이라고 쓰면 청자가 여지를 남겨 둬요.", "Nennt man es ein vorläufiges Fazit, bleibt für die Hörenden Spielraum.", "Calling it a provisional conclusion leaves listeners room."]
+  ]
+}

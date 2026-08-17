@@ -1,0 +1,24 @@
+{
+  "packId": "c2_framing_analysis_1",
+  "level": "c2",
+  "orderInLevel": 5,
+  "topic": "Framinganalyse",
+  "unit": "c2_01_interpretation_institutions",
+  "concept": "concept_c2_discourse_institutions",
+  "motif": "chilbo",
+  "labels": {"ko": "프레이밍 분석", "de": "Framinganalyse", "en": "Framing analysis"},
+  "words": [
+    ["담론 전제", "Diskursprämisse", "discourse premise", "Ausdruck", "Expression", "담론 전제를 드러내지 않으면 선택이 자연스러워 보여요.", "Ohne sichtbare Diskursprämisse wirkt die Wahl natürlich.", "If the discourse premise stays hidden, the choice looks natural."],
+    ["은유 체계", "Metaphernnetz", "metaphor system", "Ausdruck", "Expression", "은유 체계가 '전쟁'이면 타협이 패배처럼 들려요.", "Ist das Metaphernnetz ein Krieg, klingt Kompromiss nach Niederlage.", "If the metaphor system is war, compromise sounds like defeat."],
+    ["주어 선택", "Subjektwahl", "choice of subject", "Ausdruck", "Expression", "주어 선택을 바꾸면 책임이 다른 자리에 놓여요.", "Ändert man die Subjektwahl, wandert die Verantwortung.", "Changing the choice of subject moves where responsibility sits."],
+    ["수동 은폐", "Passivverdeckung", "passive concealment", "Ausdruck", "Expression", "수동 은폐는 행위자를 지워 절차만 남기어요.", "Passivverdeckung löscht Handelnde und lässt nur das Verfahren.", "Passive concealment erases the actor and leaves only the procedure."],
+    ["범주 이동", "Kategorieverschiebung", "category shift", "Ausdruck", "Expression", "범주 이동으로 민원을 범죄처럼 부르면 대응이 과해져요.", "Durch Kategorieverschiebung klingt die Beschwerde wie Straftat und die Antwort wird härter.", "A category shift that names a complaint as crime hardens the response."],
+    ["시간 틀", "Zeitrahmen", "time frame", "Ausdruck", "Expression", "시간 틀을 한 주로 줄이면 구조 문제는 사라져요.", "Ein Zeitrahmen von einer Woche lässt Strukturprobleme verschwinden.", "A one-week time frame makes structural problems vanish."],
+    ["대비 쌍", "Gegenüberstellung", "contrast pair", "Ausdruck", "Expression", "대비 쌍을 '안전 대 자유'로만 두면 중간이 없어져요.", "Bleibt die Gegenüberstellung nur Sicherheit gegen Freiheit, fehlt die Mitte.", "If the contrast pair is only safety versus freedom, the middle disappears."],
+    ["인용 권위", "Zitatautorität", "quoted authority", "Ausdruck", "Expression", "인용 권위가 직함만이면 근거를 다시 물어요.", "Ist die Zitatautorität nur der Titel, frage ich nach dem Beleg.", "If quoted authority is only a title, I ask for the evidence again."],
+    ["침묵 지점", "Schweigestelle", "what is left unsaid", "Ausdruck", "Expression", "침묵 지점을 표로 만들면 빠진 집단이 보여요.", "Eine Tabelle der Schweigestellen zeigt die fehlende Gruppe.", "A table of what is left unsaid shows the missing group."],
+    ["재명명", "Umbenennung", "renaming", "Nomen", "Noun", "재명명이 부담을 덜어 주면 누구의 부담인지 물어요.", "Mildert die Umbenennung die Last, frage ich, wessen Last das war.", "If renaming lightens a burden, I ask whose burden it was."],
+    ["청자 위치", "Adressatenort", "where the listener is put", "Ausdruck", "Expression", "청자 위치를 '우리'로 묶으면 반대가 외부인처럼 보여요.", "Setzt der Adressatenort alle ins Wir, wirkt Widerspruch wie Außen.", "If where the listener is put is 'we', dissent looks like an outsider."],
+    ["해석 경쟁", "Deutungskonkurrenz", "competing readings", "Ausdruck", "Expression", "해석 경쟁을 하나로 닫지 않고 근거를 나란히 둬요.", "Die Deutungskonkurrenz schließe ich nicht, ich lege Belege nebeneinander.", "I do not close competing readings; I set the evidence side by side."]
+  ]
+}

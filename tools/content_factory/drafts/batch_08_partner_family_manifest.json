@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "batch": "08",
+  "status": "review_only",
+  "provenance": {
+    "scope": "Original Korean-partner family and holiday scenario episodes.",
+    "rights": "original",
+    "requiresJinReview": true
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/c1_batch08_scenarios_partner_family.json",
+      "review": "tools/content_factory/review/c1_batch08_scenarios_partner_family.csv",
+      "collection": "scenarios",
+      "count": 28,
+      "levels": {
+        "a1": 7,
+        "a2": 6,
+        "b1": 6,
+        "b2": 5,
+        "c1": 2,
+        "c2": 2
+      }
+    }
+  ],
+  "recordCount": 28,
+  "questCount": 84,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_first_door",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_seollal_bow",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_songpyeon_too_big",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_more_side_dishes",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_leftover_bags",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_holiday_train",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_banmal_slip",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_marriage_question",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_drink_table",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_overnight_door",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_inlaw_rotation",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_public_intro",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_partner_invisible_labor",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_partner_name_and_memory",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_gift_too_big",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_wrong_seat",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_new_year_money",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_morning_greeting",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_group_chat_join",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_hanbok_rental",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_salary_deflect",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_interpret_skip",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_heavy_bags_home",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_dowry_joke",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_holiday_labor_chart",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_photo_permission",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_partner_guest_or_family",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_partner_document_the_place",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "a1_partner_first_door": "home",
+    "a1_partner_seollal_bow": "home",
+    "a1_partner_songpyeon_too_big": "home",
+    "a1_partner_more_side_dishes": "restaurant",
+    "a2_partner_leftover_bags": "home",
+    "a2_partner_holiday_train": "station",
+    "a2_partner_banmal_slip": "home",
+    "b1_partner_marriage_question": "home",
+    "b1_partner_drink_table": "restaurant",
+    "b1_partner_overnight_door": "home",
+    "b2_partner_inlaw_rotation": "home",
+    "b2_partner_public_intro": "cafe",
+    "c1_partner_invisible_labor": "home",
+    "c2_partner_name_and_memory": "office",
+    "a1_partner_gift_too_big": "home",
+    "a1_partner_wrong_seat": "home",
+    "a1_partner_new_year_money": "home",
+    "a2_partner_morning_greeting": "home",
+    "a2_partner_group_chat_join": "home",
+    "a2_partner_hanbok_rental": "market",
+    "b1_partner_salary_deflect": "home",
+    "b1_partner_interpret_skip": "home",
+    "b1_partner_heavy_bags_home": "taxi",
+    "b2_partner_dowry_joke": "home",
+    "b2_partner_holiday_labor_chart": "home",
+    "b2_partner_photo_permission": "cafe",
+    "c1_partner_guest_or_family": "home",
+    "c2_partner_document_the_place": "home"
+  },
+  "mergeOrder": [
+    "scenario + contentLinks + scenario backdrop + audit manifest"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "packId": "b1_parent_school_1",
+  "level": "b1",
+  "orderInLevel": 26,
+  "topic": "Elterngespräch",
+  "unit": "b1_04_relationships",
+  "concept": "concept_b1_relationships",
+  "motif": "lotus",
+  "labels": {"ko": "학부모 면담", "de": "Elterngespräch", "en": "Parent-school talk"},
+  "words": [
+    ["학부모 면담", "Elterngespräch", "parent meeting", "Ausdruck", "Expression", "학부모 면담을 수요일 저녁으로 잡았어요.", "Das Elterngespräch habe ich auf Mittwochabend gelegt.", "I scheduled the parent meeting for Wednesday evening."],
+    ["알림장", "Mitteilungsheft", "home note", "Nomen", "Noun", "알림장에 준비물을 적어 보내요.", "Ins Mitteilungsheft schreibe ich die Mitbringsel.", "I write the supplies in the home note."],
+    ["상담 시간", "Sprechzeit", "office hour", "Ausdruck", "Expression", "상담 시간이 십오 분이라 질문을 미리 적어요.", "Die Sprechzeit beträgt fünfzehn Minuten, deshalb schreibe ich Fragen vorher auf.", "The office hour is fifteen minutes, so I write questions in advance."],
+    ["학습 태도", "Lernhaltung", "study attitude", "Ausdruck", "Expression", "학습 태도는 좋아졌지만 숙제 속도가 느려요.", "Die Lernhaltung ist besser, aber die Hausaufgaben dauern länger.", "The study attitude improved, but homework is slower."],
+    ["보충 수업", "Förderstunde", "support class", "Ausdruck", "Expression", "한글 보충 수업을 주 한 번 신청했어요.", "Ich habe einmal pro Woche eine Förderstunde für Hangul beantragt.", "I signed up for a Hangul support class once a week."],
+    ["가정 통신", "Elternbrief", "school letter", "Ausdruck", "Expression", "가정 통신에 현장학습 날짜가 있어요.", "Im Elternbrief steht das Datum des Ausflugs.", "The school letter has the field-trip date."],
+    ["참관 수업", "Hospitation", "class observation", "Ausdruck", "Expression", "참관 수업은 조용히 뒤쪽에 앉아요.", "Bei der Hospitation sitze ich hinten und bleibe still.", "During class observation I sit quietly at the back."],
+    ["생활 기록", "Entwicklungsnotiz", "progress note", "Ausdruck", "Expression", "생활 기록에 친구 관계를 짧게 적었어요.", "In der Entwicklungsnotiz steht kurz etwas zu den Freundschaften.", "The progress note briefly mentions friendships."],
+    ["준비물 분담", "Materialteilung", "shared supplies", "Ausdruck", "Expression", "준비물 분담표를 반 단톡에 올렸어요.", "Die Materialteilung habe ich in den Klassenchat gestellt.", "I posted the shared-supplies chart in the class chat."],
+    ["하원 시간", "Abholzeit", "pickup time", "Ausdruck", "Expression", "하원 시간이 밀리면 미리 문자를 보내요.", "Wenn sich die Abholzeit verschiebt, schreibe ich vorher.", "If pickup time slips, I text in advance."],
+    ["담임 선생님", "Klassenleitung", "homeroom teacher", "Ausdruck", "Expression", "담임 선생님께 상담 연기를 정중히 부탁했어요.", "Ich habe die Klassenleitung höflich um Verschiebung gebeten.", "I politely asked the homeroom teacher to postpone."],
+    ["동의서", "Einverständnis", "consent form", "Nomen", "Noun", "사진 촬영 동의서를 오늘 제출해요.", "Die Einverständniserklärung für Fotos gebe ich heute ab.", "I submit the photo consent form today."]
+  ]
+}

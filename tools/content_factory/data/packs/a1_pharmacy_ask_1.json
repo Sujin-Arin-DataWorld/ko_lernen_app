@@ -1,0 +1,42 @@
+{
+  "packId": "a1_pharmacy_ask_1",
+  "level": "a1",
+  "orderInLevel": 27,
+  "topic": "Apotheke",
+  "unit": "a1_10_health_safety",
+  "concept": "concept_a1_health_safety",
+  "motif": "cloud",
+  "labels": {"ko": "약국에서 묻기", "de": "In der Apotheke fragen", "en": "Asking at the pharmacy"},
+  "words": [
+    ["연고", "Salbe", "ointment", "Nomen", "Noun", "이 연고를 하루에 두 번 발라요.", "Ich trage diese Salbe zweimal am Tag auf.", "I apply this ointment twice a day."],
+    ["마스크", "Maske", "mask", "Nomen", "Noun", "약국에서 마스크를 한 통 샀어요.", "In der Apotheke habe ich eine Packung Masken gekauft.", "I bought a pack of masks at the pharmacy."],
+    ["계산대", "Kasse", "checkout", "Nomen", "Noun", "계산대 앞에서 카드를 꺼냈어요.", "Vor der Kasse habe ich meine Karte herausgenommen.", "I took out my card in front of the checkout."],
+    ["복용 시간", "Einnahmezeit", "dose time", "Ausdruck", "Expression", "복용 시간을 종이에 적어 주세요.", "Bitte schreiben Sie die Einnahmezeiten auf Papier.", "Please write the dose times on paper."],
+    ["일회용 밴드", "Pflaster", "adhesive bandage", "Nomen", "Noun", "일회용 밴드를 작은 걸로 주세요.", "Bitte geben Sie mir ein kleines Pflaster.", "Please give me a small adhesive bandage."],
+    ["체온계", "Fieberthermometer", "thermometer", "Nomen", "Noun", "체온계가 어디에 있어요?", "Wo ist das Fieberthermometer?", "Where is the thermometer?"],
+    ["가글액", "Mundspülung", "mouthwash", "Nomen", "Noun", "목이 아파서 가글액을 찾고 있어요.", "Mein Hals tut weh, deshalb suche ich Mundspülung.", "My throat hurts, so I am looking for mouthwash."],
+    ["비타민제", "Vitaminpräparat", "vitamin supplement", "Nomen", "Noun", "비타민제를 식후에 먹어요.", "Ich nehme das Vitaminpräparat nach dem Essen.", "I take the vitamin supplement after meals."],
+    ["알레르기", "Allergie", "allergy", "Nomen", "Noun", "이 약에 알레르기가 있는지 확인해요.", "Ich prüfe, ob ich gegen dieses Mittel eine Allergie habe.", "I check whether I have an allergy to this medicine."],
+    ["무처방", "rezeptfrei", "over the counter", "Ausdruck", "Expression", "이 약은 무처방으로 살 수 있어요.", "Dieses Mittel gibt es rezeptfrei.", "You can buy this medicine over the counter."],
+    [
+      "파스",
+      "Schmerzpflaster",
+      "pain relief patch",
+      "Nomen",
+      "Noun",
+      "허리가 아파서 파스를 붙였어요.",
+      "Mein Rücken tut weh, deshalb habe ich ein Schmerzpflaster aufgeklebt.",
+      "My back hurts, so I put on a pain relief patch."
+    ],
+    [
+      "제산제",
+      "Antazidum",
+      "antacid",
+      "Nomen",
+      "Noun",
+      "속이 쓰려서 제산제를 샀어요.",
+      "Mir ist übel, deshalb habe ich ein Antazidum gekauft.",
+      "I have heartburn, so I bought an antacid."
+    ]
+  ]
+}

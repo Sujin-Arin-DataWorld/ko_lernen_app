@@ -1,0 +1,24 @@
+{
+  "packId": "b2_team_negotiation_1",
+  "level": "b2",
+  "orderInLevel": 34,
+  "topic": "Teamverhandlung",
+  "unit": "b2_03_precise_requests",
+  "concept": "concept_b2_precise_requests",
+  "motif": "bamboo",
+  "labels": {"ko": "팀 조율", "de": "Teamverhandlung", "en": "Team negotiation"},
+  "words": [
+    ["양보 범위", "Spielraum", "concession range", "Ausdruck", "Expression", "양보 범위를 미리 적어 두고 회의에 들어가요.", "Den Spielraum schreibe ich vor der Besprechung auf.", "I write the concession range before I enter the meeting."],
+    ["핵심 조건", "Kernbedingung", "must-have", "Ausdruck", "Expression", "핵심 조건은 일정이고 나머지는 조정 가능해요.", "Die Kernbedingung ist der Termin, der Rest ist verhandelbar.", "The must-have is the schedule; the rest can move."],
+    ["대안 제시", "Gegenvorschlag", "counter-offer", "Ausdruck", "Expression", "거절만 하지 말고 대안 제시를 한 줄 붙어요.", "Statt nur abzulehnen, hänge ich einen Gegenvorschlag an.", "Instead of only refusing, I add one line of counter-offer."],
+    ["침묵 구간", "Denkpause", "silent pause", "Ausdruck", "Expression", "숫자가 나온 뒤 침묵 구간을 십 초 둬요.", "Nach der Zahl lasse ich zehn Sekunden Denkpause.", "After a number I leave a ten-second silent pause."],
+    ["공동 초안", "Gemeinentwurf", "joint draft", "Ausdruck", "Expression", "공동 초안을 화면에 띄우고 문장마다 확인해요.", "Den Gemeinentwurf zeigen wir und prüfen Satz für Satz.", "We put the joint draft on screen and check sentence by sentence."],
+    ["결정 권한", "Entscheidungskompetenz", "decision right", "Ausdruck", "Expression", "결정 권한이 없는 안건은 보류한다고 말해요.", "Ohne Entscheidungskompetenz sage ich, dass der Punkt ruht.", "If there is no decision right, I say the item is on hold."],
+    ["시간 상자", "Zeitfenster", "time box", "Ausdruck", "Expression", "논쟁은 시간 상자 십오 분을 넘기지 않아요.", "Die Debatte bleibt im Zeitfenster von fünfzehn Minuten.", "The debate does not leave a fifteen-minute time box."],
+    ["이해 확인", "Verständnischeck", "check for understanding", "Ausdruck", "Expression", "이해 확인으로 상대 말을 한 문장으로 되풀이해요.", "Im Verständnischeck wiederhole ich die andere Seite in einem Satz.", "In the check for understanding I restate the other side in one sentence."],
+    ["기록 담당", "Protokollführung", "note owner", "Ausdruck", "Expression", "기록 담당을 정해야 합의가 흐려지지 않아요.", "Ohne Protokollführung verwässert die Einigung.", "Without a note owner the agreement blurs."],
+    ["보류 사유", "Ruhegrund", "reason to pause", "Ausdruck", "Expression", "보류 사유가 자료 부족이면 날짜를 같이 정해요.", "Ist der Ruhegrund fehlendes Material, setzen wir ein Datum.", "If the reason to pause is missing material, we set a date together."],
+    ["상호 양보", "wechselseitiges Nachgeben", "mutual concession", "Ausdruck", "Expression", "상호 양보가 한쪽에만 있으면 다시 말해요.", "Liegt das wechselseitige Nachgeben nur auf einer Seite, spreche ich es an.", "If the mutual concession is only on one side, I say so."],
+    ["합의 문장", "Einigungssatz", "agreed sentence", "Ausdruck", "Expression", "합의 문장을 채팅에 붙여 확인하고 끝나요.", "Wir kleben den Einigungssatz in den Chat und schließen.", "We paste the agreed sentence in chat, confirm, and end."]
+  ]
+}

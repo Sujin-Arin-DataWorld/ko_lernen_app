@@ -1,0 +1,24 @@
+{
+  "packId": "c2_appeal_path_1",
+  "level": "c2",
+  "orderInLevel": 9,
+  "topic": "Einspruchsweg",
+  "unit": "c2_02_technology_public_ethics",
+  "concept": "concept_c2_accountable_systems",
+  "motif": "octagon",
+  "labels": {"ko": "이의 경로", "de": "Einspruchsweg", "en": "Appeal path"},
+  "words": [
+    ["이의 경로", "Einspruchsweg", "appeal path", "Ausdruck", "Expression", "이의 경로가 챗봇뿐이면 사람이 없는 것과 같아요.", "Ist der Einspruchsweg nur der Chatbot, fehlt der Mensch.", "If the appeal path is only a chatbot, it is as if no person is there."],
+    ["자동 결정", "Automatenbescheid", "automated decision", "Ausdruck", "Expression", "자동 결정에는 사용한 자료 목록을 붙여야 해요.", "Am Automatenbescheid muss die genutzte Datenliste stehen.", "An automated decision must attach the list of data used."],
+    ["인간 재심", "menschliche Nachprüfung", "human review", "Ausdruck", "Expression", "인간 재심이 같은 점수를 다시 누르면 재심이 아니에요.", "Drückt die menschliche Nachprüfung dieselbe Note, ist es keine Prüfung.", "If human review just presses the same score, it is not a review."],
+    ["기한 안내", "Fristmitteilung", "deadline notice", "Ausdruck", "Expression", "기한 안내를 거절 화면 하단에만 두지 않아요.", "Die Fristmitteilung lasse ich nicht nur unten auf der Ablehnung.", "I do not put the deadline notice only at the bottom of the refusal screen."],
+    ["증거 제출란", "Belegfeld", "evidence field", "Ausdruck", "Expression", "증거 제출란이 글자 수만 받으면 사진 소명이 막혀요.", "Nimmt das Belegfeld nur Zeichen, bleibt der Fotobeleg draußen.", "If the evidence field takes only characters, photo proof is blocked."],
+    ["결정 요약", "Bescheidkern", "decision core", "Ausdruck", "Expression", "결정 요약을 점수 없이 이유 세 줄로 적어요.", "Den Bescheidkern schreibe ich in drei Gründen ohne Punktzahl.", "I write the decision core as three reasons without a score."],
+    ["항소 비용", "Beschwerdeaufwand", "cost of appealing", "Ausdruck", "Expression", "항소 비용이 시간으로만 커도 포기는 강요예요.", "Wird der Beschwerdeaufwand nur als Zeit groß, ist der Verzicht erzwungen.", "If the cost of appealing grows only as time, giving up is coerced."],
+    ["회신 의무", "Antwortpflicht", "duty to reply", "Ausdruck", "Expression", "회신 의무 날짜가 없으면 이의는 사라져요.", "Ohne Datum der Antwortpflicht verschwindet der Einspruch.", "Without a duty-to-reply date the appeal disappears."],
+    ["제3자 검토", "Drittprüfung", "third-party look", "Ausdruck", "Expression", "제3자 검토를 같은 업체가 하면 독립이 아니에요.", "Macht dieselbe Firma die Drittprüfung, ist sie nicht unabhängig.", "If the same vendor does the third-party look, it is not independent."],
+    ["철회 효과", "Rücknahmewirkung", "effect of withdrawal", "Ausdruck", "Expression", "철회 효과를 장래에만 두면 지난 피해가 남아요.", "Wirkt die Rücknahme nur in die Zukunft, bleibt der alte Schaden.", "If the effect of withdrawal is future-only, past harm remains."],
+    ["접근 언어", "Zugangssprache", "language of access", "Ausdruck", "Expression", "접근 언어가 법률문이면 이의 경로가 닫혀요.", "Ist die Zugangssprache Juristensprache, schließt sich der Einspruchsweg.", "If the language of access is legalese, the appeal path closes."],
+    ["종결 이유서", "Abschlussbegründung", "closure rationale", "Ausdruck", "Expression", "종결 이유서를 템플릿 한 줄로 끝내지 않아요.", "Die Abschlussbegründung beende ich nicht mit einer Schablonenzeile.", "I do not end the closure rationale with one template line."]
+  ]
+}

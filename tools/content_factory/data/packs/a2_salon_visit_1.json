@@ -1,0 +1,24 @@
+{
+  "packId": "a2_salon_visit_1",
+  "level": "a2",
+  "orderInLevel": 36,
+  "topic": "Friseursalon",
+  "unit": "a2_05_delivery_services",
+  "concept": "concept_a2_services",
+  "motif": "octagon",
+  "labels": {"ko": "미용실 방문", "de": "Friseurbesuch", "en": "Salon visit"},
+  "words": [
+    ["미용실", "Friseursalon", "hair salon", "Nomen", "Noun", "토요일 오전에 미용실에 예약했어요.", "Am Samstagvormittag habe ich im Friseursalon reserviert.", "I booked the hair salon for Saturday morning."],
+    ["커트", "Schnitt", "haircut", "Nomen", "Noun", "이번엔 커트를 조금만 해 주세요.", "Bitte machen Sie den Schnitt diesmal nur ein wenig kürzer.", "Please make the haircut just a little shorter this time."],
+    ["염색", "Färbung", "dye", "Nomen", "Noun", "염색은 너무 어둡지 않게 해 주세요.", "Bitte machen Sie die Färbung nicht zu dunkel.", "Please do not make the dye too dark."],
+    ["펌", "Dauerwelle", "perm", "Nomen", "Noun", "여름에는 펌을 하지 않을게요.", "Im Sommer mache ich keine Dauerwelle.", "I will not get a perm in summer."],
+    ["앞머리", "Pony", "bangs", "Nomen", "Noun", "앞머리를 눈에 안 들어오게 잘라 주세요.", "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.", "Please cut the bangs so they do not fall into my eyes."],
+    ["드라이", "Föhnen", "blow-dry", "Nomen", "Noun", "커트 후에 드라이만 해 주세요.", "Nach dem Schnitt bitte nur föhnen.", "After the cut, please just blow-dry."],
+    ["스타일리스트", "Stylist", "stylist", "Nomen", "Noun", "스타일리스트가 거울로 뒷모습을 보여 줘요.", "Der Stylist zeigt mir den Hinterkopf im Spiegel.", "The stylist shows me the back of my head in the mirror."],
+    ["예약금", "Anzahlung", "booking deposit", "Nomen", "Noun", "주말 예약은 예약금이 있어요.", "Für eine Wochenendreservierung gibt es eine Anzahlung.", "Weekend bookings have a deposit."],
+    ["샴푸", "Shampoo", "shampoo", "Nomen", "Noun", "향이 약한 샴푸로 감겨 주세요.", "Bitte waschen Sie mit einem schwachen Shampoo.", "Please wash with a mild-scent shampoo."],
+    ["트리트먼트", "Kur", "treatment", "Nomen", "Noun", "끝이 갈라져서 트리트먼트를 추가했어요.", "Die Spitzen sind splissig, deshalb habe ich eine Kur dazugenommen.", "The ends are split, so I added a treatment."],
+    ["옆머리", "Seitenhaar", "side hair", "Nomen", "Noun", "옆머리를 귀에 안 붙게 해 주세요.", "Bitte lassen Sie das Seitenhaar nicht am Ohr kleben.", "Please keep the side hair off my ears."],
+    ["손질", "Pflege", "grooming", "Nomen", "Noun", "출근 전에 간단한 손질만 해요.", "Vor der Arbeit mache ich nur eine kurze Pflege.", "Before work I only do quick grooming."]
+  ]
+}

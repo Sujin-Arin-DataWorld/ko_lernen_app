@@ -1,0 +1,24 @@
+{
+  "packId": "a2_lost_found_1",
+  "level": "a2",
+  "orderInLevel": 39,
+  "topic": "Fundsachen",
+  "unit": "a2_07_travel_repair",
+  "concept": "concept_a2_travel_repair",
+  "motif": "mountain",
+  "labels": {"ko": "분실물 찾기", "de": "Fundsachen", "en": "Lost and found"},
+  "words": [
+    ["분실물", "Fundsache", "lost item", "Nomen", "Noun", "지하철 분실물을 역 사무실에 문의했어요.", "Ich habe im Bahnhofsbüro nach der Fundsache gefragt.", "I asked the station office about the lost item."],
+    ["습득하다", "finden", "to find and keep", "Verb", "Verb", "우산을 습득하다 바로 안내데스크에 맡겼어요.", "Als ich den Schirm gefunden habe, habe ich ihn sofort an den Infoschalter gegeben.", "When I found the umbrella, I took it straight to the information desk."],
+    ["보관함", "Aufbewahrung", "holding desk", "Nomen", "Noun", "지갑은 보관함에 삼 일 동안 있어요.", "Die Geldbörse bleibt drei Tage in der Aufbewahrung.", "The wallet stays at the holding desk for three days."],
+    ["신분증", "Ausweis", "ID card", "Nomen", "Noun", "찾을 때 신분증을 보여 주세요.", "Bitte zeigen Sie beim Abholen den Ausweis.", "Please show your ID when you pick it up."],
+    ["찾아가다", "abholen", "to pick up", "Verb", "Verb", "우산을 찾아가다 전에 전화로 확인해요.", "Bevor ich den Schirm abhole, rufe ich zur Bestätigung an.", "Before I pick up the umbrella, I confirm by phone."],
+    ["신고하다", "melden", "to report", "Verb", "Verb", "가방을 잃어버려서 바로 신고하다 했어요.", "Ich habe die Tasche verloren und sie sofort gemeldet.", "I lost the bag and reported it right away."],
+    ["안내데스크", "Infoschalter", "information desk", "Nomen", "Noun", "안내데스크에서 분실물 번호를 받았어요.", "Am Infoschalter habe ich eine Fundsachennummer bekommen.", "I got a lost-item number at the information desk."],
+    ["소지품", "Habseligkeiten", "belongings", "Nomen", "Noun", "소지품에 이름을 적어 두면 찾기 쉬워요.", "Wenn der Name auf den Habseligkeiten steht, findet man sie leichter.", "If you write your name on belongings, they are easier to find."],
+    ["라벨", "Etikett", "label", "Nomen", "Noun", "가방 안쪽 라벨에 전화번호를 썼어요.", "Auf dem Etikett innen in der Tasche steht meine Nummer.", "I wrote my number on the label inside the bag."],
+    ["수령인", "Abholer", "recipient", "Nomen", "Noun", "수령인 이름을 정확히 말해 주세요.", "Bitte nennen Sie den Namen des Abholers genau.", "Please say the recipient name exactly."],
+    ["보관기간", "Aufbewahrungsfrist", "holding period", "Nomen", "Noun", "보관기간이 지나면 물건을 옮긴대요.", "Nach der Aufbewahrungsfrist wird der Gegenstand weitergegeben.", "After the holding period they move the item."],
+    ["확인서", "Bestätigung", "confirmation slip", "Nomen", "Noun", "찾을 때 확인서를 받아서 서명해요.", "Beim Abholen unterschreibe ich die Bestätigung.", "When I pick it up I sign the confirmation slip."]
+  ]
+}

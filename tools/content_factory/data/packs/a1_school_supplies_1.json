@@ -1,0 +1,24 @@
+{
+  "packId": "a1_school_supplies_1",
+  "level": "a1",
+  "orderInLevel": 30,
+  "topic": "Schultasche",
+  "unit": "a1_15_first_class_work",
+  "concept": "concept_a1_first_meeting",
+  "motif": "bamboo",
+  "labels": {"ko": "수업 준비물", "de": "Sachen für den Kurs", "en": "Class supplies"},
+  "words": [
+    ["필통", "Federmäppchen", "pencil case", "Nomen", "Noun", "필통 안에 펜이 세 자루 있어요.", "Im Federmäppchen sind drei Stifte.", "There are three pens in the pencil case."],
+    ["지우개", "Radiergummi", "eraser", "Nomen", "Noun", "연필 실수를 지우개로 지워요.", "Ich radiere den Bleistiftfehler mit dem Radiergummi weg.", "I erase the pencil mistake with an eraser."],
+    ["가위", "Schere", "scissors", "Nomen", "Noun", "이 종이를 가위로 잘라 주세요.", "Bitte schneiden Sie dieses Papier mit der Schere.", "Please cut this paper with scissors."],
+    ["자", "Lineal", "ruler", "Nomen", "Noun", "자로 선을 반듯하게 그어요.", "Mit dem Lineal ziehe ich eine gerade Linie.", "I draw a straight line with a ruler."],
+    ["색연필", "Buntstift", "colored pencil", "Nomen", "Noun", "지도를 색연필로 칠했어요.", "Ich habe die Karte mit Buntstiften ausgemalt.", "I colored the map with colored pencils."],
+    ["연습장", "Schreibheft", "practice notebook", "Nomen", "Noun", "한글을 연습장에 여러 번 썼어요.", "Ich habe Hangul mehrmals ins Schreibheft geschrieben.", "I wrote Hangul several times in the practice notebook."],
+    ["준비물", "Mitbringsel", "things to bring", "Nomen", "Noun", "내일 수업 준비물을 가방에 넣어요.", "Ich packe die Mitbringsel für den Unterricht morgen in die Tasche.", "I put tomorrow's class supplies in the bag."],
+    ["제출하다", "abgeben", "to submit", "Verb", "Verb", "숙제를 제출하다 전에 이름을 써요.", "Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.", "Before I submit the homework, I write my name."],
+    ["화이트보드", "Whiteboard", "whiteboard", "Nomen", "Noun", "선생님이 화이트보드에 단어를 썼어요.", "Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.", "The teacher wrote the word on the whiteboard."],
+    ["자리표", "Platzkarte", "seat card", "Nomen", "Noun", "첫날에는 자리표 이름을 확인해요.", "Am ersten Tag prüfe ich den Namen auf der Platzkarte.", "On the first day I check the name on the seat card."],
+    ["필기하다", "mitschreiben", "to take notes", "Verb", "Verb", "중요한 문장은 빨리 필기하다 보면 손이 아파요.", "Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.", "If I take notes on important sentences quickly, my hands hurt."],
+    ["준비됐나요", "sind Sie bereit", "are you ready", "Ausdruck", "Expression", "수업 시작 전에 준비됐나요?", "Sind Sie vor Unterrichtsbeginn bereit?", "Are you ready before class starts?"]
+  ]
+}

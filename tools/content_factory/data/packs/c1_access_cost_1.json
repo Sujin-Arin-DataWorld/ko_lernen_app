@@ -1,0 +1,24 @@
+{
+  "packId": "c1_access_cost_1",
+  "level": "c1",
+  "orderInLevel": 9,
+  "topic": "Zugangskosten",
+  "unit": "c1_02_inclusive_sustainable_systems",
+  "concept": "concept_c1_inclusive_systems",
+  "motif": "gwigap",
+  "labels": {"ko": "접근과 비용", "de": "Zugang und Kosten", "en": "Access and cost"},
+  "words": [
+    ["접근 비용", "Zugangskosten", "access cost", "Ausdruck", "Expression", "접근 비용을 요금만이 아니라 이동 시간으로도 세요.", "Zugangskosten zähle ich nicht nur als Gebühr, sondern als Wegezeit.", "I count access cost as travel time, not only as a fee."],
+    ["유지 부담", "Folgelast", "upkeep burden", "Ausdruck", "Expression", "유지 부담을 초기 설치비와 따로 적어요.", "Die Folgelast schreibe ich getrennt von den Installationskosten.", "I write the upkeep burden separately from install cost."],
+    ["선택권 축소", "Wahlverengung", "narrowed choice", "Ausdruck", "Expression", "선택권 축소를 효율로 포장하지 않아요.", "Wahlverengung verkaufe ich nicht als Effizienz.", "I do not package narrowed choice as efficiency."],
+    ["우회 경로", "Umwegzugang", "workaround path", "Ausdruck", "Expression", "우회 경로가 있어야 본 경로 장애를 견딜 수 있어요.", "Ein Umwegzugang macht die Störung des Hauptwegs erträglich.", "A workaround path makes a main-path outage bearable."],
+    ["보조 인력", "Assistenzkraft", "support staff", "Ausdruck", "Expression", "보조 인력 예산을 장비비에 묻히지 않아요.", "Das Budget für Assistenzkräfte verstecke ich nicht in den Gerätekosten.", "I do not bury support-staff budget inside equipment cost."],
+    ["예약 장벽", "Buchungshürde", "booking barrier", "Ausdruck", "Expression", "예약 장벽이 앱 전용이면 창구 대안을 남겨요.", "Ist die Buchungshürde nur die App, bleibt ein Schalterweg.", "If the booking barrier is app-only, I keep a counter option."],
+    ["대기 불이익", "Wartenachteil", "wait penalty", "Ausdruck", "Expression", "대기 불이익이 특정 시간대에 몰리는지 봐요.", "Ich prüfe, ob der Wartenachteil sich auf bestimmte Stunden konzentriert.", "I check whether the wait penalty clusters at certain hours."],
+    ["요금 누진", "Tarifprogression", "rising fee steps", "Ausdruck", "Expression", "요금 누진이 저사용 가구를 해치는지 계산해요.", "Ich rechne, ob die Tarifprogression Haushalte mit geringem Verbrauch trifft.", "I calculate whether rising fee steps hurt low-use households."],
+    ["정보 접근", "Informationszugang", "information access", "Ausdruck", "Expression", "정보 접근이 한글만이면 다른 언어 요약을 붙여요.", "Ist der Informationszugang nur auf Koreanisch, hänge ich eine andere Kurzfassung an.", "If information access is Korean-only, I add a short version in another language."],
+    ["현장 동선", "Vor-Ort-Weg", "on-site route", "Ausdruck", "Expression", "현장 동선에 계단만 있으면 계획이 포용이 아니에요.", "Führt der Vor-Ort-Weg nur über Treppen, ist der Plan nicht inklusiv.", "If the on-site route is stairs only, the plan is not inclusive."],
+    ["지속 가능 조건", "Dauerbedingung", "condition for staying viable", "Ausdruck", "Expression", "지속 가능 조건에 인력 교대를 넣지 않으면 서비스가 끊겨요.", "Ohne Personalwechsel in der Dauerbedingung bricht der Dienst.", "Without staff rotation in the condition for staying viable, the service breaks."],
+    ["비용 전가", "Kostenverschiebung", "cost shift", "Ausdruck", "Expression", "비용 전가가 이용자에게만 가면 설계를 다시 해요.", "Geht die Kostenverschiebung nur an Nutzende, entwerfe ich neu.", "If the cost shift lands only on users, I redesign."]
+  ]
+}

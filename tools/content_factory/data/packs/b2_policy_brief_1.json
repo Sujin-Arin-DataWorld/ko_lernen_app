@@ -1,0 +1,24 @@
+{
+  "packId": "b2_policy_brief_1",
+  "level": "b2",
+  "orderInLevel": 35,
+  "topic": "Kurzlage",
+  "unit": "b2_06_advanced_capstone",
+  "concept": "concept_b2_advanced",
+  "motif": "taegeuk",
+  "labels": {"ko": "정책 요약", "de": "Kurze Lage", "en": "Policy brief"},
+  "words": [
+    ["한 장 요약", "Einseiter", "one-pager", "Ausdruck", "Expression", "한 장 요약에는 결정이 필요한 질문만 남기어요.", "Auf dem Einseiter bleibt nur die Entscheidungsfrage.", "On the one-pager I leave only the question that needs a decision."],
+    ["선택지 비교", "Optionsvergleich", "option compare", "Ausdruck", "Expression", "선택지 비교는 비용, 시간, 위험을 같은 순서로 적어요.", "Im Optionsvergleich stehen Kosten, Zeit und Risiko in derselben Reihenfolge.", "In the option compare I list cost, time, and risk in the same order."],
+    ["가정 명시", "Annahmenklarheit", "stated assumption", "Ausdruck", "Expression", "가정 명시를 빼면 숫자가 사실처럼 보여요.", "Ohne Annahmenklarheit wirkt die Zahl wie eine Tatsache.", "Without a stated assumption the number looks like a fact."],
+    ["영향 집단", "betroffene Gruppe", "affected group", "Ausdruck", "Expression", "영향 집단을 먼저 적고 혜택을 나중에 적어요.", "Zuerst nenne ich die betroffene Gruppe, dann den Nutzen.", "I name the affected group first, then the benefit."],
+    ["실행 단계", "Umsetzungsschritt", "implementation step", "Ausdruck", "Expression", "실행 단계는 이번 달에 할 일만 세 개로 줄여요.", "Die Umsetzungsschritte kürze ich auf drei Aufgaben in diesem Monat.", "I cut implementation steps to three tasks this month."],
+    ["반대 시나리오", "Gegenszenario", "counter-case", "Ausdruck", "Expression", "반대 시나리오를 한 단락만 넣어도 설득이 단단해져요.", "Schon ein Absatz Gegenszenario macht die Begründung fester.", "Even one paragraph of counter-case makes the case firmer."],
+    ["측정 지표", "Messgröße", "metric", "Ausdruck", "Expression", "측정 지표가 모호하면 성공을 나중에 다툴 수 있어요.", "Ist die Messgröße unklar, streiten wir später über Erfolg.", "If the metric is vague, we may later argue about success."],
+    ["권고 문장", "Empfehlungssatz", "recommendation line", "Ausdruck", "Expression", "권고 문장은 동사로 시작하고 조건을 붙어요.", "Der Empfehlungssatz beginnt mit einem Verb und nennt die Bedingung.", "The recommendation line starts with a verb and adds a condition."],
+    ["공개 범위", "Öffnungsgrad", "disclosure scope", "Ausdruck", "Expression", "공개 범위를 내부와 외부로 나눠 적어요.", "Den Öffnungsgrad teile ich in intern und extern.", "I split the disclosure scope into internal and external."],
+    ["결정 기한", "Entscheidungsfrist", "decision deadline", "Ausdruck", "Expression", "결정 기한을 적지 않으면 논의가 늘어져요.", "Ohne Entscheidungsfrist zieht sich die Debatte.", "Without a decision deadline the discussion stretches."],
+    ["근거 각주", "Belegfußnote", "source footnote", "Ausdruck", "Expression", "근거 각주는 링크보다 날짜와 기관을 먼저 적어요.", "In der Belegfußnote stehen Datum und Stelle vor dem Link.", "In the source footnote I put date and institution before the link."],
+    ["남은 불확실성", "Restunsicherheit", "remaining uncertainty", "Ausdruck", "Expression", "남은 불확실성을 숨기지 않고 마지막에 적어요.", "Die Restunsicherheit verstecke ich nicht, sondern schreibe sie ans Ende.", "I do not hide remaining uncertainty; I put it at the end."]
+  ]
+}

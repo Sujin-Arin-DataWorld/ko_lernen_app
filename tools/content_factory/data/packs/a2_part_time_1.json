@@ -1,0 +1,24 @@
+{
+  "packId": "a2_part_time_1",
+  "level": "a2",
+  "orderInLevel": 38,
+  "topic": "Nebenjob",
+  "unit": "a2_06_study_work",
+  "concept": "concept_a2_work_study",
+  "motif": "bamboo",
+  "labels": {"ko": "아르바이트", "de": "Nebenjob", "en": "Part-time job"},
+  "words": [
+    ["시급", "Stundenlohn", "hourly wage", "Nomen", "Noun", "이번 달부터 시급이 올랐어요.", "Ab diesem Monat ist der Stundenlohn gestiegen.", "The hourly wage went up this month."],
+    ["근무표", "Dienstplan", "shift schedule", "Nomen", "Noun", "다음 주 근무표가 오늘 올라와요.", "Der Dienstplan für nächste Woche kommt heute.", "Next week's shift schedule is posted today."],
+    ["야간수당", "Nachtzuschlag", "night bonus", "Nomen", "Noun", "열 시 이후에는 야간수당이 붙어요.", "Nach zehn Uhr gibt es einen Nachtzuschlag.", "After ten there is a night bonus."],
+    ["휴게시간", "Pause", "break time", "Nomen", "Noun", "네 시간마다 휴게시간이 십오 분이에요.", "Alle vier Stunden gibt es fünfzehn Minuten Pause.", "Every four hours there is a fifteen-minute break."],
+    ["인수인계", "Übergabe", "handover", "Nomen", "Noun", "마감 전에 인수인계를 짧게 해요.", "Vor Feierabend machen wir eine kurze Übergabe.", "Before closing we do a short handover."],
+    ["알바생", "Aushilfe", "part-timer", "Nomen", "Noun", "새 알바생에게 커피 기계를 보여 줬어요.", "Ich habe der neuen Aushilfe die Kaffeemaschine gezeigt.", "I showed the new part-timer the coffee machine."],
+    ["주휴수당", "Wochenruhegeld", "weekly rest pay", "Nomen", "Noun", "일주일에 십오 시간을 일하면 주휴수당이 나와요.", "Bei fünfzehn Stunden pro Woche gibt es Wochenruhegeld.", "If you work fifteen hours a week, you get weekly rest pay."],
+    ["근로계약", "Arbeitsvertrag", "work contract", "Nomen", "Noun", "첫날에 근로계약을 읽고 서명해요.", "Am ersten Tag lese ich den Arbeitsvertrag und unterschreibe.", "On the first day I read and sign the work contract."],
+    ["교대", "Schichtwechsel", "shift change", "Nomen", "Noun", "여섯 시에 교대가 있어서 조금 일찍 와요.", "Um sechs ist Schichtwechsel, deshalb komme ich etwas früher.", "Shift change is at six, so I come a bit early."],
+    ["점장", "Filialleitung", "store manager", "Nomen", "Noun", "점장에게 휴가를 미리 말했어요.", "Ich habe der Filialleitung den Urlaub vorher gesagt.", "I told the store manager about the leave in advance."],
+    ["마감하다", "abschließen", "to close up", "Verb", "Verb", "가게를 마감하다 전에 바닥을 닦아요.", "Bevor ich den Laden abschließe, wische ich den Boden.", "Before I close up the shop, I mop the floor."],
+    ["시급 명세서", "Lohnzettel", "wage slip", "Ausdruck", "Expression", "시급 명세서를 문자로 받았어요.", "Ich habe den Lohnzettel per Nachricht bekommen.", "I received the wage slip by text."]
+  ]
+}

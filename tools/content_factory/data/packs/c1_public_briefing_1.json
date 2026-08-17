@@ -1,0 +1,24 @@
+{
+  "packId": "c1_public_briefing_1",
+  "level": "c1",
+  "orderInLevel": 6,
+  "topic": "Öffentliche Lage",
+  "unit": "c1_01_evidence_public_reasoning",
+  "concept": "concept_c1_evidence_reasoning",
+  "motif": "manja",
+  "labels": {"ko": "공공 브리핑", "de": "Öffentliche Lage", "en": "Public briefing"},
+  "words": [
+    ["브리핑 문안", "Lageformulierung", "briefing wording", "Ausdruck", "Expression", "브리핑 문안은 숫자보다 행동을 앞에 두지 않아요.", "In der Lageformulierung steht die Zahl vor der Handlung.", "In briefing wording I do not put action ahead of the number."],
+    ["위험 등급", "Risikostufe", "risk grade", "Ausdruck", "Expression", "위험 등급을 바꿀 때는 기준표를 같이 보여요.", "Beim Wechsel der Risikostufe zeige ich die Tabelle mit.", "When I change the risk grade I show the criteria table too."],
+    ["비전문가 설명", "Laienerklärung", "plain-language explainer", "Ausdruck", "Expression", "비전문가 설명에서는 은유를 한 개만 써요.", "In der Laienerklärung nutze ich nur eine Metapher.", "In a plain-language explainer I use only one metaphor."],
+    ["질의 시간", "Nachfragfenster", "question window", "Ausdruck", "Expression", "질의 시간을 내부에서 줄이지 않고 공개해요.", "Das Nachfragfenster kürze ich nicht intern, sondern mache es öffentlich.", "I do not cut the question window internally; I keep it public."],
+    ["오해 예방", "Missverständnisvorsorge", "misread prevention", "Ausdruck", "Expression", "오해 예방을 위해 '전원' 대신 분모를 말해요.", "Zur Missverständnisvorsorge nenne ich den Nenner statt 'alle'.", "For misread prevention I say the denominator instead of 'everyone'."],
+    ["속보 절제", "Eilzurückhaltung", "holding a flash update", "Ausdruck", "Expression", "속보 절제가 필요할 때는 확인 시각을 밝히고 기다려요.", "Bei Eilzurückhaltung nenne ich die Prüfzeit und warte.", "When holding a flash update I state the check time and wait."],
+    ["공동 발표", "Gemeinerklärung", "joint statement", "Ausdruck", "Expression", "공동 발표는 기관마다 다른 수치를 먼저 맞추어요.", "Vor der Gemeinerklärung gleichen wir abweichende Zahlen ab.", "Before a joint statement we align numbers that differ by office."],
+    ["시각 자료", "Schaubild", "visual aid", "Ausdruck", "Expression", "시각 자료의 축을 읽지 않으면 설명을 시작하지 않아요.", "Ohne gelesene Achsen beginne ich das Schaubild nicht.", "I do not start the visual aid until the axes have been read."],
+    ["정정 창구", "Korrekturkanal", "correction channel", "Ausdruck", "Expression", "정정 창구를 브리핑 끝에 크게 안내해요.", "Den Korrekturkanal nenne ich am Ende der Lage deutlich.", "I announce the correction channel clearly at the end of the briefing."],
+    ["행동 권고", "Handlungsempfehlung", "action advice", "Ausdruck", "Expression", "행동 권고는 대상과 기한을 빠뜨리지 않아요.", "Die Handlungsempfehlung nennt Zielgruppe und Frist.", "Action advice always names the audience and the deadline."],
+    ["자료 공개일", "Veröffentlichungstag", "release day", "Ausdruck", "Expression", "자료 공개일을 앞당기면 검수 시간이 줄어든다고 말해요.", "Ein früherer Veröffentlichungstag verkürzt die Prüfung, das sage ich offen.", "I say openly that moving the release day up shortens review time."],
+    ["발언 기록", "Wortprotokoll", "spoken record", "Ausdruck", "Expression", "발언 기록을 남기면 나중에 과장 여부를 확인할 수 있어요.", "Mit Wortprotokoll lässt sich später prüfen, ob übertrieben wurde.", "A spoken record lets us later check whether something was overstated."]
+  ]
+}

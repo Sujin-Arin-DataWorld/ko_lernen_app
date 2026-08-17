@@ -1,0 +1,24 @@
+{
+  "packId": "a2_bank_counter_1",
+  "level": "a2",
+  "orderInLevel": 34,
+  "topic": "Bankschalter",
+  "unit": "a2_08_home_money",
+  "concept": "concept_a2_home_money",
+  "motif": "peony",
+  "labels": {"ko": "은행 창구", "de": "Am Bankschalter", "en": "Bank counter"},
+  "words": [
+    ["이체하다", "überweisen", "to transfer", "Verb", "Verb", "월세를 오늘 이체하다 전에 잔고를 봐요.", "Bevor ich die Miete überweise, schaue ich auf den Kontostand.", "Before I transfer the rent, I check the balance."],
+    ["인증서", "Zertifikat", "certificate", "Nomen", "Noun", "인터넷 뱅킹 인증서가 만료됐어요.", "Das Onlinebanking-Zertifikat ist abgelaufen.", "The online banking certificate expired."],
+    ["보안카드", "Sicherheitskarte", "security card", "Nomen", "Noun", "보안카드 번호를 두 개 입력해요.", "Ich gebe zwei Nummern der Sicherheitskarte ein.", "I enter two numbers from the security card."],
+    ["대기번호", "Wartenummer", "queue number", "Nomen", "Noun", "대기번호를 뽑고 앉아서 기다려요.", "Ich ziehe eine Wartenummer und warte im Sitzen.", "I take a queue number and wait seated."],
+    ["한도", "Limit", "limit", "Nomen", "Noun", "하루 이체 한도를 올렸어요.", "Ich habe das tägliche Überweisungslimit erhöht.", "I raised the daily transfer limit."],
+    ["창구직원", "Schalterkraft", "counter staff", "Nomen", "Noun", "창구직원이 서류를 천천히 설명해요.", "Die Schalterkraft erklärt die Unterlagen langsam.", "The counter staff explains the papers slowly."],
+    ["통장정리", "Kontoauszug", "passbook update", "Nomen", "Noun", "창구에서 통장정리를 부탁했어요.", "Am Schalter habe ich um einen Kontoauszug gebeten.", "I asked for a passbook update at the counter."],
+    ["인감", "Namensstempel", "name seal", "Nomen", "Noun", "계좌를 만들 때 인감이 필요해요.", "Zum Kontoeröffnen brauche ich den Namensstempel.", "I need a name seal to open an account."],
+    ["비밀번호 재설정", "Passwort zurücksetzen", "password reset", "Ausdruck", "Expression", "비밀번호 재설정을 위해 신분증을 보여 줬어요.", "Zum Passwort zurücksetzen habe ich den Ausweis gezeigt.", "I showed my ID for a password reset."],
+    ["창구 마감", "Schalterschluss", "counter closing", "Ausdruck", "Expression", "창구 마감이 네 시라서 서둘렀어요.", "Der Schalterschluss ist um vier, deshalb habe ich mich beeilt.", "Counter closing is at four, so I hurried."],
+    ["입금 확인", "Eingangsbestätigung", "deposit confirmation", "Ausdruck", "Expression", "입금 확인 문자가 아직 안 왔어요.", "Die Eingangsbestätigung ist noch nicht gekommen.", "The deposit confirmation text has not arrived yet."],
+    ["출금 한도", "Abhebungslimit", "withdrawal limit", "Ausdruck", "Expression", "출금 한도를 잠시 낮춰 두었어요.", "Ich habe das Abhebungslimit vorübergehend gesenkt.", "I temporarily lowered the withdrawal limit."]
+  ]
+}
