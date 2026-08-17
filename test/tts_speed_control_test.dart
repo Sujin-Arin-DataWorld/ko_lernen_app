@@ -39,6 +39,7 @@ void main() {
     );
     expect(find.text('0.5×'), findsOneWidget);
     expect(find.text('0.75×'), findsOneWidget);
+    expect(find.text('0.8×'), findsOneWidget);
     expect(find.text('1×'), findsOneWidget);
     expect(find.text('1.25×'), findsOneWidget);
     expect(find.text('1.5×'), findsOneWidget);

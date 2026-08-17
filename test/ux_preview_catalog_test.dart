@@ -12,6 +12,12 @@ void main() {
       '02B',
       '02C',
       '02D',
+      '02E',
+      '02F',
+      '02G',
+      '02H',
+      '02I',
+      '02J',
       '03A',
       '03B',
       '03C',
@@ -30,7 +36,7 @@ void main() {
       '07D',
     };
 
-    expect(uxPreviewPanels, hasLength(24));
+    expect(uxPreviewPanels, hasLength(30));
     expect(uxPreviewPanels.map((panel) => panel.id).toSet(), expected);
   });
 

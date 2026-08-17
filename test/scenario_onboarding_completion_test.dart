@@ -45,6 +45,38 @@ final _fiveQuestScene = Scenario(
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  testWidgets('leaving mid-onboarding does not persist a result', (
+    tester,
+  ) async {
+    var saveCalls = 0;
+    var exitCalls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: ScenarioPlayerScreen(
+          scenarioId: _fiveQuestScene.id,
+          mode: ScenarioPlayerMode.onboardingFirstScene,
+          scenarioLoader: (_) async => _fiveQuestScene,
+          resultPersister: (_, _, _) async {
+            saveCalls++;
+            return null;
+          },
+          onExit: () => exitCalls++,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('1 of 5'), findsOneWidget);
+    await tester.tap(find.byIcon(Icons.close_rounded));
+    await tester.pump();
+    expect(exitCalls, 1);
+    expect(saveCalls, 0);
+  });
+
   testWidgets('onboarding completes once after all five quests are persisted', (
     tester,
   ) async {
@@ -128,56 +160,55 @@ void main() {
     );
   }
 
-  testWidgets(
-    'airport dont-know completion writes no mastery, stars, or XP',
-    (tester) async {
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues({
-        'kl_tut_scenario': true,
-        'kl_tut_wordbook': true,
-      });
-      await Storage.init();
-      addTearDown(Storage.resetForTesting);
+  testWidgets('airport dont-know completion writes no mastery, stars, or XP', (
+    tester,
+  ) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_scenario': true,
+      'kl_tut_wordbook': true,
+    });
+    await Storage.init();
+    addTearDown(Storage.resetForTesting);
 
-      final airport = await _loadAirport(tester);
-      final checkpoints = <({String id, double score, bool hasCourseContext})>[];
-      var evidenceCalls = 0;
-      CourseActivityReporter.recordContentAttemptForTesting =
-          (kind, contentId, isCorrect, context, error, conceptId, score) async {
-            evidenceCalls++;
-            throw StateError('onboarding must not write course evidence');
-          };
-      CourseActivityReporter.recordScenarioCheckpointForTesting =
-          (scenarioId, score, courseContext) async {
-            checkpoints.add((
-              id: scenarioId,
-              score: score,
-              hasCourseContext: courseContext != null,
-            ));
-            throw StateError('skip hanok projection after capturing score');
-          };
-      addTearDown(CourseActivityReporter.resetOverridesForTesting);
+    final airport = await _loadAirport(tester);
+    final checkpoints = <({String id, double score, bool hasCourseContext})>[];
+    var evidenceCalls = 0;
+    CourseActivityReporter.recordContentAttemptForTesting =
+        (kind, contentId, isCorrect, context, error, conceptId, score) async {
+          evidenceCalls++;
+          throw StateError('onboarding must not write course evidence');
+        };
+    CourseActivityReporter.recordScenarioCheckpointForTesting =
+        (scenarioId, score, courseContext) async {
+          checkpoints.add((
+            id: scenarioId,
+            score: score,
+            hasCourseContext: courseContext != null,
+          ));
+          throw StateError('skip hanok projection after capturing score');
+        };
+    addTearDown(CourseActivityReporter.resetOverridesForTesting);
 
-      final summary = await _tapDontKnowOnEveryAirportQuest(
-        tester,
-        airport: airport,
-        locale: const Locale('en'),
-        persistForReal: true,
-      );
+    final summary = await _tapDontKnowOnEveryAirportQuest(
+      tester,
+      airport: airport,
+      locale: const Locale('en'),
+      persistForReal: true,
+    );
 
-      expect(summary.passed, 0);
-      expect(summary.total, 5);
-      expect(summary.firstSuccess, isNull);
-      expect(evidenceCalls, 0);
-      expect(checkpoints, hasLength(1));
-      expect(checkpoints.single.id, 'airport_arrival');
-      expect(checkpoints.single.score, 0);
-      expect(checkpoints.single.hasCourseContext, isFalse);
-      expect(Storage.xp, 0);
-      expect(Storage.scenarioStars['airport_arrival'], isNull);
-      expect(Storage.completedScenarios, contains('airport_arrival'));
-    },
-  );
+    expect(summary.passed, 0);
+    expect(summary.total, 5);
+    expect(summary.firstSuccess, isNull);
+    expect(evidenceCalls, 0);
+    expect(checkpoints, hasLength(1));
+    expect(checkpoints.single.id, 'airport_arrival');
+    expect(checkpoints.single.score, 0);
+    expect(checkpoints.single.hasCourseContext, isFalse);
+    expect(Storage.xp, 0);
+    expect(Storage.scenarioStars['airport_arrival'], isNull);
+    expect(Storage.completedScenarios, contains('airport_arrival'));
+  });
 }
 
 Future<Scenario> _loadAirport(WidgetTester tester) async {

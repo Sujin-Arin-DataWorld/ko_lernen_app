@@ -12,18 +12,41 @@ enum SoriWordTileState { idle, selected, correct, wrong, disabled }
 class SoriAnswerTray extends StatelessWidget {
   const SoriAnswerTray({
     super.key,
-    required this.child,
+    this.child,
+    this.tiles,
+    this.slotCount,
     this.accent = SoriColors.primary,
     this.minHeight = 88,
   });
 
-  final Widget child;
+  final Widget? child;
+  final List<Widget>? tiles;
+  final int? slotCount;
   final Color accent;
   final double minHeight;
 
   @override
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
+    final placed = tiles ?? const <Widget>[];
+    final slots = slotCount;
+    final Widget body;
+    if (slots != null) {
+      final empty = (slots - placed.length).clamp(0, slots);
+      body = Wrap(
+        spacing: 10,
+        runSpacing: 10,
+        children: [
+          ...placed,
+          for (var index = 0; index < empty; index++)
+            SoriDottedAnswerSlot(
+              key: ValueKey('answer-slot-${placed.length + index}'),
+            ),
+        ],
+      );
+    } else {
+      body = child ?? const SizedBox.shrink();
+    }
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
@@ -37,12 +60,65 @@ class SoriAnswerTray extends StatelessWidget {
         borderRadius: BorderRadius.circular(SoriRadius.lg),
         border: Border(bottom: BorderSide(color: accent, width: 2.5)),
       ),
-      child: child,
+      child: body,
     );
   }
 }
 
+/// Empty tray slot drawn with a dashed hanji-ink outline — no extra package.
+class SoriDottedAnswerSlot extends StatelessWidget {
+  const SoriDottedAnswerSlot({super.key, this.width = 56, this.height = 40});
+
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return Semantics(
+      label: '…',
+      child: CustomPaint(
+        painter: SoriDottedSlotPainter(color: surfaces.textDim),
+        child: SizedBox(width: width, height: height),
+      ),
+    );
+  }
+}
+
+class SoriDottedSlotPainter extends CustomPainter {
+  const SoriDottedSlotPainter({required this.color});
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    final rrect = RRect.fromRectAndRadius(
+      Offset.zero & size,
+      const Radius.circular(SoriRadius.sm),
+    );
+    final path = Path()..addRRect(rrect);
+    const dash = 4.0;
+    const gap = 3.0;
+    for (final metric in path.computeMetrics()) {
+      var dist = 0.0;
+      while (dist < metric.length) {
+        canvas.drawPath(metric.extractPath(dist, dist + dash), paint);
+        dist += dash + gap;
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant SoriDottedSlotPainter oldDelegate) =>
+      oldDelegate.color != color;
+}
+
 /// Shared tile for productive word and jamo assembly tasks.
+/// State is communicated by a corner icon and semantics as well as color.
 class SoriWordTile extends StatelessWidget {
   const SoriWordTile({
     super.key,
@@ -51,6 +127,7 @@ class SoriWordTile extends StatelessWidget {
     required this.onTap,
     this.scale = 1,
     this.compact = false,
+    this.expand = false,
   });
 
   final String label;
@@ -58,61 +135,77 @@ class SoriWordTile extends StatelessWidget {
   final VoidCallback? onTap;
   final double scale;
   final bool compact;
+  final bool expand;
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
-    final (border, background, foreground) = switch (state) {
+    final (border, background, foreground, icon, status) = switch (state) {
       SoriWordTileState.idle => (
-        surfaces.surfaceAlt,
+        SoriColors.primary,
         surfaces.surface,
         surfaces.text,
+        null,
+        '',
       ),
       SoriWordTileState.selected => (
         SoriColors.primary,
-        SoriColors.primary.withAlpha(22),
+        SoriColors.primarySoft,
         surfaces.text,
+        Icons.check_circle_outline_rounded,
+        t.questAnswerSelected,
       ),
       SoriWordTileState.correct => (
         SoriColors.success,
         SoriColors.success.withAlpha(32),
         SoriColors.success,
+        Icons.check_circle_rounded,
+        t.questCorrect,
       ),
       SoriWordTileState.wrong => (
         SoriColors.danger,
         SoriColors.danger.withAlpha(32),
         SoriColors.danger,
+        Icons.cancel_rounded,
+        t.questWrong,
       ),
       SoriWordTileState.disabled => (
         surfaces.surfaceAlt,
         surfaces.surface,
         surfaces.textDim,
+        null,
+        '',
       ),
     };
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : const Duration(milliseconds: 180);
-    return Semantics(
+    final radius = BorderRadius.circular(SoriRadius.sm);
+    final tile = Semantics(
       button: true,
       enabled: onTap != null,
       selected: state == SoriWordTileState.selected,
+      label: status.isEmpty ? label : '$label, $status',
       child: SoriPressable(
         onTap: onTap,
         haptic: null,
         pressScale: 0.97,
         child: Material(
           color: background,
-          borderRadius: BorderRadius.circular(SoriRadius.sm),
+          borderRadius: radius,
           child: AnimatedContainer(
             duration: duration,
             curve: Curves.easeOut,
-            constraints: BoxConstraints(minHeight: 48 * scale),
+            constraints: expand
+                ? const BoxConstraints.expand()
+                : BoxConstraints(minHeight: 48 * scale),
             padding: EdgeInsets.symmetric(
-              horizontal: (compact ? 12 : 18) * scale,
-              vertical: (compact ? 9 : 12) * scale,
+              horizontal: (compact ? 8 : 12) * scale,
+              vertical: (compact ? 8 : 10) * scale,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(SoriRadius.sm),
+              borderRadius: radius,
               border: Border.all(color: border, width: 1.5),
               boxShadow: state == SoriWordTileState.idle
                   ? null
@@ -124,14 +217,142 @@ class SoriWordTile extends StatelessWidget {
                       ),
                     ],
             ),
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: foreground,
-                fontSize: (compact ? 16 : 18) * scale,
-                fontWeight: FontWeight.w700,
-              ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Padding(
+                  padding: icon == null
+                      ? EdgeInsets.zero
+                      : const EdgeInsets.only(top: 2, right: 2),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: foreground,
+                        fontSize: (compact ? 16 : 18) * scale,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+                if (icon != null)
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Icon(icon, color: border, size: 14 * scale),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    return expand ? SizedBox.expand(child: tile) : tile;
+  }
+}
+
+/// Cinematic prompt card: sentence, speaker, replay link, whole-card tap.
+class SoriPromptCard extends StatelessWidget {
+  const SoriPromptCard({
+    super.key,
+    required this.sentence,
+    this.onReplay,
+    this.compact = false,
+  });
+
+  final String sentence;
+  final VoidCallback? onReplay;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    final replayable = onReplay != null;
+    final label = replayable ? '$sentence, ${t.questReplayAudio}' : sentence;
+    final fontSize = compact ? 20.0 : 22.0;
+
+    return Semantics(
+      button: replayable,
+      label: label,
+      child: SoriPressable(
+        onTap: onReplay,
+        haptic: null,
+        pressScale: replayable ? 0.99 : 1,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: surfaces.surface,
+            borderRadius: BorderRadius.circular(SoriRadius.md),
+            border: Border.all(color: SoriColors.primary, width: 1.5),
+          ),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+              Spacing.md,
+              compact ? Spacing.sm : Spacing.md,
+              Spacing.md,
+              compact ? Spacing.sm : Spacing.md,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (replayable) ...[
+                  Container(
+                    width: compact ? 40 : 44,
+                    height: compact ? 40 : 44,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SoriColors.primarySoft,
+                    ),
+                    child: const Icon(
+                      Icons.volume_up_rounded,
+                      color: SoriColors.primary,
+                      size: 22,
+                    ),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        sentence,
+                        style: SoriTextTheme.of(context).body.copyWith(
+                          color: surfaces.text,
+                          fontSize: fontSize,
+                          fontWeight: FontWeight.w700,
+                          height: 1.3,
+                        ),
+                      ),
+                      if (replayable) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                t.questReplayAudio,
+                                style: SoriTextTheme.of(context).caption
+                                    .copyWith(
+                                      color: SoriColors.primary,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                              ),
+                            ),
+                            const Icon(
+                              Icons.touch_app_rounded,
+                              color: SoriColors.primary,
+                              size: 18,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),

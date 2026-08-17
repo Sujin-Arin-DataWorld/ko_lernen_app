@@ -175,7 +175,7 @@ void main() {
     await _tapText(tester, 'Correct response');
     await tester.pump();
     expect(completionCalls, 0);
-    await _tapText(tester, 'Überprüfen');
+    await _tapText(tester, 'Antwort prüfen');
     await tester.pump();
     expect(completionCalls, 0);
     await _tapText(tester, 'Ergebnis ansehen');

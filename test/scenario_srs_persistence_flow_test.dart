@@ -109,9 +109,9 @@ void main() {
       await tester.ensureVisible(wrongAnswer);
       await tester.tap(wrongAnswer);
       await tester.pump();
-      await _tapText(tester, 'Überprüfen');
+      await _tapText(tester, 'Antwort prüfen');
       await tester.pump(const Duration(milliseconds: 220));
-      await _tapText(tester, 'Überprüfen');
+      await _tapText(tester, 'Antwort prüfen');
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 220));
       await _tapText(tester, 'Ergebnis ansehen');

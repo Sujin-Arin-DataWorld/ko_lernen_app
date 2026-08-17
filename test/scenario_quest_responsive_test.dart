@@ -19,7 +19,6 @@ const _responsiveScene = Scenario(
   intro: LocalizedText(ko: '', de: '', en: ''),
   vocab: [],
   grammarIds: [],
-  dialog: [],
   quests: [
     QuestSpec(
       type: QuestType.hoerverstehen,
@@ -47,6 +46,68 @@ const _responsiveScene = Scenario(
         'promptEn': 'Please show your passport.',
       },
     ),
+    QuestSpec(
+      type: QuestType.uebersetzen,
+      data: {
+        'promptDe': 'Eine Woche.',
+        'promptEn': 'A week.',
+        'correctIndex': 0,
+        'options': [
+          {'ko': '일주일이요.'},
+          {'ko': '처음이에요.'},
+        ],
+      },
+    ),
+    QuestSpec(
+      type: QuestType.luecken,
+      data: {
+        'sentence': '한국 처음___?',
+        'correctIndex': 0,
+        'options': ['이세요', '이에요'],
+      },
+    ),
+    QuestSpec(
+      type: QuestType.particlePop,
+      data: {
+        'prefix': '저',
+        'suffix': ' 학생이에요.',
+        'correctIndex': 0,
+        'options': ['는', '가'],
+      },
+    ),
+    QuestSpec(
+      type: QuestType.batchimDrop,
+      data: {
+        'audioKo': '안녕',
+        'targetWord': '안녕',
+        'targetSyllableIndex': 1,
+        'correctIndex': 0,
+        'options': ['ㅇ', 'ㄴ'],
+      },
+    ),
+    QuestSpec(
+      type: QuestType.satzBauen,
+      data: {
+        'targetKo': '안녕하세요.',
+        'promptDe': 'Guten Tag.',
+        'promptEn': 'Hello.',
+        'audioKo': '안녕하세요.',
+      },
+    ),
+  ],
+  dialog: [
+    DialogLine(
+      speaker: 'officer',
+      ko: '여권 보여주세요.',
+      de: 'Bitte Ihren Pass.',
+      en: 'Passport, please.',
+    ),
+    DialogLine(
+      speaker: 'user',
+      ko: '네, 여기 있어요.',
+      de: 'Ja, hier bitte.',
+      en: 'Yes, here you go.',
+    ),
   ],
 );
 
@@ -70,10 +131,34 @@ void main() {
       await tester.pump(const Duration(milliseconds: 250));
 
       expect(tester.takeException(), isNull);
-      expect(find.text('1 of 2'), findsOneWidget);
+      expect(find.text('1 of 7'), findsOneWidget);
       expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
     });
   }
+
+  for (final questIndex in const [0, 1, 2, 3, 4, 5, 6]) {
+    testWidgets('engine $questIndex fits a 390dp frame', (tester) async {
+      await tester.binding.setSurfaceSize(const Size(390, 760));
+      await tester.pumpWidget(
+        _host(textScale: 1.0, dark: false, questIndex: questIndex),
+      );
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+      expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+    });
+  }
+
+  testWidgets('roleplay frame keeps its CTA on a short phone', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 760));
+    await tester.pumpWidget(
+      _host(textScale: 1.0, dark: false, questIndex: 0, roleplay: true),
+    );
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+    expect(find.text('1 of 1'), findsOneWidget);
+    expect(find.text('Build your answer'), findsOneWidget);
+    expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+  });
 
   testWidgets('dictation remains usable above a software keyboard', (
     tester,
@@ -96,6 +181,7 @@ Widget _host({
   required bool dark,
   required int questIndex,
   double keyboardInset = 0,
+  bool roleplay = false,
 }) => MaterialApp(
   theme: dark ? AppTheme.dark : AppTheme.light,
   locale: const Locale('en'),
@@ -115,7 +201,7 @@ Widget _host({
   home: ScenarioPlayerScreen.preview(
     fixture: ScenarioPlayerPreviewFixture.action(
       scenario: _responsiveScene,
-      stage: ScenarioStage.quest,
+      stage: roleplay ? ScenarioStage.rollenspiel : ScenarioStage.quest,
       questIndex: questIndex,
     ),
   ),

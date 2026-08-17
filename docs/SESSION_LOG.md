@@ -1,5 +1,38 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 시나리오 문제 UI 계약 마감 + 목업 프레임
+
+**무엇.** Codex `ca8e82d9` 재설계는 이미 main/기기에 있다. 이 작업은 남은
+계약 갭(G1–G7)과 Jin이 승인한 1번 목업 시각 패리티(B1–B8)를 닫는다.
+한국어 문장·정답·점수·XP·SRS·코스 증거·라우트·`scenarios.json`·Firebase
+스키마는 그대로다.
+
+- G1/B8: 4개 엔진의 문항별 `MascotPartner`와 롤플레이 중간 축하 클립 제거.
+  최종 결과의 `SoriCelebration.burst`만 남김.
+- G2: `SoriWordTile`에 selected/correct/wrong 아이콘+Semantics. `particle_pop`에
+  wrong 상태와 `disableAnimations` 분기.
+- G3/B2: 포스터 `scenarioPosterHeight` — 짧은 화면/큰 글자 72·96, 그 외
+  `height*0.24`를 120–240으로 clamp. 하단만 라운드.
+- G4/B1: 퀘스트·롤플레이 헤더를 제목 중앙 + `n von N` + 분절바로 통일.
+  본문의 `Deine Antwort n/N` 분절바 제거.
+- G5: UX Gallery `02E`–`02I`(공항 1–5) + `02J`(비즈니스 롤플레이 1/3).
+- G6/B7: `questCheckAnswer` = "Antwort prüfen" / "Check answer".
+- B3: `SoriPromptCard` + `questReplayAudio`. 롤플레이는 사용자 DE 프롬프트.
+- B4: 🎭 `Rollenspiel` 행 + TTS 프리셋 **0.8**.
+- B5: `questBuildAnswerLabel` + 점선 슬롯 트레이.
+- B6: 3/4열 단어 그리드, 녹청 1.5dp 아웃라인.
+- G7: 7엔진 선택 전 비활성·첫 오답 힌트·두 번째 공개, 반응형 7엔진+롤플레이,
+  애니메이션 on, 온보딩 중간 종료 미저장.
+
+**왜.** 목업 문구(`Deine Antwort bauen`, `Antwort prüfen`, 0.8×)와 대형 포스터는
+원래 코드 렌더가 아니라 계획 밖 시안이었다. Jin이 A+B 모두 닫으라고 했다.
+
+**검증.** 로컬 `flutter analyze --fatal-infos`는 변경 범위에서 통과. 관련
+위젯 테스트·전체 직렬·web/apk는 이 커밋 뒤 실행. CI는 billing 차단이라
+로컬 결과를 CI 성공으로 쓰지 않음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
 
 **무엇.** `cursor/tts-wait-quota-kurs-e988`을 `18428284` 위로 리베이스했다.

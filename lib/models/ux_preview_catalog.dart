@@ -64,6 +64,36 @@ const uxPreviewPanels = <UxPreviewPanel>[
     title: 'Can-do-Ergebnis',
   ),
   UxPreviewPanel(
+    id: '02E',
+    section: UxPreviewSection.daily,
+    title: 'Flughafen · Hören',
+  ),
+  UxPreviewPanel(
+    id: '02F',
+    section: UxPreviewSection.daily,
+    title: 'Flughafen · Lücke',
+  ),
+  UxPreviewPanel(
+    id: '02G',
+    section: UxPreviewSection.daily,
+    title: 'Flughafen · Übersetzen',
+  ),
+  UxPreviewPanel(
+    id: '02H',
+    section: UxPreviewSection.daily,
+    title: 'Flughafen · Satz bauen',
+  ),
+  UxPreviewPanel(
+    id: '02I',
+    section: UxPreviewSection.daily,
+    title: 'Flughafen · Diktat',
+  ),
+  UxPreviewPanel(
+    id: '02J',
+    section: UxPreviewSection.daily,
+    title: 'Geschäftsmeeting · Rollenspiel',
+  ),
+  UxPreviewPanel(
     id: '03A',
     section: UxPreviewSection.hanok,
     title: 'Früher Hanokbau',

@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/screens/quest_engines/quest_models.dart';
 import 'package:ko_lernen_app/screens/quest_engines/satz_bauen_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/uebersetzen_quest.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_pop.dart';
 
 typedef _QuestBuilder =
     Widget Function(
@@ -87,7 +89,12 @@ void main() {
       allowDontKnow: allowDontKnow,
     ),
     'sentence': (complete, next, allowDontKnow) => SatzBauenQuest(
-      data: const {'targetKo': '안녕', 'promptDe': 'Hallo', 'promptEn': 'Hello'},
+      data: const {
+        'targetKo': '안녕',
+        'promptDe': 'Hallo',
+        'promptEn': 'Hello',
+        'distractors': ['감사'],
+      },
       onComplete: complete,
       onContinue: next,
       allowDontKnow: allowDontKnow,
@@ -117,6 +124,14 @@ void main() {
       );
       await tester.pump();
       expect(find.byKey(const ValueKey('quest-dont-know')), findsNothing);
+      expect(find.byType(MascotPartner), findsNothing);
+      expect(
+        tester
+            .widget<SoriButton>(find.byKey(const ValueKey('quest-submit')))
+            .onTap,
+        isNull,
+        reason: '${entry.key} submit stays disabled before a choice',
+      );
 
       if (entry.key == 'sentence') {
         await tester.tap(find.text('안녕').last);
@@ -179,39 +194,69 @@ void main() {
     });
   }
 
-  testWidgets('a second wrong answer reveals the solution once', (
+  for (final entry in cases.entries) {
+    testWidgets('${entry.key} shows a hint on the first miss', (tester) async {
+      await tester.pumpWidget(_host(entry.value((_) {}, () {}, false)));
+      await tester.pump();
+      await _chooseWrong(tester, entry.key);
+      await tester.tap(find.byKey(const ValueKey('quest-submit')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 250));
+      if (entry.key == 'sentence') {
+        expect(
+          find.text('One word does not fit. Check the highlighted word.'),
+          findsWidgets,
+        );
+      } else {
+        expect(
+          find.text('Almost. Try once more.'),
+          findsWidgets,
+          reason: entry.key,
+        );
+      }
+      expect(find.byKey(const ValueKey('quest-continue')), findsNothing);
+    });
+  }
+
+  for (final entry in cases.entries) {
+    testWidgets('${entry.key} reveals the answer after a second miss', (
+      tester,
+    ) async {
+      final results = <QuestResult>[];
+      await tester.pumpWidget(_host(entry.value(results.add, () {}, false)));
+      await tester.pump();
+
+      for (var attempt = 0; attempt < 2; attempt++) {
+        await _chooseWrong(tester, entry.key);
+        await tester.tap(find.byKey(const ValueKey('quest-submit')));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 250));
+      }
+
+      expect(results, hasLength(1), reason: entry.key);
+      expect(results.single.passed, isFalse, reason: entry.key);
+      expect(results.single.firstTry, isFalse, reason: entry.key);
+      expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
+    });
+  }
+
+  testWidgets('listening keeps the animated submit path when motion is on', (
     tester,
   ) async {
-    QuestResult? result;
+    var resultCalls = 0;
     await tester.pumpWidget(
       _host(
-        UebersetzenQuest(
-          data: const {
-            'promptDe': 'Hallo',
-            'promptEn': 'Hello',
-            'correctIndex': 0,
-            'options': [
-              {'ko': '안녕'},
-              {'ko': '감사'},
-            ],
-          },
-          onComplete: (value) => result = value,
-          onContinue: () {},
-        ),
+        cases['listening']!((_) => resultCalls++, () {}, false),
+        disableAnimations: false,
       ),
     );
     await tester.pump();
-
-    for (var attempt = 0; attempt < 2; attempt++) {
-      await tester.tap(find.byKey(const ValueKey('answer-1')));
-      await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('quest-submit')));
-      await tester.pump();
-    }
-
-    expect(result?.passed, isFalse);
-    expect(result?.firstTry, isFalse);
-    expect(find.text('The correct answer is shown.'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('answer-0')));
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('quest-submit')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(resultCalls, 1);
     expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);
   });
 
@@ -252,11 +297,38 @@ void main() {
   });
 }
 
-Widget _host(Widget child) => MaterialApp(
+Future<void> _chooseWrong(WidgetTester tester, String key) async {
+  if (key == 'sentence') {
+    final submit = tester.widget<SoriButton>(
+      find.byKey(const ValueKey('quest-submit')),
+    );
+    if (submit.onTap == null) {
+      await tester.tap(find.text('감사').last);
+      await tester.pump();
+    }
+    return;
+  }
+  if (key == 'dictation') {
+    await tester.enterText(find.byType(TextField), '잘못');
+    await tester.pump();
+    return;
+  }
+  await tester.tap(find.byKey(const ValueKey('answer-1')));
+  await tester.pump();
+}
+
+Widget _host(Widget child, {bool disableAnimations = true}) => MaterialApp(
   theme: AppTheme.light,
   locale: const Locale('en'),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  builder: (context, app) {
+    final media = MediaQuery.of(context);
+    return MediaQuery(
+      data: media.copyWith(disableAnimations: disableAnimations),
+      child: app!,
+    );
+  },
   home: Scaffold(
     body: SafeArea(
       child: SizedBox.expand(

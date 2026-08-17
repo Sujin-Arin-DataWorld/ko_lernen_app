@@ -119,7 +119,6 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
-    final surfaces = SoriSurfaces.of(context);
 
     return QuestLayout(
       action: ScenarioQuestAction(
@@ -134,13 +133,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            _prompt(langCode),
-            style: SoriTextTheme.of(
-              context,
-            ).h2.copyWith(color: surfaces.text, height: 1.35),
-            textAlign: TextAlign.center,
-          ),
+          SoriPromptCard(sentence: _prompt(langCode)),
           const SizedBox(height: Spacing.lg),
           for (final entry in _options.asMap().entries) ...[
             SoriAnswerTile(

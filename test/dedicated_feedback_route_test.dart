@@ -159,7 +159,7 @@ void main() {
     expect(find.byType(ContentFeedbackCard), findsNothing);
     await _tapText(tester, 'Correct response');
     await tester.pump();
-    await _tapText(tester, 'Überprüfen');
+    await _tapText(tester, 'Antwort prüfen');
     await tester.pump();
     await _tapText(tester, 'Ergebnis ansehen');
     await tester.pump();

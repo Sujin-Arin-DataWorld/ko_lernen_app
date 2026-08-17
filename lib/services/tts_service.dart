@@ -41,7 +41,8 @@ class TtsCallableProbe implements Exception {
 }
 
 class TtsCallableFailure {
-  static const alreadyInProgressMessage = 'TTS synthesis is already in progress.';
+  static const alreadyInProgressMessage =
+      'TTS synthesis is already in progress.';
   static const audioUnavailableMessage = 'TTS audio is not available.';
   static const quotaMessage = 'Daily synthesis limit reached.';
 
@@ -534,7 +535,7 @@ class TtsService {
   // 발화가 짧아 다음 발화부터 반영해도 충분하다.
 
   /// 사용자 속도 배수 프리셋 값들 (mp3 fileRate clamp 0.5–2.0 안에서 정직).
-  static const List<double> speedPresets = [0.5, 0.75, 1.0, 1.25, 1.5];
+  static const List<double> speedPresets = [0.5, 0.75, 0.8, 1.0, 1.25, 1.5];
 
   static ValueNotifier<double>? _speedNotifier;
 
