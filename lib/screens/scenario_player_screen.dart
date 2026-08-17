@@ -30,7 +30,6 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
@@ -154,6 +153,20 @@ class ScenarioCompletionSummary {
   final ScenarioFirstSuccess? firstSuccess;
   final int passed;
   final int total;
+}
+
+/// Cinematic scene poster height shared by quest and roleplay frames.
+double scenarioPosterHeight({
+  required double viewportHeight,
+  required double textScale,
+}) {
+  if (textScale >= 2.0) {
+    return 72;
+  }
+  if (viewportHeight < 650 || textScale >= 1.6) {
+    return 96;
+  }
+  return (viewportHeight * 0.24).clamp(120.0, 240.0);
 }
 
 class _QuestSegmentProgress extends StatelessWidget {
@@ -375,6 +388,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
+  int _roleplayTurnIndex = 0;
   late final PageController _pageCtrl;
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
@@ -587,6 +601,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _stage >= 0 &&
       _stage < _plan.length &&
       _plan[_stage] == ScenarioStage.rollenspiel;
+
+  bool get _usesSegmentHeader => _isQuestStage || _isRoleplayStage;
+
+  int get _segmentCurrent =>
+      _isRoleplayStage ? _roleplayTurnIndex : _currentQuestIndex;
+
+  int get _segmentTotal {
+    if (_isRoleplayStage) {
+      final turns =
+          _scenario?.dialog.where((line) => line.speaker == 'user').length ?? 0;
+      return turns == 0 ? 1 : turns;
+    }
+    return _scenario?.quests.length ?? 0;
+  }
 
   double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
@@ -1298,11 +1326,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
-    final posterHeight = media.size.height < 650 || textScale >= 1.6
-        ? 64.0
-        : media.size.height < 760 || textScale >= 1.3
-        ? 88.0
-        : 112.0;
+    final posterHeight = scenarioPosterHeight(
+      viewportHeight: media.size.height,
+      textScale: textScale,
+    );
     return Padding(
       padding: pad,
       child: Column(
@@ -1315,7 +1342,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 Localizations.localeOf(context).languageCode,
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
+                borderRadius: const BorderRadius.vertical(
+                  bottom: Radius.circular(SoriRadius.lg),
+                ),
                 child: SizedBox(
                   width: double.infinity,
                   height: posterHeight,
@@ -1574,6 +1603,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       scenario: _scenario!,
       lang: lang,
       onCorrect: _onCorrectAnswer,
+      onTurnChanged: (index) {
+        if (mounted && _roleplayTurnIndex != index) {
+          setState(() => _roleplayTurnIndex = index);
+        }
+      },
       onDone: () {
         if (mounted) setState(() => _questReady = true);
       },
@@ -1640,35 +1674,29 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           icon: const Icon(Icons.close_rounded),
           onPressed: _requestExit,
         ),
-        title: Row(
+        centerTitle: _usesSegmentHeader,
+        title: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: Text(
-                _scenario!.title.pick(lang),
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
+            Text(
+              _scenario!.title.pick(lang),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              overflow: TextOverflow.ellipsis,
             ),
-            if (_isQuestStage) ...[
-              const SizedBox(width: Spacing.sm),
+            if (_usesSegmentHeader)
               Text(
-                t.scenarioQuestProgress(
-                  _currentQuestIndex + 1,
-                  _scenario!.quests.length,
-                ),
+                t.scenarioQuestProgress(_segmentCurrent + 1, _segmentTotal),
+                textAlign: TextAlign.center,
                 style: SoriTextTheme.of(context).caption.copyWith(
                   color: SoriColors.primary,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-            ],
           ],
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(_isQuestStage ? 18 : 6),
+          preferredSize: Size.fromHeight(_usesSegmentHeader ? 18 : 6),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Spacing.lg,
@@ -1676,13 +1704,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               Spacing.lg,
               Spacing.xs,
             ),
-            child: _isQuestStage
+            child: _usesSegmentHeader
                 ? _QuestSegmentProgress(
-                    current: _currentQuestIndex,
-                    total: _scenario!.quests.length,
+                    current: _segmentCurrent,
+                    total: _segmentTotal,
                     semanticsLabel: t.scenarioQuestProgress(
-                      _currentQuestIndex + 1,
-                      _scenario!.quests.length,
+                      _segmentCurrent + 1,
+                      _segmentTotal,
                     ),
                   )
                 : SoriProgressBar(
@@ -1964,12 +1992,14 @@ class _RollenspielStage extends StatefulWidget {
 
   /// 각 턴 정답 시 호출 — 지속 까치 코인 burst 트리거.
   final VoidCallback? onCorrect;
+  final ValueChanged<int>? onTurnChanged;
 
   const _RollenspielStage({
     required this.scenario,
     required this.lang,
     required this.onDone,
     this.onCorrect,
+    this.onTurnChanged,
   });
 
   @override
@@ -1982,10 +2012,6 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   int _idx = 0;
   bool _done = false;
   QuestResult? _pendingResult;
-
-  /// 온보딩에서 사용자가 고른 캐릭터. 축하 클립을 여기에 맞춘다.
-  late final MascotKind? _kind;
-  late final String? _clip;
 
   @override
   void initState() {
@@ -2010,12 +2036,9 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     }
     _pool = pool.toList()..sort();
 
-    _kind = MascotPreference.selectedKind;
-    // celebrate는 두 캐릭터 모두 클립이 있어 사실상 non-null이지만,
-    // game_reward.dart 패턴대로 null 분기는 유지한다.
-    _clip = _kind == null
-        ? null
-        : CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.onTurnChanged?.call(_idx);
+    });
 
     if (_turns.isEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -2056,13 +2079,13 @@ class _RollenspielStageState extends State<_RollenspielStage> {
         _idx++;
         _pendingResult = null;
       });
+      widget.onTurnChanged?.call(_idx);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     // ── 완료: 스테이지 전체를 차지하는 중앙 정렬 축하 패널 ──────────────────
     if (_done || _turns.isEmpty) {
@@ -2072,9 +2095,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SoriEntrance(
-              child: _RollenspielDoneCard(kind: _kind, clip: _clip),
-            ),
+            SoriEntrance(child: const _RollenspielDoneCard()),
             const SizedBox(height: Spacing.lg),
             ScenarioWriteAfterRoleplayCard(
               evidence: ScenarioWritingEvidence.fromScenario(
@@ -2088,21 +2109,22 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     }
 
     final turn = _turns[_idx];
-    final ctx = turn.context;
-
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
-    final posterHeight = media.size.height < 650 || textScale >= 1.6
-        ? 56.0
-        : media.size.height < 760 || textScale >= 1.3
-        ? 72.0
-        : 96.0;
+    final posterHeight = scenarioPosterHeight(
+      viewportHeight: media.size.height,
+      textScale: textScale,
+    );
     final poster = SceneAssetResolver.posterAsset(widget.scenario);
-    final progressLabel =
-        '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}';
-    final topMaxHeight = textScale >= 1.6
-        ? 190.0
-        : math.min(244.0, media.size.height * 0.34);
+    final reservedForBuilder = textScale >= 2.0
+        ? 280.0
+        : textScale >= 1.6
+        ? 320.0
+        : 360.0;
+    final topMaxHeight = math.max(
+      posterHeight + 64,
+      math.min(posterHeight + 80, media.size.height - reservedForBuilder),
+    );
     final padding = soriClampPadding(
       media.size.width,
       base: const EdgeInsets.fromLTRB(
@@ -2113,10 +2135,6 @@ class _RollenspielStageState extends State<_RollenspielStage> {
       ),
     );
 
-    // The scene/context block has a hard maximum height, so the interactive
-    // sentence builder and its CTA always retain a visible portion of the
-    // viewport. Only large-text/short-screen edge cases scroll this compact
-    // top block; normal phones see the whole turn without page-length travel.
     return Padding(
       padding: padding,
       child: Column(
@@ -2133,8 +2151,11 @@ class _RollenspielStageState extends State<_RollenspielStage> {
                       image: true,
                       label: widget.scenario.title.pick(widget.lang),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(SoriRadius.lg),
+                        borderRadius: const BorderRadius.vertical(
+                          bottom: Radius.circular(SoriRadius.lg),
+                        ),
                         child: SizedBox(
+                          width: double.infinity,
                           height: posterHeight,
                           child: Image.asset(
                             poster,
@@ -2148,100 +2169,27 @@ class _RollenspielStageState extends State<_RollenspielStage> {
                     ),
                     const SizedBox(height: Spacing.sm),
                   ],
-                  Wrap(
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    crossAxisAlignment: WrapCrossAlignment.center,
+                  Row(
                     children: [
-                      Text(
-                        t.scenarioRoleplayTitle,
-                        style: SoriTextTheme.of(context).label.copyWith(
-                          color: SoriColors.primary,
-                          fontWeight: FontWeight.w700,
+                      const Icon(
+                        Icons.theater_comedy_outlined,
+                        color: SoriColors.tiger,
+                        size: 20,
+                      ),
+                      const SizedBox(width: Spacing.xs),
+                      Expanded(
+                        child: Text(
+                          t.scenarioRoleplayTitle,
+                          style: SoriTextTheme.of(context).label.copyWith(
+                            color: SoriColors.tiger,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                       const TtsSpeedControl(),
                     ],
                   ),
-                  const SizedBox(height: Spacing.xs),
-                  if (textScale >= 1.6) ...[
-                    Text(
-                      progressLabel,
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        color: s.textMuted,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    _QuestSegmentProgress(
-                      current: _idx,
-                      total: _turns.length,
-                      semanticsLabel: progressLabel,
-                    ),
-                  ] else
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _QuestSegmentProgress(
-                            current: _idx,
-                            total: _turns.length,
-                            semanticsLabel: progressLabel,
-                          ),
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        Text(
-                          progressLabel,
-                          style: SoriTextTheme.of(context).caption.copyWith(
-                            color: s.textMuted,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(
-                    t.scenarioRoleplayHint,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(color: s.textMuted),
-                  ),
-                  if (ctx != null) ...[
-                    const SizedBox(height: Spacing.sm),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-                      decoration: BoxDecoration(
-                        color: s.surface.withValues(alpha: 0.92),
-                        borderRadius: BorderRadius.circular(SoriRadius.md),
-                        border: const Border(
-                          left: BorderSide(color: SoriColors.primary, width: 3),
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            ctx.ko,
-                            style: SoriTextTheme.of(context).body.copyWith(
-                              color: s.text,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              height: 1.3,
-                            ),
-                          ),
-                          if (ctx.pick(widget.lang).isNotEmpty) ...[
-                            const SizedBox(height: 2),
-                            Text(
-                              ctx.pick(widget.lang),
-                              style: SoriTextTheme.of(
-                                context,
-                              ).caption.copyWith(color: s.textDim),
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: Spacing.sm),
+                  const Divider(height: 1),
                 ],
               ),
             ),
@@ -2264,41 +2212,15 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   }
 }
 
-/// Rollenspiel 완료 패널 — 캐릭터 클립 히어로 + 축하 문구.
-///
-/// 온보딩에서 고른 캐릭터의 축하 영상을 재생한다. 명시적 none이면 중립
-/// 완료 아이콘만 남긴다.
-/// 이름 있는 위젯이라 위젯 테스트에서 턴을 주행하지 않고 바로 pump 할 수 있다.
+/// Quiet roleplay-complete panel. Celebration clips belong on the final
+/// scenario result only.
 class _RollenspielDoneCard extends StatelessWidget {
-  final MascotKind? kind;
-  final String? clip;
-
-  const _RollenspielDoneCard({required this.kind, this.clip});
+  const _RollenspielDoneCard();
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
-
-    // ⚠️ 단일 진실원천 — well 배경과 blendColor가 **같은 상수**여야 한다.
-    // 영상은 알파가 없고 배경이 정확히 (255,255,255)이라, multiply
-    // (out = src·dst/255, src=255 → out = dst) 로 배경이 well 색에 정확히
-    // 수렴해 사라진다. 이 클립을 well 밖(한지 텍스처·backdrop 위)으로 옮기면
-    // 불투명한 평면 패치가 그대로 보인다.
-    final wellColor = s.surface;
-
-    // 960² 소스의 56~66%가 흰 여백이라 기존 정적 Mascot(48)보다 크게 잡아야
-    // 캐릭터가 히어로로 읽힌다. 폭·높이 양쪽 클램프 → 어떤 뷰포트에서도 안전.
-    final screen = MediaQuery.sizeOf(context);
-    final cardInner =
-        math.min(screen.width, SoriBreakpoints.content) -
-        (Spacing.lg * 2) - // _StageScroll 좌우
-        (Spacing.lg * 2) - // 카드 좌우
-        2; // hairline
-    final clipSize = math
-        .min(cardInner - (Spacing.sm * 2) - 2, screen.height * 0.26)
-        .clamp(132.0, 200.0);
 
     return SoriCard(
       variant: SoriCardVariant.base,
@@ -2313,49 +2235,13 @@ class _RollenspielDoneCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // ── 한지 창(well) — 캐릭터 뒤 **평면 substrate** 보장 전용 ──
-              // 2026-08-06: 테두리(Border.all) 제거. never-cage 규칙은
-              // "캐릭터 mp4는 ClipOval/박스/**프레임** 금지"라, clip 이 없어도
-              // 눈에 보이는 테두리 링은 액자다. 색 채움만 남기는 건 규칙이
-              // 허용하는 범위 — multiply 가 요구하는 평면 배경색을 주는 게
-              // 이 Container 의 유일한 목적이기 때문이다.
-              Container(
-                padding: const EdgeInsets.all(Spacing.sm),
-                decoration: BoxDecoration(
-                  color: wellColor,
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                ),
-                // ClipRRect 없음 — 영상 테두리 링이 100% 흰색이라 모서리가
-                // wellColor로 수렴한다.
-                child: kind == null
-                    ? Icon(
-                        key: const ValueKey('roleplay_done_none'),
-                        Icons.task_alt_rounded,
-                        size: clipSize * 0.68,
-                        color: SoriColors.success,
-                      )
-                    : clip == null
-                    ? Mascot(
-                        kind: kind!,
-                        emotion: MascotEmotion.celebrate,
-                        size: clipSize * 0.85,
-                        animate: true,
-                      )
-                    : CharacterClipPlayer(
-                        key: ValueKey('roleplay_done_${kind!.name}'),
-                        asset: clip!,
-                        size: clipSize,
-                        // ⚠️ loop 금지 — PageView가 "Weiter" 후에도 페이지를
-                        // 살려둬서 960² 디코더가 세션 내내 돌게 된다.
-                        loop: false,
-                        blendColor: wellColor,
-                        fallbackKind: kind!,
-                        fallbackEmotion: MascotEmotion.celebrate,
-                        // onCompleted 미전달 → Timer 자체가 생성되지 않는다.
-                        // "Weiter"는 이미 onDone()에서 열렸다.
-                      ),
+              const Icon(
+                key: ValueKey('roleplay_done_none'),
+                Icons.task_alt_rounded,
+                size: 56,
+                color: SoriColors.success,
               ),
-              const SizedBox(height: Spacing.lg),
+              const SizedBox(height: Spacing.md),
               Text(
                 t.scenarioRoleplayDoneTitle,
                 textAlign: TextAlign.center,

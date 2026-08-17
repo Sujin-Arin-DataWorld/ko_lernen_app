@@ -165,9 +165,9 @@ void main() {
     await tester.pump();
     await tester.tap(answerTile);
     await tester.pump();
-    await tester.ensureVisible(find.text('Überprüfen'));
+    await tester.ensureVisible(find.text('Antwort prüfen'));
     await tester.pump();
-    await tester.tap(find.text('Überprüfen'));
+    await tester.tap(find.text('Antwort prüfen'));
     await tester.pump(const Duration(milliseconds: 1201));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 301));

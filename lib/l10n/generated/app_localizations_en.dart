@@ -5044,7 +5044,16 @@ class AppL10nEn extends AppL10n {
   String get questSatzBauenInstruction => 'Tap the words in the correct order';
 
   @override
-  String get questCheckAnswer => 'Check';
+  String get questCheckAnswer => 'Check answer';
+
+  @override
+  String get questReplayAudio => 'Listen again';
+
+  @override
+  String get questBuildAnswerLabel => 'Build your answer';
+
+  @override
+  String get questEmptyAnswerSlot => 'Empty answer slot';
 
   @override
   String get diktatInstruction => 'Listen and type what you hear';

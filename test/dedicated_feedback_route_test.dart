@@ -159,7 +159,7 @@ void main() {
     expect(find.byType(ContentFeedbackCard), findsNothing);
     await _tapText(tester, 'Correct response');
     await tester.pump();
-    await _tapText(tester, 'Überprüfen');
+    await _tapText(tester, 'Antwort prüfen');
     await tester.pump();
     await _tapText(tester, 'Ergebnis ansehen');
     await tester.pump();
@@ -361,7 +361,7 @@ void main() {
     await tester.pump();
 
     // 전역 TtsSpeedControl 프리셋 (2026-08-13 — 화면 로컬 0.75x/1.0x/1.25x 대체).
-    const speedChoices = ['0.5×', '0.75×', '1×', '1.25×', '1.5×'];
+    const speedChoices = ['0.5×', '0.75×', '0.8×', '1×', '1.25×', '1.5×'];
     const subtitleChoices = ['Beides', 'Koreanisch', 'Übersetzung', 'Aus'];
     final controls = [
       ...speedChoices.map(_chip),
@@ -441,7 +441,14 @@ void main() {
     );
     await tester.pump();
     await tester.pump();
-    _expectSameRow(tester, ['0.75×', '1×', '1.25×']);
+    _expectSameRow(tester, [
+      '0.5×',
+      '0.75×',
+      '0.8×',
+      '1×',
+      '1.25×',
+      '1.5×',
+    ]);
     _expectSameRow(tester, ['Beides', 'Koreanisch']);
     _expectSameRow(tester, ['Übersetzung', 'Aus']);
     expect(

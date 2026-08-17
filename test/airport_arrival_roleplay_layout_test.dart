@@ -104,8 +104,14 @@ void main() {
       expect(find.byType(TtsSpeedControl), findsOneWidget);
       expect(find.byType(MascotPartner), findsNothing);
       expect(find.text('Weiter'), findsNothing);
-      expect(find.textContaining('저는 김은수라고 합니다.'), findsOneWidget);
+      expect(find.text('Deine Antwort bauen'), findsOneWidget);
+      expect(find.text('Rollenspiel'), findsOneWidget);
+      expect(
+        find.textContaining('Darf ich Ihnen meine Visitenkarte überreichen?'),
+        findsOneWidget,
+      );
       expect(find.text('Erneut anhören'), findsOneWidget);
+      expect(find.text('1 von 3'), findsOneWidget);
       expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
 
       final buttonRect = tester.getRect(

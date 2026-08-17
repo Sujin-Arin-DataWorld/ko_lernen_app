@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
-import '../../widgets/sori/mascot_pop.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
@@ -39,8 +37,8 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   int? _droppedIndex;
   int _tries = 0;
   bool _completed = false;
-  bool _celebrated = false;
   bool _wrongFlash = false;
+  int? _lastWrong;
   bool _showExplanation = false;
   bool _reported = false;
   bool _passed = false;
@@ -93,7 +91,10 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     if (_completed) return;
 
     HapticFeedback.selectionClick();
-    setState(() => _droppedIndex = idx);
+    setState(() {
+      _droppedIndex = idx;
+      _lastWrong = null;
+    });
   }
 
   void _report(bool passed) {
@@ -110,38 +111,46 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
     final isCorrect = idx == _correctIndex;
 
+    final instant = MediaQuery.disableAnimationsOf(context);
     if (isCorrect) {
       HapticFeedback.heavyImpact();
       setState(() {
         _droppedIndex = idx;
         _completed = true;
         _passed = true;
-        _celebrated = true;
+        _lastWrong = null;
       });
-      if (!MediaQuery.disableAnimationsOf(context)) {
+      if (!instant) {
         await _scaleCtrl.forward();
         await _scaleCtrl.reverse();
+        await Future<void>.delayed(const Duration(milliseconds: 200));
       }
-      await Future<void>.delayed(const Duration(milliseconds: 200));
       if (mounted) setState(() => _showExplanation = true);
       _report(true);
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _tries++;
-      // Roter Blitz
-      setState(() => _wrongFlash = true);
-      await Future<void>.delayed(const Duration(milliseconds: 200));
-      if (mounted) setState(() => _wrongFlash = false);
+      setState(() {
+        _lastWrong = idx;
+        _wrongFlash = !instant;
+      });
+      if (!instant) {
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (mounted) {
+          setState(() => _wrongFlash = false);
+        }
+      }
 
       if (_tries >= 2) {
-        // Richtige Antwort automatisch einfüllen
         setState(() {
           _droppedIndex = _correctIndex;
           _completed = true;
           _passed = false;
         });
-        await Future<void>.delayed(const Duration(milliseconds: 200));
+        if (!instant) {
+          await Future<void>.delayed(const Duration(milliseconds: 200));
+        }
         if (mounted) setState(() => _showExplanation = true);
         _report(false);
       } else if (mounted) {
@@ -159,6 +168,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       _passed = false;
       _showExplanation = true;
       _wrongFlash = false;
+      _lastWrong = null;
     });
     _report(false);
   }
@@ -182,7 +192,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       builder: (context, candidateData, rejectedData) {
         final isHovering = candidateData.isNotEmpty;
         return AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
+          duration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 200),
           width: 64,
           height: 40,
           decoration: BoxDecoration(
@@ -261,6 +273,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
   SoriAnswerState _answerState(int index) {
     if (_completed && index == _correctIndex) return SoriAnswerState.correct;
+    if (_lastWrong == index) return SoriAnswerState.wrong;
     if (_droppedIndex == index) return SoriAnswerState.selected;
     return SoriAnswerState.idle;
   }
@@ -283,68 +296,51 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
         pendingHint: _tries == 1 ? t.questTryAgainHint : null,
         onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
       ),
-      content: Stack(
-        clipBehavior: Clip.none,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Hinweis
-              Text(
-                t.particlePopHint,
-                style: TextStyle(color: s.textMuted, fontSize: 13),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-
-              // Satz mit Slot
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                decoration: BoxDecoration(
-                  color: s.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: s.surfaceAlt, width: 1.5),
-                ),
-                child: _buildSentenceRow(langCode, s),
-              ),
-              const SizedBox(height: 16),
-
-              // TTS-Button für vollständige Satz
-              Center(
-                child: OutlinedButton.icon(
-                  onPressed: () => TtsService.speak(_fullSentence),
-                  icon: const Icon(Icons.volume_up_rounded, size: 18),
-                  label: const Text('▶'),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // Partikel-Chips
-              for (final entry in _options.asMap().entries) ...[
-                SoriAnswerTile(
-                  key: ValueKey('answer-${entry.key}'),
-                  label: entry.value,
-                  index: entry.key,
-                  state: _answerState(entry.key),
-                  onTap: _completed ? null : () => _onAccept(entry.key),
-                  compact: true,
-                ),
-                const SizedBox(height: Spacing.sm),
-              ],
-            ],
+          // Hinweis
+          Text(
+            t.particlePopHint,
+            style: TextStyle(color: s.textMuted, fontSize: 13),
+            textAlign: TextAlign.center,
           ),
-          Positioned(
-            top: -12,
-            right: 12,
-            child: MascotPartner(
-              celebrating: _celebrated,
-              size: 56,
-              kind: MascotKind.magpie,
+          const SizedBox(height: 20),
+
+          // Satz mit Slot
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            decoration: BoxDecoration(
+              color: s.surface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: s.surfaceAlt, width: 1.5),
+            ),
+            child: _buildSentenceRow(langCode, s),
+          ),
+          const SizedBox(height: 16),
+
+          // TTS-Button für vollständige Satz
+          Center(
+            child: OutlinedButton.icon(
+              onPressed: () => TtsService.speak(_fullSentence),
+              icon: const Icon(Icons.volume_up_rounded, size: 18),
+              label: const Text('▶'),
             ),
           ),
+          const SizedBox(height: 24),
+
+          // Partikel-Chips
+          for (final entry in _options.asMap().entries) ...[
+            SoriAnswerTile(
+              key: ValueKey('answer-${entry.key}'),
+              label: entry.value,
+              index: entry.key,
+              state: _answerState(entry.key),
+              onTap: _completed ? null : () => _onAccept(entry.key),
+              compact: true,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
         ],
       ),
     );
