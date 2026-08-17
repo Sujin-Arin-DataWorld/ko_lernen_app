@@ -115,6 +115,33 @@ void main() {
     expect(words.every((word) => word.korean.isNotEmpty), isTrue);
   });
 
+  test('merge keeps the first Korean headword and stops at 8000', () {
+    final first = ExtractedWord.manual(
+      korean: '학교',
+      translationDe: 'Schule',
+    );
+    final duplicate = ExtractedWord.manual(
+      korean: '학교',
+      translationDe: 'school',
+    );
+    final extra = List<ExtractedWord>.generate(
+      maxCustomPackWords + 5,
+      (index) => ExtractedWord.manual(
+        korean: '단어$index',
+        translationDe: 'meaning$index',
+      ),
+    );
+
+    final merged = mergeUniqueCustomPackWords(
+      <ExtractedWord>[first],
+      <ExtractedWord>[duplicate, ...extra],
+    );
+
+    expect(merged.first.translationDe, 'Schule');
+    expect(merged.where((word) => word.korean == '학교'), hasLength(1));
+    expect(merged, hasLength(maxCustomPackWords));
+  });
+
   test('manual fields are capped at their storage boundaries', () {
     final word = ExtractedWord.manual(
       korean: List<String>.filled(100, '가').join(),

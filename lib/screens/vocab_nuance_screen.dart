@@ -74,6 +74,24 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     });
   }
 
+  String _optionLabel(
+    VocabNuanceQuestion question,
+    VocabNuanceOption option,
+    AppL10n t,
+  ) {
+    switch (question.kind) {
+      case VocabNuanceQuestionKind.sharedMeaning:
+        return option.hanja.isEmpty ? t.vocabNotebookNoHanja : option.hanja;
+      case VocabNuanceQuestionKind.hanjaRoot:
+        if (option.meaning.isEmpty) {
+          return option.korean;
+        }
+        return '${option.korean}  ${option.meaning}';
+      case VocabNuanceQuestionKind.register:
+        return option.korean;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -182,9 +200,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
                     child: QuizChoice(
-                      text: option.hanja.isEmpty
-                          ? option.korean
-                          : '${option.korean}  ${option.hanja}',
+                      text: _optionLabel(question, option, t),
                       isSelected: selected,
                       revealed: _picked != null,
                       isCorrect: correct,

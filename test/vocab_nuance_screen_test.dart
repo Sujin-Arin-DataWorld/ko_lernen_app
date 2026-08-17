@@ -44,7 +44,8 @@ void main() {
     await tester.pump();
 
     expect(find.text('Welches Wort ist förmlicher?'), findsOneWidget);
-    await tester.tap(find.widgetWithText(QuizChoice, '개시  開始'));
+    expect(find.widgetWithText(QuizChoice, '개시  開始'), findsNothing);
+    await tester.tap(find.widgetWithText(QuizChoice, '개시'));
     await tester.pump();
 
     expect(find.textContaining('開始'), findsWidgets);

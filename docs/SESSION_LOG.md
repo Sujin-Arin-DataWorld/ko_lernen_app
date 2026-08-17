@@ -9,9 +9,10 @@
 **무엇.** 먼저 `cursor/workflow-run-triage-c5be`로 계약을 맞춘 뒤, 나머지
 cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유 코드를 모두
 남겼다. Batch 07/08 초안은 partner-family와 4× 트랙을 별도 manifest로
-보존했고, partner-family만 live로 올렸다. 푸시 직후 다시 생긴
+보존했고, partner-family만 live로 올렸다. 푸시 뒤에 다시 생긴
 `cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
-`cursor/content-integrity-audit-2d55` 수량 커밋도 같은 방식으로 넣었다.
+`cursor/content-integrity-audit-2d55` C1/C2 존재 계약,
+`cursor/vocab-notebook-harden-3ab5`도 같은 방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 
@@ -29,6 +30,29 @@ scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk decision 321.
 TextStyle/w800·아이콘 버튼·없는 `tiger_idle.png` 참조를 공용 토큰과
 `empty/studyroom_waiting.png`로 고쳤다. 로컬 typography guard·asset integrity·
 word-web 테스트 통과.
+
+### 2026-08-17 (Cursor) — Vokabelheft 코드리뷰/디버그 후 실사용 파손 수정
+
+**무엇을.** 사진 단어장 경로를 다시 리뷰하고, 실제 공책 OCR에서 깨지던 짝짓기와
+저장/탐색 구멍을 고쳤다. 파서는 왼쪽 한국어·오른쪽 뜻 두 칸, 괄호 뜻,
+한자 잔여 `()`, 한 줄에 붙은 두 쌍, 제목 줄을 처리한다. 잘못된 OCR hint는
+적힌 뜻을 덮지 않는다. 추가 사진 전에 현재 쌍을 저장하고, 연습 화면은 복귀 후
+팩을 다시 읽으며, 교재 DeepL 할당량은 단어장 사진을 막지 않는다. 저장은
+한국어 기준 중복을 건너뛰고 8,000개에서 멈춘다. 한자 비교 문항은 선택지에
+답을 노출하지 않는다.
+
+**왜.** “이 부분 진짜 완벽하게 작동해야 된다”는 재검수 요청. 기존 구현은
+한 줄 쌍과 교차 줄만 처리해서, 흔한 두 칸 공책 사진은 단어를 잃거나 잘못
+짝지었다. 추가 사진 CTA는 저장 없이 떠나 첫 페이지를 버렸다.
+
+**검증.** `flutter gen-l10n`. `flutter analyze --no-pub --fatal-infos` on the
+changed Dart files: No issues found. Focused tests 39/39:
+`vocab_notebook_parser_test`, `vocab_notebook_result_screen_test`,
+`vocab_nuance_service_test`, `vocab_nuance_screen_test`,
+`custom_pack_import_language_test`, `book_preview_localization_test`,
+`hanja_lexicon_test`.
+
+**커밋해시.** `ccc1dc5`
 
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 

@@ -3273,5 +3273,7 @@
   "vocabNotebookNuanceCta": "Hanja, synonyms, nuance",
   "vocabNotebookNuanceTitle": "Close, but not the same",
   "vocabNotebookNuanceEmptyTitle": "No comparison yet",
-  "vocabNotebookNuanceEmptyBody": "Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level."
+  "vocabNotebookNuanceEmptyBody": "Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level.",
+  "vocabNotebookSaveFailed": "The words could not be saved. Try again.",
+  "vocabNotebookNoHanja": "no Hanja"
 }

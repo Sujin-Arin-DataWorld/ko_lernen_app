@@ -3376,5 +3376,7 @@
   "vocabNotebookNuanceCta": "Hanja, Synonyme, Nuancen",
   "vocabNotebookNuanceTitle": "Ähnlich, aber nicht gleich",
   "vocabNotebookNuanceEmptyTitle": "Noch kein Vergleich",
-  "vocabNotebookNuanceEmptyBody": "Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe."
+  "vocabNotebookNuanceEmptyBody": "Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.",
+  "vocabNotebookSaveFailed": "Die Wörter konnten nicht gespeichert werden. Versuch es noch einmal.",
+  "vocabNotebookNoHanja": "kein Hanja"
 }

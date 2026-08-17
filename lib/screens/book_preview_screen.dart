@@ -198,7 +198,9 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  t.bookPreviewHint(blockCount),
+                  _useNotebookPath
+                      ? t.vocabNotebookDesc
+                      : t.bookPreviewHint(blockCount),
                   style: TextStyle(fontSize: 13, color: s.textMuted),
                 ),
                 if (qualityWarnings.isNotEmpty) ...[

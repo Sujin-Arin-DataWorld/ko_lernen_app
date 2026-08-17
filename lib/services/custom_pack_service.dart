@@ -12,6 +12,7 @@ import 'account/media_cleanup_gate.dart';
 import 'analytics_service.dart';
 import 'auth_service.dart';
 import 'book_image_service.dart';
+import 'custom_pack_import_service.dart';
 import 'media_mutation_lock.dart';
 import 'storage_service.dart';
 
@@ -250,7 +251,7 @@ class CustomPackService {
     final pack = CustomPack.manual(
       id: generateId(),
       name: name,
-      words: words,
+      words: mergeUniqueCustomPackWords(const <ExtractedWord>[], words),
     );
     await save(pack);
     unawaited(Analytics.customPackCreated('notebook'));
@@ -318,7 +319,9 @@ class CustomPackService {
       if (pack == null) {
         return null;
       }
-      final updated = pack.copyWith(words: [...pack.words, ...words]);
+      final updated = pack.copyWith(
+        words: mergeUniqueCustomPackWords(pack.words, words),
+      );
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
       return updated;
