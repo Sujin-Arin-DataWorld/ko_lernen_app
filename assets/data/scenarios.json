@@ -595,8 +595,8 @@
           "korean": "만나서 반갑습니다",
           "note": {
             "ko": "",
-            "de": "Freut mich, Sie kennenzulernen. Formell.",
-            "en": "Pleased to meet you. Formal."
+            "de": "Freut mich. Formell.",
+            "en": "Nice to meet you. Formal."
           }
         },
         {
@@ -628,8 +628,8 @@
         {
           "speaker": "minsu",
           "ko": "안녕하세요. 처음 뵙겠습니다.",
-          "de": "Hallo. Freut mich, Sie kennenzulernen.",
-          "en": "Hello. Nice to meet you."
+          "de": "Hallo, freut mich.",
+          "en": "Hi, nice to meet you."
         },
         {
           "speaker": "user",
@@ -652,14 +652,14 @@
         {
           "speaker": "minsu",
           "ko": "만나서 반갑습니다. 잘 부탁드립니다.",
-          "de": "Freut mich. Auf gute Zusammenarbeit.",
-          "en": "Pleased to meet you. Looking forward to working together."
+          "de": "Freut mich.",
+          "en": "Nice to meet you."
         },
         {
           "speaker": "user",
           "ko": "저도요. 잘 부탁드립니다.",
-          "de": "Freut mich ebenfalls. Auf gute Zusammenarbeit.",
-          "en": "Likewise. I look forward to your guidance."
+          "de": "Gleichfalls.",
+          "en": "Same here."
         }
       ],
       "quests": [
@@ -715,8 +715,8 @@
             "audioKo": "잘 부탁드립니다.",
             "options": [
               {
-                "de": "Auf gute Zusammenarbeit / freue mich.",
-                "en": "Looking forward to working with you."
+                "de": "Ich freue mich auf die Zusammenarbeit.",
+                "en": "Looking forward to working together."
               },
               {
                 "de": "Vielen Dank für alles.",
@@ -1400,7 +1400,7 @@
         {
           "speaker": "minsu",
           "ko": "안녕하세요. 어디까지 가세요?",
-          "de": "Guten Tag. Wohin geht's?",
+          "de": "Hallo. Wohin geht's?",
           "en": "Hello. Where are you headed?"
         },
         {
@@ -3409,7 +3409,7 @@
           "note": {
             "ko": "",
             "de": "Abschlussformel bei Vorstellungen: sinngemäß 'Ich freue mich auf die Zusammenarbeit.' Nicht wörtlich übersetzbar. Als feste Formel einprägen.",
-            "en": "Standard closing phrase: 'I look forward to working with you.' Not literally translatable. Just memorize it as a set formula."
+            "en": "People often just say 'Nice to meet you' or 'Looking forward to it.' There is no exact English match. Treat it as a set phrase."
           }
         },
         {
@@ -3761,7 +3761,7 @@
         {
           "speaker": "user",
           "ko": "안녕하세요. 어제 주문한 물건이 왔는데, 제가 주문한 것과 달라서요.",
-          "de": "Guten Tag. Ich habe gestern meine Bestellung erhalten, aber das gelieferte Produkt stimmt nicht mit meiner Bestellung überein.",
+          "de": "Hallo. Ich habe gestern meine Bestellung erhalten, aber das gelieferte Produkt stimmt nicht mit meiner Bestellung überein.",
           "en": "Hello. I received my order yesterday, but the item I got doesn't match what I ordered."
         },
         {
@@ -4043,7 +4043,7 @@
         {
           "speaker": "subin",
           "ko": "안녕하세요. 어디가 불편하세요?",
-          "de": "Guten Tag. Was führt Sie zu mir?",
+          "de": "Hallo. Was führt Sie zu mir?",
           "en": "Hello. What brings you in today?"
         },
         {
@@ -8991,7 +8991,7 @@
           "speaker": "user",
           "ko": "네, 처음이에요. 저는 안나입니다.",
           "de": "Ja, mein erster. Ich bin Anna.",
-          "en": "Yes, it is my first time. I am Anna."
+          "en": "Yeah, first time. I'm Anna."
         },
         {
           "speaker": "jieun",
@@ -9270,19 +9270,19 @@
           "speaker": "minsu",
           "ko": "안녕하세요, 안나 씨. 저는 민수예요. 한국어 수업 같이 들어요.",
           "de": "Hallo, Anna. Ich bin Minsu. Wir sind zusammen im Koreanischkurs.",
-          "en": "Hello, Anna. I am Minsu. We are in the Korean class together."
+          "en": "Hi, Anna. I'm Minsu. We're in the same Korean class."
         },
         {
           "speaker": "user",
           "ko": "안녕하세요, 민수 씨. 반가워요. 제 전화번호는 010-1234-5678이에요.",
           "de": "Hallo, Minsu. Freut mich. Meine Telefonnummer ist 010-1234-5678.",
-          "en": "Hello, Minsu. Nice to meet you. My phone number is 010-1234-5678."
+          "en": "Hi, Minsu. Nice to meet you. My number is 010-1234-5678."
         },
         {
           "speaker": "minsu",
           "ko": "감사합니다. 카카오톡으로 수업 자료 보내 드릴게요.",
           "de": "Danke. Ich schicke dir die Kursunterlagen über KakaoTalk.",
-          "en": "Thanks. I will send you the class materials on KakaoTalk."
+          "en": "Thanks. I'll send you the class materials on KakaoTalk."
         },
         {
           "speaker": "user",
@@ -9315,7 +9315,7 @@
             "options": [
               {
                 "de": "Ich schicke dir die Kursunterlagen über KakaoTalk.",
-                "en": "I will send you the class materials on KakaoTalk."
+                "en": "I'll send you the class materials on KakaoTalk."
               },
               {
                 "de": "Wann beginnt der Unterricht?",
@@ -10100,7 +10100,7 @@
       "grammarBlock": {
         "title": {
           "ko": "민수 씨라고 불러도 될까요?",
-          "de": "Kann ich Sie Minsu-ssi nennen?",
+          "de": "Darf ich Sie Minsu-ssi nennen?",
           "en": "May I call you Minsu-ssi?"
         },
         "explanation": {
@@ -10120,19 +10120,19 @@
           "speaker": "minsu",
           "ko": "안녕하세요. 저는 민수예요.",
           "de": "Hallo. Ich bin Minsu.",
-          "en": "Hello. I am Minsu."
+          "en": "Hi. I'm Minsu."
         },
         {
           "speaker": "user",
           "ko": "처음 뵙겠습니다. 민수 씨라고 불러도 될까요?",
-          "de": "Schön, Sie kennenzulernen. Darf ich Sie Minsu-ssi nennen?",
+          "de": "Freut mich. Darf ich Sie Minsu-ssi nennen?",
           "en": "Nice to meet you. May I call you Minsu-ssi?"
         },
         {
           "speaker": "minsu",
           "ko": "네, 좋아요. 저는 안나 씨라고 부를게요.",
           "de": "Ja, gern. Ich nenne Sie Anna-ssi.",
-          "en": "Yes, that is fine. I will call you Anna-ssi."
+          "en": "Yeah, sure. I'll call you Anna-ssi."
         },
         {
           "speaker": "user",
@@ -10614,7 +10614,7 @@
         {
           "speaker": "user",
           "ko": "안녕하세요. 욕실 천장에서 누수가 생긴 것 같아요.",
-          "de": "Guten Tag. Es scheint, als gäbe es ein Wasserleck an der Badezimmerdecke.",
+          "de": "Hallo. Es scheint, als gäbe es ein Wasserleck an der Badezimmerdecke.",
           "en": "Hello. I think there is a water leak from the bathroom ceiling."
         },
         {
@@ -10926,7 +10926,7 @@
         {
           "speaker": "user",
           "ko": "안녕하세요. 오늘 계약 설명 약속이 오후 세 시 맞지요?",
-          "de": "Guten Tag. Unser Termin zur Vertragsbesprechung ist heute um drei Uhr, richtig?",
+          "de": "Hallo. Unser Termin zur Vertragsbesprechung ist heute um drei Uhr, richtig?",
           "en": "Hello. Our appointment to go over the contract is at three today, right?"
         },
         {

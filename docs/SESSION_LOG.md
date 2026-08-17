@@ -227,6 +227,91 @@ DeepL 연속 실패는 프로세스 내 서킷으로 잠시 건너뛴다. TTS와
 `cache/translations/digest` 3-segment 문서 경로를 거부해서, 레거시 캐시는
 `match /cache/{document=**}`로 막고 짝수 경로로 재검증한다.
 
+### 2026-08-17 (Cursor) — DE/EN humanizer 직역 재검토
+
+**왜.** 교과서 세트 문구를 뺀 뒤 `잘 부탁드려요`가 `Hope we work well
+together` / `Dann lassen Sie uns gut zusammenarbeiten`처럼 한국어를 단어별로
+옮긴 문장이 됐다. `될까요`도 `Kann ich`로 깔렸다.
+
+**무엇을.** 첫만남에서는 `Freut mich.` / `Nice to meet you.`만 두고, 단독
+`잘 부탁드려요`는 관용 대응 `Ich freue mich auf die Zusammenarbeit.` /
+`Looking forward to working together.`로 맞췄다. `별말씀을요`는 `Don't mention
+it.`, 작별은 `kommen Sie gut nach Hause`, 호칭 허락은 `Darf ich`로 되돌렸다.
+`satz_a1_0041` vocab 지문 1건을 갱신했다.
+
+**검증.** `canonical_course_segment_loader` · `can_do_segment_asset` ·
+`productive_catalog_contract` · `productive_mastery_service` ·
+`data_integrity` **29/29**. vocab 1188×15.
+
+**커밋.** `8409391` + 이 로그 커밋.
+
+### 2026-08-16 (Cursor) — 직장 안부 `lately` 잔여 문구 제거
+
+**왜.** `요즘 일은 어때요?` 보조 질문이 아직 `How is work going lately?`로
+남아 교과서 안부 패턴이 7곳과 폴백/생성기에 남아 있었다.
+
+**무엇을.** 학습자 영어만 `How's work been?`으로 맞추고, 해당 smalltalk
+phrase fingerprint 7건을 다시 고정했다. 독일어 `Wie läuft die Arbeit gerade?`는
+이미 구어라 그대로 두었다.
+
+**검증.** `canonical_course_segment_loader` · `can_do_segment_asset` ·
+`productive_mastery_service` · `productive_catalog_contract` **24/24**.
+
+**커밋.** `05b7f1b` + 이 로그 커밋.
+
+### 2026-08-16 (Cursor) — smalltalk phrase fingerprint 127건 재고정
+
+**왜.** 안부 DE/EN을 고친 `smalltalk.json` 253개 A1–B2 문구 중 127개의
+`phraseFingerprintSha256`이 `can_do_content_authorities.json`과 어긋나
+`can_do_segment_asset_test`가 실패했다. 라우팅·세그먼트 소유권은 그대로다.
+
+**무엇을.** 현재 phrase 객체 SHA-256만 맞춰 썼다. 의미 결정·reviewRevision은
+바꾸지 않았다.
+
+**검증.** `canonical_course_segment_loader` · `productive_catalog_contract` ·
+`can_do_segment_asset` · `productive_mastery_service` · `data_integrity` ·
+`smalltalk` **37/37**.
+
+**커밋.** `f2aa362` (지문) + 이 로그 커밋.
+
+### 2026-08-16 (Cursor) — humanizer 뒤 vocab fingerprint 4건 재고정
+
+**왜.** `korean_vocab.csv` DE/EN을 고친 뒤 `can_do_content_authorities.json`의
+상속 cloze/satz 4건이 옛 vocab SHA-256을 들고 있어 CI Test 17건이
+`source vocab fingerprint mismatch`로 실패했다.
+
+**무엇을.** 전체 segment 재생성 없이 해당 4지문만 현재 CSV 행과 맞춰 고쳤다.
+`cloze_a1_0005`←`vocab_a1_0013`, `cloze_a1_0075`/`satz_a1_0040`←`vocab_a1_0168`,
+`satz_a1_0041`←`vocab_a1_0171`. 한국어·ID·세그먼트 소유권은 그대로다.
+
+**검증.** Python SHA-256이 Dart `_jsonFingerprint` 계약과 동일하게 재계산됨.
+집중 Flutter 테스트는 이 커밋 직후 실행.
+
+**커밋.** 이 항목과 같은 커밋.
+
+### 2026-08-16 (Cursor) — DE/EN 교과서 관용구 humanizer 패스
+
+**왜.** Jin 요청: `오랜만이야`를 `long time no see` / `lange nicht gesehen`처럼
+교과서 세트 문구로 옮기지 말 것. 같은 종류의 인사·작별·안부·첫만남 관용구가
+학습자용 DE/EN에 남아 있었다.
+
+**무엇을.** `blader/humanizer` 기준으로 한국어 원문·ID·레벨은 그대로 두고,
+학습자가 보는 DE/EN만 고쳤다. 예: `Hey, it's been a while!` / `Hey, lange her!`,
+`How've you been?` / `Wie läuft's bei dir so?`, `Hope we work well together.` /
+`Freut mich auf die Zusammenarbeit.`, `Tschüss` 계열 작별. smalltalk 안부
+템플릿 200건 이상과 같은 문장을 쓰는 cloze·satz·시나리오 첫만남 대사를
+맞춰 두었고, `smalltalk.dart` 폴백과 `enrich_smalltalk_metadata.py`가 옛 문구를
+다시 넣지 않게 했다. `Darf ich`·서비스 영어·문법 설명처럼 실제로 쓰는 말은
+건드리지 않았다. `안녕히 가세요` 예문에 쉼표가 들어가 CSV 열이 깨지지 않게
+따옴표를 넣었다.
+
+**검증.** vocab 1188행 15열·grammar 176행 16열, 변경 JSON parse, 대상 교과서
+문구 0건. `flutter test` data_integrity·smalltalk·cloze·satz·content_audit·
+content_id **31/31**. `flutter analyze --fatal-infos lib/models/smalltalk.dart`
+No issues found.
+
+**커밋.** `3d66496` (`fix(l10n): drop textbook DE/EN set phrases`).
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

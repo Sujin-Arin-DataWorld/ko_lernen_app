@@ -126,8 +126,8 @@ class SmalltalkTurn {
 const _peerAlternative = SmalltalkTurn(
   turnKind: SmalltalkTurnKind.question,
   ko: '요즘 어떻게 지내세요?',
-  de: 'Wie geht es dir in letzter Zeit?',
-  en: 'How have you been lately?',
+  de: "Wie läuft's bei dir so?",
+  en: "How've you been?",
 );
 
 const _peerFollowUp = SmalltalkTurn(
@@ -299,21 +299,21 @@ SmalltalkTurn _defaultAlternative(
         turnKind: SmalltalkTurnKind.question,
         ko: '요즘 일은 어때요?',
         de: 'Wie läuft die Arbeit gerade?',
-        en: 'How is work going lately?',
+        en: "How's work been?",
       );
     case SmalltalkRelationshipContext.closeFriend:
       return const SmalltalkTurn(
         turnKind: SmalltalkTurnKind.question,
         ko: '요즘 어떻게 지내?',
-        de: "Wie geht's dir in letzter Zeit?",
-        en: 'How have you been lately?',
+        de: "Wie läuft's bei dir so?",
+        en: "How've you been?",
       );
     case SmalltalkRelationshipContext.family:
       return const SmalltalkTurn(
         turnKind: SmalltalkTurnKind.question,
         ko: '요즘 잘 지내?',
-        de: 'Geht es dir gut in letzter Zeit?',
-        en: 'Have you been doing well lately?',
+        de: "Läuft's bei dir?",
+        en: 'You doing alright?',
       );
     case SmalltalkRelationshipContext.service:
       return const SmalltalkTurn(
