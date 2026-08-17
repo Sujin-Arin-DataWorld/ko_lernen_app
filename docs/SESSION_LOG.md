@@ -40,7 +40,7 @@ Codex ledger 19건(13.5 credit)과 `a1TransparentPilot`/`a1ApprovedQaStates`는
 untracked `docs/HANOK_V1_HANDOFF_2026-08-17*.md`는 건드리지 않았다.
 
 **커밋해시.** 병합 `9958a458`·`80dcb48f`·`0d3d9725`·`20d6a191`·`47975311`, 문서
-커밋은 바로 다음 로그 커밋에 기록.
+`20c6ec88`, 이 해시 기록은 그 다음 커밋.
 
 ### 2026-08-17 (Cursor) — main 무손실 정리: 단어망 예문 em dash + 가드
 
