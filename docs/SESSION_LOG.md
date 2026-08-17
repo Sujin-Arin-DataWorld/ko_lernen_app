@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-16 (Cursor) — 첫 공항 5문항 `모르겠어요` DE/EN·무점수 재확인
+
+**무엇을.** 첫 설치 기본 장면 `airport_arrival` 5문항(듣기·빈칸·번역·문장조립·받아쓰기)에
+`Weiß ich noch nicht` / `I don’t know yet`가 모두 보이는지, 이 경로가 정답·XP·별·코스
+숙달 증거를 만들지 않는지 재확인했다. 동작은 이미 `onboardingFirstScene` +
+`courseContext == null`에서만 열리며, 각 엔진은 `QuestResult(passed:false)`를 한 번만
+낸다. 이번 세션은 영어만 보던 회귀를 DE 카피·실제 저장 경로까지 넓혔다.
+
+**검증.** `flutter test test/scenario_onboarding_completion_test.dart` **4/4**,
+`flutter test test/quest_explicit_flow_test.dart` **16/16**. 5문항 전부 DE/EN 도움
+버튼, 통과 0, 최초 성공 없음, XP 0, 별 없음, 코스 증거 0, 체크포인트 점수 0. 장면
+자체는 둘러보기 이력으로 `completedScenarios`에 남지만 코스 미션 해금에는 쓰이지 않는다.
+
+**커밋해시.** 이 기록과 같은 커밋.
+
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
 `Batch 06` 요청자 승인 상태를 토대로, `tools/content_factory/build_can_do_segments.py`의
