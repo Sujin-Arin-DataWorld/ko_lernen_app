@@ -57,10 +57,14 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(missing, [])
 
         # 듣기(Hören)=시나리오 대화: user=여성, NPC=남성 화자 매핑 표본 확인.
-        with open(
-            _os.path.join(root, "assets/data/scenarios.json"), encoding="utf-8"
-        ) as f:
-            scenarios = json.load(f).get("scenarios", [])
+        data_dir = _os.path.join(root, "assets", "data")
+        scenarios = []
+        for name in sorted(_os.listdir(data_dir)):
+            if not (name.startswith("scenarios_") and name.endswith(".json")):
+                continue
+            with open(_os.path.join(data_dir, name), encoding="utf-8") as f:
+                scenarios.extend(json.load(f).get("scenarios", []))
+        self.assertTrue(scenarios, "no scenario shards under assets/data/")
         sampled = False
         for sc in scenarios:
             for line in sc.get("dialog", []):
