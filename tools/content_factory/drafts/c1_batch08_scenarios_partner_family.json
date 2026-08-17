@@ -667,7 +667,7 @@
           ],
           "data": {
             "targetKo": "도와주셔서 감사합니다.",
-            "promptDe": "Danke fuer die Hilfe.",
+            "promptDe": "Danke für die Hilfe.",
             "promptEn": "Thank you for the help.",
             "distractors": [
               "그냥",
@@ -2979,7 +2979,7 @@
           ],
           "data": {
             "targetKo": "오늘 배려해 주셔서 감사합니다.",
-            "promptDe": "Danke fuer die Ruecksicht heute.",
+            "promptDe": "Danke für die Rücksicht heute.",
             "promptEn": "Thank you for the consideration today.",
             "distractors": [
               "그냥",
@@ -3461,12 +3461,12 @@
       "xpReward": 160,
       "title": {
         "ko": "아침 인사 큰 소리",
-        "de": "Der laute Morgengruss",
+        "de": "Der laute Morgengruß",
         "en": "The loud morning greeting"
       },
       "intro": {
         "ko": "하룻밤을 잔 뒤 아침 인사를 해야 합니다. 큰 소리로 먼저 말하세요.",
-        "de": "Nach der Nacht musst du den Morgengruss sagen. Sprich zuerst laut.",
+        "de": "Nach der Nacht musst du den Morgengruß sagen. Sprich zuerst laut.",
         "en": "After staying overnight you must give the morning greeting. Speak first and clearly."
       },
       "vocab": [

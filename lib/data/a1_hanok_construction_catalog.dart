@@ -123,11 +123,11 @@ const List<A1HanokConstructionState> kA1HanokConstructionStates = [
   ),
   A1HanokConstructionState(
     step: 11,
-    id: '11_choga_roof',
-    fileName: '11_choga_roof.webp',
-    assetPath: '${kA1HanokRuntimeStateRoot}11_choga_roof.webp',
-    grantId: 'hanok_a1_11_choga_roof',
-    revealAssetId: 'hanok_a1_state_11_choga_roof',
+    id: '11_giwa_roof',
+    fileName: '11_giwa_roof.webp',
+    assetPath: '${kA1HanokRuntimeStateRoot}11_giwa_roof.webp',
+    grantId: 'hanok_a1_11_giwa_roof',
+    revealAssetId: 'hanok_a1_state_11_giwa_roof',
   ),
   A1HanokConstructionState(
     step: 12,

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "stage": 3,
+  "id": "03_foundation_gidan",
+  "note": "Derived parts only (0 credit). Rear copies use the measured perspective vector; generated parts (07-10, 12-14, props) are added in PR4b-2.",
+  "layers": [
+    {
+      "part": "platform",
+      "z": 0
+    }
+  ]
+}

@@ -1422,6 +1422,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             if (v == null) return;
             final nav = Navigator.of(ctx);
             await Storage.setUserLevelCode(v.code);
+            // 라이브러리 필터도 같이 옮긴다. Cloze·문장 만들기·단어팩·학습 경로는
+            // `browseLevelCode ?? placementLevelCode` 를 읽으므로, 이 줄이 없으면
+            // 온보딩이 browse 를 한 번이라도 저장한 뒤에는 설정에서 레벨을 바꿔도
+            // 그 화면들이 옛 레벨에 묶인 채로 남는다.
+            // 순차 코스 배치(`kl_placement_level_v1`)는 CourseMastery 증거·클라우드
+            // 조정과 묶여 있어 여기서 덮어쓰지 않는다.
+            await Storage.setBrowseLevelCode(v.code);
             HapticFeedback.selectionClick();
             if (!mounted) return;
             nav.pop();

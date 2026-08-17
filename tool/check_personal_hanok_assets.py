@@ -236,7 +236,9 @@ def _check_a1_runtime_states(*, required: bool) -> list[str]:
         actual_sha = sha256_file(path)
         if actual_sha != digests[name]:
             errors.append("sha256 does not match the approved generationLedger output")
-        relative = path.relative_to(ROOT)
+        # The states root is patchable (tests point it at a temp dir), so a path
+        # outside the repo is legitimate here and must not crash a report line.
+        relative = path.relative_to(ROOT) if ROOT in path.parents else path
         if errors:
             lines.append(f"[fail] {relative}: {'; '.join(errors)}")
         else:

@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,8 @@ void main() {
     // full-screen coach consume their taps.
     await Storage.setTutSeen('grammar');
     await Storage.setTutSeen('smalltalk');
+    // 4방향 덱 코치도 억제한다 — 전체 화면 스포트라이트가 탭을 삼킨다.
+    await Storage.setTutSeen('soriDeck');
     DataLoader.reset();
     SmalltalkLoader.reset();
     CurriculumCatalog.reset();
@@ -156,15 +159,15 @@ void main() {
 
     expect(find.text('1 / 1'), findsOneWidget);
     // 판정은 한 장짜리 덱에서도 살아 있다 — 마지막 카드의 판정이 곧 세션
-    // 종료이므로 막다른 길이 생기지 않는다.
-    for (final key in const <Key>[
-      Key('grammar-judge-hard'),
-      Key('grammar-judge-easy'),
-    ]) {
-      final button = find.byKey(key);
-      expect(button, findsOneWidget, reason: '$key');
-      expect(tester.widget<SoriButton>(button).onTap, isNotNull, reason: '$key');
-    }
+    // 종료이므로 막다른 길이 생기지 않는다. 하단 CTA 는 없앴고 판정은
+    // 스와이프(와 Semantics 액션)로만 한다.
+    final deck = tester.widget<SoriSwipeCard>(find.byType(SoriSwipeCard));
+    expect(deck.onSwipeRight, isNotNull, reason: '오른쪽 = 이해함');
+    expect(deck.onSwipeLeft, isNotNull, reason: '왼쪽 = 어렵다');
+    expect(deck.onSwipeUp, isNotNull, reason: '위 = 단어장 저장');
+    expect(deck.onSwipeDown, isNull, reason: '한 장이라 넘길 카드가 없다');
+    expect(find.byKey(const Key('grammar-judge-easy')), findsNothing);
+    expect(find.byKey(const Key('grammar-judge-hard')), findsNothing);
     // 되돌릴 카드가 없으므로 실행취소는 꺼져 있어야 한다.
     expect(
       tester
@@ -208,15 +211,17 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('1 / 1'), findsOneWidget);
-    // 옛 Weiter/Zurück/Zufällig 는 사라졌고, 남은 컨트롤은 전부 실제로 동작한다.
+    // 옛 Weiter/Zurück/Zufällig 와 판정 CTA 는 전부 사라졌고, 판정은 스와이프가
+    // 맡는다. 남은 컨트롤은 실제로 동작하거나 정직하게 꺼져 있다.
     expect(find.widgetWithText(SoriButton, 'Next'), findsNothing);
     expect(find.widgetWithText(SoriButton, 'Random'), findsNothing);
-    expect(
-      tester
-          .widget<SoriButton>(find.byKey(const Key('grammar-judge-easy')))
-          .onTap,
-      isNotNull,
+    expect(find.byKey(const Key('grammar-judge-easy')), findsNothing);
+    final browseDeck = tester.widget<SoriSwipeCard>(
+      find.byType(SoriSwipeCard),
     );
+    expect(browseDeck.onSwipeRight, isNotNull);
+    expect(browseDeck.onSwipeLeft, isNotNull);
+    expect(browseDeck.onSwipeUp, isNotNull);
     expect(
       tester
           .widget<IconButton>(find.byKey(const Key('grammar-undo')))

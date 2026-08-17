@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
@@ -34,6 +35,9 @@ void main() {
       'kl_tut_kkeunmari': true,
       'kl_tut_grammar': true,
       'kl_tut_hangul': true,
+      // 4방향 덱 코치는 전체 화면 스포트라이트라 탭을 삼킨다. 이 파일은
+      // 피드백 수집 계약을 보는 곳이라 코치를 이미 본 사용자로 시작한다.
+      'kl_tut_soriDeck': true,
     });
     await Storage.init();
     DataLoader.reset();
@@ -275,13 +279,8 @@ void main() {
     expect(finish.onPressed, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
-    tester
-        .widget<SoriButton>(
-          find.byWidgetPredicate(
-            (widget) => widget is SoriButton && widget.label == 'Got it',
-          ),
-        )
-        .onTap!();
+    // 판정 CTA 는 없앴다 — "이 카드를 이해했다"는 이제 오른쪽 스와이프다.
+    tester.widget<SoriSwipeCard>(find.byType(SoriSwipeCard)).onSwipeRight!();
     await tester.pump();
     finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),

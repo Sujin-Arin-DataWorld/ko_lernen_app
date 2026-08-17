@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../motion/transitions.dart';
@@ -31,7 +32,9 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/swipe_card.dart';
+import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -291,6 +294,10 @@ class _GrammarScreenState extends State<GrammarScreen>
       await Storage.markGrammarEasy(g.pattern);
     } else {
       await Storage.markGrammarHard(g.pattern);
+      // 어렵다고 표시한 패턴은 자동으로 단어장에 넣는다(Jin 확정). 판정이
+      // 곧 "나중에 다시 볼 목록"이 되므로, 어렵다는 신호가 저장까지 가야
+      // 사용자가 한 번 더 손대지 않는다.
+      _saveCurrent();
     }
     if (!mounted) return;
     // 마지막 카드의 판정은 곧 세션 종료다 — Hören 이 마지막 스텝에서 완료로
@@ -307,6 +314,24 @@ class _GrammarScreenState extends State<GrammarScreen>
   void _skipCurrent() {
     if (!_canNavigateDeck) return;
     _next();
+  }
+
+  /// 내 단어장에 저장(↑). 문법 카드는 패턴이 표제어이고 뜻풀이가 번역,
+  /// 예문은 예문 슬롯으로 들어간다 — 단어 카드와 같은 저장 계약을 쓴다.
+  void _saveCurrent() {
+    final g = _current;
+    if (g == null) return;
+    // ignore: discarded_futures
+    addToWordbook(
+      context,
+      korean: g.pattern,
+      translationDe: g.explanationDe,
+      translationEn: g.explanationEn,
+      translationLanguage: Localizations.localeOf(context).languageCode,
+      posDe: g.typeDe,
+      exampleKorean: g.exampleKorean,
+      exampleDe: g.exampleGerman,
+    );
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar
@@ -569,9 +594,18 @@ class _GrammarScreenState extends State<GrammarScreen>
     // (못 본 패턴에 쉬움/어려움을 매기면 스케줄이 망가진다). 그 외에는 앞면이
     // 패턴을 그대로 보여주므로 일반 덱과 같은 판정 계약을 쓴다.
     final allowJudging = !canRecordCheckpoint;
-    // 마지막 카드의 판정은 곧 세션 종료다 — Hören 이 마지막 스텝에서 CTA 를
-    // 완료로 바꾸는 것과 같은 신호를 준다. 진행바는 이 시점에 이미 100% 다.
-    final isLastCard = _filtered.isNotEmpty && _idx >= _filtered.length - 1;
+    // 4방향 덱 코치 — 화면 코치('grammar')가 끝난 뒤에만 뜨고,
+    // `Storage.tutSeen('soriDeck')` 로 사용자당 1회다. 단어장·복습·커스텀팩이
+    // 쓰는 것과 같은 공용 헬퍼라 네 방향의 의미가 앱 전체에서 한 번만 학습된다.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeShowSoriDeckCoach(
+          context,
+          targetKey: _cardKey,
+          afterCoachIds: const ['grammar'],
+        );
+      }
+    });
     final s = SoriSurfaces.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -692,49 +726,92 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   // (안 그러면 못 본 패턴에 SRS 가 기록된다).
                                   // 코스 체크포인트 카드는 앞면이 패턴을
                                   // 가리므로 판정 자체를 막는다.
-                                  return SoriSwipeCard(
-                                    enabled: allowJudging && _flipped,
-                                    onSwipeRight: allowJudging
-                                        ? () => _judge(understood: true)
-                                        : null,
-                                    onSwipeLeft: allowJudging
-                                        ? () => _judge(understood: false)
-                                        : null,
-                                    onSwipeDown: _canNavigateDeck
-                                        ? _skipCurrent
-                                        : null,
-                                    rightBadge: SoriSwipeBadge(
-                                      label: t.grammarEasy,
-                                      icon: Icons.thumb_up_alt_outlined,
-                                      color: SoriColors.success,
-                                    ),
-                                    leftBadge: SoriSwipeBadge(
-                                      label: t.grammarHard,
-                                      icon: Icons.psychology_outlined,
-                                      color: SoriColors.danger,
-                                    ),
-                                    downBadge: SoriSwipeBadge(
-                                      label: t.btnSkip,
-                                      icon: Icons.arrow_downward_rounded,
-                                      color: SoriColors.info,
-                                    ),
-                                    child: SoriStudyScale(
-                                      child: FlipCard(
-                                        key: _cardKey,
-                                        flipped: _flipped,
-                                        onTap: canRecordCheckpoint
-                                            ? () => _showCheckpoint(
-                                                g,
-                                                assessmentLink!,
-                                              )
-                                            : _onFlip,
-                                        front: canRecordCheckpoint
-                                            ? _CourseCheckpointFront(
-                                                g: g,
-                                                cardHeight: cardH,
-                                              )
-                                            : _Front(g: g, cardHeight: cardH),
-                                        back: _Back(g: g, cardHeight: cardH),
+                                  // 제스처 대체 수단(WCAG 2.2 §2.5.1). 화면에는
+                                  // 아무것도 그리지 않지만 TalkBack/VoiceOver 에는
+                                  // 네 동작이 메뉴로 노출된다 — 스와이프를 쓸 수
+                                  // 없는 사용자가 하단 버튼 없이도 판정할 수 있다.
+                                  return Semantics(
+                                    container: true,
+                                    customSemanticsActions:
+                                        <CustomSemanticsAction, VoidCallback>{
+                                          if (allowJudging)
+                                            CustomSemanticsAction(
+                                              label: t.grammarEasy,
+                                            ): () =>
+                                                _judge(understood: true),
+                                          if (allowJudging)
+                                            CustomSemanticsAction(
+                                              label: t.grammarHard,
+                                            ): () =>
+                                                _judge(understood: false),
+                                          CustomSemanticsAction(
+                                            label: t.deckActionSave,
+                                          ): _saveCurrent,
+                                          if (_canNavigateDeck)
+                                            CustomSemanticsAction(
+                                              label: t.btnSkip,
+                                            ): _skipCurrent,
+                                        },
+                                    child: _SwipeNudge(
+                                      // 첫 사용자에게만, 코치와 같은 게이트.
+                                      enabled: !Storage.tutSeen('soriDeck'),
+                                      child: SoriSwipeCard(
+                                        enabled: allowJudging && _flipped,
+                                        onSwipeRight: allowJudging
+                                            ? () => _judge(understood: true)
+                                            : null,
+                                        onSwipeLeft: allowJudging
+                                            ? () => _judge(understood: false)
+                                            : null,
+                                        onSwipeUp: _saveCurrent,
+                                        onSwipeDown: _canNavigateDeck
+                                            ? _skipCurrent
+                                            : null,
+                                        upBadge: SoriSwipeBadge(
+                                          label: t.deckActionSave,
+                                          icon: Icons.redeem_rounded,
+                                          color: SoriColors.goldOnLight,
+                                        ),
+                                        rightBadge: SoriSwipeBadge(
+                                          label: t.grammarEasy,
+                                          icon: Icons.thumb_up_alt_outlined,
+                                          color: SoriColors.success,
+                                        ),
+                                        leftBadge: SoriSwipeBadge(
+                                          label: t.grammarHard,
+                                          icon: Icons.psychology_outlined,
+                                          color: SoriColors.danger,
+                                        ),
+                                        downBadge: SoriSwipeBadge(
+                                          label: t.btnSkip,
+                                          icon: Icons.arrow_downward_rounded,
+                                          color: SoriColors.info,
+                                        ),
+                                        child: SoriStudyScale(
+                                          child: FlipCard(
+                                            key: _cardKey,
+                                            flipped: _flipped,
+                                            onTap: canRecordCheckpoint
+                                                ? () => _showCheckpoint(
+                                                    g,
+                                                    assessmentLink!,
+                                                  )
+                                                : _onFlip,
+                                            front: canRecordCheckpoint
+                                                ? _CourseCheckpointFront(
+                                                    g: g,
+                                                    cardHeight: cardH,
+                                                  )
+                                                : _Front(
+                                                    g: g,
+                                                    cardHeight: cardH,
+                                                  ),
+                                            back: _Back(
+                                              g: g,
+                                              cardHeight: cardH,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -798,54 +875,26 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                     const SizedBox(height: Spacing.sm),
 
-                    // 하단 = 판정 2버튼. 스와이프를 모르거나 정밀 터치가 필요한
-                    // 사용자를 위한 **완전한 대체 수단**이라 스와이프와 같은
-                    // `_judge` 를 부른다. 마지막 카드의 판정이 곧 세션 종료라
-                    // 별도 "abschließen" 버튼은 없앴다. 체크포인트 카드만 채점
-                    // CTA 를 쓴다.
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 80),
-                      child: canRecordCheckpoint
-                          ? SoriButton.filled(
-                              // 장식 아이콘 없이 라벨만 — 타이포 래칫의
-                              // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
-                              label: t.courseCheckpointCheck,
-                              accent: SoriColors.warning,
-                              fullWidth: true,
-                              onTap: () => _showCheckpoint(g, assessmentLink!),
-                            )
-                          : Row(
-                              children: [
-                                Expanded(
-                                  flex: 2,
-                                  child: SoriButton.outlined(
-                                    key: const Key('grammar-judge-hard'),
-                                    label: t.grammarHard,
-                                    icon: Icons.psychology_outlined,
-                                    destructive: true,
-                                    fullWidth: true,
-                                    onTap: () => _judge(understood: false),
-                                  ),
-                                ),
-                                const SizedBox(width: Spacing.sm),
-                                Expanded(
-                                  flex: 3,
-                                  child: SoriButton.filled(
-                                    key: const Key('grammar-judge-easy'),
-                                    label: isLastCard
-                                        ? t.scenarioCompleteBtn
-                                        : t.grammarEasy,
-                                    icon: isLastCard
-                                        ? Icons.check_rounded
-                                        : Icons.thumb_up_alt_outlined,
-                                    accent: SoriColors.primary,
-                                    fullWidth: true,
-                                    onTap: () => _judge(understood: true),
-                                  ),
-                                ),
-                              ],
-                            ),
-                    ),
+                    // 판정은 **스와이프 전용**이다(Jin 확정) — 하단 CTA 를 없애
+                    // 카드가 세로를 더 갖는다. 제스처를 못 쓰는 사용자를 위한
+                    // 대체 수단은 시각적 버튼이 아니라 카드의 Semantics 액션이
+                    // 맡는다(WCAG 2.2 §2.5.1 — 대체 수단은 필요하지만 그게
+                    // 화면을 차지하는 버튼이어야 할 필요는 없다).
+                    //
+                    // 코스 체크포인트만 CTA 를 유지한다 — "카드 전체 탭과 하단
+                    // CTA 가 같은 채점 시트를 연다" 는 기존 계약이 있다.
+                    if (canRecordCheckpoint)
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 80),
+                        child: SoriButton.filled(
+                          // 장식 아이콘 없이 라벨만 — 타이포 래칫의
+                          // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
+                          label: t.courseCheckpointCheck,
+                          accent: SoriColors.warning,
+                          fullWidth: true,
+                          onTap: () => _showCheckpoint(g, assessmentLink!),
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -1218,6 +1267,76 @@ class _ListenButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// 첫 진입 1회, 카드를 아주 살짝 좌우로 흔들어 "끌 수 있는 카드"임을 알린다.
+///
+/// 코치마크가 네 방향의 **의미**를 문자로 가르친다면 이 흔들림은 손이 먼저
+/// 알아채는 신호다 — 하단 CTA 를 없앤 대신 발견성을 여기서 되찾는다.
+/// reduce-motion 에서는 흔들지 않는다(전정기관 자극 회피).
+class _SwipeNudge extends StatefulWidget {
+  const _SwipeNudge({required this.enabled, required this.child});
+
+  final bool enabled;
+  final Widget child;
+
+  @override
+  State<_SwipeNudge> createState() => _SwipeNudgeState();
+}
+
+class _SwipeNudgeState extends State<_SwipeNudge>
+    with SingleTickerProviderStateMixin {
+  // ⚠️ `late final _controller = AnimationController(...)` 로 두면 안 된다.
+  // 흔들림이 꺼진 경우(enabled=false) build 가 컨트롤러를 한 번도 읽지 않아
+  // 초기화가 미뤄지고, dispose() 의 `_controller.dispose()` 가 그제서야
+  // 생성자를 돌려 **이미 비활성화된 element** 에서 `createTicker` →
+  // 조상 조회로 터진다. initState 에서 즉시 만든다.
+  late final AnimationController _controller;
+  late final Animation<double> _dx;
+
+  bool _played = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1100),
+    );
+    // 진폭을 10dp 로 묶었다. 커밋 임계(카드 폭의 35%)보다 한참 작아 판정이
+    // 실수로 일어나지 않으면서, 카드가 고정돼 있지 않다는 건 충분히 보인다.
+    _dx = TweenSequence<double>(<TweenSequenceItem<double>>[
+      TweenSequenceItem(tween: Tween<double>(begin: 0, end: -10), weight: 1),
+      TweenSequenceItem(tween: Tween<double>(begin: -10, end: 10), weight: 2),
+      TweenSequenceItem(tween: Tween<double>(begin: 10, end: -6), weight: 1.5),
+      TweenSequenceItem(tween: Tween<double>(begin: -6, end: 0), weight: 1),
+    ]).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybePlay());
+  }
+
+  void _maybePlay() {
+    if (!mounted || _played || !widget.enabled) return;
+    if (SoriMotion.reduceMotion(context)) return;
+    _played = true;
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!widget.enabled) return widget.child;
+    return AnimatedBuilder(
+      animation: _dx,
+      builder: (context, child) =>
+          Transform.translate(offset: Offset(_dx.value, 0), child: child),
+      child: widget.child,
     );
   }
 }

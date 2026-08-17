@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "stage": 5,
+  "id": "05_timber_preparation",
+  "note": "Props cut from the one generated sheet (BBANANA 5baedfcabb9a487981741880369c800e): squared beams, round logs and a sawhorse on the finished platform. Transient \u2014 the timber goes into the frame from 06 on.",
+  "layers": [
+    {
+      "part": "platform",
+      "z": 0
+    },
+    {
+      "part": "choseok_1",
+      "z": 100,
+      "rear": true
+    },
+    {
+      "part": "choseok_2",
+      "z": 101,
+      "rear": true
+    },
+    {
+      "part": "choseok_3",
+      "z": 102,
+      "rear": true
+    },
+    {
+      "part": "choseok_4",
+      "z": 103,
+      "rear": true
+    },
+    {
+      "part": "choseok_5",
+      "z": 104,
+      "rear": true
+    },
+    {
+      "part": "choseok_6",
+      "z": 105,
+      "rear": true
+    },
+    {
+      "part": "choseok_7",
+      "z": 106,
+      "rear": true
+    },
+    {
+      "part": "choseok_8",
+      "z": 107,
+      "rear": true
+    },
+    {
+      "part": "choseok_1",
+      "z": 200
+    },
+    {
+      "part": "choseok_2",
+      "z": 201
+    },
+    {
+      "part": "choseok_3",
+      "z": 202
+    },
+    {
+      "part": "choseok_4",
+      "z": 203
+    },
+    {
+      "part": "choseok_5",
+      "z": 204
+    },
+    {
+      "part": "choseok_6",
+      "z": 205
+    },
+    {
+      "part": "choseok_7",
+      "z": 206
+    },
+    {
+      "part": "choseok_8",
+      "z": 207
+    },
+    {
+      "part": "generated:props_05_timber",
+      "z": 900,
+      "at": [
+        0,
+        0
+      ],
+      "transient": true
+    }
+  ]
+}

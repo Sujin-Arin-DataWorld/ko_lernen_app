@@ -71,7 +71,7 @@ ADVANCED_PACKS = [
         ("물로 받다", "mit Wasser annehmen", "to accept with water", "Ausdruck", "독한 술은 물로 받아도 되냐고 물었어요.", "Ich fragte, ob ich den starken Schnaps mit Wasser annehmen darf.", "I asked whether I could accept the strong drink with water."),
         ("자리 피하다", "den Platz meiden", "to step away from the table", "Ausdruck", "취하신 분 옆은 자리 피하는 게 안전했어요.", "Neben einer betrunkenen Person den Platz zu meiden war sicherer.", "Stepping away from a drunk relative's seat was safer."),
     ]),
-    _pack("partner_sleep_room", "B1", B1_UNIT, B1_CON, "gwigap", "잠자리와 방 경계", "Schlafplatz und Zimmgrenze", "Sleeping place and room boundaries", [
+    _pack("partner_sleep_room", "B1", B1_UNIT, B1_CON, "gwigap", "잠자리와 방 경계", "Schlafplatz und Zimmergrenze", "Sleeping place and room boundaries", [
         ("방 배정", "Zimmerzuteilung", "room assignment", "Nomen", "방 배정이 따로라서 안도하면서도 서운했어요.", "Getrennte Zimmerzuteilung erleichterte und enttäuschte zugleich.", "Separate room assignment brought relief and a little disappointment."),
         ("이성 친구", "Freund des anderen Geschlechts", "friend of the opposite sex", "Nomen", "이성 친구와 한 방은 아직 이르다고 하셨어요.", "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu früh, hieß es.", "They said sharing a room with a partner of the other sex is still too early."),
         ("문 열어 두다", "die Tür offen lassen", "to leave the door open", "Ausdruck", "문 열어 두라는 말을 듣고 현우가 한숨을 쉬었어요.", "Die Tür offen zu lassen ließ Hyunwoo seufzen.", "Hearing leave the door open made Hyunwoo sigh."),
@@ -162,7 +162,7 @@ ADVANCED_PACKS = [
         ("높여 부르다", "zu höflich anreden", "to address too highly", "Ausdruck", "같은 나이인데 높여 부르니 오히려 거리가 생겼어요.", "Gleichaltrig zu höflich anreden schuf Distanz.", "Addressing a same-age sibling too highly created distance."),
         ("호칭 정정", "Anredekorektur", "correcting an address term", "Nomen", "호칭 정정은 작게, 그리고 바로 했어요.", "Die Anredekorektur machte ich leise und sofort.", "I made the address-term correction quietly and at once."),
         ("관계 말", "Beziehungswort", "relationship word", "Nomen", "관계 말을 빼면 문장이 갑자기 차갑게 들렸어요.", "Ohne Beziehungswort klang der Satz plötzlich kalt.", "Without the relationship word the sentence suddenly sounded cold."),
-        ("사적 호칭", "private Anrede", "private nickname", "Nomen", "사적 호칭은 집 밖에서만 쓰기로 했어요.", "Die private Anrede behielten wir für draussen.", "We kept the private nickname for outside the house."),
+        ("사적 호칭", "private Anrede", "private nickname", "Nomen", "사적 호칭은 집 밖에서만 쓰기로 했어요.", "Die private Anrede behielten wir für draußen.", "We kept the private nickname for outside the house."),
         ("호칭 질문", "Anredefrage", "question about what to call someone", "Nomen", "호칭 질문을 먼저 하니 긴장이 풀렸어요.", "Die Anredefrage zuerst zu stellen löste die Anspannung.", "Asking the address-term question first eased the tension."),
         ("잘못된 형", "falsches hyeong", "the wrong hyeong", "Nomen", "잘못된 형이라고 부르는 순간 현우 얼굴이 멈췄어요.", "Im Moment des falschen hyeong blieb Hyunwoos Gesicht stehen.", "The moment I used the wrong hyeong, Hyunwoo's face froze."),
         ("호칭 메모", "Anredenotiz", "address-term note", "Nomen", "호칭 메모를 주머니에 넣고 화장실에서 봤어요.", "Die Anredenotiz lag in der Tasche, ich las sie auf der Toilette.", "I kept an address-term note in my pocket and checked it in the bathroom."),
