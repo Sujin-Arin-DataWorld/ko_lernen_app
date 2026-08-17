@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
+
+**무엇.** `cursor/tts-wait-quota-kurs-e988`을 `18428284` 위로 리베이스했다.
+`docs/SESSION_LOG.md`만 충돌했고 Windows 한옥 항목은 유지했다. Jin 요청으로
+PR #59(클라 + `functions/tts` 소스)만 `main`에 머지한다. `firebase deploy`는
+하지 않는다. `#58`은 그대로 머지하지 않는다.
+
+**왜.** 라이브 CF를 지금 올리면 스토어 앱이 새 클라 분류 없이 돌아간다.
+completed-miss는 옛 클라에서 OS TTS로 떨어지며 앱이 깨지지는 않지만,
+배포는 다음 내부 빌드와 같이 하는 편이 맞다. 소스는 main에 두고 함수는
+나중에 올린다.
+
+**검증.** Node `functions/tts/tts_request_guard.test.js`, Flutter
+`tts_cache_key_test`·`tts_request_rate_test`·`word_relation_service_test`·
+`word_web_screen_test`. 원격 CI는 billing 차단이라 돌리지 않음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — TTS/Kurs 리뷰 4건 닫음
 
 **무엇.** (1) pending wait와 completed-miss 메시지를 분리하고 클라는 inflight만
