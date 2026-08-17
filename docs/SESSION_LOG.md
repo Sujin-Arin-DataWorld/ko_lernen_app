@@ -12,8 +12,9 @@
 맞아도 문장 자체가 틀렸다고 보고, Batch 10부터 고치라고 했다.
 
 **검증.** 시드 174=카탈로그 174, KO Latin/`해결해야`/받침+`를` 0건.
-rewrite 후 draft==live. 이어서 promoted-batch·A1 래칫·카탈로그 카운트
-테스트를 돌린다.
+`test_level_content_4x` 10/10, promoted-batch 10 = 814 records, ContentValidator
+0 issues, Flutter `a1_real_life_scenarios_test`·`scenario_quest_catalog_integrity_test`
+·`content_id_contract_test` 통과. 원격 CI 체크는 이 head에 아직 없다.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
