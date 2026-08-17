@@ -30,6 +30,11 @@ so its two derivatives have the Hanji backdrop baked into every frame.
       -bsf:v h264_metadata=colour_primaries=1:transfer_characteristics=1:\
 matrix_coefficients=1:video_full_range_flag=0 out.mp4
 
+Joy (`magpie_walking_front_hanji.mp4`) is regenerated with
+`python tool/compose_home_hero_hanji.py`, which wipes the cool ground
+shadow before the Hanji multiply so the home hero does not show a cyan
+stain. Do not re-bake that clip with a plain RGB×#FAF5EA multiply.
+
 Usage:
     python tool/check_home_hero_matte.py
     python tool/check_home_hero_matte.py --check

@@ -1,12 +1,13 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-17 (Cursor) — 열린 PR 50·52·53·54를 main에 무손실 병합
+### 2026-08-17 (Cursor) — 열린 PR 50·52·53·54·55를 main에 무손실 병합
 
 **왜.** Jin이 열린 리퀘스트를 코드 손실 없이 main에 넣으라고 했다.
 로컬 `main`은 `a78bdadb`(#51 스튜디오)까지 맞춘 뒤 병합했다.
 
 **무엇.** `--no-ff`로 PR #50 TTS fail-closed, #52 한옥 PR4 구멍,
-#53 민수/안나 재생성 차단, #54 단어망 검수 후속과 em-dash 수정을 넣었다.
+#53 민수/안나 재생성 차단, #54 단어망 검수 후속과 em-dash 수정,
+#55 조이 홈 한지 매트를 넣었다.
 스튜디오 힌트(대화·단어망)는 유지했다. live 카탈로그 수량은 vocab 1620 ·
 cloze 962 · satz 875 · smalltalk 365 · scenario 90을 유지했다.
 
@@ -116,6 +117,24 @@ test/word_web_screen_test.dart test/l10n_parity_test.dart
 test/sori_activity_catalog_test.dart` 통과.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Cursor) — 조이 홈 영상 푸른 그림자 한지 매트 재처리
+
+**무엇을.** 조이(까치) 홈 히어로 `magpie_walking_front_hanji.mp4`를 다시 구웠다.
+원본 흰 매트 클립의 바닥 그림자와 깃털 가장자리 쿨 프린지가 순백이 아니라서,
+한지 multiply만 하면 크림 배경 위에서 청록 얼룩으로 남았다. 테두리 flood-fill이
+배경·살짝 채도 있는 그림자·쿨 프린지까지 잡고, 그 픽셀을 인코드 틴트로 지운 뒤
+BT.709/tv로 재인코딩한다. 흰 가슴처럼 검은 깃에 둘러싸인 밝은 면은 그대로 둔다.
+재생성 도구는 `tool/compose_home_hero_hanji.py`다. 태고 홈 클립은 손대지 않았다.
+
+**왜.** 조이를 고르면 Today/홈 영상에 푸른 그림자가 보인다는 보고. 호랑이 히어로는
+바닥 그림자가 없고, 회색-on-크림 그림자는 한지 위에서 더 차갑게 읽힌다.
+
+**검증.** 합성 프레임 유닛 테스트 **3/3**, `check_home_hero_matte.py` 조이·태고
+둘 다 `#FBF5EB` 100% / 113·240프레임 / BT.709 tv, cool-floor max **0.000**.
+Flutter `home_hero_matte_test` + `sori_stage_today_matte_test` **14/14**.
+중간 프레임 하단 leftover는 6.84% → 2.26%(남은 건 배 깃 음영), B−R은 −16.8 →
+−24.6으로 더 따뜻해졌다. 실기기 홈 재생은 Jin 게이트. 구현 커밋 `9e50d2e9`.
 
 ### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
 
