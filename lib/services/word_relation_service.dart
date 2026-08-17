@@ -1,10 +1,16 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../models/course_mastery.dart';
+import '../models/curriculum.dart';
 import '../models/learner_level.dart';
+import '../models/vocab.dart';
 import '../models/word_relation.dart';
+import 'curriculum_catalog.dart';
+import 'data_loader.dart';
 import 'storage_service.dart';
 
 /// Loads the word-web seed and builds learner-scoped study / quiz decks.
@@ -17,6 +23,12 @@ class WordRelationService {
   static const int quizCap = 10;
 
   static List<WordRelationCluster>? _clusters;
+
+  @visibleForTesting
+  static Future<CurriculumCatalog> Function()? catalogLoaderForTesting;
+
+  @visibleForTesting
+  static Future<List<Vocab>> Function()? vocabLoaderForTesting;
 
   static Future<List<WordRelationCluster>> load({
     Future<String> Function(String path)? assetLoader,
@@ -254,7 +266,145 @@ class WordRelationService {
     };
   }
 
-  static void resetForTesting() => _clusters = null;
+  /// Pack/SRS Korean plus course vocab the learner already answered or finished.
+  ///
+  /// Snapshot or catalog failures keep the sync [learnedKorean] set. This
+  /// method never writes course evidence or Hanok grants.
+  static Future<Set<String>> learnedKoreanWithCourse({
+    CourseMasterySnapshot? snapshot,
+    Future<CurriculumCatalog> Function()? catalogLoader,
+    Future<List<Vocab>> Function()? vocabLoader,
+  }) async {
+    final learned = learnedKorean();
+    try {
+      final mastery = snapshot ?? _snapshotFromStorage();
+      CurriculumCatalog? catalog;
+      try {
+        catalog = await (catalogLoader ??
+            catalogLoaderForTesting ??
+            CurriculumCatalog.load)();
+      } catch (_) {
+        catalog = null;
+      }
+      final loadedCatalog = catalog;
+      final ids = courseVocabContentIds(
+        snapshot: mastery,
+        linksForCompletedUnit: loadedCatalog == null
+            ? null
+            : loadedCatalog.linksForCourseUnit,
+        passThresholdForUnit: loadedCatalog == null
+            ? null
+            : (unitId) {
+                if (unitId == null || unitId.isEmpty) {
+                  return null;
+                }
+                return loadedCatalog.courseUnitFor(unitId)?.passThreshold;
+              },
+      );
+      if (ids.isEmpty) {
+        return learned;
+      }
+      final rows = await (vocabLoader ??
+          vocabLoaderForTesting ??
+          DataLoader.loadVocab)();
+      final byId = {for (final item in rows) item.id: item};
+      return {
+        ...learned,
+        for (final id in ids)
+          if (byId[id] != null && byId[id]!.korean.trim().isNotEmpty)
+            byId[id]!.korean.trim(),
+      };
+    } catch (_) {
+      return learned;
+    }
+  }
+
+  @visibleForTesting
+  static Set<String> courseVocabContentIds({
+    required CourseMasterySnapshot snapshot,
+    Iterable<ContentLink> Function(String unitId)? linksForCompletedUnit,
+    double? Function(String? courseUnitId)? passThresholdForUnit,
+  }) {
+    final ids = <String>{};
+    final latestById = <String, MasteryEvidence>{};
+    for (final item in snapshot.evidence) {
+      if (item.contentKind != CurriculumContentKind.vocab) {
+        continue;
+      }
+      final id = item.contentId.trim();
+      if (id.isEmpty) {
+        continue;
+      }
+      final existing = latestById[id];
+      if (existing == null || item.occurredAt.isAfter(existing.occurredAt)) {
+        latestById[id] = item;
+      }
+    }
+    for (final item in latestById.values) {
+      if (_latestVocabEvidenceCounts(item, passThresholdForUnit)) {
+        ids.add(item.contentId.trim());
+      }
+    }
+    final lookup = linksForCompletedUnit;
+    if (lookup != null) {
+      for (final unitId in snapshot.completedUnitIds) {
+        for (final link in lookup(unitId)) {
+          if (link.contentKind == CurriculumContentKind.vocab) {
+            final id = link.contentId.trim();
+            if (id.isNotEmpty) {
+              ids.add(id);
+            }
+          }
+        }
+      }
+    }
+    return ids;
+  }
+
+  static bool _latestVocabEvidenceCounts(
+    MasteryEvidence item,
+    double? Function(String? courseUnitId)? passThresholdForUnit,
+  ) {
+    if (!item.isCorrect) {
+      return false;
+    }
+    if (passThresholdForUnit == null) {
+      return true;
+    }
+    final unitId = item.courseUnitId?.trim();
+    if (unitId == null || unitId.isEmpty) {
+      return true;
+    }
+    final threshold = passThresholdForUnit(unitId);
+    if (threshold == null) {
+      return true;
+    }
+    final score = item.score;
+    if (score == null) {
+      return false;
+    }
+    return score >= threshold;
+  }
+
+  static CourseMasterySnapshot _snapshotFromStorage() {
+    final raw = Storage.courseMasterySnapshotRawJson.trim();
+    if (raw.isEmpty) {
+      return const CourseMasterySnapshot.empty();
+    }
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map) {
+      throw const FormatException('course mastery snapshot must be an object');
+    }
+    return CourseMasterySnapshot.decodeAndMigrate(
+      Map<String, dynamic>.from(decoded),
+    );
+  }
+
+  static void resetForTesting() {
+    _clusters = null;
+    catalogLoaderForTesting = null;
+    vocabLoaderForTesting = null;
+  }
 }
 
 class _QuizSeed {

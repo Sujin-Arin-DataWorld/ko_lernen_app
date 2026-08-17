@@ -56,8 +56,8 @@ const VOICES = {
   male: "ko-KR-Chirp3-HD-Enceladus",
 };
 const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
-const INFLIGHT_POLL_ATTEMPTS = 4;
-const INFLIGHT_POLL_MS = 250;
+const INFLIGHT_POLL_ATTEMPTS = 14;
+const INFLIGHT_POLL_MS = 500;
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -179,9 +179,15 @@ async function synthesizeTts(request) {
         plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       }
       if (plan.action === "wait") {
+        if (plan.reason === "pending") {
+          throw new HttpsError(
+            "unavailable",
+            "TTS synthesis is already in progress.",
+          );
+        }
         throw new HttpsError(
           "unavailable",
-          "TTS synthesis is already in progress.",
+          "TTS audio is not available.",
         );
       }
 
