@@ -48,6 +48,11 @@ void main() {
     expect(source, contains('FirebaseFunctions.instanceFor'));
     expect(source, contains('limitedUseAppCheckToken: true'));
     expect(source, contains('installationId: installationId'));
+    expect(
+      source,
+      contains('static const Duration _netTimeout = Duration(seconds: 12)'),
+    );
+    expect(source, contains('TtsCacheKey.isUsableAudio(localBytes)'));
     expect(source, isNot(contains('http.post(')));
   });
 }

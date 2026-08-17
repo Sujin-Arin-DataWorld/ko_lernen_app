@@ -8,7 +8,8 @@
  * 흐름:
  *   1. sha1("{voice}|{text}") 로 키 계산 (클라/사전생성 스크립트와 동일 규칙)
  *   2. Storage `tts/v3/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
- *   3. 없으면 Cloud TTS 합성 → Storage 저장(다음 사용자 캐시) → 반환
+ *   3. 없으면 service_idempotency 를 선점한 승자만 한도를 깎고 Cloud TTS 를 부른다
+ *   4. 동시 재시도는 Storage 를 잠시 기다렸다가, 없으면 합성 없이 503
  *   응답: { audioBase64 }  — 클라가 디코드해 즉시 재생 + 로컬 캐시
  *
  * region = europe-west3 (gye CF·Firestore 와 동일). node 22.
@@ -26,13 +27,14 @@ const {
   CALLABLE_OPTIONS,
   SYNTH_DEADLINE_MS,
   TtsRequestError,
-  completedTtsReceipt,
-  isCurrentTtsReceipt,
+  abandonTtsReplay,
+  claimTtsReplay,
+  completeTtsReplay,
   isUsableAudioBuffer,
-  pendingTtsReceipt,
   refundDailyTtsQuotas,
+  ttsLogErrorCode,
   ttsProviderBreaker,
-  ttsReplayId,
+  ttsSynthesisPlan,
   validateTtsRequest,
   underDailyTtsQuotas,
   withDeadline,
@@ -54,6 +56,14 @@ const VOICES = {
   male: "ko-KR-Chirp3-HD-Enceladus",
 };
 const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
+const INFLIGHT_POLL_ATTEMPTS = 4;
+const INFLIGHT_POLL_MS = 250;
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
 
 async function loadUsableAudio(fileRef) {
   const [exists] = await fileRef.exists();
@@ -72,38 +82,15 @@ async function loadUsableAudio(fileRef) {
   return null;
 }
 
-async function claimTtsReplay(db, storagePath) {
-  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    const data = snapshot.exists ? snapshot.data() : null;
-    if (isCurrentTtsReceipt(data)) {
-      return {consume: false};
+async function waitForUsableAudio(fileRef) {
+  for (let attempt = 0; attempt < INFLIGHT_POLL_ATTEMPTS; attempt += 1) {
+    await sleep(INFLIGHT_POLL_MS);
+    const audioBuffer = await loadUsableAudio(fileRef);
+    if (isUsableAudioBuffer(audioBuffer)) {
+      return audioBuffer;
     }
-    transaction.set(ref, pendingTtsReceipt());
-    return {consume: true};
-  });
-}
-
-async function completeTtsReplay(db, storagePath) {
-  await db
-    .collection("service_idempotency")
-    .doc(ttsReplayId(storagePath))
-    .set(completedTtsReceipt());
-}
-
-async function abandonTtsReplay(db, storagePath) {
-  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
-  await db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    if (!snapshot.exists) {
-      return;
-    }
-    const data = snapshot.data();
-    if (data && data.state === "pending" && data.kind === "tts_v1") {
-      transaction.delete(ref);
-    }
-  });
+  }
+  return null;
 }
 
 async function synthesizeSpeech(text, voiceKey) {
@@ -139,13 +126,16 @@ async function synthesizeTts(request) {
         return { audioBase64: audioBuffer.toString("base64") };
       }
 
-      let consume = true;
+      let claim;
       try {
-        const claim = await claimTtsReplay(db, key.storagePath);
-        consume = claim.consume;
+        claim = await claimTtsReplay(db, key.storagePath);
       } catch {
-        consume = true;
+        throw new HttpsError(
+          "unavailable",
+          "TTS synthesis is temporarily unavailable.",
+        );
       }
+      const consume = claim.consume;
 
       if (!ttsProviderBreaker.allow()) {
         if (consume) {
@@ -182,9 +172,34 @@ async function synthesizeTts(request) {
         }
       }
 
+      audioBuffer = await loadUsableAudio(fileRef);
+      let plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
+      if (plan.action === "wait") {
+        audioBuffer = await waitForUsableAudio(fileRef);
+        plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
+      }
+      if (plan.action === "wait") {
+        throw new HttpsError(
+          "unavailable",
+          "TTS synthesis is already in progress.",
+        );
+      }
+
       try {
-        audioBuffer = await loadUsableAudio(fileRef);
-        if (!isUsableAudioBuffer(audioBuffer)) {
+        if (plan.action === "return") {
+          if (plan.refund) {
+            try {
+              await refundDailyTtsQuotas(db, {
+                uid: request.auth.uid,
+                installationId,
+              });
+            } catch {
+              console.warn("TTS quota refund failed", {
+                scope: "tts",
+              });
+            }
+          }
+        } else {
           audioBuffer = await synthesizeSpeech(text, voiceKey);
           await fileRef.save(audioBuffer, {
             contentType: "audio/mpeg",
@@ -192,17 +207,6 @@ async function synthesizeTts(request) {
             metadata: { cacheControl: "public, max-age=31536000" },
           });
           ttsProviderBreaker.recordSuccess();
-        } else if (consume) {
-          try {
-            await refundDailyTtsQuotas(db, {
-              uid: request.auth.uid,
-              installationId,
-            });
-          } catch {
-            console.warn("TTS quota refund failed", {
-              scope: "tts",
-            });
-          }
         }
         try {
           await completeTtsReplay(db, key.storagePath);
@@ -239,7 +243,7 @@ async function synthesizeTts(request) {
       if (e instanceof HttpsError) {
         throw e;
       }
-      console.error("synthesize_tts error", e && e.code ? e.code : "internal");
+      console.error("synthesize_tts error", ttsLogErrorCode(e));
       throw new HttpsError("internal", "TTS synthesis failed.");
     }
 }

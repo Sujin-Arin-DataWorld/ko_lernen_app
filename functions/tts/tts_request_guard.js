@@ -4,7 +4,9 @@ const { normalizeVoice } = require("./tts_contract");
 const CALLABLE_OPTIONS = Object.freeze({
   cors: true,
   memory: "256MiB",
-  timeoutSeconds: 15,
+  // Match the Flutter callable timeout. A longer leftover instance used to
+  // keep synthesizing after the client retried and reserved quota again.
+  timeoutSeconds: 12,
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
@@ -114,7 +116,7 @@ class CircuitBreaker {
 }
 
 const ttsProviderBreaker = new CircuitBreaker();
-const SYNTH_DEADLINE_MS = 8_000;
+const SYNTH_DEADLINE_MS = 7_000;
 const MIN_AUDIO_BYTES = 32;
 const IDEMPOTENCY_TTL_MS = 15 * 60 * 1000;
 const TTS_IDEMPOTENCY_KIND = "tts_v1";
@@ -185,6 +187,69 @@ function completedTtsReceipt(now = new Date()) {
     state: "completed",
     expiresAt: ttsReceiptExpiresAt(now),
   };
+}
+
+async function claimTtsReplay(db, storagePath) {
+  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const data = snapshot.exists ? snapshot.data() : null;
+    if (isCurrentTtsReceipt(data)) {
+      return { consume: false, state: data.state };
+    }
+    transaction.set(ref, pendingTtsReceipt());
+    return { consume: true, state: "pending" };
+  });
+}
+
+async function completeTtsReplay(db, storagePath) {
+  await db
+    .collection("service_idempotency")
+    .doc(ttsReplayId(storagePath))
+    .set(completedTtsReceipt());
+}
+
+async function abandonTtsReplay(db, storagePath) {
+  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    if (!snapshot.exists) {
+      return;
+    }
+    const data = snapshot.data();
+    if (data && data.state === "pending" && data.kind === TTS_IDEMPOTENCY_KIND) {
+      transaction.delete(ref);
+    }
+  });
+}
+
+/**
+ * Only the claim winner may call Cloud TTS on a miss. A concurrent retry
+ * that sees a live pending receipt must wait or fail closed — exists() is
+ * not a lock, so a second synthesize would reserve quota or pay twice.
+ */
+function ttsSynthesisPlan(claim, hasAudio) {
+  if (hasAudio) {
+    return { action: "return", refund: Boolean(claim && claim.consume) };
+  }
+  if (claim && claim.consume) {
+    return { action: "synthesize" };
+  }
+  if (claim && claim.state === "pending") {
+    return { action: "wait" };
+  }
+  return { action: "synthesize" };
+}
+
+function ttsLogErrorCode(error) {
+  if (!error || typeof error !== "object") {
+    return "internal";
+  }
+  const code = error.code;
+  if (typeof code === "string" && /^[a-z][a-z0-9_-]{0,40}$/i.test(code)) {
+    return code;
+  }
+  return "internal";
 }
 
 function quotaExpiresAt(day) {
@@ -322,14 +387,19 @@ module.exports = {
   SYNTH_DEADLINE_MS,
   TTS_IDEMPOTENCY_KIND,
   TtsRequestError,
+  abandonTtsReplay,
+  claimTtsReplay,
+  completeTtsReplay,
   completedTtsReceipt,
   isCurrentTtsReceipt,
   isUsableAudioBuffer,
   pendingTtsReceipt,
   quotaExpiresAt,
   refundDailyTtsQuotas,
+  ttsLogErrorCode,
   ttsProviderBreaker,
   ttsReplayId,
+  ttsSynthesisPlan,
   validateTtsRequest,
   underDailyTtsQuotas,
   withDeadline,
