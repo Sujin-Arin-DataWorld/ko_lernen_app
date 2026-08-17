@@ -6,6 +6,7 @@ import '../models/word_relation.dart';
 import '../services/sound_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_relation_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
@@ -112,16 +113,10 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.wordWebQuizTitle,
-          style: const TextStyle(fontWeight: FontWeight.w700),
-        ),
-      ),
+      appBar: SoriAppBar(title: t.wordWebQuizTitle),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriStudyClamp(
@@ -129,7 +124,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
               padding: const EdgeInsets.all(Spacing.lg),
               child: _done || _items.isEmpty
                   ? _buildDone(t)
-                  : _buildQuestion(t, s, lang),
+                  : _buildQuestion(t, lang),
             ),
           ),
         ),
@@ -137,7 +132,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
     );
   }
 
-  Widget _buildQuestion(AppL10n t, SoriSurfaces s, String lang) {
+  Widget _buildQuestion(AppL10n t, String lang) {
     final cur = _current!;
     final prompt = cur.kind == WordRelationKind.expression
         ? cur.promptGloss(lang)
@@ -155,7 +150,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
             Expanded(
               child: Text(
                 _hint(t, cur),
-                style: TextStyle(fontSize: 12, color: s.textMuted),
+                style: SoriTextTheme.of(context).caption,
               ),
             ),
           ],
@@ -170,11 +165,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
             child: Text(
               prompt,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w700,
-                height: 1.15,
-              ),
+              style: SoriTextTheme.of(context).display,
             ),
           ),
         ),
@@ -205,10 +196,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
         children: [
           const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120),
           const SizedBox(height: Spacing.lg),
-          Text(
-            t.wordWebQuizDoneTitle,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
-          ),
+          Text(t.wordWebQuizDoneTitle, style: SoriTextTheme.of(context).h2),
           const SizedBox(height: Spacing.sm),
           Text(t.wordWebQuizScore(_score, _items.length)),
           const SizedBox(height: Spacing.xl),

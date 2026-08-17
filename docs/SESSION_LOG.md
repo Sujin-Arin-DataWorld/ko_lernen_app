@@ -93,7 +93,10 @@ catalog·practice hub·l10n parity/guard **전부 통과**. `dart format` 변경
 `flutter analyze --no-pub --fatal-infos` 대상 파일 **No issues found**. 퀴즈
 기본 경로가 named `clusters`를 위치 인자로 호출하던 크래시를 고쳤고, 허브
 `bottomNavigationBar`는 `Column(mainAxisSize: min)`으로 본문이 접히지 않게 했다.
-커밋 `e07f067`.
+CI Analyze&Build가 잡은 회귀는 공용 `SoriAppBar`/`SoriTextTheme`로 맞추고,
+없는 `tiger_idle.png` 빈 상태는 `empty/studyroom_waiting.png`로 바꿨다.
+로컬에서 typography guard·asset integrity·word-web 테스트를 다시 통과했다.
+커밋 `e07f067`. 후속 수정은 같은 브랜치.
 
 ### 2026-08-17 (Cursor) — Batch 07/08 파트너 가족 트랙 live 승격
 
