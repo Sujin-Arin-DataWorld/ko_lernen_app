@@ -5472,7 +5472,7 @@
       "promptDe": "Vor der Tür habe ich zuerst höflich gegrüßt.",
       "promptEn": "I greeted them respectfully at the door first.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "인사드리다"
@@ -5528,9 +5528,9 @@
     {
       "id": "satz_a1_0070",
       "level": "a1",
-      "targetKo": "호칭이 어려워서 민수에게 물어봤어요.",
-      "promptDe": "Die Anrede ist schwer, deshalb habe ich Minsu gefragt.",
-      "promptEn": "The form of address is hard, so I asked Minsu.",
+      "targetKo": "호칭이 어려워서 현우에게 물어봤어요.",
+      "promptDe": "Die Anrede ist schwer, deshalb habe ich Hyunwoo gefragt.",
+      "promptEn": "The form of address is hard, so I asked Hyunwoo.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"
@@ -5544,7 +5544,7 @@
       "promptDe": "Vor den Eltern benutze ich die Hoeflichkeitsform.",
       "promptEn": "I use raised speech in front of the parents.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "높임말"
@@ -5552,9 +5552,9 @@
     {
       "id": "satz_a1_0072",
       "level": "a1",
-      "targetKo": "성함을 묻기 전에 민수가 눈짓을 했어요.",
-      "promptDe": "Bevor ich nach dem Namen fragte, gab Minsu ein Zeichen.",
-      "promptEn": "Before I asked the name politely, Minsu gave a look.",
+      "targetKo": "성함을 묻기 전에 현우가 눈짓을 했어요.",
+      "promptDe": "Bevor ich nach dem Namen fragte, gab Hyunwoo ein Zeichen.",
+      "promptEn": "Before I asked the name politely, Hyunwoo gave a look.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -5616,7 +5616,7 @@
       "promptDe": "Ich überlegte, ob Gesundheitslebensmittel zu sehr nach Medizin aussehen.",
       "promptEn": "I wondered whether health food would look too much like medicine.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "건강식품"
@@ -5624,9 +5624,9 @@
     {
       "id": "satz_a1_0078",
       "level": "a1",
-      "targetKo": "과한 선물은 부담이 된다고 민수가 말했어요.",
-      "promptDe": "Minsu sagte, ein zu großes Geschenk mache Druck.",
-      "promptEn": "Minsu said an overly big gift creates pressure.",
+      "targetKo": "과한 선물은 부담이 된다고 현우가 말했어요.",
+      "promptDe": "Hyunwoo sagte, ein zu großes Geschenk mache Druck.",
+      "promptEn": "Hyunwoo said an overly big gift creates pressure.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -5684,11 +5684,11 @@
     {
       "id": "satz_a1_0083",
       "level": "a1",
-      "targetKo": "빈손으로 가면 민수가 더 긴장해요.",
-      "promptDe": "Wenn ich mit leeren Händen komme, ist Minsu noch nervöser.",
-      "promptEn": "If I arrive empty-handed, Minsu gets even more nervous.",
+      "targetKo": "빈손으로 가면 현우가 더 긴장해요.",
+      "promptDe": "Wenn ich mit leeren Händen komme, ist Hyunwoo noch nervöser.",
+      "promptEn": "If I arrive empty-handed, Hyunwoo gets even more nervous.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "빈손"
@@ -5760,7 +5760,7 @@
       "promptDe": "Von den Gaesteslippern war nur der linke uebrig.",
       "promptEn": "Only the left guest slipper was left.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "손님 슬리퍼"
@@ -5780,9 +5780,9 @@
     {
       "id": "satz_a1_0091",
       "level": "a1",
-      "targetKo": "윗목은 어른 자리라서 민수가 눈을 깜빡였어요.",
-      "promptDe": "Der innere Sitzplatz ist für Ältere, deshalb blinzelte Minsu.",
-      "promptEn": "The inner seat is for elders, so Minsu blinked at me.",
+      "targetKo": "윗목은 어른 자리라서 현우가 눈을 깜빡였어요.",
+      "promptDe": "Der innere Sitzplatz ist für Ältere, deshalb blinzelte Hyunwoo.",
+      "promptEn": "The inner seat is for elders, so Hyunwoo blinked at me.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -5832,7 +5832,7 @@
       "promptDe": "Kaum sagten sie trinken Sie etwas, nahm ich die Tasse mit beiden Händen.",
       "promptEn": "As soon as they said please have water, I took the cup with both hands.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "물 드세요"
@@ -5876,9 +5876,9 @@
     {
       "id": "satz_a1_0099",
       "level": "a1",
-      "targetKo": "집들이 예절은 민수가 차에 타기 전에 알려 줬어요.",
-      "promptDe": "Die Besuchsmanieren erklärte Minsu noch vor der Autofahrt.",
-      "promptEn": "Minsu explained house-visit manners before we got in the car.",
+      "targetKo": "집들이 예절은 현우가 차에 타기 전에 알려 줬어요.",
+      "promptDe": "Die Besuchsmanieren erklärte Hyunwoo noch vor der Autofahrt.",
+      "promptEn": "Hyunwoo explained house-visit manners before we got in the car.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -5904,7 +5904,7 @@
       "promptDe": "Es gab zwei Garnituren Löffel und Stäbchen, also schaute ich, welche meine sind.",
       "promptEn": "There were two sets of spoon and chopsticks, so I checked which were mine.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "수저"
@@ -5948,9 +5948,9 @@
     {
       "id": "satz_a1_0105",
       "level": "a1",
-      "targetKo": "맛있어요를 매 접시마다 말하니 민수가 웃었어요.",
-      "promptDe": "Ich sagte bei jedem Teller es schmeckt, und Minsu lachte.",
-      "promptEn": "I said it is delicious at every plate, and Minsu laughed.",
+      "targetKo": "맛있어요를 매 접시마다 말하니 현우가 웃었어요.",
+      "promptDe": "Ich sagte bei jedem Teller es schmeckt, und Hyunwoo lachte.",
+      "promptEn": "I said it is delicious at every plate, and Hyunwoo laughed.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -5976,7 +5976,7 @@
       "promptDe": "Ich konzentrierte mich, die Brühe ohne Geräusch zu löffeln.",
       "promptEn": "I focused on spooning the broth without noise.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "국물"
@@ -6044,11 +6044,11 @@
     {
       "id": "satz_a1_0113",
       "level": "a1",
-      "targetKo": "세배 각도를 민수가 거실에서 연습시켜 줬어요.",
-      "promptDe": "Minsu hat den Winkel der Neujahrsverbeugung im Wohnzimmer geübt.",
-      "promptEn": "Minsu drilled the New Year bow angle in the living room.",
+      "targetKo": "세배 각도를 현우가 거실에서 연습시켜 줬어요.",
+      "promptDe": "Hyunwoo hat den Winkel der Neujahrsverbeugung im Wohnzimmer geübt.",
+      "promptEn": "Hyunwoo drilled the New Year bow angle in the living room.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "세배"
@@ -6080,9 +6080,9 @@
     {
       "id": "satz_a1_0116",
       "level": "a1",
-      "targetKo": "한복 고름을 앞에서 매다가 민수 엄마가 도와주셨어요.",
-      "promptDe": "Als ich die Hanbok-Schleife vorne band, half Minsus Mutter.",
-      "promptEn": "Minsu's mom helped when I tied the hanbok ribbon in front.",
+      "targetKo": "한복 고름을 앞에서 매다가 현우 엄마가 도와주셨어요.",
+      "promptDe": "Als ich die Hanbok-Schleife vorne band, half Hyunwoos Mutter.",
+      "promptEn": "Hyunwoo's mom helped when I tied the hanbok ribbon in front.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -6120,7 +6120,7 @@
       "promptDe": "Nach der Verbeugung vor den Älteren wurden meine Knie weiß.",
       "promptEn": "After offering the New Year bow, my knees went white.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "세배 드리다"
@@ -6192,7 +6192,7 @@
       "promptDe": "Die Füllung der Songpyeon war süß, also nahm ich noch eines.",
       "promptEn": "The songpyeon filling was sweet, so I took one more.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "송편"
@@ -6264,7 +6264,7 @@
       "promptDe": "Das Obst der neuen Ernte kam zuerst auf den Tisch.",
       "promptEn": "The first fruit of the season went on the rite table first.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "햇과일"
@@ -6336,7 +6336,7 @@
       "promptDe": "Die jüngere Schwester sagte ein deutsches Wort, und die Stimmung lockerte sich.",
       "promptEn": "The younger sister said one German word, and the mood eased.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "처제"
@@ -6356,9 +6356,9 @@
     {
       "id": "satz_a1_0139",
       "level": "a1",
-      "targetKo": "시동생이 게임을 하자고 해서 민수가 말렸어요.",
-      "promptDe": "Der jüngere Schwager wollte spielen, aber Minsu hielt ihn zurück.",
-      "promptEn": "The younger brother wanted to play a game, but Minsu stopped him.",
+      "targetKo": "시동생이 게임을 하자고 해서 현우가 말렸어요.",
+      "promptDe": "Der jüngere Schwager wollte spielen, aber Hyunwoo hielt ihn zurück.",
+      "promptEn": "The younger brother wanted to play a game, but Hyunwoo stopped him.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -6408,7 +6408,7 @@
       "promptDe": "Das älteste Kind regelte leise die Sitzordnung.",
       "promptEn": "The eldest quietly set the seating.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "맏이"
@@ -6464,9 +6464,9 @@
     {
       "id": "satz_a1_0148",
       "level": "a1",
-      "targetKo": "인증샷은 올리지 말라고 민수가 먼저 말했어요.",
-      "promptDe": "Minsu sagte zuerst, das Beweis-Foto nicht hochzuladen.",
-      "promptEn": "Minsu said first not to post the proof photo.",
+      "targetKo": "인증샷은 올리지 말라고 현우가 먼저 말했어요.",
+      "promptDe": "Hyunwoo sagte zuerst, das Beweis-Foto nicht hochzuladen.",
+      "promptEn": "Hyunwoo said first not to post the proof photo.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"
@@ -6476,11 +6476,11 @@
     {
       "id": "satz_a1_0149",
       "level": "a1",
-      "targetKo": "가족 앨범에서 민수 교복 사진을 봤어요.",
-      "promptDe": "Im Familienalbum sah ich Minsus Schuluniform.",
-      "promptEn": "I saw Minsu's school uniform in the family album.",
+      "targetKo": "가족 앨범에서 현우 교복 사진을 봤어요.",
+      "promptDe": "Im Familienalbum sah ich Hyunwoos Schuluniform.",
+      "promptEn": "I saw Hyunwoo's school uniform in the family album.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "가족 앨범"
@@ -6552,7 +6552,7 @@
       "promptDe": "Im Auto schickte ich die Danke-Nachricht per KakaoTalk.",
       "promptEn": "In the car I sent a thank-you message on KakaoTalk.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "카톡"
@@ -6584,9 +6584,9 @@
     {
       "id": "satz_a1_0158",
       "level": "a1",
-      "targetKo": "사진 전송 전에 민수에게 먼저 보여 줬어요.",
-      "promptDe": "Vor dem Senden zeigte ich die Fotos zuerst Minsu.",
-      "promptEn": "Before sending I showed the photos to Minsu first.",
+      "targetKo": "사진 전송 전에 현우에게 먼저 보여 줬어요.",
+      "promptDe": "Vor dem Senden zeigte ich die Fotos zuerst Hyunwoo.",
+      "promptEn": "Before sending I showed the photos to Hyunwoo first.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -6624,7 +6624,7 @@
       "promptDe": "Das Lob machte mich noch nervoeser.",
       "promptEn": "Your Korean is good is praise, but I got more nervous.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "한국어 잘하시네요"
@@ -6656,9 +6656,9 @@
     {
       "id": "satz_a2_0043",
       "level": "a2",
-      "targetKo": "사귄 지 얼마나 됐어요를 듣고 민수가 물을 마셨어요.",
-      "promptDe": "Als sie nach der Beziehungsdauer fragten, trank Minsu Wasser.",
-      "promptEn": "When they asked how long we have been together, Minsu drank water.",
+      "targetKo": "사귄 지 얼마나 됐어요를 듣고 현우가 물을 마셨어요.",
+      "promptDe": "Als sie nach der Beziehungsdauer fragten, trank Hyunwoo Wasser.",
+      "promptEn": "When they asked how long we have been together, Hyunwoo drank water.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -6692,11 +6692,11 @@
     {
       "id": "satz_a2_0046",
       "level": "a2",
-      "targetKo": "어려운 말은 민수에게 통역 부탁을 했어요.",
-      "promptDe": "Schwierige Saetze liess ich mir von Minsu dolmetschen.",
-      "promptEn": "I asked Minsu for interpreting on the hard parts.",
+      "targetKo": "어려운 말은 현우에게 통역 부탁을 했어요.",
+      "promptDe": "Schwierige Saetze liess ich mir von Hyunwoo dolmetschen.",
+      "promptEn": "I asked Hyunwoo for interpreting on the hard parts.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "통역 부탁"
@@ -6740,9 +6740,9 @@
     {
       "id": "satz_a2_0050",
       "level": "a2",
-      "targetKo": "분위기 파악이 안 되면 민수 얼굴을 봐요.",
-      "promptDe": "Wenn ich die Lage nicht lese, schaue ich Minsu an.",
-      "promptEn": "If I cannot read the room, I look at Minsu's face.",
+      "targetKo": "분위기 파악이 안 되면 현우 얼굴을 봐요.",
+      "promptDe": "Wenn ich die Lage nicht lese, schaue ich Hyunwoo an.",
+      "promptEn": "If I cannot read the room, I look at Hyunwoo's face.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -6768,7 +6768,7 @@
       "promptDe": "Beim Essen hoerte ich den Witz, man werde ein Jahr aelter.",
       "promptEn": "While eating the soup I heard the joke that you gain a year.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "떡국 먹다"
@@ -6840,7 +6840,7 @@
       "promptDe": "Das Video sollte nur ins Familienalbum.",
       "promptEn": "They said keep the bowing video in the family album only.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "세배 영상"
@@ -6908,11 +6908,11 @@
     {
       "id": "satz_a2_0064",
       "level": "a2",
-      "targetKo": "송편 맛이 콩이면 제가 이기고 깨면 민수가 이겨요.",
-      "promptDe": "Bei Bohnenfuellung gewinne ich, bei Sesam Minsu.",
-      "promptEn": "If the filling is bean I win; if sesame, Minsu wins.",
+      "targetKo": "송편 맛이 콩이면 제가 이기고 깨면 현우가 이겨요.",
+      "promptDe": "Bei Bohnenfuellung gewinne ich, bei Sesam Hyunwoo.",
+      "promptEn": "If the filling is bean I win; if sesame, Hyunwoo wins.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "송편 맛"
@@ -6984,7 +6984,7 @@
       "promptDe": "Den Festtagsgruss schickte ich kurz, aber hoeflich.",
       "promptEn": "I sent the holiday greeting short, but in honorifics.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "명절 인사"
@@ -7016,9 +7016,9 @@
     {
       "id": "satz_a2_0073",
       "level": "a2",
-      "targetKo": "송편 점이 깨면 딸이라는 말에 민수가 숨었어요.",
-      "promptDe": "Bei Sesam werde es eine Tochter, sagte man, und Minsu versteckte sich.",
-      "promptEn": "They said sesame means a daughter, and Minsu hid.",
+      "targetKo": "송편 점이 깨면 딸이라는 말에 현우가 숨었어요.",
+      "promptDe": "Bei Sesam werde es eine Tochter, sagte man, und Hyunwoo versteckte sich.",
+      "promptEn": "They said sesame means a daughter, and Hyunwoo hid.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -7052,11 +7052,11 @@
     {
       "id": "satz_a2_0076",
       "level": "a2",
-      "targetKo": "민수가 제 편을 들어 줘서 어깨가 내려갔어요.",
-      "promptDe": "Minsu ergriff fuer mich Partei, da sank die Schulter.",
-      "promptEn": "Minsu took my side, and my shoulders dropped.",
+      "targetKo": "현우가 제 편을 들어 줘서 어깨가 내려갔어요.",
+      "promptDe": "Hyunwoo ergriff fuer mich Partei, da sank die Schulter.",
+      "promptEn": "Hyunwoo took my side, and my shoulders dropped.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "편들다"
@@ -7088,9 +7088,9 @@
     {
       "id": "satz_a2_0079",
       "level": "a2",
-      "targetKo": "민수 어릴 적 비밀 보장은 제가 먼저 약속했어요.",
+      "targetKo": "현우 어릴 적 비밀 보장은 제가 먼저 약속했어요.",
       "promptDe": "Das Kindheitsgeheimnis zu wahren versprach ich zuerst.",
-      "promptEn": "I promised first to keep Minsu's childhood secret.",
+      "promptEn": "I promised first to keep Hyunwoo's childhood secret.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -7112,9 +7112,9 @@
     {
       "id": "satz_a2_0081",
       "level": "a2",
-      "targetKo": "통역 눈짓을 민수가 못 보면 그냥 웃어요.",
-      "promptDe": "Sieht Minsu die Augenbitte nicht, lache ich einfach.",
-      "promptEn": "If Minsu misses the eye-ask, I just laugh.",
+      "targetKo": "통역 눈짓을 현우가 못 보면 그냥 웃어요.",
+      "promptDe": "Sieht Hyunwoo die Augenbitte nicht, lache ich einfach.",
+      "promptEn": "If Hyunwoo misses the eye-ask, I just laugh.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"
@@ -7128,7 +7128,7 @@
       "promptDe": "Wenn man zusammen lacht, vergisst man Hoeflichkeitsfehler.",
       "promptEn": "If you laugh together, honorific mistakes are forgotten.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "같이 웃다"
@@ -7136,9 +7136,9 @@
     {
       "id": "satz_a2_0083",
       "level": "a2",
-      "targetKo": "동생 편을 들면 민수가 눈을 흘겨요.",
-      "promptDe": "Halte ich zum juengeren Geschwister, schielt Minsu.",
-      "promptEn": "If I take the younger sibling side, Minsu side-eyes me.",
+      "targetKo": "동생 편을 들면 현우가 눈을 흘겨요.",
+      "promptDe": "Halte ich zum juengeren Geschwister, schielt Hyunwoo.",
+      "promptEn": "If I take the younger sibling side, Hyunwoo side-eyes me.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -7196,11 +7196,11 @@
     {
       "id": "satz_a2_0088",
       "level": "a2",
-      "targetKo": "이불을 개다가 민수 엄마가 들어오셨어요.",
-      "promptDe": "Als ich die Decke faltete, kam Minsus Mutter herein.",
-      "promptEn": "While folding the blanket, Minsu's mom came in.",
+      "targetKo": "이불을 개다가 현우 엄마가 들어오셨어요.",
+      "promptDe": "Als ich die Decke faltete, kam Hyunwoos Mutter herein.",
+      "promptEn": "While folding the blanket, Hyunwoo's mom came in.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "이불"
@@ -7268,11 +7268,11 @@
     {
       "id": "satz_a2_0094",
       "level": "a2",
-      "targetKo": "코골이 소리가 벽 너머로 들려서 민수가 미안해했어요.",
-      "promptDe": "Schnarchen kam durch die Wand, und Minsu entschuldigte sich.",
-      "promptEn": "Snoring came through the wall, and Minsu apologized.",
+      "targetKo": "코골이 소리가 벽 너머로 들려서 현우가 미안해했어요.",
+      "promptDe": "Schnarchen kam durch die Wand, und Hyunwoo entschuldigte sich.",
+      "promptEn": "Snoring came through the wall, and Hyunwoo apologized.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "코골이"
@@ -7292,9 +7292,9 @@
     {
       "id": "satz_a2_0096",
       "level": "a2",
-      "targetKo": "손님 수건이 분홍색이라 민수 거라고 착각했어요.",
-      "promptDe": "Das Gaestehandtuch war rosa, ich dachte es sei Minsus.",
-      "promptEn": "The guest towel was pink, so I thought it was Minsu's.",
+      "targetKo": "손님 수건이 분홍색이라 현우 거라고 착각했어요.",
+      "promptDe": "Das Gaestehandtuch war rosa, ich dachte es sei Hyunwoos.",
+      "promptEn": "The guest towel was pink, so I thought it was Hyunwoo's.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -7344,7 +7344,7 @@
       "promptDe": "Drei Frischhaltedosen, im Bus ging ich vorsichtig.",
       "promptEn": "There were three airtight containers, so I was careful on the bus.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "밀폐 용기"
@@ -7416,7 +7416,7 @@
       "promptDe": "Ich klebte den Zettel Tiefkuehllagerung auf den Deckel.",
       "promptEn": "I stuck a freezer-storage note on the lid.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "냉동 보관"
@@ -7424,9 +7424,9 @@
     {
       "id": "satz_a2_0107",
       "level": "a2",
-      "targetKo": "집까지 국물 냄새를 들고 가서 민수가 창문을 열었어요.",
-      "promptDe": "Bis nach Hause trug ich den Suppengeruch, und Minsu oeffnete das Fenster.",
-      "promptEn": "I carried the broth smell all the way home, and Minsu opened the window.",
+      "targetKo": "집까지 국물 냄새를 들고 가서 현우가 창문을 열었어요.",
+      "promptDe": "Bis nach Hause trug ich den Suppengeruch, und Hyunwoo oeffnete das Fenster.",
+      "promptEn": "I carried the broth smell all the way home, and Hyunwoo opened the window.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -7460,9 +7460,9 @@
     {
       "id": "satz_a2_0110",
       "level": "a2",
-      "targetKo": "반찬 봉투가 두 개라서 민수와 나눠 들었어요.",
-      "promptDe": "Es gab zwei Beilagenbeutel, also trugen Minsu und ich je einen.",
-      "promptEn": "There were two side-dish bags, so Minsu and I each carried one.",
+      "targetKo": "반찬 봉투가 두 개라서 현우와 나눠 들었어요.",
+      "promptDe": "Es gab zwei Beilagenbeutel, also trugen Hyunwoo und ich je einen.",
+      "promptEn": "There were two side-dish bags, so Hyunwoo and I each carried one.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -7484,11 +7484,11 @@
     {
       "id": "satz_a2_0112",
       "level": "a2",
-      "targetKo": "휴게소에서 호두과자를 사니 민수 아빠가 웃으셨어요.",
-      "promptDe": "An der Raststaette kaufte ich Walnusskuchen, und Minsus Vater lachte.",
-      "promptEn": "At the rest stop I bought walnut cakes, and Minsu's dad smiled.",
+      "targetKo": "휴게소에서 호두과자를 사니 현우 아빠가 웃으셨어요.",
+      "promptDe": "An der Raststaette kaufte ich Walnusskuchen, und Hyunwoos Vater lachte.",
+      "promptEn": "At the rest stop I bought walnut cakes, and Hyunwoo's dad smiled.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "휴게소"
@@ -7508,9 +7508,9 @@
     {
       "id": "satz_a2_0114",
       "level": "a2",
-      "targetKo": "좌석 배정이 떨어져서 민수와 쪽지로 이야기했어요.",
-      "promptDe": "Die Sitze lagen auseinander, also schrieben Minsu und ich Zettel.",
-      "promptEn": "The seat assignment split us, so Minsu and I passed notes.",
+      "targetKo": "좌석 배정이 떨어져서 현우와 쪽지로 이야기했어요.",
+      "promptDe": "Die Sitze lagen auseinander, also schrieben Hyunwoo und ich Zettel.",
+      "promptEn": "The seat assignment split us, so Hyunwoo and I passed notes.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -7560,7 +7560,7 @@
       "promptDe": "Es gab nur einen Dorfbus, also pruefte ich die Zeit zweimal.",
       "promptEn": "There was only one village bus, so I checked the time twice.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "마을 버스"
@@ -7632,7 +7632,7 @@
       "promptDe": "Vor den Eltern versprach ich, die Hoeflichkeit beizubehalten.",
       "promptEn": "In front of the parents I promised to keep honorifics.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "존댓말 유지"
@@ -7640,9 +7640,9 @@
     {
       "id": "satz_a2_0125",
       "level": "a2",
-      "targetKo": "말실수로 형이라고 해서 민수가 눈을 커졌어요.",
-      "promptDe": "Durch einen Versprecher sagte ich hyeong, und Minsus Augen wurden gross.",
-      "promptEn": "I slipped and said hyeong, and Minsu's eyes went wide.",
+      "targetKo": "말실수로 형이라고 해서 현우가 눈을 커졌어요.",
+      "promptDe": "Durch einen Versprecher sagte ich hyeong, und Hyunwoos Augen wurden gross.",
+      "promptEn": "I slipped and said hyeong, and Hyunwoo's eyes went wide.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -7704,7 +7704,7 @@
       "promptDe": "Vor dem Altersabgleich benutzte ich keinen Vornamen.",
       "promptEn": "I did not use a first name before checking ages.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "나이 확인"
@@ -7724,9 +7724,9 @@
     {
       "id": "satz_a2_0132",
       "level": "a2",
-      "targetKo": "말투 맞추기는 민수가 눈짓으로 도와줬어요.",
-      "promptDe": "Minsu half mit einem Blick, den Ton anzupassen.",
-      "promptEn": "Minsu helped me match the speech style with a look.",
+      "targetKo": "말투 맞추기는 현우가 눈짓으로 도와줬어요.",
+      "promptDe": "Hyunwoo half mit einem Blick, den Ton anzupassen.",
+      "promptEn": "Hyunwoo helped me match the speech style with a look.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -7772,11 +7772,11 @@
     {
       "id": "satz_b1_0081",
       "level": "b1",
-      "targetKo": "아이 가지냐는 질문에 민수가 물을 마시며 시간을 벌었어요.",
-      "promptDe": "Auf die Kinderfrage trank Minsu Wasser und gewann Zeit.",
-      "promptEn": "At the children question Minsu drank water and bought time.",
+      "targetKo": "아이 가지냐는 질문에 현우가 물을 마시며 시간을 벌었어요.",
+      "promptDe": "Auf die Kinderfrage trank Hyunwoo Wasser und gewann Zeit.",
+      "promptEn": "At the children question Hyunwoo drank water and bought time.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "아이 가지다"
@@ -7844,11 +7844,11 @@
     {
       "id": "satz_b1_0087",
       "level": "b1",
-      "targetKo": "직접 거절 대신 돌려 말하기를 민수가 먼저 했어요.",
-      "promptDe": "Statt eines direkten Neins umschrieb Minsu zuerst.",
-      "promptEn": "Instead of a direct no, Minsu spoke indirectly first.",
+      "targetKo": "직접 거절 대신 돌려 말하기를 현우가 먼저 했어요.",
+      "promptDe": "Statt eines direkten Neins umschrieb Hyunwoo zuerst.",
+      "promptEn": "Instead of a direct no, Hyunwoo spoke indirectly first.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "돌려 말하기"
@@ -7880,9 +7880,9 @@
     {
       "id": "satz_b1_0090",
       "level": "b1",
-      "targetKo": "솔직한 선을 정하니 민수도 어깨가 내려갔어요.",
-      "promptDe": "Eine ehrliche Grenze zu setzen senkte auch Minsus Schultern.",
-      "promptEn": "Setting an honest boundary dropped Minsu's shoulders too.",
+      "targetKo": "솔직한 선을 정하니 현우도 어깨가 내려갔어요.",
+      "promptDe": "Eine ehrliche Grenze zu setzen senkte auch Hyunwoos Schultern.",
+      "promptEn": "Setting an honest boundary dropped Hyunwoo's shoulders too.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -7920,7 +7920,7 @@
       "promptDe": "Als ich befristete Stelle sagte, kam sofort die Frage nach Stabilitaet.",
       "promptEn": "When I said fixed-term, the stability question came at once.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "계약직"
@@ -7992,7 +7992,7 @@
       "promptDe": "Als ich keine Kuendigung plante, entspannte sich das Gesicht.",
       "promptEn": "When I said I had no plan to leave the job, their faces eased.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "퇴사"
@@ -8048,9 +8048,9 @@
     {
       "id": "satz_b1_0104",
       "level": "b1",
-      "targetKo": "통역을 맡기 전에 민수가 제 눈을 봤어요.",
-      "promptDe": "Bevor Minsu das Dolmetschen uebernahm, sah er mir in die Augen.",
-      "promptEn": "Before taking on interpreting, Minsu looked at my eyes.",
+      "targetKo": "통역을 맡기 전에 현우가 제 눈을 봤어요.",
+      "promptDe": "Bevor Hyunwoo das Dolmetschen uebernahm, sah er mir in die Augen.",
+      "promptEn": "Before taking on interpreting, Hyunwoo looked at my eyes.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"
@@ -8064,7 +8064,7 @@
       "promptDe": "Die lange Rede knapp weiterzugeben liess nur den Kern.",
       "promptEn": "Passing on a summary left only the core.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "요약해서 전하다"
@@ -8084,9 +8084,9 @@
     {
       "id": "satz_b1_0107",
       "level": "b1",
-      "targetKo": "뉘앙스가 사라질까 봐 민수가 손짓으로 멈췄어요.",
-      "promptDe": "Aus Angst, die Nuance gehe verloren, hielt Minsu mit der Hand inne.",
-      "promptEn": "Afraid the nuance would vanish, Minsu paused with a hand signal.",
+      "targetKo": "뉘앙스가 사라질까 봐 현우가 손짓으로 멈췄어요.",
+      "promptDe": "Aus Angst, die Nuance gehe verloren, hielt Hyunwoo mit der Hand inne.",
+      "promptEn": "Afraid the nuance would vanish, Hyunwoo paused with a hand signal.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -8096,9 +8096,9 @@
     {
       "id": "satz_b1_0108",
       "level": "b1",
-      "targetKo": "민수가 민감한 질문은 빠뜨리고 음식 이야기로 갔어요.",
-      "promptDe": "Minsu liess die heikle Frage aus und sprach ueber das Essen.",
-      "promptEn": "Minsu left out the sensitive question and went to food talk.",
+      "targetKo": "현우가 민감한 질문은 빠뜨리고 음식 이야기로 갔어요.",
+      "promptDe": "Hyunwoo liess die heikle Frage aus und sprach ueber das Essen.",
+      "promptEn": "Hyunwoo left out the sensitive question and went to food talk.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -8136,7 +8136,7 @@
       "promptDe": "Zahlen und Daten pruefte ich noch einmal, bevor ich sie weitergab.",
       "promptEn": "I double-checked numbers and dates before passing them on.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "다시 확인하다"
@@ -8168,9 +8168,9 @@
     {
       "id": "satz_b1_0114",
       "level": "b1",
-      "targetKo": "대충 하지 말라고 민수가 귓속말로 했어요.",
-      "promptDe": "Nicht ungenau, fluesterte Minsu.",
-      "promptEn": "Minsu whispered not to do the interpreting roughly.",
+      "targetKo": "대충 하지 말라고 현우가 귓속말로 했어요.",
+      "promptDe": "Nicht ungenau, fluesterte Hyunwoo.",
+      "promptEn": "Hyunwoo whispered not to do the interpreting roughly.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -8204,11 +8204,11 @@
     {
       "id": "satz_b1_0117",
       "level": "b1",
-      "targetKo": "잔을 따를 때 병목을 가리니 민수가 잘했다고 했어요.",
-      "promptDe": "Beim Einschenken den Flaschenhals zu verdecken lobte Minsu.",
-      "promptEn": "Covering the bottle neck while pouring earned Minsu's praise.",
+      "targetKo": "잔을 따를 때 병목을 가리니 현우가 잘했다고 했어요.",
+      "promptDe": "Beim Einschenken den Flaschenhals zu verdecken lobte Hyunwoo.",
+      "promptEn": "Covering the bottle neck while pouring earned Hyunwoo's praise.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "잔을 따르다"
@@ -8280,7 +8280,7 @@
       "promptDe": "Um die Stimmung mitzugehen, nahm ich nur noch einen Schluck.",
       "promptEn": "To match the mood I took only one more sip.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "분위기 맞추다"
@@ -8300,9 +8300,9 @@
     {
       "id": "satz_b1_0125",
       "level": "b1",
-      "targetKo": "취중진담이 나오기 전에 민수가 화제를 바꿨어요.",
-      "promptDe": "Bevor die Wahrheit im Rausch kam, wechselte Minsu das Thema.",
-      "promptEn": "Before drunk honesty appeared, Minsu changed the topic.",
+      "targetKo": "취중진담이 나오기 전에 현우가 화제를 바꿨어요.",
+      "promptDe": "Bevor die Wahrheit im Rausch kam, wechselte Hyunwoo das Thema.",
+      "promptEn": "Before drunk honesty appeared, Hyunwoo changed the topic.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -8352,7 +8352,7 @@
       "promptDe": "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu frueh, hiess es.",
       "promptEn": "They said sharing a room with a partner of the other sex is still too early.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "이성 친구"
@@ -8360,9 +8360,9 @@
     {
       "id": "satz_b1_0130",
       "level": "b1",
-      "targetKo": "문 열어 두라는 말을 듣고 민수가 한숨을 쉬었어요.",
-      "promptDe": "Die Tuer offen zu lassen liess Minsu seufzen.",
-      "promptEn": "Hearing leave the door open made Minsu sigh.",
+      "targetKo": "문 열어 두라는 말을 듣고 현우가 한숨을 쉬었어요.",
+      "promptDe": "Die Tuer offen zu lassen liess Hyunwoo seufzen.",
+      "promptEn": "Hearing leave the door open made Hyunwoo sigh.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -8396,9 +8396,9 @@
     {
       "id": "satz_b1_0133",
       "level": "b1",
-      "targetKo": "코골이 사과는 민수가 대신 했어요.",
-      "promptDe": "Die Schnarchentschuldigung uebernahm Minsu.",
-      "promptEn": "Minsu made the snoring apology for me.",
+      "targetKo": "코골이 사과는 현우가 대신 했어요.",
+      "promptDe": "Die Schnarchentschuldigung uebernahm Hyunwoo.",
+      "promptEn": "Hyunwoo made the snoring apology for me.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -8424,7 +8424,7 @@
       "promptDe": "Das Licht zu loeschen sollte zuerst die aeltere Person, zeigte ein Blick.",
       "promptEn": "A look said the elder should turn off the lights first.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "불 끄기"
@@ -8456,9 +8456,9 @@
     {
       "id": "satz_b1_0138",
       "level": "b1",
-      "targetKo": "방문 두드리고 들어가니 민수 동생이 고마워했어요.",
-      "promptDe": "An die Zimmertuer zu klopfen dankte Minsus juengerem Geschwister.",
-      "promptEn": "Knocking on the room door made Minsu's younger sibling grateful.",
+      "targetKo": "방문 두드리고 들어가니 현우 동생이 고마워했어요.",
+      "promptDe": "An die Zimmertuer zu klopfen dankte Hyunwoos juengerem Geschwister.",
+      "promptEn": "Knocking on the room door made Hyunwoo's younger sibling grateful.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -8496,7 +8496,7 @@
       "promptDe": "Die Fehlerliste war kuerzer als gedacht, da atmete ich auf.",
       "promptEn": "The list of slips was shorter than I thought, so I exhaled.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "실수 목록"
@@ -8504,9 +8504,9 @@
     {
       "id": "satz_b1_0142",
       "level": "b1",
-      "targetKo": "감사 메시지는 민수 엄마께 먼저 보냈어요.",
-      "promptDe": "Die Dankesnachricht ging zuerst an Minsus Mutter.",
-      "promptEn": "I sent the thank-you message to Minsu's mom first.",
+      "targetKo": "감사 메시지는 현우 엄마께 먼저 보냈어요.",
+      "promptDe": "Die Dankesnachricht ging zuerst an Hyunwoos Mutter.",
+      "promptEn": "I sent the thank-you message to Hyunwoo's mom first.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -8528,9 +8528,9 @@
     {
       "id": "satz_b1_0144",
       "level": "b1",
-      "targetKo": "다음 방문은 더 짧게 하자고 민수가 먼저 말했어요.",
-      "promptDe": "Den naechsten Besuch kuerzer zu machen schlug Minsu zuerst vor.",
-      "promptEn": "Minsu suggested first that the next visit be shorter.",
+      "targetKo": "다음 방문은 더 짧게 하자고 현우가 먼저 말했어요.",
+      "promptDe": "Den naechsten Besuch kuerzer zu machen schlug Hyunwoo zuerst vor.",
+      "promptEn": "Hyunwoo suggested first that the next visit be shorter.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -8564,11 +8564,11 @@
     {
       "id": "satz_b1_0147",
       "level": "b1",
-      "targetKo": "잔소리 해석을 민수가 해 주니 상처가 줄었어요.",
-      "promptDe": "Minsus Deutung der Noergelei verringerte die Verletzung.",
-      "promptEn": "Minsu's reading of the nagging reduced the sting.",
+      "targetKo": "잔소리 해석을 현우가 해 주니 상처가 줄었어요.",
+      "promptDe": "Hyunwoos Deutung der Noergelei verringerte die Verletzung.",
+      "promptEn": "Hyunwoo's reading of the nagging reduced the sting.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "잔소리 해석"
@@ -8640,7 +8640,7 @@
       "promptDe": "Aus Angst vor langem Gelesen-ohne-Antwort antwortete ich wenigstens kurz.",
       "promptEn": "Afraid of a long read-without-reply, I answered at least briefly.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "읽씹"
@@ -8684,9 +8684,9 @@
     {
       "id": "satz_b1_0157",
       "level": "b1",
-      "targetKo": "단체 호출은 급한 공지만 쓰라고 민수가 말렸어요.",
-      "promptDe": "Minsu hielt mich zurueck, die Gruppenerwaehnung nur fuer Eiliges zu nutzen.",
-      "promptEn": "Minsu stopped me from using a group mention except for urgent notices.",
+      "targetKo": "단체 호출은 급한 공지만 쓰라고 현우가 말렸어요.",
+      "promptDe": "Hyunwoo hielt mich zurueck, die Gruppenerwaehnung nur fuer Eiliges zu nutzen.",
+      "promptEn": "Hyunwoo stopped me from using a group mention except for urgent notices.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -8712,7 +8712,7 @@
       "promptDe": "Hoeflichen Chat beizubehalten gefiel der Tante.",
       "promptEn": "Keeping honorific chat pleased aunt.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "존댓말 채팅"
@@ -8780,11 +8780,11 @@
     {
       "id": "satz_b1_0165",
       "level": "b1",
-      "targetKo": "명절 당번이 민수 쪽이라 제 가족에게 미리 사과했어요.",
-      "promptDe": "Der Feiertagsdienst lag bei Minsu, also entschuldigte ich mich bei meiner Familie.",
-      "promptEn": "Holiday duty was on Minsu's side, so I apologized to my family in advance.",
+      "targetKo": "명절 당번이 현우 쪽이라 제 가족에게 미리 사과했어요.",
+      "promptDe": "Der Feiertagsdienst lag bei Hyunwoo, also entschuldigte ich mich bei meiner Familie.",
+      "promptEn": "Holiday duty was on Hyunwoo's side, so I apologized to my family in advance.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "명절 당번"
@@ -8816,9 +8816,9 @@
     {
       "id": "satz_b1_0168",
       "level": "b1",
-      "targetKo": "일정 충돌이 나자 민수가 어머니께 먼저 전화했어요.",
-      "promptDe": "Beim Terminkonflikt rief Minsu zuerst die Mutter an.",
-      "promptEn": "When a schedule clash appeared, Minsu called his mother first.",
+      "targetKo": "일정 충돌이 나자 현우가 어머니께 먼저 전화했어요.",
+      "promptDe": "Beim Terminkonflikt rief Hyunwoo zuerst die Mutter an.",
+      "promptEn": "When a schedule clash appeared, Hyunwoo called his mother first.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -8856,7 +8856,7 @@
       "promptDe": "Die Geschenkverteilung als Tabelle liess keine leeren Haende.",
       "promptEn": "Planning the gift split as a table removed empty hands.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "선물 분배"
@@ -8928,7 +8928,7 @@
       "promptDe": "Im Haus der Ehefrau bot ich den Abwasch an, obwohl ich Gast war.",
       "promptEn": "At the wife's family I offered to wash dishes even as a guest.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "처가"
@@ -8936,9 +8936,9 @@
     {
       "id": "satz_b2_0158",
       "level": "b2",
-      "targetKo": "며느리 역할을 기대하는 눈빛을 민수가 먼저 읽었어요.",
-      "promptDe": "Den Blick, der eine Schwiegertochterrolle erwartete, las Minsu zuerst.",
-      "promptEn": "Minsu first read the look that expected a daughter-in-law role.",
+      "targetKo": "며느리 역할을 기대하는 눈빛을 현우가 먼저 읽었어요.",
+      "promptDe": "Den Blick, der eine Schwiegertochterrolle erwartete, las Hyunwoo zuerst.",
+      "promptEn": "Hyunwoo first read the look that expected a daughter-in-law role.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9000,7 +9000,7 @@
       "promptDe": "Die Festtagsrotation aufzuschreiben verringerte Streit.",
       "promptEn": "Writing the holiday rotation down reduced fights.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "명절 순환"
@@ -9008,9 +9008,9 @@
     {
       "id": "satz_b2_0164",
       "level": "b2",
-      "targetKo": "시어머니 말씀을 평가하지 않고 민수에게만 확인했어요.",
-      "promptDe": "Die Worte der Schwiegermutter bewertete ich nicht, ich pruefte nur bei Minsu.",
-      "promptEn": "I did not judge the mother-in-law's remarks; I only checked with Minsu.",
+      "targetKo": "시어머니 말씀을 평가하지 않고 현우에게만 확인했어요.",
+      "promptDe": "Die Worte der Schwiegermutter bewertete ich nicht, ich pruefte nur bei Hyunwoo.",
+      "promptEn": "I did not judge the mother-in-law's remarks; I only checked with Hyunwoo.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9072,7 +9072,7 @@
       "promptDe": "Das Hochzeitsdatum schrieb ich im Mond- und Sonnenkalender.",
       "promptEn": "I wrote the wedding date in both lunar and solar calendars.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "예식 날짜"
@@ -9080,9 +9080,9 @@
     {
       "id": "satz_b2_0170",
       "level": "b2",
-      "targetKo": "지참금 농담이 나와서 민수가 바로 화제를 접었어요.",
-      "promptDe": "Ein Mitgiftwitz kam, und Minsu beendete das Thema sofort.",
-      "promptEn": "A dowry joke appeared, and Minsu closed the topic at once.",
+      "targetKo": "지참금 농담이 나와서 현우가 바로 화제를 접었어요.",
+      "promptDe": "Ein Mitgiftwitz kam, und Hyunwoo beendete das Thema sofort.",
+      "promptEn": "A dowry joke appeared, and Hyunwoo closed the topic at once.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9144,7 +9144,7 @@
       "promptDe": "Das Brautgeschenk sei Sorgfalt, nicht Form, erklaerte ich.",
       "promptEn": "I explained that the bridal gift is care, not form.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "예단"
@@ -9212,11 +9212,11 @@
     {
       "id": "satz_b2_0181",
       "level": "b2",
-      "targetKo": "어른 앞에서 민수를 이름으로 부르지 않기로 했어요.",
-      "promptDe": "Vor den Aelteren Minsu nicht beim Namen zu nennen vereinbarten wir.",
-      "promptEn": "We agreed not to call Minsu by name in front of elders.",
+      "targetKo": "어른 앞에서 현우를 이름으로 부르지 않기로 했어요.",
+      "promptDe": "Vor den Aelteren Hyunwoo nicht beim Namen zu nennen vereinbarten wir.",
+      "promptEn": "We agreed not to call Hyunwoo by name in front of elders.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "어른 앞에서"
@@ -9224,9 +9224,9 @@
     {
       "id": "satz_b2_0182",
       "level": "b2",
-      "targetKo": "동생을 낮춰 부르다가 민수가 기침으로 막아 줬어요.",
-      "promptDe": "Als ich das juengere Geschwister zu vertraulich anredete, hustete Minsu.",
-      "promptEn": "When I addressed the younger sibling too casually, Minsu coughed to stop me.",
+      "targetKo": "동생을 낮춰 부르다가 현우가 기침으로 막아 줬어요.",
+      "promptDe": "Als ich das juengere Geschwister zu vertraulich anredete, hustete Hyunwoo.",
+      "promptEn": "When I addressed the younger sibling too casually, Hyunwoo coughed to stop me.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9288,7 +9288,7 @@
       "promptDe": "Die Anredefrage zuerst zu stellen loeste die Anspannung.",
       "promptEn": "Asking the address-term question first eased the tension.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "호칭 질문"
@@ -9296,9 +9296,9 @@
     {
       "id": "satz_b2_0188",
       "level": "b2",
-      "targetKo": "잘못된 형이라고 부르는 순간 민수 얼굴이 멈췄어요.",
-      "promptDe": "Im Moment des falschen hyeong blieb Minsus Gesicht stehen.",
-      "promptEn": "The moment I used the wrong hyeong, Minsu's face froze.",
+      "targetKo": "잘못된 형이라고 부르는 순간 현우 얼굴이 멈췄어요.",
+      "promptDe": "Im Moment des falschen hyeong blieb Hyunwoos Gesicht stehen.",
+      "promptEn": "The moment I used the wrong hyeong, Hyunwoo's face froze.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9360,7 +9360,7 @@
       "promptDe": "Den Ahnenzettel schrieb ich nicht, ich hielt nur das Papier.",
       "promptEn": "I did not write the name paper; I only held the sheet.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "지방 쓰기"
@@ -9380,9 +9380,9 @@
     {
       "id": "satz_b2_0195",
       "level": "b2",
-      "targetKo": "재배 각도를 민수가 거실에서 다시 보여 줬어요.",
-      "promptDe": "Den Winkel der doppelten Verbeugung zeigte Minsu noch einmal im Wohnzimmer.",
-      "promptEn": "Minsu showed the double-bow angle again in the living room.",
+      "targetKo": "재배 각도를 현우가 거실에서 다시 보여 줬어요.",
+      "promptDe": "Den Winkel der doppelten Verbeugung zeigte Hyunwoo noch einmal im Wohnzimmer.",
+      "promptEn": "Hyunwoo showed the double-bow angle again in the living room.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -9432,7 +9432,7 @@
       "promptDe": "Ohne Ritualaufgabe half ruhiges Stehen.",
       "promptEn": "With no rite role, standing quietly helped.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "제사 역할"
@@ -9488,9 +9488,9 @@
     {
       "id": "satz_b2_0204",
       "level": "b2",
-      "targetKo": "명절에 용돈 드리는 봉투를 민수가 미리 준비했어요.",
-      "promptDe": "Den Umschlag fuer Taschengeld an die Aelteren bereitete Minsu vorher vor.",
-      "promptEn": "Minsu prepared the pocket-money envelope for the elders in advance.",
+      "targetKo": "명절에 용돈 드리는 봉투를 현우가 미리 준비했어요.",
+      "promptDe": "Den Umschlag fuer Taschengeld an die Aelteren bereitete Hyunwoo vorher vor.",
+      "promptEn": "Hyunwoo prepared the pocket-money envelope for the elders in advance.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"
@@ -9504,7 +9504,7 @@
       "promptDe": "Ein Missverstaendnis um Getrenntzahlen entstand, also zahlte ich zuerst.",
       "promptEn": "A split-bill misunderstanding appeared, so I paid for the meal first.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "더치페이 오해"
@@ -9524,9 +9524,9 @@
     {
       "id": "satz_b2_0207",
       "level": "b2",
-      "targetKo": "부조 장부를 보고 액수를 맞추려다 민수가 말렸어요.",
-      "promptDe": "Im Beistandsbuch die Summe anzugleichen hinderte Minsu.",
-      "promptEn": "Minsu stopped me from matching the amount in the aid ledger.",
+      "targetKo": "부조 장부를 보고 액수를 맞추려다 현우가 말렸어요.",
+      "promptDe": "Im Beistandsbuch die Summe anzugleichen hinderte Hyunwoo.",
+      "promptEn": "Hyunwoo stopped me from matching the amount in the aid ledger.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -9576,7 +9576,7 @@
       "promptDe": "Ob die Eltern unterstuetzen, dankte ich, die Summe blieb privat.",
       "promptEn": "On parental support I only gave thanks and hid the amount.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "부모님 지원"
@@ -9648,7 +9648,7 @@
       "promptDe": "Einen Abwaschwechsel vorzuschlagen ueberraschte die Tante.",
       "promptEn": "Suggesting a dish-washing rotation surprised aunt.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "설거지 교대"
@@ -9656,9 +9656,9 @@
     {
       "id": "satz_b2_0218",
       "level": "b2",
-      "targetKo": "남자는 안 한다는 말을 듣고 민수가 일부러 일어났어요.",
-      "promptDe": "Maenner machen das nicht hoerte Minsu und stand absichtlich auf.",
-      "promptEn": "Hearing men do not do that, Minsu stood up on purpose.",
+      "targetKo": "남자는 안 한다는 말을 듣고 현우가 일부러 일어났어요.",
+      "promptDe": "Maenner machen das nicht hoerte Hyunwoo und stand absichtlich auf.",
+      "promptEn": "Hearing men do not do that, Hyunwoo stood up on purpose.",
       "distractors": [
         "사진부터",
         "그건 비밀이에요"
@@ -9720,7 +9720,7 @@
       "promptDe": "Kinderhueten anzubieten dankten die Geschwister.",
       "promptEn": "Offering to watch the children made the siblings grateful.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "아이 돌보기"
@@ -9752,9 +9752,9 @@
     {
       "id": "satz_b2_0226",
       "level": "b2",
-      "targetKo": "앉아서 기다리기만 하니 민수 얼굴이 굳었어요.",
-      "promptDe": "Nur sitzend zu warten liess Minsus Gesicht fest werden.",
-      "promptEn": "Only sitting and waiting made Minsu's face tighten.",
+      "targetKo": "앉아서 기다리기만 하니 현우 얼굴이 굳었어요.",
+      "promptDe": "Nur sitzend zu warten liess Hyunwoos Gesicht fest werden.",
+      "promptEn": "Only sitting and waiting made Hyunwoo's face tighten.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -9792,7 +9792,7 @@
       "promptDe": "Fragen zur Privatsphaere beantwortete ich laechelnd mit spaeter.",
       "promptEn": "I smiled at privacy questions and said I would tell later.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "사생활"
@@ -9836,9 +9836,9 @@
     {
       "id": "satz_b2_0233",
       "level": "b2",
-      "targetKo": "감정 노동이 몰릴 때는 민수와 교대하기로 했어요.",
-      "promptDe": "Wenn die Gefuehlsarbeit sich staute, wechselten Minsu und ich uns ab.",
-      "promptEn": "When emotional labor piled up, Minsu and I took turns.",
+      "targetKo": "감정 노동이 몰릴 때는 현우와 교대하기로 했어요.",
+      "promptDe": "Wenn die Gefuehlsarbeit sich staute, wechselten Hyunwoo und ich uns ab.",
+      "promptEn": "When emotional labor piled up, Hyunwoo and I took turns.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -9864,7 +9864,7 @@
       "promptDe": "Hoefliche Distanz zu halten machte die Beziehung laenger tragfaehig.",
       "promptEn": "Keeping polite distance made the relationship last better.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "정중한 거리"
@@ -9896,9 +9896,9 @@
     {
       "id": "satz_b2_0238",
       "level": "b2",
-      "targetKo": "오늘은 여기까지라고 하니 민수가 바로 일어났어요.",
-      "promptDe": "Fuer heute reicht es sagte ich, und Minsu stand sofort auf.",
-      "promptEn": "When I said that is enough for today, Minsu stood up at once.",
+      "targetKo": "오늘은 여기까지라고 하니 현우가 바로 일어났어요.",
+      "promptDe": "Fuer heute reicht es sagte ich, und Hyunwoo stand sofort auf.",
+      "promptEn": "When I said that is enough for today, Hyunwoo stood up at once.",
       "distractors": [
         "문을 닫고",
         "먼저 물을 주세요"
@@ -9936,7 +9936,7 @@
       "promptDe": "Die oeffentliche Sitzordnung folgte dem Alter, ich sass nah an der Tuer.",
       "promptEn": "Public seating followed age, so I sat nearer the door.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "자리 배치"
@@ -10008,7 +10008,7 @@
       "promptDe": "Auf oeffentliche Fragen gab ich kurze Antworten, Details spaeter.",
       "promptEn": "To a question in public I gave a short answer and left details for later.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "공개 질문"
@@ -10080,7 +10080,7 @@
       "promptDe": "Als Gast belassen zu werden war bequem und schloss zugleich aus.",
       "promptEn": "Being left as a guest was comfortable and also felt excluded.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "손님으로 두다"
@@ -10100,9 +10100,9 @@
     {
       "id": "satz_c1_0058",
       "level": "c1",
-      "targetKo": "역할 언어를 들을 때마다 민수와 나중에 번역하기로 했어요.",
-      "promptDe": "Rollensprache spaeter mit Minsu zu uebersetzen vereinbarten wir.",
-      "promptEn": "We agreed to translate role language with Minsu later.",
+      "targetKo": "역할 언어를 들을 때마다 현우와 나중에 번역하기로 했어요.",
+      "promptDe": "Rollensprache spaeter mit Hyunwoo zu uebersetzen vereinbarten wir.",
+      "promptEn": "We agreed to translate role language with Hyunwoo later.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -10152,7 +10152,7 @@
       "promptDe": "Die Frage, wer deutet, machte einen kurzen Stillstand.",
       "promptEn": "Asking who gets to interpret made a short silence.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "해석의 주체"
@@ -10224,7 +10224,7 @@
       "promptDe": "Die geschlechtliche Arbeitsteilung nur als Tradition zu erklaeren stoppte das Gespraech.",
       "promptEn": "Explaining the gendered division of labor as only tradition stopped talk.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "성별 분업"
@@ -10296,7 +10296,7 @@
       "promptDe": "Den Verteilungsmassstab vom Alter auf Kraft zu aendern senkte den Widerstand.",
       "promptEn": "Changing the sharing standard from age to stamina reduced pushback.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "분배 기준"
@@ -10368,7 +10368,7 @@
       "promptDe": "Druck durch Schweigen blieb laenger als ein Nein, also schrieb ich ihn auf.",
       "promptEn": "Pressure through silence lasted longer than a no, so I recorded it.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "침묵 압력"
@@ -10440,7 +10440,7 @@
       "promptDe": "Ob die Form der Zustimmung ein Nicken oder eine Unterschrift ist, mussten wir klaeren.",
       "promptEn": "We had to decide whether the form of consent is a nod or a signature.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "동의의 형식"
@@ -10512,7 +10512,7 @@
       "promptDe": "Der Schnitt der Erinnerung zeigte sich daran, wer im Album fehlt.",
       "promptEn": "The editing of memory showed in who was cropped from the album.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "기억의 편집"
@@ -10584,7 +10584,7 @@
       "promptDe": "Geteilte Erinnerung nicht auf ein Foto zu reduzieren vereinbarten wir.",
       "promptEn": "We agreed not to freeze shared memory into one photo.",
       "distractors": [
-        "민수에게만",
+        "현우에게만",
         "제가 할게요"
       ],
       "vocabKo": "공동 기억"

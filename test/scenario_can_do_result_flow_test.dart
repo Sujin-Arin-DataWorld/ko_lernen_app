@@ -91,7 +91,7 @@ void main() {
         type: QuestType.particlePop,
         data: {
           'prefix': '저',
-          'suffix': ' 민수예요.',
+          'suffix': ' 현우예요.',
           'options': ['은', '는'],
           'correctIndex': 1,
         },
@@ -100,7 +100,7 @@ void main() {
 
     expect(heard?.phrase, '한국 처음이세요?');
     expect(heard?.kind, ScenarioFirstSuccessKind.listening);
-    expect(completed?.phrase, '저는 민수예요.');
+    expect(completed?.phrase, '저는 현우예요.');
     expect(completed?.kind, ScenarioFirstSuccessKind.completion);
   });
 

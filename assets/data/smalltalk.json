@@ -4766,9 +4766,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "저 민수예요.",
-        "de": "Hier ist Minsu.",
-        "en": "This is Minsu."
+        "ko": "저 현우예요.",
+        "de": "Hier ist Hyunwoo.",
+        "en": "This is Hyunwoo."
       }
     },
     {
@@ -4853,16 +4853,16 @@
       "category": "phone",
       "level": "a2",
       "kind": "question",
-      "ko": "민수 씨 좀 부탁합니다.",
-      "de": "Könnte ich bitte Minsu sprechen?",
-      "en": "May I speak with Minsu?",
+      "ko": "현우 씨 좀 부탁합니다.",
+      "de": "Könnte ich bitte Hyunwoo sprechen?",
+      "en": "May I speak with Hyunwoo?",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수 씨 계세요?",
-          "de": "Ist Minsu da?",
-          "en": "Is Minsu there?"
+          "ko": "현우 씨 계세요?",
+          "de": "Ist Hyunwoo da?",
+          "en": "Is Hyunwoo there?"
         }
       ],
       "reply": {
@@ -8210,9 +8210,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8231,17 +8231,17 @@
       "de": "Was sage ich, wenn bei Ihnen zu Hause unbeholfen wirkt?",
       "en": "What do I say if at your home (honorific) feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8268,9 +8268,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8289,17 +8289,17 @@
       "de": "Was sage ich, wenn Dankesgruß unbeholfen wirkt?",
       "en": "What do I say if thank-you greeting feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8326,9 +8326,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8347,17 +8347,17 @@
       "de": "Was sage ich, wenn Besuchsmanieren unbeholfen wirkt?",
       "en": "What do I say if house-visit manners feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8384,9 +8384,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8405,17 +8405,17 @@
       "de": "Was sage ich, wenn Abwasch unbeholfen wirkt?",
       "en": "What do I say if doing the dishes feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8442,9 +8442,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8463,17 +8463,17 @@
       "de": "Was sage ich, wenn Neujahrskleidung unbeholfen wirkt?",
       "en": "What do I say if New Year clothes feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8500,9 +8500,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8521,17 +8521,17 @@
       "de": "Was sage ich, wenn Ahnenritual unbeholfen wirkt?",
       "en": "What do I say if ancestral memorial rite feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8558,9 +8558,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8579,17 +8579,17 @@
       "de": "Was sage ich, wenn Gruppenfoto unbeholfen wirkt?",
       "en": "What do I say if group photo feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8616,9 +8616,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8637,17 +8637,17 @@
       "de": "Was sage ich, wenn Eindruck vom Besuch unbeholfen wirkt?",
       "en": "What do I say if impression of the visit feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8674,9 +8674,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8695,17 +8695,17 @@
       "de": "Was sage ich, wenn die Stimmung lesen unbeholfen wirkt?",
       "en": "What do I say if reading the room feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8732,9 +8732,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8753,17 +8753,17 @@
       "de": "Was sage ich, wenn Neujahrsvorsatz unbeholfen wirkt?",
       "en": "What do I say if new-year goal feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8790,9 +8790,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8811,17 +8811,17 @@
       "de": "Was sage ich, wenn Chuseok-Ferien unbeholfen wirkt?",
       "en": "What do I say if Chuseok long weekend feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8848,9 +8848,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8869,17 +8869,17 @@
       "de": "Was sage ich, wenn ein vertraulicher Sprachfehler unbeholfen wirkt?",
       "en": "What do I say if a casual-speech slip feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8906,9 +8906,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8927,17 +8927,17 @@
       "de": "Was sage ich, wenn haben Sie gut geschlafen unbeholfen wirkt?",
       "en": "What do I say if did you sleep well feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8964,9 +8964,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -8985,17 +8985,17 @@
       "de": "Was sage ich, wenn Beilagenbeutel unbeholfen wirkt?",
       "en": "What do I say if side-dish bag feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9022,9 +9022,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9043,17 +9043,17 @@
       "de": "Was sage ich, wenn Ankunftsanruf unbeholfen wirkt?",
       "en": "What do I say if safe-arrival call feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9080,9 +9080,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9101,17 +9101,17 @@
       "de": "Was sage ich, wenn Banmal-Uebung unbeholfen wirkt?",
       "en": "What do I say if casual-speech practice feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9138,9 +9138,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9159,17 +9159,17 @@
       "de": "Was sage ich, wenn dazu sage ich spaeter mehr unbeholfen wirkt?",
       "en": "What do I say if I will tell you more later feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9196,9 +9196,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9217,17 +9217,17 @@
       "de": "Was sage ich, wenn auf stabile Weise unbeholfen wirkt?",
       "en": "What do I say if in a stable way feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9254,9 +9254,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9275,17 +9275,17 @@
       "de": "Was sage ich, wenn selbst antworten unbeholfen wirkt?",
       "en": "What do I say if to answer in person feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9312,9 +9312,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9333,17 +9333,17 @@
       "de": "Was sage ich, wenn den Platz meiden unbeholfen wirkt?",
       "en": "What do I say if to step away from the table feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9370,9 +9370,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9391,17 +9391,17 @@
       "de": "Was sage ich, wenn wenn wir zusammen schlafen unbeholfen wirkt?",
       "en": "What do I say if if we sleep in the same room feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9428,9 +9428,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9449,17 +9449,17 @@
       "de": "Was sage ich, wenn naechstes Mal ich unbeholfen wirkt?",
       "en": "What do I say if next time I will feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9486,9 +9486,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9507,17 +9507,17 @@
       "de": "Was sage ich, wenn so tun als habe man gelesen unbeholfen wirkt?",
       "en": "What do I say if pretending to have read feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9544,9 +9544,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9565,17 +9565,17 @@
       "de": "Was sage ich, wenn dieses Jahr schaffen wir es nicht unbeholfen wirkt?",
       "en": "What do I say if we cannot go this year feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9602,9 +9602,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9623,17 +9623,17 @@
       "de": "Was sage ich, wenn nur zu einer Seite unbeholfen wirkt?",
       "en": "What do I say if to only one side feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9660,9 +9660,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9681,17 +9681,17 @@
       "de": "Was sage ich, wenn wir entscheiden das unbeholfen wirkt?",
       "en": "What do I say if we will decide that feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9718,9 +9718,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9739,17 +9739,17 @@
       "de": "Was sage ich, wenn die Anrede aufschieben unbeholfen wirkt?",
       "en": "What do I say if to postpone choosing an address feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9776,9 +9776,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9797,17 +9797,17 @@
       "de": "Was sage ich, wenn die Form wahren unbeholfen wirkt?",
       "en": "What do I say if to keep ritual form feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9834,9 +9834,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9855,17 +9855,17 @@
       "de": "Was sage ich, wenn die Summe bleibt privat unbeholfen wirkt?",
       "en": "What do I say if the amount stays private feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9892,9 +9892,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9913,17 +9913,17 @@
       "de": "Was sage ich, wenn die Arbeit teilen unbeholfen wirkt?",
       "en": "What do I say if to share the labor feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9950,9 +9950,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -9971,17 +9971,17 @@
       "de": "Was sage ich, wenn die Beziehung wahren unbeholfen wirkt?",
       "en": "What do I say if to keep the relationship feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10008,9 +10008,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10029,17 +10029,17 @@
       "de": "Was sage ich, wenn in der Oeffentlichkeit die Form unbeholfen wirkt?",
       "en": "What do I say if form in public feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10066,9 +10066,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10087,17 +10087,17 @@
       "de": "Was sage ich, wenn den Platz neu verhandeln unbeholfen wirkt?",
       "en": "What do I say if to renegotiate one's place feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10124,9 +10124,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10145,17 +10145,17 @@
       "de": "Was sage ich, wenn Fairness entwerfen unbeholfen wirkt?",
       "en": "What do I say if to design fairness feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10182,9 +10182,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10203,17 +10203,17 @@
       "de": "Was sage ich, wenn den Platz dokumentieren unbeholfen wirkt?",
       "en": "What do I say if to document one's place feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10240,9 +10240,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
@@ -10261,17 +10261,17 @@
       "de": "Was sage ich, wenn die Erzaehlung teilen unbeholfen wirkt?",
       "en": "What do I say if to share authorship of the story feels awkward?",
       "reply": {
-        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
-        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
-        "en": "Smile and check once with Minsu."
+        "ko": "웃고 현우에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Hyunwoo nachfragen reicht.",
+        "en": "Smile and check once with Hyunwoo."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "민수한테 먼저 물어봐도 돼요?",
-          "de": "Darf ich zuerst Minsu fragen?",
-          "en": "May I ask Minsu first?"
+          "ko": "현우한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Hyunwoo fragen?",
+          "en": "May I ask Hyunwoo first?"
         }
       ],
       "followUp": {
