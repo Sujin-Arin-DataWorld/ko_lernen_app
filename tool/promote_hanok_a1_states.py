@@ -31,12 +31,7 @@ class PromotionError(ValueError):
 
 
 def _chroma_count(image: Image.Image) -> int:
-    count = chroma_key_count(image)
-    # #region agent log
-    import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "promote_hanok_a1_states.py:_chroma_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
-    # #endregion
-    return count
+    return chroma_key_count(image)
 
 
 def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None:
@@ -122,12 +117,6 @@ def promote_states(
     _require_approved_ledger(approved, payload)
     destination = runtime_root or A1_RUNTIME_STATES_ROOT
     copied = []
-    # #region agent log
-    import json as _json, time as _time
-    _records = payload.get("generationLedger", {}).get("records", [])
-    _digests = a1_approved_state_digests(payload)
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "B", "location": "promote_hanok_a1_states.py:promote_states", "message": "promote SHA-lock", "data": {"dryRun": dry_run, "fileCount": len(approved), "ledgerRecordCount": len(_records), "approvedOutputShaCount": len(_digests), "shaLocked": True, "wouldCopy": not dry_run}, "timestamp": int(_time.time() * 1000)}) + "\n")
-    # #endregion
     expected_names = {path.name for path in approved}
     if destination.is_dir():
         leftovers = [

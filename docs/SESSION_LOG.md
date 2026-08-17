@@ -6,11 +6,23 @@
 로컬 `main`은 `a78bdadb`(#51 스튜디오)까지 맞춘 뒤 병합했다.
 
 **무엇.** `--no-ff`로 PR #50 TTS fail-closed, #52 한옥 PR4 구멍,
-#53 민수/안나 재생성 차단, #54 단어망 검수 후속을 넣었다. 충돌은
-`SESSION_LOG.md`뿐이었고 양쪽 항목을 모두 남겼다. live 카탈로그 수량은
-vocab 1620 · cloze 962 · satz 875 · smalltalk 365 · scenario 90을 유지했다.
+#53 민수/안나 재생성 차단, #54 단어망 검수 후속과 em-dash 수정을 넣었다.
+스튜디오 힌트(대화·단어망)는 유지했다. live 카탈로그 수량은 vocab 1620 ·
+cloze 962 · satz 875 · smalltalk 365 · scenario 90을 유지했다.
 
 **검증.** 병합 직후 이전 CI 실패 묶음과 각 PR 집중 테스트를 다시 돌린다.
+
+### 2026-08-17 (Cursor) — PR4 fail-closed 계측 제거
+
+**무엇을.** compose/promote/checker와 A1 map의 NDJSON·`A1_CACHE_HOLE`
+debugPrint·`/opt/cursor/logs/debug.log` 쓰기·probe-only
+`test/a1_hanok_imagecache_hole_observe_test.dart`를 제거했다. chroma helper,
+ledger SHA-lock, `a1HanokEvictionTargets`, exclusive-bottom anchor와 catalog
+eviction·compose/promote/chroma 회귀는 유지한다.
+
+**검증.** Python compose/promote/contract, Flutter catalog/map, checker,
+`flutter analyze --no-pub --fatal-infos`, `git diff --check`. 커밋
+`c002bef6`.
 
 ### 2026-08-17 (Cursor) — 공책 스튜디오 리뷰 4건을 카테고리 계약으로 고정
 
