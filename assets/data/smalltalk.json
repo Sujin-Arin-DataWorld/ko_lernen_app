@@ -8192,6 +8192,2094 @@
       "conceptIds": [
         "concept_c2_accountable_systems"
       ]
+    },
+    {
+      "id": "smalltalk_a1_0065",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "첫 인사와 호칭에서 인사드리겠습니다 어떻게 말해요?",
+      "de": "Wie sage ich ich werde mich hoeflich vorstellen bei Erste Begrüßung und Anrede?",
+      "en": "How do I say I will greet you respectfully during First greeting and address terms?",
+      "reply": {
+        "ko": "천천히 인사드리겠습니다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig ich werde mich hoeflich vorstellen.",
+        "en": "Start slowly with I will greet you respectfully."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0066",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "댁에 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn bei Ihnen zu Hause unbeholfen wirkt?",
+      "en": "What do I say if at your home (honorific) feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0067",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "첫 방문 선물에서 과일 바구니 어떻게 말해요?",
+      "de": "Wie sage ich Obstkorb bei Das erste Besuchgeschenk?",
+      "en": "How do I say fruit basket during The first visit gift?",
+      "reply": {
+        "ko": "천천히 과일 바구니부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Obstkorb.",
+        "en": "Start slowly with fruit basket."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0068",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "감사 인사 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Dankesgruß unbeholfen wirkt?",
+      "en": "What do I say if thank-you greeting feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0069",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "집 들어가기에서 현관 어떻게 말해요?",
+      "de": "Wie sage ich Diele bei Ins Haus kommen?",
+      "en": "How do I say entryway during Coming into the house?",
+      "reply": {
+        "ko": "천천히 현관부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Diele.",
+        "en": "Start slowly with entryway."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0070",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "집들이 예절 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Besuchsmanieren unbeholfen wirkt?",
+      "en": "What do I say if house-visit manners feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0071",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "첫 밥상에서 진지 어떻게 말해요?",
+      "de": "Wie sage ich Mahlzeit (ehrenvoll) bei Der erste Familientisch?",
+      "en": "How do I say meal (honorific) during The first family table?",
+      "reply": {
+        "ko": "천천히 진지부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Mahlzeit (ehrenvoll).",
+        "en": "Start slowly with meal (honorific)."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0072",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "설거지 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Abwasch unbeholfen wirkt?",
+      "en": "What do I say if doing the dishes feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0073",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "설날 첫걸음에서 설날 어떻게 말해요?",
+      "de": "Wie sage ich Seollal, Mondneujahr bei Erste Schritte an Seollal?",
+      "en": "How do I say Seollal, Lunar New Year during First steps at Seollal?",
+      "reply": {
+        "ko": "천천히 설날부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Seollal, Mondneujahr.",
+        "en": "Start slowly with Seollal, Lunar New Year."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0074",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "설빔 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Neujahrskleidung unbeholfen wirkt?",
+      "en": "What do I say if New Year clothes feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0075",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "추석 첫걸음에서 추석 어떻게 말해요?",
+      "de": "Wie sage ich Chuseok, Erntedank bei Erste Schritte an Chuseok?",
+      "en": "How do I say Chuseok, harvest festival during First steps at Chuseok?",
+      "reply": {
+        "ko": "천천히 추석부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Chuseok, Erntedank.",
+        "en": "Start slowly with Chuseok, harvest festival."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0076",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "차례 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Ahnenritual unbeholfen wirkt?",
+      "en": "What do I say if ancestral memorial rite feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0077",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "형제자매 첫 만남에서 처남 어떻게 말해요?",
+      "de": "Wie sage ich Schwager, Bruder der Frau bei Geschwister zum ersten Mal?",
+      "en": "How do I say wife's brother during Meeting the siblings?",
+      "reply": {
+        "ko": "천천히 처남부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Schwager, Bruder der Frau.",
+        "en": "Start slowly with wife's brother."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0078",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "단체 사진 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Gruppenfoto unbeholfen wirkt?",
+      "en": "What do I say if group photo feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0079",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "question",
+      "ko": "사진과 감사에서 인증샷 어떻게 말해요?",
+      "de": "Wie sage ich Beweis-Foto bei Fotos und Dank?",
+      "en": "How do I say proof photo during Photos and thanks?",
+      "reply": {
+        "ko": "천천히 인증샷부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Beweis-Foto.",
+        "en": "Start slowly with proof photo."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0080",
+      "category": "partner_family",
+      "level": "a1",
+      "kind": "opener",
+      "ko": "방문 소감 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Eindruck vom Besuch unbeholfen wirkt?",
+      "en": "What do I say if impression of the visit feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0058",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "저녁 자리 이야기에서 어디서 오셨어요 어떻게 말해요?",
+      "de": "Wie sage ich woher kommen Sie bei Gespraech am Abendessen?",
+      "en": "How do I say where are you from during Talk at the family dinner?",
+      "reply": {
+        "ko": "천천히 어디서 오셨어요부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig woher kommen Sie.",
+        "en": "Start slowly with where are you from."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0059",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "분위기 파악 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Stimmung lesen unbeholfen wirkt?",
+      "en": "What do I say if reading the room feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0060",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "설날 하루에서 세배하러 가다 어떻게 말해요?",
+      "de": "Wie sage ich zur Verbeugung gehen bei Ein Seollal-Tag?",
+      "en": "How do I say to go offer New Year bows during A full Seollal day?",
+      "reply": {
+        "ko": "천천히 세배하러 가다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig zur Verbeugung gehen.",
+        "en": "Start slowly with to go offer New Year bows."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0061",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "새해 목표 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Neujahrsvorsatz unbeholfen wirkt?",
+      "en": "What do I say if new-year goal feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0062",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "추석 하루에서 귀성길 어떻게 말해요?",
+      "de": "Wie sage ich Heimreiseverkehr bei Ein Chuseok-Tag?",
+      "en": "How do I say holiday homebound traffic during A full Chuseok day?",
+      "reply": {
+        "ko": "천천히 귀성길부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Heimreiseverkehr.",
+        "en": "Start slowly with holiday homebound traffic."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0063",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "추석 연휴 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Chuseok-Ferien unbeholfen wirkt?",
+      "en": "What do I say if Chuseok long weekend feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0064",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "형제 장난과 편들기에서 놀리다 어떻게 말해요?",
+      "de": "Wie sage ich aufziehen bei Geschwisterscherze?",
+      "en": "How do I say to tease during Sibling teasing and backup?",
+      "reply": {
+        "ko": "천천히 놀리다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig aufziehen.",
+        "en": "Start slowly with to tease."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0065",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "반말 실수 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn ein vertraulicher Sprachfehler unbeholfen wirkt?",
+      "en": "What do I say if a casual-speech slip feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0066",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "하룻밤 묵기에서 손님방 어떻게 말해요?",
+      "de": "Wie sage ich Gaestezimmer bei Ueber Nacht bleiben?",
+      "en": "How do I say guest room during Staying overnight?",
+      "reply": {
+        "ko": "천천히 손님방부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Gaestezimmer.",
+        "en": "Start slowly with guest room."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0067",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "잘 주무셨어요 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn haben Sie gut geschlafen unbeholfen wirkt?",
+      "en": "What do I say if did you sleep well feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0068",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "싸 주시는 반찬에서 싸 주다 어떻게 말해요?",
+      "de": "Wie sage ich zum Mitnehmen einpacken bei Eingepackte Reste?",
+      "en": "How do I say to pack food to go during Leftovers packed to go?",
+      "reply": {
+        "ko": "천천히 싸 주다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig zum Mitnehmen einpacken.",
+        "en": "Start slowly with to pack food to go."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0069",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "반찬 봉투 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Beilagenbeutel unbeholfen wirkt?",
+      "en": "What do I say if side-dish bag feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0070",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "고향집 가는 길에서 고속버스 어떻게 말해요?",
+      "de": "Wie sage ich Fernbus bei Fahrt ins Elternhaus?",
+      "en": "How do I say express bus during Trip to the hometown house?",
+      "reply": {
+        "ko": "천천히 고속버스부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Fernbus.",
+        "en": "Start slowly with express bus."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0071",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "안부 전화 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Ankunftsanruf unbeholfen wirkt?",
+      "en": "What do I say if safe-arrival call feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0072",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "question",
+      "ko": "반말과 존댓말 사이에서 반말 전환 어떻게 말해요?",
+      "de": "Wie sage ich Wechsel ins Vertraute bei Zwischen Banmal und Hoeflichkeit?",
+      "en": "How do I say switch to casual speech during Between casual and honorific speech?",
+      "reply": {
+        "ko": "천천히 반말 전환부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Wechsel ins Vertraute.",
+        "en": "Start slowly with switch to casual speech."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0073",
+      "category": "partner_family",
+      "level": "a2",
+      "kind": "opener",
+      "ko": "반말 연습 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Banmal-Uebung unbeholfen wirkt?",
+      "en": "What do I say if casual-speech practice feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0055",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "어색한 질문 넘기기에서 결혼 계획 어떻게 말해요?",
+      "de": "Wie sage ich Heiratsplaene bei Unangenehme Fragen parieren?",
+      "en": "How do I say marriage plans during Deflecting awkward questions?",
+      "reply": {
+        "ko": "천천히 결혼 계획부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Heiratsplaene.",
+        "en": "Start slowly with marriage plans."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0056",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "다음에 말씀드릴게요 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn dazu sage ich spaeter mehr unbeholfen wirkt?",
+      "en": "What do I say if I will tell you more later feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0057",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "일과 체류 설명에서 취업 비자 어떻게 말해요?",
+      "de": "Wie sage ich Arbeitsvisum bei Arbeit und Aufenthalt erklaeren?",
+      "en": "How do I say work visa during Explaining work and stay?",
+      "reply": {
+        "ko": "천천히 취업 비자부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Arbeitsvisum.",
+        "en": "Start slowly with work visa."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0058",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "안정적으로 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn auf stabile Weise unbeholfen wirkt?",
+      "en": "What do I say if in a stable way feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0059",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "통역하는 연인에서 통역을 맡다 어떻게 말해요?",
+      "de": "Wie sage ich das Dolmetschen uebernehmen bei Das uebersetzende Paar?",
+      "en": "How do I say to take on interpreting during The partner who interprets?",
+      "reply": {
+        "ko": "천천히 통역을 맡다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig das Dolmetschen uebernehmen.",
+        "en": "Start slowly with to take on interpreting."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0060",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "직접 대답하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn selbst antworten unbeholfen wirkt?",
+      "en": "What do I say if to answer in person feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0061",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "술상 예절에서 잔을 받다 어떻게 말해요?",
+      "de": "Wie sage ich das Glas entgegennehmen bei Manieren am Trinktisch?",
+      "en": "How do I say to receive a glass during Manners at the drinking table?",
+      "reply": {
+        "ko": "천천히 잔을 받다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig das Glas entgegennehmen.",
+        "en": "Start slowly with to receive a glass."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0062",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "자리 피하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn den Platz meiden unbeholfen wirkt?",
+      "en": "What do I say if to step away from the table feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0063",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "잠자리와 방 경계에서 방 배정 어떻게 말해요?",
+      "de": "Wie sage ich Zimmerzuteilung bei Schlafplatz und Zimmgrenze?",
+      "en": "How do I say room assignment during Sleeping place and room boundaries?",
+      "reply": {
+        "ko": "천천히 방 배정부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Zimmerzuteilung.",
+        "en": "Start slowly with room assignment."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0064",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "같이 자면 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn wenn wir zusammen schlafen unbeholfen wirkt?",
+      "en": "What do I say if if we sleep in the same room feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0065",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "다녀온 뒤 정리에서 방문 후기 어떻게 말해요?",
+      "de": "Wie sage ich Besuchsnachlese bei Nach dem Besuch ordnen?",
+      "en": "How do I say after-visit recap during Debrief after the visit?",
+      "reply": {
+        "ko": "천천히 방문 후기부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Besuchsnachlese.",
+        "en": "Start slowly with after-visit recap."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0066",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "다음엔 내가 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn naechstes Mal ich unbeholfen wirkt?",
+      "en": "What do I say if next time I will feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0067",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "가족 단톡 예절에서 단톡 입장 어떻게 말해요?",
+      "de": "Wie sage ich Chatbeitritt bei Manieren im Familienchat?",
+      "en": "How do I say joining the group chat during Family group-chat manners?",
+      "reply": {
+        "ko": "천천히 단톡 입장부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Chatbeitritt.",
+        "en": "Start slowly with joining the group chat."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0068",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "읽은 척 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn so tun als habe man gelesen unbeholfen wirkt?",
+      "en": "What do I say if pretending to have read feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0069",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "question",
+      "ko": "명절 일정 조율에서 양쪽 집 어떻게 말해요?",
+      "de": "Wie sage ich beide Elternhaeuser bei Feiertagsplaene abstimmen?",
+      "en": "How do I say both family homes during Coordinating holiday plans?",
+      "reply": {
+        "ko": "천천히 양쪽 집부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig beide Elternhaeuser.",
+        "en": "Start slowly with both family homes."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0070",
+      "category": "partner_family",
+      "level": "b1",
+      "kind": "opener",
+      "ko": "올해는 못 가요 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn dieses Jahr schaffen wir es nicht unbeholfen wirkt?",
+      "en": "What do I say if we cannot go this year feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0083",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "시댁과 처가 사이에서 시댁 어떻게 말해요?",
+      "de": "Wie sage ich Familie des Ehemanns bei Zwischen Schwiegerfamilien?",
+      "en": "How do I say husband's family home during Between the two in-law houses?",
+      "reply": {
+        "ko": "천천히 시댁부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Familie des Ehemanns.",
+        "en": "Start slowly with husband's family home."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0084",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "한쪽에만 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn nur zu einer Seite unbeholfen wirkt?",
+      "en": "What do I say if to only one side feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0085",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "결혼 이야기 다루기에서 상견례 어떻게 말해요?",
+      "de": "Wie sage ich formelles Kennenlernen der Eltern bei Heiratsgespraeche fuehren?",
+      "en": "How do I say formal meeting of both parents during Handling marriage talk?",
+      "reply": {
+        "ko": "천천히 상견례부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig formelles Kennenlernen der Eltern.",
+        "en": "Start slowly with formal meeting of both parents."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0086",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "우리가 정할게요 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn wir entscheiden das unbeholfen wirkt?",
+      "en": "What do I say if we will decide that feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0087",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "호칭 함정 피하기에서 호칭 체계 어떻게 말해요?",
+      "de": "Wie sage ich Anredesystem bei Anredefallen meiden?",
+      "en": "How do I say address-term system during Avoiding address-term traps?",
+      "reply": {
+        "ko": "천천히 호칭 체계부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Anredesystem.",
+        "en": "Start slowly with address-term system."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0088",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "호칭을 미루다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Anrede aufschieben unbeholfen wirkt?",
+      "en": "What do I say if to postpone choosing an address feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0089",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "차례와 제사 자리에서 제사상 어떻게 말해요?",
+      "de": "Wie sage ich Ahnentisch bei Am Ritualtisch?",
+      "en": "How do I say ancestral offering table during At the ancestral rite?",
+      "reply": {
+        "ko": "천천히 제사상부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Ahnentisch.",
+        "en": "Start slowly with ancestral offering table."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0090",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "예를 갖추다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Form wahren unbeholfen wirkt?",
+      "en": "What do I say if to keep ritual form feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0091",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "가족 돈 이야기에서 용돈 드리다 어떻게 말해요?",
+      "de": "Wie sage ich Taschengeld geben bei Geld in der Familie?",
+      "en": "How do I say to give pocket money to elders during Money talk in the family?",
+      "reply": {
+        "ko": "천천히 용돈 드리다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Taschengeld geben.",
+        "en": "Start slowly with to give pocket money to elders."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0092",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "액수는 비밀 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Summe bleibt privat unbeholfen wirkt?",
+      "en": "What do I say if the amount stays private feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0093",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "명절 노동과 공평에서 전 부침 어떻게 말해요?",
+      "de": "Wie sage ich Pfannengerichte braten bei Feiertagsarbeit und Fairness?",
+      "en": "How do I say frying holiday pancakes during Holiday labor and fairness?",
+      "reply": {
+        "ko": "천천히 전 부침부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Pfannengerichte braten.",
+        "en": "Start slowly with frying holiday pancakes."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0094",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "노동을 나누다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Arbeit teilen unbeholfen wirkt?",
+      "en": "What do I say if to share the labor feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0095",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "선 긋기와 관계 유지에서 선을 긋다 어떻게 말해요?",
+      "de": "Wie sage ich eine Grenze ziehen bei Grenzen setzen und Beziehung halten?",
+      "en": "How do I say to draw a line during Setting boundaries while keeping the bond?",
+      "reply": {
+        "ko": "천천히 선을 긋다부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig eine Grenze ziehen.",
+        "en": "Start slowly with to draw a line."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0096",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "관계를 지키다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Beziehung wahren unbeholfen wirkt?",
+      "en": "What do I say if to keep the relationship feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0097",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "question",
+      "ko": "밖에서 가족 소개에서 공식 소개 어떻게 말해요?",
+      "de": "Wie sage ich formelle Vorstellung bei Die Familie in der Oeffentlichkeit vorstellen?",
+      "en": "How do I say formal introduction during Introducing family in public?",
+      "reply": {
+        "ko": "천천히 공식 소개부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig formelle Vorstellung.",
+        "en": "Start slowly with formal introduction."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0098",
+      "category": "partner_family",
+      "level": "b2",
+      "kind": "opener",
+      "ko": "밖에서 예의를 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn in der Oeffentlichkeit die Form unbeholfen wirkt?",
+      "en": "What do I say if form in public feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0019",
+      "category": "partner_family",
+      "level": "c1",
+      "kind": "question",
+      "ko": "가족 말의 프레임에서 우리 며느리 어떻게 말해요?",
+      "de": "Wie sage ich unsere Schwiegertochter bei Rahmen der Familiensprache?",
+      "en": "How do I say our daughter-in-law during How family language frames us?",
+      "reply": {
+        "ko": "천천히 우리 며느리부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig unsere Schwiegertochter.",
+        "en": "Start slowly with our daughter-in-law."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0020",
+      "category": "partner_family",
+      "level": "c1",
+      "kind": "opener",
+      "ko": "자리를 재협상하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn den Platz neu verhandeln unbeholfen wirkt?",
+      "en": "What do I say if to renegotiate one's place feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0021",
+      "category": "partner_family",
+      "level": "c1",
+      "kind": "question",
+      "ko": "명절 노동의 분배에서 보이지 않는 일 어떻게 말해요?",
+      "de": "Wie sage ich unsichtbare Arbeit bei Verteilung der Festarbeit?",
+      "en": "How do I say invisible work during How holiday labor is distributed?",
+      "reply": {
+        "ko": "천천히 보이지 않는 일부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig unsichtbare Arbeit.",
+        "en": "Start slowly with invisible work."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0022",
+      "category": "partner_family",
+      "level": "c1",
+      "kind": "opener",
+      "ko": "공평을 설계하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn Fairness entwerfen unbeholfen wirkt?",
+      "en": "What do I say if to design fairness feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0019",
+      "category": "partner_family",
+      "level": "c2",
+      "kind": "question",
+      "ko": "시댁 권력과 말에서 의사결정권 어떻게 말해요?",
+      "de": "Wie sage ich Entscheidungsrecht bei Macht und Sprache der Schwiegerfamilie?",
+      "en": "How do I say decision rights during Power and language among in-laws?",
+      "reply": {
+        "ko": "천천히 의사결정권부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig Entscheidungsrecht.",
+        "en": "Start slowly with decision rights."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0020",
+      "category": "partner_family",
+      "level": "c2",
+      "kind": "opener",
+      "ko": "자리를 문서화하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn den Platz dokumentieren unbeholfen wirkt?",
+      "en": "What do I say if to document one's place feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0021",
+      "category": "partner_family",
+      "level": "c2",
+      "kind": "question",
+      "ko": "이름과 기억의 정치에서 이름 호명 어떻게 말해요?",
+      "de": "Wie sage ich beim Namen rufen bei Politik von Name und Erinnerung?",
+      "en": "How do I say calling by name during The politics of names and memory?",
+      "reply": {
+        "ko": "천천히 이름 호명부터 말하면 돼요.",
+        "de": "Sagen Sie zuerst ruhig beim Namen rufen.",
+        "en": "Start slowly with calling by name."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0022",
+      "category": "partner_family",
+      "level": "c2",
+      "kind": "opener",
+      "ko": "서사를 공유하다 때문에 어색하면 뭐라고 해요?",
+      "de": "Was sage ich, wenn die Erzaehlung teilen unbeholfen wirkt?",
+      "en": "What do I say if to share authorship of the story feels awkward?",
+      "reply": {
+        "ko": "웃고 민수에게 한 번만 확인하면 돼요.",
+        "de": "Laecheln und einmal bei Minsu nachfragen reicht.",
+        "en": "Smile and check once with Minsu."
+      },
+      "relationshipContext": "family",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "민수한테 먼저 물어봐도 돼요?",
+          "de": "Darf ich zuerst Minsu fragen?",
+          "en": "May I ask Minsu first?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그렇게 하면 실수가 줄어요.",
+        "de": "So werden Fehler weniger.",
+        "en": "That way there are fewer slips."
+      }
     }
   ]
 }

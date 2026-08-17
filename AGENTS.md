@@ -333,11 +333,10 @@ flutter run -d <android-id>   # 안드로이드
   생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
   production route를 fail closed했다. 최신 main 재배치·전체 로컬 게이트는 통과했으며,
   GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다.
-- [ ] **한국 파트너 가족·명절 트랙 (승격 진행)**: Batch 07 five-kind
-  (36팩·432 vocab·1:1 cloze/satz·72 smalltalk·6 grammar)와 Batch 08 시나리오
-  28개를 `integrate_review_batches.py` / `integrate_scenario_batch.py`로 live
-  승격한다. GitHub exact-head CI와 main 병합 뒤에만 완료로 체크한다. 전체 live
-  4배 확장은 이 트랙 뒤에 이어서 배치한다.
+- [ ] **한국 파트너 가족·명절 트랙 (CI·병합 게이트)**: Batch 07/08를 live
+  자산으로 승격했다(vocab 1620, cloze 962, satz 875, smalltalk 365,
+  grammar 182, scenario 90). GitHub exact-head CI와 main 병합 뒤에만 완료로
+  체크한다. 전체 live 4배 확장은 이 트랙 뒤에 이어서 배치한다.
 - [ ] **다음 콘텐츠 (Jin 승인 대기)**: Batch 06은 B1/B2 회귀 표본과 첫 C1/C2
   시나리오를 묶은 review-only 교차 게임 pilot이다. schema-complete 초안은 레벨별
   scenario 1·Smalltalk 2·Cloze 4·Satzbau 6·pronunciation 4와 scenario quest 5,

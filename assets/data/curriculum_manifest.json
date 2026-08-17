@@ -2156,7 +2156,43 @@
     "c1_risk_communication": "c1_01_evidence_public_reasoning",
     "c1_sustainable_tradeoffs": "c1_02_inclusive_sustainable_systems",
     "c2_language_framing": "c2_01_interpretation_institutions",
-    "c2_technology_ethics": "c2_02_technology_public_ethics"
+    "c2_technology_ethics": "c2_02_technology_public_ethics",
+    "a1_partner_meet_names": "a1_11_titles_relationships",
+    "a1_partner_first_gift": "a1_11_titles_relationships",
+    "a1_partner_house_entry": "a1_11_titles_relationships",
+    "a1_partner_table_basic": "a1_11_titles_relationships",
+    "a1_partner_seollal_basic": "a1_11_titles_relationships",
+    "a1_partner_chuseok_basic": "a1_11_titles_relationships",
+    "a1_partner_siblings_hello": "a1_11_titles_relationships",
+    "a1_partner_photo_thanks": "a1_11_titles_relationships",
+    "a2_partner_dinner_talk": "a2_03_chat_relationships",
+    "a2_partner_seollal_day": "a2_03_chat_relationships",
+    "a2_partner_chuseok_day": "a2_03_chat_relationships",
+    "a2_partner_sibling_tease": "a2_03_chat_relationships",
+    "a2_partner_overnight": "a2_03_chat_relationships",
+    "a2_partner_leftover_bags": "a2_03_chat_relationships",
+    "a2_partner_hometown_trip": "a2_03_chat_relationships",
+    "a2_partner_banmal_switch": "a2_03_chat_relationships",
+    "b1_partner_awkward_questions": "b1_04_relationships",
+    "b1_partner_job_visa": "b1_04_relationships",
+    "b1_partner_translating": "b1_04_relationships",
+    "b1_partner_drink_table": "b1_04_relationships",
+    "b1_partner_sleep_room": "b1_04_relationships",
+    "b1_partner_after_visit": "b1_04_relationships",
+    "b1_partner_group_chat": "b1_04_relationships",
+    "b1_partner_holiday_plan": "b1_04_relationships",
+    "b2_partner_inlaws": "b2_06_advanced_capstone",
+    "b2_partner_marriage_talk": "b2_06_advanced_capstone",
+    "b2_partner_honorific_trap": "b2_06_advanced_capstone",
+    "b2_partner_ancestral_rite": "b2_06_advanced_capstone",
+    "b2_partner_family_money": "b2_06_advanced_capstone",
+    "b2_partner_holiday_duty": "b2_06_advanced_capstone",
+    "b2_partner_boundary": "b2_06_advanced_capstone",
+    "b2_partner_public_intro": "b2_06_advanced_capstone",
+    "c1_partner_family_framing": "c1_02_inclusive_sustainable_systems",
+    "c1_partner_holiday_labor": "c1_02_inclusive_sustainable_systems",
+    "c2_partner_inlaw_power": "c2_01_interpretation_institutions",
+    "c2_partner_name_memory": "c2_01_interpretation_institutions"
   },
   "contentLinks": [
     {
@@ -2444,6 +2480,258 @@
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
         "concept_c2_accountable_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_first_door",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_seollal_bow",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_songpyeon_too_big",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_more_side_dishes",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_leftover_bags",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_holiday_train",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_banmal_slip",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_marriage_question",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_drink_table",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_overnight_door",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_inlaw_rotation",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_public_intro",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_partner_invisible_labor",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_partner_name_and_memory",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_gift_too_big",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_wrong_seat",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_partner_new_year_money",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_morning_greeting",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_group_chat_join",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_partner_hanbok_rental",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_salary_deflect",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_interpret_skip",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_partner_heavy_bags_home",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_dowry_joke",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_holiday_labor_chart",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_partner_photo_permission",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_partner_guest_or_family",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_partner_document_the_place",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
       ],
       "role": "assess"
     }
@@ -3504,6 +3792,42 @@
       "conceptIds": [
         "concept_c2_accountable_systems"
       ]
+    },
+    "grammar_a1_honorific_kke": {
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    "grammar_a2_humble_give": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "grammar_b1_honorific_subject_kkeyseo": {
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    "grammar_b2_rather_than_direct": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "grammar_c1_family_framing": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c2_regardless_of_kin": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -4082,6 +4406,42 @@
       "conceptIds": [
         "concept_c2_discourse_institutions"
       ]
+    },
+    "a1:partner_family": {
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    "a2:partner_family": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "b1:partner_family": {
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    "b2:partner_family": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "c1:partner_family": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c2:partner_family": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
     }
   },
   "smalltalkCheckpointPhraseMap": {
@@ -4173,6 +4533,12 @@
     "c1:risiko & öffentliche information": "c1_01_evidence_public_reasoning",
     "c1:nachhaltige entscheidungen vor ort": "c1_02_inclusive_sustainable_systems",
     "c2:sprache, deutung & macht": "c2_01_interpretation_institutions",
-    "c2:technikethik & verantwortung": "c2_02_technology_public_ethics"
+    "c2:technikethik & verantwortung": "c2_02_technology_public_ethics",
+    "a1:partnerschaft & koreanische familie": "a1_11_titles_relationships",
+    "a2:partnerschaft & koreanische familie": "a2_03_chat_relationships",
+    "b1:partnerschaft & koreanische familie": "b1_04_relationships",
+    "b2:partnerschaft & koreanische familie": "b2_06_advanced_capstone",
+    "c1:partnerschaft & koreanische familie": "c1_02_inclusive_sustainable_systems",
+    "c2:partnerschaft & koreanische familie": "c2_01_interpretation_institutions"
   }
 }

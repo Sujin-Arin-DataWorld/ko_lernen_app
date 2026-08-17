@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 07/08 파트너 가족 트랙 live 승격
+
+**무엇을.** `integrate_review_batches.py --apply --approve-all`로 Batch 07
+five-kind(432 vocab·432 cloze·432 satz·72 smalltalk·6 grammar·36팩)를
+`assets/data/`와 pack 라벨/순서/도장 맵에 넣었다.
+`integrate_scenario_batch.py --apply`로 Batch 08 시나리오 28개·퀘스트 84개를
+시나리오 자산·curriculum link·backdrop 맵에 넣었다. can-do 카탈로그는 기존
+86 세그먼트를 유지한 채 새 연습 행을 공개 세그먼트에 붙였고, A1–B2
+`partner_family` smalltalk 64개는 명시 승인으로 고정했다.
+
+**왜.** 초안 브랜치는 review-only였다. Jin이 승격 스크립트 실행과 새 PR을
+요청했다. 최신 `main`의 Batch 06 live 자산 위에 겹치지 않는 ID로 붙였다.
+
+**검증.** `validate_review_batch.py` 1374 records.
+integrator inventory vocab 1620, grammar 182, scenario 90, scenarioQuest 345,
+smalltalk 365, cloze 962, satz 875. `validate_content.py` 통과.
+`build_can_do_segments.py --check` 통과.
+`python3 -m unittest tools.content_factory.test_build_can_do_segments` **12/12**.
+Flutter 수량 계약은 같은 인벤토리로 갱신했다.
+
+**커밋해시.** 이 기록과 같은 커밋.
+
 ### 2026-08-16 (Cursor) — 한국 파트너 가족·명절 트랙 Batch 07/08 초안
 
 **무엇을.** 연인이 한국 가족을 만나는 전용 카테고리 `partner_family`를 추가하고,

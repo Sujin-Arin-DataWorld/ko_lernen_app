@@ -12,32 +12,32 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
     final vocabRows = _csvRows('assets/data/korean_vocab.csv');
-    expect(vocabRows, hasLength(1189));
+    expect(vocabRows, hasLength(1621));
     expect(vocabRows.first.last, 'id');
-    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 1188);
+    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 1620);
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(285));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 285);
+    expect(phrases, hasLength(365));
+    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 365);
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();
-    expect(clozeItems, hasLength(514));
-    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 514);
+    expect(clozeItems, hasLength(962));
+    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 962);
 
     final satz = _jsonObject('assets/data/satz_sentences.json');
     final satzItems = (satz['items'] as List).cast<Map<String, dynamic>>();
-    expect(satzItems, hasLength(419));
-    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 419);
+    expect(satzItems, hasLength(875));
+    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 875);
 
     final pronunciation = _jsonObject('assets/data/pronunciation_phrases.json');
     final pronunciationPhrases = (pronunciation['phrases'] as List)
         .cast<Map<String, dynamic>>();
-    expect(pronunciationPhrases, hasLength(4));
+    expect(pronunciationPhrases, hasLength(20));
     _expectRawIds(
       pronunciationPhrases.map((item) => item['id']?.toString() ?? ''),
-      4,
+      20,
     );
   });
 

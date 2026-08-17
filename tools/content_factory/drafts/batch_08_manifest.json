@@ -1,11 +1,17 @@
 {
   "version": 1,
   "batch": "08",
-  "status": "review_only",
+  "status": "merged",
   "provenance": {
     "scope": "Original Korean-partner family and holiday scenario episodes.",
     "rights": "original",
-    "requiresJinReview": true
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-17",
+      "scope": "all records approved for learner-facing integration"
+    },
+    "mergedAt": "2026-08-17"
   },
   "artifacts": [
     {

@@ -122,7 +122,7 @@ void main() {
         .toList(growable: false);
     final phrasesById = {for (final row in phrases) row['id']: row};
 
-    expect(decisions, hasLength(253));
+    expect(decisions, hasLength(317));
     expect(decisionById.keys.toSet(), {for (final row in phrases) row['id']});
     expect(audit['unresolvedAmbiguousIds'], isEmpty);
     expect(
