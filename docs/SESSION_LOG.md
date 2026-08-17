@@ -18,7 +18,7 @@ cache 삭제는 계속 Jin 운영 게이트다.
 **검증.** 책 분석 Python `test_*.py` **87/87**, TTS Node 가드 **16/16**, 발음
 Node 가드 **7/7**, `node --check` 4파일, `firestore.indexes.json` parse,
 `git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
-하지 않았다.
+하지 않았다. 구현 커밋 `2c5e5bb`.
 
 ### 2026-08-16 (Cursor) — 백엔드 신뢰성 1단계: 공정 할당량·서킷·TTL
 
