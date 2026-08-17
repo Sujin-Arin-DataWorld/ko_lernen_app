@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/word_relation.dart';
 import '../services/tts_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -20,14 +21,10 @@ class WordWebStudyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    final s = SoriSurfaces.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          cluster.sourceKo,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: cluster.sourceKo,
         actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
@@ -52,11 +49,7 @@ class WordWebStudyScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           cluster.sourceKo,
-                          style: const TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
-                            height: 1.15,
-                          ),
+                          style: SoriTextTheme.of(context).display,
                         ),
                       ),
                       IconButton(
@@ -73,44 +66,28 @@ class WordWebStudyScreen extends StatelessWidget {
                   const SizedBox(height: Spacing.lg),
                   SoriSectionHeader(t.wordWebSynonymSection),
                   ...cluster.synonyms.map(
-                    (item) => _NeighborBlock(
-                      item: item,
-                      lang: lang,
-                      muted: s.textMuted,
-                    ),
+                    (item) => _NeighborBlock(item: item, lang: lang),
                   ),
                 ],
                 if (cluster.antonyms.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
                   SoriSectionHeader(t.wordWebAntonymSection),
                   ...cluster.antonyms.map(
-                    (item) => _NeighborBlock(
-                      item: item,
-                      lang: lang,
-                      muted: s.textMuted,
-                    ),
+                    (item) => _NeighborBlock(item: item, lang: lang),
                   ),
                 ],
                 if (cluster.related.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
                   SoriSectionHeader(t.wordWebRelatedSection),
                   ...cluster.related.map(
-                    (item) => _NeighborBlock(
-                      item: item,
-                      lang: lang,
-                      muted: s.textMuted,
-                    ),
+                    (item) => _NeighborBlock(item: item, lang: lang),
                   ),
                 ],
                 if (cluster.expressions.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
                   SoriSectionHeader(t.wordWebExpressionSection),
                   ...cluster.expressions.map(
-                    (item) => _ExpressionBlock(
-                      item: item,
-                      lang: lang,
-                      muted: s.textMuted,
-                    ),
+                    (item) => _ExpressionBlock(item: item, lang: lang),
                   ),
                 ],
               ],
@@ -123,15 +100,10 @@ class WordWebStudyScreen extends StatelessWidget {
 }
 
 class _NeighborBlock extends StatelessWidget {
-  const _NeighborBlock({
-    required this.item,
-    required this.lang,
-    required this.muted,
-  });
+  const _NeighborBlock({required this.item, required this.lang});
 
   final WordNeighbor item;
   final String lang;
-  final Color muted;
 
   @override
   Widget build(BuildContext context) {
@@ -146,13 +118,7 @@ class _NeighborBlock extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(
-                    item.ko,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 18,
-                    ),
-                  ),
+                  child: Text(item.ko, style: SoriTextTheme.of(context).h3),
                 ),
                 IconButton(
                   icon: const Icon(
@@ -164,13 +130,10 @@ class _NeighborBlock extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              item.gloss(lang),
-              style: TextStyle(color: muted, height: 1.35),
-            ),
+            Text(item.gloss(lang), style: SoriTextTheme.of(context).bodySmall),
             if (nuance.isNotEmpty) ...[
               const SizedBox(height: Spacing.xs),
-              Text(nuance, style: TextStyle(height: 1.4, color: muted)),
+              Text(nuance, style: SoriTextTheme.of(context).bodySmall),
             ],
           ],
         ),
@@ -180,15 +143,10 @@ class _NeighborBlock extends StatelessWidget {
 }
 
 class _ExpressionBlock extends StatelessWidget {
-  const _ExpressionBlock({
-    required this.item,
-    required this.lang,
-    required this.muted,
-  });
+  const _ExpressionBlock({required this.item, required this.lang});
 
   final WordExpression item;
   final String lang;
-  final Color muted;
 
   @override
   Widget build(BuildContext context) {
@@ -204,13 +162,7 @@ class _ExpressionBlock extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(
-                    item.ko,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 18,
-                    ),
-                  ),
+                  child: Text(item.ko, style: SoriTextTheme.of(context).h3),
                 ),
                 IconButton(
                   icon: const Icon(
@@ -222,29 +174,23 @@ class _ExpressionBlock extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              item.gloss(lang),
-              style: TextStyle(color: muted, height: 1.35),
-            ),
+            Text(item.gloss(lang), style: SoriTextTheme.of(context).bodySmall),
             if (item.exampleKo.isNotEmpty) ...[
               const SizedBox(height: Spacing.sm),
               Text(
                 t.wordWebExampleLabel,
-                style: const TextStyle(fontWeight: FontWeight.w700),
+                style: SoriTextTheme.of(context).label,
               ),
               const SizedBox(height: Spacing.xs),
               GestureDetector(
                 onTap: () => TtsService.speak(item.exampleKo),
                 child: Text(
                   item.exampleKo,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    height: 1.4,
-                  ),
+                  style: SoriTextTheme.of(context).body,
                 ),
               ),
               if (example.isNotEmpty)
-                Text(example, style: TextStyle(color: muted, height: 1.4)),
+                Text(example, style: SoriTextTheme.of(context).bodySmall),
             ],
           ],
         ),
