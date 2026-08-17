@@ -32,7 +32,8 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 보존했고, partner-family만 live로 올렸다. 푸시 뒤에 다시 생긴
 `cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
 `cursor/content-integrity-audit-2d55` C1/C2 존재 계약,
-`cursor/vocab-notebook-harden-3ab5`도 같은 방식으로 넣었다.
+`cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`도 같은
+방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 
