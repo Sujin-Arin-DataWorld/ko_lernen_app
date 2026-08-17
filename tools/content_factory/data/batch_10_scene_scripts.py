@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from batch_10_scene_beats import BEATS, beat_for
+
 LATIN_IN_KO = re.compile(r"[A-Za-z]{3,}")
 TEMPLATE_LEFTOVERS = (
     "해결해야 합니다",
@@ -97,146 +99,193 @@ def _pattern_index(ident: str, count: int) -> int:
     return sum(ord(char) for char in ident) % count
 
 
-def _polite(kind: str) -> bool:
-    return kind in {"service", "class", "coworker"}
+def _is_polite(text: str) -> bool:
+    """Read the register off a line the seed already authored."""
+    tail = text.rstrip(" .?!…")
+    return tail.endswith(("요", "죠", "니다", "세요", "습니까", "십니까"))
 
 
-def _accept_ask(ask: tuple[str, str, str], kind: str) -> tuple[str, str, str]:
-    ko, _de, _en = ask
-    prefix = "네, " if _polite(kind) else "응, "
-    text = ko.strip()
-    if "볼까요?" in text:
-        yes = prefix + ("보죠." if _polite(kind) else "보자.")
-        return (yes, "Ja, gerne.", "Yes, let's.")
-    if "둘까요?" in text or "할까요?" in text:
-        yes = prefix + ("그렇게 해 주세요." if _polite(kind) else "그렇게 해 줘.")
-        return (yes, "Ja, bitte.", "Yes, please.")
-    if text.endswith("?"):
-        tail = text[:-1].strip().split()[-1]
-        if tail.endswith(("했어", "왔어", "냈어", "었어", "았어", "어", "야")):
-            return (prefix + tail + ".", "Ja.", "Yes.")
-    yes = prefix + ("그렇게 해 주세요." if _polite(kind) else "그렇게 해 줘.")
-    return (yes, "Ja, bitte.", "Yes, please.")
+def _asks_other_to_act(text: str) -> bool:
+    """True when the user's take hands the work to Jieun instead of taking it on."""
+    tail = text.rstrip(" .?!…")
+    return (
+        "주세요" in tail
+        or "주시" in tail
+        or "부탁" in tail
+        or "좋겠" in tail
+        or tail.endswith("줘")
+        or tail.endswith("두세요")
+    )
 
 
-def _do_ask(ask: tuple[str, str, str], kind: str) -> tuple[str, str, str]:
-    ko, _de, _en = ask
-    polite = _polite(kind)
-    text = ko.strip()
-    if "볼까요?" in text:
-        done = text.replace("볼까요?", "볼게요." if polite else "볼게.")
-    elif "둘까요?" in text:
-        done = text.replace("둘까요?", "둘게요." if polite else "둘게.")
-    elif "할까요?" in text:
-        done = text.replace("할까요?", "할게요." if polite else "할게.")
-    elif "주시겠어요?" in text:
-        done = "바로 볼게요." if polite else "바로 볼게."
-    elif "됩니다" in text:
-        done = "네, 그렇게 할게요." if polite else "응, 그렇게 할게."
-    else:
-        done = "지금 볼게요." if polite else "지금 볼게."
-    return (done, "Okay, mache ich.", "Okay, I'll do that.")
+# Frame lines carry no scene title. A greeting, an acknowledgement and a sign-off
+# repeat across scenes because they repeat at real counters and kitchen tables. The
+# lines that have to be scene-specific live in the seed (need/ask/wait) and in
+# batch_10_scene_beats (take/probe). "check_do" answers a take that asked Jieun to
+# act; "check_ok" answers a take where the user does it themselves.
+FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]] = {
+    ("service", True): {
+        "open": (
+            ("어서 오세요. 어떤 일로 오셨어요?", "Guten Tag. Was können wir für Sie tun?", "Welcome. What brings you in?"),
+            ("네, 말씀하세요.", "Ja, bitte sagen Sie.", "Yes, go ahead."),
+            ("안녕하세요. 무엇부터 도와드릴까요?", "Hallo. Wo fangen wir an?", "Hello. Where should we start?"),
+            ("어서 오세요. 편하게 말씀해 주세요.", "Guten Tag. Sagen Sie ruhig, was Sie brauchen.", "Welcome. Just tell me what you need."),
+            ("네, 다음 분. 이쪽으로 오세요.", "Der Nächste bitte. Kommen Sie hierher.", "Next, please. Come this way."),
+            ("안녕하세요. 어떤 것부터 볼까요?", "Hallo. Was schauen wir zuerst an?", "Hello. What should we look at first?"),
+        ),
+        "check_do": (
+            ("네, 바로 해 드리겠습니다.", "Ja, ich mache das gleich.", "Yes, I'll do that right away."),
+            ("네, 지금 해 드릴게요.", "Gut. Ich erledige es jetzt.", "Sure. I'll handle it now."),
+            ("네, 그렇게 해 드리겠습니다.", "Ja, das mache ich so.", "Yes, I'll do it that way."),
+            ("알겠습니다. 잠시만 기다려 주세요.", "Gut. Einen Moment bitte.", "Sure. One moment, please."),
+        ),
+        "check_ok": (
+            ("네, 확인해 보겠습니다.", "Ja, ich sehe nach.", "Yes, let me check."),
+            ("네, 좋습니다.", "Ja, in Ordnung.", "Yes, that works."),
+            ("알겠습니다. 그렇게 하시면 됩니다.", "Gut. So können Sie es machen.", "Sure. That is the way to do it."),
+            ("네, 그렇게 하세요.", "Ja, machen Sie das.", "Yes, go ahead."),
+        ),
+    },
+    ("class", True): {
+        "open": (
+            ("네, 말씀하세요.", "Ja, bitte.", "Yes, go ahead."),
+            ("무슨 일이에요?", "Was gibt es?", "What is it?"),
+            ("네, 편하게 물어보세요.", "Fragen Sie ruhig.", "Go ahead and ask."),
+            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I'm listening."),
+        ),
+        "check_do": (
+            ("네, 그렇게 해 줄게요.", "Ja, das mache ich.", "Yes, I'll do that."),
+            ("알겠어요. 지금 해 줄게요.", "Gut. Ich mache es jetzt.", "Okay. I'll do it now."),
+            ("네, 바로 해 줄게요.", "Ja, gleich.", "Yes, right away."),
+        ),
+        "check_ok": (
+            ("네, 그렇게 하세요.", "Ja, machen Sie das.", "Yes, go ahead."),
+            ("네, 좋아요.", "Ja, gut.", "Yes, that is fine."),
+            ("알겠어요. 그렇게 하면 돼요.", "Gut. So passt es.", "Okay. That works."),
+        ),
+    },
+    ("coworker", True): {
+        "open": (
+            ("네, 말씀하세요.", "Ja, bitte sagen Sie.", "Yes, go ahead."),
+            ("지금 시간 괜찮아요. 어떤 건이에요?", "Ich habe Zeit. Um welchen Fall geht es?", "I have time. Which case is it?"),
+            ("네, 편하게 말씀하세요.", "Sagen Sie es ruhig.", "Go ahead, tell me."),
+            ("듣고 있어요. 말씀하세요.", "Ich höre. Sagen Sie.", "I'm listening. Go ahead."),
+            ("네, 어디부터 볼까요?", "Ja, wo fangen wir an?", "Sure, where should we start?"),
+        ),
+        "check_do": (
+            ("알겠습니다. 그렇게 반영하겠습니다.", "Gut. Ich übernehme es so.", "Sure. I'll apply it that way."),
+            ("네, 제가 그렇게 맞춰 두겠습니다.", "Ja, ich passe es entsprechend an.", "Yes, I'll line it up like that."),
+            ("알겠습니다. 바로 정리하겠습니다.", "Gut. Ich sortiere es gleich.", "Sure. I'll sort it right away."),
+            ("네, 그렇게 하겠습니다.", "Ja, mache ich.", "Yes, I'll do that."),
+        ),
+        "check_ok": (
+            ("알겠습니다. 그렇게 하죠.", "Gut. Machen wir so.", "Sure. Let us do that."),
+            ("네, 좋습니다.", "Ja, in Ordnung.", "Yes, that works."),
+            ("알겠어요. 그럼 그 방향으로 가죠.", "Gut. Dann in diese Richtung.", "Okay. We will go that way then."),
+            ("네, 그렇게 알고 있겠습니다.", "Ja, so halte ich es fest.", "Yes, I'll note it that way."),
+        ),
+    },
+    ("home", True): {
+        "open": (
+            ("네, 말씀하세요.", "Ja, bitte.", "Yes, go ahead."),
+            ("안녕하세요. 무슨 일이세요?", "Hallo. Worum geht es?", "Hello. What is it about?"),
+            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I'm listening."),
+            ("아, 안녕하세요. 어떤 일이세요?", "Ah, hallo. Was gibt es?", "Oh, hello. What can I do?"),
+        ),
+        "check_do": (
+            ("네, 그렇게 하겠습니다.", "Ja, mache ich so.", "Yes, I'll do that."),
+            ("알겠습니다. 바로 그렇게 할게요.", "Gut, ich mache es gleich so.", "Sure, I'll do it that way now."),
+            ("네, 지금 해 두겠습니다.", "Ja, ich mache es jetzt.", "Yes, I'll get it done now."),
+        ),
+        "check_ok": (
+            ("네, 그렇게 하시면 됩니다.", "Ja, so können Sie es machen.", "Yes, that is the way to do it."),
+            ("네, 맞습니다.", "Ja, genau.", "Yes, that is right."),
+            ("알겠습니다. 그렇게 하세요.", "Gut. Machen Sie das.", "Sure. Go ahead."),
+        ),
+    },
+    ("home", False): {
+        "open": (
+            ("왜, 무슨 일이야?", "Was ist denn?", "What is up?"),
+            ("응, 말해.", "Ja, sag.", "Yeah, go ahead."),
+            ("어, 지금 괜찮아. 말해 봐.", "Ja, ich habe Zeit. Sag ruhig.", "Sure, I'm free. Tell me."),
+            ("응? 왜 그래?", "Hm? Was ist los?", "Hm? What is it?"),
+        ),
+        "check_do": (
+            ("응, 그렇게 할게.", "Ja, mache ich.", "Yeah, I'll do that."),
+            ("알았어. 내가 할게.", "Okay. Ich mache es.", "Okay. I'll do it."),
+            ("응, 지금 해 둘게.", "Ja, ich mache es jetzt.", "Yeah, I'll get it done now."),
+        ),
+        "check_ok": (
+            ("응, 알았어.", "Ja, verstanden.", "Yeah, got it."),
+            ("그래, 알았어.", "Gut, verstanden.", "Alright, got it."),
+            ("그래, 그럼 그렇게 하자.", "Gut, dann machen wir das so.", "Alright, we will do it that way."),
+        ),
+    },
+    ("peer", False): {
+        "open": (
+            ("어, 왜?", "Hey, was ist?", "Hey, what is up?"),
+            ("응, 무슨 일이야?", "Ja, was gibt es?", "Yeah, what is it?"),
+            ("지금 괜찮아. 말해 봐.", "Ich habe Zeit. Sag ruhig.", "I'm free. Go ahead."),
+            ("왜? 무슨 일 있어?", "Warum? Ist was?", "Why? Something up?"),
+        ),
+        "check_do": (
+            ("응, 그렇게 할게.", "Ja, mache ich.", "Yeah, I'll do that."),
+            ("알았어. 지금 할게.", "Okay. Ich mache es jetzt.", "Okay. I'll do it now."),
+            ("그래, 내가 해 둘게.", "Gut, ich übernehme das.", "Sure, I'll take care of it."),
+        ),
+        "check_ok": (
+            ("응, 알았어.", "Ja, verstanden.", "Yeah, got it."),
+            ("그래, 알았어.", "Gut, verstanden.", "Alright, got it."),
+            ("아, 그래? 알았어.", "Ah, okay. Verstanden.", "Ah, okay. Got it."),
+        ),
+    },
+}
+
+FRAME_CLOSES: dict[bool, tuple[tuple[str, str, str], ...]] = {
+    True: (
+        ("네, 감사합니다.", "Ja, vielen Dank.", "Okay, thank you."),
+        ("알겠습니다. 감사합니다.", "Gut. Danke schön.", "Sure. Thank you."),
+        ("네, 그렇게 할게요. 감사합니다.", "Ja, mache ich. Danke.", "Yes, I'll do that. Thanks."),
+        ("감사합니다. 그럼 그렇게 부탁드려요.", "Danke. Dann bitte so.", "Thank you. Then please do it that way."),
+        ("네, 알겠어요. 고맙습니다.", "Ja, verstanden. Danke.", "Okay, got it. Thanks."),
+        ("감사합니다. 수고하세요.", "Vielen Dank. Alles Gute.", "Thank you. Have a good one."),
+    ),
+    False: (
+        ("응, 고마워.", "Ja, danke.", "Yeah, thanks."),
+        ("알았어. 고마워.", "Okay. Danke.", "Okay. Thanks."),
+        ("그래, 그렇게 하자. 고마워.", "Gut, machen wir so. Danke.", "Alright, we will do that. Thanks."),
+        ("고마워. 그럼 그렇게 할게.", "Danke. Dann mache ich das.", "Thanks. I'll do that then."),
+    ),
+}
 
 
-def frame_lines(
-    ident: str,
-    seed: dict[str, Any],
-    title_ko: str,
-    title_de: str,
-    title_en: str,
-) -> dict[str, tuple[str, str, str]]:
-    """Spoken open/yes/check/wait/close from the scene, not the catalog title."""
-    del title_ko, title_de, title_en
+def _pool(kind: str, polite: bool, slot: str, ident: str) -> tuple[str, str, str]:
+    pool = FRAME_POOLS.get((kind, polite))
+    if pool is None:
+        register = "polite" if polite else "casual"
+        raise SystemExit(f"no {register} {kind} frame pool for {ident}")
+    lines = pool[slot]
+    return lines[_pattern_index(f"{ident}:{slot}", len(lines))]
+
+
+def frame_lines(ident: str, seed: dict[str, Any]) -> dict[str, tuple[str, str, str]]:
+    """Greeting, acknowledgement and sign-off, matched to the seed's own wording.
+
+    Jieun keeps the register of her ``ask`` and answers in the direction the user's
+    ``take`` set: she confirms when the user does the work, and commits when the
+    user handed it to her. The user's sign-off keeps the register of ``need``. No
+    scene title is pasted into any of these lines.
+    """
     kind = seed["frame"]
-    variant = _pattern_index(ident, 3)
-    if kind == "service":
-        opens = (
-            ("안녕하세요.", "Hallo.", "Hi."),
-            ("안녕하세요. 뭐 찾으세요?", "Hallo. Was suchen Sie?", "Hi. What do you need?"),
-            ("네, 말씀하세요.", "Ja, bitte?", "Yes?"),
-        )
-        hows = (
-            ("오래 걸려요?", "Dauert das lange?", "Does that take long?"),
-            ("지금 돼요?", "Geht das jetzt?", "Can we do it now?"),
-            ("얼마나 걸려요?", "Wie lange dauert das?", "How long does that take?"),
-        )
-        closes = (
-            ("감사합니다.", "Danke.", "Thanks."),
-            ("알겠어요. 고마워요.", "Danke schön.", "Thanks a lot."),
-            ("네, 고마워요.", "Ja, danke.", "Yeah, thanks."),
-        )
-    elif kind == "home":
-        opens = (
-            ("지금 괜찮아?", "Hast du kurz Zeit?", "Got a sec?"),
-            ("잠깐 괜찮아?", "Kurze Sache.", "Quick thing."),
-            ("잠깐.", "Kurz.", "One sec."),
-        )
-        hows = (
-            ("오래 걸려?", "Dauert das lange?", "Does that take long?"),
-            ("지금 돼?", "Geht das jetzt?", "Can we do it now?"),
-            ("얼마나 걸려?", "Wie lange dauert das?", "How long does that take?"),
-        )
-        closes = (
-            ("고마워.", "Danke.", "Thanks."),
-            ("오케이, 고마워.", "Okay, danke.", "Okay, thanks."),
-            ("알겠어.", "Okay.", "Okay."),
-        )
-    elif kind == "peer":
-        opens = (
-            ("지금 괜찮아? 하나만.", "Hast du kurz Zeit? Eine Frage.", "Got a sec? One thing."),
-            ("그거 말인데.", "Kurz dazu.", "About this."),
-            ("야, 잠깐.", "Hey, kurz.", "Hey, one sec."),
-        )
-        hows = (
-            ("오래 걸려?", "Dauert das lange?", "Does that take long?"),
-            ("지금 돼?", "Geht das jetzt?", "Can we do it now?"),
-            ("얼마나 걸려?", "Wie lange dauert das?", "How long does that take?"),
-        )
-        closes = (
-            ("고마워.", "Danke.", "Thanks."),
-            ("오케이, 고마워.", "Okay, danke.", "Okay, thanks."),
-            ("알겠어.", "Okay.", "Okay."),
-        )
-    elif kind == "class":
-        opens = (
-            ("질문 있어요?", "Eine Frage?", "A question?"),
-            ("자, 볼까요?", "Schauen wir?", "Shall we look?"),
-            ("이해됐어요?", "Ist das klar?", "Does that make sense?"),
-        )
-        hows = (
-            ("오래 걸려요?", "Dauert das lange?", "Does that take long?"),
-            ("지금 돼요?", "Geht das jetzt?", "Can we do it now?"),
-            ("얼마나 걸려요?", "Wie lange dauert das?", "How long does that take?"),
-        )
-        closes = (
-            ("감사합니다.", "Danke.", "Thanks."),
-            ("알겠어요. 고마워요.", "Danke schön.", "Thanks a lot."),
-            ("네, 고마워요.", "Ja, danke.", "Yeah, thanks."),
-        )
-    elif kind == "coworker":
-        opens = (
-            ("이 건, 어디까지 할까요?", "Bis wohin klären wir das?", "How far do we take this?"),
-            ("이거부터 할까요?", "Wollen wir hiermit anfangen?", "Start with this?"),
-            ("잠깐, 이 부분요.", "Kurz zu dem Punkt.", "This part first."),
-        )
-        hows = (
-            ("오래 걸릴까요?", "Dauert das lange?", "Does that take long?"),
-            ("지금 될까요?", "Geht das jetzt?", "Can we do it now?"),
-            ("결과는 언제쯤일까요?", "Wann wissen wir mehr?", "When do we know more?"),
-        )
-        closes = (
-            ("고맙습니다.", "Danke.", "Thanks."),
-            ("네, 고마워요.", "Ja, danke.", "Yeah, thanks."),
-            ("알겠어요.", "Okay.", "Okay."),
-        )
-    else:
-        raise SystemExit(f"unknown frame {kind} for {ident}")
+    jieun_polite = _is_polite(seed["ask"][0])
+    user_polite = _is_polite(seed["need"][0])
+    take_ko = beat_for(ident, "take")[0]
+    check_slot = "check_do" if _asks_other_to_act(take_ko) else "check_ok"
+    closes = FRAME_CLOSES[user_polite]
     return {
-        "open": opens[variant],
-        "yes": _accept_ask(seed["ask"], kind),
-        "check": _do_ask(seed["ask"], kind),
-        "how_long": hows[variant],
-        "close": closes[variant],
+        "open": _pool(kind, jieun_polite, "open", ident),
+        "check": _pool(kind, jieun_polite, check_slot, ident),
+        "close": closes[_pattern_index(f"{ident}:close", len(closes))],
     }
 
 
@@ -244,9 +293,8 @@ def render_scene(
     seed: dict[str, Any],
     *,
     ident: str,
-    title: tuple[str, str, str],
 ) -> dict[str, Any]:
-    frame = frame_lines(ident, seed, title[0], title[1], title[2])
+    frame = frame_lines(ident, seed)
     sit = seed["sit"]
     need = seed["need"]
     ask = seed["ask"]
@@ -260,9 +308,9 @@ def render_scene(
             _line("jieun", *frame["open"]),
             _line("user", *need),
             _line("jieun", *ask),
-            _line("user", *frame["yes"]),
+            _line("user", *beat_for(ident, "take")),
             _line("jieun", *frame["check"]),
-            _line("user", *frame["how_long"]),
+            _line("user", *beat_for(ident, "probe")),
             _line("jieun", *wait),
             _line("user", *frame["close"]),
         ],
@@ -1287,7 +1335,7 @@ _add(
     sit=("이번 달 공과금을 나눠 냅니다.", "Man teilt die Nebenkosten für diesen Monat.", "You split this month's utilities."),
     need=("전기와 인터넷을 반씩 나누고 싶어요.", "Strom und Internet möchte ich halb teilen.", "I want to split electricity and internet in half."),
     ask=("이 금액을 기준으로 할까요?", "Soll dieser Betrag die Basis sein?", "Shall we use this amount as the base?"),
-    wait=("내일까지 계산해서 알려 줄게.", "Bis morgen rechne ich es aus.", "I'll calculate it by tomorrow."),
+    wait=("내일까지 계산해서 알려 드릴게요.", "Bis morgen rechne ich es aus.", "I'll calculate it by tomorrow."),
     vocab=["공과금", "전기", "인터넷", "반", "금액", "나누다"],
 )
 _add(
@@ -2092,5 +2140,9 @@ _add(
 )
 
 
-
-
+_missing_beats = sorted(set(SEEDS) - set(BEATS))
+_extra_beats = sorted(set(BEATS) - set(SEEDS))
+if _missing_beats or _extra_beats:
+    raise SystemExit(
+        f"beat coverage mismatch missing={_missing_beats} extra={_extra_beats}"
+    )
