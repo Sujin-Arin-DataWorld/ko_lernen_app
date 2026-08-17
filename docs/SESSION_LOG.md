@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Batch 06 승격 후 고정 카탈로그 계약을 실데이터에 맞춤
+
+**왜.** `fa86b7af`가 Batch 06을 production asset에 올린 뒤, 후속 docs SHA
+`3b48e18a`의 CI `31980061603`이 Analyze & Build → Test에서 4건 실패했다
+(3728 passed). 트리거 커밋은 `SESSION_LOG.md`만 바꿨고, 실제 회귀는 부모
+콘텐츠 체크포인트다.
+
+**무엇.** 고정 카탈로그 계약을 현재 inventory에 맞췄다.
+- Smalltalk 285→293, Cloze 514→530, Satz 419→443, pronunciation 4→20
+- 시나리오 58→62, 퀘스트 241→261
+- A1–B2 smalltalk semantic decision 253→257
+- 시나리오 레벨 allowlist에 C1/C2 추가
+
+앱 데이터·TTS·Firebase는 이 커밋에서 다시 쓰지 않았다.
+
+**검증.** `flutter test test/content_id_contract_test.dart
+test/data_integrity_test.dart test/scenario_quest_catalog_integrity_test.dart
+test/can_do_segment_asset_test.dart` **14/14**.
+
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
 `Batch 06` 요청자 승인 상태를 토대로, `tools/content_factory/build_can_do_segments.py`의
