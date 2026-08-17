@@ -56,6 +56,17 @@ class TtsCacheKey {
 
   String get storagePath => 'tts/$revision/$voice/$hash.mp3';
   String get localFileName => 'tts_${revision}_${voice}_$hash.mp3';
+
+  /// Same MPEG/ID3 floor the Cloud Function uses before treating bytes as audio.
+  static bool isUsableAudio(List<int> data) {
+    if (data.length < 32) {
+      return false;
+    }
+    if (data[0] == 0x49 && data[1] == 0x44 && data[2] == 0x33) {
+      return true;
+    }
+    return data[0] == 0xFF && (data[1] & 0xE0) == 0xE0;
+  }
 }
 
 class TtsPlaybackRates {
@@ -473,8 +484,14 @@ class TtsService {
     final file = File('${dir.path}/${key.localFileName}');
 
     // 1. 로컬 캐시
-    if (await file.exists() && await file.length() > 0) {
-      return file;
+    if (await file.exists()) {
+      final localBytes = await file.readAsBytes();
+      if (TtsCacheKey.isUsableAudio(localBytes)) {
+        return file;
+      }
+      try {
+        await file.delete();
+      } catch (_) {}
     }
 
     // 2. Firebase Storage (사전생성된 고정 콘텐츠)
@@ -482,7 +499,7 @@ class TtsService {
       final Uint8List? data = await _storage
           .ref(key.storagePath)
           .getData(_maxBytes);
-      if (data != null && data.isNotEmpty) {
+      if (data != null && TtsCacheKey.isUsableAudio(data)) {
         await file.writeAsBytes(data, flush: true);
         return file;
       }
@@ -511,8 +528,10 @@ class TtsService {
       final b64 = result.data['audioBase64'] as String?;
       if (b64 != null && b64.isNotEmpty) {
         final bytes = base64Decode(b64);
-        await file.writeAsBytes(bytes, flush: true);
-        return file;
+        if (TtsCacheKey.isUsableAudio(bytes)) {
+          await file.writeAsBytes(bytes, flush: true);
+          return file;
+        }
       }
     } catch (_) {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.

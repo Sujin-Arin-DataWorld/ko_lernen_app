@@ -4,7 +4,7 @@ const { normalizeVoice } = require("./tts_contract");
 const CALLABLE_OPTIONS = Object.freeze({
   cors: true,
   memory: "256MiB",
-  timeoutSeconds: 30,
+  timeoutSeconds: 15,
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
@@ -116,6 +116,8 @@ class CircuitBreaker {
 const ttsProviderBreaker = new CircuitBreaker();
 const SYNTH_DEADLINE_MS = 8_000;
 const MIN_AUDIO_BYTES = 32;
+const IDEMPOTENCY_TTL_MS = 15 * 60 * 1000;
+const TTS_IDEMPOTENCY_KIND = "tts_v1";
 
 function isUsableAudioBuffer(value) {
   if (!Buffer.isBuffer(value) || value.length < MIN_AUDIO_BYTES) {
@@ -129,14 +131,60 @@ function isUsableAudioBuffer(value) {
 
 function withDeadline(promise, timeoutMs, message = "TTS synthesis timed out.") {
   let timer;
+  const guarded = Promise.resolve(promise);
+  guarded.catch(() => {
+    // A late provider rejection must not become an unhandled rejection
+    // after this race has already chosen the deadline.
+  });
   const timeout = new Promise((_, reject) => {
     timer = setTimeout(() => {
       reject(new Error(message));
     }, timeoutMs);
   });
-  return Promise.race([promise, timeout]).finally(() => {
+  return Promise.race([guarded, timeout]).finally(() => {
     clearTimeout(timer);
   });
+}
+
+function ttsReplayId(storagePath) {
+  return crypto.createHash("sha256").update(`tts_v1\0${storagePath}`).digest("hex");
+}
+
+function ttsReceiptExpiresAt(now = new Date()) {
+  return new Date(now.getTime() + IDEMPOTENCY_TTL_MS);
+}
+
+function isCurrentTtsReceipt(data, now = new Date()) {
+  if (!data || data.kind !== TTS_IDEMPOTENCY_KIND) {
+    return false;
+  }
+  if (data.state !== "pending" && data.state !== "completed") {
+    return false;
+  }
+  const expiresAt = data.expiresAt;
+  let millis = 0;
+  if (expiresAt instanceof Date) {
+    millis = expiresAt.getTime();
+  } else if (expiresAt && typeof expiresAt.toMillis === "function") {
+    millis = expiresAt.toMillis();
+  }
+  return millis > now.getTime();
+}
+
+function pendingTtsReceipt(now = new Date()) {
+  return {
+    kind: TTS_IDEMPOTENCY_KIND,
+    state: "pending",
+    expiresAt: ttsReceiptExpiresAt(now),
+  };
+}
+
+function completedTtsReceipt(now = new Date()) {
+  return {
+    kind: TTS_IDEMPOTENCY_KIND,
+    state: "completed",
+    expiresAt: ttsReceiptExpiresAt(now),
+  };
 }
 
 function quotaExpiresAt(day) {
@@ -269,13 +317,19 @@ module.exports = {
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
+  IDEMPOTENCY_TTL_MS,
   MIN_AUDIO_BYTES,
   SYNTH_DEADLINE_MS,
+  TTS_IDEMPOTENCY_KIND,
   TtsRequestError,
+  completedTtsReceipt,
+  isCurrentTtsReceipt,
   isUsableAudioBuffer,
+  pendingTtsReceipt,
   quotaExpiresAt,
   refundDailyTtsQuotas,
   ttsProviderBreaker,
+  ttsReplayId,
   validateTtsRequest,
   underDailyTtsQuotas,
   withDeadline,

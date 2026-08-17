@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
+
+**무엇을.** 3차 리뷰에서 TTS만 배포하면 학습자에게 빈 캐시/환급/8초
+deadline이 닿는다는 점을 확인했다. 배포 전에 같은 Storage 경로의 동시
+재시도가 한도를 두 번 깎는 구멍을 닫았다. `service_idempotency`를 consume
+전에 pending으로 선점하고, 예약한 뒤 Storage를 다시 보면 이미 저장된
+유효 MP3는 환급한다. 함수 timeout은 클라 12초에 맞춰 15초다. 에러 로그는
+코드만 남긴다. 클라도 로컬/Storage/CF 바이트에 같은 MPEG/ID3 바닥을 적용한다.
+
+**왜.** live TTS는 아직 이전 소스다. 함수만 올리면 되고, 책 분석 Gen2는
+Jin 운영 게이트로 남긴다.
+
+**검증.** TTS Node **17/17**, `tts_cache_key_test` **4/4**. 이 환경에서
+Firebase deploy는 하지 않았다. 구현 커밋 `44657b34`.
+
 ### 2026-08-17 (Cursor) — 유료 경로 4결함 선점·공유 deadline으로 닫음
 
 **무엇을.** 이전 2단계 수정은 성공 뒤에만 영수증을 남겨, 클라 12초 재시도가
