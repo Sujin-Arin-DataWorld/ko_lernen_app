@@ -1,5 +1,130 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude) — Batch 12 슬라이스 2·3·4 초안: C1/C2 유닛 8개 완성, 콘텐츠 312개
+
+**무엇.** 슬라이스 1에 이어 남은 세 슬라이스를 썼다. 슬라이스 2는
+`c1_04_play_time_policy`(gaming)·`c2_04_sanction_accountability`(gaming),
+슬라이스 3은 `c1_05_fan_labor_sustainability`(kpop)·`c2_05_relationship_narratives`(dating),
+슬라이스 4는 `c1_06_intimacy_safety_design`(dating)·`c2_06_fandom_discourse_power`(kpop)이다.
+이로써 설계가 정한 새 유닛 8개가 다 찼고 C1/C2가 각 6개 유닛으로 여섯 카테고리와 1:1이 된다.
+원문은 `tools/content_factory/data/batch_12_slice{2,3,4}_records.py`에 슬라이스 1과 같은
+모양으로 두었다. 합계는 단어 96(C1 48·C2 48) + 문법 8 + Cloze 96 + Satz 96 + 스몰토크 16 =
+**312 레코드**, 새 단어팩 8개다.
+
+**왜 빌더를 합쳤나.** `validate_batch_01.py:378-385`가 manifest artifact를
+cloze·grammar·satz·smalltalk·vocab **5종 정확히**로 고정하고 kind 중복을 거부한다. 슬라이스마다
+빌더를 두면 manifest가 4개로 갈라져 "배치 1개 = 병합 트랜잭션 1개"와 어긋난다. 그래서
+`build_batch_12_slice1.py`를 `build_batch_12.py` 하나로 일반화하고 슬라이스 1의 산출물
+(`*_slice1.*`)을 kind당 1개인 `c*_batch12_*_c1_c2.*`로 대체했다. 슬라이스는 집필 리듬이지
+납품 단위가 아니다. **레코드 데이터(문장)는 한 글자도 손대지 않았고** 슬라이스 1의 ID·번호도
+그대로다.
+
+**검증.** 빌더 자체 검사 전부 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용·distractor 3개 서로 다름, Satz 3어절 이상·distractor 2개가 target 토큰과
+비중복, 문법 quiz focus가 DE/EN 예문에 각 1회, 문법 distractor ID 3개가 모두 live에 실재,
+live 2,196개 표제어·live 문법 ID와 중복 0, 슬라이스 간 유닛·개념·팩·문법·스몰토크 ID와
+체크포인트 중복 0, 레벨별 스몰토크 카테고리 중복 0(C1 screen·hobby·kpop·dating /
+C2 daily·hobby·dating·kpop). 생성 결과도 확인했다: vocab 96행, C1 48·C2 48, 고유 표제어 96,
+팩 8개.
+
+**남은 지적 하나.** `validate_review_batch.py`는
+`unknown courseUnitId 'c1_05_fan_labor_sustainability'` 하나만 남긴다. live
+`curriculum_manifest.json`의 C1/C2 유닛은 `c1_01`·`c1_02`·`c2_01`·`c2_02` 4개뿐이라 새 유닛
+8개가 전부 미등록이고, `_fail`이 즉시 예외를 던져 팩 ID 알파벳순 첫 번째(`c1_fan_labor_1`)에서
+멈춘 것이다. 슬라이스 1과 같은 관문이지 콘텐츠 문제가 아니다.
+
+**막힌 곳(변동 없음).** ① PR #62(Batch 11) 머지 — 8개 유닛의 `checkpointContentIds`가
+Batch 11 시나리오 8편(`c1_gaming_playtime_policy`·`c2_gaming_auto_sanction`·`c1_kpop_fan_labor`·
+`c2_dating_romance_frames`·`c1_dating_app_safety`·`c2_kpop_fandom_language` 등)을 가리킨다.
+② 유닛 8·개념 8을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·생산 평가 24·extension 릴리스 트랙(order 2·3)은 콘텐츠 승인 뒤 별도 단계다.
+`--apply`·TTS·Firebase 쓰기 없음, `assets/data/`·`lib/` 무수정, `core_2026_v1`의 86개
+segment·edition·보상 무수정.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음).
+
+### 2026-08-17 (Claude) — Batch 12 슬라이스 1 초안: C1/C2 새 유닛 2개와 콘텐츠 78개
+
+**무엇.** C1/C2의 course unit이 각 2개뿐이어서 Batch 11의 여섯 카테고리가 3+3으로
+몰렸다. 유닛을 6개씩으로 펴는 Batch 12를 슬라이스로 시작했다. 슬라이스 1은
+`c1_03_media_evidence_literacy`(youtube)와 `c2_03_automation_redress`(daily)이고,
+`tools/content_factory/data/batch_12_slice1_records.py`에 유닛·개념·단어 24·문법 2·
+스몰토크 4를 두고 빌더가 Cloze 24·Satz 24를 단어 예문에서 1:1로
+파생시켜 초안 5종과 review 원장 5종, `drafts/batch_12_manifest.json`을 만든다. 총 78 레코드다.
+(이 빌더 `build_batch_12_slice1.py`는 같은 날 슬라이스 2·3·4를 쓰면서 `build_batch_12.py`로
+합쳐졌다 — 위 항목 참조. 레코드 모듈과 ID는 그대로다.)
+설계 정본은 `docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md`.
+
+**왜.** B안(유닛 + CanDoSegment + 생산 평가를 extension 릴리스 트랙으로)을 Jin이 골랐다.
+코어 `core_2026_v1`의 86개 분모와 한옥 보상은 건드리지 않고, 새 can-do는 order 2·3의
+extension 트랙으로 발행한다.
+
+**코드에서 확인한 계약.** `validate_content.py`는 모든 course unit에 비어 있지 않은
+`checkpointContentIds`를 요구하므로 빈 유닛을 만들 수 없다. 그래서 새 유닛의 체크포인트를
+Batch 11의 같은 담론 시나리오(`c1_youtube_health_claims`, `c2_daily_automation_redress`)로
+잡았다. 오버레이 검증기는 artifact를 cloze·grammar·satz·smalltalk·vocab 5종으로 고정하므로
+문법 2개(`grammar_c1_limited_to` = N에 국한하면, `grammar_c2_no_more_than_doing` =
+V-는 데 그치다)를 함께 넣었다. C1/C2 평가는 segment마다 openWriting·oralProduction·
+connectedEvidence 3종과 mission 링크 3개를 소유하고, contentCluster는
+vocabPack·cloze·satz·smalltalk·project를 참조한다.
+
+**검증.** 빌더 자체 검사 통과: 표제어가 예문에 정확히 한 번, boss 순번 10·11·12,
+Cloze 빈칸 적용과 distractor 3개, Satz 3어절 이상·distractor 2개·target 토큰 비중복,
+문법 quiz focus가 DE/EN 예문에 각각 1회, live 2,196개 표제어와 중복 0.
+`validate_review_batch.py`는 남은 지적이 하나다: `unknown courseUnitId
+'c1_03_media_evidence_literacy'`. 유닛이 live 커리큘럼에 없으니 정상이다.
+
+**막힌 곳.** ① PR #62(Batch 11) 머지 — 체크포인트 시나리오가 live가 되어야 한다.
+② 2개 유닛·개념을 `curriculum_manifest.json`에 넣는 커리큘럼 트랜잭션(Jin 승인).
+③ segment·평가·extension 트랙은 콘텐츠가 승인된 뒤 별도 단계다. `--apply`·TTS·Firebase
+쓰기는 하지 않았고 `assets/data/`·`lib/`도 건드리지 않았다.
+
+**브랜치.** `claude/batch12-slice1-20260817` (PR #62 브랜치 위에 쌓음). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
+
+### 2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초안 (레벨 6 × 카테고리 6)
+
+**무엇.** 일상·친구수다·데이트·유튜브·게임·덕질 여섯 카테고리를 A1–C2 각
+레벨에 하나씩, 총 36편을 새로 썼다. 장면 원문은
+`tools/content_factory/data/batch_11_scene_scripts.py`, 스키마 조립은
+`build_batch_11_scenarios.py`, 계약 회귀는
+`test_build_batch_11_scenarios.py`다. 산출물은
+`drafts/c1_batch11_scenarios_a1_c2.json`, `drafts/batch_11_manifest.json`,
+`review/c1_batch11_scenarios.csv`, `review/batch_11_review_packet.md`이며
+상태는 전부 `review_only_draft` / `draft`다. 편당 대화 8턴 삼언어,
+퀘스트 5종(hoerverstehen·uebersetzen·luecken·satzBauen·diktat), 단어 6개,
+문법블록·intro·title 삼언어다. 신조어(최애·쇼츠·구독·판·굿즈·포토카드·
+패치·튕기다)는 `vocab.note`로 뜻을 달았고, 아이돌 이름 하린은 가상 인물이다.
+
+**왜.** live 264편은 파트너·시댁 28편과 생활 서비스에 몰려 있고 취미·관계
+소재는 `plans_with_friend`·`friend_birthday` 둘뿐이었다. 젠지~3040이 실제로
+말하는 유튜브·게임·덕질·데이트 진행이 공백이었다. C1/C2는 유닛이 2개뿐이라
+소재를 그 유닛의 담론(근거의 한계, 제도·기술 책임)으로 올려 3+3으로 붙였다.
+
+**계획 대비 바꾼 것.** `a1_gaming_one_more_round`는 `-(으)세요`와 반말이
+충돌해 casual → polite(`classmates`)로, `a2_youtube_send_the_link`는 친구
+반말을 살리려고 `V-네요`/`V-아 보세요` 대신 `V-(으)니까`/`V-거나`로 갔다.
+두 건 다 `field_notes`에 남겼다.
+
+**검증.** 계약 테스트 15개 통과(레벨별 6칸·ID 패턴·live 264편 및 quest ID
+충돌 0·대화 8턴 삼언어·퀘스트 5종·문법 ID 존재와 레벨 일치·유닛/개념 실존·
+enum·셸 문구·intent 36개 고유·review projection 바이트 일치).
+`integrate_scenario_batch.py` preview 36 records(scenario 264→300,
+scenarioQuest 1151), `validate_content.py` OK. 대화 288줄에 시나리오 간
+중복 0. humanizer 기준으로 em/en dash 7건을 걷어 0으로 만들었고
+곱슬따옴표도 0이다. `nicht nur … sondern` 2건은 한국어 원문의 실제 대조라
+유지했다.
+
+**하지 않은 것.** `--apply`, `assets/data/`·`lib/` 수정, TTS 합성, Firebase
+쓰기. git status는 신규 파일만이고 추적 파일 변경은 이 로그뿐이다. 승인 뒤
+`integrate_scenario_batch.py --apply`가 `scenarios.json`·
+`curriculum_manifest.json`·`ScenarioBackdrop._categoryById`를 원자적으로
+갱신한다. 설계는
+`docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md`,
+계획은 `docs/superpowers/plans/2026-08-17-scenario-batch11-level-category.md`.
+
+**브랜치.** `claude/scenario-batch11-20260817` (워크트리). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
 ### 2026-08-17 (Claude, Windows) — 듣기 화면 아트 방향 확정 + 카드 72장 명세
 
 **무엇.** 듣기 화면에 들어갈 일러스트 방향을 정하고 `docs/LISTENING_CARD_ART_SPEC.md` 로 남겼다.

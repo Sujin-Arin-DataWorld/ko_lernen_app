@@ -1,0 +1,1156 @@
+{
+ "items": [
+  {
+   "id": "satz_c1_0175",
+   "level": "c1",
+   "targetKo": "표본이 서른 명뿐이라 결론을 넓히기 어렵습니다.",
+   "promptDe": "Die Stichprobe umfasst nur dreißig Personen, daher lässt sich der Schluss kaum ausweiten.",
+   "promptEn": "The sample is only thirty people, so the conclusion is hard to widen.",
+   "distractors": [
+    "인과가",
+    "출처를"
+   ],
+   "vocabKo": "표본"
+  },
+  {
+   "id": "satz_c1_0176",
+   "level": "c1",
+   "targetKo": "성급한 일반화는 오해를 만듭니다.",
+   "promptDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+   "promptEn": "A hasty generalisation creates misunderstandings.",
+   "distractors": [
+    "표본이",
+    "편향을"
+   ],
+   "vocabKo": "일반화"
+  },
+  {
+   "id": "satz_c1_0177",
+   "level": "c1",
+   "targetKo": "상관관계만 보고 원인을 단정할 수 없습니다.",
+   "promptDe": "Aus einer Korrelation allein lässt sich die Ursache nicht bestimmen.",
+   "promptEn": "A correlation alone cannot fix the cause.",
+   "distractors": [
+    "출처를",
+    "과장이"
+   ],
+   "vocabKo": "상관관계"
+  },
+  {
+   "id": "satz_c1_0178",
+   "level": "c1",
+   "targetKo": "인과를 말하려면 시간 순서가 분명해야 합니다.",
+   "promptDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+   "promptEn": "Claiming causation needs a clear order in time.",
+   "distractors": [
+    "표본이",
+    "검증을"
+   ],
+   "vocabKo": "인과"
+  },
+  {
+   "id": "satz_c1_0179",
+   "level": "c1",
+   "targetKo": "참가자를 모으는 방식에 편향이 있었습니다.",
+   "promptDe": "Bei der Auswahl der Teilnehmenden gab es eine Verzerrung.",
+   "promptEn": "There was bias in how participants were recruited.",
+   "distractors": [
+    "검증을",
+    "재현성이"
+   ],
+   "vocabKo": "편향"
+  },
+  {
+   "id": "satz_c1_0180",
+   "level": "c1",
+   "targetKo": "출처를 밝히지 않은 수치는 쓰지 않습니다.",
+   "promptDe": "Zahlen ohne Quellenangabe verwenden wir nicht.",
+   "promptEn": "We don't use figures whose source isn't given.",
+   "distractors": [
+    "편향이",
+    "과장을"
+   ],
+   "vocabKo": "출처"
+  },
+  {
+   "id": "satz_c1_0181",
+   "level": "c1",
+   "targetKo": "재현성이 확인되기 전에는 결과가 잠정적입니다.",
+   "promptDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+   "promptEn": "Until reproducibility is confirmed the result stays provisional.",
+   "distractors": [
+    "출처를",
+    "표본이"
+   ],
+   "vocabKo": "재현성"
+  },
+  {
+   "id": "satz_c1_0182",
+   "level": "c1",
+   "targetKo": "그림 하나만 보면 오해석이 나오기 쉽습니다.",
+   "promptDe": "Sieht man nur eine Grafik, kommt es leicht zu Fehldeutungen.",
+   "promptEn": "Looking at a single chart invites misreading.",
+   "distractors": [
+    "인과를",
+    "출처가"
+   ],
+   "vocabKo": "오해석"
+  },
+  {
+   "id": "satz_c1_0183",
+   "level": "c1",
+   "targetKo": "제목의 과장이 본문 내용과 어긋납니다.",
+   "promptDe": "Die Übertreibung im Titel passt nicht zum Text.",
+   "promptEn": "The headline's exaggeration doesn't match the body.",
+   "distractors": [
+    "표본을",
+    "검증이"
+   ],
+   "vocabKo": "과장"
+  },
+  {
+   "id": "satz_c1_0184",
+   "level": "c1",
+   "targetKo": "검증을 거치지 않은 주장은 권하지 않습니다.",
+   "promptDe": "Behauptungen ohne Überprüfung empfehlen wir nicht.",
+   "promptEn": "We don't recommend claims that skipped verification.",
+   "distractors": [
+    "표본이",
+    "편향을"
+   ],
+   "vocabKo": "검증"
+  },
+  {
+   "id": "satz_c1_0185",
+   "level": "c1",
+   "targetKo": "제조사의 반박에도 표본 문제는 남습니다.",
+   "promptDe": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem.",
+   "promptEn": "Even after the maker's rebuttal the sampling problem remains.",
+   "distractors": [
+    "인과를",
+    "재현성이"
+   ],
+   "vocabKo": "반박"
+  },
+  {
+   "id": "satz_c1_0186",
+   "level": "c1",
+   "targetKo": "인용을 할 때는 논문 번호를 함께 적습니다.",
+   "promptDe": "Beim Zitieren notieren wir die Studiennummer mit.",
+   "promptEn": "When citing we note the study number as well.",
+   "distractors": [
+    "편향이",
+    "과장을"
+   ],
+   "vocabKo": "인용"
+  },
+  {
+   "id": "satz_c1_0187",
+   "level": "c1",
+   "targetKo": "이용시간 규제가 수면 시간을 늘렸는지 확인해야 합니다.",
+   "promptDe": "Wir müssen prüfen, ob die Regulierung der Spielzeit den Schlaf verlängert hat.",
+   "promptEn": "We have to check whether the play-time regulation lengthened sleep.",
+   "distractors": [
+    "부작용이",
+    "상한을"
+   ],
+   "vocabKo": "규제"
+  },
+  {
+   "id": "satz_c1_0188",
+   "level": "c1",
+   "targetKo": "시행 첫해 자료만으로는 효과를 말하기 이릅니다.",
+   "promptDe": "Mit den Daten des ersten Jahres nach Inkrafttreten lässt sich die Wirkung noch nicht benennen.",
+   "promptEn": "Data from the first year of enforcement is too early to state an effect.",
+   "distractors": [
+    "역효과가",
+    "지표를"
+   ],
+   "vocabKo": "시행"
+  },
+  {
+   "id": "satz_c1_0189",
+   "level": "c1",
+   "targetKo": "규제의 부작용을 함께 적어야 판단이 공정합니다.",
+   "promptDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair.",
+   "promptEn": "The judgement is fair only when the side effects are written down too.",
+   "distractors": [
+    "자율이",
+    "우회를"
+   ],
+   "vocabKo": "부작용"
+  },
+  {
+   "id": "satz_c1_0190",
+   "level": "c1",
+   "targetKo": "실효성을 따지려면 비교 집단이 필요합니다.",
+   "promptDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe.",
+   "promptEn": "Judging effectiveness requires a comparison group.",
+   "distractors": [
+    "완화가",
+    "권고를"
+   ],
+   "vocabKo": "실효성"
+  },
+  {
+   "id": "satz_c1_0191",
+   "level": "c1",
+   "targetKo": "자율에 맡기는 방안도 같은 기준으로 재 봅니다.",
+   "promptDe": "Auch der Weg über Selbstregulierung wird am selben Maßstab gemessen.",
+   "promptEn": "The self-regulation option is measured by the same standard.",
+   "distractors": [
+    "지표가",
+    "부작용을"
+   ],
+   "vocabKo": "자율"
+  },
+  {
+   "id": "satz_c1_0192",
+   "level": "c1",
+   "targetKo": "완화 이후 이용시간이 어떻게 달라졌는지 봅니다.",
+   "promptDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat.",
+   "promptEn": "We look at how play time changed after the easing.",
+   "distractors": [
+    "실효성이",
+    "상한을"
+   ],
+   "vocabKo": "완화"
+  },
+  {
+   "id": "satz_c1_0193",
+   "level": "c1",
+   "targetKo": "지표를 하나만 쓰면 그림이 좁아집니다.",
+   "promptDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng.",
+   "promptEn": "Using a single indicator narrows the picture.",
+   "distractors": [
+    "규제가",
+    "역효과를"
+   ],
+   "vocabKo": "지표"
+  },
+  {
+   "id": "satz_c1_0194",
+   "level": "c1",
+   "targetKo": "밤에 몰아서 하는 역효과가 보고됐습니다.",
+   "promptDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet.",
+   "promptEn": "A backfire of cramming play at night has been reported.",
+   "distractors": [
+    "지표가",
+    "권고를"
+   ],
+   "vocabKo": "역효과"
+  },
+  {
+   "id": "satz_c1_0195",
+   "level": "c1",
+   "targetKo": "부모 계정을 쓰는 우회가 흔합니다.",
+   "promptDe": "Die Umgehung über Elternkonten ist verbreitet.",
+   "promptEn": "Circumvention through a parent's account is common.",
+   "distractors": [
+    "상한이",
+    "실효성을"
+   ],
+   "vocabKo": "우회"
+  },
+  {
+   "id": "satz_c1_0196",
+   "level": "c1",
+   "targetKo": "이용시간 산정 방식을 먼저 합의해야 합니다.",
+   "promptDe": "Zuerst muss die Berechnung der Spielzeit vereinbart werden.",
+   "promptEn": "The way play time is computed has to be agreed first.",
+   "distractors": [
+    "자율이",
+    "역효과를"
+   ],
+   "vocabKo": "산정"
+  },
+  {
+   "id": "satz_c1_0197",
+   "level": "c1",
+   "targetKo": "강제 대신 권고로 두면 지키는 비율이 떨어집니다.",
+   "promptDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote.",
+   "promptEn": "Left as a recommendation rather than a duty, compliance drops.",
+   "distractors": [
+    "지표가",
+    "우회를"
+   ],
+   "vocabKo": "권고"
+  },
+  {
+   "id": "satz_c1_0198",
+   "level": "c1",
+   "targetKo": "하루 상한을 두되 주말은 따로 봅니다.",
+   "promptDe": "Eine Tagesobergrenze gilt, das Wochenende wird gesondert betrachtet.",
+   "promptEn": "A daily cap applies, with weekends looked at separately.",
+   "distractors": [
+    "규제가",
+    "실효성을"
+   ],
+   "vocabKo": "상한"
+  },
+  {
+   "id": "satz_c1_0199",
+   "level": "c1",
+   "targetKo": "번역은 오래전부터 무보수로 돌아갔습니다.",
+   "promptDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit.",
+   "promptEn": "Translation has long run as unpaid work.",
+   "distractors": [
+    "소진이",
+    "여력을"
+   ],
+   "vocabKo": "무보수"
+  },
+  {
+   "id": "satz_c1_0200",
+   "level": "c1",
+   "targetKo": "자발성을 이유로 부담을 늘리면 안 됩니다.",
+   "promptDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht.",
+   "promptEn": "Voluntariness is no reason to raise the load.",
+   "distractors": [
+    "과부하가",
+    "지속성을"
+   ],
+   "vocabKo": "자발성"
+  },
+  {
+   "id": "satz_c1_0201",
+   "level": "c1",
+   "targetKo": "컴백 주간마다 소진을 호소하는 사람이 늘어납니다.",
+   "promptDe": "In jeder Comeback-Woche klagen mehr Leute über Erschöpfung.",
+   "promptEn": "Every comeback week more people report burnout.",
+   "distractors": [
+    "분담이",
+    "여력을"
+   ],
+   "vocabKo": "소진"
+  },
+  {
+   "id": "satz_c1_0202",
+   "level": "c1",
+   "targetKo": "헌신을 당연하게 여기면 남는 사람이 없습니다.",
+   "promptDe": "Wird Hingabe als selbstverständlich genommen, bleibt niemand übrig.",
+   "promptEn": "If devotion is taken for granted, nobody stays.",
+   "distractors": [
+    "위임이",
+    "동원을"
+   ],
+   "vocabKo": "헌신"
+  },
+  {
+   "id": "satz_c1_0203",
+   "level": "c1",
+   "targetKo": "분담 표를 만들자 밤샘이 줄었습니다.",
+   "promptDe": "Nach einer Aufteilungstabelle gingen die Nachtschichten zurück.",
+   "promptEn": "Once a sharing table existed, the all-nighters fell.",
+   "distractors": [
+    "착취가",
+    "지속성을"
+   ],
+   "vocabKo": "분담"
+  },
+  {
+   "id": "satz_c1_0204",
+   "level": "c1",
+   "targetKo": "고마움만으로 갚는 구조는 착취에 가깝습니다.",
+   "promptDe": "Eine Struktur, die nur mit Dank vergilt, kommt Ausbeutung nahe.",
+   "promptEn": "A structure that repays only with thanks comes close to exploitation.",
+   "distractors": [
+    "분담이",
+    "성과물을"
+   ],
+   "vocabKo": "착취"
+  },
+  {
+   "id": "satz_c1_0205",
+   "level": "c1",
+   "targetKo": "행사 직전에 과부하가 한쪽으로 몰립니다.",
+   "promptDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite.",
+   "promptEn": "Just before an event the overload piles onto one side.",
+   "distractors": [
+    "위임이",
+    "자발성을"
+   ],
+   "vocabKo": "과부하"
+  },
+  {
+   "id": "satz_c1_0206",
+   "level": "c1",
+   "targetKo": "위임 없이 한 사람이 계정을 다 맡고 있습니다.",
+   "promptDe": "Ohne Delegation betreut eine Person alle Konten.",
+   "promptEn": "With no delegation one person runs every account.",
+   "distractors": [
+    "소진이",
+    "착취를"
+   ],
+   "vocabKo": "위임"
+  },
+  {
+   "id": "satz_c1_0207",
+   "level": "c1",
+   "targetKo": "시험 기간에는 여력이 거의 남지 않습니다.",
+   "promptDe": "In der Prüfungszeit bleibt kaum Kapazität übrig.",
+   "promptEn": "During exams almost no spare capacity is left.",
+   "distractors": [
+    "헌신이",
+    "동원을"
+   ],
+   "vocabKo": "여력"
+  },
+  {
+   "id": "satz_c1_0208",
+   "level": "c1",
+   "targetKo": "지속성을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
+   "promptDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken.",
+   "promptEn": "With sustainability as the standard, the amount of work has to fall first.",
+   "distractors": [
+    "착취가",
+    "과부하를"
+   ],
+   "vocabKo": "지속성"
+  },
+  {
+   "id": "satz_c1_0209",
+   "level": "c1",
+   "targetKo": "성과물의 권리를 누가 갖는지 정해 두지 않았습니다.",
+   "promptDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt.",
+   "promptEn": "Who owns the rights to the output was never settled.",
+   "distractors": [
+    "소진이",
+    "여력을"
+   ],
+   "vocabKo": "성과물"
+  },
+  {
+   "id": "satz_c1_0210",
+   "level": "c1",
+   "targetKo": "투표 기간의 동원이 끝나면 사람들이 사라집니다.",
+   "promptDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute.",
+   "promptEn": "When the voting-period mobilisation ends, people disappear.",
+   "distractors": [
+    "분담이",
+    "지속성을"
+   ],
+   "vocabKo": "동원"
+  },
+  {
+   "id": "satz_c1_0211",
+   "level": "c1",
+   "targetKo": "익명으로 만나는 단계에서는 확인할 수 있는 게 적습니다.",
+   "promptDe": "In der Phase der Anonymität lässt sich wenig überprüfen.",
+   "promptEn": "At the stage of anonymity there is little that can be checked.",
+   "distractors": [
+    "경위가",
+    "완충을"
+   ],
+   "vocabKo": "익명"
+  },
+  {
+   "id": "satz_c1_0212",
+   "level": "c1",
+   "targetKo": "신원 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
+   "promptDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab.",
+   "promptEn": "Forcing identity checks makes the app hard to use for some people.",
+   "distractors": [
+    "수위가",
+    "차단을"
+   ],
+   "vocabKo": "신원"
+  },
+  {
+   "id": "satz_c1_0213",
+   "level": "c1",
+   "targetKo": "직장 정보의 노출은 되돌리기 어렵습니다.",
+   "promptDe": "Die Preisgabe von Angaben zum Arbeitsplatz lässt sich kaum rückgängig machen.",
+   "promptEn": "Exposure of workplace details is hard to undo.",
+   "distractors": [
+    "대면이",
+    "완충을"
+   ],
+   "vocabKo": "노출"
+  },
+  {
+   "id": "satz_c1_0214",
+   "level": "c1",
+   "targetKo": "첫 대면 장소는 사람이 많은 곳으로 정합니다.",
+   "promptDe": "Das erste persönliche Treffen legen wir an einen belebten Ort.",
+   "promptEn": "The first meeting in person is set somewhere busy.",
+   "distractors": [
+    "경계가",
+    "선별을"
+   ],
+   "vocabKo": "대면"
+  },
+  {
+   "id": "satz_c1_0215",
+   "level": "c1",
+   "targetKo": "신고서에 경위를 시간 순서로 적게 합니다.",
+   "promptDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen.",
+   "promptEn": "The report form asks for the sequence of events in time order.",
+   "distractors": [
+    "차단이",
+    "임계치를"
+   ],
+   "vocabKo": "경위"
+  },
+  {
+   "id": "satz_c1_0216",
+   "level": "c1",
+   "targetKo": "표현의 수위를 단계로 나눠 두면 판단이 빨라집니다.",
+   "promptDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller.",
+   "promptEn": "Splitting the severity level of a message into tiers speeds up the call.",
+   "distractors": [
+    "신원이",
+    "노출을"
+   ],
+   "vocabKo": "수위"
+  },
+  {
+   "id": "satz_c1_0217",
+   "level": "c1",
+   "targetKo": "차단 전에 완충 단계를 하나 두면 오해가 줄어듭니다.",
+   "promptDe": "Eine Pufferstufe vor der Sperrung verringert Missverständnisse.",
+   "promptEn": "One buffer step before blocking cuts down misunderstandings.",
+   "distractors": [
+    "익명이",
+    "경위를"
+   ],
+   "vocabKo": "완충"
+  },
+  {
+   "id": "satz_c1_0218",
+   "level": "c1",
+   "targetKo": "자동 선별이 놓친 신고는 사람이 다시 봅니다.",
+   "promptDe": "Meldungen, die die automatische Vorauswahl übersieht, prüft ein Mensch erneut.",
+   "promptEn": "Reports missed by the automatic filtering are reviewed by a person.",
+   "distractors": [
+    "대면이",
+    "경계를"
+   ],
+   "vocabKo": "선별"
+  },
+  {
+   "id": "satz_c1_0219",
+   "level": "c1",
+   "targetKo": "임계치를 낮추면 억울한 정지가 늘어납니다.",
+   "promptDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren.",
+   "promptEn": "Lowering the threshold multiplies unfair suspensions.",
+   "distractors": [
+    "익명이",
+    "노출을"
+   ],
+   "vocabKo": "임계치"
+  },
+  {
+   "id": "satz_c1_0220",
+   "level": "c1",
+   "targetKo": "신고 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
+   "promptDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen.",
+   "promptEn": "Putting the handling deadline for reports on screen builds trust.",
+   "distractors": [
+    "익명이",
+    "수위를"
+   ],
+   "vocabKo": "신고"
+  },
+  {
+   "id": "satz_c1_0221",
+   "level": "c1",
+   "targetKo": "차단한 뒤에도 이전 대화가 남는지 알려 줘야 합니다.",
+   "promptDe": "Es muss klar sein, ob nach der Sperrung alte Nachrichten bleiben.",
+   "promptEn": "It has to be clear whether old messages survive blocking.",
+   "distractors": [
+    "신원이",
+    "경위를"
+   ],
+   "vocabKo": "차단"
+  },
+  {
+   "id": "satz_c1_0222",
+   "level": "c1",
+   "targetKo": "서로의 경계를 먼저 말해 두면 갈등이 줄어듭니다.",
+   "promptDe": "Werden die eigenen Grenzen vorab benannt, sinkt das Konfliktrisiko.",
+   "promptEn": "Naming each other's boundaries early lowers conflict.",
+   "distractors": [
+    "신고가",
+    "차단을"
+   ],
+   "vocabKo": "경계"
+  },
+  {
+   "id": "satz_c2_0175",
+   "level": "c2",
+   "targetKo": "검침기 오작동으로 요금이 세 배 청구됐습니다.",
+   "promptDe": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet.",
+   "promptEn": "A meter malfunction billed three times the amount.",
+   "distractors": [
+    "구제를",
+    "처분이"
+   ],
+   "vocabKo": "오작동"
+  },
+  {
+   "id": "satz_c2_0176",
+   "level": "c2",
+   "targetKo": "구제 절차가 접수 확인에 그치면 실효가 없습니다.",
+   "promptDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+   "promptEn": "If the remedy process stops at an acknowledgement, it has no effect.",
+   "distractors": [
+    "오작동이",
+    "통보를"
+   ],
+   "vocabKo": "구제"
+  },
+  {
+   "id": "satz_c2_0177",
+   "level": "c2",
+   "targetKo": "소명 기회를 주지 않은 결정은 다시 봐야 합니다.",
+   "promptDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+   "promptEn": "A decision that allowed no statement of grounds has to be reviewed again.",
+   "distractors": [
+    "구제가",
+    "시정을"
+   ],
+   "vocabKo": "소명"
+  },
+  {
+   "id": "satz_c2_0178",
+   "level": "c2",
+   "targetKo": "납부 유예만으로는 원인이 사라지지 않습니다.",
+   "promptDe": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
+   "promptEn": "A payment deferral alone doesn't remove the cause.",
+   "distractors": [
+    "처분이",
+    "입증을"
+   ],
+   "vocabKo": "유예"
+  },
+  {
+   "id": "satz_c2_0179",
+   "level": "c2",
+   "targetKo": "같은 시스템이 재검토를 맡으면 형식에 불과합니다.",
+   "promptDe": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+   "promptEn": "If the same system handles the re-review, it is only a formality.",
+   "distractors": [
+    "통보를",
+    "유예가"
+   ],
+   "vocabKo": "재검토"
+  },
+  {
+   "id": "satz_c2_0180",
+   "level": "c2",
+   "targetKo": "결과 통보는 3영업일 안에 서면으로 합니다.",
+   "promptDe": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
+   "promptEn": "Notification of the outcome is made in writing within three business days.",
+   "distractors": [
+    "구제를",
+    "시정이"
+   ],
+   "vocabKo": "통보"
+  },
+  {
+   "id": "satz_c2_0181",
+   "level": "c2",
+   "targetKo": "시정 기한을 정하지 않으면 재발을 막지 못합니다.",
+   "promptDe": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern.",
+   "promptEn": "With no deadline for correction, recurrence isn't prevented.",
+   "distractors": [
+    "오작동이",
+    "입증을"
+   ],
+   "vocabKo": "시정"
+  },
+  {
+   "id": "satz_c2_0182",
+   "level": "c2",
+   "targetKo": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
+   "promptDe": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
+   "promptEn": "Putting the burden of proof only on users goes too far.",
+   "distractors": [
+    "구제가",
+    "통보를"
+   ],
+   "vocabKo": "입증"
+  },
+  {
+   "id": "satz_c2_0183",
+   "level": "c2",
+   "targetKo": "형식적인 이의 창구는 신뢰를 깎습니다.",
+   "promptDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+   "promptEn": "A merely formal appeals desk costs trust.",
+   "distractors": [
+    "구제가",
+    "처분을"
+   ],
+   "vocabKo": "형식적"
+  },
+  {
+   "id": "satz_c2_0184",
+   "level": "c2",
+   "targetKo": "자동 처리의 전제를 공개하면 검증이 가능합니다.",
+   "promptDe": "Werden die Prämissen der automatischen Bearbeitung offengelegt, ist eine Prüfung möglich.",
+   "promptEn": "Publishing the premises of automated processing makes review possible.",
+   "distractors": [
+    "통보가",
+    "유예를"
+   ],
+   "vocabKo": "자동 처리"
+  },
+  {
+   "id": "satz_c2_0185",
+   "level": "c2",
+   "targetKo": "불복 사유를 서면으로 남기는 편이 안전합니다.",
+   "promptDe": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
+   "promptEn": "Recording the grounds of appeal in writing is safer.",
+   "distractors": [
+    "처분이",
+    "구제를"
+   ],
+   "vocabKo": "불복"
+  },
+  {
+   "id": "satz_c2_0186",
+   "level": "c2",
+   "targetKo": "처분 근거를 밝히지 않으면 절차가 무너집니다.",
+   "promptDe": "Nennt man die Grundlage der Maßnahme nicht, bricht das Verfahren zusammen.",
+   "promptEn": "If the basis of the measure isn't stated, the process collapses.",
+   "distractors": [
+    "오작동이",
+    "재검토를"
+   ],
+   "vocabKo": "처분"
+  },
+  {
+   "id": "satz_c2_0187",
+   "level": "c2",
+   "targetKo": "제재 근거를 사후에 붙이는 관행이 문제입니다.",
+   "promptDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
+   "promptEn": "The practice of attaching the basis for a sanction after the fact is the problem.",
+   "distractors": [
+    "누적이",
+    "재량을"
+   ],
+   "vocabKo": "제재"
+  },
+  {
+   "id": "satz_c2_0188",
+   "level": "c2",
+   "targetKo": "적발 기준이 공개되지 않아 다툼이 생깁니다.",
+   "promptDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit.",
+   "promptEn": "Because the detection criteria aren't published, disputes arise.",
+   "distractors": [
+    "오탐이",
+    "항변을"
+   ],
+   "vocabKo": "적발"
+  },
+  {
+   "id": "satz_c2_0189",
+   "level": "c2",
+   "targetKo": "경미한 위반의 누적을 중대한 위반과 같이 다룹니다.",
+   "promptDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt.",
+   "promptEn": "The accumulation of minor breaches is treated like a serious one.",
+   "distractors": [
+    "재량이",
+    "소급을"
+   ],
+   "vocabKo": "누적"
+  },
+  {
+   "id": "satz_c2_0190",
+   "level": "c2",
+   "targetKo": "해제 조건을 미리 적어야 예측이 가능합니다.",
+   "promptDe": "Die Bedingungen der Aufhebung müssen vorab feststehen, damit es vorhersehbar bleibt.",
+   "promptEn": "The conditions for lifting have to be written in advance to stay predictable.",
+   "distractors": [
+    "비례가",
+    "귀책을"
+   ],
+   "vocabKo": "해제"
+  },
+  {
+   "id": "satz_c2_0191",
+   "level": "c2",
+   "targetKo": "자의적인 판단이 끼어들 여지를 줄여야 합니다.",
+   "promptDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
+   "promptEn": "The room for arbitrary decisions has to shrink.",
+   "distractors": [
+    "제재가",
+    "누적을"
+   ],
+   "vocabKo": "자의적"
+  },
+  {
+   "id": "satz_c2_0192",
+   "level": "c2",
+   "targetKo": "같은 행위에 다른 결과가 나오면 일관성이 깨집니다.",
+   "promptDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz.",
+   "promptEn": "If the same act yields different outcomes, consistency breaks.",
+   "distractors": [
+    "적발이",
+    "항변을"
+   ],
+   "vocabKo": "일관성"
+  },
+  {
+   "id": "satz_c2_0193",
+   "level": "c2",
+   "targetKo": "처벌의 무게가 비례에 맞는지 따로 봅니다.",
+   "promptDe": "Ob das Gewicht der Strafe der Verhältnismäßigkeit entspricht, prüfen wir gesondert.",
+   "promptEn": "Whether the weight of the penalty meets proportionality is checked separately.",
+   "distractors": [
+    "오탐이",
+    "재량을"
+   ],
+   "vocabKo": "비례"
+  },
+  {
+   "id": "satz_c2_0194",
+   "level": "c2",
+   "targetKo": "항변을 낼 기한이 너무 짧습니다.",
+   "promptDe": "Die Frist für eine Einrede ist zu kurz.",
+   "promptEn": "The window for filing a defence plea is too short.",
+   "distractors": [
+    "누적이",
+    "비례를"
+   ],
+   "vocabKo": "항변"
+  },
+  {
+   "id": "satz_c2_0195",
+   "level": "c2",
+   "targetKo": "오탐이 났을 때 되돌리는 절차가 없습니다.",
+   "promptDe": "Für den Fall eines Fehlalarms fehlt ein Verfahren zur Rücknahme.",
+   "promptEn": "There is no procedure to reverse a false positive.",
+   "distractors": [
+    "소급이",
+    "재량을"
+   ],
+   "vocabKo": "오탐"
+  },
+  {
+   "id": "satz_c2_0196",
+   "level": "c2",
+   "targetKo": "새 기준을 소급 적용하면 신뢰가 무너집니다.",
+   "promptDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen.",
+   "promptEn": "Applying the new standard with retroactivity breaks trust.",
+   "distractors": [
+    "항변이",
+    "오탐을"
+   ],
+   "vocabKo": "소급"
+  },
+  {
+   "id": "satz_c2_0197",
+   "level": "c2",
+   "targetKo": "귀책 사유를 밝히지 않은 정지는 다투기 어렵습니다.",
+   "promptDe": "Eine Sperre ohne genannte Zurechnung lässt sich schwer angreifen.",
+   "promptEn": "A suspension that states no attributable fault is hard to contest.",
+   "distractors": [
+    "재량이",
+    "적발을"
+   ],
+   "vocabKo": "귀책"
+  },
+  {
+   "id": "satz_c2_0198",
+   "level": "c2",
+   "targetKo": "운영자 재량이 넓을수록 기준을 더 적어야 합니다.",
+   "promptDe": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es.",
+   "promptEn": "The wider the operator's discretion, the more criteria have to be written down.",
+   "distractors": [
+    "제재가",
+    "소급을"
+   ],
+   "vocabKo": "재량"
+  },
+  {
+   "id": "satz_c2_0199",
+   "level": "c2",
+   "targetKo": "헤어진 뒤에는 서사가 한쪽으로 정리됩니다.",
+   "promptDe": "Nach einer Trennung ordnet sich das Narrativ auf eine Seite.",
+   "promptEn": "After a break-up the narrative settles on one side.",
+   "distractors": [
+    "투사가",
+    "왜곡을"
+   ],
+   "vocabKo": "서사"
+  },
+  {
+   "id": "satz_c2_0200",
+   "level": "c2",
+   "targetKo": "말할 때마다 조금씩 각색이 더해집니다.",
+   "promptDe": "Mit jedem Erzählen kommt etwas Ausschmückung dazu.",
+   "promptEn": "Each retelling adds a little dramatisation.",
+   "distractors": [
+    "화자가",
+    "단정을"
+   ],
+   "vocabKo": "각색"
+  },
+  {
+   "id": "satz_c2_0201",
+   "level": "c2",
+   "targetKo": "지난 관계의 미화는 다음 선택을 흐립니다.",
+   "promptDe": "Die Beschönigung der alten Beziehung trübt die nächste Wahl.",
+   "promptEn": "Glossing over the past relationship clouds the next choice.",
+   "distractors": [
+    "통념이",
+    "전형을"
+   ],
+   "vocabKo": "미화"
+  },
+  {
+   "id": "satz_c2_0202",
+   "level": "c2",
+   "targetKo": "통념을 근거로 삼으면 예외가 보이지 않습니다.",
+   "promptDe": "Stützt man sich auf gängige Vorstellungen, bleiben Ausnahmen unsichtbar.",
+   "promptEn": "Leaning on received ideas hides the exceptions.",
+   "distractors": [
+    "각색이",
+    "재구성을"
+   ],
+   "vocabKo": "통념"
+  },
+  {
+   "id": "satz_c2_0203",
+   "level": "c2",
+   "targetKo": "자기 불안을 상대에게 투사하는 장면이 반복됩니다.",
+   "promptDe": "Die Szene, in der eigene Unsicherheit als Projektion auf das Gegenüber fällt, wiederholt sich.",
+   "promptEn": "The scene of turning one's own anxiety into a projection onto the other repeats.",
+   "distractors": [
+    "서사가",
+    "개연성을"
+   ],
+   "vocabKo": "투사"
+  },
+  {
+   "id": "satz_c2_0204",
+   "level": "c2",
+   "targetKo": "이야기의 개연성과 사실 여부는 다른 문제입니다.",
+   "promptDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
+   "promptEn": "The plausibility of a story and whether it is true are separate questions.",
+   "distractors": [
+    "투사가",
+    "미화를"
+   ],
+   "vocabKo": "개연성"
+  },
+  {
+   "id": "satz_c2_0205",
+   "level": "c2",
+   "targetKo": "전형에 맞추면 사람이 납작해집니다.",
+   "promptDe": "Wer in eine Typisierung gepresst wird, wird flach.",
+   "promptEn": "Forced into a stock type, a person goes flat.",
+   "distractors": [
+    "각색이",
+    "이상화를"
+   ],
+   "vocabKo": "전형"
+  },
+  {
+   "id": "satz_c2_0206",
+   "level": "c2",
+   "targetKo": "기억의 재구성은 감정 상태를 따라갑니다.",
+   "promptDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+   "promptEn": "Reconstruction of memory follows one's emotional state.",
+   "distractors": [
+    "통념이",
+    "단정을"
+   ],
+   "vocabKo": "재구성"
+  },
+  {
+   "id": "satz_c2_0207",
+   "level": "c2",
+   "targetKo": "화자가 누구인지에 따라 같은 장면이 달라집니다.",
+   "promptDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus.",
+   "promptEn": "Depending on the narrator the same scene looks different.",
+   "distractors": [
+    "미화가",
+    "재구성을"
+   ],
+   "vocabKo": "화자"
+  },
+  {
+   "id": "satz_c2_0208",
+   "level": "c2",
+   "targetKo": "요약하는 과정에서 왜곡이 자주 생깁니다.",
+   "promptDe": "Beim Zusammenfassen entsteht häufig eine Entstellung.",
+   "promptEn": "Distortion often creeps in while summarising.",
+   "distractors": [
+    "화자가",
+    "통념을"
+   ],
+   "vocabKo": "왜곡"
+  },
+  {
+   "id": "satz_c2_0209",
+   "level": "c2",
+   "targetKo": "초반의 이상화가 나중 판단을 어렵게 합니다.",
+   "promptDe": "Die frühe Idealisierung erschwert das spätere Urteil.",
+   "promptEn": "Early idealisation makes later judgement harder.",
+   "distractors": [
+    "서사가",
+    "왜곡을"
+   ],
+   "vocabKo": "이상화"
+  },
+  {
+   "id": "satz_c2_0210",
+   "level": "c2",
+   "targetKo": "한 장면만 보고 단정을 내리기는 이릅니다.",
+   "promptDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht.",
+   "promptEn": "A flat assertion after a single scene is premature.",
+   "distractors": [
+    "각색이",
+    "재구성을"
+   ],
+   "vocabKo": "단정"
+  },
+  {
+   "id": "satz_c2_0211",
+   "level": "c2",
+   "targetKo": "팬덤 안의 담론이 바깥 기준을 대신하기도 합니다.",
+   "promptDe": "Der Diskurs innerhalb des Fandoms ersetzt mitunter externe Maßstäbe.",
+   "promptEn": "Discourse inside the fandom sometimes replaces outside standards.",
+   "distractors": [
+    "낙인이",
+    "잣대를"
+   ],
+   "vocabKo": "담론"
+  },
+  {
+   "id": "satz_c2_0212",
+   "level": "c2",
+   "targetKo": "비판이 나오면 결집이 먼저 일어납니다.",
+   "promptDe": "Kommt Kritik auf, setzt zuerst die Mobilisierung ein.",
+   "promptEn": "When criticism appears, rallying comes first.",
+   "distractors": [
+    "담론이",
+    "호명을"
+   ],
+   "vocabKo": "결집"
+  },
+  {
+   "id": "satz_c2_0213",
+   "level": "c2",
+   "targetKo": "다른 의견을 낸 사람의 배제가 빠르게 이뤄집니다.",
+   "promptDe": "Der Ausschluss von Abweichenden erfolgt schnell.",
+   "promptEn": "Exclusion of those who disagree happens fast.",
+   "distractors": [
+    "위계가",
+    "함의를"
+   ],
+   "vocabKo": "배제"
+  },
+  {
+   "id": "satz_c2_0214",
+   "level": "c2",
+   "targetKo": "한 번 붙은 낙인은 설명으로 잘 지워지지 않습니다.",
+   "promptDe": "Ein einmal angehängtes Stigma lässt sich mit Erklärungen kaum tilgen.",
+   "promptEn": "A stigma once attached is hard to erase with explanations.",
+   "distractors": [
+    "동조가",
+    "우세를"
+   ],
+   "vocabKo": "낙인"
+  },
+  {
+   "id": "satz_c2_0215",
+   "level": "c2",
+   "targetKo": "규모를 근거로 삼는 정당화는 오래가지 못합니다.",
+   "promptDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange.",
+   "promptEn": "Justification by sheer numbers doesn't last.",
+   "distractors": [
+    "배제가",
+    "잣대를"
+   ],
+   "vocabKo": "정당화"
+  },
+  {
+   "id": "satz_c2_0216",
+   "level": "c2",
+   "targetKo": "오래 활동한 순서가 위계로 굳어졌습니다.",
+   "promptDe": "Die Dauer der Aktivität hat sich zu einer Hierarchie verfestigt.",
+   "promptEn": "Seniority of activity has hardened into a hierarchy.",
+   "distractors": [
+    "낙인이",
+    "함의를"
+   ],
+   "vocabKo": "위계"
+  },
+  {
+   "id": "satz_c2_0217",
+   "level": "c2",
+   "targetKo": "반박이 없는 자리에서는 동조가 의견처럼 보입니다.",
+   "promptDe": "Wo kein Widerspruch fällt, sieht Mitgehen wie eine Meinung aus.",
+   "promptEn": "Where nothing is contested, going along looks like an opinion.",
+   "distractors": [
+    "담론이",
+    "호명을"
+   ],
+   "vocabKo": "동조"
+  },
+  {
+   "id": "satz_c2_0218",
+   "level": "c2",
+   "targetKo": "같은 발화라도 누가 했느냐로 무게가 달라집니다.",
+   "promptDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
+   "promptEn": "The same utterance carries different weight depending on who said it.",
+   "distractors": [
+    "배제가",
+    "잣대를"
+   ],
+   "vocabKo": "발화"
+  },
+  {
+   "id": "satz_c2_0219",
+   "level": "c2",
+   "targetKo": "짧은 문장의 함의를 두고 며칠씩 다툽니다.",
+   "promptDe": "Über die Implikation eines kurzen Satzes wird tagelang gestritten.",
+   "promptEn": "The implication of one short sentence is argued over for days.",
+   "distractors": [
+    "결집이",
+    "우세를"
+   ],
+   "vocabKo": "함의"
+  },
+  {
+   "id": "satz_c2_0220",
+   "level": "c2",
+   "targetKo": "안팎에 다른 잣대를 대면 설득력이 사라집니다.",
+   "promptDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft.",
+   "promptEn": "Applying different yardsticks inside and outside destroys credibility.",
+   "distractors": [
+    "담론이",
+    "배제를"
+   ],
+   "vocabKo": "잣대"
+  },
+  {
+   "id": "satz_c2_0221",
+   "level": "c2",
+   "targetKo": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
+   "promptDe": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
+   "promptEn": "Once calling out a specific person by name starts, the conversation stops.",
+   "distractors": [
+    "위계가",
+    "잣대를"
+   ],
+   "vocabKo": "호명"
+  },
+  {
+   "id": "satz_c2_0222",
+   "level": "c2",
+   "targetKo": "목소리의 우세가 사실 확인을 대신하지는 않습니다.",
+   "promptDe": "Das Übergewicht der lauten Stimmen ersetzt keine Faktenprüfung.",
+   "promptEn": "Dominance of the loudest voices doesn't replace checking the facts.",
+   "distractors": [
+    "낙인이",
+    "함의를"
+   ],
+   "vocabKo": "우세"
+  }
+ ]
+}
