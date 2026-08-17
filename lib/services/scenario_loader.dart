@@ -64,10 +64,59 @@ class ScenarioLoader {
     return list;
   }
 
+  /// Wie viele Level-Shards gleichzeitig im Speicher bleiben dürfen (Spec §6).
+  static const int maxResidentShards = 2;
+
+  static final Map<LearnerLevel, List<Scenario>> _shards = {};
+  static final List<LearnerLevel> _lru = [];
+
+  /// Resident shards, ältester zuerst. Test-Seam.
+  static List<LearnerLevel> get residentLevels => List.unmodifiable(_lru);
+
+  /// Lädt nur den Shard eines Levels. Das Regal (Hören) braucht die anderen
+  /// fünf Level nicht — bei 3.600 Szenarien wären das 22 MB statt 3,7 MB.
+  static Future<List<Scenario>> loadLevel(LearnerLevel level) async {
+    final full = _cached;
+    if (full != null) {
+      // Voller Korpus liegt schon: kein zweites Lesen derselben Daten.
+      return full.where((s) => s.level == level).toList();
+    }
+    final resident = _shards[level];
+    if (resident != null) {
+      _touch(level);
+      return resident;
+    }
+    final list = <Scenario>[];
+    try {
+      _parseInto(await rootBundle.loadString(shardPath(level)), list);
+      lastError = null;
+    } catch (e) {
+      lastError = 'Szenarien (${level.code}) konnten nicht geladen werden: $e';
+    }
+    _shards[level] = list;
+    _touch(level);
+    while (_lru.length > maxResidentShards) {
+      _shards.remove(_lru.removeAt(0));
+    }
+    return list;
+  }
+
+  static void _touch(LearnerLevel level) {
+    _lru.remove(level);
+    _lru.add(level);
+  }
+
   static Scenario? byId(String id) {
     for (final s in (_cached ?? const <Scenario>[])) {
       if (s.id == id) {
         return s;
+      }
+    }
+    for (final shard in _shards.values) {
+      for (final s in shard) {
+        if (s.id == id) {
+          return s;
+        }
       }
     }
     return null;
@@ -79,6 +128,8 @@ class ScenarioLoader {
   /// Cache invalidieren — z.B. nach reset oder Hot-Reload.
   static void reset() {
     _cached = null;
+    _shards.clear();
+    _lru.clear();
     lastError = null;
   }
 }
