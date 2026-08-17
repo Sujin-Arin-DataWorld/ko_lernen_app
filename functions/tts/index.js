@@ -26,9 +26,13 @@ const {
   CALLABLE_OPTIONS,
   SYNTH_DEADLINE_MS,
   TtsRequestError,
+  completedTtsReceipt,
+  isCurrentTtsReceipt,
   isUsableAudioBuffer,
+  pendingTtsReceipt,
   refundDailyTtsQuotas,
   ttsProviderBreaker,
+  ttsReplayId,
   validateTtsRequest,
   underDailyTtsQuotas,
   withDeadline,
@@ -51,45 +55,123 @@ const VOICES = {
 };
 const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
 
+async function loadUsableAudio(fileRef) {
+  const [exists] = await fileRef.exists();
+  if (!exists) {
+    return null;
+  }
+  const [buf] = await fileRef.download();
+  if (isUsableAudioBuffer(buf)) {
+    return buf;
+  }
+  try {
+    await fileRef.delete();
+  } catch {
+    // Empty or corrupt objects must not be replayed as a cache hit.
+  }
+  return null;
+}
+
+async function claimTtsReplay(db, storagePath) {
+  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const data = snapshot.exists ? snapshot.data() : null;
+    if (isCurrentTtsReceipt(data)) {
+      return {consume: false};
+    }
+    transaction.set(ref, pendingTtsReceipt());
+    return {consume: true};
+  });
+}
+
+async function completeTtsReplay(db, storagePath) {
+  await db
+    .collection("service_idempotency")
+    .doc(ttsReplayId(storagePath))
+    .set(completedTtsReceipt());
+}
+
+async function abandonTtsReplay(db, storagePath) {
+  const ref = db.collection("service_idempotency").doc(ttsReplayId(storagePath));
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    if (!snapshot.exists) {
+      return;
+    }
+    const data = snapshot.data();
+    if (data && data.state === "pending" && data.kind === "tts_v1") {
+      transaction.delete(ref);
+    }
+  });
+}
+
+async function synthesizeSpeech(text, voiceKey) {
+  const [response] = await withDeadline(
+    ttsClient.synthesizeSpeech(
+      {
+        input: { text },
+        voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
+        audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
+      },
+      { timeout: SYNTH_DEADLINE_MS },
+    ),
+    SYNTH_DEADLINE_MS,
+  );
+  const audioBuffer = Buffer.from(response.audioContent || []);
+  if (!isUsableAudioBuffer(audioBuffer)) {
+    throw new Error("empty TTS audio");
+  }
+  return audioBuffer;
+}
+
 async function synthesizeTts(request) {
     try {
       const { text, voice, installationId } = validateTtsRequest(request);
 
       const key = cacheKey(voice, text);
       const voiceKey = key.voice;
-
+      const db = admin.firestore();
       const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
 
-      let audioBuffer = null;
-      const [exists] = await fileRef.exists();
-      if (exists) {
-        const [buf] = await fileRef.download();
-        if (isUsableAudioBuffer(buf)) {
-          audioBuffer = buf;
-        } else {
-          try {
-            await fileRef.delete();
-          } catch {
-            // Empty or corrupt objects must not be replayed as a cache hit.
-          }
-        }
+      let audioBuffer = await loadUsableAudio(fileRef);
+      if (isUsableAudioBuffer(audioBuffer)) {
+        return { audioBase64: audioBuffer.toString("base64") };
       }
 
-      if (!isUsableAudioBuffer(audioBuffer)) {
-        if (!ttsProviderBreaker.allow()) {
-          throw new HttpsError(
-            "unavailable",
-            "TTS synthesis is temporarily unavailable.",
-          );
+      let consume = true;
+      try {
+        const claim = await claimTtsReplay(db, key.storagePath);
+        consume = claim.consume;
+      } catch {
+        consume = true;
+      }
+
+      if (!ttsProviderBreaker.allow()) {
+        if (consume) {
+          try {
+            await abandonTtsReplay(db, key.storagePath);
+          } catch {
+            // Keep the circuit error; the pending receipt expires.
+          }
         }
-        // 이미 만들어진 Storage 음성은 Google TTS 비용이 들지 않으므로 세지
-        // 않는다. 실제 새 합성 직전에만 설치 30·계정 50·전체 300 한도를
-        // 하나의 Firestore 트랜잭션으로 차감한다.
-        const quota = await underDailyTtsQuotas(admin.firestore(), {
+        throw new HttpsError(
+          "unavailable",
+          "TTS synthesis is temporarily unavailable.",
+        );
+      }
+
+      if (consume) {
+        const quota = await underDailyTtsQuotas(db, {
           uid: request.auth.uid,
           installationId,
         });
         if (!quota.allowed) {
+          try {
+            await abandonTtsReplay(db, key.storagePath);
+          } catch {
+            // Keep the quota error; the pending receipt expires.
+          }
           console.warn("Daily TTS synthesis limit reached", {
             scope: quota.exceededScope,
           });
@@ -98,33 +180,21 @@ async function synthesizeTts(request) {
             "Daily synthesis limit reached.",
           );
         }
+      }
 
-        try {
-          const [response] = await withDeadline(
-            ttsClient.synthesizeSpeech(
-              {
-                input: { text },
-                voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
-                audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
-              },
-              { timeout: SYNTH_DEADLINE_MS },
-            ),
-            SYNTH_DEADLINE_MS,
-          );
-          audioBuffer = Buffer.from(response.audioContent || []);
-          if (!isUsableAudioBuffer(audioBuffer)) {
-            throw new Error("empty TTS audio");
-          }
+      try {
+        audioBuffer = await loadUsableAudio(fileRef);
+        if (!isUsableAudioBuffer(audioBuffer)) {
+          audioBuffer = await synthesizeSpeech(text, voiceKey);
           await fileRef.save(audioBuffer, {
             contentType: "audio/mpeg",
             resumable: false,
             metadata: { cacheControl: "public, max-age=31536000" },
           });
           ttsProviderBreaker.recordSuccess();
-        } catch (error) {
-          ttsProviderBreaker.recordFailure();
+        } else if (consume) {
           try {
-            await refundDailyTtsQuotas(admin.firestore(), {
+            await refundDailyTtsQuotas(db, {
               uid: request.auth.uid,
               installationId,
             });
@@ -133,8 +203,32 @@ async function synthesizeTts(request) {
               scope: "tts",
             });
           }
-          throw error;
         }
+        try {
+          await completeTtsReplay(db, key.storagePath);
+        } catch {
+          // Storage already has the usable object; the receipt is optional.
+        }
+      } catch (error) {
+        ttsProviderBreaker.recordFailure();
+        if (consume) {
+          try {
+            await refundDailyTtsQuotas(db, {
+              uid: request.auth.uid,
+              installationId,
+            });
+          } catch {
+            console.warn("TTS quota refund failed", {
+              scope: "tts",
+            });
+          }
+          try {
+            await abandonTtsReplay(db, key.storagePath);
+          } catch {
+            // Keep the original provider failure.
+          }
+        }
+        throw error;
       }
 
       return { audioBase64: audioBuffer.toString("base64") };
@@ -145,7 +239,7 @@ async function synthesizeTts(request) {
       if (e instanceof HttpsError) {
         throw e;
       }
-      console.error("synthesize_tts error", e);
+      console.error("synthesize_tts error", e && e.code ? e.code : "internal");
       throw new HttpsError("internal", "TTS synthesis failed.");
     }
 }

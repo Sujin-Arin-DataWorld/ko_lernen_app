@@ -26,6 +26,22 @@ void main() {
     expect(key.storagePath, startsWith('tts/v3/female/'));
   });
 
+  test('usable audio requires a real MP3 header, not just non-empty bytes', () {
+    final mp3 = List<int>.filled(32, 0);
+    mp3[0] = 0xFF;
+    mp3[1] = 0xFB;
+    final tagged = List<int>.filled(32, 0);
+    tagged[0] = 0x49;
+    tagged[1] = 0x44;
+    tagged[2] = 0x33;
+
+    expect(TtsCacheKey.isUsableAudio(<int>[]), isFalse);
+    expect(TtsCacheKey.isUsableAudio(<int>[0xFF, 0xFB]), isFalse);
+    expect(TtsCacheKey.isUsableAudio(List<int>.filled(32, 1)), isFalse);
+    expect(TtsCacheKey.isUsableAudio(mp3), isTrue);
+    expect(TtsCacheKey.isUsableAudio(tagged), isTrue);
+  });
+
   test('dynamic synthesis uses the authenticated callable transport', () {
     final source = File('lib/services/tts_service.dart').readAsStringSync();
 

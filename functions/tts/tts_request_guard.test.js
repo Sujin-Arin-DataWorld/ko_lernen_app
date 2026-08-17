@@ -10,9 +10,12 @@ const {
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
+  isCurrentTtsReceipt,
   isUsableAudioBuffer,
+  pendingTtsReceipt,
   quotaExpiresAt,
   refundDailyTtsQuotas,
+  ttsReplayId,
   underDailyTtsQuotas,
   validateTtsRequest,
   withDeadline,
@@ -27,11 +30,14 @@ test("synthesis treats empty Storage objects as a miss and bounds Cloud TTS", ()
   assert.match(source, /withDeadline/);
   assert.match(source, /SYNTH_DEADLINE_MS/);
   assert.match(source, /empty TTS audio/);
+  assert.match(source, /claimTtsReplay/);
+  assert.match(source, /abandonTtsReplay/);
 });
 
 test("expensive TTS callable enforces App Check and consumes replay tokens", () => {
   assert.equal(CALLABLE_OPTIONS.enforceAppCheck, true);
   assert.equal(CALLABLE_OPTIONS.consumeAppCheckToken, true);
+  assert.equal(CALLABLE_OPTIONS.timeoutSeconds, 15);
 });
 
 test("rejects anonymous callers before any synthesis work", () => {
@@ -214,6 +220,21 @@ test("withDeadline rejects a hung synthesis before the client gives up", async (
   await assert.rejects(
     () => withDeadline(new Promise(() => {}), 20, "deadline"),
     (error) => error instanceof Error && error.message === "deadline",
+  );
+});
+
+test("tts receipts hash the storage path and skip a second charge while pending", () => {
+  const now = new Date("2026-08-17T00:00:00.000Z");
+  const storagePath = "tts/v3/female/abc.mp3";
+  const replayId = ttsReplayId(storagePath);
+  assert.equal(replayId.length, 64);
+  assert.equal(replayId.includes("female"), false);
+  assert.notEqual(replayId, ttsReplayId("tts/v3/male/abc.mp3"));
+  const pending = pendingTtsReceipt(now);
+  assert.equal(isCurrentTtsReceipt(pending, now), true);
+  assert.equal(
+    isCurrentTtsReceipt(pending, new Date(now.getTime() + 16 * 60 * 1000)),
+    false,
   );
 });
 
