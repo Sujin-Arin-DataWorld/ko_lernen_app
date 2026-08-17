@@ -164,7 +164,7 @@ _beat(
 )
 _beat(
     "a1_meet_station",
-    take=("응, 빨간 문 앞에 있어.", "Ja, ich stehe vor der roten Tür.", "Yes, I am in front of the red door."),
+    take=("응, 빨간 문 앞에 있어.", "Ja, ich stehe vor der roten Tür.", "Yes, I'm in front of the red door."),
     probe=("얼마나 있으면 나와?", "Wie lange brauchst du noch?", "How long until you come out?"),
 )
 _beat(

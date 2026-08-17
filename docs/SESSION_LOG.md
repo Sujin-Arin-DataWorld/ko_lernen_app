@@ -30,6 +30,9 @@ Flutter `a1_real_life_scenario(s)`·`content_id_contract`
 금지어(`진행해`·`처리하겠습니다`·`Understood`·`I will `·`Alles klar`·`im Voraus`)
 0, 셸 174개 유일, 대사 전체 174개 유일, 프레임 줄의 제목 반복 0. `안녕하세요`로
 시작하는 장면 86 → 34, 첫 줄 종류 18개. 화자 안에서 말투가 섞이는 장면 1 → 0.
+1차 푸시에서 원격 CI의 `learner_copy_scan_test`가 영어 `I am`/`I will` 13건을
+잡았다. 내가 로컬에서 돌린 5개 파일에 그 스캐너가 없었다. 축약형으로 고치고,
+콘텐츠를 읽는 테스트를 `grep`으로 전수(14개 파일 115건) 찾아 다시 돌렸다.
 부계정 `72657bd` main full run은 웹·aab 빌드 직전까지 전부 통과했다고 Jin이
 확인했다. TTS는 문장이 크게 바뀌었으니 승인 뒤에 돌린다.
 

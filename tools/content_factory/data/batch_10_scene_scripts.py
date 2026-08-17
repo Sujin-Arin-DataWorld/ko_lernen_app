@@ -151,7 +151,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
             ("네, 말씀하세요.", "Ja, bitte.", "Yes, go ahead."),
             ("무슨 일이에요?", "Was gibt es?", "What is it?"),
             ("네, 편하게 물어보세요.", "Fragen Sie ruhig.", "Go ahead and ask."),
-            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I am listening."),
+            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I'm listening."),
         ),
         "check_do": (
             ("네, 그렇게 해 줄게요.", "Ja, das mache ich.", "Yes, I'll do that."),
@@ -169,7 +169,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
             ("네, 말씀하세요.", "Ja, bitte sagen Sie.", "Yes, go ahead."),
             ("지금 시간 괜찮아요. 어떤 건이에요?", "Ich habe Zeit. Um welchen Fall geht es?", "I have time. Which case is it?"),
             ("네, 편하게 말씀하세요.", "Sagen Sie es ruhig.", "Go ahead, tell me."),
-            ("듣고 있어요. 말씀하세요.", "Ich höre. Sagen Sie.", "I am listening. Go ahead."),
+            ("듣고 있어요. 말씀하세요.", "Ich höre. Sagen Sie.", "I'm listening. Go ahead."),
             ("네, 어디부터 볼까요?", "Ja, wo fangen wir an?", "Sure, where should we start?"),
         ),
         "check_do": (
@@ -189,7 +189,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
         "open": (
             ("네, 말씀하세요.", "Ja, bitte.", "Yes, go ahead."),
             ("안녕하세요. 무슨 일이세요?", "Hallo. Worum geht es?", "Hello. What is it about?"),
-            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I am listening."),
+            ("네, 듣고 있어요.", "Ja, ich höre.", "Yes, I'm listening."),
             ("아, 안녕하세요. 어떤 일이세요?", "Ah, hallo. Was gibt es?", "Oh, hello. What can I do?"),
         ),
         "check_do": (
@@ -207,7 +207,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
         "open": (
             ("왜, 무슨 일이야?", "Was ist denn?", "What is up?"),
             ("응, 말해.", "Ja, sag.", "Yeah, go ahead."),
-            ("어, 지금 괜찮아. 말해 봐.", "Ja, ich habe Zeit. Sag ruhig.", "Sure, I am free. Tell me."),
+            ("어, 지금 괜찮아. 말해 봐.", "Ja, ich habe Zeit. Sag ruhig.", "Sure, I'm free. Tell me."),
             ("응? 왜 그래?", "Hm? Was ist los?", "Hm? What is it?"),
         ),
         "check_do": (
@@ -225,7 +225,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
         "open": (
             ("어, 왜?", "Hey, was ist?", "Hey, what is up?"),
             ("응, 무슨 일이야?", "Ja, was gibt es?", "Yeah, what is it?"),
-            ("지금 괜찮아. 말해 봐.", "Ich habe Zeit. Sag ruhig.", "I am free. Go ahead."),
+            ("지금 괜찮아. 말해 봐.", "Ich habe Zeit. Sag ruhig.", "I'm free. Go ahead."),
             ("왜? 무슨 일 있어?", "Warum? Ist was?", "Why? Something up?"),
         ),
         "check_do": (
