@@ -47,9 +47,19 @@ class WordWebStudyScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          cluster.sourceKo,
-                          style: SoriTextTheme.of(context).display,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              cluster.sourceKo,
+                              style: SoriTextTheme.of(context).display,
+                            ),
+                            if (cluster.sourceGloss(lang).isNotEmpty)
+                              Text(
+                                cluster.sourceGloss(lang),
+                                style: SoriTextTheme.of(context).bodySmall,
+                              ),
+                          ],
                         ),
                       ),
                       IconButton(

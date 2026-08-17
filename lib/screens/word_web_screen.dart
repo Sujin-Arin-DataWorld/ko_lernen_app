@@ -45,6 +45,7 @@ class WordWebScreen extends StatefulWidget {
 class _WordWebScreenState extends State<WordWebScreen>
     with ScreenCoachMixin<WordWebScreen> {
   bool _loading = true;
+  bool _loadFailed = false;
   WordWebScope _scope = WordWebScope.learned;
   List<WordRelationCluster> _all = const [];
   final GlobalKey _listKey = GlobalKey();
@@ -78,7 +79,14 @@ class _WordWebScreenState extends State<WordWebScreen>
   }
 
   Future<void> _load() async {
+    if (!_loading) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+      });
+    }
     List<WordRelationCluster> all = const [];
+    var failed = false;
     try {
       final loader = widget.clusterLoader;
       if (loader != null) {
@@ -87,6 +95,7 @@ class _WordWebScreenState extends State<WordWebScreen>
         all = await WordRelationService.load();
       }
     } catch (_) {
+      failed = true;
       all = const [];
     }
     if (!mounted) {
@@ -94,12 +103,14 @@ class _WordWebScreenState extends State<WordWebScreen>
     }
     setState(() {
       _all = all;
+      _loadFailed = failed;
       _loading = false;
     });
+    scheduleCoach();
   }
 
   Set<String> get _seen =>
-      widget.seenLoader?.call() ?? Storage.vokSeenIds.toSet();
+      widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
 
   LearnerLevel get _level =>
       widget.levelLoader?.call() ??
@@ -121,6 +132,7 @@ class _WordWebScreenState extends State<WordWebScreen>
     setState(() {
       _scope = scope;
     });
+    scheduleCoach();
   }
 
   @override
@@ -137,6 +149,8 @@ class _WordWebScreenState extends State<WordWebScreen>
         child: SafeArea(
           child: _loading
               ? const AppLoading()
+              : _loadFailed
+              ? _loadError(t)
               : Column(
                   children: [
                     _header(t),
@@ -255,6 +269,7 @@ class _WordWebScreenState extends State<WordWebScreen>
           await Navigator.of(context).pushNamed('/vocab');
           if (mounted) {
             setState(() {});
+            scheduleCoach();
           }
         },
         secondaryLabel: t.wordWebBrowseLevelCta,
@@ -263,7 +278,23 @@ class _WordWebScreenState extends State<WordWebScreen>
     );
   }
 
+  Widget _loadError(AppL10n t) {
+    return Center(
+      child: SoriEmptyState(
+        asset: 'assets/illustrations/error/lost_magpie.png',
+        icon: Icons.hub_outlined,
+        title: t.wordWebLoadErrorTitle,
+        body: t.wordWebLoadErrorBody,
+        ctaLabel: t.btnRetry,
+        onCta: _load,
+      ),
+    );
+  }
+
   Widget _clusterCard(AppL10n t, WordRelationCluster cluster) {
+    final gloss = cluster.sourceGloss(
+      Localizations.localeOf(context).languageCode,
+    );
     return SoriCard(
       key: ValueKey(cluster.id),
       accent: SoriColors.accent,
@@ -285,6 +316,8 @@ class _WordWebScreenState extends State<WordWebScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(cluster.sourceKo, style: SoriTextTheme.of(context).h3),
+                if (gloss.isNotEmpty)
+                  Text(gloss, style: SoriTextTheme.of(context).cardSubtitle),
                 Text(
                   t.wordWebClusterCount(
                     cluster.synonyms.length,

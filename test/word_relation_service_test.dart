@@ -1,10 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/word_relation_service.dart';
 
 void main() {
@@ -24,15 +26,22 @@ void main() {
     final byKorean = {for (final item in vocab) item.korean: item};
 
     expect(clusters, isNotEmpty);
-    expect(clusters.length, 50);
+    expect(clusters.length, 66);
+    expect(clusters.where((c) => c.level == 'B1'), hasLength(8));
+    expect(clusters.where((c) => c.level == 'B2'), hasLength(8));
+    expect(clusters.where((c) => c.synonyms.isEmpty), isEmpty);
     for (final cluster in clusters) {
       expect(cluster.hasStudyContent, isTrue, reason: cluster.id);
+      expect(cluster.sourceDe, isNotEmpty, reason: cluster.id);
+      expect(cluster.sourceEn, isNotEmpty, reason: cluster.id);
       expect(
         byId.containsKey(cluster.sourceVocabId),
         isTrue,
         reason: cluster.id,
       );
       expect(byId[cluster.sourceVocabId]!.korean, cluster.sourceKo);
+      expect(byId[cluster.sourceVocabId]!.german, cluster.sourceDe);
+      expect(byId[cluster.sourceVocabId]!.english, cluster.sourceEn);
       expect(
         byKorean.containsKey(cluster.sourceKo),
         isTrue,
@@ -40,6 +49,20 @@ void main() {
       );
       expect(cluster.expressions, isNotEmpty, reason: cluster.id);
     }
+  });
+
+  test('learnedKorean unions pack seen and SRS Korean keys', () async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
+    await Storage.addVokSeen('크다');
+    await Storage.srsReview('감사합니다', gotIt: true);
+
+    expect(
+      WordRelationService.learnedKorean(),
+      containsAll(<String>{'크다', '감사합니다'}),
+    );
+    expect(WordRelationService.learnedKorean(), isNot(contains('')));
   });
 
   test('learned scope keeps only seen source words', () {
@@ -143,6 +166,8 @@ const _fixture = '''
       "id": "rel_test_big",
       "sourceKo": "크다",
       "sourceVocabId": "vocab_a1_0116",
+      "sourceDe": "groß",
+      "sourceEn": "big",
       "level": "A1",
       "synonyms": [
         {"ko": "커다랗다", "de": "sehr groß", "en": "huge"}

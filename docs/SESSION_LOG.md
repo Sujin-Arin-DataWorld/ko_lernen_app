@@ -65,6 +65,34 @@ resolver 6, studio widget. 타이포 상한 168/99/75와 A1 시나리오 계약�
 **검증.** TTS Node `tts_request_guard`+`tts_contract` **22/22**,
 `tts_cache_key_test` **4/4**. live 배포는 하지 않았다. 구현 커밋 `bd17dbeb`.
 
+### 2026-08-17 (Cursor) — 단어망 검수 9항목 후속
+
+**무엇을.** 단어망 검수 목록을 이어서 닫았다. (1)(2)는 이미 `ff133308`에서
+학습 1단어 퀴즈 보기 풀·단어팩 복귀 새로고침으로 막혀 있다. 이번 작업은
+나머지 7항목이다.
+
+- 공부 화면에 `sourceDe`/`sourceEn`을 두고 크다 → groß / big을 보여 준다.
+- 학습 범위는 `vokSeenIds` ∪ SRS 한국어 키. `grammarSeen`은 넣지 않는다.
+- 시드를 66클러스터로 늘렸다(A1 42·A2 8·B1 8·B2 8). 비슷한 말 공백 36칸을
+  정직한 근동의어·경어로 채웠고, 인사·가족·시간 명사의 가짜 반대말은 만들지
+  않았다(반대말 공백 16).
+- 퀴즈 `1 / N`은 `SoriChip` 대신 캡션 텍스트다.
+- JSON 로드 실패는 “아직 그물이 없다”가 아니라 재시도 오류 상태다.
+- 첫 방문이 빈 화면이어도 목록이 생긴 뒤 `scheduleCoach()`를 다시 부른다.
+- 단어장 뉘앙스 CTA에서 Synonyme/synonyms를 빼고, 단어망 카피는 학습
+  이웃·반대·표현으로 나눈다.
+
+**왜.** 기존 테스트는 두꺼운 fixture만 써서 얇은 학습 경로와 빈 시드·겹치는
+입구를 놓쳤다. 복습 화면으로 쓰려면 출발 뜻과 더 넓은 학습 흔적이 필요하다.
+
+**검증.** `python3 tool/build_word_relations.py` → 66클러스터, source gloss
+전부, 비슷한 말 0공백. `flutter analyze --no-pub --fatal-infos` 대상 파일
+No issues found. `flutter test --no-pub test/word_relation_service_test.dart
+test/word_web_screen_test.dart test/l10n_parity_test.dart
+test/sori_activity_catalog_test.dart` 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
 
 **무엇을.** 3차 리뷰에서 TTS만 배포하면 학습자에게 빈 캐시/환급/8초

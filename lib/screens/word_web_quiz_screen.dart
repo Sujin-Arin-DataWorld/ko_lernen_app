@@ -10,7 +10,6 @@ import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
@@ -147,9 +146,9 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
       children: [
         Row(
           children: [
-            SoriChip(
-              label: '${_idx + 1} / ${_items.length}',
-              accent: SoriColors.info,
+            Text(
+              '${_idx + 1} / ${_items.length}',
+              style: SoriTextTheme.of(context).caption,
             ),
             const SizedBox(width: Spacing.sm),
             Expanded(

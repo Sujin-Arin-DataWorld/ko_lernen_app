@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/learner_level.dart';
 import '../models/word_relation.dart';
+import 'storage_service.dart';
 
 /// Loads the word-web seed and builds learner-scoped study / quiz decks.
 ///
@@ -241,6 +242,16 @@ class WordRelationService {
     final options = <String>[seed.answerKo, ...distractors.take(3)];
     options.shuffle(rng);
     return options;
+  }
+
+  /// Korean strings the learner has already met in packs or SRS reviews.
+  ///
+  /// Grammar pattern IDs stay out: they are not Korean headwords.
+  static Set<String> learnedKorean() {
+    return {
+      for (final word in [...Storage.vokSeenIds, ...Storage.srsReviewedIds])
+        if (word.trim().isNotEmpty) word.trim(),
+    };
   }
 
   static void resetForTesting() => _clusters = null;

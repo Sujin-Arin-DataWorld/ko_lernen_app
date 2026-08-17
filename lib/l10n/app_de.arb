@@ -1645,7 +1645,7 @@
     }
   },
   "wordWebTitle": "Wortnetz",
-  "wordWebHubDesc": "Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst",
+  "wordWebHubDesc": "Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast",
   "wordWebSubtitle": "{count, plural, one{1 Wort mit Nachbarn} other{{count} Wörter mit Nachbarn}}",
   "@wordWebSubtitle": {
     "placeholders": {
@@ -1655,7 +1655,9 @@
     }
   },
   "wordWebEmptyTitle": "Noch kein Netz",
-  "wordWebEmptyBody": "Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.",
+  "wordWebEmptyBody": "Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.",
+  "wordWebLoadErrorTitle": "Netz nicht geladen",
+  "wordWebLoadErrorBody": "Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand — versuch es noch einmal.",
   "wordWebBrowseLevelCta": "Wörter auf meinem Niveau ansehen",
   "wordWebOpenVocabCta": "Wortpakete öffnen",
   "wordWebQuizCta": "Diese Wörter üben",
@@ -1703,7 +1705,7 @@
   },
   "wordWebExampleLabel": "Im Satz",
   "wordWebCoachTitle": "Dein Wortnetz",
-  "wordWebCoachBody": "Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.",
+  "wordWebCoachBody": "Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung — unabhängig von Hanja und Nuance im Vokabelheft.",
   "wbMatching": "Paare finden",
   "wbMatchingHint": "Tippe auf ein koreanisches Wort, dann auf seine Bedeutung.",
   "wbMatchingNeedMore": "Mindestens 2 Wörter mit Bedeutung nötig.",
@@ -3328,7 +3330,7 @@
   "soriStageActivityCompleted": "Abgeschlossen",
   "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
-  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
   "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Passende Quest} rewardHanok{Verifizierter Hanok-Baufortschritt} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}",
   "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},
@@ -3375,7 +3377,7 @@
   "vocabNotebookAddPhoto": "Weitere Seite fotografieren",
   "vocabNotebookDropWord": "Wort weglassen",
   "vocabNotebookKeepWord": "Wort behalten",
-  "vocabNotebookNuanceCta": "Hanja, Synonyme, Nuancen",
+  "vocabNotebookNuanceCta": "Hanja und Nuancen",
   "vocabNotebookNuanceTitle": "Ähnlich, aber nicht gleich",
   "vocabNotebookNuanceEmptyTitle": "Noch kein Vergleich",
   "vocabNotebookNuanceEmptyBody": "Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.",

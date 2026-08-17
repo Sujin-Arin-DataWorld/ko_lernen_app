@@ -3351,7 +3351,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebHubDesc =>
-      'Synonyms, opposites, and expressions for words you already know';
+      'Neighbors, opposites, and expressions for words you have already studied';
 
   @override
   String wordWebSubtitle(int count) {
@@ -3369,7 +3369,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebEmptyBody =>
-      'Learn a vocabulary pack first. Then similar words, opposites, and expressions for those exact words show up here.';
+      'Study words in a pack, the course, or a practice game. Then neighbors, opposites, and expressions for those exact words show up here.';
+
+  @override
+  String get wordWebLoadErrorTitle => 'Web did not load';
+
+  @override
+  String get wordWebLoadErrorBody =>
+      'The word-web file could not be read. This is not an empty study history — try again.';
 
   @override
   String get wordWebBrowseLevelCta => 'Browse words at my level';
@@ -3447,7 +3454,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebCoachBody =>
-      'Tap a word you already learned. You will see similar words, opposites, related words, and an expression that uses it.';
+      'Tap a word from your study history. The web shows neighbors, opposites, and an expression — separate from Hanja and nuance in the notebook.';
 
   @override
   String get wbMatching => 'Match pairs';
@@ -7220,7 +7227,7 @@ class AppL10nEn extends AppL10n {
       'srs': 'Strengthen due words at the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
       'word_web':
-          'Study synonyms, opposites, and expressions for words you already know.',
+          'Neighbors, opposites, and expressions for words you have already studied.',
       'grammar': 'Understand patterns and use them right away.',
       'listening': 'Recognize short natural phrases.',
       'scenarios': 'Practice cafés, transport, and conversations.',
@@ -7421,7 +7428,7 @@ class AppL10nEn extends AppL10n {
   String get vocabNotebookKeepWord => 'Keep this word';
 
   @override
-  String get vocabNotebookNuanceCta => 'Hanja, synonyms, nuance';
+  String get vocabNotebookNuanceCta => 'Hanja and nuance';
 
   @override
   String get vocabNotebookNuanceTitle => 'Close, but not the same';

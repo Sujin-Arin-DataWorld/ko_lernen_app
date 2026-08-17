@@ -5920,7 +5920,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebHubDesc.
   ///
   /// In de, this message translates to:
-  /// **'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst'**
+  /// **'Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast'**
   String get wordWebHubDesc;
 
   /// No description provided for @wordWebSubtitle.
@@ -5938,8 +5938,20 @@ abstract class AppL10n {
   /// No description provided for @wordWebEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.'**
+  /// **'Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.'**
   String get wordWebEmptyBody;
+
+  /// No description provided for @wordWebLoadErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Netz nicht geladen'**
+  String get wordWebLoadErrorTitle;
+
+  /// No description provided for @wordWebLoadErrorBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand — versuch es noch einmal.'**
+  String get wordWebLoadErrorBody;
 
   /// No description provided for @wordWebBrowseLevelCta.
   ///
@@ -6075,7 +6087,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebCoachBody.
   ///
   /// In de, this message translates to:
-  /// **'Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.'**
+  /// **'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung — unabhängig von Hanja und Nuance im Vokabelheft.'**
   String get wordWebCoachBody;
 
   /// No description provided for @wbMatching.
@@ -12531,7 +12543,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.
@@ -12687,7 +12699,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookNuanceCta.
   ///
   /// In de, this message translates to:
-  /// **'Hanja, Synonyme, Nuancen'**
+  /// **'Hanja und Nuancen'**
   String get vocabNotebookNuanceCta;
 
   /// No description provided for @vocabNotebookNuanceTitle.
