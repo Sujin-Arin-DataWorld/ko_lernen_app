@@ -14,7 +14,7 @@
 클라 12초 재시도와 겹쳤다.
 
 **검증.** TTS Node `tts_request_guard`+`tts_contract` **22/22**,
-`tts_cache_key_test` **4/4**. live 배포는 하지 않았다.
+`tts_cache_key_test` **4/4**. live 배포는 하지 않았다. 구현 커밋 `bd17dbeb`.
 
 ### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
 
