@@ -46,6 +46,17 @@ class PersonalHanokAssetCheckerTest(unittest.TestCase):
                 lines = checker._check_reference()
         self.assertTrue(any(line.startswith("[fail]") for line in lines))
 
+    def test_leftover_runtime_a1_files_fail_even_when_set_absent(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            (root / "extra.webp").write_bytes(b"nope")
+            with patch(
+                "check_personal_hanok_assets.A1_RUNTIME_STATES_ROOT",
+                root,
+            ):
+                lines = checker._check_a1_runtime_states(required=False)
+        self.assertTrue(any("leftover" in line for line in lines))
+
     def test_partial_runtime_a1_states_fail_closed(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

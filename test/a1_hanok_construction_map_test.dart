@@ -31,6 +31,11 @@ void main() {
     expect(find.byType(Image, skipOffstage: false), findsNWidgets(2));
     await tester.pump();
     expect(key.currentState!.residentProviders, hasLength(2));
+    expect(key.currentState!.residentProviders, everyElement(isA<ResizeImage>()));
+    expect(
+      key.currentState!.residentProviders.map((provider) => provider.width),
+      everyElement(key.currentState!.decodeCacheWidth),
+    );
   });
 
   testWidgets('keeps a three-frame window and evicts stale neighbors', (
@@ -52,6 +57,11 @@ void main() {
     expect(find.byType(Image, skipOffstage: false), findsNWidgets(3));
     await tester.pump();
     expect(key.currentState!.residentProviders, hasLength(3));
+    expect(key.currentState!.residentProviders, everyElement(isA<ResizeImage>()));
+    expect(
+      key.currentState!.residentProviders.map((provider) => provider.width),
+      everyElement(600),
+    );
 
     await tester.pumpWidget(
       _host(
@@ -82,6 +92,10 @@ void main() {
     await tester.pump();
     await tester.pump();
     expect(key.currentState!.decodeCacheWidth, 780);
+    expect(
+      key.currentState!.residentProviders.map((provider) => provider.width),
+      everyElement(780),
+    );
 
     tester.view.physicalSize = const Size(1200, 900);
     tester.view.devicePixelRatio = 1;

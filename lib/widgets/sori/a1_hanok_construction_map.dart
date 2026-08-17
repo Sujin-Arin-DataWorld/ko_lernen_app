@@ -23,7 +23,7 @@ class A1HanokConstructionMap extends StatefulWidget {
 }
 
 class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
-  final Map<String, AssetImage> _providers = <String, AssetImage>{};
+  final Map<String, ResizeImage> _providers = <String, ResizeImage>{};
   int? _cacheWidth;
 
   @visibleForTesting
@@ -39,7 +39,7 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   }
 
   @visibleForTesting
-  List<AssetImage> get residentProviders => [
+  List<ResizeImage> get residentProviders => [
     for (final path in residentAssetPaths)
       if (_providers[path] != null) _providers[path]!,
   ];
@@ -56,14 +56,22 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
     super.dispose();
   }
 
-  Map<String, AssetImage> _providersFor(List<String> paths) {
-    return {for (final path in paths) path: AssetImage(path)};
+  ResizeImage _resize(String path, int cacheWidth) {
+    final existing = _providers[path];
+    if (existing != null && _cacheWidth == cacheWidth) {
+      return existing;
+    }
+    return ResizeImage(AssetImage(path), width: cacheWidth);
+  }
+
+  Map<String, ResizeImage> _providersFor(List<String> paths, int cacheWidth) {
+    return {for (final path in paths) path: _resize(path, cacheWidth)};
   }
 
   void _scheduleProviderSync({
     required List<String> paths,
     required int cacheWidth,
-    required Map<String, AssetImage> next,
+    required Map<String, ResizeImage> next,
   }) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) {
@@ -110,7 +118,7 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
             devicePixelRatio: MediaQuery.devicePixelRatioOf(context),
           );
           final paths = residentAssetPaths;
-          final providers = _providersFor(paths);
+          final providers = _providersFor(paths, cacheWidth);
           _scheduleProviderSync(
             paths: paths,
             cacheWidth: cacheWidth,
@@ -130,10 +138,7 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
                       if (path != state.assetPath)
                         Offstage(
                           child: Image(
-                            image: ResizeImage(
-                              providers[path]!,
-                              width: cacheWidth,
-                            ),
+                            image: providers[path]!,
                             fit: BoxFit.cover,
                             gaplessPlayback: false,
                             errorBuilder: (context, _, __) =>
@@ -152,10 +157,7 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
                       },
                       child: Image(
                         key: ValueKey('a1-hanok-state-${state.id}'),
-                        image: ResizeImage(
-                          providers[state.assetPath]!,
-                          width: cacheWidth,
-                        ),
+                        image: providers[state.assetPath]!,
                         fit: BoxFit.cover,
                         width: width.isFinite ? width : null,
                         gaplessPlayback: false,

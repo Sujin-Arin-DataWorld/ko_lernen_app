@@ -162,6 +162,24 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 socket_height=309,
                 local_anchor=(427, 309),
             )
+        # Exclusive getbbox right edge: x=0..426 has bbox[2]=427, which used
+        # to pass `<=` without covering the anchor pixel.
+        stops_short = _layer(854, 309, (0, 170, 427, 300))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                stops_short,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
+        covers = _layer(854, 309, (0, 170, 428, 300))
+        normalized = normalize_layer(
+            covers,
+            socket_width=854,
+            socket_height=309,
+            local_anchor=(427, 309),
+        )
+        self.assertEqual(normalized.size, (854, 309))
 
     def test_changed_pixels_counts_single_channel_rgb_deltas(self) -> None:
         mask = Image.new("L", (8, 8), 255)
@@ -172,6 +190,31 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         right = left.copy()
         right.putpixel((0, 0), (81, 80, 80))
         self.assertEqual(_changed_pixels(left, right, mask), 1)
+
+    def test_lineage_rejects_approved_output_digest_on_an_unbound_path(self) -> None:
+        provenance = json.loads(json.dumps(load_provenance()))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw = Path(temp_dir) / "copied_approved.png"
+            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            digest = sha256_file(raw)
+            provenance.setdefault("generationLedger", {})["records"] = [
+                {
+                    "outputAssets": [
+                        {
+                            "path": "assets_unused/pending_review/a1_layers/01_site_setout_layer.png",
+                            "sha256": digest,
+                            "decision": "approved",
+                        }
+                    ]
+                }
+            ]
+            with self.assertRaises(CompositionError):
+                compose_state(
+                    raw,
+                    Path(temp_dir) / "out.webp",
+                    provenance=provenance,
+                    require_lineage=True,
+                )
 
     def test_lineage_rejects_unknown_raw_sha(self) -> None:
         provenance = load_provenance()

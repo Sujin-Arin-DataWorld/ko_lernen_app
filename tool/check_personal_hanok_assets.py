@@ -156,15 +156,31 @@ def _write_reference() -> None:
     print(f"[write] {output.relative_to(ROOT)} from runtime composition")
 
 
+def _a1_runtime_leftovers(expected: list[str]) -> list[str]:
+    if not A1_RUNTIME_STATES_ROOT.is_dir():
+        return []
+    expected_names = set(expected)
+    return sorted(
+        child.name
+        for child in A1_RUNTIME_STATES_ROOT.iterdir()
+        if child.is_file() and child.name not in expected_names
+    )
+
+
 def _check_a1_runtime_states(*, required: bool) -> list[str]:
     provenance = load_provenance()
     expected = a1_expected_files(provenance)
     hard_max = a1_hard_max_bytes(provenance)
     geometry = camera_geometry(provenance)
     present = [name for name in expected if (A1_RUNTIME_STATES_ROOT / name).is_file()]
-    if not present and not required:
-        return ["[pass] A1 runtime states are absent and were not promoted"]
+    leftovers = _a1_runtime_leftovers(expected)
     lines: list[str] = []
+    if leftovers:
+        lines.append(
+            "[fail] runtime A1 directory has leftover files: " + ", ".join(leftovers)
+        )
+    if not present and not required:
+        return lines or ["[pass] A1 runtime states are absent and were not promoted"]
     missing = [name for name in expected if name not in present]
     if missing:
         lines.append(

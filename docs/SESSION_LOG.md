@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — PR4 파이프라인 리뷰 버그 수정
+
+**무엇을.** 코드 리뷰와 런타임 재현으로 확인한 fail-closed 구멍을 고쳤다.
+lineage는 repo 밖 raw에서 `ValueError` 대신 `CompositionError`를 내고,
+allowlist digest를 가짜 경로로 재사용하지 못한다. 승인 ledger SHA도
+경로에 묶이지 않으면 거절한다. 대지 합성은 `role=site_base`만 쓰며,
+socket 밖 변경은 RGB 채널로 센다. 같은 크기 레이어는 exclusive
+`getbbox`로 local anchor 픽셀을 덮어야 한다. renderer는 이전/현재/다음
+`ResizeImage`를 유지하고 그 키로 evict한다. 승격·체커는 RGB·chroma·잔여
+파일을 거절한다.
+
+**검증.** Python compose/promote/checker와 Flutter catalog/map/provenance
+집중 회귀. 재현: outside-repo lineage=`CompositionError`, 회전된
+allowlist에서도 (10,10)이 site base에 가깝고, `blue+1`/`red+1` changed
+pixels=1, bbox right=427은 anchor x=427을 덮지 않는다.
+
 ### 2026-08-17 (Cursor) — 살아 있는 한옥 V1 PR4 코드 파이프라인
 
 **무엇을.** PR3 `64b7e24a` 위에 A1 0–16 불변 catalog, projection-only 4:3

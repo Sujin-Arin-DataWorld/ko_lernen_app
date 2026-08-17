@@ -15,7 +15,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from hanok_v1_asset_contract import (
     ROOT,
     allowed_input_digests,
-    approved_output_digests,
     camera_geometry,
     layer_contract,
     load_provenance,
@@ -121,6 +120,22 @@ def resize_premultiplied(image: Image.Image, size: tuple[int, int]) -> Image.Ima
     return result
 
 
+def _covers_local_anchor(
+    bbox: tuple[int, int, int, int],
+    local_anchor: tuple[int, int],
+    *,
+    socket_height: int,
+) -> bool:
+    left, top, right, bottom = bbox
+    anchor_x, anchor_y = local_anchor
+    # PIL getbbox right/lower are exclusive, so equality on the right edge
+    # is one pixel outside the painted footprint.
+    covers_x = left <= anchor_x < right
+    if anchor_y >= socket_height:
+        return covers_x
+    return covers_x and top <= anchor_y < bottom
+
+
 def normalize_layer(
     raw: Image.Image,
     *,
@@ -136,7 +151,11 @@ def normalize_layer(
         bbox = _alpha_bbox(raw)
         _require(bbox is not None, "socket layer is fully transparent")
         _require(
-            bbox[0] <= local_anchor[0] <= bbox[2],
+            _covers_local_anchor(
+                bbox,
+                local_anchor,
+                socket_height=socket_height,
+            ),
             "normalized layer does not cover the local anchor",
         )
         return raw
@@ -157,7 +176,11 @@ def normalize_layer(
     placed = _alpha_bbox(canvas)
     _require(placed is not None, "normalized layer lost its visible footprint")
     _require(
-        placed[0] <= local_anchor[0] <= placed[2],
+        _covers_local_anchor(
+            placed,
+            local_anchor,
+            socket_height=socket_height,
+        ),
         "normalized layer does not cover the local anchor",
     )
     return canvas
@@ -299,8 +322,8 @@ def compose_state(
             else:
                 path_ok = allowed.get(ledger_path) == digest
         _require(
-            path_ok or digest in approved_output_digests(payload),
-            "raw layer SHA is not an allowlisted path or previously approved output",
+            path_ok,
+            "raw layer SHA is not bound to an allowlisted or approved ledger path",
         )
 
     raw = _load_rgba(raw_path)
