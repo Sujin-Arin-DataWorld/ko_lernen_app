@@ -12798,6 +12798,12 @@ abstract class AppL10n {
   /// **'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.'**
   String get vocabNotebookStudioNoCorpus;
 
+  /// No description provided for @vocabNotebookStudioLoadFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Einige unserer Sätze konnten nicht geladen werden. Verbindung prüfen und noch einmal versuchen.'**
+  String get vocabNotebookStudioLoadFailed;
+
   /// No description provided for @vocabNotebookStudioSmalltalk.
   ///
   /// In de, this message translates to:

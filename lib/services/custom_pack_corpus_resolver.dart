@@ -39,8 +39,8 @@ class CustomPackCorpusMatch {
   final List<Scenario> scenarios;
   final List<WordRelationCluster> wordWeb;
 
-  /// Chosung only accepts Hangul syllables (and spaces). Latin/Hanja
-  /// notebook leftovers stay in [vocab] for Speed Match.
+  /// Hangul-only slice of shipped CSV vocab. Notebook Speed/Chosung use
+  /// [CustomPackCorpusResolver.notebookVocab] instead.
   List<Vocab> get chosung => vocab
       .where((item) => CustomPackCorpusResolver.isHangulOnly(item.korean))
       .toList(growable: false);
@@ -82,6 +82,20 @@ class CustomPackCorpusMatch {
           .toList(growable: false),
     );
   }
+}
+
+/// Result of loading the shipped catalogs for a notebook pack.
+/// [failedSources] is why an empty match is not the same as "no sentences".
+class CustomPackCorpusLoadResult {
+  const CustomPackCorpusLoadResult({
+    required this.match,
+    this.failedSources = const <String>[],
+  });
+
+  final CustomPackCorpusMatch match;
+  final List<String> failedSources;
+
+  bool get loadFailed => failedSources.isNotEmpty;
 }
 
 class CustomPackCorpusResolver {
@@ -194,14 +208,9 @@ class CustomPackCorpusResolver {
     }
     for (final quest in scenario.quests) {
       for (final key in quest.targetVocabKeys()) {
-        if (matches(key, selected) || occursIn(key, selected)) {
+        if (matches(key, selected)) {
           return true;
         }
-      }
-    }
-    for (final line in scenario.dialog) {
-      if (occursIn(line.ko, selected)) {
-        return true;
       }
     }
     return false;
@@ -240,7 +249,6 @@ class CustomPackCorpusResolver {
     List<PronunciationPhrase> pronunciation = const <PronunciationPhrase>[],
     List<Scenario> scenarios = const <Scenario>[],
     List<WordRelationCluster> wordWeb = const <WordRelationCluster>[],
-    Iterable<ExtractedWord> fallbackWords = const <ExtractedWord>[],
   }) {
     final selected = _normalized(koreanHeadwords);
     if (selected.isEmpty) {
@@ -265,7 +273,6 @@ class CustomPackCorpusResolver {
           break;
         }
       }
-      found ??= _fallbackVocab(key, fallbackWords);
       if (found == null || !seen.add(found.korean.trim())) {
         continue;
       }
@@ -290,54 +297,125 @@ class CustomPackCorpusResolver {
     );
   }
 
-  static Future<CustomPackCorpusMatch> forWords(
-    Iterable<String> koreanHeadwords, {
-    Iterable<ExtractedWord> fallbackWords = const <ExtractedWord>[],
-  }) async {
-    final cloze = await ClozeLoader.load();
-    final satz = await SatzLoader.load();
-    final vocab = await DataLoader.loadVocab();
-    await SmalltalkLoader.load();
-    final pronunciation = await PronunciationPhraseLoader.load();
-    final scenarios = await ScenarioLoader.load();
-    final wordWeb = await WordRelationService.load();
-    return resolve(
-      koreanHeadwords: koreanHeadwords,
-      cloze: cloze,
-      satz: satz,
-      vocab: vocab,
-      smalltalk: SmalltalkLoader.phrases,
-      pronunciation: pronunciation,
-      scenarios: scenarios,
-      wordWeb: wordWeb,
-      fallbackWords: fallbackWords,
+  /// Notebook glosses for own-meaning games (Speed Match, Chosung).
+  /// These are the learner's cards, not shipped example sentences.
+  static List<Vocab> notebookVocab(Iterable<ExtractedWord> words) {
+    final out = <Vocab>[];
+    for (final word in words) {
+      final korean = word.korean.trim();
+      if (korean.isEmpty) {
+        continue;
+      }
+      if (word.translationDe.trim().isEmpty &&
+          word.translationEn.trim().isEmpty) {
+        continue;
+      }
+      out.add(
+        Vocab(
+          korean: korean,
+          romanization: '',
+          german: word.translationDe,
+          level: '',
+          posDe: '',
+          exampleKorean: word.exampleKorean,
+          exampleGerman: '',
+          topic: 'notebook',
+          english: word.translationEn,
+        ),
+      );
+    }
+    return List<Vocab>.unmodifiable(out);
+  }
+
+  static List<Vocab> notebookChosung(Iterable<ExtractedWord> words) {
+    return notebookVocab(words)
+        .where((item) => isHangulOnly(item.korean))
+        .toList(growable: false);
+  }
+
+  static Future<CustomPackCorpusLoadResult> forWords(
+    Iterable<String> koreanHeadwords,
+  ) async {
+    final failed = <String>[];
+    final cloze = await _loadCatalog<List<ClozeItem>>(
+      'cloze',
+      failed,
+      ClozeLoader.load,
+      empty: const <ClozeItem>[],
+    );
+    final satz = await _loadCatalog<List<SatzSentence>>(
+      'satz',
+      failed,
+      SatzLoader.load,
+      empty: const <SatzSentence>[],
+    );
+    final vocab = await _loadCatalog<List<Vocab>>(
+      'vocab',
+      failed,
+      DataLoader.loadVocab,
+      empty: const <Vocab>[],
+      errorOf: () => DataLoader.lastError,
+    );
+    try {
+      await SmalltalkLoader.load();
+      if (SmalltalkLoader.lastError != null) {
+        failed.add('smalltalk');
+      }
+    } catch (_) {
+      failed.add('smalltalk');
+    }
+    final pronunciation = await _loadCatalog<List<PronunciationPhrase>>(
+      'pronunciation',
+      failed,
+      PronunciationPhraseLoader.load,
+      empty: const <PronunciationPhrase>[],
+      errorOf: () => PronunciationPhraseLoader.lastError,
+    );
+    final scenarios = await _loadCatalog<List<Scenario>>(
+      'scenarios',
+      failed,
+      ScenarioLoader.load,
+      empty: const <Scenario>[],
+      errorOf: () => ScenarioLoader.lastError,
+    );
+    final wordWeb = await _loadCatalog<List<WordRelationCluster>>(
+      'wordWeb',
+      failed,
+      WordRelationService.load,
+      empty: const <WordRelationCluster>[],
+    );
+    return CustomPackCorpusLoadResult(
+      match: resolve(
+        koreanHeadwords: koreanHeadwords,
+        cloze: cloze,
+        satz: satz,
+        vocab: vocab,
+        smalltalk: SmalltalkLoader.phrases,
+        pronunciation: pronunciation,
+        scenarios: scenarios,
+        wordWeb: wordWeb,
+      ),
+      failedSources: List<String>.unmodifiable(failed),
     );
   }
 
-  static Vocab? _fallbackVocab(
-    String korean,
-    Iterable<ExtractedWord> fallbackWords,
-  ) {
-    for (final word in fallbackWords) {
-      if (!matches(word.korean, <String>[korean])) {
-        continue;
+  static Future<T> _loadCatalog<T>(
+    String name,
+    List<String> failed,
+    Future<T> Function() load, {
+    required T empty,
+    String? Function()? errorOf,
+  }) async {
+    try {
+      final value = await load();
+      if (errorOf != null && errorOf() != null) {
+        failed.add(name);
       }
-      if (word.translationDe.trim().isEmpty && word.translationEn.trim().isEmpty) {
-        return null;
-      }
-      return Vocab(
-        korean: word.korean.trim(),
-        romanization: '',
-        german: word.translationDe,
-        level: '',
-        posDe: '',
-        exampleKorean: word.exampleKorean,
-        exampleGerman: '',
-        topic: 'notebook',
-        english: word.translationEn,
-      );
+      return value;
+    } catch (_) {
+      failed.add(name);
+      return empty;
     }
-    return null;
   }
 
   static Set<String> _normalized(Iterable<String> koreanHeadwords) => <String>{

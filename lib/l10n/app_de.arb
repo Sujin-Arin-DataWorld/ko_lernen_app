@@ -3414,6 +3414,7 @@
     }
   },
   "vocabNotebookStudioNoCorpus": "Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.",
+  "vocabNotebookStudioLoadFailed": "Einige unserer Sätze konnten nicht geladen werden. Verbindung prüfen und noch einmal versuchen.",
   "vocabNotebookStudioSmalltalk": "{count, plural, one{Smalltalk · 1 Satz} other{Smalltalk · {count} Sätze}}",
   "@vocabNotebookStudioSmalltalk": {
     "placeholders": {

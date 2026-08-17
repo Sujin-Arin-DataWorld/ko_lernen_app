@@ -3311,6 +3311,7 @@
     }
   },
   "vocabNotebookStudioNoCorpus": "We do not have a ready sentence for these words yet. Use your own meanings above.",
+  "vocabNotebookStudioLoadFailed": "Some of our sentences could not load. Check the connection and try again.",
   "vocabNotebookStudioSmalltalk": "{count, plural, one{Small talk · 1 line} other{Small talk · {count} lines}}",
   "@vocabNotebookStudioSmalltalk": {
     "placeholders": {

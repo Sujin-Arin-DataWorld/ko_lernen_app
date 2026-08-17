@@ -7551,6 +7551,10 @@ class AppL10nDe extends AppL10n {
       'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.';
 
   @override
+  String get vocabNotebookStudioLoadFailed =>
+      'Einige unserer Sätze konnten nicht geladen werden. Verbindung prüfen und noch einmal versuchen.';
+
+  @override
   String vocabNotebookStudioSmalltalk(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

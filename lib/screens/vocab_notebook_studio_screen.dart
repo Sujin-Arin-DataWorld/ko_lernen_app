@@ -26,12 +26,19 @@ import 'speed_match_screen.dart';
 import 'vocab_nuance_screen.dart';
 import 'word_web_screen.dart';
 
-/// Lets the learner pick notebook words and start existing games that
-/// already teach those words. No new sentences are authored here.
+/// Lets the learner pick notebook rows and start existing games.
+/// Own-meaning games use the selected cards. Corpus games use shipped
+/// sentences that already name those headwords. No new sentences here.
 class VocabNotebookStudioScreen extends StatefulWidget {
-  const VocabNotebookStudioScreen({super.key, required this.packId});
+  const VocabNotebookStudioScreen({
+    super.key,
+    required this.packId,
+    this.corpusLoader,
+  });
 
   final String packId;
+  final Future<CustomPackCorpusLoadResult> Function(CustomPack pack)?
+      corpusLoader;
 
   @override
   State<VocabNotebookStudioScreen> createState() =>
@@ -39,8 +46,9 @@ class VocabNotebookStudioScreen extends StatefulWidget {
 }
 
 class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
-  late final Set<String> _kept;
+  late final Set<int> _kept;
   CustomPackCorpusMatch _corpus = CustomPackCorpusMatch.empty;
+  List<String> _failedSources = const <String>[];
   bool _loading = true;
 
   CustomPack? get _pack => CustomPackService.getById(widget.packId);
@@ -50,19 +58,23 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     if (pack == null) {
       return const <ExtractedWord>[];
     }
-    return pack.words
-        .where((word) => _kept.contains(word.korean))
-        .toList(growable: false);
+    return <ExtractedWord>[
+      for (var i = 0; i < pack.words.length; i++)
+        if (_kept.contains(i)) pack.words[i],
+    ];
   }
 
-  CustomPackCorpusMatch get _match => _corpus.restrictTo(_kept);
+  CustomPackCorpusMatch get _match =>
+      _corpus.restrictTo(_selected.map((word) => word.korean));
+
+  bool get _loadFailed => _failedSources.isNotEmpty;
 
   @override
   void initState() {
     super.initState();
     final pack = _pack;
-    _kept = <String>{
-      for (final word in pack?.words ?? const <ExtractedWord>[]) word.korean,
+    _kept = <int>{
+      for (var i = 0; i < (pack?.words.length ?? 0); i++) i,
     };
     _loadCorpus();
   }
@@ -75,23 +87,32 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
       }
       return;
     }
+    if (mounted) {
+      setState(() => _loading = true);
+    }
     try {
-      final match = await CustomPackCorpusResolver.forWords(
-        pack.words.map((word) => word.korean),
-        fallbackWords: pack.words,
-      );
+      final result = widget.corpusLoader != null
+          ? await widget.corpusLoader!(pack)
+          : await CustomPackCorpusResolver.forWords(
+              pack.words.map((word) => word.korean),
+            );
       if (!mounted) {
         return;
       }
       setState(() {
-        _corpus = match;
+        _corpus = result.match;
+        _failedSources = result.failedSources;
         _loading = false;
       });
     } on Object {
       if (!mounted) {
         return;
       }
-      setState(() => _loading = false);
+      setState(() {
+        _corpus = CustomPackCorpusMatch.empty;
+        _failedSources = const <String>['corpus'];
+        _loading = false;
+      });
     }
   }
 
@@ -102,6 +123,16 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     if (mounted) {
       setState(() {});
     }
+  }
+
+  void _toggleAt(int index) {
+    setState(() {
+      if (_kept.contains(index)) {
+        _kept.remove(index);
+      } else {
+        _kept.add(index);
+      }
+    });
   }
 
   @override
@@ -127,6 +158,8 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
         : 'de';
     final selected = _selected;
     final match = _match;
+    final ownVocab = CustomPackCorpusResolver.notebookVocab(selected);
+    final ownChosung = CustomPackCorpusResolver.notebookChosung(selected);
     final nuanceCount = VocabNuanceService.questionsFor(
       selected,
       language: language,
@@ -153,7 +186,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                       onTap: () => setState(() {
                         _kept
                           ..clear()
-                          ..addAll(pack.words.map((word) => word.korean));
+                          ..addAll(
+                            Iterable<int>.generate(pack.words.length),
+                          );
                       }),
                     ),
                   ),
@@ -171,9 +206,11 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 ],
               ),
               const SizedBox(height: Spacing.md),
-              ...pack.words.map((word) {
-                final kept = _kept.contains(word.korean);
+              ...List<Widget>.generate(pack.words.length, (index) {
+                final word = pack.words[index];
+                final kept = _kept.contains(index);
                 return Padding(
+                  key: ValueKey<String>('notebook-word-$index'),
                   padding: const EdgeInsets.only(bottom: Spacing.sm),
                   child: SoriCard(
                     variant: SoriCardVariant.compact,
@@ -184,10 +221,14 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(word.korean, style: SoriTextTheme.of(context).h3),
+                              Text(
+                                word.korean,
+                                style: SoriTextTheme.of(context).h3,
+                              ),
                               const SizedBox(height: 2),
                               Text(
-                                language == 'en' && word.translationEn.isNotEmpty
+                                language == 'en' &&
+                                        word.translationEn.isNotEmpty
                                     ? word.translationEn
                                     : word.translationDe,
                                 style: SoriTextTheme.of(context).bodySmall,
@@ -199,20 +240,14 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                           tooltip: kept
                               ? t.vocabNotebookDropWord
                               : t.vocabNotebookKeepWord,
-                          onPressed: () {
-                            setState(() {
-                              if (kept) {
-                                _kept.remove(word.korean);
-                              } else {
-                                _kept.add(word.korean);
-                              }
-                            });
-                          },
+                          onPressed: () => _toggleAt(index),
                           icon: Icon(
                             kept
                                 ? Icons.check_circle_rounded
                                 : Icons.circle_outlined,
-                            color: kept ? SoriColors.primary : surfaces.textMuted,
+                            color: kept
+                                ? SoriColors.primary
+                                : surfaces.textMuted,
                           ),
                         ),
                       ],
@@ -293,6 +328,22 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                         ),
                       ),
               ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton.outlined(
+                label: t.vocabNotebookStudioSpeed(ownVocab.length),
+                fullWidth: true,
+                onTap: ownVocab.length < 2
+                    ? null
+                    : () => _openPage(SpeedMatchScreen(items: ownVocab)),
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton.outlined(
+                label: t.vocabNotebookStudioChosung(ownChosung.length),
+                fullWidth: true,
+                onTap: ownChosung.isEmpty
+                    ? null
+                    : () => _openPage(ChosungQuizScreen(deck: ownChosung)),
+              ),
               const SizedBox(height: Spacing.lg),
               Text(
                 t.vocabNotebookStudioCorpusGames,
@@ -312,6 +363,21 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                   child: Center(child: CircularProgressIndicator()),
                 )
               else ...<Widget>[
+                if (_loadFailed) ...<Widget>[
+                  Text(
+                    t.vocabNotebookStudioLoadFailed,
+                    style: SoriTextTheme.of(context).body.copyWith(
+                      color: surfaces.textMuted,
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton.outlined(
+                    label: t.btnRetry,
+                    fullWidth: true,
+                    onTap: _loadCorpus,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                ],
                 SoriButton.outlined(
                   label: t.vocabNotebookStudioCloze(match.cloze.length),
                   fullWidth: true,
@@ -326,22 +392,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                   onTap: match.satz.isEmpty
                       ? null
                       : () => _openPage(SatzArcadeScreen(items: match.satz)),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioSpeed(match.vocab.length),
-                  fullWidth: true,
-                  onTap: match.vocab.length < 2
-                      ? null
-                      : () => _openPage(SpeedMatchScreen(items: match.vocab)),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioChosung(match.chosung.length),
-                  fullWidth: true,
-                  onTap: match.chosung.isEmpty
-                      ? null
-                      : () => _openPage(ChosungQuizScreen(deck: match.chosung)),
                 ),
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
@@ -396,7 +446,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                           ),
                         ),
                 ),
-                if (!match.hasCuratedItems && selected.isNotEmpty) ...<Widget>[
+                if (!match.hasCuratedItems &&
+                    selected.isNotEmpty &&
+                    !_loadFailed) ...<Widget>[
                   const SizedBox(height: Spacing.md),
                   Text(
                     t.vocabNotebookStudioNoCorpus,

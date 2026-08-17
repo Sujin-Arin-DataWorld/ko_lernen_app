@@ -7515,6 +7515,10 @@ class AppL10nEn extends AppL10n {
       'We do not have a ready sentence for these words yet. Use your own meanings above.';
 
   @override
+  String get vocabNotebookStudioLoadFailed =>
+      'Some of our sentences could not load. Check the connection and try again.';
+
+  @override
   String vocabNotebookStudioSmalltalk(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

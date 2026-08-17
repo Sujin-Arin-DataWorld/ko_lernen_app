@@ -108,21 +108,29 @@ void main() {
     expect(all.restrictTo(<String>['학교']).cloze.single.answer, '학교');
   });
 
-  test('falls back to the notebook gloss for speed and chosung', () {
+  test('keeps notebook glosses off the shipped corpus', () {
     final match = CustomPackCorpusResolver.resolve(
       koreanHeadwords: <String>['번데기'],
       cloze: cloze,
       satz: satz,
       vocab: vocab,
-      fallbackWords: <ExtractedWord>[
-        ExtractedWord.manual(korean: '번데기', translationDe: 'Puppe'),
-      ],
     );
+    final own = CustomPackCorpusResolver.notebookVocab(<ExtractedWord>[
+      ExtractedWord.manual(korean: '번데기', translationDe: 'Puppe'),
+    ]);
 
     expect(match.cloze, isEmpty);
-    expect(match.vocab.single.korean, '번데기');
-    expect(match.vocab.single.german, 'Puppe');
-    expect(match.chosung.single.korean, '번데기');
+    expect(match.vocab, isEmpty);
+    expect(match.hasCuratedItems, isFalse);
+    expect(own.single.korean, '번데기');
+    expect(own.single.german, 'Puppe');
+    expect(
+      CustomPackCorpusResolver.notebookChosung(<ExtractedWord>[
+        ExtractedWord.manual(korean: '번데기', translationDe: 'Puppe'),
+        ExtractedWord.manual(korean: 'TV', translationDe: 'Fernseher'),
+      ]).map((item) => item.korean),
+      <String>['번데기'],
+    );
   });
 
   test('chosung drops notebook leftovers that are not Hangul-only', () {
@@ -251,5 +259,50 @@ void main() {
     expect(match.scenarios.single.id, 'sc-school');
     expect(match.wordWeb.single.sourceKo, '학교');
     expect(match.hasCuratedItems, isTrue);
+  });
+
+  test('does not treat a dialog mention as a scenario headword', () {
+    const scene = Scenario(
+      id: 'sc-time-dialog',
+      level: LearnerLevel.a1,
+      emoji: '🕐',
+      register: Register.polite,
+      title: LocalizedText(ko: '학교', de: 'Schule', en: 'School'),
+      intro: LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
+      vocab: <VocabRef>[VocabRef(korean: '학교')],
+      grammarIds: <String>[],
+      dialog: <DialogLine>[
+        DialogLine(
+          speaker: 'a',
+          ko: '지금 시간이 없어요.',
+          de: 'Ich habe keine Zeit.',
+          en: 'I do not have time.',
+        ),
+      ],
+      quests: <QuestSpec>[
+        QuestSpec(
+          type: QuestType.satzBauen,
+          data: <String, dynamic>{'targetKo': '지금 시간이 없어요.'},
+        ),
+      ],
+    );
+
+    final dialogOnly = CustomPackCorpusResolver.resolve(
+      koreanHeadwords: <String>['시간'],
+      cloze: cloze,
+      satz: satz,
+      vocab: vocab,
+      scenarios: <Scenario>[scene],
+    );
+    final listed = CustomPackCorpusResolver.resolve(
+      koreanHeadwords: <String>['학교'],
+      cloze: cloze,
+      satz: satz,
+      vocab: vocab,
+      scenarios: <Scenario>[scene],
+    );
+
+    expect(dialogOnly.scenarios, isEmpty);
+    expect(listed.scenarios.single.id, 'sc-time-dialog');
   });
 }
