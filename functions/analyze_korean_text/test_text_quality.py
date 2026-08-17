@@ -312,9 +312,12 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
             ],
         )
         self.assertEqual(body["words"][0]["sourceUnitId"], "unit:2")
-        translate.assert_called_once_with(
-            ["오늘은 학교에 가요.", "마음이 와닿다"], "DE"
+        translate.assert_called_once()
+        self.assertEqual(
+            translate.call_args.args,
+            (["오늘은 학교에 가요.", "마음이 와닿다"], "DE"),
         )
+        self.assertIn("budget", translate.call_args.kwargs)
         kiwi.return_value.tokenize.assert_called_once_with(
             analysis_source, normalize_coda=True
         )

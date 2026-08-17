@@ -12,6 +12,8 @@ const {
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,
+  isPendingPronunciationReplay,
+  pendingPronunciationDocument,
   pronunciationReplayDocument,
   pronunciationReplayFromDocument,
   pronunciationReplayId,
@@ -37,7 +39,8 @@ test("pins Azure processing to Germany West Central", () => {
   assert.match(source, /const AZURE_SPEECH_REGION = "germanywestcentral";/);
   assert.doesNotMatch(source, /defineString\([^)]*REGION/i);
   assert.doesNotMatch(source, /process\.env\.[A-Z_]*REGION/);
-  assert.match(source, /loadPronunciationReplay/);
+  assert.match(source, /claimPronunciationReplay/);
+  assert.match(source, /abandonPronunciationReplay/);
   assert.match(source, /savePronunciationReplay/);
 });
 
@@ -163,7 +166,11 @@ test("replay receipts hash the caller and omit audio and reference text", () => 
     "fluencyScore",
     "kind",
     "pronunciationScore",
+    "state",
   ]);
+  const pending = pendingPronunciationDocument(assessmentId, now);
+  assert.equal(isPendingPronunciationReplay(pending, assessmentId, now), true);
+  assert.equal(pronunciationReplayFromDocument(pending, assessmentId, now), null);
   assert.deepEqual(
     pronunciationReplayFromDocument(document, assessmentId, now),
     scores,

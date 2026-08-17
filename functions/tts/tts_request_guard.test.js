@@ -197,9 +197,17 @@ test("refunds a reserved synthesis when the provider fails", async () => {
 });
 
 test("empty or non-buffer audio is never treated as a cache hit", () => {
+  const mp3 = Buffer.alloc(32, 0);
+  mp3[0] = 0xff;
+  mp3[1] = 0xfb;
+  const tagged = Buffer.alloc(32, 0);
+  tagged.write("ID3", 0, "ascii");
   assert.equal(isUsableAudioBuffer(Buffer.alloc(0)), false);
   assert.equal(isUsableAudioBuffer(null), false);
-  assert.equal(isUsableAudioBuffer(Buffer.from([0xff, 0xfb])), true);
+  assert.equal(isUsableAudioBuffer(Buffer.from([0xff, 0xfb])), false);
+  assert.equal(isUsableAudioBuffer(Buffer.alloc(32, 1)), false);
+  assert.equal(isUsableAudioBuffer(mp3), true);
+  assert.equal(isUsableAudioBuffer(tagged), true);
 });
 
 test("withDeadline rejects a hung synthesis before the client gives up", async () => {

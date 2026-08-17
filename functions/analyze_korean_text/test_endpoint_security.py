@@ -221,7 +221,80 @@ class EndpointSecurityTest(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
 
         self.assertEqual(gate.consumed, ["verified-user"])
-        self.assertEqual(len(receipts.remembered), 2)
+        self.assertEqual(len(receipts.completed), 2)
+
+    def test_in_flight_analysis_retry_skips_consume_before_success(self):
+        gate = _RecordingGate()
+        receipts = _MemoryIdempotency()
+        held: list[object] = []
+
+        def hang(**_kwargs):
+            held.append(object())
+            raise RuntimeError("first attempt still running")
+
+        with self.app.test_request_context(
+            "/", method="POST", json={"text": "학생이에요.", "lang": "de"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(
+                endpoint, "_quota_gate", return_value=gate
+            ), mock.patch.object(
+                endpoint, "_idempotency_gate", return_value=receipts
+            ), mock.patch.object(
+                endpoint, "_complete_book_analysis", side_effect=hang
+            ):
+                first = endpoint.analyze_korean_text(request)
+
+        self.assertEqual(first.status_code, 503)
+        self.assertEqual(gate.consumed, ["verified-user"])
+        self.assertEqual(gate.released, ["verified-user"])
+        self.assertEqual(len(receipts.abandoned), 1)
+
+        with self.app.test_request_context(
+            "/", method="POST", json={"text": "학생이에요.", "lang": "de"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(
+                endpoint, "_quota_gate", return_value=gate
+            ), mock.patch.object(
+                endpoint, "_idempotency_gate", return_value=receipts
+            ), mock.patch.object(
+                endpoint,
+                "_complete_book_analysis",
+                return_value=endpoint._analysis_response("de"),
+            ):
+                second = endpoint.analyze_korean_text(request)
+
+        self.assertEqual(second.status_code, 200)
+        self.assertEqual(gate.consumed, ["verified-user", "verified-user"])
+
+    def test_dictionary_exception_also_releases_quota(self):
+        gate = _RecordingGate()
+        with self.app.test_request_context(
+            "/", method="POST", json={"word": "제사"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(
+                endpoint, "_dictionary_quota_gate", return_value=gate
+            ), mock.patch.object(
+                endpoint,
+                "validate_exact_noun",
+                side_effect=RuntimeError("krdic down"),
+            ):
+                response = endpoint.validate_kkeunmari_word(request)
+
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(gate.consumed, ["verified-user"])
+        self.assertEqual(gate.released, ["verified-user"])
 
 
 class _RecordingGate:
@@ -239,14 +312,22 @@ class _RecordingGate:
 class _MemoryIdempotency:
     def __init__(self):
         self.keys: set[str] = set()
-        self.remembered: list[tuple[str, str]] = []
+        self.completed: list[tuple[str, str]] = []
+        self.abandoned: list[tuple[str, str]] = []
 
-    def seen(self, document_id: str, *, kind: str) -> bool:
-        return document_id in self.keys
-
-    def remember(self, document_id: str, kind: str) -> None:
+    def claim(self, document_id: str, *, kind: str) -> bool:
+        if document_id in self.keys:
+            return False
         self.keys.add(document_id)
-        self.remembered.append((document_id, kind))
+        return True
+
+    def complete(self, document_id: str, kind: str) -> None:
+        self.keys.add(document_id)
+        self.completed.append((document_id, kind))
+
+    def abandon(self, document_id: str, kind: str) -> None:
+        self.keys.discard(document_id)
+        self.abandoned.append((document_id, kind))
 
 
 if __name__ == "__main__":

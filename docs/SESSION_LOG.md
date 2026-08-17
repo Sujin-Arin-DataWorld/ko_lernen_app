@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 유료 경로 4결함 선점·공유 deadline으로 닫음
+
+**무엇을.** 이전 2단계 수정은 성공 뒤에만 영수증을 남겨, 클라 12초 재시도가
+아직 진행 중인 첫 요청과 겹치면 한도를 다시 깎았다. 책 분석은
+`service_idempotency`를 **consume 전에 pending으로 선점**하고, 실패하면
+pending을 지워 다음 재시도만 다시 과금한다. 같은 `assessmentId` 발음도
+점수가 없어도 pending이면 Azure 한도를 다시 깎지 않는다. DeepL 문장·단어
+호출은 요청당 8초 예산을 공유해 두 번 8초가 클라 12초를 넘기지 않게 한다.
+사전 lookup 예외도 503 전에 환급한다. TTS 캐시는 0바이트뿐 아니라 32바이트
+미만·MPEG/ID3 헤더 없는 객체도 히트로 보지 않는다.
+
+**왜.** 사용자가 지적한 P1/P2 네 가지가 1차 패치 뒤에도 경합·누적 timeout·
+예외 경로에서 남을 수 있어서다.
+
+**검증.** 책 분석 Python `test_*.py` **91/91**, TTS+발음 Node **23/23**.
+live 배포는 하지 않았다. 구현 커밋 `7ceb4ccf`.
+
 ### 2026-08-17 (Cursor) — 4× 잔량을 Batch 09/10 review-only로 재번호
 
 **왜.** partner-family Batch 07/08이 live로 올라간 뒤, 기존 4× 초안
@@ -54,8 +71,8 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 `cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`,
 `cursor/backend-reliability-upgrade-feaa` 2단계,
 `cursor/vocab-notebook-studio-3ab5`,
-`cursor/backend-idempotency-deadlines-feaa`(재배치된 동일 v2, 함수 코드
-동일, 구현 커밋 `58529dda`)도 같은 방식으로 넣었다.
+`cursor/backend-idempotency-deadlines-feaa` 유료 경로 4결함 패치도 같은
+방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 

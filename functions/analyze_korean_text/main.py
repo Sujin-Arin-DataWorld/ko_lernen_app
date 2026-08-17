@@ -51,12 +51,14 @@ from security import (
     KKEUNMARI_QUOTA_SCOPE,
     AuthenticationFailed,
     CircuitBreaker,
+    DeadlineBudget,
     FirestoreIdempotencyGate,
     FirestoreQuotaGate,
     QuotaExceeded,
     QuotaStoreUnavailable,
     analysis_request_id,
     configure_deepl_http_deadlines,
+    provider_timeout_seconds,
     run_with_deadline,
     verify_caller,
 )
@@ -424,7 +426,37 @@ def _cache_payload(translation: str, target: str) -> dict[str, object]:
     }
 
 
-def translate_batch(items: list[str], target: str) -> dict[str, str]:
+def _translate_with_budget(
+    translator: Any,
+    items: list[str],
+    *,
+    target_code: str,
+    budget: DeadlineBudget | None,
+    context: str | None = None,
+) -> list[Any]:
+    timeout_seconds = provider_timeout_seconds(budget)
+    if timeout_seconds is None:
+        raise TimeoutError("provider_deadline_exceeded")
+    kwargs: dict[str, Any] = {
+        "target_lang": target_code,
+        "source_lang": "KO",
+    }
+    if context:
+        kwargs["context"] = context
+    return run_with_deadline(
+        translator.translate_text,
+        items,
+        timeout_seconds=timeout_seconds,
+        **kwargs,
+    )
+
+
+def translate_batch(
+    items: list[str],
+    target: str,
+    *,
+    budget: DeadlineBudget | None = None,
+) -> dict[str, str]:
     if not items:
         return {}
     target_code = target.upper()
@@ -463,12 +495,11 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
                 out.setdefault(it, "")
         else:
             try:
-                results = run_with_deadline(
-                    translator.translate_text,
+                results = _translate_with_budget(
+                    translator,
                     pending,
-                    timeout_seconds=DEEPL_CALL_DEADLINE_SECONDS,
-                    target_lang=target_code,
-                    source_lang="KO",
+                    target_code=target_code,
+                    budget=budget,
                 )
                 fresh = {src: r.text for src, r in zip(pending, results)}
                 breaker.record_success()
@@ -507,6 +538,8 @@ def translate_words_with_context(
     words: list[dict[str, Any]],
     sentences: list[str],
     target: str,
+    *,
+    budget: DeadlineBudget | None = None,
 ) -> dict[str, str]:
     """단어를 그 단어가 등장한 문장을 context 로 실어 번역 → 다의어 해소.
 
@@ -584,12 +617,11 @@ def translate_words_with_context(
     provider_failed = False
     for ex, kors in by_context.items():
         try:
-            results = run_with_deadline(
-                translator.translate_text,
+            results = _translate_with_budget(
+                translator,
                 kors,
-                timeout_seconds=DEEPL_CALL_DEADLINE_SECONDS,
-                target_lang=target_code,
-                source_lang="KO",
+                target_code=target_code,
+                budget=budget,
                 context=(ex or None),
             )
             for kor, r in zip(kors, results):
@@ -696,19 +728,22 @@ def analyze_korean_text(request: Request) -> Response:
     request_id = analysis_request_id(
         caller.uid, lang, text, structured_units
     )
-    replay = _idempotency_gate().seen(request_id, kind="book_analysis_v1")
+    receipts = _idempotency_gate()
+    must_consume = receipts.claim(request_id, kind="book_analysis_v1")
     consumed = False
-    if not replay:
+    if must_consume:
         try:
             _quota_gate().consume(caller.uid)
             consumed = True
         except QuotaExceeded as error:
+            receipts.abandon(request_id, "book_analysis_v1")
             return _warning_response(
                 "rate_limited",
                 429,
                 retry_after_seconds=error.retry_after_seconds,
             )
         except QuotaStoreUnavailable:
+            receipts.abandon(request_id, "book_analysis_v1")
             return _warning_response("service_unavailable", 503)
 
     try:
@@ -718,12 +753,13 @@ def analyze_korean_text(request: Request) -> Response:
             structured_units=structured_units,
             quality_warnings=quality_warnings,
         )
-        _idempotency_gate().remember(request_id, "book_analysis_v1")
+        receipts.complete(request_id, "book_analysis_v1")
         return response
     except Exception:
         _LOGGER.exception("book_analysis_unhandled")
         if consumed:
             _release_quota_best_effort(caller.uid)
+        receipts.abandon(request_id, "book_analysis_v1")
         return _warning_response("service_unavailable", 503)
 
 
@@ -784,8 +820,18 @@ def _complete_book_analysis(
             sentences + [expression for expression, _ in expression_sources]
         )
     )
-    sentence_translations = translate_batch(translation_inputs, target)
-    word_translations = translate_words_with_context(words, sentences, target)
+    translation_budget = DeadlineBudget(DEEPL_CALL_DEADLINE_SECONDS)
+    sentence_translations = translate_batch(
+        translation_inputs,
+        target,
+        budget=translation_budget,
+    )
+    word_translations = translate_words_with_context(
+        words,
+        sentences,
+        target,
+        budget=translation_budget,
+    )
     if (
         any(not sentence_translations.get(source) for source in translation_inputs)
         or any(not word_translations.get(word["korean"]) for word in words)
@@ -922,7 +968,11 @@ def validate_kkeunmari_word(request: Request) -> Response:
     except QuotaStoreUnavailable:
         return _warning_response("service_unavailable", 503)
 
-    valid = validate_exact_noun(word)
+    try:
+        valid = validate_exact_noun(word)
+    except Exception:
+        _LOGGER.warning("dictionary_lookup_failed")
+        valid = None
     if valid is None:
         _release_dictionary_quota_best_effort(caller.uid)
         return _warning_response("dictionary_unavailable", 503)

@@ -11,6 +11,7 @@ import datetime as dt
 import hashlib
 import math
 import os
+import time
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FuturesTimeout
 from dataclasses import dataclass
@@ -36,6 +37,7 @@ IDEMPOTENCY_TTL_MINUTES = 15
 DEEPL_HTTP_TIMEOUT_SECONDS = 6.0
 DEEPL_HTTP_MAX_RETRIES = 0
 DEEPL_CALL_DEADLINE_SECONDS = 8.0
+DEEPL_MIN_CALL_SECONDS = 0.25
 _DEADLINE_EXECUTOR: ThreadPoolExecutor | None = None
 
 
@@ -418,11 +420,17 @@ def idempotency_expires_at(now: dt.datetime) -> dt.datetime:
     )
 
 
-def idempotency_payload(kind: str, now: dt.datetime) -> dict[str, Any]:
-    """Server-only receipt: kind and TTL, never source text or scores."""
+def idempotency_payload(
+    kind: str,
+    now: dt.datetime,
+    *,
+    state: str = "completed",
+) -> dict[str, Any]:
+    """Server-only receipt: kind, state, and TTL. Never source text or scores."""
 
     return {
         "kind": kind,
+        "state": state,
         "expiresAt": idempotency_expires_at(now),
     }
 
@@ -449,10 +457,40 @@ def is_current_idempotency(
 ) -> bool:
     if not data or data.get("kind") != kind:
         return False
+    state = str(data.get("state") or "completed")
+    if state not in {"pending", "completed"}:
+        return False
     expires_at = _as_utc_datetime(data.get("expiresAt"))
     if expires_at is None:
         return False
     return expires_at > now.astimezone(dt.timezone.utc)
+
+
+class DeadlineBudget:
+    """One wall-clock budget shared by every paid provider call in a request."""
+
+    def __init__(
+        self,
+        seconds: float,
+        *,
+        clock: Callable[[], float] | None = None,
+    ):
+        self._clock = clock or time.monotonic
+        self._deadline = self._clock() + max(0.0, float(seconds))
+
+    def remaining(self) -> float:
+        return max(0.0, self._deadline - self._clock())
+
+
+def provider_timeout_seconds(budget: DeadlineBudget | None) -> float | None:
+    """None means the shared budget is already too small to start another call."""
+
+    if budget is None:
+        return DEEPL_CALL_DEADLINE_SECONDS
+    remaining = budget.remaining()
+    if remaining < DEEPL_MIN_CALL_SECONDS:
+        return None
+    return min(DEEPL_CALL_DEADLINE_SECONDS, remaining)
 
 
 def run_with_deadline(
@@ -523,10 +561,67 @@ class FirestoreIdempotencyGate:
         except Exception:
             return False
 
-    def remember(self, document_id: str, kind: str) -> None:
+    def claim(self, document_id: str, *, kind: str) -> bool:
+        """Reserve the receipt before quota. True means this caller must consume."""
+
+        try:
+            reference = self._reference(document_id)
+            now = self._now().astimezone(dt.timezone.utc)
+            client = self._client()
+            if getattr(client, "transaction", None) is None:
+                return self._claim_once(reference, kind, now)
+            from google.cloud import firestore  # type: ignore
+
+            transaction = client.transaction()
+
+            @firestore.transactional
+            def claim_in_transaction(transaction: Any) -> bool:
+                snapshot = reference.get(transaction=transaction)
+                data = snapshot.to_dict() if snapshot.exists else None
+                if is_current_idempotency(data, now, kind=kind):
+                    return False
+                transaction.set(
+                    reference,
+                    idempotency_payload(kind, now, state="pending"),
+                )
+                return True
+
+            return claim_in_transaction(transaction)
+        except Exception:
+            return True
+
+    def _claim_once(self, reference: Any, kind: str, now: dt.datetime) -> bool:
+        snapshot = reference.get()
+        data = snapshot.to_dict() if snapshot.exists else None
+        if is_current_idempotency(data, now, kind=kind):
+            return False
+        reference.set(idempotency_payload(kind, now, state="pending"))
+        return True
+
+    def complete(self, document_id: str, kind: str) -> None:
         try:
             self._reference(document_id).set(
-                idempotency_payload(kind, self._now())
+                idempotency_payload(kind, self._now(), state="completed")
             )
+        except Exception:
+            return
+
+    def remember(self, document_id: str, kind: str) -> None:
+        self.complete(document_id, kind)
+
+    def abandon(self, document_id: str, kind: str) -> None:
+        """Drop an in-flight pending receipt so a later retry can be charged."""
+
+        try:
+            reference = self._reference(document_id)
+            snapshot = reference.get()
+            if not snapshot.exists:
+                return
+            data = snapshot.to_dict() or {}
+            if data.get("kind") != kind or data.get("state") != "pending":
+                return
+            delete = getattr(reference, "delete", None)
+            if delete is not None:
+                delete()
         except Exception:
             return

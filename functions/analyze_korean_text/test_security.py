@@ -13,8 +13,10 @@ from security import (  # noqa: E402
     AuthenticationFailed,
     CircuitBreaker,
     DEFAULT_ALLOWED_APP_IDS,
+    DEEPL_CALL_DEADLINE_SECONDS,
     DEEPL_HTTP_MAX_RETRIES,
     DEEPL_HTTP_TIMEOUT_SECONDS,
+    DeadlineBudget,
     FirestoreIdempotencyGate,
     QuotaExceeded,
     QuotaState,
@@ -23,6 +25,7 @@ from security import (  # noqa: E402
     consume_quota_state,
     idempotency_payload,
     is_current_idempotency,
+    provider_timeout_seconds,
     quota_document_id,
     quota_expires_at,
     release_quota_state,
@@ -236,8 +239,9 @@ class IdempotencyPolicyTest(unittest.TestCase):
         now = dt.datetime(2026, 8, 16, 10, 0, tzinfo=dt.timezone.utc)
         payload = idempotency_payload("book_analysis_v1", now)
 
-        self.assertEqual(set(payload), {"kind", "expiresAt"})
+        self.assertEqual(set(payload), {"kind", "state", "expiresAt"})
         self.assertEqual(payload["kind"], "book_analysis_v1")
+        self.assertEqual(payload["state"], "completed")
         self.assertEqual(
             payload["expiresAt"],
             dt.datetime(2026, 8, 16, 10, 15, tzinfo=dt.timezone.utc),
@@ -253,17 +257,42 @@ class IdempotencyPolicyTest(unittest.TestCase):
             )
         )
 
-    def test_remembered_receipt_skips_a_second_charge(self):
+    def test_claim_before_work_skips_a_second_charge_even_while_pending(self):
         store: dict[str, dict[str, object]] = {}
         gate = FirestoreIdempotencyGate(
             firestore_client=_FakeIdempotencyClient(store)
         )
         request_id = analysis_request_id("user-1", "de", "학생이에요.", None)
 
-        self.assertFalse(gate.seen(request_id, kind="book_analysis_v1"))
-        gate.remember(request_id, "book_analysis_v1")
-        self.assertTrue(gate.seen(request_id, kind="book_analysis_v1"))
-        self.assertEqual(set(store[request_id]), {"kind", "expiresAt"})
+        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
+        self.assertFalse(gate.claim(request_id, kind="book_analysis_v1"))
+        self.assertEqual(store[request_id]["state"], "pending")
+        gate.complete(request_id, "book_analysis_v1")
+        self.assertFalse(gate.claim(request_id, kind="book_analysis_v1"))
+        self.assertEqual(set(store[request_id]), {"kind", "state", "expiresAt"})
+
+    def test_abandoned_pending_receipt_lets_a_later_retry_consume(self):
+        store: dict[str, dict[str, object]] = {}
+        gate = FirestoreIdempotencyGate(
+            firestore_client=_FakeIdempotencyClient(store)
+        )
+        request_id = analysis_request_id("user-1", "de", "학생이에요.", None)
+
+        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
+        gate.abandon(request_id, "book_analysis_v1")
+        self.assertTrue(gate.claim(request_id, kind="book_analysis_v1"))
+
+    def test_shared_deadline_budget_blocks_a_second_provider_call(self):
+        clock = {"now": 0.0}
+        budget = DeadlineBudget(
+            DEEPL_CALL_DEADLINE_SECONDS,
+            clock=lambda: clock["now"],
+        )
+        self.assertEqual(
+            provider_timeout_seconds(budget), DEEPL_CALL_DEADLINE_SECONDS
+        )
+        clock["now"] = DEEPL_CALL_DEADLINE_SECONDS
+        self.assertIsNone(provider_timeout_seconds(budget))
 
     def test_run_with_deadline_raises_before_a_hung_provider_returns(self):
         def hang() -> str:
@@ -303,11 +332,14 @@ class _FakeIdempotencyDocument:
         self.store = store
         self.document_id = document_id
 
-    def get(self) -> "_FakeIdempotencySnapshot":
+    def get(self, **_kwargs: object) -> "_FakeIdempotencySnapshot":
         return _FakeIdempotencySnapshot(self.store.get(self.document_id))
 
     def set(self, data: dict[str, object]) -> None:
         self.store[self.document_id] = data
+
+    def delete(self) -> None:
+        self.store.pop(self.document_id, None)
 
 
 class _FakeIdempotencySnapshot:

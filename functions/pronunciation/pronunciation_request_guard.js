@@ -218,6 +218,7 @@ function expiryMillis(value) {
 function pronunciationReplayDocument(scores, now = new Date()) {
   return {
     kind: "pronunciation_v1",
+    state: "completed",
     assessmentId: scores.assessmentId,
     pronunciationScore: scores.pronunciationScore,
     accuracyScore: scores.accuracyScore,
@@ -227,8 +228,30 @@ function pronunciationReplayDocument(scores, now = new Date()) {
   };
 }
 
+function pendingPronunciationDocument(assessmentId, now = new Date()) {
+  return {
+    kind: "pronunciation_v1",
+    state: "pending",
+    assessmentId,
+    expiresAt: idempotencyExpiresAt(now),
+  };
+}
+
+function isPendingPronunciationReplay(data, assessmentId, now = new Date()) {
+  return Boolean(
+    data &&
+    data.kind === "pronunciation_v1" &&
+    data.state === "pending" &&
+    data.assessmentId === assessmentId &&
+    expiryMillis(data.expiresAt) > now.getTime(),
+  );
+}
+
 function pronunciationReplayFromDocument(data, assessmentId, now = new Date()) {
   if (!data || data.kind !== "pronunciation_v1" || data.assessmentId !== assessmentId) {
+    return null;
+  }
+  if (data.state === "pending") {
     return null;
   }
   if (expiryMillis(data.expiresAt) <= now.getTime()) {
@@ -263,6 +286,8 @@ module.exports = {
   PronunciationRequestError,
   idempotencyExpiresAt,
   pronunciationProviderBreaker,
+  isPendingPronunciationReplay,
+  pendingPronunciationDocument,
   pronunciationReplayDocument,
   pronunciationReplayFromDocument,
   pronunciationReplayId,
