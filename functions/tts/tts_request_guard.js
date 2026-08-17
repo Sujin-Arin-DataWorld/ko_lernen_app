@@ -74,6 +74,52 @@ function subjectHash(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
 
+class CircuitBreaker {
+  constructor({
+    failureThreshold = 5,
+    cooldownMs = 30_000,
+    now = () => Date.now(),
+  } = {}) {
+    this.failureThreshold = failureThreshold;
+    this.cooldownMs = cooldownMs;
+    this.now = now;
+    this.failures = 0;
+    this.openedAt = null;
+  }
+
+  allow() {
+    if (this.openedAt == null) {
+      return true;
+    }
+    return this.now() - this.openedAt >= this.cooldownMs;
+  }
+
+  recordSuccess() {
+    this.failures = 0;
+    this.openedAt = null;
+  }
+
+  recordFailure() {
+    const now = this.now();
+    if (this.openedAt != null && now - this.openedAt >= this.cooldownMs) {
+      this.failures = this.failureThreshold;
+      this.openedAt = now;
+      return;
+    }
+    this.failures += 1;
+    if (this.failures >= this.failureThreshold) {
+      this.openedAt = now;
+    }
+  }
+}
+
+const ttsProviderBreaker = new CircuitBreaker();
+
+function quotaExpiresAt(day) {
+  const [year, month, date] = day.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, date + 2));
+}
+
 /**
  * 새 Cloud TTS 합성 한 건을 설치·계정·프로젝트 전체 세 범위에 원자적으로
  * 기록한다. 어느 하나라도 한도에 닿았으면 세 카운터 모두 증가시키지 않는다.
@@ -132,6 +178,7 @@ async function underDailyTtsQuotas(
           scope: spec.scope,
           day,
           limit: spec.limit,
+          expiresAt: quotaExpiresAt(day),
         },
         { merge: true },
       );
@@ -140,13 +187,68 @@ async function underDailyTtsQuotas(
   });
 }
 
+async function refundDailyTtsQuotas(
+  db,
+  { uid, installationId, now = new Date(), limits = DEFAULT_DAILY_LIMITS },
+) {
+  const day = now.toISOString().slice(0, 10);
+  const specs = [
+    {
+      scope: "installation",
+      limit: limits.installation,
+      ref: db
+        .collection("usage")
+        .doc(`tts_installation_${day}_${subjectHash(installationId)}`),
+    },
+    {
+      scope: "account",
+      limit: limits.account,
+      ref: db.collection("usage").doc(`tts_account_${day}_${subjectHash(uid)}`),
+    },
+    {
+      scope: "global",
+      limit: limits.global,
+      ref: db.collection("usage").doc(`tts_global_${day}`),
+    },
+  ];
+
+  return db.runTransaction(async (tx) => {
+    const snapshots = await Promise.all(specs.map(({ ref }) => tx.get(ref)));
+    for (let index = 0; index < specs.length; index += 1) {
+      const spec = specs[index];
+      const raw = (snapshots[index].data() || {}).n;
+      const current = Number.isSafeInteger(raw) && raw > 0 ? raw : 0;
+      if (current === 0) {
+        continue;
+      }
+      tx.set(
+        spec.ref,
+        {
+          n: current - 1,
+          kind: "tts",
+          scope: spec.scope,
+          day,
+          limit: spec.limit,
+          expiresAt: quotaExpiresAt(day),
+        },
+        { merge: true },
+      );
+    }
+    return { refunded: true };
+  });
+}
+
 module.exports = {
   CALLABLE_OPTIONS,
+  CircuitBreaker,
   DEFAULT_DAILY_LIMITS,
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
+  quotaExpiresAt,
+  refundDailyTtsQuotas,
+  ttsProviderBreaker,
   validateTtsRequest,
   underDailyTtsQuotas,
 };

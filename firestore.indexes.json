@@ -150,6 +150,18 @@
       "indexes": []
     },
     {
+      "collectionGroup": "usage",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
+      "collectionGroup": "service_quota_ledgers",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "users",
       "fieldPath": "gyeIds",
       "indexes": [

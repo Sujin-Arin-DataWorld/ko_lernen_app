@@ -125,11 +125,73 @@ function nextQuotaState(previous, now) {
   };
 }
 
+function previousQuotaState(previous, now) {
+  if (!previous || typeof previous !== "object") {
+    return null;
+  }
+  const minuteBucket = now.toISOString().slice(0, 16);
+  const dayBucket = now.toISOString().slice(0, 10);
+  return {
+    minuteBucket: previous.minuteBucket,
+    minuteCount: previous.minuteBucket === minuteBucket
+      ? Math.max(0, (Number(previous.minuteCount) || 0) - 1)
+      : Number(previous.minuteCount) || 0,
+    dayBucket: previous.dayBucket,
+    dayCount: previous.dayBucket === dayBucket
+      ? Math.max(0, (Number(previous.dayCount) || 0) - 1)
+      : Number(previous.dayCount) || 0,
+  };
+}
+
+class CircuitBreaker {
+  constructor({
+    failureThreshold = 5,
+    cooldownMs = 30_000,
+    now = () => Date.now(),
+  } = {}) {
+    this.failureThreshold = failureThreshold;
+    this.cooldownMs = cooldownMs;
+    this.now = now;
+    this.failures = 0;
+    this.openedAt = null;
+  }
+
+  allow() {
+    if (this.openedAt == null) {
+      return true;
+    }
+    return this.now() - this.openedAt >= this.cooldownMs;
+  }
+
+  recordSuccess() {
+    this.failures = 0;
+    this.openedAt = null;
+  }
+
+  recordFailure() {
+    const now = this.now();
+    if (this.openedAt != null && now - this.openedAt >= this.cooldownMs) {
+      this.failures = this.failureThreshold;
+      this.openedAt = now;
+      return;
+    }
+    this.failures += 1;
+    if (this.failures >= this.failureThreshold) {
+      this.openedAt = now;
+    }
+  }
+}
+
+const pronunciationProviderBreaker = new CircuitBreaker();
+
 module.exports = {
+  CircuitBreaker,
   MAX_PCM_BYTES,
   PronunciationRequestError,
+  pronunciationProviderBreaker,
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,
   nextQuotaState,
+  previousQuotaState,
 };

@@ -113,6 +113,72 @@ class EndpointSecurityTest(unittest.TestCase):
         self.assertEqual(response.get_json()["valid"], False)
         lookup.assert_not_called()
 
+    def test_dictionary_endpoint_rejects_oversized_bodies_before_auth(self):
+        with self.app.test_request_context(
+            "/",
+            method="POST",
+            data="x" * 2001,
+            content_type="application/json",
+            content_length=2001,
+        ):
+            with mock.patch.object(endpoint, "verify_caller") as verify:
+                response = endpoint.validate_kkeunmari_word(request)
+
+        self.assertEqual(response.status_code, 413)
+        self.assertEqual(response.get_json(), {"warnings": ["request_too_large"]})
+        verify.assert_not_called()
+
+    def test_unauthenticated_responses_are_not_storeable(self):
+        with self.app.test_request_context(
+            "/", method="POST", json={"text": "학생이에요.", "lang": "de"}
+        ):
+            with mock.patch.object(
+                endpoint, "verify_caller", side_effect=AuthenticationFailed()
+            ):
+                response = endpoint.analyze_korean_text(request)
+
+        self.assertEqual(response.headers["Cache-Control"], "no-store")
+
+    def test_unexpected_engine_failure_releases_quota_and_hides_details(self):
+        gate = _RecordingGate()
+        with self.app.test_request_context(
+            "/", method="POST", json={"text": "학생이에요.", "lang": "de"}
+        ):
+            with mock.patch.object(
+                endpoint,
+                "verify_caller",
+                return_value=Caller(uid="verified-user", app_id="approved-app"),
+            ), mock.patch.object(
+                endpoint, "_quota_gate", return_value=gate
+            ), mock.patch.object(
+                endpoint,
+                "detect_grammar",
+                side_effect=RuntimeError("secret kiwi dump"),
+            ), mock.patch.object(
+                endpoint,
+                "_get_kiwi",
+                return_value=mock.Mock(tokenize=lambda *args, **kwargs: []),
+            ):
+                response = endpoint.analyze_korean_text(request)
+
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.get_json(), {"warnings": ["service_unavailable"]})
+        self.assertNotIn("secret", response.get_data(as_text=True))
+        self.assertEqual(gate.consumed, ["verified-user"])
+        self.assertEqual(gate.released, ["verified-user"])
+
+
+class _RecordingGate:
+    def __init__(self):
+        self.consumed: list[str] = []
+        self.released: list[str] = []
+
+    def consume(self, uid: str) -> None:
+        self.consumed.append(uid)
+
+    def release(self, uid: str) -> None:
+        self.released.append(uid)
+
 
 if __name__ == "__main__":
     unittest.main()

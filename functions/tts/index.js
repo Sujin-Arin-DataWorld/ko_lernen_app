@@ -25,6 +25,8 @@ const { cacheKey } = require("./tts_contract");
 const {
   CALLABLE_OPTIONS,
   TtsRequestError,
+  refundDailyTtsQuotas,
+  ttsProviderBreaker,
   validateTtsRequest,
   underDailyTtsQuotas,
 } = require("./tts_request_guard");
@@ -61,6 +63,12 @@ async function synthesizeTts(request) {
         const [buf] = await fileRef.download();
         audioBuffer = buf;
       } else {
+        if (!ttsProviderBreaker.allow()) {
+          throw new HttpsError(
+            "unavailable",
+            "TTS synthesis is temporarily unavailable.",
+          );
+        }
         // 이미 만들어진 Storage 음성은 Google TTS 비용이 들지 않으므로 세지
         // 않는다. 실제 새 합성 직전에만 설치 30·계정 50·전체 300 한도를
         // 하나의 Firestore 트랜잭션으로 차감한다.
@@ -78,17 +86,33 @@ async function synthesizeTts(request) {
           );
         }
 
-        const [response] = await ttsClient.synthesizeSpeech({
-          input: { text },
-          voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
-          audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
-        });
-        audioBuffer = Buffer.from(response.audioContent);
-        await fileRef.save(audioBuffer, {
-          contentType: "audio/mpeg",
-          resumable: false,
-          metadata: { cacheControl: "public, max-age=31536000" },
-        });
+        try {
+          const [response] = await ttsClient.synthesizeSpeech({
+            input: { text },
+            voice: { languageCode: "ko-KR", name: VOICES[voiceKey] },
+            audioConfig: { audioEncoding: "MP3", speakingRate: RATE },
+          });
+          audioBuffer = Buffer.from(response.audioContent);
+          await fileRef.save(audioBuffer, {
+            contentType: "audio/mpeg",
+            resumable: false,
+            metadata: { cacheControl: "public, max-age=31536000" },
+          });
+          ttsProviderBreaker.recordSuccess();
+        } catch (error) {
+          ttsProviderBreaker.recordFailure();
+          try {
+            await refundDailyTtsQuotas(admin.firestore(), {
+              uid: request.auth.uid,
+              installationId,
+            });
+          } catch {
+            console.warn("TTS quota refund failed", {
+              scope: "tts",
+            });
+          }
+          throw error;
+        }
       }
 
       return { audioBase64: audioBuffer.toString("base64") };

@@ -6,10 +6,12 @@ const {HttpsError, onCall} = require("firebase-functions/v2/https");
 const {defineSecret} = require("firebase-functions/params");
 const {
   PronunciationRequestError,
+  pronunciationProviderBreaker,
   validatePronunciationRequest,
   pcm16ToWav,
   parseAzureAssessment,
   nextQuotaState,
+  previousQuotaState,
 } = require("./pronunciation_request_guard");
 
 initializeApp();
@@ -25,6 +27,26 @@ async function consumeQuota(db, uid, now = new Date()) {
     const previous = snapshot.exists ? snapshot.data() : {};
     const next = nextQuotaState(previous, now);
     if (next === null) return false;
+    transaction.set(ref, {
+      ...next,
+      updatedAt: FieldValue.serverTimestamp(),
+    });
+    return true;
+  });
+}
+
+async function releaseQuota(db, uid, now = new Date()) {
+  const ref = db.collection("users").doc(uid)
+    .collection("pronunciation_rate_limits").doc("current");
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    if (!snapshot.exists) {
+      return false;
+    }
+    const next = previousQuotaState(snapshot.data(), now);
+    if (next === null) {
+      return false;
+    }
     transaction.set(ref, {
       ...next,
       updatedAt: FieldValue.serverTimestamp(),
@@ -74,6 +96,9 @@ exports.assessPronunciation = onCall({
 }, async (request) => {
   try {
     const input = validatePronunciationRequest(request);
+    if (!pronunciationProviderBreaker.allow()) {
+      throw new HttpsError("unavailable", "Pronunciation assessment unavailable.");
+    }
     if (!(await consumeQuota(getFirestore(), input.uid))) {
       throw new HttpsError("resource-exhausted", "Pronunciation limit reached.");
     }
@@ -81,7 +106,17 @@ exports.assessPronunciation = onCall({
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
       const providerResult = await callAzure({...input, signal: controller.signal});
-      return parseAzureAssessment(providerResult, input.assessmentId);
+      const parsed = parseAzureAssessment(providerResult, input.assessmentId);
+      pronunciationProviderBreaker.recordSuccess();
+      return parsed;
+    } catch (error) {
+      pronunciationProviderBreaker.recordFailure();
+      try {
+        await releaseQuota(getFirestore(), input.uid);
+      } catch {
+        // Keep the original provider failure; never leak refund internals.
+      }
+      throw error;
     } finally {
       clearTimeout(timeout);
     }
@@ -96,3 +131,4 @@ exports.assessPronunciation = onCall({
 });
 
 module.exports.consumeQuota = consumeQuota;
+module.exports.releaseQuota = releaseQuota;

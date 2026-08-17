@@ -601,9 +601,20 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    match /cache/translations/{hash} {
-      allow read: if signedIn();
-      allow write: if false;
+    match /cache/{document=**} {
+      allow read, write: if false;
+    }
+
+    match /usage/{document=**} {
+      allow read, write: if false;
+    }
+
+    match /service_quotas/{document=**} {
+      allow read, write: if false;
+    }
+
+    match /service_quota_ledgers/{document=**} {
+      allow read, write: if false;
     }
 
     // Book-analysis translations are written and read only through Admin SDK.

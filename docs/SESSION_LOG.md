@@ -205,6 +205,28 @@ Apple 취소는 `null`(취소)로 되돌린다. iOS URL scheme을 커밋된 iOS 
 
 **커밋.** 이 항목과 같은 커밋.
 
+### 2026-08-16 (Cursor) — 백엔드 신뢰성 1단계: 공정 할당량·서킷·TTL
+
+**무엇을.** 코드 리뷰에서 유료 제공자 실패 뒤에도 일일 한도가 남는 문제, 끝말잇기
+사전 HTTP의 본문 크기 미제한, 레거시 `cache/translations` 인증 읽기, TTS `usage`
+문서의 무기한 잔존, 책 분석 예외가 내부 문구를 흘릴 수 있는 경로를 고쳤다.
+책 분석은 엔진 예외 시 할당량을 환급하고 `service_unavailable`만 반환하며,
+DeepL 연속 실패는 프로세스 내 서킷으로 잠시 건너뛴다. TTS와 발음은 합성/Azure
+실패 시 예약한 한도를 되돌리고 같은 서킷을 쓴다. 할당량 원장은
+`service_quota_ledgers`로 옮기고 `usage`/`service_quota_ledgers.expiresAt` TTL을
+인덱스에 고정했다. 레거시 번역 캐시와 할당량 컬렉션은 클라 read/write를 막는다.
+
+**왜.** 학습자 한도를 제공자 장애와 분리하고, 캐시·사용량 문서가 쌓이거나
+클라이언트가 서버 전용 컬렉션을 읽지 못하게 하기 위해서다. live Gen2 배포와
+기존 `translation_cache` 원문 삭제는 Jin 운영 게이트로 남긴다.
+
+**검증.** 책 분석 Python `test_*.py` **80/80**, TTS Node 가드·계약 **15/15**,
+발음 Node 가드 **6/6**, `node --check` 5파일, `firestore.indexes.json` parse,
+`git diff --check`를 통과했다. live 배포·Rules TTL ACTIVE·원문 cache 삭제는
+하지 않았다. 구현 커밋 `824a05b`. CI Gye 규칙 테스트가
+`cache/translations/digest` 3-segment 문서 경로를 거부해서, 레거시 캐시는
+`match /cache/{document=**}`로 막고 짝수 경로로 재검증한다.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과
