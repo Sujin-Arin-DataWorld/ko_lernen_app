@@ -1,8 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
+
+import 'support/scenario_json.dart';
 
 /// Sichert die Stage-Index-Mathematik des Szenario-Players ab — besonders
 /// nach Einführung der neuen `rollenspiel`-Stage (Phase 3), die alle
@@ -97,8 +97,7 @@ void main() {
 
   group('scenarios.json — Rollenspiel-Abdeckung', () {
     test('jedes Szenario hat mindestens eine user-Dialogzeile', () {
-      final raw = File('assets/data/scenarios.json').readAsStringSync();
-      final root = jsonDecode(raw) as Map<String, dynamic>;
+      final root = allScenarioRoot();
       final list = (root['scenarios'] as List).cast<Map<String, dynamic>>();
       for (final sc in list) {
         final dialog = (sc['dialog'] as List).cast<Map<String, dynamic>>();

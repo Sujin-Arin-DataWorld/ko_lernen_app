@@ -1,15 +1,14 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/scenario.dart';
 
+import 'support/scenario_json.dart';
+
 void main() {
   test('all 264 scenarios and 971 quests satisfy the renderer contract', () {
     final root =
-        jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-            as Map<String, dynamic>;
+        allScenarioRoot();
     final decoded = root['scenarios'] as List<dynamic>;
     expect(decoded, hasLength(264));
 

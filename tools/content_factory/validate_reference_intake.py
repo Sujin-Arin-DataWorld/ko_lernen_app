@@ -16,7 +16,11 @@ from datetime import date
 import json
 from pathlib import Path
 import re
+import sys
 from typing import Iterable
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import scenario_store
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -223,7 +227,8 @@ class ReferenceIntakeValidator:
 
     def load_available_content(self) -> dict[str, dict[str, dict[str, object]]]:
         specs = {
-            "scenario": ("scenarios.json", "scenarios"),
+            # 시나리오는 레벨 샤드 6 개라 파일명이 아니라 병합 뷰로 읽는다.
+            "scenario": (None, "scenarios"),
             "smalltalk": ("smalltalk.json", "phrases"),
             "cloze": ("cloze.json", "items"),
             "satz": ("satz_sentences.json", "items"),
@@ -245,11 +250,17 @@ class ReferenceIntakeValidator:
 
         try:
             for kind, (name, collection) in specs.items():
-                live = json.loads(
-                    (self.root / "assets" / "data" / name).read_text(encoding="utf-8")
-                )
+                data_dir = self.root / "assets" / "data"
+                if name is None:
+                    live = scenario_store.load_root(data_dir)
+                    label = "scenarios (6 level shards)"
+                else:
+                    live = json.loads(
+                        (data_dir / name).read_text(encoding="utf-8")
+                    )
+                    label = name
                 for record in live.get(collection, []):
-                    add(kind, record, name)
+                    add(kind, record, label)
             for manifest_path in sorted(
                 (self.root / "tools" / "content_factory" / "drafts").glob(
                     "batch_*_manifest.json"

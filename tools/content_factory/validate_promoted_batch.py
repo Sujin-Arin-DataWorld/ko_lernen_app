@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+import scenario_store
 from validate_content import ContentValidator
 
 
@@ -26,7 +27,8 @@ TARGETS = {
     "smalltalk": ("smalltalk.json", "phrases"),
     "cloze": ("cloze.json", "items"),
     "satz": ("satz_sentences.json", "items"),
-    "scenario": ("scenarios.json", "scenarios"),
+    # 시나리오는 레벨 샤드 6 개다. live 비교는 병합 뷰로 한다 (아래 참조).
+    "scenario": (None, "scenarios"),
     "pronunciation": ("pronunciation_phrases.json", "phrases"),
 }
 
@@ -104,7 +106,8 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             )
         draft_path = _resolve(str(artifact.get("draft") or ""), root)
         review_path = _resolve(str(artifact.get("review") or ""), root)
-        target_path = root / "assets" / "data" / target_name
+        data_dir = root / "assets" / "data"
+        target_path = data_dir / target_name if target_name else None
 
         if draft_path.suffix == ".csv":
             draft_header, draft_rows = _csv(draft_path)
@@ -112,7 +115,11 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             _require_equal(live_header, draft_header, f"{kind} header")
         else:
             draft_root = _json(draft_path)
-            live_root = _json(target_path)
+            live_root = (
+                scenario_store.load_root(data_dir)
+                if target_path is None
+                else _json(target_path)
+            )
             draft_rows = draft_root.get(collection or "", [])
             live_rows = live_root.get(collection or "", [])
         if not isinstance(draft_rows, list) or not isinstance(live_rows, list):

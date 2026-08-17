@@ -38,6 +38,7 @@ from pathlib import Path
 import tempfile
 from typing import Any, Iterable
 
+import scenario_store
 from validate_content import ContentValidator
 
 
@@ -52,7 +53,11 @@ MANIFEST_PATH = DATA_DIR / "content_audit_manifest.json"
 # must use a future paired, deployment-aware C4 transaction rather than an
 # asset-only append that this tool is forbidden to perform.
 JSON_COLLECTIONS = {
-    "scenarios.json": ("scenario", "scenarios"),
+    # 시나리오는 레벨 샤드 6 개다. --target 은 그중 하나를 정확히 지목한다.
+    **{
+        scenario_store.shard_name(level): ("scenario", "scenarios")
+        for level in scenario_store.LEVELS
+    },
     "cloze.json": ("cloze", "items"),
     "satz_sentences.json": ("satz", "items"),
     "smalltalk.json": ("smalltalk", "phrases"),

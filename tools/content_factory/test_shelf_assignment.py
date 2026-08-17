@@ -16,6 +16,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import scenario_store
 from shelf_assignment import (
     ALL_SHELVES,
     ASSIGNMENT,
@@ -30,11 +31,9 @@ DATA = ROOT / "assets" / "data"
 
 
 def _live_levels() -> dict[str, str]:
-    with (DATA / "scenarios.json").open(encoding="utf-8") as handle:
-        root = json.load(handle)
     return {
         str(item["id"]): str(item["level"]).strip().lower()
-        for item in root["scenarios"]
+        for item in scenario_store.load_scenarios(DATA)
     }
 
 

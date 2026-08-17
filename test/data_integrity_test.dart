@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/scenario_json.dart';
+
 void main() {
   group('learning data integrity', () {
     late Map<String, dynamic> scenarioRoot;
@@ -13,8 +15,7 @@ void main() {
 
     setUpAll(() {
       scenarioRoot =
-          jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-              as Map<String, dynamic>;
+          allScenarioRoot();
       scenarios = ((scenarioRoot['scenarios'] as List?) ?? const [])
           .cast<Map<String, dynamic>>();
       vocabRows = _parseCsv(

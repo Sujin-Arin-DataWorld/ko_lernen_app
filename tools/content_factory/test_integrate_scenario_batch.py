@@ -23,11 +23,11 @@ from integrate_scenario_batch import (
     REVIEW_HEADER,
     ScenarioIntegrationError,
     _refresh_meta,
-    _update_backdrop_map,
     _validate_batch,
     _validate_bundle,
 )
 from render_review_packet import render_packet
+import scenario_store
 
 
 class ScenarioBatchTransactionTest(unittest.TestCase):
@@ -63,9 +63,6 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
             grammar_target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(grammar_source, grammar_target)
 
-            backdrop_target = root / "lib" / "models" / "scenario.dart"
-            backdrop_target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(repository / "lib" / "models" / "scenario.dart", backdrop_target)
 
             relative_manifest = Path(
                 "tools/content_factory/drafts/rollback_probe_manifest.json"
@@ -74,9 +71,10 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
             manifest_target.parent.mkdir(parents=True, exist_ok=True)
             manifest_target.write_bytes(b'{"status":"approved"}\r\n')
 
-            scenarios_target = root / "assets" / "data" / "scenarios.json"
-            scenarios_root = json.loads(scenarios_target.read_text(encoding="utf-8"))
+            data_dir = root / "assets" / "data"
+            scenarios_root = scenario_store.load_root(data_dir)
             record = dict(scenarios_root["scenarios"][0])
+            scenarios_target = data_dir / scenario_store.target_shard(record)
             record["id"] = "scenario_transaction_rollback_probe"
             unit_id = record["courseUnitId"]
             manifest = {
@@ -97,7 +95,6 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
                 scenarios_target,
                 root / "assets" / "data" / "curriculum_manifest.json",
                 root / "assets" / "data" / "content_audit_manifest.json",
-                backdrop_target,
                 manifest_target,
             ]
             originals = {path: path.read_bytes() for path in outputs}
@@ -258,12 +255,6 @@ class ScenarioBatchValidationTest(unittest.TestCase):
             manifest = self.make_batch(root, quest_count=3)
             with self.assertRaisesRegex(ScenarioIntegrationError, "quest count disagrees"):
                 _validate_batch(root, manifest, require_approved=False)
-
-    def test_backdrop_comment_uses_current_batch(self) -> None:
-        source = "const map = {\n    // cafe -- anchor\n};\n"
-        updated = _update_backdrop_map(source, {"c2_appeal_example": "office"}, "06")
-        self.assertIn("Reviewed scenario Batch 06", updated)
-        self.assertIn("'c2_appeal_example': 'office'", updated)
 
     def test_companion_game_artifact_is_validated_and_counted(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

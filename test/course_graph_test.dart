@@ -14,6 +14,8 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 
+import 'support/scenario_json.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -305,8 +307,7 @@ void main() {
     'raw scenario grammar links are nonempty, known, and no longer formal',
     () async {
       final raw =
-          jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
-              as Map<String, dynamic>;
+          allScenarioRoot();
       final rawScenarios = (raw['scenarios'] as List)
           .cast<Map<String, dynamic>>();
       final grammar = await DataLoader.loadGrammar();

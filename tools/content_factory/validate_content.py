@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import scenario_store
+from shelf_assignment import ALL_SHELVES
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,6 +33,13 @@ LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 UPPER_LEVELS = frozenset(level.upper() for level in LOWER_LEVELS)
 SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2"))
 SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
+# `assets/illustrations/scenes/{key}.png` 가 번들에 실제로 있는 12 종.
+SCENARIO_BACKDROP_KEYS = frozenset(
+    (
+        "airport", "cafe", "convenience", "directions", "home", "hotel",
+        "market", "office", "pharmacy", "restaurant", "station", "taxi",
+    )
+)
 CONTENT_KINDS = frozenset(
     ("vocab", "grammar", "scenario", "smalltalk", "cloze", "satz")
 )
@@ -118,8 +126,9 @@ REQUIRED_MANIFEST_KINDS = frozenset(
 MANIFEST_SOURCE_FILES = {
     "vocab": "korean_vocab.csv",
     "grammar": "grammar.csv",
-    "scenario": "scenarios.json",
-    "scenarioQuest": "scenarios.json",
+    # 레벨 샤드 6개의 병합 뷰. 사람이 읽는 출처 라벨이라 파일명을 나열하지 않는다.
+    "scenario": "scenarios",
+    "scenarioQuest": "scenarios",
     "smalltalk": "smalltalk.json",
     "cloze": "cloze.json",
     "satz": "satz_sentences.json",
@@ -185,6 +194,7 @@ class ContentValidator:
         vocab = self.validate_vocab()
         grammar = self.validate_grammar()
         scenarios = self.validate_scenarios(grammar)
+        self.validate_scenario_shards()
         self.validate_cloze()
         self.validate_satz(vocab)
         self.validate_smalltalk()
@@ -342,6 +352,21 @@ class ContentValidator:
             level = scenario.get("level")
             if not isinstance(level, str) or level.lower() not in LOWER_LEVELS:
                 self.issue(name, f"{ident} level must be an A1-C2 string")
+            shelf = scenario.get("shelf")
+            if not isinstance(shelf, str) or shelf not in ALL_SHELVES:
+                self.issue(
+                    name, f"{ident} shelf must be one of the 72 shelves, got {shelf!r}"
+                )
+            elif isinstance(level, str) and not shelf.startswith(f"{level.lower()}_"):
+                self.issue(
+                    name, f"{ident} shelf {shelf!r} does not match level {level!r}"
+                )
+            backdrop = scenario.get("backdrop")
+            if not isinstance(backdrop, str) or backdrop not in SCENARIO_BACKDROP_KEYS:
+                self.issue(
+                    name,
+                    f"{ident} backdrop must be a bundled scene key, got {backdrop!r}",
+                )
             self._localized(name, f"{ident}.title", scenario.get("title"), require_ko=False)
             self._localized(name, f"{ident}.intro", scenario.get("intro"), require_ko=False)
             self._localized(name, f"{ident}.grammarBlock.title", self._nested(scenario, "grammarBlock", "title"), require_ko=False)
@@ -391,6 +416,27 @@ class ContentValidator:
             if not course_unit_id or course_unit_id not in unit_ids:
                 self.issue(name, f"{ident} references missing courseUnitId {course_unit_id!r}")
         return scenarios
+
+    def validate_scenario_shards(self) -> None:
+        """샤드 파일이 자기 레벨만 담고 있는지 — 잘못 라우팅된 append 를 잡는다."""
+
+        for level in scenario_store.LEVELS:
+            file_name = scenario_store.shard_name(level)
+            root = self.load_json(file_name)
+            if not isinstance(root, dict) or not isinstance(
+                root.get("scenarios"), list
+            ):
+                self.issue(file_name, "root must contain a scenarios array")
+                continue
+            for item in root["scenarios"]:
+                if not isinstance(item, dict):
+                    continue
+                actual = str(item.get("level", "")).strip().lower()
+                if actual != level:
+                    self.issue(
+                        file_name,
+                        f"{item.get('id')!r} has level {actual!r} in the {level} shard",
+                    )
 
     def _validate_scenario_vocab(
         self,

@@ -29,6 +29,20 @@ void main() {
     'assets/illustrations/stamps/': 'illustrations/stamps/',
   };
 
+  /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —
+  /// `assets/data/` 에는 리터럴로 불리는 파일이 훨씬 많다.
+  /// `dynamicDirs` 와 같은 규칙: 아래 근거 문자열이 `lib/` 에 살아 있어야 한다.
+  const dynamicAssets = <String, String>{
+    // ScenarioLoader 가 사용자 레벨로 'assets/data/scenarios_${level.code}.json'
+    // 을 조립한다 (2026-08-17 레벨 샤딩).
+    'assets/data/scenarios_a1.json': r'assets/data/scenarios_$',
+    'assets/data/scenarios_a2.json': r'assets/data/scenarios_$',
+    'assets/data/scenarios_b1.json': r'assets/data/scenarios_$',
+    'assets/data/scenarios_b2.json': r'assets/data/scenarios_$',
+    'assets/data/scenarios_c1.json': r'assets/data/scenarios_$',
+    'assets/data/scenarios_c2.json': r'assets/data/scenarios_$',
+  };
+
   /// 앱이 아니라 **테스트**가 읽는 번들 파일. 지우면 그 테스트가 깨진다.
   const testOnlyAssets = <String, String>{
     'assets/data/content_audit_manifest.json':
@@ -70,6 +84,22 @@ void main() {
     });
   });
 
+  test('면제 파일도 조립 근거가 lib/ 에 살아 있다', () {
+    dynamicAssets.forEach((path, evidence) {
+      expect(
+        File(path).existsSync(),
+        isTrue,
+        reason: '$path 를 면제 목록에 두었는데 파일이 없습니다 — 목록이 stale 합니다',
+      );
+      expect(
+        libSource.contains(evidence),
+        isTrue,
+        reason: '$path 를 동적 조립으로 면제했는데 lib/ 에 "$evidence" 가 '
+            '없습니다 — 읽는 코드가 사라졌다면 그 파일은 고아입니다',
+      );
+    });
+  });
+
   test('번들에 들어가는 모든 에셋을 lib/ 가 부른다', () {
     final orphans = <String>[];
 
@@ -82,6 +112,7 @@ void main() {
         final name = f.uri.pathSegments.last;
         if (name.startsWith('.')) continue; // .gitkeep 등
         if (testOnlyAssets.containsKey('$dir$name')) continue;
+        if (dynamicAssets.containsKey('$dir$name')) continue;
 
         final stem = name.contains('.')
             ? name.substring(0, name.lastIndexOf('.'))

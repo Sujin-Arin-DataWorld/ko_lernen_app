@@ -5,6 +5,8 @@ import 'package:crypto/crypto.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/scenario_json.dart';
+
 void main() {
   test('canonical asset freezes the 86-slot core and full assessment IDs', () {
     final catalog = _json('assets/data/can_do_segments.json');
@@ -76,7 +78,7 @@ void main() {
         _json('assets/data/smalltalk.json')['phrases'],
       );
       final scenarioRows = _rows(
-        _json('assets/data/scenarios.json')['scenarios'],
+        allScenarioJson(),
       );
       final clozeRows = _rows(_json('assets/data/cloze.json')['items']);
       final satzRows = _rows(_json('assets/data/satz_sentences.json')['items']);

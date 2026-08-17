@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Atomically promote an approved scenario batch into learner-facing assets.
 
-Scenarios are not a target-local append: the scenario data, curriculum graph,
-audit inventory, and fallback backdrop map must move together. This tool stages
-all four changes, validates the staged repository, then either writes every
-output or restores the original bytes on failure.
+Scenarios are not a target-local append: the scenario data (level shards),
+curriculum graph, and audit inventory must move together. This tool stages
+every change, validates the staged repository, then either writes all outputs
+or restores the original bytes on failure. Backdrops ride along in each
+record's `backdrop` field — no Dart edit is involved (spec §5.2).
 """
 
 from __future__ import annotations
@@ -20,6 +21,7 @@ import shutil
 import tempfile
 from typing import Any
 
+import scenario_store
 from validate_content import ContentValidator, LOWER_LEVELS
 
 
@@ -30,7 +32,9 @@ APPROVED = frozenset(("approved", "ok"))
 MANIFEST_STATUSES = frozenset(("review_only_draft", "approved", "merged"))
 SCENE_KEYS = frozenset(("airport", "cafe", "convenience", "directions", "home", "hotel", "market", "office", "pharmacy", "restaurant", "station", "taxi"))
 ARTIFACTS = {
-    "scenario": ("scenarios.json", "scenarios", (("title", "ko"), ("title", "de"), ("title", "en"))),
+    # 시나리오는 레벨 샤드 6 개라 대상 파일이 하나가 아니다.  파일명 자리는
+    # None 이고 실제 대상은 레코드의 level 에서 _shard_slices() 가 정한다.
+    "scenario": (None, "scenarios", (("title", "ko"), ("title", "de"), ("title", "en"))),
     "smalltalk": ("smalltalk.json", "phrases", (("ko",), ("de",), ("en",))),
     "cloze": ("cloze.json", "items", (("fullKo",), ("de",), ("en",))),
     "satz": ("satz_sentences.json", "items", (("targetKo",), ("promptDe",), ("promptEn",))),
@@ -40,6 +44,32 @@ ARTIFACTS = {
 
 class ScenarioIntegrationError(ValueError):
     """Raised when an approved scenario batch cannot be promoted safely."""
+
+
+# 2026-08-17 마이그레이션이 live 에만 넣은 메타데이터.  승인 당시 동결된 draft 에는
+# 없으므로 draft↔live 동등성 비교에서 제외한다 (문장·ID 는 그대로 비교된다).
+MIGRATION_ONLY_FIELDS = ("shelf", "backdrop")
+
+
+def without_migration_fields(record: Any) -> Any:
+    if not isinstance(record, dict):
+        return record
+    return {k: v for k, v in record.items() if k not in MIGRATION_ONLY_FIELDS}
+
+
+def _shard_slices(kind: str, records: list[Any]) -> list[tuple[str, list[Any]]]:
+    """(대상 파일명, 그 파일에 들어갈 레코드) 쌍.
+
+    시나리오만 레벨 샤드로 갈린다 — 한 배치가 여러 레벨을 담을 수 있으므로
+    대상은 배치가 아니라 **레코드마다** 결정된다.  나머지 종류는 파일이 하나다.
+    """
+
+    if kind != "scenario":
+        return [(ARTIFACTS[kind][0], list(records))]
+    grouped: dict[str, list[Any]] = {}
+    for record in records:
+        grouped.setdefault(scenario_store.target_shard(record), []).append(record)
+    return sorted(grouped.items())
 
 
 def _under_root(root: Path, raw: str) -> Path:
@@ -218,23 +248,6 @@ def _validate_batch(
     return manifest_path, manifest, records_by_kind["scenario"], backdrops
 
 
-def _update_backdrop_map(source: str, backdrops: dict[str, str], batch: str) -> str:
-    for ident, category in backdrops.items():
-        existing = f"    '{ident}':"
-        if existing in source:
-            if f"    '{ident}': '{category}'," not in source:
-                raise ScenarioIntegrationError(f"scenario backdrop for {ident} conflicts with existing source")
-    missing = [(ident, category) for ident, category in backdrops.items() if f"    '{ident}':" not in source]
-    if not missing:
-        return source
-    anchor = "    // cafe"
-    if anchor not in source:
-        raise ScenarioIntegrationError("cannot locate ScenarioBackdrop insertion anchor")
-    lines = [f"    // Reviewed scenario Batch {batch}. Existing backdrop pipeline only."]
-    lines.extend(f"    '{ident}': '{category}'," for ident, category in missing)
-    return source.replace(anchor, "\n".join(lines) + "\n" + anchor, 1)
-
-
 def _atomic_write(path: Path, text: str) -> None:
     temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
     try:
@@ -290,27 +303,39 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         data = stage / "assets" / "data"
         already_merged = False
         for kind, records in records_by_kind.items():
-            target_name, collection, _ = ARTIFACTS[kind]
-            target_path = data / target_name
-            target_root = _read_json(target_path)
-            live_records = target_root.get(collection)
-            if not isinstance(live_records, list) or any(not isinstance(item, dict) for item in live_records):
-                raise ScenarioIntegrationError(f"live {target_name} must contain an array of objects")
-            live_by_id = {str(item.get("id") or ""): item for item in live_records}
-            batch_ids = {str(item["id"]) for item in records}
-            overlap = set(live_by_id) & batch_ids
-            if overlap:
-                if overlap != batch_ids or manifest.get("status") != "merged":
-                    raise ScenarioIntegrationError(f"{kind} draft duplicates a live ID")
-                if any(live_by_id[str(item["id"])] != item for item in records):
-                    raise ScenarioIntegrationError(f"merged {kind} payload no longer matches its approved draft")
-                already_merged = True
-                continue
-            if manifest.get("status") == "merged":
-                raise ScenarioIntegrationError(f"merged manifest is missing live {kind} records")
-            target_root[collection] = [*live_records, *records]
-            _refresh_meta(target_root, collection)
-            target_path.write_text(_json_text(target_root), encoding="utf-8")
+            _, collection, _ = ARTIFACTS[kind]
+            if kind == "scenario":
+                # 2026-08-17 이전에는 이 값이 Dart const map 으로 갔다. 이제는
+                # 레코드 자체에 실린다 — 신규 시나리오의 Dart 수정은 0 회다.
+                records = [
+                    {**record, "backdrop": backdrops[str(record["id"])]}
+                    for record in records
+                ]
+            for target_name, shard_records in _shard_slices(kind, records):
+                target_path = data / target_name
+                target_root = _read_json(target_path)
+                live_records = target_root.get(collection)
+                if not isinstance(live_records, list) or any(not isinstance(item, dict) for item in live_records):
+                    raise ScenarioIntegrationError(f"live {target_name} must contain an array of objects")
+                live_by_id = {str(item.get("id") or ""): item for item in live_records}
+                batch_ids = {str(item["id"]) for item in shard_records}
+                overlap = set(live_by_id) & batch_ids
+                if overlap:
+                    if overlap != batch_ids or manifest.get("status") != "merged":
+                        raise ScenarioIntegrationError(f"{kind} draft duplicates a live ID")
+                    if any(
+                        without_migration_fields(live_by_id[str(item["id"])])
+                        != without_migration_fields(item)
+                        for item in shard_records
+                    ):
+                        raise ScenarioIntegrationError(f"merged {kind} payload no longer matches its approved draft")
+                    already_merged = True
+                    continue
+                if manifest.get("status") == "merged":
+                    raise ScenarioIntegrationError(f"merged manifest is missing live {kind} records")
+                target_root[collection] = [*live_records, *shard_records]
+                _refresh_meta(target_root, collection)
+                target_path.write_text(_json_text(target_root), encoding="utf-8")
 
         if already_merged:
             curriculum_live = _read_json(data / "curriculum_manifest.json").get("contentLinks")
@@ -325,8 +350,11 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             }
             if not required_links.issubset(known_links):
                 raise ScenarioIntegrationError("merged scenario batch is missing a curriculum link")
-            backdrop_source = (root / "lib" / "models" / "scenario.dart").read_text(encoding="utf-8")
-            if any(f"    '{ident}': '{category}'," not in backdrop_source for ident, category in backdrops.items()):
+            live_backdrops = {
+                str(record.get("id") or ""): record.get("backdrop")
+                for record in scenario_store.load_scenarios(root / "assets" / "data")
+            }
+            if any(live_backdrops.get(ident) != category for ident, category in backdrops.items()):
                 raise ScenarioIntegrationError("merged scenario batch is missing a backdrop mapping")
             issues = ContentValidator(root).validate()
             if issues:
@@ -374,21 +402,15 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             detail = "\n".join(f"{issue.source}: {issue.message}" for issue in issues)
             raise ScenarioIntegrationError(f"staged content validation failed:\n{detail}")
 
-        backdrop_file = root / "lib" / "models" / "scenario.dart"
         outputs = {
             root / "assets" / "data" / "curriculum_manifest.json": (data / "curriculum_manifest.json").read_text(encoding="utf-8"),
             root / "assets" / "data" / "content_audit_manifest.json": (data / "content_audit_manifest.json").read_text(encoding="utf-8"),
-            backdrop_file: _update_backdrop_map(
-                backdrop_file.read_text(encoding="utf-8"),
-                backdrops,
-                str(manifest["batch"]),
-            ),
         }
-        for kind in records_by_kind:
-            target_name, _, _ = ARTIFACTS[kind]
-            outputs[root / "assets" / "data" / target_name] = (data / target_name).read_text(
-                encoding="utf-8"
-            )
+        for kind, records in records_by_kind.items():
+            for target_name, _slice in _shard_slices(kind, records):
+                outputs[root / "assets" / "data" / target_name] = (
+                    data / target_name
+                ).read_text(encoding="utf-8")
         if not apply:
             return counts, int(manifest["recordCount"])
         merged_manifest = dict(manifest)

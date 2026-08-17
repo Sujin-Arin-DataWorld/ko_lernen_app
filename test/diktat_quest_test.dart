@@ -1,9 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/quest_engines/diktat_quest.dart';
+
+import 'support/scenario_json.dart';
 
 /// Tests für die produktive "Diktat"-Quest (Hör + Schreib):
 /// - reine Vergleichslogik (normalize / isExact / isSpacingOnly)
@@ -97,8 +97,7 @@ void main() {
     late List<Scenario> scenarios;
 
     setUpAll(() {
-      final raw = File('assets/data/scenarios.json').readAsStringSync();
-      final root = jsonDecode(raw) as Map<String, dynamic>;
+      final root = allScenarioRoot();
       final list = (root['scenarios'] as List).cast<Map<String, dynamic>>();
       scenarios = list.map(Scenario.fromJson).toList();
       diktatQuests = [

@@ -168,7 +168,17 @@ class Batch10KoreanQualityTest(unittest.TestCase):
         self.assertEqual(len(scenarios), 174)
         for row in scenarios:
             ident = row["id"]
-            self.assertEqual(row, live[ident], ident)
+            # live 는 2026-08-17 마이그레이션으로 shelf/backdrop 을 얻었고 draft 는
+            # 승인 당시 그대로다. 문장·ID 비교가 목적이므로 두 필드는 제외한다.
+            self.assertEqual(
+                row,
+                {
+                    key: value
+                    for key, value in live[ident].items()
+                    if key not in ("shelf", "backdrop")
+                },
+                ident,
+            )
             for text in collect_korean_fields(row):
                 self.assertFalse(
                     LATIN_IN_KO.search(text),

@@ -43,13 +43,16 @@ class MigrationPlanTest(unittest.TestCase):
 
     def test_sentences_and_ids_are_untouched(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)
-        for before, after in zip(self.scenarios, migrated):
-            stripped = {
+        def without_new_fields(record: dict) -> dict:
+            return {
                 key: value
-                for key, value in after.items()
+                for key, value in record.items()
                 if key not in ("shelf", "backdrop")
             }
-            self.assertEqual(stripped, before)
+
+        for before, after in zip(self.scenarios, migrated):
+            # 이미 마이그레이션된 코퍼스를 다시 통과시켜도 두 필드 밖은 그대로다.
+            self.assertEqual(without_new_fields(after), without_new_fields(before))
 
     def test_a_scenario_missing_from_the_baseline_is_fail_closed(self) -> None:
         migrated, report = migrate.plan_migration(

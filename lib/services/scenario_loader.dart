@@ -3,48 +3,72 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/scenario.dart';
 
-/// Lädt und cached Szenarien aus `assets/data/scenarios.json`.
-/// Singleton-Pattern wie [DataLoader].
+/// Lädt und cached Szenarien aus `assets/data/scenarios_{level}.json`
+/// (6 Level-Shards seit 2026-08-17). Singleton-Pattern wie [DataLoader].
 class ScenarioLoader {
+  static const List<LearnerLevel> shardLevels = LearnerLevel.values;
+
   static List<Scenario>? _cached;
   static String? lastError;
 
-  static Future<List<Scenario>> load() async {
-    if (_cached != null) return _cached!;
-    try {
-      final raw = await rootBundle.loadString('assets/data/scenarios.json');
-      final json = jsonDecode(raw) as Map<String, dynamic>;
-      // Pro Szenario parsen: eine fehlerhafte Definition darf NICHT die ganze
-      // Liste leeren (sonst verschwindet der ganze Szenarien-Hub). Defekte
-      // Einträge werden übersprungen statt die App-weite Liste zu werfen.
-      final list = <Scenario>[];
-      var skipped = 0;
-      for (final e in (json['scenarios'] as List? ?? const [])) {
-        if (e is! Map<String, dynamic>) {
-          skipped++;
-          continue;
-        }
-        try {
-          list.add(Scenario.fromJson(e));
-        } catch (err) {
-          skipped++;
-        }
+  static String shardPath(LearnerLevel level) =>
+      'assets/data/scenarios_${level.code}.json';
+
+  /// Parst einen Shard und meldet die Zahl der übersprungenen Einträge.
+  /// Eine fehlerhafte Definition darf NICHT die ganze Liste leeren (sonst
+  /// verschwindet der ganze Szenarien-Hub).
+  static int _parseInto(String raw, List<Scenario> into) {
+    var skipped = 0;
+    final json = jsonDecode(raw) as Map<String, dynamic>;
+    for (final e in (json['scenarios'] as List? ?? const [])) {
+      if (e is! Map<String, dynamic>) {
+        skipped++;
+        continue;
       }
-      _cached = list;
-      lastError = (list.isEmpty && skipped > 0)
-          ? 'Keine gültigen Szenarien ($skipped übersprungen).'
-          : null;
-      return list;
-    } catch (e) {
-      lastError = 'Szenarien konnten nicht geladen werden: $e';
-      _cached = [];
+      try {
+        into.add(Scenario.fromJson(e));
+      } catch (err) {
+        skipped++;
+      }
+    }
+    return skipped;
+  }
+
+  /// Alle Level. Für Korpus-weite Konsumenten (Kurs-Katalog, Wortschatz-Suche).
+  static Future<List<Scenario>> load() async {
+    if (_cached != null) {
       return _cached!;
     }
+    final list = <Scenario>[];
+    var skipped = 0;
+    final failed = <String>[];
+    for (final level in shardLevels) {
+      try {
+        skipped += _parseInto(
+          await rootBundle.loadString(shardPath(level)),
+          list,
+        );
+      } catch (e) {
+        // Ein fehlender Shard darf die anderen fünf Level nicht mitnehmen.
+        failed.add(level.code);
+      }
+    }
+    _cached = list;
+    if (failed.isNotEmpty) {
+      lastError = 'Szenarien-Shards fehlgeschlagen: ${failed.join(", ")}';
+    } else if (list.isEmpty && skipped > 0) {
+      lastError = 'Keine gültigen Szenarien ($skipped übersprungen).';
+    } else {
+      lastError = null;
+    }
+    return list;
   }
 
   static Scenario? byId(String id) {
     for (final s in (_cached ?? const <Scenario>[])) {
-      if (s.id == id) return s;
+      if (s.id == id) {
+        return s;
+      }
     }
     return null;
   }
