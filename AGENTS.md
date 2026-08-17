@@ -334,6 +334,12 @@ flutter run -d <android-id>   # 안드로이드
   room-v3·장식·Gye 데이터는 보존한다. 미승인 grant plan은 `tools/content_factory/drafts/`
   에만 두고 Flutter asset/production loader로 ship하지 않는다. PR3 병합 전에는 사용자
   기본 경로에 노출하지 않는다.
+- [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·4:3 디코드 창
+  renderer·투명 socket compositor·연속성/lineage gate·원자적 승격/썸네일 도구는
+  코드로 고정됐다. 승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Jin이
+  남은 투명 레이어를 만들면 QA 합성 → 연속성 검사 → 16개 원자 승격 순서로만
+  런타임에 넣는다. production route 연결과 PR3 Play 업로드 결정은 이 항목에
+  포함되지 않는다.
 - [ ] **다음 콘텐츠**: Batch 06은 B1/B2 회귀 표본과 첫 C1/C2 시나리오를 묶은
   review-only 교차 게임 pilot이다. schema-complete 초안은 레벨별 scenario 1·Smalltalk 2·
   Cloze 4·Satzbau 6·pronunciation 4와 scenario quest 5, 합계 standalone 68·quest 20을

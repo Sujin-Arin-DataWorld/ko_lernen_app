@@ -79,11 +79,17 @@ Gye 자산, legacy 개인 한옥 자산은 기본 거부한다.
 
 모든 생성 호출은 provider, model, UTC 호출 시각, 사용 credit, prompt SHA-256,
 입력 경로와 SHA-256, 출력 경로와 SHA-256, 승인·탈락 결정을 기계 판독 ledger에
-남긴다. 현재 PR1에서는 생성·업로드를 수행하지 않았으므로 `records`는 빈 배열이다.
-실제 생성 전 이 빈 배열과 allowlist를 확인하는 것이 fail-closed 시작 조건이다.
-ledger는 정적 이미지 200 credit, 선택 영상 10.4 credit, 합계 210.4 credit 상한을
-각각 검사한다. 미래 기록도 입력 SHA와 allowlist, canonical UTC, media kind,
-호출별 credit, 출력 SHA와 승인 결정을 모두 만족해야 한다.
+남긴다. 현재 PR4 코드 파이프라인은 생성 결과를 runtime에 넣지 않으므로
+`records`는 빈 배열이다. 실제 생성 전 이 빈 배열과 allowlist를 확인하는 것이
+fail-closed 시작 조건이다. 이후 승인된 ledger 출력 SHA만 다음 레이어의 파생
+입력이 될 수 있다. ledger는 정적 이미지 200 credit, 선택 영상 10.4 credit,
+합계 210.4 credit 상한을 각각 검사한다.
+
+A1 합성은 전체 대지를 모델로 편집하지 않는다. 모델 출력은 투명 socket 레이어만
+허용하고, `tool/compose_hanok_a1_state.py`가 정본 `site_base_light.png`에
+결정론적으로 합성한다. 이전 승인 레이어와 footprint recall/edge drift가 깨지면
+다음 단계를 승격하지 않는다. 16개 QA WebP가 모두 통과하기 전에는
+`tool/promote_hanok_a1_states.py`가 runtime/pubspec을 열지 않는다.
 
 구조·공정·지붕·공포·마루·창호·문·평면·용도 지식 카드는 텍스트 없는 원본
 SVG로 제작한다. 명칭과 설명은 Flutter KO/DE/EN 문자열로 렌더링하고 제3자
