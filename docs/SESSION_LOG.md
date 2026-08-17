@@ -41,7 +41,8 @@ icon SoriButton 88>75)을 넘긴 콘텐츠/계약 부채다. #51 플레크가 �
 같은 장식 아이콘도 제거했다. 래칫은 실측 166/98/71로 내렸다.
 
 **검증.** 실패하던 A1 real-life 2개와 typography_guard 7개 포함 대상
-`flutter test --no-pub` 전부 통과. 카탈로그 90 scenario / 359 quest.
+`flutter test --no-pub` 전부 통과. `learner_copy_scan`의 `I am` 가드는
+`I'm full`로 맞춘 뒤 통과. 카탈로그 90 scenario / 359 quest.
 대상 `dart analyze --fatal-infos` No issues found.
 
 **커밋해시.** `0a965c9e` + 로그 해시 `f13c3d59`.
