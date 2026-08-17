@@ -15,7 +15,7 @@ pending을 지워 다음 재시도만 다시 과금한다. 같은 `assessmentId`
 예외 경로에서 남을 수 있어서다.
 
 **검증.** 책 분석 Python `test_*.py` **91/91**, TTS+발음 Node **23/23**.
-live 배포는 하지 않았다.
+live 배포는 하지 않았다. 구현 커밋 `7ceb4ccf`.
 
 ### 2026-08-17 (Cursor) — 백엔드 신뢰성 2단계: 멱등 재시도·제공자 deadline
 
