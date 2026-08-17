@@ -8,7 +8,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
@@ -23,6 +22,7 @@ import 'account/cloud_write_session.dart';
 import 'account/firebase_app_check_initializer.dart';
 import 'account/first_link_backfill.dart';
 import 'account/first_link_backfill_journal.dart';
+import 'account/google_oauth_client.dart';
 import 'app_startup_coordinator.dart';
 import 'bookshelf_service.dart';
 import 'pack_progress_service.dart';
@@ -1475,7 +1475,7 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
     final failures = <Object>[];
     if (providerState.isGoogleLinked) {
       try {
-        await GoogleSignIn().signOut();
+        await GoogleOAuthClient.signOut();
       } catch (error) {
         failures.add(error);
       }
@@ -2444,6 +2444,24 @@ class AuthService {
     }
   }
 
+  /// Linking is only valid on the current anonymous Firebase session.
+  ///
+  /// A missing user used to fall through to
+  /// [DurableAccountTransitionNotSupported] ("blocked"), so a cold start
+  /// without `ensureSignedIn` looked like a dead button.
+  @visibleForTesting
+  static void ensureAnonymousLinkSession({
+    required bool hasUser,
+    required bool isAnonymous,
+  }) {
+    if (!hasUser) {
+      throw const AccountLinkUnavailable();
+    }
+    if (!isAnonymous) {
+      throw const DurableAccountTransitionNotSupported();
+    }
+  }
+
   static void synchronizeReadyCloudWriteSession(String uid) {
     CloudWriteSessionSynchronizer(
       cloudWriteSessionController,
@@ -2595,36 +2613,40 @@ class AuthService {
         throw const AccountLinkUnavailable();
       }
 
-      final googleUser = await GoogleSignIn().signIn();
+      await ensureSignedIn();
+      final user = auth.currentUser;
+      ensureAnonymousLinkSession(
+        hasUser: user != null,
+        isAnonymous: user?.isAnonymous ?? false,
+      );
+      if (user == null) {
+        throw const AccountLinkUnavailable();
+      }
+
+      final googleUser = await GoogleOAuthClient.signIn();
       // 여기 null 은 진짜 사용자 취소다 (계정 선택 시트를 닫음).
       if (googleUser == null) return null;
-      final googleAuth = await googleUser.authentication;
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
+      final credential = GoogleOAuthClient.credentialFromAuthentication(
+        await googleUser.authentication,
       );
 
-      final user = auth.currentUser;
-      if (user != null && user.isAnonymous) {
-        final sourceUid = user.uid;
-        final attempt = await attemptAnonymousCredentialLink<User?>(
-          provider: AccountLinkProvider.google,
-          sourceUid: sourceUid,
-          currentUid: () => auth.currentUser?.uid,
-          linkCredential: () async {
-            final result = await user.linkWithCredential(credential);
-            return result.user;
-          },
-        );
-        if (attempt is ExistingAccountLinkConflict) {
-          throw attempt;
-        }
-        return _activateSignedInUser(
-          (attempt as AnonymousCredentialLinked<User?>).value,
-          sourceUid: sourceUid,
-        );
+      final sourceUid = user.uid;
+      final attempt = await attemptAnonymousCredentialLink<User?>(
+        provider: AccountLinkProvider.google,
+        sourceUid: sourceUid,
+        currentUid: () => auth.currentUser?.uid,
+        linkCredential: () async {
+          final result = await user.linkWithCredential(credential);
+          return result.user;
+        },
+      );
+      if (attempt is ExistingAccountLinkConflict) {
+        throw attempt;
       }
-      throw const DurableAccountTransitionNotSupported();
+      return _activateSignedInUser(
+        (attempt as AnonymousCredentialLinked<User?>).value,
+        sourceUid: sourceUid,
+      );
     });
   }
 
@@ -2638,38 +2660,45 @@ class AuthService {
         throw const AccountLinkUnavailable();
       }
 
-      final rawNonce = _generateNonce();
-      final appleCredential = await SignInWithApple.getAppleIDCredential(
-        scopes: const [
-          AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
-        ],
-        nonce: _sha256(rawNonce),
+      await ensureSignedIn();
+      final user = auth.currentUser;
+      ensureAnonymousLinkSession(
+        hasUser: user != null,
+        isAnonymous: user?.isAnonymous ?? false,
       );
+      if (user == null) {
+        throw const AccountLinkUnavailable();
+      }
+
+      final rawNonce = _generateNonce();
+      final appleCredential = await _requestAppleIdCredential(
+        nonce: _sha256(rawNonce),
+        includeFullName: true,
+        cancelReturnsNull: true,
+      );
+      if (appleCredential == null) {
+        return null;
+      }
       final credential = OAuthProvider(
         'apple.com',
       ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
 
-      final user = auth.currentUser;
-      if (user != null && user.isAnonymous) {
-        final sourceUid = user.uid;
-        final attempt = await attemptAnonymousCredentialLink<User?>(
-          provider: AccountLinkProvider.apple,
-          sourceUid: sourceUid,
-          currentUid: () => auth.currentUser?.uid,
-          linkCredential: () async {
-            final result = await user.linkWithCredential(credential);
-            return result.user;
-          },
-        );
-        if (attempt is ExistingAccountLinkConflict) {
-          throw attempt;
-        }
-        final linked = (attempt as AnonymousCredentialLinked<User?>).value;
-        await _maybeSetAppleName(linked, appleCredential);
-        return _activateSignedInUser(linked, sourceUid: sourceUid);
+      final sourceUid = user.uid;
+      final attempt = await attemptAnonymousCredentialLink<User?>(
+        provider: AccountLinkProvider.apple,
+        sourceUid: sourceUid,
+        currentUid: () => auth.currentUser?.uid,
+        linkCredential: () async {
+          final result = await user.linkWithCredential(credential);
+          return result.user;
+        },
+      );
+      if (attempt is ExistingAccountLinkConflict) {
+        throw attempt;
       }
-      throw const DurableAccountTransitionNotSupported();
+      final linked = (attempt as AnonymousCredentialLinked<User?>).value;
+      await _maybeSetAppleName(linked, appleCredential);
+      return _activateSignedInUser(linked, sourceUid: sourceUid);
     });
   }
 
@@ -2958,7 +2987,7 @@ class AuthService {
       currentUid: live?.uid,
       currentIsAnonymous: live?.isAnonymous ?? false,
       cleanupGoogleProvider: () async {
-        await GoogleSignIn().signOut();
+        await GoogleOAuthClient.signOut();
       },
       recoverFirebaseIdentity: () async {
         if (auth == null) {
@@ -3210,7 +3239,7 @@ class AuthService {
       await _pushOwnershipTransitions.run(
         oldUid: oldUid,
         transition: () async {
-          await GoogleSignIn().signOut();
+          await GoogleOAuthClient.signOut();
           await auth.signOut();
           await ensureSignedIn(); // wieder anonym
         },
@@ -3219,7 +3248,7 @@ class AuthService {
   }
 
   static Future<void> _reauthenticateWithGoogle(User user) async {
-    final googleUser = await GoogleSignIn().signIn();
+    final googleUser = await GoogleOAuthClient.signIn();
     if (googleUser == null) {
       throw FirebaseAuthException(
         code: 'reauth-cancelled',
@@ -3227,12 +3256,11 @@ class AuthService {
       );
     }
 
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
+    await user.reauthenticateWithCredential(
+      GoogleOAuthClient.credentialFromAuthentication(
+        await googleUser.authentication,
+      ),
     );
-    await user.reauthenticateWithCredential(credential);
   }
 
   static Future<AuthCredential> _acquireFreshProviderCredential(
@@ -3240,24 +3268,29 @@ class AuthService {
   ) async {
     switch (provider) {
       case AccountLinkProvider.google:
-        final googleUser = await GoogleSignIn().signIn();
+        final googleUser = await GoogleOAuthClient.signIn();
         if (googleUser == null) {
           throw FirebaseAuthException(
             code: 'target-verification-cancelled',
             message: 'Target verification was cancelled.',
           );
         }
-        final googleAuth = await googleUser.authentication;
-        return GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
+        return GoogleOAuthClient.credentialFromAuthentication(
+          await googleUser.authentication,
         );
       case AccountLinkProvider.apple:
         final rawNonce = _generateNonce();
-        final apple = await SignInWithApple.getAppleIDCredential(
-          scopes: const [AppleIDAuthorizationScopes.email],
+        final apple = await _requestAppleIdCredential(
           nonce: _sha256(rawNonce),
+          includeFullName: false,
+          cancelReturnsNull: false,
         );
+        if (apple == null) {
+          throw FirebaseAuthException(
+            code: 'target-verification-cancelled',
+            message: 'Target verification was cancelled.',
+          );
+        }
         return OAuthProvider(
           'apple.com',
         ).credential(idToken: apple.identityToken, rawNonce: rawNonce);
@@ -3269,15 +3302,13 @@ class AuthService {
   /// activation failure; it must never open a second interactive chooser.
   static Future<AuthCredential?>
   _acquireGoogleActivationCredentialSilently() async {
-    final googleUser = await GoogleSignIn().signInSilently(
+    final googleUser = await GoogleOAuthClient.signInSilently(
       suppressErrors: false,
       reAuthenticate: false,
     );
     if (googleUser == null) return null;
-    final googleAuth = await googleUser.authentication;
-    return GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
+    return GoogleOAuthClient.credentialFromAuthentication(
+      await googleUser.authentication,
     );
   }
 
@@ -3289,16 +3320,50 @@ class AuthService {
 
   static Future<String?> _reauthenticateWithApple(User user) async {
     final rawNonce = _generateNonce();
-    final appleCredential = await SignInWithApple.getAppleIDCredential(
-      scopes: const [AppleIDAuthorizationScopes.email],
+    final appleCredential = await _requestAppleIdCredential(
       nonce: _sha256(rawNonce),
+      includeFullName: false,
+      cancelReturnsNull: false,
     );
+    if (appleCredential == null) {
+      throw FirebaseAuthException(
+        code: 'reauth-cancelled',
+        message: 'Apple reauthentication was cancelled.',
+      );
+    }
     final credential = OAuthProvider(
       'apple.com',
     ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
     await user.reauthenticateWithCredential(credential);
     final authorizationCode = appleCredential.authorizationCode.trim();
     return authorizationCode.isEmpty ? null : authorizationCode;
+  }
+
+  static Future<AuthorizationCredentialAppleID?> _requestAppleIdCredential({
+    required String nonce,
+    required bool includeFullName,
+    required bool cancelReturnsNull,
+  }) async {
+    try {
+      return await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          if (includeFullName) AppleIDAuthorizationScopes.fullName,
+        ],
+        nonce: nonce,
+      );
+    } on SignInWithAppleAuthorizationException catch (error) {
+      if (error.code == AuthorizationErrorCode.canceled) {
+        if (cancelReturnsNull) {
+          return null;
+        }
+        throw FirebaseAuthException(
+          code: 'reauth-cancelled',
+          message: 'Apple authentication was cancelled.',
+        );
+      }
+      rethrow;
+    }
   }
 
   /// Krypto-sicherer Nonce für Apple Sign-In (Replay-Schutz). Roh-Nonce geht

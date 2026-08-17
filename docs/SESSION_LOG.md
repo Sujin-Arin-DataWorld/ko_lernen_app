@@ -177,6 +177,34 @@ plan은 `tools/content_factory/drafts/`에만 있고 Flutter asset/production lo
 3건만 남았다. 독립 Spec·Standards 최종 재감사는 모두 P0/P1 0이다.
 commit/push/PR/exact-head CI/main 병합은 이 기록 뒤 최종 게이트다.
 
+### 2026-08-16 (Cursor) — Google/Apple 연동과 계정 삭제가 실패하던 원인 수정
+
+**원인.** 세 기능이 같은 인증 파이프에서 깨졌다.
+1. Google 연동/재인증이 `GoogleSignIn()`을 `serverClientId` 없이 호출해
+   Firebase용 ID 토큰이 빈 채로 `linkWithCredential`·계정삭제 재인증이 실패했다.
+   `GoogleSignIn()`은 프로세스 싱글톤이라 첫 무설정 호출이 이후 설정을 무시한다.
+2. `currentUser == null`이면 `DurableAccountTransitionNotSupported`(차단)로
+   떨어져, 콜드스타트/삭제 복구 직후 연동 버튼이 죽은 것처럼 보였다.
+3. Apple 시트 취소는 예외로 남아 실패 다이얼로그가 떴고, iOS Info.plist에
+   Google reversed-client URL scheme이 없어 iOS Google 리다이렉트가 불가능했다.
+4. Apple 연결 계정 삭제는 해지 시크릿이 placeholder면
+   `appleRevocationPending`에 영구 정체되어 저널이 남고 연동/삭제 UI가 잠겼다.
+
+**수정.** `GoogleOAuthClient`가 web client ID와 iOS client ID를 고정하고 ID 토큰이
+없으면 연동/재인증을 거절한다. 연동 전 `ensureSignedIn` + 익명 세션 검사를 하고,
+Apple 취소는 `null`(취소)로 되돌린다. iOS URL scheme을 커밋된 iOS client ID에서
+파생해 Info.plist에 넣었다. 서버 `completeAppleRevocation`은
+`apple/revocation-config-invalid`일 때만 해지를 건너뛰고 Auth 사용자를 삭제한다
+(네트워크/provider 실패는 기존처럼 재시도). UI는 취소·차단·ID 토큰 실패를 더 이상
+한 덩어리로 뭉개지 않는다.
+
+**검증.** Flutter 계정 연동/삭제 집중 묶음 **82/82**(연동 설정·예외 매핑·
+가시성·hardening·admission). 변경 Dart `dart analyze --fatal-infos`
+**No issues found**. Functions Apple 해지 3건 **3/3**. production Functions
+재배포와 실기기 Google SHA/Apple `.p8`는 이 커밋의 범위 밖이다.
+
+**커밋.** 이 항목과 같은 커밋.
+
 ### 2026-08-16 (Codex) — Play AAB CI 메모리 과다 할당 방지
 
 **원인.** 취소 경쟁을 제거한 `d9427e69`의 Play 실행 `31970122352`도 서명 복원과

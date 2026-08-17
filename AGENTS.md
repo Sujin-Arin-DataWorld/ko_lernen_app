@@ -270,6 +270,12 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **단어망 V1**: 학습한 단어의 비슷한 말·반대말·연관어·표현 50클러스터를
  `assets/data/word_relations.json`에 두고, 연습 허브·둘러보기·Learn 카탈로그에서
  `/word_web`으로 공부·4지선다 연습을 연다. 코스 증거·한옥 보상은 쓰지 않는다.
+- [x] **Google/Apple 연동·계정 삭제 클라 복구**: 모든 Google 경로가 web
+  `serverClientId`와 비어 있지 않은 ID 토큰을 요구하고, 연동 전 익명 세션을
+  다시 만들며, Apple 취소는 실패가 아니라 취소로 남는다. iOS Info.plist에
+  공개 reversed client URL scheme을 넣었다. Apple 해지 시크릿이 placeholder/
+  미구성이면 서버가 삭제를 멈추지 않고 TN3194대로 계정을 지운다. 실기기
+  Google SHA·실제 Apple `.p8` 해지·Functions 재배포는 운영 게이트로 남는다.
 
 - [x] **문화어 미니 이야기 V1**: 한옥·계·사랑방·마당·종가·단청·보자기·장독대·
   문방사우·매화·사군자·갓·책가도·소반·자개문갑 15개를 DE/EN/KO 공통 JSON으로

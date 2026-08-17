@@ -18,6 +18,7 @@ import 'account_transition_coordinator.dart';
 import 'account_transition_journal.dart';
 import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
+import 'google_oauth_client.dart';
 
 sealed class AccountUiLinkResult {
   const AccountUiLinkResult();
@@ -262,16 +263,8 @@ class ProductionAccountUiOperations
       return user == null
           ? const AccountUiLinkCancelled()
           : const AccountUiLinkCompleted();
-    } on ExistingAccountLinkConflict catch (conflict) {
-      return AccountUiLinkConflict(conflict);
-    } on DurableAccountTransitionNotSupported {
-      return const AccountUiLinkBlocked();
-    } on AccountLinkUnavailable {
-      return const AccountUiLinkUnavailable();
-    } on FirebaseAuthException catch (error) {
-      return AccountUiLinkFailed(_classifyAuthFailure(error.code));
-    } on PlatformException catch (error) {
-      return AccountUiLinkFailed(_classifyAuthFailure(error.code));
+    } catch (error) {
+      return mapAccountLinkException(error);
     }
   }
 
@@ -486,6 +479,60 @@ class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
       _bundle.coordinator.resume(catalog: _bundle.catalog);
 }
 
+/// Maps every production link exception onto a distinct UI result.
+///
+/// Cancel codes must stay [AccountUiLinkCancelled]. Journal / identity
+/// fences stay [AccountUiLinkBlocked]. A missing Google ID token is a
+/// retryable server-side configuration failure, not a quiet cancel.
+@visibleForTesting
+AccountUiLinkResult mapAccountLinkException(Object error) {
+  if (error is ExistingAccountLinkConflict) {
+    return AccountUiLinkConflict(error);
+  }
+  if (error is DurableAccountTransitionNotSupported ||
+      error is CloudBackupDeletionIdentityChangeBlockedException) {
+    return const AccountUiLinkBlocked();
+  }
+  if (error is AccountLinkUnavailable) {
+    return const AccountUiLinkUnavailable();
+  }
+  if (error is GoogleOAuthIdTokenMissing) {
+    return const AccountUiLinkFailed(AccountUiLinkFailureReason.serverError);
+  }
+  if (error is AccountLinkSafetyFailure) {
+    return const AccountUiLinkFailed(AccountUiLinkFailureReason.unknown);
+  }
+  if (error is FirebaseAuthException) {
+    if (isUserCancelledAuthCode(error.code)) {
+      return const AccountUiLinkCancelled();
+    }
+    return AccountUiLinkFailed(_classifyAuthFailure(error.code));
+  }
+  if (error is PlatformException) {
+    if (isUserCancelledAuthCode(error.code)) {
+      return const AccountUiLinkCancelled();
+    }
+    return AccountUiLinkFailed(_classifyAuthFailure(error.code));
+  }
+  return const AccountUiLinkFailed(AccountUiLinkFailureReason.unknown);
+}
+
+@visibleForTesting
+bool isUserCancelledAuthCode(String? code) {
+  switch (code) {
+    case 'sign_in_canceled':
+    case 'sign_in_cancelled':
+    case 'canceled':
+    case 'cancelled':
+    case 'ERROR_CANCELED':
+    case 'reauth-cancelled':
+    case 'target-verification-cancelled':
+      return true;
+    default:
+      return false;
+  }
+}
+
 /// 인증 실패 코드를 사용자에게 다르게 안내해야 하는 갈래로 나눈다.
 ///
 /// 코드 문자열은 FirebaseAuth 와 Google Sign-In 플러그인이 각각 쓰는 값이다.
@@ -500,6 +547,9 @@ AccountUiLinkFailureReason _classifyAuthFailure(String code) {
     case 'too-many-requests':
     case 'unknown':
     case 'sign_in_failed':
+    case 'developer_error':
+    case '10':
+    case 'missing-id-token':
     case 'firebaseAppCheckTokenInvalid':
     case 'app-check-token-invalid':
       return AccountUiLinkFailureReason.serverError;
