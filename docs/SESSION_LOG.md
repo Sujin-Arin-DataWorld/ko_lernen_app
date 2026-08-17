@@ -10,9 +10,13 @@ TTS row는 Tempo 라벨을 위줄에 두고 0.8× 포함 6칩을 480dp 한 줄�
 
 **왜.** Semantics 병합·받침 지연·듣기 600dp Wrap이 회귀를 깨뜨렸다.
 
-**검증.** `quest_explicit_flow_test`·`sori_quest_frame_test`·
-`dedicated_feedback_route_test`·`tts_speed_control_test` 로컬 통과.
-CI는 billing 차단이라 로컬 결과를 CI 성공으로 쓰지 않음.
+**검증.** 로컬 전체 `flutter test` 3894 passed / 2 skipped.
+변경 경로 `flutter analyze --fatal-infos` 무결. 저장소 전체 analyze는
+main의 `word_relation_service.dart` info 1건으로 `--fatal-infos` 실패
+(이 PR 밖). `flutter build web --release` 성공. `flutter build apk
+--debug`는 이 환경에 Android SDK가 없어 못 돌림. `git diff --check`
+깨끗. CI는 billing 차단이라 로컬 결과를 CI 성공으로 쓰지 않음. 실기기
+TTS·키보드 inset은 Jin 게이트.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
